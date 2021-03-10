@@ -1,0 +1,24 @@
+sample:
+  description: Hello World sample, the simplest Zephyr, but with a shell
+    application
+  name: hello shell
+common:
+    tags: introduction
+    harness: console
+    harness_config:
+      type: one_line
+      regex:
+        - "Hello World! I'm THE SHELL from (.*)"
+tests:
+  bridle.samples.helloshell.release:
+    build_only: true
+    build_on_all: true
+    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3 nucleo_f746zg
+    extra_args: "CMAKE_BUILD_TYPE=ZRelease"
+    tags: introduction
+  bridle.samples.helloshell.debug:
+    build_only: true
+    build_on_all: true
+    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3 nucleo_f746zg
+    extra_args: "CMAKE_BUILD_TYPE=ZDebug"
+    tags: introduction

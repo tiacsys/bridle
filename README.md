@@ -9,6 +9,180 @@ and all they dependencies.
 
 ---
 
+## Samples for Zephyr
+
+For our Zephyr playground here in this section we will work inside the working
+directory ``workspace``. **You have to had run already through section
+[Setup Zephyr Build Environment](#setup-zephyr-build-environment)
+at leaset once!**
+
+### How to play with sample ``helloshell``
+
+#### Play with the Zephyr embedded shell
+
+When you have started the firmware in any runtime environment as shown below
+in the next few sections you are able to play with the command line of the
+Zephyer embedded shell.
+
+After a firmware reset you will see on the console:
+
+1. the boot banner of Zephyr
+2. the short greeting message of our own example
+3. the command prompt of the shell
+
+```text
+*** Booting Zephyr OS build zephyr-v2.5.0  ***
+Hello World! I'm THE SHELL from nucleo_f746zg
+
+
+uart:~$ _
+```
+
+From now on you can enter commands. Here are some basic core commands:
+
+```bash
+uart:~$ kernel version
+Zephyr version 2.5.0
+```
+
+```bash
+uart:~$ kernel uptime
+Uptime: 23703 ms
+```
+
+```bash
+uart:~$ kernel stacks
+0x20010318 shell_uart (real size 2048): unused 1352     usage 696 / 2048 (33 %)
+0x20010260 logging    (real size 768):  unused 664      usage 104 / 768 (13 %)
+0x200103d0 idle 00    (real size 320):  unused 248      usage 72 / 320 (22 %)
+0x20011be0 IRQ 00     (real size 2048): unused 1560     usage 488 / 2048 (23 %)
+```
+
+```bash
+uart:~$ kernel threads
+Scheduler: 638 since last call
+Threads:
+*0x20010318 shell_uart
+        options: 0x0, priority: 14 timeout: 536937364
+        state: queued
+        stack size 2048, unused 1144, usage 904 / 2048 (44 %)
+
+ 0x20010260 logging
+        options: 0x0, priority: 14 timeout: 536937180
+        state: pending
+        stack size 768, unused 664, usage 104 / 768 (13 %)
+
+ 0x200103d0 idle 00
+        options: 0x1, priority: 15 timeout: 536937548
+        state:
+        stack size 320, unused 248, usage 72 / 320 (22 %)
+```
+
+```bash
+uart:~$ device list
+devices:
+- STM32_CLK_RCC
+- stm32-exti
+- UART_6
+- UART_3
+- sys_clock
+- GPIOK
+- GPIOJ
+- GPIOI
+- GPIOH
+- GPIOG
+- GPIOF
+- GPIOE
+- GPIOD
+- GPIOC
+- GPIOB
+- GPIOA
+```
+
+```bash
+uart:~$ log status
+module_name                              | current | built-in
+----------------------------------------------------------
+gpio_shell                               | inf     | inf
+log                                      | inf     | inf
+mpu                                      | inf     | inf
+os                                       | inf     | inf
+shell.shell_uart                         | inf     | inf
+shell_uart                               | inf     | inf
+uart_stm32                               | inf     | inf
+```
+
+Next you can try out our own ``hello`` command:
+
+```bash
+uart:~$ hello
+Hello from shell.
+```
+
+Only on a real hardware, for example the ST Nucleo F746ZG board, you are
+able to play with some basic I/O components. So you can setup the GPIO line
+connected to a green LED on the ST Nucleo F746ZG as an output and toggle
+the output level to high (1), LED on, or low (0), LED off:
+
+```bash
+uart:~$ gpio conf GPIOB 0 out
+Configuring GPIOB pin 0
+uart:~$ gpio set GPIOB 0 1
+Writing to GPIOB pin 0
+uart:~$ gpio set GPIOB 0 0
+Writing to GPIOB pin 0
+```
+
+#### Running as ix86 32-bit firmware in Qemu emulation
+
+Config, build, and execute, type in:
+
+```bash
+rm -rf build-helloshell-qemu_x86
+west build -d build-helloshell-qemu_x86 \
+           -b qemu_x86 --cmake-only \
+     bridle/samples/helloshell
+west build -d build-helloshell-qemu_x86 -t all
+west build -d build-helloshell-qemu_x86 -t run
+```
+
+The application stucks inside the emulator in an endless loop (the Zephyr idle
+task) and can only terminated by press ``Ctrl-a`` following by ``x``.
+
+#### Running as ARM Cortex-M3 32-bit firmware in Qemu emulation
+
+Config, build, and execute, type in:
+
+```bash
+rm -rf build-helloshell-qemu_cortex_m3
+west build -d build-helloshell-qemu_cortex_m3 \
+           -b qemu_cortex_m3 --cmake-only \
+     bridle/samples/helloshell
+west build -d build-helloshell-qemu_cortex_m3 -t all
+west build -d build-helloshell-qemu_cortex_m3 -t run
+```
+
+The application stucks inside the emulator in an endless loop (the Zephyr idle
+task) and can only terminated by press ``Ctrl-a`` following by ``x``.
+
+#### Running as ARM Cortex-M7 32-bit firmware on ST Nucleo F746ZG board
+
+Config, build, and execute, type in:
+
+```bash
+rm -rf build-helloshell-nucleo_f746zg
+west build -d build-helloshell-nucleo_f746zg \
+           -b nucleo_f746zg --cmake-only \
+     bridle/samples/helloshell
+west build -d build-helloshell-nucleo_f746zg -t all
+west flash -d build-helloshell-nucleo_f746zg
+```
+
+The terminal emulator will stuck on the serial device and can only terminated
+by press ``Ctrl-a`` following by ``\`` and awnser with ``y``.
+
+---
+
 ## Zephyr, say hello
 
 For our Zephyr playground here in this section we will work inside the working
@@ -547,27 +721,27 @@ That results in:
 
 ```text
 Verifying archive integrity...  100%   All good.
-Uncompressing SDK for Zephyr  100%  
+Uncompressing SDK for Zephyr  100%
 Installing SDK to /opt/zephyr-sdk-0.12.3
 Creating directory /opt/zephyr-sdk-0.12.3
 Success
- [*] Installing arm tools... 
- [*] Installing arm64 tools... 
- [*] Installing arc tools... 
- [*] Installing nios2 tools... 
- [*] Installing riscv64 tools... 
- [*] Installing sparc tools... 
- [*] Installing mips tools... 
- [*] Installing x86_64 tools... 
- [*] Installing xtensa_sample_controller tools... 
- [*] Installing xtensa_intel_apl_adsp tools... 
- [*] Installing xtensa_intel_s1000 tools... 
- [*] Installing xtensa_intel_bdw_adsp tools... 
- [*] Installing xtensa_intel_byt_adsp tools... 
- [*] Installing xtensa_nxp_imx_adsp tools... 
- [*] Installing xtensa_nxp_imx8m_adsp tools... 
- [*] Installing CMake files... 
- [*] Installing additional host tools... 
+ [*] Installing arm tools...
+ [*] Installing arm64 tools...
+ [*] Installing arc tools...
+ [*] Installing nios2 tools...
+ [*] Installing riscv64 tools...
+ [*] Installing sparc tools...
+ [*] Installing mips tools...
+ [*] Installing x86_64 tools...
+ [*] Installing xtensa_sample_controller tools...
+ [*] Installing xtensa_intel_apl_adsp tools...
+ [*] Installing xtensa_intel_s1000 tools...
+ [*] Installing xtensa_intel_bdw_adsp tools...
+ [*] Installing xtensa_intel_byt_adsp tools...
+ [*] Installing xtensa_nxp_imx_adsp tools...
+ [*] Installing xtensa_nxp_imx8m_adsp tools...
+ [*] Installing CMake files...
+ [*] Installing additional host tools...
 Success installing SDK.
 SDK is ready to be used.
 ```
