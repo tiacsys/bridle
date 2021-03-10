@@ -1,0 +1,12 @@
+# Copyright (c) 2019-2021 Li-Pro.Net
+# SPDX-License-Identifier: Apache-2.0
+
+menu "Li-Pro.Net bridle to embedded environment"
+
+rsource "modules/Kconfig"
+rsource "services/Kconfig"
+rsource "subsys/Kconfig"
+rsource "drivers/Kconfig"
+rsource "lib/Kconfig"
+
+endmenu

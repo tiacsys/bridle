@@ -210,7 +210,7 @@ specified by our own manifest description in ``west.yml``:
 
 ```bash
 west init --manifest-url=git@github.com:lipro-zephyr/lpn-bridle.git \
-          --manifest-rev=main && \
+          --manifest-rev=main --manifest-file=west.yml && \
 west update
 ```
 

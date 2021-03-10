@@ -1,0 +1,10 @@
+build:
+  # root cmake script
+  cmake: .
+  # root kconfig file
+  kconfig: Kconfig.lpnb
+  settings:
+    # make custom boards available (in ./boards/)
+    board_root: .
+    # make custom device tree bindings available (in ./dts/bindings)
+    dts_root: .
