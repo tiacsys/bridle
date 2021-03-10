@@ -1,0 +1,20 @@
+# Copyright (c) 2019-2021 Li-Pro.Net
+# SPDX-License-Identifier: Apache-2.0
+
+menuconfig LPNB_COMMANDS
+	bool "LPNB Shell Commands"
+	depends on SHELL
+	default n
+
+if LPNB_COMMANDS
+
+config LPNB_CMD_HELLO
+	bool "Simple hello from shell"
+	default y if LPNB_COMMANDS
+	default n
+	help
+	  Enable to have the command 'hello' that prints the simple message:
+	  "Hello from shell." on the console.
+
+endif # LPNB_COMMANDS
+
