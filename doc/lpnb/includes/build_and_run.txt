@@ -1,0 +1,4 @@
+This sample can be found under |sample path| in the |LPNB| folder structure.
+
+See :ref:`gs_programming` for information about how to build and program
+the application.

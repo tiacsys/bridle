@@ -1,0 +1,38 @@
+From d3287a97759974c74356cf22329c513e4de34803 Mon Sep 17 00:00:00 2001
+From: Stephan Linz <linz@li-pro.net>
+Date: Sun, 14 Mar 2021 20:25:56 +0100
+Subject: [PATCH 2/2] doc: script: found devicetree bindings recursively
+
+Since Python 3.5 the glob.glob() API supports recursive
+globs using "**", but only when recursive argument is set
+True explicitly.
+
+See: https://docs.python.org/3.5/library/glob.html#glob.glob
+
+   ... If recursive is true, the pattern "**" will match any
+   files and zero or more directories and subdirectories. ...
+
+   Default: recursive=False
+
+Signed-off-by: Stephan Linz <linz@li-pro.net>
+---
+ doc/scripts/gen_devicetree_rest.py | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/doc/scripts/gen_devicetree_rest.py b/doc/scripts/gen_devicetree_rest.py
+index 5ab177d87..3acab8697 100644
+--- a/doc/scripts/gen_devicetree_rest.py
++++ b/doc/scripts/gen_devicetree_rest.py
+@@ -217,7 +217,8 @@ def load_bindings(dts_roots):
+ 
+     binding_files = []
+     for dts_root in dts_roots:
+-        binding_files.extend(glob.glob(f'{dts_root}/dts/bindings/**/*.yaml'))
++        binding_files.extend(glob.glob(f'{dts_root}/dts/bindings/**/*.yaml',
++                                       recursive=True))
+ 
+     bindings = edtlib.bindings_from_paths(binding_files, ignore_errors=True)
+ 
+-- 
+2.25.1
+

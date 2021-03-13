@@ -331,3 +331,9 @@ tags
 *.code-workspace
 
 # End of https://www.toptal.com/developers/gitignore/api/git,vim,emacs,vscode,python,cmake,c,c++
+
+# Additional local ignores.
+doc/**/*_warnings.txt
+
+# Make sure to include everything in lib/
+!lib

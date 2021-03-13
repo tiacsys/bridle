@@ -1,0 +1,96 @@
+.. ### Links to Zephyr
+
+.. _`Zephyr Project`: https://zephyrproject.org/
+.. _`Zephyr Project documentation`: http://docs.zephyrproject.org/
+
+.. _`official Zephyr repository`: https://github.com/zephyrproject-rtos/zephyr
+.. _`Zephyr repository`: https://github.com/zephyrproject-rtos/zephyr
+
+.. |zephyr_repo| replace:: https://github.com/zephyrproject-rtos/zephyr
+.. _`zephyr-core`: https://github.com/zephyrproject-rtos/zephyr
+
+.. _`Zephyr coding style`: http://docs.zephyrproject.org/contribute/contribute_guidelines.html
+
+
+
+.. ### Link to the LPNB repositories
+
+.. |lpn_bridle| replace:: https://github.com/lipro-zephyr/lpn-bridle
+.. _`lpn-bridle`: https://github.com/lipro-zephyr/lpn-bridle
+
+.. _`change log`: https://github.com/lipro-zephyr/lpn-bridle/commits/main
+
+.. _`west manifest file`: https://github.com/lipro-zephyr/lpn-bridle/blob/main/west.yml
+
+
+
+.. ### Links to the Li-Pro.Net Zephyr website
+
+.. _`DevZone`: https://github.com/lipro-zephyr
+
+
+
+.. ### Links to other websites and software
+
+.. _`Git`: https://git-scm.com/
+
+.. _`GitHub`: https://github.com/
+.. _`GitHub fork`: https://help.github.com/en/articles/fork-a-repo
+.. _`GitHub duplicate`: https://help.github.com/en/articles/duplicating-a-repository
+
+.. _`Semantic Versioning 2.0.0`: https://semver.org/
+
+.. _`openSSL`: https://www.openssl.org/
+
+.. _`GNU Arm Embedded Toolchain`: https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads
+
+.. _`J-Link Software and Documentation Pack`: https://www.segger.com/downloads/jlink
+
+.. _`SEGGER Embedded Studio`: http://segger.com/downloads/embedded-studio
+
+.. _`SEGGER SystemView`: https://www.segger.com/products/development-tools/systemview/
+
+.. _`CMock`: http://www.throwtheswitch.org/cmock
+
+.. _`Unity`: http://www.throwtheswitch.org/unity
+
+.. _`MCUmgr`: https://github.com/apache/mynewt-mcumgr
+
+.. _`SMP over console`: https://github.com/apache/mynewt-mcumgr/blob/master/transport/smp-console.md
+
+.. _`Breathe issue #437`: https://github.com/michaeljones/breathe/issues/437
+.. _`Breathe issue #438`: https://github.com/michaeljones/breathe/issues/438
+.. _`Sphinx parser issue`: https://github.com/sphinx-doc/sphinx/issues/2683
+
+.. _`HID usage tables`: https://www.usb.org/hid
+
+.. _`HIDAPI library`: https://github.com/libusb/hidapi
+.. _`HIDAPI releases`: https://github.com/libusb/hidapi/releases
+.. _`pyhidapi Python wrapper`: https://github.com/apmorton/pyhidapi
+
+.. _`TLS`: https://www.ietf.org/rfc/rfc5246.txt
+
+.. _`OpenAMP`: https://github.com/OpenAMP/open-amp/
+
+
+
+.. ### Links to CMake
+
+.. _`CMake documentation`: https://cmake.org/cmake/help/latest/
+.. _`VERBOSE`: https://cmake.org/cmake/help/latest/envvar/VERBOSE.html
+.. _`CMAKE_BUILD_PARALLEL_LEVEL`: https://cmake.org/cmake/help/latest/envvar/CMAKE_BUILD_PARALLEL_LEVEL.html
+
+.. _`generator expressions`: https://cmake.org/cmake/help/latest/manual/cmake-generator-expressions.7.html
+
+
+.. ### Links to other documentation
+
+.. _`Sphinx Documentation`: https://www.sphinx-doc.org/en/3.x/contents.html
+.. _`reStructuredText Primer`: http://www.sphinx-doc.org/en/3.x/usage/restructuredtext/basics.html
+.. _`Li-Pro.Net Sphinx Primer`: https://lpn-doc-sphinx-primer.readthedocs.io/en/latest/
+
+.. _`Breathe documentation`: https://breathe.readthedocs.io/en/stable/directives.html#directives
+
+.. _`TinyCBOR`: https://intel.github.io/tinycbor/current/
+
+.. _`generator expressions`: https://cmake.org/cmake/help/latest/manual/cmake-generator-expressions.7.html

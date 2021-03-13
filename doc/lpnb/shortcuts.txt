@@ -1,0 +1,1 @@
+.. |LPNB| replace:: Li-Pro.Net bridle

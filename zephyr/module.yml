@@ -4,6 +4,8 @@ build:
   # root kconfig file
   kconfig: Kconfig.lpnb
   settings:
+    # mark this project as external module
+    module_ext_root: .
     # make custom boards available (in ./boards/)
     board_root: .
     # make custom device tree bindings available (in ./dts/bindings)

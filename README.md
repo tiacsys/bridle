@@ -9,6 +9,97 @@ and all they dependencies.
 
 ---
 
+## Documentation
+
+**WARNING: THIS WILL TAKE MORE THAN 15 MINUTES TO EXECUTE**
+
+For our Zephyr playground here in this section we will work inside the working
+directory ``workspace``. **You have to had run already through section
+[Setup Zephyr Build Environment](#setup-zephyr-build-environment)
+at leaset once!**
+
+Setup Zephyr source code environment, type in:
+
+```bash
+source zephyr/zephyr-env.sh
+```
+
+Patch Zephyr source code with specific 'no kconfig' hack, because we use
+a shared Kconfig documentation set instead, type in:
+
+```bash
+git -C zephyr apply \
+    ../bridle/scripts/patches/zephyr/0001-doc-Share-Kconfig-documentation-between-repos.patch
+git -C zephyr apply \
+    ../bridle/scripts/patches/zephyr/0002-doc-script-found-devicetree-bindings-recursively.patch
+```
+
+**Share Kconfig documentation between repos:**
+
+The Kconfig reference is being turned into a separate shared documentation
+set, which needs three lpn-bridle-specific Zephyr tweaks:
+
+1. Do not build the Kconfig docs as part of the Zephyr documentation.
+2. Do not link the index page of the Kconfig docs in the Zephyr documentation.
+3. Pass some extra variables with output paths through to sphinx-build, so that
+   they can be referenced in lpn-bridle/doc/zephyr/conf.py. They're used for
+   the Intersphinx linking.
+
+Prepare the build folder, type in:
+
+```bash
+rm -rf build-lpn-bridle-doc
+cmake -B build-lpn-bridle-doc -GNinja bridle/doc
+```
+
+Build the complete Li-Pro.Net bridle HTML pages in
+``build-lpn-bridle-doc/html``, type in:
+
+```bash
+ninja -C build-lpn-bridle-doc build-all
+```
+
+This command will build all documentation sets. Note that this process can
+take quite some time. Alternatively, if you want to build each documentation
+set separately, complete the following steps:
+
+1. Build Kconfig Reference HTML pages in
+   ``build-lpn-bridle-doc/html/kconfig``, type in:
+
+   ```bash
+   ninja -C build-lpn-bridle-doc kconfig-html
+   ```
+
+2. Build Devicetree Bindings HTML pages in
+   ``build-lpn-bridle-doc/html/devicetree``, type in:
+
+   ```bash
+   ninja -C build-lpn-bridle-doc devicetree-html
+   ```
+
+3. Build Zephyr Project HTML pages in
+   ``build-lpn-bridle-doc/html/zephyr``, type in:
+
+   ```bash
+   ninja -C build-lpn-bridle-doc zephyr
+   ```
+
+4. Build Li-Pro.Net bridle HTML pages in
+   ``build-lpn-bridle-doc/html/lpnb``, type in:
+
+   ```bash
+   ninja -C build-lpn-bridle-doc lpnb
+   ```
+
+Now you are able to open ``build-lpn-bridle-doc/html/index.html``
+in any HTML browser, ex. type in:
+
+```bash
+firefox build-lpn-bridle-doc/html/index.html &
+```
+
+---
+
 ## Samples for Zephyr
 
 For our Zephyr playground here in this section we will work inside the working
@@ -395,12 +486,14 @@ After this we will stay inside our working directory ``workspace``, have the
 (workspace[Python 3.8.5]) user@host:workspace$ _
 ```
 
-As well we will found the Zephyr core source code in the ``zephyr`` folder.
-To complete the setup, we need to extend our Python virtual environment with
-all the packages that are required by Zephyr itself, type in:
+As well we will found the Zephyr core source code in the ``zephyr`` folder
+and the Li-Pro.Net bridle source code in the ``bridle`` folder. To complete
+the setup, we need to extend our Python virtual environment with all the
+packages that are required by Zephyr and Li-Pro.Net bridle itself, type in:
 
 ```bash
 pip install --upgrade --requirement zephyr/scripts/requirements.txt
+pip install --upgrade --requirement bridle/scripts/requirements.txt
 ```
 
 ## Setup Python Virtual Environment
@@ -663,11 +756,11 @@ have currently enabled and install all (not yet) installed host tool packages:
 sudo -i apt-get update
 sudo -i apt-get upgrade
 sudo -i apt-get install --no-install-recommends \
-  git cmake ninja-build gperf \
-  ccache dfu-util device-tree-compiler wget \
+  git wget cmake make ninja-build gperf \
+  gcc gcc-multilib g++-multilib libsdl2-dev \
+  ccache dfu-util device-tree-compiler \
   python3-dev python3-pip python3-setuptools python3-tk python3-wheel \
-  xz-utils file screen \
-  make gcc gcc-multilib g++-multilib libsdl2-dev
+  xz-utils file screen doxygen mscgen
 ```
 
 #### Prepare OpenOCD invocation
