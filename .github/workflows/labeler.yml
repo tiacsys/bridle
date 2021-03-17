@@ -1,0 +1,15 @@
+# Copyright (c) 2021 Li-Pro.Net
+# SPDX-License-Identifier: Apache-2.0
+
+name: Pull Request Labeler
+
+on:
+  - pull_request_target
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/labeler@v2.1.1
+        with:
+          repo-token: '${{ secrets.GITHUB_TOKEN }}'

@@ -1,0 +1,118 @@
+# Copyright (c) 2021 Li-Pro.Net
+# SPDX-License-Identifier: Apache-2.0
+
+name: Documentation Build
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  doc-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Update GitHub PATH for west
+        run: |
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+      - name: Checkout the code
+        uses: actions/checkout@v2
+        with:
+          path: workspace/bridle
+
+      - name: Install packages
+        run: |
+          sudo apt-get install -y ninja-build doxygen mscgen
+
+      - name: Restore PIP Cache
+        uses: actions/cache@v1
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-doc-pip
+
+      - name: Install base dependencies
+        working-directory: workspace
+        run: |
+          pip3 install --upgrade pip
+          pip3 install --upgrade setuptools
+          pip3 install --upgrade --requirement bridle/scripts/requirements-base.txt
+
+      - name: West init and update
+        working-directory: workspace
+        run: |
+          west init -l bridle
+          west update
+          west zephyr-export
+
+      - name: Patch Zephyr with documentation hacks
+        working-directory: workspace/zephyr
+        run: |
+          git apply ../bridle/scripts/patches/zephyr/0001-doc-Share-Kconfig-documentation-between-repos.patch
+          git apply ../bridle/scripts/patches/zephyr/0002-doc-script-found-devicetree-bindings-recursively.patch
+
+      - name: Install documentation dependencies
+        working-directory: workspace
+        run: |
+          pip3 install --upgrade --requirement zephyr/scripts/requirements-doc.txt
+          pip3 install --upgrade --requirement bridle/scripts/requirements-doc.txt
+
+      - name: Build documentation
+        working-directory: workspace
+        run: |
+          cmake -B build -GNinja bridle/doc
+          ninja -C build build-all
+
+      - name: Check build warnings
+        working-directory: workspace/build
+        run: |
+          if [ -s Kconfig/sphinx.log ]; then
+            errors=$(cat Kconfig/sphinx.log)
+            echo "::error file=Kconfig/sphinx.log::$errors"
+            exit 1
+          fi
+          if [ -s devicetree/sphinx.log ]; then
+            errors=$(cat devicetree/sphinx.log)
+            echo "::error file=devicetree/sphinx.log::$errors"
+            exit 1
+          fi
+          if [ -s zephyr/doc.warnings ]; then
+            errors=$(cat zephyr/doc.warnings)
+            echo "::error file=zephyr/doc.warnings::$errors"
+            exit 1
+          fi
+          if [ -s lpnb/doc.warnings ]; then
+            errors=$(cat lpnb/doc.warnings)
+            echo "::error file=lpnb/doc.warnings::$errors"
+            exit 1
+          fi
+
+      - name: Archive documentation
+        working-directory: workspace/build
+        run: |
+          mkdir doc && cd doc
+          file="doc_build_${GITHUB_RUN_ID}.tgz"
+          tar -C ../html -zcf $file .
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            echo "publish2 dev PR-${{ github.event.number }} $file" > "monitor_${GITHUB_RUN_ID}.txt"
+            echo "${{ github.event.number }}" > pr.txt
+          else
+            # basename will work for both branches and tags
+            branch=$(basename "${{ github.ref }}")
+            if [[ "${branch}" == "main" ]]; then
+              echo "publish2 main latest $file" > "monitor_${GITHUB_RUN_ID}.txt"
+            else
+              echo "publish2 main ${branch} $file" > "monitor_${GITHUB_RUN_ID}.txt"
+            fi
+          fi
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: doc
+          path: workspace/build/doc

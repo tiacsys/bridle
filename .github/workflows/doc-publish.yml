@@ -1,0 +1,57 @@
+# Copyright (c) 2021 Li-Pro.Net
+# SPDX-License-Identifier: Apache-2.0
+
+name: Documentation Publish
+
+on:
+  workflow_run:
+    workflows: ["Documentation Build", "Documentation Remove"]
+    types:
+      - completed
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - name: 'Download artifact'
+        uses: actions/github-script@v3.1.0
+        with:
+          script: |
+            var artifacts = await github.actions.listWorkflowRunArtifacts({
+               owner: context.repo.owner,
+               repo: context.repo.repo,
+               run_id: ${{ github.event.workflow_run.id }},
+            });
+            var matchArtifact = artifacts.data.artifacts.filter((artifact) => {
+              return artifact.name == "doc"
+            })[0];
+            var download = await github.actions.downloadArtifact({
+               owner: context.repo.owner,
+               repo: context.repo.repo,
+               artifact_id: matchArtifact.id,
+               archive_format: 'zip',
+            });
+            var fs = require('fs');
+            fs.writeFileSync('${{github.workspace}}/doc.zip', Buffer.from(download.data));
+
+      - name: Prepare documentation
+        id: prepare_doc
+        run: |
+          unzip doc.zip
+          catalog=$(awk -e '/publish2/{print $2}' "monitor_${GITHUB_RUN_ID}.txt")
+          version=$(awk -e '/publish2/{print $3}' "monitor_${GITHUB_RUN_ID}.txt")
+          file=$(awk -e '/publish2/{print $4}' "monitor_${GITHUB_RUN_ID}.txt")
+          mkdir "${version}" && cd "${version}"
+          tar -zxf "../${file}"
+          echo "::set-output name=catalog::${catalog}"
+          echo "::set-output name=version::${version}"
+
+      - name: Deploy documentation
+        uses: peaceiris/actions-gh-pages@v3
+        if: steps.prepare_doc.outputs.catalog == 'main'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ${{ steps.prepare_doc.outputs.version }}
+          enable_jekyll: false
+          force_orphan: true

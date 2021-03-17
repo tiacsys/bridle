@@ -1,0 +1,30 @@
+# Copyright (c) 2021 Li-Pro.Net
+# SPDX-License-Identifier: Apache-2.0
+
+name: Manifest
+
+on:
+  - pull_request_target
+
+jobs:
+  contribs:
+    runs-on: ubuntu-latest
+    name: Manifest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v2
+        with:
+          path: workspace/bridle
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
+      - name: Manifest
+        uses: zephyrproject-rtos/action-manifest@main
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          manifest-path: 'west.yml'
+          checkout-path: 'workspace/bridle'
+          label-prefix: 'manifest-'
+          verbosity-level: '1'
+          labels: 'manifest'
+          dnm-labels: 'DNM'
