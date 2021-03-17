@@ -39,9 +39,10 @@ jobs:
         id: prepare_doc
         run: |
           unzip doc.zip
-          catalog=$(awk -e '/publish2/{print $2}' "monitor_${GITHUB_RUN_ID}.txt")
-          version=$(awk -e '/publish2/{print $3}' "monitor_${GITHUB_RUN_ID}.txt")
-          file=$(awk -e '/publish2/{print $4}' "monitor_${GITHUB_RUN_ID}.txt")
+          monitor=$(ls -1 monitor_*.txt | head -1)
+          catalog=$(awk -e '/publish2/{print $2}' "${monitor}")
+          version=$(awk -e '/publish2/{print $3}' "${monitor}")
+          file=$(awk -e '/publish2/{print $4}' "${monitor}")
           mkdir "${version}" && cd "${version}"
           tar -zxf "../${file}"
           echo "::set-output name=catalog::${catalog}"
