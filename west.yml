@@ -33,7 +33,7 @@ manifest:
       path: zephyr
       remote: zephyrproject
       repo-path: zephyr
-      revision: zephyr-v2.5.0
+      revision: v2.5-branch
       clone-depth: 1
       # import submodules from zephyr manifest
       import:
