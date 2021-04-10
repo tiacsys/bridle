@@ -8,24 +8,9 @@
 // with the exception of an additional crypto unit. As Zephyr does not know
 // the F777, we use the F767 for now.
 #include <st/f7/stm32f767Xi.dtsi>
+#include <st/f7/stm32f767-can2.dtsi>
 #include <st/f7/stm32f767n(g-i)hx-pinctrl.dtsi>
 
-// missed in st/f7/stm32f767.dtsi (included by st/f7/stm32f767Xi.dtsi)
-/ {
-	soc {
-		can2: can@40006800 {
-			compatible = "st,stm32-can";
-			#address-cells = <1>;
-			#size-cells = <0>;
-			reg = <0x40006800 0x400>;
-			interrupts = <63 0>, <64 0>, <65 0>, <66 0>;
-			interrupt-names = "TX", "RX0", "RX1", "SCE";
-			clocks = <&rcc STM32_CLOCK_BUS_APB1 0x04000000>;
-			status = "disabled";
-			label = "CAN_2";
-		};
-	};
-};
 
 / {
 	model = "TiaC MAGPIE board";
