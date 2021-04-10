@@ -17,6 +17,9 @@ of a single feature or library:
    :maxdepth: 1
    :glob:
 
-   ../../samples/*/README
+   samples/*/README
 
 For more complex examples, see :ref:`applications`.
+
+To add a new sample document, please use the template available under
+:zephyr_file:`doc/templates/sample.tmpl`

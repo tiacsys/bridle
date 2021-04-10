@@ -17,4 +17,4 @@ but with limited functionality.
    :maxdepth: 1
    :glob:
 
-   ../../applications/*/README
+   applications/*/README
