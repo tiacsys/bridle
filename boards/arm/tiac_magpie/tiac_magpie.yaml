@@ -1,0 +1,20 @@
+identifier: tiac_magpie
+name: TiaC MAGPIE
+type: mcu
+arch: arm
+toolchain:
+  - zephyr
+ram: 512
+flash: 2048
+supported:
+  - uart
+  - gpio
+  - netif:eth
+  - usb_device
+  - can
+  - nvs
+  - i2c
+  - spi
+  - pwm
+  - watchdog
+  - counter

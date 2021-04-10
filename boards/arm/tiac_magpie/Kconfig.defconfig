@@ -1,0 +1,28 @@
+# Copyright (c) 2021 Li-Pro.Net
+# SPDX-License-Identifier: Apache-2.0
+
+# TiaC STM32F777NIHx Magpie board configuration
+
+if BOARD_TIAC_MAGPIE
+
+config BOARD
+	default "tiac_magpie"
+
+choice RNG_GENERATOR_CHOICE
+	default ENTROPY_DEVICE_RANDOM_GENERATOR
+endchoice
+
+if NETWORKING
+
+config NET_L2_ETHERNET
+	default y
+
+config ETH_STM32_HAL_MII
+	default y
+
+config ETH_STM32_HAL_PHY_ADDRESS
+	default 7
+
+endif # NETWORKING
+
+endif # BOARD_TIAC_MAGPIE
