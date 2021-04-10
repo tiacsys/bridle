@@ -22,6 +22,7 @@ The |LPNB| refere to and involve the Zephyr™ real-time operating system
    getting_started
    user_guides
    examples
+   boards/index
    release_notes
 
 ..   examples

@@ -213,24 +213,31 @@ set(LPNB_EXTRACT_CONTENT_COMMAND
   --ignore ${CMAKE_CURRENT_BINARY_DIR}
   --sphinx-src-root ${LPNB_DOC_DIR}
   "*:doc:${LPNB_RST_OUT}"
-  "*.rst:applications:${LPNB_RST_OUT}"
-  "*.rst:samples:${LPNB_RST_OUT}"
-  "*.rst:boards:${LPNB_RST_OUT}"
-  "*.rst:include:${LPNB_RST_OUT}"
-  "*.rst:lib:${LPNB_RST_OUT}"
-  "*.rst:scripts:${LPNB_RST_OUT}"
-  "*.rst:tests:${LPNB_RST_OUT}"
-  "*.rst:applications:${LPNB_RST_OUT}/doc/lpnb"
-  "*.rst:samples:${LPNB_RST_OUT}/doc/lpnb"
+  # We want to copy the .rst files in samples/ and boards/ to the rst
+  # folder, and also the doc folder inside rst.
+  #
+  # Some files refer to items in samples/ and boards/ relative to
+  # their actual position in the Zephyr tree. For example, in
+  # subsystems/sensor.rst:
+  #
+  # .. literalinclude:: ../../samples/sensor/my4711/src/main.c
+  #
+  # The additional copy is a hackaround so these references work.
   "*.rst:boards:${LPNB_RST_OUT}/doc/lpnb"
-  "release-notes*.rst:doc:${LPNB_RST_OUT}/doc/lpnb"
-  "changelog.rst:doc:${LPNB_RST_OUT}/doc/lpnb"
-  "*.rst:doc/lpnb/drivers:${LPNB_RST_OUT}"
+  "*.csv:boards:${LPNB_RST_OUT}/doc/lpnb"
+  "*.ioc:boards:${LPNB_RST_OUT}/doc/lpnb"
+  "*.pdf:boards:${LPNB_RST_OUT}/doc/lpnb"
+  "*.rst:samples:${LPNB_RST_OUT}/doc/lpnb"
+  "*.rst:applications:${LPNB_RST_OUT}/doc/lpnb"
   "*.rst:include:${LPNB_RST_OUT}/doc/lpnb"
   "*.rst:lib:${LPNB_RST_OUT}/doc/lpnb"
+  "*.rst:drivers:${LPNB_RST_OUT}/doc/lpnb"
   "*.rst:scripts:${LPNB_RST_OUT}/doc/lpnb"
   "*.rst:tests:${LPNB_RST_OUT}/doc/lpnb"
+  "release-notes*.rst:doc:${LPNB_RST_OUT}/doc/lpnb"
+  "changelog.rst:doc:${LPNB_RST_OUT}/doc/lpnb"
 )
+
 
 add_custom_target(
   lpnb-content
@@ -238,6 +245,8 @@ add_custom_target(
   COMMAND ${LPNB_EXTRACT_CONTENT_COMMAND}
   WORKING_DIRECTORY ${LPNB_DOC_DIR}
   DEPENDS ${LPNB_RST_OUT}/doc/lpnb/versions.txt
+  COMMENT "Copying files to ${LPNB_RST_OUT}"
+  USES_TERMINAL
 )
 
 if(WIN32)
@@ -293,7 +302,7 @@ add_custom_target(
   COMMENT "Generating Li-Pro.Net bridle HTML documentation with ${SPHINXBUILD} to ${HTML_DIR}/lpnb"
   USES_TERMINAL
 )
-add_dependencies(lpnb-html kconfig-html devicetree-html lpnb-doxy lpnb-content)
+add_dependencies(lpnb-html lpnb-doxy lpnb-content kconfig-html devicetree-html zephyr)
 
 add_custom_target(
   lpnb-copy-versions
@@ -470,7 +479,7 @@ add_custom_target(
   USES_TERMINAL
 )
 
-add_dependencies(lpnb-linkcheck lpnb-content lpnb-doxy)
+add_dependencies(lpnb-linkcheck lpnb-doxy lpnb-content kconfig-html devicetree-html zephyr)
 
 add_custom_target(linkcheck)
 add_dependencies(linkcheck lpnb-linkcheck)

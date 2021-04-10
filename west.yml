@@ -45,6 +45,7 @@ manifest:
           - hal_xtensa
           - net-tools
           - canopennode
+          - fatfs
       # import build commands from zephyr repo
       west-commands: scripts/west-commands.yml
 

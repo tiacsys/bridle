@@ -1,8 +1,73 @@
 # https://github.com/actions/labeler/blob/main/README.md
 
-"manifest":
+"area: Modules":
   - "west.yml"
 
-"doc-required":
+"area: Documentation":
   - "doc/**/*"
   - "**/*.rst"
+
+"area: Build System":
+  - "cmake/**/*"
+  - "CmakeLists.txt"
+
+"area: Kconfig":
+  - "Kconfig.lpnb"
+  - "Kconfig"
+
+"area: API":
+  - "include/**/*"
+
+"area: Samples":
+  - "samples/**/*"
+
+"area: Tests":
+  - "tests/**/*"
+
+"area: Networking":
+  - "subsys/net/**/*"
+  - "samples/net/**/*"
+  - "tests/net/**/*"
+  - "include/net/**/*"
+
+"area: Drivers":
+  - "drivers/**/*"
+  - "include/drivers/**/*.h"
+
+"area: Devicetree":
+  - "dts/**/*"
+  - "**/*.dts"
+  - "**/*.dtsi"
+  - "include/devicetree/*"
+
+"area: Devicetree Binding":
+  - "dts/bindings/**/*"
+  - "include/dt-bindings/**/*"
+
+"area: Devicetree Tooling":
+  - "scripts/dts/**/*"
+
+"area: Boards":
+  - "boards/**/*"
+
+"area: Shields":
+  - "boards/shields/**"
+  - "samples/shields/**"
+
+"platform: NXP":
+  - "boards/arm/frdm*/**"
+  - "boards/arm/hexiwear*/**"
+  - "boards/arm/lpcxpresso*/**"
+  - "boards/arm/*imx*/**"
+  - "drivers/**/*imx*"
+  - "drivers/**/*mcux*"
+  - "dts/arm/nxp/*/*"
+  - "dts/bindings/**/nxp*"
+
+"platform: STM32":
+  - "boards/arm/nucleo_*/**"
+  - "boards/arm/*stm32*/**"
+  - "drivers/**/*stm32*"
+  - "dts/arm/st/*/*"
+  - "dts/bindings/**/st*"
+  - "include/drivers/*/*stm32*"

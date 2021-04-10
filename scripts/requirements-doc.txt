@@ -4,4 +4,5 @@ sphinx-rtd-theme==0.5.1
 sphinx-tabs==2.1.0
 sphinxcontrib-mscgen==0.5
 sphinxcontrib-svg2pdfconverter==1.1.1
+sphinx-csv-filter==0.3.0
 west>=0.7.2

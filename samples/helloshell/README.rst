@@ -111,7 +111,6 @@ Sample Output
 
 .. code-block:: console
 
-   *** Booting Zephyr OS build zephyr-v2.5.0  ***
    Hello World! I'm THE SHELL from nucleo_f746zg
 
 
