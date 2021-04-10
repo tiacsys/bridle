@@ -102,6 +102,7 @@ extensions = [
     'zephyr.html_redirects',
 #   'only.eager_only',
     'zephyr.link-roles',
+    'crate.sphinx.csv',
 ]
 
 # Only use SVG converter when it is really needed, e.g. LaTeX.
