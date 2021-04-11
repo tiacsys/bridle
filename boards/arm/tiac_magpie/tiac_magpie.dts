@@ -9,6 +9,7 @@
 // the F777, we use the F767 for now.
 #include <st/f7/stm32f767Xi.dtsi>
 #include <st/f7/stm32f767-can2.dtsi>
+#include <st/f7/stm32f7-adc123.dtsi>
 #include <st/f7/stm32f767n(g-i)hx-pinctrl.dtsi>
 
 
