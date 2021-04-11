@@ -6,13 +6,13 @@
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:xlink="http://www.w3.org/1999/xlink"
-   id="svg1852"
+   id="svg1885"
    version="1.2"
    viewBox="0 0 483.56268 244.94141"
    height="244.94141pt"
    width="483.56268pt">
   <metadata
-     id="metadata1856">
+     id="metadata1889">
     <rdf:RDF>
       <cc:Work
          rdf:about="">
@@ -24,9 +24,9 @@
     </rdf:RDF>
   </metadata>
   <defs
-     id="defs205">
+     id="defs214">
     <g
-       id="g158">
+       id="g167">
       <symbol
          style="overflow:visible"
          id="glyph0-0"
@@ -495,4402 +495,4503 @@
            d="M 0.390625,-1.1875 1,-1.25 c 0.050781,0.292969 0.148438,0.5 0.296875,0.625 0.144531,0.125 0.332031,0.1875 0.5625,0.1875 0.1875,0 0.351563,-0.039062 0.5,-0.125 0.144531,-0.09375 0.265625,-0.210938 0.359375,-0.359375 0.09375,-0.144531 0.171875,-0.34375 0.234375,-0.59375 0.0625,-0.257813 0.09375,-0.519531 0.09375,-0.78125 0,-0.03125 0,-0.070313 0,-0.125 C 2.921875,-2.222656 2.75,-2.0625 2.53125,-1.9375 2.3125,-1.8125 2.078125,-1.75 1.828125,-1.75 c -0.429687,0 -0.792969,-0.148438 -1.09375,-0.453125 -0.292969,-0.3125 -0.4375,-0.71875 -0.4375,-1.21875 0,-0.53125 0.148437,-0.953125 0.453125,-1.265625 0.3125,-0.320312 0.703125,-0.484375 1.171875,-0.484375 0.332031,0 0.632813,0.09375 0.90625,0.28125 0.28125,0.179687 0.492187,0.433594 0.640625,0.765625 0.144531,0.335938 0.21875,0.820312 0.21875,1.453125 0,0.65625 -0.074219,1.183594 -0.21875,1.578125 C 3.320312,-0.707031 3.109375,-0.410156 2.828125,-0.203125 2.546875,-0.00390625 2.21875,0.09375 1.84375,0.09375 c -0.40625,0 -0.742188,-0.109375 -1,-0.328125 C 0.59375,-0.460938 0.441406,-0.78125 0.390625,-1.1875 Z m 2.59375,-2.265625 C 2.984375,-3.816406 2.882812,-4.101562 2.6875,-4.3125 2.5,-4.53125 2.269531,-4.640625 2,-4.640625 c -0.28125,0 -0.527344,0.117187 -0.734375,0.34375 -0.210937,0.230469 -0.3125,0.527344 -0.3125,0.890625 0,0.324219 0.097656,0.589844 0.296875,0.796875 0.195312,0.210937 0.4375,0.3125 0.71875,0.3125 0.300781,0 0.546875,-0.101563 0.734375,-0.3125 0.1875,-0.207031 0.28125,-0.488281 0.28125,-0.84375 z m 0,0"
            style="stroke:none" />
       </symbol>
+      <symbol
+         style="overflow:visible"
+         id="glyph2-21"
+         overflow="visible">
+        <path
+           id="path158"
+           d="m 0.5625,0 v -5.140625 h 2.28125 c 0.457031,0 0.804688,0.046875 1.046875,0.140625 0.238281,0.085938 0.425781,0.246094 0.5625,0.484375 0.144531,0.230469 0.21875,0.492187 0.21875,0.78125 0,0.367187 -0.121094,0.671875 -0.359375,0.921875 -0.230469,0.25 -0.589844,0.40625 -1.078125,0.46875 0.175781,0.085938 0.3125,0.171875 0.40625,0.265625 0.195313,0.179687 0.382813,0.402344 0.5625,0.671875 L 5.09375,0 H 4.25 L 3.5625,-1.078125 C 3.363281,-1.378906 3.195312,-1.613281 3.0625,-1.78125 2.9375,-1.945312 2.820312,-2.0625 2.71875,-2.125 2.625,-2.1875 2.523438,-2.234375 2.421875,-2.265625 2.335938,-2.273438 2.207031,-2.28125 2.03125,-2.28125 H 1.25 V 0 Z M 1.25,-2.875 h 1.453125 c 0.3125,0 0.554687,-0.03125 0.734375,-0.09375 0.175781,-0.0625 0.304688,-0.160156 0.390625,-0.296875 0.09375,-0.144531 0.140625,-0.300781 0.140625,-0.46875 0,-0.25 -0.089844,-0.453125 -0.265625,-0.609375 C 3.535156,-4.5 3.257812,-4.578125 2.875,-4.578125 H 1.25 Z m 0,0"
+           style="stroke:none" />
+      </symbol>
+      <symbol
+         style="overflow:visible"
+         id="glyph2-22"
+         overflow="visible">
+        <path
+           id="path161"
+           d="m 0.03125,0 1.984375,-2.6875 -1.75,-2.453125 h 0.8125 l 0.9375,1.3125 c 0.1875,0.273437 0.320313,0.484375 0.40625,0.640625 0.113281,-0.1875 0.25,-0.382812 0.40625,-0.59375 L 3.875,-5.140625 H 4.609375 L 2.796875,-2.71875 4.75,0 H 3.90625 L 2.609375,-1.828125 c -0.074219,-0.113281 -0.148437,-0.226563 -0.21875,-0.34375 -0.117187,0.179687 -0.199219,0.304687 -0.25,0.375 L 0.84375,0 Z m 0,0"
+           style="stroke:none" />
+      </symbol>
+      <symbol
+         style="overflow:visible"
+         id="glyph2-23"
+         overflow="visible">
+        <path
+           id="path164"
+           d="m 1.859375,0 v -4.53125 h -1.6875 V -5.140625 H 4.25 V -4.53125 H 2.546875 V 0 Z m 0,0"
+           style="stroke:none" />
+      </symbol>
     </g>
     <clipPath
        id="clip1">
       <path
-         id="path160"
+         id="path169"
          d="M 63.964844,1 H 74.019531 V 72 H 63.964844 Z m 0,0" />
     </clipPath>
     <clipPath
        id="clip2">
       <path
-         id="path163"
+         id="path172"
          d="M 74.027344,1 H 84.082031 V 72 H 74.027344 Z m 0,0" />
     </clipPath>
     <clipPath
        id="clip3">
       <path
-         id="path166"
+         id="path175"
          d="m 222.07812,1 h 10.05469 v 71 h -10.05469 z m 0,0" />
     </clipPath>
     <clipPath
        id="clip4">
       <path
-         id="path169"
+         id="path178"
          d="m 232.14062,1 h 10.05469 v 71 h -10.05469 z m 0,0" />
     </clipPath>
     <clipPath
        id="clip5">
       <path
-         id="path172"
+         id="path181"
          d="m 30,208 h 88 v 18.39062 H 30 Z m 0,0" />
     </clipPath>
     <clipPath
        id="clip6">
       <path
-         id="path175"
+         id="path184"
          d="m 30,224 h 88 v 2.39062 H 30 Z m 0,0" />
     </clipPath>
     <clipPath
        id="clip7">
       <path
-         id="path178"
+         id="path187"
          d="m 63.972656,130.10937 h 10.054688 v 71.82032 H 63.972656 Z m 0,0" />
     </clipPath>
     <clipPath
        id="clip8">
       <path
-         id="path181"
+         id="path190"
          d="m 74.035156,130.10156 h 10.054688 v 71.82031 H 74.035156 Z m 0,0" />
     </clipPath>
     <clipPath
        id="clip9">
       <path
-         id="path184"
+         id="path193"
          d="m 380.19141,1 h 10.05468 v 71 h -10.05468 z m 0,0" />
     </clipPath>
     <clipPath
        id="clip10">
       <path
-         id="path187"
+         id="path196"
          d="m 390.25391,1 h 10.05468 v 71 h -10.05468 z m 0,0" />
     </clipPath>
     <clipPath
        id="clip11">
       <path
-         id="path190"
+         id="path199"
          d="m 188,208 h 88 v 18.39062 h -88 z m 0,0" />
     </clipPath>
     <clipPath
        id="clip12">
       <path
-         id="path193"
+         id="path202"
          d="m 188,224 h 88 v 2.39062 h -88 z m 0,0" />
     </clipPath>
     <clipPath
        id="clip13">
       <path
-         id="path196"
+         id="path205"
          d="m 222.08594,130.10937 h 10.05468 v 71.82032 h -10.05468 z m 0,0" />
     </clipPath>
     <clipPath
        id="clip14">
       <path
-         id="path199"
+         id="path208"
          d="m 232.14844,130.10937 h 10.05468 v 71.82032 h -10.05468 z m 0,0" />
     </clipPath>
     <clipPath
        id="clip15">
       <path
-         id="path202"
+         id="path211"
          d="m 423,48 h 41.87891 V 67 H 423 Z m 0,0" />
     </clipPath>
   </defs>
   <g
      transform="translate(9.2812254,8.550781)"
-     id="surface1017">
+     id="surface1054">
     <path
-       id="path207"
+       id="path216"
        transform="scale(0.718702)"
        d="M 42.997458,133.99815 V 111.00203 H 163.0001 v 22.99612"
        style="fill:#fff0ca;fill-opacity:1;fill-rule:nonzero;stroke:#d4b554;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1" />
     <path
-       id="path209"
+       id="path218"
        transform="scale(0.718702)"
        d="M 42.997458,133.99815 H 163.0001"
        style="fill:none;stroke:#d4b554;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1" />
     <g
-       id="g221"
+       id="g230"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use211"
+         id="use220"
          y="91.63446"
          x="59.411499"
          xlink:href="#glyph0-1" />
       <use
          height="100%"
          width="100%"
-         id="use213"
+         id="use222"
          y="91.63446"
          x="64.679642"
          xlink:href="#glyph0-2" />
       <use
          height="100%"
          width="100%"
-         id="use215"
+         id="use224"
          y="91.63446"
          x="71.863846"
          xlink:href="#glyph0-3" />
       <use
          height="100%"
          width="100%"
-         id="use217"
+         id="use226"
          y="91.63446"
          x="77.616264"
          xlink:href="#glyph0-4" />
       <use
          height="100%"
          width="100%"
-         id="use219"
+         id="use228"
          y="91.63446"
          x="83.844551"
          xlink:href="#glyph0-5" />
     </g>
     <path
-       id="path223"
+       id="path232"
        transform="matrix(0.718702,0,0,0.718702,0.359351,0.359351)"
        d="m 116.9916,103.50156 c 0,0.33155 -0.0652,0.64679 -0.19023,0.95659 -0.13044,0.30437 -0.3098,0.57612 -0.54351,0.80984 -0.23372,0.23371 -0.50547,0.41307 -0.80984,0.54351 -0.3098,0.12501 -0.62504,0.19023 -0.95659,0.19023 -0.33154,0 -0.65222,-0.0652 -0.95658,-0.19023 -0.30981,-0.13044 -0.57613,-0.3098 -0.81528,-0.54351 -0.23371,-0.23372 -0.41307,-0.50547 -0.53808,-0.80984 -0.13044,-0.3098 -0.19023,-0.62504 -0.19023,-0.95659 0,-0.33154 0.0598,-0.65221 0.19023,-0.95658 0.12501,-0.30981 0.30437,-0.57613 0.53808,-0.81528 0.23915,-0.23371 0.50547,-0.41307 0.81528,-0.53808 0.30436,-0.13044 0.62504,-0.19023 0.95658,-0.19023 0.33155,0 0.64679,0.0598 0.95659,0.19023 0.30437,0.12501 0.57612,0.30437 0.80984,0.53808 0.23371,0.23915 0.41307,0.50547 0.54351,0.81528 0.12501,0.30437 0.19023,0.62504 0.19023,0.95658 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1" />
     <g
-       id="g231"
+       id="g240"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use225"
+         id="use234"
          y="10.061823"
          x="41.931747"
          xlink:href="#glyph1-1" />
       <use
          height="100%"
          width="100%"
-         id="use227"
+         id="use236"
          y="10.061823"
          x="48.640099"
          xlink:href="#glyph1-2" />
       <use
          height="100%"
          width="100%"
-         id="use229"
+         id="use238"
          y="10.061823"
          x="54.868378"
          xlink:href="#glyph1-3" />
     </g>
     <g
-       id="g239"
+       id="g248"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use233"
+         id="use242"
          y="20.123646"
          x="48.153011"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use235"
+         id="use244"
          y="20.123646"
          x="53.90543"
          xlink:href="#glyph1-5" />
       <use
          height="100%"
          width="100%"
-         id="use237"
+         id="use246"
          y="20.123646"
          x="56.301571"
          xlink:href="#glyph1-6" />
     </g>
     <g
-       id="g247"
+       id="g256"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use241"
+         id="use250"
          y="30.185469"
          x="44.312447"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use243"
+         id="use252"
          y="30.185469"
          x="50.064869"
          xlink:href="#glyph1-3" />
       <use
          height="100%"
          width="100%"
-         id="use245"
+         id="use254"
          y="30.185469"
          x="56.293148"
          xlink:href="#glyph1-7" />
     </g>
     <g
-       id="g257"
+       id="g266"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use249"
+         id="use258"
          y="40.247292"
          x="39.517361"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use251"
+         id="use260"
          y="40.247292"
          x="45.269779"
          xlink:href="#glyph1-8" />
       <use
          height="100%"
          width="100%"
-         id="use253"
+         id="use262"
          y="40.247292"
          x="51.498062"
          xlink:href="#glyph1-9" />
       <use
          height="100%"
          width="100%"
-         id="use255"
+         id="use264"
          y="40.247292"
          x="56.294552"
          xlink:href="#glyph1-10" />
     </g>
     <g
-       id="g265"
+       id="g274"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use259"
+         id="use268"
          y="50.309116"
          x="44.312447"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use261"
+         id="use270"
          y="50.309116"
          x="50.064869"
          xlink:href="#glyph1-3" />
       <use
          height="100%"
          width="100%"
-         id="use263"
+         id="use272"
          y="50.309116"
          x="56.293148"
          xlink:href="#glyph1-10" />
     </g>
     <g
-       id="g275"
+       id="g284"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use267"
+         id="use276"
          y="60.370937"
          x="39.517361"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use269"
+         id="use278"
          y="60.370937"
          x="45.269779"
          xlink:href="#glyph1-8" />
       <use
          height="100%"
          width="100%"
-         id="use271"
+         id="use280"
          y="60.370937"
          x="51.498062"
          xlink:href="#glyph1-9" />
       <use
          height="100%"
          width="100%"
-         id="use273"
+         id="use282"
          y="60.370937"
          x="56.294552"
          xlink:href="#glyph1-11" />
     </g>
     <g
-       id="g283"
+       id="g292"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use277"
+         id="use286"
          y="70.432762"
          x="48.153011"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use279"
+         id="use288"
          y="70.432762"
          x="53.90543"
          xlink:href="#glyph1-5" />
       <use
          height="100%"
          width="100%"
-         id="use281"
+         id="use290"
          y="70.432762"
          x="56.301571"
          xlink:href="#glyph1-7" />
     </g>
     <g
        style="clip-rule:nonzero"
-       id="g287"
+       id="g296"
        clip-path="url(#clip1)">
       <path
-         id="path285"
+         id="path294"
          d="M 74.019531,1.457031 V 71.851562 H 63.964844 V 1.457031 Z m 0,0"
          style="fill:#3f3f3f;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     </g>
     <path
-       id="path289"
+       id="path298"
        d="M 70.933594,4.546875 V 8.429688 H 67.046875 V 4.546875 Z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path291"
+       id="path300"
        d="m 72.367188,3.109375 -1.433594,1.433594 v 3.886719 l 1.433594,1.429687 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path293"
+       id="path302"
        d="m 72.367188,9.859375 -1.4375,-1.429687 h -3.882813 l -1.429687,1.429687 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path295"
+       id="path304"
        d="M 65.617188,9.859375 67.046875,8.429688 V 4.542969 L 65.617188,3.109375 Z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path297"
+       id="path306"
        d="m 65.617188,3.109375 1.429687,1.433594 h 3.886719 l 1.433594,-1.433594 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path299"
+       id="path308"
        d="m 70.933594,14.601562 v 3.882813 h -3.886719 v -3.882813 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path301"
+       id="path310"
        d="m 72.367188,13.167969 -1.433594,1.429687 v 3.886719 l 1.433594,1.433594 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path303"
+       id="path312"
        d="m 72.367188,19.917969 -1.4375,-1.433594 h -3.882813 l -1.429687,1.433594 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path305"
+       id="path314"
        d="m 65.617188,19.917969 1.429687,-1.433594 v -3.886719 l -1.429687,-1.429687 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path307"
+       id="path316"
        d="m 65.617188,13.164062 1.429687,1.433594 h 3.886719 l 1.433594,-1.433594 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path309"
+       id="path318"
        d="m 70.933594,24.65625 v 3.882812 H 67.046875 V 24.65625 Z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path311"
+       id="path320"
        d="m 72.367188,23.226562 -1.433594,1.425782 v 3.886718 l 1.433594,1.433594 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path313"
+       id="path322"
        d="m 72.367188,29.972656 -1.4375,-1.433594 h -3.882813 l -1.429687,1.433594 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path315"
+       id="path324"
        d="m 65.617188,29.972656 1.429687,-1.433594 v -3.886718 l -1.429687,-1.425782 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path317"
+       id="path326"
        d="m 65.617188,23.222656 1.429687,1.429688 h 3.886719 l 1.433594,-1.429688 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path319"
+       id="path328"
        d="m 70.933594,34.710938 v 3.886718 h -3.886719 v -3.886718 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path321"
+       id="path330"
        d="m 72.367188,33.28125 -1.433594,1.429688 v 3.886718 l 1.433594,1.433594 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path323"
+       id="path332"
        d="m 72.367188,40.03125 -1.4375,-1.433594 h -3.882813 l -1.429687,1.433594 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path325"
+       id="path334"
        d="m 65.617188,40.027344 1.429687,-1.429688 V 34.710938 L 65.617188,33.28125 Z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path327"
+       id="path336"
        d="m 65.617188,33.277344 1.429687,1.433594 h 3.886719 l 1.433594,-1.433594 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path329"
+       id="path338"
        d="m 70.933594,44.769531 v 3.882813 h -3.886719 v -3.882813 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path331"
+       id="path340"
        d="m 72.367188,43.335938 -1.433594,1.429687 v 3.886719 l 1.433594,1.433594 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path333"
+       id="path342"
        d="m 72.367188,50.085938 -1.4375,-1.433594 h -3.882813 l -1.429687,1.433594 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path335"
+       id="path344"
        d="m 65.617188,50.082031 1.429687,-1.429687 v -3.886719 l -1.429687,-1.429687 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path337"
+       id="path346"
        d="m 65.617188,43.332031 1.429687,1.433594 h 3.886719 l 1.433594,-1.433594 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path339"
+       id="path348"
        d="m 70.933594,54.824219 v 3.886719 h -3.886719 v -3.886719 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path341"
+       id="path350"
        d="m 72.367188,53.390625 -1.433594,1.433594 v 3.886719 l 1.433594,1.429687 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path343"
+       id="path352"
        d="m 72.367188,60.140625 -1.4375,-1.429687 h -3.882813 l -1.429687,1.429687 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path345"
+       id="path354"
        d="m 65.617188,60.140625 1.429687,-1.433594 v -3.882812 l -1.429687,-1.433594 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path347"
+       id="path356"
        d="m 65.617188,53.390625 1.429687,1.433594 h 3.886719 l 1.433594,-1.433594 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path349"
+       id="path358"
        d="m 70.933594,64.882812 v 3.882813 h -3.886719 v -3.882813 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path351"
+       id="path360"
        d="m 72.367188,63.449219 -1.433594,1.429687 v 3.886719 l 1.433594,1.433594 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path353"
+       id="path362"
        d="m 72.367188,70.199219 -1.4375,-1.433594 h -3.882813 l -1.429687,1.433594 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path355"
+       id="path364"
        d="m 65.617188,70.195312 1.429687,-1.433593 v -3.882813 l -1.429687,-1.429687 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path357"
+       id="path366"
        d="m 65.617188,63.445312 1.429687,1.433594 h 3.886719 l 1.433594,-1.433594 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <g
-       id="g365"
+       id="g374"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use359"
+         id="use368"
          y="10.061823"
          x="86.962898"
          xlink:href="#glyph1-1" />
       <use
          height="100%"
          width="100%"
-         id="use361"
+         id="use370"
          y="10.061823"
          x="93.671249"
          xlink:href="#glyph1-2" />
       <use
          height="100%"
          width="100%"
-         id="use363"
+         id="use372"
          y="10.061823"
          x="99.899529"
          xlink:href="#glyph1-3" />
     </g>
     <g
-       id="g373"
+       id="g382"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use367"
+         id="use376"
          y="20.123646"
          x="86.962898"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use369"
+         id="use378"
          y="20.123646"
          x="92.715317"
          xlink:href="#glyph1-3" />
       <use
          height="100%"
          width="100%"
-         id="use371"
+         id="use380"
          y="20.123646"
          x="98.943596"
          xlink:href="#glyph1-12" />
     </g>
     <g
-       id="g381"
+       id="g390"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use375"
+         id="use384"
          y="30.185469"
          x="86.962898"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use377"
+         id="use386"
          y="30.185469"
          x="92.715317"
          xlink:href="#glyph1-3" />
       <use
          height="100%"
          width="100%"
-         id="use379"
+         id="use388"
          y="30.185469"
          x="98.943596"
          xlink:href="#glyph1-9" />
     </g>
     <g
-       id="g389"
+       id="g398"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use383"
+         id="use392"
          y="40.247292"
          x="86.962898"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use385"
+         id="use394"
          y="40.247292"
          x="92.715317"
          xlink:href="#glyph1-3" />
       <use
          height="100%"
          width="100%"
-         id="use387"
+         id="use396"
          y="40.247292"
          x="98.943596"
          xlink:href="#glyph1-11" />
     </g>
     <g
-       id="g397"
+       id="g406"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use391"
+         id="use400"
          y="50.309116"
          x="86.962898"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use393"
+         id="use402"
          y="50.309116"
          x="92.715317"
          xlink:href="#glyph1-8" />
       <use
          height="100%"
          width="100%"
-         id="use395"
+         id="use404"
          y="50.309116"
          x="98.943596"
          xlink:href="#glyph1-9" />
     </g>
     <g
-       id="g401"
+       id="g410"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use399"
+         id="use408"
          y="50.309116"
          x="103.1"
          xlink:href="#glyph1-9" />
     </g>
     <g
-       id="g409"
+       id="g418"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use403"
+         id="use412"
          y="60.370937"
          x="86.962898"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use405"
+         id="use414"
          y="60.370937"
          x="92.715317"
          xlink:href="#glyph1-5" />
       <use
          height="100%"
          width="100%"
-         id="use407"
+         id="use416"
          y="60.370937"
          x="95.111458"
          xlink:href="#glyph1-10" />
     </g>
     <g
-       id="g413"
+       id="g422"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use411"
+         id="use420"
          y="70.432762"
          x="86.962898"
          xlink:href="#glyph1-4" />
     </g>
     <g
-       id="g421"
+       id="g430"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use415"
+         id="use424"
          y="70.432762"
          x="92.075226"
          xlink:href="#glyph1-13" />
       <use
          height="100%"
          width="100%"
-         id="use417"
+         id="use426"
          y="70.432762"
          x="97.827644"
          xlink:href="#glyph1-9" />
       <use
          height="100%"
          width="100%"
-         id="use419"
+         id="use428"
          y="70.432762"
          x="102.62414"
          xlink:href="#glyph1-11" />
     </g>
     <g
        style="clip-rule:nonzero"
-       id="g425"
+       id="g434"
        clip-path="url(#clip2)">
       <path
-         id="path423"
+         id="path432"
          d="M 84.082031,1.449219 V 71.84375 H 74.027344 V 1.449219 Z m 0,0"
          style="fill:#3f3f3f;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     </g>
     <path
-       id="path427"
+       id="path436"
        d="M 80.996094,4.539062 V 8.421875 H 77.109375 V 4.539062 Z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path429"
+       id="path438"
        d="m 82.425781,3.105469 -1.429687,1.429687 v 3.886719 l 1.429687,1.429687 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path431"
+       id="path440"
        d="M 82.425781,9.851562 80.992188,8.421875 h -3.886719 l -1.425781,1.429687 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path433"
+       id="path442"
        d="M 75.679688,9.851562 77.105469,8.421875 V 4.535156 L 75.679688,3.105469 Z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path435"
+       id="path444"
        d="m 75.679688,3.101562 1.429687,1.433594 h 3.886719 l 1.429687,-1.433594 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path437"
+       id="path446"
        d="m 80.996094,14.59375 v 3.882812 H 77.109375 V 14.59375 Z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path439"
+       id="path448"
        d="m 82.425781,13.160156 -1.429687,1.429688 v 3.886718 l 1.429687,1.433594 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path441"
+       id="path450"
        d="m 82.425781,19.910156 -1.433593,-1.433594 h -3.886719 l -1.425781,1.433594 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path443"
+       id="path452"
        d="m 75.679688,19.910156 1.425781,-1.433594 v -3.886718 l -1.425781,-1.429688 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path445"
+       id="path454"
        d="m 75.679688,13.160156 1.429687,1.429688 h 3.886719 l 1.429687,-1.429688 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path447"
+       id="path456"
        d="m 80.996094,24.648438 v 3.886718 h -3.886719 v -3.886718 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path449"
+       id="path458"
        d="m 82.425781,23.21875 -1.429687,1.425781 v 3.890625 l 1.429687,1.429688 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path451"
+       id="path460"
        d="m 82.425781,29.964844 -1.433593,-1.429688 h -3.886719 l -1.425781,1.429688 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path453"
+       id="path462"
        d="M 75.679688,29.964844 77.105469,28.53125 V 24.644531 L 75.679688,23.21875 Z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path455"
+       id="path464"
        d="m 75.679688,23.214844 1.429687,1.429687 h 3.886719 l 1.429687,-1.429687 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path457"
+       id="path466"
        d="m 80.996094,34.707031 v 3.882813 h -3.886719 v -3.882813 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path459"
+       id="path468"
        d="m 82.425781,33.273438 -1.429687,1.429687 v 3.886719 l 1.429687,1.433594 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path461"
+       id="path470"
        d="m 82.425781,40.023438 -1.433593,-1.433594 h -3.886719 l -1.425781,1.433594 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path463"
+       id="path472"
        d="m 75.679688,40.019531 1.425781,-1.429687 v -3.886719 l -1.425781,-1.429687 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path465"
+       id="path474"
        d="m 75.679688,33.269531 1.429687,1.433594 h 3.886719 l 1.429687,-1.433594 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path467"
+       id="path476"
        d="m 80.996094,44.761719 v 3.882812 h -3.886719 v -3.882812 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path469"
+       id="path478"
        d="m 82.425781,43.328125 -1.429687,1.433594 v 3.886719 l 1.429687,1.429687 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path471"
+       id="path480"
        d="m 82.425781,50.078125 -1.433593,-1.429687 h -3.886719 l -1.425781,1.429687 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path473"
+       id="path482"
        d="m 75.679688,50.074219 1.425781,-1.429688 v -3.882812 l -1.425781,-1.433594 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path475"
+       id="path484"
        d="m 75.679688,43.324219 1.429687,1.4375 h 3.886719 l 1.429687,-1.4375 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path477"
+       id="path486"
        d="m 80.996094,54.820312 v 3.882813 h -3.886719 v -3.882813 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path479"
+       id="path488"
        d="m 82.425781,53.382812 -1.429687,1.433594 v 3.886719 l 1.429687,1.429687 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path481"
+       id="path490"
        d="m 82.425781,60.132812 -1.433593,-1.429687 h -3.886719 l -1.425781,1.429687 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path483"
+       id="path492"
        d="m 75.679688,60.132812 1.425781,-1.429687 v -3.886719 l -1.425781,-1.433594 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path485"
+       id="path494"
        d="m 75.679688,53.382812 1.429687,1.433594 h 3.886719 l 1.429687,-1.433594 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path487"
+       id="path496"
        d="m 80.996094,64.875 v 3.882812 H 77.109375 V 64.875 Z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path489"
+       id="path498"
        d="m 82.425781,63.441406 -1.429687,1.429688 v 3.886718 l 1.429687,1.433594 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path491"
+       id="path500"
        d="m 82.425781,70.191406 -1.433593,-1.433594 h -3.886719 l -1.425781,1.433594 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path493"
+       id="path502"
        d="m 75.679688,70.1875 1.425781,-1.429688 v -3.886718 l -1.425781,-1.429688 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path495"
+       id="path504"
        d="m 75.679688,63.4375 1.429687,1.433594 h 3.886719 L 82.425781,63.4375 Z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path497"
+       id="path506"
        transform="scale(0.718702)"
        d="m 263.00139,133.99815 v -22.99612 h 119.9972 v 22.99612"
        style="fill:#fff0ca;fill-opacity:1;fill-rule:nonzero;stroke:#d4b554;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1" />
     <path
-       id="path499"
+       id="path508"
        transform="scale(0.718702)"
        d="m 263.00139,133.99815 h 119.9972"
        style="fill:none;stroke:#d4b554;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1" />
     <g
-       id="g511"
+       id="g520"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use501"
+         id="use510"
          y="91.63446"
          x="217.52586"
          xlink:href="#glyph0-1" />
       <use
          height="100%"
          width="100%"
-         id="use503"
+         id="use512"
          y="91.63446"
          x="222.79401"
          xlink:href="#glyph0-2" />
       <use
          height="100%"
          width="100%"
-         id="use505"
+         id="use514"
          y="91.63446"
          x="229.97821"
          xlink:href="#glyph0-3" />
       <use
          height="100%"
          width="100%"
-         id="use507"
+         id="use516"
          y="91.63446"
          x="235.73064"
          xlink:href="#glyph0-4" />
       <use
          height="100%"
          width="100%"
-         id="use509"
+         id="use518"
          y="91.63446"
          x="241.95891"
          xlink:href="#glyph0-6" />
     </g>
     <path
-       id="path513"
+       id="path522"
        transform="matrix(0.718702,0,0,0.718702,0.359351,0.359351)"
        d="m 336.9901,103.50156 c 0,0.33155 -0.0652,0.64679 -0.19023,0.95659 -0.12501,0.30437 -0.30981,0.57612 -0.54352,0.80984 -0.23371,0.23371 -0.50547,0.41307 -0.80983,0.54351 -0.30437,0.12501 -0.62505,0.19023 -0.95659,0.19023 -0.33154,0 -0.65222,-0.0652 -0.95659,-0.19023 -0.30437,-0.13044 -0.57612,-0.3098 -0.80983,-0.54351 -0.23371,-0.23372 -0.41851,-0.50547 -0.54352,-0.80984 -0.12501,-0.3098 -0.19023,-0.62504 -0.19023,-0.95659 0,-0.33154 0.0652,-0.65221 0.19023,-0.95658 0.12501,-0.30981 0.30981,-0.57613 0.54352,-0.81528 0.23371,-0.23371 0.50546,-0.41307 0.80983,-0.53808 0.30437,-0.13044 0.62505,-0.19023 0.95659,-0.19023 0.33154,0 0.65222,0.0598 0.95659,0.19023 0.30436,0.12501 0.57612,0.30437 0.80983,0.53808 0.23371,0.23915 0.41851,0.50547 0.54352,0.81528 0.12501,0.30437 0.19023,0.62504 0.19023,0.95658 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1" />
     <g
-       id="g521"
+       id="g530"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use515"
+         id="use524"
          y="10.061823"
          x="200.04611"
          xlink:href="#glyph1-1" />
       <use
          height="100%"
          width="100%"
-         id="use517"
+         id="use526"
          y="10.061823"
          x="206.75446"
          xlink:href="#glyph1-2" />
       <use
          height="100%"
          width="100%"
-         id="use519"
+         id="use528"
          y="10.061823"
          x="212.98274"
          xlink:href="#glyph1-3" />
     </g>
     <g
-       id="g529"
+       id="g538"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use523"
+         id="use532"
          y="20.123646"
          x="206.26736"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use525"
+         id="use534"
          y="20.123646"
          x="212.01979"
          xlink:href="#glyph1-5" />
       <use
          height="100%"
          width="100%"
-         id="use527"
+         id="use536"
          y="20.123646"
          x="214.41594"
          xlink:href="#glyph1-9" />
     </g>
     <g
-       id="g537"
+       id="g546"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use531"
+         id="use540"
          y="30.185469"
          x="206.26736"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use533"
+         id="use542"
          y="30.185469"
          x="212.01979"
          xlink:href="#glyph1-5" />
       <use
          height="100%"
          width="100%"
-         id="use535"
+         id="use544"
          y="30.185469"
          x="214.41594"
          xlink:href="#glyph1-11" />
     </g>
     <g
-       id="g545"
+       id="g554"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use539"
+         id="use548"
          y="40.247292"
          x="203.39256"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use541"
+         id="use550"
          y="40.247292"
          x="209.14499"
          xlink:href="#glyph1-14" />
       <use
          height="100%"
          width="100%"
-         id="use543"
+         id="use552"
          y="40.247292"
          x="214.41312"
          xlink:href="#glyph1-12" />
     </g>
     <g
-       id="g553"
+       id="g562"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use547"
+         id="use556"
          y="50.309116"
          x="202.4268"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use549"
+         id="use558"
          y="50.309116"
          x="208.17923"
          xlink:href="#glyph1-15" />
       <use
          height="100%"
          width="100%"
-         id="use551"
+         id="use560"
          y="50.309116"
          x="214.40752"
          xlink:href="#glyph1-7" />
     </g>
     <g
-       id="g561"
+       id="g570"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use555"
+         id="use564"
          y="60.370937"
          x="203.39256"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use557"
+         id="use566"
          y="60.370937"
          x="209.14499"
          xlink:href="#glyph1-14" />
       <use
          height="100%"
          width="100%"
-         id="use559"
+         id="use568"
          y="60.370937"
          x="214.41312"
          xlink:href="#glyph1-16" />
     </g>
     <g
-       id="g571"
+       id="g580"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use563"
+         id="use572"
          y="70.432762"
          x="197.63173"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use565"
+         id="use574"
          y="70.432762"
          x="203.38414"
          xlink:href="#glyph1-3" />
       <use
          height="100%"
          width="100%"
-         id="use567"
+         id="use576"
          y="70.432762"
          x="209.61243"
          xlink:href="#glyph1-9" />
       <use
          height="100%"
          width="100%"
-         id="use569"
+         id="use578"
          y="70.432762"
          x="214.40892"
          xlink:href="#glyph1-12" />
     </g>
     <g
        style="clip-rule:nonzero"
-       id="g575"
+       id="g584"
        clip-path="url(#clip3)">
       <path
-         id="path573"
+         id="path582"
          d="M 232.13281,1.457031 V 71.851562 H 222.07812 V 1.457031 Z m 0,0"
          style="fill:#3f3f3f;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     </g>
     <path
-       id="path577"
+       id="path586"
        d="m 229.04687,4.546875 v 3.882813 h -3.88281 V 4.546875 Z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path579"
+       id="path588"
        d="m 230.48047,3.113281 -1.4336,1.429688 v 3.886719 l 1.4336,1.429687 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path581"
+       id="path590"
        d="m 230.48047,9.859375 -1.4375,-1.429687 h -3.88281 l -1.42969,1.429687 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path583"
+       id="path592"
        d="m 223.73047,9.859375 1.42969,-1.429687 V 4.542969 l -1.42969,-1.429688 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path585"
+       id="path594"
        d="m 223.73047,3.109375 1.43359,1.433594 h 3.88281 l 1.4336,-1.433594 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path587"
+       id="path596"
        d="m 229.04687,14.601562 v 3.882813 h -3.88281 v -3.882813 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path589"
+       id="path598"
        d="m 230.48047,13.167969 -1.4336,1.429687 v 3.886719 l 1.4336,1.433594 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path591"
+       id="path600"
        d="m 230.48047,19.917969 -1.4375,-1.433594 h -3.88281 l -1.42969,1.433594 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path593"
+       id="path602"
        d="m 223.73047,19.917969 1.42969,-1.433594 v -3.886719 l -1.42969,-1.429687 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path595"
+       id="path604"
        d="m 223.73047,13.164062 1.43359,1.433594 h 3.88281 l 1.4336,-1.433594 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path597"
+       id="path606"
        d="m 229.04687,24.65625 v 3.882812 h -3.88281 V 24.65625 Z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path599"
+       id="path608"
        d="m 230.48047,23.226562 -1.4336,1.425782 v 3.886718 l 1.4336,1.433594 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path601"
+       id="path610"
        d="m 230.48047,29.972656 -1.4375,-1.433594 h -3.88281 l -1.42969,1.433594 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path603"
+       id="path612"
        d="m 223.73047,29.972656 1.42969,-1.433594 v -3.886718 l -1.42969,-1.425782 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path605"
+       id="path614"
        d="m 223.73047,23.222656 1.43359,1.429688 h 3.88281 l 1.4336,-1.429688 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path607"
+       id="path616"
        d="m 229.04687,34.710938 v 3.886718 h -3.88281 v -3.886718 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path609"
+       id="path618"
        d="m 230.48047,33.28125 -1.4336,1.429688 v 3.886718 l 1.4336,1.433594 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path611"
+       id="path620"
        d="m 230.48047,40.03125 -1.4375,-1.433594 h -3.88281 l -1.42969,1.433594 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path613"
+       id="path622"
        d="m 223.73047,40.027344 1.42969,-1.429688 v -3.886718 l -1.42969,-1.429688 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path615"
+       id="path624"
        d="m 223.73047,33.277344 1.43359,1.433594 h 3.88281 l 1.4336,-1.433594 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path617"
+       id="path626"
        d="m 229.04687,44.769531 v 3.882813 h -3.88281 v -3.882813 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path619"
+       id="path628"
        d="m 230.48047,43.335938 -1.4336,1.429687 v 3.886719 l 1.4336,1.433594 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path621"
+       id="path630"
        d="m 230.48047,50.085938 -1.4375,-1.433594 h -3.88281 l -1.42969,1.433594 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path623"
+       id="path632"
        d="m 223.73047,50.082031 1.42969,-1.429687 v -3.886719 l -1.42969,-1.429687 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path625"
+       id="path634"
        d="m 223.73047,43.332031 1.43359,1.433594 h 3.88281 l 1.4336,-1.433594 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path627"
+       id="path636"
        d="m 229.04687,54.824219 v 3.886719 h -3.88281 v -3.886719 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path629"
+       id="path638"
        d="m 230.48047,53.390625 -1.4336,1.433594 v 3.886719 l 1.4336,1.429687 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path631"
+       id="path640"
        d="m 230.48047,60.140625 -1.4375,-1.429687 h -3.88281 l -1.42969,1.429687 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path633"
+       id="path642"
        d="m 223.73047,60.140625 1.42969,-1.433594 v -3.882812 l -1.42969,-1.433594 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path635"
+       id="path644"
        d="m 223.73047,53.390625 1.43359,1.433594 h 3.88281 l 1.4336,-1.433594 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path637"
+       id="path646"
        d="m 229.04687,64.882812 v 3.882813 h -3.88281 v -3.882813 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path639"
+       id="path648"
        d="m 230.48047,63.449219 -1.4336,1.429687 v 3.886719 l 1.4336,1.433594 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path641"
+       id="path650"
        d="m 230.48047,70.199219 -1.4375,-1.433594 h -3.88281 l -1.42969,1.433594 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path643"
+       id="path652"
        d="m 223.73047,70.195312 1.42969,-1.433593 v -3.882813 l -1.42969,-1.429687 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path645"
+       id="path654"
        d="m 223.73047,63.445312 1.43359,1.433594 h 3.88281 l 1.4336,-1.433594 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <g
-       id="g653"
+       id="g662"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use647"
+         id="use656"
          y="10.061823"
          x="245.07726"
          xlink:href="#glyph1-1" />
       <use
          height="100%"
          width="100%"
-         id="use649"
+         id="use658"
          y="10.061823"
          x="251.78561"
          xlink:href="#glyph1-2" />
       <use
          height="100%"
          width="100%"
-         id="use651"
+         id="use660"
          y="10.061823"
          x="258.01389"
          xlink:href="#glyph1-3" />
     </g>
     <g
-       id="g657"
+       id="g666"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use655"
+         id="use664"
          y="20.123646"
          x="245.07726"
          xlink:href="#glyph1-4" />
     </g>
     <g
-       id="g663"
+       id="g672"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use659"
+         id="use668"
          y="20.123646"
          x="250.18959"
          xlink:href="#glyph1-13" />
       <use
          height="100%"
          width="100%"
-         id="use661"
+         id="use670"
          y="20.123646"
          x="255.942"
          xlink:href="#glyph1-6" />
     </g>
     <g
-       id="g673"
+       id="g682"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use665"
+         id="use674"
          y="30.185469"
          x="245.07726"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use667"
+         id="use676"
          y="30.185469"
          x="250.82968"
          xlink:href="#glyph1-5" />
       <use
          height="100%"
          width="100%"
-         id="use669"
+         id="use678"
          y="30.185469"
          x="253.22581"
          xlink:href="#glyph1-9" />
       <use
          height="100%"
          width="100%"
-         id="use671"
+         id="use680"
          y="30.185469"
          x="258.02231"
          xlink:href="#glyph1-16" />
     </g>
     <g
-       id="g681"
+       id="g690"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use675"
+         id="use684"
          y="40.247292"
          x="245.07726"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use677"
+         id="use686"
          y="40.247292"
          x="250.82968"
          xlink:href="#glyph1-15" />
       <use
          height="100%"
          width="100%"
-         id="use679"
+         id="use688"
          y="40.247292"
          x="257.05795"
          xlink:href="#glyph1-16" />
     </g>
     <g
-       id="g689"
+       id="g698"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use683"
+         id="use692"
          y="50.309116"
          x="245.07726"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use685"
+         id="use694"
          y="50.309116"
          x="250.82968"
          xlink:href="#glyph1-1" />
       <use
          height="100%"
          width="100%"
-         id="use687"
+         id="use696"
          y="50.309116"
          x="257.53802"
          xlink:href="#glyph1-17" />
     </g>
     <g
-       id="g699"
+       id="g708"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use691"
+         id="use700"
          y="60.370937"
          x="245.07726"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use693"
+         id="use702"
          y="60.370937"
          x="250.82968"
          xlink:href="#glyph1-3" />
       <use
          height="100%"
          width="100%"
-         id="use695"
+         id="use704"
          y="60.370937"
          x="257.05795"
          xlink:href="#glyph1-9" />
       <use
          height="100%"
          width="100%"
-         id="use697"
+         id="use706"
          y="60.370937"
          x="261.85446"
          xlink:href="#glyph1-16" />
     </g>
     <g
-       id="g709"
+       id="g718"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use701"
+         id="use710"
          y="70.432762"
          x="245.07726"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use703"
+         id="use712"
          y="70.432762"
          x="250.82968"
          xlink:href="#glyph1-3" />
       <use
          height="100%"
          width="100%"
-         id="use705"
+         id="use714"
          y="70.432762"
          x="257.05795"
          xlink:href="#glyph1-9" />
       <use
          height="100%"
          width="100%"
-         id="use707"
+         id="use716"
          y="70.432762"
          x="261.85446"
          xlink:href="#glyph1-11" />
     </g>
     <g
        style="clip-rule:nonzero"
-       id="g713"
+       id="g722"
        clip-path="url(#clip4)">
       <path
-         id="path711"
+         id="path720"
          d="M 242.19531,1.457031 V 71.851562 H 232.14062 V 1.457031 Z m 0,0"
          style="fill:#3f3f3f;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     </g>
     <path
-       id="path715"
+       id="path724"
        d="m 239.10937,4.546875 v 3.882813 h -3.88671 V 4.546875 Z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path717"
+       id="path726"
        d="m 240.54297,3.113281 -1.4336,1.429688 v 3.886719 l 1.4336,1.429687 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path719"
+       id="path728"
        d="m 240.54297,9.859375 -1.4375,-1.429687 h -3.88281 l -1.42969,1.429687 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path721"
+       id="path730"
        d="m 233.79297,9.859375 1.42969,-1.429687 V 4.542969 l -1.42969,-1.429688 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path723"
+       id="path732"
        d="m 233.79297,3.109375 1.42969,1.433594 h 3.88671 l 1.4336,-1.433594 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path725"
+       id="path734"
        d="m 239.10937,14.601562 v 3.882813 h -3.88671 v -3.882813 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path727"
+       id="path736"
        d="m 240.54297,13.167969 -1.4336,1.429687 v 3.886719 l 1.4336,1.433594 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path729"
+       id="path738"
        d="m 240.54297,19.917969 -1.4375,-1.433594 h -3.88281 l -1.42969,1.433594 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path731"
+       id="path740"
        d="m 233.79297,19.917969 1.42969,-1.433594 v -3.886719 l -1.42969,-1.429687 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path733"
+       id="path742"
        d="m 233.79297,13.164062 1.42969,1.433594 h 3.88671 l 1.4336,-1.433594 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path735"
+       id="path744"
        d="m 239.10937,24.65625 v 3.882812 h -3.88671 V 24.65625 Z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path737"
+       id="path746"
        d="m 240.54297,23.226562 -1.4336,1.425782 v 3.886718 l 1.4336,1.433594 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path739"
+       id="path748"
        d="m 240.54297,29.972656 -1.4375,-1.433594 h -3.88281 l -1.42969,1.433594 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path741"
+       id="path750"
        d="m 233.79297,29.972656 1.42969,-1.433594 v -3.886718 l -1.42969,-1.425782 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path743"
+       id="path752"
        d="m 233.79297,23.222656 1.42969,1.429688 h 3.88671 l 1.4336,-1.429688 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path745"
+       id="path754"
        d="m 239.10937,34.710938 v 3.886718 h -3.88671 v -3.886718 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path747"
+       id="path756"
        d="m 240.54297,33.28125 -1.4336,1.429688 v 3.886718 l 1.4336,1.433594 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path749"
+       id="path758"
        d="m 240.54297,40.03125 -1.4375,-1.433594 h -3.88281 l -1.42969,1.433594 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path751"
+       id="path760"
        d="m 233.79297,40.027344 1.42969,-1.429688 v -3.886718 l -1.42969,-1.429688 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path753"
+       id="path762"
        d="m 233.79297,33.277344 1.42969,1.433594 h 3.88671 l 1.4336,-1.433594 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path755"
+       id="path764"
        d="m 239.10937,44.769531 v 3.882813 h -3.88671 v -3.882813 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path757"
+       id="path766"
        d="m 240.54297,43.335938 -1.4336,1.429687 v 3.886719 l 1.4336,1.433594 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path759"
+       id="path768"
        d="m 240.54297,50.085938 -1.4375,-1.433594 h -3.88281 l -1.42969,1.433594 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path761"
+       id="path770"
        d="m 233.79297,50.082031 1.42969,-1.429687 v -3.886719 l -1.42969,-1.429687 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path763"
+       id="path772"
        d="m 233.79297,43.332031 1.42969,1.433594 h 3.88671 l 1.4336,-1.433594 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path765"
+       id="path774"
        d="m 239.10937,54.824219 v 3.886719 h -3.88671 v -3.886719 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path767"
+       id="path776"
        d="m 240.54297,53.390625 -1.4336,1.433594 v 3.886719 l 1.4336,1.429687 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path769"
+       id="path778"
        d="m 240.54297,60.140625 -1.4375,-1.429687 h -3.88281 l -1.42969,1.429687 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path771"
+       id="path780"
        d="m 233.79297,60.140625 1.42969,-1.433594 v -3.882812 l -1.42969,-1.433594 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path773"
+       id="path782"
        d="m 233.79297,53.390625 1.42969,1.433594 h 3.88671 l 1.4336,-1.433594 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path775"
+       id="path784"
        d="m 239.10937,64.882812 v 3.882813 h -3.88671 v -3.882813 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path777"
+       id="path786"
        d="m 240.54297,63.449219 -1.4336,1.429687 v 3.886719 l 1.4336,1.433594 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path779"
+       id="path788"
        d="m 240.54297,70.199219 -1.4375,-1.433594 h -3.88281 l -1.42969,1.433594 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path781"
+       id="path790"
        d="m 233.79297,70.195312 1.42969,-1.433593 v -3.882813 l -1.42969,-1.429687 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path783"
+       id="path792"
        d="m 233.79297,63.445312 1.42969,1.433594 h 3.88671 l 1.4336,-1.433594 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path785"
+       id="path794"
        d="m 30.902344,225.67187 v -16.53125 h 86.246096 v 16.53125"
        style="fill:#fff0ca;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <g
        style="clip-rule:nonzero"
-       id="g789"
+       id="g798"
        clip-path="url(#clip5)">
       <path
-         id="path787"
+         id="path796"
          transform="scale(0.718702)"
          d="M 42.997458,313.99939 V 290.99784 H 163.0001 v 23.00155"
          style="fill:none;stroke:#d4b554;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1" />
     </g>
     <g
        style="clip-rule:nonzero"
-       id="g793"
+       id="g802"
        clip-path="url(#clip6)">
       <path
-         id="path791"
+         id="path800"
          transform="scale(0.718702)"
          d="M 42.997458,313.99939 H 163.0001"
          style="fill:none;stroke:#d4b554;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1" />
     </g>
     <g
-       id="g805"
+       id="g814"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use795"
+         id="use804"
          y="221.00075"
          x="59.411499"
          xlink:href="#glyph0-1" />
       <use
          height="100%"
          width="100%"
-         id="use797"
+         id="use806"
          y="221.00075"
          x="64.679642"
          xlink:href="#glyph0-2" />
       <use
          height="100%"
          width="100%"
-         id="use799"
+         id="use808"
          y="221.00075"
          x="71.863846"
          xlink:href="#glyph0-3" />
       <use
          height="100%"
          width="100%"
-         id="use801"
+         id="use810"
          y="221.00075"
          x="77.616264"
          xlink:href="#glyph0-4" />
       <use
          height="100%"
          width="100%"
-         id="use803"
+         id="use812"
          y="221.00075"
          x="83.844551"
          xlink:href="#glyph0-7" />
     </g>
     <path
-       id="path807"
+       id="path816"
        transform="matrix(0.718702,0,0,0.718702,0.359351,0.359351)"
        d="m 116.9916,283.49737 c 0,0.33154 -0.0652,0.65222 -0.19023,0.96202 -0.13044,0.30437 -0.3098,0.57612 -0.54351,0.80984 -0.23372,0.23371 -0.50547,0.41307 -0.80984,0.53808 -0.3098,0.13044 -0.62504,0.19023 -0.95659,0.19023 -0.33154,0 -0.65222,-0.0598 -0.95658,-0.19023 -0.30981,-0.12501 -0.57613,-0.30437 -0.81528,-0.53808 -0.23371,-0.23372 -0.41307,-0.50547 -0.53808,-0.80984 -0.13044,-0.3098 -0.19023,-0.63048 -0.19023,-0.96202 0,-0.33155 0.0598,-0.64678 0.19023,-0.95659 0.12501,-0.30437 0.30437,-0.57612 0.53808,-0.80983 0.23915,-0.23372 0.50547,-0.41308 0.81528,-0.53808 0.30436,-0.13045 0.62504,-0.19024 0.95658,-0.19024 0.33155,0 0.64679,0.0598 0.95659,0.19024 0.30437,0.125 0.57612,0.30436 0.80984,0.53808 0.23371,0.23371 0.41307,0.50546 0.54351,0.80983 0.12501,0.30981 0.19023,0.62504 0.19023,0.95659 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1" />
     <g
-       id="g815"
+       id="g824"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use809"
+         id="use818"
          y="139.42812"
          x="41.931747"
          xlink:href="#glyph1-1" />
       <use
          height="100%"
          width="100%"
-         id="use811"
+         id="use820"
          y="139.42812"
          x="48.640099"
          xlink:href="#glyph1-2" />
       <use
          height="100%"
          width="100%"
-         id="use813"
+         id="use822"
          y="139.42812"
          x="54.868378"
          xlink:href="#glyph1-3" />
     </g>
     <g
-       id="g823"
+       id="g832"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use817"
+         id="use826"
          y="149.48994"
          x="48.153011"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use819"
+         id="use828"
          y="149.48994"
          x="53.90543"
          xlink:href="#glyph1-5" />
       <use
          height="100%"
          width="100%"
-         id="use821"
+         id="use830"
          y="149.48994"
          x="56.301571"
          xlink:href="#glyph1-12" />
     </g>
     <g
-       id="g831"
+       id="g840"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use825"
+         id="use834"
          y="159.55176"
          x="45.278202"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use827"
+         id="use836"
          y="159.55176"
          x="51.030624"
          xlink:href="#glyph1-14" />
       <use
          height="100%"
          width="100%"
-         id="use829"
+         id="use838"
          y="159.55176"
          x="56.298763"
          xlink:href="#glyph1-7" />
     </g>
     <g
-       id="g839"
+       id="g848"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use833"
+         id="use842"
          y="169.61359"
          x="45.278202"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use835"
+         id="use844"
          y="169.61359"
          x="51.030624"
          xlink:href="#glyph1-14" />
       <use
          height="100%"
          width="100%"
-         id="use837"
+         id="use846"
          y="169.61359"
          x="56.298763"
          xlink:href="#glyph1-10" />
     </g>
     <g
-       id="g849"
+       id="g858"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use841"
+         id="use850"
          y="179.67542"
          x="39.045712"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use843"
+         id="use852"
          y="179.67542"
          x="44.798134"
          xlink:href="#glyph1-1" />
       <use
          height="100%"
          width="100%"
-         id="use845"
+         id="use854"
          y="179.67542"
          x="51.506481"
          xlink:href="#glyph1-9" />
       <use
          height="100%"
          width="100%"
-         id="use847"
+         id="use856"
          y="179.67542"
          x="56.302975"
          xlink:href="#glyph1-16" />
     </g>
     <g
-       id="g859"
+       id="g868"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use851"
+         id="use860"
          y="189.73723"
          x="43.357922"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use853"
+         id="use862"
          y="189.73723"
          x="49.110344"
          xlink:href="#glyph1-5" />
       <use
          height="100%"
          width="100%"
-         id="use855"
+         id="use864"
          y="189.73723"
          x="51.506481"
          xlink:href="#glyph1-9" />
       <use
          height="100%"
          width="100%"
-         id="use857"
+         id="use866"
          y="189.73723"
          x="56.302975"
          xlink:href="#glyph1-10" />
     </g>
     <g
-       id="g869"
+       id="g878"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use861"
+         id="use870"
          y="199.79906"
          x="43.357922"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use863"
+         id="use872"
          y="199.79906"
          x="49.110344"
          xlink:href="#glyph1-5" />
       <use
          height="100%"
          width="100%"
-         id="use865"
+         id="use874"
          y="199.79906"
          x="51.506481"
          xlink:href="#glyph1-9" />
       <use
          height="100%"
          width="100%"
-         id="use867"
+         id="use876"
          y="199.79906"
          x="56.302975"
          xlink:href="#glyph1-12" />
     </g>
     <g
        style="clip-rule:nonzero"
-       id="g873"
+       id="g882"
        clip-path="url(#clip7)">
       <path
-         id="path871"
+         id="path880"
          d="m 74.027344,130.82422 v 70.39062 H 63.972656 v -70.39062 z m 0,0"
          style="fill:#3f3f3f;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     </g>
     <path
-       id="path875"
+       id="path884"
        d="m 70.941406,133.91016 v 3.88671 h -3.886718 v -3.88671 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path877"
+       id="path886"
        d="m 72.371094,132.47656 -1.429688,1.4336 v 3.88671 l 1.429688,1.42969 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path879"
+       id="path888"
        d="M 72.371094,139.22656 70.9375,137.79687 H 67.050781 L 65.625,139.22656 Z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path881"
+       id="path890"
        d="m 65.625,139.22656 1.425781,-1.43359 v -3.88281 L 65.625,132.47656 Z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path883"
+       id="path892"
        d="m 65.625,132.47656 1.429688,1.4336 h 3.886718 l 1.429688,-1.4336 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path885"
+       id="path894"
        d="m 70.941406,143.96875 v 3.88281 h -3.886718 v -3.88281 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path887"
+       id="path896"
        d="m 72.371094,142.53516 -1.429688,1.42968 v 3.88672 l 1.429688,1.4336 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path889"
+       id="path898"
        d="m 72.371094,149.28516 -1.433594,-1.4336 h -3.886719 l -1.425781,1.4336 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path891"
+       id="path900"
        d="m 65.625,149.28125 1.425781,-1.43359 v -3.88282 L 65.625,142.53516 Z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path893"
+       id="path902"
        d="m 65.625,142.53125 1.429688,1.43359 h 3.886718 l 1.429688,-1.43359 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path895"
+       id="path904"
        d="m 70.941406,154.02344 v 3.88281 h -3.886718 v -3.88281 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path897"
+       id="path906"
        d="m 72.371094,152.58984 -1.429688,1.42969 v 3.88672 l 1.429688,1.43359 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path899"
+       id="path908"
        d="M 72.371094,159.33984 70.9375,157.90625 H 67.050781 L 65.625,159.33984 Z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path901"
+       id="path910"
        d="m 65.625,159.33984 1.425781,-1.43359 v -3.88672 L 65.625,152.58984 Z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path903"
+       id="path912"
        d="m 65.625,152.58984 1.429688,1.42969 h 3.886718 l 1.429688,-1.42969 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path905"
+       id="path914"
        d="m 70.941406,164.07812 v 3.88282 h -3.886718 v -3.88282 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path907"
+       id="path916"
        d="m 72.371094,162.64844 -1.429688,1.42578 v 3.89062 l 1.429688,1.42969 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path909"
+       id="path918"
        d="M 72.371094,169.39453 70.9375,167.96484 H 67.050781 L 65.625,169.39453 Z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path911"
+       id="path920"
        d="m 65.625,169.39453 1.425781,-1.43359 v -3.88672 L 65.625,162.64844 Z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path913"
+       id="path922"
        d="m 65.625,162.64453 1.429688,1.42969 h 3.886718 l 1.429688,-1.42969 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path915"
+       id="path924"
        d="m 70.941406,174.13281 v 3.88672 h -3.886718 v -3.88672 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path917"
+       id="path926"
        d="m 72.371094,172.70312 -1.429688,1.42969 v 3.88672 l 1.429688,1.42969 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path919"
+       id="path928"
        d="M 72.371094,179.44922 70.9375,178.01953 H 67.050781 L 65.625,179.44922 Z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path921"
+       id="path930"
        d="m 65.625,179.44922 1.425781,-1.42969 v -3.88672 L 65.625,172.70312 Z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path923"
+       id="path932"
        d="m 65.625,172.69922 1.429688,1.43359 h 3.886718 l 1.429688,-1.43359 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path925"
+       id="path934"
        d="m 70.941406,184.19141 v 3.88671 h -3.886718 v -3.88671 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path927"
+       id="path936"
        d="m 72.371094,182.75781 -1.429688,1.42969 v 3.89062 l 1.429688,1.42969 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path929"
+       id="path938"
        d="M 72.371094,189.50781 70.9375,188.07812 H 67.050781 L 65.625,189.50781 Z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path931"
+       id="path940"
        d="m 65.625,189.50391 1.425781,-1.42969 V 184.1875 L 65.625,182.75781 Z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path933"
+       id="path942"
        d="m 65.625,182.75391 1.429688,1.43359 h 3.886718 l 1.429688,-1.43359 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path935"
+       id="path944"
        d="m 70.941406,194.25 v 3.88281 H 67.054688 V 194.25 Z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path937"
+       id="path946"
        d="m 72.371094,192.81641 -1.429688,1.42578 v 3.89062 l 1.429688,1.42969 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path939"
+       id="path948"
        d="M 72.371094,199.5625 70.9375,198.13281 H 67.050781 L 65.625,199.5625 Z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path941"
+       id="path950"
        d="m 65.625,199.5625 1.425781,-1.43359 v -3.88672 L 65.625,192.81641 Z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path943"
+       id="path952"
        d="m 65.625,192.8125 1.429688,1.42969 h 3.886718 l 1.429688,-1.42969 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <g
-       id="g951"
+       id="g960"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use945"
+         id="use954"
          y="139.42812"
          x="86.962898"
          xlink:href="#glyph1-1" />
       <use
          height="100%"
          width="100%"
-         id="use947"
+         id="use956"
          y="139.42812"
          x="93.671249"
          xlink:href="#glyph1-2" />
       <use
          height="100%"
          width="100%"
-         id="use949"
+         id="use958"
          y="139.42812"
          x="99.899529"
          xlink:href="#glyph1-3" />
     </g>
     <g
-       id="g959"
+       id="g968"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use953"
+         id="use962"
          y="149.48994"
          x="86.962898"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use955"
+         id="use964"
          y="149.48994"
          x="92.715317"
          xlink:href="#glyph1-18" />
       <use
          height="100%"
          width="100%"
-         id="use957"
+         id="use966"
          y="149.48994"
          x="98.467743"
          xlink:href="#glyph1-9" />
     </g>
     <g
-       id="g967"
+       id="g976"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use961"
+         id="use970"
          y="159.55176"
          x="86.962898"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use963"
+         id="use972"
          y="159.55176"
          x="92.715317"
          xlink:href="#glyph1-18" />
       <use
          height="100%"
          width="100%"
-         id="use965"
+         id="use974"
          y="159.55176"
          x="98.467743"
          xlink:href="#glyph1-11" />
     </g>
     <g
-       id="g977"
+       id="g986"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use969"
+         id="use978"
          y="169.61359"
          x="86.962898"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use971"
+         id="use980"
          y="169.61359"
          x="92.715317"
          xlink:href="#glyph1-5" />
       <use
          height="100%"
          width="100%"
-         id="use973"
+         id="use982"
          y="169.61359"
          x="95.111458"
          xlink:href="#glyph1-9" />
       <use
          height="100%"
          width="100%"
-         id="use975"
+         id="use984"
          y="169.61359"
          x="99.907951"
          xlink:href="#glyph1-7" />
     </g>
     <g
-       id="g985"
+       id="g994"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use979"
+         id="use988"
          y="179.67542"
          x="86.962898"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use981"
+         id="use990"
          y="179.67542"
          x="92.715317"
          xlink:href="#glyph1-5" />
       <use
          height="100%"
          width="100%"
-         id="use983"
+         id="use992"
          y="179.67542"
          x="95.111458"
          xlink:href="#glyph1-16" />
     </g>
     <g
-       id="g993"
+       id="g1002"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use987"
+         id="use996"
          y="189.73723"
          x="86.962898"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use989"
+         id="use998"
          y="189.73723"
          x="92.715317"
          xlink:href="#glyph1-5" />
       <use
          height="100%"
          width="100%"
-         id="use991"
+         id="use1000"
          y="189.73723"
          x="95.111458"
          xlink:href="#glyph1-19" />
     </g>
     <g
-       id="g1001"
+       id="g1010"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use995"
+         id="use1004"
          y="199.79906"
          x="86.962898"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use997"
+         id="use1006"
          y="199.79906"
          x="92.715317"
          xlink:href="#glyph1-5" />
       <use
          height="100%"
          width="100%"
-         id="use999"
+         id="use1008"
          y="199.79906"
          x="95.111458"
          xlink:href="#glyph1-20" />
     </g>
     <g
        style="clip-rule:nonzero"
-       id="g1005"
+       id="g1014"
        clip-path="url(#clip8)">
       <path
-         id="path1003"
+         id="path1012"
          d="m 84.089844,130.81641 v 70.39453 H 74.035156 v -70.39453 z m 0,0"
          style="fill:#3f3f3f;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     </g>
     <path
-       id="path1007"
+       id="path1016"
        d="m 81.003906,133.90625 v 3.88281 h -3.886718 v -3.88281 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1009"
+       id="path1018"
        d="m 82.433594,132.46875 -1.429688,1.43359 v 3.88672 l 1.429688,1.42969 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1011"
+       id="path1020"
        d="M 82.433594,139.21875 81,137.78906 h -3.886719 l -1.425781,1.42969 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1013"
+       id="path1022"
        d="m 75.6875,139.21875 1.425781,-1.42969 v -3.88672 L 75.6875,132.46875 Z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1015"
+       id="path1024"
        d="m 75.6875,132.46875 1.429688,1.43359 h 3.886718 l 1.429688,-1.43359 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1017"
+       id="path1026"
        d="m 81.003906,143.96094 v 3.88281 h -3.886718 v -3.88281 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1019"
+       id="path1028"
        d="m 82.433594,142.52734 -1.429688,1.42969 v 3.88672 l 1.429688,1.43359 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1021"
+       id="path1030"
        d="M 82.433594,149.27734 81,147.84375 h -3.886719 l -1.425781,1.43359 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1023"
+       id="path1032"
        d="m 75.6875,149.27344 1.425781,-1.42969 v -3.88672 L 75.6875,142.52734 Z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1025"
+       id="path1034"
        d="m 75.6875,142.52344 1.429688,1.43359 h 3.886718 l 1.429688,-1.43359 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1027"
+       id="path1036"
        d="m 81.003906,154.01562 v 3.88282 h -3.886718 v -3.88282 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1029"
+       id="path1038"
        d="m 82.433594,152.58203 -1.429688,1.42969 v 3.88672 l 1.429688,1.43359 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1031"
+       id="path1040"
        d="M 82.433594,159.33203 81,157.89844 h -3.886719 l -1.425781,1.43359 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1033"
+       id="path1042"
        d="m 75.6875,159.33203 1.425781,-1.43359 v -3.88672 L 75.6875,152.58203 Z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1035"
+       id="path1044"
        d="m 75.6875,152.58203 1.429688,1.42969 h 3.886718 l 1.429688,-1.42969 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1037"
+       id="path1046"
        d="m 81.003906,164.07031 v 3.88672 h -3.886718 v -3.88672 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1039"
+       id="path1048"
        d="m 82.433594,162.64062 -1.429688,1.42969 v 3.88672 l 1.429688,1.42969 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1041"
+       id="path1050"
        d="M 82.433594,169.38672 81,167.95703 h -3.886719 l -1.425781,1.42969 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1043"
+       id="path1052"
        d="m 75.6875,169.38672 1.425781,-1.42969 v -3.88672 L 75.6875,162.64062 Z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1045"
+       id="path1054"
        d="m 75.6875,162.63672 1.429688,1.43359 h 3.886718 l 1.429688,-1.43359 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1047"
+       id="path1056"
        d="m 81.003906,174.12891 v 3.88281 h -3.886718 v -3.88281 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1049"
+       id="path1058"
        d="m 82.433594,172.69531 -1.429688,1.42969 v 3.88672 l 1.429688,1.42969 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1051"
+       id="path1060"
        d="M 82.433594,179.44141 81,178.01172 h -3.886719 l -1.425781,1.42969 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1053"
+       id="path1062"
        d="m 75.6875,179.44141 1.425781,-1.42969 V 174.125 L 75.6875,172.69531 Z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1055"
+       id="path1064"
        d="m 75.6875,172.69141 1.429688,1.43359 h 3.886718 l 1.429688,-1.43359 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1057"
+       id="path1066"
        d="m 81.003906,184.18359 v 3.88672 h -3.886718 v -3.88672 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1059"
+       id="path1068"
        d="m 82.433594,182.75 -1.429688,1.43359 v 3.88672 L 82.433594,189.5 Z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1061"
+       id="path1070"
        d="M 82.433594,189.5 81,188.07031 H 77.113281 L 75.6875,189.5 Z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1063"
+       id="path1072"
        d="m 75.6875,189.49609 1.425781,-1.42968 v -3.88282 L 75.6875,182.75 Z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1065"
+       id="path1074"
        d="m 75.6875,182.74609 1.429688,1.4375 h 3.886718 l 1.429688,-1.4375 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1067"
+       id="path1076"
        d="m 81.003906,194.24219 v 3.88281 h -3.886718 v -3.88281 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1069"
+       id="path1078"
        d="m 82.433594,192.80859 -1.429688,1.42969 v 3.88672 l 1.429688,1.43359 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1071"
+       id="path1080"
        d="M 82.433594,199.55859 81,198.125 h -3.886719 l -1.425781,1.43359 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1073"
+       id="path1082"
        d="m 75.6875,199.55469 1.425781,-1.4336 v -3.88281 L 75.6875,192.80859 Z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1075"
+       id="path1084"
        d="m 75.6875,192.80469 1.429688,1.43359 h 3.886718 l 1.429688,-1.43359 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1077"
+       id="path1086"
        transform="scale(0.718702)"
        d="m 482.99989,133.99815 v -22.99612 h 120.00264 v 22.99612"
        style="fill:#fff0ca;fill-opacity:1;fill-rule:nonzero;stroke:#d4b554;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1" />
     <path
-       id="path1079"
+       id="path1088"
        transform="scale(0.718702)"
        d="M 482.99989,133.99815 H 603.00253"
        style="fill:none;stroke:#d4b554;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1" />
     <g
-       id="g1091"
+       id="g1100"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use1081"
+         id="use1090"
          y="91.63446"
          x="375.64023"
          xlink:href="#glyph0-1" />
       <use
          height="100%"
          width="100%"
-         id="use1083"
+         id="use1092"
          y="91.63446"
          x="380.90836"
          xlink:href="#glyph0-2" />
       <use
          height="100%"
          width="100%"
-         id="use1085"
+         id="use1094"
          y="91.63446"
          x="388.09256"
          xlink:href="#glyph0-3" />
       <use
          height="100%"
          width="100%"
-         id="use1087"
+         id="use1096"
          y="91.63446"
          x="393.845"
          xlink:href="#glyph0-4" />
       <use
          height="100%"
          width="100%"
-         id="use1089"
+         id="use1098"
          y="91.63446"
          x="400.07327"
          xlink:href="#glyph0-8" />
     </g>
     <path
-       id="path1093"
+       id="path1102"
        transform="matrix(0.718702,0,0,0.718702,0.359351,0.359351)"
        d="m 556.9886,103.50156 c 0,0.33155 -0.0598,0.64679 -0.19024,0.95659 -0.125,0.30437 -0.30436,0.57612 -0.53808,0.80984 -0.23914,0.23371 -0.50546,0.41307 -0.81527,0.54351 -0.30437,0.12501 -0.62504,0.19023 -0.95658,0.19023 -0.33155,0 -0.64679,-0.0652 -0.95659,-0.19023 -0.30437,-0.13044 -0.57612,-0.3098 -0.80984,-0.54351 -0.23371,-0.23372 -0.41307,-0.50547 -0.54351,-0.80984 -0.12501,-0.3098 -0.19023,-0.62504 -0.19023,-0.95659 0,-0.33154 0.0652,-0.65221 0.19023,-0.95658 0.13044,-0.30981 0.3098,-0.57613 0.54351,-0.81528 0.23372,-0.23371 0.50547,-0.41307 0.80984,-0.53808 0.3098,-0.13044 0.62504,-0.19023 0.95659,-0.19023 0.33154,0 0.65221,0.0598 0.95658,0.19023 0.30981,0.12501 0.57613,0.30437 0.81527,0.53808 0.23372,0.23915 0.41308,0.50547 0.53808,0.81528 0.13045,0.30437 0.19024,0.62504 0.19024,0.95658 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1" />
     <g
-       id="g1101"
+       id="g1110"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use1095"
+         id="use1104"
          y="10.061823"
          x="358.16046"
          xlink:href="#glyph1-1" />
       <use
          height="100%"
          width="100%"
-         id="use1097"
+         id="use1106"
          y="10.061823"
          x="364.86884"
          xlink:href="#glyph1-2" />
       <use
          height="100%"
          width="100%"
-         id="use1099"
+         id="use1108"
          y="10.061823"
          x="371.09711"
          xlink:href="#glyph1-3" />
     </g>
     <g
-       id="g1109"
+       id="g1118"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use1103"
+         id="use1112"
          y="20.123646"
          x="360.54117"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use1105"
+         id="use1114"
          y="20.123646"
          x="366.29358"
          xlink:href="#glyph1-15" />
       <use
          height="100%"
          width="100%"
-         id="use1107"
+         id="use1116"
          y="20.123646"
          x="372.52188"
          xlink:href="#glyph1-10" />
     </g>
     <g
-       id="g1117"
+       id="g1126"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use1111"
+         id="use1120"
          y="30.185469"
          x="360.06952"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use1113"
+         id="use1122"
          y="30.185469"
          x="365.82193"
          xlink:href="#glyph1-1" />
       <use
          height="100%"
          width="100%"
-         id="use1115"
+         id="use1124"
          y="30.185469"
          x="372.5303"
          xlink:href="#glyph1-10" />
     </g>
     <g
-       id="g1125"
+       id="g1134"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use1119"
+         id="use1128"
          y="40.247292"
          x="360.54117"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use1121"
+         id="use1130"
          y="40.247292"
          x="366.29358"
          xlink:href="#glyph1-15" />
       <use
          height="100%"
          width="100%"
-         id="use1123"
+         id="use1132"
          y="40.247292"
          x="372.52188"
          xlink:href="#glyph1-19" />
     </g>
     <g
-       id="g1133"
+       id="g1142"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use1127"
+         id="use1136"
          y="50.309116"
          x="360.54117"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use1129"
+         id="use1138"
          y="50.309116"
          x="366.29358"
          xlink:href="#glyph1-15" />
       <use
          height="100%"
          width="100%"
-         id="use1131"
+         id="use1140"
          y="50.309116"
          x="372.52188"
          xlink:href="#glyph1-6" />
     </g>
     <g
-       id="g1141"
+       id="g1150"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use1135"
+         id="use1144"
          y="60.370937"
          x="360.54117"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use1137"
+         id="use1146"
          y="60.370937"
          x="366.29358"
          xlink:href="#glyph1-15" />
       <use
          height="100%"
          width="100%"
-         id="use1139"
+         id="use1148"
          y="60.370937"
          x="372.52188"
          xlink:href="#glyph1-17" />
     </g>
     <g
-       id="g1149"
+       id="g1158"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use1143"
+         id="use1152"
          y="70.432762"
          x="360.06952"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use1145"
+         id="use1154"
          y="70.432762"
          x="365.82193"
          xlink:href="#glyph1-1" />
       <use
          height="100%"
          width="100%"
-         id="use1147"
+         id="use1156"
          y="70.432762"
          x="372.5303"
          xlink:href="#glyph1-12" />
     </g>
     <g
        style="clip-rule:nonzero"
-       id="g1153"
+       id="g1162"
        clip-path="url(#clip9)">
       <path
-         id="path1151"
+         id="path1160"
          d="M 390.24609,1.457031 V 71.851562 H 380.19141 V 1.457031 Z m 0,0"
          style="fill:#3f3f3f;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     </g>
     <path
-       id="path1155"
+       id="path1164"
        d="m 387.16406,4.546875 v 3.882813 h -3.88672 V 4.546875 Z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1157"
+       id="path1166"
        d="m 388.59375,3.109375 -1.42969,1.433594 v 3.886719 l 1.42969,1.429687 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1159"
+       id="path1168"
        d="m 388.59375,9.859375 -1.43359,-1.429687 h -3.88672 l -1.42969,1.429687 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1161"
+       id="path1170"
        d="m 381.84375,9.859375 1.42969,-1.429687 V 4.542969 l -1.42969,-1.433594 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1163"
+       id="path1172"
        d="m 381.84375,3.109375 1.43359,1.433594 h 3.88672 l 1.42969,-1.433594 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1165"
+       id="path1174"
        d="m 387.16406,14.601562 v 3.882813 h -3.88672 v -3.882813 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1167"
+       id="path1176"
        d="m 388.59375,13.167969 -1.42969,1.429687 v 3.886719 l 1.42969,1.433594 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1169"
+       id="path1178"
        d="m 388.59375,19.917969 -1.43359,-1.433594 h -3.88672 l -1.42969,1.433594 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1171"
+       id="path1180"
        d="m 381.84375,19.917969 1.42969,-1.433594 v -3.886719 l -1.42969,-1.429687 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1173"
+       id="path1182"
        d="m 381.84375,13.164062 1.43359,1.433594 h 3.88672 l 1.42969,-1.433594 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1175"
+       id="path1184"
        d="m 387.16406,24.65625 v 3.882812 h -3.88672 V 24.65625 Z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1177"
+       id="path1186"
        d="m 388.59375,23.226562 -1.42969,1.425782 v 3.886718 l 1.42969,1.433594 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1179"
+       id="path1188"
        d="m 388.59375,29.972656 -1.43359,-1.433594 h -3.88672 l -1.42969,1.433594 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1181"
+       id="path1190"
        d="m 381.84375,29.972656 1.42969,-1.433594 v -3.886718 l -1.42969,-1.425782 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1183"
+       id="path1192"
        d="m 381.84375,23.222656 1.43359,1.429688 h 3.88672 l 1.42969,-1.429688 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1185"
+       id="path1194"
        d="m 387.16406,34.710938 v 3.886718 h -3.88672 v -3.886718 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1187"
+       id="path1196"
        d="m 388.59375,33.28125 -1.42969,1.429688 v 3.886718 l 1.42969,1.433594 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1189"
+       id="path1198"
        d="m 388.59375,40.03125 -1.43359,-1.433594 h -3.88672 l -1.42969,1.433594 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1191"
+       id="path1200"
        d="m 381.84375,40.027344 1.42969,-1.429688 v -3.886718 l -1.42969,-1.429688 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1193"
+       id="path1202"
        d="m 381.84375,33.277344 1.43359,1.433594 h 3.88672 l 1.42969,-1.433594 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1195"
+       id="path1204"
        d="m 387.16406,44.769531 v 3.882813 h -3.88672 v -3.882813 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1197"
+       id="path1206"
        d="m 388.59375,43.335938 -1.42969,1.429687 v 3.886719 l 1.42969,1.433594 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1199"
+       id="path1208"
        d="m 388.59375,50.085938 -1.43359,-1.433594 h -3.88672 l -1.42969,1.433594 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1201"
+       id="path1210"
        d="m 381.84375,50.082031 1.42969,-1.429687 v -3.886719 l -1.42969,-1.429687 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1203"
+       id="path1212"
        d="m 381.84375,43.332031 1.43359,1.433594 h 3.88672 l 1.42969,-1.433594 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1205"
+       id="path1214"
        d="m 387.16406,54.824219 v 3.886719 h -3.88672 v -3.886719 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1207"
+       id="path1216"
        d="m 388.59375,53.390625 -1.42969,1.433594 v 3.886719 l 1.42969,1.429687 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1209"
+       id="path1218"
        d="m 388.59375,60.140625 -1.43359,-1.429687 h -3.88672 l -1.42969,1.429687 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1211"
+       id="path1220"
        d="m 381.84375,60.140625 1.42969,-1.433594 v -3.882812 l -1.42969,-1.433594 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1213"
+       id="path1222"
        d="m 381.84375,53.386719 1.43359,1.4375 h 3.88672 l 1.42969,-1.4375 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1215"
+       id="path1224"
        d="m 387.16406,64.882812 v 3.882813 h -3.88672 v -3.882813 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1217"
+       id="path1226"
        d="m 388.59375,63.449219 -1.42969,1.429687 v 3.886719 l 1.42969,1.433594 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1219"
+       id="path1228"
        d="m 388.59375,70.199219 -1.43359,-1.433594 h -3.88672 l -1.42969,1.433594 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1221"
+       id="path1230"
        d="m 381.84375,70.195312 1.42969,-1.433593 v -3.882813 l -1.42969,-1.429687 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1223"
+       id="path1232"
        d="m 381.84375,63.445312 1.43359,1.433594 h 3.88672 l 1.42969,-1.433594 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <g
-       id="g1231"
+       id="g1240"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use1225"
+         id="use1234"
          y="10.061823"
          x="403.19162"
          xlink:href="#glyph1-1" />
       <use
          height="100%"
          width="100%"
-         id="use1227"
+         id="use1236"
          y="10.061823"
          x="409.89996"
          xlink:href="#glyph1-2" />
       <use
          height="100%"
          width="100%"
-         id="use1229"
+         id="use1238"
          y="10.061823"
          x="416.12827"
          xlink:href="#glyph1-3" />
     </g>
     <g
-       id="g1239"
+       id="g1248"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use1233"
+         id="use1242"
          y="20.123646"
          x="403.19162"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use1235"
+         id="use1244"
          y="20.123646"
          x="408.94403"
          xlink:href="#glyph1-1" />
       <use
          height="100%"
          width="100%"
-         id="use1237"
+         id="use1246"
          y="20.123646"
          x="415.6524"
          xlink:href="#glyph1-7" />
     </g>
     <g
-       id="g1249"
+       id="g1258"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use1241"
+         id="use1250"
          y="30.185469"
          x="403.19162"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use1243"
+         id="use1252"
          y="30.185469"
          x="408.94403"
          xlink:href="#glyph1-15" />
       <use
          height="100%"
          width="100%"
-         id="use1245"
+         id="use1254"
          y="30.185469"
          x="415.17233"
          xlink:href="#glyph1-9" />
       <use
          height="100%"
          width="100%"
-         id="use1247"
+         id="use1256"
          y="30.185469"
          x="419.96881"
          xlink:href="#glyph1-10" />
     </g>
     <g
-       id="g1257"
+       id="g1266"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use1251"
+         id="use1260"
          y="40.247292"
          x="403.19162"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use1253"
+         id="use1262"
          y="40.247292"
          x="408.94403"
          xlink:href="#glyph1-15" />
       <use
          height="100%"
          width="100%"
-         id="use1255"
+         id="use1264"
          y="40.247292"
          x="415.17233"
          xlink:href="#glyph1-9" />
     </g>
     <g
-       id="g1261"
+       id="g1270"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use1259"
+         id="use1268"
          y="40.247292"
          x="419.3287"
          xlink:href="#glyph1-9" />
     </g>
     <g
-       id="g1271"
+       id="g1280"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use1263"
+         id="use1272"
          y="50.309116"
          x="403.19162"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use1265"
+         id="use1274"
          y="50.309116"
          x="408.94403"
          xlink:href="#glyph1-15" />
       <use
          height="100%"
          width="100%"
-         id="use1267"
+         id="use1276"
          y="50.309116"
          x="415.17233"
          xlink:href="#glyph1-9" />
       <use
          height="100%"
          width="100%"
-         id="use1269"
+         id="use1278"
          y="50.309116"
          x="419.96881"
          xlink:href="#glyph1-11" />
     </g>
     <g
-       id="g1279"
+       id="g1288"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use1273"
+         id="use1282"
          y="60.370937"
          x="403.19162"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use1275"
+         id="use1284"
          y="60.370937"
          x="408.94403"
          xlink:href="#glyph1-15" />
       <use
          height="100%"
          width="100%"
-         id="use1277"
+         id="use1286"
          y="60.370937"
          x="415.17233"
          xlink:href="#glyph1-20" />
     </g>
     <g
-       id="g1287"
+       id="g1296"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use1281"
+         id="use1290"
          y="70.432762"
          x="403.19162"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use1283"
+         id="use1292"
          y="70.432762"
          x="408.94403"
          xlink:href="#glyph1-1" />
       <use
          height="100%"
          width="100%"
-         id="use1285"
+         id="use1294"
          y="70.432762"
          x="415.6524"
          xlink:href="#glyph1-16" />
     </g>
     <g
        style="clip-rule:nonzero"
-       id="g1291"
+       id="g1300"
        clip-path="url(#clip10)">
       <path
-         id="path1289"
+         id="path1298"
          d="M 400.30859,1.457031 V 71.851562 H 390.25391 V 1.457031 Z m 0,0"
          style="fill:#3f3f3f;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     </g>
     <path
-       id="path1293"
+       id="path1302"
        d="m 397.22266,4.546875 v 3.882813 h -3.88282 V 4.546875 Z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1295"
+       id="path1304"
        d="m 398.65625,3.113281 -1.43359,1.429688 v 3.886719 l 1.43359,1.429687 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1297"
+       id="path1306"
        d="m 398.65625,9.859375 -1.4375,-1.429687 h -3.88281 l -1.42969,1.429687 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1299"
+       id="path1308"
        d="m 391.90625,9.859375 1.42969,-1.429687 V 4.542969 l -1.42969,-1.429688 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1301"
+       id="path1310"
        d="m 391.90625,3.109375 1.43359,1.433594 h 3.88282 l 1.43359,-1.433594 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1303"
+       id="path1312"
        d="m 397.22266,14.601562 v 3.882813 h -3.88282 v -3.882813 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1305"
+       id="path1314"
        d="m 398.65625,13.167969 -1.43359,1.429687 v 3.886719 l 1.43359,1.433594 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1307"
+       id="path1316"
        d="m 398.65625,19.917969 -1.4375,-1.433594 h -3.88281 l -1.42969,1.433594 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1309"
+       id="path1318"
        d="m 391.90625,19.917969 1.42969,-1.433594 v -3.886719 l -1.42969,-1.429687 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1311"
+       id="path1320"
        d="m 391.90625,13.164062 1.43359,1.433594 h 3.88282 l 1.43359,-1.433594 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1313"
+       id="path1322"
        d="m 397.22266,24.65625 v 3.882812 h -3.88282 V 24.65625 Z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1315"
+       id="path1324"
        d="m 398.65625,23.226562 -1.43359,1.425782 v 3.886718 l 1.43359,1.433594 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1317"
+       id="path1326"
        d="m 398.65625,29.972656 -1.4375,-1.433594 h -3.88281 l -1.42969,1.433594 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1319"
+       id="path1328"
        d="m 391.90625,29.972656 1.42969,-1.433594 v -3.886718 l -1.42969,-1.425782 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1321"
+       id="path1330"
        d="m 391.90625,23.222656 1.43359,1.429688 h 3.88282 l 1.43359,-1.429688 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1323"
+       id="path1332"
        d="m 397.22266,34.710938 v 3.886718 h -3.88282 v -3.886718 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1325"
+       id="path1334"
        d="m 398.65625,33.28125 -1.43359,1.429688 v 3.886718 l 1.43359,1.433594 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1327"
+       id="path1336"
        d="m 398.65625,40.03125 -1.4375,-1.433594 h -3.88281 l -1.42969,1.433594 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1329"
+       id="path1338"
        d="m 391.90625,40.027344 1.42969,-1.429688 v -3.886718 l -1.42969,-1.429688 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1331"
+       id="path1340"
        d="m 391.90625,33.277344 1.43359,1.433594 h 3.88282 l 1.43359,-1.433594 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1333"
+       id="path1342"
        d="m 397.22266,44.769531 v 3.882813 h -3.88282 v -3.882813 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1335"
+       id="path1344"
        d="m 398.65625,43.335938 -1.43359,1.429687 v 3.886719 l 1.43359,1.433594 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1337"
+       id="path1346"
        d="m 398.65625,50.085938 -1.4375,-1.433594 h -3.88281 l -1.42969,1.433594 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1339"
+       id="path1348"
        d="m 391.90625,50.082031 1.42969,-1.429687 v -3.886719 l -1.42969,-1.429687 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1341"
+       id="path1350"
        d="m 391.90625,43.332031 1.43359,1.433594 h 3.88282 l 1.43359,-1.433594 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1343"
+       id="path1352"
        d="m 397.22266,54.824219 v 3.886719 h -3.88282 v -3.886719 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1345"
+       id="path1354"
        d="m 398.65625,53.390625 -1.43359,1.433594 v 3.886719 l 1.43359,1.429687 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1347"
+       id="path1356"
        d="m 398.65625,60.140625 -1.4375,-1.429687 h -3.88281 l -1.42969,1.429687 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1349"
+       id="path1358"
        d="m 391.90625,60.140625 1.42969,-1.433594 v -3.882812 l -1.42969,-1.433594 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1351"
+       id="path1360"
        d="m 391.90625,53.390625 1.43359,1.433594 h 3.88282 l 1.43359,-1.433594 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1353"
+       id="path1362"
        d="m 397.22266,64.882812 v 3.882813 h -3.88282 v -3.882813 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1355"
+       id="path1364"
        d="m 398.65625,63.449219 -1.43359,1.429687 v 3.886719 l 1.43359,1.433594 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1357"
+       id="path1366"
        d="m 398.65625,70.199219 -1.4375,-1.433594 h -3.88281 l -1.42969,1.433594 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1359"
+       id="path1368"
        d="m 391.90625,70.195312 1.42969,-1.433593 v -3.882813 l -1.42969,-1.429687 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1361"
+       id="path1370"
        d="m 391.90625,63.445312 1.43359,1.433594 h 3.88282 l 1.43359,-1.433594 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1363"
+       id="path1372"
        d="m 189.01953,225.67187 v -16.53125 h 86.24219 v 16.53125"
        style="fill:#fff0ca;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <g
        style="clip-rule:nonzero"
-       id="g1367"
+       id="g1376"
        clip-path="url(#clip11)">
       <path
-         id="path1365"
+         id="path1374"
          transform="scale(0.718702)"
          d="m 263.00139,313.99939 v -23.00155 h 119.9972 v 23.00155"
          style="fill:none;stroke:#d4b554;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1" />
     </g>
     <g
        style="clip-rule:nonzero"
-       id="g1371"
+       id="g1380"
        clip-path="url(#clip12)">
       <path
-         id="path1369"
+         id="path1378"
          transform="scale(0.718702)"
          d="m 263.00139,313.99939 h 119.9972"
          style="fill:none;stroke:#d4b554;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1" />
     </g>
     <g
-       id="g1383"
+       id="g1392"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use1373"
+         id="use1382"
          y="221.00075"
          x="217.52586"
          xlink:href="#glyph0-1" />
       <use
          height="100%"
          width="100%"
-         id="use1375"
+         id="use1384"
          y="221.00075"
          x="222.79401"
          xlink:href="#glyph0-2" />
       <use
          height="100%"
          width="100%"
-         id="use1377"
+         id="use1386"
          y="221.00075"
          x="229.97821"
          xlink:href="#glyph0-3" />
       <use
          height="100%"
          width="100%"
-         id="use1379"
+         id="use1388"
          y="221.00075"
          x="235.73064"
          xlink:href="#glyph0-4" />
       <use
          height="100%"
          width="100%"
-         id="use1381"
+         id="use1390"
          y="221.00075"
          x="241.95891"
          xlink:href="#glyph0-9" />
     </g>
     <path
-       id="path1385"
+       id="path1394"
        transform="matrix(0.718702,0,0,0.718702,0.359351,0.359351)"
        d="m 336.9901,283.49737 c 0,0.33154 -0.0652,0.65222 -0.19023,0.96202 -0.12501,0.30437 -0.30981,0.57612 -0.54352,0.80984 -0.23371,0.23371 -0.50547,0.41307 -0.80983,0.53808 -0.30437,0.13044 -0.62505,0.19023 -0.95659,0.19023 -0.33154,0 -0.65222,-0.0598 -0.95659,-0.19023 -0.30437,-0.12501 -0.57612,-0.30437 -0.80983,-0.53808 -0.23371,-0.23372 -0.41851,-0.50547 -0.54352,-0.80984 -0.12501,-0.3098 -0.19023,-0.63048 -0.19023,-0.96202 0,-0.33155 0.0652,-0.64678 0.19023,-0.95659 0.12501,-0.30437 0.30981,-0.57612 0.54352,-0.80983 0.23371,-0.23372 0.50546,-0.41308 0.80983,-0.53808 0.30437,-0.13045 0.62505,-0.19024 0.95659,-0.19024 0.33154,0 0.65222,0.0598 0.95659,0.19024 0.30436,0.125 0.57612,0.30436 0.80983,0.53808 0.23371,0.23371 0.41851,0.50546 0.54352,0.80983 0.12501,0.30981 0.19023,0.62504 0.19023,0.95659 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1" />
     <g
-       id="g1393"
+       id="g1402"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use1387"
+         id="use1396"
          y="139.42812"
          x="200.04611"
          xlink:href="#glyph1-1" />
       <use
          height="100%"
          width="100%"
-         id="use1389"
+         id="use1398"
          y="139.42812"
          x="206.75446"
          xlink:href="#glyph1-2" />
       <use
          height="100%"
          width="100%"
-         id="use1391"
+         id="use1400"
          y="139.42812"
          x="212.98274"
          xlink:href="#glyph1-3" />
     </g>
     <g
-       id="g1403"
+       id="g1412"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use1395"
+         id="use1404"
          y="149.48994"
          x="198.11459"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use1397"
+         id="use1406"
          y="149.48994"
          x="203.86702"
          xlink:href="#glyph1-18" />
       <use
          height="100%"
          width="100%"
-         id="use1399"
+         id="use1408"
          y="149.48994"
          x="209.61945"
          xlink:href="#glyph1-9" />
       <use
          height="100%"
          width="100%"
-         id="use1401"
+         id="use1410"
          y="149.48994"
          x="214.41594"
          xlink:href="#glyph1-7" />
     </g>
     <g
-       id="g1413"
+       id="g1422"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use1405"
+         id="use1414"
          y="159.55176"
          x="198.11459"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use1407"
+         id="use1416"
          y="159.55176"
          x="203.86702"
          xlink:href="#glyph1-18" />
       <use
          height="100%"
          width="100%"
-         id="use1409"
+         id="use1418"
          y="159.55176"
          x="209.61945"
          xlink:href="#glyph1-9" />
       <use
          height="100%"
          width="100%"
-         id="use1411"
+         id="use1420"
          y="159.55176"
          x="214.41594"
          xlink:href="#glyph1-16" />
     </g>
     <g
-       id="g1423"
+       id="g1432"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use1415"
+         id="use1424"
          y="169.61359"
          x="198.11459"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use1417"
+         id="use1426"
          y="169.61359"
          x="203.86702"
          xlink:href="#glyph1-18" />
       <use
          height="100%"
          width="100%"
-         id="use1419"
+         id="use1428"
          y="169.61359"
          x="209.61945"
          xlink:href="#glyph1-9" />
       <use
          height="100%"
          width="100%"
-         id="use1421"
+         id="use1430"
          y="169.61359"
          x="214.41594"
          xlink:href="#glyph1-10" />
     </g>
     <g
-       id="g1431"
+       id="g1440"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use1425"
+         id="use1434"
          y="179.67542"
          x="199.23756"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use1427"
+         id="use1436"
          y="179.67542"
          x="204.98999"
          xlink:href="#glyph1-14" />
       <use
          height="100%"
          width="100%"
-         id="use1429"
+         id="use1438"
          y="179.67542"
          x="210.25813"
          xlink:href="#glyph1-9" />
     </g>
     <g
-       id="g1435"
+       id="g1444"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use1433"
+         id="use1442"
          y="179.67542"
          x="214.41454"
          xlink:href="#glyph1-9" />
     </g>
     <g
-       id="g1443"
+       id="g1452"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use1437"
+         id="use1446"
          y="189.73723"
          x="201.95515"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use1439"
+         id="use1448"
          y="189.73723"
          x="207.70758"
          xlink:href="#glyph1-1" />
       <use
          height="100%"
          width="100%"
-         id="use1441"
+         id="use1450"
          y="189.73723"
          x="214.41594"
          xlink:href="#glyph1-11" />
     </g>
     <g
-       id="g1453"
+       id="g1462"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use1445"
+         id="use1454"
          y="199.79906"
          x="198.59749"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use1447"
+         id="use1456"
          y="199.79906"
          x="204.3499"
          xlink:href="#glyph1-14" />
       <use
          height="100%"
          width="100%"
-         id="use1449"
+         id="use1458"
          y="199.79906"
          x="209.61804"
          xlink:href="#glyph1-9" />
       <use
          height="100%"
          width="100%"
-         id="use1451"
+         id="use1460"
          y="199.79906"
          x="214.41454"
          xlink:href="#glyph1-7" />
     </g>
     <g
        style="clip-rule:nonzero"
-       id="g1457"
+       id="g1466"
        clip-path="url(#clip13)">
       <path
-         id="path1455"
+         id="path1464"
          d="m 232.14062,130.82422 v 70.39062 h -10.05468 v -70.39062 z m 0,0"
          style="fill:#3f3f3f;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     </g>
     <path
-       id="path1459"
+       id="path1468"
        d="m 229.05469,133.91016 v 3.88671 h -3.88672 v -3.88671 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1461"
+       id="path1470"
        d="m 230.48828,132.47656 -1.43359,1.4336 v 3.88671 l 1.43359,1.42969 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1463"
+       id="path1472"
        d="m 230.48828,139.22656 -1.4375,-1.42969 h -3.88281 l -1.42969,1.42969 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1465"
+       id="path1474"
        d="m 223.73828,139.22656 1.42969,-1.43359 v -3.88281 l -1.42969,-1.4336 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1467"
+       id="path1476"
        d="m 223.73828,132.47656 1.42969,1.4336 h 3.88672 l 1.43359,-1.4336 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1469"
+       id="path1478"
        d="m 229.05469,143.96875 v 3.88281 h -3.88672 v -3.88281 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1471"
+       id="path1480"
        d="m 230.48828,142.53516 -1.43359,1.42968 v 3.88672 l 1.43359,1.4336 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1473"
+       id="path1482"
        d="m 230.48828,149.28516 -1.4375,-1.4336 h -3.88281 l -1.42969,1.4336 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1475"
+       id="path1484"
        d="m 223.73828,149.28125 1.42969,-1.43359 v -3.88282 l -1.42969,-1.42968 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1477"
+       id="path1486"
        d="m 223.73828,142.53125 1.42969,1.43359 h 3.88672 l 1.43359,-1.43359 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1479"
+       id="path1488"
        d="m 229.05469,154.02344 v 3.88281 h -3.88672 v -3.88281 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1481"
+       id="path1490"
        d="m 230.48828,152.58984 -1.43359,1.42969 v 3.88672 l 1.43359,1.43359 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1483"
+       id="path1492"
        d="m 230.48828,159.33984 -1.4375,-1.43359 h -3.88281 l -1.42969,1.43359 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1485"
+       id="path1494"
        d="m 223.73828,159.33984 1.42969,-1.43359 v -3.88672 l -1.42969,-1.42969 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1487"
+       id="path1496"
        d="m 223.73828,152.58984 1.42969,1.42969 h 3.88672 l 1.43359,-1.42969 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1489"
+       id="path1498"
        d="m 229.05469,164.07812 v 3.88282 h -3.88672 v -3.88282 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1491"
+       id="path1500"
        d="m 230.48828,162.64844 -1.43359,1.42578 v 3.89062 l 1.43359,1.42969 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1493"
+       id="path1502"
        d="m 230.48828,169.39453 -1.4375,-1.42969 h -3.88281 l -1.42969,1.42969 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1495"
+       id="path1504"
        d="m 223.73828,169.39453 1.42969,-1.43359 v -3.88672 l -1.42969,-1.42578 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1497"
+       id="path1506"
        d="m 223.73828,162.64453 1.42969,1.42969 h 3.88672 l 1.43359,-1.42969 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1499"
+       id="path1508"
        d="m 229.05469,174.13281 v 3.88672 h -3.88672 v -3.88672 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1501"
+       id="path1510"
        d="m 230.48828,172.70312 -1.43359,1.42969 v 3.88672 l 1.43359,1.42969 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1503"
+       id="path1512"
        d="m 230.48828,179.44922 -1.4375,-1.42969 h -3.88281 l -1.42969,1.42969 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1505"
+       id="path1514"
        d="m 223.73828,179.44922 1.42969,-1.42969 v -3.88672 l -1.42969,-1.42969 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1507"
+       id="path1516"
        d="m 223.73828,172.69922 1.42969,1.43359 h 3.88672 l 1.43359,-1.43359 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1509"
+       id="path1518"
        d="m 229.05469,184.19141 v 3.88671 h -3.88672 v -3.88671 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1511"
+       id="path1520"
        d="m 230.48828,182.75781 -1.43359,1.42969 v 3.89062 l 1.43359,1.42969 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1513"
+       id="path1522"
        d="m 230.48828,189.50781 -1.4375,-1.42969 h -3.88281 l -1.42969,1.42969 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1515"
+       id="path1524"
        d="m 223.73828,189.50391 1.42969,-1.42969 v -3.88672 l -1.42969,-1.42969 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1517"
+       id="path1526"
        d="m 223.73828,182.75391 1.42969,1.43359 h 3.88672 l 1.43359,-1.43359 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1519"
+       id="path1528"
        d="m 229.05469,194.25 v 3.88281 h -3.88672 V 194.25 Z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1521"
+       id="path1530"
        d="m 230.48828,192.81641 -1.43359,1.42578 v 3.89062 l 1.43359,1.42969 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1523"
+       id="path1532"
        d="m 230.48828,199.5625 -1.4375,-1.42969 h -3.88281 l -1.42969,1.42969 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1525"
+       id="path1534"
        d="m 223.73828,199.5625 1.42969,-1.43359 v -3.88672 l -1.42969,-1.42578 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1527"
+       id="path1536"
        d="m 223.73828,192.8125 1.42969,1.42969 h 3.88672 l 1.43359,-1.42969 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <g
-       id="g1535"
+       id="g1544"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use1529"
+         id="use1538"
          y="139.42812"
          x="245.07726"
          xlink:href="#glyph1-1" />
       <use
          height="100%"
          width="100%"
-         id="use1531"
+         id="use1540"
          y="139.42812"
          x="251.78561"
          xlink:href="#glyph1-2" />
       <use
          height="100%"
          width="100%"
-         id="use1533"
+         id="use1542"
          y="139.42812"
          x="258.01389"
          xlink:href="#glyph1-3" />
     </g>
     <g
-       id="g1545"
+       id="g1554"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use1537"
+         id="use1546"
          y="149.48994"
          x="245.07726"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use1539"
+         id="use1548"
          y="149.48994"
          x="250.82968"
          xlink:href="#glyph1-18" />
       <use
          height="100%"
          width="100%"
-         id="use1541"
+         id="use1550"
          y="149.48994"
          x="256.58209"
          xlink:href="#glyph1-9" />
       <use
          height="100%"
          width="100%"
-         id="use1543"
+         id="use1552"
          y="149.48994"
          x="261.3786"
          xlink:href="#glyph1-12" />
     </g>
     <g
-       id="g1553"
+       id="g1562"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use1547"
+         id="use1556"
          y="159.55176"
          x="245.07726"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use1549"
+         id="use1558"
          y="159.55176"
          x="250.82968"
          xlink:href="#glyph1-18" />
       <use
          height="100%"
          width="100%"
-         id="use1551"
+         id="use1560"
          y="159.55176"
          x="256.58209"
          xlink:href="#glyph1-9" />
     </g>
     <g
-       id="g1557"
+       id="g1566"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use1555"
+         id="use1564"
          y="159.55176"
          x="260.73849"
          xlink:href="#glyph1-9" />
     </g>
     <g
-       id="g1567"
+       id="g1576"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use1559"
+         id="use1568"
          y="169.61359"
          x="245.07726"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use1561"
+         id="use1570"
          y="169.61359"
          x="250.82968"
          xlink:href="#glyph1-14" />
       <use
          height="100%"
          width="100%"
-         id="use1563"
+         id="use1572"
          y="169.61359"
          x="256.09781"
          xlink:href="#glyph1-9" />
       <use
          height="100%"
          width="100%"
-         id="use1565"
+         id="use1574"
          y="169.61359"
          x="260.89432"
          xlink:href="#glyph1-16" />
     </g>
     <g
-       id="g1575"
+       id="g1584"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use1569"
+         id="use1578"
          y="179.67542"
          x="245.07726"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use1571"
+         id="use1580"
          y="179.67542"
          x="250.82968"
          xlink:href="#glyph1-1" />
       <use
          height="100%"
          width="100%"
-         id="use1573"
+         id="use1582"
          y="179.67542"
          x="257.53802"
          xlink:href="#glyph1-9" />
     </g>
     <g
-       id="g1585"
+       id="g1594"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use1577"
+         id="use1586"
          y="189.73723"
          x="245.07726"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use1579"
+         id="use1588"
          y="189.73723"
          x="250.82968"
          xlink:href="#glyph1-14" />
       <use
          height="100%"
          width="100%"
-         id="use1581"
+         id="use1590"
          y="189.73723"
          x="256.09781"
          xlink:href="#glyph1-9" />
       <use
          height="100%"
          width="100%"
-         id="use1583"
+         id="use1592"
          y="189.73723"
          x="260.89432"
          xlink:href="#glyph1-10" />
     </g>
     <g
-       id="g1595"
+       id="g1604"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use1587"
+         id="use1596"
          y="199.79906"
          x="245.07726"
          xlink:href="#glyph1-4" />
       <use
          height="100%"
          width="100%"
-         id="use1589"
+         id="use1598"
          y="199.79906"
          x="250.82968"
          xlink:href="#glyph1-14" />
       <use
          height="100%"
          width="100%"
-         id="use1591"
+         id="use1600"
          y="199.79906"
          x="256.09781"
          xlink:href="#glyph1-9" />
       <use
          height="100%"
          width="100%"
-         id="use1593"
+         id="use1602"
          y="199.79906"
          x="260.89432"
          xlink:href="#glyph1-12" />
     </g>
     <g
        style="clip-rule:nonzero"
-       id="g1599"
+       id="g1608"
        clip-path="url(#clip14)">
       <path
-         id="path1597"
+         id="path1606"
          d="m 242.20312,130.82422 v 70.39062 h -10.05468 v -70.39062 z m 0,0"
          style="fill:#3f3f3f;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     </g>
     <path
-       id="path1601"
+       id="path1610"
        d="m 239.11719,133.91016 v 3.88671 h -3.88672 v -3.88671 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1603"
+       id="path1612"
        d="m 240.54687,132.47656 -1.42968,1.4336 v 3.88671 l 1.42968,1.42969 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1605"
+       id="path1614"
        d="m 240.54687,139.22656 -1.43359,-1.42969 h -3.88281 l -1.42969,1.42969 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1607"
+       id="path1616"
        d="m 233.80078,139.22656 1.42969,-1.43359 v -3.88281 l -1.42969,-1.4336 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1609"
+       id="path1618"
        d="m 233.80078,132.47656 1.42969,1.4336 h 3.88672 l 1.42968,-1.4336 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1611"
+       id="path1620"
        d="m 239.11719,143.96875 v 3.88281 h -3.88672 v -3.88281 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1613"
+       id="path1622"
        d="m 240.54687,142.53516 -1.42968,1.42968 v 3.88672 l 1.42968,1.4336 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1615"
+       id="path1624"
        d="m 240.54687,149.28516 -1.43359,-1.4336 h -3.88281 l -1.42969,1.4336 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1617"
+       id="path1626"
        d="m 233.80078,149.28125 1.42969,-1.43359 v -3.88282 l -1.42969,-1.42968 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1619"
+       id="path1628"
        d="m 233.80078,142.53125 1.42969,1.43359 h 3.88672 l 1.42968,-1.43359 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1621"
+       id="path1630"
        d="m 239.11719,154.02344 v 3.88281 h -3.88672 v -3.88281 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1623"
+       id="path1632"
        d="m 240.54687,152.58984 -1.42968,1.42969 v 3.88672 l 1.42968,1.43359 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1625"
+       id="path1634"
        d="m 240.54687,159.33984 -1.43359,-1.43359 h -3.88281 l -1.42969,1.43359 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1627"
+       id="path1636"
        d="m 233.80078,159.33984 1.42969,-1.43359 v -3.88672 l -1.42969,-1.42969 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1629"
+       id="path1638"
        d="m 233.80078,152.58984 1.42969,1.42969 h 3.88672 l 1.42968,-1.42969 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1631"
+       id="path1640"
        d="m 239.11719,164.07812 v 3.88282 h -3.88672 v -3.88282 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1633"
+       id="path1642"
        d="m 240.54687,162.64844 -1.42968,1.42578 v 3.89062 l 1.42968,1.42969 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1635"
+       id="path1644"
        d="m 240.54687,169.39453 -1.43359,-1.42969 h -3.88281 l -1.42969,1.42969 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1637"
+       id="path1646"
        d="m 233.80078,169.39453 1.42969,-1.43359 v -3.88672 l -1.42969,-1.42578 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1639"
+       id="path1648"
        d="m 233.80078,162.64453 1.42969,1.42969 h 3.88672 l 1.42968,-1.42969 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1641"
+       id="path1650"
        d="m 239.11719,174.13281 v 3.88672 h -3.88672 v -3.88672 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1643"
+       id="path1652"
        d="m 240.54687,172.70312 -1.42968,1.42969 v 3.88672 l 1.42968,1.42969 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1645"
+       id="path1654"
        d="m 240.54687,179.44922 -1.43359,-1.42969 h -3.88281 l -1.42969,1.42969 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1647"
+       id="path1656"
        d="m 233.80078,179.44922 1.42969,-1.42969 v -3.88672 l -1.42969,-1.42969 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1649"
+       id="path1658"
        d="m 233.80078,172.69922 1.42969,1.43359 h 3.88672 l 1.42968,-1.43359 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1651"
+       id="path1660"
        d="m 239.11719,184.19141 v 3.88671 h -3.88672 v -3.88671 z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1653"
+       id="path1662"
        d="m 240.54687,182.75781 -1.42968,1.42969 v 3.89062 l 1.42968,1.42969 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1655"
+       id="path1664"
        d="m 240.54687,189.50781 -1.43359,-1.42969 h -3.88281 l -1.42969,1.42969 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1657"
+       id="path1666"
        d="m 233.80078,189.50391 1.42969,-1.42969 v -3.88672 l -1.42969,-1.42969 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1659"
+       id="path1668"
        d="m 233.80078,182.75391 1.42969,1.43359 h 3.88672 l 1.42968,-1.43359 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1661"
+       id="path1670"
        d="m 239.11719,194.25 v 3.88281 h -3.88672 V 194.25 Z m 0,0"
        style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1663"
+       id="path1672"
        d="m 240.54687,192.81641 -1.42968,1.42578 v 3.89062 l 1.42968,1.42969 z m 0,0"
        style="fill:#282828;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1665"
+       id="path1674"
        d="m 240.54687,199.5625 -1.43359,-1.42969 h -3.88281 l -1.42969,1.42969 z m 0,0"
        style="fill:#454545;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1667"
+       id="path1676"
        d="m 233.80078,199.5625 1.42969,-1.43359 v -3.88672 l -1.42969,-1.42578 z m 0,0"
        style="fill:#575757;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1669"
+       id="path1678"
        d="m 233.80078,192.8125 1.42969,1.42969 h 3.88672 l 1.42968,-1.42969 z m 0,0"
        style="fill:#353535;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <path
-       id="path1671"
+       id="path1680"
        transform="matrix(0.718702,0,0,0.718702,0.359351,0.359351)"
        d="m 376.40036,267.00169 h 47.19883 c 0.18479,0 0.36415,0.0326 0.53808,0.10327 0.16848,0.0707 0.32067,0.17393 0.45111,0.30437 0.13045,0.13044 0.23371,0.28263 0.30437,0.45655 0.0707,0.16849 0.1087,0.34785 0.1087,0.53265 v 11.20184 c 0,0.18479 -0.038,0.36415 -0.1087,0.53808 -0.0707,0.16849 -0.17392,0.32067 -0.30437,0.45111 -0.13044,0.13045 -0.28263,0.23372 -0.45111,0.30437 -0.17393,0.0707 -0.35329,0.1087 -0.53808,0.1087 h -47.19883 c -0.1848,0 -0.36416,-0.038 -0.53808,-0.1087 -0.16849,-0.0707 -0.32068,-0.17392 -0.45112,-0.30437 -0.13044,-0.13044 -0.23371,-0.28262 -0.30437,-0.45655 -0.0707,-0.16849 -0.1087,-0.34785 -0.1087,-0.53264 v -11.20184 c 0,-0.1848 0.038,-0.36416 0.1087,-0.53265 0.0707,-0.17392 0.17393,-0.32611 0.30437,-0.45655 0.13044,-0.13044 0.28263,-0.23371 0.45112,-0.30437 0.17392,-0.0707 0.35328,-0.10327 0.53808,-0.10327 z m 0,0"
        style="fill:#ffcaca;fill-opacity:1;fill-rule:nonzero;stroke:#35383a;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1" />
     <g
-       id="g1681"
+       id="g1690"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use1673"
+         id="use1682"
          y="199.79906"
          x="278.48566"
          xlink:href="#glyph2-1" />
       <use
          height="100%"
          width="100%"
-         id="use1675"
+         id="use1684"
          y="199.79906"
          x="283.27936"
          xlink:href="#glyph2-2" />
       <use
          height="100%"
          width="100%"
-         id="use1677"
+         id="use1686"
          y="199.79906"
          x="288.46957"
          xlink:href="#glyph2-3" />
       <use
          height="100%"
          width="100%"
-         id="use1679"
+         id="use1688"
          y="199.79906"
          x="292.46664"
          xlink:href="#glyph2-4" />
     </g>
     <path
-       id="path1683"
+       id="path1692"
        transform="matrix(0.718702,0,0,0.718702,0.359351,0.359351)"
        d="m 376.40036,224.99887 h 47.19883 c 0.18479,0 0.36415,0.038 0.53808,0.1087 0.16848,0.0707 0.32067,0.16849 0.45111,0.30437 0.13045,0.13044 0.23371,0.28263 0.30437,0.45112 0.0707,0.17392 0.1087,0.35328 0.1087,0.53808 v 11.1964 c 0,0.19023 -0.038,0.36416 -0.1087,0.53808 -0.0707,0.17393 -0.17392,0.32067 -0.30437,0.45655 -0.13044,0.13045 -0.28263,0.22828 -0.45111,0.29894 -0.17393,0.0707 -0.35329,0.1087 -0.53808,0.1087 h -47.19883 c -0.1848,0 -0.36416,-0.038 -0.53808,-0.1087 -0.16849,-0.0707 -0.32068,-0.16849 -0.45112,-0.29894 -0.13044,-0.13588 -0.23371,-0.28262 -0.30437,-0.45655 -0.0707,-0.17392 -0.1087,-0.34785 -0.1087,-0.53808 v -11.1964 c 0,-0.1848 0.038,-0.36416 0.1087,-0.53808 0.0707,-0.16849 0.17393,-0.32068 0.30437,-0.45112 0.13044,-0.13588 0.28263,-0.23371 0.45112,-0.30437 0.17392,-0.0707 0.35328,-0.1087 0.53808,-0.1087 z m 0,0"
        style="fill:#ffcaca;fill-opacity:1;fill-rule:nonzero;stroke:#35383a;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1" />
     <g
-       id="g1693"
+       id="g1702"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use1685"
+         id="use1694"
          y="169.61359"
          x="278.09262"
          xlink:href="#glyph2-1" />
       <use
          height="100%"
          width="100%"
-         id="use1687"
+         id="use1696"
          y="169.61359"
          x="282.88629"
          xlink:href="#glyph2-5" />
       <use
          height="100%"
          width="100%"
-         id="use1689"
+         id="use1698"
          y="169.61359"
          x="288.07654"
          xlink:href="#glyph2-6" />
       <use
          height="100%"
          width="100%"
-         id="use1691"
+         id="use1700"
          y="169.61359"
          x="292.87021"
          xlink:href="#glyph2-4" />
     </g>
     <path
-       id="path1695"
+       id="path1704"
        transform="matrix(0.718702,0,0,0.718702,0.359351,0.359351)"
        d="m 156.40186,238.99981 h 47.19883 c 0.18479,0 0.36415,0.038 0.53264,0.1087 0.17393,0.0707 0.32611,0.16849 0.45656,0.29893 0.13044,0.13588 0.23371,0.28263 0.30436,0.45656 0.0707,0.17392 0.10327,0.34785 0.10327,0.53808 v 11.1964 c 0,0.1848 -0.0326,0.36416 -0.10327,0.53808 -0.0707,0.16849 -0.17392,0.32068 -0.30436,0.45112 -0.13045,0.13588 -0.28263,0.23371 -0.45656,0.30437 -0.16849,0.0707 -0.34785,0.1087 -0.53264,0.1087 h -47.19883 c -0.19023,0 -0.36415,-0.038 -0.53808,-0.1087 -0.16849,-0.0707 -0.32067,-0.16849 -0.45112,-0.30437 -0.13588,-0.13044 -0.23371,-0.28263 -0.30436,-0.45112 -0.0707,-0.17392 -0.10871,-0.35328 -0.10871,-0.53808 v -11.1964 c 0,-0.19023 0.038,-0.36416 0.10871,-0.53808 0.0706,-0.17393 0.16848,-0.32068 0.30436,-0.45656 0.13045,-0.13044 0.28263,-0.22827 0.45112,-0.29893 0.17393,-0.0707 0.34785,-0.1087 0.53808,-0.1087 z m 0,0"
        style="fill:#e3caff;fill-opacity:1;fill-rule:nonzero;stroke:#35383a;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1" />
     <g
-       id="g1709"
+       id="g1718"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use1697"
+         id="use1706"
          y="179.67542"
          x="115.58744"
          xlink:href="#glyph2-7" />
       <use
          height="100%"
          width="100%"
-         id="use1699"
+         id="use1708"
          y="179.67542"
          x="120.38112"
          xlink:href="#glyph2-8" />
       <use
          height="100%"
          width="100%"
-         id="use1701"
+         id="use1710"
          y="179.67542"
          x="127.16457"
          xlink:href="#glyph2-9" />
       <use
          height="100%"
          width="100%"
-         id="use1703"
+         id="use1712"
          y="179.67542"
          x="133.15141"
          xlink:href="#glyph2-10" />
       <use
          height="100%"
          width="100%"
-         id="use1705"
+         id="use1714"
          y="179.67542"
          x="137.14848"
          xlink:href="#glyph2-11" />
       <use
          height="100%"
          width="100%"
-         id="use1707"
+         id="use1716"
          y="179.67542"
          x="139.14526"
          xlink:href="#glyph2-12" />
     </g>
     <path
-       id="path1711"
+       id="path1720"
        transform="matrix(0.718702,0,0,0.718702,0.359351,0.359351)"
        d="m 156.40186,253.00075 h 47.19883 c 0.18479,0 0.36415,0.0326 0.53264,0.10327 0.17393,0.0761 0.32611,0.17392 0.45656,0.30437 0.13044,0.13044 0.23371,0.28262 0.30436,0.45655 0.0707,0.16849 0.10327,0.34785 0.10327,0.53264 v 11.20184 c 0,0.1848 -0.0326,0.36416 -0.10327,0.53808 -0.0707,0.16849 -0.17392,0.32068 -0.30436,0.45112 -0.13045,0.13045 -0.28263,0.23371 -0.45656,0.30437 -0.16849,0.0707 -0.34785,0.1087 -0.53264,0.1087 h -47.19883 c -0.19023,0 -0.36415,-0.038 -0.53808,-0.1087 -0.16849,-0.0707 -0.32067,-0.17392 -0.45112,-0.30437 -0.13588,-0.13044 -0.23371,-0.28263 -0.30436,-0.45112 -0.0707,-0.17392 -0.10871,-0.35328 -0.10871,-0.53808 v -11.20184 c 0,-0.18479 0.038,-0.36415 0.10871,-0.53264 0.0706,-0.17393 0.16848,-0.32611 0.30436,-0.45655 0.13045,-0.13045 0.28263,-0.22828 0.45112,-0.30437 0.17393,-0.0707 0.34785,-0.10327 0.53808,-0.10327 z m 0,0"
        style="fill:#e3caff;fill-opacity:1;fill-rule:nonzero;stroke:#35383a;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1" />
     <g
-       id="g1725"
+       id="g1734"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use1713"
+         id="use1722"
          y="189.73723"
          x="115.58744"
          xlink:href="#glyph2-7" />
       <use
          height="100%"
          width="100%"
-         id="use1715"
+         id="use1724"
          y="189.73723"
          x="120.38112"
          xlink:href="#glyph2-8" />
       <use
          height="100%"
          width="100%"
-         id="use1717"
+         id="use1726"
          y="189.73723"
          x="127.16457"
          xlink:href="#glyph2-9" />
       <use
          height="100%"
          width="100%"
-         id="use1719"
+         id="use1728"
          y="189.73723"
          x="133.15141"
          xlink:href="#glyph2-10" />
       <use
          height="100%"
          width="100%"
-         id="use1721"
+         id="use1730"
          y="189.73723"
          x="137.14848"
          xlink:href="#glyph2-11" />
       <use
          height="100%"
          width="100%"
-         id="use1723"
+         id="use1732"
          y="189.73723"
          x="139.14526"
          xlink:href="#glyph2-13" />
     </g>
     <path
-       id="path1727"
+       id="path1736"
        transform="matrix(0.718702,0,0,0.718702,0.359351,0.359351)"
        d="m 156.40186,267.00169 h 47.19883 c 0.18479,0 0.36415,0.0326 0.53264,0.10327 0.17393,0.0707 0.32611,0.17393 0.45656,0.30437 0.13044,0.13044 0.23371,0.28263 0.30436,0.45655 0.0707,0.16849 0.10327,0.34785 0.10327,0.53265 v 11.20184 c 0,0.18479 -0.0326,0.36415 -0.10327,0.53808 -0.0707,0.16849 -0.17392,0.32067 -0.30436,0.45111 -0.13045,0.13045 -0.28263,0.23372 -0.45656,0.30437 -0.16849,0.0707 -0.34785,0.1087 -0.53264,0.1087 h -47.19883 c -0.19023,0 -0.36415,-0.038 -0.53808,-0.1087 -0.16849,-0.0707 -0.32067,-0.17392 -0.45112,-0.30437 -0.13588,-0.13044 -0.23371,-0.28262 -0.30436,-0.45655 -0.0707,-0.16849 -0.10871,-0.34785 -0.10871,-0.53264 v -11.20184 c 0,-0.1848 0.038,-0.36416 0.10871,-0.53265 0.0706,-0.17392 0.16848,-0.32611 0.30436,-0.45655 0.13045,-0.13044 0.28263,-0.23371 0.45112,-0.30437 0.17393,-0.0707 0.34785,-0.10327 0.53808,-0.10327 z m 0,0"
        style="fill:#e3caff;fill-opacity:1;fill-rule:nonzero;stroke:#35383a;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1" />
     <g
-       id="g1741"
+       id="g1750"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use1729"
+         id="use1738"
          y="199.79906"
          x="115.58744"
          xlink:href="#glyph2-7" />
       <use
          height="100%"
          width="100%"
-         id="use1731"
+         id="use1740"
          y="199.79906"
          x="120.38112"
          xlink:href="#glyph2-8" />
       <use
          height="100%"
          width="100%"
-         id="use1733"
+         id="use1742"
          y="199.79906"
          x="127.16457"
          xlink:href="#glyph2-9" />
       <use
          height="100%"
          width="100%"
-         id="use1735"
+         id="use1744"
          y="199.79906"
          x="133.15141"
          xlink:href="#glyph2-10" />
       <use
          height="100%"
          width="100%"
-         id="use1737"
+         id="use1746"
          y="199.79906"
          x="137.14848"
          xlink:href="#glyph2-11" />
       <use
          height="100%"
          width="100%"
-         id="use1739"
+         id="use1748"
          y="199.79906"
          x="139.14526"
          xlink:href="#glyph2-14" />
     </g>
     <path
-       id="path1743"
+       id="path1752"
        transform="matrix(0.718702,0,0,0.718702,0.359351,0.359351)"
        d="m 222.40087,238.99981 h 47.19882 c 0.1848,0 0.36416,0.038 0.53808,0.1087 0.16849,0.0707 0.32068,0.16849 0.45112,0.29893 0.13044,0.13588 0.23371,0.28263 0.30437,0.45656 0.0707,0.17392 0.1087,0.34785 0.1087,0.53808 v 11.1964 c 0,0.1848 -0.038,0.36416 -0.1087,0.53808 -0.0707,0.16849 -0.17393,0.32068 -0.30437,0.45112 -0.13044,0.13588 -0.28263,0.23371 -0.45112,0.30437 -0.17392,0.0707 -0.35328,0.1087 -0.53808,0.1087 h -47.19882 c -0.1848,0 -0.36416,-0.038 -0.53808,-0.1087 -0.16849,-0.0707 -0.32068,-0.16849 -0.45112,-0.30437 -0.13044,-0.13044 -0.23371,-0.28263 -0.30437,-0.45112 -0.0707,-0.17392 -0.1087,-0.35328 -0.1087,-0.53808 v -11.1964 c 0,-0.19023 0.038,-0.36416 0.1087,-0.53808 0.0707,-0.17393 0.17393,-0.32068 0.30437,-0.45656 0.13044,-0.13044 0.28263,-0.22827 0.45112,-0.29893 0.17392,-0.0707 0.35328,-0.1087 0.53808,-0.1087 z m 0,0"
        style="fill:#cceb8a;fill-opacity:1;fill-rule:nonzero;stroke:#35383a;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1" />
     <g
-       id="g1755"
+       id="g1764"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use1745"
+         id="use1754"
          y="179.67542"
          x="165.61581"
          xlink:href="#glyph2-9" />
       <use
          height="100%"
          width="100%"
-         id="use1747"
+         id="use1756"
          y="179.67542"
          x="171.60265"
          xlink:href="#glyph2-15" />
       <use
          height="100%"
          width="100%"
-         id="use1749"
+         id="use1758"
          y="179.67542"
          x="177.19295"
          xlink:href="#glyph2-1" />
       <use
          height="100%"
          width="100%"
-         id="use1751"
+         id="use1760"
          y="179.67542"
          x="181.98663"
          xlink:href="#glyph2-16" />
       <use
          height="100%"
          width="100%"
-         id="use1753"
+         id="use1762"
          y="179.67542"
          x="183.98341"
          xlink:href="#glyph2-17" />
     </g>
     <path
-       id="path1757"
+       id="path1766"
        transform="matrix(0.718702,0,0,0.718702,0.359351,0.359351)"
        d="m 376.40036,44.997626 h 47.19883 c 0.18479,0 0.36415,0.03805 0.53808,0.108703 0.16848,0.07066 0.32067,0.173925 0.45111,0.304369 0.13045,0.130443 0.23371,0.282627 0.30437,0.451117 0.0707,0.173925 0.1087,0.353285 0.1087,0.53808 v 11.20184 c 0,0.184795 -0.038,0.364155 -0.1087,0.532645 -0.0707,0.173924 -0.17392,0.326109 -0.30437,0.456552 -0.13044,0.130444 -0.28263,0.233712 -0.45111,0.304369 -0.17393,0.07066 -0.35329,0.103267 -0.53808,0.103267 h -47.19883 c -0.1848,0 -0.36416,-0.03261 -0.53808,-0.103267 -0.16849,-0.07066 -0.32068,-0.173925 -0.45112,-0.304369 -0.13044,-0.130443 -0.23371,-0.282628 -0.30437,-0.456552 -0.0707,-0.16849 -0.1087,-0.34785 -0.1087,-0.532645 v -11.20184 c 0,-0.184795 0.038,-0.364155 0.1087,-0.53808 0.0707,-0.16849 0.17393,-0.320674 0.30437,-0.451117 0.13044,-0.130444 0.28263,-0.233712 0.45112,-0.304369 0.17392,-0.07066 0.35328,-0.108703 0.53808,-0.108703 z m 0,0"
        style="fill:#cceb8a;fill-opacity:1;fill-rule:nonzero;stroke:#35383a;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1" />
     <g
-       id="g1767"
+       id="g1776"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use1759"
+         id="use1768"
          y="40.247292"
          x="278.09262"
          xlink:href="#glyph2-18" />
       <use
          height="100%"
          width="100%"
-         id="use1761"
+         id="use1770"
          y="40.247292"
          x="283.28284"
          xlink:href="#glyph2-1" />
       <use
          height="100%"
          width="100%"
-         id="use1763"
+         id="use1772"
          y="40.247292"
          x="288.07654"
          xlink:href="#glyph2-1" />
       <use
          height="100%"
          width="100%"
-         id="use1765"
+         id="use1774"
          y="40.247292"
          x="292.87021"
          xlink:href="#glyph2-17" />
     </g>
     <path
-       id="path1769"
+       id="path1778"
        transform="matrix(0.718702,0,0,0.718702,0.359351,0.359351)"
        d="m 442.39936,44.997626 h 47.19883 c 0.1848,0 0.36416,0.03805 0.53808,0.108703 0.16849,0.07066 0.32068,0.173925 0.45112,0.304369 0.13588,0.130443 0.23371,0.282627 0.30437,0.451117 0.0707,0.173925 0.1087,0.353285 0.1087,0.53808 v 11.20184 c 0,0.184795 -0.038,0.364155 -0.1087,0.532645 -0.0707,0.173924 -0.16849,0.326109 -0.30437,0.456552 -0.13044,0.130444 -0.28263,0.233712 -0.45112,0.304369 -0.17392,0.07066 -0.35328,0.103267 -0.53808,0.103267 h -47.19883 c -0.18479,0 -0.36415,-0.03261 -0.53264,-0.103267 -0.17393,-0.07066 -0.32611,-0.173925 -0.45655,-0.304369 -0.13045,-0.130443 -0.23372,-0.282628 -0.30437,-0.456552 -0.0707,-0.16849 -0.10327,-0.34785 -0.10327,-0.532645 v -11.20184 c 0,-0.184795 0.0326,-0.364155 0.10327,-0.53808 0.0707,-0.16849 0.17392,-0.320674 0.30437,-0.451117 0.13044,-0.130444 0.28262,-0.233712 0.45655,-0.304369 0.16849,-0.07066 0.34785,-0.108703 0.53264,-0.108703 z m 0,0"
        style="fill:#cceb8a;fill-opacity:1;fill-rule:nonzero;stroke:#35383a;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1" />
     <g
-       id="g1781"
+       id="g1790"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use1771"
+         id="use1780"
          y="40.247292"
          x="323.73016"
          xlink:href="#glyph2-9" />
       <use
          height="100%"
          width="100%"
-         id="use1773"
+         id="use1782"
          y="40.247292"
          x="329.71701"
          xlink:href="#glyph2-16" />
       <use
          height="100%"
          width="100%"
-         id="use1775"
+         id="use1784"
          y="40.247292"
          x="331.71381"
          xlink:href="#glyph2-1" />
       <use
          height="100%"
          width="100%"
-         id="use1777"
+         id="use1786"
          y="40.247292"
          x="336.50748"
          xlink:href="#glyph2-15" />
       <use
          height="100%"
          width="100%"
-         id="use1779"
+         id="use1788"
          y="40.247292"
          x="342.09778"
          xlink:href="#glyph2-17" />
     </g>
     <path
-       id="path1783"
+       id="path1792"
        d="m 428.99219,52.824219 h 33.92187 c 0.13672,0 0.26172,0.02734 0.38672,0.07813 0.125,0.05078 0.23047,0.121094 0.32813,0.21875 0.0937,0.09375 0.16406,0.203125 0.21484,0.324218 0.0508,0.125 0.0781,0.253907 0.0781,0.386719 v 8.046875 c 0,0.132813 -0.0273,0.261719 -0.0781,0.386719 -0.0508,0.121094 -0.12109,0.230469 -0.21484,0.324219 -0.0977,0.09766 -0.20313,0.167968 -0.32813,0.21875 -0.125,0.05078 -0.25,0.07813 -0.38672,0.07813 h -33.92187 c -0.13282,0 -0.26172,-0.02734 -0.38282,-0.07813 -0.125,-0.05078 -0.23437,-0.121094 -0.32812,-0.21875 -0.0937,-0.09375 -0.16797,-0.203125 -0.21875,-0.324219 -0.0508,-0.125 -0.0742,-0.253906 -0.0742,-0.386719 v -8.046875 c 0,-0.132812 0.0234,-0.261719 0.0742,-0.386719 0.0508,-0.121093 0.125,-0.230468 0.21875,-0.324218 0.0937,-0.09766 0.20312,-0.167969 0.32812,-0.21875 0.1211,-0.05078 0.25,-0.07813 0.38282,-0.07813 z m 0,0"
        style="fill:#cceb8a;fill-opacity:1;fill-rule:nonzero;stroke:none" />
     <g
        style="clip-rule:nonzero"
-       id="g1787"
+       id="g1796"
        clip-path="url(#clip15)">
       <path
-         id="path1785"
+         id="path1794"
          transform="matrix(0.718702,0,0,0.718702,0.359351,0.359351)"
          d="m 596.39886,72.99951 h 47.19882 c 0.19023,0 0.36416,0.03805 0.53808,0.108703 0.17393,0.07066 0.32068,0.16849 0.45655,0.304369 0.13045,0.130443 0.22828,0.282627 0.29894,0.451117 0.0707,0.173925 0.1087,0.353285 0.1087,0.53808 v 11.196405 c 0,0.184795 -0.038,0.364155 -0.1087,0.53808 -0.0707,0.168489 -0.16849,0.320673 -0.29894,0.451117 -0.13587,0.135879 -0.28262,0.233711 -0.45655,0.304368 -0.17392,0.07066 -0.34785,0.108703 -0.53808,0.108703 h -47.19882 c -0.1848,0 -0.36416,-0.03805 -0.53265,-0.108703 -0.17392,-0.07066 -0.32611,-0.168489 -0.45655,-0.304368 -0.13044,-0.130444 -0.23371,-0.282628 -0.30437,-0.451117 -0.0707,-0.173925 -0.10327,-0.353285 -0.10327,-0.53808 V 74.401779 c 0,-0.184795 0.0326,-0.364155 0.10327,-0.53808 0.0707,-0.16849 0.17393,-0.320674 0.30437,-0.451117 0.13044,-0.135879 0.28263,-0.233712 0.45655,-0.304369 0.16849,-0.07066 0.34785,-0.108703 0.53265,-0.108703 z m 0,0"
          style="fill:none;stroke:#35383a;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1" />
     </g>
     <g
-       id="g1797"
+       id="g1806"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use1789"
+         id="use1798"
          y="60.370937"
          x="436.20697"
          xlink:href="#glyph2-1" />
       <use
          height="100%"
          width="100%"
-         id="use1791"
+         id="use1800"
          y="60.370937"
          x="441.00067"
          xlink:href="#glyph2-2" />
       <use
          height="100%"
          width="100%"
-         id="use1793"
+         id="use1802"
          y="60.370937"
          x="446.19089"
          xlink:href="#glyph2-19" />
       <use
          height="100%"
          width="100%"
-         id="use1795"
+         id="use1804"
          y="60.370937"
          x="450.98459"
          xlink:href="#glyph2-17" />
     </g>
     <path
-       id="path1799"
+       id="path1808"
        transform="matrix(0.718702,0,0,0.718702,0.359351,0.359351)"
        d="m 222.40087,44.997626 h 47.19882 c 0.1848,0 0.36416,0.03805 0.53808,0.108703 0.16849,0.07066 0.32068,0.173925 0.45112,0.304369 0.13044,0.130443 0.23371,0.282627 0.30437,0.451117 0.0707,0.173925 0.1087,0.353285 0.1087,0.53808 v 11.20184 c 0,0.184795 -0.038,0.364155 -0.1087,0.532645 -0.0707,0.173924 -0.17393,0.326109 -0.30437,0.456552 -0.13044,0.130444 -0.28263,0.233712 -0.45112,0.304369 -0.17392,0.07066 -0.35328,0.103267 -0.53808,0.103267 h -47.19882 c -0.1848,0 -0.36416,-0.03261 -0.53808,-0.103267 -0.16849,-0.07066 -0.32068,-0.173925 -0.45112,-0.304369 -0.13044,-0.130443 -0.23371,-0.282628 -0.30437,-0.456552 -0.0707,-0.16849 -0.1087,-0.34785 -0.1087,-0.532645 v -11.20184 c 0,-0.184795 0.038,-0.364155 0.1087,-0.53808 0.0707,-0.16849 0.17393,-0.320674 0.30437,-0.451117 0.13044,-0.130444 0.28263,-0.233712 0.45112,-0.304369 0.17392,-0.07066 0.35328,-0.108703 0.53808,-0.108703 z m 0,0"
        style="fill:#ffca97;fill-opacity:1;fill-rule:nonzero;stroke:#35383a;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1" />
     <g
-       id="g1815"
+       id="g1824"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use1801"
+         id="use1810"
          y="40.247292"
          x="162.21321"
          xlink:href="#glyph2-6" />
       <use
          height="100%"
          width="100%"
-         id="use1803"
+         id="use1812"
          y="40.247292"
          x="167.0069"
          xlink:href="#glyph2-5" />
       <use
          height="100%"
          width="100%"
-         id="use1805"
+         id="use1814"
          y="40.247292"
          x="172.19713"
          xlink:href="#glyph2-2" />
       <use
          height="100%"
          width="100%"
-         id="use1807"
+         id="use1816"
          y="40.247292"
          x="177.38736"
          xlink:href="#glyph2-13" />
       <use
          height="100%"
          width="100%"
-         id="use1809"
+         id="use1818"
          y="40.247292"
          x="181.38443"
          xlink:href="#glyph2-11" />
       <use
          height="100%"
          width="100%"
-         id="use1811"
+         id="use1820"
          y="40.247292"
          x="183.38123"
          xlink:href="#glyph2-12" />
       <use
          height="100%"
          width="100%"
-         id="use1813"
+         id="use1822"
          y="40.247292"
          x="187.3783"
          xlink:href="#glyph2-4" />
     </g>
     <path
-       id="path1817"
+       id="path1826"
        transform="matrix(0.718702,0,0,0.718702,0.359351,0.359351)"
        d="m 222.40087,72.99951 h 47.19882 c 0.1848,0 0.36416,0.03805 0.53808,0.108703 0.16849,0.07066 0.32068,0.16849 0.45112,0.304369 0.13044,0.130443 0.23371,0.282627 0.30437,0.451117 0.0707,0.173925 0.1087,0.353285 0.1087,0.53808 v 11.196405 c 0,0.184795 -0.038,0.364155 -0.1087,0.53808 -0.0707,0.168489 -0.17393,0.320673 -0.30437,0.451117 -0.13044,0.135879 -0.28263,0.233711 -0.45112,0.304368 -0.17392,0.07066 -0.35328,0.108703 -0.53808,0.108703 h -47.19882 c -0.1848,0 -0.36416,-0.03805 -0.53808,-0.108703 -0.16849,-0.07066 -0.32068,-0.168489 -0.45112,-0.304368 -0.13044,-0.130444 -0.23371,-0.282628 -0.30437,-0.451117 -0.0707,-0.173925 -0.1087,-0.353285 -0.1087,-0.53808 V 74.401779 c 0,-0.184795 0.038,-0.364155 0.1087,-0.53808 0.0707,-0.16849 0.17393,-0.320674 0.30437,-0.451117 0.13044,-0.135879 0.28263,-0.233712 0.45112,-0.304369 0.17392,-0.07066 0.35328,-0.108703 0.53808,-0.108703 z m 0,0"
        style="fill:#ffca97;fill-opacity:1;fill-rule:nonzero;stroke:#35383a;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1" />
     <g
-       id="g1833"
+       id="g1842"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use1819"
+         id="use1828"
          y="60.370937"
          x="162.21321"
          xlink:href="#glyph2-6" />
       <use
          height="100%"
          width="100%"
-         id="use1821"
+         id="use1830"
          y="60.370937"
          x="167.0069"
          xlink:href="#glyph2-5" />
       <use
          height="100%"
          width="100%"
-         id="use1823"
+         id="use1832"
          y="60.370937"
          x="172.19713"
          xlink:href="#glyph2-2" />
       <use
          height="100%"
          width="100%"
-         id="use1825"
+         id="use1834"
          y="60.370937"
          x="177.38736"
          xlink:href="#glyph2-13" />
       <use
          height="100%"
          width="100%"
-         id="use1827"
+         id="use1836"
          y="60.370937"
          x="181.38443"
          xlink:href="#glyph2-11" />
       <use
          height="100%"
          width="100%"
-         id="use1829"
+         id="use1838"
          y="60.370937"
          x="183.38123"
          xlink:href="#glyph2-12" />
       <use
          height="100%"
          width="100%"
-         id="use1831"
+         id="use1840"
          y="60.370937"
          x="187.3783"
          xlink:href="#glyph2-17" />
     </g>
     <path
-       id="path1835"
+       id="path1844"
        transform="matrix(0.718702,0,0,0.718702,0.359351,0.359351)"
        d="m 2.402369,210.99792 h 47.198828 c 0.184795,0 0.364155,0.038 0.532644,0.10871 0.173925,0.0707 0.326109,0.17392 0.456553,0.30437 0.130443,0.13044 0.233711,0.28262 0.304368,0.45111 0.07066,0.17393 0.103268,0.35329 0.103268,0.53808 v 11.20184 c 0,0.1848 -0.03261,0.36416 -0.103268,0.53265 -0.07066,0.17392 -0.173925,0.32611 -0.304368,0.45655 -0.130444,0.13044 -0.282628,0.23371 -0.456553,0.30437 -0.168489,0.0707 -0.347849,0.10327 -0.532644,0.10327 H 2.402369 c -0.19023,0 -0.364155,-0.0326 -0.538079,-0.10327 -0.173925,-0.0707 -0.320674,-0.17393 -0.456553,-0.30437 -0.130444,-0.13044 -0.228276,-0.28263 -0.298933,-0.45655 -0.070657,-0.16849 -0.108703,-0.34785 -0.108703,-0.53265 v -11.20184 c 0,-0.18479 0.038046,-0.36415 0.108703,-0.53808 0.070657,-0.16849 0.168489,-0.32067 0.298933,-0.45111 0.135879,-0.13045 0.282628,-0.23372 0.456553,-0.30437 0.173924,-0.0707 0.347849,-0.10871 0.538079,-0.10871 z m 0,0"
        style="fill:#ffca97;fill-opacity:1;fill-rule:nonzero;stroke:#35383a;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1" />
     <g
-       id="g1849"
+       id="g1858"
        style="fill:#000000;fill-opacity:1">
       <use
          height="100%"
          width="100%"
-         id="use1837"
+         id="use1846"
          y="159.55176"
          x="6.097734"
          xlink:href="#glyph2-6" />
       <use
          height="100%"
          width="100%"
-         id="use1839"
+         id="use1848"
          y="159.55176"
          x="10.891418"
          xlink:href="#glyph2-5" />
       <use
          height="100%"
          width="100%"
-         id="use1841"
+         id="use1850"
          y="159.55176"
          x="16.081652"
          xlink:href="#glyph2-2" />
       <use
          height="100%"
          width="100%"
-         id="use1843"
+         id="use1852"
          y="159.55176"
          x="21.271885"
          xlink:href="#glyph2-13" />
       <use
          height="100%"
          width="100%"
-         id="use1845"
+         id="use1854"
          y="159.55176"
          x="25.268961"
          xlink:href="#glyph2-11" />
       <use
          height="100%"
          width="100%"
-         id="use1847"
+         id="use1856"
          y="159.55176"
          x="27.265743"
          xlink:href="#glyph2-20" />
+    </g>
+    <path
+       id="path1860"
+       transform="matrix(0.718702,0,0,0.718702,0.359351,0.359351)"
+       d="m 156.40186,44.997626 h 47.19883 c 0.18479,0 0.36415,0.03805 0.53264,0.108703 0.17393,0.07066 0.32611,0.173925 0.45656,0.304369 0.13044,0.130443 0.23371,0.282627 0.30436,0.451117 0.0707,0.173925 0.10327,0.353285 0.10327,0.53808 v 11.20184 c 0,0.184795 -0.0326,0.364155 -0.10327,0.532645 -0.0707,0.173924 -0.17392,0.326109 -0.30436,0.456552 -0.13045,0.130444 -0.28263,0.233712 -0.45656,0.304369 -0.16849,0.07066 -0.34785,0.103267 -0.53264,0.103267 h -47.19883 c -0.19023,0 -0.36415,-0.03261 -0.53808,-0.103267 -0.16849,-0.07066 -0.32067,-0.173925 -0.45112,-0.304369 -0.13588,-0.130443 -0.23371,-0.282628 -0.30436,-0.456552 -0.0707,-0.16849 -0.10871,-0.34785 -0.10871,-0.532645 v -11.20184 c 0,-0.184795 0.038,-0.364155 0.10871,-0.53808 0.0706,-0.16849 0.16848,-0.320674 0.30436,-0.451117 0.13045,-0.130444 0.28263,-0.233712 0.45112,-0.304369 0.17393,-0.07066 0.34785,-0.108703 0.53808,-0.108703 z m 0,0"
+       style="fill:#ffff87;fill-opacity:1;fill-rule:nonzero;stroke:#35383a;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1" />
+    <g
+       id="g1870"
+       style="fill:#000000;fill-opacity:1">
+      <use
+         height="100%"
+         width="100%"
+         id="use1862"
+         y="40.247292"
+         x="119.77612"
+         xlink:href="#glyph2-21" />
+      <use
+         height="100%"
+         width="100%"
+         id="use1864"
+         y="40.247292"
+         x="124.96635"
+         xlink:href="#glyph2-22" />
+      <use
+         height="100%"
+         width="100%"
+         id="use1866"
+         y="40.247292"
+         x="129.76004"
+         xlink:href="#glyph2-5" />
+      <use
+         height="100%"
+         width="100%"
+         id="use1868"
+         y="40.247292"
+         x="134.95027"
+         xlink:href="#glyph2-4" />
+    </g>
+    <path
+       id="path1872"
+       transform="matrix(0.718702,0,0,0.718702,0.359351,0.359351)"
+       d="m 156.40186,31.002119 h 47.19883 c 0.18479,0 0.36415,0.03261 0.53264,0.103268 0.17393,0.07066 0.32611,0.173925 0.45656,0.304369 0.13044,0.130443 0.23371,0.282627 0.30436,0.456552 0.0707,0.16849 0.10327,0.34785 0.10327,0.532645 v 11.20184 c 0,0.184795 -0.0326,0.364155 -0.10327,0.532645 -0.0707,0.173924 -0.17392,0.326109 -0.30436,0.456552 -0.13045,0.130444 -0.28263,0.233712 -0.45656,0.304369 -0.16849,0.07066 -0.34785,0.103267 -0.53264,0.103267 h -47.19883 c -0.19023,0 -0.36415,-0.03261 -0.53808,-0.103267 -0.16849,-0.07066 -0.32067,-0.173925 -0.45112,-0.304369 -0.13588,-0.130443 -0.23371,-0.282628 -0.30436,-0.456552 -0.0707,-0.16849 -0.10871,-0.34785 -0.10871,-0.532645 v -11.20184 c 0,-0.184795 0.038,-0.364155 0.10871,-0.532645 0.0706,-0.173925 0.16848,-0.326109 0.30436,-0.456552 0.13045,-0.130444 0.28263,-0.233712 0.45112,-0.304369 0.17393,-0.07066 0.34785,-0.103268 0.53808,-0.103268 z m 0,0"
+       style="fill:#ffff87;fill-opacity:1;fill-rule:nonzero;stroke:#35383a;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1" />
+    <g
+       id="g1882"
+       style="fill:#000000;fill-opacity:1">
+      <use
+         height="100%"
+         width="100%"
+         id="use1874"
+         y="30.185469"
+         x="120.18039"
+         xlink:href="#glyph2-23" />
+      <use
+         height="100%"
+         width="100%"
+         id="use1876"
+         y="30.185469"
+         x="124.5705"
+         xlink:href="#glyph2-22" />
+      <use
+         height="100%"
+         width="100%"
+         id="use1878"
+         y="30.185469"
+         x="129.3642"
+         xlink:href="#glyph2-5" />
+      <use
+         height="100%"
+         width="100%"
+         id="use1880"
+         y="30.185469"
+         x="134.55443"
+         xlink:href="#glyph2-4" />
     </g>
   </g>
 </svg>

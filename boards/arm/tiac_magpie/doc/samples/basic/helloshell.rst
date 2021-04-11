@@ -47,18 +47,23 @@ prompt. All shell commands are available and would looks like:
    Please refer to shell documentation for more details.
 
    Available commands:
+     adc      :ADC commands
      clear    :Clear screen.
      device   :Device commands
+     flash    :Flash shell commands
      gpio     :GPIO commands
      hello    :say hello
      help     :Prints the help message.
      history  :Command history.
+     hwinfo   :HWINFO commands
      i2c      :I2C commands
      kernel   :Kernel commands
      log      :Commands for controlling logger
+     pwm      :PWM shell commands
      resize   :Console gets terminal screen size or assumes default in case the
                readout fails. It must be executed after each terminal width change
                to ensure correct text display.
+     sensor   :Sensor commands
      shell    :Useful, not Unix-like shell commands.
 
    uart:~$ hello -h
@@ -66,13 +71,20 @@ prompt. All shell commands are available and would looks like:
    uart:~$ hello
    Hello from shell.
 
+   uart:~$ hwinfo devid 
+   Length: 12
+   ID: 0x9e6b44aea1e2b8980c4d32a6
+
    uart:~$ device list
    devices:
    - STM32_CLK_RCC
    - stm32-exti
+   - RTC_0
    - UART_7
+   - UART_4
    - RNG
    - sys_clock
+   - ADC_3
    - GPIOK
    - GPIOJ
    - GPIOI
@@ -84,8 +96,10 @@ prompt. All shell commands are available and would looks like:
    - GPIOC
    - GPIOB
    - GPIOA
+   - FLASH_CTRL
    - I2C_4
    - I2C_2
+   - PWM_8
    - SPI_5
 
 Simple GPIO Operations
@@ -104,6 +118,40 @@ Simple GPIO Operations
    Writing to GPIOG pin 12
    uart:~$ gpio set GPIOG 12 0
    Writing to GPIOG pin 12
+
+Simple ADC Acquisition
+======================
+
+.. rubric:: Read 12-bit from ADC3/IN9
+
+.. code-block:: console
+
+   uart:~$ adc ADC_3 acq_time 1 tick
+   uart:~$ adc ADC_3 resolution 12
+
+   uart:~$ adc ADC_3 read 9
+   read: 776
+
+   uart:~$ adc ADC_3 print 
+   ADC_3:
+   Gain: 1
+   Reference: INTERNAL
+   Acquisition Time: 0
+   Channel ID: 9
+   Resolution: 12
+
+Simple Flash Access
+===================
+
+.. rubric:: Print HEX Dump
+
+.. code-block:: console
+
+   uart:~$ flash read FLASH_CTRL 10000 40
+   00010000: 4e 3a 0a 00 50 52 45 20  4b 45 52 4e 45 4c 20 31 |N:..PRE  KERNEL 1|
+   00010010: 3a 0a 00 50 52 45 20 4b  45 52 4e 45 4c 20 32 3a |:..PRE K ERNEL 2:|
+   00010020: 0a 00 44 65 76 69 63 65  20 63 6f 6d 6d 61 6e 64 |..Device  command|
+   00010030: 73 00 4c 69 73 74 20 63  6f 6e 66 69 67 75 72 65 |s.List c onfigure|
 
 Simple I2C Operations
 =====================

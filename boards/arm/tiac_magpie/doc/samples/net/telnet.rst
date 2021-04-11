@@ -110,6 +110,7 @@ or ``kernel version``.
    - STM32_CLK_RCC
    - stm32-exti
    - UART_7
+   - UART_4
    - RNG
    - sys_clock
    - GPIOK
