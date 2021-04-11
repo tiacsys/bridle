@@ -12,6 +12,7 @@
 #include <st/f7/stm32f7-adc123.dtsi>
 #include <st/f7/stm32f767n(g-i)hx-pinctrl.dtsi>
 
+#include "tiac_magpie_pin_header.dtsi"
 
 / {
 	model = "TiaC MAGPIE board";
@@ -138,7 +139,7 @@
 	};
 };
 
-&adc1 {
+&adc3 {
 	status = "okay";
 	pinctrl-0 = <&adc3_in9_pf3
 		     &adc3_in14_pf4
