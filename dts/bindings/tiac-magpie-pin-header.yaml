@@ -1,0 +1,29 @@
+# Copyright (c) 2021 Li-Pro.Net
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+    GPIO pins exposed on TiaC MAGPIE headers.
+
+    The TiaC Magpie layout provides five headers, each two rows with
+    seven pins per row.
+
+    This binding provides a nexus mapping for 12 pins for each header,
+    left side pins are the odd pins numbered 0, 2, 4, 6, 8, 10, the right
+    side pins are the even pins numbered 1, 3, 5, 7, 9, 11. The bottom pins
+    on each side are used for ground, they are not mapped in the nexus.
+
+                      1 --o  o-- 2
+                      3 --o  o-- 4
+                      5 --o  o-- 6
+                      7 --o  o-- 8
+                      9 --o  o-- 10
+                     11 --o  o-- 12
+               (GND) 13 --o  o-- 14 (GND)
+
+    Board's silkscreen may vary depending your board, but coherent with the
+    description above as it's according to the standard's specification.
+    Not every TiaC board provides all five headers.
+
+compatible: "tiac-magpie-pin-header"
+
+include: [gpio-nexus.yaml, base.yaml]

@@ -1,0 +1,51 @@
+# Copyright (c) 2021 Li-Pro.Net
+# SPDX-License-Identifier: Apache-2.0
+
+# TiaC STM32F777NIHx Magpie board configuration
+
+if BOARD_TIAC_MAGPIE
+
+config BOARD
+	default "tiac_magpie"
+
+config SYS_CLOCK_HW_CYCLES_PER_SEC
+	default 216000000
+
+if CLOCK_CONTROL
+
+choice CLOCK_STM32_SYSCLK_SRC
+	default CLOCK_STM32_SYSCLK_SRC_PLL
+endchoice
+
+config CLOCK_STM32_HSE_BYPASS
+	default y
+
+config CLOCK_STM32_HSE_CLOCK
+	default 25000000
+
+endif # CLOCK_CONTROL
+
+choice COUNTER_RTC_STM32_CLOCK_SRC
+	default COUNTER_RTC_STM32_CLOCK_LSE
+        depends on COUNTER
+endchoice
+
+choice RNG_GENERATOR_CHOICE
+	default ENTROPY_DEVICE_RANDOM_GENERATOR
+        depends on ENTROPY_GENERATOR
+endchoice
+
+if NETWORKING
+
+config NET_L2_ETHERNET
+	default y
+
+config ETH_STM32_HAL_MII
+	default y
+
+config ETH_STM32_HAL_PHY_ADDRESS
+	default 7
+
+endif # NETWORKING
+
+endif # BOARD_TIAC_MAGPIE

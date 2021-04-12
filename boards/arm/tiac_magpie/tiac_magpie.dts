@@ -1,0 +1,224 @@
+/*
+ * Copyright (c) 2021 Li-Pro.Net
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/dts-v1/;
+// We actually have a STM32F777NIHx which seems to be identical to the F767
+// with the exception of an additional crypto unit. As Zephyr does not know
+// the F777, we use the F767 for now.
+#include <st/f7/stm32f767Xi.dtsi>
+#include <st/f7/stm32f767-can2.dtsi>
+#include <st/f7/stm32f7-adc123.dtsi>
+#include <st/f7/stm32f767n(g-i)hx-pinctrl.dtsi>
+
+#include "tiac_magpie_pin_header.dtsi"
+
+/ {
+	model = "TiaC MAGPIE board";
+	compatible = "tiac,magpie";
+
+	chosen {
+		zephyr,console = &uart7;
+		zephyr,shell-uart = &uart7;
+		zephyr,usb-device = &usbotg_fs;
+		zephyr,can-primary = &can1;
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+		zephyr,code-partition = &slot0_partition;
+		zephyr,dtcm = &dtcm;
+	}; // chosen
+
+	// These aliases are provided for compatibility
+	// with samples and tests.
+	aliases {
+		led0 = &usr_led_1;
+		led1 = &usr_led_2;
+	}; // aliases
+
+	leds {
+		compatible = "gpio-leds";
+		usr_led_1: usr_led_1 {
+			gpios = <&gpiog 11 GPIO_ACTIVE_HIGH>;	/* USER_LED1 */
+			label = "User LED1";
+		}; // usr_led_1
+		usr_led_2: usr_led_2 {
+			gpios = <&gpiog 12 GPIO_ACTIVE_HIGH>;	/* USER_LED2 */
+			label = "User LED2";
+		}; // usr_led_2
+	}; // leds
+};
+
+&uart7 {
+	status = "okay";
+	pinctrl-0 = <&uart7_tx_pe8	/* UART_TXD7 */
+		     &uart7_rx_pe7	/* UART_RXD7 */
+		     &uart7_rts_pe9	/* UART_RTS7 */
+		     &uart7_cts_pe10>;	/* UART_CTS7 */
+	current-speed = <115200>;
+	hw-flow-control;
+}; // uart7
+
+&mac {
+	status = "okay";
+	pinctrl-0 = <&eth_mdc_pc1	/* MII_MDC */
+		     &eth_mdio_pa2	/* MII_MDIO */
+		     &eth_col_pa3	/* MII_COL */
+		     &eth_crs_pa0	/* MII_CRS */
+		     &eth_txd3_pb8	/* MII_TXD3 */
+		     &eth_txd2_pc2	/* MII_TXD2 */
+		     &eth_txd1_pg14	/* MII_TXD1 */
+		     &eth_txd0_pg13	/* MII_TXD0 */
+		     &eth_tx_en_pb11	/* MII_TXEN */
+		     &eth_tx_clk_pc3	/* MII_TXC */
+		     &eth_rx_er_pi10	/* MII_RXER */
+		     &eth_rxd3_pb1	/* MII_RXD3 */
+		     &eth_rxd2_pb0	/* MII_RXD2 */
+		     &eth_rxd1_pc5	/* MII_RXD1 */
+		     &eth_rxd0_pc4	/* MII_RXD0 */
+		     &eth_rx_dv_pa7	/* MII_RXDV */
+		     &eth_rx_clk_pa1>;	/* MII_RXC */
+}; // mac
+
+&usbotg_fs {
+	status = "okay";
+	pinctrl-0 = <&usb_otg_fs_dm_pa11	/* USB_DEV_DP */
+		     &usb_otg_fs_dp_pa12>;	/* USB_DEV_DM */
+}; // usbotg_fs
+
+&can1 {
+	status = "okay";
+	pinctrl-0 = <&can1_rx_ph14	/* CAN_RX1 */
+		     &can1_tx_ph13>;	/* CAN_TX1 */
+	bus-speed = <900000>;
+	sjw = <1>;
+	prop-seg = <4>;
+	phase-seg1 = <7>;
+	phase-seg2 = <7>;
+}; // can1
+
+&can2 {
+	status = "okay";
+	pinctrl-0 = <&can2_rx_pb12	/* CAN_RX2 */
+		     &can2_tx_pb13>;	/* CAN_TX2 */
+	bus-speed = <900000>;
+	sjw = <1>;
+	prop-seg = <4>;
+	phase-seg1 = <7>;
+	phase-seg2 = <7>;
+}; // can2
+
+&i2c2 {
+	status = "okay";
+	pinctrl-0 = <&i2c2_scl_pf1	/* SCL2 */
+		     &i2c2_sda_pf0>;	/* SDA2 */
+	clock-frequency = <I2C_BITRATE_FAST>;
+}; // i2c2
+
+&uart4 {
+	status = "okay";
+	pinctrl-0 = <&uart4_tx_pd1	/* TMPH1_PD0_RXD4 */
+		     &uart4_rx_pd0>;	/* TMPH1_PD0_RXD4 */
+	current-speed = <115200>;
+}; // uart4
+
+&i2c4 {
+	status = "okay";
+	pinctrl-0 = <&i2c4_scl_pf14	/* TMPH5_PF14_SCL4 */
+		     &i2c4_sda_pf15>;	/* TMPH5_PF15_SDA4 */
+	clock-frequency = <I2C_BITRATE_FAST>;
+}; // i2c4
+
+&spi5 {
+	status = "okay";
+	pinctrl-0 = <&spi5_nss_ph5	/* TMPH2_PH5_NSS5 */
+		     &spi5_sck_ph6	/* TMPH3_PH6_SCK5 */
+		     &spi5_miso_ph7	/* TMPH3_PH7_MISO5 */
+		     &spi5_mosi_pf11>;	/* TMPH5_PF11_MOSI5 */
+}; // spi5
+
+&timers8 {
+	status = "okay";
+
+	pwm8: pwm {
+		status = "okay";
+		pinctrl-0 = <&tim8_ch1_pi5	/* TMPH4_PI5_PWM81 */
+			     &tim8_ch2_pi6	/* TMPH4_PI6_PWM82 */
+			     &tim8_ch3_pi7>;	/* TMPH4_PI7_PWM83 */
+	}; // pwm8
+}; // timers8
+
+&adc3 {
+	status = "okay";
+	pinctrl-0 = <&adc3_in9_pf3	/* TMPH4_PF3_ADC39 */
+		     &adc3_in14_pf4	/* TMPH2_PF4_ADC314 */
+		     &adc3_in15_pf5>;	/* TMPH2_PF5_ADC315 */
+}; // adc3
+
+&rtc {
+	status = "okay";
+}; // rtc
+
+&iwdg {
+	status = "okay";
+}; // iwdg
+
+&rng {
+	status = "okay";
+}; // rng
+
+&flash0 {
+	partitions {
+		compatible = "fixed-partitions";
+		#address-cells = <1>;
+		#size-cells = <1>;
+
+		/*
+		 * The two sectors 0-1 (32+32 kbytes) are reserved for
+		 * the bootloader.
+		 */
+		boot_partition: partition@0 {
+			label = "mcuboot";
+			reg = <0x0 0x00010000>;
+			read-only;
+		}; // boot_partition
+
+		/*
+		 * The flash starting at offset 0x10000 and ending at
+		 * offset 0x1ffff is reserved for use by the application.
+		 * This represents sectors 2-3 (32+32 kbytes)
+		 */
+		storage_partition: partition@10000 {
+			label = "storage";
+			reg = <0x00010000 0x00010000>;
+		}; // storage_partition
+
+		/*
+		 * Sector 4 (128 kbytes) unallocated.
+		 */
+
+		/*
+		 * Allocated 3 (256k x 3) sectors for image-0. Sectors 5-7.
+		 */
+		slot0_partition: partition@40000 {
+			label = "image-0";
+			reg = <0x00040000 0x000C0000>;
+		}; // slot0_partition
+
+		/*
+		 * Allocated 3 (256k x 3) sectors for image-1. Sectors 8-10.
+		 */
+		slot1_partition: partition@100000 {
+			label = "image-1";
+			reg = <0x00100000 0x000C0000>;
+		}; // slot1_partition
+
+		/*
+		 * Allocated 1 (256k) sector for image-scratch. Sector 11.
+		 */
+		scratch_partition: partition@1C0000 {
+			label = "image-scratch";
+			reg = <0x001C0000 0x00040000>;
+		}; // scratch_partition
+	}; // partitions
+}; // flash0

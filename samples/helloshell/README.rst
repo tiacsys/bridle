@@ -125,17 +125,23 @@ Sample Output
    Please refer to shell documentation for more details.
 
    Available commands:
+     adc      :ADC commands
      clear    :Clear screen.
      device   :Device commands
+     flash    :Flash shell commands
      gpio     :GPIO commands
      hello    :say hello
      help     :Prints the help message.
      history  :Command history.
+     hwinfo   :HWINFO commands
+     i2c      :I2C commands
      kernel   :Kernel commands
      log      :Commands for controlling logger
+     pwm      :PWM shell commands
      resize   :Console gets terminal screen size or assumes default in case the
                readout fails. It must be executed after each terminal width change
                to ensure correct text display.
+     sensor   :Sensor commands
      shell    :Useful, not Unix-like shell commands.
 
    uart:~$ <Tab>
