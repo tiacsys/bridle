@@ -7,7 +7,7 @@ Installing the |LPNB| through ... t.b.d. (TBD) Desktop Installer
    :local:
    :depth: 2
 
-... t.b.d. (TBD) Desktop Installer , a cross-platform tool available for
+... t.b.d. (TBD) Desktop Installer, a cross-platform tool available for
 Windows, Linux, and macOS, provides different apps that simplify installing
 the |LPNB|.
 

@@ -21,12 +21,11 @@ Building and Running
 Build and flash Hello Shell as follows:
 
 .. zephyr-app-commands::
-   :zephyr-app: bridle/samples/helloshell
+   :app: bridle/samples/helloshell
    :build-dir: helloshell-tiac_magpie
    :board: tiac_magpie
    :goals: build flash
    :host-os: unix
-   :compact:
 
 After flashing and the board has booted, you will be presented with a shell
 prompt. All shell commands are available and would looks like:

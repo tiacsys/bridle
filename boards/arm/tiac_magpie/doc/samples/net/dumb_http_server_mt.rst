@@ -27,13 +27,12 @@ Build the Zephyr version of the sockets/dumb_http_server_mt application like
 this:
 
 .. zephyr-app-commands::
-   :zephyr-app: zephyr/samples/net/sockets/dumb_http_server_mt
+   :app: zephyr/samples/net/sockets/dumb_http_server_mt
    :build-dir: dumb_http_server_mt-tiac_magpie
    :board: tiac_magpie
    :gen-args: -DCONFIG_NET_UDP=y -DCONFIG_NET_DHCPV4=y
    :goals: build flash
    :host-os: unix
-   :compact:
 
 Once DHCPv4 client address negotiation completed with server, details
 are shown on the console like this:

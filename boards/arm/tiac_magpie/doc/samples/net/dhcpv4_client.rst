@@ -24,12 +24,11 @@ Building and Running
 Build and flash DHCPv4 Client as follows:
 
 .. zephyr-app-commands::
-   :zephyr-app: zephyr/samples/net/dhcpv4_client
+   :app: zephyr/samples/net/dhcpv4_client
    :build-dir: dhcpv4_client-tiac_magpie
    :board: tiac_magpie
    :goals: build flash
    :host-os: unix
-   :compact:
 
 Once DHCPv4 client address negotiation completed with server, details
 are shown on the console like this:

@@ -28,12 +28,11 @@ This example only needs additional 32KiB RAM for the RAM-disk and is intended
 for testing USB mass storage class implementation.
 
 .. zephyr-app-commands::
-   :zephyr-app: zephyr/samples/subsys/usb/mass
+   :app: zephyr/samples/subsys/usb/mass
    :build-dir: usb_mass-tiac_magpie
    :board: tiac_magpie
    :goals: build flash
    :host-os: unix
-   :compact:
 
 The output to the console will look something like this:
 
@@ -50,13 +49,12 @@ Alternatively it is possible with the FLASH-based disk. In this example we will
 build the sample with a RAM-based disk:
 
 .. zephyr-app-commands::
-   :zephyr-app: zephyr/samples/subsys/usb/mass
+   :app: zephyr/samples/subsys/usb/mass
    :build-dir: usb_mass_fat-tiac_magpie
    :board: tiac_magpie
    :gen-args: -DCONFIG_APP_MSC_STORAGE_RAM=y
    :goals: build flash
    :host-os: unix
-   :compact:
 
 After you have built and flashed the sample application image to your board,
 plug the board into a host device, for example, a PC running Linux. The board

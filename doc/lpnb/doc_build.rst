@@ -14,9 +14,6 @@ Before you start
 ****************
 
 Before you can build the documentation, install the |LPNB| as described in
-... t.b.d.
-
-Before you can build the documentation, install the |LPNB| as described in
 :ref:`gs_installing`. Make sure that you have installed the required
 :ref:`Python dependencies <additional_deps>`.
 
@@ -30,6 +27,20 @@ required tools to build the documentation and their supported versions.
    Dependending on how you have installed Python, you may need to
    add this folder to your ``PATH`` environment variable. Follow
    the instructions in `Windows Python Path`_ to add those if needed.
+
+.. admonition:: The original Zephyr documentation needs to patch!
+   :class: attention
+
+   Patch Zephyr source code with specific 'no kconfig' and 'recursive' hack,
+   because we use a shared Kconfig and DTS bindings documentation set instead,
+   type in:
+
+   .. code-block:: console
+
+      git -C zephyr apply \
+          ../bridle/scripts/patches/zephyr/0001-doc-Share-Kconfig-documentation-between-repos.patch
+      git -C zephyr apply \
+          ../bridle/scripts/patches/zephyr/0002-doc-script-found-devicetree-bindings-recursively.patch
 
 Documentation structure
 ***********************
@@ -47,6 +58,18 @@ sets, the other documentation sets must be built first.
 
 Building documentation output
 *****************************
+
+There are two different methods available, a quick way via ``west`` and
+a way with direct calls to the necessary configuration and build tools.
+
+.. rubric:: use ``west``
+
+.. code-block:: console
+
+   west build --cmake-only -b none -d build/lpn-bridle-doc bridle/doc
+   west build -t build-all -b none -d build/lpn-bridle-doc
+
+.. rubric:: direct calls
 
 Complete the following steps to build the documentation output:
 
@@ -79,10 +102,25 @@ Complete the following steps to build the documentation output:
    This command will build all documentation sets and can take
    up to 20 minutes.
 
-   Alternatively, if you want to build each documentation set separately,
-   complete the following steps. Generate the Ninja build files and build
-   the Kconfig Reference and Devicetree Bindings (1st), Zephyr (2nd), and
-   |LPNB| (3rd) documentation:
+Alternatively, if you want to build each documentation set separately,
+complete the following steps. Generate the Ninja build files and build
+the Kconfig Reference and Devicetree Bindings (1st), Zephyr (2nd), and
+|LPNB| (3rd) documentation:
+
+:use ``west``:
+
+   .. code-block:: console
+
+      # Use west to configure a Ninja-based buildsystem with cmake:
+      west build --cmake-only -b none -d build/lpn-bridle-doc bridle/doc
+
+      # Now run west on the generated build system:
+      west build -t kconfig-html -b none -d build/lpn-bridle-doc
+      west build -t devicetree-html -b none -d build/lpn-bridle-doc
+      west build -t zephyr -b none -d build/lpn-bridle-doc
+      west build -t lpnb -b none -d build/lpn-bridle-doc
+
+:direct calls:
 
    .. zephyr-app-commands::
       :app: bridle/doc
@@ -126,33 +164,67 @@ built from scratch, which takes a considerable time.
 
 To clean the build folders for the Kconfig references:
 
-.. code-block:: console
+:use ``west``:
 
-   ninja -C build/lpn-bridle-doc clean-kconfig
+   .. code-block:: console
+
+      west build -t clean-kconfig -b none -d build/lpn-bridle-doc
+
+:direct calls:
+
+   .. code-block:: console
+
+      ninja -C build/lpn-bridle-doc clean-kconfig
 
 To clean the build folders for the Devicetree bindings:
 
-.. code-block:: console
+:use ``west``:
 
-   ninja -C build/lpn-bridle-doc clean-devicetree
+   .. code-block:: console
+
+      west build -t clean-devicetree -b none -d build/lpn-bridle-doc
+
+:direct calls:
+
+   .. code-block:: console
+
+      ninja -C build/lpn-bridle-doc clean-devicetree
 
 To clean the build folders for the Zephyr documentation:
 
-.. code-block:: console
+:use ``west``:
 
-   ninja -C build/lpn-bridle-doc clean-zephyr
+   .. code-block:: console
+
+      west build -t clean-zephyr -b none -d build/lpn-bridle-doc
+
+:direct calls:
+
+   .. code-block:: console
+
+      ninja -C build/lpn-bridle-doc clean-zephyr
 
 To clean the build folders for the |LPNB| documentation:
 
-.. code-block:: console
+:use ``west``:
 
-   ninja -C build/lpn-bridle-doc clean-lpnb
+   .. code-block:: console
+
+      west build -t clean-lpnb -b none -d build/lpn-bridle-doc
+
+:direct calls:
+
+   .. code-block:: console
+
+      ninja -C build/lpn-bridle-doc clean-lpnb
 
 If you want to build the documentation from scratch just delete the contents
 of the build folder and run ``cmake`` and then ``ninja`` again:
 
-.. code-block:: console
+:direct calls:
 
-   rm -rf build/lpn-bridle-doc
+   .. code-block:: console
+
+      rm -rf build/lpn-bridle-doc
 
 .. _Windows Python Path: https://docs.python.org/3/using/windows.html#finding-the-python-executable

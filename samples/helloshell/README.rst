@@ -38,7 +38,6 @@ built and executed as emulation in :ref:`zephyr:qemu_x86` as follows:
    :board: qemu_x86
    :goals: build run
    :host-os: unix
-   :compact:
 
 Also it can be built and executed on following targets:
 
@@ -50,7 +49,6 @@ Also it can be built and executed on following targets:
      :board: native_posix
      :goals: build run
      :host-os: unix
-     :compact:
 
   .. hint:: Connect a terminal emulator to the given pseudotty or start the
      application directly with the autoconnect argument:
@@ -67,7 +65,6 @@ Also it can be built and executed on following targets:
      :board: qemu_cortex_m3
      :goals: build run
      :host-os: unix
-     :compact:
 
   .. hint:: Exit QEMU by pressing :kbd:`CTRL+A` :kbd:`x`.
 
@@ -79,7 +76,6 @@ Also it can be built and executed on following targets:
      :board: nucleo_f746zg
      :goals: build flash
      :host-os: unix
-     :compact:
 
 Further you can deside either to run in a basic or fancy command set
 mode:
@@ -93,7 +89,6 @@ mode:
      :board: nucleo_f746zg
      :goals: build flash
      :host-os: unix
-     :compact:
 
 * On :ref:`zephyr:nucleo_f746zg_board` board, fancy command set mode:
 
@@ -104,7 +99,6 @@ mode:
      :board: nucleo_f746zg
      :goals: build flash
      :host-os: unix
-     :compact:
 
 Sample Output
 =============
