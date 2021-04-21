@@ -4,6 +4,9 @@ sample:
   name: hello shell
 common:
     tags: introduction
+    integration_platforms:
+      - native_posix
+    depends_on: uart gpio i2c pwm adc
     harness: console
     harness_config:
       type: one_line
