@@ -48,15 +48,15 @@ set, which needs three lpn-bridle-specific Zephyr tweaks:
 Prepare the build folder, type in:
 
 ```bash
-rm -rf build-lpn-bridle-doc
-cmake -B build-lpn-bridle-doc -GNinja bridle/doc
+rm -rf build/lpn-bridle-doc
+west build --cmake-only -b none -d build/lpn-bridle-doc bridle/doc
 ```
 
 Build the complete Li-Pro.Net bridle HTML pages in
-``build-lpn-bridle-doc/html``, type in:
+``build/lpn-bridle-doc/html``, type in:
 
 ```bash
-ninja -C build-lpn-bridle-doc build-all
+west build -t build-all -b none -d build/lpn-bridle-doc
 ```
 
 This command will build all documentation sets. Note that this process can
@@ -64,38 +64,38 @@ take quite some time. Alternatively, if you want to build each documentation
 set separately, complete the following steps:
 
 1. Build Kconfig Reference HTML pages in
-   ``build-lpn-bridle-doc/html/kconfig``, type in:
+   ``build/lpn-bridle-doc/html/kconfig``, type in:
 
    ```bash
-   ninja -C build-lpn-bridle-doc kconfig-html
+   west build -t kconfig-html -b none -d build/lpn-bridle-doc
    ```
 
 2. Build Devicetree Bindings HTML pages in
-   ``build-lpn-bridle-doc/html/devicetree``, type in:
+   ``build/lpn-bridle-doc/html/devicetree``, type in:
 
    ```bash
-   ninja -C build-lpn-bridle-doc devicetree-html
+   west build -t devicetree-html -b none -d build/lpn-bridle-doc
    ```
 
 3. Build Zephyr Project HTML pages in
-   ``build-lpn-bridle-doc/html/zephyr``, type in:
+   ``build/lpn-bridle-doc/html/zephyr``, type in:
 
    ```bash
-   ninja -C build-lpn-bridle-doc zephyr
+   west build -t zephyr -b none -d build/lpn-bridle-doc
    ```
 
 4. Build Li-Pro.Net bridle HTML pages in
-   ``build-lpn-bridle-doc/html/lpnb``, type in:
+   ``build/lpn-bridle-doc/html/lpnb``, type in:
 
    ```bash
-   ninja -C build-lpn-bridle-doc lpnb
+   west build -t lpnb -b none -d build/lpn-bridle-doc
    ```
 
-Now you are able to open ``build-lpn-bridle-doc/html/index.html``
+Now you are able to open ``build/lpn-bridle-doc/html/index.html``
 in any HTML browser, ex. type in:
 
 ```bash
-firefox build-lpn-bridle-doc/html/index.html &
+firefox build/lpn-bridle-doc/html/index.html &
 ```
 
 ---
@@ -122,7 +122,7 @@ After a firmware reset you will see on the console:
 3. the command prompt of the shell
 
 ```text
-*** Booting Zephyr OS build zephyr-v2.5.0  ***
+*** Booting Zephyr OS version 2.5.0  ***
 Hello World! I'm THE SHELL from nucleo_f746zg
 
 
@@ -130,6 +130,12 @@ uart:~$ _
 ```
 
 From now on you can enter commands. Here are some basic core commands:
+
+```bash
+uart:~$ hwinfo devid
+Length: 12
+ID: 0x333436353438510b00300042
+```
 
 ```bash
 uart:~$ kernel version
@@ -143,28 +149,28 @@ Uptime: 23703 ms
 
 ```bash
 uart:~$ kernel stacks
-0x20010318 shell_uart (real size 2048): unused 1352     usage 696 / 2048 (33 %)
-0x20010260 logging    (real size 768):  unused 664      usage 104 / 768 (13 %)
-0x200103d0 idle 00    (real size 320):  unused 248      usage 72 / 320 (22 %)
-0x20011be0 IRQ 00     (real size 2048): unused 1560     usage 488 / 2048 (23 %)
+0x20010568 shell_uart (real size 2048): unused 1288     usage 760 / 2048 (37 %)
+0x200104b0 logging    (real size 768):  unused 664      usage 104 / 768 (13 %)
+0x20010620 idle 00    (real size 320):  unused 248      usage 72 / 320 (22 %)
+0x20012e80 IRQ 00     (real size 2048): unused 1520     usage 528 / 2048 (25 %)
 ```
 
 ```bash
 uart:~$ kernel threads
-Scheduler: 638 since last call
+Scheduler: 879 since last call
 Threads:
-*0x20010318 shell_uart
-        options: 0x0, priority: 14 timeout: 536937364
+*0x20010568 shell_uart
+        options: 0x0, priority: 14 timeout: 536937956
         state: queued
-        stack size 2048, unused 1144, usage 904 / 2048 (44 %)
+        stack size 2048, unused 1104, usage 944 / 2048 (46 %)
 
- 0x20010260 logging
-        options: 0x0, priority: 14 timeout: 536937180
+ 0x200104b0 logging
+        options: 0x0, priority: 14 timeout: 536937772
         state: pending
         stack size 768, unused 664, usage 104 / 768 (13 %)
 
- 0x200103d0 idle 00
-        options: 0x1, priority: 15 timeout: 536937548
+ 0x20010620 idle 00
+        options: 0x1, priority: 15 timeout: 536938140
         state:
         stack size 320, unused 248, usage 72 / 320 (22 %)
 ```
@@ -177,6 +183,7 @@ devices:
 - UART_6
 - UART_3
 - sys_clock
+- ADC_1
 - GPIOK
 - GPIOJ
 - GPIOI
@@ -188,16 +195,27 @@ devices:
 - GPIOC
 - GPIOB
 - GPIOA
+- FLASH_CTRL
+- I2C_1
+- PWM_1
 ```
 
 ```bash
 uart:~$ log status
 module_name                              | current | built-in
 ----------------------------------------------------------
+adc_shell                                | inf     | inf
+adc_stm32                                | inf     | inf
+flash_stm32                              | inf     | inf
 gpio_shell                               | inf     | inf
+i2c                                      | inf     | inf
+i2c_ll_stm32                             | inf     | inf
+i2c_ll_stm32_v2                          | inf     | inf
+i2c_shell                                | inf     | inf
 log                                      | inf     | inf
 mpu                                      | inf     | inf
 os                                       | inf     | inf
+pwm_stm32                                | inf     | inf
 shell.shell_uart                         | inf     | inf
 shell_uart                               | inf     | inf
 uart_stm32                               | inf     | inf
@@ -224,17 +242,53 @@ uart:~$ gpio set GPIOB 0 0
 Writing to GPIOB pin 0
 ```
 
+Simple read access to the internal program memory (Flash):
+
+```bash
+uart:~$ flash read FLASH_CTRL 10a40 10
+00010A40: 5a 65 70 68 79 72 20 4f  53 20 76 65 72 73 69 6f |Zephyr O S versio|
+```
+
+Scan default I2C bus:
+
+```bash
+uart:~$ i2c scan I2C_1
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:             -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+0 devices found on I2C_1
+```
+
+#### Running as Posix native firmware on host
+
+Config, build, and execute, type in:
+
+```bash
+rm -rf build/helloshell-native_posix
+west build -d build/helloshell-native_posix \
+           -b native_posix --cmake-only \
+     bridle/samples/helloshell
+west build -d build/helloshell-native_posix -t all
+./build/helloshell-native_posix/zephyr/zephyr.exe -attach_uart
+```
+
 #### Running as ix86 32-bit firmware in Qemu emulation
 
 Config, build, and execute, type in:
 
 ```bash
-rm -rf build-helloshell-qemu_x86
-west build -d build-helloshell-qemu_x86 \
+rm -rf build/helloshell-qemu_x86
+west build -d build/helloshell-qemu_x86 \
            -b qemu_x86 --cmake-only \
      bridle/samples/helloshell
-west build -d build-helloshell-qemu_x86 -t all
-west build -d build-helloshell-qemu_x86 -t run
+west build -d build/helloshell-qemu_x86 -t all
+west build -d build/helloshell-qemu_x86 -t run
 ```
 
 The application stucks inside the emulator in an endless loop (the Zephyr idle
@@ -245,12 +299,12 @@ task) and can only terminated by press ``Ctrl-a`` following by ``x``.
 Config, build, and execute, type in:
 
 ```bash
-rm -rf build-helloshell-qemu_cortex_m3
-west build -d build-helloshell-qemu_cortex_m3 \
+rm -rf build/helloshell-qemu_cortex_m3
+west build -d build/helloshell-qemu_cortex_m3 \
            -b qemu_cortex_m3 --cmake-only \
      bridle/samples/helloshell
-west build -d build-helloshell-qemu_cortex_m3 -t all
-west build -d build-helloshell-qemu_cortex_m3 -t run
+west build -d build/helloshell-qemu_cortex_m3 -t all
+west build -d build/helloshell-qemu_cortex_m3 -t run
 ```
 
 The application stucks inside the emulator in an endless loop (the Zephyr idle
@@ -261,12 +315,12 @@ task) and can only terminated by press ``Ctrl-a`` following by ``x``.
 Config, build, and execute, type in:
 
 ```bash
-rm -rf build-helloshell-nucleo_f746zg
-west build -d build-helloshell-nucleo_f746zg \
+rm -rf build/helloshell-nucleo_f746zg
+west build -d build/helloshell-nucleo_f746zg \
            -b nucleo_f746zg --cmake-only \
      bridle/samples/helloshell
-west build -d build-helloshell-nucleo_f746zg -t all
-west flash -d build-helloshell-nucleo_f746zg
+west build -d build/helloshell-nucleo_f746zg -t all
+west flash -d build/helloshell-nucleo_f746zg
 ```
 
 The terminal emulator will stuck on the serial device and can only terminated
@@ -287,25 +341,23 @@ Configure, build and run the simple hello world example with the help of
 ``west``, type in:
 
 ```bash
-rm -rf build-hello_world-native_posix
-west build -d build-hello_world-native_posix \
+rm -rf build/hello_world-native_posix
+west build -d build/hello_world-native_posix \
            -b native_posix --cmake-only \
      zephyr/samples/hello_world
-west build -d build-hello_world-native_posix -t all
-west build -d build-hello_world-native_posix -t run
+west build -d build/hello_world-native_posix -t all
+west build -d build/hello_world-native_posix -t run
 ```
 
 That results in:
 
 ```text
-*** Booting Zephyr OS build zephyr-v2.5.0  ***
+*** Booting Zephyr OS version 2.5.0  ***
 Hello World! native_posix
 ```
 
-Alternatively, the application can also be started directly, with
-``./build-hello_world-native_posix/zephyr/zephyr.exe``. The application
-stucks in an endless loop (the Zephyr idle task) and can only terminated
-by press ``Ctrl-c``.
+The application stucks in an endless loop (the Zephyr idle task) and can
+only terminated by press ``Ctrl-c``.
 
 ### The Qemu emulated firmware
 
@@ -317,19 +369,19 @@ Configure, build and run the simple hello world example with the help of
 Type in:
 
 ```bash
-rm -rf build-hello_world-qemu_x86
-west build -d build-hello_world-qemu_x86 \
+rm -rf build/hello_world-qemu_x86
+west build -d build/hello_world-qemu_x86 \
            -b qemu_x86 --cmake-only \
      zephyr/samples/hello_world
-west build -d build-hello_world-qemu_x86 -t all
-west build -d build-hello_world-qemu_x86 -t run
+west build -d build/hello_world-qemu_x86 -t all
+west build -d build/hello_world-qemu_x86 -t run
 ```
 
 That results in:
 
 ```text
 SeaBIOS (version zephyr-v1.0.0-0-g31d4e0e-dirty-20200714_234759-fv-az50-zephyr)
-Booting from ROM..*** Booting Zephyr OS build zephyr-v2.5.0  ***
+Booting from ROM..*** Booting Zephyr OS version 2.5.0  ***
 Hello World! qemu_x86
 ```
 
@@ -341,18 +393,18 @@ task) and can only terminated by press ``Ctrl-a`` following by ``x``.
 Type in:
 
 ```bash
-rm -rf build-hello_world-qemu_cortex_m3
-west build -d build-hello_world-qemu_cortex_m3 \
+rm -rf build/hello_world-qemu_cortex_m3
+west build -d build/hello_world-qemu_cortex_m3 \
            -b qemu_cortex_m3 --cmake-only \
      zephyr/samples/hello_world
-west build -d build-hello_world-qemu_cortex_m3 -t all
-west build -d build-hello_world-qemu_cortex_m3 -t run
+west build -d build/hello_world-qemu_cortex_m3 -t all
+west build -d build/hello_world-qemu_cortex_m3 -t run
 ```
 
 That results in:
 
 ```text
-*** Booting Zephyr OS build zephyr-v2.5.0  ***
+*** Booting Zephyr OS version 2.5.0  ***
 Hello World! qemu_cortex_m3
 ```
 
@@ -384,13 +436,13 @@ by press ``Ctrl-a`` following by ``\`` and awnser with ``y``.
 Optional clean (remove) the build directory:
 
 ```bash
-rm -rf build-hello_world-nucleo_f746zg
+rm -rf build/hello_world-nucleo_f746zg
 ```
 
 Now start to config, type in:
 
 ```bash
-west build -d build-hello_world-nucleo_f746zg \
+west build -d build/hello_world-nucleo_f746zg \
            -b nucleo_f746zg --cmake-only \
      zephyr/samples/hello_world
 ```
@@ -401,7 +453,7 @@ your board comes without this crystel you must change the clock tree
 configuration by execute the ``menuconfig`` at this step, type in:
 
 ```bash
-west build -d build-hello_world-nucleo_f746zg -t menuconfig
+west build -d build/hello_world-nucleo_f746zg -t menuconfig
 ```
 
 Got to *(Top) → Device Drivers → Hardware clock controller support
@@ -426,14 +478,14 @@ Finish the menu configuration by press ``q`` following by ``y``. Now you can
 build and flash the firmware, type in:
 
 ```bash
-west build -d build-hello_world-nucleo_f746zg -t all
-west flash -d build-hello_world-nucleo_f746zg
+west build -d build/hello_world-nucleo_f746zg -t all
+west flash -d build/hello_world-nucleo_f746zg
 ```
 
 That results in (in the terminal emulator):
 
 ```text
-*** Booting Zephyr OS build zephyr-v2.5.0  ***
+*** Booting Zephyr OS version 2.5.0  ***
 Hello World! nucleo_f746zg
 ```
 
