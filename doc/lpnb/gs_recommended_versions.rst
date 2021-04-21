@@ -28,6 +28,9 @@ that is installed when using the :ref:`gs_app_sim` as described in
          * - device-tree-compiler
            - |dtc_min_ver|
            - |dtc_recommended_ver_win10|
+         * - openocd
+           - |openocd_min_ver|
+           - |openocd_recommended_ver_win10|
          * - git
            -
            - |git_recommended_ver_win10|
@@ -67,6 +70,9 @@ that is installed when using the :ref:`gs_app_sim` as described in
          * - device-tree-compiler
            - |dtc_min_ver|
            - |dtc_recommended_ver_linux|
+         * - openocd
+           - |openocd_min_ver|
+           - |openocd_recommended_ver_linux|
          * - git
            -
            - |git_recommended_ver_linux|
@@ -100,6 +106,9 @@ that is installed when using the :ref:`gs_app_sim` as described in
          * - device-tree-compiler
            - |dtc_min_ver|
            - |dtc_recommended_ver_darwin|
+         * - openocd
+           - |openocd_min_ver|
+           - |openocd_recommended_ver_darwin|
          * - git
            -
            - |git_recommended_ver_darwin|
@@ -136,20 +145,12 @@ Building and running applications, samples, and tests
 
    * - Package
      - Version
-   * - anytree
-     - |anytree_ver|
-   * - canopen
-     - |canopen_ver|
    * - ecdsa
      - |ecdsa_ver|
    * - imagesize
      - |imagesize_ver|
    * - intelhex
      - |intelhex_ver|
-   * - packaging
-     - |packaging_ver|
-   * - progress
-     - |progress_ver|
    * - pyelftools
      - |pyelftools_ver|
    * - pylint
@@ -169,19 +170,23 @@ Building documentation
 
    * - Package
      - Version
-   * - recommonmark
-     - |recommonmark_ver|
-   * - sphinxcontrib-mscgen
-     - |sphinxcontrib-mscgen_ver|
-   * - breathe
-     - |breathe_ver|
    * - docutils
      - |docutils_ver|
+   * - breathe
+     - |breathe_ver|
+   * - CommonMark
+     - |CommonMark_ver|
+   * - recommonmark
+     - |recommonmark_ver|
    * - sphinx
      - |sphinx_ver|
    * - sphinx_rtd_theme
      - |sphinx_rtd_theme_ver|
-   * - sphinx-tabs
-     - |sphinx-tabs_ver|
    * - sphinxcontrib-svg2pdfconverter
      - |sphinxcontrib-svg2pdfconverter_ver|
+   * - sphinxcontrib-mscgen
+     - |sphinxcontrib-mscgen_ver|
+   * - sphinx-tabs
+     - |sphinx-tabs_ver|
+   * - sphinx-csv-filter
+     - |sphinx-csv-filter_ver|
