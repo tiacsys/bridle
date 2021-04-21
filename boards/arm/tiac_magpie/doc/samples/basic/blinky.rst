@@ -22,12 +22,11 @@ Building and Running
 Build and flash LED Blinky as follows:
 
 .. zephyr-app-commands::
-   :zephyr-app: zephyr/samples/basic/blinky
+   :app: zephyr/samples/basic/blinky
    :build-dir: led_blinky-tiac_magpie
    :board: tiac_magpie
    :goals: build flash
    :host-os: unix
-   :compact:
 
 After flashing, the first "User LED" starts to blink.
 LED Blinky does not print to the console.
