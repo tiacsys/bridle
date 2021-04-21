@@ -1,1 +1,4 @@
 .. |LPNB| replace:: Li-Pro.Net bridle
+
+.. |release| replace:: 0.0.0
+.. |release_tt| replace:: ``0.0.0``
