@@ -1,0 +1,41 @@
+.. role:: rd
+   :class: rd
+
+.. role:: brd
+   :class: brd
+
+.. role:: gn
+   :class: gn
+
+.. role:: bgn
+   :class: bgn
+
+.. role:: bl
+   :class: bl
+
+.. role:: bbl
+   :class: bbl
+
+.. role:: yl
+   :class: yl
+
+.. role:: byl
+   :class: byl
+
+.. role:: bk
+   :class: bk
+
+.. role:: bbk
+   :class: bbk
+
+.. role:: wt
+   :class: wt
+
+.. role:: bwt
+   :class: bwt
+
+.. role:: strikethrough
+   :class: strikethrough
+
+.. role:: underline
+   :class: underline
