@@ -220,6 +220,10 @@ lexers['DTS'] = DtsLexer()
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = False
 
+rst_prolog = """
+.. include:: /roles.txt
+"""
+
 rst_epilog = """
 .. include:: /links.txt
 .. include:: /shortcuts.txt
@@ -380,6 +384,9 @@ cpp_id_attributes = [
 c_id_attributes = cpp_id_attributes
 
 def setup(app):
+    app.add_css_file("css/colors.css")  ### by LPNB ###
+    app.add_css_file("css/strikethrough.css")  ### by LPNB ###
+    app.add_css_file("css/underline.css")  ### by LPNB ###
     app.add_css_file("css/common.css")  ### by LPNB ###
     app.add_css_file("css/lpn.css")  ### by LPNB ###
     app.add_js_file("js/lpnb.js")  ### by LPNB ###

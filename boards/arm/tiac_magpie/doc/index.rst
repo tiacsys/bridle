@@ -329,6 +329,25 @@ You can debug an application in the usual way. Here is an example for the
    :goals: debug
    :host-os: unix
 
+.. ...........................................................................
+
+Tests and Examples
+******************
+
+Integration Tests
+=================
+
+Zephyr provides a large number of integration tests to evaluate the target
+architecture, the operating system core components, drivers and subsystems.
+Most of them can be build and running by Zephyr :doc:`guides/test/twister`
+without any further modification:
+
+.. toctree::
+   :maxdepth: 1
+   :glob:
+
+   tests/**/*
+
 Examples and Demonstrations
 ===========================
 

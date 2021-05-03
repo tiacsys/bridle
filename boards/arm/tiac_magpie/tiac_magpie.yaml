@@ -20,9 +20,11 @@ supported:
   - netif:eth
   - usb_device
   - can
-  - nvs
   - i2c
   - spi
   - pwm
+  - adc
+  - nvs
+  - dma
   - watchdog
   - counter

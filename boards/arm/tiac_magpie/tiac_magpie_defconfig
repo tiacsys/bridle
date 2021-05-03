@@ -40,10 +40,6 @@ CONFIG_ARM_MPU=y
 # Enable HW stack protection
 CONFIG_HW_STACK_PROTECTION=y
 
-# Enable on-chip entropy generator
-CONFIG_ENTROPY_GENERATOR=y
-CONFIG_ENTROPY_STM32_RNG=y
-
 # Enable UART
 CONFIG_SERIAL=y
 

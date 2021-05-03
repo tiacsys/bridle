@@ -1,0 +1,27 @@
+.rd, .brd {
+  color: IndianRed;
+}
+
+.gn, .bgn {
+  color: ForestGreen;
+}
+
+.bl, .bbl {
+  color: RoyalBlue;
+}
+
+.yl, .byl {
+  color: Gold;
+}
+
+.bk, .bbk {
+  color: Black;
+}
+
+.wt, .bwt {
+  color: White;
+}
+
+.brd, .bgn, .bbl, .byl, .bbk, .bwt {
+  font-weight: bold;
+}
