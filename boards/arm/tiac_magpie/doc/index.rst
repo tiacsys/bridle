@@ -334,20 +334,6 @@ You can debug an application in the usual way. Here is an example for the
 Tests and Examples
 ******************
 
-Integration Tests
-=================
-
-Zephyr provides a large number of integration tests to evaluate the target
-architecture, the operating system core components, drivers and subsystems.
-Most of them can be build and running by Zephyr :doc:`guides/test/twister`
-without any further modification:
-
-.. toctree::
-   :maxdepth: 1
-   :glob:
-
-   tests/**/*
-
 Examples and Demonstrations
 ===========================
 
@@ -360,6 +346,101 @@ further modification:
    :glob:
 
    samples/**/*
+
+Integration Tests
+=================
+
+Zephyr provides a large number of integration tests to evaluate the target
+architecture, the operating system core components, drivers and subsystems.
+Most of them can be build and running by Zephyr :doc:`guides/test/twister`
+without any further modification.
+
+Before a single or multiple test cases can be executed directly on the
+TiaC Magpie, a so-called hardware map must be created with the help of
+Twister and adapted manually. You can do that with the following command
+line inside your local workspace directory:
+
+.. code-block:: console
+
+   $ rm -f map.yaml && cd ./zephyr && \
+       ./scripts/twister --generate-hardware-map ../map.yaml && \
+       cd - && editor map.yaml
+
+This hardware map (``map.yaml``) could look like the following. Bold
+highlighted portions need to be added manually. Italic parts have to be
+adapted to your own specific situation, important here is the platform
+setup to *tiac_magpie*.
+
+.. parsed-literal::
+   :class: highlight
+
+   - **available: true**
+     **connected: true**
+     id: *DT04BNT1*
+     platform: *tiac_magpie*
+     product: FT230X Basic UART
+     runner: *openocd*
+     serial: /dev/ttyUSB0
+
+All currently qualified tests for TiaC Magpie can be executed and verified
+with a single call to Twister.
+
+.. tabs::
+
+   .. group-tab:: Running
+
+      .. attention:: This will take more than a quarter of an hour.
+
+      Build and run the tests on target as follows:
+
+      .. code-block:: console
+
+         $ ./zephyr/scripts/twister \
+             --verbose --jobs 4 --inline-logs \
+             --enable-size-report --platform-reports \
+             --device-testing --hardware-map map.yaml \
+             --board-root bridle/boards \
+             --testcase-root zephyr/tests/arch/arm \
+             --testcase-root zephyr/tests/kernel \
+             --testcase-root zephyr/tests/drivers/watchdog \
+             --testcase-root zephyr/tests/drivers/counter \
+             --testcase-root zephyr/tests/drivers/entropy \
+             --testcase-root zephyr/tests/drivers/hwinfo
+
+   .. group-tab:: Results
+
+      You should see the following messages on host console:
+
+      .. parsed-literal::
+         :class: highlight
+
+         Device testing on:
+
+         \| Platform    \| ID       \| Serial device   \|
+         \|-------------\|----------\|-----------------\|
+         \| tiac_magpie \| DT04BNT1 \| /dev/ttyUSB0    \|
+
+         INFO    - Adding tasks to the queue...
+         INFO    - Added initial list of jobs to queue
+         INFO    - Total complete:  :bgn:`114`/ :bgn:`114`  100%  skipped:   :byl:`42`, failed:    :bbk:`0`
+         INFO    - :bgn:`95 of 95` test configurations passed (100.00%), :bbk:`0` failed, :byl:`42` skipped with :bbk:`0` warnings in :bbk:`1013.04 seconds`
+         INFO    - In total 769 test cases were executed, 357 skipped on 1 out of total 330 platforms (0.30%)
+         INFO    - :bgn:`95` test configurations executed on platforms, :brd:`0` test configurations were only built.
+
+         Hardware distribution summary:
+
+         \| Board       \| ID       \|   Counter \|
+         \|-------------\|----------\|-----------\|
+         \| tiac_magpie \| DT04BNT1 \|        95 \|
+
+Likewise, each of these test suites can also be running individually.
+The following are valid:
+
+.. toctree::
+   :maxdepth: 1
+   :glob:
+
+   tests/**/*
 
 .. ...........................................................................
 

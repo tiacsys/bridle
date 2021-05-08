@@ -28,3 +28,8 @@ supported:
   - dma
   - watchdog
   - counter
+testing:
+  default: true
+  ignore_tags:
+    - bluetooth
+    - nfc
