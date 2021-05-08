@@ -4,7 +4,7 @@
  */
 
 / {
-	tmph1: connector {
+	tmph1: tmph1-connector {
 		compatible = "tiac-magpie-pin-header";
 		#gpio-cells = <2>;
 		gpio-map-mask = <0xffffffff 0xffffffc0>;
@@ -25,7 +25,7 @@
 			   /* Not a GPIO*/	/* GND */
 	}; // tmph1
 
-	tmph2: connector {
+	tmph2: tmph2-connector {
 		compatible = "tiac-magpie-pin-header";
 		#gpio-cells = <2>;
 		gpio-map-mask = <0xffffffff 0xffffffc0>;
@@ -46,7 +46,7 @@
 			   /* Not a GPIO*/	/* GND */
 	}; // tmph2
 
-	tmph3: connector {
+	tmph3: tmph3-connector {
 		compatible = "tiac-magpie-pin-header";
 		#gpio-cells = <2>;
 		gpio-map-mask = <0xffffffff 0xffffffc0>;
@@ -67,7 +67,7 @@
 			   /* Not a GPIO*/	/* GND */
 	}; // tmph3
 
-	tmph4: connector {
+	tmph4: tmph4-connector {
 		compatible = "tiac-magpie-pin-header";
 		#gpio-cells = <2>;
 		gpio-map-mask = <0xffffffff 0xffffffc0>;
@@ -88,7 +88,7 @@
 			   /* Not a GPIO*/	/* GND */
 	}; // tmph4
 
-	tmph5: connector {
+	tmph5: tmph5-connector {
 		compatible = "tiac-magpie-pin-header";
 		#gpio-cells = <2>;
 		gpio-map-mask = <0xffffffff 0xffffffc0>;
