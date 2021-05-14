@@ -104,7 +104,7 @@ hardware features:
    +-----------+------------+-----------------------------------------------+
    | Interface | Controller | Driver/Component                              |
    +===========+============+===============================================+
-   | UART      | on-chip    | :ref:`uart_api` (!)                           |
+   | UART      | on-chip    | :ref:`uart_api` (!) (?)                       |
    +-----------+------------+-----------------------------------------------+
    | PINMUX    | on-chip    | :ref:`pinmux_api`                             |
    +-----------+------------+-----------------------------------------------+
@@ -118,11 +118,11 @@ hardware features:
    +-----------+------------+-----------------------------------------------+
    | I2C       | on-chip    | :ref:`i2c_api`                                |
    +-----------+------------+-----------------------------------------------+
-   | SPI       | on-chip    | :ref:`spi_api`                                |
+   | SPI       | on-chip    | :ref:`spi_api` (?)                            |
    +-----------+------------+-----------------------------------------------+
    | PWM       | on-chip    | :ref:`pwm_api`                                |
    +-----------+------------+-----------------------------------------------+
-   | ADC       | on-chip    | :ref:`adc_api` (+) (!)                        |
+   | ADC       | on-chip    | :ref:`adc_api` (+) (!) (?)                    |
    +-----------+------------+-----------------------------------------------+
    | RTC       | on-chip    | :ref:`rtc_api` as :ref:`counter_api`          |
    +-----------+------------+-----------------------------------------------+
@@ -151,6 +151,14 @@ hardware features:
     instances of same device class is not supported properly by Zephyr, see:
     https://github.com/zephyrproject-rtos/zephyr/issues/26874 and
     https://github.com/zephyrproject-rtos/zephyr/pull/27886
+
+(?) DMA transfer for STM32 devices:
+    Data cache invalidate/clean operation in DMA context is not properly
+    integrated for STM32 devices, see:
+    https://github.com/zephyrproject-rtos/zephyr/pull/27911,
+    https://github.com/zephyrproject-rtos/zephyr/issues/29798,
+    https://github.com/zephyrproject-rtos/zephyr/pull/32832 and
+    https://github.com/zephyrproject-rtos/zephyr/issues/33485
 
 (°) IWDG only tested:
     WWDG (Window Watchdog Timer) not yet part of board support,
@@ -1273,6 +1281,11 @@ e.g. to CSV representation or PDF report:
    :stub-columns: 1
 
 .. ...........................................................................
+
+References
+**********
+
+.. target-notes::
 
 .. _TiaC Magpie STM32F777NIHx website:
    https://www.st.com/en/evaluation-tools/nucleo-f767zi.html
