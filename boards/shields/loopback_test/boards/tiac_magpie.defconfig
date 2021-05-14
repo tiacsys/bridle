@@ -1,0 +1,11 @@
+# Copyright (c) 2021 Li-Pro.Net
+# SPDX-License-Identifier: Apache-2.0
+
+# Loopback test shield default configuration for
+# TiaC STM32F777NIHx Magpie board
+
+if BOARD_TIAC_MAGPIE
+
+comment "TiaC STM32F777NIHx Magpie board has no options for this shield."
+
+endif # BOARD_TIAC_MAGPIE

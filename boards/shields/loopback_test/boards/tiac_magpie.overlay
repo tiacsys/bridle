@@ -1,0 +1,8 @@
+/*
+ * Copyright (c) 2021 Li-Pro.Net
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+&tmph_spi2 {
+	status = "disabled";	/* conflicts with tmph_i2c2 */
+}; // tmph_spi2
