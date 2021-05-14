@@ -380,6 +380,7 @@ setup to *tiac_magpie*.
        **- gpio_loopback**
        **- pwm_loopback**
        **- spi_loopback**
+       **- i2c_bus_short**
      id: *DT04BNT1*
      platform: *tiac_magpie*
      product: FT230X Basic UART
@@ -412,7 +413,8 @@ with a single call to Twister.
              --testcase-root zephyr/tests/drivers/hwinfo \
              --testcase-root zephyr/tests/drivers/gpio \
              --testcase-root zephyr/tests/drivers/pwm \
-             --testcase-root zephyr/tests/drivers/spi
+             --testcase-root zephyr/tests/drivers/spi \
+             --testcase-root zephyr/tests/drivers/i2c
 
    .. group-tab:: Results
 
@@ -429,16 +431,16 @@ with a single call to Twister.
 
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - Total complete:  :bgn:`120`/ :bgn:`120`  100%  skipped:   :byl:`43`, failed:    :brd:`1`
-         INFO    - :bgn:`99 of 100` test configurations passed (100.00%), :brd:`1` failed, :byl:`43` skipped with :bbk:`0` warnings in :bbk:`1123.90 seconds`
-         INFO    - In total 807 test cases were executed, 363 skipped on 1 out of total 330 platforms (0.30%)
-         INFO    - :bgn:`100` test configurations executed on platforms, :brd:`0` test configurations were only built.
+         INFO    - Total complete:  :bgn:`121`/ :bgn:`121`  100%  skipped:   :byl:`45`, failed:    :brd:`2`
+         INFO    - :bgn:`99 of 101` test configurations passed (98.02%), :brd:`2` failed, :byl:`45` skipped with :bbk:`0` warnings in :bbk:`1129.06 seconds`
+         INFO    - In total 808 test cases were executed, 366 skipped on 1 out of total 330 platforms (0.30%)
+         INFO    - :bgn:`101` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
 
          \| Board       \| ID       \|   Counter \|
          \|-------------\|----------\|-----------\|
-         \| tiac_magpie \| DT04BNT1 \|       100 \|
+         \| tiac_magpie \| DT04BNT1 \|       101 \|
 
 Likewise, each of these test suites can also be running individually.
 The following are valid:
