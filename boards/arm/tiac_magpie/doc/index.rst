@@ -376,6 +376,8 @@ setup to *tiac_magpie*.
 
    - **available: true**
      **connected: true**
+     **fixtures:**
+       **- gpio_loopback**
      id: *DT04BNT1*
      platform: *tiac_magpie*
      product: FT230X Basic UART
@@ -395,17 +397,18 @@ with a single call to Twister.
 
       .. code-block:: console
 
-         $ ./zephyr/scripts/twister \
-             --verbose --jobs 4 --inline-logs \
+         $ ./zephyr/scripts/twister --jobs 4 --inline-logs \
              --enable-size-report --platform-reports \
              --device-testing --hardware-map map.yaml \
+             --extra-args SHIELD=loopback_test_tmph \
              --board-root bridle/boards \
              --testcase-root zephyr/tests/arch/arm \
              --testcase-root zephyr/tests/kernel \
              --testcase-root zephyr/tests/drivers/watchdog \
              --testcase-root zephyr/tests/drivers/counter \
              --testcase-root zephyr/tests/drivers/entropy \
-             --testcase-root zephyr/tests/drivers/hwinfo
+             --testcase-root zephyr/tests/drivers/hwinfo \
+             --testcase-root zephyr/tests/drivers/gpio
 
    .. group-tab:: Results
 
@@ -422,16 +425,16 @@ with a single call to Twister.
 
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - Total complete:  :bgn:`114`/ :bgn:`114`  100%  skipped:   :byl:`42`, failed:    :bbk:`0`
-         INFO    - :bgn:`95 of 95` test configurations passed (100.00%), :bbk:`0` failed, :byl:`42` skipped with :bbk:`0` warnings in :bbk:`1013.04 seconds`
-         INFO    - In total 769 test cases were executed, 357 skipped on 1 out of total 330 platforms (0.30%)
-         INFO    - :bgn:`95` test configurations executed on platforms, :brd:`0` test configurations were only built.
+         INFO    - Total complete:  :bgn:`116`/ :bgn:`116`  100%  skipped:   :byl:`42`, failed:    :bbk:`0`
+         INFO    - :bgn:`97 of 97` test configurations passed (100.00%), :bbk:`0` failed, :byl:`42` skipped with :bbk:`0` warnings in :bbk:`1165.89 seconds`
+         INFO    - In total 795 test cases were executed, 362 skipped on 1 out of total 330 platforms (0.30%)
+         INFO    - :bgn:`97` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
 
          \| Board       \| ID       \|   Counter \|
          \|-------------\|----------\|-----------\|
-         \| tiac_magpie \| DT04BNT1 \|        95 \|
+         \| tiac_magpie \| DT04BNT1 \|        97 \|
 
 Likewise, each of these test suites can also be running individually.
 The following are valid:
