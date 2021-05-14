@@ -1,7 +1,7 @@
-From 3377fa074c687691132c7116fd6b0b93b31f9d32 Mon Sep 17 00:00:00 2001
+From f97a103e0b551c12993bdf77f53011cf723553a8 Mon Sep 17 00:00:00 2001
 From: Stephan Linz <linz@li-pro.net>
 Date: Sat, 13 Mar 2021 23:24:11 +0100
-Subject: [PATCH 1/2] doc: Share Kconfig documentation between repos
+Subject: [PATCH 1/3] doc: Share Kconfig documentation between repos
 
 The Kconfig reference is being turned into a separate
 shared documentation set, which needs following specific
@@ -48,6 +48,3 @@ index 399db3916..762d005ed 100644
     crypto/index.rst
     devicetree/index.rst
     drivers/index.rst
--- 
-2.25.1
-

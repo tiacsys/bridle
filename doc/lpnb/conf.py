@@ -102,6 +102,7 @@ extensions = [
     'zephyr.html_redirects',
 #   'only.eager_only',
     'zephyr.link-roles',
+    'bridle.link-roles',
     'crate.sphinx.csv',
 ]
 

@@ -1,7 +1,7 @@
-From d3287a97759974c74356cf22329c513e4de34803 Mon Sep 17 00:00:00 2001
+From 481ef08435c90bb340ddf8b9e039cbf668346017 Mon Sep 17 00:00:00 2001
 From: Stephan Linz <linz@li-pro.net>
 Date: Sun, 14 Mar 2021 20:25:56 +0100
-Subject: [PATCH 2/2] doc: script: found devicetree bindings recursively
+Subject: [PATCH 2/3] doc: script: found devicetree bindings recursively
 
 Since Python 3.5 the glob.glob() API supports recursive
 globs using "**", but only when recursive argument is set
@@ -33,6 +33,3 @@ index 5ab177d87..3acab8697 100644
  
      bindings = edtlib.bindings_from_paths(binding_files, ignore_errors=True)
  
--- 
-2.25.1
-

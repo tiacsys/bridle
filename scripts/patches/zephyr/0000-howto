@@ -1,0 +1,5 @@
+cd <patched_zephyr_git_repo_dir>
+git format-patch \
+    --signoff --no-signature \
+    --output-directory <this_dir> \
+    v2.5-branch..lpn-bridle
