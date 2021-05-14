@@ -104,7 +104,7 @@ hardware features:
    +-----------+------------+-----------------------------------------------+
    | Interface | Controller | Driver/Component                              |
    +===========+============+===============================================+
-   | UART      | on-chip    | :ref:`uart_api` (!)                           |
+   | UART      | on-chip    | :ref:`uart_api` (!) (?)                       |
    +-----------+------------+-----------------------------------------------+
    | PINMUX    | on-chip    | :ref:`pinmux_api`                             |
    +-----------+------------+-----------------------------------------------+
@@ -118,11 +118,11 @@ hardware features:
    +-----------+------------+-----------------------------------------------+
    | I2C       | on-chip    | :ref:`i2c_api`                                |
    +-----------+------------+-----------------------------------------------+
-   | SPI       | on-chip    | :ref:`spi_api`                                |
+   | SPI       | on-chip    | :ref:`spi_api` (?)                            |
    +-----------+------------+-----------------------------------------------+
    | PWM       | on-chip    | :ref:`pwm_api`                                |
    +-----------+------------+-----------------------------------------------+
-   | ADC       | on-chip    | :ref:`adc_api` (+) (!)                        |
+   | ADC       | on-chip    | :ref:`adc_api` (+) (!) (?)                    |
    +-----------+------------+-----------------------------------------------+
    | RTC       | on-chip    | :ref:`rtc_api` as :ref:`counter_api`          |
    +-----------+------------+-----------------------------------------------+
@@ -151,6 +151,14 @@ hardware features:
     instances of same device class is not supported properly by Zephyr, see:
     https://github.com/zephyrproject-rtos/zephyr/issues/26874 and
     https://github.com/zephyrproject-rtos/zephyr/pull/27886
+
+(?) DMA transfer for STM32 devices:
+    Data cache invalidate/clean operation in DMA context is not properly
+    integrated for STM32 devices, see:
+    https://github.com/zephyrproject-rtos/zephyr/pull/27911,
+    https://github.com/zephyrproject-rtos/zephyr/issues/29798,
+    https://github.com/zephyrproject-rtos/zephyr/pull/32832 and
+    https://github.com/zephyrproject-rtos/zephyr/issues/33485
 
 (°) IWDG only tested:
     WWDG (Window Watchdog Timer) not yet part of board support,
@@ -334,20 +342,6 @@ You can debug an application in the usual way. Here is an example for the
 Tests and Examples
 ******************
 
-Integration Tests
-=================
-
-Zephyr provides a large number of integration tests to evaluate the target
-architecture, the operating system core components, drivers and subsystems.
-Most of them can be build and running by Zephyr :doc:`guides/test/twister`
-without any further modification:
-
-.. toctree::
-   :maxdepth: 1
-   :glob:
-
-   tests/**/*
-
 Examples and Demonstrations
 ===========================
 
@@ -360,6 +354,110 @@ further modification:
    :glob:
 
    samples/**/*
+
+Integration Tests
+=================
+
+Zephyr provides a large number of integration tests to evaluate the target
+architecture, the operating system core components, drivers and subsystems.
+Most of them can be build and running by Zephyr :doc:`guides/test/twister`
+without any further modification.
+
+Before a single or multiple test cases can be executed directly on the
+TiaC Magpie, a so-called hardware map must be created with the help of
+Twister and adapted manually. You can do that with the following command
+line inside your local workspace directory:
+
+.. code-block:: console
+
+   $ rm -f map.yaml && cd ./zephyr && \
+       ./scripts/twister --generate-hardware-map ../map.yaml && \
+       cd - && editor map.yaml
+
+This hardware map (``map.yaml``) could look like the following. Bold
+highlighted portions need to be added manually. Italic parts have to be
+adapted to your own specific situation, important here is the platform
+setup to *tiac_magpie*.
+
+.. parsed-literal::
+   :class: highlight
+
+   - **available: true**
+     **connected: true**
+     **fixtures:**
+       **- gpio_loopback**
+       **- pwm_loopback**
+       **- spi_loopback**
+       **- i2c_bus_short**
+     id: *DT04BNT1*
+     platform: *tiac_magpie*
+     product: FT230X Basic UART
+     runner: *openocd*
+     serial: /dev/ttyUSB0
+
+All currently qualified tests for TiaC Magpie can be executed and verified
+with a single call to Twister.
+
+.. tabs::
+
+   .. group-tab:: Running
+
+      .. attention:: This will take more than a quarter of an hour.
+
+      Build and run the tests on target as follows:
+
+      .. code-block:: console
+
+         $ ./zephyr/scripts/twister --jobs 4 --inline-logs \
+             --enable-size-report --platform-reports \
+             --device-testing --hardware-map map.yaml \
+             --extra-args SHIELD=loopback_test_tmph \
+             --board-root bridle/boards \
+             --testcase-root zephyr/tests/arch/arm \
+             --testcase-root zephyr/tests/kernel \
+             --testcase-root zephyr/tests/drivers/watchdog \
+             --testcase-root zephyr/tests/drivers/counter \
+             --testcase-root zephyr/tests/drivers/entropy \
+             --testcase-root zephyr/tests/drivers/hwinfo \
+             --testcase-root zephyr/tests/drivers/gpio \
+             --testcase-root zephyr/tests/drivers/pwm \
+             --testcase-root zephyr/tests/drivers/spi \
+             --testcase-root zephyr/tests/drivers/i2c
+
+   .. group-tab:: Results
+
+      You should see the following messages on host console:
+
+      .. parsed-literal::
+         :class: highlight
+
+         Device testing on:
+
+         \| Platform    \| ID       \| Serial device   \|
+         \|-------------\|----------\|-----------------\|
+         \| tiac_magpie \| DT04BNT1 \| /dev/ttyUSB0    \|
+
+         INFO    - Adding tasks to the queue...
+         INFO    - Added initial list of jobs to queue
+         INFO    - Total complete:  :bgn:`121`/ :bgn:`121`  100%  skipped:   :byl:`45`, failed:    :brd:`2`
+         INFO    - :bgn:`99 of 101` test configurations passed (98.02%), :brd:`2` failed, :byl:`45` skipped with :bbk:`0` warnings in :bbk:`1129.06 seconds`
+         INFO    - In total 808 test cases were executed, 366 skipped on 1 out of total 330 platforms (0.30%)
+         INFO    - :bgn:`101` test configurations executed on platforms, :brd:`0` test configurations were only built.
+
+         Hardware distribution summary:
+
+         \| Board       \| ID       \|   Counter \|
+         \|-------------\|----------\|-----------\|
+         \| tiac_magpie \| DT04BNT1 \|       101 \|
+
+Likewise, each of these test suites can also be running individually.
+The following are valid:
+
+.. toctree::
+   :maxdepth: 1
+   :glob:
+
+   tests/**/*
 
 .. ...........................................................................
 
@@ -767,7 +865,7 @@ Alternate functions on the TiaC Magpie pin header ``TMPH1``:
           :caption: tiac_magpie_pin_header.dtsi
           :language: DTS
           :encoding: ISO-8859-1
-          :emphasize-lines: 12,14
+          :emphasize-lines: 8-14
           :linenos:
           :start-at: tmph1:
           :end-at: }; // tmph1
@@ -776,6 +874,11 @@ Alternate functions on the TiaC Magpie pin header ``TMPH1``:
           :encoding: ISO-8859-1
           :start-at: tmph_serial:
           :end-at: tmph_serial:
+       .. literalinclude:: ../tiac_magpie_pin_header.dtsi
+          :language: DTS
+          :encoding: ISO-8859-1
+          :start-at: tmph_serial1:
+          :end-at: tmph_serial1:
      - .. literalinclude:: ../tiac_magpie.dts
           :caption: tiac_magpie.dts
           :language: DTS
@@ -784,6 +887,50 @@ Alternate functions on the TiaC Magpie pin header ``TMPH1``:
           :linenos:
           :start-at: uart4 {
           :end-at: }; // uart4
+   * - .. literalinclude:: ../tiac_magpie_pin_header.dtsi
+          :language: DTS
+          :encoding: ISO-8859-1
+          :start-at: tmph_serial2:
+          :end-at: tmph_serial2:
+     - .. literalinclude:: ../tiac_magpie.dts
+          :caption: tiac_magpie.dts
+          :language: DTS
+          :encoding: ISO-8859-1
+          :emphasize-lines: 3,4
+          :linenos:
+          :start-at: usart3 {
+          :end-at: }; // usart3
+   * - .. literalinclude:: ../tiac_magpie_pin_header.dtsi
+          :language: DTS
+          :encoding: ISO-8859-1
+          :start-at: tmph_serial3:
+          :end-at: tmph_serial3:
+     - .. literalinclude:: ../tiac_magpie.dts
+          :caption: tiac_magpie.dts
+          :language: DTS
+          :encoding: ISO-8859-1
+          :emphasize-lines: 3,4
+          :linenos:
+          :start-at: uart5 {
+          :end-at: }; // uart5
+   * - .. literalinclude:: ../tiac_magpie_pin_header.dtsi
+          :language: DTS
+          :encoding: ISO-8859-1
+          :start-at: tmph_timers:
+          :end-at: tmph_timers:
+       .. literalinclude:: ../tiac_magpie_pin_header.dtsi
+          :language: DTS
+          :encoding: ISO-8859-1
+          :start-at: tmph_pwms:
+          :end-at: tmph_pwms:
+     - .. literalinclude:: ../tiac_magpie.dts
+          :caption: tiac_magpie.dts
+          :language: DTS
+          :encoding: ISO-8859-1
+          :emphasize-lines: 9
+          :linenos:
+          :start-at: timers8 {
+          :end-at: }; // timers8
 
 TiaC Magpie Pin Header 2
 ------------------------
@@ -820,15 +967,28 @@ Alternate functions on the TiaC Magpie pin header ``TMPH2``:
           :caption: tiac_magpie_pin_header.dtsi
           :language: DTS
           :encoding: ISO-8859-1
-          :emphasize-lines: 9,12,13
+          :emphasize-lines: 7-9,12,13
           :linenos:
           :start-at: tmph2:
           :end-at: }; // tmph2
    * - .. literalinclude:: ../tiac_magpie_pin_header.dtsi
           :language: DTS
           :encoding: ISO-8859-1
-          :start-at: tmph_spi:
-          :end-at: tmph_spi:
+          :start-at: tmph_serial4:
+          :end-at: tmph_serial4:
+     - .. literalinclude:: ../tiac_magpie.dts
+          :caption: tiac_magpie.dts
+          :language: DTS
+          :encoding: ISO-8859-1
+          :emphasize-lines: 5,6
+          :linenos:
+          :start-at: uart8 {
+          :end-at: }; // uart8
+   * - .. literalinclude:: ../tiac_magpie_pin_header.dtsi
+          :language: DTS
+          :encoding: ISO-8859-1
+          :start-at: tmph_spi2:
+          :end-at: tmph_spi2:
      - .. literalinclude:: ../tiac_magpie.dts
           :caption: tiac_magpie.dts
           :language: DTS
@@ -886,15 +1046,28 @@ Alternate functions on the TiaC Magpie pin header ``TMPH3``:
           :caption: tiac_magpie_pin_header.dtsi
           :language: DTS
           :encoding: ISO-8859-1
-          :emphasize-lines: 8,13
+          :emphasize-lines: 8,9,13
           :linenos:
           :start-at: tmph3:
           :end-at: }; // tmph3
    * - .. literalinclude:: ../tiac_magpie_pin_header.dtsi
           :language: DTS
           :encoding: ISO-8859-1
-          :start-at: tmph_spi:
-          :end-at: tmph_spi:
+          :start-at: tmph_i2c2:
+          :end-at: tmph_i2c2:
+     - .. literalinclude:: ../tiac_magpie.dts
+          :caption: tiac_magpie.dts
+          :language: DTS
+          :encoding: ISO-8859-1
+          :emphasize-lines: 3,4
+          :linenos:
+          :start-at: i2c3 {
+          :end-at: }; // i2c3
+   * - .. literalinclude:: ../tiac_magpie_pin_header.dtsi
+          :language: DTS
+          :encoding: ISO-8859-1
+          :start-at: tmph_spi2:
+          :end-at: tmph_spi2:
      - .. literalinclude:: ../tiac_magpie.dts
           :caption: tiac_magpie.dts
           :language: DTS
@@ -939,15 +1112,33 @@ Alternate functions on the TiaC Magpie pin header ``TMPH4``:
           :caption: tiac_magpie_pin_header.dtsi
           :language: DTS
           :encoding: ISO-8859-1
-          :emphasize-lines: 6,8,10,15
+          :emphasize-lines: 6,8,10,14-16
           :linenos:
           :start-at: tmph4:
           :end-at: }; // tmph4
    * - .. literalinclude:: ../tiac_magpie_pin_header.dtsi
           :language: DTS
           :encoding: ISO-8859-1
+          :start-at: tmph_serial4:
+          :end-at: tmph_serial4:
+     - .. literalinclude:: ../tiac_magpie.dts
+          :caption: tiac_magpie.dts
+          :language: DTS
+          :encoding: ISO-8859-1
+          :emphasize-lines: 3,4
+          :linenos:
+          :start-at: uart8 {
+          :end-at: }; // uart8
+   * - .. literalinclude:: ../tiac_magpie_pin_header.dtsi
+          :language: DTS
+          :encoding: ISO-8859-1
           :start-at: tmph_timers:
           :end-at: tmph_timers:
+       .. literalinclude:: ../tiac_magpie_pin_header.dtsi
+          :language: DTS
+          :encoding: ISO-8859-1
+          :start-at: tmph_pwms:
+          :end-at: tmph_pwms:
      - .. literalinclude:: ../tiac_magpie.dts
           :caption: tiac_magpie.dts
           :language: DTS
@@ -1005,28 +1196,20 @@ Alternate functions on the TiaC Magpie pin header ``TMPH5``:
           :caption: tiac_magpie_pin_header.dtsi
           :language: DTS
           :encoding: ISO-8859-1
-          :emphasize-lines: 8,13
+          :emphasize-lines: 6,11-14,16,17
           :linenos:
           :start-at: tmph5:
           :end-at: }; // tmph5
    * - .. literalinclude:: ../tiac_magpie_pin_header.dtsi
           :language: DTS
           :encoding: ISO-8859-1
-          :start-at: tmph_spi:
-          :end-at: tmph_spi:
-     - .. literalinclude:: ../tiac_magpie.dts
-          :caption: tiac_magpie.dts
-          :language: DTS
-          :encoding: ISO-8859-1
-          :emphasize-lines: 6
-          :linenos:
-          :start-at: spi5 {
-          :end-at: }; // spi5
-   * - .. literalinclude:: ../tiac_magpie_pin_header.dtsi
-          :language: DTS
-          :encoding: ISO-8859-1
           :start-at: tmph_i2c:
           :end-at: tmph_i2c:
+       .. literalinclude:: ../tiac_magpie_pin_header.dtsi
+          :language: DTS
+          :encoding: ISO-8859-1
+          :start-at: tmph_i2c1:
+          :end-at: tmph_i2c1:
      - .. literalinclude:: ../tiac_magpie.dts
           :caption: tiac_magpie.dts
           :language: DTS
@@ -1035,6 +1218,37 @@ Alternate functions on the TiaC Magpie pin header ``TMPH5``:
           :linenos:
           :start-at: i2c4 {
           :end-at: }; // i2c4
+   * - .. literalinclude:: ../tiac_magpie_pin_header.dtsi
+          :language: DTS
+          :encoding: ISO-8859-1
+          :start-at: tmph_spi:
+          :end-at: tmph_spi:
+       .. literalinclude:: ../tiac_magpie_pin_header.dtsi
+          :language: DTS
+          :encoding: ISO-8859-1
+          :start-at: tmph_spi1:
+          :end-at: tmph_spi1:
+     - .. literalinclude:: ../tiac_magpie.dts
+          :caption: tiac_magpie.dts
+          :language: DTS
+          :encoding: ISO-8859-1
+          :emphasize-lines: 3-6
+          :linenos:
+          :start-at: spi4 {
+          :end-at: }; // spi4
+   * - .. literalinclude:: ../tiac_magpie_pin_header.dtsi
+          :language: DTS
+          :encoding: ISO-8859-1
+          :start-at: tmph_spi2:
+          :end-at: tmph_spi2:
+     - .. literalinclude:: ../tiac_magpie.dts
+          :caption: tiac_magpie.dts
+          :language: DTS
+          :encoding: ISO-8859-1
+          :emphasize-lines: 6
+          :linenos:
+          :start-at: spi5 {
+          :end-at: }; // spi5
 
 STM32CubeMX Pin Multiplexing
 ============================
@@ -1067,6 +1281,11 @@ e.g. to CSV representation or PDF report:
    :stub-columns: 1
 
 .. ...........................................................................
+
+References
+**********
+
+.. target-notes::
 
 .. _TiaC Magpie STM32F777NIHx website:
    https://www.st.com/en/evaluation-tools/nucleo-f767zi.html

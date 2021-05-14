@@ -1,0 +1,61 @@
+/*
+ * Copyright (c) 2021 Li-Pro.Net
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	gpio_basic_api_0 {
+		compatible = "test,gpio_basic_api";
+		out-gpios = <&tmph2 9 0>;	/* TMPH2:10 */
+		in-gpios = <&tmph2 11 0>;	/* TMPH2:12 */
+	}; // gpio_basic_api_0
+
+	pwm_loopback_0 {
+		compatible = "test,pwm_loopback";
+		/* channel 1 pwm out to channel 4 capture in */
+		pwms = <&tmph_pwms 1 0 0>,	/* TMPH4:5 */
+		       <&tmph_pwms 4 0 0>;	/* TMPH1:3 */
+	}; // pwm_loopback_0
+};
+
+&tmph_timers {
+	status = "okay";
+}; // tmph_timers
+
+&tmph_pwms {
+	status = "okay";
+}; // tmph_pwms
+
+&tmph_spi1 {
+	status = "okay";
+}; // tmph_spi1
+
+&tmph_i2c2 {
+	status = "okay";
+
+	eeprom0: eeprom@54 {
+		compatible = "atmel,at24";
+		reg = <0x54>;
+		size = <1024>;
+		pagesize = <16>;
+		address-width = <8>;
+		timeout = <5>;
+		status = "okay";
+		label = "EEPROM_0";
+	}; // eeprom0
+}; // tmph_i2c2
+
+&tmph_i2c1 {
+	status = "okay";
+
+	eeprom1: eeprom@56 {
+		compatible = "atmel,at24";
+		reg = <0x56>;
+		size = <1024>;
+		pagesize = <16>;
+		address-width = <8>;
+		timeout = <5>;
+		status = "okay";
+		label = "EEPROM_1";
+	}; // eeprom1
+}; // tmph_i2c1

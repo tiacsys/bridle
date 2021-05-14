@@ -31,9 +31,8 @@ Building and Running
          $ ./zephyr/scripts/twister \
              --verbose --jobs 4 --inline-logs \
              --enable-size-report --platform-reports \
+             --device-testing --hardware-map map.yaml \
              --board-root bridle/boards \
-             --platform tiac_magpie \
-             --device-testing --device-serial /dev/ttyUSBx \
              --testcase-root zephyr/tests/kernel
 
    .. group-tab:: Results
@@ -42,6 +41,12 @@ Building and Running
 
       .. parsed-literal::
          :class: highlight
+
+         Device testing on:
+
+         \| Platform    \| ID       \| Serial device   \|
+         \|-------------\|----------\|-----------------\|
+         \| tiac_magpie \| DT04BNT1 \| /dev/ttyUSB0    \|
 
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
@@ -142,3 +147,9 @@ Building and Running
          INFO    - :bgn:`77 of 77` test configurations passed (100.00%), :bbk:`0` failed, :byl:`35` skipped with :bbk:`0` warnings in :bbk:`581.06 seconds`
          INFO    - In total 733 test cases were executed, 335 skipped on 1 out of total 330 platforms (0.30%)
          INFO    - :bgn:`77` test configurations executed on platforms, :brd:`0` test configurations were only built.
+
+         Hardware distribution summary:
+
+         \| Board       \| ID       \|   Counter \|
+         \|-------------\|----------\|-----------\|
+         \| tiac_magpie \| DT04BNT1 \|        77 \|

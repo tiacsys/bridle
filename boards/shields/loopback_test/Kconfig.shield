@@ -1,0 +1,10 @@
+# Copyright (c) 2021 Li-Pro.Net
+# SPDX-License-Identifier: Apache-2.0
+
+# Loopback test shield configuration
+
+config SHIELD_LOOPBACK_TEST
+	def_bool $(shields_list_contains,loopback_test)
+
+config SHIELD_LOOPBACK_TEST_TMPH
+	def_bool $(shields_list_contains,loopback_test_tmph)

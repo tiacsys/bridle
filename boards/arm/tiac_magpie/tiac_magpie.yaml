@@ -13,6 +13,7 @@ supported:
   - tmph_i2c
   - tmph_spi
   - tmph_adc
+  - tmph_pwms
   - tmph_timers
   - tmph_serial
   - uart
@@ -28,3 +29,8 @@ supported:
   - dma
   - watchdog
   - counter
+testing:
+  default: true
+  ignore_tags:
+    - bluetooth
+    - nfc

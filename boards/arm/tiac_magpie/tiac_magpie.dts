@@ -12,8 +12,6 @@
 #include <st/f7/stm32f7-adc123.dtsi>
 #include <st/f7/stm32f767n(g-i)hx-pinctrl.dtsi>
 
-#include "tiac_magpie_pin_header.dtsi"
-
 / {
 	model = "TiaC MAGPIE board";
 	compatible = "tiac,magpie";
@@ -50,7 +48,7 @@
 };
 
 &uart7 {
-	status = "okay";
+	status = "okay";		/* default system uart console */
 	pinctrl-0 = <&uart7_tx_pe8	/* UART_TXD7 */
 		     &uart7_rx_pe7	/* UART_RXD7 */
 		     &uart7_rts_pe9	/* UART_RTS7 */
@@ -109,31 +107,69 @@
 }; // can2
 
 &i2c2 {
-	status = "okay";
+	status = "okay";		/* default system i2c */
 	pinctrl-0 = <&i2c2_scl_pf1	/* SCL2 */
 		     &i2c2_sda_pf0>;	/* SDA2 */
 	clock-frequency = <I2C_BITRATE_FAST>;
 }; // i2c2
 
+&usart3 {
+	status = "disabled";		/* optional second uart */
+	pinctrl-0 = <&usart3_tx_pc10	/* TMPH1_PC10_TXD3 */
+		     &usart3_rx_pc11>;	/* TMPH1_PC11_RXD3 */
+	current-speed = <115200>;
+}; // usart3
+
 &uart4 {
-	status = "okay";
-	pinctrl-0 = <&uart4_tx_pd1	/* TMPH1_PD0_RXD4 */
+	status = "okay";		/* default primary uart */
+	pinctrl-0 = <&uart4_tx_pd1	/* TMPH1_PD1_TXD4 */
 		     &uart4_rx_pd0>;	/* TMPH1_PD0_RXD4 */
 	current-speed = <115200>;
 }; // uart4
 
+&uart5 {
+	status = "disabled";		/* optional third uart */
+	pinctrl-0 = <&uart5_tx_pc12	/* TMPH1_PC12_TXD5 */
+		     &uart5_rx_pd2>;	/* TMPH1_PD2_RXD5 */
+	current-speed = <115200>;
+}; // uart5
+
+&uart8 {
+	status = "disabled";		/* optional fourth uart */
+	pinctrl-0 = <&uart8_tx_pe1	/* TMPH4_PE1_TXD8 */
+		     &uart8_rx_pe0	/* TMPH4_PE0_RXD8 */
+		     &uart8_rts_pd15	/* TMPH2_PD15_RTS8 */
+		     &uart8_cts_pd14>;	/* TMPH2_PD14_CTS8 */
+	current-speed = <115200>;
+}; // uart8
+
+&i2c3 {
+	status = "disabled";		/* optional second i2c */
+	pinctrl-0 = <&i2c3_scl_ph7	/* TMPH3_PH7_SCL3_MISO5 */
+		     &i2c3_sda_ph8>;	/* TMPH3_PH8_SDA3 */
+	clock-frequency = <I2C_BITRATE_STANDARD>;
+}; // i2c3
+
 &i2c4 {
-	status = "okay";
+	status = "okay";		/* default primary i2c */
 	pinctrl-0 = <&i2c4_scl_pf14	/* TMPH5_PF14_SCL4 */
 		     &i2c4_sda_pf15>;	/* TMPH5_PF15_SDA4 */
-	clock-frequency = <I2C_BITRATE_FAST>;
+	clock-frequency = <I2C_BITRATE_STANDARD>;
 }; // i2c4
 
+&spi4 {
+	status = "okay";		/* default primary spi */
+	pinctrl-0 = <&spi4_nss_pe11	/* TMPH5_PE11_NSS4 */
+		     &spi4_sck_pe12	/* TMPH5_PE12_SCK4 */
+		     &spi4_miso_pe13	/* TMPH5_PE13_MISO4 */
+		     &spi4_mosi_pe14>;	/* TMPH5_PE14_MOSI4 */
+}; // spi4
+
 &spi5 {
-	status = "okay";
+	status = "disabled";		/* optional second spi */
 	pinctrl-0 = <&spi5_nss_ph5	/* TMPH2_PH5_NSS5 */
 		     &spi5_sck_ph6	/* TMPH3_PH6_SCK5 */
-		     &spi5_miso_ph7	/* TMPH3_PH7_MISO5 */
+		     &spi5_miso_ph7	/* TMPH3_PH7_SCL3_MISO5 */
 		     &spi5_mosi_pf11>;	/* TMPH5_PF11_MOSI5 */
 }; // spi5
 
@@ -144,7 +180,8 @@
 		status = "okay";
 		pinctrl-0 = <&tim8_ch1_pi5	/* TMPH4_PI5_PWM81 */
 			     &tim8_ch2_pi6	/* TMPH4_PI6_PWM82 */
-			     &tim8_ch3_pi7>;	/* TMPH4_PI7_PWM83 */
+			     &tim8_ch3_pi7 	/* TMPH4_PI7_PWM83 */
+			     &tim8_ch4_pi2>;	/* TMPH1_PI2_PWM84 */
 	}; // pwm8
 }; // timers8
 
@@ -222,3 +259,5 @@
 		}; // scratch_partition
 	}; // partitions
 }; // flash0
+
+#include "tiac_magpie_pin_header.dtsi"

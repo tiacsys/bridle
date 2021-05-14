@@ -1,21 +1,27 @@
-.. _tiac_magpie_drivers_hwinfo-tests:
+.. _tiac_magpie_drivers_spi-tests:
 
-Hardware Info-API
-#################
+SPI Loopback
+############
 
 Overview
 ********
 
-See :zephyr_file:`tests/drivers/hwinfo`
+See :zephyr_file:`tests/drivers/spi`
 for the original scope of tests, its structure and description.
 
-.. _tiac_magpie_drivers_hwinfo-tests-requirements:
+.. _tiac_magpie_drivers_spi-tests-requirements:
 
 Requirements
 ************
 
 You will need an ST-LINK/V2 debug tool adapter already connected to the
 TiaC Magpie board, which has an already configured UART console connection.
+
+On the TiaC MAGPIE pin headers the following SPI pins must be connected.
+
+.. image:: loopback_test_SPI.svg
+   :alt: TiaC MAGPIE Pin Header SPI Loopback Wiring
+   :align: center
 
 Building and Running
 ********************
@@ -32,8 +38,9 @@ Building and Running
              --verbose --jobs 4 --inline-logs \
              --enable-size-report --platform-reports \
              --device-testing --hardware-map map.yaml \
+             --extra-args SHIELD=loopback_test_tmph \
              --board-root bridle/boards \
-             --testcase-root zephyr/tests/drivers/hwinfo
+             --testcase-root zephyr/tests/drivers/spi
 
    .. group-tab:: Results
 
@@ -50,10 +57,11 @@ Building and Running
 
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1/1 tiac_magpie               tests/drivers/hwinfo/api/drivers.device_id         :bgn:`PASSED` (device 2.941s)
+         INFO    - 1/2 tiac_magpie               tests/drivers/spi/spi_loopback/driver.spi.loopback.internal :byl:`SKIPPED` (filter)
+         INFO    - 2/2 tiac_magpie               tests/drivers/spi/spi_loopback/drivers.spi.loopback :bgn:`PASSED` (device 2.591s)
 
-         INFO    - :bgn:`1 of 1` test configurations passed (100.00%), :bbk:`0` failed, :byl:`0` skipped with :bbk:`0` warnings in :bbk:`30.53 seconds`
-         INFO    - In total 2 test cases were executed, 0 skipped on 1 out of total 330 platforms (0.30%)
+         INFO    - :bgn:`1 of 1` test configurations passed (100.00%), :bbk:`0` failed, :byl:`1` skipped with :bbk:`0` warnings in :bbk:`20.50 seconds`
+         INFO    - In total 1 test cases were executed, 1 skipped on 1 out of total 330 platforms (0.30%)
          INFO    - :bgn:`1` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
