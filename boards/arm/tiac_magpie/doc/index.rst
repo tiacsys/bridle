@@ -848,7 +848,7 @@ Alternate functions on the TiaC Magpie pin header ``TMPH1``:
           :caption: tiac_magpie_pin_header.dtsi
           :language: DTS
           :encoding: ISO-8859-1
-          :emphasize-lines: 12,14
+          :emphasize-lines: 8-14
           :linenos:
           :start-at: tmph1:
           :end-at: }; // tmph1
@@ -857,6 +857,11 @@ Alternate functions on the TiaC Magpie pin header ``TMPH1``:
           :encoding: ISO-8859-1
           :start-at: tmph_serial:
           :end-at: tmph_serial:
+       .. literalinclude:: ../tiac_magpie_pin_header.dtsi
+          :language: DTS
+          :encoding: ISO-8859-1
+          :start-at: tmph_serial1:
+          :end-at: tmph_serial1:
      - .. literalinclude:: ../tiac_magpie.dts
           :caption: tiac_magpie.dts
           :language: DTS
@@ -865,6 +870,50 @@ Alternate functions on the TiaC Magpie pin header ``TMPH1``:
           :linenos:
           :start-at: uart4 {
           :end-at: }; // uart4
+   * - .. literalinclude:: ../tiac_magpie_pin_header.dtsi
+          :language: DTS
+          :encoding: ISO-8859-1
+          :start-at: tmph_serial2:
+          :end-at: tmph_serial2:
+     - .. literalinclude:: ../tiac_magpie.dts
+          :caption: tiac_magpie.dts
+          :language: DTS
+          :encoding: ISO-8859-1
+          :emphasize-lines: 3,4
+          :linenos:
+          :start-at: usart3 {
+          :end-at: }; // usart3
+   * - .. literalinclude:: ../tiac_magpie_pin_header.dtsi
+          :language: DTS
+          :encoding: ISO-8859-1
+          :start-at: tmph_serial3:
+          :end-at: tmph_serial3:
+     - .. literalinclude:: ../tiac_magpie.dts
+          :caption: tiac_magpie.dts
+          :language: DTS
+          :encoding: ISO-8859-1
+          :emphasize-lines: 3,4
+          :linenos:
+          :start-at: uart5 {
+          :end-at: }; // uart5
+   * - .. literalinclude:: ../tiac_magpie_pin_header.dtsi
+          :language: DTS
+          :encoding: ISO-8859-1
+          :start-at: tmph_timers:
+          :end-at: tmph_timers:
+       .. literalinclude:: ../tiac_magpie_pin_header.dtsi
+          :language: DTS
+          :encoding: ISO-8859-1
+          :start-at: tmph_pwms:
+          :end-at: tmph_pwms:
+     - .. literalinclude:: ../tiac_magpie.dts
+          :caption: tiac_magpie.dts
+          :language: DTS
+          :encoding: ISO-8859-1
+          :emphasize-lines: 9
+          :linenos:
+          :start-at: timers8 {
+          :end-at: }; // timers8
 
 TiaC Magpie Pin Header 2
 ------------------------
@@ -901,15 +950,28 @@ Alternate functions on the TiaC Magpie pin header ``TMPH2``:
           :caption: tiac_magpie_pin_header.dtsi
           :language: DTS
           :encoding: ISO-8859-1
-          :emphasize-lines: 9,12,13
+          :emphasize-lines: 7-9,12,13
           :linenos:
           :start-at: tmph2:
           :end-at: }; // tmph2
    * - .. literalinclude:: ../tiac_magpie_pin_header.dtsi
           :language: DTS
           :encoding: ISO-8859-1
-          :start-at: tmph_spi:
-          :end-at: tmph_spi:
+          :start-at: tmph_serial4:
+          :end-at: tmph_serial4:
+     - .. literalinclude:: ../tiac_magpie.dts
+          :caption: tiac_magpie.dts
+          :language: DTS
+          :encoding: ISO-8859-1
+          :emphasize-lines: 5,6
+          :linenos:
+          :start-at: uart8 {
+          :end-at: }; // uart8
+   * - .. literalinclude:: ../tiac_magpie_pin_header.dtsi
+          :language: DTS
+          :encoding: ISO-8859-1
+          :start-at: tmph_spi2:
+          :end-at: tmph_spi2:
      - .. literalinclude:: ../tiac_magpie.dts
           :caption: tiac_magpie.dts
           :language: DTS
@@ -967,15 +1029,28 @@ Alternate functions on the TiaC Magpie pin header ``TMPH3``:
           :caption: tiac_magpie_pin_header.dtsi
           :language: DTS
           :encoding: ISO-8859-1
-          :emphasize-lines: 8,13
+          :emphasize-lines: 8,9,13
           :linenos:
           :start-at: tmph3:
           :end-at: }; // tmph3
    * - .. literalinclude:: ../tiac_magpie_pin_header.dtsi
           :language: DTS
           :encoding: ISO-8859-1
-          :start-at: tmph_spi:
-          :end-at: tmph_spi:
+          :start-at: tmph_i2c2:
+          :end-at: tmph_i2c2:
+     - .. literalinclude:: ../tiac_magpie.dts
+          :caption: tiac_magpie.dts
+          :language: DTS
+          :encoding: ISO-8859-1
+          :emphasize-lines: 3,4
+          :linenos:
+          :start-at: i2c3 {
+          :end-at: }; // i2c3
+   * - .. literalinclude:: ../tiac_magpie_pin_header.dtsi
+          :language: DTS
+          :encoding: ISO-8859-1
+          :start-at: tmph_spi2:
+          :end-at: tmph_spi2:
      - .. literalinclude:: ../tiac_magpie.dts
           :caption: tiac_magpie.dts
           :language: DTS
@@ -1020,15 +1095,33 @@ Alternate functions on the TiaC Magpie pin header ``TMPH4``:
           :caption: tiac_magpie_pin_header.dtsi
           :language: DTS
           :encoding: ISO-8859-1
-          :emphasize-lines: 6,8,10,15
+          :emphasize-lines: 6,8,10,14-16
           :linenos:
           :start-at: tmph4:
           :end-at: }; // tmph4
    * - .. literalinclude:: ../tiac_magpie_pin_header.dtsi
           :language: DTS
           :encoding: ISO-8859-1
+          :start-at: tmph_serial4:
+          :end-at: tmph_serial4:
+     - .. literalinclude:: ../tiac_magpie.dts
+          :caption: tiac_magpie.dts
+          :language: DTS
+          :encoding: ISO-8859-1
+          :emphasize-lines: 3,4
+          :linenos:
+          :start-at: uart8 {
+          :end-at: }; // uart8
+   * - .. literalinclude:: ../tiac_magpie_pin_header.dtsi
+          :language: DTS
+          :encoding: ISO-8859-1
           :start-at: tmph_timers:
           :end-at: tmph_timers:
+       .. literalinclude:: ../tiac_magpie_pin_header.dtsi
+          :language: DTS
+          :encoding: ISO-8859-1
+          :start-at: tmph_pwms:
+          :end-at: tmph_pwms:
      - .. literalinclude:: ../tiac_magpie.dts
           :caption: tiac_magpie.dts
           :language: DTS
@@ -1086,28 +1179,20 @@ Alternate functions on the TiaC Magpie pin header ``TMPH5``:
           :caption: tiac_magpie_pin_header.dtsi
           :language: DTS
           :encoding: ISO-8859-1
-          :emphasize-lines: 8,13
+          :emphasize-lines: 6,11-14,16,17
           :linenos:
           :start-at: tmph5:
           :end-at: }; // tmph5
    * - .. literalinclude:: ../tiac_magpie_pin_header.dtsi
           :language: DTS
           :encoding: ISO-8859-1
-          :start-at: tmph_spi:
-          :end-at: tmph_spi:
-     - .. literalinclude:: ../tiac_magpie.dts
-          :caption: tiac_magpie.dts
-          :language: DTS
-          :encoding: ISO-8859-1
-          :emphasize-lines: 6
-          :linenos:
-          :start-at: spi5 {
-          :end-at: }; // spi5
-   * - .. literalinclude:: ../tiac_magpie_pin_header.dtsi
-          :language: DTS
-          :encoding: ISO-8859-1
           :start-at: tmph_i2c:
           :end-at: tmph_i2c:
+       .. literalinclude:: ../tiac_magpie_pin_header.dtsi
+          :language: DTS
+          :encoding: ISO-8859-1
+          :start-at: tmph_i2c1:
+          :end-at: tmph_i2c1:
      - .. literalinclude:: ../tiac_magpie.dts
           :caption: tiac_magpie.dts
           :language: DTS
@@ -1116,6 +1201,37 @@ Alternate functions on the TiaC Magpie pin header ``TMPH5``:
           :linenos:
           :start-at: i2c4 {
           :end-at: }; // i2c4
+   * - .. literalinclude:: ../tiac_magpie_pin_header.dtsi
+          :language: DTS
+          :encoding: ISO-8859-1
+          :start-at: tmph_spi:
+          :end-at: tmph_spi:
+       .. literalinclude:: ../tiac_magpie_pin_header.dtsi
+          :language: DTS
+          :encoding: ISO-8859-1
+          :start-at: tmph_spi1:
+          :end-at: tmph_spi1:
+     - .. literalinclude:: ../tiac_magpie.dts
+          :caption: tiac_magpie.dts
+          :language: DTS
+          :encoding: ISO-8859-1
+          :emphasize-lines: 3-6
+          :linenos:
+          :start-at: spi4 {
+          :end-at: }; // spi4
+   * - .. literalinclude:: ../tiac_magpie_pin_header.dtsi
+          :language: DTS
+          :encoding: ISO-8859-1
+          :start-at: tmph_spi2:
+          :end-at: tmph_spi2:
+     - .. literalinclude:: ../tiac_magpie.dts
+          :caption: tiac_magpie.dts
+          :language: DTS
+          :encoding: ISO-8859-1
+          :emphasize-lines: 6
+          :linenos:
+          :start-at: spi5 {
+          :end-at: }; // spi5
 
 STM32CubeMX Pin Multiplexing
 ============================

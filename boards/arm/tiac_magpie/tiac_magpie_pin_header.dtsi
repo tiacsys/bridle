@@ -11,12 +11,12 @@
 		gpio-map-pass-thru = <0 0x3f>;
 		gpio-map = <0 0 &gpioa 10 0>,	/* TMPH1_PA10 */
 			   <1 0 &gpioi 3 0>,	/* TMPH1_PI3 */
-			   <2 0 &gpioi 2 0>,	/* TMPH1_PI2 */
-			   <3 0 &gpioc 10 0>,	/* TMPH1_PC10 */
-			   <4 0 &gpioc 11 0>,	/* TMPH1_PC11 */
-			   <5 0 &gpiod 2 0>,	/* TMPH1_PD2 */
+			   <2 0 &gpioi 2 0>,	/* TMPH1_PI2_PWM84 */
+			   <3 0 &gpioc 10 0>,	/* TMPH1_PC10_TXD3 */
+			   <4 0 &gpioc 11 0>,	/* TMPH1_PC11_RXD3 */
+			   <5 0 &gpiod 2 0>,	/* TMPH1_PD2_RXD5 */
 			   <6 0 &gpiod 0 0>,	/* TMPH1_PD0_RXD4 */
-			   <7 0 &gpioc 12 0>,	/* TMPH1_PC12 */
+			   <7 0 &gpioc 12 0>,	/* TMPH1_PC12_TXD5 */
 			   <8 0 &gpiod 1 0>,	/* TMPH1_PD1_TXD4 */
 			   <9 0 &gpiod 3 0>,	/* TMPH1_PD3 */
 			   <10 0 &gpiod 4 0>,	/* TMPH1_PD4 */
@@ -31,8 +31,8 @@
 		gpio-map-mask = <0xffffffff 0xffffffc0>;
 		gpio-map-pass-thru = <0 0x3f>;
 		gpio-map = <0 0 &gpiod 10 0>,	/* TMPH2_PD10 */
-			   <1 0 &gpiod 14 0>,	/* TMPH2_PD14 */
-			   <2 0 &gpiod 15 0>,	/* TMPH2_PD15 */
+			   <1 0 &gpiod 14 0>,	/* TMPH2_PD14_CTS8 */
+			   <2 0 &gpiod 15 0>,	/* TMPH2_PD15_RTS8 */
 			   <3 0 &gpiof 5 0>,	/* TMPH2_PF5_ADC315 */
 			   <4 0 &gpiog 8 0>,	/* TMPH2_PG8 */
 			   <5 0 &gpioh 3 0>,	/* TMPH2_PH3 */
@@ -54,11 +54,11 @@
 		gpio-map = <0 0 &gpiog 5 0>,	/* TMPH3_PG5 */
 			   <1 0 &gpiog 4 0>,	/* TMPH3_PG4 */
 			   <2 0 &gpioh 6 0>,	/* TMPH3_PH6_SCK5 */
-			   <3 0 &gpioh 8 0>,	/* TMPH3_PH8 */
+			   <3 0 &gpioh 8 0>,	/* TMPH3_PH8_SDA3 */
 			   <4 0 &gpioh 10 0>,	/* TMPH3_PH10 */
 			   <5 0 &gpioh 9 0>,	/* TMPH3_PH9 */
 			   <6 0 &gpioh 11 0>,	/* TMPH3_PH11 */
-			   <7 0 &gpioh 7 0>,	/* TMPH3_PH7_MISO5 */
+			   <7 0 &gpioh 7 0>,	/* TMPH3_PH7_SCL3_MISO5 */
 			   <8 0 &gpioh 12 0>,	/* TMPH3_PH12 */
 			   <9 0 &gpiog 2 0>,	/* TMPH3_PG2 */
 			   <10 0 &gpiog 3 0>,	/* TMPH3_PG3 */
@@ -80,9 +80,9 @@
 			   <5 0 &gpiog 15 0>,	/* TMPH4_PG15 */
 			   <6 0 &gpioi 13 0>,	/* TMPH4_PI13 */
 			   <7 0 &gpiof 2 0>,	/* TMPH4_PF2 */
-			   <8 0 &gpioe 0 0>,	/* TMPH4_PE0 */
+			   <8 0 &gpioe 0 0>,	/* TMPH4_PE0_RXD8 */
 			   <9 0 &gpiof 3 0>,	/* TMPH4_PF3_ADC39 */
-			   <10 0 &gpioe 1 0>,	/* TMPH4_PE1 */
+			   <10 0 &gpioe 1 0>,	/* TMPH4_PE1_TXD8 */
 			   <11 0 &gpioi 4 0>;	/* TMPH4_PI4 */
 			   /* Not a GPIO*/	/* GND */
 			   /* Not a GPIO*/	/* GND */
@@ -100,18 +100,30 @@
 			   <4 0 &gpiog 1 0>,	/* TMPH5_PG1 */
 			   <5 0 &gpiof 11 0>,	/* TMPH5_PF11_MOSI5 */
 			   <6 0 &gpiof 15 0>,	/* TMPH5_PF15_SDA4 */
-			   <7 0 &gpioe 12 0>,	/* TMPH5_PE12 */
-			   <8 0 &gpioe 11 0>,	/* TMPH5_PE11 */
+			   <7 0 &gpioe 12 0>,	/* TMPH5_PE12_SCK4 */
+			   <8 0 &gpioe 11 0>,	/* TMPH5_PE11_NSS4 */
 			   <9 0 &gpioe 15 0>,	/* TMPH5_PE15 */
-			   <10 0 &gpioe 14 0>,	/* TMPH5_PE14 */
-			   <11 0 &gpioe 13 0>;	/* TMPH5_PE13 */
+			   <10 0 &gpioe 14 0>,	/* TMPH5_PE14_MOSI4 */
+			   <11 0 &gpioe 13 0>;	/* TMPH5_PE13_MISO4 */
 			   /* Not a GPIO*/	/* GND */
 			   /* Not a GPIO*/	/* GND */
 	}; // tmph5
 };
 
-tmph_serial: &uart4 {};
 tmph_timers: &timers8 {};
+tmph_pwms: &pwm8 {};
 tmph_adc: &adc3 {};
-tmph_i2c: &i2c4 {};
-tmph_spi: &spi5 {};
+
+tmph_serial1: &uart4 {};
+tmph_serial2: &usart3 {};
+tmph_serial3: &uart5 {};
+tmph_serial4: &uart8 {};
+tmph_serial: &tmph_serial1 {};
+
+tmph_i2c1: &i2c4 {};
+tmph_i2c2: &i2c3 {};
+tmph_i2c: &tmph_i2c1 {};
+
+tmph_spi1: &spi4 {};
+tmph_spi2: &spi5 {};
+tmph_spi: &tmph_spi1 {};
