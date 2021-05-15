@@ -8,9 +8,6 @@
  *     https://github.com/zephyrproject-rtos/zephyr/issues/30977
  */
 
-// wrong register size in st/f7/stm32f7.dtsi
-&adc1 { reg = <0x40012000 0x100>; };
-
 / {
 	soc {
 		/*
@@ -29,6 +26,11 @@
 		 * reg = <0x40012300 0x100> -- Open issue: How to deal with the
 		 * common register settings?
 		 */
+
+		// wrong register size in st/f7/stm32f7.dtsi
+		adc1: adc@40012000 {
+			reg = <0x40012000 0x100>;
+		};
 
 		// missed in st/f7/stm32f7.dtsi
 		adc2: adc@40012100 {
