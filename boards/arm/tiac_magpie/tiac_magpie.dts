@@ -4,13 +4,8 @@
  */
 
 /dts-v1/;
-// We actually have a STM32F777NIHx which seems to be identical to the F767
-// with the exception of an additional crypto unit. As Zephyr does not know
-// the F777, we use the F767 for now.
-#include <st/f7/stm32f767Xi.dtsi>
-#include <st/f7/stm32f767-can2.dtsi>
-#include <st/f7/stm32f7-adc123.dtsi>
-#include <st/f7/stm32f767n(g-i)hx-pinctrl.dtsi>
+#include <st/f7/stm32f777Xi.dtsi>
+#include <st/f7/stm32f777nihx-pinctrl.dtsi>
 
 / {
 	model = "TiaC MAGPIE board";

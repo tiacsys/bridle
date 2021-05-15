@@ -5,5 +5,4 @@
 
 config BOARD_TIAC_MAGPIE
 	bool "TiaC Magpie Board"
-	# We actually have a STM32F777NIHx, but only F767 is available.
-	depends on SOC_STM32F767XX
+	depends on SOC_STM32F777XX

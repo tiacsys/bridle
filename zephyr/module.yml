@@ -8,5 +8,7 @@ build:
     module_ext_root: .
     # make custom boards available (in ./boards/)
     board_root: .
+    # make custom soc support available (in ./soc/)
+    soc_root: .
     # make custom device tree bindings available (in ./dts/bindings)
     dts_root: .
