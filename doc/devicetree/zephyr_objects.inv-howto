@@ -1,0 +1,3 @@
+cd <this_dir>
+wget -O zephyr_objects.inv \
+     https://lipro-zephyr.github.io/lpn-bridle/zephyr/objects.inv
