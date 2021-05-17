@@ -1,4 +1,4 @@
-From 68ba1b3b8aaa46c8a6ecaa405076e448697962a9 Mon Sep 17 00:00:00 2001
+From 9e7d5c844ba3f6c6b8dacbc3d33aa92df498c00d Mon Sep 17 00:00:00 2001
 From: Stephan Linz <linz@li-pro.net>
 Date: Wed, 12 May 2021 07:48:16 +0200
 Subject: [PATCH 3/3] tests: drivers: i2c: run with twister
@@ -9,7 +9,7 @@ Signed-off-by: Stephan Linz <linz@li-pro.net>
  1 file changed, 4 insertions(+), 3 deletions(-)
 
 diff --git a/tests/drivers/i2c/i2c_slave_api/testcase.yaml b/tests/drivers/i2c/i2c_slave_api/testcase.yaml
-index 138bfc338..74bafa628 100644
+index 138bfc338c..74bafa6283 100644
 --- a/tests/drivers/i2c/i2c_slave_api/testcase.yaml
 +++ b/tests/drivers/i2c/i2c_slave_api/testcase.yaml
 @@ -1,11 +1,12 @@
