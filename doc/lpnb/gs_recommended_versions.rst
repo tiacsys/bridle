@@ -174,6 +174,8 @@ Building documentation
      - |docutils_ver|
    * - breathe
      - |breathe_ver|
+   * - Pygments
+     - |Pygments_ver|
    * - CommonMark
      - |CommonMark_ver|
    * - recommonmark
