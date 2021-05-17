@@ -80,25 +80,25 @@
 }; // usbotg_fs
 
 &can1 {
-	status = "okay";
+	status = "okay";		/* default primary can */
 	pinctrl-0 = <&can1_rx_ph14	/* CAN_RX1 */
 		     &can1_tx_ph13>;	/* CAN_TX1 */
-	bus-speed = <900000>;
+	bus-speed = <1000000>;
 	sjw = <1>;
-	prop-seg = <4>;
-	phase-seg1 = <7>;
-	phase-seg2 = <7>;
+	prop-seg = <0>;
+	phase-seg1 = <15>;
+	phase-seg2 = <2>;
 }; // can1
 
 &can2 {
-	status = "okay";
+	status = "disabled";		/* optional second can */
 	pinctrl-0 = <&can2_rx_pb12	/* CAN_RX2 */
 		     &can2_tx_pb13>;	/* CAN_TX2 */
-	bus-speed = <900000>;
+	bus-speed = <1000000>;
 	sjw = <1>;
-	prop-seg = <4>;
-	phase-seg1 = <7>;
-	phase-seg2 = <7>;
+	prop-seg = <0>;
+	phase-seg1 = <15>;
+	phase-seg2 = <2>;
 }; // can2
 
 &i2c2 {
