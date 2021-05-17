@@ -188,9 +188,9 @@ else:
 pygments_style = 'sphinx'
 
 # Additional lexer for Pygments (syntax highlighting)
-from lexer.DtsLexer import DtsLexer
+from pygments.lexers.devicetree import DevicetreeLexer
 from sphinx.highlighting import lexers
-lexers['DTS'] = DtsLexer()
+lexers['DTS'] = DevicetreeLexer()
 
 # A list of ignored prefixes for module index sorting.
 #modindex_common_prefix = []
