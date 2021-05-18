@@ -354,22 +354,18 @@ add_custom_target(
       ${PYTHON_EXECUTABLE}
         ${ZEPHYR_BASE}/doc/scripts/gen_kconfig_rest.py ${KCONFIG_RST_OUT}
         --separate-all-index
-        --modules Zephyr,zephyr,${ZEPHYR_BASE}
-                  LPNB,lpnb,${LPNB_BASE}
+        --keep-module-paths
+        --modules "Zephyr Architecture,zephyr-arch,${ZEPHYR_BASE}/arch"
+                  "Zephyr SoC,zephyr-soc,${ZEPHYR_BASE}/soc"
+                  "Zephyr Driver,zephyr-drivers,${ZEPHYR_BASE}/drivers"
+                  "Zephyr Boards,zephyr-boards,${ZEPHYR_BASE}/boards"
+                  "Zephyr Kernel,zephyr-kernel,${ZEPHYR_BASE}/kernel"
+                  "Zephyr Library,zephyr-lib,${ZEPHYR_BASE}/lib"
+                  "Zephyr Subsystem,zephyr-subsys,${ZEPHYR_BASE}/subsys"
+                  "Zephyr Modules,zephyr-modules,${ZEPHYR_BASE}/modules"
+                  "Li-Pro.Net bridle,lpnb,${LPNB_BASE}"
         --no-index-modules BuildDir,${CMAKE_BINARY_DIR}
   VERBATIM
-)
-
-# LPNB-specific parameters to pass these through to doc/zephyr/conf.py (the
-# Sphinx configuration file). We use it for Intersphinx.
-set(zephyr_sphinx_environment
-  ZEPHYR_BASE=${ZEPHYR_BASE}
-  ZEPHYR_BUILD=${ZEPHYR_BINARY_DIR}
-  ZEPHYR_OUTPUT=${SPHINX_OUTPUT_DIR}
-  ZEPHYR_RST_SRC=${ZEPHYR_BINARY_DIR}/rst/doc
-  KCONFIG_OUTPUT=${KCONFIG_OUTPUT}
-  DTS_BINDINGS_OUTPUT=${DTS_BINDINGS_OUTPUT}
-  LPNB_BASE=${LPNB_BASE}
 )
 
 # LPNB-specific parameters to pass these through to doc/kconfig/conf.py (the

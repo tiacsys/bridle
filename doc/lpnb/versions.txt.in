@@ -57,6 +57,7 @@
 
 .. |docutils_ver| replace:: @DOCUTILS_VERSION@
 .. |breathe_ver| replace:: @BREATHE_VERSION@
+.. |Pygments_ver| replace:: @PYGMENTS_VERSION@
 .. |CommonMark_ver| replace:: @COMMONMARK_VERSION@
 .. |recommonmark_ver| replace:: @RECOMMONMARK_VERSION@
 .. |sphinx_ver| replace:: @SPHINX_VERSION@

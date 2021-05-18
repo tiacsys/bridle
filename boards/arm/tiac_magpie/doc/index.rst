@@ -114,7 +114,7 @@ hardware features:
    +-----------+------------+-----------------------------------------------+
    | USB       | on-chip    | :ref:`usb_api`                                |
    +-----------+------------+-----------------------------------------------+
-   | CAN       | on-chip    | :ref:`net_canbus`                             |
+   | CAN       | on-chip    | :ref:`net_canbus` (-)                         |
    +-----------+------------+-----------------------------------------------+
    | I2C       | on-chip    | :ref:`i2c_api`                                |
    +-----------+------------+-----------------------------------------------+
@@ -145,6 +145,12 @@ hardware features:
     ADC 2 or 3 is not supported properly by Zephyr STM32 ADC support, see:
     https://github.com/zephyrproject-rtos/zephyr/issues/26874 and
     https://github.com/zephyrproject-rtos/zephyr/issues/30977
+
+(-) CAN 1 or 2 only separate supported, never both simultaneously:
+    Simultaneous use of CAN_1 and CAN_2 not supported yet on STM32, see:
+    https://github.com/zephyrproject-rtos/zephyr/blob/main/drivers/can/can_stm32.c#L26,
+    https://github.com/zephyrproject-rtos/zephyr/pull/22200,
+    https://github.com/zephyrproject-rtos/zephyr/pull/24396 and
 
 (!) Shared IRQ line on STM32 devices:
     Share the same interrupt line on STM32 devices over multiple driver
@@ -255,6 +261,74 @@ CAN Busses
 The STM32F777NIHx on the TiaC Magpie board has 3 CAN controller, but not
 all are open usable or accessible. The TiaC Magpie uses the first two
 controllers, wherein the firstly enumerated is considered to be primarily.
+
+.. warning::
+
+   With current Zephyr version, either CAN controller 1 or 2 can be used on
+   their own, not both simultaneously.
+
+The bus timing is defined by the DTS and is preset to 1000 kBit/s. The
+calculation was verified with the help of the `CAN Bit Time Calculation Sheet`_
+and can also assume smaller bit rates according to the following table. Note
+that the value of **Prescaler** will be calculated on demand by the driver.
+
+.. list-table:: CAN bus timing calculation
+   :class: longtable
+   :align: center
+   :widths: 10, 10, 10, 35, 35
+   :header-rows: 1
+   :stub-columns: 3
+
+   * - Bit Rate
+     - Sample Point at
+     - Prescaler
+     - Seg 1 (``prop-seg + phase-seg1``)
+     - Seg 2 (``phase-seg2``)
+   * - 1000 kBit/s
+     - 88.9 %
+     - 3
+     - 15
+     - 2
+   * - 500 kBit/s
+     - 88.9 %
+     - 6
+     - 15
+     - 2
+   * - 250 kBit/s
+     - 88.9 %
+     - 12
+     - 15
+     - 2
+   * - 125 kBit/s
+     - 88.9 %
+     - 24
+     - 15
+     - 2
+   * - 125 kBit/s
+     - 87.5 %
+     - 27
+     - 13
+     - 2
+   * - 100 kBit/s
+     - 88.9 %
+     - 30
+     - 15
+     - 2
+   * - 50 kBit/s
+     - 88.9 %
+     - 60
+     - 15
+     - 2
+   * - 20 kBit/s
+     - 88.9 %
+     - 150
+     - 15
+     - 2
+   * - 10 kBit/s
+     - 88.9 %
+     - 300
+     - 15
+     - 2
 
 See :ref:`tiac_magpie_board_canbus_with_dts_bindings`
 for a more detailed specification.
@@ -422,7 +496,8 @@ with a single call to Twister.
              --testcase-root zephyr/tests/drivers/gpio \
              --testcase-root zephyr/tests/drivers/pwm \
              --testcase-root zephyr/tests/drivers/spi \
-             --testcase-root zephyr/tests/drivers/i2c
+             --testcase-root zephyr/tests/drivers/i2c \
+             --testcase-root zephyr/tests/drivers/can
 
    .. group-tab:: Results
 
@@ -439,16 +514,25 @@ with a single call to Twister.
 
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - Total complete:  :bgn:`121`/ :bgn:`121`  100%  skipped:   :byl:`45`, failed:    :brd:`2`
-         INFO    - :bgn:`99 of 101` test configurations passed (98.02%), :brd:`2` failed, :byl:`45` skipped with :bbk:`0` warnings in :bbk:`1129.06 seconds`
-         INFO    - In total 808 test cases were executed, 366 skipped on 1 out of total 330 platforms (0.30%)
-         INFO    - :bgn:`101` test configurations executed on platforms, :brd:`0` test configurations were only built.
+         INFO    - Total complete:  :bgn:`124`/ :bgn:`124`  100%  skipped:   :byl:`46`, failed:    :brd:`2`
+         INFO    - :bgn:`102 of 104` test configurations passed (98.08%), :brd:`2` failed, :byl:`46` skipped with :bbk:`0` warnings in :bbk:`1144.01 seconds`
+         INFO    - In total 822 test cases were executed, 367 skipped on 1 out of total 330 platforms (0.30%)
+         INFO    - :bgn:`104` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
 
          \| Board       \| ID       \|   Counter \|
          \|-------------\|----------\|-----------\|
-         \| tiac_magpie \| DT04BNT1 \|       101 \|
+         \| tiac_magpie \| DT04BNT1 \|       104 \|
+
+.. admonition:: Known but currently tolerated test cases with errors
+   :class: attention
+
+   .. toctree::
+      :maxdepth: 1
+
+      tests/drivers/i2c
+      tests/drivers/pwm
 
 Likewise, each of these test suites can also be running individually.
 The following are valid:
@@ -1304,3 +1388,6 @@ References
 
 .. _STM32CubeMX:
    https://www.st.com/en/development-tools/stm32cubemx.html
+
+.. _`CAN Bit Time Calculation Sheet`:
+   http://www.bittiming.can-wiki.info/?ctype=bxCAN&calc=1&CLK=54&SamplePoint=87.5&SJW=1
