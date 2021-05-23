@@ -46,6 +46,9 @@
 .. |zephyrsdk_recommended_ver_darwin| replace:: @ZEPHYR-SDK_VERSION_DARWIN@
 .. |zephyrsdk_recommended_ver_linux| replace:: @ZEPHYR-SDK_VERSION_LINUX@
 
+.. |doxygen_min_ver| replace:: @DOXYGEN_VERSION_MINIMUM@
+.. |mscgen_min_ver| replace:: @MSCGEN_VERSION_MINIMUM@
+
 .. |ecdsa_ver| replace:: @ECDSA_VERSION@
 .. |imagesize_ver| replace:: @IMAGESIZE_VERSION@
 .. |intelhex_ver| replace:: @INTELHEX_VERSION@

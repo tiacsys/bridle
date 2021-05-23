@@ -49,6 +49,12 @@ that is installed when using the :ref:`gs_app_sim` as described in
          * - Zephyr SDK
            - |zephyrsdk_min_ver|
            - |zephyrsdk_recommended_ver_win10|
+         * - Doxygen
+           - |doxygen_min_ver|
+           -
+         * - MscGen
+           - |mscgen_min_ver|
+           -
 
    .. group-tab:: Linux
 
@@ -91,6 +97,12 @@ that is installed when using the :ref:`gs_app_sim` as described in
          * - Zephyr SDK
            - |zephyrsdk_min_ver|
            - |zephyrsdk_recommended_ver_linux|
+         * - Doxygen
+           - |doxygen_min_ver|
+           -
+         * - MscGen
+           - |mscgen_min_ver|
+           -
 
    .. group-tab:: macOS
 
@@ -127,6 +139,12 @@ that is installed when using the :ref:`gs_app_sim` as described in
          * - Zephyr SDK
            - |zephyrsdk_min_ver|
            - |zephyrsdk_recommended_ver_darwin|
+         * - Doxygen
+           - |doxygen_min_ver|
+           -
+         * - MscGen
+           - |mscgen_min_ver|
+           -
 
 Required Python dependencies
 ****************************
