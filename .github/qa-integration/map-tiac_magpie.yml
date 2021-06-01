@@ -1,0 +1,12 @@
+- available: true
+  connected: true
+  fixtures:
+    - gpio_loopback
+    - pwm_loopback
+    - spi_loopback
+    - i2c_bus_short
+  id: DT04ATV0
+  platform: tiac_magpie
+  product: FT230X Basic UART
+  runner: openocd
+  serial: /dev/ttyUSB0
