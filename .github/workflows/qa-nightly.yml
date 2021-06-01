@@ -1,0 +1,96 @@
+# Copyright (c) 2021 Li-Pro.Net
+# SPDX-License-Identifier: Apache-2.0
+
+name: Nightly Maintenance and QA
+
+on:
+  schedule:
+    - cron: "0 2 * * *" # run at 2 AM UTC
+
+  push:
+    branches:
+      - gh-workflow # TODO/FIXME rename to main with next pull request
+
+jobs:
+  qa-integration:
+    runs-on: [self-hosted, linux, gnuarmemb, zephyr-sdk, tiac_magpie]
+
+    strategy:
+      matrix:
+        branch: [gh-workflow] # TODO/FIXME rename to main with next pull request
+        board: [tiac_magpie]
+
+    steps:
+      - name: Update GitHub PATH for west
+        run: |
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+      - name: Clean working directory
+        run: |
+          rm -rf "${{ github.workspace }}/workspace"
+
+      - name: Checkout the code
+        uses: actions/checkout@v2
+        with:
+          path: workspace/bridle
+          submodules: recursive
+          ref: ${{ matrix.branch }}
+
+      - name: Install base dependencies
+        working-directory: workspace
+        run: |
+          pip3 install --upgrade pip
+          pip3 install --upgrade setuptools
+          pip3 install --upgrade --requirement bridle/scripts/requirements-base.txt
+
+      - name: West init and update
+        working-directory: workspace
+        run: |
+          west init -l bridle
+          west update
+          west zephyr-export
+
+      - name: Patch Zephyr with documentation and twister hacks
+        working-directory: workspace/zephyr
+        run: |
+          git apply ../bridle/scripts/patches/zephyr/0001-doc-Share-Kconfig-documentation-between-repos.patch
+          git apply ../bridle/scripts/patches/zephyr/0002-doc-script-found-devicetree-bindings-recursively.patch
+          git apply ../bridle/scripts/patches/zephyr/0003-tests-drivers-i2c-run-with-twister.patch
+
+      - name: Install build and test dependencies
+        working-directory: workspace
+        run: |
+          pip3 install --upgrade --requirement zephyr/scripts/requirements-base.txt
+          pip3 install --upgrade --requirement zephyr/scripts/requirements-build-test.txt
+          pip3 install --upgrade --requirement zephyr/scripts/requirements-run-test.txt
+          pip3 install --upgrade --requirement zephyr/scripts/requirements-extras.txt
+          pip3 install --upgrade --requirement zephyr/scripts/requirements-compliance.txt
+          pip3 install --upgrade --requirement bridle/scripts/requirements-build.txt
+
+      - name: Execute integration tests on target
+        working-directory: workspace
+        run: |
+          ./zephyr/scripts/twister --verbose --jobs 4 --inline-logs --enable-size-report --platform-reports \
+            --device-testing --hardware-map "bridle/.github/qa-integration/map-${{ matrix.board }}.yml" \
+            --extra-args SHIELD=loopback_test_tmph --board-root bridle/boards \
+            --testcase-root zephyr/tests/arch/arm \
+            --testcase-root zephyr/tests/kernel \
+            --testcase-root zephyr/tests/drivers/watchdog \
+            --testcase-root zephyr/tests/drivers/counter \
+            --testcase-root zephyr/tests/drivers/entropy \
+            --testcase-root zephyr/tests/drivers/hwinfo \
+            --testcase-root zephyr/tests/drivers/gpio \
+            --testcase-root zephyr/tests/drivers/pwm \
+            --testcase-root zephyr/tests/drivers/spi \
+            --testcase-root zephyr/tests/drivers/i2c \
+            --testcase-root zephyr/tests/drivers/can
+        continue-on-error: true
+
+      - name: Convert integration test reports to annotations
+        uses: mikepenz/action-junit-report@v2.4.2
+        with:
+          check_name: twister-report (${{ matrix.board }})
+          report_paths: "**/twister_report.xml"
+          require_tests: true
+          fail_on_failure: false
+        if: always()
