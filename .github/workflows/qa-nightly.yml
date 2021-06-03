@@ -83,9 +83,7 @@ jobs:
             --testcase-root zephyr/tests/drivers/entropy \
             --testcase-root zephyr/tests/drivers/hwinfo \
             --testcase-root zephyr/tests/drivers/gpio \
-            --testcase-root zephyr/tests/drivers/pwm \
             --testcase-root zephyr/tests/drivers/spi \
-            --testcase-root zephyr/tests/drivers/i2c \
             --testcase-root zephyr/tests/drivers/can
         continue-on-error: true
 
