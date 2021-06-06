@@ -105,7 +105,7 @@ If the X do not start working with Y, check if the Z is valid enough.
 Dependencies\ :sup:`*`
 **********************
 
-This sample uses the following |LPNB| libraries:
+This sample uses the following |BRIDLE| libraries:
 
 * :ref:`customservice_readme`
 

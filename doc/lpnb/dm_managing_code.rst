@@ -12,21 +12,21 @@ t.b.d.
 
 .. _dm-wf-get-lpnb:
 
-Obtaining a copy of the |LPNB|
-******************************
+Obtaining a copy of |BRIDLE|
+****************************
 
 t.b.d.
 
 .. _dm-wf-update-lpnb:
 
-Updating a copy of the |LPNB|
-*****************************
+Updating a copy of |BRIDLE|
+***************************
 
 t.b.d.
 
 .. _dm-wf-fork:
 
-Forking a repository of the |LPNB|
-**********************************
+Forking a repository of |BRIDLE|
+********************************
 
 t.b.d.

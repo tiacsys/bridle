@@ -3,9 +3,9 @@
 Release Notes
 #############
 
-See the release notes for information about specific |LPNB| releases.
+See the release notes for information about specific |BRIDLE| releases.
 
-.. important:: The |LPNB| follows `Semantic Versioning 2.0.0`_.
+.. important:: |BRIDLE| follows `Semantic Versioning 2.0.0`_.
 
    A "99" in the version number of this documentation indicates continuous
    updates on the main branch since the previous major and minor release.

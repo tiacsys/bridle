@@ -2,8 +2,7 @@
 # Copyright (c) 2019-2020 Nordic Semiconductor ASA
 # SPDX-License-Identifier: LicenseRef-Nordic-5-Clause
 
-# Builds combined documentation for all documentation sets: Li-Pro.Net bridle
-# to embedded environment (LPNB), Zephyr, etc.
+# Builds combined documentation for all documentation sets: Bridle, Zephyr, etc.
 #
 # We use our own Sphinx configuration files when building the documentation set
 # for each repository, instead of reusing configuration files. See e.g.
@@ -299,7 +298,7 @@ add_custom_target(
     ${CMAKE_CURRENT_LIST_DIR}/static/html/index.html
     ${HTML_DIR}
   WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
-  COMMENT "Generating Li-Pro.Net bridle HTML documentation with ${SPHINXBUILD} to ${HTML_DIR}/lpnb"
+  COMMENT "Generating Bridle HTML documentation with ${SPHINXBUILD} to ${HTML_DIR}/lpnb"
   USES_TERMINAL
 )
 add_dependencies(lpnb-html lpnb-doxy lpnb-content kconfig-html devicetree-html zephyr)
@@ -363,7 +362,7 @@ add_custom_target(
                   "Zephyr Library,zephyr-lib,${ZEPHYR_BASE}/lib"
                   "Zephyr Subsystem,zephyr-subsys,${ZEPHYR_BASE}/subsys"
                   "Zephyr Modules,zephyr-modules,${ZEPHYR_BASE}/modules"
-                  "Li-Pro.Net bridle,lpnb,${BRIDLE_BASE}"
+                  "Bridle,lpnb,${BRIDLE_BASE}"
         --no-index-modules BuildDir,${CMAKE_BINARY_DIR}
   VERBATIM
 )
@@ -452,7 +451,7 @@ add_custom_target(
   COMMAND ${CMAKE_MAKE_PROGRAM} devicetree-html
   COMMAND ${CMAKE_MAKE_PROGRAM} zephyr
   COMMAND ${CMAKE_MAKE_PROGRAM} lpnb
-  COMMENT "Generating all Li-Pro.Net bridle HTML documentation to ${HTML_DIR}"
+  COMMENT "Generating all Bridle HTML documentation to ${HTML_DIR}"
   USES_TERMINAL
 )
 

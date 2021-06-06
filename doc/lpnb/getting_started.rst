@@ -3,7 +3,7 @@
 Getting started
 ###############
 
-To quickly get started with the |LPNB|, use the
+To quickly get started with |BRIDLE|, use the
 :ref:`Getting Started Assistant <gs_assistant>` to set up your development
 environment. Alternatively, check the :ref:`gs_installing` section for
 instructions on setting up your environment manually.

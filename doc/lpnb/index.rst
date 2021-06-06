@@ -1,17 +1,16 @@
 .. _index:
 
-Welcome to the |LPNB|!
+|BRIDLE| Documentation
 ######################
 
-The |LPNB| is where you begin how to building Zephyr related applications
-for Li-Pro.Net. It offers a range of application samples and reference
-implementations, as well as a full suite of drivers for Li-Pro.Net devices.
-The |LPNB| refere to and involve the Zephyr™ real-time operating system
-(RTOS), which is built for connected low power products.
+|BRIDLE| is where you begin how to building Zephyr related applications with
+|TIAC| and/or for your own. It offers a range of application samples and
+reference implementations, as well as a full suite of drivers for |TIAC|
+devices. |BRIDLE| refere to and involve the Zephyr™ real-time operating
+system (RTOS), which is built for connected low power products.
 
-.. note:: The |LPNB| contains references and code for Li-Pro.Net devices,
-   though product development on these devices is not supported with the
-   |LPNB|.
+.. note:: |BRIDLE| contains references and code for |TIAC| devices, though
+   product development on these devices is not supported with |BRIDLE|.
 
 .. toctree::
    :maxdepth: 2

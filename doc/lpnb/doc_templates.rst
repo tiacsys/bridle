@@ -3,7 +3,7 @@
 Documentation templates
 ########################
 
-The |LPNB| documentation provides templates for documenting sample applications
+The |BRIDLE| documentation provides templates for documenting sample applications
 and libraries.
 
 Use these templates to start documenting your application or library.

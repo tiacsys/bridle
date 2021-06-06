@@ -1,4 +1,5 @@
-.. |LPNB| replace:: Li-Pro.Net bridle
+.. |TIAC| replace:: TiaC Systems
+.. |BRIDLE| replace:: Bridle
 
 .. |release| replace:: 0.0.0
 .. |release_tt| replace:: ``0.0.0``

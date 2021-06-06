@@ -7,21 +7,21 @@ Development model
    :local:
    :depth: 2
 
-The |LPNB| follows a development model that gives users access to both stable
+|BRIDLE| follows a development model that gives users access to both stable
 releases and new features that are still under development.
 
-The |LPNB| is an SDK that is openly developed and maintained by Li-Pro.Net.
-It is based both on code developed by Li-Pro.Net engineers and on open-source
-software projects, which in turn are developed collaboratively by many
-contributors.
+|BRIDLE| is (not yet) an SDK that is openly developed and maintained by
+|TIAC|. It is based both on code developed by |TIAC| engineers and on
+open-source software projects, which in turn are developed collaboratively
+by many contributors.
 
-Users can continuously track the development progress of the |LPNB| and even
-contribute to it. This includes both the Li-Pro.Net specific and the open-source
-portions of the SDK.
+Users can continuously track the development progress of |BRIDLE| and even
+contribute to it. This includes both the |TIAC| specific and the open-source
+portions (not yet: of the SDK).
 
-Any individual or company can choose to contribute to the |LPNB| codebase.
-Contributions are welcome but entirely optional, as the licenses used by the
-|LPNB| allow for free modification of the source code without a requirement
+Any individual or company can choose to contribute to the |BRIDLE| codebase.
+Contributions are welcome but entirely optional, as the licenses used by
+|BRIDLE| allow for free modification of the source code without a requirement
 to contribute the changes back.
 
 .. toctree::

@@ -1,7 +1,7 @@
 .. _gs_assistant:
 
-Installing the |LPNB| through ... t.b.d. (TBD) Desktop Installer
-################################################################
+Installing |BRIDLE| through ... t.b.d. (TBD) Desktop Installer
+##############################################################
 
 .. contents::
    :local:
@@ -9,7 +9,7 @@ Installing the |LPNB| through ... t.b.d. (TBD) Desktop Installer
 
 ... t.b.d. (TBD) Desktop Installer, a cross-platform tool available for
 Windows, Linux, and macOS, provides different apps that simplify installing
-the |LPNB|.
+|BRIDLE|.
 
 * On Windows, use the :ref:`gs_app_sim`.
 * On Linux or macOS, use the :ref:`gs_app_gsa`.

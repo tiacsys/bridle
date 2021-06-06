@@ -4,7 +4,7 @@
 # COPIED and CHANGED from:
 # https://github.com/zephyrproject-rtos/zephyr/raw/zephyr-v2.5.0/doc/conf.py
 #
-# Li-Pro.Net bridle documentation build configuration file, created by
+# Bridle documentation build configuration file, created by
 # sphinx-quickstart on Fri May  8 11:43:01 2015.
 #
 # This file is execfile()d with the current directory set to its
@@ -126,9 +126,9 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Li-Pro.Net bridle'
-copyright = u'2019-2021 Li-Pro.Net members and individual contributors'
-author = u'Li-Pro.Net'
+project = u'Bridle'
+copyright = u'2019-2021 TiaC Systems members and individual contributors'
+author = u'TiaC Systems'
 
 # The following code tries to extract the information by reading the Makefile,
 # when Sphinx is run directly (e.g. by Read the Docs).
@@ -254,7 +254,7 @@ else:
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
-html_title = "Li-Pro.Net bridle to embedded environment"
+html_title = "Bridle to embedded environment"
 
 # This value determines the text for the permalink; it defaults to "¶".
 # Set it to None or the empty string to disable permalinks.

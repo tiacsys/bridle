@@ -3,7 +3,7 @@
 Supported operating systems
 ###########################
 
-The |LPNB| supports Microsoft Windows, Linux, and macOS for development.
+|BRIDLE| supports Microsoft Windows, Linux, and macOS for development.
 However, there are some Zephyr features that are currently only available
 on Linux, including:
 
