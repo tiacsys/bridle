@@ -1,9 +1,9 @@
 .. _doc_build:
 
-Building the |LPNB| documentation
-#################################
+Building |BRIDLE| documentation
+###############################
 
-The |LPNB| documentation is written using the reStructuredText markup language
+The |BRIDLE| documentation is written using the reStructuredText markup language
 (.rst file extension) with Sphinx extensions and processed using Sphinx. API
 documentation is included from Doxygen comments.
 
@@ -13,7 +13,7 @@ developer guide for information about reStructuredText.
 Before you start
 ****************
 
-Before you can build the documentation, install the |LPNB| as described in
+Before you can build the documentation, install |BRIDLE| as described in
 :ref:`gs_installing`. Make sure that you have installed the required
 :ref:`Python dependencies <additional_deps>`.
 
@@ -87,7 +87,7 @@ Complete the following steps to build the documentation output:
 
            source zephyr/zephyr-env.sh
 
-#. Generate the Ninja build files and build the complete |LPNB| (3rd)
+#. Generate the Ninja build files and build the complete |BRIDLE| (3rd)
    documentation:
 
    .. zephyr-app-commands::
@@ -105,7 +105,7 @@ Complete the following steps to build the documentation output:
 Alternatively, if you want to build each documentation set separately,
 complete the following steps. Generate the Ninja build files and build
 the Kconfig Reference and Devicetree Bindings (1st), Zephyr (2nd), and
-|LPNB| (3rd) documentation:
+|BRIDLE| (3rd) documentation:
 
 :use ``west``:
 
@@ -143,7 +143,7 @@ browser or type in:
 .. tip::
    If you modify or add RST files, you only need to rerun the steps that
    build the respective documentation: 2nd target in step 3 if you modified
-   the Zephyr documentation, 3rd target in step 3 if you modified the |LPNB|
+   the Zephyr documentation, 3rd target in step 3 if you modified |BRIDLE|
    documentation.
 
    If you open up a new command prompt, you must repeat step 2
@@ -204,7 +204,7 @@ To clean the build folders for the Zephyr documentation:
 
       ninja -C build/lpn-bridle-doc clean-zephyr
 
-To clean the build folders for the |LPNB| documentation:
+To clean the build folders for |BRIDLE| documentation:
 
 :use ``west``:
 

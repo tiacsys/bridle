@@ -1,7 +1,7 @@
 .. _dm_code_base:
 
-|LPNB| code base
-################
+|BRIDLE| code base
+##################
 
 .. contents::
    :local:

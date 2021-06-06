@@ -48,12 +48,12 @@ Upstream
 Downstream
    The repository that is forked off an upstream.
 
-LPN repository
-   An |LPNB| repository that does not have an externally maintained,
-   open-source upstream. It is exclusive to Li-Pro.Net.
+TiaC repository
+   An |TIAC| repository that does not have an externally maintained,
+   open-source upstream. It is exclusive to |TIAC|.
 
 OSS repository
-   An |LPNB| repository that tracks an upstream Open Source Software
+   An |TIAC| repository that tracks an upstream Open Source Software
    counterpart that is externally maintained.
 
 Commit

@@ -7,7 +7,7 @@ Required tools
    :local:
    :depth: 2
 
-The following table shows the tools that are required for working with |LPNB|
+The following table shows the tools that are required for working with |BRIDLE|
 v\ |version|. It lists the minimum version that is required and the version
 that is installed when using the :ref:`gs_app_sim` as described in
 :ref:`gs_assistant`.
@@ -149,11 +149,11 @@ that is installed when using the :ref:`gs_app_sim` as described in
 Required Python dependencies
 ****************************
 
-The following table shows the Python packages that are required for working with |LPNB|
-v\ |version|. If no version is specified, the default version provided with pip is
-recommended. If a version is specified, it is important that the installed version
-matches the required version. See :ref:`additional_deps` for instructions on how to
-install the Python dependencies.
+The following table shows the Python packages that are required for working with
+|BRIDLE| v\ |version|. If no version is specified, the default version provided
+with pip is recommended. If a version is specified, it is important that the
+installed version matches the required version. See :ref:`additional_deps` for
+instructions on how to install the Python dependencies.
 
 Building and running applications, samples, and tests
 =====================================================

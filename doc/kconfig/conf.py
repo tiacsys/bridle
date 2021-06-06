@@ -30,8 +30,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Kconfig Reference'
-copyright = u'2019-2021 Li-Pro.Net members and individual contributors'
-author = u'Li-Pro.Net'
+copyright = u'2019-2021 TiaC Systems members and individual contributors'
+author = u'TiaC Systems'
 
 # Get rid of version number while keeping the spacing the same as for other
 # docsets

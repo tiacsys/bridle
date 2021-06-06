@@ -1,25 +1,25 @@
 .. _gs_installing:
 
-Installing the |LPNB| manually
-##############################
+Installing |BRIDLE| manually
+############################
 
 .. contents::
    :local:
    :depth: 2
 
-The recommended way to get started with the |LPNB| is to use the Desktop
+The recommended way to get started with |BRIDLE| is to use the Desktop
 Installer. See the :ref:`gs_assistant` section for information about how
-to install the |LPNB| through Desktop Installer for Desktop.
+to install |BRIDLE| through Desktop Installer for Desktop.
 
 .. note::
 
-   If you use the Desktop Installer to install the |LPNB|, you can skip
+   If you use the Desktop Installer to install |BRIDLE|, you can skip
    this section of the documentation. If you prefer to install the
    toolchain manually, or if you run into problems during the installation
    process, see the following documentation for instructions.
 
-To manually install the |LPNB|, you must install all required tools and clone
-the |LPNB| repositories. See the following sections for detailed instructions.
+To manually install |BRIDLE|, you must install all required tools and clone
+the |BRIDLE| repositories. See the following sections for detailed instructions.
 
 The first two steps, :ref:`gs_installing_tools` and
 :ref:`gs_installing_toolchain`, are identical to the installation in Zephyr.
@@ -81,9 +81,9 @@ version **10-2020-q4-major** of the `GNU Arm Embedded Toolchain`_.
 .. important::
 
    Make sure to install the version that is mentioned above.
-   Other versions might not work with this version of the |LPNB|.
+   Other versions might not work with this version of |BRIDLE|.
 
-   Note that other versions of the |LPNB| might require a different
+   Note that other versions of |BRIDLE| might require a different
    toolchain version.
 
 To set up the toolchain, complete the following steps:
@@ -167,10 +167,10 @@ To set up the toolchain, complete the following steps:
 .. _cloning_the_repositories_win:
 .. _cloning_the_repositories:
 
-Getting the |LPNB| code
-***********************
+Getting the |BRIDLE| code
+*************************
 
-The |LPNB| consists of a set of Git repositories. Every |LPNB| release consists
+|BRIDLE| consists of a set of Git repositories. Every |BRIDLE| release consists
 of a combination of these repositories at different revisions. The revision of
 each of those repositories is determined by the current revision of the main
 (or manifest) repository, `lpn-bridle`_.
@@ -184,9 +184,9 @@ each of those repositories is determined by the current revision of the main
    tagged release.
 
    Therefore, unless you are familiar with the development process, you should
-   always work with a specific release of the |LPNB|.
+   always work with a specific release of |BRIDLE|.
 
-To manage the combination of repositories and versions, the |LPNB|
+To manage the combination of repositories and versions, |BRIDLE|
 uses :ref:`zephyr:west`. The main repository, `lpn-bridle`_, contains
 a `west manifest file`_, :file:`west.yml`, that determines the revision
 of all other repositories. This means that *lpn-bridle* acts as the
@@ -302,10 +302,10 @@ Cloning the repositories
 To clone the repositories, complete the following steps:
 
 #. Open a command window and **go into the workspace directory.** This folder
-   will hold all |LPNB| repositories together with the Python Virtual
+   will hold all |BRIDLE| repositories together with the Python Virtual
    Environment that is already created and setup as described above.
 
-#. Determine what revision of the |LPNB| you want to work with. The recommended
+#. Determine what revision of |BRIDLE| you want to work with. The recommended
    way is to work with a specific release.
 
    * To work with a specific release, the revision is the corresponding
@@ -318,7 +318,7 @@ To clone the repositories, complete the following steps:
    * To work with a specific state, the revision is the SHA (for example,
      ``4b44408145d4843f2bf13952a7723680240d0f95``).
 
-#. Initialize west with the revision of the |LPNB| that you want to check out,
+#. Initialize west with the revision of |BRIDLE| that you want to check out,
    replacing *BRIDLE_revision* with the revision:
 
    .. parsed-literal::
@@ -353,7 +353,7 @@ To clone the repositories, complete the following steps:
       Initializing west with a specific revision of the manifest file does not
       lock your repositories to this version. Checking out a different branch
       or tag in the `lpn-bridle`_ repository and running ``west update``
-      changes the version of the |LPNB| that you work with.
+      changes the version of |BRIDLE| that you work with.
 
    This will clone the manifest repository `lpn-bridle`_ into :file:`bridle`.
 
@@ -365,7 +365,7 @@ To clone the repositories, complete the following steps:
       west update
 
 #. Export a :ref:`Zephyr CMake package <zephyr:cmake_pkg>`. This allows CMake
-   to automatically load the boilerplate code required for building |LPNB|
+   to automatically load the boilerplate code required for building |BRIDLE|
    applications:
 
    .. parsed-literal::
@@ -401,7 +401,7 @@ The full set of repositories and folders is defined in the manifest file.
 Updating the repositories
 =========================
 
-If you work with a specific release of the |LPNB|, you do not need to
+If you work with a specific release of |BRIDLE|, you do not need to
 update your repositories, because the release will not change. However,
 you might want to switch to a newer release or check out the latest state
 of development.
@@ -418,7 +418,7 @@ manifest file.
    :start-after: west-error-start
    :end-before: west-error-end
 
-For example, to switch to release |release| of the |LPNB|, enter the
+For example, to switch to release |release| of |BRIDLE|, enter the
 following commands in the ``workspace/bridle`` directory:
 
 .. parsed-literal::
@@ -461,7 +461,7 @@ following commands:
 Installing additional Python dependencies
 *****************************************
 
-The |LPNB| requires additional Python packages to be installed.
+The |BRIDLE| requires additional Python packages to be installed.
 
 Use the following commands to install the requirements for each repository.
 

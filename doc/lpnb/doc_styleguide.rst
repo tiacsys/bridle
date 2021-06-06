@@ -3,7 +3,7 @@
 Documentation style guide
 #########################
 
-|LPNB| documentation is written in two formats:
+|BRIDLE| documentation is written in two formats:
 
 * doxygen for API documentation
 * RST for conceptual documentation
@@ -17,7 +17,7 @@ RST is available in the `reStructuredText Primer`_ as part of the original
 `Sphinx Documentation`_, and about the Sphinx documentation framework in the
 `Li-Pro.Net Sphinx Primer`_.
 
-The |LPNB| documentation follows the Zephyr style guide, and adds a few more
+The |BRIDLE| documentation follows the Zephyr style guide, and adds a few more
 restrictive rules:
 
 * Headings use sentence case, which means that the first word is capitalized,

@@ -1,13 +1,13 @@
 .. _introduction:
 
-About the |LPNB|
-################
+About |BRIDLE|
+##############
 
-The |LPNB| demonstrate the integration of Li-Pro.Net support in open source
-projects, like the Zephyr RTOS, with libraries and source code for applications.
+|BRIDLE| demonstrate the integration of |TIAC| support in open source projects,
+like the `Zephyr Project`_, with libraries and source code for applications.
 
-See :ref:`getting_started` for information about how to install the |LPNB|
-and about the first steps.
+See :ref:`getting_started` for information about how to install |BRIDLE| and
+about the first steps.
 
 .. toctree::
    :maxdepth: 2

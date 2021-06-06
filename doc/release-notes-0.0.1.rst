@@ -1,11 +1,11 @@
 .. _lpnb_release_notes_000:
 
-|LPNB| v0.0.0 Release Notes
-###########################
+|BRIDLE| v0.0.0 Release Notes
+#############################
 
-This project demonstrate the integration of Li-Pro.Net support in open
+This project demonstrate the integration of |TIAC| support in open
 source projects, like the Zephyr RTOS, with libraries and source code
-for applications. It is not intended or supported by Li-Pro.Net for
+for applications. It is not intended or supported by |TIAC| for
 product development.
 
 Highlights

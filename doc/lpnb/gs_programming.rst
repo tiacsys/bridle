@@ -7,7 +7,7 @@ Building and programming a sample application
    :local:
    :depth: 2
 
-The recommended way of building and programming an |LPNB| sample is to use
+The recommended way of building and programming an |BRIDLE| sample is to use
 ... t.b.d. (TBD) IDE.
 
 .. .. note:: See :ref:`precompiled_fw` and :ref:`building_pgming` for

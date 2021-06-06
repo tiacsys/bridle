@@ -3,7 +3,7 @@
 Supported Boards
 ################
 
-The |LPNB| project developers are continually adding board-specific support as
+The |BRIDLE| project developers are continually adding board-specific support as
 documented below.
 
 To add support documentation for a new board, please use the template available
