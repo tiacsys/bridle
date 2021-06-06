@@ -148,9 +148,9 @@ endforeach()
 
 set(LPNB_SPHINXOPTS -d ${BRIDLE_BINARY_DIR}/doctrees ${LPNB_SPHINXOPTS})
 
-set(LPNB_DOC_DIR ${BRIDLE_BASE}/doc/lpnb)
+set(BRIDLE_DOC_DIR ${BRIDLE_BASE}/doc/lpnb)
 
-set(LPNB_DOXYFILE_IN ${LPNB_DOC_DIR}/lpnb.doxyfile.in)
+set(LPNB_DOXYFILE_IN ${BRIDLE_DOC_DIR}/lpnb.doxyfile.in)
 set(LPNB_DOXYFILE_OUT ${BRIDLE_BINARY_DIR}/lpnb.doxyfile)
 set(BRIDLE_RST_OUT ${BRIDLE_BINARY_DIR}/rst)
 set(LPNB_DOC_LOG ${BRIDLE_BINARY_DIR}/doc.log)
@@ -185,11 +185,11 @@ add_custom_command(
   COMMAND ${CMAKE_COMMAND}
     -DTOOLS_VERSION_FILES="${tools_files_escaped}"
     -DPIP_REQUIREMENTS_FILES="${pip_files_escaped}"
-    -DVERSION_IN=${LPNB_DOC_DIR}/versions.txt.in
+    -DVERSION_IN=${BRIDLE_DOC_DIR}/versions.txt.in
     -DVERSION_OUT=${BRIDLE_RST_OUT}/doc/lpnb/versions.txt
     -P ${BRIDLE_BASE}/doc/update_versions.cmake
   DEPENDS
-    ${LPNB_DOC_DIR}/versions.txt.in
+    ${BRIDLE_DOC_DIR}/versions.txt.in
     ${tools_version_files}
     ${pip_requirements_files}
 )
@@ -211,7 +211,7 @@ set(LPNB_EXTRACT_CONTENT_COMMAND
   ${PYTHON_EXECUTABLE} ${ZEPHYR_BASE}/doc/scripts/extract_content.py
   --outputs ${LPNB_CONTENT_OUTPUTS}
   --ignore ${CMAKE_CURRENT_BINARY_DIR}
-  --sphinx-src-root ${LPNB_DOC_DIR}
+  --sphinx-src-root ${BRIDLE_DOC_DIR}
   "*:doc:${BRIDLE_RST_OUT}"
   # We want to copy the .rst files in samples/ and boards/ to the rst
   # folder, and also the doc folder inside rst.
@@ -243,7 +243,7 @@ add_custom_target(
   lpnb-content
   # Copy all files in doc/ to the rst folder
   COMMAND ${LPNB_EXTRACT_CONTENT_COMMAND}
-  WORKING_DIRECTORY ${LPNB_DOC_DIR}
+  WORKING_DIRECTORY ${BRIDLE_DOC_DIR}
   DEPENDS ${BRIDLE_RST_OUT}/doc/lpnb/versions.txt
   COMMENT "Copying files to ${BRIDLE_RST_OUT}"
   USES_TERMINAL
