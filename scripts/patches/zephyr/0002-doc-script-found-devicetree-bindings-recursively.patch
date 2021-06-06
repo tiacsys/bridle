@@ -1,4 +1,4 @@
-From dc18036e56372e224469d3562b555c419b120bb8 Mon Sep 17 00:00:00 2001
+From 0a79f8d751fccd523f838af1f900affc4657f607 Mon Sep 17 00:00:00 2001
 From: Stephan Linz <linz@li-pro.net>
 Date: Sun, 14 Mar 2021 20:25:56 +0100
 Subject: [PATCH 2/3] doc: script: found devicetree bindings recursively
