@@ -37,26 +37,26 @@ git -C zephyr apply \
 **Share Kconfig documentation between repos:**
 
 The Kconfig reference is being turned into a separate shared documentation
-set, which needs three lpn-bridle-specific Zephyr tweaks:
+set, which needs three Bridle specific Zephyr tweaks:
 
 1. Do not build the Kconfig docs as part of the Zephyr documentation.
 2. Do not link the index page of the Kconfig docs in the Zephyr documentation.
 3. Pass some extra variables with output paths through to sphinx-build, so that
-   they can be referenced in lpn-bridle/doc/zephyr/conf.py. They're used for
+   they can be referenced in bridle/doc/zephyr/conf.py. They're used for
    the Intersphinx linking.
 
 Prepare the build folder, type in:
 
 ```bash
-rm -rf build/lpn-bridle-doc
-west build --cmake-only -b none -d build/lpn-bridle-doc bridle/doc
+rm -rf build/bridle-doc
+west build --cmake-only -b none -d build/bridle-doc bridle/doc
 ```
 
 Build the complete Li-Pro.Net bridle HTML pages in
-``build/lpn-bridle-doc/html``, type in:
+``build/bridle-doc/html``, type in:
 
 ```bash
-west build -t build-all -b none -d build/lpn-bridle-doc
+west build -t build-all -b none -d build/bridle-doc
 ```
 
 This command will build all documentation sets. Note that this process can
@@ -64,38 +64,38 @@ take quite some time. Alternatively, if you want to build each documentation
 set separately, complete the following steps:
 
 1. Build Kconfig Reference HTML pages in
-   ``build/lpn-bridle-doc/html/kconfig``, type in:
+   ``build/bridle-doc/html/kconfig``, type in:
 
    ```bash
-   west build -t kconfig-html -b none -d build/lpn-bridle-doc
+   west build -t kconfig-html -b none -d build/bridle-doc
    ```
 
 2. Build Devicetree Bindings HTML pages in
-   ``build/lpn-bridle-doc/html/devicetree``, type in:
+   ``build/bridle-doc/html/devicetree``, type in:
 
    ```bash
-   west build -t devicetree-html -b none -d build/lpn-bridle-doc
+   west build -t devicetree-html -b none -d build/bridle-doc
    ```
 
 3. Build Zephyr Project HTML pages in
-   ``build/lpn-bridle-doc/html/zephyr``, type in:
+   ``build/bridle-doc/html/zephyr``, type in:
 
    ```bash
-   west build -t zephyr -b none -d build/lpn-bridle-doc
+   west build -t zephyr -b none -d build/bridle-doc
    ```
 
 4. Build Li-Pro.Net bridle HTML pages in
-   ``build/lpn-bridle-doc/html/lpnb``, type in:
+   ``build/bridle-doc/html/bridle``, type in:
 
    ```bash
-   west build -t lpnb -b none -d build/lpn-bridle-doc
+   west build -t bridle -b none -d build/bridle-doc
    ```
 
-Now you are able to open ``build/lpn-bridle-doc/html/index.html``
+Now you are able to open ``build/bridle-doc/html/index.html``
 in any HTML browser, ex. type in:
 
 ```bash
-firefox build/lpn-bridle-doc/html/index.html &
+firefox build/bridle-doc/html/index.html &
 ```
 
 ---

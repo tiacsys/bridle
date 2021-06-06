@@ -6,7 +6,7 @@
 #
 # We use our own Sphinx configuration files when building the documentation set
 # for each repository, instead of reusing configuration files. See e.g.
-# doc/lpnb/conf.py and doc/zephyr/conf.py.
+# doc/bridle/conf.py and doc/zephyr/conf.py.
 #
 # Intersphinx (http://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html)
 # is used to link documentation sets together. It is configured in the Sphinx
@@ -15,16 +15,16 @@
 # The *-content targets copy/create .rst files that later get built by Sphinx.
 
 cmake_minimum_required(VERSION 3.13.1)
-project(lpn-bridle-doc LANGUAGES)
+project(bridle-doc LANGUAGES)
 
 set(NO_BOILERPLATE TRUE)
 find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE} ..)
 
 #
-# Set various *_BASE variables pointing to the lpnb/, zephyr/, etc.,
+# Set various *_BASE variables pointing to the bridle/, zephyr/, etc.,
 # directories. Derive them automatically if they're not set in the environment,
-# by assuming that e.g. lpnbxlib can be found at ../../lpnbxlib/. Also add them
-# to the environment if they're not there.
+# by assuming that e.g. bridlexlib can be found at ../../bridlexlib/. Also add
+# them to the environment if they're not there.
 #
 
 get_filename_component(BRIDLE_BASE ${CMAKE_CURRENT_LIST_DIR}../ DIRECTORY)
@@ -55,12 +55,12 @@ if(${SPHINXBUILD} STREQUAL SPHINXBUILD-NOTFOUND)
 endif()
 
 #
-# CMake build directories (build/zephyr, build/lpnb, etc.) and the shared
+# CMake build directories (build/zephyr, build/bridle, etc.) and the shared
 # HTML output directory.
 #
 
 set(ZEPHYR_BINARY_DIR ${CMAKE_BINARY_DIR}/zephyr)
-set(BRIDLE_BINARY_DIR ${CMAKE_BINARY_DIR}/lpnb)
+set(BRIDLE_BINARY_DIR ${CMAKE_BINARY_DIR}/bridle)
 
 # Output directory for the shared Kconfig reference
 set(KCONFIG_BINARY_DIR ${CMAKE_BINARY_DIR}/Kconfig)
@@ -90,7 +90,7 @@ set(GEN_DEVICETREE_REST_ZEPHYR_DOCSET " ")
 set(MODULES_EXT_ROOT ${BRIDLE_BASE})
 add_subdirectory(${ZEPHYR_BASE}/doc ${ZEPHYR_BINARY_DIR})
 
-# LPNB-specific parameters to pass these through to doc/zephyr/conf.py (the
+# Bridle specific parameters to pass these through to doc/zephyr/conf.py (the
 # Sphinx configuration file). We use it for HTML Templates and Intersphinx.
 set(zephyr_sphinx_environment
   ZEPHYR_BASE=${ZEPHYR_BASE}
@@ -122,10 +122,10 @@ add_custom_target(zephyr)
 add_dependencies(zephyr zephyr-html)
 
 #
-# Add 'clean-zephyr', 'clean-lpnb', etc., targets
+# Add 'clean-zephyr', 'clean-bridle', etc., targets
 #
 
-foreach(target kconfig devicetree zephyr lpnb)
+foreach(target kconfig devicetree zephyr bridle)
   set(TARGET_BINARY_DIR ${CMAKE_BINARY_DIR}/${target})
   # Cleanup build output
   add_custom_target(
@@ -142,15 +142,15 @@ foreach(target kconfig devicetree zephyr lpnb)
 endforeach()
 
 #
-# Add lpnb-related targets
+# Add bridle-related targets
 #
 
 set(BRIDLE_SPHINXOPTS -d ${BRIDLE_BINARY_DIR}/doctrees ${BRIDLE_SPHINXOPTS})
 
-set(BRIDLE_DOC_DIR ${BRIDLE_BASE}/doc/lpnb)
+set(BRIDLE_DOC_DIR ${BRIDLE_BASE}/doc/bridle)
 
-set(BRIDLE_DOXYFILE_IN ${BRIDLE_DOC_DIR}/lpnb.doxyfile.in)
-set(BRIDLE_DOXYFILE_OUT ${BRIDLE_BINARY_DIR}/lpnb.doxyfile)
+set(BRIDLE_DOXYFILE_IN ${BRIDLE_DOC_DIR}/bridle.doxyfile.in)
+set(BRIDLE_DOXYFILE_OUT ${BRIDLE_BINARY_DIR}/bridle.doxyfile)
 set(BRIDLE_RST_OUT ${BRIDLE_BINARY_DIR}/rst)
 set(BRIDLE_DOC_LOG ${BRIDLE_BINARY_DIR}/doc.log)
 set(BRIDLE_DOXY_LOG ${BRIDLE_BINARY_DIR}/doxy.log)
@@ -180,12 +180,12 @@ string(REPLACE ";" "\\;" tools_files_escaped "${tools_version_files}")
 string(REPLACE ";" "\\;" pip_files_escaped "${pip_requirements_files}")
 
 add_custom_command(
-  OUTPUT ${BRIDLE_RST_OUT}/doc/lpnb/versions.txt
+  OUTPUT ${BRIDLE_RST_OUT}/doc/bridle/versions.txt
   COMMAND ${CMAKE_COMMAND}
     -DTOOLS_VERSION_FILES="${tools_files_escaped}"
     -DPIP_REQUIREMENTS_FILES="${pip_files_escaped}"
     -DVERSION_IN=${BRIDLE_DOC_DIR}/versions.txt.in
-    -DVERSION_OUT=${BRIDLE_RST_OUT}/doc/lpnb/versions.txt
+    -DVERSION_OUT=${BRIDLE_RST_OUT}/doc/bridle/versions.txt
     -P ${BRIDLE_BASE}/doc/update_versions.cmake
   DEPENDS
     ${BRIDLE_DOC_DIR}/versions.txt.in
@@ -194,7 +194,7 @@ add_custom_command(
 )
 
 add_custom_target(
-  lpnb-doxy
+  bridle-doxy
   COMMAND ${CMAKE_COMMAND}
     -DCOMMAND=${DOXYGEN_EXECUTABLE}
     -DARGS="${BRIDLE_DOXYFILE_OUT}"
@@ -222,28 +222,28 @@ set(BRIDLE_EXTRACT_CONTENT_COMMAND
   # .. literalinclude:: ../../samples/sensor/my4711/src/main.c
   #
   # The additional copy is a hackaround so these references work.
-  "*.rst:boards:${BRIDLE_RST_OUT}/doc/lpnb"
-  "*.csv:boards:${BRIDLE_RST_OUT}/doc/lpnb"
-  "*.ioc:boards:${BRIDLE_RST_OUT}/doc/lpnb"
-  "*.pdf:boards:${BRIDLE_RST_OUT}/doc/lpnb"
-  "*.rst:samples:${BRIDLE_RST_OUT}/doc/lpnb"
-  "*.rst:applications:${BRIDLE_RST_OUT}/doc/lpnb"
-  "*.rst:include:${BRIDLE_RST_OUT}/doc/lpnb"
-  "*.rst:lib:${BRIDLE_RST_OUT}/doc/lpnb"
-  "*.rst:drivers:${BRIDLE_RST_OUT}/doc/lpnb"
-  "*.rst:scripts:${BRIDLE_RST_OUT}/doc/lpnb"
-  "*.rst:tests:${BRIDLE_RST_OUT}/doc/lpnb"
-  "release-notes*.rst:doc:${BRIDLE_RST_OUT}/doc/lpnb"
-  "changelog.rst:doc:${BRIDLE_RST_OUT}/doc/lpnb"
+  "*.rst:boards:${BRIDLE_RST_OUT}/doc/bridle"
+  "*.csv:boards:${BRIDLE_RST_OUT}/doc/bridle"
+  "*.ioc:boards:${BRIDLE_RST_OUT}/doc/bridle"
+  "*.pdf:boards:${BRIDLE_RST_OUT}/doc/bridle"
+  "*.rst:samples:${BRIDLE_RST_OUT}/doc/bridle"
+  "*.rst:applications:${BRIDLE_RST_OUT}/doc/bridle"
+  "*.rst:include:${BRIDLE_RST_OUT}/doc/bridle"
+  "*.rst:lib:${BRIDLE_RST_OUT}/doc/bridle"
+  "*.rst:drivers:${BRIDLE_RST_OUT}/doc/bridle"
+  "*.rst:scripts:${BRIDLE_RST_OUT}/doc/bridle"
+  "*.rst:tests:${BRIDLE_RST_OUT}/doc/bridle"
+  "release-notes*.rst:doc:${BRIDLE_RST_OUT}/doc/bridle"
+  "changelog.rst:doc:${BRIDLE_RST_OUT}/doc/bridle"
 )
 
 
 add_custom_target(
-  lpnb-content
+  bridle-content
   # Copy all files in doc/ to the rst folder
   COMMAND ${BRIDLE_EXTRACT_CONTENT_COMMAND}
   WORKING_DIRECTORY ${BRIDLE_DOC_DIR}
-  DEPENDS ${BRIDLE_RST_OUT}/doc/lpnb/versions.txt
+  DEPENDS ${BRIDLE_RST_OUT}/doc/bridle/versions.txt
   COMMENT "Copying files to ${BRIDLE_RST_OUT}"
   USES_TERMINAL
 )
@@ -254,7 +254,7 @@ else()
   set(SEP :)
 endif()
 
-set(lpnb_sphinx_environment
+set(bridle_sphinx_environment
   ZEPHYR_BASE=${ZEPHYR_BASE}
   ZEPHYR_BUILD=${ZEPHYR_BINARY_DIR}
   ZEPHYR_OUTPUT=${SPHINX_OUTPUT_DIR}
@@ -263,24 +263,24 @@ set(lpnb_sphinx_environment
   DTS_BINDINGS_OUTPUT=${DTS_BINDINGS_OUTPUT}
   BRIDLE_BASE=${BRIDLE_BASE}
   BRIDLE_BUILD=${BRIDLE_BINARY_DIR}
-  BRIDLE_OUTPUT=${HTML_DIR}/lpnb
-  BRIDLE_RST_SRC=${BRIDLE_RST_OUT}/doc/lpnb
+  BRIDLE_OUTPUT=${HTML_DIR}/bridle
+  BRIDLE_RST_SRC=${BRIDLE_RST_OUT}/doc/bridle
 )
 
 set(BRIDLE_SPHINX_BUILD_HTML_COMMAND
   ${CMAKE_COMMAND} -E env
-    ${lpnb_sphinx_environment}
+    ${bridle_sphinx_environment}
       ${SPHINXBUILD}
         -w ${BRIDLE_SPHINX_LOG}
 	-N
 	-b html
 	${BRIDLE_SPHINXOPTS}
-	${BRIDLE_RST_OUT}/doc/lpnb
-	${HTML_DIR}/lpnb
+	${BRIDLE_RST_OUT}/doc/bridle
+	${HTML_DIR}/bridle
 )
 
 add_custom_target(
-  lpnb-html
+  bridle-html
   COMMAND ${BRIDLE_SPHINX_BUILD_HTML_COMMAND}
   # Merge the Doxygen and Sphinx logs into a single file
   COMMAND ${CMAKE_COMMAND}
@@ -298,27 +298,27 @@ add_custom_target(
     ${CMAKE_CURRENT_LIST_DIR}/static/html/index.html
     ${HTML_DIR}
   WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
-  COMMENT "Generating Bridle HTML documentation with ${SPHINXBUILD} to ${HTML_DIR}/lpnb"
+  COMMENT "Generating Bridle HTML documentation with ${SPHINXBUILD} to ${HTML_DIR}/bridle"
   USES_TERMINAL
 )
-add_dependencies(lpnb-html lpnb-doxy lpnb-content kconfig-html devicetree-html zephyr)
+add_dependencies(bridle-html bridle-doxy bridle-content kconfig-html devicetree-html zephyr)
 
 add_custom_target(
-  lpnb-copy-versions
+  bridle-copy-versions
   COMMAND ${CMAKE_COMMAND} -E copy
     ${BRIDLE_BASE}/doc/versions.json
     ${HTML_DIR}/versions.json
 )
 
-add_custom_target(lpnb)
-add_dependencies(lpnb lpnb-html lpnb-copy-versions)
+add_custom_target(bridle)
+add_dependencies(bridle bridle-html bridle-copy-versions)
 
 #
 # Add targets for building the shared Kconfig reference
 #
 
 # The Kconfig reference is a separate documentation set that's shared between
-# all modules (LPNB, Zephyr, etc.). This makes it possible to link to Kconfig
+# all modules (Bridle, Zephyr, etc.). This makes it possible to link to Kconfig
 # symbols regardless of where they are defined.
 #
 # We rely on the Zephyr Kconfig files pulling in the other Kconfig files, and
@@ -362,12 +362,12 @@ add_custom_target(
                   "Zephyr Library,zephyr-lib,${ZEPHYR_BASE}/lib"
                   "Zephyr Subsystem,zephyr-subsys,${ZEPHYR_BASE}/subsys"
                   "Zephyr Modules,zephyr-modules,${ZEPHYR_BASE}/modules"
-                  "Bridle,lpnb,${BRIDLE_BASE}"
+                  "Bridle,bridle,${BRIDLE_BASE}"
         --no-index-modules BuildDir,${CMAKE_BINARY_DIR}
   VERBATIM
 )
 
-# LPNB-specific parameters to pass these through to doc/kconfig/conf.py (the
+# Bridle specific parameters to pass these through to doc/kconfig/conf.py (the
 # Sphinx configuration file). We use it for HTML Templates and Intersphinx.
 set(kconfig_sphinx_environment
   ZEPHYR_BASE=${ZEPHYR_BASE}
@@ -404,10 +404,10 @@ add_dependencies(kconfig-html kconfig-content)
 #
 
 # The Devicetree bindings is a separate documentation set that's shared
-# between all modules (LPNB, Zephyr, etc.). This makes it possible to link
+# between all modules (Bridle, Zephyr, etc.). This makes it possible to link
 # to Devicetree symbols regardless of where they are defined.
 #
-# LPNB-specific parameters to pass these through to doc/kconfig/conf.py (the
+# Bridle specific parameters to pass these through to doc/kconfig/conf.py (the
 # Sphinx configuration file). We use it for HTML Templates and Intersphinx.
 set(devicetree_sphinx_environment
   ZEPHYR_BASE=${ZEPHYR_BASE}
@@ -450,7 +450,7 @@ add_custom_target(
   COMMAND ${CMAKE_MAKE_PROGRAM} kconfig-html
   COMMAND ${CMAKE_MAKE_PROGRAM} devicetree-html
   COMMAND ${CMAKE_MAKE_PROGRAM} zephyr
-  COMMAND ${CMAKE_MAKE_PROGRAM} lpnb
+  COMMAND ${CMAKE_MAKE_PROGRAM} bridle
   COMMENT "Generating all Bridle HTML documentation to ${HTML_DIR}"
   USES_TERMINAL
 )
@@ -460,21 +460,21 @@ add_custom_target(
 #
 
 add_custom_target(
-  lpnb-linkcheck
+  bridle-linkcheck
   COMMAND ${CMAKE_COMMAND} -E env
-    ${lpnb_sphinx_environment}
+    ${bridle_sphinx_environment}
       ${SPHINXBUILD}
         -w ${BRIDLE_SPHINX_LOG}
 	-N
 	-b linkcheck
 	${BRIDLE_SPHINXOPTS}
-	${BRIDLE_RST_OUT}/doc/lpnb
+	${BRIDLE_RST_OUT}/doc/bridle
 	${BRIDLE_BINARY_DIR}
   WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
   USES_TERMINAL
 )
 
-add_dependencies(lpnb-linkcheck lpnb-doxy lpnb-content kconfig-html devicetree-html zephyr)
+add_dependencies(bridle-linkcheck bridle-doxy bridle-content kconfig-html devicetree-html zephyr)
 
 add_custom_target(linkcheck)
-add_dependencies(linkcheck lpnb-linkcheck)
+add_dependencies(linkcheck bridle-linkcheck)

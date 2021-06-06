@@ -91,10 +91,10 @@ exclude_patterns = ['_build']
 
 # -- Options for HTML output ----------------------------------------------
 
-### by LPNB ###
+### by TiaC ###
 html_theme = "devicetree"
 html_theme_path = ['{}/doc/themes'.format(BRIDLE_BASE)]
-### by LPNB ###
+### by TiaC ###
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
@@ -109,13 +109,13 @@ html_title = "Devicetree Bindings"
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
-### OFF by LPNB ### html_logo = 'images/Zephyr-Kite-logo.png'
+### OFF by TiaC ### html_logo = 'images/Zephyr-Kite-logo.png'
 
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
-### OFF by LPNB ### html_favicon = 'images/zp_favicon.png'
-html_favicon = '{}/doc/static/images/lpn.ico'.format(BRIDLE_BASE)  ### by LPNB ###
+### OFF by TiaC ### html_favicon = 'images/zp_favicon.png'
+html_favicon = '{}/doc/static/images/lpn.ico'.format(BRIDLE_BASE)  ### by TiaC ###
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -185,7 +185,7 @@ sourcelink_suffix = '.txt'
 
 # The name of a javascript file (relative to the configuration directory) that
 # implements a search results scorer. If empty, the default will be used.
-### OFF by LPNB ### html_search_scorer = 'scorer.js'
+### OFF by TiaC ### html_search_scorer = 'scorer.js'
 
 intersphinx_mapping = {
     # python -m sphinx.ext.intersphinx objects.inv | less
@@ -196,6 +196,6 @@ intersphinx_mapping = {
 }
 
 def setup(app):
-    app.add_css_file("css/common.css")  ### by LPNB ###
-    app.add_css_file("css/devicetree.css")  ### by LPNB ###
-    app.add_js_file("js/lpnb.js")  ### by LPNB ###
+    app.add_css_file("css/common.css")  ### by TiaC ###
+    app.add_css_file("css/devicetree.css")  ### by TiaC ###
+    app.add_js_file("js/bridle.js")  ### by TiaC ###

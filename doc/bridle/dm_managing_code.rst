@@ -10,14 +10,14 @@ Managing the code base
 
 t.b.d.
 
-.. _dm-wf-get-lpnb:
+.. _dm-wf-get-bridle:
 
 Obtaining a copy of |BRIDLE|
 ****************************
 
 t.b.d.
 
-.. _dm-wf-update-lpnb:
+.. _dm-wf-update-bridle:
 
 Updating a copy of |BRIDLE|
 ***************************

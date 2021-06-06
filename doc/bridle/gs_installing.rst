@@ -189,7 +189,7 @@ each of those repositories is determined by the current revision of the main
 To manage the combination of repositories and versions, |BRIDLE|
 uses :ref:`zephyr:west`. The main repository, `tiac-bridle`_, contains
 a `west manifest file`_, :file:`west.yml`, that determines the revision
-of all other repositories. This means that *lpn-bridle* acts as the
+of all other repositories. This means that *bridle* acts as the
 :ref:`manifest repository <zephyr:west-manifests>`, while the other
 repositories are project repositories.
 
@@ -408,7 +408,7 @@ of development.
 
 To manage the ``bridle`` repository (the manifest repository), use Git.
 To make sure that you have the latest changes, run ``git fetch origin``
-to :ref:`fetch the latest code <dm-wf-update-lpnb>` from the `tiac-bridle`_
+to :ref:`fetch the latest code <dm-wf-update-bridle>` from the `tiac-bridle`_
 repository. Checking out a branch or tag in the ``bridle`` repository
 gives you a different version of the manifest file. Running ``west update``
 will then update the project repositories to the state specified in this
