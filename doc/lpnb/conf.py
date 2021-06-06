@@ -44,9 +44,9 @@ if "DTS_BINDINGS_OUTPUT" not in os.environ:
     sys.exit("$DTS_BINDINGS_OUTPUT environment variable undefined.")
 DTS_BINDINGS_OUTPUT = os.path.abspath(os.environ["DTS_BINDINGS_OUTPUT"])
 
-if "LPNB_BASE" not in os.environ:
-    sys.exit("$LPNB_BASE environment variable undefined.")
-LPNB_BASE = os.path.abspath(os.environ["LPNB_BASE"])
+if "BRIDLE_BASE" not in os.environ:
+    sys.exit("$BRIDLE_BASE environment variable undefined.")
+BRIDLE_BASE = os.path.abspath(os.environ["BRIDLE_BASE"])
 
 if "LPNB_BUILD" not in os.environ:
     sys.exit("$LPNB_BUILD environment variable undefined.")
@@ -65,7 +65,7 @@ LPNB_RST_SRC = os.path.abspath(os.environ["LPNB_RST_SRC"])
 sys.path.insert(0, os.path.join(ZEPHYR_BASE, 'doc', 'extensions'))
 
 # Let Sphinx find our extensions.
-sys.path.append(os.path.join(LPNB_BASE, 'scripts', 'sphinx_extensions'))
+sys.path.append(os.path.join(BRIDLE_BASE, 'scripts', 'sphinx_extensions'))
 
 # Add the directory which contains the runners package as well,
 # for autodoc directives on runners.xyz.
@@ -137,7 +137,7 @@ try:
     version_minor = None
     patchlevel = None
     extraversion = None
-    for line in open(os.path.join(LPNB_BASE, 'VERSION')):
+    for line in open(os.path.join(BRIDLE_BASE, 'VERSION')):
         key, val = [x.strip() for x in line.split('=', 2)]
         if key == 'VERSION_MAJOR':
             version_major = val
@@ -242,7 +242,7 @@ rst_epilog = """
 
 ### by LPNB ###
 html_theme = 'lpnb'
-html_theme_path = ['{}/doc/themes'.format(LPNB_BASE)]
+html_theme_path = ['{}/doc/themes'.format(BRIDLE_BASE)]
 ### by LPNB ###
 
 if tags.has('release'):  # pylint: disable=undefined-variable
@@ -271,13 +271,13 @@ html_title = "Li-Pro.Net bridle to embedded environment"
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
 ### OFF by LPNB ### html_favicon = 'images/zp_favicon.png'
-html_favicon = '{}/doc/static/images/lpn.ico'.format(LPNB_BASE)  ### by LPNB ###
+html_favicon = '{}/doc/static/images/lpn.ico'.format(BRIDLE_BASE)  ### by LPNB ###
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 ### OFF by LPNB ### html_static_path = ['{}/doc/static'.format(ZEPHYR_BASE)]
-html_static_path = ['{}/doc/static'.format(LPNB_BASE)]
+html_static_path = ['{}/doc/static'.format(BRIDLE_BASE)]
 
 # Add any extra paths that contain custom files (such as robots.txt or
 # .htaccess) here, relative to this directory. These files are copied
