@@ -150,7 +150,7 @@ set(BRIDLE_SPHINXOPTS -d ${BRIDLE_BINARY_DIR}/doctrees ${BRIDLE_SPHINXOPTS})
 
 set(BRIDLE_DOC_DIR ${BRIDLE_BASE}/doc/lpnb)
 
-set(LPNB_DOXYFILE_IN ${BRIDLE_DOC_DIR}/lpnb.doxyfile.in)
+set(BRIDLE_DOXYFILE_IN ${BRIDLE_DOC_DIR}/lpnb.doxyfile.in)
 set(LPNB_DOXYFILE_OUT ${BRIDLE_BINARY_DIR}/lpnb.doxyfile)
 set(BRIDLE_RST_OUT ${BRIDLE_BINARY_DIR}/rst)
 set(BRIDLE_DOC_LOG ${BRIDLE_BINARY_DIR}/doc.log)
@@ -160,7 +160,7 @@ set(LPNB_CONTENT_OUTPUTS ${BRIDLE_BINARY_DIR}/extracted-content.txt)
 set(BRIDLE_DOC_WARN ${BRIDLE_BINARY_DIR}/doc.warnings)
 set(LPNB_KI_DIR ${BRIDLE_BASE}/.known-issues/doc)
 
-configure_file(${LPNB_DOXYFILE_IN} ${LPNB_DOXYFILE_OUT} @ONLY)
+configure_file(${BRIDLE_DOXYFILE_IN} ${LPNB_DOXYFILE_OUT} @ONLY)
 
 set(tools_version_files
     ${BRIDLE_BASE}/scripts/tools-versions-minimum.txt
