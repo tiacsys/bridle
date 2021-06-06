@@ -28,17 +28,17 @@ find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE} ..)
 # to the environment if they're not there.
 #
 
-get_filename_component(LPNB_BASE ${CMAKE_CURRENT_LIST_DIR}../ DIRECTORY)
-set(ENV{LPNB_BASE} ${LPNB_BASE})
+get_filename_component(BRIDLE_BASE ${CMAKE_CURRENT_LIST_DIR}../ DIRECTORY)
+set(ENV{BRIDLE_BASE} ${BRIDLE_BASE})
 
-message(STATUS "LPNB_BASE: $ENV{LPNB_BASE}")
+message(STATUS "BRIDLE_BASE: $ENV{BRIDLE_BASE}")
 message(STATUS "ZEPHYR_BASE: ${ZEPHYR_BASE}")
 
 # Output directory for the shared Devicetree bindings and
 # DTS root folders that have to parse (YAML to RTS).
 set(DTS_BINDINGS_BINARY_DIR ${CMAKE_BINARY_DIR}/devicetree)
 set(DTS_BINDINGS_RST_OUT ${DTS_BINDINGS_BINARY_DIR})
-set(DTS_ROOTS ${ZEPHYR_BASE} ${LPNB_BASE})
+set(DTS_ROOTS ${ZEPHYR_BASE} ${BRIDLE_BASE})
 
 message(STATUS "DTS_ROOTS: ${DTS_ROOTS}")
 
@@ -81,14 +81,14 @@ set(KI_SCRIPT ${ZEPHYR_BASE}/scripts/filter-known-issues.py)
 #
 
 # Parameters to doc/CMakeLists.txt in Zephyr
-set(SPHINXOPTS -c ${LPNB_BASE}/doc/zephyr)
+set(SPHINXOPTS -c ${BRIDLE_BASE}/doc/zephyr)
 set(SPHINX_OUTPUT_DIR ${HTML_DIR}/zephyr)
 set(KCONFIG_OUTPUT ${HTML_DIR}/kconfig)
 set(DTS_BINDINGS_OUTPUT ${HTML_DIR}/devicetree)
 set(GEN_DEVICETREE_REST_ZEPHYR_DOCSET " ")
 
 # Get access to the 'html' target from doc/CMakeLists.txt in Zephyr
-set(MODULES_EXT_ROOT ${LPNB_BASE})
+set(MODULES_EXT_ROOT ${BRIDLE_BASE})
 add_subdirectory(${ZEPHYR_BASE}/doc ${ZEPHYR_BINARY_DIR})
 
 # LPNB-specific parameters to pass these through to doc/zephyr/conf.py (the
@@ -100,7 +100,7 @@ set(zephyr_sphinx_environment
   ZEPHYR_RST_SRC=${ZEPHYR_BINARY_DIR}/rst/doc
   KCONFIG_OUTPUT=${KCONFIG_OUTPUT}
   DTS_BINDINGS_OUTPUT=${DTS_BINDINGS_OUTPUT}
-  LPNB_BASE=${LPNB_BASE}
+  BRIDLE_BASE=${BRIDLE_BASE}
 )
 
 # The 'html' target is from Zephyr
@@ -148,7 +148,7 @@ endforeach()
 
 set(LPNB_SPHINXOPTS -d ${LPNB_BINARY_DIR}/doctrees ${LPNB_SPHINXOPTS})
 
-set(LPNB_DOC_DIR ${LPNB_BASE}/doc/lpnb)
+set(LPNB_DOC_DIR ${BRIDLE_BASE}/doc/lpnb)
 
 set(LPNB_DOXYFILE_IN ${LPNB_DOC_DIR}/lpnb.doxyfile.in)
 set(LPNB_DOXYFILE_OUT ${LPNB_BINARY_DIR}/lpnb.doxyfile)
@@ -158,23 +158,23 @@ set(LPNB_DOXY_LOG ${LPNB_BINARY_DIR}/doxy.log)
 set(LPNB_SPHINX_LOG ${LPNB_BINARY_DIR}/sphinx.log)
 set(LPNB_CONTENT_OUTPUTS ${LPNB_BINARY_DIR}/extracted-content.txt)
 set(LPNB_DOC_WARN ${LPNB_BINARY_DIR}/doc.warnings)
-set(LPNB_KI_DIR ${LPNB_BASE}/.known-issues/doc)
+set(LPNB_KI_DIR ${BRIDLE_BASE}/.known-issues/doc)
 
 configure_file(${LPNB_DOXYFILE_IN} ${LPNB_DOXYFILE_OUT} @ONLY)
 
 set(tools_version_files
-    ${LPNB_BASE}/scripts/tools-versions-minimum.txt
-    ${LPNB_BASE}/scripts/tools-versions-darwin.txt
-    ${LPNB_BASE}/scripts/tools-versions-win10.txt
-    ${LPNB_BASE}/scripts/tools-versions-linux.txt
+    ${BRIDLE_BASE}/scripts/tools-versions-minimum.txt
+    ${BRIDLE_BASE}/scripts/tools-versions-darwin.txt
+    ${BRIDLE_BASE}/scripts/tools-versions-win10.txt
+    ${BRIDLE_BASE}/scripts/tools-versions-linux.txt
 )
 
 set(pip_requirements_files
     ${ZEPHYR_BASE}/scripts/requirements-base.txt
     ${ZEPHYR_BASE}/scripts/requirements-doc.txt
-    ${LPNB_BASE}/scripts/requirements-base.txt
-    ${LPNB_BASE}/scripts/requirements-doc.txt
-    ${LPNB_BASE}/scripts/requirements-build.txt
+    ${BRIDLE_BASE}/scripts/requirements-base.txt
+    ${BRIDLE_BASE}/scripts/requirements-doc.txt
+    ${BRIDLE_BASE}/scripts/requirements-build.txt
 )
 
 string(REPLACE ";" "\\;" tools_files_escaped "${tools_version_files}")
@@ -187,7 +187,7 @@ add_custom_command(
     -DPIP_REQUIREMENTS_FILES="${pip_files_escaped}"
     -DVERSION_IN=${LPNB_DOC_DIR}/versions.txt.in
     -DVERSION_OUT=${LPNB_RST_OUT}/doc/lpnb/versions.txt
-    -P ${LPNB_BASE}/doc/update_versions.cmake
+    -P ${BRIDLE_BASE}/doc/update_versions.cmake
   DEPENDS
     ${LPNB_DOC_DIR}/versions.txt.in
     ${tools_version_files}
@@ -207,7 +207,7 @@ add_custom_target(
 
 set(LPNB_EXTRACT_CONTENT_COMMAND
   ${CMAKE_COMMAND} -E env
-  ZEPHYR_BASE=${LPNB_BASE}
+  ZEPHYR_BASE=${BRIDLE_BASE}
   ${PYTHON_EXECUTABLE} ${ZEPHYR_BASE}/doc/scripts/extract_content.py
   --outputs ${LPNB_CONTENT_OUTPUTS}
   --ignore ${CMAKE_CURRENT_BINARY_DIR}
@@ -262,7 +262,7 @@ set(lpnb_sphinx_environment
   ZEPHYR_RST_SRC=${ZEPHYR_BINARY_DIR}/rst/doc
   KCONFIG_OUTPUT=${KCONFIG_OUTPUT}
   DTS_BINDINGS_OUTPUT=${DTS_BINDINGS_OUTPUT}
-  LPNB_BASE=${LPNB_BASE}
+  BRIDLE_BASE=${BRIDLE_BASE}
   LPNB_BUILD=${LPNB_BINARY_DIR}
   LPNB_OUTPUT=${HTML_DIR}/lpnb
   LPNB_RST_SRC=${LPNB_RST_OUT}/doc/lpnb
@@ -307,7 +307,7 @@ add_dependencies(lpnb-html lpnb-doxy lpnb-content kconfig-html devicetree-html z
 add_custom_target(
   lpnb-copy-versions
   COMMAND ${CMAKE_COMMAND} -E copy
-    ${LPNB_BASE}/doc/versions.json
+    ${BRIDLE_BASE}/doc/versions.json
     ${HTML_DIR}/versions.json
 )
 
@@ -363,7 +363,7 @@ add_custom_target(
                   "Zephyr Library,zephyr-lib,${ZEPHYR_BASE}/lib"
                   "Zephyr Subsystem,zephyr-subsys,${ZEPHYR_BASE}/subsys"
                   "Zephyr Modules,zephyr-modules,${ZEPHYR_BASE}/modules"
-                  "Li-Pro.Net bridle,lpnb,${LPNB_BASE}"
+                  "Li-Pro.Net bridle,lpnb,${BRIDLE_BASE}"
         --no-index-modules BuildDir,${CMAKE_BINARY_DIR}
   VERBATIM
 )
@@ -373,7 +373,7 @@ add_custom_target(
 set(kconfig_sphinx_environment
   ZEPHYR_BASE=${ZEPHYR_BASE}
   ZEPHYR_BUILD=${CMAKE_CURRENT_BINARY_DIR}
-  LPNB_BASE=${LPNB_BASE}
+  BRIDLE_BASE=${BRIDLE_BASE}
 )
 
 # No 'kconfig' target exists, because it clashes with the imported 'kconfig'
@@ -385,7 +385,7 @@ add_custom_target(
     ${kconfig_sphinx_environment}
       ${SPHINXBUILD}
         -b html
-        -c ${LPNB_BASE}/doc/kconfig
+        -c ${BRIDLE_BASE}/doc/kconfig
         -d ${KCONFIG_BINARY_DIR}/doctrees
         -N
         -w ${KCONFIG_BINARY_DIR}/sphinx.log
@@ -415,7 +415,7 @@ set(devicetree_sphinx_environment
   ZEPHYR_BUILD=${CMAKE_CURRENT_BINARY_DIR}
   ZEPHYR_OUTPUT=${SPHINX_OUTPUT_DIR}
   DTS_BINDINGS_OUTPUT=${DTS_BINDINGS_OUTPUT}
-  LPNB_BASE=${LPNB_BASE}
+  BRIDLE_BASE=${BRIDLE_BASE}
 )
 
 # No 'devicetree' target exists, because it clashes with the imported
@@ -425,13 +425,13 @@ set(devicetree_sphinx_environment
 add_custom_target(
   devicetree-html
   COMMAND ${CMAKE_COMMAND} -E copy_if_different
-    ${LPNB_BASE}/doc/devicetree/*.rst
+    ${BRIDLE_BASE}/doc/devicetree/*.rst
     ${DTS_BINDINGS_RST_OUT}
   COMMAND ${CMAKE_COMMAND} -E env
     ${devicetree_sphinx_environment}
       ${SPHINXBUILD}
         -b html
-        -c ${LPNB_BASE}/doc/devicetree
+        -c ${BRIDLE_BASE}/doc/devicetree
         -d ${DTS_BINDINGS_BINARY_DIR}/doctrees
         -N
         -w ${DTS_BINDINGS_BINARY_DIR}/sphinx.log

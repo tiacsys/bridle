@@ -18,10 +18,10 @@
 import sys
 import os
 
-if "LPNB_BASE" not in os.environ:
-    print ("LPNB_BASE")
-    sys.exit("$LPNB_BASE environment variable undefined.")
-LPNB_BASE = os.path.abspath(os.environ["LPNB_BASE"])
+if "BRIDLE_BASE" not in os.environ:
+    print ("BRIDLE_BASE")
+    sys.exit("$BRIDLE_BASE environment variable undefined.")
+BRIDLE_BASE = os.path.abspath(os.environ["BRIDLE_BASE"])
 
 # -- General configuration ------------------------------------------------
 
@@ -58,7 +58,7 @@ exclude_patterns = ['_build']
 
 ### by LPNB ###
 html_theme = "kconfig"
-html_theme_path = ['{}/doc/themes'.format(LPNB_BASE)]
+html_theme_path = ['{}/doc/themes'.format(BRIDLE_BASE)]
 ### by LPNB ###
 
 # The name for this set of Sphinx documents.  If None, it defaults to
@@ -80,12 +80,12 @@ html_title = "Kconfig Reference"
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
 ### OFF by LPNB ### html_favicon = 'images/zp_favicon.png'
-html_favicon = '{}/doc/static/images/lpn.ico'.format(LPNB_BASE)  ### by LPNB ###
+html_favicon = '{}/doc/static/images/lpn.ico'.format(BRIDLE_BASE)  ### by LPNB ###
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['{}/doc/static'.format(LPNB_BASE)]
+html_static_path = ['{}/doc/static'.format(BRIDLE_BASE)]
 
 # Add any extra paths that contain custom files (such as robots.txt or
 # .htaccess) here, relative to this directory. These files are copied

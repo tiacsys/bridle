@@ -38,13 +38,13 @@ class OptionsFromKconfig(SphinxDirective):
     @staticmethod
     def _get_kconfig_path(path):
         rel_path = os.path.relpath(path, os.environ['LPNB_RST_SRC'])
-        return os.path.join(os.environ['LPNB_BASE'], rel_path, 'Kconfig')
+        return os.path.join(os.environ['BRIDLE_BASE'], rel_path, 'Kconfig')
 
     def run(self):
         if 'ZEPHYR_BASE' not in os.environ:
             raise self.severe("ZEPHYR_BASE is not in the environment")
-        if 'LPNB_BASE' not in os.environ:
-            raise self.severe("LPNB_BASE is not in the environment")
+        if 'BRIDLE_BASE' not in os.environ:
+            raise self.severe("BRIDLE_BASE is not in the environment")
         if 'LPNB_RST_SRC' not in os.environ:
             raise self.severe("LPNB_RST_SRC is not in the environment")
 

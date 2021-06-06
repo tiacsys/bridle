@@ -48,10 +48,10 @@ if "DTS_BINDINGS_OUTPUT" not in os.environ:
     sys.exit("$DTS_BINDINGS_OUTPUT environment variable undefined.")
 DTS_BINDINGS_OUTPUT = os.path.abspath(os.environ["DTS_BINDINGS_OUTPUT"])
 
-if "LPNB_BASE" not in os.environ:
-    print ("LPNB_BASE")
-    sys.exit("$LPNB_BASE environment variable undefined.")
-LPNB_BASE = os.path.abspath(os.environ["LPNB_BASE"])
+if "BRIDLE_BASE" not in os.environ:
+    print ("BRIDLE_BASE")
+    sys.exit("$BRIDLE_BASE environment variable undefined.")
+BRIDLE_BASE = os.path.abspath(os.environ["BRIDLE_BASE"])
 
 # Add the 'extensions' directory to sys.path, to enable finding Sphinx
 # extensions within.
@@ -216,7 +216,7 @@ rst_epilog = """
 
 ### by LPNB ###
 html_theme = "zephyr"
-html_theme_path = ['{}/doc/themes'.format(LPNB_BASE)]
+html_theme_path = ['{}/doc/themes'.format(BRIDLE_BASE)]
 ### by LPNB ###
 
 if tags.has('release'):  # pylint: disable=undefined-variable
@@ -251,7 +251,7 @@ html_favicon = '{}/doc/images/zp_favicon.png'.format(ZEPHYR_BASE)  ### by LPNB #
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 ### OFF by LPNB ### html_static_path = ['{}/doc/static'.format(ZEPHYR_BASE)]
-html_static_path = ['{}/doc/static'.format(LPNB_BASE),
+html_static_path = ['{}/doc/static'.format(BRIDLE_BASE),
                     '{}/doc/static'.format(ZEPHYR_BASE)]
 
 # Add any extra paths that contain custom files (such as robots.txt or
