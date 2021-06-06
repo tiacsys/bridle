@@ -146,7 +146,7 @@ endforeach()
 # Add lpnb-related targets
 #
 
-set(LPNB_SPHINXOPTS -d ${BRIDLE_BINARY_DIR}/doctrees ${LPNB_SPHINXOPTS})
+set(BRIDLE_SPHINXOPTS -d ${BRIDLE_BINARY_DIR}/doctrees ${BRIDLE_SPHINXOPTS})
 
 set(BRIDLE_DOC_DIR ${BRIDLE_BASE}/doc/lpnb)
 
@@ -275,7 +275,7 @@ set(LPNB_SPHINX_BUILD_HTML_COMMAND
         -w ${LPNB_SPHINX_LOG}
 	-N
 	-b html
-	${LPNB_SPHINXOPTS}
+	${BRIDLE_SPHINXOPTS}
 	${BRIDLE_RST_OUT}/doc/lpnb
 	${HTML_DIR}/lpnb
 )
@@ -468,7 +468,7 @@ add_custom_target(
         -w ${LPNB_SPHINX_LOG}
 	-N
 	-b linkcheck
-	${LPNB_SPHINXOPTS}
+	${BRIDLE_SPHINXOPTS}
 	${BRIDLE_RST_OUT}/doc/lpnb
 	${BRIDLE_BINARY_DIR}
   WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
