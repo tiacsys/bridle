@@ -205,7 +205,7 @@ add_custom_target(
     -P ${ZEPHYR_BASE}/cmake/util/execute_process.cmake
 )
 
-set(LPNB_EXTRACT_CONTENT_COMMAND
+set(BRIDLE_EXTRACT_CONTENT_COMMAND
   ${CMAKE_COMMAND} -E env
   ZEPHYR_BASE=${BRIDLE_BASE}
   ${PYTHON_EXECUTABLE} ${ZEPHYR_BASE}/doc/scripts/extract_content.py
@@ -242,7 +242,7 @@ set(LPNB_EXTRACT_CONTENT_COMMAND
 add_custom_target(
   lpnb-content
   # Copy all files in doc/ to the rst folder
-  COMMAND ${LPNB_EXTRACT_CONTENT_COMMAND}
+  COMMAND ${BRIDLE_EXTRACT_CONTENT_COMMAND}
   WORKING_DIRECTORY ${BRIDLE_DOC_DIR}
   DEPENDS ${BRIDLE_RST_OUT}/doc/lpnb/versions.txt
   COMMENT "Copying files to ${BRIDLE_RST_OUT}"
