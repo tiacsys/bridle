@@ -2,8 +2,8 @@
 # SPDX-License-Identifier: Apache-2.0
 
 # set to know where our project lies
-set(LPNB_DIR "${CMAKE_CURRENT_LIST_DIR}"
-    CACHE PATH "Li-Pro.Net bridle root directory")
+set(BRIDLE_DIR "${CMAKE_CURRENT_LIST_DIR}"
+    CACHE PATH "Bridle root directory")
 
 # include custom headers for e.g. drivers or services sorted by sub-folders
 zephyr_include_directories(include)
