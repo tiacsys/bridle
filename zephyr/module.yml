@@ -2,7 +2,7 @@ build:
   # root cmake script
   cmake: .
   # root kconfig file
-  kconfig: Kconfig.lpnb
+  kconfig: Kconfig.bridle
   settings:
     # mark this project as external module
     module_ext_root: .

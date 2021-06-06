@@ -3,5 +3,5 @@
 
 zephyr_library()
 
-#example hello command
-zephyr_library_sources_ifdef(CONFIG_LPNB_CMD_HELLO cmd_hello.c)
+# simple hello command
+zephyr_library_sources_ifdef(CONFIG_BRIDLE_CMD_HELLO cmd_hello.c)

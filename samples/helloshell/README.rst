@@ -14,7 +14,7 @@ prints 'Hello World! I'm THE SHELL' to the console. This application can be
 built into modes:
 
 * basic command set
-* fancy command set, with default enabled :option:`CONFIG_LPNB_CMD_HELLO`
+* fancy command set, with default enabled :option:`CONFIG_BRIDLE_CMD_HELLO`
 
 Requirements
 ************
