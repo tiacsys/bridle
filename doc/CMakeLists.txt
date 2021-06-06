@@ -156,7 +156,7 @@ set(BRIDLE_RST_OUT ${BRIDLE_BINARY_DIR}/rst)
 set(BRIDLE_DOC_LOG ${BRIDLE_BINARY_DIR}/doc.log)
 set(BRIDLE_DOXY_LOG ${BRIDLE_BINARY_DIR}/doxy.log)
 set(BRIDLE_SPHINX_LOG ${BRIDLE_BINARY_DIR}/sphinx.log)
-set(LPNB_CONTENT_OUTPUTS ${BRIDLE_BINARY_DIR}/extracted-content.txt)
+set(BRIDLE_CONTENT_OUTPUTS ${BRIDLE_BINARY_DIR}/extracted-content.txt)
 set(BRIDLE_DOC_WARN ${BRIDLE_BINARY_DIR}/doc.warnings)
 set(LPNB_KI_DIR ${BRIDLE_BASE}/.known-issues/doc)
 
@@ -209,7 +209,7 @@ set(LPNB_EXTRACT_CONTENT_COMMAND
   ${CMAKE_COMMAND} -E env
   ZEPHYR_BASE=${BRIDLE_BASE}
   ${PYTHON_EXECUTABLE} ${ZEPHYR_BASE}/doc/scripts/extract_content.py
-  --outputs ${LPNB_CONTENT_OUTPUTS}
+  --outputs ${BRIDLE_CONTENT_OUTPUTS}
   --ignore ${CMAKE_CURRENT_BINARY_DIR}
   --sphinx-src-root ${BRIDLE_DOC_DIR}
   "*:doc:${BRIDLE_RST_OUT}"
