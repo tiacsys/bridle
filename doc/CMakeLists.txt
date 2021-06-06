@@ -153,7 +153,7 @@ set(BRIDLE_DOC_DIR ${BRIDLE_BASE}/doc/lpnb)
 set(LPNB_DOXYFILE_IN ${BRIDLE_DOC_DIR}/lpnb.doxyfile.in)
 set(LPNB_DOXYFILE_OUT ${BRIDLE_BINARY_DIR}/lpnb.doxyfile)
 set(BRIDLE_RST_OUT ${BRIDLE_BINARY_DIR}/rst)
-set(LPNB_DOC_LOG ${BRIDLE_BINARY_DIR}/doc.log)
+set(BRIDLE_DOC_LOG ${BRIDLE_BINARY_DIR}/doc.log)
 set(LPNB_DOXY_LOG ${BRIDLE_BINARY_DIR}/doxy.log)
 set(LPNB_SPHINX_LOG ${BRIDLE_BINARY_DIR}/sphinx.log)
 set(LPNB_CONTENT_OUTPUTS ${BRIDLE_BINARY_DIR}/extracted-content.txt)
@@ -286,14 +286,14 @@ add_custom_target(
   # Merge the Doxygen and Sphinx logs into a single file
   COMMAND ${CMAKE_COMMAND}
     -P ${ZEPHYR_BASE}/cmake/util/fmerge.cmake
-    ${LPNB_DOC_LOG}
+    ${BRIDLE_DOC_LOG}
     ${LPNB_DOXY_LOG}
     ${LPNB_SPHINX_LOG}
   COMMAND ${PYTHON_EXECUTABLE} ${KI_SCRIPT}
     --config-dir ${LPNB_KI_DIR}
     --errors ${LPNB_DOC_WARN}
     --warnings ${LPNB_DOC_WARN}
-    ${LPNB_DOC_LOG}
+    ${BRIDLE_DOC_LOG}
   # Copy root index file
   COMMAND ${CMAKE_COMMAND} -E copy
     ${CMAKE_CURRENT_LIST_DIR}/static/html/index.html
