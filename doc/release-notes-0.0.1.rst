@@ -1,4 +1,4 @@
-.. _lpnb_release_notes_000:
+.. _bridle_release_notes_000:
 
 |BRIDLE| v0.0.0 Release Notes
 #############################

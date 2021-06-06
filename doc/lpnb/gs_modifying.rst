@@ -163,7 +163,7 @@ To create custom build type files for your application instead of using a single
    build type.
 #. Optionally, include an if statement that checks for the presence of the
    selected build type configuration files.
-   .. For an example, see :file:`applications/lpnb_desktop/CMakeLists.txt`.
+   .. For an example, see :file:`applications/bridle_desktop/CMakeLists.txt`.
 #. Continue the application creation procedure by setting the Kconfig
    configuration options.
 #. Save the :file:`.conf` file in the application directory with a name
@@ -192,6 +192,6 @@ project directory:
 .. parsed-literal::
    :class: highlight
 
-   west build -b lpnb_board -d build_board -- -DCMAKE_BUILD_TYPE=ZRelease
+   west build -b bridle_board -d build_board -- -DCMAKE_BUILD_TYPE=ZRelease
 
 The ``build_board`` parameter specifies the output directory for the build files.
