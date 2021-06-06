@@ -268,7 +268,7 @@ set(lpnb_sphinx_environment
   BRIDLE_RST_SRC=${BRIDLE_RST_OUT}/doc/lpnb
 )
 
-set(LPNB_SPHINX_BUILD_HTML_COMMAND
+set(BRIDLE_SPHINX_BUILD_HTML_COMMAND
   ${CMAKE_COMMAND} -E env
     ${lpnb_sphinx_environment}
       ${SPHINXBUILD}
@@ -282,7 +282,7 @@ set(LPNB_SPHINX_BUILD_HTML_COMMAND
 
 add_custom_target(
   lpnb-html
-  COMMAND ${LPNB_SPHINX_BUILD_HTML_COMMAND}
+  COMMAND ${BRIDLE_SPHINX_BUILD_HTML_COMMAND}
   # Merge the Doxygen and Sphinx logs into a single file
   COMMAND ${CMAKE_COMMAND}
     -P ${ZEPHYR_BASE}/cmake/util/fmerge.cmake
