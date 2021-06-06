@@ -1,4 +1,4 @@
-From 9e7d5c844ba3f6c6b8dacbc3d33aa92df498c00d Mon Sep 17 00:00:00 2001
+From 6e000638838ce45d6da2427d30d1daaeba577161 Mon Sep 17 00:00:00 2001
 From: Stephan Linz <linz@li-pro.net>
 Date: Wed, 12 May 2021 07:48:16 +0200
 Subject: [PATCH 3/3] tests: drivers: i2c: run with twister
