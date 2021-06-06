@@ -12,7 +12,7 @@
   - "CmakeLists.txt"
 
 "area: Kconfig":
-  - "Kconfig.lpnb"
+  - "Kconfig.bridle"
   - "Kconfig"
 
 "area: API":
