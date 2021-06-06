@@ -91,7 +91,7 @@ extensions = [
     'interbreathe',
 #   'table_from_rows',
     'options_from_kconfig',
-#   'lpn_include',
+#   'tiac_include',
 #   'sphinx.ext.todo',
 #   'sphinx.ext.extlinks',
 #   'sphinx.ext.autodoc',
@@ -271,7 +271,7 @@ html_title = "Bridle to embedded environment"
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
 ### OFF by TiaC ### html_favicon = 'images/zp_favicon.png'
-html_favicon = '{}/doc/static/images/lpn.ico'.format(BRIDLE_BASE)  ### by TiaC ###
+html_favicon = '{}/doc/static/images/bridle.ico'.format(BRIDLE_BASE)  ### by TiaC ###
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -389,5 +389,5 @@ def setup(app):
     app.add_css_file("css/strikethrough.css")  ### by TiaC ###
     app.add_css_file("css/underline.css")  ### by TiaC ###
     app.add_css_file("css/common.css")  ### by TiaC ###
-    app.add_css_file("css/tiac.css")  ### by TiaC ###
+    app.add_css_file("css/bridle.css")  ### by TiaC ###
     app.add_js_file("js/bridle.js")  ### by TiaC ###
