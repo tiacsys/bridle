@@ -40,7 +40,7 @@ def setup(app):
 
     # or fallback to default
     if baseurl is None or baseurl == '':
-        baseurl = 'https://github.com/lipro-zephyr/lpn-bridle'
+        baseurl = 'https://github.com/tiacsys/bridle'
 
     app.add_role('bridle_file', autolink('{}/blob/{}/%s'.format(baseurl, rev)))
     app.add_role('bridle_raw', autolink('{}/raw/{}/%s'.format(baseurl, rev)))

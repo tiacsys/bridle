@@ -13,20 +13,20 @@
 
 
 
-.. ### Link to the LPNB repositories
+.. ### Link to the Bridle repositories
 
-.. |lpn_bridle| replace:: https://github.com/lipro-zephyr/lpn-bridle
-.. _`lpn-bridle`: https://github.com/lipro-zephyr/lpn-bridle
+.. |lpn_bridle| replace:: https://github.com/tiacsys/bridle
+.. _`lpn-bridle`: https://github.com/tiacsys/bridle
 
-.. _`change log`: https://github.com/lipro-zephyr/lpn-bridle/commits/main
+.. _`change log`: https://github.com/tiacsys/bridle/commits/main
 
-.. _`west manifest file`: https://github.com/lipro-zephyr/lpn-bridle/blob/main/west.yml
+.. _`west manifest file`: https://github.com/tiacsys/bridle/blob/main/west.yml
 
 
 
-.. ### Links to the Li-Pro.Net Zephyr website
+.. ### Links to the TiaC Systems developer zone
 
-.. _`DevZone`: https://github.com/lipro-zephyr
+.. _`DevZone`: https://github.com/tiacsys
 
 
 

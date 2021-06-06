@@ -526,7 +526,7 @@ Now we ar able to initialize the Zephyr build environment with ``west`` as
 specified by our own manifest description in ``west.yml``:
 
 ```bash
-west init --manifest-url=git@github.com:lipro-zephyr/lpn-bridle.git \
+west init --manifest-url=git@github.com:tiacsys/bridle.git \
           --manifest-rev=main --manifest-file=west.yml && \
 west update
 ```

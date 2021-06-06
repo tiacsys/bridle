@@ -324,21 +324,21 @@ To clone the repositories, complete the following steps:
    .. parsed-literal::
       :class: highlight
 
-      west init -m https\://github.com/lipro-zephyr/lpn-bridle --mr *LPNB_revision*
+      west init -m https\://github.com/tiacsys/bridle --mr *LPNB_revision*
 
    For example, to check out the |release| release, enter the following command:
 
    .. parsed-literal::
       :class: highlight
 
-      west init -m https\://github.com/lipro-zephyr/lpn-bridle --mr |release|
+      west init -m https\://github.com/tiacsys/bridle --mr |release|
 
    To check out the latest state of development, enter the following command:
 
    .. parsed-literal::
       :class: highlight
 
-      west init -m https\://github.com/lipro-zephyr/lpn-bridle --mr main
+      west init -m https\://github.com/tiacsys/bridle --mr main
 
    .. west-error-start
 
