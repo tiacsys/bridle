@@ -198,13 +198,13 @@ function LPNB () {
     lpnb.updateDocsetVersions();
   };
 
-  const LPNB_SESSION_KEY = "lpnb";
+  const BRIDLE_SESSION_KEY = "lpnb";
 
   /*
    * Load a versions.json from the session cache if available
    */
   state.loadVersions = function() {
-    let versions_data = window.sessionStorage.getItem(LPNB_SESSION_KEY);
+    let versions_data = window.sessionStorage.getItem(BRIDLE_SESSION_KEY);
     if (versions_data) {
       window.LPNB.versions = JSON.parse(versions_data);
       return true;
@@ -218,7 +218,7 @@ function LPNB () {
   state.saveVersions = function(versions_data) {
     let lpnb = window.LPNB;
     const session_value = JSON.stringify(versions_data);
-    window.sessionStorage.setItem(LPNB_SESSION_KEY, session_value);
+    window.sessionStorage.setItem(BRIDLE_SESSION_KEY, session_value);
     window.LPNB.versions = versions_data;
   }
 
