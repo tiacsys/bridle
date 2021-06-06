@@ -1,11 +1,11 @@
 /* background color top and bottom left */
 
 .wy-side-nav-search {
- background-color: #00a9ce;
+ background-color: #15729d;
 }
 
 .rst-versions .rst-current-version {
- background-color: #00a9ce;
+ background-color: #15729d;
 }
 
 /* Zephyr background color for the doc switcher */
@@ -18,21 +18,30 @@
 
 /* l1 not selected */
 .wy-menu-vertical a {
- color: #00a9ce;
+ color: #15729d;
 }
 /* expanded container nodes */
 .wy-menu-vertical li.on a, .wy-menu-vertical li.current > a {
- color: #00a9ce;
+ color: #15729d;
 }
 /* expanded nodes, not selected */
 .wy-menu-vertical li.current a {
- color: #00a9ce;
+ color: #15729d;
+}
+
+/* overriding some of the grid settings */
+.grid-item a {
+ background-color: #fff;
+ color: #404040;
+}
+.grid-item a:hover {
+ background-color: #c6cbce;
 }
 
 
 /* link text */
 .wy-nav-content a {
- color: #00a9ce;
+ color: #15729d;
 }
 .wy-nav-content a:visited {
  color: #0077c8;
@@ -119,7 +128,7 @@
 
 /* color for numbered steps */
 div.numbered-step>h2::before, div.numbered-step>h3::before, div.numbered-step>h4::before, div.numbered-step>h5::before {
-  background: #00a9ce;
+  background: #15729d;
 }
 
 /* styling for known issues page */
@@ -140,7 +149,7 @@ div.numbered-step>h2::before, div.numbered-step>h3::before, div.numbered-step>h4
 #versions-select {
  display: inline-block;
  font-weight: 700;
- color: #00a9ce;
+ color: #15729d;
  box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
  border: 2px solid #999;
  -moz-appearance: none;
