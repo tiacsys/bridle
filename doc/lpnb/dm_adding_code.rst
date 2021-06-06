@@ -26,8 +26,8 @@ Workflow 2: Out-of-tree application repository
 
 t.b.d.
 
-Workflow 3: Application in a fork of `lpn-bridle`_
-==================================================
+Workflow 3: Application in a fork of `tiac-bridle`_
+===================================================
 
 t.b.d.
 

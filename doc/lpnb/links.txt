@@ -15,8 +15,8 @@
 
 .. ### Link to the Bridle repositories
 
-.. |lpn_bridle| replace:: https://github.com/tiacsys/bridle
-.. _`lpn-bridle`: https://github.com/tiacsys/bridle
+.. |tiac_bridle| replace:: https://github.com/tiacsys/bridle
+.. _`tiac-bridle`: https://github.com/tiacsys/bridle
 
 .. _`change log`: https://github.com/tiacsys/bridle/commits/main
 

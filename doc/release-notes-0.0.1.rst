@@ -24,7 +24,7 @@ Repositories
 
    * - Component
      - Tag
-   * - `lpn-bridle`_
+   * - `tiac-bridle`_
      - v0.0.0
    * - `zephyr-core`_
      - v2.5.0
