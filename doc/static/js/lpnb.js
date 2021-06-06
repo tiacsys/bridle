@@ -4,7 +4,7 @@ function LPNB () {
   let state = {};
 
   // XXX: do not remove the trailing '/'
-  const LPNB_PATH_PREFIX = "/lpn-bridle/html/";
+  const BRIDLE_PATH_PREFIX = "/lpn-bridle/html/";
   const STABLE_VERSION_RE = /^(\d+\.)+\d+$/;
   const DEV_VERSION_RE = /^(\d+\.)+\d+-[a-z0-9]+$/;
 
@@ -17,7 +17,7 @@ function LPNB () {
     if (host.startsWith("localhost")) {
       this.url_prefix = "/";
     } else {
-      this.url_prefix = LPNB_PATH_PREFIX;
+      this.url_prefix = BRIDLE_PATH_PREFIX;
     }
 
     this.url_root = window.location.protocol + "//" + host + this.url_prefix;
