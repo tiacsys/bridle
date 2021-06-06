@@ -155,7 +155,7 @@ set(LPNB_DOXYFILE_OUT ${BRIDLE_BINARY_DIR}/lpnb.doxyfile)
 set(BRIDLE_RST_OUT ${BRIDLE_BINARY_DIR}/rst)
 set(BRIDLE_DOC_LOG ${BRIDLE_BINARY_DIR}/doc.log)
 set(LPNB_DOXY_LOG ${BRIDLE_BINARY_DIR}/doxy.log)
-set(LPNB_SPHINX_LOG ${BRIDLE_BINARY_DIR}/sphinx.log)
+set(BRIDLE_SPHINX_LOG ${BRIDLE_BINARY_DIR}/sphinx.log)
 set(LPNB_CONTENT_OUTPUTS ${BRIDLE_BINARY_DIR}/extracted-content.txt)
 set(BRIDLE_DOC_WARN ${BRIDLE_BINARY_DIR}/doc.warnings)
 set(LPNB_KI_DIR ${BRIDLE_BASE}/.known-issues/doc)
@@ -272,7 +272,7 @@ set(LPNB_SPHINX_BUILD_HTML_COMMAND
   ${CMAKE_COMMAND} -E env
     ${lpnb_sphinx_environment}
       ${SPHINXBUILD}
-        -w ${LPNB_SPHINX_LOG}
+        -w ${BRIDLE_SPHINX_LOG}
 	-N
 	-b html
 	${BRIDLE_SPHINXOPTS}
@@ -288,7 +288,7 @@ add_custom_target(
     -P ${ZEPHYR_BASE}/cmake/util/fmerge.cmake
     ${BRIDLE_DOC_LOG}
     ${LPNB_DOXY_LOG}
-    ${LPNB_SPHINX_LOG}
+    ${BRIDLE_SPHINX_LOG}
   COMMAND ${PYTHON_EXECUTABLE} ${KI_SCRIPT}
     --config-dir ${LPNB_KI_DIR}
     --errors ${BRIDLE_DOC_WARN}
@@ -465,7 +465,7 @@ add_custom_target(
   COMMAND ${CMAKE_COMMAND} -E env
     ${lpnb_sphinx_environment}
       ${SPHINXBUILD}
-        -w ${LPNB_SPHINX_LOG}
+        -w ${BRIDLE_SPHINX_LOG}
 	-N
 	-b linkcheck
 	${BRIDLE_SPHINXOPTS}
