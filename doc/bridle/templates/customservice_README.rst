@@ -60,4 +60,4 @@ API documentation
 .. code-block:: python
 
    .. doxygengroup:: doxygen_group_name
-      :project: lpnb
+      :project: bridle

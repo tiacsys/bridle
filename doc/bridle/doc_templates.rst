@@ -8,7 +8,7 @@ and libraries.
 
 Use these templates to start documenting your application or library.
 
-You can find the templates in ``doc/lpnb/templates``. This folder also contains
+You can find the templates in ``doc/bridle/templates``. This folder also contains
 an RST "cheat sheet" to help you getting started with RST.
 
 .. toctree::

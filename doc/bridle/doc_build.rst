@@ -45,15 +45,15 @@ required tools to build the documentation and their supported versions.
 Documentation structure
 ***********************
 
-All documentation build files are located in the ``doc/lpnb`` folder. The
-``lpnb`` subfolder in that directory contains all .rst source files that are
+All documentation build files are located in the ``doc/bridle`` folder. The
+``bridle`` subfolder in that directory contains all .rst source files that are
 not directly related to a sample application or a library. Documentation for
 samples and libraries are provided in a ``README.rst`` or ``*.rst`` file in
 the same directory as the code.
 
 Building the documentation output requires building output for all
-documentation sets. Currently, there are two sets: lpnb, and zephyr. Since
-there are links from the lpnb documentation set into other documentation
+documentation sets. Currently, there are two sets: bridle, and zephyr. Since
+there are links from the bridle documentation set into other documentation
 sets, the other documentation sets must be built first.
 
 Building documentation output
@@ -66,8 +66,8 @@ a way with direct calls to the necessary configuration and build tools.
 
 .. code-block:: console
 
-   west build --cmake-only -b none -d build/lpn-bridle-doc bridle/doc
-   west build -t build-all -b none -d build/lpn-bridle-doc
+   west build --cmake-only -b none -d build/bridle-doc bridle/doc
+   west build -t build-all -b none -d build/bridle-doc
 
 .. rubric:: direct calls
 
@@ -92,7 +92,7 @@ Complete the following steps to build the documentation output:
 
    .. zephyr-app-commands::
       :app: bridle/doc
-      :build-dir: lpn-bridle-doc
+      :build-dir: bridle-doc
       :goals: build-all
       :host-os: unix
       :tool: cmake
@@ -112,33 +112,33 @@ the Kconfig Reference and Devicetree Bindings (1st), Zephyr (2nd), and
    .. code-block:: console
 
       # Use west to configure a Ninja-based buildsystem with cmake:
-      west build --cmake-only -b none -d build/lpn-bridle-doc bridle/doc
+      west build --cmake-only -b none -d build/bridle-doc bridle/doc
 
       # Now run west on the generated build system:
-      west build -t kconfig-html -b none -d build/lpn-bridle-doc
-      west build -t devicetree-html -b none -d build/lpn-bridle-doc
-      west build -t zephyr -b none -d build/lpn-bridle-doc
-      west build -t lpnb -b none -d build/lpn-bridle-doc
+      west build -t kconfig-html -b none -d build/bridle-doc
+      west build -t devicetree-html -b none -d build/bridle-doc
+      west build -t zephyr -b none -d build/bridle-doc
+      west build -t bridle -b none -d build/bridle-doc
 
 :direct calls:
 
    .. zephyr-app-commands::
       :app: bridle/doc
-      :build-dir: lpn-bridle-doc
-      :goals: kconfig-html devicetree-html zephyr lpnb
+      :build-dir: bridle-doc
+      :goals: kconfig-html devicetree-html zephyr bridle
       :host-os: unix
       :tool: cmake
       :generator: ninja
 
    It is important to keep the order of build targets!
 
-The documentation output is written to ``build/lpn-bridle-doc/html``.
+The documentation output is written to ``build/bridle-doc/html``.
 Double-click the ``index.html`` file to display the documentation in your
 browser or type in:
 
 .. code-block:: console
 
-   firefox build/lpn-bridle-doc/html/index.html &
+   firefox build/bridle-doc/html/index.html &
 
 .. tip::
    If you modify or add RST files, you only need to rerun the steps that
@@ -168,13 +168,13 @@ To clean the build folders for the Kconfig references:
 
    .. code-block:: console
 
-      west build -t clean-kconfig -b none -d build/lpn-bridle-doc
+      west build -t clean-kconfig -b none -d build/bridle-doc
 
 :direct calls:
 
    .. code-block:: console
 
-      ninja -C build/lpn-bridle-doc clean-kconfig
+      ninja -C build/bridle-doc clean-kconfig
 
 To clean the build folders for the Devicetree bindings:
 
@@ -182,13 +182,13 @@ To clean the build folders for the Devicetree bindings:
 
    .. code-block:: console
 
-      west build -t clean-devicetree -b none -d build/lpn-bridle-doc
+      west build -t clean-devicetree -b none -d build/bridle-doc
 
 :direct calls:
 
    .. code-block:: console
 
-      ninja -C build/lpn-bridle-doc clean-devicetree
+      ninja -C build/bridle-doc clean-devicetree
 
 To clean the build folders for the Zephyr documentation:
 
@@ -196,13 +196,13 @@ To clean the build folders for the Zephyr documentation:
 
    .. code-block:: console
 
-      west build -t clean-zephyr -b none -d build/lpn-bridle-doc
+      west build -t clean-zephyr -b none -d build/bridle-doc
 
 :direct calls:
 
    .. code-block:: console
 
-      ninja -C build/lpn-bridle-doc clean-zephyr
+      ninja -C build/bridle-doc clean-zephyr
 
 To clean the build folders for |BRIDLE| documentation:
 
@@ -210,13 +210,13 @@ To clean the build folders for |BRIDLE| documentation:
 
    .. code-block:: console
 
-      west build -t clean-lpnb -b none -d build/lpn-bridle-doc
+      west build -t clean-bridle -b none -d build/bridle-doc
 
 :direct calls:
 
    .. code-block:: console
 
-      ninja -C build/lpn-bridle-doc clean-lpnb
+      ninja -C build/bridle-doc clean-bridle
 
 If you want to build the documentation from scratch just delete the contents
 of the build folder and run ``cmake`` and then ``ninja`` again:
@@ -225,6 +225,6 @@ of the build folder and run ``cmake`` and then ``ninja`` again:
 
    .. code-block:: console
 
-      rm -rf build/lpn-bridle-doc
+      rm -rf build/bridle-doc
 
 .. _Windows Python Path: https://docs.python.org/3/using/windows.html#finding-the-python-executable

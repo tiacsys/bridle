@@ -4,7 +4,7 @@
   ],
   "COMPONENTS_BY_VERSION": {
     "latest": {
-      "lpnb": "latest",
+      "bridle": "latest",
       "zephyr": "2.5.0"
     }
   }

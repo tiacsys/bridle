@@ -106,7 +106,7 @@ every group must be explicitly added to an RST file.
    :caption: Example of how to include a doxygen group
 
    .. doxygengroup:: nemo_lab_transport
-      :project: lpnb
+      :project: bridle
       :members:
 
 .. note:: Including a group on a page does not include all its subgroups

@@ -86,9 +86,9 @@ jobs:
             echo "::error file=zephyr/doc.warnings::$errors"
             exit 1
           fi
-          if [ -s lpnb/doc.warnings ]; then
-            errors=$(cat lpnb/doc.warnings)
-            echo "::error file=lpnb/doc.warnings::$errors"
+          if [ -s bridle/doc.warnings ]; then
+            errors=$(cat bridle/doc.warnings)
+            echo "::error file=bridle/doc.warnings::$errors"
             exit 1
           fi
 
