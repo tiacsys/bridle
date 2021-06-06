@@ -151,7 +151,7 @@ set(BRIDLE_SPHINXOPTS -d ${BRIDLE_BINARY_DIR}/doctrees ${BRIDLE_SPHINXOPTS})
 set(BRIDLE_DOC_DIR ${BRIDLE_BASE}/doc/lpnb)
 
 set(BRIDLE_DOXYFILE_IN ${BRIDLE_DOC_DIR}/lpnb.doxyfile.in)
-set(LPNB_DOXYFILE_OUT ${BRIDLE_BINARY_DIR}/lpnb.doxyfile)
+set(BRIDLE_DOXYFILE_OUT ${BRIDLE_BINARY_DIR}/lpnb.doxyfile)
 set(BRIDLE_RST_OUT ${BRIDLE_BINARY_DIR}/rst)
 set(BRIDLE_DOC_LOG ${BRIDLE_BINARY_DIR}/doc.log)
 set(LPNB_DOXY_LOG ${BRIDLE_BINARY_DIR}/doxy.log)
@@ -160,7 +160,7 @@ set(LPNB_CONTENT_OUTPUTS ${BRIDLE_BINARY_DIR}/extracted-content.txt)
 set(BRIDLE_DOC_WARN ${BRIDLE_BINARY_DIR}/doc.warnings)
 set(LPNB_KI_DIR ${BRIDLE_BASE}/.known-issues/doc)
 
-configure_file(${BRIDLE_DOXYFILE_IN} ${LPNB_DOXYFILE_OUT} @ONLY)
+configure_file(${BRIDLE_DOXYFILE_IN} ${BRIDLE_DOXYFILE_OUT} @ONLY)
 
 set(tools_version_files
     ${BRIDLE_BASE}/scripts/tools-versions-minimum.txt
@@ -198,7 +198,7 @@ add_custom_target(
   lpnb-doxy
   COMMAND ${CMAKE_COMMAND}
     -DCOMMAND=${DOXYGEN_EXECUTABLE}
-    -DARGS="${LPNB_DOXYFILE_OUT}"
+    -DARGS="${BRIDLE_DOXYFILE_OUT}"
     -DOUTPUT_FILE=${LPNB_DOXY_LOG}
     -DERROR_FILE=${LPNB_DOXY_LOG}
     -DWORKING_DIRECTORY=${CMAKE_CURRENT_LIST_DIR}
