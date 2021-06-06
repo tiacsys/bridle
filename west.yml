@@ -23,7 +23,7 @@ manifest:
 
   remotes:
     - name: upstream
-      url-base: https://github.com/lipro-zephyr
+      url-base: https://github.com/tiacsys
     - name: zephyrproject
       url-base: https://github.com/zephyrproject-rtos
 
