@@ -48,9 +48,9 @@ if "BRIDLE_BASE" not in os.environ:
     sys.exit("$BRIDLE_BASE environment variable undefined.")
 BRIDLE_BASE = os.path.abspath(os.environ["BRIDLE_BASE"])
 
-if "LPNB_BUILD" not in os.environ:
-    sys.exit("$LPNB_BUILD environment variable undefined.")
-LPNB_BUILD = os.path.abspath(os.environ["LPNB_BUILD"])
+if "BRIDLE_BUILD" not in os.environ:
+    sys.exit("$BRIDLE_BUILD environment variable undefined.")
+BRIDLE_BUILD = os.path.abspath(os.environ["BRIDLE_BUILD"])
 
 if "LPNB_OUTPUT" not in os.environ:
     sys.exit("$LPNB_OUTPUT environment variable undefined.")
@@ -361,7 +361,7 @@ intersphinx_mapping = {
 }
 
 breathe_projects = {
-    "lpnb": "{}/doxygen/xml".format(LPNB_BUILD),
+    "lpnb": "{}/doxygen/xml".format(BRIDLE_BUILD),
 }
 breathe_default_project = "lpnb"
 
