@@ -152,7 +152,7 @@ set(LPNB_DOC_DIR ${BRIDLE_BASE}/doc/lpnb)
 
 set(LPNB_DOXYFILE_IN ${LPNB_DOC_DIR}/lpnb.doxyfile.in)
 set(LPNB_DOXYFILE_OUT ${BRIDLE_BINARY_DIR}/lpnb.doxyfile)
-set(LPNB_RST_OUT ${BRIDLE_BINARY_DIR}/rst)
+set(BRIDLE_RST_OUT ${BRIDLE_BINARY_DIR}/rst)
 set(LPNB_DOC_LOG ${BRIDLE_BINARY_DIR}/doc.log)
 set(LPNB_DOXY_LOG ${BRIDLE_BINARY_DIR}/doxy.log)
 set(LPNB_SPHINX_LOG ${BRIDLE_BINARY_DIR}/sphinx.log)
@@ -181,12 +181,12 @@ string(REPLACE ";" "\\;" tools_files_escaped "${tools_version_files}")
 string(REPLACE ";" "\\;" pip_files_escaped "${pip_requirements_files}")
 
 add_custom_command(
-  OUTPUT ${LPNB_RST_OUT}/doc/lpnb/versions.txt
+  OUTPUT ${BRIDLE_RST_OUT}/doc/lpnb/versions.txt
   COMMAND ${CMAKE_COMMAND}
     -DTOOLS_VERSION_FILES="${tools_files_escaped}"
     -DPIP_REQUIREMENTS_FILES="${pip_files_escaped}"
     -DVERSION_IN=${LPNB_DOC_DIR}/versions.txt.in
-    -DVERSION_OUT=${LPNB_RST_OUT}/doc/lpnb/versions.txt
+    -DVERSION_OUT=${BRIDLE_RST_OUT}/doc/lpnb/versions.txt
     -P ${BRIDLE_BASE}/doc/update_versions.cmake
   DEPENDS
     ${LPNB_DOC_DIR}/versions.txt.in
@@ -212,7 +212,7 @@ set(LPNB_EXTRACT_CONTENT_COMMAND
   --outputs ${LPNB_CONTENT_OUTPUTS}
   --ignore ${CMAKE_CURRENT_BINARY_DIR}
   --sphinx-src-root ${LPNB_DOC_DIR}
-  "*:doc:${LPNB_RST_OUT}"
+  "*:doc:${BRIDLE_RST_OUT}"
   # We want to copy the .rst files in samples/ and boards/ to the rst
   # folder, and also the doc folder inside rst.
   #
@@ -223,19 +223,19 @@ set(LPNB_EXTRACT_CONTENT_COMMAND
   # .. literalinclude:: ../../samples/sensor/my4711/src/main.c
   #
   # The additional copy is a hackaround so these references work.
-  "*.rst:boards:${LPNB_RST_OUT}/doc/lpnb"
-  "*.csv:boards:${LPNB_RST_OUT}/doc/lpnb"
-  "*.ioc:boards:${LPNB_RST_OUT}/doc/lpnb"
-  "*.pdf:boards:${LPNB_RST_OUT}/doc/lpnb"
-  "*.rst:samples:${LPNB_RST_OUT}/doc/lpnb"
-  "*.rst:applications:${LPNB_RST_OUT}/doc/lpnb"
-  "*.rst:include:${LPNB_RST_OUT}/doc/lpnb"
-  "*.rst:lib:${LPNB_RST_OUT}/doc/lpnb"
-  "*.rst:drivers:${LPNB_RST_OUT}/doc/lpnb"
-  "*.rst:scripts:${LPNB_RST_OUT}/doc/lpnb"
-  "*.rst:tests:${LPNB_RST_OUT}/doc/lpnb"
-  "release-notes*.rst:doc:${LPNB_RST_OUT}/doc/lpnb"
-  "changelog.rst:doc:${LPNB_RST_OUT}/doc/lpnb"
+  "*.rst:boards:${BRIDLE_RST_OUT}/doc/lpnb"
+  "*.csv:boards:${BRIDLE_RST_OUT}/doc/lpnb"
+  "*.ioc:boards:${BRIDLE_RST_OUT}/doc/lpnb"
+  "*.pdf:boards:${BRIDLE_RST_OUT}/doc/lpnb"
+  "*.rst:samples:${BRIDLE_RST_OUT}/doc/lpnb"
+  "*.rst:applications:${BRIDLE_RST_OUT}/doc/lpnb"
+  "*.rst:include:${BRIDLE_RST_OUT}/doc/lpnb"
+  "*.rst:lib:${BRIDLE_RST_OUT}/doc/lpnb"
+  "*.rst:drivers:${BRIDLE_RST_OUT}/doc/lpnb"
+  "*.rst:scripts:${BRIDLE_RST_OUT}/doc/lpnb"
+  "*.rst:tests:${BRIDLE_RST_OUT}/doc/lpnb"
+  "release-notes*.rst:doc:${BRIDLE_RST_OUT}/doc/lpnb"
+  "changelog.rst:doc:${BRIDLE_RST_OUT}/doc/lpnb"
 )
 
 
@@ -244,8 +244,8 @@ add_custom_target(
   # Copy all files in doc/ to the rst folder
   COMMAND ${LPNB_EXTRACT_CONTENT_COMMAND}
   WORKING_DIRECTORY ${LPNB_DOC_DIR}
-  DEPENDS ${LPNB_RST_OUT}/doc/lpnb/versions.txt
-  COMMENT "Copying files to ${LPNB_RST_OUT}"
+  DEPENDS ${BRIDLE_RST_OUT}/doc/lpnb/versions.txt
+  COMMENT "Copying files to ${BRIDLE_RST_OUT}"
   USES_TERMINAL
 )
 
@@ -265,7 +265,7 @@ set(lpnb_sphinx_environment
   BRIDLE_BASE=${BRIDLE_BASE}
   BRIDLE_BUILD=${BRIDLE_BINARY_DIR}
   BRIDLE_OUTPUT=${HTML_DIR}/lpnb
-  BRIDLE_RST_SRC=${LPNB_RST_OUT}/doc/lpnb
+  BRIDLE_RST_SRC=${BRIDLE_RST_OUT}/doc/lpnb
 )
 
 set(LPNB_SPHINX_BUILD_HTML_COMMAND
@@ -276,7 +276,7 @@ set(LPNB_SPHINX_BUILD_HTML_COMMAND
 	-N
 	-b html
 	${LPNB_SPHINXOPTS}
-	${LPNB_RST_OUT}/doc/lpnb
+	${BRIDLE_RST_OUT}/doc/lpnb
 	${HTML_DIR}/lpnb
 )
 
@@ -469,7 +469,7 @@ add_custom_target(
 	-N
 	-b linkcheck
 	${LPNB_SPHINXOPTS}
-	${LPNB_RST_OUT}/doc/lpnb
+	${BRIDLE_RST_OUT}/doc/lpnb
 	${BRIDLE_BINARY_DIR}
   WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
   USES_TERMINAL
