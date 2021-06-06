@@ -52,9 +52,9 @@ if "BRIDLE_BUILD" not in os.environ:
     sys.exit("$BRIDLE_BUILD environment variable undefined.")
 BRIDLE_BUILD = os.path.abspath(os.environ["BRIDLE_BUILD"])
 
-if "LPNB_OUTPUT" not in os.environ:
-    sys.exit("$LPNB_OUTPUT environment variable undefined.")
-LPNB_OUTPUT = os.path.abspath(os.environ["LPNB_OUTPUT"])
+if "BRIDLE_OUTPUT" not in os.environ:
+    sys.exit("$BRIDLE_OUTPUT environment variable undefined.")
+BRIDLE_OUTPUT = os.path.abspath(os.environ["BRIDLE_OUTPUT"])
 
 if "LPNB_RST_SRC" not in os.environ:
     sys.exit("$LPNB_RST_SRC environment variable undefined.")
@@ -349,13 +349,13 @@ sourcelink_suffix = '.txt'
 intersphinx_mapping = {
     # python -m sphinx.ext.intersphinx objects.inv | less
     # 'designator': (target link base, inventory file)
-    'kconfig': (os.path.relpath(KCONFIG_OUTPUT, LPNB_OUTPUT),
+    'kconfig': (os.path.relpath(KCONFIG_OUTPUT, BRIDLE_OUTPUT),
                 os.path.join(os.path.relpath(KCONFIG_OUTPUT, LPNB_RST_SRC),
                              'objects.inv')),
-    'dtsbind': (os.path.relpath(DTS_BINDINGS_OUTPUT, LPNB_OUTPUT),
+    'dtsbind': (os.path.relpath(DTS_BINDINGS_OUTPUT, BRIDLE_OUTPUT),
                 os.path.join(os.path.relpath(DTS_BINDINGS_OUTPUT, LPNB_RST_SRC),
                              'objects.inv')),
-    'zephyr': (os.path.relpath(ZEPHYR_OUTPUT, LPNB_OUTPUT),
+    'zephyr': (os.path.relpath(ZEPHYR_OUTPUT, BRIDLE_OUTPUT),
                os.path.join(os.path.relpath(ZEPHYR_OUTPUT, LPNB_RST_SRC),
                             'objects.inv')),
 }
