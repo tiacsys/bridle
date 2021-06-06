@@ -61,7 +61,7 @@ endif()
 #
 
 set(ZEPHYR_BINARY_DIR ${CMAKE_BINARY_DIR}/zephyr)
-set(LPNB_BINARY_DIR ${CMAKE_BINARY_DIR}/lpnb)
+set(BRIDLE_BINARY_DIR ${CMAKE_BINARY_DIR}/lpnb)
 
 # Output directory for the shared Kconfig reference
 set(KCONFIG_BINARY_DIR ${CMAKE_BINARY_DIR}/Kconfig)
@@ -146,18 +146,18 @@ endforeach()
 # Add lpnb-related targets
 #
 
-set(LPNB_SPHINXOPTS -d ${LPNB_BINARY_DIR}/doctrees ${LPNB_SPHINXOPTS})
+set(LPNB_SPHINXOPTS -d ${BRIDLE_BINARY_DIR}/doctrees ${LPNB_SPHINXOPTS})
 
 set(LPNB_DOC_DIR ${BRIDLE_BASE}/doc/lpnb)
 
 set(LPNB_DOXYFILE_IN ${LPNB_DOC_DIR}/lpnb.doxyfile.in)
-set(LPNB_DOXYFILE_OUT ${LPNB_BINARY_DIR}/lpnb.doxyfile)
-set(LPNB_RST_OUT ${LPNB_BINARY_DIR}/rst)
-set(LPNB_DOC_LOG ${LPNB_BINARY_DIR}/doc.log)
-set(LPNB_DOXY_LOG ${LPNB_BINARY_DIR}/doxy.log)
-set(LPNB_SPHINX_LOG ${LPNB_BINARY_DIR}/sphinx.log)
-set(LPNB_CONTENT_OUTPUTS ${LPNB_BINARY_DIR}/extracted-content.txt)
-set(LPNB_DOC_WARN ${LPNB_BINARY_DIR}/doc.warnings)
+set(LPNB_DOXYFILE_OUT ${BRIDLE_BINARY_DIR}/lpnb.doxyfile)
+set(LPNB_RST_OUT ${BRIDLE_BINARY_DIR}/rst)
+set(LPNB_DOC_LOG ${BRIDLE_BINARY_DIR}/doc.log)
+set(LPNB_DOXY_LOG ${BRIDLE_BINARY_DIR}/doxy.log)
+set(LPNB_SPHINX_LOG ${BRIDLE_BINARY_DIR}/sphinx.log)
+set(LPNB_CONTENT_OUTPUTS ${BRIDLE_BINARY_DIR}/extracted-content.txt)
+set(LPNB_DOC_WARN ${BRIDLE_BINARY_DIR}/doc.warnings)
 set(LPNB_KI_DIR ${BRIDLE_BASE}/.known-issues/doc)
 
 configure_file(${LPNB_DOXYFILE_IN} ${LPNB_DOXYFILE_OUT} @ONLY)
@@ -263,7 +263,7 @@ set(lpnb_sphinx_environment
   KCONFIG_OUTPUT=${KCONFIG_OUTPUT}
   DTS_BINDINGS_OUTPUT=${DTS_BINDINGS_OUTPUT}
   BRIDLE_BASE=${BRIDLE_BASE}
-  LPNB_BUILD=${LPNB_BINARY_DIR}
+  LPNB_BUILD=${BRIDLE_BINARY_DIR}
   LPNB_OUTPUT=${HTML_DIR}/lpnb
   LPNB_RST_SRC=${LPNB_RST_OUT}/doc/lpnb
 )
@@ -470,7 +470,7 @@ add_custom_target(
 	-b linkcheck
 	${LPNB_SPHINXOPTS}
 	${LPNB_RST_OUT}/doc/lpnb
-	${LPNB_BINARY_DIR}
+	${BRIDLE_BINARY_DIR}
   WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
   USES_TERMINAL
 )
