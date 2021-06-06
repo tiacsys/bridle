@@ -157,7 +157,7 @@ set(BRIDLE_DOC_LOG ${BRIDLE_BINARY_DIR}/doc.log)
 set(LPNB_DOXY_LOG ${BRIDLE_BINARY_DIR}/doxy.log)
 set(LPNB_SPHINX_LOG ${BRIDLE_BINARY_DIR}/sphinx.log)
 set(LPNB_CONTENT_OUTPUTS ${BRIDLE_BINARY_DIR}/extracted-content.txt)
-set(LPNB_DOC_WARN ${BRIDLE_BINARY_DIR}/doc.warnings)
+set(BRIDLE_DOC_WARN ${BRIDLE_BINARY_DIR}/doc.warnings)
 set(LPNB_KI_DIR ${BRIDLE_BASE}/.known-issues/doc)
 
 configure_file(${LPNB_DOXYFILE_IN} ${LPNB_DOXYFILE_OUT} @ONLY)
@@ -291,8 +291,8 @@ add_custom_target(
     ${LPNB_SPHINX_LOG}
   COMMAND ${PYTHON_EXECUTABLE} ${KI_SCRIPT}
     --config-dir ${LPNB_KI_DIR}
-    --errors ${LPNB_DOC_WARN}
-    --warnings ${LPNB_DOC_WARN}
+    --errors ${BRIDLE_DOC_WARN}
+    --warnings ${BRIDLE_DOC_WARN}
     ${BRIDLE_DOC_LOG}
   # Copy root index file
   COMMAND ${CMAKE_COMMAND} -E copy
