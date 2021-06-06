@@ -319,12 +319,12 @@ To clone the repositories, complete the following steps:
      ``4b44408145d4843f2bf13952a7723680240d0f95``).
 
 #. Initialize west with the revision of the |LPNB| that you want to check out,
-   replacing *LPNB_revision* with the revision:
+   replacing *BRIDLE_revision* with the revision:
 
    .. parsed-literal::
       :class: highlight
 
-      west init -m https\://github.com/tiacsys/bridle --mr *LPNB_revision*
+      west init -m https\://github.com/tiacsys/bridle --mr *BRIDLE_revision*
 
    For example, to check out the |release| release, enter the following command:
 
