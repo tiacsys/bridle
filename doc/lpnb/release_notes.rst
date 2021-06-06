@@ -10,7 +10,7 @@ See the release notes for information about specific |BRIDLE| releases.
    A "99" in the version number of this documentation indicates continuous
    updates on the main branch since the previous major and minor release.
    Changes between releases that are merged into the main branch are tracked
-   in the `change log`_ in the `lpn-bridle`_ repository.
+   in the `change log`_ in the `tiac-bridle`_ repository.
 
    Note that there might be additional changes on the main branch that
    are not listed in the change log.

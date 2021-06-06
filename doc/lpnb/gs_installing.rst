@@ -173,12 +173,12 @@ Getting the |BRIDLE| code
 |BRIDLE| consists of a set of Git repositories. Every |BRIDLE| release consists
 of a combination of these repositories at different revisions. The revision of
 each of those repositories is determined by the current revision of the main
-(or manifest) repository, `lpn-bridle`_.
+(or manifest) repository, `tiac-bridle`_.
 
 .. note::
 
-   The latest state of development is on the main branch of the `lpn-bridle`_
-   repository. To ensure a usable state, the `lpn-bridle`_ repository defines
+   The latest state of development is on the main branch of the `tiac-bridle`_
+   repository. To ensure a usable state, the `tiac-bridle`_ repository defines
    the compatible states of the other repositories. However, this state is not
    necessarily tested. For a higher degree of quality assurance, check out a
    tagged release.
@@ -187,7 +187,7 @@ each of those repositories is determined by the current revision of the main
    always work with a specific release of |BRIDLE|.
 
 To manage the combination of repositories and versions, |BRIDLE|
-uses :ref:`zephyr:west`. The main repository, `lpn-bridle`_, contains
+uses :ref:`zephyr:west`. The main repository, `tiac-bridle`_, contains
 a `west manifest file`_, :file:`west.yml`, that determines the revision
 of all other repositories. This means that *lpn-bridle* acts as the
 :ref:`manifest repository <zephyr:west-manifests>`, while the other
@@ -352,10 +352,10 @@ To clone the repositories, complete the following steps:
 
       Initializing west with a specific revision of the manifest file does not
       lock your repositories to this version. Checking out a different branch
-      or tag in the `lpn-bridle`_ repository and running ``west update``
+      or tag in the `tiac-bridle`_ repository and running ``west update``
       changes the version of |BRIDLE| that you work with.
 
-   This will clone the manifest repository `lpn-bridle`_ into :file:`bridle`.
+   This will clone the manifest repository `tiac-bridle`_ into :file:`bridle`.
 
 #. Enter the following command to clone the project repositories:
 
@@ -408,7 +408,7 @@ of development.
 
 To manage the ``bridle`` repository (the manifest repository), use Git.
 To make sure that you have the latest changes, run ``git fetch origin``
-to :ref:`fetch the latest code <dm-wf-update-lpnb>` from the `lpn-bridle`_
+to :ref:`fetch the latest code <dm-wf-update-lpnb>` from the `tiac-bridle`_
 repository. Checking out a branch or tag in the ``bridle`` repository
 gives you a different version of the manifest file. Running ``west update``
 will then update the project repositories to the state specified in this
