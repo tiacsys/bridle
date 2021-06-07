@@ -1,3 +1,7 @@
+[![Nightly Maintenance and QA](https://github.com/tiacsys/bridle/actions/workflows/qa-nightly.yml/badge.svg?branch=main)](https://github.com/tiacsys/bridle/actions/workflows/qa-nightly.yml)
+[![Documentation Build](https://github.com/tiacsys/bridle/actions/workflows/doc-build.yml/badge.svg?branch=main)](https://github.com/tiacsys/bridle/actions/workflows/doc-build.yml)
+[![Documentation Publish](https://github.com/tiacsys/bridle/actions/workflows/doc-publish.yml/badge.svg?branch=main)](https://github.com/tiacsys/bridle/actions/workflows/doc-publish.yml)
+
 # Bridle for embedded systems based on Zephyr
 
 **NO LIABILITY** **NO WARRANTY**
