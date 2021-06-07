@@ -1,5 +1,7 @@
 # ST Microelectronics STM32F7 MCU line
 
+# Copyright (c) 2021 TiaC Systems
+# Copyright (c) 2021 Li-Pro.Net
 # Copyright (c) 2018 Yurii Hamann
 # SPDX-License-Identifier: Apache-2.0
 

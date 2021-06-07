@@ -1,4 +1,8 @@
-# The west manifest file for Li-Pro.Net bridle to embedded environment.
+# The west manifest file for Bridle for embedded systems based on Zephyr.
+#
+# Copyright (c) 2021 TiaC Systems
+# Copyright (c) 2019-2021 Li-Pro.Net
+# SPDX-License-Identifier: Apache-2.0
 #
 # The per-installation west configuration file, .west/config, sets the
 # path to the project containing this file in the [manifest] section's

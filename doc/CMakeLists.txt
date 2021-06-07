@@ -1,3 +1,4 @@
+# Copyright (c) 2021 TiaC Systems
 # Copyright (c) 2019-2021 Li-Pro.Net
 # Copyright (c) 2019-2020 Nordic Semiconductor ASA
 # SPDX-License-Identifier: LicenseRef-Nordic-5-Clause
