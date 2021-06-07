@@ -1,4 +1,4 @@
-# Li-Pro.Net bridle to embedded environment
+# Bridle for embedded systems based on Zephyr
 
 **NOT FOR PRODUCT DEVELOPMENT**
 
@@ -52,7 +52,7 @@ rm -rf build/bridle-doc
 west build --cmake-only -b none -d build/bridle-doc bridle/doc
 ```
 
-Build the complete Li-Pro.Net bridle HTML pages in
+Build the complete Bridle HTML pages in
 ``build/bridle-doc/html``, type in:
 
 ```bash
@@ -84,7 +84,7 @@ set separately, complete the following steps:
    west build -t zephyr -b none -d build/bridle-doc
    ```
 
-4. Build Li-Pro.Net bridle HTML pages in
+4. Build Bridle HTML pages in
    ``build/bridle-doc/html/bridle``, type in:
 
    ```bash
@@ -539,9 +539,9 @@ After this we will stay inside our working directory ``workspace``, have the
 ```
 
 As well we will found the Zephyr core source code in the ``zephyr`` folder
-and the Li-Pro.Net bridle source code in the ``bridle`` folder. To complete
-the setup, we need to extend our Python virtual environment with all the
-packages that are required by Zephyr and Li-Pro.Net bridle itself, type in:
+and the Bridle source code in the ``bridle`` folder. To complete the setup,
+we need to extend our Python virtual environment with all the packages that
+are required by Zephyr and Bridle itself, type in:
 
 ```bash
 pip install --upgrade --requirement zephyr/scripts/requirements.txt
