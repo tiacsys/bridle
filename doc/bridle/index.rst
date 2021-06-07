@@ -54,7 +54,7 @@ system (RTOS), which is built for **connected low power products** and
      <li class="grid-item">
        <a href="samples.html">
          <span class="grid-icon fa fa-cogs"></span>
-         <h2>Samples and Demos</h2>
+         <h2>Samples & Demos</h2>
        </a>
        <p>A list of samples and demos that can run on a variety of boards supported
           by Bridle and Zephyr</p>
@@ -69,7 +69,7 @@ system (RTOS), which is built for **connected low power products** and
      <li class="grid-item">
        <a href="dm_adding_code.html">
          <span class="grid-icon fa fa-github"></span>
-         <h2>Contribution Guidelines</h2>
+         <h2>Contribution</h2>
        </a>
        <p>As an open-source project, we welcome and encourage the community
           to submit patches directly to Bridle.</p>
