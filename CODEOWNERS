@@ -1,0 +1,58 @@
+# CODEOWNERS for autoreview assigning in github
+
+# https://help.github.com/en/articles/about-code-owners#codeowners-syntax
+
+# Order is important; for each modified file, the last matching
+# pattern takes the most precedence.
+# That is, with the last pattern being
+# *.rst                                     @rexut
+# if only .rst files are being modified, only rexut is
+# automatically requested for review, but you can manually
+# add others as needed.
+
+# Do not use wildcard on all source yet
+# *                                         @rexut
+
+# Root folder
+/VERSION                                  @rexut
+/CODEOWNERS                               @rexut
+/LICENSE                                  @rexut
+/README.md                                @rexut
+/west.yml                                 @rexut
+
+/.known-issues/                           @rexut
+/.github/				  @rexut
+/.github/workflows/                       @rexut
+/soc/arm/                                 @rexut
+/soc/arm/stm32f767xx/                     @rexut
+/boards/arc/                              @rexut
+/boards/arm/                              @rexut
+/boards/arm/tiac_magpie/                  @rexut
+/boards/nios2/                            @rexut
+/boards/arm/tiac_magpie/                  @rexut
+/boards/posix/                            @rexut
+/boards/riscv/                            @rexut
+/boards/shields/                          @rexut
+/boards/shields/loopback_test/            @rexut
+/boards/sparc/                            @rexut
+/boards/x86/                              @rexut
+/boards/xtensa/                           @rexut
+# All cmake related files
+# /cmake/                                   @rexut
+/CMakeLists.txt                           @rexut
+/doc/                                     @rexut
+/drivers/                                 @rexut
+/dts/arm/st/                              @rexut
+/dts/bindings/                            @rexut
+/include/                                 @rexut
+/lib/                                     @rexut
+/lib/commands/                            @rexut
+/modules/                                 @rexut
+/samples/                                 @rexut
+/samples/helloshell/                      @rexut
+/scripts/                                 @rexut
+/services/                                @rexut
+/subsys/                                  @rexut
+/zephyr/                                  @rexut
+# Get all docs reviewed
+*.rst                                     @rexut
