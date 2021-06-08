@@ -1,0 +1,122 @@
+# Copyright (c) 2021 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+name: QA Compliance Check
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - main
+
+jobs:
+  qa-compliance:
+    name: Run compliance checks on patch series (PR)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Update GitHub PATH for west
+        run: |
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+      - name: Checkout the code
+        uses: actions/checkout@v2
+        with:
+          path: workspace/bridle
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
+      - name: Restore PIP Cache
+        uses: actions/cache@v1
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-doc-pip
+
+      - name: Install base dependencies
+        working-directory: workspace
+        run: |
+          pip3 install --upgrade pip
+          pip3 install --upgrade setuptools
+          pip3 install --upgrade --requirement bridle/scripts/requirements-base.txt
+          pip3 show -f west
+
+      - name: West init and update
+        working-directory: workspace
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          git -C bridle config --global user.email "you@example.com"
+          git -C bridle config --global user.name "Your Name"
+          git -C bridle remote -v
+          git -C bridle rebase origin/${BASE_REF}
+          # debug
+          git -C bridle log  --pretty=oneline | head -n 10
+          west init -l bridle || true
+          west update
+          west zephyr-export
+
+      - name: Install compliance dependencies
+        working-directory: workspace
+        run: |
+          grep -hE "python-magic|junitparser|gitlint|pylint|pykwalify" \
+            zephyr/scripts/requirements-*.txt | xargs pip3 install --upgrade
+
+      - name: Run compliance tests
+        id: compliance
+        working-directory: workspace/bridle
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          export ZEPHYR_BASE="$(dirname "$(pwd)")/zephyr"
+          # debug
+          ls -la
+          git log --pretty=oneline | head -n 10
+          # -m checkpatch \
+          $ZEPHYR_BASE/scripts/ci/check_compliance.py \
+            -m Codeowners \
+            -m Gitlint \
+            -m Devicetree \
+            -m KconfigBasic \
+            -m pylint \
+            -m Identity \
+            -m Nits \
+            -c origin/${BASE_REF}..
+        continue-on-error: true
+
+      - name: Upload results
+        uses: actions/upload-artifact@v2
+        with:
+          name: compliance.xml
+          path: workspace/bridle/compliance.xml
+        continue-on-error: true
+
+      - name: Check warnings
+        working-directory: workspace/bridle
+        run: |
+          if [[ ! -s "compliance.xml" ]]; then
+            exit 1;
+          fi
+
+          #       checkpatch.txt \
+          for file in \
+                  Codeowners.txt \
+                  Gitlint.txt \
+                  Devicetree.txt \
+                  Kconfig.txt \
+                  pylint.txt \
+                  Identity.txt \
+                  Nits.txt \
+              ; do
+            if [[ -s $file ]]; then
+              errors=$(cat $file)
+              errors="${errors//'%'/'%25'}"
+              errors="${errors//$'\n'/'%0A'}"
+              errors="${errors//$'\r'/'%0D'}"
+              echo "::error file=${file}::$errors"
+              exit=1
+            fi
+          done
+
+          if [[ $exit == 1 ]]; then
+            exit 1
+          fi
