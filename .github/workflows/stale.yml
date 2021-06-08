@@ -1,0 +1,32 @@
+# Copyright (c) 2021 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+name: Mark Stale Issues and Pull Requests
+
+on:
+  schedule:
+  - cron: '16 0 * * *'
+
+jobs:
+  stale:
+
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+
+    if: github.repository == 'tiacsys/bridle'
+
+    steps:
+    - uses: actions/stale@v3
+      with:
+        days-before-stale: 90
+        days-before-close: 30
+        exempt-issue-labels: 'In progress,Enhancement,Feature,Feature Request,RFC,Meta'
+        stale-issue-label: 'Stale'
+        stale-issue-message: 'This issue has been marked as stale because it has been open (more than) 90 days with no activity. Remove the stale label or add a comment saying that you would like to have the label removed otherwise this issue will automatically be closed in 30 days. Note, that you can always re-open a closed issue at any time.'
+        exempt-pr-labels: 'Blocked,In progress'
+        stale-pr-label: 'Stale'
+        stale-pr-message: 'This pull request has been marked as stale because it has been open (more than) 90 days with no activity. Remove the stale label or add a comment saying that you would like to have the label removed otherwise this pull request will automatically be closed in 30 days. Note, that you can always re-open a closed pull request at any time.'
+        operations-per-run: 400
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
