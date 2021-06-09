@@ -2,7 +2,7 @@
 # Copyright (c) 2021 Li-Pro.Net
 # SPDX-License-Identifier: Apache-2.0
 
-name: Nightly Maintenance and QA
+name: QA Integration Test
 
 on:
   schedule:
@@ -17,6 +17,7 @@ on:
 
 jobs:
   qa-integration:
+    name: Run integration tests on targets
     runs-on: [self-hosted, linux, gnuarmemb, zephyr-sdk, tiac_magpie]
 
     strategy:
@@ -73,10 +74,15 @@ jobs:
 
       - name: Execute integration tests on target
         working-directory: workspace
+        env:
+          HARDWARE_MAP: bridle/.github/${{ github.job }}/map-${{ matrix.board }}.yml
         run: |
-          ./zephyr/scripts/twister --verbose --jobs 4 --inline-logs --enable-size-report --platform-reports \
-            --device-testing --hardware-map "bridle/.github/qa-integration/map-${{ matrix.board }}.yml" \
-            --extra-args SHIELD=loopback_test_tmph --board-root bridle/boards \
+          export ZEPHYR_BASE="$(pwd)/zephyr"
+          ./zephyr/scripts/twister --verbose --jobs 4 --inline-logs \
+            --enable-size-report --platform-reports \
+            --device-testing --hardware-map ${HARDWARE_MAP} \
+            --extra-args SHIELD=loopback_test_tmph \
+            --board-root bridle/boards \
             --testcase-root zephyr/tests/arch/arm \
             --testcase-root zephyr/tests/kernel \
             --testcase-root zephyr/tests/drivers/watchdog \
@@ -88,11 +94,18 @@ jobs:
             --testcase-root zephyr/tests/drivers/can
         continue-on-error: true
 
+      - name: Upload results
+        uses: actions/upload-artifact@v2
+        with:
+          name: twister_report.xml
+          path: workspace/twister-out/twister_report.xml
+        continue-on-error: true
+
       - name: Convert integration test reports to annotations
         uses: mikepenz/action-junit-report@v2.4.2
         with:
           check_name: twister-report (${{ matrix.board }})
-          report_paths: "**/twister_report.xml"
+          report_paths: "**/twister-out/twister_report.xml"
           require_tests: true
           fail_on_failure: false
         if: always()
