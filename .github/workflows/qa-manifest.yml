@@ -2,15 +2,19 @@
 # Copyright (c) 2021 Li-Pro.Net
 # SPDX-License-Identifier: Apache-2.0
 
-name: Manifest
+name: QA Manifest Check and Labeler
 
 on:
-  - pull_request_target
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'west.yml'
 
 jobs:
-  contribs:
+  qa-manifest:
+    name: Run manifest checks points to patch series (PR)
     runs-on: ubuntu-latest
-    name: Manifest
+
     steps:
       - name: Checkout the code
         uses: actions/checkout@v2
@@ -19,7 +23,7 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 0
 
-      - name: Manifest
+      - name: Run manifest check
         uses: zephyrproject-rtos/action-manifest@main
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
