@@ -9,6 +9,26 @@ on:
     - cron: "0 2 * * *" # run at 2 AM UTC
   pull_request:
     types: [opened, synchronize, reopened]
+    paths:
+    - 'applications/**'
+    - 'boards/**'
+    - 'drivers/**'
+    - 'dts/**'
+    - 'include/**'
+    - 'lib/**'
+    - 'modules/**'
+    - 'samples/**'
+    - 'services/**'
+    - 'tests/**'
+    - 'subsys/**'
+    - '**/CMakeLists.txt'
+    - '**/Kconfig*'
+    - '**.conf'
+    - '**.defconfig'
+    - '**.overlay'
+    - '**.yaml'
+    - 'west.yml'
+    - '.github/workflows/qa-integration.yml'
 
 jobs:
   qa-integration:
