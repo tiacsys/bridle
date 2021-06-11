@@ -1,17 +1,21 @@
 # Copyright (c) 2021 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
-name: Conflict Finder
+name: QA Conflict Finder and Labeler
 
 on:
   push:
     branches-ignore:
       - '**'
+
 jobs:
-  conflict:
+  qa-conflict:
+    name: Run merge conflicts finder on patch series (PR)
     runs-on: ubuntu-latest
+
     steps:
-      - uses: mschilde/auto-label-merge-conflicts@master
+      - name: Run conflict finder and labeler
+        uses: mschilde/auto-label-merge-conflicts@master
         with:
           CONFLICT_LABEL_NAME: "has conflicts"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
