@@ -9,11 +9,6 @@ on:
     - cron: "0 2 * * *" # run at 2 AM UTC
   pull_request:
     types: [opened, synchronize, reopened]
-    branches:
-      - main
-  push:
-    branches:
-      - main
 
 jobs:
   qa-integration:
