@@ -6,8 +6,6 @@ name: QA Compliance Check
 on:
   pull_request:
     types: [opened, synchronize, reopened]
-    branches:
-      - main
 
 jobs:
   qa-compliance:
