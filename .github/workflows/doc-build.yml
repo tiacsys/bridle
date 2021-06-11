@@ -7,11 +7,14 @@ name: Documentation Build
 on:
   pull_request:
     types: [opened, synchronize, reopened]
-    branches:
-      - main
-  push:
-    branches:
-      - main
+    paths:
+    - 'doc/**'
+    - '**.rst'
+    - 'include/**'
+    - '.known-issues/doc/**'
+    - '**/Kconfig*'
+    - 'west.yml'
+    - '.github/workflows/doc-build.yml'
 
 jobs:
   doc-build:
