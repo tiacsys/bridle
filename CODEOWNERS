@@ -48,7 +48,6 @@
 /dts/bindings/                            @rexut
 /include/                                 @rexut
 /lib/                                     @rexut
-/lib/commands/                            @rexut
 /modules/                                 @rexut
 /samples/                                 @rexut
 /samples/helloshell/                      @rexut
@@ -56,6 +55,8 @@
 /scripts/                                 @rexut
 /services/                                @rexut
 /subsys/                                  @rexut
+/subsys/shell/                            @rexut
+/subsys/shell/modules/                    @rexut
 /zephyr/                                  @rexut
 # Get all docs reviewed
 *.rst                                     @rexut

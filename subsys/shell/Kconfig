@@ -1,0 +1,13 @@
+# Shell configuration options
+
+# Copyright (c) 2021 TiaC Systems
+# Copyright (c) 2014-2015 Wind River Systems, Inc.
+# Copyright (c) 2016 Intel Corporation
+# Copyright (c) 2018 Nordic Semiconductor ASA
+# SPDX-License-Identifier: Apache-2.0
+
+if SHELL
+
+rsource "modules/Kconfig"
+
+endif # SHELL
