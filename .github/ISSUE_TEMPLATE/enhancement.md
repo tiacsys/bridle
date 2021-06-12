@@ -17,5 +17,4 @@ A clear and concise description of what you want to happen.
 A clear and concise description of any alternative solutions or features you've considered.
 
 **Additional context**
-Add any other context or graphics (drag-and-drop an image) about the feature request here.
-Add any other context, graphics (drag-and-drop an image), or screenshots about the feature request here.
+Add any other context, graphics (drag-and-drop an image), or screenshots about the enhancement here.
