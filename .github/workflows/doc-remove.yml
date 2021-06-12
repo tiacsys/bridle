@@ -7,13 +7,16 @@ name: Documentation Remove
 on:
   pull_request:
     types: [closed]
+    branches:
+      - master
 
 jobs:
-  build:
+  doc-remove:
+    name: Prepare documentation removing from GH pages
     runs-on: ubuntu-latest
 
     steps:
-      - name: Remove documentation
+      - name: Create documentation removing monitor
         run: |
           mkdir doc && cd doc
           echo "remove PR-${{ github.event.number }}" > monitor_$GITHUB_RUN_ID.txt
