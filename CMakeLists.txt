@@ -6,6 +6,8 @@
 set(BRIDLE_DIR "${CMAKE_CURRENT_LIST_DIR}"
     CACHE PATH "Bridle root directory")
 
+include(cmake/version.cmake)
+
 # include custom headers for e.g. drivers or services sorted by sub-folders
 zephyr_include_directories(include)
 

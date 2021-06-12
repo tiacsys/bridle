@@ -15,6 +15,7 @@
 
 # Root folder
 /VERSION                                  @rexut
+/version.h.in                             @rexut
 /CODEOWNERS                               @rexut
 /LICENSE                                  @rexut
 /README.md                                @rexut
@@ -39,7 +40,7 @@
 /boards/x86/                              @rexut
 /boards/xtensa/                           @rexut
 # All cmake related files
-# /cmake/                                   @rexut
+/cmake/                                   @rexut
 /CMakeLists.txt                           @rexut
 /doc/                                     @rexut
 /drivers/                                 @rexut
