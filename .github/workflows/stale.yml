@@ -5,7 +5,7 @@ name: Mark Stale Issues and Pull Requests
 
 on:
   schedule:
-  - cron: '16 0 * * *'
+    - cron: '16 0 * * *'
 
 jobs:
   stale:
