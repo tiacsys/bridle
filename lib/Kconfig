@@ -4,6 +4,6 @@
 
 menu "Support Libraries"
 
-rsource "commands/Kconfig"
+# rsource "name/Kconfig"
 
 endmenu

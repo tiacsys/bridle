@@ -4,6 +4,6 @@
 
 menu "Sub Systems and OS Services"
 
-# rsource "name/Kconfig"
+rsource "shell/Kconfig"
 
 endmenu

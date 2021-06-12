@@ -18,4 +18,3 @@ config BRIDLE_CMD_HELLO
 	  "Hello from shell." on the console.
 
 endif # BRIDLE_COMMANDS
-
