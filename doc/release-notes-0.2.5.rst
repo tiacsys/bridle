@@ -1,6 +1,6 @@
-.. _bridle_release_notes_000:
+.. _bridle_release_notes_025:
 
-|BRIDLE| v0.0.0 Release Notes
+|BRIDLE| v0.2.5 Release Notes
 #############################
 
 This project demonstrate the integration of |TIAC| support in open
@@ -25,7 +25,7 @@ Repositories
    * - Component
      - Tag
    * - `tiac-bridle`_
-     - v0.0.0
+     - v0.2.5
    * - `zephyr-core`_
      - v2.5.0
 
@@ -33,17 +33,14 @@ Repositories
 Supported boards
 ****************
 
-* STMicroelectronics STM32F746ZG-NUCLEO
-* QEMU Cortex-M3
-* QEMU X86
-* Native POSIX
+* TiaC Magpie STM32F777NIHx
 
 Change log
 **********
 
 The following sections provide detailed lists of changes by component.
 
-* t.b.d.
+* INITIAL PROJECT SETUP on |TIAC| `DevZone`_
 
 Documentation
 =============
