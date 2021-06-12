@@ -1,0 +1,21 @@
+/*
+ * Copyright (c) 2021 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#ifndef _BRIDLE_VERSION_H_
+#define _BRIDLE_VERSION_H_
+
+/* @templates@ values come from cmake/version.cmake */
+
+#cmakedefine BRIDLE_VERSION_CODE @BRIDLE_VERSION_CODE@
+#define BRIDLE_VERSION(a,b,c) (((a) << 16) + ((b) << 8) + (c))
+
+#define BRIDLEVERSION          @BRIDLEVERSION@
+#define BRIDLE_VERSION_NUMBER  @BRIDLE_VERSION_NUMBER@
+#define BRIDLE_VERSION_MAJOR   @BRIDLE_VERSION_MAJOR@
+#define BRIDLE_VERSION_MINOR   @BRIDLE_VERSION_MINOR@
+#define BRIDLE_PATCHLEVEL      @BRIDLE_PATCHLEVEL@
+#define BRIDLE_VERSION_STRING  @BRIDLE_VERSION_STRING@
+
+#endif /* _BRIDLE_VERSION_H_ */
