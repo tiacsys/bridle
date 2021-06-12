@@ -8,13 +8,19 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
     branches:
-      - master
-  push:
-    branches:
       - main
+    paths:
+      - 'doc/**'
+      - '**.rst'
+      - 'include/**'
+      - '.known-issues/doc/**'
+      - '**/Kconfig*'
+      - 'west.yml'
+      - '.github/workflows/doc-*.yml'
 
 jobs:
   doc-build:
+    name: Build and upload documentation to artifacts
     runs-on: ubuntu-latest
 
     steps:
