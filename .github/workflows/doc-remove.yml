@@ -8,7 +8,15 @@ on:
   pull_request:
     types: [closed]
     branches:
-      - master
+      - main
+    paths:
+      - 'doc/**'
+      - '**.rst'
+      - 'include/**'
+      - '.known-issues/doc/**'
+      - '**/Kconfig*'
+      - 'west.yml'
+      - '.github/workflows/doc-*.yml'
 
 jobs:
   doc-remove:
