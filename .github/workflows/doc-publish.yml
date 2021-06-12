@@ -6,9 +6,10 @@ name: Documentation Publish
 
 on:
   workflow_run:
-    workflows: ["Documentation Build", "Documentation Remove"]
-    types:
-      - completed
+    # remove not (yet) supported:
+    # workflows: ["Documentation Build", "Documentation Remove"]
+    workflows: ["Documentation Build"]
+    types: [completed]
 
 jobs:
   doc-publish:
@@ -41,6 +42,10 @@ jobs:
       - name: Prepare documentation
         id: prepare_doc
         run: |
+          # synopsys: publish2 <catalog> <version> <file>
+          #   <catalog> := {development|approved}
+          #   <version> := {latest|<branch>}
+          #      <file> := doc_build_<GITHUB_RUN_ID_from_doc-build>.tgz
           unzip doc.zip
           monitor=$(ls -1 monitor_*.txt | head -1)
           catalog=$(awk -e '/publish2/{print $2}' "${monitor}")
@@ -48,12 +53,15 @@ jobs:
           file=$(awk -e '/publish2/{print $4}' "${monitor}")
           mkdir "${version}" && cd "${version}"
           tar -zxf "../${file}"
+          # reuseable as:
+          #   ${{ steps.prepare_doc.outputs.catalog }}
+          #   ${{ steps.prepare_doc.outputs.version }}
           echo "::set-output name=catalog::${catalog}"
           echo "::set-output name=version::${version}"
 
       - name: Deploy documentation
         uses: peaceiris/actions-gh-pages@v3
-        if: steps.prepare_doc.outputs.catalog == 'main'
+        if: steps.prepare_doc.outputs.catalog == 'approved'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ${{ steps.prepare_doc.outputs.version }}
