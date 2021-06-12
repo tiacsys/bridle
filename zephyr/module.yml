@@ -8,11 +8,25 @@ build:
   # root kconfig file
   kconfig: Kconfig.bridle
   settings:
-    # mark this project as external module
-    module_ext_root: .
     # make custom boards available (in ./boards/)
     board_root: .
-    # make custom soc support available (in ./soc/)
-    soc_root: .
     # make custom device tree bindings available (in ./dts/bindings)
     dts_root: .
+    # make custom additional SoCs support available (in ./soc/)
+    soc_root: .
+    # make custom architectures support available (in ./arch/)
+    arch_root: .
+    # mark this project as external module
+    module_ext_root: .
+
+# pointed to out of tree boards for Zephyr test runner (twister)
+boards:
+  - boards
+
+# pointed to out of tree samples for Zephyr test runner (twister)
+samples:
+  - samples
+
+# pointed to out of tree tests for Zephyr test runner (twister)
+tests:
+  - tests

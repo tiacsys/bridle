@@ -11,6 +11,7 @@ on:
     types: [opened, synchronize, reopened]
     paths:
       - 'applications/**'
+      - 'arch/**'
       - 'boards/**'
       - 'drivers/**'
       - 'dts/**'
@@ -20,6 +21,7 @@ on:
       - 'samples/**'
       - 'services/**'
       - 'tests/**'
+      - 'soc/**'
       - 'subsys/**'
       - '**/CMakeLists.txt'
       - '**/Kconfig*'

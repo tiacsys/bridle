@@ -23,6 +23,7 @@
 /.known-issues/                           @rexut
 /.github/				  @rexut
 /.github/workflows/                       @rexut
+/arch/                                    @rexut
 /soc/arm/                                 @rexut
 /soc/arm/stm32f767xx/                     @rexut
 /boards/arc/                              @rexut
@@ -50,6 +51,7 @@
 /modules/                                 @rexut
 /samples/                                 @rexut
 /samples/helloshell/                      @rexut
+/tests/                                   @rexut
 /scripts/                                 @rexut
 /services/                                @rexut
 /subsys/                                  @rexut
