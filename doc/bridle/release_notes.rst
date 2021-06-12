@@ -19,4 +19,4 @@ See the release notes for information about specific |BRIDLE| releases.
    :caption: Releases
    :maxdepth: 1
 
-   doc/release-notes-0.0.1
+   doc/release-notes-0.2.5

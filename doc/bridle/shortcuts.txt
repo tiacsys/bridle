@@ -1,5 +1,5 @@
 .. |TIAC| replace:: TiaC Systems
 .. |BRIDLE| replace:: Bridle
 
-.. |release| replace:: 0.0.0
-.. |release_tt| replace:: ``0.0.0``
+.. |release| replace:: 0.2.5
+.. |release_tt| replace:: ``0.2.5``
