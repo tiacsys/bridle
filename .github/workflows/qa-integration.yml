@@ -101,6 +101,7 @@ jobs:
             --device-testing --hardware-map ${HARDWARE_MAP} \
             --extra-args SHIELD=loopback_test_tmph \
             --board-root bridle/boards \
+            --testcase-root bridle/tests/bridle \
             --testcase-root zephyr/tests/arch/arm \
             --testcase-root zephyr/tests/kernel \
             --testcase-root zephyr/tests/drivers/watchdog \
