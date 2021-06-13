@@ -1,0 +1,5 @@
+tests:
+  bridle.common:
+    tags: bridle userspace
+    build_on_all: true
+    min_flash: 33
