@@ -487,6 +487,7 @@ with a single call to Twister.
              --device-testing --hardware-map map.yaml \
              --extra-args SHIELD=loopback_test_tmph \
              --board-root bridle/boards \
+             --testcase-root bridle/tests/bridle \
              --testcase-root zephyr/tests/arch/arm \
              --testcase-root zephyr/tests/kernel \
              --testcase-root zephyr/tests/drivers/watchdog \
@@ -514,16 +515,16 @@ with a single call to Twister.
 
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - Total complete:  :bgn:`124`/ :bgn:`124`  100%  skipped:   :byl:`46`, failed:    :brd:`2`
-         INFO    - :bgn:`102 of 104` test configurations passed (98.08%), :brd:`2` failed, :byl:`46` skipped with :bbk:`0` warnings in :bbk:`1144.01 seconds`
-         INFO    - In total 822 test cases were executed, 367 skipped on 1 out of total 330 platforms (0.30%)
-         INFO    - :bgn:`104` test configurations executed on platforms, :brd:`0` test configurations were only built.
+         INFO    - Total complete:  :bgn:`125`/ :bgn:`125`  100%  skipped:   :byl:`46`, failed:    :brd:`2`
+         INFO    - :bgn:`103 of 105` test configurations passed (98.10%), :brd:`2` failed, :byl:`46` skipped with :bbk:`0` warnings in :bbk:`1707.50 seconds`
+         INFO    - In total 823 test cases were executed, 367 skipped on 1 out of total 330 platforms (0.30%)
+         INFO    - :bgn:`105` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
 
          \| Board       \| ID       \|   Counter \|
          \|-------------\|----------\|-----------\|
-         \| tiac_magpie \| DT04BNT1 \|       104 \|
+         \| tiac_magpie \| DT04BNT1 \|       105 \|
 
 .. admonition:: Known but currently tolerated test cases with errors
    :class: attention
