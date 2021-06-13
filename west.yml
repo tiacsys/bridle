@@ -11,7 +11,7 @@
 # You are free to create your own manifest files and put them in any
 # repository you want, to create your own custom Zephyr installations.
 # For example, you could create a manifest file in your own out of
-# tree application directory, which would pull this zephyr repository
+# tree application directory, which would pull this Zephyr repository
 # in as an ordinary project.
 #
 # You can pass your manifest repositories to west init when creating a
@@ -19,39 +19,77 @@
 # information.
 
 manifest:
-  # require west 9
+  # This west.yml requires west 0.9 or later, because the "submodules"
+  # feature used below was introduced then.
   version: 0.9
 
+  # If not otherwise specified, the projects below should be obtained
+  # from the tiacsys remote.
   defaults:
-    remote: upstream
+    remote: tiacsys
 
+  # "remotes" is a list of locations where git repositories are cloned
+  # and fetched from.
   remotes:
-    - name: upstream
+    - name: tiacsys
       url-base: https://github.com/tiacsys
     - name: zephyrproject
       url-base: https://github.com/zephyrproject-rtos
 
-  # Please add items below based on alphabetical order
+  # "projects" is a list of git repositories which make up the TIAC
+  # source code. Please add items below based on alphabetical order.
   projects:
+
+    # The Zephyr RTOS (not yet) fork in the TIAC, along with the subset
+    # of its modules which TIAC imports directly.
     - name: zephyr
       path: zephyr
       remote: zephyrproject
       repo-path: zephyr
       revision: v2.5-branch
       clone-depth: 1
-      # import submodules from zephyr manifest
+      # import submodules from Zephyr manifest
       import:
+        # In addition to the Zephyr repository itself, TIAC also
+        # imports the contents of Zephyr/west.yml at the above
+        # revision. Only the projects explicitly named in the
+        # following allowlist are imported.
+        #
+        # Note that the Zephyr west extensions (like 'build', 'flash',
+        # 'debug', etc.) are automatically provided by this import, so
+        # there's no need to add a redundant west-commands: key for
+        # the Zephyr project.
+        #
+        # Please keep this list sorted alphabetically.
         name-whitelist:
+          - canopennode
           - cmsis
+          - civetweb
+          - edtt
+          - fatfs
           - hal_altera
           - hal_espressif
           - hal_stm32
           - hal_xtensa
+          - libmetal
+          - littlefs
+          - loramac-node
+          - lvgl
+          - mbedtls
+          - mcumgr
+          - mipi-sys-t
           - net-tools
-          - canopennode
-          - fatfs
-      # import build commands from zephyr repo
-      west-commands: scripts/west-commands.yml
+          - open-amp
+          - openthread
+          - segger
+          - tinycbor
+          - tinycrypt
 
+  # West-related configuration for the Bridle repository.
   self:
+    # This repository should be cloned to workspace/bridle.
     path: bridle
+    # This line configures west extensions which are currently
+    # only for internal use by TIAC maintainers; import build
+    # commands from Zephyr repo.
+    west-commands: scripts/west-commands.yml
