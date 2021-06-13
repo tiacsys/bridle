@@ -48,6 +48,7 @@
 /dts/bindings/                            @rexut
 /include/                                 @rexut
 /lib/                                     @rexut
+/lib/bridle/                              @rexut
 /modules/                                 @rexut
 /samples/                                 @rexut
 /samples/helloshell/                      @rexut
