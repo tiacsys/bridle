@@ -47,6 +47,7 @@ prompt. All shell commands are available and would looks like:
 
    Available commands:
      adc      :ADC commands
+     bridle   :Bridle commands.
      clear    :Clear screen.
      device   :Device commands
      flash    :Flash shell commands
@@ -70,9 +71,22 @@ prompt. All shell commands are available and would looks like:
    uart:~$ hello
    Hello from shell.
 
-   uart:~$ hwinfo devid 
+   uart:~$ hwinfo devid
    Length: 12
    ID: 0x9e6b44aea1e2b8980c4d32a6
+
+   uart:~$ kernel version
+   Zephyr version 2.5.0
+
+   uart:~$ bridle version
+   Bridle version 0.2.5
+
+   uart:~$ bridle version long
+   Bridle version 0.2.5.99
+
+   uart:~$ bridle info
+   Zephyr: 2.5.0
+   Bridle: 0.2.5-main
 
    uart:~$ device list
    devices:
@@ -81,7 +95,6 @@ prompt. All shell commands are available and would looks like:
    - RTC_0
    - UART_7
    - UART_4
-   - RNG
    - sys_clock
    - ADC_3
    - GPIOK
@@ -99,7 +112,19 @@ prompt. All shell commands are available and would looks like:
    - I2C_4
    - I2C_2
    - PWM_8
-   - SPI_5
+   - SPI_4
+
+   uart:~$ history
+   [  0] history
+   [  1] device list
+   [  2] bridle info
+   [  3] bridle version long
+   [  4] bridle version
+   [  5] kernel version
+   [  6] hwinfo devid
+   [  7] hello
+   [  8] hello -h
+   [  9] help
 
 Simple GPIO Operations
 ======================
@@ -129,9 +154,9 @@ Simple ADC Acquisition
    uart:~$ adc ADC_3 resolution 12
 
    uart:~$ adc ADC_3 read 9
-   read: 776
+   read: 489
 
-   uart:~$ adc ADC_3 print 
+   uart:~$ adc ADC_3 print
    ADC_3:
    Gain: 1
    Reference: INTERNAL
@@ -147,10 +172,10 @@ Simple Flash Access
 .. code-block:: console
 
    uart:~$ flash read FLASH_CTRL 10000 40
-   00010000: 4e 3a 0a 00 50 52 45 20  4b 45 52 4e 45 4c 20 31 |N:..PRE  KERNEL 1|
-   00010010: 3a 0a 00 50 52 45 20 4b  45 52 4e 45 4c 20 32 3a |:..PRE K ERNEL 2:|
-   00010020: 0a 00 44 65 76 69 63 65  20 63 6f 6d 6d 61 6e 64 |..Device  command|
-   00010030: 73 00 4c 69 73 74 20 63  6f 6e 66 69 67 75 72 65 |s.List c onfigure|
+   00010000: 73 73 20 74 68 65 20 3c  54 61 62 3e 20 62 75 74 |ss the < Tab> but|
+   00010010: 74 6f 6e 20 74 6f 20 73  65 65 20 61 6c 6c 20 61 |ton to s ee all a|
+   00010020: 76 61 69 6c 61 62 6c 65  20 63 6f 6d 6d 61 6e 64 |vailable  command|
+   00010030: 73 2e 0a 00 59 6f 75 20  63 61 6e 20 61 6c 73 6f |s...You  can also|
 
 Simple I2C Operations
 =====================
@@ -197,4 +222,3 @@ Simple I2C Operations
    Output: 0x55
    uart:~$ i2c read_byte I2C_2 20 0
    Output: 0x55
-
