@@ -40,7 +40,6 @@ jobs:
 
     strategy:
       matrix:
-        branch: [main]
         board: [tiac_magpie]
 
     steps:
@@ -57,7 +56,7 @@ jobs:
         with:
           path: workspace/bridle
           submodules: recursive
-          ref: ${{ matrix.branch }}
+          ref: ${{ github.ref }}
 
       - name: Install base dependencies
         working-directory: workspace
