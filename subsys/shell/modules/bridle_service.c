@@ -4,18 +4,35 @@
  */
 
 #include <bridle.h>
+#include "version.h" /* generated at compile time */
 
 #include <sys/printk.h>
 #include <shell/shell.h>
 
 #define BRIDLE_HELP_BRIDLE		"Bridle commands."
 
+#define BRIDLE_HELP_INFO		"Bridle information."
+
 #define BRIDLE_HELP_VERSION		"Bridle version."
 #define BRIDLE_HELP_VERSION_SHORT	"Bridle version (w/o tweak)."
 #define BRIDLE_HELP_VERSION_LONG	"Bridle version (with tweak)."
 
+#define BRIDLE_MSG_INFO_ZEPHYR		"Zephyr: "
+#define BRIDLE_MSG_INFO_BRIDLE		"Bridle: "
+
 #define BRIDLE_MSG_VERSION		"Bridle version "
 #define BRIDLE_MSG_UNKNOWN_PARAMETER	" unknown parameter: "
+
+static int cmd_bridle_info(const struct shell *shell, size_t argc, char** argv)
+{
+        ARG_UNUSED(argc);
+        ARG_UNUSED(argv);
+
+        shell_print(shell, BRIDLE_MSG_INFO_ZEPHYR "%s", KERNEL_VERSION_STRING);
+        shell_print(shell, BRIDLE_MSG_INFO_BRIDLE "%s", BRIDLE_VERSION_STRING);
+
+	return 0;
+}
 
 static int cmd_bridle_version_short(const struct shell *shell,
 				size_t argc, char** argv)
@@ -71,6 +88,7 @@ SHELL_STATIC_SUBCMD_SET_CREATE(m_sub_version,
 );
 
 SHELL_STATIC_SUBCMD_SET_CREATE(m_sub_bridle,
+	SHELL_CMD(info, NULL, BRIDLE_HELP_INFO, cmd_bridle_info),
 	SHELL_CMD_ARG(version, &m_sub_version, BRIDLE_HELP_VERSION,
 		cmd_bridle_version, 1, 1),
 	SHELL_SUBCMD_SET_END
