@@ -84,7 +84,9 @@ add configuration options that are specific to your application.
 See :ref:`zephyr:setting_configuration_values` in the Zephyr documentation
 for information on how to edit the :file:`prj.conf` file.
 
-.. note:: It is possible to change the default configuration for a library by
+.. note::
+
+   It is possible to change the default configuration for a library by
    changing the :file:`Kconfig` file of the library. However, best practice is
    to override the configuration in the application configuration file
    :file:`prj.conf`.
@@ -141,7 +143,9 @@ select one of them when building the application. This means that you do not
 have to use one :file:`prj.conf` file for your project and modify it each time
 to fit your needs.
 
-.. note:: Creating build types and selecting them is optional.
+.. note::
+
+   Creating build types and selecting them is optional.
 
 .. _gs_modifying_build_types_creating:
 

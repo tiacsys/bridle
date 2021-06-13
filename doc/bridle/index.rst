@@ -10,7 +10,9 @@ devices. |BRIDLE| refere to and involve the Zephyr™ real-time operating
 system (RTOS), which is built for **connected low power products** and
 **safety critical environments**.
 
-.. note:: |BRIDLE| contains references and code for |TIAC| devices, though
+.. note::
+
+   |BRIDLE| contains references and code for |TIAC| devices, though
    product development on these devices is not supported with |BRIDLE|.
 
 .. raw:: html

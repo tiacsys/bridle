@@ -28,9 +28,11 @@ restrictive rules:
   consecutive lines without blank lines in between are combined into one
   paragraph.
 
-  .. note:: For the conceptual documentation written in RST, you can have more
-     than 80 characters per line. The requirement for 80 characters per line
-     applies only to the code documentation written in doxygen.
+  .. note::
+
+     For the conceptual documentation written in RST, you can have more than
+     80 characters per line. The requirement for 80 characters per line applies
+     only to the code documentation written in doxygen.
 
 Hyperlinks
 ==========
@@ -109,7 +111,9 @@ every group must be explicitly added to an RST file.
       :project: bridle
       :members:
 
-.. note:: Including a group on a page does not include all its subgroups
+.. note::
+
+   Including a group on a page does not include all its subgroups
    automatically. To include subgroups, list them on the page of the group
    they belong to.
 
@@ -125,9 +129,10 @@ Breathe domains:
 * Macro: ``:c:macro:``
 * Structure member: ``:cpp:member:``
 
-.. note:: The ``:cpp:enum:`` and ``:cpp:enumerator:`` domains do not
-   generate a link due to `Breathe issue #437`_. As a workaround, use
-   the following command::
+.. note::
+
+   The ``:cpp:enum:`` and ``:cpp:enumerator:`` domains do not generate a link
+   due to `Breathe issue #437`_. As a workaround, use the following command::
 
       :cpp:enumerator:`ENUM_VALUE <DOXYGEN_GROUP::ENUM_VALUE>`
 
@@ -341,8 +346,9 @@ documentation will not show up.
 
 
 .. note::
-   Always add a name for the struct.
-   Avoid using unnamed structs due to `Sphinx parser issue`_.
+
+   Always add a name for the struct. Avoid using unnamed structs
+   due to `Sphinx parser issue`_.
 
 References
 ==========
@@ -359,6 +365,7 @@ To link to functions, enums, or structs from within doxygen itself, use the
     */
 
 .. note::
+
    Linking to functions does not currently work due to `Breathe issue #438`_.
 
 Typedefs
