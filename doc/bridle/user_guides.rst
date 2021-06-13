@@ -9,6 +9,7 @@ you to important concepts and guide you through developing your application.
 .. toctree::
    :maxdepth: 2
 
+   ug_app_dev
    ug_dev_model
 
 .. ug_app_dev

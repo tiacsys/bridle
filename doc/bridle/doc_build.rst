@@ -22,11 +22,12 @@ See the *Installing the documentation processors* section in the
 required tools to build the documentation and their supported versions.
 
 .. note::
-   On Windows, the Sphinx executable ``sphinx-build.exe`` is placed in
-   the ``Scripts`` folder of your Python installation path.
-   Dependending on how you have installed Python, you may need to
-   add this folder to your ``PATH`` environment variable. Follow
-   the instructions in `Windows Python Path`_ to add those if needed.
+
+   On Windows, the Sphinx executable ``sphinx-build.exe`` is placed in the
+   ``Scripts`` folder of your Python installation path. Dependending on how
+   you have installed Python, you may need to add this folder to your ``PATH``
+   environment variable. Follow the instructions in `Windows Python Path`_
+   to add those if needed.
 
 .. admonition:: The original Zephyr documentation needs to patch!
    :class: attention
@@ -141,6 +142,7 @@ browser or type in:
    firefox build/bridle-doc/html/index.html &
 
 .. tip::
+
    If you modify or add RST files, you only need to rerun the steps that
    build the respective documentation: 2nd target in step 3 if you modified
    the Zephyr documentation, 3rd target in step 3 if you modified |BRIDLE|

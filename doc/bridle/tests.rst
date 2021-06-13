@@ -11,6 +11,7 @@ The tests are based on Zephyr Test Framework (Ztest). For detailed
 information on how to run them, see :ref:`zephyr:test-framework`.
 
 .. note::
+
    This documentation covers only a few selected unit or integration tests.
 
 .. toctree::

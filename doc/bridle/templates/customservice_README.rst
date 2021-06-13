@@ -24,7 +24,9 @@ This service has **X** characteristics.
 Name of the characteristic (UUID)
 =================================
 
-.. note:: Add a subsection for each characteristic, and list the properties.
+.. note::
+
+   Add a subsection for each characteristic, and list the properties.
    Do not list properties that are not relevant.
 
 Write
@@ -47,15 +49,19 @@ Notify
 API documentation
 *****************
 
-.. note:: If all source files are in one specific folder, add the folder name
-   (even if there is only one source file). If there are unrelated source files
-   in the same folder, add the file name.
+.. note::
+
+   If all source files are in one specific folder, add the folder name (even
+   if there is only one source file). If there are unrelated source files in
+   the same folder, add the file name.
 
 | Header file: :file:`include/.h`
 | Source files: :file:`/`
 
-.. note:: Remove the code block and replace with the name of the doxygen group
-   that contains the API.
+.. note::
+
+   Remove the code block and replace with the name of the doxygen group that
+   contains the API.
 
 .. code-block:: python
 

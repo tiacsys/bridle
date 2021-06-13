@@ -10,8 +10,10 @@ Building and programming a sample application
 The recommended way of building and programming an |BRIDLE| sample is to use
 ... t.b.d. (TBD) IDE.
 
-.. .. note:: See :ref:`precompiled_fw` and :ref:`building_pgming` for
-   information about programming a TIAC:board.
+.. .. note::
+
+   See :ref:`precompiled_fw` and :ref:`building_pgming` for information about
+   programming a TIAC:board.
 
 .. _gs_programming_tbd:
 

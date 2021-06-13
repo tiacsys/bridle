@@ -3,6 +3,7 @@
 .. _`Zephyr Project`: https://zephyrproject.org/
 .. _`Zephyr Project documentation`: http://docs.zephyrproject.org/
 
+.. _`tiac-zephyr`: https://github.com/tiacsys/zephyr
 .. _`official Zephyr repository`: https://github.com/zephyrproject-rtos/zephyr
 .. _`Zephyr repository`: https://github.com/zephyrproject-rtos/zephyr
 
