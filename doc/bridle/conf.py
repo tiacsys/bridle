@@ -107,7 +107,7 @@ extensions = [
 ]
 
 # Only use SVG converter when it is really needed, e.g. LaTeX.
-if tags.has("svgconvert"):
+if tags.has("svgconvert"):  # pylint: disable=undefined-variable
     extensions.append('sphinxcontrib.rsvgconverter')
 
 # Add any paths that contain templates here, relative to this directory.
@@ -208,7 +208,7 @@ default_role = 'any'
 pygments_style = 'sphinx'
 
 # Additional lexer for Pygments (syntax highlighting)
-from pygments.lexers.devicetree import DevicetreeLexer
+from pygments.lexers.devicetree import DevicetreeLexer  # pylint: disable=no-name-in-module
 from sphinx.highlighting import lexers
 lexers['DTS'] = DevicetreeLexer()
 
@@ -361,9 +361,9 @@ intersphinx_mapping = {
 }
 
 breathe_projects = {
-    "bridle": "{}/doxygen/xml".format(BRIDLE_BUILD),
+    "Bridle": "{}/doxygen/xml".format(BRIDLE_BUILD),
 }
-breathe_default_project = "bridle"
+breathe_default_project = "Bridle"
 
 breathe_domain_by_extension = {
     "h": "c",

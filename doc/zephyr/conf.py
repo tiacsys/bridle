@@ -188,7 +188,7 @@ else:
 pygments_style = 'sphinx'
 
 # Additional lexer for Pygments (syntax highlighting)
-from pygments.lexers.devicetree import DevicetreeLexer
+from pygments.lexers.devicetree import DevicetreeLexer  # pylint: disable=no-name-in-module
 from sphinx.highlighting import lexers
 lexers['DTS'] = DevicetreeLexer()
 

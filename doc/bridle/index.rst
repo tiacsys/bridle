@@ -86,11 +86,10 @@ system (RTOS), which is built for **connected low power products** and
    user_guides
    examples
    boards/index
+   reference/index
    release_notes
 
-..   examples
 ..   drivers
 ..   libraries
 ..   scripts
-..   reference/kconfig/index
 ..   cheat_sheet
