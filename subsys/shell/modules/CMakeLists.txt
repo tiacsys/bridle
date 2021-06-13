@@ -4,5 +4,8 @@
 
 zephyr_library()
 
+# Bridle commands
+zephyr_library_sources_ifdef(CONFIG_BRIDLE_SHELL bridle_service.c)
+
 # simple hello command
 zephyr_library_sources_ifdef(CONFIG_BRIDLE_CMD_HELLO cmd_hello.c)
