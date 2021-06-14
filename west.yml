@@ -40,13 +40,13 @@ manifest:
   # source code. Please add items below based on alphabetical order.
   projects:
 
-    # The Zephyr RTOS (not yet) fork in the TIAC, along with the subset
-    # of its modules which TIAC imports directly.
+    # The Zephyr RTOS fork in the TIAC organization, along with the subset
+    # of its modules which TIAC imports (partly but not yet) directly.
     - name: zephyr
       path: zephyr
-      remote: zephyrproject
+      remote: tiacsys
       repo-path: zephyr
-      revision: v2.5-branch
+      revision: tiacsys/v2.5-branch
       clone-depth: 1
       # import submodules from Zephyr manifest
       import:
