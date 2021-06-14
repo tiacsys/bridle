@@ -72,13 +72,6 @@ jobs:
           west update
           west zephyr-export
 
-      - name: Patch Zephyr with documentation and twister hacks
-        working-directory: workspace/zephyr
-        run: |
-          git apply ../bridle/scripts/patches/zephyr/0001-doc-Share-Kconfig-documentation-between-repos.patch
-          git apply ../bridle/scripts/patches/zephyr/0002-doc-script-found-devicetree-bindings-recursively.patch
-          git apply ../bridle/scripts/patches/zephyr/0003-tests-drivers-i2c-run-with-twister.patch
-
       - name: Install build and test dependencies
         working-directory: workspace
         run: |

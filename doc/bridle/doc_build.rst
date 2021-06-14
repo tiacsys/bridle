@@ -29,20 +29,6 @@ required tools to build the documentation and their supported versions.
    environment variable. Follow the instructions in `Windows Python Path`_
    to add those if needed.
 
-.. admonition:: The original Zephyr documentation needs to patch!
-   :class: attention
-
-   Patch Zephyr source code with specific 'no kconfig' and 'recursive' hack,
-   because we use a shared Kconfig and DTS bindings documentation set instead,
-   type in:
-
-   .. code-block:: console
-
-      git -C zephyr apply \
-          ../bridle/scripts/patches/zephyr/0001-doc-Share-Kconfig-documentation-between-repos.patch
-      git -C zephyr apply \
-          ../bridle/scripts/patches/zephyr/0002-doc-script-found-devicetree-bindings-recursively.patch
-
 Documentation structure
 ***********************
 
