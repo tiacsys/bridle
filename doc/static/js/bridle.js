@@ -4,7 +4,7 @@ function BRIDLE () {
   let state = {};
 
   // XXX: do not remove the trailing '/'
-  const BRIDLE_PATH_PREFIX = "/bridle/html/";
+  const BRIDLE_PATH_PREFIX = "/bridle/doc/";
   const STABLE_VERSION_RE = /^(\d+\.)+\d+$/;
   const DEV_VERSION_RE = /^(\d+\.)+\d+-[a-z0-9]+$/;
 
