@@ -60,10 +60,14 @@ jobs:
           echo "::set-output name=version::${version}"
 
       - name: Deploy documentation
-        uses: peaceiris/actions-gh-pages@v3
-        if: steps.prepare_doc.outputs.catalog == 'approved'
+        uses: sand4rt/ftp-deployer@v1.3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ${{ steps.prepare_doc.outputs.version }}
-          enable_jekyll: false
-          force_orphan: true
+          sftp: true
+          port: 22
+          host: ${{ secrets.TSN_FTP_HOST }}
+          username: ${{ secrets.TSN_FTP_USERNAME }}
+          password: ${{ secrets.TSN_FTP_PASSWORD }}
+          remote_folder: ${{ secrets.TSN_FTP_BRIDLE_DOC_ROOT }}/${{ steps.prepare_doc.outputs.version }}
+          local_folder: ${{ steps.prepare_doc.outputs.version }}
+          cleanup: true
+        if: steps.prepare_doc.outputs.catalog == 'approved'
