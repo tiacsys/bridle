@@ -9,6 +9,7 @@ on:
     types: [closed]
     branches:
       - main
+      - 'v*-branch'
     paths:
       - 'doc/**'
       - '**.rst'
@@ -20,14 +21,15 @@ on:
 
 jobs:
   doc-remove:
-    name: Prepare documentation removing from GH pages
+    name: Remove preview documentation for PRs
     runs-on: ubuntu-latest
 
     steps:
       - name: Create documentation removing monitor
         run: |
           mkdir doc && cd doc
-          echo "remove PR-${{ github.event.number }}" > monitor_$GITHUB_RUN_ID.txt
+          echo "remove development PR-${{ github.event.number }}" > \
+               "monitor_${GITHUB_RUN_ID}.txt"
 
       - name: Upload artifact
         uses: actions/upload-artifact@v2

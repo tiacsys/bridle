@@ -9,6 +9,7 @@ on:
     types: [opened, synchronize, reopened]
     branches:
       - main
+      - 'v*-branch'
     paths:
       - 'doc/**'
       - '**.rst'
@@ -20,6 +21,7 @@ on:
   push:
     branches:
       - main
+      - 'v*-branch'
     paths:
       - 'doc/**'
       - '**.rst'
@@ -107,23 +109,24 @@ jobs:
       - name: Archive documentation
         working-directory: workspace/build
         run: |
-          # synopsys: publish2 <catalog> <version> <file>
+          # synopsys: publish2 <catalog> <version> <archive>
           #   <catalog> := {development|approved}
           #   <version> := {latest|<branch>}
-          #      <file> := doc_build_<GITHUB_RUN_ID_from_doc-build>.tgz
+          #   <archive> := doc_build_<GITHUB_RUN_ID_from_doc-build>.tgz
           mkdir doc && cd doc
-          file="doc_build_${GITHUB_RUN_ID}.tgz"
-          tar -C ../html -zcf $file .
+          archive="doc_build_${GITHUB_RUN_ID}.tgz"
+          tar -C ../html -zcf ${archive} .
           if [[ "${{ github.event_name }}" == "pull_request" ]]; then
-            echo "publish2 development PR-${{ github.event.number }} $file" > "monitor_${GITHUB_RUN_ID}.txt"
+            echo "publish2 development PR-${{ github.event.number }} ${archive}" > \
+                 "monitor_${GITHUB_RUN_ID}.txt"
             echo "${{ github.event.number }}" > pr.txt
           else
             # basename will work for both branches and tags
             branch=$(basename "${{ github.ref }}")
             if [[ "${branch}" == "main" ]]; then
-              echo "publish2 approved latest $file" > "monitor_${GITHUB_RUN_ID}.txt"
+              echo "publish2 approved latest ${archive}" > "monitor_${GITHUB_RUN_ID}.txt"
             else
-              echo "publish2 approved ${branch} $file" > "monitor_${GITHUB_RUN_ID}.txt"
+              echo "publish2 approved ${branch} ${archive}" > "monitor_${GITHUB_RUN_ID}.txt"
             fi
           fi
 
