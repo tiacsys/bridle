@@ -1,3 +1,3 @@
 cd <this_dir>
 wget -O zephyr_objects.inv \
-     https://tiacsys.github.io/bridle/zephyr/objects.inv
+     https://tiac-systems.net/bridle/doc/latest/zephyr/objects.inv

@@ -1,4 +1,4 @@
-[![Nightly Maintenance and QA](https://github.com/tiacsys/bridle/actions/workflows/qa-nightly.yml/badge.svg?branch=main)](https://github.com/tiacsys/bridle/actions/workflows/qa-nightly.yml)
+[![QA Integration Test](https://github.com/tiacsys/bridle/actions/workflows/qa-integration.yml/badge.svg?branch=main)](https://github.com/tiacsys/bridle/actions/workflows/qa-integration.yml)
 [![Documentation Build](https://github.com/tiacsys/bridle/actions/workflows/doc-build.yml/badge.svg?branch=main)](https://github.com/tiacsys/bridle/actions/workflows/doc-build.yml)
 [![Documentation Publish](https://github.com/tiacsys/bridle/actions/workflows/doc-publish.yml/badge.svg?branch=main)](https://github.com/tiacsys/bridle/actions/workflows/doc-publish.yml)
 
@@ -18,7 +18,7 @@ which is built **for connected low power products and safety critical environmen
       <td width="300px" height="300px">
         <div align="center">
           <a href="https://github.com/tiacsys">
-            <img src="https://tiacsys.github.io/bridle/bridle/_static/images/tiac.png"/>
+            <img src="https://tiac-systems.net/bridle/doc/latest/bridle/_static/images/tiac.png"/>
             <h3>TiaC Systems</h3>
           </a>
           <p>Three is a Company.</p>
@@ -27,7 +27,7 @@ which is built **for connected low power products and safety critical environmen
       <td width="300px" height="300px">
         <div align="center">
           <a href="https://github.com/tiacsys/bridle">
-            <img src="https://tiacsys.github.io/bridle/bridle/_static/images/bridle.png"/>
+            <img src="https://tiac-systems.net/bridle/doc/latest/bridle/_static/images/bridle.png"/>
             <h3>Bridle</h3>
             <p>Bridle and kite line.</p>
           </a>
@@ -52,7 +52,7 @@ which is built **for connected low power products and safety critical environmen
       <td width="225px" height="225px">
         <div align="center">
           <br/>
-          <a href="https://tiacsys.github.io/bridle/bridle/getting_started.html">
+          <a href="https://tiac-systems.net/bridle/doc/latest/bridle/getting_started.html">
             <img src="https://github.com/FortAwesome/Font-Awesome/raw/master/svgs/solid/map-signs.svg" width="100"/>
             <h3>Getting Started</h3>
           </a>
@@ -61,7 +61,7 @@ which is built **for connected low power products and safety critical environmen
       <td width="225px" height="225px">
         <div align="center">
           <br/>
-          <a href="https://tiacsys.github.io/bridle/bridle/boards/index.html">
+          <a href="https://tiac-systems.net/bridle/doc/latest/bridle/boards/index.html">
             <img src="https://github.com/FortAwesome/Font-Awesome/raw/master/svgs/solid/object-group.svg" width="100"/>
             <h3>Supported Boards</h3>
           </a>
@@ -70,7 +70,7 @@ which is built **for connected low power products and safety critical environmen
       <td width="225px" height="225px">
         <div align="center">
           <br/>
-          <a href="https://tiacsys.github.io/bridle/bridle/samples.html">
+          <a href="https://tiac-systems.net/bridle/doc/latest/bridle/samples.html">
             <img src="https://github.com/FortAwesome/Font-Awesome/raw/master/svgs/solid/cogs.svg" width="100"/>
             <h3>Samples & Demos</h3>
           </a>
@@ -79,7 +79,7 @@ which is built **for connected low power products and safety critical environmen
       <td width="225px" height="225px">
         <div align="center">
           <br/>
-          <a href="https://tiacsys.github.io/bridle/bridle/user_guides.html">
+          <a href="https://tiac-systems.net/bridle/doc/latest/bridle/user_guides.html">
             <img src="https://github.com/FortAwesome/Font-Awesome/raw/master/svgs/solid/puzzle-piece.svg" width="100"/>
             <h3>User Guides</h3>
           </a>
@@ -89,7 +89,7 @@ which is built **for connected low power products and safety critical environmen
       <td colspan="4">
         <div align="center">
           <br/>
-          <a href="https://tiacsys.github.io/bridle/bridle/dm_adding_code.html">
+          <a href="https://tiac-systems.net/bridle/doc/latest/bridle/dm_adding_code.html">
             <img src="https://github.com/FortAwesome/Font-Awesome/raw/master/svgs/brands/github.svg" width="100"/>
             <h3>Contribution</h3>
           </a>
