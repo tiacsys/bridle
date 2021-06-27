@@ -296,7 +296,8 @@ add_custom_target(
     ${BRIDLE_DOC_LOG}
   # Copy root index file
   COMMAND ${CMAKE_COMMAND} -E copy
-    ${CMAKE_CURRENT_LIST_DIR}/static/html/index.html
+    ${CMAKE_CURRENT_LIST_DIR}/docroot/.htaccess
+    ${CMAKE_CURRENT_LIST_DIR}/docroot/index.html
     ${HTML_DIR}
   WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
   COMMENT "Generating Bridle HTML documentation with ${SPHINXBUILD} to ${HTML_DIR}/bridle"
