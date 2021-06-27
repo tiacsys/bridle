@@ -141,22 +141,17 @@ Serve documentation locally
 ***************************
 
 Allow running from localhost; local build can be served with Python
-HTTP server module. To do that you have to link the documentation output
-in ``build/bridle-doc/html`` as ``latest`` back into a mocked HTTP server
-document root with the correct prefix folder as it is implicit defined by
-``BRIDLE_PATH_PREFIX`` in :bridle_file:`doc/static/js/bridle.js`:
+HTTP server module:
 
 .. code-block:: console
 
-   mkdir -p build/http-root/bridle/doc
-   ln -sf ../../../bridle-doc/html build/http-root/bridle/doc/latest
-   python -m http.server -b 127.0.0.1 -d build/http-root &
+   python -m http.server -b localhost -d build/bridle-doc/html 4711 &
 
 Now you can browse locally with:
 
 .. code-block:: console
 
-   firefox http://127.0.0.1:8000/bridle/doc/latest/index.html &
+   firefox http://localhost:4711/index.html &
 
 Caching and cleaning
 ********************
