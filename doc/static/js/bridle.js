@@ -73,8 +73,8 @@ function BRIDLE () {
   };
 
   /*
-   * Updates the dropbox of nRF Connect SDK versions displayed below the
-   * current development version, and links to the same page currently being
+   * Updates the dropbox of Bridle versions displayed below the current
+   * development version, and links to the same page currently being
    * browsed in those earlier releases.
    */
   state.updateVersionDropDown = function() {
