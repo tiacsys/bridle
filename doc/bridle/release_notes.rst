@@ -3,9 +3,14 @@
 Release Notes
 #############
 
-See the release notes for information about specific |BRIDLE| releases.
+|BRIDLE| plans to following
+:ref:`Zephyr's release scheduling <zephyr:release_process>` that is currently
+updates approximately every three-months. As long as there is no reason to do
+other |BRIDLE| takes over Zephyr's version number, but try to reflect it on
+the `Semantic Versioning 2.0.0`_ scheme. See the release notes below for
+information about specific |BRIDLE| releases.
 
-.. important:: |BRIDLE| follows `Semantic Versioning 2.0.0`_.
+.. important::
 
    A "99" in the version number of this documentation indicates continuous
    updates on the main branch since the previous major and minor release.
@@ -19,4 +24,4 @@ See the release notes for information about specific |BRIDLE| releases.
    :caption: Releases
    :maxdepth: 1
 
-   doc/release-notes-0.2.5
+   doc/release-notes-2.5.0

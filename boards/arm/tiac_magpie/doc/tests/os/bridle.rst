@@ -50,7 +50,7 @@ Building and Running
 
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1/1 tiac_magpie               common/kernel.common                               :bgn:`PASSED` (device 6.073s)
+         INFO    - 1/1 tiac_magpie               common/bridle.common                               :bgn:`PASSED` (device 6.073s)
 
          INFO    - :bgn:`1 of 1` test configurations passed (100.00%), :bbk:`0` failed, :byl:`35` skipped with :bbk:`0` warnings in :bbk:`33.97 seconds`
          INFO    - In total 1 test cases were executed, 0 skipped on 1 out of total 330 platforms (0.30%)
