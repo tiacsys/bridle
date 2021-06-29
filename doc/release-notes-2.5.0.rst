@@ -88,3 +88,15 @@ Documentation
 
 * Created first draft including documentation for selected samples
   and libraries.
+
+Issue Related Items
+*******************
+
+These GitHub issues were addressed since project bootstrapping:
+
+* :github:`30` - [FER] Bridle version definition
+* :github:`21` - Change all copyright strings
+* :github:`7` - Missing CI build and test for all supported boards
+* :github:`5` - Improve documentation environment
+* :github:`4` - Zephyr does not know F777
+* :github:`3` - Missing TiaC Magpie STM32F777NIHx

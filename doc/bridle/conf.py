@@ -93,7 +93,7 @@ extensions = [
     'options_from_kconfig',
 #   'tiac_include',
 #   'sphinx.ext.todo',
-#   'sphinx.ext.extlinks',
+    'sphinx.ext.extlinks',
 #   'sphinx.ext.autodoc',
     'sphinx.ext.ifconfig',
     'sphinxcontrib.mscgen',
@@ -383,6 +383,10 @@ cpp_id_attributes = [
     '__subsystem',
 ]
 c_id_attributes = cpp_id_attributes
+
+extlinks = {
+    'github': ('https://github.com/tiacsys/bridle/issues/%s', '')
+}
 
 def setup(app):
     app.add_css_file("css/colors.css")  ### by TiaC ###
