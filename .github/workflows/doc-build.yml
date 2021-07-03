@@ -17,6 +17,9 @@ on:
       - 'include/**'
       - '.known-issues/doc/**'
       - '**/Kconfig*'
+      - 'scripts/tools-versions-*'
+      - 'scripts/requirements-*'
+      - 'scripts/requirements.txt'
       - 'west.yml'
       - '.github/workflows/doc-*.yml'
   push:
@@ -32,6 +35,9 @@ on:
       - 'include/**'
       - '.known-issues/doc/**'
       - '**/Kconfig*'
+      - 'scripts/tools-versions-*'
+      - 'scripts/requirements-*'
+      - 'scripts/requirements.txt'
       - 'west.yml'
       - '.github/workflows/doc-*.yml'
 
