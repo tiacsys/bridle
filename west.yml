@@ -19,9 +19,7 @@
 # information.
 
 manifest:
-  # This west.yml requires west 0.9 or later, because the "submodules"
-  # feature used below was introduced then.
-  version: 0.9
+  version: "0.10"
 
   # If not otherwise specified, the projects below should be obtained
   # from the tiacsys remote.
@@ -61,7 +59,7 @@ manifest:
         # the Zephyr project.
         #
         # Please keep this list sorted alphabetically.
-        name-whitelist:
+        name-allowlist:
           - canopennode
           - cmsis
           - civetweb
