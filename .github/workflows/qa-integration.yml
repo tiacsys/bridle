@@ -30,6 +30,8 @@ on:
       - '**.defconfig'
       - '**.overlay'
       - '**.yaml'
+      - 'scripts/requirements-*'
+      - 'scripts/requirements.txt'
       - 'west.yml'
       - '.github/workflows/qa-integration.yml'
 
