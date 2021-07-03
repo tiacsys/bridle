@@ -4,6 +4,6 @@ cmake=3.17.3
 ninja=1.9.0
 gperf=3.1;hash=258483ea2fd445d42d869d495504f960202fe0c3
 dtc=1.4.7;hash=0747cc9d6b50ac8a3b1b576e4509494f2258aef2
-openocd=0.10.0
-west=0.10.0
+openocd=0.11.0-1 (xPack OpenOCD from GitHub)
+west=0.11.0
 zephyr-sdk=0.12.4
