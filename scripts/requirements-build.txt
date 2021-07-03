@@ -1,5 +1,5 @@
-ecdsa>=0.16.1
+ecdsa>=0.17.0
 imagesize>=1.2.0
 intelhex>=2.3.0
-pylint>=2.6.0
-regex>=2020.11.13
+pylint>=2.9.0
+regex>=2021.7.1
