@@ -69,6 +69,7 @@ manifest:
           - fatfs
           - hal_altera
           - hal_espressif
+          - hal_nordic
           - hal_stm32
           - hal_xtensa
           - libmetal
