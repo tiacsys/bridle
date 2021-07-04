@@ -22,11 +22,16 @@ To manually install |BRIDLE|, you must install all required tools and clone
 the |BRIDLE| repositories. See the following sections for detailed instructions.
 
 The first two steps, :ref:`gs_installing_tools` and
-:ref:`gs_installing_toolchain`, are identical to the installation in Zephyr.
-If you already have your system set up to work with the Zephyr OS, you can
-skip these steps.
+:ref:`gs_installing_toolchain`, are similar to the installation steps in
+Zephyr's :ref:`zephyr:getting_started`. If you already have your system set up
+to work with the Zephyr OS, you can skip these steps.
+
+See :ref:`gs_installing_os` for information on the supported operating systems
+and Zephyr features.
 
 .. _gs_installing_tools:
+
+.. rst-class:: numbered-step
 
 Installing the required tools
 *****************************
@@ -38,18 +43,30 @@ The installation process is different depending on your operating system.
    .. group-tab:: Windows
 
       The recommended way for installing the required tools on Windows is
-      to use Chocolatey, a package manager for Windows. Chocolatey installs
+      to use `Chocolatey`_, a package manager for Windows. Chocolatey installs
       the tools so that you can use them from a Windows command prompt.
 
-      To install the required tools, follow the :ref:`install-required-tools`
-      section for Windows in Zephyr's :ref:`zephyr:getting_started`.
+      To install the required tools, complete the following steps:
+
+      .. tsn-include:: getting_started/index.rst
+         :docset: zephyr
+         :dedent: 6
+         :start-after: .. _install_dependencies_windows:
+         :end-before: _get_the_code:
 
    .. group-tab:: Linux
 
-      To install the required tools on Linux, follow the
-      :ref:`install-required-tools` section for Linux in Zephyr's
-      :ref:`zephyr:getting_started`. Additional information is available
-      in the :ref:`zephyr:linux_requirements` section.
+      To install the required tools on Ubuntu, complete the following steps:
+
+      .. tsn-include:: getting_started/index.rst
+         :docset: zephyr
+         :dedent: 6
+         :start-after: .. _install_dependencies_ubuntu:
+         :end-before: group-tab:: macOS
+
+      For additional information and instructions for other Linux operating
+      systems, see the :ref:`zephyr:linux_requirements` section in the Zephyr
+      documentation.
 
       .. note::
 
@@ -62,15 +79,19 @@ The installation process is different depending on your operating system.
 
    .. group-tab:: macOS
 
-      To install the required tools, follow the :ref:`install-required-tools`
-      section for macOS in Zephyr's :ref:`zephyr:getting_started`.
+      To install the required tools on macOS, complete the following steps:
 
-      Install Homebrew and install the required tools using the ``brew``
-      command line tool.
+      .. tsn-include:: getting_started/index.rst
+         :docset: zephyr
+         :dedent: 6
+         :start-after: .. _install_dependencies_macos:
+         :end-before: group-tab:: Windows
 
       Also see :ref:`zephyr:mac-setup-alts` for additional information.
 
 .. _gs_installing_toolchain:
+
+.. rst-class:: numbered-step
 
 Installing the toolchain
 ************************
@@ -167,6 +188,8 @@ To set up the toolchain, complete the following steps:
 .. _cloning_the_repositories_win:
 .. _cloning_the_repositories:
 
+.. rst-class:: numbered-step
+
 Getting the |BRIDLE| code
 *************************
 
@@ -198,6 +221,10 @@ model in the :ref:`development model section <dev-model>`.
 
 See the :ref:`west documentation <zephyr:west>` for detailed information
 about the tool itself.
+
+.. _gs_setup_pyvenv:
+
+.. rst-class:: numbered-step
 
 Setup Python Virtual Environment
 ================================
@@ -237,6 +264,10 @@ change into this new folder and execute:
          source .env/bin/activate
          pip3 install --upgrade pip
          pip3 install --upgrade setuptools
+
+.. _gs_installing_west:
+
+.. rst-class:: numbered-step
 
 Installing west
 ===============
@@ -295,6 +326,10 @@ Therefore, remember to regularly check for updates:
          :class: highlight
 
          pip3 install --upgrade  west
+
+.. _cloning_with_west:
+
+.. rst-class:: numbered-step
 
 Cloning the repositories
 ========================
@@ -398,6 +433,10 @@ Your directory structure now looks similar to this::
 Note that there are additional folders, and that the structure might change.
 The full set of repositories and folders is defined in the manifest file.
 
+.. _updating_with_west:
+
+.. rst-class:: numbered-step
+
 Updating the repositories
 =========================
 
@@ -458,6 +497,8 @@ following commands:
 
 .. _additional_deps:
 
+.. rst-class:: numbered-step
+
 Installing additional Python dependencies
 *****************************************
 
@@ -502,12 +543,16 @@ Use the following commands to install the requirements for each repository.
 
 .. _installing_tbd:
 
+.. rst-class:: numbered-step
+
 Installing ... t.b.d. (TBD) IDE
 *******************************
 
 t.b.d.
 
 .. _build_environment:
+
+.. rst-class:: numbered-step
 
 Setting up the build environment
 ********************************
@@ -517,6 +562,8 @@ Before you start
 you must set up your build environment.
 
 .. _setting_up_tbd:
+
+.. rst-class:: numbered-step
 
 Setting up the ... t.b.d. (TBD) IDE environment
 ===============================================
@@ -561,6 +608,8 @@ The process is different depending on your operating system.
 
 .. _build_environment_cli:
 
+.. rst-class:: numbered-step
+
 Setting up the command line build environment
 =============================================
 
@@ -568,8 +617,8 @@ If you want to build and program your application from the command line,
 you must set up your build environment by defining the required environment
 variables every time you open a new command prompt or terminal window.
 
-See :ref:`zephyr:env_vars_important` information about the various relevant
-environment variables.
+See :ref:`zephyr:env_vars` and :ref:`zephyr:important-build-vars` information
+about the various relevant environment variables.
 
 Define the required environment variables as follows, depending on your
 operating system:

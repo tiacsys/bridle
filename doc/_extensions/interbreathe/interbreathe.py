@@ -1,14 +1,9 @@
-#!/usr/bin/env python3
-#
 # Copyright (c) 2020 Nordic Semiconductor ASA
 #
 # SPDX-License-Identifier: Apache-2.0
 
 from sphinx.transforms.post_transforms import SphinxPostTransform
 from sphinx import addnodes
-
-
-__version__ = '0.1.0'
 
 
 class DoxygenIdentifierReferenceResolver(SphinxPostTransform):

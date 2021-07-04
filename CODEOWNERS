@@ -21,8 +21,7 @@
 /README.md                                @rexut
 /west.yml                                 @rexut
 
-/.known-issues/                           @rexut
-/.github/				  @rexut
+/.github/                                 @rexut
 /.github/workflows/                       @rexut
 /arch/                                    @rexut
 /soc/arm/                                 @rexut
@@ -46,6 +45,7 @@
 /drivers/                                 @rexut
 /dts/arm/st/                              @rexut
 /dts/bindings/                            @rexut
+/dts/binding-template.txt                 @rexut
 /include/                                 @rexut
 /lib/                                     @rexut
 /lib/bridle/                              @rexut

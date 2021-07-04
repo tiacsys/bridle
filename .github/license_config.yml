@@ -1,7 +1,9 @@
 license:
-  main: apache-2.0
   report_missing: true
   category: Permissive
+  main: apache-2.0
+  additional:
+    - bsd-new
 copyright:
   check: true
 exclude:

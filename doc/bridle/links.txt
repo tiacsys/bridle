@@ -43,6 +43,10 @@
 
 .. _`openSSL`: https://www.openssl.org/
 
+.. _`mscgen`: http://www.mcternan.me.uk/mscgen/
+
+.. _`Doxygen`: https://www.doxygen.nl/
+
 .. _`GNU Arm Embedded Toolchain`: https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads
 
 .. _`J-Link Software and Documentation Pack`: https://www.segger.com/downloads/jlink

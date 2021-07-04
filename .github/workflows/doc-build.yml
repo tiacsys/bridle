@@ -89,32 +89,8 @@ jobs:
       - name: Build documentation
         working-directory: workspace
         run: |
-          cmake -B build -GNinja bridle/doc
+          cmake -B build -GNinja -DSPHINXOPTS_EXTRA="-W" bridle/doc
           ninja -C build build-all
-
-      - name: Check build warnings
-        working-directory: workspace/build
-        run: |
-          if [ -s Kconfig/sphinx.log ]; then
-            errors=$(cat Kconfig/sphinx.log)
-            echo "::error file=Kconfig/sphinx.log::$errors"
-            exit 1
-          fi
-          if [ -s devicetree/sphinx.log ]; then
-            errors=$(cat devicetree/sphinx.log)
-            echo "::error file=devicetree/sphinx.log::$errors"
-            exit 1
-          fi
-          if [ -s zephyr/doc.warnings ]; then
-            errors=$(cat zephyr/doc.warnings)
-            echo "::error file=zephyr/doc.warnings::$errors"
-            exit 1
-          fi
-          if [ -s bridle/doc.warnings ]; then
-            errors=$(cat bridle/doc.warnings)
-            echo "::error file=bridle/doc.warnings::$errors"
-            exit 1
-          fi
 
       - name: Archive documentation
         working-directory: workspace/build

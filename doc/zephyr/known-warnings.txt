@@ -1,0 +1,7 @@
+# Each line should contain the regular expression of a known Sphinx warning
+# that should be filtered out additional to the original filter set
+.*undefined label.*devicetree_.*
+.*undefined label.*dtbinding_.*
+.*Duplicate explicit target name.*"install_dependencies_ubuntu"\.
+.*Duplicate explicit target name.*"install_dependencies_macos"\.
+.*Duplicate explicit target name.*"install_dependencies_windows"\.

@@ -753,6 +753,7 @@ WARN_LOGFILE           = bridle_warnings.txt
 
 
 INPUT                  = @BRIDLE_BASE@/applications \
+                         @BRIDLE_BASE@/subsys \
                          @BRIDLE_BASE@/lib \
                          @BRIDLE_BASE@/include
 

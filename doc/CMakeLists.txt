@@ -1,6 +1,6 @@
 # Copyright (c) 2021 TiaC Systems
 # Copyright (c) 2019-2021 Li-Pro.Net
-# Copyright (c) 2019-2020 Nordic Semiconductor ASA
+# Copyright (c) 2019-2021 Nordic Semiconductor ASA
 # SPDX-License-Identifier: LicenseRef-Nordic-5-Clause
 
 # Builds combined documentation for all documentation sets: Bridle, Zephyr, etc.
@@ -21,7 +21,188 @@ project(bridle-doc LANGUAGES)
 set(NO_BOILERPLATE TRUE)
 find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE} ..)
 
+#-------------------------------------------------------------------------------
+# Options
+
+set(SPHINXOPTS_DEFAULT -j auto CACHE INTERNAL "Default Sphinx Options")
+set(SPHINXOPTS_EXTRA "" CACHE STRING "Extra Sphinx Options (from CLI/CI)")
+
+if(WIN32)
+  set(SEP $<SEMICOLON>)
+else()
+  set(SEP :)
+endif()
+
+#-------------------------------------------------------------------------------
+# Dependencies
+
+find_package(PythonInterp 3.6)
+set(DOXYGEN_SKIP_DOT True)  # Skip the otional Dot component
+find_package(Doxygen REQUIRED)
+
+find_program(SPHINXBUILD sphinx-build)
+if(NOT SPHINXBUILD)
+  message(FATAL_ERROR "The 'sphinx-build' command was not found. Make sure you have Sphinx installed.")
+endif()
+
+find_program(WEST west)
+if(NOT WEST)
+  message(FATAL_ERROR "The 'west' command was not found")
+endif()
+
+set(KCONFIG_BINARY_DIR ${CMAKE_BINARY_DIR}/kconfig)
+list(INSERT MODULE_EXT_ROOT 0 ${ZEPHYR_BASE})
+file(MAKE_DIRECTORY ${KCONFIG_BINARY_DIR})
+
+include(${ZEPHYR_BASE}/cmake/extensions.cmake)
+include(${ZEPHYR_BASE}/cmake/zephyr_module.cmake)
+
+#-------------------------------------------------------------------------------
+# Functions
+
+# Add a new docset.
 #
+# Args:
+# - name: Docset name.
+# - env: Environment passed to the Sphinx build.
+#
+# This function configures multiple targets which can be used to build a docset.
+# The docset configuration (conf.py) is expected to be at the ${name} folder
+# (relative to the current directory). The sources are taken from the
+# ${name}/src folder (relative to the build directory). This means that docsets
+# need to make use of the external_content extension in order to gather all
+# docset sources into that folder.
+#
+# Configured targets:
+# - ${name}: Alias for ${name}-html.
+# - ${name}-inventory: Run Sphinx "inventory" build. It requires to enable
+#   the "inventory" builder on the docset conf.py. This target can be used
+#   to solve circular dependencies between docsets.
+# - ${name}-html: Run Sphinx "html" build.
+# - ${name}-linkcheck: Run Sphinx "linkcheck" target.
+# - ${name}-clean: Clean build artifacts.
+#
+function(add_docset name env sphinxopts)
+  set(DOCSET_CFG_DIR ${CMAKE_CURRENT_LIST_DIR}/${name})
+  set(DOCSET_BUILD_DIR ${CMAKE_BINARY_DIR}/${name})
+  set(DOCSET_SRC_DIR ${CMAKE_BINARY_DIR}/${name}/src)
+  set(DOCSET_DOX_DIR ${CMAKE_BINARY_DIR}/${name}/doxygen)
+  set(DOCSET_HTML_DIR ${CMAKE_BINARY_DIR}/html/${name})
+  set(DOCSET_MAKE_DIRS ${DOCSET_BUILD_DIR};${DOCSET_SRC_DIR};${DOCSET_DOX_DIR})
+  set(DOCSET_CLEAN_DIRS ${DOCSET_SRC_DIR};${DOCSET_DOX_DIR};${DOCSET_HTML_DIR})
+
+  add_doc_target(
+    ${name}-inventory
+    COMMAND ${CMAKE_COMMAND} -E make_directory ${DOCSET_MAKE_DIRS}
+    COMMAND ${CMAKE_COMMAND} -E env ${env}
+    ${SPHINXBUILD} -v
+      -b inventory
+      -c ${DOCSET_CFG_DIR}
+      -w ${DOCSET_BUILD_DIR}/inventory.log
+      ${SPHINXOPTS_DEFAULT}
+      ${SPHINXOPTS_EXTRA}
+      ${sphinxopts}
+      ${DOCSET_SRC_DIR}
+      ${DOCSET_HTML_DIR}
+    VERBATIM
+    WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
+    COMMENT "Generating documentation inventory for ${name}"
+    USES_TERMINAL
+  )
+
+  add_doc_target(
+    ${name}-html
+    COMMAND ${CMAKE_COMMAND} -E make_directory ${DOCSET_MAKE_DIRS}
+    COMMAND ${CMAKE_COMMAND} -E env ${env}
+    ${SPHINXBUILD} -v
+      -b html
+      -c ${DOCSET_CFG_DIR}
+      -w ${DOCSET_BUILD_DIR}/html.log
+      ${SPHINXOPTS_DEFAULT}
+      ${SPHINXOPTS_EXTRA}
+      ${sphinxopts}
+      ${DOCSET_SRC_DIR}
+      ${DOCSET_HTML_DIR}
+    VERBATIM
+    WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
+    COMMENT "Generating HTML documentation for ${name}"
+    USES_TERMINAL
+  )
+
+  add_custom_target(
+    ${name}-linkcheck
+    COMMAND ${CMAKE_COMMAND} -E make_directory ${DOCSET_MAKE_DIRS}
+    COMMAND ${CMAKE_COMMAND} -E env ${env}
+    ${SPHINXBUILD} -v
+      -b linkcheck
+      -c ${DOCSET_CFG_DIR}
+      -w ${DOCSET_BUILD_DIR}/linkcheck.log
+      ${SPHINXOPTS_DEFAULT}
+      ${SPHINXOPTS_EXTRA}
+      ${sphinxopts}
+      ${DOCSET_SRC_DIR}
+      ${DOCSET_BUILD_DIR}
+    VERBATIM
+    WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
+    COMMENT "Running documentation linkcheck for ${name}"
+    USES_TERMINAL
+  )
+
+  set_target_properties(
+    ${name}-inventory ${name}-inventory-all
+    ${name}-html ${name}-html-all
+    ${name}-linkcheck
+    PROPERTIES
+      ADDITIONAL_CLEAN_FILES "${DOCSET_CLEAN_DIRS}"
+  )
+
+  if(${CMAKE_VERSION} VERSION_LESS 3.17)
+    add_custom_target(
+      ${name}-clean
+      COMMAND ${CMAKE_COMMAND} -E remove_directory ${DOCSET_CLEAN_DIRS}
+      VERBATIM
+      WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
+      COMMENT "Cleaning documentation sources for ${name}"
+      USES_TERMINAL
+    )
+  else()
+    add_custom_target(
+      ${name}-clean
+      COMMAND ${CMAKE_COMMAND} -E rm -rf ${DOCSET_CLEAN_DIRS}
+      VERBATIM
+      WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
+      COMMENT "Cleaning documentation sources for ${name}"
+      USES_TERMINAL
+    )
+  endif()
+
+  add_custom_target(${name})
+  add_dependencies(${name} ${name}-html)
+endfunction()
+
+# Create a custom doc target.
+#
+# This function has the same signature as `add_custom_target()`
+#
+# The function will create two targets for the doc build system.
+# - Target 1 named: `<name>`
+# - Target 2 named: `<name>-all`
+#
+# Both targets will produce same result, but target 1 is useful when only
+# wanting to build a subset of the docs and missing references to other targets
+# are acceptable (warnings will be generated).
+#
+# Target 2 is used for complete docset builds where it is important that build
+# order of each target is under full control.
+#
+function(add_doc_target name)
+  add_custom_target(${name} ${ARGN})
+  add_custom_target(${name}-all ${ARGN})
+endfunction()
+
+#-------------------------------------------------------------------------------
+# Environment & Paths
+
 # Set various *_BASE variables pointing to the bridle/, zephyr/, etc.,
 # directories. Derive them automatically if they're not set in the environment,
 # by assuming that e.g. bridlexlib can be found at ../../bridlexlib/. Also add
@@ -31,136 +212,199 @@ find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE} ..)
 get_filename_component(BRIDLE_BASE ${CMAKE_CURRENT_LIST_DIR}../ DIRECTORY)
 set(ENV{BRIDLE_BASE} ${BRIDLE_BASE})
 
-message(STATUS "BRIDLE_BASE: $ENV{BRIDLE_BASE}")
 message(STATUS "ZEPHYR_BASE: ${ZEPHYR_BASE}")
+message(STATUS "BRIDLE_BASE: $ENV{BRIDLE_BASE}")
 
-# Output directory for the shared Devicetree bindings and
-# DTS root folders that have to parse (YAML to RTS).
-set(DTS_BINDINGS_BINARY_DIR ${CMAKE_BINARY_DIR}/devicetree)
-set(DTS_BINDINGS_RST_OUT ${DTS_BINDINGS_BINARY_DIR})
-set(DTS_ROOTS ${ZEPHYR_BASE} ${BRIDLE_BASE})
-
-message(STATUS "DTS_ROOTS: ${DTS_ROOTS}")
-
-#
-# Find programs we need (Python, Sphinx, and Doxygen)
-#
-
-find_package(PythonInterp 3.6)
-set(DOXYGEN_SKIP_DOT True) # Skip the otional Dot component
-find_package(Doxygen REQUIRED)
-
-find_program(SPHINXBUILD sphinx-build)
-if(${SPHINXBUILD} STREQUAL SPHINXBUILD-NOTFOUND)
-  message(FATAL_ERROR "The 'sphinx-build' command was not found. Make sure you have Sphinx installed.")
-endif()
-
-#
-# CMake build directories (build/zephyr, build/bridle, etc.) and the shared
-# HTML output directory.
-#
+set(DTS_ROOTS)
+list(APPEND DTS_ROOTS ${ZEPHYR_BASE})
+list(APPEND DTS_ROOTS ${BRIDLE_BASE})
 
 set(ZEPHYR_BINARY_DIR ${CMAKE_BINARY_DIR}/zephyr)
 set(BRIDLE_BINARY_DIR ${CMAKE_BINARY_DIR}/bridle)
-
-# Output directory for the shared Kconfig reference
-set(KCONFIG_BINARY_DIR ${CMAKE_BINARY_DIR}/Kconfig)
+set(DTS_BINDINGS_BINARY_DIR ${CMAKE_BINARY_DIR}/devicetree)
 
 # HTML output directory
 set(HTML_DIR ${CMAKE_BINARY_DIR}/html)
 file(MAKE_DIRECTORY ${HTML_DIR})
 
-# Known issues script
-set(KI_SCRIPT ${ZEPHYR_BASE}/scripts/filter-known-issues.py)
+#-------------------------------------------------------------------------------
+# docset: Zephyr
 
-#
-# Add the 'zephyr' target for building the Zephyr documentation. We reuse
-# doc/CMakeLists.txt from the Zephyr repository, but use our own Sphinx
-# configuration from doc/zephyr/conf.py. The generated HTML is placed in
-# the common Sphinx HTML output folder.
-#
-
-# Parameters to doc/CMakeLists.txt in Zephyr
-set(SPHINXOPTS -c ${BRIDLE_BASE}/doc/zephyr)
-set(SPHINX_OUTPUT_DIR ${HTML_DIR}/zephyr)
-set(KCONFIG_OUTPUT ${HTML_DIR}/kconfig)
-set(DTS_BINDINGS_OUTPUT ${HTML_DIR}/devicetree)
-set(GEN_DEVICETREE_REST_ZEPHYR_DOCSET " ")
-
-# Get access to the 'html' target from doc/CMakeLists.txt in Zephyr
-set(MODULES_EXT_ROOT ${BRIDLE_BASE})
-add_subdirectory(${ZEPHYR_BASE}/doc ${ZEPHYR_BINARY_DIR})
-
-# Bridle specific parameters to pass these through to doc/zephyr/conf.py (the
-# Sphinx configuration file). We use it for HTML Templates and Intersphinx.
-set(zephyr_sphinx_environment
-  ZEPHYR_BASE=${ZEPHYR_BASE}
-  ZEPHYR_BUILD=${ZEPHYR_BINARY_DIR}
-  ZEPHYR_OUTPUT=${SPHINX_OUTPUT_DIR}
-  ZEPHYR_RST_SRC=${ZEPHYR_BINARY_DIR}/rst/doc
-  KCONFIG_OUTPUT=${KCONFIG_OUTPUT}
-  DTS_BINDINGS_OUTPUT=${DTS_BINDINGS_OUTPUT}
-  BRIDLE_BASE=${BRIDLE_BASE}
+set(zephyr_kws_files
+    ${ZEPHYR_BASE}/doc/known-warnings.txt
+    ${BRIDLE_BASE}/doc/zephyr/known-warnings.txt
 )
+string(REPLACE ";" "\\;" zephyr_kws_files_escaped "${zephyr_kws_files}")
 
-# The 'html' target is from Zephyr
-set(ZEPHYR_SPHINX_BUILD_HTML_COMMAND
-  ${CMAKE_COMMAND} -E env
-    ${zephyr_sphinx_environment}
-      ${CMAKE_MAKE_PROGRAM} html
+add_custom_command(
+  OUTPUT ${ZEPHYR_BINARY_DIR}/known-warnings.txt
+  COMMAND ${CMAKE_COMMAND}
+    -DIN_FILES="${zephyr_kws_files_escaped}"
+    -DOUT_FILE=${ZEPHYR_BINARY_DIR}/known-warnings.txt
+    -P ${BRIDLE_BASE}/doc/update_appends.cmake
+  DEPENDS
+    ${zephyr_kws_files}
 )
 
 add_custom_target(
-  zephyr-html
-  COMMAND ${ZEPHYR_SPHINX_BUILD_HTML_COMMAND}
-  WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
-  COMMENT "Generating Zephyr HTML documentation with ${SPHINXBUILD} ${SPHINXOPTS}"
-  USES_TERMINAL
+  zephyr-known-warnings
+  DEPENDS
+    ${ZEPHYR_BINARY_DIR}/known-warnings.txt
 )
-add_dependencies(zephyr-html kconfig-html devicetree-html)
 
-add_custom_target(zephyr)
-add_dependencies(zephyr zephyr-html)
+set(zephyr_env
+  BRIDLE_BASE=${BRIDLE_BASE}
+  ZEPHYR_BASE=${ZEPHYR_BASE}
+  ZEPHYR_BUILD=${ZEPHYR_BINARY_DIR}
+  DOXYGEN_EXECUTABLE=${DOXYGEN_EXECUTABLE}
+)
 
-#
-# Add 'clean-zephyr', 'clean-bridle', etc., targets
-#
+add_docset(zephyr "${zephyr_env}" "")
+add_dependencies(zephyr-inventory zephyr-known-warnings kconfig-inventory)
+add_dependencies(zephyr-inventory-all zephyr-known-warnings kconfig-inventory-all)
+add_dependencies(zephyr-html zephyr-known-warnings kconfig-inventory)
+add_dependencies(zephyr-html-all zephyr-known-warnings kconfig-inventory-all)
 
-foreach(target kconfig devicetree zephyr bridle)
-  set(TARGET_BINARY_DIR ${CMAKE_BINARY_DIR}/${target})
-  # Cleanup build output
-  add_custom_target(
-    clean-${target}
-    COMMAND ${CMAKE_COMMAND} -E remove_directory ${TARGET_BINARY_DIR}/doctrees
-    COMMAND ${CMAKE_COMMAND} -E remove_directory ${TARGET_BINARY_DIR}/doxygen
-    COMMAND ${CMAKE_COMMAND} -E remove_directory ${TARGET_BINARY_DIR}/rst
-    COMMAND ${CMAKE_COMMAND} -E remove ${TARGET_BINARY_DIR}/*.log
-    COMMAND ${CMAKE_COMMAND} -E remove ${TARGET_BINARY_DIR}/*.warnings
-    COMMAND ${CMAKE_COMMAND} -E remove ${TARGET_BINARY_DIR}/last_doxy_run_tstamp
-    # Remove generated HTML as well
-    COMMAND ${CMAKE_COMMAND} -E remove_directory ${HTML_DIR}/${target}
-  )
+#-------------------------------------------------------------------------------
+# docset: devicetree
+
+# The CMake variable GEN_DEVICETREE_REST_ZEPHYR_DOCSET will
+# be passed to the script in the environment. This allows separating
+# the bindings documentation into a standalone Sphinx docset that
+# nonetheless can link to Zephyr documentation using intersphinx.
+# If empty, the variable has no effect on the script.
+
+set(GEN_DEVICETREE_REST_SCRIPT ${ZEPHYR_BASE}/doc/_scripts/gen_devicetree_rest.py)
+set(GEN_DEVICETREE_REST_ZEPHYR_DOCSET zephyr)
+
+# The devicetree bindings discovered in ${DTS_ROOTS} are parsed and
+# documentation for them is generated in the directory
+# ${DTS_BINDINGS_RST_OUT}.
+
+if(NOT DTS_ROOTS)
+  set(DTS_ROOTS ${ZEPHYR_BASE})
+endif()
+
+set(DTS_ROOT_ARGS)
+foreach(root ${DTS_ROOTS})
+  list(APPEND DTS_ROOT_ARGS --dts-root ${root})
 endforeach()
 
-#
-# Add bridle-related targets
-#
+set(DTS_BINDINGS_RST_OUT ${DTS_BINDINGS_BINARY_DIR}/src)
 
-set(BRIDLE_SPHINXOPTS -d ${BRIDLE_BINARY_DIR}/doctrees ${BRIDLE_SPHINXOPTS})
+add_custom_target(
+  devicetree-content
+  COMMAND ${CMAKE_COMMAND} -E make_directory ${DTS_BINDINGS_RST_OUT}
+  COMMAND ${CMAKE_COMMAND} -E env
+  PYTHONPATH=${ZEPHYR_BASE}/scripts/dts/python-devicetree/src${SEP}$ENV{PYTHONPATH}
+  ZEPHYR_BASE=${ZEPHYR_BASE}
+  GEN_DEVICETREE_REST_ZEPHYR_DOCSET=${GEN_DEVICETREE_REST_ZEPHYR_DOCSET}
+  ${PYTHON_EXECUTABLE} ${GEN_DEVICETREE_REST_SCRIPT}
+    --vendor-prefixes ${ZEPHYR_BASE}/dts/bindings/vendor-prefixes.txt
+    ${DTS_ROOT_ARGS} ${DTS_BINDINGS_RST_OUT}
+  VERBATIM
+  WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
+  COMMENT "Running gen_devicetree_rest.py ${DTS_BINDINGS_RST_OUT}"
+  USES_TERMINAL
+)
 
-set(BRIDLE_DOC_DIR ${BRIDLE_BASE}/doc/bridle)
+set(devicetree_env
+  ZEPHYR_BASE=${ZEPHYR_BASE}
+  BRIDLE_BASE=${BRIDLE_BASE}
+)
 
-set(BRIDLE_DOXYFILE_IN ${BRIDLE_DOC_DIR}/bridle.doxyfile.in)
-set(BRIDLE_DOXYFILE_OUT ${BRIDLE_BINARY_DIR}/bridle.doxyfile)
-set(BRIDLE_RST_OUT ${BRIDLE_BINARY_DIR}/rst)
-set(BRIDLE_DOC_LOG ${BRIDLE_BINARY_DIR}/doc.log)
-set(BRIDLE_DOXY_LOG ${BRIDLE_BINARY_DIR}/doxy.log)
-set(BRIDLE_SPHINX_LOG ${BRIDLE_BINARY_DIR}/sphinx.log)
-set(BRIDLE_CONTENT_OUTPUTS ${BRIDLE_BINARY_DIR}/extracted-content.txt)
-set(BRIDLE_DOC_WARN ${BRIDLE_BINARY_DIR}/doc.warnings)
-set(BRIDLE_KI_DIR ${BRIDLE_BASE}/.known-issues/doc)
+add_docset(devicetree "${devicetree_env}" "")
+add_dependencies(devicetree-inventory devicetree-content zephyr-inventory)
+add_dependencies(devicetree-inventory-all devicetree-content zephyr-inventory-all)
+add_dependencies(devicetree-html devicetree-content zephyr-inventory)
+add_dependencies(devicetree-html-all devicetree-content zephyr-inventory-all)
 
-configure_file(${BRIDLE_DOXYFILE_IN} ${BRIDLE_DOXYFILE_OUT} @ONLY)
+#-------------------------------------------------------------------------------
+# docset: kconfig
+
+file(WRITE ${KCONFIG_BINARY_DIR}/Kconfig.soc.defconfig
+     "osource \"${ZEPHYR_BASE}/soc/$(ARCH)/*/Kconfig.defconfig\"\n"
+)
+file(WRITE ${KCONFIG_BINARY_DIR}/Kconfig.soc
+     "osource \"${ZEPHYR_BASE}/soc/$(ARCH)/*/Kconfig.soc\"\n"
+)
+file(WRITE ${KCONFIG_BINARY_DIR}/Kconfig.shield.defconfig
+     "osource \"${ZEPHYR_BASE}/boards/shields/*/Kconfig.defconfig\"\n"
+)
+file(WRITE ${KCONFIG_BINARY_DIR}/Kconfig.shield
+     "osource \"${ZEPHYR_BASE}/boards/shields/*/Kconfig.shield\"\n"
+)
+file(WRITE ${KCONFIG_BINARY_DIR}/Kconfig.soc.arch
+     "osource \"${ZEPHYR_BASE}/soc/$(ARCH)/Kconfig\"\n"
+     "osource \"${ZEPHYR_BASE}/soc/$(ARCH)/*/Kconfig\"\n"
+)
+
+set(GEN_KCONFIG_REST_SCRIPT ${ZEPHYR_BASE}/doc/_scripts/gen_kconfig_rest.py)
+
+foreach(module_name ${ZEPHYR_MODULE_NAMES})
+  zephyr_string(SANITIZE TOUPPER MODULE_NAME_UPPER ${module_name})
+  list(APPEND
+       ZEPHYR_KCONFIG_MODULES
+       "ZEPHYR_${MODULE_NAME_UPPER}_MODULE_DIR=${ZEPHYR_${MODULE_NAME_UPPER}_MODULE_DIR}"
+  )
+
+  if(ZEPHYR_${MODULE_NAME_UPPER}_KCONFIG)
+    list(APPEND
+         ZEPHYR_KCONFIG_MODULES
+         "ZEPHYR_${MODULE_NAME_UPPER}_KCONFIG=${ZEPHYR_${MODULE_NAME_UPPER}_KCONFIG}"
+  )
+  endif()
+endforeach()
+
+set(KCONFIG_RST_OUT ${KCONFIG_BINARY_DIR}/src)
+
+add_custom_target(
+  kconfig-content
+  COMMAND ${CMAKE_COMMAND} -E make_directory ${KCONFIG_RST_OUT}
+  COMMAND ${CMAKE_COMMAND} -E env
+    PYTHONPATH=${ZEPHYR_BASE}/scripts/kconfig${SEP}$ENV{PYTHONPATH}
+    ZEPHYR_BASE=${ZEPHYR_BASE}
+    srctree=${ZEPHYR_BASE}
+    BOARD_DIR=boards/*/*/
+    ARCH=*
+    ARCH_DIR=arch/
+    SOC_DIR=soc/
+    KCONFIG_BINARY_DIR=${KCONFIG_BINARY_DIR}
+    KCONFIG_WARN_UNDEF=y
+    KCONFIG_TURBO_MODE=${KCONFIG_TURBO_MODE}
+    KCONFIG_DOC_MODE=1
+    ${ZEPHYR_KCONFIG_MODULES}
+      ${PYTHON_EXECUTABLE} ${GEN_KCONFIG_REST_SCRIPT} ${KCONFIG_RST_OUT}
+        --separate-all-index
+        --modules "Zephyr Architecture,zephyr-arch,${ZEPHYR_BASE}/arch"
+                  "Zephyr SoC,zephyr-soc,${ZEPHYR_BASE}/soc"
+                  "Zephyr Driver,zephyr-drivers,${ZEPHYR_BASE}/drivers"
+                  "Zephyr Boards,zephyr-boards,${ZEPHYR_BASE}/boards"
+                  "Zephyr Kernel,zephyr-kernel,${ZEPHYR_BASE}/kernel"
+                  "Zephyr Library,zephyr-lib,${ZEPHYR_BASE}/lib"
+                  "Zephyr Subsystem,zephyr-subsys,${ZEPHYR_BASE}/subsys"
+                  "External Modules,modules,${ZEPHYR_BASE}/modules"
+                  "Bridle,bridle,${BRIDLE_BASE}"
+        --no-index-modules BuildDir,${CMAKE_BINARY_DIR}
+  VERBATIM
+  WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
+  COMMENT "Running gen_kconfig_rest.py ${KCONFIG_RST_OUT}"
+  USES_TERMINAL
+)
+
+set(kconfig_env
+  ZEPHYR_BASE=${ZEPHYR_BASE}
+  BRIDLE_BASE=${BRIDLE_BASE}
+)
+
+add_docset(kconfig "${kconfig_env}" "")
+add_dependencies(kconfig-inventory kconfig-content)
+add_dependencies(kconfig-inventory-all kconfig-content)
+add_dependencies(kconfig-html kconfig-content zephyr-inventory)
+add_dependencies(kconfig-html-all kconfig-content zephyr-inventory-all)
+
+#-------------------------------------------------------------------------------
+# docset: bridle
 
 set(tools_version_files
     ${BRIDLE_BASE}/scripts/tools-versions-minimum.txt
@@ -180,13 +424,15 @@ set(pip_requirements_files
 string(REPLACE ";" "\\;" tools_files_escaped "${tools_version_files}")
 string(REPLACE ";" "\\;" pip_files_escaped "${pip_requirements_files}")
 
+set(BRIDLE_DOC_DIR ${BRIDLE_BASE}/doc/bridle)
+
 add_custom_command(
-  OUTPUT ${BRIDLE_RST_OUT}/doc/bridle/versions.txt
+  OUTPUT ${BRIDLE_BINARY_DIR}/src/versions.txt
   COMMAND ${CMAKE_COMMAND}
     -DTOOLS_VERSION_FILES="${tools_files_escaped}"
     -DPIP_REQUIREMENTS_FILES="${pip_files_escaped}"
     -DVERSION_IN=${BRIDLE_DOC_DIR}/versions.txt.in
-    -DVERSION_OUT=${BRIDLE_RST_OUT}/doc/bridle/versions.txt
+    -DVERSION_OUT=${BRIDLE_BINARY_DIR}/src/versions.txt
     -P ${BRIDLE_BASE}/doc/update_versions.cmake
   DEPENDS
     ${BRIDLE_DOC_DIR}/versions.txt.in
@@ -195,288 +441,53 @@ add_custom_command(
 )
 
 add_custom_target(
-  bridle-doxy
-  COMMAND ${CMAKE_COMMAND}
-    -DCOMMAND=${DOXYGEN_EXECUTABLE}
-    -DARGS="${BRIDLE_DOXYFILE_OUT}"
-    -DOUTPUT_FILE=${BRIDLE_DOXY_LOG}
-    -DERROR_FILE=${BRIDLE_DOXY_LOG}
-    -DWORKING_DIRECTORY=${CMAKE_CURRENT_LIST_DIR}
-    -P ${ZEPHYR_BASE}/cmake/util/execute_process.cmake
+  bridle-versions
+  DEPENDS
+    ${BRIDLE_BINARY_DIR}/src/versions.txt
 )
 
-set(BRIDLE_EXTRACT_CONTENT_COMMAND
-  ${CMAKE_COMMAND} -E env
-  ZEPHYR_BASE=${BRIDLE_BASE}
-  ${PYTHON_EXECUTABLE} ${ZEPHYR_BASE}/doc/scripts/extract_content.py
-  --outputs ${BRIDLE_CONTENT_OUTPUTS}
-  --ignore ${CMAKE_CURRENT_BINARY_DIR}
-  --sphinx-src-root ${BRIDLE_DOC_DIR}
-  "*:doc:${BRIDLE_RST_OUT}"
-  # We want to copy the .rst files in samples/ and boards/ to the rst
-  # folder, and also the doc folder inside rst.
-  #
-  # Some files refer to items in samples/ and boards/ relative to
-  # their actual position in the Zephyr tree. For example, in
-  # subsystems/sensor.rst:
-  #
-  # .. literalinclude:: ../../samples/sensor/my4711/src/main.c
-  #
-  # The additional copy is a hackaround so these references work.
-  "*.rst:boards:${BRIDLE_RST_OUT}/doc/bridle"
-  "*.csv:boards:${BRIDLE_RST_OUT}/doc/bridle"
-  "*.ioc:boards:${BRIDLE_RST_OUT}/doc/bridle"
-  "*.pdf:boards:${BRIDLE_RST_OUT}/doc/bridle"
-  "*.rst:samples:${BRIDLE_RST_OUT}/doc/bridle"
-  "*.rst:applications:${BRIDLE_RST_OUT}/doc/bridle"
-  "*.rst:include:${BRIDLE_RST_OUT}/doc/bridle"
-  "*.rst:lib:${BRIDLE_RST_OUT}/doc/bridle"
-  "*.rst:drivers:${BRIDLE_RST_OUT}/doc/bridle"
-  "*.rst:scripts:${BRIDLE_RST_OUT}/doc/bridle"
-  "*.rst:tests:${BRIDLE_RST_OUT}/doc/bridle"
-  "release-notes*.rst:doc:${BRIDLE_RST_OUT}/doc/bridle"
-  "changelog.rst:doc:${BRIDLE_RST_OUT}/doc/bridle"
-)
-
-
-add_custom_target(
-  bridle-content
-  # Copy all files in doc/ to the rst folder
-  COMMAND ${BRIDLE_EXTRACT_CONTENT_COMMAND}
-  WORKING_DIRECTORY ${BRIDLE_DOC_DIR}
-  DEPENDS ${BRIDLE_RST_OUT}/doc/bridle/versions.txt
-  COMMENT "Copying files to ${BRIDLE_RST_OUT}"
-  USES_TERMINAL
-)
-
-if(WIN32)
-  set(SEP $<SEMICOLON>)
-else()
-  set(SEP :)
-endif()
-
-set(bridle_sphinx_environment
+set(bridle_env
   ZEPHYR_BASE=${ZEPHYR_BASE}
-  ZEPHYR_BUILD=${ZEPHYR_BINARY_DIR}
-  ZEPHYR_OUTPUT=${SPHINX_OUTPUT_DIR}
-  ZEPHYR_RST_SRC=${ZEPHYR_BINARY_DIR}/rst/doc
-  KCONFIG_OUTPUT=${KCONFIG_OUTPUT}
-  DTS_BINDINGS_OUTPUT=${DTS_BINDINGS_OUTPUT}
   BRIDLE_BASE=${BRIDLE_BASE}
   BRIDLE_BUILD=${BRIDLE_BINARY_DIR}
-  BRIDLE_OUTPUT=${HTML_DIR}/bridle
-  BRIDLE_RST_SRC=${BRIDLE_RST_OUT}/doc/bridle
+  DOXYGEN_EXECUTABLE=${DOXYGEN_EXECUTABLE}
 )
 
-set(BRIDLE_SPHINX_BUILD_HTML_COMMAND
-  ${CMAKE_COMMAND} -E env
-    ${bridle_sphinx_environment}
-      ${SPHINXBUILD}
-        -w ${BRIDLE_SPHINX_LOG}
-	-N
-	-b html
-	${BRIDLE_SPHINXOPTS}
-	${BRIDLE_RST_OUT}/doc/bridle
-	${HTML_DIR}/bridle
-)
+add_docset(bridle "${bridle_env}" "-j 1")
+add_dependencies(bridle-html bridle-versions devicetree-inventory zephyr-inventory)
+add_dependencies(bridle-html-all bridle-versions devicetree-inventory-all zephyr-inventory-all)
+
+#-------------------------------------------------------------------------------
+# Global targets
 
 add_custom_target(
-  bridle-html
-  COMMAND ${BRIDLE_SPHINX_BUILD_HTML_COMMAND}
-  # Merge the Doxygen and Sphinx logs into a single file
-  COMMAND ${CMAKE_COMMAND}
-    -P ${ZEPHYR_BASE}/cmake/util/fmerge.cmake
-    ${BRIDLE_DOC_LOG}
-    ${BRIDLE_DOXY_LOG}
-    ${BRIDLE_SPHINX_LOG}
-  COMMAND ${PYTHON_EXECUTABLE} ${KI_SCRIPT}
-    --config-dir ${BRIDLE_KI_DIR}
-    --errors ${BRIDLE_DOC_WARN}
-    --warnings ${BRIDLE_DOC_WARN}
-    ${BRIDLE_DOC_LOG}
-  # Copy root index file
+  copy-extra-content
+  COMMAND ${CMAKE_COMMAND} -E make_directory ${HTML_DIR}
   COMMAND ${CMAKE_COMMAND} -E copy
-    ${CMAKE_CURRENT_LIST_DIR}/docroot/.htaccess
-    ${CMAKE_CURRENT_LIST_DIR}/docroot/index.html
-    ${HTML_DIR}
-  WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
-  COMMENT "Generating Bridle HTML documentation with ${SPHINXBUILD} to ${HTML_DIR}/bridle"
-  USES_TERMINAL
-)
-add_dependencies(bridle-html bridle-doxy bridle-content kconfig-html devicetree-html zephyr)
-
-add_custom_target(
-  bridle-copy-versions
-  COMMAND ${CMAKE_COMMAND} -E copy
+    ${CMAKE_CURRENT_LIST_DIR}/_docroot/.htaccess
+    ${CMAKE_CURRENT_LIST_DIR}/_docroot/index.html
     ${BRIDLE_BASE}/doc/versions.json
-    ${HTML_DIR}/versions.json
+    ${HTML_DIR}
 )
 
-add_custom_target(bridle)
-add_dependencies(bridle bridle-html bridle-copy-versions)
-
-#
-# Add targets for building the shared Kconfig reference
-#
-
-# The Kconfig reference is a separate documentation set that's shared between
-# all modules (Bridle, Zephyr, etc.). This makes it possible to link to Kconfig
-# symbols regardless of where they are defined.
-#
-# We rely on the Zephyr Kconfig files pulling in the other Kconfig files, and
-# use the --modules option to gen_kconfig_rest.py to split the documentation
-# into a separate page for each module.
-
-set(KCONFIG_RST_OUT ${KCONFIG_BINARY_DIR}/rst)
-get_directory_property(
-  ZEPHYR_KCONFIG_MODULES
-  DIRECTORY ${ZEPHYR_BASE}/doc
-  DEFINITION ZEPHYR_KCONFIG_MODULES
+set_target_properties(
+  copy-extra-content
+  PROPERTIES
+    ADDITIONAL_CLEAN_FILES "${HTML_DIR}"
 )
 
-# The 'kconfig-content' target uses gen_kconfig_rest.py to generate .rst files
-# for all Kconfig symbols, as well as index pages that point to them.
-add_custom_target(
-  kconfig-content
-  COMMAND ${CMAKE_COMMAND} -E make_directory ${KCONFIG_RST_OUT}
-  COMMAND ${CMAKE_COMMAND} -E env
-    PYTHONPATH=${ZEPHYR_BASE}/scripts/kconfig${SEP}$ENV{PYTHONPATH}
-    ZEPHYR_BASE=${ZEPHYR_BASE}
-    srctree=${ZEPHYR_BASE}
-    BOARD_DIR=boards/*/*/
-    ARCH=*
-    ARCH_DIR=arch/
-    SOC_DIR=soc/
-    KCONFIG_BINARY_DIR=${KCONFIG_BINARY_DIR}
-    KCONFIG_WARN_UNDEF=y
-    KCONFIG_TURBO_MODE=${KCONFIG_TURBO_MODE}
-    KCONFIG_DOC_MODE=1
-    ${ZEPHYR_KCONFIG_MODULES}
-      ${PYTHON_EXECUTABLE}
-        ${ZEPHYR_BASE}/doc/scripts/gen_kconfig_rest.py ${KCONFIG_RST_OUT}
-        --separate-all-index
-        --keep-module-paths
-        --modules "Zephyr Architecture,zephyr-arch,${ZEPHYR_BASE}/arch"
-                  "Zephyr SoC,zephyr-soc,${ZEPHYR_BASE}/soc"
-                  "Zephyr Driver,zephyr-drivers,${ZEPHYR_BASE}/drivers"
-                  "Zephyr Boards,zephyr-boards,${ZEPHYR_BASE}/boards"
-                  "Zephyr Kernel,zephyr-kernel,${ZEPHYR_BASE}/kernel"
-                  "Zephyr Library,zephyr-lib,${ZEPHYR_BASE}/lib"
-                  "Zephyr Subsystem,zephyr-subsys,${ZEPHYR_BASE}/subsys"
-                  "Zephyr Modules,zephyr-modules,${ZEPHYR_BASE}/modules"
-                  "Bridle,bridle,${BRIDLE_BASE}"
-        --no-index-modules BuildDir,${CMAKE_BINARY_DIR}
-  VERBATIM
+add_dependencies(zephyr-html-all kconfig-html-all devicetree-html-all)
+add_dependencies(bridle-html-all zephyr-html-all kconfig-html-all devicetree-html-all)
+
+add_custom_target(build-all ALL)
+add_dependencies(build-all
+    copy-extra-content
+    bridle-html-all
+    zephyr-html-all
+    kconfig-html-all
 )
-
-# Bridle specific parameters to pass these through to doc/kconfig/conf.py (the
-# Sphinx configuration file). We use it for HTML Templates and Intersphinx.
-set(kconfig_sphinx_environment
-  ZEPHYR_BASE=${ZEPHYR_BASE}
-  ZEPHYR_BUILD=${CMAKE_CURRENT_BINARY_DIR}
-  BRIDLE_BASE=${BRIDLE_BASE}
-)
-
-# No 'kconfig' target exists, because it clashes with the imported 'kconfig'
-# target from the Zephyr repository.
-
-add_custom_target(
-  kconfig-html
-  COMMAND ${CMAKE_COMMAND} -E env
-    ${kconfig_sphinx_environment}
-      ${SPHINXBUILD}
-        -b html
-        -c ${BRIDLE_BASE}/doc/kconfig
-        -d ${KCONFIG_BINARY_DIR}/doctrees
-        -N
-        -w ${KCONFIG_BINARY_DIR}/sphinx.log
-        # The Kconfig reference build doesn't use Breathe, so we can safely
-        # parallelize it
-        -j auto
-        ${KCONFIG_RST_OUT}
-        ${HTML_DIR}/kconfig
-  WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
-  COMMENT "Generating Kconfig HTML reference with ${SPHINXBUILD} to ${HTML_DIR}/kconfig"
-  USES_TERMINAL
-)
-add_dependencies(kconfig-html kconfig-content)
-
-#
-# Add targets for building the shared Devicetree bindings
-#
-
-# The Devicetree bindings is a separate documentation set that's shared
-# between all modules (Bridle, Zephyr, etc.). This makes it possible to link
-# to Devicetree symbols regardless of where they are defined.
-#
-# Bridle specific parameters to pass these through to doc/kconfig/conf.py (the
-# Sphinx configuration file). We use it for HTML Templates and Intersphinx.
-set(devicetree_sphinx_environment
-  ZEPHYR_BASE=${ZEPHYR_BASE}
-  ZEPHYR_BUILD=${CMAKE_CURRENT_BINARY_DIR}
-  ZEPHYR_OUTPUT=${SPHINX_OUTPUT_DIR}
-  DTS_BINDINGS_OUTPUT=${DTS_BINDINGS_OUTPUT}
-  BRIDLE_BASE=${BRIDLE_BASE}
-)
-
-# No 'devicetree' target exists, because it clashes with the imported
-# 'devicetree' target from the Zephyr repository that generates .rst files
-# for all Devicetree bindings, as well as index pages that point to them.
-
-add_custom_target(
-  devicetree-html
-  COMMAND ${CMAKE_COMMAND} -E copy_if_different
-    ${BRIDLE_BASE}/doc/devicetree/*.rst
-    ${DTS_BINDINGS_RST_OUT}
-  COMMAND ${CMAKE_COMMAND} -E env
-    ${devicetree_sphinx_environment}
-      ${SPHINXBUILD}
-        -b html
-        -c ${BRIDLE_BASE}/doc/devicetree
-        -d ${DTS_BINDINGS_BINARY_DIR}/doctrees
-        -N
-        -w ${DTS_BINDINGS_BINARY_DIR}/sphinx.log
-        # The Kconfig reference build doesn't use Breathe, so we can safely
-        # parallelize it
-        -j auto
-        ${DTS_BINDINGS_RST_OUT}
-        ${HTML_DIR}/devicetree
-  WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
-  COMMENT "Generating Devicetree HTML bindings with ${SPHINXBUILD} to ${HTML_DIR}/devicetree"
-  USES_TERMINAL
-)
-add_dependencies(devicetree-html devicetree)
-
-add_custom_target(
-  build-all
-  COMMAND ${CMAKE_MAKE_PROGRAM} kconfig-html
-  COMMAND ${CMAKE_MAKE_PROGRAM} devicetree-html
-  COMMAND ${CMAKE_MAKE_PROGRAM} zephyr
-  COMMAND ${CMAKE_MAKE_PROGRAM} bridle
-  COMMENT "Generating all Bridle HTML documentation to ${HTML_DIR}"
-  USES_TERMINAL
-)
-
-#
-# Add targets for checking links
-#
-
-add_custom_target(
-  bridle-linkcheck
-  COMMAND ${CMAKE_COMMAND} -E env
-    ${bridle_sphinx_environment}
-      ${SPHINXBUILD}
-        -w ${BRIDLE_SPHINX_LOG}
-	-N
-	-b linkcheck
-	${BRIDLE_SPHINXOPTS}
-	${BRIDLE_RST_OUT}/doc/bridle
-	${BRIDLE_BINARY_DIR}
-  WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
-  USES_TERMINAL
-)
-
-add_dependencies(bridle-linkcheck bridle-doxy bridle-content kconfig-html devicetree-html zephyr)
 
 add_custom_target(linkcheck)
-add_dependencies(linkcheck bridle-linkcheck)
+add_dependencies(linkcheck
+    bridle-linkcheck
+)
