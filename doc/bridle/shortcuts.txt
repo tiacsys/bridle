@@ -3,3 +3,4 @@
 
 .. |release| replace:: v2.5.0
 .. |release_tt| replace:: ``v2.5.0``
+.. |release_number_tt| replace:: ``2.5.0``

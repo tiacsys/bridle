@@ -12,12 +12,12 @@ under :zephyr_file:`doc/templates/board.tmpl`
 .. toctree::
    :maxdepth: 2
 
-   x86/index.rst
-   arm/index.rst
-   arc/index.rst
-   nios2/index.rst
-   xtensa/index.rst
-   posix/index.rst
-   riscv/index.rst
-   sparc/index.rst
-   shields/index.rst
+   x86/index
+   arm/index
+   arc/index
+   nios2/index
+   xtensa/index
+   posix/index
+   riscv/index
+   sparc/index
+   shields/index

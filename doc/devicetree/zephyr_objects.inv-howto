@@ -1,3 +1,0 @@
-cd <this_dir>
-wget -O zephyr_objects.inv \
-     https://tiac-systems.net/bridle/doc/latest/zephyr/objects.inv

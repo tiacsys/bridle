@@ -180,6 +180,8 @@ Building and running applications, samples, and tests
    * - windows-curses (only Windows)
      - |windows-curses_ver|
 
+.. _python_req_documentation:
+
 Building documentation
 ======================
 

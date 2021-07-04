@@ -1,16 +1,16 @@
 # Copyright (c) 2021 TiaC Systems
-# Copyright (c) 2021 Li-Pro.Net
-# Copyright (c) 2020 Nordic Semiconductor ASA
+# Copyright (c) 2021 Nordic Semiconductor ASA
+#
 # SPDX-License-Identifier: Apache-2.0
 
 from sphinx.application import Sphinx
-from . import options_from_kconfig
+from . import tsn_include
 
 __version__ = '0.0.1'
 
 
 def setup(app: Sphinx):
-    options_from_kconfig.setup(app)
+    tsn_include.setup(app)
 
     return {
         'version': __version__,

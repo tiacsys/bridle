@@ -1,6 +1,5 @@
-# Copyright (c) 2021 TiaC Systems
-# Copyright (c) 2021 Li-Pro.Net
 # Copyright (c) 2020 Nordic Semiconductor ASA
+#
 # SPDX-License-Identifier: Apache-2.0
 
 import os
@@ -9,7 +8,11 @@ import sys
 
 from docutils import statemachine
 from docutils.parsers.rst import directives
+from sphinx.application import Sphinx
 from sphinx.util.docutils import SphinxDirective
+
+
+__version__ = '0.0.1'
 
 
 class OptionsFromKconfig(SphinxDirective):
@@ -36,18 +39,15 @@ class OptionsFromKconfig(SphinxDirective):
         kconfiglib._SOURCE_TOKENS = kconfiglib._REL_SOURCE_TOKENS
         kconfiglib.Kconfig._parse_error = lambda self_, msg: None
 
-    @staticmethod
-    def _get_kconfig_path(path):
-        rel_path = os.path.relpath(path, os.environ['BRIDLE_RST_SRC'])
-        return os.path.join(os.environ['BRIDLE_BASE'], rel_path, 'Kconfig')
+    def _get_kconfig_path(self, path):
+        rel_path = os.path.relpath(path, self.env.srcdir)
+        return os.path.join(
+            self.config.options_from_kconfig_base_dir, rel_path, 'Kconfig'
+        )
 
     def run(self):
         if 'ZEPHYR_BASE' not in os.environ:
             raise self.severe("ZEPHYR_BASE is not in the environment")
-        if 'BRIDLE_BASE' not in os.environ:
-            raise self.severe("BRIDLE_BASE is not in the environment")
-        if 'BRIDLE_RST_SRC' not in os.environ:
-            raise self.severe("BRIDLE_RST_SRC is not in the environment")
 
         if len(self.arguments) > 0:
             _, path = self.env.relfn2path(self.arguments[0])
@@ -110,5 +110,13 @@ class OptionsFromKconfig(SphinxDirective):
         return []
 
 
-def setup(app):
+def setup(app: Sphinx):
+    app.add_config_value("options_from_kconfig_base_dir", None, "env")
+
     directives.register_directive('options-from-kconfig', OptionsFromKconfig)
+
+    return {
+        'version': __version__,
+        'parallel_read_safe': True,
+        'parallel_write_safe': True,
+    }

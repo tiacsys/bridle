@@ -54,19 +54,19 @@ be used based on the board standard headers available.
    :bridle_file:`loopback_test <boards/shields/loopback_test/loopback_test.overlay>`
 
 .. |Arduino R3| replace::
-   :ref:`Arduino R3 <arduino_header_r3>`
+   :ref:`Arduino R3 <devicetree:dtbinding_arduino_header_r3>`
 
 .. |loopback_test_arduino| replace::
    :bridle_file:`loopback_test_arduino <boards/shields/loopback_test/loopback_test_arduino.overlay>`
 
 .. |MikroBus| replace::
-   :ref:`MikroBus <mikro_bus>`
+   :ref:`MikroBus <devicetree:dtbinding_mikro_bus>`
 
 .. |loopback_test_mikrobus| replace::
    :bridle_file:`loopback_test_mikrobus <boards/shields/loopback_test/loopback_test_mikrobus.overlay>`
 
 .. |TiaC MAGPIE Pin Header| replace::
-   :ref:`TiaC MAGPIE Pin Header <tiac_magpie_pin_header>`
+   :ref:`TiaC MAGPIE Pin Header <devicetree:dtbinding_tiac_magpie_pin_header>`
 
 .. |loopback_test_tmph| replace::
    :bridle_file:`loopback_test_tmph <boards/shields/loopback_test/loopback_test_tmph.overlay>`
