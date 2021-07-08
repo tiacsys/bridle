@@ -202,27 +202,17 @@ function(add_doc_target name)
 endfunction()
 
 #-------------------------------------------------------------------------------
-# Environment & Paths
-
-# Set various *_BASE variables pointing to the bridle/, zephyr/, etc.,
-# directories. Derive them automatically if they're not set in the environment,
-# by assuming that e.g. bridlexlib can be found at ../../bridlexlib/. Also add
-# them to the environment if they're not there.
-#
+# Paths
 
 get_filename_component(BRIDLE_BASE ${CMAKE_CURRENT_LIST_DIR}../ DIRECTORY)
-set(ENV{BRIDLE_BASE} ${BRIDLE_BASE})
-
-message(STATUS "ZEPHYR_BASE: ${ZEPHYR_BASE}")
-message(STATUS "BRIDLE_BASE: $ENV{BRIDLE_BASE}")
-
-set(DTS_ROOTS)
-list(APPEND DTS_ROOTS ${ZEPHYR_BASE})
-list(APPEND DTS_ROOTS ${BRIDLE_BASE})
 
 set(ZEPHYR_BINARY_DIR ${CMAKE_BINARY_DIR}/zephyr)
 set(BRIDLE_BINARY_DIR ${CMAKE_BINARY_DIR}/bridle)
 set(DTS_BINDINGS_BINARY_DIR ${CMAKE_BINARY_DIR}/devicetree)
+
+set(DTS_ROOTS)
+list(APPEND DTS_ROOTS ${ZEPHYR_BASE})
+list(APPEND DTS_ROOTS ${BRIDLE_BASE})
 
 # HTML output directory
 set(HTML_DIR ${CMAKE_BINARY_DIR}/html)
