@@ -15,30 +15,19 @@ from sphinx.config import eval_config_file
 
 # Paths ------------------------------------------------------------------------
 
-ZEPHYR_BASE = os.environ.get('ZEPHYR_BASE')
-if not ZEPHYR_BASE:
-    raise ValueError('ZEPHYR_BASE environment variable undefined.')
-ZEPHYR_BASE = Path(ZEPHYR_BASE)
-
-ZEPHYR_BUILD = os.environ.get('ZEPHYR_BUILD')
-if not ZEPHYR_BUILD:
-    raise ValueError('ZEPHYR_BUILD environment variable undefined.')
-ZEPHYR_BUILD = Path(ZEPHYR_BUILD)
-BRIDLE_ZEPHYR_BUILD = Path(ZEPHYR_BUILD)  # TODO: fix the new var overwrite
-
-BRIDLE_BASE = os.environ.get('BRIDLE_BASE')
-if not BRIDLE_BASE:
-    raise ValueError('BRIDLE_BASE environment variable undefined.')
-BRIDLE_BASE = Path(BRIDLE_BASE)
-
-# Add the '_extensions' directory to sys.path, to enable finding Bridle's
-# Sphinx extensions within.
-sys.path.insert(0, os.path.join(BRIDLE_BASE, 'doc', '_extensions'))
+BRIDLE_BASE = Path(__file__).absolute().parents[2]
 
 # Add the '_extensions' directory to sys.path, to enable finding Bridle's
 # utilities for Sphinx configuration within.
 sys.path.insert(0, os.path.join(BRIDLE_BASE, 'doc', '_utils'))
 import utils
+
+ZEPHYR_BASE = utils.get_projdir('zephyr')
+BRIDLE_ZEPHYR_BUILD = os.path.join(utils.get_builddir(), 'zephyr')
+
+# Add the '_extensions' directory to sys.path, to enable finding Bridle's
+# Sphinx extensions within.
+sys.path.insert(0, os.path.join(BRIDLE_BASE, 'doc', '_extensions'))
 
 # pylint: disable=undefined-variable
 

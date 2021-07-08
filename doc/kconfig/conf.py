@@ -14,28 +14,22 @@ from pathlib import Path
 
 # Paths ------------------------------------------------------------------------
 
-ZEPHYR_BASE = os.environ.get('ZEPHYR_BASE')
-if not ZEPHYR_BASE:
-    raise ValueError('ZEPHYR_BASE environment variable undefined.')
-ZEPHYR_BASE = Path(ZEPHYR_BASE)
-
-BRIDLE_BASE = os.environ.get('BRIDLE_BASE')
-if not BRIDLE_BASE:
-    raise ValueError('BRIDLE_BASE environment variable undefined.')
-BRIDLE_BASE = Path(BRIDLE_BASE)
-
-# Add the 'extensions' directory to sys.path, to enable finding Zephyr's
-# Sphinx extensions within.
-sys.path.insert(0, os.path.join(ZEPHYR_BASE, 'doc', '_extensions'))
-
-# Add the '_extensions' directory to sys.path, to enable finding Bridle's
-# Sphinx extensions within.
-sys.path.insert(0, os.path.join(BRIDLE_BASE, 'doc', '_extensions'))
+BRIDLE_BASE = Path(__file__).absolute().parents[2]
 
 # Add the '_extensions' directory to sys.path, to enable finding Bridle's
 # utilities for Sphinx configuration within.
 sys.path.insert(0, os.path.join(BRIDLE_BASE, 'doc', '_utils'))
 import utils
+
+ZEPHYR_BASE = utils.get_projdir('zephyr')
+
+# Add the '_extensions' directory to sys.path, to enable finding Bridle's
+# Sphinx extensions within.
+sys.path.insert(0, os.path.join(BRIDLE_BASE, 'doc', '_extensions'))
+
+# Add the 'extensions' directory to sys.path, to enable finding Zephyr's
+# Sphinx extensions within.
+sys.path.insert(0, os.path.join(ZEPHYR_BASE, 'doc', '_extensions'))
 
 # Project ----------------------------------------------------------------------
 
