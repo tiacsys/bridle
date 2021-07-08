@@ -253,9 +253,6 @@ add_custom_target(
 )
 
 set(zephyr_env
-  BRIDLE_BASE=${BRIDLE_BASE}
-  ZEPHYR_BASE=${ZEPHYR_BASE}
-  ZEPHYR_BUILD=${ZEPHYR_BINARY_DIR}
   DOXYGEN_EXECUTABLE=${DOXYGEN_EXECUTABLE}
 )
 
@@ -308,12 +305,7 @@ add_custom_target(
   USES_TERMINAL
 )
 
-set(devicetree_env
-  ZEPHYR_BASE=${ZEPHYR_BASE}
-  BRIDLE_BASE=${BRIDLE_BASE}
-)
-
-add_docset(devicetree "${devicetree_env}" "")
+add_docset(devicetree "" "")
 add_dependencies(devicetree-inventory devicetree-content zephyr-inventory)
 add_dependencies(devicetree-inventory-all devicetree-content zephyr-inventory-all)
 add_dependencies(devicetree-html devicetree-content zephyr-inventory)
@@ -392,12 +384,7 @@ add_custom_target(
   USES_TERMINAL
 )
 
-set(kconfig_env
-  ZEPHYR_BASE=${ZEPHYR_BASE}
-  BRIDLE_BASE=${BRIDLE_BASE}
-)
-
-add_docset(kconfig "${kconfig_env}" "")
+add_docset(kconfig "" "")
 add_dependencies(kconfig-inventory kconfig-content)
 add_dependencies(kconfig-inventory-all kconfig-content)
 add_dependencies(kconfig-html kconfig-content zephyr-inventory)
@@ -447,9 +434,6 @@ add_custom_target(
 )
 
 set(bridle_env
-  ZEPHYR_BASE=${ZEPHYR_BASE}
-  BRIDLE_BASE=${BRIDLE_BASE}
-  BRIDLE_BUILD=${BRIDLE_BINARY_DIR}
   DOXYGEN_EXECUTABLE=${DOXYGEN_EXECUTABLE}
 )
 
