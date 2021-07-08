@@ -300,6 +300,7 @@ external_content_keep = ['versions.txt']
 # Options for bridle.options_from_kconfig --------------------------------------
 
 options_from_kconfig_base_dir = BRIDLE_BASE
+options_from_kconfig_zephyr_dir = ZEPHYR_BASE
 
 # Linkcheck options ------------------------------------------------------------
 
