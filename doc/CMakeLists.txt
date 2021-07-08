@@ -64,7 +64,7 @@ include(${ZEPHYR_BASE}/cmake/zephyr_module.cmake)
 #
 # Args:
 # - name: Docset name.
-# - env: Environment passed to the Sphinx build.
+# - sphinxopts: Local options passed to the Sphinx build.
 #
 # This function configures multiple targets which can be used to build a docset.
 # The docset configuration (conf.py) is expected to be at the ${name} folder
@@ -82,7 +82,7 @@ include(${ZEPHYR_BASE}/cmake/zephyr_module.cmake)
 # - ${name}-linkcheck: Run Sphinx "linkcheck" target.
 # - ${name}-clean: Clean build artifacts.
 #
-function(add_docset name env sphinxopts)
+function(add_docset name sphinxopts)
   set(DOCSET_CFG_DIR ${CMAKE_CURRENT_LIST_DIR}/${name})
   set(DOCSET_BUILD_DIR ${CMAKE_BINARY_DIR}/${name})
   set(DOCSET_SRC_DIR ${CMAKE_BINARY_DIR}/${name}/src)
@@ -90,11 +90,12 @@ function(add_docset name env sphinxopts)
   set(DOCSET_HTML_DIR ${CMAKE_BINARY_DIR}/html/${name})
   set(DOCSET_MAKE_DIRS ${DOCSET_BUILD_DIR};${DOCSET_SRC_DIR};${DOCSET_DOX_DIR})
   set(DOCSET_CLEAN_DIRS ${DOCSET_SRC_DIR};${DOCSET_DOX_DIR};${DOCSET_HTML_DIR})
+  set(DOCSET_ENV DOXYGEN_EXECUTABLE=${DOXYGEN_EXECUTABLE})
 
   add_doc_target(
     ${name}-inventory
     COMMAND ${CMAKE_COMMAND} -E make_directory ${DOCSET_MAKE_DIRS}
-    COMMAND ${CMAKE_COMMAND} -E env ${env}
+    COMMAND ${CMAKE_COMMAND} -E env ${DOCSET_ENV}
     ${SPHINXBUILD} -v
       -b inventory
       -c ${DOCSET_CFG_DIR}
@@ -113,7 +114,7 @@ function(add_docset name env sphinxopts)
   add_doc_target(
     ${name}-html
     COMMAND ${CMAKE_COMMAND} -E make_directory ${DOCSET_MAKE_DIRS}
-    COMMAND ${CMAKE_COMMAND} -E env ${env}
+    COMMAND ${CMAKE_COMMAND} -E env ${DOCSET_ENV}
     ${SPHINXBUILD} -v
       -b html
       -c ${DOCSET_CFG_DIR}
@@ -132,7 +133,7 @@ function(add_docset name env sphinxopts)
   add_custom_target(
     ${name}-linkcheck
     COMMAND ${CMAKE_COMMAND} -E make_directory ${DOCSET_MAKE_DIRS}
-    COMMAND ${CMAKE_COMMAND} -E env ${env}
+    COMMAND ${CMAKE_COMMAND} -E env ${DOCSET_ENV}
     ${SPHINXBUILD} -v
       -b linkcheck
       -c ${DOCSET_CFG_DIR}
@@ -252,11 +253,7 @@ add_custom_target(
     ${ZEPHYR_BINARY_DIR}/known-warnings.txt
 )
 
-set(zephyr_env
-  DOXYGEN_EXECUTABLE=${DOXYGEN_EXECUTABLE}
-)
-
-add_docset(zephyr "${zephyr_env}" "")
+add_docset(zephyr "")
 add_dependencies(zephyr-inventory zephyr-known-warnings kconfig-inventory)
 add_dependencies(zephyr-inventory-all zephyr-known-warnings kconfig-inventory-all)
 add_dependencies(zephyr-html zephyr-known-warnings kconfig-inventory)
@@ -305,7 +302,7 @@ add_custom_target(
   USES_TERMINAL
 )
 
-add_docset(devicetree "" "")
+add_docset(devicetree "")
 add_dependencies(devicetree-inventory devicetree-content zephyr-inventory)
 add_dependencies(devicetree-inventory-all devicetree-content zephyr-inventory-all)
 add_dependencies(devicetree-html devicetree-content zephyr-inventory)
@@ -384,7 +381,7 @@ add_custom_target(
   USES_TERMINAL
 )
 
-add_docset(kconfig "" "")
+add_docset(kconfig "")
 add_dependencies(kconfig-inventory kconfig-content)
 add_dependencies(kconfig-inventory-all kconfig-content)
 add_dependencies(kconfig-html kconfig-content zephyr-inventory)
@@ -433,11 +430,7 @@ add_custom_target(
     ${BRIDLE_BINARY_DIR}/src/versions.txt
 )
 
-set(bridle_env
-  DOXYGEN_EXECUTABLE=${DOXYGEN_EXECUTABLE}
-)
-
-add_docset(bridle "${bridle_env}" "-j 1")
+add_docset(bridle "-j 1")  # no parallel reading, because of sphinx-csv-filter
 add_dependencies(bridle-html bridle-versions devicetree-inventory zephyr-inventory)
 add_dependencies(bridle-html-all bridle-versions devicetree-inventory-all zephyr-inventory-all)
 
