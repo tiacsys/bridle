@@ -84,6 +84,10 @@ manifest:
           - tinycbor
           - tinycrypt
 
+    - name: lua
+      path: modules/scripting/lua
+      remote: tiacsys
+       
   # West-related configuration for the Bridle repository.
   self:
     # This repository should be cloned to workspace/bridle.
