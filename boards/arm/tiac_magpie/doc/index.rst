@@ -515,9 +515,9 @@ with a single call to Twister.
 
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - Total complete:  :bgn:`125`/ :bgn:`125`  100%  skipped:   :byl:`46`, failed:    :brd:`2`
-         INFO    - :bgn:`103 of 105` test configurations passed (98.10%), :brd:`2` failed, :byl:`46` skipped with :bbk:`0` warnings in :bbk:`1707.50 seconds`
-         INFO    - In total 823 test cases were executed, 367 skipped on 1 out of total 330 platforms (0.30%)
+         INFO    - Total complete:  :bgn:`125`/ :bgn:`125`  100%  skipped:   :byl:`64`, failed:    :brd:`2`
+         INFO    - :bgn:`103 of 105` test configurations passed (98.10%), :brd:`2` failed, :byl:`64` skipped with :bbk:`0` warnings in :bbk:`1896.86 seconds`
+         INFO    - In total 972 test cases were executed, 511 skipped on 1 out of total 370 platforms (0.27%)
          INFO    - :bgn:`105` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
@@ -551,35 +551,83 @@ Detailed Specification
 
 .. _tiac_magpie_board_clocktree_with_kconfig:
 
-System Clock with Kconfig
-=========================
+System Clock with DTS Bindings and Kconfig
+==========================================
 
-The Kconfig default configuration is for STM32 RCC (Reset and Clock Controller)
-and will be used by driver behind DTS binding following the
-:ref:`devicetree:dtbinding_st_stm32_rcc` specification.
+The DTS binding following the :ref:`devicetree:dtbinding_st_stm32_rcc`,
+:ref:`devicetree:dtbinding_st_stm32f7_pll_clock`,
+:ref:`devicetree:dtbinding_st_stm32_hse_clock` and
+:ref:`devicetree:dtbinding_fixed_clock` specification.
+The Kconfig default configuration is for STM32 RTC (Real-Time Clock Controller)
+and will be used by counter driver behind DTS binding following the
+:ref:`devicetree:dtbinding_st_stm32_rtc` specification.
 
-.. list-table:: System Clock Kconfig
+.. list-table:: System Clock DTS Bindings and Kconfig
    :class: longtable
    :align: center
    :widths: 75, 25
    :header-rows: 1
 
    * - Clock-Tree
-     - Kconfig
+     - DTS Bindings / Kconfig
 
    * - .. image:: img/STM32F777NIHx_clocktree.jpg
           :alt: STM32F777NIHx System Clock Tree
           :align: center
           :scale: 75 %
-     - :option:`CONFIG_CLOCK_CONTROL_STM32_CUBE` configuration:
+     - :ref:`devicetree:dtbinding_st_stm32_hse_clock` configuration:
+
+       .. literalinclude:: ../tiac_magpie.dts
+          :caption: tiac_magpie.dts
+          :language: DTS
+          :encoding: ISO-8859-1
+          :emphasize-lines: 3
+          :linenos:
+          :start-at: clk_hse {
+          :end-at: }; // clk_hse
+
+       :ref:`devicetree:dtbinding_st_stm32f7_pll_clock` configuration:
+
+       .. literalinclude:: ../tiac_magpie.dts
+          :caption: tiac_magpie.dts
+          :language: DTS
+          :encoding: ISO-8859-1
+          :emphasize-lines: 3
+          :linenos:
+          :start-at: pll {
+          :end-at: }; // pll
+
+       :ref:`devicetree:dtbinding_st_stm32_rcc` configuration:
+
+       .. literalinclude:: ../tiac_magpie.dts
+          :caption: tiac_magpie.dts
+          :language: DTS
+          :encoding: ISO-8859-1
+          :emphasize-lines: 3,7
+          :linenos:
+          :start-at: rcc {
+          :end-at: }; // rcc
+
+       :ref:`devicetree:dtbinding_fixed_clock` configuration:
+
+       .. literalinclude:: ../tiac_magpie.dts
+          :caption: tiac_magpie.dts
+          :language: DTS
+          :encoding: ISO-8859-1
+          :emphasize-lines: 3
+          :linenos:
+          :start-at: clk_lse {
+          :end-at: }; // clk_lse
+
+       :option:`CONFIG_COUNTER_RTC_STM32_CLOCK_LSE` configuration:
 
        .. literalinclude:: ../tiac_magpie_defconfig
           :caption: tiac_magpie_defconfig
           :language: cfg
           :encoding: ISO-8859-1
-          :emphasize-lines: 2,8
+          :emphasize-lines: 8
           :linenos:
-          :start-at: 216MHz system clock
+          :start-at: Clock Configuration
           :end-before: Enable MPU
 
 .. _tiac_magpie_board_gpioleds_with_dts_bindings:
