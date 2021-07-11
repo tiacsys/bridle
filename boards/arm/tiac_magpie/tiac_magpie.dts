@@ -43,6 +43,47 @@
 	}; // leds
 };
 
+&clk_hse {
+	status = "okay";
+	clock-frequency = <DT_FREQ_M(25)>;
+	hse-bypass;
+}; // clk_hse
+
+&pll {
+	status = "okay";
+	clocks = <&clk_hse>;
+	div-m = <25>;
+	mul-n = <432>;
+	div-p = <2>;
+	div-q = <9>;
+}; // pll
+
+&rcc {
+	status = "okay";
+	clocks = <&pll>;
+	ahb-prescaler = <1>;
+	apb1-prescaler = <4>;
+	apb2-prescaler = <2>;
+	clock-frequency = <DT_FREQ_M(216)>;
+}; // rcc
+
+&clk_lse {
+	status = "okay";
+	clock-frequency = <DT_FREQ_K(32)>;
+}; // clk_lse
+
+&rtc {
+	status = "okay";
+}; // rtc
+
+&iwdg {
+	status = "okay";
+}; // iwdg
+
+&rng {
+	status = "okay";
+}; // rng
+
 &uart7 {
 	status = "okay";		/* default system uart console */
 	pinctrl-0 = <&uart7_tx_pe8	/* UART_TXD7 */
@@ -187,18 +228,6 @@
 		     &adc3_in14_pf4	/* TMPH2_PF4_ADC314 */
 		     &adc3_in15_pf5>;	/* TMPH2_PF5_ADC315 */
 }; // adc3
-
-&rtc {
-	status = "okay";
-}; // rtc
-
-&iwdg {
-	status = "okay";
-}; // iwdg
-
-&rng {
-	status = "okay";
-}; // rng
 
 &flash0 {
 	partitions {
