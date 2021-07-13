@@ -57,11 +57,11 @@ Building and Running
 
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1/2 tiac_magpie               tests/drivers/pwm/pwm_api/drivers.pwm              :bgn:`PASSED` (device 11.436s)
-         INFO    - 2/2 tiac_magpie               tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback :brd:`FAILED` Timeout (device 63.270s)
+         INFO    - 1/2 tiac_magpie               tests/drivers/pwm/pwm_api/drivers.pwm              :bgn:`PASSED` (device 13.218s)
+         INFO    - 2/2 tiac_magpie               tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback :brd:`FAILED` Timeout (device 65.552s)
 
-         INFO    - :bgn:`1 of 2` test configurations passed (100.00%), :bbk:`1` failed, :byl:`0` skipped with :bbk:`0` warnings in :bbk:`105.09 seconds`
-         INFO    - In total 11 test cases were executed, 5 skipped on 1 out of total 330 platforms (0.30%)
+         INFO    - :bgn:`1 of 2` test configurations passed (50.00%), :bbk:`1` failed, :byl:`0` skipped with :bbk:`0` warnings in :bbk:`110.14 seconds`
+         INFO    - In total 11 test cases were executed, 0 skipped on 1 out of total 370 platforms (0.27%)
          INFO    - :bgn:`2` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
@@ -80,7 +80,7 @@ Open Issues
    ===================================================================
    START - test_pulse_capture
    Testing PWM capture @ 15000000/100000000 nsec
-   E: :brd:`syscall z_vrfy_pwm_pin_capture_cycles failed check:` :byl:`Operation` :brd:`pin_configure_capture not defined` :byl:`for driver instance 0x8010514`
+   E: :brd:`syscall z_vrfy_pwm_pin_capture_cycles failed check:` :byl:`Operation` :brd:`pin_configure_capture not defined` :byl:`for driver instance 0x800fe00`
    E: r0/a1:  0x00000000  r1/a2:  0x00000000  r2/a3:  0x00000000
    E: r3/a4:  0x00000000 r12/ip:  0x00000000 r14/lr:  0x00000000
    E:  xpsr:  0x00000000

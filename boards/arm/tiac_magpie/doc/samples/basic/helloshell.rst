@@ -76,43 +76,62 @@ prompt. All shell commands are available and would looks like:
    ID: 0x9e6b44aea1e2b8980c4d32a6
 
    uart:~$ kernel version
-   Zephyr version 2.5.0
+   Zephyr version 2.6.0
 
    uart:~$ bridle version
-   Bridle version 2.5.0
+   Bridle version 2.6.0
 
    uart:~$ bridle version long
-   Bridle version 2.5.0.0
+   Bridle version 2.6.0.0
 
    uart:~$ bridle info
-   Zephyr: 2.5.0
-   Bridle: 2.5.0
+   Zephyr: 2.6.0
+   Bridle: 2.6.0
 
    uart:~$ device list
    devices:
-   - STM32_CLK_RCC
-   - stm32-exti
-   - RTC_0
-   - UART_7
-   - UART_4
-   - sys_clock
-   - ADC_3
-   - GPIOK
-   - GPIOJ
-   - GPIOI
-   - GPIOH
-   - GPIOG
-   - GPIOF
-   - GPIOE
-   - GPIOD
-   - GPIOC
-   - GPIOB
-   - GPIOA
-   - FLASH_CTRL
-   - I2C_4
-   - I2C_2
-   - PWM_8
-   - SPI_4
+   - rcc@40023800 (READY)
+   - interrupt-controller@40013c00 (READY)
+   - RTC_0 (READY)
+     requires: rcc@40023800
+   - UART_7 (READY)
+     requires: rcc@40023800
+   - UART_4 (READY)
+     requires: rcc@40023800
+   - sys_clock (READY)
+   - ADC_3 (READY)
+     requires: rcc@40023800
+   - GPIOK (READY)
+     requires: rcc@40023800
+   - GPIOJ (READY)
+     requires: rcc@40023800
+   - GPIOI (READY)
+     requires: rcc@40023800
+   - GPIOH (READY)
+     requires: rcc@40023800
+   - GPIOG (READY)
+     requires: rcc@40023800
+   - GPIOF (READY)
+     requires: rcc@40023800
+   - GPIOE (READY)
+     requires: rcc@40023800
+   - GPIOD (READY)
+     requires: rcc@40023800
+   - GPIOC (READY)
+     requires: rcc@40023800
+   - GPIOB (READY)
+     requires: rcc@40023800
+   - GPIOA (READY)
+     requires: rcc@40023800
+   - FLASH_CTRL (READY)
+   - I2C_4 (READY)
+     requires: rcc@40023800
+   - I2C_2 (READY)
+     requires: rcc@40023800
+   - PWM_8 (READY)
+     requires: rcc@40023800
+   - SPI_4 (READY)
+     requires: rcc@40023800
 
    uart:~$ history
    [  0] history
@@ -172,10 +191,10 @@ Simple Flash Access
 .. code-block:: console
 
    uart:~$ flash read FLASH_CTRL 10000 40
-   00010000: 73 73 20 74 68 65 20 3c  54 61 62 3e 20 62 75 74 |ss the < Tab> but|
-   00010010: 74 6f 6e 20 74 6f 20 73  65 65 20 61 6c 6c 20 61 |ton to s ee all a|
-   00010020: 76 61 69 6c 61 62 6c 65  20 63 6f 6d 6d 61 6e 64 |vailable  command|
-   00010030: 73 2e 0a 00 59 6f 75 20  63 61 6e 20 61 6c 73 6f |s...You  can also|
+   00010000: 20 73 69 7a 65 20 25 75  29 3a 09 75 6e 75 73 65 | size %u ):.unuse|
+   00010010: 64 20 25 75 09 75 73 61  67 65 20 25 75 20 2f 20 |d %u.usa ge %u / |
+   00010020: 25 75 20 28 25 75 20 25  25 29 0a 00 6b 65 72 6e |%u (%u % %)..kern|
+   00010030: 65 6c 00 4b 65 72 6e 65  6c 20 63 6f 6d 6d 61 6e |el.Kerne l comman|
 
 Simple I2C Operations
 =====================

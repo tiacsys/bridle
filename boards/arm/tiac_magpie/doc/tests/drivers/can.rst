@@ -50,12 +50,12 @@ Building and Running
 
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1/3 tiac_magpie               tests/drivers/can/stm32/drivers.can.stm32          :bgn:`PASSED` (device 2.708s)
-         INFO    - 2/3 tiac_magpie               tests/drivers/can/timing/drivers.can.timing        :bgn:`PASSED` (device 2.557s)
-         INFO    - 3/3 tiac_magpie               tests/drivers/can/api/drivers.can                  :bgn:`PASSED` (device 2.928s)
+         INFO    - 1/3 tiac_magpie               tests/drivers/can/stm32/drivers.can.stm32          :bgn:`PASSED` (device 4.158s)
+         INFO    - 2/3 tiac_magpie               tests/drivers/can/api/drivers.can                  :bgn:`PASSED` (device 4.450s)
+         INFO    - 3/3 tiac_magpie               tests/drivers/can/timing/drivers.can.timing        :bgn:`PASSED` (device 4.249s)
 
-         INFO    - :bgn:`3 of 3` test configurations passed (100.00%), :bbk:`0` failed, :byl:`1` skipped with :bbk:`0` warnings in :bbk:`42.30 seconds`
-         INFO    - In total 14 test cases were executed, 1 skipped on 1 out of total 330 platforms (0.30%)
+         INFO    - :bgn:`3 of 3` test configurations passed (100.00%), :bbk:`0` failed, :byl:`2` skipped with :bbk:`0` warnings in :bbk:`39.21 seconds`
+         INFO    - In total 14 test cases were executed, 5 skipped on 1 out of total 370 platforms (0.27%)
          INFO    - :bgn:`3` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:

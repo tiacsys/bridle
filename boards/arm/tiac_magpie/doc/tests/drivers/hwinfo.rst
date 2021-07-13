@@ -50,10 +50,10 @@ Building and Running
 
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1/1 tiac_magpie               tests/drivers/hwinfo/api/drivers.device_id         :bgn:`PASSED` (device 2.941s)
+         INFO    - 1/1 tiac_magpie               tests/drivers/hwinfo/api/drivers.device_id         :bgn:`PASSED` (device 4.195s)
 
-         INFO    - :bgn:`1 of 1` test configurations passed (100.00%), :bbk:`0` failed, :byl:`0` skipped with :bbk:`0` warnings in :bbk:`30.53 seconds`
-         INFO    - In total 2 test cases were executed, 0 skipped on 1 out of total 330 platforms (0.30%)
+         INFO    - :bgn:`1 of 1` test configurations passed (100.00%), :bbk:`0` failed, :byl:`0` skipped with :bbk:`0` warnings in :bbk:`26.08 seconds`
+         INFO    - In total 2 test cases were executed, 0 skipped on 1 out of total 370 platforms (0.27%)
          INFO    - :bgn:`1` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:

@@ -57,10 +57,10 @@ Building and Running
 
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1/1 tiac_magpie               tests/drivers/i2c/i2c_slave_api/drivers.i2c_slave  :brd:`FAILED` Failed (device 2.599s)
+         INFO    - 1/1 tiac_magpie               tests/drivers/i2c/i2c_slave_api/drivers.i2c_slave  :brd:`FAILED` Failed (device 4.155s)
 
-         INFO    - :brd:`0 of 1` test configurations passed (0.00%), :bbk:`1` failed, :byl:`2` skipped with :bbk:`0` warnings in :bbk:`29.97 seconds`
-         INFO    - In total 1 test cases were executed, 3 skipped on 1 out of total 330 platforms (0.30%)
+         INFO    - :brd:`0 of 1` test configurations passed (0.00%), :bbk:`1` failed, :byl:`2` skipped with :bbk:`0` warnings in :bbk:`21.22 seconds`
+         INFO    - In total 1 test cases were executed, 3 skipped on 1 out of total 370 platforms (0.27%)
          INFO    - :bgn:`1` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
