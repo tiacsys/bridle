@@ -60,7 +60,7 @@ Building and Running
          INFO    - 1/1 tiac_magpie               tests/drivers/adc/adc_loopback/driver.adc :byl:`SKIPPED` (filter)
 
          INFO    - :bgn:`1 of 1` test configurations passed (100.00%), :bbk:`0` failed, :byl:`0` skipped with :bbk:`0` warnings in :bbk:`s.ms seconds`
-         INFO    - In total 1 test cases were executed, 0 skipped on 1 out of total 330 platforms (0.30%)
+         INFO    - In total 1 test cases were executed, 0 skipped on 1 out of total 370 platforms (0.27%)
          INFO    - :bgn:`1` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:

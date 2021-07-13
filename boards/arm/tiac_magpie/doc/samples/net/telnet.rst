@@ -75,12 +75,12 @@ the network interface, and has received an IPv4 address by typing on Linux host:
    $ nmap 192.168.10.184
    Starting Nmap 7.80 ( https://nmap.org ) at 2021-04-05 19:01 CEST
    Nmap scan report for 192.168.10.184
-   Host is up (0.00032s latency).
+   Host is up (0.00043s latency).
    Not shown: 999 closed ports
    PORT   STATE SERVICE
    23/tcp open  telnet
 
-   Nmap done: 1 IP address (1 host up) scanned in 1.46 seconds
+   Nmap done: 1 IP address (1 host up) scanned in 3.77 seconds
 
 At this point you should be able to connect via ``telnet`` over the network.
 On your Linux host:
@@ -101,32 +101,52 @@ or ``kernel version``.
 
    ~$ kernel version
    kernel version
-   Zephyr version 2.5.0
+   Zephyr version 2.6.0
 
    ~$ device list
    device list
    devices:
-   - STM32_CLK_RCC
-   - stm32-exti
-   - UART_7
-   - UART_4
-   - RNG
-   - sys_clock
-   - GPIOK
-   - GPIOJ
-   - GPIOI
-   - GPIOH
-   - GPIOG
-   - GPIOF
-   - GPIOE
-   - GPIOD
-   - GPIOC
-   - GPIOB
-   - GPIOA
-   - I2C_4
-   - I2C_2
-   - SPI_5
-   - ETH_0
+   - rcc@40023800 (READY)
+   - interrupt-controller@40013c00 (READY)
+   - RTC_0 (READY)
+     requires: rcc@40023800
+   - UART_7 (READY)
+     requires: rcc@40023800
+   - UART_4 (READY)
+     requires: rcc@40023800
+   - RNG (READY)
+     requires: rcc@40023800
+   - sys_clock (READY)
+   - GPIOK (READY)
+     requires: rcc@40023800
+   - GPIOJ (READY)
+     requires: rcc@40023800
+   - GPIOI (READY)
+     requires: rcc@40023800
+   - GPIOH (READY)
+     requires: rcc@40023800
+   - GPIOG (READY)
+     requires: rcc@40023800
+   - GPIOF (READY)
+     requires: rcc@40023800
+   - GPIOE (READY)
+     requires: rcc@40023800
+   - GPIOD (READY)
+     requires: rcc@40023800
+   - GPIOC (READY)
+     requires: rcc@40023800
+   - GPIOB (READY)
+     requires: rcc@40023800
+   - GPIOA (READY)
+     requires: rcc@40023800
+   - I2C_4 (READY)
+     requires: rcc@40023800
+   - I2C_2 (READY)
+     requires: rcc@40023800
+   - SPI_4 (READY)
+     requires: rcc@40023800
+   - ETH_0 (READY)
+     requires: rcc@40023800
 
 Simple GPIO Operations
 ======================

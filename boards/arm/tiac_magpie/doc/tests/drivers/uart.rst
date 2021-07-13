@@ -57,14 +57,14 @@ Building and Running
 
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1/1 tiac_magpie               tests/drivers/uart/uart_loopback/driver.uart :byl:`SKIPPED` (filter)
+         INFO    - 1/1 tiac_magpie               tests/drivers/uart/uart_async_api/drivers.uart.uart_async_api :byl:`SKIPPED` (filter)
 
-         INFO    - :bgn:`1 of 1` test configurations passed (100.00%), :bbk:`0` failed, :byl:`0` skipped with :bbk:`0` warnings in :bbk:`s.ms seconds`
-         INFO    - In total 1 test cases were executed, 0 skipped on 1 out of total 330 platforms (0.30%)
-         INFO    - :bgn:`1` test configurations executed on platforms, :brd:`0` test configurations were only built.
+         INFO    - :bgn:`0 of 0` test configurations passed (0.00%), :bbk:`0` failed, :byl:`20` skipped with :bbk:`0` warnings in :bbk:`3.17 seconds`
+         INFO    - In total 0 test cases were executed, 82 skipped on 1 out of total 370 platforms (0.27%)
+         INFO    - :bgn:`0` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
 
          \| Board       \| ID       \|   Counter \|
          \|-------------\|----------\|-----------\|
-         \| tiac_magpie \| DT04BNT1 \|         1 \|
+         \| tiac_magpie \| DT04BNT1 \|         0 \|

@@ -51,10 +51,10 @@ Building and Running
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
          INFO    - 1/2 tiac_magpie               tests/drivers/watchdog/wdt_basic_api/drivers.watchdog.stm32wwdg :byl:`SKIPPED` (filter)
-         INFO    - 2/2 tiac_magpie               tests/drivers/watchdog/wdt_basic_api/drivers.watchdog :bgn:`PASSED` (device 5.192s)
+         INFO    - 2/2 tiac_magpie               tests/drivers/watchdog/wdt_basic_api/drivers.watchdog :bgn:`PASSED` (device 6.457s)
 
-         INFO    - :bgn:`1 of 1` test configurations passed (100.00%), :bbk:`0` failed, :byl:`2` skipped with :bbk:`0` warnings in :bbk:`33.01 seconds`
-         INFO    - In total 1 test cases were executed, 2 skipped on 1 out of total 330 platforms (0.30%)
+         INFO    - :bgn:`1 of 1` test configurations passed (100.00%), :bbk:`0` failed, :byl:`2` skipped with :bbk:`0` warnings in :bbk:`30.06 seconds`
+         INFO    - In total 1 test cases were executed, 2 skipped on 1 out of total 370 platforms (0.27%)
          INFO    - :bgn:`1` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:

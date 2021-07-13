@@ -57,11 +57,11 @@ Building and Running
 
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1/2 tiac_magpie               tests/drivers/gpio/gpio_api_1pin/peripheral.gpio.1pin :bgn:`PASSED` (device 9.262s)
-         INFO    - 2/2 tiac_magpie               tests/drivers/gpio/gpio_basic_api/drivers.gpio.2pin :bgn:`PASSED` (device 17.922s)
+         INFO    - 1/2 tiac_magpie               tests/drivers/gpio/gpio_api_1pin/peripheral.gpio.1pin :bgn:`PASSED` (device 10.823s)
+         INFO    - 2/2 tiac_magpie               tests/drivers/gpio/gpio_basic_api/drivers.gpio.2pin :bgn:`PASSED` (device 19.573s)
 
-         INFO    - :bgn:`2 of 2` test configurations passed (100.00%), :bbk:`0` failed, :byl:`0` skipped with :bbk:`0` warnings in :bbk:`58.19 seconds`
-         INFO    - In total 26 test cases were executed, 5 skipped on 1 out of total 330 platforms (0.30%)
+         INFO    - :bgn:`2 of 2` test configurations passed (100.00%), :bbk:`0` failed, :byl:`0` skipped with :bbk:`0` warnings in :bbk:`49.44 seconds`
+         INFO    - In total 26 test cases were executed, 5 skipped on 1 out of total 370 platforms (0.27%)
          INFO    - :bgn:`2` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
