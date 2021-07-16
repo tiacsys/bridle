@@ -202,8 +202,8 @@ Building documentation
      - |recommonmark_ver|
    * - sphinx
      - |sphinx_ver|
-   * - sphinx_rtd_theme
-     - |sphinx_rtd_theme_ver|
+   * - sphinx-tsn-theme
+     - |sphinx_tsn_theme_ver|
    * - sphinxcontrib-svg2pdfconverter
      - |sphinxcontrib-svg2pdfconverter_ver|
    * - sphinxcontrib-mscgen

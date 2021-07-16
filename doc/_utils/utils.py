@@ -6,14 +6,25 @@ from sphinx.cmd.build import get_parser
 from typing import Dict, Tuple, Optional
 
 
-ALL_DOCSETS = {
+ALL_DOCSETS = {  # first entry is default docset
     "bridle": ("Bridle", "index"),
     "zephyr": ("Zephyr Project", "index"),
     "kconfig": ("Kconfig Reference", "index"),
-    "devicetree": ("Devicetree Bindings", "wrapper"),
+    "devicetree": ("Devicetree Bindings", "index"),
 }
 """All supported docsets (name: title, home page)."""
 
+
+def get_default_docset() -> str:
+    """Optain default docset name.
+
+    Args:
+
+    Returns:
+        String of docset name.
+    """
+    docsets = ALL_DOCSETS.copy()
+    return list(docsets.keys())[0]
 
 def get_docsets(docset: str) -> Dict[str, str]:
     """Obtain all docsets that should be displayed.
