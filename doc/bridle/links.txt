@@ -31,9 +31,57 @@
 
 
 
-.. ### Links to other websites and software
+.. ### Links to required tools and PyPi packages
 
-.. _`Git`: https://git-scm.com/
+.. _`Ccache`: https://ccache.dev/download.html
+.. _`CMake`: https://cmake.org/download/
+.. _`DFU Utilities`: http://dfu-util.sourceforge.net/
+.. _`dfu_util`: http://dfu-util.sourceforge.net/
+.. _`Device tree compiler (MSYS2 Chocolatey)`: https://community.chocolatey.org/packages/dtc-msys2
+.. _`dtc_win10`: https://community.chocolatey.org/packages/dtc-msys2
+.. _`Device tree compiler (Homebrew Formulae)`: https://formulae.brew.sh/formula/dtc
+.. _`dtc_macos`: https://formulae.brew.sh/formula/dtc
+.. _`Device tree compiler (Snap Craft)`: https://snapcraft.io/device-tree-compiler
+.. _`dtc_linux`: https://snapcraft.io/device-tree-compiler
+.. _`OpenOCD`: http://openocd.org/getting-openocd/
+.. _`Git`: https://git-scm.com/downloads
+.. _`GNU gperf`: https://www.gnu.org/software/gperf/
+.. _`gperf`: https://www.gnu.org/software/gperf/
+.. _`Ninja`: https://github.com/ninja-build/ninja/releases
+.. _`Python`: https://www.python.org/downloads/
+.. _`Zephyr SDK`: https://github.com/zephyrproject-rtos/sdk-ng/releases
+.. _`zephyrsdk`: https://github.com/zephyrproject-rtos/sdk-ng/releases
+.. _`GNU Arm Embedded Toolchain`: https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads
+.. _`gnuarmemb`: https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads
+.. _`Doxygen`: https://www.doxygen.org/
+.. _`MscGen`: https://www.mcternan.me.uk/mscgen/
+
+.. _`ecdsa`: https://pypi.org/project/ecdsa/
+.. _`imagesize`: https://pypi.org/project/imagesize/
+.. _`intelhex`: https://pypi.org/project/intelhex/
+.. _`pyelftools`: https://pypi.org/project/pyelftools/
+.. _`pylint`: https://pypi.org/project/pylint/
+.. _`PyYAML`: https://pypi.org/project/PyYAML/
+.. _`west`: https://pypi.org/project/west/
+.. _`windows-curses`: https://pypi.org/project/windows-curses/
+
+.. _`docutils`: https://pypi.org/project/docutils/
+.. _`breathe`: https://pypi.org/project/breathe/
+.. _`Pygments`: https://pypi.org/project/Pygments/
+.. _`CommonMark`: https://pypi.org/project/commonmark/
+.. _`recommonmark`: https://pypi.org/project/recommonmark/
+.. _`Sphinx`: https://pypi.org/project/Sphinx/
+.. _`sphinx-tsn-theme`: https://pypi.org/project/sphinx-tsn-theme/
+.. _`sphinx_tsn_theme`: https://pypi.org/project/sphinx-tsn-theme/
+.. _`sphinx-ncs-theme`: https://pypi.org/project/sphinx-ncs-theme/
+.. _`sphinxcontrib-svg2pdfconverter`: https://pypi.org/project/sphinxcontrib-svg2pdfconverter/
+.. _`sphinxcontrib-mscgen`: https://pypi.org/project/sphinxcontrib-mscgen/
+.. _`sphinx-tabs`: https://pypi.org/project/sphinx-tabs/
+.. _`sphinx-csv-filter`: https://pypi.org/project/sphinx-csv-filter/
+
+
+
+.. ### Links to other websites and software
 
 .. _`GitHub`: https://github.com/
 .. _`GitHub fork`: https://help.github.com/en/articles/fork-a-repo
@@ -42,12 +90,6 @@
 .. _`Semantic Versioning 2.0.0`: https://semver.org/
 
 .. _`openSSL`: https://www.openssl.org/
-
-.. _`mscgen`: http://www.mcternan.me.uk/mscgen/
-
-.. _`Doxygen`: https://www.doxygen.nl/
-
-.. _`GNU Arm Embedded Toolchain`: https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads
 
 .. _`J-Link Software and Documentation Pack`: https://www.segger.com/downloads/jlink
 
