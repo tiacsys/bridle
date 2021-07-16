@@ -1,7 +1,7 @@
 .. _bridle_release_notes_260:
 
-|BRIDLE| 2.6.0 Release Notes (Working draft)
-############################################
+|BRIDLE| 2.6.0 Release Notes
+############################
 
 This project demonstrate the integration of |TIAC| support in open
 source projects, like the Zephyr RTOS, with libraries and source code
