@@ -22,37 +22,40 @@ that is installed when using the :ref:`gs_app_sim` as described in
          * - Tool
            - Minimum version
            - Tested version
-         * - CMake
+         * - |cmake|_
            - |cmake_min_ver|
            - |cmake_recommended_ver_win10|
-         * - device-tree-compiler
+         * - |dtc_win10|_
            - |dtc_min_ver|
            - |dtc_recommended_ver_win10|
-         * - openocd
+         * - |openocd|_
            - |openocd_min_ver|
            - |openocd_recommended_ver_win10|
-         * - git
+         * - |git|_
            -
            - |git_recommended_ver_win10|
-         * - gperf
+         * - |gperf|_
            - |gperf_min_ver|
            - |gperf_recommended_ver_win10|
-         * - ninja
+         * - |ninja|_
            - |ninja_min_ver|
            - |ninja_recommended_ver_win10|
-         * - Python
+         * - |python|_
            - |python_min_ver|
            - |python_recommended_ver_win10|
-         * - west
+         * - |west|_
            - |west_min_ver|
            - |west_recommended_ver_win10|
-         * - Zephyr SDK
+         * - |zephyrsdk|_
            - |zephyrsdk_min_ver|
            - |zephyrsdk_recommended_ver_win10|
-         * - Doxygen
+         * - |gnuarmemb|_
+           - |gnuarmemb_min_ver|
+           -
+         * - |doxygen|_
            - |doxygen_min_ver|
            -
-         * - MscGen
+         * - |mscgen|_
            - |mscgen_min_ver|
            -
 
@@ -64,43 +67,46 @@ that is installed when using the :ref:`gs_app_sim` as described in
          * - Tool
            - Minimum version
            - Tested version
-         * - ccache
+         * - |ccache|_
            -
            - |ccache_recommended_ver_linux|
-         * - CMake
+         * - |cmake|_
            - |cmake_min_ver|
            - |cmake_recommended_ver_linux|
-         * - dfu-util
+         * - |dfu_util|_
            -
            - |dfu_util_recommended_ver_linux|
-         * - device-tree-compiler
+         * - |dtc_linux|_
            - |dtc_min_ver|
            - |dtc_recommended_ver_linux|
-         * - openocd
+         * - |openocd|_
            - |openocd_min_ver|
            - |openocd_recommended_ver_linux|
-         * - git
+         * - |git|_
            -
            - |git_recommended_ver_linux|
-         * - gperf
+         * - |gperf|_
            - |gperf_min_ver|
            - |gperf_recommended_ver_linux|
-         * - ninja
+         * - |ninja|_
            - |ninja_min_ver|
            - |ninja_recommended_ver_linux|
-         * - Python
+         * - |python|_
            - |python_min_ver|
            - |python_recommended_ver_linux|
-         * - west
+         * - |west|_
            - |west_min_ver|
            - |west_recommended_ver_linux|
-         * - Zephyr SDK
+         * - |zephyrsdk|_
            - |zephyrsdk_min_ver|
            - |zephyrsdk_recommended_ver_linux|
-         * - Doxygen
+         * - |gnuarmemb|_
+           - |gnuarmemb_min_ver|
+           -
+         * - |doxygen|_
            - |doxygen_min_ver|
            -
-         * - MscGen
+         * - |mscgen|_
            - |mscgen_min_ver|
            -
 
@@ -112,37 +118,40 @@ that is installed when using the :ref:`gs_app_sim` as described in
          * - Tool
            - Minimum version
            - Tested version
-         * - CMake
+         * - |cmake|_
            - |cmake_min_ver|
-           - |cmake_recommended_ver_darwin|
-         * - device-tree-compiler
+           - |cmake_recommended_ver_macos|
+         * - |dtc_macos|_
            - |dtc_min_ver|
-           - |dtc_recommended_ver_darwin|
-         * - openocd
+           - |dtc_recommended_ver_macos|
+         * - |openocd|_
            - |openocd_min_ver|
-           - |openocd_recommended_ver_darwin|
-         * - git
+           - |openocd_recommended_ver_macos|
+         * - |git|_
            -
-           - |git_recommended_ver_darwin|
-         * - gperf
+           - |git_recommended_ver_macos|
+         * - |gperf|_
            - |gperf_min_ver|
-           - |gperf_recommended_ver_darwin|
-         * - ninja
+           - |gperf_recommended_ver_macos|
+         * - |ninja|_
            - |ninja_min_ver|
-           - |ninja_recommended_ver_darwin|
-         * - Python
+           - |ninja_recommended_ver_macos|
+         * - |python|_
            - |python_min_ver|
-           - |python_recommended_ver_darwin|
-         * - west
+           - |python_recommended_ver_macos|
+         * - |west|_
            - |west_min_ver|
-           - |west_recommended_ver_darwin|
-         * - Zephyr SDK
+           - |west_recommended_ver_macos|
+         * - |zephyrsdk|_
            - |zephyrsdk_min_ver|
-           - |zephyrsdk_recommended_ver_darwin|
-         * - Doxygen
+           - |zephyrsdk_recommended_ver_macos|
+         * - |gnuarmemb|_
+           - |gnuarmemb_min_ver|
+           -
+         * - |doxygen|_
            - |doxygen_min_ver|
            -
-         * - MscGen
+         * - |mscgen|_
            - |mscgen_min_ver|
            -
 
@@ -163,21 +172,21 @@ Building and running applications, samples, and tests
 
    * - Package
      - Version
-   * - ecdsa
+   * - |ecdsa|_
      - |ecdsa_ver|
-   * - imagesize
+   * - |imagesize|_
      - |imagesize_ver|
-   * - intelhex
+   * - |intelhex|_
      - |intelhex_ver|
-   * - pyelftools
+   * - |pyelftools|_
      - |pyelftools_ver|
-   * - pylint
+   * - |pylint|_
      - |pylint_ver|
-   * - PyYAML
+   * - |PyYAML|_
      - |PyYAML_ver|
-   * - west
+   * - |west|_
      - |west_ver|
-   * - windows-curses (only Windows)
+   * - |windows-curses|_ (only Windows)
      - |windows-curses_ver|
 
 .. _python_req_documentation:
@@ -190,25 +199,25 @@ Building documentation
 
    * - Package
      - Version
-   * - docutils
+   * - |docutils|_
      - |docutils_ver|
-   * - breathe
+   * - |breathe|_
      - |breathe_ver|
-   * - Pygments
+   * - |Pygments|_
      - |Pygments_ver|
-   * - CommonMark
+   * - |CommonMark|_
      - |CommonMark_ver|
-   * - recommonmark
+   * - |recommonmark|_
      - |recommonmark_ver|
-   * - sphinx
-     - |sphinx_ver|
-   * - sphinx-tsn-theme
+   * - |Sphinx|_
+     - |Sphinx_ver|
+   * - |sphinx_tsn_theme|_
      - |sphinx_tsn_theme_ver|
-   * - sphinxcontrib-svg2pdfconverter
+   * - |sphinxcontrib-svg2pdfconverter|_
      - |sphinxcontrib-svg2pdfconverter_ver|
-   * - sphinxcontrib-mscgen
+   * - |sphinxcontrib-mscgen|_
      - |sphinxcontrib-mscgen_ver|
-   * - sphinx-tabs
+   * - |sphinx-tabs|_
      - |sphinx-tabs_ver|
-   * - sphinx-csv-filter
+   * - |sphinx-csv-filter|_
      - |sphinx-csv-filter_ver|

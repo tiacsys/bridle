@@ -97,7 +97,7 @@ Installing the toolchain
 ************************
 
 To be able to cross-compile your applications for ARM targets, you must install
-version **10-2020-q4-major** of the `GNU Arm Embedded Toolchain`_.
+version |gnuarmemb_recommended_ver| of the `GNU Arm Embedded Toolchain`_.
 
 .. important::
 
