@@ -1,52 +1,89 @@
-/* background color top and bottom left */
-
-.wy-side-nav-search {
- background-color: #15729d;
+:root {
+  --docset-color: #00a9ce;
 }
 
-.rst-versions .rst-current-version {
- background-color: #15729d;
+/* Home page grid display */
+.grid {
+  list-style-type: none !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 1rem auto;
+  max-width: calc((160px + 2rem) * 4);
 }
 
-/* Zephyr background color for the doc switcher */
-.rst-versions {
- background: #333f67;
+.grid-item {
+  list-style-type: none !important;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  width: 150px;
+  text-align: center;
+  margin: 1rem;
 }
 
-
-/* text color navigation menu */
-
-/* l1 not selected */
-.wy-menu-vertical a {
- color: #15729d;
-}
-/* expanded container nodes */
-.wy-menu-vertical li.on a, .wy-menu-vertical li.current > a {
- color: #15729d;
-}
-/* expanded nodes, not selected */
-.wy-menu-vertical li.current a {
- color: #15729d;
-}
-
-/* overriding some of the grid settings */
 .grid-item a {
- background-color: #fff;
- color: #404040;
-}
-.grid-item a:hover {
- background-color: #c6cbce;
+  display: block;
+  width: 150px;
+  height: 150px;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 0.5rem;
+  background: linear-gradient(135deg, #10739E 33%, #c6cbce 133%);
+  color: white;
 }
 
+.grid-item h2 {
+  font-size: 1rem;
+  color: white;
+}
+
+.grid-item img {
+  margin-bottom: 1.1rem;
+  max-width: 75%;
+}
+
+.grid-item a:hover {
+  text-decoration: none;
+}
+
+.grid-item p {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  color: #404040;
+}
+
+.grid-icon {
+  line-height: 1.5;
+  font-size: 3rem;
+  color: white;
+}
 
 /* link text */
 .wy-nav-content a {
- color: #15729d;
-}
-.wy-nav-content a:visited {
- color: #0077c8;
+  color: var(--docset-color);
 }
 
+.wy-nav-content a:visited {
+  color: #0077c8;
+}
 
 /* Doc link boxes on the start page */
 
@@ -122,13 +159,7 @@
 }
 
 .blue-box {
- background: #00A9CE;
-}
-
-
-/* color for numbered steps */
-div.numbered-step>h2::before, div.numbered-step>h3::before, div.numbered-step>h4::before, div.numbered-step>h5::before {
-  background: #15729d;
+ background: var(--docset-color);
 }
 
 /* styling for known issues page */
@@ -149,7 +180,7 @@ div.numbered-step>h2::before, div.numbered-step>h3::before, div.numbered-step>h4
 #versions-select {
  display: inline-block;
  font-weight: 700;
- color: #15729d;
+ color: var(--docset-color);
  box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
  border: 2px solid #999;
  -moz-appearance: none;

@@ -81,16 +81,9 @@ todo_include_todos = False
 
 # Options for HTML output ------------------------------------------------------
 
-# TODO / FIXME : Build, deploy and use her a customized Sphinx theme
-### NOT YET ### html_theme = 'sphinx_tsn_theme'
-html_theme = 'zephyr'
-html_theme_path = ['{}/doc/_themes'.format(BRIDLE_BASE)]
-### NOT YET ### html_theme_options = {'docsets': utils.get_docsets('zephyr')}
-html_theme_options = {
-    'logo_only': True,
-    'prev_next_buttons_location': 'bottom',
-    'style_external_links': True,
-}
+# The theme that the HTML output should use.
+html_theme = 'sphinx_tsn_theme'
+html_theme_path = []
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -120,10 +113,19 @@ html_show_copyright = True
 # If true, license is shown in the HTML footer. Default is True.
 html_show_license = True
 
+# If given, this must be the name of an image file that is the logo of the
+# docs, or URL that points an image file for the logo.
+html_logo = None
+
 html_context = {
     'show_license': html_show_license,
     'docs_title': docs_title,
     'is_release': is_release,
+}
+
+html_theme_options = {
+    'docsets': utils.get_docsets('zephyr'),
+    'default_docset': utils.get_default_docset(),
 }
 
 # Options for intersphinx ------------------------------------------------------

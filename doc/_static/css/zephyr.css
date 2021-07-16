@@ -1,56 +1,76 @@
-/* -- Extra CSS styles for Zephyr content (RTD theme) ----------------------- */
-
-/*  make .. hlist:: tables fill the page */
-table.hlist {
-    width: 95% !important;
+:root {
+  --docset-color: #333f67;
 }
 
-/*  override rtd theme white-space no-wrap in table heading and content  */
-th,td {
-    white-space: normal !important;
+/* Home page grid display */
+.grid {
+  list-style-type: none !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 1rem auto;
+  max-width: calc((160px + 2rem) * 4);
 }
 
-/* background color top and bottom left */
-
-.wy-side-nav-search {
- background-color: #333f67;
+.grid-item {
+  list-style-type: none !important;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  width: 150px;
+  text-align: center;
+  margin: 1rem;
 }
 
-.rst-versions .rst-current-version {
- background-color: #333f67;
- padding: 12px;
-}
-
-/* text color navigation menu */
-
-/* l1 not selected */
-.wy-menu-vertical a {
- color: #333f67;
-}
-/* expanded container nodes */
-.wy-menu-vertical li.on a, .wy-menu-vertical li.current > a {
- color: #333f67;
-}
-/* expanded nodes, not selected */
-.wy-menu-vertical li.current a {
- color: #333f67;
-}
-
-/* overriding some of the grid settings */
 .grid-item a {
- background-color: #fff;
- color: #404040;
+  display: block;
+  width: 150px;
+  height: 150px;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 0.5rem;
+  background: linear-gradient(135deg, #0070c5 0%, #5c13a5 100%);
+  color: white;
 }
+
+.grid-item h2 {
+  font-size: 1.1rem;
+}
+
+.grid-item img {
+  margin-bottom: 1.1rem;
+  max-width: 75%;
+}
+
 .grid-item a:hover {
- background-color: #c6cbce;
+  text-decoration: none;
 }
 
-/* overriding the positioning of the doc set switcher */
-.rst-versions {
- position: fixed !important;
+.grid-item p {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  color: #404040;
 }
 
-/* color for numbered steps */
-div.numbered-step>h2::before, div.numbered-step>h3::before, div.numbered-step>h4::before, div.numbered-step>h5::before {
-  background: #333f67;
+.grid-icon {
+  line-height: 1.5;
+  font-size: 3rem;
+  color: white;
 }

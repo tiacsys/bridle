@@ -98,16 +98,8 @@ todo_include_todos = False
 
 # Options for HTML output ------------------------------------------------------
 
-# TODO / FIXME : Build, deploy and use her a customized Sphinx theme
-### NOT YET ### html_theme = 'sphinx_tsn_theme'
-html_theme = 'kconfig'
-html_theme_path = ['{}/doc/_themes'.format(BRIDLE_BASE)]
-### NOT YET ### html_theme_options = {'docsets': utils.get_docsets('kconfig')}
-html_theme_options = {
-    'logo_only': True,
-    'prev_next_buttons_location': 'bottom',
-    'style_external_links': True,
-}
+# The theme that the HTML output should use.
+html_theme = 'sphinx_tsn_theme'
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
@@ -147,6 +139,11 @@ html_show_copyright = True
 
 # If true, license is shown in the HTML footer. Default is True.
 html_show_license = True
+
+html_theme_options = {
+    'docsets': utils.get_docsets('kconfig'),
+    'default_docset': utils.get_default_docset(),
+}
 
 # Options for intersphinx ------------------------------------------------------
 

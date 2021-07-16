@@ -296,6 +296,12 @@ following steps:
 
       python -m http.server
 
+   Alternative set the documentation build folder as document root:
+
+   .. code-block:: console
+
+      python -m http.server -d build/bridle-doc
+
 #. Access http://localhost:8000/latest/index.html with your browser to see
    the documentation.
 
