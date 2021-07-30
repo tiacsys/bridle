@@ -1,4 +1,5 @@
-# Copyright (c) 2021 TiaC Systems
+# Copyright (c) 2021-2022 TiaC Systems
+# Copyright (c) 2021 Nordic Semiconductor ASA
 # Copyright (c) 2021 Li-Pro.Net
 # Copyright (c) 2019 Intel Corporation
 #
@@ -34,15 +35,27 @@ def get_github_rev():
 def setup(app):
     rev = get_github_rev()
 
-    # try to get url from West; this adds compatibility with repos
-    # located elsewhere
+    # Try to get the Bridle repository's GitHub URL from the manifest.
+    #
+    # This allows building the docs in downstream Bridle-based
+    # software with forks of the Bridle repository, and getting
+    # :bridle_file: / :bridle_raw: output that links to the fork,
+    # instead of mainline Bridle.
+    baseurl = None
     if west_manifest is not None:
-        baseurl = west_manifest.get_projects(['bridle'])[0].url
-    else:
-        baseurl = None
+        try:
+            # This search tries to look up a project named 'bridle'.
+            # If Bridle is the manifest repository, this raises
+            # ValueError, since there isn't any such project.
+            baseurl = west_manifest.get_projects(['bridle'],
+                                                 allow_paths=False)[0].url
+            # Spot check that we have a non-empty URL.
+            assert baseurl
+        except ValueError:
+            pass
 
-    # or fallback to default
-    if baseurl is None or baseurl == '':
+    # If the search failed, fall back on the mainline URL.
+    if baseurl is None:
         baseurl = 'https://github.com/tiacsys/bridle'
 
     app.add_role('bridle_file', autolink('{}/blob/{}/%s'.format(baseurl, rev)))
