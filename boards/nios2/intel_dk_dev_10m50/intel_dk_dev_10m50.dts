@@ -1,0 +1,59 @@
+/*
+ * Copyright (c) 2021 TiaC Systems
+ * Copyright (c) 2018 Intel Corporation
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/dts-v1/;
+
+#include <ghrd-socfpga/nios2f.dtsi>
+#include "ghrd-socfpga.dtsi"
+
+/ {
+	model = "intel_dk_dev_10m50";
+	compatible = "altr,nios2-max10";
+
+	aliases {
+		uart-0 = &jtag_uart0;
+		uart-1 = &uart0;
+		timer-0 = &systick;
+		timer-1 = &timer1;
+		timer-2 = &timer2;
+		dma-0 = &dma0;
+		dma-1 = &dma1;
+	};
+
+	chosen {
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+		zephyr,console = &uart0;
+		zephyr,shell-uart = &uart0;
+	};
+};
+
+&timer1 {
+	status = "okay";
+};
+
+&timer2 {
+	status = "okay";
+};
+
+&dma1 {
+	status = "okay";
+};
+
+&jtag_uart0 {
+	status = "okay";
+	current-speed = <115200>;
+};
+
+&uart0 {
+	status = "okay";
+	current-speed = <115200>;
+};
+
+&i2c0 {
+	status = "okay";
+	clock-frequency = <I2C_BITRATE_ULTRA>;
+};

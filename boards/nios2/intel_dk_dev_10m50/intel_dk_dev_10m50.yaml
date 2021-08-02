@@ -1,0 +1,6 @@
+identifier: intel_dk_dev_10m50
+name: Intel MAX 10 FPGA Development Kit
+type: mcu
+arch: nios2
+toolchain:
+  - zephyr

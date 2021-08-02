@@ -1,0 +1,5 @@
+# SPDX-License-Identifier: Apache-2.0
+
+config BOARD_INTEL_DK_DEV_10M50
+	bool "Intel MAX 10 FPGA Development Kit"
+	depends on SOC_NIOS2F_ZEPHYR
