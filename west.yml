@@ -84,6 +84,12 @@ manifest:
           - tinycbor
           - tinycrypt
 
+    # The Golden Hardware Reference Design (GHRD) for System On Chip
+    # in FPGA (SOCFPGA) in the TIAC organization.
+    - name: ghrd-socfpga
+      revision: 22c477b85c6a1d9ea6b94954a52f8041484dc098
+      path: modules/soc/ghrd-socfpga
+
   # West-related configuration for the Bridle repository.
   self:
     # This repository should be cloned to workspace/bridle.
