@@ -18,6 +18,10 @@ if not ZEPHYR_BASE:
     raise ValueError('ZEPHYR_BASE environment variable undefined.')
 ZEPHYR_BASE = Path(ZEPHYR_BASE)
 
+# Import all Zephyr configuration, override as needed later
+conf = eval_config_file(os.path.join(ZEPHYR_BASE, 'doc', 'conf.py'), tags)
+locals().update(conf)
+
 ZEPHYR_BUILD = os.environ.get('ZEPHYR_BUILD')
 if not ZEPHYR_BUILD:
     raise ValueError('ZEPHYR_BUILD environment variable undefined.')
@@ -40,10 +44,6 @@ import utils
 # pylint: disable=undefined-variable
 
 # General ----------------------------------------------------------------------
-
-# Import all Zephyr configuration, override as needed later
-conf = eval_config_file(os.path.join(ZEPHYR_BASE, 'doc', 'conf.py'), tags)
-locals().update(conf)
 
 # If your documentation needs a minimal Sphinx version, state it here.
 needs_sphinx = '3.3'

@@ -60,9 +60,9 @@ extensions = [
     'sphinx.ext.extlinks',
     'sphinx.ext.ifconfig',
     'sphinx_tabs.tabs',
-    'only.eager_only',
     'notfound.extension',
     'zephyr.dtcompatible-role',
+    'zephyr.kconfig-role',
     'zephyr.external_content',
     'bridle.inventory_builder',
 ]

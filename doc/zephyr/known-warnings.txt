@@ -2,6 +2,7 @@
 # that should be filtered out additional to the original filter set
 .*undefined label.*devicetree_.*
 .*undefined label.*dtbinding_.*
+.*undefined label.*using segger j-link.*
 .*Duplicate explicit target name.*"install_dependencies_ubuntu"\.
 .*Duplicate explicit target name.*"install_dependencies_macos"\.
 .*Duplicate explicit target name.*"install_dependencies_windows"\.

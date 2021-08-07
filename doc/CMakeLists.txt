@@ -365,10 +365,10 @@ add_custom_target(
     PYTHONPATH=${ZEPHYR_BASE}/scripts/kconfig${SEP}$ENV{PYTHONPATH}
     ZEPHYR_BASE=${ZEPHYR_BASE}
     srctree=${ZEPHYR_BASE}
-    BOARD_DIR=boards/*/*/
+    BOARD_DIR=boards/*/*
     ARCH=*
-    ARCH_DIR=arch/
-    SOC_DIR=soc/
+    ARCH_DIR=arch
+    SOC_DIR=soc
     KCONFIG_BINARY_DIR=${KCONFIG_BINARY_DIR}
     KCONFIG_WARN_UNDEF=y
     KCONFIG_TURBO_MODE=${KCONFIG_TURBO_MODE}
