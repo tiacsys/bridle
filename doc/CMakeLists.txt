@@ -434,6 +434,25 @@ set_target_properties(
     ADDITIONAL_CLEAN_FILES "${HTML_DIR}"
 )
 
+add_custom_target(
+  merge-search-indexes
+  COMMAND
+    ${PYTHON_EXECUTABLE}
+    ${BRIDLE_BASE}/doc/_scripts/merge_search_indexes.py
+    -b ${CMAKE_BINARY_DIR}
+  VERBATIM
+  WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
+  COMMENT "Merging HTML search indexes..."
+  USES_TERMINAL
+)
+
+add_dependencies(merge-search-indexes
+    bridle-html-all
+    zephyr-html-all
+    kconfig-html-all
+    devicetree-html-all
+)
+
 add_dependencies(zephyr-html-all kconfig-html-all devicetree-html-all)
 add_dependencies(bridle-html-all zephyr-html-all
                  kconfig-html-all devicetree-html-all)
@@ -441,6 +460,7 @@ add_dependencies(bridle-html-all zephyr-html-all
 add_custom_target(build-all ALL)
 add_dependencies(build-all
     copy-extra-content
+    merge-search-indexes
     bridle-html-all
     zephyr-html-all
     kconfig-html-all
