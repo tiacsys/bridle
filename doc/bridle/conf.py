@@ -101,6 +101,7 @@ extensions = [
     'bridle.link-roles',
     'bridle.inventory_builder',
     'bridle.options_from_kconfig',
+    'bridle.manifest_revisions_table',
 ]
 
 # Only use SVG converter when it is really needed, e.g. LaTeX.
@@ -291,6 +292,10 @@ external_content_keep = ['versions.txt']
 
 options_from_kconfig_base_dir = BRIDLE_BASE
 options_from_kconfig_zephyr_dir = ZEPHYR_BASE
+
+# Options for bridle.manifest_revisions_table ----------------------------------
+
+manifest_revisions_table_manifest = os.path.join(BRIDLE_BASE, 'west.yml')
 
 # Linkcheck options ------------------------------------------------------------
 
