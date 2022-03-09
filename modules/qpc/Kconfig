@@ -8,3 +8,7 @@ config QPC
 	bool "Enable qpc state machine framework"
 	help
 	  This option enables the qpc state machine framework
+
+if QPC
+	comment "You have configured QPC"
+endif # QPC
