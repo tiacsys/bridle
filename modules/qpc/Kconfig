@@ -1,0 +1,10 @@
+# Copyright (c) 2020 Linumiz
+# SPDX-License-Identifier: Apache-2.0
+
+config ZEPHYR_QPC_MODULE
+	bool
+
+config QPC
+	bool "Enable qpc state machine framework"
+	help
+	  This option enables the qpc state machine framework

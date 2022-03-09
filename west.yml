@@ -84,6 +84,15 @@ manifest:
           - tinycbor
           - tinycrypt
 
+    # Quantum Leaps QPC Framework for hierarchical state machines
+    - name: qpc
+      path: modules/lib/qpc
+      remote: tiacsys
+      repo-path: qpc
+      revision: zephyr
+
+
+
   # West-related configuration for the Bridle repository.
   self:
     # This repository should be cloned to workspace/bridle.
