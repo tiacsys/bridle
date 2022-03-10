@@ -1,15 +1,15 @@
-.. _helloshell:
+.. _qpc-demo:
 
-Hello Shell
-###########
+QPC Demo Application
+####################
 
-**This is a derived work from the original Zephyr "Hello World" example!**
+**This is a derived work from the original Bridle "Hello Shell" example!**
 **Most of the stuff in this README file needs to be redesigned and changed!**
 
 Overview
 ********
 
-A simple Hello World example that can be used with any supported board and
+A simple example application that can be used with any supported board and
 prints 'Hello World! I'm THE SHELL' to the console. This application can be
 built into modes:
 
