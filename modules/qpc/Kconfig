@@ -11,4 +11,10 @@ config QPC
 
 if QPC
 	comment "You have configured QPC"
+	config QPC_NO_QASSERT
+		bool "Disable QPC assertions"
+		default y 
+		help
+		  This option disables the QPC assertions by introducing -DN_QASSERT as a global
+		  compile time flag
 endif # QPC
