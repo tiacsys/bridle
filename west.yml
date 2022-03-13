@@ -19,7 +19,7 @@
 # information.
 
 manifest:
-  version: "0.10"
+  version: "0.12"
 
   # If not otherwise specified, the projects below should be obtained
   # from the tiacsys remote.
