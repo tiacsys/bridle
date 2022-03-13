@@ -39,20 +39,22 @@ jobs:
 
       - name: Upload documentation
         env:
-          HOST: ${{ secrets.TSN_TRANSFER_HOST }}
-          SSHUSER: ${{ secrets.TSN_TRANSFER_USR }}
-          SSHPASS: ${{ secrets.TSN_TRANSFER_PWD }}
-          INBOX: ${{ secrets.TSN_BRIDLE_INBOX }}
+          HOST: ${{ secrets.TSN_BRIDLE_DOCROOT_HOST }}
+          PORT: ${{ secrets.TSN_BRIDLE_DOCROOT_PORT }}
+          USER: ${{ secrets.TSN_BRIDLE_DOCROOT_USER }}
+          KEY: ${{ secrets.TSN_BRIDLE_DOCROOT_KEY }}
+          INBOX: ${{ secrets.TSN_BRIDLE_DOCROOT_INBOX }}
         run: |
-          sudo apt install -y sshpass
           unzip doc.zip
+          mkdir -p ~/.ssh && \
+            ssh-keyscan -p ${PORT} ${HOST} >> ~/.ssh/known_hosts
+          touch ~/.ssh/private && \
+            chmod 600 ~/.ssh/private && \
+            echo -e "${KEY}" > ~/.ssh/private
           # Don't upload the archive and workflow metadata
           files=$(ls -I doc.zip -I pr.txt)
-          mkdir -p ~/.ssh && \
-            ssh-keyscan -p 22 ${HOST} >> ~/.ssh/known_hosts
           for file in ${files}; do
-            echo "put ${file}" | \
-              sshpass -e sftp -P 22 -o BatchMode=no -b - ${SSHUSER}@${HOST}:${INBOX}
+            scp -i ~/.ssh/private "${file}" "scp://${USER}@${HOST}:${PORT}/${INBOX}/${file}"
           done
 
       - name: Add preview URL comment for PRs
