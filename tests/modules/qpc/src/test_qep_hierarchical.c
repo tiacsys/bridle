@@ -14,7 +14,7 @@
 #include <qassert.h>
 
 #ifndef CONFIG_QPC_NO_QASSERT
-Q_DEFINE_THIS_MODULE("test_hierarchical")
+Q_DEFINE_THIS_FILE
 #endif
 
 typedef struct MyHsm
