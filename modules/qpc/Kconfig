@@ -17,4 +17,10 @@ if QPC
 		help
 		  This option disables the QPC assertions by introducing -DN_QASSERT as a global
 		  compile time flag
+
+	config QPC_AO_SUPPORT
+		bool "Enable Active Object Support"
+		default n 
+		help
+		  This option enabls the QF Active Objects
 endif # QPC

@@ -10,11 +10,18 @@ set(QPC_DIR ${ZEPHYR_CURRENT_MODULE_DIR})
 
 zephyr_include_directories(${QPC_DIR}/include)
 zephyr_include_directories(${CMAKE_CURRENT_LIST_DIR})
+zephyr_include_directories_ifdef(CONFIG_QPC_AO_SUPPORT ${QPC_DIR}/src)
+
 zephyr_compile_definitions_ifdef(CONFIG_QPC_NO_QASSERT Q_NASSERT)
 
 zephyr_library_sources(
   qep_port.c
   ${QPC_DIR}/src/qf/qep_hsm.c
+)
+
+zephyr_library_sources_ifdef(
+  CONFIG_QPC_AO_SUPPORT
+  ${QPC_DIR}/src/qf/qf_act.c
 )
 
 message(STATUS ${ZEPHYR_CURRENT_MODULE_DIR})
