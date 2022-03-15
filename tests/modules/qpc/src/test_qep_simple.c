@@ -140,7 +140,6 @@ static void *suite_setup()
 
 static void suite_before_each_test()
 {
-	// MyHsm_t *const Q_dut = &dut;
 	QHsm *const Q_dut = (QHsm *)&dut;
 
 	printk("before each test\n");
@@ -165,7 +164,7 @@ ZTEST(qpc_simple, test_when_active_and_event_then_inactive)
 	e.sig = TOGGLE_SIG;
 
 	QHSM_DISPATCH(Q_dut, &e, NULL);
-	zassert_true(QHsm_state(Q_dut) == MyHsm_inactive, "inactive state not reached");
+	zassert_true(QHsm_state(Q_dut) == Q_STATE_CAST(MyHsm_inactive), "inactive state not reached");
 }
 
 /**
@@ -184,5 +183,5 @@ ZTEST(qpc_simple, test_when_inactive_and_event_then_active)
 
 	QHSM_DISPATCH(Q_dut, &e, NULL);
 	QHSM_DISPATCH(Q_dut, &e, NULL);
-	zassert_true(QHsm_state(Q_dut) == MyHsm_active, "active state not reached");
+	zassert_true(QHsm_state(Q_dut) == Q_STATE_CAST(MyHsm_active), "active state not reached");
 }
