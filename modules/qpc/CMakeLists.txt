@@ -13,7 +13,7 @@ zephyr_include_directories(${CMAKE_CURRENT_LIST_DIR})
 zephyr_compile_definitions_ifdef(CONFIG_QPC_NO_QASSERT Q_NASSERT)
 
 zephyr_library_sources(
-  qpc_port.c
+  qep_port.c
   ${QPC_DIR}/src/qf/qep_hsm.c
 )
 

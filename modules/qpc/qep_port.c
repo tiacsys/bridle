@@ -1,7 +1,7 @@
 #include <zephyr.h>
 #include <sys/__assert.h>
 
-#include <qpc.h>
+#include <qep_port.h>
 
 #ifndef CONFIG_QPC_NO_ASSERT
 
