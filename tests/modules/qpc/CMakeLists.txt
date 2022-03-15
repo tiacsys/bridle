@@ -9,4 +9,5 @@ target_sources(app PRIVATE
   src/main.c
   src/test_qep_minimal.c
   src/test_qep_simple.c
+  src/test_qep_hierarchical.c
   )
