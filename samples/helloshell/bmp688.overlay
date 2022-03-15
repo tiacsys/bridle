@@ -1,0 +1,14 @@
+/*
+ * Copyright (c) 2020, Nordic Semiconductor ASA
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+&arduino_i2c {
+	bme688@77 {
+		status = "okay";
+		compatible = "bosch,bme688";
+		reg = <0x76>;
+		label = "BME688";
+	};
+};
