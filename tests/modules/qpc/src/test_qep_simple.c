@@ -20,7 +20,6 @@ Q_DEFINE_THIS_MODULE("test_simple")
 typedef struct MyHsm
 {
 	QHsm super;
-	int my_state;
 } MyHsm_t;
 
 enum MyHsmSignals
@@ -42,7 +41,6 @@ static QState MyHsm_active(MyHsm_t *me, QEvt const *e)
 	case Q_ENTRY_SIG:
 	{
 		printk("enter active\n");
-		me->my_state++;
 		status = Q_HANDLED();
 		break;
 	}
@@ -50,14 +48,6 @@ static QState MyHsm_active(MyHsm_t *me, QEvt const *e)
 	{
 		printk("leaving active\n");
 		status = Q_HANDLED();
-		break;
-	}
-
-	case Q_INIT_SIG:
-	{
-		printk("init active\n");
-		me->my_state++;
-		status = Q_SUPER(&QHsm_top);
 		break;
 	}
 
@@ -69,7 +59,6 @@ static QState MyHsm_active(MyHsm_t *me, QEvt const *e)
 
 	default:
 	{
-		printk("defer to super state\n");
 		status = Q_SUPER(&QHsm_top);
 		break;
 	}
@@ -82,10 +71,9 @@ static QState MyHsm_inactive(MyHsm_t *me, QEvt const *e)
 	QState status;
 	switch (e->sig)
 	{
-		case Q_ENTRY_SIG:
+	case Q_ENTRY_SIG:
 	{
 		printk("enter inactive\n");
-		me->my_state++;
 		status = Q_HANDLED();
 		break;
 	}
@@ -93,14 +81,6 @@ static QState MyHsm_inactive(MyHsm_t *me, QEvt const *e)
 	{
 		printk("leaving inactive\n");
 		status = Q_HANDLED();
-		break;
-	}
-
-	case Q_INIT_SIG:
-	{
-		printk("init inactive\n");
-		me->my_state++;
-		status = Q_SUPER(&QHsm_top);
 		break;
 	}
 
@@ -121,7 +101,6 @@ static QState MyHsm_inactive(MyHsm_t *me, QEvt const *e)
 
 static QState MyHsm_initial(MyHsm_t *me, QEvt const *e)
 {
-	me->my_state++;
 	return Q_TRAN(&MyHsm_active);
 }
 
@@ -129,25 +108,18 @@ static void MyHsm_ctor()
 {
 	MyHsm_t *me = &dut;
 	QHsm_ctor(&me->super, (QStateHandler)&MyHsm_initial);
-	me->my_state = 0;
-}
-
-static void *suite_setup()
-{
-	printk("setup suite\n");
-	return NULL;
 }
 
 static void suite_before_each_test()
 {
 	QHsm *const Q_dut = (QHsm *)&dut;
 
-	printk("before each test\n");
+	printk("reset state machine object\n");
 	MyHsm_ctor();
 	QHSM_INIT(Q_dut, NULL, NULL);
 }
 
-ZTEST_SUITE(qpc_simple, NULL, suite_setup, suite_before_each_test, NULL, NULL);
+ZTEST_SUITE(qpc_simple, NULL, NULL, suite_before_each_test, NULL, NULL);
 
 /**
  * @brief Test QHsm init functionality
