@@ -28,6 +28,7 @@ zephyr_library_sources_ifdef(
   ${QPC_DIR}/src/qf/qf_dyn.c
   ${QPC_DIR}/src/qf/qf_mem.c
   ${QPC_DIR}/src/qf/qf_qact.c
+  ${QPC_DIR}/src/qf/qf_qeq.c
   qf_port.c
 )
 

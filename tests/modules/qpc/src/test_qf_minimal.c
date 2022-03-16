@@ -1,5 +1,5 @@
 /**
- * @defgroup module_qpc_tests QPC Tests
+ * @defgroup module_qf_tests qf Tests
  * @ingroup all_tests
  * @{
  * @file
@@ -10,13 +10,14 @@
 #include <zephyr.h>
 #include <ztest.h>
 
+#define QP_IMPL
 #include <qf_port.h>
+#include <qf_pkg.h>
 #include <qassert.h>
 
-#ifndef CONFIG_QPC_NO_QASSERT
-//	Q_DEFINE_THIS_FILE
+#ifndef CONFIG_qf_NO_QASSERT
+	Q_DEFINE_THIS_FILE
 #endif
-
 
 typedef struct MyAO
 {
@@ -25,37 +26,43 @@ typedef struct MyAO
 } MyAO_t;
 
 static MyAO_t dut;
+static QEvt const *dutQSto[10];
 
 static QState MyAO_active(MyAO_t *me, QEvt const *e)
 {
 	QState status;
 
-    switch (e->sig) {
-         case Q_ENTRY_SIG: {
-             printk("enter active\n");
-			 me->my_state++;
-             status = Q_HANDLED();
-             break;
-         }
-         case Q_EXIT_SIG: {
-             printk("leaving active\n");
-			 status = Q_HANDLED();
-             break;
-         }
+	switch (e->sig)
+	{
+	case Q_ENTRY_SIG:
+	{
+		printk("enter active\n");
+		me->my_state++;
+		status = Q_HANDLED();
+		break;
+	}
+	case Q_EXIT_SIG:
+	{
+		printk("leaving active\n");
+		status = Q_HANDLED();
+		break;
+	}
 
-		 case Q_INIT_SIG:{
-			 printk("init active\n");
-			 me->my_state++;
-			 status = Q_SUPER(&QHsm_top);
-			 break;
-		 }
+	case Q_INIT_SIG:
+	{
+		printk("init active\n");
+		me->my_state++;
+		status = Q_SUPER(&QHsm_top);
+		break;
+	}
 
-         default: {
-			 printk("defer to super state\n");
-             status = Q_SUPER(&QHsm_top);
-             break;
-         }
-     }
+	default:
+	{
+		printk("defer to super state\n");
+		status = Q_SUPER(&QHsm_top);
+		break;
+	}
+	}
 	return status;
 }
 
@@ -68,40 +75,53 @@ static QState MyAO_initial(MyAO_t *me, QEvt const *e)
 static void MyAO_ctor(void)
 {
 	MyAO_t *me = &dut;
-	QActive_ctor(&me->super, (QStateHandler)&MyAO_initial);
+	QActive_ctor(&me->super, Q_STATE_CAST(&MyAO_initial));
 	me->my_state = 0;
 }
-
 
 ZTEST_SUITE(qf_minimal, NULL, NULL, NULL, NULL, NULL);
 
 /**
- * @brief Test QHsm ctor functionality
+ * @brief Test AO ctor functionality
  *
- * @ingroup module_qpc_tests QPC Tests
+ * @ingroup module_qf_tests qf Tests
  *
  *
  */
 ZTEST(qf_minimal, test_can_construct_AO)
 {
-	MyAO_ctor();	
-	zassert_true(dut.my_state==0, "state machine ctor not called");
-
+	MyAO_ctor();
+	zassert_true(dut.my_state == 0, "state machine ctor not called");
 }
 
 /**
- * @brief Test QHsm init functionality
+ * @brief Test AO event init functionality
  *
- * @ingroup module_qpc_tests QPC Tests
+ * @ingroup module_qf_tests qf Tests
  *
  *
  */
-ZTEST(qf_minimal, test_can_initialize_AO)
+ZTEST(qf_minimal, test_can_initialize_event_queue)
 {
-//	QHsm *const Q_dut = (QHsm *)&dut;
-
-//	QHSM_INIT(Q_dut, NULL, NULL);
-//	zassert_true(dut.my_state==3, "active state initialized and entered");
-
+	QActive *Q_dut = (QActive *)&dut;
+	QEQueue_init(&Q_dut->eQueue, dutQSto, Q_DIM(dutQSto));
+	zassert_true(Q_dut->eQueue.ring == dutQSto, "event queue not properly initialized");
+	zassert_true(Q_dut->eQueue.nFree==11, "queue size not correct");
 }
 
+
+/**
+ * @brief Test AO init functionality
+ *
+ * @ingroup module_qf_tests qf Tests
+ *
+ *
+ */
+ZTEST(qf_minimal, test_can_initialize_hsm)
+{
+	QActive *Q_dut = (QActive *)&dut;
+	MyAO_ctor();
+
+	QHSM_INIT(&Q_dut->super, NULL, 0);
+	zassert_true(QHsm_state(Q_dut) == Q_STATE_CAST(MyAO_active), "active state not reached");
+}
