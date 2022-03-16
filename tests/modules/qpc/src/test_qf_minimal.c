@@ -125,3 +125,26 @@ ZTEST(qf_minimal, test_can_initialize_hsm)
 	QHSM_INIT(&Q_dut->super, NULL, 0);
 	zassert_true(QHsm_state(Q_dut) == Q_STATE_CAST(MyAO_active), "active state not reached");
 }
+
+/**
+ * @brief Test AO init functionality
+ *
+ * @ingroup module_qf_tests qf Tests
+ *
+ *
+ */
+ZTEST(qf_minimal, test_can_post_event_to_queue)
+{
+	QActive *Q_dut = (QActive *)&dut;
+	QEvt e;
+	QEvt const* f;
+	MyAO_ctor();
+	QEQueue_init(&Q_dut->eQueue, dutQSto, Q_DIM(dutQSto));
+
+
+	QHSM_INIT(&Q_dut->super, NULL, 0);
+	QACTIVE_POST(Q_dut, &e, 0);
+	f = QActive_get_(Q_dut);
+
+	zassert_equal_ptr(&e, f, "not the same event");
+}
