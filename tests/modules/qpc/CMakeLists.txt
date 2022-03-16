@@ -10,5 +10,8 @@ target_sources(app PRIVATE
   src/test_qep_minimal.c
   src/test_qep_simple.c
   src/test_qep_hierarchical.c
-  src/test_qf_minimal.c
   )
+
+target_sources_ifdef(CONFIG_QPC_AO_SUPPORT app PRIVATE 
+  src/test_qf_minimal.c
+)
