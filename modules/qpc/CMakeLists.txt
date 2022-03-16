@@ -17,11 +17,18 @@ zephyr_compile_definitions_ifdef(CONFIG_QPC_NO_QASSERT Q_NASSERT)
 zephyr_library_sources(
   qep_port.c
   ${QPC_DIR}/src/qf/qep_hsm.c
+  
 )
 
 zephyr_library_sources_ifdef(
   CONFIG_QPC_AO_SUPPORT
   ${QPC_DIR}/src/qf/qf_act.c
+  ${QPC_DIR}/src/qf/qf_act.c
+  ${QPC_DIR}/src/qf/qf_actq.c
+  ${QPC_DIR}/src/qf/qf_dyn.c
+  ${QPC_DIR}/src/qf/qf_mem.c
+  ${QPC_DIR}/src/qf/qf_qact.c
+  qf_port.c
 )
 
 message(STATUS ${ZEPHYR_CURRENT_MODULE_DIR})
