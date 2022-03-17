@@ -22,6 +22,7 @@ ZEPHYR_BUILD = os.environ.get('ZEPHYR_BUILD')
 if not ZEPHYR_BUILD:
     raise ValueError('ZEPHYR_BUILD environment variable undefined.')
 ZEPHYR_BUILD = Path(ZEPHYR_BUILD)
+BRIDLE_ZEPHYR_BUILD = Path(ZEPHYR_BUILD)  # TODO: fix the new var overwrite
 
 BRIDLE_BASE = os.environ.get('BRIDLE_BASE')
 if not BRIDLE_BASE:
@@ -142,7 +143,7 @@ if devicetree_mapping:
 
 # Options for zephyr.warnings_filter -------------------------------------------
 
-warnings_filter_config = os.path.join(ZEPHYR_BUILD, 'known-warnings.txt')
+warnings_filter_config = os.path.join(BRIDLE_ZEPHYR_BUILD, 'known-warnings.txt')
 
 # Options for external_content -------------------------------------------------
 
