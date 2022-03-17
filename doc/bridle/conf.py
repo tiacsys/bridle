@@ -97,7 +97,6 @@ extensions = [
     'sphinxcontrib.mscgen',
     'sphinx_tabs.tabs',
     'crate.sphinx.csv',
-    'only.eager_only',
     'notfound.extension',
     'zephyr.application',
     'zephyr.html_redirects',
