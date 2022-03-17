@@ -46,7 +46,7 @@ import utils
 
 # General information about the project.
 project = u'Bridle'
-copyright = u'2019-2021 TiaC Systems members and individual contributors'
+copyright = u'2019-2022 TiaC Systems members and individual contributors'
 author = u'TiaC Systems'
 
 # The following code tries to extract the information by reading the Makefile,
