@@ -619,7 +619,7 @@ and will be used by counter driver behind DTS binding following the
           :start-at: clk_lse {
           :end-at: }; // clk_lse
 
-       :option:`CONFIG_COUNTER_RTC_STM32_CLOCK_LSE` configuration:
+       :kconfig:`CONFIG_COUNTER_RTC_STM32_CLOCK_LSE` configuration:
 
        .. literalinclude:: ../tiac_magpie_defconfig
           :caption: tiac_magpie_defconfig
@@ -718,8 +718,8 @@ specification.
           :start-at: uart7 {
           :end-at: }; // uart7
 
-       :option:`CONFIG_UART_CONSOLE_ON_DEV_NAME` for
-       :option:`CONFIG_HAS_DTS` configuration:
+       :kconfig:`CONFIG_UART_CONSOLE_ON_DEV_NAME` for
+       :kconfig:`CONFIG_HAS_DTS` configuration:
 
        .. literalinclude:: ../tiac_magpie.dts
           :language: DTS
@@ -727,8 +727,8 @@ specification.
           :start-at: zephyr,console
           :end-at: zephyr,console
 
-       :option:`CONFIG_UART_SHELL_ON_DEV_NAME` for
-       :option:`CONFIG_HAS_DTS` configuration:
+       :kconfig:`CONFIG_UART_SHELL_ON_DEV_NAME` for
+       :kconfig:`CONFIG_HAS_DTS` configuration:
 
        .. literalinclude:: ../tiac_magpie.dts
           :language: DTS
