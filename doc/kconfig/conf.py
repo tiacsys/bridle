@@ -41,7 +41,7 @@ import utils
 
 # General information about the project.
 project = u'Kconfig Reference'
-copyright = u'2019-2021 TiaC Systems members and individual contributors'
+copyright = u'2019-2022 TiaC Systems members and individual contributors'
 author = u'TiaC Systems'
 
 # Get rid of version number while keeping the spacing the same as for other
