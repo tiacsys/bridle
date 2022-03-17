@@ -5,3 +5,22 @@
 .*Duplicate explicit target name.*"install_dependencies_ubuntu"\.
 .*Duplicate explicit target name.*"install_dependencies_macos"\.
 .*Duplicate explicit target name.*"install_dependencies_windows"\.
+#
+# TODO: is ".. tab:: _`Using Segger J-Link`" realy working?
+#
+# reference target in: zephyr/doc/guides/flash_debug/probes.rst:222
+# refered to there in: zephyr/samples/bluetooth/hci_uart/README.rst:127
+#
+.*undefined label.*using segger j-link
+.*Duplicate explicit target name.*"using segger j-link"\.
+#
+# TODO: should be fixed in Zephyr mainline (upstream)
+#
+# in: zephyr/boards/arm/nucleo_f767zi/doc/index.rst:130
+#     zephyr/contribute/coding_guidelines/index.rst:929
+#     zephyr/contribute/external.rst:127
+#     zephyr/getting_started/installation_win.rst:17
+#     zephyr/guides/west/why.rst:120
+#     zephyr/samples/bluetooth/ipsp/README.rst:39
+#
+.*hardcoded link.*could be replaced by an extlink.*
