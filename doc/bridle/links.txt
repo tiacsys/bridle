@@ -53,6 +53,7 @@
 .. _`zephyrsdk`: https://github.com/zephyrproject-rtos/sdk-ng/releases
 .. _`GNU Arm Embedded Toolchain`: https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads
 .. _`gnuarmemb`: https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads
+.. _`Graphviz`: https://graphviz.org/
 .. _`Doxygen`: https://www.doxygen.org/
 .. _`MscGen`: https://www.mcternan.me.uk/mscgen/
 

@@ -64,9 +64,15 @@
 
 .. |doxygen| replace:: :strong:`Doxygen`
 .. |doxygen_min_ver| replace:: @DOXYGEN_VERSION_MINIMUM@
+.. |doxygen_recommended_ver_linux| replace:: @DOXYGEN_VERSION_LINUX@
+
+.. |graphviz| replace:: :strong:`Graphviz (dot)`
+.. |graphviz_min_ver| replace:: @GRAPHVIZ_VERSION_MINIMUM@
+.. |graphviz_recommended_ver_linux| replace:: @GRAPHVIZ_VERSION_LINUX@
 
 .. |mscgen| replace:: :strong:`MscGen`
 .. |mscgen_min_ver| replace:: @MSCGEN_VERSION_MINIMUM@
+.. |mscgen_recommended_ver_linux| replace:: @MSCGEN_VERSION_LINUX@
 
 .. |ecdsa| replace:: :strong:`ecdsa`
 .. |ecdsa_ver| replace:: @ECDSA_VERSION@

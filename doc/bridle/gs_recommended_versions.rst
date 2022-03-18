@@ -55,6 +55,9 @@ that is installed when using the :ref:`gs_app_sim` as described in
          * - |doxygen|_
            - |doxygen_min_ver|
            -
+         * - |graphviz|_
+           - |graphviz_min_ver|
+           -
          * - |mscgen|_
            - |mscgen_min_ver|
            -
@@ -105,10 +108,13 @@ that is installed when using the :ref:`gs_app_sim` as described in
            -
          * - |doxygen|_
            - |doxygen_min_ver|
-           -
+           - |doxygen_recommended_ver_linux|
+         * - |graphviz|_
+           - |graphviz_min_ver|
+           - |graphviz_recommended_ver_linux|
          * - |mscgen|_
            - |mscgen_min_ver|
-           -
+           - |mscgen_recommended_ver_linux|
 
    .. group-tab:: macOS
 
@@ -150,6 +156,9 @@ that is installed when using the :ref:`gs_app_sim` as described in
            -
          * - |doxygen|_
            - |doxygen_min_ver|
+           -
+         * - |graphviz|_
+           - |graphviz_min_ver|
            -
          * - |mscgen|_
            - |mscgen_min_ver|
