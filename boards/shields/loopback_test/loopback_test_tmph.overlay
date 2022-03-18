@@ -1,18 +1,18 @@
 /*
- * Copyright (c) 2021 TiaC Systems
+ * Copyright (c) 2021-2022 TiaC Systems
  * Copyright (c) 2021 Li-Pro.Net
  * SPDX-License-Identifier: Apache-2.0
  */
 
 / {
 	gpio_basic_api_0 {
-		compatible = "test,gpio_basic_api";
+		compatible = "test-gpio-basic-api";
 		out-gpios = <&tmph2 9 0>;	/* TMPH2:10 */
 		in-gpios = <&tmph2 11 0>;	/* TMPH2:12 */
 	}; // gpio_basic_api_0
 
 	pwm_loopback_0 {
-		compatible = "test,pwm_loopback";
+		compatible = "test-pwm-loopback";
 		/* channel 1 pwm out to channel 4 capture in */
 		pwms = <&tmph_pwms 1 0 0>,	/* TMPH4:5 */
 		       <&tmph_pwms 4 0 0>;	/* TMPH1:3 */
