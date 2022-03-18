@@ -5,6 +5,8 @@
 # COPIED and CHANGED from:
 # https://github.com/zephyrproject-rtos/zephyr/raw/zephyr-v2.6.0/doc/conf.py
 #
+# pylint: skip-file
+#
 
 import sys
 import os
