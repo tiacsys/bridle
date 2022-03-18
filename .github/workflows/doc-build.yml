@@ -58,7 +58,7 @@ jobs:
 
       - name: Install packages
         run: |
-          sudo apt-get install -y ninja-build doxygen mscgen
+          sudo apt-get install -y ninja-build doxygen mscgen graphviz
 
       - name: Restore PIP Cache
         uses: actions/cache@v1

@@ -8,4 +8,5 @@ west=0.12
 zephyr-sdk=0.13.1
 gnuarmemb=10-2020-q4-major
 doxygen=1.8
+graphviz=2.42
 mscgen=0.20
