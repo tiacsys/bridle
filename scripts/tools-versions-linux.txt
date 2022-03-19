@@ -8,4 +8,4 @@ openocd=0.11.0-1 (xPack OpenOCD from GitHub)
 ccache=3.7.7-1
 dfu-util=0.9-1
 west=0.12.0
-zephyr-sdk=0.12.4
+zephyr-sdk=0.13.2
