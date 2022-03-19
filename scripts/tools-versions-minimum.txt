@@ -1,5 +1,5 @@
 python=3.6
-cmake=3.13.1
+cmake=3.20
 ninja=1.8.2
 gperf=3.1
 dtc=1.4.6

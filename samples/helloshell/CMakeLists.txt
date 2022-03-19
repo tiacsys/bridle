@@ -1,8 +1,8 @@
-# Copyright (c) 2021 TiaC Systems
+# Copyright (c) 2021-2022 TiaC Systems
 # Copyright (c) 2019-2021 Li-Pro.Net
 # SPDX-License-Identifier: Apache-2.0
 
-cmake_minimum_required(VERSION 3.13.1)
+cmake_minimum_required(VERSION 3.20.0)
 
 # Standard Zephyr application boilerplate.
 find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})

@@ -1,4 +1,4 @@
-# Copyright (c) 2021 TiaC Systems
+# Copyright (c) 2021-2022 TiaC Systems
 # Copyright (c) 2019-2021 Li-Pro.Net
 # Copyright (c) 2019-2021 Nordic Semiconductor ASA
 # SPDX-License-Identifier: LicenseRef-Nordic-5-Clause
@@ -15,7 +15,7 @@
 #
 # The *-content targets copy/create .rst files that later get built by Sphinx.
 
-cmake_minimum_required(VERSION 3.13.1)
+cmake_minimum_required(VERSION 3.20.0)
 project(bridle-doc LANGUAGES)
 
 set(NO_BOILERPLATE TRUE)
