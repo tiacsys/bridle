@@ -2,6 +2,7 @@
 
 .. _`Zephyr Project`: https://zephyrproject.org/
 .. _`Zephyr Project documentation`: http://docs.zephyrproject.org/
+.. _`Zephyr GitHub organization`: https://github.com/zephyrproject-rtos
 
 .. _`tiac-zephyr`: https://github.com/tiacsys/zephyr
 .. _`official Zephyr repository`: https://github.com/zephyrproject-rtos/zephyr
@@ -21,6 +22,7 @@
 
 .. _`change log`: https://github.com/tiacsys/bridle/commits/main
 
+.. |west manifest file| replace:: :bridle_file:`west.yml`
 .. _`west manifest file`: https://github.com/tiacsys/bridle/blob/main/west.yml
 
 
@@ -52,6 +54,7 @@
 .. _`Zephyr SDK`: https://github.com/zephyrproject-rtos/sdk-ng/releases
 .. _`zephyrsdk`: https://github.com/zephyrproject-rtos/sdk-ng/releases
 .. _`GNU Arm Embedded Toolchain`: https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads
+.. _`GCC compiler`: https://gcc.gnu.org/
 .. _`gnuarmemb`: https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads
 .. _`Graphviz`: https://graphviz.org/
 .. _`Doxygen`: https://www.doxygen.org/
@@ -120,9 +123,12 @@
 
 .. _`OpenAMP`: https://github.com/OpenAMP/open-amp/
 
+.. _`SPDX tool`: https://spdx.dev/
+.. _`SPDX identifier`: https://spdx.dev/ids/
 
 
-.. ### Links to CMake
+
+.. ### Links to CMake and Ninja
 
 .. _`CMake documentation`: https://cmake.org/cmake/help/latest/
 .. _`VERBOSE`: https://cmake.org/cmake/help/latest/envvar/VERBOSE.html
@@ -130,8 +136,13 @@
 
 .. _`generator expressions`: https://cmake.org/cmake/help/latest/manual/cmake-generator-expressions.7.html
 
+.. _`Ninja documentation`: https://ninja-build.org/manual.html
+
 
 .. ### Links to other documentation
+
+.. _`Kconfig language`: https://www.kernel.org/doc/html/latest/kbuild/kconfig-language.html
+.. _`Devicetree reference`: https://elinux.org/Device_Tree_Reference
 
 .. _`Sphinx Documentation`: https://www.sphinx-doc.org/en/3.x/contents.html
 .. _`reStructuredText Primer`: http://www.sphinx-doc.org/en/3.x/usage/restructuredtext/basics.html

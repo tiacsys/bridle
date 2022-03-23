@@ -82,7 +82,13 @@ Take over the new principles to build documentations from Zephyr:
 Documentation
 =============
 
-*NOT YET*
+1. Restructure the :ref:`introduction` page and extend with:
+
+   * :ref:`license_intro`
+   * :ref:`tools_intro`
+   * :ref:`git_intro`
+   * :ref:`west_intro`
+   * :ref:`repos_and_revs`
 
 Issue Related Items
 *******************
