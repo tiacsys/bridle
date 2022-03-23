@@ -1,6 +1,6 @@
 .. _bridle_release_notes_270:
 
-|BRIDLE| 2.7.0 Release Notes (Working draft)
+|BRIDLE| 2.7.1 Release Notes (Working draft)
 ############################################
 
 This project demonstrate the integration of |TIAC| support in open
@@ -29,7 +29,7 @@ Repositories
    * - `tiac-bridle`_
      -
      - v2.7-branch
-     - v2.7.0
+     - v2.7.1
    * - | `tiac-zephyr`_
        | (`zephyr-core`_)
      - | canopennode
@@ -56,7 +56,7 @@ Repositories
        | tinycrypt
      - | tiacsys/v2.7-branch
        | (v2.7-branch)
-     - v2.7.0
+     - v2.7.1
 
 
 Supported boards
