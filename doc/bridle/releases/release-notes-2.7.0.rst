@@ -90,6 +90,12 @@ Documentation
    * :ref:`west_intro`
    * :ref:`repos_and_revs`
 
+#. Restructure the :ref:`documentation` page and extend with:
+
+   * :ref:`doc_structure`
+   * :ref:`doc_structure_search`
+   * :ref:`doc_structure_versions`
+
 Issue Related Items
 *******************
 

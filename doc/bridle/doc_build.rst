@@ -50,27 +50,7 @@ Complete the following steps to install the required tools:
 .. _Windows Python Path:
    https://docs.python.org/3/using/windows.html#finding-the-python-executable
 
-.. _documentation_sets:
-
-Documentation structure
-***********************
-
-All documentation build files are located in the :file:`workspace/bridle/doc`
-folder. The :file:`bridle` subfolder in that directory contains all .rst source
-files that are not directly related to a sample application or a library.
-Documentation for samples and libraries are provided in a :file:`README.rst` or
-:file:`*.rst` file in the same directory as the code.
-
-Building the documentation output requires building the output for all
-documentation sets. Following are the available documentation sets:
-
-:bridle: |BRIDLE|
-:zephyr: Zephyr RTOS
-:kconfig: All available Kconfig References in the Zephyr RTOS and |BRIDLE|
-:devicetree: All available DTS Bindings in the Zephyr RTOS and |BRIDLE|
-
-Since there are links from the |BRIDLE| documentation set into other
-documentation sets, the other documentation sets built in a predefined order.
+.. _doc_build_steps:
 
 Building documentation output
 *****************************
@@ -275,8 +255,10 @@ of the build folder and run :command:`cmake` and then :command:`ninja` again:
 
       rm -rf build/bridle-doc
 
-Different versions
-******************
+.. _testing_versions:
+
+Testing different versions locally
+**********************************
 
 Documentation sets for different versions of the |BRIDLE| are defined in the
 :file:`doc/versions.json` file. This file is used to display the version

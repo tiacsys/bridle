@@ -36,6 +36,24 @@ The `SPDX tool`_ is used to generate license reports on each release of the
 |BRIDLE|. You can also use SPDX to generate license reports for your projects
 that are specific to the code included in your application.
 
+.. _doc_intro:
+
+Documentation pages
+*******************
+
+.. include:: doc_structure.rst
+   :start-after: doc_structure_start
+   :end-before: doc_structure_end
+
+The |BRIDLE| documentation contains all information that is specific to the
+|BRIDLE| and describes our libraries, samples, and applications. The API
+documentation is extracted from the source code and included with the
+library documentation.
+
+For instructions about building the documentation locally, see
+:ref:`doc_build`. For more information about the documentation
+conventions and templates, see :ref:`documentation`.
+
 .. _tools_intro:
 
 Tools and configuration
