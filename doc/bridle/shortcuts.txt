@@ -1,6 +1,6 @@
 .. |TIAC| replace:: TiaC Systems
 .. |BRIDLE| replace:: Bridle
 
-.. |release| replace:: v2.6.0
-.. |release_tt| replace:: ``v2.6.0``
-.. |release_number_tt| replace:: ``2.6.0``
+.. |release| replace:: v2.7.1
+.. |release_tt| replace:: ``v2.7.1``
+.. |release_number_tt| replace:: ``2.7.1``
