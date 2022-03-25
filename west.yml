@@ -44,7 +44,7 @@ manifest:
       path: zephyr
       remote: tiacsys
       repo-path: zephyr
-      revision: tiacsys/v2.7-branch
+      revision: tiacsys/v3.0-branch
       clone-depth: 5000
       # import submodules from Zephyr manifest
       import:
