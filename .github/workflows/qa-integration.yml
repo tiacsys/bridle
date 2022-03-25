@@ -7,6 +7,7 @@ name: QA Integration Test
 on:
   schedule:
     - cron: "0 2 * * *" # run at 2 AM UTC
+  workflow_dispatch: # And manually on button click
   pull_request:
     types: [opened, synchronize, reopened]
     paths:
