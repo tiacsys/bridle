@@ -5,6 +5,7 @@
 name: Documentation Build
 
 on:
+  workflow_dispatch: # And manually on button click
   pull_request:
     types: [opened, synchronize, reopened]
     branches:
