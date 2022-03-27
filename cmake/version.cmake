@@ -1,4 +1,4 @@
-# Copyright (c) 2021 TiaC Systems
+# Copyright (c) 2021-2022 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 #.rst:
@@ -8,7 +8,7 @@
 # Inputs:
 #
 #   ``*VERSION*`` and other constants set by
-#   maintainers in ``${BRIDLE_DIR}/VERSION``
+#   maintainers in ``${BRIDLE_BASE}/VERSION``
 #
 # Outputs with examples::
 #
@@ -26,7 +26,7 @@
 
 
 include(${ZEPHYR_BASE}/cmake/hex.cmake)
-file(READ ${BRIDLE_DIR}/VERSION ver)
+file(READ ${BRIDLE_BASE}/VERSION ver)
 
 string(REGEX MATCH "VERSION_MAJOR = ([0-9]*)" _ ${ver})
 set(PROJECT_VERSION_MAJOR ${CMAKE_MATCH_1})
@@ -60,7 +60,7 @@ endif()
 set(PROJECT_VERSION_STR ${PROJECT_VERSION}${PROJECT_VERSION_EXTRA_STR})
 
 if (NOT NO_PRINT_VERSION)
-  message(STATUS "Bridle version: ${PROJECT_VERSION_STR} (${BRIDLE_DIR})")
+  message(STATUS "Bridle version: ${PROJECT_VERSION_STR} (${BRIDLE_BASE})")
 endif()
 
 set(MAJOR ${PROJECT_VERSION_MAJOR}) # Temporary convenience variable
@@ -85,7 +85,7 @@ endif()
 
 set(BRIDLE_VERSION_CODE ${BRIDLE_VERSION_NUMBER_INT})
 
-configure_file(${BRIDLE_DIR}/version.h.in ${ZEPHYR_BINARY_DIR}/include/generated/version_bridle.h)
+configure_file(${BRIDLE_BASE}/version.h.in ${ZEPHYR_BINARY_DIR}/include/generated/version_bridle.h)
 file(APPEND ${ZEPHYR_BINARY_DIR}/include/generated/version.h
      "\n#include \"version_bridle.h\"\n")
 
