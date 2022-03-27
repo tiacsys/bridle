@@ -85,10 +85,6 @@ endif()
 
 set(BRIDLE_VERSION_CODE ${BRIDLE_VERSION_NUMBER_INT})
 
-configure_file(${BRIDLE_BASE}/version.h.in ${ZEPHYR_BINARY_DIR}/include/generated/version_bridle.h)
-file(APPEND ${ZEPHYR_BINARY_DIR}/include/generated/version.h
-     "\n#include \"version_bridle.h\"\n")
-
 # Cleanup convenience variables
 unset(MAJOR)
 unset(MINOR)
