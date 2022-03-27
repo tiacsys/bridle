@@ -21,8 +21,15 @@
 /README.md                                @rexut
 /west.yml                                 @rexut
 
+# All cmake related files
+/CMakeLists.txt                           @rexut
+/cmake/                                   @rexut
+/share/*-package/                         @rexut
+
+# GH workfolws
 /.github/                                 @rexut
 /.github/workflows/                       @rexut
+
 /arch/                                    @rexut
 /soc/arm/                                 @rexut
 /soc/arm/stm32f767xx/                     @rexut
@@ -38,9 +45,6 @@
 /boards/sparc/                            @rexut
 /boards/x86/                              @rexut
 /boards/xtensa/                           @rexut
-# All cmake related files
-/cmake/                                   @rexut
-/CMakeLists.txt                           @rexut
 /doc/                                     @rexut
 /drivers/                                 @rexut
 /dts/arm/st/                              @rexut
@@ -59,5 +63,6 @@
 /subsys/shell/                            @rexut
 /subsys/shell/modules/                    @rexut
 /zephyr/                                  @rexut
+
 # Get all docs reviewed
 *.rst                                     @rexut
