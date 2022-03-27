@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 TiaC Systems
+ * Copyright (c) 2021-2022 TiaC Systems
  * Copyright (c) 2021 Li-Pro.Net
  * SPDX-License-Identifier: Apache-2.0
  */
@@ -86,6 +86,7 @@
 
 &uart7 {
 	status = "okay";		/* default system uart console */
+	pinctrl-names = "default";
 	pinctrl-0 = <&uart7_tx_pe8	/* UART_TXD7 */
 		     &uart7_rx_pe7	/* UART_RXD7 */
 		     &uart7_rts_pe9	/* UART_RTS7 */
@@ -96,6 +97,7 @@
 
 &mac {
 	status = "okay";
+	pinctrl-names = "default";
 	pinctrl-0 = <&eth_mdc_pc1	/* MII_MDC */
 		     &eth_mdio_pa2	/* MII_MDIO */
 		     &eth_col_pa3	/* MII_COL */
@@ -117,12 +119,14 @@
 
 &usbotg_fs {
 	status = "okay";
+	pinctrl-names = "default";
 	pinctrl-0 = <&usb_otg_fs_dm_pa11	/* USB_DEV_DP */
 		     &usb_otg_fs_dp_pa12>;	/* USB_DEV_DM */
 }; // usbotg_fs
 
 &can1 {
 	status = "okay";		/* default primary can */
+	pinctrl-names = "default";
 	pinctrl-0 = <&can1_rx_ph14	/* CAN_RX1 */
 		     &can1_tx_ph13>;	/* CAN_TX1 */
 	bus-speed = <1000000>;
@@ -134,6 +138,7 @@
 
 &can2 {
 	status = "disabled";		/* optional second can */
+	pinctrl-names = "default";
 	pinctrl-0 = <&can2_rx_pb12	/* CAN_RX2 */
 		     &can2_tx_pb13>;	/* CAN_TX2 */
 	bus-speed = <1000000>;
@@ -145,6 +150,7 @@
 
 &i2c2 {
 	status = "okay";		/* default system i2c */
+	pinctrl-names = "default";
 	pinctrl-0 = <&i2c2_scl_pf1	/* SCL2 */
 		     &i2c2_sda_pf0>;	/* SDA2 */
 	clock-frequency = <I2C_BITRATE_FAST>;
@@ -152,6 +158,7 @@
 
 &usart3 {
 	status = "disabled";		/* optional second uart */
+	pinctrl-names = "default";
 	pinctrl-0 = <&usart3_tx_pc10	/* TMPH1_PC10_TXD3 */
 		     &usart3_rx_pc11>;	/* TMPH1_PC11_RXD3 */
 	current-speed = <115200>;
@@ -159,6 +166,7 @@
 
 &uart4 {
 	status = "okay";		/* default primary uart */
+	pinctrl-names = "default";
 	pinctrl-0 = <&uart4_tx_pd1	/* TMPH1_PD1_TXD4 */
 		     &uart4_rx_pd0>;	/* TMPH1_PD0_RXD4 */
 	current-speed = <115200>;
@@ -166,6 +174,7 @@
 
 &uart5 {
 	status = "disabled";		/* optional third uart */
+	pinctrl-names = "default";
 	pinctrl-0 = <&uart5_tx_pc12	/* TMPH1_PC12_TXD5 */
 		     &uart5_rx_pd2>;	/* TMPH1_PD2_RXD5 */
 	current-speed = <115200>;
@@ -173,6 +182,7 @@
 
 &uart8 {
 	status = "disabled";		/* optional fourth uart */
+	pinctrl-names = "default";
 	pinctrl-0 = <&uart8_tx_pe1	/* TMPH4_PE1_TXD8 */
 		     &uart8_rx_pe0	/* TMPH4_PE0_RXD8 */
 		     &uart8_rts_pd15	/* TMPH2_PD15_RTS8 */
@@ -182,6 +192,7 @@
 
 &i2c3 {
 	status = "disabled";		/* optional second i2c */
+	pinctrl-names = "default";
 	pinctrl-0 = <&i2c3_scl_ph7	/* TMPH3_PH7_SCL3_MISO5 */
 		     &i2c3_sda_ph8>;	/* TMPH3_PH8_SDA3 */
 	clock-frequency = <I2C_BITRATE_STANDARD>;
@@ -189,6 +200,7 @@
 
 &i2c4 {
 	status = "okay";		/* default primary i2c */
+	pinctrl-names = "default";
 	pinctrl-0 = <&i2c4_scl_pf14	/* TMPH5_PF14_SCL4 */
 		     &i2c4_sda_pf15>;	/* TMPH5_PF15_SDA4 */
 	clock-frequency = <I2C_BITRATE_STANDARD>;
@@ -196,6 +208,7 @@
 
 &spi4 {
 	status = "okay";		/* default primary spi */
+	pinctrl-names = "default";
 	pinctrl-0 = <&spi4_nss_pe11	/* TMPH5_PE11_NSS4 */
 		     &spi4_sck_pe12	/* TMPH5_PE12_SCK4 */
 		     &spi4_miso_pe13	/* TMPH5_PE13_MISO4 */
@@ -204,6 +217,7 @@
 
 &spi5 {
 	status = "disabled";		/* optional second spi */
+	pinctrl-names = "default";
 	pinctrl-0 = <&spi5_nss_ph5	/* TMPH2_PH5_NSS5 */
 		     &spi5_sck_ph6	/* TMPH3_PH6_SCK5 */
 		     &spi5_miso_ph7	/* TMPH3_PH7_SCL3_MISO5 */
@@ -215,6 +229,7 @@
 
 	pwm8: pwm {
 		status = "okay";
+		pinctrl-names = "default";
 		pinctrl-0 = <&tim8_ch1_pi5	/* TMPH4_PI5_PWM81 */
 			     &tim8_ch2_pi6	/* TMPH4_PI6_PWM82 */
 			     &tim8_ch3_pi7 	/* TMPH4_PI7_PWM83 */
@@ -224,6 +239,7 @@
 
 &adc3 {
 	status = "okay";
+	pinctrl-names = "default";
 	pinctrl-0 = <&adc3_in9_pf3	/* TMPH4_PF3_ADC39 */
 		     &adc3_in14_pf4	/* TMPH2_PF4_ADC314 */
 		     &adc3_in15_pf5>;	/* TMPH2_PF5_ADC315 */
