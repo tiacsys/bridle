@@ -1,9 +1,9 @@
-# Copyright (c) 2021 TiaC Systems
+# Copyright (c) 2021-2022 TiaC Systems
 # Copyright (c) 2019-2021 Li-Pro.Net
 # SPDX-License-Identifier: Apache-2.0
 
-# set to know where our project lies
-set(BRIDLE_DIR "${CMAKE_CURRENT_LIST_DIR}"
+# Set to know where our project lies.
+set(BRIDLE_BASE "${CMAKE_CURRENT_LIST_DIR}"
     CACHE PATH "Bridle root directory")
 
 include(cmake/version.cmake)
