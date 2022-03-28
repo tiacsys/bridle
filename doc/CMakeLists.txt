@@ -46,9 +46,8 @@ endif()
 #-------------------------------------------------------------------------------
 # Dependencies
 
-find_package(PythonInterp 3.6)
-set(DOXYGEN_SKIP_DOT True)  # Skip the otional Dot component
-find_package(Doxygen REQUIRED)
+include(${ZEPHYR_BASE}/cmake/python.cmake)
+find_package(Doxygen REQUIRED dot)
 
 find_program(SPHINXBUILD sphinx-build)
 if(NOT SPHINXBUILD)
@@ -57,7 +56,7 @@ endif()
 
 find_program(WEST west)
 if(NOT WEST)
-  message(FATAL_ERROR "The 'west' command was not found")
+  message(FATAL_ERROR "The 'west' command was not found. Make sure you have it installed.")
 endif()
 
 set(KCONFIG_BINARY_DIR ${CMAKE_BINARY_DIR}/kconfig)
