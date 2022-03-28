@@ -21,6 +21,12 @@ project(bridle-doc LANGUAGES)
 set(NO_BOILERPLATE TRUE)
 find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE} ..)
 
+file(TO_CMAKE_PATH "${ZEPHYR_BASE}" ZEPHYR_BASE)
+get_filename_component(BRIDLE_BASE ${CMAKE_CURRENT_LIST_DIR}../ DIRECTORY)
+
+message(STATUS "Bridle base: ${BRIDLE_BASE}")
+message(STATUS "Zephyr base: ${ZEPHYR_BASE}")
+
 #-------------------------------------------------------------------------------
 # Options
 
@@ -216,8 +222,6 @@ endfunction()
 
 #-------------------------------------------------------------------------------
 # Paths
-
-get_filename_component(BRIDLE_BASE ${CMAKE_CURRENT_LIST_DIR}../ DIRECTORY)
 
 set(ZEPHYR_BINARY_DIR ${CMAKE_BINARY_DIR}/zephyr)
 set(BRIDLE_BINARY_DIR ${CMAKE_BINARY_DIR}/bridle)
