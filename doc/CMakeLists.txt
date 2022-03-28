@@ -261,15 +261,6 @@ add_dependencies(zephyr-html-all zephyr-known-warnings kconfig-inventory-all)
 #-------------------------------------------------------------------------------
 # docset: devicetree
 
-# The CMake variable GEN_DEVICETREE_REST_ZEPHYR_DOCSET will
-# be passed to the script in the environment. This allows separating
-# the bindings documentation into a standalone Sphinx docset that
-# nonetheless can link to Zephyr documentation using intersphinx.
-# If empty, the variable has no effect on the script.
-
-set(GEN_DEVICETREE_REST_SCRIPT ${ZEPHYR_BASE}/doc/_scripts/gen_devicetree_rest.py)
-set(GEN_DEVICETREE_REST_ZEPHYR_DOCSET zephyr)
-
 # The devicetree bindings discovered in ${DTS_ROOTS} are parsed and
 # documentation for them is generated in the directory
 # ${DTS_BINDINGS_RST_OUT}.
@@ -283,6 +274,15 @@ foreach(root ${DTS_ROOTS})
   list(APPEND DTS_ROOT_ARGS --dts-root ${root})
 endforeach()
 
+# The CMake variable GEN_DEVICETREE_REST_ZEPHYR_DOCSET will
+# be passed to the script in the environment. This allows separating
+# the bindings documentation into a standalone Sphinx docset that
+# nonetheless can link to Zephyr documentation using intersphinx.
+# If empty, the variable has no effect on the script.
+
+set(GEN_DEVICETREE_REST_ZEPHYR_DOCSET zephyr)
+
+set(GEN_DEVICETREE_REST_SCRIPT ${ZEPHYR_BASE}/doc/_scripts/gen_devicetree_rest.py)
 set(DTS_BINDINGS_RST_OUT ${DTS_BINDINGS_BINARY_DIR}/src)
 
 add_custom_target(
@@ -300,6 +300,8 @@ add_custom_target(
   COMMENT "Running gen_devicetree_rest.py ${DTS_BINDINGS_RST_OUT}"
   USES_TERMINAL
 )
+
+set_property(DIRECTORY APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS ${GEN_DEVICETREE_REST_SCRIPT})
 
 add_docset(devicetree "")
 add_dependencies(devicetree-inventory devicetree-content zephyr-inventory)
