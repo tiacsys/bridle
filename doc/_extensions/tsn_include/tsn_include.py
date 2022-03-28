@@ -4,9 +4,9 @@
 # SPDX-License-Identifier: Apache-2.0
 
 # The code for this directive is based on the include directive from
-# docutils, stripped of lots of its original options, and with added
-# support for TiaC Systems documentation sets and indentation of the
-# included rST.
+# docutils, which is public-domain, stripped of lots of its original
+# options, and with added support for TiaC Systems documentation sets
+# and indentation of the included rST.
 
 import os
 import os.path

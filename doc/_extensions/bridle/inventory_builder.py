@@ -2,7 +2,8 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 #
-# This is based on the dummy builder from Sphinx.
+# This is based on the dummy builder from Sphinx, which is
+# BSD licensed.
 #
 # This package can be added as an extension, and if run as a
 # builder (sphinx -b inventory), it will not generated any
