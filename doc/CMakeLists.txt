@@ -33,6 +33,10 @@ message(STATUS "Zephyr base: ${ZEPHYR_BASE}")
 set(SPHINXOPTS_DEFAULT -j auto CACHE INTERNAL "Default Sphinx Options")
 set(SPHINXOPTS_EXTRA "" CACHE STRING "Extra Sphinx Options (from CLI/CI)")
 
+set(DTS_ROOTS "" CACHE STRING "DT bindings root folders")
+list(APPEND DTS_ROOTS ${ZEPHYR_BASE})
+list(APPEND DTS_ROOTS ${BRIDLE_BASE})
+
 if(WIN32)
   set(SEP $<SEMICOLON>)
 else()
@@ -226,10 +230,6 @@ endfunction()
 set(ZEPHYR_BINARY_DIR ${CMAKE_BINARY_DIR}/zephyr)
 set(BRIDLE_BINARY_DIR ${CMAKE_BINARY_DIR}/bridle)
 set(DTS_BINDINGS_BINARY_DIR ${CMAKE_BINARY_DIR}/devicetree)
-
-set(DTS_ROOTS)
-list(APPEND DTS_ROOTS ${ZEPHYR_BASE})
-list(APPEND DTS_ROOTS ${BRIDLE_BASE})
 
 # HTML output directory
 set(HTML_DIR ${CMAKE_BINARY_DIR}/html)
