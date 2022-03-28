@@ -114,7 +114,7 @@ hardware features:
    +-----------+------------+-----------------------------------------------+
    | USB       | on-chip    | :ref:`usb_api`                                |
    +-----------+------------+-----------------------------------------------+
-   | CAN       | on-chip    | :ref:`net_canbus` (-)                         |
+   | CAN       | on-chip    | :ref:`canbus` (-)                             |
    +-----------+------------+-----------------------------------------------+
    | I2C       | on-chip    | :ref:`i2c_api`                                |
    +-----------+------------+-----------------------------------------------+
@@ -893,8 +893,8 @@ specification.
        .. literalinclude:: ../tiac_magpie.dts
           :language: DTS
           :encoding: ISO-8859-1
-          :start-at: zephyr,can-primary
-          :end-at: zephyr,can-primary
+          :start-at: zephyr,canbus
+          :end-at: zephyr,canbus
 
    * - .. csv-filter:: CAN Bus 2 Pin Multiplexing
           :file: STM32F777NIHx_with_alt.csv
