@@ -59,13 +59,6 @@ if(NOT WEST)
   message(FATAL_ERROR "The 'west' command was not found. Make sure you have it installed.")
 endif()
 
-set(KCONFIG_BINARY_DIR ${CMAKE_BINARY_DIR}/kconfig)
-list(INSERT MODULE_EXT_ROOT 0 ${ZEPHYR_BASE})
-file(MAKE_DIRECTORY ${KCONFIG_BINARY_DIR})
-
-include(${ZEPHYR_BASE}/cmake/extensions.cmake)
-include(${ZEPHYR_BASE}/cmake/zephyr_module.cmake)
-
 #-------------------------------------------------------------------------------
 # Functions
 
@@ -317,24 +310,12 @@ add_dependencies(devicetree-html-all devicetree-content zephyr-inventory-all)
 #-------------------------------------------------------------------------------
 # docset: kconfig
 
-file(WRITE ${KCONFIG_BINARY_DIR}/Kconfig.soc.defconfig
-     "osource \"${ZEPHYR_BASE}/soc/$(ARCH)/*/Kconfig.defconfig\"\n"
-)
-file(WRITE ${KCONFIG_BINARY_DIR}/Kconfig.soc
-     "osource \"${ZEPHYR_BASE}/soc/$(ARCH)/*/Kconfig.soc\"\n"
-)
-file(WRITE ${KCONFIG_BINARY_DIR}/Kconfig.shield.defconfig
-     "osource \"${ZEPHYR_BASE}/boards/shields/*/Kconfig.defconfig\"\n"
-)
-file(WRITE ${KCONFIG_BINARY_DIR}/Kconfig.shield
-     "osource \"${ZEPHYR_BASE}/boards/shields/*/Kconfig.shield\"\n"
-)
-file(WRITE ${KCONFIG_BINARY_DIR}/Kconfig.soc.arch
-     "osource \"${ZEPHYR_BASE}/soc/$(ARCH)/Kconfig\"\n"
-     "osource \"${ZEPHYR_BASE}/soc/$(ARCH)/*/Kconfig\"\n"
-)
+set(KCONFIG_BINARY_DIR ${CMAKE_BINARY_DIR}/kconfig)
+list(INSERT MODULE_EXT_ROOT 0 ${ZEPHYR_BASE})
+file(MAKE_DIRECTORY ${KCONFIG_BINARY_DIR})
 
-set(GEN_KCONFIG_REST_SCRIPT ${ZEPHYR_BASE}/doc/_scripts/gen_kconfig_rest.py)
+include(${ZEPHYR_BASE}/cmake/extensions.cmake)
+include(${ZEPHYR_BASE}/cmake/zephyr_module.cmake)
 
 foreach(module_name ${ZEPHYR_MODULE_NAMES})
   zephyr_string(SANITIZE TOUPPER MODULE_NAME_UPPER ${module_name})
@@ -351,6 +332,7 @@ foreach(module_name ${ZEPHYR_MODULE_NAMES})
   endif()
 endforeach()
 
+set(GEN_KCONFIG_REST_SCRIPT ${ZEPHYR_BASE}/doc/_scripts/gen_kconfig_rest.py)
 set(KCONFIG_RST_OUT ${KCONFIG_BINARY_DIR}/src)
 
 add_custom_target(
@@ -360,10 +342,11 @@ add_custom_target(
     PYTHONPATH=${ZEPHYR_BASE}/scripts/kconfig${SEP}$ENV{PYTHONPATH}
     ZEPHYR_BASE=${ZEPHYR_BASE}
     srctree=${ZEPHYR_BASE}
-    BOARD_DIR=boards/*/*/
+    BOARD_DIR=boards/*/*
     ARCH=*
-    ARCH_DIR=arch/
-    SOC_DIR=soc/
+    ARCH_DIR=arch
+    SOC_DIR=soc
+    TOOLCHAIN_HAS_NEWLIB=y
     KCONFIG_BINARY_DIR=${KCONFIG_BINARY_DIR}
     KCONFIG_WARN_UNDEF=y
     KCONFIG_TURBO_MODE=${KCONFIG_TURBO_MODE}
@@ -371,13 +354,13 @@ add_custom_target(
     ${ZEPHYR_KCONFIG_MODULES}
       ${PYTHON_EXECUTABLE} ${GEN_KCONFIG_REST_SCRIPT} ${KCONFIG_RST_OUT}
         --separate-all-index
-        --modules "Zephyr Architecture,zephyr-arch,${ZEPHYR_BASE}/arch"
-                  "Zephyr SoC,zephyr-soc,${ZEPHYR_BASE}/soc"
-                  "Zephyr Driver,zephyr-drivers,${ZEPHYR_BASE}/drivers"
-                  "Zephyr Boards,zephyr-boards,${ZEPHYR_BASE}/boards"
-                  "Zephyr Kernel,zephyr-kernel,${ZEPHYR_BASE}/kernel"
-                  "Zephyr Library,zephyr-lib,${ZEPHYR_BASE}/lib"
-                  "Zephyr Subsystem,zephyr-subsys,${ZEPHYR_BASE}/subsys"
+        --modules "Architecture,arch,${ZEPHYR_BASE}/arch"
+                  "SoC,soc,${ZEPHYR_BASE}/soc"
+                  "Boards,boards,${ZEPHYR_BASE}/boards"
+                  "Driver,drivers,${ZEPHYR_BASE}/drivers"
+                  "Kernel,kernel,${ZEPHYR_BASE}/kernel"
+                  "Library,lib,${ZEPHYR_BASE}/lib"
+                  "Subsystem,subsys,${ZEPHYR_BASE}/subsys"
                   "External Modules,modules,${ZEPHYR_BASE}/modules"
                   "Bridle,bridle,${BRIDLE_BASE}"
         --no-index-modules BuildDir,${CMAKE_BINARY_DIR}
@@ -386,6 +369,8 @@ add_custom_target(
   COMMENT "Running gen_kconfig_rest.py ${KCONFIG_RST_OUT}"
   USES_TERMINAL
 )
+
+set_property(DIRECTORY APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS ${GEN_KCONFIG_REST_SCRIPT})
 
 add_docset(kconfig "")
 add_dependencies(kconfig-inventory kconfig-content)
