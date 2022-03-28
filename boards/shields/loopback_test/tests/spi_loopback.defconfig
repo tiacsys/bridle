@@ -4,6 +4,7 @@
 
 menu "SPI Loopback Test"
 
+# workaround to be configurable with different test cases
 # copied from "zephyr/tests/drivers/spi/spi_loopback/Kconfig"
 
 config SPI_LOOPBACK_DRV_NAME

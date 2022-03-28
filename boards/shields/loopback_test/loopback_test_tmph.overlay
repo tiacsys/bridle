@@ -29,6 +29,7 @@
 
 &tmph_spi1 {
 	status = "okay";
+	label = "SPI_1";
 }; // tmph_spi1
 
 &tmph_i2c2 {
