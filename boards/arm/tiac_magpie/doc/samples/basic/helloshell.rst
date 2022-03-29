@@ -50,6 +50,7 @@ prompt. All shell commands are available and would looks like:
      bridle   :Bridle commands.
      clear    :Clear screen.
      device   :Device commands
+     devmem   :Read/write physical memory"devmem address [width [value]]
      flash    :Flash shell commands
      gpio     :GPIO commands
      hello    :say hello
@@ -66,6 +67,7 @@ prompt. All shell commands are available and would looks like:
      sensor   :Sensor commands
      shell    :Useful, not Unix-like shell commands.
 
+
    uart:~$ hello -h
    hello - say hello
    uart:~$ hello
@@ -76,31 +78,21 @@ prompt. All shell commands are available and would looks like:
    ID: 0x9e6b44aea1e2b8980c4d32a6
 
    uart:~$ kernel version
-   Zephyr version 2.6.0
+   Zephyr version 3.0.0
 
    uart:~$ bridle version
-   Bridle version 2.6.0
+   Bridle version 3.0.0
 
    uart:~$ bridle version long
-   Bridle version 2.6.0.0
+   Bridle version 3.0.0.0
 
    uart:~$ bridle info
-   Zephyr: 2.6.0
-   Bridle: 2.6.0
+   Zephyr: 3.0.0
+   Bridle: 3.0.0
 
    uart:~$ device list
    devices:
    - rcc@40023800 (READY)
-   - interrupt-controller@40013c00 (READY)
-   - RTC_0 (READY)
-     requires: rcc@40023800
-   - UART_7 (READY)
-     requires: rcc@40023800
-   - UART_4 (READY)
-     requires: rcc@40023800
-   - sys_clock (READY)
-   - ADC_3 (READY)
-     requires: rcc@40023800
    - GPIOK (READY)
      requires: rcc@40023800
    - GPIOJ (READY)
@@ -123,15 +115,25 @@ prompt. All shell commands are available and would looks like:
      requires: rcc@40023800
    - GPIOA (READY)
      requires: rcc@40023800
-   - FLASH_CTRL (READY)
+   - interrupt-controller@40013c00 (READY)
+   - RTC_0 (READY)
+     requires: rcc@40023800
+   - UART_7 (READY)
+     requires: rcc@40023800
+   - UART_4 (READY)
+     requires: rcc@40023800
+   - ADC_3 (READY)
+     requires: rcc@40023800
    - I2C_4 (READY)
      requires: rcc@40023800
    - I2C_2 (READY)
      requires: rcc@40023800
    - PWM_8 (READY)
      requires: rcc@40023800
+   - FLASH_CTRL (READY)
    - SPI_4 (READY)
      requires: rcc@40023800
+
 
    uart:~$ history
    [  0] history
@@ -190,11 +192,11 @@ Simple Flash Access
 
 .. code-block:: console
 
-   uart:~$ flash read FLASH_CTRL 10000 40
-   00010000: 20 73 69 7a 65 20 25 75  29 3a 09 75 6e 75 73 65 | size %u ):.unuse|
-   00010010: 64 20 25 75 09 75 73 61  67 65 20 25 75 20 2f 20 |d %u.usa ge %u / |
-   00010020: 25 75 20 28 25 75 20 25  25 29 0a 00 6b 65 72 6e |%u (%u % %)..kern|
-   00010030: 65 6c 00 4b 65 72 6e 65  6c 20 63 6f 6d 6d 61 6e |el.Kerne l comman|
+   uart:~$ flash read FLASH_CTRL 13000 40
+   00013000: 20 76 65 72 73 69 6f 6e  20 28 77 2f 6f 20 74 77 | version  (w/o tw|
+   00013010: 65 61 6b 29 2e 00 6c 6f  6e 67 00 42 72 69 64 6c |eak)..lo ng.Bridl|
+   00013020: 65 20 76 65 72 73 69 6f  6e 20 28 77 69 74 68 20 |e versio n (with |
+   00013030: 74 77 65 61 6b 29 2e 00  48 65 6c 6c 6f 20 66 72 |tweak).. Hello fr|
 
 Simple I2C Operations
 =====================

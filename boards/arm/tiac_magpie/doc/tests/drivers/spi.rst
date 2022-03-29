@@ -57,11 +57,12 @@ Building and Running
 
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1/2 tiac_magpie               tests/drivers/spi/spi_loopback/driver.spi.loopback.internal :byl:`SKIPPED` (filter)
-         INFO    - 2/2 tiac_magpie               tests/drivers/spi/spi_loopback/drivers.spi.loopback :bgn:`PASSED` (device 4.115s)
+         INFO    - 1/3 tiac_magpie               tests/drivers/spi/spi_loopback/drivers.spi.loopback.internal :byl:`SKIPPED` (filter)
+         INFO    - 2/3 tiac_magpie               tests/drivers/spi/spi_loopback/drivers.spi.loopback :byl:`SKIPPED` (filter)
+         INFO    - 3/3 tiac_magpie               tests/drivers/spi/spi_loopback/drivers.stm32_spi.loopback :bgn:`PASSED` (device 4.195s)
 
-         INFO    - :bgn:`1 of 1` test configurations passed (100.00%), :bbk:`0` failed, :byl:`1` skipped with :bbk:`0` warnings in :bbk:`21.61 seconds`
-         INFO    - In total 1 test cases were executed, 1 skipped on 1 out of total 370 platforms (0.27%)
+         INFO    - :bgn:`1 of 1` test configurations passed (100.00%), :bbk:`0` failed, :byl:`4` skipped with :bbk:`0` warnings in :bbk:`27.49 seconds`
+         INFO    - In total 1 test cases were executed, 4 skipped on 1 out of total 428 platforms (0.23%)
          INFO    - :bgn:`1` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:

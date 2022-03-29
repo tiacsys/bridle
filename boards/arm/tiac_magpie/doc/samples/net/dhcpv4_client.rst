@@ -35,12 +35,12 @@ are shown on the console like this:
 
 .. code-block:: none
 
-   [00:00:00.269,000] <inf> net_dhcpv4_client_sample: Run dhcpv4 client
-   [00:00:03.511,000] <inf> net_dhcpv4: Received: 192.168.10.182
-   [00:00:03.511,000] <inf> net_dhcpv4_client_sample: Your address: 192.168.10.182
-   [00:00:03.511,000] <inf> net_dhcpv4_client_sample: Lease time: 36000 seconds
-   [00:00:03.511,000] <inf> net_dhcpv4_client_sample: Subnet: 255.255.255.0
-   [00:00:03.511,000] <inf> net_dhcpv4_client_sample: Router: 192.168.10.1
+   [00:00:00.271,000] <inf> net_dhcpv4_client_sample: Run dhcpv4 client
+   [00:00:03.595,000] <inf> net_dhcpv4: Received: 192.168.10.182
+   [00:00:03.595,000] <inf> net_dhcpv4_client_sample: Your address: 192.168.10.182
+   [00:00:03.595,000] <inf> net_dhcpv4_client_sample: Lease time: 36000 seconds
+   [00:00:03.595,000] <inf> net_dhcpv4_client_sample: Subnet: 255.255.255.0
+   [00:00:03.595,000] <inf> net_dhcpv4_client_sample: Router: 192.168.10.1
 
 To verify the Zephyr application client is running and has received
 an IPv4 address by typing on Linux host:
@@ -63,10 +63,11 @@ On Zephyr, Shell command line:
 
    uart:~$ net iface show 1
 
-   Interface 0x20020b18 (Ethernet) [1]
+   Interface 0x20020b30 (Ethernet) [1]
    ===================================
    Link addr : 02:80:E1:4F:98:16
    MTU       : 1500
+   Flags     : NO_AUTO_START,IPv4
    Ethernet capabilities supported:
            10 Mbits
            100 Mbits
