@@ -1,6 +1,7 @@
 {
   "VERSIONS": [
     "latest",
+    "3.0.0",
     "2.7.1",
     "2.6",
     "2.6.0",
@@ -9,7 +10,11 @@
   ],
   "COMPONENTS_BY_VERSION": {
     "latest": {
-      "bridle": "2.7.99",
+      "bridle": "3.0.0",
+      "zephyr": "3.0.0"
+    },
+    "3.0.0": {
+      "bridle": "3.0.0",
       "zephyr": "3.0.0"
     },
     "2.7.1": {
