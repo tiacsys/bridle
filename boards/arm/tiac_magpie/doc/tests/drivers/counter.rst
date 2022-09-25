@@ -33,7 +33,7 @@ Building and Running
              --enable-size-report --platform-reports \
              --device-testing --hardware-map map.yaml \
              --board-root bridle/boards \
-             --testcase-root zephyr/tests/drivers/counter
+             --testsuite-root zephyr/tests/drivers/counter
 
    .. group-tab:: Results
 
@@ -48,12 +48,13 @@ Building and Running
          \|-------------\|----------\|-----------------\|
          \| tiac_magpie \| DT04BNT1 \| /dev/ttyUSB0    \|
 
+         INFO    - 6 test scenarios (6 configurations) selected, 5 configurations discarded due to filters.
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1/1 tiac_magpie               tests/drivers/counter/counter_basic_api/drivers.counter :bgn:`PASSED` (device 327.089s)
+         INFO    - 6/6 tiac_magpie               tests/drivers/counter/counter_basic_api/drivers.counter.basic_api :bgn:`PASSED` (device 327.041s)
 
-         INFO    - :bgn:`1 of 1` test configurations passed (100.00%), :bbk:`0` failed, :byl:`3` skipped with :bbk:`0` warnings in :bbk:`364.99 seconds`
-         INFO    - In total 10 test cases were executed, 16 skipped on 1 out of total 370 platforms (0.27%)
+         INFO    - :bgn:`1 of 6` test configurations passed (100.00%), :bbk:`0` failed, :byl:`5` skipped with :bbk:`0` warnings in :bbk:`358.69 seconds`
+         INFO    - In total 36 test cases were executed, 0 skipped on 1 out of total 457 platforms (0.22%)
          INFO    - :bgn:`1` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
@@ -61,3 +62,11 @@ Building and Running
          \| Board       \| ID       \|   Counter \|
          \|-------------\|----------\|-----------\|
          \| tiac_magpie \| DT04BNT1 \|         1 \|
+
+         INFO    - Saving reports...
+         INFO    - Writing JSON report .../twister-out/twister.json
+         INFO    - Using 'zephyr' toolchain.
+         INFO    - Writing xunit report .../twister-out/twister.xml...
+         INFO    - Writing xunit report .../twister-out/twister_report.xml...
+         INFO    - Writing target report for tiac_magpie...
+         INFO    - Run completed

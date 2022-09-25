@@ -32,8 +32,9 @@ Building and Running
              --verbose --jobs 4 --inline-logs \
              --enable-size-report --platform-reports \
              --device-testing --hardware-map map.yaml \
+             --extra-args SHIELD=can_timing_adj \
              --board-root bridle/boards \
-             --testcase-root zephyr/tests/drivers/can
+             --testsuite-root zephyr/tests/drivers/can
 
    .. group-tab:: Results
 
@@ -48,18 +49,28 @@ Building and Running
          \|-------------\|----------\|-----------------\|
          \| tiac_magpie \| DT04BNT1 \| /dev/ttyUSB0    \|
 
+         INFO    - 6 test scenarios (6 configurations) selected, 2 configurations discarded due to filters.
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1/3 tiac_magpie               tests/drivers/can/stm32/drivers.can.stm32          :bgn:`PASSED` (device 4.158s)
-         INFO    - 2/3 tiac_magpie               tests/drivers/can/api/drivers.can                  :bgn:`PASSED` (device 4.450s)
-         INFO    - 3/3 tiac_magpie               tests/drivers/can/timing/drivers.can.timing        :bgn:`PASSED` (device 4.249s)
+         INFO    - 3/6 tiac_magpie               tests/drivers/can/utilities/drivers.can.utilities  :bgn:`PASSED` (device 3.690s)
+         INFO    - 4/6 tiac_magpie               tests/drivers/can/stm32/drivers.can.stm32          :bgn:`PASSED` (device 3.999s)
+         INFO    - 5/6 tiac_magpie               tests/drivers/can/timing/drivers.can.timing        :bgn:`PASSED` (device 5.437s)
+         INFO    - 6/6 tiac_magpie               tests/drivers/can/api/drivers.can.api              :bgn:`PASSED` (device 6.299s)
 
-         INFO    - :bgn:`3 of 3` test configurations passed (100.00%), :bbk:`0` failed, :byl:`2` skipped with :bbk:`0` warnings in :bbk:`39.21 seconds`
-         INFO    - In total 14 test cases were executed, 5 skipped on 1 out of total 370 platforms (0.27%)
-         INFO    - :bgn:`3` test configurations executed on platforms, :brd:`0` test configurations were only built.
+         INFO    - :bgn:`4 of 6` test configurations passed (100.00%), :bbk:`0` failed, :byl:`2` skipped with :bbk:`0` warnings in :bbk:`51.79 seconds`
+         INFO    - In total 60 test cases were executed, 3 skipped on 1 out of total 457 platforms (0.22%)
+         INFO    - :bgn:`4` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
 
          \| Board       \| ID       \|   Counter \|
          \|-------------\|----------\|-----------\|
-         \| tiac_magpie \| DT04BNT1 \|         3 \|
+         \| tiac_magpie \| DT04BNT1 \|         4 \|
+
+         INFO    - Saving reports...
+         INFO    - Writing JSON report .../twister-out/twister.json
+         INFO    - Using 'zephyr' toolchain.
+         INFO    - Writing xunit report .../twister-out/twister.xml...
+         INFO    - Writing xunit report .../twister-out/twister_report.xml...
+         INFO    - Writing target report for tiac_magpie...
+         INFO    - Run completed

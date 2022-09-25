@@ -40,7 +40,7 @@ Building and Running
              --device-testing --hardware-map map.yaml \
              --extra-args SHIELD=loopback_test_tmph \
              --board-root bridle/boards \
-             --testcase-root zephyr/tests/drivers/gpio
+             --testsuite-root zephyr/tests/drivers/gpio
 
    .. group-tab:: Results
 
@@ -55,13 +55,14 @@ Building and Running
          \|-------------\|----------\|-----------------\|
          \| tiac_magpie \| DT04BNT1 \| /dev/ttyUSB0    \|
 
+         INFO    - 3 test scenarios (3 configurations) selected, 1 configurations discarded due to filters.
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1/2 tiac_magpie               tests/drivers/gpio/gpio_api_1pin/peripheral.gpio.1pin :bgn:`PASSED` (device 10.823s)
-         INFO    - 2/2 tiac_magpie               tests/drivers/gpio/gpio_basic_api/drivers.gpio.2pin :bgn:`PASSED` (device 19.573s)
+         INFO    - 2/3 tiac_magpie               tests/drivers/gpio/gpio_api_1pin/peripheral.gpio.1pin :bgn:`PASSED` (device 10.680s)
+         INFO    - 3/3 tiac_magpie               tests/drivers/gpio/gpio_basic_api/drivers.gpio.2pin :bgn:`PASSED` (device 19.226s)
 
-         INFO    - :bgn:`2 of 2` test configurations passed (100.00%), :bbk:`0` failed, :byl:`0` skipped with :bbk:`0` warnings in :bbk:`49.44 seconds`
-         INFO    - In total 26 test cases were executed, 5 skipped on 1 out of total 370 platforms (0.27%)
+         INFO    - :bgn:`2 of 3` test configurations passed (100.00%), :bbk:`0` failed, :byl:`1` skipped with :bbk:`0` warnings in :bbk:`48.64 seconds`
+         INFO    - In total 31 test cases were executed, 5 skipped on 1 out of total 457 platforms (0.22%)
          INFO    - :bgn:`2` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
@@ -69,3 +70,11 @@ Building and Running
          \| Board       \| ID       \|   Counter \|
          \|-------------\|----------\|-----------\|
          \| tiac_magpie \| DT04BNT1 \|         2 \|
+
+         INFO    - Saving reports...
+         INFO    - Writing JSON report .../twister-out/twister.json
+         INFO    - Using 'zephyr' toolchain.
+         INFO    - Writing xunit report .../twister-out/twister.xml...
+         INFO    - Writing xunit report .../twister-out/twister_report.xml...
+         INFO    - Writing target report for tiac_magpie...
+         INFO    - Run completed

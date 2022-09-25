@@ -482,23 +482,24 @@ with a single call to Twister.
 
       .. code-block:: console
 
-         $ ./zephyr/scripts/twister --jobs 4 --inline-logs \
+         $ ./zephyr/scripts/twister --jobs 4 \
              --enable-size-report --platform-reports \
              --device-testing --hardware-map map.yaml \
-             --extra-args SHIELD=loopback_test_tmph \
+             --extra-args SHIELD="loopback_test_tmph can_timing_adj" \
              --board-root bridle/boards \
-             --testcase-root bridle/tests/bridle \
-             --testcase-root zephyr/tests/arch/arm \
-             --testcase-root zephyr/tests/kernel \
-             --testcase-root zephyr/tests/drivers/watchdog \
-             --testcase-root zephyr/tests/drivers/counter \
-             --testcase-root zephyr/tests/drivers/entropy \
-             --testcase-root zephyr/tests/drivers/hwinfo \
-             --testcase-root zephyr/tests/drivers/gpio \
-             --testcase-root zephyr/tests/drivers/pwm \
-             --testcase-root zephyr/tests/drivers/spi \
-             --testcase-root zephyr/tests/drivers/i2c \
-             --testcase-root zephyr/tests/drivers/can
+             --testsuite-root bridle/tests/bridle \
+             --testsuite-root zephyr/tests/kernel \
+             --testsuite-root zephyr/tests/arch/arm \
+             --testsuite-root zephyr/tests/crypto/rand32 \
+             --testsuite-root zephyr/tests/drivers/hwinfo \
+             --testsuite-root zephyr/tests/drivers/watchdog \
+             --testsuite-root bridle/tests/drivers/watchdog \
+             --testsuite-root zephyr/tests/drivers/counter \
+             --testsuite-root zephyr/tests/drivers/entropy \
+             --testsuite-root zephyr/tests/drivers/gpio \
+             --testsuite-root zephyr/tests/drivers/uart \
+             --testsuite-root zephyr/tests/drivers/spi \
+             --testsuite-root zephyr/tests/drivers/can
 
    .. group-tab:: Results
 
@@ -513,18 +514,19 @@ with a single call to Twister.
          \|-------------\|----------\|-----------------\|
          \| tiac_magpie \| DT04BNT1 \| /dev/ttyUSB0    \|
 
+         INFO    - 251 test scenarios (251 configurations) selected, 110 configurations discarded due to filters.
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - Total complete:  :bgn:`125`/ :bgn:`125`  100%  skipped:   :byl:`64`, failed:    :brd:`2`
-         INFO    - :bgn:`103 of 105` test configurations passed (98.10%), :brd:`2` failed, :byl:`64` skipped with :bbk:`0` warnings in :bbk:`1896.86 seconds`
-         INFO    - In total 972 test cases were executed, 511 skipped on 1 out of total 370 platforms (0.27%)
-         INFO    - :bgn:`105` test configurations executed on platforms, :brd:`0` test configurations were only built.
+         INFO    - Total complete:  :bgn:`251`/ :bgn:`251`  100%  skipped:   :byl:`133`, failed:    :brd:`0`
+         INFO    - :bgn:`118 of 251` test configurations passed (98.10%), :brd:`2` failed, :byl:`133` skipped with :bbk:`0` warnings in :bbk:`1546.67 seconds`
+         INFO    - In total 1754 test cases were executed, 255 skipped on 1 out of total 457 platforms (0.22%)
+         INFO    - :bgn:`118` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
 
          \| Board       \| ID       \|   Counter \|
          \|-------------\|----------\|-----------\|
-         \| tiac_magpie \| DT04BNT1 \|       105 \|
+         \| tiac_magpie \| DT04BNT1 \|       118 \|
 
 .. admonition:: Known but currently tolerated test cases with errors
    :class: attention
@@ -532,6 +534,7 @@ with a single call to Twister.
    .. toctree::
       :maxdepth: 1
 
+      tests/drivers/adc
       tests/drivers/i2c
       tests/drivers/pwm
 
