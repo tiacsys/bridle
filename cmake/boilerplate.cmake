@@ -9,3 +9,4 @@
 #   https://bridle.tiac-systems.net/doc/latest/zephyr/guides/zephyr_cmake_package.html#zephyr-build-configuration-cmake-package
 
 include(${BRIDLE_BASE}/cmake/version.cmake)
+include(${BRIDLE_BASE}/cmake/required-toolchain.cmake)

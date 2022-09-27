@@ -6,4 +6,4 @@ gperf=3.1
 dtc=1.4.7-1
 openocd=0.11.0-1 (xPack OpenOCD from GitHub)
 west=0.12.0
-zephyr-sdk=0.13.2
+zephyr-sdk=0.14.2
