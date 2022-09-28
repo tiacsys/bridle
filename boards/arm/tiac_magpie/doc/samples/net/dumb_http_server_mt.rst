@@ -79,7 +79,7 @@ Finally, you can run an HTTP profiling/load tool like Apache Bench
 
 .. code-block:: console
 
-    $ ab -g dumb_http_server_mt_ab.csv -n 100 -c 50 \
+    $ ab -g dumb_http_server_mt_ab.csv -n 100 -c 20 \
          http://192.168.10.199:8080/ | tee dumb_http_server_mt_ab.log
     $ gnuplot dumb_http_server_mt_ab.p
 

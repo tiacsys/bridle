@@ -67,7 +67,6 @@ prompt. All shell commands are available and would looks like:
      sensor   :Sensor commands
      shell    :Useful, not Unix-like shell commands.
 
-
    uart:~$ hello -h
    hello - say hello
    uart:~$ hello
@@ -78,21 +77,22 @@ prompt. All shell commands are available and would looks like:
    ID: 0x9e6b44aea1e2b8980c4d32a6
 
    uart:~$ kernel version
-   Zephyr version 3.0.0
+   Zephyr version 3.1.0
 
    uart:~$ bridle version
-   Bridle version 3.0.0
+   Bridle version 3.1.0
 
    uart:~$ bridle version long
-   Bridle version 3.0.0.0
+   Bridle version 3.1.0.0
 
    uart:~$ bridle info
-   Zephyr: 3.0.0
-   Bridle: 3.0.0
+   Zephyr: 3.1.0
+   Bridle: 3.1.0
 
    uart:~$ device list
    devices:
    - rcc@40023800 (READY)
+   - interrupt-controller@40013c00 (READY)
    - GPIOK (READY)
      requires: rcc@40023800
    - GPIOJ (READY)
@@ -115,7 +115,6 @@ prompt. All shell commands are available and would looks like:
      requires: rcc@40023800
    - GPIOA (READY)
      requires: rcc@40023800
-   - interrupt-controller@40013c00 (READY)
    - RTC_0 (READY)
      requires: rcc@40023800
    - UART_7 (READY)
@@ -133,7 +132,6 @@ prompt. All shell commands are available and would looks like:
    - FLASH_CTRL (READY)
    - SPI_4 (READY)
      requires: rcc@40023800
-
 
    uart:~$ history
    [  0] history
@@ -157,12 +155,18 @@ Simple GPIO Operations
    uart:~$ gpio get GPIOG 12
    Reading GPIOG pin 12
    Value 0
+
    uart:~$ gpio conf GPIOG 12 out
    Configuring GPIOG pin 12
+
    uart:~$ gpio set GPIOG 12 1
    Writing to GPIOG pin 12
+
    uart:~$ gpio set GPIOG 12 0
    Writing to GPIOG pin 12
+
+   uart:~$ gpio blink GPIOG 12
+   Blinking port GPIOG index 12. Hit any key to exit
 
 Simple ADC Acquisition
 ======================
@@ -175,7 +179,7 @@ Simple ADC Acquisition
    uart:~$ adc ADC_3 resolution 12
 
    uart:~$ adc ADC_3 read 9
-   read: 489
+   read: 454
 
    uart:~$ adc ADC_3 print
    ADC_3:
@@ -192,11 +196,11 @@ Simple Flash Access
 
 .. code-block:: console
 
-   uart:~$ flash read FLASH_CTRL 13000 40
-   00013000: 20 76 65 72 73 69 6f 6e  20 28 77 2f 6f 20 74 77 | version  (w/o tw|
-   00013010: 65 61 6b 29 2e 00 6c 6f  6e 67 00 42 72 69 64 6c |eak)..lo ng.Bridl|
-   00013020: 65 20 76 65 72 73 69 6f  6e 20 28 77 69 74 68 20 |e versio n (with |
-   00013030: 74 77 65 61 6b 29 2e 00  48 65 6c 6c 6f 20 66 72 |tweak).. Hello fr|
+   uart:~$ flash read FLASH_CTRL 105F0 40
+   000105F0: 61 63 5f 6d 61 67 70 69  65 00 48 65 6c 6c 6f 20 |ac_magpi e.Hello |
+   00010600: 57 6f 72 6c 64 21 20 49  27 6d 20 54 48 45 20 53 |World! I 'm THE S|
+   00010610: 48 45 4c 4c 20 66 72 6f  6d 20 25 73 0a 00 28 6e |HELL fro m %s..(n|
+   00010620: 69 6c 29 00 6c 6f 67 00  25 30 32 78 20 00 20 20 |il).log. %02x .  |
 
 Simple I2C Operations
 =====================
@@ -223,8 +227,10 @@ Simple I2C Operations
 
    uart:~$ i2c read_byte I2C_2 20 0
    Output: 0xc0
+
    uart:~$ i2c read_byte I2C_2 20 3
    Output: 0xff
+
    uart:~$ i2c write_byte I2C_2 20 3 0
    uart:~$ i2c read_byte I2C_2 20 3
    Output: 0x0
@@ -238,8 +244,10 @@ Simple I2C Operations
 
    uart:~$ i2c read_byte I2C_2 20 1
    Output: 0xff
+
    uart:~$ i2c write_byte I2C_2 20 1 0x55
    uart:~$ i2c read_byte I2C_2 20 1
    Output: 0x55
+
    uart:~$ i2c read_byte I2C_2 20 0
    Output: 0x55
