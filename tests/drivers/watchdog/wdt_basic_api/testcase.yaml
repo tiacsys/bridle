@@ -1,0 +1,15 @@
+common:
+    depends_on: watchdog
+    tags: drivers watchdog
+tests:
+  drivers.watchdog.tiac_magpie:
+    filter: not (dt_compat_enabled("st,stm32-window-watchdog") or dt_compat_enabled("st,stm32-watchdog"))
+    platform_exclude: tiac_magpie
+  drivers.watchdog.stm32wwdg.tiac_magpie:
+    filter: dt_compat_enabled("st,stm32-window-watchdog") or dt_compat_enabled("st,stm32-watchdog")
+    extra_args: DTC_OVERLAY_FILE="boards/tiac_magpie.overlay;boards/stm32_wwdg.overlay"
+    platform_allow: tiac_magpie
+  drivers.watchdog.stm32iwdg.tiac_magpie:
+    filter: dt_compat_enabled("st,stm32-window-watchdog") or dt_compat_enabled("st,stm32-watchdog")
+    extra_args: DTC_OVERLAY_FILE="boards/stm32_iwdg.overlay"
+    platform_allow: tiac_magpie
