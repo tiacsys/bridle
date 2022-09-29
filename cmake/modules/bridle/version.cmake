@@ -23,7 +23,15 @@
 #   BRIDLE_VERSION_CODE        517
 #
 # Most outputs are converted to C macros, see ``bridle_version.h.in``
-
+#
+# Note:
+#
+# `bridle/version.cmake` is loaded multiple times by `BridleConfigVersion.cmake`
+# to determine this Bridle package version and thus the correct Bridle CMake
+# package to load.
+#
+# Therefore `bridle/version.cmake` should not use include_guard(GLOBAL). The
+# final load of `bridle/version.cmake` will setup correct version values.
 
 include(${ZEPHYR_BASE}/cmake/hex.cmake)
 file(READ ${BRIDLE_BASE}/VERSION ver)

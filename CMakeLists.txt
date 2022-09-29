@@ -2,10 +2,6 @@
 # Copyright (c) 2019-2021 Li-Pro.Net
 # SPDX-License-Identifier: Apache-2.0
 
-# Set to know where our project lies.
-set(BRIDLE_BASE "${CMAKE_CURRENT_LIST_DIR}"
-    CACHE PATH "Bridle root directory")
-
 # Generate our version header and inject into all builds.
 add_custom_command(
   OUTPUT ${PROJECT_BINARY_DIR}/include/generated/version_bridle.h
