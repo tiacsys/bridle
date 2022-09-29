@@ -22,7 +22,10 @@
 #   BRIDLE_VERSION_NUMBER    0x205
 #   BRIDLE_VERSION_CODE        517
 #
-# Most outputs are converted to C macros, see ``bridle_version.h.in``
+# Most outputs are converted to C macros, see ``version.h.in``
+#
+# See also: independent and more dynamic ``BRIDLE_BUILD_VERSION`` in
+# ``gen_version_h.cmake``.
 #
 # Note:
 #
@@ -67,8 +70,12 @@ endif()
 
 set(PROJECT_VERSION_STR ${PROJECT_VERSION}${PROJECT_VERSION_EXTRA_STR})
 
+if(DEFINED BRIDLE_BUILD_VERSION)
+  set(BRIDLE_BUILD_VERSION_STR ", build: ${BRIDLE_BUILD_VERSION}")
+endif()
+
 if (NOT NO_PRINT_VERSION)
-  message(STATUS "Bridle version: ${PROJECT_VERSION_STR} (${BRIDLE_BASE})")
+  message(STATUS "Bridle version: ${PROJECT_VERSION_STR} (${BRIDLE_BASE})${BRIDLE_BUILD_VERSION_STR}")
 endif()
 
 set(MAJOR ${PROJECT_VERSION_MAJOR}) # Temporary convenience variable
