@@ -1,0 +1,10 @@
+# Copyright (c) 2022 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+# Keep the help strings in sync with the values in the .py files!
+west-commands:
+  - file: scripts/west_commands/export.py
+    commands:
+      - name: bridle-export
+        class: BridleExport
+        help: export Bridle installation as a CMake config package

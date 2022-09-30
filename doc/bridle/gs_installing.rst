@@ -399,14 +399,15 @@ To clone the repositories, complete the following steps:
 
       west update
 
-#. Export a :ref:`Zephyr CMake package <zephyr:cmake_pkg>`. This allows CMake
-   to automatically load the boilerplate code required for building |BRIDLE|
-   applications:
+#. Export the :ref:`Zephyr CMake package <zephyr:cmake_pkg>` and also for
+   |BRIDLE|. This allows CMake to automatically load the boilerplate code
+   required for building |BRIDLE| applications:
 
    .. parsed-literal::
       :class: highlight
 
       west zephyr-export
+      west bridle-export
 
 Your directory structure now looks similar to this::
 
