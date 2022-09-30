@@ -19,7 +19,7 @@
 # information.
 
 manifest:
-  version: "0.12"
+  version: "0.13"
 
   # If not otherwise specified, the projects below should be obtained
   # from the tiacsys remote.
@@ -85,6 +85,9 @@ manifest:
           - segger
           - tinycbor
           - tinycrypt
+      # hook up for Bridle zephyr_trampoline.py
+      userdata:
+        west-commands-path: scripts/west_commands
 
   # West-related configuration for the Bridle repository.
   self:
