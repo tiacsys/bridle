@@ -1,4 +1,5 @@
 .. _index:
+.. _bridle-home:
 
 |BRIDLE| Documentation
 ######################

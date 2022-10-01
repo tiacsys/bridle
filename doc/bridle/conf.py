@@ -35,7 +35,7 @@ sys.path.insert(0, os.path.join(ZEPHYR_BASE, 'doc', '_extensions'))
 # Project ----------------------------------------------------------------------
 
 # General information about the project.
-project = u'Bridle'
+project = utils.get_projname('bridle')
 copyright = u'2019-2022 TiaC Systems members and individual contributors'
 author = u'TiaC Systems'
 
@@ -71,7 +71,7 @@ finally:
 # General ----------------------------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
-needs_sphinx = '3.3'
+needs_sphinx = '4.0'
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
@@ -85,19 +85,22 @@ extensions = [
     'sphinx.ext.todo',
     'sphinx.ext.extlinks',
 #   'sphinx.ext.autodoc',
+    'sphinx.ext.graphviz',
     'sphinx.ext.ifconfig',
     'sphinxcontrib.mscgen',
     'sphinx_tabs.tabs',
     'crate.sphinx.csv',
-    'notfound.extension',
     'zephyr.application',
     'zephyr.html_redirects',
+    'zephyr.kconfig',
     'zephyr.dtcompatible-role',
-    'zephyr.kconfig-role',
     'zephyr.link-roles',
     'zephyr.warnings_filter',
     'zephyr.doxyrunner',
+#   'zephyr.vcs_link',
     'zephyr.external_content',
+    'sphinx_copybutton',
+    'notfound.extension',
     'bridle.link-roles',
     'bridle.inventory_builder',
     'bridle.options_from_kconfig',
@@ -231,16 +234,17 @@ breathe_show_enumvalue_initializer = True
 breathe_separate_member_pages = True
 
 cpp_id_attributes = [
-    "__syscall",
-    "__deprecated",
-    "__may_alias",
-    "__used",
-    "__unused",
-    "__weak",
-    "__attribute_const__",
-    "__DEPRECATED_MACRO",
-    "FUNC_NORETURN",
-    "__subsystem",
+    '__syscall',
+    '__deprecated',
+    '__may_alias',
+    '__used',
+    '__unused',
+    '__weak',
+    '__attribute_const__',
+    '__DEPRECATED_MACRO',
+    'FUNC_NORETURN',
+    '__subsystem',
+    'ALWAYS_INLINE',
 ]
 c_id_attributes = cpp_id_attributes
 
@@ -258,8 +262,15 @@ tsn_include_mapping = {
 warnings_filter_config = os.path.join(BRIDLE_BASE, 'doc', 'bridle', 'known-warnings.txt')
 warnings_filter_silent = False
 
+# -- Options for notfound.extension --------------------------------------------
+
+notfound_urls_prefix = '/doc/{}/bridle/'.format(
+    'latest' if version.endswith('99') else version
+)
+
 # Options for zephyr.external_content ------------------------------------------
 
+# Default directives for included content.
 external_content_directives = (
     'figure',
     'image',
@@ -296,6 +307,19 @@ options_from_kconfig_zephyr_dir = ZEPHYR_BASE
 # Options for bridle.manifest_revisions_table ----------------------------------
 
 manifest_revisions_table_manifest = os.path.join(BRIDLE_BASE, 'west.yml')
+
+# -- Options for sphinx.ext.graphviz --------------------------------------
+
+graphviz_dot = os.environ.get('DOT_EXECUTABLE', 'dot')
+graphviz_output_format = 'svg'
+graphviz_dot_args = [
+    '-Gbgcolor=transparent',
+    '-Nstyle=filled',
+    '-Nfillcolor=white',
+    '-Ncolor=gray60',
+    '-Nfontcolor=gray25',
+    '-Ecolor=gray60',
+]
 
 # Linkcheck options ------------------------------------------------------------
 

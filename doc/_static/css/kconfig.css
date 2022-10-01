@@ -1,3 +1,16 @@
 :root {
     --docset-color: #e82424;
 }
+
+dl.kconfig {
+    background-color: unset;
+}
+
+.wy-side-nav-search input[type=text] {
+    visibility: hidden;
+}
+
+div#__kconfig-search input {
+    border: 2.5px solid rgb(0 0 0 / 66%);
+    box-shadow: rgb(149 157 165 / 100%) 0px 8px 24px !important;
+}

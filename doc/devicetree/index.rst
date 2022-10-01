@@ -1,3 +1,4 @@
+.. _index:
 .. _devicetree:
 
 Devicetree Bindings
@@ -13,6 +14,5 @@ platform-independent specification, see the `Devicetree specification`_.
 
 .. toctree::
    :maxdepth: 3
-   :glob:
 
-   *
+   bindings

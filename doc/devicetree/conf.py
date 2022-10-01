@@ -32,18 +32,43 @@ sys.path.insert(0, os.path.join(ZEPHYR_BASE, 'doc', '_extensions'))
 # Project ----------------------------------------------------------------------
 
 # General information about the project.
-project = u'Devicetree Bindings'
-copyright = u'2019-2022 TiaC Systems members and individual contributors'
-author = u'TiaC Systems'
+project = utils.get_projname('devicetree')
+copyright = u'2019-2022 Zephyr Project and TiaC Systems members and individual contributors'
+author = u'The Zephyr Project and TiaC Systems'
 
-# Get rid of version number while keeping the spacing the same as for other
-# docsets
-version = '&nbsp;'
+# The following code tries to extract the information by reading the Makefile,
+# when Sphinx is run directly (e.g. by Read the Docs).
+try:
+    version_major = None
+    version_minor = None
+    patchlevel = None
+    extraversion = None
+    for line in open(os.path.join(BRIDLE_BASE, 'VERSION')):
+        key, val = [x.strip() for x in line.split('=', 2)]
+        if key == 'VERSION_MAJOR':
+            version_major = val
+        if key == 'VERSION_MINOR':
+            version_minor = val
+        elif key == 'PATCHLEVEL':
+            patchlevel = val
+        elif key == 'EXTRAVERSION':
+            extraversion = val
+        if version_major and version_minor and patchlevel and extraversion:
+            break
+except Exception:
+    pass
+finally:
+    if version_major and version_minor and patchlevel and extraversion is not None:
+        version = release = version_major + '.' + version_minor + '.' + patchlevel
+        if extraversion != '':
+            version = release = version + '-' + extraversion
+    else:
+        sys.exit('Could not extract Bridle version.')
 
 # General ----------------------------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
-needs_sphinx = '3.3'
+needs_sphinx = '4.0'
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
@@ -54,9 +79,10 @@ extensions = [
     'sphinx.ext.extlinks',
     'sphinx.ext.ifconfig',
     'sphinx_tabs.tabs',
+    'sphinx_copybutton',
     'notfound.extension',
     'zephyr.dtcompatible-role',
-    'zephyr.kconfig-role',
+    'zephyr.kconfig',
     'zephyr.external_content',
     'bridle.inventory_builder',
 ]
@@ -135,6 +161,7 @@ html_show_copyright = True
 html_show_license = True
 
 html_theme_options = {
+    'prev_next_buttons_location': None,
     'docsets': utils.get_docsets('devicetree'),
     'default_docset': utils.get_default_docset(),
 }
@@ -147,8 +174,19 @@ zephyr_mapping = utils.get_intersphinx_mapping('zephyr')
 if zephyr_mapping:
     intersphinx_mapping['zephyr'] = zephyr_mapping
 
+bridle_mapping = utils.get_intersphinx_mapping('bridle')
+if bridle_mapping:
+    intersphinx_mapping['bridle'] = bridle_mapping
+
+# -- Options for notfound.extension --------------------------------------------
+
+notfound_urls_prefix = '/doc/{}/devicetree/'.format(
+    'latest' if version.endswith('99') else version
+)
+
 # Options for zephyr.external_content ------------------------------------------
 
+# Default directives for included content.
 external_content_directives = (
     'figure',
     'image',

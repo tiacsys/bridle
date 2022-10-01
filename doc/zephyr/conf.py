@@ -29,22 +29,75 @@ BRIDLE_ZEPHYR_BUILD = os.path.join(utils.get_builddir(), 'zephyr')
 # Sphinx extensions within.
 sys.path.insert(0, os.path.join(BRIDLE_BASE, 'doc', '_extensions'))
 
-# pylint: disable=undefined-variable
-
-# General ----------------------------------------------------------------------
-
 # Import all Zephyr configuration, override as needed later
 conf = eval_config_file(os.path.join(ZEPHYR_BASE, 'doc', 'conf.py'), tags)
 locals().update(conf)
 
+# pylint: disable=undefined-variable
+
+# Project ----------------------------------------------------------------------
+
+# General information about the project.
+project = utils.get_projname('zephyr')
+
+# The following code tries to extract the information by reading the Makefile,
+# when Sphinx is run directly (e.g. by Read the Docs).
+try:
+    bridle_version_major = None
+    bridle_version_minor = None
+    bridle_patchlevel = None
+    bridle_extraversion = None
+    for line in open(os.path.join(BRIDLE_BASE, 'VERSION')):
+        key, val = [x.strip() for x in line.split('=', 2)]
+        if key == 'VERSION_MAJOR':
+            bridle_version_major = val
+        if key == 'VERSION_MINOR':
+            bridle_version_minor = val
+        elif key == 'PATCHLEVEL':
+            bridle_patchlevel = val
+        elif key == 'EXTRAVERSION':
+            bridle_extraversion = val
+        if (
+            bridle_version_major
+            and bridle_version_minor
+            and bridle_patchlevel
+            and bridle_extraversion
+        ):
+            break
+except Exception:
+    pass
+finally:
+    if (
+        bridle_version_major
+        and bridle_version_minor
+        and bridle_patchlevel
+        and bridle_extraversion
+        is not None
+    ):
+        bridle_version = bridle_release                 \
+                       = bridle_version_major           \
+                       + '.' + bridle_version_minor     \
+                       + '.' + bridle_patchlevel
+        if bridle_extraversion != '':
+            bridle_version = bridle_release             \
+                           = bridle_version             \
+                           + '-' + bridle_extraversion
+    else:
+        sys.exit('Could not extract Bridle version.')
+
+# General ----------------------------------------------------------------------
+
 # If your documentation needs a minimal Sphinx version, state it here.
-needs_sphinx = '3.3'
+needs_sphinx = '4.0'
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
-# ones.
-extensions.extend(['sphinx.ext.intersphinx'])
-extensions.extend(['bridle.inventory_builder'])
+# ones. Extensions that interfere should also removed here.
+extensions.extend([
+    'sphinx.ext.intersphinx',
+    'bridle.inventory_builder',
+])
+extensions.remove('zephyr.vcs_link')
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
@@ -109,12 +162,6 @@ html_show_license = True
 # docs, or URL that points an image file for the logo.
 html_logo = None
 
-html_context = {
-    'show_license': html_show_license,
-    'docs_title': docs_title,
-    'is_release': is_release,
-}
-
 html_theme_options = {
     'docsets': utils.get_docsets('zephyr'),
     'default_docset': utils.get_default_docset(),
@@ -132,22 +179,30 @@ devicetree_mapping = utils.get_intersphinx_mapping('devicetree')
 if devicetree_mapping:
     intersphinx_mapping['devicetree'] = devicetree_mapping
 
+# -- Options for zephyr.kconfig ------------------------------------------------
+
+# Disable Kconfig database generation, Bridle provides its own kconfig docset.
+kconfig_generate_db = False
+kconfig_ext_paths.clear()
+
 # Options for zephyr.warnings_filter -------------------------------------------
 
 warnings_filter_config = os.path.join(BRIDLE_ZEPHYR_BUILD, 'known-warnings.txt')
+warnings_filter_silent = False
 
-# Options for external_content -------------------------------------------------
+# -- Options for notfound.extension --------------------------------------------
 
-external_content_contents = [
-    (ZEPHYR_BASE / 'doc', '[!_]*'),
-    (ZEPHYR_BASE, 'boards/**/*.rst'),
-    (ZEPHYR_BASE, 'boards/**/doc'),
-    (ZEPHYR_BASE, 'samples/**/*.rst'),
-    (ZEPHYR_BASE, 'samples/**/doc'),
-]
+notfound_urls_prefix = '/doc/{}/zephyr/'.format(
+    bridle_version if is_release else 'latest'
+)
 
+# Options for zephyr.external_content ------------------------------------------
 
-# pylint: enable=undefined-variable
+# Clear external content keeping, Bridle provides its own docsets for that.
+external_content_keep.clear()
+
+# pylint: enable=undefined-variable,used-before-assignment
+
 
 def setup(app):
     app.add_css_file('css/common.css')
