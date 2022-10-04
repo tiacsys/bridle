@@ -77,7 +77,7 @@ Build Infrastructure
 Take over the new build principles from Zephyr:
 
 * Complete independent handling of the Kconfig documentation.
-* Restructure CMake integration for mos of all docsets.
+* Restructure CMake integration for most of all docsets.
 * Use the Zephyr Build Configuration CMake package to load our own
   boilerplate automatically through ZephyrBuildConfig.cmake.
 
@@ -85,7 +85,7 @@ Documentation
 =============
 
 1. Renamed references to :ref:`canbus` in the :ref:`tiac_magpie_board` page.
-#. Update all documentat output messages.
+#. Update all documented output messages.
 
 Issue Related Items
 *******************
