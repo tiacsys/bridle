@@ -5,7 +5,15 @@
     background-color: #15729d;
 }
 
+.bridle-api {
+    background-color: #15729d;
+}
+
 /* Zephyr Project RTOS */
+.zephyr-api {
+    background-color: #333f67;
+}
+
 .zephyr {
     background-color: #333f67;
 }
