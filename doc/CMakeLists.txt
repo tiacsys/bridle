@@ -21,10 +21,14 @@ project(bridle-doc LANGUAGES NONE)
 #-------------------------------------------------------------------------------
 # Dependencies
 
-find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE} COMPONENTS west doc)
+set(ZEPHYR_NAME "Zephyr")
+set(ZEPHYR_BRIEF "A Scalable Open Source RTOS")
+find_package(${ZEPHYR_NAME} REQUIRED HINTS $ENV{ZEPHYR_BASE} COMPONENTS west doc)
 file(TO_CMAKE_PATH "${ZEPHYR_BASE}" ZEPHYR_BASE)
 
-find_package(Bridle REQUIRED HINTS $ENV{BRIDLE_BASE} COMPONENTS doc)
+set(BRIDLE_NAME "Bridle")
+set(BRIDLE_BRIEF "A Zephyr based application framework")
+find_package(${BRIDLE_NAME} REQUIRED HINTS $ENV{BRIDLE_BASE} COMPONENTS doc)
 file(TO_CMAKE_PATH "${BRIDLE_BASE}" BRIDLE_BASE)
 
 #-------------------------------------------------------------------------------
@@ -54,6 +58,7 @@ endif()
 # Args:
 # - name: Docset name.
 # - sphinxopts: Local options passed to the Sphinx build.
+# - API: Enable/disable "API" mode. If enabled, Doxygen will be executed.
 # - DODGY: Enable/disable "dodgy" mode. If enabled, the ${SPHINXOPTS_EXTRA}
 #   option (used to enable things like -W) will not be passed to Sphinx. It can
 #   be useful for external docsets that are likely to generate build warnings.
@@ -75,20 +80,35 @@ endif()
 # - ${name}-clean: Clean build artifacts.
 #
 function(add_docset name sphinxopts)
+  cmake_parse_arguments(DOCSET "API" "" "" ${ARGN})
   cmake_parse_arguments(DOCSET "DODGY" "" "" ${ARGN})
 
-  set(DOCSET_CFG_DIR ${CMAKE_CURRENT_LIST_DIR}/${name})
+  string(TOUPPER ${name} NAME)
+  set(DOCSET_BASE ${${NAME}_BASE})
+  set(DOCSET_NAME ${${NAME}_NAME})
+  set(DOCSET_VERSION ${${DOCSET_NAME}_VERSION})
+  set(DOCSET_BRIEF ${${NAME}_BRIEF})
+
+  set(PROJECT_DOXYGEN_DIR ${DOCSET_BASE}/doc/_doxygen)
+  set(SHARED_DOXYGEN_DIR ${CMAKE_CURRENT_LIST_DIR}/_doxygen)
+  set(DOCSET_SPHINX_DIR ${CMAKE_CURRENT_LIST_DIR}/${name})
   set(DOCSET_BUILD_DIR ${CMAKE_BINARY_DIR}/${name})
   set(DOCSET_SRC_DIR ${CMAKE_BINARY_DIR}/${name}/src)
-  set(DOCSET_DOX_DIR ${CMAKE_BINARY_DIR}/${name}/doxygen)
   set(DOCSET_DOCTREE_DIR ${CMAKE_BINARY_DIR}/${name}/doctree)
   set(DOCSET_HTML_DIR ${CMAKE_BINARY_DIR}/html/${name})
-  set(DOCSET_MAKE_DIRS ${DOCSET_BUILD_DIR};${DOCSET_SRC_DIR};${DOCSET_DOX_DIR})
-  set(DOCSET_CLEAN_DIRS ${DOCSET_SRC_DIR};${DOCSET_DOX_DIR};${DOCSET_HTML_DIR})
+  set(DOCSET_DOXY_DIR ${CMAKE_BINARY_DIR}/doxygen/${name})
+  set(DOCSET_MAKE_DIRS ${DOCSET_BUILD_DIR};${DOCSET_SRC_DIR})
+  set(DOCSET_CLEAN_DIRS ${DOCSET_SRC_DIR};${DOCSET_HTML_DIR})
   set(DOCSET_ENV
     DOXYGEN_EXECUTABLE=${DOXYGEN_EXECUTABLE}
     DOT_EXECUTABLE=${DOXYGEN_DOT_EXECUTABLE}
     MSCGEN_EXECUTABLE=${DOXYGEN_MSCGEN_EXECUTABLE}
+    DOCSET_DOXY_IN=${SHARED_DOXYGEN_DIR}/doxyfile-${name}.in
+    DOCSET_DOXY_PRJ=${PROJECT_DOXYGEN_DIR}
+    DOCSET_BASE=${DOCSET_BASE}
+    DOCSET_NAME=${DOCSET_NAME}
+    DOCSET_BRIEF=${DOCSET_BRIEF}
+    DOCSET_VERSION=${DOCSET_VERSION}
   )
 
   separate_arguments(sphinxopts)
@@ -103,7 +123,7 @@ function(add_docset name sphinxopts)
     COMMAND ${CMAKE_COMMAND} -E env ${DOCSET_ENV}
     ${SPHINXBUILD} -v
       -b inventory
-      -c ${DOCSET_CFG_DIR}
+      -c ${DOCSET_SPHINX_DIR}
       -d ${DOCSET_DOCTREE_DIR}
       -w ${DOCSET_BUILD_DIR}/inventory.log
       ${SPHINXOPTS_DEFAULT}
@@ -122,7 +142,7 @@ function(add_docset name sphinxopts)
     COMMAND ${CMAKE_COMMAND} -E env ${DOCSET_ENV}
     ${SPHINXBUILD} -v
       -b html
-      -c ${DOCSET_CFG_DIR}
+      -c ${DOCSET_SPHINX_DIR}
       -d ${DOCSET_DOCTREE_DIR}
       -w ${DOCSET_BUILD_DIR}/html.log
       ${SPHINXOPTS_DEFAULT}
@@ -142,7 +162,7 @@ function(add_docset name sphinxopts)
     COMMAND ${CMAKE_COMMAND} -E env ${DOCSET_ENV}
     ${SPHINXBUILD} -v
       -b linkcheck
-      -c ${DOCSET_CFG_DIR}
+      -c ${DOCSET_SPHINX_DIR}
       -d ${DOCSET_DOCTREE_DIR}
       -w ${DOCSET_BUILD_DIR}/linkcheck.log
       ${SPHINXOPTS_DEFAULT}
@@ -181,6 +201,46 @@ function(add_docset name sphinxopts)
       WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
       COMMENT "Cleaning documentation sources for ${name}"
       USES_TERMINAL
+    )
+  endif()
+
+  if(${DOCSET_API})
+    add_doc_target(
+      ${name}-doxygen
+      DEPENDS "${DOCSET_DOXY_DIR}/doxyfile"
+      COMMAND ${CMAKE_COMMAND} -E make_directory ${DOCSET_DOXY_DIR}
+      COMMAND ${CMAKE_COMMAND} -E env ${DOCSET_ENV}
+        ${DOXYGEN_EXECUTABLE} ${DOCSET_DOXY_DIR}/doxyfile
+      VERBATIM
+      WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
+      COMMENT "Generating API documentation for ${name}"
+      USES_TERMINAL
+    )
+
+    set_target_properties(
+      ${name}-doxygen
+      PROPERTIES
+        ADDITIONAL_CLEAN_FILES "${DOCSET_DOXY_DIR}"
+    )
+
+    separate_arguments(DOCSET_BRIEF)
+    add_custom_command(
+      OUTPUT ${DOCSET_DOXY_DIR}/doxyfile
+      DEPENDS "${SHARED_DOXYGEN_DIR}/doxyfile-${name}.in"
+      COMMAND_EXPAND_LISTS
+      COMMAND ${CMAKE_COMMAND} -E touch_nocreate ${DOCSET_DOXY_DIR}/doxyfile
+      COMMAND ${CMAKE_COMMAND}
+        -DOUT_FILE="${DOCSET_DOXY_DIR}/doxyfile"
+        -DIN_FILE="${SHARED_DOXYGEN_DIR}/doxyfile-${name}.in"
+        -DDOXY_SET="${name}"
+        -DDOXY_OUT="${DOCSET_DOXY_DIR}"
+        -DDOXY_IN="${SHARED_DOXYGEN_DIR}"
+        -DPROJECT_DOXY="${PROJECT_DOXYGEN_DIR}"
+        -DPROJECT_BASE=${DOCSET_BASE}
+        -DPROJECT_NAME="${DOCSET_NAME}"
+        -DPROJECT_VERSION="${DOCSET_VERSION}"
+        -DPROJECT_BRIEF="${DOCSET_BRIEF}"
+        -P ${BRIDLE_BASE}/doc/update_cfgfile.cmake
     )
   endif()
 
@@ -347,7 +407,7 @@ add_custom_target(
     ${BRIDLE_BINARY_DIR}/src/versions.txt
 )
 
-add_docset(bridle "-j 1")  # no parallel reading, because of sphinx-csv-filter
+add_docset(bridle "-j 1" API)  # no parallel reading, because of sphinx-csv-filter
 add_dependencies(bridle-inventory bridle-versions)
 add_dependencies(bridle-inventory-all bridle-versions)
 add_dependencies(bridle-html bridle-versions kconfig-inventory
