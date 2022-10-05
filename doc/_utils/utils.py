@@ -15,10 +15,12 @@ _MANIFEST = Manifest.from_file(_BRIDLE_BASE / "west.yml")
 """Manifest instance"""
 
 ALL_DOCSETS = {  # first entry is default docset
-    "bridle": ("Bridle", "index", "manifest"),
-    "zephyr": ("Zephyr Project", "index", "zephyr"),
-    "kconfig": ("Kconfig Reference", "index", None),
-    "devicetree": ("Devicetree Bindings", "index", None),
+    "bridle": ("Bridle", "bridle/index", "manifest"),
+    "bridle-api": ("Bridle API", "bridle/doxygen/html/index", None),
+    "zephyr": ("Zephyr Project", "zephyr/index", "zephyr"),
+    "zephyr-api": ("Zephyr Project API", "zephyr/doxygen/html/index", None),
+    "kconfig": ("Kconfig Reference", "kconfig/index", None),
+    "devicetree": ("Devicetree Bindings", "devicetree/index", None),
 }
 """All supported docsets (name: title, home page, manifest project name)."""
 
