@@ -48,6 +48,23 @@ def get_docsets(docset: str) -> Dict[str, str]:
     return docsets
 
 
+def get_projname(docset: str) -> Path:
+    """Obtain the project directory for the given docset.
+
+    Args:
+        docset: Target docset.
+
+    Returns:
+        Project path for the given docset.
+    """
+
+    name = ALL_DOCSETS[docset][0]
+    if not name:
+        raise ValueError("Given docset has no associated project")
+
+    return name
+
+
 def get_projdir(docset: str) -> Path:
     """Obtain the project directory for the given docset.
 
