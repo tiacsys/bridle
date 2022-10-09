@@ -179,6 +179,28 @@ devicetree_mapping = utils.get_intersphinx_mapping('devicetree')
 if devicetree_mapping:
     intersphinx_mapping['devicetree'] = devicetree_mapping
 
+# Options for zephyr.doxyrunner plugin -----------------------------------------
+
+doxyrunner_doxygen = os.environ.get('DOXYGEN_EXECUTABLE', 'doxygen')
+doxyrunner_doxydir = os.environ.get('DOCSET_DOXY_PRJ', os.path.join(
+                      ZEPHYR_BASE, 'doc', '_doxygen'))
+doxyrunner_doxyfile = os.environ.get('DOCSET_DOXY_IN', os.path.join(
+                      BRIDLE_BASE, 'doc', '_doxygen', 'doxyfile-zephyr.in'))
+doxyrunner_outdir = os.path.join(ZEPHYR_BUILD, 'doxygen')
+doxyrunner_outdir_var = 'DOXY_OUT'
+doxyrunner_silent = True
+doxyrunner_fmt = True
+doxyrunner_fmt_pattern = '@{}@'
+doxyrunner_fmt_vars = {
+    'DOXY_SET': u'zephyr',
+    'DOXY_IN': str(Path(doxyrunner_doxyfile).absolute().parent),
+    'PROJECT_DOXY': str(Path(doxyrunner_doxydir).absolute()),
+    'PROJECT_BASE': str(ZEPHYR_BASE),
+    'PROJECT_NAME': project,
+    'PROJECT_VERSION': version,
+    'PROJECT_BRIEF': str(os.environ.get('DOCSET_BRIEF', 'Unknown project brief!')),
+}
+
 # -- Options for zephyr.kconfig ------------------------------------------------
 
 # Disable Kconfig database generation, Bridle provides its own kconfig docset.
