@@ -10,6 +10,7 @@
 .. |dfu_util| replace:: :strong:`DFU Utilities`
 .. |dfu_util_recommended_ver_linux| replace:: @DFU-UTIL_VERSION_LINUX@
 
+.. |dtc| replace:: :strong:`Device tree compiler`
 .. |dtc_win10| replace:: :strong:`Device tree compiler (MSYS2 Chocolatey)`
 .. |dtc_macos| replace:: :strong:`Device tree compiler (Homebrew Formulae)`
 .. |dtc_linux| replace:: :strong:`Device tree compiler (Snap Craft)`
