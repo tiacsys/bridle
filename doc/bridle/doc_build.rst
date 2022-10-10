@@ -26,29 +26,106 @@ the documentation and their supported versions.
 
 The following tool versions have been tested to work:
 
-* Doxygen |doxygen_min_ver|
-* MscGen |mscgen_min_ver|
-* Python dependencies as listed in :ref:`python_req_documentation`
+.. list-table::
+   :header-rows: 1
+
+   * - Tool
+     - Min. Version
+   * - |Sphinx|_
+     - |Sphinx_ver|
+       (see :ref:`Python dependencies <python_req_documentation>`)
+   * - |doxygen|_
+     - |doxygen_min_ver|
+   * - |graphviz|_
+     - |graphviz_min_ver|
+   * - |mscgen|_
+     - |mscgen_min_ver|
 
 Complete the following steps to install the required tools:
 
-1. If you have not done so already, install the |BRIDLE| as described in
+1. If you have not done so already, install |BRIDLE| as described in
    :ref:`gs_installing`.
 #. Install or update all required :ref:`Python dependencies <additional_deps>`.
-#. Install `Doxygen`_.
-#. Install `mscgen`_ and make sure that the :file:`mscgen` executable is in your
-   :file:`PATH`.
+#. The installation process of all other tools is different depending on your
+   operating system.
 
-.. note::
+   .. tabs::
 
-   On Windows, the Sphinx executable ``sphinx-build.exe`` is placed in the
-   ``Scripts`` folder of your Python installation path. Dependending on how
-   you have installed Python, you may need to add this folder to your ``PATH``
-   environment variable. Follow the instructions in `Windows Python Path`_
-   to add those if needed.
+      .. group-tab:: Windows
 
-.. _Windows Python Path:
-   https://docs.python.org/3/using/windows.html#finding-the-python-executable
+         .. _install_dependencies_windows:
+
+         To install the required tools on Windows, complete the following steps:
+
+         .. tsn-include:: guides/docs/index.rst
+            :docset: zephyr
+            :dedent: 6
+            :start-after: .. group-tab:: Windows
+            :end-before: .. doc_processors_installation_end
+
+         Download, inspect (MD5: a04b258bb459f894ed8ec2c7896fa346) and execute
+         Michael McTernan's Windows installer for ``mscgen`` from:
+         https://www.mcternan.me.uk/mscgen/software/mscgen_0.20.exe
+
+      .. group-tab:: Linux
+
+         .. _install_dependencies_linux:
+
+         To install the required tools on Linux, complete the following steps:
+
+         .. tsn-include:: guides/docs/index.rst
+            :docset: zephyr
+            :dedent: 6
+            :start-after: .. group-tab:: Linux
+            :end-before: .. group-tab:: macOS
+
+         To upgrade and install additional required tools on Ubuntu, complete
+         the following steps:
+
+         #. Setup the ``apt`` environment to install system packages from the
+            `TiaC Systems Doxygen PPA`_:
+
+            .. code-block:: bash
+
+               sudo add-apt-repository ppa:tiac-systems/doxygen
+               sudo apt update
+
+         #. Use ``apt`` to install additional required dependencies:
+
+            .. code-block:: bash
+
+               sudo apt install --no-install-recommends doxygen graphviz mscgen
+
+         #. Verify the versions of the main dependencies installed on your
+            system by entering:
+
+            .. code-block:: bash
+
+               sphinx-build --version
+               doxygen --version
+               dot -V
+               mscgen -V
+
+            Check those against the versions in the table in the beginning
+            of this section.
+
+      .. group-tab:: macOS
+
+         .. _install_dependencies_macos:
+
+         To install the required tools on macOS, complete the following steps:
+
+         .. tsn-include:: guides/docs/index.rst
+            :docset: zephyr
+            :dedent: 6
+            :start-after: .. group-tab:: macOS
+            :end-before: .. group-tab:: Windows
+
+         Use ``brew`` to install the additional tool ``mscgen``:
+
+         .. code-block:: console
+
+            brew install mscgen
 
 .. _doc_build_steps:
 

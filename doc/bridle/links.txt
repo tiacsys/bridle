@@ -31,6 +31,8 @@
 .. ### Links to the TiaC Systems developer zone
 
 .. _`DevZone`: https://github.com/tiacsys
+.. _`TiaC Systems Launchpad`: https://launchpad.net/~tiac-systems
+.. _`TiaC Systems Doxygen PPA`: https://launchpad.net/~tiac-systems/+archive/ubuntu/doxygen
 
 
 
@@ -134,6 +136,7 @@
 
 .. _Chocolatey: https://chocolatey.org/
 .. _Install chocolatey: https://chocolatey.org/install
+.. _Windows Python Path: https://docs.python.org/3/using/windows.html#finding-the-python-executable
 
 
 
