@@ -40,6 +40,8 @@
 .. _`CMake`: https://cmake.org/download/
 .. _`DFU Utilities`: http://dfu-util.sourceforge.net/
 .. _`dfu_util`: http://dfu-util.sourceforge.net/
+.. _`Device tree compiler`: https://www.devicetree.org/
+.. _`dtc`: https://www.devicetree.org/
 .. _`Device tree compiler (MSYS2 Chocolatey)`: https://community.chocolatey.org/packages/dtc-msys2
 .. _`dtc_win10`: https://community.chocolatey.org/packages/dtc-msys2
 .. _`Device tree compiler (Homebrew Formulae)`: https://formulae.brew.sh/formula/dtc
@@ -129,6 +131,9 @@
 
 .. _`BlueZ`: http://www.bluez.org/
 .. _`BabbleSim`: https://babblesim.github.io/
+
+.. _Chocolatey: https://chocolatey.org/
+.. _Install chocolatey: https://chocolatey.org/install
 
 
 
