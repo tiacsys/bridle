@@ -32,7 +32,9 @@ Building the documentation output requires building the output for all
 documentation sets. Following are the available documentation sets:
 
 :bridle: |BRIDLE|
+:bridle-api: |BRIDLE| API Documentation
 :zephyr: Zephyr RTOS
+:zephyr-api: Zephyr RTOS API Documentation
 :kconfig: All available Kconfig References in the Zephyr RTOS and |BRIDLE|
 :devicetree: All available DTS Bindings in the Zephyr RTOS and |BRIDLE|
 
@@ -60,15 +62,6 @@ entry prefixed with the name of the documentation set in which the result is
 found. For example, the search result "Bridle » Getting started" refers to the
 Getting Started page from the "Bridle" documentation set. The search match is
 highlighted.
-
-.. error::
-
-   At the moment only each documentation set is searchable by itself!
-
-.. .. figure:: images/doc_structure_search_results.png
-   :alt: Bridle documentation search result entry
-
-   |BRIDLE| documentation search result entry
 
 .. _doc_structure_versions:
 
