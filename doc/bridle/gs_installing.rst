@@ -36,25 +36,43 @@ and Zephyr features.
 Installing the required tools
 *****************************
 
+The current minimum required version for the main dependencies are:
+
+.. list-table::
+   :header-rows: 1
+
+   * - Tool
+     - Min. Version
+   * - |cmake|_
+     - |cmake_min_ver|
+   * - |python|_
+     - |python_min_ver|
+   * - |dtc|_
+     - |dtc_min_ver|
+
 The installation process is different depending on your operating system.
 
 .. tabs::
 
    .. group-tab:: Windows
 
+      .. _install_dependencies_windows:
+
       The recommended way for installing the required tools on Windows is
       to use `Chocolatey`_, a package manager for Windows. Chocolatey installs
       the tools so that you can use them from a Windows command prompt.
 
-      To install the required tools, complete the following steps:
+      To install the required tools on Windows, complete the following steps:
 
       .. tsn-include:: getting_started/index.rst
          :docset: zephyr
          :dedent: 6
          :start-after: .. _install_dependencies_windows:
-         :end-before: _get_the_code:
+         :end-before: .. _Chocolatey:
 
    .. group-tab:: Linux
+
+      .. _install_dependencies_linux:
 
       To install the required tools on Ubuntu, complete the following steps:
 
@@ -62,7 +80,7 @@ The installation process is different depending on your operating system.
          :docset: zephyr
          :dedent: 6
          :start-after: .. _install_dependencies_ubuntu:
-         :end-before: group-tab:: macOS
+         :end-before: .. group-tab:: macOS
 
       For additional information and instructions for other Linux operating
       systems, see the :ref:`zephyr:linux_requirements` section in the Zephyr
@@ -79,13 +97,15 @@ The installation process is different depending on your operating system.
 
    .. group-tab:: macOS
 
+      .. _install_dependencies_macos:
+
       To install the required tools on macOS, complete the following steps:
 
       .. tsn-include:: getting_started/index.rst
          :docset: zephyr
          :dedent: 6
          :start-after: .. _install_dependencies_macos:
-         :end-before: group-tab:: Windows
+         :end-before: .. group-tab:: Windows
 
       Also see :ref:`zephyr:mac-setup-alts` for additional information.
 
