@@ -140,6 +140,8 @@ a way with direct calls to the necessary configuration and build tools.
    .. code-block:: console
 
       west build --cmake-only -b none -d build/bridle-doc bridle/doc
+      west build -t zephyr-doxygen -b none -d build/bridle-doc
+      west build -t bridle-doxygen -b none -d build/bridle-doc
       west build -t build-all -b none -d build/bridle-doc
 
 :direct calls:
@@ -166,7 +168,7 @@ a way with direct calls to the necessary configuration and build tools.
       .. zephyr-app-commands::
          :app: bridle/doc
          :build-dir: bridle-doc
-         :goals: build-all
+         :goals: zephyr-doxygen build-doxygen build-all
          :host-os: unix
          :tool: cmake
          :generator: ninja
@@ -189,7 +191,9 @@ the Kconfig Reference and Devicetree Bindings (1st), Zephyr (2nd), and
       # Now run west on the generated build system:
       west build -t kconfig -b none -d build/bridle-doc
       west build -t devicetree -b none -d build/bridle-doc
+      west build -t zephyr-doxygen -b none -d build/bridle-doc
       west build -t zephyr -b none -d build/bridle-doc
+      west build -t bridle-doxygen -b none -d build/bridle-doc
       west build -t bridle -b none -d build/bridle-doc
 
 :direct calls:
@@ -197,20 +201,23 @@ the Kconfig Reference and Devicetree Bindings (1st), Zephyr (2nd), and
    .. zephyr-app-commands::
       :app: bridle/doc
       :build-dir: bridle-doc
-      :goals: kconfig devicetree zephyr bridle
+      :goals: kconfig devicetree zephyr-doxygen zephyr bridle-doxygen bridle
       :host-os: unix
       :tool: cmake
       :generator: ninja
 
    It is important to keep the order of build targets!
 
-The documentation output is written to :file:`build/bridle-doc/html`.
-Double-click the :file:`index.html` file to display the documentation
-in your browser or type in:
+The documentation output is written to :file:`build/bridle-doc/html` or
+:file:`build/bridle-doc/doxygen/*/html` in case of the standalone API
+documentation of Zephyr and Bride. Double-click the :file:`index.html`
+file to display the documentation in your browser or type in:
 
 .. code-block:: console
 
    firefox build/bridle-doc/html/index.html &
+   firefox build/bridle-doc/doxygen/zephyr/html/index.html &
+   firefox build/bridle-doc/doxygen/bridle/html/index.html &
 
 .. tip::
 
