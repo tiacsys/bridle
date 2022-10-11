@@ -27,3 +27,8 @@
 .devicetree {
     background-color: #e5c100;
 }
+
+/* tweak grid items color */
+.grid h2 {
+  color: #fcfcfc !important;
+}
