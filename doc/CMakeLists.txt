@@ -243,6 +243,7 @@ function(add_docset name sphinxopts)
         -DDOXY_SET="${name}"
         -DDOXY_OUT="${DOCSET_DOXY_DIR}"
         -DDOXY_IN="${SHARED_DOXYGEN_DIR}"
+        -DDOXY_LAYOUT="standalone"
         -DPROJECT_DOXY="${PROJECT_DOXYGEN_DIR}"
         -DPROJECT_BASE=${DOCSET_BASE}
         -DPROJECT_NAME="${DOCSET_NAME}"
