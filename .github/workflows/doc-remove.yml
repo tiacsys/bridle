@@ -1,10 +1,11 @@
-# Copyright (c) 2021 TiaC Systems
+# Copyright (c) 2021-2022 TiaC Systems
 # Copyright (c) 2021 Li-Pro.Net
 # SPDX-License-Identifier: Apache-2.0
 
 name: Documentation Remove
 
 on:
+  workflow_dispatch: # And manually on button click
   pull_request:
     types: [closed]
     branches:
@@ -28,11 +29,19 @@ jobs:
       - name: Create documentation removing monitor
         run: |
           mkdir doc && cd doc
-          echo "remove development PR-${{ github.event.number }}" > \
-               "monitor_${GITHUB_RUN_ID}.txt"
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            # basename will work for both branches and tags
+            branch=$(basename "${{ github.ref }}")
+            echo "remove preview REF-${branch}" > "monitor_${GITHUB_RUN_ID}.txt"
+          else
+            if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+              echo "remove development PR-${{ github.event.number }}" > \
+                   "monitor_${GITHUB_RUN_ID}.txt"
+            fi
+          fi
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: doc
           path: doc

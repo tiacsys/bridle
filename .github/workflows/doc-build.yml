@@ -1,4 +1,4 @@
-# Copyright (c) 2021 TiaC Systems
+# Copyright (c) 2021-2022 TiaC Systems
 # Copyright (c) 2021 Li-Pro.Net
 # SPDX-License-Identifier: Apache-2.0
 
@@ -53,16 +53,17 @@ jobs:
           echo "$HOME/.local/bin" >> $GITHUB_PATH
 
       - name: Checkout the code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           path: workspace/bridle
 
       - name: Install packages
         run: |
+          sudo add-apt-repository -y -u ppa:tiac-systems/doxygen
           sudo apt-get install -y ninja-build doxygen mscgen graphviz
 
       - name: Restore PIP Cache
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         with:
           path: ~/.cache/pip
           key: ${{ runner.os }}-doc-pip
@@ -80,6 +81,7 @@ jobs:
           west init -l bridle
           west update
           west zephyr-export
+          west bridle-export
 
       - name: Install documentation dependencies
         working-directory: workspace
@@ -90,7 +92,7 @@ jobs:
       - name: Build documentation
         working-directory: workspace
         run: |
-          cmake -B build -GNinja -DSPHINXOPTS_EXTRA="-W" bridle/doc
+          cmake -B build -GNinja bridle/doc
           ninja -C build build-all
 
       - name: Archive documentation
@@ -103,22 +105,28 @@ jobs:
           mkdir doc && cd doc
           archive="doc_build_${GITHUB_RUN_ID}.tgz"
           tar -C ../html -zcf ${archive} .
-          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
-            echo "publish2 development PR-${{ github.event.number }} ${archive}" > \
-                 "monitor_${GITHUB_RUN_ID}.txt"
-            echo "${{ github.event.number }}" > pr.txt
-          else
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
             # basename will work for both branches and tags
             branch=$(basename "${{ github.ref }}")
-            if [[ "${branch}" == "main" ]]; then
-              echo "publish2 approved latest ${archive}" > "monitor_${GITHUB_RUN_ID}.txt"
+            echo "publish2 preview REF-${branch} ${archive}" > "monitor_${GITHUB_RUN_ID}.txt"
+          else
+            if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+              echo "publish2 development PR-${{ github.event.number }} ${archive}" > \
+                   "monitor_${GITHUB_RUN_ID}.txt"
+              echo "${{ github.event.number }}" > pr.txt
             else
-              echo "publish2 approved ${branch} ${archive}" > "monitor_${GITHUB_RUN_ID}.txt"
+              # basename will work for both branches and tags
+              branch=$(basename "${{ github.ref }}")
+              if [[ "${branch}" == "main" ]]; then
+                echo "publish2 approved latest ${archive}" > "monitor_${GITHUB_RUN_ID}.txt"
+              else
+                echo "publish2 approved ${branch} ${archive}" > "monitor_${GITHUB_RUN_ID}.txt"
+              fi
             fi
           fi
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: doc
           path: workspace/build/doc

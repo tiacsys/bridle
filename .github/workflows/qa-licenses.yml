@@ -1,9 +1,10 @@
-# Copyright (c) 2021 TiaC Systems
+# Copyright (c) 2021-2022 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 name: QA License Check
 
 on:
+  workflow_dispatch: # And manually on button click
   pull_request:
     types: [opened, synchronize, reopened]
 
@@ -14,16 +15,16 @@ jobs:
 
     steps:
       - name: Checkout the code
-        uses: actions/checkout@v1
+        uses: actions/checkout@v3
 
       - name: Scan the code
-        uses: zephyrproject-rtos/action_scancode@v3
+        uses: zephyrproject-rtos/action_scancode@v4
         id: scancode
         with:
           directory-to-scan: 'scan/'
 
       - name: Upload results
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v3
         with:
           name: scancode
           path: ./artifacts
