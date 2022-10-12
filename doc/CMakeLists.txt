@@ -106,7 +106,7 @@ function(add_docset name sphinxopts)
   set(DOCSET_HTML_DIR ${CMAKE_BINARY_DIR}/html/${name})
   set(DOCSET_DOXY_DIR ${CMAKE_BINARY_DIR}/doxygen/${name})
   set(DOCSET_MAKE_DIRS ${DOCSET_BUILD_DIR};${DOCSET_SRC_DIR})
-  set(DOCSET_CLEAN_DIRS ${DOCSET_SRC_DIR};${DOCSET_HTML_DIR})
+  set(DOCSET_CLEAN_DIRS ${DOCSET_SRC_DIR};${DOCSET_DOCTREE_DIR};${DOCSET_HTML_DIR})
   set(DOCSET_ENV
     DOXYGEN_EXECUTABLE=${DOXYGEN_EXECUTABLE}
     DOT_EXECUTABLE=${DOXYGEN_DOT_EXECUTABLE}
@@ -192,10 +192,11 @@ function(add_docset name sphinxopts)
       ADDITIONAL_CLEAN_FILES "${DOCSET_CLEAN_DIRS}"
   )
 
-  if(${CMAKE_VERSION} VERSION_LESS 3.17)
+  if(${DOCSET_API})
     add_custom_target(
       ${name}-clean
-      COMMAND ${CMAKE_COMMAND} -E remove_directory ${DOCSET_CLEAN_DIRS}
+      COMMAND ${CMAKE_COMMAND} -E rm -rf ${DOCSET_CLEAN_DIRS}
+      COMMAND ${CMAKE_COMMAND} -E rm -rf ${DOCSET_DOXY_DIR}
       VERBATIM
       WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
       COMMENT "Cleaning documentation sources for ${name}"
