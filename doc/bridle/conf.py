@@ -229,6 +229,7 @@ doxyrunner_fmt_pattern = '@{}@'
 doxyrunner_fmt_vars = {
     'DOXY_SET': u'bridle',
     'DOXY_IN': str(Path(doxyrunner_doxyfile).absolute().parent),
+    'DOXY_LAYOUT': u'zephyr-doxyrunner',
     'PROJECT_DOXY': str(Path(doxyrunner_doxydir).absolute()),
     'PROJECT_BASE': str(BRIDLE_BASE),
     'PROJECT_NAME': project,

@@ -194,6 +194,7 @@ doxyrunner_fmt_pattern = '@{}@'
 doxyrunner_fmt_vars = {
     'DOXY_SET': u'zephyr',
     'DOXY_IN': str(Path(doxyrunner_doxyfile).absolute().parent),
+    'DOXY_LAYOUT': u'zephyr-doxyrunner',
     'PROJECT_DOXY': str(Path(doxyrunner_doxydir).absolute()),
     'PROJECT_BASE': str(ZEPHYR_BASE),
     'PROJECT_NAME': project,
