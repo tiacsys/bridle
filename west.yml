@@ -89,6 +89,18 @@ manifest:
       userdata:
         west-commands-path: scripts/west_commands
 
+    - name: verylittlewire
+      path: tools/verylittlewire
+      remote: tiacsys
+      repo-path: verylittlewire
+      revision: main
+
+    - name: twister_v2
+      path: tools/twister
+      remote: tiacsys
+      repo-path: twister
+      revision: main
+
   # West-related configuration for the Bridle repository.
   self:
     # This repository should be cloned to workspace/bridle.
