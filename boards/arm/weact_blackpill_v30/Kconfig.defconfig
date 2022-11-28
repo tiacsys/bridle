@@ -1,0 +1,16 @@
+# Copyright (c) 2022 TiaC Systems
+# Copyright (c) 2020 Kalyan Sriram <coder.kalyan@gmail.com>
+# SPDX-License-Identifier: Apache-2.0
+
+# STM32F401CE based Black Pill V3.0 board configuration
+
+if BOARD_WEACT_BLACKPILL_V30
+
+config BOARD
+	default "weact_blackpill_v30"
+
+config SPI_STM32_INTERRUPT
+	default y
+	depends on SPI
+
+endif # BOARD_WEACT_BLACKPILL_V30

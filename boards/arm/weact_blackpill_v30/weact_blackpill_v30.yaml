@@ -1,0 +1,18 @@
+identifier: weact_blackpill_v30
+name: WeAct Studio Black Pill V3.0
+type: mcu
+arch: arm
+ram: 96
+flash: 512
+toolchain:
+  - zephyr
+  - gnuarmemb
+  - xtools
+supported:
+  - counter
+  - spi
+  - usb
+  - i2c
+  - uart
+  - pwm
+  - adc

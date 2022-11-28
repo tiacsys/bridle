@@ -1,0 +1,40 @@
+#!/usr/bin/env python
+
+# Copyright (c) 2022 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+import shutil
+import argparse
+import subprocess
+from pathlib import Path
+
+
+parser = argparse.ArgumentParser("misc-flasher")
+parser.add_argument("build_dir", help = "The build directory as its first argument.", type = str)
+args = parser.parse_args()
+
+
+build_dir = Path(args.build_dir).absolute()
+if not build_dir.is_dir():
+    raise ValueError("Zephyr build directory not found or wrong argument!")
+
+
+hex_file = build_dir / "zephyr" / "zephyr.hex"
+if not hex_file.is_file():
+    raise ValueError("Zephyr HEX file not found!")
+
+
+# Download from:
+# https://github.com/WeActStudio/WeActStudio.MiniSTM32F4x1
+# --> Soft/WeAct_HID_FW_Bootloader
+#     --> Linux: WeAct_HID_Flash-CLI
+#     --> Windows: WeAct_HID_Flash-CLI.exe
+hid_flash = shutil.which("WeAct_HID_Flash-CLI")
+if not Path(hid_flash).is_file():
+    raise ValueError("HID Flash CLI command not found!")
+
+
+try:
+    subprocess.call([hid_flash, str(hex_file)])
+except OSError:
+    raise ValueError("HID Flash CLI unable to flash successfully!")
