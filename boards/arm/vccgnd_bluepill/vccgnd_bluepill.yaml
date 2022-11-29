@@ -1,0 +1,15 @@
+identifier: vccgnd_bluepill
+name: VCC-GND Studio Blue Pill
+type: mcu
+arch: arm
+ram: 20
+flash: 128
+toolchain:
+  - zephyr
+  - gnuarmemb
+  - xtools
+supported:
+  - i2c
+  - pwm
+  - spi
+  - adc

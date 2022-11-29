@@ -1,0 +1,12 @@
+# Copyright (c) 2022 TiaC Systems
+# Copyright (c) 2017, embedjournal.com
+# SPDX-License-Identifier: Apache-2.0
+
+# STM32F103C8 based Blue Pill board configuration
+
+if BOARD_VCCGND_BLUEPILL
+
+config BOARD
+	default "vccgnd_bluepill"
+
+endif # BOARD_VCCGND_BLUEPILL
