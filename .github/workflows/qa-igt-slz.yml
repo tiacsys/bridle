@@ -1,0 +1,101 @@
+# Copyright (c) 2021-2022 TiaC Systems
+# Copyright (c) 2021 Li-Pro.Net
+# SPDX-License-Identifier: Apache-2.0
+
+name: QA Integration Test (Hackfest 2022 / SLZ)
+
+on:
+  workflow_dispatch: # And manually on button click
+
+jobs:
+  qa-integration:
+    name: Run integration tests on targets
+    runs-on: [self-hosted, linux, gnuarmemb, zephyr-sdk, nucleo_g071rb]
+
+    strategy:
+      matrix:
+        board: [nucleo_g071rb]
+
+    steps:
+      - name: Update GitHub PATH for west
+        run: |
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+      - name: Clean working directory
+        run: |
+          rm -rf "${{ github.workspace }}/workspace"
+
+      - name: Checkout the code
+        uses: actions/checkout@v3
+        with:
+          path: workspace/bridle
+          submodules: recursive
+          ref: ${{ github.ref }}
+
+      - name: Install base dependencies
+        working-directory: workspace
+        run: |
+          pip3 install --upgrade pip
+          pip3 install --upgrade setuptools
+          pip3 install --upgrade --requirement bridle/scripts/requirements-base.txt
+
+      - name: West init and update
+        working-directory: workspace
+        run: |
+          west init -l bridle
+          west update
+          west zephyr-export
+          west bridle-export
+
+      - name: Install build and test dependencies
+        working-directory: workspace
+        run: |
+          pip3 install --upgrade --requirement zephyr/scripts/requirements-base.txt
+          pip3 install --upgrade --requirement zephyr/scripts/requirements-build-test.txt
+          pip3 install --upgrade --requirement zephyr/scripts/requirements-run-test.txt
+          pip3 install --upgrade --requirement zephyr/scripts/requirements-extras.txt
+          pip3 install --upgrade --requirement zephyr/scripts/requirements-compliance.txt
+          pip3 install --upgrade --requirement bridle/scripts/requirements-build.txt
+
+      - name: Execute integration tests on target
+        working-directory: workspace
+        env:
+          HARDWARE_MAP: bridle/.github/${{ github.job }}/map-${{ matrix.board }}.yml
+        run: |
+          #
+          # Disabled in the meantime because the execution time is still
+          # too high and most of the core tests are already performed by
+          # Zephyr in any case:
+          #
+          # --testsuite-root zephyr/tests/kernel \
+          # --testsuite-root zephyr/tests/arch/arm \
+          #
+          # Disabled in the meantime because the execution results
+          # <failure type="failure" message="Unknown" /> in the
+          # twister report XML file:
+          #
+          # --testsuite-root bridle/tests/drivers/watchdog \
+          #
+          export ZEPHYR_BASE="$(pwd)/zephyr"
+          export BRIDLE_BASE="$(pwd)/bridle"
+          ./zephyr/scripts/twister --verbose --jobs 1 --inline-logs \
+            --enable-size-report --platform-reports \
+            --device-testing --hardware-map ${HARDWARE_MAP} \
+            --testsuite-root zephyr/tests/kernel/mutex/sys_mutex
+        continue-on-error: true
+
+      - name: Upload results
+        uses: actions/upload-artifact@v3
+        with:
+          name: twister_report.xml
+          path: workspace/twister-out/twister_report.xml
+        continue-on-error: true
+
+      - name: Convert integration test reports to annotations
+        uses: mikepenz/action-junit-report@v3
+        with:
+          check_name: twister-report (${{ matrix.board }})
+          report_paths: "**/twister-out/twister_report.xml"
+          require_tests: true
+          fail_on_failure: false
+        if: always()

@@ -1,0 +1,7 @@
+- available: true
+  connected: true
+  id: 066BFF484951717867061436
+  platform: nucleo_g071rb
+  product: STM32 STLink
+  runner: openocd
+  serial: /dev/ttyACM0
