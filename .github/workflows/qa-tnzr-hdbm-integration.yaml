@@ -1,0 +1,103 @@
+on:
+  push:
+    branches:
+      - 'main'
+      - 'hackfest/2022'
+      - 'tnzr-hdbm'
+  workflow_call:
+    inputs:
+      board:
+        required: true
+        type: string
+
+env:
+  BOARD: 'nucleo_f767zi'
+  NOT_FIRST_TIME_ON_RUNNER: 0
+
+jobs:
+  qa-integration:
+    name: Run integration tests on targets
+    runs-on: [self-hosted, linux, zephyr-sdk, nucleo_f767zi ]
+
+    steps:
+      - name: Update GitHub PATH for west
+        run: |
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+#      - name: Clean working directory
+#        run: |
+#          rm -rf "${{ github.workspace }}/workspace"
+
+      - name: Checkout the code
+        uses: actions/checkout@v3
+        with:
+          path: workspace/bridle
+          submodules: recursive
+          ref: ${{ github.ref }}
+
+      - name: Check if we are running the first time on this runner
+        working-directory: workspace
+        run: |
+          [ -d .west ]
+          echo "NOT_FIRST_TIME_ON_RUNNER=$?" >> $GITHUB_ENV
+
+      - name: Install base dependencies
+        working-directory: workspace
+        run: |
+          python3 -m venv .venv
+          . .venv/bin/activate
+          pip3 install --upgrade pip
+          pip3 install --upgrade setuptools
+          pip3 install --upgrade --requirement bridle/scripts/requirements-base.txt
+        if: ${{ env.NOT_FIRST_TIME_ON_RUNNER != 0 }}
+
+      - name: West init
+        working-directory: workspace
+        run: |
+          . .venv/bin/activate
+          west init -l bridle
+        if: ${{ env.NOT_FIRST_TIME_ON_RUNNER != 0 }}
+
+      - name: West update
+        working-directory: workspace
+        run: |
+          . .venv/bin/activate
+          west update
+          west zephyr-export
+          west bridle-export
+
+      - name: Install build and test dependencies
+        working-directory: workspace
+        run: |
+          . .venv/bin/activate
+          pip3 install --upgrade --requirement zephyr/scripts/requirements-base.txt
+          pip3 install --upgrade --requirement zephyr/scripts/requirements-build-test.txt
+          pip3 install --upgrade --requirement zephyr/scripts/requirements-run-test.txt
+          pip3 install --upgrade --requirement zephyr/scripts/requirements-extras.txt
+          pip3 install --upgrade --requirement zephyr/scripts/requirements-compliance.txt
+          pip3 install --upgrade --requirement bridle/scripts/requirements-build.txt
+          pip3 install -e tools/twister/
+
+      - name: Execute integration tests on target
+        working-directory: workspace
+        run: |
+          # Use twister v2
+          . .venv/bin/activate
+          export ZEPHYR_BASE="$(pwd)/zephyr"
+          export BRIDLE_BASE="$(pwd)/bridle"
+          twister_tools --generate-hardware-map hardwaremap.yaml
+          sed -i "s/platform: unknown/platform: $BOARD/" hardwaremap.yaml
+          pytest --platform=$BOARD -vv \
+            --results-json=twister-out/twister_report.json \
+            --log-level=DEBUG \
+            --hardware-map=hardwaremap.yaml \
+            --device-testing \
+            zephyr/tests/kernel/common/testcase.yaml::kernel.common
+        continue-on-error: true
+
+      - name: Upload results
+        uses: actions/upload-artifact@v3
+        with:
+          name: twister_report.json
+          path: workspace/twister-out/twister_report.json
+        continue-on-error: true
