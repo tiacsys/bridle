@@ -1,0 +1,35 @@
+
+{
+	"name": "Bridle",
+	"build": {
+		"dockerfile": "Dockerfile",
+		// Specify version for Zephyr Container
+		// See https://github.com/zephyrproject-rtos/docker-image/releases
+		"args": { "ZEPHYR_TAG": "v0.26.4" }
+	},
+	// Needed for USB devices in container
+	"privileged": true,
+	"postCreateCommand": "bash .devcontainer/post-create.sh /workspace ${localWorkspaceFolderBasename}",
+	"postStartCommand": "bash .devcontainer/post-start.sh /workspace",
+	// Mount and set workspace folder
+	"workspaceMount": "source=${localWorkspaceFolder}/..,target=/workspace,type=bind",
+    "workspaceFolder": "/workspace/${localWorkspaceFolderBasename}",
+	// Username in container - align with Dockerfil
+    "remoteUser": "user",
+	"mounts": [
+		// Persist installed extensions in container
+		"source=bridle-devcontainer-extensions,target=/home/user/.vscode-server/extensions,type=volume",
+		// Allow attaching USB devices to running container
+		"source=/dev/bus/usb,target=/dev/bus/usb,type=bind"
+	],"customizations": {
+		"vscode": {
+			"settings": {
+				"editor.trimAutoWhitespace": true,
+				"editor.insertFinalNewline": true
+			},
+			"extensions": [
+				"marus25.cortex-debug"
+			]
+		}
+	}
+}

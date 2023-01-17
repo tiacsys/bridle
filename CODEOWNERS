@@ -71,3 +71,6 @@
 
 # Get all docs reviewed
 *.rst                                     @rexut
+
+# Devcontainer setup for vscode
+/.devcontainer/                           @rexut
