@@ -3,8 +3,18 @@
 
 include_guard(GLOBAL)
 
+if(${CMAKE_HOST_SYSTEM_NAME} STREQUAL "Linux")
+  set(tools_versions_os ${BRIDLE_BASE}/scripts/tools-versions-linux.txt)
+elseif(CMAKE_HOST_APPLE)
+  set(tools_versions_os ${BRIDLE_BASE}/scripts/tools-versions-macos.txt)
+elseif(CMAKE_HOST_WIN32)
+  set(tools_versions_os ${BRIDLE_BASE}/scripts/tools-versions-win10.txt)
+endif()
+
+set(tools_versions_min ${BRIDLE_BASE}/scripts/tools-versions-minimum.txt)
+
 # This will determine and set the required Zephyr SDK version.
-file(STRINGS ${BRIDLE_BASE}/scripts/tools-versions-minimum.txt
+file(STRINGS ${tools_versions_min}
      zephyr_sdk_string LIMIT_COUNT 1 REGEX "^zephyr-sdk="
 )
 string(REGEX MATCH "=([^ \t]*)" OUT_VAR "${zephyr_sdk_string}")
@@ -13,12 +23,26 @@ if(CMAKE_MATCH_1)
 else()
   message(FATAL_ERROR "Zephyr SDK: malformatted version string as input?\n"
       "Got: '${zephyr_sdk_string}'\n"
-      "Check: ${BRIDLE_BASE}/scripts/tools-versions-minimum.txt"
+      "Check: ${tools_versions_min}"
+  )
+endif()
+
+# This will determine and set the maximum allowed Zephyr SDK version.
+file(STRINGS ${tools_versions_os}
+     zephyr_sdk_string LIMIT_COUNT 1 REGEX "^zephyr-sdk="
+)
+string(REGEX MATCH "=([^ \t]*)" OUT_VAR "${zephyr_sdk_string}")
+if(CMAKE_MATCH_1)
+  set(BRIDLE_TOOLCHAIN_ZEPHYR_SDK_VERSION ${CMAKE_MATCH_1})
+else()
+  message(FATAL_ERROR "Zephyr SDK: malformatted version string as input?\n"
+      "Got: '${zephyr_sdk_string}'\n"
+      "Check: ${tools_versions_os}"
   )
 endif()
 
 # This will determine and set the required Doxygen version.
-file(STRINGS ${BRIDLE_BASE}/scripts/tools-versions-minimum.txt
+file(STRINGS ${tools_versions_min}
      doxygen_string LIMIT_COUNT 1 REGEX "^doxygen="
 )
 string(REGEX MATCH "=([^ \t]*)" OUT_VAR "${doxygen_string}")
@@ -27,7 +51,7 @@ if(CMAKE_MATCH_1)
 else()
   message(FATAL_ERROR "Doxygen: malformatted version string as input?\n"
       "Got: '${doxygen_string}'\n"
-      "Check: ${BRIDLE_BASE}/scripts/tools-versions-minimum.txt"
+      "Check: ${tools_versions_min}"
   )
 endif()
 
@@ -62,3 +86,5 @@ else()
     )
   endif()
 endif()
+
+unset(tools_versions_os)
