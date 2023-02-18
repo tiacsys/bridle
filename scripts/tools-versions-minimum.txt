@@ -1,12 +1,12 @@
-python=3.6
+python=3.8
 cmake=3.20
 ninja=1.8.2
 gperf=3.1
 dtc=1.4.6
-openocd=0.11.0
+openocd=0.11
 west=0.12
 zephyr-sdk=0.14.1
 gnuarmemb=10-2020-q4-major
-doxygen=1.8
+doxygen=1.8.17
 graphviz=2.42
 mscgen=0.20
