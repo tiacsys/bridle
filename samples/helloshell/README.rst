@@ -149,10 +149,10 @@ Sample Output
    Hello from shell.
 
    uart:~$ kernel version
-   Zephyr version 3.0.0
+   Zephyr version 3.1.0
 
    uart:~$ bridle version
-   Bridle version 3.0.0
+   Bridle version 3.1.0
 
    uart:~$ kernel uptime
    Uptime: 254707293 ms

@@ -102,6 +102,9 @@ or ``kernel version``.
    ~$ kernel version
    Zephyr version 3.1.0
 
+   ~$ bridle version
+   Zephyr version 3.1.0
+
    ~$ device list
    devices:
    - rcc@40023800 (READY)
@@ -164,6 +167,9 @@ Simple GPIO Operations
 
    ~$ gpio set GPIOG 12 0
    Writing to GPIOG pin 12
+
+   ~$ gpio blink GPIOG 12
+   Blinking port GPIOG index 12. Hit any key to exit
 
 Simple I2C Operations
 =====================

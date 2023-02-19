@@ -40,8 +40,8 @@ are shown on the console like this:
 .. code-block:: none
 
    [00:00:00.271,000] <inf> net_config: Initializing network
-   [00:00:00.271,000] <inf> net_config: Waiting interface 1 (0x200212f8) to be up...
-   [00:00:00.762,000] <inf> net_config: Interface 1 (0x200212f8) coming up
+   [00:00:00.271,000] <inf> net_config: Waiting interface 1 (0x20021378) to be up...
+   [00:00:00.762,000] <inf> net_config: Interface 1 (0x20021378) coming up
    [00:00:00.762,000] <inf> net_config: IPv4 address: 192.0.2.1
    [00:00:00.762,000] <inf> net_config: Running dhcpv4 client...
    [00:00:00.862,000] <inf> net_config: IPv6 address: 2001:db8::1
