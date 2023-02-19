@@ -16,22 +16,33 @@
 # The *-content targets copy/create .rst files that later get built by Sphinx.
 
 cmake_minimum_required(VERSION 3.20.0)
-project(bridle-doc LANGUAGES)
+project(bridle-doc LANGUAGES NONE)
+
+#-------------------------------------------------------------------------------
+# Dependencies
 
 set(NO_BOILERPLATE TRUE)
 find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE} ..)
-
 file(TO_CMAKE_PATH "${ZEPHYR_BASE}" ZEPHYR_BASE)
-get_filename_component(BRIDLE_BASE ${CMAKE_CURRENT_LIST_DIR}../ DIRECTORY)
 
-message(STATUS "Bridle base: ${BRIDLE_BASE}")
-message(STATUS "Zephyr base: ${ZEPHYR_BASE}")
+set(NO_BOILERPLATE FALSE)
+find_package(Bridle REQUIRED HINTS $ENV{BRIDLE_BASE} COMPONENTS doc)
+file(TO_CMAKE_PATH "${BRIDLE_BASE}" BRIDLE_BASE)
+
+include(${ZEPHYR_BASE}/cmake/python.cmake)
+find_program(WEST west)
+if(NOT WEST)
+  message(FATAL_ERROR "The 'west' command was not found. Make sure you have it installed.")
+endif()
 
 #-------------------------------------------------------------------------------
 # Options
 
-set(SPHINXOPTS_DEFAULT -j auto CACHE INTERNAL "Default Sphinx Options")
-set(SPHINXOPTS_EXTRA "" CACHE STRING "Extra Sphinx Options (from CLI/CI)")
+set(SPHINXOPTS_DEFAULT "-j auto" CACHE INTERNAL "Default Sphinx Options")
+set(SPHINXOPTS_EXTRA "-W" CACHE STRING "Extra Sphinx Options (from CLI/CI)")
+
+separate_arguments(SPHINXOPTS_DEFAULT)
+separate_arguments(SPHINXOPTS_EXTRA)
 
 set(DTS_ROOTS "" CACHE STRING "DT bindings root folders")
 list(APPEND DTS_ROOTS ${ZEPHYR_BASE})
@@ -41,22 +52,6 @@ if(WIN32)
   set(SEP $<SEMICOLON>)
 else()
   set(SEP :)
-endif()
-
-#-------------------------------------------------------------------------------
-# Dependencies
-
-include(${ZEPHYR_BASE}/cmake/python.cmake)
-find_package(Doxygen REQUIRED dot)
-
-find_program(SPHINXBUILD sphinx-build)
-if(NOT SPHINXBUILD)
-  message(FATAL_ERROR "The 'sphinx-build' command was not found. Make sure you have Sphinx installed.")
-endif()
-
-find_program(WEST west)
-if(NOT WEST)
-  message(FATAL_ERROR "The 'west' command was not found. Make sure you have it installed.")
 endif()
 
 #-------------------------------------------------------------------------------
@@ -80,10 +75,10 @@ endif()
 #
 # Configured targets:
 # - ${name}: Alias for ${name}-html.
+# - ${name}-html: Run Sphinx "html" build.
 # - ${name}-inventory: Run Sphinx "inventory" build. It requires to enable
 #   the "inventory" builder on the docset conf.py. This target can be used
 #   to solve circular dependencies between docsets.
-# - ${name}-html: Run Sphinx "html" build.
 # - ${name}-linkcheck: Run Sphinx "linkcheck" target.
 # - ${name}-clean: Clean build artifacts.
 #
@@ -98,7 +93,13 @@ function(add_docset name sphinxopts)
   set(DOCSET_HTML_DIR ${CMAKE_BINARY_DIR}/html/${name})
   set(DOCSET_MAKE_DIRS ${DOCSET_BUILD_DIR};${DOCSET_SRC_DIR};${DOCSET_DOX_DIR})
   set(DOCSET_CLEAN_DIRS ${DOCSET_SRC_DIR};${DOCSET_DOX_DIR};${DOCSET_HTML_DIR})
-  set(DOCSET_ENV DOXYGEN_EXECUTABLE=${DOXYGEN_EXECUTABLE})
+  set(DOCSET_ENV
+    DOXYGEN_EXECUTABLE=${DOXYGEN_EXECUTABLE}
+    DOT_EXECUTABLE=${DOXYGEN_DOT_EXECUTABLE}
+    MSCGEN_EXECUTABLE=${DOXYGEN_MSCGEN_EXECUTABLE}
+  )
+
+  separate_arguments(sphinxopts)
 
   if(NOT ${DOCSET_DODGY})
     set(SPHINXOPTS_DECENT ${SPHINXOPTS_EXTRA})
@@ -114,7 +115,6 @@ function(add_docset name sphinxopts)
       -d ${DOCSET_DOCTREE_DIR}
       -w ${DOCSET_BUILD_DIR}/inventory.log
       ${SPHINXOPTS_DEFAULT}
-      ${SPHINXOPTS_DECENT}
       ${sphinxopts}
       ${DOCSET_SRC_DIR}
       ${DOCSET_HTML_DIR}
@@ -265,10 +265,6 @@ add_dependencies(zephyr-html-all zephyr-known-warnings kconfig-inventory-all)
 # documentation for them is generated in the directory
 # ${DTS_BINDINGS_RST_OUT}.
 
-if(NOT DTS_ROOTS)
-  set(DTS_ROOTS ${ZEPHYR_BASE})
-endif()
-
 set(DTS_ROOT_ARGS)
 foreach(root ${DTS_ROOTS})
   list(APPEND DTS_ROOT_ARGS --dts-root ${root})
@@ -354,18 +350,18 @@ add_custom_target(
     KCONFIG_TURBO_MODE=${KCONFIG_TURBO_MODE}
     KCONFIG_DOC_MODE=1
     ${ZEPHYR_KCONFIG_MODULES}
-      ${PYTHON_EXECUTABLE} ${GEN_KCONFIG_REST_SCRIPT} ${KCONFIG_RST_OUT}
-        --separate-all-index
-        --modules "Architecture,arch,${ZEPHYR_BASE}/arch"
-                  "SoC,soc,${ZEPHYR_BASE}/soc"
-                  "Boards,boards,${ZEPHYR_BASE}/boards"
-                  "Driver,drivers,${ZEPHYR_BASE}/drivers"
-                  "Kernel,kernel,${ZEPHYR_BASE}/kernel"
-                  "Library,lib,${ZEPHYR_BASE}/lib"
-                  "Subsystem,subsys,${ZEPHYR_BASE}/subsys"
-                  "External Modules,modules,${ZEPHYR_BASE}/modules"
-                  "Bridle,bridle,${BRIDLE_BASE}"
-        --no-index-modules BuildDir,${CMAKE_BINARY_DIR}
+    ${PYTHON_EXECUTABLE} ${GEN_KCONFIG_REST_SCRIPT} ${KCONFIG_RST_OUT}
+      --separate-all-index
+      --modules "Architecture,arch,${ZEPHYR_BASE}/arch"
+                "SoC,soc,${ZEPHYR_BASE}/soc"
+                "Boards,boards,${ZEPHYR_BASE}/boards"
+                "Driver,drivers,${ZEPHYR_BASE}/drivers"
+                "Kernel,kernel,${ZEPHYR_BASE}/kernel"
+                "Library,lib,${ZEPHYR_BASE}/lib"
+                "Subsystem,subsys,${ZEPHYR_BASE}/subsys"
+                "External Modules,modules,${ZEPHYR_BASE}/modules"
+                "Bridle,bridle,${BRIDLE_BASE}"
+      --no-index-modules BuildDir,${CMAKE_BINARY_DIR}
   VERBATIM
   WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
   COMMENT "Running gen_kconfig_rest.py ${KCONFIG_RST_OUT}"
@@ -424,8 +420,12 @@ add_custom_target(
 )
 
 add_docset(bridle "-j 1")  # no parallel reading, because of sphinx-csv-filter
-add_dependencies(bridle-html bridle-versions devicetree-inventory zephyr-inventory)
-add_dependencies(bridle-html-all bridle-versions devicetree-inventory-all zephyr-inventory-all)
+add_dependencies(bridle-inventory bridle-versions)
+add_dependencies(bridle-inventory-all bridle-versions)
+add_dependencies(bridle-html bridle-versions
+                 devicetree-inventory zephyr-inventory)
+add_dependencies(bridle-html-all bridle-versions
+                 devicetree-inventory-all zephyr-inventory-all)
 
 #-------------------------------------------------------------------------------
 # Global targets
@@ -447,7 +447,8 @@ set_target_properties(
 )
 
 add_dependencies(zephyr-html-all kconfig-html-all devicetree-html-all)
-add_dependencies(bridle-html-all zephyr-html-all kconfig-html-all devicetree-html-all)
+add_dependencies(bridle-html-all zephyr-html-all
+                 kconfig-html-all devicetree-html-all)
 
 add_custom_target(build-all ALL)
 add_dependencies(build-all
