@@ -94,5 +94,5 @@ On Zephyr, Shell command line:
    uart:~$ net arp
 
         Interface  Link              Address
-   [ 0] 0x20020b18 BC:EE:7B:32:E5:D0 192.168.10.1
-   [ 1] 0x20020b18 00:80:77:84:BF:81 192.168.10.19
+   [ 0] 1          BC:EE:7B:32:E5:D0 192.168.10.1
+   [ 1] 1          00:80:77:84:BF:81 192.168.10.19
