@@ -52,12 +52,13 @@ Drivers
          \|-------------\|----------\|-----------------\|
          \| tiac_magpie \| DT04BNT1 \| /dev/ttyUSB0    \|
 
+         INFO    - 1 test scenarios (1 configurations) selected, 0 configurations discarded due to filters.
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1/1 tiac_magpie               tests/drivers/entropy/api/drivers.entropy          :bgn:`PASSED` (device 4.012s)
+         INFO    - 1/1 tiac_magpie               tests/drivers/entropy/api/drivers.entropy          :bgn:`PASSED` (device 4.039s)
 
-         INFO    - :bgn:`1 of 1` test configurations passed (100.00%), :bbk:`0` failed, :byl:`0` skipped with :bbk:`0` warnings in :bbk:`27.33 seconds`
-         INFO    - In total 1 test cases were executed, 0 skipped on 1 out of total 370 platforms (0.27%)
+         INFO    - :bgn:`1 of 1` test configurations passed (100.00%), :bbk:`0` failed, :byl:`0` skipped with :bbk:`0` warnings in :bbk:`52.74 seconds`
+         INFO    - In total 1 test cases were executed, 0 skipped on 1 out of total 428 platforms (0.23%)
          INFO    - :bgn:`1` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
@@ -65,6 +66,14 @@ Drivers
          \| Board       \| ID       \|   Counter \|
          \|-------------\|----------\|-----------\|
          \| tiac_magpie \| DT04BNT1 \|         1 \|
+
+         INFO    - Saving reports...
+         INFO    - Writing JSON report .../twister-out/twister.json
+         INFO    - Using 'zephyr' toolchain.
+         INFO    - Writing xunit report .../twister-out/twister.xml...
+         INFO    - Writing xunit report .../twister-out/twister_report.xml...
+         INFO    - Writing target report for tiac_magpie...
+         INFO    - Run completed
 
 Cryptography
 ============
@@ -97,15 +106,16 @@ Cryptography
          \|-------------\|----------\|-----------------\|
          \| tiac_magpie \| DT04BNT1 \| /dev/ttyUSB0    \|
 
+         INFO    - 4 test scenarios (4 configurations) selected, 0 configurations discarded due to filters.
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1/4 tiac_magpie               tests/crypto/rand32/crypto.rand32                  :bgn:`PASSED` (device 4.360s)
-         INFO    - 2/4 tiac_magpie               tests/crypto/rand32/crypto.rand32.random_hw_xoroshiro :bgn:`PASSED` (device 4.356s)
-         INFO    - 3/4 tiac_magpie               tests/crypto/rand32/crypto.rand32.random_ctr_drbg  :bgn:`PASSED` (device 4.239s)
-         INFO    - 4/4 tiac_magpie               tests/crypto/rand32/crypto.rand32.random_sw_systimer :bgn:`PASSED` (device 4.341s)
+         INFO    - 1/4 tiac_magpie               tests/crypto/rand32/crypto.rand32.random_ctr_drbg  :bgn:`PASSED` (device 4.378s)
+         INFO    - 2/4 tiac_magpie               tests/crypto/rand32/crypto.rand32.random_hw_xoshiro :bgn:`PASSED` (device 4.403s)
+         INFO    - 3/4 tiac_magpie               tests/crypto/rand32/crypto.rand32.random_sw_systimer :bgn:`PASSED` (device 4.075s)
+         INFO    - 4/4 tiac_magpie               tests/crypto/rand32/crypto.rand32                  :bgn:`PASSED` (device 4.265s)
 
-         INFO    - :bgn:`4 of 4` test configurations passed (100.00%), :bbk:`0` failed, :byl:`0` skipped with :bbk:`0` warnings in :bbk:`49.35 seconds`
-         INFO    - In total 4 test cases were executed, 0 skipped on 1 out of total 370 platforms (0.27%)
+         INFO    - :bgn:`4 of 4` test configurations passed (100.00%), :bbk:`0` failed, :byl:`0` skipped with :bbk:`0` warnings in :bbk:`75.69 seconds`
+         INFO    - In total 4 test cases were executed, 0 skipped on 1 out of total 428 platforms (0.23%)
          INFO    - :bgn:`4` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
@@ -113,3 +123,11 @@ Cryptography
          \| Board       \| ID       \|   Counter \|
          \|-------------\|----------\|-----------\|
          \| tiac_magpie \| DT04BNT1 \|         4 \|
+
+         INFO    - Saving reports...
+         INFO    - Writing JSON report .../twister-out/twister.json
+         INFO    - Using 'zephyr' toolchain.
+         INFO    - Writing xunit report .../twister-out/twister.xml...
+         INFO    - Writing xunit report .../twister-out/twister_report.xml...
+         INFO    - Writing target report for tiac_magpie...
+         INFO    - Run completed

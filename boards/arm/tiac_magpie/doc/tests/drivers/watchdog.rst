@@ -48,13 +48,14 @@ Building and Running
          \|-------------\|----------\|-----------------\|
          \| tiac_magpie \| DT04BNT1 \| /dev/ttyUSB0    \|
 
+         INFO    - 4 test scenarios (4 configurations) selected, 2 configurations discarded due to filters.
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
          INFO    - 1/2 tiac_magpie               tests/drivers/watchdog/wdt_basic_api/drivers.watchdog.stm32wwdg :byl:`SKIPPED` (filter)
-         INFO    - 2/2 tiac_magpie               tests/drivers/watchdog/wdt_basic_api/drivers.watchdog :bgn:`PASSED` (device 6.457s)
+         INFO    - 2/2 tiac_magpie               tests/drivers/watchdog/wdt_basic_api/drivers.watchdog :bgn:`PASSED` (device 6.243s)
 
-         INFO    - :bgn:`1 of 1` test configurations passed (100.00%), :bbk:`0` failed, :byl:`2` skipped with :bbk:`0` warnings in :bbk:`30.06 seconds`
-         INFO    - In total 1 test cases were executed, 2 skipped on 1 out of total 370 platforms (0.27%)
+         INFO    - :bgn:`1 of 1` test configurations passed (100.00%), :bbk:`0` failed, :byl:`3` skipped with :bbk:`0` warnings in :bbk:`55.25 seconds`
+         INFO    - In total 1 test cases were executed, 3 skipped on 1 out of total 428 platforms (0.23%)
          INFO    - :bgn:`1` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
@@ -62,3 +63,11 @@ Building and Running
          \| Board       \| ID       \|   Counter \|
          \|-------------\|----------\|-----------\|
          \| tiac_magpie \| DT04BNT1 \|         1 \|
+
+         INFO    - Saving reports...
+         INFO    - Writing JSON report .../twister-out/twister.json
+         INFO    - Using 'zephyr' toolchain.
+         INFO    - Writing xunit report .../twister-out/twister.xml...
+         INFO    - Writing xunit report .../twister-out/twister_report.xml...
+         INFO    - Writing target report for tiac_magpie...
+         INFO    - Run completed

@@ -1,7 +1,7 @@
 .. _tiac_magpie_drivers_uart-tests:
 
-UART Loopback (not yet)
-#######################
+UART Loopback :byl:`(not yet)`
+##############################
 
 Overview
 ********
@@ -55,12 +55,13 @@ Building and Running
          \|-------------\|----------\|-----------------\|
          \| tiac_magpie \| DT04BNT1 \| /dev/ttyUSB0    \|
 
+         INFO    - 23 test scenarios (23 configurations) selected, 22 configurations discarded due to filters.
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
          INFO    - 1/1 tiac_magpie               tests/drivers/uart/uart_async_api/drivers.uart.uart_async_api :byl:`SKIPPED` (filter)
 
-         INFO    - :bgn:`0 of 0` test configurations passed (0.00%), :bbk:`0` failed, :byl:`20` skipped with :bbk:`0` warnings in :bbk:`3.17 seconds`
-         INFO    - In total 0 test cases were executed, 82 skipped on 1 out of total 370 platforms (0.27%)
+         INFO    - :bgn:`0 of 0` test configurations passed (0.00%), :bbk:`0` failed, :byl:`23` skipped with :bbk:`0` warnings in :bbk:`4.29 seconds`
+         INFO    - In total 0 test cases were executed, 112 skipped on 1 out of total 428 platforms (0.23%)
          INFO    - :bgn:`0` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
@@ -68,3 +69,11 @@ Building and Running
          \| Board       \| ID       \|   Counter \|
          \|-------------\|----------\|-----------\|
          \| tiac_magpie \| DT04BNT1 \|         0 \|
+
+         INFO    - Saving reports...
+         INFO    - Writing JSON report .../twister-out/twister.json
+         INFO    - Using 'zephyr' toolchain.
+         INFO    - Writing xunit report .../twister-out/twister.xml...
+         INFO    - Writing xunit report .../twister-out/twister_report.xml...
+         INFO    - Writing target report for tiac_magpie...
+         INFO    - Run completed
