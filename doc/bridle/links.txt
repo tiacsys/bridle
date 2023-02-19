@@ -21,6 +21,7 @@
 .. _`tiac-bridle`: https://github.com/tiacsys/bridle
 
 .. _`change log`: https://github.com/tiacsys/bridle/commits/main
+.. _`issues`: https://github.com/tiacsys/bridle/issues
 
 .. |west manifest file| replace:: :bridle_file:`west.yml`
 .. _`west manifest file`: https://github.com/tiacsys/bridle/blob/main/west.yml
@@ -137,6 +138,7 @@
 .. _`generator expressions`: https://cmake.org/cmake/help/latest/manual/cmake-generator-expressions.7.html
 
 .. _`Ninja documentation`: https://ninja-build.org/manual.html
+
 
 
 .. ### Links to other documentation
