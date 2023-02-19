@@ -312,7 +312,7 @@ add_custom_target(
     ${ZEPHYR_BINARY_DIR}/known-warnings.txt
 )
 
-add_docset(zephyr "")
+add_docset(zephyr "" API)
 add_dependencies(zephyr-inventory zephyr-known-warnings kconfig-inventory)
 add_dependencies(zephyr-inventory-all zephyr-known-warnings kconfig-inventory-all)
 add_dependencies(zephyr-html zephyr-known-warnings kconfig-inventory)
