@@ -127,6 +127,31 @@
 .. _`SPDX tool`: https://spdx.dev/
 .. _`SPDX identifier`: https://spdx.dev/ids/
 
+.. _`BlueZ`: http://www.bluez.org/
+.. _`BabbleSim`: https://babblesim.github.io/
+
+
+
+.. ### Source: ubuntu.com
+
+.. _`Ubuntu 22.04 LTS`: https://releases.ubuntu.com/22.04
+.. _`Ubuntu 20.04 LTS`: https://releases.ubuntu.com/20.04
+
+
+
+.. ### Source: microsoft.com
+
+.. _`Windows 11`: https://www.microsoft.com/en-us/software-download/windows11
+.. _`Windows 10`: https://www.microsoft.com/en-us/software-download/windows10
+
+
+
+.. ### Source: apple.com
+
+.. _`macOS 12`: https://support.apple.com/en-us/HT212585
+.. _`macOS 11`: https://support.apple.com/en-us/HT211896
+.. _`macOS 10.15`: https://support.apple.com/en-us/HT210642
+
 
 
 .. ### Links to CMake and Ninja

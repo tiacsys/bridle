@@ -1,16 +1,140 @@
 .. _gs_recommended_versions:
 
-Required tools
-##############
+Requirements
+############
 
 .. contents::
    :local:
    :depth: 2
 
+|BRIDLE| supports Linux for development and in theory Windows and macOS, but
+these have not been tested yet. However, there are some Zephyr features that
+are currently only available on Linux, including:
+
+* :ref:`zephyr:twister_script`
+* :ref:`zephyr:native_posix`
+* :ref:`zephyr:networking_with_native_posix` and
+  :ref:`zephyr:networking_with_qemu` (net-tools)
+* `BlueZ`_ integration
+* `BabbleSim`_
+
+.. note::
+
+   .. _gs_update_os:
+
+   Before you start setting up the toolchain, install available updates
+   for your operating system.
+
+.. _gs_supported_OS:
+
+Supported operating systems
+***************************
+
+The following table shows the operating system versions that support
+the |BRIDLE| development environment:
+
+.. _req_os_table:
+
+.. tabs::
+
+   .. group-tab:: Windows
+
+      .. list-table::
+         :header-rows: 1
+
+         * - Operating System
+           - x86
+           - x64
+           - ARM64
+         * - `Windows 11`_
+           - :byl:`Tier 3`
+           - :byl:`Tier 3`
+           - Not supported
+         * - `Windows 10`_
+           - :byl:`Tier 3`
+           - :byl:`Tier 3`
+           - Not supported
+
+   .. group-tab:: Linux
+
+      .. list-table::
+         :header-rows: 1
+
+         * - Operating System
+           - x86
+           - x64
+           - ARM64
+         * - `Ubuntu 22.04 LTS`_
+           - Not supported
+           - :byl:`Tier 3`
+           - Not supported
+         * - `Ubuntu 20.04 LTS`_
+           - Not supported
+           - :bgn:`Tier 1`
+           - Not supported
+
+   .. group-tab:: macOS
+
+      .. list-table::
+         :header-rows: 1
+
+         * - Operating System
+           - x86
+           - x64
+           - ARM64
+         * - `macOS 12`_
+           - :rd:`Not applicable`
+           - :byl:`Tier 3`
+           - :byl:`Tier 3`
+         * - `macOS 11`_
+           - :rd:`Not applicable`
+           - :byl:`Tier 3`
+           - Not supported
+         * - `macOS 10.15`_
+           - :rd:`Not applicable`
+           - :byl:`Tier 3`
+           - Not supported
+
+The table uses the following :bbk:`Tier #` definitions to categorize the level
+of operating system support:
+
+:bgn:`Tier 1`
+   The |BRIDLE| development environment will always work. The automated build
+   and automated testing ensure that the |BRIDLE| development environment build
+   and successfully complete tests after each change.
+
+:bbl:`Tier 2`
+   The |BRIDLE| development environment will always build. The automated build
+   ensures that the |BRIDLE| development environment build successfully after
+   each change. There is no guarantee that a build will work because the
+   automation tests do not always run.
+
+:byl:`Tier 3`
+   The |BRIDLE| development environment are supported by design but not built
+   or tested after each change. Therefore, the application may or may not work.
+
+Not supported
+   The |BRIDLE| development environment do not work, but it may be supported
+   in the future.
+
+:rd:`Not applicable`
+   The specified architecture is not supported for the respective operating
+   system.
+
+.. note::
+
+   The |BRIDLE| development environment are not supported by the older
+   versions of the operating system.
+
+Required tools
+**************
+
 The following table shows the tools that are required for working with |BRIDLE|
 v\ |version|. It lists the minimum version that is required and the version
 that is installed when using the :ref:`gs_app_sim` as described in
 :ref:`gs_assistant`.
+
+.. _req_tools_table:
 
 .. tabs::
 
@@ -173,8 +297,12 @@ with pip is recommended. If a version is specified, it is important that the
 installed version matches the required version. See :ref:`additional_deps` for
 instructions on how to install the Python dependencies.
 
+.. _python_req_development:
+
 Building and running applications, samples, and tests
 =====================================================
+
+.. _req_devpkgs_table:
 
 .. list-table::
    :header-rows: 1
@@ -202,6 +330,8 @@ Building and running applications, samples, and tests
 
 Building documentation
 ======================
+
+.. _req_docpkgs_table:
 
 .. list-table::
    :header-rows: 1
