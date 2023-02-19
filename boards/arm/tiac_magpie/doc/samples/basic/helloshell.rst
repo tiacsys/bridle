@@ -81,14 +81,14 @@ prompt. All shell commands are available and would looks like:
    Zephyr version 3.0.0
 
    uart:~$ bridle version
-   Bridle version 3.0.0
+   Bridle version 3.0.1
 
    uart:~$ bridle version long
-   Bridle version 3.0.0.0
+   Bridle version 3.0.1.0
 
    uart:~$ bridle info
    Zephyr: 3.0.0
-   Bridle: 3.0.0
+   Bridle: 3.0.1
 
    uart:~$ device list
    devices:
@@ -163,6 +163,8 @@ Simple GPIO Operations
    Writing to GPIOG pin 12
    uart:~$ gpio set GPIOG 12 0
    Writing to GPIOG pin 12
+   uart:~$ gpio blink GPIOG 12
+   Blinking port GPIOG index 12. Hit any key to exit
 
 Simple ADC Acquisition
 ======================

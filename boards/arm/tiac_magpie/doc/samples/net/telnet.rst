@@ -36,32 +36,10 @@ are shown on the console like this:
 
 .. code-block:: none
 
-   [00:00:00.272,000] <inf> shell_telnet: Telnet shell backend initialized
-   [00:00:00.272,000] <inf> net_config: Initializing network
-   [00:00:00.272,000] <inf> net_config: Waiting interface 1 (0x20021258) to be up...
-   [00:00:00.762,000] <inf> net_config: Interface 1 (0x20021258) coming up
-   [00:00:00.762,000] <inf> net_config: IPv4 address: 192.0.2.1
-   [00:00:00.762,000] <inf> net_config: Running dhcpv4 client...
-   [00:00:00.762,000] <inf> net_telnet_sample: Starting Telnet sample
-   [00:00:00.762,000] <inf> net_telnet_sample: Running dhcpv4 client...
-   [00:00:00.762,000] <inf> net_telnet_sample: IPv6 address: 2001:db8::1
-   [00:00:00.862,000] <inf> net_config: IPv6 address: 2001:db8::1
-   [00:00:00.862,000] <inf> net_config: IPv6 address: 2001:db8::1
-   [00:00:00.863,000] <inf> net_config: IPv6 address: 2001:db8::1
-   [00:00:04.773,000] <inf> net_dhcpv4: Received: 192.168.10.198
-   [00:00:04.773,000] <inf> net_telnet_sample: IPv4 address: 192.168.10.198
-   [00:00:04.773,000] <inf> net_telnet_sample: Lease time: 36000 seconds
-   [00:00:04.773,000] <inf> net_telnet_sample: Subnet: 255.255.255.0
-   [00:00:04.773,000] <inf> net_telnet_sample: Router: 192.168.10.1
-   [00:00:04.773,000] <inf> net_config: IPv4 address: 192.168.10.198
-   [00:00:04.773,000] <inf> net_config: Lease time: 36000 seconds
-   [00:00:04.773,000] <inf> net_config: Subnet: 255.255.255.0
-   [00:00:04.773,000] <inf> net_config: Router: 192.168.10.1
-
    [00:00:00.269,000] <inf> shell_telnet: Telnet shell backend initialized
    [00:00:00.269,000] <inf> net_config: Initializing network
-   [00:00:00.269,000] <inf> net_config: Waiting interface 1 (0x20021098) to be up...
-   [00:00:00.584,000] <inf> net_config: Interface 1 (0x20021098) coming up
+   [00:00:00.269,000] <inf> net_config: Waiting interface 1 (0x20021258) to be up...
+   [00:00:00.584,000] <inf> net_config: Interface 1 (0x20021258) coming up
    [00:00:00.584,000] <inf> net_config: IPv4 address: 192.0.2.1
    [00:00:00.584,000] <inf> net_config: Running dhcpv4 client...
    [00:00:00.584,000] <inf> net_telnet_sample: Starting Telnet sample
@@ -124,6 +102,9 @@ or ``kernel version``.
    ~$ kernel version
    Zephyr version 3.0.0
 
+   ~$ bridle version
+   Bridle version 3.0.1
+
    ~$ device list
    devices:
    - rcc@40023800 (READY)
@@ -183,6 +164,8 @@ Simple GPIO Operations
    Writing to GPIOG pin 12
    ~$ gpio set GPIOG 12 0
    Writing to GPIOG pin 12
+   ~$ gpio blink GPIOG 12
+   Blinking port GPIOG index 12. Hit any key to exit
 
 Simple I2C Operations
 =====================
