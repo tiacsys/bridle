@@ -12,9 +12,13 @@ import sys
 import os
 from pathlib import Path
 
+from sphinx.cmd.build import get_parser
+
 # Paths ------------------------------------------------------------------------
 
+args = get_parser().parse_args()
 BRIDLE_BASE = Path(__file__).absolute().parents[2]
+BRIDLE_BUILD = Path(args.outputdir).resolve()
 
 # Add the '_extensions' directory to sys.path, to enable finding Bridle's
 # utilities for Sphinx configuration within.
@@ -22,7 +26,6 @@ sys.path.insert(0, os.path.join(BRIDLE_BASE, 'doc', '_utils'))
 import utils
 
 ZEPHYR_BASE = utils.get_projdir('zephyr')
-BRIDLE_BUILD = os.path.join(utils.get_builddir(), 'bridle')
 
 # Add the '_extensions' directory to sys.path, to enable finding Bridle's
 # Sphinx extensions within.
@@ -214,18 +217,29 @@ if devicetree_mapping:
 # Options for zephyr.doxyrunner plugin -----------------------------------------
 
 doxyrunner_doxygen = os.environ.get('DOXYGEN_EXECUTABLE', 'doxygen')
-doxyrunner_doxyfile = os.path.join(BRIDLE_BASE, 'doc', 'bridle', 'bridle.doxyfile.in')
+doxyrunner_doxydir = os.environ.get('DOCSET_DOXY_PRJ', os.path.join(
+                      BRIDLE_BASE, 'doc', '_doxygen'))
+doxyrunner_doxyfile = os.environ.get('DOCSET_DOXY_IN', os.path.join(
+                      BRIDLE_BASE, 'doc', '_doxygen', 'doxyfile-bridle.in'))
 doxyrunner_outdir = os.path.join(BRIDLE_BUILD, 'doxygen')
+doxyrunner_outdir_var = 'DOXY_OUT'
+doxyrunner_silent = True
 doxyrunner_fmt = True
+doxyrunner_fmt_pattern = '@{}@'
 doxyrunner_fmt_vars = {
-    'BRIDLE_BASE': str(BRIDLE_BASE),
-    'BRIDLE_BINARY_DIR': str(BRIDLE_BUILD),
+    'DOXY_SET': u'bridle',
+    'DOXY_IN': str(Path(doxyrunner_doxyfile).absolute().parent),
+    'PROJECT_DOXY': str(Path(doxyrunner_doxydir).absolute()),
+    'PROJECT_BASE': str(BRIDLE_BASE),
+    'PROJECT_NAME': project,
+    'PROJECT_VERSION': version,
+    'PROJECT_BRIEF': str(os.environ.get('DOCSET_BRIEF', 'Unknown project brief!')),
 }
 
 # Options for breathe ----------------------------------------------------------
 
-breathe_projects = {'Bridle': '{}/xml'.format(doxyrunner_outdir)}
-breathe_default_project = 'Bridle'
+breathe_projects = {project: '{}/xml'.format(doxyrunner_outdir)}
+breathe_default_project = project
 breathe_domain_by_extension = {
     'h': 'c',
     'c': 'c',
