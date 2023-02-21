@@ -29,7 +29,7 @@ Building and Running
       .. code-block:: console
 
          $ ./zephyr/scripts/twister \
-             --verbose --jobs 4 --inline-logs \
+             --verbose --jobs 1 --inline-logs \
              --enable-size-report --platform-reports \
              --device-testing --hardware-map map.yaml \
              --board-root bridle/boards \
@@ -51,9 +51,9 @@ Building and Running
          INFO    - 1 test scenarios (1 configurations) selected, 0 configurations discarded due to filters.
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1/1 tiac_magpie               common/bridle.common                               :bgn:`PASSED` (device 5.665s)
+         INFO    - 1/1 tiac_magpie               common/bridle.common                               :bgn:`PASSED` (device 6.224s)
 
-         INFO    - :bgn:`1 of 1` test configurations passed (100.00%), :bbk:`0` failed, :byl:`0` skipped with :bbk:`0` warnings in :bbk:`37.76 seconds`
+         INFO    - :bgn:`1 of 1` test configurations passed (100.00%), :bbk:`0` failed, :byl:`0` skipped with :bbk:`0` warnings in :bbk:`66.21 seconds`
          INFO    - In total 1 test cases were executed, 0 skipped on 1 out of total 457 platforms (0.22%)
          INFO    - :bgn:`1` test configurations executed on platforms, :brd:`0` test configurations were only built.
 

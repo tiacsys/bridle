@@ -482,7 +482,7 @@ with a single call to Twister.
 
       .. code-block:: console
 
-         $ ./zephyr/scripts/twister --jobs 4 \
+         $ ./zephyr/scripts/twister --jobs 1 \
              --enable-size-report --platform-reports \
              --device-testing --hardware-map map.yaml \
              --extra-args SHIELD="loopback_test_tmph can_timing_adj" \
@@ -491,13 +491,13 @@ with a single call to Twister.
              --testsuite-root zephyr/tests/kernel \
              --testsuite-root zephyr/tests/arch/arm \
              --testsuite-root zephyr/tests/crypto/rand32 \
-             --testsuite-root zephyr/tests/drivers/hwinfo \
+             --testsuite-root zephyr/tests/drivers/entropy \
              --testsuite-root zephyr/tests/drivers/watchdog \
              --testsuite-root bridle/tests/drivers/watchdog \
              --testsuite-root zephyr/tests/drivers/counter \
-             --testsuite-root zephyr/tests/drivers/entropy \
-             --testsuite-root zephyr/tests/drivers/gpio \
+             --testsuite-root zephyr/tests/drivers/hwinfo \
              --testsuite-root zephyr/tests/drivers/uart \
+             --testsuite-root zephyr/tests/drivers/gpio \
              --testsuite-root zephyr/tests/drivers/spi \
              --testsuite-root zephyr/tests/drivers/can
 
@@ -518,7 +518,7 @@ with a single call to Twister.
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
          INFO    - Total complete:  :bgn:`251`/ :bgn:`251`  100%  skipped:   :byl:`133`, failed:    :brd:`0`
-         INFO    - :bgn:`118 of 251` test configurations passed (98.10%), :brd:`2` failed, :byl:`133` skipped with :bbk:`0` warnings in :bbk:`1546.67 seconds`
+         INFO    - :bgn:`118 of 251` test configurations passed (98.10%), :brd:`2` failed, :byl:`133` skipped with :bbk:`0` warnings in :bbk:`6802.08 seconds`
          INFO    - In total 1754 test cases were executed, 255 skipped on 1 out of total 457 platforms (0.22%)
          INFO    - :bgn:`118` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
