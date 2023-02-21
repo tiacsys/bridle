@@ -35,7 +35,7 @@ Building and Running
       .. code-block:: console
 
          $ ./zephyr/scripts/twister \
-             --verbose --jobs 4 --inline-logs \
+             --verbose --jobs 1 --inline-logs \
              --enable-size-report --platform-reports \
              --device-testing --hardware-map map.yaml \
              --extra-args SHIELD=loopback_test_tmph \
@@ -58,12 +58,12 @@ Building and Running
          INFO    - 2 test scenarios (2 configurations) selected, 0 configurations discarded due to filters.
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1/2 tiac_magpie               tests/drivers/pwm/pwm_api/drivers.pwm              :brd:`FAILED` Failed (device 7.698s)
+         INFO    - 1/2 tiac_magpie               tests/drivers/pwm/pwm_api/drivers.pwm              :brd:`FAILED` Failed (device 7.583s)
          ERROR   - see: :byl:`.../twister-out/tiac_magpie/tests/drivers/pwm/pwm_api/drivers.pwm/handler.log`
-         INFO    - 2/2 tiac_magpie               tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback :brd:`FAILED` Failed (device 5.899s)
+         INFO    - 2/2 tiac_magpie               tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback :brd:`FAILED` Failed (device 5.847s)
          ERROR   - see: :byl:`.../twister-out/tiac_magpie/tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback/handler.log`
 
-         INFO    - :bgn:`0 of 2` test configurations passed (50.00%), :bbk:`2` failed, :byl:`0` skipped with :bbk:`0` warnings in :bbk:`48.98 seconds`
+         INFO    - :brd:`0 of 2` test configurations passed (0.00%), :bbk:`2` failed, :byl:`0` skipped with :bbk:`0` warnings in :bbk:`139.17 seconds`
          INFO    - In total 10 test cases were executed, 0 skipped on 1 out of total 457 platforms (0.22%)
          INFO    - :bgn:`2` test configurations executed on platforms, :brd:`0` test configurations were only built.
 

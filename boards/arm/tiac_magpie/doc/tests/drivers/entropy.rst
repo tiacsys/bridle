@@ -33,7 +33,7 @@ Drivers
       .. code-block:: console
 
          $ ./zephyr/scripts/twister \
-             --verbose --jobs 4 --inline-logs \
+             --verbose --jobs 1 --inline-logs \
              --enable-size-report --platform-reports \
              --device-testing --hardware-map map.yaml \
              --board-root bridle/boards \
@@ -55,9 +55,9 @@ Drivers
          INFO    - 2 test scenarios (2 configurations) selected, 1 configurations discarded due to filters.
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 2/2 tiac_magpie               tests/drivers/entropy/api/drivers.entropy          :bgn:`PASSED` (device 3.871s)
+         INFO    - 2/2 tiac_magpie               tests/drivers/entropy/api/drivers.entropy          :bgn:`PASSED` (device 4.081s)
 
-         INFO    - :bgn:`1 of 2` test configurations passed (100.00%), :bbk:`0` failed, :byl:`1` skipped with :bbk:`0` warnings in :bbk:`21.76 seconds`
+         INFO    - :bgn:`1 of 2` test configurations passed (100.00%), :bbk:`0` failed, :byl:`1` skipped with :bbk:`0` warnings in :bbk:`42.12 seconds`
          INFO    - In total 2 test cases were executed, 0 skipped on 1 out of total 457 platforms (0.22%)
          INFO    - :bgn:`1` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
@@ -87,7 +87,7 @@ Cryptography
       .. code-block:: console
 
          $ ./zephyr/scripts/twister \
-             --verbose --jobs 4 --inline-logs \
+             --verbose --jobs 1 --inline-logs \
              --enable-size-report --platform-reports \
              --device-testing --hardware-map map.yaml \
              --board-root bridle/boards \
@@ -109,12 +109,12 @@ Cryptography
          INFO    - 4 test scenarios (4 configurations) selected, 0 configurations discarded due to filters.
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1/4 tiac_magpie               tests/crypto/rand32/crypto.rand32                  :bgn:`PASSED` (device 3.885s)
-         INFO    - 2/4 tiac_magpie               tests/crypto/rand32/crypto.rand32.random_sw_systimer :bgn:`PASSED` (device 4.006s)
-         INFO    - 3/4 tiac_magpie               tests/crypto/rand32/crypto.rand32.random_hw_xoshiro :bgn:`PASSED` (device 3.898s)
-         INFO    - 4/4 tiac_magpie               tests/crypto/rand32/crypto.rand32.random_ctr_drbg  :bgn:`PASSED` (device 3.798s)
+         INFO    - 1/4 tiac_magpie               tests/crypto/rand32/crypto.rand32.random_ctr_drbg  :bgn:`PASSED` (device 4.152s)
+         INFO    - 2/4 tiac_magpie               tests/crypto/rand32/crypto.rand32.random_hw_xoshiro :bgn:`PASSED` (device 4.137s)
+         INFO    - 3/4 tiac_magpie               tests/crypto/rand32/crypto.rand32.random_sw_systimer :bgn:`PASSED` (device 4.087s)
+         INFO    - 4/4 tiac_magpie               tests/crypto/rand32/crypto.rand32                  :bgn:`PASSED` (device 4.096s)
 
-         INFO    - :bgn:`4 of 4` test configurations passed (100.00%), :bbk:`0` failed, :byl:`0` skipped with :bbk:`0` warnings in :bbk:`36.11 seconds`
+         INFO    - :bgn:`4 of 4` test configurations passed (100.00%), :bbk:`0` failed, :byl:`0` skipped with :bbk:`0` warnings in :bbk:`167.63 seconds`
          INFO    - In total 4 test cases were executed, 0 skipped on 1 out of total 457 platforms (0.22%)
          INFO    - :bgn:`4` test configurations executed on platforms, :brd:`0` test configurations were only built.
 

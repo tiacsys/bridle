@@ -35,7 +35,7 @@ Building and Running
       .. code-block:: console
 
          $ ./zephyr/scripts/twister \
-             --verbose --jobs 4 --inline-logs \
+             --verbose --jobs 1 --inline-logs \
              --enable-size-report --platform-reports \
              --device-testing --hardware-map map.yaml \
              --extra-args SHIELD=loopback_test_tmph \
@@ -61,7 +61,7 @@ Building and Running
          INFO    - 3/3 tiac_magpie               tests/drivers/adc/adc_api/drivers.adc              :brd:`FAILED` Build failure (device)
          ERROR   - see: :byl:`.../twister-out/tiac_magpie/tests/drivers/adc/adc_api/drivers.adc/build.log`
 
-         INFO    - :bgn:`0 of 3` test configurations passed (100.00%), :bbk:`1` failed, :byl:`2` skipped with :bbk:`0` warnings in :bbk:`5.61 seconds`
+         INFO    - :bgn:`0 of 3` test configurations passed (0.00%), :bbk:`1` failed, :byl:`2` skipped with :bbk:`0` warnings in :bbk:`5.61 seconds`
          INFO    - In total 21 test cases were executed, 0 skipped on 1 out of total 457 platforms (0.22%)
          INFO    - :bgn:`0` test configurations executed on platforms, :brd:`1` test configurations were only built.
 

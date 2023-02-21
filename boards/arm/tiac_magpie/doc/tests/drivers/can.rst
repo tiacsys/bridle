@@ -29,7 +29,7 @@ Building and Running
       .. code-block:: console
 
          $ ./zephyr/scripts/twister \
-             --verbose --jobs 4 --inline-logs \
+             --verbose --jobs 1 --inline-logs \
              --enable-size-report --platform-reports \
              --device-testing --hardware-map map.yaml \
              --extra-args SHIELD=can_timing_adj \
@@ -52,12 +52,12 @@ Building and Running
          INFO    - 6 test scenarios (6 configurations) selected, 2 configurations discarded due to filters.
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 3/6 tiac_magpie               tests/drivers/can/utilities/drivers.can.utilities  :bgn:`PASSED` (device 3.690s)
-         INFO    - 4/6 tiac_magpie               tests/drivers/can/stm32/drivers.can.stm32          :bgn:`PASSED` (device 3.999s)
-         INFO    - 5/6 tiac_magpie               tests/drivers/can/timing/drivers.can.timing        :bgn:`PASSED` (device 5.437s)
-         INFO    - 6/6 tiac_magpie               tests/drivers/can/api/drivers.can.api              :bgn:`PASSED` (device 6.299s)
+         INFO    - 3/6 tiac_magpie               tests/drivers/can/api/drivers.can.api              :bgn:`PASSED` (device 6.444s)
+         INFO    - 4/6 tiac_magpie               tests/drivers/can/utilities/drivers.can.utilities  :bgn:`PASSED` (device 4.028s)
+         INFO    - 5/6 tiac_magpie               tests/drivers/can/timing/drivers.can.timing        :bgn:`PASSED` (device 5.725s)
+         INFO    - 6/6 tiac_magpie               tests/drivers/can/stm32/drivers.can.stm32          :bgn:`PASSED` (device 4.645s)
 
-         INFO    - :bgn:`4 of 6` test configurations passed (100.00%), :bbk:`0` failed, :byl:`2` skipped with :bbk:`0` warnings in :bbk:`51.79 seconds`
+         INFO    - :bgn:`4 of 6` test configurations passed (100.00%), :bbk:`0` failed, :byl:`2` skipped with :bbk:`0` warnings in :bbk:`129.03 seconds`
          INFO    - In total 60 test cases were executed, 3 skipped on 1 out of total 457 platforms (0.22%)
          INFO    - :bgn:`4` test configurations executed on platforms, :brd:`0` test configurations were only built.
 

@@ -35,7 +35,7 @@ Building and Running
       .. code-block:: console
 
          $ ./zephyr/scripts/twister \
-             --verbose --jobs 4 --inline-logs \
+             --verbose --jobs 1 --inline-logs \
              --enable-size-report --platform-reports \
              --device-testing --hardware-map map.yaml \
              --extra-args SHIELD=loopback_test_tmph \
@@ -59,12 +59,12 @@ Building and Running
          INFO    - 5 test scenarios (5 configurations) selected, 3 configurations discarded due to filters.
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 4/5 tiac_magpie               i2c_slave_api/drivers.i2c.slave_api.tiac_magpie    :brd:`FAILED` Failed (device 4.491s)
+         INFO    - 4/5 tiac_magpie               i2c_slave_api/drivers.i2c.slave_api.tiac_magpie    :brd:`FAILED` Failed (device 4.632s)
          ERROR   - see: :byl:`.../twister-out/tiac_magpie/i2c_slave_api/drivers.i2c.slave_api.tiac_magpie/handler.log`
-         INFO    - 5/5 tiac_magpie               i2c_slave_api/drivers.i2c.slave_api.dual_role.tiac_magpie :brd:`FAILED` Failed (device 4.757s)
+         INFO    - 5/5 tiac_magpie               i2c_slave_api/drivers.i2c.slave_api.dual_role.tiac_magpie :brd:`FAILED` Failed (device 4.632s)
          ERROR   - see: :byl:`.../twister-out/tiac_magpie/i2c_slave_api/drivers.i2c.slave_api.dual_role.tiac_magpie/handler.log`
 
-         INFO    - :brd:`0 of 5` test configurations passed (0.00%), :bbk:`2` failed, :byl:`3` skipped with :bbk:`0` warnings in :bbk:`27.96 seconds`
+         INFO    - :brd:`0 of 5` test configurations passed (0.00%), :bbk:`2` failed, :byl:`3` skipped with :bbk:`0` warnings in :bbk:`84.55 seconds`
          INFO    - In total 6 test cases were executed, 0 skipped on 1 out of total 457 platforms (0.22%)
          INFO    - :bgn:`2` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
