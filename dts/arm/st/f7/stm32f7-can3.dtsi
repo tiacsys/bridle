@@ -16,7 +16,6 @@
 			interrupt-names = "TX", "RX0", "RX1", "SCE";
 			clocks = <&rcc STM32_CLOCK_BUS_APB1 0x00002000>;
 			status = "disabled";
-			label = "CAN_3";
 		};
 	};
 };

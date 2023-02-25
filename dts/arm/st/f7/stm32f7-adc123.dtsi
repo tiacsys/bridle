@@ -40,7 +40,6 @@
 			clocks = <&rcc STM32_CLOCK_BUS_APB2 0x00000200>;
 			interrupts = <18 0>;
 			status = "disabled";
-			label = "ADC_2";
 			#io-channel-cells = <1>;
 		};
 
@@ -51,7 +50,6 @@
 			clocks = <&rcc STM32_CLOCK_BUS_APB2 0x00000400>;
 			interrupts = <18 0>;
 			status = "disabled";
-			label = "ADC_3";
 			#io-channel-cells = <1>;
 		};
 	};
