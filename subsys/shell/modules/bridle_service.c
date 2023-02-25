@@ -6,8 +6,8 @@
 #include <bridle.h>
 #include "version.h" /* generated at compile time */
 
-#include <sys/printk.h>
-#include <shell/shell.h>
+#include <zephyr/sys/printk.h>
+#include <zephyr/shell/shell.h>
 
 #define BRIDLE_HELP_BRIDLE		"Bridle commands."
 
