@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 TiaC Systems
+ * Copyright (c) 2021-2023 TiaC Systems
  * Copyright (c) 2016 Intel Corporation
  *
  * SPDX-License-Identifier: Apache-2.0
@@ -7,7 +7,7 @@
 
 
 #include <zephyr/ztest.h>
-#include <bridle_version.h>
+#include <bridle/core_version.h>
 #include "version.h"
 
 /**

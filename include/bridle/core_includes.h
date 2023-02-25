@@ -8,7 +8,7 @@
 /**
  * @file
  *
- * @brief Header files included by bridle.h.
+ * @brief Header files included by bridle/core.h.
  */
 
 #ifndef BRIDLE_INCLUDE_BRIDLE_INCLUDES_H_
@@ -18,6 +18,6 @@
 #include <zephyr/types.h>
 #include <limits.h>
 #include <zephyr/toolchain.h>
-#include <bridle_version.h>
+#include <bridle/core_version.h>
 
 #endif /* BRIDLE_INCLUDE_BRIDLE_INCLUDES_H_ */

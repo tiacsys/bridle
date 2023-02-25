@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 TiaC Systems
+ * Copyright (c) 2021-2023 TiaC Systems
  * Copyright (c) 2016, Wind River Systems, Inc.
  *
  * SPDX-License-Identifier: Apache-2.0
@@ -15,7 +15,7 @@
 #define BRIDLE_INCLUDE_BRIDLE_H_
 
 #if !defined(_ASMLANGUAGE)
-#include <bridle_includes.h>
+#include <bridle/core_includes.h>
 
 #ifdef __cplusplus
 extern "C" {

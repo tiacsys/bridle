@@ -1,9 +1,9 @@
 /*
- * Copyright (c) 2021 TiaC Systems
+ * Copyright (c) 2021-2023 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#include <bridle.h>
+#include <bridle/core.h>
 #include "version.h" /* generated at compile time */
 
 #include <zephyr/sys/printk.h>
