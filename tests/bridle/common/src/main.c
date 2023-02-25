@@ -6,7 +6,7 @@
  */
 
 
-#include <ztest.h>
+#include <zephyr/ztest.h>
 #include <bridle_version.h>
 #include "version.h"
 
