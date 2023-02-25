@@ -6,9 +6,9 @@ common:
     fixture: i2c_bus_short
 
 tests:
-  drivers.i2c.slave_api.tiac_magpie:
+  drivers.i2c.target_api.tiac_magpie:
     platform_allow: tiac_magpie
-  drivers.i2c.slave_api.dual_role.tiac_magpie:
+  drivers.i2c.target_api.dual_role.tiac_magpie:
     platform_allow: tiac_magpie
     extra_configs:
       - CONFIG_APP_DUAL_ROLE_I2C=y
