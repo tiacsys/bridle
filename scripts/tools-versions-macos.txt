@@ -6,4 +6,4 @@ gperf=3.1;hash=258483ea2fd445d42d869d495504f960202fe0c3
 dtc=1.4.7;hash=0747cc9d6b50ac8a3b1b576e4509494f2258aef2
 openocd=0.11.0-5 (xPack OpenOCD from GitHub)
 west=0.14.0
-zephyr-sdk=0.14.2
+zephyr-sdk=0.15.2
