@@ -25,7 +25,7 @@
  *
  * @see sys_bridle_version_get()
  */
-static void test_version(void)
+ZTEST(common, test_version)
 {
 	uint32_t version = sys_bridle_version_get();
 
@@ -40,11 +40,4 @@ static void test_version(void)
 
 }
 
-void test_main(void)
-{
-	ztest_test_suite(common,
-			 ztest_unit_test(test_version)
-			 );
-
-	ztest_run_test_suite(common);
-}
+ZTEST_SUITE(common, NULL, NULL, NULL, NULL, NULL);
