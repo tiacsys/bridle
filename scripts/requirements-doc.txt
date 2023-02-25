@@ -1,11 +1,11 @@
-docutils>=0.16,<0.18
-pygments~=2.13
+docutils>=0.16,<0.20
+pygments~=2.14
 recommonmark~=0.7
 commonmark~=0.9
 sphinx-tsn-theme~=2022.10
 sphinxcontrib-mscgen~=0.6
 sphinxcontrib-svg2pdfconverter~=1.2
 sphinx-tabs~=3.4
-sphinx-csv-filter~=0.3
+sphinx-csv-filter~=0.4
 sphinx-copybutton~=0.5
 sphinx-notfound-page~=0.8
