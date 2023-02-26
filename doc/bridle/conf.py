@@ -339,7 +339,7 @@ graphviz_dot_args = [
 # Linkcheck options ------------------------------------------------------------
 
 extlinks = {
-    'github': ('https://github.com/tiacsys/bridle/issues/%s', '')
+    'github': ('https://github.com/tiacsys/bridle/issues/%s', 'GitHub #%s'),
 }
 
 linkcheck_ignore = [
