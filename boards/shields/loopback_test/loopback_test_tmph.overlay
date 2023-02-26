@@ -29,7 +29,6 @@
 
 &tmph_spi1 {
 	status = "okay";
-	label = "SPI_1";
 }; // tmph_spi1
 
 &tmph_i2c2 {
@@ -43,7 +42,6 @@
 		address-width = <8>;
 		timeout = <5>;
 		status = "okay";
-		label = "EEPROM_0";
 	}; // eeprom0
 }; // tmph_i2c2
 
@@ -58,6 +56,5 @@
 		address-width = <8>;
 		timeout = <5>;
 		status = "okay";
-		label = "EEPROM_1";
 	}; // eeprom1
 }; // tmph_i2c1
