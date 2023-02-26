@@ -30,6 +30,18 @@
 
 &tmph_spi1 {
 	status = "okay";
+
+	slow@0 {
+		compatible = "test-spi-loopback-slow";
+		reg = <0>;
+		spi-max-frequency = <500000>;
+	};
+
+	fast@0 {
+		compatible = "test-spi-loopback-fast";
+		reg = <0>;
+		spi-max-frequency = <50000000>;
+	};
 }; // tmph_spi1
 
 &tmph_i2c2 {
