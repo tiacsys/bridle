@@ -63,14 +63,19 @@ string(REGEX MATCH "=([^ \t]*)[^ \t]*,[<,>]([^ \t]*)"
              OUT_VAR "${sphinx_string}"
 )
 if(NOT CMAKE_MATCH_1)
-  string(REGEX MATCH "=([^ \t]*)" OUT_VAR "${sphinx_string}")
+  string(REGEX MATCH "=([^ \t]*)[^ \t]*,[!]([^ \t]*)" OUT_VAR "${sphinx_string}")
   if(CMAKE_MATCH_1)
     set(ZEPHYR_SPHINX_REQUIRED_VERSION ${CMAKE_MATCH_1})
-  else()
-    message(FATAL_ERROR "Sphinx: malformatted PIP version string as input?\n"
-        "Got: '${sphinx_string}'\n"
-        "Check: ${ZEPHYR_BASE}/scripts/requirements-doc.txt"
-    )
+  elseif(NOT CMAKE_MATCH_1)
+    string(REGEX MATCH "=([^ \t]*)" OUT_VAR "${sphinx_string}")
+    if(CMAKE_MATCH_1)
+      set(ZEPHYR_SPHINX_REQUIRED_VERSION ${CMAKE_MATCH_1})
+    else()
+      message(FATAL_ERROR "Sphinx: malformatted PIP version string as input?\n"
+          "Got: '${sphinx_string}'\n"
+          "Check: ${ZEPHYR_BASE}/scripts/requirements-doc.txt"
+      )
+    endif()
   endif()
 else()
   if(CMAKE_MATCH_2)
