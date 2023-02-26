@@ -21,6 +21,7 @@
 
 &tmph_timers {
 	status = "okay";
+	st,prescaler = <10000>;
 }; // tmph_timers
 
 &tmph_pwms {
