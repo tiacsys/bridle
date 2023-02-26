@@ -434,7 +434,7 @@ Integration Tests
 
 Zephyr provides a large number of integration tests to evaluate the target
 architecture, the operating system core components, drivers and subsystems.
-Most of them can be build and running by Zephyr :doc:`develop/test/twister`
+Most of them can be build and running by the Zephyr :ref:`twister_script`
 without any further modification.
 
 Before a single or multiple test cases can be executed directly on the
