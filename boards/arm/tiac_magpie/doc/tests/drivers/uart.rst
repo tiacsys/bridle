@@ -35,7 +35,7 @@ Building and Running
       .. code-block:: console
 
          $ ./zephyr/scripts/twister \
-             --verbose --jobs 1 --inline-logs \
+             --verbose --jobs 4 --inline-logs \
              --enable-size-report --platform-reports \
              --device-testing --hardware-map map.yaml \
              --extra-args SHIELD=loopback_test_tmph \
@@ -61,8 +61,8 @@ Building and Running
          INFO    - 23/24 tiac_magpie               tests/drivers/uart/uart_async_api/drivers.uart.async_api :byl:`SKIPPED` (runtime filter)
          INFO    - 24/24 tiac_magpie               tests/drivers/uart/uart_async_api/drivers.uart.async_api.lpuart :byl:`SKIPPED` (runtime filter)
 
-         INFO    - :bgn:`0 of 24` test configurations passed (0.00%), :bbk:`0` failed, :byl:`24` skipped with :bbk:`0` warnings in :bbk:`7.78 seconds`
-         INFO    - In total 94 test cases were executed, 36 skipped on 1 out of total 457 platforms (0.22%)
+         INFO    - :bgn:`0 of 24` test configurations passed (0.00%), :bbk:`0` failed, :byl:`24` skipped with :bbk:`0` warnings in :bbk:`5.08 seconds`
+         INFO    - In total 52 test cases were executed, 18 skipped on 1 out of total 501 platforms (0.20%)
          INFO    - :bgn:`0` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:

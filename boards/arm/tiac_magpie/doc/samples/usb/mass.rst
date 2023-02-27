@@ -90,7 +90,7 @@ The output to the console will look something like this
    /RAM:: bsize = 512 ; frsize = 512 ; blocks = 158 ; bfree = 158
    /RAM: opendir: 0
    End of files
-   [00:00:00.115,000] <inf> main: The device is put in USB mass storage mode.
+   [00:00:00.066,000] <inf> main: The device is put in USB mass storage mode.
 
 On most operating systems the drive will be automatically mounted.
 

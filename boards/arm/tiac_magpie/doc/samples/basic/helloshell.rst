@@ -77,60 +77,60 @@ prompt. All shell commands are available and would looks like:
    ID: 0x9e6b44aea1e2b8980c4d32a6
 
    uart:~$ kernel version
-   Zephyr version 3.1.0
+   Zephyr version 3.2.0
 
    uart:~$ bridle version
-   Bridle version 3.1.0
+   Bridle version 3.2.0
 
    uart:~$ bridle version long
-   Bridle version 3.1.0.0
+   Bridle version 3.2.0.0
 
    uart:~$ bridle info
-   Zephyr: 3.1.0
-   Bridle: 3.1.0
+   Zephyr: 3.2.0
+   Bridle: 3.2.0
 
    uart:~$ device list
    devices:
    - rcc@40023800 (READY)
    - interrupt-controller@40013c00 (READY)
-   - GPIOK (READY)
+   - gpio@40022800 (READY)
      requires: rcc@40023800
-   - GPIOJ (READY)
+   - gpio@40022400 (READY)
      requires: rcc@40023800
-   - GPIOI (READY)
+   - gpio@40022000 (READY)
      requires: rcc@40023800
-   - GPIOH (READY)
+   - gpio@40021C00 (READY)
      requires: rcc@40023800
-   - GPIOG (READY)
+   - gpio@40021800 (READY)
      requires: rcc@40023800
-   - GPIOF (READY)
+   - gpio@40021400 (READY)
      requires: rcc@40023800
-   - GPIOE (READY)
+   - gpio@40021000 (READY)
      requires: rcc@40023800
-   - GPIOD (READY)
+   - gpio@40020C00 (READY)
      requires: rcc@40023800
-   - GPIOC (READY)
+   - gpio@40020800 (READY)
      requires: rcc@40023800
-   - GPIOB (READY)
+   - gpio@40020400 (READY)
      requires: rcc@40023800
-   - GPIOA (READY)
+   - gpio@40020000 (READY)
      requires: rcc@40023800
-   - RTC_0 (READY)
+   - serial@40007800 (READY)
      requires: rcc@40023800
-   - UART_7 (READY)
+   - serial@40004c00 (READY)
      requires: rcc@40023800
-   - UART_4 (READY)
+   - rtc@40002800 (READY)
      requires: rcc@40023800
-   - ADC_3 (READY)
+   - adc@40012200 (READY)
      requires: rcc@40023800
-   - I2C_4 (READY)
+   - i2c@40006000 (READY)
      requires: rcc@40023800
-   - I2C_2 (READY)
+   - i2c@40005800 (READY)
      requires: rcc@40023800
-   - PWM_8 (READY)
+   - pwm (READY)
      requires: rcc@40023800
-   - FLASH_CTRL (READY)
-   - SPI_4 (READY)
+   - flash-controller@40023c00 (READY)
+   - spi@40013400 (READY)
      requires: rcc@40023800
 
    uart:~$ history
@@ -152,21 +152,21 @@ Simple GPIO Operations
 
 .. code-block:: console
 
-   uart:~$ gpio get GPIOG 12
-   Reading GPIOG pin 12
+   uart:~$ gpio get gpio@40021800 12
+   Reading gpio@40021800 pin 12
    Value 0
 
-   uart:~$ gpio conf GPIOG 12 out
-   Configuring GPIOG pin 12
+   uart:~$ gpio conf gpio@40021800 12 out
+   Configuring gpio@40021800 pin 12
 
-   uart:~$ gpio set GPIOG 12 1
-   Writing to GPIOG pin 12
+   uart:~$ gpio set gpio@40021800 12 1
+   Writing to gpio@40021800 pin 12
 
-   uart:~$ gpio set GPIOG 12 0
-   Writing to GPIOG pin 12
+   uart:~$ gpio set gpio@40021800 12 0
+   Writing to gpio@40021800 pin 12
 
-   uart:~$ gpio blink GPIOG 12
-   Blinking port GPIOG index 12. Hit any key to exit
+   uart:~$ gpio blink gpio@40021800 12
+   Blinking port gpio@40021800 index 12. Hit any key to exit
 
 Simple ADC Acquisition
 ======================
@@ -175,14 +175,14 @@ Simple ADC Acquisition
 
 .. code-block:: console
 
-   uart:~$ adc ADC_3 acq_time 1 tick
-   uart:~$ adc ADC_3 resolution 12
+   uart:~$ adc adc@40012200 acq_time 1 tick
+   uart:~$ adc adc@40012200 resolution 12
 
-   uart:~$ adc ADC_3 read 9
+   uart:~$ adc adc@40012200 read 9
    read: 454
 
-   uart:~$ adc ADC_3 print
-   ADC_3:
+   uart:~$ adc adc@40012200 print
+   adc@40012200:
    Gain: 1
    Reference: INTERNAL
    Acquisition Time: 0
@@ -196,11 +196,11 @@ Simple Flash Access
 
 .. code-block:: console
 
-   uart:~$ flash read FLASH_CTRL 105F0 40
-   000105F0: 61 63 5f 6d 61 67 70 69  65 00 48 65 6c 6c 6f 20 |ac_magpi e.Hello |
-   00010600: 57 6f 72 6c 64 21 20 49  27 6d 20 54 48 45 20 53 |World! I 'm THE S|
-   00010610: 48 45 4c 4c 20 66 72 6f  6d 20 25 73 0a 00 28 6e |HELL fro m %s..(n|
-   00010620: 69 6c 29 00 6c 6f 67 00  25 30 32 78 20 00 20 20 |il).log. %02x .  |
+   uart:~$ flash read flash-controller@40023c00 10DE0 40
+   00010DE0: 90 00 e0 01 00 10 00 00  00 30 74 69 61 63 5f 6d |........ .0tiac_m|
+   00010DF0: 61 67 70 69 65 00 48 65  6c 6c 6f 20 57 6f 72 6c |agpie.He llo Worl|
+   00010E00: 64 21 20 49 27 6d 20 54  48 45 20 53 48 45 4c 4c |d! I'm T HE SHELL|
+   00010E10: 20 66 72 6f 6d 20 25 73  0a 00 28 75 6e 73 69 67 | from %s ..(unsig|
 
 Simple I2C Operations
 =====================
@@ -209,7 +209,7 @@ Simple I2C Operations
 
 .. code-block:: console
 
-   uart:~$ i2c scan I2C_2
+   uart:~$ i2c scan i2c@40005800
         0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
    00:             -- -- -- -- -- -- -- -- -- -- -- --
    10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
@@ -219,20 +219,20 @@ Simple I2C Operations
    50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
    60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
    70: -- -- -- -- -- -- -- --
-   9 devices found on I2C_2
+   9 devices found on i2c@40005800
 
 .. rubric:: Configure GPIO pins on first IO expander to output
 
 .. code-block:: console
 
-   uart:~$ i2c read_byte I2C_2 20 0
+   uart:~$ i2c read_byte i2c@40005800 20 0
    Output: 0xc0
 
-   uart:~$ i2c read_byte I2C_2 20 3
+   uart:~$ i2c read_byte i2c@40005800 20 3
    Output: 0xff
 
-   uart:~$ i2c write_byte I2C_2 20 3 0
-   uart:~$ i2c read_byte I2C_2 20 3
+   uart:~$ i2c write_byte i2c@40005800 20 3 0
+   uart:~$ i2c read_byte i2c@40005800 20 3
    Output: 0x0
 
 .. rubric:: Setup GPIO pins on first IO expander to output
@@ -242,12 +242,12 @@ Simple I2C Operations
 
 .. code-block:: console
 
-   uart:~$ i2c read_byte I2C_2 20 1
+   uart:~$ i2c read_byte i2c@40005800 20 1
    Output: 0xff
 
-   uart:~$ i2c write_byte I2C_2 20 1 0x55
-   uart:~$ i2c read_byte I2C_2 20 1
+   uart:~$ i2c write_byte i2c@40005800 20 1 0x55
+   uart:~$ i2c read_byte i2c@40005800 20 1
    Output: 0x55
 
-   uart:~$ i2c read_byte I2C_2 20 0
+   uart:~$ i2c read_byte i2c@40005800 20 0
    Output: 0x55

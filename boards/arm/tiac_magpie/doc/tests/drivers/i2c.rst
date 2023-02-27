@@ -35,7 +35,7 @@ Building and Running
       .. code-block:: console
 
          $ ./zephyr/scripts/twister \
-             --verbose --jobs 1 --inline-logs \
+             --verbose --jobs 4 --inline-logs \
              --enable-size-report --platform-reports \
              --device-testing --hardware-map map.yaml \
              --extra-args SHIELD=loopback_test_tmph \
@@ -59,13 +59,13 @@ Building and Running
          INFO    - 5 test scenarios (5 configurations) selected, 3 configurations discarded due to filters.
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 4/5 tiac_magpie               i2c_slave_api/drivers.i2c.slave_api.tiac_magpie    :brd:`FAILED` Failed (device 4.632s)
-         ERROR   - see: :byl:`.../twister-out/tiac_magpie/i2c_slave_api/drivers.i2c.slave_api.tiac_magpie/handler.log`
-         INFO    - 5/5 tiac_magpie               i2c_slave_api/drivers.i2c.slave_api.dual_role.tiac_magpie :brd:`FAILED` Failed (device 4.632s)
-         ERROR   - see: :byl:`.../twister-out/tiac_magpie/i2c_slave_api/drivers.i2c.slave_api.dual_role.tiac_magpie/handler.log`
+         INFO    - 4/5 tiac_magpie               i2c_target_api/drivers.i2c.target_api.dual_role.tiac_magpie :brd:`FAILED` Failed (device 3.356s)
+         ERROR   - see: :byl:`.../twister-out/tiac_magpie/i2c_slave_api/drivers.i2c.target_api.dual_role.tiac_magpie/handler.log`
+         INFO    - 5/5 tiac_magpie               i2c_target_api/drivers.i2c.target_api.tiac_magpie  :brd:`FAILED` Failed (device 3.356s)
+         ERROR   - see: :byl:`.../twister-out/tiac_magpie/i2c_slave_api/drivers.i2c.target_api.tiac_magpie/handler.log`
 
-         INFO    - :brd:`0 of 5` test configurations passed (0.00%), :bbk:`2` failed, :byl:`3` skipped with :bbk:`0` warnings in :bbk:`84.55 seconds`
-         INFO    - In total 6 test cases were executed, 0 skipped on 1 out of total 457 platforms (0.22%)
+         INFO    - :brd:`0 of 5` test configurations passed (0.00%), :bbk:`2` failed, :byl:`3` skipped with :bbk:`0` warnings in :bbk:`28.43 seconds`
+         INFO    - In total 6 test cases were executed, 0 skipped on 1 out of total 501 platforms (0.20%)
          INFO    - :bgn:`2` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
@@ -91,20 +91,24 @@ Single role with two I2C controller
 .. parsed-literal::
    :class: highlight
 
-   Running TESTSUITE test_eeprom_slave
+   Running TESTSUITE i2c_eeprom_target
    ===================================================================
-   START - test_eeprom_slave
-   Found EP0 EEPROM_0 on I2C Master device I2C_3 at addr 54
-   Found EP1 EEPROM_1 on I2C Master device I2C_4 at addr 56
+   START - test_eeprom_target
+   Found EEPROM 0 on I2C bus device i2c@40005c00 at addr 54
+   Found EEPROM 1 on I2C bus device i2c@40006000 at addr 56
    :bbk:`Testing single-role`
-   Testing full read: Master: I2C_4, address: 0x54
-   :brd:`Assertion failed` at WEST_TOPDIR/zephyr/tests/drivers/i2c/i2c_slave_api/src/main.c:55: :byl:`run_full_read: (ret not equal to 0)`
+   Testing full read: Master: i2c@40006000, address: 0x54
+   :brd:`Assertion failed` at WEST_TOPDIR/zephyr/tests/drivers/i2c/i2c_target_api/src/main.c:55: :byl:`run_full_read: (ret not equal to 0)`
    Failed to read EEPROM
-   :brd:`FAIL` - test_eeprom_slave in 0.33 seconds
+   :brd:`FAIL` - test_eeprom_target in 0.031 seconds
    ===================================================================
-   TESTSUITE test_eeprom_slave failed.
+   TESTSUITE i2c_eeprom_target failed.
+   ------ TESTSUITE SUMMARY START ------
+   SUITE FAIL -   0.00% [i2c_eeprom_target]: pass = 0, fail = 1, skip = 0, total = 1 duration = 0.031 seconds
+   - :brd:`FAIL` - [i2c_eeprom_target.test_eeprom_target] duration = 0.031 seconds
+   ------ TESTSUITE SUMMARY END ------
    ===================================================================
-   RunID: a742ed391022d2d25746793fb51d07be
+   RunID: b81fc617540140c28ce20ddb0662bea6
    :brd:`PROJECT EXECUTION FAILED`
 
 Dual role with one I2C controller and one I2C device
@@ -113,18 +117,22 @@ Dual role with one I2C controller and one I2C device
 .. parsed-literal::
    :class: highlight
 
-   Running TESTSUITE test_eeprom_slave
+   Running TESTSUITE i2c_eeprom_target
    ===================================================================
-   START - test_eeprom_slave
-   Found EP0 EEPROM_0 on I2C Master device I2C_3 at addr 54
-   Found EP1 EEPROM_1 on I2C Master device I2C_4 at addr 56
+   START - test_eeprom_target
+   Found EEPROM 0 on I2C bus device i2c@40005c00 at addr 54
+   Found EEPROM 1 on I2C bus device i2c@40006000 at addr 56
    :bbk:`Testing dual-role`
-   Testing full read: Master: I2C_4, address: 0x54
-   :brd:`Assertion failed` at WEST_TOPDIR/zephyr/tests/drivers/i2c/i2c_slave_api/src/main.c:55: :byl:`run_full_read: (ret not equal to 0)`
+   Testing full read: Master: i2c@40006000, address: 0x54
+   :brd:`Assertion failed` at WEST_TOPDIR/zephyr/tests/drivers/i2c/i2c_target_api/src/main.c:55: :byl:`run_full_read: (ret not equal to 0)`
    Failed to read EEPROM
-   :brd:`FAIL` - test_eeprom_slave in 0.530 seconds
+   :brd:`FAIL` - test_eeprom_target in 0.030 seconds
    ===================================================================
-   TESTSUITE test_eeprom_slave failed.
+   TESTSUITE i2c_eeprom_target failed.
+   ------ TESTSUITE SUMMARY START ------
+   SUITE FAIL -   0.00% [i2c_eeprom_target]: pass = 0, fail = 1, skip = 0, total = 1 duration = 0.030 seconds
+   - :brd:`FAIL` - [i2c_eeprom_target.test_eeprom_target] duration = 0.030 seconds
+   ------ TESTSUITE SUMMARY END ------
    ===================================================================
-   RunID: 676b8933f8a718e671517aa01104bf1b
+   RunID: 35ee441818a14647e9e9d82071cc716d
    :brd:`PROJECT EXECUTION FAILED`

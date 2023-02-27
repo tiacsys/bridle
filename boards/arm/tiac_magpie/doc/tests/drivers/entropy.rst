@@ -33,7 +33,7 @@ Drivers
       .. code-block:: console
 
          $ ./zephyr/scripts/twister \
-             --verbose --jobs 1 --inline-logs \
+             --verbose --jobs 4 --inline-logs \
              --enable-size-report --platform-reports \
              --device-testing --hardware-map map.yaml \
              --board-root bridle/boards \
@@ -55,10 +55,10 @@ Drivers
          INFO    - 2 test scenarios (2 configurations) selected, 1 configurations discarded due to filters.
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 2/2 tiac_magpie               tests/drivers/entropy/api/drivers.entropy          :bgn:`PASSED` (device 4.081s)
+         INFO    - 2/2 tiac_magpie               tests/drivers/entropy/api/drivers.entropy          :bgn:`PASSED` (device 3.425s)
 
-         INFO    - :bgn:`1 of 2` test configurations passed (100.00%), :bbk:`0` failed, :byl:`1` skipped with :bbk:`0` warnings in :bbk:`42.12 seconds`
-         INFO    - In total 2 test cases were executed, 0 skipped on 1 out of total 457 platforms (0.22%)
+         INFO    - :bgn:`1 of 2` test configurations passed (100.00%), :bbk:`0` failed, :byl:`1` skipped with :bbk:`0` warnings in :bbk:`17.47 seconds`
+         INFO    - In total 2 test cases were executed, 0 skipped on 1 out of total 501 platforms (0.20%)
          INFO    - :bgn:`1` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:

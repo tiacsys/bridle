@@ -35,7 +35,7 @@ Building and Running
       .. code-block:: console
 
          $ ./zephyr/scripts/twister \
-             --verbose --jobs 1 --inline-logs \
+             --verbose --jobs 4 --inline-logs \
              --enable-size-report --platform-reports \
              --device-testing --hardware-map map.yaml \
              --extra-args SHIELD=loopback_test_tmph \
@@ -55,21 +55,22 @@ Building and Running
          \|-------------\|----------\|-----------------\|
          \| tiac_magpie \| DT04BNT1 \| /dev/ttyUSB0    \|
 
-         INFO    - 3 test scenarios (3 configurations) selected, 1 configurations discarded due to filters.
+         INFO    - 4 test scenarios (4 configurations) selected, 1 configurations discarded due to filters.
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 2/3 tiac_magpie               tests/drivers/gpio/gpio_api_1pin/peripheral.gpio.1pin :bgn:`PASSED` (device 10.795s)
-         INFO    - 3/3 tiac_magpie               tests/drivers/gpio/gpio_basic_api/drivers.gpio.2pin :bgn:`PASSED` (device 19.601s)
+         INFO    - 2/4 tiac_magpie               tests/drivers/gpio/gpio_get_direction/peripheral.gpio.get_direction :bgn:`PASSED` (device 3.361s)
+         INFO    - 3/4 tiac_magpie               tests/drivers/gpio/gpio_basic_api/drivers.gpio.2pin :bgn:`PASSED` (device 18.778s)
+         INFO    - 4/4 tiac_magpie               tests/drivers/gpio/gpio_api_1pin/peripheral.gpio.1pin :bgn:`PASSED` (device 10.433s)
 
-         INFO    - :bgn:`2 of 3` test configurations passed (100.00%), :bbk:`0` failed, :byl:`1` skipped with :bbk:`0` warnings in :bbk:`108.69 seconds`
-         INFO    - In total 31 test cases were executed, 5 skipped on 1 out of total 457 platforms (0.22%)
-         INFO    - :bgn:`2` test configurations executed on platforms, :brd:`0` test configurations were only built.
+         INFO    - :bgn:`3 of 4` test configurations passed (100.00%), :bbk:`0` failed, :byl:`1` skipped with :bbk:`0` warnings in :bbk:`62.81 seconds`
+         INFO    - In total 23 test cases were executed, 11 skipped on 1 out of total 501 platforms (0.20%)
+         INFO    - :bgn:`3` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
 
          \| Board       \| ID       \|   Counter \|
          \|-------------\|----------\|-----------\|
-         \| tiac_magpie \| DT04BNT1 \|         2 \|
+         \| tiac_magpie \| DT04BNT1 \|         3 \|
 
          INFO    - Saving reports...
          INFO    - Writing JSON report .../twister-out/twister.json

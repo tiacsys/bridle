@@ -482,7 +482,7 @@ with a single call to Twister.
 
       .. code-block:: console
 
-         $ ./zephyr/scripts/twister --jobs 1 \
+         $ ./zephyr/scripts/twister --jobs 4 \
              --enable-size-report --platform-reports \
              --device-testing --hardware-map map.yaml \
              --extra-args SHIELD="loopback_test_tmph can_timing_adj" \
@@ -514,19 +514,21 @@ with a single call to Twister.
          \|-------------\|----------\|-----------------\|
          \| tiac_magpie \| DT04BNT1 \| /dev/ttyUSB0    \|
 
-         INFO    - 251 test scenarios (251 configurations) selected, 110 configurations discarded due to filters.
+         INFO    - 257 test scenarios (257 configurations) selected, 113 configurations discarded due to filters.
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - Total complete:  :bgn:`251`/ :bgn:`251`  100%  skipped:   :byl:`133`, failed:    :brd:`0`
-         INFO    - :bgn:`118 of 251` test configurations passed (98.10%), :brd:`2` failed, :byl:`133` skipped with :bbk:`0` warnings in :bbk:`6802.08 seconds`
-         INFO    - In total 1754 test cases were executed, 255 skipped on 1 out of total 457 platforms (0.22%)
-         INFO    - :bgn:`118` test configurations executed on platforms, :brd:`0` test configurations were only built.
+
+         INFO    - Total complete:  :bgn:`257`/ :bgn:`257`  100%  skipped:   :byl:`134`, failed:    :brd:`0`
+
+         INFO    - :bgn:`123 of 257` test configurations passed (98.10%), :brd:`2` failed, :byl:`133` skipped with :bbk:`0` warnings in :bbk:`1359.11 seconds`
+         INFO    - In total 1132 test cases were executed, 147 skipped on 1 out of total 501 platforms (0.20%)
+         INFO    - :bgn:`123` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
 
          \| Board       \| ID       \|   Counter \|
          \|-------------\|----------\|-----------\|
-         \| tiac_magpie \| DT04BNT1 \|       118 \|
+         \| tiac_magpie \| DT04BNT1 \|       123 \|
 
 .. admonition:: Known but currently tolerated test cases with errors
    :class: attention

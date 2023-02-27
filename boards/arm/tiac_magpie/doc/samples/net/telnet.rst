@@ -36,26 +36,27 @@ are shown on the console like this:
 
 .. code-block:: none
 
-   [00:00:00.269,000] <inf> shell_telnet: Telnet shell backend initialized
-   [00:00:00.269,000] <inf> net_config: Initializing network
-   [00:00:00.269,000] <inf> net_config: Waiting interface 1 (0x200212e0) to be up...
-   [00:00:00.584,000] <inf> net_config: Interface 1 (0x200212e0) coming up
-   [00:00:00.584,000] <inf> net_config: IPv4 address: 192.0.2.1
-   [00:00:00.584,000] <inf> net_config: Running dhcpv4 client...
-   [00:00:00.584,000] <inf> net_telnet_sample: Starting Telnet sample
-   [00:00:00.584,000] <inf> net_telnet_sample: Running dhcpv4 client...
-   [00:00:00.584,000] <inf> net_telnet_sample: IPv6 address: 2001:db8::1
-   [00:00:00.684,000] <inf> net_config: IPv6 address: 2001:db8::1
-   [00:00:00.684,000] <inf> net_config: IPv6 address: 2001:db8::1
-   [00:00:11.622,000] <inf> net_dhcpv4: Received: 192.168.10.184
-   [00:00:11.622,000] <inf> net_telnet_sample: IPv4 address: 192.168.10.184
-   [00:00:11.622,000] <inf> net_telnet_sample: Lease time: 36000 seconds
-   [00:00:11.622,000] <inf> net_telnet_sample: Subnet: 255.255.255.0
-   [00:00:11.622,000] <inf> net_telnet_sample: Router: 192.168.10.1
-   [00:00:11.622,000] <inf> net_config: IPv4 address: 192.168.10.184
-   [00:00:11.622,000] <inf> net_config: Lease time: 36000 seconds
-   [00:00:11.622,000] <inf> net_config: Subnet: 255.255.255.0
-   [00:00:11.622,000] <inf> net_config: Router: 192.168.10.1
+   [00:00:00.272,000] <inf> shell_telnet: Telnet shell backend initialized
+   [00:00:00.272,000] <inf> net_config: Initializing network
+   [00:00:00.272,000] <inf> net_config: Waiting interface 1 (0x20021280) to be up...
+   [00:00:00.762,000] <inf> net_config: Interface 1 (0x20021280) coming up
+   [00:00:00.762,000] <inf> net_config: IPv4 address: 192.0.2.1
+   [00:00:00.762,000] <inf> net_config: Running dhcpv4 client...
+   [00:00:00.762,000] <inf> net_telnet_sample: Starting Telnet sample
+   [00:00:00.762,000] <inf> net_telnet_sample: Running dhcpv4 client...
+   [00:00:00.762,000] <inf> net_telnet_sample: IPv6 address: 2001:db8::1
+   [00:00:00.862,000] <inf> net_config: IPv6 address: 2001:db8::1
+   [00:00:00.862,000] <inf> net_config: IPv6 address: 2001:db8::1
+   [00:00:00.863,000] <inf> net_config: IPv6 address: 2001:db8::1
+   [00:00:10.777,000] <inf> net_dhcpv4: Received: 192.168.10.184
+   [00:00:10.777,000] <inf> net_telnet_sample: IPv4 address: 192.168.10.184
+   [00:00:10.777,000] <inf> net_telnet_sample: Lease time: 36000 seconds
+   [00:00:10.777,000] <inf> net_telnet_sample: Subnet: 255.255.255.0
+   [00:00:10.777,000] <inf> net_telnet_sample: Router: 192.168.10.1
+   [00:00:10.777,000] <inf> net_config: IPv4 address: 192.168.10.184
+   [00:00:10.777,000] <inf> net_config: Lease time: 36000 seconds
+   [00:00:10.777,000] <inf> net_config: Subnet: 255.255.255.0
+   [00:00:10.777,000] <inf> net_config: Router: 192.168.10.1
 
 To verify the Zephyr application clients are running, bind the TELNET server to
 the network interface, and has received an IPv4 address by typing on Linux host:
@@ -73,14 +74,14 @@ the network interface, and has received an IPv4 address by typing on Linux host:
    rtt min/avg/max/mdev = 0.261/0.276/0.303/0.019 ms
 
    $ nmap 192.168.10.184
-   Starting Nmap 7.80 ( https://nmap.org ) at 2021-04-05 19:01 CEST
-   Nmap scan report for 192.168.10.184
-   Host is up (0.00043s latency).
+   Starting Nmap 7.80 ( https://nmap.org ) at 2023-02-26 18:47 CET
+   Nmap scan report for dashboard.my.example.com (192.168.10.160)
+   Host is up (0.35s latency).
    Not shown: 999 closed ports
    PORT   STATE SERVICE
    23/tcp open  telnet
 
-   Nmap done: 1 IP address (1 host up) scanned in 3.77 seconds
+   Nmap done: 1 IP address (1 host up) scanned in 3.80 seconds
 
 At this point you should be able to connect via ``telnet`` over the network.
 On your Linux host:
@@ -103,49 +104,49 @@ or ``kernel version``.
    Zephyr version 3.1.0
 
    ~$ bridle version
-   Zephyr version 3.1.0
+   Zephyr version 3.2.0
 
    ~$ device list
    devices:
    - rcc@40023800 (READY)
    - interrupt-controller@40013c00 (READY)
-   - GPIOK (READY)
+   - gpio@40022800 (READY)
      requires: rcc@40023800
-   - GPIOJ (READY)
+   - gpio@40022400 (READY)
      requires: rcc@40023800
-   - GPIOI (READY)
+   - gpio@40022000 (READY)
      requires: rcc@40023800
-   - GPIOH (READY)
+   - gpio@40021C00 (READY)
      requires: rcc@40023800
-   - GPIOG (READY)
+   - gpio@40021800 (READY)
      requires: rcc@40023800
-   - GPIOF (READY)
+   - gpio@40021400 (READY)
      requires: rcc@40023800
-   - GPIOE (READY)
+   - gpio@40021000 (READY)
      requires: rcc@40023800
-   - GPIOD (READY)
+   - gpio@40020C00 (READY)
      requires: rcc@40023800
-   - GPIOC (READY)
+   - gpio@40020800 (READY)
      requires: rcc@40023800
-   - GPIOB (READY)
+   - gpio@40020400 (READY)
      requires: rcc@40023800
-   - GPIOA (READY)
+   - gpio@40020000 (READY)
      requires: rcc@40023800
-   - RTC_0 (READY)
+   - rng@50060800 (READY)
      requires: rcc@40023800
-   - RNG (READY)
+   - serial@40007800 (READY)
      requires: rcc@40023800
-   - UART_7 (READY)
+   - serial@40004c00 (READY)
      requires: rcc@40023800
-   - UART_4 (READY)
+   - rtc@40002800 (READY)
      requires: rcc@40023800
-   - I2C_4 (READY)
+   - i2c@40006000 (READY)
      requires: rcc@40023800
-   - I2C_2 (READY)
+   - i2c@40005800 (READY)
      requires: rcc@40023800
-   - SPI_4 (READY)
+   - spi@40013400 (READY)
      requires: rcc@40023800
-   - ETH_0 (READY)
+   - ethernet@40028000 (READY)
      requires: rcc@40023800
 
 Simple GPIO Operations
@@ -155,21 +156,21 @@ Simple GPIO Operations
 
 .. code-block:: console
 
-   ~$ gpio get GPIOG 12
-   Reading GPIOG pin 12
+   ~$ gpio get gpio@40021800 12
+   Reading gpio@40021800 pin 12
    Value 0
 
-   ~$ gpio conf GPIOG 12 out
-   Configuring GPIOG pin 12
+   ~$ gpio conf gpio@40021800 12 out
+   Configuring gpio@40021800 pin 12
 
-   ~$ gpio set GPIOG 12 1
-   Writing to GPIOG pin 12
+   ~$ gpio set gpio@40021800 12 1
+   Writing to gpio@40021800 pin 12
 
-   ~$ gpio set GPIOG 12 0
-   Writing to GPIOG pin 12
+   ~$ gpio set gpio@40021800 12 0
+   Writing to gpio@40021800 pin 12
 
-   ~$ gpio blink GPIOG 12
-   Blinking port GPIOG index 12. Hit any key to exit
+   ~$ gpio blink gpio@40021800 12
+   Blinking port gpio@40021800 index 12. Hit any key to exit
 
 Simple I2C Operations
 =====================
@@ -178,8 +179,8 @@ Simple I2C Operations
 
 .. code-block:: console
 
-   ~$ i2c scan I2C_2
-   i2c scan I2C_2
+   ~$ i2c scan i2c@40005800
+   i2c scan i2c@40005800
         0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
    00:             -- -- -- -- -- -- -- -- -- -- -- --
    10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
@@ -189,4 +190,4 @@ Simple I2C Operations
    50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
    60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
    70: -- -- -- -- -- -- -- --
-   9 devices found on I2C_2
+   9 devices found on i2c@40005800
