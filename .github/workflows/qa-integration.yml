@@ -101,7 +101,9 @@ jobs:
           #
           export ZEPHYR_BASE="$(pwd)/zephyr"
           export BRIDLE_BASE="$(pwd)/bridle"
-          ./zephyr/scripts/twister --verbose --jobs 4 --inline-logs \
+          ./zephyr/scripts/twister --verbose --jobs 4 \
+            --retry-failed 5 --retry-interval 120 \
+            --outdir twister-out --no-clean --inline-logs \
             --enable-size-report --platform-reports \
             --device-testing --hardware-map ${HARDWARE_MAP} \
             --extra-args SHIELD="loopback_test_tmph can_timing_adj" \
@@ -109,27 +111,25 @@ jobs:
             --testsuite-root bridle/tests/bridle \
             --testsuite-root zephyr/tests/crypto/rand32 \
             --testsuite-root zephyr/tests/drivers/entropy \
-            --testsuite-root zephyr/tests/drivers/watchdog \
             --testsuite-root bridle/tests/drivers/watchdog \
+            --testsuite-root zephyr/tests/drivers/watchdog \
             --testsuite-root zephyr/tests/drivers/counter \
             --testsuite-root zephyr/tests/drivers/hwinfo \
             --testsuite-root zephyr/tests/drivers/gpio \
             --testsuite-root zephyr/tests/drivers/spi \
             --testsuite-root zephyr/tests/drivers/can
-        continue-on-error: true
 
-      - name: Upload results
+      - name: Upload integration test results
         uses: actions/upload-artifact@v3
         with:
-          name: twister_report.xml
-          path: workspace/twister-out/twister_report.xml
-        continue-on-error: true
+          name: twister.xml
+          path: workspace/twister-out/twister.xml
 
       - name: Convert integration test reports to annotations
         uses: mikepenz/action-junit-report@v3
         with:
           check_name: twister-report (${{ matrix.board }})
-          report_paths: "**/twister-out/twister_report.xml"
+          report_paths: "**/twister-out/twister.xml"
           require_tests: true
           fail_on_failure: false
         if: always()
