@@ -71,6 +71,7 @@ manifest:
           - hal_nordic
           - hal_stm32
           - hal_xtensa
+          - liblc3
           - liblc3codec
           - libmetal
           - littlefs
