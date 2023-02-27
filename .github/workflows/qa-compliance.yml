@@ -57,8 +57,9 @@ jobs:
       - name: Install compliance dependencies
         working-directory: workspace
         run: |
-          grep -hE "python-magic|junitparser|gitlint|pylint|pykwalify" \
-            zephyr/scripts/requirements-*.txt | xargs pip3 install --upgrade
+          grep -hE -v "python-magic-bin" zephyr/scripts/requirements-*.txt | \
+          grep -hE "python-magic|junitparser|gitlint|pylint|pykwalify" | \
+          xargs -I {} pip3 install --upgrade '{}'
 
       - name: Run compliance tests
         id: compliance
@@ -80,14 +81,12 @@ jobs:
             -m Identity \
             -m Nits \
             -c origin/${BASE_REF}..
-        continue-on-error: true
 
-      - name: Upload results
+      - name: Upload compliance tests results
         uses: actions/upload-artifact@v3
         with:
           name: compliance.xml
           path: workspace/bridle/compliance.xml
-        continue-on-error: true
 
       - name: Check warnings
         working-directory: workspace/bridle
