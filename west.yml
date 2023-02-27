@@ -82,6 +82,7 @@ manifest:
           - net-tools
           - open-amp
           - openthread
+          - picolibc
           - segger
           - tinycbor
           - tinycrypt
