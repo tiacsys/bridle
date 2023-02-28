@@ -55,14 +55,14 @@ Building and Running
          \|-------------\|----------\|-----------------\|
          \| tiac_magpie \| DT04BNT1 \| /dev/ttyUSB0    \|
 
-         INFO    - 24 test scenarios (24 configurations) selected, 22 configurations discarded due to filters.
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 23/24 tiac_magpie               tests/drivers/uart/uart_async_api/drivers.uart.async_api :byl:`SKIPPED` (runtime filter)
-         INFO    - 24/24 tiac_magpie               tests/drivers/uart/uart_async_api/drivers.uart.async_api.lpuart :byl:`SKIPPED` (runtime filter)
+         INFO    - 23/24 tiac_magpie               tests/drivers/uart/uart_async_api/drivers.uart.async_api.lpuart :byl:`SKIPPED` (runtime filter)
+         INFO    - 24/24 tiac_magpie               tests/drivers/uart/uart_async_api/drivers.uart.async_api :byl:`SKIPPED` (runtime filter)
 
-         INFO    - :bgn:`0 of 24` test configurations passed (0.00%), :bbk:`0` failed, :byl:`24` skipped with :bbk:`0` warnings in :bbk:`5.08 seconds`
-         INFO    - In total 52 test cases were executed, 18 skipped on 1 out of total 501 platforms (0.20%)
+         INFO    - 24 test scenarios (24 test instances) selected, 24 configurations skipped (22 by static filter, 2 at runtime).
+         INFO    - :bgn:`0 of 24` test configurations passed (0.00%), :bbk:`0` failed, :byl:`24` skipped with :bbk:`0` warnings in :bbk:`5.34 seconds`
+         INFO    - In total 0 test cases were executed, 70 skipped on 1 out of total 541 platforms (0.18%)
          INFO    - :bgn:`0` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
@@ -73,7 +73,6 @@ Building and Running
 
          INFO    - Saving reports...
          INFO    - Writing JSON report .../twister-out/twister.json
-         INFO    - Using 'zephyr' toolchain.
          INFO    - Writing xunit report .../twister-out/twister.xml...
          INFO    - Writing xunit report .../twister-out/twister_report.xml...
          INFO    - Writing target report for tiac_magpie...

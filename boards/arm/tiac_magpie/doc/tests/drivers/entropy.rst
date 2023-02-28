@@ -52,13 +52,14 @@ Drivers
          \|-------------\|----------\|-----------------\|
          \| tiac_magpie \| DT04BNT1 \| /dev/ttyUSB0    \|
 
-         INFO    - 2 test scenarios (2 configurations) selected, 1 configurations discarded due to filters.
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 2/2 tiac_magpie               tests/drivers/entropy/api/drivers.entropy          :bgn:`PASSED` (device 3.425s)
+         INFO    - 2/3 tiac_magpie               tests/drivers/entropy/api/drivers.entropy.psa_crypto :byl:`SKIPPED` (runtime filter)
+         INFO    - 3/3 tiac_magpie               tests/drivers/entropy/api/drivers.entropy          :bgn:`PASSED` (device 2.645s)
 
-         INFO    - :bgn:`1 of 2` test configurations passed (100.00%), :bbk:`0` failed, :byl:`1` skipped with :bbk:`0` warnings in :bbk:`17.47 seconds`
-         INFO    - In total 2 test cases were executed, 0 skipped on 1 out of total 501 platforms (0.20%)
+         INFO    - 3 test scenarios (3 test instances) selected, 2 configurations skipped (1 by static filter, 1 at runtime).
+         INFO    - :bgn:`1 of 3` test configurations passed (100.00%), :bbk:`0` failed, :byl:`2` skipped with :bbk:`0` warnings in :bbk:`18.65 seconds`
+         INFO    - In total 1 test cases were executed, 2 skipped on 1 out of total 541 platforms (0.18%)
          INFO    - :bgn:`1` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
@@ -69,7 +70,6 @@ Drivers
 
          INFO    - Saving reports...
          INFO    - Writing JSON report .../twister-out/twister.json
-         INFO    - Using 'zephyr' toolchain.
          INFO    - Writing xunit report .../twister-out/twister.xml...
          INFO    - Writing xunit report .../twister-out/twister_report.xml...
          INFO    - Writing target report for tiac_magpie...
@@ -87,7 +87,7 @@ Cryptography
       .. code-block:: console
 
          $ ./zephyr/scripts/twister \
-             --verbose --jobs 1 --inline-logs \
+             --verbose --jobs 4 --inline-logs \
              --enable-size-report --platform-reports \
              --device-testing --hardware-map map.yaml \
              --board-root bridle/boards \
@@ -106,16 +106,17 @@ Cryptography
          \|-------------\|----------\|-----------------\|
          \| tiac_magpie \| DT04BNT1 \| /dev/ttyUSB0    \|
 
-         INFO    - 4 test scenarios (4 configurations) selected, 0 configurations discarded due to filters.
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1/4 tiac_magpie               tests/crypto/rand32/crypto.rand32.random_ctr_drbg  :bgn:`PASSED` (device 4.152s)
-         INFO    - 2/4 tiac_magpie               tests/crypto/rand32/crypto.rand32.random_hw_xoshiro :bgn:`PASSED` (device 4.137s)
-         INFO    - 3/4 tiac_magpie               tests/crypto/rand32/crypto.rand32.random_sw_systimer :bgn:`PASSED` (device 4.087s)
-         INFO    - 4/4 tiac_magpie               tests/crypto/rand32/crypto.rand32                  :bgn:`PASSED` (device 4.096s)
+         INFO    - 1/5 tiac_magpie               tests/crypto/rand32/drivers.rand32.random_psa_crypto :byl:`SKIPPED` (runtime filter)
+         INFO    - 2/5 tiac_magpie               tests/crypto/rand32/crypto.rand32.random_hw_xoshiro :bgn:`PASSED` (device 3.151s)
+         INFO    - 3/5 tiac_magpie               tests/crypto/rand32/crypto.rand32.random_sw_systimer :bgn:`PASSED` (device 2.609s)
+         INFO    - 4/5 tiac_magpie               tests/crypto/rand32/crypto.rand32                  :bgn:`PASSED` (device 2.601s)
+         INFO    - 5/5 tiac_magpie               tests/crypto/rand32/crypto.rand32.random_ctr_drbg  :bgn:`PASSED` (device 2.710s)
 
-         INFO    - :bgn:`4 of 4` test configurations passed (100.00%), :bbk:`0` failed, :byl:`0` skipped with :bbk:`0` warnings in :bbk:`167.63 seconds`
-         INFO    - In total 4 test cases were executed, 0 skipped on 1 out of total 457 platforms (0.22%)
+         INFO    - 5 test scenarios (5 test instances) selected, 1 configurations skipped (0 by static filter, 1 at runtime).
+         INFO    - :bgn:`4 of 5` test configurations passed (100.00%), :bbk:`0` failed, :byl:`1` skipped with :bbk:`0` warnings in :bbk:`49.10 seconds`
+         INFO    - In total 4 test cases were executed, 1 skipped on 1 out of total 541 platforms (0.18%)
          INFO    - :bgn:`4` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
@@ -126,7 +127,6 @@ Cryptography
 
          INFO    - Saving reports...
          INFO    - Writing JSON report .../twister-out/twister.json
-         INFO    - Using 'zephyr' toolchain.
          INFO    - Writing xunit report .../twister-out/twister.xml...
          INFO    - Writing xunit report .../twister-out/twister_report.xml...
          INFO    - Writing target report for tiac_magpie...

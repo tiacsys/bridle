@@ -55,15 +55,15 @@ Building and Running
          \|-------------\|----------\|-----------------\|
          \| tiac_magpie \| DT04BNT1 \| /dev/ttyUSB0    \|
 
-         INFO    - 2 test scenarios (2 configurations) selected, 0 configurations discarded due to filters.
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1/2 tiac_magpie               tests/drivers/pwm/pwm_api/drivers.pwm              :bgn:`PASSED` (device 9.434s)
-         INFO    - 2/2 tiac_magpie               tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback :brd:`FAILED` Failed (device 4.790s)
+         INFO    - 1/2 tiac_magpie               tests/drivers/pwm/pwm_api/drivers.pwm              :bgn:`PASSED` (device 8.269s)
+         INFO    - 2/2 tiac_magpie               tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback :brd:`FAILED` Failed (device 3.579s)
          ERROR   - see: :byl:`.../twister-out/tiac_magpie/tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback/handler.log`
 
-         INFO    - :brd:`1 of 2` test configurations passed (50.00%), :bbk:`1` failed, :byl:`0` skipped with :bbk:`0` warnings in :bbk:`51.63 seconds`
-         INFO    - In total 10 test cases were executed, 0 skipped on 1 out of total 501 platforms (0.20%)
+         INFO    - 2 test scenarios (2 test instances) selected, 0 configurations skipped (0 by static filter, 0 at runtime).
+         INFO    - :brd:`1 of 2` test configurations passed (50.00%), :bbk:`1` failed, :byl:`0` skipped with :bbk:`0` warnings in :bbk:`54.49 seconds`
+         INFO    - In total 10 test cases were executed, 0 skipped on 1 out of total 541 platforms (0.18%)
          INFO    - :bgn:`2` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
@@ -74,10 +74,20 @@ Building and Running
 
          INFO    - Saving reports...
          INFO    - Writing JSON report .../twister-out/twister.json
-         INFO    - Using 'zephyr' toolchain.
          INFO    - Writing xunit report .../twister-out/twister.xml...
          INFO    - Writing xunit report .../twister-out/twister_report.xml...
          INFO    - Writing target report for tiac_magpie...
+         INFO    - -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+         INFO    - The following issues were found (showing the top 10 items):
+         INFO    - 1) tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback on tiac_magpie failed (Failed)
+         INFO    -
+         INFO    - To rerun the tests, call twister using the following commandline:
+         INFO    - west twister -p <PLATFORM> -s <TEST ID>, for example:
+         INFO    -
+         INFO    - west twister -p tiac_magpie -s tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback
+         INFO    - or with west:
+         INFO    - west build -p -b tiac_magpie -T tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback
+         INFO    - -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
          INFO    - Run completed
 
 Open Issues
@@ -93,21 +103,33 @@ index must be a 32-Bit timer.
 .. parsed-literal::
    :class: highlight
 
-   Running TESTSUITE pwm_loopback_test
+   Running TESTSUITE pwm_loopback
    ===================================================================
-   START - test_pulse_capture
-   Testing PWM capture @ 15000000/100000000 nsec
+   START - test_capture_busy
+   :bbk:`E: PWM capture only supported on first two channels`
+   Pulse capture not supported, trying period capture
+   :bbk:`E: PWM capture only supported on first two channels`
+   :brd:`Assertion failed` at WEST_TOPDIR/zephyr/tests/drivers/pwm/pwm_loopback/src/test_pwm_loopback.c:312: :byl:`pwm_loopback_test_capture_busy: (err not equal to 0)`
+   :bbk:`failed to configure pwm input (err -134)`
+   :brd:`FAIL` - test_capture_busy in 0.032 seconds
+   ===================================================================
+   START - test_capture_timeout
    :bbk:`E: PWM capture only supported on first two channels`
    E: failed to configure pwm capture
-   :byl:`capture type not supported`
-   :byl:`SKIP` - test_pulse_capture in 0.015 seconds
-   ===================================================================
-   START - test_pulse_capture_inverted
-   Testing PWM capture @ 15000000/100000000 nsec
+   Pulse capture not supported, trying period capture
    :bbk:`E: PWM capture only supported on first two channels`
    E: failed to configure pwm capture
-   :byl:`capture type not supported`
-   :byl:`SKIP` - test_pulse_capture_inverted in 0.015 seconds
+   :brd:`Assertion failed` at WEST_TOPDIR/zephyr/tests/drivers/pwm/pwm_loopback/src/test_pwm_loopback.c:179: :byl:`pwm_loopback_test_capture_timeout: (err not equal to -EAGAIN)`
+   :bbk:`pwm capture did not timeout (err -134)`
+   :brd:`FAIL` - test_capture_timeout in 0.039 seconds
+   ===================================================================
+   START - test_continuous_capture
+   :bbk:`E: PWM capture only supported on first two channels`
+   Pulse capture not supported, trying period capture
+   :bbk:`E: PWM capture only supported on first two channels`
+   :brd:`Assertion failed` at WEST_TOPDIR/zephyr/tests/drivers/pwm/pwm_loopback/src/test_pwm_loopback.c:252: :byl:`pwm_loopback_test_continuous_capture: (err not equal to 0)`
+   :bbk:`failed to configure pwm input (err -134)`
+   :brd:`FAIL` - test_continuous_capture in 0.032 seconds
    ===================================================================
    START - test_period_capture
    Testing PWM capture @ 15000000/100000000 nsec
@@ -130,33 +152,32 @@ index must be a 32-Bit timer.
    :byl:`capture type not supported`
    :byl:`SKIP` - test_pulse_and_period_capture in 0.015 seconds
    ===================================================================
-   START - test_capture_timeout
+   START - test_pulse_capture
+   Testing PWM capture @ 15000000/100000000 nsec
    :bbk:`E: PWM capture only supported on first two channels`
    E: failed to configure pwm capture
-   Pulse capture not supported, trying period capture
+   :byl:`capture type not supported`
+   :byl:`SKIP` - test_pulse_capture in 0.015 seconds
+   ===================================================================
+   START - test_pulse_capture_inverted
+   Testing PWM capture @ 15000000/100000000 nsec
    :bbk:`E: PWM capture only supported on first two channels`
    E: failed to configure pwm capture
-   :brd:`Assertion failed` at WEST_TOPDIR/zephyr/tests/drivers/pwm/pwm_loopback/src/test_pwm_loopback.c:179: :byl:`test_capture_timeout: (err not equal to -EAGAIN)`
-   :bbk:`pwm capture did not timeout (err -134)`
-   :brd:`FAIL` - test_capture_timeout in 0.037 seconds
+   :byl:`capture type not supported`
+   :byl:`SKIP` - test_pulse_capture_inverted in 0.015 seconds
    ===================================================================
-   START - test_continuous_capture
-   :bbk:`E: PWM capture only supported on first two channels`
-   Pulse capture not supported, trying period capture
-   :bbk:`E: PWM capture only supported on first two channels`
-   :brd:`Assertion failed` at WEST_TOPDIR/zephyr/tests/drivers/pwm/pwm_loopback/src/test_pwm_loopback.c:252: :byl:`test_continuous_capture: (err not equal to 0)`
-   :bbk:`failed to configure pwm input (err -134)`
-   :brd:`FAIL` - test_continuous_capture in 0.031 seconds
+   TESTSUITE pwm_loopback failed.
+   ------ TESTSUITE SUMMARY START ------
+   SUITE FAIL -   0.00% [pwm_loopback]: pass = :bgn:`0`, fail = :brd:`3`, skip = :byl:`5`, total = :bbk:`8` duration = :bbk:`0.178 seconds`
+   - :brd:`FAIL` - [pwm_loopback.test_capture_busy] duration = 0.032 seconds
+   - :brd:`FAIL` - [pwm_loopback.test_capture_timeout] duration = 0.039 seconds
+   - :brd:`FAIL` - [pwm_loopback.test_continuous_capture] duration = 0.032 seconds
+   - :byl:`SKIP` - [pwm_loopback.test_period_capture] duration = 0.015 seconds
+   - :byl:`SKIP` - [pwm_loopback.test_period_capture_inverted] duration = 0.015 seconds
+   - :byl:`SKIP` - [pwm_loopback.test_pulse_and_period_capture] duration = 0.015 seconds
+   - :byl:`SKIP` - [pwm_loopback.test_pulse_capture] duration = 0.015 seconds
+   - :byl:`SKIP` - [pwm_loopback.test_pulse_capture_inverted] duration = 0.015 seconds
+   ------ TESTSUITE SUMMARY END ------
    ===================================================================
-   START - test_capture_busy
-   :bbk:`E: PWM capture only supported on first two channels`
-   Pulse capture not supported, trying period capture
-   :bbk:`E: PWM capture only supported on first two channels`
-   :brd:`Assertion failed` at WEST_TOPDIR/zephyr/tests/drivers/pwm/pwm_loopback/src/test_pwm_loopback.c:312: :byl:`test_capture_busy: (err not equal to 0)`
-   :bbk:`failed to configure pwm input (err -134)`
-   :brd:`FAIL` - test_capture_busy in 0.031 seconds
-   ===================================================================
-   TESTSUITE pwm_loopback_test failed.
-   ===================================================================
-   RunID: a1ada033e0f7a738e0b9767cd6491994
+   RunID: 5578af0ad4393e6cd32bdfd459ff680f
    PROJECT EXECUTION FAILED

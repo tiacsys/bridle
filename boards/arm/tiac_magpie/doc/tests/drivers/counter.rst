@@ -48,13 +48,13 @@ Building and Running
          \|-------------\|----------\|-----------------\|
          \| tiac_magpie \| DT04BNT1 \| /dev/ttyUSB0    \|
 
-         INFO    - 6 test scenarios (6 configurations) selected, 5 configurations discarded due to filters.
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 6/6 tiac_magpie               tests/drivers/counter/counter_basic_api/drivers.counter.basic_api :bgn:`PASSED` (device 326.290s)
+         INFO    - 6/6 tiac_magpie               tests/drivers/counter/counter_basic_api/drivers.counter.basic_api :bgn:`PASSED` (device 325.091s)
 
-         INFO    - :bgn:`1 of 6` test configurations passed (100.00%), :bbk:`0` failed, :byl:`5` skipped with :bbk:`0` warnings in :bbk:`353.38 seconds`
-         INFO    - In total 33 test cases were executed, 0 skipped on 1 out of total 501 platforms (0.20%)
+         INFO    - 6 test scenarios (6 test instances) selected, 5 configurations skipped (5 by static filter, 0 at runtime).
+         INFO    - :bgn:`1 of 6` test configurations passed (100.00%), :bbk:`0` failed, :byl:`5` skipped with :bbk:`0` warnings in :bbk:`354.81 seconds`
+         INFO    - In total 10 test cases were executed, 23 skipped on 1 out of total 541 platforms (0.18%)
          INFO    - :bgn:`1` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
@@ -65,7 +65,6 @@ Building and Running
 
          INFO    - Saving reports...
          INFO    - Writing JSON report .../twister-out/twister.json
-         INFO    - Using 'zephyr' toolchain.
          INFO    - Writing xunit report .../twister-out/twister.xml...
          INFO    - Writing xunit report .../twister-out/twister_report.xml...
          INFO    - Writing target report for tiac_magpie...

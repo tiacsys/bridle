@@ -514,14 +514,14 @@ with a single call to Twister.
          \|-------------\|----------\|-----------------\|
          \| tiac_magpie \| DT04BNT1 \| /dev/ttyUSB0    \|
 
-         INFO    - 257 test scenarios (257 configurations) selected, 113 configurations discarded due to filters.
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
 
-         INFO    - Total complete:  :bgn:`257`/ :bgn:`257`  100%  skipped:   :byl:`134`, failed:    :brd:`0`
+         INFO    - Total complete:  :bgn:`266`/ :bgn:`266`  100%  skipped:   :byl:`143`, failed:    :brd:`0`
 
-         INFO    - :bgn:`123 of 257` test configurations passed (98.10%), :brd:`2` failed, :byl:`133` skipped with :bbk:`0` warnings in :bbk:`1359.11 seconds`
-         INFO    - In total 1132 test cases were executed, 147 skipped on 1 out of total 501 platforms (0.20%)
+         INFO    - 266 test scenarios (266 test instances) selected, 143 configurations skipped (118 by static filter, 25 at runtime).
+         INFO    - :bgn:`123 of 266` test configurations passed (100.00%), :brd:`0` failed, :byl:`143` skipped with :bbk:`0` warnings in :bbk:`1760.04 seconds`
+         INFO    - In total 1194 test cases were executed, 747 skipped on 1 out of total 541 platforms (0.18%)
          INFO    - :bgn:`123` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:

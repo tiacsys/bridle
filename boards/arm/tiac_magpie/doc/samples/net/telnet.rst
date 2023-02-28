@@ -36,27 +36,27 @@ are shown on the console like this:
 
 .. code-block:: none
 
-   [00:00:00.272,000] <inf> shell_telnet: Telnet shell backend initialized
-   [00:00:00.272,000] <inf> net_config: Initializing network
-   [00:00:00.272,000] <inf> net_config: Waiting interface 1 (0x20021280) to be up...
-   [00:00:00.762,000] <inf> net_config: Interface 1 (0x20021280) coming up
-   [00:00:00.762,000] <inf> net_config: IPv4 address: 192.0.2.1
-   [00:00:00.762,000] <inf> net_config: Running dhcpv4 client...
-   [00:00:00.762,000] <inf> net_telnet_sample: Starting Telnet sample
-   [00:00:00.762,000] <inf> net_telnet_sample: Running dhcpv4 client...
-   [00:00:00.762,000] <inf> net_telnet_sample: IPv6 address: 2001:db8::1
-   [00:00:00.862,000] <inf> net_config: IPv6 address: 2001:db8::1
-   [00:00:00.862,000] <inf> net_config: IPv6 address: 2001:db8::1
-   [00:00:00.863,000] <inf> net_config: IPv6 address: 2001:db8::1
-   [00:00:10.777,000] <inf> net_dhcpv4: Received: 192.168.10.184
-   [00:00:10.777,000] <inf> net_telnet_sample: IPv4 address: 192.168.10.184
-   [00:00:10.777,000] <inf> net_telnet_sample: Lease time: 36000 seconds
-   [00:00:10.777,000] <inf> net_telnet_sample: Subnet: 255.255.255.0
-   [00:00:10.777,000] <inf> net_telnet_sample: Router: 192.168.10.1
-   [00:00:10.777,000] <inf> net_config: IPv4 address: 192.168.10.184
-   [00:00:10.777,000] <inf> net_config: Lease time: 36000 seconds
-   [00:00:10.777,000] <inf> net_config: Subnet: 255.255.255.0
-   [00:00:10.777,000] <inf> net_config: Router: 192.168.10.1
+   [00:00:00.266,000] <inf> shell_telnet: Telnet shell backend initialized
+   [00:00:00.266,000] <inf> net_config: Initializing network
+   [00:00:00.266,000] <inf> net_config: Waiting interface 1 (0x200212f8) to be up...
+   [00:00:00.551,000] <inf> net_config: Interface 1 (0x200212f8) coming up
+   [00:00:00.551,000] <inf> net_config: IPv4 address: 192.0.2.1
+   [00:00:00.551,000] <inf> net_config: Running dhcpv4 client...
+   [00:00:00.551,000] <inf> net_telnet_sample: Starting Telnet sample
+   [00:00:00.551,000] <inf> net_telnet_sample: Running dhcpv4 client...
+   [00:00:00.551,000] <inf> net_telnet_sample: IPv6 address: 2001:db8::1
+   [00:00:00.651,000] <inf> net_config: IPv6 address: 2001:db8::1
+   [00:00:00.651,000] <inf> net_config: IPv6 address: 2001:db8::1
+   [00:00:00.652,000] <inf> net_config: IPv6 address: 2001:db8::1
+   [00:00:06.568,000] <inf> net_dhcpv4: Received: 192.168.10.184
+   [00:00:06.568,000] <inf> net_telnet_sample: IPv4 address: 192.168.10.184
+   [00:00:06.568,000] <inf> net_telnet_sample: Lease time: 36000 seconds
+   [00:00:06.568,000] <inf> net_telnet_sample: Subnet: 255.255.255.0
+   [00:00:06.568,000] <inf> net_telnet_sample: Router: 192.168.10.1
+   [00:00:06.568,000] <inf> net_config: IPv4 address: 192.168.10.184
+   [00:00:06.568,000] <inf> net_config: Lease time: 36000 seconds
+   [00:00:06.568,000] <inf> net_config: Subnet: 255.255.255.0
+   [00:00:06.568,000] <inf> net_config: Router: 192.168.10.1
 
 To verify the Zephyr application clients are running, bind the TELNET server to
 the network interface, and has received an IPv4 address by typing on Linux host:
@@ -101,10 +101,10 @@ or ``kernel version``.
 .. code-block:: console
 
    ~$ kernel version
-   Zephyr version 3.1.0
+   Zephyr version 3.3.0
 
    ~$ bridle version
-   Zephyr version 3.2.0
+   Bridle version 3.3.0
 
    ~$ device list
    devices:
@@ -132,12 +132,16 @@ or ``kernel version``.
      requires: rcc@40023800
    - gpio@40020000 (READY)
      requires: rcc@40023800
+   - reset-controller (READY)
+     requires: rcc@40023800
    - rng@50060800 (READY)
      requires: rcc@40023800
    - serial@40007800 (READY)
      requires: rcc@40023800
+     requires: reset-controller
    - serial@40004c00 (READY)
      requires: rcc@40023800
+     requires: reset-controller
    - rtc@40002800 (READY)
      requires: rcc@40023800
    - i2c@40006000 (READY)

@@ -77,17 +77,17 @@ prompt. All shell commands are available and would looks like:
    ID: 0x9e6b44aea1e2b8980c4d32a6
 
    uart:~$ kernel version
-   Zephyr version 3.2.0
+   Zephyr version 3.3.0
 
    uart:~$ bridle version
-   Bridle version 3.2.0
+   Bridle version 3.3.0
 
    uart:~$ bridle version long
-   Bridle version 3.2.0.0
+   Bridle version 3.3.0.0
 
    uart:~$ bridle info
-   Zephyr: 3.2.0
-   Bridle: 3.2.0
+   Zephyr: 3.3.0
+   Bridle: 3.3.0
 
    uart:~$ device list
    devices:
@@ -115,10 +115,14 @@ prompt. All shell commands are available and would looks like:
      requires: rcc@40023800
    - gpio@40020000 (READY)
      requires: rcc@40023800
+   - reset-controller (READY)
+     requires: rcc@40023800
    - serial@40007800 (READY)
      requires: rcc@40023800
+     requires: reset-controller
    - serial@40004c00 (READY)
      requires: rcc@40023800
+     requires: reset-controller
    - rtc@40002800 (READY)
      requires: rcc@40023800
    - adc@40012200 (READY)
@@ -129,6 +133,7 @@ prompt. All shell commands are available and would looks like:
      requires: rcc@40023800
    - pwm (READY)
      requires: rcc@40023800
+     requires: reset-controller
    - flash-controller@40023c00 (READY)
    - spi@40013400 (READY)
      requires: rcc@40023800
@@ -196,11 +201,11 @@ Simple Flash Access
 
 .. code-block:: console
 
-   uart:~$ flash read flash-controller@40023c00 10DE0 40
-   00010DE0: 90 00 e0 01 00 10 00 00  00 30 74 69 61 63 5f 6d |........ .0tiac_m|
-   00010DF0: 61 67 70 69 65 00 48 65  6c 6c 6f 20 57 6f 72 6c |agpie.He llo Worl|
-   00010E00: 64 21 20 49 27 6d 20 54  48 45 20 53 48 45 4c 4c |d! I'm T HE SHELL|
-   00010E10: 20 66 72 6f 6d 20 25 73  0a 00 28 75 6e 73 69 67 | from %s ..(unsig|
+   uart:~$ flash read flash-controller@40023c00 12140 40
+   00012140: 00 30 74 69 61 63 5f 6d  61 67 70 69 65 00 48 65 |.0tiac_m agpie.He|
+   00012150: 6c 6c 6f 20 57 6f 72 6c  64 21 20 49 27 6d 20 54 |llo Worl d! I'm T|
+   00012160: 48 45 20 53 48 45 4c 4c  20 66 72 6f 6d 20 25 73 |HE SHELL  from %s|
+   00012170: 0a 00 69 6c 6c 65 67 61  6c 20 6f 70 74 69 6f 6e |..illega l option|
 
 Simple I2C Operations
 =====================

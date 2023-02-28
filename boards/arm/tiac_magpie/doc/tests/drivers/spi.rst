@@ -55,17 +55,15 @@ Building and Running
          \|-------------\|----------\|-----------------\|
          \| tiac_magpie \| DT04BNT1 \| /dev/ttyUSB0    \|
 
-         INFO    - 5 test scenarios (5 configurations) selected, 2 configurations discarded due to filters.
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 3/5 tiac_magpie               tests/drivers/spi/spi_loopback/drivers.spi.loopback.internal :byl:`SKIPPED` (runtime filter)
-         INFO    - 4/5 tiac_magpie               tests/drivers/spi/dt_spec/drivers.spi.dt_spec      :bgn:`PASSED` (device 3.297s)
-         INFO    - 5/5 tiac_magpie               tests/drivers/spi/spi_loopback/drivers.spi.loopback :bgn:`PASSED` (device 3.416s)
+         INFO    - 6/8 tiac_magpie               tests/drivers/spi/spi_loopback/drivers.spi.loopback.internal :byl:`SKIPPED` (runtime filter)
+         INFO    - 7/8 tiac_magpie               tests/drivers/spi/dt_spec/drivers.spi.dt_spec      :bgn:`PASSED` (device 2.650s)
+         INFO    - 8/8 tiac_magpie               tests/drivers/spi/spi_loopback/drivers.spi.loopback :bgn:`PASSED` (device 2.644s)
 
-
-
-         INFO    - :bgn:`2 of 5` test configurations passed (100.00%), :bbk:`0` failed, :byl:`3` skipped with :bbk:`0` warnings in :bbk:`28.93 seconds`
-         INFO    - In total 4 test cases were executed, 1 skipped on 1 out of total 501 platforms (0.20%)
+         INFO    - 8 test scenarios (8 test instances) selected, 6 configurations skipped (5 by static filter, 1 at runtime).
+         INFO    - :bgn:`2 of 8` test configurations passed (100.00%), :bbk:`0` failed, :byl:`6` skipped with :bbk:`0` warnings in :bbk:`29.80 seconds`
+         INFO    - In total 2 test cases were executed, 6 skipped on 1 out of total 541 platforms (0.18%)
          INFO    - :bgn:`2` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
@@ -76,7 +74,6 @@ Building and Running
 
          INFO    - Saving reports...
          INFO    - Writing JSON report .../twister-out/twister.json
-         INFO    - Using 'zephyr' toolchain.
          INFO    - Writing xunit report .../twister-out/twister.xml...
          INFO    - Writing xunit report .../twister-out/twister_report.xml...
          INFO    - Writing target report for tiac_magpie...

@@ -56,16 +56,17 @@ Building and Running
          \|-------------\|----------\|-----------------\|
          \| tiac_magpie \| DT04BNT1 \| /dev/ttyUSB0    \|
 
-         INFO    - 5 test scenarios (5 configurations) selected, 3 configurations discarded due to filters.
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 4/5 tiac_magpie               i2c_target_api/drivers.i2c.target_api.dual_role.tiac_magpie :brd:`FAILED` Failed (device 3.356s)
-         ERROR   - see: :byl:`.../twister-out/tiac_magpie/i2c_slave_api/drivers.i2c.target_api.dual_role.tiac_magpie/handler.log`
-         INFO    - 5/5 tiac_magpie               i2c_target_api/drivers.i2c.target_api.tiac_magpie  :brd:`FAILED` Failed (device 3.356s)
+         INFO    - 3/5 tiac_magpie               tests/drivers/i2c/i2c_api/drivers.i2c.api          :byl:`SKIPPED` (runtime filter)
+         INFO    - 4/5 tiac_magpie               i2c_target_api/drivers.i2c.target_api.tiac_magpie  :brd:`FAILED` Failed (device 2.637s)
          ERROR   - see: :byl:`.../twister-out/tiac_magpie/i2c_slave_api/drivers.i2c.target_api.tiac_magpie/handler.log`
+         INFO    - 5/5 tiac_magpie               i2c_target_api/drivers.i2c.target_api.dual_role.tiac_magpie :brd:`FAILED` Failed (device 2.637s)
+         ERROR   - see: :byl:`.../twister-out/tiac_magpie/i2c_slave_api/drivers.i2c.target_api.dual_role.tiac_magpie/handler.log`
 
-         INFO    - :brd:`0 of 5` test configurations passed (0.00%), :bbk:`2` failed, :byl:`3` skipped with :bbk:`0` warnings in :bbk:`28.43 seconds`
-         INFO    - In total 6 test cases were executed, 0 skipped on 1 out of total 501 platforms (0.20%)
+         INFO    - 5 test scenarios (5 test instances) selected, 3 configurations skipped (2 by static filter, 1 at runtime).
+         INFO    - :brd:`0 of 5` test configurations passed (0.00%), :bbk:`2` failed, :byl:`3` skipped with :bbk:`0` warnings in :bbk:`30.32 seconds`
+         INFO    - In total 2 test cases were executed, 4 skipped on 1 out of total 541 platforms (0.18%)
          INFO    - :bgn:`2` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
@@ -76,10 +77,21 @@ Building and Running
 
          INFO    - Saving reports...
          INFO    - Writing JSON report .../twister-out/twister.json
-         INFO    - Using 'zephyr' toolchain.
          INFO    - Writing xunit report .../twister-out/twister.xml...
          INFO    - Writing xunit report .../twister-out/twister_report.xml...
          INFO    - Writing target report for tiac_magpie...
+         INFO    - -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+         INFO    - The following issues were found (showing the top 10 items):
+         INFO    - 1) i2c_target_api/drivers.i2c.target_api.tiac_magpie on tiac_magpie failed (Failed)
+         INFO    - 2) i2c_target_api/drivers.i2c.target_api.dual_role.tiac_magpie on tiac_magpie failed (Failed)
+         INFO    -
+         INFO    - To rerun the tests, call twister using the following commandline:
+         INFO    - west twister -p <PLATFORM> -s <TEST ID>, for example:
+         INFO    -
+         INFO    - west twister -p tiac_magpie -s i2c_target_api/drivers.i2c.target_api.dual_role.tiac_magpie
+         INFO    - or with west:
+         INFO    - west build -p -b tiac_magpie -T i2c_target_api/drivers.i2c.target_api.dual_role.tiac_magpie
+         INFO    - -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
          INFO    - Run completed
 
 Open Issues
@@ -108,7 +120,7 @@ Single role with two I2C controller
    - :brd:`FAIL` - [i2c_eeprom_target.test_eeprom_target] duration = 0.031 seconds
    ------ TESTSUITE SUMMARY END ------
    ===================================================================
-   RunID: b81fc617540140c28ce20ddb0662bea6
+   RunID: 55c0aabe41d4d446bfaf27e3808917d0
    :brd:`PROJECT EXECUTION FAILED`
 
 Dual role with one I2C controller and one I2C device
@@ -134,5 +146,5 @@ Dual role with one I2C controller and one I2C device
    - :brd:`FAIL` - [i2c_eeprom_target.test_eeprom_target] duration = 0.030 seconds
    ------ TESTSUITE SUMMARY END ------
    ===================================================================
-   RunID: 35ee441818a14647e9e9d82071cc716d
+   RunID: 3beabba9b33b1dc4a1e19ec0ddfbd881
    :brd:`PROJECT EXECUTION FAILED`
