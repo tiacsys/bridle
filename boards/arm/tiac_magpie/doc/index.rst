@@ -562,7 +562,7 @@ System Clock with DTS Bindings and Kconfig
 The DTS binding following the :ref:`devicetree:dtbinding_st_stm32_rcc`,
 :ref:`devicetree:dtbinding_st_stm32f7_pll_clock`,
 :ref:`devicetree:dtbinding_st_stm32_hse_clock` and
-:ref:`devicetree:dtbinding_fixed_clock` specification.
+:ref:`devicetree:dtbinding_st_stm32_lse_clock` specification.
 The Kconfig default configuration is for STM32 RTC (Real-Time Clock Controller)
 and will be used by counter driver behind DTS binding following the
 :ref:`devicetree:dtbinding_st_stm32_rtc` specification.
@@ -580,6 +580,7 @@ and will be used by counter driver behind DTS binding following the
           :alt: STM32F777NIHx System Clock Tree
           :align: center
           :scale: 75 %
+
      - :ref:`devicetree:dtbinding_st_stm32_hse_clock` configuration:
 
        .. literalinclude:: ../tiac_magpie.dts
@@ -613,7 +614,7 @@ and will be used by counter driver behind DTS binding following the
           :start-at: rcc {
           :end-at: }; // rcc
 
-       :ref:`devicetree:dtbinding_fixed_clock` configuration:
+       :ref:`devicetree:dtbinding_st_stm32_lse_clock` configuration:
 
        .. literalinclude:: ../tiac_magpie.dts
           :caption: tiac_magpie.dts
@@ -624,13 +625,25 @@ and will be used by counter driver behind DTS binding following the
           :start-at: clk_lse {
           :end-at: }; // clk_lse
 
-       :kconfig:option:`CONFIG_COUNTER_RTC_STM32_CLOCK_LSE` configuration:
+       :ref:`devicetree:dtbinding_st_stm32_rtc` configuration:
+
+       .. literalinclude:: ../tiac_magpie.dts
+          :caption: tiac_magpie.dts
+          :language: DTS
+          :encoding: ISO-8859-1
+          :emphasize-lines: 3-4
+          :linenos:
+          :start-at: rtc {
+          :end-at: }; // rtc
+
+       :kconfig:option:`CONFIG_CLOCK_CONTROL` and
+       :kconfig:option:`CONFIG_COUNTER` configuration:
 
        .. literalinclude:: ../tiac_magpie_defconfig
           :caption: tiac_magpie_defconfig
           :language: cfg
           :encoding: ISO-8859-1
-          :emphasize-lines: 8
+          :emphasize-lines: 2,5
           :linenos:
           :start-at: Clock Configuration
           :end-before: Enable MPU
