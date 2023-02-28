@@ -70,10 +70,13 @@
 &clk_lse {
 	status = "okay";
 	clock-frequency = <DT_FREQ_K(32)>;
+	lse-bypass;
 }; // clk_lse
 
 &rtc {
 	status = "okay";
+	clocks = <&rcc STM32_CLOCK_BUS_APB1 0x10000000>,
+		 <&rcc STM32_SRC_LSE RTC_SEL(1)>;
 }; // rtc
 
 &iwdg {
