@@ -337,3 +337,18 @@ doc/**/*_warnings.txt
 
 # Make sure to include everything in lib/
 !lib
+
+# List of compliance generated files
+compliance.xml
+MaintainersFormat.txt
+ImageSize.txt
+Nits.txt
+BinaryFiles.txt
+Kconfig.txt
+Identity.txt
+KconfigBasic.txt
+DevicetreeBindings.txt
+Pylint.txt
+Checkpatch.txt
+Gitlint.txt
+YAMLLint.txt
