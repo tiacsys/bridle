@@ -58,7 +58,7 @@ jobs:
         working-directory: workspace
         run: |
           grep -hE -v "python-magic-bin" zephyr/scripts/requirements-*.txt | \
-          grep -hE "python-magic|junitparser|gitlint|pylint|pykwalify" | \
+          grep -hE "python-magic|junitparser|gitlint|pylint|pykwalify|yamllint" | \
           xargs -I {} pip3 install --upgrade '{}'
 
       - name: Run compliance tests
@@ -72,9 +72,10 @@ jobs:
           ls -la
           git log --pretty=oneline | head -n 10
           # -m checkpatch \
-          $ZEPHYR_BASE/scripts/ci/check_compliance.py \
+          $ZEPHYR_BASE/scripts/ci/check_compliance.py --annotate \
             -m Codeowners \
             -m Gitlint \
+            -m YAMLLint \
             -m Devicetree \
             -m KconfigBasic \
             -m pylint \
@@ -99,6 +100,7 @@ jobs:
           for file in \
                   Codeowners.txt \
                   Gitlint.txt \
+                  YAMLLint.txt \
                   Devicetree.txt \
                   Kconfig.txt \
                   pylint.txt \
