@@ -58,7 +58,7 @@ jobs:
         working-directory: workspace
         run: |
           grep -hE -v "python-magic-bin" zephyr/scripts/requirements-*.txt | \
-          grep -hE "python-magic|junitparser|gitlint|pylint|pykwalify|yamllint" | \
+          grep -hE "python-magic|lxml|junitparser|gitlint|pylint|pykwalify|yamllint" | \
           xargs -I {} pip3 install --upgrade '{}'
 
       - name: Run compliance tests
