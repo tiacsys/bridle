@@ -74,16 +74,19 @@ jobs:
           # debug
           ls -la
           git log --pretty=oneline | head -n 10
-          # -m checkpatch \
+          # -m Checkpatch \
           $ZEPHYR_BASE/scripts/ci/check_compliance.py --annotate \
             -m Codeowners \
+            -m MaintainersFormat \
             -m Gitlint \
             -m YAMLLint \
             -m Devicetree \
             -m KconfigBasic \
-            -m pylint \
+            -m Pylint \
             -m Identity \
             -m Nits \
+            -m ImageSize \
+            -m BinaryFiles \
             -c origin/${BASE_REF}..
 
       - name: Upload compliance tests results
@@ -99,16 +102,19 @@ jobs:
             exit 1;
           fi
 
-          #       checkpatch.txt \
+          #       Checkpatch.txt \
           for file in \
                   Codeowners.txt \
+                  MaintainersFormat.txt \
                   Gitlint.txt \
                   YAMLLint.txt \
                   Devicetree.txt \
-                  Kconfig.txt \
-                  pylint.txt \
+                  KconfigBasic.txt \
+                  Pylint.txt \
                   Identity.txt \
                   Nits.txt \
+                  ImageSize.txt \
+                  BinaryFiles.txt \
               ; do
             if [[ -s $file ]]; then
               errors=$(cat $file)
