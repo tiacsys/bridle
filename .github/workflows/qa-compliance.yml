@@ -47,6 +47,9 @@ jobs:
           git -C bridle config --global user.email "you@example.com"
           git -C bridle config --global user.name "Your Name"
           git -C bridle remote -v
+          # Ensure there's no merge commits in the PR
+          [[ "$(git -C bridle rev-list --merges --count origin/${BASE_REF}..)" == "0" ]] || \
+          (echo "::error ::Merge commits not allowed, rebase instead";false)
           git -C bridle rebase origin/${BASE_REF}
           # debug
           git -C bridle log  --pretty=oneline | head -n 10
