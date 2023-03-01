@@ -736,7 +736,6 @@ specification.
           :start-at: uart7 {
           :end-at: }; // uart7
 
-       :kconfig:option:`CONFIG_UART_CONSOLE_ON_DEV_NAME` for
        :kconfig:option:`CONFIG_HAS_DTS` configuration:
 
        .. literalinclude:: ../tiac_magpie.dts
@@ -744,9 +743,6 @@ specification.
           :encoding: ISO-8859-1
           :start-at: zephyr,console
           :end-at: zephyr,console
-
-       :kconfig:option:`CONFIG_UART_SHELL_ON_DEV_NAME` for
-       :kconfig:option:`CONFIG_HAS_DTS` configuration:
 
        .. literalinclude:: ../tiac_magpie.dts
           :language: DTS
