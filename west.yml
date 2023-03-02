@@ -72,6 +72,7 @@ manifest:
           - hal_nordic
           - hal_nxp
           - hal_rpi_pico
+          - hal_st
           - hal_stm32
           - hal_xtensa
           - liblc3
