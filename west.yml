@@ -67,6 +67,7 @@ manifest:
           - edtt
           - fatfs
           - hal_altera
+          - hal_atmel
           - hal_espressif
           - hal_nordic
           - hal_stm32
