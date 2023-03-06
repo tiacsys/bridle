@@ -1,0 +1,10 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	aliases {
+		pwm-led0 = &grove_pwm_led_d6;
+	};
+};
