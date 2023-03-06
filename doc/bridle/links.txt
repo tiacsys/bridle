@@ -134,9 +134,40 @@
 .. _`BlueZ`: http://www.bluez.org/
 .. _`BabbleSim`: https://babblesim.github.io/
 
-.. _Chocolatey: https://chocolatey.org/
-.. _Install chocolatey: https://chocolatey.org/install
-.. _Windows Python Path: https://docs.python.org/3/using/windows.html#finding-the-python-executable
+.. _`Chocolatey`: https://chocolatey.org/
+.. _`Install chocolatey`: https://chocolatey.org/install
+.. _`Windows Python Path`: https://docs.python.org/3/using/windows.html#finding-the-python-executable
+
+.. _`Grove System`:
+   https://web.archive.org/web/20230225043557/https://wiki.seeedstudio.com/Grove_System
+
+.. _`Grove Digital Layout`:
+   https://web.archive.org/web/20230225043557/https://wiki.seeedstudio.com/Grove_System/#digital
+
+.. _`Grove Analog Layout`:
+   https://web.archive.org/web/20230225043557/https://wiki.seeedstudio.com/Grove_System/#grove-analog
+
+.. _`Grove UART Layout`:
+   https://web.archive.org/web/20230225043557/https://wiki.seeedstudio.com/Grove_System/#grove-uart
+
+.. _`Grove I2C Layout`:
+   https://web.archive.org/web/20230225043557/https://wiki.seeedstudio.com/Grove_System/#grove-i2c
+
+.. _`Preface - Getting Started`: https://www.seeedstudio.com/document/pdf/Preface.pdf
+.. _`Introduction to Grove`: https://www.seeedstudio.com/document/pdf/Introduction%20to%20Grove.pdf
+.. _`Grove standard interfaces`: https://wiki.sipeed.com/soft/maixpy/en/modules/grove
+
+.. _`Arduino Uno R3`:
+   https://raw.githubusercontent.com/Bouni/Arduino-Pinout/master/Arduino%20Uno%20R3%20Pinout.png
+
+.. _`Arduino Uno R2`:
+   https://raw.githubusercontent.com/Bouni/Arduino-Pinout/master/Arduino%20Uno%20R2%20Pinout.png
+
+.. _`Raspberry Pi Pico R3`:
+   https://www.raspberrypi.com/documentation/microcontrollers/images/pico-pinout.svg
+
+.. _`Raspberry Pi Pico R3 W`:
+   https://www.raspberrypi.com/documentation/microcontrollers/images/picow-pinout.svg
 
 
 
