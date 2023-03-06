@@ -1,0 +1,61 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include "seeed_grove_pwms/defaults.dtsi"
+
+#include "seeed_grove_base/grove_i2c_connector.dtsi"
+
+#include "seeed_grove_base/grove_a0_connector.dtsi"
+#include "seeed_grove_base/grove_a1_connector.dtsi"
+#include "seeed_grove_base/grove_a2_connector.dtsi"
+#include "seeed_grove_base/grove_a3_connector.dtsi"
+
+#include "seeed_grove_base/grove_d0_uart_connector.dtsi"
+#include "seeed_grove_base/grove_d2_connector.dtsi"
+#include "seeed_grove_base/grove_d3_connector.dtsi"
+#include "seeed_grove_base/grove_d4_connector.dtsi"
+#include "seeed_grove_base/grove_d5_connector.dtsi"
+#include "seeed_grove_base/grove_d6_connector.dtsi"
+#include "seeed_grove_base/grove_d7_connector.dtsi"
+#include "seeed_grove_base/grove_d8_connector.dtsi"
+
+/ {
+	grove_laced_if_v2: grove-laced-if-v2 {
+
+		compatible = "seeed,grove-laced-if";
+
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map =
+			<0 0 &grove_uart_header 0 0>,	/* D0: UART-RX as GPIO */
+			<1 0 &grove_uart_header 1 0>,	/* D1: UART-TX as GPIO */
+			<2 0 &grove_d2_header 0 0>,	/* D2: GPIO */
+			<3 0 &grove_d3_header 0 0>,	/* D3: GPIO */
+			<4 0 &grove_d4_header 0 0>,	/* D4: GPIO */
+			<5 0 &grove_d5_header 0 0>,	/* D5: GPIO */
+			<6 0 &grove_d6_header 0 0>,	/* D6: GPIO */
+			<7 0 &grove_d7_header 0 0>,	/* D7: GPIO */
+			<8 0 &grove_d8_header 0 0>,	/* D8: GPIO */
+			<9 0 &grove_d8_header 1 0>,	/* D9: GPIO */
+			/* 10 - D10: not wired */
+			/* 11 - D11: not wired */
+			/* 12 - D12: not wired */
+			/* 13 - D13: not wired */
+			<14 0 &grove_a0_header 0 0>,	/* D14: A0 as GPIO */
+			<15 0 &grove_a1_header 0 0>,	/* D15: A1 as GPIO */
+			<16 0 &grove_a2_header 0 0>,	/* D16: A2 as GPIO */
+			<17 0 &grove_a3_header 0 0>,	/* D17: A3 as GPIO */
+			<18 0 &grove_i2c_header 1 0>,	/* D18: I2C-SDA as GPIO */
+			<19 0 &grove_i2c_header 0 0>;	/* D19: I2C-SCL as GPIO */
+
+		#pwm-cells = <3>;
+		pwm-map-mask = <0xffffffff 0 0>;
+		pwm-map-pass-thru = <0 0xffffffff 0xffffffff>;
+		pwm-map;	/* default an empty map */
+	};
+};
+
+grove_gpios: &grove_laced_if_v2 {};

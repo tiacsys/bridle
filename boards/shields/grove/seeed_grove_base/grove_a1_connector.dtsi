@@ -1,0 +1,15 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	grove_a1_header: grove-a1-connector {
+		compatible = "seeed,grove-connector";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <0 0 &arduino_header 1 0>,	/* A1 */
+			   <1 0 &arduino_header 2 0>;	/* A2 */
+	};
+};

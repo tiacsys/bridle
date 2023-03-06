@@ -1,0 +1,8 @@
+# Copyright (c) 2023 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+if SHIELD_SEEED_GROVE_BASE_V2 || SHIELD_SEEED_GROVE_BASE_V1
+
+# passive interconnect shield doesn't need further configuration
+
+endif # SHIELD_SEEED_GROVE_BASE_V2 || SHIELD_SEEED_GROVE_BASE_V1
