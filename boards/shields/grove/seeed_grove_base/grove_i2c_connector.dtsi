@@ -1,0 +1,15 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	grove_i2c_header: grove-i2c-connector {
+		compatible = "seeed,grove-connector";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <0 0 &arduino_header 5 0>,	/* A5 / I2C-SCL (D15) */
+			   <1 0 &arduino_header 4 0>;	/* A4 / I2C-SDA (D14) */
+	};
+};
