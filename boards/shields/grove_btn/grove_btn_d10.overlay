@@ -1,0 +1,19 @@
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	grove_btns {
+		status = "okay";
+
+		compatible = "gpio-keys";
+
+		grove_btn_d10: grove-btn-d10 {
+			label = "Grove Button D10";
+			gpios = <&grove_gpios 10 (GPIO_PULL_DOWN | GPIO_ACTIVE_HIGH)>;
+		};
+	};
+};

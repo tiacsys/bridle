@@ -1,0 +1,36 @@
+# Copyright (c) 2023 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+config SHIELD_GROVE_BTN
+	def_bool $(shields_list_contains,grove_btn_d0) || \
+		 $(shields_list_contains,grove_btn_d1) || \
+		 $(shields_list_contains,grove_btn_d2) || \
+		 $(shields_list_contains,grove_btn_d3) || \
+		 $(shields_list_contains,grove_btn_d4) || \
+		 $(shields_list_contains,grove_btn_d5) || \
+		 $(shields_list_contains,grove_btn_d6) || \
+		 $(shields_list_contains,grove_btn_d7) || \
+		 $(shields_list_contains,grove_btn_d8) || \
+		 $(shields_list_contains,grove_btn_d9) || \
+		 $(shields_list_contains,grove_btn_d10) || \
+		 $(shields_list_contains,grove_btn_d11) || \
+		 $(shields_list_contains,grove_btn_d12) || \
+		 $(shields_list_contains,grove_btn_d13) || \
+		 $(shields_list_contains,grove_btn_d14) || \
+		 $(shields_list_contains,grove_btn_d15) || \
+		 $(shields_list_contains,grove_btn_d16) || \
+		 $(shields_list_contains,grove_btn_d17) || \
+		 $(shields_list_contains,grove_btn_d18) || \
+		 $(shields_list_contains,grove_btn_d19) || \
+		 $(shields_list_contains,grove_btn_d20) || \
+		 $(shields_list_contains,grove_btn_d21) || \
+		 $(shields_list_contains,grove_btn_d22) || \
+		 $(shields_list_contains,grove_btn_d23) || \
+		 $(shields_list_contains,grove_btn_d24) || \
+		 $(shields_list_contains,grove_btn_d25) || \
+		 $(shields_list_contains,grove_btn_d26) || \
+		 $(shields_list_contains,grove_btn_d27) || \
+		 $(shields_list_contains,grove_btn_d28) || \
+		 $(shields_list_contains,grove_btn_d29) || \
+		 $(shields_list_contains,grove_btn_d30) || \
+		 $(shields_list_contains,grove_btn_d31)
