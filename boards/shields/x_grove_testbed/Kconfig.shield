@@ -1,0 +1,5 @@
+# Copyright (c) 2023 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+config SHIELD_X_GROVE_TESTBED
+	def_bool $(shields_list_contains,x_grove_testbed)
