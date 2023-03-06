@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/pwm/pwm.h>
+
+//GROVE_PWMS_SETUP_AND_ENABLE(D18,SLOW)
+GROVE_PWM_D18_PINCTRL
+GROVE_PWM_D18_ENABLE
+GROVE_PWM_D18_SLOW
+
+/ {
+	grove_pwm_leds {
+		status = "okay";
+
+		compatible = "pwm-leds";
+
+		grove_pwm_led_d18: grove-pwm-led-d18 {
+			label = "Grove LED D18";
+			pwms = <&grove_pwms 18 PWM_MSEC(20) (PWM_POLARITY_NORMAL)>;
+		};
+	};
+};

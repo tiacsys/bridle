@@ -1,0 +1,208 @@
+# Copyright (c) 2023 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+if SHIELD_GROVE_LED
+
+config GPIO
+	default y
+
+config SHIELD_GROVE_LED_D0
+	def_bool $(dt_nodelabel_enabled,grove_led_d0)
+
+config SHIELD_GROVE_LED_D1
+	def_bool $(dt_nodelabel_enabled,grove_led_d1)
+
+config SHIELD_GROVE_LED_D2
+	def_bool $(dt_nodelabel_enabled,grove_led_d2)
+
+config SHIELD_GROVE_LED_D3
+	def_bool $(dt_nodelabel_enabled,grove_led_d3)
+
+config SHIELD_GROVE_LED_D4
+	def_bool $(dt_nodelabel_enabled,grove_led_d4)
+
+config SHIELD_GROVE_LED_D5
+	def_bool $(dt_nodelabel_enabled,grove_led_d5)
+
+config SHIELD_GROVE_LED_D6
+	def_bool $(dt_nodelabel_enabled,grove_led_d6)
+
+config SHIELD_GROVE_LED_D7
+	def_bool $(dt_nodelabel_enabled,grove_led_d7)
+
+config SHIELD_GROVE_LED_D8
+	def_bool $(dt_nodelabel_enabled,grove_led_d8)
+
+config SHIELD_GROVE_LED_D9
+	def_bool $(dt_nodelabel_enabled,grove_led_d9)
+
+config SHIELD_GROVE_LED_D10
+	def_bool $(dt_nodelabel_enabled,grove_led_d10)
+
+config SHIELD_GROVE_LED_D11
+	def_bool $(dt_nodelabel_enabled,grove_led_d11)
+
+config SHIELD_GROVE_LED_D12
+	def_bool $(dt_nodelabel_enabled,grove_led_d12)
+
+config SHIELD_GROVE_LED_D13
+	def_bool $(dt_nodelabel_enabled,grove_led_d13)
+
+config SHIELD_GROVE_LED_D14
+	def_bool $(dt_nodelabel_enabled,grove_led_d14)
+
+config SHIELD_GROVE_LED_D15
+	def_bool $(dt_nodelabel_enabled,grove_led_d15)
+
+config SHIELD_GROVE_LED_D16
+	def_bool $(dt_nodelabel_enabled,grove_led_d16)
+
+config SHIELD_GROVE_LED_D17
+	def_bool $(dt_nodelabel_enabled,grove_led_d17)
+
+config SHIELD_GROVE_LED_D18
+	def_bool $(dt_nodelabel_enabled,grove_led_d18)
+
+config SHIELD_GROVE_LED_D19
+	def_bool $(dt_nodelabel_enabled,grove_led_d19)
+
+config SHIELD_GROVE_LED_D20
+	def_bool $(dt_nodelabel_enabled,grove_led_d20)
+
+config SHIELD_GROVE_LED_D21
+	def_bool $(dt_nodelabel_enabled,grove_led_d21)
+
+config SHIELD_GROVE_LED_D22
+	def_bool $(dt_nodelabel_enabled,grove_led_d22)
+
+config SHIELD_GROVE_LED_D23
+	def_bool $(dt_nodelabel_enabled,grove_led_d23)
+
+config SHIELD_GROVE_LED_D24
+	def_bool $(dt_nodelabel_enabled,grove_led_d24)
+
+config SHIELD_GROVE_LED_D25
+	def_bool $(dt_nodelabel_enabled,grove_led_d25)
+
+config SHIELD_GROVE_LED_D26
+	def_bool $(dt_nodelabel_enabled,grove_led_d26)
+
+config SHIELD_GROVE_LED_D27
+	def_bool $(dt_nodelabel_enabled,grove_led_d27)
+
+config SHIELD_GROVE_LED_D28
+	def_bool $(dt_nodelabel_enabled,grove_led_d28)
+
+config SHIELD_GROVE_LED_D29
+	def_bool $(dt_nodelabel_enabled,grove_led_d29)
+
+config SHIELD_GROVE_LED_D30
+	def_bool $(dt_nodelabel_enabled,grove_led_d30)
+
+config SHIELD_GROVE_LED_D31
+	def_bool $(dt_nodelabel_enabled,grove_led_d31)
+
+endif # SHIELD_GROVE_LED
+
+if SHIELD_GROVE_PWM_LED
+
+config PWM
+	default y
+
+config SHIELD_GROVE_PWM_LED_D0
+	def_bool $(dt_nodelabel_enabled,grove_pwm_led_d0)
+
+config SHIELD_GROVE_PWM_LED_D1
+	def_bool $(dt_nodelabel_enabled,grove_pwm_led_d1)
+
+config SHIELD_GROVE_PWM_LED_D2
+	def_bool $(dt_nodelabel_enabled,grove_pwm_led_d2)
+
+config SHIELD_GROVE_PWM_LED_D3
+	def_bool $(dt_nodelabel_enabled,grove_pwm_led_d3)
+
+config SHIELD_GROVE_PWM_LED_D4
+	def_bool $(dt_nodelabel_enabled,grove_pwm_led_d4)
+
+config SHIELD_GROVE_PWM_LED_D5
+	def_bool $(dt_nodelabel_enabled,grove_pwm_led_d5)
+
+config SHIELD_GROVE_PWM_LED_D6
+	def_bool $(dt_nodelabel_enabled,grove_pwm_led_d6)
+
+config SHIELD_GROVE_PWM_LED_D7
+	def_bool $(dt_nodelabel_enabled,grove_pwm_led_d7)
+
+config SHIELD_GROVE_PWM_LED_D8
+	def_bool $(dt_nodelabel_enabled,grove_pwm_led_d8)
+
+config SHIELD_GROVE_PWM_LED_D9
+	def_bool $(dt_nodelabel_enabled,grove_pwm_led_d9)
+
+config SHIELD_GROVE_PWM_LED_D10
+	def_bool $(dt_nodelabel_enabled,grove_pwm_led_d10)
+
+config SHIELD_GROVE_PWM_LED_D11
+	def_bool $(dt_nodelabel_enabled,grove_pwm_led_d11)
+
+config SHIELD_GROVE_PWM_LED_D12
+	def_bool $(dt_nodelabel_enabled,grove_pwm_led_d12)
+
+config SHIELD_GROVE_PWM_LED_D13
+	def_bool $(dt_nodelabel_enabled,grove_pwm_led_d13)
+
+config SHIELD_GROVE_PWM_LED_D14
+	def_bool $(dt_nodelabel_enabled,grove_pwm_led_d14)
+
+config SHIELD_GROVE_PWM_LED_D15
+	def_bool $(dt_nodelabel_enabled,grove_pwm_led_d15)
+
+config SHIELD_GROVE_PWM_LED_D16
+	def_bool $(dt_nodelabel_enabled,grove_pwm_led_d16)
+
+config SHIELD_GROVE_PWM_LED_D17
+	def_bool $(dt_nodelabel_enabled,grove_pwm_led_d17)
+
+config SHIELD_GROVE_PWM_LED_D18
+	def_bool $(dt_nodelabel_enabled,grove_pwm_led_d18)
+
+config SHIELD_GROVE_PWM_LED_D19
+	def_bool $(dt_nodelabel_enabled,grove_pwm_led_d19)
+
+config SHIELD_GROVE_PWM_LED_D20
+	def_bool $(dt_nodelabel_enabled,grove_pwm_led_d20)
+
+config SHIELD_GROVE_PWM_LED_D21
+	def_bool $(dt_nodelabel_enabled,grove_pwm_led_d21)
+
+config SHIELD_GROVE_PWM_LED_D22
+	def_bool $(dt_nodelabel_enabled,grove_pwm_led_d22)
+
+config SHIELD_GROVE_PWM_LED_D23
+	def_bool $(dt_nodelabel_enabled,grove_pwm_led_d23)
+
+config SHIELD_GROVE_PWM_LED_D24
+	def_bool $(dt_nodelabel_enabled,grove_pwm_led_d24)
+
+config SHIELD_GROVE_PWM_LED_D25
+	def_bool $(dt_nodelabel_enabled,grove_pwm_led_d25)
+
+config SHIELD_GROVE_PWM_LED_D26
+	def_bool $(dt_nodelabel_enabled,grove_pwm_led_d26)
+
+config SHIELD_GROVE_PWM_LED_D27
+	def_bool $(dt_nodelabel_enabled,grove_pwm_led_d27)
+
+config SHIELD_GROVE_PWM_LED_D28
+	def_bool $(dt_nodelabel_enabled,grove_pwm_led_d28)
+
+config SHIELD_GROVE_PWM_LED_D29
+	def_bool $(dt_nodelabel_enabled,grove_pwm_led_d29)
+
+config SHIELD_GROVE_PWM_LED_D30
+	def_bool $(dt_nodelabel_enabled,grove_pwm_led_d30)
+
+config SHIELD_GROVE_PWM_LED_D31
+	def_bool $(dt_nodelabel_enabled,grove_pwm_led_d31)
+
+endif # SHIELD_GROVE_PWM_LED
