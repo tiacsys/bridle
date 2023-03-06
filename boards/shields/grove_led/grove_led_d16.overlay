@@ -1,0 +1,19 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
+/ {
+	grove_leds {
+		status = "okay";
+
+		compatible = "gpio-leds";
+
+		grove_led_d16: grove-led-d16 {
+			label = "Grove LED D16";
+			gpios = <&grove_gpios 16 (GPIO_ACTIVE_HIGH)>;
+		};
+	};
+};

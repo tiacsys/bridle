@@ -1,0 +1,21 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/pwm/pwm.h>
+
+GROVE_PWMS_SETUP_AND_ENABLE(D31,SLOW)
+
+/ {
+	grove_pwm_leds {
+		status = "okay";
+
+		compatible = "pwm-leds";
+
+		grove_pwm_led_d31: grove-pwm-led-d31 {
+			label = "Grove LED D31";
+			pwms = <&grove_pwms 31 PWM_MSEC(20) (PWM_POLARITY_NORMAL)>;
+		};
+	};
+};
