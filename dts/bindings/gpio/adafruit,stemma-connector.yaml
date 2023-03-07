@@ -1,0 +1,31 @@
+# Copyright (c) 2023 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+    GPIO pins exposed on Adafruit STEMMA connector.
+
+    The STEMMA layout provides either an 3-pin or 4-pin 2mm JST PH connector,
+    along on one edge of the board. Informations and pin assignment can be
+    found at:
+
+    - https://learn.adafruit.com/introducing-adafruit-stemma-qt/what-is-stemma
+
+    This binding provides a nexus mapping for 2 pins where parent
+    pins 0 through 1 correspond as depicted below (with cable color):
+
+        4-pin      I2C only
+
+         (green) 0 SCL
+         (white) 1 SDA
+           (red) - VCC  (3V3 or 5V0)
+         (black) - GND
+
+        3-pin      analog or digital sensors
+
+         (green) 0 A/D
+           (red) - VCC  (3V3 or 5V0)
+         (black) - GND
+
+compatible: "adafruit,stemma-connector"
+
+include: [gpio-nexus.yaml, base.yaml]
