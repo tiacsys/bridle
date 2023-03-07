@@ -1,0 +1,242 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/*
+ * On NXP MIMXRT1060-EVK pin A4 (SDA) and A5 (SCL) will be shared with
+ * multiple on-board components: audio codec, sensors, CSI and LCD and
+ * M.2(E) header. Pin D14 (SDA) and D15 (SCL) are connected in parallel,
+ * but can be opened optionally.
+ */
+
+arduino_i2c: &lpi2c1 {};
+
+/*
+ * On NXP MIMXRT1060-EVK pin D10 (CS), D11 (MOSI), D12 (MISO) and D13 (CLK)
+ * are disconnected in default and can be closed optionally. But keep in
+ * mind that the signals are already connected to a on-board component:
+ * TF/SD-Card in default or M.2(E) header for an optional WiFi module.
+ */
+
+arduino_spi: &lpspi1 {};
+
+/*
+ * On NXP MIMXRT1060-EVK pin D0 (RX) and D1 (TX) will be shared with the
+ * M.2(E) header for an optional Bluetooth module.
+ */
+
+#include "arduino_to_grove_if.dtsi"
+
+/*
+ * On NXP MIMXRT1060-EVK following pins can be used as PWM outputs:
+ *
+ *   Grove pin   port       unit   channel   Arduino UNO R3 requirements
+ *
+ *         D0    AD_B1_07                    RX   / GPIO
+ *         D1    AD_B1_06                    TX   / GPIO
+ *  (JTAG) D2    AD_B0_11   PWM1   B3        INT0 / GPIO
+ *         D3    AD_B1_08   PWM4   A0        INT1 / GPIO with PWM support
+ *  (JTAG) D4    AD_B0_09   PWM2   A3               GPIO
+ *  (JTAG) D5    AD_B0_10   PWM1   A3               GPIO with PWM support
+ *         D6    AD_B1_02   (not possible)          GPIO with PWM support
+ *         D7    AD_B1_03                           GPIO
+ *         D8    AD_B0_03                           GPIO
+ *         D9    AD_B0_02   (not possible)          GPIO with PWM support
+ * (SDMMC) D10   SD_B0_01   PWM1   B0        SS   / GPIO with PWM support
+ * (SDMMC) D11   SD_B0_02   PWM1   A1        MOSI / GPIO with PWM support
+ * (SDMMC) D12   SD_B0_03   PWM1   B1        MISO / GPIO
+ * (SDMMC) D13   SD_B0_00   PWM1   A0        SCK  / GPIO
+ *         D18   AD_B1_01                    SDA  / GPIO
+ *         D19   AD_B1_00                    SCL  / GPIO
+ */
+
+&flexpwm1_pwm0 {
+	status = "disabled";
+	pinctrl-0 = <&flexpwm1_pwm0_default>;
+	pinctrl-names = "default";
+};
+
+#undef GROVE_PWM_D13_ENABLE
+#define GROVE_PWM_D13_ENABLE						\
+	&flexpwm1_pwm0 {						\
+		status = "okay";					\
+	};
+
+#undef GROVE_PWM_D13_PINCTRL
+#define GROVE_PWM_D13_PINCTRL						\
+	&flexpwm1_pwm0_default {					\
+		group13 {						\
+			pinmux = <&iomuxc_gpio_sd_b0_00_flexpwm1_pwma0>;\
+			drive-strength = "r0-4";			\
+			bias-pull-up;					\
+			bias-pull-up-value = "47k";			\
+			slew-rate = "slow";				\
+			nxp,speed = "50-mhz";				\
+		};							\
+	};
+
+#undef GROVE_PWM_D10_ENABLE
+#define GROVE_PWM_D10_ENABLE						\
+	&flexpwm1_pwm0 {						\
+		status = "okay";					\
+	};
+
+#undef GROVE_PWM_D10_PINCTRL
+#define GROVE_PWM_D10_PINCTRL						\
+	&flexpwm1_pwm0_default {					\
+		group10 {						\
+			pinmux = <&iomuxc_gpio_sd_b0_01_flexpwm1_pwmb0>;\
+			drive-strength = "r0-4";			\
+			bias-pull-up;					\
+			bias-pull-up-value = "47k";			\
+			slew-rate = "slow";				\
+			nxp,speed = "50-mhz";				\
+		};							\
+	};
+
+&flexpwm1_pwm1 {
+	status = "disabled";
+	pinctrl-0 = <&flexpwm1_pwm1_default>;
+	pinctrl-names = "default";
+};
+
+#undef GROVE_PWM_D11_ENABLE
+#define GROVE_PWM_D11_ENABLE						\
+	&flexpwm1_pwm1 {						\
+		status = "okay";					\
+	};
+
+#undef GROVE_PWM_D11_PINCTRL
+#define GROVE_PWM_D11_PINCTRL						\
+	&flexpwm1_pwm1_default {					\
+		group11 {						\
+			pinmux = <&iomuxc_gpio_sd_b0_02_flexpwm1_pwma1>;\
+			drive-strength = "r0-4";			\
+			bias-pull-up;					\
+			bias-pull-up-value = "47k";			\
+			slew-rate = "slow";				\
+			nxp,speed = "50-mhz";				\
+		};							\
+	};
+
+#undef GROVE_PWM_D12_ENABLE
+#define GROVE_PWM_D12_ENABLE						\
+	&flexpwm1_pwm1 {						\
+		status = "okay";					\
+	};
+
+#undef GROVE_PWM_D12_PINCTRL
+#define GROVE_PWM_D12_PINCTRL						\
+	&flexpwm1_pwm1_default {					\
+		group12 {						\
+			pinmux = <&iomuxc_gpio_sd_b0_03_flexpwm1_pwmb1>;\
+			drive-strength = "r0-4";			\
+			bias-pull-up;					\
+			bias-pull-up-value = "47k";			\
+			slew-rate = "slow";				\
+			nxp,speed = "50-mhz";				\
+		};							\
+	};
+
+&flexpwm1_pwm3 {
+	status = "disabled";
+	pinctrl-0 = <&flexpwm1_pwm3_default>;
+	pinctrl-names = "default";
+};
+
+#undef GROVE_PWM_D5_ENABLE
+#define GROVE_PWM_D5_ENABLE						\
+	&flexpwm1_pwm3 {						\
+		status = "okay";					\
+	};
+
+#undef GROVE_PWM_D5_PINCTRL
+#define GROVE_PWM_D5_PINCTRL						\
+	&flexpwm1_pwm3_default {					\
+		group5 {						\
+			pinmux = <&iomuxc_gpio_ad_b0_10_flexpwm1_pwma3>;\
+			drive-strength = "r0-4";			\
+			bias-pull-up;					\
+			bias-pull-up-value = "47k";			\
+			slew-rate = "slow";				\
+			nxp,speed = "50-mhz";				\
+		};							\
+	};
+
+#undef GROVE_PWM_D2_ENABLE
+#define GROVE_PWM_D2_ENABLE						\
+	&flexpwm1_pwm3 {						\
+		status = "okay";					\
+	};
+
+#undef GROVE_PWM_D2_PINCTRL
+#define GROVE_PWM_D2_PINCTRL						\
+	&flexpwm1_pwm3_default {					\
+		group2 {						\
+			pinmux = <&iomuxc_gpio_ad_b0_11_flexpwm1_pwmb3>;\
+			drive-strength = "r0-4";			\
+			bias-pull-up;					\
+			bias-pull-up-value = "47k";			\
+			slew-rate = "slow";				\
+			nxp,speed = "50-mhz";				\
+		};							\
+	};
+
+&flexpwm2_pwm3 {
+	status = "disabled";
+	pinctrl-0 = <&flexpwm2_pwm3_default>;
+	pinctrl-names = "default";
+};
+
+#undef GROVE_PWM_D4_ENABLE
+#define GROVE_PWM_D4_ENABLE						\
+	&flexpwm2_pwm3 {						\
+		status = "okay";					\
+	};
+
+#undef GROVE_PWM_D4_PINCTRL
+#define GROVE_PWM_D4_PINCTRL						\
+	&flexpwm2_pwm3_default {					\
+		group4 {						\
+			pinmux = <&iomuxc_gpio_ad_b0_09_flexpwm2_pwma3>;\
+			drive-strength = "r0-4";			\
+			bias-pull-up;					\
+			bias-pull-up-value = "47k";			\
+			slew-rate = "slow";				\
+			nxp,speed = "50-mhz";				\
+		};							\
+	};
+
+&flexpwm4_pwm0 {
+	status = "disabled";
+	pinctrl-0 = <&flexpwm4_pwm0_default>;
+	pinctrl-names = "default";
+};
+
+#undef GROVE_PWM_D3_ENABLE
+#define GROVE_PWM_D3_ENABLE						\
+	&flexpwm4_pwm0 {						\
+		status = "okay";					\
+	};
+
+#undef GROVE_PWM_D3_PINCTRL
+#define GROVE_PWM_D3_PINCTRL						\
+	&flexpwm4_pwm0_default {					\
+		group3 {						\
+			pinmux = <&iomuxc_gpio_ad_b1_08_flexpwm4_pwma0>;\
+			drive-strength = "r0-4";			\
+			bias-pull-up;					\
+			bias-pull-up-value = "47k";			\
+			slew-rate = "slow";				\
+			nxp,speed = "50-mhz";				\
+		};							\
+	};
+
+&pinctrl {
+	flexpwm1_pwm0_default: flexpwm1_pwm0_default {};
+	flexpwm1_pwm1_default: flexpwm1_pwm1_default {};
+	flexpwm1_pwm3_default: flexpwm1_pwm3_default {};
+	flexpwm2_pwm3_default: flexpwm2_pwm3_default {};
+	flexpwm4_pwm0_default: flexpwm4_pwm0_default {};
+};

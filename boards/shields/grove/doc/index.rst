@@ -526,6 +526,20 @@ not be complete.
 
       .. include:: /boards/shields/grove/doc/grove_pwms-mimxrt1010_evk.rsti
 
+   .. group-tab:: ``mimxrt1060_evk(b)``
+
+      This is based on the Zephyr board :ref:`mimxrt1060_evk` and its
+      :ref:`devicetree:dtbinding_arduino_header_r3`.
+
+      .. note::
+         This board shares many signals on this |Laced Grove Signal Interface|
+         with other on-board function units, e.g. camera and display or the
+         M.2 and TF/SD-Card connectors. Check your current board configuration
+         with the hardware user manual and/or schematic if you need to change
+         jumper or solder bridge setups for proper usage.
+
+      .. include:: /boards/shields/grove/doc/grove_pwms-mimxrt1060_evk.rsti
+
 Programming
 ===========
 

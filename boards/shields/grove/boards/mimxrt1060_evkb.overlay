@@ -1,0 +1,6 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include "mimxrt1060_evk_arduino_if.dtsi"
