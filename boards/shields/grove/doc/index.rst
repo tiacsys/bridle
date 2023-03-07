@@ -489,6 +489,15 @@ The following tables reflects the currently supported boards, but this list
 will be growing up with further development and maintenance. This list must
 not be complete.
 
+.. tabs::
+
+   .. group-tab:: ``nucleo_f401re``
+
+      This is based on the Zephyr board :ref:`nucleo_f401re_board` and its
+      :ref:`devicetree:dtbinding_arduino_header_r3`.
+
+      .. include:: /boards/shields/grove/doc/grove_pwms-nucleo_f401re.rsti
+
 Programming
 ===========
 
