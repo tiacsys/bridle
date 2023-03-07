@@ -1,0 +1,96 @@
+# Copyright (c) 2023 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+    GPIO pins exposed on STMicroelectronics MEMS (DIL24) socket.
+
+    The ST Micro Electronic Mechanical Systems (MEMS) layout provides
+    one standard DIL24 socket for additional MEMS adapters and other
+    sensors with I2C or SPI connectivity.
+
+    Proceeding counter-clockwise:
+    * The first two pins for common power supply. No pins on this header
+      are exposed by this binding.
+    * A 10-pin row with analog inputs follows.
+    * A 11-pin row with digital in-/outputs along opposite side.
+
+    This binding provides a nexus mapping for 21 pins where parent
+    pins 0 through 9 correspond to A0 through A9, and parent pins 10
+    through 20 correspond to D0 through D10, as depicted below:
+
+                     .---._.---.
+    (3V3)     VDD  - o *       o 20  D10 <-> (INT5_Pin24 / SCx/SCL  / GP)
+    (3V3)  VDD_IO  - o         o 19  D9  <-> (SA0/DEN    / GPIO3    / HP)
+    (CSx)  <-- A0  0 o         o 18  D8  <-> (SA0/DRDY   / SPI_MISO / SDO)
+    (SCx)  <-- A1  1 o         o 17  D7  <-> (I2C_SDA    / SPI_MOSI / SDI)
+    (SDx)  <-- A2  2 o         o 16  D6  <-> (I2C_SCL    / SPI_CK   / SDC)
+    (SDOx) <-- A3  3 o         o 15  D5  <-> (CS1_Pin19  / SPI_CS   / SCS)
+    (N/C)  <-- A4  4 o         o 14  D4  <-> (CS2_Pin18  / CSx      / PD)
+    (N/C)  <-- A5  5 o         o 13  D3  <-> (INT4_Pin17 / SDx/SDA  / FS)
+    (N/C)  <-- A6  6 o         o 12  D2  <-> (INT3_Pin16 / SDOx     / ST)
+    (N/C)  <-- A7  7 o         o 11  D1  <-> (INT2       / GPIO2)
+    (N/C)  <-- A8  8 o         o 10  D0  <-> (INT1       / GPIO1)
+    (N/C)  <-- A9  9 o         o -   GND
+                     `---------´
+
+    Additional information about the pinout can be found in the
+    following ST User Manuals:
+    * UM1820: X-NUCLEO-IKS01A1 shield
+    * UM2121: X-NUCLEO-IKS01A2 shield
+    * UM2559: X-NUCLEO-IKS01A3 shield
+    * UM2633: X-NUCLEO-IKS02A1 shield
+    * DB1134: STEVAL-MKI015V1 adapter board (LIS344ALH)
+    * DB1014: STEVAL-MKI089V1 adapter board (LIS331DLH)
+    * DB1288: STEVAL-MKI105V1 adapter board (LIS3DH)
+    * DB1401: STEVAL-MKI106V1 adapter board (LSM303DLHC)
+    * DB1602: STEVAL-MKI107V2 adapter board (L3GD20)
+    * DB1475: STEVAL-MKI109V2 motherboard (STM32F103RE)
+    * DB2985: STEVAL-MKI109V3 motherboard (STM32F401VE)
+    * DB1272: STEVAL-MKI110V1 adapter board (AIS328DQ)
+    * DB1624: STEVAL-MKI122V1 adapter board (LSM330DLC)
+    * DB1625: STEVAL-MKI123V1 adapter board (LSM330D)
+    * DB1935: STEVAL-MKI125V1 adapter board (A3G4250D)
+    * DB1903: STEVAL-MKI133V1 adapter board (LSM303D)
+    * DB1902: STEVAL-MKI134V1 adapter board (LIS3DSH)
+    * DB1991: STEVAL-MKI135V1 adapter board (LIS2DH)
+    * DB1992: STEVAL-MKI137V1 adapter board (LIS3MDL)
+    * DB2266: STEVAL-MKI141V2 adapter board (HTS221)
+    * DB2130: STEVAL-MKI142V1 adapter board (LPS25H)
+    * DB2509: STEVAL-MKI158V1 adapter board (AIS3624DQ)
+    * DB2533: STEVAL-MKI159V1 adapter board (LSM9DS1)
+    * DB2534: STEVAL-MKI160V1 adapter board (LSM6DS3)
+    * DB2537: STEVAL-MKI164V1 adapter board (LIS2HH12)
+    * DB3072: STEVAL-MKI173V1 adapter board (LSM303AH)
+    * DB3067: STEVAL-MKI174V1 adapter board (LIS2DS12)
+    * DB3059: STEVAL-MKI175V1 adapter board (LIS2DE12)
+    * DB3060: STEVAL-MKI176V1 adapter board (LSM6DS3H)
+    * DB3056: STEVAL-MKI177V1 adapter board (LPS35HW)
+    * DB3073: STEVAL-MKI178V1 adapter board (LSM6DSL)
+    * DB3511: STEVAL-MKI178V2 adapter board (LSM6DSL)
+    * DB3352: STEVAL-MKI181V1 adapter board (LIS2MDL)
+    * DB3353: STEVAL-MKI182V1 adapter board (ISM330DLC)
+    * DB3610: STEVAL-MKI182V2 adapter board (ISM330DLC)
+    * DB3463: STEVAL-MKI183V1 adapter board (LPS33HW)
+    * DB3481: STEVAL-MKI184V1 adapter board (ISM303DAC)
+    * DB3484: STEVAL-MKI185V1 adapter board (IIS2MDC)
+    * DB3616: STEVAL-MKI189V1 adapter board (LSM6DSM)
+    * DB3686: STEVAL-MKI192V1 adapter board (LPS22HH)
+    * DB3687: STEVAL-MKI193V1 adapter board (ASM330LHH)
+    * DB3689: STEVAL-MKI194V1 adapter board (LSM6DSR)
+    * DB3693: STEVAL-MKI195V1 adapter board (LSM6DSRX)
+    * DB3714: STEVAL-MKI196V1 adapter board (LSM6DSO)
+    * DB3721: STEVAL-MKI197V1 adapter board (LSM6DSOX)
+    * DB3859: STEVAL-MKI205V1 adapter board (LPS33W)
+    * DB4011: STEVAL-MKI207V1 adapter board (ISM330DHCX)
+    * DB4044: STEVAL-MKI213V1 adapter board (LPS27HHW)
+    * DB4223: STEVAL-MKI214V1 adapter board (LPS33K)
+    * DB4222: STEVAL-MKI215V1 adapter board (LSM6DSO32)
+    * DB4336: STEVAL-MKI217V1 adapter board (LSM6DSOX and LIS2MDL)
+    * DB4406: STEVAL-MKI219V1 adapter board (LPS22CH)
+    * DB4371: STEVAL-MKI220V1 adapter board (LPS27HHTW)
+    * DB4648: STEVAL-MKI224V1 adapter board (LPS22DF)
+    * DB4686: STEVAL-MKI225A adapter board (LPS28DFW)
+
+compatible: "st,mems-dil24-socket"
+
+include: [gpio-nexus.yaml, base.yaml]
