@@ -1,2 +1,3 @@
 adafruit	Adafruit Industries, LLC
 digilent	Digilent, Inc.
+dfrobot		DFRobot Corporation

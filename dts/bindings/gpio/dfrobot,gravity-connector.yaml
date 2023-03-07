@@ -1,0 +1,32 @@
+# Copyright (c) 2023 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+    GPIO pins exposed on DFRobot Gravity connector.
+
+    The Gravity layout provides either an 3-pin or 4-pin 2mm JST PH connector,
+    along on one edge of the board. Informations and pin assignment can be
+    found at:
+
+    - https://www.dfrobot.com/gravity
+    - https://learn.adafruit.com/introducing-adafruit-stemma-qt/dfrobot-gravity
+
+    This binding provides a nexus mapping for 2 pins where parent
+    pins 0 through 1 correspond as depicted below (with cable color):
+
+        4-pin      UART I2C
+
+         (green) 1 TX   SDA
+          (blue) 0 RX   SCL
+         (black) - GND  GND
+           (red) - VCC  VCC  (3V3 or 5V0)
+
+        3-pin      analog or digital sensors
+
+         (green) 0 A/D
+           (red) - VCC  (3V3 or 5V0)
+         (black) - GND
+
+compatible: "dfrobot,gravity-connector"
+
+include: [gpio-nexus.yaml, base.yaml]
