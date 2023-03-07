@@ -1,0 +1,24 @@
+# Copyright (c) 2023 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+    GPIO pins exposed on Adafruit STEMMA QT connector.
+
+    The STEMMA QT layout provides an 4-pin 1mm JST SH connector, along on
+    one edge of the board. Pin assignment can be found at:
+
+    - https://learn.adafruit.com/introducing-adafruit-stemma-qt/what-is-stemma-qt
+
+    This binding provides a nexus mapping for 2 pins where parent
+    pins 0 through 1 correspond as depicted below (with cable color):
+
+        4-pin      I2C only
+
+        (yellow) 0 SCL
+          (blue) 1 SDA
+           (red) - VCC  (3V3 or 5V0)
+         (black) - GND
+
+compatible: "adafruit,stemmaqt-connector"
+
+include: [gpio-nexus.yaml, base.yaml]
