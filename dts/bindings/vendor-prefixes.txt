@@ -2,3 +2,4 @@ adafruit	Adafruit Industries, LLC
 digilent	Digilent, Inc.
 dfrobot		DFRobot Corporation
 seeed		Seeed Technology Co., Ltd
+sparkfun	SparkFun Electronics, Inc.
