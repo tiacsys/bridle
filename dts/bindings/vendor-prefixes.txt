@@ -1,1 +1,2 @@
 adafruit	Adafruit Industries, LLC
+digilent	Digilent, Inc.
