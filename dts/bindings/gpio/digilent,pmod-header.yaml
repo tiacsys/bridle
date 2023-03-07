@@ -1,0 +1,97 @@
+# Copyright (c) 2023 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+    GPIO pins exposed on Digilent Pmod header.
+
+    The Pmod layout provides standard 100mil spaced, 25mil square,
+    pin-header style 6-pin (Spec A/C) or 12-pin (Spec B/D) connectors
+    with currently 7 pin assignments to support different use cases
+    for GPIO (Type 1), SPI, (Type 2), UART (Type 3), H-Bridge (Type 4),
+    Dual H-Bridge (Type 5), I2C (Type 6), I2S (Type 7).
+
+    The peripheral module board will have a male connector. This will
+    typically be a right-angle connector, at the board edge, for direct
+    connection to a host board. The host board will typically have a
+    12-pin right-angle female connector at the board edge for direct
+    connection of peripheral module boards.
+
+    The power pins of the interface (VCC) provide power from the host to
+    the peripheral. The complete interface requires that the host provide
+    the ability to switch the voltage on the power pins between 5V and
+    3.3V. A reduced functionality subset of the specification allows the
+    host to provide only 3.3V at the power supply pins, with no ability
+    to switch. On the 12-pin version of the interface, both power supply
+    pins switch together and always supply the same voltage. These pins
+    may be shorted together at either the host end or the peripheral side.
+
+    Pin assignment and all specifications can be found at:
+    https://digilent.com/reference/pmod/start
+
+    This binding provides a nexus mapping for 8 pins where parent
+    pins 0 through 7 correspond as depicted below depending on
+    related "Spec" and "Type":
+
+                                 (Spec B/D) 12-pin   6-pin (Spec A/C)
+                                                | \ /
+                                                |  |
+
+    GPIO (Types 1/1A):                      IO5 4  0 IO1
+                                      (PWM) IO6 5  1 IO2 (PWM)
+                                            IO7 6  2 IO3
+                                            IO8 7  3 IO4
+                                            GND -  - GND
+                                            VCC -  - VCC
+
+    SPI (Types 2/2A):                 (INT) IO5 4  0 CS
+                                    (RESET) IO6 5  1 MOSI
+                                      (CS2) IO7 6  2 MISO
+                                      (CS3) IO8 7  3 SCK
+                                            GND -  - GND
+                                            VCC -  - VCC
+
+    UART (Types 3/3A):                (INT) IO5 4  0 CTS (IO1)
+                                    (RESET) IO6 5  1 TXD
+                                            IO7 6  2 RXD
+                                            IO8 7  3 RTS (IO4)
+                                            GND -  - GND
+                                            VCC -  - VCC
+
+    H-Bridge (Types 4):                            0 DIR
+                                                   1 EN (PWM)
+                                                   2 SA
+                                                   3 SB
+                                                   - GND
+                                                   - VCC
+
+    Dual H-Bridge (Types 5):                       0 DIR1
+                                                   1 EN1
+                                                   2 DIR2
+                                                   3 EN2
+                                                   - GND
+                                                   - VCC
+
+    Dual H-Bridge (Types 5A):              DIR2 4  0 DIR1
+                                      (PWM) EN2 5  1 EN1 (PWM)
+                                            S2A 6  2 S1A
+                                            S2B 7  3 S1B
+                                            GND -  - GND
+                                            VCC -  - VCC
+
+    I2C (Types 6/6A):                       IO5 4  0 N/C (IO1) (INT)
+                                            IO6 5  1 N/C (IO2) (RESET)
+                                            IO7 6  2 SCL
+                                            IO8 7  3 SDA
+                                            GND -  - GND
+                                            VCC -  - VCC
+
+    I2S (Types 7):                          IO5 4  0 LRCLK
+                                            IO6 5  1 DAC Data
+                                     (MCLK) IO7 6  2 ADC Data
+                                            IO8 7  3 BCLK
+                                            GND -  - GND
+                                            VCC -  - VCC
+
+compatible: "digilent,pmod-header"
+
+include: [gpio-nexus.yaml, base.yaml]
