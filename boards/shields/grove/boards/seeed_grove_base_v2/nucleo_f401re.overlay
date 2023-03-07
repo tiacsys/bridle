@@ -1,0 +1,48 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	grove_laced_if_v2: grove-laced-if-v2 {
+
+		compatible = "seeed,grove-laced-if";
+
+		#pwm-cells = <3>;
+		pwm-map-mask = <0xffffffff 0 0xffffffc0>;
+		pwm-map-pass-thru = <0 0xffffffff 0x3f>;
+		pwm-map =
+			/*  0 - D0: not possible */
+			/*  1 - D1: not possible */
+			<2 0 0 &pwm1 3 0 0>,		/* D2: PWM1CH3 */
+			<3 0 0 &pwm2 2 0 0>,		/* D3: PWM2CH2 */
+			/*  4 - D4: not possible */
+			<5 0 0 &pwm3 1 0 0>,		/* D5: PWM3CH1 */
+			<6 0 0 &pwm2 3 0 0>,		/* D6: PWM2CH3 */
+			<7 0 0 &pwm1 1 0 0>,		/* D7: PWM1CH1 */
+			<8 0 0 &pwm1 2 0 0>,		/* D8: PWM1CH2 */
+			<9 0 0 &pwm3 2 0 0>,		/* D9: PWM3CH2 */
+			/* 10 - D10: not wired */
+			/* 11 - D11: not wired */
+			/* 12 - D12: not wired */
+			/* 13 - D13: not wired */
+			/* 14 - D14: not possible */
+			/* 15 - D15: not possible */
+			/* 16 - D16: not possible */
+			/* 17 - D17: not possible */
+			<18 0 0 &pwm11 1 0 0>,		/* D18: I2C-SDA as PWM11CH1 */
+			<19 0 0 &pwm10 1 0 0>;		/* D19: I2C-SCL as PWM10CH1 */
+	};
+};
+
+grove_pwms: &grove_laced_if_v2 {};
+
+grove_pwm_d2: &pwm1 {};
+grove_pwm_d3: &pwm2 {};
+grove_pwm_d5: &pwm3 {};
+grove_pwm_d6: &pwm2 {};
+grove_pwm_d7: &pwm1 {};
+grove_pwm_d8: &pwm1 {};
+grove_pwm_d9: &pwm3 {};
+grove_pwm_d18: &pwm11 {};
+grove_pwm_d19: &pwm10 {};
