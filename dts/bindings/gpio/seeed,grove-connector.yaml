@@ -1,0 +1,27 @@
+# Copyright (c) 2023 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+    GPIO pins exposed on Seeed Studio Grove connector.
+
+    The Grove layout provides an 4-pin 2mm proprietary connector, along on
+    one edge of the board. Informations and pin assignment can be found at:
+
+    - https://wiki.seeedstudio.com/Grove_System
+    - https://wiki.sipeed.com/soft/maixpy/en/modules/grove
+    - https://lesporteslogiques.net/wiki/materiel/systeme_grove#brochage
+    - https://learn.adafruit.com/introducing-adafruit-stemma-qt/seeed-studio-grove
+
+    This binding provides a nexus mapping for 2 pins where parent
+    pins 0 through 1 correspond as depicted below (with cable color):
+
+        4-pin      analog  digital  UART   I2C                  (SPI)
+
+        (yellow) 0 An      Dn       RX     SCL                0 (SCK)
+         (white) 1 An+1    Dn+1     TX     SDA                1 (MISO)
+           (red) - VCC     VCC      VCC    VCC  (3V3 or 5V0)  2 (MOSI)
+         (black) - GND     GND      GND    GND                3 (SS)
+
+compatible: "seeed,grove-connector"
+
+include: [gpio-nexus.yaml, base.yaml]
