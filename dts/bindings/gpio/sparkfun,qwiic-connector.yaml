@@ -1,0 +1,25 @@
+# Copyright (c) 2023 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+    GPIO pins exposed on SparkFun Qwiic connector.
+
+    The Qwiic layout provides an 4-pin 1mm JST SH connector, along on
+    one edge of the board. Pin assignment can be found at:
+
+    - https://www.sparkfun.com/qwiic
+    - https://learn.adafruit.com/introducing-adafruit-stemma-qt/sparkfun-qwiic
+
+    This binding provides a nexus mapping for 2 pins where parent
+    pins 0 through 1 correspond as depicted below (with cable color):
+
+        4-pin      I2C only
+
+        (yellow) 0 SCL
+          (blue) 1 SDA
+           (red) - 3V3
+         (black) - GND
+
+compatible: "sparkfun,qwiic-connector"
+
+include: [gpio-nexus.yaml, base.yaml]
