@@ -1,0 +1,169 @@
+common:
+  tags: base shields grove
+  build_only: true
+  build_on_all: true
+  filter: dt_compat_enabled("seeed,grove-laced-if") and
+          dt_compat_enabled("seeed,grove-connector")
+  platform_exclude:
+    cy8ckit_062_ble_m0 cy8ckit_062_ble_m0@0.0.0 cy8ckit_062_ble_m0@1.0.0
+    cy8ckit_062_ble_m4 cy8ckit_062_ble_m4@0.0.0
+    da1469x_dk_pro
+    frdm_kw41z
+    hifive1 hifive1_revb
+    lpcxpresso55s16
+    nrf9160dk_nrf9160_ns
+    pan1781_evb pan1782_evb
+    rv32m1_vega_ri5cy rv32m1_vega_zero_riscy
+    stm32h735g_disco stm32mp157c_dk2
+tests:
+  grove.base.v2:
+    depends_on: arduino_gpio
+    filter: dt_nodelabel_enabled("grove_laced_if_v2") and
+            dt_nodelabel_enabled("grove_d0_header") and
+            dt_nodelabel_enabled("grove_d2_header") and
+            dt_nodelabel_enabled("grove_d3_header") and
+            dt_nodelabel_enabled("grove_d4_header") and
+            dt_nodelabel_enabled("grove_d5_header") and
+            dt_nodelabel_enabled("grove_d6_header") and
+            dt_nodelabel_enabled("grove_d7_header") and
+            dt_nodelabel_enabled("grove_d8_header") and
+            dt_nodelabel_enabled("grove_a0_header") and
+            dt_nodelabel_enabled("grove_a1_header") and
+            dt_nodelabel_enabled("grove_a2_header") and
+            dt_nodelabel_enabled("grove_a3_header") and
+            dt_nodelabel_enabled("grove_uart_header") and
+            dt_nodelabel_enabled("grove_i2c_header")
+    extra_args: SHIELD=seeed_grove_base_v2
+  grove.base.v1:
+    depends_on: arduino_gpio
+    filter: dt_nodelabel_enabled("grove_laced_if_v1") and
+            dt_nodelabel_enabled("grove_d0_header") and
+            dt_nodelabel_enabled("grove_d1_header") and
+            dt_nodelabel_enabled("grove_d2_header") and
+            dt_nodelabel_enabled("grove_d3_header") and
+            dt_nodelabel_enabled("grove_d4_header") and
+            dt_nodelabel_enabled("grove_d5_header") and
+            dt_nodelabel_enabled("grove_d6_header") and
+            dt_nodelabel_enabled("grove_d7_header") and
+            dt_nodelabel_enabled("grove_d8_header") and
+            dt_nodelabel_enabled("grove_d9_header") and
+            dt_nodelabel_enabled("grove_d10_header") and
+            dt_nodelabel_enabled("grove_d11_header") and
+            dt_nodelabel_enabled("grove_d12_header") and
+            dt_nodelabel_enabled("grove_d13_header") and
+            dt_nodelabel_enabled("grove_a0_header") and
+            dt_nodelabel_enabled("grove_a1_header") and
+            dt_nodelabel_enabled("grove_a2_header") and
+            dt_nodelabel_enabled("grove_a3_header") and
+            dt_nodelabel_enabled("grove_a4_header") and
+            dt_nodelabel_enabled("grove_uart_header") and
+            dt_nodelabel_enabled("grove_i2c_header") and
+            dt_nodelabel_enabled("grove_spi_header")
+    extra_args: SHIELD=seeed_grove_base_v1
+  grove.rpipico.v1:
+    filter: dt_nodelabel_enabled("grove_laced_if_v1") and
+            dt_nodelabel_enabled("grove_d1_header") and
+            dt_nodelabel_enabled("grove_d5_header") and
+            dt_nodelabel_enabled("grove_d7_header") and
+            dt_nodelabel_enabled("grove_d9_header") and
+            dt_nodelabel_enabled("grove_d16_header") and
+            dt_nodelabel_enabled("grove_d18_header") and
+            dt_nodelabel_enabled("grove_d20_header") and
+            dt_nodelabel_enabled("grove_a0_header") and
+            dt_nodelabel_enabled("grove_a1_header") and
+            dt_nodelabel_enabled("grove_a2_header") and
+            dt_nodelabel_enabled("grove_uart0_header") and
+            dt_nodelabel_enabled("grove_uart1_header") and
+            dt_nodelabel_enabled("grove_i2c0_header") and
+            dt_nodelabel_enabled("grove_i2c1_header") and
+            dt_nodelabel_enabled("generic_spi_header")
+    platform_allow:
+      rpi_pico
+    extra_args: SHIELD=seeed_grove_rpipico_v1
+  grove.base.v2.arduino:
+    # May be skipped if the board has at least one of the Ardunio standard
+    # interfaces UART, I2c or SPI disabled at the time.
+    depends_on: arduino_gpio
+    filter: dt_nodelabel_enabled("grove_laced_if_v2") and
+            dt_nodelabel_enabled("arduino_header") and
+            dt_nodelabel_enabled("grove_gpios") and
+            dt_nodelabel_enabled("arduino_serial") and
+            dt_nodelabel_enabled("grove_uart") and
+            dt_nodelabel_enabled("arduino_i2c") and
+            dt_nodelabel_enabled("grove_i2c") and
+            dt_nodelabel_enabled("arduino_spi") and
+            dt_nodelabel_enabled("grove_spi")
+    platform_allow:
+      nucleo_f303re
+      nucleo_f401re
+      nucleo_f413zh
+      nucleo_f767zi
+      mimxrt1010_evk
+      mimxrt1060_evk mimxrt1060_evkb
+    extra_args: SHIELD=seeed_grove_base_v2
+  grove.base.v1.arduino:
+    # May be skipped if the board has at least one of the Ardunio standard
+    # interfaces UART, I2c or SPI disabled at the time.
+    depends_on: arduino_gpio
+    filter: dt_nodelabel_enabled("grove_laced_if_v1") and
+            dt_nodelabel_enabled("arduino_header") and
+            dt_nodelabel_enabled("grove_gpios") and
+            dt_nodelabel_enabled("arduino_serial") and
+            dt_nodelabel_enabled("grove_uart") and
+            dt_nodelabel_enabled("arduino_i2c") and
+            dt_nodelabel_enabled("grove_i2c") and
+            dt_nodelabel_enabled("arduino_spi") and
+            dt_nodelabel_enabled("grove_spi")
+    platform_allow:
+      nucleo_f303re
+      nucleo_f401re
+      nucleo_f413zh
+      nucleo_f767zi
+      mimxrt1010_evk
+      mimxrt1060_evk mimxrt1060_evkb
+    extra_args: SHIELD=seeed_grove_base_v1
+  grove.rpipico.v1.rpipico:
+    # May be skipped if the board has at least one of the Ardunio standard
+    # interfaces UART, I2c or SPI disabled at the time.
+    filter: dt_nodelabel_enabled("grove_laced_if_v1") and
+            dt_nodelabel_enabled("rpipico_header") and
+            dt_nodelabel_enabled("grove_gpios") and
+            dt_nodelabel_enabled("rpipico_serial") and
+            dt_nodelabel_enabled("grove_uart") and
+            dt_nodelabel_enabled("rpipico_i2c") and
+            dt_nodelabel_enabled("grove_i2c") and
+            dt_nodelabel_enabled("rpipico_spi") and
+            dt_nodelabel_enabled("grove_spi")
+    platform_allow:
+      rpi_pico
+    extra_args: SHIELD=seeed_grove_rpipico_v1
+  grove_pwms.base.v2:
+    depends_on: arduino_gpio
+    filter: dt_nodelabel_enabled("grove_laced_if_v2") and
+            dt_nodelabel_enabled("grove_pwms")
+    platform_allow:
+      nucleo_f303re
+      nucleo_f401re
+      nucleo_f413zh
+      nucleo_f767zi
+      mimxrt1010_evk
+      mimxrt1060_evk mimxrt1060_evkb
+    extra_args: SHIELD=seeed_grove_base_v2
+  grove_pwms.base.v1:
+    depends_on: arduino_gpio
+    filter: dt_nodelabel_enabled("grove_laced_if_v1") and
+            dt_nodelabel_enabled("grove_pwms")
+    platform_allow:
+      nucleo_f303re
+      nucleo_f401re
+      nucleo_f413zh
+      nucleo_f767zi
+      mimxrt1010_evk
+      mimxrt1060_evk mimxrt1060_evkb
+    extra_args: SHIELD=seeed_grove_base_v1
+  grove_pwms.rpipico.v1:
+    filter: dt_nodelabel_enabled("grove_laced_if_v1") and
+            dt_nodelabel_enabled("grove_pwms")
+    platform_allow:
+      rpi_pico
+    extra_args: SHIELD=seeed_grove_rpipico_v1
