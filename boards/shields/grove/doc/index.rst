@@ -491,6 +491,13 @@ not be complete.
 
 .. tabs::
 
+   .. group-tab:: ``nucleo_f303re``
+
+      This is based on the Zephyr board :ref:`nucleo_f303re_board` and its
+      :ref:`devicetree:dtbinding_arduino_header_r3`.
+
+      .. include:: /boards/shields/grove/doc/grove_pwms-nucleo_f303re.rsti
+
    .. group-tab:: ``nucleo_f401re``
 
       This is based on the Zephyr board :ref:`nucleo_f401re_board` and its
