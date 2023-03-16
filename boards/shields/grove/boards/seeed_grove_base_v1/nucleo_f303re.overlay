@@ -1,0 +1,56 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/pwm/stm32_pwm.h>
+
+/ {
+	grove_laced_if_v1: grove-laced-if-v1 {
+
+		compatible = "seeed,grove-laced-if";
+
+		#pwm-cells = <3>;
+		pwm-map-mask = <0xffffffff 0 0xffffffc0>;
+		pwm-map-pass-thru = <0 0xffffffff 0x3f>;
+		pwm-map =
+			/*  0 - D0: not possible */
+			/*  1 - D1: not possible */
+			<2 0 0 &pwm2 4 0 0>,		/* D2: PWM2CH4 */
+			<3 0 0 &pwm2 2 0 0>,		/* D3: PWM2CH2 */
+			<4 0 0 &pwm8 3 0
+			 STM32_PWM_COMPLEMENTARY>,	/* D4: PWM8CH3N */
+			<5 0 0 &pwm3 1 0 0>,		/* D5: PWM3CH1 */
+			<6 0 0 &pwm2 3 0 0>,		/* D6: PWM2CH3 */
+			<7 0 0 &pwm1 1 0 0>,		/* D7: PWM1CH1 */
+			<8 0 0 &pwm1 2 0 0>,		/* D8: PWM1CH2 */
+			<9 0 0 &pwm3 2 0 0>,		/* D9: PWM3CH2 */
+			<10 0 0 &pwm4 1 0 0>,		/* D10: PWM4CH1 */
+			<11 0 0 &pwm17 1 0 0>,		/* D11: PWM17CH1 */
+			<12 0 0 &pwm16 1 0 0>,		/* D12: PWM16CH1 */
+			<13 0 0 &pwm2 1 0 0>,		/* D13: PWM2CH1 */
+			/* 14 - D14: not possible */
+			/* 15 - D15: not possible */
+			/* 16 - D16: not possible */
+			/* 17 - D17: not possible */
+			<18 0 0 &pwm8 3 0 0>,		/* D18: I2C-SDA as PWM8CH3 */
+			<19 0 0 &pwm8 2 0 0>;		/* D19: I2C-SCL as PWM8CH2 */
+	};
+};
+
+grove_pwms: &grove_laced_if_v1 {};
+
+grove_pwm_d2: &pwm2 {};
+grove_pwm_d3: &pwm2 {};
+grove_pwm_d4: &pwm8 {};
+grove_pwm_d5: &pwm3 {};
+grove_pwm_d6: &pwm2 {};
+grove_pwm_d7: &pwm1 {};
+grove_pwm_d8: &pwm1 {};
+grove_pwm_d9: &pwm3 {};
+grove_pwm_d10: &pwm4 {};
+grove_pwm_d11: &pwm17 {};
+grove_pwm_d12: &pwm16 {};
+grove_pwm_d13: &pwm2 {};
+grove_pwm_d18: &pwm8 {};
+grove_pwm_d19: &pwm8 {};
