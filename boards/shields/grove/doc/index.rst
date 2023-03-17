@@ -512,6 +512,20 @@ not be complete.
 
       .. include:: /boards/shields/grove/doc/grove_pwms-nucleo_f767zi.rsti
 
+   .. group-tab:: ``mimxrt1010_evk``
+
+      This is based on the Zephyr board :ref:`mimxrt1010_evk` and its
+      :ref:`devicetree:dtbinding_arduino_header_r3`.
+
+      .. note::
+         This board shares many signals on this |Laced Grove Signal Interface|
+         with other on-board function units, e.g. audio codec and sensors or
+         the SPI Flash (when populated). Check your current board configuration
+         with the hardware user manual and/or schematic if you need to change
+         jumper or solder bridge setups for proper usage.
+
+      .. include:: /boards/shields/grove/doc/grove_pwms-mimxrt1010_evk.rsti
+
 Programming
 ===========
 

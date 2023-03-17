@@ -1,0 +1,142 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/*
+ * On NXP MIMXRT1010-EVK pin D4 (GPIO), D5 (GPIO/PWM), and D9 (GPIO/PWM)
+ * are disconnected in default and can be closed optionally. But keep in
+ * mind that the signals are already connected to a on-board header for
+ * the NXP special motor driver add-on bard.
+ */
+
+&arduino_header {
+	gpio-map = <0 0 &gpio1 21 0>,	/* A0 */
+		   <1 0 &gpio1 23 0>,	/* A1 */
+		   <2 0 &gpio1 24 0>,	/* A2 */
+		   <3 0 &gpio1 28 0>,	/* A3 */
+		   <4 0 &gpio1 15 0>,	/* A4 (shared with D6) */
+		   <5 0 &gpio1 16 0>,	/* A5 (shared with D7) */
+		   <6 0 &gpio1 9 0>,	/* D0 */
+		   <7 0 &gpio1 10 0>,	/* D1 */
+		   <8 0 &gpio1 19 0>,	/* D2 (shared with D10) */
+		   <9 0 &gpio1 20 0>,	/* D3 (shared with D13) */
+		   <10 0 &gpio1 8 0>,	/* D4 (R800 populated) */
+		   <11 0 &gpio1 1 0>,	/* D5 (R793, shared with D14) */
+		   <12 0 &gpio1 15 0>,	/* D6 (shared with A4) */
+		   <13 0 &gpio1 16 0>,	/* D7 (shared with A5) */
+		   <14 0 &gpio2 2 0>,	/* D8 */
+		   <15 0 &gpio1 3 0>,	/* D9 (R795 populated) */
+		   <16 0 &gpio1 19 0>,	/* D10 (shared with D2) */
+		   <17 0 &gpio1 18 0>,	/* D11 */
+		   <18 0 &gpio1 17 0>,	/* D12 */
+		   <19 0 &gpio1 20 0>,	/* D13 (shared with D3) */
+		   <20 0 &gpio1 1 0>,	/* D14 (shared with D5)*/
+		   <21 0 &gpio1 2 0>;	/* D15 */
+};
+
+/*
+ * On NXP MIMXRT1010-EVK pin D14 (SDA) and D15 (SCL) will be shared with
+ * multiple on-board components: audio codec and sensors. Pin A4 (SDA)
+ * and A5 (SCL) are not connected in parallel, but unusually shared with
+ * pin D6 (A4) and D7 (A5) as same signal line. When solder bridge R793
+ * for pin D5 was populated, pin D5 (GPIO/PWM) will be shared with pin
+ * D14 (SDA) and is connected in parallel.
+ */
+
+arduino_i2c: &lpi2c1 {};
+
+/*
+ * On NXP MIMXRT1010-EVK pin D10 (CS), D11 (MOSI), D12 (MISO) and D13 (CLK)
+ * are always connected to the on-board but not populated SPI flash in default
+ * and can be disconnected optionally. Pin D10 (CS) will be shared with
+ * pin D2 (GPIO/INT0) and is connected in parallel. Pin D13 (CLK) will be
+ * shared with pin D3 (GPIO/PWM) and is connected in parallel.
+ */
+
+arduino_spi: &lpspi1 {};
+
+/*
+ * On NXP MIMXRT1010-EVK pin D0 (RX) and D1 (TX) will be shared with the
+ * on-board FreeLink ISP module (ARM DAPLink CMSIS-DAP / Segger JLink).
+ */
+
+#include "arduino_to_grove_if.dtsi"
+
+/*
+ * On NXP MIMXRT1010-EVK following pins can be used as PWM outputs:
+ *
+ *   Grove pin   port         unit   channel   Arduino UNO R3 requirements
+ *
+ *         D0    GPIO_09                       RX   / GPIO
+ *         D1    GPIO_10                       TX   / GPIO
+ *   (D10) D2    GPIO_AD_05                    INT0 / GPIO
+ *   (D13) D3    GPIO_AD_06   (not possible)   INT1 / GPIO with PWM support
+ * (Codec) D4    GPIO_08                       (R800) GPIO
+ *   (D18) D5    GPIO_01      (not possible)   (R793) GPIO with PWM support
+ *    (A4) D6    GPIO_AD_01   (not possible)          GPIO with PWM support
+ *    (A5) D7    GPIO_AD_02                           GPIO
+ *         D8    GPIO_SD_02   PWM1   A0               GPIO
+ *         D9    GPIO_03      PWM1   B1        (R795) GPIO with PWM support
+ * (Flash) D10   GPIO_AD_05                    SS   / GPIO with PWM support
+ * (Flash) D11   GPIO_AD_04   (not possible)   MOSI / GPIO with PWM support
+ * (Flash) D12   GPIO_AD_03                    MISO / GPIO
+ * (Flash) D13   GPIO_AD_06                    SCK  / GPIO
+ * (Codec) D18   GPIO_01                       SDA  / GPIO
+ *         D19   GPIO_02                       SCL  / GPIO
+ */
+
+&flexpwm1_pwm0 {
+	status = "disabled";
+	pinctrl-0 = <&flexpwm1_pwm0_default>;
+	pinctrl-names = "default";
+};
+
+#undef GROVE_PWM_D8_ENABLE
+#define GROVE_PWM_D8_ENABLE						\
+	&flexpwm1_pwm0 {						\
+		status = "okay";					\
+	};
+
+#undef GROVE_PWM_D8_PINCTRL
+#define GROVE_PWM_D8_PINCTRL						\
+	&flexpwm1_pwm0_default {					\
+		group8 {						\
+			pinmux = <&iomuxc_gpio_sd_02_flexpwm1_pwm0_a>;	\
+			drive-strength = "r0-4";			\
+			bias-pull-up;					\
+			bias-pull-up-value = "47k";			\
+			slew-rate = "slow";				\
+			nxp,speed = "50-mhz";				\
+		};							\
+	};
+
+&flexpwm1_pwm1 {
+	status = "disabled";
+	pinctrl-0 = <&flexpwm1_pwm1_default>;
+	pinctrl-names = "default";
+};
+
+#undef GROVE_PWM_D9_ENABLE
+#define GROVE_PWM_D9_ENABLE						\
+	&flexpwm1_pwm1 {						\
+		status = "okay";					\
+	};
+
+#undef GROVE_PWM_D9_PINCTRL
+#define GROVE_PWM_D9_PINCTRL						\
+	&flexpwm1_pwm1_default {					\
+		group9 {						\
+			pinmux = <&iomuxc_gpio_03_flexpwm1_pwm1_b>;	\
+			drive-strength = "r0-4";			\
+			bias-pull-up;					\
+			bias-pull-up-value = "47k";			\
+			slew-rate = "slow";				\
+			nxp,speed = "50-mhz";				\
+		};							\
+	};
+
+&pinctrl {
+	flexpwm1_pwm0_default: flexpwm1_pwm0_default {};
+	flexpwm1_pwm1_default: flexpwm1_pwm1_default {};
+};
