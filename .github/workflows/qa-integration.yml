@@ -37,7 +37,107 @@ on:
       - '.github/workflows/qa-integration.yml'
 
 jobs:
-  qa-integration:
+  qa-shield-integration:
+    name: Run integration tests for shields
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/zephyrproject-rtos/ci:v0.24.13
+      options: '--entrypoint /bin/bash'
+    env:
+      ZEPHYR_SDK_INSTALL_DIR: /opt/toolchains/zephyr-sdk-0.15.2
+
+    steps:
+      - name: Apply container owner mismatch workaround
+        run: |
+          # FIXME: The owner UID of the GITHUB_WORKSPACE directory may not
+          #        match the container user UID because of the way GitHub
+          #        Actions runner is implemented. Remove this workaround when
+          #        GitHub comes up with a fundamental fix for this problem.
+          git config --global --add safe.directory ${GITHUB_WORKSPACE}
+
+      - name: Update GitHub PATH for west
+        run: |
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+      - name: Checkout the code
+        uses: actions/checkout@v3
+        with:
+          path: workspace/bridle
+          submodules: recursive
+          ref: ${{ github.ref }}
+
+      - name: Restore PIP Cache
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-qa-pip
+
+      - name: Install base dependencies
+        working-directory: workspace
+        run: |
+          pip3 install --upgrade pip
+          pip3 install --upgrade setuptools
+          pip3 install --upgrade --requirement bridle/scripts/requirements-base.txt
+
+      - name: West init and update
+        working-directory: workspace
+        run: |
+          west init -l bridle
+          west update
+          west zephyr-export
+          west bridle-export
+
+      - name: Install build and test dependencies
+        working-directory: workspace
+        run: |
+          pip3 install --upgrade --requirement zephyr/scripts/requirements-base.txt
+          pip3 install --upgrade --requirement zephyr/scripts/requirements-build-test.txt
+          pip3 install --upgrade --requirement zephyr/scripts/requirements-run-test.txt
+          pip3 install --upgrade --requirement zephyr/scripts/requirements-extras.txt
+          pip3 install --upgrade --requirement zephyr/scripts/requirements-compliance.txt
+          pip3 install --upgrade --requirement bridle/scripts/requirements-build.txt
+
+      - name: Build integration tests for shields
+        working-directory: workspace
+        run: |
+          #
+          # Disabled in the meantime because the execution time is still
+          # too high:
+          #
+          # --testsuite-root bridle/tests/shields/grove_btn/dts_bindings \
+          # --testsuite-root bridle/tests/shields/grove_led/dts_bindings \
+          #
+          west twister --verbose --jobs 4 \
+            --outdir twister-out --no-clean --inline-logs \
+            --enable-size-report --platform-reports \
+            --board-root bridle/boards \
+            --platform rpi_pico \
+            --platform nucleo_f303re \
+            --platform nucleo_f401re \
+            --platform nucleo_f413zh \
+            --platform nucleo_f767zi \
+            --platform mimxrt1010_evk \
+            --platform mimxrt1060_evk \
+            --platform mimxrt1060_evkb \
+            --testsuite-root bridle/tests/shields/grove/dts_bindings \
+            --testsuite-root bridle/tests/shields/x_grove_testbed/dts_bindings
+
+      - name: Upload integration test results
+        uses: actions/upload-artifact@v3
+        with:
+          name: twister-shields.xml
+          path: workspace/twister-out/twister.xml
+
+      - name: Convert integration test reports to annotations
+        uses: mikepenz/action-junit-report@v3
+        with:
+          check_name: twister-report (shields)
+          report_paths: "**/twister-out/twister.xml"
+          require_tests: true
+          fail_on_failure: false
+        if: always()
+
+  qa-target-integration:
     name: Run integration tests on targets
     runs-on: [self-hosted, linux, gnuarmemb, zephyr-sdk, tiac_magpie]
 
@@ -99,9 +199,7 @@ jobs:
           # --testsuite-root zephyr/tests/kernel \
           # --testsuite-root zephyr/tests/arch/arm \
           #
-          export ZEPHYR_BASE="$(pwd)/zephyr"
-          export BRIDLE_BASE="$(pwd)/bridle"
-          ./zephyr/scripts/twister --verbose --jobs 4 \
+          west twister --verbose --jobs 4 \
             --retry-failed 5 --retry-interval 120 \
             --outdir twister-out --no-clean --inline-logs \
             --enable-size-report --platform-reports \
@@ -122,7 +220,7 @@ jobs:
       - name: Upload integration test results
         uses: actions/upload-artifact@v3
         with:
-          name: twister.xml
+          name: twister-targets.xml
           path: workspace/twister-out/twister.xml
 
       - name: Convert integration test reports to annotations
