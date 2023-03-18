@@ -41,7 +41,12 @@
 /boards/posix/                            @rexut
 /boards/riscv/                            @rexut
 /boards/shields/                          @rexut
+/boards/shields/can_timing_adj/           @rexut
+/boards/shields/grove/                    @rexut
+/boards/shields/grove_btn/                @rexut
+/boards/shields/grove_led/                @rexut
 /boards/shields/loopback_test/            @rexut
+/boards/shields/x_grove_testbed/          @rexut
 /boards/sparc/                            @rexut
 /boards/x86/                              @rexut
 /boards/xtensa/                           @rexut
