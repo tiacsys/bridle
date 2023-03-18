@@ -65,7 +65,8 @@ if(("zephyr" STREQUAL ${ZEPHYR_TOOLCHAIN_VARIANT}) OR
   set(CMAKE_FIND_PACKAGE_SORT_ORDER NATURAL)
 
   find_package(Zephyr-sdk ${BRIDLE_TOOLCHAIN_ZEPHYR_SDK_REQUIRED_VERSION}
-                          ${EXACT} QUIET
+                          ${EXACT} REQUIRED QUIET CONFIG
+                          HINTS ${ZEPHYR_SDK_INSTALL_DIR}
                           PATHS /usr
                                 /usr/local
                                 /opt
