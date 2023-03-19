@@ -505,6 +505,13 @@ not be complete.
 
       .. include:: /boards/shields/grove/doc/grove_pwms-nucleo_f401re.rsti
 
+   .. group-tab:: ``nucleo_f767zi``
+
+      This is based on the Zephyr board :ref:`nucleo_f767zi_board` and its
+      :ref:`devicetree:dtbinding_arduino_header_r3`.
+
+      .. include:: /boards/shields/grove/doc/grove_pwms-nucleo_f767zi.rsti
+
 Programming
 ===========
 
