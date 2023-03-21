@@ -1,0 +1,17 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	generic_spi_header: generic-spi-connector {
+		compatible = "generic-pin-header";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <0 0 &rpipico_header 5 0>,	/* GP5 / UART1-RX / SPI0-CS */
+			   <1 0 &rpipico_header 4 0>,	/* GP4 / UART1-TX / SPI0-MISO */
+			   <2 0 &rpipico_header 3 0>,	/* GP3 / SPI0-MOSI */
+			   <3 0 &rpipico_header 2 0>;	/* GP2 / SPI0-CLK */
+	};
+};
