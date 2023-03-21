@@ -1,0 +1,25 @@
+# Copyright (c) 2023 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+    GPIO pins exposed on an ordinary male or female pin headers.
+
+    This generic description has no reference to a concrete interface
+    with firmly defined and assigned signals. Rather, it serves the general
+    abstraction of arbitrary and freely definable male and female connectors,
+    which do not follow any generally valid specifications. Examples of this
+    are auxiliary or commissioning interfaces.
+
+    The counting manner and direction does not matter here and must be
+    specified by the respective system and must be adhered to for itself.
+    Here are a few examples from practice, as they are often encountered:
+
+        1 --o       1 --o  o-- N        1 --o  o-- N/2+1   1 --o  o-- 2
+        2 --o       2 --o  o-- N-1      2 --o  o-- …       … --o  o-- …
+        … --o       … --o  o-- …        … --o  o-- …     N/2 --o  o-- N/2+1
+      N-1 --o       … --o  o-- …        … --o  o-- N-1     … --o  o-- …
+        N --o     N/2 --o  o-- N/2+1  N/2 --o  o-- N     N-1 --o  o-- N
+
+compatible: "generic-pin-header"
+
+include: [gpio-nexus.yaml, base.yaml]
