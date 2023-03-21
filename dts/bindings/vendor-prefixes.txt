@@ -1,6 +1,7 @@
 adafruit	Adafruit Industries, LLC
 digilent	Digilent, Inc.
 dfrobot		DFRobot Corporation
+raspberrypi	Raspberry Pi Foundation
 seeed		Seeed Technology Co., Ltd
 sparkfun	SparkFun Electronics, Inc.
 st		STMicroelectronics International N.V.
