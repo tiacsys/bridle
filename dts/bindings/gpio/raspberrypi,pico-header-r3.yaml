@@ -1,0 +1,41 @@
+# Copyright (c) 2023 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+    GPIO pins exposed on Raspberry Pi Pico (R3) headers.
+
+    The Pico layout provides two headers, one each along opposite edges
+    of the board.
+
+    Proceeding counter-clockwise:
+    * A 20-pin header.  16 pins on this header are exposed by this binding.
+    * A 20-pin header.  10 pins on this header are exposed by this binding.
+
+    This binding provides a nexus mapping for 26 pins where parent pins 23
+    through 25 correspond to ADC0 through ADC2, and parent pins 0 through 22
+    correspond as depicted below:
+
+        0 GP0                    VBUS -
+        1 GP1                    VSYS -
+        - GND                     GND -
+        2 GP2                  3V3_EN -
+        3 GP3                 3V3_OUT -
+        4 GP4                 ADC_REF -
+        5 GP5               ADC2/GP28 25
+        - GND                AGND/GND -
+        6 GP6               ADC1/GP27 24
+        7 GP7               ADC0/GP26 23
+        8 GP8                     RUN -
+        9 GP9                    GP22 22
+        - GND                     GND -
+       10 GP10                   GP21 21
+       11 GP11                   GP20 20
+       12 GP12                   GP19 19
+       13 GP13                   GP18 18
+        - GND                     GND -
+       14 GP14                   GP17 17
+       15 GP15                   GP16 16
+
+compatible: "raspberrypi,pico-header-r3"
+
+include: [gpio-nexus.yaml, base.yaml]
