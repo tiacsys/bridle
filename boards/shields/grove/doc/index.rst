@@ -292,6 +292,155 @@ Hardware
 | D13   | Digital 13 / SPI-CLK            |    |    |    |    |    |     |         |    |    |    |    |    |    |    |    |    |     |     |  2  |  1  |  1  |
 +-------+---------------------------------+----+----+----+----+----+-----+---------+----+----+----+----+----+----+----+----+----+-----+-----+-----+-----+-----+
 
+.. _grove_rpipico_shield:
+
+Grove Basic Kit for Raspberry Pi Pico
+*************************************
+
+The `Grove Basic Kit for Pi Pico`_ comes with an carrier board for Raspberry Pi
+Pico that breaks out the Raspberry Pi Pico pins to Grove connectors. Once you
+plug the Shield on the Raspberry Pi Pico, you will be able to plug a Grove
+module to one of the Grove connectors on the shield. Most of all I/O ports
+of the Raspberry Pi Pico are exposed and adapted into Grove connectors which
+include digital I/O, analog I/O, and specialized ports (I2C, SPI, UART).
+
+Versions
+========
+
+Currently there is only one version known:
+
++-----------------------+-----------------------+
+| Parameter             | Shield for Pi Pico V1 |
++=======================+=======================+
+| Release Date          | Jan 2021              |
++-----------------------+-----------------------+
+| Operation Voltage     | 3.3V or 5V            |
++-----------------------+-----------------------+
+| Operation Temperature | -25℃ to +85℃          |
++-----------------------+-----------------------+
+| Grove Connectors      | 10                    |
++-----------------------+-----------------------+
+| Digital Ports         | 3 +2 (UART) +2 (I2C)  |
++-----------------------+-----------------------+
+| Analog Ports          | 3                     |
++-----------------------+-----------------------+
+| UART Ports            | 2                     |
++-----------------------+-----------------------+
+| I2C Ports             | 2                     |
++-----------------------+-----------------------+
+| SPI Ports             | 1                     |
++-----------------------+-----------------------+
+
+:Digital Ports: see `Grove Digital Layout`_
+:Analog Ports: see `Grove Analog Layout`_
+:UART Ports: see `Grove UART Layout`_
+:I2C Ports: see `Grove I2C Layout`_
+:SPI Ports: The `Grove System`_ does not specify an SPI port.
+   The port listed here is an simple 2x3 pin header.
+
+.. _grove_rpipico_shield_v1:
+
+Grove Shield for Pi Pico V1
+===========================
+
+Overview
+--------
+
+**Model:** 103100142
+
+The `Grove Shield for Pi Pico V1`_ board provides a simple way to connect
+with Raspberry Pi Pico boards. This version 1 is the first member in the
+Grove System to support low-cost, high-performance microcontroller RP2040
+on the Raspberry Pi Pico boards, either with or without W option.
+
+.. figure:: seeed_grove_rpipicoshield_v1.jpg
+   :align: center
+   :alt: SEEED_GROVE_RPIPICOSHIELD_V1
+
+Power Compatible
+----------------
+
+Every Grove connector has four wires, one of which is the VCC. However, not
+every controller main board needs a supply voltage of 5V, some boards only
+need 3.3V. That's why now a power toggle switch was add to this version so
+that one can select the suitable voltage of the controller main board using
+via this switch.
+
+Pinout Diagram
+--------------
+
+The pinout of Shield for Pi Pico V1 is the same as `Raspberry Pi Pico R3`_ or
+`Raspberry Pi Pico R3 W`_. The shield usually has the same pin position as the
+Raspberry Pi Pico development board and will be used as an carrier board.
+
+Hardware
+--------
+
+- `Grove Shield for Pi Pico V1.0 Schematic`_
+- `Grove Shield for Pi Pico V1.0 Eagle Files`_
+
++-------+---------------------------------+-------+-------+------+------+-----+-----+-----+----+----+----+
+| Name  | Function to Grove port-pin -->  | UART0 | UART1 | I2C0 | I2C1 | D16 | D18 | D20 | A0 | A1 | A2 |
++=======+=================================+=======+=======+======+======+=====+=====+=====+====+====+====+
+| GP0   | Digital 0                       |   2   |       |      |      |     |     |     |    |    |    |
++-------+---------------------------------+-------+-------+------+------+-----+-----+-----+----+----+----+
+| GP1   | Digital 1                       |   1   |       |      |      |     |     |     |    |    |    |
++-------+---------------------------------+-------+-------+------+------+-----+-----+-----+----+----+----+
+| GP2   | Digital 2                       |       |       |      |      |     |     |     |    |    |    |
++-------+---------------------------------+-------+-------+------+------+-----+-----+-----+----+----+----+
+| GP3   | Digital 3                       |       |       |      |      |     |     |     |    |    |    |
++-------+---------------------------------+-------+-------+------+------+-----+-----+-----+----+----+----+
+| GP4   | Digital 4                       |       |   2   |      |      |     |     |     |    |    |    |
++-------+---------------------------------+-------+-------+------+------+-----+-----+-----+----+----+----+
+| GP5   | Digital 5                       |       |   1   |      |      |     |     |     |    |    |    |
++-------+---------------------------------+-------+-------+------+------+-----+-----+-----+----+----+----+
+| GP6   | Digital 6                       |       |       |      |   2  |     |     |     |    |    |    |
++-------+---------------------------------+-------+-------+------+------+-----+-----+-----+----+----+----+
+| GP7   | Digital 7                       |       |       |      |   1  |     |     |     |    |    |    |
++-------+---------------------------------+-------+-------+------+------+-----+-----+-----+----+----+----+
+| GP8   | Digital 8                       |       |       |   2  |      |     |     |     |    |    |    |
++-------+---------------------------------+-------+-------+------+------+-----+-----+-----+----+----+----+
+| GP9   | Digital 9                       |       |       |   1  |      |     |     |     |    |    |    |
++-------+---------------------------------+-------+-------+------+------+-----+-----+-----+----+----+----+
+| GP10  | Digital 10                      |       |       |      |      |     |     |     |    |    |    |
++-------+---------------------------------+-------+-------+------+------+-----+-----+-----+----+----+----+
+| GP11  | Digital 11                      |       |       |      |      |     |     |     |    |    |    |
++-------+---------------------------------+-------+-------+------+------+-----+-----+-----+----+----+----+
+| GP12  | Digital 12                      |       |       |      |      |     |     |     |    |    |    |
++-------+---------------------------------+-------+-------+------+------+-----+-----+-----+----+----+----+
+| GP13  | Digital 13                      |       |       |      |      |     |     |     |    |    |    |
++-------+---------------------------------+-------+-------+------+------+-----+-----+-----+----+----+----+
+| GP14  | Digital 14                      |       |       |      |      |     |     |     |    |    |    |
++-------+---------------------------------+-------+-------+------+------+-----+-----+-----+----+----+----+
+| GP15  | Digital 15                      |       |       |      |      |     |     |     |    |    |    |
++-------+---------------------------------+-------+-------+------+------+-----+-----+-----+----+----+----+
+| GP16  | Digital 16                      |       |       |      |      |  1  |     |     |    |    |    |
++-------+---------------------------------+-------+-------+------+------+-----+-----+-----+----+----+----+
+| GP17  | Digital 17                      |       |       |      |      |  2  |     |     |    |    |    |
++-------+---------------------------------+-------+-------+------+------+-----+-----+-----+----+----+----+
+| GP18  | Digital 18                      |       |       |      |      |     |  1  |     |    |    |    |
++-------+---------------------------------+-------+-------+------+------+-----+-----+-----+----+----+----+
+| GP19  | Digital 19                      |       |       |      |      |     |  2  |     |    |    |    |
++-------+---------------------------------+-------+-------+------+------+-----+-----+-----+----+----+----+
+| GP20  | Digital 20                      |       |       |      |      |     |     |  1  |    |    |    |
++-------+---------------------------------+-------+-------+------+------+-----+-----+-----+----+----+----+
+| GP21  | Digital 21                      |       |       |      |      |     |     |  2  |    |    |    |
++-------+---------------------------------+-------+-------+------+------+-----+-----+-----+----+----+----+
+| GP22  | Digital 22                      |       |       |      |      |     |     |     |    |    |    |
++-------+---------------------------------+-------+-------+------+------+-----+-----+-----+----+----+----+
+| GP23  | (Digital 23) not on header      |       |       |      |      |     |     |     |    |    |    |
++-------+---------------------------------+-------+-------+------+------+-----+-----+-----+----+----+----+
+| GP24  | (Digital 24) not on header      |       |       |      |      |     |     |     |    |    |    |
++-------+---------------------------------+-------+-------+------+------+-----+-----+-----+----+----+----+
+| GP25  | (Digital 25) not on header      |       |       |      |      |     |     |     |    |    |    |
++-------+---------------------------------+-------+-------+------+------+-----+-----+-----+----+----+----+
+| ADC0  | Analog 0 / Digital 26           |       |       |      |      |     |     |     |  1 |  2 |    |
++-------+---------------------------------+-------+-------+------+------+-----+-----+-----+----+----+----+
+| ADC1  | Analog 1 / Digital 27           |       |       |      |      |     |     |     |    |  1 |  2 |
++-------+---------------------------------+-------+-------+------+------+-----+-----+-----+----+----+----+
+| ADC2  | Analog 2 / Digital 28           |       |       |      |      |     |     |     |    |    |  1 |
++-------+---------------------------------+-------+-------+------+------+-----+-----+-----+----+----+----+
+
 Utilization
 ***********
 
@@ -318,6 +467,14 @@ GPIO mapping
       :ref:`devicetree:dtbinding_arduino_header_r3`.
 
       .. include:: /boards/shields/grove/doc/grove_gpios_arduino_header.rsti
+
+   .. group-tab:: Raspberry Pi Pico Header
+
+      This is the **GPIO signal line mapping** from a `Raspberry Pi Pico R3`_
+      or `Raspberry Pi Pico R3 W`_ header bindet with
+      :ref:`devicetree:dtbinding_raspberrypi_pico_header_r3`.
+
+      .. include:: /boards/shields/grove/doc/grove_gpios_rpipico_header.rsti
 
 PWM mapping
 -----------
@@ -402,6 +559,18 @@ example:
 
 .. _`Grove Base Shield V1.2 Eagle Files`:
    https://seeeddoc.github.io/Grove-Base_Shield_v1.2/res/Base_shield_V1.2_Eagle_files.zip
+
+.. _`Grove Basic Kit for Pi Pico`:
+   https://wiki.seeedstudio.com/Grove-Starter-Kit-for-Raspberry-Pi-Pico
+
+.. _`Grove Shield for Pi Pico V1`:
+   https://wiki.seeedstudio.com/Grove_Shield_for_Pi_Pico_V1.0
+
+.. _`Grove Shield for Pi Pico V1.0 Schematic`:
+   https://files.seeedstudio.com/wiki/Grove_Shield_for_Pi_Pico_V1.0/Grove_shield_for_PI_PICOv1.0SCH.pdf
+
+.. _`Grove Shield for Pi Pico V1.0 Eagle Files`:
+   https://files.seeedstudio.com/wiki/Grove_Shield_for_Pi_Pico_V1.0/res/Grove_Shield_for_Pi_Pico.zip
 
 .. |Laced Grove Signal Interface| replace::
    :ref:`Laced Grove Signal Interface <devicetree:dtbinding_seeed_grove_laced_if>`
