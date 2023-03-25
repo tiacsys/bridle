@@ -1,4 +1,4 @@
-# Copyright (c) 2021-2022 TiaC Systems
+# Copyright (c) 2021-2023 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 name: QA Compliance Check
@@ -70,12 +70,14 @@ jobs:
         env:
           BASE_REF: ${{ github.base_ref }}
         run: |
+          export BRIDLE_BASE="$(pwd)"
           export ZEPHYR_BASE="$(dirname "$(pwd)")/zephyr"
           # debug
           ls -la
           git log --pretty=oneline | head -n 10
           # -m Checkpatch \
-          $ZEPHYR_BASE/scripts/ci/check_compliance.py --annotate \
+          ${BRIDLE_BASE}/scripts/ci/check_compliance.py \
+            --annotate \
             -m Codeowners \
             -m MaintainersFormat \
             -m Gitlint \
