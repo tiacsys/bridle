@@ -27,17 +27,17 @@
   - "dts/**/*"
   - "**/*.dts"
   - "**/*.dtsi"
-  - "include/devicetree/*"
+  - "include/zephyr/devicetree/*"
 
 "area: Devicetree Binding":
   - "dts/bindings/**/*"
-  - "include/dt-bindings/**/*"
+  - "include/zephyr/dt-bindings/**/*"
 
 "area: Devicetree Tooling":
   - "scripts/dts/**/*"
 
 "area: API":
-  - "include/**/*"
+  - "include/zephyr/**/*"
 
 "area: POSIX":
   - "lib/posix/**/*"
@@ -53,7 +53,7 @@
 
 "area: Drivers":
   - "drivers/**/*"
-  - "include/drivers/**/*.h"
+  - "include/zephyr/drivers/**/*.h"
 
 "area: Modem":
   - "drivers/modem/**/*"
@@ -74,13 +74,13 @@
   - "drivers/counter/**/*"
 
 "area: CAN":
-  - "include/drivers/can.h"
-  - "include/canbus/*/**"
+  - "include/zephyr/drivers/can.h"
+  - "include/zephyr/canbus/*/**"
   - "drivers/can/**/*"
   - "subsys/canbus/*/**"
 
 "area: EEPROM":
-  - "include/drivers/eeprom.h"
+  - "include/zephyr/drivers/eeprom.h"
   - "drivers/eeprom/**/*"
 
 "area: Timer":
@@ -99,8 +99,8 @@
   - "subsys/net/**/*"
   - "samples/net/**/*"
   - "tests/net/**/*"
-  - "include/net/**/*"
-  - "include/drivers/ieee802154/**/*"
+  - "include/zephyr/net/**/*"
+  - "include/zephyr/drivers/ieee802154/**/*"
   - "drivers/ethernet/**/*"
   - "drivers/ieee802154/**/*"
   - "drivers/wifi/**/*"
@@ -123,7 +123,7 @@
   - "drivers/**/*mcux*"
   - "dts/arm/nxp/*/*"
   - "dts/bindings/**/nxp*"
-  - "include/drivers/*/*nxp*"
+  - "include/zephyr/drivers/*/*nxp*"
   - "soc/arm/nxp*/**"
 
 "platform: STM32":
@@ -132,5 +132,15 @@
   - "drivers/**/*stm32*"
   - "dts/arm/st/*/*"
   - "dts/bindings/**/st*"
-  - "include/drivers/*/*stm32*"
+  - "include/zephyr/drivers/*/*stm32*"
   - "soc/arm/st_stm32/**"
+
+"platform: RPi":
+  - "boards/arm/*rpi_pico*/**"
+  - "boards/arm/*rp2040*/**"
+  - "boards/arm/*kb2040*/**"
+  - "drivers/**/*rpi_pico*"
+  - "dts/arm/rpi_pico/*"
+  - "dts/bindings/**/raspberrypi*"
+  - "include/zephyr/drivers/*/*rpi_pico*"
+  - "soc/arm/rpi_pico/**"
