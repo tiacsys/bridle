@@ -880,6 +880,7 @@ INPUT                  = "@PROJECT_DOXY@/mainpage.md" \
                          "@PROJECT_BASE@/kernel/include/kernel_arch_interface.h" \
                          "@PROJECT_BASE@/include" \
                          "@PROJECT_BASE@/lib/libc/minimal/include" \
+                         "@PROJECT_BASE@/subsys/testsuite/include" \
                          "@PROJECT_BASE@/subsys/testsuite/ztest/include" \
                          "@PROJECT_BASE@/tests/kernel"
 
