@@ -23,7 +23,7 @@ project(bridle-doc LANGUAGES NONE)
 
 set(ZEPHYR_NAME "Zephyr")
 set(ZEPHYR_BRIEF "A Scalable Open Source RTOS")
-find_package(${ZEPHYR_NAME} REQUIRED HINTS $ENV{ZEPHYR_BASE} COMPONENTS west doc)
+find_package(${ZEPHYR_NAME} REQUIRED HINTS $ENV{ZEPHYR_BASE} COMPONENTS doc)
 file(TO_CMAKE_PATH "${ZEPHYR_BASE}" ZEPHYR_BASE)
 
 set(BRIDLE_NAME "Bridle")
