@@ -1,0 +1,20 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/memory-controller/stm32-fmc-nor-psram.h>
+
+/ {
+	soc {
+		fmc: memory-controller@a0000000 {
+			// missed in zephyr/dts/arm/st/f7/stm32f7.dtsi
+			nor_psram: nor-psram {
+				compatible = "st,stm32-fmc-nor-psram";
+				#address-cells = <1>;
+				#size-cells = <0>;
+				status = "disabled";
+			};
+		};
+	};
+};
