@@ -1,0 +1,22 @@
+# Config options for logger sample app
+
+# Copyright (c) 2018 Nordic Semiconductor ASA
+# SPDX-License-Identifier: Apache-2.0
+
+mainmenu "Kernel Tutorial Application"
+
+choice 
+	prompt "Tutorial configuration"
+	default TUTORIAL_1
+	help
+	 Select which tutorial shall be built
+
+config TUTORIAL_1
+	bool "Minimal build, no multithreading, no timers"
+
+config TUTORIAL_2
+	bool "Minimalistic timer example"
+
+endchoice
+
+source "Kconfig.zephyr"
