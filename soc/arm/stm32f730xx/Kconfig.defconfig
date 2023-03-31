@@ -1,0 +1,20 @@
+# ST Microelectronics STM32F7 MCU line
+
+# Copyright (c) 2023 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+# Kconfig symbols common to STM32F7 series
+
+if SOC_SERIES_STM32F7X
+
+if SOC_STM32F730XX
+
+config SOC
+	default "stm32f730xx"
+
+config NUM_IRQS
+	default 104
+
+endif # SOC_STM32F730XX
+
+endif # SOC_SERIES_STM32F7X

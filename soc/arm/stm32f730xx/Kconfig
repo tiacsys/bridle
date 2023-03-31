@@ -1,0 +1,10 @@
+# Copyright (c) 2023 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+if SOC_FAMILY_STM32
+
+config SOC_STM32F730XX
+	bool "STM32F730XX"
+	depends on SOC_SERIES_STM32F7X
+
+endif # SOC_FAMILY_STM32
