@@ -1,0 +1,38 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <mem.h>
+#include <st/f7/stm32f723.dtsi>
+#include <st/f7/stm32f7-fmc.dtsi>
+
+/ {
+	soc {
+		/* 64KB Flash @ 0x08000000 */
+		flash-controller@40023c00 {
+			flash0: flash@8000000 {
+				reg = <0x08000000 DT_SIZE_K(64)>;
+			};
+		};
+
+		aes: aes@50060000 {
+			compatible = "st,stm32-aes";
+			reg = <0x50060000 0x400>;
+			clocks = <&rcc STM32_CLOCK_BUS_AHB2 0x00000010>;
+			interrupts = <79 0>;
+			status = "disabled";
+		};
+
+		lptim1: timers@40002400 {
+			compatible = "st,stm32-lptim";
+			clocks = <&rcc STM32_CLOCK_BUS_APB1 0x00000200>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+			reg = <0x40002400 0x400>;
+			interrupts = <93 1>;
+			interrupt-names = "wakeup";
+			status = "disabled";
+		};
+	};
+};
