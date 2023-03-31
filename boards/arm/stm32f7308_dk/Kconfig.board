@@ -1,0 +1,8 @@
+# Copyright (c) 2023 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+# STM32F7308-DK Discovery board configuration
+
+config BOARD_STM32F7308_DK
+	bool "STM32F7308-DK Discovery Kit"
+	depends on SOC_STM32F730XX

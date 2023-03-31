@@ -1,0 +1,25 @@
+# Copyright (c) 2023 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+vendor: st
+identifier: stm32f7308_dk
+name: ST STM32F7308 DK
+type: mcu
+arch: arm
+toolchain:
+  - zephyr
+  - gnuarmemb
+  - xtools
+ram: 192
+flash: 64
+supported:
+  - arduino_serial
+  - arduino_gpio
+  - arduino_i2c
+  - arduino_spi
+  - gpio
+  - i2c
+  - spi
+  - pwm
+  - counter
+  - usb_device

@@ -1,0 +1,373 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/dts-v1/;
+#include <st/f7/stm32f730X8.dtsi>
+#include <st/f7/stm32f730i8kx-pinctrl.dtsi>
+#include <zephyr/dt-bindings/adc/adc.h>
+#include <zephyr/dt-bindings/memory-attr/memory-attr.h>
+#include <zephyr/dt-bindings/memory-attr/memory-attr-arm.h>
+#include <zephyr/dt-bindings/input/input-event-codes.h>
+#include <mem.h>
+#include <freq.h>
+
+/ {
+	model = "STMicroelectronics STM32F7308-DK";
+	compatible = "st,stm32f7308-dk";
+
+	chosen {
+		zephyr,console = &usart6;
+		zephyr,shell-uart = &usart6;
+		zephyr,usb-device = &usbotg_fs;
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+		zephyr,dtcm = &dtcm;
+		zephyr,flash-controller = &mx25l51245g;
+	}; // chosen
+
+	// These aliases are provided for compatibility
+	// with samples and tests.
+	aliases {
+		led0 = &blue_led;
+		led1 = &red_led;
+		led2 = &green_led;
+		pwm-led0 = &green_pwm_led;
+		sw0 = &user_button;
+		spi-flash0 = &mx25l51245g;
+	}; // aliases
+
+	psram: memory@60000000 { /* FMC_NORSRAM_BANK1 */
+		compatible = "zephyr,memory-region", "mmio-sram";
+		device_type = "memory";
+		reg = <0x60000000 DT_SIZE_K(512)>;
+		zephyr,memory-region = "PSRAM";
+		zephyr,memory-attr = <( DT_MEM_ARM(ATTR_MPU_RAM) )>;
+	}; // psram
+
+	lcdio: memory@64000000 { /* FMC_NORSRAM_BANK2 */
+		compatible = "zephyr,memory-region", "mmio-sram";
+		device_type = "memory";
+		reg = <0x64000000 DT_SIZE_K(1)>;
+		zephyr,memory-region = "LCDIO";
+		zephyr,memory-attr = <( DT_MEM_ARM(ATTR_MPU_IO) )>;
+	}; // lcdio
+
+	leds {
+		compatible = "gpio-leds";
+		blue_led: blue_led {		/* ARD_D13_SPI1_SCK */
+			gpios = <&gpioa 5 GPIO_ACTIVE_HIGH>;
+			label = "User LD1";
+		}; // blue_led
+		red_led: red_led {		/* SYS_LD_USER1 */
+			gpios = <&gpioa 7 GPIO_ACTIVE_HIGH>;
+			label = "User LD5";
+		}; // red_led
+		green_led: green_led {		/* SYS_LD_USER2 */
+			gpios = <&gpiob 1 GPIO_ACTIVE_HIGH>;
+			label = "User LD6";
+		}; // green_led
+	}; // leds
+
+	pwmleds {
+		compatible = "pwm-leds";
+		green_pwm_led: green_pwm_led {	/* SYS_LD_USER2 */
+			pwms = <&pwm3 4 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+		}; // green_pwm_led
+	}; // pwmleds
+
+	gpio_keys {
+		compatible = "gpio-keys";
+		user_button: user_button {	/* SYS_B_USER */
+			gpios = <&gpioa 0 GPIO_ACTIVE_HIGH>;
+			zephyr,code = <INPUT_KEY_0>;
+			label = "User PB1";
+		}; // user_button
+	}; // gpio_keys
+};
+
+&clk_hse {
+	clock-frequency = <DT_FREQ_M(25)>;
+	status = "okay";
+}; // clk_hse
+
+&pll {
+	div-m = <25>;
+	mul-n = <432>;
+	div-p = <2>;
+	div-q = <9>;
+	clocks = <&clk_hse>;
+	status = "okay";
+}; // pll
+
+&rcc {
+	clocks = <&pll>;
+	clock-frequency = <DT_FREQ_M(216)>;
+	ahb-prescaler = <1>;
+	apb1-prescaler = <4>;
+	apb2-prescaler = <2>;
+}; // rcc
+
+&clk_lsi {
+	status = "okay";
+}; // clk_lsi
+
+&rtc {
+	clocks = <&rcc STM32_CLOCK_BUS_APB1 0x10000000>,
+		 <&rcc STM32_SRC_LSI RTC_SEL(2)>;
+	status = "okay";
+}; // rtc
+
+&iwdg {
+	status = "okay";
+}; // iwdg
+
+&rng {
+	status = "okay";
+}; // rng
+
+&usart2 {
+	status = "okay";		/* Arduino UART serial interface */
+	pinctrl-names = "default";
+	pinctrl-0 = <&usart2_tx_pa2	/* ARD_D1_USART2_TX */
+		     &usart2_rx_pa3>;	/* ARD_D0_USART2_RX */
+	current-speed = <115200>;
+}; // usart2
+
+&usart6 {
+	status = "okay";		/* default system UART console */
+	pinctrl-names = "default";
+	pinctrl-0 = <&usart6_tx_pc6	/* VCP_TX_STLINK_RX */
+		     &usart6_rx_pc7>;	/* VCP_RX_STLINK_TX */
+	current-speed = <115200>;
+}; // usart6
+
+zephyr_udc0: &usbotg_fs {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&usb_otg_fs_dm_pa11	/* USB_OTGFS_N */
+		     &usb_otg_fs_dp_pa12>;	/* USB_OTGFS_P */
+}; // usbotg_fs
+
+&usbotg_hs {
+	status = "disabled";
+	pinctrl-names = "default";
+	pinctrl-0 = <&usb_otg_hs_dm_pb14	/* USB_OTGHS_N */
+		     &usb_otg_hs_dp_pb15>;	/* USB_OTGHS_P */
+	/*
+	 * As long as USB 2.0 HS is not yet supported by this board
+	 * and this node remains deactivated the maximum speed have
+	 * to reduced from high to full speed, because otherwise the
+	 * Kconfig symbol USB_DC_HAS_HS_SUPPORT would be set to true
+	 * on USB_DC_STM32 in zephyr/drivers/usb/device/Kconfig and
+	 * as an follow-up error the bulk endpoint size would be set
+	 * to 512 (HS) instead of 64 (FS).
+	 */
+	maximum-speed = "full-speed";
+}; // usbotg_hs
+
+&i2c1 {
+	status = "okay";		/* default system I2C */
+	pinctrl-names = "default";
+	pinctrl-0 = <&i2c1_scl_pb8	/* SAI2_I2C1_SCL */
+		     &i2c1_sda_pb9>;	/* SAI2_I2C1_SDA */
+	clock-frequency = <I2C_BITRATE_FAST>;
+}; // i2c1
+
+&i2c2 {
+	status = "okay";		/* Arduino I2C interface */
+	pinctrl-names = "default";
+	pinctrl-0 = <&i2c2_scl_ph4	/* ARD_D15_STMOD+_I2C2_SCL */
+		     &i2c2_sda_ph5>;	/* ARD_D14_STMOD+_I2C2_SDA */
+	clock-frequency = <I2C_BITRATE_FAST>;
+}; // i2c2
+
+&i2c3 {
+	status = "okay";		/* Control Touch Panel I2C interface */
+	pinctrl-names = "default";
+	pinctrl-0 = <&i2c3_scl_pa8	/* CTP_SCL */
+		     &i2c3_sda_ph8>;	/* CTP_SDA */
+	clock-frequency = <I2C_BITRATE_FAST>;
+}; // i2c3
+
+&spi1 {
+	status = "okay";		/* Arduino SPI interface */
+	pinctrl-names = "default";
+	pinctrl-0 = <&spi1_sck_pa5	/* ARD_D13_SPI1_SCK */
+		     &spi1_miso_pb4	/* ARD_D12_SPI1_MISO */
+		     &spi1_mosi_pb5>;	/* ARD_D11_TIM3_CH2_SPI1_MOSI */
+					/* ARD_D10_TIM2_CH2_SPI1_NSS */
+	cs-gpios = <&gpioa 1 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+}; // spi1
+
+&spi2 {
+	status = "okay";		/* Pmod/STMod+ SPI interface */
+	pinctrl-names = "default";
+	pinctrl-0 = <&spi2_sck_pi1	/* PMOD_SPI2_SCK */
+		     &spi2_miso_pi2	/* PMOD_SPI2_MISO */
+		     &spi2_mosi_pi3>;	/* PMOD_SPI2_MOSI */
+					/* PMOD_SPI2_NSS */
+	cs-gpios = <&gpioi 0 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+}; // spi2
+
+&timers3 {
+	status = "okay";
+	st,prescaler = <10000>;
+
+	pwm3: pwm {
+		status = "okay";
+		pinctrl-names = "default";
+		pinctrl-0 = <&tim3_ch4_pb1>;	/* SYS_LD_USER2 */
+	}; // pwm3
+}; // timers3
+
+&adc1 {
+	status = "okay";		/* Arduino ADC interface */
+	pinctrl-names = "default";
+	pinctrl-0 = <&adc1_in6_pa6	/* ARD_A0 */
+		     &adc1_in4_pa4	/* ARD_A1 */
+		     &adc1_in14_pc4>;	/* ARD_A2 */
+	st,adc-clock-source = <SYNC>;	/* derived from the bus clock */
+	st,adc-prescaler = <2>;
+	vref-mv = <3300>;
+}; // adc1
+
+&adc2 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&adc2_in10_pc0	/* ARD_A4 */
+		     &adc2_in11_pc1>;	/* ARD_A5 */
+	st,adc-clock-source = <SYNC>;	/* derived from the bus clock */
+	st,adc-prescaler = <2>;
+	vref-mv = <3300>;
+}; // adc2
+
+&adc3 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&adc3_in8_pf10>;	/* ARD_A3_ADC3_IN8 */
+	st,adc-clock-source = <SYNC>;	/* derived from the bus clock */
+	st,adc-prescaler = <2>;
+	vref-mv = <3300>;
+}; // adc3
+
+&quadspi {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 =
+		<&quadspi_clk_pb2	/* QSPI_CLK */
+		 &quadspi_bk1_ncs_pb6	/* QSPI_NCS */
+		 &quadspi_bk1_io0_pc9	/* QSPI_D0 */
+		 &quadspi_bk1_io1_pc10	/* QSPI_D1 */
+		 &quadspi_bk1_io2_pe2	/* QSPI_D2 */
+		 &quadspi_bk1_io3_pd13>;/* QSPI_D3 */
+
+	flash-id = <1>;
+
+	mx25l51245g: qspi-nor-flash@0 {
+		compatible = "st,stm32-qspi-nor";
+		reg = <0>;
+		qspi-max-frequency = <DT_FREQ_M(72)>;
+		size = <DT_SIZE_M(64*8)>;
+		status = "okay";
+
+		spi-bus-width = <4>;	/* quad data SPI line: SIO[0123] used */
+		writeoc = "PP_1_4_4";	/* quad data SPI line: PP 1-4-4, 0x38 */
+
+		/* reset-cmd;		reset command on initialization */
+		/* reset-cmd-wait = <10>;	... for about 10 us */
+	}; // mx25l51245g
+}; // quadspi
+
+&fmc {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 =
+		<&fmc_ne1_pd7		/* PSRAM_NE1 - nCS1 (CS2) */
+		 &fmc_ne2_pg9		/* LCD_NE - nCS */
+		 &fmc_nwe_pd5		/* LCD_PSRAM_NWE - LCD:nWR/PSRAM:nWE */
+		 &fmc_noe_pd4		/* LCD_PSRAM_NOE - LCD:nRD/PSRAM:nOE */
+		 &fmc_nbl0_pe0		/* PSRAM_NBL0 - nLB */
+		 &fmc_nbl1_pe1		/* PSRAM_NBL1 - nUB */
+		 &fmc_a0_pf0		/* LCD-RS_A0 - LCD:RS/PSRAM_A0 - A0 */
+		 &fmc_a1_pf1		/* PSRAM_A1 - A1 */
+		 &fmc_a2_pf2		/* PSRAM_A2 - A2 */
+		 &fmc_a3_pf3		/* PSRAM_A3 - A3 */
+		 &fmc_a4_pf4		/* PSRAM_A4 - A4 */
+		 &fmc_a5_pf5		/* PSRAM_A5 - A5 */
+		 &fmc_a6_pf12		/* PSRAM_A6 - A6 */
+		 &fmc_a7_pf13		/* PSRAM_A7 - A7 */
+		 &fmc_a8_pf14		/* PSRAM_A8 - A8 */
+		 &fmc_a9_pf15		/* PSRAM_A9 - A9 */
+		 &fmc_a10_pg0		/* PSRAM_A10 - A10 */
+		 &fmc_a11_pg1		/* PSRAM_A11 - A11 */
+		 &fmc_a12_pg2		/* PSRAM_A12 - A12 */
+		 &fmc_a13_pg3		/* PSRAM_A13 - A13 */
+		 &fmc_a14_pg4		/* PSRAM_A14 - A14 */
+		 &fmc_a15_pg5		/* PSRAM_A15 - A15 */
+		 &fmc_a16_pd11		/* PSRAM_A16 - A16 */
+		 &fmc_a17_pd12		/* PSRAM_A17 - A17 */
+					/* GND - A18 */
+		 &fmc_d0_pd14		/* LCD_PSRAM_D0 */
+		 &fmc_d1_pd15		/* LCD_PSRAM_D1 */
+		 &fmc_d2_pd0		/* LCD_PSRAM_D2 */
+		 &fmc_d3_pd1		/* LCD_PSRAM_D3 */
+		 &fmc_d4_pe7		/* LCD_PSRAM_D4 */
+		 &fmc_d5_pe8		/* LCD_PSRAM_D5 */
+		 &fmc_d6_pe9		/* LCD_PSRAM_D6 */
+		 &fmc_d7_pe10		/* LCD_PSRAM_D7 */
+		 &fmc_d8_pe11		/* LCD_PSRAM_D8 */
+		 &fmc_d9_pe12		/* LCD_PSRAM_D9 */
+		 &fmc_d10_pe13		/* LCD_PSRAM_D10 */
+		 &fmc_d11_pe14		/* LCD_PSRAM_D11 */
+		 &fmc_d12_pe15		/* LCD_PSRAM_D12 */
+		 &fmc_d13_pd8		/* LCD_PSRAM_D13 */
+		 &fmc_d14_pd9		/* LCD_PSRAM_D14 */
+		 &fmc_d15_pd10>;	/* LCD_PSRAM_D15 */
+
+	nor-psram {
+		status = "okay";
+
+		is66wv51216ebll: fmc-nor-psram@0 {
+			reg = <0>; /* FMC_NORSRAM_BANK1 */
+			st,control = <STM32_FMC_DATA_ADDRESS_MUX_DISABLE
+				      STM32_FMC_MEMORY_TYPE_SRAM
+				      /* STM32_FMC_MEMORY_TYPE_PSRAM */
+				      STM32_FMC_NORSRAM_MEM_BUS_WIDTH_16
+				      STM32_FMC_BURST_ACCESS_MODE_DISABLE
+				      STM32_FMC_WAIT_SIGNAL_POLARITY_LOW
+				      STM32_FMC_WAIT_TIMING_BEFORE_WS
+				      STM32_FMC_WRITE_OPERATION_ENABLE
+				      STM32_FMC_WAIT_SIGNAL_DISABLE
+				      STM32_FMC_EXTENDED_MODE_DISABLE
+				      STM32_FMC_ASYNCHRONOUS_WAIT_DISABLE
+				      STM32_FMC_WRITE_BURST_DISABLE
+				      STM32_FMC_CONTINUOUS_CLOCK_SYNC_ONLY
+				      STM32_FMC_WRITE_FIFO_DISABLE
+				      STM32_FMC_PAGE_SIZE_NONE>;
+			st,timing = <9 2 6 1 2 2 STM32_FMC_ACCESS_MODE_A>;
+		}; // is66wv51216ebll
+
+		frd154bp2902: fmc-nor-psram@1 {
+			reg = <1>; /* FMC_NORSRAM_BANK2 */
+			st,control = <STM32_FMC_DATA_ADDRESS_MUX_DISABLE
+				      STM32_FMC_MEMORY_TYPE_SRAM
+				      STM32_FMC_NORSRAM_MEM_BUS_WIDTH_16
+				      STM32_FMC_BURST_ACCESS_MODE_DISABLE
+				      STM32_FMC_WAIT_SIGNAL_POLARITY_LOW
+				      STM32_FMC_WAIT_TIMING_BEFORE_WS
+				      STM32_FMC_WRITE_OPERATION_ENABLE
+				      STM32_FMC_WAIT_SIGNAL_DISABLE
+				      STM32_FMC_EXTENDED_MODE_DISABLE
+				      STM32_FMC_ASYNCHRONOUS_WAIT_DISABLE
+				      STM32_FMC_WRITE_BURST_DISABLE
+				      STM32_FMC_CONTINUOUS_CLOCK_SYNC_ONLY
+				      STM32_FMC_WRITE_FIFO_DISABLE
+				      STM32_FMC_PAGE_SIZE_NONE>;
+			st,timing = <9 2 6 1 2 2 STM32_FMC_ACCESS_MODE_A>;
+		}; // frd154bp2902
+	}; // nor-psram
+}; // fmc
+
+#include "arduino_r3_connector.dtsi"

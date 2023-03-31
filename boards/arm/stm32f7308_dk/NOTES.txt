@@ -1,0 +1,388 @@
+________________________________________________________________________________________________________________________________
+
+west build -b stm32f7308_dk -p -d build/helloshell-stm32f7308_dk bridle/samples/helloshell -- -DCONF_FILE=prj-hwstartup.conf
+
+	[184/184] Linking C executable zephyr/zephyr.elf
+	Memory region         Used Size  Region Size  %age Used
+		   FLASH:       63043 B        64 KB     96.20%
+		     RAM:       19208 B       192 KB      9.77%
+		    QSPI:          0 GB       256 MB      0.00%
+		    DTCM:          0 GB        64 KB      0.00%
+		    ITCM:          0 GB        16 KB      0.00%
+		   PSRAM:          0 GB       512 KB      0.00%
+		IDT_LIST:          0 GB         2 KB      0.00%
+
+west flash -d build/helloshell-stm32f7308_dk
+
+	*** Booting Zephyr OS build zephyr-v3.5.0-24-g833585c0db56 ***
+	Hello World! I'm THE SHELL from stm32f7308_dk
+
+
+	uart:~$ device list
+	devices:
+	- rcc@40023800 (READY)
+	- reset-controller (READY)
+	- interrupt-controller@40013c00 (READY)
+	- gpio@40022000 (READY)
+	- gpio@40021C00 (READY)
+	- gpio@40021800 (READY)
+	- gpio@40021400 (READY)
+	- gpio@40021000 (READY)
+	- gpio@40020C00 (READY)
+	- gpio@40020800 (READY)
+	- gpio@40020400 (READY)
+	- gpio@40020000 (READY)
+	- serial@40011400 (READY)
+	- serial@40004400 (READY)
+	- rtc@40002800 (READY)
+	- adc@40012200 (READY)
+	- adc@40012100 (READY)
+	- adc@40012000 (READY)
+	- qspi-nor-flash@0 (READY)
+	- flash-controller@40023c00 (READY)
+	- i2c@40005c00 (READY)
+	- i2c@40005800 (READY)
+	- i2c@40005400 (READY)
+	- pwm (READY)
+
+LED1:	(User LD1 blue)
+
+	uart:~$ gpio get gpio@40020000 5
+	Reading gpio@40020000 pin 5
+	Value 0
+
+	uart:~$ gpio conf gpio@40020000 5 out
+	Configuring gpio@40020000 pin 5
+
+	uart:~$ gpio set gpio@40020000 5 1
+	Writing to gpio@40020000 pin 5
+
+	uart:~$ gpio set gpio@40020000 5 0
+	Writing to gpio@40020000 pin 5
+
+	uart:~$ gpio blink gpio@40020000 5
+	Blinking port gpio@40020000 index 5. Hit any key to exit
+
+LED2:	(User LD5 red)
+
+	uart:~$ gpio get gpio@40020000 7
+	Reading gpio@40020000 pin 7
+	Value 0
+
+	uart:~$ gpio conf gpio@40020000 7 out
+	Configuring gpio@40020000 pin 7
+
+	uart:~$ gpio set gpio@40020000 7 1
+	Writing to gpio@40020000 pin 7
+
+	uart:~$ gpio set gpio@40020000 7 0
+	Writing to gpio@40020000 pin 7
+
+	uart:~$ gpio blink gpio@40020000 7
+	Blinking port gpio@40020000 index 7. Hit any key to exit
+
+LED3:	(User LD6 green)
+
+	uart:~$ gpio get gpio@40020400 1
+	Reading gpio@40020400 pin 1
+	Value 0
+
+	uart:~$ gpio conf gpio@40020400 1 out
+	Configuring gpio@40020400 pin 1
+
+	uart:~$ gpio set gpio@40020400 1 1
+	Writing to gpio@40020400 pin 1
+
+	uart:~$ gpio set gpio@40020400 1 0
+	Writing to gpio@40020400 pin 1
+
+	uart:~$ gpio blink gpio@40020400 1
+	Blinking port gpio@40020400 index 1. Hit any key to exit
+
+WM8994:	(Stereo Audio Codec)
+
+	uart:~$ i2c scan i2c@40005400
+	     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+	00:             -- -- -- -- -- -- -- -- -- -- -- --
+	10: -- -- -- -- -- -- -- -- -- -- 1a -- -- -- -- --
+	20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+	30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+	40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+	50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+	60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+	70: -- -- -- -- -- -- -- --
+	1 devices found on i2c@40005400
+
+EXTERN:	(Arduino and STMOD+)
+
+	uart:~$ i2c scan i2c@40005800
+	     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+	00:             -- -- -- -- -- -- -- -- -- -- -- --
+	10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+	20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+	30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+	40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+	50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+	60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+	70: -- -- -- -- -- -- -- --
+	0 devices found on i2c@40005800
+
+FT6206:	(Touch Screen)
+
+	uart:~$ i2c scan i2c@40005c00
+	     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+	00:             -- -- -- -- -- -- -- -- -- -- -- --
+	10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+	20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+	30: -- -- -- -- -- -- -- -- 38 -- -- -- -- -- -- --
+	40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+	50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+	60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+	70: -- -- -- -- -- -- -- --
+	1 devices found on i2c@40005c00
+
+SRAM:	(offset +128KB)
+
+	uart:~$ devmem 0x20030000 32
+	Using data width 32
+	Read value 0x2b96b2e7
+
+	uart:~$ devmem 0x20030000 32 0xdeadbeef
+	Using data width 32
+	Writing value 0xdeadbeef
+
+	uart:~$ devmem 0x20030000 32
+	Using data width 32
+	Read value 0xdeadbeef
+
+	uart:~$ devmem 0x20030010 16
+	Using data width 16
+	Read value 0xaea6
+
+	uart:~$ devmem 0x20030010 16 0x55aa
+	Using data width 16
+	Writing value 0x55aa
+
+	uart:~$ devmem 0x20030010 16
+	Using data width 16
+	Read value 0x55aa
+
+	uart:~$ devmem 0x20030020 8
+	Using data width 8
+	Read value 0x42
+
+	uart:~$ devmem 0x20030020 8 0x7e
+	Using data width 8
+	Writing value 0x7e
+
+	uart:~$ devmem 0x20030020 8
+	Using data width 8
+	Read value 0x7e
+
+	uart:~$ devmem dump -a 0x20030000 -s 0x40 -w 32
+	20030000: ef be ad de 34 4f 73 be  77 2d 75 6a 8e 16 7d ae |....4Os. w-uj..}.|
+	20030010: aa 55 55 7e c7 f5 e9 67  76 98 c1 5a 6b f8 b5 26 |.UU~...g v..Zk..&|
+	20030020: 7e 53 46 ee e6 94 ba e9  ba bd df 69 c7 7d fc 86 |~SF..... ...i.}..|
+	20030030: d0 2d c4 6d 99 6b dc eb  b7 50 ed 37 be 07 1d 3c |.-.m.k.. .P.7...<|
+
+PSRAM:
+
+	uart:~$ devmem 0x60000000 32
+	Using data width 32
+	Read value 0x0
+
+	uart:~$ devmem 0x60000000 32 0xdeadbeef
+	Using data width 32
+	Writing value 0xdeadbeef
+
+	uart:~$ devmem 0x60000000 32
+	Using data width 32
+	Read value 0xdeadbeef
+
+	uart:~$ devmem 0x60000010 16
+	Using data width 16
+	Read value 0x0
+
+	uart:~$ devmem 0x60000010 16 0x55aa
+	Using data width 16
+	Writing value 0x55aa
+
+	uart:~$ devmem 0x60000010 16
+	Using data width 16
+	Read value 0x55aa
+
+	uart:~$ devmem 0x60000020 8
+	Using data width 8
+	Read value 0x0
+
+	uart:~$ devmem 0x60000020 8 0x7e
+	Using data width 8
+	Writing value 0x7e
+
+	uart:~$ devmem 0x60000020 8
+	Using data width 8
+	Read value 0x7e
+
+	uart:~$ devmem dump -a 0x60000000 -s 0x40 -w 32
+	60000000: ef be ad de 00 00 00 00  00 00 00 00 00 00 00 00 |........ ........|
+	60000010: aa 55 00 00 00 00 00 00  00 00 00 00 00 00 00 00 |.U...... ........|
+	60000020: 7e 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00 |~....... ........|
+	60000030: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00 |........ ........|
+
+LCDIO:
+
+	uart:~$ devmem dump -a 0x64000000 -s 0x40 -w 16
+	64000000: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00 |........ ........|
+	64000010: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00 |........ ........|
+	64000020: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00 |........ ........|
+	64000030: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00 |........ ........|
+
+FLASH:
+
+	uart:~$ flash page_info flash-controller@40023c00 0x0
+	Page for address 0x0:
+	start offset: 0x0
+	size: 16384
+	index: 0
+
+	uart:~$ flash read flash-controller@40023c00 0x0 0x40
+	00000000: 80 44 01 20 59 2b 00 08  ad 9c 00 08 2d 2b 00 08 |.D. Y+.. ....-+..|
+	00000010: 2d 2b 00 08 2d 2b 00 08  2d 2b 00 08 00 00 00 00 |-+..-+.. -+......|
+	00000020: 00 00 00 00 00 00 00 00  00 00 00 00 49 2c 00 08 |........ ....I,..|
+	00000030: 2d 2b 00 08 00 00 00 00  e5 2b 00 08 c1 67 00 08 |-+...... .+...g..|
+
+	uart:~$ devmem dump -a 0x08000000 -s 0x40 -w 32
+
+	08000000: 80 44 01 20 59 2b 00 08  ad 9c 00 08 2d 2b 00 08 |.D. Y+.. ....-+..|
+	08000010: 2d 2b 00 08 2d 2b 00 08  2d 2b 00 08 00 00 00 00 |-+..-+.. -+......|
+	08000020: 00 00 00 00 00 00 00 00  00 00 00 00 49 2c 00 08 |........ ....I,..|
+	08000030: 2d 2b 00 08 00 00 00 00  e5 2b 00 08 c1 67 00 08 |-+...... .+...g..|
+
+QSPI:
+
+	uart:~$ flash page_info qspi-nor-flash@0 0x0
+	Page for address 0x0:
+	start offset: 0x0
+	size: 4096
+	index: 0
+
+	uart:~$ flash read qspi-nor-flash@0 0x0 0x40
+	00000000: 00 00 04 20 75 86 01 90  89 7c 01 90 97 7c 01 90 |... u... .|...|..|
+	00000010: 9d 7c 01 90 a3 7c 01 90  a9 7c 01 90 00 00 00 00 |.|...|.. .|......|
+	00000020: 00 00 00 00 00 00 00 00  00 00 00 00 c5 86 01 90 |........ ........|
+	00000030: af 7c 01 90 00 00 00 00  c5 86 01 90 bd 7c 01 90 |.|...... .....|..|
+
+	+++ CRASH +++ uart:~$ devmem dump -a 0x90000000 -s 0x40 -w 32
+
+	uart:~$ _
+
+________________________________________________________________________________________________________________________________
+
+west build -b stm32f7308_dk -p -d build/memc-sram-ext-stm32f7308_dk bridle/samples/memc-sram-ext
+
+	[145/145] Linking C executable zephyr/zephyr.elf
+	Memory region         Used Size  Region Size  %age Used
+		   FLASH:       19862 B        64 KB     30.31%
+		     RAM:        6464 B       192 KB      3.29%
+		    QSPI:          0 GB       256 MB      0.00%
+		    DTCM:          0 GB        64 KB      0.00%
+		    ITCM:          0 GB        16 KB      0.00%
+		   PSRAM:          0 GB       512 KB      0.00%
+		IDT_LIST:          0 GB         2 KB      0.00%
+
+west flash -d build/memc-sram-ext-stm32f7308_dk
+
+	*** Booting Zephyr OS build zephyr-v3.5.0-24-g833585c0db56 ***
+	Writing to memory region with base 0x60000000, size 0x80000
+
+	::::::::::::::::::::::::::::::::
+	::::::::::::::::::::::::::::::::
+	::::::::::::::::::::::::::::::::
+	::::::::::::::::::::::::::::::::
+	::::::::::::::::::::::::::::::::
+	::::::::::::::::::::::::::::::::
+	::::::::::::::::::::::::::::::::
+	::::::::::::::::::::::::::::::::
+	::::::::::::::::::::::::::::::::
+	::::::::::::::::::::::::::::::::
+	::::::::::::::::::::::::::::::::
+	::::::::::::::::::::::::::::::::
+	::::::::::::::::::::::::::::::::
+	::::::::::::::::::::::::::::::::
+	::::::::::::::::::::::::::::::::
+	::::::::::::::::::::::::::::::::
+
+
+	First 1024B of data in memory:
+
+	00 01 02 03 04 05 06 07 08 09 0a 0b 0c 0d 0e 0f
+	10 11 12 13 14 15 16 17 18 19 1a 1b 1c 1d 1e 1f
+	20 21 22 23 24 25 26 27 28 29 2a 2b 2c 2d 2e 2f
+	30 31 32 33 34 35 36 37 38 39 3a 3b 3c 3d 3e 3f
+	40 41 42 43 44 45 46 47 48 49 4a 4b 4c 4d 4e 4f
+	50 51 52 53 54 55 56 57 58 59 5a 5b 5c 5d 5e 5f
+	60 61 62 63 64 65 66 67 68 69 6a 6b 6c 6d 6e 6f
+	70 71 72 73 74 75 76 77 78 79 7a 7b 7c 7d 7e 7f
+	80 81 82 83 84 85 86 87 88 89 8a 8b 8c 8d 8e 8f
+	90 91 92 93 94 95 96 97 98 99 9a 9b 9c 9d 9e 9f
+	a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 aa ab ac ad ae af
+	b0 b1 b2 b3 b4 b5 b6 b7 b8 b9 ba bb bc bd be bf
+	c0 c1 c2 c3 c4 c5 c6 c7 c8 c9 ca cb cc cd ce cf
+	d0 d1 d2 d3 d4 d5 d6 d7 d8 d9 da db dc dd de df
+	e0 e1 e2 e3 e4 e5 e6 e7 e8 e9 ea eb ec ed ee ef
+	f0 f1 f2 f3 f4 f5 f6 f7 f8 f9 fa fb fc fd fe ff
+
+	00 01 02 03 04 05 06 07 08 09 0a 0b 0c 0d 0e 0f
+	10 11 12 13 14 15 16 17 18 19 1a 1b 1c 1d 1e 1f
+	20 21 22 23 24 25 26 27 28 29 2a 2b 2c 2d 2e 2f
+	30 31 32 33 34 35 36 37 38 39 3a 3b 3c 3d 3e 3f
+	40 41 42 43 44 45 46 47 48 49 4a 4b 4c 4d 4e 4f
+	50 51 52 53 54 55 56 57 58 59 5a 5b 5c 5d 5e 5f
+	60 61 62 63 64 65 66 67 68 69 6a 6b 6c 6d 6e 6f
+	70 71 72 73 74 75 76 77 78 79 7a 7b 7c 7d 7e 7f
+	80 81 82 83 84 85 86 87 88 89 8a 8b 8c 8d 8e 8f
+	90 91 92 93 94 95 96 97 98 99 9a 9b 9c 9d 9e 9f
+	a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 aa ab ac ad ae af
+	b0 b1 b2 b3 b4 b5 b6 b7 b8 b9 ba bb bc bd be bf
+	c0 c1 c2 c3 c4 c5 c6 c7 c8 c9 ca cb cc cd ce cf
+	d0 d1 d2 d3 d4 d5 d6 d7 d8 d9 da db dc dd de df
+	e0 e1 e2 e3 e4 e5 e6 e7 e8 e9 ea eb ec ed ee ef
+	f0 f1 f2 f3 f4 f5 f6 f7 f8 f9 fa fb fc fd fe ff
+
+	00 01 02 03 04 05 06 07 08 09 0a 0b 0c 0d 0e 0f
+	10 11 12 13 14 15 16 17 18 19 1a 1b 1c 1d 1e 1f
+	20 21 22 23 24 25 26 27 28 29 2a 2b 2c 2d 2e 2f
+	30 31 32 33 34 35 36 37 38 39 3a 3b 3c 3d 3e 3f
+	40 41 42 43 44 45 46 47 48 49 4a 4b 4c 4d 4e 4f
+	50 51 52 53 54 55 56 57 58 59 5a 5b 5c 5d 5e 5f
+	60 61 62 63 64 65 66 67 68 69 6a 6b 6c 6d 6e 6f
+	70 71 72 73 74 75 76 77 78 79 7a 7b 7c 7d 7e 7f
+	80 81 82 83 84 85 86 87 88 89 8a 8b 8c 8d 8e 8f
+	90 91 92 93 94 95 96 97 98 99 9a 9b 9c 9d 9e 9f
+	a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 aa ab ac ad ae af
+	b0 b1 b2 b3 b4 b5 b6 b7 b8 b9 ba bb bc bd be bf
+	c0 c1 c2 c3 c4 c5 c6 c7 c8 c9 ca cb cc cd ce cf
+	d0 d1 d2 d3 d4 d5 d6 d7 d8 d9 da db dc dd de df
+	e0 e1 e2 e3 e4 e5 e6 e7 e8 e9 ea eb ec ed ee ef
+	f0 f1 f2 f3 f4 f5 f6 f7 f8 f9 fa fb fc fd fe ff
+
+	00 01 02 03 04 05 06 07 08 09 0a 0b 0c 0d 0e 0f
+	10 11 12 13 14 15 16 17 18 19 1a 1b 1c 1d 1e 1f
+	20 21 22 23 24 25 26 27 28 29 2a 2b 2c 2d 2e 2f
+	30 31 32 33 34 35 36 37 38 39 3a 3b 3c 3d 3e 3f
+	40 41 42 43 44 45 46 47 48 49 4a 4b 4c 4d 4e 4f
+	50 51 52 53 54 55 56 57 58 59 5a 5b 5c 5d 5e 5f
+	60 61 62 63 64 65 66 67 68 69 6a 6b 6c 6d 6e 6f
+	70 71 72 73 74 75 76 77 78 79 7a 7b 7c 7d 7e 7f
+	80 81 82 83 84 85 86 87 88 89 8a 8b 8c 8d 8e 8f
+	90 91 92 93 94 95 96 97 98 99 9a 9b 9c 9d 9e 9f
+	a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 aa ab ac ad ae af
+	b0 b1 b2 b3 b4 b5 b6 b7 b8 b9 ba bb bc bd be bf
+	c0 c1 c2 c3 c4 c5 c6 c7 c8 c9 ca cb cc cd ce cf
+	d0 d1 d2 d3 d4 d5 d6 d7 d8 d9 da db dc dd de df
+	e0 e1 e2 e3 e4 e5 e6 e7 e8 e9 ea eb ec ed ee ef
+	f0 f1 f2 f3 f4 f5 f6 f7 f8 f9 fa fb fc fd fe ff
+
+
+	Read data matches written data.
+

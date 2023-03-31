@@ -1,0 +1,15 @@
+# Copyright (c) 2023 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+# STM32F7308-DK Discovery board configuration
+
+if BOARD_STM32F7308_DK
+
+config BOARD
+	default "stm32f7308_dk"
+
+config SPI_STM32_INTERRUPT
+	default y
+	depends on SPI
+
+endif # BOARD_STM32F7308_DK

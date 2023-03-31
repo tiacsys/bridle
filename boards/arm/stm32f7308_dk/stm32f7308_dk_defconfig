@@ -1,0 +1,30 @@
+# Copyright (c) 2023 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+CONFIG_SOC_SERIES_STM32F7X=y
+CONFIG_SOC_STM32F730XX=y
+
+# Enable MPU
+CONFIG_ARM_MPU=y
+
+# Enable HW stack protection
+CONFIG_HW_STACK_PROTECTION=y
+
+# Clock Configuration
+CONFIG_CLOCK_CONTROL=y
+
+# RTC Counter
+CONFIG_COUNTER=y
+
+# Enable Pin-Controller
+CONFIG_PINCTRL=y
+
+# Enable GPIO
+CONFIG_GPIO=y
+
+# Enable UART
+CONFIG_SERIAL=y
+
+# Console
+CONFIG_CONSOLE=y
+CONFIG_UART_CONSOLE=y
