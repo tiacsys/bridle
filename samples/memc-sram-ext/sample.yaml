@@ -1,0 +1,16 @@
+sample:
+  description: Memory controller SRAM sample
+  name: memc driver for SRAM sample
+common:
+  tags: memc
+  filter: dt_alias_exists("sram-ext")
+  integration_platforms:
+    - stm32f7308_dk
+  harness: console
+  harness_config:
+    type: one_line
+    regex:
+      - "Read data matches written data"
+tests:
+  sample.drivers.memc.sram:
+    tags: memc sram
