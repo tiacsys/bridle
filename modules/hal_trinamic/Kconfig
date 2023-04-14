@@ -1,0 +1,141 @@
+# Copyright (c) 2023 TiaC Systems
+#
+# SPDX-License-Identifier: Apache-2.0
+
+config HAS_TMCAPI
+	bool
+
+config HAS_TMCHELPERS
+	bool
+	depends on HAS_TMCAPI
+
+config HAS_TMCRAMP
+	bool
+	depends on HAS_TMCAPI
+
+if HAS_TMCAPI
+
+config USE_TCMAPI_MAX22216
+	bool
+
+config USE_TCMAPI_TMC2041
+	bool
+
+config USE_TCMAPI_TMC2130
+	bool
+
+config USE_TCMAPI_TMC2160
+	bool
+
+config USE_TCMAPI_TMC2208
+	bool
+
+config USE_TCMAPI_TMC2209
+	bool
+
+config USE_TCMAPI_TMC2224
+	bool
+
+config USE_TCMAPI_TMC2225
+	bool
+
+config USE_TCMAPI_TMC2226
+	bool
+
+config USE_TCMAPI_TMC2240
+	bool
+
+config USE_TCMAPI_TMC2300
+	bool
+
+config USE_TCMAPI_TMC2590
+	bool
+
+config USE_TCMAPI_TMC262
+	bool
+
+config USE_TCMAPI_TMC2660
+	bool
+
+config USE_TCMAPI_TMC389
+	bool
+
+config USE_TCMAPI_TMC4210
+	bool
+
+config USE_TCMAPI_TMC424
+	bool
+
+config USE_TCMAPI_TMC429
+	bool
+
+config USE_TCMAPI_TMC4330
+	bool
+
+config USE_TCMAPI_TMC4331
+	bool
+
+config USE_TCMAPI_TMC4361
+	bool
+
+config USE_TCMAPI_TMC4361A
+	bool
+
+config USE_TCMAPI_TMC43XX
+	bool
+
+config USE_TCMAPI_TMC457
+	bool
+
+config USE_TCMAPI_TMC4670
+	bool
+
+config USE_TCMAPI_TMC4671
+	bool
+
+config USE_TCMAPI_TMC5031
+	bool
+
+config USE_TCMAPI_TMC5041
+	bool
+
+config USE_TCMAPI_TMC5062
+	bool
+
+config USE_TCMAPI_TMC5072
+	bool
+
+config USE_TCMAPI_TMC5130
+	bool
+
+config USE_TCMAPI_TMC5160
+	bool
+
+config USE_TCMAPI_TMC5240
+	bool
+
+config USE_TCMAPI_TMC5271
+	bool
+
+config USE_TCMAPI_TMC5272
+	bool
+
+config USE_TCMAPI_TMC6100
+	bool
+
+config USE_TCMAPI_TMC6200
+	bool
+
+config USE_TCMAPI_TMC7300
+	bool
+
+config USE_TCMAPI_TMC8461
+	bool
+
+config USE_TCMAPI_TMC8462
+	bool
+
+config USE_TCMAPI_TMC846X
+	bool
+
+endif # HAS_TMCAPI
