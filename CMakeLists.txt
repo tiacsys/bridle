@@ -37,6 +37,3 @@ add_subdirectory(subsys)
 
 # add custom device drivers (e.g. sensor and actuator chips)
 add_subdirectory(drivers)
-
-# add external 3rd party modules (e.g. MicroPython or LUA)
-add_subdirectory(modules)
