@@ -1,7 +1,8 @@
 # The west manifest file for Bridle for embedded systems based on Zephyr.
 #
-# Copyright (c) 2021 TiaC Systems
+# Copyright (c) 2021-2023 TiaC Systems
 # Copyright (c) 2019-2021 Li-Pro.Net
+#
 # SPDX-License-Identifier: Apache-2.0
 #
 # The per-installation west configuration file, .west/config, sets the
@@ -103,3 +104,5 @@ manifest:
     # only for internal use by TIAC maintainers; import build
     # commands from Zephyr repo.
     west-commands: scripts/west-commands.yml
+    # Import additional Zephyr submodules from separate files.
+    import: submanifests
