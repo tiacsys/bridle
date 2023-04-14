@@ -5,3 +5,4 @@ raspberrypi	Raspberry Pi Foundation
 seeed		Seeed Technology Co., Ltd
 sparkfun	SparkFun Electronics, Inc.
 st		STMicroelectronics International N.V.
+trinamic	TRINAMIC Motion Control GmbH & Co. KG

@@ -1,0 +1,51 @@
+# Copyright (c) 2023 TiaC Systems
+# Copyright (c) 2022 Stefano Cottafavi
+#
+# SPDX-License-Identifier: Apache-2.0
+
+properties:
+  pwms:
+    type: phandle-array
+    description: |
+      Step pin
+
+  dir-gpios:
+    type: phandle-array
+    description: |
+      Dir pin
+
+  en-gpios:
+    type: phandle-array
+    description: |
+      Enable pin
+
+  diag0-pin:
+    type: phandles
+    description: |
+      Diagnostic pin 0
+  diag1-pin:
+    type: phandles
+    description: |
+      Diagnostic pin 1
+
+  r-sens:
+    type: int
+    description: |
+      Sensing resistor [mohm]
+    default: 110
+  current-run:
+    type: int
+    description: |
+      Operating current [mA]
+    default: 1000
+  current-hold:
+    type: int
+    description: |
+      Holding current [mA]
+    default: 200
+
+  rotation-distance:
+    type: int
+    description: |
+      Linear displacement per motor turn [mm]
+    default: 1000
