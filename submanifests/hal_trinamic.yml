@@ -1,0 +1,20 @@
+# The west manifest file for Trinamic HAL as needed by Bridle.
+#
+# Copyright (c) 2023 TiaC Systems
+#
+# SPDX-License-Identifier: Apache-2.0
+
+manifest:
+  version: "0.13"
+  remotes:
+    - name: tiacsys
+      url-base: https://github.com/tiacsys
+  projects:
+    - name: hal_trinamic
+      path: modules/hal/trinamic
+      remote: tiacsys
+      repo-path: TMC-API
+      revision: tiacsys/v3.09.2-branch
+      groups:
+        - hal
+        - tmc
