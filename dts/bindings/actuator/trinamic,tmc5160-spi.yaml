@@ -1,0 +1,10 @@
+# Copyright (c) 2023 TiaC Systems
+# Copyright (c) 2022 Stefano Cottafavi
+#
+# SPDX-License-Identifier: Apache-2.0
+
+description: TMC5160 stepper driver (SPI)
+
+compatible: "trinamic,tmc5160"
+
+include: ["spi-device.yaml", "trinamic,tmc.yaml"]
