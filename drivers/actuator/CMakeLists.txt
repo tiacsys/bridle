@@ -2,6 +2,8 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
+add_subdirectory_ifdef(CONFIG_TMC tmc)
+
 if(CONFIG_USERSPACE OR CONFIG_BRIDLE_ACTUATOR_SHELL)
 # The above if() is needed or else CMake would complain about empty library.
 

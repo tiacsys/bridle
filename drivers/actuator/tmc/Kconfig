@@ -1,0 +1,26 @@
+# Copyright (c) 2023 TiaC Systems
+#
+# SPDX-License-Identifier: Apache-2.0
+
+menuconfig TMC
+	bool "Trinamic Motion Control (TMC) support"
+	help
+	  Enable Trinamic Motion Control (TMC) driver support.
+
+if TMC
+
+config TMC_SD
+	bool "Use STEP/DIR mode"
+	select GPIO
+
+config TMC_SPI
+	bool "Use SPI mode"
+	select SPI
+
+config TMC_UART
+	bool "Use UART mode"
+	select SERIAL
+
+comment "TMC Chip Drivers"
+
+endif # TMC

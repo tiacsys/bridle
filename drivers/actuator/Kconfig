@@ -34,4 +34,6 @@ config BRIDLE_ACTUATOR_INFO
 
 comment "Device Drivers"
 
+rsource "tmc/Kconfig"
+
 endif # BRIDLE_ACTUATOR
