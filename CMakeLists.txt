@@ -19,6 +19,15 @@ add_custom_target(version_bridle_h
 add_dependencies(version_bridle_h version_h)
 add_dependencies(zephyr_interface version_bridle_h)
 
+# adding custom system-calls directly for Zephyr's stub generation
+# NOTE: should be declared in zephyr/module.yml as soon as current
+#       discussion has found a final solution, see:
+#
+#       - https://github.com/zephyrproject-rtos/zephyr/issues/50481
+#
+list(APPEND SYSCALL_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/include)
+set(SYSCALL_INCLUDE_DIRS ${SYSCALL_INCLUDE_DIRS} PARENT_SCOPE)
+
 # include custom headers for e.g. drivers or sub-systems sorted by sub-folders
 zephyr_include_directories(include)
 
