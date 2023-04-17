@@ -1,0 +1,37 @@
+# Copyright (c) 2023 TiaC Systems
+#
+# SPDX-License-Identifier: Apache-2.0
+
+menuconfig BRIDLE_ACTUATOR
+	bool "Actuator Drivers"
+	help
+	  Include actuator drivers in system config.
+
+if BRIDLE_ACTUATOR
+
+module = BRIDLE_ACTUATOR
+module-dep = LOG
+module-str = Bridle actuator
+module-help = Sets log level for Bridle actuator.
+source "subsys/logging/Kconfig.template.log_config"
+
+config BRIDLE_ACTUATOR_INIT_PRIORITY
+	int "Actuator init priority"
+	default 90
+	help
+	  Actuator initialization priority.
+
+config BRIDLE_ACTUATOR_SHELL
+	bool "Actuator shell"
+	depends on SHELL
+	select CBPRINTF_FP_SUPPORT
+	default y if !SHELL_MINIMAL
+	help
+	  This shell provides access to basic actuator actions.
+
+config BRIDLE_ACTUATOR_INFO
+	bool "Actuator Info iterable section"
+
+comment "Device Drivers"
+
+endif # BRIDLE_ACTUATOR
