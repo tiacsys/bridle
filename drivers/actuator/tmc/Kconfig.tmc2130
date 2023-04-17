@@ -1,0 +1,20 @@
+# Copyright (c) 2023 TiaC Systems
+# Copyright (c) 2022 Stefano Cottafavi
+#
+# SPDX-License-Identifier: Apache-2.0
+
+config TMC2130
+	bool "Enable support for the TMC2130 stepper driver"
+	default y
+	depends on DT_HAS_TRINAMIC_TMC2130_ENABLED
+	select TMC_SPI if $(dt_compat_on_bus,$(DT_COMPAT_TRINAMIC_TMC2130),spi)
+	select HAS_TMCAPI
+	select USE_TCMAPI_TMC2130
+	help
+	  Enable TMC2130 stepper driver.
+
+if TMC2130
+
+# TODO: diag pins and others
+
+endif # TMC2130

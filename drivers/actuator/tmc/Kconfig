@@ -23,4 +23,6 @@ config TMC_UART
 
 comment "TMC Chip Drivers"
 
+rsource "Kconfig.tmc2130"
+
 endif # TMC
