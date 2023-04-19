@@ -1,0 +1,45 @@
+# Seeedunio Lotus Cortex-M0+ board configuration
+
+# Copyright (c) 2023 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+config BOARD
+	default "seeeduino_lotus"
+	depends on BOARD_SEEEDUINO_LOTUS
+
+# Workaround for not being able to have commas in macro arguments
+DT_CHOSEN_Z_CONSOLE := zephyr,console
+DT_COMPAT_Z_CDC_ACM_UART := zephyr,cdc-acm-uart
+DT_COMPAT_ATMEL_USB := atmel,sam0-usb
+
+# Macros to shorten Kconfig expressions
+DT_CHOSEN_CONSOLE_NODE := $(dt_chosen_path,$(DT_CHOSEN_Z_CONSOLE))
+DT_CHOSEN_CONSOLE_PARENT := $(dt_node_parent,$(DT_CHOSEN_CONSOLE_NODE))
+
+if $(dt_chosen_enabled,$(DT_CHOSEN_Z_CONSOLE)) && \
+   $(dt_compat_on_bus,$(DT_COMPAT_Z_CDC_ACM_UART),usb) && \
+   $(dt_node_has_compat,$(DT_CHOSEN_CONSOLE_PARENT),$(DT_COMPAT_ATMEL_USB))
+
+config BOOTLOADER_BOSSA_DEVICE_NAME
+	default "$(dt_chosen_label,$(DT_CHOSEN_Z_CONSOLE))"
+	depends on USB_CDC_ACM
+
+if LOG
+
+# Logger cannot use itself to log
+choice USB_CDC_ACM_LOG_LEVEL_CHOICE
+	default USB_CDC_ACM_LOG_LEVEL_OFF
+endchoice
+
+# Set USB log level to error only
+choice USB_DEVICE_LOG_LEVEL_CHOICE
+	default USB_DEVICE_LOG_LEVEL_ERR
+endchoice
+
+# Wait 4000ms at startup for logging
+config LOG_PROCESS_THREAD_STARTUP_DELAY_MS
+	default 4000
+
+endif # LOG
+
+endif # @usbcons

@@ -1,0 +1,502 @@
+.. _seeeduino_lotus:
+
+Seeeduino Lotus Cortex-M0+
+##########################
+
+Overview
+********
+
+The Seeeduino Lotus Cortex-M0+ is an Arduino form factor development board
+based on an Atmel SAMD21 ARM with onboard LEDs, USB port, and range of 14
+digital I/O (10 of which support PWM) and 6 analog I/O broken out onto
+Arduino UNO R3 header and multiple Grove connectors.
+
+.. image:: img/seeeduino_lotus.jpg
+     :align: center
+     :alt: Seeeduino Lotus Cortex-M0+
+
+Hardware
+********
+
+- `ATSAMD21G18A`_ ARM Cortex-M0+ processor at 48 MHz
+- 256 KiB flash memory and 32 KiB of RAM
+- Three user LEDs (blue/Rx/Tx)
+- Reset button
+- Native USB port
+- 12 Grove connectors
+- Arduino UNO R3 header
+- Arduino ICSP header
+- `MP2617B`_, switching battery charger (max. 2A)
+- JST2.0 Li-Po battery connector
+
+Supported Features
+==================
+
+The :code:`seeeduino_lotus` board configuration supports the following
+hardware features:
+
++-----------+------------+------------------------------------------+
+| Interface | Controller | Driver/Component                         |
++===========+============+==========================================+
+| DMA       | on-chip    | Direct memory access                     |
++-----------+------------+------------------------------------------+
+| Flash     | on-chip    | Can be used with LittleFS to store files |
++-----------+------------+------------------------------------------+
+| GPIO      | on-chip    | I/O ports                                |
++-----------+------------+------------------------------------------+
+| HWINFO    | on-chip    | Hardware info                            |
++-----------+------------+------------------------------------------+
+| I2C       | on-chip    | Inter-Integrated Circuit                 |
++-----------+------------+------------------------------------------+
+| NVIC      | on-chip    | nested vector interrupt controller       |
++-----------+------------+------------------------------------------+
+| SPI       | on-chip    | Serial Peripheral Interface ports        |
++-----------+------------+------------------------------------------+
+| SYSTICK   | on-chip    | systick                                  |
++-----------+------------+------------------------------------------+
+| USART     | on-chip    | Serial ports                             |
++-----------+------------+------------------------------------------+
+| USB       | on-chip    | USB device                               |
++-----------+------------+------------------------------------------+
+| WDT       | on-chip    | Watchdog                                 |
++-----------+------------+------------------------------------------+
+
+Other hardware features are not currently supported by Zephyr.
+
+The default configuration can be found in the Kconfig file
+:bridle_file:`boards/arm/seeeduino_lotus/seeeduino_lotus_defconfig`.
+
+Board Revisions
+===============
+
+The :code:`seeeduino_lotus` board can be configured for the following
+revisions. These are not really specific hardware revisions, rather than
+specific configurations for different use cases.
+
+.. rubric:: :code:`seeeduino_lotus@uartcons`
+
+Use the serial port SERCOM2 as Zephyr console and for the shell.
+
+.. rubric:: :code:`seeeduino_lotus@usbcons`
+
+Use the USB device port with CDC-ACM as Zephyr console and for the shell.
+
+Connections and IOs
+===================
+
+The `Seeeduino Lotus Cortex-M0+ wiki`_ has detailed information about
+the board including `pinouts`_ and the `schematic`_.
+
+System Clock
+============
+
+The SAMD21 MCU is configured to use the 32 kHz external crystal with
+the on-chip PLL generating the 48 MHz system clock. The internal APB
+and GCLK unit are set up in the same way as the upstream Arduino
+libraries.
+
+GPIO (PWM) Ports
+================
+
+The SAMD21 MCU has 2 GPIO ports, 3 PWM able Timer/Capture-Counter (TCC) and
+2 simple Timer/Counter (TC). On the Lotus Cortex-M0+, TCC2 channel 1 is
+available on first user LED (blue), all other user LEDs can be controlles
+as GPIO.
+
+ADC/DAC Ports
+=============
+
+The SAMD21 MCU has 1 DAC and 1 ADC. On the Lotus Cortex-M0+, the DAC voltage
+output (VOUT) is available on A0 of the Arduino UNO R3 header. The ADC
+channels 2-5 and 10 are available on A1-A5 of the Arduino UNO R3 header.
+
+The external voltage reference VREFA can be used optional for the DAC and
+ADC on same time and is available on AREF of the Arduino UNO R3 header.
+
+SPI Port
+========
+
+The SAMD21 MCU has 6 SERCOM based SPIs. On the Lotus Cortex-M0+, SERCOM1
+can be put into SPI mode and used to connect to devices over D11 (MOSI),
+D12 (MISO), and D13 (SCK) of the Arduino UNO R3 header.
+
+I2C Port
+========
+
+The SAMD21 MCU has 6 SERCOM based I2Cs. On the Lotus Cortex-M0+, SERCOM3
+is available only on D18 (SDA) and D19 (SCL) of the Arduino UNO R3 header.
+
+Serial Port
+===========
+
+The SAMD21 MCU has 6 SERCOM based USARTs. On the Lotus Cortex-M0+, SERCOM2
+is available on D0 (RX) and D1 (TX) of the Arduino UNO R3 header and is the
+Zephyr console. This is captured by the standard board revision ``uartcons``.
+SERCOM5 is available on pin 1 (RX) and pin 2 (TX) of the Grove UART connector
+and is an optional second serial port for applications.
+
+USB Device Port
+===============
+
+The SAMD21 MCU has a USB device port that can be used to communicate with a
+host PC. See the :ref:`usb-samples` sample applications for more, such as the
+:ref:`usb_cdc-acm` sample which sets up a virtual serial port that echos
+characters back to the host PC. As an alternative to the default Zephyr
+console on serial port the special board revision ``usbcons`` can be used
+to enable :ref:`usb_device_cdc_acm` and switch the console to USB::
+
+   USB device idVendor=2886, idProduct=8026, bcdDevice= 3.03
+   USB device strings: Mfr=1, Product=2, SerialNumber=3
+   Product: Seeeduino_lotus
+   Manufacturer: Seeed LLC
+   SerialNumber: 9973734CA4207846
+
+Programming and Debugging
+*************************
+
+The Lotus Cortex-M0+ ships the BOSSA compatible UF2 bootloader also known as
+`Arduino Zero Bootloader`_, a modern `SAM-BA`_ (Boot Assistant) replacement.
+The bootloader can be entered by pressing the RST button twice::
+
+   USB device idVendor=2886, idProduct=0026, bcdDevice= 2.00
+   USB device strings: Mfr=1, Product=2, SerialNumber=0
+   Product: Seeeduino_lotus
+   Manufacturer: Arduino LLC
+
+Additionally, if :kconfig:option:`CONFIG_USB_CDC_ACM` is enabled then the
+bootloader will be entered automatically when you run :program:`west flash`.
+
+.. tip::
+
+   When ever you need to restore this original bootloader you should read
+   and following the directions in `Flashing the Arduino Bootloader using
+   DAP Link`_.
+   There is also a backup copy of the original bootloader together with
+   a ready to use Segger JFlash control file inside the Bridel project:
+
+   * :bridle_file:`boards/arm/seeeduino_lotus/doc/bootloader/samd21_bossa_arduino.hex`
+   * :bridle_file:`boards/arm/seeeduino_lotus/doc/bootloader/samd21_bossa_arduino.jflash`
+
+There is also a SWD header (J10, not populated) on board which have to be
+used with tools like Segger J-Link for programming for bootloader restore
+or direct programming and debugging.
+
+Flashing
+========
+
+#. Build the Zephyr kernel and the :ref:`hello_world` sample application:
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/hello_world
+      :board: seeeduino_lotus
+      :goals: build
+      :compact:
+
+#. Connect the Lotus Cortex-M0+ to your host computer using USB.
+
+#. Connect a 3.3 V USB to serial adapter to the board and to the
+   host.  See the `Serial Port`_ section above for the board's pin
+   connections.
+
+#. Run your favorite terminal program to listen for output. Under Linux the
+   terminal should be :code:`/dev/ttyUSB0`. For example:
+
+   .. code-block:: console
+
+      minicom -D /dev/ttyUSB0 -o
+
+   The -o option tells minicom not to send the modem initialization
+   string. Connection should be configured as follows:
+
+   - Speed: 115200
+   - Data: 8 bits
+   - Parity: None
+   - Stop bits: 1
+
+#. Pressing the RST button twice quickly to enter bootloader mode.
+
+#. Flash the image:
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/hello_world
+      :board: seeeduino_lotus
+      :goals: flash
+      :compact:
+
+   You should see "Hello World! seeeduino_lotus" in your terminal.
+
+Debugging
+=========
+
+**Debugging is only possible over SWD!**
+
+#. Do the for the debug session necessary steps as before except
+   enter the bootloader mode and the flashing.
+
+#. Connect the Segger J-Link to the SWD header (J10).
+
+#. Flash the image and attach a debugger to your board:
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/hello_world
+      :board: seeeduino_lotus
+      :gen-args: -DBOARD_FLASH_RUNNER=openocd
+      :goals: debug
+      :compact:
+
+   You should ends up in a debug console (e.g. a GDB session).
+
+More Samples
+************
+
+LED Blinky
+==========
+
+.. zephyr-app-commands::
+   :app: zephyr/samples/basic/blinky
+   :board: seeeduino_lotus
+   :goals: flash
+   :compact:
+
+LED Fade
+========
+
+.. zephyr-app-commands::
+   :app: zephyr/samples/basic/fade_led
+   :board: seeeduino_lotus
+   :goals: flash
+   :compact:
+
+Basic Threads
+=============
+
+.. zephyr-app-commands::
+   :app: zephyr/samples/basic/threads
+   :board: seeeduino_lotus
+   :goals: flash
+   :compact:
+
+Hello Shell with USB-CDC/ACM Console
+====================================
+
+.. zephyr-app-commands::
+   :app: bridle/samples/helloshell
+   :board: seeeduino_lotus@usbcons
+   :goals: flash
+   :compact:
+
+.. rubric:: Simple test execution on target
+
+.. tabs::
+
+   .. group-tab:: Basics
+
+      .. code-block:: console
+
+         uart:~$ hello -h
+         hello - say hello
+         uart:~$ hello
+         Hello from shell.
+
+         uart:~$ hwinfo devid
+         Length: 12
+         ID: 0xefa3ee60dfcb11ed9973734ca4207846
+
+         uart:~$ kernel version
+         Zephyr version 3.3.0
+
+         uart:~$ bridle version
+         Bridle version 3.3.0
+
+         uart:~$ bridle version long
+         Bridle version 3.3.0.0
+
+         uart:~$ bridle info
+         Zephyr: 3.3.0
+         Bridle: 3.3.0
+
+         uart:~$ device list
+         devices:
+         - eic@40001800 (READY)
+         - gpio@41004480 (READY)
+         - gpio@41004400 (READY)
+         - CDC_ACM_0 (READY)
+         - sercom@42001c00 (READY)
+         - sercom@42001000 (READY)
+         - adc@42004000 (READY)
+         - dac@42004800 (READY)
+         - sercom@42001400 (READY)
+         - tcc@42002800 (READY)
+         - nvmctrl@41004000 (READY)
+
+         uart:~$ history
+         [  0] history
+         [  1] device list
+         [  2] bridle info
+         [  3] bridle version long
+         [  4] bridle version
+         [  5] kernel version
+         [  6] hwinfo devid
+         [  7] hello
+         [  8] hello -h
+
+   .. group-tab:: GPIO
+
+      Operate with the red Rx user LED:
+
+      .. code-block:: console
+
+         uart:~$ gpio get gpio@41004480 3
+         Reading gpio@41004480 pin 3
+         Value 0
+
+         uart:~$ gpio conf gpio@41004480 3 out
+         Configuring gpio@41004480 pin 3
+
+         uart:~$ gpio set gpio@41004480 3 1
+         Writing to gpio@41004480 pin 3
+
+         uart:~$ gpio set gpio@41004480 3 0
+         Writing to gpio@41004480 pin 3
+
+         uart:~$ gpio blink gpio@41004480 3
+         Blinking port gpio@41004480 index 3. Hit any key to exit
+
+   .. group-tab:: PWM
+
+      Operate with the blue user LED:
+
+      .. code-block:: console
+
+         uart:~$ pwm usec tcc@42002800 1 20000 20000
+         uart:~$ pwm usec tcc@42002800 1 20000 19000
+         uart:~$ pwm usec tcc@42002800 1 20000 18000
+         uart:~$ pwm usec tcc@42002800 1 20000 17000
+         uart:~$ pwm usec tcc@42002800 1 20000 16000
+         uart:~$ pwm usec tcc@42002800 1 20000 15000
+         uart:~$ pwm usec tcc@42002800 1 20000 10000
+         uart:~$ pwm usec tcc@42002800 1 20000 5000
+         uart:~$ pwm usec tcc@42002800 1 20000 2500
+         uart:~$ pwm usec tcc@42002800 1 20000 500
+         uart:~$ pwm usec tcc@42002800 1 20000 0
+
+   .. group-tab:: DAC/ADC
+
+      Operate with the loop-back wire from A0 (DAC CH0 VOUT)
+      to A1 (ADC CH2 AIN):
+
+     .. code-block:: console
+
+        uart:~$ dac setup dac@42004800 0 10
+        uart:~$ adc adc@42004000 resolution 12
+        uart:~$ adc adc@42004000 acq_time 10 us
+        uart:~$ adc adc@42004000 channel positive 2
+
+        uart:~$ dac write_value dac@42004800 0 512
+        uart:~$ adc adc@42004000 read 2
+        read: 2025
+
+        uart:~$ dac write_value dac@42004800 0 1023
+        uart:~$ adc adc@42004000 read 2
+        read: 4061
+
+   .. group-tab:: Flash access
+
+      .. code-block:: console
+
+         uart:~$ flash read nvmctrl@41004000 137f0 40
+         000137F0: 74 75 73 00 48 65 6c 6c  6f 20 57 6f 72 6c 64 21 |tus.Hell o World!|
+         00013800: 20 49 27 6d 20 54 48 45  20 53 48 45 4c 4c 20 66 | I'm THE  SHELL f|
+         00013810: 72 6f 6d 20 25 73 0a 00  69 6c 6c 65 67 61 6c 20 |rom %s.. illegal |
+         00013820: 6f 70 74 69 6f 6e 20 2d  2d 20 25 63 00 6f 70 74 |option - - %c.opt|
+
+         uart:~$ flash read nvmctrl@41004000 3c000 40
+         0003C000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff |........ ........|
+         0003C010: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff |........ ........|
+         0003C020: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff |........ ........|
+         0003C030: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff |........ ........|
+
+         uart:~$ flash test nvmctrl@41004000 3c000 400 2
+         Erase OK.
+         Write OK.
+         Erase OK.
+         Write OK.
+         Erase-Write test done.
+
+         uart:~$ flash read nvmctrl@41004000 3c000 40
+         0003C000: 00 01 02 03 04 05 06 07  08 09 0a 0b 0c 0d 0e 0f |........ ........|
+         0003C010: 10 11 12 13 14 15 16 17  18 19 1a 1b 1c 1d 1e 1f |........ ........|
+         0003C020: 20 21 22 23 24 25 26 27  28 29 2a 2b 2c 2d 2e 2f | !"#$%&' ()*+,-./|
+         0003C030: 30 31 32 33 34 35 36 37  38 39 3a 3b 3c 3d 3e 3f |01234567 89:;<=>?|
+
+         uart:~$ flash page_info 3c000
+         Page for address 0x3c000:
+         start offset: 0x3c000
+         size: 256
+         index: 960
+
+         uart:~$ flash erase nvmctrl@41004000 3c000 400
+         Erase success.
+
+         uart:~$ flash read nvmctrl@41004000 3c000 40
+         0003C000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff |........ ........|
+         0003C010: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff |........ ........|
+         0003C020: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff |........ ........|
+         0003C030: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff |........ ........|
+
+   .. group-tab:: I2C
+
+      .. code-block:: console
+
+         uart:~$ log enable none i2c_sam0
+
+         uart:~$ i2c scan sercom@42001400
+              0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+         00:             -- -- -- -- -- -- -- -- -- -- -- --
+         10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+         20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+         30: -- -- -- -- -- -- -- -- 38 -- -- -- 3c -- -- --
+         40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+         50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+         60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+         70: -- -- -- -- -- -- -- 77
+         3 devices found on sercom@42001400
+
+         uart:~$ log enable inf i2c_sam0
+
+      The I2C address ``0x77`` is a Bosch BMP280 Air Pressure Sensor and their
+      Chip-ID can read from register ``0xd0``. The Chip-ID must be ``0x58``:
+
+      .. code-block:: console
+
+         uart:~$ i2c read_byte sercom@42001400 77 d0
+         Output: 0x58
+
+References
+**********
+
+.. target-notes::
+
+.. _Seeeduino Lotus Cortex-M0+ wiki:
+    https://wiki.seeedstudio.com/Seeeduino_Lotus_Cortex-M0-/
+
+.. _pinouts:
+    https://wiki.seeedstudio.com/Seeeduino_Lotus_Cortex-M0-/#pinout
+
+.. _schematic:
+    https://wiki.seeedstudio.com/Seeeduino_Lotus_Cortex-M0-/#resources
+
+.. _ATSAMD21G18A:
+    https://www.microchip.com/product/ATSAMD21G18
+
+.. _MP2617B:
+    https://www.monolithicpower.com/mp2617b.html
+
+.. _Arduino Zero Bootloader:
+    https://github.com/Seeed-Studio/ArduinoCore-samd/tree/master/bootloaders/seeed_zero
+
+.. _Flashing the Arduino Bootloader using DAP Link:
+    https://wiki.seeedstudio.com/Flashing-Arduino-Bootloader-DAPLink/
+
+.. _SAM-BA:
+    https://microchipdeveloper.com/atstart:sam-d21-bootloader
