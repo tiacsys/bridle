@@ -88,7 +88,7 @@ tests:
             dt_nodelabel_enabled("arduino_header") and
             dt_nodelabel_enabled("grove_gpios") and
             dt_nodelabel_enabled("arduino_serial") and
-            dt_nodelabel_enabled("grove_uart") and
+            dt_nodelabel_enabled("grove_serial") and
             dt_nodelabel_enabled("arduino_i2c") and
             dt_nodelabel_enabled("grove_i2c") and
             dt_nodelabel_enabled("arduino_spi") and
@@ -109,7 +109,7 @@ tests:
             dt_nodelabel_enabled("arduino_header") and
             dt_nodelabel_enabled("grove_gpios") and
             dt_nodelabel_enabled("arduino_serial") and
-            dt_nodelabel_enabled("grove_uart") and
+            dt_nodelabel_enabled("grove_serial") and
             dt_nodelabel_enabled("arduino_i2c") and
             dt_nodelabel_enabled("grove_i2c") and
             dt_nodelabel_enabled("arduino_spi") and
@@ -129,7 +129,7 @@ tests:
             dt_nodelabel_enabled("rpipico_header") and
             dt_nodelabel_enabled("grove_gpios") and
             dt_nodelabel_enabled("rpipico_serial") and
-            dt_nodelabel_enabled("grove_uart") and
+            dt_nodelabel_enabled("grove_serial") and
             dt_nodelabel_enabled("rpipico_i2c") and
             dt_nodelabel_enabled("grove_i2c") and
             dt_nodelabel_enabled("rpipico_spi") and
