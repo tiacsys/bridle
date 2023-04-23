@@ -5,4 +5,4 @@
 
 grove_i2c: &rpipico_i2c {};
 grove_spi: &rpipico_spi {};
-grove_uart: &rpipico_serial {};
+grove_serial: &rpipico_serial {};

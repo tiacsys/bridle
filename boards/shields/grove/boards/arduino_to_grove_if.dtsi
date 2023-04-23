@@ -5,4 +5,4 @@
 
 grove_i2c: &arduino_i2c {};
 grove_spi: &arduino_spi {};
-grove_uart: &arduino_serial {};
+grove_serial: &arduino_serial {};
