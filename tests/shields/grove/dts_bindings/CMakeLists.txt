@@ -376,7 +376,7 @@ if(DEFINED if_path)
      CONFIG_BOARD_MIMXRT1060_EVK OR
      CONFIG_BOARD_MIMXRT1060_EVKB)
 
-    test_if_label_matching("grove_uart" "arduino_serial")
+    test_if_label_matching("grove_serial" "arduino_serial")
     test_if_label_matching("grove_i2c" "arduino_i2c")
     test_if_label_matching("grove_spi" "arduino_spi")
 
@@ -399,7 +399,7 @@ if(DEFINED if_path)
   # check common board specific add-ons
   if(CONFIG_BOARD_RPI_PICO)
 
-    test_if_label_matching("grove_uart" "rpipico_serial")
+    test_if_label_matching("grove_serial" "rpipico_serial")
     test_if_label_matching("grove_i2c" "rpipico_i2c")
     test_if_label_matching("grove_spi" "rpipico_spi")
 
