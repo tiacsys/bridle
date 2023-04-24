@@ -3,6 +3,9 @@
 
 if SHIELD_X_GROVE_TESTBED
 
-# nothing needed here, use board and shield defaults
+config SHIELD_X_GROVE_TESTBED_SINGLE_BOARD
+	bool
+	default y if BOARD_SEEEDUINO_LOTUS
+	default n
 
 endif # SHIELD_X_GROVE_TESTBED

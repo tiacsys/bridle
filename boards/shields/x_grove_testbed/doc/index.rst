@@ -455,6 +455,64 @@ For example:
                      :host-os: unix
                      :tool: all
 
+   .. group-tab:: Atmel Semiconductors
+
+      .. tabs::
+
+         .. group-tab:: Seeeduino Lotus Cortex-M0+
+
+            This is based on the Zephyr board :ref:`seeeduino_lotus`.
+
+            * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
+
+            .. image:: img/x_grove_testbed_seeduino_lotus_bb.svg
+               :alt: Seeeduino Lotus Cortex-M0+ Wiring Schematics
+               :align: center
+
+            .. tabs::
+
+               .. group-tab:: LED Blinky
+
+                  This is based on the Zephyr sample :ref:`blinky-sample`.
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/blinky
+                     :build-dir: blinky-seeeduino_lotus-x_grove_testbed
+                     :board: seeeduino_lotus@usbcons
+                     :shield: "grove_btn_d7 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :goals: build flash
+                     :west-args: -p always
+                     :host-os: unix
+                     :tool: all
+
+               .. group-tab:: LED Fade
+
+                  This is based on the Zephyr sample :ref:`fade-led-sample`.
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/fade_led
+                     :build-dir: fade-seeeduino_lotus-x_grove_testbed
+                     :board: seeeduino_lotus@usbcons
+                     :shield: "grove_btn_d7 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :goals: build flash
+                     :west-args: -p always
+                     :host-os: unix
+                     :tool: all
+
+               .. group-tab:: LED Button
+
+                  This is based on the Zephyr sample :ref:`button-sample`.
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/button
+                     :build-dir: button-seeeduino_lotus-x_grove_testbed
+                     :board: seeeduino_lotus@usbcons
+                     :shield: "grove_btn_d7 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :goals: build flash
+                     :west-args: -p always
+                     :host-os: unix
+                     :tool: all
+
    .. group-tab:: Raspberry Pi
 
       .. tabs::
