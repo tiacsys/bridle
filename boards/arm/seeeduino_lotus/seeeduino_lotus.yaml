@@ -13,6 +13,10 @@ supported:
   - arduino_i2c
   - arduino_spi
   - arduino_serial
+  - grove_gpio
+  - grove_pwm
+  - grove_i2c
+  - grove_serial
   - hwinfo
   - dma
   - pwm

@@ -44,6 +44,8 @@
 		};
 	};
 
+	tcc0_pwm_default: tcc0_pwm_default {};
+
 	tcc2_pwm_default: tcc2_pwm_default {
 		group1 {
 			pinmux = <PA17E_TCC2_WO1>;
