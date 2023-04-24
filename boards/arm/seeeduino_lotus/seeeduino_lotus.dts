@@ -7,6 +7,7 @@
 #include <atmel/samd21.dtsi>
 #include "seeeduino_lotus-pinctrl.dtsi"
 #include "arduino_r3_connector.dtsi"
+#include "grove_connectors.dtsi"
 
 #include <zephyr/dt-bindings/pwm/pwm.h>
 
@@ -98,6 +99,16 @@
 	txpo = <1>;
 
 	pinctrl-0 = <&sercom5_uart_default>;
+	pinctrl-names = "default";
+};
+
+&tcc0 {
+	status = "okay";
+	compatible = "atmel,sam0-tcc-pwm";
+	prescaler = <1>;
+	#pwm-cells = <2>;
+
+	pinctrl-0 = <&tcc0_pwm_default>;
 	pinctrl-names = "default";
 };
 

@@ -1,0 +1,17 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	grove_i2c_header: grove-i2c-connector {
+		compatible = "seeed,grove-connector";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <0 0 &porta 23 0>,	/* I2C-SCL */
+			   <1 0 &porta 22 0>;	/* I2C-SDA */
+	};
+};
+
+grove_i2c: &sercom3 {};

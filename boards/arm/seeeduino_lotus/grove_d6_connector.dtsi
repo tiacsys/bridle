@@ -1,0 +1,43 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	grove_d6_header: grove-d6-connector {
+		compatible = "seeed,grove-connector";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <0 0 &porta 20 0>,	/* D6 */
+			   <1 0 &porta 21 0>;	/* D7 */
+	};
+};
+
+#undef GROVE_PWM_D6_FAST
+#define GROVE_PWM_D6_FAST				\
+	&tcc0 {						\
+		prescaler = <1>;			\
+	};
+
+#undef GROVE_PWM_D6_SLOW
+#define GROVE_PWM_D6_SLOW				\
+	&tcc0 {						\
+		prescaler = <1024>;			\
+	};
+
+#undef GROVE_PWM_D6_ENABLE
+#define GROVE_PWM_D6_ENABLE				\
+	&tcc0 {						\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D6_PINCTRL
+#define GROVE_PWM_D6_PINCTRL				\
+	&tcc0_pwm_default {				\
+		group6 {				\
+			pinmux = <PA20F_TCC0_WO6>;	\
+		};					\
+	};
+
+grove_pwm_d6: &tcc0 {};
