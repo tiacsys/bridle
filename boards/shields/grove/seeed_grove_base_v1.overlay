@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#include "seeed_grove_pwms/defaults.dtsi"
+#include <bridle/dt-bindings/seeed_grove_pwms_defaults.h>
 
 #include "seeed_grove_base/grove_spi_connector.dtsi"
 
