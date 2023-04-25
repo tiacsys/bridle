@@ -24,7 +24,7 @@ function(test_if config node_alias node_label node_dscr)
         message(FATAL_ERROR "Test failed, "
           "actual either "
           "the node path \"${alias_path}\" at alias \"${node_alias}\" "
-          "was not found or has no \"label\" property with \"${alias_dscr}\" or "
+          "was not found or has no \"label\" property with \"${node_dscr}\" or "
           "the node labels are missing or misspelled."
         )
       endif()
@@ -46,18 +46,22 @@ if(NOT CONFIG_SHIELD_X_GROVE_TESTBED)
   )
 endif()
 
-if(NOT CONFIG_HAS_RPI_PICO AND NOT CONFIG_SHIELD_SEEED_GROVE_BASE_V2)
-  message(FATAL_ERROR "Test failed, "
-    "actual CONFIG_SHIELD_SEEED_GROVE_BASE_V2=${CONFIG_SHIELD_SEEED_GROVE_BASE_V2}, "
-    "expected CONFIG_SHIELD_SEEED_GROVE_BASE_V2=y"
-  )
-endif()
+if(NOT CONFIG_SHIELD_X_GROVE_TESTBED_SINGLE_BOARD)
 
-if(CONFIG_HAS_RPI_PICO AND NOT CONFIG_SHIELD_SEEED_GROVE_RPIPICO_V1)
-  message(FATAL_ERROR "Test failed, "
-    "actual CONFIG_SHIELD_SEEED_GROVE_RPIPICO_V1=${CONFIG_SHIELD_SEEED_GROVE_RPIPICO_V1}, "
-    "expected CONFIG_SHIELD_SEEED_GROVE_RPIPICO_V1=y"
-  )
+  if(NOT CONFIG_HAS_RPI_PICO AND NOT CONFIG_SHIELD_SEEED_GROVE_BASE_V2)
+    message(FATAL_ERROR "Test failed, "
+      "actual CONFIG_SHIELD_SEEED_GROVE_BASE_V2=${CONFIG_SHIELD_SEEED_GROVE_BASE_V2}, "
+      "expected CONFIG_SHIELD_SEEED_GROVE_BASE_V2=y"
+    )
+  endif()
+
+  if(CONFIG_HAS_RPI_PICO AND NOT CONFIG_SHIELD_SEEED_GROVE_RPIPICO_V1)
+    message(FATAL_ERROR "Test failed, "
+      "actual CONFIG_SHIELD_SEEED_GROVE_RPIPICO_V1=${CONFIG_SHIELD_SEEED_GROVE_RPIPICO_V1}, "
+      "expected CONFIG_SHIELD_SEEED_GROVE_RPIPICO_V1=y"
+    )
+  endif()
+
 endif()
 
 if(CONFIG_SHIELD_SEEED_GROVE_BASE_V2)
@@ -138,6 +142,47 @@ if(CONFIG_SHIELD_SEEED_GROVE_RPIPICO_V1)
     else()
 
       test_if(CONFIG_SHIELD_GROVE_PWM_LED "pwm-led0" "grove_pwm_led_d18" "Grove LED D18")
+
+    endif()
+
+  endif()
+
+endif()
+
+if(CONFIG_SHIELD_X_GROVE_TESTBED_SINGLE_BOARD)
+
+  if(CONFIG_BOARD_SEEEDUINO_LOTUS)
+
+    if(NOT CONFIG_SHIELD_GROVE_BTN)
+      message(FATAL_ERROR "Test failed, "
+        "actual CONFIG_SHIELD_GROVE_BTN=${CONFIG_SHIELD_GROVE_BTN}, "
+        "expected CONFIG_SHIELD_GROVE_BTN=y"
+      )
+    else()
+
+      test_if(CONFIG_SHIELD_GROVE_BTN "sw0" "grove_btn_d7" "Grove Button D7")
+
+    endif()
+
+    if(NOT CONFIG_SHIELD_GROVE_LED)
+      message(FATAL_ERROR "Test failed, "
+        "actual CONFIG_SHIELD_GROVE_LED=${CONFIG_SHIELD_GROVE_LED}, "
+        "expected CONFIG_SHIELD_GROVE_LED=y"
+      )
+    else()
+
+      test_if(CONFIG_SHIELD_GROVE_LED "led0" "grove_led_d6" "Grove LED D6")
+
+    endif()
+
+    if(NOT CONFIG_SHIELD_GROVE_PWM_LED)
+      message(FATAL_ERROR "Test failed, "
+        "actual CONFIG_SHIELD_GROVE_PWM_LED=${CONFIG_SHIELD_GROVE_PWM_LED}, "
+        "expected CONFIG_SHIELD_GROVE_PWM_LED=y"
+      )
+    else()
+
+      test_if(CONFIG_SHIELD_GROVE_PWM_LED "pwm-led0" "grove_pwm_led_d6" "Grove LED D6")
 
     endif()
 

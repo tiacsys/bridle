@@ -9,4 +9,5 @@ that are supported by this shield::
          --jobs 4 \
          --verbose \
          --inline-logs \
+         --board-root bridle/boards \
          --testsuite-root bridle/tests/shields/x_grove_testbed/dts_bindings

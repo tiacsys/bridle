@@ -26,3 +26,8 @@ tests:
       rpi_pico
     extra_args:
       SHIELD=seeed_grove_rpipico_v1;grove_btn_d16;grove_led_d18;grove_pwm_led_d18;x_grove_testbed
+  grove.seeeduino.lotus.x_grove_testbed.pwm:
+    platform_allow:
+      seeeduino_lotus
+    extra_args:
+      SHIELD=grove_btn_d7;grove_led_d6;grove_pwm_led_d6;x_grove_testbed
