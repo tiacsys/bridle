@@ -17,194 +17,266 @@ common:
     stm32h735g_disco stm32mp157c_dk2
 tests:
   #
-  # Grove LED by simple GPIO on Grove Base Shield
+  # Grove Button by simple GPIO on Grove Base Shield
   #
   grove.base.v2.grove_btn.gpio.d0:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_d0_header") and
             dt_nodelabel_enabled("grove_uart_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d0", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v2;grove_btn_d0
   grove.base.v1.grove_btn.gpio.d0:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_d0_header") and
             dt_nodelabel_enabled("grove_uart_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d0", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v1;grove_btn_d0
   grove.base.v2.grove_btn.gpio.d1:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_d0_header") and
             dt_nodelabel_enabled("grove_uart_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d1", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v2;grove_btn_d1
   grove.base.v1.grove_btn.gpio.d1:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_d0_header") and
             dt_nodelabel_enabled("grove_uart_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d1", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v1;grove_btn_d1
   grove.base.v2.grove_btn.gpio.d2:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_d2_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d2", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v2;grove_btn_d2
   grove.base.v1.grove_btn.gpio.d2:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_d2_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d2", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v1;grove_btn_d2
   grove.base.v2.grove_btn.gpio.d3:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_d3_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d3", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v2;grove_btn_d3
   grove.base.v1.grove_btn.gpio.d3:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_d3_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d3", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v1;grove_btn_d3
   grove.base.v2.grove_btn.gpio.d4:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_d4_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d4", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v2;grove_btn_d4
   grove.base.v1.grove_btn.gpio.d4:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_d4_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d4", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v1;grove_btn_d4
   grove.base.v2.grove_btn.gpio.d5:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_d5_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d5", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v2;grove_btn_d5
   grove.base.v1.grove_btn.gpio.d5:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_d5_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d5", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v1;grove_btn_d5
   grove.base.v2.grove_btn.gpio.d6:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_d6_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d6", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v2;grove_btn_d6
   grove.base.v1.grove_btn.gpio.d6:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_d6_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d6", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v1;grove_btn_d6
   grove.base.v2.grove_btn.gpio.d7:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_d7_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d7", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v2;grove_btn_d7
   grove.base.v1.grove_btn.gpio.d7:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_d7_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d7", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v1;grove_btn_d7
   grove.base.v2.grove_btn.gpio.d8:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_d8_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d8", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v2;grove_btn_d8
   grove.base.v1.grove_btn.gpio.d8:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_d8_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d8", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v1;grove_btn_d8
   grove.base.v2.grove_btn.gpio.d9:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_d8_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d9", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v2;grove_btn_d9
   grove.base.v1.grove_btn.gpio.d9:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_d9_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d9", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v1;grove_btn_d9
   grove.base.v1.grove_btn.gpio.d10:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_d10_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d10", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v1;grove_btn_d10
   grove.base.v1.grove_btn.gpio.d11:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_d11_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d11", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v1;grove_btn_d11
   grove.base.v1.grove_btn.gpio.d12:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_d12_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d12", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v1;grove_btn_d12
   grove.base.v1.grove_btn.gpio.d13:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_d13_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d13", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v1;grove_btn_d13
   grove.base.v2.grove_btn.gpio.d14:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_a0_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d14", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v2;grove_btn_d14
   grove.base.v1.grove_btn.gpio.d14:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_a0_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d14", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v1;grove_btn_d14
   grove.base.v2.grove_btn.gpio.d15:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_a1_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d15", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v2;grove_btn_d15
   grove.base.v1.grove_btn.gpio.d15:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_a1_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d15", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v1;grove_btn_d15
   grove.base.v2.grove_btn.gpio.d16:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_a2_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d16", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v2;grove_btn_d16
   grove.base.v1.grove_btn.gpio.d16:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_a2_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d16", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v1;grove_btn_d16
   grove.base.v2.grove_btn.gpio.d17:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_a3_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d17", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v2;grove_btn_d17
   grove.base.v1.grove_btn.gpio.d17:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_a3_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d17", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v1;grove_btn_d17
   grove.base.v2.grove_btn.gpio.d18:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_i2c_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d18", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v2;grove_btn_d18
   grove.base.v1.grove_btn.gpio.d18:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_i2c_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d18", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v1;grove_btn_d18
   grove.base.v2.grove_btn.gpio.d19:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_i2c_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d19", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v2;grove_btn_d19
   grove.base.v1.grove_btn.gpio.d19:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_i2c_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d19", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v1;grove_btn_d19
   #
-  # Grove LED by simple GPIO on Grove Shield for Pi Pico
+  # Grove Button by simple GPIO on Grove Shield for Pi Pico
   #
   grove.rpipico.v1.grove_btn.gpio.d1:
     filter: dt_nodelabel_enabled("grove_d1_header") and
@@ -274,3 +346,209 @@ tests:
     platform_allow:
       rpi_pico
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d28
+  #
+  # Grove Button by simple GPIO on Grove Connectors
+  #
+  grove.connectors.grove_btn.gpio.d0:
+    depends_on: grove_gpio
+    filter: dt_nodelabel_enabled("grove_d0_header") and
+            dt_label_with_parent_compat_enabled("grove_btn_d0", "gpio-keys")
+    extra_args: SHIELD=grove_btn_d0
+  grove.connectors.grove_btn.gpio.d1:
+    depends_on: grove_gpio
+    filter: dt_nodelabel_enabled("grove_d1_header") and
+            dt_label_with_parent_compat_enabled("grove_btn_d1", "gpio-keys")
+    extra_args: SHIELD=grove_btn_d1
+  grove.connectors.grove_btn.gpio.d2:
+    depends_on: grove_gpio
+    filter: dt_nodelabel_enabled("grove_d2_header") and
+            dt_label_with_parent_compat_enabled("grove_btn_d2", "gpio-keys")
+    extra_args: SHIELD=grove_btn_d2
+  grove.connectors.grove_btn.gpio.d3:
+    depends_on: grove_gpio
+    filter: dt_nodelabel_enabled("grove_d3_header") and
+            dt_label_with_parent_compat_enabled("grove_btn_d3", "gpio-keys")
+    extra_args: SHIELD=grove_btn_d3
+  grove.connectors.grove_btn.gpio.d4:
+    depends_on: grove_gpio
+    filter: dt_nodelabel_enabled("grove_d4_header") and
+            dt_label_with_parent_compat_enabled("grove_btn_d4", "gpio-keys")
+    extra_args: SHIELD=grove_btn_d4
+  grove.connectors.grove_btn.gpio.d5:
+    depends_on: grove_gpio
+    filter: dt_nodelabel_enabled("grove_d5_header") and
+            dt_label_with_parent_compat_enabled("grove_btn_d5", "gpio-keys")
+    extra_args: SHIELD=grove_btn_d5
+  grove.connectors.grove_btn.gpio.d6:
+    depends_on: grove_gpio
+    filter: dt_nodelabel_enabled("grove_d6_header") and
+            dt_label_with_parent_compat_enabled("grove_btn_d6", "gpio-keys")
+    extra_args: SHIELD=grove_btn_d6
+  grove.connectors.grove_btn.gpio.d7:
+    depends_on: grove_gpio
+    filter: dt_nodelabel_enabled("grove_d7_header") and
+            dt_label_with_parent_compat_enabled("grove_btn_d7", "gpio-keys")
+    extra_args: SHIELD=grove_btn_d7
+  grove.connectors.grove_btn.gpio.d8:
+    depends_on: grove_gpio
+    filter: dt_nodelabel_enabled("grove_d8_header") and
+            dt_label_with_parent_compat_enabled("grove_btn_d8", "gpio-keys")
+    extra_args: SHIELD=grove_btn_d8
+  grove.connectors.grove_btn.gpio.d9:
+    depends_on: grove_gpio
+    filter: dt_nodelabel_enabled("grove_d9_header") and
+            dt_label_with_parent_compat_enabled("grove_btn_d9", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
+    extra_args: SHIELD=grove_btn_d9
+  grove.connectors.grove_btn.gpio.d10:
+    depends_on: grove_gpio
+    filter: dt_nodelabel_enabled("grove_d10_header") and
+            dt_label_with_parent_compat_enabled("grove_btn_d10", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
+    extra_args: SHIELD=grove_btn_d10
+  grove.connectors.grove_btn.gpio.d11:
+    depends_on: grove_gpio
+    filter: dt_nodelabel_enabled("grove_d11_header") and
+            dt_label_with_parent_compat_enabled("grove_btn_d11", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
+    extra_args: SHIELD=grove_btn_d11
+  grove.connectors.grove_btn.gpio.d12:
+    depends_on: grove_gpio
+    filter: dt_nodelabel_enabled("grove_d12_header") and
+            dt_label_with_parent_compat_enabled("grove_btn_d12", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
+    extra_args: SHIELD=grove_btn_d12
+  grove.connectors.grove_btn.gpio.d13:
+    depends_on: grove_gpio
+    filter: dt_nodelabel_enabled("grove_d13_header") and
+            dt_label_with_parent_compat_enabled("grove_btn_d13", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
+    extra_args: SHIELD=grove_btn_d13
+  grove.connectors.grove_btn.gpio.d14:
+    depends_on: grove_gpio
+    filter: dt_nodelabel_enabled("grove_d14_header") or
+            dt_nodelabel_enabled("grove_a0_header") and
+            dt_label_with_parent_compat_enabled("grove_btn_d14", "gpio-keys")
+    extra_args: SHIELD=grove_btn_d14
+  grove.connectors.grove_btn.gpio.d15:
+    depends_on: grove_gpio
+    filter: dt_nodelabel_enabled("grove_d15_header") or
+            dt_nodelabel_enabled("grove_a1_header") and
+            dt_label_with_parent_compat_enabled("grove_btn_d15", "gpio-keys")
+    extra_args: SHIELD=grove_btn_d15
+  grove.connectors.grove_btn.gpio.d16:
+    depends_on: grove_gpio
+    filter: dt_nodelabel_enabled("grove_d16_header") or
+            dt_nodelabel_enabled("grove_a2_header") and
+            dt_label_with_parent_compat_enabled("grove_btn_d16", "gpio-keys")
+    extra_args: SHIELD=grove_btn_d16
+  grove.connectors.grove_btn.gpio.d17:
+    depends_on: grove_gpio
+    filter: dt_nodelabel_enabled("grove_d17_header") or
+            dt_nodelabel_enabled("grove_a3_header") and
+            dt_label_with_parent_compat_enabled("grove_btn_d17", "gpio-keys")
+    extra_args: SHIELD=grove_btn_d17
+  grove.connectors.grove_btn.gpio.d18:
+    depends_on: grove_gpio
+    filter: dt_nodelabel_enabled("grove_d18_header") or
+            dt_nodelabel_enabled("grove_a4_header") or
+            dt_nodelabel_enabled("grove_i2c_header") and
+            dt_label_with_parent_compat_enabled("grove_btn_d18", "gpio-keys")
+    extra_args: SHIELD=grove_btn_d18
+  grove.connectors.grove_btn.gpio.d19:
+    depends_on: grove_gpio
+    filter: dt_nodelabel_enabled("grove_d19_header") or
+            dt_nodelabel_enabled("grove_a5_header") or
+            dt_nodelabel_enabled("grove_i2c_header") and
+            dt_label_with_parent_compat_enabled("grove_btn_d19", "gpio-keys")
+    extra_args: SHIELD=grove_btn_d19
+  grove.connectors.grove_btn.gpio.d20:
+    depends_on: grove_gpio
+    filter: dt_nodelabel_enabled("grove_d20_header") or
+            dt_nodelabel_enabled("grove_a6_header") and
+            dt_label_with_parent_compat_enabled("grove_btn_d20", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
+    extra_args: SHIELD=grove_btn_d20
+  grove.connectors.grove_btn.gpio.d21:
+    depends_on: grove_gpio
+    filter: dt_nodelabel_enabled("grove_d21_header") and
+            dt_label_with_parent_compat_enabled("grove_btn_d21", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
+    extra_args: SHIELD=grove_btn_d21
+  grove.connectors.grove_btn.gpio.d22:
+    depends_on: grove_gpio
+    filter: dt_nodelabel_enabled("grove_d22_header") and
+            dt_label_with_parent_compat_enabled("grove_btn_d22", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
+    extra_args: SHIELD=grove_btn_d22
+  grove.connectors.grove_btn.gpio.d23:
+    depends_on: grove_gpio
+    filter: dt_nodelabel_enabled("grove_d23_header") and
+            dt_label_with_parent_compat_enabled("grove_btn_d23", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
+    extra_args: SHIELD=grove_btn_d23
+  grove.connectors.grove_btn.gpio.d24:
+    depends_on: grove_gpio
+    filter: dt_nodelabel_enabled("grove_d24_header") and
+            dt_label_with_parent_compat_enabled("grove_btn_d24", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
+    extra_args: SHIELD=grove_btn_d24
+  grove.connectors.grove_btn.gpio.d25:
+    depends_on: grove_gpio
+    filter: dt_nodelabel_enabled("grove_d25_header") and
+            dt_label_with_parent_compat_enabled("grove_btn_d25", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
+    extra_args: SHIELD=grove_btn_d25
+  grove.connectors.grove_btn.gpio.d26:
+    depends_on: grove_gpio
+    filter: dt_nodelabel_enabled("grove_d26_header") and
+            dt_label_with_parent_compat_enabled("grove_btn_d26", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
+    extra_args: SHIELD=grove_btn_d26
+  grove.connectors.grove_btn.gpio.d27:
+    depends_on: grove_gpio
+    filter: dt_nodelabel_enabled("grove_d27_header") and
+            dt_label_with_parent_compat_enabled("grove_btn_d27", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
+    extra_args: SHIELD=grove_btn_d27
+  grove.connectors.grove_btn.gpio.d28:
+    depends_on: grove_gpio
+    filter: dt_nodelabel_enabled("grove_d28_header") and
+            dt_label_with_parent_compat_enabled("grove_btn_d28", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
+    extra_args: SHIELD=grove_btn_d28
+  grove.connectors.grove_btn.gpio.d29:
+    depends_on: grove_gpio
+    filter: dt_nodelabel_enabled("grove_d29_header") and
+            dt_label_with_parent_compat_enabled("grove_btn_d29", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
+    extra_args: SHIELD=grove_btn_d29
+  grove.connectors.grove_btn.gpio.d30:
+    depends_on: grove_gpio
+    filter: dt_nodelabel_enabled("grove_d30_header") and
+            dt_label_with_parent_compat_enabled("grove_btn_d30", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
+    extra_args: SHIELD=grove_btn_d30
+  grove.connectors.grove_btn.gpio.d31:
+    depends_on: grove_gpio
+    filter: dt_nodelabel_enabled("grove_d31_header") and
+            dt_label_with_parent_compat_enabled("grove_btn_d31", "gpio-keys")
+    platform_exclude:
+      seeeduino_lotus
+    extra_args: SHIELD=grove_btn_d31
