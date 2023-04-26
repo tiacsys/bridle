@@ -57,10 +57,10 @@ jobs:
             scp -i ~/.ssh/private "${file}" "scp://${USER}@${HOST}:${PORT}/${INBOX}/${file}"
           done
 
-#     - name: Add preview URL comment for PRs
-#       uses: carlescufi/action-doc-url@main
-#       with:
-#         github-token: ${{ secrets.GITHUB_TOKEN }}
-#         urlroot: ${{ secrets.TSN_BRIDLE_GHPR_URL_ROOT }}
-#         pr-prefix: "PR-"
-#         pr-file: pr.txt
+      - name: Add preview URL comment for PRs
+        uses: carlescufi/action-doc-url@main
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          urlroot: ${{ secrets.TSN_BRIDLE_GHPR_URL_ROOT }}
+          pr-prefix: "PR-"
+          pr-file: pr.txt
