@@ -1,0 +1,15 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	model = "Arduino Zero @ UART Concole";
+	compatible = "arduino,zero-uartcons", "arduino,zero",
+		     "atmel,samd21g18a", "atmel,samd21";
+
+	chosen {
+		zephyr,console = &sercom5;
+		zephyr,shell-uart = &sercom5;
+	};
+};
