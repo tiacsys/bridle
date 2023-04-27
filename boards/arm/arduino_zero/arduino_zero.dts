@@ -8,15 +8,13 @@
 #include <atmel/samd21.dtsi>
 #include "arduino_zero-pinctrl.dtsi"
 
-/ {
-	model = "Arduino Zero";
-	compatible = "arduino,zero", "atmel,samd21g18a", "atmel,samd21";
+#include <zephyr/dt-bindings/pwm/pwm.h>
 
+/ {
 	chosen {
-		zephyr,console = &sercom5;
-		zephyr,shell-uart = &sercom5;
 		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
+		zephyr,code-partition = &code_partition;
 	};
 
 	/* These aliases are provided for compatibility with samples */
@@ -113,6 +111,18 @@
 		compatible = "fixed-partitions";
 		#address-cells = <1>;
 		#size-cells = <1>;
+
+		boot_partition: partition@0 {
+			label = "sam-ba";
+			reg = <0x00000000 DT_SIZE_K(8)>;
+			read-only;
+		};
+
+		code_partition: partition@2000 {
+			label = "code";
+			reg = <0x2000 DT_SIZE_K(256-8-16)>;
+			read-only;
+		};
 
 		/*
 		 * The final 16 KiB is reserved for the application.
