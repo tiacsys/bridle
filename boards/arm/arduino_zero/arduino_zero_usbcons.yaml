@@ -9,6 +9,8 @@ toolchain:
   - gnuarmemb
   - xtools
 supported:
+  - arduino_gpio
+  - arduino_serial
   - adc
   - counter
   - dac
