@@ -36,7 +36,19 @@
 
 	dac_default: dac_default {
 		group1 {
-			pinmux = <PA2B_DAC_VOUT>;
+			pinmux = <PA3B_ADC_DAC_VRFEA>,
+				 <PA2B_DAC_VOUT>;
+		};
+	};
+
+	adc_default: adc_default {
+		group1 {
+			pinmux = <PA3B_ADC_DAC_VRFEA>,
+				 <PB8B_ADC_AIN2>,
+				 <PB9B_ADC_AIN3>,
+				 <PA4B_ADC_AIN4>,
+				 <PA5B_ADC_AIN5>,
+				 <PB2B_ADC_AIN10>;
 		};
 	};
 
