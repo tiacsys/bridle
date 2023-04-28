@@ -89,6 +89,21 @@
 	pinctrl-names = "default";
 };
 
+&sercom1 {
+	status = "okay";
+	compatible = "atmel,sam0-spi";
+	dipo = <3>;
+	dopo = <0>;
+	#address-cells = <1>;
+	#size-cells = <0>;
+
+	// either: cs-gpios = <&porta 18 GPIO_ACTIVE_LOW>;
+	//     or: pinctrl-0 = <&sercom1_spi_hwss>;
+
+	pinctrl-0 = <&sercom1_spi_default>;
+	pinctrl-names = "default";
+};
+
 &tcc2 {
 	status = "okay";
 	compatible = "atmel,sam0-tcc-pwm";

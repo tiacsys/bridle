@@ -34,4 +34,5 @@
 	};
 };
 
+arduino_spi: &sercom1 {};
 arduino_serial: &sercom0 {};
