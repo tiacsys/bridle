@@ -34,5 +34,6 @@
 	};
 };
 
+arduino_i2c: &sercom3 {};
 arduino_spi: &sercom1 {};
 arduino_serial: &sercom0 {};

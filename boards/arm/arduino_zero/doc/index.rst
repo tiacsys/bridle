@@ -57,6 +57,8 @@ features:
 +-----------+------------+------------------------------------------+
 | HWINFO    | on-chip    | Hardware info                            |
 +-----------+------------+------------------------------------------+
+| I2C       | on-chip    | Inter-Integrated Circuit                 |
++-----------+------------+------------------------------------------+
 | NVIC      | on-chip    | nested vector interrupt controller       |
 +-----------+------------+------------------------------------------+
 | PWM       | on-chip    | Pulse Width Modulation                   |
@@ -139,6 +141,13 @@ available on the 6 pin ICSP connector at the edge of the board.  To the
 Arduino UNI R3 header SERCOM1 is connect to external devices over D11 (MOSI),
 D12 (MISO), and D13 (SCK).  All signals of both busses are connected in
 parallel to the Atmel EDBG.
+
+I2C Port
+========
+
+The SAMD21 MCU has 6 SERCOM based I2Cs. On the Arduino Zero, SERCOM3 is
+available on D18 (SDA) and D19 (SCL) of the |Arduino UNO R3| header.  Both
+signals are connected in parallel to the Atmel EDBG.
 
 Serial Port
 ===========
