@@ -345,6 +345,241 @@ Debugging
 
    You should ends up in a debug console (e.g. a GDB session).
 
+More Samples
+************
+
+LED Blinky
+==========
+
+.. zephyr-app-commands::
+   :app: zephyr/samples/basic/blinky
+   :board: arduino_zero
+   :goals: flash
+   :compact:
+
+LED Fade
+========
+
+.. zephyr-app-commands::
+   :app: zephyr/samples/basic/fade_led
+   :board: arduino_zero
+   :goals: flash
+   :compact:
+
+Basic Threads
+=============
+
+.. zephyr-app-commands::
+   :app: zephyr/samples/basic/threads
+   :board: arduino_zero
+   :goals: flash
+   :compact:
+
+Hello Shell with USB-CDC/ACM Console
+====================================
+
+.. zephyr-app-commands::
+   :app: bridle/samples/helloshell
+   :board: arduino_zero@usbcons
+   :goals: flash
+   :compact:
+
+.. rubric:: Simple test execution on target
+
+.. tabs::
+
+   .. group-tab:: Basics
+
+      .. code-block:: console
+
+         uart:~$ hello -h
+         hello - say hello
+         uart:~$ hello
+         Hello from shell.
+
+         uart:~$ hwinfo devid
+         Length: 16
+         ID: 0xde73d01ae52511ed9cf503ee1d54a301
+
+         uart:~$ kernel version
+         Zephyr version 3.3.0
+
+         uart:~$ bridle version
+         Bridle version 3.3.0
+
+         uart:~$ bridle version long
+         Bridle version 3.3.0.0
+
+         uart:~$ bridle info
+         Zephyr: 3.3.0
+         Bridle: 3.3.0
+
+         uart:~$ device list
+         devices:
+         - eic@40001800 (READY)
+         - gpio@41004480 (READY)
+         - gpio@41004400 (READY)
+         - cdc-acm-uart-0 (READY)
+         - sercom@42001c00 (READY)
+         - sercom@42000800 (READY)
+         - adc@42004000 (READY)
+         - dac@42004800 (READY)
+         - sercom@42001400 (READY)
+         - tcc@42002800 (READY)
+         - nvmctrl@41004000 (READY)
+
+         uart:~$ history
+         [  0] history
+         [  1] device list
+         [  2] bridle info
+         [  3] bridle version long
+         [  4] bridle version
+         [  5] kernel version
+         [  6] hwinfo devid
+         [  7] hello
+         [  8] hello -h
+
+   .. group-tab:: GPIO
+
+      Operate with the yellow Rx user LED:
+
+      .. code-block:: console
+
+         uart:~$ gpio get gpio@41004480 3
+         Reading gpio@41004480 pin 3
+         Value 0
+
+         uart:~$ gpio conf gpio@41004480 3 out
+         Configuring gpio@41004480 pin 3
+
+         uart:~$ gpio set gpio@41004480 3 1
+         Writing to gpio@41004480 pin 3
+
+         uart:~$ gpio set gpio@41004480 3 0
+         Writing to gpio@41004480 pin 3
+
+         uart:~$ gpio blink gpio@41004480 3
+         Blinking port gpio@41004480 index 3. Hit any key to exit
+
+   .. group-tab:: PWM
+
+      Operate with the builtin user LED:
+
+      .. code-block:: console
+
+         uart:~$ pwm usec tcc@42002800 1 20000 20000
+         uart:~$ pwm usec tcc@42002800 1 20000 19000
+         uart:~$ pwm usec tcc@42002800 1 20000 18000
+         uart:~$ pwm usec tcc@42002800 1 20000 17000
+         uart:~$ pwm usec tcc@42002800 1 20000 16000
+         uart:~$ pwm usec tcc@42002800 1 20000 15000
+         uart:~$ pwm usec tcc@42002800 1 20000 10000
+         uart:~$ pwm usec tcc@42002800 1 20000 5000
+         uart:~$ pwm usec tcc@42002800 1 20000 2500
+         uart:~$ pwm usec tcc@42002800 1 20000 500
+         uart:~$ pwm usec tcc@42002800 1 20000 0
+
+   .. group-tab:: DAC/ADC
+
+      Operate with the loop-back wire from A0 (DAC CH0 VOUT)
+      to A1 (ADC CH2 AIN):
+
+     .. code-block:: console
+
+        uart:~$ dac setup dac@42004800 0 10
+        uart:~$ adc adc@42004000 resolution 12
+        uart:~$ adc adc@42004000 acq_time 10 us
+        uart:~$ adc adc@42004000 channel positive 2
+
+        uart:~$ dac write_value dac@42004800 0 512
+        uart:~$ adc adc@42004000 read 2
+        read: 2016
+
+        uart:~$ dac write_value dac@42004800 0 1023
+        uart:~$ adc adc@42004000 read 2
+        read: 4047
+
+   .. group-tab:: Flash access
+
+      .. code-block:: console
+
+         uart:~$ flash read nvmctrl@41004000 136b0 40
+         000136B0: 61 72 64 75 69 6e 6f 5f  7a 65 72 6f 00 48 65 6c |arduino_ zero.Hel|
+         000136C0: 6c 6f 20 57 6f 72 6c 64  21 20 49 27 6d 20 54 48 |lo World ! I'm TH|
+         000136D0: 45 20 53 48 45 4c 4c 20  66 72 6f 6d 20 25 73 0a |E SHELL  from %s.|
+         000136E0: 00 69 6c 6c 65 67 61 6c  20 6f 70 74 69 6f 6e 20 |.illegal  option |
+
+         uart:~$ flash read nvmctrl@41004000 3c000 40
+         0003C000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff |........ ........|
+         0003C010: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff |........ ........|
+         0003C020: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff |........ ........|
+         0003C030: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff |........ ........|
+
+         uart:~$ flash test nvmctrl@41004000 3c000 400 2
+         Erase OK.
+         Write OK.
+         Erase OK.
+         Write OK.
+         Erase-Write test done.
+
+         uart:~$ flash read nvmctrl@41004000 3c000 40
+         0003C000: 00 01 02 03 04 05 06 07  08 09 0a 0b 0c 0d 0e 0f |........ ........|
+         0003C010: 10 11 12 13 14 15 16 17  18 19 1a 1b 1c 1d 1e 1f |........ ........|
+         0003C020: 20 21 22 23 24 25 26 27  28 29 2a 2b 2c 2d 2e 2f | !"#$%&' ()*+,-./|
+         0003C030: 30 31 32 33 34 35 36 37  38 39 3a 3b 3c 3d 3e 3f |01234567 89:;<=>?|
+
+         uart:~$ flash page_info 3c000
+         Page for address 0x3c000:
+         start offset: 0x3c000
+         size: 256
+         index: 960
+
+         uart:~$ flash erase nvmctrl@41004000 3c000 400
+         Erase success.
+
+         uart:~$ flash read nvmctrl@41004000 3c000 40
+         0003C000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff |........ ........|
+         0003C010: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff |........ ........|
+         0003C020: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff |........ ........|
+         0003C030: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff |........ ........|
+
+   .. group-tab:: I2C
+
+      .. code-block:: console
+
+         uart:~$ log enable none i2c_sam0
+
+         uart:~$ i2c scan sercom@42001400
+              0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+         00:             -- -- -- -- -- -- -- -- -- -- -- --
+         10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+         20: -- -- -- -- -- -- -- -- 28 -- -- -- -- -- -- --
+         30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+         40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+         50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+         60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+         70: -- -- -- -- -- -- -- --
+         3 devices found on sercom@42001400
+
+         uart:~$ log enable inf i2c_sam0
+
+      The I2C address ``0x28`` is the **Data Gateway Interface** (`DGI`_) to
+      the builtin Atmel `EDBG`_. See the old `ASF3`_ example code on GitHub,
+      `SAM EDBG TWI Information Interface Example`_, to learn how to work with
+      this I2C device:
+
+         The DGI consists of several physical data interfaces to
+         communicate with the host computer; I2C is onlay one of
+         them. Communication over the interfaces is bidirectional.
+         It can be used to send events and values from the ATSAMD21G18A,
+         or as a generic printf-style data channel. Traffic over the
+         interfaces can be timestamped on the EDBG for a more accurate
+         tracing of events. Note that timestamping imposes an overhead
+         that reduces maximal throughput. The DGI uses a proprietary
+         protocol, and is thus only compatible with Atmel Studio.
+
+         -- https://docs.arduino.cc/tutorials/zero/arduino-zero-edbg
+
 References
 **********
 
@@ -364,6 +599,15 @@ References
 
 .. _EDBG:
    https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-42096-Microcontrollers-Embedded-Debugger_User-Guide.pdf
+
+.. _DGI:
+   http://atmel-studio-doc.s3-website-us-east-1.amazonaws.com/webhelp/GUID-43D69EB5-28C5-4F23-97B7-43CD3961DC33-en-US-3/GUID-4D73F4BD-3162-4A6D-8814-F3DA6DCFA518.html
+
+.. _ASF3:
+   https://asf.microchip.com/docs/latest
+
+.. _SAM EDBG TWI Information Interface Example:
+   https://github.com/avrxml/asf/blob/master/sam/applications/edbg_twi_information_interface/main.c
 
 .. _ATSAMD21G18A:
     https://www.microchip.com/product/ATSAMD21G18
