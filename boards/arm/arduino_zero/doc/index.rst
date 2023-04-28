@@ -135,7 +135,10 @@ SPI Port
    :alt: Arduino Zero SPI on 6 pin ICSP connector
 
 The SAMD21 MCU has 6 SERCOM based SPIs.  On the Arduino Zero, SERCOM4 is
-available on the 6 pin ICSP connector at the edge of the board.
+available on the 6 pin ICSP connector at the edge of the board.  To the
+Arduino UNI R3 header SERCOM1 is connect to external devices over D11 (MOSI),
+D12 (MISO), and D13 (SCK).  All signals of both busses are connected in
+parallel to the Atmel EDBG.
 
 Serial Port
 ===========
