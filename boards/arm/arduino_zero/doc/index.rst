@@ -114,7 +114,7 @@ The SAMD21 MCU has 2 GPIO ports, 3 PWM able Timer/Capture-Counter (TCC) and
 available on first user LED (L), all other user LEDs can be controlled
 as GPIO.  Only if :kconfig:option:`CONFIG_PWM_SAM0_TCC` is enabled then the
 first user LED (L) is driven by TCC2 instead of by GPIO.  All channels of
-TCC0 are available on the |Arduino UNO R3| header.
+TCC0 and TCC1 are available on the |Arduino UNO R3| header.
 
 ADC/DAC Ports
 =============

@@ -95,7 +95,7 @@
 	prescaler = <1024>;
 	#pwm-cells = <2>;
 
-	pinctrl-0 = <&pwm_default>;
+	pinctrl-0 = <&tcc2_pwm_default>;
 	pinctrl-names = "default";
 };
 
