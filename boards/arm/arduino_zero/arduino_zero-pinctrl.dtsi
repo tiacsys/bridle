@@ -6,15 +6,17 @@
 #include <dt-bindings/pinctrl/samd21-da1gXabcd-pinctrl.h>
 
 &pinctrl {
-	dac_default: dac_default {
+	sercom0_uart_default: sercom0_uart_default {
 		group1 {
-			pinmux = <PA2B_DAC_VOUT>;
+			pinmux = <PA11C_SERCOM0_PAD3>,
+				 <PA10C_SERCOM0_PAD2>;
 		};
 	};
 
-	pwm_default: pwm_default {
+	sercom5_uart_default: sercom5_uart_default {
 		group1 {
-			pinmux = <PA17E_TCC2_WO1>;
+			pinmux = <PB23D_SERCOM5_PAD3>,
+				 <PB22D_SERCOM5_PAD2>;
 		};
 	};
 
@@ -26,16 +28,15 @@
 		};
 	};
 
-	sercom0_uart_default: sercom0_uart_default {
+	tcc2_pwm_default: tcc2_pwm_default {
 		group1 {
-			pinmux = <PA11C_SERCOM0_PAD3>,
-				 <PA10C_SERCOM0_PAD2>;
+			pinmux = <PA17E_TCC2_WO1>;
 		};
 	};
-	sercom5_uart_default: sercom5_uart_default {
+
+	dac_default: dac_default {
 		group1 {
-			pinmux = <PB23D_SERCOM5_PAD3>,
-				 <PB22D_SERCOM5_PAD2>;
+			pinmux = <PA2B_DAC_VOUT>;
 		};
 	};
 
