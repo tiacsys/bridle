@@ -9,22 +9,23 @@ Overview
 The Seeeduino Lotus Cortex-M0+ is an Arduino form factor development board
 based on an Atmel SAMD21 ARM with onboard LEDs, USB port, and range of 14
 digital I/O (10 of which support PWM) and 6 analog I/O broken out onto
-Arduino UNO R3 header and multiple Grove connectors.
+|Arduino UNO R3| header and multiple |Grove connectors|.
 
 .. image:: img/seeeduino_lotus.jpg
-     :align: center
-     :alt: Seeeduino Lotus Cortex-M0+
+   :align: center
+   :alt: Seeeduino Lotus Cortex-M0+
 
 Hardware
 ********
 
 - `ATSAMD21G18A`_ ARM Cortex-M0+ processor at 48 MHz
+- 32.768 kHz crystal oscillator
 - 256 KiB flash memory and 32 KiB of RAM
-- Three user LEDs (blue/Rx/Tx)
-- Reset button
+- 3 user LEDs (blue/Rx/Tx)
+- One reset button
 - Native USB port
-- 12 Grove connectors
-- Arduino UNO R3 header
+- 12 |Grove connectors|
+- |Arduino UNO R3| header
 - Arduino ICSP header
 - `MP2617B`_, switching battery charger (max. 2A)
 - JST2.0 Li-Po battery connector
@@ -38,6 +39,10 @@ hardware features:
 +-----------+------------+------------------------------------------+
 | Interface | Controller | Driver/Component                         |
 +===========+============+==========================================+
+| ADC       | on-chip    | Analogue to digital converter            |
++-----------+------------+------------------------------------------+
+| DAC       | on-chip    | Digital to analogue converter            |
++-----------+------------+------------------------------------------+
 | DMA       | on-chip    | Direct memory access                     |
 +-----------+------------+------------------------------------------+
 | Flash     | on-chip    | Can be used with LittleFS to store files |
@@ -49,6 +54,8 @@ hardware features:
 | I2C       | on-chip    | Inter-Integrated Circuit                 |
 +-----------+------------+------------------------------------------+
 | NVIC      | on-chip    | nested vector interrupt controller       |
++-----------+------------+------------------------------------------+
+| PWM       | on-chip    | Pulse Width Modulation                   |
 +-----------+------------+------------------------------------------+
 | SPI       | on-chip    | Serial Peripheral Interface ports        |
 +-----------+------------+------------------------------------------+
@@ -92,7 +99,7 @@ the board including `pinouts`_ and the `schematic`_.
 Laced Grove Signal Interface
 ----------------------------
 
-In addition to the Arduino UNO R3 header, there are also 12 Grove connectors.
+In addition to the |Arduino UNO R3| header, there are also 12 |Grove connectors|.
 These are provided by a specific interface for general signal mapping, the
 |Laced Grove Signal Interface|.
 
@@ -293,38 +300,40 @@ GPIO (PWM) Ports
 
 The SAMD21 MCU has 2 GPIO ports, 3 PWM able Timer/Capture-Counter (TCC) and
 2 simple Timer/Counter (TC). On the Lotus Cortex-M0+, TCC2 channel 1 is
-available on first user LED (blue), all other user LEDs can be controlles
-as GPIO. All channels of TCC0 are available on the Arduino UNO R3 header
-and the Grove connectors (see above, :ref:`seeeduino_lotus_grove_if`).
+available on first user LED (blue), all other user LEDs can be controlled
+as GPIO. Only if :kconfig:option:`CONFIG_PWM_SAM0_TCC` is enabled then the
+first user LED (blue) is driven by TCC2 instead of by GPIO. All channels of
+TCC0 are available on the |Arduino UNO R3| header and the |Grove connectors|
+(see above, :ref:`seeeduino_lotus_grove_if`).
 
 ADC/DAC Ports
 =============
 
 The SAMD21 MCU has 1 DAC and 1 ADC. On the Lotus Cortex-M0+, the DAC voltage
-output (VOUT) is available on A0 of the Arduino UNO R3 header. The ADC
-channels 2-5 and 10 are available on A1-A5 of the Arduino UNO R3 header.
+output (VOUT) is available on A0 of the |Arduino UNO R3| header. The ADC
+channels 2-5 and 10 are available on A1-A5 of the |Arduino UNO R3| header.
 
 The external voltage reference VREFA can be used optional for the DAC and
-ADC on same time and is available on AREF of the Arduino UNO R3 header.
+ADC on same time and is available on AREF of the |Arduino UNO R3| header.
 
 SPI Port
 ========
 
 The SAMD21 MCU has 6 SERCOM based SPIs. On the Lotus Cortex-M0+, SERCOM1
 can be put into SPI mode and used to connect to devices over D11 (MOSI),
-D12 (MISO), and D13 (SCK) of the Arduino UNO R3 header.
+D12 (MISO), and D13 (SCK) of the |Arduino UNO R3| header.
 
 I2C Port
 ========
 
 The SAMD21 MCU has 6 SERCOM based I2Cs. On the Lotus Cortex-M0+, SERCOM3
-is available only on D18 (SDA) and D19 (SCL) of the Arduino UNO R3 header.
+is available only on D18 (SDA) and D19 (SCL) of the |Arduino UNO R3| header.
 
 Serial Port
 ===========
 
 The SAMD21 MCU has 6 SERCOM based USARTs. On the Lotus Cortex-M0+, SERCOM2
-is available on D0 (RX) and D1 (TX) of the Arduino UNO R3 header and is the
+is available on D0 (RX) and D1 (TX) of the |Arduino UNO R3| header and is the
 Zephyr console. This is captured by the standard board revision ``uartcons``.
 SERCOM5 is available on pin 1 (RX) and pin 2 (TX) of the Grove UART connector
 and is an optional second serial port for applications.
@@ -493,7 +502,7 @@ Hello Shell with USB-CDC/ACM Console
          Hello from shell.
 
          uart:~$ hwinfo devid
-         Length: 12
+         Length: 16
          ID: 0xefa3ee60dfcb11ed9973734ca4207846
 
          uart:~$ kernel version
@@ -640,6 +649,9 @@ Hello Shell with USB-CDC/ACM Console
 
    .. group-tab:: I2C
 
+      The Lotus Cortex-M0+ has no on-board I2C devices. For this example the
+      |Arduino Sensor Kit|_ with its 3 different I2C devices was connected.
+
       .. code-block:: console
 
          uart:~$ log enable none i2c_sam0
@@ -694,3 +706,13 @@ References
 
 .. _SAM-BA:
     https://microchipdeveloper.com/atstart:sam-d21-bootloader
+
+.. |Grove connectors| replace::
+   :ref:`Grove connectors <devicetree:dtbinding_seeed_grove_connector>`
+
+.. |Arduino UNO R3| replace::
+   :ref:`Arduino UNO R3 <devicetree:dtbinding_arduino_header_r3>`
+
+.. |Arduino Sensor Kit| replace:: :strong:`Arduino Sensor Kit – Base`
+.. _`Arduino Sensor Kit`:
+   https://www.seeedstudio.com/Arduino-Sensor-Kit-Base-p-4743.html
