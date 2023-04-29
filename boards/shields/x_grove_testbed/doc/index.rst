@@ -459,6 +459,60 @@ For example:
 
       .. tabs::
 
+         .. group-tab:: Arduino Zero
+
+            This is based on the Zephyr board :ref:`arduino_zero`.
+
+            * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
+
+            .. image:: img/x_grove_testbed_arduino_zero_bb.svg
+               :alt: Arduino Zero Wiring Schematics
+               :align: center
+
+            .. tabs::
+
+               .. group-tab:: LED Blinky
+
+                  This is based on the Zephyr sample :ref:`blinky-sample`.
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/blinky
+                     :build-dir: blinky-arduino_zero-x_grove_testbed
+                     :board: arduino_zero@usbcons
+                     :shield: "seeed_grove_base_v2 grove_btn_d7 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :goals: build flash
+                     :west-args: -p always
+                     :host-os: unix
+                     :tool: all
+
+               .. group-tab:: LED Fade
+
+                  This is based on the Zephyr sample :ref:`fade-led-sample`.
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/fade_led
+                     :build-dir: fade-arduino_zero-x_grove_testbed
+                     :board: arduino_zero@usbcons
+                     :shield: "seeed_grove_base_v2 grove_btn_d7 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :goals: build flash
+                     :west-args: -p always
+                     :host-os: unix
+                     :tool: all
+
+               .. group-tab:: LED Button
+
+                  This is based on the Zephyr sample :ref:`button-sample`.
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/button
+                     :build-dir: button-arduino_zero-x_grove_testbed
+                     :board: arduino_zero@usbcons
+                     :shield: "seeed_grove_base_v2 grove_btn_d7 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :goals: build flash
+                     :west-args: -p always
+                     :host-os: unix
+                     :tool: all
+
          .. group-tab:: Seeeduino Lotus Cortex-M0+
 
             This is based on the Zephyr board :ref:`seeeduino_lotus`.
