@@ -18,6 +18,9 @@ supported:
   - grove_i2c
   - grove_serial
   - hwinfo
+  - adc
+  - counter
+  - dac
   - dma
   - pwm
   - gpio
