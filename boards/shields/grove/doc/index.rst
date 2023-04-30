@@ -540,6 +540,21 @@ not be complete.
 
       .. include:: /boards/shields/grove/doc/grove_pwms-mimxrt1060_evk.rsti
 
+   .. group-tab:: ``arduino_zero``
+
+      This is based on the Bridle board :ref:`arduino_zero` and its
+      :ref:`devicetree:dtbinding_arduino_header_r3`.
+
+      .. note::
+         This board basically provides all channels from all timers as PWM to
+         the outside. However, the SoC's ability to route channels to multiple
+         pads may result in channels being connected in parallel. The second
+         table below shows the possibilities which channels can really
+         be used independently at the associated signals of the
+         |Laced Grove Signal Interface|.
+
+      .. include:: /boards/shields/grove/doc/grove_pwms-arduino_zero.rsti
+
 Programming
 ===========
 

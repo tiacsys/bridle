@@ -1,0 +1,479 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include "arduino_to_grove_if.dtsi"
+
+/*
+ * On Arduino Zero following pins can be used as PWM outputs:
+ *
+ *   Grove pin   port   timer   channel   Arduino UNO R3 requirements
+ *
+ *         D0    PA11   TCC0    CH3 (WO3) RX   / GPIO
+ *         D1    PA10   TCC0    CH2 (WO2) TX   / GPIO
+ *         D2    PA14   TCC0    CH0 (WO4) INT0 / GPIO
+ *         D3    PA9    TCC0    CH1 (WO1) INT1 / GPIO with PWM support
+ *   (NMI) D4    PA8    TCC0    CH0 (WO0)        GPIO
+ *         D5    PA15   TCC0    CH1 (WO5)        GPIO with PWM support
+ *         D6    PA20   TCC0    CH2 (WO6)        GPIO with PWM support
+ *   (DGI) D7    PA21   TCC0    CH3 (WO7)        GPIO
+ *   (DGI) D8    PA6    TCC1    CH0 (WO0)        GPIO
+ *   (DGI) D9    PA7    TCC1    CH1 (WO1)        GPIO with PWM support
+ *         D10   PA18   TCC0    CH2 (WO2) SS   / GPIO with PWM support
+ *         D11   PA16   TCC2    CH0 (WO0) MOSI / GPIO with PWM support
+ *         D12   PA19   TCC0    CH3 (WO3) MISO / GPIO
+ *   (LED) D13   PA17   TCC2    CH1 (WO1) SCK  / GPIO
+ *         D18   PA22   TCC0    CH0 (WO4) SDA  / GPIO
+ *         D19   PA23   TCC0    CH1 (WO5) SCL  / GPIO
+ */
+
+&tcc0 {
+	status = "disabled";
+	compatible = "atmel,sam0-tcc-pwm";
+	#pwm-cells = <2>;
+	pinctrl-0 = <&tcc0_pwm_default>;
+	pinctrl-names = "default";
+};
+
+#undef GROVE_PWM_D4_FAST
+#define GROVE_PWM_D4_FAST				\
+	&tcc0 {						\
+		prescaler = <1>;			\
+	};
+
+#undef GROVE_PWM_D4_SLOW
+#define GROVE_PWM_D4_SLOW				\
+	&tcc0 {						\
+		prescaler = <1024>;			\
+	};
+
+#undef GROVE_PWM_D4_ENABLE
+#define GROVE_PWM_D4_ENABLE				\
+	&tcc0 {						\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D4_PINCTRL
+#define GROVE_PWM_D4_PINCTRL				\
+	&tcc0_pwm_default {				\
+		group0 {				\
+			pinmux = <PA8E_TCC0_WO0>;	\
+		};					\
+	};
+
+#undef GROVE_PWM_D3_FAST
+#define GROVE_PWM_D3_FAST				\
+	&tcc0 {						\
+		prescaler = <1>;			\
+	};
+
+#undef GROVE_PWM_D3_SLOW
+#define GROVE_PWM_D3_SLOW				\
+	&tcc0 {						\
+		prescaler = <1024>;			\
+	};
+
+#undef GROVE_PWM_D3_ENABLE
+#define GROVE_PWM_D3_ENABLE				\
+	&tcc0 {						\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D3_PINCTRL
+#define GROVE_PWM_D3_PINCTRL				\
+	&tcc0_pwm_default {				\
+		group1 {				\
+			pinmux = <PA9E_TCC0_WO1>;	\
+		};					\
+	};
+
+#undef GROVE_PWM_D1_FAST
+#define GROVE_PWM_D1_FAST				\
+	&tcc0 {						\
+		prescaler = <1>;			\
+	};
+
+#undef GROVE_PWM_D1_SLOW
+#define GROVE_PWM_D1_SLOW				\
+	&tcc0 {						\
+		prescaler = <1024>;			\
+	};
+
+#undef GROVE_PWM_D1_ENABLE
+#define GROVE_PWM_D1_ENABLE				\
+	&tcc0 {						\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D1_PINCTRL
+#define GROVE_PWM_D1_PINCTRL				\
+	&tcc0_pwm_default {				\
+		group2 {				\
+			pinmux = <PA10F_TCC0_WO2>;	\
+		};					\
+	};
+
+#undef GROVE_PWM_D10_FAST
+#define GROVE_PWM_D10_FAST				\
+	&tcc0 {						\
+		prescaler = <1>;			\
+	};
+
+#undef GROVE_PWM_D10_SLOW
+#define GROVE_PWM_D10_SLOW				\
+	&tcc0 {						\
+		prescaler = <1024>;			\
+	};
+
+#undef GROVE_PWM_D10_ENABLE
+#define GROVE_PWM_D10_ENABLE				\
+	&tcc0 {						\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D10_PINCTRL
+#define GROVE_PWM_D10_PINCTRL				\
+	&tcc0_pwm_default {				\
+		group2 {				\
+			pinmux = <PA18F_TCC0_WO2>;	\
+		};					\
+	};
+
+#undef GROVE_PWM_D0_FAST
+#define GROVE_PWM_D0_FAST				\
+	&tcc0 {						\
+		prescaler = <1>;			\
+	};
+
+#undef GROVE_PWM_D0_SLOW
+#define GROVE_PWM_D0_SLOW				\
+	&tcc0 {						\
+		prescaler = <1024>;			\
+	};
+
+#undef GROVE_PWM_D0_ENABLE
+#define GROVE_PWM_D0_ENABLE				\
+	&tcc0 {						\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D0_PINCTRL
+#define GROVE_PWM_D0_PINCTRL				\
+	&tcc0_pwm_default {				\
+		group3 {				\
+			pinmux = <PA11F_TCC0_WO3>;	\
+		};					\
+	};
+
+#undef GROVE_PWM_D12_FAST
+#define GROVE_PWM_D12_FAST				\
+	&tcc0 {						\
+		prescaler = <1>;			\
+	};
+
+#undef GROVE_PWM_D12_SLOW
+#define GROVE_PWM_D12_SLOW				\
+	&tcc0 {						\
+		prescaler = <1024>;			\
+	};
+
+#undef GROVE_PWM_D12_ENABLE
+#define GROVE_PWM_D12_ENABLE				\
+	&tcc0 {						\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D12_PINCTRL
+#define GROVE_PWM_D12_PINCTRL				\
+	&tcc0_pwm_default {				\
+		group3 {				\
+			pinmux = <PA19F_TCC0_WO3>;	\
+		};					\
+	};
+
+#undef GROVE_PWM_D2_FAST
+#define GROVE_PWM_D2_FAST				\
+	&tcc0 {						\
+		prescaler = <1>;			\
+	};
+
+#undef GROVE_PWM_D2_SLOW
+#define GROVE_PWM_D2_SLOW				\
+	&tcc0 {						\
+		prescaler = <1024>;			\
+	};
+
+#undef GROVE_PWM_D2_ENABLE
+#define GROVE_PWM_D2_ENABLE				\
+	&tcc0 {						\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D2_PINCTRL
+#define GROVE_PWM_D2_PINCTRL				\
+	&tcc0_pwm_default {				\
+		group4 {				\
+			pinmux = <PA14F_TCC0_WO4>;	\
+		};					\
+	};
+
+#undef GROVE_PWM_D18_FAST
+#define GROVE_PWM_D18_FAST				\
+	&tcc0 {						\
+		prescaler = <1>;			\
+	};
+
+#undef GROVE_PWM_D18_SLOW
+#define GROVE_PWM_D18_SLOW				\
+	&tcc0 {						\
+		prescaler = <1024>;			\
+	};
+
+#undef GROVE_PWM_D18_ENABLE
+#define GROVE_PWM_D18_ENABLE				\
+	&tcc0 {						\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D18_PINCTRL
+#define GROVE_PWM_D18_PINCTRL				\
+	&tcc0_pwm_default {				\
+		group4 {				\
+			pinmux = <PA22F_TCC0_WO4>;	\
+		};					\
+	};
+
+#undef GROVE_PWM_D5_FAST
+#define GROVE_PWM_D5_FAST				\
+	&tcc0 {						\
+		prescaler = <1>;			\
+	};
+
+#undef GROVE_PWM_D5_SLOW
+#define GROVE_PWM_D5_SLOW				\
+	&tcc0 {						\
+		prescaler = <1024>;			\
+	};
+
+#undef GROVE_PWM_D5_ENABLE
+#define GROVE_PWM_D5_ENABLE				\
+	&tcc0 {						\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D5_PINCTRL
+#define GROVE_PWM_D5_PINCTRL				\
+	&tcc0_pwm_default {				\
+		group5 {				\
+			pinmux = <PA15F_TCC0_WO5>;	\
+		};					\
+	};
+
+#undef GROVE_PWM_D19_FAST
+#define GROVE_PWM_D19_FAST				\
+	&tcc0 {						\
+		prescaler = <1>;			\
+	};
+
+#undef GROVE_PWM_D19_SLOW
+#define GROVE_PWM_D19_SLOW				\
+	&tcc0 {						\
+		prescaler = <1024>;			\
+	};
+
+#undef GROVE_PWM_D19_ENABLE
+#define GROVE_PWM_D19_ENABLE				\
+	&tcc0 {						\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D19_PINCTRL
+#define GROVE_PWM_D19_PINCTRL				\
+	&tcc0_pwm_default {				\
+		group5 {				\
+			pinmux = <PA23F_TCC0_WO5>;	\
+		};					\
+	};
+
+#undef GROVE_PWM_D6_FAST
+#define GROVE_PWM_D6_FAST				\
+	&tcc0 {						\
+		prescaler = <1>;			\
+	};
+
+#undef GROVE_PWM_D6_SLOW
+#define GROVE_PWM_D6_SLOW				\
+	&tcc0 {						\
+		prescaler = <1024>;			\
+	};
+
+#undef GROVE_PWM_D6_ENABLE
+#define GROVE_PWM_D6_ENABLE				\
+	&tcc0 {						\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D6_PINCTRL
+#define GROVE_PWM_D6_PINCTRL				\
+	&tcc0_pwm_default {				\
+		group6 {				\
+			pinmux = <PA20F_TCC0_WO6>;	\
+		};					\
+	};
+
+#undef GROVE_PWM_D7_FAST
+#define GROVE_PWM_D7_FAST				\
+	&tcc0 {						\
+		prescaler = <1>;			\
+	};
+
+#undef GROVE_PWM_D7_SLOW
+#define GROVE_PWM_D7_SLOW				\
+	&tcc0 {						\
+		prescaler = <1024>;			\
+	};
+
+#undef GROVE_PWM_D7_ENABLE
+#define GROVE_PWM_D7_ENABLE				\
+	&tcc0 {						\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D7_PINCTRL
+#define GROVE_PWM_D7_PINCTRL				\
+	&tcc0_pwm_default {				\
+		group7 {				\
+			pinmux = <PA21F_TCC0_WO7>;	\
+		};					\
+	};
+
+&tcc1 {
+	status = "disabled";
+	compatible = "atmel,sam0-tcc-pwm";
+	#pwm-cells = <2>;
+	pinctrl-0 = <&tcc1_pwm_default>;
+	pinctrl-names = "default";
+};
+
+#undef GROVE_PWM_D8_FAST
+#define GROVE_PWM_D8_FAST				\
+	&tcc1 {						\
+		prescaler = <1>;			\
+	};
+
+#undef GROVE_PWM_D8_SLOW
+#define GROVE_PWM_D8_SLOW				\
+	&tcc1 {						\
+		prescaler = <1024>;			\
+	};
+
+#undef GROVE_PWM_D8_ENABLE
+#define GROVE_PWM_D8_ENABLE				\
+	&tcc1 {						\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D8_PINCTRL
+#define GROVE_PWM_D8_PINCTRL				\
+	&tcc1_pwm_default {				\
+		group0 {				\
+			pinmux = <PA6E_TCC1_WO0>;	\
+		};					\
+	};
+
+#undef GROVE_PWM_D9_FAST
+#define GROVE_PWM_D9_FAST				\
+	&tcc1 {						\
+		prescaler = <1>;			\
+	};
+
+#undef GROVE_PWM_D9_SLOW
+#define GROVE_PWM_D9_SLOW				\
+	&tcc1 {						\
+		prescaler = <1024>;			\
+	};
+
+#undef GROVE_PWM_D9_ENABLE
+#define GROVE_PWM_D9_ENABLE				\
+	&tcc1 {						\
+		status = "okay";			\
+	};
+
+/* FIXME: There seems to be an error in hal_atmel. There is no
+ * macro definition PA7E_TCC1_WO1 but PA7E_TCC0_WO1 what seems
+ * to be wrong (typo?). */
+#undef GROVE_PWM_D9_PINCTRL
+#define GROVE_PWM_D9_PINCTRL				\
+	&tcc1_pwm_default {				\
+		group1 {				\
+			pinmux = <PA7E_TCC0_WO1>;	\
+			/* PA7E_TCC1_WO1 not defined */	\
+		};					\
+	};
+
+&tcc2 {
+	status = "disabled";
+	compatible = "atmel,sam0-tcc-pwm";
+	#pwm-cells = <2>;
+	pinctrl-0 = <&tcc2_pwm_default>;
+	pinctrl-names = "default";
+};
+
+#undef GROVE_PWM_D11_FAST
+#define GROVE_PWM_D11_FAST				\
+	&tcc2 {						\
+		prescaler = <1>;			\
+	};
+
+#undef GROVE_PWM_D11_SLOW
+#define GROVE_PWM_D11_SLOW				\
+	&tcc2 {						\
+		prescaler = <1024>;			\
+	};
+
+#undef GROVE_PWM_D11_ENABLE
+#define GROVE_PWM_D11_ENABLE				\
+	&tcc2 {						\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D11_PINCTRL
+#define GROVE_PWM_D11_PINCTRL				\
+	&tcc2_pwm_default {				\
+		group2 {				\
+			pinmux = <PA16E_TCC2_WO0>;	\
+		};					\
+	};
+
+#undef GROVE_PWM_D13_FAST
+#define GROVE_PWM_D13_FAST				\
+	&tcc2 {						\
+		prescaler = <1>;			\
+	};
+
+#undef GROVE_PWM_D13_SLOW
+#define GROVE_PWM_D13_SLOW				\
+	&tcc2 {						\
+		prescaler = <1024>;			\
+	};
+
+#undef GROVE_PWM_D13_ENABLE
+#define GROVE_PWM_D13_ENABLE				\
+	&tcc2 {						\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D13_PINCTRL
+#define GROVE_PWM_D13_PINCTRL				\
+	&tcc2_pwm_default {				\
+		group2 {				\
+			pinmux = <PA17E_TCC2_WO1>;	\
+		};					\
+	};
+
+&pinctrl {
+	tcc0_pwm_default: tcc0_pwm_default {};
+	tcc1_pwm_default: tcc1_pwm_default {};
+	tcc2_pwm_default: tcc2_pwm_default {};
+};

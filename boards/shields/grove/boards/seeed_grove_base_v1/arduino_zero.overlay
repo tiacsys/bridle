@@ -1,0 +1,55 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	grove_laced_if_v1: grove-laced-if-v1 {
+
+		compatible = "seeed,grove-laced-if";
+
+		#pwm-cells = <2>;
+		pwm-map-mask = <0xffffffff 0>;
+		pwm-map-pass-thru = <0 0xffffffff>;
+		pwm-map =
+			<0 0 &tcc0 3 0>,	/* D0: TCC0CH3 (WO3) & D7/D12 */
+			<1 0 &tcc0 2 0>,	/* D1: TCC0CH2 (WO2) & D6/D10 */
+			<2 0 &tcc0 0 0>,	/* D2: TCC0CH0 (WO4) & D4/D18 */
+			<3 0 &tcc0 1 0>,	/* D3: TCC0CH1 (WO1) & D5/D19 */
+			<4 0 &tcc0 0 0>,	/* D4: TCC0CH0 (WO0) & D2/D18 */
+			<5 0 &tcc0 1 0>,	/* D5: TCC0CH1 (WO5) & D3/D19 */
+			<6 0 &tcc0 2 0>,	/* D6: TCC0CH2 (WO6) & D1/D10 */
+			<7 0 &tcc0 3 0>,	/* D7: TCC0CH3 (WO7) & D0/D12 */
+			<8 0 &tcc1 0 0>,	/* D8: TCC1CH0 (WO0) */
+			<9 0 &tcc1 1 0>,	/* D9: TCC1CH1 (WO1) */
+			<10 0 &tcc0 2 0>,	/* D10: TCC0CH2 (WO2) & D1/D6 */
+			<11 0 &tcc2 0 0>,	/* D11: TCC2CH0 (WO0) */
+			<12 0 &tcc0 3 0>,	/* D12: TCC0CH3 (WO3) & D0/D7 */
+			<13 0 &tcc2 1 0>,	/* D13: TCC2CH1 (WO1) */
+			/* 14 - D14: not possible */
+			/* 15 - D15: not possible */
+			/* 16 - D16: not possible */
+			/* 17 - D17: not possible */
+			<18 0 &tcc0 0 0>,	/* D18: TCC0CH0 (WO4) & D2/D4 */
+			<19 0 &tcc0 1 0>;	/* D19: TCC0CH1 (WO5) & D3/D5 */
+	};
+};
+
+grove_pwms: &grove_laced_if_v1 {};
+
+grove_pwm_d0: &tcc0 {};
+grove_pwm_d1: &tcc0 {};
+grove_pwm_d2: &tcc0 {};
+grove_pwm_d3: &tcc0 {};
+grove_pwm_d4: &tcc0 {};
+grove_pwm_d5: &tcc0 {};
+grove_pwm_d6: &tcc0 {};
+grove_pwm_d7: &tcc0 {};
+grove_pwm_d8: &tcc1 {};
+grove_pwm_d9: &tcc1 {};
+grove_pwm_d10: &tcc0 {};
+grove_pwm_d11: &tcc2 {};
+grove_pwm_d12: &tcc0 {};
+grove_pwm_d13: &tcc2 {};
+grove_pwm_d18: &tcc0 {};
+grove_pwm_d19: &tcc0 {};
