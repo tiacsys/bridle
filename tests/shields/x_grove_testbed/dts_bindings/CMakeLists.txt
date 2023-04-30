@@ -73,7 +73,15 @@ if(CONFIG_SHIELD_SEEED_GROVE_BASE_V2)
     )
   else()
 
-    test_if(CONFIG_SHIELD_GROVE_BTN "sw0" "grove_btn_d4" "Grove Button D4")
+    if(CONFIG_BOARD_ARDUINO_ZERO)
+
+      test_if(CONFIG_SHIELD_GROVE_BTN "sw0" "grove_btn_d7" "Grove Button D7")
+
+    else()
+
+      test_if(CONFIG_SHIELD_GROVE_BTN "sw0" "grove_btn_d4" "Grove Button D4")
+
+    endif()
 
   endif()
 
@@ -91,7 +99,8 @@ if(CONFIG_SHIELD_SEEED_GROVE_BASE_V2)
   if(CONFIG_BOARD_NUCLEO_F303RE OR
      CONFIG_BOARD_NUCLEO_F401RE OR
      CONFIG_BOARD_NUCLEO_F413ZH OR
-     CONFIG_BOARD_NUCLEO_F767ZI)
+     CONFIG_BOARD_NUCLEO_F767ZI OR
+     CONFIG_BOARD_ARDUINO_ZERO)
 
     if(NOT CONFIG_SHIELD_GROVE_PWM_LED)
       message(FATAL_ERROR "Test failed, "
