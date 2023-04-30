@@ -111,6 +111,7 @@ jobs:
             --outdir twister-out --no-clean --inline-logs \
             --enable-size-report --platform-reports \
             --board-root bridle/boards \
+            --platform arduino_zero \
             --platform mimxrt1010_evk \
             --platform mimxrt1060_evk \
             --platform mimxrt1060_evkb \
