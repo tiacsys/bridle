@@ -371,10 +371,45 @@ if(DEFINED if_path)
     endif()
   endif()
 
+  # check board specific add-ons for arduino_zero
+  if(CONFIG_BOARD_ARDUINO_ZERO)
+
+    test_if_label_on_path("grove_pwms" "${if_path}")
+
+    if(CONFIG_SHIELD_SEEED_GROVE_BASE_V2 OR
+       CONFIG_SHIELD_SEEED_GROVE_BASE_V1)
+
+      test_if_label_matching("grove_pwm_d0" "tcc0")
+      test_if_label_matching("grove_pwm_d1" "tcc0")
+      test_if_label_matching("grove_pwm_d2" "tcc0")
+      test_if_label_matching("grove_pwm_d3" "tcc0")
+      test_if_label_matching("grove_pwm_d4" "tcc0")
+      test_if_label_matching("grove_pwm_d5" "tcc0")
+      test_if_label_matching("grove_pwm_d6" "tcc0")
+      test_if_label_matching("grove_pwm_d7" "tcc0")
+      test_if_label_matching("grove_pwm_d8" "tcc1")
+      test_if_label_matching("grove_pwm_d9" "tcc1")
+
+      if(CONFIG_SHIELD_SEEED_GROVE_BASE_V1)
+
+        test_if_label_matching("grove_pwm_d10" "tcc0")
+        test_if_label_matching("grove_pwm_d11" "tcc2")
+        test_if_label_matching("grove_pwm_d12" "tcc0")
+        test_if_label_matching("grove_pwm_d13" "tcc2")
+
+      endif()
+
+      test_if_label_matching("grove_pwm_d18" "tcc0")
+      test_if_label_matching("grove_pwm_d19" "tcc0")
+
+    endif()
+  endif()
+
   # check common board specific add-ons
   if(CONFIG_BOARD_NUCLEO_F401RE OR
      CONFIG_BOARD_MIMXRT1060_EVK OR
-     CONFIG_BOARD_MIMXRT1060_EVKB)
+     CONFIG_BOARD_MIMXRT1060_EVKB OR
+     CONFIG_BOARD_ARDUINO_ZERO)
 
     test_if_label_matching("grove_serial" "arduino_serial")
     test_if_label_matching("grove_i2c" "arduino_i2c")
