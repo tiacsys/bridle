@@ -64,3 +64,4 @@ jobs:
           urlroot: ${{ secrets.TSN_BRIDLE_GHPR_URL_ROOT }}
           pr-prefix: "PR-"
           pr-file: pr.txt
+        continue-on-error: true
