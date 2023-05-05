@@ -276,6 +276,60 @@ tests:
       seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v1;grove_btn_d19
   #
+  # Grove Button by simple GPIO on Grove Shield for Seeeduino XIAO
+  #
+  grove.xiao.v1.grove_btn.gpio.d0:
+    filter: dt_nodelabel_enabled("grove_d0_header") and
+            dt_label_with_parent_compat_enabled("grove_btn_d0", "gpio-keys")
+    platform_allow:
+      seeed_xiao_samd21
+      seeeduino_xiao
+    extra_args: SHIELD=seeed_grove_xiao_v1;grove_btn_d0
+  grove.xiao.v1.grove_btn.gpio.d1:
+    filter: dt_nodelabel_enabled("grove_d1_header") and
+            dt_label_with_parent_compat_enabled("grove_btn_d1", "gpio-keys")
+    platform_allow:
+      seeed_xiao_samd21
+      seeeduino_xiao
+    extra_args: SHIELD=seeed_grove_xiao_v1;grove_btn_d1
+  grove.xiao.v1.grove_btn.gpio.d2:
+    filter: dt_nodelabel_enabled("grove_d2_header") and
+            dt_label_with_parent_compat_enabled("grove_btn_d2", "gpio-keys")
+    platform_allow:
+      seeed_xiao_samd21
+      seeeduino_xiao
+    extra_args: SHIELD=seeed_grove_xiao_v1;grove_btn_d2
+  grove.xiao.v1.grove_btn.gpio.d5:
+    filter: dt_nodelabel_enabled("grove_d5_header") and
+            dt_nodelabel_enabled("grove_i2c_header") and
+            dt_label_with_parent_compat_enabled("grove_btn_d5", "gpio-keys")
+    platform_allow:
+      seeed_xiao_samd21
+      seeeduino_xiao
+    extra_args: SHIELD=seeed_grove_xiao_v1;grove_btn_d5
+  grove.xiao.v1.grove_btn.gpio.d7:
+    filter: dt_nodelabel_enabled("grove_d7_header") and
+            dt_nodelabel_enabled("grove_uart_header") and
+            dt_label_with_parent_compat_enabled("grove_btn_d7", "gpio-keys")
+    platform_allow:
+      seeed_xiao_samd21
+      seeeduino_xiao
+    extra_args: SHIELD=seeed_grove_xiao_v1;grove_btn_d7
+  grove.xiao.v1.grove_btn.gpio.d8:
+    filter: dt_nodelabel_enabled("grove_d8_header") and
+            dt_label_with_parent_compat_enabled("grove_btn_d8", "gpio-keys")
+    platform_allow:
+      seeed_xiao_samd21
+      seeeduino_xiao
+    extra_args: SHIELD=seeed_grove_xiao_v1;grove_btn_d8
+  grove.xiao.v1.grove_btn.gpio.d9:
+    filter: dt_nodelabel_enabled("grove_d9_header") and
+            dt_label_with_parent_compat_enabled("grove_btn_d9", "gpio-keys")
+    platform_allow:
+      seeed_xiao_samd21
+      seeeduino_xiao
+    extra_args: SHIELD=seeed_grove_xiao_v1;grove_btn_d9
+  #
   # Grove Button by simple GPIO on Grove Shield for Pi Pico
   #
   grove.rpipico.v1.grove_btn.gpio.d1:
