@@ -441,7 +441,7 @@
 #undef GROVE_PWM_D11_PINCTRL
 #define GROVE_PWM_D11_PINCTRL				\
 	&tcc2_pwm_default {				\
-		group2 {				\
+		group0 {				\
 			pinmux = <PA16E_TCC2_WO0>;	\
 		};					\
 	};
@@ -467,7 +467,7 @@
 #undef GROVE_PWM_D13_PINCTRL
 #define GROVE_PWM_D13_PINCTRL				\
 	&tcc2_pwm_default {				\
-		group2 {				\
+		group1 {				\
 			pinmux = <PA17E_TCC2_WO1>;	\
 		};					\
 	};
