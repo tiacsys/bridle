@@ -169,6 +169,9 @@
 .. _`Raspberry Pi Pico R3 W`:
    https://www.raspberrypi.com/documentation/microcontrollers/images/picow-pinout.svg
 
+.. _`Seeeduino XIAO`:
+   https://files.seeedstudio.com/wiki/Seeeduino-XIAO/img/Seeeduino-XIAO-pinout-1.jpg
+
 
 
 .. ### Source: ubuntu.com
