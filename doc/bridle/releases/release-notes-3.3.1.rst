@@ -70,6 +70,7 @@ Supported boards
 ****************
 
 * Arduino/Genuino Zero
+* Seeed Studio XIAO SAMD21 (Seeeduino XIAO)
 * Seeeduino Lotus Cortex-M0+
 * TiaC Magpie STM32F777NIHx
 
@@ -81,6 +82,7 @@ The following sections provide detailed lists of changes by component.
 * Add new boards:
 
   * :ref:`arduino_zero`, improved copy from Zephyr
+  * :ref:`seeed_xiao_samd21`, improved copy from Zephyr
   * :ref:`seeeduino_lotus`, new for Zephyr too
 
 * Add new shields:
@@ -95,6 +97,8 @@ The following sections provide detailed lists of changes by component.
     * :ref:`nucleo_f767zi_board`
     * :ref:`rpi_pico`
     * :ref:`seeeduino_lotus`
+    * :ref:`seeeduino_xiao`
+    * :ref:`seeed_xiao_samd21`
 
   * :ref:`grove_button_shield`
   * :ref:`grove_led_shield`
@@ -108,16 +112,16 @@ The following sections provide detailed lists of changes by component.
 
 * Add new DTS bindings:
 
-  * :ref:`devicetree:dtbinding_adafruit_stemma_connector`
-  * :ref:`devicetree:dtbinding_adafruit_stemmaqt_connector`
-  * :ref:`devicetree:dtbinding_dfrobot_gravity_connector`
-  * :ref:`devicetree:dtbinding_digilent_pmod_header`
-  * :ref:`devicetree:dtbinding_generic_pin_header`
-  * :ref:`devicetree:dtbinding_raspberrypi_pico_header_r3`
-  * :ref:`devicetree:dtbinding_seeed_grove_laced_if`
-  * :ref:`devicetree:dtbinding_seeed_grove_connector`
-  * :ref:`devicetree:dtbinding_sparkfun_qwiic_connector`
-  * :ref:`devicetree:dtbinding_st_mems_dil24_socket`
+  * :dtcompatible:`adafruit,stemma-connector`
+  * :dtcompatible:`adafruit,stemmaqt-connector`
+  * :dtcompatible:`dfrobot,gravity-connector`
+  * :dtcompatible:`digilent,pmod-header`
+  * :dtcompatible:`generic-pin-header`
+  * :dtcompatible:`raspberrypi,pico-header-r3`
+  * :dtcompatible:`seeed,grove-laced-if`
+  * :dtcompatible:`seeed,grove-connector`
+  * :dtcompatible:`sparkfun,qwiic-connector`
+  * :dtcompatible:`st,mems-dil24-socket`
 
 * PROJECT UPDATE to `Zephyr Project`_ v3.3
 
@@ -128,10 +132,12 @@ Build Infrastructure
 
 Take over the new build principles from Zephyr:
 
-* tbd.
+* Use the new RST role :code:`dtcompatible` that is provided
+  as Sphinx extension by Zephyr:
 
-  * tbd.
-  * tbd.
+  * Replace all (now obsolete) Inter-Sphinx references such as
+    :code:`:ref:`devicetree:dtbinding_vendor_thing`` to the new
+    RST role :code:`:dtcompatible:`vendor,thing``.
 
 Documentation
 =============
@@ -146,6 +152,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`96` - [HW] Grove Interconnect Shields for Seeeduino XIAO
 * :github:`90` - [HW] Grove Interconnect Shields for Arduino/Genuino Zero
 * :github:`87` - [HW] Seeeduino Lotus Cortex-M0+ board support
 * :github:`83` - [FCR] Support Grove System Shields
