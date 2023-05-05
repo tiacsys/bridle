@@ -20,14 +20,13 @@ provides a configuration that allows:
 - one of |LED Shields| for digital data output line, optional with PWM
 - one of |Button Shields| for digital data input line
 
-When the board is not equipped with the required shield connectors, but
-instead an |Arduino R3| header, then the |Base Shield V2| can be plugged
-in between.
+When the board is not equipped with the required shield connectors, but instead
+an |Arduino UNO R3| header, then the |Base Shield V2| can be plugged in between.
 
 .. note::
-   Sometimes boards declare standard headers like |Arduino R3| but not define
-   all connections. Make sure that the board you are using have all definitions
-   to avoid build errors (see :ref:`shields` for more details).
+   Sometimes boards declare standard headers like |Arduino UNO R3| but not
+   define all connections. Make sure that the board you are using have all
+   definitions to avoid build errors (see :ref:`shields` for more details).
 
 Supported variations
 ====================
@@ -89,8 +88,8 @@ Supported variations
 .. |Acc3Ax Sensor Shields| replace::
    :strikethrough:`Grove 3-Axis Accelerator Sensor Shields` :emphasis:`(not yet)`
 
-.. |Arduino R3| replace::
-   :ref:`Arduino R3 <devicetree:dtbinding_arduino_header_r3>`
+.. |Arduino UNO R3| replace::
+   :dtcompatible:`Arduino UNO R3 <arduino-header-r3>`
 
 .. |Arduino Sensor Kit| replace:: :strong:`Arduino Sensor Kit – Base`
 .. _`Arduino Sensor Kit`:
@@ -461,7 +460,7 @@ For example:
 
          .. group-tab:: Arduino Zero
 
-            This is based on the Zephyr board :ref:`arduino_zero`.
+            This is based on the Bridle board :ref:`arduino_zero`.
 
             * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
 
@@ -515,7 +514,7 @@ For example:
 
          .. group-tab:: Seeeduino Lotus Cortex-M0+
 
-            This is based on the Zephyr board :ref:`seeeduino_lotus`.
+            This is based on the Bridle board :ref:`seeeduino_lotus`.
 
             * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
 
@@ -562,6 +561,114 @@ For example:
                      :build-dir: button-seeeduino_lotus-x_grove_testbed
                      :board: seeeduino_lotus@usbcons
                      :shield: "grove_btn_d7 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :goals: build flash
+                     :west-args: -p always
+                     :host-os: unix
+                     :tool: all
+
+         .. group-tab:: Seeed Studio XIAO SAMD21
+
+            This is based on the Bridle board :ref:`seeed_xiao_samd21`.
+
+            * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
+
+            .. image:: img/x_grove_testbed_seeeduino_xiao.svg
+               :alt: Seeed Studio XIAO SAMD21 Wiring Schematics
+               :align: center
+
+            .. tabs::
+
+               .. group-tab:: LED Blinky
+
+                  This is based on the Zephyr sample :ref:`blinky-sample`.
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/blinky
+                     :build-dir: blinky-seeed_xiao_samd21-x_grove_testbed
+                     :board: seeed_xiao_samd21
+                     :shield: "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
+                     :goals: build flash
+                     :west-args: -p always
+                     :host-os: unix
+                     :tool: all
+
+               .. group-tab:: LED Fade
+
+                  This is based on the Zephyr sample :ref:`fade-led-sample`.
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/fade_led
+                     :build-dir: fade-seeed_xiao_samd21-x_grove_testbed
+                     :board: seeed_xiao_samd21
+                     :shield: "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
+                     :goals: build flash
+                     :west-args: -p always
+                     :host-os: unix
+                     :tool: all
+
+               .. group-tab:: LED Button
+
+                  This is based on the Zephyr sample :ref:`button-sample`.
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/button
+                     :build-dir: button-seeed_xiao_samd21-x_grove_testbed
+                     :board: seeed_xiao_samd21
+                     :shield: "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
+                     :goals: build flash
+                     :west-args: -p always
+                     :host-os: unix
+                     :tool: all
+
+         .. group-tab:: Seeeduino XIAO
+
+            This is based on the Zephyr board :ref:`seeeduino_xiao`.
+
+            * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
+
+            .. image:: img/x_grove_testbed_seeeduino_xiao.svg
+               :alt: Seeeduino XIAO Wiring Schematics
+               :align: center
+
+            .. tabs::
+
+               .. group-tab:: LED Blinky
+
+                  This is based on the Zephyr sample :ref:`blinky-sample`.
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/blinky
+                     :build-dir: blinky-seeeduino_xiao-x_grove_testbed
+                     :board: seeeduino_xiao
+                     :shield: "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
+                     :goals: build flash
+                     :west-args: -p always
+                     :host-os: unix
+                     :tool: all
+
+               .. group-tab:: LED Fade
+
+                  This is based on the Zephyr sample :ref:`fade-led-sample`.
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/fade_led
+                     :build-dir: fade-seeeduino_xiao-x_grove_testbed
+                     :board: seeeduino_xiao
+                     :shield: "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
+                     :goals: build flash
+                     :west-args: -p always
+                     :host-os: unix
+                     :tool: all
+
+               .. group-tab:: LED Button
+
+                  This is based on the Zephyr sample :ref:`button-sample`.
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/button
+                     :build-dir: button-seeeduino_xiao-x_grove_testbed
+                     :board: seeeduino_xiao
+                     :shield: "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
                      :goals: build flash
                      :west-args: -p always
                      :host-os: unix
@@ -629,4 +736,4 @@ For example:
                      :tool: all
 
 .. |Laced Grove Signal Interface| replace::
-   :ref:`Laced Grove Signal Interface <devicetree:dtbinding_seeed_grove_laced_if>`
+   :dtcompatible:`Laced Grove Signal Interface <seeed,grove-laced-if>`
