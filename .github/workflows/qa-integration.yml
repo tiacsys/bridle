@@ -120,6 +120,8 @@ jobs:
             --platform nucleo_f413zh \
             --platform nucleo_f767zi \
             --platform rpi_pico \
+            --platform seeed_xiao_samd21 \
+            --platform seeeduino_xiao \
             --platform seeeduino_lotus \
             --testsuite-root bridle/tests/shields/grove/dts_bindings \
             --testsuite-root bridle/tests/shields/x_grove_testbed/dts_bindings
