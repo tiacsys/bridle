@@ -41,6 +41,8 @@ supported by this shield and that will be used for maintenance::
          --platform mimxrt1060_evk \
          --platform mimxrt1060_evkb \
          --board-root bridle/boards \
+         --platform seeed_xiao_samd21 \
+         --platform seeeduino_xiao \
          --platform seeeduino_lotus \
          --platform arduino_zero \
          --testsuite-root bridle/tests/shields/grove_btn/dts_bindings
