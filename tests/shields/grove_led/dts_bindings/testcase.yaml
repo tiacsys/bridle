@@ -595,6 +595,104 @@ tests:
       arduino_zero
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d19
   #
+  # Grove LED by simple GPIO on Grove Shield for Seeeduino XIAO
+  #
+  grove.xiao.v1.grove_led.gpio.d0:
+    filter: dt_nodelabel_enabled("grove_d0_header") and
+            dt_label_with_parent_compat_enabled("grove_led_d0", "gpio-leds")
+    platform_allow:
+      seeed_xiao_samd21
+      seeeduino_xiao
+    extra_args: SHIELD=seeed_grove_xiao_v1;grove_led_d0
+  grove.xiao.v1.grove_led.gpio.d1:
+    filter: dt_nodelabel_enabled("grove_d1_header") and
+            dt_label_with_parent_compat_enabled("grove_led_d1", "gpio-leds")
+    platform_allow:
+      seeed_xiao_samd21
+      seeeduino_xiao
+    extra_args: SHIELD=seeed_grove_xiao_v1;grove_led_d1
+  grove.xiao.v1.grove_led.gpio.d2:
+    filter: dt_nodelabel_enabled("grove_d2_header") and
+            dt_label_with_parent_compat_enabled("grove_led_d2", "gpio-leds")
+    platform_allow:
+      seeed_xiao_samd21
+      seeeduino_xiao
+    extra_args: SHIELD=seeed_grove_xiao_v1;grove_led_d2
+  grove.xiao.v1.grove_led.gpio.d5:
+    filter: dt_nodelabel_enabled("grove_d5_header") and
+            dt_nodelabel_enabled("grove_i2c_header") and
+            dt_label_with_parent_compat_enabled("grove_led_d5", "gpio-leds")
+    platform_allow:
+      seeed_xiao_samd21
+      seeeduino_xiao
+    extra_args: SHIELD=seeed_grove_xiao_v1;grove_led_d5
+  grove.xiao.v1.grove_led.gpio.d7:
+    filter: dt_nodelabel_enabled("grove_d7_header") and
+            dt_nodelabel_enabled("grove_uart_header") and
+            dt_label_with_parent_compat_enabled("grove_led_d7", "gpio-leds")
+    platform_allow:
+      seeed_xiao_samd21
+      seeeduino_xiao
+    extra_args: SHIELD=seeed_grove_xiao_v1;grove_led_d7
+  grove.xiao.v1.grove_led.gpio.d8:
+    filter: dt_nodelabel_enabled("grove_d8_header") and
+            dt_label_with_parent_compat_enabled("grove_led_d8", "gpio-leds")
+    platform_allow:
+      seeed_xiao_samd21
+      seeeduino_xiao
+    extra_args: SHIELD=seeed_grove_xiao_v1;grove_led_d8
+  grove.xiao.v1.grove_led.gpio.d9:
+    filter: dt_nodelabel_enabled("grove_d9_header") and
+            dt_label_with_parent_compat_enabled("grove_led_d9", "gpio-leds")
+    platform_allow:
+      seeed_xiao_samd21
+      seeeduino_xiao
+    extra_args: SHIELD=seeed_grove_xiao_v1;grove_led_d9
+  #
+  # Grove LED by dedicated PWM on Grove Shield for Seeeduino XIAO
+  #
+  grove.xiao.v1.grove_led.pwm.d1:
+    filter: dt_nodelabel_enabled("grove_pwm_d1") and
+            dt_nodelabel_enabled("grove_d1_header") and
+            dt_label_with_parent_compat_enabled("grove_pwm_led_d1", "pwm-leds")
+    platform_allow:
+      seeed_xiao_samd21
+      seeeduino_xiao
+    extra_args: SHIELD=seeed_grove_xiao_v1;grove_pwm_led_d1
+  grove.xiao.v1.grove_led.pwm.d2:
+    filter: dt_nodelabel_enabled("grove_pwm_d2") and
+            dt_nodelabel_enabled("grove_d2_header") and
+            dt_label_with_parent_compat_enabled("grove_pwm_led_d2", "pwm-leds")
+    platform_allow:
+      seeed_xiao_samd21
+      seeeduino_xiao
+    extra_args: SHIELD=seeed_grove_xiao_v1;grove_pwm_led_d2
+  grove.xiao.v1.grove_led.pwm.d5:
+    filter: dt_nodelabel_enabled("grove_pwm_d5") and
+            dt_nodelabel_enabled("grove_d5_header") and
+            dt_nodelabel_enabled("grove_i2c_header") and
+            dt_label_with_parent_compat_enabled("grove_pwm_led_d5", "pwm-leds")
+    platform_allow:
+      seeed_xiao_samd21
+      seeeduino_xiao
+    extra_args: SHIELD=seeed_grove_xiao_v1;grove_pwm_led_d5
+  grove.xiao.v1.grove_led.pwm.d8:
+    filter: dt_nodelabel_enabled("grove_pwm_d8") and
+            dt_nodelabel_enabled("grove_d8_header") and
+            dt_label_with_parent_compat_enabled("grove_pwm_led_d8", "pwm-leds")
+    platform_allow:
+      seeed_xiao_samd21
+      seeeduino_xiao
+    extra_args: SHIELD=seeed_grove_xiao_v1;grove_pwm_led_d8
+  grove.xiao.v1.grove_led.pwm.d9:
+    filter: dt_nodelabel_enabled("grove_pwm_d9") and
+            dt_nodelabel_enabled("grove_d9_header") and
+            dt_label_with_parent_compat_enabled("grove_pwm_led_d9", "pwm-leds")
+    platform_allow:
+      seeed_xiao_samd21
+      seeeduino_xiao
+    extra_args: SHIELD=seeed_grove_xiao_v1;grove_pwm_led_d9
+  #
   # Grove LED by simple GPIO on Grove Shield for Pi Pico
   #
   grove.rpipico.v1.grove_led.gpio.d1:
