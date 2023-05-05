@@ -63,6 +63,9 @@ if(CONFIG_SHIELD_SEEED_GROVE_BASE_V2)
 elseif(CONFIG_SHIELD_SEEED_GROVE_BASE_V1)
   dt_nodelabel(if_path NODELABEL "grove_laced_if_v1")
 
+elseif(CONFIG_SHIELD_SEEED_GROVE_XIAO_V1)
+  dt_nodelabel(if_path NODELABEL "grove_laced_if_v1")
+
 elseif(CONFIG_SHIELD_SEEED_GROVE_RPIPICO_V1)
   dt_nodelabel(if_path NODELABEL "grove_laced_if_v1")
 
@@ -71,6 +74,7 @@ else()
     "actual neither "
     "CONFIG_SHIELD_SEEED_GROVE_BASE_V2=${CONFIG_SHIELD_SEEED_GROVE_BASE_V2} nor "
     "CONFIG_SHIELD_SEEED_GROVE_BASE_V1=${CONFIG_SHIELD_SEEED_GROVE_BASE_V1} nor "
+    "CONFIG_SHIELD_SEEED_GROVE_XIAO_V1=${CONFIG_SHIELD_SEEED_GROVE_XIAO_V1} "
     "CONFIG_SHIELD_SEEED_GROVE_RPIPICO_V1=${CONFIG_SHIELD_SEEED_GROVE_RPIPICO_V1} "
     "is turned on, expected at least one of them."
   )
@@ -97,6 +101,7 @@ if(DEFINED if_path)
   endif()
 
   if((CONFIG_SHIELD_SEEED_GROVE_BASE_V1 OR
+      CONFIG_SHIELD_SEEED_GROVE_XIAO_V1 OR
       CONFIG_SHIELD_SEEED_GROVE_RPIPICO_V1) AND
      NOT "${if_path}" STREQUAL "/grove-laced-if-v1")
     message(FATAL_ERROR "Test failed, "
@@ -165,6 +170,30 @@ if(DEFINED if_path)
       test_if_port_label("${if_ports}" "grove_uart_header")
       test_if_port_label("${if_ports}" "grove_i2c_header")
       test_if_port_label("${if_ports}" "grove_spi_header")
+
+    else()
+      message(FATAL_ERROR "Test failed, "
+        "actual the numbers of ports on grove-laced-if is ${if_port_nums}, "
+        "expected 21."
+      )
+    endif()
+  endif()
+
+  # check grove-laced-if-v1 interconnection order
+  if(CONFIG_SHIELD_SEEED_GROVE_XIAO_V1)
+    dt_comp_path(if_ports COMPATIBLE "seeed,grove-connector")
+    list(LENGTH if_ports if_port_nums)
+    if(DEFINED if_ports AND if_port_nums EQUAL 7)
+
+      test_if_port_label("${if_ports}" "grove_d0_header")
+      test_if_port_label("${if_ports}" "grove_d1_header")
+      test_if_port_label("${if_ports}" "grove_d2_header")
+      test_if_port_label("${if_ports}" "grove_d5_header")
+      test_if_port_label("${if_ports}" "grove_d7_header")
+      test_if_port_label("${if_ports}" "grove_d8_header")
+      test_if_port_label("${if_ports}" "grove_d9_header")
+      test_if_port_label("${if_ports}" "grove_uart_header")
+      test_if_port_label("${if_ports}" "grove_i2c_header")
 
     else()
       message(FATAL_ERROR "Test failed, "
@@ -414,6 +443,36 @@ if(DEFINED if_path)
     test_if_label_matching("grove_serial" "arduino_serial")
     test_if_label_matching("grove_i2c" "arduino_i2c")
     test_if_label_matching("grove_spi" "arduino_spi")
+
+  endif()
+
+  # check board specific add-ons for rpi_pico
+  if(CONFIG_BOARD_SEEED_XIAO_SAMD21 OR
+     CONFIG_BOARD_SEEEDUINO_XIAO)
+
+    test_if_label_on_path("grove_pwms" "${if_path}")
+
+    if(CONFIG_SHIELD_SEEED_GROVE_XIAO_V1)
+
+      test_if_label_matching("grove_pwm_d1" "tcc0")
+      test_if_label_matching("grove_pwm_d2" "tcc0")
+      test_if_label_matching("grove_pwm_d3" "tcc0")
+      test_if_label_matching("grove_pwm_d4" "tcc0")
+      test_if_label_matching("grove_pwm_d5" "tcc0")
+      test_if_label_matching("grove_pwm_d8" "tcc1")
+      test_if_label_matching("grove_pwm_d9" "tcc0")
+      test_if_label_matching("grove_pwm_d10" "tcc1")
+
+    endif()
+  endif()
+
+  # check common board specific add-ons
+  if(CONFIG_BOARD_SEEED_XIAO_SAMD21 OR
+     CONFIG_BOARD_SEEEDUINO_XIAO)
+
+    test_if_label_matching("grove_serial" "xiao_serial")
+    test_if_label_matching("grove_i2c" "xiao_i2c")
+    test_if_label_matching("grove_spi" "xiao_spi")
 
   endif()
 

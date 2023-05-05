@@ -64,6 +64,21 @@ tests:
     platform_exclude:
       seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v1
+  grove.xiao.v1:
+    filter: dt_nodelabel_enabled("grove_laced_if_v1") and
+            dt_nodelabel_enabled("grove_d0_header") and
+            dt_nodelabel_enabled("grove_d1_header") and
+            dt_nodelabel_enabled("grove_d2_header") and
+            dt_nodelabel_enabled("grove_d5_header") and
+            dt_nodelabel_enabled("grove_d7_header") and
+            dt_nodelabel_enabled("grove_d8_header") and
+            dt_nodelabel_enabled("grove_d9_header") and
+            dt_nodelabel_enabled("grove_uart_header") and
+            dt_nodelabel_enabled("grove_i2c_header")
+    platform_allow:
+      seeed_xiao_samd21
+      seeeduino_xiao
+    extra_args: SHIELD=seeed_grove_xiao_v1
   grove.rpipico.v1:
     filter: dt_nodelabel_enabled("grove_laced_if_v1") and
             dt_nodelabel_enabled("grove_d1_header") and
@@ -128,8 +143,24 @@ tests:
       mimxrt1060_evk mimxrt1060_evkb
       arduino_zero
     extra_args: SHIELD=seeed_grove_base_v1
+  grove.xiao.v1.xiao:
+    # May be skipped if the board has at least one of the XIAO standard
+    # interfaces UART, I2c or SPI disabled at the time.
+    filter: dt_nodelabel_enabled("grove_laced_if_v1") and
+            dt_nodelabel_enabled("xiao_d") and
+            dt_nodelabel_enabled("grove_gpios") and
+            dt_nodelabel_enabled("xiao_serial") and
+            dt_nodelabel_enabled("grove_serial") and
+            dt_nodelabel_enabled("xiao_i2c") and
+            dt_nodelabel_enabled("grove_i2c") and
+            dt_nodelabel_enabled("xiao_spi") and
+            dt_nodelabel_enabled("grove_spi")
+    platform_allow:
+      seeed_xiao_samd21
+      seeeduino_xiao
+    extra_args: SHIELD=seeed_grove_xiao_v1
   grove.rpipico.v1.rpipico:
-    # May be skipped if the board has at least one of the Ardunio standard
+    # May be skipped if the board has at least one of the RPi Pico standard
     # interfaces UART, I2c or SPI disabled at the time.
     filter: dt_nodelabel_enabled("grove_laced_if_v1") and
             dt_nodelabel_enabled("rpipico_header") and
@@ -169,6 +200,13 @@ tests:
       mimxrt1060_evk mimxrt1060_evkb
       arduino_zero
     extra_args: SHIELD=seeed_grove_base_v1
+  grove_pwms.xiao.v1:
+    filter: dt_nodelabel_enabled("grove_laced_if_v1") and
+            dt_nodelabel_enabled("grove_pwms")
+    platform_allow:
+      seeed_xiao_samd21
+      seeeduino_xiao
+    extra_args: SHIELD=seeed_grove_xiao_v1
   grove_pwms.rpipico.v1:
     filter: dt_nodelabel_enabled("grove_laced_if_v1") and
             dt_nodelabel_enabled("grove_pwms")
