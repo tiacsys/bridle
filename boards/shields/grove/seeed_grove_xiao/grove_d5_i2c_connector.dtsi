@@ -1,0 +1,17 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	grove_d5_header: grove-d5-connector {
+		compatible = "seeed,grove-connector";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <0 0 &xiao_d 5 0>,	/* D5 / A5 / I2C-SCL */
+			   <1 0 &xiao_d 4 0>;	/* D4 / A4 / I2C-SDA */
+	};
+};
+
+grove_i2c_header: &grove_d5_header {};

@@ -7,5 +7,8 @@ config SHIELD_SEEED_GROVE_BASE_V2
 config SHIELD_SEEED_GROVE_BASE_V1
 	def_bool $(shields_list_contains,seeed_grove_base_v1)
 
+config SHIELD_SEEED_GROVE_XIAO_V1
+	def_bool $(shields_list_contains,seeed_grove_xiao_v1)
+
 config SHIELD_SEEED_GROVE_RPIPICO_V1
 	def_bool $(shields_list_contains,seeed_grove_rpipico_v1)
