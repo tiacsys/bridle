@@ -7,6 +7,12 @@ if SHIELD_SEEED_GROVE_BASE_V2 || SHIELD_SEEED_GROVE_BASE_V1
 
 endif # SHIELD_SEEED_GROVE_BASE_V2 || SHIELD_SEEED_GROVE_BASE_V1
 
+if SHIELD_SEEED_GROVE_XIAO_V1
+
+# passive interconnect shield doesn't need further configuration
+
+endif # SHIELD_SEEED_GROVE_XIAO_V1
+
 if SHIELD_SEEED_GROVE_RPIPICO_V1
 
 # passive interconnect shield doesn't need further configuration

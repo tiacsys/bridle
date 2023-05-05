@@ -1,0 +1,44 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <bridle/dt-bindings/seeed_grove_pwms_defaults.h>
+
+#include "seeed_grove_xiao/grove_d0_connector.dtsi"
+#include "seeed_grove_xiao/grove_d1_connector.dtsi"
+#include "seeed_grove_xiao/grove_d2_connector.dtsi"
+#include "seeed_grove_xiao/grove_d5_i2c_connector.dtsi"
+#include "seeed_grove_xiao/grove_d7_uart_connector.dtsi"
+#include "seeed_grove_xiao/grove_d8_connector.dtsi"
+#include "seeed_grove_xiao/grove_d9_connector.dtsi"
+
+/ {
+	grove_laced_if_v1: grove-laced-if-v1 {
+
+		compatible = "seeed,grove-laced-if";
+
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map =
+			<0 0 &grove_d0_header 0 0>,	/* D0: A0 as GPIO */
+			<1 0 &grove_d1_header 0 0>,	/* D1: A1 as GPIO */
+			<2 0 &grove_d2_header 0 0>,	/* D2: A2 / SPI-CS as GPIO */
+			<3 0 &grove_d2_header 1 0>,	/* D3: A3 as GPIO */
+			<4 0 &grove_i2c_header 1 0>,	/* D4: A4 / I2C-SDA as GPIO */
+			<5 0 &grove_i2c_header 0 0>,	/* D5: A5 / I2C-SCL as GPIO */
+			<6 0 &grove_uart_header 1 0>,	/* D6: A6 / UART-TX as GPIO */
+			<7 0 &grove_uart_header 0 0>,	/* D7: A7 / UART-RX as GPIO */
+			<8 0 &grove_d8_header 0 0>,	/* D8: A8 / SPI-CLK as GPIO */
+			<9 0 &grove_d9_header 0 0>,	/* D9: A9 / SPI-MISO as GPIO */
+			<10 0 &grove_d9_header 1 0>;	/* D10: A10 / SPI-MOSI as GPIO */
+
+		#pwm-cells = <3>;
+		pwm-map-mask = <0xffffffff 0 0>;
+		pwm-map-pass-thru = <0 0xffffffff 0xffffffff>;
+		pwm-map;	/* default an empty map */
+	};
+};
+
+grove_gpios: &grove_laced_if_v1 {};

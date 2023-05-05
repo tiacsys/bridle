@@ -292,6 +292,112 @@ Hardware
 | D13   | Digital 13 / SPI-CLK            |    |    |    |    |    |     |         |    |    |    |    |    |    |    |    |    |     |     |  2  |  1  |  1  |
 +-------+---------------------------------+----+----+----+----+----+-----+---------+----+----+----+----+----+----+----+----+----+-----+-----+-----+-----+-----+
 
+.. _grove_base_shield_xiao:
+
+Grove Base Shield for XIAO
+**************************
+
+The `Grove Base Shield for XIAO`_ is a plug-and-play Grove extension board that
+breaks out the `Seeed Studio XIAO`_ pins to Grove connectors. Once you plug the
+Base shield on a XIAO board, you will be able to plug a Grove module to one of
+the Grove connectors on the Base Shield. All I/O ports of the XIAO board are
+exposed and adapted into Grove connectors which include digital I/O, analog I/O,
+and specialized ports (I2C, SPI, UART).
+
+Versions
+========
+
+Currently there is only one version known:
+
++-----------------------+----------------------------+
+| Parameter             | Base Shield for XIAO V1    |
++=======================+============================+
+| Release Date          | Apr 2020                   |
++-----------------------+----------------------------+
+| Operation Voltage     | 3.3V / 3.7V (LiPo-Battery) |
++-----------------------+----------------------------+
+| Operation Temperature | -40℃ to +85℃               |
++-----------------------+----------------------------+
+| Grove Connectors      | 2 x 4 (breack-off)         |
++-----------------------+----------------------------+
+| Digital Ports         | 5 +1 (UART) +2 (I2C)       |
++-----------------------+----------------------------+
+| Analog Ports          | 8 (shared with digital)    |
++-----------------------+----------------------------+
+| UART Ports            | 1                          |
++-----------------------+----------------------------+
+| I2C Ports             | 2                          |
++-----------------------+----------------------------+
+| SPI Ports             | 1 (PCB or 2 Grove Conn.)   |
++-----------------------+----------------------------+
+
+:Digital Ports: see `Grove Digital Layout`_
+:Analog Ports: see `Grove Analog Layout`_
+:UART Ports: see `Grove UART Layout`_
+:I2C Ports: see `Grove I2C Layout`_
+:SPI Ports: The `Grove System`_ does not specify an SPI port.
+   The port listed here is either the Flash SPI bonding pad
+   area on PCB bottom side or the signals shared with on the
+   Grove connectors for D8/A8 until A10/D10.
+
+.. _grove_base_shield_xiao_v1:
+
+Grove Base Shield for XIAO V1
+=============================
+
+Overview
+--------
+
+**Model:** 103020312
+
+The `Grove Base Shield for XIAO V1`_ board provides a simple way to connect
+with XIAO boards. This version 1 is the first member in the Grove System to
+support low-cost, high-performance XIAO boards.
+
+.. figure:: seeed_grove_baseshield_xiao_v1.jpg
+   :align: center
+   :alt: SEEED_GROVE_BASESHIELD_XIAO_V1
+
+Pinout Diagram
+--------------
+
+The pinout of Base Shield V2 is the same as `Seeeduino XIAO`_. The shield
+usually has the same pin position as the Seeed Studio XIAO development board
+and will be used as an carrier board.
+
+Hardware
+--------
+
+- `Grove Base Shield for XIAO V1.0 Eagle Files`_
+
++-------+-----------------------------------+----+----+----+-------+------+----+----+
+| Name  | Function to Grove port-pin -->    | D0 | D1 | D2 |  I2C  | UART | D8 | D9 |
++=======+===================================+====+====+====+=======+======+====+====+
+| D0    | Digital 0 / Analog 0              |  1 |    |    |       |      |    |    |
++-------+-----------------------------------+----+----+----+-------+------+----+----+
+| D1    | Digital 1 / Analog 1 / SPI-CS (*) |  2 |  1 |    |       |      |    |    |
++-------+-----------------------------------+----+----+----+-------+------+----+----+
+| D2    | Digital 2 / Analog 2              |    |  2 |  1 |       |      |    |    |
++-------+-----------------------------------+----+----+----+-------+------+----+----+
+| D3    | Digital 3 / Analog 3              |    |    |  2 |       |      |    |    |
++-------+-----------------------------------+----+----+----+-------+------+----+----+
+| D4    | Digital 4 / Analog 4 / I2C-SDA    |    |    |    |   2   |      |    |    |
++-------+-----------------------------------+----+----+----+-------+------+----+----+
+| D5    | Digital 5 / Analog 5 / I2C-SCL    |    |    |    |   1   |      |    |    |
++-------+-----------------------------------+----+----+----+-------+------+----+----+
+| D6    | Digital 6 / Analog 6 / UART-TX    |    |    |    |       |   2  |    |    |
++-------+-----------------------------------+----+----+----+-------+------+----+----+
+| D7    | Digital 7 / Analog 7 / UART-RX    |    |    |    |       |   1  |    |    |
++-------+-----------------------------------+----+----+----+-------+------+----+----+
+| D8    | Digital 8 / Analog 8 / SPI-CLK    |    |    |    |       |      |  1 |    |
++-------+-----------------------------------+----+----+----+-------+------+----+----+
+| D9    | Digital 9 / Analog 9 / SPI-MISO   |    |    |    |       |      |  2 |  1 |
++-------+-----------------------------------+----+----+----+-------+------+----+----+
+| D10   | Digital 10 / Analog 10 / SPI-MOSI |    |    |    |       |      |    |  2 |
++-------+-----------------------------------+----+----+----+-------+------+----+----+
+
+(*) SPI bus also connected to the SPI-Flash bonding pads.
+
 .. _grove_rpipico_shield:
 
 Grove Basic Kit for Raspberry Pi Pico
@@ -463,16 +569,22 @@ GPIO mapping
    .. group-tab:: Arduino Uno Header
 
       This is the **GPIO signal line mapping** from an `Arduino Uno R3`_
-      or `Arduino Uno R2`_ header bindet with
-      :ref:`devicetree:dtbinding_arduino_header_r3`.
+      or `Arduino Uno R2`_ header bindet with :dtcompatible:`arduino-header-r3`.
 
       .. include:: /boards/shields/grove/doc/grove_gpios_arduino_header.rsti
+
+   .. group-tab:: Seeeduino XIAO Header
+
+      This is the **GPIO signal line mapping** from a `Seeeduino XIAO`_
+      header bindet with :dtcompatible:`seeed,xiao-gpio`.
+
+      .. include:: /boards/shields/grove/doc/grove_gpios_seeedxiao_header.rsti
 
    .. group-tab:: Raspberry Pi Pico Header
 
       This is the **GPIO signal line mapping** from a `Raspberry Pi Pico R3`_
       or `Raspberry Pi Pico R3 W`_ header bindet with
-      :ref:`devicetree:dtbinding_raspberrypi_pico_header_r3`.
+      :dtcompatible:`raspberrypi,pico-header-r3`.
 
       .. include:: /boards/shields/grove/doc/grove_gpios_rpipico_header.rsti
 
@@ -491,69 +603,111 @@ not be complete.
 
 .. tabs::
 
-   .. group-tab:: ``nucleo_f303re``
+   .. group-tab:: STMicroelectronics
 
-      This is based on the Zephyr board :ref:`nucleo_f303re_board` and its
-      :ref:`devicetree:dtbinding_arduino_header_r3`.
+      .. tabs::
 
-      .. include:: /boards/shields/grove/doc/grove_pwms-nucleo_f303re.rsti
+         .. group-tab:: ``nucleo_f303re``
 
-   .. group-tab:: ``nucleo_f401re``
+            This is based on the Zephyr board :ref:`nucleo_f303re_board` and its
+            :dtcompatible:`arduino-header-r3`.
 
-      This is based on the Zephyr board :ref:`nucleo_f401re_board` and its
-      :ref:`devicetree:dtbinding_arduino_header_r3`.
+            .. include:: /boards/shields/grove/doc/grove_pwms-nucleo_f303re.rsti
 
-      .. include:: /boards/shields/grove/doc/grove_pwms-nucleo_f401re.rsti
+         .. group-tab:: ``nucleo_f401re``
 
-   .. group-tab:: ``nucleo_f767zi``
+            This is based on the Zephyr board :ref:`nucleo_f401re_board` and its
+            :dtcompatible:`arduino-header-r3`.
 
-      This is based on the Zephyr board :ref:`nucleo_f767zi_board` and its
-      :ref:`devicetree:dtbinding_arduino_header_r3`.
+            .. include:: /boards/shields/grove/doc/grove_pwms-nucleo_f401re.rsti
 
-      .. include:: /boards/shields/grove/doc/grove_pwms-nucleo_f767zi.rsti
+         .. group-tab:: ``nucleo_f767zi``
 
-   .. group-tab:: ``mimxrt1010_evk``
+            This is based on the Zephyr board :ref:`nucleo_f767zi_board` and its
+            :dtcompatible:`arduino-header-r3`.
 
-      This is based on the Zephyr board :ref:`mimxrt1010_evk` and its
-      :ref:`devicetree:dtbinding_arduino_header_r3`.
+            .. include:: /boards/shields/grove/doc/grove_pwms-nucleo_f767zi.rsti
 
-      .. note::
-         This board shares many signals on this |Laced Grove Signal Interface|
-         with other on-board function units, e.g. audio codec and sensors or
-         the SPI Flash (when populated). Check your current board configuration
-         with the hardware user manual and/or schematic if you need to change
-         jumper or solder bridge setups for proper usage.
+   .. group-tab:: NXP Semiconductors
 
-      .. include:: /boards/shields/grove/doc/grove_pwms-mimxrt1010_evk.rsti
+      .. tabs::
 
-   .. group-tab:: ``mimxrt1060_evk(b)``
+         .. group-tab:: ``mimxrt1010_evk``
 
-      This is based on the Zephyr board :ref:`mimxrt1060_evk` and its
-      :ref:`devicetree:dtbinding_arduino_header_r3`.
+            This is based on the Zephyr board :ref:`mimxrt1010_evk` and its
+            :dtcompatible:`arduino-header-r3`.
 
-      .. note::
-         This board shares many signals on this |Laced Grove Signal Interface|
-         with other on-board function units, e.g. camera and display or the
-         M.2 and TF/SD-Card connectors. Check your current board configuration
-         with the hardware user manual and/or schematic if you need to change
-         jumper or solder bridge setups for proper usage.
+            .. note::
+               This board shares many signals on this |Laced Grove Signal Interface|
+               with other on-board function units, e.g. audio codec and sensors or
+               the SPI Flash (when populated). Check your current board configuration
+               with the hardware user manual and/or schematic if you need to change
+               jumper or solder bridge setups for proper usage.
 
-      .. include:: /boards/shields/grove/doc/grove_pwms-mimxrt1060_evk.rsti
+            .. include:: /boards/shields/grove/doc/grove_pwms-mimxrt1010_evk.rsti
 
-   .. group-tab:: ``arduino_zero``
+         .. group-tab:: ``mimxrt1060_evk(b)``
 
-      This is based on the Bridle board :ref:`arduino_zero` and its
-      :ref:`devicetree:dtbinding_arduino_header_r3`.
+            This is based on the Zephyr board :ref:`mimxrt1060_evk` and its
+            :dtcompatible:`arduino-header-r3`.
 
-      .. note::
-         This board basically provides all channels from all timers as PWM to
-         the outside. However, the SoC's ability to route channels to multiple
-         pads may result in channels being connected in parallel. The second
-         table below shows the possibilities which channels can really
-         be used independently at the associated signals of the
-         |Laced Grove Signal Interface|.
+            .. note::
+               This board shares many signals on this |Laced Grove Signal Interface|
+               with other on-board function units, e.g. camera and display or the
+               M.2 and TF/SD-Card connectors. Check your current board configuration
+               with the hardware user manual and/or schematic if you need to change
+               jumper or solder bridge setups for proper usage.
 
-      .. include:: /boards/shields/grove/doc/grove_pwms-arduino_zero.rsti
+            .. include:: /boards/shields/grove/doc/grove_pwms-mimxrt1060_evk.rsti
+
+   .. group-tab:: Atmel Semiconductors
+
+      .. tabs::
+
+         .. group-tab:: ``arduino_zero``
+
+            This is based on the Bridle board :ref:`arduino_zero` and its
+            :dtcompatible:`arduino-header-r3`.
+
+            .. note::
+               This board basically provides all channels from all timers as PWM to
+               the outside. However, the SoC's ability to route channels to multiple
+               pads may result in channels being connected in parallel. The second
+               table below shows the possibilities which channels can really
+               be used independently at the associated signals of the
+               |Laced Grove Signal Interface|.
+
+            .. include:: /boards/shields/grove/doc/grove_pwms-arduino_zero.rsti
+
+         .. group-tab:: ``seeed_xiao_samd21``
+
+            This is based on the Bridle board :ref:`seeed_xiao_samd21` and its
+            :dtcompatible:`seeed,xiao-gpio`.
+
+            .. note::
+               This board basically provides only some channels from a few timers as
+               PWM to the outside. The SoC's ability to route channels to multiple
+               pads may result in channels being connected in parallel. The second
+               table below shows the possibilities which channels can really
+               be used independently at the associated signals of the
+               |Laced Grove Signal Interface|.
+
+            .. include:: /boards/shields/grove/doc/grove_pwms-seeed_xiao_samd21.rsti
+
+         .. group-tab:: ``seeeduino_xiao``
+
+            This is based on the Zephyr board :ref:`seeeduino_xiao` and its
+            :dtcompatible:`seeed,xiao-gpio`.
+
+            .. note::
+               This board basically provides only some channels from a few timers as
+               PWM to the outside. The SoC's ability to route channels to multiple
+               pads may result in channels being connected in parallel. The second
+               table below shows the possibilities which channels can really
+               be used independently at the associated signals of the
+               |Laced Grove Signal Interface|.
+
+            .. include:: /boards/shields/grove/doc/grove_pwms-seeeduino_xiao.rsti
 
 Programming
 ===========
@@ -626,6 +780,15 @@ example:
 .. _`Grove Base Shield V1.2 Eagle Files`:
    https://seeeddoc.github.io/Grove-Base_Shield_v1.2/res/Base_shield_V1.2_Eagle_files.zip
 
+.. _`Seeed Studio XIAO`:
+   https://wiki.seeedstudio.com/Seeeduino-XIAO
+
+.. _`Grove Base Shield for XIAO`:
+   https://wiki.seeedstudio.com/Grove-Shield-for-Seeeduino-XIAO-embedded-battery-management-chip
+
+.. _`Grove Base Shield for XIAO V1.0 Eagle Files`:
+   https://files.seeedstudio.com/wiki/Grove-Shield-for-Seeeduino-XIAO/res/Grove_Shield_for_Seeeduino_XIAO_v1.0.zip
+
 .. _`Grove Basic Kit for Pi Pico`:
    https://wiki.seeedstudio.com/Grove-Starter-Kit-for-Raspberry-Pi-Pico
 
@@ -639,4 +802,4 @@ example:
    https://files.seeedstudio.com/wiki/Grove_Shield_for_Pi_Pico_V1.0/res/Grove_Shield_for_Pi_Pico.zip
 
 .. |Laced Grove Signal Interface| replace::
-   :ref:`Laced Grove Signal Interface <devicetree:dtbinding_seeed_grove_laced_if>`
+   :dtcompatible:`Laced Grove Signal Interface <seeed,grove-laced-if>`
