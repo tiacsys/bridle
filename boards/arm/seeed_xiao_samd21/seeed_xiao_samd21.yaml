@@ -1,5 +1,5 @@
-identifier: seeeduino_xiao
-name: Seeeduino XIAO
+identifier: seeed_xiao_samd21
+name: Seeed Studio XIAO SAMD21 (Seeeduino XIAO)
 type: mcu
 arch: arm
 ram: 32
@@ -9,9 +9,14 @@ toolchain:
   - gnuarmemb
   - xtools
 supported:
+  - xiao_gpio
+  - xiao_i2c
+  - xiao_spi
+  - xiao_serial
   - dma
   - gpio
   - hwinfo
+  - pwm
   - spi
   - i2c
   - uart

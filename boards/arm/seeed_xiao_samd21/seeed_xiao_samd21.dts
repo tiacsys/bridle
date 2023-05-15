@@ -1,4 +1,5 @@
 /*
+ * Copyright (c) 2023 TiaC Systems
  * Copyright (c) 2020 Google LLC.
  *
  * SPDX-License-Identifier: Apache-2.0
@@ -6,16 +7,14 @@
 
 /dts-v1/;
 #include <atmel/samd21.dtsi>
-#include "seeeduino_xiao-pinctrl.dtsi"
+#include "seeed_xiao_samd21-pinctrl.dtsi"
 #include "seeed_xiao_connector.dtsi"
 
-/ {
-	model = "Seeeduino XIAO";
-	compatible = "seeed,seeeduino-xiao";
+#include <zephyr/dt-bindings/gpio/gpio.h>
+#include <zephyr/dt-bindings/pwm/pwm.h>
 
+/ {
 	chosen {
-		zephyr,console = &sercom4;
-		zephyr,shell-uart = &sercom4;
 		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
 		zephyr,code-partition = &code_partition;
@@ -37,11 +36,20 @@
 		};
 	};
 
+	pwmleds {
+		compatible = "pwm-leds";
+
+		pwm_led0: pwm_led_0 {
+			pwms = <&tcc2 1 PWM_MSEC(20)>;
+		};
+	};
+
 	/* These aliases are provided for compatibility with samples */
 	aliases {
 		led0 = &led;
 		led1 = &rx_led;
 		led2 = &tx_led;
+		pwm-led0 = &pwm_led0;
 	};
 };
 
@@ -87,6 +95,17 @@ zephyr_udc0: &usb0 {
 	status = "okay";
 
 	pinctrl-0 = <&usb_dc_default>;
+	pinctrl-names = "default";
+};
+
+&tcc2 {
+	status = "okay";
+	compatible = "atmel,sam0-tcc-pwm";
+	/* Gives a maximum period of 1.4 s */
+	prescaler = <1024>;
+	#pwm-cells = <2>;
+
+	pinctrl-0 = <&tcc2_pwm_default>;
 	pinctrl-names = "default";
 };
 
