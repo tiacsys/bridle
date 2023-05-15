@@ -34,4 +34,10 @@
 				 <PA24G_USB_DM>;
 		};
 	};
+
+	tcc2_pwm_default: tcc2_pwm_default {
+		group1 {
+			pinmux = <PA17E_TCC2_WO1>;
+		};
+	};
 };
