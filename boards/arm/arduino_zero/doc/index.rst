@@ -39,8 +39,8 @@ Hardware
 Supported Features
 ==================
 
-The arduino_zero board configuration supports the following hardware
-features:
+The :code:`arduino_zero` board configuration supports the following
+hardware features:
 
 +-----------+------------+------------------------------------------+
 | Interface | Controller | Driver/Component                         |
@@ -138,7 +138,7 @@ SPI Port
 
 The SAMD21 MCU has 6 SERCOM based SPIs.  On the Arduino Zero, SERCOM4 is
 available on the 6 pin ICSP connector at the edge of the board.  To the
-Arduino UNI R3 header SERCOM1 is connect to external devices over D11 (MOSI),
+|Arduino UNO R3| header SERCOM1 is connect to external devices over D11 (MOSI),
 D12 (MISO), and D13 (SCK).  All signals of both busses are connected in
 parallel to the Atmel EDBG.
 
@@ -181,7 +181,7 @@ on serial port the special board revision ``usbcons`` can be used to enable
 Programming and Debugging
 *************************
 
-The Arduino Zero ships the BOSSA compatible UF2 bootloader also known as
+The Arduino Zero ships the BOSSA compatible `UF2 bootloader`_ also known as
 `Arduino Zero Bootloader`_, a modern `SAM-BA`_ (Boot Assistant) replacement.
 The bootloader can be entered by pressing the RST button twice::
 
@@ -545,6 +545,9 @@ Hello Shell with USB-CDC/ACM Console
 
    .. group-tab:: I2C
 
+      The Arduino Zero has no on-board I2C devices. For this example the
+      |Grove BMP280 Sensor|_ was connected.
+
       .. code-block:: console
 
          uart:~$ log enable none i2c_sam0
@@ -558,27 +561,37 @@ Hello Shell with USB-CDC/ACM Console
          40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
          50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
          60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-         70: -- -- -- -- -- -- -- --
+         70: -- -- -- -- -- -- -- 77
          3 devices found on sercom@42001400
 
          uart:~$ log enable inf i2c_sam0
 
-      The I2C address ``0x28`` is the **Data Gateway Interface** (`DGI`_) to
-      the builtin Atmel `EDBG`_. See the old `ASF3`_ example code on GitHub,
-      `SAM EDBG TWI Information Interface Example`_, to learn how to work with
-      this I2C device:
+      The I2C address ``0x77`` is a Bosch BMP280 Air Pressure Sensor and their
+      Chip-ID can read from register ``0xd0``. The Chip-ID must be ``0x58``:
 
-         The DGI consists of several physical data interfaces to
-         communicate with the host computer; I2C is onlay one of
-         them. Communication over the interfaces is bidirectional.
-         It can be used to send events and values from the ATSAMD21G18A,
-         or as a generic printf-style data channel. Traffic over the
-         interfaces can be timestamped on the EDBG for a more accurate
-         tracing of events. Note that timestamping imposes an overhead
-         that reduces maximal throughput. The DGI uses a proprietary
-         protocol, and is thus only compatible with Atmel Studio.
+      .. code-block:: console
 
-         -- https://docs.arduino.cc/tutorials/zero/arduino-zero-edbg
+         uart:~$ i2c read_byte sercom@42001400 77 d0
+         Output: 0x58
+
+      .. hint::
+
+         The I2C address ``0x28`` is the **Data Gateway Interface** (`DGI`_)
+         to the builtin Atmel `EDBG`_. See the old `ASF3`_ example code on
+         GitHub, `SAM EDBG TWI Information Interface Example`_, to learn
+         how to work with this I2C device:
+
+            The DGI consists of several physical data interfaces to
+            communicate with the host computer; I2C is onlay one of
+            them. Communication over the interfaces is bidirectional.
+            It can be used to send events and values from the ATSAMD21G18A,
+            or as a generic printf-style data channel. Traffic over the
+            interfaces can be timestamped on the EDBG for a more accurate
+            tracing of events. Note that timestamping imposes an overhead
+            that reduces maximal throughput. The DGI uses a proprietary
+            protocol, and is thus only compatible with Atmel Studio.
+
+            -- https://docs.arduino.cc/tutorials/zero/arduino-zero-edbg
 
 References
 **********
@@ -615,6 +628,9 @@ References
 .. _AT32UC3A4256S:
     https://www.microchip.com/product/AT32UC3A4256S
 
+.. _UF2 bootloader:
+    https://github.com/Microsoft/uf2#bootloaders
+
 .. _Arduino Zero Bootloader:
     https://github.com/arduino/ArduinoCore-samd/tree/master/bootloaders/zero
 
@@ -640,4 +656,9 @@ References
     https://microchipdeveloper.com/atstart:sam-d21-bootloader
 
 .. |Arduino UNO R3| replace::
-   :ref:`Arduino UNO R3 <devicetree:dtbinding_arduino_header_r3>`
+   :dtcompatible:`Arduino UNO R3 <arduino-header-r3>`
+
+.. |Grove BMP280 Sensor| replace::
+   :strong:`Grove Temperature and Barometer Sensor – BMP280`
+.. _`Grove BMP280 Sensor`:
+   https://www.seeedstudio.com/Grove-Barometer-Sensor-BMP280.html
