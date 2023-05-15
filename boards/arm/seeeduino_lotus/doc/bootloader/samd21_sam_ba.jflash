@@ -3,7 +3,7 @@
 [GENERAL]
   aATEModuleSel[24] = 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
   ConnectMode = 0
-  CurrentFile = "samd21_bossa_arduino.hex"
+  CurrentFile = "samd21_sam_ba.hex"
   DataFileSAddr = 0x00000000
   GUIMode = 0
   HostName = ""

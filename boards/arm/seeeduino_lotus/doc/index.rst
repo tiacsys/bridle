@@ -103,9 +103,6 @@ In addition to the |Arduino UNO R3| header, there are also 12 |Grove connectors|
 These are provided by a specific interface for general signal mapping, the
 |Laced Grove Signal Interface|.
 
-.. |Laced Grove Signal Interface| replace::
-   :ref:`Laced Grove Signal Interface <devicetree:dtbinding_seeed_grove_laced_if>`
-
 Following mappings are well known:
 
 * ``grove_gpios``: GPIO mapping
@@ -116,7 +113,8 @@ Following mappings are well known:
    .. group-tab:: GPIO mapping ``grove_gpios``
 
       This is the **GPIO signal line mapping** from the `Arduino Uno R3`_
-      header bindet with :ref:`devicetree:dtbinding_arduino_header_r3`.
+      header bindet with :dtcompatible:`arduino-header-r3` to the set of
+      |Grove connectors| provided as |Laced Grove Signal Interface|.
 
       +-----------------------------+-------------------------+--------------------------------+
       | phandle index to shield --> | **Signal** : *Meaning*  |   ``seeeduino_lotus``          |
@@ -357,7 +355,7 @@ to enable :ref:`usb_device_cdc_acm` and switch the console to USB::
 Programming and Debugging
 *************************
 
-The Lotus Cortex-M0+ ships the BOSSA compatible UF2 bootloader also known as
+The Lotus Cortex-M0+ ships the BOSSA compatible `UF2 bootloader`_ also known as
 `Arduino Zero Bootloader`_, a modern `SAM-BA`_ (Boot Assistant) replacement.
 The bootloader can be entered by pressing the RST button twice::
 
@@ -369,6 +367,11 @@ The bootloader can be entered by pressing the RST button twice::
 Additionally, if :kconfig:option:`CONFIG_USB_CDC_ACM` is enabled then the
 bootloader will be entered automatically when you run :program:`west flash`.
 
+.. image:: img/seeeduino_lotus_swd.jpg
+   :align: right
+   :scale: 50%
+   :alt: Seeeduino Lotus Cortex-M0+ SWD Programming Port
+
 .. tip::
 
    When ever you need to restore this original bootloader you should read
@@ -377,8 +380,8 @@ bootloader will be entered automatically when you run :program:`west flash`.
    There is also a backup copy of the original bootloader together with
    a ready to use Segger JFlash control file inside the Bridel project:
 
-   * :bridle_file:`boards/arm/seeeduino_lotus/doc/bootloader/samd21_bossa_arduino.hex`
-   * :bridle_file:`boards/arm/seeeduino_lotus/doc/bootloader/samd21_bossa_arduino.jflash`
+   * :bridle_file:`boards/arm/seeeduino_lotus/doc/bootloader/samd21_sam_ba.hex`
+   * :bridle_file:`boards/arm/seeeduino_lotus/doc/bootloader/samd21_sam_ba.jflash`
 
 There is also a SWD header (J10, not populated) on board which have to be
 used with tools like Segger J-Link for programming for bootloader restore
@@ -523,7 +526,7 @@ Hello Shell with USB-CDC/ACM Console
          - eic@40001800 (READY)
          - gpio@41004480 (READY)
          - gpio@41004400 (READY)
-         - CDC_ACM_0 (READY)
+         - cdc-acm-uart-0 (READY)
          - sercom@42001c00 (READY)
          - sercom@42001000 (READY)
          - adc@42004000 (READY)
@@ -650,7 +653,7 @@ Hello Shell with USB-CDC/ACM Console
    .. group-tab:: I2C
 
       The Lotus Cortex-M0+ has no on-board I2C devices. For this example the
-      |Arduino Sensor Kit|_ with its 3 different I2C devices was connected.
+      |Grove BMP280 Sensor|_ was connected.
 
       .. code-block:: console
 
@@ -661,7 +664,7 @@ Hello Shell with USB-CDC/ACM Console
          00:             -- -- -- -- -- -- -- -- -- -- -- --
          10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
          20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-         30: -- -- -- -- -- -- -- -- 38 -- -- -- 3c -- -- --
+         30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
          40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
          50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
          60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
@@ -698,6 +701,9 @@ References
 .. _MP2617B:
     https://www.monolithicpower.com/mp2617b.html
 
+.. _UF2 bootloader:
+    https://github.com/Microsoft/uf2#bootloaders
+
 .. _Arduino Zero Bootloader:
     https://github.com/Seeed-Studio/ArduinoCore-samd/tree/master/bootloaders/seeed_zero
 
@@ -707,12 +713,16 @@ References
 .. _SAM-BA:
     https://microchipdeveloper.com/atstart:sam-d21-bootloader
 
-.. |Grove connectors| replace::
-   :ref:`Grove connectors <devicetree:dtbinding_seeed_grove_connector>`
-
 .. |Arduino UNO R3| replace::
-   :ref:`Arduino UNO R3 <devicetree:dtbinding_arduino_header_r3>`
+   :dtcompatible:`Arduino UNO R3 <arduino-header-r3>`
 
-.. |Arduino Sensor Kit| replace:: :strong:`Arduino Sensor Kit – Base`
-.. _`Arduino Sensor Kit`:
-   https://www.seeedstudio.com/Arduino-Sensor-Kit-Base-p-4743.html
+.. |Grove connectors| replace::
+   :dtcompatible:`Grove connectors <seeed,grove-connector>`
+
+.. |Laced Grove Signal Interface| replace::
+   :dtcompatible:`Laced Grove Signal Interface <seeed,grove-laced-if>`
+
+.. |Grove BMP280 Sensor| replace::
+   :strong:`Grove Temperature and Barometer Sensor – BMP280`
+.. _`Grove BMP280 Sensor`:
+   https://www.seeedstudio.com/Grove-Barometer-Sensor-BMP280.html
