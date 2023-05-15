@@ -43,6 +43,10 @@ hardware features:
 +-----------+------------+------------------------------------------+
 | Interface | Controller | Driver/Component                         |
 +===========+============+==========================================+
+| ADC       | on-chip    | Analogue to digital converter            |
++-----------+------------+------------------------------------------+
+| DAC       | on-chip    | Digital to analogue converter            |
++-----------+------------+------------------------------------------+
 | DMA       | on-chip    | Direct memory access                     |
 +-----------+------------+------------------------------------------+
 | Flash     | on-chip    | Can be used with LittleFS to store files |
@@ -114,6 +118,42 @@ is available on first user LED (L), all other user LEDs can be controlled
 as GPIO.  Only if :kconfig:option:`CONFIG_PWM_SAM0_TCC` is enabled then the
 first user LED (L) is driven by TCC2 instead of by GPIO.  All channels of
 TCC0 and TCC1 are available on the |Seeed XIAO| header.
+
+ADC/DAC Ports
+=============
+
+The SAMD21 MCU has 1 DAC and 1 ADC. On the Seeed Studio XIAO SAMD21, the
+DAC voltage output (VOUT) is available on A0 of the |Seeed XIAO| header. The
+ADC channels 4 and 18 are available on A1 and A2 of the |Seeed XIAO| header.
+Whenever other GPIO (PWM) or serial ports are not needed and are disabled by
+DT overlays, up to 11 ADC channels can be configured according to the next
+table (default function in bold).
+
++------------------+--------+-----------+----------+
+| |Seeed XIAO|     | SAMD21 |    ADC    |    DAC   |
++==================+========+===========+==========+
+| D0/A0/**DAC**    |  PA2   |   AIN0    | **VOUT** |
++------------------+--------+-----------+----------+
+| D1/**A1**        |  PA4   | **AIN4**  |          |
++------------------+--------+-----------+----------+
+| D2/**A2**        |  PA10  | **AIN18** |          |
++------------------+--------+-----------+----------+
+| **D3**/A3        |  PA11  |   AIN19   |          |
++------------------+--------+-----------+----------+
+| D4/A4/**SDA**    |  PA8   |   AIN16   |          |
++------------------+--------+-----------+----------+
+| D5/A5/**SCL**    |  PA9   |   AIN17   |          |
++------------------+--------+-----------+----------+
+| D6/A6/**TX**     |  PB8   |   AIN2    |          |
++------------------+--------+-----------+----------+
+| D7/A7/**RX**     |  PB9   |   AIN3    |          |
++------------------+--------+-----------+----------+
+| D8/A8/**SCK**    |  PA7   |   AIN7    |          |
++------------------+--------+-----------+----------+
+| D9/A9/**MISO**   |  PA5   |   AIN5    |          |
++------------------+--------+-----------+----------+
+| D10/A10/**MOSI** |  PA6   |   AIN6    |          |
++------------------+--------+-----------+----------+
 
 SPI Port
 ========
