@@ -21,6 +21,7 @@ supported:
   - hwinfo
   - pwm
   - spi
+  - i2c
   - uart
   - usb_cdc
   - usb_device
