@@ -1,0 +1,16 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	model = "Trinamic Startrampe @ UART Concole";
+	compatible = "trinamic,startrampe-uartcons", "trinamic,startrampe",
+		     "st,stm32f205vc", "st,stm32f205";
+
+	chosen {
+		zephyr,console = &usart6;
+		zephyr,shell-uart = &usart6;
+	};
+};

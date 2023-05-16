@@ -1,0 +1,8 @@
+# Trinamic Startrampe board configuration
+
+# Copyright (c) 2023 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+config BOARD_TRINAMIC_STARTRAMPE
+	bool "Trinamic Interface and Connector Board Startrampe"
+	depends on SOC_STM32F205XX

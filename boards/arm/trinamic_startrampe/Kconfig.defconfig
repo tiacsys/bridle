@@ -1,0 +1,51 @@
+# Trinamic Startrampe board configuration
+
+# Copyright (c) 2023 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+if BOARD_TRINAMIC_STARTRAMPE
+
+config BOARD
+	default "trinamic_startrampe"
+
+# Workaround for not being able to have commas in macro arguments
+DT_CHOSEN_Z_CONSOLE := zephyr,console
+DT_COMPAT_Z_CDC_ACM_UART := zephyr,cdc-acm-uart
+DT_COMPAT_ST_STM32_OTGFS := st,stm32-otgfs
+
+# Macros to shorten Kconfig expressions
+DT_CHOSEN_CONSOLE_NODE := $(dt_chosen_path,$(DT_CHOSEN_Z_CONSOLE))
+DT_CHOSEN_CONSOLE_PARENT := $(dt_node_parent,$(DT_CHOSEN_CONSOLE_NODE))
+
+if $(dt_chosen_enabled,$(DT_CHOSEN_Z_CONSOLE)) && \
+   $(dt_compat_on_bus,$(DT_COMPAT_Z_CDC_ACM_UART),usb) && \
+   $(dt_node_has_compat,$(DT_CHOSEN_CONSOLE_PARENT),$(DT_COMPAT_ST_STM32_OTGFS))
+
+if LOG
+
+# Logger cannot use itself to log
+choice USB_CDC_ACM_LOG_LEVEL_CHOICE
+	default USB_CDC_ACM_LOG_LEVEL_OFF
+endchoice
+
+# Set USB log level to error only
+choice USB_DEVICE_LOG_LEVEL_CHOICE
+	default USB_DEVICE_LOG_LEVEL_ERR
+endchoice
+
+# Wait 4000ms at startup for logging
+config LOG_PROCESS_THREAD_STARTUP_DELAY_MS
+	default 4000
+
+endif # LOG
+
+endif # @usbcons
+
+if EEPROM
+
+config EEPROM_INIT_PRIORITY
+	default SPI_INIT_PRIORITY
+
+endif # EEPROM
+
+endif # BOARD_TRINAMIC_STARTRAMPE

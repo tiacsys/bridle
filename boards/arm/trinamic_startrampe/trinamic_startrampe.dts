@@ -1,0 +1,268 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/dts-v1/;
+#include <st/f2/stm32f205Xc.dtsi>
+#include <st/f2/stm32f205v(b-c-e-f-g)tx-pinctrl.dtsi>
+
+#include <zephyr/dt-bindings/gpio/gpio.h>
+#include <zephyr/dt-bindings/pwm/pwm.h>
+
+/ {
+	model = "Trinamic Interface and Connector Board Startrampe";
+	compatible = "trinamic,startrampe";
+
+	chosen {
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+	}; // chosen
+
+	/*
+	 * These aliases are provided for compatibility
+	 * with samples and tests.
+	 */
+	aliases {
+		led0 = &green_led;
+		led1 = &red_led;
+		watchdog0 = &iwdg;
+		spi-eeprom0 = &at25;
+	}; // aliases
+
+	leds {
+		compatible = "gpio-leds";
+		green_led: led_status {
+			gpios = <&gpioe 0 GPIO_ACTIVE_LOW>;
+			label = "STATUS";
+		}; // green_led
+		red_led: led_error {
+			gpios = <&gpioe 1 GPIO_ACTIVE_LOW>;
+			label = "ERROR";
+		}; // red_led
+	}; // leds
+};
+
+&clk_hse { /* 16MHz crystal */
+	status = "okay";
+	clock-frequency = <DT_FREQ_M(16)>;
+}; // clk_hse
+
+&pll {
+	status = "okay";
+	clocks = <&clk_hse>;
+	div-m = <16>;
+	mul-n = <240>;
+	div-p = <2>;
+	div-q = <5>;
+}; // pll
+
+&rcc {
+	status = "okay";
+	clocks = <&pll>;
+	ahb-prescaler = <1>;
+	apb1-prescaler = <4>;
+	apb2-prescaler = <2>;
+	clock-frequency = <DT_FREQ_M(120)>;
+}; // rcc
+
+&clk_lsi {
+	status = "okay";
+}; // clk_lsi
+
+&rtc {
+	status = "okay";
+	clocks = <&rcc STM32_CLOCK_BUS_APB1 0x10000000>,
+		 <&rcc STM32_SRC_LSI RTC_SEL(2)>;
+}; // rtc
+
+&iwdg {
+	status = "okay";
+}; // iwdg
+
+&rng {
+	status = "okay";
+}; // rng
+
+&die_temp {
+	status = "okay";
+}; // die_temp
+
+&backup_sram {
+	status = "okay";
+}; // backup_sram
+
+&adc1 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&adc1_in7_pa7
+		     &adc1_in8_pb0
+		     &adc1_in9_pb1
+		     &adc1_in12_pc2
+		     &adc1_in14_pc4
+		     &adc1_in15_pc5>;
+}; // adc1
+
+&dac1 {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&dac_out1_pa4
+		     &dac_out2_pa5>;
+}; // dac1
+
+&timers2 {
+	status = "okay";
+
+	pwm2: pwm {
+		status = "okay";
+		pinctrl-names = "default";
+		pinctrl-0 = <&tim2_ch1_pa0
+			     &tim2_ch2_pa1
+			     &tim2_ch3_pa2
+			     &tim2_ch4_pa3>;
+	}; // pwm2
+}; // timers2
+
+&timers1 {
+	status = "okay";
+
+	pwm1: pwm {
+		status = "okay";
+		pinctrl-names = "default";
+		pinctrl-0 = <&tim1_ch1n_pe8
+			     &tim1_ch1_pe9
+			     &tim1_ch2n_pe10
+			     &tim1_ch2_pe11
+			     &tim1_ch3n_pe12
+			     &tim1_ch3_pe13>;
+	}; // pwm1
+}; // timers1
+
+&spi3 { /* Interface SPI1 */
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&spi3_sck_pc10
+		     &spi3_miso_pc11
+		     &spi3_mosi_pc12>;
+	cs-gpios = <&gpioa 15 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+}; // spi3
+
+&spi2 { /* Interface SPI2 */
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&spi2_sck_pb13
+		     &spi2_miso_pb14
+		     &spi2_mosi_pb15>;
+	cs-gpios = <&gpioe 15 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
+		   <&gpiob 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
+		   <&gpiob 12 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+}; // spi2
+
+&spi1 { /* on-board SPI3 */
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&spi1_sck_pb3 &spi1_miso_pb4 &spi1_mosi_pb5>;
+	cs-gpios = <&gpiob 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+
+	at25: at25128b@0 {
+		status = "okay";
+		compatible = "atmel,at25";
+
+		reg = <0>;
+		spi-max-frequency = <DT_FREQ_M(10)>;
+
+		size = <DT_SIZE_K(16)>;
+		address-width = <16>;
+		pagesize = <16>;
+		timeout = <5>;
+	}; // at25
+}; // spi1
+
+&i2c1 { /* spare, but not connected */
+	status = "disabled";
+	pinctrl-names = "default";
+	pinctrl-0 = <&i2c1_scl_pb8
+		     &i2c1_sda_pb9>;
+	clock-frequency = <I2C_BITRATE_FAST>;
+}; // i2c1
+
+&usart6 { /* on-board UART to RS232 connector */
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&usart6_tx_pc6
+		     &usart6_rx_pc7>;
+	current-speed = <115200>;
+}; // usart6
+
+&usart3 { /* on-board UART to wireless module (optional) */
+	status = "disabled";
+	pinctrl-names = "default";
+	pinctrl-0 = <&usart3_tx_pd8
+		     &usart3_rx_pd9>;
+	current-speed = <115200>;
+}; // usart3
+
+&usart2 { /* Interface USART (optional) */
+	status = "disabled";
+	pinctrl-names = "default";
+	pinctrl-0 = <&usart2_rx_pd6
+		     &usart2_tx_pd5
+		     &usart2_rts_pd4
+		     &usart2_cts_pd3>;
+	current-speed = <115200>;
+}; // usart2
+
+#if 0 /* not yet, needs improvements in Zephyr DTS include files */
+&can1 { /* Interface CAN (optional) */
+	status = "disabled";
+	pinctrl-names = "default";
+	pinctrl-0 = <&can1_rx_pd0
+		     &can1_tx_pd1>;
+	bus-speed = <1000000>;
+	sjw = <1>;
+	prop-seg = <0>;
+	phase-seg1 = <15>;
+	phase-seg2 = <2>;
+}; // can1
+#endif
+
+&flash0 {
+	partitions {
+		compatible = "fixed-partitions";
+		#address-cells = <1>;
+		#size-cells = <1>;
+
+		/*
+		 * Last sector of size 128KB at the end of 256KB flash
+		 * is set for storage.
+		 */
+		storage_partition: partition@20000 {
+			label = "storage";
+			reg = <0x00020000 DT_SIZE_K(128)>;
+		}; // storage_partition
+	}; // partitions
+}; // flash0
+
+&at25 {
+	partitions {
+		compatible = "fixed-partitions";
+		#address-cells = <1>;
+		#size-cells = <1>;
+
+		/* 8K reserved for slot1 */
+
+		/* 8K */
+		lfs_partition: partition@2000 {
+			label = "lfs_storage";
+			reg = <0x00002000 DT_SIZE_K(8)>;
+		}; // lfs_partition
+	}; // partitions
+}; // at25
+
+zephyr_udc0: &usbotg_fs {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&usb_otg_fs_dm_pa11
+		     &usb_otg_fs_dp_pa12>;
+}; // zephyr_udc0

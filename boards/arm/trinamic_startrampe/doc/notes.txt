@@ -1,0 +1,53 @@
+
+
+
+
+
+west build -b trinamic_startrampe -p always -d build/hello-trinamic_startrampe zephyr/samples/hello_world
+west flash -d build/hello-trinamic_startrampe
+
+
+west build -b trinamic_startrampe -p always -d build/blinky-trinamic_startrampe zephyr/samples/basic/blinky
+
+west build -t menuconfig -d build/blinky-trinamic_startrampe
+west build -t rom_report -d build/blinky-trinamic_startrampe
+
+west flash -d build/blinky-trinamic_startrampe
+
+
+west build -b trinamic_startrampe -p always -d build/fade-trinamic_startrampe zephyr/samples/basic/fade_led
+
+west build -t menuconfig -d build/fade-trinamic_startrampe
+west build -t rom_report -d build/fade-trinamic_startrampe
+
+west flash -d build/fade-trinamic_startrampe
+
+
+west build -b trinamic_startrampe -p always -d build/threads-trinamic_startrampe zephyr/samples/basic/threads
+
+west build -t menuconfig -d build/threads-trinamic_startrampe
+west build -t rom_report -d build/threads-trinamic_startrampe
+
+west flash -d build/threads-trinamic_startrampe
+
+
+west build -b trinamic_startrampe -p always -d build/shell-trinamic_startrampe zephyr/samples/subsys/shell/shell_module -- -DCONFIG_EEPROM=y
+
+west build -t menuconfig -d build/shell-trinamic_startrampe
+west build -t rom_report -d build/shell-trinamic_startrampe
+
+
+west flash -d build/shell-trinamic_startrampe
+
+
+west build -b trinamic_startrampe@usbcons -p always -d build/helloshell-trinamic_startrampe bridle/samples/helloshell
+
+west build -t menuconfig -d build/helloshell-trinamic_startrampe
+west build -t rom_report -d build/helloshell-trinamic_startrampe
+
+
+west flash -d build/helloshell-trinamic_startrampe
+
+
+
+
