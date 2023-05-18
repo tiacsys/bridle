@@ -24,8 +24,8 @@ This shield requires a board which provides a configuration that allows:
 - two UART interfaces, 1st for counterpart and 2nd for test case
 
 .. note::
-   Sometimes boards declare standard headers like |Arduino R3| but not define
-   all connections.  Make sure that the board you are using have all
+   Sometimes boards declare standard headers like |Arduino UNO R3| but not
+   define all connections.  Make sure that the board you are using have all
    definitions to avoid build errors (see :ref:`shields` for more details).
 
 Supported variations
@@ -38,35 +38,35 @@ is used with a board that doesn't feature a standard connector, a dedicated
 <board>.overlay file should be provided. The remaining configurations should
 be used based on the board standard headers available.
 
-+---------------------------------------+--------------------------+-----------+
-| Connector Standard                    | Shield Designation       | Variation |
-+=======================================+==========================+===========+
-| Without standard (overlay)            | |loopback_test|          |     1     |
-+---------------------------------------+--------------------------+-----------+
-| |Arduino R3| (:yl:`not yet, planned`) | |loopback_test_arduino|  |     2     |
-+---------------------------------------+--------------------------+-----------+
-| |MikroBus| (:yl:`not yet, planned`)   | |loopback_test_mikrobus| |     3     |
-+---------------------------------------+--------------------------+-----------+
-| |TiaC MAGPIE Pin Header|              | |loopback_test_tmph|     |     4     |
-+---------------------------------------+--------------------------+-----------+
++-------------------------------------------+--------------------------+-----------+
+| Connector Standard                        | Shield Designation       | Variation |
++===========================================+==========================+===========+
+| Without standard (overlay)                | |loopback_test|          |     1     |
++-------------------------------------------+--------------------------+-----------+
+| |Arduino UNO R3| (:yl:`not yet, planned`) | |loopback_test_arduino|  |     2     |
++-------------------------------------------+--------------------------+-----------+
+| |MikroBus| (:yl:`not yet, planned`)       | |loopback_test_mikrobus| |     3     |
++-------------------------------------------+--------------------------+-----------+
+| |TiaC MAGPIE Pin Header|                  | |loopback_test_tmph|     |     4     |
++-------------------------------------------+--------------------------+-----------+
 
 .. |loopback_test| replace::
    :bridle_file:`loopback_test <boards/shields/loopback_test/loopback_test.overlay>`
 
-.. |Arduino R3| replace::
-   :ref:`Arduino R3 <devicetree:dtbinding_arduino_header_r3>`
+.. |Arduino UNO R3| replace::
+   :dtcompatible:`Arduino UNO R3 <arduino-header-r3>`
 
 .. |loopback_test_arduino| replace::
    :bridle_file:`loopback_test_arduino <boards/shields/loopback_test/loopback_test_arduino.overlay>`
 
 .. |MikroBus| replace::
-   :ref:`MikroBus <devicetree:dtbinding_mikro_bus>`
+   :dtcompatible:`MikroBus <mikro-bus>`
 
 .. |loopback_test_mikrobus| replace::
    :bridle_file:`loopback_test_mikrobus <boards/shields/loopback_test/loopback_test_mikrobus.overlay>`
 
 .. |TiaC MAGPIE Pin Header| replace::
-   :ref:`TiaC MAGPIE Pin Header <devicetree:dtbinding_tiac_magpie_pin_header>`
+   :dtcompatible:`TiaC MAGPIE Pin Header <tiac-magpie-pin-header>`
 
 .. |loopback_test_tmph| replace::
    :bridle_file:`loopback_test_tmph <boards/shields/loopback_test/loopback_test_tmph.overlay>`
@@ -95,7 +95,7 @@ To build shield with standard headers:
 Wiring Schematics
 *****************
 
-.. rubric:: |Arduino R3|
+.. rubric:: |Arduino UNO R3|
 
 :byl:`not yet, planned`
 
