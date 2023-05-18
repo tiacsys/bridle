@@ -236,4 +236,4 @@ from the |Laced Grove Signal Interface|. For example:
    https://files.seeedstudio.com/wiki/Grove-Variable_Color_LED/res/Variable_Color_LED_eagle_file.zip
 
 .. |Laced Grove Signal Interface| replace::
-   :ref:`Laced Grove Signal Interface <devicetree:dtbinding_seeed_grove_laced_if>`
+   :dtcompatible:`Laced Grove Signal Interface <seeed,grove-laced-if>`

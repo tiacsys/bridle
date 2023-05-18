@@ -559,13 +559,12 @@ Detailed Specification
 System Clock with DTS Bindings and Kconfig
 ==========================================
 
-The DTS binding following the :ref:`devicetree:dtbinding_st_stm32_rcc`,
-:ref:`devicetree:dtbinding_st_stm32f7_pll_clock`,
-:ref:`devicetree:dtbinding_st_stm32_hse_clock` and
-:ref:`devicetree:dtbinding_st_stm32_lse_clock` specification.
-The Kconfig default configuration is for STM32 RTC (Real-Time Clock Controller)
-and will be used by counter driver behind DTS binding following the
-:ref:`devicetree:dtbinding_st_stm32_rtc` specification.
+The DTS binding following the :dtcompatible:`st,stm32-rcc`,
+:dtcompatible:`st,stm32f7-pll-clock`, :dtcompatible:`st,stm32-hse-clock`
+and :dtcompatible:`st,stm32-lse-clock` specification. The Kconfig default
+configuration is for STM32 RTC (Real-Time Clock Controller) and will be used
+by counter driver behind DTS binding following the :dtcompatible:`st,stm32-rtc`
+specification.
 
 .. list-table:: System Clock DTS Bindings and Kconfig
    :class: longtable
@@ -581,7 +580,7 @@ and will be used by counter driver behind DTS binding following the
           :align: center
           :scale: 75 %
 
-     - :ref:`devicetree:dtbinding_st_stm32_hse_clock` configuration:
+     - :dtcompatible:`st,stm32-hse-clock` configuration:
 
        .. literalinclude:: ../tiac_magpie.dts
           :caption: tiac_magpie.dts
@@ -592,7 +591,7 @@ and will be used by counter driver behind DTS binding following the
           :start-at: clk_hse {
           :end-at: }; // clk_hse
 
-       :ref:`devicetree:dtbinding_st_stm32f7_pll_clock` configuration:
+       :dtcompatible:`st,stm32f7-pll-clock` configuration:
 
        .. literalinclude:: ../tiac_magpie.dts
           :caption: tiac_magpie.dts
@@ -603,7 +602,7 @@ and will be used by counter driver behind DTS binding following the
           :start-at: pll {
           :end-at: }; // pll
 
-       :ref:`devicetree:dtbinding_st_stm32_rcc` configuration:
+       :dtcompatible:`st,stm32-rcc` configuration:
 
        .. literalinclude:: ../tiac_magpie.dts
           :caption: tiac_magpie.dts
@@ -614,7 +613,7 @@ and will be used by counter driver behind DTS binding following the
           :start-at: rcc {
           :end-at: }; // rcc
 
-       :ref:`devicetree:dtbinding_st_stm32_lse_clock` configuration:
+       :dtcompatible:`st,stm32-lse-clock` configuration:
 
        .. literalinclude:: ../tiac_magpie.dts
           :caption: tiac_magpie.dts
@@ -625,7 +624,7 @@ and will be used by counter driver behind DTS binding following the
           :start-at: clk_lse {
           :end-at: }; // clk_lse
 
-       :ref:`devicetree:dtbinding_st_stm32_rtc` configuration:
+       :dtcompatible:`st,stm32-rtc` configuration:
 
        .. literalinclude:: ../tiac_magpie.dts
           :caption: tiac_magpie.dts
@@ -653,8 +652,7 @@ and will be used by counter driver behind DTS binding following the
 User LED with DTS Bindings
 ==========================
 
-The DTS binding following the :ref:`devicetree:dtbinding_gpio_leds`
-specification.
+The DTS binding following the :dtcompatible:`gpio-leds` specification.
 
 .. list-table:: User LED Pin Binding
    :class: longtable
@@ -678,7 +676,7 @@ specification.
           :stub-columns: 1
        .. :include: {4: '(USER_LED)'} <-- doesn't work
 
-     - :ref:`devicetree:dtbinding_gpio_leds` configuration:
+     - :dtcompatible:`gpio-leds` configuration:
 
        .. literalinclude:: ../tiac_magpie.dts
           :caption: tiac_magpie.dts
@@ -702,8 +700,7 @@ specification.
 Serial Console with DTS Bindings
 ================================
 
-The DTS binding following the :ref:`devicetree:dtbinding_st_stm32_uart`
-specification.
+The DTS binding following the :dtcompatible:`st,stm32-uart` specification.
 
 .. list-table:: Serial Console Pin Binding
    :class: longtable
@@ -727,7 +724,7 @@ specification.
           :stub-columns: 1
        .. :include: {3: '(UART7)'} <-- doesn't work
 
-     - :ref:`devicetree:dtbinding_st_stm32_uart` configuration:
+     - :dtcompatible:`st,stm32-uart` configuration:
 
        .. literalinclude:: ../tiac_magpie.dts
           :caption: tiac_magpie.dts
@@ -757,8 +754,7 @@ specification.
 Ethernet MAC with DTS Bindings
 ==============================
 
-The DTS binding following the :ref:`devicetree:dtbinding_st_stm32_ethernet`
-specification.
+The DTS binding following the :dtcompatible:`st,stm32-ethernet` specification.
 
 .. list-table:: Ethernet MAC Pin Binding
    :class: longtable
@@ -782,7 +778,7 @@ specification.
           :stub-columns: 1
        .. :include: {3: '(ETH)'} <-- doesn't work
 
-     - :ref:`devicetree:dtbinding_st_stm32_ethernet` configuration:
+     - :dtcompatible:`st,stm32-ethernet` configuration:
 
        .. literalinclude:: ../tiac_magpie.dts
           :caption: tiac_magpie.dts
@@ -798,8 +794,8 @@ specification.
 USB OTG with DTS Bindings
 =========================
 
-The DTS binding following the :ref:`devicetree:dtbinding_st_stm32_otgfs`
-and :ref:`devicetree:dtbinding_st_stm32_otghs` specification.
+The DTS binding following the :dtcompatible:`st,stm32-otgfs` and
+:dtcompatible:`st,stm32-otghs` specification.
 
 .. list-table:: USB OTG Pin Binding
    :class: longtable
@@ -823,7 +819,7 @@ and :ref:`devicetree:dtbinding_st_stm32_otghs` specification.
           :stub-columns: 1
        .. :include: {3: '(USB_OTG_FS)'} <-- doesn't work
 
-     - :ref:`devicetree:dtbinding_st_stm32_otgfs` configuration:
+     - :dtcompatible:`st,stm32-otgfs` configuration:
 
        .. literalinclude:: ../tiac_magpie.dts
           :caption: tiac_magpie.dts
@@ -855,7 +851,7 @@ and :ref:`devicetree:dtbinding_st_stm32_otghs` specification.
           :stub-columns: 1
        .. :include: {3: '(USB_OTG_HS)'} <-- doesn't work
 
-     - :ref:`devicetree:dtbinding_st_stm32_otghs` configuration:
+     - :dtcompatible:`st,stm32-otghs` configuration:
 
        .. admonition:: Not yet configured!
           :class: warning
@@ -872,8 +868,7 @@ and :ref:`devicetree:dtbinding_st_stm32_otghs` specification.
 CAN Busses with DTS Bindings
 ============================
 
-The DTS binding following the :ref:`devicetree:dtbinding_st_stm32_can`
-specification.
+The DTS binding following the :dtcompatible:`st,stm32-can` specification.
 
 .. list-table:: CAN Busses Pin Binding
    :class: longtable
@@ -897,7 +892,7 @@ specification.
           :stub-columns: 1
        .. :include: {3: '(CAN1)'} <-- doesn't work
 
-     - :ref:`devicetree:dtbinding_st_stm32_can` configuration:
+     - :dtcompatible:`st,stm32-can` configuration:
 
        .. literalinclude:: ../tiac_magpie.dts
           :caption: tiac_magpie.dts
@@ -929,7 +924,7 @@ specification.
           :stub-columns: 1
        .. :include: {3: '(CAN2)'} <-- doesn't work
 
-     - :ref:`devicetree:dtbinding_st_stm32_can` configuration:
+     - :dtcompatible:`st,stm32-can` configuration:
 
        .. literalinclude:: ../tiac_magpie.dts
           :caption: tiac_magpie.dts
@@ -945,8 +940,7 @@ specification.
 System I2C Bus with DTS Bindings
 ================================
 
-The DTS binding following the :ref:`devicetree:dtbinding_st_stm32_i2c_v2`
-specification.
+The DTS binding following the :dtcompatible:`st,stm32-i2c-v2` specification.
 
 .. list-table:: System I2C Bus 2 Pin Binding
    :class: longtable
@@ -970,7 +964,7 @@ specification.
           :stub-columns: 1
        .. :include: {3: '(I2C2)'} <-- doesn't work
 
-     - :ref:`devicetree:dtbinding_st_stm32_i2c_v2` configuration:
+     - :dtcompatible:`st,stm32-i2c-v2` configuration:
 
        .. literalinclude:: ../tiac_magpie.dts
           :caption: tiac_magpie.dts
@@ -988,7 +982,7 @@ Pin Header with DTS Bindings
 
 The TiaC Magpie compatible pin header expands functionality of the TiaC
 development platform, with a wide choice of specialized TiaC shields.
-The DTS binding following the :ref:`devicetree:dtbinding_tiac_magpie_pin_header`
+The DTS binding following the :dtcompatible:`tiac-magpie-pin-header`
 specification.
 
 TiaC Magpie Pin Header 1

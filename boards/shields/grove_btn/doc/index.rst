@@ -127,4 +127,4 @@ corresponds to the ordinal number of a signal from the
    https://files.seeedstudio.com/wiki/Grove_Button/resources/Grove_-_Button_v1.0_Source_File.zip
 
 .. |Laced Grove Signal Interface| replace::
-   :ref:`Laced Grove Signal Interface <devicetree:dtbinding_seeed_grove_laced_if>`
+   :dtcompatible:`Laced Grove Signal Interface <seeed,grove-laced-if>`
