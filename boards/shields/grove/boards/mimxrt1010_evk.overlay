@@ -36,27 +36,6 @@
 };
 
 /*
- * On NXP MIMXRT1010-EVK pin D14 (SDA) and D15 (SCL) will be shared with
- * multiple on-board components: audio codec and sensors. Pin A4 (SDA)
- * and A5 (SCL) are not connected in parallel, but unusually shared with
- * pin D6 (A4) and D7 (A5) as same signal line. When solder bridge R793
- * for pin D5 was populated, pin D5 (GPIO/PWM) will be shared with pin
- * D14 (SDA) and is connected in parallel.
- */
-
-arduino_i2c: &lpi2c1 {};
-
-/*
- * On NXP MIMXRT1010-EVK pin D10 (CS), D11 (MOSI), D12 (MISO) and D13 (CLK)
- * are always connected to the on-board but not populated SPI flash in default
- * and can be disconnected optionally. Pin D10 (CS) will be shared with
- * pin D2 (GPIO/INT0) and is connected in parallel. Pin D13 (CLK) will be
- * shared with pin D3 (GPIO/PWM) and is connected in parallel.
- */
-
-arduino_spi: &lpspi1 {};
-
-/*
  * On NXP MIMXRT1010-EVK pin D0 (RX) and D1 (TX) will be shared with the
  * on-board FreeLink ISP module (ARM DAPLink CMSIS-DAP / Segger JLink).
  */
