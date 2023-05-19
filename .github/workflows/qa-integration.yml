@@ -110,7 +110,6 @@ jobs:
           west twister --verbose --jobs 4 \
             --outdir twister-out --no-clean --inline-logs \
             --enable-size-report --platform-reports \
-            --board-root bridle/boards \
             --platform arduino_zero \
             --platform mimxrt1010_evk \
             --platform mimxrt1060_evk \
@@ -209,7 +208,6 @@ jobs:
             --enable-size-report --platform-reports \
             --device-testing --hardware-map ${HARDWARE_MAP} \
             --extra-args SHIELD="loopback_test_tmph can_timing_adj" \
-            --board-root bridle/boards \
             --testsuite-root bridle/tests/bridle \
             --testsuite-root zephyr/tests/crypto/rand32 \
             --testsuite-root zephyr/tests/drivers/entropy \
