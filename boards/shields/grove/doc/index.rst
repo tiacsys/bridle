@@ -709,6 +709,25 @@ not be complete.
 
             .. include:: /boards/shields/grove/doc/grove_pwms-seeeduino_xiao.rsti
 
+   .. group-tab:: Raspberry Pi
+
+      .. tabs::
+
+         .. group-tab:: ``rpi_pico``
+
+            This is based on the Zephyr board :ref:`rpi_pico` and its
+            :dtcompatible:`raspberrypi,pico-header-r3`.
+
+            .. note::
+               This board basically provides all channels from nearly all PWMs to
+               the outside. However, the SoC's ability to route channels to multiple
+               pads may result in channels being connected in parallel. The second
+               table below shows the possibilities which channels can really
+               be used independently at the associated signals of the
+               |Laced Grove Signal Interface|.
+
+            .. include:: /boards/shields/grove/doc/grove_pwms-rpi_pico.rsti
+
 Programming
 ===========
 
