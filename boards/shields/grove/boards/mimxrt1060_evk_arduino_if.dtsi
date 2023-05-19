@@ -4,24 +4,6 @@
  */
 
 /*
- * On NXP MIMXRT1060-EVK pin A4 (SDA) and A5 (SCL) will be shared with
- * multiple on-board components: audio codec, sensors, CSI and LCD and
- * M.2(E) header. Pin D14 (SDA) and D15 (SCL) are connected in parallel,
- * but can be opened optionally.
- */
-
-arduino_i2c: &lpi2c1 {};
-
-/*
- * On NXP MIMXRT1060-EVK pin D10 (CS), D11 (MOSI), D12 (MISO) and D13 (CLK)
- * are disconnected in default and can be closed optionally. But keep in
- * mind that the signals are already connected to a on-board component:
- * TF/SD-Card in default or M.2(E) header for an optional WiFi module.
- */
-
-arduino_spi: &lpspi1 {};
-
-/*
  * On NXP MIMXRT1060-EVK pin D0 (RX) and D1 (TX) will be shared with the
  * M.2(E) header for an optional Bluetooth module.
  */
