@@ -32,17 +32,16 @@ supported by this shield and that will be used for maintenance::
          --jobs 4 \
          --verbose \
          --inline-logs \
-         --platform rpi_pico \
+         --platform arduino_zero \
+         --platform mimxrt1010_evk \
+         --platform mimxrt1060_evk \
+         --platform mimxrt1060_evkb \
          --platform nucleo_f303re \
          --platform nucleo_f401re \
          --platform nucleo_f413zh \
          --platform nucleo_f767zi \
-         --platform mimxrt1010_evk \
-         --platform mimxrt1060_evk \
-         --platform mimxrt1060_evkb \
-         --board-root bridle/boards \
+         --platform rpi_pico \
          --platform seeed_xiao_samd21 \
          --platform seeeduino_xiao \
          --platform seeeduino_lotus \
-         --platform arduino_zero \
          --testsuite-root bridle/tests/shields/grove_led/dts_bindings
