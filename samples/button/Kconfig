@@ -1,0 +1,28 @@
+# SPDX-License-Identifier: Apache-2.0
+mainmenu "Button"
+
+choice APPLICATION_MODE
+	prompt "Application Mode"
+
+config APPLICATION_MODE_POLLING
+    bool "Poll button state"
+
+config APPLICATION_MODE_INTERRUPT
+	bool "Use an interrupt and callback"
+
+endchoice
+
+if APPLICATION_MODE_POLLING
+
+config SLEEP_TIME_MS
+    int "Polling loop sleep time"
+    default 1
+    help
+        This defines how long the polling loop waits
+        between subsequent queries of the push button
+        state
+        
+endif
+
+# Sources Kconfig.zephyr in the Zephyr root directory.
+source "Kconfig.zephyr"
