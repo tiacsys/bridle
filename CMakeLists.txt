@@ -19,7 +19,7 @@ add_custom_target(version_bridle_h
 add_dependencies(version_bridle_h version_h)
 add_dependencies(zephyr_interface version_bridle_h)
 
-# include custom headers for e.g. drivers or services sorted by sub-folders
+# include custom headers for e.g. drivers or sub-systems sorted by sub-folders
 zephyr_include_directories(include)
 
 # Unfortunately, the order in which CMakeLists.txt code is processed
@@ -31,9 +31,6 @@ zephyr_include_directories(include)
 
 # add custom support libraries (e.g. algorithms)
 add_subdirectory(lib)
-
-# add custom services (e.g. control engines)
-add_subdirectory(services)
 
 # add custom sub-system modules (e.g. shell commands or logging)
 add_subdirectory(subsys)

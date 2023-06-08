@@ -5,7 +5,6 @@
 mainmenu "Bridle"
 
 rsource "modules/Kconfig"
-rsource "services/Kconfig"
 rsource "subsys/Kconfig"
 rsource "drivers/Kconfig"
 rsource "lib/Kconfig"

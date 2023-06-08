@@ -21,7 +21,6 @@ on:
       - 'lib/**'
       - 'modules/**'
       - 'samples/**'
-      - 'services/**'
       - 'tests/**'
       - 'soc/**'
       - 'subsys/**'

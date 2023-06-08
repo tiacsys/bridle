@@ -880,7 +880,6 @@ INPUT                  = "@PROJECT_DOXY@/mainpage.md" \
                          "@PROJECT_BASE@/include" \
                          "@PROJECT_BASE@/lib" \
                          "@PROJECT_BASE@/applications" \
-                         "@PROJECT_BASE@/services" \
                          "@PROJECT_BASE@/subsys" \
                          "@PROJECT_BASE@/tests"
 
