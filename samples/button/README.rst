@@ -3,13 +3,21 @@
 Button
 ######
 
+.. admonition:: Downstream Copy!
+   :class: note
+
+   This sample is a copy from Zephyr with identical name and will be used
+   for further development, improvement and preparation of changes for
+   Zephyr within Bridle. However, the original sample still lives within
+   the Zephyr namespace under the exactly same name:
+   :ref:`zephyr:button-sample`.
+
 Overview
 ********
 
 A simple button demo showcasing the use of GPIO input using a dedicated polling
 thread, spawned by an init function. Alternatively, it can be configured to use
-interrupts instead.
-In either mode, pressing the button will light up an led.
+interrupts instead. In either mode, pressing the button will light up an led.
 
 Requirements
 ************
@@ -103,13 +111,25 @@ Building and Running
 ********************
 
 This sample can be built for multiple boards, in this example we will build it
-for the nucleo_f413zh board:
+for the :ref:`zephyr:nucleo_f413zh_board` board:
 
-.. zephyr-app-commands::
-   :zephyr-app: bridle/samples/button
-   :board: nucleo_f413zh
-   :goals: build
-   :compact:
+#. polling thread
+
+   .. zephyr-app-commands::
+      :zephyr-app: bridle/samples/button
+      :board: nucleo_f413zh
+      :conf: prj-poll.conf
+      :goals: flash
+      :compact:
+
+#. interrupt callback
+
+   .. zephyr-app-commands::
+      :zephyr-app: bridle/samples/button
+      :board: nucleo_f413zh
+      :conf: prj-event.conf
+      :goals: flash
+      :compact:
 
 During startup, an init function look up predefined GPIO devices, and
 configures their pins in input and output mode, respectively. Depending on
