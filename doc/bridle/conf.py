@@ -302,8 +302,6 @@ external_content_contents = [
     (BRIDLE_BASE, 'applications/**/doc'),
     (BRIDLE_BASE, 'drivers/**/*.rst'),
     (BRIDLE_BASE, 'drivers/**/doc'),
-    (BRIDLE_BASE, 'services/**/*.rst'),
-    (BRIDLE_BASE, 'services/**/doc'),
     (BRIDLE_BASE, 'subsys/**/*.rst'),
     (BRIDLE_BASE, 'subsys/**/doc'),
     (BRIDLE_BASE, 'lib/**/*.rst'),
