@@ -3,25 +3,25 @@ sample:
     application
   name: hello shell
 common:
-    tags: introduction
-    integration_platforms:
-      - native_posix
-    depends_on: uart gpio i2c pwm adc
-    harness: console
-    harness_config:
-      type: one_line
-      regex:
-        - "Hello World! I'm THE SHELL from (.*)"
+  tags: introduction
+  integration_platforms:
+    - native_posix
+  depends_on: uart gpio i2c pwm adc
+  harness: console
+  harness_config:
+    type: one_line
+    regex:
+      - "Hello World! I'm THE SHELL from (.*)"
 tests:
   bridle.samples.helloshell.release:
     build_only: true
     build_on_all: true
-    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3 nucleo_f746zg
+    platform_allow: native_posix qemu_x86 qemu_cortex_m3 nucleo_f746zg
     extra_args: "CMAKE_BUILD_TYPE=ZRelease"
     tags: introduction
   bridle.samples.helloshell.debug:
     build_only: true
     build_on_all: true
-    platform_whitelist: native_posix qemu_x86 qemu_cortex_m3 nucleo_f746zg
+    platform_allow: native_posix qemu_x86 qemu_cortex_m3 nucleo_f746zg
     extra_args: "CMAKE_BUILD_TYPE=ZDebug"
     tags: introduction
