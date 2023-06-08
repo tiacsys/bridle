@@ -117,18 +117,28 @@ The following sections provide detailed lists of changes by component.
   * :dtcompatible:`dfrobot,gravity-connector`
   * :dtcompatible:`digilent,pmod-header`
   * :dtcompatible:`generic-pin-header`
+  * :dtcompatible:`nxp,pca9554`
+  * :dtcompatible:`nxp,pca9555`
   * :dtcompatible:`raspberrypi,pico-header-r3`
   * :dtcompatible:`seeed,grove-laced-if`
   * :dtcompatible:`seeed,grove-connector`
   * :dtcompatible:`sparkfun,qwiic-connector`
   * :dtcompatible:`st,mems-dil24-socket`
 
+* Add new drivers:
+
+  * PCA9554 I2C-based GPIO chip (:kconfig:option:`CONFIG_GPIO_PCA9554`)
+  * PCA9555 I2C-based GPIO chip (:kconfig:option:`CONFIG_GPIO_PCA9555`)
+
+* Add new samples:
+
+  * :ref:`button-sample`, improved copy from Zephyr with feature toggle
+    for either "polling thread" or "interrupt callback"
+
 * PROJECT UPDATE to `Zephyr Project`_ v3.3
 
 Build Infrastructure
 ====================
-
-**NOT YET, tbd.**
 
 Take over the new build principles from Zephyr:
 
@@ -139,19 +149,26 @@ Take over the new build principles from Zephyr:
     :code:`:ref:`devicetree:dtbinding_vendor_thing`` to the new
     RST role :code:`:dtcompatible:`vendor,thing``.
 
+* Remove the useless sub-folder ``services``, services should be placed
+  below ``subsys``.
+
+* Use original glue code for external 3rd party Zephyr modules that will
+  be maintained inside the Bridle repository.
+
 Documentation
 =============
 
-**NOT YET, tbd.**
-
 1. Update all output messages in documentation to be in sync with the upcoming
    Bridle version v3.3.1, based on Zephyr v3.3 (samples and tests).
+2. Following latest Zephyr Coding Guidelines and update terms, see
+   :ref:`zephyr:coding_guideline_inclusive_language`.
 
 Issue Related Items
 *******************
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`99` - [FER] Need a fancy blinky example for novice developer
 * :github:`96` - [HW] Grove Interconnect Shields for Seeeduino XIAO
 * :github:`90` - [HW] Grove Interconnect Shields for Arduino/Genuino Zero
 * :github:`87` - [HW] Seeeduino Lotus Cortex-M0+ board support
