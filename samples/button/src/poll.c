@@ -1,6 +1,8 @@
 /*
-  SPDX-License-Identifier: Apache-2.0
-*/
+ * Copyright (c) 2021-2022 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 #include <zephyr/device.h>
 #include "init.h"
 
@@ -34,11 +36,11 @@ static int init()
 	struct k_thread polling_thread;
 
 	__unused k_tid_t tid = k_thread_create(&polling_thread,
-									polling_thread_stack_area,
-	                                K_THREAD_STACK_SIZEOF(polling_thread_stack_area),
-	                                polling_thread_entry_point,
-	                                (void*) &btn, (void*) &led, NULL,
-	                                MY_PRIORITY, 0, K_NO_WAIT);
+					polling_thread_stack_area,
+					K_THREAD_STACK_SIZEOF(polling_thread_stack_area),
+					polling_thread_entry_point,
+					(void*) &btn, (void*) &led, NULL,
+					MY_PRIORITY, 0, K_NO_WAIT);
 	                                 
 	return 0;
 }

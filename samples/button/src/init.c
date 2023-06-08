@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2021-2022 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 #include "init.h"
 
 /* Setup for a button  */
@@ -7,7 +12,6 @@
 #endif
 
 const struct gpio_dt_spec btn = GPIO_DT_SPEC_GET(BTN_NODE, gpios);
-
 
 /* Setup for an led */
 #define LED_NODE DT_ALIAS(led0)
@@ -30,7 +34,4 @@ static int init()
 SYS_INIT(init, APPLICATION, APPLICATION_IO_INIT_PRIORITY);
 
 /* Empty main */
-void main(void)
-{	
-
-}
+void main(void) {}
