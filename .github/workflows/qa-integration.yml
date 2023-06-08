@@ -125,6 +125,15 @@ jobs:
             --testsuite-root bridle/tests/shields/grove/dts_bindings \
             --testsuite-root bridle/tests/shields/x_grove_testbed/dts_bindings
 
+      - name: Build samples
+        working-directory: workspace
+        run: |
+          west twister --verbose --jobs 4 \
+            --outdir twister-out --no-clean --inline-logs \
+            --enable-size-report --platform-reports \
+            --testsuite-root bridle/samples/button \
+            --testsuite-root bridle/samples/helloshell
+
       - name: Upload integration test results
         uses: actions/upload-artifact@v3
         with:
