@@ -1,0 +1,25 @@
+# PCA9554 GPIO configuration options
+
+# Copyright (c) 2021-2023 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+menuconfig GPIO_PCA9554
+	bool "PCA9554 I2C-based GPIO chip"
+	depends on I2C
+	help
+	  Enable driver for PCA9554 I2C-based GPIO chip.
+
+config GPIO_PCA9554_INIT_PRIORITY
+	int "Init priority"
+	default 70
+	depends on GPIO_PCA9554
+	help
+	  Device driver initialization priority.
+
+config GPIO_PCA9554_INTERRUPT
+	bool "Interrupt enable"
+	depends on GPIO_PCA9554
+	help
+	  Enable interrupt support in PCA9554 driver.
+	  Note that the PCA9554 cannot reliably detect
+	  short-pulse interrupts due to its design.

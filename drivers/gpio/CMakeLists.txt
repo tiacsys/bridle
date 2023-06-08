@@ -5,3 +5,5 @@
 # It is actually required to add GPIO drivers to that library, otherwise
 # build errors can occur!
 zephyr_library_amend()
+
+zephyr_library_sources_ifdef(CONFIG_GPIO_PCA9554 gpio_pca9554.c)
