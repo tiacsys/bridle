@@ -7,9 +7,11 @@ Supported operating systems
 However, there are some Zephyr features that are currently only available
 on Linux, including:
 
-* sanitycheck
-* BlueZ integration
-* net-tools integration
+* :ref:`zephyr:twister_script`
+* BlueZ integration: :ref:`zephyr:bluetooth_bluez`
+* net-tools integration: :ref:`zephyr:networking_with_host`
+* :ref:`zephyr:native_posix`
+* :ref:`zephyr:nrf52_bsim`
 
 .. note::
 
