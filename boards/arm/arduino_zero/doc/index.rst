@@ -582,7 +582,7 @@ Hello Shell with USB-CDC/ACM Console
          how to work with this I2C device:
 
             The DGI consists of several physical data interfaces to
-            communicate with the host computer; I2C is onlay one of
+            communicate with the host computer; I2C is only one of
             them. Communication over the interfaces is bidirectional.
             It can be used to send events and values from the ATSAMD21G18A,
             or as a generic printf-style data channel. Traffic over the
