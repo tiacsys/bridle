@@ -4,5 +4,6 @@
 if GPIO
 
 rsource "Kconfig.pca9554"
+rsource "Kconfig.pca9555"
 
 endif # GPIO

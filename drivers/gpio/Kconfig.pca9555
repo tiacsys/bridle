@@ -1,0 +1,25 @@
+# PCA9555 GPIO configuration options
+
+# Copyright (c) 2021-2023 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+menuconfig GPIO_PCA9555
+	bool "PCA9555 I2C-based GPIO chip"
+	depends on I2C
+	help
+	  Enable driver for PCA9555 I2C-based GPIO chip.
+
+config GPIO_PCA9555_INIT_PRIORITY
+	int "Init priority"
+	default 70
+	depends on GPIO_PCA9555
+	help
+	  Device driver initialization priority.
+
+config GPIO_PCA9555_INTERRUPT
+	bool "Interrupt enable"
+	depends on GPIO_PCA9555
+	help
+	  Enable interrupt support in PCA9555 driver.
+	  Note that the PCA9555 cannot reliably detect
+	  short-pulse interrupts due to its design.
