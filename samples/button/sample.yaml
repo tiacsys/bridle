@@ -1,0 +1,14 @@
+sample:
+  description: Button sample, one of the simplest Zephyr application
+  name: button
+common:
+  tags: introduction
+  build_only: true
+  platform_allow: nucleo_f413zh
+  integration_platforms:
+    - nucleo_f413zh
+tests:
+  bridle.sample.button.poll:
+    extra_args: CONF_FILE=prj-poll.conf
+  bridle.sample.button.event:
+    extra_args: CONF_FILE=prj-event.conf
