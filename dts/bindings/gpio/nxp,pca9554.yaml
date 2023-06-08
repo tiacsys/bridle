@@ -1,0 +1,30 @@
+# Copyright (c) 2021-2023 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+description: PCA9554 specific I2C-based GPIO expander
+
+compatible: "nxp,pca9554"
+
+include: [gpio-controller.yaml, i2c-device.yaml]
+
+properties:
+  label:
+    required: false
+    deprecated: true
+
+  rst-dflts:
+    type: boolean
+    required: false
+    description: Reset all registers to their default values.
+
+  interrupt-gpios:
+    type: phandle-array
+    required: false
+    description: Interrupt GPIO pin (active-low open-drain)
+
+  "#gpio-cells":
+    const: 2
+
+gpio-cells:
+  - pin
+  - flags
