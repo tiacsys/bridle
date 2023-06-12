@@ -12,6 +12,8 @@ build:
     board_root: .
     # make custom device tree bindings available (in ./dts/bindings)
     dts_root: .
+    # make custom snippets available (in ./snippets/)
+    snippet_root: .
     # make custom additional SoCs support available (in ./soc/)
     soc_root: .
     # make custom architectures support available (in ./arch/)
