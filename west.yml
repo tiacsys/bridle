@@ -75,9 +75,8 @@ manifest:
           - hal_st
           - hal_stm32
           - hal_xtensa
-          - liblc3
-          - liblc3codec
           - libmetal
+          - liblc3
           - littlefs
           - loramac-node
           - lvgl
