@@ -36,7 +36,7 @@ which is built **for connected low power products and safety critical environmen
       <td width="300px" height="300px">
         <div align="center">
           <a href="https://github.com/zephyrproject-rtos/zephyr">
-            <img src="https://docs.zephyrproject.org/latest/_static/images/kite.png"/>
+            <img src="https://bridle.tiac-systems.net/doc/latest/zephyr/_static/images/kite.png"/>
             <h3>Zephyr</h3>
             <p>Fly kite with gentle breeze.</p>
           </a>
