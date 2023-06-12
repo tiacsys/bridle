@@ -7,4 +7,4 @@
 #       Devicetree bindings
 #
 # For the latest version:
-# https://tiac-systems.net/bridle/doc/latest/zephyr/guides/dts/bindings.html
+# https://bridle.tiac-systems.net/doc/latest/zephyr/guides/dts/bindings.html
