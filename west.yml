@@ -87,7 +87,6 @@ manifest:
           - openthread
           - picolibc
           - segger
-          - tinycbor
           - tinycrypt
       # hook up for Bridle zephyr_trampoline.py
       userdata:
