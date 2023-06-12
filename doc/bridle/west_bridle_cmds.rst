@@ -28,4 +28,4 @@ be able to find the Bridle repository with the following:
 
    find_package(Bridle REQUIRED HINTS $ENV{BRIDLE_BASE})
 
-See :zephyr_file:`share/bridle-package/cmake` for details.
+See :bridle_file:`share/bridle-package/cmake` for details.
