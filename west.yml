@@ -81,7 +81,6 @@ manifest:
           - loramac-node
           - lvgl
           - mbedtls
-          - mcumgr
           - mipi-sys-t
           - net-tools
           - open-amp
