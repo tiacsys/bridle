@@ -89,6 +89,7 @@ system (RTOS), which is built for **connected low power products** and
    user_guides
    examples
    boards/index
+   snippets/index
    reference/index
    release_notes
 

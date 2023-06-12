@@ -298,6 +298,8 @@ external_content_contents = [
     (BRIDLE_BASE, 'boards/**/doc'),
     (BRIDLE_BASE, 'samples/**/*.rst'),
     (BRIDLE_BASE, 'samples/**/doc'),
+    (BRIDLE_BASE, 'snippets/**/*.rst'),
+    (BRIDLE_BASE, 'snippets/**/doc'),
     (BRIDLE_BASE, 'applications/**/*.rst'),
     (BRIDLE_BASE, 'applications/**/doc'),
     (BRIDLE_BASE, 'drivers/**/*.rst'),
