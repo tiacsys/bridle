@@ -32,7 +32,6 @@ Building and Running
              --verbose --jobs 4 --inline-logs \
              --enable-size-report --platform-reports \
              --device-testing --hardware-map map.yaml \
-             --board-root bridle/boards \
              --testsuite-root zephyr/tests/drivers/counter
 
    .. group-tab:: Results
@@ -50,11 +49,11 @@ Building and Running
 
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 6/6 tiac_magpie               tests/drivers/counter/counter_basic_api/drivers.counter.basic_api :bgn:`PASSED` (device 325.091s)
+         INFO    - 6/6 tiac_magpie               tests/drivers/counter/counter_basic_api/drivers.counter.basic_api :bgn:`PASSED` (device 324.738s)
 
          INFO    - 6 test scenarios (6 test instances) selected, 5 configurations skipped (5 by static filter, 0 at runtime).
-         INFO    - :bgn:`1 of 6` test configurations passed (100.00%), :bbk:`0` failed, :byl:`5` skipped with :bbk:`0` warnings in :bbk:`354.81 seconds`
-         INFO    - In total 10 test cases were executed, 23 skipped on 1 out of total 541 platforms (0.18%)
+         INFO    - :bgn:`1 of 6` test configurations passed (100.00%), :bbk:`0` failed, :byl:`5` skipped with :bbk:`0` warnings in :bbk:`355.30 seconds`
+         INFO    - In total 10 test cases were executed, 22 skipped on 1 out of total 580 platforms (0.17%)
          INFO    - :bgn:`1` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:

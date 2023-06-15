@@ -39,7 +39,6 @@ Building and Running
              --enable-size-report --platform-reports \
              --device-testing --hardware-map map.yaml \
              --extra-args SHIELD=loopback_test_tmph \
-             --board-root bridle/boards \
              --testsuite-root zephyr/tests/drivers/spi
 
    .. group-tab:: Results
@@ -57,13 +56,13 @@ Building and Running
 
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 6/8 tiac_magpie               tests/drivers/spi/spi_loopback/drivers.spi.loopback.internal :byl:`SKIPPED` (runtime filter)
-         INFO    - 7/8 tiac_magpie               tests/drivers/spi/dt_spec/drivers.spi.dt_spec      :bgn:`PASSED` (device 2.650s)
-         INFO    - 8/8 tiac_magpie               tests/drivers/spi/spi_loopback/drivers.spi.loopback :bgn:`PASSED` (device 2.644s)
+         INFO    - 12/14 tiac_magpie               tests/drivers/spi/spi_loopback/drivers.spi.loopback.internal :byl:`SKIPPED` (runtime filter)
+         INFO    - 13/14 tiac_magpie               tests/drivers/spi/dt_spec/drivers.spi.dt_spec      :bgn:`PASSED` (device 3.103s)
+         INFO    - 14/14 tiac_magpie               tests/drivers/spi/spi_loopback/drivers.spi.loopback :bgn:`PASSED` (device 2.335s)
 
-         INFO    - 8 test scenarios (8 test instances) selected, 6 configurations skipped (5 by static filter, 1 at runtime).
-         INFO    - :bgn:`2 of 8` test configurations passed (100.00%), :bbk:`0` failed, :byl:`6` skipped with :bbk:`0` warnings in :bbk:`29.80 seconds`
-         INFO    - In total 2 test cases were executed, 6 skipped on 1 out of total 541 platforms (0.18%)
+         INFO    - 14 test scenarios (14 test instances) selected, 12 configurations skipped (11 by static filter, 1 at runtime).
+         INFO    - :bgn:`2 of 14` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`12` skipped with :bbk:`0` warnings in :bbk:`24.60 seconds`
+         INFO    - In total 2 test cases were executed, 24 skipped on 1 out of total 580 platforms (0.17%)
          INFO    - :bgn:`2` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:

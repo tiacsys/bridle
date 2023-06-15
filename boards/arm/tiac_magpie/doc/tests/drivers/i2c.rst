@@ -39,7 +39,6 @@ Building and Running
              --enable-size-report --platform-reports \
              --device-testing --hardware-map map.yaml \
              --extra-args SHIELD=loopback_test_tmph \
-             --board-root bridle/boards \
              --testsuite-root zephyr/tests/drivers/i2c \
              --testsuite-root bridle/tests/drivers/i2c
 
@@ -59,21 +58,29 @@ Building and Running
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
          INFO    - 3/5 tiac_magpie               tests/drivers/i2c/i2c_api/drivers.i2c.api          :byl:`SKIPPED` (runtime filter)
+         INFO    - 4/5 tiac_magpie               i2c_target_api/drivers.i2c.target_api.dual_role.tiac_magpie  :brd:`ERROR` Build failure (device)
+         INFO    - see: :byl:`.../twister-out/tiac_magpie/i2c_slave_api/drivers.i2c.target_api.dual_role.tiac_magpie/handler.log`
+         ERROR   - Loading Zephyr default modules (Zephyr base).
+         INFO    - 5/5 tiac_magpie               i2c_target_api/drivers.i2c.target_api.tiac_magpie   :brd:`ERROR` Build failure (device)
+         INFO    - see: :byl:`.../twister-out/tiac_magpie/i2c_slave_api/drivers.i2c.target_api.tiac_magpie/handler.log`
+         ERROR   - Loading Zephyr default modules (Zephyr base).
+
+         INFO    - 3/5 tiac_magpie               tests/drivers/i2c/i2c_api/drivers.i2c.api          :byl:`SKIPPED` (runtime filter)
          INFO    - 4/5 tiac_magpie               i2c_target_api/drivers.i2c.target_api.tiac_magpie  :brd:`FAILED` Failed (device 2.637s)
          ERROR   - see: :byl:`.../twister-out/tiac_magpie/i2c_slave_api/drivers.i2c.target_api.tiac_magpie/handler.log`
          INFO    - 5/5 tiac_magpie               i2c_target_api/drivers.i2c.target_api.dual_role.tiac_magpie :brd:`FAILED` Failed (device 2.637s)
          ERROR   - see: :byl:`.../twister-out/tiac_magpie/i2c_slave_api/drivers.i2c.target_api.dual_role.tiac_magpie/handler.log`
 
          INFO    - 5 test scenarios (5 test instances) selected, 3 configurations skipped (2 by static filter, 1 at runtime).
-         INFO    - :brd:`0 of 5` test configurations passed (0.00%), :bbk:`2` failed, :byl:`3` skipped with :bbk:`0` warnings in :bbk:`30.32 seconds`
-         INFO    - In total 2 test cases were executed, 4 skipped on 1 out of total 541 platforms (0.18%)
-         INFO    - :bgn:`2` test configurations executed on platforms, :brd:`0` test configurations were only built.
+         INFO    - :brd:`0 of 5` test configurations passed (0.00%), :bbk:`0` failed, :brd:`2` errored, :byl:`3` skipped with :bbk:`0` warnings in :bbk:`11.26 seconds`
+         INFO    - In total 2 test cases were executed, 4 skipped on 1 out of total 580 platforms (0.17%)
+         INFO    - :bgn:`0` test configurations executed on platforms, :brd:`2` test configurations were only built.
 
          Hardware distribution summary:
 
          \| Board       \| ID       \|   Counter \|
          \|-------------\|----------\|-----------\|
-         \| tiac_magpie \| DT04BNT1 \|         2 \|
+         \| tiac_magpie \| DT04BNT1 \|         0 \|
 
          INFO    - Saving reports...
          INFO    - Writing JSON report .../twister-out/twister.json
@@ -103,25 +110,12 @@ Single role with two I2C controller
 .. parsed-literal::
    :class: highlight
 
-   Running TESTSUITE i2c_eeprom_target
-   ===================================================================
-   START - test_eeprom_target
-   Found EEPROM 0 on I2C bus device i2c@40005c00 at addr 54
-   Found EEPROM 1 on I2C bus device i2c@40006000 at addr 56
-   :bbk:`Testing single-role`
-   Testing full read: Master: i2c@40006000, address: 0x54
-   :brd:`Assertion failed` at WEST_TOPDIR/zephyr/tests/drivers/i2c/i2c_target_api/src/main.c:55: :byl:`run_full_read: (ret not equal to 0)`
-   Failed to read EEPROM
-   :brd:`FAIL` - test_eeprom_target in 0.031 seconds
-   ===================================================================
-   TESTSUITE i2c_eeprom_target failed.
-   ------ TESTSUITE SUMMARY START ------
-   SUITE FAIL -   0.00% [i2c_eeprom_target]: pass = 0, fail = 1, skip = 0, total = 1 duration = 0.031 seconds
-   - :brd:`FAIL` - [i2c_eeprom_target.test_eeprom_target] duration = 0.031 seconds
-   ------ TESTSUITE SUMMARY END ------
-   ===================================================================
-   RunID: 55c0aabe41d4d446bfaf27e3808917d0
-   :brd:`PROJECT EXECUTION FAILED`
+   ... ... ...
+   .../zephyr/drivers/i2c/target/eeprom_target.c:180:12: :brd:`error:` 'i2c_eeprom_target_init' defined but not used
+   .../zephyr/drivers/i2c/target/eeprom_target.c:167:43: :brd:`error:` 'api_funcs' defined but not used
+   ... ... ...
+   ... ... ...
+   ... ... ...
 
 Dual role with one I2C controller and one I2C device
 ====================================================
@@ -129,22 +123,9 @@ Dual role with one I2C controller and one I2C device
 .. parsed-literal::
    :class: highlight
 
-   Running TESTSUITE i2c_eeprom_target
-   ===================================================================
-   START - test_eeprom_target
-   Found EEPROM 0 on I2C bus device i2c@40005c00 at addr 54
-   Found EEPROM 1 on I2C bus device i2c@40006000 at addr 56
-   :bbk:`Testing dual-role`
-   Testing full read: Master: i2c@40006000, address: 0x54
-   :brd:`Assertion failed` at WEST_TOPDIR/zephyr/tests/drivers/i2c/i2c_target_api/src/main.c:55: :byl:`run_full_read: (ret not equal to 0)`
-   Failed to read EEPROM
-   :brd:`FAIL` - test_eeprom_target in 0.030 seconds
-   ===================================================================
-   TESTSUITE i2c_eeprom_target failed.
-   ------ TESTSUITE SUMMARY START ------
-   SUITE FAIL -   0.00% [i2c_eeprom_target]: pass = 0, fail = 1, skip = 0, total = 1 duration = 0.030 seconds
-   - :brd:`FAIL` - [i2c_eeprom_target.test_eeprom_target] duration = 0.030 seconds
-   ------ TESTSUITE SUMMARY END ------
-   ===================================================================
-   RunID: 3beabba9b33b1dc4a1e19ec0ddfbd881
-   :brd:`PROJECT EXECUTION FAILED`
+   ... ... ...
+   .../zephyr/drivers/i2c/target/eeprom_target.c:180:12: :brd:`error:` 'i2c_eeprom_target_init' defined but not used
+   .../zephyr/drivers/i2c/target/eeprom_target.c:167:43: :brd:`error:` 'api_funcs' defined but not used
+   ... ... ...
+   ... ... ...
+   ... ... ...

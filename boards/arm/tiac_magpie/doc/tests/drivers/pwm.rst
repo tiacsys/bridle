@@ -39,7 +39,6 @@ Building and Running
              --enable-size-report --platform-reports \
              --device-testing --hardware-map map.yaml \
              --extra-args SHIELD=loopback_test_tmph \
-             --board-root bridle/boards \
              --testsuite-root zephyr/tests/drivers/pwm
 
    .. group-tab:: Results
@@ -57,13 +56,13 @@ Building and Running
 
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1/2 tiac_magpie               tests/drivers/pwm/pwm_api/drivers.pwm              :bgn:`PASSED` (device 8.269s)
-         INFO    - 2/2 tiac_magpie               tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback :brd:`FAILED` Failed (device 3.579s)
+         INFO    - 1/2 tiac_magpie               tests/drivers/pwm/pwm_api/drivers.pwm              :bgn:`PASSED` (device 8.945s)
+         INFO    - 2/2 tiac_magpie               tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback :brd:`FAILED` Failed (device 3.286s)
          ERROR   - see: :byl:`.../twister-out/tiac_magpie/tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback/handler.log`
 
          INFO    - 2 test scenarios (2 test instances) selected, 0 configurations skipped (0 by static filter, 0 at runtime).
-         INFO    - :brd:`1 of 2` test configurations passed (50.00%), :bbk:`1` failed, :byl:`0` skipped with :bbk:`0` warnings in :bbk:`54.49 seconds`
-         INFO    - In total 10 test cases were executed, 0 skipped on 1 out of total 541 platforms (0.18%)
+         INFO    - :brd:`1 of 2` test configurations passed (50.00%), :brd:`1` failed, :bbk:`1` errored, :byl:`0` skipped with :bbk:`0` warnings in :bbk:`42.55 seconds`
+         INFO    - In total 10 test cases were executed, 0 skipped on 1 out of total 580 platforms (0.17%)
          INFO    - :bgn:`2` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:

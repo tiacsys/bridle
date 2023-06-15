@@ -39,7 +39,6 @@ Building and Running
              --enable-size-report --platform-reports \
              --device-testing --hardware-map map.yaml \
              --extra-args SHIELD=loopback_test_tmph \
-             --board-root bridle/boards \
              --testsuite-root zephyr/tests/drivers/gpio
 
    .. group-tab:: Results
@@ -57,13 +56,14 @@ Building and Running
 
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 3/5 tiac_magpie               tests/drivers/gpio/gpio_get_direction/peripheral.gpio.get_direction :bgn:`PASSED` (device 2.642s)
-         INFO    - 4/5 tiac_magpie               tests/drivers/gpio/gpio_api_1pin/peripheral.gpio.1pin :bgn:`PASSED` (device 9.601s)
-         INFO    - 5/5 tiac_magpie               tests/drivers/gpio/gpio_basic_api/drivers.gpio.2pin :bgn:`PASSED` (device 17.971s)
+         INFO    - 3/6 tiac_magpie               tests/drivers/gpio/gpio_enable_disable_interrupt/drivers.gpio.enable_disable_interrupt :byl:`SKIPPED` (runtime filter)
+         INFO    - 4/6 tiac_magpie               tests/drivers/gpio/gpio_get_direction/drivers.gpio.get_direction :bgn:`PASSED` (device 2.438s)
+         INFO    - 5/6 tiac_magpie               tests/drivers/gpio/gpio_basic_api/drivers.gpio.2pin :bgn:`PASSED` (device 17.724s)
+         INFO    - 6/6 tiac_magpie               tests/drivers/gpio/gpio_api_1pin/drivers.gpio.1pin :bgn:`PASSED` (device 9.330s)
 
-         INFO    - 5 test scenarios (5 test instances) selected, 2 configurations skipped (2 by static filter, 0 at runtime).
-         INFO    - :bgn:`3 of 5` test configurations passed (100.00%), :bbk:`0` failed, :byl:`2` skipped with :bbk:`0` warnings in :bbk:`64.29 seconds`
-         INFO    - In total 26 test cases were executed, 18 skipped on 1 out of total 541 platforms (0.18%)
+         INFO    - 6 test scenarios (6 test instances) selected, 3 configurations skipped (2 by static filter, 1 at runtime).
+         INFO    - :bgn:`3 of 6` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`3` skipped with :bbk:`0` warnings in :bbk:`61.92 seconds`
+         INFO    - In total 26 test cases were executed, 25 skipped on 1 out of total 580 platforms (0.17%)
          INFO    - :bgn:`3` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:

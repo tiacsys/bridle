@@ -486,7 +486,6 @@ with a single call to Twister.
              --enable-size-report --platform-reports \
              --device-testing --hardware-map map.yaml \
              --extra-args SHIELD="loopback_test_tmph can_timing_adj" \
-             --board-root bridle/boards \
              --testsuite-root bridle/tests/bridle \
              --testsuite-root zephyr/tests/kernel \
              --testsuite-root zephyr/tests/arch/arm \

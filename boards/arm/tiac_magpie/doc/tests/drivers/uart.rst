@@ -39,7 +39,6 @@ Building and Running
              --enable-size-report --platform-reports \
              --device-testing --hardware-map map.yaml \
              --extra-args SHIELD=loopback_test_tmph \
-             --board-root bridle/boards \
              --testsuite-root zephyr/tests/drivers/uart
 
    .. group-tab:: Results ... t.b.d.
@@ -57,12 +56,12 @@ Building and Running
 
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 23/24 tiac_magpie               tests/drivers/uart/uart_async_api/drivers.uart.async_api.lpuart :byl:`SKIPPED` (runtime filter)
-         INFO    - 24/24 tiac_magpie               tests/drivers/uart/uart_async_api/drivers.uart.async_api :byl:`SKIPPED` (runtime filter)
+         INFO    - 24/25 tiac_magpie               tests/drivers/uart/uart_async_api/drivers.uart.async_api.lpuart :byl:`SKIPPED` (runtime filter)
+         INFO    - 25/25 tiac_magpie               tests/drivers/uart/uart_async_api/drivers.uart.async_api :byl:`SKIPPED` (runtime filter)
 
-         INFO    - 24 test scenarios (24 test instances) selected, 24 configurations skipped (22 by static filter, 2 at runtime).
-         INFO    - :bgn:`0 of 24` test configurations passed (0.00%), :bbk:`0` failed, :byl:`24` skipped with :bbk:`0` warnings in :bbk:`5.34 seconds`
-         INFO    - In total 0 test cases were executed, 70 skipped on 1 out of total 541 platforms (0.18%)
+         INFO    - 25 test scenarios (25 test instances) selected, 25 configurations skipped (23 by static filter, 2 at runtime).
+         INFO    - :bgn:`0 of 25` test configurations passed (0.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`25` skipped with :bbk:`0` warnings in :bbk:`5.36 seconds`
+         INFO    - In total 0 test cases were executed, 96 skipped on 1 out of total 580 platforms (0.17%)
          INFO    - :bgn:`0` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
