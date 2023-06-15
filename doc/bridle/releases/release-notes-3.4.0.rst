@@ -11,7 +11,7 @@ product development.
 Highlights
 **********
 
-* Added proper build infrastructure.
+* :ref:`snippets` inside |BRIDLE|.
 
 .. note:: See the changelog and readme files in the component repositories
    for a detailed description of changes.
@@ -77,7 +77,9 @@ Supported boards
 Change log
 **********
 
-**NOT YET, tbd.**
+* Remove obsolete or deprecated DTS includes:
+
+  * :file:`st/f7/stm32f7-adc123.dtsi`, now supported by Zephyr
 
 The following sections provide detailed lists of changes by component.
 
@@ -86,17 +88,14 @@ The following sections provide detailed lists of changes by component.
 Build Infrastructure
 ====================
 
-**NOT YET, tbd.**
-
 Take over the new build principles from Zephyr:
 
+* Support :ref:`zephyr:snippets` inside |BRIDLE| in same way as Zephyr does.
 * Twister can now used without explicit :program:`--board-root` to
   :program:`BRIDLE_BASE`.
 
 Documentation
 =============
-
-**NOT YET, tbd.**
 
 1. Update all output messages in documentation to be in sync with the upcoming
    Bridle version v3.4.0, based on Zephyr v3.4 (samples and tests).
@@ -106,9 +105,12 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`106` - [FER] Snippets
+* :github:`105` - [FCR] Bump to Zephyr v3.4
 * :github:`96` - [HW] Grove Interconnect Shields for Seeeduino XIAO
 * :github:`90` - [HW] Grove Interconnect Shields for Arduino/Genuino Zero
 * :github:`87` - [HW] Seeeduino Lotus Cortex-M0+ board support
+* :github:`85` - [BUG] Zephyr counter driver test fails
 * :github:`83` - [FCR] Support Grove System Shields
 * :github:`80` - [FCR] Support ST HAL
 * :github:`79` - [FCR] Support NXP HAL
