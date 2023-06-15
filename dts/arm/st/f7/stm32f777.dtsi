@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 TiaC Systems
+ * Copyright (c) 2021-2023 TiaC Systems
  * Copyright (c) 2021 Li-Pro.Net
  * SPDX-License-Identifier: Apache-2.0
  */
@@ -7,4 +7,3 @@
 #include <st/f7/stm32f767.dtsi>
 #include <st/f7/stm32f7-can2.dtsi>
 #include <st/f7/stm32f7-can3.dtsi>
-#include <st/f7/stm32f7-adc123.dtsi>
