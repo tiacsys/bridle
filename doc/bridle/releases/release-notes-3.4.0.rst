@@ -74,6 +74,13 @@ Supported boards
 * Seeeduino Lotus Cortex-M0+
 * TiaC Magpie STM32F777NIHx
 
+Supported shields
+*****************
+
+* Seeed Studio Grove Interconnect Shields
+* Grove Button Shields
+* Grove LED Shields
+
 Change log
 **********
 
@@ -91,6 +98,7 @@ Build Infrastructure
 Take over the new build principles from Zephyr:
 
 * Support :ref:`zephyr:snippets` inside |BRIDLE| in same way as Zephyr does.
+* Clean up the West manifest, remove obsolete projects from import list.
 * Twister can now used without explicit :program:`--board-root` to
   :program:`BRIDLE_BASE`.
 
@@ -116,6 +124,7 @@ These GitHub issues were addressed since project bootstrapping:
 * :github:`79` - [FCR] Support NXP HAL
 * :github:`78` - [FCR] Support Raspberry Pi Pico HAL
 * :github:`77` - [FCR] Support Atmel HAL
+* :github:`73` - [BUG] reduced setup time of clang-format in workflow
 * :github:`72` - [FCR] Bump to Zephyr v3.3
 * :github:`68` - [BUG] Upgrade to Sphinx 5.x
 * :github:`60` - [FCR] Bump to Zephyr v3.2
