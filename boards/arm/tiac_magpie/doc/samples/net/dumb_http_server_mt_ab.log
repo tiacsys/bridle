@@ -2,42 +2,42 @@ This is ApacheBench, Version 2.3 <$Revision: 1843412 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
 Licensed to The Apache Software Foundation, http://www.apache.org/
 
-Benchmarking 192.168.10.199 (be patient).....done
+Benchmarking 192.168.10.197 (be patient).....done
 
 
 Server Software:        
-Server Hostname:        192.168.10.199
+Server Hostname:        192.168.10.197
 Server Port:            8080
 
 Document Path:          /
 Document Length:        2084 bytes
 
 Concurrency Level:      20
-Time taken for tests:   0.210 seconds
+Time taken for tests:   0.172 seconds
 Complete requests:      100
-Failed requests:        7
-   (Connect: 0, Receive: 0, Length: 7, Exceptions: 0)
-Total transferred:      199020 bytes
-HTML transferred:       193812 bytes
-Requests per second:    475.12 [#/sec] (mean)
-Time per request:       42.094 [ms] (mean)
-Time per request:       2.105 [ms] (mean, across all concurrent requests)
-Transfer rate:          923.43 [Kbytes/sec] received
+Failed requests:        44
+   (Connect: 0, Receive: 0, Length: 44, Exceptions: 0)
+Total transferred:      122744 bytes
+HTML transferred:       119496 bytes
+Requests per second:    581.38 [#/sec] (mean)
+Time per request:       34.401 [ms] (mean)
+Time per request:       1.720 [ms] (mean, across all concurrent requests)
+Transfer rate:          696.88 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        0    1   0.2      1       2
-Processing:     1   18  51.4      4     206
-Waiting:        0    9  34.7      3     206
-Total:          2   19  51.4      5     208
+Connect:        0    6   1.9      6       9
+Processing:     3   14   6.5     19      23
+Waiting:        0    4   3.7      6      12
+Total:          3   20   7.0     24      28
 
 Percentage of the requests served within a certain time (ms)
-  50%      5
-  66%      5
-  75%      5
-  80%      5
-  90%      5
-  95%    204
-  98%    207
-  99%    208
- 100%    208 (longest request)
+  50%     24
+  66%     26
+  75%     26
+  80%     26
+  90%     26
+  95%     27
+  98%     27
+  99%     28
+ 100%     28 (longest request)

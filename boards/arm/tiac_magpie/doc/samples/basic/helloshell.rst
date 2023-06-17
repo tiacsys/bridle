@@ -49,8 +49,14 @@ prompt. All shell commands are available and would looks like:
      adc      :ADC commands
      bridle   :Bridle commands.
      clear    :Clear screen.
+     dac      :DAC shell commands
      device   :Device commands
-     devmem   :Read/write physical memory"devmem address [width [value]]
+     devmem   :Read/write physical memory
+               Usage:
+               Read memory at address with optional width:
+               devmem address [width]
+               Write memory at address with mandatory width and value:
+               devmem address <width> <value>
      flash    :Flash shell commands
      gpio     :GPIO commands
      hello    :say hello
@@ -64,6 +70,7 @@ prompt. All shell commands are available and would looks like:
      resize   :Console gets terminal screen size or assumes default in case the
                readout fails. It must be executed after each terminal width change
                to ensure correct text display.
+     retval   :Print return value of most recent command
      sensor   :Sensor commands
      shell    :Useful, not Unix-like shell commands.
 
@@ -77,17 +84,17 @@ prompt. All shell commands are available and would looks like:
    ID: 0x9e6b44aea1e2b8980c4d32a6
 
    uart:~$ kernel version
-   Zephyr version 3.3.0
+   Zephyr version 3.4.0
 
    uart:~$ bridle version
-   Bridle version 3.3.1
+   Bridle version 3.4.0
 
    uart:~$ bridle version long
-   Bridle version 3.3.1.0
+   Bridle version 3.4.0.0
 
    uart:~$ bridle info
-   Zephyr: 3.3.0
-   Bridle: 3.3.1
+   Zephyr: 3.4.0
+   Bridle: 3.4.0
 
    uart:~$ device list
    devices:
@@ -127,6 +134,7 @@ prompt. All shell commands are available and would looks like:
      requires: rcc@40023800
    - adc@40012200 (READY)
      requires: rcc@40023800
+   - flash-controller@40023c00 (READY)
    - i2c@40006000 (READY)
      requires: rcc@40023800
    - i2c@40005800 (READY)
@@ -134,7 +142,6 @@ prompt. All shell commands are available and would looks like:
    - pwm (READY)
      requires: rcc@40023800
      requires: reset-controller
-   - flash-controller@40023c00 (READY)
    - spi@40013400 (READY)
      requires: rcc@40023800
 
@@ -201,11 +208,11 @@ Simple Flash Access
 
 .. code-block:: console
 
-   uart:~$ flash read flash-controller@40023c00 12140 40
-   00012140: 00 30 74 69 61 63 5f 6d  61 67 70 69 65 00 48 65 |.0tiac_m agpie.He|
-   00012150: 6c 6c 6f 20 57 6f 72 6c  64 21 20 49 27 6d 20 54 |llo Worl d! I'm T|
-   00012160: 48 45 20 53 48 45 4c 4c  20 66 72 6f 6d 20 25 73 |HE SHELL  from %s|
-   00012170: 0a 00 69 6c 6c 65 67 61  6c 20 6f 70 74 69 6f 6e |..illega l option|
+   uart:~$ flash read flash-controller@40023c00 135a0 40
+   000135A0: 7c 3c 01 08 e8 71 01 08  00 10 00 00 00 30 74 69 ||<...q.. .....0ti|
+   000135B0: 61 63 5f 6d 61 67 70 69  65 00 48 65 6c 6c 6f 20 |ac_magpi e.Hello |
+   000135C0: 57 6f 72 6c 64 21 20 49  27 6d 20 54 48 45 20 53 |World! I 'm THE S|
+   000135D0: 48 45 4c 4c 20 66 72 6f  6d 20 25 73 0a 00 69 6c |HELL fro m %s..il|
 
 Simple I2C Operations
 =====================

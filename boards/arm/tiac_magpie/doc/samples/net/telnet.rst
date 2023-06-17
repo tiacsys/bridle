@@ -36,61 +36,60 @@ are shown on the console like this:
 
 .. code-block:: none
 
-   [00:00:00.266,000] <inf> shell_telnet: Telnet shell backend initialized
-   [00:00:00.266,000] <inf> net_config: Initializing network
-   [00:00:00.266,000] <inf> net_config: Waiting interface 1 (0x200212f8) to be up...
-   [00:00:00.551,000] <inf> net_config: Interface 1 (0x200212f8) coming up
-   [00:00:00.551,000] <inf> net_config: IPv4 address: 192.0.2.1
-   [00:00:00.551,000] <inf> net_config: Running dhcpv4 client...
-   [00:00:00.551,000] <inf> net_telnet_sample: Starting Telnet sample
-   [00:00:00.551,000] <inf> net_telnet_sample: Running dhcpv4 client...
-   [00:00:00.551,000] <inf> net_telnet_sample: IPv6 address: 2001:db8::1
-   [00:00:00.651,000] <inf> net_config: IPv6 address: 2001:db8::1
-   [00:00:00.651,000] <inf> net_config: IPv6 address: 2001:db8::1
-   [00:00:00.652,000] <inf> net_config: IPv6 address: 2001:db8::1
-   [00:00:06.568,000] <inf> net_dhcpv4: Received: 192.168.10.184
-   [00:00:06.568,000] <inf> net_telnet_sample: IPv4 address: 192.168.10.184
-   [00:00:06.568,000] <inf> net_telnet_sample: Lease time: 36000 seconds
-   [00:00:06.568,000] <inf> net_telnet_sample: Subnet: 255.255.255.0
-   [00:00:06.568,000] <inf> net_telnet_sample: Router: 192.168.10.1
-   [00:00:06.568,000] <inf> net_config: IPv4 address: 192.168.10.184
-   [00:00:06.568,000] <inf> net_config: Lease time: 36000 seconds
-   [00:00:06.568,000] <inf> net_config: Subnet: 255.255.255.0
-   [00:00:06.568,000] <inf> net_config: Router: 192.168.10.1
+   [00:00:00.011,000] <inf> shell_telnet: Telnet shell backend initialized
+   [00:00:00.011,000] <inf> net_config: Initializing network
+   [00:00:00.011,000] <inf> net_config: Waiting interface 1 (0x20021400) to be up...
+   [00:00:00.511,000] <inf> net_config: Interface 1 (0x20021400) coming up
+   [00:00:00.511,000] <inf> net_config: IPv4 address: 192.0.2.1
+   [00:00:00.511,000] <inf> net_config: Running dhcpv4 client...
+   [00:00:00.511,000] <err> net_if: Cannot join solicit node address ff02::1:ff00:1 (-12)
+   [00:00:00.511,000] <inf> net_telnet_sample: Starting Telnet sample
+   [00:00:00.511,000] <inf> net_telnet_sample: Running dhcpv4 client...
+   [00:00:00.511,000] <inf> net_telnet_sample: IPv6 address: 2001:db8::1
+   [00:00:00.612,000] <inf> net_config: IPv6 address: fd9c:33d7:ba99:0:280:e1ff:fe36:3539
+   [00:00:02.531,000] <inf> net_dhcpv4: Received: 192.168.10.197
+   [00:00:02.531,000] <inf> net_telnet_sample: IPv4 address: 192.168.10.197
+   [00:00:02.531,000] <inf> net_telnet_sample: Lease time: 28800 seconds
+   [00:00:02.531,000] <inf> net_telnet_sample: Subnet: 255.255.255.0
+   [00:00:02.531,000] <inf> net_telnet_sample: Router: 192.168.10.1
+   [00:00:02.531,000] <inf> net_config: IPv4 address: 192.168.10.197
+   [00:00:02.531,000] <inf> net_config: Lease time: 28800 seconds
+   [00:00:02.531,000] <inf> net_config: Subnet: 255.255.255.0
+   [00:00:02.531,000] <inf> net_config: Router: 192.168.10.1
 
 To verify the Zephyr application clients are running, bind the TELNET server to
 the network interface, and has received an IPv4 address by typing on Linux host:
 
 .. code-block:: console
 
-   $ ping -c3 192.168.10.184
-   PING 192.168.10.184 (192.168.10.184) 56(84) bytes of data.
-   64 bytes from 192.168.10.184: icmp_seq=1 ttl=64 time=0.303 ms
-   64 bytes from 192.168.10.184: icmp_seq=2 ttl=64 time=0.261 ms
-   64 bytes from 192.168.10.184: icmp_seq=3 ttl=64 time=0.264 ms
+   $ ping -c3 192.168.10.197
+   PING 192.168.10.197 (192.168.10.197) 56(84) bytes of data.
+   64 bytes from 192.168.10.197: icmp_seq=1 ttl=64 time=0.303 ms
+   64 bytes from 192.168.10.197: icmp_seq=2 ttl=64 time=0.261 ms
+   64 bytes from 192.168.10.197: icmp_seq=3 ttl=64 time=0.264 ms
 
-   --- 192.168.10.184 ping statistics ---
+   --- 192.168.10.197 ping statistics ---
    3 packets transmitted, 3 received, 0% packet loss, time 2052ms
    rtt min/avg/max/mdev = 0.261/0.276/0.303/0.019 ms
 
-   $ nmap 192.168.10.184
-   Starting Nmap 7.80 ( https://nmap.org ) at 2023-02-26 18:47 CET
-   Nmap scan report for dashboard.my.example.com (192.168.10.160)
-   Host is up (0.35s latency).
+   $ nmap 192.168.10.197
+   Starting Nmap 7.80 ( https://nmap.org ) at 2023-06-17 02:10 CEST
+   Nmap scan report for 192.168.10.197
+   Host is up (0.0014s latency).
    Not shown: 999 closed ports
    PORT   STATE SERVICE
    23/tcp open  telnet
 
-   Nmap done: 1 IP address (1 host up) scanned in 3.80 seconds
+   Nmap done: 1 IP address (1 host up) scanned in 2.42 seconds
 
 At this point you should be able to connect via ``telnet`` over the network.
 On your Linux host:
 
 .. code-block:: console
 
-   $ telnet 192.168.10.184
-   Trying 192.168.10.184...
-   Connected to 192.168.10.184.
+   $ telnet 192.168.10.197
+   Trying 192.168.10.197...
+   Connected to 192.168.10.197.
    Escape character is '^]'.
 
 You are now connected, and as for the UART console, you can type in your
@@ -101,10 +100,10 @@ or ``kernel version``.
 .. code-block:: console
 
    ~$ kernel version
-   Zephyr version 3.3.0
+   Zephyr version 3.4.0
 
    ~$ bridle version
-   Bridle version 3.3.1
+   Bridle version 3.4.0
 
    ~$ device list
    devices:

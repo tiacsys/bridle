@@ -52,7 +52,7 @@ Building and Running
          INFO    - 6/6 tiac_magpie               tests/drivers/counter/counter_basic_api/drivers.counter.basic_api :bgn:`PASSED` (device 324.738s)
 
          INFO    - 6 test scenarios (6 test instances) selected, 5 configurations skipped (5 by static filter, 0 at runtime).
-         INFO    - :bgn:`1 of 6` test configurations passed (100.00%), :bbk:`0` failed, :byl:`5` skipped with :bbk:`0` warnings in :bbk:`355.30 seconds`
+         INFO    - :bgn:`1 of 6` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`5` skipped with :bbk:`0` warnings in :bbk:`355.30 seconds`
          INFO    - In total 10 test cases were executed, 22 skipped on 1 out of total 580 platforms (0.17%)
          INFO    - :bgn:`1` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
