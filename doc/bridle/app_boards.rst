@@ -35,7 +35,11 @@ Also see the :ref:`zephyr:boards` section in the Zephyr documentation.
 |                   +---------------------------------------+------------------------+
 |                   | :ref:`zephyr:qemu_cortex_m3`          | ``qemu_cortex_m3``     |
 +-------------------+---------------------------------------+------------------------+
-| NUCLEO-F746ZG     | :ref:`zephyr:nucleo_f746zg_board`     | ``native_posix``       |
+| ATSAMD21G18A      | :ref:`zephyr:arduino_zero`            | ``arduino_zero``       |
+|                   +---------------------------------------+------------------------+
+|                   | :ref:`zephyr:seeeduino_xiao`          | ``seeeduino_xiao``     |
++-------------------+---------------------------------------+------------------------+
+| STM32F746ZG       | :ref:`zephyr:nucleo_f746zg_board`     | ``nucleo_f746zg``      |
 +-------------------+---------------------------------------+------------------------+
 
 
@@ -48,8 +52,39 @@ Also see the :ref:`boards` section in this documentation.
 +-------------------+---------------------------------------+------------------------+
 | Hardware platform | Board name                            | Build target           |
 +===================+=======================================+========================+
-| STM32F777         | :ref:`tiac_magpie_board`              | ``tiac_magpie``        |
+| ATSAMD21G18A      | :ref:`arduino_zero`                   | ``arduino_zero``       |
+|                   +---------------------------------------+------------------------+
+|                   | :ref:`seeed_xiao_samd21`              | ``seeed_xiao_samd21``  |
+|                   +---------------------------------------+------------------------+
+|                   | :ref:`seeeduino_lotus`                | ``seeeduino_lotus``    |
 +-------------------+---------------------------------------+------------------------+
+| STM32F777NI       | :ref:`tiac_magpie_board`              | ``tiac_magpie``        |
++-------------------+---------------------------------------+------------------------+
+
+
+Shields included in tiac-bridle
+===============================
+
+The following shields are defined in the :file:`bridle/boards/shields/` folder.
+
++---------------------+----------------------------------+-----------------------------+
+| Hardware platform   | Shield name                      | Build target                |
++=====================+==================================+=============================+
+| Common for testing  | :ref:`loopback_test_shield`      | | ``loopback_test``         |
+|                     |                                  | | ``loopback_test_tmph``    |
++---------------------+----------------------------------+-----------------------------+
+| :ref:`grove_shield` | :ref:`grove_base_shield_v1`      | ``seeed_grove_base_v1``     |
+|                     +----------------------------------+-----------------------------+
+|                     | :ref:`grove_base_shield_v2`      | ``seeed_grove_base_v2``     |
+|                     +----------------------------------+-----------------------------+
+|                     | :ref:`grove_base_shield_xiao_v1` | ``seeed_grove_xiao_v1``     |
+|                     +----------------------------------+-----------------------------+
+|                     | :ref:`grove_rpipico_shield_v1`   | ``seeed_grove_rpipico_v1``  |
+|                     +----------------------------------+-----------------------------+
+|                     | :ref:`grove_button_shield`       | ``grove_btn_d[0…31]``       |
+|                     +----------------------------------+-----------------------------+
+|                     | :ref:`x_grove_testbed_shield`    | ``x_grove_testbed``         |
++---------------------+----------------------------------+-----------------------------+
 
 
 Custom boards
