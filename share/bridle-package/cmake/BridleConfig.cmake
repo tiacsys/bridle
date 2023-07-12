@@ -41,6 +41,18 @@ macro(include_bridle_boilerplate location)
   endif()
 endmacro()
 
+# If BRIDLE_ZephyrBuildConfig is set, it means this file was include by
+# ZephyrBuildConfig instead of called via find_package directly. When
+# called directly, the Bridle package have to redirect back to the Zephyr
+# package immediately and let it include again by ZephyrBuildConfig.
+if(NOT DEFINED BRIDLE_ZephyrBuildConfig OR NOT BRIDLE_ZephyrBuildConfig)
+  list(LENGTH Bridle_FIND_COMPONENTS components_length)
+  if(components_length EQUAL 0)
+    find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})
+    return()
+  endif()
+endif()
+
 # First check to see if user has provided a Bridle base manually and
 # it is first run (cache not set). Set Bridle base to environment setting.
 # It will be empty if not set in environment.
