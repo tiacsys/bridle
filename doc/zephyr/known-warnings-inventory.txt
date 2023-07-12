@@ -1,0 +1,86 @@
+# Each line should contain the regular expression of a known Sphinx warning
+# that should be filtered out additional to the original filter set
+
+# Comming later from devicetree docset
+.*undefined label: 'devicetree_binding_index'
+.*undefined label: 'dt_vendor_zephyr'
+
+#
+# TODO: anchor ".. _Using J-Link RT1170:" multiple times used!
+#
+# reference target in: zephyr/boards/arm/vmu_rt1170/doc/index.rst:222
+# reference target in: zephyr/boards/arm/mimxrt1170_evk/doc/index.rst:322
+#
+.*duplicate label using j-link rt1170.*
+
+#
+# TODO: is ".. tab:: _`Using Segger J-Link`" realy working?
+#
+# reference target in: zephyr/doc/develop/flash_debug/probes.rst:251
+# refered to there in: zephyr/samples/bluetooth/hci_uart/README.rst:127
+#
+.*undefined label: 'using segger j-link'
+.*Duplicate explicit target name: "using segger j-link"\.
+
+#
+# TODO: is ".. _install_dependencies_ubuntu:"
+#       inside ".. group-tab::" realy working?
+#
+# reference target in: zephyr/doc/develop/getting_started/index.rst:77
+#
+.*Duplicate explicit target name: "install_dependencies_ubuntu"\.
+
+#
+# TODO: is ".. _install_dependencies_macos:"
+#       inside ".. group-tab::" realy working?
+#
+# reference target in: zephyr/doc/develop/getting_started/index.rst:113
+#
+.*Duplicate explicit target name: "install_dependencies_macos"\.
+
+#
+# TODO: is ".. _install_dependencies_windows:"
+#       inside ".. group-tab::" realy working?
+#
+# reference target in: zephyr/doc/develop/getting_started/index.rst:149
+#
+.*Duplicate explicit target name: "install_dependencies_windows"\.
+
+#
+# TODO: is ".. _ubuntu_zephyr_sdk:"
+#       inside ".. group-tab::" realy working?
+#
+# reference target in: zephyr/doc/develop/getting_started/index.rst:497
+#
+.*Duplicate explicit target name: "ubuntu_zephyr_sdk"\.
+
+#
+# TODO: is ".. _macos_zephyr_sdk:"
+#       inside ".. group-tab::" realy working?
+#
+# reference target in: zephyr/doc/develop/getting_started/index.rst:554
+#
+.*Duplicate explicit target name: "macos_zephyr_sdk"\.
+
+#
+# TODO: is ".. _windows_zephyr_sdk:"
+#       inside ".. group-tab::" realy working?
+#
+# reference target in: zephyr/doc/develop/getting_started/index.rst:603
+#
+.*Duplicate explicit target name: "windows_zephyr_sdk"\.
+
+#
+# TODO: Most 3rd-party API documentations are not sufficiently well-written
+#       for processing with Doxygen (by zephyr.doxyrunner Sphinx extension)
+#       without issuing warnings that would lead to errors.
+#
+.*following parameters of BT_AUDIO_CODEC_CFG_LC3_DATA.* not documented.*
+.*following parameters of BT_AUDIO_CODEC_CAP_LC3.* not documented.*
+.*following parameters of BT_AUDIO_CODEC_LC3_CONFIG.* not documented.*
+.*following parameter of BT_AUDIO_CODEC_LC3_CONFIG.* not documented.*
+.*following parameter of BT_BAP_LC3_BROADCAST_PRESET.* not documented.*
+.*following parameter of BT_BAP_LC3_UNICAST_PRESET.* not documented.*
+.*following parameter of BT_GATT_CHARACTERISTIC.* not documented.*
+.*argument '.*' of command @param is not found in the argument list of.*
+.*found </em> tag without matching <em>.*

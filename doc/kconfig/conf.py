@@ -8,8 +8,9 @@
 # pylint: skip-file
 #
 
-import sys
 import os
+import sys
+import sphinx
 from pathlib import Path
 
 # Paths ------------------------------------------------------------------------
@@ -67,10 +68,18 @@ finally:
     else:
         sys.exit('Could not extract Bridle version.')
 
+# Overview ---------------------------------------------------------------------
+
+logcfg = sphinx.util.logging.getLogger(__name__)
+logcfg.info(project + ' ' + release, color='yellow')
+logcfg.info('Build with tags: ' + ':'.join(map(str, tags)), color='red')
+logcfg.info('BRIDLE_BASE is: "{}"'.format(BRIDLE_BASE), color='green')
+logcfg.info('ZEPHYR_BASE is: "{}"'.format(ZEPHYR_BASE), color='green')
+
 # General ----------------------------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
-needs_sphinx = '5.0'
+needs_sphinx = '6.2'
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
@@ -83,6 +92,7 @@ extensions = [
 #   'sphinx_tabs.tabs',         # stay in conflict with 'zephyr.kconfig'
     'sphinx_copybutton',
     'notfound.extension',
+    'zephyr.warnings_filter',
     'zephyr.dtcompatible-role',
     'zephyr.kconfig',
     'zephyr.external_content',
@@ -185,6 +195,11 @@ if bridle_mapping:
 kconfig_generate_db = True
 kconfig_ext_paths = [ZEPHYR_BASE, BRIDLE_BASE]
 
+# Options for zephyr.warnings_filter -------------------------------------------
+
+warnings_filter_config = os.path.join(BRIDLE_BASE, 'doc', 'kconfig', 'known-warnings.txt')
+warnings_filter_silent = True
+
 # -- Options for notfound.extension --------------------------------------------
 
 notfound_urls_prefix = '/doc/{}/kconfig/'.format(
@@ -208,6 +223,26 @@ external_content_keep = [
 ]
 
 
+# This function will update the zephyr.warnings_filter setup in case of
+# the inventory builder to be more tolerant against missing references.
+def update_inventory_warnings_filter_config(app):
+    # Check if the value was provided by the original configuration.
+    if "warnings_filter_config" in app.config:
+        # Update the warnings_filter_config value.
+        app.config.warnings_filter_config = os.path.join(
+            BRIDLE_BASE, 'doc', 'kconfig', 'known-warnings-inventory.txt'
+        )
+
+def update_config(app):
+    # Check if a specific builder was initialized by the user.
+    if "inventory" == app.builder.name:
+        update_inventory_warnings_filter_config(app)
+
+    logcfg.info('Warnings filter from: "{}"'.format(
+        app.config.warnings_filter_config
+    ), color='yellow')
+
 def setup(app):
+    app.connect("builder-inited", update_config, 0)
     app.add_css_file('css/common.css')
     app.add_css_file('css/kconfig.css')

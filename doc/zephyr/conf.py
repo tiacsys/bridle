@@ -8,8 +8,9 @@
 # pylint: skip-file
 #
 
-import sys
 import os
+import sys
+import sphinx
 from pathlib import Path
 from sphinx.config import eval_config_file
 
@@ -85,10 +86,21 @@ finally:
     else:
         sys.exit('Could not extract Bridle version.')
 
+# Overview ---------------------------------------------------------------------
+
+logcfg = sphinx.util.logging.getLogger(__name__)
+logcfg.info(project + ' ' + release, color='yellow')
+logcfg.info('Build with tags: ' + ':'.join(map(str, tags)), color='red')
+logcfg.info('BRIDLE_BASE is: "{}"'.format(BRIDLE_BASE), color='green')
+logcfg.info('ZEPHYR_BASE is: "{}"'.format(ZEPHYR_BASE), color='green')
+logcfg.info('ZEPHYR_BUILD is: "{}"'.format(ZEPHYR_BASE), color='yellow')
+logcfg.info('BRIDLE_ZEPHYR_BUILD is: "{}"'.format(BRIDLE_ZEPHYR_BUILD),
+            color='yellow')
+
 # General ----------------------------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
-needs_sphinx = '5.0'
+needs_sphinx = '6.2'
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
@@ -211,7 +223,7 @@ kconfig_ext_paths.clear()
 # Options for zephyr.warnings_filter -------------------------------------------
 
 warnings_filter_config = os.path.join(BRIDLE_ZEPHYR_BUILD, 'known-warnings.txt')
-warnings_filter_silent = False
+warnings_filter_silent = True
 
 # -- Options for notfound.extension --------------------------------------------
 
@@ -224,9 +236,47 @@ notfound_urls_prefix = '/doc/{}/zephyr/'.format(
 # Clear external content keeping, Bridle provides its own docsets for that.
 external_content_keep.clear()
 
+# Linkcheck options ------------------------------------------------------------
+
+linkcheck_ignore = [
+    # intersphinx links
+    r'(\.\.(\\|/))+(bridle|kconfig|devicetree)',
+    # redirecting and used in release notes
+    'https://github.com/zephyrproject-rtos/zephyr',
+    # link to access local documentation
+    'http://localhost:4711/latest/index.html',
+    'http://localhost:8000/latest/index.html',
+    'http://localhost:8080/latest/index.html',
+]
+
+linkcheck_timeout = 30
+linkcheck_workers = 10
+linkcheck_anchors = True
+linkcheck_anchors_ignore = [r'page=']
+
 # pylint: enable=undefined-variable,used-before-assignment
 
 
+# This function will update the zephyr.warnings_filter setup in case of
+# the inventory builder to be more tolerant against missing references.
+def update_inventory_warnings_filter_config(app):
+    # Check if the value was provided by the original configuration.
+    if "warnings_filter_config" in app.config:
+        # Update the warnings_filter_config value.
+        app.config.warnings_filter_config = os.path.join(
+            BRIDLE_ZEPHYR_BUILD, 'known-warnings-inventory.txt'
+        )
+
+def update_config(app):
+    # Check if a specific builder was initialized by the user.
+    if "inventory" == app.builder.name:
+        update_inventory_warnings_filter_config(app)
+
+    logcfg.info('Warnings filter from: "{}"'.format(
+        app.config.warnings_filter_config
+    ), color='yellow')
+
 def setup(app):
+    app.connect("builder-inited", update_config, 0)
     app.add_css_file('css/common.css')
     app.add_css_file('css/zephyr.css')

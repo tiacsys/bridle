@@ -1,0 +1,44 @@
+# Each line should contain the regular expression of a known Sphinx warning
+# that should be filtered out
+
+# Comming later from zephyr docset
+.*term not in glossary: 'zephyr:.*'
+.*unknown document: 'zephyr:.*'
+.*undefined label: 'zephyr:.*'
+
+# Comming later from kconfig docset
+.*undefined label: 'kconfig:.*'
+
+#
+# TODO: is ".. _install_dependencies_windows:"
+#       inside ".. group-tab::" realy working?
+#
+# reference target in: bridle/doc/bridle/doc_build.rst:55
+# reference target in: bridle/doc/bridle/gs_installing.rst:58
+#
+.*Duplicate explicit target name: "install_dependencies_windows"\.
+
+#
+# TODO: is ".. _install_dependencies_linux:"
+#       inside ".. group-tab::" realy working?
+#
+# reference target in: bridle/doc/bridle/doc_build.rst:71
+# reference target in: bridle/doc/bridle/gs_installing.rst:74
+#
+.*Duplicate explicit target name: "install_dependencies_linux"\.
+
+#
+# TODO: is ".. _install_dependencies_macos:"
+#       inside ".. group-tab::" realy working?
+#
+# reference target in: bridle/doc/bridle/doc_build.rst:113
+# reference target in: bridle/doc/bridle/gs_installing.rst:99
+#
+.*Duplicate explicit target name: "install_dependencies_macos"\.
+
+# FIXME: Sphinx emits "toctree glob pattern %r didn't match any documents"
+#        instead of:
+#        .*toctree glob pattern 'applications/\*/README' didn't match any documents
+#        .*toctree glob pattern 'tests/\*/README' didn't match any documents
+#        .*toctree glob pattern '\*\*index' didn't match any documents
+.*toctree glob pattern %r didn't match any documents

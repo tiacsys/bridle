@@ -1,4 +1,4 @@
-# Copyright (c) 2021-2022 TiaC Systems
+# Copyright (c) 2021-2023 TiaC Systems
 # Copyright (c) 2019-2021 Li-Pro.Net
 # Copyright (c) 2019-2021 Nordic Semiconductor ASA
 # SPDX-License-Identifier: LicenseRef-Nordic-5-Clause
@@ -34,8 +34,8 @@ file(TO_CMAKE_PATH "${BRIDLE_BASE}" BRIDLE_BASE)
 #-------------------------------------------------------------------------------
 # Options
 
-set(SPHINXOPTS_DEFAULT "-j auto" CACHE INTERNAL "Default Sphinx Options")
-set(SPHINXOPTS_EXTRA "-W" CACHE STRING "Extra Sphinx Options (from CLI/CI)")
+set(SPHINXOPTS_DEFAULT "-j auto -W --keep-going -T" CACHE INTERNAL "Default Sphinx Options")
+set(SPHINXOPTS_EXTRA "" CACHE STRING "Extra Sphinx Options (from CLI/CI)")
 
 separate_arguments(SPHINXOPTS_DEFAULT)
 separate_arguments(SPHINXOPTS_EXTRA)
@@ -113,23 +113,24 @@ function(add_docset name sphinxopts)
 
   separate_arguments(sphinxopts)
 
-  if(NOT ${DOCSET_DODGY})
-    set(SPHINXOPTS_DECENT ${SPHINXOPTS_EXTRA})
+  if(${DOCSET_DODGY})
+    list(REMOVE_ITEM SPHINXOPTS "-W" "--keep-going")
   endif()
 
   add_doc_target(
     ${name}-inventory
     COMMAND ${CMAKE_COMMAND} -E make_directory ${DOCSET_MAKE_DIRS}
     COMMAND ${CMAKE_COMMAND} -E env ${DOCSET_ENV}
-    ${SPHINXBUILD} -v
-      -b inventory
-      -c ${DOCSET_SPHINX_DIR}
-      -d ${DOCSET_DOCTREE_DIR}
-      -w ${DOCSET_BUILD_DIR}/inventory.log
-      ${SPHINXOPTS_DEFAULT}
-      ${sphinxopts}
-      ${DOCSET_SRC_DIR}
-      ${DOCSET_HTML_DIR}
+      ${SPHINXBUILD} -v
+        -b inventory
+        -c ${DOCSET_SPHINX_DIR}
+        -d ${DOCSET_DOCTREE_DIR}
+        -w ${DOCSET_BUILD_DIR}/inventory.log
+           ${SPHINXOPTS_DEFAULT}
+           ${SPHINXOPTS_EXTRA}
+           ${sphinxopts}
+           ${DOCSET_SRC_DIR}
+           ${DOCSET_HTML_DIR}
     VERBATIM
     WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
     COMMENT "Generating documentation inventory for ${name}"
@@ -140,16 +141,16 @@ function(add_docset name sphinxopts)
     ${name}-html
     COMMAND ${CMAKE_COMMAND} -E make_directory ${DOCSET_MAKE_DIRS}
     COMMAND ${CMAKE_COMMAND} -E env ${DOCSET_ENV}
-    ${SPHINXBUILD} -v
-      -b html
-      -c ${DOCSET_SPHINX_DIR}
-      -d ${DOCSET_DOCTREE_DIR}
-      -w ${DOCSET_BUILD_DIR}/html.log
-      ${SPHINXOPTS_DEFAULT}
-      ${SPHINXOPTS_DECENT}
-      ${sphinxopts}
-      ${DOCSET_SRC_DIR}
-      ${DOCSET_HTML_DIR}
+      ${SPHINXBUILD} -v
+        -b html
+        -c ${DOCSET_SPHINX_DIR}
+        -d ${DOCSET_DOCTREE_DIR}
+        -w ${DOCSET_BUILD_DIR}/html.log
+           ${SPHINXOPTS_DEFAULT}
+           ${SPHINXOPTS_EXTRA}
+           ${sphinxopts}
+           ${DOCSET_SRC_DIR}
+           ${DOCSET_HTML_DIR}
     VERBATIM
     WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
     COMMENT "Generating HTML documentation for ${name}"
@@ -160,16 +161,16 @@ function(add_docset name sphinxopts)
     ${name}-linkcheck
     COMMAND ${CMAKE_COMMAND} -E make_directory ${DOCSET_MAKE_DIRS}
     COMMAND ${CMAKE_COMMAND} -E env ${DOCSET_ENV}
-    ${SPHINXBUILD} -v
-      -b linkcheck
-      -c ${DOCSET_SPHINX_DIR}
-      -d ${DOCSET_DOCTREE_DIR}
-      -w ${DOCSET_BUILD_DIR}/linkcheck.log
-      ${SPHINXOPTS_DEFAULT}
-      ${SPHINXOPTS_DECENT}
-      ${sphinxopts}
-      ${DOCSET_SRC_DIR}
-      ${DOCSET_BUILD_DIR}
+      ${SPHINXBUILD} -v
+        -b linkcheck
+        -c ${DOCSET_SPHINX_DIR}
+        -d ${DOCSET_DOCTREE_DIR}
+        -w ${DOCSET_BUILD_DIR}/linkcheck.log
+           ${SPHINXOPTS_DEFAULT}
+           ${SPHINXOPTS_EXTRA}
+           ${sphinxopts}
+           ${DOCSET_SRC_DIR}
+           ${DOCSET_HTML_DIR}
     VERBATIM
     WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
     COMMENT "Running documentation linkcheck for ${name}"
@@ -243,6 +244,9 @@ function(add_docset name sphinxopts)
         -DPROJECT_VERSION="${DOCSET_VERSION}"
         -DPROJECT_BRIEF="${DOCSET_BRIEF}"
         -P ${BRIDLE_BASE}/doc/update_cfgfile.cmake
+      WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
+      COMMENT "Update doxyfile in ${DOCSET_DOXY_DIR}"
+      USES_TERMINAL
     )
   endif()
 
@@ -292,25 +296,53 @@ string(REPLACE ";" "\\;" zephyr_kws_files_escaped "${zephyr_kws_files}")
 
 add_custom_command(
   OUTPUT ${ZEPHYR_BINARY_DIR}/known-warnings.txt
+  DEPENDS
+    ${zephyr_kws_files}
   COMMAND ${CMAKE_COMMAND}
     -DIN_FILES="${zephyr_kws_files_escaped}"
     -DOUT_FILE=${ZEPHYR_BINARY_DIR}/known-warnings.txt
     -P ${BRIDLE_BASE}/doc/update_appends.cmake
+  WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
+  COMMENT "Update known-warnings.txt in ${ZEPHYR_BINARY_DIR}"
+  USES_TERMINAL
+)
+
+set(zephyr_kwsi_files
+    ${ZEPHYR_BASE}/doc/known-warnings.txt
+    ${BRIDLE_BASE}/doc/zephyr/known-warnings-inventory.txt
+)
+string(REPLACE ";" "\\;" zephyr_kwsi_files_escaped "${zephyr_kwsi_files}")
+
+add_custom_command(
+  OUTPUT ${ZEPHYR_BINARY_DIR}/known-warnings-inventory.txt
   DEPENDS
-    ${zephyr_kws_files}
+    ${zephyr_kwsi_files}
+  COMMAND ${CMAKE_COMMAND}
+    -DIN_FILES="${zephyr_kwsi_files_escaped}"
+    -DOUT_FILE=${ZEPHYR_BINARY_DIR}/known-warnings-inventory.txt
+    -P ${BRIDLE_BASE}/doc/update_appends.cmake
+  WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
+  COMMENT "Update known-warnings-inventory.txt in ${ZEPHYR_BINARY_DIR}"
+  USES_TERMINAL
 )
 
 add_custom_target(
   zephyr-known-warnings
   DEPENDS
     ${ZEPHYR_BINARY_DIR}/known-warnings.txt
+    ${ZEPHYR_BINARY_DIR}/known-warnings-inventory.txt
+  COMMENT "Generating known warnings lists for zephyr"
 )
 
 add_docset(zephyr "" API)
+
 add_dependencies(zephyr-inventory zephyr-known-warnings)
-add_dependencies(zephyr-inventory-all zephyr-known-warnings)
-add_dependencies(zephyr-html zephyr-known-warnings kconfig-inventory)
-add_dependencies(zephyr-html-all zephyr-known-warnings kconfig-inventory-all)
+add_dependencies(zephyr-html zephyr-known-warnings)
+add_dependencies(zephyr-html-all
+    zephyr-known-warnings
+    devicetree-inventory
+    kconfig-inventory
+)
 
 #-------------------------------------------------------------------------------
 # docset: devicetree
@@ -339,12 +371,13 @@ add_custom_target(
   devicetree-content
   COMMAND ${CMAKE_COMMAND} -E make_directory ${DTS_BINDINGS_RST_OUT}
   COMMAND ${CMAKE_COMMAND} -E env
-  PYTHONPATH=${ZEPHYR_BASE}/scripts/dts/python-devicetree/src${SEP}$ENV{PYTHONPATH}
-  ZEPHYR_BASE=${ZEPHYR_BASE}
-  GEN_DEVICETREE_REST_ZEPHYR_DOCSET=${GEN_DEVICETREE_REST_ZEPHYR_DOCSET}
-  ${PYTHON_EXECUTABLE} ${GEN_DEVICETREE_REST_SCRIPT}
-    --vendor-prefixes ${ZEPHYR_BASE}/dts/bindings/vendor-prefixes.txt
-    ${DTS_ROOT_ARGS} ${DTS_BINDINGS_RST_OUT}
+    PYTHONPATH=${ZEPHYR_BASE}/scripts/dts/python-devicetree/src${SEP}$ENV{PYTHONPATH}
+    ZEPHYR_BASE=${ZEPHYR_BASE}
+    GEN_DEVICETREE_REST_ZEPHYR_DOCSET=${GEN_DEVICETREE_REST_ZEPHYR_DOCSET}
+    ${PYTHON_EXECUTABLE}
+      ${GEN_DEVICETREE_REST_SCRIPT}
+        --vendor-prefixes ${ZEPHYR_BASE}/dts/bindings/vendor-prefixes.txt
+                          ${DTS_ROOT_ARGS} ${DTS_BINDINGS_RST_OUT}
   VERBATIM
   WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
   COMMENT "Running gen_devicetree_rest.py ${DTS_BINDINGS_RST_OUT}"
@@ -354,17 +387,20 @@ add_custom_target(
 set_property(DIRECTORY APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS ${GEN_DEVICETREE_REST_SCRIPT})
 
 add_docset(devicetree "")
+
 add_dependencies(devicetree-inventory devicetree-content)
-add_dependencies(devicetree-inventory-all devicetree-content)
-add_dependencies(devicetree-html devicetree-content zephyr-inventory)
-add_dependencies(devicetree-html-all devicetree-content zephyr-inventory-all)
+add_dependencies(devicetree-html devicetree-content)
+add_dependencies(devicetree-html-all
+    devicetree-content
+    zephyr-inventory
+)
 
 #-------------------------------------------------------------------------------
 # docset: kconfig
 
 add_docset(kconfig "")
-add_dependencies(kconfig-html zephyr-inventory)
-add_dependencies(kconfig-html-all zephyr-inventory-all)
+
+add_dependencies(kconfig-html-all zephyr-inventory)
 
 #-------------------------------------------------------------------------------
 # docset: bridle
@@ -391,34 +427,41 @@ set(BRIDLE_DOC_DIR ${BRIDLE_BASE}/doc/bridle)
 
 add_custom_command(
   OUTPUT ${BRIDLE_BINARY_DIR}/src/versions.txt
+  DEPENDS
+    ${BRIDLE_DOC_DIR}/versions.txt.in
+    ${tools_version_files}
+    ${pip_requirements_files}
   COMMAND ${CMAKE_COMMAND}
     -DTOOLS_VERSION_FILES="${tools_files_escaped}"
     -DPIP_REQUIREMENTS_FILES="${pip_files_escaped}"
     -DVERSION_IN=${BRIDLE_DOC_DIR}/versions.txt.in
     -DVERSION_OUT=${BRIDLE_BINARY_DIR}/src/versions.txt
     -P ${BRIDLE_BASE}/doc/update_versions.cmake
-  DEPENDS
-    ${BRIDLE_DOC_DIR}/versions.txt.in
-    ${tools_version_files}
-    ${pip_requirements_files}
+  WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
+  COMMENT "Update versions.txt in ${BRIDLE_BINARY_DIR}"
+  USES_TERMINAL
 )
 
 add_custom_target(
   bridle-versions
   DEPENDS
     ${BRIDLE_BINARY_DIR}/src/versions.txt
+  COMMENT "Generating version lists for bridle"
 )
 
 add_docset(bridle "-j 1" API)  # no parallel reading, because of sphinx-csv-filter
+
 add_dependencies(bridle-inventory bridle-versions)
-add_dependencies(bridle-inventory-all bridle-versions)
-add_dependencies(bridle-html bridle-versions kconfig-inventory
-                 devicetree-inventory zephyr-inventory)
-add_dependencies(bridle-html-all bridle-versions kconfig-inventory-all
-                 devicetree-inventory-all zephyr-inventory-all)
+add_dependencies(bridle-html bridle-versions)
+add_dependencies(bridle-html-all
+    bridle-versions
+    devicetree-inventory
+    kconfig-inventory
+    zephyr-inventory
+)
 
 #-------------------------------------------------------------------------------
-# Global targets
+# Deployment targets
 
 add_custom_target(
   copy-extra-content
@@ -428,6 +471,10 @@ add_custom_target(
     ${CMAKE_CURRENT_LIST_DIR}/_docroot/index.html
     ${BRIDLE_BASE}/doc/versions.json
     ${HTML_DIR}
+  VERBATIM
+  WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
+  COMMENT "Copy HTML extra content"
+  USES_TERMINAL
 )
 
 set_target_properties(
@@ -440,24 +487,32 @@ add_custom_target(
   merge-search-indexes
   COMMAND
     ${PYTHON_EXECUTABLE}
-    ${BRIDLE_BASE}/doc/_scripts/merge_search_indexes.py
-    -b ${CMAKE_BINARY_DIR}
+      ${BRIDLE_BASE}/doc/_scripts/merge_search_indexes.py
+        -b ${CMAKE_BINARY_DIR}
   VERBATIM
   WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
-  COMMENT "Merging HTML search indexes..."
+  COMMENT "Merging HTML search indexes"
   USES_TERMINAL
 )
 
 add_dependencies(merge-search-indexes
     bridle-html-all
     zephyr-html-all
+)
+
+#-------------------------------------------------------------------------------
+# Global targets
+
+add_dependencies(zephyr-html-all
     kconfig-html-all
     devicetree-html-all
 )
 
-add_dependencies(zephyr-html-all kconfig-html-all devicetree-html-all)
-add_dependencies(bridle-html-all zephyr-html-all
-                 kconfig-html-all devicetree-html-all)
+add_dependencies(bridle-html-all
+    zephyr-html-all
+    kconfig-html-all
+    devicetree-html-all
+)
 
 add_custom_target(build-all ALL)
 add_dependencies(build-all
@@ -466,9 +521,11 @@ add_dependencies(build-all
     bridle-html-all
     zephyr-html-all
     kconfig-html-all
+    devicetree-html-all
 )
 
 add_custom_target(linkcheck)
 add_dependencies(linkcheck
     bridle-linkcheck
+    zephyr-linkcheck
 )

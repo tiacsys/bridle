@@ -8,8 +8,9 @@
 # pylint: skip-file
 #
 
-import sys
 import os
+import sys
+import sphinx
 from pathlib import Path
 
 from sphinx.cmd.build import get_parser
@@ -71,10 +72,19 @@ finally:
     else:
         sys.exit('Could not extract Bridle version.')
 
+# Overview ---------------------------------------------------------------------
+
+logcfg = sphinx.util.logging.getLogger(__name__)
+logcfg.info(project + ' ' + release, color='yellow')
+logcfg.info('Build with tags: ' + ':'.join(map(str, tags)), color='red')
+logcfg.info('BRIDLE_BASE is: "{}"'.format(BRIDLE_BASE), color='green')
+logcfg.info('BRIDLE_BUILD is: "{}"'.format(BRIDLE_BUILD), color='yellow')
+logcfg.info('ZEPHYR_BASE is: "{}"'.format(ZEPHYR_BASE), color='green')
+
 # General ----------------------------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
-needs_sphinx = '5.0'
+needs_sphinx = '6.2'
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
@@ -275,7 +285,7 @@ tsn_include_mapping = {
 # Options for zephyr.warnings_filter -------------------------------------------
 
 warnings_filter_config = os.path.join(BRIDLE_BASE, 'doc', 'bridle', 'known-warnings.txt')
-warnings_filter_silent = False
+warnings_filter_silent = True
 
 # -- Options for notfound.extension --------------------------------------------
 
@@ -343,10 +353,16 @@ extlinks = {
 }
 
 linkcheck_ignore = [
+    # well know broken links
+    r'.*seeedstudio\.com.*Grove_Shield_for_Seeeduino_XIAO_v1\.0\.zip',
+    # any valid (local) ip number
+    r'.*((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).*',
     # intersphinx links
     r'(\.\.(\\|/))+(zephyr|kconfig|devicetree)',
     # redirecting and used in release notes
     'https://github.com/tiacsys/bridle',
+    # used in introductional module revision table, but useless
+    'https://github.com/tiacsys/zephyr/releases',
     # link to access local documentation
     'http://localhost:4711/latest/index.html',
     'http://localhost:8000/latest/index.html',
@@ -356,10 +372,39 @@ linkcheck_ignore = [
 linkcheck_timeout = 30
 linkcheck_workers = 10
 linkcheck_anchors = True
-linkcheck_anchors_ignore = [r'page=']
+linkcheck_anchors_ignore = [r'page=', r'L[0-9]?']
 
+# CA certification and TLS verification for internal HTTP library (requests) ---
+
+tls_verify = True
+tls_cacerts = {
+    'asf.microchip.com': os.path.join(
+        BRIDLE_BASE, 'doc', '_cacerts', 'asf.microchip.com.pem'
+    ),
+}
+
+
+# This function will update the zephyr.warnings_filter setup in case of
+# the inventory builder to be more tolerant against missing references.
+def update_inventory_warnings_filter_config(app):
+    # Check if the value was provided by the original configuration.
+    if "warnings_filter_config" in app.config:
+        # Update the warnings_filter_config value.
+        app.config.warnings_filter_config = os.path.join(
+            BRIDLE_BASE, 'doc', 'bridle', 'known-warnings-inventory.txt'
+        )
+
+def update_config(app):
+    # Check if a specific builder was initialized by the user.
+    if "inventory" == app.builder.name:
+        update_inventory_warnings_filter_config(app)
+
+    logcfg.info('Warnings filter from: "{}"'.format(
+        app.config.warnings_filter_config
+    ), color='yellow')
 
 def setup(app):
+    app.connect("builder-inited", update_config, 0)
     app.add_css_file('css/common.css')
     app.add_css_file('css/bridle.css')
     app.add_css_file('css/colors.css')

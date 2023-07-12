@@ -1,16 +1,10 @@
 # Each line should contain the regular expression of a known Sphinx warning
 # that should be filtered out additional to the original filter set
-.*undefined label.*devicetree_binding_.*
-.*undefined label.*dtbinding_.*
-.*undefined label.*dt_.*
-.*Duplicate explicit target name.*"install_dependencies_ubuntu"\.
-.*Duplicate explicit target name.*"install_dependencies_macos"\.
-.*Duplicate explicit target name.*"install_dependencies_windows"\.
+
 #
-# TODO: is ".. tab:: _`Using Segger J-Link`" realy working?
+# TODO: anchor ".. _Using J-Link RT1170:" multiple times used!
 #
-# reference target in: zephyr/doc/guides/flash_debug/probes.rst:222
-# refered to there in: zephyr/samples/bluetooth/hci_uart/README.rst:127
+# reference target in: zephyr/boards/arm/vmu_rt1170/doc/index.rst:222
+# reference target in: zephyr/boards/arm/mimxrt1170_evk/doc/index.rst:322
 #
-.*undefined label.*using segger j-link
-.*Duplicate explicit target name.*"using segger j-link"\.
+.*duplicate label using j-link rt1170.*
