@@ -1,4 +1,4 @@
-# Copyright (c) 2021-2022 TiaC Systems
+# Copyright (c) 2021-2023 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 # This file provides Bridle Config Package functionality.
@@ -9,7 +9,7 @@
 # - Support automatic Bridle installation lookup through
 #   the use of find_package(Bridle).
 
-macro(include_boilerplate location)
+macro(include_bridle_boilerplate location)
   set(Bridle_DIR ${BRIDLE_BASE}/share/bridle-package/cmake CACHE PATH
       "The directory containing a CMake configuration file for Bridle." FORCE
   )
@@ -51,12 +51,12 @@ if((NOT DEFINED BRIDLE_BASE) AND (DEFINED ENV_BRIDLE_BASE))
   # must also work.
   get_filename_component(BRIDLE_BASE ${ENV_BRIDLE_BASE} ABSOLUTE)
   set(BRIDLE_BASE ${BRIDLE_BASE} CACHE PATH "Bridle base")
-  include_boilerplate("Bridle base")
+  include_bridle_boilerplate("Bridle base")
   return()
 endif()
 
-if (DEFINED BRIDLE_BASE)
-  include_boilerplate("Bridle base (cached)")
+if(DEFINED BRIDLE_BASE)
+  include_bridle_boilerplate("Bridle base (cached)")
   return()
 endif()
 
@@ -78,11 +78,11 @@ get_filename_component(CURRENT_WORKSPACE_DIR
 
 string(FIND "${CMAKE_CURRENT_SOURCE_DIR}"
             "${CURRENT_BRIDLE_DIR}/" COMMON_INDEX)
-if (COMMON_INDEX EQUAL 0)
+if(COMMON_INDEX EQUAL 0)
   # Project is in Bridle repository.
   # We are in Bridle repository.
   set(BRIDLE_BASE ${CURRENT_BRIDLE_DIR} CACHE PATH "Bridle base")
-  include_boilerplate("Bridle repository")
+  include_bridle_boilerplate("Bridle repository")
   return()
 endif()
 
@@ -90,13 +90,11 @@ if(IS_INCLUDED)
   # A higher level did the checking and included us and as we are not in Bridle
   # repository (checked above) then we must be in Bridle workspace.
   set(BRIDLE_BASE ${CURRENT_BRIDLE_DIR} CACHE PATH "Bridle base")
-  include_boilerplate("Bridle workspace")
-endif()
-
-if(NOT IS_INCLUDED)
+  include_bridle_boilerplate("Bridle workspace")
+else()
   string(FIND "${CMAKE_CURRENT_SOURCE_DIR}"
               "${CURRENT_WORKSPACE_DIR}/" COMMON_INDEX)
-  if (COMMON_INDEX EQUAL 0)
+  if(COMMON_INDEX EQUAL 0)
     # Project is in Bridle workspace. This means this Bridle is likely the
     # correct one, but there could be an alternative installed along-side.
     # Thus, check if there is an even better candidate. This check works the
@@ -114,7 +112,7 @@ if(NOT IS_INCLUDED)
 
     # We are the best candidate, so let's include boiler plate.
     set(BRIDLE_BASE ${CURRENT_BRIDLE_DIR} CACHE PATH "Bridle base")
-    include_boilerplate("Bridle workspace")
+    include_bridle_boilerplate("Bridle workspace")
     return()
   endif()
 
@@ -127,5 +125,5 @@ if(NOT IS_INCLUDED)
   # Previous find_package would have cleared Bridle_FOUND variable, thus set
   # it again.
   set(BRIDLE_BASE ${CURRENT_BRIDLE_DIR} CACHE PATH "Bridle base")
-  include_boilerplate("Freestanding")
+  include_bridle_boilerplate("Freestanding")
 endif()
