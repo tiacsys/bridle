@@ -102,6 +102,11 @@ get_filename_component(CURRENT_WORKSPACE_DIR
 # this Bridle's repository current version.
 set(BRIDLE_BASE ${CURRENT_BRIDLE_DIR})
 
+# Temporary set local Zephyr base to allow using Zephyr's cmake extensions.
+if(NOT DEFINED ZEPHYR_BASE)
+  set(ZEPHYR_BASE ${CURRENT_WORKSPACE_DIR}/zephyr)
+endif()
+
 # Tell bridle/version.cmake to not print as printing version for all Bridle
 # installations being tested will lead to confusion on which is being used.
 set(NO_PRINT_VERSION True)
