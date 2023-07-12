@@ -6,4 +6,5 @@ if(NOT DEFINED ZEPHYR_BASE)
 endif()
 
 # The ZephyrBuildConfig is simply including Bridle package.
+set(BRIDLE_ZephyrBuildConfig True)
 include(${CMAKE_CURRENT_LIST_DIR}/../../bridle-package/cmake/BridleConfig.cmake)
