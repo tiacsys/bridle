@@ -1,4 +1,4 @@
-# Copyright (c) 2022 TiaC Systems
+# Copyright (c) 2023 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 # The purpose of this file is to provide search mechanism for locating
@@ -29,7 +29,7 @@ function(set_bridle_dir bridle_candidate)
 endfunction()
 
 # This macro returns a list of parent folders to use for later searches.
-macro(get_search_paths START_PATH SEARCH_PATHS PREFERENCE_LIST)
+macro(get_bridle_search_paths START_PATH SEARCH_PATHS PREFERENCE_LIST)
   get_filename_component(SEARCH_PATH ${START_PATH} DIRECTORY)
   while(NOT (SEARCH_PATH STREQUAL SEARCH_PATH_PREV))
     foreach(preference ${PREFERENCE_LIST})
@@ -74,8 +74,8 @@ macro(check_bridle_package)
   endif()
 
   if(CHECK_BRIDLE_PACKAGE_SEARCH_PARENTS)
-    get_search_paths(${CMAKE_CURRENT_SOURCE_DIR} SEARCH_PATHS
-                     "${CHECK_BRIDLE_PACKAGE_CANDIDATES_PREFERENCE_LIST}")
+    get_bridle_search_paths(${CMAKE_CURRENT_SOURCE_DIR} SEARCH_PATHS
+                            "${CHECK_BRIDLE_PACKAGE_CANDIDATES_PREFERENCE_LIST}")
     set(SEARCH_SETTINGS PATHS ${SEARCH_PATHS} NO_DEFAULT_PATH)
   endif()
 

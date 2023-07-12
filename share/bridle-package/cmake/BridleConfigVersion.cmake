@@ -1,4 +1,4 @@
-# Copyright (c) 2021-2022 TiaC Systems
+# Copyright (c) 2021-2023 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 # This file provides Bridle Config Package version information.
@@ -59,7 +59,7 @@ if((DEFINED BRIDLE_BASE) OR (DEFINED ENV_BRIDLE_BASE))
   # BRIDLE_BASE was set in cache from earlier run or in environment (first run),
   # meaning the package version must be ignored and the Bridle pointed to by
   # BRIDLE_BASE is to be used regardless of version.
-  if (${BRIDLE_BASE}/share/bridle-package/cmake STREQUAL ${CMAKE_CURRENT_LIST_DIR})
+  if(${BRIDLE_BASE}/share/bridle-package/cmake STREQUAL ${CMAKE_CURRENT_LIST_DIR})
     # We are the Bridle to be used
 
     set(NO_PRINT_VERSION True)
@@ -81,7 +81,7 @@ if((DEFINED BRIDLE_BASE) OR (DEFINED ENV_BRIDLE_BASE))
         set(PACKAGE_VERSION "ignored (BRIDLE_BASE is set)")
       endif()
     endif()
-  elseif ((NOT IS_INCLUDED) AND (DEFINED BRIDLE_BASE))
+  elseif((NOT IS_INCLUDED) AND (DEFINED BRIDLE_BASE))
     check_bridle_package(BRIDLE_BASE ${BRIDLE_BASE} VERSION_CHECK)
   else()
     # User has pointed to a different Bridle installation, so don't use this version
@@ -109,10 +109,13 @@ include(${BRIDLE_BASE}/cmake/modules/bridle/version.cmake)
 # Bridle uses project version, but CMake package uses PACKAGE_VERSION
 set(PACKAGE_VERSION ${PROJECT_VERSION})
 set(BRIDLE_BASE)
+if(DEFINED ZEPHYR_BASE)
+  unset(ZEPHYR_BASE)
+endif()
 
 # Do we share common index, if so, this is the correct version to check.
 string(FIND "${CMAKE_CURRENT_SOURCE_DIR}" "${CURRENT_BRIDLE_DIR}/" COMMON_INDEX)
-if (COMMON_INDEX EQUAL 0)
+if(COMMON_INDEX EQUAL 0)
   # Project is a Bridle repository app.
   check_bridle_version()
   return()
@@ -122,7 +125,7 @@ if(NOT IS_INCLUDED)
   # Only do this if we are an installed CMake Config package and checking
   # for workspace candidates.
   string(FIND "${CMAKE_CURRENT_SOURCE_DIR}" "${CURRENT_WORKSPACE_DIR}/" COMMON_INDEX)
-  if (COMMON_INDEX EQUAL 0)
+  if(COMMON_INDEX EQUAL 0)
     # Project is a Bridle workspace app. This means this Bridle is likely
     # the correct one, but there could be an alternative installed along-side.
     # Thus, check if there is an even better candidate.
@@ -150,4 +153,3 @@ endif()
 # the app is built as a Bridle Freestanding application. Let's do basic
 # CMake version checking.
 check_bridle_version()
-
