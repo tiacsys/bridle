@@ -79,9 +79,9 @@ macro(check_bridle_package)
     set(SEARCH_SETTINGS PATHS ${SEARCH_PATHS} NO_DEFAULT_PATH)
   endif()
 
-  # Searching for version zero means there will be no match, but we obtain
-  # a list of all potential Bridle candidates in the tree to consider.
-  find_package(Bridle 0.0.0 EXACT QUIET ${SEARCH_SETTINGS})
+  ### OFF ### # Searching for version zero means there will be no match, but we obtain
+  ### OFF ### # a list of all potential Bridle candidates in the tree to consider.
+  ### OFF ### find_package(Bridle 0.0.0 EXACT QUIET ${SEARCH_SETTINGS})
 
   # The find package will also find ourself when searching using installed
   # candidates. So avoid re-including unless NO_DEFAULT_PATH is set.
