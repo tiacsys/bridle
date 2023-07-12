@@ -168,7 +168,7 @@ a way with direct calls to the necessary configuration and build tools.
       .. zephyr-app-commands::
          :app: bridle/doc
          :build-dir: bridle-doc
-         :goals: zephyr-doxygen build-doxygen build-all
+         :goals: zephyr-doxygen bridle-doxygen build-all
          :host-os: unix
          :tool: cmake
          :generator: ninja
