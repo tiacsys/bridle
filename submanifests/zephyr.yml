@@ -54,6 +54,7 @@ manifest:
           - hal_espressif
           - hal_nordic
           - hal_nxp
+          - hal_renesas
           - hal_rpi_pico
           - hal_st
           - hal_stm32
