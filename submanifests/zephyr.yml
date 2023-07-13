@@ -52,6 +52,7 @@ manifest:
           - hal_altera
           - hal_atmel
           - hal_espressif
+          - hal_microchip
           - hal_nordic
           - hal_nuvoton
           - hal_nxp
