@@ -62,6 +62,7 @@ manifest:
           - hal_rpi_pico
           - hal_st
           - hal_stm32
+          - hal_telink
           - hal_xtensa
           - libmetal
           - liblc3
