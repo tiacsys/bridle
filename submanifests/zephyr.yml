@@ -74,6 +74,7 @@ manifest:
           - loramac-node
           - lvgl
           - mbedtls
+          - mcuboot
           - mipi-sys-t
           - net-tools
           - open-amp
