@@ -84,6 +84,7 @@ manifest:
           - segger
           - tf-m-tests
           - tinycrypt
+          - trusted-firmware-m
       # hook up for Bridle zephyr_trampoline.py
       userdata:
         west-commands-path: scripts/west_commands
