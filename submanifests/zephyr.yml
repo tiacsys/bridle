@@ -56,6 +56,7 @@ manifest:
           - hal_nordic
           - hal_nuvoton
           - hal_nxp
+          - hal_openisa
           - hal_quicklogic
           - hal_renesas
           - hal_rpi_pico
