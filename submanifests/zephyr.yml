@@ -82,6 +82,7 @@ manifest:
           - picolibc
           - psa-arch-tests
           - segger
+          - tf-m-tests
           - tinycrypt
       # hook up for Bridle zephyr_trampoline.py
       userdata:
