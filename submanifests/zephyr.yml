@@ -80,6 +80,7 @@ manifest:
           - open-amp
           - openthread
           - picolibc
+          - psa-arch-tests
           - segger
           - tinycrypt
       # hook up for Bridle zephyr_trampoline.py
