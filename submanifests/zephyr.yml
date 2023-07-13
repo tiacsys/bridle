@@ -63,6 +63,7 @@ manifest:
           - hal_st
           - hal_stm32
           - hal_telink
+          - hal_ti
           - hal_xtensa
           - libmetal
           - liblc3
