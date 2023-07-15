@@ -5,16 +5,9 @@ common:
   filter: dt_compat_enabled("seeed,grove-laced-if") and
           dt_compat_enabled("seeed,grove-connector")
   platform_exclude:
-    cy8ckit_062_ble_m0 cy8ckit_062_ble_m0@0.0.0 cy8ckit_062_ble_m0@1.0.0
-    cy8ckit_062_ble_m4 cy8ckit_062_ble_m4@0.0.0
-    da1469x_dk_pro
-    frdm_kw41z
-    hifive1 hifive1_revb
-    lpcxpresso55s16
-    nrf9160dk_nrf9160_ns
-    pan1781_evb pan1782_evb
-    rv32m1_vega_ri5cy rv32m1_vega_zero_riscy
-    stm32h735g_disco stm32mp157c_dk2
+    # stm32h735g_disco.yaml has "arduino_gpio", but
+    # there is no "arduino-header-r3" node in DTS
+    stm32h735g_disco
 tests:
   grove.base.v2:
     depends_on: arduino_gpio
@@ -33,8 +26,6 @@ tests:
             dt_nodelabel_enabled("grove_a3_header") and
             dt_nodelabel_enabled("grove_uart_header") and
             dt_nodelabel_enabled("grove_i2c_header")
-    platform_exclude:
-      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v2
   grove.base.v1:
     depends_on: arduino_gpio
@@ -61,8 +52,6 @@ tests:
             dt_nodelabel_enabled("grove_uart_header") and
             dt_nodelabel_enabled("grove_i2c_header") and
             dt_nodelabel_enabled("grove_spi_header")
-    platform_exclude:
-      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v1
   grove.xiao.v1:
     filter: dt_nodelabel_enabled("grove_laced_if_v1") and
@@ -77,6 +66,7 @@ tests:
             dt_nodelabel_enabled("grove_i2c_header")
     platform_allow:
       seeed_xiao_samd21
+      seeed_xiao_samd21@usbcons
       seeeduino_xiao
     extra_args: SHIELD=seeed_grove_xiao_v1
   grove.rpipico.v1:
@@ -118,8 +108,12 @@ tests:
       nucleo_f413zh
       nucleo_f767zi
       mimxrt1010_evk
-      mimxrt1060_evk mimxrt1060_evkb
+      mimxrt1060_evk
+      mimxrt1060_evkb
       arduino_zero
+      arduino_zero@usbcons
+      seeeduino_lotus
+      seeeduino_lotus@usbcons
     extra_args: SHIELD=seeed_grove_base_v2
   grove.base.v1.arduino:
     # May be skipped if the board has at least one of the Ardunio standard
@@ -140,8 +134,12 @@ tests:
       nucleo_f413zh
       nucleo_f767zi
       mimxrt1010_evk
-      mimxrt1060_evk mimxrt1060_evkb
+      mimxrt1060_evk
+      mimxrt1060_evkb
       arduino_zero
+      arduino_zero@usbcons
+      seeeduino_lotus
+      seeeduino_lotus@usbcons
     extra_args: SHIELD=seeed_grove_base_v1
   grove.xiao.v1.xiao:
     # May be skipped if the board has at least one of the XIAO standard
@@ -157,6 +155,7 @@ tests:
             dt_nodelabel_enabled("grove_spi")
     platform_allow:
       seeed_xiao_samd21
+      seeed_xiao_samd21@usbcons
       seeeduino_xiao
     extra_args: SHIELD=seeed_grove_xiao_v1
   grove.rpipico.v1.rpipico:
@@ -184,8 +183,12 @@ tests:
       nucleo_f413zh
       nucleo_f767zi
       mimxrt1010_evk
-      mimxrt1060_evk mimxrt1060_evkb
+      mimxrt1060_evk
+      mimxrt1060_evkb
       arduino_zero
+      arduino_zero@usbcons
+      seeeduino_lotus
+      seeeduino_lotus@usbcons
     extra_args: SHIELD=seeed_grove_base_v2
   grove_pwms.base.v1:
     depends_on: arduino_gpio
@@ -197,14 +200,19 @@ tests:
       nucleo_f413zh
       nucleo_f767zi
       mimxrt1010_evk
-      mimxrt1060_evk mimxrt1060_evkb
+      mimxrt1060_evk
+      mimxrt1060_evkb
       arduino_zero
+      arduino_zero@usbcons
+      seeeduino_lotus
+      seeeduino_lotus@usbcons
     extra_args: SHIELD=seeed_grove_base_v1
   grove_pwms.xiao.v1:
     filter: dt_nodelabel_enabled("grove_laced_if_v1") and
             dt_nodelabel_enabled("grove_pwms")
     platform_allow:
       seeed_xiao_samd21
+      seeed_xiao_samd21@usbcons
       seeeduino_xiao
     extra_args: SHIELD=seeed_grove_xiao_v1
   grove_pwms.rpipico.v1:
