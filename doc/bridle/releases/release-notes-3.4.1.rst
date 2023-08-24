@@ -1,7 +1,7 @@
 .. _bridle_release_notes_341:
 
-|BRIDLE| 3.4.1 Release Notes (Working draft)
-############################################
+|BRIDLE| 3.4.1 Release Notes
+############################
 
 This project demonstrate the integration of |TIAC| support in open
 source projects, like the Zephyr RTOS, with libraries and source code
@@ -11,7 +11,8 @@ product development.
 Highlights
 **********
 
-* :brd:`NOT YET, tbd.`
+* |BRIDLE| as CMake package for freestanding projects.
+* West manifest harmonized with upstream.
 
 .. note:: See the changelog and readme files in the component repositories
    for a detailed description of changes.
@@ -42,11 +43,21 @@ For more details, see: :ref:`repos_and_revs`.
        | hal_altera
        | hal_atmel
        | hal_espressif
+       | hal_gigadevice
+       | hal_infineon
+       | hal_microchip
        | hal_nordic
+       | hal_nuvoton
        | hal_nxp
+       | hal_openisa
+       | hal_quicklogic
+       | hal_renesas
        | hal_rpi_pico
+       | hal_silabs
        | hal_st
        | hal_stm32
+       | hal_telink
+       | hal_ti
        | hal_xtensa
        | libmetal
        | liblc3
@@ -54,21 +65,24 @@ For more details, see: :ref:`repos_and_revs`.
        | loramac-node
        | lvgl
        | mbedtls
+       | mcuboot
        | mipi-sys-t
        | net-tools
        | open-amp
        | openthread
        | picolibc
+       | psa-arch-tests
        | segger
+       | tf-m-tests
        | tinycrypt
+       | trusted-firmware-a
+       | trusted-firmware-m
      - | tiacsys/v3.4-branch
        | (v3.4-branch)
      - v3.4.1
 
 Supported boards
 ****************
-
-:brd:`NOT YET, tbd.`
 
 * Arduino/Genuino Zero
 * Seeed Studio XIAO SAMD21 (Seeeduino XIAO)
@@ -78,8 +92,6 @@ Supported boards
 Supported shields
 *****************
 
-:brd:`NOT YET, tbd.`
-
 * Seeed Studio Grove Interconnect Shields
 * Grove Button Shields
 * Grove LED Shields
@@ -87,11 +99,14 @@ Supported shields
 Change log
 **********
 
-:brd:`NOT YET, tbd.`
-
-* tbd.
-* tbd.
-* tbd.
+* |BRIDLE| can now properly find in freestanding CMake projects with
+  :code:`find_package(Bridle …)`. The CMake package configuration now
+  falls back to Zephyr immediately and let it include again by Zephyr
+  build configuration.
+* All tests and samples use now this mechanic to find |BRIDLE|.
+* The Seeed Studio Grove Interconnect Shields now supports the Seeeduino
+  Lotus Cortex-M0+ board too, although the board already provides its own
+  Grove connectors beside the Arduino header.
 
 The following sections provide detailed lists of changes by component.
 
@@ -102,16 +117,18 @@ Build Infrastructure
 
 Take over the new build principles from Zephyr:
 
-:brd:`NOT YET, tbd.`
+* Use West submanifest for upstream Zephyr and add multiple more projects:
 
-* tbd.
-* tbd.
-* tbd.
+  * HAL modules for: Renesas, Nuvoton, QuickLogic, Microchip, OpenISA,
+    Telink, Texas Instruments, Infineon, SiLabs, GigaDevice
+  * secure MCU boot module
+  * Arm PSA tests module
+  * TF-M tests module
+  * TF-M module
+  * TF-A module
 
 Documentation
 =============
-
-:brd:`NOT YET, tbd.`
 
 1. Update all output messages in documentation to be in sync with the upcoming
    Bridle version v3.4.1, based on Zephyr v3.4 (samples and tests).
@@ -121,8 +138,13 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`116` - [BUG] Grove Shields DTS Binding test suites fail for seeeduino_lotus@usbcons
+* :github:`115` - [BUG] Bridle Common (core) Testing fails since v3.4
+* :github:`113` - [FER] Use sub-manifests for 3rd party projects
+* :github:`112` - [FCR] Support Renesas HAL
 * :github:`106` - [FER] Snippets
 * :github:`105` - [FCR] Bump to Zephyr v3.4
+* :github:`104` - [BUG] Bridle CMake Package not usable in Freestanding mode
 * :github:`96` - [HW] Grove Interconnect Shields for Seeeduino XIAO
 * :github:`90` - [HW] Grove Interconnect Shields for Arduino/Genuino Zero
 * :github:`87` - [HW] Seeeduino Lotus Cortex-M0+ board support
