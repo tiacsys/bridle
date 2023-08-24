@@ -9,7 +9,8 @@ tests:
     depends_on: arduino_gpio
     platform_allow:
       mimxrt1010_evk
-      mimxrt1060_evk mimxrt1060_evkb
+      mimxrt1060_evk
+      mimxrt1060_evkb
     extra_args:
       SHIELD=seeed_grove_base_v2;grove_btn_d4;grove_led_d6;x_grove_testbed
   grove.base.v2.x_grove_testbed.pwm:
@@ -29,16 +30,19 @@ tests:
   grove.arduino.zero.x_grove_testbed.pwm:
     platform_allow:
       arduino_zero
+      arduino_zero@usbcons
     extra_args:
       SHIELD=seeed_grove_base_v2;grove_btn_d7;grove_led_d6;grove_pwm_led_d6;x_grove_testbed
   grove.seeeduino.xiao.x_grove_testbed.pwm:
     platform_allow:
       seeed_xiao_samd21
+      seeed_xiao_samd21@usbcons
       seeeduino_xiao
     extra_args:
       SHIELD=seeed_grove_xiao_v1;grove_btn_d0;grove_led_d1;grove_pwm_led_d1;x_grove_testbed
   grove.seeeduino.lotus.x_grove_testbed.pwm:
     platform_allow:
       seeeduino_lotus
+      seeeduino_lotus@usbcons
     extra_args:
       SHIELD=grove_btn_d7;grove_led_d6;grove_pwm_led_d6;x_grove_testbed
