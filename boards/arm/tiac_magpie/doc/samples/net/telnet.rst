@@ -103,7 +103,7 @@ or ``kernel version``.
    Zephyr version 3.4.0
 
    ~$ bridle version
-   Bridle version 3.4.0
+   Bridle version 3.4.1
 
    ~$ device list
    devices:

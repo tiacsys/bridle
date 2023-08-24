@@ -405,14 +405,14 @@ Hello Shell with USB-CDC/ACM Console
          Zephyr version 3.4.0
 
          uart:~$ bridle version
-         Bridle version 3.4.0
+         Bridle version 3.4.1
 
          uart:~$ bridle version long
-         Bridle version 3.4.0.0
+         Bridle version 3.4.1.0
 
          uart:~$ bridle info
          Zephyr: 3.4.0
-         Bridle: 3.4.0
+         Bridle: 3.4.1
 
          uart:~$ device list
          devices:

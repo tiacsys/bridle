@@ -152,7 +152,7 @@ Sample Output
    Zephyr version 3.4.0
 
    uart:~$ bridle version
-   Bridle version 3.4.0
+   Bridle version 3.4.1
 
    uart:~$ kernel uptime
    Uptime: 254707293 ms

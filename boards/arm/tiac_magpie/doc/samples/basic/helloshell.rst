@@ -87,14 +87,14 @@ prompt. All shell commands are available and would looks like:
    Zephyr version 3.4.0
 
    uart:~$ bridle version
-   Bridle version 3.4.0
+   Bridle version 3.4.1
 
    uart:~$ bridle version long
-   Bridle version 3.4.0.0
+   Bridle version 3.4.1.0
 
    uart:~$ bridle info
    Zephyr: 3.4.0
-   Bridle: 3.4.0
+   Bridle: 3.4.1
 
    uart:~$ device list
    devices:
