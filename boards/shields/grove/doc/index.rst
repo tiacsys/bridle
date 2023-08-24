@@ -679,6 +679,21 @@ not be complete.
 
             .. include:: /boards/shields/grove/doc/grove_pwms-arduino_zero.rsti
 
+         .. group-tab:: ``seeeduino_lotus``
+
+            This is based on the Bridle board :ref:`seeeduino_lotus` and its
+            :dtcompatible:`arduino-header-r3`.
+
+            .. note::
+               This board basically provides only some channels from a few timers as
+               PWM to the outside. The SoC's ability to route channels to multiple
+               pads may result in channels being connected in parallel. The second
+               table below shows the possibilities which channels can really
+               be used independently at the associated signals of the
+               |Laced Grove Signal Interface|.
+
+            .. include:: /boards/shields/grove/doc/grove_pwms-seeeduino_lotus.rsti
+
          .. group-tab:: ``seeed_xiao_samd21``
 
             This is based on the Bridle board :ref:`seeed_xiao_samd21` and its
