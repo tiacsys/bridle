@@ -84,17 +84,17 @@ prompt. All shell commands are available and would looks like:
    ID: 0x9e6b44aea1e2b8980c4d32a6
 
    uart:~$ kernel version
-   Zephyr version 3.4.0
+   Zephyr version 3.4.99
 
    uart:~$ bridle version
-   Bridle version 3.4.0
+   Bridle version 3.4.99
 
    uart:~$ bridle version long
-   Bridle version 3.4.0.0
+   Bridle version 3.4.99.0
 
    uart:~$ bridle info
-   Zephyr: 3.4.0
-   Bridle: 3.4.0
+   Zephyr: 3.4.99
+   Bridle: 3.4.99
 
    uart:~$ device list
    devices:

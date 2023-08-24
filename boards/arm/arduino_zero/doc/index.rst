@@ -401,17 +401,17 @@ Hello Shell with USB-CDC/ACM Console
          ID: 0xde73d01ae52511ed9cf503ee1d54a301
 
          uart:~$ kernel version
-         Zephyr version 3.4.0
+         Zephyr version 3.4.99
 
          uart:~$ bridle version
-         Bridle version 3.4.0
+         Bridle version 3.4.99
 
          uart:~$ bridle version long
-         Bridle version 3.4.0.0
+         Bridle version 3.4.99.0
 
          uart:~$ bridle info
-         Zephyr: 3.4.0
-         Bridle: 3.4.0
+         Zephyr: 3.4.99
+         Bridle: 3.4.99
 
          uart:~$ device list
          devices:

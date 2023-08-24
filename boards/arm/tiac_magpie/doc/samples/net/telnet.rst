@@ -100,10 +100,10 @@ or ``kernel version``.
 .. code-block:: console
 
    ~$ kernel version
-   Zephyr version 3.4.0
+   Zephyr version 3.4.99
 
    ~$ bridle version
-   Bridle version 3.4.0
+   Bridle version 3.4.99
 
    ~$ device list
    devices:
