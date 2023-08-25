@@ -4,8 +4,15 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+/**
+ * @file
+ * @brief Bridle Version API implementation.
+ */
+
 #include <zephyr/types.h>
 #include "bridle/version.h" /* generated at compile time */
+
+/** @cond INTERNAL_HIDDEN */
 
 /**
  * @brief Return the Bridle version of the present build
@@ -19,3 +26,5 @@ uint32_t sys_bridle_version_get(void)
 {
 	return BRIDLEVERSION;
 }
+
+/** @endcond */

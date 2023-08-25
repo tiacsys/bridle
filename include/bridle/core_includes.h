@@ -7,7 +7,6 @@
 
 /**
  * @file
- *
  * @brief Header files included by bridle/core.h.
  */
 

@@ -7,7 +7,6 @@
 
 /**
  * @file
- *
  * @brief Public Bridle APIs.
  */
 
@@ -22,8 +21,9 @@ extern "C" {
 #endif
 
 /**
- * @brief Bridle APIs
+ * @brief    Bridle APIs
  * @defgroup bridle_apis Bridle APIs
+ * @since    2.5
  * @{
  * @}
  */

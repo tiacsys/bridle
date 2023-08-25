@@ -144,10 +144,10 @@ extensions = [
 #   'zephyr.manifest_projects_table',
     'zephyr.external_content',
     'zephyr.domain',
-#   'zephyr.api_overview',
     'sphinx_copybutton',
     'sphinx_togglebutton',
     'notfound.extension',
+    'bridle.api_overview',
     'bridle.link-roles',
     'bridle.inventory_builder',
     'bridle.warnings_filter',
@@ -387,6 +387,11 @@ doxyrunner_projects = {
 # Options for zephyr.doxybridge ------------------------------------------------
 
 doxybridge_projects = {'bridle': doxyrunner_projects['bridle']['outdir']}
+
+# Options for bridle.api_overview ----------------------------------------------
+
+api_overview_doxygen_out_dir = str(doxyrunner_projects["bridle"]["outdir"])
+api_overview_base_url = "https://github.com/tiacsys/bridle"
 
 # Options for tsn_include ------------------------------------------------------
 

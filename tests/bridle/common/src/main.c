@@ -12,10 +12,9 @@
 
 /**
  * @defgroup bridle_common_tests Common Tests
- * @ingroup all_tests
- * @{
- * @}
- *
+ * @ingroup  all_tests
+ * @since    3.7
+ * @version  2.0.0
  */
 
 /**

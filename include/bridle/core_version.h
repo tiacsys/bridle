@@ -1,10 +1,13 @@
-/* bridle version support */
-
 /*
  * Copyright (c) 2021-2023 TiaC Systems
  * Copyright (c) 2015 Wind River Systems, Inc.
  *
  * SPDX-License-Identifier: Apache-2.0
+ */
+
+/**
+ * @file
+ * @brief Public Bridle Version API.
  */
 
 #ifndef BRIDLE_INCLUDE_BRIDLE_VERSION_H_
@@ -15,9 +18,11 @@ extern "C" {
 #endif
 
 /**
- * @defgroup version_apis Version APIs
- * @ingroup bridle_apis
- * @{
+ * @brief    Bridle version access API
+ * @defgroup version_apis Version API
+ * @ingroup  bridle_apis
+ * @since    2.5
+ * @version  1.0.0
  *
  * The bridle version has been converted from a string to a four-byte
  * quantity that is divided into two parts.
@@ -30,6 +35,8 @@ extern "C" {
  * Each of these elements must therefore be in the range 0 to 255, inclusive.
  *
  * Part 2: The least significant byte is reserved for tweak mark use.
+ *
+ * @{
  */
 #define SYS_BRIDLE_VER_MAJOR(ver) (((ver) >> 24) & 0xFF)
 #define SYS_BRIDLE_VER_MINOR(ver) (((ver) >> 16) & 0xFF)

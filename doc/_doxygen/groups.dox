@@ -1,7 +1,15 @@
 /**
 
-@defgroup subsys Subsystems
-@brief Bridle Subsystems
+@brief Bridle Drivers
+@since 2.5
+
+In the context of the Zephyr Project and thus the Bridle Project, a device
+driver is a software component that enables the Zephyr Real-Time Operating
+System (RTOS) to interact with a specific piece of hardware. It acts as a
+bridge between the application code and the physical device, providing a
+consistent interface for applications to access and control the hardware.
+
+@defgroup io_interfaces Drivers
 @{
 @}
 
@@ -9,8 +17,196 @@
 
 /**
 
-@defgroup services Services
+@brief Multi Function Device Interfaces
+@since 3.6
+
+Multi-function devices are external peripherals or on-SoC hardware blocks
+that expose functionalities that are handled by separate drivers. PMICs
+are a typical example, they often have e.g. an RTC, LED controller in
+addition to the regulators.
+
+In the Zephyr Project and thus in the Bridle Project, an MFD driver is a
+type of device driver that handles devices with multiple functionalities,
+like a single chip that can perform different tasks, such as managing power,
+controlling GPIOs, or acting as an ADC. These drivers provide a unified
+interface for interacting with the device's various features.
+
+@defgroup mfd_interfaces MFD Interfaces
+@ingroup io_interfaces
+@{
+@}
+
+*/
+
+/**
+
+@brief General Purpose Input/Output Controller
+@since 3.4
+
+A General Purpose Input/Output (GPIO) device is a pin on a microcontroller
+or other integrated circuit that can be configured to act as either an input
+or an output, and can be controlled by software. These pins are not tied to
+a specific function but can be programmed to perform various tasks, making
+them versatile for controlling external components or reading input signals.
+
+@defgroup io_gpio GPIO Controller
+@ingroup io_interfaces
+@{
+@}
+
+*/
+
+/**
+
+@brief Inter-Integrated Circuit Controller and Targets
+@since 3.7
+
+An I²C (Inter-Integrated Circuit) device is a component that uses the
+I²C communication protocol to interact with other devices on an I²C bus.
+Devices on the bus can operate in two roles: as a @a "controller" that
+initiates transactions and controls the clock, or as a @a "target" that
+responds to transaction commands. A I²C controller on a given SoC will
+generally support the controller role, and some will also support the
+target mode. Zephyr has API for both roles.
+
+@defgroup io_i2c I²C Controller and Targets
+@ingroup io_interfaces
+@{
+@}
+
+*/
+
+/**
+
+@brief Serial Communication
+@since 3.7
+
+A serial device is a piece of hardware that communicates by sending
+and receiving data one bit at a time, rather than multiple bits
+simultaneously, over a serial port. This means data is transmitted
+sequentially, like writing letters one after another, rather than
+all at once.
+
+In the Zephyr Project and thus in the Bridle Project, a serial driver
+is a piece of software that allows the operating system to communicate
+with a serial interface, like a UART. It acts as a bridge between the
+application using the serial interface and the underlying hardware.
+
+@defgroup io_serial Serial Communication
+@ingroup io_io_interfaces
+@{
+@}
+
+*/
+
+/**
+
+@brief Displays
+@since 3.6
+
+A display device is an output device that visually presents information,
+typically in the form of images, text, or graphics. These devices are
+essential for displaying the output of computers, televisions, and other
+electronic systems. Common examples include LCDs, LEDs, OLEDs, and
+7-segment displays.
+
+A Zephyr and thus a Bridle display driver is a piece of software that
+allows a Zephyr-based system to interact with a specific display hardware,
+providing a common interface for drawing graphics and controlling display
+attributes, according to LVGL documentation. These drivers handle the
+low-level details of communicating with the display, such as sending data
+to the display controller and managing the display's configuration.
+
+@defgroup io_display Displays
+@ingroup io_interfaces
+@{
+@}
+
+*/
+
+/**
+
+@brief Sensors
+@since 3.6
+
+A sensor is a device, module, machine, or physical subsystem that detects
+events or changes in its environment and sends the information to other
+electronics. It is often defined as a device that receives and responds
+to a signal or stimulus. The stimulus is the quantity, property, or
+condition that is sensed and converted into electrical signal.
+
+@defgroup io_sensors Sensors
+@ingroup io_interfaces
+@{
+@}
+
+*/
+
+/**
+
+@brief Inertial Measurement Unit (IMU)
+@since 4.1
+
+Electronic device that measures and reports a body's specific force,
+angular rate, and sometimes the orientation of the body, using a
+combination of accelerometers, gyroscopes, and sometimes magnetometers.
+
+@defgroup io_sensors_imu Inertial Measurement Unit
+@ingroup io_sensors
+@{
+@}
+
+*/
+
+/**
+
+@brief Bridle Subsystems
+@since 2.5
+
+In Zephyr and thus in Bridle, a subsystem is a modular, logically
+distinct part of the operating system that handles specific
+functionalities or provides services. Subsystems can include
+components such as networking, file systems, device driver classes,
+power management, and communication protocols, among others. Each
+subsystem is designed to be modular and can be configured, customized,
+and extended to meet the requirements of different embedded applications.
+
+@defgroup subsys Subsystems
+@{
+@}
+
+*/
+
+/**
+
 @brief Bridle Services
+@since 2.5
+
+In the context of the Bridle Project, a @a "Bridle service" refers to
+a specific module or functionality provided by the Bridle Distribution
+that performs a particular task. These services are designed to be
+used by applications running on Bridle-powered embedded devices,
+offering a wide range of capabilities.
+
+@defgroup services Services
+@{
+@}
+
+*/
+
+/**
+
+@brief Bridle Tests
+@since 2.5
+
+The Zephyr Project provides a testing framework called @a "Ztest" that
+developers can use during development for both integration and unit
+testing. In the context of the Zephyr Project and thus the Bridle
+Project, @a "Twister" refers to the test runner tool that automates
+testing of Zephyr or Bridle powered applications on either embedded
+devices, emulators or simulators.
+
+@defgroup all_tests Tests
 @{
 @}
 
