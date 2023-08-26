@@ -56,7 +56,7 @@ else()
 endif()
 
 # This will determine and set the required Sphinx version.
-file(STRINGS ${ZEPHYR_BASE}/scripts/requirements-doc.txt
+file(STRINGS ${ZEPHYR_BASE}/doc/requirements.txt
      sphinx_string LIMIT_COUNT 1 REGEX "^sphinx[~,<,>]?="
 )
 string(REGEX MATCH "=([^ \t]*)[^ \t]*,[<,>]([^ \t]*)"
@@ -73,7 +73,7 @@ if(NOT CMAKE_MATCH_1)
     else()
       message(FATAL_ERROR "Sphinx: malformatted PIP version string as input?\n"
           "Got: '${sphinx_string}'\n"
-          "Check: ${ZEPHYR_BASE}/scripts/requirements-doc.txt"
+          "Check: ${ZEPHYR_BASE}/doc/requirements.txt"
       )
     endif()
   endif()
@@ -87,7 +87,7 @@ else()
   else()
     message(FATAL_ERROR "Sphinx: malformatted PIP version string as input?\n"
         "Got: '${sphinx_string}'\n"
-        "Check: ${ZEPHYR_BASE}/scripts/requirements-doc.txt"
+        "Check: ${ZEPHYR_BASE}/doc/requirements.txt"
     )
   endif()
 endif()

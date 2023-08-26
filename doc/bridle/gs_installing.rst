@@ -540,6 +540,13 @@ Use the following commands to install the requirements for each repository.
            pip3 install --upgrade --requirement zephyr\\scripts\\requirements.txt
            pip3 install --upgrade --requirement bridle\\scripts\\requirements.txt
 
+      Optional, when you plan to generate the documentation:
+
+        .. parsed-literal::
+           :class: highlight
+
+           pip3 install --upgrade --requirement zephyr\\doc\\requirements.txt
+
    .. group-tab:: Linux
 
       Open a terminal window in the ``workspace`` folder and
@@ -551,6 +558,13 @@ Use the following commands to install the requirements for each repository.
            pip3 install --upgrade --requirement zephyr/scripts/requirements.txt
            pip3 install --upgrade --requirement bridle/scripts/requirements.txt
 
+      Optional, when you plan to generate the documentation:
+
+        .. parsed-literal::
+           :class: highlight
+
+           pip3 install --upgrade --requirement zephyr/doc/requirements.txt
+
    .. group-tab:: macOS
 
       Open a terminal window in the ``workspace`` folder and
@@ -561,6 +575,13 @@ Use the following commands to install the requirements for each repository.
 
            pip3 install --upgrade --requirement zephyr/scripts/requirements.txt
            pip3 install --upgrade --requirement bridle/scripts/requirements.txt
+
+      Optional, when you plan to generate the documentation:
+
+        .. parsed-literal::
+           :class: highlight
+
+           pip3 install --upgrade --requirement zephyr/doc/requirements.txt
 
 .. _installing_tbd:
 

@@ -86,7 +86,7 @@ jobs:
       - name: Install documentation dependencies
         working-directory: workspace
         run: |
-          pip3 install --upgrade --requirement zephyr/scripts/requirements-doc.txt
+          pip3 install --upgrade --requirement zephyr/doc/requirements.txt
           pip3 install --upgrade --requirement bridle/scripts/requirements-doc.txt
 
       - name: Build documentation
