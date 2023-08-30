@@ -25,9 +25,10 @@ Requirements
 The board hardware must have a push button connected via a GPIO pin. These are
 called "User buttons" on many of Zephyr's :ref:`boards`.
 
-The button must be configured using the ``sw0`` :ref:`devicetree <dt-guide>`
-alias, usually in the :ref:`BOARD.dts file <devicetree-in-out-files>`. You will
-see this error if you try to build this sample for an unsupported board:
+The button must be configured using the ``sw0``
+:ref:`devicetree <zephyr:dt-guide>` alias, usually in the
+:ref:`BOARD.dts file <zephyr:devicetree-in-out-files>`. You will see this error
+if you try to build this sample for an unsupported board:
 
 .. code-block:: none
 
@@ -83,15 +84,17 @@ both an ``sw0`` and an ``led0`` alias.
    };
 
 As shown, the ``sw0`` devicetree alias must point to a child node of a node
-with a "gpio-keys" :ref:`compatible <dt-important-props>`, and the ``led0``
-alias must point to a child node of one with a "gpio-leds" :ref:`compatible <dt-important-props>`.
+with a "gpio-keys" :ref:`compatible <zephyr:dt-important-props>`, and the
+``led0`` alias must point to a child node of one with a "gpio-leds"
+:ref:`compatible <zephyr:dt-important-props>`.
 
 The above situation is for the common case where:
 
 - ``gpio0`` is an example node label referring to a GPIO controller
 -  ``PIN`` should be a pin number, like ``8`` or ``0``
-- ``FLAGS`` should be a logical OR of :ref:`GPIO configuration flags <gpio_api>`
-  meant to apply to the button, such as ``(GPIO_PULL_UP | GPIO_ACTIVE_LOW)``
+- ``FLAGS`` should be a logical OR of
+  :ref:`GPIO configuration flags <zephyr:gpio_api>` meant to apply to the
+  button, such as ``(GPIO_PULL_UP | GPIO_ACTIVE_LOW)``
 
 This assumes the common case, where ``#gpio-cells = <2>`` in the ``gpio0``
 node, and that the GPIO controller's devicetree binding names those two cells

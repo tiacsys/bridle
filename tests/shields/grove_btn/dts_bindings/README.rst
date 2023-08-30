@@ -2,8 +2,8 @@ Grove Button Shields DTS Binding
 ################################
 
 This integration test verifies the DTS binding of the :ref:`grove_button_shield`
-against all possible :term:`boards <board>` and shields that are supported by
-:ref:`Zephyr <zephyr:boards>` and :ref:`Bridle <boards>`.
+against all possible :term:`boards <zephyr:board>` and shields that are supported
+by :ref:`Zephyr <zephyr:boards>` and :ref:`Bridle <boards>`.
 
 Depending on the number of compatible boards, this test suite will take several
 hours to complete::

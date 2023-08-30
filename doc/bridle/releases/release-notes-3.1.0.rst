@@ -90,7 +90,8 @@ Take over the new build principles from Zephyr:
 Documentation
 =============
 
-1. Renamed references to :ref:`kconfig` in the :ref:`tiac_magpie_board` page.
+1. Renamed references to :ref:`zephyr:kconfig` in the
+   :ref:`tiac_magpie_board` page.
 #. Update all documented output messages.
 
 Issue Related Items

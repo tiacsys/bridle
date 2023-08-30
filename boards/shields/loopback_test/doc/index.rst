@@ -26,7 +26,8 @@ This shield requires a board which provides a configuration that allows:
 .. note::
    Sometimes boards declare standard headers like |Arduino UNO R3| but not
    define all connections.  Make sure that the board you are using have all
-   definitions to avoid build errors (see :ref:`shields` for more details).
+   definitions to avoid build errors (see :ref:`zephyr:shields` for more
+   details).
 
 Supported variations
 ====================

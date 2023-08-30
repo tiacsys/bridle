@@ -339,12 +339,12 @@ and is an optional second serial port for applications.
 USB Device Port
 ===============
 
-The SAMD21 MCU has a USB device port that can be used to communicate with a
-host PC. See the :ref:`usb-samples` sample applications for more, such as the
-:ref:`usb_cdc-acm` sample which sets up a virtual serial port that echos
-characters back to the host PC. As an alternative to the default Zephyr
-console on serial port the special board revision ``usbcons`` can be used
-to enable :ref:`usb_device_cdc_acm` and switch the console to USB::
+The SAMD21 MCU has a (native) USB device port that can be used to communicate
+with a host PC. See the :ref:`zephyr:usb-samples` sample applications for more,
+such as the :ref:`zephyr:usb_cdc-acm` sample which sets up a virtual serial port
+that echos characters back to the host PC. As an alternative to the default
+Zephyr console on serial port the special board revision ``usbcons`` can be used
+to enable :ref:`zephyr:usb_device_cdc_acm` and switch the console to USB::
 
    USB device idVendor=2886, idProduct=8026, bcdDevice= 3.03
    USB device strings: Mfr=1, Product=2, SerialNumber=3
@@ -390,7 +390,7 @@ or direct programming and debugging.
 Flashing
 ========
 
-#. Build the Zephyr kernel and the :ref:`hello_world` sample application:
+#. Build the Zephyr kernel and the :ref:`zephyr:hello_world` sample application:
 
    .. zephyr-app-commands::
       :app: zephyr/samples/hello_world
@@ -401,7 +401,7 @@ Flashing
 #. Connect the Lotus Cortex-M0+ to your host computer using USB.
 
 #. Connect a 3.3 V USB to serial adapter to the board and to the
-   host.  See the `Serial Port`_ section above for the board's pin
+   host. See the `Serial Port`_ section above for the board's pin
    connections.
 
 #. Run your favorite terminal program to listen for output. Under Linux the

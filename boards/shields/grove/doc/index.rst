@@ -609,22 +609,22 @@ not be complete.
 
          .. group-tab:: ``nucleo_f303re``
 
-            This is based on the Zephyr board :ref:`nucleo_f303re_board` and its
-            :dtcompatible:`arduino-header-r3`.
+            This is based on the Zephyr board :ref:`zephyr:nucleo_f303re_board`
+            and its :dtcompatible:`arduino-header-r3`.
 
             .. include:: /boards/shields/grove/doc/grove_pwms-nucleo_f303re.rsti
 
          .. group-tab:: ``nucleo_f401re``
 
-            This is based on the Zephyr board :ref:`nucleo_f401re_board` and its
-            :dtcompatible:`arduino-header-r3`.
+            This is based on the Zephyr board :ref:`zephyr:nucleo_f401re_board`
+            and its :dtcompatible:`arduino-header-r3`.
 
             .. include:: /boards/shields/grove/doc/grove_pwms-nucleo_f401re.rsti
 
          .. group-tab:: ``nucleo_f767zi``
 
-            This is based on the Zephyr board :ref:`nucleo_f767zi_board` and its
-            :dtcompatible:`arduino-header-r3`.
+            This is based on the Zephyr board :ref:`zephyr:nucleo_f767zi_board`
+            and its :dtcompatible:`arduino-header-r3`.
 
             .. include:: /boards/shields/grove/doc/grove_pwms-nucleo_f767zi.rsti
 
@@ -634,10 +634,11 @@ not be complete.
 
          .. group-tab:: ``mimxrt1010_evk``
 
-            This is based on the Zephyr board :ref:`mimxrt1010_evk` and its
-            :dtcompatible:`arduino-header-r3`.
+            This is based on the Zephyr board :ref:`zephyr:mimxrt1010_evk`
+            and its :dtcompatible:`arduino-header-r3`.
 
             .. note::
+
                This board shares many signals on this |Laced Grove Signal Interface|
                with other on-board function units, e.g. audio codec and sensors or
                the SPI Flash (when populated). Check your current board configuration
@@ -648,10 +649,11 @@ not be complete.
 
          .. group-tab:: ``mimxrt1060_evk(b)``
 
-            This is based on the Zephyr board :ref:`mimxrt1060_evk` and its
-            :dtcompatible:`arduino-header-r3`.
+            This is based on the Zephyr board :ref:`zephyr:mimxrt1060_evk`
+            and its :dtcompatible:`arduino-header-r3`.
 
             .. note::
+
                This board shares many signals on this |Laced Grove Signal Interface|
                with other on-board function units, e.g. camera and display or the
                M.2 and TF/SD-Card connectors. Check your current board configuration
@@ -666,10 +668,11 @@ not be complete.
 
          .. group-tab:: ``arduino_zero``
 
-            This is based on the Bridle board :ref:`arduino_zero` and its
-            :dtcompatible:`arduino-header-r3`.
+            This is based on the Bridle board :ref:`arduino_zero`
+            and its :dtcompatible:`arduino-header-r3`.
 
             .. note::
+
                This board basically provides all channels from all timers as PWM to
                the outside. However, the SoC's ability to route channels to multiple
                pads may result in channels being connected in parallel. The second
@@ -681,10 +684,11 @@ not be complete.
 
          .. group-tab:: ``seeeduino_lotus``
 
-            This is based on the Bridle board :ref:`seeeduino_lotus` and its
-            :dtcompatible:`arduino-header-r3`.
+            This is based on the Bridle board :ref:`seeeduino_lotus`
+            and its :dtcompatible:`arduino-header-r3`.
 
             .. note::
+
                This board basically provides only some channels from a few timers as
                PWM to the outside. The SoC's ability to route channels to multiple
                pads may result in channels being connected in parallel. The second
@@ -696,10 +700,11 @@ not be complete.
 
          .. group-tab:: ``seeed_xiao_samd21``
 
-            This is based on the Bridle board :ref:`seeed_xiao_samd21` and its
-            :dtcompatible:`seeed,xiao-gpio`.
+            This is based on the Bridle board :ref:`seeed_xiao_samd21`
+            and its :dtcompatible:`seeed,xiao-gpio`.
 
             .. note::
+
                This board basically provides only some channels from a few timers as
                PWM to the outside. The SoC's ability to route channels to multiple
                pads may result in channels being connected in parallel. The second
@@ -711,10 +716,11 @@ not be complete.
 
          .. group-tab:: ``seeeduino_xiao``
 
-            This is based on the Zephyr board :ref:`seeeduino_xiao` and its
-            :dtcompatible:`seeed,xiao-gpio`.
+            This is based on the Zephyr board :ref:`zephyr:seeeduino_xiao`
+            and its :dtcompatible:`seeed,xiao-gpio`.
 
             .. note::
+
                This board basically provides only some channels from a few timers as
                PWM to the outside. The SoC's ability to route channels to multiple
                pads may result in channels being connected in parallel. The second
@@ -730,10 +736,11 @@ not be complete.
 
          .. group-tab:: ``rpi_pico``
 
-            This is based on the Zephyr board :ref:`rpi_pico` and its
-            :dtcompatible:`raspberrypi,pico-header-r3`.
+            This is based on the Zephyr board :ref:`zephyr:rpi_pico`
+            and its :dtcompatible:`raspberrypi,pico-header-r3`.
 
             .. note::
+
                This board basically provides all channels from nearly all PWMs to
                the outside. However, the SoC's ability to route channels to multiple
                pads may result in channels being connected in parallel. The second

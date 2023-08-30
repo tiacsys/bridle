@@ -8,7 +8,7 @@ Arduino/Genuino Zero
 
    This board description is a copy from Zephyr with identical name and will
    be used for further development, improvement and preparation of changes for
-   Zephyr within Bridle.  However, the original board description still lives
+   Zephyr within Bridle. However, the original board description still lives
    within the Zephyr namespace under the exactly same board name:
    :ref:`zephyr:arduino_zero`.
 
@@ -97,7 +97,7 @@ Use the native USB device port with CDC-ACM as Zephyr console and for the shell.
 Connections and IOs
 ===================
 
-The `Arduino store`_ has detailed information about board connections.  Download
+The `Arduino store`_ has detailed information about board connections. Download
 the `Arduino Zero Schematic`_ or `Arduino Zero Design Data`_ for more detail.
 There is also an `Arduino Zero Pinout Diagram`_.
 
@@ -105,17 +105,17 @@ System Clock
 ============
 
 The SAMD21 MCU is configured to use the 32.768 kHz external crystal with the
-on-chip PLL generating the 48 MHz system clock.  The internal APB and GCLK unit
+on-chip PLL generating the 48 MHz system clock. The internal APB and GCLK unit
 are set up in the same way as the upstream Arduino libraries.
 
 GPIO (PWM) Ports
 ================
 
 The SAMD21 MCU has 2 GPIO ports, 3 PWM able Timer/Capture-Counter (TCC) and
-2 simple Timer/Counter (TC).  On the Arduino Zero, TCC2 channel 1 is
+2 simple Timer/Counter (TC). On the Arduino Zero, TCC2 channel 1 is
 available on first user LED (L), all other user LEDs can be controlled
-as GPIO.  Only if :kconfig:option:`CONFIG_PWM_SAM0_TCC` is enabled then the
-first user LED (L) is driven by TCC2 instead of by GPIO.  All channels of
+as GPIO. Only if :kconfig:option:`CONFIG_PWM_SAM0_TCC` is enabled then the
+first user LED (L) is driven by TCC2 instead of by GPIO. All channels of
 TCC0 and TCC1 are available on the |Arduino UNO R3| header.
 
 ADC/DAC Ports
@@ -136,25 +136,24 @@ SPI Port
    :scale: 50%
    :alt: Arduino Zero SPI on 6 pin ICSP connector
 
-The SAMD21 MCU has 6 SERCOM based SPIs.  On the Arduino Zero, SERCOM4 is
-available on the 6 pin ICSP connector at the edge of the board.  To the
+The SAMD21 MCU has 6 SERCOM based SPIs. On the Arduino Zero, SERCOM4 is
+available on the 6 pin ICSP connector at the edge of the board. To the
 |Arduino UNO R3| header SERCOM1 is connect to external devices over D11 (MOSI),
-D12 (MISO), and D13 (SCK).  All signals of both busses are connected in
+D12 (MISO), and D13 (SCK). All signals of both busses are connected in
 parallel to the Atmel EDBG.
 
 I2C Port
 ========
 
 The SAMD21 MCU has 6 SERCOM based I2Cs. On the Arduino Zero, SERCOM3 is
-available on D18 (SDA) and D19 (SCL) of the |Arduino UNO R3| header.  Both
 signals are connected in parallel to the Atmel EDBG.
 
 Serial Port
 ===========
 
-The SAMD21 MCU has 6 SERCOM based USARTs.  One of the USARTs (SERCOM5) is
+The SAMD21 MCU has 6 SERCOM based USARTs. One of the USARTs (SERCOM5) is
 connected to the onboard Atmel Embedded Debugger (EDBG) and is the Zephyr
-console.  This is captured by the standard board revision ``uartcons``.
+console. This is captured by the standard board revision ``uartcons``.
 SERCOM0 is available on the D0 (RX) and D1 (TX) of the |Arduino UNO R3| header.
 
 USB Device Port
@@ -166,11 +165,11 @@ USB Device Port
    :alt: Arduino Zero Native and Programming USB Ports
 
 The SAMD21 MCU has a (native) USB device port that can be used to communicate
-with a host PC.  See the :ref:`usb-samples` sample applications for more, such
-as the :ref:`usb_cdc-acm` sample which sets up a virtual serial port that echos
-characters back to the host PC.  As an alternative to the default Zephyr console
-on serial port the special board revision ``usbcons`` can be used to enable
-:ref:`usb_device_cdc_acm` and switch the console to USB::
+with a host PC. See the :ref:`zephyr:usb-samples` sample applications for more,
+such as the :ref:`zephyr:usb_cdc-acm` sample which sets up a virtual serial port
+that echos characters back to the host PC. As an alternative to the default
+Zephyr console on serial port the special board revision ``usbcons`` can be used
+to enable :ref:`zephyr:usb_device_cdc_acm` and switch the console to USB::
 
    USB device idVendor=2341, idProduct=804d, bcdDevice= 3.03
    USB device strings: Mfr=1, Product=2, SerialNumber=3
@@ -205,7 +204,7 @@ bootloader will be entered automatically when you run :program:`west flash`.
    * :bridle_file:`boards/arm/arduino_zero/doc/bootloader/samd21_bossa_arduino.jflash`
 
    The Segger JFlash control file is only usefull when the EDBG firmware
-   was upgrade to the latest `J-Link firmware for Atmel EDBG`_.  This was a
+   was upgrade to the latest `J-Link firmware for Atmel EDBG`_. This was a
    special OEM firmware version for Atmel's Xplained Platforms, based on the
    `AT32UC3A4256S`_ 32-bit AVR microcontroller.
 
@@ -213,7 +212,7 @@ bootloader will be entered automatically when you run :program:`west flash`.
 
          **It is neither guaranteed nor tested that the J-Link firmware
          for Atmel EDBG will also work on the EDGB populated on the Arduino
-         Zero!**  See also the warning to Atmel Studio 7 below.  In doubt
+         Zero!**  See also the warning to Atmel Studio 7 below. In doubt
          you should never touch the EDBG firmware on Arduino Zero.
 
    So if that didn't happen, OpenOCD or, even easier, the small tool
@@ -241,7 +240,7 @@ bootloader will be entered automatically when you run :program:`west flash`.
 
 .. rubric:: Atmel Embedded Debugger (EDBG)
 
-The Arduino Zero also comes with an Atmel Embedded Debugger (`EDBG`_).  That
+The Arduino Zero also comes with an Atmel Embedded Debugger (`EDBG`_). That
 provides a debug interface to the SAMD21 chip and is supported by OpenOCD
 for bootloader restore or direct programming and debugging. The Atmel EDGB
 is connected to the debug USB port for programming::
@@ -266,12 +265,12 @@ is connected to the debug USB port for programming::
       The Arduino Zero was designed in partership with Atmel (now
       Microchip) which dedicated to this board a special USB PID with
       the major purpose to make the board recognizable and differentiate
-      it form other evaluation boards in Atmel Studio.  The EDBG chip is
+      it form other evaluation boards in Atmel Studio. The EDBG chip is
       used on several Atmel evaluation boards and programmers, you can
       find the list
       `here <https://onlinedocs.microchip.com/pr/GUID-33422CDF-8B41-417C-9C31-E4521ADAE9B4-en-US-2/GUID-7EF3D274-1BA4-40A3-80C8-51D1D0E4FA75.html>`_.
       You should consider the Arduino Zero dedicated USB PID (:code:`0x2157`)
-      as another USB PID to add to that list.  **During the manufacturing
+      as another USB PID to add to that list. **During the manufacturing
       process Arduino upgrade the EDBG firmware and customize the USB
       descriptor fields.**
 
@@ -279,13 +278,13 @@ is connected to the debug USB port for programming::
 
    Upgrading the firmware with a new one provided by Atmel Studio 7 using
    the :program:`atfw.exe` tool will erase all the factory "Arduino Zero"
-   USB configurations and will set the USB PID to :code:`0x2111`.  **But
+   USB configurations and will set the USB PID to :code:`0x2111`. **But
    consider that you couldn't revert the Arduino USB descriptor settings!**
 
 Flashing
 ========
 
-#. Build the Zephyr kernel and the :ref:`hello_world` sample application:
+#. Build the Zephyr kernel and the :ref:`zephyr:hello_world` sample application:
 
    .. zephyr-app-commands::
       :zephyr-app: samples/hello_world

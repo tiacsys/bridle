@@ -101,39 +101,39 @@ hardware features:
    :class: longtable
    :align: center
 
-   +-----------+------------+-----------------------------------------------+
-   | Interface | Controller | Driver/Component                              |
-   +===========+============+===============================================+
-   | UART      | on-chip    | :ref:`uart_api` (!) (?)                       |
-   +-----------+------------+-----------------------------------------------+
-   | PINCTRL   | on-chip    | :ref:`pinctrl_api`                            |
-   +-----------+------------+-----------------------------------------------+
-   | GPIO      | on-chip    | :ref:`gpio_api`                               |
-   +-----------+------------+-----------------------------------------------+
-   | ETH       | on-chip    | :ref:`ethernet_interface` (*)                 |
-   +-----------+------------+-----------------------------------------------+
-   | USB       | on-chip    | :ref:`usb_api`                                |
-   +-----------+------------+-----------------------------------------------+
-   | CAN       | on-chip    | :ref:`canbus` (-)                             |
-   +-----------+------------+-----------------------------------------------+
-   | I2C       | on-chip    | :ref:`i2c_api`                                |
-   +-----------+------------+-----------------------------------------------+
-   | SPI       | on-chip    | :ref:`spi_api` (?)                            |
-   +-----------+------------+-----------------------------------------------+
-   | PWM       | on-chip    | :ref:`pwm_api`                                |
-   +-----------+------------+-----------------------------------------------+
-   | ADC       | on-chip    | :ref:`adc_api` (+) (!) (?)                    |
-   +-----------+------------+-----------------------------------------------+
-   | RTC       | on-chip    | :ref:`rtc_api` as :ref:`counter_api`          |
-   +-----------+------------+-----------------------------------------------+
-   | IWDG      | on-chip    | :ref:`watchdog_api` (°)                       |
-   +-----------+------------+-----------------------------------------------+
-   | RNG       | on-chip    | :ref:`entropy_api`                            |
-   +-----------+------------+-----------------------------------------------+
-   | RCC       | on-chip    | Reset & :ref:`clock_control_api`              |
-   +-----------+------------+-----------------------------------------------+
-   | NVIC      | on-chip    | Nested Vector :ref:`interrupts_v2` Controller |
-   +-----------+------------+-----------------------------------------------+
+   +-----------+------------+------------------------------------------------------+
+   | Interface | Controller | Driver/Component                                     |
+   +===========+============+======================================================+
+   | UART      | on-chip    | :ref:`zephyr:uart_api` (!) (?)                       |
+   +-----------+------------+------------------------------------------------------+
+   | PINCTRL   | on-chip    | :ref:`zephyr:pinctrl_api`                            |
+   +-----------+------------+------------------------------------------------------+
+   | GPIO      | on-chip    | :ref:`zephyr:gpio_api`                               |
+   +-----------+------------+------------------------------------------------------+
+   | ETH       | on-chip    | :ref:`zephyr:ethernet_interface` (*)                 |
+   +-----------+------------+------------------------------------------------------+
+   | USB       | on-chip    | :ref:`zephyr:usb_api`                                |
+   +-----------+------------+------------------------------------------------------+
+   | CAN       | on-chip    | :ref:`zephyr:canbus` (-)                             |
+   +-----------+------------+------------------------------------------------------+
+   | I2C       | on-chip    | :ref:`zephyr:i2c_api`                                |
+   +-----------+------------+------------------------------------------------------+
+   | SPI       | on-chip    | :ref:`zephyr:spi_api` (?)                            |
+   +-----------+------------+------------------------------------------------------+
+   | PWM       | on-chip    | :ref:`zephyr:pwm_api`                                |
+   +-----------+------------+------------------------------------------------------+
+   | ADC       | on-chip    | :ref:`zephyr:adc_api` (+) (!) (?)                    |
+   +-----------+------------+------------------------------------------------------+
+   | RTC       | on-chip    | :ref:`zephyr:rtc_api` as :ref:`zephyr:counter_api`   |
+   +-----------+------------+------------------------------------------------------+
+   | IWDG      | on-chip    | :ref:`zephyr:watchdog_api` (°)                       |
+   +-----------+------------+------------------------------------------------------+
+   | RNG       | on-chip    | :ref:`zephyr:entropy_api`                            |
+   +-----------+------------+------------------------------------------------------+
+   | RCC       | on-chip    | Reset & :ref:`zephyr:clock_control_api`              |
+   +-----------+------------+------------------------------------------------------+
+   | NVIC      | on-chip    | Nested Vector :ref:`zephyr:interrupts_v2` Controller |
+   +-----------+------------+------------------------------------------------------+
 
 (*) Ethernet instability on SOC cut-A (Device marking A):
     TiaC Magpie with SOC cut-A (Device marking A) has some ethernet instability
@@ -361,8 +361,8 @@ Programming and Debugging
 *************************
 
 Applications for the ``tiac_magpie`` board configuration can be built and
-flashed in the usual way (see :ref:`build_an_application` and
-:ref:`application_run` for more details).
+flashed in the usual way (see :ref:`zephyr:build_an_application` and
+:ref:`zephyr:application_run` for more details).
 
 Flashing
 ========
@@ -372,7 +372,7 @@ The TiaC Magpie STM32F777NIHx needs an ST-LINK/V2 debug tool adapter.
 Flashing an application to TiaC Magpie STM32F777NIHx
 ----------------------------------------------------
 
-Here is an example for the :ref:`hello_world` application.
+Here is an example for the :ref:`zephyr:hello_world` application.
 
 Run a serial host program to connect with your TiaC Magpie board.
 
@@ -401,7 +401,7 @@ Debugging
 =========
 
 You can debug an application in the usual way. Here is an example for the
-:ref:`hello_world` application.
+:ref:`zephyr:hello_world` application.
 
 .. zephyr-app-commands::
    :zephyr-app: zephyr/samples/hello_world
@@ -434,7 +434,7 @@ Integration Tests
 
 Zephyr provides a large number of integration tests to evaluate the target
 architecture, the operating system core components, drivers and subsystems.
-Most of them can be build and running by the Zephyr :ref:`twister_script`
+Most of them can be build and running by the Zephyr :ref:`zephyr:twister_script`
 without any further modification.
 
 Before a single or multiple test cases can be executed directly on the
@@ -686,7 +686,7 @@ The DTS binding following the :dtcompatible:`gpio-leds` specification.
           :start-at: leds {
           :end-at: }; // leds
 
-       DTS :ref:`aliases <dt-alias-chosen>`:
+       DTS :ref:`aliases <zephyr:dt-alias-chosen>`:
 
        .. literalinclude:: ../tiac_magpie.dts
           :language: DTS
@@ -829,7 +829,7 @@ The DTS binding following the :dtcompatible:`st,stm32-otgfs` and
           :start-at: usbotg_fs {
           :end-at: }; // usbotg_fs
 
-       :ref:`usb_api` configuration:
+       :ref:`zephyr:usb_api` configuration:
 
        .. literalinclude:: ../tiac_magpie.dts
           :language: DTS
@@ -902,7 +902,7 @@ The DTS binding following the :dtcompatible:`st,stm32-can` specification.
           :start-at: can1 {
           :end-at: }; // can1
 
-       :ref:`can_api` configuration:
+       :ref:`zephyr:can_api` configuration:
 
        .. literalinclude:: ../tiac_magpie.dts
           :language: DTS

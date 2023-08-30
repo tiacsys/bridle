@@ -2,7 +2,7 @@ Grove Wiring Test Bed DTS Binding
 #################################
 
 This integration test verifies the DTS binding of the
-:ref:`x_grove_testbed_shield` against all possible :term:`boards <board>`
+:ref:`x_grove_testbed_shield` against all possible :term:`boards <zephyr:board>`
 that are supported by this shield::
 
     west twister \

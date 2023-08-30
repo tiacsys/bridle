@@ -6,7 +6,7 @@ Multithreaded Dumb HTTP Server
 Overview
 ********
 
-See :ref:`sockets-dumb-http-server-mt-sample` for the original description.
+See :ref:`zephyr:sockets-dumb-http-server-mt-sample` for the original description.
 
 .. _tiac_magpie_sockets-dumb-http-server-mt-sample-requirements:
 
@@ -16,7 +16,7 @@ Requirements
 - This sample application negotiate IPv4 address from a DHCPv4 server
   running everywhere in your local network.
 - The 10/100 Ethernet MAC already configured in RMII/MII mode with MDIO
-  using the ``&mac`` :ref:`devicetree <dt-guide>` label.
+  using the ``&mac`` :ref:`devicetree <zephyr:dt-guide>` label.
 
 Building and Running
 ********************

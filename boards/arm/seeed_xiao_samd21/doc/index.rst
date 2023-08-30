@@ -8,7 +8,7 @@ Seeed Studio XIAO SAMD21 (Seeeduino XIAO)
 
    This board description is a copy from Zephyr with a slightly changed name
    and will be used for further development, improvement and preparation of
-   changes for Zephyr within Bridle.  However, the original board description
+   changes for Zephyr within Bridle. However, the original board description
    still lives within the Zephyr namespace under the original board name:
    :ref:`zephyr:seeeduino_xiao`.
 
@@ -106,17 +106,17 @@ System Clock
 ============
 
 The SAMD21 MCU is configured to use the 32.768 kHz external crystal with the
-on-chip PLL generating the 48 MHz system clock.  The internal APB and GCLK unit
+on-chip PLL generating the 48 MHz system clock. The internal APB and GCLK unit
 are set up in the same way as the upstream Arduino libraries.
 
 GPIO (PWM) Ports
 ================
 
 The SAMD21 MCU has 2 GPIO ports, 3 PWM able Timer/Capture-Counter (TCC) and
-2 simple Timer/Counter (TC).  On the Seeed Studio XIAO SAMD21, TCC2 channel 1
+2 simple Timer/Counter (TC). On the Seeed Studio XIAO SAMD21, TCC2 channel 1
 is available on first user LED (L), all other user LEDs can be controlled
-as GPIO.  Only if :kconfig:option:`CONFIG_PWM_SAM0_TCC` is enabled then the
-first user LED (L) is driven by TCC2 instead of by GPIO.  All channels of
+as GPIO. Only if :kconfig:option:`CONFIG_PWM_SAM0_TCC` is enabled then the
+first user LED (L) is driven by TCC2 instead of by GPIO. All channels of
 TCC0 and TCC1 are available on the |Seeed XIAO| header.
 
 ADC/DAC Ports
@@ -158,7 +158,7 @@ table (default function in bold).
 SPI Port
 ========
 
-The SAMD21 MCU has 6 SERCOM based SPIs.  On the Seeed Studio XIAO SAMD21,
+The SAMD21 MCU has 6 SERCOM based SPIs. On the Seeed Studio XIAO SAMD21,
 SERCOM0 can be put into SPI mode and used to connect to devices over the
 |Seeed XIAO| header pin 9 (MISO), pin 10 (MOSI), and pin 8 (SCK).
 
@@ -171,20 +171,20 @@ SERCOM2 is available on the |Seeed XIAO| header pin 4 (SDA) and pin 5 (SCL).
 Serial Port
 ===========
 
-The SAMD21 MCU has 6 SERCOM based USARTs.  On the Seeed Studio XIAO SAMD21,
+The SAMD21 MCU has 6 SERCOM based USARTs. On the Seeed Studio XIAO SAMD21,
 SERCOM4 is the Zephyr console and is available on the |Seeed XIAO| header
-pins 7 (RX) and 6 (TX).  This is captured by the standard board revision
+pins 7 (RX) and 6 (TX). This is captured by the standard board revision
 ``uartcons``.
 
 USB Device Port
 ===============
 
 The SAMD21 MCU has a (native) USB device port that can be used to communicate
-with a host PC.  See the :ref:`usb-samples` sample applications for more, such
-as the :ref:`usb_cdc-acm` sample which sets up a virtual serial port that echos
-characters back to the host PC.  As an alternative to the default Zephyr console
-on serial port the special board revision ``usbcons`` can be used to enable
-:ref:`usb_device_cdc_acm` and switch the console to USB::
+with a host PC. See the :ref:`zephyr:usb-samples` sample applications for more,
+such as the :ref:`zephyr:usb_cdc-acm` sample which sets up a virtual serial port
+that echos characters back to the host PC. As an alternative to the default
+Zephyr console on serial port the special board revision ``usbcons`` can be used
+to enable :ref:`zephyr:usb_device_cdc_acm` and switch the console to USB::
 
    USB device idVendor=2886, idProduct=802f, bcdDevice= 3.03
    USB device strings: Mfr=1, Product=2, SerialNumber=3
@@ -197,7 +197,7 @@ Programming and Debugging
 
 The Seeed Studio XIAO SAMD21 ships the BOSSA compatible `UF2 bootloader`_ also
 known as `Arduino Zero Bootloader`_, a modern `SAM-BA`_ (Boot Assistant)
-replacement.  The bootloader can be entered by shorting the RST and GND pads
+replacement. The bootloader can be entered by shorting the RST and GND pads
 twice::
 
    USB device idVendor=2886, idProduct=002f, bcdDevice=42.01
@@ -232,7 +232,7 @@ or direct programming and debugging.
 Flashing
 ========
 
-#. Build the Zephyr kernel and the :ref:`hello_world` sample application:
+#. Build the Zephyr kernel and the :ref:`zephyr:hello_world` sample application:
 
    .. zephyr-app-commands::
       :zephyr-app: samples/hello_world
@@ -243,7 +243,7 @@ Flashing
 #. Connect the Seeed Studio XIAO SAMD21 to your host computer using USB.
 
 #. Connect a 3.3 V USB to serial adapter to the board and to the
-   host.  See the `Serial Port`_ section above for the board's pin
+   host. See the `Serial Port`_ section above for the board's pin
    connections.
 
 #. Run your favorite terminal program to listen for output. Under Linux the

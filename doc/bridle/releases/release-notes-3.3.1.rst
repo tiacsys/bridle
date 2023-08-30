@@ -90,14 +90,14 @@ The following sections provide detailed lists of changes by component.
   * :ref:`grove_shield`, with integration tested for:
 
     * :ref:`arduino_zero`
-    * :ref:`mimxrt1010_evk`
-    * :ref:`mimxrt1060_evk`
-    * :ref:`nucleo_f303re_board`
-    * :ref:`nucleo_f401re_board`
-    * :ref:`nucleo_f767zi_board`
-    * :ref:`rpi_pico`
+    * :ref:`zephyr:mimxrt1010_evk`
+    * :ref:`zephyr:mimxrt1060_evk`
+    * :ref:`zephyr:nucleo_f303re_board`
+    * :ref:`zephyr:nucleo_f401re_board`
+    * :ref:`zephyr:nucleo_f767zi_board`
+    * :ref:`zephyr:rpi_pico`
     * :ref:`seeeduino_lotus`
-    * :ref:`seeeduino_xiao`
+    * :ref:`zephyr:seeeduino_xiao`
     * :ref:`seeed_xiao_samd21`
 
   * :ref:`grove_button_shield`

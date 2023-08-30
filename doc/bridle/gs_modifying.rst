@@ -111,8 +111,8 @@ how to run menuconfig or guiconfig.
 
 To locate a specific configuration option, use the filter (:guilabel:`Jump to`
 in menuconfig and guiconfig). The documentation for each
-:ref:`configuration option <configuration_options>` also lists the menu path
-where the option can be found.
+:ref:`configuration option <kconfig:configuration_options>` also lists the menu
+path where the option can be found.
 
 .. important:: All changes to the :file:`.config` file are lost when you clean
    your build directory. You can save it to another location, but you must then
