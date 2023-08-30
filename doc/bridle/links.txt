@@ -11,7 +11,7 @@
 .. |zephyr_repo| replace:: https://github.com/zephyrproject-rtos/zephyr
 .. _`zephyr-core`: https://github.com/zephyrproject-rtos/zephyr
 
-.. _`Zephyr coding style`: http://docs.zephyrproject.org/contribute/contribute_guidelines.html
+.. _`Zephyr coding style`: https://docs.zephyrproject.org/contribute/guidelines.html#coding-style
 
 
 
@@ -40,7 +40,7 @@
 
 .. _`Ccache`: https://ccache.dev/download.html
 .. _`CMake`: https://cmake.org/download/
-.. _`DFU Utilities`: http://dfu-util.sourceforge.net/
+.. _`DFU Utilities`: https://dfu-util.sourceforge.net/
 .. _`dfu_util`: http://dfu-util.sourceforge.net/
 .. _`Device tree compiler`: https://www.devicetree.org/
 .. _`dtc`: https://www.devicetree.org/
@@ -50,7 +50,7 @@
 .. _`dtc_macos`: https://formulae.brew.sh/formula/dtc
 .. _`Device tree compiler (Snap Craft)`: https://snapcraft.io/device-tree-compiler
 .. _`dtc_linux`: https://snapcraft.io/device-tree-compiler
-.. _`OpenOCD`: http://openocd.org/getting-openocd/
+.. _`OpenOCD`: https://openocd.org/pages/getting-openocd.html
 .. _`Git`: https://git-scm.com/downloads
 .. _`GNU gperf`: https://www.gnu.org/software/gperf/
 .. _`gperf`: https://www.gnu.org/software/gperf/
@@ -58,9 +58,9 @@
 .. _`Python`: https://www.python.org/downloads/
 .. _`Zephyr SDK`: https://github.com/zephyrproject-rtos/sdk-ng/releases
 .. _`zephyrsdk`: https://github.com/zephyrproject-rtos/sdk-ng/releases
-.. _`GNU Arm Embedded Toolchain`: https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads
+.. _`GNU Arm Embedded Toolchain`: https://developer.arm.com/downloads/-/gnu-rm
 .. _`GCC compiler`: https://gcc.gnu.org/
-.. _`gnuarmemb`: https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads
+.. _`gnuarmemb`: https://developer.arm.com/downloads/-/gnu-rm
 .. _`Graphviz`: https://graphviz.org/
 .. _`Doxygen`: https://www.doxygen.org/
 .. _`MscGen`: https://www.mcternan.me.uk/mscgen/
@@ -213,8 +213,8 @@
 .. _`Kconfig language`: https://www.kernel.org/doc/html/latest/kbuild/kconfig-language.html
 .. _`Devicetree reference`: https://elinux.org/Device_Tree_Reference
 
-.. _`Sphinx Documentation`: https://www.sphinx-doc.org/en/3.x/contents.html
-.. _`reStructuredText Primer`: http://www.sphinx-doc.org/en/3.x/usage/restructuredtext/basics.html
+.. _`Sphinx Documentation`: https://www.sphinx-doc.org/en/master/contents.html
+.. _`reStructuredText Primer`: https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
 .. _`Li-Pro.Net Sphinx Primer`: https://lpn-doc-sphinx-primer.readthedocs.io/en/latest/
 
 .. _`Breathe documentation`: https://breathe.readthedocs.io/en/stable/directives.html#directives

@@ -702,7 +702,7 @@ References
     https://www.monolithicpower.com/mp2617b.html
 
 .. _UF2 bootloader:
-    https://github.com/Microsoft/uf2#bootloaders
+    https://github.com/Microsoft/uf2#user-content-bootloaders
 
 .. _Arduino Zero Bootloader:
     https://github.com/Seeed-Studio/ArduinoCore-samd/tree/master/bootloaders/seeed_zero

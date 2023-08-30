@@ -834,7 +834,8 @@ example:
    https://wiki.seeedstudio.com/Grove-Starter-Kit-for-Raspberry-Pi-Pico
 
 .. _`Grove Shield for Pi Pico V1`:
-   https://wiki.seeedstudio.com/Grove_Shield_for_Pi_Pico_V1.0
+   https://wiki.seeedstudio.com/Grove-Starter-Kit-for-Raspberry-Pi-Pico
+.. https://wiki.seeedstudio.com/Grove_Shield_for_Pi_Pico_V1.0
 
 .. _`Grove Shield for Pi Pico V1.0 Schematic`:
    https://files.seeedstudio.com/wiki/Grove_Shield_for_Pi_Pico_V1.0/Grove_shield_for_PI_PICOv1.0SCH.pdf

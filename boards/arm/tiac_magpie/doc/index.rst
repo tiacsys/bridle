@@ -148,9 +148,10 @@ hardware features:
 
 (-) CAN 1 or 2 only separate supported, never both simultaneously:
     Simultaneous use of CAN_1 and CAN_2 not supported yet on STM32, see:
-    https://github.com/zephyrproject-rtos/zephyr/blob/main/drivers/can/can_stm32.c#L26,
-    https://github.com/zephyrproject-rtos/zephyr/pull/22200,
-    https://github.com/zephyrproject-rtos/zephyr/pull/24396 and
+    https://github.com/zephyrproject-rtos/zephyr/blob/c02454e/drivers/can/can_stm32.c#L28,
+    https://github.com/zephyrproject-rtos/zephyr/pull/22200 and
+    https://github.com/zephyrproject-rtos/zephyr/pull/24396 (seems to be fixed:
+    https://github.com/zephyrproject-rtos/zephyr/pull/46646)
 
 (!) Shared IRQ line on STM32 devices:
     Share the same interrupt line on STM32 devices over multiple driver

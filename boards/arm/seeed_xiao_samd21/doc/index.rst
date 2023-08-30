@@ -546,7 +546,7 @@ References
     https://www.microchip.com/product/ATSAMD21G18
 
 .. _UF2 bootloader:
-    https://github.com/Microsoft/uf2#bootloaders
+    https://github.com/Microsoft/uf2#user-content-bootloaders
 
 .. _Arduino Zero Bootloader:
     https://github.com/Seeed-Studio/ArduinoCore-samd/tree/master/bootloaders/XIAOM0
