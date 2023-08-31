@@ -152,7 +152,7 @@ extensions = [
     'bridle.inventory_builder',
     'bridle.warnings_filter',
     'bridle.options_from_kconfig',
-    'bridle.manifest_revisions_table',
+    'bridle.manifest_projects_table',
 ]
 
 # Only use SVG converter when it is really needed, e.g. LaTeX.
@@ -451,7 +451,7 @@ options_from_kconfig_zephyr_dir = ZEPHYR_BASE
 
 # Options for bridle.manifest_revisions_table ----------------------------------
 
-manifest_revisions_table_manifest = BRIDLE_BASE / 'west.yml'
+manifest_projects_table_manifest = BRIDLE_BASE / 'west.yml'
 
 # -- Options for sphinx.ext.graphviz --------------------------------------
 

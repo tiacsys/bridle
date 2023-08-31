@@ -200,8 +200,9 @@ Repositories and revisions
 The following table lists all the repositories (and their respective revisions)
 that are included as part of |BRIDLE| |version| release:
 
-.. manifest-revisions-table::
+.. manifest-projects-table::
    :show-first: zephyr
+   :filter: active
 
 .. toctree::
    :maxdepth: 2
