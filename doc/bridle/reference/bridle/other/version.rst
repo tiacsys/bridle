@@ -8,6 +8,9 @@ Bridle version handling and APIs related to version being used.
 API Reference
 **************
 
-.. doxygengroup:: version_apis
+.. error:: TEMP-OFF for PDF with "rinoh"
+
+.. TEMP-OFF for PDF with "rinoh"
+.. .. doxygengroup:: version_apis
    :project: Bridle
    :content-only:

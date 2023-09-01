@@ -23,7 +23,10 @@ You may run this command when setting up a Bridle workspace. If you do,
 application CMakeLists.txt files that are outside of your workspace will
 be able to find the Bridle repository with the following:
 
-.. code-block:: cmake
+.. error:: TEMP-OFF for PDF with "rinoh"
+
+.. TEMP-OFF for PDF with "rinoh"
+.. .. code-block:: cmake
    :caption: Find the Bridle repository
 
    find_package(Bridle REQUIRED HINTS $ENV{BRIDLE_BASE})

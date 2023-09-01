@@ -50,7 +50,9 @@ about how to do this.
 Fork and branch strategy
 ************************
 
-.. figure:: /images/bridle-git-branches.svg
+.. TEMP-OFF for PDF with "rinoh"
+.. .. figure:: /images/bridle-git-branches.svg
+.. figure:: /images/bridle-git-branches.*
    :alt: A graphical depiction of the |BRIDLE| branch strategy
 
    The |BRIDLE| branch strategy.
@@ -107,7 +109,9 @@ star and all other repositories being west projects that are managed by
 in the :ref:`west documentation <zephyr:west-topologies>` and more detailed
 describe in :ref:`zephyr:west-mr-model`.
 
-.. figure:: /images/bridle-west-repos.svg
+.. TEMP-OFF for PDF with "rinoh"
+.. .. figure:: /images/bridle-west-repos.svg
+.. figure:: /images/bridle-west-repos.*
    :alt: A graphical depiction of the |BRIDLE| repository structure
 
    The |BRIDLE| repository structure.

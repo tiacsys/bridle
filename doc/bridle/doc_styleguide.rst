@@ -78,7 +78,10 @@ You can include Message Sequence Chart (MSC) diagrams in RST by using the
 
 This will generate the following output:
 
-.. msc::
+.. error:: TEMP-OFF for PDF with "rinoh"
+
+.. TEMP-OFF for PDF with "rinoh"
+.. .. msc::
    hscale = "1.3";
    Module,Application;
    Module<<Application      [label="nemo_connect() returns successfully"];
@@ -104,7 +107,10 @@ The Breathe Sphinx plugin provides a bridge between RST and doxygen.
 The doxygen documentation is not automatically included in RST. Therefore,
 every group must be explicitly added to an RST file.
 
-.. code-block:: python
+.. error:: TEMP-OFF for PDF with "rinoh"
+
+.. TEMP-OFF for PDF with "rinoh"
+.. .. code-block:: python
    :caption: Example of how to include a doxygen group
 
    .. doxygengroup:: nemo_lab_transport
@@ -166,7 +172,10 @@ File headers and groups
 #. **@brief** must be added for every defgroup.
 #. **@details** is optional to be used within the defgroup.
 
-.. code-block:: c
+.. error:: TEMP-OFF for PDF with "rinoh"
+
+.. TEMP-OFF for PDF with "rinoh"
+.. .. code-block:: c
    :caption: File header and group documentation example
 
    /** @file
@@ -221,12 +230,15 @@ Functions
 
    * Start the brief with the "do sth" form.
 
-  .. code-block:: none
-     :caption: Brief documentation examples
+   .. error:: TEMP-OFF for PDF with "rinoh"
 
-     /** @brief Request a read operation to be executed from Secure Firmware.
+   .. TEMP-OFF for PDF with "rinoh"
+   .. .. code-block:: none
+      :caption: Brief documentation examples
 
-     /** @brief Send Boot Keyboard Input Report.
+      /** @brief Request a read operation to be executed from Secure Firmware.
+
+      /** @brief Send Boot Keyboard Input Report.
 
 #. **@details** is optional. It can be introduced either by using
    **@details** or by leaving a blank line after **@brief**.
@@ -237,18 +249,24 @@ Functions
    * Make sure the parameter documentation within the function is consistently
      using the parameter type: ``[in]``, ``[out]``, or ``[in,out]``.
 
-  .. code-block:: none
-     :caption: Parameter documentation example
+   .. error:: TEMP-OFF for PDF with "rinoh"
 
-     * @param[out] destination Pointer to destination array where the
-     *                         content is to be copied.
-     * @param[in]  addr        Address to be copied from.
-     * @param[in]  len         Number of bytes to copy.
+   .. TEMP-OFF for PDF with "rinoh"
+   .. .. code-block:: none
+      :caption: Parameter documentation example
+
+      * @param[out] destination Pointer to destination array where the
+      *                         content is to be copied.
+      * @param[in]  addr        Address to be copied from.
+      * @param[in]  len         Number of bytes to copy.
 
 #. If you include more than one **@sa** ("see also", optional), add
    them this way.
 
-   .. code-block:: none
+   .. error:: TEMP-OFF for PDF with "rinoh"
+
+   .. TEMP-OFF for PDF with "rinoh"
+   .. .. code-block:: none
       :caption: See also reference example
 
       * @sa first_function
@@ -258,7 +276,10 @@ Functions
    a specific value (for example, "@return The length of ...",
    "@return The handle"). There is usually only one return value.
 
-   .. code-block:: none
+   .. error:: TEMP-OFF for PDF with "rinoh"
+
+   .. TEMP-OFF for PDF with "rinoh"
+   .. .. code-block:: none
       :caption: Return documentation example
 
       * @return  Initializer that sets up the pipe, length, and byte array for
@@ -269,7 +290,10 @@ Functions
    the return values (for example, "If the function completes successfully",
    "If the connection cannot be established").
 
-   .. code-block:: none
+   .. error:: TEMP-OFF for PDF with "rinoh"
+
+   .. TEMP-OFF for PDF with "rinoh"
+   .. .. code-block:: none
       :caption: Retval documentation example
 
       * @retval 0 If the operation was successful.
@@ -279,7 +303,10 @@ Functions
 
 #. Do not use **@returns**. Use **@return** instead.
 
-.. code-block:: c
+.. error:: TEMP-OFF for PDF with "rinoh"
+
+.. TEMP-OFF for PDF with "rinoh"
+.. .. code-block:: c
    :caption: Complete function documentation example
 
    /** @brief Request a random number from the Secure Firmware.
@@ -306,7 +333,10 @@ Enums
 The documentation block should precede the documented element. This is in
 accordance with the `Zephyr coding style`_.
 
-.. code-block:: c
+.. error:: TEMP-OFF for PDF with "rinoh"
+
+.. TEMP-OFF for PDF with "rinoh"
+.. .. code-block:: c
    :caption: Enum documentation example
 
    /** Nemo LAB service events. */
@@ -327,7 +357,10 @@ accordance with the `Zephyr coding style`_. Make sure to add ``:members:``
 when you include the API documentation in RST; otherwise, the member
 documentation will not show up.
 
-.. code-block:: c
+.. error:: TEMP-OFF for PDF with "rinoh"
+
+.. TEMP-OFF for PDF with "rinoh"
+.. .. code-block:: c
    :caption: Struct documentation example
 
    /** @brief Event header structure.
@@ -356,7 +389,10 @@ References
 To link to functions, enums, or structs from within doxygen itself, use the
 ``@ref`` keyword.
 
-.. code-block:: c
+.. error:: TEMP-OFF for PDF with "rinoh"
+
+.. TEMP-OFF for PDF with "rinoh"
+.. .. code-block:: c
    :caption: Reference documentation example
 
    /** @brief Event header structure.
@@ -374,7 +410,10 @@ Typedefs
 The documentation block should precede the documented element. This is in
 accordance with the `Zephyr coding style`_.
 
-.. code-block:: c
+.. error:: TEMP-OFF for PDF with "rinoh"
+
+.. TEMP-OFF for PDF with "rinoh"
+.. .. code-block:: c
    :caption: Typedef documentation example
 
    /** @brief Download client asynchronous event handler.

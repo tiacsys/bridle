@@ -64,7 +64,9 @@ They are based on the :ref:`zephyr_intro`. All of them have a role in the
 creation of an application, from configuring the libraries or applications
 to building them.
 
-.. figure:: images/bridle-toolchain.svg
+.. TEMP-OFF for PDF with "rinoh"
+.. .. figure:: images/bridle-toolchain.svg
+.. figure:: images/bridle-toolchain.*
    :alt: Bridle tools and configuration
 
    |BRIDLE| tools and configuration methods
