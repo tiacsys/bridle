@@ -208,6 +208,24 @@ html_theme_options = {
     'default_docset': utils.get_default_docset(),
 }
 
+# Options for PDF output -------------------------------------------------------
+
+try:
+    exclude_patterns  ### TEMP-NEW for PDF with "rinoh"
+except NameError:
+    exclude_patterns= ['boards/shields/grove/doc/index.rst']
+else:
+    exclude_patterns.append('boards/shields/grove/doc/index.rst')
+
+# Determines which PDF documents to build.
+rinoh_documents = [
+    dict(doc = 'manual', target = 'manual',
+         title = 'Documentation', author = author,
+         template = '{}/doc/_styles/rinohtype/bridle.rtt'.format(BRIDLE_BASE),
+         logo = '{}/doc/_static/images/bridle_text.pdf'.format(BRIDLE_BASE),
+    ),
+]
+
 # Options for intersphinx ------------------------------------------------------
 
 intersphinx_mapping = dict()
