@@ -34,7 +34,8 @@ file(TO_CMAKE_PATH "${BRIDLE_BASE}" BRIDLE_BASE)
 #-------------------------------------------------------------------------------
 # Options
 
-set(SPHINXOPTS_DEFAULT "-j auto -W --keep-going -T" CACHE INTERNAL "Default Sphinx Options")
+### TEMP-OFF for PDF with "rinoh" ### set(SPHINXOPTS_DEFAULT "-j auto -W --keep-going -T" CACHE INTERNAL "Default Sphinx Options")
+set(SPHINXOPTS_DEFAULT "-j auto --keep-going -T" CACHE INTERNAL "Default Sphinx Options")
 set(SPHINXOPTS_EXTRA "" CACHE STRING "Extra Sphinx Options (from CLI/CI)")
 
 separate_arguments(SPHINXOPTS_DEFAULT)
@@ -71,8 +72,9 @@ endif()
 # docset sources into that folder.
 #
 # Configured targets:
-# - ${name}: Alias for ${name}-html.
+# - ${name}: Alias for ${name}-html and ${name}-pdf.
 # - ${name}-html: Run Sphinx "html" build.
+# - ${name}-pdf: Run Sphinx "rinoh" PDF build.
 # - ${name}-inventory: Run Sphinx "inventory" build. It requires to enable
 #   the "inventory" builder on the docset conf.py. This target can be used
 #   to solve circular dependencies between docsets.
@@ -154,6 +156,26 @@ function(add_docset name sphinxopts)
     VERBATIM
     WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
     COMMENT "Generating HTML documentation for ${name}"
+    USES_TERMINAL
+  )
+
+  add_doc_target(
+    ${name}-pdf
+    COMMAND ${CMAKE_COMMAND} -E make_directory ${DOCSET_MAKE_DIRS}
+    COMMAND ${CMAKE_COMMAND} -E env ${DOCSET_ENV}
+      ${SPHINXBUILD} -v
+        -b rinoh
+        -c ${DOCSET_SPHINX_DIR}
+        -d ${DOCSET_DOCTREE_DIR}
+        -w ${DOCSET_BUILD_DIR}/pdf.log
+           ${SPHINXOPTS_DEFAULT}
+           ${SPHINXOPTS_EXTRA}
+           ${sphinxopts}
+           ${DOCSET_SRC_DIR}
+           ${DOCSET_HTML_DIR}
+    VERBATIM
+    WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
+    COMMENT "Generating PDF documentation for ${name}"
     USES_TERMINAL
   )
 
@@ -452,6 +474,7 @@ add_custom_target(
 add_docset(bridle "-j 1" API)  # no parallel reading, because of sphinx-csv-filter
 
 add_dependencies(bridle-inventory bridle-versions)
+add_dependencies(bridle-pdf bridle-versions)  ### TEMP-NEW for PDF with "rinoh"
 add_dependencies(bridle-html bridle-versions)
 add_dependencies(bridle-html-all
     bridle-versions
