@@ -3,6 +3,7 @@ docutils>=0.16,<0.20
 pygments~=2.14
 recommonmark~=0.7
 commonmark~=0.9
+rinohtype~=0.5
 sphinx-tsn-theme~=2022.10
 sphinxcontrib-mscgen~=0.6
 sphinxcontrib-svg2pdfconverter~=1.2
