@@ -104,7 +104,7 @@ Change log
 
 :brd:`NOT YET, tbd.`
 
-* tbd.
+* Switch main return type from void to int for all samples.
 * tbd.
 * tbd.
 
@@ -138,6 +138,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`120` - [BUG] Nightly QA integration test fails
 * :github:`118` - [BUG] QA Integration Test fails
 * :github:`116` - [BUG] Grove Shields DTS Binding test suites fail for seeeduino_lotus@usbcons
 * :github:`115` - [BUG] Bridle Common (core) Testing fails since v3.4
