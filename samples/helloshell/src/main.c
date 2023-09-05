@@ -8,7 +8,8 @@
 #include <zephyr/kernel.h>
 #include <zephyr/sys/printk.h>
 
-void main(void)
+int main(void)
 {
 	printk("Hello World! I'm THE SHELL from %s\n", CONFIG_BOARD);
+	return 0;
 }

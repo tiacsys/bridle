@@ -34,4 +34,4 @@ static int init()
 SYS_INIT(init, APPLICATION, APPLICATION_IO_INIT_PRIORITY);
 
 /* Empty main */
-void main(void) {}
+int main(void) {return 0;}
