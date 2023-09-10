@@ -1,0 +1,357 @@
+.. |nbsp| unicode:: U+000A0 .. nob-space / non-breaking space
+   :trim:
+.. |curs| unicode:: U+000A4 .. currency sign (the old German "pig")
+.. |copy| unicode:: U+000A9 .. copyright sign
+.. |regs| unicode:: U+000AE .. registered sign
+.. |oneq| unicode:: U+000BC .. vulgar fraction one quarter
+.. |oneh| unicode:: U+000BD .. vulgar fraction one half
+.. |threeq| unicode:: U+000BE .. vulgar fraction three quarters
+
+.. |-| unicode:: U+02013 .. en dash
+.. |--| unicode:: U+02013 .. en dash
+   :trim:
+.. |---| unicode:: U+02014 .. em dash
+   :trim:
+.. |...| unicode:: U+02026 .. three dot leader
+   :trim:
+.. |sm| unicode:: U+02120 .. service mark
+.. |tm| unicode:: U+02122 .. trade mark
+
+.. |degc| unicode:: U+02103 .. degree celsius
+.. |degf| unicode:: U+02109 .. degree fahrenheit
+
+.. |CLT| unicode:: U+02190 .. cursor left sign
+.. |CUP| unicode:: U+02191 .. cursor up sign
+.. |CRT| unicode:: U+02192 .. cursor right sign
+.. |CDN| unicode:: U+02193 .. cursor down sign
+.. |ALTRT| unicode:: U+02194 .. arrow left right sign
+.. |AUPDN| unicode:: U+02195 .. arrow up down sign
+.. |CHO| unicode:: U+02196 .. cursor home sign
+.. |CLB| unicode:: U+021E4 .. cursor left to bar sign
+.. |CRB| unicode:: U+021E5 .. cursor right to bar sign
+.. |CDL| unicode:: U+021B5 .. cursor down-left sign
+.. |CLRB| unicode:: U+021B9 .. cursor left-right to bar sign
+
+.. |sup0| unicode:: U+02070 .. superscript zero
+   :trim:
+.. |sup1| unicode:: U+000B9 .. superscript one
+   :trim:
+.. |sup2| unicode:: U+000B2 .. superscript two
+   :trim:
+.. |sup3| unicode:: U+000B3 .. superscript three
+   :trim:
+.. |sup4| unicode:: U+02074 .. superscript four
+   :trim:
+.. |sup5| unicode:: U+02075 .. superscript five
+   :trim:
+.. |sup6| unicode:: U+02076 .. superscript six
+   :trim:
+.. |sup7| unicode:: U+02077 .. superscript seven
+   :trim:
+.. |sup8| unicode:: U+02078 .. superscript eight
+   :trim:
+.. |sup9| unicode:: U+02079 .. superscript nine
+   :trim:
+.. |sup+| unicode:: U+0207A .. superscript plus sign
+   :trim:
+.. |sup-| unicode:: U+0207B .. superscript minus sign
+   :trim:
+.. |sup=| unicode:: U+0207C .. superscript equal sign
+   :trim:
+.. |sup(| unicode:: U+0207D .. superscript left parenthesis
+   :trim:
+.. |sup)| unicode:: U+0207E .. superscript right parenthesis
+   :trim:
+
+.. |sub0| unicode:: U+02080 .. subscript zero
+   :trim:
+.. |sub1| unicode:: U+02081 .. subscript one
+   :trim:
+.. |sub2| unicode:: U+02082 .. subscript two
+   :trim:
+.. |sub3| unicode:: U+02083 .. subscript three
+   :trim:
+.. |sub4| unicode:: U+02084 .. subscript four
+   :trim:
+.. |sub5| unicode:: U+02085 .. subscript five
+   :trim:
+.. |sub6| unicode:: U+02086 .. subscript six
+   :trim:
+.. |sub7| unicode:: U+02087 .. subscript seven
+   :trim:
+.. |sub8| unicode:: U+02088 .. subscript eight
+   :trim:
+.. |sub9| unicode:: U+02089 .. subscript nine
+   :trim:
+.. |sub+| unicode:: U+0208A .. subscript plus sign
+   :trim:
+.. |sub-| unicode:: U+0208B .. subscript minus sign
+   :trim:
+.. |sub=| unicode:: U+0208C .. subscript equal sign
+   :trim:
+.. |sub(| unicode:: U+0208D .. subscript left parenthesis
+   :trim:
+.. |sub)| unicode:: U+0208E .. subscript right parenthesis
+   :trim:
+
+.. |+-| unicode:: U+000B1 .. plus minus sign
+   :rtrim:
+.. |x| unicode:: U+000D7 .. multiplication sign
+   :trim:
+.. |:| unicode:: U+000F7 .. devision sign
+   :trim:
+.. |/| unicode:: U+02044 .. fraction operator
+   :trim:
+.. |*| unicode:: U+022C5 .. multiplication operator
+   :trim:
+.. |<-| unicode:: U+02264 .. less-than or equal to
+   :trim:
+.. |>-| unicode:: U+02265 .. greater-than or equal to
+   :trim:
+.. |<=| unicode:: U+02266 .. less-than over equal to
+   :trim:
+.. |>=| unicode:: U+02267 .. greater-than over equal to
+   :trim:
+.. |<~| unicode:: U+02272 .. less-than or equivalent to
+   :trim:
+.. |>~| unicode:: U+02273 .. greater-than or equivalent to
+   :trim:
+
+.. Other symbols (https://www.compart.com/en/unicode/category/So):
+
+.. |Theta| unicode:: U+00398 .. Greek capital letter theta
+
+.. |uH| replace:: :raw-latex:`{` |_uH_| :raw-latex:`}`
+.. |_uH_| unicode:: U+000B5 H .. micro henry
+   :trim:
+.. |mH| replace:: :raw-latex:`{` |_mH_| :raw-latex:`}`
+.. |_mH_| unicode:: mH .. milli henry
+   :trim:
+
+.. |pA| replace:: :raw-latex:`{` |_pA_| :raw-latex:`}`
+.. |_pA_| unicode:: U+03380 .. pico ampere
+   :trim:
+.. |nA| replace:: :raw-latex:`{` |_nA_| :raw-latex:`}`
+.. |_nA_| unicode:: U+03381 .. nano ampere
+   :trim:
+.. |uA| replace:: :raw-latex:`{` |_uA_| :raw-latex:`}`
+.. |_uA_| unicode:: U+03382 .. micro ampere
+   :trim:
+.. |mA| replace:: :raw-latex:`{` |_mA_| :raw-latex:`}`
+.. |_mA_| unicode:: U+03383 .. milli ampere
+   :trim:
+.. |kA| replace:: :raw-latex:`{` |_kA_| :raw-latex:`}`
+.. |_kA_| unicode:: U+03384 .. kilo ampere
+   :trim:
+
+.. |kb| replace:: kbit
+
+.. |kB| replace:: :raw-latex:`{` |_kB_| :raw-latex:`}`
+.. |_kB_| unicode:: U+03385 .. kilo byte
+   :trim:
+.. |MB| replace:: :raw-latex:`{` |_MB_| :raw-latex:`}`
+.. |_MB_| unicode:: U+03386 .. mega byte
+   :trim:
+.. |GB| replace:: :raw-latex:`{` |_GB_| :raw-latex:`}`
+.. |_GB_| unicode:: U+03387 .. giga byte
+   :trim:
+
+.. |pF| replace:: :raw-latex:`{` |_pF_| :raw-latex:`}`
+.. |_pF_| unicode:: U+0338A .. pico farad
+   :trim:
+.. |nF| replace:: :raw-latex:`{` |_nF_| :raw-latex:`}`
+.. |_nF_| unicode:: U+0338B .. nano farad
+   :trim:
+.. |uF| replace:: :raw-latex:`{` |_uF_| :raw-latex:`}`
+.. |_uF_| unicode:: U+0338C .. micro farad
+   :trim:
+
+.. |ug| replace:: :raw-latex:`{` |_ug_| :raw-latex:`}`
+.. |_ug_| unicode:: U+0338D .. micro gramm
+   :trim:
+.. |mg| replace:: :raw-latex:`{` |_mg_| :raw-latex:`}`
+.. |_mg_| unicode:: U+0338E .. milli gramm
+   :trim:
+.. |kg| replace:: :raw-latex:`{` |_kg_| :raw-latex:`}`
+.. |_kg_| unicode:: U+0338F .. kilo gramm
+   :trim:
+
+.. |Hz| replace:: :raw-latex:`{` |_Hz_| :raw-latex:`}`
+.. |_Hz_| unicode:: U+03390 .. hertz
+   :trim:
+.. |kHz| replace:: :raw-latex:`{` |_kHz_| :raw-latex:`}`
+.. |_kHz_| unicode:: U+03391 .. kilo hertz
+   :trim:
+.. |MHz| replace:: :raw-latex:`{` |_MHz_| :raw-latex:`}`
+.. |_MHz_| unicode:: U+03392 .. mega hertz
+   :trim:
+.. |GHz| replace:: :raw-latex:`{` |_GHz_| :raw-latex:`}`
+.. |_GHz_| unicode:: U+03393 .. giga hertz
+   :trim:
+.. |THz| replace:: :raw-latex:`{` |_THz_| :raw-latex:`}`
+.. |_THz_| unicode:: U+03394 .. tera hertz
+   :trim:
+
+.. |nm| replace:: :raw-latex:`{` |_nm_| :raw-latex:`}`
+.. |_nm_| unicode:: U+0339A .. nano meter
+   :trim:
+.. |um| replace:: :raw-latex:`{` |_um_| :raw-latex:`}`
+.. |_um_| unicode:: U+0339B .. micro meter
+   :trim:
+.. |mm| replace:: :raw-latex:`{` |_mm_| :raw-latex:`}`
+.. |_mm_| unicode:: U+0339C .. milli meter
+   :trim:
+.. |cm| replace:: :raw-latex:`{` |_cm_| :raw-latex:`}`
+.. |_cm_| unicode:: U+0339D .. centi meter
+   :trim:
+.. |dm| replace:: :raw-latex:`{` |_dm_| :raw-latex:`}`
+.. |_dm_| unicode:: U+03377 .. deci meter
+   :trim:
+.. |km| replace:: :raw-latex:`{` |_km_| :raw-latex:`}`
+.. |_km_| unicode:: U+0339E .. kilo meter
+   :trim:
+
+.. |ul| replace:: :raw-latex:`{` |_ul_| :raw-latex:`}`
+.. |_ul_| unicode:: U+03395 .. micro litre
+   :trim:
+.. |ml| replace:: :raw-latex:`{` |_ml_| :raw-latex:`}`
+.. |_ml_| unicode:: U+03396 .. milli litre
+   :trim:
+.. |dl| replace:: :raw-latex:`{` |_dl_| :raw-latex:`}`
+.. |_dl_| unicode:: U+03397 .. deci litre
+   :trim:
+
+.. |mm2| replace:: :raw-latex:`{` |_mm2_| :raw-latex:`}`
+.. |_mm2_| unicode:: U+0339F .. square milli meter squared
+   :trim:
+.. |cm2| replace:: :raw-latex:`{` |_cm2_| :raw-latex:`}`
+.. |_cm2_| unicode:: U+033A0 .. square centi meter squared
+   :trim:
+.. |dm2| replace:: :raw-latex:`{` |_dm2_| :raw-latex:`}`
+.. |_dm2_| unicode:: U+03378 .. square deci meter squared
+   :trim:
+.. |m2| replace:: :raw-latex:`{` |_m2_| :raw-latex:`}`
+.. |_m2_| unicode:: U+033A1 .. square meter squared
+   :trim:
+.. |km2| replace:: :raw-latex:`{` |_km2_| :raw-latex:`}`
+.. |_km2_| unicode:: U+033A2 .. square kilo meter squared
+   :trim:
+
+.. |mm3| replace:: :raw-latex:`{` |_mm3_| :raw-latex:`}`
+.. |_mm3_| unicode:: U+033A3 .. square milli meter cubed
+   :trim:
+.. |cm3| replace:: :raw-latex:`{` |_cm3_| :raw-latex:`}`
+.. |_cm3_| unicode:: U+033A4 .. square centi meter cubed
+   :trim:
+.. |dm3| replace:: :raw-latex:`{` |_dm3_| :raw-latex:`}`
+.. |_dm3_| unicode:: U+03379 .. square deci meter cubed
+   :trim:
+.. |m3| replace:: :raw-latex:`{` |_m3_| :raw-latex:`}`
+.. |_m3_| unicode:: U+033A5 .. square meter cubed
+   :trim:
+.. |km3| replace:: :raw-latex:`{` |_km3_| :raw-latex:`}`
+.. |_km3_| unicode:: U+033A6 .. square kilo meter cubed
+   :trim:
+
+.. |ps| replace:: :raw-latex:`{` |_ps_| :raw-latex:`}`
+.. |_ps_| unicode:: U+033B0 .. pico second
+   :trim:
+.. |ns| replace:: :raw-latex:`{` |_ns_| :raw-latex:`}`
+.. |_ns_| unicode:: U+033B1 .. nano second
+   :trim:
+.. |us| replace:: :raw-latex:`{` |_us_| :raw-latex:`}`
+.. |_us_| unicode:: U+033B2 .. micro second
+   :trim:
+.. |ms| replace:: :raw-latex:`{` |_ms_| :raw-latex:`}`
+.. |_ms_| unicode:: U+033B3 .. milli second
+   :trim:
+
+.. |pV| replace:: :raw-latex:`{` |_pV_| :raw-latex:`}`
+.. |_pV_| unicode:: U+033B4 .. pico volt
+   :trim:
+.. |nV| replace:: :raw-latex:`{` |_nV_| :raw-latex:`}`
+.. |_nV_| unicode:: U+033B5 .. nano volt
+   :trim:
+.. |uV| replace:: :raw-latex:`{` |_uV_| :raw-latex:`}`
+.. |_uV_| unicode:: U+033B6 .. micro volt
+   :trim:
+.. |mV| replace:: :raw-latex:`{` |_mV_| :raw-latex:`}`
+.. |_mV_| unicode:: U+033B7 .. milli volt
+   :trim:
+.. |kV| replace:: :raw-latex:`{` |_kV_| :raw-latex:`}`
+.. |_kV_| unicode:: U+033B8 .. kilo volt
+   :trim:
+.. |MV| replace:: :raw-latex:`{` |_MV_| :raw-latex:`}`
+.. |_MV_| unicode:: U+033B9 .. mega volt
+   :trim:
+
+.. |pW| replace:: :raw-latex:`{` |_pW_| :raw-latex:`}`
+.. |_pW_| unicode:: U+033BA .. pico watt
+   :trim:
+.. |nW| replace:: :raw-latex:`{` |_nW_| :raw-latex:`}`
+.. |_nW_| unicode:: U+033BB .. nano watt
+   :trim:
+.. |uW| replace:: :raw-latex:`{` |_uW_| :raw-latex:`}`
+.. |_uW_| unicode:: U+033BC .. micro watt
+   :trim:
+.. |mW| replace:: :raw-latex:`{` |_mW_| :raw-latex:`}`
+.. |_mW_| unicode:: U+033BD .. milli watt
+   :trim:
+.. |kW| replace:: :raw-latex:`{` |_kW_| :raw-latex:`}`
+.. |_kW_| unicode:: U+033BE .. kilo watt
+   :trim:
+.. |MW| replace:: :raw-latex:`{` |_MW_| :raw-latex:`}`
+.. |_MW_| unicode:: U+033BF .. mega watt
+   :trim:
+
+.. |Omega| unicode:: U+003A9 .. Greek capital letter omagea
+
+.. |mO| replace:: :raw-latex:`{` |_mO_| :raw-latex:`}`
+.. |_mO_| unicode:: m U+003A9 .. milli ohm
+   :trim:
+.. |Ohm| replace:: :raw-latex:`{` |_O_| :raw-latex:`}`
+.. |O| replace:: :raw-latex:`{` |_O_| :raw-latex:`}`
+.. |_O_| unicode:: U+003A9 .. Greek capital letter omagea
+   :trim:
+.. |kO| replace:: :raw-latex:`{` |_kO_| :raw-latex:`}`
+.. |_kO_| unicode:: U+033C0 .. kilo ohm
+   :trim:
+.. |MO| replace:: :raw-latex:`{` |_MO_| :raw-latex:`}`
+.. |_MO_| unicode:: U+033C1 .. mega ohm
+   :trim:
+
+.. |theta| unicode:: U+003D1 .. Greek theta symbol
+
+.. |°C| replace:: :raw-latex:`{` |_°C_| :raw-latex:`}`
+.. |_°C_| unicode:: U+02103 .. degree Celsius
+   :trim:
+.. |K| replace:: :raw-latex:`{` |_K_| :raw-latex:`}`
+.. |_K_| unicode:: U+0212A .. Kelvin sign
+   :trim:
+
+.. Emojis:
+
+.. |candle| replace:: :raw-latex:`{` |_candle_| :raw-latex:`}`
+.. |_candle_| unicode:: U+1F56F .. candle
+.. |star| replace:: :raw-latex:`{` |_star_| :raw-latex:`}`
+.. |_star_| unicode:: U+02B50 .. star
+.. |open book| replace:: :raw-latex:`{` |_open book_| :raw-latex:`}`
+.. |_open book_| unicode:: U+1F4D6 .. open book
+
+.. |free of charge| replace:: :raw-latex:`{` |_free of charge_| :raw-latex:`}`
+.. |_free of charge_| unicode:: U+1F21A .. free of charge
+.. |open for business| replace:: :raw-latex:`{` |_open for business_| :raw-latex:`}`
+.. |_open for business_| unicode:: U+1F23A .. open for business
+.. |passing grade| replace:: :raw-latex:`{` |_passing grade_| :raw-latex:`}`
+.. |_passing grade_| unicode:: U+1F234 .. passing grade
+.. |secret| replace:: :raw-latex:`{` |_secret_| :raw-latex:`}`
+.. |_secret_| unicode:: U+03299 .. secret
+
+.. |!!| replace:: :raw-latex:`{` |_!!_| :raw-latex:`}`
+.. |_!!_| unicode:: U+0203C .. double exclamation mark
+.. |!?| replace:: :raw-latex:`{` |_!?_| :raw-latex:`}`
+.. |_!?_| unicode:: U+02049 .. exclamation question mark
+.. |?| replace:: :raw-latex:`{` |_?_| :raw-latex:`}`
+.. |_?_| unicode:: U+02753 .. red question mark
+.. |!| replace:: :raw-latex:`{` |_!_| :raw-latex:`}`
+.. |_!_| unicode:: U+02757 .. red exclamation mark

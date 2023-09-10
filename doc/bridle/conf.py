@@ -157,6 +157,7 @@ rst_epilog = '''
 .. include:: /links.txt
 .. include:: /shortcuts.txt
 .. include:: /versions.txt
+.. include:: /unicode.txt
 '''
 
 # Options for HTML output ------------------------------------------------------

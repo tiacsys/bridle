@@ -416,6 +416,199 @@ The following table shows just a few examples.
        - Total number of UART0_TX (Data Transmit line on default UART ``0``)
        - Total number of UART1_RX (Data Receive line on UART ``1``)
 
+Special Replacements
+====================
+
+Special technical or domain specific UNICODE characters can be used by
+replacements without having to know their exact numeric code when entering
+text. For this purpose, the individually maintained list exists in the file
+:bridle_file:`doc/bridle/unicode.txt`.
+
+The following table shows just a few examples.
+
+.. list-table::
+   :header-rows: 1
+
+   * - reStructuredText
+     - rendered result
+     - unicode
+     - description
+
+   * - :rst:`Lorem |nbsp| |nbsp| |nbsp| ipsum`
+     - Lorem |nbsp| |nbsp| |nbsp| ipsum
+     - U+000A0
+     - nob-space / non-breaking space
+
+   * - :rst:`|curs|`
+     - |curs|
+     - U+000A4
+     - currency sign (the old German "pig")
+
+   * - :rst:`|copy|`
+     - |copy|
+     - U+000A9
+     - copyright sign
+
+   * - :rst:`|regs|`
+     - |regs|
+     - U+000AE
+     - registered sign
+
+   * - :rst:`|!!| / |!?|`
+     - |!!| / |!?|
+     - U+0203C, U+02049
+     - double exclamation  and exclamation questionmark
+
+   * - :rst:`|?| / |!|`
+     - |?| / |!|
+     - U+02753, U+02757
+     - red question and exclamation mark
+
+   * - :rst:`|candle| |star| |open book|`
+     - |candle| |star| |open book|
+     - U+1F56F, U+02B50, U+1F4D6
+     - Emojis: candle, star, open book
+
+   * - :rst:`|secret| |free of charge| |open for business| |passing grade|`
+     - |secret| |free of charge| |open for business| |passing grade|
+     - U+03299, U+1F21A, U+1F23A, U+1F234
+     - CJK signes: secret, free of charge, open for business, passing grade
+
+   * - :rst:`|oneq|`
+     - |oneq|
+     - U+000BC
+     - vulgar fraction one quarter
+
+   * - :rst:`|oneq|`
+     - |oneq|
+     - U+000BC
+     - vulgar fraction one quarter
+
+   * - :rst:`|oneh|`
+     - |oneh|
+     - U+000BD
+     - vulgar fraction one half
+
+   * - :rst:`|threeq|`
+     - |threeq|
+     - U+000BE
+     - vulgar fraction three quarters
+
+   * - :rst:`|sup2| |sup3| |/| |sub3| |sub2|`
+     - |sup2| |sup3| |/| |sub3| |sub2|
+     - U+0338F
+     - special fraction
+
+   * - :rst:`X |sup7| |sup(| |sup8| |sup-| |sup9| |sup)|`
+     - X |sup7| |sup(| |sup8| |sup-| |sup9| |sup)|
+     - U+02070 |...| U+0207E
+     - superscript formatter
+
+   * - :rst:`X |sub7| |sub(| |sub8| |sub-| |sub9| |sub)|`
+     - X |sub7| |sub(| |sub8| |sub-| |sub9| |sub)|
+     - U+02080 |...| U+0208E
+     - subscript formatter
+
+   * - :rst:`N = J/m = |kg| |*| m |*| s |sup-| |sup2|`
+     - N = J/m = |kg| |*| m |*| s |sup-| |sup2|
+     - U+02044, U+0207B, U+000B2
+     - Newton in Joule per meter and in SI units
+
+   * - :rst:`8 |nm| = 8 |*| 10 |sup-| |sup3| |um|`
+     - 8 |nm| = 8 |*| 10 |sup-| |sup3| |um|
+     - U+0339A, U+0339B
+     - nano, micro meter
+
+   * - :rst:`|nm|/|um|/|mm|/|cm|/|dm|/|km|`
+     - |nm|/|um|/|mm|/|cm|/|dm|/|km|
+     - U+0339A |...| U+0339E
+     - nano, micro, milli, centi, deci, kilo meter
+
+   * - :rst:`|mm2|/|cm2|/|dm2|/|km2|`
+     - |mm2|/|cm2|/|dm2|/|km2|
+     - U+0339F |...| U+033A2
+     - square milli, centi, deci, kilo meter squared
+
+   * - :rst:`|mm3|/|cm3|/|dm3|/|km3|`
+     - |mm3|/|cm3|/|dm3|/|km3|
+     - U+033A3 |...| U+033A6
+     - square milli, centi, deci, kilo meter cubed
+
+   * - :rst:`|ul|/|ml|/|dl|`
+     - |ul|/|ml|/|dl|
+     - U+03395 |...| U+03397
+     - micro, milli, deci litre
+
+   * - :rst:`|ug|/|mg|/|kg|`
+     - |ug|/|mg|/|kg|
+     - U+0338D |...| U+0338F
+     - micro, milli, kilo gramm
+
+   * - :rst:`|ps|/|ns|/|us|/|ms|`
+     - |ps|/|ns|/|us|/|ms|
+     - U+033B0 |...| U+033B3
+     - pico, nano, micro, milli, second
+
+   * - :rst:`|Hz|/|kHz|/|MHz|/|GHz|/|THz|`
+     - |Hz|/|kHz|/|MHz|/|GHz|/|THz|
+     - U+03390 |...| U+03394
+     - kilo, mega, giga, tera, hertz
+
+   * - :rst:`|pA|/|nA|/|uA|/|mA|/A/|kA|`
+     - |pA|/|nA|/|uA|/|mA|/A/|kA|
+     - U+03380 |...| U+03384
+     - pico, nano, micro, milli, kilo ampere
+
+   * - :rst:`|pV|/|nV|/|uV|/|mV|/V/|kV|/|MV|`
+     - |pV|/|nV|/|uV|/|mV|/V/|kV|/|MV|
+     - U+033B4 |...| U+033B9
+     - pico, nano, micro, milli, kilo, mega volt
+
+   * - :rst:`|pW|/|nW|/|uW|/|mW|/W/|kW|/|MW|`
+     - |pW|/|nW|/|uW|/|mW|/W/|kW|/|MW|
+     - U+033BA |...| U+033BF
+     - pico, nano, micro, milli, kilo, mega watt
+
+   * - :rst:`|mO|/|O|/|kO|/|MO|`
+     - |mO|/|O|/|kO|/|MO|
+     - U+003A9, U+033C0, U+033C1
+     - milli, kilo, mega ohm
+
+   * - :rst:`|mO|/|O|/|kO|/|MO|`
+     - |mO|/|O|/|kO|/|MO|
+     - U+003A9, U+033C0, U+033C1
+     - milli, kilo, mega ohm
+
+   * - :rst:`|pF|/|nF|/|uF|`
+     - |pF|/|nF|/|uF|
+     - U+0338A, U+0338B, U+0338C
+     - pico, nano, micro farad
+
+   * - :rst:`|uH|/|mH|`
+     - |uH|/|mH|
+     - U+000B5, simulated
+     - micro, milli henry
+
+   * - :rst:`L = 500 |uH| = 0.5 |mH|`
+     - L = 500 |uH| = 0.5 |mH|
+     - U+000B5, simulated
+     - micro, milli henry in equation
+
+   * - :rst:`|Theta| = 20000 |x| 20 |uA| = 400 |mA|`
+     - |Theta| = 20000 |x| 20 |uA| = 400 |mA|
+     - U+00398, U+000D7, U+03382, U+03383
+     - Greek capital letter theta symbol and micro / milli ampere
+
+   * - :rst:`|theta| = 20 |°C| = 293.15 |K|`
+     - |theta| = 20 |°C| = 293.15 |K|
+     - U+003D1, U+02103, U+0212A
+     - Greek theta symbol and degree Celsius and Kelvin sign
+
+   * - :rst:`|kb|/|kB|/|MB|/|GB|`
+     - |kb|/|kB|/|MB|/|GB|
+     - U+03385, U+03386, U+03387
+     - kilo bit / kilo, mega, giga byte
+
 Doxygen style guide
 *******************
 
