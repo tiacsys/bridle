@@ -147,7 +147,7 @@ pygments_style = 'sphinx'
 
 # If this is True, todo and todolist produce output, else they produce nothing.
 # The default is False.
-todo_include_todos = False
+todo_include_todos = True
 
 rst_prolog = '''
 .. include:: /roles.txt
