@@ -62,3 +62,8 @@
 .grid h2 {
   color: #fcfcfc !important;
 }
+
+/* tweak list style for edge pinout */
+ul.edge-pinout > li {
+  list-style: none !important;
+}
