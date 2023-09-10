@@ -416,3 +416,4 @@ def setup(app):
     app.add_css_file('css/bold.css')
     app.add_css_file('css/hwftlbl.css')
     app.add_css_file('css/rpipico.css')
+    app.add_css_file('css/twocol.css')

@@ -1,0 +1,19 @@
+div.leftside {
+  width: 50%;
+  padding: 0px 15px 0px 15px;
+  border-right: inset var(--docset-color);
+  float: left;
+}
+
+div.rightside {
+  margin-left: 50%;
+  padding: 0px 15px 0px 15px;
+  /* float: right; */
+}
+
+/* Clear floats after the columns */
+div.twocol:after {
+  content: "";
+  display: table;
+  clear: both;
+}
