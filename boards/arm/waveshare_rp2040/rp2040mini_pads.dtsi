@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	rp2040mini_pcbpads: solder-pads {
+		compatible = "waveshare,rp2040mini-pcbpads";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <0 0 &gpio0 17 0>,	/* GP17 */
+			   <1 0 &gpio0 18 0>,	/* GP18 */
+			   <2 0 &gpio0 19 0>,	/* GP19 */
+			   <3 0 &gpio0 20 0>,	/* GP20 */
+			   <4 0 &gpio0 21 0>,	/* GP21 */
+			   <5 0 &gpio0 22 0>,	/* GP22 */
+			   <6 0 &gpio0 23 0>,	/* GP23 */
+			   <7 0 &gpio0 24 0>,	/* GP24 */
+			   <8 0 &gpio0 25 0>;	/* GP25 */
+	};
+};

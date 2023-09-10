@@ -1,0 +1,39 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	pico_header: connector {
+		compatible = "raspberrypi,pico-header";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <0 0 &gpio0 0 0>,	/* UART0 / GP0 */
+			   <1 0 &gpio0 1 0>,	/* UART0 / GP1 */
+			   <2 0 &gpio0 2 0>,	/* GP2 */
+			   <3 0 &gpio0 3 0>,	/* GP3 */
+			   <4 0 &gpio0 4 0>,	/* SPI0 / GP4 */
+			   <5 0 &gpio0 5 0>,	/* SPI0 / GP5 */
+			   <6 0 &gpio0 6 0>,	/* SPI0 / GP6 */
+			   <7 0 &gpio0 7 0>,	/* SPI0 / GP7 */
+			   <8 0 &gpio0 8 0>,	/* I2C0 / GP8 */
+			   <9 0 &gpio0 9 0>,	/* I2C0 / GP9 */
+			   /* 10: GP10 not wired */
+			   /* 11: GP11 not wired */
+			   /* 12: GP12 not wired */
+			   /* 13: GP13 not wired */
+			   /* 14: GP14 not wired */
+			   /* 15: GP15 not wired */
+			   /* 16: GP16 not wired */
+			   /* 17: GP17 internal wired to ETH_TCPCS */
+			   /* 18: GP18 internal wired to ETH_CFG0 */
+			   /* 19: GP19 internal wired to ETH_RSTI */
+			   /* 20: GP20 internal wired to ETH_RX (UART1) */
+			   /* 21: GP21 internal wired to ETH_TX (UART1) */
+			   <22 0 &gpio0 22 0>,	/* GP22 */
+			   <26 0 &gpio0 26 0>,	/* ADC0 / GP26 */
+			   <27 0 &gpio0 27 0>,	/* ADC1 / GP27 */
+			   <28 0 &gpio0 28 0>;	/* ADC2 / GP28 */
+	};
+};

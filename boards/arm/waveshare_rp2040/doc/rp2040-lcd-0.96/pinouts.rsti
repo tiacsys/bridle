@@ -1,0 +1,100 @@
+External pin mapping on the :ref:`RP2040-LCD-0.96 <waveshare_rp2040_lcd_0_96>`
+is identical to the original :ref:`zephyr:rpi_pico` board, but note that
+internal RP2040 GPIO lines 23 and 24 are routed to the voltage regulator
+and USB connector for SMPS (TPS63000) power saving modes and USB VBUS
+sense. GPIO line 25 is routed to the on-board user LCD backlight and
+GPIO line 29 will be used for VSYS/3 voltage monitoring per default.
+
+In addition, GPIO lines 8 to 12 are used for control and SPI communication
+with the on-board LCD, but are still available externally in parallel.
+
+.. list-table::
+   :align: center
+   :width: 100%
+   :widths: 66, 33
+
+   * - .. rubric:: Pin Mapping
+     - .. rubric:: Pinout
+
+   * - :on-edge(1-40):
+          :hwftlbl-pio:`8`
+          :hwftlbl-pwm:`8`
+          :hwftlbl-adc:`3`
+          :hwftlbl-i2c:`2`
+          :hwftlbl-spi:`1`
+          :hwftlbl-uart:`1`
+
+       :on-board:
+          :hwftlbl-led:`1 BL`
+          :hwftlbl-scr:`1 LCD`
+
+       .. rubric:: Default Zephyr Peripheral Mapping
+
+       |nbsp|
+
+       .. rst-class:: rst-columns edge-pinout
+
+       - | :rpi-pico-pin:`1` :rpi-pico-uart-dfl:`UART0_TX` : GP0 (PWM0)
+       - | :rpi-pico-pin:`2` :rpi-pico-uart-dfl:`UART0_RX` : GP1 (PWM1)
+       - | :rpi-pico-pin:`3` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`4` PIO/PWM : :rpi-pico-pio:`GP2` :rpi-pico-pwm:`PWM2`
+       - | :rpi-pico-pin:`5` PIO/PWM : :rpi-pico-pio:`GP3` :rpi-pico-pwm:`PWM3`
+       - | :rpi-pico-pin:`6` :rpi-pico-i2c-dfl:`I2C0_SDA` : GP4 (PWM4)
+       - | :rpi-pico-pin:`7` :rpi-pico-i2c-dfl:`I2C0_SCL` : GP5 (PWM5)
+       - | :rpi-pico-pin:`8` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`9` PIO/PWM : :rpi-pico-pio:`GP6` :rpi-pico-pwm:`PWM6`
+       - | :rpi-pico-pin:`10` PIO/PWM : :rpi-pico-pio:`GP7` :rpi-pico-pwm:`PWM7`
+       - | :rpi-pico-pin:`11` :rpi-pico-pio:`GPIO8` : GP8 (PWM8)
+         | :rpi-pico-pin-nc:`nc` on-board LCD data/cmd :rpi-pico-sys:`LCD_DC`
+       - | :rpi-pico-pin:`12` :rpi-pico-spi:`SPI1_CSN` : GP9 (PWM9)
+         | :rpi-pico-pin-nc:`nc` on-board LCD chip select :rpi-pico-sys:`LCD_CS`
+       - | :rpi-pico-pin:`13` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`14` :rpi-pico-spi:`SPI1_SCK` : GP10 (PWM10)
+         | :rpi-pico-pin-nc:`nc` on-board LCD i/f clock :rpi-pico-sys:`LCD_CLK`
+       - | :rpi-pico-pin:`15` :rpi-pico-spi:`SPI1_TX` : GP11 (PWM11)
+         | :rpi-pico-pin-nc:`nc` on-board LCD i/f data :rpi-pico-sys:`LCD_DIN`
+       - | :rpi-pico-pin:`16` :rpi-pico-pio:`GPIO12` : GP12 (PWM12)
+         | :rpi-pico-pin-nc:`nc` on-board LCD reset :rpi-pico-sys:`LCD_RST`
+       - | :rpi-pico-pin:`17` PIO/PWM : :rpi-pico-pio:`GP13` :rpi-pico-pwm:`PWM13`
+       - | :rpi-pico-pin:`18` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`19` :rpi-pico-i2c:`I2C1_SDA` : GP14 (PWM14)
+       - | :rpi-pico-pin:`20` :rpi-pico-i2c:`I2C1_SCL` : GP15 (PWM15)
+       - | :rpi-pico-pin:`21` :rpi-pico-spi-dfl:`SPI0_RX` : GP16 (PWM0)
+       - | :rpi-pico-pin:`22` :rpi-pico-spi-dfl:`SPI0_CSN` : GP17 (PWM1)
+       - | :rpi-pico-pin:`23` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`24` :rpi-pico-spi-dfl:`SPI0_SCK` : GP18 (PWM2)
+       - | :rpi-pico-pin:`25` :rpi-pico-spi-dfl:`SPI0_TX` : GP19 (PWM3)
+       - | :rpi-pico-pin:`26` PIO/PWM : :rpi-pico-pio:`GP20` :rpi-pico-pwm:`PWM4`
+       - | :rpi-pico-pin:`27` PIO/PWM : :rpi-pico-pio:`GP21` :rpi-pico-pwm:`PWM5`
+       - | :rpi-pico-pin:`28` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`29` PIO/PWM : :rpi-pico-pio:`GP22` :rpi-pico-pwm:`PWM6`
+       - | :rpi-pico-pin:`30` :rpi-pico-sys:`RUN` (RESET)
+       - | :rpi-pico-pin-nc:`nc` PIO/PWM : :rpi-pico-pio:`GP23` (PWM7)
+         | :rpi-pico-pin-nc:`nc` on-board SMPS power save :rpi-pico-sys:`PS`
+       - | :rpi-pico-pin-nc:`nc` PIO/PWM : :rpi-pico-pio:`GP24` (PWM8)
+         | :rpi-pico-pin-nc:`nc` on-board :rpi-pico-vdd:`VBUS/1.51` sense
+       - | :rpi-pico-pin-nc:`nc` PIO/PWM : :rpi-pico-pio:`GP25` :rpi-pico-pwm:`PWM9`
+         | :rpi-pico-pin-nc:`nc` on-board LCD backlight :rpi-pico-sys:`LCD_BL`
+       - | :rpi-pico-pin:`31` :rpi-pico-adc:`ADC_CH0` : GP26 (PWM10)
+       - | :rpi-pico-pin:`32` :rpi-pico-adc:`ADC_CH1` : GP27 (PWM11)
+       - | :rpi-pico-pin:`33` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`34` :rpi-pico-adc:`ADC_CH2` : GP28 (PWM12)
+       - | :rpi-pico-pin-nc:`nc` :rpi-pico-adc:`ADC_CH3` : GP29 (PWM13)
+         | :rpi-pico-pin-nc:`nc` on-board :rpi-pico-vdd:`VSYS/3` monitoring
+       - | :rpi-pico-pin:`35` :rpi-pico-adc:`ADC_VREF`
+       - | :rpi-pico-pin:`36` :rpi-pico-vdd:`3V3(OUT)`
+       - | :rpi-pico-pin:`37` :rpi-pico-sys:`3V3_EN`
+         | :rpi-pico-pin-nc:`nc` on-board SMPS power enable
+       - | :rpi-pico-pin:`38` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`39` :rpi-pico-vdd:`VSYS`
+       - | :rpi-pico-pin:`40` :rpi-pico-vdd:`VBUS`
+
+       .. rubric:: Devicetree compatible
+
+       - :dtcompatible:`raspberrypi,pico-header`
+       - :dtcompatible:`raspberrypi,pico-header-r3`
+
+     - .. image:: /boards/arm/waveshare_rp2040/doc/rp2040-lcd-0.96/pinouts.jpg
+          :align: center
+          :width: 100%
+          :alt: Waveshare RP2040-LCD-0.96 edge pinout

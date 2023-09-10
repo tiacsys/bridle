@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include "waveshare_rp2040-16mb.dtsi"
+
+/ {
+	model = "Waveshare RP2040-Plus (16MB) @ USB-CDC/ACM Concole";
+	compatible = "waveshare,rp2040-plus", "waveshare,rp2040-plus-usbcons",
+		     "waveshare,rp2040-plus-16mb", "waveshare,rp2040-plus-16mb-usbcons";
+
+	chosen {
+		zephyr,console = &cdc_acm_uart0;
+		zephyr,shell-uart = &cdc_acm_uart0;
+	};
+};
+
+&zephyr_udc0 {
+	cdc_acm_uart0: cdc-acm-uart-0 {
+		compatible = "zephyr,cdc-acm-uart";
+	};
+};

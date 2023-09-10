@@ -1,0 +1,14 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	model = "Waveshare RP2040-Zero @ UART Concole";
+	compatible = "waveshare,rp2040-zero", "waveshare,rp2040-zero-uartcons";
+
+	chosen {
+		zephyr,console = &uart0;
+		zephyr,shell-uart = &uart0;
+	};
+};

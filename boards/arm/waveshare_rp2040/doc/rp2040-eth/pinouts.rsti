@@ -1,0 +1,107 @@
+External pin mapping on the :ref:`RP2040-ETH <waveshare_rp2040_eth>` is
+only partially identical to the original :ref:`zephyr:rpi_pico` board.
+About half of the pins provided on the edge were skipped for internal
+on-board purposes.
+
+Note that also internal signals are not wired in same way. The internal
+RP2040 GPIO line 23 is not routed to the voltage regulator for SMPS power
+saving modes, due to the lack of such kind of functionality on applied
+SMPS (ME6217). Also the internal RP2040 GPIO line 29 (instead of 24 as
+in other one to one clones) is routed to the USB connector for USB VBUS
+monitoring. This omits the logical sensing of the USB bus voltage and also
+the monitoring of the system voltage, but it replaces it by combining the
+two original functions on line 29, now for USB VBUS.
+
+But the GPIO line 25 is routed to the on-board user RGB LED in expected
+manner. In addition, GPIO lines 17 to 20 are used for control and UART
+communication with the on-board Ethernet controller that integrates an
+embedded but complete TCP/IP stack (incl. UDP, ICMP, IGMP, ARP).
+
+.. list-table::
+   :align: center
+   :width: 100%
+   :widths: 66, 33
+
+   * - .. rubric:: Pin Mapping
+     - .. rubric:: Pinout
+
+   * - :on-edge(1-40):
+          :hwftlbl-pio:`3`
+          :hwftlbl-pwm:`3`
+          :hwftlbl-adc:`3`
+          :hwftlbl-i2c:`1`
+          :hwftlbl-spi:`1`
+          :hwftlbl-uart:`1`
+
+       :on-board:
+          :hwftlbl-led:`1 RGB`
+          :hwftlbl-con:`1 10BASE-T`
+
+       .. rubric:: Default Zephyr Peripheral Mapping
+
+       |nbsp|
+
+       .. rst-class:: rst-columns edge-pinout
+
+       - | :rpi-pico-pin:`1` :rpi-pico-uart-dfl:`UART0_TX` : GP0 (PWM0)
+       - | :rpi-pico-pin:`2` :rpi-pico-uart-dfl:`UART0_RX` : GP1 (PWM1)
+       - | :rpi-pico-pin:`3` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`4` PIO/PWM : :rpi-pico-pio:`GP2` :rpi-pico-pwm:`PWM2`
+       - | :rpi-pico-pin:`5` PIO/PWM : :rpi-pico-pio:`GP3` :rpi-pico-pwm:`PWM3`
+       - | :rpi-pico-pin:`6` :rpi-pico-spi-dfl:`SPI0_RX` : GP4 (PWM4)
+       - | :rpi-pico-pin:`7` :rpi-pico-spi-dfl:`SPI0_CSN` : GP5 (PWM5)
+       - | :rpi-pico-pin:`8` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`9` :rpi-pico-spi-dfl:`SPI0_SCK` : GP6 (PWM6)
+       - | :rpi-pico-pin:`10` :rpi-pico-spi-dfl:`SPI0_TX` : GP7 (PWM7)
+       - | :rpi-pico-pin:`11` :rpi-pico-i2c-dfl:`I2C0_SDA` : GP8 (PWM8)
+       - | :rpi-pico-pin:`12` :rpi-pico-i2c-dfl:`I2C0_SCL` : GP9 (PWM9)
+       - | :rpi-pico-pin-nc:`13` |nbsp|
+       - | :rpi-pico-pin-nc:`14` :strikethrough:`PIO/PWM : GP10 (PWM10)`
+       - | :rpi-pico-pin-nc:`15` :strikethrough:`PIO/PWM : GP11 (PWM11)`
+       - | :rpi-pico-pin-nc:`16` :strikethrough:`PIO/PWM : GP12 (PWM12)`
+       - | :rpi-pico-pin-nc:`17` :strikethrough:`PIO/PWM : GP13 (PWM13)`
+       - | :rpi-pico-pin-nc:`18` |nbsp|
+       - | :rpi-pico-pin-nc:`19` :strikethrough:`PIO/PWM : GP14 (PWM14)`
+       - | :rpi-pico-pin-nc:`20` :strikethrough:`PIO/PWM : GP15 (PWM15)`
+       - | :rpi-pico-pin-nc:`21` :strikethrough:`PIO/PWM : GP16 (PWM0)`
+       - | :rpi-pico-pin-nc:`22` :rpi-pico-pio:`GPIO17` : GP17 (PWM1)
+         | :rpi-pico-pin-nc:`nc` 10BASE-T TCP connect :rpi-pico-sys:`ETH_TCPCS`
+       - | :rpi-pico-pin-nc:`23` |nbsp|
+       - | :rpi-pico-pin-nc:`24` :rpi-pico-pio:`GPIO18` : GP18 (PWM2)
+         | :rpi-pico-pin-nc:`nc` 10BASE-T data config :rpi-pico-sys:`ETH_CFG0`
+       - | :rpi-pico-pin-nc:`25` :rpi-pico-pio:`GPIO19` : GP19 (PWM3)
+         | :rpi-pico-pin-nc:`nc` 10BASE-T reset :rpi-pico-sys:`ETH_RSTI`
+       - | :rpi-pico-pin-nc:`26` :rpi-pico-uart:`UART1_TX` : GP20 (PWM4)
+         | :rpi-pico-pin-nc:`nc` 10BASE-T data down :rpi-pico-sys:`ETH_RX`
+       - | :rpi-pico-pin-nc:`27` :rpi-pico-uart:`UART1_RX` : GP21 (PWM5)
+         | :rpi-pico-pin-nc:`nc` 10BASE-T data up :rpi-pico-sys:`ETH_TX`
+       - | :rpi-pico-pin-nc:`28` |nbsp|
+       - | :rpi-pico-pin:`29` PIO/PWM : :rpi-pico-pio:`GP22` :rpi-pico-pwm:`PWM6`
+       - | :rpi-pico-pin:`30` :rpi-pico-sys:`RUN` (RESET)
+       - | :rpi-pico-pin-nc:`nc` :strikethrough:`PIO/PWM : GP23 (PWM7)`
+       - | :rpi-pico-pin-nc:`nc` :strikethrough:`PIO/PWM : GP24 (PWM8)`
+       - | :rpi-pico-pin-nc:`nc` PIO/PWM : :rpi-pico-pio:`GP25` :rpi-pico-pwm:`PWM9`
+         | :rpi-pico-pin-nc:`nc` on-board user :rpi-pico-sys:`RGB_LED_DI`
+       - | :rpi-pico-pin:`31` :rpi-pico-adc:`ADC_CH0` : GP26 (PWM10)
+       - | :rpi-pico-pin:`32` :rpi-pico-adc:`ADC_CH1` : GP27 (PWM11)
+       - | :rpi-pico-pin:`33` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`34` :rpi-pico-adc:`ADC_CH2` : GP28 (PWM12)
+       - | :rpi-pico-pin-nc:`nc` :rpi-pico-adc:`ADC_CH3` : GP29 (PWM13)
+         | :rpi-pico-pin-nc:`nc` on-board :rpi-pico-vdd:`VBUS/3` monitoring
+       - | :rpi-pico-pin:`35` :rpi-pico-adc:`ADC_VREF`
+       - | :rpi-pico-pin:`36` :rpi-pico-vdd:`3V3(OUT)`
+       - | :rpi-pico-pin:`37` :rpi-pico-sys:`3V3_EN`
+         | :rpi-pico-pin-nc:`nc` on-board SMPS power enable
+       - | :rpi-pico-pin:`38` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`39` :rpi-pico-vdd:`VSYS`
+       - | :rpi-pico-pin:`40` :rpi-pico-vdd:`VBUS`
+
+       .. rubric:: Devicetree compatible
+
+       - :dtcompatible:`raspberrypi,pico-header`
+       - :dtcompatible:`raspberrypi,pico-header-r3`
+
+     - .. image:: /boards/arm/waveshare_rp2040/doc/rp2040-eth/pinouts.jpg
+          :align: center
+          :width: 100%
+          :alt: Waveshare RP2040-ETH edge pinout

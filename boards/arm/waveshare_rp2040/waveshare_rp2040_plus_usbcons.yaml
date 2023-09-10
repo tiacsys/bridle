@@ -1,0 +1,27 @@
+identifier: waveshare_rp2040_plus@usbcons
+name: Waveshare RP2040-Plus (4MB) with USB-CDC/ACM Concole
+type: mcu
+arch: arm
+flash: 4096
+ram: 264
+toolchain:
+  - zephyr
+  - gnuarmemb
+  - xtools
+supported:
+  - rpipico_serial
+  - rpipico_spi
+  - rpipico_i2c
+  - uart
+  - gpio
+  - adc
+  - i2c
+  - spi
+  - hwinfo
+  - watchdog
+  - pwm
+  - flash
+  - dma
+  - counter
+  - usb_cdc
+  - usb_device

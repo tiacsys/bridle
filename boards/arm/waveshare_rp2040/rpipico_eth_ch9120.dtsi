@@ -1,0 +1,18 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+&uart1 {
+	status = "okay";
+	pinctrl-0 = <&uart1_eth>;
+	pinctrl-names = "default";
+
+	current-speed = <921600>;
+
+	/* TODO: compatible: "wch,ch9120" */
+};
+
+&gpio0 {
+	status = "okay";
+};

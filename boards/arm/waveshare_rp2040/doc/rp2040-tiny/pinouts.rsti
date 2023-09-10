@@ -1,0 +1,81 @@
+External pin mapping on the :ref:`RP2040-Tiny <waveshare_rp2040_tiny>`
+is :strong:`not identical` to the original :ref:`zephyr:rpi_pico` board.
+Almost all pins are rearranged in a more compact order. Likewise, the
+voltage sense and monitoring functions are not integrated. Thus all
+internal R2040 GPIO lines are available for free use, insofar there
+is sufficient space for them on the outer edge of the board.
+
+Only GPIO line 16 is exclusively routed to the on-board user RGB LED.
+The analog voltage reference is internally hard-wired to the digital
+3.3V power supply and only decoupled by a simple resistor. There is
+no option to change this from outside the board.
+
+.. list-table::
+   :align: center
+   :width: 100%
+   :widths: 66, 33
+
+   * - .. rubric:: Pin Mapping
+     - .. rubric:: Pinout
+
+   * - :on-edge(1-23):
+          :hwftlbl-pio:`6`
+          :hwftlbl-pwm:`6`
+          :hwftlbl-adc:`4`
+          :hwftlbl-i2c:`2`
+          :hwftlbl-spi:`1`
+          :hwftlbl-uart:`1`
+
+       :on-board:
+          :hwftlbl-led:`1 RGB`
+
+       .. rubric:: Default Zephyr Peripheral Mapping
+
+       |nbsp|
+
+       .. rst-class:: rst-columns edge-pinout
+
+       - | :rpi-pico-pin:`1` :rpi-pico-uart-dfl:`UART0_TX` : GP0 (PWM0)
+       - | :rpi-pico-pin:`2` :rpi-pico-uart-dfl:`UART0_RX` : GP1 (PWM1)
+       - | :rpi-pico-pin:`3` PIO/PWM : :rpi-pico-pio:`GP2` :rpi-pico-pwm:`PWM2`
+       - | :rpi-pico-pin:`4` PIO/PWM : :rpi-pico-pio:`GP3` :rpi-pico-pwm:`PWM3`
+       - | :rpi-pico-pin:`5` :rpi-pico-spi-dfl:`SPI0_RX` : GP4 (PWM4)
+       - | :rpi-pico-pin:`6` :rpi-pico-spi-dfl:`SPI0_CSN` : GP5 (PWM5)
+       - | :rpi-pico-pin:`7` :rpi-pico-spi-dfl:`SPI0_SCK` : GP6 (PWM6)
+       - | :rpi-pico-pin:`8` :rpi-pico-spi-dfl:`SPI0_TX` : GP7 (PWM7)
+       - | :rpi-pico-pin:`9` :rpi-pico-i2c-dfl:`I2C0_SDA` : GP8 (PWM8)
+       - | :rpi-pico-pin:`10` :rpi-pico-i2c-dfl:`I2C0_SCL` : GP9 (PWM9)
+       - | :rpi-pico-pin:`11` PIO/PWM : :rpi-pico-pio:`GP10` :rpi-pico-pwm:`PWM10`
+       - | :rpi-pico-pin:`12` PIO/PWM : :rpi-pico-pio:`GP11` :rpi-pico-pwm:`PWM11`
+       - | :rpi-pico-pin:`13` PIO/PWM : :rpi-pico-pio:`GP12` :rpi-pico-pwm:`PWM12`
+       - | :rpi-pico-pin:`14` PIO/PWM : :rpi-pico-pio:`GP13` :rpi-pico-pwm:`PWM13`
+       - | :rpi-pico-pin:`15` :rpi-pico-i2c:`I2C1_SDA` : GP14 (PWM14)
+       - | :rpi-pico-pin:`16` :rpi-pico-i2c:`I2C1_SCL` : GP15 (PWM15)
+       - | :rpi-pico-pin-nc:`nc` PIO/PWM : :rpi-pico-pio:`GP16` :rpi-pico-pwm:`PWM0`
+         | :rpi-pico-pin-nc:`nc` on-board user :rpi-pico-sys:`RGB_LED_DI`
+       - | :rpi-pico-pin-nc:`A` :strikethrough:`PIO/PWM : GP17 (PWM1)`
+       - | :rpi-pico-pin-nc:`B` :strikethrough:`PIO/PWM : GP18 (PWM2)`
+       - | :rpi-pico-pin-nc:`C` :strikethrough:`PIO/PWM : GP19 (PWM3)`
+       - | :rpi-pico-pin-nc:`D` :strikethrough:`PIO/PWM : GP20 (PWM4)`
+       - | :rpi-pico-pin-nc:`E` :strikethrough:`PIO/PWM : GP21 (PWM5)`
+       - | :rpi-pico-pin-nc:`F` :strikethrough:`PIO/PWM : GP22 (PWM6)`
+       - | :rpi-pico-pin-nc:`G` :strikethrough:`PIO/PWM : GP23 (PWM7)`
+       - | :rpi-pico-pin-nc:`H` :strikethrough:`PIO/PWM : GP24 (PWM8)`
+       - | :rpi-pico-pin-nc:`I` :strikethrough:`PIO/PWM : GP25 (PWM9)`
+       - | :rpi-pico-pin-nc:`J` :strikethrough:`GND`
+       - | :rpi-pico-pin:`17` :rpi-pico-adc:`ADC_CH0` : GP26 (PWM10)
+       - | :rpi-pico-pin:`18` :rpi-pico-adc:`ADC_CH1` : GP27 (PWM11)
+       - | :rpi-pico-pin:`19` :rpi-pico-adc:`ADC_CH2` : GP28 (PWM12)
+       - | :rpi-pico-pin:`20` :rpi-pico-adc:`ADC_CH3` : GP29 (PWM13)
+       - | :rpi-pico-pin:`21` :rpi-pico-vdd:`3V3(OUT)`
+       - | :rpi-pico-pin:`22` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`23` :rpi-pico-vdd:`VSYS`
+
+       .. rubric:: Devicetree compatible
+
+       - :dtcompatible:`waveshare,rp2040mini-header`
+
+     - .. image:: /boards/arm/waveshare_rp2040/doc/rp2040-tiny/pinouts.jpg
+          :align: center
+          :width: 100%
+          :alt: Waveshare RP2040-Tiny edge pinout

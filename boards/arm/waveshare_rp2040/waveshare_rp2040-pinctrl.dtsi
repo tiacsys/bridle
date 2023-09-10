@@ -1,0 +1,126 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/pinctrl/rpi-pico-rp2040-pinctrl.h>
+
+&pinctrl {
+	uart0_default: uart0_default {
+		group1 {
+			pinmux = <UART0_TX_P0>;
+		};
+		group2 {
+			pinmux = <UART0_RX_P1>;
+			input-enable;
+		};
+	};
+
+	spi0_mini_default: spi0_mini_default {
+		group1 {
+			pinmux = <SPI0_CSN_P5>, <SPI0_SCK_P6>, <SPI0_TX_P7>;
+		};
+		group2 {
+			pinmux = <SPI0_RX_P4>;
+			input-enable;
+		};
+	};
+
+	i2c0_mini_default: i2c0_mini_default {
+		group1 {
+			pinmux = <I2C0_SDA_P8>, <I2C0_SCL_P9>;
+			bias-pull-up;
+			input-enable;
+			input-schmitt-enable;
+		};
+	};
+
+	i2c1_mini_default: i2c1_mini_default {
+		group1 {
+			pinmux = <I2C1_SDA_P14>, <I2C1_SCL_P15>;
+			bias-pull-up;
+			input-enable;
+			input-schmitt-enable;
+		};
+	};
+
+	pio0_ws2812_mini_default: pio0_ws2812_mini_default {
+		ws2812 {
+			pinmux = <PIO0_P16>;
+		};
+	};
+
+	spi0_pico_default: spi0_pico_default {
+		group1 {
+			pinmux = <SPI0_CSN_P17>, <SPI0_SCK_P18>, <SPI0_TX_P19>;
+		};
+		group2 {
+			pinmux = <SPI0_RX_P16>;
+			input-enable;
+		};
+	};
+
+	spi1_pico: spi1_pico {
+		group1 {
+			pinmux = <SPI1_CSN_P9>, <SPI1_SCK_P10>, <SPI1_TX_P11>;
+		};
+		group2 {
+			pinmux = <SPI1_RX_P12>;
+			input-enable;
+		};
+	};
+
+	i2c0_pico_default: i2c0_pico_default {
+		group1 {
+			pinmux = <I2C0_SDA_P4>, <I2C0_SCL_P5>;
+			bias-pull-up;
+			input-enable;
+			input-schmitt-enable;
+		};
+	};
+
+	i2c1_pico_default: i2c1_pico_default {
+		group1 {
+			pinmux = <I2C1_SDA_P14>, <I2C1_SCL_P15>;
+			bias-pull-up;
+			input-enable;
+			input-schmitt-enable;
+		};
+	};
+
+	pio0_ws2812_pico_default: pio0_ws2812_pico_default {
+		ws2812 {
+			pinmux = <PIO0_P25>;
+		};
+	};
+
+	pwm_pico_default: pwm_pico_default {
+		group1 {
+			pinmux = <PWM_4B_P25>;	/* GP25: PWM4CHB (9) */
+		};
+	};
+
+	adc_default: adc_default {
+		group1 {
+			pinmux = <ADC_CH0_P26>, <ADC_CH1_P27>,
+				 <ADC_CH2_P28>, <ADC_CH3_P29>;
+			input-enable;
+		};
+	};
+
+	uart1_eth: uart1_eth {
+		group1 {
+			pinmux = <UART1_TX_P20>;
+		};
+		group2 {
+			pinmux = <UART1_RX_P21>;
+			input-enable;
+		};
+	};
+
+	spi1_lcd: spi1_lcd {
+		group1 {
+			pinmux = <SPI1_CSN_P9>, <SPI1_SCK_P10>, <SPI1_TX_P11>;
+		};
+	};
+};

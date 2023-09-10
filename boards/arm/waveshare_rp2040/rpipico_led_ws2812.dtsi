@@ -1,0 +1,40 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/gpio/gpio.h>
+#include <zephyr/dt-bindings/led/led.h>
+
+/ {
+	aliases {
+		led-strip = &led_strip;
+	};
+};
+
+&pio0 {
+	status = "okay";
+
+	pio-ws2812 {
+		compatible = "raspberrypi,pico-pio-ws2812";
+		status = "okay";
+
+		pinctrl-0 = <&pio0_ws2812_pico_default>;
+		pinctrl-names = "default";
+		bit-waveform = <3>, <3>, <4>;
+
+		led_strip: ws2812 {
+			compatible = "worldsemi,ws2812-rpi_pico-pio";
+			status = "okay";
+
+			chain-length = <1>;
+			color-mapping = <LED_COLOR_ID_GREEN
+					 LED_COLOR_ID_RED
+					 LED_COLOR_ID_BLUE>;
+
+			frequency = <800000>;
+			reset-delay = <280>;
+			output-pin = <25>;	/* GPIO25 */
+		};
+	};
+};

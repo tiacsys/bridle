@@ -1,0 +1,30 @@
+# Copyright (c) 2023 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+config BOARD_WAVESHARE_RP2040_ONE
+	bool "Waveshare RP2040-One Board"
+	depends on SOC_RP2040
+
+config BOARD_WAVESHARE_RP2040_ZERO
+	bool "Waveshare RP2040-Zero Board"
+	depends on SOC_RP2040
+
+config BOARD_WAVESHARE_RP2040_MATRIX
+	bool "Waveshare RP2040-Matrix Board"
+	depends on SOC_RP2040
+
+config BOARD_WAVESHARE_RP2040_TINY
+	bool "Waveshare RP2040-Tiny Board"
+	depends on SOC_RP2040
+
+config BOARD_WAVESHARE_RP2040_ETH
+	bool "Waveshare RP2040-ETH Board"
+	depends on SOC_RP2040
+
+config BOARD_WAVESHARE_RP2040_LCD_0_96
+	bool "Waveshare RP2040-LCD-0.96 Board"
+	depends on SOC_RP2040
+
+config BOARD_WAVESHARE_RP2040_PLUS
+	bool "Waveshare RP2040-Plus Board"
+	depends on SOC_RP2040

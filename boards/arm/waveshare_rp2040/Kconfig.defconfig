@@ -1,0 +1,105 @@
+# Copyright (c) 2023 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+config BOARD
+	default "waveshare_rp2040_one" if BOARD_WAVESHARE_RP2040_ONE
+	default "waveshare_rp2040_zero" if BOARD_WAVESHARE_RP2040_ZERO
+	default "waveshare_rp2040_matrix" if BOARD_WAVESHARE_RP2040_MATRIX
+	default "waveshare_rp2040_tiny" if BOARD_WAVESHARE_RP2040_TINY
+	default "waveshare_rp2040_eth" if BOARD_WAVESHARE_RP2040_ETH
+	default "waveshare_rp2040_lcd_0_96" if BOARD_WAVESHARE_RP2040_LCD_0_96
+	default "waveshare_rp2040_plus" if BOARD_WAVESHARE_RP2040_PLUS
+	depends on BOARD_WAVESHARE_RP2040
+
+config BOARD_WAVESHARE_RP2040_MINI
+	bool
+	default y if BOARD_WAVESHARE_RP2040_ONE
+	default y if BOARD_WAVESHARE_RP2040_ZERO
+	default y if BOARD_WAVESHARE_RP2040_MATRIX
+	default y if BOARD_WAVESHARE_RP2040_TINY
+	default n
+
+config BOARD_WAVESHARE_RP2040_PICO
+	bool
+	default y if BOARD_WAVESHARE_RP2040_ETH
+	default y if BOARD_WAVESHARE_RP2040_LCD_0_96
+	default y if BOARD_WAVESHARE_RP2040_PLUS
+	default n
+
+config BOARD_WAVESHARE_RP2040
+	bool
+	default y if BOARD_WAVESHARE_RP2040_MINI
+	default y if BOARD_WAVESHARE_RP2040_PICO
+	default n
+
+config RP2_FLASH_W25Q080
+	default y
+	depends on BOARD_WAVESHARE_RP2040
+
+config RESET
+	default y
+	depends on DT_HAS_RASPBERRYPI_PICO_RESET_ENABLED
+
+config GPIO
+	default y
+	depends on DT_HAS_RASPBERRYPI_PICO_GPIO_ENABLED
+
+choice WS2812_STRIP_DRIVER
+	default WS2812_STRIP_RPI_PICO_PIO
+	depends on DT_HAS_WORLDSEMI_WS2812_RPI_PICO_PIO_ENABLED
+endchoice
+
+config I2C_DW_CLOCK_SPEED
+	default 125
+	depends on I2C_DW && BOARD_WAVESHARE_RP2040
+
+config USB_SELF_POWERED
+	default n
+	depends on USB_DEVICE_STACK && BOARD_WAVESHARE_RP2040
+
+config USB_MAX_POWER
+	default 150 if BOARD_WAVESHARE_RP2040_ONE	# 300mA
+	default 240 if BOARD_WAVESHARE_RP2040_ZERO	# 480mA
+	default 150 if BOARD_WAVESHARE_RP2040_MATRIX	# 300mA
+	default 150 if BOARD_WAVESHARE_RP2040_TINY	# 300mA
+	default 240 if BOARD_WAVESHARE_RP2040_ETH	# 480mA
+	default 250 if BOARD_WAVESHARE_RP2040_LCD_0_96	# 500mA
+	default 250 if BOARD_WAVESHARE_RP2040_PLUS	# 500mA
+	depends on USB_DEVICE_STACK && BOARD_WAVESHARE_RP2040
+
+# Workaround for not being able to have commas in macro arguments
+DT_CHOSEN_Z_CONSOLE := zephyr,console
+DT_COMPAT_Z_CDC_ACM_UART := zephyr,cdc-acm-uart
+DT_COMPAT_RPIPICO_USB := raspberrypi,pico-usbd
+
+# Macros to shorten Kconfig expressions
+DT_CHOSEN_CONSOLE_NODE := $(dt_chosen_path,$(DT_CHOSEN_Z_CONSOLE))
+DT_CHOSEN_CONSOLE_PARENT := $(dt_node_parent,$(DT_CHOSEN_CONSOLE_NODE))
+
+if BOARD_WAVESHARE_RP2040 && \
+   $(dt_chosen_enabled,$(DT_CHOSEN_Z_CONSOLE)) && \
+   $(dt_compat_on_bus,$(DT_COMPAT_Z_CDC_ACM_UART),usb) && \
+   $(dt_node_has_compat,$(DT_CHOSEN_CONSOLE_PARENT),$(DT_COMPAT_RPIPICO_USB))
+
+# Logger cannot use itself to log
+choice USB_CDC_ACM_LOG_LEVEL_CHOICE
+	default USB_CDC_ACM_LOG_LEVEL_OFF
+	depends on LOG
+endchoice
+
+# Set USB log level to error only
+choice USB_DEVICE_LOG_LEVEL_CHOICE
+	default USB_DEVICE_LOG_LEVEL_ERR
+	depends on LOG
+endchoice
+
+# Wait 4000ms at startup for logging
+config LOG_PROCESS_THREAD_STARTUP_DELAY_MS
+	default 4000
+	depends on LOG
+
+# Wait 4000ms at startup for USB enumeration on host side
+config BOOT_DELAY
+	default 4000
+
+endif # @usbcons

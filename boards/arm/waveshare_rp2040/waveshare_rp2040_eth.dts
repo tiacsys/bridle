@@ -1,0 +1,20 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/dts-v1/;
+
+#include "waveshare_rp2040-mini.dtsi"
+#include "waveshare_rp2040-4mb.dtsi"
+
+#include "rpipico_led_ws2812.dtsi"
+#include "rpipico_eth_ch9120.dtsi"
+#include "rpipico_reduced_connector.dtsi"
+#include "rpipico_reduced_r3_connector.dtsi"
+
+rpipico_serial: &uart0 {};
+rpipico_spi: &spi0 {};
+rpipico_i2c: &i2c0 {};
+
+#include "waveshare_rp2040-mini-tweaks.dtsi"
