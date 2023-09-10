@@ -1,27 +1,23 @@
-.rd, .brd {
+.red {
   color: IndianRed;
 }
 
-.gn, .bgn {
+.green {
   color: ForestGreen;
 }
 
-.bl, .bbl {
+.blue {
   color: RoyalBlue;
 }
 
-.yl, .byl {
+.yellow {
   color: Gold;
 }
 
-.bk, .bbk {
+.black {
   color: Black;
 }
 
-.wt, .bwt {
+.white {
   color: White;
-}
-
-.brd, .bgn, .bbl, .byl, .bbk, .bwt {
-  font-weight: bold;
 }

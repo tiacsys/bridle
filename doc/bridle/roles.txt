@@ -1,41 +1,220 @@
+.. simple colorization and formatting class mappings
+
 .. role:: rd
-   :class: rd
-
-.. role:: brd
-   :class: brd
-
+   :class: red
 .. role:: gn
-   :class: gn
-
-.. role:: bgn
-   :class: bgn
-
+   :class: green
 .. role:: bl
-   :class: bl
-
-.. role:: bbl
-   :class: bbl
-
+   :class: blue
 .. role:: yl
-   :class: yl
-
-.. role:: byl
-   :class: byl
-
+   :class: yellow
 .. role:: bk
-   :class: bk
-
-.. role:: bbk
-   :class: bbk
-
+   :class: black
 .. role:: wt
-   :class: wt
+   :class: white
 
+.. role:: italic
+   :class: italic
+.. role:: i
+   :class: italic
+.. role:: ird
+   :class: italic red
+.. role:: ign
+   :class: italic green
+.. role:: ibl
+   :class: italic blue
+.. role:: iyl
+   :class: italic yellow
+.. role:: ibk
+   :class: italic black
+.. role:: iwt
+   :class: italic white
+
+.. role:: bold
+   :class: bold
+.. role:: b
+   :class: bold
+.. role:: brd
+   :class: bold red
+.. role:: bgn
+   :class: bold green
+.. role:: bbl
+   :class: bold blue
+.. role:: byl
+   :class: bold yellow
+.. role:: bbk
+   :class: bold black
 .. role:: bwt
-   :class: bwt
+   :class: bold white
 
 .. role:: strikethrough
    :class: strikethrough
+.. role:: s
+   :class: strikethrough
+.. role:: srd
+   :class: strikethrough red
+.. role:: sgn
+   :class: strikethrough green
+.. role:: sbl
+   :class: strikethrough blue
+.. role:: syl
+   :class: strikethrough yellow
+.. role:: sbk
+   :class: strikethrough black
+.. role:: swt
+   :class: strikethrough white
 
 .. role:: underline
    :class: underline
+.. role:: u
+   :class: underline
+.. role:: urd
+   :class: underline red
+.. role:: ugn
+   :class: underline green
+.. role:: ubl
+   :class: underline blue
+.. role:: uyl
+   :class: underline yellow
+.. role:: ubk
+   :class: underline black
+.. role:: uwt
+   :class: underline white
+
+.. inline syntax highlighting for well known languages
+
+.. role:: console(code)
+   :language: console
+   :class: highlight
+
+.. role:: bash(code)
+   :language: bash
+   :class: highlight
+
+.. role:: python(code)
+   :language: python
+   :class: highlight
+
+.. role:: c(code)
+   :language: c
+   :class: highlight
+
+.. role:: latex(code)
+   :language: latex
+   :class: highlight
+
+.. role:: rst(code)
+   :language: rst
+   :class: highlight
+
+.. conditional raw outputs
+
+.. role:: raw-html(raw)
+   :format: html
+
+.. role:: raw-latex(raw)
+   :format: latex
+
+.. Hardware Feature Label colorization class mappings
+
+.. role:: hwftlbl
+   :class: hwftlbl
+.. role:: hwftlbl-con
+   :class: hwftlbl-con
+.. role:: hwftlbl-btn
+   :class: hwftlbl-btn
+.. role:: hwftlbl-led
+   :class: hwftlbl-led
+.. role:: hwftlbl-scr
+   :class: hwftlbl-scr
+.. role:: hwftlbl-vdd
+   :class: hwftlbl-vdd
+.. role:: hwftlbl-sys
+   :class: hwftlbl-sys
+.. role:: hwftlbl-dbg
+   :class: hwftlbl-dbg
+.. role:: hwftlbl-pio
+   :class: hwftlbl-pio
+.. role:: hwftlbl-pwm
+   :class: hwftlbl-pwm
+.. role:: hwftlbl-pcm
+   :class: hwftlbl-pcm
+.. role:: hwftlbl-i2s
+   :class: hwftlbl-i2s
+.. role:: hwftlbl-dac
+   :class: hwftlbl-dac
+.. role:: hwftlbl-adc
+   :class: hwftlbl-adc
+.. role:: hwftlbl-i2c
+   :class: hwftlbl-i2c
+.. role:: hwftlbl-spi
+   :class: hwftlbl-spi
+.. role:: hwftlbl-can
+   :class: hwftlbl-can
+.. role:: hwftlbl-uart
+   :class: hwftlbl-uart
+.. role:: hwftlbl-usart
+   :class: hwftlbl-usart
+.. role:: hwftlbl-hsi
+   :class: hwftlbl-hsi
+.. role:: hwftlbl-mmc
+   :class: hwftlbl-mmc
+.. role:: hwftlbl-sdc
+   :class: hwftlbl-sdc
+.. role:: hwftlbl-tfc
+   :class: hwftlbl-tfc
+.. role:: hwftlbl-csi
+   :class: hwftlbl-csi
+.. role:: hwftlbl-dsi
+   :class: hwftlbl-dsi
+.. role:: hwftlbl-dpp
+   :class: hwftlbl-dpp
+.. role:: hwftlbl-tsi
+   :class: hwftlbl-tsi
+
+.. Raspberry Pi Pico colorization class mappings
+
+.. role:: rpi-pico-pin
+   :class: rpi-pico-pin
+
+.. role:: rpi-pico-pin-nc
+   :class: rpi-pico-pin-nc
+
+.. role:: rpi-pico-gnd
+   :class: rpi-pico-gnd
+
+.. role:: rpi-pico-vdd
+   :class: rpi-pico-vdd
+
+.. role:: rpi-pico-sys
+   :class: rpi-pico-sys
+
+.. role:: rpi-pico-swd
+   :class: rpi-pico-swd
+
+.. role:: rpi-pico-pio
+   :class: rpi-pico-pio
+
+.. role:: rpi-pico-pwm
+   :class: rpi-pico-pwm
+
+.. role:: rpi-pico-adc
+   :class: rpi-pico-adc
+
+.. role:: rpi-pico-spi
+   :class: rpi-pico-spi
+
+.. role:: rpi-pico-spi-dfl
+   :class: rpi-pico-spi-dfl
+
+.. role:: rpi-pico-i2c
+   :class: rpi-pico-i2c
+
+.. role:: rpi-pico-i2c-dfl
+   :class: rpi-pico-i2c-dfl
+
+.. role:: rpi-pico-uart
+   :class: rpi-pico-uart
+
+.. role:: rpi-pico-uart-dfl
+   :class: rpi-pico-uart-dfl

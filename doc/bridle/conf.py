@@ -411,3 +411,7 @@ def setup(app):
     app.add_css_file('css/colors.css')
     app.add_css_file('css/strikethrough.css')
     app.add_css_file('css/underline.css')
+    app.add_css_file('css/italic.css')
+    app.add_css_file('css/bold.css')
+    app.add_css_file('css/hwftlbl.css')
+    app.add_css_file('css/rpipico.css')

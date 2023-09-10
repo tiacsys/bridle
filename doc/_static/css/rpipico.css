@@ -1,0 +1,64 @@
+.rpi-pico-pin {
+  color: var(--docset-color-pin-fgd);
+  background: var(--docset-color-pin-bgd);
+  border: thin solid var(--docset-color-pin-fgd);
+  visibility: visible !important;
+}
+
+.rpi-pico-pin-nc {
+  color: var(--docset-color-pin-bgd);
+  background: var(--docset-color-pin-bgd);
+  visibility: hidden !important;
+}
+
+.rpi-pico-pin, .rpi-pico-pin-nc {
+  font-weight: bold;
+  font-family: SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,Courier,monospace;
+  text-align: center;
+  vertical-align: middle;
+  align-content: center;
+  display: inline-grid;
+  margin-right: 1%;
+  padding: 1px 1px 0px 1px;
+  white-space: normal;
+  word-break: break-word;
+  min-width: 1.75em !important;
+  min-height: 1.75em !important;
+  max-height: 3.5em !important;
+  max-width: 3.5em !important;
+  aspect-ratio: 1/1 !important;
+}
+
+.rpi-pico-gnd { background: var(--docset-color-rpi-gnd); }
+.rpi-pico-vdd { background: var(--docset-color-rpi-vdd); }
+.rpi-pico-sys { background: var(--docset-color-rpi-sys); }
+.rpi-pico-swd { background: var(--docset-color-rpi-swd); }
+.rpi-pico-pio { background: var(--docset-color-rpi-pio); }
+.rpi-pico-pwm { background: var(--docset-color-rpi-pwm); }
+.rpi-pico-adc { background: var(--docset-color-rpi-adc); }
+.rpi-pico-spi { background: var(--docset-color-rpi-spi); }
+.rpi-pico-spi-dfl { background: var(--docset-color-rpi-spi-dfl); }
+.rpi-pico-i2c { background: var(--docset-color-rpi-i2c); }
+.rpi-pico-i2c-dfl { background: var(--docset-color-rpi-i2c-dfl); }
+.rpi-pico-uart { background: var(--docset-color-rpi-uart); }
+.rpi-pico-uart-dfl { background: var(--docset-color-rpi-uart-dfl); }
+
+.rpi-pico-gnd,
+.rpi-pico-vdd,
+.rpi-pico-sys,
+.rpi-pico-swd,
+.rpi-pico-pio,
+.rpi-pico-pwm,
+.rpi-pico-adc,
+.rpi-pico-spi, .rpi-pico-spi-dfl,
+.rpi-pico-i2c, .rpi-pico-i2c-dfl,
+.rpi-pico-uart, .rpi-pico-uart-dfl {
+  color: var(--docset-color-rpi-fgd);
+  font-weight: bold;
+  white-space: normal;
+  word-break: break-word;
+  display: inline-block;
+  border-radius: 2px;
+  padding: 1px 8px 0px 8px;
+  margin: 2px;
+}

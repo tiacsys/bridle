@@ -136,6 +136,286 @@ Breathe domains:
 
       :cpp:enumerator:`ENUM_VALUE <DOXYGEN_GROUP::ENUM_VALUE>`
 
+Special Roles
+=============
+
+|BRIDLE| provides its own predefined roles for specific formatting, which
+are then later interpreted and rendered accordingly by the style sheets of
+the various output formats. The available roles are specified in the
+:bridle_file:`doc/bridle/roles.txt` file. The classes declared therein
+must then be defined accordingly for HTML in the CSS files below
+:bridle_file:`doc/_static/css`.
+
+The following table shows just a few examples.
+
+.. list-table::
+   :header-rows: 1
+
+   * - reStructuredText
+     - rendered result
+     - description
+
+   * - :rst:`:rd:\`normal red\``
+     - :rd:`normal red`
+     - inline colorization in normal weight
+
+   * - :rst:`:i:\`italic\``
+     - :i:`italic`
+     - inline italic style
+
+   * - :rst:`:ign:\`italic green\``
+     - :ign:`italic green`
+     - inline colorization in italic style
+
+   * - :rst:`:b:\`bold\``
+     - :b:`bold`
+     - inline bold weight
+
+   * - :rst:`:bbl:\`bold blue\``
+     - :bbl:`bold blue`
+     - inline colorization in bold weight
+
+   * - :rst:`:s:\`strikethrough\``
+     - :s:`strikethrough`
+     - inline strikethrough decoration
+
+   * - :rst:`:syl:\`strikethrough yellow\``
+     - :syl:`strikethrough yellow`
+     - inline colorization in strikethrough decoration
+
+   * - :rst:`:u:\`underline\``
+     - :u:`underline`
+     - inline underline decoration
+
+   * - :rst:`:uwt:\`underline white\``
+     - .. rst-class:: lightgray-box
+
+          :uwt:`underline white`
+
+     - inline colorization in underline decoration
+
+   * - :rst:`:rst:\`:program:\\\`honkomat\\\`\``
+     - :rst:`:program:\`honkomat\``
+     - inline syntax highlighting for reStructuredText
+
+   * - :rst:`:python:\`from pathlib import Path\``
+     - :python:`from pathlib import Path`
+     - inline syntax highlighting for Python
+
+   * - :rst:`:c:\`int sum(int a, int b);\``
+     - :c:`int sum(int a, int b);`
+     - inline syntax highlighting for C/C++
+
+   * - | :rst:`:hwftlbl:\`4㎆\``
+       | :rst:`:hwftlbl:\`OTA\``
+
+     - :hwftlbl:`4㎆`
+       :hwftlbl:`OTA`
+
+     - hardware feature label for a common purpose
+
+   * - | :rst:`:hwftlbl-btn:\`RST\``
+       | :rst:`:hwftlbl-btn:\`USR\``
+
+     - :hwftlbl-btn:`RST`
+       :hwftlbl-btn:`USR`
+
+     - hardware feature label for a :u:`button and switch` purpose
+
+   * - | :rst:`:hwftlbl-led:\`ERR\``
+       | :rst:`:hwftlbl-led:\`USR\``
+
+     - :hwftlbl-led:`ERR`
+       :hwftlbl-led:`USR`
+
+     - hardware feature label for a :u:`lamp and signal` purpose
+
+   * - | :rst:`:hwftlbl-scr:\`OLED\``
+       | :rst:`:hwftlbl-scr:\`HDMI\``
+
+     - :hwftlbl-scr:`OLED`
+       :hwftlbl-scr:`HDMI`
+
+     - hardware feature label for a :u:`screen and display` purpose
+
+   * - | :rst:`:hwftlbl-con:\`USB-C\``
+       | :rst:`:hwftlbl-btn:\`10Base-T\``
+
+     - :hwftlbl-con:`USB-C`
+       :hwftlbl-con:`10Base-T`
+
+     - hardware feature label for a :u:`connector` purpose
+
+   * - | :rst:`:hwftlbl-sys:\`3.3V(PS)\``
+       | :rst:`:hwftlbl-sys:\`3.3V(EN)\``
+
+     - :hwftlbl-sys:`3.3V(PS)`
+       :hwftlbl-sys:`3.3V(EN)`
+
+     - hardware feature label for a :u:`system and control` purpose
+
+   * - | :rst:`:hwftlbl-vdd:\`5V/300㎃\``
+       | :rst:`:hwftlbl-vdd:\`3.3V/500㎃\``
+       | :rst:`:hwftlbl-vdd:\`3.3V(OUT)\``
+
+     - :hwftlbl-vdd:`5V/300㎃`
+
+       :hwftlbl-vdd:`3.3V/500㎃`
+       :hwftlbl-vdd:`3.3V(OUT)`
+
+     - hardware feature label for a :u:`power and voltage distribution` purpose
+
+   * - | :rst:`:hwftlbl-dbg:\`UF2\``
+       | :rst:`:hwftlbl-dbg:\`SWD\``
+       | :rst:`:hwftlbl-dbg:\`JTAG\``
+
+     - :hwftlbl-dbg:`UF2`
+       :hwftlbl-dbg:`SWD`
+       :hwftlbl-dbg:`JTAG`
+
+     - hardware feature label for a :u:`debug and development` purpose
+
+   * - | :rst:`:hwftlbl-pio:\`20\``
+       | :rst:`:hwftlbl-pwm:\`16\``
+       | :rst:`:hwftlbl-pcm:\`1\``
+       | :rst:`:hwftlbl-dac:\`2\``
+       | :rst:`:hwftlbl-adc:\`4\``
+       | :rst:`:hwftlbl-i2s:\`1\``
+       | :rst:`:hwftlbl-i2c:\`1\``
+       | :rst:`:hwftlbl-spi:\`2\``
+       | :rst:`:hwftlbl-hsi:\`2\``
+       | :rst:`:hwftlbl-can:\`2\``
+       | :rst:`:hwftlbl-uart:\`2\``
+       | :rst:`:hwftlbl-usart:\`2\``
+       | :rst:`:hwftlbl-mmc:\`1\``
+       | :rst:`:hwftlbl-sdc:\`1\``
+       | :rst:`:hwftlbl-tfc:\`1\``
+       | :rst:`:hwftlbl-csi:\`1\``
+       | :rst:`:hwftlbl-dsi:\`1\``
+       | :rst:`:hwftlbl-dpp:\`1\``
+       | :rst:`:hwftlbl-tsi:\`1\``
+
+     - :hwftlbl-pio:`20`
+       :hwftlbl-pwm:`16`
+       :hwftlbl-pcm:`1`
+
+       :hwftlbl-dac:`2`
+       :hwftlbl-adc:`4`
+
+       :hwftlbl-i2s:`1`
+       :hwftlbl-i2c:`1`
+       :hwftlbl-spi:`2`
+       :hwftlbl-hsi:`2`
+
+       :hwftlbl-can:`2`
+       :hwftlbl-uart:`2`
+       :hwftlbl-usart:`2`
+
+       :hwftlbl-mmc:`1`
+       :hwftlbl-sdc:`1`
+       :hwftlbl-tfc:`1`
+
+       :hwftlbl-csi:`1`
+       :hwftlbl-dsi:`1`
+       :hwftlbl-dpp:`1`
+       :hwftlbl-tsi:`1`
+
+     - hardware feature label for a :u:`function and interface` purpose
+
+       - Total number of PIO (Parallel In-/Output)
+       - Total number of PWM (Pulse-Width Modulation)
+       - Total number of PCM (Pulse-Code Modulation)
+       - Total number of DAC (Digital-to-Analog Converter)
+       - Total number of ADC (Analog-to-Digital Converter)
+       - Total number of I2S (Inter-IC Sound)
+       - Total number of I2C (Inter-Integrated Circuit)
+       - Total number of SPI (Serial Peripheral Interface)
+       - Total number of HSI (High-Speed Synchronous Serial Interface)
+       - Total number of CAN (Controller Area Network)
+       - Total number of UART (Universal Asynchronous Receiver-Transmitter)
+       - Total number of USART (Universal Synchronous and Asynchronous Receiver-Transmitter)
+       - Total number of MMC/SD/TF (Multi-Media-/Secure-Digital-Card or TransFlash)
+       - Total number of CSI (Camera Sensor Interface, e.g. MIPI)
+       - Total number of DSI (Display Serial Interface, e.g. MIPI)
+       - Total number of DPP (Display Parallel Port, e.g. RGB444/HS/VS/CLK)
+       - Total number of TS (Touch-Screen Interface)
+
+   * - | :rst:`:rpi-pico-gnd:\`GND\``
+       | :rst:`:rpi-pico-vdd:\`VSYS\``
+
+     - :rpi-pico-gnd:`GND`
+
+       :rpi-pico-vdd:`VSYS`
+
+     - Raspberry Pi Pico :u:`signal line label` special purpose
+
+       - Total number of GND (Ground potential)
+       - Total number of VSYS (Voltage level of System)
+
+   * - | :rst:`:rpi-pico-sys:\`RUN\``
+       | :rst:`:rpi-pico-swd:\`SWCLK\``
+
+     - :rpi-pico-sys:`RUN`
+
+       :rpi-pico-swd:`SWCLK`
+
+     - Raspberry Pi Pico :u:`signal line label` special purpose
+
+       - Total number of RUN (Reset)
+       - Total number of SWCLK (Serial Wire Clock)
+
+   * - | :rst:`:rpi-pico-pio:\`GPIO28\``
+       | :rst:`:rpi-pico-pwm:\`PWM12\``
+       | :rst:`:rpi-pico-adc:\`ADC_CH2\``
+
+     - :rpi-pico-pio:`GPIO28`
+
+       :rpi-pico-pwm:`PWM12`
+
+       :rpi-pico-adc:`ADC_CH2`
+
+     - Raspberry Pi Pico :u:`signal line label` special purpose
+
+       - Total number of GPIO28 (General Purpose I/O line ``28``)
+       - Total number of PWM12 (PWM output line ``12``)
+       - Total number of ADC_CH2 (ADC input channel ``2``)
+
+   * - | :rst:`:rpi-pico-spi-dfl:\`SPI0_SCK\``
+       | :rst:`:rpi-pico-spi:\`SPI1_CSN\``
+
+     - :rpi-pico-spi-dfl:`SPI0_SCK`
+
+       :rpi-pico-spi:`SPI1_CSN`
+
+     - Raspberry Pi Pico :u:`signal line label` special purpose
+
+       - Total number of SPI0_SCK (Serial Clock line on default SPI ``0``)
+       - Total number of SPI1_CSN (Chip Select Negative line on SPI ``1``)
+
+   * - | :rst:`:rpi-pico-i2c-dfl:\`I2C0_SDA\``
+       | :rst:`:rpi-pico-i2c:\`I2C1_SCL\``
+
+     - :rpi-pico-i2c-dfl:`I2C0_SDA`
+
+       :rpi-pico-i2c:`I2C1_SCL`
+
+     - Raspberry Pi Pico :u:`signal line label` special purpose
+
+       - Total number of I2C0_SDA (Serial Data line on default I2C ``0``)
+       - Total number of I2C1_SCL (Serial Clock line on I2C ``1``)
+
+   * - | :rst:`:rpi-pico-uart-dfl:\`UART0_TX\``
+       | :rst:`:rpi-pico-uart:\`UART1_RX\``
+
+     - :rpi-pico-uart-dfl:`UART0_TX`
+
+       :rpi-pico-uart:`UART1_RX`
+
+     - Raspberry Pi Pico :u:`signal line label` special purpose
+
+       - Total number of UART0_TX (Data Transmit line on default UART ``0``)
+       - Total number of UART1_RX (Data Receive line on UART ``1``)
+
 Doxygen style guide
 *******************
 

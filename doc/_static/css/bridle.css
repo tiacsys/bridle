@@ -155,6 +155,10 @@
  transform: translate(-50%, -50%);
 }
 
+.lightgray-box {
+ background: #bec9d1;
+}
+
 .gray-box {
  background: #333f48;
 }

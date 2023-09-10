@@ -1,5 +1,35 @@
 /* Background colors for the different sets */
 
+:root {
+  --docset-color-pin-fgd: #363a44;
+  --docset-color-pin-bgd: #cccccc;
+  --docset-color-rpi-fgd: #ffffff;
+  --docset-color-rpi-gnd: #363a44;
+  --docset-color-rpi-vdd: #e83131;
+  --docset-color-rpi-sys: #f6adad;
+  --docset-color-rpi-swd: #ea8326;
+  --docset-color-rpi-pio: #7ac943;
+  --docset-color-rpi-pwm: #2fa199;
+  --docset-color-rpi-pcm: #a67c52;
+  --docset-color-rpi-i2s: #50c5fb;
+  --docset-color-rpi-dac: #965bf1;
+  --docset-color-rpi-adc: #427f21;
+  --docset-color-rpi-spi: #d83a94;
+  --docset-color-rpi-spi-dfl: #a22c6f;
+  --docset-color-rpi-i2c: #439ed6;
+  --docset-color-rpi-i2c-dfl: #1d6089;
+  --docset-color-rpi-can: #db9a6e;
+  --docset-color-rpi-can-dfl: #c55a11;
+  --docset-color-rpi-uart: #9d89ce;
+  --docset-color-rpi-uart-dfl: #613da5;
+  --docset-color-rpi-hsi: #08ffac;
+  --docset-color-rpi-mmc: #ff5461;
+  --docset-color-rpi-csi: #c4c42c;
+  --docset-color-rpi-dsi: #54c4ff;
+  --docset-color-rpi-dpp: #2f69f8;
+  --docset-color-rpi-tsi: #df6da6;
+}
+
 /* Bridle */
 .bridle {
     background-color: #15729d;

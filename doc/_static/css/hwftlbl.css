@@ -1,0 +1,200 @@
+.hwftlbl-vdd {
+  color: var(--docset-color-rpi-vdd);
+  border-color: var(--docset-color-rpi-vdd);
+  border: thin solid var(--docset-color-rpi-vdd);
+}
+
+.hwftlbl-sys {
+  color: var(--docset-color-rpi-sys);
+  border-color: var(--docset-color-rpi-sys);
+  border: thin solid var(--docset-color-rpi-sys);
+}
+
+.hwftlbl-dbg {
+  color: var(--docset-color-rpi-swd);
+  border-color: var(--docset-color-rpi-swd);
+  border: thin solid var(--docset-color-rpi-swd);
+}
+
+.hwftlbl-pio:after { content: ' GPIO'; }
+.hwftlbl-pio {
+  color: var(--docset-color-rpi-pio);
+  border-color: var(--docset-color-rpi-pio);
+  border: thin solid var(--docset-color-rpi-pio);
+}
+
+.hwftlbl-pwm:after { content: ' PWM'; }
+.hwftlbl-pwm {
+  color: var(--docset-color-rpi-pwm);
+  border-color: var(--docset-color-rpi-pwm);
+  border: thin solid var(--docset-color-rpi-pwm);
+}
+
+.hwftlbl-pcm:after { content: ' PCM'; }
+.hwftlbl-pcm {
+  color: var(--docset-color-rpi-pcm);
+  border-color: var(--docset-color-rpi-pcm);
+  border: thin solid var(--docset-color-rpi-pcm);
+}
+
+.hwftlbl-i2s:after { content: ' I2S'; }
+.hwftlbl-i2s {
+  color: var(--docset-color-rpi-i2s);
+  border-color: var(--docset-color-rpi-i2s);
+  border: thin solid var(--docset-color-rpi-i2s);
+}
+
+.hwftlbl-adc:after { content: ' ADC'; }
+.hwftlbl-adc {
+  color: var(--docset-color-rpi-adc);
+  border-color: var(--docset-color-rpi-adc);
+  border: thin solid var(--docset-color-rpi-adc);
+}
+
+.hwftlbl-dac:after { content: ' DAC'; }
+.hwftlbl-dac {
+  color: var(--docset-color-rpi-dac);
+  border-color: var(--docset-color-rpi-dac);
+  border: thin solid var(--docset-color-rpi-dac);
+}
+
+.hwftlbl-i2c:after { content: ' I2C'; }
+.hwftlbl-i2c {
+  color: var(--docset-color-rpi-i2c);
+  border-color: var(--docset-color-rpi-i2c);
+  border: thin solid var(--docset-color-rpi-i2c);
+}
+
+.hwftlbl-spi:after { content: ' SPI'; }
+.hwftlbl-spi {
+  color: var(--docset-color-rpi-spi);
+  border-color: var(--docset-color-rpi-spi);
+  border: thin solid var(--docset-color-rpi-spi);
+}
+
+.hwftlbl-can:after { content: ' CAN'; }
+.hwftlbl-can {
+  color: var(--docset-color-rpi-can);
+  border-color: var(--docset-color-rpi-can);
+  border: thin solid var(--docset-color-rpi-can);
+}
+
+.hwftlbl-uart:after { content: ' UART'; }
+.hwftlbl-uart {
+  color: var(--docset-color-rpi-uart);
+  border-color: var(--docset-color-rpi-uart);
+  border: thin solid var(--docset-color-rpi-uart);
+}
+
+.hwftlbl-usart:after { content: ' USART'; }
+.hwftlbl-usart {
+  color: var(--docset-color-rpi-uart);
+  border-color: var(--docset-color-rpi-uart);
+  border: thin solid var(--docset-color-rpi-uart);
+}
+
+.hwftlbl-hsi:after { content: ' HSI'; }
+.hwftlbl-hsi {
+  color: var(--docset-color-rpi-hsi);
+  border-color: var(--docset-color-rpi-hsi);
+  border: thin solid var(--docset-color-rpi-hsi);
+}
+
+.hwftlbl-mmc:after { content: ' MMC'; }
+.hwftlbl-mmc {
+  color: var(--docset-color-rpi-mmc);
+  border-color: var(--docset-color-rpi-mmc);
+  border: thin solid var(--docset-color-rpi-mmc);
+}
+
+.hwftlbl-sdc:after { content: ' SD-Card'; }
+.hwftlbl-sdc {
+  color: var(--docset-color-rpi-mmc);
+  border-color: var(--docset-color-rpi-mmc);
+  border: thin solid var(--docset-color-rpi-mmc);
+}
+
+.hwftlbl-tfc:after { content: ' TF'; }
+.hwftlbl-tfc {
+  color: var(--docset-color-rpi-mmc);
+  border-color: var(--docset-color-rpi-mmc);
+  border: thin solid var(--docset-color-rpi-mmc);
+}
+
+.hwftlbl-csi:after { content: ' CSI'; }
+.hwftlbl-csi {
+  color: var(--docset-color-rpi-csi);
+  border-color: var(--docset-color-rpi-csi);
+  border: thin solid var(--docset-color-rpi-csi);
+}
+
+.hwftlbl-dsi:after { content: ' DSI'; }
+.hwftlbl-dsi {
+  color: var(--docset-color-rpi-dsi);
+  border-color: var(--docset-color-rpi-dsi);
+  border: thin solid var(--docset-color-rpi-dsi);
+}
+
+.hwftlbl-dpp:after { content: ' DPP'; }
+.hwftlbl-dpp {
+  color: var(--docset-color-rpi-dpp);
+  border-color: var(--docset-color-rpi-dpp);
+  border: thin solid var(--docset-color-rpi-dpp);
+}
+
+.hwftlbl-tsi:after { content: ' TS'; }
+.hwftlbl-tsi {
+  color: var(--docset-color-rpi-tsi);
+  border-color: var(--docset-color-rpi-tsi);
+  border: thin solid var(--docset-color-rpi-tsi);
+}
+
+.hwftlbl-con:after { content: ' 🔌'; }
+.hwftlbl-btn:after { content: ' 🔘'; }
+.hwftlbl-led:after { content: ' 🔆'; }
+.hwftlbl-scr:after { content: ' 🖵'; }
+.hwftlbl-con,
+.hwftlbl-btn,
+.hwftlbl-led,
+.hwftlbl-scr,
+.hwftlbl {
+  color: var(--docset-color-pin-fgd);
+  border-color: var(--docset-color-pin-fgd);
+  border: thin solid var(--docset-color-pin-fgd);
+}
+
+.hwftlbl-vdd,
+.hwftlbl-sys,
+.hwftlbl-dbg,
+.hwftlbl-pio,
+.hwftlbl-pwm,
+.hwftlbl-pcm,
+.hwftlbl-i2s,
+.hwftlbl-adc,
+.hwftlbl-dac,
+.hwftlbl-i2c,
+.hwftlbl-spi,
+.hwftlbl-can,
+.hwftlbl-uart,
+.hwftlbl-usart,
+.hwftlbl-hsi,
+.hwftlbl-mmc,
+.hwftlbl-sdc,
+.hwftlbl-tfc,
+.hwftlbl-csi,
+.hwftlbl-dsi,
+.hwftlbl-dpp,
+.hwftlbl-tsi,
+.hwftlbl-con,
+.hwftlbl-btn,
+.hwftlbl-led,
+.hwftlbl-scr,
+.hwftlbl {
+  font-size: 114%;
+  font-weight: bold;
+  border-radius: 4px;
+  margin-right: 4px;
+  margin-bottom: 16px;
+  padding: 4px 6px 4px 6px;
+  display: inline-block;
+}
