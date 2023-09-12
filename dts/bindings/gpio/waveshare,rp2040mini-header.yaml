@@ -1,0 +1,41 @@
+# Copyright (c) 2023 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+    GPIO pins exposed on Waveshare RP2040 Mini headers.
+
+    The RP2040 Mini layout provides a wraparound header on all freely
+    accessible edges of the board and can be divided into three sections,
+    two headers on the longer opposite sides and one header opposite the
+    USB-C socket.
+
+    Proceeding clockwise:
+    * A 9-pin header. 9 pins on this header are exposed by this binding.
+    * A 5-pin header. 5 pins on this header are exposed by this binding.
+    * A 9-pin header. 6 pins on this header are exposed by this binding.
+
+    This binding provides a nexus mapping for 20 pins where parent pins 17
+    through 20 correspond to ADC0 through ADC3, and parent pins 0 through 19
+    correspond as depicted below:
+
+                  .---------.
+          .-------|         |-------.
+          |       |  USB-C  |       |
+          |       `---------´       |
+          |                         |
+        - 5V                      GP0 0
+        - GND                     GP1 1
+        - 3V3                     GP2 2
+       19 ADC3/GP29               GP3 3
+       18 ADC2/GP28               GP4 4
+       17 ADC1/GP27               GP5 5
+       16 ADC0/GP26               GP6 6
+       15 GP15                    GP7 7
+       14 GP14                    GP8 8
+          |                         |
+          `-GP13-GP12-GP11-GP10-GP9-´
+             13   12   11   10   9
+
+compatible: "waveshare,rp2040mini-header"
+
+include: [gpio-nexus.yaml, base.yaml]

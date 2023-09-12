@@ -1,0 +1,32 @@
+# Copyright (c) 2023 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+    GPIO pins exposed on Waveshare RP2040 Mini solder pads.
+
+    The RP2040 Mini layout provides a line of ten solder pads on the
+    bottom side of the board.
+
+    This binding provides a nexus mapping for 9 pads where parent pins 0
+    through 8 correspond as depicted below:
+
+                  .---------.
+          --------|         |--------
+          |       |  USB-C  |       |
+          |       `---------´       |
+          |                         |
+          ]                 - GND   [
+          ]                 8 GP25  [
+          ]                 7 GP24  [
+          ]                 6 GP23  [
+          ]                 5 GP22  [
+          ]                 4 GP21  [
+          ]                 3 GP20  [
+          ]                 2 GP19  [
+          ]                 1 GP18  [
+          |                 0 GP17  |
+          `-------------------------´
+
+compatible: "waveshare,rp2040mini-pcbpads"
+
+include: [gpio-nexus.yaml, base.yaml]
