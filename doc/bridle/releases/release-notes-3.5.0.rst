@@ -126,11 +126,26 @@ Take over the new build principles from Zephyr:
   warnings.
 * Sphinx config is now fixed to v6.2 (or later).
 * Use the "docset" name as prefix to all inter-Sphinx (external) references.
+* Since Zephyr upstream creates separate dtsi files for the various memory
+  density codes of SAM X2xfamilies, all of the boards that use the original
+  same density model of 18 (32KiB RAM and 256KiB flash) now includes the
+  :file:`atmel/samx2xx18.dtsi` too.
+  That are the boards: arduino_zero, seeed_xiao_samd21, seeeduino_lotus
+* Restruct and refactor the integration test cases for the ``helloshell``
+  sample.
 
 Documentation
 =============
 
-1. Update all output messages in documentation to be in sync with the upcoming
+1. Since Zephyr introduce its own ':zephyr:code-sample:' domain directive and
+   even this domain will not exported to the inventory anymore, all references
+   to Zephyr samples were converted to direct document references.
+2. Add more colorization formatter for: bold, italic, strikethrough, and
+   underline mixed with basic colors: red, blue, green, yellow, black and white.
+3. Add colorization classes for "Hardware Feature Label" (hwftlbl) and special
+   "Raspberry Pi Pico" signals.
+4. Add special UNICODE replacements.
+5. Update all output messages in documentation to be in sync with the upcoming
    Bridle version v3.4.99, based on Zephyr v3.5 (samples and tests).
 
 Issue Related Items
