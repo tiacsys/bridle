@@ -6,7 +6,7 @@ TELNET Console
 Overview
 ********
 
-See :ref:`zephyr:telnet-console-sample` for the original description.
+See :doc:`zephyr:samples/net/telnet/README` for the original description.
 
 .. _tiac_magpie_telnet-console-sample-requirements:
 

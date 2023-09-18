@@ -10,7 +10,7 @@ Button
    for further development, improvement and preparation of changes for
    Zephyr within Bridle. However, the original sample still lives within
    the Zephyr namespace under the exactly same name:
-   :ref:`zephyr:button-sample`.
+   :doc:`zephyr:samples/basic/button/README`.
 
 Overview
 ********
