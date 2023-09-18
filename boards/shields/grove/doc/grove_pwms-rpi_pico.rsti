@@ -133,5 +133,5 @@
 +-----------------------------------+--------+-------+-------+-------+-------+-------+-------+-------+-------+
 
 .. |pwm| replace:: :code:`<&pwm …>`
-.. |CHA| replace:: :strikethrough:`CHA`
-.. |CHB| replace:: :strikethrough:`CHB`
+.. |CHA| replace:: :s:`CHA`
+.. |CHB| replace:: :s:`CHB`

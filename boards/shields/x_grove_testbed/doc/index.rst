@@ -72,22 +72,22 @@ Supported variations
 .. |Base Shield V2| replace:: :ref:`grove_base_shield_v2`
 .. |LED Shields| replace:: :ref:`grove_led_shield`
 .. |OLED Shields| replace::
-   :strikethrough:`Grove OLED Shields` :emphasis:`(not yet)`
+   :s:`Grove OLED Shields` :emphasis:`(not yet)`
 .. |Buzzer Shields| replace::
-   :strikethrough:`Grove Buzzer Shields` :emphasis:`(not yet)`
+   :s:`Grove Buzzer Shields` :emphasis:`(not yet)`
 .. |Button Shields| replace:: :ref:`grove_button_shield`
 .. |Potentiometer Shields| replace::
-   :strikethrough:`Grove Rotary Potentiometer Shields` :emphasis:`(not yet)`
+   :s:`Grove Rotary Potentiometer Shields` :emphasis:`(not yet)`
 .. |Sound Sensor Shields| replace::
-   :strikethrough:`Grove Sound Sensor Shields` :emphasis:`(not yet)`
+   :s:`Grove Sound Sensor Shields` :emphasis:`(not yet)`
 .. |Light Sensor Shields| replace::
-   :strikethrough:`Grove Light Sensor Shields` :emphasis:`(not yet)`
+   :s:`Grove Light Sensor Shields` :emphasis:`(not yet)`
 .. |THEnv Sensor Shields| replace::
-   :strikethrough:`Grove Temperature & Humidity Sensor Shields` :emphasis:`(not yet)`
+   :s:`Grove Temperature & Humidity Sensor Shields` :emphasis:`(not yet)`
 .. |AirPr Sensor Shields| replace::
-   :strikethrough:`Grove Air Pressure Sensor Shields` :emphasis:`(not yet)`
+   :s:`Grove Air Pressure Sensor Shields` :emphasis:`(not yet)`
 .. |Acc3Ax Sensor Shields| replace::
-   :strikethrough:`Grove 3-Axis Accelerator Sensor Shields` :emphasis:`(not yet)`
+   :s:`Grove 3-Axis Accelerator Sensor Shields` :emphasis:`(not yet)`
 
 .. |Arduino UNO R3| replace::
    :dtcompatible:`Arduino UNO R3 <arduino-header-r3>`
