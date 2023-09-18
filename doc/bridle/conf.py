@@ -260,6 +260,7 @@ breathe_separate_member_pages = True
 
 cpp_id_attributes = [
     '__syscall',
+    "__syscall_always_inline",
     '__deprecated',
     '__may_alias',
     '__used',
