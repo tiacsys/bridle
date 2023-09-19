@@ -89,6 +89,7 @@ Supported boards
 * Seeed Studio XIAO SAMD21 (Seeeduino XIAO)
 * Seeeduino Lotus Cortex-M0+
 * TiaC Magpie STM32F777NIHx
+* Waveshare RP2040 (series of mini and pico sized boards)
 
 Supported shields
 *****************
