@@ -130,7 +130,7 @@ jobs:
       - name: Build samples
         working-directory: workspace
         run: |
-          west twister --verbose --jobs 4 \
+          west twister --verbose --jobs 4 --integration \
             --outdir twister-out --no-clean --inline-logs \
             --enable-size-report --platform-reports \
             --testsuite-root bridle/samples/button \
