@@ -122,6 +122,7 @@ for the :ref:`zephyr:nucleo_f413zh_board` board:
       :zephyr-app: bridle/samples/button
       :board: nucleo_f413zh
       :conf: prj-poll.conf
+      :west-args: -p
       :goals: flash
       :compact:
 
@@ -131,6 +132,7 @@ for the :ref:`zephyr:nucleo_f413zh_board` board:
       :zephyr-app: bridle/samples/button
       :board: nucleo_f413zh
       :conf: prj-event.conf
+      :west-args: -p
       :goals: flash
       :compact:
 
