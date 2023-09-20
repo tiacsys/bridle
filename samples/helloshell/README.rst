@@ -22,8 +22,22 @@ Requirements
 * One of the following development boards:
 
   * :ref:`zephyr:native_posix`
+  * :ref:`zephyr:native_sim`
   * :ref:`zephyr:qemu_x86`
+  * :ref:`zephyr:qemu_cortex_r5`
+  * :ref:`zephyr:qemu_cortex_m0`
   * :ref:`zephyr:qemu_cortex_m3`
+  * ARM Cortex-A9 Emulation (``qemu_cortex_a9``)
+  * :ref:`zephyr:qemu_cortex_a53`
+  * :ref:`zephyr:qemu_kvm_arm64`
+  * :ref:`zephyr:qemu_arc`
+  * :ref:`zephyr:qemu_malta`
+  * :ref:`zephyr:qemu_riscv32e`
+  * :ref:`zephyr:qemu_riscv32`
+  * :ref:`zephyr:qemu_riscv64`
+  * :ref:`zephyr:qemu_xtensa`
+  * :ref:`zephyr:qemu_leon3`
+  * :ref:`zephyr:qemu_nios2`
   * :ref:`zephyr:nucleo_f746zg_board` (NUCLEO-F746ZG)
 
 Building and Running
@@ -36,6 +50,7 @@ built and executed as emulation in :ref:`zephyr:qemu_x86` as follows:
    :app: bridle/samples/helloshell
    :build-dir: helloshell-qemu_x86
    :board: qemu_x86
+   :west-args: -p
    :goals: build run
    :host-os: unix
 
@@ -47,6 +62,7 @@ Also it can be built and executed on following targets:
      :app: bridle/samples/helloshell
      :build-dir: helloshell-native_posix
      :board: native_posix
+     :west-args: -p
      :goals: build run
      :host-os: unix
 
@@ -63,6 +79,7 @@ Also it can be built and executed on following targets:
      :app: bridle/samples/helloshell
      :build-dir: helloshell-qemu_cortex_m3
      :board: qemu_cortex_m3
+     :west-args: -p
      :goals: build run
      :host-os: unix
 
@@ -74,6 +91,7 @@ Also it can be built and executed on following targets:
      :app: bridle/samples/helloshell
      :build-dir: helloshell-nucleo_f746zg
      :board: nucleo_f746zg
+     :west-args: -p
      :goals: build flash
      :host-os: unix
 
@@ -87,6 +105,7 @@ mode:
      :build-dir: helloshell-nucleo_f746zg
      :conf: prj-minimal.conf
      :board: nucleo_f746zg
+     :west-args: -p
      :goals: build flash
      :host-os: unix
 
@@ -97,6 +116,7 @@ mode:
      :build-dir: helloshell-nucleo_f746zg
      :conf: prj.conf
      :board: nucleo_f746zg
+     :west-args: -p
      :goals: build flash
      :host-os: unix
 
@@ -118,30 +138,43 @@ Sample Output
    Please refer to shell documentation for more details.
 
    Available commands:
-     adc      :ADC commands
-     bridle   :Bridle commands.
-     clear    :Clear screen.
-     device   :Device commands
-     flash    :Flash shell commands
-     gpio     :GPIO commands
-     hello    :say hello
-     help     :Prints the help message.
-     history  :Command history.
-     hwinfo   :HWINFO commands
-     i2c      :I2C commands
-     kernel   :Kernel commands
-     log      :Commands for controlling logger
-     pwm      :PWM shell commands
-     resize   :Console gets terminal screen size or assumes default in case the
-               readout fails. It must be executed after each terminal width change
-               to ensure correct text display.
-     sensor   :Sensor commands
-     shell    :Useful, not Unix-like shell commands.
+     adc        :ADC commands
+     bridle     :Bridle commands.
+     clear      :Clear screen.
+     dac        :DAC shell commands
+     device     :Device commands
+     devmem     :Read/write physical memory
+                 Usage:
+                 Read memory at address with optional width:
+                 devmem address [width]
+                 Write memory at address with mandatory width and value:
+                 devmem address <width> <value>
+     flash      :Flash shell commands
+     gpio       :GPIO commands
+     hello      :say hello
+     help       :Prints the help message.
+     history    :Command history.
+     hwinfo     :HWINFO commands
+     i2c        :I2C commands
+     kernel     :Kernel commands
+     led        :LED commands
+     log        :Commands for controlling logger
+     pwm        :PWM shell commands
+     regulator  :Regulator playground
+     rem        :Ignore lines beginning with 'rem '
+     resize     :Console gets terminal screen size or assumes default in case the
+                 readout fails. It must be executed after each terminal width change
+                 to ensure correct text display.
+     retval     :Print return value of most recent command
+     sensor     :Sensor commands
+     shell      :Useful, not Unix-like shell commands.
+     timer      :Timer commands
 
    uart:~$ <Tab>
-     adc      bridle   clear    device   flash    gpio     hello    help
-     history  hwinfo   i2c      kernel   log      pwm      resize   sensor
-     shell
+     adc        bridle     clear      dac        device     devmem     flash
+     gpio       hello      help       history    hwinfo     i2c        kernel
+     led        log        pwm        regulator  rem        resize     retval
+     sensor     shell      timer
 
    uart:~$ hello -h
    hello - say hello
