@@ -43,6 +43,22 @@ common:
     - seeeduino_xiao
     - seeeduino_lotus
     - seeeduino_lotus@usbcons
+    - waveshare_rp2040_one
+    - waveshare_rp2040_one@usbcons
+    - waveshare_rp2040_zero
+    - waveshare_rp2040_zero@usbcons
+    - waveshare_rp2040_matrix
+    - waveshare_rp2040_matrix@usbcons
+    - waveshare_rp2040_tiny
+    - waveshare_rp2040_tiny@usbcons
+    - waveshare_rp2040_eth
+    - waveshare_rp2040_eth@usbcons
+    - waveshare_rp2040_lcd_0_96
+    - waveshare_rp2040_lcd_0_96@usbcons
+    - waveshare_rp2040_plus@usbcons
+    - waveshare_rp2040_plus@usbcons
+    - waveshare_rp2040_plus@16mb
+    - waveshare_rp2040_plus@16mb@usbcons
 tests:
   bridle.samples.helloshell.commands:
     filter: CONFIG_QEMU_TARGET and CONFIG_SERIAL and
