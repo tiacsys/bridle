@@ -6,22 +6,64 @@ common:
   tags: introduction
   integration_platforms:
     - native_posix
-  depends_on: uart gpio i2c pwm adc
-  harness: console
-  harness_config:
-    type: one_line
-    regex:
-      - "Hello World! I'm THE SHELL from (.*)"
+    - native_posix_64
+    - native_sim
+    - native_sim_64
+    - qemu_x86
+    - qemu_x86_64
+    - qemu_cortex_r5
+    - qemu_cortex_m0
+    - qemu_cortex_m3
+    - qemu_cortex_a9
+    - qemu_cortex_a53
+    - qemu_kvm_arm64
+    - qemu_arc_em
+    - qemu_arc_hs
+    - qemu_malta
+    - qemu_malta_be
+    - qemu_riscv32e
+    - qemu_riscv32
+    - qemu_riscv64
+    - qemu_xtensa
+    - qemu_leon3
+    - qemu_nios2
+    - arduino_zero
+    - arduino_zero@usbcons
+    - mimxrt1010_evk
+    - mimxrt1060_evk
+    - mimxrt1060_evkb
+    - nucleo_f303re
+    - nucleo_f401re
+    - nucleo_f413zh
+    - nucleo_f746zg
+    - nucleo_f767zi
+    - rpi_pico
+    - seeed_xiao_samd21
+    - seeed_xiao_samd21@usbcons
+    - seeeduino_xiao
+    - seeeduino_lotus
+    - seeeduino_lotus@usbcons
 tests:
-  bridle.samples.helloshell.release:
-    build_only: true
-    build_on_all: true
-    platform_allow: native_posix qemu_x86 qemu_cortex_m3 nucleo_f746zg
-    extra_args: "CMAKE_BUILD_TYPE=ZRelease"
-    tags: introduction
+  bridle.samples.helloshell.commands:
+    filter: CONFIG_QEMU_TARGET and CONFIG_SERIAL and
+            (dt_chosen_enabled("zephyr,shell-uart") or
+             CONFIG_XTENSA_SIM_CONSOLE)
+    extra_args:
+      - CONFIG_NATIVE_UART_0_ON_STDINOUT=y
+      - CMAKE_BUILD_TYPE=ZRelease
+    harness: pytest
+    timeout: 300
+  bridle.samples.helloshell.sayhello:
+    filter: CONFIG_QEMU_TARGET and CONFIG_CONSOLE and
+            (dt_chosen_enabled("zephyr,console") or
+             CONFIG_XTENSA_SIM_CONSOLE)
+    extra_args: CMAKE_BUILD_TYPE=ZRelease
+    harness: console
+    harness_config:
+      type: one_line
+      regex:
+        - "Hello World! I'm THE SHELL from (.*)"
   bridle.samples.helloshell.debug:
     build_only: true
     build_on_all: true
-    platform_allow: native_posix qemu_x86 qemu_cortex_m3 nucleo_f746zg
-    extra_args: "CMAKE_BUILD_TYPE=ZDebug"
-    tags: introduction
+    extra_args: CMAKE_BUILD_TYPE=ZDebug
