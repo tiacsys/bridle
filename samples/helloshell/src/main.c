@@ -6,10 +6,17 @@
  */
 
 #include <zephyr/kernel.h>
+#include <zephyr/init.h>
 #include <zephyr/sys/printk.h>
 
-int main(void)
+static int say_hello(void)
 {
 	printk("Hello World! I'm THE SHELL from %s\n", CONFIG_BOARD);
 	return 0;
 }
+
+/* Register our hello function  */
+SYS_INIT(say_hello, APPLICATION, CONFIG_APPLICATION_INIT_PRIORITY);
+
+/* Empty main */
+int main(void) {return 0;}
