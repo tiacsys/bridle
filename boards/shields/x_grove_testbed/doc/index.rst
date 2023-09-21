@@ -781,5 +781,78 @@ For example:
                      :host-os: unix
                      :tool: all
 
+         .. group-tab:: Waveshare RP2040-Plus
+
+            This is based on the Bridle board
+            :ref:`RP2040-Plus <waveshare_rp2040_plus>`.
+
+            * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
+
+            .. image:: img/x_grove_testbed_waveshare_rp2040_plus_bb.svg
+               :alt: Waveshare RP2040-Plus Wiring Schematics
+               :align: center
+
+            .. tabs::
+
+               .. group-tab:: LED Blinky
+
+                  This is based on the Zephyr sample
+                  :doc:`zephyr:samples/basic/blinky/README`.
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/blinky
+                     :build-dir: blinky-waveshare_rp2040_plus-x_grove_testbed
+                     :board: waveshare_rp2040_plus
+                     :shield: "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
+                     :goals: build flash
+                     :gen-args: \
+                                -DBOARD_FLASH_RUNNER=openocd \
+                                -DWAVESHARE_RP2040_DEBUG_ADAPTER=cmsis-dap \
+                                -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
+                                -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
+                     :west-args: -p always
+                     :host-os: unix
+                     :tool: all
+
+               .. group-tab:: LED Fade
+
+                  This is based on the Zephyr sample
+                  :doc:`zephyr:samples/basic/fade_led/README`.
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/fade_led
+                     :build-dir: fade-waveshare_rp2040_plus-x_grove_testbed
+                     :board: waveshare_rp2040_plus
+                     :shield: "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
+                     :goals: build flash
+                     :gen-args: \
+                                -DBOARD_FLASH_RUNNER=openocd \
+                                -DWAVESHARE_RP2040_DEBUG_ADAPTER=cmsis-dap \
+                                -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
+                                -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
+                     :west-args: -p always
+                     :host-os: unix
+                     :tool: all
+
+               .. group-tab:: LED Button
+
+                  This is based on the Zephyr sample
+                  :doc:`zephyr:samples/basic/button/README`.
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/button
+                     :build-dir: button-waveshare_rp2040_plus-x_grove_testbed
+                     :board: waveshare_rp2040_plus
+                     :shield: "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
+                     :goals: build flash
+                     :gen-args: \
+                                -DBOARD_FLASH_RUNNER=openocd \
+                                -DWAVESHARE_RP2040_DEBUG_ADAPTER=cmsis-dap \
+                                -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
+                                -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
+                     :west-args: -p always
+                     :host-os: unix
+                     :tool: all
+
 .. |Laced Grove Signal Interface| replace::
    :dtcompatible:`Laced Grove Signal Interface <seeed,grove-laced-if>`
