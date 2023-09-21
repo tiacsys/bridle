@@ -88,6 +88,10 @@ tests:
             dt_nodelabel_enabled("generic_spi_header")
     platform_allow:
       rpi_pico
+      waveshare_rp2040_plus
+      waveshare_rp2040_plus@usbcons
+      waveshare_rp2040_plus@16mb
+      waveshare_rp2040_plus@16mb@usbcons
     extra_args: SHIELD=seeed_grove_rpipico_v1
   grove.base.v2.arduino:
     # May be skipped if the board has at least one of the Ardunio standard
@@ -172,6 +176,10 @@ tests:
             dt_nodelabel_enabled("grove_spi")
     platform_allow:
       rpi_pico
+      waveshare_rp2040_plus
+      waveshare_rp2040_plus@usbcons
+      waveshare_rp2040_plus@16mb
+      waveshare_rp2040_plus@16mb@usbcons
     extra_args: SHIELD=seeed_grove_rpipico_v1
   grove_pwms.base.v2:
     depends_on: arduino_gpio
@@ -220,4 +228,8 @@ tests:
             dt_nodelabel_enabled("grove_pwms")
     platform_allow:
       rpi_pico
+      waveshare_rp2040_plus
+      waveshare_rp2040_plus@usbcons
+      waveshare_rp2040_plus@16mb
+      waveshare_rp2040_plus@16mb@usbcons
     extra_args: SHIELD=seeed_grove_rpipico_v1
