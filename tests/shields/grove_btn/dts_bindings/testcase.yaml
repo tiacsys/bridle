@@ -322,6 +322,10 @@ tests:
             dt_label_with_parent_compat_enabled("grove_btn_d1", "gpio-keys")
     platform_allow:
       rpi_pico
+      waveshare_rp2040_plus
+      waveshare_rp2040_plus@usbcons
+      waveshare_rp2040_plus@16mb
+      waveshare_rp2040_plus@16mb@usbcons
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d1
   grove.rpipico.v1.grove_btn.gpio.d5:
     filter: dt_nodelabel_enabled("grove_d5_header") and
@@ -330,6 +334,10 @@ tests:
             dt_label_with_parent_compat_enabled("grove_btn_d5", "gpio-keys")
     platform_allow:
       rpi_pico
+      waveshare_rp2040_plus
+      waveshare_rp2040_plus@usbcons
+      waveshare_rp2040_plus@16mb
+      waveshare_rp2040_plus@16mb@usbcons
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d5
   grove.rpipico.v1.grove_btn.gpio.d7:
     filter: dt_nodelabel_enabled("grove_d7_header") and
@@ -337,6 +345,10 @@ tests:
             dt_label_with_parent_compat_enabled("grove_btn_d7", "gpio-keys")
     platform_allow:
       rpi_pico
+      waveshare_rp2040_plus
+      waveshare_rp2040_plus@usbcons
+      waveshare_rp2040_plus@16mb
+      waveshare_rp2040_plus@16mb@usbcons
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d7
   grove.rpipico.v1.grove_btn.gpio.d9:
     filter: dt_nodelabel_enabled("grove_d9_header") and
@@ -344,24 +356,40 @@ tests:
             dt_label_with_parent_compat_enabled("grove_btn_d9", "gpio-keys")
     platform_allow:
       rpi_pico
+      waveshare_rp2040_plus
+      waveshare_rp2040_plus@usbcons
+      waveshare_rp2040_plus@16mb
+      waveshare_rp2040_plus@16mb@usbcons
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d9
   grove.rpipico.v1.grove_btn.gpio.d16:
     filter: dt_nodelabel_enabled("grove_d16_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d16", "gpio-keys")
     platform_allow:
       rpi_pico
+      waveshare_rp2040_plus
+      waveshare_rp2040_plus@usbcons
+      waveshare_rp2040_plus@16mb
+      waveshare_rp2040_plus@16mb@usbcons
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d16
   grove.rpipico.v1.grove_btn.gpio.d18:
     filter: dt_nodelabel_enabled("grove_d18_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d18", "gpio-keys")
     platform_allow:
       rpi_pico
+      waveshare_rp2040_plus
+      waveshare_rp2040_plus@usbcons
+      waveshare_rp2040_plus@16mb
+      waveshare_rp2040_plus@16mb@usbcons
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d18
   grove.rpipico.v1.grove_btn.gpio.d20:
     filter: dt_nodelabel_enabled("grove_d20_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d20", "gpio-keys")
     platform_allow:
       rpi_pico
+      waveshare_rp2040_plus
+      waveshare_rp2040_plus@usbcons
+      waveshare_rp2040_plus@16mb
+      waveshare_rp2040_plus@16mb@usbcons
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d20
   grove.rpipico.v1.grove_btn.gpio.d26:
     filter: ( dt_nodelabel_enabled("grove_a0_header") or
@@ -369,6 +397,10 @@ tests:
             dt_label_with_parent_compat_enabled("grove_btn_d26", "gpio-keys")
     platform_allow:
       rpi_pico
+      waveshare_rp2040_plus
+      waveshare_rp2040_plus@usbcons
+      waveshare_rp2040_plus@16mb
+      waveshare_rp2040_plus@16mb@usbcons
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d26
   grove.rpipico.v1.grove_btn.gpio.d27:
     filter: ( dt_nodelabel_enabled("grove_a1_header") or
@@ -376,6 +408,10 @@ tests:
             dt_label_with_parent_compat_enabled("grove_btn_d27", "gpio-keys")
     platform_allow:
       rpi_pico
+      waveshare_rp2040_plus
+      waveshare_rp2040_plus@usbcons
+      waveshare_rp2040_plus@16mb
+      waveshare_rp2040_plus@16mb@usbcons
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d27
   grove.rpipico.v1.grove_btn.gpio.d28:
     filter: ( dt_nodelabel_enabled("grove_a2_header") or
@@ -383,6 +419,10 @@ tests:
             dt_label_with_parent_compat_enabled("grove_btn_d28", "gpio-keys")
     platform_allow:
       rpi_pico
+      waveshare_rp2040_plus
+      waveshare_rp2040_plus@usbcons
+      waveshare_rp2040_plus@16mb
+      waveshare_rp2040_plus@16mb@usbcons
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d28
   #
   # Grove Button by simple GPIO on Grove Connectors
