@@ -16,7 +16,7 @@
 		};
 	};
 
-	uart1_default: uart1_default {
+	uart1_pico_default: uart1_pico_default {
 		group1 {
 			pinmux = <UART1_TX_P4>;
 		};
@@ -26,7 +26,7 @@
 		};
 	};
 
-	i2c0_default: i2c0_default {
+	i2c0_pico_default: i2c0_pico_default {
 		group1 {
 			pinmux = <I2C0_SDA_P8>, <I2C0_SCL_P9>;
 			input-enable;
@@ -34,7 +34,7 @@
 		};
 	};
 
-	i2c1_default: i2c1_default {
+	i2c1_pico_default: i2c1_pico_default {
 		group1 {
 			pinmux = <I2C1_SDA_P6>, <I2C1_SCL_P7>;
 			input-enable;
@@ -42,7 +42,7 @@
 		};
 	};
 
-	spi0_default: spi0_default {
+	spi0_pico_default: spi0_pico_default {
 		group1 {
 			pinmux = <SPI0_CSN_P5>, <SPI0_SCK_P2>, <SPI0_TX_P3>;
 		};
@@ -52,7 +52,10 @@
 		};
 	};
 
-	pwm_default: pwm_default {};
+	/delete-node/ spi1_pico;
+
+	pwm_pico_default: pwm_pico_default {};
+	pwm_default: pwm_pico_default {};
 
 	adc_default: adc_default {
 		group1 {
