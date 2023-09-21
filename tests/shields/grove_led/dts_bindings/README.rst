@@ -47,4 +47,8 @@ supported by this shield and that will be used for maintenance::
          --platform seeeduino_xiao \
          --platform seeeduino_lotus \
          --platform seeeduino_lotus@usbcons \
+         --platform waveshare_rp2040_plus \
+         --platform waveshare_rp2040_plus@usbcons \
+         --platform waveshare_rp2040_plus@16mb \
+         --platform waveshare_rp2040_plus@16mb@usbcons \
          --testsuite-root bridle/tests/shields/grove_led/dts_bindings
