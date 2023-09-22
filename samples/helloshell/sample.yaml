@@ -65,7 +65,6 @@ tests:
             (dt_chosen_enabled("zephyr,shell-uart") or
              CONFIG_XTENSA_SIM_CONSOLE)
     extra_args:
-      - CONFIG_NATIVE_UART_0_ON_STDINOUT=y
       - CMAKE_BUILD_TYPE=ZRelease
     harness: pytest
     timeout: 300
