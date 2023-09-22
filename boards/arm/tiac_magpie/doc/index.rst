@@ -271,14 +271,15 @@ controllers, wherein the firstly enumerated is considered to be primarily.
 The bus timing is defined by the DTS and is preset to 1000 kBit/s. The
 calculation was verified with the help of the `CAN Bit Time Calculation Sheet`_
 and can also assume smaller bit rates according to the following table. Note
-that the value of **Prescaler** will be calculated on demand by the driver.
+that the value of **Prescaler**, **Seg 1** and **Seg 2** will be calculated on
+demand by the Zephyr :ref:`zephyr:can_api` API together with the driver.
 
 .. list-table:: CAN bus timing calculation
    :class: longtable
    :align: center
    :widths: 10, 10, 10, 35, 35
    :header-rows: 1
-   :stub-columns: 3
+   :stub-columns: 2
 
    * - Bit Rate
      - Sample Point at
@@ -868,7 +869,7 @@ The DTS binding following the :dtcompatible:`st,stm32-otgfs` and
 CAN Busses with DTS Bindings
 ============================
 
-The DTS binding following the :dtcompatible:`st,stm32-can` specification.
+The DTS binding following the :dtcompatible:`st,stm32-bxcan` specification.
 
 .. list-table:: CAN Busses Pin Binding
    :class: longtable
@@ -892,7 +893,7 @@ The DTS binding following the :dtcompatible:`st,stm32-can` specification.
           :stub-columns: 1
        .. :include: {3: '(CAN1)'} <-- doesn't work
 
-     - :dtcompatible:`st,stm32-can` configuration:
+     - :dtcompatible:`st,stm32-bxcan` configuration:
 
        .. literalinclude:: ../tiac_magpie.dts
           :caption: tiac_magpie.dts
@@ -924,7 +925,7 @@ The DTS binding following the :dtcompatible:`st,stm32-can` specification.
           :stub-columns: 1
        .. :include: {3: '(CAN2)'} <-- doesn't work
 
-     - :dtcompatible:`st,stm32-can` configuration:
+     - :dtcompatible:`st,stm32-bxcan` configuration:
 
        .. literalinclude:: ../tiac_magpie.dts
           :caption: tiac_magpie.dts
@@ -1496,4 +1497,4 @@ References
    https://www.st.com/en/development-tools/stm32cubemx.html
 
 .. _`CAN Bit Time Calculation Sheet`:
-   http://www.bittiming.can-wiki.info/?ctype=bxCAN&calc=1&CLK=54&SamplePoint=87.5&SJW=1
+   http://www.bittiming.can-wiki.info/?ctype=bxCAN&calc=1&CLK=54&SamplePoint=88.9&SJW=1
