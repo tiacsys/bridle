@@ -134,6 +134,7 @@ Take over the new build principles from Zephyr:
   That are the boards: arduino_zero, seeed_xiao_samd21, seeeduino_lotus
 * Restruct and refactor the integration test cases for the ``helloshell``
   sample.
+* Rename CAN driver: ``stm32-can`` to ``stm32-bxcan``.
 
 Documentation
 =============
@@ -154,6 +155,8 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`125` - [BUG] Nightly QA integration test fails (convert to ``stm32-bxcan``)
+* :github:`122` - [HW] Waveshare RP2040
 * :github:`120` - [BUG] Nightly QA integration test fails
 * :github:`118` - [BUG] QA Integration Test fails
 * :github:`116` - [BUG] Grove Shields DTS Binding test suites fail for seeeduino_lotus@usbcons
