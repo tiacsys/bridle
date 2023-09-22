@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 TiaC Systems
+ * Copyright (c) 2021-2023 TiaC Systems
  * Copyright (c) 2021 Li-Pro.Net
  * SPDX-License-Identifier: Apache-2.0
  */
@@ -8,14 +8,14 @@
 	soc {
 		// missed in st/f7/stm32f767.dtsi
 		can3: can@40003400 {
-			compatible = "st,stm32-can";
-			#address-cells = <1>;
-			#size-cells = <0>;
+			compatible = "st,stm32-bxcan";
 			reg = <0x40003400 0x400>;
 			interrupts = <104 0>, <105 0>, <106 0>, <107 0>;
 			interrupt-names = "TX", "RX0", "RX1", "SCE";
 			clocks = <&rcc STM32_CLOCK_BUS_APB1 0x00002000>;
 			status = "disabled";
+			sjw = <1>;
+			sample-point = <875>;
 		};
 	};
 };
