@@ -34,7 +34,7 @@ Building and Running
 
       .. code-block:: console
 
-         $ ./zephyr/scripts/twister \
+         $ west twister \
              --verbose --jobs 4 --inline-logs \
              --enable-size-report --platform-reports \
              --device-testing --hardware-map map.yaml \
