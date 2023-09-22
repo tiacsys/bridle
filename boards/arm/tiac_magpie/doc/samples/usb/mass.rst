@@ -6,7 +6,7 @@ USB Mass Storage
 Overview
 ********
 
-See :ref:`zephyr:usb_mass` for the original description.
+See :doc:`zephyr:samples/subsys/usb/mass/README` for the original description.
 
 .. _tiac_magpie_usb_mass-sample-requirements:
 

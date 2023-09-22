@@ -448,11 +448,11 @@ USB Device Port
 
 The `RP2040 <RP2040 SoC>`_ MCU has a (native) USB device port that can be
 used to communicate with a host PC. See the :ref:`zephyr:usb-samples` sample
-applications for more, such as the :ref:`zephyr:usb_cdc-acm` sample which sets
-up a virtual serial port that echos characters back to the host PC. As an
-alternative to the default Zephyr console on serial port the special board
-revision ``usbcons`` can be used to enable :ref:`zephyr:usb_device_cdc_acm`
-and switch the console to USB::
+applications for more, such as the :doc:`zephyr:samples/subsys/usb/cdc_acm/README`
+sample which sets up a virtual serial port that echos characters back to the
+host PC. As an alternative to the default Zephyr console on serial port the
+special board revision ``usbcons`` can be used to enable
+:ref:`zephyr:usb_device_cdc_acm` and switch the console to USB::
 
    USB device idVendor=2e8a, idProduct=000a, bcdDevice= 3.04
    USB device strings: Mfr=1, Product=2, SerialNumber=3
@@ -705,26 +705,6 @@ You can then start debugging the board.
 More Samples
 ************
 
-LCD Orientation and Bit Order Test
-==================================
-
-This sample and test application is only applicable on the |RP2040-LCD-0.96|
-board. See also Zephyr sample: :ref:`zephyr:display-sample`.
-
-.. zephyr-app-commands::
-   :app: zephyr/samples/drivers/display
-   :board: waveshare_rp2040_lcd_0_96
-   :build-dir: waveshare_rp2040
-   :west-args: -p
-   :goals: flash
-   :compact:
-
-.. rubric:: Using UF2 for flashing by pico-bootrom
-
-.. code-block:: bash
-
-   cp build/waveshare_rp2040/zephyr/zephyr.uf2 /media/__USER__/RPI-RP2/
-
 LED Blinky and Fade
 ===================
 
@@ -734,7 +714,7 @@ LED Blinky and Fade
 
       .. rubric:: WS2812 LED Test Pattern by PIO
 
-      See also Zephyr sample: :ref:`zephyr:led_ws2812_sample`
+      See also Zephyr sample: :doc:`zephyr:samples/drivers/led_ws2812/README`
 
       .. image:: /boards/arm/waveshare_rp2040/doc/rp2040-one/ws2812b.gif
          :align: right
@@ -764,7 +744,7 @@ LED Blinky and Fade
 
       .. rubric:: WS2812 LED Test Pattern by PIO
 
-      See also Zephyr sample: :ref:`zephyr:led_ws2812_sample`
+      See also Zephyr sample: :doc:`zephyr:samples/drivers/led_ws2812/README`
 
       .. image:: /boards/arm/waveshare_rp2040/doc/rp2040-zero/ws2812b.gif
          :align: right
@@ -794,7 +774,7 @@ LED Blinky and Fade
 
       .. rubric:: WS2812 LED Test Pattern by PIO
 
-      See also Zephyr sample: :ref:`zephyr:led_ws2812_sample`
+      See also Zephyr sample: :doc:`zephyr:samples/drivers/led_ws2812/README`
 
       .. image:: /boards/arm/waveshare_rp2040/doc/rp2040-matrix/ws2812b-5x5.gif
          :align: right
@@ -824,7 +804,7 @@ LED Blinky and Fade
 
       .. rubric:: WS2812 LED Test Pattern by PIO
 
-      See also Zephyr sample: :ref:`zephyr:led_ws2812_sample`
+      See also Zephyr sample: :doc:`zephyr:samples/drivers/led_ws2812/README`
 
       .. image:: /boards/arm/waveshare_rp2040/doc/rp2040-tiny/ws2812b.gif
          :align: right
@@ -854,7 +834,7 @@ LED Blinky and Fade
 
       .. rubric:: WS2812 LED Test Pattern by PIO
 
-      See also Zephyr sample: :ref:`zephyr:led_ws2812_sample`
+      See also Zephyr sample: :doc:`zephyr:samples/drivers/led_ws2812/README`
 
       .. image:: /boards/arm/waveshare_rp2040/doc/rp2040-eth/ws2812b.gif
          :align: right
@@ -1117,7 +1097,7 @@ LCD Orientation and Bit Order Test
 ==================================
 
 This sample and test application is only applicable on the |RP2040-LCD-0.96|
-board. See also Zephyr sample: :ref:`zephyr:display-sample`.
+board. See also Zephyr sample: :doc:`zephyr:samples/drivers/display/README`.
 
 .. list-table::
    :align: center
