@@ -1,0 +1,4 @@
+name: usb-console
+append:
+  EXTRA_CONF_FILE: usb-console.conf
+  EXTRA_DTC_OVERLAY_FILE: usb-console.overlay
