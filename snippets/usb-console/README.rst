@@ -45,6 +45,15 @@ specified as required.
      - Specifications and requirements
      - Chosen
 
+   * - :code:`arduino_zero`
+     - :code:`0x2341`
+     - :code:`0x804D`
+     - |Arduino LLC|_
+     - |Arduino Zero (CDC ACM)|
+     - `Arduino USB product ID list with SAMD21 CPU`_
+     - | |zephyr,console|
+       | |zephyr,shell-uart|
+
    * -
      - :code:`0x2FE3`
      - :code:`0x0004`
@@ -91,6 +100,12 @@ References
 **********
 
 .. target-notes::
+
+.. _Arduino LLC: https://devicehunt.com/view/type/usb/vendor/2341
+.. |Arduino LLC| replace:: :strong:`Arduino LLC`
+
+.. |Arduino Zero (CDC ACM)| replace::
+   :ref:`Arduino Zero (CDC ACM) <arduino_zero>`
 
 .. _Arduino USB product ID list with SAM3X CPU:
    https://github.com/arduino/ArduinoCore-sam/blob/master/boards.txt

@@ -1,0 +1,14 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	model = "Arduino Zero @ USB-CDC/ACM Concole";
+	compatible = "arduino,zero-usbcons", "arduino,zero",
+		     "atmel,samd21g18a", "atmel,samd21";
+
+	chosen {
+		zephyr,shell-uart = &snippet_cdc_acm_console_uart;
+	};
+};
