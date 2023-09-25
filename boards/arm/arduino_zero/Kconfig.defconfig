@@ -8,6 +8,14 @@ config BOARD
 	default "arduino_zero"
 	depends on BOARD_ARDUINO_ZERO
 
+config USB_SELF_POWERED
+	default n
+	depends on USB_DEVICE_STACK && BOARD_ARDUINO_ZERO
+
+config USB_MAX_POWER
+	default 250 if BOARD_ARDUINO_ZERO	# 500mA
+	depends on USB_DEVICE_STACK && BOARD_ARDUINO_ZERO
+
 # Workaround for not being able to have commas in macro arguments
 DT_CHOSEN_Z_CONSOLE := zephyr,console
 DT_COMPAT_Z_CDC_ACM_UART := zephyr,cdc-acm-uart
