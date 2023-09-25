@@ -17,7 +17,8 @@ DT_COMPAT_ATMEL_USB := atmel,sam0-usb
 DT_CHOSEN_CONSOLE_NODE := $(dt_chosen_path,$(DT_CHOSEN_Z_CONSOLE))
 DT_CHOSEN_CONSOLE_PARENT := $(dt_node_parent,$(DT_CHOSEN_CONSOLE_NODE))
 
-if $(dt_chosen_enabled,$(DT_CHOSEN_Z_CONSOLE)) && \
+if BOARD_ARDUINO_ZERO && \
+   $(dt_chosen_enabled,$(DT_CHOSEN_Z_CONSOLE)) && \
    $(dt_compat_on_bus,$(DT_COMPAT_Z_CDC_ACM_UART),usb) && \
    $(dt_node_has_compat,$(DT_CHOSEN_CONSOLE_PARENT),$(DT_COMPAT_ATMEL_USB))
 
@@ -25,22 +26,25 @@ config BOOTLOADER_BOSSA_DEVICE_NAME
 	default "$(dt_chosen_label,$(DT_CHOSEN_Z_CONSOLE))"
 	depends on USB_CDC_ACM
 
-if LOG
-
 # Logger cannot use itself to log
 choice USB_CDC_ACM_LOG_LEVEL_CHOICE
 	default USB_CDC_ACM_LOG_LEVEL_OFF
+	depends on LOG
 endchoice
 
 # Set USB log level to error only
 choice USB_DEVICE_LOG_LEVEL_CHOICE
 	default USB_DEVICE_LOG_LEVEL_ERR
+	depends on LOG
 endchoice
 
 # Wait 4000ms at startup for logging
 config LOG_PROCESS_THREAD_STARTUP_DELAY_MS
 	default 4000
+	depends on LOG
 
-endif # LOG
+# Wait 4000ms at startup for USB enumeration on host side
+config BOOT_DELAY
+	default 4000
 
-endif # @usbcons
+endif # zephyr,cdc-acm-uart

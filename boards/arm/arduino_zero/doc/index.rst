@@ -79,20 +79,20 @@ Other hardware features are not currently supported by Zephyr.
 The default configuration can be found in the Kconfig
 :bridle_file:`boards/arm/arduino_zero/arduino_zero_defconfig`.
 
-Board Revisions
-===============
+Board Configurations
+====================
 
-The :code:`arduino_zero` board can be configured for the following revisions.
-These are not really specific hardware revisions, rather than specific
-configurations for different use cases.
+The :code:`arduino_zero` board can be configured for the following different
+use cases.
 
-.. rubric:: :code:`arduino_zero@uartcons`
+.. rubric:: :command:`west build -b arduino_zero`
 
 Use the serial port SERCOM5 over EDBG as Zephyr console and for the shell.
 
-.. rubric:: :code:`arduino_zero@usbcons`
+.. rubric:: :command:`west build -b arduino_zero -S usb-console`
 
-Use the native USB device port with CDC-ACM as Zephyr console and for the shell.
+Use the native USB device port with CDC-ACM as Zephyr console and for the shell,
+see :ref:`snippet-usb-console`.
 
 Connections and IOs
 ===================
@@ -153,8 +153,8 @@ Serial Port
 
 The SAMD21 MCU has 6 SERCOM based USARTs. One of the USARTs (SERCOM5) is
 connected to the onboard Atmel Embedded Debugger (EDBG) and is the Zephyr
-console. This is captured by the standard board revision ``uartcons``.
-SERCOM0 is available on the D0 (RX) and D1 (TX) of the |Arduino UNO R3| header.
+console. This is captured by the standard board configuration. SERCOM0 is
+available on the D0 (RX) and D1 (TX) of the |Arduino UNO R3| header.
 
 USB Device Port
 ===============
@@ -165,14 +165,14 @@ USB Device Port
    :alt: Arduino Zero Native and Programming USB Ports
 
 The SAMD21 MCU has a (native) USB device port that can be used to communicate
-with a host PC. See the :ref:`zephyr:usb-samples` sample applications for more,
-such as the :doc:`zephyr:samples/subsys/usb/cdc_acm/README` sample which sets
-up a virtual serial port that echos characters back to the host PC. As an
-alternative to the default Zephyr console on serial port the special board
-revision ``usbcons`` can be used to enable :ref:`zephyr:usb_device_cdc_acm`
-and switch the console to USB::
+with a host PC. See Zephyr :ref:`zephyr:usb-samples` for more, such as the
+:doc:`zephyr:samples/subsys/usb/cdc_acm/README` sample which sets up a virtual
+serial port that echos characters back to the host PC. As an alternative to the
+default Zephyr console on serial port the Bridle :ref:`snippet-usb-console`
+can be used to enable :ref:`zephyr:usb_device_cdc_acm` and switch the console
+to USB::
 
-   USB device idVendor=2341, idProduct=804d, bcdDevice= 3.03
+   USB device idVendor=2341, idProduct=804d, bcdDevice= 3.04
    USB device strings: Mfr=1, Product=2, SerialNumber=3
    Product: Arduino Zero (CDC ACM)
    Manufacturer: Arduino LLC
@@ -380,7 +380,8 @@ Hello Shell with USB-CDC/ACM Console
 
 .. zephyr-app-commands::
    :app: bridle/samples/helloshell
-   :board: arduino_zero@usbcons
+   :board: arduino_zero
+   :west-args: -S usb-console
    :goals: flash
    :compact:
 
