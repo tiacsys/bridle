@@ -77,19 +77,18 @@ Other hardware features are not currently supported by Zephyr.
 The default configuration can be found in the Kconfig file
 :bridle_file:`boards/arm/seeed_xiao_samd21/seeed_xiao_samd21_defconfig`.
 
-Board Revisions
-===============
+Board Configurations
+====================
 
 The :code:`seeed_xiao_samd21` board can be configured for the following
-revisions. These are not really specific hardware revisions, rather than
-specific configurations for different use cases.
+different use cases.
 
-.. rubric:: :code:`seeed_xiao_samd21@uartcons`
+.. rubric:: :command:`west build -b seeed_xiao_samd21`
 
 Use the serial port SERCOM5 over |Seeed XIAO| header as Zephyr console
 and for the shell.
 
-.. rubric:: :code:`seeed_xiao_samd21@usbcons`
+.. rubric:: :command:`west build -b seeed_xiao_samd21 -S usb-console`
 
 Use the native USB device port with CDC-ACM as Zephyr console
 and for the shell.
@@ -173,8 +172,7 @@ Serial Port
 
 The SAMD21 MCU has 6 SERCOM based USARTs. On the Seeed Studio XIAO SAMD21,
 SERCOM4 is the Zephyr console and is available on the |Seeed XIAO| header
-pins 7 (RX) and 6 (TX). This is captured by the standard board revision
-``uartcons``.
+pins 7 (RX) and 6 (TX).
 
 USB Device Port
 ===============
@@ -183,13 +181,13 @@ The SAMD21 MCU has a (native) USB device port that can be used to communicate
 with a host PC. See the :ref:`zephyr:usb-samples` sample applications for more,
 such as the :doc:`zephyr:samples/subsys/usb/cdc_acm/README` sample which sets
 up a virtual serial port that echos characters back to the host PC. As an
-alternative to the default Zephyr console on serial port the special board
-revision ``usbcons`` can be used to enable :ref:`zephyr:usb_device_cdc_acm`
-and switch the console to USB::
+alternative to the default Zephyr console on serial port the Bridle
+:ref:`snippet-usb-console` can be used to enable
+:ref:`zephyr:usb_device_cdc_acm` and switch the console to USB::
 
-   USB device idVendor=2886, idProduct=802f, bcdDevice= 3.03
+   USB device idVendor=2886, idProduct=802f, bcdDevice= 3.04
    USB device strings: Mfr=1, Product=2, SerialNumber=3
-   Product: Seeeduino XIAO (CDC ACM)
+   Product: XIAO SAMD21 (CDC ACM)
    Manufacturer: Seeed Studio
    SerialNumber: AC3FB5052F48A3F7
 
@@ -289,7 +287,7 @@ Debugging
    .. zephyr-app-commands::
       :app: zephyr/samples/hello_world
       :board: seeed_xiao_samd21
-      :gen-args: -DCONFIG_BUILD_OUTPUT_HEX=y -DBOARD_FLASH_RUNNER=openocd
+      :gen-args: -DBOARD_FLASH_RUNNER=openocd
       :goals: debug
       :compact:
 
@@ -330,7 +328,8 @@ Hello Shell with USB-CDC/ACM Console
 
 .. zephyr-app-commands::
    :app: bridle/samples/helloshell
-   :board: seeed_xiao_samd21@usbcons
+   :board: seeed_xiao_samd21
+   :west-args: -S usb-console
    :goals: flash
    :compact:
 
