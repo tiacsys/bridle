@@ -12,3 +12,7 @@ boards:
     append:
       EXTRA_CONF_FILE: boards/seeeduino_lotus.conf
       EXTRA_DTC_OVERLAY_FILE: boards/seeeduino_lotus.overlay
+  seeed_xiao_samd21:
+    append:
+      EXTRA_CONF_FILE: boards/seeed_xiao_samd21.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/seeed_xiao_samd21.overlay

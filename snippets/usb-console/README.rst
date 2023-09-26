@@ -63,6 +63,15 @@ specified as required.
      - | |zephyr,console|
        | |zephyr,shell-uart|
 
+   * - :code:`seeed_xiao_samd21`
+     - :code:`0x2886`
+     - :code:`0x802F`
+     - |Seeed Studio|_
+     - |XIAO SAMD21 (CDC ACM)|, Seeeduino XIAO
+     - `Seeeduino USB product ID list with SAMD21 CPU`_
+     - | |zephyr,console|
+       | |zephyr,shell-uart|
+
    * -
      - :code:`0x2FE3`
      - :code:`0x0004`
@@ -116,11 +125,17 @@ References
 .. _Seeed LLC: https://devicehunt.com/view/type/usb/vendor/2886
 .. |Seeed LLC| replace:: :strong:`Seeed LLC`
 
+.. _Seeed Studio: https://devicehunt.com/view/type/usb/vendor/2886
+.. |Seeed Studio| replace:: :strong:`Seeed Studio`
+
 .. |Arduino Zero (CDC ACM)| replace::
    :ref:`Arduino Zero (CDC ACM) <arduino_zero>`
 
 .. |Seeeduino Lotus Cortex-M0+ (CDC ACM)| replace::
    :ref:`Seeeduino Lotus Cortex-M0+ (CDC ACM) <seeeduino_lotus>`
+
+.. |XIAO SAMD21 (CDC ACM)| replace::
+   :ref:`XIAO SAMD21 (CDC ACM) <seeed_xiao_samd21>`
 
 .. _Arduino USB product ID list with SAM3X CPU:
    https://github.com/arduino/ArduinoCore-sam/blob/master/boards.txt
