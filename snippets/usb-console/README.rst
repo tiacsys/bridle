@@ -54,6 +54,15 @@ specified as required.
      - | |zephyr,console|
        | |zephyr,shell-uart|
 
+   * - :code:`seeeduino_lotus`
+     - :code:`0x2886`
+     - :code:`0x8026`
+     - |Seeed LLC|_
+     - |Seeeduino Lotus Cortex-M0+ (CDC ACM)|
+     - `Seeeduino USB product ID list with SAMD21 CPU`_
+     - | |zephyr,console|
+       | |zephyr,shell-uart|
+
    * -
      - :code:`0x2FE3`
      - :code:`0x0004`
@@ -104,8 +113,14 @@ References
 .. _Arduino LLC: https://devicehunt.com/view/type/usb/vendor/2341
 .. |Arduino LLC| replace:: :strong:`Arduino LLC`
 
+.. _Seeed LLC: https://devicehunt.com/view/type/usb/vendor/2886
+.. |Seeed LLC| replace:: :strong:`Seeed LLC`
+
 .. |Arduino Zero (CDC ACM)| replace::
    :ref:`Arduino Zero (CDC ACM) <arduino_zero>`
+
+.. |Seeeduino Lotus Cortex-M0+ (CDC ACM)| replace::
+   :ref:`Seeeduino Lotus Cortex-M0+ (CDC ACM) <seeeduino_lotus>`
 
 .. _Arduino USB product ID list with SAM3X CPU:
    https://github.com/arduino/ArduinoCore-sam/blob/master/boards.txt
