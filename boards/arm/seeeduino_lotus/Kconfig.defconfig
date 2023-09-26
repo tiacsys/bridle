@@ -7,6 +7,14 @@ config BOARD
 	default "seeeduino_lotus"
 	depends on BOARD_SEEEDUINO_LOTUS
 
+config USB_SELF_POWERED
+	default n
+	depends on USB_DEVICE_STACK && BOARD_SEEEDUINO_LOTUS
+
+config USB_MAX_POWER
+	default 250 if BOARD_SEEEDUINO_LOTUS	# 500mA
+	depends on USB_DEVICE_STACK && BOARD_SEEEDUINO_LOTUS
+
 # Workaround for not being able to have commas in macro arguments
 DT_CHOSEN_Z_CONSOLE := zephyr,console
 DT_COMPAT_Z_CDC_ACM_UART := zephyr,cdc-acm-uart
