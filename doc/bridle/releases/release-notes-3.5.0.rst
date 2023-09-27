@@ -100,6 +100,13 @@ Supported shields
 * Grove Button Shields
 * Grove LED Shields
 
+Supported snippets
+******************
+
+:brd:`NOT YET, tbd.`
+
+* USB Console Snippet (usb-console)
+
 Change log
 **********
 
@@ -135,13 +142,15 @@ Take over the new build principles from Zephyr:
 * Restruct and refactor the integration test cases for the ``helloshell``
   sample.
 * Rename CAN driver: ``stm32-can`` to ``stm32-bxcan``.
+* Convert all specific ``@usbcons`` board revisions to USB Console Snippet.
+* Remove all specific ``@uartcons`` board revisions.
 
 Documentation
 =============
 
-1. Since Zephyr introduce its own ':zephyr:code-sample:' domain directive and
-   even this domain will not exported to the inventory anymore, all references
-   to Zephyr samples were converted to direct document references.
+1. Since Zephyr introduce its own :rst:`.. zephyr:code-sample::` domain
+   directive and even this domain will not exported to the inventory anymore,
+   all references to Zephyr samples were converted to direct document references.
 2. Add more colorization formatter for: bold, italic, strikethrough, and
    underline mixed with basic colors: red, blue, green, yellow, black and white.
 3. Add colorization classes for "Hardware Feature Label" (hwftlbl) and special
@@ -155,6 +164,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`128` - [FER] Provide USB console by snippets instead of specific board revision
 * :github:`125` - [BUG] Nightly QA integration test fails (convert to ``stm32-bxcan``)
 * :github:`122` - [HW] Waveshare RP2040
 * :github:`120` - [BUG] Nightly QA integration test fails
