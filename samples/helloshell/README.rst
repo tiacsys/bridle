@@ -38,7 +38,18 @@ Requirements
   * :ref:`zephyr:qemu_xtensa`
   * :ref:`zephyr:qemu_leon3`
   * :ref:`zephyr:qemu_nios2`
+  * :ref:`zephyr:nucleo_f303re_board` (NUCLEO-F303RE)
+  * :ref:`zephyr:nucleo_f401re_board` (NUCLEO-F401RE)
+  * :ref:`zephyr:nucleo_f413zh_board` (NUCLEO-F413ZH)
   * :ref:`zephyr:nucleo_f746zg_board` (NUCLEO-F746ZG)
+  * :ref:`zephyr:nucleo_f767zi_board` (NUCLEO-F767ZI)
+  * :ref:`zephyr:mimxrt1010_evk`
+  * :ref:`zephyr:mimxrt1060_evk`
+  * :ref:`zephyr:arduino_zero` or Bridle's :ref:`arduino_zero`
+  * :ref:`seeeduino_lotus`
+  * :ref:`zephyr:seeeduino_xiao` or Bridle's :ref:`seeed_xiao_samd21`
+  * :ref:`zephyr:rpi_pico`
+  * :ref:`waveshare_rp2040`
 
 Building and Running
 ********************
