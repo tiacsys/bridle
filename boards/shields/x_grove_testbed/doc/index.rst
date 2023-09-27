@@ -497,10 +497,10 @@ For example:
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/blinky
                      :build-dir: blinky-arduino_zero-x_grove_testbed
-                     :board: arduino_zero@usbcons
+                     :board: arduino_zero
                      :shield: "seeed_grove_base_v2 grove_btn_d7 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
                      :goals: build flash
-                     :west-args: -p always
+                     :west-args: -p always -S usb-console
                      :host-os: unix
                      :tool: all
 
@@ -512,10 +512,10 @@ For example:
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/fade_led
                      :build-dir: fade-arduino_zero-x_grove_testbed
-                     :board: arduino_zero@usbcons
+                     :board: arduino_zero
                      :shield: "seeed_grove_base_v2 grove_btn_d7 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
                      :goals: build flash
-                     :west-args: -p always
+                     :west-args: -p always -S usb-console
                      :host-os: unix
                      :tool: all
 
@@ -527,10 +527,10 @@ For example:
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/button
                      :build-dir: button-arduino_zero-x_grove_testbed
-                     :board: arduino_zero@usbcons
+                     :board: arduino_zero
                      :shield: "seeed_grove_base_v2 grove_btn_d7 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
                      :goals: build flash
-                     :west-args: -p always
+                     :west-args: -p always -S usb-console
                      :host-os: unix
                      :tool: all
 
@@ -554,10 +554,10 @@ For example:
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/blinky
                      :build-dir: blinky-seeeduino_lotus-x_grove_testbed
-                     :board: seeeduino_lotus@usbcons
+                     :board: seeeduino_lotus
                      :shield: "grove_btn_d7 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
                      :goals: build flash
-                     :west-args: -p always
+                     :west-args: -p always -S usb-console
                      :host-os: unix
                      :tool: all
 
@@ -569,10 +569,10 @@ For example:
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/fade_led
                      :build-dir: fade-seeeduino_lotus-x_grove_testbed
-                     :board: seeeduino_lotus@usbcons
+                     :board: seeeduino_lotus
                      :shield: "grove_btn_d7 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
                      :goals: build flash
-                     :west-args: -p always
+                     :west-args: -p always -S usb-console
                      :host-os: unix
                      :tool: all
 
@@ -584,10 +584,10 @@ For example:
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/button
                      :build-dir: button-seeeduino_lotus-x_grove_testbed
-                     :board: seeeduino_lotus@usbcons
+                     :board: seeeduino_lotus
                      :shield: "grove_btn_d7 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
                      :goals: build flash
-                     :west-args: -p always
+                     :west-args: -p always -S usb-console
                      :host-os: unix
                      :tool: all
 
