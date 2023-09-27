@@ -72,6 +72,69 @@ specified as required.
      - | |zephyr,console|
        | |zephyr,shell-uart|
 
+   * - :code:`waveshare_rp2040_one`
+     - :code:`0x2E8A`
+     - :code:`0x000A`
+     - |Waveshare (Raspberry Pi)|_
+     - |RP2040-One (CDC ACM)|, Raspberry Pi Pico SDK CDC UART
+     - `Raspberry Pi USB product ID list`_
+     - | |zephyr,console|
+       | |zephyr,shell-uart|
+
+   * - :code:`waveshare_rp2040_zero`
+     - :code:`0x2E8A`
+     - :code:`0x000A`
+     - |Waveshare (Raspberry Pi)|_
+     - |RP2040-Zero (CDC ACM)|, Raspberry Pi Pico SDK CDC UART
+     - `Raspberry Pi USB product ID list`_
+     - | |zephyr,console|
+       | |zephyr,shell-uart|
+
+   * - :code:`waveshare_rp2040_matrix`
+     - :code:`0x2E8A`
+     - :code:`0x000A`
+     - |Waveshare (Raspberry Pi)|_
+     - |RP2040-Matrix (CDC ACM)|, Raspberry Pi Pico SDK CDC UART
+     - `Raspberry Pi USB product ID list`_
+     - | |zephyr,console|
+       | |zephyr,shell-uart|
+
+   * - :code:`waveshare_rp2040_tiny`
+     - :code:`0x2E8A`
+     - :code:`0x000A`
+     - |Waveshare (Raspberry Pi)|_
+     - |RP2040-Tiny (CDC ACM)|, Raspberry Pi Pico SDK CDC UART
+     - `Raspberry Pi USB product ID list`_
+     - | |zephyr,console|
+       | |zephyr,shell-uart|
+
+   * - :code:`waveshare_rp2040_eth`
+     - :code:`0x2E8A`
+     - :code:`0x000A`
+     - |Waveshare (Raspberry Pi)|_
+     - |RP2040-ETH (CDC ACM)|, Raspberry Pi Pico SDK CDC UART
+     - `Raspberry Pi USB product ID list`_
+     - | |zephyr,console|
+       | |zephyr,shell-uart|
+
+   * - :code:`waveshare_rp2040_lcd_0_96`
+     - :code:`0x2E8A`
+     - :code:`0x000A`
+     - |Waveshare (Raspberry Pi)|_
+     - |RP2040-LCD-0.96 (CDC ACM)|, Raspberry Pi Pico SDK CDC UART
+     - `Raspberry Pi USB product ID list`_
+     - | |zephyr,console|
+       | |zephyr,shell-uart|
+
+   * - :code:`waveshare_rp2040_plus`
+     - :code:`0x2E8A`
+     - :code:`0x000A`
+     - |Waveshare (Raspberry Pi)|_
+     - |RP2040-Plus (CDC ACM)|, Raspberry Pi Pico SDK CDC UART
+     - `Raspberry Pi USB product ID list`_
+     - | |zephyr,console|
+       | |zephyr,shell-uart|
+
    * -
      - :code:`0x2FE3`
      - :code:`0x0004`
@@ -136,6 +199,30 @@ References
 
 .. |XIAO SAMD21 (CDC ACM)| replace::
    :ref:`XIAO SAMD21 (CDC ACM) <seeed_xiao_samd21>`
+
+.. _Waveshare (Raspberry Pi): https://devicehunt.com/view/type/usb/vendor/2e8a
+.. |Waveshare (Raspberry Pi)| replace:: :strong:`Waveshare (Raspberry Pi)`
+
+.. |RP2040-One (CDC ACM)| replace::
+   :ref:`RP2040-One (CDC ACM) <waveshare_rp2040_one>`
+
+.. |RP2040-Zero (CDC ACM)| replace::
+   :ref:`RP2040-Zero (CDC ACM) <waveshare_rp2040_zero>`
+
+.. |RP2040-Matrix (CDC ACM)| replace::
+   :ref:`RP2040-Matrix (CDC ACM) <waveshare_rp2040_matrix>`
+
+.. |RP2040-Tiny (CDC ACM)| replace::
+   :ref:`RP2040-Tiny (CDC ACM) <waveshare_rp2040_tiny>`
+
+.. |RP2040-ETH (CDC ACM)| replace::
+   :ref:`RP2040-ETH (CDC ACM) <waveshare_rp2040_eth>`
+
+.. |RP2040-LCD-0.96 (CDC ACM)| replace::
+   :ref:`RP2040-LCD-0.96 (CDC ACM) <waveshare_rp2040_lcd_0_96>`
+
+.. |RP2040-Plus (CDC ACM)| replace::
+   :ref:`RP2040-Plus (CDC ACM) <waveshare_rp2040_plus>`
 
 .. _Arduino USB product ID list with SAM3X CPU:
    https://github.com/arduino/ArduinoCore-sam/blob/master/boards.txt

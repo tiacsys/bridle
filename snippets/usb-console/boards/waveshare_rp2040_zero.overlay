@@ -1,0 +1,13 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	model = "Waveshare RP2040-Zero @ USB-CDC/ACM Concole";
+	compatible = "waveshare,rp2040-zero", "waveshare,rp2040-zero-usbcons";
+
+	chosen {
+		zephyr,shell-uart = &snippet_cdc_acm_console_uart;
+	};
+};
