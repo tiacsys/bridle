@@ -248,7 +248,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d0", "pwm-leds")
     platform_allow:
       arduino_zero
-      arduino_zero@usbcons
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d0
   grove.base.v1.grove_led.pwm.d0:
     depends_on: arduino_gpio
@@ -257,7 +256,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d0", "pwm-leds")
     platform_allow:
       arduino_zero
-      arduino_zero@usbcons
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d0
   grove.base.v2.grove_led.pwm.d1:
     depends_on: arduino_gpio
@@ -266,7 +264,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d1", "pwm-leds")
     platform_allow:
       arduino_zero
-      arduino_zero@usbcons
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d1
   grove.base.v1.grove_led.pwm.d1:
     depends_on: arduino_gpio
@@ -275,7 +272,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d1", "pwm-leds")
     platform_allow:
       arduino_zero
-      arduino_zero@usbcons
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d1
   grove.base.v2.grove_led.pwm.d2:
     depends_on: arduino_gpio
@@ -288,9 +284,7 @@ tests:
       mimxrt1060_evk
       mimxrt1060_evkb
       arduino_zero
-      arduino_zero@usbcons
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d2
   grove.base.v1.grove_led.pwm.d2:
     depends_on: arduino_gpio
@@ -303,9 +297,7 @@ tests:
       mimxrt1060_evk
       mimxrt1060_evkb
       arduino_zero
-      arduino_zero@usbcons
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d2
   grove.base.v2.grove_led.pwm.d3:
     depends_on: arduino_gpio
@@ -320,9 +312,7 @@ tests:
       mimxrt1060_evk
       mimxrt1060_evkb
       arduino_zero
-      arduino_zero@usbcons
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d3
   grove.base.v1.grove_led.pwm.d3:
     depends_on: arduino_gpio
@@ -337,9 +327,7 @@ tests:
       mimxrt1060_evk
       mimxrt1060_evkb
       arduino_zero
-      arduino_zero@usbcons
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d3
   grove.base.v2.grove_led.pwm.d4:
     depends_on: arduino_gpio
@@ -351,9 +339,7 @@ tests:
       mimxrt1060_evk
       mimxrt1060_evkb
       arduino_zero
-      arduino_zero@usbcons
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d4
   grove.base.v1.grove_led.pwm.d4:
     depends_on: arduino_gpio
@@ -365,9 +351,7 @@ tests:
       mimxrt1060_evk
       mimxrt1060_evkb
       arduino_zero
-      arduino_zero@usbcons
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d4
   grove.base.v2.grove_led.pwm.d5:
     depends_on: arduino_gpio
@@ -382,9 +366,7 @@ tests:
       mimxrt1060_evk
       mimxrt1060_evkb
       arduino_zero
-      arduino_zero@usbcons
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d5
   grove.base.v1.grove_led.pwm.d5:
     depends_on: arduino_gpio
@@ -399,9 +381,7 @@ tests:
       mimxrt1060_evk
       mimxrt1060_evkb
       arduino_zero
-      arduino_zero@usbcons
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d5
   grove.base.v2.grove_led.pwm.d6:
     depends_on: arduino_gpio
@@ -414,9 +394,7 @@ tests:
       nucleo_f413zh
       nucleo_f767zi
       arduino_zero
-      arduino_zero@usbcons
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d6
   grove.base.v1.grove_led.pwm.d6:
     depends_on: arduino_gpio
@@ -429,9 +407,7 @@ tests:
       nucleo_f413zh
       nucleo_f767zi
       arduino_zero
-      arduino_zero@usbcons
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d6
   grove.base.v2.grove_led.pwm.d7:
     depends_on: arduino_gpio
@@ -442,9 +418,7 @@ tests:
       nucleo_f303re
       nucleo_f401re
       arduino_zero
-      arduino_zero@usbcons
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d7
   grove.base.v1.grove_led.pwm.d7:
     depends_on: arduino_gpio
@@ -455,9 +429,7 @@ tests:
       nucleo_f303re
       nucleo_f401re
       arduino_zero
-      arduino_zero@usbcons
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d7
   grove.base.v2.grove_led.pwm.d8:
     depends_on: arduino_gpio
@@ -469,7 +441,6 @@ tests:
       nucleo_f401re
       mimxrt1010_evk
       arduino_zero
-      arduino_zero@usbcons
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d8
   grove.base.v1.grove_led.pwm.d8:
     depends_on: arduino_gpio
@@ -481,7 +452,6 @@ tests:
       nucleo_f401re
       mimxrt1010_evk
       arduino_zero
-      arduino_zero@usbcons
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d8
   grove.base.v2.grove_led.pwm.d9:
     depends_on: arduino_gpio
@@ -495,7 +465,6 @@ tests:
       nucleo_f767zi
       mimxrt1010_evk
       arduino_zero
-      arduino_zero@usbcons
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d9
   grove.base.v1.grove_led.pwm.d9:
     depends_on: arduino_gpio
@@ -509,7 +478,6 @@ tests:
       nucleo_f767zi
       mimxrt1010_evk
       arduino_zero
-      arduino_zero@usbcons
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d9
   grove.base.v1.grove_led.pwm.d10:
     depends_on: arduino_gpio
@@ -524,7 +492,6 @@ tests:
       mimxrt1060_evk
       mimxrt1060_evkb
       arduino_zero
-      arduino_zero@usbcons
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d10
   grove.base.v1.grove_led.pwm.d11:
     depends_on: arduino_gpio
@@ -539,7 +506,6 @@ tests:
       mimxrt1060_evk
       mimxrt1060_evkb
       arduino_zero
-      arduino_zero@usbcons
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d11
   grove.base.v1.grove_led.pwm.d12:
     depends_on: arduino_gpio
@@ -553,7 +519,6 @@ tests:
       mimxrt1060_evk
       mimxrt1060_evkb
       arduino_zero
-      arduino_zero@usbcons
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d12
   grove.base.v1.grove_led.pwm.d13:
     depends_on: arduino_gpio
@@ -568,7 +533,6 @@ tests:
       mimxrt1060_evk
       mimxrt1060_evkb
       arduino_zero
-      arduino_zero@usbcons
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d13
   grove.base.v2.grove_led.pwm.d18:
     depends_on: arduino_gpio
@@ -580,7 +544,6 @@ tests:
       nucleo_f413zh
       nucleo_f767zi
       arduino_zero
-      arduino_zero@usbcons
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d18
   grove.base.v1.grove_led.pwm.d18:
     depends_on: arduino_gpio
@@ -593,7 +556,6 @@ tests:
       nucleo_f413zh
       nucleo_f767zi
       arduino_zero
-      arduino_zero@usbcons
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d18
   grove.base.v2.grove_led.pwm.d19:
     depends_on: arduino_gpio
@@ -606,7 +568,6 @@ tests:
       nucleo_f413zh
       nucleo_f767zi
       arduino_zero
-      arduino_zero@usbcons
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d19
   grove.base.v1.grove_led.pwm.d19:
     depends_on: arduino_gpio
@@ -619,7 +580,6 @@ tests:
       nucleo_f413zh
       nucleo_f767zi
       arduino_zero
-      arduino_zero@usbcons
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d19
   #
   # Grove LED by simple GPIO on Grove Shield for Seeeduino XIAO
@@ -629,7 +589,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_led_d0", "gpio-leds")
     platform_allow:
       seeed_xiao_samd21
-      seeed_xiao_samd21@usbcons
       seeeduino_xiao
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_led_d0
   grove.xiao.v1.grove_led.gpio.d1:
@@ -637,7 +596,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_led_d1", "gpio-leds")
     platform_allow:
       seeed_xiao_samd21
-      seeed_xiao_samd21@usbcons
       seeeduino_xiao
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_led_d1
   grove.xiao.v1.grove_led.gpio.d2:
@@ -645,7 +603,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_led_d2", "gpio-leds")
     platform_allow:
       seeed_xiao_samd21
-      seeed_xiao_samd21@usbcons
       seeeduino_xiao
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_led_d2
   grove.xiao.v1.grove_led.gpio.d5:
@@ -654,7 +611,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_led_d5", "gpio-leds")
     platform_allow:
       seeed_xiao_samd21
-      seeed_xiao_samd21@usbcons
       seeeduino_xiao
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_led_d5
   grove.xiao.v1.grove_led.gpio.d7:
@@ -663,7 +619,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_led_d7", "gpio-leds")
     platform_allow:
       seeed_xiao_samd21
-      seeed_xiao_samd21@usbcons
       seeeduino_xiao
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_led_d7
   grove.xiao.v1.grove_led.gpio.d8:
@@ -671,7 +626,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_led_d8", "gpio-leds")
     platform_allow:
       seeed_xiao_samd21
-      seeed_xiao_samd21@usbcons
       seeeduino_xiao
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_led_d8
   grove.xiao.v1.grove_led.gpio.d9:
@@ -679,7 +633,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_led_d9", "gpio-leds")
     platform_allow:
       seeed_xiao_samd21
-      seeed_xiao_samd21@usbcons
       seeeduino_xiao
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_led_d9
   #
@@ -691,7 +644,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d1", "pwm-leds")
     platform_allow:
       seeed_xiao_samd21
-      seeed_xiao_samd21@usbcons
       seeeduino_xiao
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_pwm_led_d1
   grove.xiao.v1.grove_led.pwm.d2:
@@ -700,7 +652,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d2", "pwm-leds")
     platform_allow:
       seeed_xiao_samd21
-      seeed_xiao_samd21@usbcons
       seeeduino_xiao
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_pwm_led_d2
   grove.xiao.v1.grove_led.pwm.d5:
@@ -710,7 +661,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d5", "pwm-leds")
     platform_allow:
       seeed_xiao_samd21
-      seeed_xiao_samd21@usbcons
       seeeduino_xiao
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_pwm_led_d5
   grove.xiao.v1.grove_led.pwm.d8:
@@ -719,7 +669,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d8", "pwm-leds")
     platform_allow:
       seeed_xiao_samd21
-      seeed_xiao_samd21@usbcons
       seeeduino_xiao
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_pwm_led_d8
   grove.xiao.v1.grove_led.pwm.d9:
@@ -728,7 +677,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d9", "pwm-leds")
     platform_allow:
       seeed_xiao_samd21
-      seeed_xiao_samd21@usbcons
       seeeduino_xiao
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_pwm_led_d9
   #
@@ -741,9 +689,7 @@ tests:
     platform_allow:
       rpi_pico
       waveshare_rp2040_plus
-      waveshare_rp2040_plus@usbcons
       waveshare_rp2040_plus@16mb
-      waveshare_rp2040_plus@16mb@usbcons
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_led_d1
   grove.rpipico.v1.grove_led.gpio.d5:
     filter: dt_nodelabel_enabled("grove_d5_header") and
@@ -753,9 +699,7 @@ tests:
     platform_allow:
       rpi_pico
       waveshare_rp2040_plus
-      waveshare_rp2040_plus@usbcons
       waveshare_rp2040_plus@16mb
-      waveshare_rp2040_plus@16mb@usbcons
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_led_d5
   grove.rpipico.v1.grove_led.gpio.d7:
     filter: dt_nodelabel_enabled("grove_d7_header") and
@@ -764,9 +708,7 @@ tests:
     platform_allow:
       rpi_pico
       waveshare_rp2040_plus
-      waveshare_rp2040_plus@usbcons
       waveshare_rp2040_plus@16mb
-      waveshare_rp2040_plus@16mb@usbcons
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_led_d7
   grove.rpipico.v1.grove_led.gpio.d9:
     filter: dt_nodelabel_enabled("grove_d9_header") and
@@ -775,9 +717,7 @@ tests:
     platform_allow:
       rpi_pico
       waveshare_rp2040_plus
-      waveshare_rp2040_plus@usbcons
       waveshare_rp2040_plus@16mb
-      waveshare_rp2040_plus@16mb@usbcons
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_led_d9
   grove.rpipico.v1.grove_led.gpio.d16:
     filter: dt_nodelabel_enabled("grove_d16_header") and
@@ -785,9 +725,7 @@ tests:
     platform_allow:
       rpi_pico
       waveshare_rp2040_plus
-      waveshare_rp2040_plus@usbcons
       waveshare_rp2040_plus@16mb
-      waveshare_rp2040_plus@16mb@usbcons
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_led_d16
   grove.rpipico.v1.grove_led.gpio.d18:
     filter: dt_nodelabel_enabled("grove_d18_header") and
@@ -795,9 +733,7 @@ tests:
     platform_allow:
       rpi_pico
       waveshare_rp2040_plus
-      waveshare_rp2040_plus@usbcons
       waveshare_rp2040_plus@16mb
-      waveshare_rp2040_plus@16mb@usbcons
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_led_d18
   grove.rpipico.v1.grove_led.gpio.d20:
     filter: dt_nodelabel_enabled("grove_d20_header") and
@@ -805,9 +741,7 @@ tests:
     platform_allow:
       rpi_pico
       waveshare_rp2040_plus
-      waveshare_rp2040_plus@usbcons
       waveshare_rp2040_plus@16mb
-      waveshare_rp2040_plus@16mb@usbcons
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_led_d20
   grove.rpipico.v1.grove_led.gpio.d26:
     filter: ( dt_nodelabel_enabled("grove_a0_header") or
@@ -816,9 +750,7 @@ tests:
     platform_allow:
       rpi_pico
       waveshare_rp2040_plus
-      waveshare_rp2040_plus@usbcons
       waveshare_rp2040_plus@16mb
-      waveshare_rp2040_plus@16mb@usbcons
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_led_d26
   grove.rpipico.v1.grove_led.gpio.d27:
     filter: ( dt_nodelabel_enabled("grove_a1_header") or
@@ -827,9 +759,7 @@ tests:
     platform_allow:
       rpi_pico
       waveshare_rp2040_plus
-      waveshare_rp2040_plus@usbcons
       waveshare_rp2040_plus@16mb
-      waveshare_rp2040_plus@16mb@usbcons
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_led_d27
   grove.rpipico.v1.grove_led.gpio.d28:
     filter: ( dt_nodelabel_enabled("grove_a2_header") or
@@ -838,9 +768,7 @@ tests:
     platform_allow:
       rpi_pico
       waveshare_rp2040_plus
-      waveshare_rp2040_plus@usbcons
       waveshare_rp2040_plus@16mb
-      waveshare_rp2040_plus@16mb@usbcons
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_led_d28
   #
   # Grove LED by dedicated PWM on Grove Shield for Pi Pico
@@ -852,9 +780,7 @@ tests:
     platform_allow:
       rpi_pico
       waveshare_rp2040_plus
-      waveshare_rp2040_plus@usbcons
       waveshare_rp2040_plus@16mb
-      waveshare_rp2040_plus@16mb@usbcons
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_pwm_led_d16
   grove.rpipico.v1.grove_led.pwm.d18:
     filter: dt_nodelabel_enabled("grove_pwm_d18") and
@@ -863,9 +789,7 @@ tests:
     platform_allow:
       rpi_pico
       waveshare_rp2040_plus
-      waveshare_rp2040_plus@usbcons
       waveshare_rp2040_plus@16mb
-      waveshare_rp2040_plus@16mb@usbcons
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_pwm_led_d18
   grove.rpipico.v1.grove_led.pwm.d20:
     filter: dt_nodelabel_enabled("grove_pwm_d20") and
@@ -874,9 +798,7 @@ tests:
     platform_allow:
       rpi_pico
       waveshare_rp2040_plus
-      waveshare_rp2040_plus@usbcons
       waveshare_rp2040_plus@16mb
-      waveshare_rp2040_plus@16mb@usbcons
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_pwm_led_d20
   #
   # Grove LED by simple GPIO on Grove Connectors
@@ -932,7 +854,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_led_d9", "gpio-leds")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_led_d9
   grove.connectors.grove_led.gpio.d10:
     depends_on: grove_gpio
@@ -940,7 +861,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_led_d10", "gpio-leds")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_led_d10
   grove.connectors.grove_led.gpio.d11:
     depends_on: grove_gpio
@@ -948,7 +868,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_led_d11", "gpio-leds")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_led_d11
   grove.connectors.grove_led.gpio.d12:
     depends_on: grove_gpio
@@ -956,7 +875,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_led_d12", "gpio-leds")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_led_d12
   grove.connectors.grove_led.gpio.d13:
     depends_on: grove_gpio
@@ -964,7 +882,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_led_d13", "gpio-leds")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_led_d13
   grove.connectors.grove_led.gpio.d14:
     depends_on: grove_gpio
@@ -1011,7 +928,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_led_d20", "gpio-leds")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_led_d20
   grove.connectors.grove_led.gpio.d21:
     depends_on: grove_gpio
@@ -1019,7 +935,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_led_d21", "gpio-leds")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_led_d21
   grove.connectors.grove_led.gpio.d22:
     depends_on: grove_gpio
@@ -1027,7 +942,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_led_d22", "gpio-leds")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_led_d22
   grove.connectors.grove_led.gpio.d23:
     depends_on: grove_gpio
@@ -1035,7 +949,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_led_d23", "gpio-leds")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_led_d23
   grove.connectors.grove_led.gpio.d24:
     depends_on: grove_gpio
@@ -1043,7 +956,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_led_d24", "gpio-leds")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_led_d24
   grove.connectors.grove_led.gpio.d25:
     depends_on: grove_gpio
@@ -1051,7 +963,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_led_d25", "gpio-leds")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_led_d25
   grove.connectors.grove_led.gpio.d26:
     depends_on: grove_gpio
@@ -1059,7 +970,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_led_d26", "gpio-leds")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_led_d26
   grove.connectors.grove_led.gpio.d27:
     depends_on: grove_gpio
@@ -1067,7 +977,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_led_d27", "gpio-leds")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_led_d27
   grove.connectors.grove_led.gpio.d28:
     depends_on: grove_gpio
@@ -1075,7 +984,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_led_d28", "gpio-leds")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_led_d28
   grove.connectors.grove_led.gpio.d29:
     depends_on: grove_gpio
@@ -1083,7 +991,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_led_d29", "gpio-leds")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_led_d29
   grove.connectors.grove_led.gpio.d30:
     depends_on: grove_gpio
@@ -1091,7 +998,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_led_d30", "gpio-leds")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_led_d30
   grove.connectors.grove_led.gpio.d31:
     depends_on: grove_gpio
@@ -1099,7 +1005,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_led_d31", "gpio-leds")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_led_d31
   #
   # Grove LED by dedicated PWM on Grove Connectors
@@ -1110,7 +1015,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d0", "pwm-leds")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_pwm_led_d0
   grove.connectors.grove_led.pwm.d1:
     depends_on: grove_pwm
@@ -1118,7 +1022,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d1", "pwm-leds")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_pwm_led_d1
   grove.connectors.grove_led.pwm.d2:
     depends_on: grove_pwm
@@ -1156,7 +1059,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d8", "pwm-leds")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_pwm_led_d8
   grove.connectors.grove_led.pwm.d9:
     depends_on: grove_pwm
@@ -1164,7 +1066,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d9", "pwm-leds")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_pwm_led_d9
   grove.connectors.grove_led.pwm.d10:
     depends_on: grove_pwm
@@ -1172,7 +1073,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d10", "pwm-leds")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_pwm_led_d10
   grove.connectors.grove_led.pwm.d11:
     depends_on: grove_pwm
@@ -1180,7 +1080,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d11", "pwm-leds")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_pwm_led_d11
   grove.connectors.grove_led.pwm.d12:
     depends_on: grove_pwm
@@ -1188,7 +1087,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d12", "pwm-leds")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_pwm_led_d12
   grove.connectors.grove_led.pwm.d13:
     depends_on: grove_pwm
@@ -1196,7 +1094,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d13", "pwm-leds")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_pwm_led_d13
   grove.connectors.grove_led.pwm.d14:
     depends_on: grove_pwm
@@ -1205,7 +1102,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d14", "pwm-leds")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_pwm_led_d14
   grove.connectors.grove_led.pwm.d15:
     depends_on: grove_pwm
@@ -1214,7 +1110,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d15", "pwm-leds")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_pwm_led_d15
   grove.connectors.grove_led.pwm.d16:
     depends_on: grove_pwm
@@ -1223,7 +1118,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d16", "pwm-leds")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_pwm_led_d16
   grove.connectors.grove_led.pwm.d17:
     depends_on: grove_pwm
@@ -1232,7 +1126,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d17", "pwm-leds")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_pwm_led_d17
   grove.connectors.grove_led.pwm.d18:
     depends_on: grove_pwm
@@ -1242,7 +1135,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d18", "pwm-leds")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_pwm_led_d18
   grove.connectors.grove_led.pwm.d19:
     depends_on: grove_pwm
@@ -1252,7 +1144,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d19", "pwm-leds")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_pwm_led_d19
   grove.connectors.grove_led.pwm.d20:
     depends_on: grove_pwm
@@ -1261,7 +1152,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d20", "pwm-leds")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_pwm_led_d20
   grove.connectors.grove_led.pwm.d21:
     depends_on: grove_pwm
@@ -1269,7 +1159,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d21", "pwm-leds")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_pwm_led_d21
   grove.connectors.grove_led.pwm.d22:
     depends_on: grove_pwm
@@ -1277,7 +1166,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d22", "pwm-leds")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_pwm_led_d22
   grove.connectors.grove_led.pwm.d23:
     depends_on: grove_pwm
@@ -1285,7 +1173,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d23", "pwm-leds")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_pwm_led_d23
   grove.connectors.grove_led.pwm.d24:
     depends_on: grove_pwm
@@ -1293,7 +1180,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d24", "pwm-leds")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_pwm_led_d24
   grove.connectors.grove_led.pwm.d25:
     depends_on: grove_pwm
@@ -1301,7 +1187,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d25", "pwm-leds")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_pwm_led_d25
   grove.connectors.grove_led.pwm.d26:
     depends_on: grove_pwm
@@ -1309,7 +1194,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d26", "pwm-leds")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_pwm_led_d26
   grove.connectors.grove_led.pwm.d27:
     depends_on: grove_pwm
@@ -1317,7 +1201,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d27", "pwm-leds")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_pwm_led_d27
   grove.connectors.grove_led.pwm.d28:
     depends_on: grove_pwm
@@ -1325,7 +1208,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d28", "pwm-leds")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_pwm_led_d28
   grove.connectors.grove_led.pwm.d29:
     depends_on: grove_pwm
@@ -1333,7 +1215,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d29", "pwm-leds")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_pwm_led_d29
   grove.connectors.grove_led.pwm.d30:
     depends_on: grove_pwm
@@ -1341,7 +1222,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d30", "pwm-leds")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_pwm_led_d30
   grove.connectors.grove_led.pwm.d31:
     depends_on: grove_pwm
@@ -1349,5 +1229,4 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d31", "pwm-leds")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_pwm_led_d31
