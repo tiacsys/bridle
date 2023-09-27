@@ -260,7 +260,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_btn_d0", "gpio-keys")
     platform_allow:
       seeed_xiao_samd21
-      seeed_xiao_samd21@usbcons
       seeeduino_xiao
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_btn_d0
   grove.xiao.v1.grove_btn.gpio.d1:
@@ -268,7 +267,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_btn_d1", "gpio-keys")
     platform_allow:
       seeed_xiao_samd21
-      seeed_xiao_samd21@usbcons
       seeeduino_xiao
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_btn_d1
   grove.xiao.v1.grove_btn.gpio.d2:
@@ -276,7 +274,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_btn_d2", "gpio-keys")
     platform_allow:
       seeed_xiao_samd21
-      seeed_xiao_samd21@usbcons
       seeeduino_xiao
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_btn_d2
   grove.xiao.v1.grove_btn.gpio.d5:
@@ -285,7 +282,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_btn_d5", "gpio-keys")
     platform_allow:
       seeed_xiao_samd21
-      seeed_xiao_samd21@usbcons
       seeeduino_xiao
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_btn_d5
   grove.xiao.v1.grove_btn.gpio.d7:
@@ -294,7 +290,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_btn_d7", "gpio-keys")
     platform_allow:
       seeed_xiao_samd21
-      seeed_xiao_samd21@usbcons
       seeeduino_xiao
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_btn_d7
   grove.xiao.v1.grove_btn.gpio.d8:
@@ -302,7 +297,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_btn_d8", "gpio-keys")
     platform_allow:
       seeed_xiao_samd21
-      seeed_xiao_samd21@usbcons
       seeeduino_xiao
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_btn_d8
   grove.xiao.v1.grove_btn.gpio.d9:
@@ -310,7 +304,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_btn_d9", "gpio-keys")
     platform_allow:
       seeed_xiao_samd21
-      seeed_xiao_samd21@usbcons
       seeeduino_xiao
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_btn_d9
   #
@@ -323,9 +316,7 @@ tests:
     platform_allow:
       rpi_pico
       waveshare_rp2040_plus
-      waveshare_rp2040_plus@usbcons
       waveshare_rp2040_plus@16mb
-      waveshare_rp2040_plus@16mb@usbcons
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d1
   grove.rpipico.v1.grove_btn.gpio.d5:
     filter: dt_nodelabel_enabled("grove_d5_header") and
@@ -335,9 +326,7 @@ tests:
     platform_allow:
       rpi_pico
       waveshare_rp2040_plus
-      waveshare_rp2040_plus@usbcons
       waveshare_rp2040_plus@16mb
-      waveshare_rp2040_plus@16mb@usbcons
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d5
   grove.rpipico.v1.grove_btn.gpio.d7:
     filter: dt_nodelabel_enabled("grove_d7_header") and
@@ -346,9 +335,7 @@ tests:
     platform_allow:
       rpi_pico
       waveshare_rp2040_plus
-      waveshare_rp2040_plus@usbcons
       waveshare_rp2040_plus@16mb
-      waveshare_rp2040_plus@16mb@usbcons
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d7
   grove.rpipico.v1.grove_btn.gpio.d9:
     filter: dt_nodelabel_enabled("grove_d9_header") and
@@ -357,9 +344,7 @@ tests:
     platform_allow:
       rpi_pico
       waveshare_rp2040_plus
-      waveshare_rp2040_plus@usbcons
       waveshare_rp2040_plus@16mb
-      waveshare_rp2040_plus@16mb@usbcons
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d9
   grove.rpipico.v1.grove_btn.gpio.d16:
     filter: dt_nodelabel_enabled("grove_d16_header") and
@@ -367,9 +352,7 @@ tests:
     platform_allow:
       rpi_pico
       waveshare_rp2040_plus
-      waveshare_rp2040_plus@usbcons
       waveshare_rp2040_plus@16mb
-      waveshare_rp2040_plus@16mb@usbcons
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d16
   grove.rpipico.v1.grove_btn.gpio.d18:
     filter: dt_nodelabel_enabled("grove_d18_header") and
@@ -377,9 +360,7 @@ tests:
     platform_allow:
       rpi_pico
       waveshare_rp2040_plus
-      waveshare_rp2040_plus@usbcons
       waveshare_rp2040_plus@16mb
-      waveshare_rp2040_plus@16mb@usbcons
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d18
   grove.rpipico.v1.grove_btn.gpio.d20:
     filter: dt_nodelabel_enabled("grove_d20_header") and
@@ -387,9 +368,7 @@ tests:
     platform_allow:
       rpi_pico
       waveshare_rp2040_plus
-      waveshare_rp2040_plus@usbcons
       waveshare_rp2040_plus@16mb
-      waveshare_rp2040_plus@16mb@usbcons
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d20
   grove.rpipico.v1.grove_btn.gpio.d26:
     filter: ( dt_nodelabel_enabled("grove_a0_header") or
@@ -398,9 +377,7 @@ tests:
     platform_allow:
       rpi_pico
       waveshare_rp2040_plus
-      waveshare_rp2040_plus@usbcons
       waveshare_rp2040_plus@16mb
-      waveshare_rp2040_plus@16mb@usbcons
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d26
   grove.rpipico.v1.grove_btn.gpio.d27:
     filter: ( dt_nodelabel_enabled("grove_a1_header") or
@@ -409,9 +386,7 @@ tests:
     platform_allow:
       rpi_pico
       waveshare_rp2040_plus
-      waveshare_rp2040_plus@usbcons
       waveshare_rp2040_plus@16mb
-      waveshare_rp2040_plus@16mb@usbcons
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d27
   grove.rpipico.v1.grove_btn.gpio.d28:
     filter: ( dt_nodelabel_enabled("grove_a2_header") or
@@ -420,9 +395,7 @@ tests:
     platform_allow:
       rpi_pico
       waveshare_rp2040_plus
-      waveshare_rp2040_plus@usbcons
       waveshare_rp2040_plus@16mb
-      waveshare_rp2040_plus@16mb@usbcons
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d28
   #
   # Grove Button by simple GPIO on Grove Connectors
@@ -478,7 +451,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_btn_d9", "gpio-keys")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_btn_d9
   grove.connectors.grove_btn.gpio.d10:
     depends_on: grove_gpio
@@ -486,7 +458,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_btn_d10", "gpio-keys")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_btn_d10
   grove.connectors.grove_btn.gpio.d11:
     depends_on: grove_gpio
@@ -494,7 +465,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_btn_d11", "gpio-keys")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_btn_d11
   grove.connectors.grove_btn.gpio.d12:
     depends_on: grove_gpio
@@ -502,7 +472,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_btn_d12", "gpio-keys")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_btn_d12
   grove.connectors.grove_btn.gpio.d13:
     depends_on: grove_gpio
@@ -510,7 +479,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_btn_d13", "gpio-keys")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_btn_d13
   grove.connectors.grove_btn.gpio.d14:
     depends_on: grove_gpio
@@ -557,7 +525,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_btn_d20", "gpio-keys")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_btn_d20
   grove.connectors.grove_btn.gpio.d21:
     depends_on: grove_gpio
@@ -565,7 +532,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_btn_d21", "gpio-keys")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_btn_d21
   grove.connectors.grove_btn.gpio.d22:
     depends_on: grove_gpio
@@ -573,7 +539,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_btn_d22", "gpio-keys")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_btn_d22
   grove.connectors.grove_btn.gpio.d23:
     depends_on: grove_gpio
@@ -581,7 +546,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_btn_d23", "gpio-keys")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_btn_d23
   grove.connectors.grove_btn.gpio.d24:
     depends_on: grove_gpio
@@ -589,7 +553,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_btn_d24", "gpio-keys")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_btn_d24
   grove.connectors.grove_btn.gpio.d25:
     depends_on: grove_gpio
@@ -597,7 +560,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_btn_d25", "gpio-keys")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_btn_d25
   grove.connectors.grove_btn.gpio.d26:
     depends_on: grove_gpio
@@ -605,7 +567,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_btn_d26", "gpio-keys")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_btn_d26
   grove.connectors.grove_btn.gpio.d27:
     depends_on: grove_gpio
@@ -613,7 +574,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_btn_d27", "gpio-keys")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_btn_d27
   grove.connectors.grove_btn.gpio.d28:
     depends_on: grove_gpio
@@ -621,7 +581,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_btn_d28", "gpio-keys")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_btn_d28
   grove.connectors.grove_btn.gpio.d29:
     depends_on: grove_gpio
@@ -629,7 +588,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_btn_d29", "gpio-keys")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_btn_d29
   grove.connectors.grove_btn.gpio.d30:
     depends_on: grove_gpio
@@ -637,7 +595,6 @@ tests:
             dt_label_with_parent_compat_enabled("grove_btn_d30", "gpio-keys")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_btn_d30
   grove.connectors.grove_btn.gpio.d31:
     depends_on: grove_gpio
@@ -645,5 +602,4 @@ tests:
             dt_label_with_parent_compat_enabled("grove_btn_d31", "gpio-keys")
     platform_exclude:
       seeeduino_lotus
-      seeeduino_lotus@usbcons
     extra_args: SHIELD=grove_btn_d31
