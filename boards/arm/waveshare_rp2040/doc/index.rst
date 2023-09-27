@@ -260,114 +260,106 @@ configuration can be found in the different Kconfig files:
 - :bridle_file:`boards/arm/waveshare_rp2040/waveshare_rp2040_lcd_0_96_defconfig`
 - :bridle_file:`boards/arm/waveshare_rp2040/waveshare_rp2040_plus_defconfig`
 
-Board Revisions
-===============
+Board Configurations
+====================
 
-The Waveshare RP2040 boards can be configured for the following revisions.
-These are not really specific hardware revisions, rather than specific
-configurations for different use cases. Only the |RP2040-Plus| board offers an
-assembly option with 16㎆ Flash, which is also mapped as a hardware revision.
+The Waveshare RP2040 boards can be configured for the following different
+use cases. The |RP2040-Plus| board offers an assembly option with 16㎆ Flash,
+which is mapped as a hardware revision.
 
 .. tabs::
 
    .. group-tab:: RP2040-One
 
-      .. rubric:: :code:`waveshare_rp2040_one@uartcons`
+      .. rubric:: :command:`west build -b waveshare_rp2040_one`
 
       Use the serial port UART0 on edge header as
       Zephyr console and for the shell.
 
-      .. rubric:: :code:`waveshare_rp2040_one@usbcons`
+      .. rubric:: :command:`west build -b waveshare_rp2040_one -S usb-console`
 
       Use the native USB device port with CDC-ACM as
       Zephyr console and for the shell.
 
    .. group-tab:: RP2040-Zero
 
-      .. rubric:: :code:`waveshare_rp2040_zero@uartcons`
+      .. rubric:: :command:`west build -b waveshare_rp2040_zero`
 
       Use the serial port UART0 on edge header as
       Zephyr console and for the shell.
 
-      .. rubric:: :code:`waveshare_rp2040_zero@usbcons`
+      .. rubric:: :command:`west build -b waveshare_rp2040_zero -S usb-console`
 
       Use the native USB device port with CDC-ACM as
       Zephyr console and for the shell.
 
    .. group-tab:: RP2040-Matrix
 
-      .. rubric:: :code:`waveshare_rp2040_matrix@uartcons`
+      .. rubric:: :command:`west build -b waveshare_rp2040_matrix`
 
       Use the serial port UART0 on edge header as
       Zephyr console and for the shell.
 
-      .. rubric:: :code:`waveshare_rp2040_matrix@usbcons`
+      .. rubric:: :command:`west build -b waveshare_rp2040_matrix -S usb-console`
 
       Use the native USB device port with CDC-ACM as
       Zephyr console and for the shell.
 
    .. group-tab:: RP2040-Tiny
 
-      .. rubric:: :code:`waveshare_rp2040_tiny@uartcons`
+      .. rubric:: :command:`west build -b waveshare_rp2040_tiny`
 
       Use the serial port UART0 on edge header as
       Zephyr console and for the shell.
 
-      .. rubric:: :code:`waveshare_rp2040_tiny@usbcons`
+      .. rubric:: :command:`west build -b waveshare_rp2040_tiny -S usb-console`
 
       Use the native USB device port with CDC-ACM as
       Zephyr console and for the shell.
 
    .. group-tab:: RP2040-ETH
 
-      .. rubric:: :code:`waveshare_rp2040_eth@uartcons`
+      .. rubric:: :command:`west build -b waveshare_rp2040_eth`
 
       Use the serial port UART0 on edge header as
       Zephyr console and for the shell.
 
-      .. rubric:: :code:`waveshare_rp2040_eth@usbcons`
+      .. rubric:: :command:`west build -b waveshare_rp2040_eth -S usb-console`
 
       Use the native USB device port with CDC-ACM as
       Zephyr console and for the shell.
 
    .. group-tab:: RP2040-LCD-0.96
 
-      .. rubric:: :code:`waveshare_rp2040_lcd_0_96@uartcons`
+      .. rubric:: :command:`west build -b waveshare_rp2040_lcd_0_96`
 
       Use the serial port UART0 on edge header as
       Zephyr console and for the shell.
 
-      .. rubric:: :code:`waveshare_rp2040_lcd_0_96@usbcons`
+      .. rubric:: :command:`west build -b waveshare_rp2040_lcd_0_96 -S usb-console`
 
       Use the native USB device port with CDC-ACM as
       Zephyr console and for the shell.
 
    .. group-tab:: RP2040-Plus
 
-      .. rubric:: :code:`waveshare_rp2040_plus@uartcons`
+      .. rubric:: :command:`west build -b waveshare_rp2040_plus`
 
       Use the serial port UART0 on edge header as
       Zephyr console and for the shell.
 
-      .. rubric:: :code:`waveshare_rp2040_plus@usbcons`
+      .. rubric:: :command:`west build -b waveshare_rp2040_plus -S usb-console`
 
       Use the native USB device port with CDC-ACM as
       Zephyr console and for the shell.
 
-      .. rubric:: :code:`waveshare_rp2040_plus@16mb`
+      .. rubric:: :command:`west build -b waveshare_rp2040_plus@16mb`
 
       Setup QSPI Flash controller to work with 16㎆ and
       use the serial port UART0 on edge header as Zephyr
-      console and for the shell. It is the same as
-      :code:`waveshare_rp2040_plus@16mb@uartcons`.
+      console and for the shell.
 
-      .. rubric:: :code:`waveshare_rp2040_plus@16mb@uartcons`
-
-      Setup QSPI Flash controller to work with 16㎆ and
-      use the serial port UART0 on edge header as
-      Zephyr console and for the shell.
-
-      .. rubric:: :code:`waveshare_rp2040_plus@16mb@usbcons`
+      .. rubric:: :command:`west build -b waveshare_rp2040_plus@16mb -S usb-console`
 
       Setup QSPI Flash controller to work with 16㎆ and
       use the native USB device port with CDC-ACM as
@@ -440,8 +432,7 @@ Serial Port
 The `RP2040 <RP2040 SoC>`_ MCU has 2 UARTs. One of the UARTs (UART0) is
 connected to external devices over GP0 (TX) and GP1 (RX) on both the
 |Raspberry Pi Pico| and the |Waveshare RP2040 Mini| header in same manner
-and is the Zephyr console. This is captured by the standard board revision
-``uartcons``.
+and is the Zephyr console.
 
 USB Device Port
 ===============
@@ -451,12 +442,12 @@ used to communicate with a host PC. See the :ref:`zephyr:usb-samples` sample
 applications for more, such as the :doc:`zephyr:samples/subsys/usb/cdc_acm/README`
 sample which sets up a virtual serial port that echos characters back to the
 host PC. As an alternative to the default Zephyr console on serial port the
-special board revision ``usbcons`` can be used to enable
+Bridle :ref:`snippet-usb-console` can be used to enable
 :ref:`zephyr:usb_device_cdc_acm` and switch the console to USB::
 
    USB device idVendor=2e8a, idProduct=000a, bcdDevice= 3.04
    USB device strings: Mfr=1, Product=2, SerialNumber=3
-   Product: RP2040-Plus (16MB, CDC ACM)
+   Product: RP2040-Plus (CDC ACM)
    Manufacturer: Waveshare (Raspberry Pi)
    SerialNumber: B69F8448A6E91514
 
@@ -955,13 +946,13 @@ Hello Shell with USB-CDC/ACM Console
 
    .. group-tab:: RP2040-One
 
-      .. rubric:: Hello Shell on ``usbcons`` revision
+      .. rubric:: Hello Shell
 
       .. zephyr-app-commands::
          :app: bridle/samples/helloshell
-         :board: waveshare_rp2040_one@usbcons
+         :board: waveshare_rp2040_one
          :build-dir: waveshare_rp2040
-         :west-args: -p
+         :west-args: -p -S usb-console
          :goals: flash
          :compact:
 
@@ -975,13 +966,13 @@ Hello Shell with USB-CDC/ACM Console
 
    .. group-tab:: RP2040-Zero
 
-      .. rubric:: Hello Shell on ``usbcons`` revision
+      .. rubric:: Hello Shell
 
       .. zephyr-app-commands::
          :app: bridle/samples/helloshell
-         :board: waveshare_rp2040_zero@usbcons
+         :board: waveshare_rp2040_zero
          :build-dir: waveshare_rp2040
-         :west-args: -p
+         :west-args: -p -S usb-console
          :goals: flash
          :compact:
 
@@ -995,13 +986,13 @@ Hello Shell with USB-CDC/ACM Console
 
    .. group-tab:: RP2040-Matrix
 
-      .. rubric:: Hello Shell on ``usbcons`` revision
+      .. rubric:: Hello Shell
 
       .. zephyr-app-commands::
          :app: bridle/samples/helloshell
-         :board: waveshare_rp2040_matrix@usbcons
+         :board: waveshare_rp2040_matrix
          :build-dir: waveshare_rp2040
-         :west-args: -p
+         :west-args: -p -S usb-console
          :goals: flash
          :compact:
 
@@ -1015,13 +1006,13 @@ Hello Shell with USB-CDC/ACM Console
 
    .. group-tab:: RP2040-Tiny
 
-      .. rubric:: Hello Shell on ``usbcons`` revision
+      .. rubric:: Hello Shell
 
       .. zephyr-app-commands::
          :app: bridle/samples/helloshell
-         :board: waveshare_rp2040_tiny@usbcons
+         :board: waveshare_rp2040_tiny
          :build-dir: waveshare_rp2040
-         :west-args: -p
+         :west-args: -p -S usb-console
          :goals: flash
          :compact:
 
@@ -1035,13 +1026,13 @@ Hello Shell with USB-CDC/ACM Console
 
    .. group-tab:: RP2040-ETH
 
-      .. rubric:: Hello Shell on ``usbcons`` revision
+      .. rubric:: Hello Shell
 
       .. zephyr-app-commands::
          :app: bridle/samples/helloshell
-         :board: waveshare_rp2040_eth@usbcons
+         :board: waveshare_rp2040_eth
          :build-dir: waveshare_rp2040
-         :west-args: -p
+         :west-args: -p -S usb-console
          :goals: flash
          :compact:
 
@@ -1055,13 +1046,13 @@ Hello Shell with USB-CDC/ACM Console
 
    .. group-tab:: RP2040-LCD-0.96
 
-      .. rubric:: Hello Shell on ``usbcons`` revision
+      .. rubric:: Hello Shell
 
       .. zephyr-app-commands::
          :app: bridle/samples/helloshell
-         :board: waveshare_rp2040_lcd_0_96@usbcons
+         :board: waveshare_rp2040_lcd_0_96
          :build-dir: waveshare_rp2040
-         :west-args: -p
+         :west-args: -p -S usb-console
          :goals: flash
          :compact:
 
@@ -1075,13 +1066,13 @@ Hello Shell with USB-CDC/ACM Console
 
    .. group-tab:: RP2040-Plus
 
-      .. rubric:: Hello Shell on ``usbcons`` and ``16㎆`` revision
+      .. rubric:: Hello Shell on ``16㎆`` revision
 
       .. zephyr-app-commands::
          :app: bridle/samples/helloshell
-         :board: waveshare_rp2040_plus@16mb@usbcons
+         :board: waveshare_rp2040_plus@16mb
          :build-dir: waveshare_rp2040
-         :west-args: -p
+         :west-args: -p -S usb-console
          :goals: flash
          :compact:
 

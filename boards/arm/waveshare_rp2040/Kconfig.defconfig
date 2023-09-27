@@ -102,4 +102,4 @@ config LOG_PROCESS_THREAD_STARTUP_DELAY_MS
 config BOOT_DELAY
 	default 4000
 
-endif # @usbcons
+endif # zephyr,cdc-acm-uart

@@ -5,6 +5,16 @@
 
 /dts-v1/;
 
+/ {
+	model = "Waveshare RP2040-ETH @ UART Concole";
+	compatible = "waveshare,rp2040-eth", "waveshare,rp2040-eth-uartcons";
+
+	chosen {
+		zephyr,console = &uart0;
+		zephyr,shell-uart = &uart0;
+	};
+};
+
 #include "waveshare_rp2040-mini.dtsi"
 #include "waveshare_rp2040-4mb.dtsi"
 
