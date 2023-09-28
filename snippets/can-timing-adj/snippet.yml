@@ -1,0 +1,6 @@
+name: can-timing-adj
+
+boards:
+  tiac_magpie:
+    append:
+      EXTRA_DTC_OVERLAY_FILE: boards/tiac_magpie.overlay

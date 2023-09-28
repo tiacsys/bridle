@@ -1,0 +1,27 @@
+/*
+ * Copyright (c) 2022-2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+&clk_hse {
+	hse-bypass;
+	clock-frequency = <DT_FREQ_M(25)>; /* 25MHz crystal */
+};
+
+&pll {
+	/* Reduce PLL speed to achieve test window timings */
+	clocks = <&clk_hse>;
+	div-m = <25>;
+	mul-n = <192>;
+	div-p = <2>;
+	div-q = <4>;
+};
+
+&rcc {
+	/* Reduce APB1 and APB2 speed to achieve test window timings */
+	clocks = <&pll>;
+	ahb-prescaler = <1>;
+	apb1-prescaler = <2>;
+	apb2-prescaler = <2>;
+	clock-frequency = <DT_FREQ_M(96)>;
+};
