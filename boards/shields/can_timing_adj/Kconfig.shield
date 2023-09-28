@@ -1,7 +1,0 @@
-# Copyright (c) 2022 TiaC Systems
-# SPDX-License-Identifier: Apache-2.0
-
-# CAN timing (adjustment) shield configuration
-
-config SHIELD_CAN_TIMING_ADJ
-	def_bool $(shields_list_contains,can_timing_adj)
