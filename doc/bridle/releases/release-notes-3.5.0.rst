@@ -144,6 +144,8 @@ Take over the new build principles from Zephyr:
 * Rename CAN driver: ``stm32-can`` to ``stm32-bxcan``.
 * Convert all specific ``@usbcons`` board revisions to USB Console Snippet.
 * Remove all specific ``@uartcons`` board revisions.
+* Convert all active test cases to use the new Twister CLI argument
+  ``--alt-config-root``. Also remove the abandoned shield ``can_timing_adj``.
 
 Documentation
 =============
@@ -165,6 +167,7 @@ Issue Related Items
 These GitHub issues were addressed since project bootstrapping:
 
 * :github:`128` - [FER] Provide USB console by snippets instead of specific board revision
+* :github:`127` - [FER] Provide CAN timing tweak for TiaC Magpie by snippets instead of a shield
 * :github:`125` - [BUG] Nightly QA integration test fails (convert to ``stm32-bxcan``)
 * :github:`122` - [HW] Waveshare RP2040
 * :github:`120` - [BUG] Nightly QA integration test fails
