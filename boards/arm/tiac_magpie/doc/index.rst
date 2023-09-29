@@ -478,29 +478,31 @@ with a single call to Twister.
 
    .. group-tab:: Running
 
-      .. attention:: This will take more than a quarter of an hour.
-
       Build and run the tests on target as follows:
 
       .. code-block:: console
 
-         $ ./zephyr/scripts/twister --jobs 4 \
+         $ west twister --jobs 4 \
              --enable-size-report --platform-reports \
              --device-testing --hardware-map map.yaml \
-             --extra-args SHIELD="loopback_test_tmph can_timing_adj" \
-             --testsuite-root bridle/tests/bridle \
-             --testsuite-root zephyr/tests/kernel \
-             --testsuite-root zephyr/tests/arch/arm \
-             --testsuite-root zephyr/tests/crypto/rand32 \
-             --testsuite-root zephyr/tests/drivers/entropy \
-             --testsuite-root zephyr/tests/drivers/watchdog \
-             --testsuite-root bridle/tests/drivers/watchdog \
-             --testsuite-root zephyr/tests/drivers/counter \
-             --testsuite-root zephyr/tests/drivers/hwinfo \
-             --testsuite-root zephyr/tests/drivers/uart \
-             --testsuite-root zephyr/tests/drivers/gpio \
-             --testsuite-root zephyr/tests/drivers/spi \
-             --testsuite-root zephyr/tests/drivers/can
+             --extra-args SHIELD="loopback_test_tmph" \
+             --alt-config-root bridle/zephyr/alt-config \
+             --testsuite-root bridle/tests \
+             --testsuite-root zephyr/tests \
+             --tag arm --tag vector_relay \
+             --tag kernel --exclude-tag security \
+             --tag bridle \
+             --tag hwinfo \
+             --tag random \
+             --tag entropy \
+             --tag watchdog \
+             --tag counter \
+             --tag gpio \
+             --tag spi \
+             --tag uart \
+             --tag can
+
+      .. attention:: This will take more than a quarter of an hour.
 
    .. group-tab:: Results
 
@@ -517,19 +519,17 @@ with a single call to Twister.
 
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-
-         INFO    - Total complete:  :bgn:`248`/ :bgn:`248`  100%  skipped:   :byl:`125`, failed:    :brd:`0`, error:    :brd:`0`
-
-         INFO    - 248 test scenarios (248 test instances) selected, 125 configurations skipped (105 by static filter, 20 at runtime).
-         INFO    - :bgn:`123 of 248` test configurations passed (100.00%), :brd:`0` failed, :byl:`125` skipped with :bbk:`0` warnings in :bbk:`1852.06 seconds`
-         INFO    - In total 1247 test cases were executed, 751 skipped on 1 out of total 580 platforms (0.17%)
-         INFO    - :bgn:`123` test configurations executed on platforms, :brd:`0` test configurations were only built.
+         INFO    - Total complete: :bgn:`1800/1800`  100%  skipped: :byl:`1662`, failed:    :bbk:`0`, error:    :bbk:`0`
+         INFO    - 2012 test scenarios (1800 test instances) selected, 1662 configurations skipped (1639 by static filter, 23 at runtime).
+         INFO    - :bgn:`138 of 1800` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1662` skipped with :bbk:`0` warnings in :bbk:`1723.80 seconds`
+         INFO    - In total 1327 test cases were executed, 9726 skipped on 1 out of total 634 platforms (0.16%)
+         INFO    - :bgn:`138` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
 
          \| Board       \| ID       \|   Counter \|
          \|-------------\|----------\|-----------\|
-         \| tiac_magpie \| DT04BNT1 \|       123 \|
+         \| tiac_magpie \| DT04BNT1 \|       138 \|
 
 .. admonition:: Known but currently tolerated test cases with errors
    :class: attention

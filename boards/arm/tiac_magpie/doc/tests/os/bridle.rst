@@ -32,7 +32,8 @@ Building and Running
              --verbose --jobs 4 --inline-logs \
              --enable-size-report --platform-reports \
              --device-testing --hardware-map map.yaml \
-             --testsuite-root bridle/tests/bridle
+             --alt-config-root bridle/zephyr/alt-config \
+             --testsuite-root bridle/tests --tag bridle
 
    .. group-tab:: Results
 
@@ -49,12 +50,12 @@ Building and Running
 
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1/1 tiac_magpie               common/bridle.common                               :bgn:`PASSED` (device 3.444s)
+         INFO    - 257/257 tiac_magpie               bridle/common/bridle.common                        :bgn:`PASSED` (device: DT04BNT1, 3.496s)
 
-         INFO    - 1 test scenarios (1 test instances) selected, 0 configurations skipped (0 by static filter, 0 at runtime).
-         INFO    - :bgn:`1 of 1` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`0` skipped with :bbk:`0` warnings in :bbk:`33.16 seconds`
-         INFO    - In total 1 test cases were executed, 0 skipped on 1 out of total 580 platforms (0.17%)
-         INFO    - :bgn:`1` test configurations executed on platforms, :brd:`0` test configurations were only built.
+         INFO    - 257 test scenarios (257 test instances) selected, 256 configurations skipped (256 by static filter, 0 at runtime).
+         INFO    - :bgn:`1 of 257` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`256` skipped with :bbk:`0` warnings in :bbk:`27.41 seconds`
+         INFO    - In total 1 test cases were executed, 256 skipped on 1 out of total 634 platforms (0.16%)
+         INFO    - 1 test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
 

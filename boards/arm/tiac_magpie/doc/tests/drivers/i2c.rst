@@ -38,9 +38,9 @@ Building and Running
              --verbose --jobs 4 --inline-logs \
              --enable-size-report --platform-reports \
              --device-testing --hardware-map map.yaml \
-             --extra-args SHIELD=loopback_test_tmph \
-             --testsuite-root zephyr/tests/drivers/i2c \
-             --testsuite-root bridle/tests/drivers/i2c
+             --extra-args SHIELD="loopback_test_tmph" \
+             --alt-config-root bridle/zephyr/alt-config \
+             --testsuite-root zephyr/tests --tag i2c
 
    .. group-tab:: Results
 
@@ -57,24 +57,15 @@ Building and Running
 
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 3/5 tiac_magpie               tests/drivers/i2c/i2c_api/drivers.i2c.api          :byl:`SKIPPED` (runtime filter)
-         INFO    - 4/5 tiac_magpie               i2c_target_api/drivers.i2c.target_api.dual_role.tiac_magpie  :brd:`ERROR` Build failure (device)
-         INFO    - see: :byl:`.../twister-out/tiac_magpie/i2c_slave_api/drivers.i2c.target_api.dual_role.tiac_magpie/handler.log`
-         ERROR   - Loading Zephyr default modules (Zephyr base).
-         INFO    - 5/5 tiac_magpie               i2c_target_api/drivers.i2c.target_api.tiac_magpie   :brd:`ERROR` Build failure (device)
-         INFO    - see: :byl:`.../twister-out/tiac_magpie/i2c_slave_api/drivers.i2c.target_api.tiac_magpie/handler.log`
+         INFO    - 1542/1543 tiac_magpie               tests/drivers/i2c/i2c_api/drivers.i2c.api          :byl:`SKIPPED` (runtime filter)
+         INFO    - 1543/1543 tiac_magpie               tests/drivers/i2c/i2c_target_api/drivers.i2c.target_api.dual_role  :brd:`ERROR` Build failure (device)
+         INFO    - :byl:`.../twister-out/tiac_magpie/tests/drivers/i2c/i2c_target_api/drivers.i2c.target_api.dual_role/build.log`
          ERROR   - Loading Zephyr default modules (Zephyr base).
 
-         INFO    - 3/5 tiac_magpie               tests/drivers/i2c/i2c_api/drivers.i2c.api          :byl:`SKIPPED` (runtime filter)
-         INFO    - 4/5 tiac_magpie               i2c_target_api/drivers.i2c.target_api.tiac_magpie  :brd:`FAILED` Failed (device 2.637s)
-         ERROR   - see: :byl:`.../twister-out/tiac_magpie/i2c_slave_api/drivers.i2c.target_api.tiac_magpie/handler.log`
-         INFO    - 5/5 tiac_magpie               i2c_target_api/drivers.i2c.target_api.dual_role.tiac_magpie :brd:`FAILED` Failed (device 2.637s)
-         ERROR   - see: :byl:`.../twister-out/tiac_magpie/i2c_slave_api/drivers.i2c.target_api.dual_role.tiac_magpie/handler.log`
-
-         INFO    - 5 test scenarios (5 test instances) selected, 3 configurations skipped (2 by static filter, 1 at runtime).
-         INFO    - :brd:`0 of 5` test configurations passed (0.00%), :bbk:`0` failed, :brd:`2` errored, :byl:`3` skipped with :bbk:`0` warnings in :bbk:`11.26 seconds`
-         INFO    - In total 2 test cases were executed, 4 skipped on 1 out of total 580 platforms (0.17%)
-         INFO    - :bgn:`0` test configurations executed on platforms, :brd:`2` test configurations were only built.
+         INFO    - 1755 test scenarios (1543 test instances) selected, 1542 configurations skipped (1541 by static filter, 1 at runtime).
+         INFO    - :bgn:`0 of 1543` test configurations passed (0.00%), :bbk:`0` failed, :brd:`1` errored, :byl:`1542` skipped with :bbk:`0` warnings in :bbk:`16.02 seconds`
+         INFO    - In total 1 test cases were executed, 10808 skipped on 1 out of total 634 platforms (0.16%)
+         INFO    - :bgn:`0` test configurations executed on platforms, :brd:`1` test configurations were only built.
 
          Hardware distribution summary:
 
@@ -89,33 +80,19 @@ Building and Running
          INFO    - Writing target report for tiac_magpie...
          INFO    - -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
          INFO    - The following issues were found (showing the top 10 items):
-         INFO    - 1) i2c_target_api/drivers.i2c.target_api.tiac_magpie on tiac_magpie failed (Failed)
-         INFO    - 2) i2c_target_api/drivers.i2c.target_api.dual_role.tiac_magpie on tiac_magpie failed (Failed)
-         INFO    -
+         INFO    - 1) tests/drivers/i2c/i2c_target_api/drivers.i2c.target_api.dual_role on tiac_magpie error (Build failure)
+         INFO    - 
          INFO    - To rerun the tests, call twister using the following commandline:
          INFO    - west twister -p <PLATFORM> -s <TEST ID>, for example:
-         INFO    -
-         INFO    - west twister -p tiac_magpie -s i2c_target_api/drivers.i2c.target_api.dual_role.tiac_magpie
+         INFO    - 
+         INFO    - west twister -p tiac_magpie -s tests/drivers/i2c/i2c_target_api/drivers.i2c.target_api.dual_role
          INFO    - or with west:
-         INFO    - west build -p -b tiac_magpie -T i2c_target_api/drivers.i2c.target_api.dual_role.tiac_magpie
+         INFO    - west build -p -b tiac_magpie -T tests/drivers/i2c/i2c_target_api/drivers.i2c.target_api.dual_role
          INFO    - -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
          INFO    - Run completed
 
 Open Issues
 ***********
-
-Single role with two I2C controller
-===================================
-
-.. parsed-literal::
-   :class: highlight
-
-   ... ... ...
-   .../zephyr/drivers/i2c/target/eeprom_target.c:180:12: :brd:`error:` 'i2c_eeprom_target_init' defined but not used
-   .../zephyr/drivers/i2c/target/eeprom_target.c:167:43: :brd:`error:` 'api_funcs' defined but not used
-   ... ... ...
-   ... ... ...
-   ... ... ...
 
 Dual role with one I2C controller and one I2C device
 ====================================================
@@ -124,8 +101,8 @@ Dual role with one I2C controller and one I2C device
    :class: highlight
 
    ... ... ...
-   .../zephyr/drivers/i2c/target/eeprom_target.c:180:12: :brd:`error:` 'i2c_eeprom_target_init' defined but not used
-   .../zephyr/drivers/i2c/target/eeprom_target.c:167:43: :brd:`error:` 'api_funcs' defined but not used
+   .../zephyr/drivers/i2c/target/eeprom_target.c:229:12: :brd:`error:` 'i2c_eeprom_target_init' defined but not used
+   .../zephyr/drivers/i2c/target/eeprom_target.c:212:43: :brd:`error:` 'api_funcs' defined but not used
    ... ... ...
    ... ... ...
    ... ... ...

@@ -32,8 +32,8 @@ Building and Running
              --verbose --jobs 4 --inline-logs \
              --enable-size-report --platform-reports \
              --device-testing --hardware-map map.yaml \
-             --extra-args SHIELD=can_timing_adj \
-             --testsuite-root zephyr/tests/drivers/can
+             --alt-config-root bridle/zephyr/alt-config \
+             --testsuite-root zephyr/tests --tag can
 
    .. group-tab:: Results
 
@@ -50,20 +50,26 @@ Building and Running
 
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 2/4 tiac_magpie               tests/drivers/can/shell/drivers.can.shell          :bgn:`PASSED` (device 5.781s)
-         INFO    - 3/4 tiac_magpie               tests/drivers/can/timing/drivers.can.timing        :bgn:`PASSED` (device 3.224s)
-         INFO    - 4/4 tiac_magpie               tests/drivers/can/api/drivers.can.api              :bgn:`PASSED` (device 5.158s)
+         INFO    - 1535/1543 tiac_magpie               tests/subsys/canbus/isotp/implementation/canbus.isotp.implementation PASSED (device: DT04BNT1, 17.651s)
+         INFO    - 1536/1543 tiac_magpie               tests/subsys/canbus/isotp/conformance/canbus.isotp.conformance.fd.txdl_64 PASSED (device: DT04BNT1, 3.085s)
+         INFO    - 1537/1543 tiac_magpie               tests/subsys/canbus/isotp/conformance/canbus.isotp.conformance.fd.txdl_32 PASSED (device: DT04BNT1, 3.136s)
+         INFO    - 1538/1543 tiac_magpie               tests/subsys/canbus/isotp/conformance/canbus.isotp.conformance.fd.unused PASSED (device: DT04BNT1, 13.632s)
+         INFO    - 1539/1543 tiac_magpie               tests/subsys/canbus/isotp/conformance/canbus.isotp.conformance PASSED (device: DT04BNT1, 13.850s)
+         INFO    - 1540/1543 tiac_magpie               tests/drivers/can/shell/drivers.can.shell          PASSED (device: DT04BNT1, 4.353s)
+         INFO    - 1541/1543 tiac_magpie               tests/drivers/can/api/drivers.can.api              PASSED (device: DT04BNT1, 5.113s)
+         INFO    - 1542/1543 tiac_magpie               tests/net/socket/can/net.socket.can                PASSED (device: DT04BNT1, 2.382s)
+         INFO    - 1543/1543 tiac_magpie               tests/drivers/can/timing/drivers.can.timing.tiac_magpie PASSED (device: DT04BNT1, 3.233s)
 
-         INFO    - 4 test scenarios (4 test instances) selected, 1 configurations skipped (1 by static filter, 0 at runtime).
-         INFO    - :bgn:`3 of 4` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1` skipped with :bbk:`0` warnings in :bbk:`43.26 seconds`
-         INFO    - In total 86 test cases were executed, 46 skipped on 1 out of total 580 platforms (0.17%)
-         INFO    - :bgn:`3` test configurations executed on platforms, :brd:`0` test configurations were only built.
+         INFO    - 1755 test scenarios (1543 test instances) selected, 1534 configurations skipped (1534 by static filter, 0 at runtime).
+         INFO    - :bgn:`9 of 1543` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1534` skipped with :bbk:`0` warnings in :bbk:`100.98 seconds`
+         INFO    - In total 171 test cases were executed, 10639 skipped on 1 out of total 634 platforms (0.16%)
+         INFO    - :bgn:`9` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
 
          \| Board       \| ID       \|   Counter \|
          \|-------------\|----------\|-----------\|
-         \| tiac_magpie \| DT04BNT1 \|         3 \|
+         \| tiac_magpie \| DT04BNT1 \|         9 \|
 
          INFO    - Saving reports...
          INFO    - Writing JSON report .../twister-out/twister.json

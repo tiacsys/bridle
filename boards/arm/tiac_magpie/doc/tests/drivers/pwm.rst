@@ -38,8 +38,9 @@ Building and Running
              --verbose --jobs 4 --inline-logs \
              --enable-size-report --platform-reports \
              --device-testing --hardware-map map.yaml \
-             --extra-args SHIELD=loopback_test_tmph \
-             --testsuite-root zephyr/tests/drivers/pwm
+             --extra-args SHIELD="loopback_test_tmph" \
+             --alt-config-root bridle/zephyr/alt-config \
+             --testsuite-root zephyr/tests --tag pwm
 
    .. group-tab:: Results
 
@@ -56,13 +57,13 @@ Building and Running
 
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1/2 tiac_magpie               tests/drivers/pwm/pwm_api/drivers.pwm              :bgn:`PASSED` (device 8.945s)
-         INFO    - 2/2 tiac_magpie               tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback :brd:`FAILED` Failed (device 3.286s)
-         ERROR   - see: :byl:`.../twister-out/tiac_magpie/tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback/handler.log`
+         INFO    - 1542/1543 tiac_magpie               tests/drivers/pwm/pwm_api/drivers.pwm              :bgn:`PASSED` (device: DT04BNT1, 9.111s)
+         INFO    - 1543/1543 tiac_magpie               tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback  :brd:`FAILED` Failed (device: DT04BNT1, 3.379s)
+         INFO    - :byl:`.../twister-out/tiac_magpie/tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback/handler.log`
 
-         INFO    - 2 test scenarios (2 test instances) selected, 0 configurations skipped (0 by static filter, 0 at runtime).
-         INFO    - :brd:`1 of 2` test configurations passed (50.00%), :brd:`1` failed, :bbk:`1` errored, :byl:`0` skipped with :bbk:`0` warnings in :bbk:`42.55 seconds`
-         INFO    - In total 10 test cases were executed, 0 skipped on 1 out of total 580 platforms (0.17%)
+         INFO    - 1755 test scenarios (1543 test instances) selected, 1541 configurations skipped (1541 by static filter, 0 at runtime).
+         INFO    - :brd:`1 of 1543` test configurations passed (50.00%), :brd:`1` failed, :bbk:`0` errored, :byl:`1541` skipped with :bbk:`0` warnings in :bbk:`54.90 seconds`
+         INFO    - In total 10 test cases were executed, 10799 skipped on 1 out of total 634 platforms (0.16%)
          INFO    - :bgn:`2` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
@@ -79,10 +80,10 @@ Building and Running
          INFO    - -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
          INFO    - The following issues were found (showing the top 10 items):
          INFO    - 1) tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback on tiac_magpie failed (Failed)
-         INFO    -
+         INFO    - 
          INFO    - To rerun the tests, call twister using the following commandline:
          INFO    - west twister -p <PLATFORM> -s <TEST ID>, for example:
-         INFO    -
+         INFO    - 
          INFO    - west twister -p tiac_magpie -s tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback
          INFO    - or with west:
          INFO    - west build -p -b tiac_magpie -T tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback

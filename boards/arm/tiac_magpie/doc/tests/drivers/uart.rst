@@ -38,8 +38,9 @@ Building and Running
              --verbose --jobs 4 --inline-logs \
              --enable-size-report --platform-reports \
              --device-testing --hardware-map map.yaml \
-             --extra-args SHIELD=loopback_test_tmph \
-             --testsuite-root zephyr/tests/drivers/uart
+             --extra-args SHIELD="loopback_test_tmph" \
+             --alt-config-root bridle/zephyr/alt-config \
+             --testsuite-root zephyr/tests --tag uart
 
    .. group-tab:: Results ... t.b.d.
 
@@ -56,19 +57,20 @@ Building and Running
 
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 24/25 tiac_magpie               tests/drivers/uart/uart_async_api/drivers.uart.async_api.lpuart :byl:`SKIPPED` (runtime filter)
-         INFO    - 25/25 tiac_magpie               tests/drivers/uart/uart_async_api/drivers.uart.async_api :byl:`SKIPPED` (runtime filter)
+         INFO    - 1541/1543 tiac_magpie               tests/drivers/uart/uart_async_api/drivers.uart.async_api :byl:`SKIPPED` (runtime filter)
+         INFO    - 1542/1543 tiac_magpie               tests/drivers/uart/uart_async_api/drivers.uart.async_api.lpuart :byl:`SKIPPED` (runtime filter)
+         INFO    - 1543/1543 tiac_magpie               tests/drivers/console/drivers.console.uart         :bgn:`PASSED` (device: DT04BNT1, 2.420s)
 
-         INFO    - 25 test scenarios (25 test instances) selected, 25 configurations skipped (23 by static filter, 2 at runtime).
-         INFO    - :bgn:`0 of 25` test configurations passed (0.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`25` skipped with :bbk:`0` warnings in :bbk:`5.36 seconds`
-         INFO    - In total 0 test cases were executed, 96 skipped on 1 out of total 580 platforms (0.17%)
-         INFO    - :bgn:`0` test configurations executed on platforms, :brd:`0` test configurations were only built.
+         INFO    - 1755 test scenarios (1543 test instances) selected, 1542 configurations skipped (1540 by static filter, 2 at runtime).
+         INFO    - :bgn:`1 of 1543` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1542` skipped with :bbk:`0` warnings in :bbk:`22.21 seconds`
+         INFO    - In total 1 test cases were executed, 10808 skipped on 1 out of total 634 platforms (0.16%)
+         INFO    - :bgn:`1` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
 
          \| Board       \| ID       \|   Counter \|
          \|-------------\|----------\|-----------\|
-         \| tiac_magpie \| DT04BNT1 \|         0 \|
+         \| tiac_magpie \| DT04BNT1 \|         1 \|
 
          INFO    - Saving reports...
          INFO    - Writing JSON report .../twister-out/twister.json

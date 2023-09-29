@@ -32,8 +32,8 @@ Building and Running
              --verbose --jobs 4 --inline-logs \
              --enable-size-report --platform-reports \
              --device-testing --hardware-map map.yaml \
-             --testsuite-root zephyr/tests/drivers/watchdog \
-             --testsuite-root bridle/tests/drivers/watchdog
+             --alt-config-root bridle/zephyr/alt-config \
+             --testsuite-root zephyr/tests --tag watchdog
 
    .. group-tab:: Results
 
@@ -50,13 +50,13 @@ Building and Running
 
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 12/14 tiac_magpie               tests/drivers/watchdog/wdt_basic_api/drivers.watchdog :byl:`SKIPPED` (runtime filter)
-         INFO    - 13/14 tiac_magpie               wdt_basic_api/drivers.watchdog.stm32iwdg.tiac_magpie :bgn:`PASSED` (device 4.404s)
-         INFO    - 14/14 tiac_magpie               wdt_basic_api/drivers.watchdog.stm32wwdg.tiac_magpie :bgn:`PASSED` (device 2.414s)
+         INFO    - 1541/1543 tiac_magpie               tests/drivers/watchdog/wdt_basic_api/drivers.watchdog :byl:`SKIPPED` (runtime filter)
+         INFO    - 1542/1543 tiac_magpie               tests/drivers/watchdog/wdt_basic_api/drivers.watchdog.stm32iwdg :bgn:`PASSED` (device: DT04BNT1, 4.466s)
+         INFO    - 1543/1543 tiac_magpie               tests/drivers/watchdog/wdt_basic_api/drivers.watchdog.stm32wwdg :bgn:`PASSED` (device: DT04BNT1, 2.453s)
 
-         INFO    - 14 test scenarios (14 test instances) selected, 12 configurations skipped ((0 by static filter, 1 at runtime).
-         INFO    - :bgn:`2 of 14` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`12` skipped with :bbk:`0` warnings in :bbk:`31.40 seconds`
-         INFO    - In total 2 test cases were executed, 13 skipped on 1 out of total 580 platforms (0.17%)
+         INFO    - 1755 test scenarios (1543 test instances) selected, 1541 configurations skipped (1540 by static filter, 1 at runtime).
+         INFO    - :bgn:`2 of 1543` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1541` skipped with :bbk:`0` warnings in :bbk:`27.89 seconds`
+         INFO    - In total 2 test cases were executed, 10807 skipped on 1 out of total 634 platforms (0.16%)
          INFO    - :bgn:`2` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:

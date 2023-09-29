@@ -36,7 +36,8 @@ Drivers
              --verbose --jobs 4 --inline-logs \
              --enable-size-report --platform-reports \
              --device-testing --hardware-map map.yaml \
-             --testsuite-root zephyr/tests/drivers/entropy
+             --alt-config-root bridle/zephyr/alt-config \
+             --testsuite-root zephyr/tests --tag entropy
 
    .. group-tab:: Results
 
@@ -53,12 +54,12 @@ Drivers
 
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 2/3 tiac_magpie               tests/drivers/entropy/api/drivers.entropy.psa_crypto :byl:`SKIPPED` (runtime filter)
-         INFO    - 3/3 tiac_magpie               tests/drivers/entropy/api/drivers.entropy          :bgn:`PASSED` (device 2.357s)
+         INFO    - 1542/1543 tiac_magpie               tests/drivers/entropy/api/drivers.entropy.psa_crypto :byl:`SKIPPED` (runtime filter)
+         INFO    - 1543/1543 tiac_magpie               tests/drivers/entropy/api/drivers.entropy          :bgn:`PASSED` (device: DT04BNT1, 2.452s)
 
-         INFO    - 3 test scenarios (3 test instances) selected, 2 configurations skipped (1 by static filter, 1 at runtime).
-         INFO    - :bgn:`1 of 3` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`2` skipped with :bbk:`0` warnings in :bbk:`20.45 seconds`
-         INFO    - In total 1 test cases were executed, 2 skipped on 1 out of total 580 platforms (0.17%)
+         INFO    - 1755 test scenarios (1543 test instances) selected, 1542 configurations skipped (1541 by static filter, 1 at runtime).
+         INFO    - :bgn:`1 of 1543` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1542` skipped with :bbk:`0` warnings in :bbk:`21.59 seconds`
+         INFO    - In total 1 test cases were executed, 10808 skipped on 1 out of total 634 platforms (0.16%)
          INFO    - :bgn:`1` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
@@ -89,7 +90,8 @@ Cryptography
              --verbose --jobs 4 --inline-logs \
              --enable-size-report --platform-reports \
              --device-testing --hardware-map map.yaml \
-             --testsuite-root zephyr/tests/crypto/rand32
+             --alt-config-root bridle/zephyr/alt-config \
+             --testsuite-root zephyr/tests --tag random
 
    .. group-tab:: Results
 
@@ -106,15 +108,15 @@ Cryptography
 
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1/5 tiac_magpie               tests/crypto/rand32/drivers.rand32.random_psa_crypto :byl:`SKIPPED` (runtime filter)
-         INFO    - 2/5 tiac_magpie               tests/crypto/rand32/crypto.rand32.random_sw_systimer :bgn:`PASSED` (device 5.536s)
-         INFO    - 3/5 tiac_magpie               tests/crypto/rand32/crypto.rand32.random_hw_xoshiro :bgn:`PASSED` (device 2.313s)
-         INFO    - 4/5 tiac_magpie               tests/crypto/rand32/crypto.rand32.random_ctr_drbg  :bgn:`PASSED` (device 2.383s)
-         INFO    - 5/5 tiac_magpie               tests/crypto/rand32/crypto.rand32                  :bgn:`PASSED` (device 2.417s)
+         INFO    - 1539/1543 tiac_magpie               tests/crypto/rand32/drivers.rand32.random_psa_crypto :byl:`SKIPPED` (runtime filter)
+         INFO    - 1540/1543 tiac_magpie               tests/crypto/rand32/crypto.rand32.random_sw_systimer :bgn:`PASSED` (device: DT04BNT1, 2.514s)
+         INFO    - 1541/1543 tiac_magpie               tests/crypto/rand32/crypto.rand32.random_hw_xoshiro :bgn:`PASSED` (device: DT04BNT1, 2.423s)
+         INFO    - 1542/1543 tiac_magpie               tests/crypto/rand32/crypto.rand32.random_ctr_drbg  :bgn:`PASSED` (device: DT04BNT1, 2.450s)
+         INFO    - 1543/1543 tiac_magpie               tests/crypto/rand32/crypto.rand32                  :bgn:`PASSED` (device: DT04BNT1, 2.480s)
 
-         INFO    - 5 test scenarios (5 test instances) selected, 1 configurations skipped (0 by static filter, 1 at runtime).
-         INFO    - :bgn:`4 of 5` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1` skipped with :bbk:`0` warnings in :bbk:`44.94 seconds`
-         INFO    - In total 4 test cases were executed, 1 skipped on 1 out of total 580 platforms (0.17%)
+         INFO    - 1755 test scenarios (1543 test instances) selected, 1539 configurations skipped (1538 by static filter, 1 at runtime).
+         INFO    - :bgn:`4 of 1543` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1539` skipped with :bbk:`0` warnings in :bbk:`36.76 seconds`
+         INFO    - In total 4 test cases were executed, 10805 skipped on 1 out of total 634 platforms (0.16%)
          INFO    - :bgn:`4` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
