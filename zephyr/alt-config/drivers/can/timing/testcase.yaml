@@ -5,20 +5,5 @@ tests:
       - can
     depends_on: can
     filter: dt_chosen_enabled("zephyr,canbus")
-    # required_snippets:
-    #   - can-timing-adj
-    # required_snippets can not yet be used, because of open issues, see:
-    #   - https://github.com/zephyrproject-rtos/zephyr/issues/63011
-    #   - https://github.com/zephyrproject-rtos/zephyr/pull/63232
-    platform_exclude:
-      - tiac_magpie
-  drivers.can.timing.tiac_magpie:
-    tags:
-      - drivers
-      - can
-    depends_on: can
-    filter: dt_chosen_enabled("zephyr,canbus")
-    extra_args:
-      - DTC_OVERLAY_FILE=${ZEPHYR_BRIDLE_MODULE_DIR}/snippets/can-timing-adj/boards/tiac_magpie.overlay
-    platform_allow:
-      - tiac_magpie
+    required_snippets:
+      - can-timing-adj
