@@ -28,7 +28,8 @@
 				"editor.insertFinalNewline": true
 			},
 			"extensions": [
-				"marus25.cortex-debug"
+				"marus25.cortex-debug",
+				"ms-vscode.cmake-tools"
 			]
 		}
 	}
