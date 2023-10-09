@@ -114,7 +114,7 @@ jobs:
       - name: Convert integration test reports to annotations
         uses: mikepenz/action-junit-report@v3
         with:
-          check_name: twister-report (shields)
+          check_name: twister-report (samples)
           report_paths: "**/twister-out/twister.xml"
           require_tests: true
           fail_on_failure: false
