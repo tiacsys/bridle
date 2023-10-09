@@ -24,7 +24,7 @@ sys.path.insert(0, os.path.join(BRIDLE_BASE, 'doc', '_utils'))
 import utils
 
 ZEPHYR_BASE = utils.get_projdir('zephyr')
-BRIDLE_ZEPHYR_BUILD = os.path.join(utils.get_builddir(), 'zephyr')
+ZEPHYR_WORKD = os.path.join(utils.get_builddir(), 'zephyr')
 
 # Add the '_extensions' directory to sys.path, to enable finding Bridle's
 # Sphinx extensions within.
@@ -93,9 +93,8 @@ logcfg.info(project + ' ' + release, color='yellow')
 logcfg.info('Build with tags: ' + ':'.join(map(str, tags)), color='red')
 logcfg.info('BRIDLE_BASE is: "{}"'.format(BRIDLE_BASE), color='green')
 logcfg.info('ZEPHYR_BASE is: "{}"'.format(ZEPHYR_BASE), color='green')
+logcfg.info('ZEPHYR_WORKD is: "{}"'.format(ZEPHYR_WORKD), color='yellow')
 logcfg.info('ZEPHYR_BUILD is: "{}"'.format(ZEPHYR_BUILD), color='yellow')
-logcfg.info('BRIDLE_ZEPHYR_BUILD is: "{}"'.format(BRIDLE_ZEPHYR_BUILD),
-            color='yellow')
 
 # General ----------------------------------------------------------------------
 
@@ -207,6 +206,8 @@ doxyrunner_fmt_vars = {
     'DOXY_SET': u'zephyr',
     'DOXY_IN': str(Path(doxyrunner_doxyfile).absolute().parent),
     'DOXY_LAYOUT': u'zephyr-doxyrunner',
+    'DOXY_LOGOUT': str(Path(ZEPHYR_WORKD).absolute()),
+    'DOXY_LOGWRN': u'doxygen-warnings.txt',
     'PROJECT_DOXY': str(Path(doxyrunner_doxydir).absolute()),
     'PROJECT_BASE': str(ZEPHYR_BASE),
     'PROJECT_NAME': project,
@@ -222,7 +223,7 @@ kconfig_ext_paths.clear()
 
 # Options for zephyr.warnings_filter -------------------------------------------
 
-warnings_filter_config = os.path.join(BRIDLE_ZEPHYR_BUILD, 'known-warnings.txt')
+warnings_filter_config = os.path.join(ZEPHYR_WORKD, 'known-warnings.txt')
 warnings_filter_silent = True
 
 # -- Options for notfound.extension --------------------------------------------
@@ -264,7 +265,7 @@ def update_inventory_warnings_filter_config(app):
     if "warnings_filter_config" in app.config:
         # Update the warnings_filter_config value.
         app.config.warnings_filter_config = os.path.join(
-            BRIDLE_ZEPHYR_BUILD, 'known-warnings-inventory.txt'
+            ZEPHYR_WORKD, 'known-warnings-inventory.txt'
         )
 
 def update_config(app):

@@ -27,6 +27,7 @@ sys.path.insert(0, os.path.join(BRIDLE_BASE, 'doc', '_utils'))
 import utils
 
 ZEPHYR_BASE = utils.get_projdir('zephyr')
+BRIDLE_WORKD = os.path.join(utils.get_builddir(), 'bridle')
 
 # Add the '_extensions' directory to sys.path, to enable finding Bridle's
 # Sphinx extensions within.
@@ -78,6 +79,7 @@ logcfg = sphinx.util.logging.getLogger(__name__)
 logcfg.info(project + ' ' + release, color='yellow')
 logcfg.info('Build with tags: ' + ':'.join(map(str, tags)), color='red')
 logcfg.info('BRIDLE_BASE is: "{}"'.format(BRIDLE_BASE), color='green')
+logcfg.info('BRIDLE_WORKD is: "{}"'.format(BRIDLE_WORKD), color='yellow')
 logcfg.info('BRIDLE_BUILD is: "{}"'.format(BRIDLE_BUILD), color='yellow')
 logcfg.info('ZEPHYR_BASE is: "{}"'.format(ZEPHYR_BASE), color='green')
 
@@ -241,6 +243,8 @@ doxyrunner_fmt_vars = {
     'DOXY_SET': u'bridle',
     'DOXY_IN': str(Path(doxyrunner_doxyfile).absolute().parent),
     'DOXY_LAYOUT': u'zephyr-doxyrunner',
+    'DOXY_LOGOUT': str(Path(BRIDLE_WORKD).absolute()),
+    'DOXY_LOGWRN': u'doxygen-warnings.txt',
     'PROJECT_DOXY': str(Path(doxyrunner_doxydir).absolute()),
     'PROJECT_BASE': str(BRIDLE_BASE),
     'PROJECT_NAME': project,
