@@ -93,7 +93,7 @@ logcfg.info(project + ' ' + release, color='yellow')
 logcfg.info('Build with tags: ' + ':'.join(map(str, tags)), color='red')
 logcfg.info('BRIDLE_BASE is: "{}"'.format(BRIDLE_BASE), color='green')
 logcfg.info('ZEPHYR_BASE is: "{}"'.format(ZEPHYR_BASE), color='green')
-logcfg.info('ZEPHYR_BUILD is: "{}"'.format(ZEPHYR_BASE), color='yellow')
+logcfg.info('ZEPHYR_BUILD is: "{}"'.format(ZEPHYR_BUILD), color='yellow')
 logcfg.info('BRIDLE_ZEPHYR_BUILD is: "{}"'.format(BRIDLE_ZEPHYR_BUILD),
             color='yellow')
 
