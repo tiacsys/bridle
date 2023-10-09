@@ -146,6 +146,8 @@ Take over the new build principles from Zephyr:
 * Remove all specific ``@uartcons`` board revisions.
 * Convert all active test cases to use the new Twister CLI argument
   ``--alt-config-root``. Also remove the abandoned shield ``can_timing_adj``.
+* Updated Zephyr SDK to 0.16.3. Use Zephyr CI container v0.26.5 on GitHub CI
+  and as base image for local developer container in Vidual Studio Code.
 
 Documentation
 =============
@@ -166,6 +168,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`136` - [FCR] Bump to Zephyr SDK 0.16.3
 * :github:`128` - [FER] Provide USB console by snippets instead of specific board revision
 * :github:`127` - [FER] Provide CAN timing tweak for TiaC Magpie by snippets instead of a shield
 * :github:`125` - [BUG] Nightly QA integration test fails (convert to ``stm32-bxcan``)
