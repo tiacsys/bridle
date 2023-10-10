@@ -1,4 +1,4 @@
-# Copyright (c) 2021-2022 TiaC Systems
+# Copyright (c) 2021-2023 TiaC Systems
 # Copyright (c) 2021 Li-Pro.Net
 # SPDX-License-Identifier: Apache-2.0
 
@@ -38,10 +38,11 @@ on:
 jobs:
   qa-samples-integration:
     name: Run integration tests for samples
-    runs-on: ubuntu-latest
+    if: github.repository_owner == 'tiacsys'
+    runs-on: [self-hosted, ci-32g-x8, linux, x64, container]
     container:
       image: ghcr.io/zephyrproject-rtos/ci:v0.26.5
-      options: '--entrypoint /bin/bash'
+      options: '--cpus 4 --memory 8g --entrypoint /bin/bash'
     env:
       ZEPHYR_SDK_INSTALL_DIR: /opt/toolchains/zephyr-sdk-0.16.3
 
@@ -58,11 +59,27 @@ jobs:
         run: |
           echo "$HOME/.local/bin" >> $GITHUB_PATH
 
-      - name: Checkout the code
-        uses: actions/checkout@v3
+      # It is important that this is run before any caching tasks as cleanups
+      # are run in reverse order (and you do not want to cleanup before the
+      # caching is saved).
+      - name: Clean working directory
+        uses: FraBle/clean-after-action@v1
+        #
+        # Could also be implemented with the new pre- and post-job hook scripts:
+        #
+        # - https://stackoverflow.com/questions/70483902
+        # - https://devopsjournal.io/blog/2023/06/21/GitHub-container-based-Action-cleanup
+        # - https://docs.github.com/actions/hosting-your-own-runners/running-scripts-before-or-after-a-job
+        #
         with:
+          keep-git: false
+
+      - name: Checkout the code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 100
+          show-progress: true
           path: workspace/bridle
-          submodules: recursive
           ref: ${{ github.ref }}
 
       - name: Restore PIP Cache
@@ -81,8 +98,8 @@ jobs:
       - name: West init and update
         working-directory: workspace
         run: |
-          west init -l bridle
-          west update
+          west init --local bridle
+          west update --fetch-opt=--depth=100 --fetch=always --narrow --stats
           west zephyr-export
           west bridle-export
 
@@ -99,7 +116,7 @@ jobs:
       - name: Build samples
         working-directory: workspace
         run: |
-          west twister --verbose --jobs 4 --integration \
+          west twister --verbose --integration \
             --outdir twister-out --no-clean --inline-logs \
             --enable-size-report --platform-reports \
             --testsuite-root bridle/samples/button \
@@ -122,10 +139,11 @@ jobs:
 
   qa-shield-integration:
     name: Run integration tests for shields
-    runs-on: ubuntu-latest
+    if: github.repository_owner == 'tiacsys'
+    runs-on: [self-hosted, ci-32g-x8, linux, x64, container]
     container:
       image: ghcr.io/zephyrproject-rtos/ci:v0.26.5
-      options: '--entrypoint /bin/bash'
+      options: '--cpus 4 --memory 8g --entrypoint /bin/bash'
     env:
       ZEPHYR_SDK_INSTALL_DIR: /opt/toolchains/zephyr-sdk-0.16.3
 
@@ -142,11 +160,27 @@ jobs:
         run: |
           echo "$HOME/.local/bin" >> $GITHUB_PATH
 
-      - name: Checkout the code
-        uses: actions/checkout@v3
+      # It is important that this is run before any caching tasks as cleanups
+      # are run in reverse order (and you do not want to cleanup before the
+      # caching is saved).
+      - name: Clean working directory
+        uses: FraBle/clean-after-action@v1
+        #
+        # Could also be implemented with the new pre- and post-job hook scripts:
+        #
+        # - https://stackoverflow.com/questions/70483902
+        # - https://devopsjournal.io/blog/2023/06/21/GitHub-container-based-Action-cleanup
+        # - https://docs.github.com/actions/hosting-your-own-runners/running-scripts-before-or-after-a-job
+        #
         with:
+          keep-git: false
+
+      - name: Checkout the code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 100
+          show-progress: true
           path: workspace/bridle
-          submodules: recursive
           ref: ${{ github.ref }}
 
       - name: Restore PIP Cache
@@ -165,8 +199,8 @@ jobs:
       - name: West init and update
         working-directory: workspace
         run: |
-          west init -l bridle
-          west update
+          west init --local bridle
+          west update --fetch-opt=--depth=100 --fetch=always --narrow --stats
           west zephyr-export
           west bridle-export
 
@@ -190,7 +224,7 @@ jobs:
           # --testsuite-root bridle/tests/shields/grove_btn/dts_bindings \
           # --testsuite-root bridle/tests/shields/grove_led/dts_bindings \
           #
-          west twister --verbose --jobs 4 \
+          west twister --verbose \
             --outdir twister-out --no-clean --inline-logs \
             --enable-size-report --platform-reports \
             --platform arduino_zero \
@@ -227,6 +261,7 @@ jobs:
 
   qa-target-integration:
     name: Run integration tests on targets
+    if: github.repository_owner == 'tiacsys'
     runs-on: [self-hosted, linux, gnuarmemb, zephyr-sdk, tiac_magpie]
 
     strategy:
@@ -238,15 +273,27 @@ jobs:
         run: |
           echo "$HOME/.local/bin" >> $GITHUB_PATH
 
+      # It is important that this is run before any caching tasks as cleanups
+      # are run in reverse order (and you do not want to cleanup before the
+      # caching is saved).
       - name: Clean working directory
-        run: |
-          rm -rf "${{ github.workspace }}/workspace"
+        uses: FraBle/clean-after-action@v1
+        #
+        # Could also be implemented with the new pre- and post-job hook scripts:
+        #
+        # - https://stackoverflow.com/questions/70483902
+        # - https://devopsjournal.io/blog/2023/06/21/GitHub-container-based-Action-cleanup
+        # - https://docs.github.com/actions/hosting-your-own-runners/running-scripts-before-or-after-a-job
+        #
+        with:
+          keep-git: false
 
       - name: Checkout the code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
+          fetch-depth: 100
+          show-progress: true
           path: workspace/bridle
-          submodules: recursive
           ref: ${{ github.ref }}
 
       - name: Install base dependencies
@@ -259,8 +306,8 @@ jobs:
       - name: West init and update
         working-directory: workspace
         run: |
-          west init -l bridle
-          west update
+          west init --local bridle
+          west update --fetch-opt=--depth=100 --fetch=always --narrow --stats
           west zephyr-export
           west bridle-export
 
@@ -289,7 +336,7 @@ jobs:
           # --tag kernel \
           #
           west twister --verbose --jobs 4 \
-            --retry-failed 5 --retry-interval 120 \
+            --retry-failed 5 --retry-interval 60 \
             --outdir twister-out --no-clean --inline-logs \
             --enable-size-report --platform-reports \
             --device-testing --hardware-map ${HARDWARE_MAP} \
