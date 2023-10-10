@@ -168,6 +168,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`139` - [FER] Bump to Doxygen v1.9.8
 * :github:`136` - [FCR] Bump to Zephyr SDK 0.16.3
 * :github:`128` - [FER] Provide USB console by snippets instead of specific board revision
 * :github:`127` - [FER] Provide CAN timing tweak for TiaC Magpie by snippets instead of a shield
