@@ -84,3 +84,9 @@
 .*following parameter of BT_GATT_CHARACTERISTIC.* not documented.*
 .*argument '.*' of command @param is not found in the argument list of.*
 .*found </em> tag without matching <em>.*
+
+#
+# TODO: New warnings with Doxygen v1.9.8 - unknown reasons.
+#
+.*Error in declarator or parameters.*
+.*Invalid C declaration: Expected identifier in nested name.*

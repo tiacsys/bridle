@@ -8,3 +8,9 @@
 # reference target in: zephyr/boards/arm/mimxrt1170_evk/doc/index.rst:322
 #
 .*duplicate label using j-link rt1170.*
+
+#
+# TODO: New warnings with Doxygen v1.9.8 - unknown reasons.
+#
+.*Error in declarator or parameters.*
+.*Invalid C declaration: Expected identifier in nested name.*
