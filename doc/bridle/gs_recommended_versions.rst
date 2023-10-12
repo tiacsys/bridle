@@ -65,13 +65,13 @@ the |BRIDLE| development environment:
            - x64
            - ARM64
          * - `Ubuntu 22.04 LTS`_
-           - Not supported
+           - :rd:`Not applicable`
+           - :bbl:`Tier 2`
            - :byl:`Tier 3`
-           - Not supported
          * - `Ubuntu 20.04 LTS`_
-           - Not supported
+           - :rd:`Not applicable`
            - :bgn:`Tier 1`
-           - Not supported
+           - :bbl:`Tier 2`
 
    .. group-tab:: macOS
 
