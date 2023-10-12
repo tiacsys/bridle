@@ -317,6 +317,12 @@ Building and running applications, samples, and tests
      - |intelhex_ver|
    * - |pyelftools|_
      - |pyelftools_ver|
+   * - |pymcuprog|_
+     - |pymcuprog_ver|
+   * - |pyserial|_
+     - |pyserial_ver|
+   * - |pyocd|_
+     - |pyocd_ver|
    * - |pylint|_
      - |pylint_ver|
    * - |PyYAML|_

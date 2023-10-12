@@ -69,6 +69,9 @@
 .. _`imagesize`: https://pypi.org/project/imagesize/
 .. _`intelhex`: https://pypi.org/project/intelhex/
 .. _`pyelftools`: https://pypi.org/project/pyelftools/
+.. _`pymcuprog`: https://pypi.org/project/pymcuprog/
+.. _`pyserial`: https://pypi.org/project/pyserial/
+.. _`pyocd`: https://pypi.org/project/pyocd/
 .. _`pylint`: https://pypi.org/project/pylint/
 .. _`PyYAML`: https://pypi.org/project/PyYAML/
 .. _`west`: https://pypi.org/project/west/
