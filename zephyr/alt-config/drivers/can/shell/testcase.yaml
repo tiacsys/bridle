@@ -1,5 +1,5 @@
 common:
-  timeout: 600
+  timeout: 120
 tests:
   drivers.can.shell:
     integration_platforms:
