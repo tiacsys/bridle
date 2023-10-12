@@ -148,6 +148,7 @@ Take over the new build principles from Zephyr:
   ``--alt-config-root``. Also remove the abandoned shield ``can_timing_adj``.
 * Updated Zephyr SDK to 0.16.3. Use Zephyr CI container v0.26.5 on GitHub CI
   and as base image for local developer container in Vidual Studio Code.
+* Update West to 1.3.
 
 Documentation
 =============
