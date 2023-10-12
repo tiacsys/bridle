@@ -415,11 +415,12 @@ set(tools_version_files
 )
 
 set(pip_requirements_files
+    ${ZEPHYR_BASE}/doc/requirements.txt
+    ${ZEPHYR_BASE}/scripts/requirements-base.txt
     ${BRIDLE_BASE}/scripts/requirements-base.txt
     ${BRIDLE_BASE}/scripts/requirements-doc.txt
     ${BRIDLE_BASE}/scripts/requirements-build.txt
-    ${ZEPHYR_BASE}/scripts/requirements-base.txt
-    ${ZEPHYR_BASE}/doc/requirements.txt
+    ${BRIDLE_BASE}/scripts/requirements-extras.txt
 )
 
 string(REPLACE ";" "\\;" tools_files_escaped "${tools_version_files}")
