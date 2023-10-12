@@ -1,2 +1,4 @@
 pykitinfo>=0.4.0
-pymcuprog>=3.13
+pymcuprog>=3.14
+pyserial>=3.5
+pyocd>=0.36
