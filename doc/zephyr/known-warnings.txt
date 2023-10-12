@@ -14,3 +14,8 @@
 #
 .*Error in declarator or parameters.*
 .*Invalid C declaration: Expected identifier in nested name.*
+
+#
+# TODO: New warnings with West v1.3 - unknown reasons.
+#
+.*Inline strong start-string without end-string.*
