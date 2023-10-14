@@ -55,6 +55,14 @@ jobs:
           #        GitHub comes up with a fundamental fix for this problem.
           git config --global --add safe.directory ${GITHUB_WORKSPACE}
 
+      - name: Apply container HTTP/2 framing layer workaround
+        run: |
+          # FIXME: For unknown reasons, the local development host and CI is
+          #        running in temporary "Error in the HTTP2 framing layer".
+          #        Forcing the historical but still supported HTTP/1.1 layer
+          #        seems to be a stable workaround - happened in Oct. 2023.
+          git config --global --add http.version HTTP/1.1
+
       - name: Update GitHub PATH for west
         run: |
           echo "$HOME/.local/bin" >> $GITHUB_PATH
@@ -155,6 +163,14 @@ jobs:
           #        Actions runner is implemented. Remove this workaround when
           #        GitHub comes up with a fundamental fix for this problem.
           git config --global --add safe.directory ${GITHUB_WORKSPACE}
+
+      - name: Apply container HTTP/2 framing layer workaround
+        run: |
+          # FIXME: For unknown reasons, the local development host and CI is
+          #        running in temporary "Error in the HTTP2 framing layer".
+          #        Forcing the historical but still supported HTTP/1.1 layer
+          #        seems to be a stable workaround - happened in Oct. 2023.
+          git config --global --add http.version HTTP/1.1
 
       - name: Update GitHub PATH for west
         run: |
@@ -269,6 +285,14 @@ jobs:
         board: [tiac_magpie]
 
     steps:
+      - name: Apply container HTTP/2 framing layer workaround
+        run: |
+          # FIXME: For unknown reasons, the local development host and CI is
+          #        running in temporary "Error in the HTTP2 framing layer".
+          #        Forcing the historical but still supported HTTP/1.1 layer
+          #        seems to be a stable workaround - happened in Oct. 2023.
+          git config --global --add http.version HTTP/1.1
+
       - name: Update GitHub PATH for west
         run: |
           echo "$HOME/.local/bin" >> $GITHUB_PATH
