@@ -108,7 +108,6 @@ extensions.extend([
     'sphinx.ext.intersphinx',
     'bridle.inventory_builder',
 ])
-extensions.remove('zephyr.vcs_link')
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
