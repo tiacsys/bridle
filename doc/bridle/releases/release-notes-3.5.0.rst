@@ -11,7 +11,8 @@ product development.
 Highlights
 **********
 
-* :brd:`NOT YET, tbd.`
+* Support for the Waveshare RP2040 board series.
+* Provide a common snippet for USB console over all boards.
 
 .. note:: See the changelog and readme files in the component repositories
    for a detailed description of changes.
@@ -83,8 +84,6 @@ For more details, see: :ref:`repos_and_revs`.
 Supported boards
 ****************
 
-:brd:`NOT YET, tbd.`
-
 * Arduino/Genuino Zero
 * Seeed Studio XIAO SAMD21 (Seeeduino XIAO)
 * Seeeduino Lotus Cortex-M0+
@@ -94,8 +93,6 @@ Supported boards
 Supported shields
 *****************
 
-:brd:`NOT YET, tbd.`
-
 * Seeed Studio Grove Interconnect Shields
 * Grove Button Shields
 * Grove LED Shields
@@ -103,18 +100,13 @@ Supported shields
 Supported snippets
 ******************
 
-:brd:`NOT YET, tbd.`
-
 * USB Console Snippet (usb-console)
+* CAN timing adjustments (can-timing-adj)
 
 Change log
 **********
 
-:brd:`NOT YET, tbd.`
-
 * Switch main return type from void to int for all samples.
-* tbd.
-* tbd.
 
 The following sections provide detailed lists of changes by component.
 
@@ -124,8 +116,6 @@ Build Infrastructure
 ====================
 
 Take over the new build principles from Zephyr:
-
-:brd:`NOT YET, tbd.`
 
 * Zephyr has moved requirements into doc folder, |BRIDLE| build directions
   adapted to that new behavior.
@@ -162,13 +152,14 @@ Documentation
    "Raspberry Pi Pico" signals.
 4. Add special UNICODE replacements.
 5. Update all output messages in documentation to be in sync with the upcoming
-   Bridle version v3.4.99, based on Zephyr v3.5 (samples and tests).
+   Bridle version v3.5.0, based on Zephyr v3.5 (samples and tests).
 
 Issue Related Items
 *******************
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`137` - [FCR] Bump to Zephyr v3.5
 * :github:`139` - [FER] Bump to Doxygen v1.9.8
 * :github:`136` - [FCR] Bump to Zephyr SDK 0.16.3
 * :github:`128` - [FER] Provide USB console by snippets instead of specific board revision
