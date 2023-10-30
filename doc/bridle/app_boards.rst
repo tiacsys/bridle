@@ -49,17 +49,26 @@ Boards included in tiac-bridle
 The following boards are defined in the :file:`bridle/boards/arm/` folder.
 Also see the :ref:`boards` section in this documentation.
 
-+-------------------+---------------------------------------+------------------------+
-| Hardware platform | Board name                            | Build target           |
-+===================+=======================================+========================+
-| ATSAMD21G18A      | :ref:`arduino_zero`                   | ``arduino_zero``       |
-|                   +---------------------------------------+------------------------+
-|                   | :ref:`seeed_xiao_samd21`              | ``seeed_xiao_samd21``  |
-|                   +---------------------------------------+------------------------+
-|                   | :ref:`seeeduino_lotus`                | ``seeeduino_lotus``    |
-+-------------------+---------------------------------------+------------------------+
-| STM32F777NI       | :ref:`tiac_magpie_board`              | ``tiac_magpie``        |
-+-------------------+---------------------------------------+------------------------+
++-------------------+---------------------------------------+----------------------------------+
+| Hardware platform | Board name                            | Build target                     |
++===================+=======================================+==================================+
+| ATSAMD21G18A      | :ref:`arduino_zero`                   | ``arduino_zero``                 |
+|                   +---------------------------------------+----------------------------------+
+|                   | :ref:`seeed_xiao_samd21`              | ``seeed_xiao_samd21``            |
+|                   +---------------------------------------+----------------------------------+
+|                   | :ref:`seeeduino_lotus`                | ``seeeduino_lotus``              |
++-------------------+---------------------------------------+----------------------------------+
+| RP2040            | :ref:`waveshare_rp2040`               | | ``waveshare_rp2040_one``       |
+|                   |                                       | | ``waveshare_rp2040_zero``      |
+|                   |                                       | | ``waveshare_rp2040_matrix``    |
+|                   |                                       | | ``waveshare_rp2040_tiny``      |
+|                   |                                       | | ``waveshare_rp2040_eth``       |
+|                   |                                       | | ``waveshare_rp2040_lcd_0_96``  |
+|                   |                                       | | ``waveshare_rp2040_plus``      |
+|                   |                                       | | ``waveshare_rp2040_plus@16mb`` |
++-------------------+---------------------------------------+----------------------------------+
+| STM32F777NI       | :ref:`tiac_magpie_board`              | ``tiac_magpie``                  |
++-------------------+---------------------------------------+----------------------------------+
 
 
 Shields included in tiac-bridle
@@ -84,6 +93,21 @@ The following shields are defined in the :file:`bridle/boards/shields/` folder.
 |                     | :ref:`grove_button_shield`       | ``grove_btn_d[0…31]``       |
 |                     +----------------------------------+-----------------------------+
 |                     | :ref:`x_grove_testbed_shield`    | ``x_grove_testbed``         |
++---------------------+----------------------------------+-----------------------------+
+
+
+Snippets included in tiac-bridle
+================================
+
+The following snippets are defined in the :file:`bridle/snippets/` folder.
+Also see the :ref:`snippets` section in this documentation.
+
++---------------------+----------------------------------+-----------------------------+
+| Hardware platform   | Snippet name                     | Build target                |
++=====================+==================================+=============================+
+| Common for usage    | :ref:`snippet-usb-console`       | ``usb-console``             |
++---------------------+----------------------------------+-----------------------------+
+| Common for testing  | :ref:`snippet-can-timing-adj`    | ``can-timing-adj``          |
 +---------------------+----------------------------------+-----------------------------+
 
 
