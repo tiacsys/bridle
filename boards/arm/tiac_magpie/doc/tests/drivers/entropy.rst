@@ -52,14 +52,15 @@ Drivers
          \|-------------\|----------\|-----------------\|
          \| tiac_magpie \| DT04BNT1 \| /dev/ttyUSB0    \|
 
+         INFO    - JOBS: 4
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1542/1543 tiac_magpie               tests/drivers/entropy/api/drivers.entropy.psa_crypto :byl:`SKIPPED` (runtime filter)
-         INFO    - 1543/1543 tiac_magpie               tests/drivers/entropy/api/drivers.entropy          :bgn:`PASSED` (device: DT04BNT1, 2.452s)
+         INFO    - 1569/1570 tiac_magpie               tests/drivers/entropy/api/drivers.entropy.psa_crypto :byl:`SKIPPED` (runtime filter)
+         INFO    - 1570/1570 tiac_magpie               tests/drivers/entropy/api/drivers.entropy          :bgn:`PASSED` (device: DT04BNT1, 2.463s)
 
-         INFO    - 1755 test scenarios (1543 test instances) selected, 1542 configurations skipped (1541 by static filter, 1 at runtime).
-         INFO    - :bgn:`1 of 1543` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1542` skipped with :bbk:`0` warnings in :bbk:`21.59 seconds`
-         INFO    - In total 1 test cases were executed, 10808 skipped on 1 out of total 634 platforms (0.16%)
+         INFO    - 1782 test scenarios (1570 test instances) selected, 1569 configurations skipped (1568 by static filter, 1 at runtime).
+         INFO    - :bgn:`1 of 1570` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1569` skipped with :bbk:`0` warnings in :bbk:`27.10 seconds`
+         INFO    - In total 1 test cases were executed, 10957 skipped on 1 out of total 638 platforms (0.16%)
          INFO    - :bgn:`1` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
@@ -106,17 +107,18 @@ Cryptography
          \|-------------\|----------\|-----------------\|
          \| tiac_magpie \| DT04BNT1 \| /dev/ttyUSB0    \|
 
+         INFO    - JOBS: 4
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1539/1543 tiac_magpie               tests/crypto/rand32/drivers.rand32.random_psa_crypto :byl:`SKIPPED` (runtime filter)
-         INFO    - 1540/1543 tiac_magpie               tests/crypto/rand32/crypto.rand32.random_sw_systimer :bgn:`PASSED` (device: DT04BNT1, 2.514s)
-         INFO    - 1541/1543 tiac_magpie               tests/crypto/rand32/crypto.rand32.random_hw_xoshiro :bgn:`PASSED` (device: DT04BNT1, 2.423s)
-         INFO    - 1542/1543 tiac_magpie               tests/crypto/rand32/crypto.rand32.random_ctr_drbg  :bgn:`PASSED` (device: DT04BNT1, 2.450s)
-         INFO    - 1543/1543 tiac_magpie               tests/crypto/rand32/crypto.rand32                  :bgn:`PASSED` (device: DT04BNT1, 2.480s)
+         INFO    - 1566/1570 tiac_magpie               tests/crypto/rand32/drivers.rand32.random_psa_crypto :byl:`SKIPPED` (runtime filter)
+         INFO    - 1567/1570 tiac_magpie               tests/crypto/rand32/crypto.rand32.random_sw_systimer :bgn:`PASSED` (device: DT04BNT1, 7.116s)
+         INFO    - 1568/1570 tiac_magpie               tests/crypto/rand32/crypto.rand32                  :bgn:`PASSED` (device: DT04BNT1, 2.497s)
+         INFO    - 1569/1570 tiac_magpie               tests/crypto/rand32/crypto.rand32.random_ctr_drbg  :bgn:`PASSED` (device: DT04BNT1, 2.509s)
+         INFO    - 1570/1570 tiac_magpie               tests/crypto/rand32/crypto.rand32.random_hw_xoshiro :bgn:`PASSED` (device: DT04BNT1, 2.489s)
 
-         INFO    - 1755 test scenarios (1543 test instances) selected, 1539 configurations skipped (1538 by static filter, 1 at runtime).
-         INFO    - :bgn:`4 of 1543` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1539` skipped with :bbk:`0` warnings in :bbk:`36.76 seconds`
-         INFO    - In total 4 test cases were executed, 10805 skipped on 1 out of total 634 platforms (0.16%)
+         INFO    - 1782 test scenarios (1570 test instances) selected, 1566 configurations skipped (1565 by static filter, 1 at runtime).
+         INFO    - :bgn:`4 of 1570` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1566` skipped with :bbk:`0` warnings in :bbk:`58.48 seconds`
+         INFO    - In total 4 test cases were executed, 10954 skipped on 1 out of total 638 platforms (0.16%)
          INFO    - :bgn:`4` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:

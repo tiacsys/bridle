@@ -25,6 +25,7 @@ Build and flash LED Blinky as follows:
    :app: zephyr/samples/basic/blinky
    :build-dir: led_blinky-tiac_magpie
    :board: tiac_magpie
+   :west-args: -p
    :goals: build flash
    :host-os: unix
 

@@ -172,7 +172,7 @@ default Zephyr console on serial port the Bridle :ref:`snippet-usb-console`
 can be used to enable :ref:`zephyr:usb_device_cdc_acm` and switch the console
 to USB::
 
-   USB device idVendor=2341, idProduct=804d, bcdDevice= 3.04
+   USB device idVendor=2341, idProduct=804d, bcdDevice= 3.05
    USB device strings: Mfr=1, Product=2, SerialNumber=3
    Product: Arduino Zero (CDC ACM)
    Manufacturer: Arduino LLC
@@ -403,17 +403,17 @@ Hello Shell with USB-CDC/ACM Console
          ID: 0xde73d01ae52511ed9cf503ee1d54a301
 
          uart:~$ kernel version
-         Zephyr version 3.4.99
+         Zephyr version 3.5.0
 
          uart:~$ bridle version
-         Bridle version 3.4.99
+         Bridle version 3.5.0
 
          uart:~$ bridle version long
-         Bridle version 3.4.99.0
+         Bridle version 3.5.0.0
 
          uart:~$ bridle info
-         Zephyr: 3.4.99
-         Bridle: 3.4.99
+         Zephyr: 3.5.0
+         Bridle: 3.5.0
 
          uart:~$ device list
          devices:

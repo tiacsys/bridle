@@ -28,6 +28,7 @@ Build and flash TELNET Console as follows:
    :build-dir: telnet-tiac_magpie
    :board: tiac_magpie
    :gen-args: -DCONFIG_NET_DHCPV4=y -DCONFIG_NET_LOG=y -DCONFIG_LOG=y -DCONFIG_GPIO_SHELL=y
+   :west-args: -p
    :goals: build flash
    :host-os: unix
 
@@ -38,11 +39,10 @@ are shown on the console like this:
 
    [00:00:00.011,000] <inf> shell_telnet: Telnet shell backend initialized
    [00:00:00.011,000] <inf> net_config: Initializing network
-   [00:00:00.011,000] <inf> net_config: Waiting interface 1 (0x20021400) to be up...
-   [00:00:00.511,000] <inf> net_config: Interface 1 (0x20021400) coming up
+   [00:00:00.011,000] <inf> net_config: Waiting interface 1 (0x200213c8) to be up...
+   [00:00:00.511,000] <inf> net_config: Interface 1 (0x200213c8) coming up
    [00:00:00.511,000] <inf> net_config: IPv4 address: 192.0.2.1
    [00:00:00.511,000] <inf> net_config: Running dhcpv4 client...
-   [00:00:00.511,000] <err> net_if: Cannot join solicit node address ff02::1:ff00:1 (-12)
    [00:00:00.511,000] <inf> net_telnet_sample: Starting Telnet sample
    [00:00:00.511,000] <inf> net_telnet_sample: Running dhcpv4 client...
    [00:00:00.511,000] <inf> net_telnet_sample: IPv6 address: 2001:db8::1
@@ -73,14 +73,14 @@ the network interface, and has received an IPv4 address by typing on Linux host:
    rtt min/avg/max/mdev = 0.261/0.276/0.303/0.019 ms
 
    $ nmap 192.168.10.197
-   Starting Nmap 7.80 ( https://nmap.org ) at 2023-06-17 02:10 CEST
-   Nmap scan report for 192.168.10.197
-   Host is up (0.0014s latency).
+   Starting Nmap 7.80 ( https://nmap.org ) at 2023-10-30 13:29 CET
+   Nmap scan report for 192.168.10.196
+   Host is up (0.0011s latency).
    Not shown: 999 closed ports
    PORT   STATE SERVICE
    23/tcp open  telnet
 
-   Nmap done: 1 IP address (1 host up) scanned in 2.42 seconds
+   Nmap done: 1 IP address (1 host up) scanned in 2.44 seconds
 
 At this point you should be able to connect via ``telnet`` over the network.
 On your Linux host:
@@ -100,57 +100,35 @@ or ``kernel version``.
 .. code-block:: console
 
    ~$ kernel version
-   Zephyr version 3.4.99
+   Zephyr version 3.5.0
 
    ~$ bridle version
-   Bridle version 3.4.99
+   Bridle version 3.5.0
 
    ~$ device list
    devices:
    - rcc@40023800 (READY)
+   - reset-controller (READY)
    - interrupt-controller@40013c00 (READY)
    - gpio@40022800 (READY)
-     requires: rcc@40023800
    - gpio@40022400 (READY)
-     requires: rcc@40023800
    - gpio@40022000 (READY)
-     requires: rcc@40023800
    - gpio@40021C00 (READY)
-     requires: rcc@40023800
    - gpio@40021800 (READY)
-     requires: rcc@40023800
    - gpio@40021400 (READY)
-     requires: rcc@40023800
    - gpio@40021000 (READY)
-     requires: rcc@40023800
    - gpio@40020C00 (READY)
-     requires: rcc@40023800
    - gpio@40020800 (READY)
-     requires: rcc@40023800
    - gpio@40020400 (READY)
-     requires: rcc@40023800
    - gpio@40020000 (READY)
-     requires: rcc@40023800
-   - reset-controller (READY)
-     requires: rcc@40023800
    - rng@50060800 (READY)
-     requires: rcc@40023800
    - serial@40007800 (READY)
-     requires: rcc@40023800
-     requires: reset-controller
    - serial@40004c00 (READY)
-     requires: rcc@40023800
-     requires: reset-controller
    - rtc@40002800 (READY)
-     requires: rcc@40023800
    - i2c@40006000 (READY)
-     requires: rcc@40023800
    - i2c@40005800 (READY)
-     requires: rcc@40023800
    - spi@40013400 (READY)
-     requires: rcc@40023800
    - ethernet@40028000 (READY)
-     requires: rcc@40023800
 
 Simple GPIO Operations
 ======================

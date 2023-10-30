@@ -388,6 +388,7 @@ Build and flash the application:
    :zephyr-app: zephyr/samples/hello_world
    :build-dir: hello_world-tiac_magpie
    :board: tiac_magpie
+   :west-args: -p
    :goals: build flash
    :host-os: unix
    :compact:
@@ -396,7 +397,7 @@ You should see the following message on the console:
 
 .. code-block:: console
 
-   *** Booting Zephyr OS version x.y.z  ***
+   *** Booting Zephyr OS build zephyr-vX.Y.Z ***
    Hello World! tiac_magpie
 
 Debugging
@@ -410,6 +411,7 @@ You can debug an application in the usual way. Here is an example for the
    :build-dir: hello_world-tiac_magpie
    :board: tiac_magpie
    :maybe-skip-config:
+   :west-args: -p
    :goals: debug
    :host-os: unix
 
@@ -517,19 +519,20 @@ with a single call to Twister.
          \|-------------\|----------\|-----------------\|
          \| tiac_magpie \| DT04BNT1 \| /dev/ttyUSB0    \|
 
+         INFO    - JOBS: 4
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - Total complete: :bgn:`1800/1800`  100%  skipped: :byl:`1662`, failed:    :bbk:`0`, error:    :bbk:`0`
-         INFO    - 2012 test scenarios (1800 test instances) selected, 1662 configurations skipped (1639 by static filter, 23 at runtime).
-         INFO    - :bgn:`138 of 1800` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1662` skipped with :bbk:`0` warnings in :bbk:`1723.80 seconds`
-         INFO    - In total 1327 test cases were executed, 9726 skipped on 1 out of total 634 platforms (0.16%)
-         INFO    - :bgn:`138` test configurations executed on platforms, :brd:`0` test configurations were only built.
+         INFO    - Total complete: :bgn:`1827/1827`  100%  skipped: :byl:`1686`, failed:    :bbk:`0`, error:    :bbk:`0`
+         INFO    - 2039 test scenarios (1827 test instances) selected, 1686 configurations skipped (1660 by static filter, 26 at runtime).
+         INFO    - :bgn:`141 of 1827` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1686` skipped with :bbk:`0` warnings in :bbk:`1773.27 seconds`
+         INFO    - In total 1379 test cases were executed, 9823 skipped on 1 out of total 638 platforms (0.16%)
+         INFO    - :bgn:`141` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
 
          \| Board       \| ID       \|   Counter \|
          \|-------------\|----------\|-----------\|
-         \| tiac_magpie \| DT04BNT1 \|       138 \|
+         \| tiac_magpie \| DT04BNT1 \|       141 \|
 
 .. admonition:: Known but currently tolerated test cases with errors
    :class: attention

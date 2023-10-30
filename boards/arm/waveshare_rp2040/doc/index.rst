@@ -445,7 +445,7 @@ host PC. As an alternative to the default Zephyr console on serial port the
 Bridle :ref:`snippet-usb-console` can be used to enable
 :ref:`zephyr:usb_device_cdc_acm` and switch the console to USB::
 
-   USB device idVendor=2e8a, idProduct=000a, bcdDevice= 3.04
+   USB device idVendor=2e8a, idProduct=000a, bcdDevice= 3.05
    USB device strings: Mfr=1, Product=2, SerialNumber=3
    Product: RP2040-Plus (CDC ACM)
    Manufacturer: Waveshare (Raspberry Pi)

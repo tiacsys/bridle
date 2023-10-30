@@ -31,6 +31,8 @@ for testing USB mass storage class implementation.
    :app: zephyr/samples/subsys/usb/mass
    :build-dir: usb_mass-tiac_magpie
    :board: tiac_magpie
+   :gen-args: -DEXTRA_DTC_OVERLAY_FILE="ramdisk.overlay"
+   :west-args: -p
    :goals: build flash
    :host-os: unix
 
@@ -52,7 +54,8 @@ build the sample with a RAM-based disk:
    :app: zephyr/samples/subsys/usb/mass
    :build-dir: usb_mass_fat-tiac_magpie
    :board: tiac_magpie
-   :gen-args: -DCONFIG_APP_MSC_STORAGE_RAM=y
+   :gen-args: -DEXTRA_DTC_OVERLAY_FILE="ramdisk.overlay" -DCONFIG_APP_MSC_STORAGE_RAM=y
+   :west-args: -p
    :goals: build flash
    :host-os: unix
 
@@ -64,7 +67,7 @@ will be detected as shown by the Linux journalctl command:
 
    $ journalctl -k -n 17
    usb 1-6.3: new full-speed USB device number 16 using xhci_hcd
-   usb 1-6.3: New USB device found, idVendor=2fe3, idProduct=0008, bcdDevice= 3.04
+   usb 1-6.3: New USB device found, idVendor=2fe3, idProduct=0008, bcdDevice= 3.05
    usb 1-6.3: New USB device strings: Mfr=1, Product=2, SerialNumber=3
    usb 1-6.3: Product: Zephyr MSC sample
    usb 1-6.3: Manufacturer: ZEPHYR

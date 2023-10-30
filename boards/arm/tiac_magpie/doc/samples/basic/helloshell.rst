@@ -24,6 +24,7 @@ Build and flash Hello Shell as follows:
    :app: bridle/samples/helloshell
    :build-dir: helloshell-tiac_magpie
    :board: tiac_magpie
+   :west-args: -p
    :goals: build flash
    :host-os: unix
 
@@ -46,33 +47,37 @@ prompt. All shell commands are available and would looks like:
    Please refer to shell documentation for more details.
 
    Available commands:
-     adc      :ADC commands
-     bridle   :Bridle commands.
-     clear    :Clear screen.
-     dac      :DAC shell commands
-     device   :Device commands
-     devmem   :Read/write physical memory
-               Usage:
-               Read memory at address with optional width:
-               devmem address [width]
-               Write memory at address with mandatory width and value:
-               devmem address <width> <value>
-     flash    :Flash shell commands
-     gpio     :GPIO commands
-     hello    :say hello
-     help     :Prints the help message.
-     history  :Command history.
-     hwinfo   :HWINFO commands
-     i2c      :I2C commands
-     kernel   :Kernel commands
-     log      :Commands for controlling logger
-     pwm      :PWM shell commands
-     resize   :Console gets terminal screen size or assumes default in case the
-               readout fails. It must be executed after each terminal width change
-               to ensure correct text display.
-     retval   :Print return value of most recent command
-     sensor   :Sensor commands
-     shell    :Useful, not Unix-like shell commands.
+     adc        :ADC commands
+     bridle     :Bridle commands.
+     clear      :Clear screen.
+     dac        :DAC shell commands
+     device     :Device commands
+     devmem     :Read/write physical memory
+                 Usage:
+                 Read memory at address with optional width:
+                 devmem address [width]
+                 Write memory at address with mandatory width and value:
+                 devmem address <width> <value>
+     flash      :Flash shell commands
+     gpio       :GPIO commands
+     hello      :say hello
+     help       :Prints the help message.
+     history    :Command history.
+     hwinfo     :HWINFO commands
+     i2c        :I2C commands
+     kernel     :Kernel commands
+     led        :LED commands
+     log        :Commands for controlling logger
+     pwm        :PWM shell commands
+     regulator  :Regulator playground
+     rem        :Ignore lines beginning with 'rem '
+     resize     :Console gets terminal screen size or assumes default in case the
+                 readout fails. It must be executed after each terminal width
+                 change to ensure correct text display.
+     retval     :Print return value of most recent command
+     sensor     :Sensor commands
+     shell      :Useful, not Unix-like shell commands.
+     timer      :Timer commands
 
    uart:~$ hello -h
    hello - say hello
@@ -84,66 +89,44 @@ prompt. All shell commands are available and would looks like:
    ID: 0x9e6b44aea1e2b8980c4d32a6
 
    uart:~$ kernel version
-   Zephyr version 3.4.99
+   Zephyr version 3.5.0
 
    uart:~$ bridle version
-   Bridle version 3.4.99
+   Bridle version 3.5.0
 
    uart:~$ bridle version long
-   Bridle version 3.4.99.0
+   Bridle version 3.5.0.0
 
    uart:~$ bridle info
-   Zephyr: 3.4.99
-   Bridle: 3.4.99
+   Zephyr: 3.5.0
+   Bridle: 3.5.0
 
    uart:~$ device list
    devices:
    - rcc@40023800 (READY)
+   - reset-controller (READY)
    - interrupt-controller@40013c00 (READY)
    - gpio@40022800 (READY)
-     requires: rcc@40023800
    - gpio@40022400 (READY)
-     requires: rcc@40023800
    - gpio@40022000 (READY)
-     requires: rcc@40023800
    - gpio@40021C00 (READY)
-     requires: rcc@40023800
    - gpio@40021800 (READY)
-     requires: rcc@40023800
    - gpio@40021400 (READY)
-     requires: rcc@40023800
    - gpio@40021000 (READY)
-     requires: rcc@40023800
    - gpio@40020C00 (READY)
-     requires: rcc@40023800
    - gpio@40020800 (READY)
-     requires: rcc@40023800
    - gpio@40020400 (READY)
-     requires: rcc@40023800
    - gpio@40020000 (READY)
-     requires: rcc@40023800
-   - reset-controller (READY)
-     requires: rcc@40023800
    - serial@40007800 (READY)
-     requires: rcc@40023800
-     requires: reset-controller
    - serial@40004c00 (READY)
-     requires: rcc@40023800
-     requires: reset-controller
    - rtc@40002800 (READY)
-     requires: rcc@40023800
    - adc@40012200 (READY)
-     requires: rcc@40023800
    - flash-controller@40023c00 (READY)
    - i2c@40006000 (READY)
-     requires: rcc@40023800
    - i2c@40005800 (READY)
-     requires: rcc@40023800
    - pwm (READY)
-     requires: rcc@40023800
-     requires: reset-controller
    - spi@40013400 (READY)
-     requires: rcc@40023800
+   - leds (READY)
 
    uart:~$ history
    [  0] history
@@ -180,6 +163,16 @@ Simple GPIO Operations
    uart:~$ gpio blink gpio@40021800 12
    Blinking port gpio@40021800 index 12. Hit any key to exit
 
+.. rubric:: Switch user LED 1 on and off (via LED API)
+
+.. code-block:: console
+
+   uart:~$ led on leds 0
+   leds: turning on LED 0
+
+   uart:~$ led off leds 0
+   leds: turning off LED 0
+
 Simple ADC Acquisition
 ======================
 
@@ -208,11 +201,11 @@ Simple Flash Access
 
 .. code-block:: console
 
-   uart:~$ flash read flash-controller@40023c00 135a0 40
-   000135A0: 7c 3c 01 08 e8 71 01 08  00 10 00 00 00 30 74 69 ||<...q.. .....0ti|
-   000135B0: 61 63 5f 6d 61 67 70 69  65 00 48 65 6c 6c 6f 20 |ac_magpi e.Hello |
-   000135C0: 57 6f 72 6c 64 21 20 49  27 6d 20 54 48 45 20 53 |World! I 'm THE S|
-   000135D0: 48 45 4c 4c 20 66 72 6f  6d 20 25 73 0a 00 69 6c |HELL fro m %s..il|
+   uart:~$ flash read flash-controller@40023c00 15be0 40
+   00015BE0: 00 00 00 00 00 00 00 00  00 10 00 00 00 30 74 69 |........ .....0ti|
+   00015BF0: 61 63 5f 6d 61 67 70 69  65 00 48 65 6c 6c 6f 20 |ac_magpi e.Hello |
+   00015C00: 57 6f 72 6c 64 21 20 49  27 6d 20 54 48 45 20 53 |World! I 'm THE S|
+   00015C10: 48 45 4c 4c 20 66 72 6f  6d 20 25 73 0a 00 69 6c |HELL fro m %s..il|
 
 Simple I2C Operations
 =====================

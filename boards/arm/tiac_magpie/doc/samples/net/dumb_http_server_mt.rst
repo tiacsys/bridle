@@ -32,6 +32,7 @@ this:
    :build-dir: dumb_http_server_mt-tiac_magpie
    :board: tiac_magpie
    :gen-args: -DCONFIG_NET_UDP=y -DCONFIG_NET_DHCPV4=y
+   :west-args: -p
    :goals: build flash
    :host-os: unix
 
@@ -41,8 +42,8 @@ are shown on the console like this:
 .. code-block:: none
 
    [00:00:00.011,000] <inf> net_config: Initializing network
-   [00:00:00.011,000] <inf> net_config: Waiting interface 1 (0x20021530) to be up...
-   [00:00:00.511,000] <inf> net_config: Interface 1 (0x20021530) coming up
+   [00:00:00.011,000] <inf> net_config: Waiting interface 1 (0x200214f0) to be up...
+   [00:00:00.511,000] <inf> net_config: Interface 1 (0x200214f0) coming up
    [00:00:00.511,000] <inf> net_config: IPv4 address: 192.0.2.1
    [00:00:00.511,000] <inf> net_config: Running dhcpv4 client...
    [00:00:00.612,000] <inf> net_config: IPv6 address: fd9c:33d7:ba99:0:280:e1ff:fe36:3539

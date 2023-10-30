@@ -16,17 +16,17 @@
          ID: 0x8be83cbec052feae
 
          uart:~$ kernel version
-         Zephyr version 3.4.99
+         Zephyr version 3.5.0
 
          uart:~$ bridle version
-         Bridle version 3.4.99
+         Bridle version 3.5.0
 
          uart:~$ bridle version long
-         Bridle version 3.4.99.0
+         Bridle version 3.5.0.0
 
          uart:~$ bridle info
-         Zephyr: 3.4.99
-         Bridle: 3.4.99
+         Zephyr: 3.5.0
+         Bridle: 3.5.0
 
          uart:~$ device list
          devices:

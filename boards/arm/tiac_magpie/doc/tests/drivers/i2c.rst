@@ -55,16 +55,16 @@ Building and Running
          \|-------------\|----------\|-----------------\|
          \| tiac_magpie \| DT04BNT1 \| /dev/ttyUSB0    \|
 
+         INFO    - JOBS: 4
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1542/1543 tiac_magpie               tests/drivers/i2c/i2c_api/drivers.i2c.api          :byl:`SKIPPED` (runtime filter)
-         INFO    - 1543/1543 tiac_magpie               tests/drivers/i2c/i2c_target_api/drivers.i2c.target_api.dual_role  :brd:`ERROR` Build failure (device)
+         INFO    - 1569/1570 tiac_magpie               tests/drivers/i2c/i2c_api/drivers.i2c.api          :byl:`SKIPPED` (runtime filter)
+         INFO    - 1570/1570 tiac_magpie               tests/drivers/i2c/i2c_target_api/drivers.i2c.target_api.dual_role  :brd:`ERROR` Build failure (device)
          INFO    - :byl:`.../twister-out/tiac_magpie/tests/drivers/i2c/i2c_target_api/drivers.i2c.target_api.dual_role/build.log`
-         ERROR   - Loading Zephyr default modules (Zephyr base).
 
-         INFO    - 1755 test scenarios (1543 test instances) selected, 1542 configurations skipped (1541 by static filter, 1 at runtime).
-         INFO    - :bgn:`0 of 1543` test configurations passed (0.00%), :bbk:`0` failed, :brd:`1` errored, :byl:`1542` skipped with :bbk:`0` warnings in :bbk:`16.02 seconds`
-         INFO    - In total 1 test cases were executed, 10808 skipped on 1 out of total 634 platforms (0.16%)
+         INFO    - 1782 test scenarios (1570 test instances) selected, 1569 configurations skipped (1568 by static filter, 1 at runtime).
+         INFO    - :bgn:`0 of 1570` test configurations passed (0.00%), :bbk:`0` failed, :brd:`1` errored, :byl:`1569` skipped with :bbk:`0` warnings in :bbk:`17.47 seconds`
+         INFO    - In total 1 test cases were executed, 10957 skipped on 1 out of total 638 platforms (0.16%)
          INFO    - :bgn:`0` test configurations executed on platforms, :brd:`1` test configurations were only built.
 
          Hardware distribution summary:

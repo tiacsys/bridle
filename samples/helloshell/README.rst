@@ -139,6 +139,13 @@ Sample Output
    Hello World! I'm THE SHELL from nucleo_f746zg
 
 
+   uart:~$ <Tab>
+     adc        bridle     clear      dac        device     devmem     flash
+     gpio       hello      help       history    hwinfo     i2c        kernel
+     led        log        pwm        regulator  rem        resize     retval
+     sensor     shell      timer
+
+   uart:~$ help
    Please press the <Tab> button to see all available commands.
    You can also use the <Tab> button to prompt or auto-complete all commands or its subcommands.
    You can try to call commands with <-h> or <--help> parameter for more information.
@@ -174,18 +181,12 @@ Sample Output
      regulator  :Regulator playground
      rem        :Ignore lines beginning with 'rem '
      resize     :Console gets terminal screen size or assumes default in case the
-                 readout fails. It must be executed after each terminal width change
-                 to ensure correct text display.
+                 readout fails. It must be executed after each terminal width
+                 change to ensure correct text display.
      retval     :Print return value of most recent command
      sensor     :Sensor commands
      shell      :Useful, not Unix-like shell commands.
      timer      :Timer commands
-
-   uart:~$ <Tab>
-     adc        bridle     clear      dac        device     devmem     flash
-     gpio       hello      help       history    hwinfo     i2c        kernel
-     led        log        pwm        regulator  rem        resize     retval
-     sensor     shell      timer
 
    uart:~$ hello -h
    hello - say hello
@@ -193,10 +194,10 @@ Sample Output
    Hello from shell.
 
    uart:~$ kernel version
-   Zephyr version 3.4.99
+   Zephyr version 3.5.0
 
    uart:~$ bridle version
-   Bridle version 3.4.99
+   Bridle version 3.5.0
 
    uart:~$ kernel uptime
    Uptime: 254707293 ms
@@ -205,32 +206,33 @@ Sample Output
    cycles: 4281597339 hw cycles
 
    uart:~$ kernel threads
+   Scheduler: 328 since last call
    Threads:
-    0x20020d28 sysworkq
-           options: 0x0, priority: -1 timeout: 0
-           state: pending, entry: 0x800b169
-           stack size 1024, unused 864, usage 160 / 1024 (15 %)
+    0x20021650 sysworkq
+	   options: 0x0, priority: -1 timeout: 0
+	   state: pending, entry: 0x800e4f9
+	   stack size 1024, unused 832, usage 192 / 1024 (18 %)
 
-   *0x200208f8 shell_uart
-           options: 0x0, priority: 14 timeout: 0
-           state: queued, entry: 0x80044b9
-           stack size 2048, unused 1136, usage 912 / 2048 (44 %)
+   *0x20020a80 shell_uart
+	   options: 0x0, priority: 14 timeout: 0
+	   state: queued, entry: 0x8004e75
+	   stack size 2048, unused 1016, usage 1032 / 2048 (50 %)
 
-    0x20020840 logging
-           options: 0x0, priority: 14 timeout: 0
-           state: pending, entry: 0x8002555
-           stack size 768, unused 664, usage 104 / 768 (13 %)
+    0x20020588 logging
+	   options: 0x0, priority: 14 timeout: 0
+	   state: pending, entry: 0x8002bad
+	   stack size 768, unused 584, usage 184 / 768 (23 %)
 
-    0x20020bb0 idle 00
-           options: 0x1, priority: 15 timeout: 0
-           state: , entry: 0x800e501
-           stack size 320, unused 272, usage 48 / 320 (15 %)
+    0x200214c0 idle
+	   options: 0x1, priority: 15 timeout: 0
+	   state: , entry: 0x80134c3
+	   stack size 320, unused 256, usage 64 / 320 (20 %)
 
    uart:~$ kernel stacks
-   0x20020d28 sysworkq   (real size 1024):	unused 864	usage 160 / 1024 (15 %)
-   0x200208f8 shell_uart (real size 2048):	unused 1096	usage 952 / 2048 (46 %)
-   0x20020840 logging    (real size 768):	unused 664	usage 104 / 768 (13 %)
-   0x20020bb0 idle 00    (real size 320):	unused 272	usage 48 / 320 (15 %)
-   0x20023580 IRQ 00     (real size 2048):	unused 1484	usage 564 / 2048 (27 %)
+   0x20021650 sysworkq   (real size 1024):	unused  832	usage  192 / 1024 (18 %)
+   0x20020a80 shell_uart (real size 2048):	unused  944	usage 1104 / 2048 (53 %)
+   0x20020588 logging    (real size  768):	unused  584	usage  184 /  768 (23 %)
+   0x200214c0 idle       (real size  320):	unused  256	usage   64 /  320 (20 %)
+   0x20025400 IRQ 00     (real size 2048):	unused 1684	usage  364 / 2048 (17 %)
 
    uart:~$ _

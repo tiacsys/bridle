@@ -55,16 +55,17 @@ Building and Running
          \|-------------\|----------\|-----------------\|
          \| tiac_magpie \| DT04BNT1 \| /dev/ttyUSB0    \|
 
+         INFO    - JOBS: 4
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1540/1543 tiac_magpie               tests/drivers/gpio/gpio_enable_disable_interrupt/drivers.gpio.enable_disable_interrupt :byl:`SKIPPED` (runtime filter)
-         INFO    - 1541/1543 tiac_magpie               tests/drivers/gpio/gpio_basic_api/drivers.gpio.2pin :bgn:`PASSED` (device: DT04BNT1, 17.746s)
-         INFO    - 1542/1543 tiac_magpie               tests/drivers/gpio/gpio_api_1pin/drivers.gpio.1pin :bgn:`PASSED` (device: DT04BNT1, 9.384s)
-         INFO    - 1543/1543 tiac_magpie               tests/drivers/gpio/gpio_get_direction/drivers.gpio.get_direction :bgn:`PASSED` (device: DT04BNT1, 2.432s)
+         INFO    - 1567/1570 tiac_magpie               tests/drivers/gpio/gpio_enable_disable_interrupt/drivers.gpio.enable_disable_interrupt :byl:`SKIPPED` (runtime filter)
+         INFO    - 1568/1570 tiac_magpie               tests/drivers/gpio/gpio_get_direction/drivers.gpio.get_direction :bgn:`PASSED` (device: DT04BNT1, 2.498s)
+         INFO    - 1569/1570 tiac_magpie               tests/drivers/gpio/gpio_basic_api/drivers.gpio.2pin :bgn:`PASSED` (device: DT04BNT1, 17.788s)
+         INFO    - 1570/1570 tiac_magpie               tests/drivers/gpio/gpio_api_1pin/drivers.gpio.1pin :bgn:`PASSED` (device: DT04BNT1, 9.448s)
 
-         INFO    - 1755 test scenarios (1543 test instances) selected, 1540 configurations skipped (1539 by static filter, 1 at runtime).
-         INFO    - :bgn:`3 of 1543` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1540` skipped with :bbk:`0` warnings in :bbk:`54.52 seconds`
-         INFO    - In total 26 test cases were executed, 10783 skipped on 1 out of total 634 platforms (0.16%)
+         INFO    - 1782 test scenarios (1570 test instances) selected, 1567 configurations skipped (1566 by static filter, 1 at runtime).
+         INFO    - :bgn:`3 of 1570` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1567` skipped with :bbk:`0` warnings in :bbk:`71.79 seconds`
+         INFO    - In total 26 test cases were executed, 10932 skipped on 1 out of total 638 platforms (0.16%)
          INFO    - :bgn:`3` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:

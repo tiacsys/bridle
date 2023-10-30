@@ -48,21 +48,22 @@ Building and Running
          \|-------------\|----------\|-----------------\|
          \| tiac_magpie \| DT04BNT1 \| /dev/ttyUSB0    \|
 
+         INFO    - JOBS: 4
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1535/1543 tiac_magpie               tests/subsys/canbus/isotp/implementation/canbus.isotp.implementation PASSED (device: DT04BNT1, 17.651s)
-         INFO    - 1536/1543 tiac_magpie               tests/subsys/canbus/isotp/conformance/canbus.isotp.conformance.fd.txdl_64 PASSED (device: DT04BNT1, 3.085s)
-         INFO    - 1537/1543 tiac_magpie               tests/subsys/canbus/isotp/conformance/canbus.isotp.conformance.fd.txdl_32 PASSED (device: DT04BNT1, 3.136s)
-         INFO    - 1538/1543 tiac_magpie               tests/subsys/canbus/isotp/conformance/canbus.isotp.conformance.fd.unused PASSED (device: DT04BNT1, 13.632s)
-         INFO    - 1539/1543 tiac_magpie               tests/subsys/canbus/isotp/conformance/canbus.isotp.conformance PASSED (device: DT04BNT1, 13.850s)
-         INFO    - 1540/1543 tiac_magpie               tests/drivers/can/shell/drivers.can.shell          PASSED (device: DT04BNT1, 4.353s)
-         INFO    - 1541/1543 tiac_magpie               tests/drivers/can/api/drivers.can.api              PASSED (device: DT04BNT1, 5.113s)
-         INFO    - 1542/1543 tiac_magpie               tests/net/socket/can/net.socket.can                PASSED (device: DT04BNT1, 2.382s)
-         INFO    - 1543/1543 tiac_magpie               tests/drivers/can/timing/drivers.can.timing.tiac_magpie PASSED (device: DT04BNT1, 3.233s)
+         INFO    - 1562/1570 tiac_magpie               tests/subsys/canbus/isotp/conformance/canbus.isotp.conformance.fd.unused :bgn:`PASSED` (device: DT04BNT1, 13.645s)
+         INFO    - 1563/1570 tiac_magpie               tests/subsys/canbus/isotp/conformance/canbus.isotp.conformance.fd.txdl_64 :bgn:`PASSED` (device: DT04BNT1, 3.177s)
+         INFO    - 1564/1570 tiac_magpie               tests/subsys/canbus/isotp/conformance/canbus.isotp.conformance.fd.txdl_32 :bgn:`PASSED` (device: DT04BNT1, 3.181s)
+         INFO    - 1565/1570 tiac_magpie               tests/subsys/canbus/isotp/implementation/canbus.isotp.implementation :bgn:`PASSED` (device: DT04BNT1, 17.626s)
+         INFO    - 1566/1570 tiac_magpie               tests/subsys/canbus/isotp/conformance/canbus.isotp.conformance :bgn:`PASSED` (device: DT04BNT1, 16.125s)
+         INFO    - 1567/1570 tiac_magpie               tests/drivers/can/shell/drivers.can.shell          :bgn:`PASSED` (device: DT04BNT1, 4.590s)
+         INFO    - 1568/1570 tiac_magpie               tests/net/socket/can/net.socket.can                :bgn:`PASSED` (device: DT04BNT1, 2.488s)
+         INFO    - 1569/1570 tiac_magpie               tests/drivers/can/api/drivers.can.api              :bgn:`PASSED` (device: DT04BNT1, 5.191s)
+         INFO    - 1570/1570 tiac_magpie               tests/drivers/can/timing/drivers.can.timing        :bgn:`PASSED` (device: DT04BNT1, 3.278s)
 
-         INFO    - 1755 test scenarios (1543 test instances) selected, 1534 configurations skipped (1534 by static filter, 0 at runtime).
-         INFO    - :bgn:`9 of 1543` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1534` skipped with :bbk:`0` warnings in :bbk:`100.98 seconds`
-         INFO    - In total 171 test cases were executed, 10639 skipped on 1 out of total 634 platforms (0.16%)
+         INFO    - 1782 test scenarios (1570 test instances) selected, 1561 configurations skipped (1561 by static filter, 0 at runtime).
+         INFO    - :bgn:`9 of 1570` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1561` skipped with 0 warnings in :bbk:`152.47 seconds`
+         INFO    - In total 171 test cases were executed, 10788 skipped on 1 out of total 638 platforms (0.16%)
          INFO    - :bgn:`9` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:

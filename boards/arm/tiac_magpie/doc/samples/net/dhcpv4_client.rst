@@ -27,6 +27,7 @@ Build and flash DHCPv4 Client as follows:
    :app: zephyr/samples/net/dhcpv4_client
    :build-dir: dhcpv4_client-tiac_magpie
    :board: tiac_magpie
+   :west-args: -p
    :goals: build flash
    :host-os: unix
 
@@ -37,12 +38,12 @@ are shown on the console like this:
 
    [00:00:00.011,000] <inf> net_dhcpv4_client_sample: Run dhcpv4 client
    [00:00:00.011,000] <inf> net_dhcpv4_client_sample: Start on ethernet@40028000: index=1
-   [00:00:03.534,000] <inf> net_dhcpv4_client_sample: DHCP Option 42: 192.168.10.10
-   [00:00:03.534,000] <inf> net_dhcpv4: Received: 192.168.10.197
-   [00:00:03.534,000] <inf> net_dhcpv4_client_sample:    Address[1]: 192.168.10.197
-   [00:00:03.534,000] <inf> net_dhcpv4_client_sample:     Subnet[1]: 255.255.255.0
-   [00:00:03.534,000] <inf> net_dhcpv4_client_sample:     Router[1]: 192.168.10.1
-   [00:00:03.534,000] <inf> net_dhcpv4_client_sample: Lease time[1]: 28800 seconds
+   [00:00:03.084,000] <inf> net_dhcpv4_client_sample: DHCP Option 42: 192.168.10.10
+   [00:00:03.084,000] <inf> net_dhcpv4: Received: 192.168.10.197
+   [00:00:03.084,000] <inf> net_dhcpv4_client_sample:    Address[1]: 192.168.10.197
+   [00:00:03.084,000] <inf> net_dhcpv4_client_sample:     Subnet[1]: 255.255.255.0
+   [00:00:03.084,000] <inf> net_dhcpv4_client_sample:     Router[1]: 192.168.10.1
+   [00:00:03.084,000] <inf> net_dhcpv4_client_sample: Lease time[1]: 28800 seconds
 
 To verify the Zephyr application client is running and has received
 an IPv4 address by typing on Linux host:
@@ -65,22 +66,22 @@ On Zephyr, Shell command line:
 
    uart:~$ net iface show 1
 
-   Interface 0x20020ca8 (Ethernet) [1]
+   Interface eth0 (0x20020cb8) (Ethernet) [1]
    ===================================
    Link addr : 02:80:E1:4F:98:16
    MTU       : 1500
    Flags     : AUTO_START,IPv4
    Ethernet capabilities supported:
-           10 Mbits
-           100 Mbits
+	   10 Mbits
+	   100 Mbits
    IPv4 unicast addresses (max 1):
-           192.168.10.197 DHCP preferred
+	   192.168.10.197 DHCP preferred
    IPv4 multicast addresses (max 1):
-           <none>
+	   <none>
    IPv4 gateway : 192.168.10.1
    IPv4 netmask : 255.255.255.0
-   DHCPv4 lease time : 36000
-   DHCPv4 renew time : 18000
+   DHCPv4 lease time : 28800
+   DHCPv4 renew time : 14400
    DHCPv4 server     : 192.168.10.10
    DHCPv4 requested  : 192.168.10.197
    DHCPv4 state      : bound

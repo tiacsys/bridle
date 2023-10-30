@@ -185,7 +185,7 @@ alternative to the default Zephyr console on serial port the Bridle
 :ref:`snippet-usb-console` can be used to enable
 :ref:`zephyr:usb_device_cdc_acm` and switch the console to USB::
 
-   USB device idVendor=2886, idProduct=802f, bcdDevice= 3.04
+   USB device idVendor=2886, idProduct=802f, bcdDevice= 3.05
    USB device strings: Mfr=1, Product=2, SerialNumber=3
    Product: XIAO SAMD21 (CDC ACM)
    Manufacturer: Seeed Studio
@@ -351,17 +351,17 @@ Hello Shell with USB-CDC/ACM Console
          ID: 0x2601f57f2e175d24ac3fb5052f48a3f7
 
          uart:~$ kernel version
-         Zephyr version 3.4.99
+         Zephyr version 3.5.0
 
          uart:~$ bridle version
-         Bridle version 3.4.99
+         Bridle version 3.5.0
 
          uart:~$ bridle version long
-         Bridle version 3.4.99.0
+         Bridle version 3.5.0.0
 
          uart:~$ bridle info
-         Zephyr: 3.4.99
-         Bridle: 3.4.99
+         Zephyr: 3.5.0
+         Bridle: 3.5.0
 
          uart:~$ device list
          devices:
