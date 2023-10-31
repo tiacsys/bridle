@@ -31,8 +31,8 @@ For more details, see: :ref:`repos_and_revs`.
      - Tag
    * - `tiac-bridle`_
      -
-     - main
-     -
+     - v3.5-branch
+     - v3.5.0
    * - | `tiac-zephyr`_
        | (`zephyr-core`_)
      - | canopennode
@@ -77,9 +77,9 @@ For more details, see: :ref:`repos_and_revs`.
        | tinycrypt
        | trusted-firmware-a
        | trusted-firmware-m
-     - | tiacsys/main
-       | (main)
-     -
+     - | tiacsys/v3.5-branch
+       | (v3.5-branch)
+     - v3.5.0
 
 Supported boards
 ****************
