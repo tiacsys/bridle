@@ -1,0 +1,35 @@
+# The west submanifest file for ubxlib.
+#
+# Copyright (c) 2023 TiaC Systems
+#
+# SPDX-License-Identifier: Apache-2.0
+
+manifest:
+  version: "0.13"
+
+  # If not otherwise specified, the projects below should be obtained
+  # from the u-blox remote.
+  defaults:
+    remote: u-blox
+
+  # "remotes" is a list of locations where git repositories are cloned
+  # and fetched from.
+  remotes:
+    - name: u-blox
+      url-base: https://github.com/u-blox
+
+  # "projects" is a list of git repositories which make up the TIAC
+  # source code. Please add items below based on alphabetical order.
+  projects:
+
+    #
+    # TODO: create fork in the TIAC organization!
+    #
+    # The fork in the TIAC organization of the portable C libraries which
+    # provides the u-blox modules API for microcontroller and RTOS SDKs.
+    # It depends on the Zephyr subset module 'mbedtls'.
+    - name: ubxlib
+      path: modules/lib/ubxlib
+      remote: u-blox
+      repo-path: ubxlib
+      revision: master
