@@ -253,7 +253,7 @@ Following mappings are well known:
       +--------------------+-----------------------------+-------------------------+-------------------------+
       |                    | ``<&grove_pwms 16 …>``      | **D16:** *A2*           |                         |
       +--------------------+-----------------------------+-------------------------+-------------------------+
-      |                    | ``<&grove_pwms 17 …>``      | **D17:**                |                         |
+      |                    | ``<&grove_pwms 17 …>``      | **D17:** *A3*           |                         |
       +--------------------+-----------------------------+-------------------------+-------------------------+
       |                    | ``<&grove_pwms 18 …>``      | **D18:** *I2C-SDA*      |                         |
       +--------------------+-----------------------------+-------------------------+-------------------------+
@@ -324,7 +324,8 @@ I2C Port
 ========
 
 The SAMD21 MCU has 6 SERCOM based I2Cs. On the Lotus Cortex-M0+, SERCOM3
-is available only on D18 (SDA) and D19 (SCL) of the |Arduino UNO R3| header.
+is available on D18 (SDA) and D19 (SCL) of the |Arduino UNO R3| header and
+on pin 1 (SCL) and pin 2 (SDA) of the two Grove I2C connectors.
 
 Serial Port
 ===========
@@ -526,14 +527,17 @@ Hello Shell with USB-CDC/ACM Console
          - eic@40001800 (READY)
          - gpio@41004480 (READY)
          - gpio@41004400 (READY)
-         - cdc-acm-uart-0 (READY)
+         - snippet_cdc_acm_console_uart (READY)
          - sercom@42001c00 (READY)
          - sercom@42001000 (READY)
+         - tc@42003800 (DISABLED)
+         - tc@42003000 (DISABLED)
          - adc@42004000 (READY)
          - dac@42004800 (READY)
+         - nvmctrl@41004000 (READY)
          - sercom@42001400 (READY)
          - tcc@42002800 (READY)
-         - nvmctrl@41004000 (READY)
+         - tcc@42002000 (READY)
 
          uart:~$ history
          [  0] history
@@ -610,11 +614,11 @@ Hello Shell with USB-CDC/ACM Console
 
       .. code-block:: console
 
-         uart:~$ flash read nvmctrl@41004000 137f0 40
-         000137F0: 74 75 73 00 48 65 6c 6c  6f 20 57 6f 72 6c 64 21 |tus.Hell o World!|
-         00013800: 20 49 27 6d 20 54 48 45  20 53 48 45 4c 4c 20 66 | I'm THE  SHELL f|
-         00013810: 72 6f 6d 20 25 73 0a 00  69 6c 6c 65 67 61 6c 20 |rom %s.. illegal |
-         00013820: 6f 70 74 69 6f 6e 20 2d  2d 20 25 63 00 6f 70 74 |option - - %c.opt|
+         uart:~$ flash read nvmctrl@41004000 17d34 40
+         00017D34: 73 65 65 65 64 75 69 6e  6f 5f 6c 6f 74 75 73 00 |seeeduin o_lotus.|
+         00017D44: 48 65 6c 6c 6f 20 57 6f  72 6c 64 21 20 49 27 6d |Hello Wo rld! I'm|
+         00017D54: 20 54 48 45 20 53 48 45  4c 4c 20 66 72 6f 6d 20 | THE SHE LL from |
+         00017D64: 25 73 0a 00 69 6c 6c 65  67 61 6c 20 6f 70 74 69 |%s..ille gal opti|
 
          uart:~$ flash read nvmctrl@41004000 3c000 40
          0003C000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff |........ ........|
@@ -625,9 +629,11 @@ Hello Shell with USB-CDC/ACM Console
          uart:~$ flash test nvmctrl@41004000 3c000 400 2
          Erase OK.
          Write OK.
+         Verified OK.
          Erase OK.
          Write OK.
-         Erase-Write test done.
+         Verified OK.
+         Erase-Write-Verify test done.
 
          uart:~$ flash read nvmctrl@41004000 3c000 40
          0003C000: 00 01 02 03 04 05 06 07  08 09 0a 0b 0c 0d 0e 0f |........ ........|
