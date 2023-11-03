@@ -63,6 +63,15 @@ specified as required.
      - | |zephyr,console|
        | |zephyr,shell-uart|
 
+   * - :code:`seeeduino_cm0`
+     - :code:`0x2886`
+     - :code:`0x8027`
+     - |Seeed LLC|_
+     - |Seeeduino Cortex-M0+ (CDC ACM)|
+     - `Seeeduino USB product ID list with SAMD21 CPU`_
+     - | |zephyr,console|
+       | |zephyr,shell-uart|
+
    * - :code:`seeed_xiao_samd21`
      - :code:`0x2886`
      - :code:`0x802F`
@@ -196,6 +205,9 @@ References
 
 .. |Seeeduino Lotus Cortex-M0+ (CDC ACM)| replace::
    :ref:`Seeeduino Lotus Cortex-M0+ (CDC ACM) <seeeduino_lotus>`
+
+.. |Seeeduino Cortex-M0+ (CDC ACM)| replace::
+   :ref:`Seeeduino Cortex-M0+ (CDC ACM) <seeeduino_cm0>`
 
 .. |XIAO SAMD21 (CDC ACM)| replace::
    :ref:`XIAO SAMD21 (CDC ACM) <seeed_xiao_samd21>`
