@@ -534,6 +534,63 @@ For example:
                      :host-os: unix
                      :tool: all
 
+         .. group-tab:: Seeeduino Cortex-M0+
+
+            This is based on the Bridle board :ref:`seeeduino_cm0`.
+
+            * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
+
+            .. image:: img/x_grove_testbed_seeduino_cm0_bb.svg
+               :alt: Seeeduino Cortex-M0+ Wiring Schematics
+               :align: center
+
+            .. tabs::
+
+               .. group-tab:: LED Blinky
+
+                  This is based on the Zephyr sample
+                  :doc:`zephyr:samples/basic/blinky/README`.
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/blinky
+                     :build-dir: blinky-seeeduino_cm0-x_grove_testbed
+                     :board: seeeduino_cm0
+                     :shield: "seeed_grove_base_v2 grove_btn_d7 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :goals: build flash
+                     :west-args: -p always -S usb-console
+                     :host-os: unix
+                     :tool: all
+
+               .. group-tab:: LED Fade
+
+                  This is based on the Zephyr sample
+                  :doc:`zephyr:samples/basic/fade_led/README`.
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/fade_led
+                     :build-dir: fade-seeeduino_cm0-x_grove_testbed
+                     :board: seeeduino_cm0
+                     :shield: "seeed_grove_base_v2 grove_btn_d7 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :goals: build flash
+                     :west-args: -p always -S usb-console
+                     :host-os: unix
+                     :tool: all
+
+               .. group-tab:: LED Button
+
+                  This is based on the Zephyr sample
+                  :doc:`zephyr:samples/basic/button/README`.
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/button
+                     :build-dir: button-seeeduino_cm0-x_grove_testbed
+                     :board: seeeduino_cm0
+                     :shield: "seeed_grove_base_v2 grove_btn_d7 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :goals: build flash
+                     :west-args: -p always -S usb-console
+                     :host-os: unix
+                     :tool: all
+
          .. group-tab:: Seeeduino Lotus Cortex-M0+
 
             This is based on the Bridle board :ref:`seeeduino_lotus`.
