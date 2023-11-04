@@ -401,7 +401,8 @@ if(DEFINED if_path)
   endif()
 
   # check board specific add-ons for arduino_zero
-  if(CONFIG_BOARD_ARDUINO_ZERO)
+  if(CONFIG_BOARD_ARDUINO_ZERO OR
+     CONFIG_BOARD_SEEEDUINO_CM0)
 
     test_if_label_on_path("grove_pwms" "${if_path}")
 
@@ -457,6 +458,7 @@ if(DEFINED if_path)
      CONFIG_BOARD_MIMXRT1060_EVK OR
      CONFIG_BOARD_MIMXRT1060_EVKB OR
      CONFIG_BOARD_ARDUINO_ZERO OR
+     CONFIG_BOARD_SEEEDUINO_CM0 OR
      CONFIG_BOARD_SEEEDUINO_LOTUS)
 
     test_if_label_matching("grove_serial" "arduino_serial")
