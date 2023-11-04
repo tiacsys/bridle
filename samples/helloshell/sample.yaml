@@ -39,6 +39,7 @@ common:
     - rpi_pico
     - seeed_xiao_samd21
     - seeeduino_xiao
+    - seeeduino_cm0
     - seeeduino_lotus
     - waveshare_rp2040_one
     - waveshare_rp2040_zero
