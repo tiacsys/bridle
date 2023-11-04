@@ -112,6 +112,7 @@ tests:
       mimxrt1060_evk
       mimxrt1060_evkb
       arduino_zero
+      seeeduino_cm0
       seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v2
   grove.base.v1.arduino:
@@ -136,6 +137,7 @@ tests:
       mimxrt1060_evk
       mimxrt1060_evkb
       arduino_zero
+      seeeduino_cm0
       seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v1
   grove.xiao.v1.xiao:
@@ -184,6 +186,7 @@ tests:
       mimxrt1060_evk
       mimxrt1060_evkb
       arduino_zero
+      seeeduino_cm0
       seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v2
   grove_pwms.base.v1:
@@ -199,6 +202,7 @@ tests:
       mimxrt1060_evk
       mimxrt1060_evkb
       arduino_zero
+      seeeduino_cm0
       seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v1
   grove_pwms.xiao.v1:
