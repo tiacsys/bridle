@@ -43,6 +43,7 @@ supported by this shield and that will be used for maintenance::
          --platform rpi_pico \
          --platform seeed_xiao_samd21 \
          --platform seeeduino_xiao \
+         --platform seeeduino_cm0 \
          --platform seeeduino_lotus \
          --platform waveshare_rp2040_plus \
          --platform waveshare_rp2040_plus@16mb \

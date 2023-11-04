@@ -248,6 +248,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d0", "pwm-leds")
     platform_allow:
       arduino_zero
+      seeeduino_cm0
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d0
   grove.base.v1.grove_led.pwm.d0:
     depends_on: arduino_gpio
@@ -256,6 +257,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d0", "pwm-leds")
     platform_allow:
       arduino_zero
+      seeeduino_cm0
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d0
   grove.base.v2.grove_led.pwm.d1:
     depends_on: arduino_gpio
@@ -264,6 +266,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d1", "pwm-leds")
     platform_allow:
       arduino_zero
+      seeeduino_cm0
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d1
   grove.base.v1.grove_led.pwm.d1:
     depends_on: arduino_gpio
@@ -272,6 +275,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d1", "pwm-leds")
     platform_allow:
       arduino_zero
+      seeeduino_cm0
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d1
   grove.base.v2.grove_led.pwm.d2:
     depends_on: arduino_gpio
@@ -284,6 +288,7 @@ tests:
       mimxrt1060_evk
       mimxrt1060_evkb
       arduino_zero
+      seeeduino_cm0
       seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d2
   grove.base.v1.grove_led.pwm.d2:
@@ -297,6 +302,7 @@ tests:
       mimxrt1060_evk
       mimxrt1060_evkb
       arduino_zero
+      seeeduino_cm0
       seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d2
   grove.base.v2.grove_led.pwm.d3:
@@ -312,6 +318,7 @@ tests:
       mimxrt1060_evk
       mimxrt1060_evkb
       arduino_zero
+      seeeduino_cm0
       seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d3
   grove.base.v1.grove_led.pwm.d3:
@@ -327,6 +334,7 @@ tests:
       mimxrt1060_evk
       mimxrt1060_evkb
       arduino_zero
+      seeeduino_cm0
       seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d3
   grove.base.v2.grove_led.pwm.d4:
@@ -339,6 +347,7 @@ tests:
       mimxrt1060_evk
       mimxrt1060_evkb
       arduino_zero
+      seeeduino_cm0
       seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d4
   grove.base.v1.grove_led.pwm.d4:
@@ -351,6 +360,7 @@ tests:
       mimxrt1060_evk
       mimxrt1060_evkb
       arduino_zero
+      seeeduino_cm0
       seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d4
   grove.base.v2.grove_led.pwm.d5:
@@ -366,6 +376,7 @@ tests:
       mimxrt1060_evk
       mimxrt1060_evkb
       arduino_zero
+      seeeduino_cm0
       seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d5
   grove.base.v1.grove_led.pwm.d5:
@@ -381,6 +392,7 @@ tests:
       mimxrt1060_evk
       mimxrt1060_evkb
       arduino_zero
+      seeeduino_cm0
       seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d5
   grove.base.v2.grove_led.pwm.d6:
@@ -394,6 +406,7 @@ tests:
       nucleo_f413zh
       nucleo_f767zi
       arduino_zero
+      seeeduino_cm0
       seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d6
   grove.base.v1.grove_led.pwm.d6:
@@ -407,6 +420,7 @@ tests:
       nucleo_f413zh
       nucleo_f767zi
       arduino_zero
+      seeeduino_cm0
       seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d6
   grove.base.v2.grove_led.pwm.d7:
@@ -418,6 +432,7 @@ tests:
       nucleo_f303re
       nucleo_f401re
       arduino_zero
+      seeeduino_cm0
       seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d7
   grove.base.v1.grove_led.pwm.d7:
@@ -429,6 +444,7 @@ tests:
       nucleo_f303re
       nucleo_f401re
       arduino_zero
+      seeeduino_cm0
       seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d7
   grove.base.v2.grove_led.pwm.d8:
@@ -441,6 +457,7 @@ tests:
       nucleo_f401re
       mimxrt1010_evk
       arduino_zero
+      seeeduino_cm0
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d8
   grove.base.v1.grove_led.pwm.d8:
     depends_on: arduino_gpio
@@ -452,6 +469,7 @@ tests:
       nucleo_f401re
       mimxrt1010_evk
       arduino_zero
+      seeeduino_cm0
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d8
   grove.base.v2.grove_led.pwm.d9:
     depends_on: arduino_gpio
@@ -465,6 +483,7 @@ tests:
       nucleo_f767zi
       mimxrt1010_evk
       arduino_zero
+      seeeduino_cm0
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d9
   grove.base.v1.grove_led.pwm.d9:
     depends_on: arduino_gpio
@@ -478,6 +497,7 @@ tests:
       nucleo_f767zi
       mimxrt1010_evk
       arduino_zero
+      seeeduino_cm0
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d9
   grove.base.v1.grove_led.pwm.d10:
     depends_on: arduino_gpio
@@ -492,6 +512,7 @@ tests:
       mimxrt1060_evk
       mimxrt1060_evkb
       arduino_zero
+      seeeduino_cm0
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d10
   grove.base.v1.grove_led.pwm.d11:
     depends_on: arduino_gpio
@@ -506,6 +527,7 @@ tests:
       mimxrt1060_evk
       mimxrt1060_evkb
       arduino_zero
+      seeeduino_cm0
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d11
   grove.base.v1.grove_led.pwm.d12:
     depends_on: arduino_gpio
@@ -519,6 +541,7 @@ tests:
       mimxrt1060_evk
       mimxrt1060_evkb
       arduino_zero
+      seeeduino_cm0
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d12
   grove.base.v1.grove_led.pwm.d13:
     depends_on: arduino_gpio
@@ -533,6 +556,7 @@ tests:
       mimxrt1060_evk
       mimxrt1060_evkb
       arduino_zero
+      seeeduino_cm0
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d13
   grove.base.v2.grove_led.pwm.d18:
     depends_on: arduino_gpio
@@ -544,6 +568,7 @@ tests:
       nucleo_f413zh
       nucleo_f767zi
       arduino_zero
+      seeeduino_cm0
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d18
   grove.base.v1.grove_led.pwm.d18:
     depends_on: arduino_gpio
@@ -556,6 +581,7 @@ tests:
       nucleo_f413zh
       nucleo_f767zi
       arduino_zero
+      seeeduino_cm0
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d18
   grove.base.v2.grove_led.pwm.d19:
     depends_on: arduino_gpio
@@ -568,6 +594,7 @@ tests:
       nucleo_f413zh
       nucleo_f767zi
       arduino_zero
+      seeeduino_cm0
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d19
   grove.base.v1.grove_led.pwm.d19:
     depends_on: arduino_gpio
@@ -580,6 +607,7 @@ tests:
       nucleo_f413zh
       nucleo_f767zi
       arduino_zero
+      seeeduino_cm0
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d19
   #
   # Grove LED by simple GPIO on Grove Shield for Seeeduino XIAO
