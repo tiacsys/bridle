@@ -402,7 +402,8 @@ if(DEFINED if_path)
 
   # check board specific add-ons for arduino_zero
   if(CONFIG_BOARD_ARDUINO_ZERO OR
-     CONFIG_BOARD_SEEEDUINO_CM0)
+     CONFIG_BOARD_SEEEDUINO_CM0 OR
+     CONFIG_BOARD_SEEEDUINO_LOTUS)
 
     test_if_label_on_path("grove_pwms" "${if_path}")
 
@@ -431,24 +432,6 @@ if(DEFINED if_path)
 
       test_if_label_matching("grove_pwm_d18" "tcc0")
       test_if_label_matching("grove_pwm_d19" "tcc0")
-
-    endif()
-  endif()
-
-  # check board specific add-ons for arduino_zero
-  if(CONFIG_BOARD_SEEEDUINO_LOTUS)
-
-    test_if_label_on_path("grove_pwms" "${if_path}")
-
-    if(CONFIG_SHIELD_SEEED_GROVE_BASE_V2 OR
-       CONFIG_SHIELD_SEEED_GROVE_BASE_V1)
-
-      test_if_label_matching("grove_pwm_d2" "tcc0")
-      test_if_label_matching("grove_pwm_d3" "tcc0")
-      test_if_label_matching("grove_pwm_d4" "tcc0")
-      test_if_label_matching("grove_pwm_d5" "tcc0")
-      test_if_label_matching("grove_pwm_d6" "tcc0")
-      test_if_label_matching("grove_pwm_d7" "tcc0")
 
     endif()
   endif()
