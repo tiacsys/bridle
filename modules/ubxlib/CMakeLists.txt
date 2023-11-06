@@ -84,50 +84,6 @@ zephyr_include_directories(
 # Add any compile options that came out of ubxlib.cmake
 target_compile_options(app PRIVATE ${UBXLIB_COMPILE_OPTIONS})
 
-# Add test source & include dirs if selected
-if (CONFIG_UBXLIB_TEST)
-    target_compile_definitions(app PRIVATE UNITY_INCLUDE_CONFIG_H)
-
-    target_sources(app PRIVATE
-        ${UBXLIB_TEST_SRC}
-    )
-
-    zephyr_include_directories(
-        ${UBXLIB_PRIVATE_INC}
-        ${UBXLIB_TEST_INC}
-    )
-
-    # we need to build https://github.com/ThrowTheSwitch/unity
-    # Path resolution order:
-    # 1. environment variable UNITY_PATH
-    # 2. if ubxlib is imported by zephyr west, it will be at
-    #    ${ZEPHYR_BASE}/../modules/test/cmock/vendor/unity
-    # 3. if the nRF Connect SDK is inside our workspace, it will be at
-    #    ${ZEPHYR_BASE}/../test/cmock/vendor/unity
-    # 4. otherwise the platform itself must build and include it
-    if (DEFINED $ENV{UNITY_PATH})
-        set(UNITY_PATH $ENV{UNITY_PATH})
-    elseif (EXISTS "${ZEPHYR_BASE}/../modules/test/unity")
-        # this is the location if west fetched unity for us
-        set(UNITY_PATH "${ZEPHYR_BASE}/../modules/test/unity")
-    elseif (EXISTS "${ZEPHYR_BASE}/../test/cmock/vendor/unity")
-        #this is where the nRF Connect SDK puts unity
-        set(UNITY_PATH "${ZEPHYR_BASE}/../test/cmock/vendor/unity")
-    endif()
-
-    if (DEFINED UNITY_PATH)
-        message("Unity from ${UNITY_PATH} will be used")
-        target_sources(app PRIVATE
-            ${UNITY_PATH}/src/unity.c
-        )
-        zephyr_include_directories(
-            ${UNITY_PATH}/src
-        )
-    else()
-        message("Assuming that the platform will bring in Unity")
-    endif()
-endif()
-
 if (CONFIG_MINIMAL_LIBC)
     target_sources(app PRIVATE
         ${UBXLIB_BASE}/port/clib/u_port_clib_isblank.c
