@@ -13,6 +13,7 @@ supported:
   - xiao_i2c
   - xiao_spi
   - xiao_serial
+  - xiao_dac
   - dma
   - gpio
   - hwinfo
