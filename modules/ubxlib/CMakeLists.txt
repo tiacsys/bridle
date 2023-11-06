@@ -6,7 +6,7 @@
 #       file should create an ubxlib library instead.
 if(CONFIG_UBXLIB)
 
-get_filename_component(UBXLIB_BASE ../../../ ABSOLUTE)
+set(UBXLIB_BASE ${ZEPHYR_CURRENT_MODULE_DIR})
 set(ENV{UBXLIB_BASE} ${UBXLIB_BASE})
 
 # Add environment variables passed-in via U_FLAGS
@@ -55,14 +55,14 @@ include(${UBXLIB_BASE}/port/ubxlib.cmake)
 # Set ubxlib source files
 target_sources(app PRIVATE
     ${UBXLIB_SRC}
-    src/u_port.c
-    src/u_port_debug.c
-    src/u_port_os.c
-    src/u_port_gpio.c
-    src/u_port_uart.c
-    src/u_port_i2c.c
-    src/u_port_spi.c
-    src/u_port_private.c
+    ${UBXLIB_BASE}/port/platform/zephyr/src/u_port.c
+    ${UBXLIB_BASE}/port/platform/zephyr/src/u_port_debug.c
+    ${UBXLIB_BASE}/port/platform/zephyr/src/u_port_os.c
+    ${UBXLIB_BASE}/port/platform/zephyr/src/u_port_gpio.c
+    ${UBXLIB_BASE}/port/platform/zephyr/src/u_port_uart.c
+    ${UBXLIB_BASE}/port/platform/zephyr/src/u_port_i2c.c
+    ${UBXLIB_BASE}/port/platform/zephyr/src/u_port_spi.c
+    ${UBXLIB_BASE}/port/platform/zephyr/src/u_port_private.c
     ${UBXLIB_BASE}/port/clib/u_port_clib_mktime64.c
     ${UBXLIB_BASE}/port/platform/common/mbedtls/u_port_crypto.c
 )
@@ -75,8 +75,8 @@ endif()
 zephyr_include_directories(
     ${UBXLIB_INC}
     ${UBXLIB_PRIVATE_INC}
-    cfg
-    src
+    ${UBXLIB_BASE}/port/platform/zephyr/cfg
+    ${UBXLIB_BASE}/port/platform/zephyr/src
     ${UBXLIB_BASE}/port/clib
     ${ZEPHYR_BASE}/include/zephyr
 )
@@ -133,7 +133,7 @@ if (CONFIG_MINIMAL_LIBC)
         ${UBXLIB_BASE}/port/clib/u_port_clib_isblank.c
         ${UBXLIB_BASE}/port/clib/u_port_clib_mktime.c
         ${UBXLIB_BASE}/port/clib/u_port_setjmp.S
-        src/u_port_clib.c
+        ${UBXLIB_BASE}/port/platform/zephyr/src/u_port_clib.c
     )
 endif()
 
