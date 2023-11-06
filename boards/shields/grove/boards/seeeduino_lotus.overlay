@@ -13,8 +13,6 @@
 /{aliases{/delete-property/ sercom-5;};};
 /delete-node/ &grove_serial;
 
-/* final Arduino to Grove interface mapping */
+/* final Arduino Zero to Grove interface mapping */
 
-#include "arduino_to_grove_if.dtsi"
-
-/* PWM pre-definitions already done on board level */
+#include "arduino_zero.dtsi"

@@ -689,8 +689,8 @@ not be complete.
 
             .. note::
 
-               This board basically provides only some channels from a few timers as
-               PWM to the outside. The SoC's ability to route channels to multiple
+               This board basically provides all channels from all timers as PWM to
+               the outside. However, the SoC's ability to route channels to multiple
                pads may result in channels being connected in parallel. The second
                table below shows the possibilities which channels can really
                be used independently at the associated signals of the
@@ -705,8 +705,8 @@ not be complete.
 
             .. note::
 
-               This board basically provides only some channels from a few timers as
-               PWM to the outside. The SoC's ability to route channels to multiple
+               This board basically provides all channels from all timers as PWM to
+               the outside. However, the SoC's ability to route channels to multiple
                pads may result in channels being connected in parallel. The second
                table below shows the possibilities which channels can really
                be used independently at the associated signals of the
