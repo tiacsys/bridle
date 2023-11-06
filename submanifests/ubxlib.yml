@@ -8,29 +8,26 @@ manifest:
   version: "0.13"
 
   # If not otherwise specified, the projects below should be obtained
-  # from the u-blox remote.
+  # from the tiacsys remote.
   defaults:
-    remote: u-blox
+    remote: tiacsys
 
   # "remotes" is a list of locations where git repositories are cloned
   # and fetched from.
   remotes:
-    - name: u-blox
-      url-base: https://github.com/u-blox
+    - name: tiacsys
+      url-base: https://github.com/tiacsys
 
   # "projects" is a list of git repositories which make up the TIAC
   # source code. Please add items below based on alphabetical order.
   projects:
 
-    #
-    # TODO: create fork in the TIAC organization!
-    #
     # The fork in the TIAC organization of the portable C libraries which
     # provides the u-blox modules API for microcontroller and RTOS SDKs.
     # It depends on the Zephyr subset module 'mbedtls'.
     - name: ubxlib
       path: modules/lib/ubxlib
-      remote: u-blox
+      remote: tiacsys
       repo-path: ubxlib
-      revision: master
+      revision: tiacsys/master
       submodules: true
