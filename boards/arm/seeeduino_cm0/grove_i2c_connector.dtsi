@@ -6,6 +6,7 @@
 / {
 	grove_i2c_header: grove-i2c-connector {
 		compatible = "seeed,grove-connector";
+
 		#gpio-cells = <2>;
 		gpio-map-mask = <0xffffffff 0xffffffc0>;
 		gpio-map-pass-thru = <0 0x3f>;
@@ -15,3 +16,55 @@
 };
 
 grove_i2c: &sercom3 {};
+
+#undef GROVE_PWM_D18_FAST
+#define GROVE_PWM_D18_FAST				\
+	&tcc0 {						\
+		prescaler = <1>;			\
+	};
+
+#undef GROVE_PWM_D18_SLOW
+#define GROVE_PWM_D18_SLOW				\
+	&tcc0 {						\
+		prescaler = <1024>;			\
+	};
+
+#undef GROVE_PWM_D18_ENABLE
+#define GROVE_PWM_D18_ENABLE				\
+	&tcc0 {						\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D18_PINCTRL
+#define GROVE_PWM_D18_PINCTRL				\
+	&tcc0_pwm_default {				\
+		group4 {				\
+			pinmux = <PA22F_TCC0_WO4>;	\
+		};					\
+	};
+
+#undef GROVE_PWM_D19_FAST
+#define GROVE_PWM_D19_FAST				\
+	&tcc0 {						\
+		prescaler = <1>;			\
+	};
+
+#undef GROVE_PWM_D19_SLOW
+#define GROVE_PWM_D19_SLOW				\
+	&tcc0 {						\
+		prescaler = <1024>;			\
+	};
+
+#undef GROVE_PWM_D19_ENABLE
+#define GROVE_PWM_D19_ENABLE				\
+	&tcc0 {						\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D19_PINCTRL
+#define GROVE_PWM_D19_PINCTRL				\
+	&tcc0_pwm_default {				\
+		group5 {				\
+			pinmux = <PA23F_TCC0_WO5>;	\
+		};					\
+	};

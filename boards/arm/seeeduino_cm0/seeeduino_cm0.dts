@@ -109,6 +109,16 @@
 	pinctrl-names = "default";
 };
 
+&tcc0 {
+	status = "okay";
+	compatible = "atmel,sam0-tcc-pwm";
+	prescaler = <1>;
+	#pwm-cells = <2>;
+
+	pinctrl-0 = <&tcc0_pwm_default>;
+	pinctrl-names = "default";
+};
+
 &tcc2 {
 	status = "okay";
 	compatible = "atmel,sam0-tcc-pwm";
