@@ -40,4 +40,28 @@
 		};					\
 	};
 
-grove_pwm_d7: &tcc0 {};
+#undef GROVE_PWM_D8_FAST
+#define GROVE_PWM_D8_FAST				\
+	&tcc1 {						\
+		prescaler = <1>;			\
+	};
+
+#undef GROVE_PWM_D8_SLOW
+#define GROVE_PWM_D8_SLOW				\
+	&tcc1 {						\
+		prescaler = <1024>;			\
+	};
+
+#undef GROVE_PWM_D8_ENABLE
+#define GROVE_PWM_D8_ENABLE				\
+	&tcc1 {						\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D8_PINCTRL
+#define GROVE_PWM_D8_PINCTRL				\
+	&tcc1_pwm_default {				\
+		group0 {				\
+			pinmux = <PA6E_TCC1_WO0>;	\
+		};					\
+	};

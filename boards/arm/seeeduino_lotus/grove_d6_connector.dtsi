@@ -39,5 +39,3 @@
 			pinmux = <PA20F_TCC0_WO6>;	\
 		};					\
 	};
-
-grove_pwm_d6: &tcc0 {};

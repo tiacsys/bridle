@@ -39,5 +39,3 @@
 			pinmux = <PA8E_TCC0_WO0>;	\
 		};					\
 	};
-
-grove_pwm_d4: &tcc0 {};
