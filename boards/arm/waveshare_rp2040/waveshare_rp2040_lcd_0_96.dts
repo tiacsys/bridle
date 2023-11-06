@@ -27,6 +27,10 @@ rpipico_serial: &uart0 {};
 rpipico_spi: &spi0 {};
 rpipico_i2c: &i2c0 {};
 
+pico_serial: &rpipico_serial {};
+pico_spi: &rpipico_spi {};
+pico_i2c: &rpipico_i2c {};
+
 &led0 {
 	label = "BL";
 };

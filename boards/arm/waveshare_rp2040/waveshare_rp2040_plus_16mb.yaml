@@ -10,8 +10,13 @@ toolchain:
   - xtools
 supported:
   - rpipico_serial
-  - rpipico_spi
+  - rpipico_gpio
   - rpipico_i2c
+  - rpipico_spi
+  - pico_serial
+  - pico_gpio
+  - pico_i2c
+  - pico_spi
   - uart
   - gpio
   - adc
