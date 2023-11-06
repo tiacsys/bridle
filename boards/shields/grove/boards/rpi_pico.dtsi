@@ -1,0 +1,12 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include "rpipico_r3_connector.dtsi"
+
+rpipico_serial: &pico_serial {};
+rpipico_spi: &pico_spi {};
+rpipico_i2c: &pico_i2c {};
+
+#include "rpipico_to_grove_if.dtsi"
