@@ -1,3 +1,8 @@
+# Copyright (c) 2021 Andreas Anderberg
+# Copyright (c) 2022-2023 Rob Meades
+# Copyright (c) 2023 Sarah Renkhoff
+# SPDX-License-Identifier: Apache-2.0
+
 config UBXLIB
         bool "u-blox ubxlib support"
         default n
@@ -22,6 +27,12 @@ config UBXLIB_CELL
         default y
         help
           This will enable cell API
+
+config UBXLIB_GEODESIC
+        bool "Enable geodesic library for geofence support"
+        default n
+        help
+        This will enable geofence support
 
 config UBXLIB_GNSS
         bool "GNSS support"
