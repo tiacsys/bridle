@@ -33,3 +33,4 @@ manifest:
       remote: u-blox
       repo-path: ubxlib
       revision: master
+      submodules: true
