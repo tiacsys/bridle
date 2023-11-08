@@ -838,6 +838,78 @@ For example:
                      :host-os: unix
                      :tool: all
 
+         .. group-tab:: Raspberry Pi Pico W
+
+            This is based on the Zephyr board :ref:`Raspberry Pi Pico W <zephyr:rpi_pico>`.
+
+            * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
+
+            .. image:: img/x_grove_testbed_rpi_pico_w_bb.svg
+               :alt: Raspberry Pi Pico W Wiring Schematics
+               :align: center
+
+            .. tabs::
+
+               .. group-tab:: LED Blinky
+
+                  This is based on the Zephyr sample
+                  :doc:`zephyr:samples/basic/blinky/README`.
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/blinky
+                     :build-dir: blinky-rpi_pico_w-x_grove_testbed
+                     :board: rpi_pico_w
+                     :shield: "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
+                     :goals: build flash
+                     :gen-args: \
+                                -DBOARD_FLASH_RUNNER=openocd \
+                                -DRPI_PICO_DEBUG_ADAPTER=cmsis-dap \
+                                -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
+                                -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
+                     :west-args: -p always
+                     :host-os: unix
+                     :tool: all
+
+               .. group-tab:: LED Fade
+
+                  This is based on the Zephyr sample
+                  :doc:`zephyr:samples/basic/fade_led/README`.
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/fade_led
+                     :build-dir: fade-rpi_pico_w-x_grove_testbed
+                     :board: rpi_pico_w
+                     :shield: "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
+                     :goals: build flash
+                     :gen-args: \
+                                -DBOARD_FLASH_RUNNER=openocd \
+                                -DRPI_PICO_DEBUG_ADAPTER=cmsis-dap \
+                                -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
+                                -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
+                     :west-args: -p always
+                     :host-os: unix
+                     :tool: all
+
+               .. group-tab:: LED Button
+
+                  This is based on the Zephyr sample
+                  :doc:`zephyr:samples/basic/button/README`.
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/button
+                     :build-dir: button-rpi_pico_w-x_grove_testbed
+                     :board: rpi_pico_w
+                     :shield: "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
+                     :goals: build flash
+                     :gen-args: \
+                                -DBOARD_FLASH_RUNNER=openocd \
+                                -DRPI_PICO_DEBUG_ADAPTER=cmsis-dap \
+                                -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
+                                -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
+                     :west-args: -p always
+                     :host-os: unix
+                     :tool: all
+
          .. group-tab:: Waveshare RP2040-Plus
 
             This is based on the Bridle board
