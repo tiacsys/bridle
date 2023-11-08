@@ -621,6 +621,13 @@ not be complete.
 
             .. include:: /boards/shields/grove/doc/grove_pwms-nucleo_f401re.rsti
 
+         .. group-tab:: ``nucleo_f413zh``
+
+            This is based on the Zephyr board :ref:`zephyr:nucleo_f413zh_board`
+            and its :dtcompatible:`arduino-header-r3`.
+
+            .. include:: /boards/shields/grove/doc/grove_pwms-nucleo_f413zh.rsti
+
          .. group-tab:: ``nucleo_f767zi``
 
             This is based on the Zephyr board :ref:`zephyr:nucleo_f767zi_board`
