@@ -1,13 +1,57 @@
+##############################################################################
+###
+### ATTENTION:
+###
+### This test suite will be controlled by the standard integration platforms
+### and must be invoked with the corresponding quarantine list. Otherwise,
+### many board-shield constellations will terminate with an error.
+###
+###     west twister -G --quarantine-list bridle/tests/quarantine.yaml … … …
+###
+##############################################################################
 common:
   tags: base shields grove
   build_only: true
   build_on_all: true
   filter: dt_compat_enabled("seeed,grove-laced-if") and
           dt_compat_enabled("seeed,grove-connector")
-  platform_exclude:
-    # stm32h735g_disco.yaml has "arduino_gpio", but
-    # there is no "arduino-header-r3" node in DTS
-    stm32h735g_disco
+  # platform_exclude:
+  #   # stm32h735g_disco.yaml has "arduino_gpio", but
+  #   # there is no "arduino-header-r3" node in DTS
+  #   - stm32h735g_disco
+  #
+  # NOTE: Side effects were observed with the `platform_exclude` statement
+  # when it is used within the `common` section as well as in individual
+  # test cases. The test plan then may be set up incompletely with invalid
+  # content and there is a high risk that test cases will not be included
+  # in the test plan without being noticed!
+  #
+  # AVOID `platform_exclude` statement here in the `common` section!
+  #
+  integration_platforms:
+    - arduino_zero
+    - mimxrt1010_evk
+    - mimxrt1060_evk
+    - mimxrt1060_evkb
+    - nucleo_f303re
+    - nucleo_f401re
+    - nucleo_f413zh
+    - nucleo_f746zg
+    - nucleo_f767zi
+    - rpi_pico
+    - rpi_pico_w
+    - seeed_xiao_samd21
+    - seeeduino_xiao
+    - seeeduino_cm0
+    - seeeduino_lotus
+    - waveshare_rp2040_one
+    - waveshare_rp2040_zero
+    - waveshare_rp2040_matrix
+    - waveshare_rp2040_tiny
+    - waveshare_rp2040_eth
+    - waveshare_rp2040_lcd_0_96
+    - waveshare_rp2040_plus
+    - waveshare_rp2040_plus@16mb
 tests:
   grove.base.v2:
     depends_on: arduino_gpio
@@ -26,6 +70,25 @@ tests:
             dt_nodelabel_enabled("grove_a3_header") and
             dt_nodelabel_enabled("grove_uart_header") and
             dt_nodelabel_enabled("grove_i2c_header")
+    extra_args: SHIELD=seeed_grove_base_v2
+  grove.base.v2.pwms:
+    depends_on: arduino_gpio
+    filter: dt_nodelabel_enabled("grove_laced_if_v2") and
+            dt_nodelabel_enabled("grove_pwms")
+    extra_args: SHIELD=seeed_grove_base_v2
+  grove.base.v2.arduino:
+    # May be skipped if the board has at least one of the Ardunio standard
+    # interfaces UART, I2C or SPI disabled at the time.
+    depends_on: arduino_gpio
+    filter: dt_nodelabel_enabled("grove_laced_if_v2") and
+            dt_nodelabel_enabled("arduino_header") and
+            dt_nodelabel_enabled("grove_gpios") and
+            dt_nodelabel_enabled("arduino_serial") and
+            dt_nodelabel_enabled("grove_serial") and
+            dt_nodelabel_enabled("arduino_i2c") and
+            dt_nodelabel_enabled("grove_i2c") and
+            dt_nodelabel_enabled("arduino_spi") and
+            dt_nodelabel_enabled("grove_spi")
     extra_args: SHIELD=seeed_grove_base_v2
   grove.base.v1:
     depends_on: arduino_gpio
@@ -53,7 +116,27 @@ tests:
             dt_nodelabel_enabled("grove_i2c_header") and
             dt_nodelabel_enabled("grove_spi_header")
     extra_args: SHIELD=seeed_grove_base_v1
+  grove.base.v1.pwms:
+    depends_on: arduino_gpio
+    filter: dt_nodelabel_enabled("grove_laced_if_v1") and
+            dt_nodelabel_enabled("grove_pwms")
+    extra_args: SHIELD=seeed_grove_base_v1
+  grove.base.v1.arduino:
+    # May be skipped if the board has at least one of the Ardunio standard
+    # interfaces UART, I2C or SPI disabled at the time.
+    depends_on: arduino_gpio
+    filter: dt_nodelabel_enabled("grove_laced_if_v1") and
+            dt_nodelabel_enabled("arduino_header") and
+            dt_nodelabel_enabled("grove_gpios") and
+            dt_nodelabel_enabled("arduino_serial") and
+            dt_nodelabel_enabled("grove_serial") and
+            dt_nodelabel_enabled("arduino_i2c") and
+            dt_nodelabel_enabled("grove_i2c") and
+            dt_nodelabel_enabled("arduino_spi") and
+            dt_nodelabel_enabled("grove_spi")
+    extra_args: SHIELD=seeed_grove_base_v1
   grove.xiao.v1:
+    depends_on: xiao_gpio
     filter: dt_nodelabel_enabled("grove_laced_if_v1") and
             dt_nodelabel_enabled("grove_d0_header") and
             dt_nodelabel_enabled("grove_d1_header") and
@@ -64,11 +147,28 @@ tests:
             dt_nodelabel_enabled("grove_d9_header") and
             dt_nodelabel_enabled("grove_uart_header") and
             dt_nodelabel_enabled("grove_i2c_header")
-    platform_allow:
-      seeed_xiao_samd21
-      seeeduino_xiao
+    extra_args: SHIELD=seeed_grove_xiao_v1
+  grove.xiao.v1.pwms:
+    depends_on: xiao_gpio
+    filter: dt_nodelabel_enabled("grove_laced_if_v1") and
+            dt_nodelabel_enabled("grove_pwms")
+    extra_args: SHIELD=seeed_grove_xiao_v1
+  grove.xiao.v1.xiao:
+    # May be skipped if the board has at least one of the XIAO standard
+    # interfaces UART, I2C or SPI disabled at the time.
+    depends_on: xiao_gpio
+    filter: dt_nodelabel_enabled("grove_laced_if_v1") and
+            dt_nodelabel_enabled("xiao_d") and
+            dt_nodelabel_enabled("grove_gpios") and
+            dt_nodelabel_enabled("xiao_serial") and
+            dt_nodelabel_enabled("grove_serial") and
+            dt_nodelabel_enabled("xiao_i2c") and
+            dt_nodelabel_enabled("grove_i2c") and
+            dt_nodelabel_enabled("xiao_spi") and
+            dt_nodelabel_enabled("grove_spi")
     extra_args: SHIELD=seeed_grove_xiao_v1
   grove.rpipico.v1:
+    depends_on: pico_gpio
     filter: dt_nodelabel_enabled("grove_laced_if_v1") and
             dt_nodelabel_enabled("grove_d1_header") and
             dt_nodelabel_enabled("grove_d5_header") and
@@ -85,80 +185,16 @@ tests:
             dt_nodelabel_enabled("grove_i2c0_header") and
             dt_nodelabel_enabled("grove_i2c1_header") and
             dt_nodelabel_enabled("generic_spi_header")
-    platform_allow:
-      rpi_pico
-      waveshare_rp2040_plus
-      waveshare_rp2040_plus@16mb
     extra_args: SHIELD=seeed_grove_rpipico_v1
-  grove.base.v2.arduino:
-    # May be skipped if the board has at least one of the Ardunio standard
-    # interfaces UART, I2c or SPI disabled at the time.
-    depends_on: arduino_gpio
-    filter: dt_nodelabel_enabled("grove_laced_if_v2") and
-            dt_nodelabel_enabled("arduino_header") and
-            dt_nodelabel_enabled("grove_gpios") and
-            dt_nodelabel_enabled("arduino_serial") and
-            dt_nodelabel_enabled("grove_serial") and
-            dt_nodelabel_enabled("arduino_i2c") and
-            dt_nodelabel_enabled("grove_i2c") and
-            dt_nodelabel_enabled("arduino_spi") and
-            dt_nodelabel_enabled("grove_spi")
-    platform_allow:
-      nucleo_f303re
-      nucleo_f401re
-      nucleo_f413zh
-      nucleo_f767zi
-      mimxrt1010_evk
-      mimxrt1060_evk
-      mimxrt1060_evkb
-      arduino_zero
-      seeeduino_cm0
-      seeeduino_lotus
-    extra_args: SHIELD=seeed_grove_base_v2
-  grove.base.v1.arduino:
-    # May be skipped if the board has at least one of the Ardunio standard
-    # interfaces UART, I2c or SPI disabled at the time.
-    depends_on: arduino_gpio
+  grove.rpipico.v1.pwms:
+    depends_on: pico_gpio
     filter: dt_nodelabel_enabled("grove_laced_if_v1") and
-            dt_nodelabel_enabled("arduino_header") and
-            dt_nodelabel_enabled("grove_gpios") and
-            dt_nodelabel_enabled("arduino_serial") and
-            dt_nodelabel_enabled("grove_serial") and
-            dt_nodelabel_enabled("arduino_i2c") and
-            dt_nodelabel_enabled("grove_i2c") and
-            dt_nodelabel_enabled("arduino_spi") and
-            dt_nodelabel_enabled("grove_spi")
-    platform_allow:
-      nucleo_f303re
-      nucleo_f401re
-      nucleo_f413zh
-      nucleo_f767zi
-      mimxrt1010_evk
-      mimxrt1060_evk
-      mimxrt1060_evkb
-      arduino_zero
-      seeeduino_cm0
-      seeeduino_lotus
-    extra_args: SHIELD=seeed_grove_base_v1
-  grove.xiao.v1.xiao:
-    # May be skipped if the board has at least one of the XIAO standard
-    # interfaces UART, I2c or SPI disabled at the time.
-    filter: dt_nodelabel_enabled("grove_laced_if_v1") and
-            dt_nodelabel_enabled("xiao_d") and
-            dt_nodelabel_enabled("grove_gpios") and
-            dt_nodelabel_enabled("xiao_serial") and
-            dt_nodelabel_enabled("grove_serial") and
-            dt_nodelabel_enabled("xiao_i2c") and
-            dt_nodelabel_enabled("grove_i2c") and
-            dt_nodelabel_enabled("xiao_spi") and
-            dt_nodelabel_enabled("grove_spi")
-    platform_allow:
-      seeed_xiao_samd21
-      seeeduino_xiao
-    extra_args: SHIELD=seeed_grove_xiao_v1
+            dt_nodelabel_enabled("grove_pwms")
+    extra_args: SHIELD=seeed_grove_rpipico_v1
   grove.rpipico.v1.rpipico:
     # May be skipped if the board has at least one of the RPi Pico standard
-    # interfaces UART, I2c or SPI disabled at the time.
+    # interfaces UART, I2C or SPI disabled at the time.
+    depends_on: pico_gpio
     filter: dt_nodelabel_enabled("grove_laced_if_v1") and
             dt_nodelabel_enabled("rpipico_header") and
             dt_nodelabel_enabled("grove_gpios") and
@@ -168,55 +204,4 @@ tests:
             dt_nodelabel_enabled("grove_i2c") and
             dt_nodelabel_enabled("rpipico_spi") and
             dt_nodelabel_enabled("grove_spi")
-    platform_allow:
-      rpi_pico
-      waveshare_rp2040_plus
-      waveshare_rp2040_plus@16mb
-    extra_args: SHIELD=seeed_grove_rpipico_v1
-  grove_pwms.base.v2:
-    depends_on: arduino_gpio
-    filter: dt_nodelabel_enabled("grove_laced_if_v2") and
-            dt_nodelabel_enabled("grove_pwms")
-    platform_allow:
-      nucleo_f303re
-      nucleo_f401re
-      nucleo_f413zh
-      nucleo_f767zi
-      mimxrt1010_evk
-      mimxrt1060_evk
-      mimxrt1060_evkb
-      arduino_zero
-      seeeduino_cm0
-      seeeduino_lotus
-    extra_args: SHIELD=seeed_grove_base_v2
-  grove_pwms.base.v1:
-    depends_on: arduino_gpio
-    filter: dt_nodelabel_enabled("grove_laced_if_v1") and
-            dt_nodelabel_enabled("grove_pwms")
-    platform_allow:
-      nucleo_f303re
-      nucleo_f401re
-      nucleo_f413zh
-      nucleo_f767zi
-      mimxrt1010_evk
-      mimxrt1060_evk
-      mimxrt1060_evkb
-      arduino_zero
-      seeeduino_cm0
-      seeeduino_lotus
-    extra_args: SHIELD=seeed_grove_base_v1
-  grove_pwms.xiao.v1:
-    filter: dt_nodelabel_enabled("grove_laced_if_v1") and
-            dt_nodelabel_enabled("grove_pwms")
-    platform_allow:
-      seeed_xiao_samd21
-      seeeduino_xiao
-    extra_args: SHIELD=seeed_grove_xiao_v1
-  grove_pwms.rpipico.v1:
-    filter: dt_nodelabel_enabled("grove_laced_if_v1") and
-            dt_nodelabel_enabled("grove_pwms")
-    platform_allow:
-      rpi_pico
-      waveshare_rp2040_plus
-      waveshare_rp2040_plus@16mb
     extra_args: SHIELD=seeed_grove_rpipico_v1
