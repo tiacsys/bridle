@@ -114,12 +114,22 @@ Change log
 
 :brd:`NOT YET, tbd.`
 
+* All tests for *Grove Interconnect, Button, and LED Shields* converted to be
+  more generic and guided by a list of well-known integration platforms
+  currently supported by Bridle. This leads to a super-matrix of test suites
+  and cases, thus all invalid board/shield conditions, not yet well supported
+  boards or not finished implementations are now excluded by the new global
+  quarantine list in `tests/quarantine.yaml`.
 * All SAMD21 targets doesn't yet support the LED shell command against the
   internal LED driver API properly in case of mixed GPIO and PWM LEDs on same
   I/O pin (shared pin function), thus related :kconfig:option:`CONFIG_LED` and
   :kconfig:option:`CONFIG_LED_SHELL` were disable for this boards as default.
-* tbd.
-* tbd.
+* The *Grove Interconnect Shield* demonstration has been expanded to also
+  include the *Raspberry Pi Pico W* and *Waveshare RP2040-LCD-0.96* boards
+  on the *Grove Shield for Pi Pico V1*.
+* In conjunction with the new Twister upstream support for filtering tests
+  by board manufacturer or vendor, Bridle now also provides the vendor entry
+  for each supported board.
 
 The following sections provide detailed lists of changes by component.
 
@@ -149,6 +159,8 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`152` - [FER] Support filtering by board vendor
+* :github:`151` - [FER] Harmonize Grove PWM mapping over all SAMD21 based Arduino boards
 * :github:`148` - [HW] Seeeduino Cortex-M0+ board support
 * :github:`137` - [FCR] Bump to Zephyr v3.5
 * :github:`139` - [FER] Bump to Doxygen v1.9.8
