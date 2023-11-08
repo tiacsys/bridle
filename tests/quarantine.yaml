@@ -1,0 +1,676 @@
+# Copyright (c) 2023 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+# stm32h735g_disco.yaml has "arduino_gpio", but
+# there is no "arduino-header-r3" node in DTS
+- comment: "board(stm32h735g_disco): wrong or incomplete arduino-header-r3."
+  platforms:
+    - stm32h735g_disco
+
+##############################################################################
+#
+# Grove wiring for tests
+#
+
+- comment: "shield(x_grove_testbed): (yet) completely unsupported platform."
+  scenarios:
+    - .*x_grove_testbed.*
+  platforms:
+    - nucleo_f746zg
+    - rpi_pico_w
+    - waveshare_rp2040_one
+    - waveshare_rp2040_zero
+    - waveshare_rp2040_matrix
+    - waveshare_rp2040_tiny
+    - waveshare_rp2040_eth
+    - waveshare_rp2040_lcd_0_96
+
+- comment: "shield(grove.base.x_grove_testbed.gpio.b4l6): invalid board/shield condition."
+  scenarios:
+    - grove.base.v2.x_grove_testbed.pwm.b4l6
+    - grove.base.v2.x_grove_testbed.pwm.b7l6
+    - grove.xiao.v1.x_grove_testbed.pwm.b0l1
+    - grove.rpipico.v1.x_grove_testbed.pwm.b16l18
+    - grove.connectors.x_grove_testbed.pwm
+  platforms:
+    - mimxrt1010_evk
+    - mimxrt1060_evk
+    - mimxrt1060_evkb
+
+- comment: "shield(grove.base.x_grove_testbed.pwm.b4l6): invalid board/shield condition."
+  scenarios:
+    - grove.base.v2.x_grove_testbed.gpio.b4l6
+    - grove.base.v2.x_grove_testbed.pwm.b7l6
+    - grove.xiao.v1.x_grove_testbed.pwm.b0l1
+    - grove.rpipico.v1.x_grove_testbed.pwm.b16l18
+    - grove.connectors.x_grove_testbed.pwm
+  platforms:
+    - nucleo_f303re
+    - nucleo_f401re
+    - nucleo_f413zh
+    - nucleo_f767zi
+
+- comment: "shield(grove.base.x_grove_testbed.pwm.b7l6): invalid board/shield condition."
+  scenarios:
+    - grove.base.v2.x_grove_testbed.gpio.b4l6
+    - grove.base.v2.x_grove_testbed.pwm.b4l6
+    - grove.xiao.v1.x_grove_testbed.pwm.b0l1
+    - grove.rpipico.v1.x_grove_testbed.pwm.b16l18
+    - grove.connectors.x_grove_testbed.pwm
+  platforms:
+    - arduino_zero
+    - seeeduino_cm0
+
+- comment: "shield(grove.xiao.x_grove_testbed): invalid board/shield condition."
+  scenarios:
+    - grove.base.v2.x_grove_testbed.gpio.b4l6
+    - grove.base.v2.x_grove_testbed.pwm.b4l6
+    - grove.base.v2.x_grove_testbed.pwm.b7l6
+    - grove.rpipico.v1.x_grove_testbed.pwm.b16l18
+    - grove.connectors.x_grove_testbed.pwm
+  platforms:
+    - seeed_xiao_samd21
+    - seeeduino_xiao
+
+- comment: "shield(grove.rpipico.x_grove_testbed): invalid board/shield condition."
+  scenarios:
+    - grove.base.v2.x_grove_testbed.gpio.b4l6
+    - grove.base.v2.x_grove_testbed.pwm.b4l6
+    - grove.base.v2.x_grove_testbed.pwm.b7l6
+    - grove.xiao.v1.x_grove_testbed.pwm.b0l1
+    - grove.connectors.x_grove_testbed.pwm
+  platforms:
+    - rpi_pico
+    - waveshare_rp2040_plus
+    - waveshare_rp2040_plus@16mb
+
+- comment: "shield(grove.connectors.x_grove_testbed): invalid board/shield condition."
+  scenarios:
+    - grove.base.v2.x_grove_testbed.gpio.b4l6
+    - grove.base.v2.x_grove_testbed.pwm.b4l6
+    - grove.xiao.v1.x_grove_testbed.pwm.b0l1
+    - grove.rpipico.v1.x_grove_testbed.pwm.b16l18
+  platforms:
+    - seeeduino_lotus
+
+##############################################################################
+#
+# Seeed Studio Grove Interconnect Shields
+#
+
+# Grove Base Shield
+
+- comment: "shield(grove.base): (yet) completely unsupported platform."
+  scenarios:
+    - grove.base.(v2|v1).pwms
+    - grove.base.(v2|v1).arduino
+  platforms:
+    - nucleo_f746zg
+
+- comment: "shield(grove.base): invalid board/shield condition."
+  scenarios:
+    - grove.base.(v2|v1)
+    - grove.base.(v2|v1).pwms
+    - grove.base.(v2|v1).arduino
+  platforms:
+    - rpi_pico
+    - rpi_pico_w
+    - seeeduino_xiao
+    - seeed_xiao_samd21
+    - waveshare_rp2040_one
+    - waveshare_rp2040_zero
+    - waveshare_rp2040_matrix
+    - waveshare_rp2040_tiny
+    - waveshare_rp2040_eth
+    - waveshare_rp2040_lcd_0_96
+    - waveshare_rp2040_plus
+    - waveshare_rp2040_plus@16mb
+
+# Grove Base Shield for XIAO
+
+- comment: "shield(grove.xiao): invalid board/shield condition."
+  scenarios:
+    - grove.xiao.v1
+    - grove.xiao.v1.pwms
+    - grove.xiao.v1.xiao
+  platforms:
+    - arduino_zero
+    - mimxrt1010_evk
+    - mimxrt1060_evk
+    - mimxrt1060_evkb
+    - nucleo_f303re
+    - nucleo_f401re
+    - nucleo_f413zh
+    - nucleo_f746zg
+    - nucleo_f767zi
+    - rpi_pico
+    - rpi_pico_w
+    - seeeduino_cm0
+    - seeeduino_lotus
+    - waveshare_rp2040_one
+    - waveshare_rp2040_zero
+    - waveshare_rp2040_matrix
+    - waveshare_rp2040_tiny
+    - waveshare_rp2040_eth
+    - waveshare_rp2040_lcd_0_96
+    - waveshare_rp2040_plus
+    - waveshare_rp2040_plus@16mb
+
+# Grove Basic Kit for Raspberry Pi Pico
+
+- comment: "shield(grove.rpipico): (yet) completely unsupported platform."
+  scenarios:
+    - grove.rpipico.v1
+    - grove.rpipico.v1.pwms
+    - grove.rpipico.v1.rpipico
+  platforms:
+    - waveshare_rp2040_one
+    - waveshare_rp2040_zero
+    - waveshare_rp2040_matrix
+    - waveshare_rp2040_tiny
+
+- comment: "shield(grove.rpipico): invalid board condition."
+  scenarios:
+    - grove.rpipico.v1.pwms
+    - grove.rpipico.v1.rpipico
+  platforms:
+    - waveshare_rp2040_eth
+
+- comment: "shield(grove.rpipico): invalid board/shield condition."
+  scenarios:
+    - grove.rpipico.v1
+    - grove.rpipico.v1.pwms
+    - grove.rpipico.v1.rpipico
+  platforms:
+    - arduino_zero
+    - mimxrt1010_evk
+    - mimxrt1060_evk
+    - mimxrt1060_evkb
+    - nucleo_f303re
+    - nucleo_f401re
+    - nucleo_f413zh
+    - nucleo_f746zg
+    - nucleo_f767zi
+    - seeed_xiao_samd21
+    - seeeduino_xiao
+    - seeeduino_cm0
+    - seeeduino_lotus
+
+##############################################################################
+#
+# Grove Button Shields
+#
+
+- comment: "shield(grove_btn): (yet) completely unsupported platform."
+  scenarios:
+    - .*grove_btn.*
+  platforms:
+    - waveshare_rp2040_one
+    - waveshare_rp2040_zero
+    - waveshare_rp2040_matrix
+    - waveshare_rp2040_tiny
+
+# Grove Base Shield
+
+- comment: "shield(grove.base.grove_btn): invalid board/shield condition."
+  scenarios:
+    - grove.base.(v2|v1).grove_btn.gpio.d.*
+  platforms:
+    - rpi_pico
+    - rpi_pico_w
+    - seeeduino_xiao
+    - seeed_xiao_samd21
+    - waveshare_rp2040_one
+    - waveshare_rp2040_zero
+    - waveshare_rp2040_matrix
+    - waveshare_rp2040_tiny
+    - waveshare_rp2040_eth
+    - waveshare_rp2040_lcd_0_96
+    - waveshare_rp2040_plus
+    - waveshare_rp2040_plus@16mb
+
+# Grove Base Shield for XIAO
+
+- comment: "shield(grove.xiao.grove_btn): invalid board/shield condition."
+  scenarios:
+    - grove.xiao.v1.grove_btn.gpio.d.*
+  platforms:
+    - arduino_zero
+    - mimxrt1010_evk
+    - mimxrt1060_evk
+    - mimxrt1060_evkb
+    - nucleo_f303re
+    - nucleo_f401re
+    - nucleo_f413zh
+    - nucleo_f746zg
+    - nucleo_f767zi
+    - rpi_pico
+    - rpi_pico_w
+    - seeeduino_cm0
+    - seeeduino_lotus
+    - waveshare_rp2040_one
+    - waveshare_rp2040_zero
+    - waveshare_rp2040_matrix
+    - waveshare_rp2040_tiny
+    - waveshare_rp2040_eth
+    - waveshare_rp2040_lcd_0_96
+    - waveshare_rp2040_plus
+    - waveshare_rp2040_plus@16mb
+
+# Grove Basic Kit for Raspberry Pi Pico
+
+- comment: "shield(grove.rpipico.grove_btn): invalid board/shield condition."
+  scenarios:
+    - grove.rpipico.v1.grove_btn.gpio.d.*
+  platforms:
+    - arduino_zero
+    - mimxrt1010_evk
+    - mimxrt1060_evk
+    - mimxrt1060_evkb
+    - nucleo_f303re
+    - nucleo_f401re
+    - nucleo_f413zh
+    - nucleo_f746zg
+    - nucleo_f767zi
+    - seeed_xiao_samd21
+    - seeeduino_xiao
+    - seeeduino_cm0
+    - seeeduino_lotus
+
+- comment: "shield(grove.rpipico.grove_btn): waveshare_rp2040_eth: invalid board condition."
+  platforms:
+    - waveshare_rp2040_eth
+  scenarios:
+    - grove.rpipico.v1.grove_btn.gpio.d16
+    - grove.rpipico.v1.grove_btn.gpio.d17
+    - grove.rpipico.v1.grove_btn.gpio.d18
+    - grove.rpipico.v1.grove_btn.gpio.d19
+    - grove.rpipico.v1.grove_btn.gpio.d20
+    - grove.rpipico.v1.grove_btn.gpio.d21
+
+# Grove Connectors (directly) On-Board
+
+- comment: "shield(grove.connectors.grove_btn): invalid board/shield condition."
+  scenarios:
+    - grove.connectors.grove_btn.gpio.d.*
+  platforms:
+    - arduino_zero
+    - mimxrt1010_evk
+    - mimxrt1060_evk
+    - mimxrt1060_evkb
+    - nucleo_f303re
+    - nucleo_f401re
+    - nucleo_f413zh
+    - nucleo_f746zg
+    - nucleo_f767zi
+    - rpi_pico
+    - rpi_pico_w
+    - seeed_xiao_samd21
+    - seeeduino_xiao
+    - waveshare_rp2040_one
+    - waveshare_rp2040_zero
+    - waveshare_rp2040_matrix
+    - waveshare_rp2040_tiny
+    - waveshare_rp2040_eth
+    - waveshare_rp2040_lcd_0_96
+    - waveshare_rp2040_plus
+    - waveshare_rp2040_plus@16mb
+
+- comment: "shield(grove.connectors.grove_btn): seeeduino_cm0: invalid board condition."
+  platforms:
+    - seeeduino_cm0
+  scenarios:
+    - grove.connectors.grove_btn.gpio.d2
+    - grove.connectors.grove_btn.gpio.d3
+    - grove.connectors.grove_btn.gpio.d4
+    - grove.connectors.grove_btn.gpio.d5
+    - grove.connectors.grove_btn.gpio.d6
+    - grove.connectors.grove_btn.gpio.d7
+    - grove.connectors.grove_btn.gpio.d8
+    - grove.connectors.grove_btn.gpio.d9
+    - grove.connectors.grove_btn.gpio.d10
+    - grove.connectors.grove_btn.gpio.d11
+    - grove.connectors.grove_btn.gpio.d12
+    - grove.connectors.grove_btn.gpio.d13
+    - grove.connectors.grove_btn.gpio.d14
+    - grove.connectors.grove_btn.gpio.d15
+    - grove.connectors.grove_btn.gpio.d16
+    - grove.connectors.grove_btn.gpio.d17
+    - grove.connectors.grove_btn.gpio.d20
+    - grove.connectors.grove_btn.gpio.d21
+    - grove.connectors.grove_btn.gpio.d22
+    - grove.connectors.grove_btn.gpio.d23
+    - grove.connectors.grove_btn.gpio.d24
+    - grove.connectors.grove_btn.gpio.d25
+    - grove.connectors.grove_btn.gpio.d26
+    - grove.connectors.grove_btn.gpio.d27
+    - grove.connectors.grove_btn.gpio.d28
+    - grove.connectors.grove_btn.gpio.d29
+    - grove.connectors.grove_btn.gpio.d30
+    - grove.connectors.grove_btn.gpio.d31
+
+- comment: "shield(grove.connectors.grove_btn): seeeduino_lotus: invalid board condition."
+  platforms:
+    - seeeduino_lotus
+  scenarios:
+    - grove.connectors.grove_btn.gpio.d9
+    - grove.connectors.grove_btn.gpio.d10
+    - grove.connectors.grove_btn.gpio.d11
+    - grove.connectors.grove_btn.gpio.d12
+    - grove.connectors.grove_btn.gpio.d13
+    - grove.connectors.grove_btn.gpio.d20
+    - grove.connectors.grove_btn.gpio.d21
+    - grove.connectors.grove_btn.gpio.d22
+    - grove.connectors.grove_btn.gpio.d23
+    - grove.connectors.grove_btn.gpio.d24
+    - grove.connectors.grove_btn.gpio.d25
+    - grove.connectors.grove_btn.gpio.d26
+    - grove.connectors.grove_btn.gpio.d27
+    - grove.connectors.grove_btn.gpio.d28
+    - grove.connectors.grove_btn.gpio.d29
+    - grove.connectors.grove_btn.gpio.d30
+    - grove.connectors.grove_btn.gpio.d31
+
+##############################################################################
+#
+# Grove LED Shields
+#
+
+- comment: "shield(grove_led): (yet) completely unsupported platform."
+  scenarios:
+    - .*grove_led.*
+  platforms:
+    - waveshare_rp2040_one
+    - waveshare_rp2040_zero
+    - waveshare_rp2040_matrix
+    - waveshare_rp2040_tiny
+
+# Grove Base Shield
+
+- comment: "shield(grove.base.grove_led): invalid board/shield condition."
+  scenarios:
+    - grove.base.(v2|v1).grove_led.(gpio|pwm).d.*
+  platforms:
+    - rpi_pico
+    - rpi_pico_w
+    - seeeduino_xiao
+    - seeed_xiao_samd21
+    - waveshare_rp2040_one
+    - waveshare_rp2040_zero
+    - waveshare_rp2040_matrix
+    - waveshare_rp2040_tiny
+    - waveshare_rp2040_eth
+    - waveshare_rp2040_lcd_0_96
+    - waveshare_rp2040_plus
+    - waveshare_rp2040_plus@16mb
+
+- comment: "shield(grove.base.grove_led): arduino_zero: invalid board condition."
+  platforms:
+    - arduino_zero
+    - seeeduino_cm0
+    - seeeduino_lotus
+  scenarios:
+    - grove.base.(v2|v1).grove_led.pwm.d14
+    - grove.base.(v2|v1).grove_led.pwm.d15
+    - grove.base.(v2|v1).grove_led.pwm.d16
+    - grove.base.(v2|v1).grove_led.pwm.d17
+
+- comment: "shield(grove.base.grove_led): mimxrt1010_evk: invalid board condition."
+  platforms:
+    - mimxrt1010_evk
+  scenarios:
+    - grove.base.(v2|v1).grove_led.pwm.d0
+    - grove.base.(v2|v1).grove_led.pwm.d1
+    - grove.base.(v2|v1).grove_led.pwm.d2
+    - grove.base.(v2|v1).grove_led.pwm.d3
+    - grove.base.(v2|v1).grove_led.pwm.d4
+    - grove.base.(v2|v1).grove_led.pwm.d5
+    - grove.base.(v2|v1).grove_led.pwm.d6
+    - grove.base.(v2|v1).grove_led.pwm.d7
+    - grove.base.(v2|v1).grove_led.pwm.d10
+    - grove.base.(v2|v1).grove_led.pwm.d11
+    - grove.base.(v2|v1).grove_led.pwm.d12
+    - grove.base.(v2|v1).grove_led.pwm.d13
+    - grove.base.(v2|v1).grove_led.pwm.d14
+    - grove.base.(v2|v1).grove_led.pwm.d15
+    - grove.base.(v2|v1).grove_led.pwm.d16
+    - grove.base.(v2|v1).grove_led.pwm.d17
+    - grove.base.(v2|v1).grove_led.pwm.d18
+    - grove.base.(v2|v1).grove_led.pwm.d19
+
+- comment: "shield(grove.base.grove_led): mimxrt1060_evk(b): invalid board condition."
+  platforms:
+    - mimxrt1060_evk
+    - mimxrt1060_evkb
+  scenarios:
+    - grove.base.(v2|v1).grove_led.pwm.d0
+    - grove.base.(v2|v1).grove_led.pwm.d1
+    - grove.base.(v2|v1).grove_led.pwm.d6
+    - grove.base.(v2|v1).grove_led.pwm.d7
+    - grove.base.(v2|v1).grove_led.pwm.d8
+    - grove.base.(v2|v1).grove_led.pwm.d9
+    - grove.base.(v2|v1).grove_led.pwm.d14
+    - grove.base.(v2|v1).grove_led.pwm.d15
+    - grove.base.(v2|v1).grove_led.pwm.d16
+    - grove.base.(v2|v1).grove_led.pwm.d17
+    - grove.base.(v2|v1).grove_led.pwm.d18
+    - grove.base.(v2|v1).grove_led.pwm.d19
+
+- comment: "shield(grove.base.grove_led): nucleo_f303re: invalid board condition."
+  platforms:
+    - nucleo_f303re
+  scenarios:
+    - grove.base.(v2|v1).grove_led.pwm.d0
+    - grove.base.(v2|v1).grove_led.pwm.d1
+    - grove.base.(v2|v1).grove_led.pwm.d14
+    - grove.base.(v2|v1).grove_led.pwm.d15
+    - grove.base.(v2|v1).grove_led.pwm.d16
+    - grove.base.(v2|v1).grove_led.pwm.d17
+
+- comment: "shield(grove.base.grove_led): nucleo_f401re: invalid board condition."
+  platforms:
+    - nucleo_f401re
+  scenarios:
+    - grove.base.(v2|v1).grove_led.pwm.d0
+    - grove.base.(v2|v1).grove_led.pwm.d1
+    - grove.base.(v2|v1).grove_led.pwm.d4
+    - grove.base.(v2|v1).grove_led.pwm.d12
+    - grove.base.(v2|v1).grove_led.pwm.d14
+    - grove.base.(v2|v1).grove_led.pwm.d15
+    - grove.base.(v2|v1).grove_led.pwm.d16
+    - grove.base.(v2|v1).grove_led.pwm.d17
+
+- comment: "shield(grove.base.grove_led): nucleo_f413zh: invalid board condition."
+  platforms:
+    - nucleo_f413zh
+  scenarios:
+    - grove.base.(v2|v1).grove_led.pwm.d0
+    - grove.base.(v2|v1).grove_led.pwm.d1
+    - grove.base.(v2|v1).grove_led.pwm.d2
+    - grove.base.(v2|v1).grove_led.pwm.d4
+    - grove.base.(v2|v1).grove_led.pwm.d7
+    - grove.base.(v2|v1).grove_led.pwm.d8
+    - grove.base.(v2|v1).grove_led.pwm.d14
+    - grove.base.(v2|v1).grove_led.pwm.d15
+    - grove.base.(v2|v1).grove_led.pwm.d16
+    - grove.base.(v2|v1).grove_led.pwm.d17
+
+- comment: "shield(grove.base.grove_led): nucleo_f746zg: invalid board condition."
+  platforms:
+    - nucleo_f746zg
+  scenarios:
+    - grove.base.(v2|v1).grove_led.pwm.d.*
+
+- comment: "shield(grove.base.grove_led): nucleo_f767zi: invalid board condition."
+  platforms:
+    - nucleo_f767zi
+  scenarios:
+    - grove.base.(v2|v1).grove_led.pwm.d0
+    - grove.base.(v2|v1).grove_led.pwm.d1
+    - grove.base.(v2|v1).grove_led.pwm.d2
+    - grove.base.(v2|v1).grove_led.pwm.d4
+    - grove.base.(v2|v1).grove_led.pwm.d7
+    - grove.base.(v2|v1).grove_led.pwm.d8
+    - grove.base.(v2|v1).grove_led.pwm.d14
+    - grove.base.(v2|v1).grove_led.pwm.d15
+    - grove.base.(v2|v1).grove_led.pwm.d16
+    - grove.base.(v2|v1).grove_led.pwm.d17
+
+# Grove Base Shield for XIAO
+
+- comment: "shield(grove.xiao.grove_led): invalid board/shield condition."
+  scenarios:
+    - grove.xiao.v1.grove_led.(gpio|pwm).d.*
+  platforms:
+    - arduino_zero
+    - mimxrt1010_evk
+    - mimxrt1060_evk
+    - mimxrt1060_evkb
+    - nucleo_f303re
+    - nucleo_f401re
+    - nucleo_f413zh
+    - nucleo_f746zg
+    - nucleo_f767zi
+    - rpi_pico
+    - rpi_pico_w
+    - seeeduino_cm0
+    - seeeduino_lotus
+    - waveshare_rp2040_one
+    - waveshare_rp2040_zero
+    - waveshare_rp2040_matrix
+    - waveshare_rp2040_tiny
+    - waveshare_rp2040_eth
+    - waveshare_rp2040_lcd_0_96
+    - waveshare_rp2040_plus
+    - waveshare_rp2040_plus@16mb
+
+- comment: "shield(grove.base.grove_led): seeed_xiao_samd21: invalid board condition."
+  platforms:
+    - seeed_xiao_samd21
+    - seeeduino_xiao
+  scenarios:
+    - grove.xiao.v1.grove_led.pwm.d0
+    - grove.xiao.v1.grove_led.pwm.d6
+    - grove.xiao.v1.grove_led.pwm.d7
+
+# Grove Basic Kit for Raspberry Pi Pico
+
+- comment: "shield(grove.rpipico.grove_led): invalid board/shield condition."
+  scenarios:
+    - grove.rpipico.v1.grove_led.(gpio|pwm).d.*
+  platforms:
+    - arduino_zero
+    - mimxrt1010_evk
+    - mimxrt1060_evk
+    - mimxrt1060_evkb
+    - nucleo_f303re
+    - nucleo_f401re
+    - nucleo_f413zh
+    - nucleo_f746zg
+    - nucleo_f767zi
+    - seeed_xiao_samd21
+    - seeeduino_xiao
+    - seeeduino_cm0
+    - seeeduino_lotus
+
+- comment: "shield(grove.rpipico.grove_led): waveshare_rp2040_eth: invalid board condition."
+  platforms:
+    - waveshare_rp2040_eth
+  scenarios:
+    - grove.rpipico.v1.grove_led.(gpio|pwm).d16
+    - grove.rpipico.v1.grove_led.(gpio|pwm).d17
+    - grove.rpipico.v1.grove_led.(gpio|pwm).d18
+    - grove.rpipico.v1.grove_led.(gpio|pwm).d19
+    - grove.rpipico.v1.grove_led.(gpio|pwm).d20
+    - grove.rpipico.v1.grove_led.(gpio|pwm).d21
+
+# Grove Connectors (directly) On-Board
+
+- comment: "shield(grove.connectors.grove_led): invalid board/shield condition."
+  scenarios:
+    - grove.connectors.grove_led.(gpio|pwm).d.*
+  platforms:
+    - arduino_zero
+    - mimxrt1010_evk
+    - mimxrt1060_evk
+    - mimxrt1060_evkb
+    - nucleo_f303re
+    - nucleo_f401re
+    - nucleo_f413zh
+    - nucleo_f746zg
+    - nucleo_f767zi
+    - rpi_pico
+    - rpi_pico_w
+    - seeed_xiao_samd21
+    - seeeduino_xiao
+    - waveshare_rp2040_one
+    - waveshare_rp2040_zero
+    - waveshare_rp2040_matrix
+    - waveshare_rp2040_tiny
+    - waveshare_rp2040_eth
+    - waveshare_rp2040_lcd_0_96
+    - waveshare_rp2040_plus
+    - waveshare_rp2040_plus@16mb
+
+- comment: "shield(grove.connectors.grove_led): seeeduino_cm0: invalid board condition."
+  platforms:
+    - seeeduino_cm0
+  scenarios:
+    - grove.connectors.grove_led.pwm.d0
+    - grove.connectors.grove_led.pwm.d1
+    - grove.connectors.grove_led.(gpio|pwm).d2
+    - grove.connectors.grove_led.(gpio|pwm).d3
+    - grove.connectors.grove_led.(gpio|pwm).d4
+    - grove.connectors.grove_led.(gpio|pwm).d5
+    - grove.connectors.grove_led.(gpio|pwm).d6
+    - grove.connectors.grove_led.(gpio|pwm).d7
+    - grove.connectors.grove_led.(gpio|pwm).d8
+    - grove.connectors.grove_led.(gpio|pwm).d9
+    - grove.connectors.grove_led.(gpio|pwm).d10
+    - grove.connectors.grove_led.(gpio|pwm).d11
+    - grove.connectors.grove_led.(gpio|pwm).d12
+    - grove.connectors.grove_led.(gpio|pwm).d13
+    - grove.connectors.grove_led.(gpio|pwm).d14
+    - grove.connectors.grove_led.(gpio|pwm).d15
+    - grove.connectors.grove_led.(gpio|pwm).d16
+    - grove.connectors.grove_led.(gpio|pwm).d17
+    - grove.connectors.grove_led.(gpio|pwm).d20
+    - grove.connectors.grove_led.(gpio|pwm).d21
+    - grove.connectors.grove_led.(gpio|pwm).d22
+    - grove.connectors.grove_led.(gpio|pwm).d23
+    - grove.connectors.grove_led.(gpio|pwm).d24
+    - grove.connectors.grove_led.(gpio|pwm).d25
+    - grove.connectors.grove_led.(gpio|pwm).d26
+    - grove.connectors.grove_led.(gpio|pwm).d27
+    - grove.connectors.grove_led.(gpio|pwm).d28
+    - grove.connectors.grove_led.(gpio|pwm).d29
+    - grove.connectors.grove_led.(gpio|pwm).d30
+    - grove.connectors.grove_led.(gpio|pwm).d31
+
+- comment: "shield(grove.connectors.grove_led): seeeduino_lotus: invalid board condition."
+  platforms:
+    - seeeduino_lotus
+  scenarios:
+    - grove.connectors.grove_led.pwm.d0
+    - grove.connectors.grove_led.pwm.d1
+    - grove.connectors.grove_led.(gpio|pwm).d9
+    - grove.connectors.grove_led.(gpio|pwm).d10
+    - grove.connectors.grove_led.(gpio|pwm).d11
+    - grove.connectors.grove_led.(gpio|pwm).d12
+    - grove.connectors.grove_led.(gpio|pwm).d13
+    - grove.connectors.grove_led.pwm.d14
+    - grove.connectors.grove_led.pwm.d15
+    - grove.connectors.grove_led.pwm.d16
+    - grove.connectors.grove_led.pwm.d17
+    - grove.connectors.grove_led.(gpio|pwm).d20
+    - grove.connectors.grove_led.(gpio|pwm).d21
+    - grove.connectors.grove_led.(gpio|pwm).d22
+    - grove.connectors.grove_led.(gpio|pwm).d23
+    - grove.connectors.grove_led.(gpio|pwm).d24
+    - grove.connectors.grove_led.(gpio|pwm).d25
+    - grove.connectors.grove_led.(gpio|pwm).d26
+    - grove.connectors.grove_led.(gpio|pwm).d27
+    - grove.connectors.grove_led.(gpio|pwm).d28
+    - grove.connectors.grove_led.(gpio|pwm).d29
+    - grove.connectors.grove_led.(gpio|pwm).d30
+    - grove.connectors.grove_led.(gpio|pwm).d31
