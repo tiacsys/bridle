@@ -1,13 +1,57 @@
+##############################################################################
+###
+### ATTENTION:
+###
+### This test suite will be controlled by the standard integration platforms
+### and must be invoked with the corresponding quarantine list. Otherwise,
+### many board-shield constellations will terminate with an error.
+###
+###     west twister -G --quarantine-list bridle/tests/quarantine.yaml … … …
+###
+##############################################################################
 common:
   tags: base shields grove
   build_only: true
   build_on_all: true
   filter: dt_compat_enabled("seeed,grove-laced-if") and
           dt_compat_enabled("seeed,grove-connector")
-  platform_exclude:
-    # stm32h735g_disco.yaml has "arduino_gpio", but
-    # there is no "arduino-header-r3" node in DTS
-    stm32h735g_disco
+  # platform_exclude:
+  #   # stm32h735g_disco.yaml has "arduino_gpio", but
+  #   # there is no "arduino-header-r3" node in DTS
+  #   - stm32h735g_disco
+  #
+  # NOTE: Side effects were observed with the `platform_exclude` statement
+  # when it is used within the `common` section as well as in individual
+  # test cases. The test plan then may be set up incompletely with invalid
+  # content and there is a high risk that test cases will not be included
+  # in the test plan without being noticed!
+  #
+  # AVOID `platform_exclude` statement here in the `common` section!
+  #
+  integration_platforms:
+    - arduino_zero
+    - mimxrt1010_evk
+    - mimxrt1060_evk
+    - mimxrt1060_evkb
+    - nucleo_f303re
+    - nucleo_f401re
+    - nucleo_f413zh
+    - nucleo_f746zg
+    - nucleo_f767zi
+    - rpi_pico
+    - rpi_pico_w
+    - seeed_xiao_samd21
+    - seeeduino_xiao
+    - seeeduino_cm0
+    - seeeduino_lotus
+    - waveshare_rp2040_one
+    - waveshare_rp2040_zero
+    - waveshare_rp2040_matrix
+    - waveshare_rp2040_tiny
+    - waveshare_rp2040_eth
+    - waveshare_rp2040_lcd_0_96
+    - waveshare_rp2040_plus
+    - waveshare_rp2040_plus@16mb
 tests:
   #
   # Grove LED by simple GPIO on Grove Base Shield
@@ -20,8 +64,8 @@ tests:
     extra_args: SHIELD=seeed_grove_base_v2;grove_led_d0
   grove.base.v1.grove_led.gpio.d0:
     depends_on: arduino_gpio
-    filter: dt_nodelabel_enabled("grove_d0_header") and
-            dt_nodelabel_enabled("grove_uart_header") and
+    filter: ( dt_nodelabel_enabled("grove_d0_header") or
+              dt_nodelabel_enabled("grove_uart_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d0", "gpio-leds")
     extra_args: SHIELD=seeed_grove_base_v1;grove_led_d0
   grove.base.v2.grove_led.gpio.d1:
@@ -32,8 +76,9 @@ tests:
     extra_args: SHIELD=seeed_grove_base_v2;grove_led_d1
   grove.base.v1.grove_led.gpio.d1:
     depends_on: arduino_gpio
-    filter: dt_nodelabel_enabled("grove_d0_header") and
-            dt_nodelabel_enabled("grove_uart_header") and
+    filter: ( dt_nodelabel_enabled("grove_d1_header") or
+              dt_nodelabel_enabled("grove_d0_header") or
+              dt_nodelabel_enabled("grove_uart_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d1", "gpio-leds")
     extra_args: SHIELD=seeed_grove_base_v1;grove_led_d1
   grove.base.v2.grove_led.gpio.d2:
@@ -43,201 +88,249 @@ tests:
     extra_args: SHIELD=seeed_grove_base_v2;grove_led_d2
   grove.base.v1.grove_led.gpio.d2:
     depends_on: arduino_gpio
-    filter: dt_nodelabel_enabled("grove_d2_header") and
+    filter: ( dt_nodelabel_enabled("grove_d2_header") or
+              dt_nodelabel_enabled("grove_d1_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d2", "gpio-leds")
     extra_args: SHIELD=seeed_grove_base_v1;grove_led_d2
   grove.base.v2.grove_led.gpio.d3:
     depends_on: arduino_gpio
-    filter: dt_nodelabel_enabled("grove_d3_header") and
+    filter: ( dt_nodelabel_enabled("grove_d3_header") or
+              dt_nodelabel_enabled("grove_d2_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d3", "gpio-leds")
     extra_args: SHIELD=seeed_grove_base_v2;grove_led_d3
   grove.base.v1.grove_led.gpio.d3:
     depends_on: arduino_gpio
-    filter: dt_nodelabel_enabled("grove_d3_header") and
+    filter: ( dt_nodelabel_enabled("grove_d3_header") or
+              dt_nodelabel_enabled("grove_d2_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d3", "gpio-leds")
     extra_args: SHIELD=seeed_grove_base_v1;grove_led_d3
   grove.base.v2.grove_led.gpio.d4:
     depends_on: arduino_gpio
-    filter: dt_nodelabel_enabled("grove_d4_header") and
+    filter: ( dt_nodelabel_enabled("grove_d4_header") or
+              dt_nodelabel_enabled("grove_d3_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d4", "gpio-leds")
     extra_args: SHIELD=seeed_grove_base_v2;grove_led_d4
   grove.base.v1.grove_led.gpio.d4:
     depends_on: arduino_gpio
-    filter: dt_nodelabel_enabled("grove_d4_header") and
+    filter: ( dt_nodelabel_enabled("grove_d4_header") or
+              dt_nodelabel_enabled("grove_d3_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d4", "gpio-leds")
     extra_args: SHIELD=seeed_grove_base_v1;grove_led_d4
   grove.base.v2.grove_led.gpio.d5:
     depends_on: arduino_gpio
-    filter: dt_nodelabel_enabled("grove_d5_header") and
+    filter: ( dt_nodelabel_enabled("grove_d5_header") or
+              dt_nodelabel_enabled("grove_d4_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d5", "gpio-leds")
     extra_args: SHIELD=seeed_grove_base_v2;grove_led_d5
   grove.base.v1.grove_led.gpio.d5:
     depends_on: arduino_gpio
-    filter: dt_nodelabel_enabled("grove_d5_header") and
+    filter: ( dt_nodelabel_enabled("grove_d5_header") or
+              dt_nodelabel_enabled("grove_d4_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d5", "gpio-leds")
     extra_args: SHIELD=seeed_grove_base_v1;grove_led_d5
   grove.base.v2.grove_led.gpio.d6:
     depends_on: arduino_gpio
-    filter: dt_nodelabel_enabled("grove_d6_header") and
+    filter: ( dt_nodelabel_enabled("grove_d6_header") or
+              dt_nodelabel_enabled("grove_d5_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d6", "gpio-leds")
-    platform_exclude:
-      pan1781_evb pan1782_evb
     extra_args: SHIELD=seeed_grove_base_v2;grove_led_d6
+    platform_exclude:
+      - pan1781_evb
+      - pan1782_evb
   grove.base.v1.grove_led.gpio.d6:
     depends_on: arduino_gpio
-    filter: dt_nodelabel_enabled("grove_d6_header") and
+    filter: ( dt_nodelabel_enabled("grove_d6_header") or
+              dt_nodelabel_enabled("grove_d5_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d6", "gpio-leds")
-    platform_exclude:
-      pan1781_evb pan1782_evb
     extra_args: SHIELD=seeed_grove_base_v1;grove_led_d6
+    platform_exclude:
+      - pan1781_evb
+      - pan1782_evb
   grove.base.v2.grove_led.gpio.d7:
     depends_on: arduino_gpio
-    filter: dt_nodelabel_enabled("grove_d7_header") and
+    filter: ( dt_nodelabel_enabled("grove_d7_header") or
+              dt_nodelabel_enabled("grove_d6_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d7", "gpio-leds")
-    platform_exclude:
-      pan1781_evb pan1782_evb
     extra_args: SHIELD=seeed_grove_base_v2;grove_led_d7
+    platform_exclude:
+      - pan1781_evb
+      - pan1782_evb
   grove.base.v1.grove_led.gpio.d7:
     depends_on: arduino_gpio
-    filter: dt_nodelabel_enabled("grove_d7_header") and
+    filter: ( dt_nodelabel_enabled("grove_d7_header") or
+              dt_nodelabel_enabled("grove_d6_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d7", "gpio-leds")
-    platform_exclude:
-      pan1781_evb pan1782_evb
     extra_args: SHIELD=seeed_grove_base_v1;grove_led_d7
+    platform_exclude:
+      - pan1781_evb
+      - pan1782_evb
   grove.base.v2.grove_led.gpio.d8:
     depends_on: arduino_gpio
-    filter: dt_nodelabel_enabled("grove_d8_header") and
+    filter: ( dt_nodelabel_enabled("grove_d8_header") or
+              dt_nodelabel_enabled("grove_d7_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d8", "gpio-leds")
-    platform_exclude:
-      pan1781_evb pan1782_evb
     extra_args: SHIELD=seeed_grove_base_v2;grove_led_d8
+    platform_exclude:
+      - pan1781_evb
+      - pan1782_evb
   grove.base.v1.grove_led.gpio.d8:
     depends_on: arduino_gpio
-    filter: dt_nodelabel_enabled("grove_d8_header") and
+    filter: ( dt_nodelabel_enabled("grove_d8_header") or
+              dt_nodelabel_enabled("grove_d7_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d8", "gpio-leds")
-    platform_exclude:
-      pan1781_evb pan1782_evb
     extra_args: SHIELD=seeed_grove_base_v1;grove_led_d8
+    platform_exclude:
+      - pan1781_evb
+      - pan1782_evb
   grove.base.v2.grove_led.gpio.d9:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_d8_header") and
             dt_label_with_parent_compat_enabled("grove_led_d9", "gpio-leds")
-    platform_exclude:
-      pan1781_evb pan1782_evb
     extra_args: SHIELD=seeed_grove_base_v2;grove_led_d9
+    platform_exclude:
+      - pan1781_evb
+      - pan1782_evb
   grove.base.v1.grove_led.gpio.d9:
     depends_on: arduino_gpio
-    filter: dt_nodelabel_enabled("grove_d9_header") and
+    filter: ( dt_nodelabel_enabled("grove_d9_header") or
+              dt_nodelabel_enabled("grove_d8_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d9", "gpio-leds")
-    platform_exclude:
-      pan1781_evb pan1782_evb
     extra_args: SHIELD=seeed_grove_base_v1;grove_led_d9
+    platform_exclude:
+      - pan1781_evb
+      - pan1782_evb
+  # grove.base.v2.grove_led.gpio.d10
   grove.base.v1.grove_led.gpio.d10:
     depends_on: arduino_gpio
-    filter: dt_nodelabel_enabled("grove_d10_header") and
+    filter: ( dt_nodelabel_enabled("grove_d10_header") or
+              dt_nodelabel_enabled("grove_d9_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d10", "gpio-leds")
     extra_args: SHIELD=seeed_grove_base_v1;grove_led_d10
+  # grove.base.v2.grove_led.gpio.d11
   grove.base.v1.grove_led.gpio.d11:
     depends_on: arduino_gpio
-    filter: dt_nodelabel_enabled("grove_d11_header") and
+    filter: ( dt_nodelabel_enabled("grove_d11_header") or
+              dt_nodelabel_enabled("grove_d10_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d11", "gpio-leds")
     extra_args: SHIELD=seeed_grove_base_v1;grove_led_d11
+  # grove.base.v2.grove_led.gpio.d12
   grove.base.v1.grove_led.gpio.d12:
     depends_on: arduino_gpio
-    filter: dt_nodelabel_enabled("grove_d12_header") and
+    filter: ( dt_nodelabel_enabled("grove_d12_header") or
+              dt_nodelabel_enabled("grove_d11_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d12", "gpio-leds")
     extra_args: SHIELD=seeed_grove_base_v1;grove_led_d12
+  # grove.base.v2.grove_led.gpio.d13
   grove.base.v1.grove_led.gpio.d13:
     depends_on: arduino_gpio
-    filter: dt_nodelabel_enabled("grove_d13_header") and
+    filter: ( dt_nodelabel_enabled("grove_d13_header") or
+              dt_nodelabel_enabled("grove_d12_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d13", "gpio-leds")
     extra_args: SHIELD=seeed_grove_base_v1;grove_led_d13
   grove.base.v2.grove_led.gpio.d14:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_a0_header") and
             dt_label_with_parent_compat_enabled("grove_led_d14", "gpio-leds")
-    platform_exclude:
-      frdm_kw41z
-      hifive1 hifive1_revb
     extra_args: SHIELD=seeed_grove_base_v2;grove_led_d14
+    platform_exclude:
+      - frdm_kw41z
+      - hifive1
+      - hifive1_revb
   grove.base.v1.grove_led.gpio.d14:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_a0_header") and
             dt_label_with_parent_compat_enabled("grove_led_d14", "gpio-leds")
-    platform_exclude:
-      frdm_kw41z
-      hifive1 hifive1_revb
     extra_args: SHIELD=seeed_grove_base_v1;grove_led_d14
+    platform_exclude:
+      - frdm_kw41z
+      - hifive1
+      - hifive1_revb
   grove.base.v2.grove_led.gpio.d15:
     depends_on: arduino_gpio
-    filter: dt_nodelabel_enabled("grove_a1_header") and
+    filter: ( dt_nodelabel_enabled("grove_a1_header") or
+              dt_nodelabel_enabled("grove_a0_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d15", "gpio-leds")
     extra_args: SHIELD=seeed_grove_base_v2;grove_led_d15
   grove.base.v1.grove_led.gpio.d15:
     depends_on: arduino_gpio
-    filter: dt_nodelabel_enabled("grove_a1_header") and
+    filter: ( dt_nodelabel_enabled("grove_a1_header") or
+              dt_nodelabel_enabled("grove_a0_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d15", "gpio-leds")
     extra_args: SHIELD=seeed_grove_base_v1;grove_led_d15
   grove.base.v2.grove_led.gpio.d16:
     depends_on: arduino_gpio
-    filter: dt_nodelabel_enabled("grove_a2_header") and
+    filter: ( dt_nodelabel_enabled("grove_a2_header") or
+              dt_nodelabel_enabled("grove_a1_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d16", "gpio-leds")
-    platform_exclude:
-      stm32mp157c_dk2
     extra_args: SHIELD=seeed_grove_base_v2;grove_led_d16
+    platform_exclude:
+      - stm32mp157c_dk2
   grove.base.v1.grove_led.gpio.d16:
     depends_on: arduino_gpio
-    filter: dt_nodelabel_enabled("grove_a2_header") and
+    filter: ( dt_nodelabel_enabled("grove_a2_header") or
+              dt_nodelabel_enabled("grove_a1_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d16", "gpio-leds")
-    platform_exclude:
-      stm32mp157c_dk2
     extra_args: SHIELD=seeed_grove_base_v1;grove_led_d16
+    platform_exclude:
+      - stm32mp157c_dk2
   grove.base.v2.grove_led.gpio.d17:
     depends_on: arduino_gpio
-    filter: dt_nodelabel_enabled("grove_a3_header") and
+    filter: ( dt_nodelabel_enabled("grove_a3_header") or
+              dt_nodelabel_enabled("grove_a2_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d17", "gpio-leds")
-    platform_exclude:
-      lpcxpresso55s16
-      stm32mp157c_dk2
     extra_args: SHIELD=seeed_grove_base_v2;grove_led_d17
+    platform_exclude:
+      - lpcxpresso55s16
+      - stm32mp157c_dk2
   grove.base.v1.grove_led.gpio.d17:
     depends_on: arduino_gpio
-    filter: dt_nodelabel_enabled("grove_a3_header") and
+    filter: ( dt_nodelabel_enabled("grove_a3_header") or
+              dt_nodelabel_enabled("grove_a2_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d17", "gpio-leds")
-    platform_exclude:
-      lpcxpresso55s16
-      stm32mp157c_dk2
     extra_args: SHIELD=seeed_grove_base_v1;grove_led_d17
+    platform_exclude:
+      - lpcxpresso55s16
+      - stm32mp157c_dk2
   grove.base.v2.grove_led.gpio.d18:
     depends_on: arduino_gpio
-    filter: dt_nodelabel_enabled("grove_i2c_header") and
+    filter: ( dt_nodelabel_enabled("grove_a4_header") or
+              dt_nodelabel_enabled("grove_a3_header") or
+              dt_nodelabel_enabled("grove_i2c_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d18", "gpio-leds")
-    platform_exclude:
-      pan1781_evb pan1782_evb
     extra_args: SHIELD=seeed_grove_base_v2;grove_led_d18
+    platform_exclude:
+      - pan1781_evb
+      - pan1782_evb
   grove.base.v1.grove_led.gpio.d18:
     depends_on: arduino_gpio
-    filter: dt_nodelabel_enabled("grove_i2c_header") and
+    filter: ( dt_nodelabel_enabled("grove_a4_header") or
+              dt_nodelabel_enabled("grove_a3_header") or
+              dt_nodelabel_enabled("grove_i2c_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d18", "gpio-leds")
-    platform_exclude:
-      pan1781_evb pan1782_evb
     extra_args: SHIELD=seeed_grove_base_v1;grove_led_d18
+    platform_exclude:
+      - pan1781_evb
+      - pan1782_evb
   grove.base.v2.grove_led.gpio.d19:
     depends_on: arduino_gpio
-    filter: dt_nodelabel_enabled("grove_i2c_header") and
+    filter: (dt_nodelabel_enabled("grove_a4_header") or
+              dt_nodelabel_enabled("grove_i2c_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d19", "gpio-leds")
-    platform_exclude:
-      frdm_kw41z
-      pan1781_evb pan1782_evb
     extra_args: SHIELD=seeed_grove_base_v2;grove_led_d19
+    platform_exclude:
+      - frdm_kw41z
+      - pan1781_evb
+      - pan1782_evb
   grove.base.v1.grove_led.gpio.d19:
     depends_on: arduino_gpio
-    filter: dt_nodelabel_enabled("grove_i2c_header") and
+    filter: (dt_nodelabel_enabled("grove_a4_header") or
+              dt_nodelabel_enabled("grove_i2c_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d19", "gpio-leds")
-    platform_exclude:
-      frdm_kw41z
-      pan1781_evb pan1782_evb
     extra_args: SHIELD=seeed_grove_base_v1;grove_led_d19
+    platform_exclude:
+      - frdm_kw41z
+      - pan1781_evb
+      - pan1782_evb
   #
   # Grove LED by dedicated PWM on Grove Base Shield
   #
@@ -245,1088 +338,1527 @@ tests:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d0") and
             dt_nodelabel_enabled("grove_d0_header") and
+            dt_nodelabel_enabled("grove_uart_header") and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d0", "pwm-leds")
-    platform_allow:
-      arduino_zero
-      seeeduino_cm0
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d0
+    platform_allow:
+      - arduino_zero
+      - seeeduino_cm0
+      - seeeduino_lotus
   grove.base.v1.grove_led.pwm.d0:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d0") and
-            dt_nodelabel_enabled("grove_d0_header") and
+            ( dt_nodelabel_enabled("grove_d0_header") or
+              dt_nodelabel_enabled("grove_uart_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d0", "pwm-leds")
-    platform_allow:
-      arduino_zero
-      seeeduino_cm0
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d0
+    platform_allow:
+      - arduino_zero
+      - seeeduino_cm0
+      - seeeduino_lotus
   grove.base.v2.grove_led.pwm.d1:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d1") and
-            dt_nodelabel_enabled("grove_d1_header") and
+            dt_nodelabel_enabled("grove_d0_header") and
+            dt_nodelabel_enabled("grove_uart_header") and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d1", "pwm-leds")
-    platform_allow:
-      arduino_zero
-      seeeduino_cm0
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d1
+    platform_allow:
+      - arduino_zero
+      - seeeduino_cm0
+      - seeeduino_lotus
   grove.base.v1.grove_led.pwm.d1:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d1") and
-            dt_nodelabel_enabled("grove_d1_header") and
+            ( dt_nodelabel_enabled("grove_d1_header") or
+              dt_nodelabel_enabled("grove_d0_header") or
+              dt_nodelabel_enabled("grove_uart_header") )and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d1", "pwm-leds")
-    platform_allow:
-      arduino_zero
-      seeeduino_cm0
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d1
+    platform_allow:
+      - arduino_zero
+      - seeeduino_cm0
+      - seeeduino_lotus
   grove.base.v2.grove_led.pwm.d2:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d2") and
             dt_nodelabel_enabled("grove_d2_header") and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d2", "pwm-leds")
-    platform_allow:
-      nucleo_f303re
-      nucleo_f401re
-      mimxrt1060_evk
-      mimxrt1060_evkb
-      arduino_zero
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d2
+    platform_allow:
+      - arduino_zero
+      - mimxrt1060_evk
+      - mimxrt1060_evkb
+      - nucleo_f303re
+      - nucleo_f401re
+      - seeeduino_cm0
+      - seeeduino_lotus
   grove.base.v1.grove_led.pwm.d2:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d2") and
-            dt_nodelabel_enabled("grove_d2_header") and
+            ( dt_nodelabel_enabled("grove_d2_header") or
+              dt_nodelabel_enabled("grove_d1_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d2", "pwm-leds")
-    platform_allow:
-      nucleo_f303re
-      nucleo_f401re
-      mimxrt1060_evk
-      mimxrt1060_evkb
-      arduino_zero
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d2
+    platform_allow:
+      - arduino_zero
+      - mimxrt1060_evk
+      - mimxrt1060_evkb
+      - nucleo_f303re
+      - nucleo_f401re
+      - seeeduino_cm0
+      - seeeduino_lotus
   grove.base.v2.grove_led.pwm.d3:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d3") and
-            dt_nodelabel_enabled("grove_d3_header") and
+            ( dt_nodelabel_enabled("grove_d3_header") or
+              dt_nodelabel_enabled("grove_d2_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d3", "pwm-leds")
-    platform_allow:
-      nucleo_f303re
-      nucleo_f401re
-      nucleo_f413zh
-      nucleo_f767zi
-      mimxrt1060_evk
-      mimxrt1060_evkb
-      arduino_zero
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d3
+    platform_allow:
+      - arduino_zero
+      - mimxrt1060_evk
+      - mimxrt1060_evkb
+      - nucleo_f303re
+      - nucleo_f401re
+      - nucleo_f413zh
+      - nucleo_f767zi
+      - seeeduino_cm0
+      - seeeduino_lotus
   grove.base.v1.grove_led.pwm.d3:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d3") and
-            dt_nodelabel_enabled("grove_d3_header") and
+            ( dt_nodelabel_enabled("grove_d3_header") or
+              dt_nodelabel_enabled("grove_d2_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d3", "pwm-leds")
-    platform_allow:
-      nucleo_f303re
-      nucleo_f401re
-      nucleo_f413zh
-      nucleo_f767zi
-      mimxrt1060_evk
-      mimxrt1060_evkb
-      arduino_zero
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d3
+    platform_allow:
+      - arduino_zero
+      - mimxrt1060_evk
+      - mimxrt1060_evkb
+      - nucleo_f303re
+      - nucleo_f401re
+      - nucleo_f413zh
+      - nucleo_f767zi
+      - seeeduino_cm0
+      - seeeduino_lotus
   grove.base.v2.grove_led.pwm.d4:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d4") and
-            dt_nodelabel_enabled("grove_d4_header") and
+            ( dt_nodelabel_enabled("grove_d4_header") or
+              dt_nodelabel_enabled("grove_d3_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d4", "pwm-leds")
-    platform_allow:
-      nucleo_f303re
-      mimxrt1060_evk
-      mimxrt1060_evkb
-      arduino_zero
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d4
+    platform_allow:
+      - arduino_zero
+      - mimxrt1060_evk
+      - mimxrt1060_evkb
+      - nucleo_f303re
+      - seeeduino_cm0
+      - seeeduino_lotus
   grove.base.v1.grove_led.pwm.d4:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d4") and
-            dt_nodelabel_enabled("grove_d4_header") and
+            ( dt_nodelabel_enabled("grove_d4_header") or
+              dt_nodelabel_enabled("grove_d3_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d4", "pwm-leds")
-    platform_allow:
-      nucleo_f303re
-      mimxrt1060_evk
-      mimxrt1060_evkb
-      arduino_zero
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d4
+    platform_allow:
+      - arduino_zero
+      - mimxrt1060_evk
+      - mimxrt1060_evkb
+      - nucleo_f303re
+      - seeeduino_cm0
+      - seeeduino_lotus
   grove.base.v2.grove_led.pwm.d5:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d5") and
-            dt_nodelabel_enabled("grove_d5_header") and
+            ( dt_nodelabel_enabled("grove_d5_header") or
+              dt_nodelabel_enabled("grove_d4_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d5", "pwm-leds")
-    platform_allow:
-      nucleo_f303re
-      nucleo_f401re
-      nucleo_f413zh
-      nucleo_f767zi
-      mimxrt1060_evk
-      mimxrt1060_evkb
-      arduino_zero
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d5
+    platform_allow:
+      - arduino_zero
+      - mimxrt1060_evk
+      - mimxrt1060_evkb
+      - nucleo_f303re
+      - nucleo_f401re
+      - nucleo_f413zh
+      - nucleo_f767zi
+      - seeeduino_cm0
+      - seeeduino_lotus
   grove.base.v1.grove_led.pwm.d5:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d5") and
-            dt_nodelabel_enabled("grove_d5_header") and
+            ( dt_nodelabel_enabled("grove_d5_header") or
+              dt_nodelabel_enabled("grove_d4_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d5", "pwm-leds")
-    platform_allow:
-      nucleo_f303re
-      nucleo_f401re
-      nucleo_f413zh
-      nucleo_f767zi
-      mimxrt1060_evk
-      mimxrt1060_evkb
-      arduino_zero
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d5
+    platform_allow:
+      - arduino_zero
+      - mimxrt1060_evk
+      - mimxrt1060_evkb
+      - nucleo_f303re
+      - nucleo_f401re
+      - nucleo_f413zh
+      - nucleo_f767zi
+      - seeeduino_cm0
+      - seeeduino_lotus
   grove.base.v2.grove_led.pwm.d6:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d6") and
-            dt_nodelabel_enabled("grove_d6_header") and
+            ( dt_nodelabel_enabled("grove_d6_header") or
+              dt_nodelabel_enabled("grove_d5_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d6", "pwm-leds")
-    platform_allow:
-      nucleo_f303re
-      nucleo_f401re
-      nucleo_f413zh
-      nucleo_f767zi
-      arduino_zero
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d6
+    platform_allow:
+      - arduino_zero
+      - nucleo_f303re
+      - nucleo_f401re
+      - nucleo_f413zh
+      - nucleo_f767zi
+      - seeeduino_cm0
+      - seeeduino_lotus
   grove.base.v1.grove_led.pwm.d6:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d6") and
-            dt_nodelabel_enabled("grove_d6_header") and
+            ( dt_nodelabel_enabled("grove_d6_header") or
+              dt_nodelabel_enabled("grove_d5_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d6", "pwm-leds")
-    platform_allow:
-      nucleo_f303re
-      nucleo_f401re
-      nucleo_f413zh
-      nucleo_f767zi
-      arduino_zero
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d6
+    platform_allow:
+      - arduino_zero
+      - nucleo_f303re
+      - nucleo_f401re
+      - nucleo_f413zh
+      - nucleo_f767zi
+      - seeeduino_cm0
+      - seeeduino_lotus
   grove.base.v2.grove_led.pwm.d7:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d7") and
-            dt_nodelabel_enabled("grove_d7_header") and
+            ( dt_nodelabel_enabled("grove_d7_header") or
+              dt_nodelabel_enabled("grove_d6_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d7", "pwm-leds")
-    platform_allow:
-      nucleo_f303re
-      nucleo_f401re
-      arduino_zero
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d7
+    platform_allow:
+      - arduino_zero
+      - nucleo_f303re
+      - nucleo_f401re
+      - seeeduino_cm0
+      - seeeduino_lotus
   grove.base.v1.grove_led.pwm.d7:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d7") and
-            dt_nodelabel_enabled("grove_d7_header") and
+            ( dt_nodelabel_enabled("grove_d7_header") or
+              dt_nodelabel_enabled("grove_d6_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d7", "pwm-leds")
-    platform_allow:
-      nucleo_f303re
-      nucleo_f401re
-      arduino_zero
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d7
+    platform_allow:
+      - arduino_zero
+      - nucleo_f303re
+      - nucleo_f401re
+      - seeeduino_cm0
+      - seeeduino_lotus
   grove.base.v2.grove_led.pwm.d8:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d8") and
-            dt_nodelabel_enabled("grove_d8_header") and
+            ( dt_nodelabel_enabled("grove_d8_header") or
+              dt_nodelabel_enabled("grove_d7_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d8", "pwm-leds")
-    platform_allow:
-      nucleo_f303re
-      nucleo_f401re
-      mimxrt1010_evk
-      arduino_zero
-      seeeduino_cm0
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d8
+    platform_allow:
+      - arduino_zero
+      - mimxrt1010_evk
+      - nucleo_f303re
+      - nucleo_f401re
+      - seeeduino_cm0
+      - seeeduino_lotus
   grove.base.v1.grove_led.pwm.d8:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d8") and
-            dt_nodelabel_enabled("grove_d8_header") and
+            ( dt_nodelabel_enabled("grove_d8_header") or
+              dt_nodelabel_enabled("grove_d7_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d8", "pwm-leds")
-    platform_allow:
-      nucleo_f303re
-      nucleo_f401re
-      mimxrt1010_evk
-      arduino_zero
-      seeeduino_cm0
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d8
+    platform_allow:
+      - arduino_zero
+      - mimxrt1010_evk
+      - nucleo_f303re
+      - nucleo_f401re
+      - seeeduino_cm0
+      - seeeduino_lotus
   grove.base.v2.grove_led.pwm.d9:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d9") and
             dt_nodelabel_enabled("grove_d8_header") and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d9", "pwm-leds")
-    platform_allow:
-      nucleo_f303re
-      nucleo_f401re
-      nucleo_f413zh
-      nucleo_f767zi
-      mimxrt1010_evk
-      arduino_zero
-      seeeduino_cm0
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d9
+    platform_allow:
+      - arduino_zero
+      - mimxrt1010_evk
+      - nucleo_f303re
+      - nucleo_f401re
+      - nucleo_f413zh
+      - nucleo_f767zi
+      - seeeduino_cm0
+      - seeeduino_lotus
   grove.base.v1.grove_led.pwm.d9:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d9") and
-            dt_nodelabel_enabled("grove_d9_header") and
+            ( dt_nodelabel_enabled("grove_d9_header") or
+              dt_nodelabel_enabled("grove_d8_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d9", "pwm-leds")
-    platform_allow:
-      nucleo_f303re
-      nucleo_f401re
-      nucleo_f413zh
-      nucleo_f767zi
-      mimxrt1010_evk
-      arduino_zero
-      seeeduino_cm0
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d9
+    platform_allow:
+      - arduino_zero
+      - mimxrt1010_evk
+      - nucleo_f303re
+      - nucleo_f401re
+      - nucleo_f413zh
+      - nucleo_f767zi
+      - seeeduino_cm0
+      - seeeduino_lotus
+  # grove.base.v2.grove_led.pwm.d10
   grove.base.v1.grove_led.pwm.d10:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d10") and
-            dt_nodelabel_enabled("grove_d10_header") and
+            ( dt_nodelabel_enabled("grove_d10_header") or
+              dt_nodelabel_enabled("grove_d9_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d10", "pwm-leds")
-    platform_allow:
-      nucleo_f303re
-      nucleo_f401re
-      nucleo_f413zh
-      nucleo_f767zi
-      mimxrt1060_evk
-      mimxrt1060_evkb
-      arduino_zero
-      seeeduino_cm0
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d10
+    platform_allow:
+      - arduino_zero
+      - mimxrt1060_evk
+      - mimxrt1060_evkb
+      - nucleo_f303re
+      - nucleo_f401re
+      - nucleo_f413zh
+      - nucleo_f767zi
+      - seeeduino_cm0
+      - seeeduino_lotus
+  # grove.base.v2.grove_led.pwm.d11
   grove.base.v1.grove_led.pwm.d11:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d11") and
-            dt_nodelabel_enabled("grove_d11_header") and
+            ( dt_nodelabel_enabled("grove_d11_header") or
+              dt_nodelabel_enabled("grove_d10_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d11", "pwm-leds")
-    platform_allow:
-      nucleo_f303re
-      nucleo_f401re
-      nucleo_f413zh
-      nucleo_f767zi
-      mimxrt1060_evk
-      mimxrt1060_evkb
-      arduino_zero
-      seeeduino_cm0
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d11
+    platform_allow:
+      - arduino_zero
+      - mimxrt1060_evk
+      - mimxrt1060_evkb
+      - nucleo_f303re
+      - nucleo_f401re
+      - nucleo_f413zh
+      - nucleo_f767zi
+      - seeeduino_cm0
+      - seeeduino_lotus
+  # grove.base.v2.grove_led.pwm.d12
   grove.base.v1.grove_led.pwm.d12:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d12") and
-            dt_nodelabel_enabled("grove_d12_header") and
+            ( dt_nodelabel_enabled("grove_d12_header") or
+              dt_nodelabel_enabled("grove_d11_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d12", "pwm-leds")
-    platform_allow:
-      nucleo_f303re
-      nucleo_f413zh
-      nucleo_f767zi
-      mimxrt1060_evk
-      mimxrt1060_evkb
-      arduino_zero
-      seeeduino_cm0
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d12
+    platform_allow:
+      - arduino_zero
+      - mimxrt1060_evk
+      - mimxrt1060_evkb
+      - nucleo_f303re
+      - nucleo_f413zh
+      - nucleo_f767zi
+      - seeeduino_cm0
+      - seeeduino_lotus
+  # grove.base.v2.grove_led.pwm.d13
   grove.base.v1.grove_led.pwm.d13:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d13") and
-            dt_nodelabel_enabled("grove_d13_header") and
+            ( dt_nodelabel_enabled("grove_d13_header") or
+              dt_nodelabel_enabled("grove_d12_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d13", "pwm-leds")
-    platform_allow:
-      nucleo_f303re
-      nucleo_f401re
-      nucleo_f413zh
-      nucleo_f767zi
-      mimxrt1060_evk
-      mimxrt1060_evkb
-      arduino_zero
-      seeeduino_cm0
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d13
+    platform_allow:
+      - arduino_zero
+      - mimxrt1060_evk
+      - mimxrt1060_evkb
+      - nucleo_f303re
+      - nucleo_f401re
+      - nucleo_f413zh
+      - nucleo_f767zi
+      - seeeduino_cm0
+      - seeeduino_lotus
+  grove.base.v2.grove_led.pwm.d14:
+    depends_on: arduino_gpio
+    filter: dt_nodelabel_enabled("grove_pwm_d14") and
+            dt_nodelabel_enabled("grove_a0_header") and
+            dt_label_with_parent_compat_enabled("grove_pwm_led_d14", "pwm-leds")
+    extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d14
+    skip: true
+  grove.base.v1.grove_led.pwm.d14:
+    depends_on: arduino_gpio
+    filter: dt_nodelabel_enabled("grove_pwm_d14") and
+            dt_nodelabel_enabled("grove_a0_header") and
+            dt_label_with_parent_compat_enabled("grove_pwm_led_d14", "pwm-leds")
+    extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d14
+    skip: true
+  grove.base.v2.grove_led.pwm.d15:
+    depends_on: arduino_gpio
+    filter: dt_nodelabel_enabled("grove_pwm_d15") and
+            ( dt_nodelabel_enabled("grove_a1_header") or
+              dt_nodelabel_enabled("grove_a0_header") ) and
+            dt_label_with_parent_compat_enabled("grove_pwm_led_d15", "pwm-leds")
+    extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d15
+    skip: true
+  grove.base.v1.grove_led.pwm.d15:
+    depends_on: arduino_gpio
+    filter: dt_nodelabel_enabled("grove_pwm_d15") and
+            ( dt_nodelabel_enabled("grove_a1_header") or
+              dt_nodelabel_enabled("grove_a0_header") ) and
+            dt_label_with_parent_compat_enabled("grove_pwm_led_d15", "pwm-leds")
+    extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d15
+    skip: true
+  grove.base.v2.grove_led.pwm.d16:
+    depends_on: arduino_gpio
+    filter: dt_nodelabel_enabled("grove_pwm_d16") and
+            ( dt_nodelabel_enabled("grove_a2_header") or
+              dt_nodelabel_enabled("grove_a1_header") ) and
+            dt_label_with_parent_compat_enabled("grove_pwm_led_d16", "pwm-leds")
+    extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d16
+    skip: true
+  grove.base.v1.grove_led.pwm.d16:
+    depends_on: arduino_gpio
+    filter: dt_nodelabel_enabled("grove_pwm_d16") and
+            ( dt_nodelabel_enabled("grove_a2_header") or
+              dt_nodelabel_enabled("grove_a1_header") ) and
+            dt_label_with_parent_compat_enabled("grove_pwm_led_d16", "pwm-leds")
+    extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d16
+    skip: true
+  grove.base.v2.grove_led.pwm.d17:
+    depends_on: arduino_gpio
+    filter: dt_nodelabel_enabled("grove_pwm_d17") and
+            ( dt_nodelabel_enabled("grove_a3_header") or
+              dt_nodelabel_enabled("grove_a2_header") ) and
+            dt_label_with_parent_compat_enabled("grove_pwm_led_d17", "pwm-leds")
+    extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d17
+    skip: true
+  grove.base.v1.grove_led.pwm.d17:
+    depends_on: arduino_gpio
+    filter: dt_nodelabel_enabled("grove_pwm_d17") and
+            ( dt_nodelabel_enabled("grove_a3_header") or
+              dt_nodelabel_enabled("grove_a2_header") ) and
+            dt_label_with_parent_compat_enabled("grove_pwm_led_d17", "pwm-leds")
+    extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d17
+    skip: true
   grove.base.v2.grove_led.pwm.d18:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d18") and
-            dt_nodelabel_enabled("grove_i2c_header") and
+            ( dt_nodelabel_enabled("grove_a4_header") or
+              dt_nodelabel_enabled("grove_a3_header") or
+              dt_nodelabel_enabled("grove_i2c_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d18", "pwm-leds")
-    platform_allow:
-      nucleo_f401re
-      nucleo_f413zh
-      nucleo_f767zi
-      arduino_zero
-      seeeduino_cm0
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d18
+    platform_allow:
+      - arduino_zero
+      - nucleo_f303re
+      - nucleo_f401re
+      - nucleo_f413zh
+      - nucleo_f767zi
+      - seeeduino_cm0
+      - seeeduino_lotus
   grove.base.v1.grove_led.pwm.d18:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d18") and
-            dt_nodelabel_enabled("grove_i2c_header") and
+            ( dt_nodelabel_enabled("grove_a4_header") or
+              dt_nodelabel_enabled("grove_a3_header") or
+              dt_nodelabel_enabled("grove_i2c_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d18", "pwm-leds")
-    platform_allow:
-      nucleo_f303re
-      nucleo_f401re
-      nucleo_f413zh
-      nucleo_f767zi
-      arduino_zero
-      seeeduino_cm0
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d18
+    platform_allow:
+      - arduino_zero
+      - nucleo_f303re
+      - nucleo_f401re
+      - nucleo_f413zh
+      - nucleo_f767zi
+      - seeeduino_cm0
+      - seeeduino_lotus
   grove.base.v2.grove_led.pwm.d19:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d19") and
-            dt_nodelabel_enabled("grove_i2c_header") and
+            ( dt_nodelabel_enabled("grove_a4_header") or
+              dt_nodelabel_enabled("grove_i2c_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d19", "pwm-leds")
-    platform_allow:
-      nucleo_f303re
-      nucleo_f401re
-      nucleo_f413zh
-      nucleo_f767zi
-      arduino_zero
-      seeeduino_cm0
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d19
+    platform_allow:
+      - arduino_zero
+      - nucleo_f303re
+      - nucleo_f401re
+      - nucleo_f413zh
+      - nucleo_f767zi
+      - seeeduino_cm0
+      - seeeduino_lotus
   grove.base.v1.grove_led.pwm.d19:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d19") and
-            dt_nodelabel_enabled("grove_i2c_header") and
+            ( dt_nodelabel_enabled("grove_a4_header") or
+              dt_nodelabel_enabled("grove_i2c_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d19", "pwm-leds")
-    platform_allow:
-      nucleo_f303re
-      nucleo_f401re
-      nucleo_f413zh
-      nucleo_f767zi
-      arduino_zero
-      seeeduino_cm0
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d19
+    platform_allow:
+      - arduino_zero
+      - nucleo_f303re
+      - nucleo_f401re
+      - nucleo_f413zh
+      - nucleo_f767zi
+      - seeeduino_cm0
+      - seeeduino_lotus
   #
   # Grove LED by simple GPIO on Grove Shield for Seeeduino XIAO
   #
   grove.xiao.v1.grove_led.gpio.d0:
+    depends_on: xiao_gpio
     filter: dt_nodelabel_enabled("grove_d0_header") and
             dt_label_with_parent_compat_enabled("grove_led_d0", "gpio-leds")
-    platform_allow:
-      seeed_xiao_samd21
-      seeeduino_xiao
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_led_d0
   grove.xiao.v1.grove_led.gpio.d1:
-    filter: dt_nodelabel_enabled("grove_d1_header") and
+    depends_on: xiao_gpio
+    filter: ( dt_nodelabel_enabled("grove_d1_header") or
+              dt_nodelabel_enabled("grove_d0_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d1", "gpio-leds")
-    platform_allow:
-      seeed_xiao_samd21
-      seeeduino_xiao
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_led_d1
   grove.xiao.v1.grove_led.gpio.d2:
-    filter: dt_nodelabel_enabled("grove_d2_header") and
+    depends_on: xiao_gpio
+    filter: ( dt_nodelabel_enabled("grove_d2_header") or
+              dt_nodelabel_enabled("grove_d1_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d2", "gpio-leds")
-    platform_allow:
-      seeed_xiao_samd21
-      seeeduino_xiao
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_led_d2
+  grove.xiao.v1.grove_led.gpio.d3:
+    depends_on: xiao_gpio
+    filter: ( dt_nodelabel_enabled("grove_d3_header") or
+              dt_nodelabel_enabled("grove_d2_header") ) and
+            dt_label_with_parent_compat_enabled("grove_led_d3", "gpio-leds")
+    extra_args: SHIELD=seeed_grove_xiao_v1;grove_led_d3
+  grove.xiao.v1.grove_led.gpio.d4:
+    depends_on: xiao_gpio
+    filter: ( dt_nodelabel_enabled("grove_d4_header") or
+              dt_nodelabel_enabled("grove_d5_header") ) and
+            dt_nodelabel_enabled("grove_i2c_header") and
+            dt_label_with_parent_compat_enabled("grove_led_d4", "gpio-leds")
+    extra_args: SHIELD=seeed_grove_xiao_v1;grove_led_d4
   grove.xiao.v1.grove_led.gpio.d5:
-    filter: dt_nodelabel_enabled("grove_d5_header") and
+    depends_on: xiao_gpio
+    filter: ( dt_nodelabel_enabled("grove_d5_header") or
+              dt_nodelabel_enabled("grove_d4_header") ) and
             dt_nodelabel_enabled("grove_i2c_header") and
             dt_label_with_parent_compat_enabled("grove_led_d5", "gpio-leds")
-    platform_allow:
-      seeed_xiao_samd21
-      seeeduino_xiao
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_led_d5
+  grove.xiao.v1.grove_led.gpio.d6:
+    depends_on: xiao_gpio
+    filter: ( dt_nodelabel_enabled("grove_d6_header") or
+              dt_nodelabel_enabled("grove_d7_header") ) and
+            dt_nodelabel_enabled("grove_uart_header") and
+            dt_label_with_parent_compat_enabled("grove_led_d6", "gpio-leds")
+    extra_args: SHIELD=seeed_grove_xiao_v1;grove_led_d6
   grove.xiao.v1.grove_led.gpio.d7:
-    filter: dt_nodelabel_enabled("grove_d7_header") and
+    depends_on: xiao_gpio
+    filter: ( dt_nodelabel_enabled("grove_d7_header") or
+              dt_nodelabel_enabled("grove_d6_header") ) and
             dt_nodelabel_enabled("grove_uart_header") and
             dt_label_with_parent_compat_enabled("grove_led_d7", "gpio-leds")
-    platform_allow:
-      seeed_xiao_samd21
-      seeeduino_xiao
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_led_d7
   grove.xiao.v1.grove_led.gpio.d8:
+    depends_on: xiao_gpio
     filter: dt_nodelabel_enabled("grove_d8_header") and
             dt_label_with_parent_compat_enabled("grove_led_d8", "gpio-leds")
-    platform_allow:
-      seeed_xiao_samd21
-      seeeduino_xiao
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_led_d8
   grove.xiao.v1.grove_led.gpio.d9:
-    filter: dt_nodelabel_enabled("grove_d9_header") and
+    depends_on: xiao_gpio
+    filter: ( dt_nodelabel_enabled("grove_d9_header") or
+              dt_nodelabel_enabled("grove_d8_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d9", "gpio-leds")
-    platform_allow:
-      seeed_xiao_samd21
-      seeeduino_xiao
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_led_d9
+  grove.xiao.v1.grove_led.gpio.d10:
+    depends_on: xiao_gpio
+    filter: ( dt_nodelabel_enabled("grove_d10_header") or
+              dt_nodelabel_enabled("grove_d9_header") ) and
+            dt_label_with_parent_compat_enabled("grove_led_d10", "gpio-leds")
+    extra_args: SHIELD=seeed_grove_xiao_v1;grove_led_d10
   #
   # Grove LED by dedicated PWM on Grove Shield for Seeeduino XIAO
   #
+  grove.xiao.v1.grove_led.pwm.d0:
+    depends_on: xiao_gpio
+    filter: dt_nodelabel_enabled("grove_pwm_d0") and
+            dt_nodelabel_enabled("grove_d0_header") and
+            dt_label_with_parent_compat_enabled("grove_pwm_led_d0", "pwm-leds")
+    extra_args: SHIELD=seeed_grove_xiao_v1;grove_pwm_led_d0
+    skip: true
   grove.xiao.v1.grove_led.pwm.d1:
+    depends_on: xiao_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d1") and
-            dt_nodelabel_enabled("grove_d1_header") and
+            ( dt_nodelabel_enabled("grove_d1_header") or
+              dt_nodelabel_enabled("grove_d0_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d1", "pwm-leds")
-    platform_allow:
-      seeed_xiao_samd21
-      seeeduino_xiao
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_pwm_led_d1
-  grove.xiao.v1.grove_led.pwm.d2:
-    filter: dt_nodelabel_enabled("grove_pwm_d2") and
-            dt_nodelabel_enabled("grove_d2_header") and
-            dt_label_with_parent_compat_enabled("grove_pwm_led_d2", "pwm-leds")
     platform_allow:
-      seeed_xiao_samd21
-      seeeduino_xiao
+      - seeed_xiao_samd21
+      - seeeduino_xiao
+  grove.xiao.v1.grove_led.pwm.d2:
+    depends_on: xiao_gpio
+    filter: dt_nodelabel_enabled("grove_pwm_d2") and
+            ( dt_nodelabel_enabled("grove_d2_header") or
+              dt_nodelabel_enabled("grove_d1_header") ) and
+            dt_label_with_parent_compat_enabled("grove_pwm_led_d2", "pwm-leds")
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_pwm_led_d2
+    platform_allow:
+      - seeed_xiao_samd21
+      - seeeduino_xiao
+  grove.xiao.v1.grove_led.pwm.d3:
+    depends_on: xiao_gpio
+    filter: dt_nodelabel_enabled("grove_pwm_d3") and
+            ( dt_nodelabel_enabled("grove_d3_header") or
+              dt_nodelabel_enabled("grove_d2_header") ) and
+            dt_label_with_parent_compat_enabled("grove_pwm_led_d3", "pwm-leds")
+    extra_args: SHIELD=seeed_grove_xiao_v1;grove_pwm_led_d3
+    platform_allow:
+      - seeed_xiao_samd21
+      - seeeduino_xiao
+  grove.xiao.v1.grove_led.pwm.d4:
+    depends_on: xiao_gpio
+    filter: dt_nodelabel_enabled("grove_pwm_d4") and
+            ( dt_nodelabel_enabled("grove_d4_header") or
+              dt_nodelabel_enabled("grove_d5_header") ) and
+            dt_nodelabel_enabled("grove_i2c_header") and
+            dt_label_with_parent_compat_enabled("grove_pwm_led_d4", "pwm-leds")
+    extra_args: SHIELD=seeed_grove_xiao_v1;grove_pwm_led_d4
+    platform_allow:
+      - seeed_xiao_samd21
+      - seeeduino_xiao
   grove.xiao.v1.grove_led.pwm.d5:
+    depends_on: xiao_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d5") and
-            dt_nodelabel_enabled("grove_d5_header") and
+            ( dt_nodelabel_enabled("grove_d5_header") or
+              dt_nodelabel_enabled("grove_d4_header") ) and
             dt_nodelabel_enabled("grove_i2c_header") and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d5", "pwm-leds")
-    platform_allow:
-      seeed_xiao_samd21
-      seeeduino_xiao
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_pwm_led_d5
+    platform_allow:
+      - seeed_xiao_samd21
+      - seeeduino_xiao
+  grove.xiao.v1.grove_led.pwm.d6:
+    depends_on: xiao_gpio
+    filter: dt_nodelabel_enabled("grove_pwm_d6") and
+            ( dt_nodelabel_enabled("grove_d6_header") or
+              dt_nodelabel_enabled("grove_d7_header") ) and
+            dt_nodelabel_enabled("grove_uart_header") and
+            dt_label_with_parent_compat_enabled("grove_pwm_led_d6", "pwm-leds")
+    extra_args: SHIELD=seeed_grove_xiao_v1;grove_pwm_led_d6
+    skip: true
+  grove.xiao.v1.grove_led.pwm.d7:
+    depends_on: xiao_gpio
+    filter: dt_nodelabel_enabled("grove_pwm_d7") and
+            ( dt_nodelabel_enabled("grove_d7_header") or
+              dt_nodelabel_enabled("grove_d6_header") ) and
+            dt_nodelabel_enabled("grove_uart_header") and
+            dt_label_with_parent_compat_enabled("grove_pwm_led_d7", "pwm-leds")
+    extra_args: SHIELD=seeed_grove_xiao_v1;grove_pwm_led_d7
+    skip: true
   grove.xiao.v1.grove_led.pwm.d8:
+    depends_on: xiao_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d8") and
             dt_nodelabel_enabled("grove_d8_header") and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d8", "pwm-leds")
-    platform_allow:
-      seeed_xiao_samd21
-      seeeduino_xiao
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_pwm_led_d8
-  grove.xiao.v1.grove_led.pwm.d9:
-    filter: dt_nodelabel_enabled("grove_pwm_d9") and
-            dt_nodelabel_enabled("grove_d9_header") and
-            dt_label_with_parent_compat_enabled("grove_pwm_led_d9", "pwm-leds")
     platform_allow:
-      seeed_xiao_samd21
-      seeeduino_xiao
+      - seeed_xiao_samd21
+      - seeeduino_xiao
+  grove.xiao.v1.grove_led.pwm.d9:
+    depends_on: xiao_gpio
+    filter: dt_nodelabel_enabled("grove_pwm_d9") and
+            ( dt_nodelabel_enabled("grove_d9_header") or
+              dt_nodelabel_enabled("grove_d8_header") ) and
+            dt_label_with_parent_compat_enabled("grove_pwm_led_d9", "pwm-leds")
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_pwm_led_d9
+    platform_allow:
+      - seeed_xiao_samd21
+      - seeeduino_xiao
+  grove.xiao.v1.grove_led.pwm.d10:
+    depends_on: xiao_gpio
+    filter: dt_nodelabel_enabled("grove_pwm_d10") and
+            ( dt_nodelabel_enabled("grove_d10_header") or
+              dt_nodelabel_enabled("grove_d9_header") ) and
+            dt_label_with_parent_compat_enabled("grove_pwm_led_d10", "pwm-leds")
+    extra_args: SHIELD=seeed_grove_xiao_v1;grove_pwm_led_d10
+    platform_allow:
+      - seeed_xiao_samd21
+      - seeeduino_xiao
   #
   # Grove LED by simple GPIO on Grove Shield for Pi Pico
   #
+  grove.rpipico.v1.grove_led.gpio.d0:
+    depends_on: pico_gpio
+    filter: dt_nodelabel_enabled("grove_d1_header") and
+            dt_nodelabel_enabled("grove_uart0_header") and
+            dt_label_with_parent_compat_enabled("grove_led_d0", "gpio-leds")
+    extra_args: SHIELD=seeed_grove_rpipico_v1;grove_led_d0
   grove.rpipico.v1.grove_led.gpio.d1:
+    depends_on: pico_gpio
     filter: dt_nodelabel_enabled("grove_d1_header") and
             dt_nodelabel_enabled("grove_uart0_header") and
             dt_label_with_parent_compat_enabled("grove_led_d1", "gpio-leds")
-    platform_allow:
-      rpi_pico
-      waveshare_rp2040_plus
-      waveshare_rp2040_plus@16mb
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_led_d1
-  grove.rpipico.v1.grove_led.gpio.d5:
+  grove.rpipico.v1.grove_led.gpio.d2:
+    depends_on: pico_gpio
+    filter: dt_nodelabel_enabled("generic_spi_header") and
+            dt_label_with_parent_compat_enabled("grove_led_d2", "gpio-leds")
+    extra_args: SHIELD=seeed_grove_rpipico_v1;grove_led_d2
+  grove.rpipico.v1.grove_led.gpio.d3:
+    depends_on: pico_gpio
+    filter: dt_nodelabel_enabled("generic_spi_header") and
+            dt_label_with_parent_compat_enabled("grove_led_d3", "gpio-leds")
+    extra_args: SHIELD=seeed_grove_rpipico_v1;grove_led_d3
+  grove.rpipico.v1.grove_led.gpio.d4:
+    depends_on: pico_gpio
     filter: dt_nodelabel_enabled("grove_d5_header") and
-            dt_nodelabel_enabled("grove_spi_header") and
             dt_nodelabel_enabled("grove_uart1_header") and
+            dt_nodelabel_enabled("generic_spi_header") and
+            dt_label_with_parent_compat_enabled("grove_led_d4", "gpio-leds")
+    extra_args: SHIELD=seeed_grove_rpipico_v1;grove_led_d4
+  grove.rpipico.v1.grove_led.gpio.d5:
+    depends_on: pico_gpio
+    filter: dt_nodelabel_enabled("grove_d5_header") and
+            dt_nodelabel_enabled("grove_uart1_header") and
+            dt_nodelabel_enabled("generic_spi_header") and
             dt_label_with_parent_compat_enabled("grove_led_d5", "gpio-leds")
-    platform_allow:
-      rpi_pico
-      waveshare_rp2040_plus
-      waveshare_rp2040_plus@16mb
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_led_d5
+  grove.rpipico.v1.grove_led.gpio.d6:
+    depends_on: pico_gpio
+    filter: dt_nodelabel_enabled("grove_d7_header") and
+            dt_nodelabel_enabled("grove_i2c1_header") and
+            dt_label_with_parent_compat_enabled("grove_led_d6", "gpio-leds")
+    extra_args: SHIELD=seeed_grove_rpipico_v1;grove_led_d6
   grove.rpipico.v1.grove_led.gpio.d7:
+    depends_on: pico_gpio
     filter: dt_nodelabel_enabled("grove_d7_header") and
             dt_nodelabel_enabled("grove_i2c1_header") and
             dt_label_with_parent_compat_enabled("grove_led_d7", "gpio-leds")
-    platform_allow:
-      rpi_pico
-      waveshare_rp2040_plus
-      waveshare_rp2040_plus@16mb
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_led_d7
+  grove.rpipico.v1.grove_led.gpio.d8:
+    depends_on: pico_gpio
+    filter: dt_nodelabel_enabled("grove_d9_header") and
+            dt_nodelabel_enabled("grove_i2c0_header") and
+            dt_label_with_parent_compat_enabled("grove_led_d8", "gpio-leds")
+    extra_args: SHIELD=seeed_grove_rpipico_v1;grove_led_d8
   grove.rpipico.v1.grove_led.gpio.d9:
+    depends_on: pico_gpio
     filter: dt_nodelabel_enabled("grove_d9_header") and
             dt_nodelabel_enabled("grove_i2c0_header") and
             dt_label_with_parent_compat_enabled("grove_led_d9", "gpio-leds")
-    platform_allow:
-      rpi_pico
-      waveshare_rp2040_plus
-      waveshare_rp2040_plus@16mb
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_led_d9
+  # grove.rpipico.v1.grove_led.gpio.d10
+  # grove.rpipico.v1.grove_led.gpio.d11
+  # grove.rpipico.v1.grove_led.gpio.d12
+  # grove.rpipico.v1.grove_led.gpio.d13
+  # grove.rpipico.v1.grove_led.gpio.d14
+  # grove.rpipico.v1.grove_led.gpio.d15
   grove.rpipico.v1.grove_led.gpio.d16:
+    depends_on: pico_gpio
     filter: dt_nodelabel_enabled("grove_d16_header") and
             dt_label_with_parent_compat_enabled("grove_led_d16", "gpio-leds")
-    platform_allow:
-      rpi_pico
-      waveshare_rp2040_plus
-      waveshare_rp2040_plus@16mb
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_led_d16
+    platform_allow:
+      - rpi_pico
+      - rpi_pico_w
+      - waveshare_rp2040_lcd_0_96
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb
+  grove.rpipico.v1.grove_led.gpio.d17:
+    depends_on: pico_gpio
+    filter: dt_nodelabel_enabled("grove_d16_header") and
+            dt_label_with_parent_compat_enabled("grove_led_d17", "gpio-leds")
+    extra_args: SHIELD=seeed_grove_rpipico_v1;grove_led_d17
+    platform_allow:
+      - rpi_pico
+      - rpi_pico_w
+      - waveshare_rp2040_lcd_0_96
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb
   grove.rpipico.v1.grove_led.gpio.d18:
+    depends_on: pico_gpio
     filter: dt_nodelabel_enabled("grove_d18_header") and
             dt_label_with_parent_compat_enabled("grove_led_d18", "gpio-leds")
-    platform_allow:
-      rpi_pico
-      waveshare_rp2040_plus
-      waveshare_rp2040_plus@16mb
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_led_d18
+    platform_allow:
+      - rpi_pico
+      - rpi_pico_w
+      - waveshare_rp2040_lcd_0_96
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb
+  grove.rpipico.v1.grove_led.gpio.d19:
+    depends_on: pico_gpio
+    filter: dt_nodelabel_enabled("grove_d18_header") and
+            dt_label_with_parent_compat_enabled("grove_led_d19", "gpio-leds")
+    extra_args: SHIELD=seeed_grove_rpipico_v1;grove_led_d19
+    platform_allow:
+      - rpi_pico
+      - rpi_pico_w
+      - waveshare_rp2040_lcd_0_96
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb
   grove.rpipico.v1.grove_led.gpio.d20:
+    depends_on: pico_gpio
     filter: dt_nodelabel_enabled("grove_d20_header") and
             dt_label_with_parent_compat_enabled("grove_led_d20", "gpio-leds")
-    platform_allow:
-      rpi_pico
-      waveshare_rp2040_plus
-      waveshare_rp2040_plus@16mb
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_led_d20
+    platform_allow:
+      - rpi_pico
+      - rpi_pico_w
+      - waveshare_rp2040_lcd_0_96
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb
+  grove.rpipico.v1.grove_led.gpio.d21:
+    depends_on: pico_gpio
+    filter: dt_nodelabel_enabled("grove_d20_header") and
+            dt_label_with_parent_compat_enabled("grove_led_d21", "gpio-leds")
+    extra_args: SHIELD=seeed_grove_rpipico_v1;grove_led_d21
+    platform_allow:
+      - rpi_pico
+      - rpi_pico_w
+      - waveshare_rp2040_lcd_0_96
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb
+  # grove.rpipico.v1.grove_led.gpio.d22
+  # grove.rpipico.v1.grove_led.gpio.d23
+  # grove.rpipico.v1.grove_led.gpio.d24
+  # grove.rpipico.v1.grove_led.gpio.d25
   grove.rpipico.v1.grove_led.gpio.d26:
+    depends_on: pico_gpio
     filter: ( dt_nodelabel_enabled("grove_a0_header") or
               dt_nodelabel_enabled("grove_d26_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d26", "gpio-leds")
-    platform_allow:
-      rpi_pico
-      waveshare_rp2040_plus
-      waveshare_rp2040_plus@16mb
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_led_d26
   grove.rpipico.v1.grove_led.gpio.d27:
+    depends_on: pico_gpio
     filter: ( dt_nodelabel_enabled("grove_a1_header") or
+              dt_nodelabel_enabled("grove_a0_header") or
               dt_nodelabel_enabled("grove_d27_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d27", "gpio-leds")
-    platform_allow:
-      rpi_pico
-      waveshare_rp2040_plus
-      waveshare_rp2040_plus@16mb
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_led_d27
   grove.rpipico.v1.grove_led.gpio.d28:
+    depends_on: pico_gpio
     filter: ( dt_nodelabel_enabled("grove_a2_header") or
+              dt_nodelabel_enabled("grove_a1_header") or
               dt_nodelabel_enabled("grove_d28_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d28", "gpio-leds")
-    platform_allow:
-      rpi_pico
-      waveshare_rp2040_plus
-      waveshare_rp2040_plus@16mb
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_led_d28
   #
   # Grove LED by dedicated PWM on Grove Shield for Pi Pico
   #
+  grove.rpipico.v1.grove_led.pwm.d0:
+    depends_on: pico_gpio
+    filter: dt_nodelabel_enabled("grove_pwm_d0") and
+            dt_nodelabel_enabled("grove_d1_header") and
+            dt_nodelabel_enabled("grove_uart0_header") and
+            dt_label_with_parent_compat_enabled("grove_pwm_led_d0", "pwm-leds")
+    extra_args: SHIELD=seeed_grove_rpipico_v1;grove_pwm_led_d0
+    skip: true
+  grove.rpipico.v1.grove_led.pwm.d1:
+    depends_on: pico_gpio
+    filter: dt_nodelabel_enabled("grove_pwm_d1") and
+            dt_nodelabel_enabled("grove_d1_header") and
+            dt_nodelabel_enabled("grove_uart0_header") and
+            dt_label_with_parent_compat_enabled("grove_pwm_led_d1", "pwm-leds")
+    extra_args: SHIELD=seeed_grove_rpipico_v1;grove_pwm_led_d1
+    skip: true
+  grove.rpipico.v1.grove_led.pwm.d2:
+    depends_on: pico_gpio
+    filter: dt_nodelabel_enabled("grove_pwm_d2") and
+            dt_nodelabel_enabled("generic_spi_header") and
+            dt_label_with_parent_compat_enabled("grove_pwm_led_d2", "pwm-leds")
+    extra_args: SHIELD=seeed_grove_rpipico_v1;grove_pwm_led_d2
+    skip: true
+  grove.rpipico.v1.grove_led.pwm.d3:
+    depends_on: pico_gpio
+    filter: dt_nodelabel_enabled("grove_pwm_d3") and
+            dt_nodelabel_enabled("generic_spi_header") and
+            dt_label_with_parent_compat_enabled("grove_pwm_led_d3", "pwm-leds")
+    extra_args: SHIELD=seeed_grove_rpipico_v1;grove_pwm_led_d3
+    skip: true
+  grove.rpipico.v1.grove_led.pwm.d4:
+    depends_on: pico_gpio
+    filter: dt_nodelabel_enabled("grove_pwm_d4") and
+            dt_nodelabel_enabled("grove_d5_header") and
+            dt_nodelabel_enabled("grove_uart1_header") and
+            dt_nodelabel_enabled("generic_spi_header") and
+            dt_label_with_parent_compat_enabled("grove_pwm_led_d4", "pwm-leds")
+    extra_args: SHIELD=seeed_grove_rpipico_v1;grove_pwm_led_d4
+    skip: true
+  grove.rpipico.v1.grove_led.pwm.d5:
+    depends_on: pico_gpio
+    filter: dt_nodelabel_enabled("grove_pwm_d5") and
+            dt_nodelabel_enabled("grove_d5_header") and
+            dt_nodelabel_enabled("grove_uart1_header") and
+            dt_nodelabel_enabled("generic_spi_header") and
+            dt_label_with_parent_compat_enabled("grove_pwm_led_d5", "pwm-leds")
+    extra_args: SHIELD=seeed_grove_rpipico_v1;grove_pwm_led_d5
+    skip: true
+  grove.rpipico.v1.grove_led.pwm.d6:
+    depends_on: pico_gpio
+    filter: dt_nodelabel_enabled("grove_pwm_d6") and
+            dt_nodelabel_enabled("grove_d7_header") and
+            dt_nodelabel_enabled("grove_i2c1_header") and
+            dt_label_with_parent_compat_enabled("grove_pwm_led_d6", "pwm-leds")
+    extra_args: SHIELD=seeed_grove_rpipico_v1;grove_pwm_led_d6
+    skip: true
+  grove.rpipico.v1.grove_led.pwm.d7:
+    depends_on: pico_gpio
+    filter: dt_nodelabel_enabled("grove_pwm_d7") and
+            dt_nodelabel_enabled("grove_d7_header") and
+            dt_nodelabel_enabled("grove_i2c1_header") and
+            dt_label_with_parent_compat_enabled("grove_pwm_led_d7", "pwm-leds")
+    extra_args: SHIELD=seeed_grove_rpipico_v1;grove_pwm_led_d7
+    skip: true
+  grove.rpipico.v1.grove_led.pwm.d8:
+    depends_on: pico_gpio
+    filter: dt_nodelabel_enabled("grove_pwm_d8") and
+            dt_nodelabel_enabled("grove_d9_header") and
+            dt_nodelabel_enabled("grove_i2c0_header") and
+            dt_label_with_parent_compat_enabled("grove_pwm_led_d8", "pwm-leds")
+    extra_args: SHIELD=seeed_grove_rpipico_v1;grove_pwm_led_d8
+    skip: true
+  grove.rpipico.v1.grove_led.pwm.d9:
+    depends_on: pico_gpio
+    filter: dt_nodelabel_enabled("grove_pwm_d9") and
+            dt_nodelabel_enabled("grove_d9_header") and
+            dt_nodelabel_enabled("grove_i2c0_header") and
+            dt_label_with_parent_compat_enabled("grove_pwm_led_d9", "pwm-leds")
+    extra_args: SHIELD=seeed_grove_rpipico_v1;grove_pwm_led_d9
+    skip: true
+  # grove.rpipico.v1.grove_led.pwm.d10
+  # grove.rpipico.v1.grove_led.pwm.d11
+  # grove.rpipico.v1.grove_led.pwm.d12
+  # grove.rpipico.v1.grove_led.pwm.d13
+  # grove.rpipico.v1.grove_led.pwm.d14
+  # grove.rpipico.v1.grove_led.pwm.d15
   grove.rpipico.v1.grove_led.pwm.d16:
+    depends_on: pico_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d16") and
             dt_nodelabel_enabled("grove_d16_header") and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d16", "pwm-leds")
-    platform_allow:
-      rpi_pico
-      waveshare_rp2040_plus
-      waveshare_rp2040_plus@16mb
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_pwm_led_d16
+    platform_allow:
+      - rpi_pico
+      - rpi_pico_w
+      - waveshare_rp2040_lcd_0_96
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb
+  grove.rpipico.v1.grove_led.pwm.d17:
+    depends_on: pico_gpio
+    filter: dt_nodelabel_enabled("grove_pwm_d17") and
+            dt_nodelabel_enabled("grove_d16_header") and
+            dt_label_with_parent_compat_enabled("grove_pwm_led_d17", "pwm-leds")
+    extra_args: SHIELD=seeed_grove_rpipico_v1;grove_pwm_led_d17
+    platform_allow:
+      - rpi_pico
+      - rpi_pico_w
+      - waveshare_rp2040_lcd_0_96
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb
   grove.rpipico.v1.grove_led.pwm.d18:
+    depends_on: pico_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d18") and
             dt_nodelabel_enabled("grove_d18_header") and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d18", "pwm-leds")
-    platform_allow:
-      rpi_pico
-      waveshare_rp2040_plus
-      waveshare_rp2040_plus@16mb
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_pwm_led_d18
+    platform_allow:
+      - rpi_pico
+      - rpi_pico_w
+      - waveshare_rp2040_lcd_0_96
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb
+  grove.rpipico.v1.grove_led.pwm.d19:
+    depends_on: pico_gpio
+    filter: dt_nodelabel_enabled("grove_pwm_d19") and
+            dt_nodelabel_enabled("grove_d18_header") and
+            dt_label_with_parent_compat_enabled("grove_pwm_led_d19", "pwm-leds")
+    extra_args: SHIELD=seeed_grove_rpipico_v1;grove_pwm_led_d19
+    platform_allow:
+      - rpi_pico
+      - rpi_pico_w
+      - waveshare_rp2040_lcd_0_96
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb
   grove.rpipico.v1.grove_led.pwm.d20:
+    depends_on: pico_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d20") and
             dt_nodelabel_enabled("grove_d20_header") and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d20", "pwm-leds")
-    platform_allow:
-      rpi_pico
-      waveshare_rp2040_plus
-      waveshare_rp2040_plus@16mb
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_pwm_led_d20
+    platform_allow:
+      - rpi_pico
+      - rpi_pico_w
+      - waveshare_rp2040_lcd_0_96
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb
+  grove.rpipico.v1.grove_led.pwm.d21:
+    depends_on: pico_gpio
+    filter: dt_nodelabel_enabled("grove_pwm_d21") and
+            dt_nodelabel_enabled("grove_d20_header") and
+            dt_label_with_parent_compat_enabled("grove_pwm_led_d21", "pwm-leds")
+    extra_args: SHIELD=seeed_grove_rpipico_v1;grove_pwm_led_d21
+    platform_allow:
+      - rpi_pico
+      - rpi_pico_w
+      - waveshare_rp2040_lcd_0_96
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb
+  # grove.rpipico.v1.grove_led.pwm.d22
+  # grove.rpipico.v1.grove_led.pwm.d23
+  # grove.rpipico.v1.grove_led.pwm.d24
+  # grove.rpipico.v1.grove_led.pwm.d25
+  grove.rpipico.v1.grove_led.pwm.d26:
+    depends_on: pico_gpio
+    filter: dt_nodelabel_enabled("grove_pwm_d26") and
+            ( dt_nodelabel_enabled("grove_a0_header") or
+              dt_nodelabel_enabled("grove_d26_header") ) and
+            dt_label_with_parent_compat_enabled("grove_pwm_led_d26", "pwm-leds")
+    extra_args: SHIELD=seeed_grove_rpipico_v1;grove_pwm_led_d26
+    skip: true
+  grove.rpipico.v1.grove_led.pwm.d27:
+    depends_on: pico_gpio
+    filter: dt_nodelabel_enabled("grove_pwm_d27") and
+            ( dt_nodelabel_enabled("grove_a1_header") or
+              dt_nodelabel_enabled("grove_a0_header") or
+              dt_nodelabel_enabled("grove_d27_header") ) and
+            dt_label_with_parent_compat_enabled("grove_pwm_led_d27", "pwm-leds")
+    extra_args: SHIELD=seeed_grove_rpipico_v1;grove_pwm_led_d27
+    skip: true
+  grove.rpipico.v1.grove_led.pwm.d28:
+    depends_on: pico_gpio
+    filter: dt_nodelabel_enabled("grove_pwm_d28") and
+            ( dt_nodelabel_enabled("grove_a2_header") or
+              dt_nodelabel_enabled("grove_a1_header") or
+             dt_nodelabel_enabled("grove_d28_header") ) and
+            dt_label_with_parent_compat_enabled("grove_pwm_led_d28", "pwm-leds")
+    extra_args: SHIELD=seeed_grove_rpipico_v1;grove_pwm_led_d28
+    skip: true
   #
   # Grove LED by simple GPIO on Grove Connectors
   #
   grove.connectors.grove_led.gpio.d0:
     depends_on: grove_gpio
-    filter: dt_nodelabel_enabled("grove_d0_header") or
-            dt_nodelabel_enabled("grove_uart_header") and
+    filter: ( dt_nodelabel_enabled("grove_d0_header") or
+              dt_nodelabel_enabled("grove_uart_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d0", "gpio-leds")
     extra_args: SHIELD=grove_led_d0
   grove.connectors.grove_led.gpio.d1:
     depends_on: grove_gpio
-    filter: dt_nodelabel_enabled("grove_d1_header") or
-            dt_nodelabel_enabled("grove_uart_header") and
+    filter: ( dt_nodelabel_enabled("grove_d1_header") or
+              dt_nodelabel_enabled("grove_d0_header") or
+              dt_nodelabel_enabled("grove_uart_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d1", "gpio-leds")
     extra_args: SHIELD=grove_led_d1
   grove.connectors.grove_led.gpio.d2:
     depends_on: grove_gpio
-    filter: dt_nodelabel_enabled("grove_d2_header") and
+    filter: ( dt_nodelabel_enabled("grove_d2_header") or
+              dt_nodelabel_enabled("grove_d1_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d2", "gpio-leds")
-    platform_exclude:
-      seeeduino_cm0
     extra_args: SHIELD=grove_led_d2
+    platform_allow:
+      - seeeduino_lotus
   grove.connectors.grove_led.gpio.d3:
     depends_on: grove_gpio
-    filter: dt_nodelabel_enabled("grove_d3_header") and
+    filter: ( dt_nodelabel_enabled("grove_d3_header") or
+              dt_nodelabel_enabled("grove_d2_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d3", "gpio-leds")
-    platform_exclude:
-      seeeduino_cm0
     extra_args: SHIELD=grove_led_d3
+    platform_allow:
+      - seeeduino_lotus
   grove.connectors.grove_led.gpio.d4:
     depends_on: grove_gpio
-    filter: dt_nodelabel_enabled("grove_d4_header") and
+    filter: ( dt_nodelabel_enabled("grove_d4_header") or
+              dt_nodelabel_enabled("grove_d3_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d4", "gpio-leds")
-    platform_exclude:
-      seeeduino_cm0
     extra_args: SHIELD=grove_led_d4
+    platform_allow:
+      - seeeduino_lotus
   grove.connectors.grove_led.gpio.d5:
     depends_on: grove_gpio
-    filter: dt_nodelabel_enabled("grove_d5_header") and
+    filter: ( dt_nodelabel_enabled("grove_d5_header") or
+              dt_nodelabel_enabled("grove_d4_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d5", "gpio-leds")
-    platform_exclude:
-      seeeduino_cm0
     extra_args: SHIELD=grove_led_d5
+    platform_allow:
+      - seeeduino_lotus
   grove.connectors.grove_led.gpio.d6:
     depends_on: grove_gpio
-    filter: dt_nodelabel_enabled("grove_d6_header") and
+    filter: ( dt_nodelabel_enabled("grove_d6_header") or
+              dt_nodelabel_enabled("grove_d5_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d6", "gpio-leds")
-    platform_exclude:
-      seeeduino_cm0
     extra_args: SHIELD=grove_led_d6
+    platform_allow:
+      - seeeduino_lotus
   grove.connectors.grove_led.gpio.d7:
     depends_on: grove_gpio
-    filter: dt_nodelabel_enabled("grove_d7_header") and
+    filter: ( dt_nodelabel_enabled("grove_d7_header") or
+              dt_nodelabel_enabled("grove_d6_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d7", "gpio-leds")
-    platform_exclude:
-      seeeduino_cm0
     extra_args: SHIELD=grove_led_d7
+    platform_allow:
+      - seeeduino_lotus
   grove.connectors.grove_led.gpio.d8:
     depends_on: grove_gpio
-    filter: dt_nodelabel_enabled("grove_d8_header") and
+    filter: ( dt_nodelabel_enabled("grove_d8_header") or
+              dt_nodelabel_enabled("grove_d7_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d8", "gpio-leds")
-    platform_exclude:
-      seeeduino_cm0
     extra_args: SHIELD=grove_led_d8
+    platform_allow:
+      - seeeduino_lotus
   grove.connectors.grove_led.gpio.d9:
     depends_on: grove_gpio
-    filter: dt_nodelabel_enabled("grove_d9_header") and
+    filter: ( dt_nodelabel_enabled("grove_d9_header") or
+              dt_nodelabel_enabled("grove_d8_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d9", "gpio-leds")
-    platform_exclude:
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=grove_led_d9
+    skip: true
   grove.connectors.grove_led.gpio.d10:
     depends_on: grove_gpio
-    filter: dt_nodelabel_enabled("grove_d10_header") and
+    filter: ( dt_nodelabel_enabled("grove_d10_header") or
+              dt_nodelabel_enabled("grove_d9_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d10", "gpio-leds")
-    platform_exclude:
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=grove_led_d10
+    skip: true
   grove.connectors.grove_led.gpio.d11:
     depends_on: grove_gpio
-    filter: dt_nodelabel_enabled("grove_d11_header") and
+    filter: ( dt_nodelabel_enabled("grove_d11_header") or
+              dt_nodelabel_enabled("grove_d10_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d11", "gpio-leds")
-    platform_exclude:
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=grove_led_d11
+    skip: true
   grove.connectors.grove_led.gpio.d12:
     depends_on: grove_gpio
-    filter: dt_nodelabel_enabled("grove_d12_header") and
+    filter: ( dt_nodelabel_enabled("grove_d12_header") or
+              dt_nodelabel_enabled("grove_d11_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d12", "gpio-leds")
-    platform_exclude:
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=grove_led_d12
+    skip: true
   grove.connectors.grove_led.gpio.d13:
     depends_on: grove_gpio
-    filter: dt_nodelabel_enabled("grove_d13_header") and
+    filter: ( dt_nodelabel_enabled("grove_d13_header") or
+              dt_nodelabel_enabled("grove_d12_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d13", "gpio-leds")
-    platform_exclude:
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=grove_led_d13
+    skip: true
   grove.connectors.grove_led.gpio.d14:
     depends_on: grove_gpio
-    filter: dt_nodelabel_enabled("grove_d14_header") or
-            dt_nodelabel_enabled("grove_a0_header") and
+    filter: ( dt_nodelabel_enabled("grove_d14_header") or
+              dt_nodelabel_enabled("grove_d13_header") or
+              dt_nodelabel_enabled("grove_a0_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d14", "gpio-leds")
-    platform_exclude:
-      seeeduino_cm0
     extra_args: SHIELD=grove_led_d14
+    platform_allow:
+      - seeeduino_lotus
   grove.connectors.grove_led.gpio.d15:
     depends_on: grove_gpio
-    filter: dt_nodelabel_enabled("grove_d15_header") or
-            dt_nodelabel_enabled("grove_a1_header") and
+    filter: ( dt_nodelabel_enabled("grove_d15_header") or
+              dt_nodelabel_enabled("grove_d14_header") or
+              dt_nodelabel_enabled("grove_a1_header") or
+              dt_nodelabel_enabled("grove_a0_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d15", "gpio-leds")
-    platform_exclude:
-      seeeduino_cm0
     extra_args: SHIELD=grove_led_d15
+    platform_allow:
+      - seeeduino_lotus
   grove.connectors.grove_led.gpio.d16:
     depends_on: grove_gpio
-    filter: dt_nodelabel_enabled("grove_d16_header") or
-            dt_nodelabel_enabled("grove_a2_header") and
+    filter: ( dt_nodelabel_enabled("grove_d16_header") or
+              dt_nodelabel_enabled("grove_d15_header") or
+              dt_nodelabel_enabled("grove_a2_header") or
+              dt_nodelabel_enabled("grove_a1_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d16", "gpio-leds")
-    platform_exclude:
-      seeeduino_cm0
     extra_args: SHIELD=grove_led_d16
+    platform_allow:
+      - seeeduino_lotus
   grove.connectors.grove_led.gpio.d17:
     depends_on: grove_gpio
-    filter: dt_nodelabel_enabled("grove_d17_header") or
-            dt_nodelabel_enabled("grove_a3_header") and
+    filter: ( dt_nodelabel_enabled("grove_d17_header") or
+              dt_nodelabel_enabled("grove_d16_header") or
+              dt_nodelabel_enabled("grove_a3_header") or
+              dt_nodelabel_enabled("grove_a2_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d17", "gpio-leds")
-    platform_exclude:
-      seeeduino_cm0
     extra_args: SHIELD=grove_led_d17
+    platform_allow:
+      - seeeduino_lotus
   grove.connectors.grove_led.gpio.d18:
     depends_on: grove_gpio
-    filter: dt_nodelabel_enabled("grove_d18_header") or
-            dt_nodelabel_enabled("grove_a4_header") or
-            dt_nodelabel_enabled("grove_i2c_header") and
+    filter: ( dt_nodelabel_enabled("grove_d18_header") or
+              dt_nodelabel_enabled("grove_i2c_header") or
+              dt_nodelabel_enabled("grove_a4_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d18", "gpio-leds")
     extra_args: SHIELD=grove_led_d18
   grove.connectors.grove_led.gpio.d19:
     depends_on: grove_gpio
-    filter: dt_nodelabel_enabled("grove_d19_header") or
-            dt_nodelabel_enabled("grove_a5_header") or
-            dt_nodelabel_enabled("grove_i2c_header") and
+    filter: ( dt_nodelabel_enabled("grove_d19_header") or
+              dt_nodelabel_enabled("grove_i2c_header") or
+              dt_nodelabel_enabled("grove_a5_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d19", "gpio-leds")
     extra_args: SHIELD=grove_led_d19
   grove.connectors.grove_led.gpio.d20:
     depends_on: grove_gpio
-    filter: dt_nodelabel_enabled("grove_d20_header") or
-            dt_nodelabel_enabled("grove_a6_header") and
+    filter: ( dt_nodelabel_enabled("grove_d20_header") or
+              dt_nodelabel_enabled("grove_a6_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d20", "gpio-leds")
-    platform_exclude:
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=grove_led_d20
+    skip: true
   grove.connectors.grove_led.gpio.d21:
     depends_on: grove_gpio
-    filter: dt_nodelabel_enabled("grove_d21_header") and
+    filter: ( dt_nodelabel_enabled("grove_d21_header") or
+              dt_nodelabel_enabled("grove_d20_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d21", "gpio-leds")
-    platform_exclude:
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=grove_led_d21
+    skip: true
   grove.connectors.grove_led.gpio.d22:
     depends_on: grove_gpio
-    filter: dt_nodelabel_enabled("grove_d22_header") and
+    filter: ( dt_nodelabel_enabled("grove_d22_header") or
+              dt_nodelabel_enabled("grove_d21_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d22", "gpio-leds")
-    platform_exclude:
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=grove_led_d22
+    skip: true
   grove.connectors.grove_led.gpio.d23:
     depends_on: grove_gpio
-    filter: dt_nodelabel_enabled("grove_d23_header") and
+    filter: ( dt_nodelabel_enabled("grove_d23_header") or
+              dt_nodelabel_enabled("grove_d22_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d23", "gpio-leds")
-    platform_exclude:
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=grove_led_d23
+    skip: true
   grove.connectors.grove_led.gpio.d24:
     depends_on: grove_gpio
-    filter: dt_nodelabel_enabled("grove_d24_header") and
+    filter: ( dt_nodelabel_enabled("grove_d24_header") or
+              dt_nodelabel_enabled("grove_d23_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d24", "gpio-leds")
-    platform_exclude:
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=grove_led_d24
+    skip: true
   grove.connectors.grove_led.gpio.d25:
     depends_on: grove_gpio
-    filter: dt_nodelabel_enabled("grove_d25_header") and
+    filter: ( dt_nodelabel_enabled("grove_d25_header") or
+              dt_nodelabel_enabled("grove_d24_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d25", "gpio-leds")
-    platform_exclude:
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=grove_led_d25
+    skip: true
   grove.connectors.grove_led.gpio.d26:
     depends_on: grove_gpio
-    filter: dt_nodelabel_enabled("grove_d26_header") and
+    filter: ( dt_nodelabel_enabled("grove_d26_header") or
+              dt_nodelabel_enabled("grove_d25_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d26", "gpio-leds")
-    platform_exclude:
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=grove_led_d26
+    skip: true
   grove.connectors.grove_led.gpio.d27:
     depends_on: grove_gpio
-    filter: dt_nodelabel_enabled("grove_d27_header") and
+    filter: ( dt_nodelabel_enabled("grove_d27_header") or
+              dt_nodelabel_enabled("grove_d26_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d27", "gpio-leds")
-    platform_exclude:
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=grove_led_d27
+    skip: true
   grove.connectors.grove_led.gpio.d28:
     depends_on: grove_gpio
-    filter: dt_nodelabel_enabled("grove_d28_header") and
+    filter: ( dt_nodelabel_enabled("grove_d28_header") or
+              dt_nodelabel_enabled("grove_d27_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d28", "gpio-leds")
-    platform_exclude:
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=grove_led_d28
+    skip: true
   grove.connectors.grove_led.gpio.d29:
     depends_on: grove_gpio
-    filter: dt_nodelabel_enabled("grove_d29_header") and
+    filter: ( dt_nodelabel_enabled("grove_d29_header") or
+              dt_nodelabel_enabled("grove_d28_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d29", "gpio-leds")
-    platform_exclude:
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=grove_led_d29
+    skip: true
   grove.connectors.grove_led.gpio.d30:
     depends_on: grove_gpio
-    filter: dt_nodelabel_enabled("grove_d30_header") and
+    filter: ( dt_nodelabel_enabled("grove_d30_header") or
+              dt_nodelabel_enabled("grove_d29_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d30", "gpio-leds")
-    platform_exclude:
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=grove_led_d30
+    skip: true
   grove.connectors.grove_led.gpio.d31:
     depends_on: grove_gpio
-    filter: dt_nodelabel_enabled("grove_d31_header") and
+    filter: ( dt_nodelabel_enabled("grove_d31_header") or
+              dt_nodelabel_enabled("grove_d30_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d31", "gpio-leds")
-    platform_exclude:
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=grove_led_d31
+    skip: true
   #
   # Grove LED by dedicated PWM on Grove Connectors
   #
   grove.connectors.grove_led.pwm.d0:
-    depends_on: grove_pwm
-    filter: dt_nodelabel_enabled("grove_d0_header") and
+    depends_on: grove_gpio grove_pwm
+    filter: dt_nodelabel_enabled("grove_pwm_d0") and
+            ( dt_nodelabel_enabled("grove_d0_header") or
+              dt_nodelabel_enabled("grove_uart_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d0", "pwm-leds")
-    platform_exclude:
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=grove_pwm_led_d0
+    skip: true
   grove.connectors.grove_led.pwm.d1:
-    depends_on: grove_pwm
-    filter: dt_nodelabel_enabled("grove_d1_header") and
+    depends_on: grove_gpio grove_pwm
+    filter: dt_nodelabel_enabled("grove_pwm_d1") and
+            ( dt_nodelabel_enabled("grove_d1_header") or
+              dt_nodelabel_enabled("grove_d0_header") or
+              dt_nodelabel_enabled("grove_uart_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d1", "pwm-leds")
-    platform_exclude:
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=grove_pwm_led_d1
+    skip: true
   grove.connectors.grove_led.pwm.d2:
-    depends_on: grove_pwm
-    filter: dt_nodelabel_enabled("grove_d2_header") and
+    depends_on: grove_gpio grove_pwm
+    filter: dt_nodelabel_enabled("grove_pwm_d2") and
+            ( dt_nodelabel_enabled("grove_d2_header") or
+              dt_nodelabel_enabled("grove_d1_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d2", "pwm-leds")
-    platform_exclude:
-      seeeduino_cm0
     extra_args: SHIELD=grove_pwm_led_d2
+    platform_allow:
+      - seeeduino_lotus
   grove.connectors.grove_led.pwm.d3:
-    depends_on: grove_pwm
-    filter: dt_nodelabel_enabled("grove_d3_header") and
+    depends_on: grove_gpio grove_pwm
+    filter: dt_nodelabel_enabled("grove_pwm_d3") and
+            ( dt_nodelabel_enabled("grove_d3_header") or
+              dt_nodelabel_enabled("grove_d2_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d3", "pwm-leds")
-    platform_exclude:
-      seeeduino_cm0
     extra_args: SHIELD=grove_pwm_led_d3
+    platform_allow:
+      - seeeduino_lotus
   grove.connectors.grove_led.pwm.d4:
-    depends_on: grove_pwm
-    filter: dt_nodelabel_enabled("grove_d4_header") and
+    depends_on: grove_gpio grove_pwm
+    filter: dt_nodelabel_enabled("grove_pwm_d4") and
+            ( dt_nodelabel_enabled("grove_d4_header") or
+              dt_nodelabel_enabled("grove_d3_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d4", "pwm-leds")
-    platform_exclude:
-      seeeduino_cm0
     extra_args: SHIELD=grove_pwm_led_d4
+    platform_allow:
+      - seeeduino_lotus
   grove.connectors.grove_led.pwm.d5:
-    depends_on: grove_pwm
-    filter: dt_nodelabel_enabled("grove_d5_header") and
+    depends_on: grove_gpio grove_pwm
+    filter: dt_nodelabel_enabled("grove_pwm_d5") and
+            ( dt_nodelabel_enabled("grove_d5_header") or
+              dt_nodelabel_enabled("grove_d4_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d5", "pwm-leds")
-    platform_exclude:
-      seeeduino_cm0
     extra_args: SHIELD=grove_pwm_led_d5
+    platform_allow:
+      - seeeduino_lotus
   grove.connectors.grove_led.pwm.d6:
-    depends_on: grove_pwm
-    filter: dt_nodelabel_enabled("grove_d6_header") and
+    depends_on: grove_gpio grove_pwm
+    filter: dt_nodelabel_enabled("grove_pwm_d6") and
+            ( dt_nodelabel_enabled("grove_d6_header") or
+              dt_nodelabel_enabled("grove_d5_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d6", "pwm-leds")
-    platform_exclude:
-      seeeduino_cm0
     extra_args: SHIELD=grove_pwm_led_d6
+    platform_allow:
+      - seeeduino_lotus
   grove.connectors.grove_led.pwm.d7:
-    depends_on: grove_pwm
-    filter: dt_nodelabel_enabled("grove_d7_header") and
+    depends_on: grove_gpio grove_pwm
+    filter: dt_nodelabel_enabled("grove_pwm_d7") and
+            ( dt_nodelabel_enabled("grove_d7_header") or
+              dt_nodelabel_enabled("grove_d6_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d7", "pwm-leds")
-    platform_exclude:
-      seeeduino_cm0
     extra_args: SHIELD=grove_pwm_led_d7
+    platform_allow:
+      - seeeduino_lotus
   grove.connectors.grove_led.pwm.d8:
-    depends_on: grove_pwm
-    filter: dt_nodelabel_enabled("grove_d8_header") and
+    depends_on: grove_gpio grove_pwm
+    filter: dt_nodelabel_enabled("grove_pwm_d8") and
+            ( dt_nodelabel_enabled("grove_d8_header") or
+              dt_nodelabel_enabled("grove_d7_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d8", "pwm-leds")
-    platform_exclude:
-      seeeduino_cm0
     extra_args: SHIELD=grove_pwm_led_d8
+    platform_allow:
+      - seeeduino_lotus
   grove.connectors.grove_led.pwm.d9:
-    depends_on: grove_pwm
-    filter: dt_nodelabel_enabled("grove_d9_header") and
+    depends_on: grove_gpio grove_pwm
+    filter: dt_nodelabel_enabled("grove_pwm_d9") and
+            ( dt_nodelabel_enabled("grove_d9_header") or
+              dt_nodelabel_enabled("grove_d8_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d9", "pwm-leds")
-    platform_exclude:
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=grove_pwm_led_d9
+    skip: true
   grove.connectors.grove_led.pwm.d10:
-    depends_on: grove_pwm
-    filter: dt_nodelabel_enabled("grove_d10_header") and
+    depends_on: grove_gpio grove_pwm
+    filter: dt_nodelabel_enabled("grove_pwm_d10") and
+            ( dt_nodelabel_enabled("grove_d10_header") or
+              dt_nodelabel_enabled("grove_d9_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d10", "pwm-leds")
-    platform_exclude:
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=grove_pwm_led_d10
+    skip: true
   grove.connectors.grove_led.pwm.d11:
-    depends_on: grove_pwm
-    filter: dt_nodelabel_enabled("grove_d11_header") and
+    depends_on: grove_gpio grove_pwm
+    filter: dt_nodelabel_enabled("grove_pwm_d11") and
+            ( dt_nodelabel_enabled("grove_d11_header") or
+              dt_nodelabel_enabled("grove_d10_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d11", "pwm-leds")
-    platform_exclude:
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=grove_pwm_led_d11
+    skip: true
   grove.connectors.grove_led.pwm.d12:
-    depends_on: grove_pwm
-    filter: dt_nodelabel_enabled("grove_d12_header") and
+    depends_on: grove_gpio grove_pwm
+    filter: dt_nodelabel_enabled("grove_pwm_d12") and
+            ( dt_nodelabel_enabled("grove_d12_header") or
+              dt_nodelabel_enabled("grove_d11_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d12", "pwm-leds")
-    platform_exclude:
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=grove_pwm_led_d12
+    skip: true
   grove.connectors.grove_led.pwm.d13:
-    depends_on: grove_pwm
-    filter: dt_nodelabel_enabled("grove_d13_header") and
+    depends_on: grove_gpio grove_pwm
+    filter: dt_nodelabel_enabled("grove_pwm_d13") and
+            ( dt_nodelabel_enabled("grove_d13_header") or
+              dt_nodelabel_enabled("grove_d12_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d13", "pwm-leds")
-    platform_exclude:
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=grove_pwm_led_d13
+    skip: true
   grove.connectors.grove_led.pwm.d14:
-    depends_on: grove_pwm
-    filter: dt_nodelabel_enabled("grove_d14_header") or
-            dt_nodelabel_enabled("grove_a0_header") and
+    depends_on: grove_gpio grove_pwm
+    filter: dt_nodelabel_enabled("grove_pwm_d14") and
+            ( dt_nodelabel_enabled("grove_d14_header") or
+              dt_nodelabel_enabled("grove_d13_header") or
+              dt_nodelabel_enabled("grove_a0_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d14", "pwm-leds")
-    platform_exclude:
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=grove_pwm_led_d14
+    skip: true
   grove.connectors.grove_led.pwm.d15:
-    depends_on: grove_pwm
-    filter: dt_nodelabel_enabled("grove_d15_header") or
-            dt_nodelabel_enabled("grove_a1_header") and
+    depends_on: grove_gpio grove_pwm
+    filter: dt_nodelabel_enabled("grove_pwm_d15") and
+            ( dt_nodelabel_enabled("grove_d15_header") or
+              dt_nodelabel_enabled("grove_d14_header") or
+              dt_nodelabel_enabled("grove_a1_header") or
+              dt_nodelabel_enabled("grove_a0_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d15", "pwm-leds")
-    platform_exclude:
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=grove_pwm_led_d15
+    skip: true
   grove.connectors.grove_led.pwm.d16:
-    depends_on: grove_pwm
-    filter: dt_nodelabel_enabled("grove_d16_header") or
-            dt_nodelabel_enabled("grove_a2_header") and
+    depends_on: grove_gpio grove_pwm
+    filter: dt_nodelabel_enabled("grove_pwm_d16") and
+            ( dt_nodelabel_enabled("grove_d16_header") or
+              dt_nodelabel_enabled("grove_d15_header") or
+              dt_nodelabel_enabled("grove_a2_header") or
+              dt_nodelabel_enabled("grove_a1_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d16", "pwm-leds")
-    platform_exclude:
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=grove_pwm_led_d16
+    skip: true
   grove.connectors.grove_led.pwm.d17:
-    depends_on: grove_pwm
-    filter: dt_nodelabel_enabled("grove_d17_header") or
-            dt_nodelabel_enabled("grove_a3_header") and
+    depends_on: grove_gpio grove_pwm
+    filter: dt_nodelabel_enabled("grove_pwm_d17") and
+            ( dt_nodelabel_enabled("grove_d17_header") or
+              dt_nodelabel_enabled("grove_d16_header") or
+              dt_nodelabel_enabled("grove_a3_header") or
+              dt_nodelabel_enabled("grove_a2_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d17", "pwm-leds")
-    platform_exclude:
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=grove_pwm_led_d17
+    skip: true
   grove.connectors.grove_led.pwm.d18:
-    depends_on: grove_pwm
-    filter: dt_nodelabel_enabled("grove_d18_header") or
-            dt_nodelabel_enabled("grove_a4_header") or
-            dt_nodelabel_enabled("grove_i2c_header") and
+    depends_on: grove_gpio grove_pwm
+    filter: dt_nodelabel_enabled("grove_pwm_d18") and
+            ( dt_nodelabel_enabled("grove_d18_header") or
+              dt_nodelabel_enabled("grove_i2c_header") or
+              dt_nodelabel_enabled("grove_a4_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d18", "pwm-leds")
     extra_args: SHIELD=grove_pwm_led_d18
   grove.connectors.grove_led.pwm.d19:
-    depends_on: grove_pwm
-    filter: dt_nodelabel_enabled("grove_d19_header") or
-            dt_nodelabel_enabled("grove_a5_header") or
-            dt_nodelabel_enabled("grove_i2c_header") and
+    depends_on: grove_gpio grove_pwm
+    filter: dt_nodelabel_enabled("grove_pwm_d19") and
+            ( dt_nodelabel_enabled("grove_d19_header") or
+              dt_nodelabel_enabled("grove_i2c_header") or
+              dt_nodelabel_enabled("grove_a5_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d19", "pwm-leds")
     extra_args: SHIELD=grove_pwm_led_d19
   grove.connectors.grove_led.pwm.d20:
-    depends_on: grove_pwm
-    filter: dt_nodelabel_enabled("grove_d20_header") or
-            dt_nodelabel_enabled("grove_a6_header") and
+    depends_on: grove_gpio grove_pwm
+    filter: dt_nodelabel_enabled("grove_pwm_d20") and
+            ( dt_nodelabel_enabled("grove_d20_header") or
+              dt_nodelabel_enabled("grove_a6_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d20", "pwm-leds")
-    platform_exclude:
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=grove_pwm_led_d20
+    skip: true
   grove.connectors.grove_led.pwm.d21:
-    depends_on: grove_pwm
-    filter: dt_nodelabel_enabled("grove_d21_header") and
+    depends_on: grove_gpio grove_pwm
+    filter: dt_nodelabel_enabled("grove_pwm_d21") and
+            ( dt_nodelabel_enabled("grove_d21_header") or
+              dt_nodelabel_enabled("grove_d20_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d21", "pwm-leds")
-    platform_exclude:
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=grove_pwm_led_d21
+    skip: true
   grove.connectors.grove_led.pwm.d22:
-    depends_on: grove_pwm
-    filter: dt_nodelabel_enabled("grove_d22_header") and
+    depends_on: grove_gpio grove_pwm
+    filter: dt_nodelabel_enabled("grove_pwm_d22") and
+            ( dt_nodelabel_enabled("grove_d22_header") or
+              dt_nodelabel_enabled("grove_d21_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d22", "pwm-leds")
-    platform_exclude:
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=grove_pwm_led_d22
+    skip: true
   grove.connectors.grove_led.pwm.d23:
-    depends_on: grove_pwm
-    filter: dt_nodelabel_enabled("grove_d23_header") and
+    depends_on: grove_gpio grove_pwm
+    filter: dt_nodelabel_enabled("grove_pwm_d23") and
+            ( dt_nodelabel_enabled("grove_d23_header") or
+              dt_nodelabel_enabled("grove_d22_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d23", "pwm-leds")
-    platform_exclude:
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=grove_pwm_led_d23
+    skip: true
   grove.connectors.grove_led.pwm.d24:
-    depends_on: grove_pwm
-    filter: dt_nodelabel_enabled("grove_d24_header") and
+    depends_on: grove_gpio grove_pwm
+    filter: dt_nodelabel_enabled("grove_pwm_d24") and
+            ( dt_nodelabel_enabled("grove_d24_header") or
+              dt_nodelabel_enabled("grove_d23_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d24", "pwm-leds")
-    platform_exclude:
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=grove_pwm_led_d24
+    skip: true
   grove.connectors.grove_led.pwm.d25:
-    depends_on: grove_pwm
-    filter: dt_nodelabel_enabled("grove_d25_header") and
+    depends_on: grove_gpio grove_pwm
+    filter: dt_nodelabel_enabled("grove_pwm_d25") and
+            ( dt_nodelabel_enabled("grove_d25_header") or
+              dt_nodelabel_enabled("grove_d24_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d25", "pwm-leds")
-    platform_exclude:
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=grove_pwm_led_d25
+    skip: true
   grove.connectors.grove_led.pwm.d26:
-    depends_on: grove_pwm
-    filter: dt_nodelabel_enabled("grove_d26_header") and
+    depends_on: grove_gpio grove_pwm
+    filter: dt_nodelabel_enabled("grove_pwm_d26") and
+            ( dt_nodelabel_enabled("grove_d26_header") or
+              dt_nodelabel_enabled("grove_d25_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d26", "pwm-leds")
-    platform_exclude:
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=grove_pwm_led_d26
+    skip: true
   grove.connectors.grove_led.pwm.d27:
-    depends_on: grove_pwm
-    filter: dt_nodelabel_enabled("grove_d27_header") and
+    depends_on: grove_gpio grove_pwm
+    filter: dt_nodelabel_enabled("grove_pwm_d27") and
+            ( dt_nodelabel_enabled("grove_d27_header") or
+              dt_nodelabel_enabled("grove_d26_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d27", "pwm-leds")
-    platform_exclude:
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=grove_pwm_led_d27
+    skip: true
   grove.connectors.grove_led.pwm.d28:
-    depends_on: grove_pwm
-    filter: dt_nodelabel_enabled("grove_d28_header") and
+    depends_on: grove_gpio grove_pwm
+    filter: dt_nodelabel_enabled("grove_pwm_d28") and
+            ( dt_nodelabel_enabled("grove_d28_header") or
+              dt_nodelabel_enabled("grove_d27_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d28", "pwm-leds")
-    platform_exclude:
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=grove_pwm_led_d28
+    skip: true
   grove.connectors.grove_led.pwm.d29:
-    depends_on: grove_pwm
-    filter: dt_nodelabel_enabled("grove_d29_header") and
+    depends_on: grove_gpio grove_pwm
+    filter: dt_nodelabel_enabled("grove_pwm_d29") and
+            ( dt_nodelabel_enabled("grove_d29_header") or
+              dt_nodelabel_enabled("grove_d28_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d29", "pwm-leds")
-    platform_exclude:
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=grove_pwm_led_d29
+    skip: true
   grove.connectors.grove_led.pwm.d30:
-    depends_on: grove_pwm
-    filter: dt_nodelabel_enabled("grove_d30_header") and
+    depends_on: grove_gpio grove_pwm
+    filter: dt_nodelabel_enabled("grove_pwm_d30") and
+            ( dt_nodelabel_enabled("grove_d30_header") or
+              dt_nodelabel_enabled("grove_d29_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d30", "pwm-leds")
-    platform_exclude:
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=grove_pwm_led_d30
+    skip: true
   grove.connectors.grove_led.pwm.d31:
-    depends_on: grove_pwm
-    filter: dt_nodelabel_enabled("grove_d31_header") and
+    depends_on: grove_gpio grove_pwm
+    filter: dt_nodelabel_enabled("grove_pwm_d31") and
+            ( dt_nodelabel_enabled("grove_d31_header") or
+              dt_nodelabel_enabled("grove_d30_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d31", "pwm-leds")
-    platform_exclude:
-      seeeduino_cm0
-      seeeduino_lotus
     extra_args: SHIELD=grove_pwm_led_d31
+    skip: true
