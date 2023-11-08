@@ -235,29 +235,18 @@ jobs:
         run: |
           #
           # Disabled in the meantime because the execution time is still
-          # too high:
+          # too high (up to about 45 min):
           #
+          # --> Grove Button Shields, ~640% more time (~550 more tests)
           # --testsuite-root bridle/tests/shields/grove_btn/dts_bindings \
+          #
+          # --> Grove LED Shields, ~880% more time (~890 more tests)
           # --testsuite-root bridle/tests/shields/grove_led/dts_bindings \
           #
-          west twister --verbose \
+          west twister --verbose --integration --cmake-only \
             --outdir twister-out --no-clean --inline-logs \
             --enable-size-report --platform-reports \
-            --platform arduino_zero \
-            --platform mimxrt1010_evk \
-            --platform mimxrt1060_evk \
-            --platform mimxrt1060_evkb \
-            --platform nucleo_f303re \
-            --platform nucleo_f401re \
-            --platform nucleo_f413zh \
-            --platform nucleo_f767zi \
-            --platform rpi_pico \
-            --platform seeed_xiao_samd21 \
-            --platform seeeduino_xiao \
-            --platform seeeduino_cm0 \
-            --platform seeeduino_lotus \
-            --platform waveshare_rp2040_plus \
-            --platform waveshare_rp2040_plus@16mb \
+            --quarantine-list bridle/tests/quarantine.yaml \
             --testsuite-root bridle/tests/shields/grove/dts_bindings \
             --testsuite-root bridle/tests/shields/x_grove_testbed/dts_bindings
 
