@@ -37,6 +37,7 @@ common:
     - nucleo_f746zg
     - nucleo_f767zi
     - rpi_pico
+    - rpi_pico_w
     - seeed_xiao_samd21
     - seeeduino_xiao
     - seeeduino_cm0
