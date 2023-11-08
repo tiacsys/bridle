@@ -84,5 +84,6 @@ grove_pwm_d4: &tcc0 {};
 grove_pwm_d5: &tcc0 {};
 grove_pwm_d6: &tcc0 {};
 grove_pwm_d7: &tcc0 {};
+grove_pwm_d8: &tcc1 {};
 grove_pwm_d18: &tcc0 {};
 grove_pwm_d19: &tcc0 {};
