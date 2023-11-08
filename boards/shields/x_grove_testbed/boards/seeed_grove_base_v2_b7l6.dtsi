@@ -3,4 +3,9 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#include "seeed_grove_xiao_v1_b0l1.dtsi"
+/ {
+	aliases {
+		pwm-led0 = &grove_pwm_led_d6;
+		sw0 = &grove_btn_d7;
+	};
+};

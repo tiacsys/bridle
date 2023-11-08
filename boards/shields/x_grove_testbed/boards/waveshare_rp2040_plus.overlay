@@ -3,4 +3,4 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#include "seeed_grove_rpipico_v1.dtsi"
+#include "seeed_grove_rpipico_v1_b16l18.dtsi"
