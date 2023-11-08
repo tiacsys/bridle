@@ -17,7 +17,6 @@
     - .*x_grove_testbed.*
   platforms:
     - nucleo_f746zg
-    - rpi_pico_w
     - waveshare_rp2040_one
     - waveshare_rp2040_zero
     - waveshare_rp2040_matrix
@@ -81,6 +80,7 @@
     - grove.connectors.x_grove_testbed.pwm
   platforms:
     - rpi_pico
+    - rpi_pico_w
     - waveshare_rp2040_plus
     - waveshare_rp2040_plus@16mb
 

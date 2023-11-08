@@ -115,6 +115,7 @@ tests:
       SHIELD=seeed_grove_rpipico_v1;grove_btn_d16;grove_led_d18;grove_pwm_led_d18;x_grove_testbed
     platform_allow:
       - rpi_pico
+      - rpi_pico_w
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
   grove.connectors.x_grove_testbed.pwm:
