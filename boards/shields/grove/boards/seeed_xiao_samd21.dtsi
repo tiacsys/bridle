@@ -6,7 +6,7 @@
 #include "xiao_to_grove_if.dtsi"
 
 /*
- * On Arduino Zero following pins can be used as PWM outputs:
+ * On Seeed Studio XIAO SAMD21 following pins can be used as PWM outputs:
  *
  *   Grove pin   port   timer   channel   Seeeduino XIAO requirements
  *

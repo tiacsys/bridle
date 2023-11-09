@@ -4,7 +4,7 @@
  */
 
 /*
- * On ST Nucleo F401RE pin D0 (RX) and D1 (TX) should be disconnected from
+ * On ST Nucleo F303RE pin D0 (RX) and D1 (TX) should be disconnected from
  * the on-board STLinx/V2; open the solder bridges SB13 (RX) and SB14 (TX).
  * For more details, see schematic MB1136-C05 on sheet 4 and manual UM1724
  * section 6.8 on page 25 and table 10 on page 27.
@@ -15,7 +15,7 @@ arduino_serial: &usart2 {};
 #include "arduino_to_grove_if.dtsi"
 
 /*
- * On ST Nucleo F401RE following pins can be used as PWM outputs:
+ * On ST Nucleo F303RE following pins can be used as PWM outputs:
  *
  *   Grove pin   port   timer   channel   Arduino UNO R3 requirements
  *
