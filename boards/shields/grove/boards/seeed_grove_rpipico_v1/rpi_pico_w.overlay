@@ -4,4 +4,3 @@
  */
 
 #include "rpi_pico.dtsi"
-#include "rpi_pico-pinctrl.dtsi"
