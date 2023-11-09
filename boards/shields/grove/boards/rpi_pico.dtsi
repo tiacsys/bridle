@@ -3,10 +3,345 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#include "rpipico_r3_connector.dtsi"
-
-rpipico_serial: &pico_serial {};
-rpipico_spi: &pico_spi {};
-rpipico_i2c: &pico_i2c {};
-
 #include "rpipico_to_grove_if.dtsi"
+
+/*
+ * Some interface pins for the Raspberry Pi Pico have been changed and
+ * will no longer comply with the board default settings. Here is the
+ * list of all possible interfaces, incl. PWM signals:
+ *
+ *   Grove pin    port   timer   channel   Raspberry Pi Pico requirements
+ *
+ *         GP0    P0                       TX      / GPIO as UART0 in default
+ *         GP1    P1                       RX      / GPIO as UART0 in default
+ *         GP2    P2                       SCK       GPIO as SPI0 in default
+ *         GP3    P3                       MOSI      GPIO as SPI0 in default
+ *         GP4    P4                       MISO/TX / GPIO as SPI0/UART1 in default
+ *         GP5    P5                       SS/RX   / GPIO as SPI0/UART1 in default
+ *         GP6    P6                       SDA     / GPIO as I2C1 in default
+ *         GP7    P7                       SCL     / GPIO as I2C1 in default
+ *         GP8    P8                       SDA     / GPIO as I2C0 in default
+ *         GP9    P9                       SCL     / GPIO as I2C0 in default
+ *         GP10   P10    PWM5    A (10)              GPIO with PWM support
+ *         GP11   P11    PWM5    B (11)              GPIO with PWM support
+ *         GP12   P12    PWM6    A (12)              GPIO with PWM support
+ *         GP13   P13    PWM6    B (13)              GPIO with PWM support
+ *         GP14   P14    PWM7    A (14)              GPIO with PWM support
+ *         GP15   P15    PWM7    B (15)              GPIO with PWM support
+ *         GP16   P16    PWM0    A  (0)              GPIO with PWM support
+ *         GP17   P17    PWM0    B  (1)              GPIO with PWM support
+ *         GP18   P18    PWM1    A  (2)              GPIO with PWM support
+ *         GP19   P19    PWM1    B  (3)              GPIO with PWM support
+ *         GP20   P20    PWM2    A  (4)              GPIO with PWM support
+ *         GP21   P21    PWM2    B  (5)              GPIO with PWM support
+ *         GP22   P22    PWM3    A  (6)              GPIO with PWM support
+ *  (SMPS) GP23   P23
+ *  (VBUS) GP24   P24
+ *   (LED) GP25   P25   (PWM4)  (B) (9)
+ *         GP26   P26                      ADC0 / GPIO
+ *         GP27   P27                      ADC1 / GPIO
+ *         GP28   P28                      ADC2 / GPIO
+ *  (VSYS) GP29   P29                     (ADC3)
+ */
+
+&pwm {
+	status = "disabled";
+	pinctrl-0 = <&pwm_default>;
+	pinctrl-names = "default";
+};
+
+#include <zephyr/dt-bindings/pinctrl/rpi-pico-rp2040-pinctrl.h>
+
+#undef GROVE_PWM_D10_SLOW
+#define GROVE_PWM_D10_SLOW				\
+	&pwm {						\
+		divider-frac-5 = <15>;			\
+		divider-int-5 = <255>;			\
+	};
+
+#undef GROVE_PWM_D10_ENABLE
+#define GROVE_PWM_D10_ENABLE				\
+	&pwm {						\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D10_PINCTRL
+#define GROVE_PWM_D10_PINCTRL				\
+	&pwm_default {					\
+		group10 {				\
+			pinmux = <PWM_5A_P10>;		\
+		};					\
+	};
+
+#undef GROVE_PWM_D11_SLOW
+#define GROVE_PWM_D11_SLOW				\
+	&pwm {						\
+		divider-frac-5 = <15>;			\
+		divider-int-5 = <255>;			\
+	};
+
+#undef GROVE_PWM_D11_ENABLE
+#define GROVE_PWM_D11_ENABLE				\
+	&pwm {						\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D11_PINCTRL
+#define GROVE_PWM_D11_PINCTRL				\
+	&pwm_default {					\
+		group11 {				\
+			pinmux = <PWM_5B_P11>;		\
+		};					\
+	};
+
+#undef GROVE_PWM_D12_SLOW
+#define GROVE_PWM_D12_SLOW				\
+	&pwm {						\
+		divider-frac-6 = <15>;			\
+		divider-int-6 = <255>;			\
+	};
+
+#undef GROVE_PWM_D12_ENABLE
+#define GROVE_PWM_D12_ENABLE				\
+	&pwm {						\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D12_PINCTRL
+#define GROVE_PWM_D12_PINCTRL				\
+	&pwm_default {					\
+		group12 {				\
+			pinmux = <PWM_6A_P12>;		\
+		};					\
+	};
+
+#undef GROVE_PWM_D13_SLOW
+#define GROVE_PWM_D13_SLOW				\
+	&pwm {						\
+		divider-frac-6 = <15>;			\
+		divider-int-6 = <255>;			\
+	};
+
+#undef GROVE_PWM_D13_ENABLE
+#define GROVE_PWM_D13_ENABLE				\
+	&pwm {						\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D13_PINCTRL
+#define GROVE_PWM_D13_PINCTRL				\
+	&pwm_default {					\
+		group13 {				\
+			pinmux = <PWM_6B_P13>;		\
+		};					\
+	};
+
+#undef GROVE_PWM_D14_SLOW
+#define GROVE_PWM_D14_SLOW				\
+	&pwm {						\
+		divider-frac-7 = <15>;			\
+		divider-int-7 = <255>;			\
+	};
+
+#undef GROVE_PWM_D14_ENABLE
+#define GROVE_PWM_D14_ENABLE				\
+	&pwm {						\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D14_PINCTRL
+#define GROVE_PWM_D14_PINCTRL				\
+	&pwm_default {					\
+		group14 {				\
+			pinmux = <PWM_7A_P14>;		\
+		};					\
+	};
+
+#undef GROVE_PWM_D15_SLOW
+#define GROVE_PWM_D15_SLOW				\
+	&pwm {						\
+		divider-frac-7 = <15>;			\
+		divider-int-7 = <255>;			\
+	};
+
+#undef GROVE_PWM_D15_ENABLE
+#define GROVE_PWM_D15_ENABLE				\
+	&pwm {						\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D15_PINCTRL
+#define GROVE_PWM_D15_PINCTRL				\
+	&pwm_default {					\
+		group15 {				\
+			pinmux = <PWM_7B_P15>;		\
+		};					\
+	};
+
+#undef GROVE_PWM_D16_SLOW
+#define GROVE_PWM_D16_SLOW				\
+	&pwm {						\
+		divider-frac-0 = <15>;			\
+		divider-int-0 = <255>;			\
+	};
+
+#undef GROVE_PWM_D16_ENABLE
+#define GROVE_PWM_D16_ENABLE				\
+	&pwm {						\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D16_PINCTRL
+#define GROVE_PWM_D16_PINCTRL				\
+	&pwm_default {					\
+		group16 {				\
+			pinmux = <PWM_0A_P16>;		\
+		};					\
+	};
+
+#undef GROVE_PWM_D17_SLOW
+#define GROVE_PWM_D17_SLOW				\
+	&pwm {						\
+		divider-frac-0 = <15>;			\
+		divider-int-0 = <255>;			\
+	};
+
+#undef GROVE_PWM_D17_ENABLE
+#define GROVE_PWM_D17_ENABLE				\
+	&pwm {						\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D17_PINCTRL
+#define GROVE_PWM_D17_PINCTRL				\
+	&pwm_default {					\
+		group17 {				\
+			pinmux = <PWM_0B_P17>;		\
+		};					\
+	};
+
+#undef GROVE_PWM_D18_SLOW
+#define GROVE_PWM_D18_SLOW				\
+	&pwm {						\
+		divider-frac-1 = <15>;			\
+		divider-int-1 = <255>;			\
+	};
+
+#undef GROVE_PWM_D18_ENABLE
+#define GROVE_PWM_D18_ENABLE				\
+	&pwm {						\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D18_PINCTRL
+#define GROVE_PWM_D18_PINCTRL				\
+	&pwm_default {					\
+		group18 {				\
+			pinmux = <PWM_1A_P18>;		\
+		};					\
+	};
+
+#undef GROVE_PWM_D19_SLOW
+#define GROVE_PWM_D19_SLOW				\
+	&pwm {						\
+		divider-frac-1 = <15>;			\
+		divider-int-1 = <255>;			\
+	};
+
+#undef GROVE_PWM_D19_ENABLE
+#define GROVE_PWM_D19_ENABLE				\
+	&pwm {						\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D19_PINCTRL
+#define GROVE_PWM_D19_PINCTRL				\
+	&pwm_default {					\
+		group19 {				\
+			pinmux = <PWM_1B_P19>;		\
+		};					\
+	};
+
+#undef GROVE_PWM_D20_SLOW
+#define GROVE_PWM_D20_SLOW				\
+	&pwm {						\
+		divider-frac-2 = <15>;			\
+		divider-int-2 = <255>;			\
+	};
+
+#undef GROVE_PWM_D20_ENABLE
+#define GROVE_PWM_D20_ENABLE				\
+	&pwm {						\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D20_PINCTRL
+#define GROVE_PWM_D20_PINCTRL				\
+	&pwm_default {					\
+		group20 {				\
+			pinmux = <PWM_2A_P20>;		\
+		};					\
+	};
+
+#undef GROVE_PWM_D21_SLOW
+#define GROVE_PWM_D21_SLOW				\
+	&pwm {						\
+		divider-frac-2 = <15>;			\
+		divider-int-2 = <255>;			\
+	};
+
+#undef GROVE_PWM_D21_ENABLE
+#define GROVE_PWM_D21_ENABLE				\
+	&pwm {						\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D21_PINCTRL
+#define GROVE_PWM_D21_PINCTRL				\
+	&pwm_default {					\
+		group21 {				\
+			pinmux = <PWM_2B_P21>;		\
+		};					\
+	};
+
+#undef GROVE_PWM_D22_SLOW
+#define GROVE_PWM_D22_SLOW				\
+	&pwm {						\
+		divider-frac-3 = <15>;			\
+		divider-int-3 = <255>;			\
+	};
+
+#undef GROVE_PWM_D22_ENABLE
+#define GROVE_PWM_D22_ENABLE				\
+	&pwm {						\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D22_PINCTRL
+#define GROVE_PWM_D22_PINCTRL				\
+	&pwm_default {					\
+		group22 {				\
+			pinmux = <PWM_3A_P22>;		\
+		};					\
+	};
+
+#undef GROVE_PWM_D25_SLOW
+#define GROVE_PWM_D25_SLOW				\
+	&pwm {						\
+		divider-frac-4 = <15>;			\
+		divider-int-4 = <255>;			\
+	};
+
+#undef GROVE_PWM_D25_ENABLE
+#define GROVE_PWM_D25_ENABLE				\
+	&pwm {						\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D25_PINCTRL
+#define GROVE_PWM_D25_PINCTRL				\
+	&pwm_default {					\
+		group25 {				\
+			pinmux = <PWM_4B_P25>;		\
+		};					\
+	};

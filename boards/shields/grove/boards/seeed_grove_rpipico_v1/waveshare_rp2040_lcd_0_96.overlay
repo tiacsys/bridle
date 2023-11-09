@@ -4,4 +4,3 @@
  */
 
 #include "rpi_pico.dtsi"
-#include "waveshare_rp2040_pico-pinctrl.dtsi"
