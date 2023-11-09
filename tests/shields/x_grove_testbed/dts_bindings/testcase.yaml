@@ -116,6 +116,7 @@ tests:
     platform_allow:
       - rpi_pico
       - rpi_pico_w
+      - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
   grove.connectors.x_grove_testbed.pwm:

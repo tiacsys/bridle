@@ -22,7 +22,6 @@
     - waveshare_rp2040_matrix
     - waveshare_rp2040_tiny
     - waveshare_rp2040_eth
-    - waveshare_rp2040_lcd_0_96
 
 - comment: "shield(grove.base.x_grove_testbed.gpio.b4l6): invalid board/shield condition."
   scenarios:
@@ -81,6 +80,7 @@
   platforms:
     - rpi_pico
     - rpi_pico_w
+    - waveshare_rp2040_lcd_0_96
     - waveshare_rp2040_plus
     - waveshare_rp2040_plus@16mb
 
