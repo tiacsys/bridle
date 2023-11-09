@@ -8,6 +8,9 @@
  * are disconnected in default and can be closed optionally. But keep in
  * mind that the signals are already connected to a on-board header for
  * the NXP special motor driver add-on bard.
+ *
+ * The following GPIO map overwrites the default settings of the board,
+ * as the resistors R793, R795 and R800 must be fitted for proper use.
  */
 
 &arduino_header {
