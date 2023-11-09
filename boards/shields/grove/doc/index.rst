@@ -573,6 +573,8 @@ GPIO mapping
 
       .. include:: /boards/shields/grove/doc/grove_gpios_arduino_header.rsti
 
+      .. include:: /boards/shields/grove/doc/grove_attention-mimxrt1010_evk.rsti
+
    .. group-tab:: Seeeduino XIAO Header
 
       This is the **GPIO signal line mapping** from a `Seeeduino XIAO`_
@@ -653,6 +655,8 @@ not be complete.
                jumper or solder bridge setups for proper usage.
 
             .. include:: /boards/shields/grove/doc/grove_pwms-mimxrt1010_evk.rsti
+
+            .. include:: /boards/shields/grove/doc/grove_attention-mimxrt1010_evk.rsti
 
          .. group-tab:: ``mimxrt1060_evk(b)``
 
