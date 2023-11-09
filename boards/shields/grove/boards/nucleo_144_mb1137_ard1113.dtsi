@@ -1,0 +1,269 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include "arduino_to_grove_if.dtsi"
+
+/*
+ * On ST Zio connectors (CN7, CN8, CN9, CN10) of ST board design MB1137
+ * following pins can be used as PWM outputs (UM1974, Figure 11 & 13):
+ *
+ *   Grove pin   port   timer   channel   Arduino UNO R3 requirements
+ *
+ *         D0    PG9                      RX   / GPIO
+ *         D1    PG14                     TX   / GPIO
+ *         D2    PF15                     INT0 / GPIO
+ *         D3    PE13   TIM1    CH3       INT1 / GPIO with PWM support
+ *         D4    PF14                            GPIO
+ *         D5    PE11   TIM1    CH2              GPIO with PWM support
+ *         D6    PE9    TIM1    CH1              GPIO with PWM support
+ *         D7    PF13                            GPIO
+ *         D8    PF12                            GPIO
+ *         D9    PD15   TIM4    CH4              GPIO with PWM support
+ *         D10   PD14   TIM4    CH3       SS   / GPIO with PWM support
+ *  (int.) D11   PA7    TIM14   CH1       MOSI / GPIO with PWM support
+ *         D12   PA6    TIM13   CH1       MISO / GPIO
+ *         D13   PA5    TIM2    CH1       SCK  / GPIO
+ *         D18   PB9    TIM11   CH1       SDA  / GPIO
+ *         D19   PB8    TIM10   CH1       SCL  / GPIO
+ */
+
+&timers1 {
+	pwm1: pwm {
+		status = "disabled";
+		pinctrl-0 = <&tim1_ch1_hack
+			     &tim1_ch2_hack
+			     &tim1_ch3_hack>;
+		pinctrl-names = "default";
+	};
+};
+
+#undef GROVE_PWM_D6_SLOW
+#define GROVE_PWM_D6_SLOW				\
+	&timers1 {					\
+		st,prescaler = <10000>;			\
+	};
+
+#undef GROVE_PWM_D6_ENABLE
+#define GROVE_PWM_D6_ENABLE				\
+	&pwm1 {						\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D6_PINCTRL
+#define GROVE_PWM_D6_PINCTRL				\
+	/delete-node/ &tim1_ch1_hack;			\
+	tim1_ch1_hack: &tim1_ch1_pe9 {};
+
+#undef GROVE_PWM_D5_SLOW
+#define GROVE_PWM_D5_SLOW				\
+	&timers1 {					\
+		st,prescaler = <10000>;			\
+	};
+
+#undef GROVE_PWM_D5_ENABLE
+#define GROVE_PWM_D5_ENABLE				\
+	&pwm1 {						\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D5_PINCTRL
+#define GROVE_PWM_D5_PINCTRL				\
+	/delete-node/ &tim1_ch2_hack;			\
+	tim1_ch2_hack: &tim1_ch2_pe11 {};
+
+#undef GROVE_PWM_D3_SLOW
+#define GROVE_PWM_D3_SLOW				\
+	&timers1 {					\
+		st,prescaler = <10000>;			\
+	};
+
+#undef GROVE_PWM_D3_ENABLE
+#define GROVE_PWM_D3_ENABLE				\
+	&pwm1 {						\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D3_PINCTRL
+#define GROVE_PWM_D3_PINCTRL				\
+	/delete-node/ &tim1_ch3_hack;			\
+	tim1_ch3_hack: &tim1_ch3_pe13 {};
+
+&timers2 {
+	pwm2: pwm {
+		status = "disabled";
+		pinctrl-0 = <&tim2_ch1_hack>;
+		pinctrl-names = "default";
+	};
+};
+
+#undef GROVE_PWM_D13_ENABLE
+#define GROVE_PWM_D13_ENABLE				\
+	&pwm2 {						\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D13_PINCTRL
+#define GROVE_PWM_D13_PINCTRL				\
+	/delete-node/ &tim2_ch1_hack;			\
+	tim2_ch1_hack: &tim2_ch1_pa5 {};
+
+&timers4 {
+	pwm4: pwm {
+		status = "disabled";
+		pinctrl-0 = <&tim4_ch3_hack
+			     &tim4_ch4_hack>;
+		pinctrl-names = "default";
+	};
+};
+
+#undef GROVE_PWM_D10_SLOW
+#define GROVE_PWM_D10_SLOW				\
+	&timers4 {					\
+		st,prescaler = <10000>;			\
+	};
+
+#undef GROVE_PWM_D10_ENABLE
+#define GROVE_PWM_D10_ENABLE				\
+	&pwm4 {						\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D10_PINCTRL
+#define GROVE_PWM_D10_PINCTRL				\
+	/delete-node/ &tim4_ch3_hack;			\
+	tim4_ch3_hack: &tim4_ch3_pd14 {};
+
+#undef GROVE_PWM_D9_SLOW
+#define GROVE_PWM_D9_SLOW				\
+	&timers4 {					\
+		st,prescaler = <10000>;			\
+	};
+
+#undef GROVE_PWM_D9_ENABLE
+#define GROVE_PWM_D9_ENABLE				\
+	&pwm4 {						\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D9_PINCTRL
+#define GROVE_PWM_D9_PINCTRL				\
+	/delete-node/ &tim4_ch4_hack;			\
+	tim4_ch4_hack: &tim4_ch4_pd15 {};
+
+&timers10 {
+	pwm10: pwm {
+		status = "disabled";
+		pinctrl-0 = <&tim10_ch1_hack>;
+		pinctrl-names = "default";
+	};
+};
+
+#undef GROVE_PWM_D19_SLOW
+#define GROVE_PWM_D19_SLOW				\
+	&timers10 {					\
+		st,prescaler = <10000>;			\
+	};
+
+#undef GROVE_PWM_D19_ENABLE
+#define GROVE_PWM_D19_ENABLE				\
+	&pwm10 {					\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D19_PINCTRL
+#define GROVE_PWM_D19_PINCTRL				\
+	/delete-node/ &tim10_ch1_hack;			\
+	tim10_ch1_hack: &tim10_ch1_pb8 {};
+
+&timers11 {
+	pwm11: pwm {
+		status = "disabled";
+		pinctrl-0 = <&tim11_ch1_hack>;
+		pinctrl-names = "default";
+	};
+};
+
+#undef GROVE_PWM_D18_SLOW
+#define GROVE_PWM_D18_SLOW				\
+	&timers11 {					\
+		st,prescaler = <10000>;			\
+	};
+
+#undef GROVE_PWM_D18_ENABLE
+#define GROVE_PWM_D18_ENABLE				\
+	&pwm11 {					\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D18_PINCTRL
+#define GROVE_PWM_D18_PINCTRL				\
+	/delete-node/ &tim11_ch1_hack;			\
+	tim11_ch1_hack: &tim11_ch1_pb9 {};
+
+&timers13 {
+	pwm13: pwm {
+		status = "disabled";
+		pinctrl-0 = <&tim13_ch1_hack>;
+		pinctrl-names = "default";
+	};
+};
+
+#undef GROVE_PWM_D12_SLOW
+#define GROVE_PWM_D12_SLOW				\
+	&timers13 {					\
+		st,prescaler = <10000>;			\
+	};
+
+#undef GROVE_PWM_D12_ENABLE
+#define GROVE_PWM_D12_ENABLE				\
+	&pwm13 {					\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D12_PINCTRL
+#define GROVE_PWM_D12_PINCTRL				\
+	/delete-node/ &tim13_ch1_hack;			\
+	tim13_ch1_hack: &tim13_ch1_pa6 {};
+
+&timers14 {
+	pwm14: pwm {
+		status = "disabled";
+		pinctrl-0 = <&tim14_ch1_hack>;
+		pinctrl-names = "default";
+	};
+};
+
+#undef GROVE_PWM_D11_SLOW
+#define GROVE_PWM_D11_SLOW				\
+	&timers14 {					\
+		st,prescaler = <10000>;			\
+	};
+
+#undef GROVE_PWM_D11_ENABLE
+#define GROVE_PWM_D11_ENABLE				\
+	&pwm14 {					\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D11_PINCTRL
+#define GROVE_PWM_D11_PINCTRL				\
+	/delete-node/ &tim14_ch1_hack;			\
+	tim14_ch1_hack: &tim14_ch1_pa7 {};
+
+#include <zephyr/dt-bindings/pinctrl/stm32-pinctrl.h>
+
+&pinctrl {
+	/* +++ hack +++ PH0-OSC_IN as AF0 --> SYS_AF +++ hack +++ */
+	tim1_ch1_hack: tim1_ch1_hack { pinmux = <STM32_PINMUX('H',0,AF0)>; };
+	tim1_ch2_hack: tim1_ch2_hack { pinmux = <STM32_PINMUX('H',0,AF0)>; };
+	tim1_ch3_hack: tim1_ch3_hack { pinmux = <STM32_PINMUX('H',0,AF0)>; };
+	tim2_ch1_hack: tim2_ch1_hack { pinmux = <STM32_PINMUX('H',0,AF0)>; };
+	tim4_ch3_hack: tim4_ch3_hack { pinmux = <STM32_PINMUX('H',0,AF0)>; };
+	tim4_ch4_hack: tim4_ch4_hack { pinmux = <STM32_PINMUX('H',0,AF0)>; };
+	tim10_ch1_hack: tim10_ch1_hack { pinmux = <STM32_PINMUX('H',0,AF0)>; };
+	tim11_ch1_hack: tim11_ch1_hack { pinmux = <STM32_PINMUX('H',0,AF0)>; };
+	tim13_ch1_hack: tim13_ch1_hack { pinmux = <STM32_PINMUX('H',0,AF0)>; };
+	tim14_ch1_hack: tim14_ch1_hack { pinmux = <STM32_PINMUX('H',0,AF0)>; };
+};
