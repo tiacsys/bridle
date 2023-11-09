@@ -1,3 +1,4 @@
+vendor: waveshare
 identifier: waveshare_rp2040_zero
 name: Waveshare RP2040-Zero
 type: mcu

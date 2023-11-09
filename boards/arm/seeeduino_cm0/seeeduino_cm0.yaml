@@ -1,3 +1,4 @@
+vendor: seeed
 identifier: seeeduino_cm0
 name: Seeeduino Cortex-M0+
 type: mcu
