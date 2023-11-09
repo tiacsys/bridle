@@ -1,3 +1,4 @@
+vendor: seeed
 identifier: seeed_xiao_samd21
 name: Seeed Studio XIAO SAMD21 (Seeeduino XIAO)
 type: mcu

@@ -1,3 +1,4 @@
+vendor: seeed
 identifier: seeeduino_lotus
 name: Seeeduino Lotus Cortex-M0+
 type: mcu

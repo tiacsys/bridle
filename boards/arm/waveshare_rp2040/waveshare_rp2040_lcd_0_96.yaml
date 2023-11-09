@@ -1,3 +1,4 @@
+vendor: waveshare
 identifier: waveshare_rp2040_lcd_0_96
 name: Waveshare RP2040-LCD-0.96
 type: mcu

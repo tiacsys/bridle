@@ -1,3 +1,4 @@
+vendor: arduino
 identifier: arduino_zero
 name: Arduino Zero
 type: mcu

@@ -1,3 +1,4 @@
+vendor: waveshare
 identifier: waveshare_rp2040_plus@16mb
 name: Waveshare RP2040-Plus (16MB)
 type: mcu
