@@ -1,0 +1,8 @@
+# Copyright (c) 2023 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+config SHIELD_WAVESHARE_PICO_LCD_1_14
+	def_bool $(shields_list_contains,waveshare_pico_lcd_1_14)
+
+config SHIELD_WAVESHARE_PICO_LCD_2
+	def_bool $(shields_list_contains,waveshare_pico_lcd_2)

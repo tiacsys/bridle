@@ -1,0 +1,60 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/input/input-event-codes.h>
+
+/ {
+	chosen {
+		zephyr,display = &st7789v_240x135;
+	};
+
+	lcd_backlight_en: lcd-backlight-en {
+		compatible = "regulator-fixed";
+		regulator-name = "lcd_backlight_enable";
+		regulator-boot-on;
+	};
+
+	gpio_keys {
+		compatible = "gpio-keys";
+		button_0: button_0 {
+			label = "User button A";
+			zephyr,code = <INPUT_KEY_0>;
+		};
+		button_1: button_1 {
+			label = "User button B";
+			zephyr,code = <INPUT_KEY_1>;
+		};
+		joystick_enter: joystick_enter {
+			label = "User joystick ENTER";
+			zephyr,code = <INPUT_KEY_ENTER>;
+		};
+		joystick_right: joystick_right {
+			label = "User joystick RIGHT";
+			zephyr,code = <INPUT_KEY_RIGHT>;
+		};
+		joystick_up: joystick_up {
+			label = "User joystick UP";
+			zephyr,code = <INPUT_KEY_UP>;
+		};
+		joystick_down: joystick_down {
+			label = "User joystick DOWN";
+			zephyr,code = <INPUT_KEY_DOWN>;
+		};
+		joystick_left: joystick_left {
+			label = "User joystick LEFT";
+			zephyr,code = <INPUT_KEY_LEFT>;
+		};
+	};
+
+	aliases {
+		sw0 = &button_0;
+		sw1 = &button_1;
+		sw2 = &joystick_enter;
+		sw3 = &joystick_left;
+		sw4 = &joystick_down;
+		sw5 = &joystick_right;
+		sw6 = &joystick_up;
+	};
+};

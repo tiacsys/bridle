@@ -1,0 +1,36 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include "st7789v_320x240_rgb565.dtsi"
+
+&lcd_backlight_en {
+	enable-gpios = <&rpipico_header 13 GPIO_ACTIVE_HIGH>;	/* GP13 */
+};
+
+&st7789v_320x240 {
+	status = "okay";
+	reset-gpios = <&rpipico_header 12 GPIO_ACTIVE_LOW>;	/* GP12 */
+	cmd-data-gpios = <&rpipico_header 8 GPIO_ACTIVE_LOW>;	/* GP8 */
+};
+
+&rpipico_spi_lcd {
+	cs-gpios = <&rpipico_header 9 GPIO_ACTIVE_LOW>;		/* GP9 */
+};
+
+&button_0 {							/* GP15 */
+	gpios = <&rpipico_header 15 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+};
+
+&button_1 {							/* GP17 */
+	gpios = <&rpipico_header 17 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+};
+
+&button_2 {							/* GP2 */
+	gpios = <&rpipico_header 2 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+};
+
+&button_3 {							/* GP3 */
+	gpios = <&rpipico_header 3 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+};

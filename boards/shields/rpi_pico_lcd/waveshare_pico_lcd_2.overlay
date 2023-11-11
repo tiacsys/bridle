@@ -1,0 +1,45 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/input/input-event-codes.h>
+
+/ {
+	chosen {
+		zephyr,display = &st7789v_320x240;
+	};
+
+	lcd_backlight_en: lcd-backlight-en {
+		compatible = "regulator-fixed";
+		regulator-name = "lcd_backlight_enable";
+		regulator-boot-on;
+	};
+
+	gpio_keys {
+		compatible = "gpio-keys";
+		button_0: button_0 {
+			label = "User button 0";
+			zephyr,code = <INPUT_KEY_0>;
+		};
+		button_1: button_1 {
+			label = "User button 1";
+			zephyr,code = <INPUT_KEY_1>;
+		};
+		button_2: button_2 {
+			label = "User button 2";
+			zephyr,code = <INPUT_KEY_2>;
+		};
+		button_3: button_3 {
+			label = "User button 3";
+			zephyr,code = <INPUT_KEY_3>;
+		};
+	};
+
+	aliases {
+		sw0 = &button_0;
+		sw1 = &button_1;
+		sw2 = &button_2;
+		sw3 = &button_3;
+	};
+};

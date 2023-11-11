@@ -1,0 +1,37 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <freq.h>
+
+&rpipico_spi_lcd {
+	st7789v_240x135: st7789v@0 {
+		compatible = "sitronix,st7789v";
+		spi-max-frequency = <DT_FREQ_M(20)>;
+		reg = <0>;
+
+		status = "disabled";
+
+		width = <135>;		/* portrait */
+		height = <240>;		/* portrait */
+		x-offset = <52>;	/* portrait */
+		y-offset = <40>;	/* portrait */
+
+		vcom = <0x19>;
+		gctrl = <0x35>;
+		vrhs = <0x12>;
+		vdvs = <0x20>;
+		mdac = <0x00>;		/* portrait */
+		gamma = <0x01>;
+		colmod = <0x05>;	/* 16-bit, RGB565 */
+		lcm = <0x2c>;
+		porch-param = [0C 0C 00 33 33];
+		cmd2en-param = [5A 69 02 01];
+		pwctrl1-param = [A4 A1];
+		pvgam-param = [D0 04 0D 11 13 2B 3F 54 4C 18 0D 0B 1F 23];
+		nvgam-param = [D0 04 0C 11 13 2C 3F 44 51 2F 1F 1F 20 23];
+		ram-param = [00 F0];
+		rgb-param = [CD 08 14];
+	};
+};
