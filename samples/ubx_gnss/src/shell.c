@@ -95,6 +95,17 @@ static int cmd_gnss_stream_stop(const struct shell *sh, size_t argc, char **argv
     return 0;
 }
 
+static int cmd_gnss_reset(const struct shell *sh, size_t argc, char **argv, void *data) {
+
+	if (gnss_device_handle == NULL) {
+		shell_print(sh, "Error: GNSS device is not ready");
+		return -1;
+	}
+
+	reset_gnss();
+	return 0;
+}
+
 SHELL_STATIC_SUBCMD_SET_CREATE(gnss_stream_sub,
     SHELL_CMD(start, NULL, "Start streaming position estimates", cmd_gnss_stream_start),
     SHELL_CMD(stop, NULL, "Stop streaming position estimates", cmd_gnss_stream_stop),
@@ -104,6 +115,7 @@ SHELL_STATIC_SUBCMD_SET_CREATE(gnss_stream_sub,
 SHELL_STATIC_SUBCMD_SET_CREATE(gnss_sub,
 	SHELL_CMD(single, NULL, "Get a one-shot position estimate", cmd_gnss_single),
     SHELL_CMD(stream, &gnss_stream_sub, "Start or stop streaming of position estimates", NULL),
+    SHELL_CMD(reset, NULL, "Reset GNSS module", cmd_gnss_reset),
 	SHELL_SUBCMD_SET_END
 );
 SHELL_CMD_REGISTER(gnss, &gnss_sub, "GNSS related commands", NULL);

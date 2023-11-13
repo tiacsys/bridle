@@ -3,16 +3,28 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+/* Zephyr includes */
 #include <zephyr/kernel.h>
 #include <zephyr/init.h>
+#include <zephyr/devicetree.h>
+#include <zephyr/drivers/gpio.h>
 
+/* Application specific includes */
 #include <main.h>
 
+/* Logging */
 #include <zephyr/logging/log.h>
 LOG_MODULE_REGISTER(main, CONFIG_MAIN_LOG_LEVEL);
 
+/* ubxlib specific includes */
 #include <ubxlib.h>
 #include <u_cfg_app_platform_specific.h>
+
+#if !DT_NODE_EXISTS(DT_NODELABEL(reset_switch))
+#error No reset switch node found in devicetree, check overlay for your board
+#endif
+
+static const struct gpio_dt_spec reset_switch = GPIO_DT_SPEC_GET(DT_NODELABEL(reset_switch), gpios);
 
 static const uDeviceCfg_t device_config = {
 	.deviceType = U_DEVICE_TYPE_GNSS,
@@ -43,9 +55,22 @@ static int init(void) {
 	uPortInit();
 	uDeviceInit();
 
+	gpio_pin_configure_dt(&reset_switch, GPIO_OUTPUT_INACTIVE);
+
 	return 0;
 }
 SYS_INIT(init, APPLICATION, 90);
+
+void reset_gnss(void) {
+
+	LOG_INF("Resetting GNSS module");
+
+	gpio_pin_set_dt(&reset_switch, 1);
+	k_msleep(200);
+	gpio_pin_set_dt(&reset_switch, 0);
+
+	LOG_INF("Reset complete");
+}
 
 int main(void) {
 

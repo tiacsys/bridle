@@ -1,0 +1,13 @@
+# Copyright (c) 2023 Sarah Renkhoff
+# SPDX-License-Identifier: Apache-2.0
+
+description: GPIO pin to cause a reset on an external device
+
+compatible: "reset-switch"
+
+properties:
+  gpios:
+    type: phandle-array
+    required: true
+    description: |
+      The GPIO pin connected to a reset switch.

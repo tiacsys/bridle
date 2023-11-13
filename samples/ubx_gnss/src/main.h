@@ -11,4 +11,6 @@
 
 extern uDeviceHandle_t gnss_device_handle;
 
+void reset_gnss(void);
+
 #endif // MAIN_H

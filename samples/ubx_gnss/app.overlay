@@ -4,6 +4,11 @@
  */
 
 / {
+	reset_switch: reset_switch {
+		compatible = "reset-switch";
+		gpios = <&arduino_header 8 GPIO_ACTIVE_LOW>;
+	};
+
 	aliases {
 		ubxlib-uart0 = &arduino_serial;
 	};
