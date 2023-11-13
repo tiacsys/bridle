@@ -4,6 +4,7 @@
  */
 
 #include <zephyr/shell/shell.h>
+#include <stdlib.h>
 
 #include <main.h>
 
@@ -106,6 +107,42 @@ static int cmd_gnss_reset(const struct shell *sh, size_t argc, char **argv, void
 	return 0;
 }
 
+static int cmd_gnss_ttff(const struct shell *sh, size_t argc, char **argv, void *data) {
+
+	if (gnss_device_handle == NULL) {
+		shell_print(sh, "Error: GNSS device is not ready");
+		return -1;
+	}
+
+	int n_tests = 1;
+	if (argc > 1) {
+		n_tests = atoi(argv[1]);
+	}
+
+	uint64_t durations_total_ms = 0;
+	for (int i = 0; i < n_tests; i++) {
+		
+		reset_gnss();
+		uint64_t start_time_ms = k_uptime_get();
+		int ret = uGnssPosGet(gnss_device_handle, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+		if (ret != 0) {
+			shell_print(sh, "Error during uGnssPosGet: %d", ret);
+			return -1;
+		}
+		
+		uint64_t stop_time_ms = k_uptime_get();
+		uint64_t duration_ms = stop_time_ms - start_time_ms;
+		shell_print(sh, "Run %d of %d: Acquired fix after %.2fs", i+1, n_tests, duration_ms / 1000.0);
+		durations_total_ms += duration_ms;
+	}
+
+	float duration_avg_seconds = (durations_total_ms / 1000.0) / n_tests;
+	shell_print(sh, "---------------");
+	shell_print(sh, "Avg. TTFF: %.2f", duration_avg_seconds);
+
+	return 0;
+}
+
 SHELL_STATIC_SUBCMD_SET_CREATE(gnss_stream_sub,
     SHELL_CMD(start, NULL, "Start streaming position estimates", cmd_gnss_stream_start),
     SHELL_CMD(stop, NULL, "Stop streaming position estimates", cmd_gnss_stream_stop),
@@ -116,6 +153,7 @@ SHELL_STATIC_SUBCMD_SET_CREATE(gnss_sub,
 	SHELL_CMD(single, NULL, "Get a one-shot position estimate", cmd_gnss_single),
     SHELL_CMD(stream, &gnss_stream_sub, "Start or stop streaming of position estimates", NULL),
     SHELL_CMD(reset, NULL, "Reset GNSS module", cmd_gnss_reset),
+    SHELL_CMD(ttff, NULL, "Measure TTFF", cmd_gnss_ttff),
 	SHELL_SUBCMD_SET_END
 );
 SHELL_CMD_REGISTER(gnss, &gnss_sub, "GNSS related commands", NULL);

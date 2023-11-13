@@ -63,13 +63,9 @@ SYS_INIT(init, APPLICATION, 90);
 
 void reset_gnss(void) {
 
-	LOG_INF("Resetting GNSS module");
-
 	gpio_pin_set_dt(&reset_switch, 1);
 	k_msleep(200);
 	gpio_pin_set_dt(&reset_switch, 0);
-
-	LOG_INF("Reset complete");
 }
 
 int main(void) {
