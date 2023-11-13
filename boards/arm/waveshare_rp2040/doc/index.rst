@@ -552,12 +552,9 @@ Here is an example of building and flashing the
    :zephyr-app: zephyr/samples/basic/blinky
    :board: waveshare_rp2040_plus
    :build-dir: waveshare_rp2040
-   :goals: build
+   :goals: flash
+   :flash-args: -r jlink
    :west-args: -p
-
-.. code-block:: bash
-
-   west flash --runner jlink
 
 Using OpenOCD
 -------------
@@ -590,8 +587,9 @@ Here is an example of building and flashing the
    :zephyr-app: zephyr/samples/basic/blinky
    :board: waveshare_rp2040_plus
    :build-dir: waveshare_rp2040
-   :goals: build flash
+   :goals: flash
    :west-args: -p
+   :flash-args: -r openocd
    :gen-args: \
               -DOPENOCD=/usr/local/bin/openocd \
               -DOPENOCD_DEFAULT_PATH=/usr/local/share/openocd/scripts \
@@ -657,6 +655,7 @@ Here is an example for debugging the
    :maybe-skip-config:
    :goals: debug
    :west-args: -p
+   :flash-args: -r openocd
    :gen-args: \
               -DOPENOCD=/usr/local/bin/openocd \
               -DOPENOCD_DEFAULT_PATH=/usr/local/share/openocd/scripts \
@@ -716,14 +715,9 @@ LED Blinky and Fade
          :board: waveshare_rp2040_one
          :build-dir: waveshare_rp2040
          :west-args: -p
+         :flash-args: -r uf2
          :goals: flash
          :compact:
-
-      .. rubric:: Using UF2 for flashing by pico-bootrom
-
-      .. code-block:: bash
-
-         cp build/waveshare_rp2040/zephyr/zephyr.uf2 /media/__USER__/RPI-RP2/
 
       .. hint::
 
@@ -746,14 +740,9 @@ LED Blinky and Fade
          :board: waveshare_rp2040_zero
          :build-dir: waveshare_rp2040
          :west-args: -p
+         :flash-args: -r uf2
          :goals: flash
          :compact:
-
-      .. rubric:: Using UF2 for flashing by pico-bootrom
-
-      .. code-block:: bash
-
-         cp build/waveshare_rp2040/zephyr/zephyr.uf2 /media/__USER__/RPI-RP2/
 
       .. hint::
 
@@ -776,14 +765,9 @@ LED Blinky and Fade
          :board: waveshare_rp2040_matrix
          :build-dir: waveshare_rp2040
          :west-args: -p
+         :flash-args: -r uf2
          :goals: flash
          :compact:
-
-      .. rubric:: Using UF2 for flashing by pico-bootrom
-
-      .. code-block:: bash
-
-         cp build/waveshare_rp2040/zephyr/zephyr.uf2 /media/__USER__/RPI-RP2/
 
       .. hint::
 
@@ -806,14 +790,9 @@ LED Blinky and Fade
          :board: waveshare_rp2040_tiny
          :build-dir: waveshare_rp2040
          :west-args: -p
+         :flash-args: -r uf2
          :goals: flash
          :compact:
-
-      .. rubric:: Using UF2 for flashing by pico-bootrom
-
-      .. code-block:: bash
-
-         cp build/waveshare_rp2040/zephyr/zephyr.uf2 /media/__USER__/RPI-RP2/
 
       .. hint::
 
@@ -836,14 +815,9 @@ LED Blinky and Fade
          :board: waveshare_rp2040_eth
          :build-dir: waveshare_rp2040
          :west-args: -p
+         :flash-args: -r uf2
          :goals: flash
          :compact:
-
-      .. rubric:: Using UF2 for flashing by pico-bootrom
-
-      .. code-block:: bash
-
-         cp build/waveshare_rp2040/zephyr/zephyr.uf2 /media/__USER__/RPI-RP2/
 
       .. hint::
 
@@ -862,6 +836,7 @@ LED Blinky and Fade
          :board: waveshare_rp2040_lcd_0_96
          :build-dir: waveshare_rp2040
          :west-args: -p
+         :flash-args: -r uf2
          :goals: flash
          :compact:
 
@@ -874,6 +849,7 @@ LED Blinky and Fade
          :board: waveshare_rp2040_lcd_0_96
          :build-dir: waveshare_rp2040
          :west-args: -p
+         :flash-args: -r uf2
          :goals: flash
          :compact:
 
@@ -886,14 +862,9 @@ LED Blinky and Fade
          :board: waveshare_rp2040_lcd_0_96
          :build-dir: waveshare_rp2040
          :west-args: -p
+         :flash-args: -r uf2
          :goals: flash
          :compact:
-
-      .. rubric:: Using UF2 for flashing by pico-bootrom
-
-      .. code-block:: bash
-
-         cp build/waveshare_rp2040/zephyr/zephyr.uf2 /media/__USER__/RPI-RP2/
 
    .. group-tab:: RP2040-Plus
 
@@ -906,6 +877,7 @@ LED Blinky and Fade
          :board: waveshare_rp2040_plus
          :build-dir: waveshare_rp2040
          :west-args: -p
+         :flash-args: -r uf2
          :goals: flash
          :compact:
 
@@ -918,6 +890,7 @@ LED Blinky and Fade
          :board: waveshare_rp2040_plus
          :build-dir: waveshare_rp2040
          :west-args: -p
+         :flash-args: -r uf2
          :goals: flash
          :compact:
 
@@ -930,14 +903,9 @@ LED Blinky and Fade
          :board: waveshare_rp2040_plus
          :build-dir: waveshare_rp2040
          :west-args: -p
+         :flash-args: -r uf2
          :goals: flash
          :compact:
-
-      .. rubric:: Using UF2 for flashing by pico-bootrom
-
-      .. code-block:: bash
-
-         cp build/waveshare_rp2040/zephyr/zephyr.uf2 /media/__USER__/RPI-RP2/
 
 Hello Shell with USB-CDC/ACM Console
 ====================================
@@ -953,14 +921,9 @@ Hello Shell with USB-CDC/ACM Console
          :board: waveshare_rp2040_one
          :build-dir: waveshare_rp2040
          :west-args: -p -S usb-console
+         :flash-args: -r uf2
          :goals: flash
          :compact:
-
-      .. rubric:: Using UF2 for flashing by pico-bootrom
-
-      .. code-block:: bash
-
-         cp build/waveshare_rp2040/zephyr/zephyr.uf2 /media/__USER__/RPI-RP2/
 
       .. include:: /boards/arm/waveshare_rp2040/doc/rp2040-one/helloshell.rsti
 
@@ -973,14 +936,9 @@ Hello Shell with USB-CDC/ACM Console
          :board: waveshare_rp2040_zero
          :build-dir: waveshare_rp2040
          :west-args: -p -S usb-console
+         :flash-args: -r uf2
          :goals: flash
          :compact:
-
-      .. rubric:: Using UF2 for flashing by pico-bootrom
-
-      .. code-block:: bash
-
-         cp build/waveshare_rp2040/zephyr/zephyr.uf2 /media/__USER__/RPI-RP2/
 
       .. include:: /boards/arm/waveshare_rp2040/doc/rp2040-zero/helloshell.rsti
 
@@ -993,14 +951,9 @@ Hello Shell with USB-CDC/ACM Console
          :board: waveshare_rp2040_matrix
          :build-dir: waveshare_rp2040
          :west-args: -p -S usb-console
+         :flash-args: -r uf2
          :goals: flash
          :compact:
-
-      .. rubric:: Using UF2 for flashing by pico-bootrom
-
-      .. code-block:: bash
-
-         cp build/waveshare_rp2040/zephyr/zephyr.uf2 /media/__USER__/RPI-RP2/
 
       .. include:: /boards/arm/waveshare_rp2040/doc/rp2040-matrix/helloshell.rsti
 
@@ -1013,14 +966,9 @@ Hello Shell with USB-CDC/ACM Console
          :board: waveshare_rp2040_tiny
          :build-dir: waveshare_rp2040
          :west-args: -p -S usb-console
+         :flash-args: -r uf2
          :goals: flash
          :compact:
-
-      .. rubric:: Using UF2 for flashing by pico-bootrom
-
-      .. code-block:: bash
-
-         cp build/waveshare_rp2040/zephyr/zephyr.uf2 /media/__USER__/RPI-RP2/
 
       .. include:: /boards/arm/waveshare_rp2040/doc/rp2040-tiny/helloshell.rsti
 
@@ -1033,14 +981,9 @@ Hello Shell with USB-CDC/ACM Console
          :board: waveshare_rp2040_eth
          :build-dir: waveshare_rp2040
          :west-args: -p -S usb-console
+         :flash-args: -r uf2
          :goals: flash
          :compact:
-
-      .. rubric:: Using UF2 for flashing by pico-bootrom
-
-      .. code-block:: bash
-
-         cp build/waveshare_rp2040/zephyr/zephyr.uf2 /media/__USER__/RPI-RP2/
 
       .. include:: /boards/arm/waveshare_rp2040/doc/rp2040-eth/helloshell.rsti
 
@@ -1053,14 +996,9 @@ Hello Shell with USB-CDC/ACM Console
          :board: waveshare_rp2040_lcd_0_96
          :build-dir: waveshare_rp2040
          :west-args: -p -S usb-console
+         :flash-args: -r uf2
          :goals: flash
          :compact:
-
-      .. rubric:: Using UF2 for flashing by pico-bootrom
-
-      .. code-block:: bash
-
-         cp build/waveshare_rp2040/zephyr/zephyr.uf2 /media/__USER__/RPI-RP2/
 
       .. include:: /boards/arm/waveshare_rp2040/doc/rp2040-lcd-0.96/helloshell.rsti
 
@@ -1073,14 +1011,9 @@ Hello Shell with USB-CDC/ACM Console
          :board: waveshare_rp2040_plus@16mb
          :build-dir: waveshare_rp2040
          :west-args: -p -S usb-console
+         :flash-args: -r uf2
          :goals: flash
          :compact:
-
-      .. rubric:: Using UF2 for flashing by pico-bootrom
-
-      .. code-block:: bash
-
-         cp build/waveshare_rp2040/zephyr/zephyr.uf2 /media/__USER__/RPI-RP2/
 
       .. include:: /boards/arm/waveshare_rp2040/doc/rp2040-plus/helloshell.rsti
 
@@ -1107,14 +1040,9 @@ board. See also Zephyr sample: :doc:`zephyr:samples/drivers/display/README`.
    :board: waveshare_rp2040_lcd_0_96
    :build-dir: waveshare_rp2040
    :west-args: -p
+   :flash-args: -r uf2
    :goals: flash
    :compact:
-
-.. rubric:: Using UF2 for flashing by pico-bootrom
-
-.. code-block:: bash
-
-   cp build/waveshare_rp2040/zephyr/zephyr.uf2 /media/__USER__/RPI-RP2/
 
 References
 **********
