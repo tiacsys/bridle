@@ -78,4 +78,8 @@ config UBXLIB_TEST
         select CPLUSPLUS # Unity requires cpp
         default n
 
+config UBXLIB_LOGGING
+        bool "Enable ubxlib logging"
+        default n
+
 endif # UBXLIB
