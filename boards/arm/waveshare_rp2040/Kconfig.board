@@ -28,3 +28,7 @@ config BOARD_WAVESHARE_RP2040_LCD_0_96
 config BOARD_WAVESHARE_RP2040_PLUS
 	bool "Waveshare RP2040-Plus Board"
 	depends on SOC_RP2040
+
+config BOARD_WAVESHARE_RP2040_GEEK
+	bool "Waveshare RP2040-Geek Board"
+	depends on SOC_RP2040

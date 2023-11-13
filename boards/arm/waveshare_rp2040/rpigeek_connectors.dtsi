@@ -1,0 +1,37 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	rpigeek_dbg_header: connector-dbg {
+		compatible = "generic-pin-header";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <0 0 &gpio0 2 0>,	/* GP2(PWM1A)/I2C1-SDA */
+			   /* power ground */	/* GND */
+			   <2 0 &gpio0 3 0>;	/* GP3(PWM1B)/I2C1-SCL */
+	};
+
+	rpigeek_uart_header: connector-uart {
+		compatible = "generic-pin-header";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <0 0 &gpio0 4 0>,	/* GP4(PWM2A)/UART1-TX */
+			   /* power ground */	/* GND */
+			   <2 0 &gpio0 5 0>;	/* GP5(PWM2B)/UART1-RX */
+	};
+
+	rpigeek_io_header: connector-io {
+		compatible = "generic-pin-header";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = /* power ground */	/* GND */
+			   /* power supply */	/* 3V3 */
+			   <2 0 &gpio0 28 0>,	/* GP28(PWM6A/ADC2)/I2C0-SDA */
+			   <3 0 &gpio0 29 0>;	/* GP29(PWM6B/ADC3)/I2C0-SCL */
+	};
+};

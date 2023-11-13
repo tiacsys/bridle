@@ -1,0 +1,55 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <freq.h>
+
+/ {
+	chosen {
+		zephyr,display = &st7789v_240x135;
+	};
+};
+
+&spi1 {
+	status = "okay";
+	pinctrl-0 = <&spi1_lcd>;
+	pinctrl-names = "default";
+
+	clock-frequency = <DT_FREQ_M(20)>;
+	cs-gpios = <&gpio0 9 GPIO_ACTIVE_LOW>;
+
+	/* LCD with ST7789V controller. */
+	st7789v_240x135: st7789v@0 {
+		compatible = "sitronix,st7789v";
+		reg = <0>;
+		status = "okay";
+		reset-gpios = <&gpio0 12 GPIO_ACTIVE_LOW>;
+		cmd-data-gpios = <&gpio0 8 GPIO_ACTIVE_LOW>;
+		width = <240>;
+		height = <135>;
+		x-offset = <40>;
+		y-offset = <53>;
+		vcom = <0x19>;
+		gctrl = <0x35>;
+		vrhs = <0x12>;
+		vdvs = <0x20>;
+		mdac = <0x70>;
+		gamma = <0x01>;
+		colmod = <0x05>;
+		lcm = <0x2C>;
+		porch-param = [0C 0C 00 33 33];
+		cmd2en-param = [5A 69 02 01];
+		pwctrl1-param = [A4 A1];
+		pvgam-param = [D0 04 0D 11 13 2B 3F 54 4C 18 0D 0B 1F 23];
+		nvgam-param = [D0 04 0C 11 13 2C 3F 44 51 2F 1F 1F 20 23];
+		ram-param = [00 F0];
+		rgb-param = [CD 08 14];
+
+		spi-max-frequency = <DT_FREQ_M(20)>;
+	};
+};
+
+&gpio0 {
+	status = "okay";
+};

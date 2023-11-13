@@ -59,6 +59,12 @@ Hardware
 
       .. include:: /boards/arm/waveshare_rp2040/doc/rp2040-plus/hardware.rsti
 
+   .. group-tab:: RP2040-Geek
+
+      .. _waveshare_rp2040_geek:
+
+      .. include:: /boards/arm/waveshare_rp2040/doc/rp2040-geek/hardware.rsti
+
 Positions
 =========
 
@@ -91,6 +97,10 @@ Positions
    .. group-tab:: RP2040-Plus
 
       .. include:: /boards/arm/waveshare_rp2040/doc/rp2040-plus/positions.rsti
+
+   .. group-tab:: RP2040-Geek
+
+      .. include:: /boards/arm/waveshare_rp2040/doc/rp2040-geek/positions.rsti
 
 Pinouts
 =======
@@ -131,6 +141,10 @@ in a single tab.
    .. group-tab:: RP2040-Plus
 
       .. include:: /boards/arm/waveshare_rp2040/doc/rp2040-plus/pinouts.rsti
+
+   .. group-tab:: RP2040-Geek
+
+      .. include:: /boards/arm/waveshare_rp2040/doc/rp2040-geek/pinouts.rsti
 
 Supported Features
 ******************
@@ -259,6 +273,7 @@ configuration can be found in the different Kconfig files:
 - :bridle_file:`boards/arm/waveshare_rp2040/waveshare_rp2040_eth_defconfig`
 - :bridle_file:`boards/arm/waveshare_rp2040/waveshare_rp2040_lcd_0_96_defconfig`
 - :bridle_file:`boards/arm/waveshare_rp2040/waveshare_rp2040_plus_defconfig`
+- :bridle_file:`boards/arm/waveshare_rp2040/waveshare_rp2040_geek_defconfig`
 
 Board Configurations
 ====================
@@ -365,6 +380,18 @@ which is mapped as a hardware revision.
       use the native USB device port with CDC-ACM as
       Zephyr console and for the shell.
 
+   .. group-tab:: RP2040-Geek
+
+      .. rubric:: :command:`west build -b waveshare_rp2040_geek`
+
+      Use the serial port UART1 on edge header as
+      Zephyr console and for the shell.
+
+      .. rubric:: :command:`west build -b waveshare_rp2040_geek -S usb-console`
+
+      Use the native USB device port with CDC-ACM as
+      Zephyr console and for the shell.
+
 Connections and IOs
 ===================
 
@@ -386,11 +413,14 @@ GPIO (PWM) Ports
 The `RP2040 <RP2040 SoC>`_ MCU has 1 GPIO cell which covers all I/O pads and
 8 PWM function unit each with 2 channels beside a dedicated Timer unit. On
 the two boards |RP2040-Plus| and |RP2040-LCD-0.96|, PWM4 channel B is available
-on the on-board user or backlight LED. All other boards have no default use case
-for PWM. Only if :kconfig:option:`CONFIG_PWM_RPI_PICO` is enabled then the
+on the on-board user or backlight LED. But the PWM operation is not enable by
+default. Only if :kconfig:option:`CONFIG_PWM_RPI_PICO` is enabled then the
 first user or backlight LED is driven by PWM4CHB instead of by GPIO. All
 channels of PWM0 until PWM7 are available on the |Raspberry Pi Pico| or
 |Waveshare RP2040 Mini| header and |Waveshare RP2040 Mini PCB Pads|.
+
+The |RP2040-Geek| board has no such LED and no standard header and therefore
+does not provide any PWM to the outside on any pad by default.
 
 ADC/TS Ports
 ============
@@ -405,6 +435,10 @@ internal on-board voltage monitoring.
 The external voltage reference ADC_VREF can be used optional for the ADC
 and is only available on the |Raspberry Pi Pico| header.
 
+The |RP2040-Geek| board provides ADC channel 2 and 3 over GP28 (ADC2) and
+GP29 (ADC3) on one of the three edge connectors but these are disabled by
+default. Both ADC channels will share the same lines with the I2C0 signals.
+
 SPI Port
 ========
 
@@ -414,6 +448,9 @@ GP17 (CSn) on the |Raspberry Pi Pico| header or over GP7 (MOSI), GP4 (MISO),
 GP6 (SCK), and GP5 (CSn) on the |Waveshare RP2040 Mini| header. A special
 case is the |RP2040-ETH| board where SPI0 is routed on the |Raspberry Pi Pico|
 header with the same GP4-7 layout as on the |Waveshare RP2040 Mini| header.
+
+The |RP2040-Geek| does not provide any SPI to the outside on any pad. These
+are connected internally to the LCD and the TF/microSD card interfaces.
 
 I2C Port
 ========
@@ -426,6 +463,10 @@ on the |Waveshare RP2040 Mini| header. A special case is the |RP2040-ETH|
 board where I2C1 is omitted and I2C0 is routed on the |Raspberry Pi Pico|
 header with the same GP8-9 layout as on the |Waveshare RP2040 Mini| header.
 
+The |RP2040-Geek| board provides I2C0 over GP28 (SDA) and GP29 (SCL) on one
+of the three edge connectors and it is enabled by default. Both I2C0 signals
+will share the same lines with ADC channels 2 and 3.
+
 Serial Port
 ===========
 
@@ -433,6 +474,9 @@ The `RP2040 <RP2040 SoC>`_ MCU has 2 UARTs. One of the UARTs (UART0) is
 connected to external devices over GP0 (TX) and GP1 (RX) on both the
 |Raspberry Pi Pico| and the |Waveshare RP2040 Mini| header in same manner
 and is the Zephyr console.
+
+The |RP2040-Geek| board provides UART1 over GP4 (TX) and GP5 (RX) on one
+of the three edge connectors and it is enabled by default.
 
 USB Device Port
 ===============
@@ -907,6 +951,79 @@ LED Blinky and Fade
          :goals: flash
          :compact:
 
+   .. group-tab:: RP2040-Geek
+
+      .. hint::
+
+         Neither LED Blinky nor LED Fade can be built and executed on
+         |RP2040-Geek|, because this system has no user LED.
+         A simple GPIO or PWM control is not possible by default!
+
+         But with the help of the dedicated :ref:`loopback_test_shield` shield,
+         all necessary Devicetree changes and board extensions are carried out
+         temporarily in order to be able to execute the standard examples. This
+         assumes the external wiring as shown below (right).
+
+      .. image:: /boards/arm/waveshare_rp2040/doc/rp2040-geek/loopback_test_shield.jpg
+         :align: right
+         :alt: Waveshare RP2040-Geek with loopback wiring for tests
+
+      .. rubric:: External LED Blinky by GPIO
+
+      See also Zephyr sample: :doc:`zephyr:samples/basic/blinky/README`
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/basic/blinky
+         :board: waveshare_rp2040_geek
+         :shield: loopback_test
+         :build-dir: waveshare_rp2040
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
+      .. rubric:: External LED Blinky by PWM
+
+      See also Zephyr sample: :doc:`zephyr:samples/basic/blinky_pwm/README`
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/basic/blinky_pwm
+         :board: waveshare_rp2040_geek
+         :shield: loopback_test
+         :build-dir: waveshare_rp2040
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
+      .. rubric:: External LED Fade by PWM
+
+      See also Zephyr sample: :doc:`zephyr:samples/basic/fade_led/README`
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/basic/fade_led
+         :board: waveshare_rp2040_geek
+         :shield: loopback_test
+         :build-dir: waveshare_rp2040
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
+      .. rubric:: External LED Switch ON/OFF by External Button
+
+      See also Zephyr sample: :doc:`zephyr:samples/basic/button/README`
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/basic/button
+         :board: waveshare_rp2040_geek
+         :shield: loopback_test
+         :build-dir: waveshare_rp2040
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
 Hello Shell with USB-CDC/ACM Console
 ====================================
 
@@ -1017,6 +1134,22 @@ Hello Shell with USB-CDC/ACM Console
 
       .. include:: /boards/arm/waveshare_rp2040/doc/rp2040-plus/helloshell.rsti
 
+   .. group-tab:: RP2040-Geek
+
+      .. rubric:: Hello Shell
+
+      .. zephyr-app-commands::
+         :app: bridle/samples/helloshell
+         :board: waveshare_rp2040_geek
+         :shield: loopback_test
+         :build-dir: waveshare_rp2040
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
+      .. include:: /boards/arm/waveshare_rp2040/doc/rp2040-geek/helloshell.rsti
+
 Display Test and Demonstration
 ==============================
 
@@ -1059,6 +1192,46 @@ board.
       .. zephyr-app-commands::
          :app: zephyr/samples/subsys/display/lvgl
          :board: waveshare_rp2040_lcd_0_96
+         :build-dir: waveshare_rp2040
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
+   .. group-tab:: RP2040-Geek
+
+      .. rubric:: LCD Orientation and Bit Order Test
+
+      See also Zephyr sample: :doc:`zephyr:samples/drivers/display/README`.
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/display
+         :board: waveshare_rp2040_geek
+         :build-dir: waveshare_rp2040
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
+      .. list-table::
+         :align: center
+         :width: 66%
+         :header-rows: 1
+
+         * - .. image:: /boards/arm/waveshare_rp2040/doc/rp2040-geek/display.*
+                :align: center
+                :alt: Waveshare RP2040-Geek Display Sample Animation
+         * - .. rst-class:: centered
+
+                :brd:`TOP LEFT`, :bgn:`TOP RIGHT`, :bbl:`BOTTOM RIGHT`
+
+      .. rubric:: LVGL Basic Sample
+
+      See also Zephyr sample: :doc:`zephyr:samples/subsys/display/lvgl/README`.
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/display/lvgl
+         :board: waveshare_rp2040_geek
          :build-dir: waveshare_rp2040
          :west-args: -p
          :flash-args: -r uf2
@@ -1117,6 +1290,21 @@ References
 .. _Raspberry Pi 3-pin Debug Connector Specification:
    https://rptl.io/debug-spec
 
+.. _JST 1.0㎜ (SH) Connector:
+   https://www.jst.com/products/crimp-style-connectors-wire-to-board-type/sh-connector
+
+.. _(B/S)M03B-SRSS-TB:
+   https://www.jst.com/wp-content/uploads/2021/01/eSH-new.pdf
+
+.. _SHR-03V-S(-B):
+   https://www.jst.com/wp-content/uploads/2021/01/eSH-new.pdf
+
+.. _(B/S)M04B-SRSS-TB:
+   https://www.jst.com/wp-content/uploads/2021/01/eSH-new.pdf
+
+.. _SHR-04V-S(-B):
+   https://www.jst.com/wp-content/uploads/2021/01/eSH-new.pdf
+
 .. _pico_setup.sh:
    https://raw.githubusercontent.com/raspberrypi/pico-setup/master/pico_setup.sh
 
@@ -1143,6 +1331,12 @@ References
 
 .. _RT9013 Datasheet:
    https://www.richtek.com/assets/product_file/RT9013/DS9013-10.pdf
+
+.. _RT9193-33:
+   https://www.richtek.com/Products/Linear%20Regulator/Single%20Output%20Linear%20Regulator/RT9193
+
+.. _RT9193 Datasheet:
+   https://www.richtek.com/assets/product_file/RT9193/DS9193-18.pdf
 
 .. _ME6217C33:
    http://www.microne.com.cn/en/ProductDetail.aspx?id=8
@@ -1212,6 +1406,31 @@ References
    http://www.lcdwiki.com/res/MSP0961/ST7735S_V1.1_20111121.pdf
 .. https://www.waveshare.com/wiki/RP2040-LCD-0.96#Documents
 .. https://files.waveshare.com/upload/e/e2/ST7735S_V1.1_20111121.pdf
+
+.. _ST7789V:
+   https://www.sitronix.com.tw/en/products/aiot-device-ddi
+
+.. _ST7789VW Datasheet V1.0 (2017/09):
+   http://www.lcdwiki.com/res/MSP1308/ST7789VW_datasheet.pdf
+.. https://www.rhydolabz.com/documents/33/ST7789.pdf
+.. https://www.waveshare.com/wiki/Pico-LCD-1.14#Document
+.. https://files.waveshare.com/upload/a/ad/ST7789VW.pdf
+.. https://files.waveshare.com/upload/a/ae/ST7789_Datasheet.pdf
+
+.. _ST7789V Datasheet V1.6 (2017/09):
+   https://www.crystalfontz.com/controllers/Sitronix/ST7789V/470
+
+.. _ST7789V Datasheet V1.4 (2014/10):
+   https://www.crystalfontz.com/controllers/Sitronix/ST7789V/446
+
+.. _ST7789V Datasheet V1.3 (2014/03):
+   https://newhavendisplay.com/content/datasheets/ST7789V.pdf
+.. https://orientdisplay.com/wp-content/uploads/2020/11/ST7789V.pdf
+.. https://threefivedisplays.com/wp-content/uploads/datasheets/lcd_driver_datasheets/ST7789_V_REV_1_3_DS.pdf
+
+.. _ST7789V Datasheet V0.1 (2013/07):
+   https://github.com/Xinyuan-LilyGO/LilyGo-HAL/raw/master/DISPLAY/ST7789V.pdf
+.. https://www.crystalfontz.com/controllers/Sitronix/ST7789V/382
 
 .. _0.5K-AX-nPWB:
    http://www.szhdgc.com/a/FPCxilie/0.50mm/2022/0813/203.html
@@ -1315,6 +1534,10 @@ References
    https://www.waveshare.com/wiki/RP2040-Plus#Documents
 .. https://files.waveshare.com/upload/d/d1/RP2040_Plus.pdf
 
+.. _RP2040-Geek Schematic:
+   https://www.waveshare.com/wiki/RP2040-GEEK#Document
+.. https://files.waveshare.com/wiki/RP2040-GEEK/RP2040-GEEK-Schematic.pdf
+
 .. _IEEE-754:
    https://en.wikipedia.org/wiki/IEEE_754
 
@@ -1338,6 +1561,9 @@ References
 
 .. |RP2040-Plus| replace::
    :ref:`RP2040-Plus <waveshare_rp2040_plus>`
+
+.. |RP2040-Geek| replace::
+   :ref:`RP2040-Geek <waveshare_rp2040_geek>`
 
 .. |Raspberry Pi Pico| replace::
    :dtcompatible:`Raspberry Pi Pico <raspberrypi,pico-header>`
