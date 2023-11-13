@@ -182,6 +182,15 @@ specified as required.
      - | |zephyr,console|
        | |zephyr,shell-uart|
 
+   * - :code:`waveshare_rp2040_geek`
+     - :code:`0x2E8A`
+     - :code:`0x000A`
+     - |Waveshare (Raspberry Pi)|_
+     - |RP2040-Geek (CDC ACM)|, Raspberry Pi Pico SDK CDC UART
+     - `Raspberry Pi USB product ID list`_
+     - | |zephyr,console|
+       | |zephyr,shell-uart|
+
    * -
      - :code:`0x2FE3`
      - :code:`0x0004`
@@ -291,6 +300,9 @@ References
 
 .. |RP2040-Plus (CDC ACM)| replace::
    :ref:`RP2040-Plus (CDC ACM) <waveshare_rp2040_plus>`
+
+.. |RP2040-Geek (CDC ACM)| replace::
+   :ref:`RP2040-Geek (CDC ACM) <waveshare_rp2040_geek>`
 
 .. _Arduino USB product ID list with SAM3X CPU:
    https://github.com/arduino/ArduinoCore-sam/blob/master/boards.txt
