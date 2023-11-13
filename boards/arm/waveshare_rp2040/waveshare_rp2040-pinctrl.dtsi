@@ -118,6 +118,52 @@
 		};
 	};
 
+	uart1_geek: uart1_geek {
+		group1 {
+			pinmux = <UART1_TX_P4>;
+		};
+		group2 {
+			pinmux = <UART1_RX_P5>;
+			input-enable;
+		};
+	};
+
+	i2c0_geek: i2c0_geek {
+		group1 {
+			pinmux = <I2C0_SDA_P28>, <I2C0_SCL_P29>;
+			bias-pull-up;
+			input-enable;
+			input-schmitt-enable;
+		};
+	};
+
+	i2c1_geek: i2c1_geek {
+		group1 {
+			pinmux = <I2C1_SDA_P2>, <I2C1_SCL_P3>;
+			bias-pull-up;
+			input-enable;
+			input-schmitt-enable;
+		};
+	};
+
+	adc_geek: adc_geek {
+		group1 {
+			pinmux = <ADC_CH2_P28>, <ADC_CH3_P29>;
+			input-enable;
+		};
+	};
+
+	spi0_sdhc: spi0_sdhc {
+		group1 {
+			pinmux = /* GP23 will be used as CS: <SPI0_CSN_P17>, */
+				 <SPI0_SCK_P18>, <SPI0_TX_P19>;
+		};
+		group2 {
+			pinmux = <SPI0_RX_P20>;
+			input-enable;
+		};
+	};
+
 	spi1_lcd: spi1_lcd {
 		group1 {
 			pinmux = <SPI1_CSN_P9>, <SPI1_SCK_P10>, <SPI1_TX_P11>;
