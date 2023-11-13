@@ -11,4 +11,11 @@ assert(CONFIG_SHELL "Zephyr's embedded shell must be enabled")
 
 # Add your source file to the "app" target. This must come after
 # the boilerplate code, which defines the target.
-target_sources(app PRIVATE src/main.c)
+target_sources(app PRIVATE
+    src/main.c
+    src/shell.c
+)
+
+target_include_directories(app PRIVATE
+    src
+)
