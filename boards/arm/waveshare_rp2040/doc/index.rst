@@ -1017,32 +1017,53 @@ Hello Shell with USB-CDC/ACM Console
 
       .. include:: /boards/arm/waveshare_rp2040/doc/rp2040-plus/helloshell.rsti
 
-LCD Orientation and Bit Order Test
-==================================
+Display Test and Demonstration
+==============================
 
-This sample and test application is only applicable on the |RP2040-LCD-0.96|
-board. See also Zephyr sample: :doc:`zephyr:samples/drivers/display/README`.
+This samples and test applications are only applicable on the |RP2040-LCD-0.96|
+board.
 
-.. list-table::
-   :align: center
-   :width: 66%
-   :header-rows: 1
+.. tabs::
 
-   * - .. image:: /boards/arm/waveshare_rp2040/doc/rp2040-lcd-0.96/display.*
-          :align: center
-          :alt: Waveshare RP2040-LCD-0.96 Display Sample Animation
-   * - .. rst-class:: centered
+   .. group-tab:: RP2040-LCD-0.96
 
-          :brd:`TOP LEFT`, :bgn:`TOP RIGHT`, :bbl:`BOTTOM RIGHT`
+      .. rubric:: LCD Orientation and Bit Order Test
 
-.. zephyr-app-commands::
-   :app: zephyr/samples/drivers/display
-   :board: waveshare_rp2040_lcd_0_96
-   :build-dir: waveshare_rp2040
-   :west-args: -p
-   :flash-args: -r uf2
-   :goals: flash
-   :compact:
+      See also Zephyr sample: :doc:`zephyr:samples/drivers/display/README`.
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/display
+         :board: waveshare_rp2040_lcd_0_96
+         :build-dir: waveshare_rp2040
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
+      .. list-table::
+         :align: center
+         :width: 66%
+         :header-rows: 1
+
+         * - .. image:: /boards/arm/waveshare_rp2040/doc/rp2040-lcd-0.96/display.*
+                :align: center
+                :alt: Waveshare RP2040-LCD-0.96 Display Sample Animation
+         * - .. rst-class:: centered
+
+                :brd:`TOP LEFT`, :bgn:`TOP RIGHT`, :bbl:`BOTTOM RIGHT`
+
+      .. rubric:: LVGL Basic Sample
+
+      See also Zephyr sample: :doc:`zephyr:samples/subsys/display/lvgl/README`.
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/display/lvgl
+         :board: waveshare_rp2040_lcd_0_96
+         :build-dir: waveshare_rp2040
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
 
 References
 **********
