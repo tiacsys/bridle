@@ -1,0 +1,65 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/gpio/gpio.h>
+#include <zephyr/dt-bindings/pwm/pwm.h>
+
+/ {
+	aliases {
+		pwm-led0 = &rpigeek_dbg_pwm_led;
+		led0 = &rpigeek_dbg_led;
+		sw0 = &rpigeek_dbg_btn;
+	};
+
+	rpigeek_dbg_btns {
+		status = "okay";
+		compatible = "gpio-keys";
+		rpigeek_dbg_btn: rpigeek-dbg-btn {
+			label = "Button on Geek DBG:1";
+			gpios = <&rpigeek_dbg_header 0
+				(GPIO_PULL_DOWN | GPIO_ACTIVE_HIGH)>;
+		};
+	};
+
+	rpigeek_dbg_leds {
+		status = "okay";
+		compatible = "gpio-leds";
+		rpigeek_dbg_led: rpigeek-dbg-led {
+			label = "LED on Geek DBG:3";
+			gpios = <&rpigeek_dbg_header 2 (GPIO_ACTIVE_HIGH)>;
+		};
+	};
+
+	rpigeek_dbg_pwm_leds {
+		status = "okay";
+		compatible = "pwm-leds";
+		rpigeek_dbg_pwm_led: rpigeek-dbg-pwm-led {
+			label = "LED on Geek DBG:3";
+			pwms = <&rpigeek_pwms 3
+				PWM_MSEC(20) (PWM_POLARITY_NORMAL)>;
+		};
+	};
+};
+        
+&gpio0 {
+	status = "okay";
+};
+        
+rpigeek_pwms: &pwm {
+	status = "okay";
+	pinctrl-0 = <&pwm_geek_probe>;
+	pinctrl-names = "default";
+	divider-int-1 = <255>;
+};
+
+#include <zephyr/dt-bindings/pinctrl/rpi-pico-rp2040-pinctrl.h>
+
+&pinctrl {
+	pwm_geek_probe: pwm_geek_probe {
+		group1 {
+			pinmux = <PWM_1B_P3>;
+		};
+	};
+};
