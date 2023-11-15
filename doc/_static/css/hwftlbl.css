@@ -153,10 +153,12 @@
 .hwftlbl-btn:after { content: ' 🔘'; }
 .hwftlbl-led:after { content: ' 🔆'; }
 .hwftlbl-scr:after { content: ' 🖵'; }
+.hwftlbl-dsk:after { content: ' 🖫'; }
 .hwftlbl-con,
 .hwftlbl-btn,
 .hwftlbl-led,
 .hwftlbl-scr,
+.hwftlbl-dsk,
 .hwftlbl {
   color: var(--docset-color-pin-fgd);
   border-color: var(--docset-color-pin-fgd);
@@ -189,6 +191,7 @@
 .hwftlbl-btn,
 .hwftlbl-led,
 .hwftlbl-scr,
+.hwftlbl-dsk,
 .hwftlbl {
   font-size: 114%;
   font-weight: bold;
