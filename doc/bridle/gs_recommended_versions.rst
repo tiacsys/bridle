@@ -13,7 +13,7 @@ are currently only available on Linux, including:
 
 * :ref:`zephyr:twister_script`
 * :ref:`zephyr:native_posix`
-* :ref:`zephyr:networking_with_native_posix` and
+* :ref:`zephyr:networking_with_native_sim` and
   :ref:`zephyr:networking_with_qemu` (net-tools)
 * `BlueZ`_ integration
 * `BabbleSim`_
