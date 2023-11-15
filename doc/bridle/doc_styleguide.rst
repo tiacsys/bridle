@@ -238,6 +238,14 @@ The following table shows just a few examples.
 
      - hardware feature label for a :u:`screen and display` purpose
 
+   * - | :rst:`:hwftlbl-dsk:\`TF\``
+       | :rst:`:hwftlbl-dsk:\`microSD\``
+
+     - :hwftlbl-dsk:`TF`
+       :hwftlbl-dsk:`microSD`
+
+     - hardware feature label for a :u:`storage and disk` purpose
+
    * - | :rst:`:hwftlbl-con:\`USB-C\``
        | :rst:`:hwftlbl-btn:\`10Base-T\``
 

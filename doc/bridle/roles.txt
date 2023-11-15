@@ -127,6 +127,8 @@
    :class: hwftlbl-led
 .. role:: hwftlbl-scr
    :class: hwftlbl-scr
+.. role:: hwftlbl-dsk
+   :class: hwftlbl-dsk
 .. role:: hwftlbl-vdd
    :class: hwftlbl-vdd
 .. role:: hwftlbl-sys
