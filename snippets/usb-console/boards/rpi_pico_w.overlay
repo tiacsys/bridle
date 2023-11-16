@@ -1,0 +1,13 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	model = "Raspberry Pi Pico W @ USB-CDC/ACM Concole";
+	compatible = "raspberrypi,rpi-pico-w", "raspberrypi,rpi-pico-w-usbcons";
+
+	chosen {
+		zephyr,shell-uart = &snippet_cdc_acm_console_uart;
+	};
+};
