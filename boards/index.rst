@@ -20,4 +20,5 @@ under :zephyr_file:`doc/templates/board.tmpl`
    posix/index
    riscv/index
    sparc/index
+   extensions/index
    shields/index
