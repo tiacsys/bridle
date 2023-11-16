@@ -81,6 +81,24 @@ specified as required.
      - | |zephyr,console|
        | |zephyr,shell-uart|
 
+   * - :code:`rpi_pico`
+     - :code:`0x2E8A`
+     - :code:`0x000A`
+     - |Raspberry Pi|_
+     - |RPi Pico (CDC ACM)|, Raspberry Pi Pico SDK CDC UART
+     - `Raspberry Pi USB product ID list`_
+     - | |zephyr,console|
+       | |zephyr,shell-uart|
+
+   * - :code:`rpi_pico_w`
+     - :code:`0x2E8A`
+     - :code:`0x000A`
+     - |Raspberry Pi|_
+     - |RPi Pico W (CDC ACM)|, Raspberry Pi Pico SDK CDC UART
+     - `Raspberry Pi USB product ID list`_
+     - | |zephyr,console|
+       | |zephyr,shell-uart|
+
    * - :code:`waveshare_rp2040_one`
      - :code:`0x2E8A`
      - :code:`0x000A`
@@ -194,14 +212,11 @@ References
 .. _Arduino LLC: https://devicehunt.com/view/type/usb/vendor/2341
 .. |Arduino LLC| replace:: :strong:`Arduino LLC`
 
-.. _Seeed LLC: https://devicehunt.com/view/type/usb/vendor/2886
-.. |Seeed LLC| replace:: :strong:`Seeed LLC`
-
-.. _Seeed Studio: https://devicehunt.com/view/type/usb/vendor/2886
-.. |Seeed Studio| replace:: :strong:`Seeed Studio`
-
 .. |Arduino Zero (CDC ACM)| replace::
    :ref:`Arduino Zero (CDC ACM) <arduino_zero>`
+
+.. _Seeed LLC: https://devicehunt.com/view/type/usb/vendor/2886
+.. |Seeed LLC| replace:: :strong:`Seeed LLC`
 
 .. |Seeeduino Lotus Cortex-M0+ (CDC ACM)| replace::
    :ref:`Seeeduino Lotus Cortex-M0+ (CDC ACM) <seeeduino_lotus>`
@@ -209,8 +224,20 @@ References
 .. |Seeeduino Cortex-M0+ (CDC ACM)| replace::
    :ref:`Seeeduino Cortex-M0+ (CDC ACM) <seeeduino_cm0>`
 
+.. _Seeed Studio: https://devicehunt.com/view/type/usb/vendor/2886
+.. |Seeed Studio| replace:: :strong:`Seeed Studio`
+
 .. |XIAO SAMD21 (CDC ACM)| replace::
    :ref:`XIAO SAMD21 (CDC ACM) <seeed_xiao_samd21>`
+
+.. _Raspberry Pi: https://devicehunt.com/view/type/usb/vendor/2e8a
+.. |Raspberry Pi| replace:: :strong:`Raspberry Pi`
+
+.. |RPi Pico (CDC ACM)| replace::
+   :ref:`RPi Pico (CDC ACM) <rpi_pico>`
+
+.. |RPi Pico W (CDC ACM)| replace::
+   :ref:`RPi Pico W (CDC ACM) <rpi_pico>`
 
 .. _Waveshare (Raspberry Pi): https://devicehunt.com/view/type/usb/vendor/2e8a
 .. |Waveshare (Raspberry Pi)| replace:: :strong:`Waveshare (Raspberry Pi)`
