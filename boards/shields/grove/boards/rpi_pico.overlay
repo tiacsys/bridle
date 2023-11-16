@@ -3,18 +3,4 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#include "rpipico_r3_connector.dtsi"
-
-rpipico_serial: &pico_serial {};
-rpipico_spi: &pico_spi {};
-rpipico_i2c: &pico_i2c {};
-
-#include "rpi_pico.dtsi"
-
-/*
- * With the Grove Shield for Pi Pico, some interface pins for the
- * Raspberry Pi Pico have to be changed and will no longer comply
- * with the board default settings.
- */
-
-#include "rpi_pico-pinctrl.dtsi"
+#include "rpipico_r3.dtsi"

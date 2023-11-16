@@ -345,3 +345,7 @@
 			pinmux = <PWM_4B_P25>;		\
 		};					\
 	};
+
+&pinctrl {
+	pwm_default: pwm_pico_default {};
+};
