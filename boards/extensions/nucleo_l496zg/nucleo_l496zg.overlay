@@ -1,0 +1,28 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/*
+ * On ST Nucleo L496ZG pin D0 (RX) and D1 (TX) are connected to USART3 and
+ * not to LPUART1 as set in the origin upstream Devicetree. For more details,
+ * see schematic MB1312-A03 on sheet 5 and manual UM2179 table 11 on page 40.
+ */
+
+/delete-node/ &arduino_serial;
+arduino_serial: &usart3 {};
+
+/* Setup LPUART1 again, because it was removed completely by /delete-node/. */
+&{/soc} { lpuart1: serial@40008000 {}; };
+&lpuart1 {
+	compatible = "st,stm32-lpuart", "st,stm32-uart";
+	reg = <0x40008000 0x400>;
+	clocks = <&rcc STM32_CLOCK_BUS_APB1_2 0x00000001>;
+	resets = <&rctl STM32_RESET(APB1H, 0U)>;
+	interrupts = <70 0>;
+	status = "okay";
+
+	pinctrl-0 = <&lpuart1_tx_pg7 &lpuart1_rx_pg8>;
+	pinctrl-names = "default";
+	current-speed = <115200>;
+};
