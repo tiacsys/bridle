@@ -90,7 +90,7 @@ zephyr_include_directories(
     ${UBXLIB_BASE}/port/platform/zephyr/cfg
     ${UBXLIB_BASE}/port/platform/zephyr/src
     ${UBXLIB_BASE}/wifi/api
-    ${ZEPHYR_BASE}/include/zephyr
+    ${ZEPHYR_BASE}/include
 )
 
 # Private include paths ("UBXLIB_PRIVATE_INC")
@@ -119,7 +119,7 @@ target_include_directories(ubxlib PRIVATE
     ${UBXLIB_BASE}/port/platform/common/mutex_debug
     ${UBXLIB_BASE}/port/platform/common/log_ram
     ${UBXLIB_BASE}/wifi/src
-    ${ZEPHYR_BASE}/include/zephyr
+    ${ZEPHYR_BASE}/include
 )
 
 # Hacking this in directly for now, ultimately
