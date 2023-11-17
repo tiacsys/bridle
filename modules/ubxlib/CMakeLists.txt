@@ -15,8 +15,8 @@ set(UBXLIB_SRC ${UBXLIB_SRC} PARENT_SCOPE)
 endfunction()
 
 if(CONFIG_ARCH_POSIX)
-      # When compiling for Zephyr on Linux, need to force
-      # compilation of 32-bit objects when we call ubxlib.cmake
+    # When compiling for Zephyr on Linux, need to force
+    # compilation of 32-bit objects when we call ubxlib.cmake
     list(APPEND UBXLIB_COMPILE_OPTIONS "-m32")
 endif() # CONFIG_ARCH_POSIX
 
@@ -91,7 +91,7 @@ zephyr_include_directories(
     ${UBXLIB_BASE}/port/platform/zephyr/src
     ${UBXLIB_BASE}/wifi/api
     ${ZEPHYR_BASE}/include/zephyr
-    )
+)
 
 # Private include paths ("UBXLIB_PRIVATE_INC")
 target_include_directories(ubxlib PRIVATE
@@ -122,7 +122,8 @@ target_include_directories(ubxlib PRIVATE
     ${ZEPHYR_BASE}/include/zephyr
 )
 
-# Hacking this in directly for now, ultimately we don't want the mbedtls dependency anyway
+# Hacking this in directly for now, ultimately
+# we don't want the mbedtls dependency anyway!
 target_include_directories(ubxlib PRIVATE
     ${ZEPHYR_BASE}/../modules/crypto/mbedtls/include
 )
@@ -145,6 +146,7 @@ add_src_dir(${UBXLIB_BASE}/port/platform/common/debug_utils/src)
 add_src_dir(${UBXLIB_BASE}/port/platform/common/event_queue)
 add_src_dir(${UBXLIB_BASE}/port/platform/common/mutex_debug)
 add_src_dir(${UBXLIB_BASE}/port/platform/common/log_ram)
+
 list(APPEND UBXLIB_SRC
     ${UBXLIB_BASE}/common/device/src/u_device.c
     ${UBXLIB_BASE}/common/device/src/u_device_serial.c
@@ -176,19 +178,25 @@ list(APPEND UBXLIB_SRC
 
 # Conditional sources
 if (CONFIG_UBXLIB_CELL)
-add_src_dir(${UBXLIB_BASE}/cell/src)
-list (APPEND UBXLIB_SRC
+
+    add_src_dir(${UBXLIB_BASE}/cell/src)
+
+    list (APPEND UBXLIB_SRC
         ${UBXLIB_BASE}/common/network/src/u_network_private_cell.c
         ${UBXLIB_BASE}/common/device/src/u_device_private_cell.c
-        )
+    )
+
 else()
+
     list(APPEND UBXLIB_SRC
         ${UBXLIB_BASE}/common/device/src/u_device_private_cell_link.c
         ${UBXLIB_BASE}/common/network/src/u_network_private_cell_link.c
     )
+
 endif() # CONFIG_UBXLIB_CELL
 
 if (CONFIG_UBXLIB_GEODESIC)
+
     target_include_directories(ubxlib PRIVATE
         ${GEODESIC_DIR}/include
         ${GEODESIC_DIR}/include/GeographicLib
@@ -197,38 +205,49 @@ if (CONFIG_UBXLIB_GEODESIC)
     zephyr_library_link_libraries(
         ubxlib_geodesic
     )
+
 endif() # CONFIG_UBXLIB_GEODESIC
 
 if (CONFIG_UBXLIB_GNSS)
+
     add_src_dir(${UBXLIB_BASE}/gnss/src)
+
     list(APPEND UBXLIB_SRC
         ${UBXLIB_BASE}/gnss/src/lib_mga/u_lib_mga.c
         ${UBXLIB_BASE}/common/network/src/u_network_private_gnss.c
         ${UBXLIB_BASE}/common/device/src/u_device_private_gnss.c
-        )
+    )
+
 else()
-list(APPEND UBXLIB_SRC
-${UBXLIB_BASE}/common/device/src/u_device_private_gnss_link.c
-${UBXLIB_BASE}/common/network/src/u_network_private_gnss_link.c
-)
+
+    list(APPEND UBXLIB_SRC
+        ${UBXLIB_BASE}/common/device/src/u_device_private_gnss_link.c
+        ${UBXLIB_BASE}/common/network/src/u_network_private_gnss_link.c
+    )
+
 endif() # CONFIG_UBXLIB_GNSS
 
 if (CONFIG_UBXLIB_SHORTRANGE)
+
     add_src_dir(${UBXLIB_BASE}/common/short_range/src)
     add_src_dir(${UBXLIB_BASE}/ble/src)
     add_src_dir(${UBXLIB_BASE}/wifi/src)
+
     list(APPEND UBXLIB_SRC
         ${UBXLIB_BASE}/common/network/src/u_network_private_ble_extmod.c
         ${UBXLIB_BASE}/common/network/src/u_network_private_ble_intmod.c
         ${UBXLIB_BASE}/common/network/src/u_network_private_wifi.c
         ${UBXLIB_BASE}/common/device/src/u_device_private_short_range.c
     )
+
 else()
+
     list(APPEND UBXLIB_SRC
         ${UBXLIB_BASE}/common/device/src/u_device_private_short_range_link.c
         ${UBXLIB_BASE}/common/network/src/u_network_private_ble_extmod_link.c
         ${UBXLIB_BASE}/common/network/src/u_network_private_wifi_link.c
     )
+
 endif() # CONFIG_UBXLIB_SHORTRANGE
 
 if (CONFIG_UBXLIB_OPEN_CPU_BLE)
@@ -245,9 +264,7 @@ if (CONFIG_MINIMAL_LIBC)
 endif() # CONFIG_MINIMAL_LIBC
 
 # Finally add all the accumulated sources
-zephyr_library_sources(
-    ${UBXLIB_SRC}
-)    
+zephyr_library_sources(${UBXLIB_SRC})
 
 # Any extra compile options and definitions
 target_compile_options(ubxlib PRIVATE ${UBXLIB_COMPILE_OPTIONS})

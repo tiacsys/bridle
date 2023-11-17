@@ -4,82 +4,106 @@
 # SPDX-License-Identifier: Apache-2.0
 
 config UBXLIB
-        bool "u-blox ubxlib support"
-        default n
-        help
-          Enable ubxlib for use with u-blox modules
+	bool "u-blox ubxlib support"
+	default n
+	help
+	  Enable ubxlib for use with u-blox modules
 
 if UBXLIB
 
-if !NRF_SECURITY
-config UBXLIB_CRYPTO
-        bool "Crypto libraries required for some parts of ubxlib"
-        default n
-        select MBEDTLS
-        select MBEDTLS_MAC_SHA256_ENABLED
-        select MBEDTLS_CIPHER_AES_ENABLED
-        help
-          Bring in TLS libraries required by some parts of ubxlib
-endif # !NRF_SECURITY
-
 config UBXLIB_CELL
-        bool "Cellular support"
-        default n
-        help
-          This will enable cell API
-
-config UBXLIB_GEODESIC
-        bool "Enable geodesic library for geofence support"
-        default n
-        help
-        This will enable geofence support
+	bool "Cellular support"
+	default n
+	help
+	  This will enable cell API.
 
 config UBXLIB_GNSS
-        bool "GNSS support"
-        default n
-        help
-          This will enable GNSS API
+	bool "GNSS support"
+	default n
+	help
+	  This will enable GNSS API.
+
+config UBXLIB_GEODESIC
+	bool "Enable geodesic library for geofence support"
+	default n
+	help
+	  This will enable geofence support.
 
 menuconfig UBXLIB_SHORTRANGE
-        bool "Short range support"
-        default n
-        help
-          This will enable BLE and Wifi API
+	bool "Short range support"
+	default n
+	help
+	  This will enable BLE and Wifi API.
 
 if UBXLIB_SHORTRANGE
+
 config UBXLIB_OPEN_CPU_BLE
-        bool "Enable ubxlib OpenCPU BLE components"
-        default n
-        depends on BT
-        depends on BT_PERIPHERAL
-        depends on BT_CENTRAL
-        select BT_GATT_DYNAMIC_DB
-        select BT_GATT_CLIENT
-        help
-          This will enable BLE SPS
+	bool "Enable ubxlib OpenCPU BLE components"
+	default n
+	depends on BT
+	depends on BT_PERIPHERAL
+	depends on BT_CENTRAL
+	select BT_GATT_DYNAMIC_DB
+	select BT_GATT_CLIENT
+	help
+	  This will enable BLE SPS
 
 menuconfig UBXLIB_EDM_STREAM_DEBUG
-        bool "Enable logging of EDM stream events"
-        default n
-if UBXLIB_EDM_STREAM_DEBUG
-config UBXLIB_EDM_STREAM_DEBUG_COLOR
-        bool "Enable ANSI color coding for EDM debug"
-        default y
-config UBXLIB_EDM_STREAM_DEBUG_DUMP_DATA
-        bool "Dump EDM data"
-        default n
-endif
-endif
+	bool "Enable logging of EDM stream events"
+	default n
 
-config UBXLIB_TEST
-        bool "Compile the ubxlib tests"
-        select TEST
-        select IRQ_OFFLOAD # To be able to test semaphore from ISR
-        select CPLUSPLUS # Unity requires cpp
-        default n
+if UBXLIB_EDM_STREAM_DEBUG
+
+config UBXLIB_EDM_STREAM_DEBUG_COLOR
+	bool "Enable ANSI color coding for EDM debug"
+	default y
+
+config UBXLIB_EDM_STREAM_DEBUG_DUMP_DATA
+	bool "Dump EDM data"
+	default n
+
+endif # UBXLIB_EDM_STREAM_DEBUG
+
+endif # UBXLIB_SHORTRANGE
+
+if !NRF_SECURITY
+
+config UBXLIB_CRYPTO
+	bool "Crypto libraries required for some parts of ubxlib"
+	default n
+	select MBEDTLS
+	select MBEDTLS_MAC_SHA256_ENABLED
+	select MBEDTLS_CIPHER_AES_ENABLED
+	help
+	  Bring in TLS libraries required by some parts of ubxlib.
+
+endif # !NRF_SECURITY
 
 config UBXLIB_LOGGING
-        bool "Enable ubxlib logging"
-        default n
+	bool "Enable ubxlib logging"
+	default n
+	help
+	  The self contained ubxlib logging is only usefull for
+	  development and a simple tool for dumping datagram
+	  content and internal state changes.
+
+	  Note that the ubxlib logging is a complete standalone
+	  implementation based on simple printf() wrapper and
+	  has nothing to do with the Zephyr logging system!
+
+config UBXLIB_TEST
+	bool "Compile the ubxlib tests"
+	select TEST
+	select IRQ_OFFLOAD
+	select CPLUSPLUS
+	default n
+	help
+	  The self contained ubxlib tests are only usefull for
+	  development and depends on some special OS features,
+	  such like C++ support for the Unity test framework and
+	  the IRQ Offload to be able to test semaphore from ISR.
+
+	  Currently this option is featureless. The ubxlib tests
+	  are not enabled for Zephyr.
 
 endif # UBXLIB
