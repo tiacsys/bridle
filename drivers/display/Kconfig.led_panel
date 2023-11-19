@@ -1,0 +1,47 @@
+# Copyright (c) 2023 TOKITA Hiroshi
+# SPDX-License-Identifier: Apache-2.0
+
+config LED_PANEL
+	bool "LED panel display driver"
+	default y
+	depends on DT_HAS_LED_PANEL_ENABLED
+	help
+	  Enable dummy display driver compliant with display driver API.
+
+##############################################################################
+#
+# TODO: needs CMake arguments:
+#
+#       -DCONFIG_ASSERT=y
+#       -DCONFIG_DISPLAY_LOG_LEVEL_DBG=y
+#
+#       -DCONFIG_LED_STRIP=y
+#       -DCONFIG_WS2812_STRIP=y
+#
+#       -DCONFIG_DISPLAY_INIT_PRIORITY=91     (orig: 85)
+#       -DCONFIG_LED_STRIP_INIT_PRIORITY=90
+
+config LED_STRIP
+	default y if DT_HAS_LED_PANEL_ENABLED
+	depends on LED_PANEL
+
+config WS2812_STRIP
+	default y if DT_HAS_LED_PANEL_ENABLED
+	depends on LED_PANEL
+
+config LED_STRIP_INIT_PRIORITY
+	default 90 if DT_HAS_LED_PANEL_ENABLED
+	depends on LED_PANEL
+
+config DISPLAY_INIT_PRIORITY
+	default 91 if DT_HAS_LED_PANEL_ENABLED
+	depends on LED_PANEL
+
+config ASSERT
+	default y if DT_HAS_LED_PANEL_ENABLED
+	depends on LED_PANEL
+
+choice DISPLAY_LOG_LEVEL_CHOICE
+	default DISPLAY_LOG_LEVEL_DBG if DT_HAS_LED_PANEL_ENABLED
+	depends on LED_PANEL && LOG
+endchoice

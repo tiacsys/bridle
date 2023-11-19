@@ -1,0 +1,8 @@
+# Copyright (c) 2023 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+if DISPLAY
+
+rsource "Kconfig.led_panel"
+
+endif # DISPLAY
