@@ -107,6 +107,10 @@
    :language: rst
    :class: highlight
 
+.. role:: devicetree(code)
+   :language: devicetree
+   :class: highlight
+
 .. conditional raw outputs
 
 .. role:: raw-html(raw)
