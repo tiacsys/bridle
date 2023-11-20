@@ -1,0 +1,85 @@
+.. list-table::
+   :align: center
+   :width: 100%
+   :widths: 66, 33
+
+   * - .. rubric:: Pin Mapping
+     - .. rubric:: Pinout
+
+   * - :on-edge(1-40):
+          :hwftlbl-pio:`25`
+          :hwftlbl-pwm:`16`
+          :hwftlbl-adc:`1`
+
+       :on-board:
+          :hwftlbl-btn:`5 CURSOR`
+          :hwftlbl-led:`20 RED`
+
+       .. rubric:: Default Zephyr Peripheral Mapping
+
+       |nbsp|
+
+       .. rst-class:: rst-columns edge-pinout
+
+       - | :rpi-pico-pin:`1` :hwftlbl-led:`L3` : :rpi-pico-pio:`GP0` :rpi-pico-pwm:`PWM0`
+       - | :rpi-pico-pin:`2` :hwftlbl-led:`L2` : :rpi-pico-pio:`GP1` :rpi-pico-pwm:`PWM1`
+       - | :rpi-pico-pin:`3` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`4` :hwftlbl-led:`L7` : :rpi-pico-pio:`GP2` :rpi-pico-pwm:`PWM2`
+       - | :rpi-pico-pin:`5` :hwftlbl-led:`L6` : :rpi-pico-pio:`GP3` :rpi-pico-pwm:`PWM3`
+       - | :rpi-pico-pin:`4` :hwftlbl-led:`L11` : :rpi-pico-pio:`GP4` :rpi-pico-pwm:`PWM4`
+       - | :rpi-pico-pin:`5` :hwftlbl-led:`L10` : :rpi-pico-pio:`GP5` :rpi-pico-pwm:`PWM5`
+       - | :rpi-pico-pin:`8` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`9` :hwftlbl-led:`L15` : :rpi-pico-pio:`GP6` :rpi-pico-pwm:`PWM6`
+       - | :rpi-pico-pin:`10` :hwftlbl-led:`L14` : :rpi-pico-pio:`GP7` :rpi-pico-pwm:`PWM7`
+       - | :rpi-pico-pin:`11` :hwftlbl-led:`L19` : :rpi-pico-pio:`GP8` :rpi-pico-pwm:`PWM8`
+       - | :rpi-pico-pin:`12` :hwftlbl-led:`L18` : :rpi-pico-pio:`GP9` :rpi-pico-pwm:`PWM9`
+       - | :rpi-pico-pin:`13` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`14` :hwftlbl-led:`L17` : :rpi-pico-pio:`GP10` :rpi-pico-pwm:`PWM10`
+       - | :rpi-pico-pin:`15` :hwftlbl-led:`L16` : :rpi-pico-pio:`GP11` :rpi-pico-pwm:`PWM11`
+       - | :rpi-pico-pin:`16` :hwftlbl-btn:`K1` : :rpi-pico-pio:`GP12` (PWM12)
+       - | :rpi-pico-pin:`17` :hwftlbl-btn:`K2` : :rpi-pico-pio:`GP13` (PWM13)
+       - | :rpi-pico-pin:`18` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`19` :hwftlbl-btn:`K3` : :rpi-pico-pio:`GP14` (PWM14)
+       - | :rpi-pico-pin:`29` :hwftlbl-led:`L12` : :rpi-pico-pio:`GP15` :rpi-pico-pwm:`PWM15`
+       - | :rpi-pico-pin:`21` :hwftlbl-btn:`K5` : :rpi-pico-pio:`GP16` (PWM0)
+       - | :rpi-pico-pin:`22` :hwftlbl-btn:`K4` : :rpi-pico-pio:`GP17` (PWM1)
+       - | :rpi-pico-pin:`23` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`24` :hwftlbl-led:`L13` : :rpi-pico-pio:`GP18` :rpi-pico-pwm:`PWM2`
+       - | :rpi-pico-pin:`25` :hwftlbl-led:`L9` : :rpi-pico-pio:`GP19` :rpi-pico-pwm:`PWM3`
+       - | :rpi-pico-pin:`26` :hwftlbl-led:`L8` : :rpi-pico-pio:`GP20` :rpi-pico-pwm:`PWM4`
+       - | :rpi-pico-pin:`27` :hwftlbl-led:`L5` : :rpi-pico-pio:`GP21` :rpi-pico-pwm:`PWM5`
+       - | :rpi-pico-pin:`28` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`29` :hwftlbl-led:`L4` : :rpi-pico-pio:`GP22` :rpi-pico-pwm:`PWM6`
+       - | :rpi-pico-pin:`30` :rpi-pico-sys:`RUN` (RESET)
+       - | :rpi-pico-pin-nc:`nc` PIO/PWM : GP23 (PWM7)
+       - | :rpi-pico-pin-nc:`nc` PIO/PWM : GP24 (PWM8)
+       - | :rpi-pico-pin-nc:`nc` PIO/PWM : GP25 (PWM9)
+       - | :rpi-pico-pin:`31` :hwftlbl:`Rₚ` : :rpi-pico-adc:`ADC_CH0` : GP26 (PWM10)
+       - | :rpi-pico-pin:`32` :hwftlbl-led:`L1` : :rpi-pico-pio:`GP27` :rpi-pico-pwm:`PWM11`
+       - | :rpi-pico-pin:`33` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`34` :hwftlbl-led:`L0` : :rpi-pico-pio:`GP28` :rpi-pico-pwm:`PWM12`
+       - | :rpi-pico-pin-nc:`nc` ADC_CH3 : GP29 (PWM13)
+       - | :rpi-pico-pin:`35` ADC_VREF
+       - | :rpi-pico-pin:`36` :rpi-pico-vdd:`3V3(OUT)`
+       - | :rpi-pico-pin:`37` :rpi-pico-sys:`3V3_EN`
+       - | :rpi-pico-pin:`38` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`39` :rpi-pico-sys:`VSYS`
+       - | :rpi-pico-pin:`40` :rpi-pico-sys:`VBUS`
+
+       .. rubric:: Devicetree compatible
+
+       - :dtcompatible:`raspberrypi,pico-header-r3`
+       - :dtcompatible:`gpio-keys`
+       - :dtcompatible:`gpio-leds`
+       - :dtcompatible:`pwm-leds`
+       - :ref:`zephyr:dt-zephyr-user` with
+         :devicetree:`io-channels = <...>` entry for ADC channel 0
+       - :ref:`zephyr:dt-alias-chosen` with
+         :devicetree:`swN = &...` entries for all keys over GPIO,
+         :devicetree:`ledN = &...` entries for all LEDs over GPIO, and
+         :devicetree:`pwm-ledN = &...` entries for all keys over PWM
+
+     - .. image:: /boards/shields/rpi_pico_test/doc/spotpear_pico_test/pinouts.jpg
+          :align: center
+          :width: 100%
+          :alt: Spotpear Pico ALL GPIO TEST edge pinout

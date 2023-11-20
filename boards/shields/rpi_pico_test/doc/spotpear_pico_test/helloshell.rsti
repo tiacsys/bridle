@@ -1,0 +1,155 @@
+.. rubric:: Simple test execution on target
+
+.. tabs::
+
+   .. group-tab:: Basics
+
+      .. code-block:: console
+
+         uart:~$ hello -h
+         hello - say hello
+         uart:~$ hello
+         Hello from shell.
+
+         uart:~$ hwinfo devid
+         Length: 8
+         ID: 0x8c998be1de969148
+
+         uart:~$ kernel version
+         Zephyr version 3.5.99
+
+         uart:~$ bridle version
+         Bridle version 3.5.99
+
+         uart:~$ bridle version long
+         Bridle version 3.5.99.0
+
+         uart:~$ bridle info
+         Zephyr: 3.5.99
+         Bridle: 3.5.99
+
+         uart:~$ device list
+         devices:
+         - reset-controller@4000c000 (READY)
+         - snippet_cdc_acm_console_uart (READY)
+         - timer@40054000 (READY)
+         - gpio@40014000 (READY)
+         - adc@4004c000 (READY)
+         - flash-controller@18000000 (READY)
+         - pwm@40050000 (READY)
+         - vreg@40064000 (READY)
+         - pwm_leds (READY)
+
+         uart:~$ history
+         [  0] history
+         [  1] device list
+         [  2] bridle info
+         [  3] bridle version long
+         [  4] bridle version
+         [  5] kernel version
+         [  6] hwinfo devid
+         [  7] hello
+         [  8] hello -h
+
+   .. group-tab:: LED
+
+      .. note:: **PWM LED conflicts with GPIO!**
+
+         Operations with the test LEDs in PWM mode will fail when ever
+         the corresponding GPIO line was configured as digital output.
+         This condition is irreversible at runtime within the shell and
+         :strong:`requires a system reset`.
+
+      Operate with the test LED :hwftlbl-led:`L0` at :rpi-pico-pwm:`PWM12`:
+
+      .. code-block:: console
+
+         uart:~$ led on pwm_leds 0
+         pwm_leds: turning on LED 0
+
+         uart:~$ led set_brightness pwm_leds 0 10
+         pwm_leds: setting LED 0 brightness to 10
+
+         uart:~$ led set_brightness pwm_leds 0 50
+         pwm_leds: setting LED 0 brightness to 50
+
+         uart:~$ led set_brightness pwm_leds 0 100
+         pwm_leds: setting LED 0 brightness to 100
+
+         uart:~$ led off pwm_leds 0
+         pwm_leds: turning off LED 0
+
+   .. group-tab:: PWM
+
+      .. note:: **PWM conflicts with GPIO!**
+
+         Operations with the test LEDs in PWM mode will fail when ever
+         the corresponding GPIO line was configured as digital output.
+         This condition is irreversible at runtime within the shell and
+         :strong:`requires a system reset`.
+
+      Operate with the test LED :hwftlbl-led:`L3` at :rpi-pico-pwm:`PWM0`:
+
+      .. code-block:: console
+
+         uart:~$ pwm usec pwm@40050000 0 20000 20000
+         uart:~$ pwm usec pwm@40050000 0 20000 19000
+         uart:~$ pwm usec pwm@40050000 0 20000 18000
+         uart:~$ pwm usec pwm@40050000 0 20000 17000
+         uart:~$ pwm usec pwm@40050000 0 20000 16000
+         uart:~$ pwm usec pwm@40050000 0 20000 15000
+         uart:~$ pwm usec pwm@40050000 0 20000 10000
+         uart:~$ pwm usec pwm@40050000 0 20000 5000
+         uart:~$ pwm usec pwm@40050000 0 20000 2500
+         uart:~$ pwm usec pwm@40050000 0 20000 500
+         uart:~$ pwm usec pwm@40050000 0 20000 0
+
+   .. group-tab:: GPIO
+
+      Operate with the test LED :hwftlbl-led:`L5` at :rpi-pico-pio:`GP21`:
+
+      .. code-block:: console
+
+         uart:~$ gpio get gpio@40014000 21
+         0
+
+         uart:~$ gpio conf gpio@40014000 21 oh0
+         uart:~$ gpio set gpio@40014000 21 1
+         uart:~$ gpio set gpio@40014000 21 0
+
+         uart:~$ gpio blink gpio@40014000 21
+         Hit any key to exit
+
+      Operate with the ENTER test key :hwftlbl-btn:`K2` at :rpi-pico-pio:`GP13`:
+
+      .. code-block:: console
+
+         uart:~$ gpio get gpio@40014000 13
+         0
+
+         uart:~$ gpio conf gpio@40014000 13 iuh
+         uart:~$ gpio get gpio@40014000 13
+         1
+         uart:~$ gpio get gpio@40014000 13
+         0
+         uart:~$ gpio get gpio@40014000 13
+         1
+
+   .. group-tab:: ADC
+
+      Operate with the on-shield potentiometer :hwftlbl:`Rₚ`
+      on :rpi-pico-adc:`ADC_CH0`:
+
+      .. code-block:: console
+
+         uart:~$ adc adc@4004c000 resolution 12
+         uart:~$ adc adc@4004c000 channel id 0
+
+         uart:~$ adc adc@4004c000 read 0
+         read: 13
+
+         uart:~$ adc adc@4004c000 read 0
+         read: 1896
+
+         uart:~$ adc adc@4004c000 read 0
+         read: 4095

@@ -1,0 +1,40 @@
+The `Spotpear Pico ALL GPIO TEST`_ shield is one of the simplest boards for
+testing all I/O signal lines of a Raspberry Pi Pico by GPIO or PWM functions.
+There is also one additional ADC channel for testing purposes directly
+connected to a simple high-resistance potentiometer.
+
+.. list-table::
+   :align: center
+   :width: 100%
+   :widths: 66, 33
+
+   * - .. rubric:: Features and Resources
+     - .. rubric:: Printed Circuit Board
+
+   * - :hwftlbl-vdd:`3.3V/100㎃`
+
+       :hwftlbl-btn:`UP`
+       :hwftlbl-btn:`DOWN`
+       :hwftlbl-btn:`LEFT`
+       :hwftlbl-btn:`RIGHT`
+       :hwftlbl-btn:`ENTER`
+       :hwftlbl-led:`20 RED`
+
+       :hwftlbl-pio:`25`
+       :hwftlbl-pwm:`16`
+       :hwftlbl-adc:`1`
+
+       .. rst-class:: rst-columns
+
+       - :bbk:`20 Test LEDs`
+       - :bbk:`5 Test keys`
+       - :bbk:`1 Potentiometer`
+
+       .. rubric:: Design Data
+       .. rst-class:: rst-columns
+
+       - `Spotpear Pico ALL GPIO TEST Schematic`_
+
+     - .. image:: /boards/shields/rpi_pico_test/doc/spotpear_pico_test/hardware.jpg
+          :align: center
+          :alt: Spotpear Pico ALL GPIO TEST

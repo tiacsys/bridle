@@ -1,0 +1,237 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+&k1 {	/* GP12:GPIO */
+	gpios = <&rpipico_header 12 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+};
+
+&k2 {	/* GP13:GPIO */
+	gpios = <&rpipico_header 13 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+};
+
+&k3 {	/* GP14:GPIO */
+	gpios = <&rpipico_header 14 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+};
+
+&k4 {	/* GP17:GPIO */
+	gpios = <&rpipico_header 17 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+};
+
+&k5 {	/* GP16:GPIO */
+	gpios = <&rpipico_header 16 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+};
+
+&l0 {	/* GP28:GPIO */
+	gpios = <&rpipico_header 25 GPIO_ACTIVE_HIGH>;
+};
+
+&l1 {	/* GP27:GPIO */
+	gpios = <&rpipico_header 24 GPIO_ACTIVE_HIGH>;
+};
+
+&l2 {	/* GP1:GPIO */
+	gpios = <&rpipico_header 1 GPIO_ACTIVE_HIGH>;
+};
+
+&l3 {	/* GP0:GPIO */
+	gpios = <&rpipico_header 0 GPIO_ACTIVE_HIGH>;
+};
+
+&l4 {	/* GP22:GPIO */
+	gpios = <&rpipico_header 22 GPIO_ACTIVE_HIGH>;
+};
+
+&l5 {	/* GP21:GPIO */
+	gpios = <&rpipico_header 21 GPIO_ACTIVE_HIGH>;
+};
+
+&l6 {	/* GP3:GPIO */
+	gpios = <&rpipico_header 3 GPIO_ACTIVE_HIGH>;
+};
+
+&l7 {	/* GP2:GPIO */
+	gpios = <&rpipico_header 2 GPIO_ACTIVE_HIGH>;
+};
+
+&l8 {	/* GP20:GPIO */
+	gpios = <&rpipico_header 20 GPIO_ACTIVE_HIGH>;
+};
+
+&l9 {	/* GP19:GPIO */
+	gpios = <&rpipico_header 19 GPIO_ACTIVE_HIGH>;
+};
+
+&l10 {	/* GP5:GPIO */
+	gpios = <&rpipico_header 5 GPIO_ACTIVE_HIGH>;
+};
+
+&l11 {	/* GP4:GPIO */
+	gpios = <&rpipico_header 4 GPIO_ACTIVE_HIGH>;
+};
+
+&l12 {	/* GP15:GPIO */
+	gpios = <&rpipico_header 15 GPIO_ACTIVE_HIGH>;
+};
+
+&l13 {	/* GP18:GPIO */
+	gpios = <&rpipico_header 18 GPIO_ACTIVE_HIGH>;
+};
+
+&l14 {	/* GP7:GPIO */
+	gpios = <&rpipico_header 7 GPIO_ACTIVE_HIGH>;
+};
+
+&l15 {	/* GP6:GPIO */
+	gpios = <&rpipico_header 6 GPIO_ACTIVE_HIGH>;
+};
+
+&l16 {	/* GP11:GPIO */
+	gpios = <&rpipico_header 11 GPIO_ACTIVE_HIGH>;
+};
+
+&l17 {	/* GP10:GPIO */
+	gpios = <&rpipico_header 10 GPIO_ACTIVE_HIGH>;
+};
+
+&l18 {	/* GP9:GPIO */
+	gpios = <&rpipico_header 9 GPIO_ACTIVE_HIGH>;
+};
+
+&l19 {	/* GP8:GPIO */
+	gpios = <&rpipico_header 8 GPIO_ACTIVE_HIGH>;
+};
+
+&gpio0 {
+	status = "okay";
+};
+
+&pl0 {	/* GP28:PWM6A */
+	pwms = <&pwm 12 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+};
+
+&pl1 {	/* GP27:PWM5B */
+	pwms = <&pwm 11 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+};
+
+&pl2 {	/* GP1:PWM0B */
+	pwms = <&pwm 1 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+};
+
+&pl3 {	/* GP0:PWM0A */
+	pwms = <&pwm 0 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+};
+
+&pl4 {	/* GP22:PWM3A */
+	pwms = <&pwm 6 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+};
+
+&pl5 {	/* GP21:PWM2B */
+	pwms = <&pwm 5 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+};
+
+&pl6 {	/* GP3:PWM1B */
+	pwms = <&pwm 3 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+};
+
+&pl7 {	/* GP2:PWM1A */
+	pwms = <&pwm 2 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+};
+
+&pl8 {	/* GP20:PWM2A */
+	pwms = <&pwm 4 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+};
+
+&pl9 {	/* GP19:PWM1B */
+	pwms = <&pwm 3 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+};
+
+&pl10 {	/* GP5:PWM2B */
+	pwms = <&pwm 5 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+};
+
+&pl11 {	/* GP4:PWM2A */
+	pwms = <&pwm 4 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+};
+
+&pl12 {	/* GP15:PWM7B */
+	pwms = <&pwm 15 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+};
+
+&pl13 {	/* GP18:PWM1A */
+	pwms = <&pwm 2 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+};
+
+&pl14 {	/* GP7:PWM3B */
+	pwms = <&pwm 7 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+};
+
+&pl15 {	/* GP6:PWM3A */
+	pwms = <&pwm 6 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+};
+
+&pl16 {	/* GP11:PWM5B */
+	pwms = <&pwm 11 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+};
+
+&pl17 {	/* GP10:PWM5A */
+	pwms = <&pwm 10 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+};
+
+&pl18 {	/* GP9:PWM4B */
+	pwms = <&pwm 9 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+};
+
+&pl19 {	/* GP8:PWM4A */
+	pwms = <&pwm 8 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+};
+
+&pwm {
+	status = "okay";
+	pinctrl-0 = <&pwm_test>;
+	pinctrl-names = "default";
+
+	divider-frac-0 = <15>;
+	divider-int-0 = <255>;
+	divider-frac-1 = <15>;
+	divider-int-1 = <255>;
+	divider-frac-2 = <15>;
+	divider-int-2 = <255>;
+	divider-frac-3 = <15>;
+	divider-int-3 = <255>;
+	divider-frac-4 = <15>;
+	divider-int-4 = <255>;
+	divider-frac-5 = <15>;
+	divider-int-5 = <255>;
+	divider-frac-6 = <15>;
+	divider-int-6 = <255>;
+	divider-frac-7 = <15>;
+	divider-int-7 = <255>;
+};
+
+&zephyr_user {	/* GP26:ADC0 */
+	io-channels = <&adc 0>;
+};
+
+&adc {
+	status = "okay";
+	pinctrl-0 = <&adc_test>;
+	pinctrl-names = "default";
+
+	#address-cells = <1>;
+	#size-cells = <0>;
+
+	/delete-node/ channel@0;
+	channel@0 {
+		reg = <0>;
+		zephyr,gain = "ADC_GAIN_1";
+		zephyr,reference = "ADC_REF_INTERNAL";
+		zephyr,acquisition-time = <ADC_ACQ_TIME_DEFAULT>;
+		zephyr,resolution = <12>;
+	};
+
+	/delete-node/ channel@1;
+	/delete-node/ channel@2;
+	/delete-node/ channel@3;
+};

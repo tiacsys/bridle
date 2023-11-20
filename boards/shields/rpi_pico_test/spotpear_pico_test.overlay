@@ -1,0 +1,224 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/input/input-event-codes.h>
+
+/ {
+	/delete-node/ keys;
+	keys {
+		compatible = "gpio-keys";
+		status = "okay";
+
+		k1: k1 {
+			label = "K1: Test key DOWN";
+			zephyr,code = <INPUT_KEY_DOWN>;
+		};
+		k2: k2 {
+			label = "K2: Test key ENTER";
+			zephyr,code = <INPUT_KEY_ENTER>;
+		};
+		k3: k3 {
+			label = "K3: Test key RIGHT";
+			zephyr,code = <INPUT_KEY_RIGHT>;
+		};
+		k4: k4 {
+			label = "K4: Test key LEFT";
+			zephyr,code = <INPUT_KEY_LEFT>;
+		};
+		k5: k5 {
+			label = "K5: Test key UP";
+			zephyr,code = <INPUT_KEY_UP>;
+		};
+	};
+
+	/delete-node/ leds;
+	leds {
+		compatible = "gpio-leds";
+		status = "disabled";
+
+		l0: l0 {
+			label = "L0: Test LED 0";
+		};
+		l1: l1 {
+			label = "L1: Test LED 1";
+		};
+		l2: l2 {
+			label = "L2: Test LED 2";
+		};
+		l3: l3 {
+			label = "L3: Test LED 3";
+		};
+		l4: l4 {
+			label = "L4: Test LED 4";
+		};
+		l5: l5 {
+			label = "L5: Test LED 5";
+		};
+		l6: l6 {
+			label = "L6: Test LED 6";
+		};
+		l7: l7 {
+			label = "L7: Test LED 7";
+		};
+		l8: l8 {
+			label = "L8: Test LED 8";
+		};
+		l9: l9 {
+			label = "L9: Test LED 9";
+		};
+		l10: l10 {
+			label = "L10: Test LED 10";
+		};
+		l11: l11 {
+			label = "L11: Test LED 11";
+		};
+		l12: l12 {
+			label = "L12: Test LED 12";
+		};
+		l13: l13 {
+			label = "L13: Test LED 13";
+		};
+		l14: l14 {
+			label = "L14: Test LED 14";
+		};
+		l15: l15 {
+			label = "L15: Test LED 15";
+		};
+		l16: l16 {
+			label = "L16: Test LED 16";
+		};
+		l17: l17 {
+			label = "L17: Test LED 17";
+		};
+		l18: l18 {
+			label = "L18: Test LED 18";
+		};
+		l19: l19 {
+			label = "L19: Test LED 19";
+		};
+	};
+
+	/delete-node/ pwm_leds;
+	pwm_leds {
+		compatible = "pwm-leds";
+		status = "okay";
+
+		pl0: pl0 {
+			label = "L0: Test LED 0";
+		};
+		pl1: pl1 {
+			label = "L1: Test LED 1";
+		};
+		pl2: pl2 {
+			label = "L2: Test LED 2";
+		};
+		pl3: pl3 {
+			label = "L3: Test LED 3";
+		};
+		pl4: pl4 {
+			label = "L4: Test LED 4";
+		};
+		pl5: pl5 {
+			label = "L5: Test LED 5";
+		};
+		pl6: pl6 {
+			label = "L6: Test LED 6";
+		};
+		pl7: pl7 {
+			label = "L7: Test LED 7";
+		};
+		pl8: pl8 {
+			label = "L8: Test LED 8";
+		};
+		pl9: pl9 {
+			label = "L9: Test LED 9";
+		};
+		pl10: pl10 {
+			label = "L10: Test LED 10";
+		};
+		pl11: pl11 {
+			label = "L11: Test LED 11";
+		};
+		pl12: pl12 {
+			label = "L12: Test LED 12";
+		};
+		pl13: pl13 {
+			label = "L13: Test LED 13";
+		};
+		pl14: pl14 {
+			label = "L14: Test LED 14";
+		};
+		pl15: pl15 {
+			label = "L15: Test LED 15";
+		};
+		pl16: pl16 {
+			label = "L16: Test LED 16";
+		};
+		pl17: pl17 {
+			label = "L17: Test LED 17";
+		};
+		pl18: pl18 {
+			label = "L18: Test LED 18";
+		};
+		pl19: pl19 {
+			label = "L19: Test LED 19";
+		};
+	};
+
+	aliases {
+		/delete-property/ sw0;
+		sw0 = &k1;
+		sw1 = &k2;
+		sw2 = &k3;
+		sw3 = &k4;
+		sw4 = &k5;
+		/delete-property/ led0;
+		led0 = &l0;
+		led1 = &l1;
+		led2 = &l2;
+		led3 = &l3;
+		led4 = &l4;
+		led5 = &l5;
+		led6 = &l6;
+		led7 = &l7;
+		led8 = &l8;
+		led9 = &l9;
+		led10 = &l10;
+		led11 = &l11;
+		led12 = &l12;
+		led13 = &l13;
+		led14 = &l14;
+		led15 = &l15;
+		led16 = &l16;
+		led17 = &l17;
+		led18 = &l18;
+		led19 = &l19;
+		/delete-property/ pwm-led0;
+		pwm-led0 = &pl0;
+		pwm-led1 = &pl1;
+		pwm-led2 = &pl2;
+		pwm-led3 = &pl3;
+		pwm-led4 = &pl4;
+		pwm-led5 = &pl5;
+		pwm-led6 = &pl6;
+		pwm-led7 = &pl7;
+		pwm-led8 = &pl8;
+		pwm-led9 = &pl9;
+		pwm-led10 = &pl10;
+		pwm-led11 = &pl11;
+		pwm-led12 = &pl12;
+		pwm-led13 = &pl13;
+		pwm-led14 = &pl14;
+		pwm-led15 = &pl15;
+		pwm-led16 = &pl16;
+		pwm-led17 = &pl17;
+		pwm-led18 = &pl18;
+		pwm-led19 = &pl19;
+	};
+
+	zephyr_user: zephyr,user {
+		/delete-property/ io-channels;
+	};
+};
