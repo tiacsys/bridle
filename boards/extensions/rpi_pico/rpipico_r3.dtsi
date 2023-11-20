@@ -8,3 +8,7 @@
 rpipico_serial: &pico_serial {};
 rpipico_spi: &pico_spi {};
 rpipico_i2c: &pico_i2c {};
+
+&reset {
+	status = "okay";
+};

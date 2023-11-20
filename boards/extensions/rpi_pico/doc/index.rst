@@ -20,3 +20,6 @@ List of extensions
   - :code:`rpipico_serial: &pico_serial {};`
   - :code:`rpipico_spi: &pico_spi {};`
   - :code:`rpipico_i2c: &pico_i2c {};`
+
+- enable the RP2040 SoC reset controller bindet as
+  :dtcompatible:`raspberrypi,pico-reset`
