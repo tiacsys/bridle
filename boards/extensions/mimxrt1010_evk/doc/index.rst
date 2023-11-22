@@ -13,9 +13,9 @@ Devicetree level.
 List of extensions
 ******************
 
-- overwrite the Arduino specific edge connecor binding:
+- overwrite the Arduino UNO R3 specific edge connecor binding:
 
-  - :code:`&arduino_header {...};`
+  - :devicetree:`&arduino_header {...};`
 
 .. note::
 

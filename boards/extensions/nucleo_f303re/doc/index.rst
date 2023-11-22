@@ -13,9 +13,9 @@ Devicetree level.
 List of extensions
 ******************
 
-- add the missing Arduino specific interface labels:
+- add the missing Arduino UNO R3 specific interface labels:
 
-  - :code:`arduino_serial: &usart2 {};`
+  - :devicetree:`arduino_serial: &usart2 {};`
 
 .. note::
 
