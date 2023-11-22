@@ -15,6 +15,16 @@
 
 
 
+.. ### Link to the ubxlib repositories
+
+.. |ubxlib_repo| replace:: https://github.com/u-blox/ubxlib
+.. _`u-blox-ubxlib`: https://github.com/u-blox/ubxlib
+
+.. |tiac_ubxlib| replace:: https://github.com/tiacsys/ubxlib
+.. _`tiac-ubxlib`: https://github.com/tiacsys/ubxlib
+
+
+
 .. ### Link to the Bridle repositories
 
 .. |tiac_bridle| replace:: https://github.com/tiacsys/bridle
