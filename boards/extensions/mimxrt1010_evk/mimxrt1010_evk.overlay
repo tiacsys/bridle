@@ -41,4 +41,11 @@
 		zephyr,code-partition = &slot0_partition;
 		zephyr,dtcm = &dtcm;
 	};
+
+	msc_disk0 {
+		compatible = "zephyr,flash-disk";
+		partition = <&storage_partition>;
+		disk-name = "NAND"; // CONFIG_MASS_STORAGE_DISK_NAME
+		cache-size = <4096>;
+	};
 };

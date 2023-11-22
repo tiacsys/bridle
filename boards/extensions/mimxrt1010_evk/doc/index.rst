@@ -19,6 +19,11 @@ List of extensions
 
 - extend with a :dtcompatible:`fixed-partitions` table for the on-board
   16㎆ QuadSPI NOR Flash declared as :devicetree:`&at25sf128a`
+- add a :dtcompatible:`zephyr,flash-disk` node linked to the
+  :devicetree:`partition = <&storage_partition>;` with the hard defined
+  mass storage disk name :devicetree:`disk-name = "NAND";` – also set
+  the mass storage disk name hard on Kconfig level by a new board config
+  file with :kconfig:option:`CONFIG_MASS_STORAGE_DISK_NAME`
 
 .. note::
 
