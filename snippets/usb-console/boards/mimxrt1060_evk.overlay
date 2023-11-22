@@ -1,0 +1,13 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	model = "NXP MIMXRT1060-EVK board @ USB-CDC/ACM Concole";
+	compatible = "nxp,mimxrt1062", "nxp,mimxrt1062-usbcons";
+
+	chosen {
+		zephyr,shell-uart = &snippet_cdc_acm_console_uart;
+	};
+};

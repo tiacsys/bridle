@@ -54,6 +54,17 @@ specified as required.
      - | |zephyr,console|
        | |zephyr,shell-uart|
 
+   * - | :code:`mimxrt1060_evk`
+       | :code:`mimxrt1060_evkb`
+       | :code:`mimxrt1060_evk_hyperflash`
+     - :code:`0x1FC9`
+     - :code:`0x1062`
+     - |NXP Semiconductors|_
+     - |MIMXRT1060-EVK (CDC ACM)|
+     - derived VID from part number MIMXRT1062DVL6A
+     - | |zephyr,console|
+       | |zephyr,shell-uart|
+
    * - :code:`arduino_zero`
      - :code:`0x2341`
      - :code:`0x804D`
@@ -223,6 +234,9 @@ References
 
 .. |MIMXRT1010-EVK (CDC ACM)| replace::
    :ref:`MIMXRT1010-EVK (CDC ACM) <zephyr:mimxrt1010_evk>`
+
+.. |MIMXRT1060-EVK (CDC ACM)| replace::
+   :ref:`MIMXRT1060-EVK (CDC ACM) <zephyr:mimxrt1060_evk>`
 
 .. _Arduino LLC: https://devicehunt.com/view/type/usb/vendor/2341
 .. |Arduino LLC| replace:: :strong:`Arduino LLC`

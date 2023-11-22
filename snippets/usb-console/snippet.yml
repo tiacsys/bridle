@@ -8,6 +8,18 @@ boards:
     append:
       EXTRA_CONF_FILE: boards/mimxrt1010_evk.conf
       EXTRA_DTC_OVERLAY_FILE: boards/mimxrt1010_evk.overlay
+  mimxrt1060_evk:
+    append:
+      EXTRA_CONF_FILE: boards/mimxrt1060_evk.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/mimxrt1060_evk.overlay
+  mimxrt1060_evkb:
+    append:
+      EXTRA_CONF_FILE: boards/mimxrt1060_evk.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/mimxrt1060_evk.overlay
+  mimxrt1060_evk_hyperflash:
+    append:
+      EXTRA_CONF_FILE: boards/mimxrt1060_evk.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/mimxrt1060_evk.overlay
   arduino_zero:
     append:
       EXTRA_CONF_FILE: boards/arduino_zero.conf
