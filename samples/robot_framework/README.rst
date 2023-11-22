@@ -45,7 +45,8 @@ Building and Running
     --device-testing --device-serial /dev/ttyACM0
 
 
-* On :ref:`zephyr:mimxrt1060_evkb_board` board run the following command:
+* On :ref:`zephyr:mimxrt1060_evk` or MIMXRT1060_EVKB board run the
+  following command:
 
   .. code-block:: console
 
@@ -66,4 +67,4 @@ in the 'twister_out' folder, e.g:
   twister-out/output-20231120-162624.xml
   twister-out/report-20231120-162624.html
 
-  .. test-results:: twister-out/output-20231121-135736.xml
+  .. test-results:: ../twister-out/output-20231121-150852.xml
