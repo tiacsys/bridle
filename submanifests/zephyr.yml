@@ -18,6 +18,11 @@ manifest:
     - name: tiacsys
       url-base: https://github.com/tiacsys
 
+  # "group-filter" is a list of groups of projects to enable and disable.
+  # The Zephyr manifest provides many optional projects that have to enable.
+  # The exact project names have to be added in the "import.name-allowlist".
+  group-filter: [+optional]
+
   # "projects" is a list of git repositories which make up the TIAC
   # source code. Please add items below based on alphabetical order.
   projects:
