@@ -3,7 +3,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+#include <freq.h>
+
 #include "rpipico_r3_connector.dtsi"
+#include "rpipico_r3-pinctrl.dtsi"
 
 rpipico_serial: &pico_serial {};
 rpipico_spi: &pico_spi {};
@@ -11,4 +14,11 @@ rpipico_i2c: &pico_i2c {};
 
 &reset {
 	status = "okay";
+};
+
+&spi1 {
+	status = "disabled";
+	pinctrl-0 = <&spi1_pico>;
+	pinctrl-names = "default";
+	clock-frequency = <DT_FREQ_M(8)>;
 };

@@ -23,3 +23,8 @@ List of extensions
 
 - enable the RP2040 SoC reset controller bindet as
   :dtcompatible:`raspberrypi,pico-reset`
+- prepare the RP2040 SoC SPI1 controller bindet as
+  :dtcompatible:`raspberrypi,pico-spi` with default
+  :dtcompatible:`raspberrypi,pico-pinctrl` and
+  :devicetree:`clock-frequency = <DT_FREQ_M(8)>;`
+  properties, but explicitly set this to disabled status
