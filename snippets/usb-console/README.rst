@@ -45,6 +45,15 @@ specified as required.
      - Specifications and requirements
      - Chosen
 
+   * - :code:`mimxrt1010_evk`
+     - :code:`0x1FC9`
+     - :code:`0x1011`
+     - |NXP Semiconductors|_
+     - |MIMXRT1010-EVK (CDC ACM)|
+     - derived VID from part number MIMXRT1011DAE5A
+     - | |zephyr,console|
+       | |zephyr,shell-uart|
+
    * - :code:`arduino_zero`
      - :code:`0x2341`
      - :code:`0x804D`
@@ -208,6 +217,12 @@ References
 **********
 
 .. target-notes::
+
+.. _NXP Semiconductors: https://devicehunt.com/view/type/usb/vendor/1fc9
+.. |NXP Semiconductors| replace:: :strong:`NXP Semiconductors`
+
+.. |MIMXRT1010-EVK (CDC ACM)| replace::
+   :ref:`MIMXRT1010-EVK (CDC ACM) <zephyr:mimxrt1010_evk>`
 
 .. _Arduino LLC: https://devicehunt.com/view/type/usb/vendor/2341
 .. |Arduino LLC| replace:: :strong:`Arduino LLC`

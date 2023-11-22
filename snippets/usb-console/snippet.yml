@@ -4,6 +4,10 @@ append:
   EXTRA_DTC_OVERLAY_FILE: usb-console.overlay
 
 boards:
+  mimxrt1010_evk:
+    append:
+      EXTRA_CONF_FILE: boards/mimxrt1010_evk.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/mimxrt1010_evk.overlay
   arduino_zero:
     append:
       EXTRA_CONF_FILE: boards/arduino_zero.conf
