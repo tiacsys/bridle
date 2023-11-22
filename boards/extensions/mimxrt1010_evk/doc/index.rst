@@ -17,6 +17,9 @@ List of extensions
 
   - :devicetree:`&arduino_header {...};`
 
+- extend with a :dtcompatible:`fixed-partitions` table for the on-board
+  16㎆ QuadSPI NOR Flash declared as :devicetree:`&at25sf128a`
+
 .. note::
 
    On :ref:`zephyr:mimxrt1010_evk` pin D4 (GPIO), D5 (GPIO/PWM), and
