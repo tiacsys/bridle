@@ -1,0 +1,63 @@
+.. rubric:: Simple test execution on target
+
+.. tabs::
+
+   .. group-tab:: Basics
+
+      .. code-block:: console
+
+         uart:~$ hello -h
+         hello - say hello
+         uart:~$ hello
+         Hello from shell.
+
+         uart:~$ hwinfo devid
+         Length: 8
+         ID: 0x8c998be1de969148
+
+         uart:~$ kernel version
+         Zephyr version 3.5.99
+
+         uart:~$ bridle version
+         Bridle version 3.5.99
+
+         uart:~$ bridle version long
+         Bridle version 3.5.99.0
+
+         uart:~$ bridle info
+         Zephyr: 3.5.99
+         Bridle: 3.5.99
+
+         uart:~$ device list
+         devices:
+         - reset-controller@4000c000 (READY)
+         - snippet_cdc_acm_console_uart (READY)
+         - uart@40034000 (READY)
+         - timer@40054000 (READY)
+         - gpio@40014000 (READY)
+         - adc@4004c000 (READY)
+         - flash-controller@18000000 (READY)
+         - i2c@40044000 (READY)
+         - vreg@40064000 (READY)
+         - lcd-backlight-en (READY)
+
+         uart:~$ history
+         [  0] history
+         [  1] device list
+         [  2] bridle info
+         [  3] bridle version long
+         [  4] bridle version
+         [  5] kernel version
+         [  6] hwinfo devid
+         [  7] hello
+         [  8] hello -h
+
+   .. group-tab:: LCD Backlight LED
+
+      Operate with the LCD backlight LED :hwftlbl-led:`LCD_BL`
+      at :rpi-pico-pio:`GP13`:
+
+      .. code-block:: console
+
+         uart:~$ regulator disable lcd-backlight-en
+         uart:~$ regulator enable lcd-backlight-en

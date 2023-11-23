@@ -7,9 +7,9 @@
 
 &spi1 {
 	status = "okay";
-	pinctrl-0 = <&spi1_lcd>;
-	pinctrl-names = "default";
-	clock-frequency = <DT_FREQ_M(20)>;
+	clock-frequency = <DT_FREQ_M(60)>;
 };
 
 rpipico_spi_lcd: &spi1 {};
+rpipico_spi_tsc: &spi1 {};
+rpipico_spi_sdc: &spi1 {};

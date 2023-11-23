@@ -19,6 +19,8 @@
 };
 
 &rpipico_spi_lcd {
+	pinctrl-0 = <&spi1_lcd>;
+	pinctrl-names = "default";
 	cs-gpios = <&rpipico_header 9 GPIO_ACTIVE_LOW>;		/* GP9 */
 };
 

@@ -5,8 +5,11 @@
 
 &pinctrl {
 	spi1_lcd: spi1_lcd {
-		group1 {
-			pinmux = <SPI1_CSN_P9>, <SPI1_SCK_P10>, <SPI1_TX_P11>;
+		group91011_spi {
+			pinmux = <SPI1_CSN_P9>,		/* GP9: SPI1_CSN */
+				 <SPI1_SCK_P10>,	/* GP10: SPI1_SCK */
+				 <SPI1_TX_P11>;		/* GP11: SPI1_TX */
 		};
+		/* GP12: SPI1_RX not used for LCD only access */
 	};
 };

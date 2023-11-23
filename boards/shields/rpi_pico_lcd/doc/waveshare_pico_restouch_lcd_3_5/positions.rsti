@@ -1,0 +1,69 @@
+.. list-table::
+   :align: center
+   :width: 66%
+   :header-rows: 1
+
+   * - .. image:: /boards/shields/rpi_pico_lcd/doc/waveshare_pico_restouch_lcd_3_5/positions.jpg
+          :align: center
+          :width: 500
+          :alt: Waveshare Pico ResTouch LCD 3.5 details
+
+   * - .. container:: twocol
+
+          .. container:: leftside
+
+             - | :strong:`ILI9488` (on front side)
+               | 3.5-inch 480×320 pixels 65K colorful IPS LCD
+
+             1. | :strong:`Rapsberry Pi Pico header`
+             #. | :strong:`CAT6219`
+                | LCD backlight power chip
+                | 500㎃ low dropout, for LCD backlight power switching
+             #. | :strong:`RT9193-33`
+                | 300㎃ low dropout, low noise, ultra-fast LDO
+             #. | :strong:`Pico reset button`
+                | momentary push buttons
+
+          .. container:: rightside
+
+             5. | :strong:`TF/microSD card slot`
+             #. | :strong:`XPT2046`
+                | resistive touch screen controller
+             #. | :strong:`74HC4040`
+                | counter chip, for clock frequency division
+             #. | :strong:`74HC04D`
+                | inverter chip
+             #. | :strong:`74HC4094`
+                | serial data to parallel data converter
+
+.. rubric:: Data Sheets
+.. rst-class:: rst-columns
+
+- .. rubric:: ILI9488_
+- `ILI9488 Datasheet V1.00 (2012/11)`_
+- `ILI9488 Datasheet V0.90 (2012/10)`_
+- .. rubric:: XPT2046_
+- `XPT2046 Datasheet (2007.05)`_
+- `XPT2046 Datasheet CN (2011.12)`_
+- `XPT2046 Datasheet V2.0 CN (2008.09)`_
+- .. rubric:: CAT6219_
+- `CAT6219 Datasheet`_
+- .. rubric:: RT9193-33_
+- `RT9193 Datasheet`_
+
+.. rubric:: JEDEC compliant PSRAM
+
+Above :strong:`74HC4040` (position 7) is the spare SOP8 footprint for
+an optional serial PSRAM, which is also connected to the SPI.
+`Possible 3.0~3.3V types <ESP32 PSRAM_>`_ are:
+
+.. rst-class:: rst-columns
+
+- .. rubric:: `ESP-PSRAM64H <ESP32 PSRAM_>`_
+- `ESP-PSRAM64 and ESP-PSRAM64H Datasheet V1.1 CN (2020/10)`_
+- `ESP-PSRAM64 and ESP-PSRAM64H Datasheet V1.1 (2020/10)`_
+- `ESP-PSRAM64 and ESP-PSRAM64H Datasheet V1.0 (2018/06)`_
+- .. rubric:: APS6404_
+- `APS6404L-3SQN Datasheet V2.5 (2022/06)`_
+- .. rubric:: IPS6404_
+- `IPS6404L‐SQ Datasheet V1.1 (2018/07)`_

@@ -793,6 +793,14 @@
 .. _`Waveshare Pico LCD 2 Schematic`:
    https://www.waveshare.com/wiki/Pico-LCD-2#Document
 
+.. #### Links to the Waveshare Pico ResTouch LCD 3.5
+
+.. _`Waveshare Pico ResTouch LCD 3.5`:
+   https://www.waveshare.com/wiki/Pico-ResTouch-LCD-3.5
+
+.. _`Waveshare Pico ResTouch LCD 3.5 Schematic`:
+   https://www.waveshare.com/wiki/Pico-ResTouch-LCD-3.5#Documents
+
 
 
 .. ### Links to hardware specifications, application notes and similar documents
@@ -904,6 +912,13 @@
 .. _`Buck DC/DC converter BL9366`:
    https://antenna--dvb--t2-ru.translate.goog/show_dcdc.php?id=450&_x_tr_sl=ru&_x_tr_tl=en&_x_tr_hl=en&_x_tr_pto=wapp
 .. https://antenna-dvb-t2.ru/show_dcdc.php?id=450
+
+.. _`CAT6219`:
+   https://www.onsemi.com/products/power-management/linear-regulators-ldo/CAT6219
+
+.. _`CAT6219 Datasheet`:
+   https://www.onsemi.com/download/data-sheet/pdf/cat6219-d.pdf
+.. https://www.onsemi.cn/pdf/datasheet/cat6219-d.pdf
 
 .. _`CT2105`:
    https://www.jotrin.com/product/parts/CT2105
@@ -1064,6 +1079,19 @@
 .. _`ILI9341 Datasheet V1.09 (2011/03)`:
    http://www.lcdwiki.com/res/MSP2807/ILI9341%20Datasheet.pdf
 
+.. _`ILI9488`:
+   https://www.ilitek.com.tw/page/about/index.aspx?kind=105
+
+.. _`ILI9488 Datasheet V1.00 (2012/11)`:
+   http://www.lcdwiki.com/res/MSP3520/ILI9488%20Data%20Sheet.pdf
+.. https://www.hpinfotech.ro/ILI9488.pdf
+.. https://www.crystalfontz.com/controllers/Ilitek/ILI9488/506
+.. https://www.waveshare.com/wiki/Pico-ResTouch-LCD-3.5#Documents
+.. https://files.waveshare.com/upload/2/2d/ILI9488_Data_Sheet.pdf
+
+.. _`ILI9488 Datasheet V0.90 (2012/10)`:
+   https://focuslcds.com/wp-content/uploads/Drivers/ILI9488.pdf
+
 .. _`SH1106`:
    https://www.crystalfontz.com/controllers/SinoWealth
 
@@ -1135,6 +1163,23 @@
    https://github.com/Xinyuan-LilyGO/LilyGo-HAL/raw/master/DISPLAY/ST7789V.pdf
 .. https://www.crystalfontz.com/controllers/Sitronix/ST7789V/382
 
+.. #### Links to Touch Screen Controllers or similar to drive displays
+
+.. _`XPT2046`:
+   http://www.xptek.com.cn/en/products.asp?Sid=15
+
+.. _`XPT2046 Datasheet CN (2011.12)`:
+   http://www.xptek.cn/uploadfile/download/201707171401161883.pdf
+
+.. _`XPT2046 Datasheet V2.0 CN (2008.09)`:
+   https://www.waveshare.net/datasheet/LCD_PDF/XPT2046-CH.pdf
+
+.. _`XPT2046 Datasheet (2007.05)`:
+   https://www.waveshare.com/w/upload/9/98/XPT2046-EN.pdf
+.. https://grobotronics.com/images/datasheets/xpt2046-datasheet.pdf
+.. https://www.waveshare.com/wiki/Pico-ResTouch-LCD-3.5#Documents
+.. https://files.waveshare.com/upload/b/b0/XPT2046.pdf
+
 .. #### Links to Ethernet Controllers or similar to drive networks
 
 .. _`CH9120`:
@@ -1151,6 +1196,30 @@
 .. https://www.waveshare.com/wiki/RP2040-ETH#Document
 
 .. #### Links to Memory Units or Controllers or similar to drive process memory
+
+.. _`APS6404`:
+   https://www.apmemory.com/products/psram-iot-ram
+
+.. _`APS6404L-3SQN Datasheet V2.5 (2022/06)`:
+   https://www.apmemory.com/wp-content/uploads/APS6404L-3SQN.pdf
+
+.. _`ESP32 PSRAM`:
+   https://pcbartists.com/design/embedded/esp32-psram-schematic-notes
+
+.. _`ESP-PSRAM64 and ESP-PSRAM64H Datasheet V1.1 CN (2020/10)`:
+   https://www.espressif.com.cn/sites/default/files/documentation/esp-psram64_esp-psram64h_datasheet_cn.pdf
+
+.. _`ESP-PSRAM64 and ESP-PSRAM64H Datasheet V1.1 (2020/10)`:
+   https://www.espressif.com.cn/sites/default/files/documentation/esp-psram64_esp-psram64h_datasheet_en.pdf
+
+.. _`ESP-PSRAM64 and ESP-PSRAM64H Datasheet V1.0 (2018/06)`:
+   https://cdn-shop.adafruit.com/product-files/4677/4677_esp-psram64_esp-psram64h_datasheet_en.pdf
+
+.. _`IPS6404`:
+   https://www.ipusltd.com/products_en.html
+
+.. _`IPS6404L‐SQ Datasheet V1.1 (2018/07)`:
+   http://platform.digiic.com/Docs/Product/IPS6404L-SQ-SPN/IPUS%2064Mbit%20SQPI%20PSRAM%20.pdf
 
 .. _`W25Q16JV`:
    https://www.winbond.com/hq/product/code-storage-flash-memory/serial-nor-flash/index.html?__locale=en&partNo=W25Q16JV

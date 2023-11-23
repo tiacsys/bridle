@@ -1,0 +1,35 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <freq.h>
+#include <zephyr/dt-bindings/display/ili9xxx.h>
+
+&rpipico_spi_lcd {
+	ili9488_320x480: ili9488@0 {
+		compatible = "ilitek,ili9488";
+		spi-max-frequency = <DT_FREQ_M(60)>;
+		reg = <0>;
+
+		status = "disabled";
+
+		spi2mcu-shift = <16>;	/* 16-bit shifted register data */
+
+		width = <320>;
+		height = <480>;
+		rotation = <0>;		/* portrait */
+
+		disctrl = [08 82 3B];	/* non-mirrored */
+
+		vmctrl = [00 1E 80 40];
+		frmctr1 = [B0 11];
+		pwctrl1 = [0E 0E];
+		pwctrl2 = [43];
+		//pwctrl3 = [33];
+		pgamctrl = [00 13 18 04 0F 06 3A 56 4D 03 0A 06 30 3E 0F];
+		ngamctrl = [00 13 18 01 11 06 38 34 4D 06 0D 0B 31 37 0F];
+	};
+};
+
+lcd_panel: &ili9488_320x480 {};

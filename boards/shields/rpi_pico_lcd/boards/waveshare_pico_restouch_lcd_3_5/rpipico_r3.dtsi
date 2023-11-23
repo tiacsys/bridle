@@ -1,0 +1,44 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include "sdhc_spi_sdmmc.dtsi"
+#include "xpt2046_320x480.dtsi"
+#include "ili9488_480x320.dtsi"
+#include "ili9488_rgb565.dtsi"
+
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
+&sdhc_spi {
+	status = "okay";
+};
+
+&lvgl_pointer {
+	//invert-x;
+	//invert-y;
+	//swap-xy;
+};
+
+&tsc_panel {
+	status = "okay";
+	int-gpios = <&rpipico_header 17 GPIO_ACTIVE_LOW>;	/* GP17 */
+};
+
+&lcd_backlight_en {
+	enable-gpios = <&rpipico_header 13 GPIO_ACTIVE_HIGH>;	/* GP13 */
+};
+
+&lcd_panel {
+	status = "okay";
+	reset-gpios = <&rpipico_header 15 GPIO_ACTIVE_LOW>;	/* GP15 */
+	cmd-data-gpios = <&rpipico_header 8 GPIO_ACTIVE_LOW>;	/* GP8 */
+};
+
+&rpipico_spi_lcd {
+	pinctrl-0 = <&spi1_pico>;
+	pinctrl-names = "default";
+	cs-gpios = <&rpipico_header 9 GPIO_ACTIVE_LOW>,		/* LCD: GP9 */
+		   <&rpipico_header 16 GPIO_ACTIVE_LOW>,	/* TSC: GP16 */
+		   <&rpipico_header 22 GPIO_ACTIVE_LOW>;	/* SDC: GP22 */
+};
