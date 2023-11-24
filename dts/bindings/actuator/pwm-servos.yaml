@@ -1,0 +1,24 @@
+# Copyright (c) 2023 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+description: PWM servo motors parent node
+
+compatible: "pwm-servos"
+
+child-binding:
+  description: PWM servo motor child node
+  properties:
+    pwms:
+      required: true
+      type: phandle-array
+      description: |
+        Reference to a PWM instance.
+
+        The period field is NOT YET used by any function of any API.
+
+    label:
+      type: string
+      description: |
+        Human readable string describing the servo. It can be used by an
+        application to identify this servo or to retrieve its number/index
+        (i.e. child node number) on the parent device.
