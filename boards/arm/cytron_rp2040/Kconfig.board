@@ -1,0 +1,10 @@
+# Copyright (c) 2023 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+config BOARD_CYTRON_MAKER_NANO_RP2040
+	bool "Cytron Maker Nano RP2040 Board"
+	depends on SOC_RP2040
+
+config BOARD_CYTRON_MAKER_PI_RP2040
+	bool "Cytron Maker Pi RP2040 Board"
+	depends on SOC_RP2040

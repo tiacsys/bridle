@@ -1,0 +1,80 @@
+The `Maker Nano RP2040`_ is a :bbk:`nano sized` RP2040 development board.
+The :bbl:`edge pin layout is compatible` to the original Arduino Nano with
+ATmega328P processor but comes with significantly more on-board flash memory,
+with an on-board piezo buzzer, many LEDs for digital signal diagnostics, two
+WS2812 Neopixel RGB LEDs and two maker ports compatible with Sparkfun's Qwiic
+and Adafruit's STEMMA QT modules. By using the included conversion cables,
+maker ports are compatible with Seeed Studio's `Grove System`_ modules too.
+Main differences compared to the original Arduino Nano:
+
+* The :brd:`IO voltage is only 3.3V` and it's not 5V compatible.
+* There are :brd:`only four ADC inputs` (A0 - A3) instead of eight (A0 - A7).
+
+.. list-table::
+   :align: center
+   :width: 100%
+   :widths: 66, 33
+
+   * - .. rubric:: Features and Resources
+     - .. rubric:: Printed Circuit Board
+
+   * - :hwftlbl-vdd:`5V/430㎃`
+       :hwftlbl-vdd:`3.3V/500㎃`
+       :hwftlbl-vdd:`5V/3.3V(OUT)`
+
+       :hwftlbl:`133㎒`
+       :hwftlbl:`2㎆`
+       :hwftlbl:`264㎅`
+       :hwftlbl-con:`USB-B`
+       :hwftlbl-dbg:`UF2`
+       :hwftlbl-dbg:`SWD`
+
+       :hwftlbl-btn:`RST`
+       :hwftlbl-btn:`BOOT`
+       :hwftlbl-btn:`USER`
+       :hwftlbl-led:`BLUE`
+       :hwftlbl-led:`RGB`
+       :hwftlbl-spk:`PIEZO`
+
+       :hwftlbl-pio:`22`
+       :hwftlbl-pwm:`16`
+       :hwftlbl-adc:`3`
+       :hwftlbl-i2c:`2`
+       :hwftlbl-spi:`1`
+       :hwftlbl-uart:`1`
+
+       .. rst-class:: rst-columns
+
+       - Dual core Arm Cortex-M0+ processor running up to 133㎒
+       - :bbk:`264㎅` on-chip SRAM
+       - :bbk:`2㎆` on-board QSPI flash with XIP capabilities
+       - USB 1.1 controller (host/device)
+       - On-board :bbk:`USB-B micro connector`
+       - On-board :bbl:`5V LDO regulator with 100㎃`
+       - On-board :bbl:`3.3V LDO regulator with 500㎃`
+       - On-board :bbk:`RESET` button
+       - On-board :bbl:`BOOT` button
+       - On-board :bbl:`USER` button
+       - On-board :bbl:`1 Piezo` buzzer
+       - On-board :bbl:`13 LED`
+       - :bbl:`22 GPIO` pins via :bbk:`edge pinout`
+       - :bbl:`4 GPIO` pins via :bbk:`2 Qwiic/Grove connectors`
+       - :bbk:`1 UART` peripherals
+       - :bbk:`2 I2C` controllers
+       - :bbk:`1 SPI` controllers
+       - :bbl:`16 PWM` channels
+       - :bbl:`4 ADC` analog inputs
+       - 8 Programmable I/O (PIO) state machines for custom peripherals
+       - 1 Watchdog timer peripheral
+       - 1 Temperature sensor on-chip
+
+       .. rubric:: Design Data
+       .. rst-class:: rst-columns
+
+       - `Maker Nano RP2040 Datasheet`_
+       - :emphasis:`Maker Nano RP2040 Schematic`, (not yet) available
+       - `Maker Nano RP2040 Pinout Diagram`_
+
+     - .. image:: /boards/arm/cytron_rp2040/doc/maker-nano-rp2040/hardware.jpg
+          :align: center
+          :alt: Maker Nano RP2040

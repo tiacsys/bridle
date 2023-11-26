@@ -1,0 +1,32 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+&i2c0 {
+	compatible = "gpio-i2c";
+	sda-gpios = <&gpio0 16 (GPIO_OPEN_DRAIN | GPIO_PULL_UP)>;
+	scl-gpios = <&gpio0 17 (GPIO_OPEN_DRAIN | GPIO_PULL_UP)>;
+	/delete-property/ resets;
+	/delete-property/ clocks;
+	/delete-property/ interrupts;
+	/delete-property/ interrupt-names;
+	/delete-property/ pinctrl-0;
+	/delete-property/ pinctrl-names;
+};
+
+&i2c1 {
+	compatible = "gpio-i2c";
+	sda-gpios = <&gpio0 26 (GPIO_OPEN_DRAIN | GPIO_PULL_UP)>;
+	scl-gpios = <&gpio0 27 (GPIO_OPEN_DRAIN | GPIO_PULL_UP)>;
+	/delete-property/ resets;
+	/delete-property/ clocks;
+	/delete-property/ interrupts;
+	/delete-property/ interrupt-names;
+	/delete-property/ pinctrl-0;
+	/delete-property/ pinctrl-names;
+};
+
+&gpio0 {
+	status = "okay";
+};

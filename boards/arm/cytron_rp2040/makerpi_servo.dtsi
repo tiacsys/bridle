@@ -1,0 +1,42 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/pwm/pwm.h>
+
+/ {
+	aliases {
+		pwm-servo0 = &pwm_servo0;
+		pwm-servo1 = &pwm_servo1;
+		pwm-servo2 = &pwm_servo2;
+		pwm-servo3 = &pwm_servo3;
+	};
+
+	pwm_servo_motors {
+		compatible = "pwm-servos";
+		status = "okay";
+
+		pwm_servo0: pwm_servo_0 {
+			pwms = <&pwm 12 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+			label = "PWM_SERVO_0";
+		};
+		pwm_servo1: pwm_servo_1 {
+			pwms = <&pwm 13 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+			label = "PWM_SERVO_1";
+		};
+		pwm_servo2: pwm_servo_2 {
+			pwms = <&pwm 14 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+			label = "PWM_SERVO_2";
+		};
+		pwm_servo3: pwm_servo_3 {
+			pwms = <&pwm 15 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+			label = "PWM_SERVO_3";
+		};
+	};
+};
+
+&pwm {
+	divider-int-6 = <255>;
+	divider-int-7 = <255>;
+};

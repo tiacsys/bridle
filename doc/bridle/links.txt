@@ -185,6 +185,9 @@
 .. _`CAN Bit Time Calculation Sheet`:
    http://www.bittiming.can-wiki.info/?ctype=bxCAN&calc=1&CLK=54&SamplePoint=88.9&SJW=1
 
+.. _`EMAT`: https://en.wikipedia.org/wiki/Electromagnetic_acoustic_transducer
+.. _`Piezoelectric Speaker`: https://en.wikipedia.org/wiki/Piezoelectric_speaker
+
 
 
 .. ### Source: ubuntu.com
@@ -276,6 +279,10 @@
 
 
 .. ### Links to relevant hardware pinouts
+
+.. _`Arduino Nano R3`:
+   https://docs.arduino.cc/static/aea75b21cea87290ef2ed4e783b336ef/A000005-pinout.png
+.. https://upload.wikimedia.org/wikipedia/commons/e/e4/Arduino-nano-pinout.png
 
 .. _`Arduino Uno R3 (SMD)`:
    https://docs.arduino.cc/static/d7d9862243c61f399b78f548fcffc112/A000073-pinout.png
@@ -421,6 +428,34 @@
 .. _`Seeed Studio XIAO SAMD21 Design Data for KiCAD`:
    https://files.seeedstudio.com/wiki/Seeeduino-XIAO/res/Seeeduino-XIAO-KICAD.zip
 
+
+
+.. ### Links to Cytron Systems
+
+.. _`Cytron Marktplace`:
+   https://www.cytron.io/
+
+.. ### Links to Cytron Maker Nano RP2040
+
+.. _`Maker Nano RP2040`:
+   https://www.cytron.io/p-maker-nano-rp2040
+
+.. _`Maker Nano RP2040 Datasheet`:
+   https://docs.google.com/document/d/15IMxlESQE43sP7brZpqlfHVTAdX1N_XenzpvfP8cT_8/view
+
+.. _`Maker Nano RP2040 Pinout Diagram`:
+   https://docs.google.com/drawings/d/e/2PACX-1vSGwfh_1ac_UFXT4F72D0yJHaYHjDC-lfeBMLp0dc8ry57sAYtdobIFBZqrfXE6AuDTYEY9Cicto2b8/pub?w=3373&h=2867
+
+.. ### Links to Cytron Maker Pi RP2040
+
+.. _`Maker Pi RP2040`:
+   https://www.cytron.io/p-maker-pi-rp2040
+
+.. _`Maker Pi RP2040 Datasheet`:
+   https://docs.google.com/document/d/1DJASwxgbattM37V4AIlJVR4pxukq0up25LppA8-z_AY/view
+
+.. _`Maker Pi RP2040 Schematic`:
+   https://drive.google.com/file/d/1Zp8GYO8x7ThObB1G8RIZx2YdqrXtdUc0/view
 
 
 .. ### Links to Waveshare Systems
@@ -770,6 +805,26 @@
 .. _`0.5K-AX-nPWB Engineering Drawing`:
    http://www.szhdgc.com/uploads/soft/230215/0.5K-AX-nPWB
 
+.. #### Links to Buzzer, Speaker or similar for Acoustic Coupling
+
+.. _`CMT-9504`:
+   https://www.cuidevices.com/product/audio/buzzers/audio-transducers/cmt-9504-87-smt-tr
+
+.. _`CMT-9504 Datasheet`:
+   https://www.cuidevices.com/product/resource/cmt-9504-87-smt-tr.pdf
+
+.. _`CMT-7525`:
+   https://www.cuidevices.com/product/audio/buzzers/audio-transducers/cmt-7525-80-smt-tr
+
+.. _`CMT-7525 Datasheet`:
+   https://www.cuidevices.com/product/resource/cmt-7525-80-smt-tr.pdf
+
+.. _`CMT-7525S`:
+   https://www.cuidevices.com/product/audio/buzzers/audio-transducers/cmt-7525s-smt-tr
+
+.. _`CMT-7525S Datasheet`:
+   https://www.cuidevices.com/product/resource/cmt-7525s-smt-tr.pdf
+
 .. #### Links to LED or Lamps, either simple or complex with control logic on-chip
 
 .. _`WS2812B`:
@@ -792,6 +847,31 @@
 
 .. #### Links to Voltage Regulators or similar for Power Supply Chains
 
+.. _`78xx/LM340`:
+   https://en.wikipedia.org/wiki/78xx
+
+.. _`L78L Datasheet`:
+   https://www.st.com/resource/en/datasheet/l78l.pdf
+
+.. _`LM78L Datasheet`:
+   https://www.ti.com/lit/ds/symlink/lm78l.pdf
+
+.. _`UA78L Datasheet`:
+   https://www.ti.com/lit/ds/symlink/ua78l.pdf
+
+.. _`Power Supply Design Basics (SGS-Thomson Microelectronics, 1995)`:
+   https://www.st.com/resource/en/application_note/cd00003794.pdf
+
+.. _`Voltage Regulator Handbook (National Semiconductor, 1980)`:
+   https://media.searchelec.com/specshee/NATIONAL/NationalSemiconductorVoltageRegulatorHandbook1980_text.pdf
+
+.. _`CT2105`:
+   https://www.jotrin.com/product/parts/CT2105
+
+.. _`CT2105 Datasheet`:
+   http://www.ic368.com/Uploads/product/attach/2014-11/54768907bedf4.pdf
+.. https://files.elektroda.pl/1013048,54768907bedf4.html
+
 .. _`ETA6096`:
    http://www.eta-semi.com/product/915.html
 
@@ -803,6 +883,12 @@
 
 .. _`ME6217 Datasheet`:
    http://www.microne.com.cn/UploadFiles/Files2/20190429/20190429164112.pdf
+
+.. _`MCP73831`:
+   https://www.microchip.com/en-us/product/mcp73831
+
+.. _`MCP73831/2 Datasheet`:
+   https://ww1.microchip.com/downloads/en/DeviceDoc/MCP73831-Family-Data-Sheet-DS20001984H.pdf
 
 .. _`MP1496`:
     https://www.monolithicpower.com/en/mp1496.html
@@ -825,11 +911,33 @@
 .. _`MP28164 Reliability Report`:
    https://www.monolithicpower.com/en/documentview/productdocument/index/version/2/document_type/Reliability%20Report/lang/en/sku/MP28164GD-Z/document_id/6077
 
+.. _`MT3608`:
+   https://www.lcsc.com/search?q=MT3608
+
+.. _`MT3608 Datasheet V1`:
+   https://datasheet.lcsc.com/lcsc/1811151539_XI-AN-Aerosemi-Tech-MT3608_C84817.pdf
+.. https://www.olimex.com/Products/Breadboarding/BB-PWR-3608/resources/MT3608.pdf
+
+.. _`MT3608 Datasheet R1 (2011)`:
+   https://supereyes.ru/img/instructions/MT3608_manual.pdf
+.. https://e2e.ti.com/cfs-file/__key/communityserver-discussions-components-files/196/4012002220_2D004753D358_IC_5B00_MT3608_2C00_SMD_2C00_SOT23_2D00_6L_2C00_AEROSEMI_5D00_.pdf
+.. https://datasheetspdf.com/pdf-file/909246/AEROSEMI/MT3608/1
+
 .. _`RT9013-33`:
    https://www.richtek.com/Products/Linear%20Regulator/Single%20Output%20Linear%20Regulator/RT9013
 
 .. _`RT9013 Datasheet`:
    https://www.richtek.com/assets/product_file/RT9013/DS9013-10.pdf
+
+.. _`RT9080-33`:
+   https://www.richtek.com/Products/Linear%20Regulator/Single%20Output%20Linear%20Regulator/RT9080
+
+.. _`RT9080 Datasheet`:
+   https://www.richtek.com/assets/product_file/RT9080/DS9080-07.pdf
+
+.. _`Linear regulator (LDO) RT9080-33GJ5`:
+   https://antenna--dvb--t2-ru.translate.goog/show_ldo.php?id=331&_x_tr_sl=ru&_x_tr_tl=en&_x_tr_hl=en&_x_tr_pto=wapp
+.. https://antenna-dvb-t2.ru/show_ldo.php?id=331
 
 .. _`RT9193-33`:
    https://www.richtek.com/Products/Linear%20Regulator/Single%20Output%20Linear%20Regulator/RT9193
@@ -837,11 +945,57 @@
 .. _`RT9193 Datasheet`:
    https://www.richtek.com/assets/product_file/RT9193/DS9193-18.pdf
 
+.. _`SY7208`:
+   https://www.lcsc.com/search?q=SY7208
+
+.. _`SY7208 Datasheet R0.95B`:
+   https://datasheet.lcsc.com/lcsc/1810010234_Silergy-Corp-SY7208ABC_C80514.pdf
+
+.. _`SY7208/SY7208B Datasheet R0.6`:
+   https://aliot.com.ua/pdf/sy7208.pdf
+.. https://raw.githubusercontent.com/BPI-STEAM/BPI-BIT-Hardware/master/docs/SY7208.pdf
+.. https://datasheetspdf.com/pdf-file/787819/Silergy/SY7208/1
+
+.. _`TC1508`:
+   https://www.lcsc.com/search?q=TC1508
+
+.. _`TC1508A Datasheet`:
+   https://datasheet.lcsc.com/lcsc/2211080930_Shenzhen-Fuman-Elec-TC1508A_C5142992.pdf
+
+.. _`TC1508S Datasheet`:
+   https://datasheet.lcsc.com/lcsc/2202252130_Shenzhen-Fuman-Elec-TC1508S_C89480.pdf
+
 .. _`TPS63000`:
    https://www.ti.com/product/TPS63000
 
 .. _`TPS63000 Datasheet`:
    https://www.ti.com/lit/gpn/tps63000
+
+.. #### Links to Motion Controllers or similar to drive any type of motors
+
+.. _`MX1208`:
+   https://sales.dzsc.com/486178.html
+
+.. _`MX1208 Datasheet`:
+   https://www.s-manuals.com/pdf/datasheet/m/x/mx1208_r1.0_mixic.pdf
+.. http://www.microcontroller.it/test/MX1508/mx1208_r1.0_mixic.pdf
+
+.. _`MX1508`:
+   https://sales.dzsc.com/486222.html
+
+.. _`MX1508 vs L9110S vs TB6612 vs L293D Motordriver board`:
+   https://arduinodiy.wordpress.com/2019/11/02/mx1508-vs-l9110s-vs-l293-motordriver-board
+
+.. _`MX1508 Motor driver`:
+   https://electronics83.com/index.php/mx1508-motor-driver
+
+.. _`MX1515`:
+   https://sales.dzsc.com/486197.html
+
+.. _`MX1515 Datasheet`:
+   https://storage.ua.prom.st/1416790_mx1515_datasheet.pdf
+.. https://datasheetspdf.com/pdf-file/909509/SinotechMixicElectronics/MX1515/1
+.. https://cdck-file-uploads-europe1.s3.dualstack.eu-west-1.amazonaws.com/arduino/original/4X/b/3/b/b3bc4d09220c9a729f4e723224cde4177450f53b.pdf
 
 .. #### Links to LCD Controllers or similar to drive displays
 

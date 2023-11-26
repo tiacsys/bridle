@@ -21,8 +21,14 @@
 .. |Arduino Zero (CDC ACM)| replace::
    :ref:`Arduino Zero (CDC ACM) <arduino_zero>`
 
+.. |Maker Nano RP2040| replace::
+   :ref:`Maker Nano RP2040 <cytron_maker_nano_rp2040>`
+
 .. |Maker Nano RP2040 (CDC ACM)| replace::
    :ref:`Maker Nano RP2040 (CDC ACM) <cytron_maker_nano_rp2040>`
+
+.. |Maker Pi RP2040| replace::
+   :ref:`Maker Pi RP2040 <cytron_maker_pi_rp2040>`
 
 .. |Maker Pi RP2040 (CDC ACM)| replace::
    :ref:`Maker Pi RP2040 (CDC ACM) <cytron_maker_pi_rp2040>`
@@ -119,6 +125,9 @@
    :ref:`zephyr,shell-uart <zephyr:devicetree-zephyr-chosen-nodes>`
 
 .. Devicetree References
+
+.. |Arduino Nano R3| replace::
+   :dtcompatible:`Arduino Nano R3 <arduino-nano-header-r3>`
 
 .. |Arduino UNO R3| replace::
    :dtcompatible:`Arduino UNO R3 <arduino-header-r3>`

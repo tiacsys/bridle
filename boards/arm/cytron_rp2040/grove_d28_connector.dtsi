@@ -1,0 +1,61 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	grove_d28_header: grove-d28-connector {
+		compatible = "seeed,grove-connector";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <0 0 &gpio0 28 0>,	/* GP28/PWM12 / A2 */
+			   <1 0 &gpio0 7 0>;	/* GP7/PWM7 */
+	};
+};
+
+&gpio0 {
+	status = "okay";
+};
+
+#undef GROVE_PWM_D7_SLOW
+#define GROVE_PWM_D7_SLOW				\
+	&pwm {						\
+		divider-frac-3 = <15>;			\
+		divider-int-3 = <255>;			\
+	};
+
+#undef GROVE_PWM_D7_ENABLE
+#define GROVE_PWM_D7_ENABLE				\
+	&pwm {						\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D7_PINCTRL
+#define GROVE_PWM_D7_PINCTRL				\
+	&pwm_grove {					\
+		group7 {				\
+			pinmux = <PWM_3B_P7>;		\
+		};					\
+	};
+
+#undef GROVE_PWM_D28_SLOW
+#define GROVE_PWM_D28_SLOW				\
+	&pwm {						\
+		divider-frac-6 = <15>;			\
+		divider-int-6 = <255>;			\
+	};
+
+#undef GROVE_PWM_D28_ENABLE
+#define GROVE_PWM_D28_ENABLE				\
+	&pwm {						\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D28_PINCTRL
+#define GROVE_PWM_D28_PINCTRL				\
+	&pwm_grove {					\
+		group28 {				\
+			pinmux = <PWM_6A_P28>;		\
+		};					\
+	};
