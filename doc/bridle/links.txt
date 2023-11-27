@@ -249,6 +249,9 @@
 .. _`Arduino USB product ID list with SAMD21 CPU`:
    https://github.com/arduino/ArduinoCore-samd/blob/master/boards.txt
 
+.. |Cytron (Raspberry Pi)| replace:: :strong:`Cytron (Raspberry Pi)`
+.. _`Cytron (Raspberry Pi)`: https://devicehunt.com/view/type/usb/vendor/2e8a
+
 .. |NXP Semiconductors| replace:: :strong:`NXP Semiconductors`
 .. _`NXP Semiconductors`: https://devicehunt.com/view/type/usb/vendor/1fc9
 

@@ -36,6 +36,14 @@ boards:
     append:
       EXTRA_CONF_FILE: boards/seeed_xiao_samd21.conf
       EXTRA_DTC_OVERLAY_FILE: boards/seeed_xiao_samd21.overlay
+  cytron_maker_nano_rp2040:
+    append:
+      EXTRA_CONF_FILE: boards/cytron_maker_nano_rp2040.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/cytron_maker_nano_rp2040.overlay
+  cytron_maker_pi_rp2040:
+    append:
+      EXTRA_CONF_FILE: boards/cytron_maker_pi_rp2040.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/cytron_maker_pi_rp2040.overlay
   rpi_pico:
     append:
       EXTRA_CONF_FILE: boards/rpi_pico.conf

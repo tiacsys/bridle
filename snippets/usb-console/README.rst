@@ -101,6 +101,24 @@ specified as required.
      - | |zephyr,console|
        | |zephyr,shell-uart|
 
+   * - :code:`cytron_maker_nano_rp2040`
+     - :code:`0x2E8A`
+     - :code:`0x000A`
+     - |Cytron (Raspberry Pi)|_
+     - |Maker Nano RP2040 (CDC ACM)|, Raspberry Pi Pico SDK CDC UART
+     - `Raspberry Pi USB product ID list`_
+     - | |zephyr,console|
+       | |zephyr,shell-uart|
+
+   * - :code:`cytron_maker_pi_rp2040`
+     - :code:`0x2E8A`
+     - :code:`0x000A`
+     - |Cytron (Raspberry Pi)|_
+     - |Maker Pi RP2040 (CDC ACM)|, Raspberry Pi Pico SDK CDC UART
+     - `Raspberry Pi USB product ID list`_
+     - | |zephyr,console|
+       | |zephyr,shell-uart|
+
    * - :code:`rpi_pico`
      - :code:`0x2E8A`
      - :code:`0x000A`

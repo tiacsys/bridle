@@ -21,6 +21,12 @@
 .. |Arduino Zero (CDC ACM)| replace::
    :ref:`Arduino Zero (CDC ACM) <arduino_zero>`
 
+.. |Maker Nano RP2040 (CDC ACM)| replace::
+   :ref:`Maker Nano RP2040 (CDC ACM) <cytron_maker_nano_rp2040>`
+
+.. |Maker Pi RP2040 (CDC ACM)| replace::
+   :ref:`Maker Pi RP2040 (CDC ACM) <cytron_maker_pi_rp2040>`
+
 .. |MIMXRT1010-EVK (CDC ACM)| replace::
    :ref:`MIMXRT1010-EVK (CDC ACM) <zephyr:mimxrt1010_evk>`
 
