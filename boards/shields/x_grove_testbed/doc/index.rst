@@ -1049,6 +1049,140 @@ For example:
                      :host-os: unix
                      :tool: all
 
+         .. group-tab:: Cytron Maker Nano RP2040
+
+            This is based on the Bridle board
+            :ref:`Maker Nano RP2040 <cytron_maker_nano_rp2040>`
+
+            * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
+
+            .. image:: img/cytron_maker_nano_rp2040_bb.svg
+               :alt: Cytron Maker Nano RP2040 Wiring Schematics
+               :align: center
+
+            .. tabs::
+
+               .. group-tab:: LED Blinky
+
+                  This is based on the Zephyr sample
+                  :doc:`zephyr:samples/basic/blinky/README`.
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/blinky
+                     :build-dir: blinky-cytron_maker_nano_rp2040-x_grove_testbed
+                     :board: cytron_maker_nano_rp2040
+                     :shield: "grove_btn_d0 grove_led_d15 grove_pwm_led_d15 x_grove_testbed"
+                     :goals: build flash
+                     :gen-args: -DBOARD_FLASH_RUNNER=uf2
+                     :west-args: -p always
+                     :host-os: unix
+                     :tool: all
+
+               .. group-tab:: LED Fade
+
+                  This is based on the Zephyr sample
+                  :doc:`zephyr:samples/basic/fade_led/README`.
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/fade_led
+                     :build-dir: fade-cytron_maker_nano_rp2040-x_grove_testbed
+                     :board: cytron_maker_nano_rp2040
+                     :shield: "grove_btn_d0 grove_led_d15 grove_pwm_led_d15 x_grove_testbed"
+                     :goals: build flash
+                     :gen-args: -DBOARD_FLASH_RUNNER=uf2
+                     :west-args: -p always
+                     :host-os: unix
+                     :tool: all
+
+               .. group-tab:: LED Button
+
+                  This is based on the Zephyr sample
+                  :doc:`zephyr:samples/basic/button/README`.
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/button
+                     :build-dir: button-cytron_maker_nano_rp2040-x_grove_testbed
+                     :board: cytron_maker_nano_rp2040
+                     :shield: "grove_btn_d0 grove_led_d15 grove_pwm_led_d15 x_grove_testbed"
+                     :goals: build flash
+                     :gen-args: -DBOARD_FLASH_RUNNER=uf2
+                     :west-args: -p always
+                     :host-os: unix
+                     :tool: all
+
+         .. group-tab:: Cytron Maker Pi RP2040
+
+            This is based on the Bridle board
+            :ref:`Maker Pi RP2040 <cytron_maker_pi_rp2040>`
+
+            * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
+
+            .. image:: img/cytron_maker_pi_rp2040_bb.svg
+               :alt: Cytron Maker Pi RP2040 Wiring Schematics
+               :align: center
+
+            .. tabs::
+
+               .. group-tab:: LED Blinky
+
+                  This is based on the Zephyr sample
+                  :doc:`zephyr:samples/basic/blinky/README`.
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/blinky
+                     :build-dir: blinky-cytron_maker_pi_rp2040-x_grove_testbed
+                     :board: cytron_maker_pi_rp2040
+                     :shield: "grove_btn_d3 grove_led_d5 grove_pwm_led_d5 x_grove_testbed"
+                     :goals: build flash
+                     :gen-args: \
+                                -DBOARD_FLASH_RUNNER=openocd \
+                                -DCYTRON_RP2040_DEBUG_ADAPTER=cmsis-dap \
+                                -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
+                                -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
+                     :west-args: -p always
+                     :host-os: unix
+                     :tool: all
+
+               .. group-tab:: LED Fade
+
+                  This is based on the Zephyr sample
+                  :doc:`zephyr:samples/basic/fade_led/README`.
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/fade_led
+                     :build-dir: fade-cytron_maker_pi_rp2040-x_grove_testbed
+                     :board: cytron_maker_pi_rp2040
+                     :shield: "grove_btn_d3 grove_led_d5 grove_pwm_led_d5 x_grove_testbed"
+                     :goals: build flash
+                     :gen-args: \
+                                -DBOARD_FLASH_RUNNER=openocd \
+                                -DCYTRON_RP2040_DEBUG_ADAPTER=cmsis-dap \
+                                -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
+                                -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
+                     :west-args: -p always
+                     :host-os: unix
+                     :tool: all
+
+               .. group-tab:: LED Button
+
+                  This is based on the Zephyr sample
+                  :doc:`zephyr:samples/basic/button/README`.
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/button
+                     :build-dir: button-cytron_maker_pi_rp2040-x_grove_testbed
+                     :board: cytron_maker_pi_rp2040
+                     :shield: "grove_btn_d3 grove_led_d5 grove_pwm_led_d5 x_grove_testbed"
+                     :goals: build flash
+                     :gen-args: \
+                                -DBOARD_FLASH_RUNNER=openocd \
+                                -DCYTRON_RP2040_DEBUG_ADAPTER=cmsis-dap \
+                                -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
+                                -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
+                     :west-args: -p always
+                     :host-os: unix
+                     :tool: all
+
 References
 **********
 
