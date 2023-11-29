@@ -206,6 +206,12 @@ The following table shows just a few examples.
      - :c:`int sum(int a, int b);`
      - inline syntax highlighting for C/C++
 
+   * - | :rst:`:devicetree:\`zephyr,code = <INPUT_KEY_ENTER>;\``
+       | :rst:`:devicetree:\`chosen { zephyr,display = &st7789v_240x135; };\``
+     - | :devicetree:`zephyr,code = <INPUT_KEY_ENTER>;`
+       | :devicetree:`chosen { zephyr,display = &st7789v_240x135; };`
+     - inline syntax highlighting for Devicetree
+
    * - | :rst:`:hwftlbl:\`4㎆\``
        | :rst:`:hwftlbl:\`OTA\``
 
@@ -222,6 +228,38 @@ The following table shows just a few examples.
 
      - hardware feature label for a :u:`button and switch` purpose
 
+   * - | :rst:`:hwftlbl-kbd:\`QWERTY\``
+       | :rst:`:hwftlbl-kbd:\`NUM\``
+
+     - :hwftlbl-kbd:`QWERTY`
+       :hwftlbl-kbd:`NUM`
+
+     - hardware feature label for a :u:`keyboard and number pad` purpose
+
+   * - | :rst:`:hwftlbl-mse:\`3KEY\``
+       | :rst:`:hwftlbl-mse:\`BALL\``
+
+     - :hwftlbl-mse:`3KEY`
+       :hwftlbl-mse:`BALL`
+
+     - hardware feature label for a :u:`mouse and track ball` purpose
+
+   * - | :rst:`:hwftlbl-joy:\`DIG\``
+       | :rst:`:hwftlbl-joy:\`DYN\``
+
+     - :hwftlbl-joy:`DIG`
+       :hwftlbl-joy:`DYN`
+
+     - hardware feature label for a :u:`joystick` purpose
+
+   * - | :rst:`:hwftlbl-ctr:\`EQU\``
+       | :rst:`:hwftlbl-pot:\`VOL\``
+
+     - :hwftlbl-ctr:`EQU`
+       :hwftlbl-pot:`VOL`
+
+     - hardware feature label for a :u:`controller and regulator` purpose
+
    * - | :rst:`:hwftlbl-led:\`ERR\``
        | :rst:`:hwftlbl-led:\`USR\``
 
@@ -229,6 +267,38 @@ The following table shows just a few examples.
        :hwftlbl-led:`USR`
 
      - hardware feature label for a :u:`lamp and signal` purpose
+
+   * - | :rst:`:hwftlbl-cam:\`CMOS\``
+       | :rst:`:hwftlbl-cam:\`CCD\``
+
+     - :hwftlbl-cam:`CMOS`
+       :hwftlbl-cam:`CCD`
+
+     - hardware feature label for a :u:`camera and video` purpose
+
+   * - | :rst:`:hwftlbl-mic:\`MIC\``
+       | :rst:`:hwftlbl-mic:\`LINE-IN\``
+
+     - :hwftlbl-mic:`MIC`
+       :hwftlbl-mic:`LINE-IN`
+
+     - hardware feature label for a :u:`microphone and line-in` purpose
+
+   * - | :rst:`:hwftlbl-spk:\`PIEZO\``
+       | :rst:`:hwftlbl-spk:\`LINE-OUT\``
+
+     - :hwftlbl-spk:`PIEZO`
+       :hwftlbl-spk:`LINE-OUT`
+
+     - hardware feature label for a :u:`speaker, buzzer and line-out` purpose
+
+   * - | :rst:`:hwftlbl-hdp:\`AUX\``
+       | :rst:`:hwftlbl-hdp:\`LINE-OUT\``
+
+     - :hwftlbl-hdp:`AUX`
+       :hwftlbl-hdp:`LINE-OUT`
+
+     - hardware feature label for a :u:`headphone and line-out` purpose
 
    * - | :rst:`:hwftlbl-scr:\`OLED\``
        | :rst:`:hwftlbl-scr:\`HDMI\``
@@ -246,13 +316,47 @@ The following table shows just a few examples.
 
      - hardware feature label for a :u:`storage and disk` purpose
 
+   * - | :rst:`:hwftlbl-flp:\`3½‟\``
+       | :rst:`:hwftlbl-flp:\`5¼‟\``
+       | :rst:`:hwftlbl-flp:\`8‟\``
+
+     - :hwftlbl-flp:`3½‟`
+       :hwftlbl-flp:`5¼‟`
+       :hwftlbl-flp:`8‟`
+
+     - hardware feature label for a :u:`storage and floppy` purpose
+
    * - | :rst:`:hwftlbl-con:\`USB-C\``
-       | :rst:`:hwftlbl-btn:\`10Base-T\``
+       | :rst:`:hwftlbl-con:\`10Base-T\``
 
      - :hwftlbl-con:`USB-C`
        :hwftlbl-con:`10Base-T`
 
      - hardware feature label for a :u:`connector` purpose
+
+   * - | :rst:`:hwftlbl-bat:\`LiPo/Fe\``
+       | :rst:`:hwftlbl-bat:\`NiCd/Mh\``
+
+     - :hwftlbl-bat:`LiPo/Fe`
+       :hwftlbl-bat:`NiCd/Mh`
+
+     - hardware feature label for a :u:`battery` purpose
+
+   * - | :rst:`:hwftlbl-cpt:\`SRV\``
+       | :rst:`:hwftlbl-prt:\`INK\``
+
+     - :hwftlbl-cpt:`SRV`
+       :hwftlbl-prt:`INK`
+
+     - hardware feature label for a :u:`computer and printer` purpose
+
+   * - | :rst:`:hwftlbl-cld:\`MQTT\``
+       | :rst:`:hwftlbl-net:\`LAN\``
+
+     - :hwftlbl-cld:`MQTT`
+       :hwftlbl-net:`LAN`
+
+     - hardware feature label for a :u:`cloud and network` purpose
 
    * - | :rst:`:hwftlbl-sys:\`3.3V(PS)\``
        | :rst:`:hwftlbl-sys:\`3.3V(EN)\``

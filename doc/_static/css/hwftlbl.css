@@ -149,16 +149,48 @@
   border: thin solid var(--docset-color-rpi-tsi);
 }
 
+.hwftlbl-cld:after { content: ' 🌐'; }
+.hwftlbl-net:after { content: ' 🖧'; }
+.hwftlbl-cpt:after { content: ' 🖥'; }
+.hwftlbl-prt:after { content: ' 🖨'; }
 .hwftlbl-con:after { content: ' 🔌'; }
+.hwftlbl-bat:after { content: ' 🔋'; }
 .hwftlbl-btn:after { content: ' 🔘'; }
+.hwftlbl-kbd:after { content: ' 🖮'; }
+.hwftlbl-mse:after { content: ' 🖱'; }
+.hwftlbl-joy:after { content: ' 🕹'; }
+.hwftlbl-spk:after { content: ' 🔊'; }
+.hwftlbl-mic:after { content: ' 🎤'; }
+.hwftlbl-hdp:after { content: ' 🎧'; }
 .hwftlbl-led:after { content: ' 🔆'; }
+.hwftlbl-cam:after { content: ' 📷'; }
 .hwftlbl-scr:after { content: ' 🖵'; }
-.hwftlbl-dsk:after { content: ' 🖫'; }
+.hwftlbl-flp:after { content: ' 🖫'; }
+.hwftlbl-dsk:after { content: ' 🖴'; }
+.hwftlbl-ctr:after { content: ' 🎛'; }
+.hwftlbl-pot:after { content: ' 🎚'; }
+.hwftlbl-act:after { content: ' ⚙️'; }
+.hwftlbl-cld,
+.hwftlbl-net,
+.hwftlbl-cpt,
+.hwftlbl-prt,
 .hwftlbl-con,
+.hwftlbl-bat,
 .hwftlbl-btn,
+.hwftlbl-mse,
+.hwftlbl-kbd,
+.hwftlbl-joy,
+.hwftlbl-spk,
+.hwftlbl-mic,
+.hwftlbl-hdp,
 .hwftlbl-led,
+.hwftlbl-cam,
 .hwftlbl-scr,
+.hwftlbl-flp,
 .hwftlbl-dsk,
+.hwftlbl-ctr,
+.hwftlbl-pot,
+.hwftlbl-act,
 .hwftlbl {
   color: var(--docset-color-pin-fgd);
   border-color: var(--docset-color-pin-fgd);
@@ -187,11 +219,27 @@
 .hwftlbl-dsi,
 .hwftlbl-dpp,
 .hwftlbl-tsi,
+.hwftlbl-cld,
+.hwftlbl-net,
+.hwftlbl-cpt,
+.hwftlbl-prt,
 .hwftlbl-con,
+.hwftlbl-bat,
 .hwftlbl-btn,
+.hwftlbl-mse,
+.hwftlbl-kbd,
+.hwftlbl-joy,
+.hwftlbl-spk,
+.hwftlbl-mic,
+.hwftlbl-hdp,
 .hwftlbl-led,
+.hwftlbl-cam,
 .hwftlbl-scr,
+.hwftlbl-flp,
 .hwftlbl-dsk,
+.hwftlbl-ctr,
+.hwftlbl-pot,
+.hwftlbl-act,
 .hwftlbl {
   font-size: 114%;
   font-weight: bold;

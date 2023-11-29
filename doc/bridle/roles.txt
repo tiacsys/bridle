@@ -123,16 +123,48 @@
 
 .. role:: hwftlbl
    :class: hwftlbl
+.. role:: hwftlbl-cld
+   :class: hwftlbl-cld
+.. role:: hwftlbl-net
+   :class: hwftlbl-net
+.. role:: hwftlbl-cpt
+   :class: hwftlbl-cpt
+.. role:: hwftlbl-prt
+   :class: hwftlbl-prt
 .. role:: hwftlbl-con
    :class: hwftlbl-con
+.. role:: hwftlbl-bat
+   :class: hwftlbl-bat
 .. role:: hwftlbl-btn
    :class: hwftlbl-btn
+.. role:: hwftlbl-kbd
+   :class: hwftlbl-kbd
+.. role:: hwftlbl-mse
+   :class: hwftlbl-mse
+.. role:: hwftlbl-joy
+   :class: hwftlbl-joy
+.. role:: hwftlbl-spk
+   :class: hwftlbl-spk
+.. role:: hwftlbl-mic
+   :class: hwftlbl-mic
+.. role:: hwftlbl-hdp
+   :class: hwftlbl-hdp
 .. role:: hwftlbl-led
    :class: hwftlbl-led
+.. role:: hwftlbl-cam
+   :class: hwftlbl-cam
 .. role:: hwftlbl-scr
    :class: hwftlbl-scr
+.. role:: hwftlbl-flp
+   :class: hwftlbl-flp
 .. role:: hwftlbl-dsk
    :class: hwftlbl-dsk
+.. role:: hwftlbl-ctr
+   :class: hwftlbl-ctr
+.. role:: hwftlbl-pot
+   :class: hwftlbl-pot
+.. role:: hwftlbl-act
+   :class: hwftlbl-act
 .. role:: hwftlbl-vdd
    :class: hwftlbl-vdd
 .. role:: hwftlbl-sys
