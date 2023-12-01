@@ -54,7 +54,7 @@ Building and Running
     --testsuite-root bridle/samples/robot_framework \
     --device-testing --device-serial /dev/ttyACM0
 
-Sample Output
+Sample output
 =============
 
 The log, report and output files from the Robot Framework can be found
@@ -66,5 +66,3 @@ in the 'twister_out' folder, e.g:
   twister-out/log-20231120-162624.html
   twister-out/output-20231120-162624.xml
   twister-out/report-20231120-162624.html
-
-  .. test-results:: ../twister-out/output-20231121-150852.xml
