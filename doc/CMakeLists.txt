@@ -463,6 +463,8 @@ add_dependencies(bridle-html-all
     zephyr-inventory
 )
 
+add_docset(bridle-test-spec "-j 1" API)  # no parallel reading, because of sphinx-csv-filter
+
 #-------------------------------------------------------------------------------
 # Deployment targets
 

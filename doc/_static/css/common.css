@@ -58,6 +58,11 @@
     background-color: #e5c100;
 }
 
+/* Bridle Test Specification */
+.bridle-test-spec {
+  background-color: #0ab27a;
+}
+
 /* tweak grid items color */
 .grid h2 {
   color: #fcfcfc !important;

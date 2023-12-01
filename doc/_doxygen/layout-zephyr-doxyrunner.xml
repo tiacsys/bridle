@@ -44,6 +44,7 @@
     <tab type="usergroup" title="See also (go back to)">
       <tab type="user" url="../../../bridle/index.html" title="Bridle"/>
       <tab type="user" url="../../../bridle/doxygen/html/index.html" title="Bridle API"/>
+      <tab type="user" url="../../../bridle-test-spec/index.html" title="Bridle Test Specification"/>
       <tab type="user" url="../../../zephyr/index.html" title="Zephyr Project"/>
       <tab type="user" url="../../../zephyr/doxygen/html/index.html" title="Zephyr Project API"/>
       <tab type="user" url="../../../kconfig/index.html" title="Kconfig Reference"/>

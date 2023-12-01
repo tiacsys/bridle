@@ -17,6 +17,7 @@ _MANIFEST = Manifest.from_file(_BRIDLE_BASE / "west.yml")
 ALL_DOCSETS = {  # first entry is default docset
     "bridle": ("Bridle", "bridle/index", "manifest"),
     "bridle-api": ("Bridle API", "bridle/doxygen/html/index", None),
+    "bridle-test-spec": ("Bridle Test Specification", "bridle-test-spec/index", None),
     "zephyr": ("Zephyr Project", "zephyr/index", "zephyr"),
     "zephyr-api": ("Zephyr Project API", "zephyr/doxygen/html/index", None),
     "kconfig": ("Kconfig Reference", "kconfig/index", None),
