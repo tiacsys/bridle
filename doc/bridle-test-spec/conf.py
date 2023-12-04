@@ -211,12 +211,19 @@ html_theme_options = {
 
 intersphinx_mapping = dict()
 
+bridle_test_rqt_mapping = utils.get_intersphinx_mapping('bridle-test-rqt')
+if bridle_test_rqt_mapping:
+    intersphinx_mapping['bridle-test-rqt'] = bridle_test_rqt_mapping
+
+
 # Options for tsn_include ------------------------------------------------------
 
 tsn_include_mapping = {
     'zephyr': utils.get_srcdir('zephyr'),
     'kconfig': utils.get_srcdir('kconfig'),
     'devicetree': utils.get_srcdir('devicetree'),
+    'bridle-test-rqt': utils.get_srcdir('bridle-test-rqt'),
+    'bridle-test-spec': utils.get_srcdir('bridle-test-spec'),
     'bridle': utils.get_srcdir('bridle'),
 }
 
@@ -242,9 +249,12 @@ external_content_directives = (
 )
 external_content_contents = [
     (BRIDLE_BASE / 'doc' / 'bridle-test-spec', '[!_]*'),
-    (BRIDLE_BASE, 'samples/**/*.robot'),
+#    (BRIDLE_BASE, 'samples/**/*.robot'),
+    (BRIDLE_BASE, 'samples/**/index.rst'),
+    (BRIDLE_BASE, 'samples/**/*robot.rst'),
 ]
 external_content_keep = ['versions.txt']
+
 
 # Options for bridle.options_from_kconfig --------------------------------------
 

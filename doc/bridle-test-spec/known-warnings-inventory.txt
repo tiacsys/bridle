@@ -2,3 +2,9 @@
 # that should be filtered out
 
 # Comming later from zephyr docset
+.*term not in glossary: 'zephyr:.*'
+.*unknown document: 'zephyr:.*'
+.*undefined label: 'zephyr:.*'
+
+# Comming later from bridle-test-rqt docset
+.*undefined label: 'bridle-test-rqt:.*'
