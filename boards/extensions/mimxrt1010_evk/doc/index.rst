@@ -17,8 +17,10 @@ List of extensions
 
   - :devicetree:`&arduino_header {...};`
 
-- extend with a :dtcompatible:`fixed-partitions` table for the on-board
-  16㎆ QuadSPI NOR Flash declared as :devicetree:`&at25sf128a`
+- enable ARM Cortex-M Data Cache (DTCM) with Zephyr chosen entry:
+
+  - :devicetree:`/ { chosen { zephyr,dtcm = &dtcm; }; };`
+
 - add a :dtcompatible:`zephyr,flash-disk` node linked to the
   :devicetree:`partition = <&storage_partition>;` with the hard defined
   mass storage disk name :devicetree:`disk-name = "NAND";` – also set

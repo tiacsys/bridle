@@ -5,40 +5,8 @@
 
 #include "arduino_r3_connector.dtsi"
 
-&at25sf128a {
-	partitions {
-		compatible = "fixed-partitions";
-		#address-cells = <1>;
-		#size-cells = <1>;
-
-		boot_partition: partition@0 {
-			label = "mcuboot";
-			reg = <0x00000000 DT_SIZE_K(64)>;
-		};
-		slot0_partition: partition@10000 {
-			label = "image-0";
-			reg = <0x00010000 DT_SIZE_M(3)>;
-		};
-		slot1_partition: partition@310000 {
-			label = "image-1";
-			reg = <0x00310000 DT_SIZE_M(3)>;
-		};
-		scratch_partition: partition@610000 {
-			label = "image-scratch";
-			reg = <0x00610000 DT_SIZE_K(128)>;
-		};
-		storage_partition: partition@630000 {
-			label = "storage";
-			reg = <0x00630000 DT_SIZE_K(1856)>;
-		};
-	};
-};
-
 / {
 	chosen {
-		zephyr,flash-controller = &at25sf128a;
-		zephyr,flash = &at25sf128a;
-		zephyr,code-partition = &slot0_partition;
 		zephyr,dtcm = &dtcm;
 	};
 
