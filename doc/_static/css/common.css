@@ -63,6 +63,11 @@
   background-color: #0ab27a;
 }
 
+/* Bridle Test Requirements */
+.bridle-test-rqt {
+  background-color: #0ab27a;
+}
+
 /* tweak grid items color */
 .grid h2 {
   color: #fcfcfc !important;
