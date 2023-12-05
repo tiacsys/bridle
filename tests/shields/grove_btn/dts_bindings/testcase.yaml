@@ -30,6 +30,8 @@ common:
   #
   integration_platforms:
     - arduino_zero
+    - cytron_maker_nano_rp2040
+    - cytron_maker_pi_rp2040
     - mimxrt1010_evk
     - mimxrt1060_evk
     - mimxrt1060_evkb
@@ -584,6 +586,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_btn_d2", "gpio-keys")
     extra_args: SHIELD=grove_btn_d2
     platform_allow:
+      - cytron_maker_pi_rp2040
       - seeeduino_lotus
   grove.connectors.grove_btn.gpio.d3:
     depends_on: grove_gpio
@@ -592,6 +595,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_btn_d3", "gpio-keys")
     extra_args: SHIELD=grove_btn_d3
     platform_allow:
+      - cytron_maker_pi_rp2040
       - seeeduino_lotus
   grove.connectors.grove_btn.gpio.d4:
     depends_on: grove_gpio
@@ -600,6 +604,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_btn_d4", "gpio-keys")
     extra_args: SHIELD=grove_btn_d4
     platform_allow:
+      - cytron_maker_pi_rp2040
       - seeeduino_lotus
   grove.connectors.grove_btn.gpio.d5:
     depends_on: grove_gpio
@@ -608,6 +613,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_btn_d5", "gpio-keys")
     extra_args: SHIELD=grove_btn_d5
     platform_allow:
+      - cytron_maker_pi_rp2040
       - seeeduino_lotus
   grove.connectors.grove_btn.gpio.d6:
     depends_on: grove_gpio
@@ -616,6 +622,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_btn_d6", "gpio-keys")
     extra_args: SHIELD=grove_btn_d6
     platform_allow:
+      - cytron_maker_pi_rp2040
       - seeeduino_lotus
   grove.connectors.grove_btn.gpio.d7:
     depends_on: grove_gpio
@@ -624,6 +631,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_btn_d7", "gpio-keys")
     extra_args: SHIELD=grove_btn_d7
     platform_allow:
+      - cytron_maker_pi_rp2040
       - seeeduino_lotus
   grove.connectors.grove_btn.gpio.d8:
     depends_on: grove_gpio
@@ -676,6 +684,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_btn_d14", "gpio-keys")
     extra_args: SHIELD=grove_btn_d14
     platform_allow:
+      - cytron_maker_nano_rp2040
       - seeeduino_lotus
   grove.connectors.grove_btn.gpio.d15:
     depends_on: grove_gpio
@@ -686,6 +695,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_btn_d15", "gpio-keys")
     extra_args: SHIELD=grove_btn_d15
     platform_allow:
+      - cytron_maker_nano_rp2040
       - seeeduino_lotus
   grove.connectors.grove_btn.gpio.d16:
     depends_on: grove_gpio
@@ -696,6 +706,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_btn_d16", "gpio-keys")
     extra_args: SHIELD=grove_btn_d16
     platform_allow:
+      - cytron_maker_pi_rp2040
       - seeeduino_lotus
   grove.connectors.grove_btn.gpio.d17:
     depends_on: grove_gpio
@@ -706,6 +717,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_btn_d17", "gpio-keys")
     extra_args: SHIELD=grove_btn_d17
     platform_allow:
+      - cytron_maker_pi_rp2040
       - seeeduino_lotus
   grove.connectors.grove_btn.gpio.d18:
     depends_on: grove_gpio
@@ -769,21 +781,24 @@ tests:
               dt_nodelabel_enabled("grove_d25_header") ) and
             dt_label_with_parent_compat_enabled("grove_btn_d26", "gpio-keys")
     extra_args: SHIELD=grove_btn_d26
-    skip: true
+    platform_allow:
+      - cytron_maker_pi_rp2040
   grove.connectors.grove_btn.gpio.d27:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d27_header") or
               dt_nodelabel_enabled("grove_d26_header") ) and
             dt_label_with_parent_compat_enabled("grove_btn_d27", "gpio-keys")
     extra_args: SHIELD=grove_btn_d27
-    skip: true
+    platform_allow:
+      - cytron_maker_pi_rp2040
   grove.connectors.grove_btn.gpio.d28:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d28_header") or
               dt_nodelabel_enabled("grove_d27_header") ) and
             dt_label_with_parent_compat_enabled("grove_btn_d28", "gpio-keys")
     extra_args: SHIELD=grove_btn_d28
-    skip: true
+    platform_allow:
+      - cytron_maker_pi_rp2040
   grove.connectors.grove_btn.gpio.d29:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d29_header") or
