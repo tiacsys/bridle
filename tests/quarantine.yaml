@@ -113,6 +113,8 @@
     - grove.base.(v2|v1).pwms
     - grove.base.(v2|v1).arduino
   platforms:
+    - cytron_maker_nano_rp2040
+    - cytron_maker_pi_rp2040
     - rpi_pico
     - rpi_pico_w
     - seeeduino_xiao
@@ -135,6 +137,8 @@
     - grove.xiao.v1.xiao
   platforms:
     - arduino_zero
+    - cytron_maker_nano_rp2040
+    - cytron_maker_pi_rp2040
     - mimxrt1010_evk
     - mimxrt1060_evk
     - mimxrt1060_evkb
@@ -183,6 +187,8 @@
     - grove.rpipico.v1.rpipico
   platforms:
     - arduino_zero
+    - cytron_maker_nano_rp2040
+    - cytron_maker_pi_rp2040
     - mimxrt1010_evk
     - mimxrt1060_evk
     - mimxrt1060_evkb
