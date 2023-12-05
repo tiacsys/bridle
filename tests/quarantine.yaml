@@ -460,6 +460,8 @@
   scenarios:
     - grove.base.(v2|v1).grove_led.(gpio|pwm).d.*
   platforms:
+    - cytron_maker_nano_rp2040
+    - cytron_maker_pi_rp2040
     - rpi_pico
     - rpi_pico_w
     - seeeduino_xiao
@@ -592,6 +594,8 @@
     - grove.xiao.v1.grove_led.(gpio|pwm).d.*
   platforms:
     - arduino_zero
+    - cytron_maker_nano_rp2040
+    - cytron_maker_pi_rp2040
     - mimxrt1010_evk
     - mimxrt1060_evk
     - mimxrt1060_evkb
@@ -629,6 +633,8 @@
     - grove.rpipico.v1.grove_led.(gpio|pwm).d.*
   platforms:
     - arduino_zero
+    - cytron_maker_nano_rp2040
+    - cytron_maker_pi_rp2040
     - mimxrt1010_evk
     - mimxrt1060_evk
     - mimxrt1060_evkb
@@ -740,6 +746,63 @@
     - grove.connectors.grove_led.(gpio|pwm).d26
     - grove.connectors.grove_led.(gpio|pwm).d27
     - grove.connectors.grove_led.(gpio|pwm).d28
+    - grove.connectors.grove_led.(gpio|pwm).d29
+    - grove.connectors.grove_led.(gpio|pwm).d30
+    - grove.connectors.grove_led.(gpio|pwm).d31
+
+- comment: "shield(grove.connectors.grove_led): cytron_maker_nano_rp2040: invalid board condition."
+  platforms:
+    - cytron_maker_nano_rp2040
+  scenarios:
+    - grove.connectors.grove_led.(gpio|pwm).d2
+    - grove.connectors.grove_led.(gpio|pwm).d3
+    - grove.connectors.grove_led.(gpio|pwm).d4
+    - grove.connectors.grove_led.(gpio|pwm).d5
+    - grove.connectors.grove_led.(gpio|pwm).d6
+    - grove.connectors.grove_led.(gpio|pwm).d7
+    - grove.connectors.grove_led.(gpio|pwm).d8
+    - grove.connectors.grove_led.(gpio|pwm).d9
+    - grove.connectors.grove_led.(gpio|pwm).d10
+    - grove.connectors.grove_led.(gpio|pwm).d11
+    - grove.connectors.grove_led.(gpio|pwm).d12
+    - grove.connectors.grove_led.(gpio|pwm).d13
+    - grove.connectors.grove_led.(gpio|pwm).d16
+    - grove.connectors.grove_led.(gpio|pwm).d17
+    - grove.connectors.grove_led.(gpio|pwm).d18
+    - grove.connectors.grove_led.(gpio|pwm).d19
+    - grove.connectors.grove_led.(gpio|pwm).d20
+    - grove.connectors.grove_led.(gpio|pwm).d21
+    - grove.connectors.grove_led.(gpio|pwm).d22
+    - grove.connectors.grove_led.(gpio|pwm).d23
+    - grove.connectors.grove_led.(gpio|pwm).d24
+    - grove.connectors.grove_led.(gpio|pwm).d25
+    - grove.connectors.grove_led.(gpio|pwm).d26
+    - grove.connectors.grove_led.(gpio|pwm).d27
+    - grove.connectors.grove_led.(gpio|pwm).d28
+    - grove.connectors.grove_led.(gpio|pwm).d29
+    - grove.connectors.grove_led.(gpio|pwm).d30
+    - grove.connectors.grove_led.(gpio|pwm).d31
+
+- comment: "shield(grove.connectors.grove_led): cytron_maker_pi_rp2040: invalid board condition."
+  platforms:
+    - cytron_maker_pi_rp2040
+  scenarios:
+    - grove.connectors.grove_led.(gpio|pwm).d8
+    - grove.connectors.grove_led.(gpio|pwm).d9
+    - grove.connectors.grove_led.(gpio|pwm).d10
+    - grove.connectors.grove_led.(gpio|pwm).d11
+    - grove.connectors.grove_led.(gpio|pwm).d12
+    - grove.connectors.grove_led.(gpio|pwm).d13
+    - grove.connectors.grove_led.(gpio|pwm).d14
+    - grove.connectors.grove_led.(gpio|pwm).d15
+    - grove.connectors.grove_led.(gpio|pwm).d18
+    - grove.connectors.grove_led.(gpio|pwm).d19
+    - grove.connectors.grove_led.(gpio|pwm).d20
+    - grove.connectors.grove_led.(gpio|pwm).d21
+    - grove.connectors.grove_led.(gpio|pwm).d22
+    - grove.connectors.grove_led.(gpio|pwm).d23
+    - grove.connectors.grove_led.(gpio|pwm).d24
+    - grove.connectors.grove_led.(gpio|pwm).d25
     - grove.connectors.grove_led.(gpio|pwm).d29
     - grove.connectors.grove_led.(gpio|pwm).d30
     - grove.connectors.grove_led.(gpio|pwm).d31

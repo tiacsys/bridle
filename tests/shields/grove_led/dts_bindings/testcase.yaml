@@ -30,6 +30,8 @@ common:
   #
   integration_platforms:
     - arduino_zero
+    - cytron_maker_nano_rp2040
+    - cytron_maker_pi_rp2040
     - mimxrt1010_evk
     - mimxrt1060_evk
     - mimxrt1060_evkb
@@ -1367,6 +1369,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_led_d2", "gpio-leds")
     extra_args: SHIELD=grove_led_d2
     platform_allow:
+      - cytron_maker_pi_rp2040
       - seeeduino_lotus
   grove.connectors.grove_led.gpio.d3:
     depends_on: grove_gpio
@@ -1375,6 +1378,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_led_d3", "gpio-leds")
     extra_args: SHIELD=grove_led_d3
     platform_allow:
+      - cytron_maker_pi_rp2040
       - seeeduino_lotus
   grove.connectors.grove_led.gpio.d4:
     depends_on: grove_gpio
@@ -1383,6 +1387,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_led_d4", "gpio-leds")
     extra_args: SHIELD=grove_led_d4
     platform_allow:
+      - cytron_maker_pi_rp2040
       - seeeduino_lotus
   grove.connectors.grove_led.gpio.d5:
     depends_on: grove_gpio
@@ -1391,6 +1396,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_led_d5", "gpio-leds")
     extra_args: SHIELD=grove_led_d5
     platform_allow:
+      - cytron_maker_pi_rp2040
       - seeeduino_lotus
   grove.connectors.grove_led.gpio.d6:
     depends_on: grove_gpio
@@ -1399,6 +1405,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_led_d6", "gpio-leds")
     extra_args: SHIELD=grove_led_d6
     platform_allow:
+      - cytron_maker_pi_rp2040
       - seeeduino_lotus
   grove.connectors.grove_led.gpio.d7:
     depends_on: grove_gpio
@@ -1407,6 +1414,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_led_d7", "gpio-leds")
     extra_args: SHIELD=grove_led_d7
     platform_allow:
+      - cytron_maker_pi_rp2040
       - seeeduino_lotus
   grove.connectors.grove_led.gpio.d8:
     depends_on: grove_gpio
@@ -1459,6 +1467,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_led_d14", "gpio-leds")
     extra_args: SHIELD=grove_led_d14
     platform_allow:
+      - cytron_maker_nano_rp2040
       - seeeduino_lotus
   grove.connectors.grove_led.gpio.d15:
     depends_on: grove_gpio
@@ -1469,6 +1478,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_led_d15", "gpio-leds")
     extra_args: SHIELD=grove_led_d15
     platform_allow:
+      - cytron_maker_nano_rp2040
       - seeeduino_lotus
   grove.connectors.grove_led.gpio.d16:
     depends_on: grove_gpio
@@ -1479,6 +1489,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_led_d16", "gpio-leds")
     extra_args: SHIELD=grove_led_d16
     platform_allow:
+      - cytron_maker_pi_rp2040
       - seeeduino_lotus
   grove.connectors.grove_led.gpio.d17:
     depends_on: grove_gpio
@@ -1489,6 +1500,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_led_d17", "gpio-leds")
     extra_args: SHIELD=grove_led_d17
     platform_allow:
+      - cytron_maker_pi_rp2040
       - seeeduino_lotus
   grove.connectors.grove_led.gpio.d18:
     depends_on: grove_gpio
@@ -1552,21 +1564,24 @@ tests:
               dt_nodelabel_enabled("grove_d25_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d26", "gpio-leds")
     extra_args: SHIELD=grove_led_d26
-    skip: true
+    platform_allow:
+      - cytron_maker_pi_rp2040
   grove.connectors.grove_led.gpio.d27:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d27_header") or
               dt_nodelabel_enabled("grove_d26_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d27", "gpio-leds")
     extra_args: SHIELD=grove_led_d27
-    skip: true
+    platform_allow:
+      - cytron_maker_pi_rp2040
   grove.connectors.grove_led.gpio.d28:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d28_header") or
               dt_nodelabel_enabled("grove_d27_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d28", "gpio-leds")
     extra_args: SHIELD=grove_led_d28
-    skip: true
+    platform_allow:
+      - cytron_maker_pi_rp2040
   grove.connectors.grove_led.gpio.d29:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d29_header") or
@@ -1598,7 +1613,9 @@ tests:
               dt_nodelabel_enabled("grove_uart_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d0", "pwm-leds")
     extra_args: SHIELD=grove_pwm_led_d0
-    skip: true
+    platform_allow:
+      - cytron_maker_nano_rp2040
+      - cytron_maker_pi_rp2040
   grove.connectors.grove_led.pwm.d1:
     depends_on: grove_gpio grove_pwm
     filter: dt_nodelabel_enabled("grove_pwm_d1") and
@@ -1607,7 +1624,9 @@ tests:
               dt_nodelabel_enabled("grove_uart_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d1", "pwm-leds")
     extra_args: SHIELD=grove_pwm_led_d1
-    skip: true
+    platform_allow:
+      - cytron_maker_nano_rp2040
+      - cytron_maker_pi_rp2040
   grove.connectors.grove_led.pwm.d2:
     depends_on: grove_gpio grove_pwm
     filter: dt_nodelabel_enabled("grove_pwm_d2") and
@@ -1616,6 +1635,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d2", "pwm-leds")
     extra_args: SHIELD=grove_pwm_led_d2
     platform_allow:
+      - cytron_maker_pi_rp2040
       - seeeduino_lotus
   grove.connectors.grove_led.pwm.d3:
     depends_on: grove_gpio grove_pwm
@@ -1625,6 +1645,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d3", "pwm-leds")
     extra_args: SHIELD=grove_pwm_led_d3
     platform_allow:
+      - cytron_maker_pi_rp2040
       - seeeduino_lotus
   grove.connectors.grove_led.pwm.d4:
     depends_on: grove_gpio grove_pwm
@@ -1634,6 +1655,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d4", "pwm-leds")
     extra_args: SHIELD=grove_pwm_led_d4
     platform_allow:
+      - cytron_maker_pi_rp2040
       - seeeduino_lotus
   grove.connectors.grove_led.pwm.d5:
     depends_on: grove_gpio grove_pwm
@@ -1643,6 +1665,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d5", "pwm-leds")
     extra_args: SHIELD=grove_pwm_led_d5
     platform_allow:
+      - cytron_maker_pi_rp2040
       - seeeduino_lotus
   grove.connectors.grove_led.pwm.d6:
     depends_on: grove_gpio grove_pwm
@@ -1652,6 +1675,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d6", "pwm-leds")
     extra_args: SHIELD=grove_pwm_led_d6
     platform_allow:
+      - cytron_maker_pi_rp2040
       - seeeduino_lotus
   grove.connectors.grove_led.pwm.d7:
     depends_on: grove_gpio grove_pwm
@@ -1661,6 +1685,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d7", "pwm-leds")
     extra_args: SHIELD=grove_pwm_led_d7
     platform_allow:
+      - cytron_maker_pi_rp2040
       - seeeduino_lotus
   grove.connectors.grove_led.pwm.d8:
     depends_on: grove_gpio grove_pwm
@@ -1719,7 +1744,8 @@ tests:
               dt_nodelabel_enabled("grove_a0_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d14", "pwm-leds")
     extra_args: SHIELD=grove_pwm_led_d14
-    skip: true
+    platform_allow:
+      - cytron_maker_nano_rp2040
   grove.connectors.grove_led.pwm.d15:
     depends_on: grove_gpio grove_pwm
     filter: dt_nodelabel_enabled("grove_pwm_d15") and
@@ -1729,7 +1755,8 @@ tests:
               dt_nodelabel_enabled("grove_a0_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d15", "pwm-leds")
     extra_args: SHIELD=grove_pwm_led_d15
-    skip: true
+    platform_allow:
+      - cytron_maker_nano_rp2040
   grove.connectors.grove_led.pwm.d16:
     depends_on: grove_gpio grove_pwm
     filter: dt_nodelabel_enabled("grove_pwm_d16") and
@@ -1739,7 +1766,8 @@ tests:
               dt_nodelabel_enabled("grove_a1_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d16", "pwm-leds")
     extra_args: SHIELD=grove_pwm_led_d16
-    skip: true
+    platform_allow:
+      - cytron_maker_pi_rp2040
   grove.connectors.grove_led.pwm.d17:
     depends_on: grove_gpio grove_pwm
     filter: dt_nodelabel_enabled("grove_pwm_d17") and
@@ -1749,7 +1777,8 @@ tests:
               dt_nodelabel_enabled("grove_a2_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d17", "pwm-leds")
     extra_args: SHIELD=grove_pwm_led_d17
-    skip: true
+    platform_allow:
+      - cytron_maker_pi_rp2040
   grove.connectors.grove_led.pwm.d18:
     depends_on: grove_gpio grove_pwm
     filter: dt_nodelabel_enabled("grove_pwm_d18") and
@@ -1821,7 +1850,8 @@ tests:
               dt_nodelabel_enabled("grove_d25_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d26", "pwm-leds")
     extra_args: SHIELD=grove_pwm_led_d26
-    skip: true
+    platform_allow:
+      - cytron_maker_pi_rp2040
   grove.connectors.grove_led.pwm.d27:
     depends_on: grove_gpio grove_pwm
     filter: dt_nodelabel_enabled("grove_pwm_d27") and
@@ -1829,7 +1859,8 @@ tests:
               dt_nodelabel_enabled("grove_d26_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d27", "pwm-leds")
     extra_args: SHIELD=grove_pwm_led_d27
-    skip: true
+    platform_allow:
+      - cytron_maker_pi_rp2040
   grove.connectors.grove_led.pwm.d28:
     depends_on: grove_gpio grove_pwm
     filter: dt_nodelabel_enabled("grove_pwm_d28") and
@@ -1837,7 +1868,8 @@ tests:
               dt_nodelabel_enabled("grove_d27_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d28", "pwm-leds")
     extra_args: SHIELD=grove_pwm_led_d28
-    skip: true
+    platform_allow:
+      - cytron_maker_pi_rp2040
   grove.connectors.grove_led.pwm.d29:
     depends_on: grove_gpio grove_pwm
     filter: dt_nodelabel_enabled("grove_pwm_d29") and
