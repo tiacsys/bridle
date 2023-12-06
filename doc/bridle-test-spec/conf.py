@@ -111,9 +111,7 @@ extensions = [
     'zephyr.dtcompatible-role',
     'zephyr.link-roles',
     'zephyr.warnings_filter',
-#   'zephyr.doxyrunner',
-#   'zephyr.vcs_link',
-    'zephyr.external_content',
+    'robot_to_rst',
     'sphinx_copybutton',
     'notfound.extension',
     'bridle.link-roles',
@@ -249,9 +247,7 @@ external_content_directives = (
 )
 external_content_contents = [
     (BRIDLE_BASE / 'doc' / 'bridle-test-spec', '[!_]*'),
-#    (BRIDLE_BASE, 'samples/**/*.robot'),
-    (BRIDLE_BASE, 'samples/**/index.rst'),
-    (BRIDLE_BASE, 'samples/**/*robot.rst'),
+    (BRIDLE_BASE, 'samples/**/*.robot'),
 ]
 external_content_keep = ['versions.txt']
 
