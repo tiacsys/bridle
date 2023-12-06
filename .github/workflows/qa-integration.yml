@@ -128,6 +128,7 @@ jobs:
             --outdir twister-out --no-clean --inline-logs \
             --enable-size-report --platform-reports \
             --testsuite-root bridle/samples/button \
+            --testsuite-root bridle/samples/buzzer \
             --testsuite-root bridle/samples/helloshell
 
       - name: Upload integration test results
