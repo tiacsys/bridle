@@ -227,6 +227,80 @@ endif()
 
 if(CONFIG_SHIELD_X_GROVE_TESTBED_SINGLE_BOARD)
 
+  if(CONFIG_BOARD_CYTRON_MAKER_NANO_RP2040)
+
+    if(NOT CONFIG_SHIELD_GROVE_BTN)
+      message(FATAL_ERROR "Test failed, "
+        "actual CONFIG_SHIELD_GROVE_BTN=${CONFIG_SHIELD_GROVE_BTN}, "
+        "expected CONFIG_SHIELD_GROVE_BTN=y"
+      )
+    else()
+
+      test_if(CONFIG_SHIELD_GROVE_BTN "sw0" "grove_btn_d0" "Grove Button D0")
+
+    endif()
+
+    if(NOT CONFIG_SHIELD_GROVE_LED)
+      message(FATAL_ERROR "Test failed, "
+        "actual CONFIG_SHIELD_GROVE_LED=${CONFIG_SHIELD_GROVE_LED}, "
+        "expected CONFIG_SHIELD_GROVE_LED=y"
+      )
+    else()
+
+      test_if(CONFIG_SHIELD_GROVE_LED "led0" "grove_led_d15" "Grove LED D15")
+
+    endif()
+
+    if(NOT CONFIG_SHIELD_GROVE_PWM_LED)
+      message(FATAL_ERROR "Test failed, "
+        "actual CONFIG_SHIELD_GROVE_PWM_LED=${CONFIG_SHIELD_GROVE_PWM_LED}, "
+        "expected CONFIG_SHIELD_GROVE_PWM_LED=y"
+      )
+    else()
+
+      test_if(CONFIG_SHIELD_GROVE_PWM_LED "pwm-led0" "grove_pwm_led_d15" "Grove LED D15")
+
+    endif()
+
+  endif()
+
+  if(CONFIG_BOARD_CYTRON_MAKER_PI_RP2040)
+
+    if(NOT CONFIG_SHIELD_GROVE_BTN)
+      message(FATAL_ERROR "Test failed, "
+        "actual CONFIG_SHIELD_GROVE_BTN=${CONFIG_SHIELD_GROVE_BTN}, "
+        "expected CONFIG_SHIELD_GROVE_BTN=y"
+      )
+    else()
+
+      test_if(CONFIG_SHIELD_GROVE_BTN "sw0" "grove_btn_d3" "Grove Button D3")
+
+    endif()
+
+    if(NOT CONFIG_SHIELD_GROVE_LED)
+      message(FATAL_ERROR "Test failed, "
+        "actual CONFIG_SHIELD_GROVE_LED=${CONFIG_SHIELD_GROVE_LED}, "
+        "expected CONFIG_SHIELD_GROVE_LED=y"
+      )
+    else()
+
+      test_if(CONFIG_SHIELD_GROVE_LED "led0" "grove_led_d5" "Grove LED D5")
+
+    endif()
+
+    if(NOT CONFIG_SHIELD_GROVE_PWM_LED)
+      message(FATAL_ERROR "Test failed, "
+        "actual CONFIG_SHIELD_GROVE_PWM_LED=${CONFIG_SHIELD_GROVE_PWM_LED}, "
+        "expected CONFIG_SHIELD_GROVE_PWM_LED=y"
+      )
+    else()
+
+      test_if(CONFIG_SHIELD_GROVE_PWM_LED "pwm-led0" "grove_pwm_led_d5" "Grove LED D5")
+
+    endif()
+
+  endif()
+
   if(CONFIG_BOARD_SEEEDUINO_LOTUS)
 
     if(NOT CONFIG_SHIELD_GROVE_BTN)

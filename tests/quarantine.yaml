@@ -29,7 +29,9 @@
     - grove.base.v2.x_grove_testbed.pwm.b7l6
     - grove.xiao.v1.x_grove_testbed.pwm.b0l1
     - grove.rpipico.v1.x_grove_testbed.pwm.b16l18
-    - grove.connectors.x_grove_testbed.pwm
+    - grove.connectors.x_grove_testbed.pwm.b0l15
+    - grove.connectors.x_grove_testbed.pwm.b3l5
+    - grove.connectors.x_grove_testbed.pwm.b7l6
   platforms:
     - mimxrt1010_evk
     - mimxrt1060_evk
@@ -41,42 +43,50 @@
     - grove.base.v2.x_grove_testbed.pwm.b7l6
     - grove.xiao.v1.x_grove_testbed.pwm.b0l1
     - grove.rpipico.v1.x_grove_testbed.pwm.b16l18
-    - grove.connectors.x_grove_testbed.pwm
+    - grove.connectors.x_grove_testbed.pwm.b0l15
+    - grove.connectors.x_grove_testbed.pwm.b3l5
+    - grove.connectors.x_grove_testbed.pwm.b7l6
   platforms:
     - nucleo_f303re
     - nucleo_f401re
     - nucleo_f413zh
     - nucleo_f767zi
 
-- comment: "shield(grove.base.x_grove_testbed.pwm.b7l6): invalid board/shield condition."
+- comment: "shield(grove.base.x_grove_testbed.b7l6): invalid board/shield condition."
   scenarios:
     - grove.base.v2.x_grove_testbed.gpio.b4l6
     - grove.base.v2.x_grove_testbed.pwm.b4l6
     - grove.xiao.v1.x_grove_testbed.pwm.b0l1
     - grove.rpipico.v1.x_grove_testbed.pwm.b16l18
-    - grove.connectors.x_grove_testbed.pwm
+    - grove.connectors.x_grove_testbed.pwm.b0l15
+    - grove.connectors.x_grove_testbed.pwm.b3l5
+    - grove.connectors.x_grove_testbed.pwm.b7l6
   platforms:
     - arduino_zero
     - seeeduino_cm0
 
-- comment: "shield(grove.xiao.x_grove_testbed): invalid board/shield condition."
+- comment: "shield(grove.xiao.x_grove_testbed.b0l1): invalid board/shield condition."
   scenarios:
     - grove.base.v2.x_grove_testbed.gpio.b4l6
     - grove.base.v2.x_grove_testbed.pwm.b4l6
     - grove.base.v2.x_grove_testbed.pwm.b7l6
     - grove.rpipico.v1.x_grove_testbed.pwm.b16l18
-    - grove.connectors.x_grove_testbed.pwm
+    - grove.connectors.x_grove_testbed.pwm.b0l15
+    - grove.connectors.x_grove_testbed.pwm.b3l5
+    - grove.connectors.x_grove_testbed.pwm.b7l6
   platforms:
     - seeed_xiao_samd21
     - seeeduino_xiao
 
-- comment: "shield(grove.rpipico.x_grove_testbed): invalid board/shield condition."
+- comment: "shield(grove.rpipico.x_grove_testbed.b16l18): invalid board/shield condition."
   scenarios:
     - grove.base.v2.x_grove_testbed.gpio.b4l6
     - grove.base.v2.x_grove_testbed.pwm.b4l6
     - grove.base.v2.x_grove_testbed.pwm.b7l6
     - grove.xiao.v1.x_grove_testbed.pwm.b0l1
-    - grove.connectors.x_grove_testbed.pwm
+    - grove.connectors.x_grove_testbed.pwm.b0l15
+    - grove.connectors.x_grove_testbed.pwm.b3l5
+    - grove.connectors.x_grove_testbed.pwm.b7l6
   platforms:
     - rpi_pico
     - rpi_pico_w
@@ -84,12 +94,38 @@
     - waveshare_rp2040_plus
     - waveshare_rp2040_plus@16mb
 
-- comment: "shield(grove.connectors.x_grove_testbed): invalid board/shield condition."
+- comment: "shield(grove.connectors.x_grove_testbed.b1l27): invalid board/shield condition."
+  scenarios:
+    - grove.base.v2.x_grove_testbed.gpio.b4l6
+    - grove.base.v2.x_grove_testbed.pwm.b4l6
+    - grove.base.v2.x_grove_testbed.pwm.b7l6
+    - grove.xiao.v1.x_grove_testbed.pwm.b0l1
+    - grove.rpipico.v1.x_grove_testbed.pwm.b16l18
+    - grove.connectors.x_grove_testbed.pwm.b3l5
+    - grove.connectors.x_grove_testbed.pwm.b7l6
+  platforms:
+    - cytron_maker_nano_rp2040
+
+- comment: "shield(grove.connectors.x_grove_testbed.b3l5): invalid board/shield condition."
+  scenarios:
+    - grove.base.v2.x_grove_testbed.gpio.b4l6
+    - grove.base.v2.x_grove_testbed.pwm.b4l6
+    - grove.base.v2.x_grove_testbed.pwm.b7l6
+    - grove.xiao.v1.x_grove_testbed.pwm.b0l1
+    - grove.rpipico.v1.x_grove_testbed.pwm.b16l18
+    - grove.connectors.x_grove_testbed.pwm.b0l15
+    - grove.connectors.x_grove_testbed.pwm.b7l6
+  platforms:
+    - cytron_maker_pi_rp2040
+
+- comment: "shield(grove.connectors.x_grove_testbed.b7l6): invalid board/shield condition."
   scenarios:
     - grove.base.v2.x_grove_testbed.gpio.b4l6
     - grove.base.v2.x_grove_testbed.pwm.b4l6
     - grove.xiao.v1.x_grove_testbed.pwm.b0l1
     - grove.rpipico.v1.x_grove_testbed.pwm.b16l18
+    - grove.connectors.x_grove_testbed.pwm.b0l15
+    - grove.connectors.x_grove_testbed.pwm.b3l5
   platforms:
     - seeeduino_lotus
 

@@ -30,6 +30,8 @@ common:
   #
   integration_platforms:
     - arduino_zero
+    - cytron_maker_nano_rp2040
+    - cytron_maker_pi_rp2040
     - mimxrt1010_evk
     - mimxrt1060_evk
     - mimxrt1060_evkb
@@ -119,7 +121,29 @@ tests:
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
-  grove.connectors.x_grove_testbed.pwm:
+  grove.connectors.x_grove_testbed.pwm.b0l15:
+    depends_on: grove_gpio grove_pwm
+    filter: dt_nodelabel_enabled("grove_d15_header") and
+            dt_label_with_parent_compat_enabled("grove_pwm_led_d15", "pwm-leds") and
+            dt_label_with_parent_compat_enabled("grove_led_d15", "gpio-leds") and
+            dt_nodelabel_enabled("grove_d0_header") and
+            dt_label_with_parent_compat_enabled("grove_btn_d0", "gpio-keys")
+    extra_args:
+      SHIELD=grove_btn_d0;grove_led_d15;grove_pwm_led_d15;x_grove_testbed
+    platform_allow:
+      - cytron_maker_nano_rp2040
+  grove.connectors.x_grove_testbed.pwm.b3l5:
+    depends_on: grove_gpio grove_pwm
+    filter: dt_nodelabel_enabled("grove_d5_header") and
+            dt_label_with_parent_compat_enabled("grove_pwm_led_d5", "pwm-leds") and
+            dt_label_with_parent_compat_enabled("grove_led_d5", "gpio-leds") and
+            dt_nodelabel_enabled("grove_d3_header") and
+            dt_label_with_parent_compat_enabled("grove_btn_d3", "gpio-keys")
+    extra_args:
+      SHIELD=grove_btn_d3;grove_led_d5;grove_pwm_led_d5;x_grove_testbed
+    platform_allow:
+      - cytron_maker_pi_rp2040
+  grove.connectors.x_grove_testbed.pwm.b7l6:
     depends_on: grove_gpio grove_pwm
     filter: dt_nodelabel_enabled("grove_d6_header") and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d6", "pwm-leds") and
