@@ -1,11 +1,5 @@
 .. _index:
 .. _bridle-test-home:
 
-Bridle Test Specification
+Bridle Test specification
 #########################
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
-
-   samples/robot_framework/index
