@@ -1,0 +1,8 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+&lcd_panel {
+	pixel-format = <ILI9XXX_PIXEL_FORMAT_RGB888>;
+};

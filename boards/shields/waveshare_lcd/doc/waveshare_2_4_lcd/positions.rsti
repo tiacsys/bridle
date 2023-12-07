@@ -1,0 +1,34 @@
+.. list-table::
+   :align: center
+   :width: 66%
+   :header-rows: 1
+
+   * - .. image:: /boards/shields/waveshare_lcd/doc/waveshare_2_4_lcd/positions.jpg
+          :align: center
+          :width: 500
+          :alt: Waveshare 2.4 LCD details
+
+   * - .. container:: twocol
+
+          .. container:: leftside
+
+             Outputs:
+
+             1. | :strong:`ILI9341`
+                | 2.4-inch 240×350 pixels 65K colorful TFT LCD
+
+          .. container:: rightside
+
+             Connections:
+
+             2. :strong:`JST connetor` for free wiring
+             #. :emphasis:`optional 2.54㎜ pin header`
+
+.. rubric:: Data Sheets
+.. rst-class:: rst-columns
+
+- .. rubric:: `ILI9341 <ILI9341V_>`_
+- `ILI9341V Datasheet V1.00 (2013/04)`_
+- `ILI9341 Datasheet V1.13 (2011/07)`_
+- `ILI9341 Datasheet V1.09 (2011/03)`_
+

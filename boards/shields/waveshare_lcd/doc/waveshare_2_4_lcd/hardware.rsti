@@ -1,0 +1,43 @@
+The `Waveshare 2.4 LCD Module`_ with a resolution of 240 × RGB × 320 pixels,
+is based on the built-in controller `ILI9341 <ILI9341V_>`_ inside the LCD.
+The LCD supports 6-bit, 16-bit, and 18-bit input color formats per pixel,
+namely RGB222, RGB565, and RGB666 three color formats. This integration
+**uses the RGB565** color format, which is also a commonly used RGB format.
+The LCD uses a four-wire SPI communication interface.
+
+.. list-table::
+   :align: center
+   :width: 100%
+   :widths: 66, 33
+
+   * - .. rubric:: Features and Resources
+     - .. rubric:: Printed Circuit Board
+
+   * - :hwftlbl-vdd:`3V3/~25㎃` or :hwftlbl-vdd:`5V/~15㎃`
+
+       :hwftlbl-scr:`LCD`
+
+       :hwftlbl-pio:`3`
+       :hwftlbl-pwm:`1`
+       :hwftlbl-spi:`1`
+
+       .. rst-class:: rst-columns
+
+       - :bbk:`1 serial 240×320 TFT 65K LCD`
+       - :bbk:`1 LCD Backglight LED`
+
+       - :bbk:`1 RST signal to LCD controller`
+       - :bbk:`1 C/D signal to LCD controller`
+       - optional 2.54㎜ pin header
+       - free wiring
+
+       .. rubric:: Design Data
+       .. rst-class:: rst-columns
+
+       - `Waveshare 2.4 LCD Schematic`_
+       - `Waveshare 2.4 LCD 2D Drawing`_
+       - `Waveshare 2.4 LCD 3D Drawing`_
+
+     - .. image:: /boards/shields/waveshare_lcd/doc/waveshare_2_4_lcd/hardware.jpg
+          :align: center
+          :alt: Waveshare 2.4 LCD

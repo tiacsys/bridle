@@ -538,6 +538,20 @@
    https://www.waveshare.com/wiki/RP2040-GEEK#Document
 .. https://files.waveshare.com/wiki/RP2040-GEEK/RP2040-GEEK-Schematic.pdf
 
+.. ### Links to the Waveshare 2.4 LCD Module
+
+.. _`Waveshare 2.4 LCD Module`:
+   https://www.waveshare.com/wiki/2.4inch_LCD_Module
+
+.. _`Waveshare 2.4 LCD Schematic`:
+   https://www.waveshare.com/wiki/2.4inch_LCD_Module#Docuemnts
+
+.. _`Waveshare 2.4 LCD 2D Drawing`:
+   https://www.waveshare.com/wiki/2.4inch_LCD_Module#2D_Drawing
+
+.. _`Waveshare 2.4 LCD 3D Drawing`:
+   https://www.waveshare.com/wiki/2.4inch_LCD_Module#3D_Drawing
+
 
 
 .. ### Links to the Grove System
@@ -827,6 +841,21 @@
    https://www.ti.com/lit/gpn/tps63000
 
 .. #### Links to LCD Controllers or similar to drive displays
+
+.. _`ILI9341V`:
+   https://www.ilitek.com.tw/page/about/index.aspx?kind=105
+
+.. _`ILI9341V Datasheet V1.00 (2013/04)`:
+   https://www.crystalfontz.com/controllers/Ilitek/ILI9341V/143
+
+.. _`ILI9341 Datasheet V1.13 (2011/07)`:
+   https://cdn-shop.adafruit.com/datasheets/ILI9341.pdf
+.. http://www.lcdwiki.com/res/MSP2807/ILI9341%20Datasheet.pdf
+.. https://www.waveshare.com/wiki/2.4inch_LCD_Module#Docuemnts
+.. https://files.waveshare.com/upload/e/e3/ILI9341_DS.pdf
+
+.. _`ILI9341 Datasheet V1.09 (2011/03)`:
+   http://www.lcdwiki.com/res/MSP2807/ILI9341%20Datasheet.pdf
 
 .. _`ST7735S`:
    https://www.sitronix.com.tw/en/products/aiot-device-ddi

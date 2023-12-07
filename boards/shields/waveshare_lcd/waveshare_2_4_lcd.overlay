@@ -1,0 +1,16 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	chosen {
+		zephyr,display = &lcd_panel;
+	};
+
+	lcd_backlight_en: lcd-backlight-en {
+		compatible = "regulator-fixed";
+		regulator-name = "lcd_backlight_enable";
+		regulator-boot-on;
+	};
+};

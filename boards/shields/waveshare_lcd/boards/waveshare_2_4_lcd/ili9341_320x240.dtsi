@@ -1,0 +1,45 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <freq.h>
+#include <zephyr/dt-bindings/display/ili9xxx.h>
+
+&board_spi_lcd {
+	ili9341_320x240: ili9341@0 {
+		compatible = "ilitek,ili9341";
+		spi-max-frequency = <DT_FREQ_M(25)>;
+		reg = <0>;
+
+		status = "disabled";
+
+		width = <320>;
+		height = <240>;
+		rotation = <270>;		/* landscape */
+
+		disctrl = [08 82 27 04];	/* non-mirrored */
+		ifctl = [01 00 00];
+		ifmode = [40];
+
+		pwctrla = [39 2C 00 34 02];
+		pwctrlb = [00 C1 30];
+		timctrla = [85 00 79];
+		timctrlb = [00 00];
+		pwseqctrl = [64 03 12 81];
+		pumpratioctrl = [20];
+
+		enable3g = [00];
+		gamset = [01];
+
+		vmctrl1 = [33 3F];
+		vmctrl2 = [92];
+		frmctr1 = [00 12];
+		pwctrl1 = [1D];
+		pwctrl2 = [12];
+		pgamctrl = [0F 22 1C 1B 08 0F 48 B8 34 05 0C 09 0F 07 00];
+		ngamctrl = [00 23 24 07 10 07 38 47 4B 0A 13 06 30 38 0F];
+	};
+};
+
+lcd_panel: &ili9341_320x240 {};

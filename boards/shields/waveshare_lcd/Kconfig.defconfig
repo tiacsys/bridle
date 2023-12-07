@@ -1,0 +1,28 @@
+# Copyright (c) 2023 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+config SHIELD_WAVESHARE_LCD_MODULE
+	bool
+	default y if SHIELD_WAVESHARE_2_4_LCD
+	default n
+
+config LV_Z_VDB_SIZE
+	default 64 if SHIELD_WAVESHARE_2_4_LCD
+	depends on SHIELD_WAVESHARE_LCD_MODULE && DISPLAY && LVGL
+
+config LV_Z_BITS_PER_PIXEL
+	default 16 if SHIELD_WAVESHARE_2_4_LCD
+	depends on SHIELD_WAVESHARE_LCD_MODULE && DISPLAY && LVGL
+
+choice LV_COLOR_DEPTH
+	default LV_COLOR_DEPTH_16 if SHIELD_WAVESHARE_2_4_LCD
+	depends on SHIELD_WAVESHARE_LCD_MODULE && DISPLAY && LVGL
+endchoice
+
+config LV_COLOR_16_SWAP
+	default y if SHIELD_WAVESHARE_2_4_LCD
+	depends on SHIELD_WAVESHARE_LCD_MODULE && DISPLAY && LVGL
+
+config REGULATOR
+	default y
+	depends on DT_HAS_REGULATOR_FIXED_ENABLED

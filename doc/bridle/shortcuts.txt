@@ -90,6 +90,9 @@
 .. |Spotpear Pico ALL GPIO TEST| replace::
    :ref:`Spotpear Pico ALL GPIO TEST <spotpear_pico_test>`
 
+.. |Waveshare 2.4 LCD| replace::
+   :ref:`Waveshare 2.4 LCD <waveshare_2_4_lcd>`
+
 .. |Waveshare Pico LCD 1.14| replace::
    :ref:`Waveshare Pico LCD 1.14 <waveshare_pico_lcd_1_14>`
 

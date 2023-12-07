@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include "ili9341_240x320.dtsi"
+#include "ili9341_rgb565.dtsi"
+
+&lcd_backlight_en {
+	status = "okay";
+	enable-gpios = <&arduino_nano_header 9 GPIO_ACTIVE_HIGH>;	/* D9 */
+};
+
+&lcd_panel {
+	status = "okay";
+	reset-gpios = <&arduino_nano_header 8 GPIO_ACTIVE_LOW>;		/* D8 */
+	cmd-data-gpios = <&arduino_nano_header 7 GPIO_ACTIVE_LOW>;	/* D7 */
+};
+
+&board_spi_lcd {
+	cs-gpios = <&arduino_nano_header 10 GPIO_ACTIVE_LOW>;		/* D10 */
+};
