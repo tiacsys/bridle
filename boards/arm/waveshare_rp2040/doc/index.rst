@@ -402,7 +402,7 @@ for more details. The pinout diagrams can also be found there.
 System Clock
 ============
 
-The `RP2040 <RP2040 SoC>`_ MCU is configured to use the 12㎒ external crystal
+The `RP2040 <RP2040 SoC_>`_ MCU is configured to use the 12㎒ external crystal
 with the on-chip PLL generating the 125㎒ system clock. The internal AHB and
 APB units are set up in the same way as the upstream `Raspberry Pi Pico C/C++
 SDK`_ libraries.
@@ -410,7 +410,7 @@ SDK`_ libraries.
 GPIO (PWM) Ports
 ================
 
-The `RP2040 <RP2040 SoC>`_ MCU has 1 GPIO cell which covers all I/O pads and
+The `RP2040 <RP2040 SoC_>`_ MCU has 1 GPIO cell which covers all I/O pads and
 8 PWM function unit each with 2 channels beside a dedicated Timer unit. On
 the two boards |RP2040-Plus| and |RP2040-LCD-0.96|, PWM4 channel B is available
 on the on-board user or backlight LED. But the PWM operation is not enable by
@@ -425,7 +425,7 @@ does not provide any PWM to the outside on any pad by default.
 ADC/TS Ports
 ============
 
-The `RP2040 <RP2040 SoC>`_ MCU has 1 ADC with 4 channels and an additional
+The `RP2040 <RP2040 SoC_>`_ MCU has 1 ADC with 4 channels and an additional
 fifth channel for the on-chip temperature sensor (TS). The ADC channels 0-2
 are available on the |Raspberry Pi Pico| or |Waveshare RP2040 Mini| header,
 channel 3 only on the |Waveshare RP2040 Mini| header. On the |RP2040-Plus|,
@@ -442,7 +442,7 @@ default. Both ADC channels will share the same lines with the I2C0 signals.
 SPI Port
 ========
 
-The `RP2040 <RP2040 SoC>`_ MCU has 2 SPIs. To the edge connectors SPI0 is
+The `RP2040 <RP2040 SoC_>`_ MCU has 2 SPIs. To the edge connectors SPI0 is
 connect to external devices over GP19 (MOSI), GP16 (MISO), GP18 (SCK), and
 GP17 (CSn) on the |Raspberry Pi Pico| header or over GP7 (MOSI), GP4 (MISO),
 GP6 (SCK), and GP5 (CSn) on the |Waveshare RP2040 Mini| header. A special
@@ -455,7 +455,7 @@ are connected internally to the LCD and the TF/microSD card interfaces.
 I2C Port
 ========
 
-The `RP2040 <RP2040 SoC>`_ MCU has 2 I2Cs. To the edge connectors I2C0 and
+The `RP2040 <RP2040 SoC_>`_ MCU has 2 I2Cs. To the edge connectors I2C0 and
 I2C1 is connect to external devices over GP4 (I2C0_SDA), GP5 (I2C0_SCL),
 GP14 (I2C1_SDA), and GP15 (I2C1_SCL) on the |Raspberry Pi Pico| header or
 over GP8 (I2C0_SDA), GP9 (I2C0_SCL), GP14 (I2C1_SDA), and GP15 (I2C1_SCL)
@@ -470,7 +470,7 @@ will share the same lines with ADC channels 2 and 3.
 Serial Port
 ===========
 
-The `RP2040 <RP2040 SoC>`_ MCU has 2 UARTs. One of the UARTs (UART0) is
+The `RP2040 <RP2040 SoC_>`_ MCU has 2 UARTs. One of the UARTs (UART0) is
 connected to external devices over GP0 (TX) and GP1 (RX) on both the
 |Raspberry Pi Pico| and the |Waveshare RP2040 Mini| header in same manner
 and is the Zephyr console.
@@ -481,7 +481,7 @@ of the three edge connectors and it is enabled by default.
 USB Device Port
 ===============
 
-The `RP2040 <RP2040 SoC>`_ MCU has a (native) USB device port that can be
+The `RP2040 <RP2040 SoC_>`_ MCU has a (native) USB device port that can be
 used to communicate with a host PC. See the :ref:`zephyr:usb-samples` sample
 applications for more, such as the :doc:`zephyr:samples/subsys/usb/cdc_acm/README`
 sample which sets up a virtual serial port that echos characters back to the
@@ -548,7 +548,7 @@ storage device::
 The UF2 file should be drag-and-dropped or copied on command line to the
 device, which will then flash the Waveshare RP2040 board.
 
-Each `RP2040 SoC`_ ships the `UF2 compatible <UF2 bootloader>`_ bootloader
+Each `RP2040 SoC`_ ships the `UF2 compatible <UF2 bootloader_>`_ bootloader
 pico-bootrom_, a native support in silicon. The full source for the RP2040
 bootrom at pico-bootrom_ includes versions 1, 2 and 3 of the bootrom, which
 correspond to the B0, B1 and B2 silicon revisions, respectively.
