@@ -13,3 +13,6 @@ sphinx-notfound-page~=1.0
 sphinx-togglebutton~=0.3
 mlx.traceability~=10.1
 mlx-robot2rst~=3.4
+sphinx-test-reports~=1.0
+sphinx-needs~=2.0
+sphinxcontrib-plantuml~=0.25

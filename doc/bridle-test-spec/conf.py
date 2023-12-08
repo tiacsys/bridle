@@ -119,8 +119,18 @@ extensions = [
     'bridle.options_from_kconfig',
     'bridle.manifest_revisions_table',
     'mlx.traceability',
+    'sphinx_needs',
+    'sphinxcontrib.test_reports',
+    'sphinxcontrib.plantuml',
 ]
 
+# sphinx-test-report
+# use this template for the tes reports
+tr_report_template = '{}/doc/bridle-test-spec/test_report_template.txt'.format(BRIDLE_BASE)
+# set the root folder for the xunit files to Build folder
+tr_rootdir = '{}/src/'.format(BRIDLE_WORKD)
+
+# BRIDLE_BASE / 'doc'
 # Only use SVG converter when it is really needed, e.g. LaTeX.
 if tags.has('svgconvert'):  # pylint: disable=undefined-variable
     extensions.append('sphinxcontrib.rsvgconverter')
@@ -248,6 +258,7 @@ external_content_directives = (
 external_content_contents = [
     (BRIDLE_BASE / 'doc' / 'bridle-test-spec', '[!_]*'),
     (BRIDLE_BASE, 'samples/**/*.robot'),
+    (BRIDLE_BASE / '..' / 'twister-out', 'xunit*.xml'),
 ]
 external_content_keep = ['versions.txt']
 
