@@ -4,3 +4,156 @@
 .. |release| replace:: v3.5.0
 .. |release_tt| replace:: ``v3.5.0``
 .. |release_number_tt| replace:: ``3.5.0``
+
+.. External References (temporary, needs local implementation)
+
+.. |Arduino Sensor Kit| replace:: :strong:`Arduino Sensor Kit – Base`
+.. _`Arduino Sensor Kit`:
+   https://www.seeedstudio.com/Arduino-Sensor-Kit-Base-p-4743.html
+
+.. |Grove BMP280 Sensor| replace::
+   :strong:`Grove Temperature and Barometer Sensor – BMP280`
+.. _`Grove BMP280 Sensor`:
+   https://www.seeedstudio.com/Grove-Barometer-Sensor-BMP280.html
+
+.. Generic References
+
+.. |Arduino Zero (CDC ACM)| replace::
+   :ref:`Arduino Zero (CDC ACM) <arduino_zero>`
+
+.. |MIMXRT1010-EVK (CDC ACM)| replace::
+   :ref:`MIMXRT1010-EVK (CDC ACM) <zephyr:mimxrt1010_evk>`
+
+.. |MIMXRT1060-EVK (CDC ACM)| replace::
+   :ref:`MIMXRT1060-EVK (CDC ACM) <zephyr:mimxrt1060_evk>`
+
+.. |RP2040-ETH| replace::
+   :ref:`RP2040-ETH <waveshare_rp2040_eth>`
+
+.. |RP2040-ETH (CDC ACM)| replace::
+   :ref:`RP2040-ETH (CDC ACM) <waveshare_rp2040_eth>`
+
+.. |RP2040-Geek| replace::
+   :ref:`RP2040-Geek <waveshare_rp2040_geek>`
+
+.. |RP2040-Geek (CDC ACM)| replace::
+   :ref:`RP2040-Geek (CDC ACM) <waveshare_rp2040_geek>`
+
+.. |RP2040-LCD-0.96| replace::
+   :ref:`RP2040-LCD-0.96 <waveshare_rp2040_lcd_0_96>`
+
+.. |RP2040-LCD-0.96 (CDC ACM)| replace::
+   :ref:`RP2040-LCD-0.96 (CDC ACM) <waveshare_rp2040_lcd_0_96>`
+
+.. |RP2040-Matrix| replace::
+   :ref:`RP2040-Matrix <waveshare_rp2040_matrix>`
+
+.. |RP2040-Matrix (CDC ACM)| replace::
+   :ref:`RP2040-Matrix (CDC ACM) <waveshare_rp2040_matrix>`
+
+.. |RP2040-One| replace::
+   :ref:`RP2040-One <waveshare_rp2040_one>`
+
+.. |RP2040-One (CDC ACM)| replace::
+   :ref:`RP2040-One (CDC ACM) <waveshare_rp2040_one>`
+
+.. |RP2040-Plus| replace::
+   :ref:`RP2040-Plus <waveshare_rp2040_plus>`
+
+.. |RP2040-Plus (CDC ACM)| replace::
+   :ref:`RP2040-Plus (CDC ACM) <waveshare_rp2040_plus>`
+
+.. |RP2040-Tiny| replace::
+   :ref:`RP2040-Tiny <waveshare_rp2040_tiny>`
+
+.. |RP2040-Tiny (CDC ACM)| replace::
+   :ref:`RP2040-Tiny (CDC ACM) <waveshare_rp2040_tiny>`
+
+.. |RP2040-Zero| replace::
+   :ref:`RP2040-Zero <waveshare_rp2040_zero>`
+
+.. |RP2040-Zero (CDC ACM)| replace::
+   :ref:`RP2040-Zero (CDC ACM) <waveshare_rp2040_zero>`
+
+.. |RPi Pico (CDC ACM)| replace::
+   :ref:`RPi Pico (CDC ACM) <rpi_pico>`
+
+.. |RPi Pico W (CDC ACM)| replace::
+   :ref:`RPi Pico W (CDC ACM) <rpi_pico>`
+
+.. |Seeeduino Cortex-M0+ (CDC ACM)| replace::
+   :ref:`Seeeduino Cortex-M0+ (CDC ACM) <seeeduino_cm0>`
+
+.. |Seeeduino Lotus Cortex-M0+ (CDC ACM)| replace::
+   :ref:`Seeeduino Lotus Cortex-M0+ (CDC ACM) <seeeduino_lotus>`
+
+.. |Spotpear Pico ALL GPIO TEST| replace::
+   :ref:`Spotpear Pico ALL GPIO TEST <spotpear_pico_test>`
+
+.. |Waveshare Pico LCD 1.14| replace::
+   :ref:`Waveshare Pico LCD 1.14 <waveshare_pico_lcd_1_14>`
+
+.. |Waveshare Pico LCD 2| replace::
+   :ref:`Waveshare Pico LCD 2 <waveshare_pico_lcd_2>`
+
+.. |XIAO SAMD21 (CDC ACM)| replace::
+   :ref:`XIAO SAMD21 (CDC ACM) <seeed_xiao_samd21>`
+
+.. |CDC ACM| replace:: :ref:`zephyr:usb_device_cdc_acm`
+
+.. |Zephyr USB Vendor and Product identifiers| replace::
+   Zephyr :ref:`zephyr:usb_device_vid_pid`
+
+.. |zephyr,console| replace::
+   :ref:`zephyr,console <zephyr:devicetree-zephyr-chosen-nodes>`
+.. |zephyr,shell-uart| replace::
+   :ref:`zephyr,shell-uart <zephyr:devicetree-zephyr-chosen-nodes>`
+
+.. Devicetree References
+
+.. |Arduino UNO R3| replace::
+   :dtcompatible:`Arduino UNO R3 <arduino-header-r3>`
+
+.. |Grove connectors| replace::
+   :dtcompatible:`Grove connectors <seeed,grove-connector>`
+
+.. |Laced Grove Signal Interface| replace::
+   :dtcompatible:`Laced Grove Signal Interface <seeed,grove-laced-if>`
+
+.. |MikroBus| replace::
+   :dtcompatible:`MikroBus <mikro-bus>`
+
+.. |Raspberry Pi Pico| replace::
+   :dtcompatible:`Raspberry Pi Pico <raspberrypi,pico-header>`
+
+.. |Raspberry Pi Pico R3| replace::
+   :dtcompatible:`Raspberry Pi Pico R3 <raspberrypi,pico-header-r3>`
+
+.. |Seeed XIAO| replace::
+   :dtcompatible:`Seeed XIAO <seeed,xiao-gpio>`
+
+.. |TiaC MAGPIE Pin Header| replace::
+   :dtcompatible:`TiaC MAGPIE Pin Header <tiac-magpie-pin-header>`
+
+.. |Waveshare RP2040 Mini| replace::
+   :dtcompatible:`Waveshare RP2040 Mini <waveshare,rp2040mini-header>`
+
+.. |Waveshare RP2040 Mini PCB Pads| replace::
+   :dtcompatible:`Waveshare RP2040 Mini PCB Pads <waveshare,rp2040mini-pcbpads>`
+
+.. Kconfig References
+
+.. |CONFIG_RP2_FLASH_AT25SF128A| replace::
+   :kconfig:option:`CONFIG_RP2_FLASH_AT25SF128A`
+
+.. |CONFIG_RP2_FLASH_GENERIC_03H| replace::
+   :kconfig:option:`CONFIG_RP2_FLASH_GENERIC_03H`
+
+.. |CONFIG_RP2_FLASH_IS25LP080| replace::
+   :kconfig:option:`CONFIG_RP2_FLASH_IS25LP080`
+
+.. |CONFIG_RP2_FLASH_W25Q080| replace::
+   :kconfig:option:`CONFIG_RP2_FLASH_W25Q080`
+
+.. |CONFIG_RP2_FLASH_W25X10CL| replace::
+   :kconfig:option:`CONFIG_RP2_FLASH_W25X10CL`

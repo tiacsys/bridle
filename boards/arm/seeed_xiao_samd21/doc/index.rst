@@ -97,9 +97,10 @@ Connections and IOs
 ===================
 
 The `Seeed Studio XIAO SAMD21 wiki`_ has detailed information about the board
-including `pinouts`_ and the `schematic`_. There are also
-`Seeed Studio XIAO SAMD21 Design Data for Eagle`_ and
-`Seeed Studio XIAO SAMD21 Design Data for KiCAD`_.
+including `pinouts <Seeed Studio XIAO SAMD21 Pinouts_>`_ and the
+`schematic <Seeed Studio XIAO SAMD21 Schematic_>`_. There are also design data
+for `Eagle <Seeed Studio XIAO SAMD21 Design Data for Eagle_>`_ and
+`KiCAD <Seeed Studio XIAO SAMD21 Design Data for KiCAD_>`_.
 
 System Clock
 ============
@@ -526,41 +527,3 @@ References
 **********
 
 .. target-notes::
-
-.. _Seeed Studio XIAO SAMD21 wiki:
-    https://wiki.seeedstudio.com/Seeeduino-XIAO/
-
-.. _pinouts:
-    https://wiki.seeedstudio.com/Seeeduino-XIAO/#hardware-overview
-
-.. _schematic:
-    https://wiki.seeedstudio.com/Seeeduino-XIAO/#resourses
-
-.. _Seeed Studio XIAO SAMD21 Design Data for Eagle:
-   https://files.seeedstudio.com/wiki/Seeeduino-XIAO/res/Seeeduino-XIAO-v1.0.zip
-
-.. _Seeed Studio XIAO SAMD21 Design Data for KiCAD:
-   https://files.seeedstudio.com/wiki/Seeeduino-XIAO/res/Seeeduino-XIAO-KICAD.zip
-
-.. _ATSAMD21G18A:
-    https://www.microchip.com/product/ATSAMD21G18
-
-.. _UF2 bootloader:
-    https://github.com/Microsoft/uf2#user-content-bootloaders
-
-.. _Arduino Zero Bootloader:
-    https://github.com/Seeed-Studio/ArduinoCore-samd/tree/master/bootloaders/XIAOM0
-
-.. _Flashing the Arduino Bootloader using DAP Link:
-    https://wiki.seeedstudio.com/Flashing-Arduino-Bootloader-DAPLink/
-
-.. _SAM-BA:
-    https://microchipdeveloper.com/atstart:sam-d21-bootloader
-
-.. |Seeed XIAO| replace::
-   :dtcompatible:`Seeed XIAO <seeed,xiao-gpio>`
-
-.. |Grove BMP280 Sensor| replace::
-   :strong:`Grove Temperature and Barometer Sensor – BMP280`
-.. _`Grove BMP280 Sensor`:
-   https://www.seeedstudio.com/Grove-Barometer-Sensor-BMP280.html

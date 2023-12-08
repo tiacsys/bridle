@@ -44,6 +44,14 @@
 .. _`TiaC Systems Launchpad`: https://launchpad.net/~tiac-systems
 .. _`TiaC Systems Doxygen PPA`: https://launchpad.net/~tiac-systems/+archive/ubuntu/doxygen
 
+.. #### Links to TiaC Systems hardware
+
+.. _`TiaC Magpie STM32F777NIHx website`:
+   https://www.st.com/en/evaluation-tools/nucleo-f767zi.html
+
+.. _`TiaC Magpie STM32F777NIHx board User Manual`:
+   http://www.st.com/resource/en/user_manual/dm00244518.pdf
+
 
 
 .. ### Links to required tools and PyPi packages
@@ -114,10 +122,22 @@
 .. _`openSSL`: https://www.openssl.org/
 
 .. _`J-Link Software and Documentation Pack`: https://www.segger.com/downloads/jlink
+.. _`J-Link firmware for Atmel EDBG`: https://www.segger.com/jlink-edbg.html
 
 .. _`SEGGER Embedded Studio`: http://segger.com/downloads/embedded-studio
-
 .. _`SEGGER SystemView`: https://www.segger.com/products/development-tools/systemview/
+
+.. _`ASF3`: https://asf.microchip.com/docs/latest
+.. _`DGI`: http://atmel-studio-doc.s3-website-us-east-1.amazonaws.com/webhelp/GUID-43D69EB5-28C5-4F23-97B7-43CD3961DC33-en-US-3/GUID-4D73F4BD-3162-4A6D-8814-F3DA6DCFA518.html
+.. _`EDBG USB PID`: https://onlinedocs.microchip.com/pr/GUID-33422CDF-8B41-417C-9C31-E4521ADAE9B4-en-US-2/GUID-7EF3D274-1BA4-40A3-80C8-51D1D0E4FA75.html
+.. _`EDBG`: https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-42096-Microcontrollers-Embedded-Debugger_User-Guide.pdf
+.. _`SAM EDBG TWI Information Interface Example`: https://github.com/avrxml/asf/blob/master/sam/applications/edbg_twi_information_interface/main.c
+.. _`SAM-BA`: https://microchipdeveloper.com/atstart:sam-d21-bootloader
+
+.. _`UF2 bootloader`: https://github.com/Microsoft/uf2#user-content-bootloaders
+.. _`CMSIS-DAP programmer`: https://github.com/ataradov/edbg
+.. _`Python MCU programmer`: https://microchip-pic-avr-tools.github.io/pymcuprog
+.. _`Python Kit information`: https://microchip-pic-avr-tools.github.io/pykitinfo
 
 .. _`CMock`: http://www.throwtheswitch.org/cmock
 
@@ -141,6 +161,8 @@
 
 .. _`OpenAMP`: https://github.com/OpenAMP/open-amp/
 
+.. _`IEEE-754`: https://en.wikipedia.org/wiki/IEEE_754
+
 .. _`SPDX tool`: https://spdx.dev/
 .. _`SPDX identifier`: https://spdx.dev/ids/
 
@@ -151,39 +173,17 @@
 .. _`Install chocolatey`: https://chocolatey.org/install
 .. _`Windows Python Path`: https://docs.python.org/3/using/windows.html#finding-the-python-executable
 
-.. _`Grove System`:
-   https://web.archive.org/web/20230225043557/https://wiki.seeedstudio.com/Grove_System
+.. _`STM32Cube`: https://www.st.com/STM32Cube
+.. _`STM32CubeMX`: https://www.st.com/STM32CubeMX
+.. _`STM32CubeIDE`: https://www.st.com/STM32CubeIDE
+.. _`STM32CubeCLT`: https://www.st.com/STM32CubeCLT
+.. _`STM32CubeMonitor`: https://www.st.com/STM32CubeMonitor
+.. _`STM32CubeProgrammer`: https://www.st.com/en/development-tools/stm32cubeprog.html
+.. _`STM32MCUDevZone`: https://www.st.com/content/st_com/en/stm32-mcu-developer-zone.html
+.. _`STM32MPUDevZone`: https://www.st.com/content/st_com/en/stm32-mpu-developer-zone.html
 
-.. _`Grove Digital Layout`:
-   https://web.archive.org/web/20230225043557/https://wiki.seeedstudio.com/Grove_System/#digital
-
-.. _`Grove Analog Layout`:
-   https://web.archive.org/web/20230225043557/https://wiki.seeedstudio.com/Grove_System/#grove-analog
-
-.. _`Grove UART Layout`:
-   https://web.archive.org/web/20230225043557/https://wiki.seeedstudio.com/Grove_System/#grove-uart
-
-.. _`Grove I2C Layout`:
-   https://web.archive.org/web/20230225043557/https://wiki.seeedstudio.com/Grove_System/#grove-i2c
-
-.. _`Preface - Getting Started`: https://www.seeedstudio.com/document/pdf/Preface.pdf
-.. _`Introduction to Grove`: https://www.seeedstudio.com/document/pdf/Introduction%20to%20Grove.pdf
-.. _`Grove standard interfaces`: https://wiki.sipeed.com/soft/maixpy/en/modules/grove
-
-.. _`Arduino Uno R3`:
-   https://raw.githubusercontent.com/Bouni/Arduino-Pinout/master/Arduino%20Uno%20R3%20Pinout.png
-
-.. _`Arduino Uno R2`:
-   https://raw.githubusercontent.com/Bouni/Arduino-Pinout/master/Arduino%20Uno%20R2%20Pinout.png
-
-.. _`Raspberry Pi Pico R3`:
-   https://www.raspberrypi.com/documentation/microcontrollers/images/pico-pinout.svg
-
-.. _`Raspberry Pi Pico R3 W`:
-   https://www.raspberrypi.com/documentation/microcontrollers/images/picow-pinout.svg
-
-.. _`Seeeduino XIAO`:
-   https://files.seeedstudio.com/wiki/Seeeduino-XIAO/img/Seeeduino-XIAO-pinout-1.jpg
+.. _`CAN Bit Time Calculation Sheet`:
+   http://www.bittiming.can-wiki.info/?ctype=bxCAN&calc=1&CLK=54&SamplePoint=88.9&SJW=1
 
 
 
@@ -235,3 +235,710 @@
 .. _`TinyCBOR`: https://intel.github.io/tinycbor/current/
 
 .. _`generator expressions`: https://cmake.org/cmake/help/latest/manual/cmake-generator-expressions.7.html
+
+
+
+.. ### Links to USB Identifiers of Companies and Manufacturers
+
+.. |Arduino LLC| replace:: :strong:`Arduino LLC`
+.. _`Arduino LLC`: https://devicehunt.com/view/type/usb/vendor/2341
+
+.. _`Arduino USB product ID list with SAM3X CPU`:
+   https://github.com/arduino/ArduinoCore-sam/blob/master/boards.txt
+
+.. _`Arduino USB product ID list with SAMD21 CPU`:
+   https://github.com/arduino/ArduinoCore-samd/blob/master/boards.txt
+
+.. |NXP Semiconductors| replace:: :strong:`NXP Semiconductors`
+.. _`NXP Semiconductors`: https://devicehunt.com/view/type/usb/vendor/1fc9
+
+.. |Raspberry Pi| replace:: :strong:`Raspberry Pi`
+.. _`Raspberry Pi`: https://devicehunt.com/view/type/usb/vendor/2e8a
+
+.. _`Raspberry Pi USB product ID list`:
+   https://github.com/raspberrypi/usb-pid
+
+.. |Seeed LLC| replace:: :strong:`Seeed LLC`
+.. _`Seeed LLC`: https://devicehunt.com/view/type/usb/vendor/2886
+
+.. |Seeed Studio| replace:: :strong:`Seeed Studio`
+.. _`Seeed Studio`: https://devicehunt.com/view/type/usb/vendor/2886
+
+.. _`Seeeduino USB product ID list with SAMD21 CPU`:
+   https://github.com/Seeed-Studio/ArduinoCore-samd/blob/master/boards.txt
+
+.. |Waveshare (Raspberry Pi)| replace:: :strong:`Waveshare (Raspberry Pi)`
+.. _`Waveshare (Raspberry Pi)`: https://devicehunt.com/view/type/usb/vendor/2e8a
+
+
+
+.. ### Links to relevant hardware pinouts
+
+.. _`Arduino Uno R3 (SMD)`:
+   https://docs.arduino.cc/static/d7d9862243c61f399b78f548fcffc112/A000073-pinout.png
+
+.. _`Arduino Uno R3`:
+   https://docs.arduino.cc/static/2b141eb1cfe6f465a949c203e4af1b5f/A000066-pinout.png
+.. https://raw.githubusercontent.com/Bouni/Arduino-Pinout/master/Arduino%20Uno%20R3%20Pinout.png
+.. https://upload.wikimedia.org/wikipedia/commons/d/db/Arduino-uno-pinout.png
+
+.. _`Arduino Uno R2`:
+   https://raw.githubusercontent.com/Bouni/Arduino-Pinout/master/Arduino%20Uno%20R2%20Pinout.png
+.. https://upload.wikimedia.org/wikipedia/commons/d/db/Arduino-uno-pinout.png
+
+.. _`Raspberry Pi Pico R3`:
+   https://www.raspberrypi.com/documentation/microcontrollers/images/pico-pinout.svg
+
+.. _`Raspberry Pi Pico R3 W`:
+   https://www.raspberrypi.com/documentation/microcontrollers/images/picow-pinout.svg
+
+.. _`Seeeduino XIAO`:
+   https://files.seeedstudio.com/wiki/Seeeduino-XIAO/img/Seeeduino-XIAO-pinout-1.jpg
+
+
+
+.. ### Links to Raspberry Pi Products
+
+.. _`Raspberry Pi Products`:
+   https://www.raspberrypi.com/products
+
+.. #### Links to the Raspberry Pi Pico
+
+.. _`Raspberry Pi Pico`:
+   https://www.raspberrypi.com/products/raspberry-pi-pico
+
+.. _`Getting Started Guide with Raspberry Pi Pico`:
+    https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf
+
+.. _`Raspberry Pi Pico C/C++ SDK`:
+   https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-c-sdk.pdf
+
+.. |several versions of boot2| replace::
+   :strong:`several versions of` :code:`boot2`
+.. _`several versions of boot2`:
+   https://github.com/raspberrypi/pico-sdk/tree/master/src/rp2_common/boot_stage2
+
+.. _`pico-bootrom`:
+   https://github.com/raspberrypi/pico-bootrom
+
+.. _`PicoProbe`:
+   https://github.com/raspberrypi/picoprobe
+
+.. _`Raspberry Pi Debug Probe`:
+   https://www.raspberrypi.com/products/debug-probe
+
+.. _`Raspberry Pi Debug Probe Documentation`:
+   https://raspberrypi.com/documentation/microcontrollers/debug-probe.html
+
+.. _`Raspberry Pi 3-pin Debug Connector Specification`:
+   https://rptl.io/debug-spec
+
+.. _`pico_setup.sh`:
+   https://raw.githubusercontent.com/raspberrypi/pico-setup/master/pico_setup.sh
+
+.. _`Pico serial bootloader`:
+    https://blog.usedbytes.com/2021/12/pico-serial-bootloader
+
+.. _`Raspberry Pi Pico HAL`:
+   https://github.com/zephyrproject-rtos/hal_rpi_pico
+
+
+
+.. ### Links to Arduino System
+
+.. _`Arduino Store`:
+    https://store.arduino.cc/arduino-zero
+
+.. #### Links to the Arduino Zero
+
+.. _`Arduino Zero Pinout Diagram`:
+    https://content.arduino.cc/assets/Pinout-ZERO_latest.pdf
+
+.. _`Arduino Zero Schematic`:
+    https://content.arduino.cc/assets/ArduinoZeroV4.0_sch.pdf
+
+.. _`Arduino Zero Design Data`:
+    https://content.arduino.cc/assets/ArduinoZeroV4.0_Reference.zip
+
+.. _`Arduino Zero Bootloader`:
+    https://github.com/arduino/ArduinoCore-samd/tree/master/bootloaders/zero
+
+.. _`Arduino Zero Advanced Features`:
+    https://docs.arduino.cc/tutorials/zero/arduino-zero-edbg
+
+.. _`Update the Bootloader on the Arduino Zero`:
+    https://docs.arduino.cc/tutorials/zero/zero-bootloader-update
+
+.. #### Links to the Seeeduino Cortex-M0+
+
+.. _`Seeeduino Cortex-M0+ wiki`:
+    https://wiki.seeedstudio.com/Seeeduino-Cortex-M0
+
+.. _`Seeeduino Cortex-M0+ Pinouts`:
+    https://wiki.seeedstudio.com/Seeeduino-Cortex-M0#pinout
+
+.. _`Seeeduino Cortex-M0+ Schematic`:
+    https://wiki.seeedstudio.com/Seeeduino-Cortex-M0#resources
+
+.. _`Flashing the Arduino Bootloader using DAP Link`:
+    https://wiki.seeedstudio.com/Flashing-Arduino-Bootloader-DAPLink
+
+.. #### Links to the Seeeduino Lotus Cortex-M0+
+
+.. _`Seeeduino Lotus Cortex-M0+ wiki`:
+    https://wiki.seeedstudio.com/Seeeduino_Lotus_Cortex-M0-
+
+.. _`Seeeduino Lotus Cortex-M0+ Pinouts`:
+    https://wiki.seeedstudio.com/Seeeduino_Lotus_Cortex-M0-#pinout
+
+.. _`Seeeduino Lotus Cortex-M0+ Schematic`:
+    https://wiki.seeedstudio.com/Seeeduino_Lotus_Cortex-M0-#resources
+
+
+
+.. ### Links to XIAO System
+
+.. _`Seeed Studio XIAO`:
+   https://wiki.seeedstudio.com/SeeedStudio_XIAO_Series_Introduction
+
+.. #### Links to Seeed Studio XIAO SAMD21
+
+.. _`Seeed Studio XIAO SAMD21 wiki`:
+    https://wiki.seeedstudio.com/Seeeduino-XIAO
+
+.. _`Seeed Studio XIAO SAMD21 Pinouts`:
+    https://wiki.seeedstudio.com/Seeeduino-XIAO#hardware-overview
+
+.. _`Seeed Studio XIAO SAMD21 Schematic`:
+    https://wiki.seeedstudio.com/Seeeduino-XIAO#resourses
+
+.. _`Seeed Studio XIAO SAMD21 Design Data for Eagle`:
+   https://files.seeedstudio.com/wiki/Seeeduino-XIAO/res/Seeeduino-XIAO-v1.0.zip
+
+.. _`Seeed Studio XIAO SAMD21 Design Data for KiCAD`:
+   https://files.seeedstudio.com/wiki/Seeeduino-XIAO/res/Seeeduino-XIAO-KICAD.zip
+
+
+
+.. ### Links to Waveshare Systems
+
+.. _`Waveshare wiki`:
+   https://www.waveshare.com/wiki
+
+.. ### Links to Waveshare RP2040-One
+
+.. _`RP2040-One`:
+   https://www.waveshare.com/wiki/RP2040-One
+
+.. _`RP2040-One Schematic`:
+   https://www.waveshare.com/wiki/RP2040-One#Documents
+.. https://files.waveshare.com/upload/9/90/RP2040-One.pdf
+
+.. _`RP2040-One STEP 3D-Model`:
+   https://www.waveshare.com/wiki/RP2040-One#Documents
+.. https://files.waveshare.com/upload/c/cc/RP2040-One.zip
+
+.. ### Links to Waveshare RP2040-Zero
+
+.. _`RP2040-Zero`:
+   https://www.waveshare.com/wiki/RP2040-Zero
+
+.. _`RP2040-Zero Schematic`:
+   https://www.waveshare.com/wiki/RP2040-Zero#Documents
+.. https://files.waveshare.com/upload/4/4c/RP2040_Zero.pdf
+
+.. _`RP2040-Zero STEP 3D-Model`:
+   https://www.waveshare.com/wiki/RP2040-Zero#Documents
+.. https://files.waveshare.com/upload/f/f7/RP2040_Zero_stp.zip
+
+.. _`RP2040-Zero WS2812 Test`:
+   https://files.waveshare.com/upload/5/58/RP2040-Zero.zip
+.. https://www.waveshare.com/wiki/RP2040-Zero#Demo_Codes
+
+.. ### Links to Waveshare RP2040-Matrix
+
+.. _`RP2040-Matrix`:
+   https://www.waveshare.com/wiki/RP2040-Matrix
+
+.. _`RP2040-Matrix Schematic`:
+   https://www.waveshare.com/wiki/RP2040-Matrix#Document
+.. https://files.waveshare.com/upload/4/49/RP2040-Matrix.pdf
+
+.. ### Links to Waveshare RP2040-Tiny
+
+.. _`RP2040-Tiny`:
+   https://www.waveshare.com/wiki/RP2040-Tiny
+
+.. _`RP2040-Tiny V1.0 Schematic`:
+   https://www.waveshare.com/wiki/RP2040-Tiny#Document
+.. https://files.waveshare.com/upload/7/7a/RP2040-Tiny_Schematic.pdf
+
+.. _`RP2040-Tiny V1.1 Schematic`:
+   https://www.waveshare.com/wiki/RP2040-Tiny#Document
+.. https://files.waveshare.com/upload/7/7f/RP2040-Tiny_V1.1_SCH.pdf
+
+.. _`RP2040-Tiny V1.1 STEP 3D-Model`:
+   https://www.waveshare.com/wiki/RP2040-Tiny#3D_Model
+.. https://files.waveshare.com/upload/9/94/RP2040-Tiny-Step_V1.1.zip
+
+.. _`RP2040-Tiny Adapter V1.1 Schematic`:
+   https://www.waveshare.com/wiki/RP2040-Tiny#Document
+.. https://files.waveshare.com/upload/3/35/RP2040-Tiny-Adapter_V1.1-SCH.pdf
+
+.. _`RP2040-Tiny Adapter V1.1 STEP 3D-Model`:
+   https://www.waveshare.com/wiki/RP2040-Tiny#3D_Model
+.. https://files.waveshare.com/upload/1/1e/RP2040-Tiny-Adapter-Step_V1.1.zip
+
+.. ### Links to Waveshare RP2040-ETH
+
+.. _`RP2040-ETH`:
+   https://www.waveshare.com/wiki/RP2040-ETH
+
+.. _`RP2040-ETH Schematic`:
+   https://www.waveshare.com/wiki/RP2040-ETH#Document
+.. https://files.waveshare.com/upload/2/20/RP2040-ETH-SchDoc.pdf
+
+.. _`RP2040-ETH STEP 3D-Model`:
+   https://www.waveshare.com/wiki/RP2040-ETH#Document
+.. https://files.waveshare.com/upload/1/19/RP2040-ETH.zip
+
+.. _`RP2040-ETH WS2812 Test`:
+   https://www.waveshare.com/wiki/RP2040-ETH#Demo
+.. https://files.waveshare.com/upload/3/36/RP2040-ETH-WS2812B.zip
+
+.. _`RP2040-ETH COM Test`:
+   https://www.waveshare.com/wiki/RP2040-ETH#Demo
+.. https://files.waveshare.com/upload/8/88/RP2040_ETH_CODE.zip
+
+.. ### Links to Waveshare RP2040-LCD-0.96
+
+.. _`RP2040-LCD-0.96`:
+   https://www.waveshare.com/wiki/RP2040-LCD-0.96
+
+.. _`RP2040-LCD-0.96 Schematic`:
+   https://www.waveshare.com/wiki/RP2040-LCD-0.96#Documents
+.. https://files.waveshare.com/upload/0/01/RP2040-LCD-0.96.pdf
+
+.. _`RP2040-LCD-0.96 LCD/OLED Test`:
+   https://www.waveshare.com/wiki/RP2040-LCD-0.96#Demo_Codes
+.. https://files.waveshare.com/upload/2/28/Pico_code.7z
+
+.. ### Links to Waveshare RP2040-Plus
+
+.. _`RP2040-Plus`:
+   https://www.waveshare.com/wiki/RP2040-Plus
+
+.. _`RP2040-Plus Schematic`:
+   https://www.waveshare.com/wiki/RP2040-Plus#Documents
+.. https://files.waveshare.com/upload/d/d1/RP2040_Plus.pdf
+
+.. ### Links to Waveshare RP2040-Geek
+
+.. _`RP2040-Geek Schematic`:
+   https://www.waveshare.com/wiki/RP2040-GEEK#Document
+.. https://files.waveshare.com/wiki/RP2040-GEEK/RP2040-GEEK-Schematic.pdf
+
+
+
+.. ### Links to the Grove System
+
+.. _`Grove System`:
+   https://web.archive.org/web/20230225043557/https://wiki.seeedstudio.com/Grove_System
+
+.. _`Grove Digital Layout`:
+   https://web.archive.org/web/20230225043557/https://wiki.seeedstudio.com/Grove_System#digital
+
+.. _`Grove Analog Layout`:
+   https://web.archive.org/web/20230225043557/https://wiki.seeedstudio.com/Grove_System#grove-analog
+
+.. _`Grove UART Layout`:
+   https://web.archive.org/web/20230225043557/https://wiki.seeedstudio.com/Grove_System#grove-uart
+
+.. _`Grove I2C Layout`:
+   https://web.archive.org/web/20230225043557/https://wiki.seeedstudio.com/Grove_System#grove-i2c
+
+.. _`Preface - Getting Started`: https://www.seeedstudio.com/document/pdf/Preface.pdf
+.. _`Introduction to Grove`: https://www.seeedstudio.com/document/pdf/Introduction%20to%20Grove.pdf
+.. _`Grove standard interfaces`: https://wiki.sipeed.com/soft/maixpy/en/modules/grove
+
+
+
+.. ### Links to the Grove Base Shield
+
+.. _`Grove Base Shield`:
+   https://seeeddoc.github.io/Grove-Base_Shield
+
+.. #### Links to the Grove Base Shield V2.1
+
+.. _`Grove Base Shield V2.1`:
+   https://wiki.seeedstudio.com/Base_Shield_V2
+
+.. _`Grove Base Shield V2.1 Eagle Schematic`:
+   https://files.seeedstudio.com/wiki/Base_Shield_V2/res/Base%20Shield%20v2_SCH.zip
+
+.. _`Grove Base Shield V2.1 Eagle Layout`:
+   https://files.seeedstudio.com/wiki/Base_Shield_V2/res/Base%20Shield%20v2_PCB.zip
+
+.. _`Grove Base Shield V2.1 Schematic`:
+   https://files.seeedstudio.com/wiki/Base_Shield_V2/res/Base%20Shield%20v2_SCH.pdf
+
+.. _`Grove Base Shield V2.1 Layout`:
+   https://files.seeedstudio.com/wiki/Base_Shield_V2/res/Base%20Shield%20v2_PCB.pdf
+
+.. #### Links to the Grove Base Shield V2.0
+
+.. _`Grove Base Shield V2.0`:
+   https://seeeddoc.github.io/Grove-Base_shield_v2
+
+.. _`Grove Base Shield V2.0 Eagle Files`:
+   https://seeeddoc.github.io/Grove-Base_shield_v2/res/Base_Shield_v2.zip
+
+.. _`Grove Base Shield V2.0 Schematic`:
+   https://seeeddoc.github.io/Grove-Base_shield_v2/res/Base_Shield_v2.pdf
+
+.. #### Links to the Grove Base Shield V1.3
+
+.. _`Grove Base Shield V1.3`:
+   https://seeeddoc.github.io/Grove-Base_Shield_V1.3
+
+.. _`Grove Base Shield V1.3 Eagle Files`:
+   https://seeeddoc.github.io/Grove-Base_Shield_V1.3/res/Grove-Base_Shield_v1.3_Eagle_File.zip
+
+.. _`Grove Base Shield V1.3 Schematic`:
+   https://seeeddoc.github.io/Grove-Base_Shield_V1.3/res/Grove-Base_Shield_v1.3_Schematic.pdf
+
+.. #### Links to the Grove Base Shield V1.2
+
+.. _`Grove Base Shield V1.2`:
+   https://seeeddoc.github.io/Grove-Base_Shield_v1.2
+
+.. _`Grove Base Shield V1.2 Eagle Files`:
+   https://seeeddoc.github.io/Grove-Base_Shield_v1.2/res/Base_shield_V1.2_Eagle_files.zip
+
+.. #### Links to the Grove Base Shield for XIAO
+
+.. _`Grove Base Shield for XIAO`:
+   https://wiki.seeedstudio.com/Grove-Shield-for-Seeeduino-XIAO-embedded-battery-management-chip
+
+.. _`Grove Base Shield for XIAO V1.0 Eagle Files`:
+   https://files.seeedstudio.com/wiki/Grove-Shield-for-Seeeduino-XIAO/res/Grove_Shield_for_Seeeduino_XIAO_v1.0.zip
+
+.. #### Links to the Grove Shield for Pi Pico V1
+
+.. _`Grove Basic Kit for Pi Pico`:
+   https://wiki.seeedstudio.com/Grove-Starter-Kit-for-Raspberry-Pi-Pico
+
+.. _`Grove Shield for Pi Pico V1`:
+   https://wiki.seeedstudio.com/Grove-Starter-Kit-for-Raspberry-Pi-Pico
+.. https://wiki.seeedstudio.com/Grove_Shield_for_Pi_Pico_V1.0
+
+.. _`Grove Shield for Pi Pico V1.0 Schematic`:
+   https://files.seeedstudio.com/wiki/Grove_Shield_for_Pi_Pico_V1.0/Grove_shield_for_PI_PICOv1.0SCH.pdf
+
+.. _`Grove Shield for Pi Pico V1.0 Eagle Files`:
+   https://files.seeedstudio.com/wiki/Grove_Shield_for_Pi_Pico_V1.0/res/Grove_Shield_for_Pi_Pico.zip
+
+
+
+.. ### Links to the Grove Modules
+
+.. #### Links to the Grove Button V1.2
+
+.. _`Grove Button V1.2`:
+   https://wiki.seeedstudio.com/Grove-Button
+
+.. _`Grove Button V1.2 OHSW Lab Project`:
+   https://oshwlab.com/Seeed/Grove_Button_v1_2-f0f9f212fcee460ebe3703dab813e5c4
+
+.. #### Links to the Grove Button V1.0
+
+.. _`Grove Button V1.0`:
+   https://seeeddoc.github.io/Grove-Button
+
+.. _`Grove Button V1.0 Eagle Files, Schematic and Layout`:
+   https://files.seeedstudio.com/wiki/Grove_Button/resources/Grove_-_Button_v1.0_Source_File.zip
+
+.. #### Links to the Grove LED Socket Kit V1.3
+
+.. _`Grove LED Socket Kit V1.3`:
+   https://wiki.seeedstudio.com/Grove-LED_Socket_Kit
+
+.. _`Grove LED Socket Kit V1.3 Eagle Files and Schematic`:
+   https://files.seeedstudio.com/wiki/Grove-LED_Socket_Kit/res/Grove-LED_v1.3_Schematics.zip
+
+.. #### Links to the Grove LED Socket Kit V1.0
+
+.. _`Grove LED Socket Kit V1.0`:
+   https://seeeddoc.github.io/Grove-Red_LED
+
+.. _`Grove LED Socket Kit V1.0 Eagle Files`:
+   https://files.seeedstudio.com/wiki/Grove-LED_Socket_Kit/res/Grove-LED_Socket_Eagle_File.zip
+
+.. #### Links to the Grove LED V1.x
+
+.. _`Grove LED`:
+   https://www.seeedstudio.com/Grove-Purple-LED-3mm.html
+
+.. _`Grove LED V1.0 Eagle Files, Schematic and Layout`:
+   https://files.seeedstudio.com/wiki/Grove-LED_Socket_Kit/res/Grove-LED_v1.0_Source_File.zip
+
+.. #### Links to the Grove Variable Color LED V1.1
+
+.. _`Grove Variable Color LED V1.1`:
+   https://wiki.seeedstudio.com/Grove-Variable_Color_LED
+
+.. _`Grove Variable Color LED V1.1 Eagle Files and Schematic`:
+   https://github.com/SeeedDocument/Bazaar_doc/raw/master/101020472/Grove%20-%20Variable%20Color%20LED%20v1.1%20Eagle%20File.zip
+
+.. #### Links to the Grove Variable Color LED V1.0
+
+.. _`Grove Variable Color LED V1.0`:
+   https://seeeddoc.github.io/Grove-Variable_Color_LED
+
+.. _`Grove Variable Color LED V1.0 Eagle Files`:
+   https://files.seeedstudio.com/wiki/Grove-Variable_Color_LED/res/Variable_Color_LED_eagle_file.zip
+
+
+
+.. ### Links to the Raspberry Pi Pico Shields
+
+.. #### Links to the Spotpear Pico ALL GPIO TEST
+
+.. _`Spotpear Pico ALL GPIO TEST`:
+   https://www.spotpear.com/index/study/detail/id/508.html
+
+.. _`Spotpear Pico ALL GPIO TEST Schematic`:
+   https://cdn.static.spotpear.com/uploads/picture/learn/raspberry-pi/raspberry-pi-hats/pico-all-gpio-test/pico-all-gpio-test-01.pdf
+
+.. #### Links to the Waveshare Pico LCD 1.14
+
+.. _`Waveshare Pico LCD 1.14`:
+   https://www.waveshare.com/wiki/Pico-LCD-1.14
+
+.. _`Waveshare Pico LCD 1.14 Schematic`:
+   https://www.waveshare.com/wiki/Pico-LCD-1.14#Document
+
+.. #### Links to the Waveshare Pico LCD 2
+
+.. _`Waveshare Pico LCD 2`:
+   https://www.waveshare.com/wiki/Pico-LCD-2
+
+.. _`Waveshare Pico LCD 2 Schematic`:
+   https://www.waveshare.com/wiki/Pico-LCD-2#Document
+
+
+
+.. ### Links to hardware specifications, application notes and similar documents
+
+.. #### Links to Connectors, Headers, Switches or Bottons
+
+.. _`JST 1.0㎜ (SH) Connector`:
+   https://www.jst.com/products/crimp-style-connectors-wire-to-board-type/sh-connector
+
+.. _`(B/S)M03B-SRSS-TB`:
+   https://www.jst.com/wp-content/uploads/2021/01/eSH-new.pdf
+
+.. _`SHR-03V-S(-B)`:
+   https://www.jst.com/wp-content/uploads/2021/01/eSH-new.pdf
+
+.. _`(B/S)M04B-SRSS-TB`:
+   https://www.jst.com/wp-content/uploads/2021/01/eSH-new.pdf
+
+.. _`SHR-04V-S(-B)`:
+   https://www.jst.com/wp-content/uploads/2021/01/eSH-new.pdf
+
+.. _`0.5K-AX-nPWB`:
+   http://www.szhdgc.com/a/FPCxilie/0.50mm/2022/0813/203.html
+
+.. _`0.5K-AX-nPWB Engineering Drawing`:
+   http://www.szhdgc.com/uploads/soft/230215/0.5K-AX-nPWB
+
+.. #### Links to LED or Lamps, either simple or complex with control logic on-chip
+
+.. _`WS2812B`:
+   http://www.world-semi.com/ws2812-family
+
+.. _`WS2812B Datasheet V5`:
+   https://content.instructables.com/F10/WH6U/KQMCJ7I4/F10WH6UKQMCJ7I4.pdf
+
+.. _`WS2812B Datasheet V2`:
+   https://d2j2m4p6r3pg95.cloudfront.net/module_files/led-cube/assets/datasheets/WS2812B.pdf
+
+.. _`WS2812B Datasheet V1`:
+   https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf
+
+.. _`Understanding the WS2812`:
+   https://cpldcpu.wordpress.com/2014/01/14/light_ws2812-library-v2-0-part-i-understanding-the-ws2812
+
+.. _`WS2812B with RP2040 PIO & DMA`:
+   https://mcuoneclipse.com/2023/04/02/rp2040-with-pio-and-dma-to-address-ws2812b-leds
+
+.. #### Links to Voltage Regulators or similar for Power Supply Chains
+
+.. _`ETA6096`:
+   http://www.eta-semi.com/product/915.html
+
+.. _`ETA6096 Datasheet`:
+   http://www.eta-semi.com/wp-content/uploads/2022/03/ETA6096_V1.4.pdf
+
+.. _`ME6217C33`:
+   http://www.microne.com.cn/en/ProductDetail.aspx?id=8
+
+.. _`ME6217 Datasheet`:
+   http://www.microne.com.cn/UploadFiles/Files2/20190429/20190429164112.pdf
+
+.. _`MP1496`:
+    https://www.monolithicpower.com/en/mp1496.html
+
+.. _`MP1496 Datasheet`:
+    https://www.monolithicpower.com/en/documentview/productdocument/index/version/2/document_type/Datasheet/lang/en/sku/MP1496/document_id/360
+
+.. _`MP2617B`:
+    https://www.monolithicpower.com/mp2617b.html
+
+.. _`MP2617B Datasheet`:
+   https://www.monolithicpower.com/en/documentview/productdocument/index/version/2/document_type/Datasheet/lang/en/sku/MP2617BGL-Z/document_id/1413
+
+.. _`MP28164`:
+   https://www.monolithicpower.com/mp28164.html
+
+.. _`MP28164 Datasheet`:
+   https://www.monolithicpower.com/en/documentview/productdocument/index/version/2/document_type/Datasheet/lang/en/sku/MP28164GD-Z/document_id/1764
+
+.. _`MP28164 Reliability Report`:
+   https://www.monolithicpower.com/en/documentview/productdocument/index/version/2/document_type/Reliability%20Report/lang/en/sku/MP28164GD-Z/document_id/6077
+
+.. _`RT9013-33`:
+   https://www.richtek.com/Products/Linear%20Regulator/Single%20Output%20Linear%20Regulator/RT9013
+
+.. _`RT9013 Datasheet`:
+   https://www.richtek.com/assets/product_file/RT9013/DS9013-10.pdf
+
+.. _`RT9193-33`:
+   https://www.richtek.com/Products/Linear%20Regulator/Single%20Output%20Linear%20Regulator/RT9193
+
+.. _`RT9193 Datasheet`:
+   https://www.richtek.com/assets/product_file/RT9193/DS9193-18.pdf
+
+.. _`TPS63000`:
+   https://www.ti.com/product/TPS63000
+
+.. _`TPS63000 Datasheet`:
+   https://www.ti.com/lit/gpn/tps63000
+
+.. #### Links to LCD Controllers or similar to drive displays
+
+.. _`ST7735S`:
+   https://www.sitronix.com.tw/en/products/aiot-device-ddi
+
+.. _`ST7735S Datasheet V1.4 (2014/10)`:
+   https://github.com/michal037/driver-ST7735S/raw/master/documentation/datasheet/st7735s-datasheet-v1.4.pdf
+
+.. _`ST7735S Datasheet V1.1 (2011/11)`:
+   http://www.lcdwiki.com/res/MSP0961/ST7735S_V1.1_20111121.pdf
+.. https://www.waveshare.com/wiki/RP2040-LCD-0.96#Documents
+.. https://files.waveshare.com/upload/e/e2/ST7735S_V1.1_20111121.pdf
+
+.. _`ST7789V`:
+   https://www.sitronix.com.tw/en/products/aiot-device-ddi
+
+.. _`ST7789VW Datasheet V1.0 (2017/09)`:
+   http://www.lcdwiki.com/res/MSP1308/ST7789VW_datasheet.pdf
+.. https://www.rhydolabz.com/documents/33/ST7789.pdf
+.. https://www.waveshare.com/wiki/Pico-LCD-1.14#Document
+.. https://files.waveshare.com/upload/a/ad/ST7789VW.pdf
+.. https://files.waveshare.com/upload/a/ae/ST7789_Datasheet.pdf
+
+.. _`ST7789V Datasheet V1.6 (2017/09)`:
+   https://www.crystalfontz.com/controllers/Sitronix/ST7789V/470
+
+.. _`ST7789V Datasheet V1.4 (2014/10)`:
+   https://www.crystalfontz.com/controllers/Sitronix/ST7789V/446
+
+.. _`ST7789V Datasheet V1.3 (2014/03)`:
+   https://newhavendisplay.com/content/datasheets/ST7789V.pdf
+.. https://orientdisplay.com/wp-content/uploads/2020/11/ST7789V.pdf
+.. https://threefivedisplays.com/wp-content/uploads/datasheets/lcd_driver_datasheets/ST7789_V_REV_1_3_DS.pdf
+
+.. _`ST7789V Datasheet V0.1 (2013/07)`:
+   https://github.com/Xinyuan-LilyGO/LilyGo-HAL/raw/master/DISPLAY/ST7789V.pdf
+.. https://www.crystalfontz.com/controllers/Sitronix/ST7789V/382
+
+.. #### Links to Ethernet Controllers or similar to drive networks
+
+.. _`CH9120`:
+   https://wch-ic.com/products/CH9120.html
+
+.. _`CH9120 Datasheet`:
+   https://wch-ic.com/downloads/CH9120DS1_PDF.html
+
+.. _`CH9120 Evaluation Tools`:
+   https://www.wch.cn/downloads/CH9120EVT_ZIP.html
+
+.. _`CH9120 Serial Instruction Set`:
+   https://files.waveshare.com/upload/e/e1/CH9120_Serial_Commands_Set.pdf
+.. https://www.waveshare.com/wiki/RP2040-ETH#Document
+
+.. #### Links to Memory Units or Controllers or similar to drive process memory
+
+.. _`W25Q16JV`:
+   https://www.winbond.com/hq/product/code-storage-flash-memory/serial-nor-flash/index.html?__locale=en&partNo=W25Q16JV
+
+.. _`W25Q16JV Datasheet`:
+   https://www.winbond.com/hq/support/documentation/levelOne.jsp?__locale=en&DocNo=DA00-W25Q16JV.1
+
+.. _`W25Q32JV`:
+   https://www.winbond.com/hq/product/code-storage-flash-memory/serial-nor-flash/index.html?__locale=en&partNo=W25Q32JV
+
+.. _`W25Q32JV Datasheet`:
+   https://www.winbond.com/hq/support/documentation/levelOne.jsp?__locale=en&DocNo=DA00-W25Q32JV.1
+
+.. _`W25Q128JV`:
+   https://www.winbond.com/hq/product/code-storage-flash-memory/serial-nor-flash/index.html?__locale=en&partNo=W25Q128JV
+
+.. _`W25Q128JV Datasheet`:
+   https://www.winbond.com/hq/support/documentation/levelOne.jsp?__locale=en&DocNo=DA00-W25Q128JV
+
+.. #### Links to Microcontroller or similar to drive Computer Core Components
+
+.. ##### Links to STM32F7 Series Cortex®-M7 Processors
+
+.. _`STM32F7 Series Cortex®-M7 Processor Programming Manual (PM0253)`:
+   https://www.st.com/resource/en/programming_manual/DM00237416.pdf
+
+.. ###### Links to STM32F777 Cortex®-M7 Processor
+
+.. _`STM32F777 Reference Manual (RM0410)`:
+   https://www.st.com/resource/en/reference_manual/DM00224583.pdf
+
+.. _`STM32F777NI on www.st.com`:
+   https://www.st.com/en/microcontrollers-microprocessors/stm32f777ni.html
+
+.. ##### Links to SAM D21/DA1 Family Cortex®-M0+ Processors
+
+.. _`SAM D21/DA1 Family Data Sheet (DS40001882H)`:
+   https://ww1.microchip.com/downloads/en/DeviceDoc/SAM-D21-DA1-Family-Data-Sheet-DS40001882H.pdf
+
+.. _`SAM D21/DA1 Family Silicon-Errata (DS80000760G)`:
+   https://ww1.microchip.com/downloads/en/DeviceDoc/SAM-D21DA1-Family-Silicon-Errata-and-Data-Sheet-Clarification-DS80000760G.pdf
+
+.. ###### Links to ATSAMD21G18 Cortex®-M0+ Processor
+
+.. _`ATSAMD21G18A`:
+    https://www.microchip.com/product/ATSAMD21G18
+
+.. ###### Links to AT32UC3A4256S AVR 32-bit Processor
+
+.. _`AT32UC3A4256S`:
+    https://www.microchip.com/product/AT32UC3A4256S
+
+.. ##### Links to RP2040 Cortex®-M0+ Processors
+
+.. _`RP2040 SoC`:
+   https://www.raspberrypi.com/products/rp2040
+
+.. _`RP2040 Datasheet`:
+   https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf
+
+.. _`Hardware design with RP2040`:
+   https://datasheets.raspberrypi.com/rp2040/hardware-design-with-rp2040.pdf

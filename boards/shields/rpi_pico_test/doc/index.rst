@@ -604,12 +604,3 @@ References
 **********
 
 .. target-notes::
-
-.. _Spotpear Pico ALL GPIO TEST:
-   https://www.spotpear.com/index/study/detail/id/508.html
-
-.. _Spotpear Pico ALL GPIO TEST Schematic:
-   https://cdn.static.spotpear.com/uploads/picture/learn/raspberry-pi/raspberry-pi-hats/pico-all-gpio-test/pico-all-gpio-test-01.pdf
-   
-.. |Spotpear Pico ALL GPIO TEST| replace::
-   :ref:`Spotpear Pico ALL GPIO TEST <spotpear_pico_test>`

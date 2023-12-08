@@ -54,20 +54,11 @@ be used based on the board standard headers available.
 .. |loopback_test| replace::
    :bridle_file:`loopback_test <boards/shields/loopback_test/loopback_test.overlay>`
 
-.. |Arduino UNO R3| replace::
-   :dtcompatible:`Arduino UNO R3 <arduino-header-r3>`
-
 .. |loopback_test_arduino| replace::
    :bridle_file:`loopback_test_arduino <boards/shields/loopback_test/loopback_test_arduino.overlay>`
 
-.. |MikroBus| replace::
-   :dtcompatible:`MikroBus <mikro-bus>`
-
 .. |loopback_test_mikrobus| replace::
    :bridle_file:`loopback_test_mikrobus <boards/shields/loopback_test/loopback_test_mikrobus.overlay>`
-
-.. |TiaC MAGPIE Pin Header| replace::
-   :dtcompatible:`TiaC MAGPIE Pin Header <tiac-magpie-pin-header>`
 
 .. |loopback_test_tmph| replace::
    :bridle_file:`loopback_test_tmph <boards/shields/loopback_test/loopback_test_tmph.overlay>`

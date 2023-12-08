@@ -1480,24 +1480,3 @@ References
 **********
 
 .. target-notes::
-
-.. _TiaC Magpie STM32F777NIHx website:
-   https://www.st.com/en/evaluation-tools/nucleo-f767zi.html
-
-.. _TiaC Magpie STM32F777NIHx board User Manual:
-   http://www.st.com/resource/en/user_manual/dm00244518.pdf
-
-.. _STM32F777NI on www.st.com:
-   https://www.st.com/en/microcontrollers-microprocessors/stm32f777ni.html
-
-.. _STM32F7 Series Cortex®-M7 Processor Programming Manual (PM0253):
-   https://www.st.com/resource/en/programming_manual/DM00237416.pdf
-
-.. _STM32F777 Reference Manual (RM0410):
-   https://www.st.com/resource/en/reference_manual/DM00224583.pdf
-
-.. _STM32CubeMX:
-   https://www.st.com/en/development-tools/stm32cubemx.html
-
-.. _`CAN Bit Time Calculation Sheet`:
-   http://www.bittiming.can-wiki.info/?ctype=bxCAN&calc=1&CLK=54&SamplePoint=88.9&SJW=1

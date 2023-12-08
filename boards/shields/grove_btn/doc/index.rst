@@ -112,19 +112,7 @@ corresponds to the ordinal number of a signal from the
    :host-os: unix
    :tool: all
 
-.. ...........................................................................
+References
+**********
 
-.. _`Grove Button V1.2`:
-   https://wiki.seeedstudio.com/Grove-Button
-
-.. _`Grove Button V1.2 OHSW Lab Project`:
-   https://oshwlab.com/Seeed/Grove_Button_v1_2-f0f9f212fcee460ebe3703dab813e5c4
-
-.. _`Grove Button V1.0`:
-   https://seeeddoc.github.io/Grove-Button
-
-.. _`Grove Button V1.0 Eagle Files, Schematic and Layout`:
-   https://files.seeedstudio.com/wiki/Grove_Button/resources/Grove_-_Button_v1.0_Source_File.zip
-
-.. |Laced Grove Signal Interface| replace::
-   :dtcompatible:`Laced Grove Signal Interface <seeed,grove-laced-if>`
+.. target-notes::

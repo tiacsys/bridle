@@ -825,71 +825,7 @@ example:
    :host-os: unix
    :tool: all
 
-.. ...........................................................................
+References
+**********
 
-.. _`Grove Base Shield`:
-   https://seeeddoc.github.io/Grove-Base_Shield
-
-.. _`Grove Base Shield V2.1`:
-   https://wiki.seeedstudio.com/Base_Shield_V2
-
-.. _`Grove Base Shield V2.1 Eagle Schematic`:
-   https://files.seeedstudio.com/wiki/Base_Shield_V2/res/Base%20Shield%20v2_SCH.zip
-
-.. _`Grove Base Shield V2.1 Eagle Layout`:
-   https://files.seeedstudio.com/wiki/Base_Shield_V2/res/Base%20Shield%20v2_PCB.zip
-
-.. _`Grove Base Shield V2.1 Schematic`:
-   https://files.seeedstudio.com/wiki/Base_Shield_V2/res/Base%20Shield%20v2_SCH.pdf
-
-.. _`Grove Base Shield V2.1 Layout`:
-   https://files.seeedstudio.com/wiki/Base_Shield_V2/res/Base%20Shield%20v2_PCB.pdf
-
-.. _`Grove Base Shield V2.0`:
-   https://seeeddoc.github.io/Grove-Base_shield_v2
-
-.. _`Grove Base Shield V2.0 Eagle Files`:
-   https://seeeddoc.github.io/Grove-Base_shield_v2/res/Base_Shield_v2.zip
-
-.. _`Grove Base Shield V2.0 Schematic`:
-   https://seeeddoc.github.io/Grove-Base_shield_v2/res/Base_Shield_v2.pdf
-
-.. _`Grove Base Shield V1.3`:
-   https://seeeddoc.github.io/Grove-Base_Shield_V1.3
-
-.. _`Grove Base Shield V1.3 Eagle Files`:
-   https://seeeddoc.github.io/Grove-Base_Shield_V1.3/res/Grove-Base_Shield_v1.3_Eagle_File.zip
-
-.. _`Grove Base Shield V1.3 Schematic`:
-   https://seeeddoc.github.io/Grove-Base_Shield_V1.3/res/Grove-Base_Shield_v1.3_Schematic.pdf
-
-.. _`Grove Base Shield V1.2`:
-   https://seeeddoc.github.io/Grove-Base_Shield_v1.2
-
-.. _`Grove Base Shield V1.2 Eagle Files`:
-   https://seeeddoc.github.io/Grove-Base_Shield_v1.2/res/Base_shield_V1.2_Eagle_files.zip
-
-.. _`Seeed Studio XIAO`:
-   https://wiki.seeedstudio.com/Seeeduino-XIAO
-
-.. _`Grove Base Shield for XIAO`:
-   https://wiki.seeedstudio.com/Grove-Shield-for-Seeeduino-XIAO-embedded-battery-management-chip
-
-.. _`Grove Base Shield for XIAO V1.0 Eagle Files`:
-   https://files.seeedstudio.com/wiki/Grove-Shield-for-Seeeduino-XIAO/res/Grove_Shield_for_Seeeduino_XIAO_v1.0.zip
-
-.. _`Grove Basic Kit for Pi Pico`:
-   https://wiki.seeedstudio.com/Grove-Starter-Kit-for-Raspberry-Pi-Pico
-
-.. _`Grove Shield for Pi Pico V1`:
-   https://wiki.seeedstudio.com/Grove-Starter-Kit-for-Raspberry-Pi-Pico
-.. https://wiki.seeedstudio.com/Grove_Shield_for_Pi_Pico_V1.0
-
-.. _`Grove Shield for Pi Pico V1.0 Schematic`:
-   https://files.seeedstudio.com/wiki/Grove_Shield_for_Pi_Pico_V1.0/Grove_shield_for_PI_PICOv1.0SCH.pdf
-
-.. _`Grove Shield for Pi Pico V1.0 Eagle Files`:
-   https://files.seeedstudio.com/wiki/Grove_Shield_for_Pi_Pico_V1.0/res/Grove_Shield_for_Pi_Pico.zip
-
-.. |Laced Grove Signal Interface| replace::
-   :dtcompatible:`Laced Grove Signal Interface <seeed,grove-laced-if>`
+.. target-notes::

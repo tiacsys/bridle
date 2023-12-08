@@ -268,8 +268,7 @@ is connected to the debug USB port for programming::
       the major purpose to make the board recognizable and differentiate
       it form other evaluation boards in Atmel Studio. The EDBG chip is
       used on several Atmel evaluation boards and programmers, you can
-      find the list
-      `here <https://onlinedocs.microchip.com/pr/GUID-33422CDF-8B41-417C-9C31-E4521ADAE9B4-en-US-2/GUID-7EF3D274-1BA4-40A3-80C8-51D1D0E4FA75.html>`_.
+      find the list `here <EDBG USB PID_>`_.
       You should consider the Arduino Zero dedicated USB PID (:code:`0x2157`)
       as another USB PID to add to that list. **During the manufacturing
       process Arduino upgrade the EDBG firmware and customize the USB
@@ -598,68 +597,3 @@ References
 **********
 
 .. target-notes::
-
-.. _Arduino Store:
-    https://store.arduino.cc/arduino-zero
-
-.. _Arduino Zero Pinout Diagram:
-    https://content.arduino.cc/assets/Pinout-ZERO_latest.pdf
-
-.. _Arduino Zero Schematic:
-    https://content.arduino.cc/assets/ArduinoZeroV4.0_sch.pdf
-
-.. _Arduino Zero Design Data:
-    https://content.arduino.cc/assets/ArduinoZeroV4.0_Reference.zip
-
-.. _EDBG:
-   https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-42096-Microcontrollers-Embedded-Debugger_User-Guide.pdf
-
-.. _DGI:
-   http://atmel-studio-doc.s3-website-us-east-1.amazonaws.com/webhelp/GUID-43D69EB5-28C5-4F23-97B7-43CD3961DC33-en-US-3/GUID-4D73F4BD-3162-4A6D-8814-F3DA6DCFA518.html
-
-.. _ASF3:
-   https://asf.microchip.com/docs/latest
-
-.. _SAM EDBG TWI Information Interface Example:
-   https://github.com/avrxml/asf/blob/master/sam/applications/edbg_twi_information_interface/main.c
-
-.. _ATSAMD21G18A:
-    https://www.microchip.com/product/ATSAMD21G18
-
-.. _AT32UC3A4256S:
-    https://www.microchip.com/product/AT32UC3A4256S
-
-.. _UF2 bootloader:
-    https://github.com/Microsoft/uf2#user-content-bootloaders
-
-.. _Arduino Zero Bootloader:
-    https://github.com/arduino/ArduinoCore-samd/tree/master/bootloaders/zero
-
-.. _Arduino Zero Advanced Features:
-    https://docs.arduino.cc/tutorials/zero/arduino-zero-edbg
-
-.. _Update the Bootloader on the Arduino Zero:
-    https://docs.arduino.cc/tutorials/zero/zero-bootloader-update
-
-.. _J-Link firmware for Atmel EDBG:
-    https://www.segger.com/jlink-edbg.html
-
-.. _CMSIS-DAP programmer:
-    https://github.com/ataradov/edbg
-
-.. _Python MCU programmer:
-    https://microchip-pic-avr-tools.github.io/pymcuprog
-
-.. _Python Kit information:
-    https://microchip-pic-avr-tools.github.io/pykitinfo
-
-.. _SAM-BA:
-    https://microchipdeveloper.com/atstart:sam-d21-bootloader
-
-.. |Arduino UNO R3| replace::
-   :dtcompatible:`Arduino UNO R3 <arduino-header-r3>`
-
-.. |Grove BMP280 Sensor| replace::
-   :strong:`Grove Temperature and Barometer Sensor – BMP280`
-.. _`Grove BMP280 Sensor`:
-   https://www.seeedstudio.com/Grove-Barometer-Sensor-BMP280.html

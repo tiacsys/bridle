@@ -203,37 +203,7 @@ from the |Laced Grove Signal Interface|. For example:
    :host-os: unix
    :tool: all
 
-.. ...........................................................................
+References
+**********
 
-.. _`Grove LED Socket Kit V1.3`:
-   https://wiki.seeedstudio.com/Grove-LED_Socket_Kit
-
-.. _`Grove LED Socket Kit V1.3 Eagle Files and Schematic`:
-   https://files.seeedstudio.com/wiki/Grove-LED_Socket_Kit/res/Grove-LED_v1.3_Schematics.zip
-
-.. _`Grove LED Socket Kit V1.0`:
-   https://seeeddoc.github.io/Grove-Red_LED
-
-.. _`Grove LED Socket Kit V1.0 Eagle Files`:
-   https://files.seeedstudio.com/wiki/Grove-LED_Socket_Kit/res/Grove-LED_Socket_Eagle_File.zip
-
-.. _`Grove LED`:
-   https://www.seeedstudio.com/Grove-Purple-LED-3mm.html
-
-.. _`Grove LED V1.0 Eagle Files, Schematic and Layout`:
-   https://files.seeedstudio.com/wiki/Grove-LED_Socket_Kit/res/Grove-LED_v1.0_Source_File.zip
-
-.. _`Grove Variable Color LED V1.1`:
-   https://wiki.seeedstudio.com/Grove-Variable_Color_LED
-
-.. _`Grove Variable Color LED V1.1 Eagle Files and Schematic`:
-   https://github.com/SeeedDocument/Bazaar_doc/raw/master/101020472/Grove%20-%20Variable%20Color%20LED%20v1.1%20Eagle%20File.zip
-
-.. _`Grove Variable Color LED V1.0`:
-   https://seeeddoc.github.io/Grove-Variable_Color_LED
-
-.. _`Grove Variable Color LED V1.0 Eagle Files`:
-   https://files.seeedstudio.com/wiki/Grove-Variable_Color_LED/res/Variable_Color_LED_eagle_file.zip
-
-.. |Laced Grove Signal Interface| replace::
-   :dtcompatible:`Laced Grove Signal Interface <seeed,grove-laced-if>`
+.. target-notes::

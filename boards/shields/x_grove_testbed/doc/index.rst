@@ -89,13 +89,6 @@ Supported variations
 .. |Acc3Ax Sensor Shields| replace::
    :s:`Grove 3-Axis Accelerator Sensor Shields` :emphasis:`(not yet)`
 
-.. |Arduino UNO R3| replace::
-   :dtcompatible:`Arduino UNO R3 <arduino-header-r3>`
-
-.. |Arduino Sensor Kit| replace:: :strong:`Arduino Sensor Kit – Base`
-.. _`Arduino Sensor Kit`:
-   https://www.seeedstudio.com/Arduino-Sensor-Kit-Base-p-4743.html
-
 Wiring Schematics
 *****************
 
@@ -1056,5 +1049,7 @@ For example:
                      :host-os: unix
                      :tool: all
 
-.. |Laced Grove Signal Interface| replace::
-   :dtcompatible:`Laced Grove Signal Interface <seeed,grove-laced-if>`
+References
+**********
+
+.. target-notes::

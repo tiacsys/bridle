@@ -91,7 +91,8 @@ Connections and IOs
 ===================
 
 The `Seeeduino Lotus Cortex-M0+ wiki`_ has detailed information about
-the board including `pinouts`_ and the `schematic`_.
+the board including `pinouts <Seeeduino Lotus Cortex-M0+ Pinouts_>`_
+and the `schematic <Seeeduino Lotus Cortex-M0+ Schematic_>`_.
 
 .. _seeeduino_lotus_grove_if:
 
@@ -691,44 +692,3 @@ References
 **********
 
 .. target-notes::
-
-.. _Seeeduino Lotus Cortex-M0+ wiki:
-    https://wiki.seeedstudio.com/Seeeduino_Lotus_Cortex-M0-/
-
-.. _pinouts:
-    https://wiki.seeedstudio.com/Seeeduino_Lotus_Cortex-M0-/#pinout
-
-.. _schematic:
-    https://wiki.seeedstudio.com/Seeeduino_Lotus_Cortex-M0-/#resources
-
-.. _ATSAMD21G18A:
-    https://www.microchip.com/product/ATSAMD21G18
-
-.. _MP2617B:
-    https://www.monolithicpower.com/mp2617b.html
-
-.. _UF2 bootloader:
-    https://github.com/Microsoft/uf2#user-content-bootloaders
-
-.. _Arduino Zero Bootloader:
-    https://github.com/Seeed-Studio/ArduinoCore-samd/tree/master/bootloaders/seeed_zero
-
-.. _Flashing the Arduino Bootloader using DAP Link:
-    https://wiki.seeedstudio.com/Flashing-Arduino-Bootloader-DAPLink/
-
-.. _SAM-BA:
-    https://microchipdeveloper.com/atstart:sam-d21-bootloader
-
-.. |Arduino UNO R3| replace::
-   :dtcompatible:`Arduino UNO R3 <arduino-header-r3>`
-
-.. |Grove connectors| replace::
-   :dtcompatible:`Grove connectors <seeed,grove-connector>`
-
-.. |Laced Grove Signal Interface| replace::
-   :dtcompatible:`Laced Grove Signal Interface <seeed,grove-laced-if>`
-
-.. |Grove BMP280 Sensor| replace::
-   :strong:`Grove Temperature and Barometer Sensor – BMP280`
-.. _`Grove BMP280 Sensor`:
-   https://www.seeedstudio.com/Grove-Barometer-Sensor-BMP280.html
