@@ -23,5 +23,6 @@ def test_sample_device_robot(twister_harness_config: TwisterHarnessConfig, dut: 
                     outputdir='twister-out',
                     report='report.html',
                     log='log.html',
+                    xunit='xunit.xml',
                     stdout=logFile)
     assert ret == 0, 'Robot test failed'
