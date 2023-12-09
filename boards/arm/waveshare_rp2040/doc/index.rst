@@ -1154,7 +1154,7 @@ Display Test and Demonstration
 ==============================
 
 This samples and test applications are only applicable on the |RP2040-LCD-0.96|
-board.
+and |RP2040-Geek| board.
 
 .. tabs::
 
