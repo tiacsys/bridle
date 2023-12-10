@@ -15,6 +15,9 @@ Highlights
 
 * Add the u-blox library (**ubxlib**) and provide a simple GNSS example.
 * Add *Raspberry Pi Pico* **TEST** *and* **LCD** *Shields*.
+* Add *DTS bindings* for  **pwm-buzzers** and **pwm-servos**.
+* Support the *Cytron Maker RP2040* family.
+* Support *The PicoBoy* mini-handheld.
 * Use board extensions.
 
 .. note:: See the changelog and readme files in the component repositories
@@ -96,15 +99,18 @@ Supported boards
 :brd:`NOT YET, tbd.`
 
 * Arduino/Genuino Zero
+* PicoBoy Mini-Handheld
+* Cytron Maker Nano RP2040
+* Cytron Maker Pi RP2040
 * NXP MIMXRT1010-EVK
 * NXP MIMXRT1060-EVK
-* ST Nucleo F3xxxx
-* ST Nucleo F4xxxx / L4xxxx
-* ST Nucleo F7xxxx
 * Raspberry Pi Pico and Pico W
 * Seeed Studio XIAO SAMD21 (Seeeduino XIAO)
 * Seeeduino Cortex-M0+
 * Seeeduino Lotus Cortex-M0+
+* ST Nucleo F2xxxx
+* ST Nucleo F3xxxx / L4xxxx
+* ST Nucleo F6xxxx
 * TiaC Magpie STM32F777NIHx
 * Waveshare RP2040 (series of mini and pico sized boards)
 
@@ -118,6 +124,7 @@ Supported shields
 * Grove LED Shields
 * Raspberry Pi Pico LCD Shields
 * Raspberry Pi Pico TEST Shields
+* Waveshare LCD Modules
 
 Supported snippets
 ******************
@@ -125,6 +132,7 @@ Supported snippets
 :brd:`NOT YET, tbd.`
 
 * USB Console Snippet (usb-console)
+* PWM Servomotor Preset Snippet (pwm-servo)
 * CAN timing adjustments (can-timing-adj)
 
 Change log
@@ -142,8 +150,26 @@ Change log
   extensions, e.g. the special *Raspberry Pi Pico R3 edge connector binding*.
 * Remove special board extensions for Nucleo F303RE/F401RE, NXP MIMXRT1010-EVK,
   and RPi Pico from the *Grove Interconnect Shield*.
+* Convert all RP2040 based boards to the new *Clock Controller* support.
+* Adds the new DTS binding *pwm-buzzers*, which can be used in the same way as
+  the Zephyr upstream binding *pwm-leds*; but here for simple buzzers, each
+  used by a dedicated PWM channel to output simple digital sounds. A simple
+  buzzer sample is now also part of Bridle. This can be used for simple music
+  playback via PWM.
+* Adds the new DTS binding *pwm-servos* to combine several PWM channels in one
+  node and make different numbers of servomotors known via alias entries. As
+  long as there is no stable servo motor or motion API in Zephyr or Bridle,
+  this binding will remain in flux and will not be finished.
+* Add the new *PWM Servomotor Preset Snippet (pwm-servo)* for quite board
+  specific preperations of the standard Zephyr Servomotor sample. Add support
+  for the following boards:
+
+  * Cytron Maker Pi RP2040
+
 * Add more boards to the *USB Console Snippet (usb-console)*:
 
+  * Cytron Maker Nano RP2040
+  * Cytron Maker Pi RP2040
   * NXP MIMXRT1010-EVK
   * NXP MIMXRT1060-EVK
   * Raspberry Pi Pico (W)
@@ -159,6 +185,11 @@ Change log
 
     * **Pico LCD 1.14** shield by Waveshare
     * **Pico LCD 2** shield by Waveshare
+    * **Pico ResTouch LCD 3.5** shield by Waveshare
+
+  * *Waveshare LCD Modules*:
+
+    * **2.4inch LCD Module** as shield by Waveshare
 
 * New Zephyr module: support u-blox portable C API **ubxlib** with GNSS sample.
 
@@ -182,7 +213,11 @@ Documentation
 
 :brd:`NOT YET, tbd.`
 
-1. Update all output messages in documentation to be in sync with the upcoming
+1. All scattered links to external resources and internal references to
+   sections in the various docsets (e.g. Bridle or Zephyr) were moved to
+   a central location in the files `links.txt` and `shortcuts.txt` and
+   thus centralized.
+2. Update all output messages in documentation to be in sync with the upcoming
    Bridle version v3.6.0, based on Zephyr v3.6 (samples and tests).
 
 Issue Related Items
@@ -190,6 +225,10 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`169` - [HW] The PicoBoy
+* :github:`168` - [HW] Waveshare Pico ResTouch LCD 3.5
+* :github:`167` - [HW] Waveshare LCD Modules as Shields
+* :github:`166` - [HW] Cytron Maker RP2040
 * :github:`163` - [FER] USB console support for NXP MIMXRT1010-EVK and MIMXRT1060-EVK
 * :github:`162` - [HW] Raspberry Pi Pico TEST Shields
 * :github:`161` - [HW] Raspberry Pi Pico LCD Shields
