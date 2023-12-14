@@ -1,0 +1,72 @@
+The `PicoBoy`_ is a :bbk:`special mini sized` RP2040 development board.
+
+.. list-table::
+   :align: center
+   :width: 100%
+   :widths: 66, 33
+
+   * - .. rubric:: Features and Resources
+     - .. rubric:: Printed Circuit Board
+
+   * - :hwftlbl-vdd:`5V/125~250㎃`
+       :hwftlbl-vdd:`3.0~3.3V/180~200㎃`
+
+       :hwftlbl:`133㎒`
+       :hwftlbl:`2㎆`
+       :hwftlbl:`264㎅`
+       :hwftlbl-con:`USB-C`
+       :hwftlbl-bat:`CR2032`
+       :hwftlbl-dbg:`UF2`
+
+       :hwftlbl-btn:`RST`
+       :hwftlbl-btn:`BOOT`
+       :hwftlbl-joy:`UP|DOWN|LEFT|RIGHT|ENTER`
+
+       :hwftlbl-led:`RED`
+       :hwftlbl-led:`YELLOW`
+       :hwftlbl-led:`GREEN`
+       :hwftlbl-scr:`OLED`
+       :hwftlbl-spk:`PASSIVE`
+
+       :hwftlbl-pio:`9`
+       :hwftlbl-pwm:`4`
+       :hwftlbl-adc:`4`
+       :hwftlbl-i2c:`1`
+       :hwftlbl-spi:`1`
+
+       .. rst-class:: rst-columns
+
+       - Dual core Arm Cortex-M0+ processor running up to 133㎒
+       - :bbk:`264㎅` on-chip SRAM
+       - :bbk:`2㎆` on-board QSPI flash with XIP capabilities
+       - USB 1.1 controller (host/device)
+       - On-board :bbl:`USB-C connector`
+       - On-board :bbl:`3.3V DC-DC buck-boost converter with 600㎃ switch`
+       - On-board :bbl:`CR2032 coin battery holder`
+       - On-board :bbk:`RESET` button
+       - On-board :bbl:`BOOT` button
+       - On-board :bbl:`1 User joystick (5 keys)`
+       - On-board :bbl:`3 User LEDs`
+       - On-board :bbl:`1.3-inch 128×64 pixels OLED`, monochrome white (serial)
+       - On-board :bbl:`1 passive magnetic speaker`
+       - On-board :bbl:`1 acceleration sensor`, 3-axis MEMS (digital)
+       - :bbk:`1 RST signal to OLED controller`
+       - :bbk:`1 C/D signal to OLED controller`
+       - :bbk:`1 I2C` controller for acceleration sensor
+       - :bbk:`1 SPI` controller for OLED
+       - :bbl:`4 PWM` channels for LEDs and speaker
+       - :bbl:`4 ADC` analog inputs
+       - 8 Programmable I/O (PIO) state machines for custom peripherals
+       - 1 Watchdog timer peripheral
+       - 1 Temperature sensor on-chip
+
+       .. rubric:: Design Data
+       .. rst-class:: rst-columns
+
+       - `PicoBoy Introduction <PicoBoy_>`_ (German)
+       - `PicoBoy Details`_ (German)
+       - :emphasis:`PicoBoy Schematic`, (not yet) available
+
+     - .. image:: /boards/arm/picoboy/doc/img/hardware.jpg
+          :align: center
+          :alt: PicoBoy

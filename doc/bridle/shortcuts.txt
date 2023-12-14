@@ -39,6 +39,9 @@
 .. |MIMXRT1060-EVK (CDC ACM)| replace::
    :ref:`MIMXRT1060-EVK (CDC ACM) <zephyr:mimxrt1060_evk>`
 
+.. |PicoBoy| replace::
+   :ref:`PicoBoy <picoboy_board>`
+
 .. |RP2040-ETH| replace::
    :ref:`RP2040-ETH <waveshare_rp2040_eth>`
 

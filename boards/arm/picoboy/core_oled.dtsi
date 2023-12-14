@@ -1,0 +1,53 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <freq.h>
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
+/ {
+	chosen {
+		zephyr,display = &oled_panel;
+	};
+};
+
+&spi0 {
+	status = "okay";
+
+	clock-frequency = <DT_FREQ_M(20)>;
+	cs-gpios = <&gpio0 10 GPIO_ACTIVE_LOW>;
+
+	/* OLED with SH1106 controller. */
+	sh1106_128x64: sh1106_128x64@0 {
+		compatible = "sinowealth,sh1106";
+		status = "okay";
+
+		reg = <0>;
+		ready-time-ms = <0>;
+		spi-max-frequency = <DT_FREQ_M(20)>;
+
+		reset-gpios = <&gpio0 9 GPIO_ACTIVE_LOW>;
+		data_cmd-gpios = <&gpio0 8 GPIO_ACTIVE_HIGH>;
+
+		width = <128>;
+		height = <64>;
+
+		segment-offset = <2>;
+		page-offset = <0>;
+		display-offset = <0>;
+		multiplex-ratio = <63>;
+		prechargep = <0x22>;
+
+		segment-remap;
+		com-invdir;
+
+		inversion-on;
+	};
+};
+
+oled_panel: &sh1106_128x64 {};
+
+&gpio0 {
+	status = "okay";
+};

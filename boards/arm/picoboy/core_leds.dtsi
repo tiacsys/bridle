@@ -1,0 +1,65 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/gpio/gpio.h>
+#include <zephyr/dt-bindings/pwm/pwm.h>
+
+/ {
+	aliases {
+		led0 = &led0;
+		led1 = &led1;
+		led2 = &led2;
+		pwm-led0 = &pwm_led0;
+		pwm-led1 = &pwm_led1;
+		pwm-led2 = &pwm_led2;
+	};
+
+	gpio_leds: gpio_leds {
+		compatible = "gpio-leds";
+		status = "disabled";
+
+		led0: led_red {
+			gpios = <&gpio0 5 GPIO_ACTIVE_HIGH>;
+			label = "User LED Red";
+		};
+		led1: led_yellow {
+			gpios = <&gpio0 6 GPIO_ACTIVE_HIGH>;
+			label = "User LED Yellow";
+		};
+		led2: led_green {
+			gpios = <&gpio0 7 GPIO_ACTIVE_HIGH>;
+			label = "User LED Green";
+		};
+	};
+
+	pwm_leds: pwm_leds {
+		compatible = "pwm-leds";
+		status = "okay";
+
+		pwm_led0: pwm_led_red {
+			pwms = <&pwm 5 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+			label = "User PWM_LED Red";
+		};
+		pwm_led1: pwm_led_yellow {
+			pwms = <&pwm 6 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+			label = "User PWM_LED Yellow";
+		};
+		pwm_led2: pwm_led_green {
+			pwms = <&pwm 7 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+			label = "User PWM_LED Green";
+		};
+	};
+};
+
+&gpio0 {
+	status = "okay";
+};
+
+&pwm {
+	divider-frac-2 = <15>;
+	divider-int-2 = <255>;
+	divider-frac-3 = <15>;
+	divider-int-3 = <255>;
+};

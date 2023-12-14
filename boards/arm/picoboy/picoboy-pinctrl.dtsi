@@ -1,0 +1,63 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/pinctrl/rpi-pico-rp2040-pinctrl.h>
+
+&pinctrl {
+	i2c0_default: i2c0_default {
+		group2021 {
+			pinmux = <I2C0_SDA_P20>,	/* acceleration */
+				 <I2C0_SCL_P21>;	/* sensor STK8BA58 */
+			input-enable;
+			input-schmitt-enable;
+		};
+	};
+
+	spi0_default: spi0_default {
+		group171819 {
+			pinmux = <SPI0_CSN_P17>,	/* not wired */
+				 <SPI0_SCK_P18>,	/* OLED display */
+				 <SPI0_TX_P19>;		/* SH1106 (128x64) */
+		};
+		group16 {
+			pinmux = <SPI0_RX_P16>;		/* not wired */
+			input-enable;
+		};
+	};
+
+	pwm_default: pwm_default {
+		group5 {
+			pinmux = <PWM_2B_P5>;		/* Red LED */
+		};
+		group6 {
+			pinmux = <PWM_3A_P6>;		/* Yellow LED */
+		};
+		group7 {
+			pinmux = <PWM_3B_P7>;		/* Green LED */
+		};
+		group15 {
+			pinmux = <PWM_7B_P15>;		/* Speaker */
+		};
+	};
+
+	adc_default: adc_default {
+		group26 {
+			pinmux = <ADC_CH0_P26>;
+			input-enable;
+		};
+		group27 {
+			pinmux = <ADC_CH1_P27>;
+			input-enable;
+		};
+		group28 {
+			pinmux = <ADC_CH2_P28>;
+			input-enable;
+		};
+		group29 {
+			pinmux = <ADC_CH3_P29>;
+			input-enable;
+		};
+	};
+};

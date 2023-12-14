@@ -1,0 +1,70 @@
+.. list-table::
+   :align: center
+   :width: 66%
+   :header-rows: 1
+
+   * - .. image:: /boards/arm/picoboy/doc/img/positions.jpg
+          :align: center
+          :width: 500
+          :alt: PicoBoy details
+
+   * - .. container:: twocol
+
+          .. container:: leftside
+
+             Front side:
+
+             1. | :strong:`SH1106`
+                | 1.3-inch 128×64 pixels monochrome white OLED
+             #. | :strong:`User joystick`
+                | UP, DOWN, LEFT, RIGHT, ENTER
+             #. | :strong:`W25Q16JV`
+                | 2㎆ NOR-Flash
+             #. | :strong:`LED monochrome`
+                | user LEDs for diagnostic (not power indicator)
+
+             Back side:
+
+             1. :strong:`RP2040`
+             #. | :strong:`USB Type-C connector`
+                | Supports USB1.1 hosts and slave devices
+
+          .. container:: rightside
+
+             3. :strong:`Power Supply Switch`
+             #. | :strong:`RESET and BOOT button`
+                | press it when resetting to enter download mode
+             #. | :strong:`Magnetic Speaker`
+                | 3.0Vo-p (2.0~4.0V) @ 4,000㎐ with ≫73㏈A
+             #. | :strong:`STK8BA58`
+                | 3-axis MEMS acceleration sensor
+             #. | :strong:`CR2032`
+                | 3.0V @ 235㎃h coin battery holder
+
+             - | :strong:`BL9366`
+               | 600㎃ DC-DC buck-boost converter, power switch for 3.3V
+             - | :strong:`S8050 (J3Y)`
+               | SMD NPN Transistor 300㎽, 40V @ 500㎃, SOT-23
+
+.. rubric:: Data Sheets
+.. rst-class:: rst-columns
+
+- .. rubric:: `RP2040 SoC`_
+- `RP2040 Datasheet`_
+- `Hardware design with RP2040`_
+- .. rubric:: W25Q16JV_
+- `W25Q16JV Datasheet`_
+- .. rubric:: `SH1106`_/`SSD1306`_
+- `SH1106 Datasheet V2.6 (2015/11)`_
+- `SH1106 Datasheet V2.3 (2013/06)`_
+- `SH1106 Datasheet V0.1 (2011/10)`_
+- `SSD1306 Datasheet V1.1 (2008/04)`_
+- .. rubric:: STK8BA58_
+- `STK8BA58 Datasheet`_
+- .. rubric:: BL9366_
+- `BL9366 Datasheet`_
+- `Buck DC/DC converter BL9366`_
+- .. rubric:: S8050_
+- `S8050 Datasheet`_
+- .. rubric:: `KLJ-4020`_
+- `KLJ-4020 Datasheet`_

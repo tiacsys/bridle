@@ -1,0 +1,26 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/pwm/pwm.h>
+
+/ {
+	aliases {
+		pwm-buzzer0 = &pwm_speaker0;
+	};
+
+	pwm_buzzers {
+		compatible = "pwm-buzzers";
+		status = "okay";
+
+		pwm_speaker0: pwm_speaker0 {
+			pwms = <&pwm 15 PWM_HZ(880) PWM_POLARITY_NORMAL>;
+			label = "User PWM_SPEAKER";
+		};
+	};
+};
+
+&pwm {
+	divider-int-7 = <255>;
+};

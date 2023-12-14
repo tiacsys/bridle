@@ -458,6 +458,21 @@
    https://drive.google.com/file/d/1Zp8GYO8x7ThObB1G8RIZx2YdqrXtdUc0/view
 
 
+
+.. ### Links to The PicoBoy
+
+.. _`PicoBoy Homepage`:
+   https://picoboy.de/
+
+.. ### Links to PicoBoy
+
+.. _`PicoBoy`:
+   https://picoboy.de/einfuehrung/das-geraet
+
+.. _`PicoBoy Details`:
+   https://picoboy.de/einfuehrung/fuer-erfahrene-nutzer
+
+
 .. ### Links to Waveshare Systems
 
 .. _`Waveshare wiki`:
@@ -825,6 +840,12 @@
 .. _`CMT-7525S Datasheet`:
    https://www.cuidevices.com/product/resource/cmt-7525s-smt-tr.pdf
 
+.. _`KLJ-4020`:
+   https://www.keliking.com/KLJ-4020-Magnetic-Buzzer-pd6886835.html
+
+.. _`KLJ-4020 Datasheet`:
+   https://datasheet.lcsc.com/lcsc/2005191833_KELIKING-KLJ-4020_C556936.pdf
+
 .. #### Links to LED or Lamps, either simple or complex with control logic on-chip
 
 .. _`WS2812B`:
@@ -845,6 +866,14 @@
 .. _`WS2812B with RP2040 PIO & DMA`:
    https://mcuoneclipse.com/2023/04/02/rp2040-with-pio-and-dma-to-address-ws2812b-leds
 
+.. #### Links to Transistors, Thyristors, Relais or similar for Electronic Power Switching
+
+.. _`S8050`:
+   https://www.lcsc.com/product-detail/Bipolar-Transistors-BJT_Jiangsu-Changjing-Electronics-Technology-Co-Ltd-S8050_C105433.html
+
+.. _`S8050 Datasheet`:
+   https://datasheet.lcsc.com/lcsc/2304140030_Jiangsu-Changjing-Electronics-Technology-Co---Ltd--S8050_C105433.pdf
+
 .. #### Links to Voltage Regulators or similar for Power Supply Chains
 
 .. _`78xx/LM340`:
@@ -864,6 +893,17 @@
 
 .. _`Voltage Regulator Handbook (National Semiconductor, 1980)`:
    https://media.searchelec.com/specshee/NATIONAL/NationalSemiconductorVoltageRegulatorHandbook1980_text.pdf
+
+.. _`BL9366`:
+   https://www-belling-com-cn.translate.goog/product_info.html?id=274&_x_tr_sl=auto&_x_tr_tl=de&_x_tr_hl=de&_x_tr_pto=wapp
+.. https://www.belling.com.cn/product_info.html?id=274
+
+.. _`BL9366 Datasheet`:
+   https://www.belling.com.cn/media/file_object/bel_product/BL9366/datasheet/BL9366_V1.3_en.pdf
+
+.. _`Buck DC/DC converter BL9366`:
+   https://antenna--dvb--t2-ru.translate.goog/show_dcdc.php?id=450&_x_tr_sl=ru&_x_tr_tl=en&_x_tr_hl=en&_x_tr_pto=wapp
+.. https://antenna-dvb-t2.ru/show_dcdc.php?id=450
 
 .. _`CT2105`:
    https://www.jotrin.com/product/parts/CT2105
@@ -997,6 +1037,16 @@
 .. https://datasheetspdf.com/pdf-file/909509/SinotechMixicElectronics/MX1515/1
 .. https://cdck-file-uploads-europe1.s3.dualstack.eu-west-1.amazonaws.com/arduino/original/4X/b/3/b/b3bc4d09220c9a729f4e723224cde4177450f53b.pdf
 
+.. #### Links to Sensors or similar to acquire environmental data
+
+.. _`STK8BA58`:
+   https://www.sensortek.com.tw/index.php/en/products/mems-sensor
+
+.. _`STK8BA58 Datasheet`:
+   https://datasheet.lcsc.com/lcsc/2109101230_SENSORTEK-STK8BA58-LGA-12PIN_C2890989.pdf
+.. https://xonstorage.blob.core.windows.net/pdf/sensortek_stk8ba58lga12pin_apr22_xonlink.pdf
+.. https://picoboy.de/files/STK8BA58.pdf
+
 .. #### Links to LCD Controllers or similar to drive displays
 
 .. _`ILI9341V`:
@@ -1013,6 +1063,41 @@
 
 .. _`ILI9341 Datasheet V1.09 (2011/03)`:
    http://www.lcdwiki.com/res/MSP2807/ILI9341%20Datasheet.pdf
+
+.. _`SH1106`:
+   https://www.crystalfontz.com/controllers/SinoWealth
+
+.. _`SH1106 Datasheet V2.6 (2015/11)`:
+   https://www.displayfuture.com/Display/datasheet/controller/SH1106.pdf
+
+.. _`SH1106 Datasheet V2.3 (2013/06)`:
+   https://www.velleman.eu/downloads/29/infosheets/sh1106_datasheet.pdf
+.. https://www.crystalfontz.com/controllers/SinoWealth/SH1106/468
+.. https://picoboy.de/files/SH1106.pdf
+
+.. _`SH1106 Datasheet V0.1 (2011/10)`:
+   https://www.hpinfotech.ro/SH1106.pdf
+
+.. _`SH1107`:
+   https://www.crystalfontz.com/controllers/SinoWealth
+
+.. _`SH1107 Datasheet V2.1 (2014/12)`:
+   https://www.displayfuture.com/Display/datasheet/controller/SH1107.pdf
+.. https://cdn-shop.adafruit.com/product-files/5297/SH1107V2.1.pdf
+.. https://www.crystalfontz.com/controllers/SinoWealth/SH1107/467
+
+.. _`SSD1306`:
+   https://www.solomon-systech.com/product/ssd1306
+
+.. _`SSD1306 Datasheet V1.1 (2008/04)`:
+   https://www.displayfuture.com/Display/datasheet/controller/SSD1306.pdf
+.. https://www.crystalfontz.com/controllers/SolomonSystech/SSD1306/339
+
+.. _`SSD1312`:
+   https://www.solomon-systech.com/product-category/oled-display
+
+.. _`SSD1312 Datasheet V1.0 (2019/01)`:
+   https://www.buydisplay.com/download/ic/SSD1312_Datasheet.pdf
 
 .. _`ST7735S`:
    https://www.sitronix.com.tw/en/products/aiot-device-ddi

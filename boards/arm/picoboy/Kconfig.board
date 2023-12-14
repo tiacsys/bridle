@@ -1,0 +1,6 @@
+# Copyright (c) 2023 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+config BOARD_PICOBOY
+	bool "PicoBoy Mini-Handheld Board"
+	depends on SOC_RP2040

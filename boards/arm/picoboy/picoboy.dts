@@ -1,0 +1,26 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/dts-v1/;
+
+/ {
+	model = "JSED PicoBoy @ USB-CDC/ACM Concole";
+	compatible = "jsed,picoboy", "jsed,picoboy-usbcons";
+
+	chosen {
+		zephyr,console = &cdc_acm_console_uart;
+		zephyr,shell-uart = &cdc_acm_console_uart;
+	};
+};
+
+#include "picoboy-core.dtsi"
+#include "picoboy-2mb.dtsi"
+
+#include "core_oled.dtsi"
+#include "core_leds.dtsi"
+#include "core_joystick.dtsi"
+#include "core_speaker.dtsi"
+
+#include "picoboy-core-tweaks.dtsi"
