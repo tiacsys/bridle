@@ -2,6 +2,7 @@ adafruit	Adafruit Industries, LLC
 cytron		Cytron Technologies
 digilent	Digilent, Inc.
 dfrobot		DFRobot Corporation
+jsed		Jan Schulz Elektronik & Didaktik
 nxp		NXP Semiconductors N.V.
 raspberrypi	Raspberry Pi Foundation
 seeed		Seeed Technology Co., Ltd
