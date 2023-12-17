@@ -14,17 +14,17 @@
 
              Inputs:
 
-             1. | :strong:`ST7789V`
-                | 1.14-inch 240×135 pixels 65K colorful IPS LCD
-             #. | :strong:`User joystick`
+             1. | :strong:`User joystick`
                 | UP, DOWN, LEFT, RIGHT, ENTER
+             #. | :strong:`User keys`
+                | momentary push buttons
 
           .. container:: rightside
 
              Outputs:
 
-             3. | :strong:`User keys`
-                | momentary push buttons
+             3. | :strong:`ST7789V`
+                | 1.14-inch 240×135 pixels 65K colorful IPS LCD
              #. | :strong:`RT9193-33`
                 | 300㎃ low dropout, low noise, ultra-fast LDO
 
