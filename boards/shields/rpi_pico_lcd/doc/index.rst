@@ -213,15 +213,16 @@ More Samples
 Input dump
 ==========
 
-Prints all input events as defined by the shield's Devicetree. See also Zephyr
+Prints all input events as defined by the shields Devicetree. See also Zephyr
 sample: :doc:`zephyr:samples/subsys/input/input_dump/README`.
 
 .. tabs::
 
    .. group-tab:: Waveshare Pico LCD 1.14
 
-      Print the input events related to the five on-shield test keys using
-      the :ref:`Input subsystem API <zephyr:input>`. That are:
+      Print the input events related to the five on-shield joystick keys
+      and two user keys using the :ref:`Input subsystem API <zephyr:input>`.
+      That are:
 
       | :hwftlbl-btn:`A` : :devicetree:`zephyr,code = <INPUT_KEY_0>;`
       | :hwftlbl-btn:`B` : :devicetree:`zephyr,code = <INPUT_KEY_1>;`
@@ -309,7 +310,7 @@ sample: :doc:`zephyr:samples/subsys/input/input_dump/README`.
 
    .. group-tab:: Waveshare Pico LCD 2
 
-      Print the input events related to the five on-shield test keys using
+      Print the input events related to the four on-shield user keys using
       the :ref:`Input subsystem API <zephyr:input>`. That are:
 
       | :hwftlbl-btn:`0` : :devicetree:`zephyr,code = <INPUT_KEY_0>;`
@@ -537,7 +538,7 @@ order. See also Zephyr sample: :doc:`zephyr:samples/drivers/display/README`.
 LVGL Basic Sample
 =================
 
-Displays “Hello World” in the center of the screen and a counter at the bottom
+Displays “Hello World!” in the center of the screen and a counter at the bottom
 which increments every second. See also Zephyr sample:
 :doc:`zephyr:samples/subsys/display/lvgl/README`.
 
