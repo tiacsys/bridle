@@ -7,28 +7,31 @@
 
 &pinctrl {
 	uart0_default: uart0_default {
-		group1 {
-			pinmux = <UART0_TX_P0>;
+		group0_uart {
+			pinmux = <UART0_TX_P0>;		/* GP0: UART0_TX */
 		};
-		group2 {
-			pinmux = <UART0_RX_P1>;
+		group1_uart {
+			pinmux = <UART0_RX_P1>;		/* GP1: UART0_RX */
 			input-enable;
 		};
 	};
 
 	spi0_mini_default: spi0_mini_default {
-		group1 {
-			pinmux = <SPI0_CSN_P5>, <SPI0_SCK_P6>, <SPI0_TX_P7>;
+		group567_spi {
+			pinmux = <SPI0_CSN_P5>,		/* GP5: SPI0_CSN */
+				 <SPI0_SCK_P6>,		/* GP6: SPI0_SCK */
+				 <SPI0_TX_P7>;		/* GP7: SPI0_TX */
 		};
-		group2 {
-			pinmux = <SPI0_RX_P4>;
+		group4_spi {
+			pinmux = <SPI0_RX_P4>;		/* GP4: SPI0_RX */
 			input-enable;
 		};
 	};
 
 	i2c0_mini_default: i2c0_mini_default {
-		group1 {
-			pinmux = <I2C0_SDA_P8>, <I2C0_SCL_P9>;
+		group89_i2c {
+			pinmux = <I2C0_SDA_P8>,		/* GP8: I2C0_SDA */
+				 <I2C0_SCL_P9>;		/* GP9: I2C0_SCL */
 			bias-pull-up;
 			input-enable;
 			input-schmitt-enable;
@@ -36,8 +39,9 @@
 	};
 
 	i2c1_mini_default: i2c1_mini_default {
-		group1 {
-			pinmux = <I2C1_SDA_P14>, <I2C1_SCL_P15>;
+		group1415_i2c {
+			pinmux = <I2C1_SDA_P14>,	/* GP14: I2C1_SDA */
+				 <I2C1_SCL_P15>;	/* GP15: I2C1_SCL */
 			bias-pull-up;
 			input-enable;
 			input-schmitt-enable;
@@ -45,34 +49,39 @@
 	};
 
 	pio0_ws2812_mini_default: pio0_ws2812_mini_default {
-		ws2812 {
-			pinmux = <PIO0_P16>;
+		group16_pio {
+			pinmux = <PIO0_P16>;		/* GP16: PIO0 */
 		};
 	};
 
 	spi0_pico_default: spi0_pico_default {
-		group1 {
-			pinmux = <SPI0_CSN_P17>, <SPI0_SCK_P18>, <SPI0_TX_P19>;
+		group171819_spi {
+			pinmux = <SPI0_CSN_P17>,	/* GP17: SPI0_CSN */
+				 <SPI0_SCK_P18>,	/* GP18: SPI0_SCK */
+				 <SPI0_TX_P19>;		/* GP19: SPI0_TX */
 		};
-		group2 {
-			pinmux = <SPI0_RX_P16>;
+		group16_spi {
+			pinmux = <SPI0_RX_P16>;		/* GP16: SPI0_RX */
 			input-enable;
 		};
 	};
 
 	spi1_pico: spi1_pico {
-		group1 {
-			pinmux = <SPI1_CSN_P9>, <SPI1_SCK_P10>, <SPI1_TX_P11>;
+		group91011_spi {
+			pinmux = <SPI1_CSN_P9>,		/* GP9: SPI1_CSN */
+				 <SPI1_SCK_P10>,	/* GP10: SPI1_SCK */
+				 <SPI1_TX_P11>;		/* GP11: SPI1_TX */
 		};
-		group2 {
-			pinmux = <SPI1_RX_P12>;
+		group12_spi {
+			pinmux = <SPI1_RX_P12>;		/* GP12: SPI1_RX */
 			input-enable;
 		};
 	};
 
 	i2c0_pico_default: i2c0_pico_default {
-		group1 {
-			pinmux = <I2C0_SDA_P4>, <I2C0_SCL_P5>;
+		group45_i2c {
+			pinmux = <I2C0_SDA_P4>,		/* GP4: I2C0_SDA */
+				 <I2C0_SCL_P5>;		/* GP5: I2C0_SCL */
 			bias-pull-up;
 			input-enable;
 			input-schmitt-enable;
@@ -80,8 +89,9 @@
 	};
 
 	i2c1_pico_default: i2c1_pico_default {
-		group1 {
-			pinmux = <I2C1_SDA_P14>, <I2C1_SCL_P15>;
+		group1415_i2c {
+			pinmux = <I2C1_SDA_P14>,	/* GP14: I2C1_SDA */
+				 <I2C1_SCL_P15>;	/* GP15: I2C1_SCL */
 			bias-pull-up;
 			input-enable;
 			input-schmitt-enable;
@@ -89,48 +99,51 @@
 	};
 
 	pio0_ws2812_pico_default: pio0_ws2812_pico_default {
-		ws2812 {
-			pinmux = <PIO0_P25>;
+		group25_pio {
+			pinmux = <PIO0_P25>;		/* GP25: PIO0 */
 		};
 	};
 
 	pwm_pico_default: pwm_pico_default {
-		group1 {
-			pinmux = <PWM_4B_P25>;	/* GP25: PWM4CHB (9) */
+		group25_led {
+			pinmux = <PWM_4B_P25>;		/* GP25: PWM4CHB (9) */
 		};
 	};
 
 	adc_default: adc_default {
-		group1 {
-			pinmux = <ADC_CH0_P26>, <ADC_CH1_P27>,
-				 <ADC_CH2_P28>, <ADC_CH3_P29>;
+		group26272829_adc {
+			pinmux = <ADC_CH0_P26>,		/* GP26: ADC_CH0 */
+				 <ADC_CH1_P27>,		/* GP27: ADC_CH1 */
+				 <ADC_CH2_P28>,		/* GP28: ADC_CH2 */
+				 <ADC_CH3_P29>;		/* GP29: ADC_CH3 */
 			input-enable;
 		};
 	};
 
 	uart1_eth: uart1_eth {
-		group1 {
-			pinmux = <UART1_TX_P20>;
+		group20_uart {
+			pinmux = <UART1_TX_P20>;	/* GP20: UART1_TX */
 		};
-		group2 {
-			pinmux = <UART1_RX_P21>;
+		group21_uart {
+			pinmux = <UART1_RX_P21>;	/* GP21: UART1_RX */
 			input-enable;
 		};
 	};
 
 	uart1_geek: uart1_geek {
-		group1 {
-			pinmux = <UART1_TX_P4>;
+		group4_uart {
+			pinmux = <UART1_TX_P4>;		/* GP4: UART1_TX */
 		};
-		group2 {
-			pinmux = <UART1_RX_P5>;
+		group5_uart {
+			pinmux = <UART1_RX_P5>;		/* GP5: UART1_RX */
 			input-enable;
 		};
 	};
 
 	i2c0_geek: i2c0_geek {
-		group1 {
-			pinmux = <I2C0_SDA_P28>, <I2C0_SCL_P29>;
+		group2829_i2c {
+			pinmux = <I2C0_SDA_P28>,	/* GP28: I2C0_SDA */
+				 <I2C0_SCL_P29>;	/* GP29: I2C0_SCL */
 			bias-pull-up;
 			input-enable;
 			input-schmitt-enable;
@@ -138,8 +151,9 @@
 	};
 
 	i2c1_geek: i2c1_geek {
-		group1 {
-			pinmux = <I2C1_SDA_P2>, <I2C1_SCL_P3>;
+		group23_i2c {
+			pinmux = <I2C1_SDA_P2>,		/* GP2: I2C1_SDA */
+				 <I2C1_SCL_P3>;		/* GP3: I2C1_SCL */
 			bias-pull-up;
 			input-enable;
 			input-schmitt-enable;
@@ -147,26 +161,30 @@
 	};
 
 	adc_geek: adc_geek {
-		group1 {
-			pinmux = <ADC_CH2_P28>, <ADC_CH3_P29>;
+		group2829_adc {
+			pinmux = <ADC_CH2_P28>,		/* GP28: ADC_CH2 */
+				 <ADC_CH3_P29>;		/* GP29: ADC_CH3 */
 			input-enable;
 		};
 	};
 
 	spi0_sdhc: spi0_sdhc {
-		group1 {
+		group1829_spi {
 			pinmux = /* GP23 will be used as CS: <SPI0_CSN_P17>, */
-				 <SPI0_SCK_P18>, <SPI0_TX_P19>;
+				 <SPI0_SCK_P18>,	/* GP18: SPI0_SCK */
+				 <SPI0_TX_P19>;		/* GP19: SPI0_TX */
 		};
-		group2 {
-			pinmux = <SPI0_RX_P20>;
+		group20_spi {
+			pinmux = <SPI0_RX_P20>;		/* GP20: SPI0_RX */
 			input-enable;
 		};
 	};
 
 	spi1_lcd: spi1_lcd {
-		group1 {
-			pinmux = <SPI1_CSN_P9>, <SPI1_SCK_P10>, <SPI1_TX_P11>;
+		group91011_spi {
+			pinmux = <SPI1_CSN_P9>,		/* GP9: SPI1_CSN */
+				 <SPI1_SCK_P10>,	/* GP10: SPI1_SCK */
+				 <SPI1_TX_P11>;		/* GP11: SPI1_TX */
 		};
 	};
 };

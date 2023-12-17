@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+#include <freq.h>
 #include <zephyr/dt-bindings/gpio/gpio.h>
 #include <zephyr/dt-bindings/led/led.h>
 
@@ -32,9 +33,9 @@
 					 LED_COLOR_ID_RED
 					 LED_COLOR_ID_BLUE>;
 
-			frequency = <800000>;
+			frequency = <DT_FREQ_K(800)>;
 			reset-delay = <280>;
-			output-pin = <25>;	/* GPIO25 */
+			output-pin = <25>;	/* PIO0:OUT @ GP25 */
 		};
 	};
 };
