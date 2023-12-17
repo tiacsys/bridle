@@ -80,7 +80,7 @@ embedded but complete TCP/IP stack (incl. UDP, ICMP, IGMP, ARP).
        - | :rpi-pico-pin:`30` :rpi-pico-sys:`RUN` (RESET)
        - | :rpi-pico-pin-nc:`nc` :strikethrough:`PIO/PWM : GP23 (PWM7)`
        - | :rpi-pico-pin-nc:`nc` :strikethrough:`PIO/PWM : GP24 (PWM8)`
-       - | :rpi-pico-pin-nc:`nc` PIO/PWM : :rpi-pico-pio:`GP25` :rpi-pico-pwm:`PWM9`
+       - | :rpi-pico-pin-nc:`nc` :rpi-pico-pio:`PIO0` : GP25 (PWM9)
          | :rpi-pico-pin-nc:`nc` on-board user :rpi-pico-sys:`RGB_LED_DI`
        - | :rpi-pico-pin:`31` :rpi-pico-adc:`ADC_CH0` : GP26 (PWM10)
        - | :rpi-pico-pin:`32` :rpi-pico-adc:`ADC_CH1` : GP27 (PWM11)

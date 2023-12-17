@@ -51,7 +51,7 @@ no option to change this from outside the board.
        - | :rpi-pico-pin:`14` PIO/PWM : :rpi-pico-pio:`GP13` :rpi-pico-pwm:`PWM13`
        - | :rpi-pico-pin:`15` :rpi-pico-i2c:`I2C1_SDA` : GP14 (PWM14)
        - | :rpi-pico-pin:`16` :rpi-pico-i2c:`I2C1_SCL` : GP15 (PWM15)
-       - | :rpi-pico-pin-nc:`nc` PIO/PWM : :rpi-pico-pio:`GP16` :rpi-pico-pwm:`PWM0`
+       - | :rpi-pico-pin-nc:`nc` :rpi-pico-pio:`PIO0` : GP16 (PWM0)
          | :rpi-pico-pin-nc:`nc` on-board user :rpi-pico-sys:`RGB_LED_DI`
        - | :rpi-pico-pin-nc:`A` :strikethrough:`PIO/PWM : GP17 (PWM1)`
        - | :rpi-pico-pin-nc:`B` :strikethrough:`PIO/PWM : GP18 (PWM2)`
