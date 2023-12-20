@@ -402,7 +402,8 @@ order. See also Zephyr sample: :doc:`zephyr:samples/drivers/display/README`.
       Using the :ref:`Display driver API <zephyr:display_api>` with chosen
       display. That is:
 
-      | :hwftlbl-scr:`LCD` : :devicetree:`chosen { zephyr,display = &st7789v_240x135; };`
+      | :hwftlbl-scr:`LCD` : :devicetree:`chosen { zephyr,display = &lcd_panel; };`
+      | :hwftlbl-scr:`ST7789V` : :devicetree:`lcd_panel: &st7789v_240x135 {};`
 
       .. tabs::
 
@@ -471,7 +472,8 @@ order. See also Zephyr sample: :doc:`zephyr:samples/drivers/display/README`.
       Using the :ref:`Display driver API <zephyr:display_api>` with chosen
       display. That is:
 
-      | :hwftlbl-scr:`LCD` : :devicetree:`chosen { zephyr,display = &st7789v_320x240; };`
+      | :hwftlbl-scr:`LCD` : :devicetree:`chosen { zephyr,display = &lcd_panel; };`
+      | :hwftlbl-scr:`ST7789V` : :devicetree:`lcd_panel: &st7789v_320x240 {};`
 
       .. tabs::
 
@@ -549,7 +551,8 @@ which increments every second. See also Zephyr sample:
       Using the LVGL module on top of the :ref:`Display driver API
       <zephyr:display_api>` with chosen display. That is:
 
-      | :hwftlbl-scr:`LCD` : :devicetree:`chosen { zephyr,display = &st7789v_240x135; };`
+      | :hwftlbl-scr:`LCD` : :devicetree:`chosen { zephyr,display = &lcd_panel; };`
+      | :hwftlbl-scr:`ST7789V` : :devicetree:`lcd_panel: &st7789v_240x135 {};`
 
       .. tabs::
 
@@ -629,7 +632,8 @@ which increments every second. See also Zephyr sample:
       Using the LVGL module on top of the :ref:`Display driver API
       <zephyr:display_api>` with chosen display. That is:
 
-      | :hwftlbl-scr:`LCD` : :devicetree:`chosen { zephyr,display = &st7789v_320x240; };`
+      | :hwftlbl-scr:`LCD` : :devicetree:`chosen { zephyr,display = &lcd_panel; };`
+      | :hwftlbl-scr:`ST7789V` : :devicetree:`lcd_panel: &st7789v_320x240 {};`
 
       .. tabs::
 

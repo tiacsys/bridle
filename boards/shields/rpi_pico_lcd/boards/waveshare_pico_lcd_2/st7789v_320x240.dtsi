@@ -6,25 +6,24 @@
 #include <freq.h>
 
 &rpipico_spi_lcd {
-	st7789v_240x320: st7789v@0 {
+	st7789v_320x240: st7789v@0 {
 		compatible = "sitronix,st7789v";
 		spi-max-frequency = <DT_FREQ_M(20)>;
 		reg = <0>;
 
 		status = "disabled";
 
-		width = <240>;		/* portrait */
-		height = <320>;		/* portrait */
-		x-offset = <0>;		/* portrait */
-		y-offset = <0>;		/* portrait */
+		width = <320>;		/* landscape */
+		height = <240>;		/* landscape */
+		x-offset = <0>;		/* landscape */
+		y-offset = <0>;		/* landscape */
 
 		vcom = <0x1f>;
 		gctrl = <0x35>;
 		vrhs = <0x12>;
 		vdvs = <0x20>;
-		mdac = <0x00>;		/* portrait */
+		mdac = <0x70>;		/* landscape */
 		gamma = <0x01>;
-		colmod = <0x06>;	/* 18-bit, RGB666 */
 		lcm = <0x2c>;
 		porch-param = [0C 0C 00 33 33];
 		cmd2en-param = [5A 69 02 01];
@@ -35,3 +34,5 @@
 		rgb-param = [CD 08 14];
 	};
 };
+
+lcd_panel: &st7789v_320x240 {};

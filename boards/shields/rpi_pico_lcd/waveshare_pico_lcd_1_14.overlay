@@ -7,7 +7,7 @@
 
 / {
 	chosen {
-		zephyr,display = &st7789v_240x135;
+		zephyr,display = &lcd_panel;
 	};
 
 	lcd_backlight_en: lcd-backlight-en {

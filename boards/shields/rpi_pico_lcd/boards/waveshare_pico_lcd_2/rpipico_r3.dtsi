@@ -3,13 +3,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#include "st7789v_320x240_rgb565.dtsi"
+#include "st7789v_320x240.dtsi"
+#include "st7789v_rgb565.dtsi"
 
 &lcd_backlight_en {
 	enable-gpios = <&rpipico_header 13 GPIO_ACTIVE_HIGH>;	/* GP13 */
 };
 
-&st7789v_320x240 {
+&lcd_panel {
 	status = "okay";
 	reset-gpios = <&rpipico_header 12 GPIO_ACTIVE_LOW>;	/* GP12 */
 	cmd-data-gpios = <&rpipico_header 8 GPIO_ACTIVE_LOW>;	/* GP8 */
