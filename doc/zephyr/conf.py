@@ -177,6 +177,10 @@ html_theme_options = {
     'default_docset': utils.get_default_docset(),
 }
 
+# Disable Google search engine.
+del html_context["google_searchengine_id"]
+del html_additional_pages["gsearch"]
+
 # Options for intersphinx ------------------------------------------------------
 
 intersphinx_mapping = dict()
