@@ -20,11 +20,7 @@ SPI communication interface.
 
        :hwftlbl-btn:`A`
        :hwftlbl-btn:`B`
-       :hwftlbl-btn:`UP`
-       :hwftlbl-btn:`DOWN`
-       :hwftlbl-btn:`LEFT`
-       :hwftlbl-btn:`RIGHT`
-       :hwftlbl-btn:`ENTER`
+       :hwftlbl-joy:`UP|DOWN|LEFT|RIGHT|ENTER`
        :hwftlbl-scr:`LCD`
 
        :hwftlbl-pio:`12`

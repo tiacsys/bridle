@@ -226,11 +226,11 @@ sample: :doc:`zephyr:samples/subsys/input/input_dump/README`.
 
       | :hwftlbl-btn:`A` : :devicetree:`zephyr,code = <INPUT_KEY_0>;`
       | :hwftlbl-btn:`B` : :devicetree:`zephyr,code = <INPUT_KEY_1>;`
-      | :hwftlbl-btn:`DOWN` : :devicetree:`zephyr,code = <INPUT_KEY_DOWN>;`
-      | :hwftlbl-btn:`ENTER` : :devicetree:`zephyr,code = <INPUT_KEY_ENTER>;`
-      | :hwftlbl-btn:`RIGHT` : :devicetree:`zephyr,code = <INPUT_KEY_RIGHT>;`
-      | :hwftlbl-btn:`LEFT` : :devicetree:`zephyr,code = <INPUT_KEY_LEFT>;`
-      | :hwftlbl-btn:`UP` : :devicetree:`zephyr,code = <INPUT_KEY_UP>;`
+      | :hwftlbl-joy:`UP` : :devicetree:`zephyr,code = <INPUT_KEY_UP>;`
+      | :hwftlbl-joy:`DOWN` : :devicetree:`zephyr,code = <INPUT_KEY_DOWN>;`
+      | :hwftlbl-joy:`LEFT` : :devicetree:`zephyr,code = <INPUT_KEY_LEFT>;`
+      | :hwftlbl-joy:`RIGHT` : :devicetree:`zephyr,code = <INPUT_KEY_RIGHT>;`
+      | :hwftlbl-joy:`ENTER` : :devicetree:`zephyr,code = <INPUT_KEY_ENTER>;`
 
       .. tabs::
 
@@ -297,16 +297,16 @@ sample: :doc:`zephyr:samples/subsys/input/input_dump/README`.
          I: input event: dev=gpio_keys        SYN type= 1 code= 11 value=0
          I: input event: dev=gpio_keys        SYN type= 1 code=  2 value=1
          I: input event: dev=gpio_keys        SYN type= 1 code=  2 value=0
-         I: input event: dev=keys             SYN type= 1 code=108 value=1
-         I: input event: dev=keys             SYN type= 1 code=108 value=0
-         I: input event: dev=keys             SYN type= 1 code= 28 value=1
-         I: input event: dev=keys             SYN type= 1 code= 28 value=0
-         I: input event: dev=keys             SYN type= 1 code=106 value=1
-         I: input event: dev=keys             SYN type= 1 code=106 value=0
-         I: input event: dev=keys             SYN type= 1 code=105 value=1
-         I: input event: dev=keys             SYN type= 1 code=105 value=0
-         I: input event: dev=keys             SYN type= 1 code=103 value=1
-         I: input event: dev=keys             SYN type= 1 code=103 value=0
+         I: input event: dev=gpio_keys        SYN type= 1 code=103 value=1
+         I: input event: dev=gpio_keys        SYN type= 1 code=103 value=0
+         I: input event: dev=gpio_keys        SYN type= 1 code=108 value=1
+         I: input event: dev=gpio_keys        SYN type= 1 code=108 value=0
+         I: input event: dev=gpio_keys        SYN type= 1 code=105 value=1
+         I: input event: dev=gpio_keys        SYN type= 1 code=105 value=0
+         I: input event: dev=gpio_keys        SYN type= 1 code=106 value=1
+         I: input event: dev=gpio_keys        SYN type= 1 code=106 value=0
+         I: input event: dev=gpio_keys        SYN type= 1 code= 28 value=1
+         I: input event: dev=gpio_keys        SYN type= 1 code= 28 value=0
 
    .. group-tab:: Waveshare Pico LCD 2
 
@@ -554,6 +554,34 @@ which increments every second. See also Zephyr sample:
       | :hwftlbl-scr:`LCD` : :devicetree:`chosen { zephyr,display = &lcd_panel; };`
       | :hwftlbl-scr:`ST7789V` : :devicetree:`lcd_panel: &st7789v_240x135 {};`
 
+      .. rubric:: Devicetree compatible
+
+      - :dtcompatible:`zephyr,lvgl-button-input` with devicetree relation
+        :devicetree:`lvgl_buttons: lvgl-buttons { input = <&gpio_keys>; };`
+
+        | :hwftlbl-btn:`B` :
+          :devicetree:`input-codes = <INPUT_KEY_1>;` :
+          :devicetree:`coordinates = <120 68>;` (center of LCD)
+
+      - :dtcompatible:`zephyr,lvgl-keypad-input` with devicetree relation
+        :devicetree:`lvgl_keypad: lvgl-keypad { input = <&gpio_keys>; };`
+
+        | :hwftlbl-joy:`UP` :
+          :devicetree:`input-codes = <INPUT_KEY_UP>;` :
+          :devicetree:`lvgl-codes = <LV_KEY_UP>;`
+        | :hwftlbl-joy:`DOWN` :
+          :devicetree:`input-codes = <INPUT_KEY_DOWN>;` :
+          :devicetree:`lvgl-codes = <LV_KEY_DOWN>;`
+        | :hwftlbl-joy:`LEFT` :
+          :devicetree:`input-codes = <INPUT_KEY_LEFT>;` :
+          :devicetree:`lvgl-codes = <LV_KEY_LEFT>;`
+        | :hwftlbl-joy:`RIGHT` :
+          :devicetree:`input-codes = <INPUT_KEY_RIGHT>;` :
+          :devicetree:`lvgl-codes = <LV_KEY_RIGHT>;`
+        | :hwftlbl-joy:`ENTER` :
+          :devicetree:`input-codes = <INPUT_KEY_ENTER>;` :
+          :devicetree:`lvgl-codes = <LV_KEY_ENTER>;`
+
       .. tabs::
 
          .. group-tab:: Raspberry Pi Pico
@@ -611,21 +639,23 @@ which increments every second. See also Zephyr sample:
       .. code-block:: console
 
          ***** delaying boot 4000ms (per build configuration) *****
-         [00:00:00.363,000] <wrn> udc_rpi: BUS RESET
-         [00:00:00.443,000] <wrn> udc_rpi: BUS RESET
+         [00:00:00.321,000] <wrn> udc_rpi: BUS RESET
+         [00:00:00.401,000] <wrn> udc_rpi: BUS RESET
          *** Booting Zephyr OS … … … (delayed boot 4000ms) ***
          uart:~$ _
 
          uart:~$ lvgl stats memory
-         Heap at 0x20001038 contains 2047 units in 11 buckets
+         Heap at 0x20001400 contains 2047 units in 11 buckets
 
            bucket#    min units        total      largest      largest
                       threshold       chunks      (units)      (bytes)
            -----------------------------------------------------------
-                 1            2            1            2           12
-                10         1024            1         1550        12396
+                 0            1            3            1            4
+                 3            8            1           11           84
+                 6           64            1           81          644
+                10         1024            1         1345        10756
 
-         12408 free bytes, 3560 allocated bytes, overhead = 412 bytes (2.5%)
+         11496 free bytes, 4376 allocated bytes, overhead = 508 bytes (3.1%)
 
    .. group-tab:: Waveshare Pico LCD 2
 
@@ -635,6 +665,28 @@ which increments every second. See also Zephyr sample:
       | :hwftlbl-scr:`LCD` : :devicetree:`chosen { zephyr,display = &lcd_panel; };`
       | :hwftlbl-scr:`ST7789V` : :devicetree:`lcd_panel: &st7789v_320x240 {};`
 
+      .. rubric:: Devicetree compatible
+
+      - :dtcompatible:`zephyr,lvgl-button-input` with devicetree relation
+        :devicetree:`lvgl_buttons: lvgl-buttons { input = <&gpio_keys>; };`
+
+        | :hwftlbl-btn:`1` :
+          :devicetree:`input-codes = <INPUT_KEY_1>;` :
+          :devicetree:`coordinates = <160 120>;` (center of LCD)
+
+      - :dtcompatible:`zephyr,lvgl-keypad-input` with devicetree relation
+        :devicetree:`lvgl_keypad: lvgl-keypad { input = <&gpio_keys>; };`
+
+        | :hwftlbl-btn:`3` :
+          :devicetree:`input-codes = <INPUT_KEY_3>;` :
+          :devicetree:`lvgl-codes = <LV_KEY_LEFT>;`
+        | :hwftlbl-btn:`2` :
+          :devicetree:`input-codes = <INPUT_KEY_2>;` :
+          :devicetree:`lvgl-codes = <LV_KEY_RIGHT>;`
+        | :hwftlbl-btn:`1` :
+          :devicetree:`input-codes = <INPUT_KEY_1>;` :
+          :devicetree:`lvgl-codes = <LV_KEY_ENTER>;`
+
       .. tabs::
 
          .. group-tab:: Raspberry Pi Pico
@@ -692,21 +744,23 @@ which increments every second. See also Zephyr sample:
       .. code-block:: console
 
          ***** delaying boot 4000ms (per build configuration) *****
-         [00:00:00.332,000] <wrn> udc_rpi: BUS RESET
-         [00:00:00.416,000] <wrn> udc_rpi: BUS RESET
+         [00:00:00.401,000] <wrn> udc_rpi: BUS RESET
+         [00:00:00.481,000] <wrn> udc_rpi: BUS RESET
          *** Booting Zephyr OS … … … (delayed boot 4000ms) ***
          uart:~$ _
 
          uart:~$ lvgl stats memory
-         Heap at 0x20001048 contains 2047 units in 11 buckets
+         Heap at 0x20001328 contains 2047 units in 11 buckets
 
            bucket#    min units        total      largest      largest
                       threshold       chunks      (units)      (bytes)
            -----------------------------------------------------------
+                 0            1            2            1            4
                  1            2            1            2           12
-                10         1024            1         1550        12396
+                 6           64            1           81          644
+                10         1024            1         1356        10844
 
-         12408 free bytes, 3560 allocated bytes, overhead = 412 bytes (2.5%)
+         11508 free bytes, 4368 allocated bytes, overhead = 504 bytes (3.1%)
 
 References
 **********

@@ -12,8 +12,8 @@
           :hwftlbl-spi:`1`
 
        :on-shield:
-          :hwftlbl-btn:`5 CURSOR`
           :hwftlbl-btn:`2 BUTTON`
+          :hwftlbl-joy:`1 CURSOR`
           :hwftlbl-led:`1 BL`
           :hwftlbl-scr:`1 LCD`
 

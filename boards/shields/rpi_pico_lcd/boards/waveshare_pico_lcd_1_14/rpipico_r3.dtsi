@@ -6,6 +6,8 @@
 #include "st7789v_240x135.dtsi"
 #include "st7789v_rgb565.dtsi"
 
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
 &lcd_backlight_en {
 	enable-gpios = <&rpipico_header 13 GPIO_ACTIVE_HIGH>;	/* GP13 */
 };
