@@ -24,7 +24,7 @@ SPI communication interface.
        :hwftlbl-btn:`3`
        :hwftlbl-scr:`LCD`
 
-       :hwftlbl-pio:`8`
+       :hwftlbl-pio:`9`
        :hwftlbl-pwm:`1`
        :hwftlbl-spi:`1`
 

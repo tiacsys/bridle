@@ -7,7 +7,7 @@
      - .. rubric:: Pinout
 
    * - :on-edge(1-40):
-          :hwftlbl-pio:`11`
+          :hwftlbl-pio:`12`
           :hwftlbl-pwm:`1`
           :hwftlbl-spi:`1`
 
@@ -35,7 +35,7 @@
        - | :rpi-pico-pin:`10` PIO/PWM : GP7 (PWM7)
        - | :rpi-pico-pin:`11` PIO/PWM : :rpi-pico-pio:`GP8` (PWM8)
          | :rpi-pico-pin-nc:`nc` on-shield LCD data/cmd :rpi-pico-sys:`LCD_DC`
-       - | :rpi-pico-pin:`12` :rpi-pico-spi:`SPI1_CSN` : GP9 (PWM9)
+       - | :rpi-pico-pin:`12` :rpi-pico-spi:`SPI1_CSN` : :rpi-pico-pio:`GP9` (PWM9)
          | :rpi-pico-pin-nc:`nc` on-shield LCD chip select :rpi-pico-sys:`LCD_CS`
        - | :rpi-pico-pin:`13` :rpi-pico-gnd:`GND`
        - | :rpi-pico-pin:`14` :rpi-pico-spi:`SPI1_SCK` : GP10 (PWM10)
@@ -49,6 +49,7 @@
        - | :rpi-pico-pin:`18` :rpi-pico-gnd:`GND`
        - | :rpi-pico-pin:`19` PIO/PWM : :rpi-pico-pio:`GP14` (PWM14)
          | :rpi-pico-pin-nc:`nc` on-shield LDO power enable
+         | :rpi-pico-pin-nc:`nc` (optional) :rpi-pico-sys:`VCC_EN`
        - | :rpi-pico-pin:`20` :hwftlbl-btn:`A` : :rpi-pico-pio:`GP15` (PWM15)
        - | :rpi-pico-pin:`21` :hwftlbl-btn:`LEFT` : :rpi-pico-pio:`GP16` (PWM0)
        - | :rpi-pico-pin:`22` :hwftlbl-btn:`B` : :rpi-pico-pio:`GP17` (PWM1)
@@ -72,9 +73,11 @@
        - | :rpi-pico-pin:`36` :rpi-pico-sys:`3V3(OUT)`
        - | :rpi-pico-pin:`37` :rpi-pico-sys:`3V3_EN`
          | :rpi-pico-pin-nc:`nc` on-shield LDO power enable
+         | :rpi-pico-pin-nc:`nc` (optional) :rpi-pico-sys:`VCC_EN`
        - | :rpi-pico-pin:`38` :rpi-pico-gnd:`GND`
        - | :rpi-pico-pin:`39` :rpi-pico-vdd:`VSYS`
          | :rpi-pico-pin-nc:`nc` on-shield LDO power enable
+         | :rpi-pico-pin-nc:`nc` (default) :rpi-pico-sys:`VCC_EN`
        - | :rpi-pico-pin:`40` :rpi-pico-sys:`VBUS`
 
        .. rubric:: Devicetree compatible
