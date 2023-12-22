@@ -1256,6 +1256,144 @@ and |RP2040-Geek| board. They will be built with activated USB-CDC/ACM console.
          :goals: flash
          :compact:
 
+TF/microSD Demonstration
+========================
+
+This samples and test applications are only applicable on the |RP2040-Geek|
+board. They will be built with activated USB-CDC/ACM console.
+
+.. tabs::
+
+   .. group-tab:: RP2040-Geek
+
+      The following samples work with the chosen SDHC interface in 1-bit
+      mode and connected to SPI. That is:
+
+      | :hwftlbl-spi:`SDHC` :
+        :devicetree:`&spi0 { sdhc0: sdhc@0 { compatible = "zephyr,sdhc-spi-slot"; }; };`
+      | :hwftlbl-dsk:`TF/microSD` :
+        :devicetree:`&sdhc0 { mmc { compatible = "zephyr,sdmmc-disk"; }; };`
+
+      .. rubric:: File system manipulation
+
+      Using the :ref:`File Systems API <zephyr:file_system_api>` ontop of the
+      :ref:`Disk Access API <zephyr:disk_access_api>` with chosen TF/microSD.
+      See also Zephyr sample: :doc:`zephyr:samples/subsys/fs/fs_sample/README`.
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/fs/fs_sample
+         :board: waveshare_rp2040_geek
+         :build-dir: waveshare_rp2040
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
+      .. image:: /boards/arm/waveshare_rp2040/doc/rp2040-geek/RP2040-GEEK.bmp
+         :align: right
+         :alt: Waveshare RP2040-Geek Demo Bitmap Image
+
+      The TF/microSD card should be pre-formatted with FAT FS. If there are
+      any files or directories present in the card, the sample lists them out
+      on the console, e.g.:
+
+      * :bbl:`(optional)` Boot Sector:
+        :strong:`MBR` :emphasis:`(Master Boot Record)`
+      * :bbl:`(optional)` 1st Primary Partition:
+        :strong:`W95 FAT32 (LBA)` :emphasis:`(ID: 0x0C)`
+      * FAT File System: :strong:`FAT (32-bit version)`
+      * Content: :download:`rp2040-geek/RP2040-GEEK.bmp`
+
+      .. rubric:: Simple logging output on target
+
+      .. code-block:: console
+
+         ***** delaying boot 4000ms (per build configuration) *****
+         [00:00:00.464,000] <wrn> udc_rpi: BUS RESET
+         [00:00:00.548,000] <wrn> udc_rpi: BUS RESET
+         *** Booting Zephyr OS … … … (delayed boot 4000ms) ***
+         [00:00:04.269,000] <inf> main: Block count 15759360
+         Sector size 512
+         Memory Size(MB) 7695
+         Disk mounted.
+
+         Listing dir /SD: ...
+         [FILE] RP2040~1.BMP (size = 97254)
+
+      In case when no files could be listed, because there are none (empty FS),
+      :file:`some.dir` directory and :file:`other.txt` file will be created and
+      list will run again to show them, e.g.:
+
+      * :bbl:`(optional)` Boot Sector:
+        :strong:`MBR` :emphasis:`(Master Boot Record)`
+      * :bbl:`(optional)` 1st Primary Partition:
+        :strong:`W95 FAT32 (LBA)` :emphasis:`(ID: 0x0C)`
+      * FAT File System: :strong:`FAT (32-bit version)`
+      * Content: :brd:`NONE (empty FS)`
+
+      .. rubric:: Simple logging output on target
+
+      .. code-block:: console
+
+         ***** delaying boot 4000ms (per build configuration) *****
+         [00:00:00.326,000] <wrn> udc_rpi: BUS RESET
+         [00:00:00.406,000] <wrn> udc_rpi: BUS RESET
+         *** Booting Zephyr OS … … … (delayed boot 4000ms) ***
+         [00:00:04.192,000] <inf> main: Block count 15759360
+         Sector size 512
+         Memory Size(MB) 7695
+         Disk mounted.
+
+         Listing dir /SD: ...
+         [00:00:04.317,000] <inf> main: Creating some dir entries in /SD:
+
+         Listing dir /SD: ...
+         [FILE] SOME.DAT (size = 0)
+         [DIR ] SOME
+
+      In there is no FS (or the FS is corrupted), the disk is attempted
+      to re-format to FAT FS and list will run again to show them, e.g.:
+
+      * Boot Sector: :brd:`NONE (empty boot sector, no partition table)`
+        – :bbl:`(optional)` :strong:`MBR` :emphasis:`(Master Boot Record)`
+      * 1st Primary Partition: :brd:`NONE (empty partition table entry)`
+        – :bbl:`(optional)` :strong:`W95 FAT32 (LBA)` :emphasis:`(ID: 0x0C)`
+      * FAT File System: :brd:`NONE (empty partition)`
+      * Content: :brd:`NONE (empty FS)`
+
+      .. code-block:: console
+
+         ***** delaying boot 4000ms (per build configuration) *****
+         [00:00:00.367,000] <wrn> udc_rpi: BUS RESET
+         [00:00:00.447,000] <wrn> udc_rpi: BUS RESET
+         *** Booting Zephyr OS … … … (delayed boot 4000ms) ***
+         [00:00:04.236,000] <inf> main: Block count 15759360
+         Sector size 512
+         Memory Size(MB) 7695
+         Disk mounted.
+
+         Listing dir /SD: ...
+         [00:00:11.844,000] <inf> main: Creating some dir entries in /SD:
+
+         Listing dir /SD: ...
+         [FILE] SOME.DAT (size = 0)
+         [DIR ] SOME
+
+      .. tsn-include:: samples/subsys/fs/fs_sample/README.rst
+         :docset: zephyr
+         :start-after: sample lists them out on the debug serial output.
+         :end-before: Building and Running EXT2 samples
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/fs/fs_sample
+         :board: waveshare_rp2040_geek
+         :build-dir: waveshare_rp2040
+         :west-args: -p -S usb-console
+         :gen-args: -DCONFIG_FS_FATFS_MOUNT_MKFS=n
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
 References
 **********
 
