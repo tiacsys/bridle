@@ -1154,21 +1154,28 @@ Display Test and Demonstration
 ==============================
 
 This samples and test applications are only applicable on the |RP2040-LCD-0.96|
-and |RP2040-Geek| board.
+and |RP2040-Geek| board. They will be built with activated USB-CDC/ACM console.
 
 .. tabs::
 
    .. group-tab:: RP2040-LCD-0.96
 
+      The following samples work with the chosen display. That is:
+
+      | :hwftlbl-scr:`LCD` : :devicetree:`chosen { zephyr,display = &lcd_panel; };`
+      | :hwftlbl-scr:`ST7735S` : :devicetree:`lcd_panel: &st7735s_160x80 {};`
+
       .. rubric:: LCD Orientation and Bit Order Test
 
-      See also Zephyr sample: :doc:`zephyr:samples/drivers/display/README`.
+      Using the :ref:`Display driver API <zephyr:display_api>` with chosen
+      display. See also Zephyr sample:
+      :doc:`zephyr:samples/drivers/display/README`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/display
          :board: waveshare_rp2040_lcd_0_96
          :build-dir: waveshare_rp2040
-         :west-args: -p
+         :west-args: -p -S usb-console
          :flash-args: -r uf2
          :goals: flash
          :compact:
@@ -1187,28 +1194,37 @@ and |RP2040-Geek| board.
 
       .. rubric:: LVGL Basic Sample
 
-      See also Zephyr sample: :doc:`zephyr:samples/subsys/display/lvgl/README`.
+      Using the LVGL module on top of the :ref:`Display driver API
+      <zephyr:display_api>` with chosen display. See also Zephyr sample:
+      :doc:`zephyr:samples/subsys/display/lvgl/README`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/subsys/display/lvgl
          :board: waveshare_rp2040_lcd_0_96
          :build-dir: waveshare_rp2040
-         :west-args: -p
+         :west-args: -p -S usb-console
          :flash-args: -r uf2
          :goals: flash
          :compact:
 
    .. group-tab:: RP2040-Geek
 
+      The following samples work with the chosen display. That is:
+
+      | :hwftlbl-scr:`LCD` : :devicetree:`chosen { zephyr,display = &lcd_panel; };`
+      | :hwftlbl-scr:`ST7789V` : :devicetree:`lcd_panel: &st7789v_240x135 {};`
+
       .. rubric:: LCD Orientation and Bit Order Test
 
-      See also Zephyr sample: :doc:`zephyr:samples/drivers/display/README`.
+      Using the :ref:`Display driver API <zephyr:display_api>` with chosen
+      display. See also Zephyr sample:
+      :doc:`zephyr:samples/drivers/display/README`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/display
          :board: waveshare_rp2040_geek
          :build-dir: waveshare_rp2040
-         :west-args: -p
+         :west-args: -p -S usb-console
          :flash-args: -r uf2
          :goals: flash
          :compact:
@@ -1227,13 +1243,15 @@ and |RP2040-Geek| board.
 
       .. rubric:: LVGL Basic Sample
 
-      See also Zephyr sample: :doc:`zephyr:samples/subsys/display/lvgl/README`.
+      Using the LVGL module on top of the :ref:`Display driver API
+      <zephyr:display_api>` with chosen display. See also Zephyr sample:
+      :doc:`zephyr:samples/subsys/display/lvgl/README`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/subsys/display/lvgl
          :board: waveshare_rp2040_geek
          :build-dir: waveshare_rp2040
-         :west-args: -p
+         :west-args: -p -S usb-console
          :flash-args: -r uf2
          :goals: flash
          :compact:

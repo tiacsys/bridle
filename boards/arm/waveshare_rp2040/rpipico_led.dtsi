@@ -12,7 +12,7 @@
 		pwm-led0 = &pwm_led0;
 	};
 
-	leds {
+	gpio_leds: gpio_leds {
 		compatible = "gpio-leds";
 		status = "disabled";
 
@@ -22,7 +22,7 @@
 		};
 	};
 
-	pwm_leds {
+	pwm_leds: pwm_leds {
 		compatible = "pwm-leds";
 		status = "okay";
 

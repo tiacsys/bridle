@@ -4,6 +4,7 @@
  */
 
 #include <freq.h>
+#include <zephyr/dt-bindings/gpio/gpio.h>
 
 / {
 	lcd_backlight_en: lcd-backlight-en {
