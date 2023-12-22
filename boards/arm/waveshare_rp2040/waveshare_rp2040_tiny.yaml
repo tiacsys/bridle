@@ -24,4 +24,5 @@ supported:
   - flash
   - dma
   - counter
+  - clock
   - usb_device

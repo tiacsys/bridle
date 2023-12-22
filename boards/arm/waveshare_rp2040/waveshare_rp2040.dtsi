@@ -4,7 +4,6 @@
  */
 
 #include <mem.h>
-#include <freq.h>
 #include <rpi_pico/rp2040.dtsi>
 #include <zephyr/dt-bindings/regulator/rpi_pico.h>
 
@@ -18,13 +17,6 @@
 	aliases {
 		watchdog0 = &wdt0;
 	};
-
-	xtal_clk: xtal-clk {
-		compatible = "fixed-clock";
-		clock-frequency = <DT_FREQ_M(12)>;
-		#clock-cells = <0>;
-	};
-
 };
 
 &vreg {

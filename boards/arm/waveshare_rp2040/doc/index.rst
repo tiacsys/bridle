@@ -225,6 +225,11 @@ supports the following hardware features:
      - :kconfig:option:`CONFIG_DMA`
      - :dtcompatible:`raspberrypi,pico-dma`
      - :ref:`zephyr:dma_api`
+   * - CLOCK
+     - :kconfig:option:`CONFIG_CLOCK_CONTROL`
+     - | :dtcompatible:`raspberrypi,pico-clock-controller`
+       | :dtcompatible:`raspberrypi,pico-clock`
+     - :ref:`zephyr:clock_control_api`
    * - RESET
      - :kconfig:option:`CONFIG_RESET`
      - :dtcompatible:`raspberrypi,pico-reset`
