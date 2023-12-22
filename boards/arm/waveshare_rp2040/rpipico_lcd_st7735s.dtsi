@@ -4,10 +4,11 @@
  */
 
 #include <freq.h>
+#include <zephyr/dt-bindings/gpio/gpio.h>
 
 / {
 	chosen {
-		zephyr,display = &st7735s_160x80;
+		zephyr,display = &lcd_panel;
 	};
 };
 
@@ -52,6 +53,8 @@
 		spi-max-frequency = <DT_FREQ_M(20)>;
 	};
 };
+
+lcd_panel: &st7735s_160x80 {};
 
 &gpio0 {
 	status = "okay";
