@@ -17,4 +17,4 @@ static int cmd_hello(const struct shell *shell, size_t argc, char** argv)
 	return 0;
 }
 
-SHELL_CMD_ARG_REGISTER(hello, NULL, "say hello", cmd_hello, 1, 0);
+SHELL_CMD_REGISTER(hello, NULL, "say hello", cmd_hello);
