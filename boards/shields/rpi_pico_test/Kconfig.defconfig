@@ -1,0 +1,9 @@
+# Copyright (c) 2023 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+config SHIELD_RPI_PICO_TEST
+	bool
+	default y if SHIELD_SPOTPEAR_PICO_TEST
+	default n
+
+

@@ -234,16 +234,16 @@ sample: :doc:`zephyr:samples/subsys/input/input_dump/README`.
          W: BUS RESET
          *** Booting Zephyr OS … … … (delayed boot 4000ms) ***
          Input sample started
-         I: input event: dev=keys             SYN type= 1 code=108 value=1
-         I: input event: dev=keys             SYN type= 1 code=108 value=0
-         I: input event: dev=keys             SYN type= 1 code= 28 value=1
-         I: input event: dev=keys             SYN type= 1 code= 28 value=0
-         I: input event: dev=keys             SYN type= 1 code=106 value=1
-         I: input event: dev=keys             SYN type= 1 code=106 value=0
-         I: input event: dev=keys             SYN type= 1 code=105 value=1
-         I: input event: dev=keys             SYN type= 1 code=105 value=0
-         I: input event: dev=keys             SYN type= 1 code=103 value=1
-         I: input event: dev=keys             SYN type= 1 code=103 value=0
+         I: input event: dev=gpio_keys        SYN type= 1 code=108 value=1
+         I: input event: dev=gpio_keys        SYN type= 1 code=108 value=0
+         I: input event: dev=gpio_keys        SYN type= 1 code= 28 value=1
+         I: input event: dev=gpio_keys        SYN type= 1 code= 28 value=0
+         I: input event: dev=gpio_keys        SYN type= 1 code=106 value=1
+         I: input event: dev=gpio_keys        SYN type= 1 code=106 value=0
+         I: input event: dev=gpio_keys        SYN type= 1 code=105 value=1
+         I: input event: dev=gpio_keys        SYN type= 1 code=105 value=0
+         I: input event: dev=gpio_keys        SYN type= 1 code=103 value=1
+         I: input event: dev=gpio_keys        SYN type= 1 code=103 value=0
 
 Analog-to-Digital Converter (ADC)
 =================================
@@ -366,45 +366,45 @@ sample: :doc:`zephyr:samples/drivers/led_pwm/README`.
       is executed using the :ref:`LED driver API <zephyr:led_api>`. That are:
 
       | :hwftlbl-led:`L0` :
-        :devicetree:`pwm_leds { pl0: pl0 { pwms = <&pwm 12 /* … */>; }; };`
+        :devicetree:`&pwm_leds { pl0: pl0 { pwms = <&pwm 12 /* … */>; }; };`
       | :hwftlbl-led:`L1` :hwftlbl-led:`L16` :
-        :devicetree:`pwm_leds { pl1: pl1 { pwms = <&pwm 11 /* … */>; }; };`
+        :devicetree:`&pwm_leds { pl1: pl1 { pwms = <&pwm 11 /* … */>; }; };`
       | :hwftlbl-led:`L2` :
-        :devicetree:`pwm_leds { pl2: pl2 { pwms = <&pwm 1 /* … */>; }; };`
+        :devicetree:`&pwm_leds { pl2: pl2 { pwms = <&pwm 1 /* … */>; }; };`
       | :hwftlbl-led:`L3` :
-        :devicetree:`pwm_leds { pl3: pl3 { pwms = <&pwm 0 /* … */>; }; };`
+        :devicetree:`&pwm_leds { pl3: pl3 { pwms = <&pwm 0 /* … */>; }; };`
       | :hwftlbl-led:`L4` :hwftlbl-led:`L15` :
-        :devicetree:`pwm_leds { pl4: pl4 { pwms = <&pwm 6 /* … */>; }; };`
+        :devicetree:`&pwm_leds { pl4: pl4 { pwms = <&pwm 6 /* … */>; }; };`
       | :hwftlbl-led:`L5` :hwftlbl-led:`L10` :
-        :devicetree:`pwm_leds { pl5: pl5 { pwms = <&pwm 5 /* … */>; }; };`
+        :devicetree:`&pwm_leds { pl5: pl5 { pwms = <&pwm 5 /* … */>; }; };`
       | :hwftlbl-led:`L6` :hwftlbl-led:`L9` :
-        :devicetree:`pwm_leds { pl6: pl6 { pwms = <&pwm 3 /* … */>; }; };`
+        :devicetree:`&pwm_leds { pl6: pl6 { pwms = <&pwm 3 /* … */>; }; };`
       | :hwftlbl-led:`L7` :hwftlbl-led:`L13` :
-        :devicetree:`pwm_leds { pl7: pl7 { pwms = <&pwm 2 /* … */>; }; };`
+        :devicetree:`&pwm_leds { pl7: pl7 { pwms = <&pwm 2 /* … */>; }; };`
       | :hwftlbl-led:`L8` :hwftlbl-led:`L11` :
-        :devicetree:`pwm_leds { pl8: pl8 { pwms = <&pwm 4 /* … */>; }; };`
+        :devicetree:`&pwm_leds { pl8: pl8 { pwms = <&pwm 4 /* … */>; }; };`
       | :hwftlbl-led:`L6` :hwftlbl-led:`L9` :
-        :devicetree:`pwm_leds { pl9: pl9 { pwms = <&pwm 3 /* … */>; }; };`
+        :devicetree:`&pwm_leds { pl9: pl9 { pwms = <&pwm 3 /* … */>; }; };`
       | :hwftlbl-led:`L5` :hwftlbl-led:`L10` :
-        :devicetree:`pwm_leds { pl10: pl10 { pwms = <&pwm 5 /* … */>; }; };`
+        :devicetree:`&pwm_leds { pl10: pl10 { pwms = <&pwm 5 /* … */>; }; };`
       | :hwftlbl-led:`L11` :hwftlbl-led:`L8` :
-        :devicetree:`pwm_leds { pl11: pl11 { pwms = <&pwm 4 /* … */>; }; };`
+        :devicetree:`&pwm_leds { pl11: pl11 { pwms = <&pwm 4 /* … */>; }; };`
       | :hwftlbl-led:`L12` :
-        :devicetree:`pwm_leds { pl12: pl12 { pwms = <&pwm 15 /* … */>; }; };`
+        :devicetree:`&pwm_leds { pl12: pl12 { pwms = <&pwm 15 /* … */>; }; };`
       | :hwftlbl-led:`L13` :hwftlbl-led:`L7` :
-        :devicetree:`pwm_leds { pl13: pl13 { pwms = <&pwm 2 /* … */>; }; };`
+        :devicetree:`&pwm_leds { pl13: pl13 { pwms = <&pwm 2 /* … */>; }; };`
       | :hwftlbl-led:`L14` :
-        :devicetree:`pwm_leds { pl14: pl14 { pwms = <&pwm 7 /* … */>; }; };`
+        :devicetree:`&pwm_leds { pl14: pl14 { pwms = <&pwm 7 /* … */>; }; };`
       | :hwftlbl-led:`L15` :hwftlbl-led:`L4` :
-        :devicetree:`pwm_leds { pl15: pl15 { pwms = <&pwm 6 /* … */>; }; };`
+        :devicetree:`&pwm_leds { pl15: pl15 { pwms = <&pwm 6 /* … */>; }; };`
       | :hwftlbl-led:`L16` :hwftlbl-led:`L1` :
-        :devicetree:`pwm_leds { pl16: pl16 { pwms = <&pwm 11 /* … */>; }; };`
+        :devicetree:`&pwm_leds { pl16: pl16 { pwms = <&pwm 11 /* … */>; }; };`
       | :hwftlbl-led:`L17` :
-        :devicetree:`pwm_leds { pl17: pl17 { pwms = <&pwm 10 /* … */>; }; };`
+        :devicetree:`&pwm_leds { pl17: pl17 { pwms = <&pwm 10 /* … */>; }; };`
       | :hwftlbl-led:`L18` :
-        :devicetree:`pwm_leds { pl18: pl18 { pwms = <&pwm 9 /* … */>; }; };`
+        :devicetree:`&pwm_leds { pl18: pl18 { pwms = <&pwm 9 /* … */>; }; };`
       | :hwftlbl-led:`L19` :
-        :devicetree:`pwm_leds { pl19: pl19 { pwms = <&pwm 8 /* … */>; }; };`
+        :devicetree:`&pwm_leds { pl19: pl19 { pwms = <&pwm 8 /* … */>; }; };`
 
       .. tabs::
 

@@ -3,6 +3,9 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+#include <zephyr/dt-bindings/gpio/gpio.h>
+#include <zephyr/dt-bindings/pwm/pwm.h>
+
 &k1 {	/* GP12:GPIO */
 	gpios = <&rpipico_header 12 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 };
