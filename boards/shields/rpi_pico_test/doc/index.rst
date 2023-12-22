@@ -161,6 +161,27 @@ sample: :doc:`zephyr:samples/subsys/input/input_dump/README`.
       | :hwftlbl-btn:`K4` : :devicetree:`zephyr,code = <INPUT_KEY_LEFT>;`
       | :hwftlbl-btn:`K5` : :devicetree:`zephyr,code = <INPUT_KEY_UP>;`
 
+      .. rubric:: Devicetree compatible
+
+      - :dtcompatible:`zephyr,lvgl-keypad-input` with devicetree relation
+        :devicetree:`lvgl_keypad: lvgl-keypad { input = <&gpio_keys>; };`
+
+        | :hwftlbl-btn:`K1` :
+          :devicetree:`input-codes = <INPUT_KEY_DOWN>;` :
+          :devicetree:`lvgl-codes = <LV_KEY_DOWN>;`
+        | :hwftlbl-btn:`K2` :
+          :devicetree:`input-codes = <INPUT_KEY_ENTER>;` :
+          :devicetree:`lvgl-codes = <LV_KEY_ENTER>;`
+        | :hwftlbl-btn:`K3` :
+          :devicetree:`input-codes = <INPUT_KEY_RIGHT>;` :
+          :devicetree:`lvgl-codes = <LV_KEY_RIGHT>;`
+        | :hwftlbl-btn:`K4` :
+          :devicetree:`input-codes = <INPUT_KEY_LEFT>;` :
+          :devicetree:`lvgl-codes = <LV_KEY_LEFT>;`
+        | :hwftlbl-btn:`K5` :
+          :devicetree:`input-codes = <INPUT_KEY_UP>;` :
+          :devicetree:`lvgl-codes = <LV_KEY_UP>;`
+
       .. tabs::
 
          .. group-tab:: Raspberry Pi Pico

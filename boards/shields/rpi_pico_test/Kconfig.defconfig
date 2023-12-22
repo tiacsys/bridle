@@ -6,4 +6,6 @@ config SHIELD_RPI_PICO_TEST
 	default y if SHIELD_SPOTPEAR_PICO_TEST
 	default n
 
-
+config INPUT
+	default y if DT_HAS_ZEPHYR_LVGL_KEYPAD_INPUT_ENABLED
+	depends on SHIELD_RPI_PICO_TEST && DISPLAY && LVGL
