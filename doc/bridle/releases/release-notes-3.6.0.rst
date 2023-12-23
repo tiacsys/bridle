@@ -163,6 +163,8 @@ Change log
 * Add the new *PWM Servomotor Preset Snippet (pwm-servo)* for quite board
   specific preperations of the standard Zephyr Servomotor sample. Add support
   for the following boards:
+* Update GPIO to use ``DT_HAS_<compat>_ENABLED`` Kconfig symbol to expose the
+  driver and enable it by default based on devicetree.
 
   * Cytron Maker Pi RP2040
 
