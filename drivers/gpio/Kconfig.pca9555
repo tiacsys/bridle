@@ -5,6 +5,8 @@
 
 menuconfig GPIO_PCA9555
 	bool "PCA9555 I2C-based GPIO chip"
+	default y
+	depends on DT_HAS_NXP_PCA9555_ENABLED
 	depends on I2C
 	help
 	  Enable driver for PCA9555 I2C-based GPIO chip.
