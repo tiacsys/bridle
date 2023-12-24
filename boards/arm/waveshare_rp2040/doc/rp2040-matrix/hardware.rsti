@@ -21,6 +21,7 @@ direct to carrier boards.
        :hwftlbl:`264㎅`
        :hwftlbl-btn:`RST`
        :hwftlbl-led:`RGB(5×5)`
+       :hwftlbl-scr:`LED(5×5)`
        :hwftlbl-con:`USB-C`
        :hwftlbl-dbg:`UF2`
 
@@ -42,6 +43,7 @@ direct to carrier boards.
        - On-board :bbl:`3.3V LDO regulator with 500㎃`
        - On-board :bbl:`RESET` button
        - On-board :bbk:`BOOT` button
+       - :bbl:`RGB888`, 24-bit color depth
        - :bbl:`20 GPIO` pins via :bbk:`edge pinout`
        - :bbk:`2 UART` peripherals
        - :bbk:`2 I2C` controllers

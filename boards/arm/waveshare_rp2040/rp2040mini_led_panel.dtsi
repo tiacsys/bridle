@@ -1,0 +1,19 @@
+/*
+ * Copyright (c) 2023-2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	chosen {
+		zephyr,display = &led_panel;
+	};
+
+	led_panel: led_panel {
+		compatible = "led-panel";
+		led-strip = <&led_strip>;
+		width = <5>;
+		height = <5>;
+		module-width = <5>;
+		module-height = <5>;
+	};
+};
