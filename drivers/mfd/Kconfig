@@ -4,5 +4,6 @@
 if MFD
 
 rsource "Kconfig.ds3231"
+rsource "Kconfig.sipomuxgp"
 
 endif # MFD

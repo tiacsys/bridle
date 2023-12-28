@@ -1,0 +1,63 @@
+# Generic latched SIPO/MUX GP matrix configuration options
+
+# Copyright (c) 2023 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+menu "Generic latched SIPO/MUX GP matrix controller"
+
+config MFD_SIPOMUXGP
+	bool
+	help
+	  Enable the generic latched SIPO/MUX General Purpose (GP) matrix
+	  controller to have access to each GP signal individually. The
+	  controller is implemented in software and supports currently
+	  only outputs.
+
+	  Hidden configuration entry for all SIPO/MUX GP backend drivers.
+
+config MFD_SIPOMUXGP_XFR_WORKQUEUE_STACK_SIZE
+	int "Stack size for the transfer work queue"
+	default 1024
+	depends on MFD_SIPOMUXGP
+	help
+	  Size of the stack used for the internal SIPO/MUX GP transfer
+	  work queue.
+
+config MFD_SIPOMUXGP_XFR_WORKQUEUE_NO_YIELD
+	bool "Select whether transfer work queue yields"
+	help
+	  By default, the internal SIPO/MUX GP transfer work queue yields
+	  between each work item, to prevent other threads from being starved.
+	  Selecting this removes this yield, which may be useful if the work
+	  queue thread is cooperative and a sequence of work items is expected
+	  to complete without yielding.
+
+config MFD_SIPOMUXGP_XFR_WORKQUEUE_PRIORITY
+	int "Priority for transfer work queue"
+	default 0 if !COOP_ENABLED
+	default 8
+	depends on MFD_SIPOMUXGP
+	help
+	  Priority level of the internal SIPO/MUX GP transfer work queue.
+
+config MFD_SIPOMUXGP_INIT_PRIORITY
+	int "Initialization priority"
+	default MFD_INIT_PRIORITY
+	depends on MFD_SIPOMUXGP
+	help
+	  Multi-function device initialization priority for the generic
+	  latched SIPO/MUX General Purpose (GP) matrix controller. It
+	  must be greater than the underlying controller init priority
+	  of selected backend, e.g. SPI or GPIO.
+
+config MFD_SIPOMUXGP_SPI
+	bool "SPI driver backend"
+	default y
+	depends on DT_HAS_SIPO_MUX_GP_SPI_ENABLED
+	depends on SPI
+	select MFD_SIPOMUXGP
+	help
+	  The SPI driver is portable, as long as a Zephyr SPI API driver
+	  is available on the SoC.
+
+endmenu

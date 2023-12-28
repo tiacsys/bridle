@@ -1,0 +1,18 @@
+# Copyright (c) 2023 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+  Generic latched SIPO/MUX GP matrix controller, SPI binding
+
+  Driver bindings for controlling a latched SIPO/MUX General
+  Purpose (GP) matrix with a SPI master.
+
+  The SPI driver should be usable as long as a Zephyr SPI API
+  driver is available for your board. Hardware specific tuning
+  is required using these properties:
+
+    - spi-max-frequency
+
+compatible: "sipo-mux-gp-spi"
+
+include: [spi-device.yaml, sipo-mux-gp.yaml]

@@ -1,0 +1,85 @@
+# Copyright (c) 2023 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+  Generic latched SIPO/MUX GP matrix controller
+
+  General Purpose (GP) matrix controller, implemented in software,
+  using a latched serial-in-parallel-out shift register (SIPO) for
+  the data (columns) and a multiplexing (MUX) X:1-of-2^X decoder
+  for the addresses (rows).
+
+                                           shift-width
+                         ,----------------------´`----------------------,
+
+                                data-width
+                         ,----------´`----------,
+
+                          0  1  2  3  4  5  6  7
+                 +-----+  |  |  |  |  |  |  |  |
+             A0 -+     +--<--<--<--<--<--<--<--<--0
+             A1 -+ MUX |  |  |  |  |  |  |  |  |
+                 |     +--<--<--<--<--<--<--<--<--1
+                 | DEC |  |  |  |  |  |  |  |  |
+                 |     +--<--<--<--<--<--<--<--<--2
+                 | DRV |  |  |  |  |  |  |  |  |
+                 |     +--<--<--<--<--<--<--<--<--3
+                 +-----+  |  |  |  |  |  |  |  |
+                        +-+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+            SDI --------+ D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 Da Db Dc Dd De Df +- SDO
+            CLK --------+                                                 |
+      (nCS)  LE --------+ SIPO shift register (DRV)                       |
+            /OE --------+                                                 |
+                        +-------------------------------------------------+
+
+    - example for the MUX/DEC LED driver: Sunmoon SM5166P
+    - example for the SIPO/SR LED driver: Sunmoon SM16106, SM16206, SM16306
+
+properties:
+  shift-width:
+    type: int
+    required: true
+    enum:
+      - 8
+      - 16
+      - 24
+      - 32
+    description: |
+      Width of columns bits totally shifted out by the SIPO shift register.
+      This value must be equal or greater then the data width.
+
+  data-width:
+    type: int
+    required: true
+    enum:
+      - 8
+      - 16
+      - 24
+      - 32
+    description: |
+      Width of columns data bits shifted out by the SIPO shift register and
+      usable on hardware in reality.
+
+  addr-gpios:
+    type: phandle-array
+    required: true
+    description: |
+      GPIO phandle and specifier for the pins connected to the rows
+      address MUX decoder pins. At least one pin should be given for
+      a single or two rows. Pins of multiples of two should be given
+      for more rows.
+
+  oe-gpios:
+    type: phandle-array
+    required: true
+    description: |
+      GPIO phandle and specifier for the pin connected to the columns
+      data SIPO shift register's output enable pin. Exactly one pin
+      should be given.
+
+  refresh-time-us:
+    type: int
+    default: 1000
+    description: |
+      How often to iterate over the addresses and refresh the data
+      signal lines.
