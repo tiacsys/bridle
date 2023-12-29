@@ -1,0 +1,20 @@
+# Latched SIPO/MUX GPIO configuration options
+
+# Copyright (c) 2023 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+menuconfig GPIO_SIPOMUX
+	bool "Generic latched SIPO/MUX GPIO controller"
+	default y
+	depends on DT_HAS_SIPO_MUX_GPIO_ENABLED
+	select MFD
+	help
+	  Enable the generic latched SIPO/MUX GPIO driver.
+
+config GPIO_SIPOMUX_INIT_PRIORITY
+	int "Initialization priority"
+	default 85
+	depends on GPIO_SIPOMUX
+	help
+	  Initialization priority for the generic latched SIPO/MUX GPIO
+	  driver. It must be greater than the MFD controller init priority.

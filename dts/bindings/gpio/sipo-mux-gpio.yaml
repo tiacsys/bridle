@@ -1,0 +1,25 @@
+# Copyright (c) 2023 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+description: Generic latched SIPO/MUX GPIO Controller
+
+compatible: "sipo-mux-gpio"
+
+include: [gpio-controller.yaml, base.yaml]
+
+gpio-cells:
+  - pin
+  - flags
+
+properties:
+  offset:
+    type: int
+    default: 0
+    description: |
+      This property indicates the number of alway in-use slots of available
+      slots for GPIOs in the underlying SIPO/MUX GP Controller instance
+      by any GPIO previous declared nodes of this same class. The typical
+      example is something like this: the first node has register 32 GPIOs
+      with "ngpios = <32>;" and "offset = <0>;", the second node then have
+      to register their 32 GPIOs with "ngpios = <32>;" and "offset = <32>;"
+      and the third node with "ngpios = <32>;" and "offset = <64>;" and so on.

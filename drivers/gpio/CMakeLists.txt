@@ -8,3 +8,4 @@ zephyr_library_amend()
 
 zephyr_library_sources_ifdef(CONFIG_GPIO_PCA9554 gpio_pca9554.c)
 zephyr_library_sources_ifdef(CONFIG_GPIO_PCA9555 gpio_pca9555.c)
+zephyr_library_sources_ifdef(CONFIG_GPIO_SIPOMUX gpio_sipomux.c)
