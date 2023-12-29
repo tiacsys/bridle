@@ -1,0 +1,20 @@
+# Latched SIPO/MUX display configuration options
+
+# Copyright (c) 2023 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+menuconfig DISPLAY_SIPOMUX
+	bool "Generic latched SIPO/MUX display controller"
+	default y
+	depends on DT_HAS_SIPO_MUX_DISPLAY_ENABLED
+	select MFD
+	help
+	  Enable the generic latched SIPO/MUX display driver.
+
+config DISPLAY_SIPOMUX_INIT_PRIORITY
+	int "Initialization priority"
+	default DISPLAY_INIT_PRIORITY
+	depends on DISPLAY_SIPOMUX
+	help
+	  Initialization priority for the generic latched SIPO/MUX display
+	  driver. It must be greater than the MFD controller init priority.

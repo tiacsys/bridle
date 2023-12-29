@@ -2,4 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 if DISPLAY
+
+rsource "Kconfig.sipomux"
+
 endif # DISPLAY

@@ -1,0 +1,31 @@
+# Copyright (c) 2023 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+description: Generic latched SIPO/MUX Display Controller
+
+compatible: "sipo-mux-display"
+
+include: display-controller.yaml
+
+properties:
+  offset:
+    type: array
+    default: [0, 0]
+    description: |
+      Optional offset for top and front pixel shifting. This property
+      indicates the x offset for front pixel shifting as first element
+      and the y offset for top pixel shifting as second element. More
+      than two alements are not allowed.
+
+      For example, setting "offset = <2 1>;" means in front of each row
+      is a gap of two unused pixels and on top of each column is a gap
+      of one unused pixel. In case of an underlying SIPO/MUX GP Controller
+      with 16 x 32 usable bits the display width and height must be set
+      consistent and appropriate to the offset to "width = <30>;" and
+      "height = <15>;".
+
+  inversion-on:
+    type: boolean
+    description: |
+      Display inversion mode. Every bit is inverted on writing to the
+      display frame memory.

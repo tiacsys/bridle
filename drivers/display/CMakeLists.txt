@@ -5,3 +5,5 @@
 # It is actually required to add display drivers to that library, otherwise
 # build errors can occur!
 zephyr_library_amend()
+
+zephyr_library_sources_ifdef(CONFIG_DISPLAY_SIPOMUX display_sipomux.c)
