@@ -4,6 +4,7 @@
 
 menu "Device Drivers"
 
+rsource "display/Kconfig"
 rsource "gpio/Kconfig"
 rsource "mfd/Kconfig"
 rsource "rtc/Kconfig"
