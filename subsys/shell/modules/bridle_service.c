@@ -6,7 +6,6 @@
 #include <bridle/core.h>
 #include "version.h" /* generated at compile time */
 
-#include <zephyr/sys/printk.h>
 #include <zephyr/shell/shell.h>
 
 #define BRIDLE_HELP_BRIDLE		"Bridle commands."
@@ -27,6 +26,20 @@ static int cmd_bridle_info(const struct shell *shell, size_t argc, char** argv)
 {
         ARG_UNUSED(argc);
         ARG_UNUSED(argv);
+
+#ifdef CONFIG_SHELL_GETOPT
+	/* When getopt() is active, the shell sub-system is not
+	 * parsing command handler to print help message. It must
+	 * be done explicitly. But no need to use the getopt() or
+	 * getopt_long() for just one option. */
+	if (argv[1] && (!strcmp("-h", argv[1]) || !strcmp("--help", argv[1]))) {
+		shell_help(shell);
+		return SHELL_CMD_HELP_PRINTED;
+	} else if (argc > 1) {
+		shell_error(shell, "Invalid option or usage.");
+		return -EINVAL;
+	}
+#endif /* CONFIG_SHELL_GETOPT */
 
         shell_print(shell, BRIDLE_MSG_INFO_ZEPHYR "%s", KERNEL_VERSION_STRING);
         shell_print(shell, BRIDLE_MSG_INFO_BRIDLE "%s", BRIDLE_VERSION_STRING);
@@ -70,6 +83,17 @@ static int cmd_bridle_version_long(const struct shell *shell,
 static int cmd_bridle_version(const struct shell *shell,
 				size_t argc, char **argv)
 {
+#ifdef CONFIG_SHELL_GETOPT
+	/* When getopt() is active, the shell sub-system is not
+	 * parsing command handler to print help message. It must
+	 * be done explicitly. But no need to use the getopt() or
+	 * getopt_long() for just one option. */
+	if (argv[1] && (!strcmp("-h", argv[1]) || !strcmp("--help", argv[1]))) {
+		shell_help(shell);
+		return SHELL_CMD_HELP_PRINTED;
+	}
+#endif /* CONFIG_SHELL_GETOPT */
+
 	if (argc == 2) {
 		shell_error(shell, "%s:%s%s", argv[0],
 			    BRIDLE_MSG_UNKNOWN_PARAMETER, argv[1]);
