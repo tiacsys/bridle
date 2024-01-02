@@ -5,3 +5,5 @@
 # It is actually required to add RTC drivers to that library, otherwise
 # build errors can occur!
 zephyr_library_amend()
+
+zephyr_library_sources_ifdef(CONFIG_RTC_DS3231 rtc_ds3231.c)

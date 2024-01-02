@@ -1,0 +1,19 @@
+# Maxim DS3231 RTC configuration options
+
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+menuconfig RTC_DS3231
+	bool "Maxim DS3231 Real-Time-Clock"
+	default y
+	depends on DT_HAS_MAXIM_DS3231_RTC_ENABLED
+	select MFD
+	help
+	  Enable the Maxim DS3231 RTC driver.
+
+config RTC_DS3231_INIT_PRIORITY
+	int "Initialization priority"
+	default 60
+	depends on RTC_DS3231
+	help
+	  RTC device initialization priority for the Maxim DS3231 RTC.
