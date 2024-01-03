@@ -5,6 +5,8 @@ sample:
 common:
   tags: introduction
   integration_platforms:
+    - cytron_maker_nano_rp2040
+    - cytron_maker_pi_rp2040
     - native_posix
     - native_posix_64
     - native_sim
