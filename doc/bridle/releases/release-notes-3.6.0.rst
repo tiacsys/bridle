@@ -140,6 +140,11 @@ Change log
 
 :brd:`NOT YET, tbd.`
 
+* When ``getopt()`` is active (``CONFIG_SHELL_GETOPT=y``), the Zephyr shell
+  is not parsing command handler to print help message. It must be done
+  explicitly inside the command implementation.
+* Update GPIO to use ``DT_HAS_<compat>_ENABLED`` Kconfig symbol to expose the
+  driver and enable it by default based on devicetree.
 * Use *Board extensions* to extended Zephyr upstream board configurations.
   In some situations, certain hardware description or choices can not be added
   in the upstream Zephyr repository, but they can be in a downstream project,
@@ -163,8 +168,6 @@ Change log
 * Add the new *PWM Servomotor Preset Snippet (pwm-servo)* for quite board
   specific preperations of the standard Zephyr Servomotor sample. Add support
   for the following boards:
-* Update GPIO to use ``DT_HAS_<compat>_ENABLED`` Kconfig symbol to expose the
-  driver and enable it by default based on devicetree.
 
   * Cytron Maker Pi RP2040
 
@@ -227,6 +230,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`170` - [FCR] Upgrade to Zephyr SDK 0.16.4
 * :github:`169` - [HW] The PicoBoy
 * :github:`168` - [HW] Waveshare Pico ResTouch LCD 3.5
 * :github:`167` - [HW] Waveshare LCD Modules as Shields
