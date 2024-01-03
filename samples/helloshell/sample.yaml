@@ -38,6 +38,7 @@ common:
     - nucleo_f413zh
     - nucleo_f746zg
     - nucleo_f767zi
+    - picoboy
     - rpi_pico
     - rpi_pico_w
     - seeed_xiao_samd21
