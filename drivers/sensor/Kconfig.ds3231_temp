@@ -1,0 +1,21 @@
+# Maxim DS3231 RTC temperature sensor configuration options
+
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+menuconfig DS3231_TEMP
+	bool "Maxim DS3231 Ambient Temperature Sensor"
+	default y
+	depends on DT_HAS_MAXIM_DS3231_TEMP_ENABLED
+	select MFD
+	help
+	  Enable the driver for the digital temperature sensor inside
+	  the Maxim DS3231 RTC device.
+
+config DS3231_TEMP_INIT_PRIORITY
+	int "Initialization priority"
+	default SENSOR_INIT_PRIORITY
+	depends on DS3231_TEMP
+	help
+	  Sensor device initialization priority for the digital temperature
+	  sensor inside the Maxim DS3231 RTC device.
