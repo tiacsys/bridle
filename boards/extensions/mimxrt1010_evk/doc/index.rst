@@ -8,10 +8,34 @@ Overview
 
 This is a set of Bridle's extension to the original Zephyr upstream board
 :ref:`zephyr:mimxrt1010_evk` with some adaptions and improvement on
-Devicetree level.
+Kconfig and Devicetree level.
 
 List of extensions
 ******************
+
+.. rubric:: Kconfig
+
+- :bbl:`activate` self powered USB explicitly and set the maximum of
+  electrical current consumption to :bbl:`0㎃`:
+
+  - :kconfig:option:`CONFIG_USB_SELF_POWERED`
+  - :kconfig:option:`CONFIG_USB_MAX_POWER`
+
+  .. list-table::
+     :align: left
+     :width: 25%
+     :widths: 100
+
+     * - .. rubric:: NXP MIMXRT1010-EVK
+
+     * - .. literalinclude:: ../mimxrt1010_evk.conf
+            :caption: mimxrt1010_evk.conf
+            :language: cfg
+            :encoding: ISO-8859-1
+            :start-at: CONFIG_USB_SELF_POWERED
+            :end-at: CONFIG_USB_MAX_POWER
+
+.. rubric:: Devicetree
 
 - overwrite the Arduino UNO R3 specific edge connecor binding:
 
