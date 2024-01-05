@@ -7,11 +7,42 @@ Overview
 ********
 
 This is a set of Bridle's extension to the original Zephyr upstream board
-:ref:`zephyr:rpi_pico` with some adaptions and improvement on Devicetree
-level.
+:ref:`zephyr:rpi_pico` with some adaptions and improvement on Kconfig and
+Devicetree level.
 
 List of extensions
 ******************
+
+.. rubric:: Kconfig
+
+- :brd:`deactivate` self powered USB explicitly and set the maximum of
+  electrical current consumption to :brd:`500㎃`:
+
+  - :kconfig:option:`CONFIG_USB_SELF_POWERED`
+  - :kconfig:option:`CONFIG_USB_MAX_POWER`
+
+  .. list-table::
+     :align: left
+     :width: 50%
+     :widths: 50, 50
+
+     * - .. rubric:: Raspberry Pi Pico
+       - .. rubric:: Raspberry Pi Pico W
+
+     * - .. literalinclude:: ../rpi_pico.conf
+           :caption: rpi_pico.conf
+           :language: cfg
+           :encoding: ISO-8859-1
+           :start-at: CONFIG_USB_SELF_POWERED
+           :end-at: CONFIG_USB_MAX_POWER
+       - .. literalinclude:: ../rpi_pico_w.conf
+           :caption: rpi_pico_w.conf
+           :language: cfg
+           :encoding: ISO-8859-1
+           :start-at: CONFIG_USB_SELF_POWERED
+           :end-at: CONFIG_USB_MAX_POWER
+
+.. rubric:: Devicetree
 
 - add the Bridle specific edge connecor binding
   :dtcompatible:`raspberrypi,pico-header-r3`
