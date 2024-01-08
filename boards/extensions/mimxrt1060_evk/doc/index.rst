@@ -56,3 +56,51 @@ List of extensions
   mass storage disk name :devicetree:`disk-name = "NAND";` – also set
   the mass storage disk name hard on Kconfig level by a new board config
   file with :kconfig:option:`CONFIG_MASS_STORAGE_DISK_NAME`
+
+  .. list-table::
+     :align: left
+     :width: 75%
+     :widths: 100
+
+     * - .. rubric:: NXP MIMXRT1010-EVK(B/Hyper Flash)
+
+     * - .. literalinclude:: ../mimxrt1060_evk.dtsi
+            :caption: mimxrt1060_evk.dtsi
+            :language: DTS
+            :encoding: ISO-8859-1
+            :emphasize-lines: 5
+            :prepend: / {
+            :start-at: msc_disk0 {
+            :end-at: };
+            :append: };
+
+  .. list-table::
+     :align: left
+     :width: 75%
+     :widths: 33, 33, 33
+
+     * - .. rubric:: NXP MIMXRT1060-EVK
+       - .. rubric:: NXP MIMXRT1060-EVKB
+       - .. rubric:: NXP MIMXRT1060-EVK Hyper Flash
+
+     * - .. literalinclude:: ../mimxrt1060_evk.conf
+            :caption: mimxrt1060_evk.conf
+            :language: cfg
+            :encoding: ISO-8859-1
+            :emphasize-lines: 1
+            :start-at: CONFIG_MASS_STORAGE_DISK_NAME=
+            :end-at: CONFIG_MASS_STORAGE_DISK_NAME=
+       - .. literalinclude:: ../mimxrt1060_evkb.conf
+            :caption: mimxrt1060_evkb.conf
+            :language: cfg
+            :encoding: ISO-8859-1
+            :emphasize-lines: 1
+            :start-at: CONFIG_MASS_STORAGE_DISK_NAME=
+            :end-at: CONFIG_MASS_STORAGE_DISK_NAME=
+       - .. literalinclude:: ../mimxrt1060_evk_hyperflash.conf
+            :caption: mimxrt1060_evk_hyperflash.conf
+            :language: cfg
+            :encoding: ISO-8859-1
+            :emphasize-lines: 1
+            :start-at: CONFIG_MASS_STORAGE_DISK_NAME=
+            :end-at: CONFIG_MASS_STORAGE_DISK_NAME=
