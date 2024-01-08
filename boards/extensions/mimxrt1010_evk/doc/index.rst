@@ -37,13 +37,52 @@ List of extensions
 
 .. rubric:: Devicetree
 
-- overwrite the Arduino UNO R3 specific edge connecor binding:
+- overwrite the Arduino UNO R3 specific edge connecor binding
+  :devicetree:`&arduino_header {...};` with additional closed
+  connections
 
-  - :devicetree:`&arduino_header {...};`
+  .. list-table::
+     :align: left
+     :width: 50%
+     :widths: 100
+
+     * - .. rubric:: NXP MIMXRT1010-EVK
+
+     * - .. literalinclude:: ../arduino_r3_connector.dtsi
+            :caption: arduino_r3_connector.dtsi
+            :language: DTS
+            :encoding: ISO-8859-1
+            :emphasize-lines: 12,13,17
+            :start-at: &arduino_header {
+            :end-at: };
+
+  .. note::
+
+     On :ref:`zephyr:mimxrt1010_evk` pin D4 (GPIO), D5 (GPIO/PWM), and
+     D9 (GPIO/PWM) are disconnected in default and can be closed optionally.
+     With this GPIO map overwrites the resistors R793, R795 and R800 must be
+     fitted for proper use. But keep in mind that the signals are already
+     connected to other on-board header for the NXP special motor driver
+     add-on board.
 
 - enable ARM Cortex-M Data Cache (DTCM) with Zephyr chosen entry:
 
-  - :devicetree:`/ { chosen { zephyr,dtcm = &dtcm; }; };`
+  .. list-table::
+     :align: left
+     :width: 50%
+     :widths: 100
+
+     * - .. rubric:: NXP MIMXRT1010-EVK
+
+     * - .. literalinclude:: ../mimxrt1010_evk.overlay
+            :caption: mimxrt1010_evk.overlay
+            :language: DTS
+            :encoding: ISO-8859-1
+            :emphasize-lines: 3
+            :prepend: / {
+            :start-at: chosen {
+            :end-at: };
+            :append: };
 
 - add a :dtcompatible:`zephyr,flash-disk` node linked to the
   :devicetree:`partition = <&storage_partition>;` with the hard defined
@@ -51,11 +90,28 @@ List of extensions
   the mass storage disk name hard on Kconfig level by a new board config
   file with :kconfig:option:`CONFIG_MASS_STORAGE_DISK_NAME`
 
-.. note::
+  .. list-table::
+     :align: left
+     :width: 50%
+     :widths: 100
 
-   On :ref:`zephyr:mimxrt1010_evk` pin D4 (GPIO), D5 (GPIO/PWM), and
-   D9 (GPIO/PWM) are disconnected in default and can be closed optionally.
-   With this GPIO map overwrites the resistors R793, R795 and R800 must be
-   fitted for proper use. But keep in mind that the signals are already
-   connected to other on-board header for the NXP special motor driver
-   add-on bard.
+     * - .. rubric:: NXP MIMXRT1010-EVK
+
+     * - .. literalinclude:: ../mimxrt1010_evk.overlay
+            :caption: mimxrt1010_evk.overlay
+            :language: DTS
+            :encoding: ISO-8859-1
+            :emphasize-lines: 5
+            :prepend: / {
+            :start-at: msc_disk0 {
+            :end-at: };
+            :append: };
+
+         .. literalinclude:: ../mimxrt1010_evk.conf
+            :caption: mimxrt1010_evk.conf
+            :language: cfg
+            :encoding: ISO-8859-1
+            :emphasize-lines: 21
+            :prepend: #
+            :start-at: NOTES for the disk name (CONFIG_MASS_STORAGE_DISK_NAME):
+            :end-at: CONFIG_MASS_STORAGE_DISK_NAME=
