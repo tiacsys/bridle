@@ -7,18 +7,21 @@
 
 #include "rpipico_r3_connector.dtsi"
 #include "rpipico_r3-pinctrl.dtsi"
-
-rpipico_serial: &pico_serial {};
-rpipico_spi: &pico_spi {};
-rpipico_i2c: &pico_i2c {};
+#include "rpipico_r3-spi0.dtsi"
+#include "rpipico_r3-spi1.dtsi"
 
 &reset {
 	status = "okay";
 };
 
-&spi1 {
-	status = "disabled";
-	pinctrl-0 = <&spi1_pico>;
-	pinctrl-names = "default";
-	clock-frequency = <DT_FREQ_M(8)>;
-};
+rpipico_serial: &pico_serial {};
+
+rpipico_spi: &pico_spi {};
+rpipico_spi0: &pico_spi0 {};
+rpipico_spi1: &pico_spi1 {};
+
+rpipico_i2c: &pico_i2c {};
+rpipico_i2c0: &pico_i2c0 {};
+rpipico_i2c1: &pico_i2c1 {};
+
+#include "rpipico_r3-tweaks.dtsi"

@@ -4,7 +4,7 @@
  */
 
 &pinctrl {
-	spi1_pico: spi1_pico {
+	spi1_default: spi1_default {
 		group1 {
 			pinmux = <SPI1_CSN_P9>, <SPI1_SCK_P10>, <SPI1_TX_P11>;
 		};
@@ -13,4 +13,4 @@
 			input-enable;
 		};
 	};
-};
+}; // pinctrl
