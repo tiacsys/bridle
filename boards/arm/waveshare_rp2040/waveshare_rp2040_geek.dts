@@ -24,11 +24,15 @@
 #include "rpigeek_connectors.dtsi"
 
 rpipico_serial: &uart1 {};
-rpipico_i2c: &i2c0 {};
+rpipico_i2c1: &i2c1 {};
+rpipico_i2c0: &i2c0 {};
+rpipico_i2c: &rpipico_i2c0 {};
 rpipico_adc: &adc {};
 
 pico_serial: &rpipico_serial {};
-pico_i2c: &rpipico_i2c {};
+pico_i2c1: &rpipico_i2c1 {};
+pico_i2c0: &rpipico_i2c0 {};
+pico_i2c: &pico_i2c0 {};
 pico_adc: &rpipico_adc {};
 
 #include "waveshare_rp2040-geek-tweaks.dtsi"
