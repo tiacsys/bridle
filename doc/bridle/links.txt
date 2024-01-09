@@ -777,6 +777,14 @@
 .. _`Spotpear Pico ALL GPIO TEST Schematic`:
    https://cdn.static.spotpear.com/uploads/picture/learn/raspberry-pi/raspberry-pi-hats/pico-all-gpio-test/pico-all-gpio-test-01.pdf
 
+.. #### Links to the Waveshare Pico Environment Sensor
+
+.. _`Waveshare Pico Environment Sensor`:
+   https://www.waveshare.com/wiki/Pico-Environment-Sensor
+
+.. _`Waveshare Pico Environment Sensor Schematic`:
+   https://www.waveshare.com/wiki/Pico-Environment-Sensor#Documents
+
 .. #### Links to the Waveshare Pico LCD 1.14
 
 .. _`Waveshare Pico LCD 1.14`:
@@ -994,6 +1002,9 @@
    https://antenna--dvb--t2-ru.translate.goog/show_ldo.php?id=331&_x_tr_sl=ru&_x_tr_tl=en&_x_tr_hl=en&_x_tr_pto=wapp
 .. https://antenna-dvb-t2.ru/show_ldo.php?id=331
 
+.. _`RT9193-18`:
+   https://www.richtek.com/Products/Linear%20Regulator/Single%20Output%20Linear%20Regulator/RT9193
+
 .. _`RT9193-33`:
    https://www.richtek.com/Products/Linear%20Regulator/Single%20Output%20Linear%20Regulator/RT9193
 
@@ -1054,6 +1065,77 @@
 
 .. #### Links to Sensors or similar to acquire environmental data
 
+.. _`AK09916`:
+   https://www.akm.com/eu/en/products/electronic-compass/lineup-electronic-compass
+
+.. _`AK09916 Datasheet`:
+   https://70ic.com/627539/AK09916C.pdf
+.. https://www.y-ic.com/datasheet/78/SMDSW.020-2OZ.pdf
+.. https://pdf.ample-chip.com/627539/AK09916C.pdf
+.. https://www.allelcoelec.com/datasheets.78/AK09916C.pdf
+
+.. _`AK8963`:
+   https://www.akm.com/eu/en/products/electronic-compass/lineup-electronic-compass
+
+.. _`AK8963 Datasheet`:
+   https://70ic.com/228057/AK8963C.pdf
+.. https://www.y-ic.com/datasheet/42/1740B.pdf
+.. https://pdf.ample-chip.com/228057/AK8963C.pdf
+.. https://www.allelcoelec.com/datasheets.d3/AK8963C.pdf
+.. https://download.mikroe.com/documents/datasheets/ak8963c-datasheet.pdf
+
+.. _`BME280`:
+   https://www.bosch-sensortec.com/products/environmental-sensors/humidity-sensors-bme280
+
+.. _`BME280 Datasheet`:
+   https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme280-ds002.pdf
+.. https://files.waveshare.com/upload/9/91/BME280_datasheet.pdf
+
+.. _`ICM-20948`:
+   https://invensense.tdk.com/products/motion-tracking/9-axis/icm-20948
+
+.. _`ICM-20948 Datasheet`:
+   https://invensense.tdk.com/wp-content/uploads/2021/10/DS-000189-ICM-20948-v1.5.pdf
+.. https://files.waveshare.com/upload/5/57/ICM-20948-v1.3.pdf
+
+.. _`ICM-20948 Software User Guide`:
+   https://invensense.tdk.com/wp-content/uploads/2021/10/DS-000189-ICM-20948-v1.5.pdf
+
+.. _`LTR-390UV-01`:
+   https://optoelectronics.liteon.com/en-global/led/LED-Component/Detail/928
+
+.. _`LTR-390UV-01 Datasheet`:
+   https://optoelectronics.liteon.com/upload/download/DS86-2015-0004/LTR-390UV-01_Final_%20DS_V1.4.PDF
+.. https://files.waveshare.com/upload/a/ac/1_LTR-390UV_Final_DS_V1_2.pdf
+
+.. _`MPU-9250`:
+   https://invensense.tdk.com/products/motion-tracking/9-axis/mpu-9250
+
+.. _`MPU-9250 Datasheet`:
+   https://invensense.tdk.com/wp-content/uploads/2015/02/PS-MPU-9250A-01-v1.1.pdf
+
+.. _`MPU-9250 Register Map`:
+   https://invensense.tdk.com/wp-content/uploads/2017/11/RM-MPU-9250A-00-v1.6.pdf
+
+.. _`MPU-9250 Migrating to ICM-20948`:
+   https://invensense.tdk.com/wp-content/uploads/2018/10/AN-000146-v2.0-TDK_Migration_MPU_9250toICM-20948.pdf
+
+.. _`SGP40`:
+   https://sensirion.com/search/products?q=SGP40
+
+.. _`SGP40 Datasheet`:
+   https://sensirion.com/media/documents/296373BB/6203C5DF/Sensirion_Gas_Sensors_Datasheet_SGP40.pdf
+.. https://files.waveshare.com/upload/c/c2/Sensirion_Gas-Sensors_SGP40_Datasheet.pdf
+
+.. _`SHT4x`:
+   https://sensirion.com/search/products?q=SHT4x
+
+.. _`SHT4x Datasheet`:
+   https://sensirion.com/media/documents/33FD6951/6555C40E/Sensirion_Datasheet_SHT4x.pdf
+
+.. _`SHT4x Heater for Decontamination`:
+   https://sensirion.com/media/documents/FEE9F039/62459F54/Application_Note_Heater_Decontamination_SHT4xX.pdf
+
 .. _`STK8BA58`:
    https://www.sensortek.com.tw/index.php/en/products/mems-sensor
 
@@ -1061,6 +1143,13 @@
    https://datasheet.lcsc.com/lcsc/2109101230_SENSORTEK-STK8BA58-LGA-12PIN_C2890989.pdf
 .. https://xonstorage.blob.core.windows.net/pdf/sensortek_stk8ba58lga12pin_apr22_xonlink.pdf
 .. https://picoboy.de/files/STK8BA58.pdf
+
+.. _`TSL25911`:
+   https://ams.com/en/tsl25911
+
+.. _`TSL25911 Datasheet`:
+   https://ams.com/documents/20143/9331680/TSL2591_DS000338_7-00.pdf
+.. https://files.waveshare.com/upload/3/31/TSL2591.pdf
 
 .. #### Links to LCD Controllers or similar to drive displays
 

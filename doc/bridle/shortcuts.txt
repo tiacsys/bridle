@@ -108,6 +108,9 @@
 .. |Waveshare 2.4 LCD| replace::
    :ref:`Waveshare 2.4 LCD <waveshare_2_4_lcd>`
 
+.. |Waveshare Pico Environment Sensor| replace::
+   :ref:`Waveshare Pico Environment Sensor <waveshare_pico_environment_sensor>`
+
 .. |Waveshare Pico LCD 1.14| replace::
    :ref:`Waveshare Pico LCD 1.14 <waveshare_pico_lcd_1_14>`
 

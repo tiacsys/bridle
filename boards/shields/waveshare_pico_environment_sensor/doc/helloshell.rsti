@@ -1,0 +1,152 @@
+.. rubric:: Simple test execution on target
+
+.. tabs::
+
+   .. group-tab:: Basics
+
+      .. code-block:: console
+
+         uart:~$ hello -h
+         hello - say hello
+         uart:~$ hello
+         Hello from shell.
+
+         uart:~$ hwinfo devid
+         Length: 8
+         ID: 0x8c998be1de969148
+
+         uart:~$ kernel version
+         Zephyr version 3.5.99
+
+         uart:~$ bridle version
+         Bridle version 3.5.99
+
+         uart:~$ bridle version long
+         Bridle version 3.5.99.0
+
+         uart:~$ bridle info
+         Zephyr: 3.5.99
+         Bridle: 3.5.99
+
+         uart:~$ device list
+         devices:
+         - clock-controller@40008000 (READY)
+         - reset-controller@4000c000 (READY)
+         - snippet_cdc_acm_console_uart (READY)
+         - uart@40034000 (READY)
+         - timer@40054000 (READY)
+         - gpio@40014000 (READY)
+         - adc@4004c000 (READY)
+         - flash-controller@18000000 (READY)
+         - i2c@40044000 (READY)
+         - vreg@40064000 (READY)
+         - leds (READY)
+         - bme280@76 (READY)
+         - mpu9250@68 (READY)
+         - sgp40@59 (READY)
+
+         uart:~$ history
+         [  0] history
+         [  1] device list
+         [  2] bridle info
+         [  3] bridle version long
+         [  4] bridle version
+         [  5] kernel version
+         [  6] hwinfo devid
+         [  7] hello
+         [  8] hello -h
+
+   .. group-tab:: I2C
+
+      The |Waveshare Pico Environment Sensor| provides four on-shield sensors
+      connected on I2C0.
+
+      .. code-block:: console
+
+         uart:~$ i2c scan i2c@40044000
+              0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+         00:             -- -- -- -- -- -- -- -- -- -- -- --
+         10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+         20: -- -- -- -- -- -- -- -- -- 29 -- -- -- -- -- --
+         30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+         40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+         50: -- -- -- 53 -- -- -- -- -- 59 -- -- -- -- -- --
+         60: -- -- -- -- -- -- -- -- 68 -- -- -- -- -- -- --
+         70: -- -- -- -- -- -- 76 --
+         5 devices found on i2c@40044000
+
+      - The I2C address ``0x29`` is the ASM `TSL25911`_, an
+        ambient IR and visible light sensor (ALS).
+      - The I2C address ``0x53`` is the LITEON `LTR-390UV-01`_, an
+        ambient ultraviolet (UV) light sensor (UVS).
+      - The I2C address ``0x59`` is the Sensirion `SGP40`_, an
+        air quality sensor, Volatile Organic Compounds (VOC).
+      - The I2C address ``0x68`` is the InvenSense `ICM-20948`_ with `AK09916`_
+        or in old hardware releases the `MPU-9250`_ with `AK8963`_, an
+        motion and acceleration sensor (9-DOF) with 3-axis accelerometer,
+        3-axis gyroscope and 3-axis magnetometer (compass).
+      - The I2C address ``0x76`` is the Bosch `BME280`_, an
+        temperature, humidity and air pressure sensor (THP).
+
+      The Chip-ID of the Bosch BME280 environmental sensor can read from
+      register ``0xd0`` and must be ``0x60``:
+
+      uart:~$ i2c read_byte i2c@40044000 76 d0
+      Output: 0x60
+
+   .. group-tab:: Sensors
+
+      .. code-block:: console
+
+         uart:~$ sensor info
+         device name: bme280@76, vendor: Bosch Sensortec GmbH, model: bme280, friendly name: (null)
+         device name: mpu9250@68, vendor: InvenSense Inc., model: mpu9250, friendly name: (null)
+         device name: sgp40@59, vendor: Sensirion AG, model: sgp40, friendly name: (null)
+
+      .. rubric:: BME280 (THP)
+
+      .. code-block:: console
+
+         uart:~$ sensor get bme280@76
+         channel idx=13 ambient_temp shift=7 num_samples=1 value=40464800000ns (28.069999)
+         channel idx=14 press shift=7 num_samples=1 value=40464800000ns (100.944643)
+         channel idx=16 humidity shift=7 num_samples=1 value=40464800000ns (37.618163)
+         uart:~$ sensor get bme280@76
+         channel idx=13 ambient_temp shift=7 num_samples=1 value=44841400000ns (28.079999)
+         channel idx=14 press shift=7 num_samples=1 value=44841400000ns (100.945768)
+         channel idx=16 humidity shift=7 num_samples=1 value=44841400000ns (37.618163)
+         uart:~$ sensor get bme280@76
+         channel idx=13 ambient_temp shift=7 num_samples=1 value=45757900000ns (28.079999)
+         channel idx=14 press shift=7 num_samples=1 value=45757900000ns (100.945596)
+         channel idx=16 humidity shift=7 num_samples=1 value=45757900000ns (37.604491)
+
+      .. rubric:: SGP40 (VOC)
+
+      .. code-block:: console
+
+         uart:~$ sensor get sgp40@59
+         channel idx=29 gas_resistance shift=2 num_samples=1 value=7499000000ns (1.999999)
+         uart:~$ sensor get sgp40@59
+         channel idx=29 gas_resistance shift=15 num_samples=1 value=8509500000ns (3553.196197)
+         uart:~$ sensor get sgp40@59
+         channel idx=29 gas_resistance shift=15 num_samples=1 value=9527500000ns (4021.196197)
+
+      .. rubric:: MPU-9250 (9-DOF)
+
+      .. code-block:: console
+
+         uart:~$ sensor get mpu9250@68
+         channel idx=3 accel_xyz shift=5 num_samples=1 value=133465500000ns, (-0.152630, -0.034118, -9.957485)
+         channel idx=7 gyro_xyz shift=5 num_samples=1 value=133465500000ns, (0.010923, -0.001465, 0.018784)
+         channel idx=11 magn_xyz shift=5 num_samples=1 value=133465500000ns, (0.021287, 0.918931, -0.960458)
+         channel idx=12 die_temp shift=5 num_samples=1 value=133465500000ns (30.772454)
+         uart:~$ sensor get mpu9250@68
+         channel idx=3 accel_xyz shift=5 num_samples=1 value=134743500000ns, (-0.150237, -0.036512, -9.961675)
+         channel idx=7 gyro_xyz shift=5 num_samples=1 value=134743500000ns, (0.010790, -0.001732, 0.019184)
+         channel idx=11 magn_xyz shift=5 num_samples=1 value=134743500000ns, (0.010643, 0.940219, -0.957040)
+         channel idx=12 die_temp shift=5 num_samples=1 value=134743500000ns (30.769460)
+         uart:~$ sensor get mpu9250@68
+         channel idx=3 accel_xyz shift=5 num_samples=1 value=135771400000ns, (-0.148441, -0.035315, -9.968858)
+         channel idx=7 gyro_xyz shift=5 num_samples=1 value=135771400000ns, (0.011723, -0.001732, 0.019450)
+         channel idx=11 magn_xyz shift=5 num_samples=1 value=135771400000ns, (0.015965, 0.938445, -0.938241)
+         channel idx=12 die_temp shift=5 num_samples=1 value=135771400000ns (30.781436)

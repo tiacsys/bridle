@@ -1,0 +1,42 @@
+The `Waveshare Pico Environment Sensor`_ is a :bbk:`pico sized` sensor shield.
+
+.. list-table::
+   :align: center
+   :width: 100%
+   :widths: 66, 33
+
+   * - .. rubric:: Features and Resources
+     - .. rubric:: Printed Circuit Board
+
+   * - :hwftlbl-vdd:`5V/~8.5㎃`
+       :hwftlbl-vdd:`3.3V/~10㎃`
+       :hwftlbl-vdd:`1.8V/~5㎃`
+
+       :hwftlbl-mtr:`THP` :
+       :hwftlbl-tmp:`T`
+       :hwftlbl-hty:`H`
+       :hwftlbl-prs:`P`
+       :hwftlbl-voc:`VOC`
+       :hwftlbl-lgt:`ALS`
+       :hwftlbl-lgt:`UVS`
+       :hwftlbl-cps:`9-DOF`
+
+       :hwftlbl-i2c:`1`
+
+       .. rst-class:: rst-columns
+
+       - :bbl:`THP`: temperature, humidity and air pressure
+       - :bbl:`VOC`: air quality, Volatile Organic Compounds
+       - :bbl:`ALS`: ambient IR and visible light
+       - :bbl:`UVS`: ambient ultraviolet (UV) light
+       - :bbl:`9-DOF`: motion and acceleration
+       - :bbk:`1 I2C` controller for sensors
+
+       .. rubric:: Design Data
+       .. rst-class:: rst-columns
+
+       - `Schematic <Waveshare Pico Environment Sensor Schematic_>`_
+
+     - .. image:: /boards/shields/waveshare_pico_environment_sensor/doc/img/hardware.jpg
+          :align: center
+          :alt: Waveshare Pico Environment Sensor

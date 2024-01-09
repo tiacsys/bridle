@@ -1,0 +1,56 @@
+.. list-table::
+   :align: center
+   :width: 66%
+   :header-rows: 1
+
+   * - .. image:: /boards/shields/waveshare_pico_environment_sensor/doc/img/positions.jpg
+          :align: center
+          :width: 500
+          :alt: Waveshare Pico Environment Sensor details
+
+   * - .. container:: twocol
+
+          .. container:: leftside
+
+             1. | :strong:`TSL25911`
+                | digital ambient light sensor, measuring IR and visible light
+             #. | :strong:`LTR-390UV-01`
+                | ambient ultraviolet (UV) sensor
+             #. | :strong:`SGP40`
+                | air quality, Volatile Organic Compounds (VOC) sensor
+             #. | :strong:`ICM-20948 (MPU-9250)`
+                | 3-axis accelerometer, 3-axis gyroscope and 3-axis magnetometer
+
+          .. container:: rightside
+
+             5. | :strong:`BME280`
+                | temperature, humidity and air pressure (THP) sensor
+             #. | :strong:`RT9193-33 / RT9193-18`
+                | 300㎃ low dropout, low noise, ultra-fast LDO
+                | 5V to 3.3V/1.8V
+             #. | :strong:`I2C bus and pin selection`
+                | default: I2C0 at GP20 and GP21
+                | altern.: I2C1 at GP6 and GP7
+
+.. rubric:: Data Sheets
+.. rst-class:: rst-columns
+
+- .. rubric:: BME280_
+- `BME280 Datasheet`_
+- .. rubric:: SGP40_
+- `SGP40 Datasheet`_
+- .. rubric:: TSL25911_
+- `TSL25911 Datasheet`_
+- .. rubric:: LTR-390UV-01_
+- `LTR-390UV-01 Datasheet`_
+- .. rubric:: ICM-20948_ / AK09916_
+- `ICM-20948 Datasheet`_
+- `ICM-20948 Software User Guide`_
+- `AK09916 Datasheet`_
+- .. rubric:: MPU-9250_ / AK8963_
+- `MPU-9250 Datasheet`_
+- `MPU-9250 Register Map`_
+- `MPU-9250 Migrating to ICM-20948`_
+- `AK8963 Datasheet`_
+- .. rubric:: RT9193-33_ / RT9193-18_
+- `RT9193 Datasheet`_

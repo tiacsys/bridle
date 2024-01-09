@@ -1,0 +1,91 @@
+.. list-table::
+   :align: center
+   :width: 100%
+   :widths: 66, 33
+
+   * - .. rubric:: Pin Mapping
+     - .. rubric:: Pinout
+
+   * - :on-edge(1-40):
+          :hwftlbl-pio:`1`
+          :hwftlbl-i2c:`1`
+
+       :on-shield:
+          :hwftlbl-mtr:`5 SENSORS` :
+          :hwftlbl-tmp:`T`
+          :hwftlbl-hty:`H`
+          :hwftlbl-prs:`P`
+          :hwftlbl-voc:`VOC`
+          :hwftlbl-lgt:`ALS`
+          :hwftlbl-lgt:`UVS`
+          :hwftlbl-cps:`9-DOF`
+
+       .. rubric:: Default Zephyr Peripheral Mapping
+
+       |nbsp|
+
+       .. rst-class:: rst-columns edge-pinout
+
+       - | :rpi-pico-pin:`1` PIO/PWM : GP0 (PWM0)
+       - | :rpi-pico-pin:`2` PIO/PWM : GP1 (PWM1)
+       - | :rpi-pico-pin:`3` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`4` PIO/PWM : GP2 (PWM2)
+       - | :rpi-pico-pin:`5` PIO/PWM : GP3 (PWM3)
+       - | :rpi-pico-pin:`6` PIO/PWM : GP4 (PWM4)
+       - | :rpi-pico-pin:`7` PIO/PWM : GP5 (PWM5)
+       - | :rpi-pico-pin:`8` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`9` :rpi-pico-i2c:`I2C1_SDA` : GP6 (PWM6)
+         | :rpi-pico-pin-nc:`nc` alt. sensor i/f data :rpi-pico-sys:`SDA`
+       - | :rpi-pico-pin:`10` :rpi-pico-i2c:`I2C1_SCL` : GP7 (PWM7)
+         | :rpi-pico-pin-nc:`nc` alt. sensor i/f clock :rpi-pico-sys:`SCL`
+       - | :rpi-pico-pin:`11` PIO/PWM : GP8 (PWM8)
+       - | :rpi-pico-pin:`12` PIO/PWM : GP9 (PWM9)
+       - | :rpi-pico-pin:`13` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`14` PIO/PWM : GP10 (PWM10)
+       - | :rpi-pico-pin:`15` PIO/PWM : GP11 (PWM11)
+       - | :rpi-pico-pin:`16` PIO/PWM : GP12 (PWM12)
+       - | :rpi-pico-pin:`17` PIO/PWM : GP13 (PWM13)
+       - | :rpi-pico-pin:`18` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`19` PIO/PWM : :rpi-pico-pio:`GP14` (PWM14)
+         | :rpi-pico-pin-nc:`nc` on-shield LDO power enable
+         | :rpi-pico-pin-nc:`nc` (optional) :rpi-pico-sys:`VCC_EN`
+       - | :rpi-pico-pin:`20` PIO/PWM : GP15 (PWM15)
+       - | :rpi-pico-pin:`21` PIO/PWM : GP16 (PWM0)
+       - | :rpi-pico-pin:`22` PIO/PWM : GP17 (PWM1)
+       - | :rpi-pico-pin:`23` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`24` PIO/PWM : GP18 (PWM2)
+       - | :rpi-pico-pin:`25` PIO/PWM : GP19 (PWM3)
+       - | :rpi-pico-pin:`26` :rpi-pico-i2c-dfl:`I2C0_SDA` : GP20 (PWM4)
+         | :rpi-pico-pin-nc:`nc` def. sensor i/f data :rpi-pico-sys:`SDA`
+       - | :rpi-pico-pin:`27` :rpi-pico-i2c-dfl:`I2C0_SCL` : GP21 (PWM5)
+         | :rpi-pico-pin-nc:`nc` def. sensor i/f clock :rpi-pico-sys:`SCL`
+       - | :rpi-pico-pin:`28` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`29` PIO/PWM : GP22 (PWM6)
+       - | :rpi-pico-pin:`30` :rpi-pico-sys:`RUN` (RESET)
+       - | :rpi-pico-pin-nc:`nc` PIO/PWM : GP23 (PWM7)
+       - | :rpi-pico-pin-nc:`nc` PIO/PWM : GP24 (PWM8)
+       - | :rpi-pico-pin-nc:`nc` PIO/PWM : GP25 (PWM9)
+       - | :rpi-pico-pin:`31` ADC_CH0 : GP26 (PWM10)
+       - | :rpi-pico-pin:`32` ADC_CH1 : GP27 (PWM11)
+       - | :rpi-pico-pin:`33` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`34` ADC_CH2 : GP28 (PWM12)
+       - | :rpi-pico-pin-nc:`nc` ADC_CH3 : GP29 (PWM13)
+       - | :rpi-pico-pin:`35` ADC_VREF
+       - | :rpi-pico-pin:`36` :rpi-pico-sys:`3V3(OUT)`
+       - | :rpi-pico-pin:`37` :rpi-pico-sys:`3V3_EN`
+         | :rpi-pico-pin-nc:`nc` on-shield LDO power enable
+         | :rpi-pico-pin-nc:`nc` (optional) :rpi-pico-sys:`VCC_EN`
+       - | :rpi-pico-pin:`38` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`39` :rpi-pico-vdd:`VSYS`
+         | :rpi-pico-pin-nc:`nc` on-shield LDO power enable
+         | :rpi-pico-pin-nc:`nc` (default) :rpi-pico-sys:`VCC_EN`
+       - | :rpi-pico-pin:`40` :rpi-pico-sys:`VBUS`
+
+       .. rubric:: Devicetree compatible
+
+       - :dtcompatible:`raspberrypi,pico-header-r3`
+
+     - .. image:: /boards/shields/waveshare_pico_environment_sensor/doc/img/pinouts.jpg
+          :align: center
+          :width: 100%
+          :alt: Waveshare Pico Environment Sensor edge pinout
