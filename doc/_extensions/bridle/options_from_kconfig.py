@@ -61,7 +61,7 @@ class OptionsFromKconfig(SphinxDirective):
 
         # kconfiglib wants this env var defined
         os.environ['srctree'] = os.path.dirname(os.path.abspath(__file__))  # noqa: SIM112
-        kconfig = kconfiglib.Kconfig(filename=path)
+        kconfig = kconfiglib.Kconfig(filename=path, warn=False)
 
         prefix = self.options.get('prefix', None)
         suffix = self.options.get('suffix', None)
