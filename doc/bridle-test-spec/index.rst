@@ -10,3 +10,4 @@ Bridle Test specification
 
    test_rqt
    test_cases
+   test_reports
