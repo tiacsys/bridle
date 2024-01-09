@@ -13,4 +13,4 @@ class test_leds(robot_device):
         for line in lines:
             if "Error" in str(line):
                 raise OSError(f'{line}.\nTest failed.')
-        logger.info(f'response is valid.')
+        logger.info('response is valid.')
