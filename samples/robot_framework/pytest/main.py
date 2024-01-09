@@ -19,6 +19,8 @@ def test_sample_device_robot(twister_harness_config: TwisterHarnessConfig, dut: 
                               f'serial:{twister_harness_config.devices[0].serial}',
                               f'baud:{twister_harness_config.devices[0].baud}',
                               f'timeout:{twister_harness_config.devices[0].base_timeout}'],
+                    pythonpath='bridle/samples/robot_framework/pytest/',
+                    prerebotmodifier='xom.XUnitOut:twister-out/xcom-unit.xml',
                     timestampoutputs=True,
                     outputdir='twister-out',
                     report='report.html',

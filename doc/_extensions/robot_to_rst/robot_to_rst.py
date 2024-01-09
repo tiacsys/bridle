@@ -54,38 +54,6 @@ def generate_robot(app: Sphinx) -> None:
             write_index(src)
 
 
-# Patch for the Robot Framework XUNIT format:
-# The Robot Framework writes several key words 'testsuite' instead
-# of starting with 'testsuites' for the first entry. See also:
-# https://github.com/robotframework/robotframework/issues/2982#issuecomment-872800161
-# https://github.com/robotframework/robotframework/issues/2982#issuecomment-976405908
-# Therefore the sphinx-test-reports failed to convert the xunit
-# file to *.rst
-def correct_xunit_output_files(app: Sphinx) -> None:
-    """The xunit
-
-    Args:import sys
-
-        app: Sphinx application instance.
-    """
-
-    srcdir = Path(app.srcdir).resolve()
-    found = False
-
-    for src in srcdir.glob('**/xunit*.xml'):
-        if not src.is_dir():
-            with open(src, 'r') as file:
-                data = file.read()
-                if "testsuites" not in data:
-                    data = data.replace("testsuite", "testsuites", 1)
-                    data = "/testsuites".join(data.rsplit("/testsuite", 1))
-                    found = True
-
-            if found:
-                with open(src, 'w') as file:
-                    file.write(data)
-
-
 def setup(app: Sphinx) -> Dict[str, Any]:
     app.add_config_value("external_content_contents", [], "env")
     app.add_config_value("external_content_directives",
@@ -94,4 +62,3 @@ def setup(app: Sphinx) -> Dict[str, Any]:
 
     app.connect("builder-inited", zephyr.external_content.sync_contents)
     app.connect("builder-inited", generate_robot)
-    app.connect("builder-inited", correct_xunit_output_files)
