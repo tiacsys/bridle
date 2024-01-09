@@ -258,6 +258,7 @@ external_content_directives = (
 external_content_contents = [
     (BRIDLE_BASE / 'doc' / 'bridle-test-spec', '[!_]*'),
     (BRIDLE_BASE, 'samples/**/*.robot'),
+    (BRIDLE_BASE / '..', 'RobotFW-tests/**/*.robot'),
     (BRIDLE_BASE / '..' / 'twister-out', 'xcom*.xml'),
 ]
 external_content_keep = ['versions.txt']

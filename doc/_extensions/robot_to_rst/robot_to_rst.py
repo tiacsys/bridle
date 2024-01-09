@@ -21,18 +21,29 @@ import zephyr.external_content
 
 
 def write_index(fname: Path) -> None:
-    dir_path = fname.parents[0]
-    name = fname.stem
-    f = open(os.path.join(dir_path, "index.rst"), "w")
-    f.write(".. _" + name + ":\n\n")
-    f.write(name + "\n")
-    sections = ""
-    for n in range(len(name)):
-        sections += '='
-    f.write(sections + "\n\n")
-    f.write(".. toctree::\n   :maxdepth: 2\n   :glob:\n\n")
-    f.write("   *robot\n")
-    f.close
+    print(f'fname = {fname}')
+    for n in range(3):
+        dir_path = fname.parents[n]
+        print(f'dir_path = {dir_path} n = {n}')
+        name = dir_path.parts
+        if "test" not in name[-1]:
+            break
+
+    print(f'dir_path = {dir_path} n = {n}')
+    if not os.path.exists(os.path.join(dir_path, "index.rst")):
+        with open(os.path.join(dir_path, "index.rst"), "w") as f:
+            f.write(".. _" + name[-1] + ":\n\n")
+            f.write(name[-1] + "\n")
+            sections = ""
+            for i in range(len(name[-1])):
+                sections += '='
+            f.write(sections + "\n\n")
+            f.write(".. toctree::\n   :maxdepth: 2\n   :glob:\n\n")
+            if n == 0:
+                f.write("   *robot\n")
+            else:
+                f.write("   **/*robot\n")
+            f.close()
 
 
 def generate_robot(app: Sphinx) -> None:

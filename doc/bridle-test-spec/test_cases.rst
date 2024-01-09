@@ -8,4 +8,4 @@ Test Cases
    :caption: Contents:
    :glob:
 
-   samples/**/index
+   **/index
