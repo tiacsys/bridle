@@ -1,0 +1,22 @@
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+sample:
+  name: Waveshare Pico Environment Sensor Sample
+tests:
+  bridle.sample.waveshare_pico_environment_sensor:
+    tags:
+      - sensors
+      - bme280
+      - sgp40
+      - mpu9250  # FIXME: icm20948
+    depends_on:
+      - pico_i2c
+      - pico_gpio
+    extra_args: SHIELD=waveshare_pico_environment_sensor
+    integration_platforms:
+      - rpi_pico
+      - rpi_pico_w
+      - waveshare_rp2040_lcd_0_96
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb
