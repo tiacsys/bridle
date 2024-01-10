@@ -1,0 +1,9 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+&spi0 {
+	/delete-property/ cs-gpios;
+	/delete-node/ bme280@0;
+};
