@@ -1,0 +1,5 @@
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+config SHIELD_WAVESHARE_PICO_RGB_LED
+	def_bool $(shields_list_contains,waveshare_pico_rgb_led)

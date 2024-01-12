@@ -1,0 +1,10 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+&pio0 {
+	status = "okay";
+};
+
+rpipico_pio_leds: &pio0 {};

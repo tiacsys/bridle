@@ -1,0 +1,30 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <freq.h>
+#include <zephyr/dt-bindings/gpio/gpio.h>
+#include <zephyr/dt-bindings/led/led.h>
+
+&rgb_led_pio {
+	rgb_led_pio_ws2812: rgb-led-pio-ws2812 {
+		compatible = "worldsemi,ws2812-rpi_pico-pio";
+
+		status = "disabled";
+
+		bit-waveform = <3>, <3>, <4>;
+
+		rgb_led_strip: rgb-led-strip {
+			status = "disabled";
+
+			chain-length = <160>;
+			color-mapping = <LED_COLOR_ID_RED
+					 LED_COLOR_ID_GREEN
+					 LED_COLOR_ID_BLUE>;
+
+			frequency = <DT_FREQ_K(800)>;
+			reset-delay = <280>;
+		};
+	};
+};

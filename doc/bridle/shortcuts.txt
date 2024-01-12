@@ -120,6 +120,9 @@
 .. |Waveshare Pico ResTouch LCD 3.5| replace::
    :ref:`Waveshare Pico ResTouch LCD 3.5 <waveshare_pico_restouch_lcd_3_5>`
 
+.. |Waveshare Pico RGB LED| replace::
+   :ref:`Waveshare Pico RGB LED <waveshare_pico_rgb_led>`
+
 .. |XIAO SAMD21 (CDC ACM)| replace::
    :ref:`XIAO SAMD21 (CDC ACM) <seeed_xiao_samd21>`
 

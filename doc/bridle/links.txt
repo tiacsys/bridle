@@ -809,6 +809,13 @@
 .. _`Waveshare Pico ResTouch LCD 3.5 Schematic`:
    https://www.waveshare.com/wiki/Pico-ResTouch-LCD-3.5#Documents
 
+.. #### Links to the Waveshare Pico RGB LED
+
+.. _`Waveshare Pico RGB LED`:
+   https://www.waveshare.com/wiki/Pico-RGB-LED
+
+.. _`Waveshare Pico RGB LED Schematic`:
+   https://www.waveshare.com/wiki/Pico-RGB-LED#Document
 
 
 .. ### Links to hardware specifications, application notes and similar documents

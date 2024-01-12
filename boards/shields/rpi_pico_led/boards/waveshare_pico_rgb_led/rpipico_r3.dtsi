@@ -1,0 +1,19 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+rgb_led_pio: &rpipico_pio_leds {};
+
+#include "led_matrix.dtsi"
+
+&rgb_led_strip {
+	output-pin = <6>;				/* PIO0:OUT @ GP6 */
+	status = "okay";
+};
+
+&rgb_led_pio_ws2812 {
+	status = "okay";
+	pinctrl-0 = <&pio0_ws2812_leds_wsprl>;
+	pinctrl-names = "default";
+};
