@@ -169,6 +169,19 @@
 .hwftlbl-dsk:after { content: ' 🖴'; }
 .hwftlbl-ctr:after { content: ' 🎛'; }
 .hwftlbl-pot:after { content: ' 🎚'; }
+.hwftlbl-tmp:after { content: ' 🌡'; }
+.hwftlbl-hty:after { content: ' 🌢'; }
+.hwftlbl-prs:after { content: ' ⌭'; }
+.hwftlbl-mtr:after { content: ' ⌰'; }
+.hwftlbl-wts:after { content: ' ⚖'; }
+.hwftlbl-voc:after { content: ' ⏣'; }
+.hwftlbl-hzd:after { content: ' ☣'; }
+.hwftlbl-rar:after { content: ' ☢'; }
+.hwftlbl-sat:after { content: ' 🛰'; }
+.hwftlbl-cps:after { content: ' 🧭'; }
+.hwftlbl-lgt:after { content: ' ⛯'; }
+.hwftlbl-wtc:after { content: ' ⏲'; }
+.hwftlbl-stw:after { content: ' ⏱'; }
 .hwftlbl-act:after { content: ' ⚙️'; }
 .hwftlbl-cld,
 .hwftlbl-net,
@@ -190,6 +203,19 @@
 .hwftlbl-dsk,
 .hwftlbl-ctr,
 .hwftlbl-pot,
+.hwftlbl-tmp,
+.hwftlbl-hty,
+.hwftlbl-prs,
+.hwftlbl-mtr,
+.hwftlbl-wts,
+.hwftlbl-voc,
+.hwftlbl-hzd,
+.hwftlbl-rar,
+.hwftlbl-sat,
+.hwftlbl-cps,
+.hwftlbl-lgt,
+.hwftlbl-wtc,
+.hwftlbl-stw,
 .hwftlbl-act,
 .hwftlbl {
   color: var(--docset-color-pin-fgd);
@@ -239,6 +265,19 @@
 .hwftlbl-dsk,
 .hwftlbl-ctr,
 .hwftlbl-pot,
+.hwftlbl-tmp,
+.hwftlbl-hty,
+.hwftlbl-prs,
+.hwftlbl-mtr,
+.hwftlbl-wts,
+.hwftlbl-voc,
+.hwftlbl-hzd,
+.hwftlbl-rar,
+.hwftlbl-sat,
+.hwftlbl-cps,
+.hwftlbl-lgt,
+.hwftlbl-wtc,
+.hwftlbl-stw,
 .hwftlbl-act,
 .hwftlbl {
   font-size: 114%;

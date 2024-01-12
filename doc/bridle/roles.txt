@@ -163,6 +163,32 @@
    :class: hwftlbl-ctr
 .. role:: hwftlbl-pot
    :class: hwftlbl-pot
+.. role:: hwftlbl-tmp
+   :class: hwftlbl-tmp
+.. role:: hwftlbl-hty
+   :class: hwftlbl-hty
+.. role:: hwftlbl-prs
+   :class: hwftlbl-prs
+.. role:: hwftlbl-mtr
+   :class: hwftlbl-mtr
+.. role:: hwftlbl-wts
+   :class: hwftlbl-wts
+.. role:: hwftlbl-voc
+   :class: hwftlbl-voc
+.. role:: hwftlbl-hzd
+   :class: hwftlbl-hzd
+.. role:: hwftlbl-rar
+   :class: hwftlbl-rar
+.. role:: hwftlbl-sat
+   :class: hwftlbl-sat
+.. role:: hwftlbl-cps
+   :class: hwftlbl-cps
+.. role:: hwftlbl-lgt
+   :class: hwftlbl-lgt
+.. role:: hwftlbl-wtc
+   :class: hwftlbl-wtc
+.. role:: hwftlbl-stw
+   :class: hwftlbl-stw
 .. role:: hwftlbl-act
    :class: hwftlbl-act
 .. role:: hwftlbl-vdd
