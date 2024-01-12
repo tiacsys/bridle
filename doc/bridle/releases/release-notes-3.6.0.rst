@@ -125,6 +125,7 @@ Supported shields
 * Raspberry Pi Pico LCD Shields
 * Raspberry Pi Pico TEST Shields
 * Waveshare LCD Modules
+* Waveshare Pico Environment Sensor
 
 Supported snippets
 ******************
@@ -230,6 +231,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`177` - [HW] Waveshare Pico Environment Sensor
 * :github:`170` - [FCR] Upgrade to Zephyr SDK 0.16.4
 * :github:`169` - [HW] The PicoBoy
 * :github:`168` - [HW] Waveshare Pico ResTouch LCD 3.5
