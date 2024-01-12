@@ -260,6 +260,39 @@ The following table shows just a few examples.
 
      - hardware feature label for a :u:`controller and regulator` purpose
 
+   * - | :rst:`:hwftlbl-tmp:\`T\``
+       | :rst:`:hwftlbl-hty:\`H\``
+       | :rst:`:hwftlbl-prs:\`P\``
+       | :rst:`:hwftlbl-mtr:\`THP\``
+       | :rst:`:hwftlbl-wts:\`WTS\``
+       | :rst:`:hwftlbl-voc:\`VOC\``
+       | :rst:`:hwftlbl-hzd:\`BIOHZD\``
+       | :rst:`:hwftlbl-rar:\`RAY\``
+       | :rst:`:hwftlbl-sat:\`GNSS\``
+       | :rst:`:hwftlbl-cps:\`9-DOF\``
+       | :rst:`:hwftlbl-lgt:\`UV/ALS\``
+       | :rst:`:hwftlbl-wtc:\`RTC\``
+       | :rst:`:hwftlbl-stw:\`ALARM\``
+
+     - :hwftlbl-tmp:`T`
+       :hwftlbl-hty:`H`
+       :hwftlbl-prs:`P`
+       :hwftlbl-mtr:`THP`
+       :hwftlbl-wts:`WTS`
+
+       :hwftlbl-voc:`VOC`
+       :hwftlbl-hzd:`BIOHZD`
+       :hwftlbl-rar:`RAY`
+
+       :hwftlbl-sat:`GNSS`
+       :hwftlbl-cps:`9-DOF`
+       :hwftlbl-lgt:`UV/ALS`
+
+       :hwftlbl-wtc:`RTC`
+       :hwftlbl-stw:`ALARM`
+
+     - hardware feature label for a :u:`measuring and sensor` purpose
+
    * - | :rst:`:hwftlbl-led:\`ERR\``
        | :rst:`:hwftlbl-led:\`USR\``
 
