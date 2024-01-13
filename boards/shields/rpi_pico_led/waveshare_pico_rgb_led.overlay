@@ -4,6 +4,10 @@
  */
 
 / {
+	chosen {
+		zephyr,display = &rgb_led_panel;
+	};
+
 	aliases {
 		led-strip = &rgb_led_strip;
 	};

@@ -7,6 +7,10 @@ rgb_led_pio: &rpipico_pio_leds {};
 
 #include "led_matrix.dtsi"
 
+&rgb_led_panel {
+	status = "okay";
+};
+
 &rgb_led_strip {
 	output-pin = <6>;				/* PIO0:OUT @ GP6 */
 	status = "okay";

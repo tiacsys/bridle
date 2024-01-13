@@ -28,3 +28,19 @@
 		};
 	};
 };
+
+/ {
+	rgb_led_panel: rgb-led-panel {
+		compatible = "led-panel";
+
+		status = "disabled";
+
+		led-strip = <&rgb_led_strip>;
+
+		width = <16>;
+		height = <10>;
+
+		module-width = <16>;
+		module-height = <10>;
+	};
+};
