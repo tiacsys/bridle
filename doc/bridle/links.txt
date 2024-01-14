@@ -777,6 +777,14 @@
 .. _`Spotpear Pico ALL GPIO TEST Schematic`:
    https://cdn.static.spotpear.com/uploads/picture/learn/raspberry-pi/raspberry-pi-hats/pico-all-gpio-test/pico-all-gpio-test-01.pdf
 
+.. #### Links to the Waveshare Pico 10-DOF IMU Sensor
+
+.. _`Waveshare Pico 10-DOF IMU Sensor`:
+   https://www.waveshare.com/wiki/Pico-10DOF-IMU
+
+.. _`Waveshare Pico 10-DOF IMU Sensor Schematic`:
+   https://www.waveshare.com/wiki/Pico-10DOF-IMU#Documents
+
 .. #### Links to the Waveshare Pico Environment Sensor
 
 .. _`Waveshare Pico Environment Sensor`:
@@ -896,6 +904,14 @@
 
 .. _`S8050 Datasheet`:
    https://datasheet.lcsc.com/lcsc/2304140030_Jiangsu-Changjing-Electronics-Technology-Co---Ltd--S8050_C105433.pdf
+
+.. #### Links to Voltage Translators or similar for Level Shifting
+
+.. _`LSF0204`:
+   https://www.ti.com/product/LSF0204
+
+.. _`LSF0204 Datasheet`:
+   https://www.ti.com/lit/ds/symlink/lsf0204.pdf
 
 .. #### Links to Voltage Regulators or similar for Power Supply Chains
 
@@ -1098,6 +1114,13 @@
    https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme280-ds002.pdf
 .. https://files.waveshare.com/upload/9/91/BME280_datasheet.pdf
 
+.. _`BMP280`:
+   https://www.bosch-sensortec.com/products/environmental-sensors/pressure-sensors/bmp280
+
+.. _`BMP280 Datasheet`:
+   https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmp280-ds001.pd
+.. https://files.waveshare.com/upload/a/af/BST-BMP280-DS001-09-371189.pdf
+
 .. _`ICM-20948`:
    https://invensense.tdk.com/products/motion-tracking/9-axis/icm-20948
 
@@ -1107,6 +1130,13 @@
 
 .. _`ICM-20948 Software User Guide`:
    https://invensense.tdk.com/wp-content/uploads/2021/10/DS-000189-ICM-20948-v1.5.pdf
+
+.. _`LPS22HB`:
+   https://www.st.com/en/mems-and-sensors/lps22hb.html
+
+.. _`LPS22HB Datasheet`:
+   https://www.st.com/resource/en/datasheet/lps22hb.pdf
+.. https://files.waveshare.com/upload/2/20/Lps22hb.pdf
 
 .. _`LTR-390UV-01`:
    https://optoelectronics.liteon.com/en-global/led/LED-Component/Detail/928

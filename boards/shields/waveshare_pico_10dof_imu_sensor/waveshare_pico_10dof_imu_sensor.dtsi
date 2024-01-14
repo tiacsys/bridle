@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/sensing/sensing_sensor_types.h>
+
+/ {
+	wsptdis_sensing: wsptdis-sensing {
+		compatible = "zephyr,sensing";
+		status = "disabled";
+
+		wsptdis_accel: wsptdis-accel {
+			compatible = "zephyr,sensing-phy-3d-sensor";
+			status = "disabled";
+			sensor-type = <SENSING_SENSOR_TYPE_MOTION_ACCELEROMETER_3D>;
+			friendly-name = "WSP 10-DOF IMU Shield Accelerometer";
+			minimal-interval = <625>;
+			underlying-device = <&wsptdis_sens_dof>;
+		};
+	};
+};

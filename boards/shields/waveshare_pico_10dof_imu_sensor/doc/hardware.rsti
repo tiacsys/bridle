@@ -1,0 +1,55 @@
+There are two significantly different main revisions of this shield.
+:strong:`Revision 1` uses the :strong:`ICM-20948` as DOF sensor,
+:strong:`revision 2.1` the :strong:`MPU-9250`. Both sensors are
+functionally compatible. The :strong:`major difference` between
+the two versions is the interface for the interrupt lines. These
+are connected to :strong:`different GPIO pins`.
+
+.. list-table::
+   :align: center
+   :width: 100%
+   :widths: 50, 50
+
+   * - .. rubric:: Printed Circuit Board Rev2.1
+     - .. rubric:: Printed Circuit Board Rev1
+
+   * - .. image:: /boards/shields/waveshare_pico_10dof_imu_sensor/doc/img/hardware-rev21.jpg
+          :align: center
+          :alt: Waveshare Pico 10-DOF IMU Sensor Rev2.1
+
+     - .. image:: /boards/shields/waveshare_pico_10dof_imu_sensor/doc/img/hardware-rev1.jpg
+          :align: center
+          :alt: Waveshare Pico 10-DOF IMU Sensor Rev1
+
+.. list-table::
+   :align: center
+   :width: 100%
+   :widths: 100
+
+   * - .. rubric:: Features and Resources
+
+   * - :hwftlbl-vdd:`5V/~5㎃`
+       :hwftlbl-vdd:`3.3V/~6㎃`
+
+       :hwftlbl-mtr:`TP` :
+       :hwftlbl-tmp:`T`
+       :hwftlbl-prs:`P`
+       :hwftlbl-cps:`9-DOF`
+
+       :hwftlbl-pio:`4`
+       :hwftlbl-i2c:`1`
+
+       .. rst-class:: rst-columns
+
+       - :bbl:`TP`: temperature, humidity and air pressure
+       - :bbl:`9-DOF`: motion and acceleration
+       - :bbk:`1 I2C` bus interface for sensors
+       - :bbk:`1 GPIO` to the TP device interrupt
+       - :bbk:`1 GPIO` to the 9-DOF device interrupt
+       - :bbk:`1 GPIO` to the 9-DOF device synchronization
+       - :bbk:`1 GPIO` to voltage regulator for optional :bbk:`VEN` signal
+
+       .. rubric:: Design Data
+       .. rst-class:: rst-columns
+
+       - `Schematic <Waveshare Pico 10-DOF IMU Sensor Schematic_>`_

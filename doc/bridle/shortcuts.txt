@@ -108,6 +108,9 @@
 .. |Waveshare 2.4 LCD| replace::
    :ref:`Waveshare 2.4 LCD <waveshare_2_4_lcd>`
 
+.. |Waveshare Pico 10-DOF IMU Sensor| replace::
+   :ref:`Waveshare Pico 10-DOF IMU Sensor <waveshare_pico_10dof_imu_sensor>`
+
 .. |Waveshare Pico Environment Sensor| replace::
    :ref:`Waveshare Pico Environment Sensor <waveshare_pico_environment_sensor>`
 

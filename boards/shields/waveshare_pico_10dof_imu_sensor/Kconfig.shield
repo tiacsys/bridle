@@ -1,0 +1,18 @@
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+config SHIELD_WAVESHARE_PICO_10DOF_IMU_SENSOR_R2
+	def_bool $(shields_list_contains,waveshare_pico_10dof_imu_sensor_r2)
+
+config SHIELD_WAVESHARE_PICO_10DOF_IMU_SENSOR_R1
+	def_bool $(shields_list_contains,waveshare_pico_10dof_imu_sensor_r1)
+
+config SHIELD_WAVESHARE_PICO_10DOF_IMU_SENSOR
+	bool
+	default y if SHIELD_WAVESHARE_PICO_10DOF_IMU_SENSOR_R2
+	default y if SHIELD_WAVESHARE_PICO_10DOF_IMU_SENSOR_R1
+	default n
+
+config MPU9250_MAGN_EN
+	default y if DT_HAS_INVENSENSE_MPU9250_ENABLED
+	depends on SHIELD_WAVESHARE_PICO_10DOF_IMU_SENSOR && SENSOR

@@ -1,0 +1,63 @@
+.. list-table::
+   :align: center
+   :width: 66%
+   :widths: 50, 50
+   :header-rows: 1
+
+   * - .. image:: /boards/shields/waveshare_pico_10dof_imu_sensor/doc/img/positions-rev21.jpg
+          :align: center
+          :width: 500
+          :alt: Waveshare Pico 10-DOF IMU Sensor Rev2.1 details
+
+     - .. image:: /boards/shields/waveshare_pico_10dof_imu_sensor/doc/img/positions-rev1.jpg
+          :align: center
+          :width: 500
+          :alt: Waveshare Pico 10-DOF IMU Sensor Rev1 details
+
+   * - .. rubric:: Revision 2.1
+
+       1. | :strong:`MPU-9250`
+          | 3-axis accelerometer, 3-axis gyroscope and 3-axis magnetometer
+       #. | :strong:`LPS22HB`
+          | air pressure and temperature (TP) sensor
+       #. | :strong:`RT9193-33`
+          | 300㎃ low dropout, low noise, ultra-fast LDO (5V to 3.3V)
+       #. | :strong:`Power indicator`
+       #. | :strong:`Raspberry Pi Pico header`
+          | for attaching to Raspberry Pi Pico,
+          | stackable design
+
+     - .. rubric:: Revision 1
+
+       1. | :strong:`ICM-20948`
+          | 3-axis accelerometer, 3-axis gyroscope and 3-axis magnetometer
+       #. | :strong:`LPS22HB`
+          | air pressure and temperature (TP) sensor
+       #. | :strong:`RT9193-33`
+          | 300㎃ low dropout, low noise, ultra-fast LDO (5V to 3.3V)
+       #. | :strong:`LSF0204`
+          | 4-bit bidirectional multi-voltage level translator (3.3V to/from 1.8V)
+       #. | :strong:`RT9193-18`
+          | 300㎃ low dropout, low noise, ultra-fast LDO (3.3V to 1.8V)
+       #. | :strong:`Power indicator`
+       #. | :strong:`Raspberry Pi Pico header`
+          | for attaching to Raspberry Pi Pico, stackable design
+
+.. rubric:: Data Sheets
+.. rst-class:: rst-columns
+
+- .. rubric:: LPS22HB_
+- `LPS22HB Datasheet`_
+- .. rubric:: ICM-20948_ / AK09916_
+- `ICM-20948 Datasheet`_
+- `ICM-20948 Software User Guide`_
+- `AK09916 Datasheet`_
+- .. rubric:: MPU-9250_ / AK8963_
+- `MPU-9250 Datasheet`_
+- `MPU-9250 Register Map`_
+- `MPU-9250 Migrating to ICM-20948`_
+- `AK8963 Datasheet`_
+- .. rubric:: LSF0204_
+- `LSF0204 Datasheet`_
+- .. rubric:: RT9193-33_ / RT9193-18_
+- `RT9193 Datasheet`_

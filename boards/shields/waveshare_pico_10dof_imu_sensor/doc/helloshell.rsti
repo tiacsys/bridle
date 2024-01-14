@@ -1,0 +1,130 @@
+.. rubric:: Simple test execution on target
+
+.. tabs::
+
+   .. group-tab:: Basics
+
+      .. code-block:: console
+
+         uart:~$ hello -h
+         hello - say hello
+         uart:~$ hello
+         Hello from shell.
+
+         uart:~$ hwinfo devid
+         Length: 8
+         ID: 0x8c998be1de969148
+
+         uart:~$ kernel version
+         Zephyr version 3.5.99
+
+         uart:~$ bridle version
+         Bridle version 3.5.99
+
+         uart:~$ bridle version long
+         Bridle version 3.5.99.0
+
+         uart:~$ bridle info
+         Zephyr: 3.5.99
+         Bridle: 3.5.99
+
+         uart:~$ device list
+         devices:
+         - clock-controller@40008000 (READY)
+         - reset-controller@4000c000 (READY)
+         - snippet_cdc_acm_console_uart (READY)
+         - uart@40034000 (READY)
+         - timer@40054000 (READY)
+         - gpio@40014000 (READY)
+         - adc@4004c000 (READY)
+         - flash-controller@18000000 (READY)
+         - i2c@40048000 (READY)
+         - vreg@40064000 (READY)
+         - leds (READY)
+         - lps22hb@5c (READY)
+         - mpu9250@68 (READY)
+
+         uart:~$ history
+         [  0] history
+         [  1] device list
+         [  2] bridle info
+         [  3] bridle version long
+         [  4] bridle version
+         [  5] kernel version
+         [  6] hwinfo devid
+         [  7] hello
+         [  8] hello -h
+
+   .. group-tab:: I2C
+
+      The |Waveshare Pico Environment Sensor| provides four on-shield sensors
+      connected on I2C0.
+
+      .. code-block:: console
+
+         uart:~$ i2c scan i2c@40048000
+              0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+         00:             -- -- -- -- -- -- -- -- -- -- -- --
+         10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+         20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+         30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+         40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+         50: -- -- -- -- -- -- -- -- -- -- -- -- 5c -- -- --
+         60: -- -- -- -- -- -- -- -- 68 -- -- -- -- -- -- --
+         70: -- -- -- -- -- -- -- --
+         5 devices found on i2c@40048000
+
+      - The I2C address ``0x5c`` is the STM `LPS22HB`_, an
+        air pressure and temperature sensor (TP).
+      - The I2C address ``0x68`` is the InvenSense `ICM-20948`_ with `AK09916`_
+        or in old hardware releases the `MPU-9250`_ with `AK8963`_, an
+        motion and acceleration sensor (9-DOF) with 3-axis accelerometer,
+        3-axis gyroscope and 3-axis magnetometer (compass).
+
+      The "Who am I" register of the STM LPS22HB environmental sensor can read
+      from register ``0x0f`` and must be ``0xb1``:
+
+      uart:~$ i2c read_byte i2c@40048000 5c 0f
+      Output: 0xb1
+
+   .. group-tab:: Sensors
+
+      .. code-block:: console
+
+         uart:~$ sensor info
+         device name: lps22hb@5c, vendor: STMicroelectronics, model: lps22hb-press, friendly name: (null)
+         device name: mpu9250@68, vendor: InvenSense Inc., model: mpu9250, friendly name: (null)
+
+      .. rubric:: LPS22HB (TP)
+
+      .. code-block:: console
+
+         uart:~$ sensor get lps22hb@5c
+         channel idx=13 ambient_temp shift=7 num_samples=1 value=457076700000ns (29.499999)
+         channel idx=14 press shift=7 num_samples=1 value=457076700000ns (97.807176)
+         uart:~$ sensor get lps22hb@5c
+         channel idx=13 ambient_temp shift=7 num_samples=1 value=458111600000ns (29.489999)
+         channel idx=14 press shift=7 num_samples=1 value=458111600000ns (97.802635)
+         uart:~$ sensor get lps22hb@5c
+         channel idx=13 ambient_temp shift=7 num_samples=1 value=459521100000ns (29.499999)
+         channel idx=14 press shift=7 num_samples=1 value=459521100000ns (97.801683)
+
+      .. rubric:: MPU-9250 (9-DOF)
+
+      .. code-block:: console
+
+         uart:~$ sensor get mpu9250@68
+         channel idx=3 accel_xyz shift=6 num_samples=1 value=502957400000ns, (2.649183, -1.729212, 9.787495)
+         channel idx=7 gyro_xyz shift=6 num_samples=1 value=502957400000ns, (-0.029843, 0.013588, -0.018519)
+         channel idx=11 magn_xyz shift=6 num_samples=1 value=502957400000ns, (0.365247, 0.056383, -0.387144)
+         channel idx=12 die_temp shift=6 num_samples=1 value=502957400000ns (32.748501)
+         uart:~$ sensor get mpu9250@68
+         channel idx=3 accel_xyz shift=6 num_samples=1 value=504647300000ns, (2.652175, -1.733403, 9.788692)
+         channel idx=7 gyro_xyz shift=6 num_samples=1 value=504647300000ns, (-0.031442, 0.011856, -0.018652)
+         channel idx=11 magn_xyz shift=6 num_samples=1 value=504647300000ns, (0.372271, 0.052859, -0.414312)
+         channel idx=12 die_temp shift=6 num_samples=1 value=504647300000ns (32.745507)
+         uart:~$ sensor get mpu9250@68
+         channel idx=3 accel_xyz shift=6 num_samples=1 value=506617500000ns, (2.653971, -1.736994, 9.803057)
+         channel idx=7 gyro_xyz shift=6 num_samples=1 value=506617500000ns, (-0.030376, 0.011989, -0.018652)
+         channel idx=11 magn_xyz shift=6 num_samples=1 value=506617500000ns, (0.377539, 0.065193, -0.405822)
+         channel idx=12 die_temp shift=6 num_samples=1 value=506617500000ns (32.748501)

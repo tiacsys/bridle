@@ -1,0 +1,21 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
+&wsptdis_sens_dof {
+	status = "okay";
+	irq-gpios = <&rpipico_header 2 GPIO_ACTIVE_HIGH>;	/* GP2 */
+	/* Frame synchronize connected at
+	 * GP16 but not supported by driver:
+	 * fsync-gpios = <&rpipico_header 16 GPIO_ACTIVE_HIGH>; */
+};
+
+&wsptdis_sens_tp {
+	status = "okay";
+	/* Interrupt request connected at
+	 * GP3 but not supported by driver:
+	 * irq-gpios = <&rpipico_header 3 GPIO_ACTIVE_HIGH>; */
+};
