@@ -14,7 +14,9 @@ Highlights
 * :brd:`NOT YET, tbd.`
 
 * Add the u-blox library (**ubxlib**) and provide a simple GNSS example.
-* Add *Raspberry Pi Pico* **TEST** *and* **LCD** *Shields*.
+* Add *Raspberry Pi Pico* **LCD** *Shields*.
+* Add *Raspberry Pi Pico* **LED** *Shields*.
+* Add *Raspberry Pi Pico* **TEST** *Shields*.
 * Add *DTS bindings* for  **pwm-buzzers** and **pwm-servos**.
 * Support the *Cytron Maker RP2040* family.
 * Support *The PicoBoy* mini-handheld.
@@ -123,8 +125,10 @@ Supported shields
 * Grove Button Shields
 * Grove LED Shields
 * Raspberry Pi Pico LCD Shields
+* Raspberry Pi Pico LED Shields
 * Raspberry Pi Pico TEST Shields
 * Waveshare LCD Modules
+* Waveshare Pico 10-DOF IMU Sensor
 * Waveshare Pico Environment Sensor
 
 Supported snippets
@@ -187,6 +191,10 @@ Change log
 
     * **Pico ALL GPIO TEST** shield by Spotpear
 
+  * *Raspberry Pi Pico LED Shields*:
+
+    * **Pico RGB LED** shield by Waveshare
+
   * *Raspberry Pi Pico LCD Shields*:
 
     * **Pico LCD 1.14** shield by Waveshare
@@ -196,6 +204,11 @@ Change log
   * *Waveshare LCD Modules*:
 
     * **2.4inch LCD Module** as shield by Waveshare
+
+  * Sensor shields:
+
+    * **Pico 10-DOF IMU Sensor** shield by Waveshare
+    * **Pico Environment Sensor** shield by Waveshare
 
 * New Zephyr module: support u-blox portable C API **ubxlib** with GNSS sample.
 
@@ -231,6 +244,8 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`185` - [HW] Waveshare Pico 10-DOF IMU Sensor
+* :github:`183` - [HW] Waveshare Pico RGB LED
 * :github:`177` - [HW] Waveshare Pico Environment Sensor
 * :github:`170` - [FCR] Upgrade to Zephyr SDK 0.16.4
 * :github:`169` - [HW] The PicoBoy
