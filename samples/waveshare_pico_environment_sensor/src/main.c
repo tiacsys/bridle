@@ -11,29 +11,7 @@
 #include <zephyr/drivers/sensor/sgp40.h>
 
 #include <zephyr/logging/log.h>
-LOG_MODULE_REGISTER(wpes_sample, LOG_LEVEL_INF);
-
-static const char *now_str(void)
-{
-	static char buf[16]; /* ...HH:MM:SS.MMM */
-	uint32_t now = k_uptime_get_32();
-	unsigned int h, m, s, ms;
-
-	ms = now % MSEC_PER_SEC;
-	now /= MSEC_PER_SEC;
-
-	s = now % 60U;
-
-	now /= 60U;
-	m = now % 60U;
-
-	now /= 60U;
-	h = now;
-
-	snprintf(buf, sizeof(buf), "%02u:%02u:%02u.%03u", h, m, s, ms);
-
-	return buf;
-}
+LOG_MODULE_REGISTER(wspes_sample, LOG_LEVEL_INF);
 
 #if !DT_HAS_COMPAT_STATUS_OKAY(invensense_icm20948) && \
     !DT_HAS_COMPAT_STATUS_OKAY(invensense_mpu9250)
@@ -140,7 +118,7 @@ int main(void)
 	const struct device *const thp = get_bme280_device();
 	const struct device *const voc = get_sgp40_device();
 	static struct sensor_value dof_accel[3], dof_gyro[3], dof_magn[3],
-				   dof_temp, thp_temp, thp_rh, thp_airpr,
+				   dof_temp, thp_airpr, thp_temp, thp_rh,
 				   voc_gas;
 
 	if ((dof == NULL) | (thp == NULL) | (voc == NULL)) {
@@ -158,10 +136,10 @@ int main(void)
 			break;
 		}
 
-		sensor_channel_get(dof, SENSOR_CHAN_DIE_TEMP, &dof_temp);
 		sensor_channel_get(dof, SENSOR_CHAN_ACCEL_XYZ, dof_accel);
 		sensor_channel_get(dof, SENSOR_CHAN_GYRO_XYZ, dof_gyro);
 		sensor_channel_get(dof, SENSOR_CHAN_MAGN_XYZ, dof_magn);
+		sensor_channel_get(dof, SENSOR_CHAN_DIE_TEMP, &dof_temp);
 
 		if (sensor_sample_fetch(thp)) {
 			LOG_ERR("%s: Failed to fetch sample from THP device.",
@@ -169,9 +147,9 @@ int main(void)
 			break;
 		}
 
+		sensor_channel_get(thp, SENSOR_CHAN_PRESS, &thp_airpr);
 		sensor_channel_get(thp, SENSOR_CHAN_AMBIENT_TEMP, &thp_temp);
 		sensor_channel_get(thp, SENSOR_CHAN_HUMIDITY, &thp_rh);
-		sensor_channel_get(thp, SENSOR_CHAN_PRESS, &thp_airpr);
 
 #if CONFIG_APP_USE_COMPENSATION
 		sensor_attr_set(voc, SENSOR_CHAN_GAS_RES,
@@ -188,31 +166,29 @@ int main(void)
 
 		sensor_channel_get(voc, SENSOR_CHAN_GAS_RES, &voc_gas);
 
-		printk("NOW: %s\n", now_str());
+		LOG_INF("DOF: %f %f %f XYZ-Accel. [m/s/s]",
+			sensor_value_to_double(&dof_accel[0]),
+			sensor_value_to_double(&dof_accel[1]),
+			sensor_value_to_double(&dof_accel[2]));
+		LOG_INF("DOF: %f %f %f XYZ-Gyro. [rad/s]",
+			sensor_value_to_double(&dof_gyro[0]),
+			sensor_value_to_double(&dof_gyro[1]),
+			sensor_value_to_double(&dof_gyro[2]));
+		LOG_INF("DOF: %f %f %f XYZ-Magn. [uG]",
+			sensor_value_to_double(&dof_magn[0]),
+			sensor_value_to_double(&dof_magn[1]),
+			sensor_value_to_double(&dof_magn[2]));
+		LOG_INF("DOF: %.2f Temp. [C]",
+			sensor_value_to_double(&dof_temp));
 
-		printk("DOF: %.2f Temp. [C]",
-		       sensor_value_to_double(&dof_temp));
-		printk(" ; %f %f %f XYZ-Accel. [m/s/s]",
-		       sensor_value_to_double(&dof_accel[0]),
-		       sensor_value_to_double(&dof_accel[1]),
-		       sensor_value_to_double(&dof_accel[2]));
-		printk(" ; %f %f %f XYZ-Gyro. [rad/s]",
-		       sensor_value_to_double(&dof_gyro[0]),
-		       sensor_value_to_double(&dof_gyro[1]),
-		       sensor_value_to_double(&dof_gyro[2]));
-		printk(" ; %f %f %f XYZ-Magn. [uG]\n",
-		       sensor_value_to_double(&dof_magn[0]),
-		       sensor_value_to_double(&dof_magn[1]),
-		       sensor_value_to_double(&dof_magn[2]));
+		LOG_INF("THP: %.2f AirPr. [hPa]",
+			sensor_value_to_double(&thp_airpr));
+		LOG_INF("THP: %.2f Temp. [C]",
+			sensor_value_to_double(&thp_temp));
+		LOG_INF("THP: %.3f RH [%%]",
+			sensor_value_to_double(&thp_rh));
 
-		printk("THP: %.2f Temp. [C]",
-		       sensor_value_to_double(&thp_temp));
-		printk(" ; %.3f RH [%%]",
-		       sensor_value_to_double(&thp_rh));
-		printk(" ; %.2f AirPr. [hPa]\n",
-		       sensor_value_to_double(&thp_airpr));
-
-		printk("VOC: %d Gas [a.u.]\n", voc_gas.val1);
+		LOG_INF("VOC: %d Gas [a.u.]", voc_gas.val1);
 
 	}
 
