@@ -1,0 +1,6 @@
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+mainmenu "Waveshare Pico 10-DOF IMU Sensor sample application"
+
+source "Kconfig.zephyr"

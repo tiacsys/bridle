@@ -1,0 +1,36 @@
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+sample:
+  name: Waveshare Pico 10-DOF IMU Sensor Sample
+tests:
+  bridle.sample.waveshare_pico_10dof_imu_sensor_r2:
+    tags:
+      - sensors
+      - lps22hb
+      - mpu9250
+    depends_on:
+      - pico_i2c
+      - pico_gpio
+    extra_args: SHIELD=waveshare_pico_10dof_imu_sensor_r2
+    integration_platforms:
+      - rpi_pico
+      - rpi_pico_w
+      - waveshare_rp2040_lcd_0_96
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb
+  bridle.sample.waveshare_pico_10dof_imu_sensor_r1:
+    tags:
+      - sensors
+      - lps22hb
+      - mpu9250
+    depends_on:
+      - pico_i2c
+      - pico_gpio
+    extra_args: SHIELD=waveshare_pico_10dof_imu_sensor_r1
+    integration_platforms:
+      - rpi_pico
+      - rpi_pico_w
+      - waveshare_rp2040_lcd_0_96
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb
