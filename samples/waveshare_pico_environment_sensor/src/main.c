@@ -165,7 +165,7 @@ int main(void)
 
 		if (sensor_sample_fetch(thp)) {
 			LOG_ERR("%s: Failed to fetch sample from THP device.",
-				voc->name);
+				thp->name);
 			break;
 		}
 
