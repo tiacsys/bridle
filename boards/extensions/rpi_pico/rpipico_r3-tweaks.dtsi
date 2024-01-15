@@ -3,6 +3,8 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
 &rpipico_i2c0 {
 	compatible = "gpio-i2c";	/* I2C0_SDA_P4 and I2C0_SCL_P5 */
 	sda-gpios = <&rpipico_header 4 (GPIO_OPEN_DRAIN | GPIO_PULL_UP)>;
