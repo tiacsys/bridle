@@ -6,6 +6,8 @@
 #include "ili9341_240x320.dtsi"
 #include "ili9341_rgb565.dtsi"
 
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
 &lcd_backlight_en {
 	status = "okay";
 	enable-gpios = <&arduino_nano_header 9 GPIO_ACTIVE_HIGH>;	/* D9 */
