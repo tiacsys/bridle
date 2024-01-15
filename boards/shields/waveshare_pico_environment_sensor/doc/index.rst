@@ -3,12 +3,12 @@
 Waveshare Pico Environment Sensor
 #################################
 
-The Waveshare Pico Environment Sensor shield is a multi-sensor module
-designed for the Raspberry Pi Pico and gives the ability to collect
-environmental data like temperature & humidity, air pressure, ambient
-light intensity, VOC, UV rays, etc. It can also be used to build a
-robot that can detect motion and orientation. It communicates with
-the Raspberry Pi Pico over I2C.
+The `Waveshare Pico Environment Sensor`_ shield is a :bbk:`pico sized` multi
+sensor module designed for the :ref:`zephyr:rpi_pico` and gives the ability
+to collect environmental data like temperature & humidity, air pressure,
+ambient light intensity, VOC, UV rays, etc. It can also be used to build
+a robot that can detect motion and orientation. It communicates with the
+Raspberry Pi Pico over I2C.
 
 Board Overview
 **************
@@ -46,10 +46,10 @@ Components
           -40~+85℃ (resolution is 0.01°C, error ±1℃)
           @ :bbl:`3.3V/~0.350㎃`
        Humidity range:
-          0~100%RH (resolution is 0.008%RH, error ±3% RH)
+          0~100%RH (resolution is 0.008%RH, error ±3%RH)
           @ :bbl:`3.3V/~0.340㎃`
        Pressure range:
-          300~1100 ㍱ (resolution is 0.18Pa, error ±1 ㍱)
+          300~1100㍱ (resolution is 0.18㍱, error ±1㍱)
           @ :bbl:`3.3V/~0.714㎃`
 
      - |nbsp|
@@ -298,8 +298,8 @@ More Samples
 BME280 Humidity and Pressure Sensor
 ===================================
 
-This sample shows how to use the Zephyr Sensors API driver for the Bosch BME280
-environmental sensor. See also Zephyr sample:
+This sample shows how to use the :ref:`Sensors API <zephyr:sensor_api>` driver
+for the Bosch BME280 environmental sensor. See also Zephyr sample:
 :doc:`zephyr:samples/sensor/bme280/README` and
 :ref:`snippet-samples-sensor-bme280-tweaks`.
 
