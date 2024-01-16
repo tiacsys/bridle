@@ -6,6 +6,10 @@
 #include <zephyr/dt-bindings/pinctrl/rpi-pico-rp2040-pinctrl.h>
 
 &pinctrl {
+	clocks_default: clocks_default {
+		/* no external clocks */
+	};
+
 	i2c0_default: i2c0_default {
 		group2021 {
 			pinmux = <I2C0_SDA_P20>,	/* acceleration */

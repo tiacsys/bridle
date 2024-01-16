@@ -25,6 +25,11 @@
 	regulator-allowed-modes = <REGULATOR_RPI_PICO_MODE_NORMAL>;
 };
 
+&clocks {
+	pinctrl-0 = <&clocks_default>;
+	pinctrl-names = "default";
+};
+
 &reset {
 	status = "okay";
 };
