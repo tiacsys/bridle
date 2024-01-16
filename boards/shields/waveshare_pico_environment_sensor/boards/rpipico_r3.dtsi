@@ -1,0 +1,35 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/i2c/i2c.h>
+
+&rpipico_i2c0 {
+	status = "okay";
+	clock-frequency = <I2C_BITRATE_FAST>;
+
+	wspes_sens_voc: sgp40@59 {
+		status = "okay";
+		compatible = "sensirion,sgp40";
+		reg = <0x59>;
+		enable-selftest;
+	};
+
+	wspes_sens_dof: mpu9250@68 {
+		status = "okay";
+		compatible = "invensense,mpu9250";
+		reg = <0x68>;
+		accel-fs = <2>;
+		accel-dlpf = "5.05";
+		gyro-fs = <250>;
+		gyro-dlpf = <5>;
+		gyro-sr-div = <9>;
+	};
+
+	wspes_sens_thp: bme280@76 {
+		status = "okay";
+		compatible = "bosch,bme280";
+		reg = <0x76>;
+	};
+};

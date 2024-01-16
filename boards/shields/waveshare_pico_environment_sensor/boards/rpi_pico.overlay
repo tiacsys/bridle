@@ -5,3 +5,4 @@
 
 #include "rpipico_r3-pinctrl.dtsi"
 #include "rpipico_r3-tweaks.dtsi"
+#include "rpipico_r3.dtsi"

@@ -53,13 +53,14 @@ Components
           @ :bbl:`3.3V/~0.714㎃`
 
      - |nbsp|
-     - .. literalinclude:: ../waveshare_pico_environment_sensor.overlay
-          :caption: BME280 in waveshare_pico_environment_sensor.overlay
+     - .. literalinclude:: ../boards/rpipico_r3.dtsi
+          :caption: BME280 in boards/rpipico_r3.dtsi
           :language: DTS
           :encoding: ISO-8859-1
+          :dedent: 1
           :emphasize-lines: 3-4
           :linenos:
-          :start-at: sens_thp: bme280@76 {
+          :start-at: wspes_sens_thp: bme280@76 {
           :end-at: };
 
        - Sensor I2C address: :code:`0x76`
@@ -84,13 +85,14 @@ Components
           < 60s
 
      - |nbsp|
-     - .. literalinclude:: ../waveshare_pico_environment_sensor.overlay
-          :caption: SGP40 in waveshare_pico_environment_sensor.overlay
+     - .. literalinclude:: ../boards/rpipico_r3.dtsi
+          :caption: SGP40 in boards/rpipico_r3.dtsi
           :language: DTS
           :encoding: ISO-8859-1
+          :dedent: 1
           :emphasize-lines: 3-4
           :linenos:
-          :start-at: sens_voc: sgp40@59 {
+          :start-at: wspes_sens_voc: sgp40@59 {
           :end-at: };
 
        - Sensor I2C address: :code:`0x59`
@@ -172,13 +174,14 @@ Components
 
      - :bbl:`INTERIME SUPPORT`, because of obsolete component
 
-       .. literalinclude:: ../waveshare_pico_environment_sensor.overlay
-          :caption: MPU-9250 in waveshare_pico_environment_sensor.overlay
+       .. literalinclude:: ../boards/rpipico_r3.dtsi
+          :caption: MPU-9250 in boards/rpipico_r3.dtsi
           :language: DTS
           :encoding: ISO-8859-1
+          :dedent: 1
           :emphasize-lines: 3-4
           :linenos:
-          :start-at: sens_dof: mpu9250@68 {
+          :start-at: wspes_sens_dof: mpu9250@68 {
           :end-at: };
 
        .. literalinclude:: ../waveshare_pico_environment_sensor.conf
@@ -187,14 +190,13 @@ Components
           :encoding: ISO-8859-1
           :linenos:
           :start-at: CONFIG_MPU9250_TRIGGER_NONE=
-          :end-at: CONFIG_MPU9250_MAGN_EN=
+          :end-at: CONFIG_MPU9250_TRIGGER_NONE=
 
        - Sensor I2C address: :code:`0x68`
        - Devicetree compatible: :dtcompatible:`invensense,mpu9250`
 
        :brd:`NOT YET SUPPORTED`, because of missing driver
 
-       - Sensor I2C address: :code:`0x68`
        - Devicetree compatible: :dtcompatible:`invensense,icm20948`
 
    * - .. rubric:: `RT9193-33`_ and `RT9193-18`_
@@ -214,8 +216,41 @@ Components
      - |nbsp|
      - |nbsp|
 
-Programming
+Utilization
 ***********
+
+Sensing Subsystem
+=================
+
+The shield is ready for using with the Zephyr :ref:`zephyr:sensing_api`.
+The interface is disabled for default and can be enabled by an application
+overlay :file:`app.overlay` (see :ref:`zephyr:application`).
+
+.. list-table::
+   :align: center
+   :width: 100%
+   :widths: 50, 50
+
+   * - .. rubric:: Sensing Interface on Shield Level
+     - .. rubric:: Overlay Content on Application Level
+
+   * - .. literalinclude:: ../waveshare_pico_environment_sensor.overlay
+          :caption: Sensing Interface in waveshare_pico_environment_sensor.overlay
+          :language: DTS
+          :encoding: ISO-8859-1
+          :tab-width: 4
+          :emphasize-lines: 3-4,7-9
+          :linenos:
+          :prepend: / {
+          :start-at: wspes_sensing: wspes-sensing {
+
+     - - for the interface:
+            :devicetree:`&wspes_sensing { status = "okay"; };`
+       - for the accelerometer sensor:
+            :devicetree:`&wspes_accel { status = "okay"; };`
+
+Programming
+===========
 
 Set ``-DSHIELD=waveshare_pico_environment_sensor`` when you invoke
 ``west build`` or ``cmake`` in your Zephyr application. For example:

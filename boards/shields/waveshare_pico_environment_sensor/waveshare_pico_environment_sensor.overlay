@@ -3,31 +3,20 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-&rpipico_i2c0 {
-	status = "okay";
-	clock-frequency = <I2C_BITRATE_FAST>;
+#include <zephyr/sensing/sensing_sensor_types.h>
 
-	sens_voc: sgp40@59 {
-		status = "okay";
-		compatible = "sensirion,sgp40";
-		reg = <0x59>;
-		enable-selftest;
-	};
+/ {
+	wspes_sensing: wspes-sensing {
+		compatible = "zephyr,sensing";
+		status = "disabled";
 
-	sens_dof: mpu9250@68 {
-		status = "okay";
-		compatible = "invensense,mpu9250";
-		reg = <0x68>;
-		accel-fs = <2>;
-		accel-dlpf = "5.05";
-		gyro-fs = <250>;
-		gyro-dlpf = <5>;
-		gyro-sr-div = <9>;
-	};
-
-	sens_thp: bme280@76 {
-		status = "okay";
-		compatible = "bosch,bme280";
-		reg = <0x76>;
+		wspes_accel: wspes-accel {
+			compatible = "zephyr,sensing-phy-3d-sensor";
+			status = "disabled";
+			sensor-type = <SENSING_SENSOR_TYPE_MOTION_ACCELEROMETER_3D>;
+			friendly-name = "WSP Environment Shield Accelerometer";
+			minimal-interval = <625>;
+			underlying-device = <&wspes_sens_dof>;
+		};
 	};
 };
