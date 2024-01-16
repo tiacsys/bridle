@@ -29,6 +29,7 @@
 		/* Rest for code */
 		code_partition: partition@100 {
 			label = "code-partition";
+			read-only;
 		};
 	};
 };
