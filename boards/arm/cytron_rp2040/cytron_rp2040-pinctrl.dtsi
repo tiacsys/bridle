@@ -6,6 +6,10 @@
 #include <zephyr/dt-bindings/pinctrl/rpi-pico-rp2040-pinctrl.h>
 
 &pinctrl {
+	clocks_default: clocks_default {
+		/* no external clocks */
+	};
+
 	uart0_default: uart0_default {
 		group0_uart {
 			pinmux = <UART0_TX_P0>;		/* GP0: UART0_TX */
