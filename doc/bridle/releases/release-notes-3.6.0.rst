@@ -244,6 +244,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`187` - [BUG] ubx_gnss sample fails to build
 * :github:`185` - [HW] Waveshare Pico 10-DOF IMU Sensor
 * :github:`183` - [HW] Waveshare Pico RGB LED
 * :github:`177` - [HW] Waveshare Pico Environment Sensor
