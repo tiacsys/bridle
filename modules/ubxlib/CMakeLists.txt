@@ -59,6 +59,9 @@ endif() # CONFIG_UBXLIB_GEODESIC
 # The actual library we're building
 zephyr_library_named(ubxlib)
 
+# Extra modules
+list(APPEND ZEPHYR_EXTRA_MODULES ${UBXLIB_BASE}/drivers)
+
 # Include paths that should be exposed to applications ("UBXLIB_INC")
 zephyr_include_directories(
     ${UBXLIB_BASE}
@@ -122,12 +125,6 @@ target_include_directories(ubxlib PRIVATE
     ${ZEPHYR_BASE}/include
 )
 
-# Hacking this in directly for now, ultimately
-# we don't want the mbedtls dependency anyway!
-target_include_directories(ubxlib PRIVATE
-    ${ZEPHYR_BASE}/../modules/crypto/mbedtls/include
-)
-
 # Unconditional sources
 add_src_dir(${UBXLIB_BASE}/common/assert/src)
 add_src_dir(${UBXLIB_BASE}/common/at_client/src)
@@ -162,7 +159,6 @@ list(APPEND UBXLIB_SRC
     ${UBXLIB_BASE}/common/network/src/u_network_private_gnss_stub.c
     ${UBXLIB_BASE}/common/network/src/u_network_private_wifi_stub.c
     ${UBXLIB_BASE}/port/clib/u_port_clib_mktime64.c
-    ${UBXLIB_BASE}/port/platform/common/mbedtls/u_port_crypto.c
     ${UBXLIB_BASE}/port/u_port_heap.c
     ${UBXLIB_BASE}/port/u_port_timezone.c
     ${UBXLIB_BASE}/port/u_port_resource.c
@@ -173,6 +169,8 @@ list(APPEND UBXLIB_SRC
     ${UBXLIB_BASE}/port/platform/zephyr/src/u_port_uart.c
     ${UBXLIB_BASE}/port/platform/zephyr/src/u_port_i2c.c
     ${UBXLIB_BASE}/port/platform/zephyr/src/u_port_spi.c
+    ${UBXLIB_BASE}/port/platform/zephyr/src/u_port_ppp.c
+    ${UBXLIB_BASE}/port/platform/zephyr/src/u_port_board_cfg.c
     ${UBXLIB_BASE}/port/platform/zephyr/src/u_port_private.c
 )
 
