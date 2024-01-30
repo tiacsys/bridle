@@ -13,7 +13,9 @@
 		wspes_accel: wspes-accel {
 			compatible = "zephyr,sensing-phy-3d-sensor";
 			status = "disabled";
-			sensor-type = <SENSING_SENSOR_TYPE_MOTION_ACCELEROMETER_3D>;
+			sensor-types = <SENSING_SENSOR_TYPE_MOTION_ACCELEROMETER_3D
+					SENSING_SENSOR_TYPE_MOTION_GYROMETER_3D
+					SENSING_SENSOR_TYPE_MOTION_MOTION_DETECTOR>;
 			friendly-name = "WSP Environment Shield Accelerometer";
 			minimal-interval = <625>;
 			underlying-device = <&wspes_sens_dof>;
