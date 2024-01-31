@@ -40,3 +40,40 @@
 	pinctrl-0 = <&adc_makernano>;
 	pinctrl-names = "default";
 };
+
+&gpio0 {
+	status = "okay";
+	/* namespace and positions without wired bits */
+	gpio-reserved-ranges = <10 1>, <21 1>, <23 3>;
+	gpio-line-names =
+		"AH1Q02_TX0",		/* GP0 */
+		"AH2Q01_RX0",		/* GP1 */
+		"AH5",			/* GP2 */
+		"AH6",			/* GP3 */
+		"AH7",			/* GP4 */
+		"AH8",			/* GP5 */
+		"AH9",			/* GP6 */
+		"AH10",			/* GP7 */
+		"AH11",			/* GP8 */
+		"AH12_ULED0",		/* GP9 */
+		"",	 /* not connected, GP10 */
+		"RGB_SDO1",		/* GP11 */
+		"AH23_SDA0",		/* GP12 */
+		"AH24_SCL0",		/* GP13 */
+		"AH25",			/* GP14 */
+		"AH26",			/* GP15 */
+		"AH15_SDI0",		/* GP16 */
+		"AH13_CSN0",		/* GP17 */
+		"AH16_SCK0",		/* GP18 */
+		"AH14_SDO0",		/* GP19 */
+		"UBTN0",		/* GP20 */
+		"",	 /* not connected, GP21 */
+		"BUZZER_PWM6",		/* GP22 */
+		"",	 /* not connected, GP23 */
+		"",	 /* not connected, GP24 */
+		"",	 /* not connected, GP25 */
+		"AH19Q12_SDA1",		/* GP26 */
+		"AH20Q11_SCL1",		/* GP27 */
+		"AH21_ADC2",		/* GP28 */
+		"AH22_ADC3";		/* GP29 */
+};

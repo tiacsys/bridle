@@ -40,3 +40,40 @@
 	pinctrl-0 = <&adc_makerpi>;
 	pinctrl-names = "default";
 };
+
+&gpio0 {
+	status = "okay";
+	/* namespace and positions without wired bits */
+	gpio-reserved-ranges = <19 1>, <23 3>;
+	gpio-line-names =
+		"GROVE13_TX0",		/* GP0 */
+		"GROVE14_RX0",		/* GP1 */
+		"GROVE23_SCK0",		/* GP2 */
+		"GROVE24_SDO0",		/* GP3 */
+		"GROVE33_SDI0",		/* GP4 */
+		"GROVE34_CSN0",		/* GP5 */
+		"GROVE53",		/* GP6 */
+		"GROVE73ULED0",		/* GP7 */
+		"DCM1A_PWM8",		/* GP8 */
+		"DCM1B_PWM9",		/* GP9 */
+		"DCM2A_PWM10",		/* GP10 */
+		"DCM2B_PWM11",		/* GP11 */
+		"SRVM1_PWM12",		/* GP12 */
+		"SRVM2_PWM13",		/* GP13 */
+		"SRVM3_PWM14",		/* GP14 */
+		"SRVM4_PWM15",		/* GP15 */
+		"GROVE43_SDA0",		/* GP16 */
+		"GROVE44_SCL0",		/* GP17 */
+		"RGB_PIO0",		/* GP18 */
+		"",	 /* not connected, GP19 */
+		"UBTN0",		/* GP20 */
+		"UBTN1",		/* GP21 */
+		"BUZZER_PWM6",		/* GP22 */
+		"",	 /* not connected, GP23 */
+		"",	 /* not connected, GP24 */
+		"",	 /* not connected, GP25 */
+		"GROVE54_ADC0",		/* GP26 */
+		"GROVE64_ADC1",		/* GP27 */
+		"GROVE74_ADC2",		/* GP28 */
+		"VMOTOR_ADC3";		/* GP29 */
+};
