@@ -15,3 +15,6 @@
 		/* GP12: SPI1_RX not used for LCD only access */
 	};
 };
+
+/* link to pinctrl node from board extensions for rpi_pico/_w */
+spi1_pico: &spi1_default {};
