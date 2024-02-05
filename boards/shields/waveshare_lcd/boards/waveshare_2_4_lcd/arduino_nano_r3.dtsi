@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 TiaC Systems
+ * Copyright (c) 2023-2024 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -8,17 +8,24 @@
 
 #include <zephyr/dt-bindings/gpio/gpio.h>
 
-&lcd_backlight_en {
+&board_spi_lcd {
+	cs-gpios = <&arduino_nano_header 10 GPIO_ACTIVE_LOW>;		/* D10 */
+};
+
+&mipi_dbi {
 	status = "okay";
-	enable-gpios = <&arduino_nano_header 9 GPIO_ACTIVE_HIGH>;	/* D9 */
+	reset-gpios = <&arduino_nano_header 8 GPIO_ACTIVE_HIGH>;	/* D8 */
+	dc-gpios = <&arduino_nano_header 7 GPIO_ACTIVE_HIGH>;		/* D7 */
+	spi-dev = <&board_spi_lcd>;
+	#address-cells = <1>;
+	#size-cells = <0>;
 };
 
 &lcd_panel {
 	status = "okay";
-	reset-gpios = <&arduino_nano_header 8 GPIO_ACTIVE_LOW>;		/* D8 */
-	cmd-data-gpios = <&arduino_nano_header 7 GPIO_ACTIVE_LOW>;	/* D7 */
 };
 
-&board_spi_lcd {
-	cs-gpios = <&arduino_nano_header 10 GPIO_ACTIVE_LOW>;		/* D10 */
+&lcd_backlight_en {
+	status = "okay";
+	enable-gpios = <&arduino_nano_header 9 GPIO_ACTIVE_HIGH>;	/* D9 */
 };

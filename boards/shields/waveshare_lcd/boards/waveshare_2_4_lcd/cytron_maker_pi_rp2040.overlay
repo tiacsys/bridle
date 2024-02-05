@@ -1,22 +1,29 @@
 /*
- * Copyright (c) 2023 TiaC Systems
+ * Copyright (c) 2023-2024 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
 #include "ili9341_240x320.dtsi"
 #include "ili9341_rgb565.dtsi"
 
-&lcd_backlight_en {
+&board_spi_lcd {
+	cs-gpios = <&grove_gpios 5 GPIO_ACTIVE_LOW>;		/* D5 */
+};
+
+&mipi_dbi {
 	status = "okay";
-	enable-gpios = <&grove_gpios 7 GPIO_ACTIVE_HIGH>;	/* D7 */
+	reset-gpios = <&grove_gpios 28 GPIO_ACTIVE_HIGH>;	/* D28 */
+	dc-gpios = <&grove_gpios 6 GPIO_ACTIVE_HIGH>;		/* D6 */
+	spi-dev = <&board_spi_lcd>;
+	#address-cells = <1>;
+	#size-cells = <0>;
 };
 
 &lcd_panel {
 	status = "okay";
-	reset-gpios = <&grove_gpios 28 GPIO_ACTIVE_LOW>;	/* D28 */
-	cmd-data-gpios = <&grove_gpios 6 GPIO_ACTIVE_LOW>;	/* D6 */
 };
 
-&board_spi_lcd {
-	cs-gpios = <&grove_gpios 5 GPIO_ACTIVE_LOW>;		/* D5 */
+&lcd_backlight_en {
+	status = "okay";
+	enable-gpios = <&grove_gpios 7 GPIO_ACTIVE_HIGH>;	/* D7 */
 };

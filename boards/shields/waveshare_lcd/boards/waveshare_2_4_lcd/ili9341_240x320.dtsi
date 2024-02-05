@@ -1,15 +1,15 @@
 /*
- * Copyright (c) 2023 TiaC Systems
+ * Copyright (c) 2023-2024 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
 #include <freq.h>
 #include <zephyr/dt-bindings/display/ili9xxx.h>
 
-&board_spi_lcd {
+&mipi_dbi {
 	ili9341_240x320: ili9341@0 {
 		compatible = "ilitek,ili9341";
-		spi-max-frequency = <DT_FREQ_M(25)>;
+		mipi-max-frequency = <DT_FREQ_M(25)>;
 		reg = <0>;
 
 		status = "disabled";
