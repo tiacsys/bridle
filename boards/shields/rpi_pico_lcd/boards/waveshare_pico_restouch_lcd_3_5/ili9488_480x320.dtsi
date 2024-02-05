@@ -1,20 +1,18 @@
 /*
- * Copyright (c) 2023 TiaC Systems
+ * Copyright (c) 2023-2024 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
 #include <freq.h>
 #include <zephyr/dt-bindings/display/ili9xxx.h>
 
-&rpipico_spi_lcd {
+&mipi_dbi {
 	ili9488_480x320: ili9488@0 {
 		compatible = "ilitek,ili9488";
-		spi-max-frequency = <DT_FREQ_M(60)>;
+		mipi-max-frequency = <DT_FREQ_M(60)>;
 		reg = <0>;
 
 		status = "disabled";
-
-		spi2mcu-shift = <16>;	/* 16-bit shifted register data */
 
 		width = <480>;
 		height = <320>;
