@@ -41,8 +41,6 @@
 
 		segment-remap;
 		com-invdir;
-
-		inversion-on;
 	};
 };
 
