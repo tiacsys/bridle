@@ -338,55 +338,51 @@ jobs:
           pip3 install --upgrade --requirement zephyr/scripts/requirements-compliance.txt
           pip3 install --upgrade --requirement bridle/scripts/requirements-build.txt
 
-      #
-      # TODO: Disabled, as long as required Zephyr SDK version isn't
-      #       available for ARM 64-bit architectures (AArch64).
-      #
-      ### OFF ### - name: Execute integration tests on target
-      ### OFF ###   working-directory: workspace
-      ### OFF ###   env:
-      ### OFF ###     HARDWARE_MAP: bridle/.github/${{ github.job }}/map-${{ matrix.board }}.yml
-      ### OFF ###   run: |
-      ### OFF ###     #
-      ### OFF ###     # Disabled in the meantime because the execution time is still
-      ### OFF ###     # too high and most of the core tests are already performed by
-      ### OFF ###     # Zephyr in any case:
-      ### OFF ###     #
-      ### OFF ###     # --tag arm \
-      ### OFF ###     # --tag vector_relay \
-      ### OFF ###     # --tag kernel \
-      ### OFF ###     #
-      ### OFF ###     west twister --verbose --jobs 4 \
-      ### OFF ###       --retry-failed 5 --retry-interval 60 \
-      ### OFF ###       --outdir twister-out --no-clean --inline-logs \
-      ### OFF ###       --enable-size-report --platform-reports \
-      ### OFF ###       --device-testing --hardware-map ${HARDWARE_MAP} \
-      ### OFF ###       --extra-args SHIELD="loopback_test_tmph" \
-      ### OFF ###       --alt-config-root bridle/zephyr/alt-config \
-      ### OFF ###       --testsuite-root bridle/tests \
-      ### OFF ###       --testsuite-root zephyr/tests \
-      ### OFF ###       --tag bridle \
-      ### OFF ###       --tag hwinfo \
-      ### OFF ###       --tag random \
-      ### OFF ###       --tag entropy \
-      ### OFF ###       --tag watchdog \
-      ### OFF ###       --tag counter \
-      ### OFF ###       --tag gpio \
-      ### OFF ###       --tag spi \
-      ### OFF ###       --tag uart \
-      ### OFF ###       --tag can
-      ### OFF ###
-      ### OFF ### - name: Upload integration test results
-      ### OFF ###   uses: actions/upload-artifact@v3
-      ### OFF ###   with:
-      ### OFF ###     name: twister-targets.xml
-      ### OFF ###     path: workspace/twister-out/twister.xml
-      ### OFF ###
-      ### OFF ### - name: Convert integration test reports to annotations
-      ### OFF ###   uses: mikepenz/action-junit-report@v3
-      ### OFF ###   with:
-      ### OFF ###     check_name: twister-report (${{ matrix.board }})
-      ### OFF ###     report_paths: "**/twister-out/twister.xml"
-      ### OFF ###     require_tests: true
-      ### OFF ###     fail_on_failure: false
-      ### OFF ###   if: always()
+      - name: Execute integration tests on target
+        working-directory: workspace
+        env:
+          HARDWARE_MAP: bridle/.github/${{ github.job }}/map-${{ matrix.board }}.yml
+        run: |
+          #
+          # Disabled in the meantime because the execution time is still
+          # too high and most of the core tests are already performed by
+          # Zephyr in any case:
+          #
+          # --tag arm \
+          # --tag vector_relay \
+          # --tag kernel \
+          #
+          west twister --verbose --jobs 4 \
+            --retry-failed 5 --retry-interval 60 \
+            --outdir twister-out --no-clean --inline-logs \
+            --enable-size-report --platform-reports \
+            --device-testing --hardware-map ${HARDWARE_MAP} \
+            --extra-args SHIELD="loopback_test_tmph" \
+            --alt-config-root bridle/zephyr/alt-config \
+            --testsuite-root bridle/tests \
+            --testsuite-root zephyr/tests \
+            --tag bridle \
+            --tag hwinfo \
+            --tag random \
+            --tag entropy \
+            --tag watchdog \
+            --tag counter \
+            --tag gpio \
+            --tag spi \
+            --tag uart \
+            --tag can
+
+      - name: Upload integration test results
+        uses: actions/upload-artifact@v3
+        with:
+          name: twister-targets.xml
+          path: workspace/twister-out/twister.xml
+
+      - name: Convert integration test reports to annotations
+        uses: mikepenz/action-junit-report@v3
+        with:
+          check_name: twister-report (${{ matrix.board }})
+          report_paths: "**/twister-out/twister.xml"
+          require_tests: true
+          fail_on_failure: false
+        if: always()
