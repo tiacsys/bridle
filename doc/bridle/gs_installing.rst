@@ -54,22 +54,6 @@ The installation process is different depending on your operating system.
 
 .. tabs::
 
-   .. group-tab:: Windows
-
-      .. _install_dependencies_windows:
-
-      The recommended way for installing the required tools on Windows is
-      to use `Chocolatey`_, a package manager for Windows. Chocolatey installs
-      the tools so that you can use them from a Windows command prompt.
-
-      To install the required tools on Windows, complete the following steps:
-
-      .. tsn-include:: develop/getting_started/index.rst
-         :docset: zephyr
-         :dedent: 6
-         :start-after: .. _install_dependencies_windows:
-         :end-before: .. _Chocolatey:
-
    .. group-tab:: Linux
 
       .. _install_dependencies_linux:
@@ -99,6 +83,22 @@ The installation process is different depending on your operating system.
          :end-before: .. group-tab:: Windows
 
       Also see :ref:`zephyr:mac-setup-alts` for additional information.
+
+   .. group-tab:: Windows
+
+      .. _install_dependencies_windows:
+
+      The recommended way for installing the required tools on Windows is
+      to use `Chocolatey`_, a package manager for Windows. Chocolatey installs
+      the tools so that you can use them from a Windows command prompt.
+
+      To install the required tools on Windows, complete the following steps:
+
+      .. tsn-include:: develop/getting_started/index.rst
+         :docset: zephyr
+         :dedent: 6
+         :start-after: .. _install_dependencies_windows:
+         :end-before: .. _Chocolatey:
 
 .. _gs_installing_toolchain:
 
@@ -135,13 +135,13 @@ documentation in ":ref:`zephyr:toolchain_zephyr_sdk_install_linux`",
 #. Download the `Zephyr SDK`_ bundle for your operating system.
 
 #. Extract the bundle into a folder of your choice. We recommend to use the
-   folder ``%PROGRAMFILES%`` on Windows and ``/opt`` on Linux or macOS.
+   folder ``/opt`` on Linux or macOS and ``%PROGRAMFILES%`` on Windows.
 
    Make sure that the folder name does not contain any spaces or special
    characters.
 
-#. Run the Zephyr SDK setup script found in this new folder: ``setup.cmd`` on
-   Windows and ``setup.sh`` on Linux or macOS.
+#. Run the Zephyr SDK setup script found in this new folder: ``setup.sh`` on
+   Linux or macOS and ``setup.cmd`` on Windows.
 
 There are no further configuration steps required when compiling, as the
 Zephyr SDK is the preferred toolchain used by Bridle.
@@ -170,7 +170,7 @@ To set up the toolchain, complete the following steps:
 #. Download the `GNU Arm Embedded Toolchain`_ for your operating system.
 
 #. Extract the toolchain into a folder of your choice. We recommend to use the
-   folder ``c:\gnuarmemb`` on Windows and ``~/gnuarmemb`` on Linux or macOS.
+   folder ``~/gnuarmemb`` on Linux or macOS and ``c:\gnuarmemb`` on Windows.
 
    Make sure that the folder name does not contain any spaces or special
    characters.
@@ -180,6 +180,30 @@ To set up the toolchain, complete the following steps:
    your operating system:
 
     .. tabs::
+
+       .. group-tab:: Linux
+
+          Open a terminal window and enter the following commands (assuming that
+          you have installed the toolchain to ``~/gnuarmemb``; if not, change
+          the value for GNUARMEMB_TOOLCHAIN_PATH):
+
+            .. parsed-literal::
+              :class: highlight
+
+              export ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb
+              export GNUARMEMB_TOOLCHAIN_PATH=\ "~/gnuarmemb"
+
+       .. group-tab:: macOS
+
+          Open a terminal window and enter the following commands (assuming that
+          you have installed the toolchain to ``~/gnuarmemb``; if not, change
+          the value for GNUARMEMB_TOOLCHAIN_PATH):
+
+            .. parsed-literal::
+              :class: highlight
+
+              export ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb
+              export GNUARMEMB_TOOLCHAIN_PATH=\ "~/gnuarmemb"
 
        .. group-tab:: Windows
 
@@ -193,34 +217,22 @@ To set up the toolchain, complete the following steps:
                set ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb
                set GNUARMEMB_TOOLCHAIN_PATH=\ c:\\gnuarmemb
 
-       .. group-tab:: Linux
-
-          Open a terminal window and enter the following commands (assuming that
-          you have installed the toolchain to ``~/gnuarmemb``; if not, change
-          the value for GNUARMEMB_TOOLCHAIN_PATH):
-
-            .. parsed-literal::
-              :class: highlight
-
-              export ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb
-              export GNUARMEMB_TOOLCHAIN_PATH=\ "~/gnuarmemb"
-
-       .. group-tab:: macOS
-
-          Open a terminal window and enter the following commands (assuming that
-          you have installed the toolchain to ``~/gnuarmemb``; if not, change
-          the value for GNUARMEMB_TOOLCHAIN_PATH):
-
-            .. parsed-literal::
-              :class: highlight
-
-              export ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb
-              export GNUARMEMB_TOOLCHAIN_PATH=\ "~/gnuarmemb"
-
 #. Set the environment variables persistently.
    Depending on your operating system:
 
     .. tabs::
+
+       .. group-tab:: Linux
+
+          Define the environment variables in the ``~/.zephyrrc`` file as
+          described in :ref:`build_environment`. This will allow you to avoid
+          setting them every time you open a terminal window.
+
+       .. group-tab:: macOS
+
+          Define the environment variables in the ``~/.zephyrrc`` file as
+          described in :ref:`build_environment`. This will allow you to avoid
+          setting them every time you open a terminal window.
 
        .. group-tab:: Windows
 
@@ -228,18 +240,6 @@ To set up the toolchain, complete the following steps:
           define them in the ``%userprofile%\zephyrrc.cmd`` file as described
           in :ref:`build_environment`. This will allow you to avoid setting
           them every time you open a command prompt.
-
-       .. group-tab:: Linux
-
-          Define the environment variables in the ``~/.zephyrrc`` file as
-          described in :ref:`build_environment`. This will allow you to avoid
-          setting them every time you open a terminal window.
-
-       .. group-tab:: macOS
-
-          Define the environment variables in the ``~/.zephyrrc`` file as
-          described in :ref:`build_environment`. This will allow you to avoid
-          setting them every time you open a terminal window.
 
 .. _cloning_the_repositories_win:
 .. _cloning_the_repositories:
@@ -290,17 +290,6 @@ change into this new folder and execute:
 
 .. tabs::
 
-   .. group-tab:: Windows
-
-      .. parsed-literal::
-         :class: highlight
-
-         for /f "delims=" %A in ('python --version') do set PV=%A
-         python -m venv --clear --copies --prompt="%CD%[%PV%]" .env
-         .env\Scripts\activate
-         python -m pip install --upgrade pip
-         python -m pip install --upgrade setuptools
-
    .. group-tab:: Linux
 
       .. parsed-literal::
@@ -320,6 +309,17 @@ change into this new folder and execute:
          source .env/bin/activate
          pip3 install --upgrade pip
          pip3 install --upgrade setuptools
+
+   .. group-tab:: Windows
+
+      .. parsed-literal::
+         :class: highlight
+
+         for /f "delims=" %A in ('python --version') do set PV=%A
+         python -m venv --clear --copies --prompt="%CD%[%PV%]" .env
+         .env\Scripts\activate
+         python -m pip install --upgrade pip
+         python -m pip install --upgrade setuptools
 
 .. _gs_installing_west:
 
@@ -332,13 +332,6 @@ Install west by entering the following command:
 
 .. tabs::
 
-   .. group-tab:: Windows
-
-      .. parsed-literal::
-         :class: highlight
-
-         pip3 install west
-
    .. group-tab:: Linux
 
       .. parsed-literal::
@@ -347,6 +340,13 @@ Install west by entering the following command:
          pip3 install west
 
    .. group-tab:: macOS
+
+      .. parsed-literal::
+         :class: highlight
+
+         pip3 install west
+
+   .. group-tab:: Windows
 
       .. parsed-literal::
          :class: highlight
@@ -362,13 +362,6 @@ Therefore, remember to regularly check for updates:
 
 .. tabs::
 
-   .. group-tab:: Windows
-
-      .. parsed-literal::
-         :class: highlight
-
-         pip3 install --upgrade  west
-
    .. group-tab:: Linux
 
       .. parsed-literal::
@@ -377,6 +370,13 @@ Therefore, remember to regularly check for updates:
          pip3 install --upgrade  west
 
    .. group-tab:: macOS
+
+      .. parsed-literal::
+         :class: highlight
+
+         pip3 install --upgrade  west
+
+   .. group-tab:: Windows
 
       .. parsed-literal::
          :class: highlight
@@ -565,24 +565,6 @@ Use the following commands to install the requirements for each repository.
 
 .. tabs::
 
-   .. group-tab:: Windows
-
-      Open a command prompt in the ``workspace`` folder and
-      enter the following commands:
-
-        .. parsed-literal::
-           :class: highlight
-
-           pip3 install --upgrade --requirement zephyr\\scripts\\requirements.txt
-           pip3 install --upgrade --requirement bridle\\scripts\\requirements.txt
-
-      Optional, when you plan to generate the documentation:
-
-        .. parsed-literal::
-           :class: highlight
-
-           pip3 install --upgrade --requirement zephyr\\doc\\requirements.txt
-
    .. group-tab:: Linux
 
       Open a terminal window in the ``workspace`` folder and
@@ -618,6 +600,24 @@ Use the following commands to install the requirements for each repository.
            :class: highlight
 
            pip3 install --upgrade --requirement zephyr/doc/requirements.txt
+
+   .. group-tab:: Windows
+
+      Open a command prompt in the ``workspace`` folder and
+      enter the following commands:
+
+        .. parsed-literal::
+           :class: highlight
+
+           pip3 install --upgrade --requirement zephyr\\scripts\\requirements.txt
+           pip3 install --upgrade --requirement bridle\\scripts\\requirements.txt
+
+      Optional, when you plan to generate the documentation:
+
+        .. parsed-literal::
+           :class: highlight
+
+           pip3 install --upgrade --requirement zephyr\\doc\\requirements.txt
 
 .. _installing_tbd:
 
@@ -655,12 +655,6 @@ The process is different depending on your operating system.
 
 .. tabs::
 
-   .. group-tab:: Windows
-
-      Make sure the locations of tools are added to the PATH variable.
-      On Windows, ... t.b.d. (TBD) IDE uses the PATH variable to find
-      executables if they are not set in ... t.b.d. (TBD) IDE.
-
    .. group-tab:: Linux
 
       Make sure the locations of tools are added to the PATH variable.
@@ -684,6 +678,12 @@ The process is different depending on your operating system.
       is installed. If it is installed, verify that its path is configured
       correctly in the ... t.b.d. (TBD) IDE settings or in the PATH variable.
 
+   .. group-tab:: Windows
+
+      Make sure the locations of tools are added to the PATH variable.
+      On Windows, ... t.b.d. (TBD) IDE uses the PATH variable to find
+      executables if they are not set in ... t.b.d. (TBD) IDE.
+
 .. _build_environment_cli:
 
 .. rst-class:: numbered-step
@@ -703,15 +703,6 @@ operating system:
 
 .. tabs::
 
-   .. group-tab:: Windows
-
-      Navigate to the ``workspace`` folder and enter the following command:
-      ``zephyr\zephyr-env.cmd``
-
-      If you need to define additional environment variables, create the file
-      ``%userprofile%\zephyrrc.cmd`` and add the variables there. This file is
-      loaded automatically when you run the above command.
-
    .. group-tab:: Linux
 
       Navigate to the ``workspace`` folder and enter the following command:
@@ -729,3 +720,12 @@ operating system:
       If you need to define additional environment variables, create the file
       ``~/.zephyrrc`` and add the variables there. This file is loaded
       automatically when you run the above command.
+
+   .. group-tab:: Windows
+
+      Navigate to the ``workspace`` folder and enter the following command:
+      ``zephyr\zephyr-env.cmd``
+
+      If you need to define additional environment variables, create the file
+      ``%userprofile%\zephyrrc.cmd`` and add the variables there. This file is
+      loaded automatically when you run the above command.

@@ -7,23 +7,8 @@ Requirements
    :local:
    :depth: 2
 
-|BRIDLE| supports Linux for development and in theory Windows and macOS, but
-these have not been tested yet. However, there are some Zephyr features that
-are currently only available on Linux, including:
-
-* :ref:`zephyr:twister_script`
-* :ref:`zephyr:native_posix`
-* :ref:`zephyr:networking_with_native_posix` and
-  :ref:`zephyr:networking_with_qemu` (net-tools)
-* `BlueZ`_ integration
-* `BabbleSim`_
-
-.. note::
-
-   .. _gs_update_os:
-
-   Before you start setting up the toolchain, install available updates
-   for your operating system.
+|BRIDLE| supports Linux for development and in theory macOS and Windows, but
+these have not been tested yet.
 
 .. _gs_supported_OS:
 
@@ -36,24 +21,6 @@ the |BRIDLE| development environment:
 .. _req_os_table:
 
 .. tabs::
-
-   .. group-tab:: Windows
-
-      .. list-table::
-         :header-rows: 1
-
-         * - Operating System
-           - x86
-           - x64
-           - ARM64
-         * - `Windows 11`_
-           - :byl:`Tier 3`
-           - :byl:`Tier 3`
-           - Not supported
-         * - `Windows 10`_
-           - :byl:`Tier 3`
-           - :byl:`Tier 3`
-           - Not supported
 
    .. group-tab:: Linux
 
@@ -92,6 +59,24 @@ the |BRIDLE| development environment:
            - Not supported
          * - `macOS 10.15`_
            - :rd:`Not applicable`
+           - :byl:`Tier 3`
+           - Not supported
+
+   .. group-tab:: Windows
+
+      .. list-table::
+         :header-rows: 1
+
+         * - Operating System
+           - x86
+           - x64
+           - ARM64
+         * - `Windows 11`_
+           - :byl:`Tier 3`
+           - :byl:`Tier 3`
+           - Not supported
+         * - `Windows 10`_
+           - :byl:`Tier 3`
            - :byl:`Tier 3`
            - Not supported
 
@@ -139,54 +124,6 @@ that is installed when using the :ref:`gs_app_sim` as described in
 .. _req_tools_table:
 
 .. tabs::
-
-   .. group-tab:: Windows
-
-      .. list-table::
-         :header-rows: 1
-
-         * - Tool
-           - Minimum version
-           - Tested version
-         * - |cmake|_
-           - |cmake_min_ver|
-           - |cmake_recommended_ver_win10|
-         * - |dtc_win10|_
-           - |dtc_min_ver|
-           - |dtc_recommended_ver_win10|
-         * - |openocd|_
-           - |openocd_min_ver|
-           - |openocd_recommended_ver_win10|
-         * - |git|_
-           -
-           - |git_recommended_ver_win10|
-         * - |gperf|_
-           - |gperf_min_ver|
-           - |gperf_recommended_ver_win10|
-         * - |ninja|_
-           - |ninja_min_ver|
-           - |ninja_recommended_ver_win10|
-         * - |python|_
-           - |python_min_ver|
-           - |python_recommended_ver_win10|
-         * - |west|_
-           - |west_min_ver|
-           - |west_recommended_ver_win10|
-         * - |zephyrsdk|_
-           - |zephyrsdk_min_ver|
-           - |zephyrsdk_recommended_ver_win10|
-         * - |gnuarmemb|_
-           - |gnuarmemb_min_ver|
-           -
-         * - |doxygen|_
-           - |doxygen_min_ver|
-           -
-         * - |graphviz|_
-           - |graphviz_min_ver|
-           -
-         * - |mscgen|_
-           - |mscgen_min_ver|
-           -
 
    .. group-tab:: Linux
 
@@ -277,6 +214,54 @@ that is installed when using the :ref:`gs_app_sim` as described in
          * - |zephyrsdk|_
            - |zephyrsdk_min_ver|
            - |zephyrsdk_recommended_ver_macos|
+         * - |gnuarmemb|_
+           - |gnuarmemb_min_ver|
+           -
+         * - |doxygen|_
+           - |doxygen_min_ver|
+           -
+         * - |graphviz|_
+           - |graphviz_min_ver|
+           -
+         * - |mscgen|_
+           - |mscgen_min_ver|
+           -
+
+   .. group-tab:: Windows
+
+      .. list-table::
+         :header-rows: 1
+
+         * - Tool
+           - Minimum version
+           - Tested version
+         * - |cmake|_
+           - |cmake_min_ver|
+           - |cmake_recommended_ver_win10|
+         * - |dtc_win10|_
+           - |dtc_min_ver|
+           - |dtc_recommended_ver_win10|
+         * - |openocd|_
+           - |openocd_min_ver|
+           - |openocd_recommended_ver_win10|
+         * - |git|_
+           -
+           - |git_recommended_ver_win10|
+         * - |gperf|_
+           - |gperf_min_ver|
+           - |gperf_recommended_ver_win10|
+         * - |ninja|_
+           - |ninja_min_ver|
+           - |ninja_recommended_ver_win10|
+         * - |python|_
+           - |python_min_ver|
+           - |python_recommended_ver_win10|
+         * - |west|_
+           - |west_min_ver|
+           - |west_recommended_ver_win10|
+         * - |zephyrsdk|_
+           - |zephyrsdk_min_ver|
+           - |zephyrsdk_recommended_ver_win10|
          * - |gnuarmemb|_
            - |gnuarmemb_min_ver|
            -
