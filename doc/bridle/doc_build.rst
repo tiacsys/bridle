@@ -51,22 +51,6 @@ Complete the following steps to install the required tools:
 
    .. tabs::
 
-      .. group-tab:: Windows
-
-         .. _install_dependencies_windows:
-
-         To install the required tools on Windows, complete the following steps:
-
-         .. tsn-include:: contribute/documentation/generation.rst
-            :docset: zephyr
-            :dedent: 6
-            :start-after: .. group-tab:: Windows
-            :end-before: .. doc_processors_installation_end
-
-         Download, inspect (MD5: a04b258bb459f894ed8ec2c7896fa346) and execute
-         Michael McTernan's Windows installer for ``mscgen`` from:
-         https://www.mcternan.me.uk/mscgen/software/mscgen_0.20.exe
-
       .. group-tab:: Linux
 
          .. _install_dependencies_linux:
@@ -127,6 +111,22 @@ Complete the following steps to install the required tools:
 
             brew install mscgen
 
+      .. group-tab:: Windows
+
+         .. _install_dependencies_windows:
+
+         To install the required tools on Windows, complete the following steps:
+
+         .. tsn-include:: contribute/documentation/generation.rst
+            :docset: zephyr
+            :dedent: 6
+            :start-after: .. group-tab:: Windows
+            :end-before: .. doc_processors_installation_end
+
+         Download, inspect (MD5: a04b258bb459f894ed8ec2c7896fa346) and execute
+         Michael McTernan's Windows installer for ``mscgen`` from:
+         https://www.mcternan.me.uk/mscgen/software/mscgen_0.20.exe
+
 .. _doc_build_steps:
 
 Building documentation output
@@ -150,17 +150,17 @@ a way with direct calls to the necessary configuration and build tools.
 
    #. Load the environment setting for Zephyr builds.
 
-      * On Windows:
-
-        .. code-block:: console
-
-           zephyr\zephyr-env.cmd
-
       * On Linux or macOS:
 
         .. code-block:: console
 
            source zephyr/zephyr-env.sh
+
+      * On Windows:
+
+        .. code-block:: console
+
+           zephyr\zephyr-env.cmd
 
    #. Generate the Ninja build files and build the complete |BRIDLE| (3rd)
       documentation:
