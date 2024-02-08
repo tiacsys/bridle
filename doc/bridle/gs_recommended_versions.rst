@@ -126,6 +126,8 @@ Not supported
    The |BRIDLE| development environment are not supported by the older
    versions of the operating system.
 
+.. _gs_required_tools:
+
 Required tools
 **************
 
@@ -287,6 +289,8 @@ that is installed when using the :ref:`gs_app_sim` as described in
          * - |mscgen|_
            - |mscgen_min_ver|
            -
+
+.. _gs_required_python_packages:
 
 Required Python dependencies
 ****************************

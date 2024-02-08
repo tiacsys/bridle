@@ -86,15 +86,6 @@ The installation process is different depending on your operating system.
       systems, see the :ref:`zephyr:linux_requirements` section in the Zephyr
       documentation.
 
-      .. note::
-
-         You do not need to install the Zephyr SDK. We recommend
-	 to install the compiler toolchain separately, as detailed
-	 in :ref:`gs_installing_toolchain`.
-
-         **But you can still using the ready-to-use, full-featured, and
-	 multiple-arch-supported Zephyr SDK in parallel!**
-
    .. group-tab:: macOS
 
       .. _install_dependencies_macos:
@@ -116,8 +107,53 @@ The installation process is different depending on your operating system.
 Installing the toolchain
 ************************
 
-To be able to cross-compile your applications for ARM targets, you must install
-version |gnuarmemb_recommended_ver| of the `GNU Arm Embedded Toolchain`_.
+.. _gs_toolchain_zephyr_sdk_install:
+
+Prefered default toolchain
+==========================
+
+To be able to cross-compile your applications for all the various target
+architectures, you must install at least version |zephyrsdk_min_ver| of the
+`Zephyr SDK`_. Refere the :ref:`list of required tools <req_tools_table>`
+for the correct and tested version!
+
+.. important::
+
+   Make sure to install the version that is mentioned above.
+   Other versions might not work with this version of |BRIDLE|.
+
+   Note that other versions of |BRIDLE| might require a different
+   toolchain version.
+
+To set up the toolchain, complete the following steps (refere also Zephyr's
+documentation in ":ref:`zephyr:toolchain_zephyr_sdk_install`"):
+
+.. _toolchain_setup:
+
+#. Download the `Zephyr SDK`_ bundle for your operating system.
+
+#. Extract the bundle into a folder of your choice. We recommend to use the
+   folder ``%PROGRAMFILES%`` on Windows and ``/opt`` on Linux or macOS.
+
+   Make sure that the folder name does not contain any spaces or special
+   characters.
+
+#. Run the Zephyr SDK setup script found in this new folder: ``setup.cmd`` on
+   Windows and ``setup.sh`` on Linux or macOS.
+
+There are no further configuration steps required when compiling, as the
+Zephyr SDK is the preferred toolchain used by Bridle.
+
+Alternative toolchain for ARM
+=============================
+
+.. _gs_toolchain_gnu_arm_embedded_install:
+
+GNU Arm Embedded toolchain
+--------------------------
+
+To be able to cross-compile your applications for ARM targets, you can use
+version |gnuarmemb_recommended_ver| of the `GNU Arm Embedded Toolchain`_ too.
 
 .. important::
 
@@ -129,7 +165,7 @@ version |gnuarmemb_recommended_ver| of the `GNU Arm Embedded Toolchain`_.
 
 To set up the toolchain, complete the following steps:
 
-.. _toolchain_setup:
+.. _toolchain_setup__REMOVE_ME__:
 
 #. Download the `GNU Arm Embedded Toolchain`_ for your operating system.
 
