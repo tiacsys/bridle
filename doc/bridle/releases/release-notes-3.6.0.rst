@@ -201,9 +201,6 @@ Change log
     * **Pico LCD 2** shield by Waveshare
     * **Pico ResTouch LCD 3.5** shield by Waveshare
 
-      *Currently not functional because of missing MIPI DBI device type C,
-      SPI with 16-bit support, on Zephyr upstream!*
-
   * *Waveshare LCD Modules*:
 
     * **2.4inch LCD Module** as shield by Waveshare
