@@ -35,7 +35,7 @@
 
 &mipi_dbi {
 	status = "okay";
-	reset-gpios = <&rpipico_header 15 GPIO_ACTIVE_HIGH>;	/* GP15 */
+	reset-gpios = <&rpipico_header 15 GPIO_ACTIVE_LOW>;	/* GP15 */
 	dc-gpios = <&rpipico_header 8 GPIO_ACTIVE_HIGH>;	/* GP8 */
 	spi-dev = <&rpipico_spi_lcd>;
 	#address-cells = <1>;
