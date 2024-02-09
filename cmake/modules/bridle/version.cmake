@@ -1,4 +1,4 @@
-# Copyright (c) 2021-2022 TiaC Systems
+# Copyright (c) 2021-2024 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 #.rst:
@@ -12,15 +12,16 @@
 #
 # Outputs with examples::
 #
-#   PROJECT_VERSION           0.2.5.99
-#   BRIDLE_VERSION_STRING    "0.2.5-extraver"
+#   PROJECT_VERSION           3.5.99.04
+#   BRIDLE_VERSION_STRING    "3.5.99-extraver"
 #
-#   BRIDLE_VERSION_MAJOR      0
-#   BRIDLE_VERSION_MINOR      2
-#   BRIDLE_PATCHLEVEL         5
-#   BRIDLEVERSION            0x20563
-#   BRIDLE_VERSION_NUMBER    0x205
-#   BRIDLE_VERSION_CODE        517
+#   BRIDLE_VERSION_MAJOR      3
+#   BRIDLE_VERSION_MINOR      5
+#   BRIDLE_PATCHLEVEL         99
+#   BRIDLE_VERSION_TWEAK      04
+#   BRIDLEVERSION            0x3056304
+#   BRIDLE_VERSION_NUMBER    0x30563
+#   BRIDLE_VERSION_CODE        197987
 #
 # Most outputs are converted to C macros, see ``version.h.in``
 #
