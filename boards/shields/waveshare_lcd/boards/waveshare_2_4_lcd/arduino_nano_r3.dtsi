@@ -14,7 +14,7 @@
 
 &mipi_dbi {
 	status = "okay";
-	reset-gpios = <&arduino_nano_header 8 GPIO_ACTIVE_HIGH>;	/* D8 */
+	reset-gpios = <&arduino_nano_header 8 GPIO_ACTIVE_LOW>;		/* D8 */
 	dc-gpios = <&arduino_nano_header 7 GPIO_ACTIVE_HIGH>;		/* D7 */
 	spi-dev = <&board_spi_lcd>;
 	#address-cells = <1>;

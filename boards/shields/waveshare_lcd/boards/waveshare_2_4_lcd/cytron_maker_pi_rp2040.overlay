@@ -12,7 +12,7 @@
 
 &mipi_dbi {
 	status = "okay";
-	reset-gpios = <&grove_gpios 28 GPIO_ACTIVE_HIGH>;	/* D28 */
+	reset-gpios = <&grove_gpios 28 GPIO_ACTIVE_LOW>;	/* D28 */
 	dc-gpios = <&grove_gpios 6 GPIO_ACTIVE_HIGH>;		/* D6 */
 	spi-dev = <&board_spi_lcd>;
 	#address-cells = <1>;
