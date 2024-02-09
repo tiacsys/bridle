@@ -240,7 +240,10 @@ Documentation
    sections in the various docsets (e.g. Bridle or Zephyr) were moved to
    a central location in the files `links.txt` and `shortcuts.txt` and
    thus centralized.
-2. Update all output messages in documentation to be in sync with the upcoming
+2. Clarification that the Zephyr SDK will indeed be used and is the preferred
+   default toolchain. All other references to the GNU toolchains by ARM Ltd.
+   are entirely optional and may or may not be used.
+3. Update all output messages in documentation to be in sync with the upcoming
    Bridle version v3.6.0, based on Zephyr v3.6 (samples and tests).
 
 Issue Related Items
@@ -248,6 +251,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`195` - [FCR] Upgrade to Arm GNU toolchain 13.2.rel1
 * :github:`192` - [FCR] Upgrade to Zephyr SDK 0.16.5
 * :github:`187` - [BUG] ubx_gnss sample fails to build
 * :github:`185` - [HW] Waveshare Pico 10-DOF IMU Sensor
