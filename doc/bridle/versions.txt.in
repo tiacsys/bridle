@@ -62,6 +62,9 @@
 .. |gnuarmemb| replace:: :strong:`GNU Arm Embedded Toolchain`
 .. |gnuarmemb_min_ver| replace:: @GNUARMEMB_VERSION_MINIMUM@
 .. |gnuarmemb_recommended_ver| replace:: :strong:`@GNUARMEMB_VERSION_MINIMUM@`
+.. |gnuarmemb_recommended_ver_win10| replace:: @GNUARMEMB_VERSION_WIN10@
+.. |gnuarmemb_recommended_ver_macos| replace:: @GNUARMEMB_VERSION_MACOS@
+.. |gnuarmemb_recommended_ver_linux| replace:: @GNUARMEMB_VERSION_LINUX@
 
 .. |doxygen| replace:: :strong:`Doxygen`
 .. |doxygen_min_ver| replace:: @DOXYGEN_VERSION_MINIMUM@
