@@ -1,4 +1,4 @@
-# Copyright (c) 2021-2023 TiaC Systems
+# Copyright (c) 2021-2024 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 name: QA Compliance Check
@@ -34,7 +34,7 @@ jobs:
           fetch-depth: 0
 
       - name: Restore PIP Cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.cache/pip
           key: ${{ runner.os }}-doc-pip
@@ -101,7 +101,7 @@ jobs:
             -c origin/${BASE_REF}..
 
       - name: Upload compliance tests results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: compliance.xml
           path: workspace/bridle/compliance.xml

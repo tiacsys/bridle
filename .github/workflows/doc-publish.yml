@@ -1,4 +1,4 @@
-# Copyright (c) 2021-2022 TiaC Systems
+# Copyright (c) 2021-2024 TiaC Systems
 # Copyright (c) 2021 Li-Pro.Net
 # SPDX-License-Identifier: Apache-2.0
 
@@ -17,7 +17,7 @@ jobs:
 
     steps:
       - name: Download artifact
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         with:
           script: |
             var artifacts = await github.rest.actions.listWorkflowRunArtifacts({

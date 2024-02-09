@@ -1,4 +1,4 @@
-# Copyright (c) 2021-2022 TiaC Systems
+# Copyright (c) 2021-2024 TiaC Systems
 # Copyright (c) 2021 Li-Pro.Net
 # SPDX-License-Identifier: Apache-2.0
 
@@ -26,7 +26,7 @@ jobs:
           rm -rf "${{ github.workspace }}/workspace"
 
       - name: Checkout the code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           path: workspace/bridle
           submodules: recursive
@@ -85,14 +85,14 @@ jobs:
         continue-on-error: true
 
       - name: Upload results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: twister_report.xml
           path: workspace/twister-out/twister_report.xml
         continue-on-error: true
 
       - name: Convert integration test reports to annotations
-        uses: mikepenz/action-junit-report@v3
+        uses: mikepenz/action-junit-report@v4
         with:
           check_name: twister-report (${{ matrix.board }})
           report_paths: "**/twister-out/twister_report.xml"
