@@ -44,10 +44,7 @@
 
 &lcd_panel {
 	status = "okay";
-	//spi2mcu-shift = <16>;	/* 16-bit shifted register data */
-	/* TODO: port to new MIPI DBI API. That needs a new MIPI DBI device
-	 * interface type on Zephyr upstream: Type C, SPI with command/data
-         * selected via GPIO pin --- BUT 16 write clocks per byte. */
+	spi2mcu-shift = <16>;	/* 16-bit shifted register data */
 };
 
 &lcd_backlight_en {
