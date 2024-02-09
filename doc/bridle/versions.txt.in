@@ -55,9 +55,17 @@
 
 .. |zephyrsdk| replace:: :strong:`Zephyr SDK`
 .. |zephyrsdk_min_ver| replace:: @ZEPHYR-SDK_VERSION_MINIMUM@
+.. |zephyrsdk_recommended_ver| replace:: :strong:`@ZEPHYR-SDK_VERSION_MINIMUM@`
 .. |zephyrsdk_recommended_ver_win10| replace:: @ZEPHYR-SDK_VERSION_WIN10@
 .. |zephyrsdk_recommended_ver_macos| replace:: @ZEPHYR-SDK_VERSION_MACOS@
 .. |zephyrsdk_recommended_ver_linux| replace:: @ZEPHYR-SDK_VERSION_LINUX@
+
+.. |armgnutc| replace:: :strong:`Arm GNU Toolchain`
+.. |armgnutc_min_ver| replace:: @ARMGNUTC_VERSION_MINIMUM@
+.. |armgnutc_recommended_ver| replace:: :strong:`@ARMGNUTC_VERSION_MINIMUM@`
+.. |armgnutc_recommended_ver_win10| replace:: @ARMGNUTC_VERSION_WIN10@
+.. |armgnutc_recommended_ver_macos| replace:: @ARMGNUTC_VERSION_MACOS@
+.. |armgnutc_recommended_ver_linux| replace:: @ARMGNUTC_VERSION_LINUX@
 
 .. |gnuarmemb| replace:: :strong:`GNU Arm Embedded Toolchain`
 .. |gnuarmemb_min_ver| replace:: @GNUARMEMB_VERSION_MINIMUM@

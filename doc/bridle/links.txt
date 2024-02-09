@@ -76,9 +76,11 @@
 .. _`Python`: https://www.python.org/downloads/
 .. _`Zephyr SDK`: https://github.com/zephyrproject-rtos/sdk-ng/releases
 .. _`zephyrsdk`: https://github.com/zephyrproject-rtos/sdk-ng/releases
+.. _`Arm GNU Toolchain`: https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads
+.. _`armgnutc`: https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads
 .. _`GNU Arm Embedded Toolchain`: https://developer.arm.com/downloads/-/gnu-rm
-.. _`GCC compiler`: https://gcc.gnu.org/
 .. _`gnuarmemb`: https://developer.arm.com/downloads/-/gnu-rm
+.. _`GCC compiler`: https://gcc.gnu.org/
 .. _`Graphviz`: https://graphviz.org/
 .. _`Doxygen`: https://www.doxygen.org/
 .. _`MscGen`: https://www.mcternan.me.uk/mscgen/

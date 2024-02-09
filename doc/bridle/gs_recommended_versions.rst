@@ -166,6 +166,9 @@ that is installed when using the :ref:`gs_app_sim` as described in
          * - |zephyrsdk|_
            - |zephyrsdk_min_ver|
            - |zephyrsdk_recommended_ver_linux|
+         * - |armgnutc|_
+           - |armgnutc_min_ver|
+           - |armgnutc_recommended_ver_linux|
          * - |gnuarmemb|_
            - |gnuarmemb_min_ver|
            - |gnuarmemb_recommended_ver_linux|
@@ -214,6 +217,9 @@ that is installed when using the :ref:`gs_app_sim` as described in
          * - |zephyrsdk|_
            - |zephyrsdk_min_ver|
            - |zephyrsdk_recommended_ver_macos|
+         * - |armgnutc|_
+           - |armgnutc_min_ver|
+           - |armgnutc_recommended_ver_macos|
          * - |gnuarmemb|_
            - |gnuarmemb_min_ver|
            - |gnuarmemb_recommended_ver_macos|
@@ -262,6 +268,9 @@ that is installed when using the :ref:`gs_app_sim` as described in
          * - |zephyrsdk|_
            - |zephyrsdk_min_ver|
            - |zephyrsdk_recommended_ver_win10|
+         * - |armgnutc|_
+           - |armgnutc_min_ver|
+           - |armgnutc_recommended_ver_win10|
          * - |gnuarmemb|_
            - |gnuarmemb_min_ver|
            - |gnuarmemb_recommended_ver_win10|

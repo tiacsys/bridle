@@ -107,23 +107,25 @@ The installation process is different depending on your operating system.
 Installing the toolchain
 ************************
 
+.. important::
+
+   Make sure to install the version that is mentioned below.
+   Other versions might not work with this version of |BRIDLE|.
+   Refere the :ref:`list of required tools <req_tools_table>`
+   for the correct and tested version!
+
+   Note that other versions of |BRIDLE| might require a different
+   toolchain version.
+
 .. _gs_toolchain_zephyr_sdk_install:
 
 Prefered default toolchain
 ==========================
 
 To be able to cross-compile your applications for all the various target
-architectures, you must install at least version |zephyrsdk_min_ver| of the
-`Zephyr SDK`_. Refere the :ref:`list of required tools <req_tools_table>`
+architectures, you must install at least version |zephyrsdk_recommended_ver|
+of the |zephyrsdk|_. Refere the :ref:`list of required tools <req_tools_table>`
 for the correct and tested version!
-
-.. important::
-
-   Make sure to install the version that is mentioned above.
-   Other versions might not work with this version of |BRIDLE|.
-
-   Note that other versions of |BRIDLE| might require a different
-   toolchain version.
 
 To set up the toolchain, complete the following steps (refere also Zephyr's
 documentation in ":ref:`zephyr:toolchain_zephyr_sdk_install`"):
@@ -131,6 +133,22 @@ documentation in ":ref:`zephyr:toolchain_zephyr_sdk_install`"):
 .. _toolchain_setup:
 
 #. Download the `Zephyr SDK`_ bundle for your operating system.
+
+      .. list-table::
+         :header-rows: 1
+
+         * - Operating System
+           - Minimum version
+           - Tested version
+         * - Linux
+           - |zephyrsdk_min_ver|
+           - |zephyrsdk_recommended_ver_linux|
+         * - macOS
+           - |zephyrsdk_min_ver|
+           - |zephyrsdk_recommended_ver_macos|
+         * - Windows
+           - |zephyrsdk_min_ver|
+           - |zephyrsdk_recommended_ver_win10|
 
 #. Extract the bundle into a folder of your choice. We recommend to use the
    folder ``/opt`` on Linux or macOS and ``%PROGRAMFILES%`` on Windows.
@@ -147,29 +165,41 @@ Zephyr SDK is the preferred toolchain used by Bridle.
 Alternative toolchain for ARM
 =============================
 
-.. _gs_toolchain_gnu_arm_embedded_install:
+.. _gs_toolchain_arm_gnu_install:
 
-GNU Arm Embedded toolchain
---------------------------
+Arm GNU toolchain
+-----------------
 
-To be able to cross-compile your applications for ARM targets, you can use
-version |gnuarmemb_recommended_ver| of the `GNU Arm Embedded Toolchain`_ too.
+To be able to cross-compile your applications for ARM targets, you can use at
+least version |armgnutc_recommended_ver| of the |armgnutc|_ too. The |armgnutc|
+is the successor to the |gnuarmemb|, which has been considered obsolete since
+2022 and should no longer be used.
 Refere the :ref:`list of required tools <req_tools_table>` for the correct
 and tested version!
 
-.. important::
-
-   Make sure to install the version that is mentioned above.
-   Other versions might not work with this version of |BRIDLE|.
-
-   Note that other versions of |BRIDLE| might require a different
-   toolchain version.
+For installation and handling of the |armgnutc| with Zephyr, the same steps
+apply as for the |gnuarmemb|. From Zephyr's point of view, only the name has
+changed. Therefore the same variable prefixes will be used (``GNUARMEMB``).
 
 To set up the toolchain, complete the following steps:
 
-.. _toolchain_setup__REMOVE_ME__:
+#. Download the `Arm GNU Toolchain`_ for your operating system.
 
-#. Download the `GNU Arm Embedded Toolchain`_ for your operating system.
+      .. list-table::
+         :header-rows: 1
+
+         * - Operating System
+           - Minimum version
+           - Tested version
+         * - Linux
+           - |armgnutc_min_ver|
+           - |armgnutc_recommended_ver_linux|
+         * - macOS
+           - |armgnutc_min_ver|
+           - |armgnutc_recommended_ver_macos|
+         * - Windows
+           - |armgnutc_min_ver|
+           - |armgnutc_recommended_ver_win10|
 
 #. Extract the toolchain into a folder of your choice. We recommend to use the
    folder ``~/gnuarmemb`` on Linux or macOS and ``c:\gnuarmemb`` on Windows.
@@ -178,8 +208,8 @@ To set up the toolchain, complete the following steps:
    characters.
 
 #. If you want to build and program applications from the command line, define
-   the environment variables for the *GNU Arm Embedded toolchain*. Depending on
-   your operating system:
+   the environment variables for the *Arm GNU toolchain*. Depending on your
+   operating system:
 
     .. tabs::
 
@@ -242,6 +272,40 @@ To set up the toolchain, complete the following steps:
           define them in the ``%userprofile%\zephyrrc.cmd`` file as described
           in :ref:`build_environment`. This will allow you to avoid setting
           them every time you open a command prompt.
+
+.. _gs_toolchain_gnu_arm_embedded_install:
+
+GNU Arm Embedded toolchain
+--------------------------
+
+.. warning:: Obsolete and depricated since 2022! Do not use for new products.
+
+To be able to cross-compile your applications for ARM targets, you can use
+at least version |gnuarmemb_recommended_ver| of the |gnuarmemb|_ too. Refere
+the :ref:`list of required tools <req_tools_table>` for the correct and tested
+version!
+
+For installation and handling of the |gnuarmemb| with Zephyr, the same steps
+apply as for the |armgnutc|. The |gnuarmemb| is the discontinued predecessor
+of the |armgnutc| and should no longer be used.
+
+To set up the toolchain, complete the steps above for |armgnutc|.
+
+   .. list-table::
+      :header-rows: 1
+
+      * - Operating System
+        - Minimum version
+        - Tested version
+      * - Linux
+        - |gnuarmemb_min_ver|
+        - |gnuarmemb_recommended_ver_linux|
+      * - macOS
+        - |gnuarmemb_min_ver|
+        - |gnuarmemb_recommended_ver_macos|
+      * - Windows
+        - |gnuarmemb_min_ver|
+        - |gnuarmemb_recommended_ver_win10|
 
 .. _cloning_the_repositories_win:
 .. _cloning_the_repositories:
