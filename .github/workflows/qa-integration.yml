@@ -1,4 +1,4 @@
-# Copyright (c) 2021-2023 TiaC Systems
+# Copyright (c) 2021-2024 TiaC Systems
 # Copyright (c) 2021 Li-Pro.Net
 # SPDX-License-Identifier: Apache-2.0
 
@@ -91,7 +91,7 @@ jobs:
           ref: ${{ github.ref }}
 
       - name: Restore PIP Cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.cache/pip
           key: ${{ runner.os }}-qa-pip
@@ -131,13 +131,13 @@ jobs:
             --testsuite-root bridle/samples/helloshell
 
       - name: Upload integration test results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: twister-samples.xml
           path: workspace/twister-out/twister.xml
 
       - name: Convert integration test reports to annotations
-        uses: mikepenz/action-junit-report@v3
+        uses: mikepenz/action-junit-report@v4
         with:
           check_name: twister-report (samples)
           report_paths: "**/twister-out/twister.xml"
@@ -200,7 +200,7 @@ jobs:
           ref: ${{ github.ref }}
 
       - name: Restore PIP Cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.cache/pip
           key: ${{ runner.os }}-qa-pip
@@ -251,13 +251,13 @@ jobs:
             --testsuite-root bridle/tests/shields/x_grove_testbed/dts_bindings
 
       - name: Upload integration test results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: twister-shields.xml
           path: workspace/twister-out/twister.xml
 
       - name: Convert integration test reports to annotations
-        uses: mikepenz/action-junit-report@v3
+        uses: mikepenz/action-junit-report@v4
         with:
           check_name: twister-report (shields)
           report_paths: "**/twister-out/twister.xml"
@@ -370,13 +370,13 @@ jobs:
             --tag can
 
       - name: Upload integration test results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: twister-targets.xml
           path: workspace/twister-out/twister.xml
 
       - name: Convert integration test reports to annotations
-        uses: mikepenz/action-junit-report@v3
+        uses: mikepenz/action-junit-report@v4
         with:
           check_name: twister-report (${{ matrix.board }})
           report_paths: "**/twister-out/twister.xml"

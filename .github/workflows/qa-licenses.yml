@@ -1,4 +1,4 @@
-# Copyright (c) 2021-2023 TiaC Systems
+# Copyright (c) 2021-2024 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 name: QA License Check
@@ -24,7 +24,7 @@ jobs:
           directory-to-scan: 'scan/'
 
       - name: Upload results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: scancode
           path: ./artifacts
