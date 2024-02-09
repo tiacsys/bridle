@@ -7,5 +7,5 @@ dtc=1.4.7-1
 openocd=0.11.0-5 (xPack OpenOCD from GitHub)
 west=0.14.0
 zephyr-sdk=0.16.5
-armgnutc=12.3.rel1
+armgnutc=13.2.rel1
 gnuarmemb=10.3-2021.10
