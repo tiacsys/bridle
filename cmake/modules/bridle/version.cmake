@@ -37,7 +37,6 @@
 # Therefore `bridle/version.cmake` should not use include_guard(GLOBAL). The
 # final load of `bridle/version.cmake` will setup correct version values.
 
-include(${ZEPHYR_BASE}/cmake/hex.cmake)
 file(READ ${BRIDLE_BASE}/VERSION ver)
 
 string(REGEX MATCH "VERSION_MAJOR = ([0-9]*)" _ ${ver})
@@ -86,8 +85,8 @@ set(PATCH ${PROJECT_VERSION_PATCH}) # Temporary convenience variable
 math(EXPR BRIDLE_VERSION_NUMBER_INT "(${MAJOR} << 16) + (${MINOR} << 8)  + (${PATCH})")
 math(EXPR BRIDLEVERSION_INT         "(${MAJOR} << 24) + (${MINOR} << 16) + (${PATCH} << 8) + (${PROJECT_VERSION_TWEAK})")
 
-to_hex(${BRIDLE_VERSION_NUMBER_INT} BRIDLE_VERSION_NUMBER)
-to_hex(${BRIDLEVERSION_INT}         BRIDLEVERSION)
+math(EXPR BRIDLE_VERSION_NUMBER "${BRIDLE_VERSION_NUMBER_INT}" OUTPUT_FORMAT HEXADECIMAL)
+math(EXPR BRIDLEVERSION         "${BRIDLEVERSION_INT}"         OUTPUT_FORMAT HEXADECIMAL)
 
 set(BRIDLE_VERSION_MAJOR      ${PROJECT_VERSION_MAJOR})
 set(BRIDLE_VERSION_MINOR      ${PROJECT_VERSION_MINOR})
