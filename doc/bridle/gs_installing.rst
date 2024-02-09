@@ -154,6 +154,8 @@ GNU Arm Embedded toolchain
 
 To be able to cross-compile your applications for ARM targets, you can use
 version |gnuarmemb_recommended_ver| of the `GNU Arm Embedded Toolchain`_ too.
+Refere the :ref:`list of required tools <req_tools_table>` for the correct
+and tested version!
 
 .. important::
 
@@ -191,7 +193,7 @@ To set up the toolchain, complete the following steps:
               :class: highlight
 
               export ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb
-              export GNUARMEMB_TOOLCHAIN_PATH=\ "~/gnuarmemb"
+              export GNUARMEMB_TOOLCHAIN_PATH=\ "${HOME}/gnuarmemb"
 
        .. group-tab:: macOS
 
@@ -203,7 +205,7 @@ To set up the toolchain, complete the following steps:
               :class: highlight
 
               export ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb
-              export GNUARMEMB_TOOLCHAIN_PATH=\ "~/gnuarmemb"
+              export GNUARMEMB_TOOLCHAIN_PATH=\ "${HOME}/gnuarmemb"
 
        .. group-tab:: Windows
 
