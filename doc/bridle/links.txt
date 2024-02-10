@@ -80,6 +80,8 @@
 .. _`armgnutc`: https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads
 .. _`GNU Arm Embedded Toolchain`: https://developer.arm.com/downloads/-/gnu-rm
 .. _`gnuarmemb`: https://developer.arm.com/downloads/-/gnu-rm
+.. _`STM32CubeCLT (GNU tools for STM32)`: https://www.st.com/STM32CubeCLT
+.. _`stm32cubeclt`: https://www.st.com/STM32CubeCLT
 .. _`GCC compiler`: https://gcc.gnu.org/
 .. _`Graphviz`: https://graphviz.org/
 .. _`Doxygen`: https://www.doxygen.org/

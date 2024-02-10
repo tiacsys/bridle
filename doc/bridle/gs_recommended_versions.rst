@@ -172,6 +172,9 @@ that is installed when using the :ref:`gs_app_sim` as described in
          * - |gnuarmemb|_
            - |gnuarmemb_min_ver|
            - |gnuarmemb_recommended_ver_linux|
+         * - |stm32cubeclt|_
+           - |stm32cubeclt_min_ver|
+           - |stm32cubeclt_recommended_ver_linux|
          * - |doxygen|_
            - |doxygen_min_ver|
            - |doxygen_recommended_ver_linux|
@@ -223,6 +226,9 @@ that is installed when using the :ref:`gs_app_sim` as described in
          * - |gnuarmemb|_
            - |gnuarmemb_min_ver|
            - |gnuarmemb_recommended_ver_macos|
+         * - |stm32cubeclt|_
+           - |stm32cubeclt_min_ver|
+           - |stm32cubeclt_recommended_ver_macos|
          * - |doxygen|_
            - |doxygen_min_ver|
            -
@@ -274,6 +280,9 @@ that is installed when using the :ref:`gs_app_sim` as described in
          * - |gnuarmemb|_
            - |gnuarmemb_min_ver|
            - |gnuarmemb_recommended_ver_win10|
+         * - |stm32cubeclt|_
+           - |stm32cubeclt_min_ver|
+           - |stm32cubeclt_recommended_ver_win10|
          * - |doxygen|_
            - |doxygen_min_ver|
            -

@@ -74,6 +74,13 @@
 .. |gnuarmemb_recommended_ver_macos| replace:: @GNUARMEMB_VERSION_MACOS@
 .. |gnuarmemb_recommended_ver_linux| replace:: @GNUARMEMB_VERSION_LINUX@
 
+.. |stm32cubeclt| replace:: :strong:`STM32CubeCLT (GNU tools for STM32)`
+.. |stm32cubeclt_min_ver| replace:: @STM32CUBECLT_VERSION_MINIMUM@
+.. |stm32cubeclt_recommended_ver| replace:: :strong:`@STM32CUBECLT_VERSION_MINIMUM@`
+.. |stm32cubeclt_recommended_ver_win10| replace:: @STM32CUBECLT_VERSION_WIN10@
+.. |stm32cubeclt_recommended_ver_macos| replace:: @STM32CUBECLT_VERSION_MACOS@
+.. |stm32cubeclt_recommended_ver_linux| replace:: @STM32CUBECLT_VERSION_LINUX@
+
 .. |doxygen| replace:: :strong:`Doxygen`
 .. |doxygen_min_ver| replace:: @DOXYGEN_VERSION_MINIMUM@
 .. |doxygen_recommended_ver_linux| replace:: @DOXYGEN_VERSION_LINUX@
