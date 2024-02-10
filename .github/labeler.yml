@@ -1,146 +1,220 @@
-# Copyright (c) 2021-2022 TiaC Systems
+# Copyright (c) 2021-2024 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 # https://github.com/actions/labeler/blob/main/README.md
 
+# When extending this, remember that in the PR, the labeler will run against
+# the '.github/labeler.yml' in main branch, more info:
+#
+#     https://github.com/actions/labeler/issues/12
+#
+# This means your changes won't be tested. To test your (first) branch, ...
+# (1) ... make a second branch with dummy changes,
+# (2) ... and open a PR ON YOUR OWN FORK,
+# (3) ... against the first branch!
+
 "area: Modules":
-  - "modules/**/*"
-  - "west.yml"
+- changed-files:
+  - any-glob-to-any-file:
+    - "modules/**/*"
+    - "west.yml"
 
 "area: Release Notes":
-  - "doc/bridle/releases/**/*"
+- changed-files:
+  - any-glob-to-any-file:
+    - "doc/bridle/releases/**/*"
 
 "area: Documentation":
-  - "doc/**/*"
-  - "**/*.rst"
+- changed-files:
+  - any-glob-to-any-file:
+    - "doc/**/*"
+    - "**/*.rst"
 
 "area: Build System":
-  - "share/**/*"
-  - "cmake/**/*"
-  - "CmakeLists.txt"
+- changed-files:
+  - any-glob-to-any-file:
+    - "share/**/*"
+    - "cmake/**/*"
+    - "CmakeLists.txt"
 
 "area: Kconfig":
-  - "Kconfig.bridle"
-  - "Kconfig"
+- changed-files:
+  - any-glob-to-any-file:
+    - "Kconfig.bridle"
+    - "Kconfig"
 
 "area: Devicetree":
-  - "dts/**/*"
-  - "**/*.dts"
-  - "**/*.dtsi"
-  - "include/zephyr/devicetree/*"
+- changed-files:
+  - any-glob-to-any-file:
+    - "dts/**/*"
+    - "**/*.dts"
+    - "**/*.dtsi"
+    - "include/zephyr/devicetree/*"
 
 "area: Devicetree Binding":
-  - "dts/bindings/**/*"
-  - "include/zephyr/dt-bindings/**/*"
+- changed-files:
+  - any-glob-to-any-file:
+    - "dts/bindings/**/*"
+    - "include/zephyr/dt-bindings/**/*"
 
 "area: Devicetree Tooling":
-  - "scripts/dts/**/*"
+- changed-files:
+  - any-glob-to-any-file:
+    - "scripts/dts/**/*"
 
 "area: API":
-  - "include/zephyr/**/*"
+- changed-files:
+  - any-glob-to-any-file:
+    - "include/zephyr/**/*"
 
 "area: POSIX":
-  - "lib/posix/**/*"
+- changed-files:
+  - any-glob-to-any-file:
+    - "lib/posix/**/*"
 
 "area: C Library":
-  - "lib/libc/**/*"
+- changed-files:
+  - any-glob-to-any-file:
+    - "lib/libc/**/*"
 
 "area: Samples":
-  - "samples/**/*"
+- changed-files:
+  - any-glob-to-any-file:
+    - "samples/**/*"
 
 "area: Tests":
-  - "tests/**/*"
+- changed-files:
+  - any-glob-to-any-file:
+    - "tests/**/*"
 
 "area: Drivers":
-  - "drivers/**/*"
-  - "include/zephyr/drivers/**/*.h"
+- changed-files:
+  - any-glob-to-any-file:
+    - "drivers/**/*"
+    - "include/zephyr/drivers/**/*.h"
 
 "area: Modem":
-  - "drivers/modem/**/*"
+- changed-files:
+  - any-glob-to-any-file:
+    - "drivers/modem/**/*"
 
 "area: PWM":
-  - "drivers/pwm/**/*"
+- changed-files:
+  - any-glob-to-any-file:
+    - "drivers/pwm/**/*"
 
 "area: Watchdog":
-  - "drivers/watchdog/**/*"
+- changed-files:
+  - any-glob-to-any-file:
+    - "drivers/watchdog/**/*"
 
 "area: Sensors":
-  - "drivers/sensors/**/*"
+- changed-files:
+  - any-glob-to-any-file:
+    - "drivers/sensors/**/*"
 
 "area: ADC":
-  - "drivers/adc/**/*"
+- changed-files:
+  - any-glob-to-any-file:
+    - "drivers/adc/**/*"
 
 "area: Counter":
-  - "drivers/counter/**/*"
+- changed-files:
+  - any-glob-to-any-file:
+    - "drivers/counter/**/*"
 
 "area: CAN":
-  - "include/zephyr/drivers/can.h"
-  - "include/zephyr/canbus/*/**"
-  - "drivers/can/**/*"
-  - "subsys/canbus/*/**"
+- changed-files:
+  - any-glob-to-any-file:
+    - "include/zephyr/drivers/can.h"
+    - "include/zephyr/canbus/*/**"
+    - "drivers/can/**/*"
+    - "subsys/canbus/*/**"
 
 "area: EEPROM":
-  - "include/zephyr/drivers/eeprom.h"
-  - "drivers/eeprom/**/*"
+- changed-files:
+  - any-glob-to-any-file:
+    - "include/zephyr/drivers/eeprom.h"
+    - "drivers/eeprom/**/*"
 
 "area: Timer":
-  - "drivers/timer/**/*"
+- changed-files:
+  - any-glob-to-any-file:
+    - "drivers/timer/**/*"
 
 "area: I2S":
-  - "drivers/i2s/**/*"
+- changed-files:
+  - any-glob-to-any-file:
+    - "drivers/i2s/**/*"
 
 "area: I2C":
-  - "drivers/i2c/**/*"
+- changed-files:
+  - any-glob-to-any-file:
+    - "drivers/i2c/**/*"
 
 "area: SPI":
-  - "drivers/spi/**/*"
+- changed-files:
+  - any-glob-to-any-file:
+    - "drivers/spi/**/*"
 
 "area: Networking":
-  - "subsys/net/**/*"
-  - "samples/net/**/*"
-  - "tests/net/**/*"
-  - "include/zephyr/net/**/*"
-  - "include/zephyr/drivers/ieee802154/**/*"
-  - "drivers/ethernet/**/*"
-  - "drivers/ieee802154/**/*"
-  - "drivers/wifi/**/*"
-  - "drivers/ptp_clock/**/*"
-  - "drivers/net/**/*"
+- changed-files:
+  - any-glob-to-any-file:
+    - "subsys/net/**/*"
+    - "samples/net/**/*"
+    - "tests/net/**/*"
+    - "include/zephyr/net/**/*"
+    - "include/zephyr/drivers/ieee802154/**/*"
+    - "drivers/ethernet/**/*"
+    - "drivers/ieee802154/**/*"
+    - "drivers/wifi/**/*"
+    - "drivers/ptp_clock/**/*"
+    - "drivers/net/**/*"
 
 "area: Boards":
-  - "boards/**/*"
+- changed-files:
+  - any-glob-to-any-file:
+    - "boards/**/*"
 
 "area: Shields":
-  - "boards/shields/**"
-  - "samples/shields/**"
+- changed-files:
+  - any-glob-to-any-file:
+    - "boards/shields/**"
+    - "samples/shields/**"
 
 "platform: NXP":
-  - "boards/arm/frdm*/**"
-  - "boards/arm/hexiwear*/**"
-  - "boards/arm/lpcxpresso*/**"
-  - "boards/arm/*imx*/**"
-  - "drivers/**/*imx*"
-  - "drivers/**/*mcux*"
-  - "dts/arm/nxp/*/*"
-  - "dts/bindings/**/nxp*"
-  - "include/zephyr/drivers/*/*nxp*"
-  - "soc/arm/nxp*/**"
+- changed-files:
+  - any-glob-to-any-file:
+    - "boards/arm/frdm*/**"
+    - "boards/arm/hexiwear*/**"
+    - "boards/arm/lpcxpresso*/**"
+    - "boards/arm/*imx*/**"
+    - "drivers/**/*imx*"
+    - "drivers/**/*mcux*"
+    - "dts/arm/nxp/*/*"
+    - "dts/bindings/**/nxp*"
+    - "include/zephyr/drivers/*/*nxp*"
+    - "soc/arm/nxp*/**"
 
 "platform: STM32":
-  - "boards/arm/nucleo_*/**"
-  - "boards/arm/*stm32*/**"
-  - "drivers/**/*stm32*"
-  - "dts/arm/st/*/*"
-  - "dts/bindings/**/st*"
-  - "include/zephyr/drivers/*/*stm32*"
-  - "soc/arm/st_stm32/**"
+- changed-files:
+  - any-glob-to-any-file:
+    - "boards/arm/nucleo_*/**"
+    - "boards/arm/*stm32*/**"
+    - "drivers/**/*stm32*"
+    - "dts/arm/st/*/*"
+    - "dts/bindings/**/st*"
+    - "include/zephyr/drivers/*/*stm32*"
+    - "soc/arm/st_stm32/**"
 
 "platform: RPi":
-  - "boards/arm/*rpi_pico*/**"
-  - "boards/arm/*rp2040*/**"
-  - "boards/arm/*kb2040*/**"
-  - "drivers/**/*rpi_pico*"
-  - "dts/arm/rpi_pico/*"
-  - "dts/bindings/**/raspberrypi*"
-  - "include/zephyr/drivers/*/*rpi_pico*"
-  - "soc/arm/rpi_pico/**"
+- changed-files:
+  - any-glob-to-any-file:
+    - "boards/arm/*rpi_pico*/**"
+    - "boards/arm/*rp2040*/**"
+    - "boards/arm/*kb2040*/**"
+    - "drivers/**/*rpi_pico*"
+    - "dts/arm/rpi_pico/*"
+    - "dts/bindings/**/raspberrypi*"
+    - "include/zephyr/drivers/*/*rpi_pico*"
+    - "soc/arm/rpi_pico/**"
