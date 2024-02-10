@@ -13,7 +13,7 @@
 # other places, such as python scripts.
 #
 # When invoked as a script with -P:
-#   cmake [options] -P verify-toolchain.cmake
+#   cmake [options] -P toolchain.cmake
 #
 # it takes the following arguments:
 #   -D FORMAT=json
@@ -25,6 +25,21 @@
 
 include_guard(GLOBAL)
 
+include(extensions)
+
+# Set internal variables if set in environment.
+zephyr_get(ZEPHYR_TOOLCHAIN_VARIANT)
+
+zephyr_get(ZEPHYR_SDK_INSTALL_DIR)
+
+if((NOT "zephyr" STREQUAL ${ZEPHYR_TOOLCHAIN_VARIANT}) AND
+   (NOT ${ZEPHYR_TOOLCHAIN_VARIANT} STREQUAL NONE) AND
+   (DEFINED ZEPHYR_TOOLCHAIN_VARIANT))
+  message(STATUS "Bridle is trying to use Zephyr toolchain variant "
+                 "'${ZEPHYR_TOOLCHAIN_VARIANT}' for compiling.")
+  return()
+endif()
+
 # This is the required Zephyr-SDK version for Bridle.
 if(BRIDLE_TOOLCHAIN_ZEPHYR_SDK_VERSION)
   set(BRIDLE_TOOLCHAIN_ZEPHYR_SDK_REQUIRED_VERSION ${BRIDLE_TOOLCHAIN_ZEPHYR_SDK_VERSION})
@@ -32,15 +47,6 @@ if(BRIDLE_TOOLCHAIN_ZEPHYR_SDK_VERSION)
   if(NOT CMAKE_MATCH_1)
     set(EXACT "EXACT")
   endif()
-endif()
-
-# Set internal variables if set in environment.
-if(NOT DEFINED ZEPHYR_TOOLCHAIN_VARIANT)
-  set(ZEPHYR_TOOLCHAIN_VARIANT $ENV{ZEPHYR_TOOLCHAIN_VARIANT})
-endif()
-
-if(NOT DEFINED ZEPHYR_SDK_INSTALL_DIR)
-  set(ZEPHYR_SDK_INSTALL_DIR $ENV{ZEPHYR_SDK_INSTALL_DIR})
 endif()
 
 # Verify Zephyr SDK Toolchain.
@@ -86,7 +92,7 @@ if(("zephyr" STREQUAL ${ZEPHYR_TOOLCHAIN_VARIANT}) OR
      (DEFINED ZEPHYR_TOOLCHAIN_VARIANT))
     if(NOT CMAKE_SCRIPT_MODE_FILE)
       message(STATUS "Using Zephyr SDK ${Zephyr-sdk_VERSION} "
-                     "for building Bridle. (${Zephyr-sdk_DIR})")
+                     "for compiling. (${Zephyr-sdk_DIR})")
     endif()
     set(Zephyr-sdk_ROOT ${Zephyr-sdk_DIR})
   else()
