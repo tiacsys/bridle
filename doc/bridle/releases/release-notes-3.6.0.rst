@@ -248,6 +248,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`198` - [FCR] Support for STM32CubeCLT (GNU tools for STM32)
 * :github:`195` - [FCR] Upgrade to Arm GNU toolchain 13.2.rel1
 * :github:`192` - [FCR] Upgrade to Zephyr SDK 0.16.5
 * :github:`187` - [BUG] ubx_gnss sample fails to build
