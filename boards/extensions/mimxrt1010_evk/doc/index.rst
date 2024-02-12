@@ -65,25 +65,6 @@ List of extensions
      connected to other on-board header for the NXP special motor driver
      add-on board.
 
-- enable ARM Cortex-M Data Cache (DTCM) with Zephyr chosen entry:
-
-  .. list-table::
-     :align: left
-     :width: 50%
-     :widths: 100
-
-     * - .. rubric:: NXP MIMXRT1010-EVK
-
-     * - .. literalinclude:: ../mimxrt1010_evk.overlay
-            :caption: mimxrt1010_evk.overlay
-            :language: DTS
-            :encoding: ISO-8859-1
-            :emphasize-lines: 3
-            :prepend: / {
-            :start-at: chosen {
-            :end-at: };
-            :append: };
-
 - add a :dtcompatible:`zephyr,flash-disk` node linked to the
   :devicetree:`partition = <&storage_partition>;` with the hard defined
   mass storage disk name :devicetree:`disk-name = "NAND";` – also set
