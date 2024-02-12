@@ -13,3 +13,7 @@
 		cache-size = <4096>;
 	};
 };
+
+&green_led {
+	gpios = <&gpio1 11 GPIO_ACTIVE_HIGH>;
+};

@@ -65,6 +65,23 @@ List of extensions
      connected to other on-board header for the NXP special motor driver
      add-on board.
 
+- change active polarity of the green user LED ``LD1`` from low to high:
+
+  .. list-table::
+     :align: left
+     :width: 50%
+     :widths: 100
+
+     * - .. rubric:: NXP MIMXRT1010-EVK
+
+     * - .. literalinclude:: ../mimxrt1010_evk.overlay
+            :caption: mimxrt1010_evk.overlay
+            :language: DTS
+            :encoding: ISO-8859-1
+            :emphasize-lines: 2
+            :start-at: &green_led {
+            :end-at: };
+
 - add a :dtcompatible:`zephyr,flash-disk` node linked to the
   :devicetree:`partition = <&storage_partition>;` with the hard defined
   mass storage disk name :devicetree:`disk-name = "NAND";` – also set
