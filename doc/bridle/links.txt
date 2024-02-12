@@ -82,6 +82,8 @@
 .. _`gnuarmemb`: https://developer.arm.com/downloads/-/gnu-rm
 .. _`STM32CubeCLT (GNU tools for STM32)`: https://www.st.com/STM32CubeCLT
 .. _`stm32cubeclt`: https://www.st.com/STM32CubeCLT
+.. _`MCUXpresso IDE (Arm GNU Toolchain)`: https://www.nxp.com/products:MCUXpresso-IDE
+.. _`mcuxpressoide`: https://www.nxp.com/products:MCUXpresso-IDE
 .. _`GCC compiler`: https://gcc.gnu.org/
 .. _`Graphviz`: https://graphviz.org/
 .. _`Doxygen`: https://www.doxygen.org/

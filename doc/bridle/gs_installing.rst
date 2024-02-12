@@ -251,6 +251,8 @@ To set up the toolchain, complete the following steps:
                set ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb
                set GNUARMEMB_TOOLCHAIN_PATH=c:\\gnuarmemb
 
+.. _gs_toolchain_persistent_environment:
+
 #. Set the environment variables persistently.
    Depending on your operating system:
 
@@ -405,29 +407,105 @@ To set up the toolchain, complete the following steps:
                set ZEPHYR_TOOLCHAIN_VARIANT=cross-compile
                set CROSS_COMPILE="C:\\ST\\STM32CubeCLT\\GNU-tools-for-STM32\\bin\\arm-none-eabi-"
 
-#. Set the environment variables persistently.
-   Depending on your operating system:
+#. Set the environment variables persistently, proceed as described above for
+   the :ref:`Arm GNU Toolchain <gs_toolchain_persistent_environment>`.
+
+.. _gs_toolchain_mcuxpressoide_install:
+.. _gs_toolchain_mcuxpressoide_arm_gnu_install:
+
+MCUXpresso IDE (Arm GNU Toolchain)
+----------------------------------
+
+.. warning:: Special vendor specific toolchain for General Purpose MCU by NXP.
+
+To be able to cross-compile your applications for ARM targets or feel better
+to use a special vendor toolchain for i.MX (RT), Kinetis or LPC based platforms
+maintained by NXP, you can use at least version |mcuxpressoide_recommended_ver|
+of the |mcuxpressoide|_ too.
+Refere the :ref:`list of required tools <req_tools_table>` for the correct and
+tested version!
+
+The |mcuxpressoide| is the default integrated development environment for NXP
+MCUs based on Arm Cortex-M cores and comes with a rich set of tools for debug
+and compilation based on the standard :ref:`gs_toolchain_arm_gnu_install`.
+
+For installation the |mcuxpressoide|, see the accompanying original documentation
+by NXP. For handling the |mcuxpressoide| with Zephyr you have to choose the same
+way as for other common cross-compilers. For more details, see the section
+:ref:`zephyr:other_x_compilers` in the Zephyr documentation.
+
+To set up the toolchain, complete the following steps:
+
+#. Download the `MCUXpresso IDE (Arm GNU Toolchain)`_ for your operating system.
+
+      .. list-table::
+         :header-rows: 1
+
+         * - Operating System
+           - Minimum version
+           - Tested version
+         * - Linux
+           - |mcuxpressoide_min_ver|
+           - |mcuxpressoide_recommended_ver_linux|
+         * - macOS
+           - |mcuxpressoide_min_ver|
+           - |mcuxpressoide_recommended_ver_macos|
+         * - Windows
+           - |mcuxpressoide_min_ver|
+           - |mcuxpressoide_recommended_ver_win10|
+
+#. Extract the toolchain into a folder of your choice. We recommend to use the
+   default as specified by NXP, folder ``/usr/local/mcuxpressoide`` on Linux,
+   ``/Applications/MCUXpressoIDE`` on macOS and ``C:\NXP\MCUXpressoIDE``
+   on Windows.
+
+   Make sure that the folder name does not contain any spaces or special
+   characters.
+
+#. If you want to build and program applications from the command line, define
+   the environment variables for the *Arm GNU Toolchain*. Depending on your
+   operating system:
 
     .. tabs::
 
        .. group-tab:: Linux
 
-          Define the environment variables in the ``~/.zephyrrc`` file as
-          described in :ref:`build_environment`. This will allow you to avoid
-          setting them every time you open a terminal window.
+          Open a terminal window and enter the following commands (assuming that
+          you have installed the toolchain to ``/usr/local/mcuxpressoide``; if not,
+          change the value for ``CROSS_COMPILE``):
+
+            .. parsed-literal::
+              :class: highlight
+
+              export ZEPHYR_TOOLCHAIN_VARIANT=cross-compile
+              export CROSS_COMPILE="/usr/local/mcuxpressoide/ide/tools/bin/arm-none-eabi-"
 
        .. group-tab:: macOS
 
-          Define the environment variables in the ``~/.zephyrrc`` file as
-          described in :ref:`build_environment`. This will allow you to avoid
-          setting them every time you open a terminal window.
+          Open a terminal window and enter the following commands (assuming that
+          you have installed the toolchain to ``/Applications/MCUXpressoIDE``; if
+          not, change the value for ``CROSS_COMPILE``):
+
+            .. parsed-literal::
+              :class: highlight
+
+              export ZEPHYR_TOOLCHAIN_VARIANT=cross-compile
+              export CROSS_COMPILE="/Applications/MCUXpressoIDE/ide/tools/bin/arm-none-eabi-"
 
        .. group-tab:: Windows
 
-          Add the environment variables as system environment variables or
-          define them in the ``%userprofile%\zephyrrc.cmd`` file as described
-          in :ref:`build_environment`. This will allow you to avoid setting
-          them every time you open a command prompt.
+          Open a command prompt and enter the following commands (assuming that
+          you have installed the toolchain to ``C:\NXP\MCUXpressoIDE``; if not,
+          change the value for ``CROSS_COMPILE``):
+
+            .. parsed-literal::
+               :class: highlight
+
+               set ZEPHYR_TOOLCHAIN_VARIANT=cross-compile
+               set CROSS_COMPILE="C:\\NXP\\MCUXpressoIDE\\ide\\tools\\bin\\arm-none-eabi-"
+
+#. Set the environment variables persistently, proceed as described above for
+   the :ref:`Arm GNU Toolchain <gs_toolchain_persistent_environment>`.
 
 .. _cloning_the_repositories_win:
 .. _cloning_the_repositories:
