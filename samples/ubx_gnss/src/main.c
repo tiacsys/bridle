@@ -16,10 +16,6 @@
 #include <zephyr/logging/log.h>
 LOG_MODULE_REGISTER(main, CONFIG_MAIN_LOG_LEVEL);
 
-/* ubxlib specific includes */
-#include <ubxlib.h>
-#include <u_cfg_app_platform_specific.h>
-
 #if !DT_NODE_EXISTS(DT_NODELABEL(reset_switch))
 #error No reset switch node found in devicetree, check overlay for your board
 #endif

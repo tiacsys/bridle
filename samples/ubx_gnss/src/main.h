@@ -6,6 +6,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+/* ubxlib specific includes */
 #include <ubxlib.h>
 #include <u_cfg_app_platform_specific.h>
 
