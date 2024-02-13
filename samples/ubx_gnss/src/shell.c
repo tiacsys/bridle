@@ -6,7 +6,12 @@
 #include <zephyr/shell/shell.h>
 #include <stdlib.h>
 
+/* Application specific includes */
 #include <main.h>
+
+/* Logging */
+#include <zephyr/logging/log.h>
+LOG_MODULE_DECLARE(main, CONFIG_MAIN_LOG_LEVEL);
 
 static void gnss_stream_callback(uDeviceHandle_t device_handle,
 				 int32_t error_code,
@@ -19,6 +24,7 @@ static void gnss_stream_callback(uDeviceHandle_t device_handle,
 				 int64_t time_utc) {
 
 	if (error_code != 0) {
+		LOG_ERR("Error during uGnssPosGetStreamed: %d", error_code);
 		return;
 	}
 
@@ -27,7 +33,7 @@ static void gnss_stream_callback(uDeviceHandle_t device_handle,
 	float altitude_meters = altitude_millimeters / 1000.0;
 	float radius_meters = radius_millimeters / 1000.0;
 
-	printk("Found position estimate: (lat, lon): (%f, %f), alt: %.2fm, radius: %.2fm (%d SV used)\n",
+	LOG_INF("Found position estimate: (lat, lon): (%f, %f), alt: %.2fm, radius: %.2fm (%d SV used)",
 		latitude, longitude, altitude_meters, radius_meters, space_vehicles_used);
 
 }
@@ -53,13 +59,13 @@ static int cmd_gnss_single(const struct shell *sh, size_t argc, char **argv, voi
 						  &radius_millimeters, &speed_millimeters_per_second,
 						  &space_vehicles_used, &time_utc, NULL);
 
-	int64_t stop_time_ms = k_uptime_get();
-	float time_to_fix_seconds = (stop_time_ms - start_time_ms) / 1000.0;
-
 	if (ret != 0) {
-		shell_print(sh, "Error during uGnssPosGet: %d", ret);
+		shell_error(sh, "Error during uGnssPosGet: %d", ret);
 		return -1;
 	}
+
+	int64_t stop_time_ms = k_uptime_get();
+	float time_to_fix_seconds = (stop_time_ms - start_time_ms) / 1000.0;
 
 	float latitude = latitudeX1e7 / 1.e7;
 	float longitude = longitudeX1e7 / 1.e7;
@@ -75,7 +81,7 @@ static int cmd_gnss_single(const struct shell *sh, size_t argc, char **argv, voi
 static int cmd_gnss_stream_start(const struct shell *sh, size_t argc, char **argv, void *data) {
 
 	if (gnss_device_handle == NULL) {
-		shell_print(sh, "Error: GNSS device is not ready");
+		shell_error(sh, "Error: GNSS device is not ready");
 		return -1;
 	}
 
@@ -87,7 +93,7 @@ static int cmd_gnss_stream_start(const struct shell *sh, size_t argc, char **arg
 static int cmd_gnss_stream_stop(const struct shell *sh, size_t argc, char **argv, void *data) {
 
 	if (gnss_device_handle == NULL) {
-		shell_print(sh, "Error: GNSS device is not ready");
+		shell_error(sh, "Error: GNSS device is not ready");
 		return -1;
 	}
 
@@ -99,7 +105,7 @@ static int cmd_gnss_stream_stop(const struct shell *sh, size_t argc, char **argv
 static int cmd_gnss_reset(const struct shell *sh, size_t argc, char **argv, void *data) {
 
 	if (gnss_device_handle == NULL) {
-		shell_print(sh, "Error: GNSS device is not ready");
+		shell_error(sh, "Error: GNSS device is not ready");
 		return -1;
 	}
 
@@ -110,7 +116,7 @@ static int cmd_gnss_reset(const struct shell *sh, size_t argc, char **argv, void
 static int cmd_gnss_ttff(const struct shell *sh, size_t argc, char **argv, void *data) {
 
 	if (gnss_device_handle == NULL) {
-		shell_print(sh, "Error: GNSS device is not ready");
+		shell_error(sh, "Error: GNSS device is not ready");
 		return -1;
 	}
 
@@ -126,7 +132,7 @@ static int cmd_gnss_ttff(const struct shell *sh, size_t argc, char **argv, void 
 		uint64_t start_time_ms = k_uptime_get();
 		int ret = uGnssPosGet(gnss_device_handle, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 		if (ret != 0) {
-			shell_print(sh, "Error during uGnssPosGet: %d", ret);
+			shell_error(sh, "Error during uGnssPosGet: %d", ret);
 			return -1;
 		}
 		

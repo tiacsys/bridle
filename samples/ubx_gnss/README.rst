@@ -131,6 +131,26 @@ Measure TTFF:
    The on-module LED for PPS signaling goes off and comes back to blink
    after TTFF.
 
+   It is also possible to run several TTFF measurements sequentially. If
+   there is also a good receiving range and a reliable position already
+   exists, the TTFF will be correspondingly low:
+
+   .. code-block:: console
+
+      uart:~$ gnss ttff 10
+      Run 1 of 10: Acquired fix after 0.23s
+      Run 2 of 10: Acquired fix after 0.79s
+      Run 3 of 10: Acquired fix after 1.00s
+      Run 4 of 10: Acquired fix after 0.59s
+      Run 5 of 10: Acquired fix after 0.81s
+      Run 6 of 10: Acquired fix after 0.79s
+      Run 7 of 10: Acquired fix after 0.80s
+      Run 8 of 10: Acquired fix after 1.01s
+      Run 9 of 10: Acquired fix after 0.58s
+      Run 10 of 10: Acquired fix after 0.81s
+      ---------------
+      Avg. TTFF: 0.74
+
 Get a one-shot position estimate:
 
    .. code-block:: console
@@ -144,20 +164,20 @@ Start or stop streaming of position estimates:
    .. code-block:: console
 
       uart:~$ gnss stream start
-      Found position estimate: (lat, lon): (50.922447, 11.600006), alt: 192.64m, radius: 1.45m (17 SV used)
-      Found position estimate: (lat, lon): (50.922451, 11.600005), alt: 192.53m, radius: 1.45m (18 SV used)
-      Found position estimate: (lat, lon): (50.922451, 11.600004), alt: 192.63m, radius: 1.45m (18 SV used)
-      Found position estimate: (lat, lon): (50.922455, 11.600004), alt: 192.71m, radius: 1.46m (17 SV used)
-      Found position estimate: (lat, lon): (50.922455, 11.600004), alt: 192.80m, radius: 1.46m (18 SV used)
-      Found position estimate: (lat, lon): (50.922455, 11.600004), alt: 192.96m, radius: 1.46m (18 SV used)
-      Found position estimate: (lat, lon): (50.922455, 11.600003), alt: 192.89m, radius: 1.46m (18 SV used)
-      Found position estimate: (lat, lon): (50.922459, 11.600002), alt: 192.79m, radius: 1.47m (17 SV used)
-      Found position estimate: (lat, lon): (50.922459, 11.600001), alt: 192.92m, radius: 1.47m (18 SV used)
-      Found position estimate: (lat, lon): (50.922462, 11.600000), alt: 192.89m, radius: 1.48m (17 SV used)
-      Found position estimate: (lat, lon): (50.922462, 11.599999), alt: 192.77m, radius: 1.48m (18 SV used)
-      Found position estimate: (lat, lon): (50.922466, 11.599998), alt: 192.69m, radius: 1.48m (18 SV used)
-      Found position estimate: (lat, lon): (50.922466, 11.599996), alt: 192.49m, radius: 1.50m (18 SV used)
-      Found position estimate: (lat, lon): (50.922470, 11.599995), alt: 192.22m, radius: 1.50m (18 SV used)
+      [00:01:15.687,000] <inf> main: Found position estimate: (lat, lon): (50.922447, 11.600006), alt: 192.64m, radius: 1.45m (17 SV used)
+      [00:01:16.692,000] <inf> main: Found position estimate: (lat, lon): (50.922451, 11.600005), alt: 192.53m, radius: 1.45m (18 SV used)
+      [00:01:17.697,000] <inf> main: Found position estimate: (lat, lon): (50.922451, 11.600004), alt: 192.63m, radius: 1.45m (18 SV used)
+      [00:01:18.904,000] <inf> main: Found position estimate: (lat, lon): (50.922455, 11.600004), alt: 192.71m, radius: 1.46m (17 SV used)
+      [00:01:19.658,000] <inf> main: Found position estimate: (lat, lon): (50.922455, 11.600004), alt: 192.80m, radius: 1.46m (18 SV used)
+      [00:01:20.663,000] <inf> main: Found position estimate: (lat, lon): (50.922455, 11.600004), alt: 192.96m, radius: 1.46m (18 SV used)
+      [00:01:21.667,000] <inf> main: Found position estimate: (lat, lon): (50.922455, 11.600003), alt: 192.89m, radius: 1.46m (18 SV used)
+      [00:01:22.722,000] <inf> main: Found position estimate: (lat, lon): (50.922459, 11.600002), alt: 192.79m, radius: 1.47m (17 SV used)
+      [00:01:23.929,000] <inf> main: Found position estimate: (lat, lon): (50.922459, 11.600001), alt: 192.92m, radius: 1.47m (18 SV used)
+      [00:01:24.683,000] <inf> main: Found position estimate: (lat, lon): (50.922462, 11.600000), alt: 192.89m, radius: 1.48m (17 SV used)
+      [00:01:25.688,000] <inf> main: Found position estimate: (lat, lon): (50.922462, 11.599999), alt: 192.77m, radius: 1.48m (18 SV used)
+      [00:01:26.693,000] <inf> main: Found position estimate: (lat, lon): (50.922466, 11.599998), alt: 192.69m, radius: 1.48m (18 SV used)
+      [00:01:27.697,000] <inf> main: Found position estimate: (lat, lon): (50.922466, 11.599996), alt: 192.49m, radius: 1.50m (18 SV used)
       uart:~$ gnss stream stop
-      Found position estimate: (lat, lon): (50.922470, 11.599994), alt: 192.12m, radius: 1.50m (18 SV used)
+      [00:01:28.905,000] <inf> main: Found position estimate: (lat, lon): (50.922470, 11.599995), alt: 192.22m, radius: 1.50m (18 SV used)
+      [00:01:29.709,000] <inf> main: Found position estimate: (lat, lon): (50.922470, 11.599994), alt: 192.12m, radius: 1.50m (18 SV used)
       uart:~$ _
