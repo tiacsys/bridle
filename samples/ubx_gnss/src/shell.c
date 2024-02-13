@@ -9,25 +9,25 @@
 #include <main.h>
 
 static void gnss_stream_callback(uDeviceHandle_t device_handle,
-                                 int32_t error_code,
-                                 int32_t latitudeX1e7,
-                                 int32_t longitudeX1e7,
-                                 int32_t altitude_millimeters,
-                                 int32_t radius_millimeters,
-                                 int32_t speed_millimeters_per_second,
-                                 int32_t space_vehicles_used,
-                                 int64_t time_utc) {
+				 int32_t error_code,
+				 int32_t latitudeX1e7,
+				 int32_t longitudeX1e7,
+				 int32_t altitude_millimeters,
+				 int32_t radius_millimeters,
+				 int32_t speed_millimeters_per_second,
+				 int32_t space_vehicles_used,
+				 int64_t time_utc) {
 
-    if (error_code != 0) {
-        return;
-    }
+	if (error_code != 0) {
+		return;
+	}
 
-    float latitude = latitudeX1e7 / 1.e7;
+	float latitude = latitudeX1e7 / 1.e7;
 	float longitude = longitudeX1e7 / 1.e7;
 	float altitude_meters = altitude_millimeters / 1000.0;
 	float radius_meters = radius_millimeters / 1000.0;
 
-    printk("Found position estimate: (lat, lon): (%f, %f), alt: %.2fm, radius: %.2fm (%d SV used)\n",
+	printk("Found position estimate: (lat, lon): (%f, %f), alt: %.2fm, radius: %.2fm (%d SV used)\n",
 		latitude, longitude, altitude_meters, radius_meters, space_vehicles_used);
 
 }
@@ -49,8 +49,8 @@ static int cmd_gnss_single(const struct shell *sh, size_t argc, char **argv, voi
 
 	int64_t start_time_ms = k_uptime_get();
 
-	int ret = uGnssPosGet(gnss_device_handle, &latitudeX1e7, &longitudeX1e7,
-						  &altitude_millimeters, &radius_millimeters, &speed_millimeters_per_second,
+	int ret = uGnssPosGet(gnss_device_handle, &latitudeX1e7, &longitudeX1e7, &altitude_millimeters,
+						  &radius_millimeters, &speed_millimeters_per_second,
 						  &space_vehicles_used, &time_utc, NULL);
 
 	int64_t stop_time_ms = k_uptime_get();
@@ -74,26 +74,26 @@ static int cmd_gnss_single(const struct shell *sh, size_t argc, char **argv, voi
 
 static int cmd_gnss_stream_start(const struct shell *sh, size_t argc, char **argv, void *data) {
 
-    if (gnss_device_handle == NULL) {
+	if (gnss_device_handle == NULL) {
 		shell_print(sh, "Error: GNSS device is not ready");
-        return -1;
-    }
+		return -1;
+	}
 
-    uGnssPosGetStreamedStart(gnss_device_handle, 1000, gnss_stream_callback);
+	uGnssPosGetStreamedStart(gnss_device_handle, 1000, gnss_stream_callback);
 
-    return 0;
+	return 0;
 }
 
 static int cmd_gnss_stream_stop(const struct shell *sh, size_t argc, char **argv, void *data) {
 
-    if (gnss_device_handle == NULL) {
+	if (gnss_device_handle == NULL) {
 		shell_print(sh, "Error: GNSS device is not ready");
-        return -1;
-    }
+		return -1;
+	}
 
-    uGnssPosGetStreamedStop(gnss_device_handle);
+	uGnssPosGetStreamedStop(gnss_device_handle);
 
-    return 0;
+	return 0;
 }
 
 static int cmd_gnss_reset(const struct shell *sh, size_t argc, char **argv, void *data) {
@@ -144,16 +144,16 @@ static int cmd_gnss_ttff(const struct shell *sh, size_t argc, char **argv, void 
 }
 
 SHELL_STATIC_SUBCMD_SET_CREATE(gnss_stream_sub,
-    SHELL_CMD(start, NULL, "Start streaming position estimates", cmd_gnss_stream_start),
-    SHELL_CMD(stop, NULL, "Stop streaming position estimates", cmd_gnss_stream_stop),
+	SHELL_CMD(start, NULL, "Start streaming position estimates", cmd_gnss_stream_start),
+	SHELL_CMD(stop, NULL, "Stop streaming position estimates", cmd_gnss_stream_stop),
 	SHELL_SUBCMD_SET_END
 );
 
 SHELL_STATIC_SUBCMD_SET_CREATE(gnss_sub,
 	SHELL_CMD(single, NULL, "Get a one-shot position estimate", cmd_gnss_single),
-    SHELL_CMD(stream, &gnss_stream_sub, "Start or stop streaming of position estimates", NULL),
-    SHELL_CMD(reset, NULL, "Reset GNSS module", cmd_gnss_reset),
-    SHELL_CMD(ttff, NULL, "Measure TTFF", cmd_gnss_ttff),
+	SHELL_CMD(stream, &gnss_stream_sub, "Start or stop streaming of position estimates", NULL),
+	SHELL_CMD(reset, NULL, "Reset GNSS module", cmd_gnss_reset),
+	SHELL_CMD(ttff, NULL, "Measure TTFF", cmd_gnss_ttff),
 	SHELL_SUBCMD_SET_END
 );
 SHELL_CMD_REGISTER(gnss, &gnss_sub, "GNSS related commands", NULL);
