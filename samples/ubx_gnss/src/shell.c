@@ -28,10 +28,10 @@ static void gnss_stream_callback(uDeviceHandle_t device_handle,
 		return;
 	}
 
-	float latitude = latitudeX1e7 / 1.e7;
-	float longitude = longitudeX1e7 / 1.e7;
-	float altitude_meters = altitude_millimeters / 1000.0;
-	float radius_meters = radius_millimeters / 1000.0;
+	double latitude = latitudeX1e7 / 1.e7;
+	double longitude = longitudeX1e7 / 1.e7;
+	double altitude_meters = altitude_millimeters / 1000.0;
+	double radius_meters = radius_millimeters / 1000.0;
 
 	LOG_INF("Found position estimate: (lat, lon): (%f, %f), alt: %.2fm, radius: %.2fm (%d SV used)",
 		latitude, longitude, altitude_meters, radius_meters, space_vehicles_used);
@@ -65,12 +65,12 @@ static int cmd_gnss_single(const struct shell *sh, size_t argc, char **argv, voi
 	}
 
 	int64_t stop_time_ms = k_uptime_get();
-	float time_to_fix_seconds = (stop_time_ms - start_time_ms) / 1000.0;
+	double time_to_fix_seconds = (stop_time_ms - start_time_ms) / 1000.0;
 
-	float latitude = latitudeX1e7 / 1.e7;
-	float longitude = longitudeX1e7 / 1.e7;
-	float altitude_meters = altitude_millimeters / 1000.0;
-	float radius_meters = radius_millimeters / 1000.0;
+	double latitude = latitudeX1e7 / 1.e7;
+	double longitude = longitudeX1e7 / 1.e7;
+	double altitude_meters = altitude_millimeters / 1000.0;
+	double radius_meters = radius_millimeters / 1000.0;
 
 	shell_print(sh, "Found position estimate after %.1fs: (lat, lon): (%f, %f), alt: %.2fm, radius: %.2fm (%d SV used)",
 		time_to_fix_seconds, latitude, longitude, altitude_meters, radius_meters, space_vehicles_used);
@@ -142,7 +142,7 @@ static int cmd_gnss_ttff(const struct shell *sh, size_t argc, char **argv, void 
 		durations_total_ms += duration_ms;
 	}
 
-	float duration_avg_seconds = (durations_total_ms / 1000.0) / n_tests;
+	double duration_avg_seconds = (durations_total_ms / 1000.0) / n_tests;
 	shell_print(sh, "---------------");
 	shell_print(sh, "Avg. TTFF: %.2f", duration_avg_seconds);
 
