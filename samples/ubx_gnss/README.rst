@@ -89,6 +89,17 @@ Build and flash for different boards
    :goals: flash
    :compact:
 
+.. rubric:: NXP MIMXRT1170-EVKB (CM7)
+
+.. zephyr-app-commands::
+   :zephyr-app: bridle/samples/ubx_gnss
+   :board: mimxrt1170_evkb_cm7
+   :build-dir: mimxrt1170_evkb_cm7-ubx_gnss
+   :west-args: -p
+   :flash-args: -r pyocd
+   :goals: flash
+   :compact:
+
 .. rubric:: NXP MIMXRT1060-EVK
 
 .. zephyr-app-commands::
