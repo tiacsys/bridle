@@ -45,6 +45,15 @@ specified as required.
      - Specifications and requirements
      - Chosen
 
+   * - :code:`nucleo_f767zi`
+     - :code:`0x0483`
+     - :code:`0x5740`
+     - |STMicroelectronics|_
+     - |STM32F767ZI-NUCLEO (CDC ACM)|
+     - `STMicroelectronics USB product ID from their Virtual COM Port`_
+     - | |zephyr,console|
+       | |zephyr,shell-uart|
+
    * - :code:`mimxrt1010_evk`
      - :code:`0x1FC9`
      - :code:`0x1011`

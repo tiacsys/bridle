@@ -4,6 +4,10 @@ append:
   EXTRA_DTC_OVERLAY_FILE: usb-console.overlay
 
 boards:
+  nucleo_f767zi:
+    append:
+      EXTRA_CONF_FILE: boards/nucleo_f767zi.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/nucleo_f767zi.overlay
   mimxrt1010_evk:
     append:
       EXTRA_CONF_FILE: boards/mimxrt1010_evk.conf

@@ -105,6 +105,9 @@
 .. |Spotpear Pico ALL GPIO TEST| replace::
    :ref:`Spotpear Pico ALL GPIO TEST <spotpear_pico_test>`
 
+.. |STM32F767ZI-NUCLEO (CDC ACM)| replace::
+   :ref:`STM32F767ZI-NUCLEO (CDC ACM) <zephyr:nucleo_f767zi_board>`
+
 .. |Waveshare 2.4 LCD| replace::
    :ref:`Waveshare 2.4 LCD <waveshare_2_4_lcd>`
 

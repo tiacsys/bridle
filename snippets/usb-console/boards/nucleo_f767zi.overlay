@@ -1,0 +1,13 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	model = "STMicroelectronics STM32F767ZI-NUCLEO board @ USB-CDC/ACM Concole";
+	compatible = "st,stm32f767zi-nucleo", "st,stm32f767zi-nucleo-usbcons";
+
+	chosen {
+		zephyr,shell-uart = &snippet_cdc_acm_console_uart;
+	};
+};

@@ -279,6 +279,12 @@
 .. _`Seeeduino USB product ID list with SAMD21 CPU`:
    https://github.com/Seeed-Studio/ArduinoCore-samd/blob/master/boards.txt
 
+.. |STMicroelectronics| replace:: :strong:`STMicroelectronics`
+.. _`STMicroelectronics`: https://devicehunt.com/view/type/usb/vendor/0483
+
+.. _`STMicroelectronics USB product ID from their Virtual COM Port`:
+   https://devicehunt.com/view/type/usb/vendor/0483/device/5740
+
 .. |Waveshare (Raspberry Pi)| replace:: :strong:`Waveshare (Raspberry Pi)`
 .. _`Waveshare (Raspberry Pi)`: https://devicehunt.com/view/type/usb/vendor/2e8a
 
