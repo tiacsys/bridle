@@ -1,0 +1,26 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/* FIXME: revert this overlay as soon as possible,
+ *        provide at least a new board extension,
+ *        or better, change Zephyr upstream */
+
+/* Zephyr upstream doesn't provide the Arduino header */
+
+/ {
+	reset_switch: reset_switch {
+		compatible = "reset-switch";
+		gpios = <&gpio9 6 GPIO_ACTIVE_LOW>;	/* D8 */
+	};
+
+	aliases {
+		ubxlib-uart0 = &lpuart2;
+	};
+};
+
+&lpuart2 {
+	status = "okay";
+	current-speed = <9600>;
+};
