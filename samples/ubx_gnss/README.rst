@@ -59,6 +59,16 @@ Building and Running
 Build and flash for different boards
 ====================================
 
+.. rubric:: Nordic nRF9160 DK (nRF9160)
+
+.. zephyr-app-commands::
+   :zephyr-app: bridle/samples/ubx_gnss
+   :board: nrf9160dk_nrf9160
+   :build-dir: nrf9160dk_nrf9160-ubx_gnss
+   :west-args: -p
+   :goals: flash
+   :compact:
+
 .. rubric:: ST Nucleo L496ZG
 
 .. zephyr-app-commands::
