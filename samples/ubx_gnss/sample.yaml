@@ -1,0 +1,24 @@
+sample:
+  description: demonstrating how to integrate a u-blox GNSS device
+    into a Zephyr application
+  name: ubxlib gnss
+common:
+  tags: ubxlib
+  integration_platforms:
+    - mimxrt1010_evk
+    - mimxrt1060_evkb
+    - mimxrt1170_evkb_cm7
+    - nrf52840dk_nrf52840
+    - nrf9160dk_nrf9160
+    - nucleo_f413zh
+    - nucleo_f767zi
+    - nucleo_l496zg
+tests:
+  bridle.samples.ubx_gnss.release:
+    build_only: true
+    build_on_all: true
+    extra_args: CMAKE_BUILD_TYPE=ZRelease
+  bridle.samples.ubx_gnss.debug:
+    build_only: true
+    build_on_all: true
+    extra_args: CMAKE_BUILD_TYPE=ZDebug
