@@ -7,35 +7,51 @@ Overview
 ********
 
 A sample application demonstrating how to integrate a u-blox GNSS device into
-a Zephyr application.
+a Zephyr application. The example code is rigidly configured to work with an
+`u-blox M10 device`_. It was tested with the `SparkFun MAX-M10S Breakout`_.
 
 Requirements
 ************
 
-A u-blox GNSS device must be connected via UART, and a Devicetree alias
-:code:`ubxlib-uart0` must exist and point towards this UART port. Also
-a single GPIO line for the module reset signal have to define. To fulfil
-this requirement, you can add a simple Devicetree overlay for your board
-as shown below.
+The u-blox GNSS device must be connected via UART, and a Devicetree alias
+:devicetree:`ubxlib-uart0` must exist that point towards this UART port. Also
+a single GPIO line for the module reset signal have to define. To fulfil this
+requirement, this sample application comes with a generic application overlay
+:file:`app.overlay` that should be usable with all boards that provies an
+Arduino UNO R3 edge connector. For :devicetree:`ubxlib-uart0` the standard
+Arduino UART on D0 (RX) and D1 (TX) will be used
+(:devicetree:`&arduino_serial`). The reset signal will be controlled by
+D8 (GPIO) and is mapped to :devicetree:`<&arduino_header 14 /*…*/>`. To ensure
+to use the correct GPIO line for the module reset signal, the example provides
+the only locally usable Devicetree binding :file:`reset-switch.yaml`. This
+specifies the Devicetree compatibility string :emphasis:`reset-switch`.
 
-.. code-block:: devicetree
+.. list-table::
+   :align: center
+   :width: 75%
+   :widths: 50, 50
+   :header-rows: 1
 
-   / {
-       reset_switch: reset_switch {
-           compatible = "reset-switch";
-           gpios = <&gpiof 15 GPIO_ACTIVE_LOW>;
-       };
+   * - Default application overlay
+     - Binding for the module reset signal
 
-       aliases {
-           ubxlib-uart0 = &usart3;
-       };
-   };
+   * - .. literalinclude:: app.overlay
+          :caption: app.overlay
+          :language: DTS
+          :encoding: ISO-8859-1
+          :emphasize-lines: 3-4,8
+          :prepend: / {
+          :start-at: reset_switch {
 
-In default this sample application comes with a generic :code:`app.overlay`
-that should be usable with all boards that provies an Arduino UNO R3 edge
-connector. For :code:`ubxlib-uart0` the standard Arduino UART on D0 (RX)
-and D1 (TX) will be used (`&arduino_serial`). The reset signal will be
-controlled by D2 (GPIO) and is mapped to :code:`<&arduino_header 8 …>`.
+     - .. literalinclude:: dts/bindings/reset-switch.yaml
+          :caption: reset-switch.yaml
+          :language: yaml
+          :encoding: ISO-8859-1
+          :emphasize-lines: 3
+          :start-at: description:
+
+Regardless of this, it is still free and open to use a specific board overlay
+to adapt these default settings to other hardware conditions.
 
 Building and Running
 ********************
@@ -181,3 +197,11 @@ Start or stop streaming of position estimates:
       [00:01:28.905,000] <inf> main: Found position estimate: (lat, lon): (50.922470, 11.599995), alt: 192.22m, radius: 1.50m (18 SV used)
       [00:01:29.709,000] <inf> main: Found position estimate: (lat, lon): (50.922470, 11.599994), alt: 192.12m, radius: 1.50m (18 SV used)
       uart:~$ _
+
+References
+**********
+
+.. target-notes::
+
+.. _`u-blox M10 device`: https://www.u-blox.com/en/product/ubx-m10050-chip
+.. _`SparkFun MAX-M10S Breakout`: https://www.sparkfun.com/products/18037
