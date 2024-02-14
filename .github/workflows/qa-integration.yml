@@ -130,6 +130,7 @@ jobs:
             --testsuite-root bridle/samples/button \
             --testsuite-root bridle/samples/buzzer \
             --testsuite-root bridle/samples/helloshell \
+            --testsuite-root bridle/samples/ubx_gnss \
             --testsuite-root bridle/samples/waveshare_pico_10dof_imu_sensor \
             --testsuite-root bridle/samples/waveshare_pico_environment_sensor
 
