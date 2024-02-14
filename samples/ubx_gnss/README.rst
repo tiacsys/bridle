@@ -69,6 +69,16 @@ Build and flash for different boards
    :goals: flash
    :compact:
 
+.. rubric:: Nordic nRF52840 DK (nRF52840)
+
+.. zephyr-app-commands::
+   :zephyr-app: bridle/samples/ubx_gnss
+   :board: nrf52840dk_nrf52840
+   :build-dir: nrf52840dk_nrf52840-ubx_gnss
+   :west-args: -p
+   :goals: flash
+   :compact:
+
 .. rubric:: ST Nucleo L496ZG
 
 .. zephyr-app-commands::
