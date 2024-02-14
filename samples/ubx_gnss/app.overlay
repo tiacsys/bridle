@@ -1,12 +1,25 @@
 /*
  * Copyright (c) 2023 Sarah Renkhoff
+ * Copyright (c) 2024 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
 / {
+	/* Pin assignment
+	 * - from MCU
+	 * - over Arduino header
+	 * - to the GNSS device
+	 *
+	 * MCU		Arduino		GNSS device
+	 * ------------	------------	------------
+	 * U(S)ART RxD	D0 (RxD)	TxD
+	 * U(S)ART TxD	D1 (TxD)	RxD
+	 * GPIO		D8		RESET
+	 */
+
 	reset_switch: reset_switch {
 		compatible = "reset-switch";
-		gpios = <&arduino_header 8 GPIO_ACTIVE_LOW>;
+		gpios = <&arduino_header 14 GPIO_ACTIVE_LOW>;
 	};
 
 	aliases {
