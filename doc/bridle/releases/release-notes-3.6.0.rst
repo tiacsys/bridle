@@ -212,6 +212,17 @@ Change log
 
 * New Zephyr module: support u-blox portable C API **ubxlib** with GNSS sample.
 
+  The GNSS sample, ``ubx_gnss`` was qualified to run on the following boards:
+
+  * Nordic nRF9160 DK (nRF9160)
+  * Nordic nRF52840 DK (nRF52840)
+  * ST Nucleo L496ZG
+  * ST Nucleo F413ZH
+  * ST Nucleo F767ZI
+  * NXP MIMXRT1170-EVKB (CM7)
+  * NXP MIMXRT1060-EVK
+  * NXP MIMXRT1010-EVK
+
 The following sections provide detailed lists of changes by component.
 
 * PROJECT UPDATE to `Zephyr Project`_ v3.6
@@ -248,6 +259,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`202` - [FER] Make the u-blox library GNSS example fit for demonstration
 * :github:`200` - [FCR] Support for MCUXpresso IDE (Arm GNU Toolchain)
 * :github:`198` - [FCR] Support for STM32CubeCLT (GNU tools for STM32)
 * :github:`195` - [FCR] Upgrade to Arm GNU toolchain 13.2.rel1
