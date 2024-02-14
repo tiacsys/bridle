@@ -37,6 +37,7 @@ common:
     - mimxrt1170_evk_cm7
     - mimxrt1170_evkb_cm4
     - mimxrt1170_evkb_cm7
+    - nrf52840dk_nrf52840
     - nucleo_f303re
     - nucleo_f401re
     - nucleo_f413zh
