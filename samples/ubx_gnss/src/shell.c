@@ -33,8 +33,13 @@ static void gnss_stream_callback(uDeviceHandle_t device_handle,
 	double altitude_meters = altitude_millimeters / 1000.0;
 	double radius_meters = radius_millimeters / 1000.0;
 
+#if IS_ENABLED(CONFIG_LOG)
 	LOG_INF("Found position estimate: (lat, lon): (%f, %f), alt: %.2fm, radius: %.2fm (%d SV used)",
 		latitude, longitude, altitude_meters, radius_meters, space_vehicles_used);
+#else
+	printk("Found position estimate: (lat, lon): (%f, %f), alt: %.2fm, radius: %.2fm (%d SV used)\n",
+		latitude, longitude, altitude_meters, radius_meters, space_vehicles_used);
+#endif
 
 }
 

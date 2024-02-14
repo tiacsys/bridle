@@ -100,6 +100,100 @@ Build and flash for different boards
    :goals: flash
    :compact:
 
+.. rubric:: NXP MIMXRT1010-EVK (experimental)
+
+.. zephyr-app-commands::
+   :zephyr-app: bridle/samples/ubx_gnss
+   :board: mimxrt1010_evk
+   :build-dir: mimxrt1010_evk-ubx_gnss
+   :gen-args: -DCONFIG_LOG=n
+   :west-args: -p -S usb-console
+   :flash-args: -r pyocd
+   :goals: flash
+   :compact:
+
+.. warning::
+
+   This board requires special care when using and maintaining the code base.
+   First of all, there is a lack of sufficient UART interfaces. The user must
+   decide whether he wants to use the one available LPUART1 as a console via
+   the on-board debug adapter (the factory default) or whether he needs it
+   for his own purposes on the Arduino edge connector. For this example,
+   the later is the case and it is extremely important that the two jumpers
+   :strong:`JP31` for TX and :strong:`JP32` for RX are removed so that there
+   is no longer an active connection to the on-board debug adapter (isolation).
+   This also removes the channel for the standard console and the on-board
+   USB device at :strong:`J9` must be used as an alternative. This in turn
+   means that Zephyr needs the USB device software stack with the USB-CDC/ACM
+   class driver for VCOM access to the shell enabled. Note the
+   :program:`west build` parameter :code:`-S usb-console`.
+
+   It is more luck than sense that this example works on this extremely poorly
+   equipped board. The word :emphasis:`"works"` should also not be overrated.
+   The :file:`ubxlib` software stack :strong:`is extremely memory-intensive`
+   and :strong:`requires at least 16 kB RAM for the memory heap`
+   (:kconfig:option:`CONFIG_HEAP_MEM_POOL_SIZE`). That alone is already 25%
+   of the available RAM in this system. Together with the necessary USB device
+   software stack and the USB-CDC/ACM class driver, there is hardly anything
+   left for additional functions. This means that the :strong:`Zephyr shell`
+   can only be :strong:`used in the absolute minimum configuration`
+   (:kconfig:option:`CONFIG_SHELL_MINIMAL`\ :code:`=y`) and the :strong:`Zephyr
+   logging system must be omitted completely`
+   (:kconfig:option:`CONFIG_LOG`\ :code:`=n`).
+   The :program:`CMake` parameter :code:`-DCONFIG_LOG=n` must be considered for
+   this when calling :program:`west build`.
+
+   As a result of the limited memory capacity, important runtime stacks must
+   also be reduced. That are in summary:
+
+   .. list-table::
+      :align: center
+      :width: 75%
+      :widths: 50, 50
+      :header-rows: 1
+
+      * - Board specific configuration
+        - Context and meaning
+
+      * - .. literalinclude:: boards/mimxrt1010_evk.conf
+             :caption: boards/mimxrt1010_evk.conf
+             :language: cfg
+             :encoding: ISO-8859-1
+             :start-after: # Memory
+
+        - :Dynamic Memory Pool:
+             | left on :bgn:`16384`
+             | (:kconfig:option:`CONFIG_HEAP_MEM_POOL_SIZE`)
+
+          :Main Context:
+             | from :ign:`4096` to :brd:`3456`
+             | (:kconfig:option:`CONFIG_MAIN_STACK_SIZE`)
+
+          :Interrupt Serive Routines:
+             | from :ign:`2048` to :brd:`1024`
+             | (:kconfig:option:`CONFIG_ISR_STACK_SIZE`)
+
+          :System Worker Queue:
+             | from :ign:`1024` to :brd:`512`
+             | (:kconfig:option:`CONFIG_SYSTEM_WORKQUEUE_STACK_SIZE`)
+
+          :USB-CDC/ACM Worker Queue:
+             | from :ign:`1024` to :brd:`512`
+             | (:kconfig:option:`CONFIG_USB_WORKQUEUE_STACK_SIZE`)
+
+          :USB-CDC/ACM Ring Buffer:
+             | from :ign:`1024` to :brd:`512`
+             | (:kconfig:option:`CONFIG_USB_CDC_ACM_RINGBUF_SIZE`)
+
+   With this :u:`heuristically determined memory configuration`, the main
+   functions of this :emphasis:`"simple"` example can be used. One exception
+   is the shell command :console:`gnss single`. The subsequent function call
+   stack may grow to a point where the reduced ISR or main stack overflows
+   and, in the absence of further Zephyr functionality, the CPU simply stops
+   in a :u:`critical exception – with no visible notification to the user`.
+   This is a very dynamic effect and difficult to predict,
+   :strong:`but it happens very often`.
+
 Example console session
 =======================
 

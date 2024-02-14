@@ -73,7 +73,11 @@ int main(void) {
 		return 0;
 	}
 
+#if IS_ENABLED(CONFIG_LOG)
 	LOG_INF("GNSS Device is ready!");
+#else
+	printk("GNSS Device is ready!\n");
+#endif
 
 	while(true) {
 		k_msleep(1000);
