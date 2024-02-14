@@ -26,3 +26,8 @@
 		ubxlib-uart0 = &arduino_serial;
 	};
 };
+
+&arduino_serial {
+	status = "okay";
+	current-speed = <9600>;
+};
