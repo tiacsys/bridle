@@ -42,6 +42,7 @@ common:
     - nucleo_f413zh
     - nucleo_f746zg
     - nucleo_f767zi
+    - nucleo_l496zg
     - picoboy
     - rpi_pico
     - rpi_pico_w
