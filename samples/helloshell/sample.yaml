@@ -33,6 +33,10 @@ common:
     - mimxrt1010_evk
     - mimxrt1060_evk
     - mimxrt1060_evkb
+    - mimxrt1170_evk_cm4
+    - mimxrt1170_evk_cm7
+    - mimxrt1170_evkb_cm4
+    - mimxrt1170_evkb_cm7
     - nucleo_f303re
     - nucleo_f401re
     - nucleo_f413zh
