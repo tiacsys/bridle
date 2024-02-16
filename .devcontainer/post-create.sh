@@ -14,4 +14,4 @@ west bridle-export
 
 
 pip3 install --upgrade --requirement zephyr/scripts/requirements.txt
-pip3 install --upgrade --requirement bridle/scripts/requirements.txt
+pip3 install --upgrade --requirement $REPO_NAME/scripts/requirements.txt
