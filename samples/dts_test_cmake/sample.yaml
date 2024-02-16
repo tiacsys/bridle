@@ -1,0 +1,53 @@
+sample:
+  description: Check that I2C in the DTS is correct
+  name: dts
+common:
+  build_only: true
+  build_on_all: true
+tests:
+  grove.base.v2:
+    depends_on: arduino_gpio
+    filter: dt_nodelabel_enabled("grove_laced_if_v2") and
+            dt_nodelabel_enabled("grove_d0_header") and
+            dt_nodelabel_enabled("grove_d2_header") and
+            dt_nodelabel_enabled("grove_d3_header") and
+            dt_nodelabel_enabled("grove_d4_header") and
+            dt_nodelabel_enabled("grove_d5_header") and
+            dt_nodelabel_enabled("grove_d6_header") and
+            dt_nodelabel_enabled("grove_d7_header") and
+            dt_nodelabel_enabled("grove_d8_header") and
+            dt_nodelabel_enabled("grove_a0_header") and
+            dt_nodelabel_enabled("grove_a1_header") and
+            dt_nodelabel_enabled("grove_a2_header") and
+            dt_nodelabel_enabled("grove_a3_header") and
+            dt_nodelabel_enabled("grove_uart_header") and
+            dt_nodelabel_enabled("grove_i2c_header")
+    platform_allow:
+      nucleo_f303re
+      nucleo_f401re
+    extra_args: SHIELD=seeed_grove_base_v2
+  grove.base.v2.arduino:
+    # May be skipped if the board has at least one of the Ardunio standard
+    # interfaces UART, I2c or SPI disabled at the time.
+    depends_on: arduino_gpio
+    filter: dt_nodelabel_enabled("grove_laced_if_v2") and
+            dt_nodelabel_enabled("arduino_header") and
+            dt_nodelabel_enabled("grove_gpios") and
+            dt_nodelabel_enabled("arduino_serial") and
+            dt_nodelabel_enabled("grove_serial") and
+            dt_nodelabel_enabled("arduino_i2c") and
+            dt_nodelabel_enabled("grove_i2c") and
+            dt_nodelabel_enabled("arduino_spi") and
+            dt_nodelabel_enabled("grove_spi")
+    platform_allow:
+      nucleo_f303re
+      nucleo_f401re
+    extra_args: SHIELD=seeed_grove_base_v2
+  grove_pwms.base.v2:
+    depends_on: arduino_gpio
+    filter: dt_nodelabel_enabled("grove_laced_if_v2") and
+            dt_nodelabel_enabled("grove_pwms")
+    platform_allow:
+      nucleo_f303re
+      nucleo_f401re
+    extra_args: SHIELD=seeed_grove_base_v2
