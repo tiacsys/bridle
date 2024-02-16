@@ -1,0 +1,22 @@
+sample:
+  description: Check that I2C in the DTS is correct
+  name: dts
+tests:
+  sample.basic.dts.i2c:
+    tags:
+      - i2c
+      - devicetree
+    integration_platforms:
+      - nucleo_f401re
+      - mimxrt1060_evkb
+      - qemu_cortex_m3
+    extra_args:
+      - CONF_FILE="prj.conf"
+    harness: pytest
+    harness_config:
+      pytest_root:
+        - "pytest/test_i2c.py"
+    platform_allow:
+      - nucleo_f401re
+      - mimxrt1060_evkb
+    timeout: 300
