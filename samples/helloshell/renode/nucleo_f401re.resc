@@ -1,0 +1,22 @@
+
+:name: NUCLEO_F401RE
+:description: This script is prepared to run Zephyr on a NUCLEO-F401RE board.
+
+$name?="NUCLEO_F401RE"
+
+using sysbus
+
+set zephyr_elf @/projects/playground/build/zephyr/zephyr.elf
+
+mach create $name
+machine LoadPlatformDescription @/projects/playground/bridle/samples/helloshell/renode/nucleo_f401re.repl
+:machine LoadPlatformDescription @${CURDIR}/renode/nucleo_f401re.repl
+showAnalyzer sysbus.usart2
+
+macro reset
+"""
+    sysbus LoadELF $zephyr_elf
+
+"""
+
+runMacro $reset
