@@ -1,0 +1,20 @@
+sample:
+  description: Robot Framework sample to test uart and led on a device
+  name: robot2 tests
+common:
+  tags: introduction
+  integration_platforms:
+    - nucleo_f303re
+    - nucleo_f401re
+    - mimxrt1060_evkb
+tests:
+  bridle.samples.robot2:
+    harness: robot2
+    platform_allow:
+      - nucleo_f401re
+      - mimxrt1060_evkb
+    timeout: 300
+    tags:
+      - test_framework
+      - robot
+      - shell

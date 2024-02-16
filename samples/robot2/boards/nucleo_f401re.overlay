@@ -1,0 +1,18 @@
+/*
+ * Copyright (c) 2021-2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * disable unsupported components or components with issues
+ *
+ */
+
+/* FLEXPWM not routed to LED on this EVK revision, thus why board DTS
+ * disables &flexpwm2_pwm3 but neither related &pwmleds node nor alias. */
+
+/ {
+	aliases {
+		/delete-property/ pwm-led0;
+	};
+
+	/delete-node/ pwmleds;
+};
