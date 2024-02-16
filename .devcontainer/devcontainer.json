@@ -7,6 +7,7 @@
 		// See https://github.com/zephyrproject-rtos/docker-image/releases
 		"args": { "ZEPHYR_TAG": "v0.26.5" }
 	},
+	"runArgs": [ "--network", "host"],
 	// Needed for USB devices in container
 	"privileged": true,
 	"postCreateCommand": "bash .devcontainer/post-create.sh /workspace ${localWorkspaceFolderBasename}",
