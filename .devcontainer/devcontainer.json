@@ -5,7 +5,7 @@
 		"dockerfile": "Dockerfile",
 		// Specify version for Zephyr Container
 		// See https://github.com/zephyrproject-rtos/docker-image/releases
-		"args": { "ZEPHYR_TAG": "v0.26.5" }
+		"args": { "ZEPHYR_TAG": "v0.26.7" }
 	},
 	// Needed for USB devices in container
 	"privileged": true,
