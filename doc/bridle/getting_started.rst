@@ -3,10 +3,10 @@
 Getting started
 ###############
 
-To quickly get started with |BRIDLE|, use the
-:ref:`Getting Started Assistant <gs_assistant>` to set up your development
-environment. Alternatively, check the :ref:`gs_installing` section for
-instructions on setting up your environment manually.
+To quickly get started with |BRIDLE|, use the :ref:`Getting Started Assistant
+<gs_assistant>` to set up your development environment. Alternatively, check the
+:ref:`gs_installing` section for instructions on setting up your environment
+manually. To set up your system for using Bridle with Nix, see :ref:`gs_nix`.
 
 We recommend using [t.b.d.] for building your applications. See
 :ref:`gs_programming` for the download links and instructions. In case you
@@ -25,7 +25,7 @@ start developing!
    gs_recommended_versions
    gs_assistant
    gs_installing
+   gs_nix
    gs_programming
    gs_testing
    gs_modifying
-
