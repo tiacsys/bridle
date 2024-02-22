@@ -1,0 +1,24 @@
+# SPDX-FileCopyrightText: Copyright (c) 2023 Carl Zeiss Meditec AG
+# SPDX-FileCopyrightText: Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+# Top-level configuration file for Stepper motor drivers.
+
+menuconfig STEPPER
+	bool "Stepper motor drivers"
+	help
+	  Enable stepper motor driver configuration.
+
+if STEPPER
+
+module = STEPPER
+module-str = stepper
+source "subsys/logging/Kconfig.template.log_config"
+
+config STEPPER_INIT_PRIORITY
+	int "Stepper motor init priority"
+	default 90
+	help
+	  System initialization priority for stepper motor drivers.
+
+endif
