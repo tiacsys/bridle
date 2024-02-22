@@ -57,5 +57,7 @@
         packages.west2nix = inputs.west2nix.packages.${system}.default;
 
         devShells.default = callPackage ./shell.nix { };
+
+        packages.doc = callPackage ./doc.nix { };
       }));
 }
