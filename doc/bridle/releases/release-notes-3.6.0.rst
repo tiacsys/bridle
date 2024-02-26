@@ -39,8 +39,8 @@ For more details, see: :ref:`repos_and_revs`.
      - Tag
    * - `tiac-bridle`_
      -
-     - main
-     -
+     - v3.6-branch
+     - v3.6.0-rc1
    * - | `tiac-ubxlib`_
        | (`u-blox-ubxlib`_)
      - | geographiclib
@@ -91,9 +91,9 @@ For more details, see: :ref:`repos_and_revs`.
        | tinycrypt
        | trusted-firmware-a
        | trusted-firmware-m
-     - | tiacsys/main
-       | (main)
-     -
+     - | tiacsys/v3.6-branch
+       | (v3.6-branch)
+     - v3.6.0
 
 Supported boards
 ****************
