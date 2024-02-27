@@ -259,6 +259,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`205` - [FCR] Bump to Zephyr v3.6
 * :github:`202` - [FER] Make the u-blox library GNSS example fit for demonstration
 * :github:`200` - [FCR] Support for MCUXpresso IDE (Arm GNU Toolchain)
 * :github:`198` - [FCR] Support for STM32CubeCLT (GNU tools for STM32)
