@@ -4,16 +4,16 @@ group-filter = ["-babblesim"]
 [[manifest.projects]]
 name = "ubxlib"
 url = "https://github.com/tiacsys/ubxlib"
-revision = "373f57933ba2fb9fbdd8166fe1d9db79a372a334"
+revision = "3537ea286e9e5ed88818b6a2eda04a93484e9e03"
 path = "modules/lib/ubxlib"
 
 [manifest.projects.nix]
-hash = "sha256-zv058Sz4+c4vJJe+dtqJ8B1vbTfxPym5r1nH1gyXB+U="
+hash = "sha256-U5MzTFexIGGy4ttvf7GBQ6W/p+uGTwFKrIvY+lYhZIg="
 
 [[manifest.projects]]
 name = "zephyr"
 url = "https://github.com/tiacsys/zephyr"
-revision = "e2d504bd2390a68981781b29db7572cc26f9188c"
+revision = "6c93afc3d2572a8f3f4aed0c81d80176f6bbb2ff"
 clone-depth = 5000
 west-commands = "scripts/west-commands.yml"
 
@@ -21,7 +21,7 @@ west-commands = "scripts/west-commands.yml"
 west-commands-path = "scripts/west_commands"
 
 [manifest.projects.nix]
-hash = "sha256-klB4g70S577aBrgRgxXpsxpb56Gj+p78/ivyCRhnZts="
+hash = "sha256-WsAK7oFvYPPU1zIxelnfARKj82XdtJt5ndKOTaXJZrY="
 
 [[manifest.projects]]
 name = "canopennode"
