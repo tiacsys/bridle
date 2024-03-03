@@ -58,13 +58,13 @@ Building and Running
          INFO    - JOBS: 4
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1569/1570 tiac_magpie               tests/drivers/pwm/pwm_api/drivers.pwm              :bgn:`PASSED` (device: DT04BNT1, 9.057s)
-         INFO    - 1570/1570 tiac_magpie               tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback  :brd:`FAILED` Failed (device: DT04BNT1, 3.347s)
+         INFO    - 1569/1570 tiac_magpie               tests/drivers/pwm/pwm_api/drivers.pwm              :bgn:`PASSED` (device: DT04BNT1, 9.097s)
+         INFO    - 1570/1570 tiac_magpie               tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback  :brd:`FAILED` Failed (device: DT04BNT1, 3.357s)
          INFO    - :byl:`.../twister-out/tiac_magpie/tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback/handler.log`
 
          INFO    - 1782 test scenarios (1570 test instances) selected, 1568 configurations skipped (1568 by static filter, 0 at runtime).
-         INFO    - :brd:`1 of 1570` test configurations passed (50.00%), :brd:`1` failed, :bbk:`0` errored, :byl:`1568` skipped with :bbk:`0` warnings in :bbk:`61.91 seconds`
-         INFO    - In total 10 test cases were executed, 10948 skipped on 1 out of total 638 platforms (0.16%)
+         INFO    - :brd:`1 of 1570` test configurations passed (50.00%), :brd:`1` failed, :bbk:`0` errored, :byl:`1568` skipped with :bbk:`0` warnings in :bbk:`62.74 seconds`
+         INFO    - In total 10 test cases were executed, 10987 skipped on 1 out of total 640 platforms (0.16%)
          INFO    - :bgn:`2` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
@@ -81,10 +81,10 @@ Building and Running
          INFO    - -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
          INFO    - The following issues were found (showing the top 10 items):
          INFO    - 1) tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback on tiac_magpie failed (Failed)
-         INFO    - 
+         INFO    -
          INFO    - To rerun the tests, call twister using the following commandline:
          INFO    - west twister -p <PLATFORM> -s <TEST ID>, for example:
-         INFO    - 
+         INFO    -
          INFO    - west twister -p tiac_magpie -s tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback
          INFO    - or with west:
          INFO    - west build -p -b tiac_magpie -T tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback

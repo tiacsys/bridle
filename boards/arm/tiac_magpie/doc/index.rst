@@ -522,10 +522,10 @@ with a single call to Twister.
          INFO    - JOBS: 4
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - Total complete: :bgn:`1827/1827`  100%  skipped: :byl:`1686`, failed:    :bbk:`0`, error:    :bbk:`0`
-         INFO    - 2039 test scenarios (1827 test instances) selected, 1686 configurations skipped (1660 by static filter, 26 at runtime).
-         INFO    - :bgn:`141 of 1827` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1686` skipped with :bbk:`0` warnings in :bbk:`1773.27 seconds`
-         INFO    - In total 1379 test cases were executed, 9823 skipped on 1 out of total 638 platforms (0.16%)
+         INFO    - Total complete: :bgn:`1883/1883`  100%  skipped: :byl:`1742`, failed:    :bbk:`0`, error:    :bbk:`0`
+         INFO    - 2095 test scenarios (1883 test instances) selected, 1742 configurations skipped (1660 by static filter, 26 at runtime).
+         INFO    - :bgn:`141 of 1883` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1742` skipped with :bbk:`0` warnings in :bbk:`1818.94 seconds`
+         INFO    - In total 1379 test cases were executed, 9918 skipped on 1 out of total 640 platforms (0.16%)
          INFO    - :bgn:`141` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:

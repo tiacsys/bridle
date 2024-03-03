@@ -59,15 +59,15 @@ Building and Running
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
          INFO    - 1565/1570 tiac_magpie               tests/drivers/spi/spi_loopback/drivers.spi.loopback.lpspi.async.unset :byl:`SKIPPED` (runtime filter)
-         INFO    - 1566/1570 tiac_magpie               tests/drivers/spi/spi_loopback/drivers.spi.loopback.internal :byl:`SKIPPED` (runtime filter)
-         INFO    - 1567/1570 tiac_magpie               tests/drivers/spi/spi_loopback/drivers.spi.loopback.lpspi.dma :byl:`SKIPPED` (runtime filter)
-         INFO    - 1568/1570 tiac_magpie               tests/drivers/spi/spi_loopback/drivers.spi.loopback.lpspi.dma.async.unset :byl:`SKIPPED` (runtime filter)
-         INFO    - 1569/1570 tiac_magpie               tests/drivers/spi/dt_spec/drivers.spi.dt_spec      :bgn:`PASSED` (device: DT04BNT1, 3.171s)
-         INFO    - 1570/1570 tiac_magpie               tests/drivers/spi/spi_loopback/drivers.spi.loopback :bgn:`PASSED` (device: DT04BNT1, 2.428s)
+         INFO    - 1566/1570 tiac_magpie               tests/drivers/spi/spi_loopback/drivers.spi.loopback.lpspi.dma.async.unset :byl:`SKIPPED` (runtime filter)
+         INFO    - 1567/1570 tiac_magpie               tests/drivers/spi/spi_loopback/drivers.spi.loopback.internal :byl:`SKIPPED` (runtime filter)
+         INFO    - 1568/1570 tiac_magpie               tests/drivers/spi/spi_loopback/drivers.spi.loopback.lpspi.dma :byl:`SKIPPED` (runtime filter)
+         INFO    - 1569/1570 tiac_magpie               tests/drivers/spi/dt_spec/drivers.spi.dt_spec      :bgn:`PASSED` (device: DT04BNT1, 3.197s)
+         INFO    - 1570/1570 tiac_magpie               tests/drivers/spi/spi_loopback/drivers.spi.loopback :bgn:`PASSED` (device: DT04BNT1, 2.457s)
 
          INFO    - 1782 test scenarios (1570 test instances) selected, 1568 configurations skipped (1564 by static filter, 4 at runtime).
-         INFO    - :bgn:`2 of 1570` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1568` skipped with :bbk:`0` warnings in :bbk:`36.99 seconds`
-         INFO    - In total 2 test cases were executed, 10955 skipped on 1 out of total 638 platforms (0.16%)
+         INFO    - :bgn:`2 of 1570` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1568` skipped with :bbk:`0` warnings in :bbk:`36.98 seconds`
+         INFO    - In total 2 test cases were executed, 10994 skipped on 1 out of total 640 platforms (0.16%)
          INFO    - :bgn:`2` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:

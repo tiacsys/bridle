@@ -62,8 +62,8 @@ Building and Running
          INFO    - :byl:`.../twister-out/tiac_magpie/tests/drivers/adc/adc_api/drivers.adc/build.log`
 
          INFO    - 1782 test scenarios (1570 test instances) selected, 1569 configurations skipped (1569 by static filter, 0 at runtime).
-         INFO    - :bgn:`0 of 1570` test configurations passed (0.00%), :bbk:`0` failed, :brd:`1` errored, :byl:`1569` skipped with :bbk:`0` warnings in :bbk:`13.96 seconds`
-         INFO    - In total 6 test cases were executed, 10952 skipped on 1 out of total 638 platforms (0.16%)
+         INFO    - :bgn:`0 of 1570` test configurations passed (0.00%), :bbk:`0` failed, :brd:`1` errored, :byl:`1569` skipped with :bbk:`0` warnings in :bbk:`15.03 seconds`
+         INFO    - In total 6 test cases were executed, 10991 skipped on 1 out of total 640 platforms (0.16%)
          INFO    - :bgn:`0` test configurations executed on platforms, :brd:`1` test configurations were only built.
 
          Hardware distribution summary:
@@ -80,10 +80,10 @@ Building and Running
          INFO    - -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
          INFO    - The following issues were found (showing the top 10 items):
          INFO    - 1) tests/drivers/adc/adc_api/drivers.adc on tiac_magpie error (Build failure)
-         INFO    - 
+         INFO    -
          INFO    - To rerun the tests, call twister using the following commandline:
          INFO    - west twister -p <PLATFORM> -s <TEST ID>, for example:
-         INFO    - 
+         INFO    -
          INFO    - west twister -p tiac_magpie -s tests/drivers/adc/adc_api/drivers.adc
          INFO    - or with west:
          INFO    - west build -p -b tiac_magpie -T tests/drivers/adc/adc_api/drivers.adc

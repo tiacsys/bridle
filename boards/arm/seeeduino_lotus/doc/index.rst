@@ -522,14 +522,14 @@ Hello Shell with USB-CDC/ACM Console
          Zephyr version 3.5.0
 
          uart:~$ bridle version
-         Bridle version 3.5.0
+         Bridle version 3.5.1
 
          uart:~$ bridle version long
-         Bridle version 3.5.0.0
+         Bridle version 3.5.1.0
 
          uart:~$ bridle info
          Zephyr: 3.5.0
-         Bridle: 3.5.0
+         Bridle: 3.5.1
 
          uart:~$ device list
          devices:
@@ -546,6 +546,7 @@ Hello Shell with USB-CDC/ACM Console
          - nvmctrl@41004000 (READY)
          - sercom@42001400 (READY)
          - tcc@42002800 (READY)
+         - tcc@42002400 (READY)
          - tcc@42002000 (READY)
 
          uart:~$ history
@@ -623,11 +624,11 @@ Hello Shell with USB-CDC/ACM Console
 
       .. code-block:: console
 
-         uart:~$ flash read nvmctrl@41004000 17d34 40
-         00017D34: 73 65 65 65 64 75 69 6e  6f 5f 6c 6f 74 75 73 00 |seeeduin o_lotus.|
-         00017D44: 48 65 6c 6c 6f 20 57 6f  72 6c 64 21 20 49 27 6d |Hello Wo rld! I'm|
-         00017D54: 20 54 48 45 20 53 48 45  4c 4c 20 66 72 6f 6d 20 | THE SHE LL from |
-         00017D64: 25 73 0a 00 69 6c 6c 65  67 61 6c 20 6f 70 74 69 |%s..ille gal opti|
+         uart:~$ flash read nvmctrl@41004000 18130 40
+         00018130: 73 65 65 65 64 75 69 6e  6f 5f 6c 6f 74 75 73 00 |seeeduin o_lotus.|
+         00018140: 48 65 6c 6c 6f 20 57 6f  72 6c 64 21 20 49 27 6d |Hello Wo rld! I'm|
+         00018150: 20 54 48 45 20 53 48 45  4c 4c 20 66 72 6f 6d 20 | THE SHE LL from |
+         00018160: 25 73 0a 00 69 6c 6c 65  67 61 6c 20 6f 70 74 69 |%s..ille gal opti|
 
          uart:~$ flash read nvmctrl@41004000 3c000 40
          0003C000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff |........ ........|

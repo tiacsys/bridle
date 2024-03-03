@@ -72,15 +72,15 @@ the network interface, and has received an IPv4 address by typing on Linux host:
    3 packets transmitted, 3 received, 0% packet loss, time 2052ms
    rtt min/avg/max/mdev = 0.261/0.276/0.303/0.019 ms
 
-   $ nmap 192.168.10.197
-   Starting Nmap 7.80 ( https://nmap.org ) at 2023-10-30 13:29 CET
-   Nmap scan report for 192.168.10.196
-   Host is up (0.0011s latency).
-   Not shown: 999 closed ports
+   $ nmap -Pn 192.168.10.197
+   Starting Nmap 7.80 ( https://nmap.org ) at 2024-03-04 09:03 CET
+   Nmap scan report for 192.168.10.197
+   Host is up (0.00055s latency).
+   Not shown: 999 filtered ports
    PORT   STATE SERVICE
    23/tcp open  telnet
 
-   Nmap done: 1 IP address (1 host up) scanned in 2.44 seconds
+   Nmap done: 1 IP address (1 host up) scanned in 6.62 seconds
 
 At this point you should be able to connect via ``telnet`` over the network.
 On your Linux host:
@@ -103,7 +103,7 @@ or ``kernel version``.
    Zephyr version 3.5.0
 
    ~$ bridle version
-   Bridle version 3.5.0
+   Bridle version 3.5.1
 
    ~$ device list
    devices:

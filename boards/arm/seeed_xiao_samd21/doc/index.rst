@@ -363,27 +363,29 @@ Hello Shell with USB-CDC/ACM Console
          Zephyr version 3.5.0
 
          uart:~$ bridle version
-         Bridle version 3.5.0
+         Bridle version 3.5.1
 
          uart:~$ bridle version long
-         Bridle version 3.5.0.0
+         Bridle version 3.5.1.0
 
          uart:~$ bridle info
          Zephyr: 3.5.0
-         Bridle: 3.5.0
+         Bridle: 3.5.1
 
          uart:~$ device list
          devices:
          - eic@40001800 (READY)
          - gpio@41004480 (READY)
          - gpio@41004400 (READY)
-         - cdc-acm-uart-0 (READY)
+         - snippet_cdc_acm_console_uart (READY)
          - sercom@42001800 (READY)
+         - tc@42003800 (DISABLED)
+         - tc@42003000 (DISABLED)
          - adc@42004000 (READY)
          - dac@42004800 (READY)
+         - nvmctrl@41004000 (READY)
          - sercom@42001000 (READY)
          - tcc@42002800 (READY)
-         - nvmctrl@41004000 (READY)
 
          uart:~$ history
          [  0] history
@@ -460,11 +462,11 @@ Hello Shell with USB-CDC/ACM Console
 
       .. code-block:: console
 
-         uart:~$ flash read nvmctrl@41004000 13630 40
-         00013630: 61 6f 5f 73 61 6d 64 32  31 00 48 65 6c 6c 6f 20 |ao_samd2 1.Hello |
-         00013640: 57 6f 72 6c 64 21 20 49  27 6d 20 54 48 45 20 53 |World! I 'm THE S|
-         00013650: 48 45 4c 4c 20 66 72 6f  6d 20 25 73 0a 00 69 6c |HELL fro m %s..il|
-         00013660: 6c 65 67 61 6c 20 6f 70  74 69 6f 6e 20 2d 2d 20 |legal op tion -- |
+         uart:~$ flash read nvmctrl@41004000 1802c 40
+         0001802C: 73 65 65 65 64 5f 78 69  61 6f 5f 73 61 6d 64 32 |seeed_xi ao_samd2|
+         0001803C: 31 00 48 65 6c 6c 6f 20  57 6f 72 6c 64 21 20 49 |1.Hello  World! I|
+         0001804C: 27 6d 20 54 48 45 20 53  48 45 4c 4c 20 66 72 6f |'m THE S HELL fro|
+         0001805C: 6d 20 25 73 0a 00 69 6c  6c 65 67 61 6c 20 6f 70 |m %s..il legal op|
 
          uart:~$ flash read nvmctrl@41004000 3c000 40
          0003C000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff |........ ........|

@@ -79,6 +79,12 @@ prompt. All shell commands are available and would looks like:
      shell      :Useful, not Unix-like shell commands.
      timer      :Timer commands
 
+   uart:~$ ⇥
+     adc        bridle     clear      dac        device     devmem     flash
+     gpio       hello      help       history    hwinfo     i2c        kernel
+     led        log        pwm        regulator  rem        resize     retval
+     sensor     shell      timer
+
    uart:~$ hello -h
    hello - say hello
    uart:~$ hello
@@ -92,14 +98,14 @@ prompt. All shell commands are available and would looks like:
    Zephyr version 3.5.0
 
    uart:~$ bridle version
-   Bridle version 3.5.0
+   Bridle version 3.5.1
 
    uart:~$ bridle version long
-   Bridle version 3.5.0.0
+   Bridle version 3.5.1.0
 
    uart:~$ bridle info
    Zephyr: 3.5.0
-   Bridle: 3.5.0
+   Bridle: 3.5.1
 
    uart:~$ device list
    devices:
@@ -194,6 +200,16 @@ Simple ADC Acquisition
    Channel ID: 9
    Resolution: 12
 
+Oneshot Timer Alarm from RTC
+============================
+
+.. rubric:: Let trigger alarm 0 on RTC after one second.
+
+.. code-block:: console
+
+   uart:~$ timer oneshot rtc@40002800 0 1000000
+   rtc@40002800: Alarm triggered
+
 Simple Flash Access
 ===================
 
@@ -201,11 +217,51 @@ Simple Flash Access
 
 .. code-block:: console
 
-   uart:~$ flash read flash-controller@40023c00 15be0 40
-   00015BE0: 00 00 00 00 00 00 00 00  00 10 00 00 00 30 74 69 |........ .....0ti|
-   00015BF0: 61 63 5f 6d 61 67 70 69  65 00 48 65 6c 6c 6f 20 |ac_magpi e.Hello |
-   00015C00: 57 6f 72 6c 64 21 20 49  27 6d 20 54 48 45 20 53 |World! I 'm THE S|
-   00015C10: 48 45 4c 4c 20 66 72 6f  6d 20 25 73 0a 00 69 6c |HELL fro m %s..il|
+   uart:~$ flash read flash-controller@40023c00 15d7e 40
+   00015D7E: 74 69 61 63 5f 6d 61 67  70 69 65 00 48 65 6c 6c |tiac_mag pie.Hell|
+   00015D8E: 6f 20 57 6f 72 6c 64 21  20 49 27 6d 20 54 48 45 |o World!  I'm THE|
+   00015D9E: 20 53 48 45 4c 4c 20 66  72 6f 6d 20 25 73 0a 00 | SHELL f rom %s..|
+   00015DAE: 69 6c 6c 65 67 61 6c 20  6f 70 74 69 6f 6e 20 2d |illegal  option -|
+
+.. rubric:: Test Write/Read/Erase
+
+.. code-block:: console
+
+   uart:~$ flash read flash-controller@40023c00 3c000 40
+   0003C000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff |........ ........|
+   0003C010: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff |........ ........|
+   0003C020: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff |........ ........|
+   0003C030: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff |........ ........|
+
+   uart:~$ flash test flash-controller@40023c00 3c000 1000 2
+   Erase OK.
+   Write OK.
+   Verified OK.
+   Erase OK.
+   Write OK.
+   Verified OK.
+   Erase-Write-Verify test done.
+
+   uart:~$ flash read flash-controller@40023c00 3c000 40
+   0003C000: 00 01 02 03 04 05 06 07  08 09 0a 0b 0c 0d 0e 0f |........ ........|
+   0003C010: 10 11 12 13 14 15 16 17  18 19 1a 1b 1c 1d 1e 1f |........ ........|
+   0003C020: 20 21 22 23 24 25 26 27  28 29 2a 2b 2c 2d 2e 2f | !"#$%&' ()*+,-./|
+   0003C030: 30 31 32 33 34 35 36 37  38 39 3a 3b 3c 3d 3e 3f |01234567 89:;<=>?|
+
+   uart:~$ flash page_info 3c000
+   Page for address 0x3c000:
+   start offset: 0x20000
+   size: 131072
+   index: 4
+
+   uart:~$ flash erase flash-controller@40023c00 3c000 1000
+   Erase success.
+
+   uart:~$ flash read flash-controller@40023c00 3c000 40
+   0003C000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff |........ ........|
+   0003C010: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff |........ ........|
+   0003C020: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff |........ ........|
+   0003C030: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff |........ ........|
 
 Simple I2C Operations
 =====================

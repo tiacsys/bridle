@@ -415,28 +415,30 @@ Hello Shell with USB-CDC/ACM Console
          Zephyr version 3.5.0
 
          uart:~$ bridle version
-         Bridle version 3.5.0
+         Bridle version 3.5.1
 
          uart:~$ bridle version long
-         Bridle version 3.5.0.0
+         Bridle version 3.5.1.0
 
          uart:~$ bridle info
          Zephyr: 3.5.0
-         Bridle: 3.5.0
+         Bridle: 3.5.1
 
          uart:~$ device list
          devices:
          - eic@40001800 (READY)
          - gpio@41004480 (READY)
          - gpio@41004400 (READY)
-         - cdc-acm-uart-0 (READY)
+         - snippet_cdc_acm_console_uart (READY)
          - sercom@42001c00 (READY)
          - sercom@42000800 (READY)
+         - tc@42003800 (DISABLED)
+         - tc@42003000 (DISABLED)
          - adc@42004000 (READY)
          - dac@42004800 (READY)
+         - nvmctrl@41004000 (READY)
          - sercom@42001400 (READY)
          - tcc@42002800 (READY)
-         - nvmctrl@41004000 (READY)
 
          uart:~$ history
          [  0] history
@@ -513,11 +515,11 @@ Hello Shell with USB-CDC/ACM Console
 
       .. code-block:: console
 
-         uart:~$ flash read nvmctrl@41004000 136b0 40
-         000136B0: 61 72 64 75 69 6e 6f 5f  7a 65 72 6f 00 48 65 6c |arduino_ zero.Hel|
-         000136C0: 6c 6f 20 57 6f 72 6c 64  21 20 49 27 6d 20 54 48 |lo World ! I'm TH|
-         000136D0: 45 20 53 48 45 4c 4c 20  66 72 6f 6d 20 25 73 0a |E SHELL  from %s.|
-         000136E0: 00 69 6c 6c 65 67 61 6c  20 6f 70 74 69 6f 6e 20 |.illegal  option |
+         uart:~$ flash read nvmctrl@41004000 180a8 40
+         000180A8: 61 72 64 75 69 6e 6f 5f  7a 65 72 6f 00 48 65 6c |arduino_ zero.Hel|
+         000180B8: 6c 6f 20 57 6f 72 6c 64  21 20 49 27 6d 20 54 48 |lo World ! I'm TH|
+         000180C8: 45 20 53 48 45 4c 4c 20  66 72 6f 6d 20 25 73 0a |E SHELL  from %s.|
+         000180D8: 00 69 6c 6c 65 67 61 6c  20 6f 70 74 69 6f 6e 20 |.illegal  option |
 
          uart:~$ flash read nvmctrl@41004000 3c000 40
          0003C000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff |........ ........|

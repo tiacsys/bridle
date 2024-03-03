@@ -504,14 +504,14 @@ Hello Shell with USB-CDC/ACM Console
          Zephyr version 3.5.0
 
          uart:~$ bridle version
-         Bridle version 3.5.0
+         Bridle version 3.5.1
 
          uart:~$ bridle version long
-         Bridle version 3.5.0.0
+         Bridle version 3.5.1.0
 
          uart:~$ bridle info
          Zephyr: 3.5.0
-         Bridle: 3.5.0
+         Bridle: 3.5.1
 
          uart:~$ device list
          devices:
@@ -605,11 +605,11 @@ Hello Shell with USB-CDC/ACM Console
 
       .. code-block:: console
 
-         uart:~$ flash read nvmctrl@41004000 17d34 40
-         00017D34: 73 65 65 65 64 75 69 6e  6f 5f 63 6d 30 00 48 65 |seeeduin o_cm0.He|
-         00017D44: 6c 6c 6f 20 57 6f 72 6c  64 21 20 49 27 6d 20 54 |llo Worl d! I'm T|
-         00017D54: 48 45 20 53 48 45 4c 4c  20 66 72 6f 6d 20 25 73 |HE SHELL  from %s|
-         00017D64: 0a 00 69 6c 6c 65 67 61  6c 20 6f 70 74 69 6f 6e |..illega l option|
+         uart:~$ flash read nvmctrl@41004000 180e8 40
+         000180E8: 73 65 65 65 64 75 69 6e  6f 5f 63 6d 30 00 48 65 |seeeduin o_cm0.He|
+         000180F8: 6c 6c 6f 20 57 6f 72 6c  64 21 20 49 27 6d 20 54 |llo Worl d! I'm T|
+         00018108: 48 45 20 53 48 45 4c 4c  20 66 72 6f 6d 20 25 73 |HE SHELL  from %s|
+         00018118: 0a 00 69 6c 6c 65 67 61  6c 20 6f 70 74 69 6f 6e |..illega l option|
 
          uart:~$ flash read nvmctrl@41004000 3c000 40
          0003C000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff |........ ........|

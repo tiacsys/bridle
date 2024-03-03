@@ -60,11 +60,11 @@ Building and Running
          INFO    - Added initial list of jobs to queue
          INFO    - 1568/1570 tiac_magpie               tests/drivers/uart/uart_async_api/drivers.uart.async_api :byl:`SKIPPED` (runtime filter)
          INFO    - 1569/1570 tiac_magpie               tests/drivers/uart/uart_async_api/drivers.uart.async_api.lpuart :byl:`SKIPPED` (runtime filter)
-         INFO    - 1570/1570 tiac_magpie               tests/drivers/console/drivers.console.uart         :bgn:`PASSED` (device: DT04BNT1, 2.460s)
+         INFO    - 1570/1570 tiac_magpie               tests/drivers/console/drivers.console.uart         :bgn:`PASSED` (device: DT04BNT1, 2.450s)
 
          INFO    - 1782 test scenarios (1570 test instances) selected, 1569 configurations skipped (1567 by static filter, 2 at runtime).
-         INFO    - :bgn:`1 of 1570` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1569` skipped with :bbk:`0` warnings in :bbk:`27.06 seconds`
-         INFO    - In total 1 test cases were executed, 10957 skipped on 1 out of total 638 platforms (0.16%)
+         INFO    - :bgn:`1 of 1570` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1569` skipped with :bbk:`0` warnings in :bbk:`27.10 seconds`
+         INFO    - In total 1 test cases were executed, 10996 skipped on 1 out of total 640 platforms (0.16%)
          INFO    - :bgn:`1` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:

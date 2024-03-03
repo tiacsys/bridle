@@ -19,14 +19,14 @@
          Zephyr version 3.5.0
 
          uart:~$ bridle version
-         Bridle version 3.5.0
+         Bridle version 3.5.1
 
          uart:~$ bridle version long
-         Bridle version 3.5.0.0
+         Bridle version 3.5.1.0
 
          uart:~$ bridle info
          Zephyr: 3.5.0
-         Bridle: 3.5.0
+         Bridle: 3.5.1
 
          uart:~$ device list
          devices:
@@ -196,11 +196,11 @@
 
       .. code-block:: console
 
-         uart:~$ flash read flash-controller@18000000 1603c 40
-         0001603C: 77 61 76 65 73 68 61 72  65 5f 72 70 32 30 34 30 |waveshar e_rp2040|
-         0001604C: 5f 67 65 65 6b 00 48 65  6c 6c 6f 20 57 6f 72 6c |_geek.He llo Worl|
-         0001605C: 64 21 20 49 27 6d 20 54  48 45 20 53 48 45 4c 4c |d! I'm T HE SHELL|
-         0001606C: 20 66 72 6f 6d 20 25 73  0a 00 69 6c 6c 65 67 61 | from %s ..illega|
+         uart:~$ flash read flash-controller@18000000 16840 40
+         00016840: 77 61 76 65 73 68 61 72  65 5f 72 70 32 30 34 30 |waveshar e_rp2040|
+         00016850: 5f 67 65 65 6b 00 48 65  6c 6c 6f 20 57 6f 72 6c |_geek.He llo Worl|
+         00016860: 64 21 20 49 27 6d 20 54  48 45 20 53 48 45 4c 4c |d! I'm T HE SHELL|
+         00016870: 20 66 72 6f 6d 20 25 73  0a 00 69 6c 6c 65 67 61 | from %s ..illega|
 
          uart:~$ flash read flash-controller@18000000 3c000 40
          0003C000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff |........ ........|

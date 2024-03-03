@@ -19,22 +19,23 @@
          Zephyr version 3.5.0
 
          uart:~$ bridle version
-         Bridle version 3.5.0
+         Bridle version 3.5.1
 
          uart:~$ bridle version long
-         Bridle version 3.5.0.0
+         Bridle version 3.5.1.0
 
          uart:~$ bridle info
          Zephyr: 3.5.0
-         Bridle: 3.5.0
+         Bridle: 3.5.1
 
          uart:~$ device list
          devices:
          - reset-controller@4000c000 (READY)
-         - cdc-acm-uart-0 (READY)
+         - snippet_cdc_acm_console_uart (READY)
          - uart@40038000 (READY)
          - uart@40034000 (READY)
          - timer@40054000 (READY)
+         - pio@50200000 (READY)
          - gpio@40014000 (READY)
          - adc@4004c000 (READY)
          - flash-controller@18000000 (READY)
@@ -117,11 +118,11 @@
 
       .. code-block:: console
 
-         uart:~$ flash read flash-controller@18000000 14f64 40
-         00014F64: 77 61 76 65 73 68 61 72  65 5f 72 70 32 30 34 30 |waveshar e_rp2040|
-         00014F74: 5f 65 74 68 00 48 65 6c  6c 6f 20 57 6f 72 6c 64 |_eth.Hel lo World|
-         00014F84: 21 20 49 27 6d 20 54 48  45 20 53 48 45 4c 4c 20 |! I'm TH E SHELL |
-         00014F94: 66 72 6f 6d 20 25 73 0a  00 69 6c 6c 65 67 61 6c |from %s. .illegal|
+         uart:~$ flash read flash-controller@18000000 16850 40
+         00016850: 77 61 76 65 73 68 61 72  65 5f 72 70 32 30 34 30 |waveshar e_rp2040|
+         00016860: 5f 65 74 68 00 48 65 6c  6c 6f 20 57 6f 72 6c 64 |_eth.Hel lo World|
+         00016870: 21 20 49 27 6d 20 54 48  45 20 53 48 45 4c 4c 20 |! I'm TH E SHELL |
+         00016880: 66 72 6f 6d 20 25 73 0a  00 69 6c 6c 65 67 61 6c |from %s. .illegal|
 
          uart:~$ flash read flash-controller@18000000 3c000 40
          0003C000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff |........ ........|

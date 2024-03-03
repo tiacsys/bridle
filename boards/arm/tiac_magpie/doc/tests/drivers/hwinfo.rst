@@ -51,11 +51,11 @@ Building and Running
          INFO    - JOBS: 4
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1570/1570 tiac_magpie               tests/drivers/hwinfo/api/drivers.hwinfo.api        :bgn:`PASSED` (device: DT04BNT1, 2.464s)
+         INFO    - 1570/1570 tiac_magpie               tests/drivers/hwinfo/api/drivers.hwinfo.api        :bgn:`PASSED` (device: DT04BNT1, 2.414s)
 
          INFO    - 1782 test scenarios (1570 test instances) selected, 1569 configurations skipped (1569 by static filter, 0 at runtime).
-         INFO    - :bgn:`1 of 1570` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1569` skipped with :bbk:`0` warnings in :bbk:`23.18 seconds`
-         INFO    - In total 4 test cases were executed, 10954 skipped on 1 out of total 638 platforms (0.16%)
+         INFO    - :bgn:`1 of 1570` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1569` skipped with :bbk:`0` warnings in :bbk:`22.47 seconds`
+         INFO    - In total 4 test cases were executed, 10993 skipped on 1 out of total 640 platforms (0.16%)
          INFO    - :bgn:`1` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:

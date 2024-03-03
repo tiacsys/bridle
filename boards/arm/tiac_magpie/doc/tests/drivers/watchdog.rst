@@ -52,12 +52,12 @@ Building and Running
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
          INFO    - 1568/1570 tiac_magpie               tests/drivers/watchdog/wdt_basic_api/drivers.watchdog :byl:`SKIPPED` (runtime filter)
-         INFO    - 1569/1570 tiac_magpie               tests/drivers/watchdog/wdt_basic_api/drivers.watchdog.stm32iwdg :bgn:`PASSED` (device: DT04BNT1, 4.487s)
-         INFO    - 1570/1570 tiac_magpie               tests/drivers/watchdog/wdt_basic_api/drivers.watchdog.stm32wwdg :bgn:`PASSED` (device: DT04BNT1, 2.508s)
+         INFO    - 1569/1570 tiac_magpie               tests/drivers/watchdog/wdt_basic_api/drivers.watchdog.stm32iwdg :bgn:`PASSED` (device: DT04BNT1, 4.494s)
+         INFO    - 1570/1570 tiac_magpie               tests/drivers/watchdog/wdt_basic_api/drivers.watchdog.stm32wwdg :bgn:`PASSED` (device: DT04BNT1, 2.487s)
 
          INFO    - 1782 test scenarios (1570 test instances) selected, 1568 configurations skipped (1567 by static filter, 1 at runtime).
-         INFO    - :bgn:`2 of 1570` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1568` skipped with :bbk:`0` warnings in :bbk:`39.39 seconds`
-         INFO    - In total 2 test cases were executed, 10956 skipped on 1 out of total 638 platforms (0.16%)
+         INFO    - :bgn:`2 of 1570` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1568` skipped with :bbk:`0` warnings in :bbk:`40.13 seconds`
+         INFO    - In total 2 test cases were executed, 10995 skipped on 1 out of total 640 platforms (0.16%)
          INFO    - :bgn:`2` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
