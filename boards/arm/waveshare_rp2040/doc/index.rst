@@ -596,9 +596,12 @@ Here is an example of building and flashing the
    :zephyr-app: zephyr/samples/basic/blinky
    :board: waveshare_rp2040_plus
    :build-dir: waveshare_rp2040
-   :goals: flash
-   :flash-args: -r jlink
+   :goals: build
    :west-args: -p
+
+.. code-block:: bash
+
+   west flash -r jlink -d build/waveshare_rp2040
 
 Using OpenOCD
 -------------
@@ -631,13 +634,16 @@ Here is an example of building and flashing the
    :zephyr-app: zephyr/samples/basic/blinky
    :board: waveshare_rp2040_plus
    :build-dir: waveshare_rp2040
-   :goals: flash
+   :goals: build
    :west-args: -p
-   :flash-args: -r openocd
    :gen-args: \
               -DOPENOCD=/usr/local/bin/openocd \
               -DOPENOCD_DEFAULT_PATH=/usr/local/share/openocd/scripts \
               -DWAVESHARE_RP2040_DEBUG_ADAPTER=picoprobe
+
+.. code-block:: bash
+
+   west flash -r openocd -d build/waveshare_rp2040
 
 Set the environment variables :strong:`OPENOCD` to
 :file:`/usr/local/bin/openocd` and :strong:`OPENOCD_DEFAULT_PATH` to
@@ -697,14 +703,17 @@ Here is an example for debugging the
    :board: waveshare_rp2040_plus
    :build-dir: waveshare_rp2040
    :maybe-skip-config:
-   :goals: debug
+   :goals: build
    :west-args: -p
-   :flash-args: -r openocd
    :gen-args: \
               -DOPENOCD=/usr/local/bin/openocd \
               -DOPENOCD_DEFAULT_PATH=/usr/local/share/openocd/scripts \
               -DWAVESHARE_RP2040_DEBUG_ADAPTER=raspberrypi-swd
    :host-os: unix
+
+.. code-block:: bash
+
+   west debug -r openocd -d build/waveshare_rp2040
 
 As with flashing, you can specify the debug adapter by specifying
 :strong:`WAVESHARE_RP2040_DEBUG_ADAPTER` at :program:`west build` time.
@@ -759,9 +768,12 @@ LED Blinky and Fade
          :board: waveshare_rp2040_one
          :build-dir: waveshare_rp2040
          :west-args: -p
-         :flash-args: -r uf2
-         :goals: flash
+         :goals: build
          :compact:
+
+      .. code-block:: bash
+
+         west flash -r uf2 -d build/waveshare_rp2040
 
       .. hint::
 
@@ -784,9 +796,12 @@ LED Blinky and Fade
          :board: waveshare_rp2040_zero
          :build-dir: waveshare_rp2040
          :west-args: -p
-         :flash-args: -r uf2
-         :goals: flash
+         :goals: build
          :compact:
+
+      .. code-block:: bash
+
+         west flash -r uf2 -d build/waveshare_rp2040
 
       .. hint::
 
@@ -809,9 +824,12 @@ LED Blinky and Fade
          :board: waveshare_rp2040_matrix
          :build-dir: waveshare_rp2040
          :west-args: -p
-         :flash-args: -r uf2
-         :goals: flash
+         :goals: build
          :compact:
+
+      .. code-block:: bash
+
+         west flash -r uf2 -d build/waveshare_rp2040
 
       .. hint::
 
@@ -834,9 +852,12 @@ LED Blinky and Fade
          :board: waveshare_rp2040_tiny
          :build-dir: waveshare_rp2040
          :west-args: -p
-         :flash-args: -r uf2
-         :goals: flash
+         :goals: build
          :compact:
+
+      .. code-block:: bash
+
+         west flash -r uf2 -d build/waveshare_rp2040
 
       .. hint::
 
@@ -859,9 +880,12 @@ LED Blinky and Fade
          :board: waveshare_rp2040_eth
          :build-dir: waveshare_rp2040
          :west-args: -p
-         :flash-args: -r uf2
-         :goals: flash
+         :goals: build
          :compact:
+
+      .. code-block:: bash
+
+         west flash -r uf2 -d build/waveshare_rp2040
 
       .. hint::
 
@@ -880,9 +904,12 @@ LED Blinky and Fade
          :board: waveshare_rp2040_lcd_0_96
          :build-dir: waveshare_rp2040
          :west-args: -p
-         :flash-args: -r uf2
-         :goals: flash
+         :goals: build
          :compact:
+
+      .. code-block:: bash
+
+         west flash -r uf2 -d build/waveshare_rp2040
 
       .. rubric:: LCD Backlight LED Blinky by PWM
 
@@ -893,9 +920,12 @@ LED Blinky and Fade
          :board: waveshare_rp2040_lcd_0_96
          :build-dir: waveshare_rp2040
          :west-args: -p
-         :flash-args: -r uf2
-         :goals: flash
+         :goals: build
          :compact:
+
+      .. code-block:: bash
+
+         west flash -r uf2 -d build/waveshare_rp2040
 
       .. rubric:: LCD Backlight LED Fade by PWM
 
@@ -906,9 +936,12 @@ LED Blinky and Fade
          :board: waveshare_rp2040_lcd_0_96
          :build-dir: waveshare_rp2040
          :west-args: -p
-         :flash-args: -r uf2
-         :goals: flash
+         :goals: build
          :compact:
+
+      .. code-block:: bash
+
+         west flash -r uf2 -d build/waveshare_rp2040
 
    .. group-tab:: RP2040-Plus
 
@@ -921,9 +954,12 @@ LED Blinky and Fade
          :board: waveshare_rp2040_plus
          :build-dir: waveshare_rp2040
          :west-args: -p
-         :flash-args: -r uf2
-         :goals: flash
+         :goals: build
          :compact:
+
+      .. code-block:: bash
+
+         west flash -r uf2 -d build/waveshare_rp2040
 
       .. rubric:: Green User LED Blinky by PWM
 
@@ -934,9 +970,12 @@ LED Blinky and Fade
          :board: waveshare_rp2040_plus
          :build-dir: waveshare_rp2040
          :west-args: -p
-         :flash-args: -r uf2
-         :goals: flash
+         :goals: build
          :compact:
+
+      .. code-block:: bash
+
+         west flash -r uf2 -d build/waveshare_rp2040
 
       .. rubric:: Green User LED Fade by PWM
 
@@ -947,9 +986,12 @@ LED Blinky and Fade
          :board: waveshare_rp2040_plus
          :build-dir: waveshare_rp2040
          :west-args: -p
-         :flash-args: -r uf2
-         :goals: flash
+         :goals: build
          :compact:
+
+      .. code-block:: bash
+
+         west flash -r uf2 -d build/waveshare_rp2040
 
    .. group-tab:: RP2040-Geek
 
@@ -978,9 +1020,12 @@ LED Blinky and Fade
          :shield: loopback_test
          :build-dir: waveshare_rp2040
          :west-args: -p
-         :flash-args: -r uf2
-         :goals: flash
+         :goals: build
          :compact:
+
+      .. code-block:: bash
+
+         west flash -r uf2 -d build/waveshare_rp2040
 
       .. rubric:: External LED Blinky by PWM
 
@@ -992,9 +1037,12 @@ LED Blinky and Fade
          :shield: loopback_test
          :build-dir: waveshare_rp2040
          :west-args: -p
-         :flash-args: -r uf2
-         :goals: flash
+         :goals: build
          :compact:
+
+      .. code-block:: bash
+
+         west flash -r uf2 -d build/waveshare_rp2040
 
       .. rubric:: External LED Fade by PWM
 
@@ -1006,9 +1054,12 @@ LED Blinky and Fade
          :shield: loopback_test
          :build-dir: waveshare_rp2040
          :west-args: -p
-         :flash-args: -r uf2
-         :goals: flash
+         :goals: build
          :compact:
+
+      .. code-block:: bash
+
+         west flash -r uf2 -d build/waveshare_rp2040
 
       .. rubric:: External LED Switch ON/OFF by External Button
 
@@ -1020,9 +1071,12 @@ LED Blinky and Fade
          :shield: loopback_test
          :build-dir: waveshare_rp2040
          :west-args: -p
-         :flash-args: -r uf2
-         :goals: flash
+         :goals: build
          :compact:
+
+      .. code-block:: bash
+
+         west flash -r uf2 -d build/waveshare_rp2040
 
 Hello Shell with USB-CDC/ACM Console
 ====================================
@@ -1038,9 +1092,12 @@ Hello Shell with USB-CDC/ACM Console
          :board: waveshare_rp2040_one
          :build-dir: waveshare_rp2040
          :west-args: -p -S usb-console
-         :flash-args: -r uf2
-         :goals: flash
+         :goals: build
          :compact:
+
+      .. code-block:: bash
+
+         west flash -r uf2 -d build/waveshare_rp2040
 
       .. include:: /boards/arm/waveshare_rp2040/doc/rp2040-one/helloshell.rsti
 
@@ -1053,9 +1110,12 @@ Hello Shell with USB-CDC/ACM Console
          :board: waveshare_rp2040_zero
          :build-dir: waveshare_rp2040
          :west-args: -p -S usb-console
-         :flash-args: -r uf2
-         :goals: flash
+         :goals: build
          :compact:
+
+      .. code-block:: bash
+
+         west flash -r uf2 -d build/waveshare_rp2040
 
       .. include:: /boards/arm/waveshare_rp2040/doc/rp2040-zero/helloshell.rsti
 
@@ -1068,9 +1128,12 @@ Hello Shell with USB-CDC/ACM Console
          :board: waveshare_rp2040_matrix
          :build-dir: waveshare_rp2040
          :west-args: -p -S usb-console
-         :flash-args: -r uf2
-         :goals: flash
+         :goals: build
          :compact:
+
+      .. code-block:: bash
+
+         west flash -r uf2 -d build/waveshare_rp2040
 
       .. include:: /boards/arm/waveshare_rp2040/doc/rp2040-matrix/helloshell.rsti
 
@@ -1083,9 +1146,12 @@ Hello Shell with USB-CDC/ACM Console
          :board: waveshare_rp2040_tiny
          :build-dir: waveshare_rp2040
          :west-args: -p -S usb-console
-         :flash-args: -r uf2
-         :goals: flash
+         :goals: build
          :compact:
+
+      .. code-block:: bash
+
+         west flash -r uf2 -d build/waveshare_rp2040
 
       .. include:: /boards/arm/waveshare_rp2040/doc/rp2040-tiny/helloshell.rsti
 
@@ -1098,9 +1164,12 @@ Hello Shell with USB-CDC/ACM Console
          :board: waveshare_rp2040_eth
          :build-dir: waveshare_rp2040
          :west-args: -p -S usb-console
-         :flash-args: -r uf2
-         :goals: flash
+         :goals: build
          :compact:
+
+      .. code-block:: bash
+
+         west flash -r uf2 -d build/waveshare_rp2040
 
       .. include:: /boards/arm/waveshare_rp2040/doc/rp2040-eth/helloshell.rsti
 
@@ -1113,9 +1182,12 @@ Hello Shell with USB-CDC/ACM Console
          :board: waveshare_rp2040_lcd_0_96
          :build-dir: waveshare_rp2040
          :west-args: -p -S usb-console
-         :flash-args: -r uf2
-         :goals: flash
+         :goals: build
          :compact:
+
+      .. code-block:: bash
+
+         west flash -r uf2 -d build/waveshare_rp2040
 
       .. include:: /boards/arm/waveshare_rp2040/doc/rp2040-lcd-0.96/helloshell.rsti
 
@@ -1128,9 +1200,12 @@ Hello Shell with USB-CDC/ACM Console
          :board: waveshare_rp2040_plus@16mb
          :build-dir: waveshare_rp2040
          :west-args: -p -S usb-console
-         :flash-args: -r uf2
-         :goals: flash
+         :goals: build
          :compact:
+
+      .. code-block:: bash
+
+         west flash -r uf2 -d build/waveshare_rp2040
 
       .. include:: /boards/arm/waveshare_rp2040/doc/rp2040-plus/helloshell.rsti
 
@@ -1144,9 +1219,12 @@ Hello Shell with USB-CDC/ACM Console
          :shield: loopback_test
          :build-dir: waveshare_rp2040
          :west-args: -p -S usb-console
-         :flash-args: -r uf2
-         :goals: flash
+         :goals: build
          :compact:
+
+      .. code-block:: bash
+
+         west flash -r uf2 -d build/waveshare_rp2040
 
       .. include:: /boards/arm/waveshare_rp2040/doc/rp2040-geek/helloshell.rsti
 
@@ -1176,9 +1254,12 @@ and |RP2040-Geek| board. They will be built with activated USB-CDC/ACM console.
          :board: waveshare_rp2040_lcd_0_96
          :build-dir: waveshare_rp2040
          :west-args: -p -S usb-console
-         :flash-args: -r uf2
-         :goals: flash
+         :goals: build
          :compact:
+
+      .. code-block:: bash
+
+         west flash -r uf2 -d build/waveshare_rp2040
 
       .. list-table::
          :align: center
@@ -1203,9 +1284,12 @@ and |RP2040-Geek| board. They will be built with activated USB-CDC/ACM console.
          :board: waveshare_rp2040_lcd_0_96
          :build-dir: waveshare_rp2040
          :west-args: -p -S usb-console
-         :flash-args: -r uf2
-         :goals: flash
+         :goals: build
          :compact:
+
+      .. code-block:: bash
+
+         west flash -r uf2 -d build/waveshare_rp2040
 
    .. group-tab:: RP2040-Geek
 
@@ -1225,9 +1309,12 @@ and |RP2040-Geek| board. They will be built with activated USB-CDC/ACM console.
          :board: waveshare_rp2040_geek
          :build-dir: waveshare_rp2040
          :west-args: -p -S usb-console
-         :flash-args: -r uf2
-         :goals: flash
+         :goals: build
          :compact:
+
+      .. code-block:: bash
+
+         west flash -r uf2 -d build/waveshare_rp2040
 
       .. list-table::
          :align: center
@@ -1252,9 +1339,12 @@ and |RP2040-Geek| board. They will be built with activated USB-CDC/ACM console.
          :board: waveshare_rp2040_geek
          :build-dir: waveshare_rp2040
          :west-args: -p -S usb-console
-         :flash-args: -r uf2
-         :goals: flash
+         :goals: build
          :compact:
+
+      .. code-block:: bash
+
+         west flash -r uf2 -d build/waveshare_rp2040
 
 References
 **********
