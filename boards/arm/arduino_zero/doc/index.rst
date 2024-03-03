@@ -287,8 +287,10 @@ Flashing
 #. Build the Zephyr kernel and the :ref:`zephyr:hello_world` sample application:
 
    .. zephyr-app-commands::
-      :zephyr-app: samples/hello_world
+      :zephyr-app: zephyr/samples/hello_world
       :board: arduino_zero
+      :build-dir: arduino_zero
+      :west-args: -p
       :goals: build
       :compact:
 
@@ -317,11 +319,9 @@ Flashing
 
 #. Flash the image:
 
-   .. zephyr-app-commands::
-      :zephyr-app: samples/hello_world
-      :board: arduino_zero
-      :goals: flash
-      :compact:
+   .. code-block:: bash
+
+      west flash -d build/arduino_zero
 
    You should see "Hello World! arduino_zero" in your terminal.
 
@@ -338,7 +338,9 @@ Debugging
    .. zephyr-app-commands::
       :app: zephyr/samples/hello_world
       :board: arduino_zero
+      :build-dir: arduino_zero
       :gen-args: -DBOARD_FLASH_RUNNER=openocd
+      :west-args: -p
       :goals: debug
       :compact:
 
@@ -353,6 +355,8 @@ LED Blinky
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/blinky
    :board: arduino_zero
+   :build-dir: arduino_zero
+   :west-args: -p
    :goals: flash
    :compact:
 
@@ -362,6 +366,8 @@ LED Fade
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/fade_led
    :board: arduino_zero
+   :build-dir: arduino_zero
+   :west-args: -p
    :goals: flash
    :compact:
 
@@ -371,6 +377,8 @@ Basic Threads
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/threads
    :board: arduino_zero
+   :build-dir: arduino_zero
+   :west-args: -p
    :goals: flash
    :compact:
 
@@ -380,7 +388,8 @@ Hello Shell with USB-CDC/ACM Console
 .. zephyr-app-commands::
    :app: bridle/samples/helloshell
    :board: arduino_zero
-   :west-args: -S usb-console
+   :build-dir: arduino_zero
+   :west-args: -p -S usb-console
    :goals: flash
    :compact:
 
