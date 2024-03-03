@@ -378,6 +378,8 @@ Flashing
    .. zephyr-app-commands::
       :app: zephyr/samples/hello_world
       :board: seeeduino_cm0
+      :build-dir: seeeduino_cm0
+      :west-args: -p
       :goals: build
       :compact:
 
@@ -406,11 +408,9 @@ Flashing
 
 #. Flash the image:
 
-   .. zephyr-app-commands::
-      :app: zephyr/samples/hello_world
-      :board: seeeduino_cm0
-      :goals: flash
-      :compact:
+   .. code-block:: bash
+
+      west flash -d build/seeeduino_cm0
 
    You should see "Hello World! seeeduino_cm0" in your terminal.
 
@@ -429,7 +429,9 @@ Debugging
    .. zephyr-app-commands::
       :app: zephyr/samples/hello_world
       :board: seeeduino_cm0
+      :build-dir: seeeduino_cm0
       :gen-args: -DBOARD_FLASH_RUNNER=openocd
+      :west-args: -p
       :goals: debug
       :compact:
 
@@ -444,6 +446,8 @@ LED Blinky
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/blinky
    :board: seeeduino_cm0
+   :build-dir: seeeduino_cm0
+   :west-args: -p
    :goals: flash
    :compact:
 
@@ -453,6 +457,8 @@ LED Fade
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/fade_led
    :board: seeeduino_cm0
+   :build-dir: seeeduino_cm0
+   :west-args: -p
    :goals: flash
    :compact:
 
@@ -462,6 +468,8 @@ Basic Threads
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/threads
    :board: seeeduino_cm0
+   :build-dir: seeeduino_cm0
+   :west-args: -p
    :goals: flash
    :compact:
 
@@ -471,7 +479,8 @@ Hello Shell with USB-CDC/ACM Console
 .. zephyr-app-commands::
    :app: bridle/samples/helloshell
    :board: seeeduino_cm0
-   :west-args: -S usb-console
+   :build-dir: seeeduino_cm0
+   :west-args: -p -S usb-console
    :goals: flash
    :compact:
 
