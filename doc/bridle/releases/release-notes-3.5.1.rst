@@ -11,7 +11,7 @@ product development.
 Highlights
 **********
 
-* :brd:`NOT YET, tbd.`
+* Support for the Waveshare RP2040 Geek board, too.
 
 .. note:: See the changelog and readme files in the component repositories
    for a detailed description of changes.
@@ -78,12 +78,10 @@ For more details, see: :ref:`repos_and_revs`.
        | trusted-firmware-m
      - | tiacsys/v3.5-branch
        | (v3.5-branch)
-     - v3.5.1
+     - v3.5.0
 
 Supported boards
 ****************
-
-:brd:`NOT YET, tbd.`
 
 * Arduino/Genuino Zero
 * Seeed Studio XIAO SAMD21 (Seeeduino XIAO)
@@ -95,8 +93,6 @@ Supported boards
 Supported shields
 *****************
 
-:brd:`NOT YET, tbd.`
-
 * Seeed Studio Grove Interconnect Shields
 * Grove Button Shields
 * Grove LED Shields
@@ -104,16 +100,15 @@ Supported shields
 Supported snippets
 ******************
 
-:brd:`NOT YET, tbd.`
-
 * USB Console Snippet (usb-console)
 * CAN timing adjustments (can-timing-adj)
 
 Change log
 **********
 
-:brd:`NOT YET, tbd.`
-
+* When ``getopt()`` is active (``CONFIG_SHELL_GETOPT=y``), the Zephyr shell
+  is not parsing command handler to print help message. It must be done
+  explicitly inside the command implementation.
 * All tests for *Grove Interconnect, Button, and LED Shields* converted to be
   more generic and guided by a list of well-known integration platforms
   currently supported by Bridle. This leads to a super-matrix of test suites
@@ -140,16 +135,19 @@ Build Infrastructure
 
 Take over the new build principles from Zephyr:
 
-:brd:`NOT YET, tbd.`
+* Update Github actions to their latest versions to fix warnings about
+  Node.js 16 actions are deprecated.
 
-* tbd.
-* tbd.
-* tbd.
+  * actions/labeler@v5
+  * actions/stale@v9
+  * actions/cache@v4
+  * actions/checkout@v4
+  * actions/github-script@v7
+  * actions/upload-artifact@v4
+  * mikepenz/action-junit-report@v4
 
 Documentation
 =============
-
-:brd:`NOT YET, tbd.`
 
 1. Update all output messages in documentation to be in sync with the upcoming
    Bridle version v3.5.1, based on Zephyr v3.5 (samples and tests).
@@ -159,6 +157,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`160` - [HW] Waveshare RP2040-Geek
 * :github:`152` - [FER] Support filtering by board vendor
 * :github:`151` - [FER] Harmonize Grove PWM mapping over all SAMD21 based Arduino boards
 * :github:`148` - [HW] Seeeduino Cortex-M0+ board support
