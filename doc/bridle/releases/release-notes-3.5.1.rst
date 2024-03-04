@@ -1,7 +1,7 @@
 .. _bridle_release_notes_351:
 
-|BRIDLE| 3.5.1 Release Notes (Working draft)
-############################################
+|BRIDLE| 3.5.1 Release Notes
+############################
 
 This project demonstrate the integration of |TIAC| support in open
 source projects, like the Zephyr RTOS, with libraries and source code
@@ -35,7 +35,7 @@ For more details, see: :ref:`repos_and_revs`.
    * - | `tiac-zephyr`_
        | (`zephyr-core`_)
      - | canopennode
-       | chre
+       | chre (optional)
        | cmsis
        | edtt
        | fatfs
@@ -70,9 +70,9 @@ For more details, see: :ref:`repos_and_revs`.
        | open-amp
        | openthread
        | picolibc
-       | psa-arch-tests
+       | psa-arch-tests (optional)
        | segger
-       | tf-m-tests
+       | tf-m-tests (optional)
        | tinycrypt
        | trusted-firmware-a
        | trusted-firmware-m
