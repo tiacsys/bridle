@@ -32,12 +32,12 @@ Drivers
 
       .. code-block:: console
 
-         $ west twister \
-             --verbose --jobs 4 --inline-logs \
-             --enable-size-report --platform-reports \
-             --device-testing --hardware-map map.yaml \
-             --alt-config-root bridle/zephyr/alt-config \
-             --testsuite-root zephyr/tests --tag entropy
+         west twister \
+              --verbose --jobs 4 --inline-logs \
+              --enable-size-report --platform-reports \
+              --device-testing --hardware-map map.yaml \
+              --alt-config-root bridle/zephyr/alt-config \
+              --testsuite-root zephyr/tests --tag entropy
 
    .. group-tab:: Results
 
@@ -87,12 +87,12 @@ Cryptography
 
       .. code-block:: console
 
-         $ west twister \
-             --verbose --jobs 4 --inline-logs \
-             --enable-size-report --platform-reports \
-             --device-testing --hardware-map map.yaml \
-             --alt-config-root bridle/zephyr/alt-config \
-             --testsuite-root zephyr/tests --tag random
+         west twister \
+              --verbose --jobs 4 --inline-logs \
+              --enable-size-report --platform-reports \
+              --device-testing --hardware-map map.yaml \
+              --alt-config-root bridle/zephyr/alt-config \
+              --testsuite-root zephyr/tests --tag random
 
    .. group-tab:: Results
 
