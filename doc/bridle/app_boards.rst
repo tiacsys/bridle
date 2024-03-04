@@ -56,6 +56,8 @@ Also see the :ref:`boards` section in this documentation.
 |                   +---------------------------------------+----------------------------------+
 |                   | :ref:`seeed_xiao_samd21`              | ``seeed_xiao_samd21``            |
 |                   +---------------------------------------+----------------------------------+
+|                   | :ref:`seeeduino_cm0`                  | ``seeeduino_cm0``                |
+|                   +---------------------------------------+----------------------------------+
 |                   | :ref:`seeeduino_lotus`                | ``seeeduino_lotus``              |
 +-------------------+---------------------------------------+----------------------------------+
 | RP2040            | :ref:`waveshare_rp2040`               | | ``waveshare_rp2040_one``       |
@@ -66,6 +68,7 @@ Also see the :ref:`boards` section in this documentation.
 |                   |                                       | | ``waveshare_rp2040_lcd_0_96``  |
 |                   |                                       | | ``waveshare_rp2040_plus``      |
 |                   |                                       | | ``waveshare_rp2040_plus@16mb`` |
+|                   |                                       | | ``waveshare_rp2040_geek``      |
 +-------------------+---------------------------------------+----------------------------------+
 | STM32F777NI       | :ref:`tiac_magpie_board`              | ``tiac_magpie``                  |
 +-------------------+---------------------------------------+----------------------------------+
@@ -82,15 +85,17 @@ The following shields are defined in the :file:`bridle/boards/shields/` folder.
 | Common for testing  | :ref:`loopback_test_shield`      | | ``loopback_test``         |
 |                     |                                  | | ``loopback_test_tmph``    |
 +---------------------+----------------------------------+-----------------------------+
-| :ref:`grove_shield` | :ref:`grove_base_shield_v1`      | ``seeed_grove_base_v1``     |
+| :ref:`grove_shield` | :ref:`grove_base_shield_v2`      | ``seeed_grove_base_v2``     |
 |                     +----------------------------------+-----------------------------+
-|                     | :ref:`grove_base_shield_v2`      | ``seeed_grove_base_v2``     |
+|                     | :ref:`grove_base_shield_v1`      | ``seeed_grove_base_v1``     |
 |                     +----------------------------------+-----------------------------+
 |                     | :ref:`grove_base_shield_xiao_v1` | ``seeed_grove_xiao_v1``     |
 |                     +----------------------------------+-----------------------------+
 |                     | :ref:`grove_rpipico_shield_v1`   | ``seeed_grove_rpipico_v1``  |
 |                     +----------------------------------+-----------------------------+
 |                     | :ref:`grove_button_shield`       | ``grove_btn_d[0…31]``       |
+|                     +----------------------------------+-----------------------------+
+|                     | :ref:`grove_led_shield`          | ``grove_led_d[0…31]``       |
 |                     +----------------------------------+-----------------------------+
 |                     | :ref:`x_grove_testbed_shield`    | ``x_grove_testbed``         |
 +---------------------+----------------------------------+-----------------------------+
