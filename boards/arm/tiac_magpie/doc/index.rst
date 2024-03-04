@@ -448,7 +448,7 @@ line inside your local workspace directory:
 
 .. code-block:: console
 
-   $ rm -f map.yaml && cd ./zephyr && \
+   rm -f map.yaml && cd ./zephyr && \
        ./scripts/twister --generate-hardware-map ../map.yaml && \
        cd - && editor map.yaml
 
@@ -484,25 +484,25 @@ with a single call to Twister.
 
       .. code-block:: console
 
-         $ west twister --jobs 4 \
-             --enable-size-report --platform-reports \
-             --device-testing --hardware-map map.yaml \
-             --extra-args SHIELD="loopback_test_tmph" \
-             --alt-config-root bridle/zephyr/alt-config \
-             --testsuite-root bridle/tests \
-             --testsuite-root zephyr/tests \
-             --tag arm --tag vector_relay \
-             --tag kernel --exclude-tag security \
-             --tag bridle \
-             --tag hwinfo \
-             --tag random \
-             --tag entropy \
-             --tag watchdog \
-             --tag counter \
-             --tag gpio \
-             --tag spi \
-             --tag uart \
-             --tag can
+         west twister --jobs 4 \
+              --enable-size-report --platform-reports \
+              --device-testing --hardware-map map.yaml \
+              --extra-args SHIELD="loopback_test_tmph" \
+              --alt-config-root bridle/zephyr/alt-config \
+              --testsuite-root bridle/tests \
+              --testsuite-root zephyr/tests \
+              --tag arm --tag vector_relay \
+              --tag kernel --exclude-tag security \
+              --tag bridle \
+              --tag hwinfo \
+              --tag random \
+              --tag entropy \
+              --tag watchdog \
+              --tag counter \
+              --tag gpio \
+              --tag spi \
+              --tag uart \
+              --tag can
 
       .. attention:: This will take more than a quarter of an hour.
 
@@ -551,7 +551,17 @@ The following are valid:
    :maxdepth: 1
    :glob:
 
-   tests/**/*
+   tests/arch/arm
+   tests/drivers/can
+   tests/drivers/counter
+   tests/drivers/entropy
+   tests/drivers/gpio
+   tests/drivers/hwinfo
+   tests/drivers/spi
+   tests/drivers/uart
+   tests/drivers/watchdog
+   tests/os/kernel
+   tests/os/bridle
 
 .. ...........................................................................
 

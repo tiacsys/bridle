@@ -28,12 +28,12 @@ Building and Running
 
       .. code-block:: console
 
-         $ west twister \
-             --verbose --jobs 4 --inline-logs \
-             --enable-size-report --platform-reports \
-             --device-testing --hardware-map map.yaml \
-             --alt-config-root bridle/zephyr/alt-config \
-             --testsuite-root zephyr/tests --tag kernel --exclude-tag security
+         west twister \
+              --verbose --jobs 4 --inline-logs \
+              --enable-size-report --platform-reports \
+              --device-testing --hardware-map map.yaml \
+              --alt-config-root bridle/zephyr/alt-config \
+              --testsuite-root zephyr/tests --tag kernel --exclude-tag security
 
    .. group-tab:: Results
 
