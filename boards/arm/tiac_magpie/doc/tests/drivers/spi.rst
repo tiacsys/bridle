@@ -34,13 +34,13 @@ Building and Running
 
       .. code-block:: console
 
-         $ west twister \
-             --verbose --jobs 4 --inline-logs \
-             --enable-size-report --platform-reports \
-             --device-testing --hardware-map map.yaml \
-             --extra-args SHIELD="loopback_test_tmph" \
-             --alt-config-root bridle/zephyr/alt-config \
-             --testsuite-root zephyr/tests --tag spi
+         west twister \
+              --verbose --jobs 4 --inline-logs \
+              --enable-size-report --platform-reports \
+              --device-testing --hardware-map map.yaml \
+              --extra-args SHIELD="loopback_test_tmph" \
+              --alt-config-root bridle/zephyr/alt-config \
+              --testsuite-root zephyr/tests --tag spi
 
    .. group-tab:: Results
 
