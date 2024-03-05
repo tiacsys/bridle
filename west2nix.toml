@@ -4,11 +4,11 @@ group-filter = ["-babblesim"]
 [[manifest.projects]]
 name = "ubxlib"
 url = "https://github.com/tiacsys/ubxlib"
-revision = "3537ea286e9e5ed88818b6a2eda04a93484e9e03"
+revision = "c564a1ac88e62117d88277e4e74513de50a95c45"
 path = "modules/lib/ubxlib"
 
 [manifest.projects.nix]
-hash = "sha256-U5MzTFexIGGy4ttvf7GBQ6W/p+uGTwFKrIvY+lYhZIg="
+hash = "sha256-Qx9S7l0q1d6vJbqxRgyplqFr+seH/QybHYs84EN2Jbo="
 
 [[manifest.projects]]
 name = "zephyr"
