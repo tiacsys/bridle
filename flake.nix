@@ -5,7 +5,10 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
 
     zephyr = {
-      url = "github:tiacsys/zephyr/main";
+      type = "github";
+      owner = "tiacsys";
+      repo = "zephyr";
+      ref = "v3.6-branch";
       flake = false;
     };
 
