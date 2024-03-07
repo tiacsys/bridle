@@ -1,6 +1,13 @@
 /* Background colors for the different sets */
 
 :root {
+  --docset-color-theme-red: #cd5c5c;    /* IndianRed */
+  --docset-color-theme-green: #228b22;  /* ForestGreen */
+  --docset-color-theme-blue: #4169e1;   /* RoyalBlue */
+  --docset-color-theme-cyan: #48d1cc;   /* MediumTurquoise */
+  --docset-color-theme-yellow: #ffd700; /* Gold */
+  --docset-color-theme-black: #000000; /* Black */
+  --docset-color-theme-white: #ffffff; /* White */
   --docset-color-pin-fgd: #363a44;
   --docset-color-pin-bgd: #cccccc;
   --docset-color-rpi-fgd: #ffffff;

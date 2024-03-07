@@ -8,6 +8,8 @@
    :class: blue
 .. role:: yl
    :class: yellow
+.. role:: cy
+   :class: cyan
 .. role:: bk
    :class: black
 .. role:: wt
@@ -23,6 +25,8 @@
    :class: italic green
 .. role:: ibl
    :class: italic blue
+.. role:: icy
+   :class: italic cyan
 .. role:: iyl
    :class: italic yellow
 .. role:: ibk
@@ -40,6 +44,8 @@
    :class: bold green
 .. role:: bbl
    :class: bold blue
+.. role:: bcy
+   :class: bold cyan
 .. role:: byl
    :class: bold yellow
 .. role:: bbk
@@ -57,6 +63,8 @@
    :class: strikethrough green
 .. role:: sbl
    :class: strikethrough blue
+.. role:: scy
+   :class: strikethrough cyan
 .. role:: syl
    :class: strikethrough yellow
 .. role:: sbk
@@ -74,6 +82,8 @@
    :class: underline green
 .. role:: ubl
    :class: underline blue
+.. role:: ucy
+   :class: underline cyan
 .. role:: uyl
    :class: underline yellow
 .. role:: ubk
