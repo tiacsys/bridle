@@ -9,6 +9,7 @@
 #
 
 import os
+import re
 import sys
 import sphinx
 from pathlib import Path
@@ -41,55 +42,36 @@ locals().update(conf)
 # General information about the project.
 project = utils.get_projname('zephyr')
 
-# The following code tries to extract the information by reading the Makefile,
-# when Sphinx is run directly (e.g. by Read the Docs).
-try:
-    bridle_version_major = None
-    bridle_version_minor = None
-    bridle_patchlevel = None
-    bridle_extraversion = None
-    for line in open(os.path.join(BRIDLE_BASE, 'VERSION')):
-        key, val = [x.strip() for x in line.split('=', 2)]
-        if key == 'VERSION_MAJOR':
-            bridle_version_major = val
-        if key == 'VERSION_MINOR':
-            bridle_version_minor = val
-        elif key == 'PATCHLEVEL':
-            bridle_patchlevel = val
-        elif key == 'EXTRAVERSION':
-            bridle_extraversion = val
-        if (
-            bridle_version_major
-            and bridle_version_minor
-            and bridle_patchlevel
-            and bridle_extraversion
-        ):
-            break
-except Exception:
-    pass
-finally:
-    if (
-        bridle_version_major
-        and bridle_version_minor
-        and bridle_patchlevel
-        and bridle_extraversion
-        is not None
-    ):
-        bridle_version = bridle_release                 \
-                       = bridle_version_major           \
-                       + '.' + bridle_version_minor     \
-                       + '.' + bridle_patchlevel
-        if bridle_extraversion != '':
-            bridle_version = bridle_release             \
-                           = bridle_version             \
-                           + '-' + bridle_extraversion
+# parse Bridle version from 'VERSION' file
+with open(os.path.join(BRIDLE_BASE, 'VERSION')) as f:
+    m = re.match(
+        (
+            r'^VERSION_MAJOR\s*=\s*(\d+)$\n'
+            + r'^VERSION_MINOR\s*=\s*(\d+)$\n'
+            + r'^PATCHLEVEL\s*=\s*(\d+)$\n'
+            + r'^VERSION_TWEAK\s*=\s*(\d+)$\n'
+            + r'^EXTRAVERSION\s*=\s*(.*)$'
+        ),
+        f.read(),
+        re.MULTILINE,
+    )
+
+    if not m:
+        sys.stderr.write('Warning: Could not extract Bridle version.\n')
+        bridle_version = bridle_longversion = 'Unknown'
     else:
-        sys.exit('Could not extract Bridle version.')
+        major, minor, patch, tweak, extra = m.groups(1)
+        bridle_release = bridle_version = bridle_longversion = ".".join((major, minor, patch))
+        if tweak:
+            bridle_longversion += "." + tweak
+        if extra:
+            bridle_release += "-" + extra
 
 # Overview ---------------------------------------------------------------------
 
 logcfg = sphinx.util.logging.getLogger(__name__)
 logcfg.info(project + ' ' + release, color='yellow')
+logcfg.info('From Bridle {} ({})'.format(bridle_release, bridle_longversion), color='green')
 logcfg.info('Build with tags: ' + ':'.join(map(str, tags)), color='red')
 logcfg.info('BRIDLE_BASE is: "{}"'.format(BRIDLE_BASE), color='green')
 logcfg.info('ZEPHYR_BASE is: "{}"'.format(ZEPHYR_BASE), color='green')
