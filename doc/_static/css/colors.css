@@ -1,23 +1,27 @@
 .red {
-  color: IndianRed;
+  color: var(--docset-color-theme-red);
 }
 
 .green {
-  color: ForestGreen;
+  color: var(--docset-color-theme-green);
 }
 
 .blue {
-  color: RoyalBlue;
+  color: var(--docset-color-theme-blue);
+}
+
+.cyan {
+  color: var(--docset-color-theme-cyan);
 }
 
 .yellow {
-  color: Gold;
+  color: var(--docset-color-theme-yellow);
 }
 
 .black {
-  color: Black;
+  color: var(--docset-color-theme-black);
 }
 
 .white {
-  color: White;
+  color: var(--docset-color-theme-white);
 }
