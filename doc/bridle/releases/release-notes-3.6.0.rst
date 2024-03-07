@@ -11,8 +11,6 @@ product development.
 Highlights
 **********
 
-* :brd:`NOT YET, tbd.`
-
 * Add the u-blox library (**ubxlib**) and provide a simple GNSS example.
 * Add *Raspberry Pi Pico* **LCD** *Shields*.
 * Add *Raspberry Pi Pico* **LED** *Shields*.
@@ -34,71 +32,71 @@ For more details, see: :ref:`repos_and_revs`.
    :header-rows: 1
 
    * - Component
-     - Imports
+     - **Group** : *Imports*
      - Branch
      - Tag
    * - `tiac-bridle`_
      -
      - v3.6-branch
-     - v3.6.0-rc1
+     - v3.6.0
    * - | `tiac-ubxlib`_
        | (`u-blox-ubxlib`_)
-     - | geographiclib
+     - | *geographiclib*
      - | tiacsys/main
        | (main)
      -
    * - | `tiac-zephyr`_
        | (`zephyr-core`_)
-     - | canopennode
-       | chre
-       | cmsis
-       | edtt
-       | fatfs
-       | hal_altera
-       | hal_atmel
-       | hal_espressif
-       | hal_gigadevice
-       | hal_infineon
-       | hal_microchip
-       | hal_nordic
-       | hal_nuvoton
-       | hal_nxp
-       | hal_openisa
-       | hal_quicklogic
-       | hal_renesas
-       | hal_rpi_pico
-       | hal_silabs
-       | hal_st
-       | hal_stm32
-       | hal_telink
-       | hal_ti
-       | hal_xtensa
-       | libmetal
-       | liblc3
-       | littlefs
-       | loramac-node
-       | lvgl
-       | mbedtls
-       | mcuboot
-       | mipi-sys-t
-       | net-tools
-       | open-amp
-       | openthread
-       | picolibc
-       | psa-arch-tests
-       | segger
-       | tf-m-tests
-       | tinycrypt
-       | trusted-firmware-a
-       | trusted-firmware-m
+     - | *liblc3*
+       | *loramac-node*
+       | *lvgl*
+       | *mcuboot*
+       | *open-amp*
+       | *openthread*
+       | *picolibc*
+       | **hal** : *cmsis*
+       | **hal** : *hal_altera*
+       | **hal** : *hal_atmel*
+       | **hal** : *hal_espressif*
+       | **hal** : *hal_gigadevice*
+       | **hal** : *hal_infineon*
+       | **hal** : *hal_microchip*
+       | **hal** : *hal_nordic*
+       | **hal** : *hal_nuvoton*
+       | **hal** : *hal_nxp*
+       | **hal** : *hal_openisa*
+       | **hal** : *hal_quicklogic*
+       | **hal** : *hal_renesas*
+       | **hal** : *hal_rpi_pico*
+       | **hal** : *hal_silabs*
+       | **hal** : *hal_st*
+       | **hal** : *hal_stm32*
+       | **hal** : *hal_telink*
+       | **hal** : *hal_ti*
+       | **hal** : *hal_xtensa*
+       | **hal** : *libmetal*
+       | **fs** : *fatfs*
+       | **fs** : *littlefs*
+       | **tee** : *trusted-firmware-a*
+       | **tee** : *trusted-firmware-m*
+       | **crypto** : *mbedtls*
+       | **crypto** : *tinycrypt*
+       | **debug** : *mipi-sys-t*
+       | **debug** : *segger*
+       | **tools** : *edtt*
+       | **tools** : *net-tools*
+       | **optional** : *canopennode*
+       | **optional** : *chre*
+       | **optional** : *psa-arch-tests*
+       | **optional** : *tf-m-tests*
      - | tiacsys/v3.6-branch
        | (v3.6-branch)
      - v3.6.0
 
+.. note – component list fetched from 'west list -a -f "{name:24} {groups:40}"'
+
 Supported boards
 ****************
-
-:brd:`NOT YET, tbd.`
 
 * Arduino/Genuino Zero
 * PicoBoy Mini-Handheld
@@ -119,8 +117,6 @@ Supported boards
 Supported shields
 *****************
 
-:brd:`NOT YET, tbd.`
-
 * Seeed Studio Grove Interconnect Shields
 * Grove Button Shields
 * Grove LED Shields
@@ -134,16 +130,12 @@ Supported shields
 Supported snippets
 ******************
 
-:brd:`NOT YET, tbd.`
-
 * USB Console Snippet (usb-console)
 * PWM Servomotor Preset Snippet (pwm-servo)
 * CAN timing adjustments (can-timing-adj)
 
 Change log
 **********
-
-:brd:`NOT YET, tbd.`
 
 * When ``getopt()`` is active (``CONFIG_SHELL_GETOPT=y``), the Zephyr shell
   is not parsing command handler to print help message. It must be done
@@ -232,17 +224,32 @@ Build Infrastructure
 
 Take over the new build principles from Zephyr:
 
-:brd:`NOT YET, tbd.`
-
 * Use the new upstream *MIPI DBI API* for all *ILI9xxx* based displays.
-* tbd.
-* tbd.
-* tbd.
+* Take over upstream ``ci/check_compliance.py`` from Zephyr, adapt with all
+  the needs for Bridle and extend support for :ref:`external module roots
+  <zephyr:modules>` as defined by Zephyr module settings (``MODULE_EXT_ROOT``).
+* Use new ``ci/check_compliance.py`` on GitHub workflow *QA Compliance Check*
+  to do following with each PR:
+
+  * Checks various nits in added/modified files, not coverd by other
+    checks, e.g. checkpatch.pl and pylint.
+  * Checks if Emails of author and signed-off messages are consistent.
+  * Checks for conflict markers or whitespace errors.
+  * Run Git, Python and YAML linting on the commits and find issues
+    with style and syntax.
+  * Check that MAINTAINERS file parses correctly.
+  * Check that all modules have a MAINTAINERS entry.
+  * Checks introducing any unwanted properties in Devicetree Bindings.
+  * Checks introducing any new warnings/errors with Kconfig when no
+    modules are available.
+  * Checks introducing any new warnings/errors with Kconfig, the basic
+    Kconfig test, which is checking only for undefined references.
+  * Check for blocks of code or config that should be kept sorted.
+  * Check that the diff contains no binary files that are not tollerated.
+  * Check that any added image is limited in allowed size.
 
 Documentation
 =============
-
-:brd:`NOT YET, tbd.`
 
 1. All scattered links to external resources and internal references to
    sections in the various docsets (e.g. Bridle or Zephyr) were moved to
@@ -278,6 +285,7 @@ These GitHub issues were addressed since project bootstrapping:
 * :github:`162` - [HW] Raspberry Pi Pico TEST Shields
 * :github:`161` - [HW] Raspberry Pi Pico LCD Shields
 * :github:`160` - [HW] Waveshare RP2040-Geek
+* :github:`159` - [BUG] check_compliance.py needs support for Bridle's downstream modules folder
 * :github:`156` - [FCR] Add the u-blox library (ubxlib) as Zephyr module
 * :github:`155` - [FCR] Use board extensions to fix upstream declarations
 * :github:`152` - [FER] Support filtering by board vendor
