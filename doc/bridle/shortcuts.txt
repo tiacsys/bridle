@@ -1,10 +1,6 @@
 .. |TIAC| replace:: TiaC Systems
 .. |BRIDLE| replace:: Bridle
 
-.. |release| replace:: v3.6.0-rc1
-.. |release_tt| replace:: ``v3.6.0-rc1``
-.. |release_number_tt| replace:: ``3.6.0-rc1``
-
 .. External References (temporary, needs local implementation)
 
 .. |Arduino Sensor Kit| replace:: :strong:`Arduino Sensor Kit – Base`
