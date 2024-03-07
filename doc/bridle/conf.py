@@ -183,7 +183,50 @@ rst_epilog = '''
 .. include:: /shortcuts.txt
 .. include:: /versions.txt
 .. include:: /unicode.txt
-'''
+.. |release| replace:: v{release}
+.. |release_tt| replace:: ``v{release}``
+.. |release_em| replace:: *v{release}*
+.. |release_number| replace:: {release}
+.. |release_number_tt| replace:: ``{release}``
+.. |release_number_em| replace:: *{release}*
+.. |version| replace:: v{version}
+.. |version_tt| replace:: ``v{version}``
+.. |version_em| replace:: *v{version}*
+.. |version_number| replace:: {version}
+.. |version_number_tt| replace:: ``{version}``
+.. |version_number_em| replace:: *{version}*
+.. |longversion| replace:: v{longversion}
+.. |longversion_tt| replace:: ``v{longversion}``
+.. |longversion_em| replace:: *v{longversion}*
+.. |longversion_number| replace:: {longversion}
+.. |longversion_number_tt| replace:: ``{longversion}``
+.. |longversion_number_em| replace:: *{longversion}*
+.. |zephyr_release| replace:: v{zephyr_release}
+.. |zephyr_release_tt| replace:: ``v{zephyr_release}``
+.. |zephyr_release_em| replace:: *v{zephyr_release}*
+.. |zephyr_release_number| replace:: {zephyr_release}
+.. |zephyr_release_number_tt| replace:: ``{zephyr_release}``
+.. |zephyr_release_number_em| replace:: *{zephyr_release}*
+.. |zephyr_version| replace:: v{zephyr_version}
+.. |zephyr_version_tt| replace:: ``v{zephyr_version}``
+.. |zephyr_version_em| replace:: *v{zephyr_version}*
+.. |zephyr_version_number| replace:: {zephyr_version}
+.. |zephyr_version_number_tt| replace:: ``{zephyr_version}``
+.. |zephyr_version_number_em| replace:: *{zephyr_version}*
+.. |zephyr_longversion| replace:: v{zephyr_longversion}
+.. |zephyr_longversion_tt| replace:: ``v{zephyr_longversion}``
+.. |zephyr_longversion_em| replace:: *v{zephyr_longversion}*
+.. |zephyr_longversion_number| replace:: {zephyr_longversion}
+.. |zephyr_longversion_number_tt| replace:: ``{zephyr_longversion}``
+.. |zephyr_longversion_number_em| replace:: *{zephyr_longversion}*
+'''.format(
+    release = release,
+    version = version,
+    longversion = longversion,
+    zephyr_release = zephyr_release,
+    zephyr_version = zephyr_version,
+    zephyr_longversion = zephyr_longversion,
+)
 
 # Options for HTML output ------------------------------------------------------
 
