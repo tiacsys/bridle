@@ -34,66 +34,68 @@ For more details, see: :ref:`repos_and_revs`.
    :header-rows: 1
 
    * - Component
-     - Imports
+     - **Group** : *Imports*
      - Branch
      - Tag
    * - `tiac-bridle`_
      -
      - v3.6-branch
-     - v3.6.0-rc1
+     - v3.6.0
    * - | `tiac-ubxlib`_
        | (`u-blox-ubxlib`_)
-     - | geographiclib
+     - | *geographiclib*
      - | tiacsys/main
        | (main)
      -
    * - | `tiac-zephyr`_
        | (`zephyr-core`_)
-     - | canopennode
-       | chre
-       | cmsis
-       | edtt
-       | fatfs
-       | hal_altera
-       | hal_atmel
-       | hal_espressif
-       | hal_gigadevice
-       | hal_infineon
-       | hal_microchip
-       | hal_nordic
-       | hal_nuvoton
-       | hal_nxp
-       | hal_openisa
-       | hal_quicklogic
-       | hal_renesas
-       | hal_rpi_pico
-       | hal_silabs
-       | hal_st
-       | hal_stm32
-       | hal_telink
-       | hal_ti
-       | hal_xtensa
-       | libmetal
-       | liblc3
-       | littlefs
-       | loramac-node
-       | lvgl
-       | mbedtls
-       | mcuboot
-       | mipi-sys-t
-       | net-tools
-       | open-amp
-       | openthread
-       | picolibc
-       | psa-arch-tests
-       | segger
-       | tf-m-tests
-       | tinycrypt
-       | trusted-firmware-a
-       | trusted-firmware-m
+     - | *liblc3*
+       | *loramac-node*
+       | *lvgl*
+       | *mcuboot*
+       | *open-amp*
+       | *openthread*
+       | *picolibc*
+       | **hal** : *cmsis*
+       | **hal** : *hal_altera*
+       | **hal** : *hal_atmel*
+       | **hal** : *hal_espressif*
+       | **hal** : *hal_gigadevice*
+       | **hal** : *hal_infineon*
+       | **hal** : *hal_microchip*
+       | **hal** : *hal_nordic*
+       | **hal** : *hal_nuvoton*
+       | **hal** : *hal_nxp*
+       | **hal** : *hal_openisa*
+       | **hal** : *hal_quicklogic*
+       | **hal** : *hal_renesas*
+       | **hal** : *hal_rpi_pico*
+       | **hal** : *hal_silabs*
+       | **hal** : *hal_st*
+       | **hal** : *hal_stm32*
+       | **hal** : *hal_telink*
+       | **hal** : *hal_ti*
+       | **hal** : *hal_xtensa*
+       | **hal** : *libmetal*
+       | **fs** : *fatfs*
+       | **fs** : *littlefs*
+       | **tee** : *trusted-firmware-a*
+       | **tee** : *trusted-firmware-m*
+       | **crypto** : *mbedtls*
+       | **crypto** : *tinycrypt*
+       | **debug** : *mipi-sys-t*
+       | **debug** : *segger*
+       | **tools** : *edtt*
+       | **tools** : *net-tools*
+       | **optional** : *canopennode*
+       | **optional** : *chre*
+       | **optional** : *psa-arch-tests*
+       | **optional** : *tf-m-tests*
      - | tiacsys/v3.6-branch
        | (v3.6-branch)
      - v3.6.0
+
+.. note – component list fetched from 'west list -a -f "{name:24} {groups:40}"'
 
 Supported boards
 ****************
