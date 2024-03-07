@@ -1,9 +1,9 @@
-breathe>=4.34
-docutils>=0.16,<0.20
+breathe>=4.35
+docutils>=0.18
 pygments~=2.17
 recommonmark~=0.7
 commonmark~=0.9
-sphinx-tsn-theme~=2023.12
+sphinx-tsn-theme~=2024.1
 sphinxcontrib-mscgen~=0.6
 sphinxcontrib-svg2pdfconverter~=1.2
 sphinx-tabs~=3.4
