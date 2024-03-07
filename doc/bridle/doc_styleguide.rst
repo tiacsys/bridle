@@ -144,32 +144,41 @@ The following table shows just a few examples.
      - rendered result
      - description
 
-   * - :rst:`:rd:\`normal red\``
-     - :rd:`normal red`
+   * - | :rst:`:rd:\`normal red\``
+       | :rst:`:cy:\`normal cyan\``
+     - | :rd:`normal red`
+       | :cy:`normal cyan`
      - inline colorization in normal weight
 
    * - :rst:`:i:\`italic\``
      - :i:`italic`
      - inline italic style
 
-   * - :rst:`:ign:\`italic green\``
-     - :ign:`italic green`
+   * - | :rst:`:ign:\`italic green\``
+       | :rst:`:iyl:\`italic yellow\``
+     - | :ign:`italic green`
+       | :iyl:`italic yellow`
      - inline colorization in italic style
 
    * - :rst:`:b:\`bold\``
      - :b:`bold`
      - inline bold weight
 
-   * - :rst:`:bbl:\`bold blue\``
-     - :bbl:`bold blue`
+   * - | :rst:`:bbl:\`bold blue\``
+       | :rst:`:bma:\`bold magenta\``
+     - | :bbl:`bold blue`
+       | :bma:`bold magenta`
      - inline colorization in bold weight
 
    * - :rst:`:s:\`strikethrough\``
      - :s:`strikethrough`
      - inline strikethrough decoration
 
-   * - :rst:`:syl:\`strikethrough yellow\``
-     - :syl:`strikethrough yellow`
+   * - :rst:`:swt:\`strikethrough white\``
+     - .. rst-class:: lightgray-box
+
+          :swt:`strikethrough white`
+
      - inline colorization in strikethrough decoration
 
    * - :rst:`:u:\`underline\``

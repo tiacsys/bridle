@@ -23,6 +23,10 @@
   color: var(--docset-color-theme-yellow);
 }
 
+.magenta {
+  color: var(--docset-color-theme-magenta);
+}
+
 .black {
   color: var(--docset-color-theme-black);
 }
