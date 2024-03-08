@@ -102,15 +102,31 @@ Set ``-DSHIELD=grove_btn_dX`` when you invoke ``west build``, wherein ``X``
 corresponds to the ordinal number of a signal from the
 |Laced Grove Signal Interface|. For example:
 
-.. zephyr-app-commands::
-   :app: bridle/samples/helloshell
-   :build-dir: helloshell-seeed_grove_base_v2-grove_btn_d4
-   :board: mimxrt1060_evkb
-   :shield: "seeed_grove_base_v2 grove_btn_d4"
-   :goals: build flash
-   :west-args: -p auto
-   :host-os: unix
-   :tool: all
+#. :ref:`grove_base_shield_v2` on :ref:`zephyr:mimxrt1060_evk`
+   for **GPIO driven Button** on Grove ``D4``:
+
+   .. zephyr-app-commands::
+      :app: bridle/samples/helloshell
+      :build-dir: helloshell-seeed_grove_base_v2-grove_btn_d4
+      :board: mimxrt1060_evkb
+      :shield: "seeed_grove_base_v2 grove_btn_d4"
+      :goals: flash
+      :west-args: -p
+      :host-os: unix
+      :tool: all
+
+#. :ref:`grove_base_shield_v13` or :ref:`grove_base_shield_v12` on
+   :ref:`zephyr:mimxrt1060_evk` for **GPIO driven Button** on Grove ``D4``:
+
+   .. zephyr-app-commands::
+      :app: bridle/samples/helloshell
+      :build-dir: helloshell-seeed_grove_base_v1-grove_btn_d4
+      :board: mimxrt1060_evkb
+      :shield: "seeed_grove_base_v1 grove_btn_d4"
+      :goals: flash
+      :west-args: -p
+      :host-os: unix
+      :tool: all
 
 References
 **********
