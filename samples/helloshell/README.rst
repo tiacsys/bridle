@@ -63,7 +63,7 @@ built and executed as emulation in :ref:`zephyr:qemu_x86` as follows:
    :build-dir: helloshell-qemu_x86
    :board: qemu_x86
    :west-args: -p
-   :goals: build run
+   :goals: run
    :host-os: unix
 
 Also it can be built and executed on following targets:
@@ -75,7 +75,7 @@ Also it can be built and executed on following targets:
      :build-dir: helloshell-native_posix
      :board: native_posix
      :west-args: -p
-     :goals: build run
+     :goals: run
      :host-os: unix
 
   .. hint:: Connect a terminal emulator to the given pseudotty or start the
@@ -92,7 +92,7 @@ Also it can be built and executed on following targets:
      :build-dir: helloshell-qemu_cortex_m3
      :board: qemu_cortex_m3
      :west-args: -p
-     :goals: build run
+     :goals: run
      :host-os: unix
 
   .. hint:: Exit QEMU by pressing :kbd:`CTRL+A` :kbd:`x`.
@@ -104,7 +104,7 @@ Also it can be built and executed on following targets:
      :build-dir: helloshell-nucleo_f746zg
      :board: nucleo_f746zg
      :west-args: -p
-     :goals: build flash
+     :goals: flash
      :host-os: unix
 
 Further you can deside either to run in a basic or fancy command set
@@ -118,7 +118,7 @@ mode:
      :conf: prj-minimal.conf
      :board: nucleo_f746zg
      :west-args: -p
-     :goals: build flash
+     :goals: flash
      :host-os: unix
 
 * On :ref:`zephyr:nucleo_f746zg_board` board, fancy command set mode:
@@ -129,7 +129,7 @@ mode:
      :conf: prj.conf
      :board: nucleo_f746zg
      :west-args: -p
-     :goals: build flash
+     :goals: flash
      :host-os: unix
 
 Sample Output

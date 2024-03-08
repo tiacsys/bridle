@@ -121,6 +121,7 @@ for the :ref:`zephyr:nucleo_f413zh_board` board:
    .. zephyr-app-commands::
       :zephyr-app: bridle/samples/button
       :board: nucleo_f413zh
+      :build-dir: nucleo_f413zh-button-poll
       :conf: prj-poll.conf
       :west-args: -p
       :goals: flash
@@ -131,6 +132,7 @@ for the :ref:`zephyr:nucleo_f413zh_board` board:
    .. zephyr-app-commands::
       :zephyr-app: bridle/samples/button
       :board: nucleo_f413zh
+      :build-dir: nucleo_f413zh-button-event
       :conf: prj-event.conf
       :west-args: -p
       :goals: flash

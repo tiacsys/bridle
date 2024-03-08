@@ -57,8 +57,10 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
    :app: bridle/samples/waveshare_pico_10dof_imu_sensor
    :board: rpi_pico
    :shield: waveshare_pico_10dof_imu_sensor_r2
+   :build-dir: waveshare_pico_10dof_imu_sensor_r2
+   :west-args: -p -S usb-console
    :flash-args: -r uf2
-   :goals: build flash
+   :goals: flash
 
 Sample Output
 =============

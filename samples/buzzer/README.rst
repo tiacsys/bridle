@@ -55,9 +55,9 @@ Building and Running
      :app: bridle/samples/buzzer
      :build-dir: buzzer-cytron_maker_nano_rp2040
      :board: cytron_maker_nano_rp2040
-     :west-args: -p
+     :west-args: -p -S usb-console
      :flash-args: -r uf2
-     :goals: build flash
+     :goals: flash
      :host-os: unix
 
 * On :ref:`Maker Pi RP2040 <cytron_maker_pi_rp2040>` board:
@@ -66,9 +66,9 @@ Building and Running
      :app: bridle/samples/buzzer
      :build-dir: buzzer-cytron_maker_pi_rp2040
      :board: cytron_maker_pi_rp2040
-     :west-args: -p
+     :west-args: -p -S usb-console
      :flash-args: -r uf2
-     :goals: build flash
+     :goals: flash
      :host-os: unix
 
 Sample Output
