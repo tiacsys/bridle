@@ -383,12 +383,13 @@ sample: :doc:`zephyr:samples/subsys/input/input_dump/README`.
 
       .. rubric:: Simple logging output on target
 
-      .. code-block:: console
+      .. parsed-literal::
+         :class: highlight-console notranslate
 
-         ***** delaying boot 4000ms (per build configuration) *****
+         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
          W: BUS RESET
          W: BUS RESET
-         *** Booting Zephyr OS … … … (delayed boot 4000ms) ***
+         \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
          Input sample started
          I: input event: dev=gpio_keys        SYN type= 1 code= 11 value=1
          I: input event: dev=gpio_keys        SYN type= 1 code= 11 value=0
@@ -469,12 +470,13 @@ sample: :doc:`zephyr:samples/subsys/input/input_dump/README`.
 
       .. rubric:: Simple logging output on target
 
-      .. code-block:: console
+      .. parsed-literal::
+         :class: highlight-console notranslate
 
-         ***** delaying boot 4000ms (per build configuration) *****
+         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
          W: BUS RESET
          W: BUS RESET
-         *** Booting Zephyr OS … … … (delayed boot 4000ms) ***
+         \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
          Input sample started
          I: input event: dev=gpio_keys        SYN type= 1 code= 11 value=1
          I: input event: dev=gpio_keys        SYN type= 1 code= 11 value=0
@@ -547,12 +549,13 @@ sample: :doc:`zephyr:samples/subsys/input/input_dump/README`.
 
       .. rubric:: Simple logging output on target
 
-      .. code-block:: console
+      .. parsed-literal::
+         :class: highlight-console notranslate
 
-         ***** delaying boot 4000ms (per build configuration) *****
+         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
          W: BUS RESET
          W: BUS RESET
-         *** Booting Zephyr OS … … … (delayed boot 4000ms) ***
+         \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
          Input sample started
          I: input event: dev=xpt2046@1            type= 3 code=  0 value=98
          I: input event: dev=xpt2046@1            type= 3 code=  1 value=174
@@ -630,13 +633,14 @@ order. See also Zephyr sample: :doc:`zephyr:samples/drivers/display/README`.
 
       .. rubric:: Simple logging output on target
 
-      .. code-block:: console
+      .. parsed-literal::
+         :class: highlight-console notranslate
 
-         ***** delaying boot 4000ms (per build configuration) *****
-         [00:00:00.415,000] <wrn> udc_rpi: BUS RESET
-         [00:00:00.495,000] <wrn> udc_rpi: BUS RESET
-         *** Booting Zephyr OS … … … (delayed boot 4000ms) ***
-         [00:00:04.151,000] <inf> sample: Display sample for st7789v@0
+         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+         [00:00:00.415,000] :byl:`<wrn> udc_rpi: BUS RESET`
+         [00:00:00.495,000] :byl:`<wrn> udc_rpi: BUS RESET`
+         \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
+         [00:00:04.151,000] <inf> sample: Display sample for st7789v\ @\ 0
 
    .. group-tab:: Waveshare Pico LCD 2
 
@@ -700,13 +704,14 @@ order. See also Zephyr sample: :doc:`zephyr:samples/drivers/display/README`.
 
       .. rubric:: Simple logging output on target
 
-      .. code-block:: console
+      .. parsed-literal::
+         :class: highlight-console notranslate
 
-         ***** delaying boot 4000ms (per build configuration) *****
-         [00:00:00.337,000] <wrn> udc_rpi: BUS RESET
-         [00:00:00.425,000] <wrn> udc_rpi: BUS RESET
-         *** Booting Zephyr OS … … … (delayed boot 4000ms) ***
-         [00:00:04.151,000] <inf> sample: Display sample for st7789v@0
+         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+         [00:00:00.337,000] :byl:`<wrn> udc_rpi: BUS RESET`
+         [00:00:00.425,000] :byl:`<wrn> udc_rpi: BUS RESET`
+         \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
+         [00:00:04.151,000] <inf> sample: Display sample for st7789v\ @\ 0
 
    .. group-tab:: Waveshare Pico ResTouch LCD 3.5
 
@@ -770,13 +775,14 @@ order. See also Zephyr sample: :doc:`zephyr:samples/drivers/display/README`.
 
       .. rubric:: Simple logging output on target
 
-      .. code-block:: console
+      .. parsed-literal::
+         :class: highlight-console notranslate
 
-         ***** delaying boot 4000ms (per build configuration) *****
-         [00:00:00.337,000] <wrn> udc_rpi: BUS RESET
-         [00:00:00.425,000] <wrn> udc_rpi: BUS RESET
-         *** Booting Zephyr OS … … … (delayed boot 4000ms) ***
-         [00:00:04.151,000] <inf> sample: Display sample for ili9488@0
+         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+         [00:00:00.337,000] :byl:`<wrn> udc_rpi: BUS RESET`
+         [00:00:00.425,000] :byl:`<wrn> udc_rpi: BUS RESET`
+         \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
+         [00:00:04.151,000] <inf> sample: Display sample for ili9488\ @\ 0
 
 LVGL Basic Sample
 =================
@@ -877,26 +883,27 @@ which increments every second. See also Zephyr sample:
 
       .. rubric:: Simple test execution on target
 
-      .. code-block:: console
+      .. parsed-literal::
+         :class: highlight-console notranslate
 
-         ***** delaying boot 4000ms (per build configuration) *****
-         [00:00:00.321,000] <wrn> udc_rpi: BUS RESET
-         [00:00:00.401,000] <wrn> udc_rpi: BUS RESET
-         *** Booting Zephyr OS … … … (delayed boot 4000ms) ***
-         uart:~$ _
+         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+         [00:00:00.321,000] :byl:`<wrn> udc_rpi: BUS RESET`
+         [00:00:00.401,000] :byl:`<wrn> udc_rpi: BUS RESET`
+         \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
+         :bgn:`uart:~$` **_**
 
-         uart:~$ lvgl stats memory
-         Heap at 0x20001400 contains 2047 units in 11 buckets
+         :bgn:`uart:~$` **lvgl stats memory**
+         Heap at 0x20001410 contains 2047 units in 11 buckets
 
            bucket#    min units        total      largest      largest
                       threshold       chunks      (units)      (bytes)
            -----------------------------------------------------------
-                 0            1            3            1            4
-                 3            8            1           11           84
+                 0            1            2            1            4
+                 1            2            1            2           12
                  6           64            1           81          644
-                10         1024            1         1345        10756
+                10         1024            1         1354        10828
 
-         11496 free bytes, 4376 allocated bytes, overhead = 508 bytes (3.1%)
+         11492 free bytes, 4384 allocated bytes, overhead = 504 bytes (3.1%)
 
    .. group-tab:: Waveshare Pico LCD 2
 
@@ -982,16 +989,17 @@ which increments every second. See also Zephyr sample:
 
       .. rubric:: Simple test execution on target
 
-      .. code-block:: console
+      .. parsed-literal::
+         :class: highlight-console notranslate
 
-         ***** delaying boot 4000ms (per build configuration) *****
-         [00:00:00.401,000] <wrn> udc_rpi: BUS RESET
-         [00:00:00.481,000] <wrn> udc_rpi: BUS RESET
-         *** Booting Zephyr OS … … … (delayed boot 4000ms) ***
-         uart:~$ _
+         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+         [00:00:00.401,000] :byl:`<wrn> udc_rpi: BUS RESET`
+         [00:00:00.481,000] :byl:`<wrn> udc_rpi: BUS RESET`
+         \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
+         :bgn:`uart:~$` **_**
 
-         uart:~$ lvgl stats memory
-         Heap at 0x20001328 contains 2047 units in 11 buckets
+         :bgn:`uart:~$` **lvgl stats memory**
+         Heap at 0x20001320 contains 2047 units in 11 buckets
 
            bucket#    min units        total      largest      largest
                       threshold       chunks      (units)      (bytes)
@@ -999,9 +1007,9 @@ which increments every second. See also Zephyr sample:
                  0            1            2            1            4
                  1            2            1            2           12
                  6           64            1           81          644
-                10         1024            1         1356        10844
+                10         1024            1         1354        10828
 
-         11508 free bytes, 4368 allocated bytes, overhead = 504 bytes (3.1%)
+         11492 free bytes, 4384 allocated bytes, overhead = 504 bytes (3.1%)
 
    .. group-tab:: Waveshare Pico ResTouch LCD 3.5
 
@@ -1072,24 +1080,26 @@ which increments every second. See also Zephyr sample:
 
       .. rubric:: Simple test execution on target
 
-      .. code-block:: console
+      .. parsed-literal::
+         :class: highlight-console notranslate
 
-         ***** delaying boot 4000ms (per build configuration) *****
-         [00:00:00.294,000] <wrn> udc_rpi: BUS RESET
-         [00:00:00.374,000] <wrn> udc_rpi: BUS RESET
-         *** Booting Zephyr OS … … … (delayed boot 4000ms) ***
-         uart:~$ _
+         [00:00:00.135,000] <inf> xpt2046: Init 'xpt2046\ @\ 1' device
+         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+         [00:00:00.294,000] :byl:`<wrn> udc_rpi: BUS RESET`
+         [00:00:00.374,000] :byl:`<wrn> udc_rpi: BUS RESET`
+         \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
+         :bgn:`uart:~$` **_**
 
-         uart:~$ lvgl stats memory
-         Heap at 0x20001210 contains 2047 units in 11 buckets
+         :bgn:`uart:~$` **lvgl stats memory**
+         Heap at 0x20001238 contains 2047 units in 11 buckets
 
            bucket#    min units        total      largest      largest
                       threshold       chunks      (units)      (bytes)
            -----------------------------------------------------------
                  1            2            1            2           12
-                10         1024            1         1502        12012
+                10         1024            1         1500        11996
 
-         12024 free bytes, 3908 allocated bytes, overhead = 448 bytes (2.7%)
+         12008 free bytes, 3924 allocated bytes, overhead = 448 bytes (2.7%)
 
 TF/microSD Demonstration
 ========================
@@ -1200,12 +1210,13 @@ ResTouch LCD 3.5| board. They will be built with activated USB-CDC/ACM console.
 
       .. rubric:: Simple logging output on target
 
-      .. code-block:: console
+      .. parsed-literal::
+         :class: highlight-console notranslate
 
-         ***** delaying boot 4000ms (per build configuration) *****
-         [00:00:00.177,000] <wrn> udc_rpi: BUS RESET
-         [00:00:00.257,000] <wrn> udc_rpi: BUS RESET
-         *** Booting Zephyr OS … … … (delayed boot 4000ms) ***
+         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+         [00:00:00.177,000] :byl:`<wrn> udc_rpi: BUS RESET`
+         [00:00:00.257,000] :byl:`<wrn> udc_rpi: BUS RESET`
+         \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
          [00:00:04.281,000] <inf> main: Block count 15523840
          Sector size 512
          Memory Size(MB) 7580
@@ -1228,12 +1239,13 @@ ResTouch LCD 3.5| board. They will be built with activated USB-CDC/ACM console.
 
       .. rubric:: Simple logging output on target
 
-      .. code-block:: console
+      .. parsed-literal::
+         :class: highlight-console notranslate
 
-         ***** delaying boot 4000ms (per build configuration) *****
-         [00:00:00.234,000] <wrn> udc_rpi: BUS RESET
-         [00:00:00.314,000] <wrn> udc_rpi: BUS RESET
-         *** Booting Zephyr OS … … … (delayed boot 4000ms) ***
+         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+         [00:00:00.234,000] :byl:`<wrn> udc_rpi: BUS RESET`
+         [00:00:00.314,000] :byl:`<wrn> udc_rpi: BUS RESET`
+         \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
          [00:00:04.293,000] <inf> main: Block count 15523840
          Sector size 512
          Memory Size(MB) 7580
@@ -1256,12 +1268,13 @@ ResTouch LCD 3.5| board. They will be built with activated USB-CDC/ACM console.
       * FAT File System: :brd:`NONE (empty partition)`
       * Content: :brd:`NONE (empty FS)`
 
-      .. code-block:: console
+      .. parsed-literal::
+         :class: highlight-console notranslate
 
-         ***** delaying boot 4000ms (per build configuration) *****
-         [00:00:00.318,000] <wrn> udc_rpi: BUS RESET
-         [00:00:00.398,000] <wrn> udc_rpi: BUS RESET
-         *** Booting Zephyr OS … … … (delayed boot 4000ms) ***
+         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+         [00:00:00.318,000] :byl:`<wrn> udc_rpi: BUS RESET`
+         [00:00:00.398,000] :byl:`<wrn> udc_rpi: BUS RESET`
+         \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
          [00:00:04.270,000] <inf> main: Block count 15523840
          Sector size 512
          Memory Size(MB) 7580

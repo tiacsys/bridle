@@ -47,7 +47,7 @@ Building and Running
       You should see the following messages on host console:
 
       .. parsed-literal::
-         :class: highlight
+         :class: highlight-console notranslate
 
          Device testing on:
 
@@ -58,13 +58,13 @@ Building and Running
          INFO    - JOBS: 4
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1569/1570 tiac_magpie               tests/drivers/i2c/i2c_api/drivers.i2c.api          :byl:`SKIPPED` (runtime filter)
-         INFO    - 1570/1570 tiac_magpie               tests/drivers/i2c/i2c_target_api/drivers.i2c.target_api.dual_role  :brd:`ERROR` Build failure (device)
+         INFO    - 1708/1709 tiac_magpie               tests/drivers/i2c/i2c_api/drivers.i2c.api          :byl:`SKIPPED` (runtime filter)
+         INFO    - 1709/1709 tiac_magpie               tests/drivers/i2c/i2c_target_api/drivers.i2c.target_api.dual_role  :brd:`ERROR` Build failure (device)
          INFO    - :byl:`.../twister-out/tiac_magpie/tests/drivers/i2c/i2c_target_api/drivers.i2c.target_api.dual_role/build.log`
 
-         INFO    - 1782 test scenarios (1570 test instances) selected, 1569 configurations skipped (1568 by static filter, 1 at runtime).
-         INFO    - :bgn:`0 of 1570` test configurations passed (0.00%), :bbk:`0` failed, :brd:`1` errored, :byl:`1569` skipped with :bbk:`0` warnings in :bbk:`17.47 seconds`
-         INFO    - In total 1 test cases were executed, 10957 skipped on 1 out of total 638 platforms (0.16%)
+         INFO    - 1922 test scenarios (1709 test instances) selected, 1708 configurations skipped (1707 by static filter, 1 at runtime).
+         INFO    - :bgn:`0 of 1709` test configurations passed (0.00%), :bbk:`0` failed, :brd:`1` errored, :byl:`1708` skipped with :bbk:`0` warnings in :bbk:`18.87 seconds`
+         INFO    - In total 1 test cases were executed, 12683 skipped on 1 out of total 699 platforms (0.14%)
          INFO    - :bgn:`0` test configurations executed on platforms, :brd:`1` test configurations were only built.
 
          Hardware distribution summary:
@@ -87,7 +87,7 @@ Building and Running
          INFO    - 
          INFO    - west twister -p tiac_magpie -s tests/drivers/i2c/i2c_target_api/drivers.i2c.target_api.dual_role
          INFO    - or with west:
-         INFO    - west build -p -b tiac_magpie -T tests/drivers/i2c/i2c_target_api/drivers.i2c.target_api.dual_role
+         INFO    - west build -p -b tiac_magpie tests/drivers/i2c/i2c_target_api -T drivers.i2c.target_api.dual_role
          INFO    - -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
          INFO    - Run completed
 
@@ -98,7 +98,7 @@ Dual role with one I2C controller and one I2C device
 ====================================================
 
 .. parsed-literal::
-   :class: highlight
+   :class: highlight-console notranslate
 
    ... ... ...
    .../zephyr/drivers/i2c/target/eeprom_target.c:229:12: :brd:`error:` 'i2c_eeprom_target_init' defined but not used

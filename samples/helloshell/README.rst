@@ -135,18 +135,21 @@ mode:
 Sample Output
 =============
 
-.. code-block:: console
+(text in bold is a command input, text in angle brackets are keys to press)
+
+.. parsed-literal::
+   :class: highlight-console notranslate
 
    Hello World! I'm THE SHELL from nucleo_f746zg
 
 
-   uart:~$ <Tab>
-     adc        bridle     clear      dac        device     devmem     flash
-     gpio       hello      help       history    hwinfo     i2c        kernel
-     led        log        pwm        regulator  rem        resize     retval
-     sensor     shell      timer
+   :bgn:`uart:~$` **<Tab>**
+     :bcy:`adc        bridle     clear      dac        device     devmem     flash`
+     :bcy:`gpio       hello      help       history    hwinfo     i2c        kernel`
+     :bcy:`led        log        pwm        regulator  rem        resize     retval`
+     :bcy:`sensor     shell      timer`
 
-   uart:~$ help
+   :bgn:`uart:~$` **help**
    Please press the <Tab> button to see all available commands.
    You can also use the <Tab> button to prompt or auto-complete all commands or its subcommands.
    You can try to call commands with <-h> or <--help> parameter for more information.
@@ -189,24 +192,31 @@ Sample Output
      shell      :Useful, not Unix-like shell commands.
      timer      :Timer commands
 
-   uart:~$ hello -h
+   :bgn:`uart:~$` **hello -h**
    hello - say hello
-   uart:~$ hello
+   :bgn:`uart:~$` **hello**
    Hello from shell.
 
-   uart:~$ kernel version
-   Zephyr version 3.5.0
+   :bgn:`uart:~$` **kernel version**
+   Zephyr version |zephyr_version_number_em|
 
-   uart:~$ bridle version
-   Bridle version 3.5.0
+   :bgn:`uart:~$` **bridle version**
+   Bridle version |version_number_em|
 
-   uart:~$ kernel uptime
+   :bgn:`uart:~$` **bridle version long**
+   Bridle version |longversion_number_em|
+
+   :bgn:`uart:~$` **bridle info**
+   Zephyr: |zephyr_release_number_em|
+   Bridle: |release_number_em|
+
+   :bgn:`uart:~$` **kernel uptime**
    Uptime: 254707293 ms
 
-   uart:~$ kernel cycles
+   :bgn:`uart:~$` **kernel cycles**
    cycles: 4281597339 hw cycles
 
-   uart:~$ kernel threads
+   :bgn:`uart:~$` **kernel threads**
    Scheduler: 328 since last call
    Threads:
     0x20021650 sysworkq
@@ -214,7 +224,7 @@ Sample Output
 	   state: pending, entry: 0x800e4f9
 	   stack size 1024, unused 832, usage 192 / 1024 (18 %)
 
-   *0x20020a80 shell_uart
+   \*0x20020a80 shell_uart
 	   options: 0x0, priority: 14 timeout: 0
 	   state: queued, entry: 0x8004e75
 	   stack size 2048, unused 1016, usage 1032 / 2048 (50 %)
@@ -229,11 +239,11 @@ Sample Output
 	   state: , entry: 0x80134c3
 	   stack size 320, unused 256, usage 64 / 320 (20 %)
 
-   uart:~$ kernel stacks
+   :bgn:`uart:~$` **kernel stacks**
    0x20021650 sysworkq   (real size 1024):	unused  832	usage  192 / 1024 (18 %)
    0x20020a80 shell_uart (real size 2048):	unused  944	usage 1104 / 2048 (53 %)
    0x20020588 logging    (real size  768):	unused  584	usage  184 /  768 (23 %)
    0x200214c0 idle       (real size  320):	unused  256	usage   64 /  320 (20 %)
    0x20025400 IRQ 00     (real size 2048):	unused 1684	usage  364 / 2048 (17 %)
 
-   uart:~$ _
+   :bgn:`uart:~$` **_**

@@ -494,7 +494,7 @@ host PC. As an alternative to the default Zephyr console on serial port the
 Bridle :ref:`snippet-usb-console` can be used to enable
 :ref:`zephyr:usb_device_cdc_acm` and switch the console to USB::
 
-   USB device idVendor=2e8a, idProduct=000a, bcdDevice= 3.05
+   USB device idVendor=2e8a, idProduct=000a, bcdDevice= 3.06
    USB device strings: Mfr=1, Product=2, SerialNumber=3
    Product: RP2040-Plus (CDC ACM)
    Manufacturer: Waveshare (Raspberry Pi)
@@ -1300,12 +1300,13 @@ board. They will be built with activated USB-CDC/ACM console.
 
       .. rubric:: Simple logging output on target
 
-      .. code-block:: console
+      .. parsed-literal::
+         :class: highlight-console notranslate
 
-         ***** delaying boot 4000ms (per build configuration) *****
-         [00:00:00.464,000] <wrn> udc_rpi: BUS RESET
-         [00:00:00.548,000] <wrn> udc_rpi: BUS RESET
-         *** Booting Zephyr OS … … … (delayed boot 4000ms) ***
+         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+         [00:00:00.464,000] :byl:`<wrn> udc_rpi: BUS RESET`
+         [00:00:00.548,000] :byl:`<wrn> udc_rpi: BUS RESET`
+         \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
          [00:00:04.269,000] <inf> main: Block count 15759360
          Sector size 512
          Memory Size(MB) 7695
@@ -1327,12 +1328,13 @@ board. They will be built with activated USB-CDC/ACM console.
 
       .. rubric:: Simple logging output on target
 
-      .. code-block:: console
+      .. parsed-literal::
+         :class: highlight-console notranslate
 
-         ***** delaying boot 4000ms (per build configuration) *****
-         [00:00:00.326,000] <wrn> udc_rpi: BUS RESET
-         [00:00:00.406,000] <wrn> udc_rpi: BUS RESET
-         *** Booting Zephyr OS … … … (delayed boot 4000ms) ***
+         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+         [00:00:00.326,000] :byl:`<wrn> udc_rpi: BUS RESET`
+         [00:00:00.406,000] :byl:`<wrn> udc_rpi: BUS RESET`
+         \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
          [00:00:04.192,000] <inf> main: Block count 15759360
          Sector size 512
          Memory Size(MB) 7695
@@ -1355,12 +1357,13 @@ board. They will be built with activated USB-CDC/ACM console.
       * FAT File System: :brd:`NONE (empty partition)`
       * Content: :brd:`NONE (empty FS)`
 
-      .. code-block:: console
+      .. parsed-literal::
+         :class: highlight-console notranslate
 
-         ***** delaying boot 4000ms (per build configuration) *****
-         [00:00:00.367,000] <wrn> udc_rpi: BUS RESET
-         [00:00:00.447,000] <wrn> udc_rpi: BUS RESET
-         *** Booting Zephyr OS … … … (delayed boot 4000ms) ***
+         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+         [00:00:00.367,000] :byl:`<wrn> udc_rpi: BUS RESET`
+         [00:00:00.447,000] :byl:`<wrn> udc_rpi: BUS RESET`
+         \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
          [00:00:04.236,000] <inf> main: Block count 15759360
          Sector size 512
          Memory Size(MB) 7695

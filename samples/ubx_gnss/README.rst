@@ -230,44 +230,48 @@ Example console session
 
 After power-on or hard reset, the GNSS module will be initialized automatically:
 
-   .. code-block:: console
+   .. parsed-literal::
+      :class: highlight-console notranslate
 
-      *** Booting Zephyr OS build … ***
+      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* \*\*\*
       [00:00:02.021,000] <inf> main: GNSS Device is ready!
-      uart:~$ _
+      :bgn:`uart:~$` **_**
 
 There is a simple Shell command for some standard evaluation steps:
 
-   .. code-block:: console
+   .. parsed-literal::
+      :class: highlight-console notranslate
 
-      uart:~$ gnss -h
+      :bgn:`uart:~$` **gnss -h**
       gnss - GNSS related commands
       Subcommands:
         single  :Get a one-shot position estimate
         stream  :Start or stop streaming of position estimates
         reset   :Reset GNSS module
         ttff    :Measure TTFF
-      uart:~$ _
+      :bgn:`uart:~$` **_**
 
 Reset GNSS module:
 
-   .. code-block:: console
+   .. parsed-literal::
+      :class: highlight-console notranslate
 
-      uart:~$ gnss reset
-      uart:~$ _
+      :bgn:`uart:~$` **gnss reset**
+      :bgn:`uart:~$` **_**
 
    The on-module LED for PPS signaling goes off and comes back to blink
    after TTFF.
 
 Measure TTFF:
 
-   .. code-block:: console
+   .. parsed-literal::
+      :class: highlight-console notranslate
 
-      uart:~$ gnss ttff
+      :bgn:`uart:~$` **gnss ttff**
       Run 1 of 1: Acquired fix after 32.26s
       ---------------
       Avg. TTFF: 32.26
-      uart:~$ _
+      :bgn:`uart:~$` **_**
 
    The on-module LED for PPS signaling goes off and comes back to blink
    after TTFF.
@@ -276,9 +280,10 @@ Measure TTFF:
    there is also a good receiving range and a reliable position already
    exists, the TTFF will be correspondingly low:
 
-   .. code-block:: console
+   .. parsed-literal::
+      :class: highlight-console notranslate
 
-      uart:~$ gnss ttff 10
+      :bgn:`uart:~$` **gnss ttff 10**
       Run 1 of 10: Acquired fix after 0.23s
       Run 2 of 10: Acquired fix after 0.79s
       Run 3 of 10: Acquired fix after 1.00s
@@ -291,20 +296,23 @@ Measure TTFF:
       Run 10 of 10: Acquired fix after 0.81s
       ---------------
       Avg. TTFF: 0.74
+      :bgn:`uart:~$` **_**
 
 Get a one-shot position estimate:
 
-   .. code-block:: console
+   .. parsed-literal::
+      :class: highlight-console notranslate
 
-      uart:~$ gnss single
+      :bgn:`uart:~$` **gnss single**
       Found position estimate after 0.8s: (lat, lon): (50.922432, 11.600015), alt: 192.05m, radius: 1.48m (15 SV used)
-      uart:~$ _
+      :bgn:`uart:~$` **_**
 
 Start or stop streaming of position estimates:
 
-   .. code-block:: console
+   .. parsed-literal::
+      :class: highlight-console notranslate
 
-      uart:~$ gnss stream start
+      :bgn:`uart:~$` **gnss stream start**
       [00:01:15.687,000] <inf> main: Found position estimate: (lat, lon): (50.922447, 11.600006), alt: 192.64m, radius: 1.45m (17 SV used)
       [00:01:16.692,000] <inf> main: Found position estimate: (lat, lon): (50.922451, 11.600005), alt: 192.53m, radius: 1.45m (18 SV used)
       [00:01:17.697,000] <inf> main: Found position estimate: (lat, lon): (50.922451, 11.600004), alt: 192.63m, radius: 1.45m (18 SV used)
@@ -318,10 +326,10 @@ Start or stop streaming of position estimates:
       [00:01:25.688,000] <inf> main: Found position estimate: (lat, lon): (50.922462, 11.599999), alt: 192.77m, radius: 1.48m (18 SV used)
       [00:01:26.693,000] <inf> main: Found position estimate: (lat, lon): (50.922466, 11.599998), alt: 192.69m, radius: 1.48m (18 SV used)
       [00:01:27.697,000] <inf> main: Found position estimate: (lat, lon): (50.922466, 11.599996), alt: 192.49m, radius: 1.50m (18 SV used)
-      uart:~$ gnss stream stop
+      :bgn:`uart:~$` **gnss stream stop**
       [00:01:28.905,000] <inf> main: Found position estimate: (lat, lon): (50.922470, 11.599995), alt: 192.22m, radius: 1.50m (18 SV used)
       [00:01:29.709,000] <inf> main: Found position estimate: (lat, lon): (50.922470, 11.599994), alt: 192.12m, radius: 1.50m (18 SV used)
-      uart:~$ _
+      :bgn:`uart:~$` **_**
 
 References
 **********

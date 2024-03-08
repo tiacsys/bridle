@@ -47,7 +47,7 @@ Building and Running
       You should see the following messages on host console:
 
       .. parsed-literal::
-         :class: highlight
+         :class: highlight-console notranslate
 
          Device testing on:
 
@@ -58,20 +58,23 @@ Building and Running
          INFO    - JOBS: 4
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1568/1570 tiac_magpie               tests/drivers/uart/uart_async_api/drivers.uart.async_api :byl:`SKIPPED` (runtime filter)
-         INFO    - 1569/1570 tiac_magpie               tests/drivers/uart/uart_async_api/drivers.uart.async_api.lpuart :byl:`SKIPPED` (runtime filter)
-         INFO    - 1570/1570 tiac_magpie               tests/drivers/console/drivers.console.uart         :bgn:`PASSED` (device: DT04BNT1, 2.460s)
+         INFO    - 1704/1709 tiac_magpie               tests/drivers/uart/uart_async_api/drivers.uart.async_api.lpuart :byl:`SKIPPED` (runtime filter)
+         INFO    - 1705/1709 tiac_magpie               tests/drivers/uart/uart_async_api/drivers.uart.async_api :byl:`SKIPPED` (runtime filter)
+         INFO    - 1706/1709 tiac_magpie               tests/subsys/logging/log_backend_uart/logging.backend.uart.multi :bgn:`PASSED` (device: DT04BNT1, 2.476s)
+         INFO    - 1707/1709 tiac_magpie               tests/subsys/logging/log_backend_uart/logging.backend.uart.single :bgn:`PASSED` (device: DT04BNT1, 2.579s)
+         INFO    - 1708/1709 tiac_magpie               tests/drivers/uart/uart_async_rx/drivers.uart.async_rx :bgn:`PASSED` (device: DT04BNT1, 13.207s)
+         INFO    - 1709/1709 tiac_magpie               tests/drivers/console/hello_world/drivers.console.uart :bgn:`PASSED` (device: DT04BNT1, 2.539s)
 
-         INFO    - 1782 test scenarios (1570 test instances) selected, 1569 configurations skipped (1567 by static filter, 2 at runtime).
-         INFO    - :bgn:`1 of 1570` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1569` skipped with :bbk:`0` warnings in :bbk:`27.06 seconds`
-         INFO    - In total 1 test cases were executed, 10957 skipped on 1 out of total 638 platforms (0.16%)
-         INFO    - :bgn:`1` test configurations executed on platforms, :brd:`0` test configurations were only built.
+         INFO    - 1922 test scenarios (1709 test instances) selected, 1705 configurations skipped (1703 by static filter, 2 at runtime).
+         INFO    - :bgn:`4 of 1709` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1705` skipped with :bbk:`0` warnings in :bbk:`69.39 seconds`
+         INFO    - In total 7 test cases were executed, 12677 skipped on 1 out of total 699 platforms (0.14%)
+         INFO    - :bgn:`4` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
 
          \| Board       \| ID       \|   Counter \|
          \|-------------\|----------\|-----------\|
-         \| tiac_magpie \| DT04BNT1 \|         1 \|
+         \| tiac_magpie \| DT04BNT1 \|         4 \|
 
          INFO    - Saving reports...
          INFO    - Writing JSON report .../twister-out/twister.json

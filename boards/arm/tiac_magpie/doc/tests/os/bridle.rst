@@ -40,7 +40,7 @@ Building and Running
       You should see the following messages on host console:
 
       .. parsed-literal::
-         :class: highlight
+         :class: highlight-console notranslate
 
          Device testing on:
 
@@ -51,11 +51,11 @@ Building and Running
          INFO    - JOBS: 4
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 257/257 tiac_magpie               bridle/common/bridle.common                        :bgn:`PASSED` (device: DT04BNT1, 3.543s)
+         INFO    - 315/315 tiac_magpie               bridle/common/bridle.common                        :bgn:`PASSED` (device: DT04BNT1, 3.451s)
 
-         INFO    - 257 test scenarios (257 test instances) selected, 256 configurations skipped (256 by static filter, 0 at runtime).
-         INFO    - :bgn:`1 of 257` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`256` skipped with :bbk:`0` warnings in :bbk:`27.71 seconds`
-         INFO    - In total 1 test cases were executed, 256 skipped on 1 out of total 638 platforms (0.16%)
+         INFO    - 315 test scenarios (315 test instances) selected, 314 configurations skipped (314 by static filter, 0 at runtime).
+         INFO    - :bgn:`1 of 315` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`314` skipped with :bbk:`0` warnings in :bbk:`35.54 seconds`
+         INFO    - In total 1 test cases were executed, 314 skipped on 1 out of total 699 platforms (0.14%)
          INFO    - :bgn:`1` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:

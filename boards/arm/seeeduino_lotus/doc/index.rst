@@ -347,7 +347,7 @@ alternative to the default Zephyr console on serial port the Bridle
 :ref:`snippet-usb-console` can be used to enable
 :ref:`zephyr:usb_device_cdc_acm` and switch the console to USB::
 
-   USB device idVendor=2886, idProduct=8026, bcdDevice= 3.05
+   USB device idVendor=2886, idProduct=8026, bcdDevice= 3.06
    USB device strings: Mfr=1, Product=2, SerialNumber=3
    Product: Seeeduino Lotus Cortex-M0+ (CDC ACM)
    Manufacturer: Seeed LLC
@@ -504,52 +504,56 @@ Hello Shell with USB-CDC/ACM Console
 
 .. rubric:: Simple test execution on target
 
+(text in bold is a command input)
+
 .. tabs::
 
    .. group-tab:: Basics
 
-      .. code-block:: console
+      .. parsed-literal::
+         :class: highlight-console notranslate
 
-         uart:~$ hello -h
+         :bgn:`uart:~$` **hello -h**
          hello - say hello
-         uart:~$ hello
+         :bgn:`uart:~$` **hello**
          Hello from shell.
 
-         uart:~$ hwinfo devid
+         :bgn:`uart:~$` **hwinfo devid**
          Length: 16
          ID: 0xefa3ee60dfcb11ed9973734ca4207846
 
-         uart:~$ kernel version
-         Zephyr version 3.5.0
+         :bgn:`uart:~$` **kernel version**
+         Zephyr version |zephyr_version_number_em|
 
-         uart:~$ bridle version
-         Bridle version 3.5.0
+         :bgn:`uart:~$` **bridle version**
+         Bridle version |version_number_em|
 
-         uart:~$ bridle version long
-         Bridle version 3.5.0.0
+         :bgn:`uart:~$` **bridle version long**
+         Bridle version |longversion_number_em|
 
-         uart:~$ bridle info
-         Zephyr: 3.5.0
-         Bridle: 3.5.0
+         :bgn:`uart:~$` **bridle info**
+         Zephyr: |zephyr_release_number_em|
+         Bridle: |release_number_em|
 
-         uart:~$ device list
+         :bgn:`uart:~$` **device list**
          devices:
-         - eic@40001800 (READY)
-         - gpio@41004480 (READY)
-         - gpio@41004400 (READY)
+         - eic\ @\ 40001800 (READY)
+         - gpio\ @\ 41004480 (READY)
+         - gpio\ @\ 41004400 (READY)
          - snippet_cdc_acm_console_uart (READY)
-         - sercom@42001c00 (READY)
-         - sercom@42001000 (READY)
-         - tc@42003800 (DISABLED)
-         - tc@42003000 (DISABLED)
-         - adc@42004000 (READY)
-         - dac@42004800 (READY)
-         - nvmctrl@41004000 (READY)
-         - sercom@42001400 (READY)
-         - tcc@42002800 (READY)
-         - tcc@42002000 (READY)
+         - sercom\ @\ 42001c00 (READY)
+         - sercom\ @\ 42001000 (READY)
+         - tc\ @\ 42003800 (DISABLED)
+         - tc\ @\ 42003000 (DISABLED)
+         - adc\ @\ 42004000 (READY)
+         - dac\ @\ 42004800 (READY)
+         - nvmctrl\ @\ 41004000 (READY)
+         - sercom\ @\ 42001400 (READY)
+         - tcc\ @\ 42002800 (READY)
+         - tcc\ @\ 42002400 (READY)
+         - tcc\ @\ 42002000 (READY)
 
-         uart:~$ history
+         :bgn:`uart:~$` **history**
          [  0] history
          [  1] device list
          [  2] bridle info
@@ -564,79 +568,78 @@ Hello Shell with USB-CDC/ACM Console
 
       Operate with the red Rx user LED:
 
-      .. code-block:: console
+      .. parsed-literal::
+         :class: highlight-console notranslate
 
-         uart:~$ gpio get gpio@41004480 3
-         Reading gpio@41004480 pin 3
-         Value 0
+         :bgn:`uart:~$` **gpio get gpio@41004480 3**
+         0
 
-         uart:~$ gpio conf gpio@41004480 3 out
-         Configuring gpio@41004480 pin 3
+         :bgn:`uart:~$` **gpio conf gpio@41004480 3 ol0**
 
-         uart:~$ gpio set gpio@41004480 3 1
-         Writing to gpio@41004480 pin 3
+         :bgn:`uart:~$` **gpio set gpio@41004480 3 1**
+         :bgn:`uart:~$` **gpio set gpio@41004480 3 0**
 
-         uart:~$ gpio set gpio@41004480 3 0
-         Writing to gpio@41004480 pin 3
-
-         uart:~$ gpio blink gpio@41004480 3
-         Blinking port gpio@41004480 index 3. Hit any key to exit
+         :bgn:`uart:~$` **gpio blink gpio@41004480 3**
+         Hit any key to exit
 
    .. group-tab:: PWM
 
       Operate with the blue user LED:
 
-      .. code-block:: console
+      .. parsed-literal::
+         :class: highlight-console notranslate
 
-         uart:~$ pwm usec tcc@42002800 1 20000 20000
-         uart:~$ pwm usec tcc@42002800 1 20000 19000
-         uart:~$ pwm usec tcc@42002800 1 20000 18000
-         uart:~$ pwm usec tcc@42002800 1 20000 17000
-         uart:~$ pwm usec tcc@42002800 1 20000 16000
-         uart:~$ pwm usec tcc@42002800 1 20000 15000
-         uart:~$ pwm usec tcc@42002800 1 20000 10000
-         uart:~$ pwm usec tcc@42002800 1 20000 5000
-         uart:~$ pwm usec tcc@42002800 1 20000 2500
-         uart:~$ pwm usec tcc@42002800 1 20000 500
-         uart:~$ pwm usec tcc@42002800 1 20000 0
+         :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 20000**
+         :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 19000**
+         :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 18000**
+         :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 17000**
+         :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 16000**
+         :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 15000**
+         :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 10000**
+         :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 5000**
+         :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 2500**
+         :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 500**
+         :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 0**
 
    .. group-tab:: DAC/ADC
 
       Operate with the loop-back wire from A0 (DAC CH0 VOUT)
       to A1 (ADC CH2 AIN):
 
-     .. code-block:: console
+      .. parsed-literal::
+         :class: highlight-console notranslate
 
-        uart:~$ dac setup dac@42004800 0 10
-        uart:~$ adc adc@42004000 resolution 12
-        uart:~$ adc adc@42004000 acq_time 10 us
-        uart:~$ adc adc@42004000 channel positive 2
+         :bgn:`uart:~$` **dac setup dac@42004800 0 10**
+         :bgn:`uart:~$` **adc adc@42004000 resolution 12**
+         :bgn:`uart:~$` **adc adc@42004000 acq_time 10 us**
+         :bgn:`uart:~$` **adc adc@42004000 channel positive 2**
 
-        uart:~$ dac write_value dac@42004800 0 512
-        uart:~$ adc adc@42004000 read 2
-        read: 2025
+         :bgn:`uart:~$` **dac write_value dac@42004800 0 512**
+         :bgn:`uart:~$` **adc adc@42004000 read 2**
+         read: 2025
 
-        uart:~$ dac write_value dac@42004800 0 1023
-        uart:~$ adc adc@42004000 read 2
-        read: 4061
+         :bgn:`uart:~$` **dac write_value dac@42004800 0 1023**
+         :bgn:`uart:~$` **adc adc@42004000 read 2**
+         read: 4061
 
    .. group-tab:: Flash access
 
-      .. code-block:: console
+      .. parsed-literal::
+         :class: highlight-console notranslate
 
-         uart:~$ flash read nvmctrl@41004000 17d34 40
-         00017D34: 73 65 65 65 64 75 69 6e  6f 5f 6c 6f 74 75 73 00 |seeeduin o_lotus.|
-         00017D44: 48 65 6c 6c 6f 20 57 6f  72 6c 64 21 20 49 27 6d |Hello Wo rld! I'm|
-         00017D54: 20 54 48 45 20 53 48 45  4c 4c 20 66 72 6f 6d 20 | THE SHE LL from |
-         00017D64: 25 73 0a 00 69 6c 6c 65  67 61 6c 20 6f 70 74 69 |%s..ille gal opti|
+         :bgn:`uart:~$` **flash read nvmctrl@41004000 188dc 40**
+         000188DC: 73 65 65 65 64 75 69 6e  6f 5f 6c 6f 74 75 73 00 \|seeeduin o_lotus.\|
+         000188EC: 48 65 6c 6c 6f 20 57 6f  72 6c 64 21 20 49 27 6d \|Hello Wo rld! I'm\|
+         000188FC: 20 54 48 45 20 53 48 45  4c 4c 20 66 72 6f 6d 20 \| THE SHE LL from \|
+         0001890C: 25 73 0a 00 69 6c 6c 65  67 61 6c 20 6f 70 74 69 \|%s..ille gal opti\|
 
-         uart:~$ flash read nvmctrl@41004000 3c000 40
-         0003C000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff |........ ........|
-         0003C010: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff |........ ........|
-         0003C020: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff |........ ........|
-         0003C030: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff |........ ........|
+         :bgn:`uart:~$` **flash read nvmctrl@41004000 3c000 40**
+         0003C000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+         0003C010: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+         0003C020: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+         0003C030: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
 
-         uart:~$ flash test nvmctrl@41004000 3c000 400 2
+         :bgn:`uart:~$` **flash test nvmctrl@41004000 3c000 400 2**
          Erase OK.
          Write OK.
          Verified OK.
@@ -645,37 +648,38 @@ Hello Shell with USB-CDC/ACM Console
          Verified OK.
          Erase-Write-Verify test done.
 
-         uart:~$ flash read nvmctrl@41004000 3c000 40
-         0003C000: 00 01 02 03 04 05 06 07  08 09 0a 0b 0c 0d 0e 0f |........ ........|
-         0003C010: 10 11 12 13 14 15 16 17  18 19 1a 1b 1c 1d 1e 1f |........ ........|
-         0003C020: 20 21 22 23 24 25 26 27  28 29 2a 2b 2c 2d 2e 2f | !"#$%&' ()*+,-./|
-         0003C030: 30 31 32 33 34 35 36 37  38 39 3a 3b 3c 3d 3e 3f |01234567 89:;<=>?|
+         :bgn:`uart:~$` **flash read nvmctrl@41004000 3c000 40**
+         0003C000: 00 01 02 03 04 05 06 07  08 09 0a 0b 0c 0d 0e 0f \|........ ........\|
+         0003C010: 10 11 12 13 14 15 16 17  18 19 1a 1b 1c 1d 1e 1f \|........ ........\|
+         0003C020: 20 21 22 23 24 25 26 27  28 29 2a 2b 2c 2d 2e 2f \| !"#$%&' ()*+,-./\|
+         0003C030: 30 31 32 33 34 35 36 37  38 39 3a 3b 3c 3d 3e 3f \|01234567 89:;<=>?\|
 
-         uart:~$ flash page_info 3c000
+         :bgn:`uart:~$` **flash page_info 3c000**
          Page for address 0x3c000:
          start offset: 0x3c000
          size: 256
          index: 960
 
-         uart:~$ flash erase nvmctrl@41004000 3c000 400
+         :bgn:`uart:~$` **flash erase nvmctrl@41004000 3c000 400**
          Erase success.
 
-         uart:~$ flash read nvmctrl@41004000 3c000 40
-         0003C000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff |........ ........|
-         0003C010: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff |........ ........|
-         0003C020: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff |........ ........|
-         0003C030: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff |........ ........|
+         :bgn:`uart:~$` **flash read nvmctrl@41004000 3c000 40**
+         0003C000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+         0003C010: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+         0003C020: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+         0003C030: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
 
    .. group-tab:: I2C
 
       The Lotus Cortex-M0+ has no on-board I2C devices. For this example the
       |Grove BMP280 Sensor|_ was connected.
 
-      .. code-block:: console
+      .. parsed-literal::
+         :class: highlight-console notranslate
 
-         uart:~$ log enable none i2c_sam0
+         :bgn:`uart:~$` **log enable none i2c_sam0**
 
-         uart:~$ i2c scan sercom@42001400
+         :bgn:`uart:~$` **i2c scan sercom@42001400**
               0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
          00:             -- -- -- -- -- -- -- -- -- -- -- --
          10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
@@ -685,16 +689,17 @@ Hello Shell with USB-CDC/ACM Console
          50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
          60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
          70: -- -- -- -- -- -- -- 77
-         3 devices found on sercom@42001400
+         1 devices found on sercom\ @\ 42001400
 
-         uart:~$ log enable inf i2c_sam0
+         :bgn:`uart:~$` **log enable inf i2c_sam0**
 
       The I2C address ``0x77`` is a Bosch BMP280 Air Pressure Sensor and their
       Chip-ID can read from register ``0xd0``. The Chip-ID must be ``0x58``:
 
-      .. code-block:: console
+      .. parsed-literal::
+         :class: highlight-console notranslate
 
-         uart:~$ i2c read_byte sercom@42001400 77 d0
+         :bgn:`uart:~$` **i2c read_byte sercom@42001400 77 d0**
          Output: 0x58
 
 References

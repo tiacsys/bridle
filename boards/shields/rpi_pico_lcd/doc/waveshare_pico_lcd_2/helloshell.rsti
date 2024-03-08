@@ -1,48 +1,52 @@
 .. rubric:: Simple test execution on target
 
+(text in bold is a command input)
+
 .. tabs::
 
    .. group-tab:: Basics
 
-      .. code-block:: console
+      .. parsed-literal::
+         :class: highlight-console notranslate
 
-         uart:~$ hello -h
+         :bgn:`uart:~$` **hello -h**
          hello - say hello
-         uart:~$ hello
+         :bgn:`uart:~$` **hello**
          Hello from shell.
 
-         uart:~$ hwinfo devid
+         :bgn:`uart:~$` **hwinfo devid**
          Length: 8
          ID: 0x8c998be1de969148
 
-         uart:~$ kernel version
-         Zephyr version 3.5.99
+         :bgn:`uart:~$` **kernel version**
+         Zephyr version |zephyr_version_number_em|
 
-         uart:~$ bridle version
-         Bridle version 3.5.99
+         :bgn:`uart:~$` **bridle version**
+         Bridle version |version_number_em|
 
-         uart:~$ bridle version long
-         Bridle version 3.5.99.0
+         :bgn:`uart:~$` **bridle version long**
+         Bridle version |longversion_number_em|
 
-         uart:~$ bridle info
-         Zephyr: 3.5.99
-         Bridle: 3.5.99
+         :bgn:`uart:~$` **bridle info**
+         Zephyr: |zephyr_release_number_em|
+         Bridle: |release_number_em|
 
-         uart:~$ device list
+         :bgn:`uart:~$` **device list**
          devices:
-         - reset-controller@4000c000 (READY)
+         - clock-controller\ @\ 40008000 (READY)
+         - reset-controller\ @\ 4000c000 (READY)
          - snippet_cdc_acm_console_uart (READY)
-         - uart@40034000 (READY)
-         - timer@40054000 (READY)
-         - gpio@40014000 (READY)
-         - adc@4004c000 (READY)
-         - flash-controller@18000000 (READY)
-         - i2c@40044000 (READY)
-         - vreg@40064000 (READY)
+         - uart\ @\ 40034000 (READY)
+         - timer\ @\ 40054000 (READY)
+         - gpio\ @\ 40014000 (READY)
+         - adc\ @\ 4004c000 (READY)
+         - flash-controller\ @\ 18000000 (READY)
+         - i2c\ @\ 40044000 (READY)
+         - vreg\ @\ 40064000 (READY)
          - lcd-backlight-en (READY)
-         - pwm_leds (READY)
+         - leds (READY)
 
-         uart:~$ history
+         :bgn:`uart:~$` **history**
          [  0] history
          [  1] device list
          [  2] bridle info
@@ -58,25 +62,27 @@
       Operate with the LCD backlight LED :hwftlbl-led:`LCD_BL`
       at :rpi-pico-pio:`GP13`:
 
-      .. code-block:: console
+      .. parsed-literal::
+         :class: highlight-console notranslate
 
-         uart:~$ regulator disable lcd-backlight-en
-         uart:~$ regulator enable lcd-backlight-en
+         :bgn:`uart:~$` **regulator disable lcd-backlight-en**
+         :bgn:`uart:~$` **regulator enable lcd-backlight-en**
 
    .. group-tab:: GPIO
 
       Operate with the user button :hwftlbl-btn:`3`
       at :rpi-pico-pio:`GP3`:
 
-      .. code-block:: console
+      .. parsed-literal::
+         :class: highlight-console notranslate
 
-         uart:~$ gpio get gpio@40014000 3
+         :bgn:`uart:~$` **gpio get gpio@40014000 3**
          0
 
-         uart:~$ gpio conf gpio@40014000 3 iuh
-         uart:~$ gpio get gpio@40014000 3
-         1
-         uart:~$ gpio get gpio@40014000 3
+         :bgn:`uart:~$` **gpio conf gpio@40014000 3 iul**
+         :bgn:`uart:~$` **gpio get gpio@40014000 3**
          0
-         uart:~$ gpio get gpio@40014000 3
+         :bgn:`uart:~$` **gpio get gpio@40014000 3**
          1
+         :bgn:`uart:~$` **gpio get gpio@40014000 3**
+         0

@@ -2,7 +2,7 @@ This is ApacheBench, Version 2.3 <$Revision: 1843412 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
 Licensed to The Apache Software Foundation, http://www.apache.org/
 
-Benchmarking 192.168.10.197 (be patient).....done
+Benchmarking 192.168.10.197 (be patient)
 
 
 Server Software:        
@@ -12,32 +12,32 @@ Server Port:            8080
 Document Path:          /
 Document Length:        2084 bytes
 
-Concurrency Level:      20
-Time taken for tests:   0.264 seconds
-Complete requests:      100
-Failed requests:        44
-   (Connect: 0, Receive: 0, Length: 41, Exceptions: 3)
-Total transferred:      126260 bytes
-HTML transferred:       122956 bytes
-Requests per second:    379.27 [#/sec] (mean)
-Time per request:       52.733 [ms] (mean)
-Time per request:       2.637 [ms] (mean, across all concurrent requests)
-Transfer rate:          467.64 [Kbytes/sec] received
+Concurrency Level:      1000
+Time taken for tests:   60.001 seconds
+Complete requests:      13441
+Failed requests:        9079
+   (Connect: 0, Receive: 30, Length: 9019, Exceptions: 30)
+Total transferred:      9463080 bytes
+HTML transferred:       9215448 bytes
+Requests per second:    224.01 [#/sec] (mean)
+Time per request:       4464.059 [ms] (mean)
+Time per request:       4.464 [ms] (mean, across all concurrent requests)
+Transfer rate:          154.02 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        0   11  22.3      7     109
-Processing:     2   24  30.9     21     137
-Waiting:        0    6  12.3      7     121
-Total:          3   36  34.7     29     141
+Connect:        1  208 1490.2      5   31540
+Processing:     1   35 202.8      7   13093
+Waiting:        0   13 101.8      0    9227
+Total:          3  243 1521.3     13   32183
 
 Percentage of the requests served within a certain time (ms)
-  50%     29
-  66%     29
-  75%     29
-  80%     29
-  90%    114
-  95%    122
-  98%    124
-  99%    141
- 100%    141 (longest request)
+  50%     13
+  66%     19
+  75%     22
+  80%     25
+  90%    223
+  95%   1037
+  98%   2280
+  99%   6129
+ 100%  32183 (longest request)

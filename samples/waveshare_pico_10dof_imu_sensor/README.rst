@@ -65,13 +65,17 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
 Sample Output
 =============
 
-.. code-block:: kmsg
+.. parsed-literal::
+   :class: highlight-console notranslate
 
-   [00:00:00.075,000] <dbg> MPU9250: ak8963_fetch_adj: Adjustment values 1756 1762 1698
-   *** Booting Zephyr OS build … … … ***
-   [00:00:04.088,000] <inf> wsptdis_sample: MPU9250: Found device "mpu9250@68", getting sensor data
+   [00:00:00.066,000] <dbg> MPU9250: ak8963_fetch_adj: Adjustment values 1756 1762 1698
+   \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+   [00:00:00.338,000] :byl:`<wrn> udc_rpi: BUS RESET`
+   [00:00:00.419,000] :byl:`<wrn> udc_rpi: BUS RESET`
+   \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* \*\*\*
+   [00:00:04.088,000] <inf> wsptdis_sample: MPU9250: Found device "mpu9250\ @\ 68", getting sensor data
    [00:00:04.088,000] <inf> wsptdis_sample: DOF: Configured for triggered sampling.
-   [00:00:04.088,000] <inf> wsptdis_sample: LPS22HB: Found device "lps22hb@5c", getting sensor data
+   [00:00:04.088,000] <inf> wsptdis_sample: LPS22HB: Found device "lps22hb\ @\ 5c", getting sensor data
    [00:00:04.089,000] <inf> wsptdis_sample: TP: 98.13 AirPr. [hPa]
    [00:00:04.090,000] <inf> wsptdis_sample: TP: 29.01 Temp. [C]
    [00:00:04.096,000] <dbg> MPU9250: mpu9250_sample_fetch: magn_st2: 16

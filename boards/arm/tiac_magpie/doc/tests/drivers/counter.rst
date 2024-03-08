@@ -40,7 +40,7 @@ Building and Running
       You should see the following messages on host console:
 
       .. parsed-literal::
-         :class: highlight
+         :class: highlight-console notranslate
 
          Device testing on:
 
@@ -51,11 +51,11 @@ Building and Running
          INFO    - JOBS: 4
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1570/1570 tiac_magpie               tests/drivers/counter/counter_basic_api/drivers.counter.basic_api :bgn:`PASSED` (device: DT04BNT1, 324.902s)
+         INFO    - 1709/1709 tiac_magpie               tests/drivers/counter/counter_basic_api/drivers.counter.basic_api :bgn:`PASSED` (device: DT04BNT1, 324.892s)
 
-         INFO    - 1782 test scenarios (1570 test instances) selected, 1569 configurations skipped (1569 by static filter, 0 at runtime).
-         INFO    - :bgn:`1 of 1570` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1569` skipped with :bbk:`0` warnings in :bbk:`358.74 seconds`
-         INFO    - In total 10 test cases were executed, 10948 skipped on 1 out of total 638 platforms (0.16%)
+         INFO    - 1922 test scenarios (1709 test instances) selected, 1708 configurations skipped (1708 by static filter, 0 at runtime).
+         INFO    - :bgn:`1 of 1709` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1708` skipped with :bbk:`0` warnings in :bbk:`363.21 seconds`
+         INFO    - In total 10 test cases were executed, 12674 skipped on 1 out of total 699 platforms (0.14%)
          INFO    - :bgn:`1` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:

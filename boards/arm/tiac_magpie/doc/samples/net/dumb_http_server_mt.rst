@@ -39,22 +39,24 @@ this:
 Once DHCPv4 client address negotiation completed with server, details
 are shown on the console like this:
 
-.. code-block:: none
+.. parsed-literal::
+   :class: highlight-console notranslate
 
-   [00:00:00.011,000] <inf> net_config: Initializing network
-   [00:00:00.011,000] <inf> net_config: Waiting interface 1 (0x200214f0) to be up...
-   [00:00:00.511,000] <inf> net_config: Interface 1 (0x200214f0) coming up
-   [00:00:00.511,000] <inf> net_config: IPv4 address: 192.0.2.1
-   [00:00:00.511,000] <inf> net_config: Running dhcpv4 client...
-   [00:00:00.612,000] <inf> net_config: IPv6 address: fd9c:33d7:ba99:0:280:e1ff:fe36:3539
-   [00:00:00.612,000] <inf> net_dumb_http_srv_mt_sample: Network connected
-   [00:00:00.612,000] <dbg> net_dumb_http_srv_mt_sample: process_tcp6: Waiting for IPv6 HTTP connections on port 8080, sock 0
-   [00:00:00.612,000] <dbg> net_dumb_http_srv_mt_sample: process_tcp4: Waiting for IPv4 HTTP connections on port 8080, sock 2
-   [00:00:01.539,000] <inf> net_dhcpv4: Received: 192.168.10.197
-   [00:00:01.539,000] <inf> net_config: IPv4 address: 192.168.10.197
-   [00:00:01.539,000] <inf> net_config: Lease time: 28800 seconds
-   [00:00:01.539,000] <inf> net_config: Subnet: 255.255.255.0
-   [00:00:01.539,000] <inf> net_config: Router: 192.168.10.1
+   \*\*\* Booting Zephyr OS … … …\*\*\*
+   [00:00:00.013,000] <inf> net_config: Initializing network
+   [00:00:00.013,000] <inf> net_config: Waiting interface 1 (0x200214c0) to be up...
+   [00:00:00.513,000] <inf> net_config: Interface 1 (0x200214c0) coming up
+   [00:00:00.514,000] <inf> net_config: IPv4 address: 192.0.2.1
+   [00:00:00.514,000] <inf> net_config: Running dhcpv4 client...
+   [00:00:00.615,000] <inf> net_config: IPv6 address: fd9c:33d7:ba99:0:280:e1ff:fee1:9a39
+   [00:00:00.616,000] <inf> net_dumb_http_srv_mt_sample: Network connected
+   [00:00:00.616,000] <dbg> net_dumb_http_srv_mt_sample: process_tcp6: Waiting for IPv6 HTTP connections on port 8080, sock 0
+   [00:00:00.616,000] <dbg> net_dumb_http_srv_mt_sample: process_tcp4: Waiting for IPv4 HTTP connections on port 8080, sock 2
+   [00:00:03.312,000] <inf> net_dhcpv4: Received: 192.168.10.197
+   [00:00:03.312,000] <inf> net_config: IPv4 address: 192.168.10.197
+   [00:00:03.312,000] <inf> net_config: Lease time: 28800 seconds
+   [00:00:03.312,000] <inf> net_config: Subnet: 255.255.255.0
+   [00:00:03.313,000] <inf> net_config: Router: 192.168.10.1
 
 Now the sample was starting, it expects connections at 192.168.10.197,
 port 8080. The easiest way to connect is by opening a following URL in
@@ -70,18 +72,19 @@ content on the live Zephyr site).
 
 Alternatively, a tool like ``curl`` can be used:
 
-.. code-block:: console
+.. parsed-literal::
+   :class: highlight
 
-    $ curl http://192.168.10.197:8080/
+    :bgn:`$` **curl http://192.168.10.197:8080/**
 
 Finally, you can run an HTTP profiling/load tool like Apache Bench
 (``ab``) against the server:
 
-.. code-block:: console
+.. parsed-literal::
+   :class: highlight
 
-    $ ab -g dumb_http_server_mt_ab.csv -n 100 -c 20 \
-         http://192.168.10.197:8080/ | tee dumb_http_server_mt_ab.log
-    $ gnuplot dumb_http_server_mt_ab.p
+    :bgn:`$` **ab -r -g dumb_http_server_mt_ab.csv -t 60 -c 1000 http://192.168.10.197:8080/** | \\
+          **tee dumb_http_server_mt_ab.log** && **gnuplot dumb_http_server_mt_ab.p**
 
 The ``-n`` parameter specifies the number of HTTP requests to issue against
 a server. The ``-c`` parameter specifies the number of multiple requests to

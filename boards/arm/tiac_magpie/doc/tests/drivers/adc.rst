@@ -47,7 +47,7 @@ Building and Running
       You should see the following messages on host console:
 
       .. parsed-literal::
-         :class: highlight
+         :class: highlight-console notranslate
 
          Device testing on:
 
@@ -58,12 +58,12 @@ Building and Running
          INFO    - JOBS: 4
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1570/1570 tiac_magpie               tests/drivers/adc/adc_api/drivers.adc               :brd:`ERROR` Build failure (device)
+         INFO    - 1709/1709 tiac_magpie               tests/drivers/adc/adc_api/drivers.adc               :brd:`ERROR` Build failure (device)
          INFO    - :byl:`.../twister-out/tiac_magpie/tests/drivers/adc/adc_api/drivers.adc/build.log`
 
-         INFO    - 1782 test scenarios (1570 test instances) selected, 1569 configurations skipped (1569 by static filter, 0 at runtime).
-         INFO    - :bgn:`0 of 1570` test configurations passed (0.00%), :bbk:`0` failed, :brd:`1` errored, :byl:`1569` skipped with :bbk:`0` warnings in :bbk:`13.96 seconds`
-         INFO    - In total 6 test cases were executed, 10952 skipped on 1 out of total 638 platforms (0.16%)
+         INFO    - 1922 test scenarios (1709 test instances) selected, 1708 configurations skipped (1708 by static filter, 0 at runtime).
+         INFO    - :bgn:`0 of 1709` test configurations passed (0.00%), :bbk:`0` failed, :brd:`1` errored, :byl:`1708` skipped with :bbk:`0` warnings in :bbk:`16.45 seconds`
+         INFO    - In total 6 test cases were executed, 10952 skipped on 1 out of total 699 platforms (0.14%)
          INFO    - :bgn:`0` test configurations executed on platforms, :brd:`1` test configurations were only built.
 
          Hardware distribution summary:
@@ -86,7 +86,7 @@ Building and Running
          INFO    - 
          INFO    - west twister -p tiac_magpie -s tests/drivers/adc/adc_api/drivers.adc
          INFO    - or with west:
-         INFO    - west build -p -b tiac_magpie -T tests/drivers/adc/adc_api/drivers.adc
+         INFO    - west build -p -b tiac_magpie tests/drivers/adc/adc_api -T drivers.adc
          INFO    - -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
          INFO    - Run completed
 
@@ -94,7 +94,7 @@ Open Issues
 ***********
 
 .. parsed-literal::
-   :class: highlight
+   :class: highlight-console notranslate
 
    ... ... ...
    .../zephyr/tests/drivers/adc/adc_api/src/test_adc.c:33:2: :brd:`error:` #error "Unsupported board."

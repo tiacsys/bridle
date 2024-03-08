@@ -68,16 +68,20 @@ that comes with the :ref:`waveshare_pico_environment_sensor` shield for the
 Sample Output
 =============
 
-.. code-block:: kmsg
+.. parsed-literal::
+   :class: highlight-console notranslate
 
    [00:00:00.001,000] <dbg> BME280: bme280_chip_init: ID OK
-   [00:00:00.009,000] <dbg> BME280: bme280_chip_init: "bme280@76" OK
-   [00:00:00.084,000] <dbg> MPU9250: ak8963_fetch_adj: Adjustment values 1774 1774 1709
-   [00:00:00.345,000] <dbg> SGP40: sgp40_init: Selftest succeeded!
-   *** Booting Zephyr OS build … … … ***
-   [00:00:04.347,000] <inf> wspes_sample: ICM20948: Found device "mpu9250@68", getting sensor data
-   [00:00:04.347,000] <inf> wspes_sample: BME280: Found device "bme280@76", getting sensor data
-   [00:00:04.347,000] <inf> wspes_sample: SGP40: Found device "sgp40@59", getting sensor data
+   [00:00:00.009,000] <dbg> BME280: bme280_chip_init: "bme280\ @\ 76" OK
+   [00:00:00.260,000] <dbg> SGP40: sgp40_init: Selftest succeeded!
+   [00:00:00.334,000] <dbg> MPU9250: ak8963_fetch_adj: Adjustment values 1774 1774 1709
+   \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+   [00:00:00.507,000] :byl:`<wrn> udc_rpi: BUS RESET`
+   [00:00:00.587,000] :byl:`<wrn> udc_rpi: BUS RESET`
+   \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* \*\*\*
+   [00:00:04.347,000] <inf> wspes_sample: ICM20948: Found device "mpu9250\ @\ 68", getting sensor data
+   [00:00:04.347,000] <inf> wspes_sample: BME280: Found device "bme280\ @\ 76", getting sensor data
+   [00:00:04.347,000] <inf> wspes_sample: SGP40: Found device "sgp40\ @\ 59", getting sensor data
    [00:00:06.349,000] <dbg> MPU9250: mpu9250_sample_fetch: magn_st2: 16
    [00:00:06.385,000] <inf> wspes_sample: DOF: -1.920749 0.399831 -9.746795 XYZ-Accel. [m/s/s]
    [00:00:06.385,000] <inf> wspes_sample: DOF: 0.008660 -0.000266 0.022116 XYZ-Gyro. [rad/s]

@@ -35,34 +35,38 @@ Build and flash TELNET Console as follows:
 Once DHCPv4 client address negotiation completed with server, details
 are shown on the console like this:
 
-.. code-block:: none
+.. parsed-literal::
+   :class: highlight-console notranslate
 
-   [00:00:00.011,000] <inf> shell_telnet: Telnet shell backend initialized
-   [00:00:00.011,000] <inf> net_config: Initializing network
-   [00:00:00.011,000] <inf> net_config: Waiting interface 1 (0x200213c8) to be up...
-   [00:00:00.511,000] <inf> net_config: Interface 1 (0x200213c8) coming up
-   [00:00:00.511,000] <inf> net_config: IPv4 address: 192.0.2.1
-   [00:00:00.511,000] <inf> net_config: Running dhcpv4 client...
-   [00:00:00.511,000] <inf> net_telnet_sample: Starting Telnet sample
-   [00:00:00.511,000] <inf> net_telnet_sample: Running dhcpv4 client...
-   [00:00:00.511,000] <inf> net_telnet_sample: IPv6 address: 2001:db8::1
-   [00:00:00.612,000] <inf> net_config: IPv6 address: fd9c:33d7:ba99:0:280:e1ff:fe36:3539
-   [00:00:02.531,000] <inf> net_dhcpv4: Received: 192.168.10.197
-   [00:00:02.531,000] <inf> net_telnet_sample: IPv4 address: 192.168.10.197
-   [00:00:02.531,000] <inf> net_telnet_sample: Lease time: 28800 seconds
-   [00:00:02.531,000] <inf> net_telnet_sample: Subnet: 255.255.255.0
-   [00:00:02.531,000] <inf> net_telnet_sample: Router: 192.168.10.1
-   [00:00:02.531,000] <inf> net_config: IPv4 address: 192.168.10.197
-   [00:00:02.531,000] <inf> net_config: Lease time: 28800 seconds
-   [00:00:02.531,000] <inf> net_config: Subnet: 255.255.255.0
-   [00:00:02.531,000] <inf> net_config: Router: 192.168.10.1
+   \*\*\* Booting Zephyr OS … … …\*\*\*
+   [00:00:00.013,000] <inf> shell_telnet: Telnet shell backend initialized
+   [00:00:00.013,000] <inf> net_config: Initializing network
+   [00:00:00.013,000] <inf> net_config: Waiting interface 1 (0x20021390) to be up...
+   [00:00:00.129,000] <inf> net_config: Interface 1 (0x20021390) coming up
+   [00:00:00.130,000] <inf> net_config: IPv4 address: 192.0.2.1
+   [00:00:00.130,000] <inf> net_config: Running dhcpv4 client...
+   [00:00:00.130,000] :brd:`<err> net_if: Cannot join solicit node address ff02::1:ff00:1 (-12)`
+   [00:00:00.130,000] <inf> net_telnet_sample: Starting Telnet sample
+   [00:00:00.130,000] <inf> net_telnet_sample: Running dhcpv4 client...
+   [00:00:00.130,000] <inf> net_telnet_sample: IPv6 address: 2001:db8::1
+   [00:00:00.231,000] <inf> net_config: IPv6 address: fd9c:33d7:ba99:0:280:e1ff:fee1:9a39
+   [00:00:01.151,000] <inf> net_dhcpv4: Received: 192.168.10.197
+   [00:00:01.151,000] <inf> net_telnet_sample: IPv4 address: 192.168.10.197
+   [00:00:01.151,000] <inf> net_telnet_sample: Lease time: 28800 seconds
+   [00:00:01.151,000] <inf> net_telnet_sample: Subnet: 255.255.255.0
+   [00:00:01.151,000] <inf> net_telnet_sample: Router: 192.168.10.1
+   [00:00:01.152,000] <inf> net_config: IPv4 address: 192.168.10.197
+   [00:00:01.152,000] <inf> net_config: Lease time: 28800 seconds
+   [00:00:01.152,000] <inf> net_config: Subnet: 255.255.255.0
+   [00:00:01.152,000] <inf> net_config: Router: 192.168.10.1
 
 To verify the Zephyr application clients are running, bind the TELNET server to
 the network interface, and has received an IPv4 address by typing on Linux host:
 
-.. code-block:: console
+.. parsed-literal::
+   :class: highlight
 
-   $ ping -c3 192.168.10.197
+   :bgn:`$` **ping -c3 192.168.10.197**
    PING 192.168.10.197 (192.168.10.197) 56(84) bytes of data.
    64 bytes from 192.168.10.197: icmp_seq=1 ttl=64 time=0.303 ms
    64 bytes from 192.168.10.197: icmp_seq=2 ttl=64 time=0.261 ms
@@ -72,22 +76,23 @@ the network interface, and has received an IPv4 address by typing on Linux host:
    3 packets transmitted, 3 received, 0% packet loss, time 2052ms
    rtt min/avg/max/mdev = 0.261/0.276/0.303/0.019 ms
 
-   $ nmap 192.168.10.197
-   Starting Nmap 7.80 ( https://nmap.org ) at 2023-10-30 13:29 CET
-   Nmap scan report for 192.168.10.196
-   Host is up (0.0011s latency).
+   :bgn:`$` **nmap -Pn 192.168.10.197**
+   Starting Nmap 7.80 ( https://nmap.org ) at 2024-03-12 01:20 CET
+   Nmap scan report for 192.168.10.197
+   Host is up (0.0032s latency).
    Not shown: 999 closed ports
    PORT   STATE SERVICE
    23/tcp open  telnet
 
-   Nmap done: 1 IP address (1 host up) scanned in 2.44 seconds
+   Nmap done: 1 IP address (1 host up) scanned in 6.62 seconds
 
 At this point you should be able to connect via ``telnet`` over the network.
 On your Linux host:
 
-.. code-block:: console
+.. parsed-literal::
+   :class: highlight
 
-   $ telnet 192.168.10.197
+   :bgn:`$` **telnet 192.168.10.197**
    Trying 192.168.10.197...
    Connected to 192.168.10.197.
    Escape character is '^]'.
@@ -97,71 +102,68 @@ commands and get the output through your telnet client. Now type enter, the
 shell prompt will appear and you can enter commands, for example ``help``
 or ``kernel version``.
 
-.. code-block:: console
+.. parsed-literal::
+   :class: highlight-console notranslate
 
-   ~$ kernel version
-   Zephyr version 3.5.0
+   :bgn:`~$` **kernel version**
+   Zephyr version |zephyr_version_number_em|
 
-   ~$ bridle version
-   Bridle version 3.5.0
+   :bgn:`~$` **bridle version**
+   Bridle version |version_number_em|
 
-   ~$ device list
+   :bgn:`~$` **device list**
    devices:
-   - rcc@40023800 (READY)
+   - rcc\ @\ 40023800 (READY)
    - reset-controller (READY)
-   - interrupt-controller@40013c00 (READY)
-   - gpio@40022800 (READY)
-   - gpio@40022400 (READY)
-   - gpio@40022000 (READY)
-   - gpio@40021C00 (READY)
-   - gpio@40021800 (READY)
-   - gpio@40021400 (READY)
-   - gpio@40021000 (READY)
-   - gpio@40020C00 (READY)
-   - gpio@40020800 (READY)
-   - gpio@40020400 (READY)
-   - gpio@40020000 (READY)
-   - rng@50060800 (READY)
-   - serial@40007800 (READY)
-   - serial@40004c00 (READY)
-   - rtc@40002800 (READY)
-   - i2c@40006000 (READY)
-   - i2c@40005800 (READY)
-   - spi@40013400 (READY)
-   - ethernet@40028000 (READY)
+   - interrupt-controller\ @\ 40013c00 (READY)
+   - gpio\ @\ 40022800 (READY)
+   - gpio\ @\ 40022400 (READY)
+   - gpio\ @\ 40022000 (READY)
+   - gpio\ @\ 40021C00 (READY)
+   - gpio\ @\ 40021800 (READY)
+   - gpio\ @\ 40021400 (READY)
+   - gpio\ @\ 40021000 (READY)
+   - gpio\ @\ 40020C00 (READY)
+   - gpio\ @\ 40020800 (READY)
+   - gpio\ @\ 40020400 (READY)
+   - gpio\ @\ 40020000 (READY)
+   - rng\ @\ 50060800 (READY)
+   - serial\ @\ 40007800 (READY)
+   - serial\ @\ 40004c00 (READY)
+   - rtc\ @\ 40002800 (READY)
+   - i2c\ @\ 40006000 (READY)
+   - i2c\ @\ 40005800 (READY)
+   - spi\ @\ 40013400 (READY)
+   - ethernet\ @\ 40028000 (READY)
 
 Simple GPIO Operations
 ======================
 
 .. rubric:: Switch user LED 2 on and off
 
-.. code-block:: console
+.. parsed-literal::
+   :class: highlight-console notranslate
 
-   ~$ gpio get gpio@40021800 12
-   Reading gpio@40021800 pin 12
-   Value 0
+   :bgn:`~$` **gpio get gpio@40021800 12**
+   0
 
-   ~$ gpio conf gpio@40021800 12 out
-   Configuring gpio@40021800 pin 12
+   :bgn:`~$` **gpio conf gpio@40021800 12 oh0**
 
-   ~$ gpio set gpio@40021800 12 1
-   Writing to gpio@40021800 pin 12
+   :bgn:`~$` **gpio set gpio@40021800 12 1**
+   :bgn:`~$` **gpio set gpio@40021800 12 0**
 
-   ~$ gpio set gpio@40021800 12 0
-   Writing to gpio@40021800 pin 12
-
-   ~$ gpio blink gpio@40021800 12
-   Blinking port gpio@40021800 index 12. Hit any key to exit
+   :bgn:`~$` **gpio blink gpio@40021800 12**
+   Hit any key to exit
 
 Simple I2C Operations
 =====================
 
 .. rubric:: Scan I2C bus 2
 
-.. code-block:: console
+.. parsed-literal::
+   :class: highlight-console notranslate
 
-   ~$ i2c scan i2c@40005800
-   i2c scan i2c@40005800
+   :bgn:`~$` **i2c scan i2c@40005800**
         0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
    00:             -- -- -- -- -- -- -- -- -- -- -- --
    10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
@@ -171,4 +173,4 @@ Simple I2C Operations
    50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
    60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
    70: -- -- -- -- -- -- -- --
-   9 devices found on i2c@40005800
+   9 devices found on i2c\ @\ 40005800

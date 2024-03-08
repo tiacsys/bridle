@@ -248,12 +248,13 @@ sample: :doc:`zephyr:samples/subsys/input/input_dump/README`.
 
       .. rubric:: Simple test execution on target
 
-      .. code-block:: console
+      .. parsed-literal::
+         :class: highlight-console notranslate
 
-         ***** delaying boot 4000ms (per build configuration) *****
+         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
          W: BUS RESET
          W: BUS RESET
-         *** Booting Zephyr OS … … … (delayed boot 4000ms) ***
+         \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
          Input sample started
          I: input event: dev=gpio_keys        SYN type= 1 code=108 value=1
          I: input event: dev=gpio_keys        SYN type= 1 code=108 value=0
@@ -348,28 +349,29 @@ See also Zephyr sample: :doc:`zephyr:samples/drivers/adc/README`.
 
       .. rubric:: Simple test execution on target
 
-      .. code-block:: console
+      .. parsed-literal::
+         :class: highlight-console notranslate
 
-         ***** delaying boot 4000ms (per build configuration) *****
-         W: BUS RESET
-         W: BUS RESET
-         *** Booting Zephyr OS … … … (delayed boot 4000ms) ***
+         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+         [00:00:00.287,000] :byl:`<wrn> udc_rpi: BUS RESET`
+         [00:00:00.368,000] :byl:`<wrn> udc_rpi: BUS RESET`
+         \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
          ADC reading[0]:
-         - adc@4004c000, channel 0: 25 = 20 mV
+         - adc\ @\ 4004c000, channel 0: 25 = 20 mV
          ADC reading[1]:
-         - adc@4004c000, channel 0: 171 = 137 mV
+         - adc\ @\ 4004c000, channel 0: 171 = 137 mV
          ADC reading[2]:
-         - adc@4004c000, channel 0: 979 = 788 mV
+         - adc\ @\ 4004c000, channel 0: 979 = 788 mV
          ADC reading[3]:
-         - adc@4004c000, channel 0: 1818 = 1464 mV
+         - adc\ @\ 4004c000, channel 0: 1818 = 1464 mV
          ADC reading[4]:
-         - adc@4004c000, channel 0: 2521 = 2031 mV
+         - adc\ @\ 4004c000, channel 0: 2521 = 2031 mV
          ADC reading[5]:
-         - adc@4004c000, channel 0: 3152 = 2539 mV
+         - adc\ @\ 4004c000, channel 0: 3152 = 2539 mV
          ADC reading[6]:
-         - adc@4004c000, channel 0: 4019 = 3237 mV
+         - adc\ @\ 4004c000, channel 0: 4019 = 3237 mV
          ADC reading[7]:
-         - adc@4004c000, channel 0: 4095 = 3299 mV
+         - adc\ @\ 4004c000, channel 0: 4095 = 3299 mV
 
 Light-Emitting Diode (LED) by PWM
 =================================
@@ -493,112 +495,113 @@ sample: :doc:`zephyr:samples/drivers/led_pwm/README`.
 
       .. rubric:: Simple test execution on target
 
-      .. code-block:: console
+      .. parsed-literal::
+         :class: highlight-console notranslate
 
-         ***** delaying boot 4000ms (per build configuration) *****
-         [00:00:00.181,000] <wrn> udc_rpi: BUS RESET
-         [00:00:00.266,000] <wrn> udc_rpi: BUS RESET
-         *** Booting Zephyr OS … … … (delayed boot 4000ms) ***
+         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+         [00:00:00.181,000] :byl:`<wrn> udc_rpi: BUS RESET`
+         [00:00:00.266,000] :byl:`<wrn> udc_rpi: BUS RESET`
+         \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
          [00:00:04.003,000] <inf> main: Testing LED 0 - L0: Test LED 0
          [00:00:04.004,000] <inf> main:   Turned on
          [00:00:05.005,000] <inf> main:   Turned off
          [00:00:06.005,000] <inf> main:   Increasing brightness gradually
-         [00:00:08.026,000] <err> main: err=-22
+         [00:00:08.026,000] :brd:`<err> main: err=-22`
          [00:00:08.026,000] <inf> main: Testing LED 1 - L1: Test LED 1
          [00:00:08.027,000] <inf> main:   Turned on
          [00:00:09.027,000] <inf> main:   Turned off
          [00:00:10.028,000] <inf> main:   Increasing brightness gradually
-         [00:00:12.049,000] <err> main: err=-22
+         [00:00:12.049,000] :brd:`<err> main: err=-22`
          [00:00:12.049,000] <inf> main: Testing LED 2 - L2: Test LED 2
          [00:00:12.049,000] <inf> main:   Turned on
          [00:00:13.050,000] <inf> main:   Turned off
          [00:00:14.050,000] <inf> main:   Increasing brightness gradually
-         [00:00:16.071,000] <err> main: err=-22
+         [00:00:16.071,000] :brd:`<err> main: err=-22`
          [00:00:16.071,000] <inf> main: Testing LED 3 - L3: Test LED 3
          [00:00:16.072,000] <inf> main:   Turned on
          [00:00:17.072,000] <inf> main:   Turned off
          [00:00:18.073,000] <inf> main:   Increasing brightness gradually
-         [00:00:20.094,000] <err> main: err=-22
+         [00:00:20.094,000] :brd:`<err> main: err=-22`
          [00:00:20.094,000] <inf> main: Testing LED 4 - L4: Test LED 4
          [00:00:20.094,000] <inf> main:   Turned on
          [00:00:21.095,000] <inf> main:   Turned off
          [00:00:22.095,000] <inf> main:   Increasing brightness gradually
-         [00:00:24.116,000] <err> main: err=-22
+         [00:00:24.116,000] :brd:`<err> main: err=-22`
          [00:00:24.117,000] <inf> main: Testing LED 5 - L5: Test LED 5
          [00:00:24.117,000] <inf> main:   Turned on
          [00:00:25.118,000] <inf> main:   Turned off
          [00:00:26.118,000] <inf> main:   Increasing brightness gradually
-         [00:00:28.139,000] <err> main: err=-22
+         [00:00:28.139,000] :brd:`<err> main: err=-22`
          [00:00:28.139,000] <inf> main: Testing LED 6 - L6: Test LED 6
          [00:00:28.140,000] <inf> main:   Turned on
          [00:00:29.140,000] <inf> main:   Turned off
          [00:00:30.141,000] <inf> main:   Increasing brightness gradually
-         [00:00:32.162,000] <err> main: err=-22
+         [00:00:32.162,000] :brd:`<err> main: err=-22`
          [00:00:32.162,000] <inf> main: Testing LED 7 - L7: Test LED 7
          [00:00:32.162,000] <inf> main:   Turned on
          [00:00:33.163,000] <inf> main:   Turned off
          [00:00:34.163,000] <inf> main:   Increasing brightness gradually
-         [00:00:36.184,000] <err> main: err=-22
+         [00:00:36.184,000] :brd:`<err> main: err=-22`
          [00:00:36.184,000] <inf> main: Testing LED 8 - L8: Test LED 8
          [00:00:36.185,000] <inf> main:   Turned on
          [00:00:37.185,000] <inf> main:   Turned off
          [00:00:38.186,000] <inf> main:   Increasing brightness gradually
-         [00:00:40.207,000] <err> main: err=-22
+         [00:00:40.207,000] :brd:`<err> main: err=-22`
          [00:00:40.207,000] <inf> main: Testing LED 9 - L9: Test LED 9
          [00:00:40.207,000] <inf> main:   Turned on
          [00:00:41.208,000] <inf> main:   Turned off
          [00:00:42.208,000] <inf> main:   Increasing brightness gradually
-         [00:00:44.229,000] <err> main: err=-22
+         [00:00:44.229,000] :brd:`<err> main: err=-22`
          [00:00:44.230,000] <inf> main: Testing LED 10 - L10: Test LED 10
          [00:00:44.230,000] <inf> main:   Turned on
          [00:00:45.231,000] <inf> main:   Turned off
          [00:00:46.231,000] <inf> main:   Increasing brightness gradually
-         [00:00:48.252,000] <err> main: err=-22
+         [00:00:48.252,000] :brd:`<err> main: err=-22`
          [00:00:48.252,000] <inf> main: Testing LED 11 - L11: Test LED 11
          [00:00:48.253,000] <inf> main:   Turned on
          [00:00:49.253,000] <inf> main:   Turned off
          [00:00:50.254,000] <inf> main:   Increasing brightness gradually
-         [00:00:52.275,000] <err> main: err=-22
+         [00:00:52.275,000] :brd:`<err> main: err=-22`
          [00:00:52.275,000] <inf> main: Testing LED 12 - L12: Test LED 12
          [00:00:52.275,000] <inf> main:   Turned on
          [00:00:53.276,000] <inf> main:   Turned off
          [00:00:54.276,000] <inf> main:   Increasing brightness gradually
-         [00:00:56.297,000] <err> main: err=-22
+         [00:00:56.297,000] :brd:`<err> main: err=-22`
          [00:00:56.298,000] <inf> main: Testing LED 13 - L13: Test LED 13
          [00:00:56.298,000] <inf> main:   Turned on
          [00:00:57.298,000] <inf> main:   Turned off
          [00:00:58.299,000] <inf> main:   Increasing brightness gradually
-         [00:01:00.320,000] <err> main: err=-22
+         [00:01:00.320,000] :brd:`<err> main: err=-22`
          [00:01:00.320,000] <inf> main: Testing LED 14 - L14: Test LED 14
          [00:01:00.321,000] <inf> main:   Turned on
          [00:01:01.321,000] <inf> main:   Turned off
          [00:01:02.322,000] <inf> main:   Increasing brightness gradually
-         [00:01:04.342,000] <err> main: err=-22
+         [00:01:04.342,000] :brd:`<err> main: err=-22`
          [00:01:04.343,000] <inf> main: Testing LED 15 - L15: Test LED 15
          [00:01:04.343,000] <inf> main:   Turned on
          [00:01:05.344,000] <inf> main:   Turned off
          [00:01:06.344,000] <inf> main:   Increasing brightness gradually
-         [00:01:08.365,000] <err> main: err=-22
+         [00:01:08.365,000] :brd:`<err> main: err=-22`
          [00:01:08.365,000] <inf> main: Testing LED 16 - L16: Test LED 16
          [00:01:08.366,000] <inf> main:   Turned on
          [00:01:09.366,000] <inf> main:   Turned off
          [00:01:10.367,000] <inf> main:   Increasing brightness gradually
-         [00:01:12.388,000] <err> main: err=-22
+         [00:01:12.388,000] :brd:`<err> main: err=-22`
          [00:01:12.388,000] <inf> main: Testing LED 17 - L17: Test LED 17
          [00:01:12.388,000] <inf> main:   Turned on
          [00:01:13.389,000] <inf> main:   Turned off
          [00:01:14.389,000] <inf> main:   Increasing brightness gradually
-         [00:01:16.410,000] <err> main: err=-22
+         [00:01:16.410,000] :brd:`<err> main: err=-22`
          [00:01:16.411,000] <inf> main: Testing LED 18 - L18: Test LED 18
          [00:01:16.411,000] <inf> main:   Turned on
          [00:01:17.412,000] <inf> main:   Turned off
          [00:01:18.412,000] <inf> main:   Increasing brightness gradually
-         [00:01:20.433,000] <err> main: err=-22
+         [00:01:20.433,000] :brd:`<err> main: err=-22`
          [00:01:20.433,000] <inf> main: Testing LED 19 - L19: Test LED 19
          [00:01:20.434,000] <inf> main:   Turned on
          [00:01:21.434,000] <inf> main:   Turned off
          [00:01:22.435,000] <inf> main:   Increasing brightness gradually
-         [00:01:24.456,000] <err> main: err=-22
+         [00:01:24.456,000] :brd:`<err> main: err=-22`
 
 References
 **********

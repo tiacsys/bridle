@@ -34,23 +34,26 @@ Build and flash DHCPv4 Client as follows:
 Once DHCPv4 client address negotiation completed with server, details
 are shown on the console like this:
 
-.. code-block:: none
+.. parsed-literal::
+   :class: highlight-console notranslate
 
-   [00:00:00.011,000] <inf> net_dhcpv4_client_sample: Run dhcpv4 client
-   [00:00:00.011,000] <inf> net_dhcpv4_client_sample: Start on ethernet@40028000: index=1
-   [00:00:03.084,000] <inf> net_dhcpv4_client_sample: DHCP Option 42: 192.168.10.10
-   [00:00:03.084,000] <inf> net_dhcpv4: Received: 192.168.10.197
-   [00:00:03.084,000] <inf> net_dhcpv4_client_sample:    Address[1]: 192.168.10.197
-   [00:00:03.084,000] <inf> net_dhcpv4_client_sample:     Subnet[1]: 255.255.255.0
-   [00:00:03.084,000] <inf> net_dhcpv4_client_sample:     Router[1]: 192.168.10.1
-   [00:00:03.084,000] <inf> net_dhcpv4_client_sample: Lease time[1]: 28800 seconds
+   \*\*\* Booting Zephyr OS … … …\*\*\*
+   [00:00:00.012,000] <inf> net_dhcpv4_client_sample: Run dhcpv4 client
+   [00:00:00.012,000] <inf> net_dhcpv4_client_sample: Start on ethernet\ @\ 40028000: index=1
+   [00:00:03.473,000] <inf> net_dhcpv4_client_sample: DHCP Option 42: 192.168.10.10
+   [00:00:03.473,000] <inf> net_dhcpv4: Received: 192.168.10.197
+   [00:00:03.474,000] <inf> net_dhcpv4_client_sample:    Address[1]: 192.168.10.197
+   [00:00:03.474,000] <inf> net_dhcpv4_client_sample:     Subnet[1]: 255.255.255.0
+   [00:00:03.474,000] <inf> net_dhcpv4_client_sample:     Router[1]: 192.168.10.1
+   [00:00:03.474,000] <inf> net_dhcpv4_client_sample: Lease time[1]: 28800 seconds
 
 To verify the Zephyr application client is running and has received
 an IPv4 address by typing on Linux host:
 
-.. code-block:: console
+.. parsed-literal::
+   :class: highlight
 
-   $ ping -c3 192.168.10.197
+   :bgn:`$` **ping -c3 192.168.10.197**
    PING 192.168.10.197 (192.168.10.197) 56(84) bytes of data.
    64 bytes from 192.168.10.197: icmp_seq=1 ttl=64 time=0.333 ms
    64 bytes from 192.168.10.197: icmp_seq=2 ttl=64 time=0.264 ms
@@ -62,22 +65,24 @@ an IPv4 address by typing on Linux host:
 
 On Zephyr, Shell command line:
 
-.. code-block:: none
+.. parsed-literal::
+   :class: highlight-console notranslate
 
-   uart:~$ net iface show 1
+   :bgn:`uart:~$` **net iface show 1**
 
-   Interface eth0 (0x20020cb8) (Ethernet) [1]
+   Interface eth0 (0x20020c88) (Ethernet) [1]
    ===================================
    Link addr : 02:80:E1:4F:98:16
    MTU       : 1500
    Flags     : AUTO_START,IPv4
+   Device    : ethernet\ @\ 40028000 (0x8018374)
    Ethernet capabilities supported:
 	   10 Mbits
 	   100 Mbits
    IPv4 unicast addresses (max 1):
 	   192.168.10.197 DHCP preferred
-   IPv4 multicast addresses (max 1):
-	   <none>
+   IPv4 multicast addresses (max 2):
+           224.0.0.1
    IPv4 gateway : 192.168.10.1
    IPv4 netmask : 255.255.255.0
    DHCPv4 lease time : 28800
@@ -87,15 +92,15 @@ On Zephyr, Shell command line:
    DHCPv4 state      : bound
    DHCPv4 attempts   : 1
 
-   uart:~$ net ping 192.168.10.1
+   :bgn:`uart:~$` **net ping 192.168.10.1**
 
    PING 192.168.10.1
    28 bytes from 192.168.10.1 to 192.168.10.197: icmp_seq=0 ttl=64 time=0 ms
    28 bytes from 192.168.10.1 to 192.168.10.197: icmp_seq=1 ttl=64 time=0 ms
    28 bytes from 192.168.10.1 to 192.168.10.197: icmp_seq=2 ttl=64 time=0 ms
 
-   uart:~$ net arp
+   :bgn:`uart:~$` **net arp**
 
         Interface  Link              Address
    [ 0] 1          BC:EE:7B:32:E5:D0 192.168.10.1
-   [ 1] 1          00:80:77:84:BF:81 192.168.10.82
+   [ 1] 1          00:80:77:84:BF:81 192.168.10.10

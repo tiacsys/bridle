@@ -1,6 +1,6 @@
 set terminal png size 600
 set output "dumb_http_server_mt_ab.png"
-set title "100 requests, 20 concurrent requests"
+set title "1000 concurrent requests for 60 seconds"
 set size ratio 0.6
 set grid y
 set xlabel "requests"

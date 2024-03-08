@@ -702,7 +702,7 @@ host PC. As an alternative to the default Zephyr console on serial port the
 Bridle :ref:`snippet-usb-console` can be used to enable
 :ref:`zephyr:usb_device_cdc_acm` and switch the console to USB::
 
-   USB device idVendor=2e8a, idProduct=000a, bcdDevice= 3.05
+   USB device idVendor=2e8a, idProduct=000a, bcdDevice= 3.06
    USB device strings: Mfr=1, Product=2, SerialNumber=3
    Product: Maker Nano RP2040 (CDC ACM)
    Manufacturer: Cytron (Raspberry Pi)
@@ -1151,12 +1151,13 @@ sample: :doc:`zephyr:samples/subsys/input/input_dump/README`.
          :goals: flash
          :compact:
 
-      .. code-block:: console
+      .. parsed-literal::
+         :class: highlight-console notranslate
 
-         ***** delaying boot 4000ms (per build configuration) *****
+         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
          W: BUS RESET
          W: BUS RESET
-         *** Booting Zephyr OS … … … (delayed boot 4000ms) ***
+         \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
          Input sample started
          I: input event: dev=gpio_keys        SYN type= 1 code= 11 value=1
          I: input event: dev=gpio_keys        SYN type= 1 code= 11 value=0
@@ -1194,12 +1195,13 @@ sample: :doc:`zephyr:samples/subsys/input/input_dump/README`.
 
       .. rubric:: Simple logging output on target
 
-      .. code-block:: console
+      .. parsed-literal::
+         :class: highlight-console notranslate
 
-         ***** delaying boot 4000ms (per build configuration) *****
+         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
          W: BUS RESET
          W: BUS RESET
-         *** Booting Zephyr OS … … … (delayed boot 4000ms) ***
+         \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
          Input sample started
          I: input event: dev=gpio_keys        SYN type= 1 code= 11 value=1
          I: input event: dev=gpio_keys        SYN type= 1 code= 11 value=0
@@ -1249,11 +1251,12 @@ Sounds from the speaker with USB-CDC/ACM Console
       #. play a folk song
       #. play a chrismas song
 
-      .. code-block:: console
+      .. parsed-literal::
+         :class: highlight-console notranslate
 
-         uart:~$ buzzer beep
-         uart:~$ buzzer play folksong
-         uart:~$ buzzer play xmastime
+         :bgn:`uart:~$` **buzzer beep**
+         :bgn:`uart:~$` **buzzer play folksong**
+         :bgn:`uart:~$` **buzzer play xmastime**
 
    .. group-tab:: Maker Pi RP2040
 
@@ -1293,11 +1296,12 @@ Sounds from the speaker with USB-CDC/ACM Console
       #. play a folk song
       #. play a chrismas song
 
-      .. code-block:: console
+      .. parsed-literal::
+         :class: highlight-console notranslate
 
-         uart:~$ buzzer beep
-         uart:~$ buzzer play folksong
-         uart:~$ buzzer play xmastime
+         :bgn:`uart:~$` **buzzer beep**
+         :bgn:`uart:~$` **buzzer play folksong**
+         :bgn:`uart:~$` **buzzer play xmastime**
 
 Drive a motor with USB-CDC/ACM Console
 ======================================
@@ -1454,33 +1458,34 @@ This samples and test applications are only applicable together with the
       This sample comes with a Shell command line access to the LVGL backend
       on the console, here configured for a USB console:
 
-         .. rubric:: Simple test execution on target
+      .. rubric:: Simple test execution on target
 
-         .. code-block:: console
+      .. parsed-literal::
+         :class: highlight-console notranslate
 
-            uart:~$ lvgl
-            lvgl - LVGL shell commands
-            Subcommands:
-              stats   :Show LVGL statistics
-              monkey  :LVGL monkey testing
+         :bgn:`uart:~$` **lvgl**
+         lvgl - LVGL shell commands
+         Subcommands:
+           stats   :Show LVGL statistics
+           monkey  :LVGL monkey testing
 
-            uart:~$ lvgl stats
-            stats - Show LVGL statistics
-            Subcommands:
-              memory  :Show LVGL memory statistics
-                       Usage: lvgl stats memory [-c]
-                       -c  dump chunk information
+         :bgn:`uart:~$` **lvgl stats**
+         stats - Show LVGL statistics
+         Subcommands:
+           memory  :Show LVGL memory statistics
+                    Usage: lvgl stats memory [-c]
+                    -c  dump chunk information
 
-            uart:~$ lvgl stats memory
-            Heap at 0x200010c8 contains 2047 units in 11 buckets
+         :bgn:`uart:~$` **lvgl stats memory**
+         Heap at 0x200010c8 contains 2047 units in 11 buckets
 
-              bucket#    min units        total      largest      largest
-                         threshold       chunks      (units)      (bytes)
-              -----------------------------------------------------------
-                    1            2            1            2           12
-                   10         1024            1         1550        12396
+           bucket#    min units        total      largest      largest
+                      threshold       chunks      (units)      (bytes)
+           -----------------------------------------------------------
+                 1            2            1            2           12
+                10         1024            1         1550        12396
 
-            12408 free bytes, 3560 allocated bytes, overhead = 412 bytes (2.5%)
+         12408 free bytes, 3560 allocated bytes, overhead = 412 bytes (2.5%)
 
    .. group-tab:: Maker Pi RP2040
 
@@ -1596,33 +1601,34 @@ This samples and test applications are only applicable together with the
       This sample comes with a Shell command line access to the LVGL backend
       on the console, here configured for a USB console:
 
-         .. rubric:: Simple test execution on target
+      .. rubric:: Simple test execution on target
 
-         .. code-block:: console
+      .. parsed-literal::
+         :class: highlight-console notranslate
 
-            uart:~$ lvgl
-            lvgl - LVGL shell commands
-            Subcommands:
-              stats   :Show LVGL statistics
-              monkey  :LVGL monkey testing
+         :bgn:`uart:~$` **lvgl**
+         lvgl - LVGL shell commands
+         Subcommands:
+           stats   :Show LVGL statistics
+           monkey  :LVGL monkey testing
 
-            uart:~$ lvgl stats
-            stats - Show LVGL statistics
-            Subcommands:
-              memory  :Show LVGL memory statistics
-                       Usage: lvgl stats memory [-c]
-                       -c  dump chunk information
+         :bgn:`uart:~$` **lvgl stats**
+         stats - Show LVGL statistics
+         Subcommands:
+           memory  :Show LVGL memory statistics
+                    Usage: lvgl stats memory [-c]
+                    -c  dump chunk information
 
-            uart:~$ lvgl stats memory
-            Heap at 0x200010c8 contains 2047 units in 11 buckets
+         :bgn:`uart:~$` **lvgl stats memory**
+         Heap at 0x200010c8 contains 2047 units in 11 buckets
 
-              bucket#    min units        total      largest      largest
-                         threshold       chunks      (units)      (bytes)
-              -----------------------------------------------------------
-                    1            2            1            2           12
-                   10         1024            1         1550        12396
+           bucket#    min units        total      largest      largest
+                      threshold       chunks      (units)      (bytes)
+           -----------------------------------------------------------
+                 1            2            1            2           12
+                10         1024            1         1550        12396
 
-            12408 free bytes, 3560 allocated bytes, overhead = 412 bytes (2.5%)
+         12408 free bytes, 3560 allocated bytes, overhead = 412 bytes (2.5%)
 
 References
 **********

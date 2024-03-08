@@ -40,7 +40,7 @@ Building and Running
       You should see the following messages on host console:
 
       .. parsed-literal::
-         :class: highlight
+         :class: highlight-console notranslate
 
          Device testing on:
 
@@ -51,38 +51,39 @@ Building and Running
          INFO    - JOBS: 4
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1550/1570 tiac_magpie               tests/arch/arm/arm_irq_advanced_features/arch.arm.irq_advanced_features.secure_fw :byl:`SKIPPED` (runtime filter)
-         INFO    - 1551/1570 tiac_magpie               tests/arch/arm/arm_mem_protect/arch.arm.mem_protect.syscalls :byl:`SKIPPED` (runtime filter)
-         INFO    - 1552/1570 tiac_magpie               tests/arch/arm/arm_irq_vector_table/arch.arm.irq_vector_table :bgn:`PASSED` (device: DT04BNT1, 5.150s)
-         INFO    - 1553/1570 tiac_magpie               tests/arch/arm/arm_runtime_nmi/arch.interrupt.arm.nmi :bgn:`PASSED` (device: DT04BNT1, 6.747s)
-         INFO    - 1554/1570 tiac_magpie               tests/arch/arm/arm_tz_wrap_func/arch.arm.tz_wrap_func :bgn:`PASSED` (device: DT04BNT1, 2.435s)
-         INFO    - 1555/1570 tiac_magpie               tests/arch/arm/arm_thread_swap_tz/arch.arm.swap.tz_off :byl:`SKIPPED` (runtime filter)
-         INFO    - 1556/1570 tiac_magpie               tests/arch/arm/arm_irq_advanced_features/arch.arm.irq_advanced_features :bgn:`PASSED` (device: DT04BNT1, 2.574s)
-         INFO    - 1557/1570 tiac_magpie               tests/arch/arm/arm_thread_swap_tz/arch.arm.swap.tz :byl:`SKIPPED` (runtime filter)
-         INFO    - 1558/1570 tiac_magpie               tests/arch/arm/arm_sw_vector_relay/arch.arm.sw_vector_relay :bgn:`PASSED` (device: DT04BNT1, 2.629s)
-         INFO    - 1559/1570 tiac_magpie               tests/arch/arm/arm_thread_swap/arch.arm.swap.common.fpu_sharing.no_optimizations :bgn:`PASSED` (device: DT04BNT1, 7.176s)
-         INFO    - 1560/1570 tiac_magpie               tests/arch/arm/arm_irq_zero_latency_levels/arch.arm.irq_zero_latency_levels.secure_fw :byl:`SKIPPED` (runtime filter)
-         INFO    - 1561/1570 tiac_magpie               tests/arch/arm/arm_thread_swap/arch.arm.swap.common.no_optimizations :bgn:`PASSED` (device: DT04BNT1, 6.127s)
-         INFO    - 1562/1570 tiac_magpie               tests/arch/arm/arm_thread_swap/arch.arm.swap.common.fpu_sharing :bgn:`PASSED` (device: DT04BNT1, 3.204s)
-         INFO    - 1563/1570 tiac_magpie               tests/arch/arm/arm_thread_swap/arch.arm.swap.common :bgn:`PASSED` (device: DT04BNT1, 3.313s)
-         INFO    - 1564/1570 tiac_magpie               tests/arch/arm/arm_irq_zero_latency_levels/arch.arm.irq_zero_latency_levels :bgn:`PASSED` (device: DT04BNT1, 3.818s)
-         INFO    - 1565/1570 tiac_magpie               tests/arch/arm/arm_interrupt/arch.interrupt.no_optimizations :bgn:`PASSED` (device: DT04BNT1, 7.538s)
-         INFO    - 1566/1570 tiac_magpie               tests/arch/arm/arm_interrupt/arch.interrupt.extra_exception_info :bgn:`PASSED` (device: DT04BNT1, 4.219s)
-         INFO    - 1567/1570 tiac_magpie               tests/arch/arm64/arm64_psci/arch.arm64.psci        :byl:`SKIPPED` (runtime filter)
-         INFO    - 1568/1570 tiac_magpie               tests/arch/arm/arm_interrupt/arch.interrupt.arm    :bgn:`PASSED` (device: DT04BNT1, 3.304s)
-         INFO    - 1569/1570 tiac_magpie               tests/arch/arm/arm_ramfunc/arch.arm.ramfunc        :bgn:`PASSED` (device: DT04BNT1, 3.903s)
-         INFO    - 1570/1570 tiac_magpie               tests/arch/arm/arm_hardfault_validation/arch.interrupt.arm.hardfault_validation :bgn:`PASSED` (device: DT04BNT1, 2.472s)
+         INFO    - 1688/1709 tiac_magpie               tests/arch/arm/arm_mem_protect/arch.arm.mem_protect.syscalls :byl:`SKIPPED` (runtime filter)
+         INFO    - 1689/1709 tiac_magpie               tests/arch/arm/arm_irq_advanced_features/arch.arm.irq_advanced_features.secure_fw :byl:`SKIPPED` (runtime filter)
+         INFO    - 1690/1709 tiac_magpie               tests/arch/arm/arm_irq_vector_table/arch.arm.irq_vector_table :bgn:`PASSED` (device: DT04BNT1, 2.590s)
+         INFO    - 1691/1709 tiac_magpie               tests/arch/arm/arm_runtime_nmi/arch.arm.interrupt.nmi :bgn:`PASSED` (device: DT04BNT1, 4.449s)
+         INFO    - 1692/1709 tiac_magpie               tests/arch/arm/arm_irq_advanced_features/arch.arm.irq_advanced_features :bgn:`PASSED` (device: DT04BNT1, 2.506s)
+         INFO    - 1693/1709 tiac_magpie               tests/arch/common/ramfunc/arch.common.ramfunc      :bgn:`PASSED` (device: DT04BNT1, 3.730s)
+         INFO    - 1694/1709 tiac_magpie               tests/arch/arm/arm_tz_wrap_func/arch.arm.tz_wrap_func :bgn:`PASSED` (device: DT04BNT1, 2.656s)
+         INFO    - 1695/1709 tiac_magpie               tests/arch/arm/arm_thread_swap_tz/arch.arm.swap.tz_off :byl:`SKIPPED` (runtime filter)
+         INFO    - 1696/1709 tiac_magpie               tests/arch/arm/arm_thread_swap_tz/arch.arm.swap.tz :byl:`SKIPPED` (runtime filter)
+         INFO    - 1697/1709 tiac_magpie               tests/arch/arm/arm_sw_vector_relay/arch.arm.sw_vector_relay :bgn:`PASSED` (device: DT04BNT1, 2.504s)
+         INFO    - 1698/1709 tiac_magpie               tests/arch/arm/arm_thread_swap/arch.arm.swap.common.fpu_sharing.no_optimizations :bgn:`PASSED` (device: DT04BNT1, 6.067s)
+         INFO    - 1699/1709 tiac_magpie               tests/arch/arm/arm_irq_zero_latency_levels/arch.arm.irq_zero_latency_levels.secure_fw :byl:`SKIPPED` (runtime filter)
+         INFO    - 1700/1709 tiac_magpie               tests/arch/arm/arm_thread_swap/arch.arm.swap.common.no_optimizations :bgn:`PASSED` (device: DT04BNT1, 6.086s)
+         INFO    - 1701/1709 tiac_magpie               tests/arch/arm/arm_thread_swap/arch.arm.swap.common.fpu_sharing :bgn:`PASSED` (device: DT04BNT1, 3.804s)
+         INFO    - 1702/1709 tiac_magpie               tests/arch/arm/arm_thread_swap/arch.arm.swap.common :bgn:`PASSED` (device: DT04BNT1, 3.185s)
+         INFO    - 1703/1709 tiac_magpie               tests/arch/arm/arm_irq_zero_latency_levels/arch.arm.irq_zero_latency_levels :bgn:`PASSED` (device: DT04BNT1, 3.325s)
+         INFO    - 1704/1709 tiac_magpie               tests/arch/arm/arm_interrupt/arch.arm.interrupt.no_optimizations :bgn:`PASSED` (device: DT04BNT1, 6.412s)
+         INFO    - 1705/1709 tiac_magpie               tests/arch/arm/arm_interrupt/arch.arm.interrupt.extra_exception_info :bgn:`PASSED` (device: DT04BNT1, 3.633s)
+         INFO    - 1706/1709 tiac_magpie               tests/arch/arm/arm_custom_interrupt/arch.arm.custom_interrupt :bgn:`PASSED` (device: DT04BNT1, 2.583s)
+         INFO    - 1707/1709 tiac_magpie               tests/arch/arm64/arm64_psci/arch.arm64.psci        :byl:`SKIPPED` (runtime filter)
+         INFO    - 1708/1709 tiac_magpie               tests/arch/arm/arm_interrupt/arch.arm.interrupt    :bgn:`PASSED` (device: DT04BNT1, 3.441s)
+         INFO    - 1709/1709 tiac_magpie               tests/arch/arm/arm_hardfault_validation/arch.arm.interrupt.hardfault_validation :bgn:`PASSED` (device: DT04BNT1, 2.547s)
 
-         INFO    - 1782 test scenarios (1570 test instances) selected, 1555 configurations skipped (1549 by static filter, 6 at runtime).
-         INFO    - :bgn:`15 of 1570` test configurations passed (100.00%), :bbk:`0 failed, :bbk:`0` errored, :byl:`1555` skipped with :bbk:`0` warnings in :bbk:`226.53 seconds`
-         INFO    - In total 34 test cases were executed, 10924 skipped on 1 out of total 638 platforms (0.16%)
-         INFO    - :bgn:`15` test configurations executed on platforms, :brd:`0` test configurations were only built.
+         INFO    - 1922 test scenarios (1709 test instances) selected, 1693 configurations skipped (1687 by static filter, 6 at runtime).
+         INFO    - :bgn:`16 of 1709` test configurations passed (100.00%), :bbk:`0 failed, :bbk:`0` errored, :byl:`1693` skipped with :bbk:`0` warnings in :bbk:`166.19 seconds`
+         INFO    - In total 35 test cases were executed, 12649 skipped on 1 out of total 699 platforms (0.14%)
+         INFO    - :bgn:`16` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
 
          \| Board       \| ID       \|   Counter \|
          \|-------------\|----------\|-----------\|
-         \| tiac_magpie \| DT04BNT1 \|        15 \|
+         \| tiac_magpie \| DT04BNT1 \|        16 \|
 
          INFO    - Saving reports...
          INFO    - Writing JSON report .../twister-out/twister.json
