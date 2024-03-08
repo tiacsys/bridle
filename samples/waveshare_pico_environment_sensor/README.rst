@@ -60,8 +60,10 @@ that comes with the :ref:`waveshare_pico_environment_sensor` shield for the
    :app: bridle/samples/waveshare_pico_environment_sensor
    :board: rpi_pico
    :shield: waveshare_pico_environment_sensor
+   :build-dir: waveshare_pico_environment_sensor
+   :west-args: -p -S usb-console
    :flash-args: -r uf2
-   :goals: build flash
+   :goals: flash
 
 Sample Output
 =============
