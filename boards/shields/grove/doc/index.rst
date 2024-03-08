@@ -155,6 +155,10 @@ Hardware
 
 (*) I2C bus default disconnected by open solder pads.
 
+.. _grove_base_shield_v1:
+
+.. _grove_base_shield_v13:
+
 Grove Base Shield V1.3
 ======================
 
@@ -224,7 +228,7 @@ Hardware
 | D13   | Digital 13                      |    |    |    |    |     |      |    |    |    |    |    |    |    |
 +-------+---------------------------------+----+----+----+----+-----+------+----+----+----+----+----+----+----+
 
-.. _grove_base_shield_v1:
+.. _grove_base_shield_v12:
 
 Grove Base Shield V1.2
 ======================
@@ -801,29 +805,99 @@ not be complete.
 Programming
 ===========
 
+Grove Base Shield
+-----------------
+
 Set ``-DSHIELD=seeed_grove_base_v2`` or ``-DSHIELD=seeed_grove_base_v1``
 when you invoke ``west build`` or ``cmake`` in your Zephyr application. For
 example:
 
-.. zephyr-app-commands::
-   :app: bridle/samples/helloshell
-   :build-dir: helloshell-seeed_grove_base_v2
-   :board: mimxrt1060_evkb
-   :shield: seeed_grove_base_v2
-   :goals: build flash
-   :west-args: -p auto
-   :host-os: unix
-   :tool: all
+#. :ref:`grove_base_shield_v2` on :ref:`zephyr:mimxrt1060_evk`:
 
-.. zephyr-app-commands::
-   :app: bridle/samples/helloshell
-   :build-dir: helloshell-seeed_grove_base_v1
-   :board: mimxrt1060_evkb
-   :shield: seeed_grove_base_v1
-   :goals: build flash
-   :west-args: -p auto
-   :host-os: unix
-   :tool: all
+    .. zephyr-app-commands::
+       :app: bridle/samples/helloshell
+       :build-dir: helloshell-seeed_grove_base_v2
+       :board: mimxrt1060_evkb
+       :shield: seeed_grove_base_v2
+       :goals: build flash
+       :west-args: -p
+       :host-os: unix
+       :tool: all
+
+#. :ref:`grove_base_shield_v13` or :ref:`grove_base_shield_v12` on
+   :ref:`zephyr:mimxrt1060_evk`:
+
+    .. zephyr-app-commands::
+       :app: bridle/samples/helloshell
+       :build-dir: helloshell-seeed_grove_base_v1
+       :board: mimxrt1060_evkb
+       :shield: seeed_grove_base_v1
+       :goals: build flash
+       :west-args: -p
+       :host-os: unix
+       :tool: all
+
+Grove Base Shield for XIAO
+--------------------------
+
+Set ``-DSHIELD=seeed_grove_xiao_v1`` when you invoke ``west build``
+or ``cmake`` in your Zephyr application. For example:
+
+#. :ref:`zephyr:seeeduino_xiao` on :ref:`grove_base_shield_xiao_v1`:
+
+   .. zephyr-app-commands::
+      :app: bridle/samples/helloshell
+      :build-dir: helloshell-seeed_grove_xiao_v1
+      :board: seeeduino_xiao
+      :shield: seeed_grove_xiao_v1
+      :goals: build flash
+      :west-args: -p
+      :host-os: unix
+      :tool: all
+
+#. :ref:`seeed_xiao_samd21` on :ref:`grove_base_shield_xiao_v1`:
+
+   .. zephyr-app-commands::
+      :app: bridle/samples/helloshell
+      :build-dir: helloshell-seeed_grove_xiao_v1
+      :board: seeed_xiao_samd21
+      :shield: seeed_grove_xiao_v1
+      :goals: build flash
+      :west-args: -p
+      :host-os: unix
+      :tool: all
+
+Grove Basic Kit for Raspberry Pi Pico
+-------------------------------------
+
+Set ``-DSHIELD=seeed_grove_rpipico_v1`` when you invoke ``west build``
+or ``cmake`` in your Zephyr application. For example:
+
+#. :ref:`Raspberry Pi Pico <zephyr:rpi_pico>` on
+   :ref:`grove_rpipico_shield_v1`:
+
+   .. zephyr-app-commands::
+      :app: bridle/samples/helloshell
+      :build-dir: helloshell-seeed_grove_rpipico_v1
+      :board: rpi_pico
+      :shield: seeed_grove_rpipico_v1
+      :goals: build flash
+      :west-args: -p
+      :host-os: unix
+      :tool: all
+
+#. :ref:`Raspberry Pi Pico W <zephyr:rpi_pico>` on
+   :ref:`grove_rpipico_shield_v1`:
+
+   .. zephyr-app-commands::
+      :app: bridle/samples/helloshell
+      :build-dir: helloshell-seeed_grove_rpipico_v1
+      :board: rpi_pico_w
+      :shield: seeed_grove_rpipico_v1
+      :goals: build flash
+      :west-args: -p
+      :host-os: unix
+      :tool: all
 
 References
 **********
