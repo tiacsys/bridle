@@ -16,3 +16,17 @@
 
 	/delete-node/ pwmleds;
 };
+
+/* FLEXCAN3 needs proper speed setup for both, standard CAN and FD CAN */
+
+&flexcan3 {
+	status = "okay";
+	bus-speed = <500000>;
+	bus-speed-data = <5000000>;
+	sample-point = <800>;
+	sample-point-data = <750>;
+
+	can-transceiver {
+		max-bitrate = <5000000>;
+	};
+};
