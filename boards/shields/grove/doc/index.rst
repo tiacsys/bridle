@@ -819,7 +819,7 @@ example:
        :build-dir: helloshell-seeed_grove_base_v2
        :board: mimxrt1060_evkb
        :shield: seeed_grove_base_v2
-       :goals: build flash
+       :goals: flash
        :west-args: -p
        :host-os: unix
        :tool: all
@@ -832,7 +832,7 @@ example:
        :build-dir: helloshell-seeed_grove_base_v1
        :board: mimxrt1060_evkb
        :shield: seeed_grove_base_v1
-       :goals: build flash
+       :goals: flash
        :west-args: -p
        :host-os: unix
        :tool: all
@@ -850,7 +850,7 @@ or ``cmake`` in your Zephyr application. For example:
       :build-dir: helloshell-seeed_grove_xiao_v1
       :board: seeeduino_xiao
       :shield: seeed_grove_xiao_v1
-      :goals: build flash
+      :goals: flash
       :west-args: -p
       :host-os: unix
       :tool: all
@@ -862,7 +862,7 @@ or ``cmake`` in your Zephyr application. For example:
       :build-dir: helloshell-seeed_grove_xiao_v1
       :board: seeed_xiao_samd21
       :shield: seeed_grove_xiao_v1
-      :goals: build flash
+      :goals: flash
       :west-args: -p
       :host-os: unix
       :tool: all
@@ -881,7 +881,7 @@ or ``cmake`` in your Zephyr application. For example:
       :build-dir: helloshell-seeed_grove_rpipico_v1
       :board: rpi_pico
       :shield: seeed_grove_rpipico_v1
-      :goals: build flash
+      :goals: flash
       :west-args: -p
       :host-os: unix
       :tool: all
@@ -894,7 +894,7 @@ or ``cmake`` in your Zephyr application. For example:
       :build-dir: helloshell-seeed_grove_rpipico_v1
       :board: rpi_pico_w
       :shield: seeed_grove_rpipico_v1
-      :goals: build flash
+      :goals: flash
       :west-args: -p
       :host-os: unix
       :tool: all
