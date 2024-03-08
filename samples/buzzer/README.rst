@@ -74,17 +74,20 @@ Building and Running
 Sample Output
 =============
 
-.. code-block:: console
+(text in bold is a command input, text in angle brackets are keys to press)
+
+.. parsed-literal::
+   :class: highlight-console notranslate
 
    [00:00:00.003,000] <inf> buzzersh: Buzzer shell is ready!
 
 
-   uart:~$ <Tab>
-     bridle   buzzer   clear    device   devmem   gpio     help
-     history  kernel   log      pwm      rem      resize   retval
-     shell
+   :bgn:`uart:~$` **<Tab>**
+     :bcy:`bridle   buzzer   clear    device   devmem   gpio     help`
+     :bcy:`history  kernel   log      pwm      rem      resize   retval`
+     :bcy:`shell`
 
-   uart:~$ help
+   :bgn:`uart:~$` **help**
    Please press the <Tab> button to see all available commands.
    You can also use the <Tab> button to prompt or auto-complete all commands or its subcommands.
    You can try to call commands with <-h> or <--help> parameter for more information.
@@ -118,19 +121,19 @@ Sample Output
      retval   :Print return value of most recent command
      shell    :Useful, not Unix-like shell commands.
 
-   uart:~$ buzzer -h
+   :bgn:`uart:~$` **buzzer -h**
    buzzer - Buzzer related commands
    Subcommands:
      info  :Get buzzer info
      beep  :Use buzzer to beep
      play  :Play one of predefined sounds
 
-   uart:~$ buzzer info
+   :bgn:`uart:~$` **buzzer info**
    Warning: not yet implemented.
 
-   uart:~$ buzzer beep 
+   :bgn:`uart:~$` **buzzer beep**
 
-   uart:~$ buzzer play
+   :bgn:`uart:~$` **buzzer play**
    play - Play one of predefined sounds
    Subcommands:
      folksong   :Play the 'folksong' song
@@ -140,12 +143,12 @@ Sample Output
      golioth    :Play the 'golioth' song
      tiacsys    :Play the 'tiacsys' song
 
-   uart:~$ buzzer play folksong
-   uart:~$ buzzer play xmastime 
-   uart:~$ buzzer play funkytown 
-   uart:~$ buzzer play mario 
-   uart:~$ buzzer play golioth 
-   uart:~$ buzzer play tiacsys 
+   :bgn:`uart:~$` **buzzer play folksong**
+   :bgn:`uart:~$` **buzzer play xmastime**
+   :bgn:`uart:~$` **buzzer play funkytown**
+   :bgn:`uart:~$` **buzzer play mario**
+   :bgn:`uart:~$` **buzzer play golioth**
+   :bgn:`uart:~$` **buzzer play tiacsys**
 
 References
 **********
