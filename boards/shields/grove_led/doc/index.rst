@@ -183,25 +183,57 @@ Set ``-DSHIELD=grove_led_dX`` or ``-DSHIELD=grove_pwm_led_dX`` when you invoke
 ``west build``, wherein ``X`` corresponds to the ordinal number of Grove signal
 from the |Laced Grove Signal Interface|. For example:
 
-.. zephyr-app-commands::
-   :app: bridle/samples/helloshell
-   :build-dir: helloshell-seeed_grove_base_v2-grove_led_d6
-   :board: mimxrt1060_evkb
-   :shield: "seeed_grove_base_v2 grove_led_d6"
-   :goals: build flash
-   :west-args: -p auto
-   :host-os: unix
-   :tool: all
+#. :ref:`grove_base_shield_v2` on :ref:`zephyr:mimxrt1060_evk`
+   for **GPIO driven LED** on Grove ``D5``:
 
-.. zephyr-app-commands::
-   :app: bridle/samples/helloshell
-   :build-dir: helloshell-seeed_grove_base_v2-grove_pwm_led_d6
-   :board: mimxrt1060_evkb
-   :shield: "seeed_grove_base_v2 grove_pwm_led_d6"
-   :goals: build flash
-   :west-args: -p auto
-   :host-os: unix
-   :tool: all
+   .. zephyr-app-commands::
+      :app: bridle/samples/helloshell
+      :build-dir: helloshell-seeed_grove_base_v2-grove_led_d5
+      :board: mimxrt1060_evkb
+      :shield: "seeed_grove_base_v2 grove_led_d5"
+      :goals: flash
+      :west-args: -p
+      :host-os: unix
+      :tool: all
+
+#. :ref:`grove_base_shield_v2` on :ref:`zephyr:mimxrt1060_evk`
+   for **PWM driven LED** on Grove ``D5``:
+
+   .. zephyr-app-commands::
+      :app: bridle/samples/helloshell
+      :build-dir: helloshell-seeed_grove_base_v2-grove_pwm_led_d5
+      :board: mimxrt1060_evkb
+      :shield: "seeed_grove_base_v2 grove_pwm_led_d5"
+      :goals: flash
+      :west-args: -p
+      :host-os: unix
+      :tool: all
+
+#. :ref:`grove_base_shield_v13` or :ref:`grove_base_shield_v12` on
+   :ref:`zephyr:mimxrt1060_evk` for **GPIO driven LED** on Grove ``D5``:
+
+   .. zephyr-app-commands::
+      :app: bridle/samples/helloshell
+      :build-dir: helloshell-seeed_grove_base_v1-grove_led_d5
+      :board: mimxrt1060_evkb
+      :shield: "seeed_grove_base_v1 grove_led_d5"
+      :goals: flash
+      :west-args: -p
+      :host-os: unix
+      :tool: all
+
+#. :ref:`grove_base_shield_v13` or :ref:`grove_base_shield_v12` on
+   :ref:`zephyr:mimxrt1060_evk` for **GPIO driven LED** on Grove ``D5``:
+
+   .. zephyr-app-commands::
+      :app: bridle/samples/helloshell
+      :build-dir: helloshell-seeed_grove_base_v1-grove_pwm_led_d5
+      :board: mimxrt1060_evkb
+      :shield: "seeed_grove_base_v1 grove_pwm_led_d5"
+      :goals: flash
+      :west-args: -p
+      :host-os: unix
+      :tool: all
 
 References
 **********
