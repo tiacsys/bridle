@@ -113,8 +113,8 @@ For example:
    :build-dir: <sample_name>-x_grove_testbed
    :board: <board_name>
    :shield: "<shield_name_with_grove_connectors> grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
-   :goals: build flash
-   :west-args: -p always
+   :goals: flash
+   :west-args: -p
    :host-os: unix
    :tool: all
 
@@ -145,9 +145,10 @@ For example:
                      :app: zephyr/samples/basic/blinky
                      :build-dir: blinky-nucleo_f303re-x_grove_testbed
                      :board: nucleo_f303re
-                     :shield: "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
-                     :goals: build flash
-                     :west-args: -p always
+                     :shield: \
+                              "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :goals: flash
+                     :west-args: -p
                      :host-os: unix
                      :tool: all
 
@@ -160,9 +161,10 @@ For example:
                      :app: zephyr/samples/basic/fade_led
                      :build-dir: fade-nucleo_f303re-x_grove_testbed
                      :board: nucleo_f303re
-                     :shield: "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
-                     :goals: build flash
-                     :west-args: -p always
+                     :shield: \
+                              "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :goals: flash
+                     :west-args: -p
                      :host-os: unix
                      :tool: all
 
@@ -175,9 +177,10 @@ For example:
                      :app: zephyr/samples/basic/button
                      :build-dir: button-nucleo_f303re-x_grove_testbed
                      :board: nucleo_f303re
-                     :shield: "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
-                     :goals: build flash
-                     :west-args: -p always
+                     :shield: \
+                              "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :goals: flash
+                     :west-args: -p
                      :host-os: unix
                      :tool: all
 
@@ -202,9 +205,10 @@ For example:
                      :app: zephyr/samples/basic/blinky
                      :build-dir: blinky-nucleo_f401re-x_grove_testbed
                      :board: nucleo_f401re
-                     :shield: "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
-                     :goals: build flash
-                     :west-args: -p always
+                     :shield: \
+                              "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :goals: flash
+                     :west-args: -p
                      :host-os: unix
                      :tool: all
 
@@ -217,9 +221,10 @@ For example:
                      :app: zephyr/samples/basic/fade_led
                      :build-dir: fade-nucleo_f401re-x_grove_testbed
                      :board: nucleo_f401re
-                     :shield: "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
-                     :goals: build flash
-                     :west-args: -p always
+                     :shield: \
+                              "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :goals: flash
+                     :west-args: -p
                      :host-os: unix
                      :tool: all
 
@@ -232,9 +237,10 @@ For example:
                      :app: zephyr/samples/basic/button
                      :build-dir: button-nucleo_f401re-x_grove_testbed
                      :board: nucleo_f401re
-                     :shield: "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
-                     :goals: build flash
-                     :west-args: -p always
+                     :shield: \
+                              "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :goals: flash
+                     :west-args: -p
                      :host-os: unix
                      :tool: all
 
@@ -259,9 +265,10 @@ For example:
                      :app: zephyr/samples/basic/blinky
                      :build-dir: blinky-nucleo_f413zh-x_grove_testbed
                      :board: nucleo_f413zh
-                     :shield: "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
-                     :goals: build flash
-                     :west-args: -p always
+                     :shield: \
+                              "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :goals: flash
+                     :west-args: -p
                      :host-os: unix
                      :tool: all
 
@@ -274,9 +281,10 @@ For example:
                      :app: zephyr/samples/basic/fade_led
                      :build-dir: fade-nucleo_f413zh-x_grove_testbed
                      :board: nucleo_f413zh
-                     :shield: "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
-                     :goals: build flash
-                     :west-args: -p always
+                     :shield: \
+                              "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :goals: flash
+                     :west-args: -p
                      :host-os: unix
                      :tool: all
 
@@ -289,9 +297,10 @@ For example:
                      :app: zephyr/samples/basic/button
                      :build-dir: button-nucleo_f413zh-x_grove_testbed
                      :board: nucleo_f413zh
-                     :shield: "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
-                     :goals: build flash
-                     :west-args: -p always
+                     :shield: \
+                              "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :goals: flash
+                     :west-args: -p
                      :host-os: unix
                      :tool: all
 
@@ -316,9 +325,10 @@ For example:
                      :app: zephyr/samples/basic/blinky
                      :build-dir: blinky-nucleo_f767zi-x_grove_testbed
                      :board: nucleo_f767zi
-                     :shield: "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
-                     :goals: build flash
-                     :west-args: -p always
+                     :shield: \
+                              "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :goals: flash
+                     :west-args: -p
                      :host-os: unix
                      :tool: all
 
@@ -331,9 +341,10 @@ For example:
                      :app: zephyr/samples/basic/fade_led
                      :build-dir: fade-nucleo_f767zi-x_grove_testbed
                      :board: nucleo_f767zi
-                     :shield: "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
-                     :goals: build flash
-                     :west-args: -p always
+                     :shield: \
+                              "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :goals: flash
+                     :west-args: -p
                      :host-os: unix
                      :tool: all
 
@@ -346,9 +357,10 @@ For example:
                      :app: zephyr/samples/basic/button
                      :build-dir: button-nucleo_f767zi-x_grove_testbed
                      :board: nucleo_f767zi
-                     :shield: "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
-                     :goals: build flash
-                     :west-args: -p always
+                     :shield: \
+                              "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :goals: flash
+                     :west-args: -p
                      :host-os: unix
                      :tool: all
 
@@ -388,10 +400,11 @@ For example:
                      :app: zephyr/samples/basic/blinky
                      :build-dir: blinky-mimxrt1010_evk-x_grove_testbed
                      :board: mimxrt1010_evk
-                     :shield: "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 x_grove_testbed"
-                     :goals: build flash
-                     :gen-args: -DBOARD_FLASH_RUNNER=pyocd
-                     :west-args: -p always
+                     :shield: \
+                              "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 x_grove_testbed"
+                     :goals: flash
+                     :west-args: -p
+                     :flash-args: -r pyocd
                      :host-os: unix
                      :tool: all
 
@@ -404,10 +417,11 @@ For example:
                      :app: zephyr/samples/basic/button
                      :build-dir: button-mimxrt1010_evk-x_grove_testbed
                      :board: mimxrt1010_evk
-                     :shield: "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 x_grove_testbed"
-                     :goals: build flash
-                     :gen-args: -DBOARD_FLASH_RUNNER=pyocd
-                     :west-args: -p always
+                     :shield: \
+                              "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 x_grove_testbed"
+                     :goals: flash
+                     :west-args: -p
+                     :flash-args: -r pyocd
                      :host-os: unix
                      :tool: all
 
@@ -443,10 +457,11 @@ For example:
                      :app: zephyr/samples/basic/blinky
                      :build-dir: blinky-mimxrt1060_evkb-x_grove_testbed
                      :board: mimxrt1060_evkb
-                     :shield: "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 x_grove_testbed"
-                     :goals: build flash
-                     :gen-args: -DBOARD_FLASH_RUNNER=pyocd
-                     :west-args: -p always
+                     :shield: \
+                              "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 x_grove_testbed"
+                     :goals: flash
+                     :west-args: -p
+                     :flash-args: -r pyocd
                      :host-os: unix
                      :tool: all
 
@@ -459,10 +474,11 @@ For example:
                      :app: zephyr/samples/basic/button
                      :build-dir: button-mimxrt1060_evkb-x_grove_testbed
                      :board: mimxrt1060_evkb
-                     :shield: "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 x_grove_testbed"
-                     :goals: build flash
-                     :gen-args: -DBOARD_FLASH_RUNNER=pyocd
-                     :west-args: -p always
+                     :shield: \
+                              "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 x_grove_testbed"
+                     :goals: flash
+                     :west-args: -p
+                     :flash-args: -r pyocd
                      :host-os: unix
                      :tool: all
 
@@ -491,9 +507,10 @@ For example:
                      :app: zephyr/samples/basic/blinky
                      :build-dir: blinky-arduino_zero-x_grove_testbed
                      :board: arduino_zero
-                     :shield: "seeed_grove_base_v2 grove_btn_d7 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
-                     :goals: build flash
-                     :west-args: -p always -S usb-console
+                     :shield: \
+                              "seeed_grove_base_v2 grove_btn_d7 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :goals: flash
+                     :west-args: -p -S usb-console
                      :host-os: unix
                      :tool: all
 
@@ -506,9 +523,10 @@ For example:
                      :app: zephyr/samples/basic/fade_led
                      :build-dir: fade-arduino_zero-x_grove_testbed
                      :board: arduino_zero
-                     :shield: "seeed_grove_base_v2 grove_btn_d7 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
-                     :goals: build flash
-                     :west-args: -p always -S usb-console
+                     :shield: \
+                              "seeed_grove_base_v2 grove_btn_d7 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :goals: flash
+                     :west-args: -p -S usb-console
                      :host-os: unix
                      :tool: all
 
@@ -521,9 +539,10 @@ For example:
                      :app: zephyr/samples/basic/button
                      :build-dir: button-arduino_zero-x_grove_testbed
                      :board: arduino_zero
-                     :shield: "seeed_grove_base_v2 grove_btn_d7 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
-                     :goals: build flash
-                     :west-args: -p always -S usb-console
+                     :shield: \
+                              "seeed_grove_base_v2 grove_btn_d7 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :goals: flash
+                     :west-args: -p -S usb-console
                      :host-os: unix
                      :tool: all
 
@@ -548,9 +567,10 @@ For example:
                      :app: zephyr/samples/basic/blinky
                      :build-dir: blinky-seeeduino_cm0-x_grove_testbed
                      :board: seeeduino_cm0
-                     :shield: "seeed_grove_base_v2 grove_btn_d7 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
-                     :goals: build flash
-                     :west-args: -p always -S usb-console
+                     :shield: \
+                              "seeed_grove_base_v2 grove_btn_d7 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :goals: flash
+                     :west-args: -p -S usb-console
                      :host-os: unix
                      :tool: all
 
@@ -563,9 +583,10 @@ For example:
                      :app: zephyr/samples/basic/fade_led
                      :build-dir: fade-seeeduino_cm0-x_grove_testbed
                      :board: seeeduino_cm0
-                     :shield: "seeed_grove_base_v2 grove_btn_d7 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
-                     :goals: build flash
-                     :west-args: -p always -S usb-console
+                     :shield: \
+                              "seeed_grove_base_v2 grove_btn_d7 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :goals: flash
+                     :west-args: -p -S usb-console
                      :host-os: unix
                      :tool: all
 
@@ -578,9 +599,10 @@ For example:
                      :app: zephyr/samples/basic/button
                      :build-dir: button-seeeduino_cm0-x_grove_testbed
                      :board: seeeduino_cm0
-                     :shield: "seeed_grove_base_v2 grove_btn_d7 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
-                     :goals: build flash
-                     :west-args: -p always -S usb-console
+                     :shield: \
+                              "seeed_grove_base_v2 grove_btn_d7 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :goals: flash
+                     :west-args: -p -S usb-console
                      :host-os: unix
                      :tool: all
 
@@ -605,9 +627,10 @@ For example:
                      :app: zephyr/samples/basic/blinky
                      :build-dir: blinky-seeeduino_lotus-x_grove_testbed
                      :board: seeeduino_lotus
-                     :shield: "grove_btn_d7 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
-                     :goals: build flash
-                     :west-args: -p always -S usb-console
+                     :shield: \
+                              "grove_btn_d7 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :goals: flash
+                     :west-args: -p -S usb-console
                      :host-os: unix
                      :tool: all
 
@@ -620,9 +643,10 @@ For example:
                      :app: zephyr/samples/basic/fade_led
                      :build-dir: fade-seeeduino_lotus-x_grove_testbed
                      :board: seeeduino_lotus
-                     :shield: "grove_btn_d7 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
-                     :goals: build flash
-                     :west-args: -p always -S usb-console
+                     :shield: \
+                              "grove_btn_d7 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :goals: flash
+                     :west-args: -p -S usb-console
                      :host-os: unix
                      :tool: all
 
@@ -635,9 +659,10 @@ For example:
                      :app: zephyr/samples/basic/button
                      :build-dir: button-seeeduino_lotus-x_grove_testbed
                      :board: seeeduino_lotus
-                     :shield: "grove_btn_d7 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
-                     :goals: build flash
-                     :west-args: -p always -S usb-console
+                     :shield: \
+                              "grove_btn_d7 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :goals: flash
+                     :west-args: -p -S usb-console
                      :host-os: unix
                      :tool: all
 
@@ -662,9 +687,10 @@ For example:
                      :app: zephyr/samples/basic/blinky
                      :build-dir: blinky-seeed_xiao_samd21-x_grove_testbed
                      :board: seeed_xiao_samd21
-                     :shield: "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
-                     :goals: build flash
-                     :west-args: -p always
+                     :shield: \
+                              "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
+                     :goals: flash
+                     :west-args: -p -S usb-console
                      :host-os: unix
                      :tool: all
 
@@ -677,9 +703,10 @@ For example:
                      :app: zephyr/samples/basic/fade_led
                      :build-dir: fade-seeed_xiao_samd21-x_grove_testbed
                      :board: seeed_xiao_samd21
-                     :shield: "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
-                     :goals: build flash
-                     :west-args: -p always
+                     :shield: \
+                              "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
+                     :goals: flash
+                     :west-args: -p -S usb-console
                      :host-os: unix
                      :tool: all
 
@@ -692,9 +719,10 @@ For example:
                      :app: zephyr/samples/basic/button
                      :build-dir: button-seeed_xiao_samd21-x_grove_testbed
                      :board: seeed_xiao_samd21
-                     :shield: "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
-                     :goals: build flash
-                     :west-args: -p always
+                     :shield: \
+                              "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
+                     :goals: flash
+                     :west-args: -p -S usb-console
                      :host-os: unix
                      :tool: all
 
@@ -719,9 +747,10 @@ For example:
                      :app: zephyr/samples/basic/blinky
                      :build-dir: blinky-seeeduino_xiao-x_grove_testbed
                      :board: seeeduino_xiao
-                     :shield: "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
-                     :goals: build flash
-                     :west-args: -p always
+                     :shield: \
+                              "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
+                     :goals: flash
+                     :west-args: -p -S usb-console
                      :host-os: unix
                      :tool: all
 
@@ -734,9 +763,10 @@ For example:
                      :app: zephyr/samples/basic/fade_led
                      :build-dir: fade-seeeduino_xiao-x_grove_testbed
                      :board: seeeduino_xiao
-                     :shield: "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
-                     :goals: build flash
-                     :west-args: -p always
+                     :shield: \
+                              "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
+                     :goals: flash
+                     :west-args: -p -S usb-console
                      :host-os: unix
                      :tool: all
 
@@ -749,9 +779,10 @@ For example:
                      :app: zephyr/samples/basic/button
                      :build-dir: button-seeeduino_xiao-x_grove_testbed
                      :board: seeeduino_xiao
-                     :shield: "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
-                     :goals: build flash
-                     :west-args: -p always
+                     :shield: \
+                              "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
+                     :goals: flash
+                     :west-args: -p -S usb-console
                      :host-os: unix
                      :tool: all
 
@@ -780,14 +811,15 @@ For example:
                      :app: zephyr/samples/basic/blinky
                      :build-dir: blinky-rpi_pico-x_grove_testbed
                      :board: rpi_pico
-                     :shield: "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
-                     :goals: build flash
+                     :shield: \
+                              "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
+                     :goals: flash
                      :gen-args: \
                                 -DBOARD_FLASH_RUNNER=openocd \
                                 -DRPI_PICO_DEBUG_ADAPTER=cmsis-dap \
                                 -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
                                 -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
-                     :west-args: -p always
+                     :west-args: -p
                      :host-os: unix
                      :tool: all
 
@@ -800,14 +832,15 @@ For example:
                      :app: zephyr/samples/basic/fade_led
                      :build-dir: fade-rpi_pico-x_grove_testbed
                      :board: rpi_pico
-                     :shield: "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
-                     :goals: build flash
+                     :shield: \
+                              "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
+                     :goals: flash
                      :gen-args: \
                                 -DBOARD_FLASH_RUNNER=openocd \
                                 -DRPI_PICO_DEBUG_ADAPTER=cmsis-dap \
                                 -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
                                 -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
-                     :west-args: -p always
+                     :west-args: -p
                      :host-os: unix
                      :tool: all
 
@@ -820,14 +853,15 @@ For example:
                      :app: zephyr/samples/basic/button
                      :build-dir: button-rpi_pico-x_grove_testbed
                      :board: rpi_pico
-                     :shield: "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
-                     :goals: build flash
+                     :shield: \
+                              "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
+                     :goals: flash
                      :gen-args: \
                                 -DBOARD_FLASH_RUNNER=openocd \
                                 -DRPI_PICO_DEBUG_ADAPTER=cmsis-dap \
                                 -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
                                 -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
-                     :west-args: -p always
+                     :west-args: -p
                      :host-os: unix
                      :tool: all
 
@@ -852,14 +886,15 @@ For example:
                      :app: zephyr/samples/basic/blinky
                      :build-dir: blinky-rpi_pico_w-x_grove_testbed
                      :board: rpi_pico_w
-                     :shield: "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
-                     :goals: build flash
+                     :shield: \
+                              "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
+                     :goals: flash
                      :gen-args: \
                                 -DBOARD_FLASH_RUNNER=openocd \
                                 -DRPI_PICO_DEBUG_ADAPTER=cmsis-dap \
                                 -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
                                 -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
-                     :west-args: -p always
+                     :west-args: -p
                      :host-os: unix
                      :tool: all
 
@@ -872,14 +907,15 @@ For example:
                      :app: zephyr/samples/basic/fade_led
                      :build-dir: fade-rpi_pico_w-x_grove_testbed
                      :board: rpi_pico_w
-                     :shield: "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
-                     :goals: build flash
+                     :shield: \
+                              "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
+                     :goals: flash
                      :gen-args: \
                                 -DBOARD_FLASH_RUNNER=openocd \
                                 -DRPI_PICO_DEBUG_ADAPTER=cmsis-dap \
                                 -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
                                 -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
-                     :west-args: -p always
+                     :west-args: -p
                      :host-os: unix
                      :tool: all
 
@@ -892,14 +928,15 @@ For example:
                      :app: zephyr/samples/basic/button
                      :build-dir: button-rpi_pico_w-x_grove_testbed
                      :board: rpi_pico_w
-                     :shield: "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
-                     :goals: build flash
+                     :shield: \
+                              "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
+                     :goals: flash
                      :gen-args: \
                                 -DBOARD_FLASH_RUNNER=openocd \
                                 -DRPI_PICO_DEBUG_ADAPTER=cmsis-dap \
                                 -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
                                 -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
-                     :west-args: -p always
+                     :west-args: -p
                      :host-os: unix
                      :tool: all
 
@@ -925,14 +962,15 @@ For example:
                      :app: zephyr/samples/basic/blinky
                      :build-dir: blinky-waveshare_rp2040_plus-x_grove_testbed
                      :board: waveshare_rp2040_plus
-                     :shield: "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
-                     :goals: build flash
+                     :shield: \
+                              "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
+                     :goals: flash
                      :gen-args: \
                                 -DBOARD_FLASH_RUNNER=openocd \
                                 -DWAVESHARE_RP2040_DEBUG_ADAPTER=cmsis-dap \
                                 -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
                                 -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
-                     :west-args: -p always
+                     :west-args: -p
                      :host-os: unix
                      :tool: all
 
@@ -945,14 +983,15 @@ For example:
                      :app: zephyr/samples/basic/fade_led
                      :build-dir: fade-waveshare_rp2040_plus-x_grove_testbed
                      :board: waveshare_rp2040_plus
-                     :shield: "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
-                     :goals: build flash
+                     :shield: \
+                              "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
+                     :goals: flash
                      :gen-args: \
                                 -DBOARD_FLASH_RUNNER=openocd \
                                 -DWAVESHARE_RP2040_DEBUG_ADAPTER=cmsis-dap \
                                 -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
                                 -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
-                     :west-args: -p always
+                     :west-args: -p
                      :host-os: unix
                      :tool: all
 
@@ -965,14 +1004,15 @@ For example:
                      :app: zephyr/samples/basic/button
                      :build-dir: button-waveshare_rp2040_plus-x_grove_testbed
                      :board: waveshare_rp2040_plus
-                     :shield: "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
-                     :goals: build flash
+                     :shield: \
+                              "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
+                     :goals: flash
                      :gen-args: \
                                 -DBOARD_FLASH_RUNNER=openocd \
                                 -DWAVESHARE_RP2040_DEBUG_ADAPTER=cmsis-dap \
                                 -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
                                 -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
-                     :west-args: -p always
+                     :west-args: -p
                      :host-os: unix
                      :tool: all
 
@@ -998,14 +1038,15 @@ For example:
                      :app: zephyr/samples/basic/blinky
                      :build-dir: blinky-waveshare_rp2040_lcd_0_96-x_grove_testbed
                      :board: waveshare_rp2040_lcd_0_96
-                     :shield: "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
-                     :goals: build flash
+                     :shield: \
+                              "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
+                     :goals: flash
                      :gen-args: \
                                 -DBOARD_FLASH_RUNNER=openocd \
                                 -DWAVESHARE_RP2040_DEBUG_ADAPTER=cmsis-dap \
                                 -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
                                 -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
-                     :west-args: -p always
+                     :west-args: -p
                      :host-os: unix
                      :tool: all
 
@@ -1018,14 +1059,15 @@ For example:
                      :app: zephyr/samples/basic/fade_led
                      :build-dir: fade-waveshare_rp2040_lcd_0_96-x_grove_testbed
                      :board: waveshare_rp2040_lcd_0_96
-                     :shield: "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
-                     :goals: build flash
+                     :shield: \
+                              "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
+                     :goals: flash
                      :gen-args: \
                                 -DBOARD_FLASH_RUNNER=openocd \
                                 -DWAVESHARE_RP2040_DEBUG_ADAPTER=cmsis-dap \
                                 -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
                                 -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
-                     :west-args: -p always
+                     :west-args: -p
                      :host-os: unix
                      :tool: all
 
@@ -1038,14 +1080,15 @@ For example:
                      :app: zephyr/samples/basic/button
                      :build-dir: button-waveshare_rp2040_lcd_0_96-x_grove_testbed
                      :board: waveshare_rp2040_lcd_0_96
-                     :shield: "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
-                     :goals: build flash
+                     :shield: \
+                              "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
+                     :goals: flash
                      :gen-args: \
                                 -DBOARD_FLASH_RUNNER=openocd \
                                 -DWAVESHARE_RP2040_DEBUG_ADAPTER=cmsis-dap \
                                 -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
                                 -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
-                     :west-args: -p always
+                     :west-args: -p
                      :host-os: unix
                      :tool: all
 
@@ -1071,10 +1114,11 @@ For example:
                      :app: zephyr/samples/basic/blinky
                      :build-dir: blinky-cytron_maker_nano_rp2040-x_grove_testbed
                      :board: cytron_maker_nano_rp2040
-                     :shield: "grove_btn_d0 grove_led_d15 grove_pwm_led_d15 x_grove_testbed"
-                     :goals: build flash
-                     :gen-args: -DBOARD_FLASH_RUNNER=uf2
-                     :west-args: -p always
+                     :shield: \
+                              "grove_btn_d0 grove_led_d15 grove_pwm_led_d15 x_grove_testbed"
+                     :goals: flash
+                     :west-args: -p -S usb-console
+                     :flash-args: -r uf2
                      :host-os: unix
                      :tool: all
 
@@ -1087,10 +1131,11 @@ For example:
                      :app: zephyr/samples/basic/fade_led
                      :build-dir: fade-cytron_maker_nano_rp2040-x_grove_testbed
                      :board: cytron_maker_nano_rp2040
-                     :shield: "grove_btn_d0 grove_led_d15 grove_pwm_led_d15 x_grove_testbed"
-                     :goals: build flash
-                     :gen-args: -DBOARD_FLASH_RUNNER=uf2
-                     :west-args: -p always
+                     :shield: \
+                              "grove_btn_d0 grove_led_d15 grove_pwm_led_d15 x_grove_testbed"
+                     :goals: flash
+                     :west-args: -p -S usb-console
+                     :flash-args: -r uf2
                      :host-os: unix
                      :tool: all
 
@@ -1103,10 +1148,11 @@ For example:
                      :app: zephyr/samples/basic/button
                      :build-dir: button-cytron_maker_nano_rp2040-x_grove_testbed
                      :board: cytron_maker_nano_rp2040
-                     :shield: "grove_btn_d0 grove_led_d15 grove_pwm_led_d15 x_grove_testbed"
-                     :goals: build flash
-                     :gen-args: -DBOARD_FLASH_RUNNER=uf2
-                     :west-args: -p always
+                     :shield: \
+                              "grove_btn_d0 grove_led_d15 grove_pwm_led_d15 x_grove_testbed"
+                     :goals: flash
+                     :west-args: -p -S usb-console
+                     :flash-args: -r uf2
                      :host-os: unix
                      :tool: all
 
@@ -1132,14 +1178,15 @@ For example:
                      :app: zephyr/samples/basic/blinky
                      :build-dir: blinky-cytron_maker_pi_rp2040-x_grove_testbed
                      :board: cytron_maker_pi_rp2040
-                     :shield: "grove_btn_d3 grove_led_d5 grove_pwm_led_d5 x_grove_testbed"
-                     :goals: build flash
+                     :shield: \
+                              "grove_btn_d3 grove_led_d5 grove_pwm_led_d5 x_grove_testbed"
+                     :goals: flash
                      :gen-args: \
                                 -DBOARD_FLASH_RUNNER=openocd \
                                 -DCYTRON_RP2040_DEBUG_ADAPTER=cmsis-dap \
                                 -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
                                 -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
-                     :west-args: -p always
+                     :west-args: -p
                      :host-os: unix
                      :tool: all
 
@@ -1152,14 +1199,15 @@ For example:
                      :app: zephyr/samples/basic/fade_led
                      :build-dir: fade-cytron_maker_pi_rp2040-x_grove_testbed
                      :board: cytron_maker_pi_rp2040
-                     :shield: "grove_btn_d3 grove_led_d5 grove_pwm_led_d5 x_grove_testbed"
-                     :goals: build flash
+                     :shield: \
+                              "grove_btn_d3 grove_led_d5 grove_pwm_led_d5 x_grove_testbed"
+                     :goals: flash
                      :gen-args: \
                                 -DBOARD_FLASH_RUNNER=openocd \
                                 -DCYTRON_RP2040_DEBUG_ADAPTER=cmsis-dap \
                                 -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
                                 -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
-                     :west-args: -p always
+                     :west-args: -p
                      :host-os: unix
                      :tool: all
 
@@ -1172,14 +1220,15 @@ For example:
                      :app: zephyr/samples/basic/button
                      :build-dir: button-cytron_maker_pi_rp2040-x_grove_testbed
                      :board: cytron_maker_pi_rp2040
-                     :shield: "grove_btn_d3 grove_led_d5 grove_pwm_led_d5 x_grove_testbed"
-                     :goals: build flash
+                     :shield: \
+                              "grove_btn_d3 grove_led_d5 grove_pwm_led_d5 x_grove_testbed"
+                     :goals: flash
                      :gen-args: \
                                 -DBOARD_FLASH_RUNNER=openocd \
                                 -DCYTRON_RP2040_DEBUG_ADAPTER=cmsis-dap \
                                 -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
                                 -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
-                     :west-args: -p always
+                     :west-args: -p
                      :host-os: unix
                      :tool: all
 
