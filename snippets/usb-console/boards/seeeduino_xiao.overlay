@@ -1,0 +1,16 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	model = "Seeeduino XIAO @ USB-CDC/ACM Concole";
+	compatible = "seeed,seeeduino-xiao-usbcons",
+		     "seeed,seeeduino-xiao",
+		     "atmel,samd21g18a",
+		     "atmel,samd21";
+
+	chosen {
+		zephyr,shell-uart = &snippet_cdc_acm_console_uart;
+	};
+};

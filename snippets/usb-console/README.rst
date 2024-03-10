@@ -101,6 +101,15 @@ specified as required.
      - | |zephyr,console|
        | |zephyr,shell-uart|
 
+   * - :code:`seeeduino_xiao`
+     - :code:`0x2886`
+     - :code:`0x802F`
+     - |Seeed LLC|_
+     - :ref:`Seeed XIAO M0 (CDC ACM) <zephyr:seeeduino_xiao>`, Seeeduino XIAO
+     - `Seeeduino USB product ID list with SAMD21 CPU`_
+     - | |zephyr,console|
+       | |zephyr,shell-uart|
+
    * - :code:`seeed_xiao_samd21`
      - :code:`0x2886`
      - :code:`0x802F`
