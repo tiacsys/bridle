@@ -26,7 +26,7 @@ Build and flash LED Blinky as follows:
    :build-dir: led_blinky-tiac_magpie
    :board: tiac_magpie
    :west-args: -p
-   :goals: build flash
+   :goals: flash
    :host-os: unix
 
 After flashing, the first "User LED" starts to blink.

@@ -274,7 +274,7 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
          :build-dir: waveshare_pico_10dof_imu_sensor-helloshell
          :board: rpi_pico
          :shield: waveshare_pico_10dof_imu_sensor_r2
-         :goals: build flash
+         :goals: flash
          :west-args: -p -S usb-console
          :flash-args: -r uf2
          :tool: all
@@ -288,7 +288,7 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
          :build-dir: waveshare_pico_10dof_imu_sensor-helloshell
          :board: rpi_pico_w
          :shield: waveshare_pico_10dof_imu_sensor_r2
-         :goals: build flash
+         :goals: flash
          :west-args: -p -S usb-console
          :flash-args: -r uf2
          :tool: all
@@ -302,7 +302,7 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
          :build-dir: waveshare_pico_10dof_imu_sensor-helloshell
          :board: waveshare_rp2040_lcd_0_96
          :shield: waveshare_pico_10dof_imu_sensor_r2
-         :goals: build flash
+         :goals: flash
          :west-args: -p -S usb-console
          :flash-args: -r uf2
          :tool: all
@@ -318,7 +318,7 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
          :build-dir: waveshare_pico_10dof_imu_sensor-helloshell
          :board: waveshare_rp2040_plus
          :shield: waveshare_pico_10dof_imu_sensor_r2
-         :goals: build flash
+         :goals: flash
          :west-args: -p -S usb-console
          :flash-args: -r uf2
          :tool: all
@@ -330,7 +330,7 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
          :build-dir: waveshare_pico_10dof_imu_sensor-helloshell
          :board: waveshare_rp2040_plus@16mb
          :shield: waveshare_pico_10dof_imu_sensor_r2
-         :goals: build flash
+         :goals: flash
          :west-args: -p -S usb-console
          :flash-args: -r uf2
          :tool: all
@@ -352,7 +352,7 @@ for the STM LPS22HB MEMS pressure sensor. See also Zephyr sample:
    :build-dir: waveshare_pico_10dof_imu_sensor-lps22hb
    :board: rpi_pico
    :shield: waveshare_pico_10dof_imu_sensor_r2
-   :goals: build flash
+   :goals: flash
    :west-args: -p -S usb-console
    :flash-args: -r uf2
 
@@ -366,7 +366,7 @@ See also :ref:`waveshare_pico_10dof_imu_sensor_sample` in Bridle.
    :build-dir: waveshare_pico_10dof_imu_sensor
    :board: rpi_pico
    :shield: waveshare_pico_10dof_imu_sensor_r2
-   :goals: build flash
+   :goals: flash
    :west-args: -p -S usb-console
    :flash-args: -r uf2
 

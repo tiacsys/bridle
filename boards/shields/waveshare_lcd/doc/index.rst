@@ -97,7 +97,7 @@ Programming
                :build-dir: waveshare_2_4_lcd-display_test
                :board: cytron_maker_nano_rp2040
                :shield: waveshare_2_4_lcd
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :host-os: unix
@@ -115,7 +115,7 @@ Programming
                :build-dir: waveshare_2_4_lcd-display_test
                :board: cytron_maker_pi_rp2040
                :shield: waveshare_2_4_lcd
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :host-os: unix
@@ -142,7 +142,7 @@ Programming
                :build-dir: waveshare_2_4_lcd-lvgl_basic
                :board: cytron_maker_nano_rp2040
                :shield: waveshare_2_4_lcd
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :host-os: unix
@@ -160,7 +160,7 @@ Programming
                :build-dir: waveshare_2_4_lcd-lvgl_basic
                :board: cytron_maker_pi_rp2040
                :shield: waveshare_2_4_lcd
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :host-os: unix

@@ -389,7 +389,7 @@ Build and flash the application:
    :build-dir: hello_world-tiac_magpie
    :board: tiac_magpie
    :west-args: -p
-   :goals: build flash
+   :goals: flash
    :host-os: unix
    :compact:
 

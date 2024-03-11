@@ -28,7 +28,7 @@ Build and flash DHCPv4 Client as follows:
    :build-dir: dhcpv4_client-tiac_magpie
    :board: tiac_magpie
    :west-args: -p
-   :goals: build flash
+   :goals: flash
    :host-os: unix
 
 Once DHCPv4 client address negotiation completed with server, details

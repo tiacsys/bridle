@@ -25,7 +25,7 @@ Build and flash Hello Shell as follows:
    :build-dir: helloshell-tiac_magpie
    :board: tiac_magpie
    :west-args: -p
-   :goals: build flash
+   :goals: flash
    :host-os: unix
 
 After flashing and the board has booted, you will be presented with a shell

@@ -27,9 +27,9 @@ Build and flash TELNET Console as follows:
    :app: zephyr/samples/net/telnet
    :build-dir: telnet-tiac_magpie
    :board: tiac_magpie
-   :gen-args: -DCONFIG_NET_DHCPV4=y -DCONFIG_NET_LOG=y -DCONFIG_LOG=y -DCONFIG_GPIO_SHELL=y
+   :gen-args: -DCONFIG_NET_DHCPV4=y -DCONFIG_NET_LOG=y -DCONFIG_LOG=y -DCONFIG_GPIO_SHELL=y -DCONFIG_I2C_SHELL=y
    :west-args: -p
-   :goals: build flash
+   :goals: flash
    :host-os: unix
 
 Once DHCPv4 client address negotiation completed with server, details

@@ -33,7 +33,7 @@ for testing USB mass storage class implementation.
    :board: tiac_magpie
    :gen-args: -DEXTRA_DTC_OVERLAY_FILE="ramdisk.overlay"
    :west-args: -p
-   :goals: build flash
+   :goals: flash
    :host-os: unix
 
 The output to the console will look something like this:
@@ -56,7 +56,7 @@ build the sample with a RAM-based disk:
    :board: tiac_magpie
    :gen-args: -DEXTRA_DTC_OVERLAY_FILE="ramdisk.overlay" -DCONFIG_APP_MSC_STORAGE_RAM=y
    :west-args: -p
-   :goals: build flash
+   :goals: flash
    :host-os: unix
 
 After you have built and flashed the sample application image to your board,

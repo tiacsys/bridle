@@ -115,7 +115,7 @@ Programming
                :build-dir: waveshare_pico_lcd_1_14-helloshell
                :board: rpi_pico
                :shield: "waveshare_pico_lcd_1_14"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :host-os: unix
@@ -130,7 +130,7 @@ Programming
                :build-dir: waveshare_pico_lcd_1_14-helloshell
                :board: rpi_pico_w
                :shield: "waveshare_pico_lcd_1_14"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :host-os: unix
@@ -147,7 +147,7 @@ Programming
                :build-dir: waveshare_pico_lcd_1_14-helloshell
                :board: waveshare_rp2040_plus
                :shield: "waveshare_pico_lcd_1_14"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :host-os: unix
@@ -160,7 +160,7 @@ Programming
                :build-dir: waveshare_pico_lcd_1_14-helloshell
                :board: waveshare_rp2040_plus@16mb
                :shield: "waveshare_pico_lcd_1_14"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :host-os: unix
@@ -183,7 +183,7 @@ Programming
                :build-dir: waveshare_pico_lcd_2-helloshell
                :board: rpi_pico
                :shield: "waveshare_pico_lcd_2"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :host-os: unix
@@ -198,7 +198,7 @@ Programming
                :build-dir: waveshare_pico_lcd_2-helloshell
                :board: rpi_pico_w
                :shield: "waveshare_pico_lcd_2"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :host-os: unix
@@ -215,7 +215,7 @@ Programming
                :build-dir: waveshare_pico_lcd_2-helloshell
                :board: waveshare_rp2040_plus
                :shield: "waveshare_pico_lcd_2"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :host-os: unix
@@ -228,7 +228,7 @@ Programming
                :build-dir: waveshare_pico_lcd_2-helloshell
                :board: waveshare_rp2040_plus@16mb
                :shield: "waveshare_pico_lcd_2"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :host-os: unix
@@ -251,7 +251,7 @@ Programming
                :build-dir: waveshare_pico_restouch_lcd_3_5-helloshell
                :board: rpi_pico
                :shield: "waveshare_pico_restouch_lcd_3_5"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :host-os: unix
@@ -266,7 +266,7 @@ Programming
                :build-dir: waveshare_pico_restouch_lcd_3_5-helloshell
                :board: rpi_pico_w
                :shield: "waveshare_pico_restouch_lcd_3_5"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :host-os: unix
@@ -283,7 +283,7 @@ Programming
                :build-dir: waveshare_pico_restouch_lcd_3_5-helloshell
                :board: waveshare_rp2040_plus
                :shield: "waveshare_pico_restouch_lcd_3_5"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :host-os: unix
@@ -296,7 +296,7 @@ Programming
                :build-dir: waveshare_pico_restouch_lcd_3_5-helloshell
                :board: waveshare_rp2040_plus@16mb
                :shield: "waveshare_pico_restouch_lcd_3_5"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :host-os: unix
@@ -338,7 +338,7 @@ sample: :doc:`zephyr:samples/subsys/input/input_dump/README`.
                :build-dir: waveshare_pico_lcd_1_14-input_dump
                :board: rpi_pico
                :shield: "waveshare_pico_lcd_1_14"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -350,7 +350,7 @@ sample: :doc:`zephyr:samples/subsys/input/input_dump/README`.
                :build-dir: waveshare_pico_lcd_1_14-input_dump
                :board: rpi_pico_w
                :shield: "waveshare_pico_lcd_1_14"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -364,7 +364,7 @@ sample: :doc:`zephyr:samples/subsys/input/input_dump/README`.
                :build-dir: waveshare_pico_lcd_1_14-input_dump
                :board: waveshare_rp2040_plus
                :shield: "waveshare_pico_lcd_1_14"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -376,7 +376,7 @@ sample: :doc:`zephyr:samples/subsys/input/input_dump/README`.
                :build-dir: waveshare_pico_lcd_1_14-input_dump
                :board: waveshare_rp2040_plus@16mb
                :shield: "waveshare_pico_lcd_1_14"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -424,7 +424,7 @@ sample: :doc:`zephyr:samples/subsys/input/input_dump/README`.
                :build-dir: waveshare_pico_lcd_2-input_dump
                :board: rpi_pico
                :shield: "waveshare_pico_lcd_2"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -436,7 +436,7 @@ sample: :doc:`zephyr:samples/subsys/input/input_dump/README`.
                :build-dir: waveshare_pico_lcd_2-input_dump
                :board: rpi_pico_w
                :shield: "waveshare_pico_lcd_2"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -450,7 +450,7 @@ sample: :doc:`zephyr:samples/subsys/input/input_dump/README`.
                :build-dir: waveshare_pico_lcd_2-input_dump
                :board: waveshare_rp2040_plus
                :shield: "waveshare_pico_lcd_2"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -462,7 +462,7 @@ sample: :doc:`zephyr:samples/subsys/input/input_dump/README`.
                :build-dir: waveshare_pico_lcd_2-input_dump
                :board: waveshare_rp2040_plus@16mb
                :shield: "waveshare_pico_lcd_2"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -502,7 +502,7 @@ sample: :doc:`zephyr:samples/subsys/input/input_dump/README`.
                :build-dir: waveshare_pico_restouch_lcd_3_5-input_dump
                :board: rpi_pico
                :shield: "waveshare_pico_restouch_lcd_3_5"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -514,7 +514,7 @@ sample: :doc:`zephyr:samples/subsys/input/input_dump/README`.
                :build-dir: waveshare_pico_restouch_lcd_3_5-input_dump
                :board: rpi_pico_w
                :shield: "waveshare_pico_restouch_lcd_3_5"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -528,7 +528,7 @@ sample: :doc:`zephyr:samples/subsys/input/input_dump/README`.
                :build-dir: waveshare_pico_restouch_lcd_3_5-input_dump
                :board: waveshare_rp2040_plus
                :shield: "waveshare_pico_restouch_lcd_3_5"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -540,7 +540,7 @@ sample: :doc:`zephyr:samples/subsys/input/input_dump/README`.
                :build-dir: waveshare_pico_restouch_lcd_3_5-input_dump
                :board: waveshare_rp2040_plus@16mb
                :shield: "waveshare_pico_restouch_lcd_3_5"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -585,7 +585,7 @@ order. See also Zephyr sample: :doc:`zephyr:samples/drivers/display/README`.
                :build-dir: waveshare_pico_lcd_1_14-display_test
                :board: rpi_pico
                :shield: "waveshare_pico_lcd_1_14"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -597,7 +597,7 @@ order. See also Zephyr sample: :doc:`zephyr:samples/drivers/display/README`.
                :build-dir: waveshare_pico_lcd_1_14-display_test
                :board: rpi_pico_w
                :shield: "waveshare_pico_lcd_1_14"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -611,7 +611,7 @@ order. See also Zephyr sample: :doc:`zephyr:samples/drivers/display/README`.
                :build-dir: waveshare_pico_lcd_1_14-display_test
                :board: waveshare_rp2040_plus
                :shield: "waveshare_pico_lcd_1_14"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -623,7 +623,7 @@ order. See also Zephyr sample: :doc:`zephyr:samples/drivers/display/README`.
                :build-dir: waveshare_pico_lcd_1_14-display_test
                :board: waveshare_rp2040_plus@16mb
                :shield: "waveshare_pico_lcd_1_14"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -655,7 +655,7 @@ order. See also Zephyr sample: :doc:`zephyr:samples/drivers/display/README`.
                :build-dir: waveshare_pico_lcd_2-display_test
                :board: rpi_pico
                :shield: "waveshare_pico_lcd_2"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -667,7 +667,7 @@ order. See also Zephyr sample: :doc:`zephyr:samples/drivers/display/README`.
                :build-dir: waveshare_pico_lcd_2-display_test
                :board: rpi_pico_w
                :shield: "waveshare_pico_lcd_2"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -681,7 +681,7 @@ order. See also Zephyr sample: :doc:`zephyr:samples/drivers/display/README`.
                :build-dir: waveshare_pico_lcd_2-display_test
                :board: waveshare_rp2040_plus
                :shield: "waveshare_pico_lcd_2"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -693,7 +693,7 @@ order. See also Zephyr sample: :doc:`zephyr:samples/drivers/display/README`.
                :build-dir: waveshare_pico_lcd_2-display_test
                :board: waveshare_rp2040_plus@16mb
                :shield: "waveshare_pico_lcd_2"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -725,7 +725,7 @@ order. See also Zephyr sample: :doc:`zephyr:samples/drivers/display/README`.
                :build-dir: waveshare_pico_restouch_lcd_3_5-display_test
                :board: rpi_pico
                :shield: "waveshare_pico_restouch_lcd_3_5"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -737,7 +737,7 @@ order. See also Zephyr sample: :doc:`zephyr:samples/drivers/display/README`.
                :build-dir: waveshare_pico_restouch_lcd_3_5-display_test
                :board: rpi_pico_w
                :shield: "waveshare_pico_restouch_lcd_3_5"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -751,7 +751,7 @@ order. See also Zephyr sample: :doc:`zephyr:samples/drivers/display/README`.
                :build-dir: waveshare_pico_restouch_lcd_3_5-display_test
                :board: waveshare_rp2040_plus
                :shield: "waveshare_pico_restouch_lcd_3_5"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -763,7 +763,7 @@ order. See also Zephyr sample: :doc:`zephyr:samples/drivers/display/README`.
                :build-dir: waveshare_pico_restouch_lcd_3_5-display_test
                :board: waveshare_rp2040_plus@16mb
                :shield: "waveshare_pico_restouch_lcd_3_5"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -832,7 +832,7 @@ which increments every second. See also Zephyr sample:
                :build-dir: waveshare_pico_lcd_1_14-lvgl_basic
                :board: rpi_pico
                :shield: "waveshare_pico_lcd_1_14"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -844,7 +844,7 @@ which increments every second. See also Zephyr sample:
                :build-dir: waveshare_pico_lcd_1_14-lvgl_basic
                :board: rpi_pico_w
                :shield: "waveshare_pico_lcd_1_14"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -858,7 +858,7 @@ which increments every second. See also Zephyr sample:
                :build-dir: waveshare_pico_lcd_1_14-lvgl_basic
                :board: waveshare_rp2040_plus
                :shield: "waveshare_pico_lcd_1_14"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -870,7 +870,7 @@ which increments every second. See also Zephyr sample:
                :build-dir: waveshare_pico_lcd_1_14-lvgl_basic
                :board: waveshare_rp2040_plus@16mb
                :shield: "waveshare_pico_lcd_1_14"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -937,7 +937,7 @@ which increments every second. See also Zephyr sample:
                :build-dir: waveshare_pico_lcd_2-lvgl_basic
                :board: rpi_pico
                :shield: "waveshare_pico_lcd_2"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -949,7 +949,7 @@ which increments every second. See also Zephyr sample:
                :build-dir: waveshare_pico_lcd_2-lvgl_basic
                :board: rpi_pico_w
                :shield: "waveshare_pico_lcd_2"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -963,7 +963,7 @@ which increments every second. See also Zephyr sample:
                :build-dir: waveshare_pico_lcd_2-lvgl_basic
                :board: waveshare_rp2040_plus
                :shield: "waveshare_pico_lcd_2"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -975,7 +975,7 @@ which increments every second. See also Zephyr sample:
                :build-dir: waveshare_pico_lcd_2-lvgl_basic
                :board: waveshare_rp2040_plus@16mb
                :shield: "waveshare_pico_lcd_2"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -1027,7 +1027,7 @@ which increments every second. See also Zephyr sample:
                :build-dir: waveshare_pico_restouch_lcd_3_5-lvgl_basic
                :board: rpi_pico
                :shield: "waveshare_pico_restouch_lcd_3_5"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -1039,7 +1039,7 @@ which increments every second. See also Zephyr sample:
                :build-dir: waveshare_pico_restouch_lcd_3_5-lvgl_basic
                :board: rpi_pico_w
                :shield: "waveshare_pico_restouch_lcd_3_5"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -1053,7 +1053,7 @@ which increments every second. See also Zephyr sample:
                :build-dir: waveshare_pico_restouch_lcd_3_5-lvgl_basic
                :board: waveshare_rp2040_plus
                :shield: "waveshare_pico_restouch_lcd_3_5"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -1065,7 +1065,7 @@ which increments every second. See also Zephyr sample:
                :build-dir: waveshare_pico_restouch_lcd_3_5-lvgl_basic
                :board: waveshare_rp2040_plus@16mb
                :shield: "waveshare_pico_restouch_lcd_3_5"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -1138,7 +1138,7 @@ ResTouch LCD 3.5| board. They will be built with activated USB-CDC/ACM console.
                :build-dir: waveshare_pico_restouch_lcd_3_5-display_test
                :board: rpi_pico
                :shield: "waveshare_pico_restouch_lcd_3_5"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -1150,7 +1150,7 @@ ResTouch LCD 3.5| board. They will be built with activated USB-CDC/ACM console.
                :build-dir: waveshare_pico_restouch_lcd_3_5-display_test
                :board: rpi_pico_w
                :shield: "waveshare_pico_restouch_lcd_3_5"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -1164,7 +1164,7 @@ ResTouch LCD 3.5| board. They will be built with activated USB-CDC/ACM console.
                :build-dir: waveshare_pico_restouch_lcd_3_5-display_test
                :board: waveshare_rp2040_plus
                :shield: "waveshare_pico_restouch_lcd_3_5"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -1176,7 +1176,7 @@ ResTouch LCD 3.5| board. They will be built with activated USB-CDC/ACM console.
                :build-dir: waveshare_pico_restouch_lcd_3_5-display_test
                :board: waveshare_rp2040_plus@16mb
                :shield: "waveshare_pico_restouch_lcd_3_5"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -1288,7 +1288,7 @@ ResTouch LCD 3.5| board. They will be built with activated USB-CDC/ACM console.
                :build-dir: waveshare_pico_restouch_lcd_3_5-display_test
                :board: rpi_pico
                :shield: "waveshare_pico_restouch_lcd_3_5"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :gen-args: -DCONFIG_FS_FATFS_MOUNT_MKFS=n
                :flash-args: -r uf2
@@ -1301,7 +1301,7 @@ ResTouch LCD 3.5| board. They will be built with activated USB-CDC/ACM console.
                :build-dir: waveshare_pico_restouch_lcd_3_5-display_test
                :board: rpi_pico_w
                :shield: "waveshare_pico_restouch_lcd_3_5"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :gen-args: -DCONFIG_FS_FATFS_MOUNT_MKFS=n
                :flash-args: -r uf2
@@ -1316,7 +1316,7 @@ ResTouch LCD 3.5| board. They will be built with activated USB-CDC/ACM console.
                :build-dir: waveshare_pico_restouch_lcd_3_5-display_test
                :board: waveshare_rp2040_plus
                :shield: "waveshare_pico_restouch_lcd_3_5"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :gen-args: -DCONFIG_FS_FATFS_MOUNT_MKFS=n
                :flash-args: -r uf2
@@ -1329,7 +1329,7 @@ ResTouch LCD 3.5| board. They will be built with activated USB-CDC/ACM console.
                :build-dir: waveshare_pico_restouch_lcd_3_5-display_test
                :board: waveshare_rp2040_plus@16mb
                :shield: "waveshare_pico_restouch_lcd_3_5"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :gen-args: -DCONFIG_FS_FATFS_MOUNT_MKFS=n
                :flash-args: -r uf2

@@ -264,7 +264,7 @@ Set ``-DSHIELD=waveshare_pico_environment_sensor`` when you invoke
          :build-dir: waveshare_pico_environment_sensor-helloshell
          :board: rpi_pico
          :shield: waveshare_pico_environment_sensor
-         :goals: build flash
+         :goals: flash
          :west-args: -p -S usb-console
          :flash-args: -r uf2
          :tool: all
@@ -278,7 +278,7 @@ Set ``-DSHIELD=waveshare_pico_environment_sensor`` when you invoke
          :build-dir: waveshare_pico_environment_sensor-helloshell
          :board: rpi_pico_w
          :shield: waveshare_pico_environment_sensor
-         :goals: build flash
+         :goals: flash
          :west-args: -p -S usb-console
          :flash-args: -r uf2
          :tool: all
@@ -292,7 +292,7 @@ Set ``-DSHIELD=waveshare_pico_environment_sensor`` when you invoke
          :build-dir: waveshare_pico_environment_sensor-helloshell
          :board: waveshare_rp2040_lcd_0_96
          :shield: waveshare_pico_environment_sensor
-         :goals: build flash
+         :goals: flash
          :west-args: -p -S usb-console
          :flash-args: -r uf2
          :tool: all
@@ -308,7 +308,7 @@ Set ``-DSHIELD=waveshare_pico_environment_sensor`` when you invoke
          :build-dir: waveshare_pico_environment_sensor-helloshell
          :board: waveshare_rp2040_plus
          :shield: waveshare_pico_environment_sensor
-         :goals: build flash
+         :goals: flash
          :west-args: -p -S usb-console
          :flash-args: -r uf2
          :tool: all
@@ -320,7 +320,7 @@ Set ``-DSHIELD=waveshare_pico_environment_sensor`` when you invoke
          :build-dir: waveshare_pico_environment_sensor-helloshell
          :board: waveshare_rp2040_plus@16mb
          :shield: waveshare_pico_environment_sensor
-         :goals: build flash
+         :goals: flash
          :west-args: -p -S usb-console
          :flash-args: -r uf2
          :tool: all
@@ -343,7 +343,7 @@ for the Bosch BME280 environmental sensor. See also Zephyr sample:
    :build-dir: waveshare_pico_environment_sensor-bme280
    :board: rpi_pico
    :shield: waveshare_pico_environment_sensor
-   :goals: build flash
+   :goals: flash
    :west-args: -p -S usb-console -S samples-sensor-bme280-tweaks
    :flash-args: -r uf2
 
@@ -357,7 +357,7 @@ See also :ref:`waveshare_pico_environment_sensor_sample` in Bridle.
    :build-dir: waveshare_pico_environment_sensor
    :board: rpi_pico
    :shield: waveshare_pico_environment_sensor
-   :goals: build flash
+   :goals: flash
    :west-args: -p -S usb-console
    :flash-args: -r uf2
 

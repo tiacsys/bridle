@@ -71,7 +71,7 @@ Programming
                :build-dir: spotpear_pico_test-helloshell
                :board: rpi_pico
                :shield: "spotpear_pico_test"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :host-os: unix
@@ -86,7 +86,7 @@ Programming
                :build-dir: spotpear_pico_test-helloshell
                :board: rpi_pico_w
                :shield: "spotpear_pico_test"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :host-os: unix
@@ -103,7 +103,7 @@ Programming
                :build-dir: spotpear_pico_test-helloshell
                :board: waveshare_rp2040_plus
                :shield: "spotpear_pico_test"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :host-os: unix
@@ -116,7 +116,7 @@ Programming
                :build-dir: spotpear_pico_test-helloshell
                :board: waveshare_rp2040_plus@16mb
                :shield: "spotpear_pico_test"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :host-os: unix
@@ -131,7 +131,7 @@ Programming
                :build-dir: spotpear_pico_test-helloshell
                :board: waveshare_rp2040_lcd_0_96
                :shield: "spotpear_pico_test"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :host-os: unix
@@ -191,7 +191,7 @@ sample: :doc:`zephyr:samples/subsys/input/input_dump/README`.
                :build-dir: spotpear_pico_test-input_dump
                :board: rpi_pico
                :shield: "spotpear_pico_test"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -203,7 +203,7 @@ sample: :doc:`zephyr:samples/subsys/input/input_dump/README`.
                :build-dir: spotpear_pico_test-input_dump
                :board: rpi_pico_w
                :shield: "spotpear_pico_test"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -217,7 +217,7 @@ sample: :doc:`zephyr:samples/subsys/input/input_dump/README`.
                :build-dir: spotpear_pico_test-input_dump
                :board: waveshare_rp2040_plus
                :shield: "spotpear_pico_test"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -229,7 +229,7 @@ sample: :doc:`zephyr:samples/subsys/input/input_dump/README`.
                :build-dir: spotpear_pico_test-input_dump
                :board: waveshare_rp2040_plus@16mb
                :shield: "spotpear_pico_test"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -241,7 +241,7 @@ sample: :doc:`zephyr:samples/subsys/input/input_dump/README`.
                :build-dir: spotpear_pico_test-input_dump
                :board: waveshare_rp2040_lcd_0_96
                :shield: "spotpear_pico_test"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -291,7 +291,7 @@ See also Zephyr sample: :doc:`zephyr:samples/drivers/adc/README`.
                :build-dir: spotpear_pico_test-drivers_adc
                :board: rpi_pico
                :shield: "spotpear_pico_test"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -303,7 +303,7 @@ See also Zephyr sample: :doc:`zephyr:samples/drivers/adc/README`.
                :build-dir: spotpear_pico_test-drivers_adc
                :board: rpi_pico_w
                :shield: "spotpear_pico_test"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -317,7 +317,7 @@ See also Zephyr sample: :doc:`zephyr:samples/drivers/adc/README`.
                :build-dir: spotpear_pico_test-drivers_adc
                :board: waveshare_rp2040_plus
                :shield: "spotpear_pico_test"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -329,7 +329,7 @@ See also Zephyr sample: :doc:`zephyr:samples/drivers/adc/README`.
                :build-dir: spotpear_pico_test-drivers_adc
                :board: waveshare_rp2040_plus@16mb
                :shield: "spotpear_pico_test"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -341,7 +341,7 @@ See also Zephyr sample: :doc:`zephyr:samples/drivers/adc/README`.
                :build-dir: spotpear_pico_test-drivers_adc
                :board: waveshare_rp2040_lcd_0_96
                :shield: "spotpear_pico_test"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -436,7 +436,7 @@ sample: :doc:`zephyr:samples/drivers/led_pwm/README`.
                :build-dir: spotpear_pico_test-drivers_led_pwm
                :board: rpi_pico
                :shield: "spotpear_pico_test"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -448,7 +448,7 @@ sample: :doc:`zephyr:samples/drivers/led_pwm/README`.
                :build-dir: spotpear_pico_test-drivers_led_pwm
                :board: rpi_pico_w
                :shield: "spotpear_pico_test"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -462,7 +462,7 @@ sample: :doc:`zephyr:samples/drivers/led_pwm/README`.
                :build-dir: spotpear_pico_test-drivers_led_pwm
                :board: waveshare_rp2040_plus
                :shield: "spotpear_pico_test"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -474,7 +474,7 @@ sample: :doc:`zephyr:samples/drivers/led_pwm/README`.
                :build-dir: spotpear_pico_test-drivers_led_pwm
                :board: waveshare_rp2040_plus@16mb
                :shield: "spotpear_pico_test"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
@@ -486,7 +486,7 @@ sample: :doc:`zephyr:samples/drivers/led_pwm/README`.
                :build-dir: spotpear_pico_test-drivers_led_pwm
                :board: waveshare_rp2040_lcd_0_96
                :shield: "spotpear_pico_test"
-               :goals: build flash
+               :goals: flash
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:

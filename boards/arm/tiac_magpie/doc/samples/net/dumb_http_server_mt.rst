@@ -33,7 +33,7 @@ this:
    :board: tiac_magpie
    :gen-args: -DCONFIG_NET_UDP=y -DCONFIG_NET_DHCPV4=y
    :west-args: -p
-   :goals: build flash
+   :goals: flash
    :host-os: unix
 
 Once DHCPv4 client address negotiation completed with server, details
