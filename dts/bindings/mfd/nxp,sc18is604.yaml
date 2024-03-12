@@ -1,0 +1,28 @@
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+  SC18IS604 SPI to I2C/GPIO bridge.
+
+  The SC18IS604 acts as both an external I2C and GPIO controller. These
+  controllers must be added to the devicetree as children, while the device
+  itself must be a child of an SPI controller.
+
+compatible: "nxp,sc18is604"
+
+properties:
+  reset-gpios:
+    required: true
+    type: phandle-array
+    description: |
+      Reset pin gpio.
+
+  interrupt-gpios:
+    required: true
+    type: phandle-array
+    description: |
+      Interrupt GPIO pin (only used for I2C controller).
+
+bus: nxp,sc18is604
+
+include: [spi-device.yaml]
