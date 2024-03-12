@@ -1,0 +1,19 @@
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+menuconfig MFD_SC18IS604
+	bool "SC18IM604 SPI to I2C & GPIO bridge"
+	default y
+	depends on DT_HAS_NXP_SC18IS604_ENABLED
+	# using select SPI at this point introduces a cyclic dependency
+	depends on SPI
+	help
+	  Enable driver for SC18IM604 bridge.
+
+config MFD_SC18IS604_INIT_PRIORITY
+	int "Init priority"
+	default 55 if I2C_SC18IS604
+	default MFD_INIT_PRIORITY
+	depends on MFD_SC18IS604
+	help
+	  Device driver initialization priority.
