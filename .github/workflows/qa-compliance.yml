@@ -84,17 +84,21 @@ jobs:
           ls -la
           git log --pretty=oneline | head -n 10
           # -m Checkpatch \
+          # -m Kconfig \
           ${BRIDLE_BASE}/scripts/ci/check_compliance.py \
             --annotate \
-            -m Codeowners \
-            -m MaintainersFormat \
-            -m Gitlint \
-            -m YAMLLint \
-            -m Devicetree \
-            -m KconfigBasic \
-            -m Pylint \
-            -m Identity \
             -m Nits \
+            -m Identity \
+            -m GitDiffCheck \
+            -m Gitlint \
+            -m Pylint \
+            -m YAMLLint \
+            -m MaintainersFormat \
+            -m ModulesMaintainers \
+            -m DevicetreeBindings \
+            -m KconfigBasicNoModules \
+            -m KconfigBasic \
+            -m KeepSorted \
             -m ImageSize \
             -m BinaryFiles \
             -c origin/${BASE_REF}..
@@ -113,16 +117,20 @@ jobs:
           fi
 
           #       Checkpatch.txt \
+          #       Kconfig.txt \
           for file in \
-                  Codeowners.txt \
-                  MaintainersFormat.txt \
-                  Gitlint.txt \
-                  YAMLLint.txt \
-                  Devicetree.txt \
-                  KconfigBasic.txt \
-                  Pylint.txt \
-                  Identity.txt \
                   Nits.txt \
+                  Identity.txt \
+                  GitDiffCheck.txt \
+                  Gitlint.txt \
+                  Pylint.txt \
+                  YAMLLint.txt \
+                  MaintainersFormat.txt \
+                  ModulesMaintainers.txt \
+                  DevicetreeBindings.txt \
+                  KconfigBasicNoModules.txt \
+                  KconfigBasic.txt \
+                  KeepSorted.txt \
                   ImageSize.txt \
                   BinaryFiles.txt \
               ; do
