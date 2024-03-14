@@ -84,8 +84,6 @@ jobs:
           ls -la
           git log --pretty=oneline | head -n 10
           # -m Checkpatch \
-          # Hot fix, disable KconfigBasic, see bug issue #159
-          # -m KconfigBasic \
           ${BRIDLE_BASE}/scripts/ci/check_compliance.py \
             --annotate \
             -m Codeowners \
@@ -93,6 +91,7 @@ jobs:
             -m Gitlint \
             -m YAMLLint \
             -m Devicetree \
+            -m KconfigBasic \
             -m Pylint \
             -m Identity \
             -m Nits \
