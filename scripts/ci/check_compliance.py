@@ -312,20 +312,34 @@ class KconfigCheck(ComplianceTest):
         except subprocess.CalledProcessError as ex:
             self.error(ex.output.decode("utf-8"))
 
-        modules_dir = ZEPHYR_BASE + '/modules'
-        modules = [name for name in os.listdir(modules_dir) if
-                   os.path.exists(os.path.join(modules_dir, name, 'Kconfig'))]
+        modules_dirs = []
+        modules_dirs.append(os.path.join(ZEPHYR_BASE, "modules"))
 
-        with open(modules_file, 'r') as fp_module_file:
-            content = fp_module_file.read()
+        if os.path.exists(settings_file):
+            with open(settings_file, 'r') as fp_setting_file:
+                content = fp_setting_file.read()
 
-        with open(modules_file, 'w') as fp_module_file:
-            for module in modules:
-                fp_module_file.write("ZEPHYR_{}_KCONFIG = {}\n".format(
-                    re.sub('[^a-zA-Z0-9]', '_', module).upper(),
-                    modules_dir + '/' + module + '/Kconfig'
-                ))
-            fp_module_file.write(content)
+            lines = content.strip().split('\n')
+            for line in lines:
+                if line.startswith('"MODULE_EXT_ROOT":'):
+                    _, module_ext_root_path = line.split(":")
+                    modules_dirs.append(os.path.join(module_ext_root_path.strip('"'), "modules"))
+
+        for modules_dir in modules_dirs:
+
+            modules = [name for name in os.listdir(modules_dir) if
+                       os.path.exists(os.path.join(modules_dir, name, 'Kconfig'))]
+
+            with open(modules_file, 'r') as fp_module_file:
+                content = fp_module_file.read()
+
+            with open(modules_file, 'w') as fp_module_file:
+                for module in modules:
+                    fp_module_file.write("ZEPHYR_{}_KCONFIG = {}\n".format(
+                        re.sub('[^a-zA-Z0-9]', '_', module).upper(),
+                        modules_dir + '/' + module + '/Kconfig'
+                    ))
+                fp_module_file.write(content)
 
     def get_kconfig_dts(self, kconfig_dts_file, settings_file):
         """
