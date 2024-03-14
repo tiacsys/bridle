@@ -1,7 +1,11 @@
 # Copyright (c) 2021 Andreas Anderberg
 # Copyright (c) 2022-2023 Rob Meades
 # Copyright (c) 2023 Sarah Renkhoff
+# Copyright (c) 2024 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
+config ZEPHYR_UBXLIB_MODULE
+	bool
 
 config UBXLIB
 	bool "u-blox ubxlib support"

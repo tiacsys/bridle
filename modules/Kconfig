@@ -1,0 +1,22 @@
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+menu "Unavailable Modules"
+
+comment "Unavailable modules, please install those via the project manifest."
+
+# List of comments to display when Zephyr modules are not available, please
+# use the following syntax:
+# ---------------------------------------------------
+# comment "<module_name> module not available."
+#	depends on !ZEPHYR_<MODULE_NAME_UPPER>_MODULE
+#
+# Remember to add the following code inside the `<module>/Kconfig file:
+# ---------------------------------------------------
+# config ZEPHYR_<MODULE_NAME_UPPER>_MODULE
+# 	bool
+
+comment "u-blox ubxlib module not available."
+	depends on !ZEPHYR_UBXLIB_MODULE
+
+endmenu
