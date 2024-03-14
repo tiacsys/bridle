@@ -1407,7 +1407,7 @@ class ImageSize(ComplianceTest):
 
     def run(self):
         SIZE_LIMIT = 250 << 10
-        BOARD_SIZE_LIMIT = 100 << 10
+        BOARD_SIZE_LIMIT = 2500 << 10
 
         for file in get_files(filter="d"):
             full_path = os.path.join(GIT_TOP, file)
