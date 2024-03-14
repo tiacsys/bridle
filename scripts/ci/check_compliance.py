@@ -2,6 +2,7 @@
 
 # Copyright (c) 2018,2020 Intel Corporation
 # Copyright (c) 2022 Nordic Semiconductor ASA
+# Copyright (c) 2023-2024 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 import argparse
@@ -26,9 +27,6 @@ import magic
 
 from west.manifest import Manifest
 from west.manifest import ManifestProject
-
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from get_maintainer import Maintainers, MaintainersError
 
 logger = None
 
@@ -113,7 +111,10 @@ class ComplianceTest:
       The path the test runs itself in. This is just informative and used in
       the message that gets printed when running the test.
 
-      There are two magic strings that can be used instead of a path:
+      There are three magic strings that can be used instead of a path:
+      - The magic string "<bridle-base>" can be used to refer to the
+      environment variable BRIDLE_BASE or, when missing, the calculated base of
+      the bridle tree
       - The magic string "<zephyr-base>" can be used to refer to the
       environment variable ZEPHYR_BASE or, when missing, the calculated base of
       the zephyr tree
@@ -1108,6 +1109,9 @@ class MaintainersFormat(ComplianceTest):
     path_hint = "<git-top>"
 
     def run(self):
+        sys.path.insert(0, os.path.join(ZEPHYR_BASE, "scripts"))
+        from get_maintainer import Maintainers, MaintainersError
+
         MAINTAINERS_FILES = ["MAINTAINERS.yml", "MAINTAINERS.yaml"]
 
         for file in MAINTAINERS_FILES:
@@ -1128,6 +1132,9 @@ class ModulesMaintainers(ComplianceTest):
     path_hint = "<git-top>"
 
     def run(self):
+        sys.path.insert(0, os.path.join(ZEPHYR_BASE, "scripts"))
+        from get_maintainer import Maintainers
+
         MAINTAINERS_FILES = ["MAINTAINERS.yml", "MAINTAINERS.yaml"]
 
         manifest = Manifest.from_file()
@@ -1296,7 +1303,9 @@ def annotate(res):
 
 
 def resolve_path_hint(hint):
-    if hint == "<zephyr-base>":
+    if hint == "<bridle-base>":
+        return BRIDLE_BASE
+    elif hint == "<zephyr-base>":
         return ZEPHYR_BASE
     elif hint == "<git-top>":
         return GIT_TOP
@@ -1340,12 +1349,22 @@ def _main(args):
     # The "real" main(), which is wrapped to catch exceptions and report them
     # to GitHub. Returns the number of test failures.
 
+    global BRIDLE_BASE
+    BRIDLE_BASE = os.environ.get('BRIDLE_BASE')
+    if not BRIDLE_BASE:
+        # Let the user run this script as ./scripts/ci/check_compliance.py without
+        #  making them set BRIDLE_BASE.
+        BRIDLE_BASE = str(Path(__file__).resolve().parents[2])
+
+        # Propagate this decision to child processes.
+        os.environ['BRIDLE_BASE'] = BRIDLE_BASE
+
     global ZEPHYR_BASE
     ZEPHYR_BASE = os.environ.get('ZEPHYR_BASE')
     if not ZEPHYR_BASE:
         # Let the user run this script as ./scripts/ci/check_compliance.py without
         #  making them set ZEPHYR_BASE.
-        ZEPHYR_BASE = str(Path(__file__).resolve().parents[2])
+        ZEPHYR_BASE = os.path.join(str(Path(__file__).resolve().parents[3]), "zephyr")
 
         # Propagate this decision to child processes.
         os.environ['ZEPHYR_BASE'] = ZEPHYR_BASE
