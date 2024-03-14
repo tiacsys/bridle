@@ -83,24 +83,26 @@ jobs:
           # debug
           ls -la
           git log --pretty=oneline | head -n 10
-          # -m Checkpatch \
           # -m Kconfig \
           ${BRIDLE_BASE}/scripts/ci/check_compliance.py \
             --annotate \
-            -m Nits \
-            -m Identity \
+            -m BinaryFiles \
+            -m BoardYml \
+            -m Checkpatch \
+            -m DevicetreeBindings \
             -m GitDiffCheck \
             -m Gitlint \
-            -m Pylint \
-            -m YAMLLint \
+            -m Identity \
+            -m ImageSize \
+            -m KconfigBasic \
+            -m KconfigBasicNoModules \
+            -m KconfigHWMv2 \
+            -m KeepSorted \
             -m MaintainersFormat \
             -m ModulesMaintainers \
-            -m DevicetreeBindings \
-            -m KconfigBasicNoModules \
-            -m KconfigBasic \
-            -m KeepSorted \
-            -m ImageSize \
-            -m BinaryFiles \
+            -m Nits \
+            -m Pylint \
+            -m YAMLLint \
             -c origin/${BASE_REF}..
 
       - name: Upload compliance tests results
