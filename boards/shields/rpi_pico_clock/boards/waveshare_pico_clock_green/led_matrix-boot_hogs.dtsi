@@ -1,0 +1,118 @@
+/*
+ * Copyright (c) 2023-2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+&clock_gpio_1 {
+	boot-hogs-framing {
+		gpio-hog;
+		gpios = <2 GPIO_ACTIVE_HIGH>, <3 GPIO_ACTIVE_HIGH>,
+			<4 GPIO_ACTIVE_HIGH>, <5 GPIO_ACTIVE_HIGH>,
+			<6 GPIO_ACTIVE_HIGH>, <7 GPIO_ACTIVE_HIGH>,
+			<8 GPIO_ACTIVE_HIGH>, <9 GPIO_ACTIVE_HIGH>,
+			<10 GPIO_ACTIVE_HIGH>, <11 GPIO_ACTIVE_HIGH>,
+			<12 GPIO_ACTIVE_HIGH>, <13 GPIO_ACTIVE_HIGH>,
+			<14 GPIO_ACTIVE_HIGH>, <15 GPIO_ACTIVE_HIGH>,
+			<16 GPIO_ACTIVE_HIGH>, <17 GPIO_ACTIVE_HIGH>,
+			<18 GPIO_ACTIVE_HIGH>, <19 GPIO_ACTIVE_HIGH>,
+			<20 GPIO_ACTIVE_HIGH>, <21 GPIO_ACTIVE_HIGH>,
+			<22 GPIO_ACTIVE_HIGH>, <23 GPIO_ACTIVE_HIGH>;
+		output-high;
+		line-name = "framing";
+	};
+};
+
+&clock_gpio_2 {
+	boot-hogs-framing {
+		gpio-hog;
+		gpios = <2 GPIO_ACTIVE_HIGH>, <23 GPIO_ACTIVE_HIGH>;
+		output-high;
+		line-name = "framing";
+	};
+};
+
+&clock_gpio_3 {
+	boot-hogs-framing {
+		gpio-hog;
+		gpios = <2 GPIO_ACTIVE_HIGH>, <23 GPIO_ACTIVE_HIGH>;
+		output-high;
+		line-name = "framing";
+	};
+	boot-hogs-hello {
+		gpio-hog;
+		gpios = <4 GPIO_ACTIVE_HIGH>, <6 GPIO_ACTIVE_HIGH>,
+			<8 GPIO_ACTIVE_HIGH>, <11 GPIO_ACTIVE_HIGH>,
+			<13 GPIO_ACTIVE_HIGH>, <15 GPIO_ACTIVE_HIGH>,
+			<16 GPIO_ACTIVE_HIGH>, <17 GPIO_ACTIVE_HIGH>,
+			<19 GPIO_ACTIVE_HIGH>, <21 GPIO_ACTIVE_HIGH>;
+		output-high;
+		line-name = "hello";
+	};
+};
+
+&clock_gpio_4 {
+	boot-hogs-framing {
+		gpio-hog;
+		gpios = <2 GPIO_ACTIVE_HIGH>, <23 GPIO_ACTIVE_HIGH>;
+		output-high;
+		line-name = "framing";
+	};
+	boot-hogs-hello {
+		gpio-hog;
+		gpios = <4 GPIO_ACTIVE_HIGH>, <5 GPIO_ACTIVE_HIGH>,
+			<6 GPIO_ACTIVE_HIGH>, <8 GPIO_ACTIVE_HIGH>,
+			<12 GPIO_ACTIVE_HIGH>, <15 GPIO_ACTIVE_HIGH>,
+			<17 GPIO_ACTIVE_HIGH>, <19 GPIO_ACTIVE_HIGH>,
+			<21 GPIO_ACTIVE_HIGH>;
+		output-high;
+		line-name = "hello";
+	};
+};
+
+&clock_gpio_5 {
+	boot-hogs-framing {
+		gpio-hog;
+		gpios = <2 GPIO_ACTIVE_HIGH>, <23 GPIO_ACTIVE_HIGH>;
+		output-high;
+		line-name = "framing";
+	};
+	boot-hogs-hello {
+		gpio-hog;
+		gpios = <4 GPIO_ACTIVE_HIGH>, <6 GPIO_ACTIVE_HIGH>,
+			<8 GPIO_ACTIVE_HIGH>, <12 GPIO_ACTIVE_HIGH>,
+			<8 GPIO_ACTIVE_HIGH>, <15 GPIO_ACTIVE_HIGH>,
+			<16 GPIO_ACTIVE_HIGH>, <17 GPIO_ACTIVE_HIGH>,
+			<19 GPIO_ACTIVE_HIGH>, <20 GPIO_ACTIVE_HIGH>,
+			<21 GPIO_ACTIVE_HIGH>;
+		output-high;
+		line-name = "hello";
+	};
+};
+
+&clock_gpio_6 {
+	boot-hogs-framing {
+		gpio-hog;
+		gpios = <2 GPIO_ACTIVE_HIGH>, <23 GPIO_ACTIVE_HIGH>;
+		output-high;
+		line-name = "framing";
+	};
+};
+
+&clock_gpio_7 {
+	boot-hogs-framing {
+		gpio-hog;
+		gpios = <2 GPIO_ACTIVE_HIGH>, <3 GPIO_ACTIVE_HIGH>,
+			<4 GPIO_ACTIVE_HIGH>, <5 GPIO_ACTIVE_HIGH>,
+			<6 GPIO_ACTIVE_HIGH>, <7 GPIO_ACTIVE_HIGH>,
+			<8 GPIO_ACTIVE_HIGH>, <9 GPIO_ACTIVE_HIGH>,
+			<10 GPIO_ACTIVE_HIGH>, <11 GPIO_ACTIVE_HIGH>,
+			<12 GPIO_ACTIVE_HIGH>, <13 GPIO_ACTIVE_HIGH>,
+			<14 GPIO_ACTIVE_HIGH>, <15 GPIO_ACTIVE_HIGH>,
+			<16 GPIO_ACTIVE_HIGH>, <17 GPIO_ACTIVE_HIGH>,
+			<18 GPIO_ACTIVE_HIGH>, <19 GPIO_ACTIVE_HIGH>,
+			<20 GPIO_ACTIVE_HIGH>, <21 GPIO_ACTIVE_HIGH>,
+			<22 GPIO_ACTIVE_HIGH>, <23 GPIO_ACTIVE_HIGH>;
+		output-high;
+		line-name = "framing";
+	};
+};

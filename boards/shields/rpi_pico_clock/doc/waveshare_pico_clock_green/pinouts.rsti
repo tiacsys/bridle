@@ -1,0 +1,787 @@
+.. list-table::
+   :align: center
+   :width: 100%
+   :widths: 66, 33
+
+   * - .. rubric:: Pin Mapping
+     - .. rubric:: Pinout
+
+   * - :on-shield:
+          :hwftlbl-pio:`9`
+          :hwftlbl-adc:`1`
+          :hwftlbl-i2c:`1`
+          :hwftlbl-spi:`1`
+
+          :hwftlbl-btn:`3 BUTTON`
+          :hwftlbl-led:`32 SIGNALS`
+          :hwftlbl-scr:`1 LED MATRIX`
+          :hwftlbl-spk:`1 PIEZO`
+
+       .. rubric:: Default Zephyr Peripheral Mapping
+
+       |nbsp|
+
+       .. rst-class:: rst-columns edge-pinout
+
+       - | :rpi-pico-pin:`1` PIO/PWM : GP0 (PWM0)
+       - | :rpi-pico-pin:`2` PIO/PWM : GP1 (PWM1)
+       - | :rpi-pico-pin:`3` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`4` :hwftlbl-btn:`K2` : :rpi-pico-pio:`GP2` (PWM2)
+       - | :rpi-pico-pin:`5` :hwftlbl:`RTC` : :rpi-pico-pio:`GP3` (PWM3)
+         | :rpi-pico-pin-nc:`nc` on-shield :strong:`RTC i/f output` :rpi-pico-sys:`ISW`
+       - | :rpi-pico-pin:`6` PIO/PWM : GP4 (PWM4)
+       - | :rpi-pico-pin:`7` PIO/PWM : GP5 (PWM5)
+       - | :rpi-pico-pin:`8` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`9` :hwftlbl:`RTC` :rpi-pico-i2c:`I2C1_SDA` : GP6
+       - | :rpi-pico-pin:`10` :hwftlbl:`RTC` :rpi-pico-i2c:`I2C1_SCL` : GP7
+         | :rpi-pico-pin-nc:`nc` on-shield :strong:`RTC i/f I2C` :rpi-pico-sys:`SDA/SCL`
+       - | :rpi-pico-pin:`11` PIO/PWM : GP8 (PWM8)
+       - | :rpi-pico-pin:`12` PIO/PWM : GP9 (PWM9)
+       - | :rpi-pico-pin:`13` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`14` :hwftlbl-scr:`LED` :rpi-pico-spi:`SPI1_SCK` : GP10
+         | :rpi-pico-pin-nc:`nc` on-shield :strong:`SIPO i/f clock` :rpi-pico-sys:`SIPO_CLK`
+       - | :rpi-pico-pin:`15` :hwftlbl-scr:`LED` :rpi-pico-spi:`SPI1_TX` : GP11
+         | :rpi-pico-pin-nc:`nc` on-shield :strong:`SIPO i/f data` :rpi-pico-sys:`SIPO_SDI`
+       - | :rpi-pico-pin:`16` :hwftlbl-scr:`LED` :rpi-pico-spi:`SPI1_CSN` : :rpi-pico-pio:`GP12`
+         | :rpi-pico-pin-nc:`nc` on-shield :strong:`SIPO i/f latch` :rpi-pico-sys:`SIPO_LE`
+       - | :rpi-pico-pin:`17` :hwftlbl-scr:`LED` : :rpi-pico-pio:`GP13` (PWM13)
+         | :rpi-pico-pin-nc:`nc` on-shield :strong:`SIPO i/f output` :rpi-pico-sys:`SIPO_OE`
+       - | :rpi-pico-pin:`18` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`19` :hwftlbl-spk:`PIEZO` : :rpi-pico-pio:`GP14` :rpi-pico-pwm:`PWM14`
+       - | :rpi-pico-pin:`20` :hwftlbl-btn:`K0` : :rpi-pico-pio:`GP15` (PWM15)
+       - | :rpi-pico-pin:`21` :hwftlbl-scr:`LED` : :rpi-pico-pio:`GP16` (PWM0)
+         | :rpi-pico-pin-nc:`nc` on-shield :strong:`MUX i/f addr` :rpi-pico-sys:`MUX_A0`
+       - | :rpi-pico-pin:`22` :hwftlbl-btn:`K1` : :rpi-pico-pio:`GP17` (PWM1)
+       - | :rpi-pico-pin:`23` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`24` :hwftlbl-scr:`LED` : :rpi-pico-pio:`GP18` (PWM2)
+         | :rpi-pico-pin-nc:`nc` on-shield :strong:`MUX i/f addr` :rpi-pico-sys:`MUX_A1`
+       - | :rpi-pico-pin:`25` PIO/PWM : GP19 (PWM3)
+       - | :rpi-pico-pin:`26` PIO/PWM : GP20 (PWM4)
+       - | :rpi-pico-pin:`27` PIO/PWM : GP21 (PWM5)
+       - | :rpi-pico-pin:`28` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`29` :hwftlbl-scr:`LED` : :rpi-pico-pio:`GP22` (PWM6)
+         | :rpi-pico-pin-nc:`nc` on-shield :strong:`MUX i/f addr` :rpi-pico-sys:`MUX_A2`
+       - | :rpi-pico-pin:`30` :rpi-pico-sys:`RUN` (RESET)
+       - | :rpi-pico-pin-nc:`nc` PIO/PWM : GP23 (PWM7)
+       - | :rpi-pico-pin-nc:`nc` PIO/PWM : GP24 (PWM8)
+       - | :rpi-pico-pin-nc:`nc` PIO/PWM : GP25 (PWM9)
+       - | :rpi-pico-pin:`31` :hwftlbl:`Rₗ` : :rpi-pico-adc:`ADC_CH0` : GP26 (PWM10)
+       - | :rpi-pico-pin:`32` ADC_CH1 : GP27 (PWM11)
+       - | :rpi-pico-pin:`33` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`34` ADC_CH2 : GP28 (PWM12)
+       - | :rpi-pico-pin-nc:`nc` ADC_CH3 : GP29 (PWM13)
+       - | :rpi-pico-pin:`35` ADC_VREF
+       - | :rpi-pico-pin:`36` :rpi-pico-sys:`3V3(OUT)`
+       - | :rpi-pico-pin:`37` :rpi-pico-sys:`3V3_EN`
+       - | :rpi-pico-pin:`38` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`39` :rpi-pico-vdd:`VSYS`
+       - | :rpi-pico-pin:`40` :rpi-pico-sys:`VBUS`
+
+       .. rubric:: Devicetree compatible
+
+       - :dtcompatible:`raspberrypi,pico-header-r3`
+       - :dtcompatible:`pwm-buzzers`
+       - :dtcompatible:`gpio-keys`
+       - :dtcompatible:`maxim,ds3231-mfd`
+         (:dtcompatible:`maxim,ds3231-rtc`, :dtcompatible:`maxim,ds3231-temp`)
+
+     - .. image:: /boards/shields/rpi_pico_clock/doc/waveshare_pico_clock_green/pinouts.jpg
+          :align: center
+          :width: 100%
+          :alt: Waveshare Pico Clock Green edge pinout
+
+.. list-table::
+   :align: center
+   :width: 100%
+   :widths: 100
+
+   * - .. rubric:: LED Matrix
+
+   * - A 32-bit deep shift register and a 3-bit wide address decoder are
+       connected via pins 14 to 17 as well as 21, 24 and 29. The shift
+       register is structured as serial-in-parallel-out (SIPO) and accepts
+       the bit information of a single LED row in the matrix. Although only
+       24 bits per line are connected to an LED, 32 bits must always be
+       shifted for each row. This results in an 8-bit zero padding at the
+       end of each LED line. The 8 available rows are realized by an address
+       decoder. This is designed as a 1-of-8 decoder and serves as a line
+       multiplexer (MUX) in the LED matrix.
+
+       |nbsp|
+
+       .. image:: /boards/shields/rpi_pico_clock/doc/waveshare_pico_clock_green/sipomuxgp-spi.svg
+          :align: center
+          :alt: Waveshare Pico Clock Green LED matrix
+
+       |nbsp|
+
+       .. rubric:: SIPO-MUX-GP (General Purpose) over SPI
+
+       |nbsp|
+
+       The multi-functional device :dtcompatible:`sipo-mux-gp` with the
+       special backend :dtcompatible:`sipo-mux-gp-spi` is used to access
+       individual LEDs or entire groups via different Zephyr APIs. Based
+       on this MFD, each individual LED can be accessed via GPIO pins
+       (:dtcompatible:`sipo-mux-gpio`) or via a Zephyr display
+       (:dtcompatible:`sipo-mux-display`).
+
+       |nbsp|
+
+       :devicetree:`sipo_mux_gp: sipo-mux-gp@0 {};`
+
+          .. rst-class:: rst-columns
+
+          - :devicetree:`compatible = "sipo-mux-gp-spi";`
+          - :devicetree:`data-width = <24>;`
+          - :devicetree:`shift-width = <32>;`
+          - :devicetree:`refresh-time-us = <500>;`
+          - :devicetree:`spi-max-frequency = <DT_FREQ_M(30)>;`
+
+
+
+       .. rubric:: SIPO-MUX-GPIO for row 0 over SIPO-MUX-GP
+
+       |nbsp|
+
+       :devicetree:`sipo_mux_gpio_0: sipo-mux-gpio@0 {};`
+
+          .. rst-class:: rst-columns
+
+          - :devicetree:`compatible = "sipo-mux-gpio";`
+          - :devicetree:`offset = <0>;`
+          - :devicetree:`ngpios = <24>;`
+
+       :rpi-pico-pio:`sipo-mux-gpio@0`
+
+          .. rst-class:: rst-columns edge-pinout
+
+          - :hwftlbl:`MOV0` : :rpi-pico-pio:`0` :hwftlbl-led:`led16`
+          - :hwftlbl:`MOV1` : :rpi-pico-pio:`1` :hwftlbl-led:`led17`
+          - :hwftlbl:`SIG0` : :rpi-pico-pio:`2` :hwftlbl-led:`led0`
+          - :hwftlbl:`MON0` : :rpi-pico-pio:`3` :hwftlbl-led:`led2`
+          - :hwftlbl:`MON1` : :rpi-pico-pio:`4` :hwftlbl-led:`led3`
+          - :hwftlbl:`SIG1` : :rpi-pico-pio:`5` :hwftlbl-led:`led1`
+          - :hwftlbl:`TUE0` : :rpi-pico-pio:`6` :hwftlbl-led:`led4`
+          - :hwftlbl:`TUE1` : :rpi-pico-pio:`7` :hwftlbl-led:`led5`
+          - | |nbsp|
+            | :devicetree:`gpio-reserved-ranges = <8  1>;`
+            | |nbsp|
+          - :hwftlbl:`WED0` : :rpi-pico-pio:`9` :hwftlbl-led:`led6`
+          - :hwftlbl:`WED1` : :rpi-pico-pio:`10` :hwftlbl-led:`led7`
+          - | |nbsp|
+            | :devicetree:`gpio-reserved-ranges = <11  1>;`
+            | |nbsp|
+          - :hwftlbl:`THU0` : :rpi-pico-pio:`12` :hwftlbl-led:`led8`
+          - :hwftlbl:`THU1` : :rpi-pico-pio:`13` :hwftlbl-led:`led9`
+          - | |nbsp|
+            | :devicetree:`gpio-reserved-ranges = <14  1>;`
+            | |nbsp|
+          - :hwftlbl:`FRI0` : :rpi-pico-pio:`15` :hwftlbl-led:`led10`
+          - :hwftlbl:`FRI1` : :rpi-pico-pio:`16` :hwftlbl-led:`led11`
+          - | |nbsp|
+            | :devicetree:`gpio-reserved-ranges = <17  1>;`
+            | |nbsp|
+          - :hwftlbl:`SAT0` : :rpi-pico-pio:`18` :hwftlbl-led:`led12`
+          - :hwftlbl:`SAT1` : :rpi-pico-pio:`19` :hwftlbl-led:`led13`
+          - | |nbsp|
+            | :devicetree:`gpio-reserved-ranges = <20  1>;`
+            | |nbsp|
+          - :hwftlbl:`SUN0` : :rpi-pico-pio:`21` :hwftlbl-led:`led14`
+          - :hwftlbl:`SUN1` : :rpi-pico-pio:`22` :hwftlbl-led:`led15`
+          - | |nbsp|
+            | :devicetree:`gpio-reserved-ranges = <23  1>;`
+            | |nbsp|
+
+       Access to the two white signaling LED :hwftlbl-led:`Sign 0` and
+       :hwftlbl-led:`Sign 1` (between the three buttons on left side) and
+       the double LED tiles :hwftlbl-led:`Move On`, :hwftlbl-led:`Mon.`,
+       :hwftlbl-led:`Tues.`, :hwftlbl-led:`Wed.`, :hwftlbl-led:`Thur.`,
+       :hwftlbl-led:`Fri.`, :hwftlbl-led:`Sat.` and :hwftlbl-led:`Sun.`
+       by LED alias or the following GPIO line names:
+
+          .. container:: twocol
+
+             .. container:: leftside
+
+                .. rst-class:: edge-pinout
+
+                   - alias :hwftlbl-led:`led0` is :emphasis:`LED Signal 0`
+                     with GPIO line name :hwftlbl:`SIG0`
+                   - alias :hwftlbl-led:`led1` is :emphasis:`LED Signal 1`
+                     with GPIO line name :hwftlbl:`SIG1`
+                   - alias :hwftlbl-led:`led2` is :emphasis:`LED Monday 0`
+                     with GPIO line name :hwftlbl:`MON0`
+                   - alias :hwftlbl-led:`led3` is :emphasis:`LED Monday 1`
+                     with GPIO line name :hwftlbl:`MON1`
+                   - alias :hwftlbl-led:`led4` is :emphasis:`LED Tuesday 0`
+                     with GPIO line name :hwftlbl:`TUE0`
+                   - alias :hwftlbl-led:`led5` is :emphasis:`LED Tuesday 1`
+                     with GPIO line name :hwftlbl:`TUE1`
+                   - alias :hwftlbl-led:`led6` is :emphasis:`LED Wednesday 0`
+                     with GPIO line name :hwftlbl:`WED0`
+                   - alias :hwftlbl-led:`led7` is :emphasis:`LED Wednesday 1`
+                     with GPIO line name :hwftlbl:`WED1`
+                   - alias :hwftlbl-led:`led8` is :emphasis:`LED Thursday 0`
+                     with GPIO line name :hwftlbl:`THU0`
+
+             .. container:: rightside
+
+                .. rst-class:: edge-pinout
+
+                   - alias :hwftlbl-led:`led9` is :emphasis:`LED Thursday 1`
+                     with GPIO line name :hwftlbl:`THU1`
+                   - alias :hwftlbl-led:`led10` is :emphasis:`LED Friday 0`
+                     with GPIO line name :hwftlbl:`FRI0`
+                   - alias :hwftlbl-led:`led11` is :emphasis:`LED Friday 1`
+                     with GPIO line name :hwftlbl:`FRI1`
+                   - alias :hwftlbl-led:`led12` is :emphasis:`LED Saturday 0`
+                     with GPIO line name :hwftlbl:`SAT0`
+                   - alias :hwftlbl-led:`led13` is :emphasis:`LED Saturday 1`
+                     with GPIO line name :hwftlbl:`SAT1`
+                   - alias :hwftlbl-led:`led14` is :emphasis:`LED Sunday 0`
+                     with GPIO line name :hwftlbl:`SUN0`
+                   - alias :hwftlbl-led:`led15` is :emphasis:`LED Sunday 1`
+                     with GPIO line name :hwftlbl:`SUN1`
+                   - alias :hwftlbl-led:`led16` is :emphasis:`LED Move On 0`
+                     with GPIO line name :hwftlbl:`MOV0`
+                   - alias :hwftlbl-led:`led17` is :emphasis:`LED Move On 1`
+                     with GPIO line name :hwftlbl:`MOV1`
+
+
+
+
+       .. rubric:: SIPO-MUX-GPIO for row 1 over SIPO-MUX-GP
+
+       |nbsp|
+
+       :devicetree:`sipo_mux_gpio_1: sipo-mux-gpio@1 {};`
+
+          .. rst-class:: rst-columns
+
+          - :devicetree:`compatible = "sipo-mux-gpio";`
+          - :devicetree:`offset = <24>;`
+          - :devicetree:`ngpios = <24>;`
+
+       :rpi-pico-pio:`sipo-mux-gpio@1`
+
+          .. rst-class:: rst-columns edge-pinout
+
+          - :hwftlbl:`ALM0` : :rpi-pico-pio:`0` :hwftlbl-led:`led18`
+          - :hwftlbl:`ALM1` : :rpi-pico-pio:`1` :hwftlbl-led:`led19`
+          - :hwftlbl:`L102` : :rpi-pico-pio:`2`
+            :hwftlbl-scr:`LED` : (0,0)
+          - :hwftlbl:`L103` : :rpi-pico-pio:`3`
+            :hwftlbl-scr:`LED` : (1,0)
+          - :hwftlbl:`L104` : :rpi-pico-pio:`4`
+            :hwftlbl-scr:`LED` : (2,0)
+          - :hwftlbl:`L105` : :rpi-pico-pio:`5`
+            :hwftlbl-scr:`LED` : (3,0)
+          - :hwftlbl:`L106` : :rpi-pico-pio:`6`
+            :hwftlbl-scr:`LED` : (4,0)
+          - :hwftlbl:`L107` : :rpi-pico-pio:`7`
+            :hwftlbl-scr:`LED` : (5,0)
+          - :hwftlbl:`L108` : :rpi-pico-pio:`8`
+            :hwftlbl-scr:`LED` : (6,0)
+          - :hwftlbl:`L109` : :rpi-pico-pio:`9`
+            :hwftlbl-scr:`LED` : (7,0)
+          - :hwftlbl:`L110` : :rpi-pico-pio:`10`
+            :hwftlbl-scr:`LED` : (8,0)
+          - :hwftlbl:`L111` : :rpi-pico-pio:`11`
+            :hwftlbl-scr:`LED` : (9,0)
+          - :hwftlbl:`L112` : :rpi-pico-pio:`12`
+            :hwftlbl-scr:`LED` : (10,0)
+          - :hwftlbl:`L113` : :rpi-pico-pio:`13`
+            :hwftlbl-scr:`LED` : (11,0)
+          - :hwftlbl:`L114` : :rpi-pico-pio:`14`
+            :hwftlbl-scr:`LED` : (12,0)
+          - :hwftlbl:`L115` : :rpi-pico-pio:`15`
+            :hwftlbl-scr:`LED` : (13,0)
+          - :hwftlbl:`L116` : :rpi-pico-pio:`16`
+            :hwftlbl-scr:`LED` : (14,0)
+          - :hwftlbl:`L117` : :rpi-pico-pio:`17`
+            :hwftlbl-scr:`LED` : (15,0)
+          - :hwftlbl:`L118` : :rpi-pico-pio:`18`
+            :hwftlbl-scr:`LED` : (16,0)
+          - :hwftlbl:`L119` : :rpi-pico-pio:`19`
+            :hwftlbl-scr:`LED` : (17,0)
+          - :hwftlbl:`L120` : :rpi-pico-pio:`20`
+            :hwftlbl-scr:`LED` : (18,0)
+          - :hwftlbl:`L121` : :rpi-pico-pio:`21`
+            :hwftlbl-scr:`LED` : (19,0)
+          - :hwftlbl:`L222` : :rpi-pico-pio:`22`
+            :hwftlbl-scr:`LED` : (20,0)
+          - :hwftlbl:`L123` : :rpi-pico-pio:`23`
+            :hwftlbl-scr:`LED` : (21,0)
+
+       Access to the double LED tile :hwftlbl-led:`Alarm On` by LED alias
+       or the following GPIO line names:
+
+          .. rst-class:: edge-pinout
+
+             - alias :hwftlbl-led:`led18` is :emphasis:`LED Alarm On 0` with
+               GPIO line name :hwftlbl:`ALM0`
+             - alias :hwftlbl-led:`led19` is :emphasis:`LED Alarm On 1` with
+               GPIO line name :hwftlbl:`ALM1`
+
+       .. rubric:: SIPO-MUX-GPIO for row 2 over SIPO-MUX-GP
+
+       |nbsp|
+
+       :devicetree:`sipo_mux_gpio_2: sipo-mux-gpio@2 {};`
+
+          .. rst-class:: rst-columns
+
+          - :devicetree:`compatible = "sipo-mux-gpio";`
+          - :devicetree:`offset = <48>;`
+          - :devicetree:`ngpios = <24>;`
+
+       :rpi-pico-pio:`sipo-mux-gpio@2`
+
+          .. rst-class:: rst-columns edge-pinout
+
+          - :hwftlbl:`CDN0` : :rpi-pico-pio:`0` :hwftlbl-led:`led20`
+          - :hwftlbl:`CDN1` : :rpi-pico-pio:`1` :hwftlbl-led:`led21`
+          - :hwftlbl:`L202` : :rpi-pico-pio:`2`
+            :hwftlbl-scr:`LED` : (0,1)
+          - :hwftlbl:`L203` : :rpi-pico-pio:`3`
+            :hwftlbl-scr:`LED` : (1,1)
+          - :hwftlbl:`L204` : :rpi-pico-pio:`4`
+            :hwftlbl-scr:`LED` : (2,1)
+          - :hwftlbl:`L205` : :rpi-pico-pio:`5`
+            :hwftlbl-scr:`LED` : (3,1)
+          - :hwftlbl:`L206` : :rpi-pico-pio:`6`
+            :hwftlbl-scr:`LED` : (4,1)
+          - :hwftlbl:`L207` : :rpi-pico-pio:`7`
+            :hwftlbl-scr:`LED` : (5,1)
+          - :hwftlbl:`L208` : :rpi-pico-pio:`8`
+            :hwftlbl-scr:`LED` : (6,1)
+          - :hwftlbl:`L209` : :rpi-pico-pio:`9`
+            :hwftlbl-scr:`LED` : (7,1)
+          - :hwftlbl:`L210` : :rpi-pico-pio:`10`
+            :hwftlbl-scr:`LED` : (8,1)
+          - :hwftlbl:`L211` : :rpi-pico-pio:`11`
+            :hwftlbl-scr:`LED` : (9,1)
+          - :hwftlbl:`L212` : :rpi-pico-pio:`12`
+            :hwftlbl-scr:`LED` : (10,1)
+          - :hwftlbl:`L213` : :rpi-pico-pio:`13`
+            :hwftlbl-scr:`LED` : (11,1)
+          - :hwftlbl:`L214` : :rpi-pico-pio:`14`
+            :hwftlbl-scr:`LED` : (12,1)
+          - :hwftlbl:`L215` : :rpi-pico-pio:`15`
+            :hwftlbl-scr:`LED` : (13,1)
+          - :hwftlbl:`L216` : :rpi-pico-pio:`16`
+            :hwftlbl-scr:`LED` : (14,1)
+          - :hwftlbl:`L217` : :rpi-pico-pio:`17`
+            :hwftlbl-scr:`LED` : (15,1)
+          - :hwftlbl:`L218` : :rpi-pico-pio:`18`
+            :hwftlbl-scr:`LED` : (16,1)
+          - :hwftlbl:`L219` : :rpi-pico-pio:`19`
+            :hwftlbl-scr:`LED` : (17,1)
+          - :hwftlbl:`L220` : :rpi-pico-pio:`20`
+            :hwftlbl-scr:`LED` : (18,1)
+          - :hwftlbl:`L221` : :rpi-pico-pio:`21`
+            :hwftlbl-scr:`LED` : (19,1)
+          - :hwftlbl:`L222` : :rpi-pico-pio:`22`
+            :hwftlbl-scr:`LED` : (20,1)
+          - :hwftlbl:`L223` : :rpi-pico-pio:`23`
+            :hwftlbl-scr:`LED` : (21,1)
+
+       Access to the double LED tile :hwftlbl-led:`CountDown` by LED alias
+       or the following GPIO line names:
+
+          .. rst-class:: edge-pinout
+
+             - alias :hwftlbl-led:`led20` is :emphasis:`LED Count Down 0` with
+               GPIO line name :hwftlbl:`CDN0`
+             - alias :hwftlbl-led:`led21` is :emphasis:`LED Count Down 1` with
+               GPIO line name :hwftlbl:`CDN1`
+
+       .. rubric:: SIPO-MUX-GPIO for row 3 over SIPO-MUX-GP
+
+       |nbsp|
+
+       :devicetree:`sipo_mux_gpio_3: sipo-mux-gpio@3 {};`
+
+          .. rst-class:: rst-columns
+
+          - :devicetree:`compatible = "sipo-mux-gpio";`
+          - :devicetree:`offset = <72>;`
+          - :devicetree:`ngpios = <24>;`
+
+       :rpi-pico-pio:`sipo-mux-gpio@3`
+
+          .. rst-class:: rst-columns edge-pinout
+
+          - :hwftlbl:`DEGF` : :rpi-pico-pio:`0` :hwftlbl-led:`led22`
+          - :hwftlbl:`DEGC` : :rpi-pico-pio:`1` :hwftlbl-led:`led23`
+          - :hwftlbl:`L302` : :rpi-pico-pio:`2`
+            :hwftlbl-scr:`LED` : (0,2)
+          - :hwftlbl:`L303` : :rpi-pico-pio:`3`
+            :hwftlbl-scr:`LED` : (1,2)
+          - :hwftlbl:`L304` : :rpi-pico-pio:`4`
+            :hwftlbl-scr:`LED` : (2,2)
+          - :hwftlbl:`L305` : :rpi-pico-pio:`5`
+            :hwftlbl-scr:`LED` : (3,2)
+          - :hwftlbl:`L306` : :rpi-pico-pio:`6`
+            :hwftlbl-scr:`LED` : (4,2)
+          - :hwftlbl:`L307` : :rpi-pico-pio:`7`
+            :hwftlbl-scr:`LED` : (5,2)
+          - :hwftlbl:`L308` : :rpi-pico-pio:`8`
+            :hwftlbl-scr:`LED` : (6,2)
+          - :hwftlbl:`L309` : :rpi-pico-pio:`9`
+            :hwftlbl-scr:`LED` : (7,2)
+          - :hwftlbl:`L310` : :rpi-pico-pio:`10`
+            :hwftlbl-scr:`LED` : (8,2)
+          - :hwftlbl:`L311` : :rpi-pico-pio:`11`
+            :hwftlbl-scr:`LED` : (9,2)
+          - :hwftlbl:`L312` : :rpi-pico-pio:`12`
+            :hwftlbl-scr:`LED` : (10,2)
+          - :hwftlbl:`L313` : :rpi-pico-pio:`13`
+            :hwftlbl-scr:`LED` : (11,2)
+          - :hwftlbl:`L314` : :rpi-pico-pio:`14`
+            :hwftlbl-scr:`LED` : (12,2)
+          - :hwftlbl:`L315` : :rpi-pico-pio:`15`
+            :hwftlbl-scr:`LED` : (13,2)
+          - :hwftlbl:`L316` : :rpi-pico-pio:`16`
+            :hwftlbl-scr:`LED` : (14,2)
+          - :hwftlbl:`L317` : :rpi-pico-pio:`17`
+            :hwftlbl-scr:`LED` : (15,2)
+          - :hwftlbl:`L318` : :rpi-pico-pio:`18`
+            :hwftlbl-scr:`LED` : (16,2)
+          - :hwftlbl:`L319` : :rpi-pico-pio:`19`
+            :hwftlbl-scr:`LED` : (17,2)
+          - :hwftlbl:`L320` : :rpi-pico-pio:`20`
+            :hwftlbl-scr:`LED` : (18,2)
+          - :hwftlbl:`L321` : :rpi-pico-pio:`21`
+            :hwftlbl-scr:`LED` : (19,2)
+          - :hwftlbl:`L322` : :rpi-pico-pio:`22`
+            :hwftlbl-scr:`LED` : (20,2)
+          - :hwftlbl:`L323` : :rpi-pico-pio:`23`
+            :hwftlbl-scr:`LED` : (21,2)
+
+       Access to the single LED tiles :hwftlbl-led:`℉` and :hwftlbl-led:`℃`
+       by LED alias or the following GPIO line names:
+
+          .. rst-class:: edge-pinout
+
+             - alias :hwftlbl-led:`led22` is :emphasis:`LED Degrees Fahrenheit`
+               with GPIO line name :hwftlbl:`DEGF`
+             - alias :hwftlbl-led:`led23` is :emphasis:`LED Degrees Celsius`
+               with GPIO line name :hwftlbl:`DEGC`
+
+       .. rubric:: SIPO-MUX-GPIO for row 4 over SIPO-MUX-GP
+
+       |nbsp|
+
+       :devicetree:`sipo_mux_gpio_4: sipo-mux-gpio@4 {};`
+
+          .. rst-class:: rst-columns
+
+          - :devicetree:`compatible = "sipo-mux-gpio";`
+          - :devicetree:`offset = <96>;`
+          - :devicetree:`ngpios = <24>;`
+
+       :rpi-pico-pio:`sipo-mux-gpio@4`
+
+          .. rst-class:: rst-columns edge-pinout
+
+          - :hwftlbl:`TMAM` : :rpi-pico-pio:`0` :hwftlbl-led:`led24`
+          - :hwftlbl:`TMPM` : :rpi-pico-pio:`1` :hwftlbl-led:`led25`
+          - :hwftlbl:`L402` : :rpi-pico-pio:`2`
+            :hwftlbl-scr:`LED` : (0,3)
+          - :hwftlbl:`L403` : :rpi-pico-pio:`3`
+            :hwftlbl-scr:`LED` : (1,3)
+          - :hwftlbl:`L404` : :rpi-pico-pio:`4`
+            :hwftlbl-scr:`LED` : (2,3)
+          - :hwftlbl:`L405` : :rpi-pico-pio:`5`
+            :hwftlbl-scr:`LED` : (3,3)
+          - :hwftlbl:`L406` : :rpi-pico-pio:`6`
+            :hwftlbl-scr:`LED` : (4,3)
+          - :hwftlbl:`L407` : :rpi-pico-pio:`7`
+            :hwftlbl-scr:`LED` : (5,3)
+          - :hwftlbl:`L408` : :rpi-pico-pio:`8`
+            :hwftlbl-scr:`LED` : (6,3)
+          - :hwftlbl:`L409` : :rpi-pico-pio:`9`
+            :hwftlbl-scr:`LED` : (7,3)
+          - :hwftlbl:`L410` : :rpi-pico-pio:`10`
+            :hwftlbl-scr:`LED` : (8,3)
+          - :hwftlbl:`L411` : :rpi-pico-pio:`11`
+            :hwftlbl-scr:`LED` : (9,3)
+          - :hwftlbl:`L412` : :rpi-pico-pio:`12`
+            :hwftlbl-scr:`LED` : (10,3)
+          - :hwftlbl:`L413` : :rpi-pico-pio:`13`
+            :hwftlbl-scr:`LED` : (11,3)
+          - :hwftlbl:`L414` : :rpi-pico-pio:`14`
+            :hwftlbl-scr:`LED` : (12,3)
+          - :hwftlbl:`L415` : :rpi-pico-pio:`15`
+            :hwftlbl-scr:`LED` : (13,3)
+          - :hwftlbl:`L416` : :rpi-pico-pio:`16`
+            :hwftlbl-scr:`LED` : (14,3)
+          - :hwftlbl:`L417` : :rpi-pico-pio:`17`
+            :hwftlbl-scr:`LED` : (15,3)
+          - :hwftlbl:`L418` : :rpi-pico-pio:`18`
+            :hwftlbl-scr:`LED` : (16,3)
+          - :hwftlbl:`L419` : :rpi-pico-pio:`19`
+            :hwftlbl-scr:`LED` : (17,3)
+          - :hwftlbl:`L420` : :rpi-pico-pio:`20`
+            :hwftlbl-scr:`LED` : (18,3)
+          - :hwftlbl:`L421` : :rpi-pico-pio:`21`
+            :hwftlbl-scr:`LED` : (19,3)
+          - :hwftlbl:`L422` : :rpi-pico-pio:`22`
+            :hwftlbl-scr:`LED` : (20,3)
+          - :hwftlbl:`L423` : :rpi-pico-pio:`23`
+            :hwftlbl-scr:`LED` : (21,3)
+
+       Access to the single LED tiles :hwftlbl-led:`㏂` and :hwftlbl-led:`㏘`
+       by LED alias or the following GPIO line names:
+
+          .. rst-class:: edge-pinout
+
+             - alias :hwftlbl-led:`led24` is :emphasis:`LED Time AM` with
+               GPIO line name :hwftlbl:`TMAM`
+             - alias :hwftlbl-led:`led25` is :emphasis:`LED Time PM` with
+               GPIO line name :hwftlbl:`TMPM`
+
+       .. rubric:: SIPO-MUX-GPIO for row 5 over SIPO-MUX-GP
+
+       |nbsp|
+
+       :devicetree:`sipo_mux_gpio_5: sipo-mux-gpio@5 {};`
+
+          .. rst-class:: rst-columns
+
+          - :devicetree:`compatible = "sipo-mux-gpio";`
+          - :devicetree:`offset = <120>;`
+          - :devicetree:`ngpios = <24>;`
+
+       :rpi-pico-pio:`sipo-mux-gpio@5`
+
+          .. rst-class:: rst-columns edge-pinout
+
+          - :hwftlbl:`CUP0` : :rpi-pico-pio:`0` :hwftlbl-led:`led26`
+          - :hwftlbl:`CUP1` : :rpi-pico-pio:`1` :hwftlbl-led:`led27`
+          - :hwftlbl:`L502` : :rpi-pico-pio:`2`
+            :hwftlbl-scr:`LED` : (0,4)
+          - :hwftlbl:`L503` : :rpi-pico-pio:`3`
+            :hwftlbl-scr:`LED` : (1,4)
+          - :hwftlbl:`L504` : :rpi-pico-pio:`4`
+            :hwftlbl-scr:`LED` : (2,4)
+          - :hwftlbl:`L505` : :rpi-pico-pio:`5`
+            :hwftlbl-scr:`LED` : (3,4)
+          - :hwftlbl:`L506` : :rpi-pico-pio:`6`
+            :hwftlbl-scr:`LED` : (4,4)
+          - :hwftlbl:`L507` : :rpi-pico-pio:`7`
+            :hwftlbl-scr:`LED` : (5,4)
+          - :hwftlbl:`L508` : :rpi-pico-pio:`8`
+            :hwftlbl-scr:`LED` : (6,4)
+          - :hwftlbl:`L509` : :rpi-pico-pio:`9`
+            :hwftlbl-scr:`LED` : (7,4)
+          - :hwftlbl:`L510` : :rpi-pico-pio:`10`
+            :hwftlbl-scr:`LED` : (8,4)
+          - :hwftlbl:`L511` : :rpi-pico-pio:`11`
+            :hwftlbl-scr:`LED` : (9,4)
+          - :hwftlbl:`L512` : :rpi-pico-pio:`12`
+            :hwftlbl-scr:`LED` : (10,4)
+          - :hwftlbl:`L513` : :rpi-pico-pio:`13`
+            :hwftlbl-scr:`LED` : (11,4)
+          - :hwftlbl:`L514` : :rpi-pico-pio:`14`
+            :hwftlbl-scr:`LED` : (12,4)
+          - :hwftlbl:`L515` : :rpi-pico-pio:`15`
+            :hwftlbl-scr:`LED` : (13,4)
+          - :hwftlbl:`L516` : :rpi-pico-pio:`16`
+            :hwftlbl-scr:`LED` : (14,4)
+          - :hwftlbl:`L517` : :rpi-pico-pio:`17`
+            :hwftlbl-scr:`LED` : (15,4)
+          - :hwftlbl:`L518` : :rpi-pico-pio:`18`
+            :hwftlbl-scr:`LED` : (16,4)
+          - :hwftlbl:`L519` : :rpi-pico-pio:`19`
+            :hwftlbl-scr:`LED` : (17,4)
+          - :hwftlbl:`L520` : :rpi-pico-pio:`20`
+            :hwftlbl-scr:`LED` : (18,4)
+          - :hwftlbl:`L521` : :rpi-pico-pio:`21`
+            :hwftlbl-scr:`LED` : (19,4)
+          - :hwftlbl:`L522` : :rpi-pico-pio:`22`
+            :hwftlbl-scr:`LED` : (20,4)
+          - :hwftlbl:`L523` : :rpi-pico-pio:`23`
+            :hwftlbl-scr:`LED` : (21,4)
+
+       Access to the double LED tile :hwftlbl-led:`CountUp` by LED alias
+       or the following GPIO line names:
+
+          .. rst-class:: edge-pinout
+
+             - alias :hwftlbl-led:`led26` is :emphasis:`LED Count Up 0` with
+               GPIO line name :hwftlbl:`CUP0`
+             - alias :hwftlbl-led:`led27` is :emphasis:`LED Count Up 1` with
+               GPIO line name :hwftlbl:`CUP1`
+
+       .. rubric:: SIPO-MUX-GPIO for row 6 over SIPO-MUX-GP
+
+       |nbsp|
+
+       :devicetree:`sipo_mux_gpio_6: sipo-mux-gpio@6 {};`
+
+          .. rst-class:: rst-columns
+
+          - :devicetree:`compatible = "sipo-mux-gpio";`
+          - :devicetree:`offset = <144>;`
+          - :devicetree:`ngpios = <24>;`
+
+       :rpi-pico-pio:`sipo-mux-gpio@6`
+
+          .. rst-class:: rst-columns edge-pinout
+
+          - :hwftlbl:`HLY0` : :rpi-pico-pio:`0` :hwftlbl-led:`led28`
+          - :hwftlbl:`HLY1` : :rpi-pico-pio:`1` :hwftlbl-led:`led29`
+          - :hwftlbl:`L602` : :rpi-pico-pio:`2`
+            :hwftlbl-scr:`LED` : (0,5)
+          - :hwftlbl:`L603` : :rpi-pico-pio:`3`
+            :hwftlbl-scr:`LED` : (1,5)
+          - :hwftlbl:`L604` : :rpi-pico-pio:`4`
+            :hwftlbl-scr:`LED` : (2,5)
+          - :hwftlbl:`L605` : :rpi-pico-pio:`5`
+            :hwftlbl-scr:`LED` : (3,5)
+          - :hwftlbl:`L606` : :rpi-pico-pio:`6`
+            :hwftlbl-scr:`LED` : (4,5)
+          - :hwftlbl:`L607` : :rpi-pico-pio:`7`
+            :hwftlbl-scr:`LED` : (5,5)
+          - :hwftlbl:`L608` : :rpi-pico-pio:`8`
+            :hwftlbl-scr:`LED` : (6,5)
+          - :hwftlbl:`L609` : :rpi-pico-pio:`9`
+            :hwftlbl-scr:`LED` : (6,5)
+          - :hwftlbl:`L610` : :rpi-pico-pio:`10`
+            :hwftlbl-scr:`LED` : (8,5)
+          - :hwftlbl:`L611` : :rpi-pico-pio:`11`
+            :hwftlbl-scr:`LED` : (9,5)
+          - :hwftlbl:`L612` : :rpi-pico-pio:`12`
+            :hwftlbl-scr:`LED` : (10,5)
+          - :hwftlbl:`L613` : :rpi-pico-pio:`13`
+            :hwftlbl-scr:`LED` : (11,5)
+          - :hwftlbl:`L614` : :rpi-pico-pio:`14`
+            :hwftlbl-scr:`LED` : (12,5)
+          - :hwftlbl:`L615` : :rpi-pico-pio:`15`
+            :hwftlbl-scr:`LED` : (13,5)
+          - :hwftlbl:`L616` : :rpi-pico-pio:`16`
+            :hwftlbl-scr:`LED` : (14,5)
+          - :hwftlbl:`L616` : :rpi-pico-pio:`16`
+            :hwftlbl-scr:`LED` : (15,5)
+          - :hwftlbl:`L618` : :rpi-pico-pio:`18`
+            :hwftlbl-scr:`LED` : (16,5)
+          - :hwftlbl:`L619` : :rpi-pico-pio:`19`
+            :hwftlbl-scr:`LED` : (16,5)
+          - :hwftlbl:`L620` : :rpi-pico-pio:`20`
+            :hwftlbl-scr:`LED` : (18,5)
+          - :hwftlbl:`L621` : :rpi-pico-pio:`21`
+            :hwftlbl-scr:`LED` : (19,5)
+          - :hwftlbl:`L622` : :rpi-pico-pio:`22`
+            :hwftlbl-scr:`LED` : (20,5)
+          - :hwftlbl:`L623` : :rpi-pico-pio:`23`
+            :hwftlbl-scr:`LED` : (21,5)
+
+       Access to the double LED tile :hwftlbl-led:`Hourly` by LED alias
+       or the following GPIO line names:
+
+          .. rst-class:: edge-pinout
+
+             - alias :hwftlbl-led:`led28` is :emphasis:`LED Hourly 0` with
+               GPIO line name :hwftlbl:`HLY0`
+             - alias :hwftlbl-led:`led29` is :emphasis:`LED Hourly 1` with
+               GPIO line name :hwftlbl:`HLY1`
+
+       .. rubric:: SIPO-MUX-GPIO for row 7 over SIPO-MUX-GP
+
+       |nbsp|
+
+       :devicetree:`sipo_mux_gpio_7: sipo-mux-gpio@7 {};`
+
+          .. rst-class:: rst-columns
+
+          - :devicetree:`compatible = "sipo-mux-gpio";`
+          - :devicetree:`offset = <168>;`
+          - :devicetree:`ngpios = <24>;`
+
+       :rpi-pico-pio:`sipo-mux-gpio@7`
+
+          .. rst-class:: rst-columns edge-pinout
+
+          - :hwftlbl:`AUT0` : :rpi-pico-pio:`0` :hwftlbl-led:`led30`
+          - :hwftlbl:`AUT1` : :rpi-pico-pio:`1` :hwftlbl-led:`led31`
+          - :hwftlbl:`L702` : :rpi-pico-pio:`2`
+            :hwftlbl-scr:`LED` : (0,6)
+          - :hwftlbl:`L703` : :rpi-pico-pio:`3`
+            :hwftlbl-scr:`LED` : (1,6)
+          - :hwftlbl:`L704` : :rpi-pico-pio:`4`
+            :hwftlbl-scr:`LED` : (2,6)
+          - :hwftlbl:`L705` : :rpi-pico-pio:`5`
+            :hwftlbl-scr:`LED` : (3,6)
+          - :hwftlbl:`L706` : :rpi-pico-pio:`6`
+            :hwftlbl-scr:`LED` : (4,6)
+          - :hwftlbl:`L707` : :rpi-pico-pio:`7`
+            :hwftlbl-scr:`LED` : (5,6)
+          - :hwftlbl:`L708` : :rpi-pico-pio:`8`
+            :hwftlbl-scr:`LED` : (6,6)
+          - :hwftlbl:`L709` : :rpi-pico-pio:`9`
+            :hwftlbl-scr:`LED` : (7,6)
+          - :hwftlbl:`L710` : :rpi-pico-pio:`10`
+            :hwftlbl-scr:`LED` : (8,6)
+          - :hwftlbl:`L711` : :rpi-pico-pio:`11`
+            :hwftlbl-scr:`LED` : (9,6)
+          - :hwftlbl:`L712` : :rpi-pico-pio:`12`
+            :hwftlbl-scr:`LED` : (10,6)
+          - :hwftlbl:`L713` : :rpi-pico-pio:`13`
+            :hwftlbl-scr:`LED` : (11,6)
+          - :hwftlbl:`L714` : :rpi-pico-pio:`14`
+            :hwftlbl-scr:`LED` : (12,6)
+          - :hwftlbl:`L715` : :rpi-pico-pio:`15`
+            :hwftlbl-scr:`LED` : (13,6)
+          - :hwftlbl:`L716` : :rpi-pico-pio:`16`
+            :hwftlbl-scr:`LED` : (14,6)
+          - :hwftlbl:`L717` : :rpi-pico-pio:`17`
+            :hwftlbl-scr:`LED` : (15,6)
+          - :hwftlbl:`L718` : :rpi-pico-pio:`18`
+            :hwftlbl-scr:`LED` : (16,6)
+          - :hwftlbl:`L719` : :rpi-pico-pio:`19`
+            :hwftlbl-scr:`LED` : (17,6)
+          - :hwftlbl:`L720` : :rpi-pico-pio:`20`
+            :hwftlbl-scr:`LED` : (18,6)
+          - :hwftlbl:`L721` : :rpi-pico-pio:`21`
+            :hwftlbl-scr:`LED` : (19,6)
+          - :hwftlbl:`L722` : :rpi-pico-pio:`22`
+            :hwftlbl-scr:`LED` : (20,6)
+          - :hwftlbl:`L723` : :rpi-pico-pio:`23`
+            :hwftlbl-scr:`LED` : (21,6)
+
+       Access to the double LED tile :hwftlbl-led:`AutoLight` by LED alias
+       or the following GPIO line names:
+
+          .. rst-class:: edge-pinout
+
+             - alias :hwftlbl-led:`led30` is :emphasis:`LED Auto Light 0` with
+               GPIO line name :hwftlbl:`AUT0`
+             - alias :hwftlbl-led:`led31` is :emphasis:`LED Auto Light 1` with
+               GPIO line name :hwftlbl:`AUT1`
+
+       .. rubric:: SIPO-MUX-DISPLAY over SIPO-MUX-GP
+
+       |nbsp|
+
+       With an x,y-offset of 2,1 the display provides 7 pixel in height (Y)
+       and 22 pixel in width (X).
+
+       |nbsp|
+
+       :devicetree:`sipo_mux_display_8: sipo-mux-display@8 {};`
+
+          .. rst-class:: rst-columns
+
+          - :devicetree:`compatible = "sipo-mux-display";`
+          - :devicetree:`offset = <2 1>;`
+          - :devicetree:`height = <7>;`
+          - :devicetree:`width = <22>;`
+
+       .. rubric:: Devicetree compatible
+
+       - :dtcompatible:`sipo-mux-gp-spi`
+         (:dtcompatible:`sipo-mux-gpio`, :dtcompatible:`sipo-mux-display`)
+       - :dtcompatible:`gpio-leds`

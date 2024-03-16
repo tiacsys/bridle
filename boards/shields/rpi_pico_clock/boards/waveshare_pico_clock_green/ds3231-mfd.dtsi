@@ -1,0 +1,27 @@
+/*
+ * Copyright (c) 2023-2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+&clock_i2c_rtc {
+	ds3231_mfd: ds3231-mfd@68 {
+		compatible = "maxim,ds3231-mfd";
+		reg = <0x68>;
+
+		status = "disabled";
+
+		ds3231_rtc: ds3231-rtc {
+			compatible = "maxim,ds3231-rtc";
+			status = "disabled";
+		};
+
+		ds3231_dts: ds3231-dts {
+			compatible = "maxim,ds3231-temp";
+			status = "disabled";
+		};
+	};
+};
+
+clock_mfd: &ds3231_mfd {};
+clock_rtc: &ds3231_rtc {};
+clock_dts: &ds3231_dts {};

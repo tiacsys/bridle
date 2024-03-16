@@ -1,0 +1,215 @@
+/*
+ * Copyright (c) 2023-2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/input/input-event-codes.h>
+#include <zephyr/dt-bindings/lvgl/lvgl.h>
+
+/ {
+	chosen {
+		zephyr,display = &clock_display;
+	};
+
+	wpcg_lvgl_keypad: wpcg-lvgl-keypad {
+		compatible = "zephyr,lvgl-keypad-input";
+		status = "okay";
+
+		input = <&wpcg_gpio_keys>;
+		input-codes = <INPUT_KEY_UP INPUT_KEY_DOWN
+			       INPUT_KEY_ENTER>;
+		lvgl-codes = <LV_KEY_UP LV_KEY_DOWN
+			      LV_KEY_ENTER>;
+	};
+
+	/delete-node/ keys;
+	/delete-node/ gpio_keys;
+	wpcg_gpio_keys: wpcg-gpio-keys {
+		compatible = "gpio-keys";
+		status = "okay";
+
+		clock_btn_set_function: clock-btn-set-function {
+			label = "Button SET/FUNCTION";
+			zephyr,code = <INPUT_KEY_ENTER>;
+		};
+		clock_btn_up: clock-btn-up {
+			label = "Button UP";
+			zephyr,code = <INPUT_KEY_UP>;
+		};
+		clock_btn_down: clock-btn-down {
+			label = "Button DOWN";
+			zephyr,code = <INPUT_KEY_DOWN>;
+		};
+	};
+
+	/delete-node/ leds;
+	/delete-node/ gpio_leds;
+	wpcg_gpio_leds: wpcg-gpio-leds {
+		compatible = "gpio-leds";
+		status = "okay";
+
+		clock_led_signal_0: clock-led-signal-0 {
+			label = "LED Signal 0";
+		};
+		clock_led_signal_1: clock-led-signal-1 {
+			label = "LED Signal 1";
+		};
+
+		clock_led_monday_0: clock-led-monday-0 {
+			label = "LED Monday 0";
+		};
+		clock_led_monday_1: clock-led-monday-1 {
+			label = "LED Monday 1";
+		};
+
+		clock_led_tuesday_0: clock-led-tuesday-0 {
+			label = "LED Tuesday 0";
+		};
+		clock_led_tuesday_1: clock-led-tuesday-1 {
+			label = "LED Tuesday 1";
+		};
+
+		clock_led_wednesday_0: clock-led-wednesday-0 {
+			label = "LED Wednesday 0";
+		};
+		clock_led_wednesday_1: clock-led-wednesday-1 {
+			label = "LED Wednesday 1";
+		};
+
+		clock_led_thursday_0: clock-led-thursday-0 {
+			label = "LED Thursday 0";
+		};
+		clock_led_thursday_1: clock-led-thursday-1 {
+			label = "LED Thursday 1";
+		};
+
+		clock_led_friday_0: clock-led-friday-0 {
+			label = "LED Friday 0";
+		};
+		clock_led_friday_1: clock-led-friday-1 {
+			label = "LED Friday 1";
+		};
+
+		clock_led_saturday_0: clock-led-saturday-0 {
+			label = "LED Saturday 0";
+		};
+		clock_led_saturday_1: clock-led-saturday-1 {
+			label = "LED Saturday 1";
+		};
+
+		clock_led_sunday_0: clock-led-sunday-0 {
+			label = "LED Sunday 0";
+		};
+		clock_led_sunday_1: clock-led-sunday-1 {
+			label = "LED Sunday 1";
+		};
+
+		clock_led_move_on_0: clock-led-move-on-0 {
+			label = "LED Move On 0";
+		};
+		clock_led_move_on_1: clock-led-move-on-1 {
+			label = "LED Move On 1";
+		};
+
+		clock_led_alarm_on_0: clock-led-alarm-on-0 {
+			label = "LED Alarm On 0";
+		};
+		clock_led_alarm_on_1: clock-led-alarm-on-1 {
+			label = "LED Alarm On 1";
+		};
+
+		clock_led_count_down_0: clock-led-count-down-0 {
+			label = "LED Count Down 0";
+		};
+		clock_led_count_down_1: clock-led-count-down-1 {
+			label = "LED Count Down 1";
+		};
+
+		clock_led_degrees_fahrenheit: clock-led-degrees-fahrenheit {
+			label = "LED Degrees Fahrenheit";
+		};
+		clock_led_degrees_celsius: clock-led-degrees-celsius {
+			label = "LED Degrees Celsius";
+		};
+
+		clock_led_time_am: clock-led-time-am {
+			label = "LED Time AM";
+		};
+		clock_led_time_pm: clock-led-time-pm {
+			label = "LED Time PM";
+		};
+
+		clock_led_count_up_0: clock-led-count-up-0 {
+			label = "LED Count Up 0";
+		};
+		clock_led_count_up_1: clock-led-count-up-1 {
+			label = "LED Count Up 1";
+		};
+
+		clock_led_hourly_0: clock-led-hourly-0 {
+			label = "LED Hourly 0";
+		};
+		clock_led_hourly_1: clock-led-hourly-1 {
+			label = "LED Hourly 1";
+		};
+
+		clock_led_auto_light_0: clock-led-auto-light-0 {
+			label = "LED Auto Light 0";
+		};
+		clock_led_auto_light_1: clock-led-auto-light-1 {
+			label = "LED Auto Light 1";
+		};
+	};
+
+	wpcg_pwm_buzzers: wpcg-pwm-buzzers {
+		compatible = "pwm-buzzers";
+		status = "okay";
+
+		clock_buzzer: clock-buzzer {
+			label = "BUZZER";
+		};
+	};
+
+	/delete-node/ pwm_leds;
+	aliases {
+		/delete-property/ sw0;
+		sw0 = &clock_btn_set_function;
+		sw1 = &clock_btn_up;
+		sw2 = &clock_btn_down;
+		/delete-property/ led0;
+		led0 = &clock_led_signal_0;
+		led1 = &clock_led_signal_1;
+		led2 = &clock_led_monday_0;
+		led3 = &clock_led_monday_1;
+		led4 = &clock_led_tuesday_0;
+		led5 = &clock_led_tuesday_1;
+		led6 = &clock_led_wednesday_0;
+		led7 = &clock_led_wednesday_1;
+		led8 = &clock_led_thursday_0;
+		led9 = &clock_led_thursday_1;
+		led10 = &clock_led_friday_0;
+		led11 = &clock_led_friday_1;
+		led12 = &clock_led_saturday_0;
+		led13 = &clock_led_saturday_1;
+		led14 = &clock_led_sunday_0;
+		led15 = &clock_led_sunday_1;
+		led16 = &clock_led_move_on_0;
+		led17 = &clock_led_move_on_1;
+		led18 = &clock_led_alarm_on_0;
+		led19 = &clock_led_alarm_on_1;
+		led20 = &clock_led_count_down_0;
+		led21 = &clock_led_count_down_1;
+		led22 = &clock_led_degrees_fahrenheit;
+		led23 = &clock_led_degrees_celsius;
+		led24 = &clock_led_time_am;
+		led25 = &clock_led_time_pm;
+		led26 = &clock_led_count_up_0;
+		led27 = &clock_led_count_up_1;
+		led28 = &clock_led_hourly_0;
+		led29 = &clock_led_hourly_1;
+		led30 = &clock_led_auto_light_0;
+		led31 = &clock_led_auto_light_1;
+		/delete-property/ pwm-led0;
+		pwm-buzzer0 = &clock_buzzer;
+	};
+};

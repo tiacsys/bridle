@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) 2023-2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/pinctrl/rpi-pico-rp2040-pinctrl.h>
+
+&pinctrl {
+	spi1_wpcg_leds: spi1-wpcg-leds-pinctrl {
+		group1011-spi {
+			pinmux = <SPI1_SCK_P10>,	/* GP10: SPI1_SCK */
+				 <SPI1_TX_P11>;		/* GP11: SPI1_TX */
+		};
+		/* GP9: SPI1_CSN not used for LED access */
+		/* GP12: SPI1_RX not used for LED access */
+	};
+	pwm_wpcg_buzzer: pwm-wpcg-buzzer-pinctrl {
+		group14-pwm {
+			pinmux = <PWM_7A_P14>;		/* GP14: PWM7A (14) */
+		};
+	};
+};

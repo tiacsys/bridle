@@ -1,0 +1,58 @@
+The `Waveshare Pico Clock Green`_ is a :bbk:`special sized` LED-digit
+electronic clock designed for :ref:`zephyr:rpi_pico`, a RP2040 based
+development board. It contains a high-precision RTC chip DS3231_ with
+an on-chip temperature sensor for ambient, auto-brightness adjustment
+by an photoresistor (LDR), alarm signaling by a simple buzzer. a LED
+matrix with 8 × 1-bit × 24 pixel for special signing lights and data
+display and buttons for navigation and configuration.
+
+.. list-table::
+   :align: center
+   :width: 100%
+   :widths: 66, 33
+
+   * - .. rubric:: Features and Resources
+     - .. rubric:: Appliance View
+
+   * - :hwftlbl-vdd:`5V/100㎃`
+       :hwftlbl-vdd:`3.3V/150㎃`
+
+       :hwftlbl-con:`USB-B`
+       :hwftlbl-bat:`CR2032`
+
+       :hwftlbl-btn:`SET/FUNCTION`
+       :hwftlbl-btn:`UP`
+       :hwftlbl-btn:`DOWN`
+       :hwftlbl-scr:`LED`
+
+       :hwftlbl-pio:`9`
+       :hwftlbl-adc:`1`
+       :hwftlbl-i2c:`1`
+       :hwftlbl-spi:`1`
+
+       .. rst-class:: rst-columns
+
+       - On-board :bbl:`USB-C connector`
+       - On-board :bbl:`3.3V LDO voltage regulator with 800~1000㎃`
+       - On-board :bbl:`CR2032 coin battery holder for RTC backup`
+       - :bbk:`1 serial 8×24 LED matrix` (monochrome)
+       - :bbk:`1 RTC with temperature sensor`
+       - :bbk:`1 LDR light sensor`
+       - :bbk:`3 User keys`
+
+       - :bbk:`3 ADDR signals to LED matrix controller`
+       - :bbk:`1 LE signal to LED matrix controller`
+       - :bbk:`1 OE signal to LED matrix controller`
+       - :bbk:`1 IRQ signal from RTC`
+       - :bbl:`1 I2C` controller for RTC
+       - :bbl:`1 SPI` controller for LED matrix controller`
+       - :bbl:`1 ADC` analog input for LDR light sensor
+
+       .. rubric:: Design Data
+       .. rst-class:: rst-columns
+
+       - `Waveshare Pico Clock Green Schematic`_
+
+     - .. image:: /boards/shields/rpi_pico_clock/doc/waveshare_pico_clock_green/hardware.jpg
+          :align: center
+          :alt: Waveshare Pico Clock Green

@@ -1,0 +1,24 @@
+# Copyright (c) 2023-2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+config SHIELD_RPI_PICO_CLOCK
+	bool
+	default y if SHIELD_WAVESHARE_PICO_CLOCK_GREEN
+	default n
+
+config SHIELD_RPI_PICO_CLOCK_HIYOU
+	bool
+	default y if SHIELD_WAVESHARE_PICO_CLOCK_GREEN
+	default n
+
+config SPI
+	default y if DT_HAS_SIPO_MUX_GP_SPI_ENABLED
+	depends on SHIELD_RPI_PICO_CLOCK
+
+config GPIO_HOGS
+	default y if DT_HAS_SIPO_MUX_GPIO_ENABLED
+	depends on SHIELD_RPI_PICO_CLOCK_HIYOU && GPIO
+
+config GPIO_HOGS_INIT_PRIORITY
+	default 85 if DT_HAS_SIPO_MUX_GPIO_ENABLED
+	depends on SHIELD_RPI_PICO_CLOCK_HIYOU && GPIO_HOGS

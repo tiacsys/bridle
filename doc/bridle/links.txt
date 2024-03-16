@@ -837,6 +837,15 @@
 .. _`Waveshare Pico RGB LED Schematic`:
    https://www.waveshare.com/wiki/Pico-RGB-LED#Document
 
+.. #### Links to the Waveshare Pico Clock Green
+
+.. _`Waveshare Pico Clock Green`:
+   https://www.waveshare.com/wiki/Pico-Clock-Green
+
+.. _`Waveshare Pico Clock Green Schematic`:
+   https://www.waveshare.com/wiki/Pico-Clock-Green#Document
+
+
 
 .. ### Links to hardware specifications, application notes and similar documents
 
@@ -888,6 +897,25 @@
 
 .. _`KLJ-4020 Datasheet`:
    https://datasheet.lcsc.com/lcsc/2005191833_KELIKING-KLJ-4020_C556936.pdf
+
+.. _`TMB12A05`:
+   https://www.jshnbuzzer.com/Product/5VDC-85dB-Mini-Pin-Buzzer.html
+.. https://www.jshnbuzzer.com/Product/5VDC-85dB-Mini-Active-Buzzer.html
+
+.. _`TMB12Axx Datasheet`:
+   https://www.estudioelectronica.com/wp-content/uploads/2018/09/SHT-TMB12A05.pdf
+
+.. _`TMB12A05 Specification (2021)`:
+   https://datasheet.lcsc.com/lcsc/2304261046_Jiangsu-Huaneng-Elec-TMB12A05_C96093.pdf
+
+.. _`YX-YT12095/TMB12A`:
+   http://www.xhyxdz.com/product/18_159
+
+.. _`YX-YT12095/TMB12A Specification (2020)`:
+   https://aitendo3.sakura.ne.jp/aitendo_data/product_img/parts/buzzer/TMB12A/TMB12A12.pdf
+
+.. _`YX-YT12095/TMB12A Specification (2016)`:
+   https://cdn.ozdisan.com/ETicaret_Dosya/481354_7974359.pdf
 
 .. #### Links to LED or Lamps, either simple or complex with control logic on-chip
 
@@ -944,6 +972,12 @@
 
 .. _`Voltage Regulator Handbook (National Semiconductor, 1980)`:
    https://media.searchelec.com/specshee/NATIONAL/NationalSemiconductorVoltageRegulatorHandbook1980_text.pdf
+
+.. _`AMS1117`:
+   http://www.advanced-monolithic.com/products/voltreg.html#1117
+
+.. _`AMS1117 Datasheet`:
+   http://www.advanced-monolithic.com/pdf/ds1117.pdf
 
 .. _`BL9366`:
    https://www-belling-com-cn.translate.goog/product_info.html?id=274&_x_tr_sl=auto&_x_tr_tl=de&_x_tr_hl=de&_x_tr_pto=wapp
@@ -1072,6 +1106,80 @@
 .. _`TPS63000 Datasheet`:
    https://www.ti.com/lit/gpn/tps63000
 
+.. _`XC6206`:
+   https://product.torexsemi.com/en/series/xc6206
+
+.. _`XC6206 Datasheet`:
+   https://product.torexsemi.com/system/files/series/xc6206.pdf
+
+.. #### Links to Standard Logic Gates or similar to drive digital logic
+
+.. _`74HC(T)04`:
+   https://www.nexperia.com/group/14835
+
+.. _`74HC(T)04 Datasheet`:
+   https://assets.nexperia.com/documents/data-sheet/74HC_HCT04.pdf
+
+.. _`74HC(T)4040`:
+   https://www.nexperia.com/group/16078
+
+.. _`74HC(T)4040 Datasheet`:
+   https://assets.nexperia.com/documents/data-sheet/74HC_HCT4040.pdf
+
+.. _`74HC(T)4094`:
+   https://www.nexperia.com/group/15196
+
+.. _`74HC(T)4094 Datasheet`:
+   https://assets.nexperia.com/documents/data-sheet/74HC_HCT4094.pdf
+
+.. _`SM5166`:
+   http://www.chinaasic.com/chipDetails/detail_450.html
+
+.. _`SM5166 Datasheet (CN) V1.2`:
+   http://www.chinaasic.com/websiteManage/product/20230530163724363.pdf
+
+.. _`SM5166 Datasheet (CN) V1.1`:
+   https://www.waveshare.com/w/upload/8/8b/Sm5166p.pdf
+
+.. _`SM16106`:
+   http://www.chinaasic.com/productItem/product_item_6.html
+
+.. _`SM16106 Datasheet (CN) V1.1`:
+   https://www.waveshare.com/w/upload/3/30/SM16106SC.pdf
+
+.. _`SM16208`:
+   http://www.chinaasic.com/chipDetails/detail_156.html
+
+.. _`SM16208 Datasheet (CN) V1.2`:
+   http://www.chinaasic.com/websiteManage/product/20221130200606318.pdf
+
+.. _`SM16306`:
+   http://www.chinaasic.com/chipDetails/detail_153.html
+
+.. _`SM16306 Datasheet (CN) V1.3`:
+   http://www.chinaasic.com/websiteManage/product/20230608171556363.pdf
+
+.. _`TLC5920`:
+   https://www.ti.com/product/TLC5920
+
+.. _`TLC5920 Datasheet`:
+   https://www.ti.com/lit/ds/symlink/tlc5920.pdf
+
+.. _`TLC5925`:
+   https://www.ti.com/product/TLC5925
+
+.. _`TLC5925 Datasheet`:
+   https://www.ti.com/lit/ds/symlink/tlc5925.pdf
+
+.. _`TLC5928`:
+   https://www.ti.com/product/TLC5928
+
+.. _`TLC5928 Datasheet`:
+   https://www.ti.com/lit/ds/symlink/tlc5928.pdf
+
+.. _`Common LED Functions and LED Driver Design Considerations (TI)`:
+   https://www.ti.com/lit/wp/sliy007/sliy007.pdf
+
 .. #### Links to Motion Controllers or similar to drive any type of motors
 
 .. _`MX1208`:
@@ -1098,7 +1206,18 @@
 .. https://datasheetspdf.com/pdf-file/909509/SinotechMixicElectronics/MX1515/1
 .. https://cdck-file-uploads-europe1.s3.dualstack.eu-west-1.amazonaws.com/arduino/original/4X/b/3/b/b3bc4d09220c9a729f4e723224cde4177450f53b.pdf
 
+.. #### Links to Real-Time-Clocks or similar to count time and date
+
+.. _`DS3231`:
+   https://www.analog.com/en/products/ds3231.html
+
+.. _`DS3231 Datasheet`:
+   https://www.analog.com/media/en/technical-documentation/data-sheets/DS3231.pdf
+
 .. #### Links to Sensors or similar to acquire environmental data
+
+.. _`Senba Optoelectronic – LDR Sensors`:
+   https://radiolux.com.ua/files/pdf/LDR.pdf
 
 .. _`AK09916`:
    https://www.akm.com/eu/en/products/electronic-compass/lineup-electronic-compass
@@ -1132,6 +1251,84 @@
 .. _`BMP280 Datasheet`:
    https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmp280-ds001.pd
 .. https://files.waveshare.com/upload/a/af/BST-BMP280-DS001-09-371189.pdf
+
+.. _`GL35 (φ3)`:
+   https://www.nysenba.com/cds/3mm.html
+.. https://www.senbasensor.com/visible-light-sensor/54.html
+.. http://www.szjchl.com/en/productShow.asp?id=2
+
+.. _`GL35 (φ3) Datasheet`:
+   https://www.pollin.de/productdownloads/D120797D.PDF
+
+.. _`GL35 (φ3) Datasheet (CN)`:
+   https://www.nysenba.com/data/upload/20221208/63918e64a70bc.pdf
+
+.. _`GL45 (φ4)`:
+   https://www.nysenba.com/cds/4mm.html
+.. https://www.senbasensor.com/visible-light-sensor/55.html
+.. http://www.szjchl.com/en/productShow.asp?id=3
+
+.. _`GL45 (φ4) Datasheet`:
+   https://evelta.com/content/datasheets/361-4mm-LDR-Senba.pdf
+
+.. _`GL45 (φ4) Datasheet (CN)`:
+   https://www.nysenba.com/data/upload/20221208/63918e7c3047c.pdf
+
+.. _`GL55/GL56 (φ5)`:
+   https://www.nysenba.com/cds/5mm.html
+.. https://www.senbasensor.com/visible-light-sensor/56.html
+.. http://www.szjchl.com/en/productShow.asp?id=4
+
+.. _`GL55/GL56 (φ5) Datasheet`:
+   https://akizukidenshi.com/download/ds/senba/GL55%20Series%20Photoresistor.pdf
+.. https://evelta.com/content/datasheets/361-LDR-Senba.pdf
+.. https://www.pollin.de/productdownloads/D120781D.PDF
+
+.. _`GL55/GL56 (φ5) Datasheet (CN)`:
+   https://www.nysenba.com/data/upload/20221208/63918e90633ef.pdf
+
+.. _`GL55 User Guide`:
+   https://www.handsontec.com/dataspecs/sensor/GL55-LDR.pdf
+
+.. _`GL75 (φ7)`:
+   https://www.nysenba.com/cds/7mm.html
+.. https://www.senbasensor.com/visible-light-sensor/57.html
+.. http://www.szjchl.com/en/productShow.asp?id=5
+
+.. _`GL75 (φ7) Datasheet (CN)`:
+   https://www.nysenba.com/data/upload/20221208/63918eaa62ba0.pdf
+
+.. _`GL105 (φ10)`:
+   https://www.nysenba.com/cds/10mm.html
+.. https://www.senbasensor.com/visible-light-sensor/58.html
+
+.. _`GL105 (φ10) Datasheet`:
+   https://www.pollin.de/productdownloads/D120796D.PDF
+
+.. _`GL105 (φ10) Datasheet (CN)`:
+   https://www.nysenba.com/data/upload/20221208/63918ec120262.pdf
+
+.. _`GL125 (φ12)`:
+   https://www.nysenba.com/cds/12mm.html
+.. https://www.senbasensor.com/visible-light-sensor/59.html
+.. http://www.szjchl.com/en/productShow.asp?id=6
+
+.. _`GL125 (φ12) Datasheet`:
+   https://www.pollin.de/productdownloads/D120795D.PDF
+
+.. _`GL125 (φ12) Datasheet (CN)`:
+   https://www.nysenba.com/data/upload/20221208/63918ed6a05a0.pdf
+
+.. _`GL205 (φ20)`:
+   https://www.nysenba.com/cds/20mm.html
+.. https://www.senbasensor.com/visible-light-sensor/60.html
+.. http://www.szjchl.com/en/productShow.asp?id=7
+
+.. _`GL205 (φ20) Datasheet`:
+   https://www.pollin.de/productdownloads/D120794D.PDF
+
+.. _`GL205 (φ20) Datasheet (CN)`:
+   https://www.nysenba.com/data/upload/20221208/63918eeda3bd2.pdf
 
 .. _`ICM-20948`:
    https://invensense.tdk.com/products/motion-tracking/9-axis/icm-20948
@@ -1168,6 +1365,24 @@
 
 .. _`MPU-9250 Migrating to ICM-20948`:
    https://invensense.tdk.com/wp-content/uploads/2018/10/AN-000146-v2.0-TDK_Migration_MPU_9250toICM-20948.pdf
+
+.. _`PGM5`:
+   http://token.com.tw/resistor/photo-cds.htm
+
+.. _`PGM5 Datasheet`:
+   http://token.com.tw/pdf/resistor/cds-resistor-pgm.pdf
+
+.. _`PGM12`:
+   http://token.com.tw/resistor/photo-cds.htm
+
+.. _`PGM12 Datasheet`:
+   http://token.com.tw/pdf/resistor/cds-resistor-pgm.pdf
+
+.. _`PGM20`:
+   http://token.com.tw/resistor/photo-cds.htm
+
+.. _`PGM20 Datasheet`:
+   http://token.com.tw/pdf/resistor/cds-resistor-pgm.pdf
 
 .. _`SGP40`:
    https://sensirion.com/search/products?q=SGP40

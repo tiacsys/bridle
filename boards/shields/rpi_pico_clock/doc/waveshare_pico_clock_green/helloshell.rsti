@@ -1,0 +1,208 @@
+.. rubric:: Simple test execution on target
+
+(text in bold is a command input)
+
+.. tabs::
+
+   .. group-tab:: Basics
+
+      .. parsed-literal::
+         :class: highlight-console notranslate
+
+         :bgn:`uart:~$` **hello -h**
+         hello - say hello
+         :bgn:`uart:~$` **hello**
+         Hello from shell.
+
+         :bgn:`uart:~$` **hwinfo devid**
+         Length: 8
+         ID: 0x8c998be1de969148
+
+         :bgn:`uart:~$` **kernel version**
+         Zephyr version |zephyr_version_number_em|
+
+         :bgn:`uart:~$` **bridle version**
+         Bridle version |version_number_em|
+
+         :bgn:`uart:~$` **bridle version long**
+         Bridle version |longversion_number_em|
+
+         :bgn:`uart:~$` **bridle info**
+         Zephyr: |zephyr_release_number_em|
+         Bridle: |release_number_em|
+
+         :bgn:`uart:~$` **device list**
+         devices:
+         - clock-controller\ @\ 40008000 (READY)
+         - reset-controller\ @\ 4000c000 (READY)
+         - snippet_cdc_acm_console_uart (READY)
+         - uart\ @\ 40034000 (READY)
+         - timer\ @\ 40054000 (READY)
+         - gpio\ @\ 40014000 (READY)
+         - adc\ @\ 4004c000 (READY)
+         - flash-controller\ @\ 18000000 (READY)
+         - i2c\ @\ 40048000 (READY)
+         - i2c\ @\ 40044000 (READY)
+         - pwm\ @\ 40050000 (READY)
+         - vreg\ @\ 40064000 (READY)
+         - ds3231-mfd\ @\ 68 (READY)
+         - ds3231-rtc (READY)
+         - spi\ @\ 40040000 (READY)
+         - spi\ @\ 4003c000 (READY)
+         - sipo-mux-gp\ @\ 0 (READY)
+         - sipo-mux-gpio\ @\ 7 (READY)
+         - sipo-mux-gpio\ @\ 6 (READY)
+         - sipo-mux-gpio\ @\ 5 (READY)
+         - sipo-mux-gpio\ @\ 4 (READY)
+         - sipo-mux-gpio\ @\ 3 (READY)
+         - sipo-mux-gpio\ @\ 2 (READY)
+         - sipo-mux-gpio\ @\ 1 (READY)
+         - sipo-mux-gpio\ @\ 0 (READY)
+         - wpcg-gpio-leds (READY)
+         - ds3231-dts (READY)
+
+         :bgn:`uart:~$` **history**
+         [  0] history
+         [  1] device list
+         [  2] bridle info
+         [  3] bridle version long
+         [  4] bridle version
+         [  5] kernel version
+         [  6] hwinfo devid
+         [  7] hello
+         [  8] hello -h
+
+   .. group-tab:: Panel LED
+
+      Operate with the first user LED :hwftlbl-led:`SIG0`
+      on the left side at :rpi-pico-pio:`SIPOMUX-GPIO0:SIG0`:
+
+      .. parsed-literal::
+         :class: highlight-console notranslate
+
+         :bgn:`uart:~$` **led on wpcg-gpio-leds 0**
+         wpcg-gpio-leds: turning on LED 0
+
+         :bgn:`uart:~$` **led set_brightness wpcg-gpio-leds 0 0**
+         wpcg-gpio-leds: setting LED 0 brightness to 0
+
+         :bgn:`uart:~$` **led set_brightness wpcg-gpio-leds 0 50**
+         wpcg-gpio-leds: setting LED 0 brightness to 50
+
+         :bgn:`uart:~$` **led off wpcg-gpio-leds 0**
+         wpcg-gpio-leds: turning off LED 0
+
+   .. group-tab:: GPIO
+
+      Operate with the first user LED :hwftlbl-led:`SIG0`
+      on the left side at :rpi-pico-pio:`SIPOMUX-GPIO0:SIG0`:
+
+      .. parsed-literal::
+         :class: highlight-console notranslate
+
+         :bgn:`uart:~$` **gpio get sipo-mux-gpio@0 SIG0**
+         0
+
+         :bgn:`uart:~$` **gpio conf sipo-mux-gpio@0 SIG0 oh0**
+
+         :bgn:`uart:~$` **gpio set sipo-mux-gpio@0 SIG0 1**
+         :bgn:`uart:~$` **gpio set sipo-mux-gpio@0 SIG0 0**
+
+         :bgn:`uart:~$` **gpio blink sipo-mux-gpio@0 SIG0**
+         Hit any key to exit
+
+      Operate with the user input button :hwftlbl-btn:`SET/FUNCTION`
+      at :rpi-pico-pio:`GP2`:
+
+      .. parsed-literal::
+         :class: highlight-console notranslate
+
+         :bgn:`uart:~$` **gpio get gpio@40014000 SET**
+         0
+
+         :bgn:`uart:~$` **gpio conf gpio@40014000 SET iul**
+         :bgn:`uart:~$` **gpio get gpio@40014000 SET**
+         1
+         :bgn:`uart:~$` **gpio get gpio@40014000 SET**
+         0
+         :bgn:`uart:~$` **gpio get gpio@40014000 SET**
+         1
+
+   .. group-tab:: ADC
+
+      Operate with the on-shield high-resistance LDR :hwftlbl:`Rₗ`
+      on :rpi-pico-adc:`ADC_CH0`:
+
+      .. parsed-literal::
+         :class: highlight-console notranslate
+
+         :bgn:`uart:~$` **adc adc@4004c000 resolution 12**
+         :bgn:`uart:~$` **adc adc@4004c000 channel id 0**
+
+         :bgn:`uart:~$` **adc adc@4004c000 read 0**
+         read: 51
+
+         :bgn:`uart:~$` **adc adc@4004c000 read 0**
+         read: 883
+
+         :bgn:`uart:~$` **adc adc@4004c000 read 0**
+         read: 3147
+
+   .. group-tab:: I2C
+
+      The |Waveshare Pico Clock Green| has the on-shield RTC connected on I2C1.
+
+      .. parsed-literal::
+         :class: highlight-console notranslate
+
+         :bgn:`uart:~$` **i2c scan i2c@40048000**
+              0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+         00:             -- -- -- -- -- -- -- -- -- -- -- --
+         10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+         20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+         30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+         40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+         50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+         60: -- -- -- -- -- -- -- -- 68 -- -- -- -- -- -- --
+         70: -- -- -- -- -- -- -- --
+         1 devices found on i2c\ @\ 40048000
+
+      The I2C address ``0x68`` is a Maxim / Analog Devices DS3231_ RTC with
+      integraterd Temperature Sensor and they current temperature can read
+      from registers ``0x11`` (MSB) and ``0x12`` (LSB). For example, for
+      26.25℃ the register content must be ``0x1a`` and ``0x40``:
+
+      .. parsed-literal::
+         :class: highlight-console notranslate
+
+         :bgn:`uart:~$` **i2c read_byte i2c@40048000 68 11**
+         Output: 0x1a
+         :bgn:`uart:~$` **i2c read_byte i2c@40048000 68 12**
+         Output: 0x40
+
+      For example, for 25.75℃ the register content must be ``0x19``
+      and ``0xc0``:
+
+      .. parsed-literal::
+         :class: highlight-console notranslate
+
+         :bgn:`uart:~$` **i2c read_byte i2c@40048000 68 11**
+         Output: 0x19
+         :bgn:`uart:~$` **i2c read_byte i2c@40048000 68 12**
+         Output: 0xc0
+
+   .. group-tab:: RTC
+
+      .. parsed-literal::
+         :class: highlight-console notranslate
+
+         :bgn:`uart:~$` **rtc get ds3231-rtc**
+         2024-01-04T16:49:47:000000
+
+   .. group-tab:: Temp
+
+      .. parsed-literal::
+         :class: highlight-console notranslate
+
+         :bgn:`uart:~$` **sensor get ds3231-dts**
+         channel idx=13 ambient_temp shift=5 num_samples=1 value=6848100000ns (25.749999)

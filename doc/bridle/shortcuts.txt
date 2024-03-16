@@ -125,6 +125,9 @@
 .. |Waveshare Pico RGB LED| replace::
    :ref:`Waveshare Pico RGB LED <waveshare_pico_rgb_led>`
 
+.. |Waveshare Pico Clock Green| replace::
+   :ref:`Waveshare Pico Clock Green <waveshare_pico_clock_green>`
+
 .. |XIAO SAMD21 (CDC ACM)| replace::
    :ref:`XIAO SAMD21 (CDC ACM) <seeed_xiao_samd21>`
 

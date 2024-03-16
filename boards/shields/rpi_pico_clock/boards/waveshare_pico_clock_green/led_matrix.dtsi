@@ -1,0 +1,133 @@
+/*
+ * Copyright (c) 2023-2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <freq.h>
+
+&clock_spi_leds {
+	sipo_mux_gp: sipo-mux-gp@0 {
+		compatible = "sipo-mux-gp-spi";
+		spi-max-frequency = <DT_FREQ_M(30)>;
+		reg = <0>;
+
+		status = "disabled";
+
+		refresh-time-us = <500>;
+		shift-width = <32>;
+		data-width = <24>;
+
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		sipo_mux_gpio_0: sipo-mux-gpio@0 {
+			compatible = "sipo-mux-gpio";
+			gpio-controller;
+			#gpio-cells = <2>;
+			ngpios = <24>;
+			offset = <0>;
+			reg = <0>;
+
+			status = "disabled";
+		};
+
+		sipo_mux_gpio_1: sipo-mux-gpio@1 {
+			compatible = "sipo-mux-gpio";
+			gpio-controller;
+			#gpio-cells = <2>;
+			ngpios = <24>;
+			offset = <24>;
+			reg = <1>;
+
+			status = "disabled";
+		};
+
+		sipo_mux_gpio_2: sipo-mux-gpio@2 {
+			compatible = "sipo-mux-gpio";
+			gpio-controller;
+			#gpio-cells = <2>;
+			ngpios = <24>;
+			offset = <48>;
+			reg = <2>;
+
+			status = "disabled";
+		};
+
+		sipo_mux_gpio_3: sipo-mux-gpio@3 {
+			compatible = "sipo-mux-gpio";
+			gpio-controller;
+			#gpio-cells = <2>;
+			ngpios = <24>;
+			offset = <72>;
+			reg = <3>;
+
+			status = "disabled";
+		};
+
+		sipo_mux_gpio_4: sipo-mux-gpio@4 {
+			compatible = "sipo-mux-gpio";
+			gpio-controller;
+			#gpio-cells = <2>;
+			ngpios = <24>;
+			offset = <96>;
+			reg = <4>;
+
+			status = "disabled";
+		};
+
+		sipo_mux_gpio_5: sipo-mux-gpio@5 {
+			compatible = "sipo-mux-gpio";
+			gpio-controller;
+			#gpio-cells = <2>;
+			ngpios = <24>;
+			offset = <120>;
+			reg = <5>;
+
+			status = "disabled";
+		};
+
+		sipo_mux_gpio_6: sipo-mux-gpio@6 {
+			compatible = "sipo-mux-gpio";
+			gpio-controller;
+			#gpio-cells = <2>;
+			ngpios = <24>;
+			offset = <144>;
+			reg = <6>;
+
+			status = "disabled";
+		};
+
+		sipo_mux_gpio_7: sipo-mux-gpio@7 {
+			compatible = "sipo-mux-gpio";
+			gpio-controller;
+			#gpio-cells = <2>;
+			ngpios = <24>;
+			offset = <168>;
+			reg = <7>;
+
+			status = "disabled";
+		};
+
+		sipo_mux_display_8: sipo-mux-display@8 {
+			compatible = "sipo-mux-display";
+			reg = <8>;
+
+			height = <7>;
+			width = <22>;
+			offset = <2 1>;
+
+			status = "disabled";
+		};
+	};
+};
+
+clock_sipo_mux: &sipo_mux_gp {};
+clock_gpio_0: &sipo_mux_gpio_0 {};
+clock_gpio_1: &sipo_mux_gpio_1 {};
+clock_gpio_2: &sipo_mux_gpio_2 {};
+clock_gpio_3: &sipo_mux_gpio_3 {};
+clock_gpio_4: &sipo_mux_gpio_4 {};
+clock_gpio_5: &sipo_mux_gpio_5 {};
+clock_gpio_6: &sipo_mux_gpio_6 {};
+clock_gpio_7: &sipo_mux_gpio_7 {};
+clock_display: &sipo_mux_display_8 {};
