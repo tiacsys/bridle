@@ -104,6 +104,8 @@ The following shields are defined in the :file:`bridle/boards/shields/` folder.
 |                                          +------------------------------------------+----------------------------------------+
 |                                          | :ref:`x_grove_testbed_shield`            | ``x_grove_testbed``                    |
 +------------------------------------------+------------------------------------------+----------------------------------------+
+| :ref:`rpi_pico_clock_shield`             | |Waveshare Pico Clock Green|             | ``waveshare_pico_clock_green``         |
++------------------------------------------+------------------------------------------+----------------------------------------+
 | :ref:`rpi_pico_lcd_shield`               | |Waveshare Pico LCD 1.14|                | ``waveshare_pico_lcd_1_14``            |
 |                                          +------------------------------------------+----------------------------------------+
 |                                          | |Waveshare Pico LCD 2|                   | ``waveshare_pico_lcd_2``               |
