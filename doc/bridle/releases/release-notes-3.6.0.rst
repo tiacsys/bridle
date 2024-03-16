@@ -12,6 +12,7 @@ Highlights
 **********
 
 * Add the u-blox library (**ubxlib**) and provide a simple GNSS example.
+* Add *Raspberry Pi Pico* **Clock** *Shields*.
 * Add *Raspberry Pi Pico* **LCD** *Shields*.
 * Add *Raspberry Pi Pico* **LED** *Shields*.
 * Add *Raspberry Pi Pico* **TEST** *Shields*.
@@ -120,6 +121,7 @@ Supported shields
 * Seeed Studio Grove Interconnect Shields
 * Grove Button Shields
 * Grove LED Shields
+* Raspberry Pi Pico Clock Shields
 * Raspberry Pi Pico LCD Shields
 * Raspberry Pi Pico LED Shields
 * Raspberry Pi Pico TEST Shields
@@ -179,19 +181,23 @@ Change log
 
 * Add more shields:
 
-  * *Raspberry Pi Pico TEST Shields*:
+  * *Raspberry Pi Pico Clock Shields*:
 
-    * **Pico ALL GPIO TEST** shield by Spotpear
-
-  * *Raspberry Pi Pico LED Shields*:
-
-    * **Pico RGB LED** shield by Waveshare
+    * **Pico Clock Green** shield by Waveshare
 
   * *Raspberry Pi Pico LCD Shields*:
 
     * **Pico LCD 1.14** shield by Waveshare
     * **Pico LCD 2** shield by Waveshare
     * **Pico ResTouch LCD 3.5** shield by Waveshare
+
+  * *Raspberry Pi Pico LED Shields*:
+
+    * **Pico RGB LED** shield by Waveshare
+
+  * *Raspberry Pi Pico TEST Shields*:
+
+    * **Pico ALL GPIO TEST** shield by Spotpear
 
   * *Waveshare LCD Modules*:
 
@@ -276,6 +282,7 @@ These GitHub issues were addressed since project bootstrapping:
 * :github:`185` - [HW] Waveshare Pico 10-DOF IMU Sensor
 * :github:`183` - [HW] Waveshare Pico RGB LED
 * :github:`177` - [HW] Waveshare Pico Environment Sensor
+* :github:`176` - [HW] Waveshare Pico Clock Green
 * :github:`170` - [FCR] Upgrade to Zephyr SDK 0.16.4
 * :github:`169` - [HW] The PicoBoy
 * :github:`168` - [HW] Waveshare Pico ResTouch LCD 3.5
