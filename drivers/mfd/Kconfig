@@ -4,6 +4,7 @@
 if MFD
 
 rsource "Kconfig.ds3231"
+rsource "Kconfig.sc16is75x"
 rsource "Kconfig.sc18is604"
 rsource "Kconfig.sipomuxgp"
 

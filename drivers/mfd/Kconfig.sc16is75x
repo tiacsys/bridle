@@ -1,0 +1,108 @@
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+menuconfig MFD_SC16IS75X
+	bool "NXP SC16IS75x SPI/I2C to UART & GPIO bridge"
+	default y
+	depends on DT_HAS_NXP_SC16IS75X_ENABLED
+	depends on MFD
+	help
+	  Enable the NXP SC16IS75x bridge multi-function device driver.
+
+if MFD_SC16IS75X
+
+# Workaround for not being able to have commas in macro arguments
+DT_COMPAT_NXP_SC16IS75X := nxp,sc16is75x
+DT_NXP_SC16IS75X_HAS_IRQ := $(dt_compat_any_has_prop,$(DT_COMPAT_NXP_SC16IS75X),interrupt-gpios)
+
+config MFD_SC16IS75X_ASYNC_NEEDS_WORKQUEUE
+	bool
+	default y if MFD_SC16IS75X_SPI && !SPI_ASYNC
+	default y if MFD_SC16IS75X_I2C && !I2C_CALLBACK
+	default n
+
+if MFD_SC16IS75X_ASYNC_NEEDS_WORKQUEUE
+
+config MFD_SC16IS75X_ASYNC
+	bool
+	default n
+	depends on POLL
+	depends on DYNAMIC_THREAD
+
+config MFD_SC16IS75X_INTERRUPTS
+	bool "Interrupt support"
+	default y if $(DT_NXP_SC16IS75X_HAS_IRQ)
+	default n
+	depends on GPIO
+	select MFD_SC16IS75X_ASYNC
+	select POLL              # dependency of MFD_SC16IS75X_ASYNC
+	select DYNAMIC_THREAD    # dependency of MFD_SC16IS75X_ASWQ
+	select THREAD_STACK_INFO # dependency of DYNAMIC_THREAD
+	help
+	  Enable interrupts on SC16IS75x bridges.
+
+endif # MFD_SC16IS75X_ASYNC_NEEDS_WORKQUEUE
+
+if !MFD_SC16IS75X_ASYNC_NEEDS_WORKQUEUE
+
+config MFD_SC16IS75X_ASYNC
+	bool
+	default n
+	depends on POLL
+
+config MFD_SC16IS75X_INTERRUPTS
+	bool "Interrupt support"
+	default y if $(DT_NXP_SC16IS75X_HAS_IRQ)
+	default n
+	depends on GPIO
+	select MFD_SC16IS75X_ASYNC
+	select POLL # dependency of MFD_SC16IS75X_ASYNC
+	help
+	  Enable interrupts on SC16IS75x bridges.
+
+endif # !MFD_SC16IS75X_ASYNC_NEEDS_WORKQUEUE
+
+config MFD_SC16IS75X_SPI
+	bool "NXP SC16IS75x SPI bus support"
+	default y
+	depends on $(dt_compat_on_bus,$(DT_COMPAT_NXP_SC16IS75X),spi)
+	depends on SPI
+	help
+	  Enable the SPI bus transfer functions for SC16IS75x.
+
+config MFD_SC16IS75X_I2C
+	bool "NXP SC16IS75x I2C bus support"
+	default y
+	depends on $(dt_compat_on_bus,$(DT_COMPAT_NXP_SC16IS75X),i2c)
+	depends on I2C
+	help
+	  Enable the I2C bus transfer functions for SC16IS75x.
+
+config MFD_SC16IS75X_INIT_PRIORITY
+	int "Init priority"
+	default 55 if UART_SC16IS75X
+	default MFD_INIT_PRIORITY
+	help
+	  Multi-function device initialization priority for SC16IS75x.
+
+if MFD_SC16IS75X_ASYNC
+
+config HEAP_MEM_POOL_ADD_SIZE_MFD_SC16IS75X
+	int
+	default 128 # Enough for 16 concurrent transfers (k_calloc)
+	depends on MFD_SC16IS75X_ASYNC
+
+config MFD_SC16IS75X_ASWQ
+	bool
+	default y if MFD_SC16IS75X_ASYNC && MFD_SC16IS75X_ASYNC_NEEDS_WORKQUEUE
+	default n
+	depends on DYNAMIC_THREAD
+
+config MFD_SC16IS75X_WORKQUEUE_STACK_SIZE
+	int
+	default 512
+	depends on MFD_SC16IS75X_ASWQ
+
+endif # MFD_SC16IS75X_ASYNC
+
+endif # MFD_SC16IS75X

@@ -1,0 +1,31 @@
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+description: NXP SC16IS75x UART/GPIO chip common properties
+
+include: base.yaml
+
+properties:
+
+  reset-gpios:
+    required: true
+    type: phandle-array
+    description: Reset pin.
+
+  interrupt-gpios:
+    type: phandle-array
+    description: Interrupt pin.
+
+  clock:
+    required: true
+    type: phandle
+
+  "#address-cells":
+    required: true
+    const: 1
+
+  "#size-cells":
+    required: true
+    const: 0
+
+bus: nxp,sc16is75x
