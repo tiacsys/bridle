@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-&arduino_spi {
+&nxp_sc18is604_evb_spi_in {
 
     sc18is604: sc18is604@0 {
         
@@ -13,10 +13,10 @@
         reg = < 0 >;
         spi-max-frequency = < 1200000 >;
 
-        /* Pin 7 on JP5 */
-        reset-gpios = < &arduino_header 14 GPIO_ACTIVE_LOW >; // D8
+        /* Reset line has to be connected to pin 7 on JP5 */
+        reset-gpios = < &nxp_sc18is604_evb_gpio_in 0 GPIO_ACTIVE_LOW >;
 
-        interrupt-gpios = < &arduino_header 15 GPIO_ACTIVE_LOW >; // D9
+        interrupt-gpios = < &nxp_sc18is604_evb_gpio_in 1 GPIO_ACTIVE_LOW >;
 
         sc18is604_i2c: sc18is604-i2c {
 
