@@ -1,0 +1,19 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+ 
+nxp_sc18is604_evb_spi_in: &arduino_spi {};
+
+/ {
+    
+    nxp_sc18is604_evb_gpio_in: nxp-sc18is604-evb-gpio-in {
+        compatible = "gpio-nexus";
+        #gpio-cells = < 2 >;
+        gpio-map-mask = < 0xffffffff 0xffffffc0 >;
+        gpio-map-pass-thru = < 0 0x3f >;
+        gpio-map =
+            < 0 0 &arduino_header 14 0 >, /* Reset pin on D8 */
+            < 1 0 &arduino_header 15 0 >; /* Interrupt pin on D9 */
+    };
+};
