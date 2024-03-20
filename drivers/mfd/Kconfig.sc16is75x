@@ -1,0 +1,37 @@
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+menuconfig MFD_SC16IS75X
+	bool "NXP SC16IS75x SPI/I2C to UART & GPIO bridge"
+	default y
+	depends on DT_HAS_NXP_SC16IS75X_ENABLED
+	depends on MFD
+	help
+	  Enable the NXP SC16IS75x bridge multi-function device driver.
+
+if MFD_SC16IS75X
+
+config MFD_SC16IS75X_SPI
+	bool "NXP SC16IS75x SPI bus support"
+	default y
+	depends on $(dt_compat_on_bus,$(DT_COMPAT_NXP_SC16IS75X),spi)
+	depends on SPI
+	help
+	  Enable the SPI bus transfer functions for SC16IS75x.
+
+config MFD_SC16IS75X_I2C
+	bool "NXP SC16IS75x I2C bus support"
+	default y
+	depends on $(dt_compat_on_bus,$(DT_COMPAT_NXP_SC16IS75X),i2c)
+	depends on I2C
+	help
+	  Enable the I2C bus transfer functions for SC16IS75x.
+
+config MFD_SC16IS75X_INIT_PRIORITY
+	int "Init priority"
+	default 55 if UART_SC16IS75X
+	default MFD_INIT_PRIORITY
+	help
+	  Multi-function device initialization priority for SC16IS75x.
+
+endif # MFD_SC16IS75X
