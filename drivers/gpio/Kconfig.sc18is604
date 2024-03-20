@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 menuconfig GPIO_SC18IS604
-	bool "GPIO controller part of an SC18IM604 bridge"
+	bool "GPIO controller part of an SC18IS604 bridge"
 	default y
 	depends on DT_HAS_NXP_SC18IS604_GPIO_ENABLED
 	depends on SPI

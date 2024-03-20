@@ -1,0 +1,54 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+    wcmcu_752_osc: wcmcu-752-osc {
+        status = "okay";
+        compatible = "fixed-clock";
+        #clock-cells = < 0 >;
+        clock-frequency = < 1843200 >;
+    };
+};
+
+&sc16is752 {
+
+    reset-gpios = < &wcmcu_752_gpio_in 0 GPIO_ACTIVE_LOW >;
+    interrupt-gpios = <&wcmcu_752_gpio_in 1 GPIO_ACTIVE_LOW >;
+    bus-select-gpios = <&wcmcu_752_gpio_in 2 0 >;
+    clock = < &wcmcu_752_osc >;
+    
+    #address-cells = < 1 >;
+    #size-cells = < 0 >;
+    
+    wcmcu_752_gpio: sc16is752-gpio {
+        
+        status = "okay";
+        compatible = "nxp,sc16is75x-gpio";
+        
+        gpio-controller;
+        #gpio-cells = < 2 >;
+        ngpios = < 8 >;
+    };
+    
+    wcmcu_752_uart0: sc16is752-uart@0 {
+        status = "okay";
+        compatible = "nxp,sc16is75x-uart";
+        reg = < 0 >;
+        
+        current-speed = < 38400 >;
+        data-bits = < 8 >;
+        hw-flow-control;
+    };
+    
+    wcmcu_752_uart1: sc16is752-uart@1 {
+        status = "okay";
+        compatible = "nxp,sc16is75x-uart";
+        reg = < 1 >;
+        
+        current-speed = < 38400 >;
+        data-bits = < 8 >;
+        hw-flow-control;
+    };
+};

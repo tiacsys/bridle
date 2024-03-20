@@ -1,0 +1,17 @@
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+menuconfig GPIO_SC16IS75X
+	bool "GPIO controller part of an SC16IS75x bridge"
+	default y
+	depends on DT_HAS_NXP_SC16IS75X_GPIO_ENABLED
+	depends on SPI
+	help
+	  Enable driver for GPIO controller part of an SC16IS75x bridge.
+
+config GPIO_SC16IS75X_INIT_PRIORITY
+	int "Init priority"
+	default 71
+	depends on GPIO_SC16IS75X
+	help
+	  Device driver initialization priority.

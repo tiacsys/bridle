@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+ 
+wcmcu_752_spi_in: &arduino_spi {};
+wcmcu_752_i2c_in: &arduino_i2c {};
+
+/ {
+    
+    wcmcu_752_gpio_in: wcmcu-752-gpio-in {
+        compatible = "gpio-nexus";
+        #gpio-cells = < 2 >;
+        gpio-map-mask = < 0xffffffff 0xffffffc0 >;
+        gpio-map-pass-thru = < 0 0x3f >;
+        gpio-map =
+            < 0 0 &arduino_header 14 0 >, /* Reset pin on D8 */
+            < 1 0 &arduino_header 15 0 >, /* Interrupt pin on D9 */
+            < 2 0 &arduino_header 8  0 >, /* Bus select pin on D2 */
+            < 3 0 &arduino_header 9  0 >, /* Address select pin 0 on D3 */
+            < 4 0 &arduino_header 10 0 >; /* Address select pin 0 on D4 */
+    };
+};

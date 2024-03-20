@@ -1,0 +1,9 @@
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+config SHIELD_CJMCU_750
+	def_bool $(shields_list_contains,cjmcu_750_spi) || \
+		$(shields_list_contains,cjmcu_750_i2c)
+
+config X_ARDUINO_HEADER_TO_CJMCU_750
+	def_bool $(shields_list_contains,x_arduino_header_to_cjmcu_750)

@@ -1,0 +1,35 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+    cjmcu_750_osc: cjmcu-750-osc {
+        status = "okay";
+        compatible = "fixed-clock";
+        #clock-cells = < 0 >;
+        clock-frequency = < 14746500 >;
+    };
+};
+
+
+&sc16is750 {
+    
+    reset-gpios = < &cjmcu_750_gpio_in 0 GPIO_ACTIVE_LOW >;
+    interrupt-gpios = <&cjmcu_750_gpio_in 1 GPIO_ACTIVE_LOW >;
+    bus-select-gpios = <&cjmcu_750_gpio_in 2 0 >;
+    clock = < &cjmcu_750_osc >;
+
+    #address-cells = < 1 >;
+    #size-cells = < 0 >;
+
+    cjmcu_750_gpio: sc16is750-gpio {
+            
+        status = "okay";
+        compatible = "nxp,sc16is75x-gpio";
+        
+        gpio-controller;
+        #gpio-cells = < 2 >;
+        ngpios = < 8 >;
+    };
+};

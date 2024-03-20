@@ -1,0 +1,16 @@
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+menuconfig UART_SC16IS75X
+	bool "UART controller part of an SC16IS75x bridge."
+	default y
+	depends on DT_HAS_NXP_SC16IS75X_UART_ENABLED
+	help
+	  Enable driver for UART controller part of anSC16IS75x bridge.
+
+config UART_SC16IS75X_INIT_PRIORITY
+	int "Init priority"
+	default 71
+	depends on UART_SC16IS75X
+	help
+	  Device driver initialization priority.

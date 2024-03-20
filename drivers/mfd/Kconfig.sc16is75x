@@ -1,0 +1,16 @@
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+menuconfig MFD_SC16IS75X
+	bool "SC16IS75x SPI/I2C to UART/GPIO bridge."
+	default y
+	depends on DT_HAS_NXP_SC16IS75X_ENABLED
+	help
+	  Enable driver for UART controller part of anSC16IS75x bridge.
+
+config MFD_SC16IS75X_INIT_PRIORITY
+	int "Init priority"
+	default 70
+	depends on MFD_SC16IS75X
+	help
+	  Device driver initialization priority.

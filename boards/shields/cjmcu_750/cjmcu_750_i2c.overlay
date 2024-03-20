@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+ 
+ 
+&cjmcu_750_i2c_in {
+    
+    clock-frequency = < I2C_BITRATE_STANDARD >;
+    
+    sc16is750: sc16is750@48 {
+        
+        status = "okay";
+        compatible = "nxp,sc16is75x";
+        
+        reg = < 0x48 >;
+        
+        address-select-0-gpios = < &cjmcu_750_gpio_in 3 0 >;
+        address-select-1-gpios = < &cjmcu_750_gpio_in 4 0 >;
+    };
+};
+    
+#include "cjmcu_750_common.dtsi"

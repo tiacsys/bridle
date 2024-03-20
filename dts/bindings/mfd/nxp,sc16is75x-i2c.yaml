@@ -1,0 +1,19 @@
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+description: SC16IS75x UART/GPIO controller connected via I2C bus.
+
+compatible: "nxp,sc16is75x"
+
+## DEBUG ##
+properties:
+  address-select-0-gpios:
+    type: phandle-array
+    description: Address select pin 0 (A0)
+
+  address-select-1-gpios:
+    type: phandle-array
+    description: Address select pin 1 (A1)
+## END DEBUG ##
+
+include: [i2c-device.yaml,"nxp,sc16is75x-common.yaml"]

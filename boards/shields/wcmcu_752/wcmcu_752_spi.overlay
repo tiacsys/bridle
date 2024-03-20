@@ -1,0 +1,19 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+ 
+ &wcmcu_752_spi_in {
+     
+    sc16is752: sc16is752@0 {
+        
+        status = "okay";
+        compatible = "nxp,sc16is75x";
+        
+        reg = < 0 >;
+        spi-max-frequency = < 4000000 >;        
+    };
+};
+    
+#include "wcmcu_752_common.dtsi"

@@ -1,9 +1,9 @@
 # Copyright (c) 2024 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
-description: GPIO controller part of an SC18IS604 bridge
+description: GPIO controller part of an SC16IS75x bridge
 
-compatible: "nxp,sc18is604-gpio"
+compatible: "nxp,sc16is75x-gpio"
 
 include: [gpio-controller.yaml]
 
@@ -15,4 +15,4 @@ gpio-cells:
   - pin
   - flags
 
-on-bus: nxp,sc18is604
+on-bus: nxp,sc16is75x

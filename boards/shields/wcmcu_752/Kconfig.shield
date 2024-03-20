@@ -1,0 +1,9 @@
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+config SHIELD_WCMCU_752
+	def_bool $(shields_list_contains,wcmcu_752_spi) || \
+		$(shields_list_contains,wcmcu_752_i2c)
+
+config X_ARDUINO_HEADER_TO_WCMCU_752
+	def_bool $(shields_list_contains,x_arduino_header_to_wcmcu_752)
