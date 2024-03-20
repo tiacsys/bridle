@@ -1,0 +1,27 @@
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+menuconfig GPIO_SC16IS75X
+	bool "NXP SC16IS75x GPIO driver"
+	default y
+	depends on DT_HAS_NXP_SC16IS75X_GPIO_ENABLED
+	depends on MFD_SC16IS75X
+	help
+	  Enable driver for GPIO controller part of an SC16IS75x bridge.
+
+if GPIO_SC16IS75X
+
+config GPIO_SC16IS75X_INIT_PRIORITY
+	int "Init priority"
+	default 85
+	help
+	  Device driver initialization priority.
+
+config GPIO_SC16IS75X_INTERRUPTS
+	bool "Interrupt support"
+	default y
+	depends on MFD_SC16IS75X_INTERRUPTS
+	help
+	  Enable interrupt support on SC16IS75x GPIO controllers.
+
+endif # GPIO_SC16IS75X

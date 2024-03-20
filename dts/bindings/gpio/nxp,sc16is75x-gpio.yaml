@@ -1,0 +1,22 @@
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+description: GPIO controller part of an NXP SC16IS75x chip
+
+compatible: "nxp,sc16is75x-gpio"
+
+include: [gpio-controller.yaml]
+
+properties:
+  "#gpio-cells":
+    const: 2
+
+  ngpios:
+    required: true
+    const: 8
+
+gpio-cells:
+  - pin
+  - flags
+
+on-bus: nxp,sc16is75x
