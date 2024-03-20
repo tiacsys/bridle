@@ -1,0 +1,10 @@
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+description: UART controller part of an NXP SC16IS75x chip
+
+compatible: "nxp,sc16is75x-uart"
+
+include: [uart-controller.yaml]
+
+on-bus: nxp,sc16is75x

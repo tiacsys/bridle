@@ -1,0 +1,36 @@
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+menuconfig UART_SC16IS75X
+	bool "NXP SC16IS75x UART driver"
+	default y
+	depends on DT_HAS_NXP_SC16IS75X_UART_ENABLED
+	depends on MFD_SC16IS75X
+	help
+	  Enable driver for UART controller part of an SC16IS75x bridge.
+
+if UART_SC16IS75X
+
+config UART_SC16IS75X_LOOPBACK
+	bool "Enable internal loopback"
+	help
+	  Enable the NXP SC16IS75x local UART loopback mode (internal).
+
+	  In this mode the RTS and DTR signals are looped back to the
+	  CTS and DSR and the TX output is looped back to the RX input
+	  internally for all channels.
+
+config UART_SC16IS75X_INIT_PRIORITY
+	int "Init priority"
+	default 60
+	help
+	  Device driver initialization priority.
+
+config UART_SC16IS75X_INTERRUPT_DRIVEN
+	bool
+	default y if UART_INTERRUPT_DRIVEN
+	default n
+	depends on MFD_SC16IS75X_INTERRUPTS
+	depends on MFD_SC16IS75X_ASYNC
+
+endif # UART_SC16IS75X
