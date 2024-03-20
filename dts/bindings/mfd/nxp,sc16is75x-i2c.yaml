@@ -1,0 +1,8 @@
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+description: NXP SC16IS75x UART/GPIO chip via I2C bus
+
+compatible: "nxp,sc16is75x"
+
+include: ["i2c-device.yaml", "nxp,sc16is75x-common.yaml"]
