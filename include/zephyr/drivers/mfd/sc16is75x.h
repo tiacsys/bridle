@@ -371,6 +371,65 @@ int mfd_sc16is75x_read_register_signal(const struct device *dev,
 
 #endif /* CONFIG_MFD_SC16IS75X_ASYNC */
 
+#ifdef CONFIG_MFD_SC16IS75X_INTERRUPTS
+
+/**
+ * @brief Emitted event bits.
+ *
+ * These values should be used with the @ref event callback functions.
+ *
+ * - @c UART0 and @c UART1 means UART channel 0/1 (A/B).
+ * - @c IO0 and @c IO1 means GPIO, the underlying GPIO driver should
+ *   decide for itself whether it needs this channel separation or not.
+ */
+enum mfd_sc16is75x_event {
+	/* channel 0 (A) */
+	SC16IS75X_EVENT_UART0_RXLSE, /**< RX0 Line Status Error in LSR0 */
+	SC16IS75X_EVENT_UART0_RXTO,  /**< RX0 Break/Time-Out, TLR0 underrun */
+	SC16IS75X_EVENT_UART0_RHRI,  /**< RX0 FIFO (RHR0), RXLVL0 > TLR0 */
+	SC16IS75X_EVENT_UART0_THRI,  /**< TX0 FIFO (THR0), TXLVL0 < TLR0 */
+	SC16IS75X_EVENT_UART0_MSI,   /**< Modem Status in MSR0 */
+	SC16IS75X_EVENT_IO0_STATE,   /**< I/O Pin in IOSTATE0 */
+	SC16IS75X_EVENT_UART0_XOFF,  /**< Xoff char from XOFF0 seen */
+	SC16IS75X_EVENT_UART0_HWFL,  /**< RTS0 or CTS0 change seen */
+	/* channel 1 (B) */
+	SC16IS75X_EVENT_UART1_RXLSE, /**< RX1 Line Status Error in LSR1 */
+	SC16IS75X_EVENT_UART1_RXTO,  /**< RX1 Break/Time-Out, TLR1 underrun */
+	SC16IS75X_EVENT_UART1_RHRI,  /**< RX1 FIFO (RHR1), RXLVL1 > TLR1 */
+	SC16IS75X_EVENT_UART1_THRI,  /**< TX1 FIFO (THR1), TXLVL1 < TLR1 */
+	SC16IS75X_EVENT_UART1_MSI,   /**< Modem Status in MSR1 */
+	SC16IS75X_EVENT_IO1_STATE,   /**< I/O Pin in IOSTATE1 */
+	SC16IS75X_EVENT_UART1_XOFF,  /**< Xoff char from XOFF1 seen */
+	SC16IS75X_EVENT_UART1_HWFL,  /**< RTS1 or CTS1 change seen */
+	/* must be last entry */
+	SC16IS75X_EVENT_MAX
+};
+
+/**
+ * @brief Add an event callback
+ *
+ * @param dev An SC16IS75x device.
+ * @param callback The child callback to add.
+ * @retval 0 On success.
+ * @return Negative error code on failure.
+ */
+int mfd_sc16is75x_add_callback(const struct device *dev,
+			       struct gpio_callback *callback);
+
+/**
+ * @brief Remove an event callback
+ *
+ * @param dev An SC16IS75x device.
+ * @param callback The child callback to remove.
+ * @retval 0 On success.
+ * @return Negative error code on failure.
+ */
+int mfd_sc16is75x_remove_callback(const struct device *dev,
+				  struct gpio_callback *callback);
+
+
+#endif /* CONFIG_MFD_SC16IS75X_INTERRUPTS */
+
 /** @} */
 
 #ifdef __cplusplus

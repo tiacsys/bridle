@@ -12,6 +12,11 @@ properties:
     type: phandle-array
     description: Reset pin.
 
+  interrupt-gpios:
+    required: false
+    type: phandle-array
+    description: Interrupt pin.
+
   clock:
     required: true
     type: phandle

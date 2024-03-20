@@ -16,6 +16,7 @@ extern "C" {
 #include <zephyr/device.h>
 #include <zephyr/pm/device.h>
 #include <zephyr/drivers/gpio.h>
+#include <zephyr/drivers/mfd/sc16is75x.h>
 
 #if DT_ANY_INST_ON_BUS_STATUS_OKAY(spi)
 #include <zephyr/drivers/spi.h>
@@ -45,6 +46,10 @@ struct mfd_sc16is75x_config {
 	int (*bus_init)(const struct device *dev);
 	/** GPIO pin for chip reset */
 	struct gpio_dt_spec reset;
+#ifdef CONFIG_MFD_SC16IS75X_INTERRUPTS
+	/** GPIO pin for interrupt requests */
+	struct gpio_dt_spec interrupt;
+#endif /* CONFIG_MFD_SC16IS75X_INTERRUPTS */
 };
 
 /**
@@ -80,6 +85,20 @@ int mfd_sc16is75x_read_raw_signal(const struct device *dev,
 
 #endif /* CONFIG_MFD_SC16IS75X_ASYNC_WORKQUEUE */
 
+#ifdef CONFIG_MFD_SC16IS75X_INTERRUPTS
+
+/**
+ * @brief SC16IS75X MFD data for asynchronous interrupt handling
+ */
+struct sc16is75x_interrupt_data {
+	/** IIR value per channels */
+	uint8_t iir[SC16IS75X_UART_CHANNELS_MAX];
+	/** asynchronous notification signal per channel */
+	struct k_poll_signal signals[SC16IS75X_UART_CHANNELS_MAX];
+};
+
+#endif /* CONFIG_MFD_SC16IS75X_INTERRUPTS */
+
 /**
  * @brief SC16IS75X MFD data
  *
@@ -101,6 +120,19 @@ struct mfd_sc16is75x_data {
 	/** Stack area used by this driver instance's work queue. */
 	k_thread_stack_t *work_queue_stack;
 #endif /* CONFIG_MFD_SC16IS75X_ASYNC_WORKQUEUE */
+#ifdef CONFIG_MFD_SC16IS75X_INTERRUPTS
+	/** Lock for interrupt handling */
+	struct k_sem interrupt_lock;
+	/** GPIO port interrupt callback */
+	struct gpio_callback interrupt_cb;
+	/** GPIO port interrupt worker */
+	struct k_work interrupt_work_init;
+	struct k_work_delayable interrupt_work_final;
+	/** Struct for passing data between interrupt handling work items */
+	struct sc16is75x_interrupt_data interrupt_data;
+	/** Child callbacks for interrupt handling */
+	sys_slist_t callbacks;
+#endif /* CONFIG_MFD_SC16IS75X_INTERRUPTS */
 };
 
 int mfd_sc16is75x_spi_init(const struct device *dev);

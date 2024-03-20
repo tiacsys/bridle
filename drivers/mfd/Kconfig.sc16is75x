@@ -71,4 +71,11 @@ if MFD_SC16IS75X_ASYNC
 
 endif # MFD_SC16IS75X_ASYNC
 
+config MFD_SC16IS75X_INTERRUPTS
+	bool "Interrupt support"
+	default n
+	depends on MFD_SC16IS75X_ASYNC
+	help
+	  Enable interrupts on SC16IS75x bridges.
+
 endif # MFD_SC16IS75X
