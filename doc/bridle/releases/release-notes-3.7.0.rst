@@ -136,6 +136,7 @@ Supported snippets
 * USB Console Snippet (usb-console)
 * PWM Servomotor Preset Snippet (pwm-servo)
 * CAN timing adjustments (can-timing-adj)
+* Watchdog timing adjustments (wdt-timing-adj)
 
 Change log
 **********
@@ -193,7 +194,9 @@ Documentation
 
 :brd:`NOT YET, tbd.`
 
-1. Update all output messages in documentation to be in sync with the upcoming
+1. Export ``ZEPHYR_BASE`` as environment variable to make the Sphinx extension
+   ``autodoc`` for the ``pytest-twister-harness`` happy.
+2. Update all output messages in documentation to be in sync with the upcoming
    Bridle version v3.7.0, based on Zephyr v3.7 (samples and tests).
 
 Issue Related Items
@@ -201,6 +204,8 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`231` - [BUG] build Zephyr docset fails
+* :github:`229` - [BUG] magpie_f777ni: wdt_basic_api/drivers.watchdog.stm32wwdg FAILED
 * :github:`227` - [BUG] Unable to build any application referencing bridle version information
 * :github:`222` - [BUG] unsatisfied dependencies by static Kconfig elements
 * :github:`217` - [FCR] Convert board ``arduino_zero`` to board extension
