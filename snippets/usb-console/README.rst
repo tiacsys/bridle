@@ -110,7 +110,7 @@ specified as required.
      - | |zephyr,console|
        | |zephyr,shell-uart|
 
-   * - :code:`seeed_xiao_samd21`
+   * - :code:`xiao_samd21`
      - :code:`0x2886`
      - :code:`0x802F`
      - |Seeed Studio|_

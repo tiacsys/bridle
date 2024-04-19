@@ -1,12 +1,12 @@
 /*
- * Copyright (c) 2023 TiaC Systems
+ * Copyright (c) 2023-2024 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
 / {
-	model = "Seeed Studio XIAO SAMD21 (Seeeduino XIAO) @ USB-CDC/ACM Concole";
-	compatible = "seeed,seeed-xiao-samd21-usbcons",
-		     "seeed,seeed-xiao-samd21",
+	model = "Seeed XIAO SAMD21 (Seeeduino XIAO) @ USB-CDC/ACM Concole";
+	compatible = "seeed,xiao-samd21-usbcons",
+		     "seeed,xiao-samd21",
 		     "seeed,seeeduino-xiao-usbcons",
 		     "seeed,seeeduino-xiao",
 		     "atmel,samd21g18a",

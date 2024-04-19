@@ -4,91 +4,87 @@ append:
   EXTRA_DTC_OVERLAY_FILE: usb-console.overlay
 
 boards:
-  nucleo_f767zi:
+  nucleo_f767zi/stm32f767xx:
     append:
       EXTRA_CONF_FILE: boards/nucleo_f767zi.conf
       EXTRA_DTC_OVERLAY_FILE: boards/nucleo_f767zi.overlay
-  mimxrt1010_evk:
+  mimxrt1010_evk/mimxrt1011:
     append:
       EXTRA_CONF_FILE: boards/mimxrt1010_evk.conf
       EXTRA_DTC_OVERLAY_FILE: boards/mimxrt1010_evk.overlay
-  mimxrt1060_evk:
+  mimxrt1060_evk/mimxrt1062:
     append:
       EXTRA_CONF_FILE: boards/mimxrt1060_evk.conf
       EXTRA_DTC_OVERLAY_FILE: boards/mimxrt1060_evk.overlay
-  mimxrt1060_evkb:
+  mimxrt1060_evkb/mimxrt1062:
     append:
       EXTRA_CONF_FILE: boards/mimxrt1060_evk.conf
       EXTRA_DTC_OVERLAY_FILE: boards/mimxrt1060_evk.overlay
-  mimxrt1060_evk_hyperflash:
-    append:
-      EXTRA_CONF_FILE: boards/mimxrt1060_evk.conf
-      EXTRA_DTC_OVERLAY_FILE: boards/mimxrt1060_evk.overlay
-  arduino_zero:
+  arduino_zero/samd21g18a:
     append:
       EXTRA_CONF_FILE: boards/arduino_zero.conf
       EXTRA_DTC_OVERLAY_FILE: boards/arduino_zero.overlay
-  seeeduino_cm0:
+  seeeduino_cm0/samd21g18a:
     append:
       EXTRA_CONF_FILE: boards/seeeduino_cm0.conf
       EXTRA_DTC_OVERLAY_FILE: boards/seeeduino_cm0.overlay
-  seeeduino_lotus:
+  seeeduino_lotus/samd21g18a:
     append:
       EXTRA_CONF_FILE: boards/seeeduino_lotus.conf
       EXTRA_DTC_OVERLAY_FILE: boards/seeeduino_lotus.overlay
-  seeeduino_xiao:
+  seeeduino_xiao/samd21g18a:
     append:
       EXTRA_CONF_FILE: boards/seeeduino_xiao.conf
       EXTRA_DTC_OVERLAY_FILE: boards/seeeduino_xiao.overlay
-  seeed_xiao_samd21:
+  xiao_samd21/samd21g18a:
     append:
-      EXTRA_CONF_FILE: boards/seeed_xiao_samd21.conf
-      EXTRA_DTC_OVERLAY_FILE: boards/seeed_xiao_samd21.overlay
-  cytron_maker_nano_rp2040:
+      EXTRA_CONF_FILE: boards/xiao_samd21.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/xiao_samd21.overlay
+  cytron_maker_nano_rp2040/rp2040:
     append:
       EXTRA_CONF_FILE: boards/cytron_maker_nano_rp2040.conf
       EXTRA_DTC_OVERLAY_FILE: boards/cytron_maker_nano_rp2040.overlay
-  cytron_maker_pi_rp2040:
+  cytron_maker_pi_rp2040/rp2040:
     append:
       EXTRA_CONF_FILE: boards/cytron_maker_pi_rp2040.conf
       EXTRA_DTC_OVERLAY_FILE: boards/cytron_maker_pi_rp2040.overlay
-  rpi_pico:
+  rpi_pico/rp2040:
     append:
       EXTRA_CONF_FILE: boards/rpi_pico.conf
       EXTRA_DTC_OVERLAY_FILE: boards/rpi_pico.overlay
-  rpi_pico_w:
+  rpi_pico/rp2040/w:
     append:
       EXTRA_CONF_FILE: boards/rpi_pico_w.conf
       EXTRA_DTC_OVERLAY_FILE: boards/rpi_pico_w.overlay
-  waveshare_rp2040_one:
+  waveshare_rp2040_one/rp2040:
     append:
       EXTRA_CONF_FILE: boards/waveshare_rp2040_one.conf
       EXTRA_DTC_OVERLAY_FILE: boards/waveshare_rp2040_one.overlay
-  waveshare_rp2040_zero:
+  waveshare_rp2040_zero/rp2040:
     append:
       EXTRA_CONF_FILE: boards/waveshare_rp2040_zero.conf
       EXTRA_DTC_OVERLAY_FILE: boards/waveshare_rp2040_zero.overlay
-  waveshare_rp2040_matrix:
+  waveshare_rp2040_matrix/rp2040:
     append:
       EXTRA_CONF_FILE: boards/waveshare_rp2040_matrix.conf
       EXTRA_DTC_OVERLAY_FILE: boards/waveshare_rp2040_matrix.overlay
-  waveshare_rp2040_tiny:
+  waveshare_rp2040_tiny/rp2040:
     append:
       EXTRA_CONF_FILE: boards/waveshare_rp2040_tiny.conf
       EXTRA_DTC_OVERLAY_FILE: boards/waveshare_rp2040_tiny.overlay
-  waveshare_rp2040_eth:
+  waveshare_rp2040_eth/rp2040:
     append:
       EXTRA_CONF_FILE: boards/waveshare_rp2040_eth.conf
       EXTRA_DTC_OVERLAY_FILE: boards/waveshare_rp2040_eth.overlay
-  waveshare_rp2040_lcd_0_96:
+  waveshare_rp2040_lcd_0_96/rp2040:
     append:
       EXTRA_CONF_FILE: boards/waveshare_rp2040_lcd_0_96.conf
       EXTRA_DTC_OVERLAY_FILE: boards/waveshare_rp2040_lcd_0_96.overlay
-  waveshare_rp2040_plus:
+  waveshare_rp2040_plus/rp2040:
     append:
       EXTRA_CONF_FILE: boards/waveshare_rp2040_plus.conf
       EXTRA_DTC_OVERLAY_FILE: boards/waveshare_rp2040_plus.overlay
-  waveshare_rp2040_geek:
+  waveshare_rp2040_geek/rp2040:
     append:
       EXTRA_CONF_FILE: boards/waveshare_rp2040_geek.conf
       EXTRA_DTC_OVERLAY_FILE: boards/waveshare_rp2040_geek.overlay
