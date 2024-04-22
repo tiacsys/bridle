@@ -1,0 +1,117 @@
+External pin mapping on the |Maker Nano RP2040| is identical to the original
+:ref:`zephyr:rpi_pico` board, but note that there are only analog channels
+A0 - A3 connected to an ADC and the analog channels A4 - A7 are simple
+digital signal lines. Also all IO voltage levels are limited to 3.3V only.
+
+.. list-table::
+   :align: center
+   :width: 100%
+   :widths: 66, 33
+
+   * - .. rubric:: Pin Mapping
+     - .. rubric:: Pinout
+
+   * - :on-edge(1-30):
+          :hwftlbl-pio:`10`
+          :hwftlbl-pwm:`10`
+          :hwftlbl-adc:`2`
+          :hwftlbl-i2c:`2`
+          :hwftlbl-spi:`1`
+          :hwftlbl-uart:`1`
+
+       :on-board:
+          :hwftlbl-btn:`1 RST`
+          :hwftlbl-btn:`1 BOOT`
+          :hwftlbl-btn:`1 USER`
+          :hwftlbl-led:`13 BLUE`
+          :hwftlbl-led:`2 RGB`
+          :hwftlbl-spk:`1 PIEZO`
+
+       .. rubric:: Default Zephyr Peripheral Mapping (Arduino Nano R3)
+
+       |nbsp|
+
+       .. rst-class:: rst-columns edge-pinout
+
+       - | :rpi-pico-pin:`1` :rpi-pico-uart-dfl:`UART0_TX` : GP0 (PWM0)
+       - | :rpi-pico-pin:`2` :rpi-pico-uart-dfl:`UART0_RX` : GP1 (PWM1)
+       - | :rpi-pico-pin:`3` :rpi-pico-sys:`RUN` (RESET)
+       - | :rpi-pico-pin:`4` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`5` PIO/PWM : :rpi-pico-pio:`GP2` :rpi-pico-pwm:`PWM2`
+       - | :rpi-pico-pin:`6` PIO/PWM : :rpi-pico-pio:`GP3` :rpi-pico-pwm:`PWM3`
+       - | :rpi-pico-pin:`7` PIO/PWM : :rpi-pico-pio:`GP4` :rpi-pico-pwm:`PWM4`
+       - | :rpi-pico-pin:`8` PIO/PWM : :rpi-pico-pio:`GP5` :rpi-pico-pwm:`PWM5`
+       - | :rpi-pico-pin:`9` PIO/PWM : :rpi-pico-pio:`GP6` :rpi-pico-pwm:`PWM6`
+       - | :rpi-pico-pin:`10` PIO/PWM : :rpi-pico-pio:`GP7` :rpi-pico-pwm:`PWM7`
+       - | :rpi-pico-pin:`11` PIO/PWM : :rpi-pico-pio:`GP8` :rpi-pico-pwm:`PWM8`
+       - | :rpi-pico-pin:`12` PIO/PWM : :rpi-pico-pio:`GP9` :rpi-pico-pwm:`PWM9`
+       - | :rpi-pico-pin:`13` :rpi-pico-spi-dfl:`SPI0_CSN` : GP17 (PWM1)
+       - | :rpi-pico-pin:`14` :rpi-pico-spi-dfl:`SPI0_TX` : GP19 (PWM3)
+       - | :rpi-pico-pin:`15` :rpi-pico-spi-dfl:`SPI0_RX` : GP16 (PWM0)
+       - | :rpi-pico-pin:`16` :rpi-pico-spi-dfl:`SPI0_SCK` : GP18 (PWM2)
+       - | :rpi-pico-pin:`17` :rpi-pico-vdd:`3V3(OUT)`
+       - | :rpi-pico-pin:`18`
+       - | :rpi-pico-pin:`19` :rpi-pico-i2c-dfl:`I2C1_SDA` : GP26 (PWM10)
+       - | :rpi-pico-pin:`20` :rpi-pico-i2c-dfl:`I2C1_SCL` : GP27 (PWM11)
+       - | :rpi-pico-pin:`21` :rpi-pico-adc:`ADC_CH2` : GP28 (PWM12)
+       - | :rpi-pico-pin:`22` :rpi-pico-adc:`ADC_CH3` : GP29 (PWM13)
+       - | :rpi-pico-pin:`23` :rpi-pico-i2c-dfl:`I2C0_SDA` : GP12 (PWM12)
+       - | :rpi-pico-pin:`24` :rpi-pico-i2c-dfl:`I2C0_SCL` : GP13 (PWM13)
+       - | :rpi-pico-pin:`25` PIO/PWM : :rpi-pico-pio:`GP14` :rpi-pico-pwm:`PWM14`
+       - | :rpi-pico-pin:`26` PIO/PWM : :rpi-pico-pio:`GP15` :rpi-pico-pwm:`PWM15`
+       - | :rpi-pico-pin:`27` :rpi-pico-vdd:`5V(OUT)`
+       - | :rpi-pico-pin:`28` :rpi-pico-sys:`RUN` (RESET)
+       - | :rpi-pico-pin:`29` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`30` :rpi-pico-vdd:`VBUS/VSYS`
+
+       .. container:: twocol
+
+          .. container:: leftside
+
+             .. rubric:: Default Zephyr Peripheral Mapping (Maker Port 0)
+             .. rst-class:: rst-columns edge-pinout
+
+             - | :rpi-pico-pin:`1` :rpi-pico-uart-dfl:`UART0_RX` : GP1 (PWM1)
+             - | :rpi-pico-pin:`2` :rpi-pico-uart-dfl:`UART0_TX` : GP0 (PWM0)
+             - | :rpi-pico-pin:`3` :rpi-pico-vdd:`3V3(OUT)`
+             - | :rpi-pico-pin:`4` :rpi-pico-gnd:`GND`
+
+          .. container:: rightside
+
+             .. rubric:: Default Zephyr Peripheral Mapping (Maker Port 1)
+             .. rst-class:: rst-columns edge-pinout
+
+             - | :rpi-pico-pin:`1` :rpi-pico-i2c-dfl:`I2C1_SCL` : GP27 (PWM11)
+             - | :rpi-pico-pin:`2` :rpi-pico-i2c-dfl:`I2C1_SDA` : GP26 (PWM10)
+             - | :rpi-pico-pin:`3` :rpi-pico-vdd:`3V3(OUT)`
+             - | :rpi-pico-pin:`4` :rpi-pico-gnd:`GND`
+
+       |nbsp|
+
+       .. rubric:: Default Zephyr On-Board Mapping
+
+       |nbsp|
+
+       .. rst-class:: rst-columns edge-pinout
+
+       - | :rpi-pico-pin-nc:`nc` :hwftlbl-led:`BLUE` : :rpi-pico-pio:`GP9` :rpi-pico-pwm:`PWM9`
+       - | :rpi-pico-pin-nc:`nc` :rpi-pico-sys:`n.c.` : GP10 (PWM10)
+       - | :rpi-pico-pin-nc:`nc` :hwftlbl-led:`RGB` :rpi-pico-spi:`SPI1_TX` : GP11
+       - | :rpi-pico-pin-nc:`nc` :hwftlbl-btn:`USER` : :rpi-pico-pio:`GP20` (PWM4)
+       - | :rpi-pico-pin-nc:`nc` :rpi-pico-sys:`n.c.` : GP21 (PWM5)
+       - | :rpi-pico-pin-nc:`nc` :hwftlbl-spk:`PIEZO` : :rpi-pico-pio:`GP22` :rpi-pico-pwm:`PWM6`
+       - | :rpi-pico-pin-nc:`nc` :rpi-pico-sys:`n.c.` : GP23 (PWM7)
+       - | :rpi-pico-pin-nc:`nc` :rpi-pico-sys:`n.c.` : GP24 (PWM8)
+       - | :rpi-pico-pin-nc:`nc` :rpi-pico-sys:`n.c.` : GP25 (PWM9)
+       - | :rpi-pico-pin-nc:`nc` :rpi-pico-sys:`3V3` : :rpi-pico-adc:`ADC_VREF`
+
+       .. rubric:: Devicetree compatible
+
+       - :dtcompatible:`arduino-nano-header-r3`
+       - :dtcompatible:`seeed,grove-laced-if`
+       - :dtcompatible:`seeed,grove-connector`
+
+     - .. image:: maker-nano-rp2040/pinouts.jpg
+          :align: center
+          :width: 100%
+          :alt: Maker Nano RP2040 edge pinout

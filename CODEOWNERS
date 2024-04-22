@@ -35,6 +35,7 @@
 /soc/st/stm32/                            @rexut
 /soc/st/stm32/stm32f7x/                   @rexut
 /boards/cytron/                           @rexut
+/boards/cytron/maker_rp2040/              @rexut
 /boards/extensions/                       @rexut
 /boards/extensions/mimxrt1010_evk/        @rexut
 /boards/extensions/mimxrt1060_evk/        @rexut

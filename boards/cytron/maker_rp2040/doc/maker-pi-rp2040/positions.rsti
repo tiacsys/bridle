@@ -1,0 +1,97 @@
+.. list-table::
+   :align: center
+   :width: 66%
+   :header-rows: 1
+
+   * - .. image:: maker-pi-rp2040/positions.jpg
+          :align: center
+          :width: 750
+          :alt: Maker Pi RP2040 details
+
+   * - .. container:: twocol
+
+          .. container:: leftside
+
+             1. | :strong:`USB Type-B connector`
+                | Supports USB1.1 hosts and slave devices
+             #. :strong:`RESET button`
+             #. | :strong:`BOOT button`
+                | press it when resetting to enter download mode
+             #. | :strong:`Grove Port 1 - 7`
+                | supports I2C, ADC0, ADC1, ADC2, GPIO/PWM
+             #. | :strong:`WS2812B`
+                | RGB LEDs
+             #. :strong:`USER buttons`
+             #. | :strong:`Piezo Buzzer`
+                | 3.6Vo-p (2.5~4.5V) @ 2.730㎑ with 80~87㏈
+             #. | :strong:`LED monochrome`
+                | user LEDs for diagnostic (not power indicator)
+             #. :strong:`RP2040`
+             #. | :strong:`W25Q16JV`
+                | 2㎆ NOR-Flash
+             #. | :strong:`On/Off switch`
+                | (Master) Motor Voltage on/off
+
+          .. container:: rightside
+
+             12. | :strong:`Battery header`
+                 | MX1.25 header, for 3.7V Lithium battery, allows
+                   recharging the battery and powering the board at
+                   the same time
+             #.  | :strong:`Motor Voltage terminal`
+                 | Screw terminal block, for 3.6~6V
+             #.  | :strong:`CT2105`
+                 | Lithium battery, single-cell, high-precision charger
+                   with overcharge voltage and current protection
+             #.  | :strong:`MCP7381T-2ACI`
+                 | Lithium battery, single-cell, 500㎃ @ 4.20V charge controller
+             #.  | :strong:`MT3608` (alternative :strong:`SY7208`)
+                 | 2A DC-DC buck-boost, step-up converter, 1~1.2㎒
+             #.  | :strong:`MX1515` (alternative :strong:`MX1508` or :strong:`MX1208`)
+                 | 1.5A @ 2~10V dual-channel brushed DC motor drive (H-bridge)
+                   with 2.5A peak and able to use 2-6 AA/AAA dry batteries or
+                   2-6 NiMH/NiCd rechargeable batteries on toy motors
+             #.  :strong:`DC motor terminals`
+             #.  :strong:`Servo motors terminals`
+             #.  | :strong:`DEBUG points`
+                 | Serial Wire Debug (SWD)
+
+.. rubric:: Data Sheets
+.. rst-class:: rst-columns
+
+- .. rubric:: `RP2040 SoC`_
+- `RP2040 Datasheet`_
+- `Hardware design with RP2040`_
+- .. rubric:: W25Q16JV_
+- `W25Q16JV Datasheet`_
+- .. rubric:: WS2812B_
+- `WS2812B Datasheet V5`_
+- `WS2812B Datasheet V2`_
+- `WS2812B Datasheet V1`_
+- `Understanding the WS2812`_
+- `WS2812B with RP2040 PIO & DMA`_
+- .. rubric:: CT2105_/MCP73831_
+- `CT2105 Datasheet`_
+- `MCP73831/2 Datasheet`_
+- .. rubric:: MT3608_/SY7208_
+- `MT3608 Datasheet V1`_
+- `MT3608 Datasheet R1 (2011)`_
+- `SY7208 Datasheet R0.95B`_
+- `SY7208/SY7208B Datasheet R0.6`_
+- .. rubric:: MX1515_/MX1508_/MX1208_
+- `MX1515 Datasheet`_
+- `TC1508A Datasheet`_
+- `TC1508S Datasheet`_
+- `MX1508 vs L9110S vs TB6612 vs L293D Motordriver board`_
+- `MX1508 Motor driver`_
+- `MX1208 Datasheet`_
+- .. rubric:: `CMT-9504`_/`CMT-7525`_
+- `CMT-9504 Datasheet`_
+- `CMT-7525 Datasheet`_
+- `Piezoelectric Speaker`_
+- `Electromagnetic Acoustic Transducer <EMAT_>`_
+- .. rubric:: `Grove System`_
+- `Grove Digital Layout`_
+- `Grove Analog Layout`_
+- `Grove UART Layout`_
+- `Grove I2C Layout`_

@@ -1,0 +1,182 @@
+/*
+ * Copyright (c) 2023-2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/pinctrl/rpi-pico-rp2040-pinctrl.h>
+
+&pinctrl {
+	clocks_default: clocks_default {
+		/* no external clocks */
+	};
+
+	uart0_default: uart0_default {
+		group0_uart {
+			pinmux = <UART0_TX_P0>;		/* GP0: UART0_TX */
+		};
+		group1_uart {
+			pinmux = <UART0_RX_P1>;		/* GP1: UART0_RX */
+			input-enable;
+		};
+	};
+
+	uart0_grove: uart0_grove {
+		group16_uart {
+			pinmux = <UART0_TX_P16>;	/* GP16: UART0_TX */
+		};
+		group17_uart {
+			pinmux = <UART0_RX_P17>;	/* GP17: UART0_RX */
+			input-enable;
+		};
+	};
+
+	uart1_grove: uart1_grove {
+		group4_uart {
+			pinmux = <UART1_TX_P4>;		/* GP4: UART1_TX */
+		};
+		group5_uart {
+			pinmux = <UART1_RX_P5>;		/* GP5: UART1_RX */
+			input-enable;
+		};
+	};
+
+	spi0_makernano: spi0_makernano {
+		group171819_spi {
+			pinmux = <SPI0_CSN_P17>,	/* GP17: SPI0_CSn */
+				 <SPI0_SCK_P18>,	/* GP18: SPI0_SCK */
+				 <SPI0_TX_P19>;		/* GP19: SPI0_TX */
+		};
+		group16_spi {
+			pinmux = <SPI0_RX_P16>;		/* GP16: SPI0_RX */
+			input-enable;
+		};
+	};
+
+	spi0_makerpi: spi0_makerpi {
+		group235_spi {
+			pinmux = <SPI0_CSN_P5>,		/* GP5: SPI0_CSn */
+				 <SPI0_SCK_P2>,		/* GP2: SPI0_SCK */
+				 <SPI0_TX_P3>;		/* GP3: SPI0_TX */
+		};
+		group4_spi {
+			pinmux = <SPI0_RX_P4>;		/* GP4: SPI0_RX */
+			input-enable;
+		};
+	};
+
+	i2c0_makernano: i2c0_makernano {
+		group1213_i2c {
+			pinmux = <I2C0_SDA_P12>,	/* GP12: I2C0_SDA */
+				 <I2C0_SCL_P13>;	/* GP13: I2C0_SCL */
+			bias-pull-up;
+			input-enable;
+			input-schmitt-enable;
+		};
+	};
+
+	i2c0_makerpi: i2c0_makerpi {
+		group1617_i2c {
+			pinmux = <I2C0_SDA_P16>,	/* GP16: I2C0_SDA */
+				 <I2C0_SCL_P17>;	/* GP17: I2C0_SCL */
+			bias-pull-up;
+			input-enable;
+			input-schmitt-enable;
+		};
+	};
+
+	i2c0_makerpi_grove_3: i2c1_makerpi_grove_3 {
+		group45_i2c {
+			pinmux = <I2C0_SDA_P4>,		/* GP4: I2C0_SDA */
+				 <I2C0_SCL_P5>;		/* GP5: I2C0_SCL */
+			bias-pull-up;
+			input-enable;
+			input-schmitt-enable;
+		};
+	};
+
+	i2c1_makerpi_grove_2: i2c1_makerpi_grove_2 {
+		group23_i2c {
+			pinmux = <I2C1_SDA_P2>,		/* GP2: I2C1_SDA */
+				 <I2C1_SCL_P3>;		/* GP3: I2C1_SCL */
+			bias-pull-up;
+			input-enable;
+			input-schmitt-enable;
+		};
+	};
+
+	i2c1_grove: i2c1_grove {
+		group2627_i2c {
+			pinmux = <I2C1_SDA_P26>,	/* GP26: I2C1_SDA */
+				 <I2C1_SCL_P27>;	/* GP27: I2C1_SCL */
+			bias-pull-up;
+			input-enable;
+			input-schmitt-enable;
+		};
+	};
+
+	spi1_ws2812_makernano: spi1_ws2812_makernano {
+		group11_spi {
+			pinmux = <SPI1_TX_P11>;		/* GP11: SPI0_TX */
+		};
+	};
+
+	pio0_ws2812_makernano: pio0_ws2812_makernano {
+		group11_pio {
+			pinmux = <PIO0_P11>;		/* GP11: PIO0 */
+		};
+	};
+
+	pio0_ws2812_makerpi: pio0_ws2812_makerpi {
+		group18_pio {
+			pinmux = <PIO0_P18>;		/* GP18: PIO0 */
+		};
+	};
+
+	pwm_makernano: pwm_makernano {
+		group7_led {
+			pinmux = <PWM_4B_P9>;		/* GP9: PWM4CHB (9) */
+		};
+		group22_buzzer {
+			pinmux = <PWM_3A_P22>;		/* GP22: PWM3CHA (6) */
+		};
+	};
+
+	pwm_makerpi: pwm_makerpi {
+		group7_led {
+			pinmux = <PWM_3B_P7>;		/* GP7: PWM3CHB (7) */
+		};
+		group891011_dc_motors {
+			pinmux = <PWM_4A_P8>,		/* GP8: PWM4CHA (8) */
+				 <PWM_4B_P9>,		/* GP9: PWM4CHB (9) */
+				 <PWM_5A_P10>,		/* GP10: PWM5CHA (10) */
+				 <PWM_5B_P11>;		/* GP11: PWM5CHB (11) */
+		};
+		group12131415_servo_motors {
+			pinmux = <PWM_6A_P12>,		/* GP12: PWM6CHA (12) */
+				 <PWM_6B_P13>,		/* GP13: PWM6CHB (13) */
+				 <PWM_7A_P14>,		/* GP14: PWM7CHA (14) */
+				 <PWM_7B_P15>;		/* GP15: PWM7CHB (15) */
+		};
+		group22_buzzer {
+			pinmux = <PWM_3A_P22>;		/* GP22: PWM3CHA (6) */
+		};
+	};
+
+	adc_makernano: adc_makernano {
+		group23_adc {
+			pinmux = <ADC_CH2_P28>,		/* GP28: ADC_CH2 */
+				 <ADC_CH3_P29>;		/* GP29: ADC_CH3 */
+			input-enable;
+		};
+	};
+
+	adc_makerpi: adc_makerpi {
+		group0123_adc {
+			pinmux = <ADC_CH0_P26>,		/* GP26: ADC_CH0 */
+				 <ADC_CH1_P27>,		/* GP27: ADC_CH1 */
+				 <ADC_CH2_P28>,		/* GP28: ADC_CH2 */
+				 <ADC_CH3_P29>;		/* GP29: ADC_CH3 */
+			input-enable;
+		};
+	};
+};

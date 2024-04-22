@@ -1,0 +1,28 @@
+identifier: cytron_maker_pi_rp2040
+name: Cytron Maker Pi RP2040
+type: mcu
+arch: arm
+flash: 2048
+ram: 264
+toolchain:
+  - zephyr
+  - gnuarmemb
+  - xtools
+supported:
+  - grove_gpio
+  - grove_pwm
+  - grove_i2c
+  - grove_serial
+  - uart
+  - gpio
+  - adc
+  - i2c
+  - spi
+  - hwinfo
+  - watchdog
+  - pwm
+  - flash
+  - dma
+  - counter
+  - clock
+  - usb_device

@@ -1,0 +1,9 @@
+boards:
+  - name: cytron_maker_nano_rp2040
+    vendor: cytron
+    socs:
+      - name: rp2040
+  - name: cytron_maker_pi_rp2040
+    vendor: cytron
+    socs:
+      - name: rp2040

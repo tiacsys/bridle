@@ -1,0 +1,122 @@
+/*
+ * Copyright (c) 2023-2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <bridle/dt-bindings/seeed_grove_pwms_defaults.h>
+
+&pinctrl {
+	pwm_grove: pwm_makerpi {};
+};
+
+#include "grove_d1_connector.dtsi"
+#include "grove_d3_connector.dtsi"
+#include "grove_d5_connector.dtsi"
+#include "grove_d17_connector.dtsi"
+#include "grove_d26_connector.dtsi"
+#include "grove_d27_connector.dtsi"
+#include "grove_d28_connector.dtsi"
+
+grove_uart_header: &grove_d1_header {};
+grove_i2c_header: &grove_d17_header {};
+
+/* tweaked labels: Pin 0 isn't the primary data line! */
+grove_d0_header: &grove_d1_header {};	/* D0  is on D1  header pin 1 */
+grove_d2_header: &grove_d3_header {};	/* D2  is on D3  header pin 1 */
+grove_d4_header: &grove_d5_header {};	/* D4  is on D5  header pin 1 */
+grove_d6_header: &grove_d26_header {};	/* D6  is on D26 header pin 1 */
+grove_d7_header: &grove_d28_header {};	/* D7  is on D28 header pin 1 */
+grove_d16_header: &grove_d17_header {};	/* D16 is on D17 header pin 1 */
+
+/ {
+	grove_laced_if_pi: grove-laced-if-pi {
+		compatible = "seeed,grove-laced-if";
+
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map =
+			<0 0 &grove_d1_header 1 0>,	/* GP0: UART0-TX as GPIO */
+			<1 0 &grove_d1_header 0 0>,	/* GP1: UART0-RX as GPIO */
+			<2 0 &grove_d3_header 1 0>,	/* GP2: SPI0_SCK as GPIO */
+			<3 0 &grove_d3_header 0 0>,	/* GP3: SPI0_TX as GPIO */
+			<4 0 &grove_d5_header 1 0>,	/* GP4: SPI0_RX as GPIO */
+			<5 0 &grove_d5_header 0 0>,	/* GP5: SPI0_CSn as GPIO */
+			<6 0 &grove_d26_header 1 0>,	/* GP6: as GPIO */
+			<7 0 &grove_d28_header 1 0>,	/* GP7: as GPIO */
+			/*  8 - GP8:  not wired */
+			/*  9 - GP9:  not wired */
+			/* 10 - GP10: not wired */
+			/* 11 - GP11: not wired */
+			/* 12 - GP12: not wired */
+			/* 13 - GP13: not wired */
+			/* 14 - GP14: not wired */
+			/* 15 - GP15: not wired */
+			<16 0 &grove_d17_header 1 0>,	/* GP16: I2C0-SDA as GPIO */
+			<17 0 &grove_d17_header 0 0>,	/* GP17: I2C0-SCL as GPIO */
+			/* 18 - GP18: not wired */
+			/* 19 - GP19: not wired */
+			/* 20 - GP20: not wired */
+			/* 21 - GP21: not wired */
+			/* 22 - GP22: not wired */
+			/* 23 - GP23: not wired */
+			/* 24 - GP24: not wired */
+			/* 25 - GP25: not wired */
+			<26 0 &grove_d26_header 0 0>,	/* GP26: A0 / I2C1-SDA as GPIO */
+			<27 0 &grove_d27_header 0 0>,	/* GP27: A1 / I2C1-SCL as GPIO */
+			<28 0 &grove_d28_header 0 0>;	/* GP28: A2 as GPIO */
+			/* 29 - GP29: A3 as GPIO not wired */
+
+		#pwm-cells = <3>;
+		pwm-map-mask = <0xffffffff 0 0xffffffc0>;
+		pwm-map-pass-thru = <0 0xffffffff 0x3f>;
+		pwm-map =
+			<0 0 0 &pwm 0 0 0>,	/* GP0: PWM0CHA (0) */
+			<1 0 0 &pwm 1 0 0>,	/* GP1: PWM0CHB (1) */
+			<2 0 0 &pwm 2 0 0>,	/* GP2: PWM1CHA (2) */
+			<3 0 0 &pwm 3 0 0>,	/* GP3: PWM1CHB (3) */
+			<4 0 0 &pwm 4 0 0>,	/* GP4: PWM2CHA (4) */
+			<5 0 0 &pwm 5 0 0>,	/* GP5: PWM2CHB (5) */
+			<6 0 0 &pwm 6 0 0>,	/* GP6: PWM3CHA (6) */
+			<7 0 0 &pwm 7 0 0>,	/* GP7: PWM3CHB (7) */
+			/*  8 - GP8:  PWM4CHA (8)  not wired */
+			/*  9 - GP9:  PWM4CHB (9)  not wired */
+			/* 10 - GP10: PWM5CHA (10) not wired */
+			/* 11 - GP11: PWM5CHB (11) not wired */
+			/* 12 - GP12: PWM6CHA (12) not wired */
+			/* 13 - GP13: PWM6CHB (13) not wired */
+			/* 14 - GP14: PWM7CHA (14) not wired */
+			/* 15 - GP15: PWM7CHB (15) not wired */
+			<16 0 0 &pwm 0 0 0>,	/* GP16: PWM0CHA (0) */
+			<17 0 0 &pwm 1 0 0>,	/* GP17: PWM0CHB (1) */
+			/* 18 - GP18: PWM1CHA (2)  not wired */
+			/* 19 - GP19: PWM1CHB (3)  not wired */
+			/* 20 - GP20: PWM2CHA (4)  not wired */
+			/* 21 - GP21: PWM2CHB (5)  not wired */
+			/* 22 - GP22: PWM3CHA (6)  not wired */
+			/* 23 - GP23: PWM3CHB (7)  not wired */
+			/* 24 - GP24: PWM4CHA (8)  not wired */
+			/* 25 - GP25: PWM4CHB (9)  not wired */
+			<26 0 0 &pwm 10 0 0>,	/* GP26: A0 as PWM5CHA (10) */
+			<27 0 0 &pwm 11 0 0>,	/* GP27: A1 as PWM5CHB (11) */
+			<28 0 0 &pwm 12 0 0>;	/* GP28: A2 as PWM6CHA (12) */
+			/* 29 - GP29: A3 as PWM6CHB (13) not wired */
+	};
+};
+
+grove_gpios: &grove_laced_if_pi {};
+grove_pwms: &grove_laced_if_pi {};
+
+grove_pwm_d0: &pwm {};
+grove_pwm_d1: &pwm {};
+grove_pwm_d2: &pwm {};
+grove_pwm_d3: &pwm {};
+grove_pwm_d4: &pwm {};
+grove_pwm_d5: &pwm {};
+grove_pwm_d6: &pwm {};
+grove_pwm_d7: &pwm {};
+grove_pwm_d16: &pwm {};
+grove_pwm_d17: &pwm {};
+grove_pwm_d26: &pwm {};
+grove_pwm_d27: &pwm {};
+grove_pwm_d28: &pwm {};
