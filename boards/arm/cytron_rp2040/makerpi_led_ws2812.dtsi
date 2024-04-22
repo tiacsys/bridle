@@ -22,6 +22,9 @@
 
 		pinctrl-0 = <&pio0_ws2812_makerpi>;
 		pinctrl-names = "default";
+
+		/* HI: 0x3F0: 1111110000: 0.750 us high and 0.500 us low */
+		/* LO: 0x380: 1110000000: 0.375 us high and 0.875 us low */
 		bit-waveform = <3>, <3>, <4>;
 
 		led_strip: ws2812 {
@@ -32,9 +35,10 @@
 					 LED_COLOR_ID_GREEN
 					 LED_COLOR_ID_BLUE>;
 
+			/* PIO0:OUT @ GP18 and Tbit = 1.25 us / 10 */
+			gpios = <&gpio0 18 GPIO_ACTIVE_HIGH>;
 			frequency = <DT_FREQ_K(800)>;
 			reset-delay = <280>;
-			output-pin = <18>;	/* PIO0:OUT @ GP18 */
 		};
 	};
 };
