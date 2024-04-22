@@ -9,6 +9,7 @@
 #include "ili9488_rgb565.dtsi"
 
 #include <zephyr/dt-bindings/gpio/gpio.h>
+#include <zephyr/dt-bindings/mipi_dbi/mipi_dbi.h>
 
 &sdhc_spi {
 	status = "okay";
@@ -35,6 +36,7 @@
 
 &mipi_dbi {
 	status = "okay";
+	xfr-min-bits = <MIPI_DBI_SPI_XFR_16BIT>;  /* 16-bit shifted xfr */
 	reset-gpios = <&rpipico_header 15 GPIO_ACTIVE_LOW>;	/* GP15 */
 	dc-gpios = <&rpipico_header 8 GPIO_ACTIVE_HIGH>;	/* GP8 */
 	spi-dev = <&rpipico_spi_lcd>;
@@ -44,7 +46,6 @@
 
 &lcd_panel {
 	status = "okay";
-	spi2mcu-shift = <16>;	/* 16-bit shifted register data */
 };
 
 &lcd_backlight_en {
