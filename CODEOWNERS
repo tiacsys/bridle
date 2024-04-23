@@ -55,6 +55,7 @@
 /boards/tiac/                             @rexut
 /boards/tiac/magpie_f777ni/               @rexut
 /boards/waveshare/                        @rexut
+/boards/waveshare/rp2040/                 @rexut
 /doc/                                     @rexut
 /drivers/                                 @rexut
 /dts/arm/st/                              @rexut

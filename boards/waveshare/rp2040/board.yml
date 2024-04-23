@@ -1,0 +1,39 @@
+boards:
+  - name: waveshare_rp2040_one
+    vendor: waveshare
+    socs:
+      - name: rp2040
+  - name: waveshare_rp2040_zero
+    vendor: waveshare
+    socs:
+      - name: rp2040
+  - name: waveshare_rp2040_matrix
+    vendor: waveshare
+    socs:
+      - name: rp2040
+  - name: waveshare_rp2040_tiny
+    vendor: waveshare
+    socs:
+      - name: rp2040
+  - name: waveshare_rp2040_eth
+    vendor: waveshare
+    socs:
+      - name: rp2040
+  - name: waveshare_rp2040_lcd_0_96
+    vendor: waveshare
+    socs:
+      - name: rp2040
+  - name: waveshare_rp2040_plus
+    vendor: waveshare
+    socs:
+      - name: rp2040
+    revision:
+      format: "custom"
+      default: "4mb"
+      revisions:
+        - name: "4mb"
+        - name: "16mb"
+  - name: waveshare_rp2040_geek
+    vendor: waveshare
+    socs:
+      - name: rp2040

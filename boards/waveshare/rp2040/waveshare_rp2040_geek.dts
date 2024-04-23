@@ -1,0 +1,38 @@
+/*
+ * Copyright (c) 2023-2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/dts-v1/;
+
+/ {
+	model = "Waveshare RP2040-Geek @ UART Concole";
+	compatible = "waveshare,rp2040-geek", "waveshare,rp2040-geek-uartcons";
+
+	chosen {
+		zephyr,console = &uart1;
+		zephyr,shell-uart = &uart1;
+	};
+};
+
+#include "waveshare_rp2040-geek.dtsi"
+#include "waveshare_rp2040-4mb.dtsi"
+
+#include "rpigeek_lcd_backlight.dtsi"
+#include "rpigeek_lcd_st7789v.dtsi"
+#include "rpigeek_mmc_sdcard.dtsi"
+#include "rpigeek_connectors.dtsi"
+
+rpipico_serial: &uart1 {};
+rpipico_i2c1: &i2c1 {};
+rpipico_i2c0: &i2c0 {};
+rpipico_i2c: &rpipico_i2c0 {};
+rpipico_adc: &adc {};
+
+pico_serial: &rpipico_serial {};
+pico_i2c1: &rpipico_i2c1 {};
+pico_i2c0: &rpipico_i2c0 {};
+pico_i2c: &pico_i2c0 {};
+pico_adc: &rpipico_adc {};
+
+#include "waveshare_rp2040-geek-tweaks.dtsi"

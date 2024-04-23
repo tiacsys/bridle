@@ -1,0 +1,27 @@
+identifier: waveshare_rp2040_tiny
+name: Waveshare RP2040-Tiny
+type: mcu
+arch: arm
+flash: 2048
+ram: 264
+toolchain:
+  - zephyr
+  - gnuarmemb
+  - xtools
+supported:
+  - rp2040mini_serial
+  - rp2040mini_spi
+  - rp2040mini_i2c
+  - uart
+  - gpio
+  - adc
+  - i2c
+  - spi
+  - hwinfo
+  - watchdog
+  - pwm
+  - flash
+  - dma
+  - counter
+  - clock
+  - usb_device

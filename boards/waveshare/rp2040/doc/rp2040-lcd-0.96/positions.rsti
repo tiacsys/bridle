@@ -1,0 +1,58 @@
+.. list-table::
+   :align: center
+   :width: 66%
+   :header-rows: 1
+
+   * - .. image:: rp2040-lcd-0.96/positions.jpg
+          :align: center
+          :width: 500
+          :alt: Waveshare RP2040-LCD-0.96 details
+
+   * - .. container:: twocol
+
+          .. container:: leftside
+
+             1. | :strong:`USB Type-C connector`
+                | Supports USB1.1 hosts and slave devices
+             #. | :strong:`BOOT button`
+                | press it when resetting to enter download mode
+             #. :strong:`RESET button`
+             #. | :strong:`ST7735S`
+                | 0.96-inch 160×80 pixels 65K colorful IPS LCD
+             #. | :strong:`Battery header`
+                | MX1.25 header, for 3.7V Lithium battery, allows
+                  recharging the battery and powering the board at
+                  the same time
+
+          .. container:: rightside
+
+             6. | :strong:`TPS63000` (in old revisions :strong:`MP28164`)
+                | 1.8A DC-DC buck-boost converter, power switch
+             #. | :strong:`ETA6096`
+                | high efficiency Lithium battery recharge manager
+             #. :strong:`RP2040`
+             #. | :strong:`W25Q16JV`
+                | 2㎆ NOR-Flash
+             #. | :strong:`DEBUG points`
+                | Serial Wire Debug (SWD)
+             #. | :strong:`Pinout`
+                | compatible with Raspberry Pi Pico
+
+.. rubric:: Data Sheets
+.. rst-class:: rst-columns
+
+- .. rubric:: `RP2040 SoC`_
+- `RP2040 Datasheet`_
+- `Hardware design with RP2040`_
+- .. rubric:: W25Q16JV_
+- `W25Q16JV Datasheet`_
+- .. rubric:: ST7735S_
+- `ST7735S Datasheet V1.4 (2014/10)`_
+- `ST7735S Datasheet V1.1 (2011/11)`_
+- .. rubric:: TPS63000_
+- `TPS63000 Datasheet`_
+- .. rubric:: MP28164_
+- `MP28164 Datasheet`_
+- `MP28164 Reliability Report`_
+- .. rubric:: ETA6096_
+- `ETA6096 Datasheet`_

@@ -1,0 +1,67 @@
+The RP2040-Tiny_ is a :bbl:`mini sized` RP2040 development board.
+With a splitted board design, USB and keypad circuits can be separated
+and connected over a FPC cable and an adapter PCB in a flexible manner.
+The castellated module allows soldering direct to carrier boards.
+
+.. list-table::
+   :align: center
+   :width: 100%
+   :widths: 66, 33
+
+   * - .. rubric:: Features and Resources
+     - .. rubric:: Printed Circuit Board
+
+   * - :hwftlbl-vdd:`5V/300㎃`
+       :hwftlbl-vdd:`3.3V/500㎃`
+       :hwftlbl-vdd:`3.3V(OUT)`
+
+       :hwftlbl:`133㎒`
+       :hwftlbl:`2㎆`
+       :hwftlbl:`264㎅`
+       :hwftlbl-btn:`RST(FPC-8)`
+       :hwftlbl-led:`RGB`
+       :hwftlbl-con:`USB-C(FPC-8)`
+       :hwftlbl-dbg:`UF2`
+
+       :hwftlbl-pio:`20`
+       :hwftlbl-pwm:`16`
+       :hwftlbl-adc:`4`
+       :hwftlbl-i2c:`2`
+       :hwftlbl-spi:`2`
+       :hwftlbl-uart:`2`
+
+       .. rst-class:: rst-columns
+
+       - Dual core Arm Cortex-M0+ processor running up to 133㎒
+       - :bbk:`264㎅` on-chip SRAM
+       - :bbk:`2㎆` on-board QSPI flash with XIP capabilities
+       - USB 1.1 controller (host/device)
+       - Adapting USB-C port via :bbk:`adapter board`
+       - On-board :bbl:`FPC 8-pin connector` to adaptor board
+       - On-board :bbl:`RGB LED`
+       - On-board :bbl:`3.3V LDO regulator with 500㎃`
+       - Adapting :bbl:`RESET` button via :bbk:`adapter board`
+       - Adapting :bbl:`BOOT` button via :bbk:`adapter board`
+       - :bbl:`20 GPIO` pins via :bbk:`edge pinout`
+       - :bbk:`2 UART` peripherals
+       - :bbk:`2 I2C` controllers
+       - :bbk:`2 SPI` controllers
+       - :bbk:`16 PWM` channels
+       - :bbl:`4 ADC` analog inputs
+       - 8 Programmable I/O (PIO) state machines for custom peripherals
+       - 1 Watchdog timer peripheral
+       - 1 Temperature sensor on-chip
+
+       .. rubric:: Design Data
+       .. rst-class:: rst-columns
+
+       - `RP2040-Tiny V1.0 Schematic`_
+       - `RP2040-Tiny V1.1 Schematic`_
+       - `RP2040-Tiny V1.1 STEP 3D-Model`_
+       - `RP2040-Tiny Adapter V1.1 Schematic`_
+       - `RP2040-Tiny Adapter V1.1 STEP 3D-Model`_
+       - `RP2040-Zero WS2812 Test`_ in C/Pico-SDK and Python/Thonny IDE
+
+     - .. image:: rp2040-tiny/hardware.jpg
+          :align: center
+          :alt: Waveshare RP2040-Tiny

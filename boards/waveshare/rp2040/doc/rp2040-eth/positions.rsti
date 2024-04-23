@@ -1,0 +1,53 @@
+.. list-table::
+   :align: center
+   :width: 66%
+   :header-rows: 1
+
+   * - .. image:: rp2040-eth/positions.jpg
+          :align: center
+          :width: 500
+          :alt: Waveshare RP2040-ETH details
+
+   * - .. container:: twocol
+
+          .. container:: leftside
+
+             1. | :strong:`USB Type-C connector`
+                | Supports USB1.1 hosts and slave devices
+             #. | :strong:`BOOT button`
+                | press it when resetting to enter download mode
+             #. :strong:`RESET button`
+             #. :strong:`RP2040`
+             #. :strong:`RJ45 Ethernet port`
+
+          .. container:: rightside
+
+             6. | :strong:`ME6217C33`
+                | 800㎃ low dropout, low noise, ultra-fast LDO
+             #. | :strong:`W25Q32JV`
+                | 4㎆ NOR-Flash
+             #. | :strong:`CH9120`
+                | Ethernet serial port transmission IC
+             #. | :strong:`WS2812B`
+                | RGB LED
+
+.. rubric:: Data Sheets
+.. rst-class:: rst-columns
+
+- .. rubric:: `RP2040 SoC`_
+- `RP2040 Datasheet`_
+- `Hardware design with RP2040`_
+- .. rubric:: W25Q32JV_
+- `W25Q32JV Datasheet`_
+- .. rubric:: CH9120_
+- `CH9120 Datasheet`_
+- `CH9120 Evaluation Tools`_
+- `CH9120 Serial Instruction Set`_
+- .. rubric:: WS2812B_
+- `WS2812B Datasheet V5`_
+- `WS2812B Datasheet V2`_
+- `WS2812B Datasheet V1`_
+- `Understanding the WS2812`_
+- `WS2812B with RP2040 PIO & DMA`_
+- .. rubric:: ME6217C33_
+- `ME6217 Datasheet`_
