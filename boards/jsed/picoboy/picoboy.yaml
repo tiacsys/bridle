@@ -1,6 +1,5 @@
-vendor: jsed
 identifier: picoboy
-name: PicoBoy
+name: The PicoBoy Mini-Handheld
 type: mcu
 arch: arm
 flash: 2048

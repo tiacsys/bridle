@@ -16,12 +16,12 @@ Board Overview
 Hardware
 ========
 
-.. include:: /boards/arm/picoboy/doc/hardware.rsti
+.. include:: hardware.rsti
 
 Positions
 =========
 
-.. include:: /boards/arm/picoboy/doc/positions.rsti
+.. include:: positions.rsti
 
 Pinouts
 =======
@@ -34,7 +34,7 @@ for the PicoBoy on-board wiring is defined below. There are no edge
 connectors, headers or solder pads with additional signals routed to
 outside of the board.
 
-.. include:: /boards/arm/picoboy/doc/pinouts.rsti
+.. include:: pinouts.rsti
 
 Supported Features
 ******************
@@ -153,7 +153,7 @@ supports the following hardware features:
 Other hardware features are not currently supported by Zephyr. The default
 configuration can be found in the following Kconfig file:
 
-- :bridle_file:`boards/arm/picoboy/picoboy_defconfig`
+- :bridle_file:`boards/jsed/picoboy/picoboy_defconfig`
 
 Board Configurations
 ====================
@@ -375,7 +375,7 @@ Hello Shell on the USB-CDC/ACM Console
    :goals: flash
    :compact:
 
-.. include:: /boards/arm/picoboy/doc/helloshell.rsti
+.. include:: helloshell.rsti
 
 Input dump on the USB-CDC/ACM Console
 =====================================
@@ -427,7 +427,7 @@ Sounds from the speaker on the USB-CDC/ACM Console
 
 .. rubric:: Speaker Test
 
-.. image:: /boards/arm/picoboy/doc/img/speaker.jpg
+.. image:: img/speaker.jpg
    :align: right
    :alt: PicoBoy Speaker Test
 
@@ -498,7 +498,7 @@ The following samples work with the chosen display. That is:
 
 .. rubric:: LCD Orientation and Bit Order Test
 
-.. image:: /boards/arm/picoboy/doc/img/display.gif
+.. image:: img/display.gif
    :align: right
    :alt: PicoBoy Display Test
 

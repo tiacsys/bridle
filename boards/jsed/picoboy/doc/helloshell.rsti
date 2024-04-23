@@ -252,11 +252,11 @@
       .. parsed-literal::
          :class: highlight-console notranslate
 
-         :bgn:`uart:~$` **flash read flash-controller@18000000 17af0 40**
-         00017AF0: 70 69 63 6f 62 6f 79 00  48 65 6c 6c 6f 20 57 6f \|picoboy. Hello Wo\|
-         00017B00: 72 6c 64 21 20 49 27 6d  20 54 48 45 20 53 48 45 \|rld! I'm  THE SHE\|
-         00017B10: 4c 4c 20 66 72 6f 6d 20  25 73 0a 00 69 6c 6c 65 \|LL from  %s..ille\|
-         00017B20: 67 61 6c 20 6f 70 74 69  6f 6e 20 2d 2d 20 25 63 \|gal opti on -- %c\|
+         :bgn:`uart:~$` **flash read flash-controller@18000000 17cd0 40**
+         00017CD0: 70 69 63 6f 62 6f 79 00  48 65 6c 6c 6f 20 57 6f \|picoboy. Hello Wo\|
+         00017CE0: 72 6c 64 21 20 49 27 6d  20 54 48 45 20 53 48 45 \|rld! I'm  THE SHE\|
+         00017CF0: 4c 4c 20 66 72 6f 6d 20  25 73 0a 00 67 65 74 6f \|LL from  %s..geto\|
+         00017D00: 70 74 00 28 75 6e 73 69  67 6e 65 64 29 20 63 68 \|pt.(unsi gned) ch\|
 
          :bgn:`uart:~$` **flash read flash-controller@18000000 e0000 40**
          000E0000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
