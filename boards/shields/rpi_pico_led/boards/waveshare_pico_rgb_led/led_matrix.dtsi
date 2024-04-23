@@ -4,15 +4,15 @@
  */
 
 #include <freq.h>
-#include <zephyr/dt-bindings/gpio/gpio.h>
 #include <zephyr/dt-bindings/led/led.h>
 
 &rgb_led_pio {
 	rgb_led_pio_ws2812: rgb-led-pio-ws2812 {
 		compatible = "worldsemi,ws2812-rpi_pico-pio";
-
 		status = "disabled";
 
+		/* HI: 0x3F0: 1111110000: 0.750 us high and 0.500 us low */
+		/* LO: 0x380: 1110000000: 0.375 us high and 0.875 us low */
 		bit-waveform = <3>, <3>, <4>;
 
 		rgb_led_strip: rgb-led-strip {
@@ -23,6 +23,7 @@
 					 LED_COLOR_ID_GREEN
 					 LED_COLOR_ID_BLUE>;
 
+			/* Tbit = 1.25 us / 10 */
 			frequency = <DT_FREQ_K(800)>;
 			reset-delay = <280>;
 		};

@@ -7,8 +7,10 @@ rgb_led_pio: &rpipico_pio_leds {};
 
 #include "led_matrix.dtsi"
 
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
 &rgb_led_strip {
-	output-pin = <6>;				/* PIO0:OUT @ GP6 */
+	gpios = <&gpio0 6 GPIO_ACTIVE_HIGH>;		/* PIO0:OUT @ GP6 */
 	status = "okay";
 };
 
