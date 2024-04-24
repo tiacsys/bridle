@@ -1,0 +1,5 @@
+board:
+  name: seeeduino_lotus
+  vendor: seeed
+  socs:
+    - name: samd21g18a

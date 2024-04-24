@@ -1,4 +1,4 @@
-# Copyright (c) 2023 TiaC Systems
+# Copyright (c) 2023-2024 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 include(${ZEPHYR_BASE}/boards/common/bossac.board.cmake)

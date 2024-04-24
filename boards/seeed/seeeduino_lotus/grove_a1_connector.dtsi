@@ -1,15 +1,15 @@
 /*
- * Copyright (c) 2023 TiaC Systems
+ * Copyright (c) 2023-2024 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
 / {
-	grove_a0_header: grove-a0-connector {
+	grove_a1_header: grove-a1-connector {
 		compatible = "seeed,grove-connector";
 		#gpio-cells = <2>;
 		gpio-map-mask = <0xffffffff 0xffffffc0>;
 		gpio-map-pass-thru = <0 0x3f>;
-		gpio-map = <0 0 &porta 2 0>,	/* A0 */
-			   <1 0 &portb 8 0>;	/* A1 */
+		gpio-map = <0 0 &portb 8 0>,	/* A1 */
+			   <1 0 &portb 9 0>;	/* A2 */
 	};
 };

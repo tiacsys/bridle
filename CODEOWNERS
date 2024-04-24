@@ -46,6 +46,7 @@
 /boards/jsed/                             @rexut
 /boards/jsed/picoboy/                     @rexut
 /boards/seeed/                            @rexut
+/boards/seeed/seeeduino_lotus/            @rexut
 /boards/seeed/xiao_samd21/                @rexut
 /boards/shields/                          @rexut
 /boards/shields/can_timing_adj/           @rexut

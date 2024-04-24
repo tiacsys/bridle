@@ -71,7 +71,7 @@ hardware features:
 Other hardware features are not currently supported by Zephyr.
 
 The default configuration can be found in the Kconfig file
-:bridle_file:`boards/arm/seeeduino_lotus/seeeduino_lotus_defconfig`.
+:bridle_file:`boards/seeed/seeeduino_lotus/seeeduino_lotus_defconfig`.
 
 Board Configurations
 ====================
@@ -381,8 +381,8 @@ bootloader will be entered automatically when you run :program:`west flash`.
    There is also a backup copy of the original bootloader together with
    a ready to use Segger JFlash control file inside the Bridel project:
 
-   * :bridle_file:`boards/arm/seeeduino_lotus/doc/bootloader/samd21_sam_ba.hex`
-   * :bridle_file:`boards/arm/seeeduino_lotus/doc/bootloader/samd21_sam_ba.jflash`
+   * :bridle_file:`boards/seeed/seeeduino_lotus/doc/bootloader/samd21_sam_ba.hex`
+   * :bridle_file:`boards/seeed/seeeduino_lotus/doc/bootloader/samd21_sam_ba.jflash`
 
 There is also a SWD header (J10, not populated) on board which have to be
 used with tools like Segger J-Link for programming for bootloader restore
@@ -627,7 +627,11 @@ Hello Shell with USB-CDC/ACM Console
       .. parsed-literal::
          :class: highlight-console notranslate
 
-         :bgn:`uart:~$` **flash read nvmctrl@41004000 188dc 40**
+         :bgn:`uart:~$` **flash read nvmctrl@41004000 18a4c 40**
+         00018A4C: 73 65 65 65 64 75 69 6e  6f 5f 6c 6f 74 75 73 00 \|seeeduin o_lotus.\|
+         00018A5C: 48 65 6c 6c 6f 20 57 6f  72 6c 64 21 20 49 27 6d \|Hello Wo rld! I'm\|
+         00018A6C: 20 54 48 45 20 53 48 45  4c 4c 20 66 72 6f 6d 20 \| THE SHE LL from \|
+         00018A7C: 25 73 0a 00 67 65 74 6f  70 74 00 28 75 6e 73 69 \|%s..geto pt.(unsi\|
          000188DC: 73 65 65 65 64 75 69 6e  6f 5f 6c 6f 74 75 73 00 \|seeeduin o_lotus.\|
          000188EC: 48 65 6c 6c 6f 20 57 6f  72 6c 64 21 20 49 27 6d \|Hello Wo rld! I'm\|
          000188FC: 20 54 48 45 20 53 48 45  4c 4c 20 66 72 6f 6d 20 \| THE SHE LL from \|
