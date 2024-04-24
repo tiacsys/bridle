@@ -46,6 +46,7 @@
 /boards/jsed/                             @rexut
 /boards/jsed/picoboy/                     @rexut
 /boards/seeed/                            @rexut
+/boards/seeed/seeeduino_cm0/              @rexut
 /boards/seeed/seeeduino_lotus/            @rexut
 /boards/seeed/xiao_samd21/                @rexut
 /boards/shields/                          @rexut

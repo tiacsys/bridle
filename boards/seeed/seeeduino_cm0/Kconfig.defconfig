@@ -1,11 +1,7 @@
 # Seeedunio Cortex-M0+ board configuration
 
-# Copyright (c) 2023 TiaC Systems
+# Copyright (c) 2023-2024 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
-
-config BOARD
-	default "seeeduino_cm0"
-	depends on BOARD_SEEEDUINO_CM0
 
 config USB_SELF_POWERED
 	default n

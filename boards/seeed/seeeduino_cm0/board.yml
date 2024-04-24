@@ -1,0 +1,5 @@
+board:
+  name: seeeduino_cm0
+  vendor: seeed
+  socs:
+    - name: samd21g18a

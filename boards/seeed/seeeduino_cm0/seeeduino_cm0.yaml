@@ -1,4 +1,3 @@
-vendor: seeed
 identifier: seeeduino_cm0
 name: Seeeduino Cortex-M0+
 type: mcu
@@ -28,5 +27,6 @@ supported:
   - i2c
   - spi
   - uart
+  - usb
   - usb_device
   - watchdog

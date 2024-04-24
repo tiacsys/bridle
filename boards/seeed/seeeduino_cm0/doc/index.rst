@@ -71,7 +71,7 @@ hardware features:
 Other hardware features are not currently supported by Zephyr.
 
 The default configuration can be found in the Kconfig file
-:bridle_file:`boards/arm/seeeduino_cm0/seeeduino_cm0_defconfig`.
+:bridle_file:`boards/seeed/seeeduino_cm0/seeeduino_cm0_defconfig`.
 
 Board Configurations
 ====================
@@ -363,8 +363,8 @@ bootloader will be entered automatically when you run :program:`west flash`.
    There is also a backup copy of the original bootloader together with
    a ready to use Segger JFlash control file inside the Bridel project:
 
-   * :bridle_file:`boards/arm/seeeduino_cm0/doc/bootloader/samd21_sam_ba.hex`
-   * :bridle_file:`boards/arm/seeeduino_cm0/doc/bootloader/samd21_sam_ba.jflash`
+   * :bridle_file:`boards/seeed/seeeduino_cm0/doc/bootloader/samd21_sam_ba.hex`
+   * :bridle_file:`boards/seeed/seeeduino_cm0/doc/bootloader/samd21_sam_ba.jflash`
 
 There is also a SWD header (J10, not populated) on board which have to be
 used with tools like Segger J-Link for programming for bootloader restore
@@ -608,11 +608,11 @@ Hello Shell with USB-CDC/ACM Console
       .. parsed-literal::
          :class: highlight-console notranslate
 
-         :bgn:`uart:~$` **flash read nvmctrl@41004000 18894 40**
-         00018894: 73 65 65 65 64 75 69 6e  6f 5f 63 6d 30 00 48 65 \|seeeduin o_cm0.He\|
-         000188A4: 6c 6c 6f 20 57 6f 72 6c  64 21 20 49 27 6d 20 54 \|llo Worl d! I'm T\|
-         000188B4: 48 45 20 53 48 45 4c 4c  20 66 72 6f 6d 20 25 73 \|HE SHELL  from %s\|
-         000188C4: 0a 00 69 6c 6c 65 67 61  6c 20 6f 70 74 69 6f 6e \|..illega l option\|
+         :bgn:`uart:~$` **flash read nvmctrl@41004000 18a04 40**
+         00018A04: 73 65 65 65 64 75 69 6e  6f 5f 63 6d 30 00 48 65 \|seeeduin o_cm0.He\|
+         00018A14: 6c 6c 6f 20 57 6f 72 6c  64 21 20 49 27 6d 20 54 \|llo Worl d! I'm T\|
+         00018A24: 48 45 20 53 48 45 4c 4c  20 66 72 6f 6d 20 25 73 \|HE SHELL  from %s\|
+         00018A34: 0a 00 67 65 74 6f 70 74  00 28 75 6e 73 69 67 6e \|..getopt .(unsign\|
 
          :bgn:`uart:~$` **flash read nvmctrl@41004000 3c000 40**
          0003C000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|

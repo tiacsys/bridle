@@ -1,8 +1,7 @@
 # Seeeduino Cortex-M0+ board configuration
 
-# Copyright (c) 2023 TiaC Systems
+# Copyright (c) 2023-2024 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 config BOARD_SEEEDUINO_CM0
-	bool "Seeeduino Cortex-M0+"
-	depends on SOC_PART_NUMBER_SAMD21G18A
+	select SOC_SAMD21G18A
