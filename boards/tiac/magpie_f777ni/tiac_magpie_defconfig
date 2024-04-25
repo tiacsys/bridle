@@ -1,11 +1,6 @@
-# Copyright (c) 2021-2022 TiaC Systems
+# Copyright (c) 2021-2024 TiaC Systems
 # Copyright (c) 2021 Li-Pro.Net
 # SPDX-License-Identifier: Apache-2.0
-
-CONFIG_SOC_SERIES_STM32F7X=y
-CONFIG_SOC_STM32F777XX=y
-CONFIG_SOC_STM32F767XX=y
-CONFIG_SOC_STM32F767XX_STM32F777XX=y
 
 # Clock Configuration
 CONFIG_CLOCK_CONTROL=y

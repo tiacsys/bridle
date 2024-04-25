@@ -1,0 +1,5 @@
+board:
+  name: tiac_magpie
+  vendor: tiac
+  socs:
+    - name: stm32f777xx

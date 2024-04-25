@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 TiaC Systems
+ * Copyright (c) 2021-2024 TiaC Systems
  * Copyright (c) 2021 Li-Pro.Net
  * SPDX-License-Identifier: Apache-2.0
  */
@@ -9,8 +9,8 @@
 #include <st/f7/stm32f777nihx-pinctrl.dtsi>
 
 / {
-	model = "TiaC MAGPIE board";
-	compatible = "tiac,magpie";
+	model = "TiaC Magpie F777NI board";
+	compatible = "tiac,magpie-f777ni";
 
 	chosen {
 		zephyr,console = &uart7;

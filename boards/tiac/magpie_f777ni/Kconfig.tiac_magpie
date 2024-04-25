@@ -1,9 +1,8 @@
-# Copyright (c) 2021 TiaC Systems
+# Copyright (c) 2021-2024 TiaC Systems
 # Copyright (c) 2021 Li-Pro.Net
 # SPDX-License-Identifier: Apache-2.0
 
 # TiaC STM32F777NIHx Magpie board configuration
 
 config BOARD_TIAC_MAGPIE
-	bool "TiaC Magpie Board"
-	depends on SOC_STM32F777XX
+	select SOC_STM32F777XX

@@ -129,14 +129,14 @@ E12	PH13	CAN1_TX	CAN_TX1
 E13	PH14	CAN1_RX	CAN_RX1
 E14	PI0	GPIO_Analog	TMPH2_PI0
 E15	PA9	GPIO_Analog	TMPH2_PA9
-F1	PC15/OSC32_OUT	RCC_OSC32_OUT	
+F1	PC15/OSC32_OUT	RCC_OSC32_OUT
 F14	PC9	GPIO_Output	CAN_M2
 G1	PH0/OSC_IN	RCC_OSC_IN	OSC25M_IN
 G2	PF2	GPIO_Analog	TMPH4_PF2
 G3	PI13	GPIO_Analog	TMPH4_PI13
 G4	PI15	GPIO_Analog	TMPH2_PI15
 G15	PC7	GPIO_Output	MII_NRST
-H1	PH1/OSC_OUT	RCC_OSC_OUT	
+H1	PH1/OSC_OUT	RCC_OSC_OUT
 H2	PF3	GPIO_Analog ADC3_IN9	TMPH4_PF3_ADC39
 H3	PI14	GPIO_Analog	TMPH4_PI14
 H14	PG8	GPIO_Analog	TMPH2_PG8
@@ -321,14 +321,14 @@ E12	PH13	CAN1_TX	CAN_TX1
 E13	PH14	CAN1_RX	CAN_RX1
 E14	PI0	GPIO_Analog	TMPH2_PI0
 E15	PA9	GPIO_Analog	TMPH2_PA9
-F1	PC15/OSC32_OUT	RCC_OSC32_OUT	
+F1	PC15/OSC32_OUT	RCC_OSC32_OUT
 F14	PC9	GPIO_Output	CAN_M2
 G1	PH0/OSC_IN	RCC_OSC_IN	OSC25M_IN
 G2	PF2	GPIO_Analog	TMPH4_PF2
 G3	PI13	GPIO_Analog	TMPH4_PI13
 G4	PI15	GPIO_Analog	TMPH2_PI15
 G15	PC7	GPIO_Output	MII_NRST
-H1	PH1/OSC_OUT	RCC_OSC_OUT	
+H1	PH1/OSC_OUT	RCC_OSC_OUT
 H2	PF3	GPIO_Analog ADC3_IN9	TMPH4_PF3_ADC39
 H3	PI14	GPIO_Analog	TMPH4_PI14
 H14	PG8	GPIO_Analog	TMPH2_PG8
@@ -394,14 +394,14 @@ R15	PB15	USB_OTG_HS_DP	USB_HOST_DP
 
 SOFTWARE PROJECT
 
-Project Settings : 
+Project Settings :
 Project Name : STM32F777NIHx
 Project Folder : /home/slz/EmbedTools/STM32CubeMX/tiac_magpie
 Toolchain / IDE : STM32CubeIDE
 Firmware Package Name and Version : STM32Cube FW_F7 V1.16.1
 
 
-Code Generation Settings : 
+Code Generation Settings :
 STM32Cube MCU packages and embedded software packs : Copy only the necessary library files
 Generate peripheral initialization as a pair of '.c/.h' files per peripheral : Yes
 Backup previously generated files when re-generating : No
@@ -409,10 +409,5 @@ Delete previously generated files when not re-generated : Yes
 Set all free pins as analog (to optimize the power consumption) : Yes
 
 
-Toolchains Settings : 
-Compiler Optimizations : 
-
-
-
-
-
+Toolchains Settings :
+Compiler Optimizations :

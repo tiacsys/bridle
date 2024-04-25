@@ -34,7 +34,6 @@
 /soc/st/                                  @rexut
 /soc/st/stm32/                            @rexut
 /soc/st/stm32/stm32f7x/                   @rexut
-/boards/arm/tiac_magpie/                  @rexut
 /boards/cytron/                           @rexut
 /boards/extensions/                       @rexut
 /boards/extensions/mimxrt1010_evk/        @rexut
@@ -53,6 +52,7 @@
 /boards/shields/loopback_test/            @rexut
 /boards/shields/x_grove_testbed/          @rexut
 /boards/tiac/                             @rexut
+/boards/tiac/magpie_f777ni/               @rexut
 /boards/waveshare/                        @rexut
 /doc/                                     @rexut
 /drivers/                                 @rexut

@@ -1,6 +1,5 @@
-vendor: tiac
 identifier: tiac_magpie
-name: TiaC MAGPIE
+name: TiaC Magpie F777NI
 type: mcu
 arch: arm
 toolchain:
