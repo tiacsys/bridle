@@ -31,8 +31,9 @@
 /.github/workflows/                       @rexut
 
 /arch/                                    @rexut
-/soc/arm/                                 @rexut
-/soc/arm/stm32f767xx/                     @rexut
+/soc/st/                                  @rexut
+/soc/st/stm32/                            @rexut
+/soc/st/stm32/stm32f7x/                   @rexut
 /boards/arc/                              @rexut
 /boards/arm/                              @rexut
 /boards/arm/tiac_magpie/                  @rexut

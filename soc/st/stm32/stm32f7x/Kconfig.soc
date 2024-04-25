@@ -1,0 +1,8 @@
+# ST Microelectronics STM32F7 MCU line
+
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+config SOC_STM32F777XX
+	bool
+	select SOC_STM32F767XX

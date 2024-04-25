@@ -1,0 +1,6 @@
+family:
+- name: stm32
+  series:
+  - name: stm32f7x
+    socs:
+    - name: stm32f777xx
