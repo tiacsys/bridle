@@ -1,6 +1,10 @@
-# Copyright (c) 2021-2022 TiaC Systems
+# Copyright (c) 2021-2024 TiaC Systems
 # Copyright (c) 2019-2021 Li-Pro.Net
 # SPDX-License-Identifier: Apache-2.0
+
+# Hook up board extensions for CMake.
+# That were not originally intended by Zephyr upstream!
+include(bridle/boards_extensions)
 
 # Generate our version header and inject into all builds.
 add_custom_command(
