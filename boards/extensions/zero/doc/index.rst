@@ -1,9 +1,9 @@
-.. _arduino_zero:
+.. _arduino_zero-extensions:
 
 Arduino/Genuino Zero
 ####################
 
-.. admonition:: Downstream Copy!
+.. admonition:: Downstream Extension!
    :class: note
 
    This board description is a copy from Zephyr with identical name and will
@@ -76,8 +76,10 @@ hardware features:
 
 Other hardware features are not currently supported by Zephyr.
 
-The default configuration can be found in the Kconfig
-:bridle_file:`boards/arm/arduino_zero/arduino_zero_defconfig`.
+The extended default configuration can be found in the Kconfig artifact
+:bridle_file:`boards/extensions/zero/arduino_zero.conf`. It will be add
+automatically to the original board default configuration in
+:zephyr_file:`boards/arduino/zero/arduino_zero_defconfig`.
 
 Board Configurations
 ====================
@@ -200,8 +202,8 @@ bootloader will be entered automatically when you run :program:`west flash`.
    There is also a backup copy of the original bootloader together with
    a ready to use Segger JFlash control file inside the Bridel project:
 
-   * :bridle_file:`boards/arm/arduino_zero/doc/bootloader/samd21_bossa_arduino.hex`
-   * :bridle_file:`boards/arm/arduino_zero/doc/bootloader/samd21_bossa_arduino.jflash`
+   * :bridle_file:`boards/extensions/zero/doc/bootloader/samd21_sam_ba.hex`
+   * :bridle_file:`boards/extensions/zero/doc/bootloader/samd21_sam_ba.jflash`
 
    The Segger JFlash control file is only usefull when the EDBG firmware
    was upgrade to the latest `J-Link firmware for Atmel EDBG`_. This was a
@@ -262,7 +264,7 @@ is connected to the debug USB port for programming::
          :align: right
          :alt: Atmel Embedded Debugger (EDBG) Chip
 
-      The Arduino Zero was designed in partership with Atmel (now
+      The Arduino Zero was designed in partnership with Atmel (now
       Microchip) which dedicated to this board a special USB PID with
       the major purpose to make the board recognizable and differentiate
       it form other evaluation boards in Atmel Studio. The EDBG chip is
@@ -515,11 +517,11 @@ Hello Shell with USB-CDC/ACM Console
       .. parsed-literal::
          :class: highlight-console notranslate
 
-         :bgn:`uart:~$` **flash read nvmctrl@41004000 18854 40**
-         00018854: 61 72 64 75 69 6e 6f 5f  7a 65 72 6f 00 48 65 6c \|arduino_ zero.Hel\|
-         00018864: 6c 6f 20 57 6f 72 6c 64  21 20 49 27 6d 20 54 48 \|lo World ! I'm TH\|
-         00018874: 45 20 53 48 45 4c 4c 20  66 72 6f 6d 20 25 73 0a \|E SHELL  from %s.\|
-         00018884: 00 69 6c 6c 65 67 61 6c  20 6f 70 74 69 6f 6e 20 \|.illegal  option \|
+         :bgn:`uart:~$` **flash read nvmctrl@41004000 18884 40**
+         00018884: 61 72 64 75 69 6e 6f 5f  7a 65 72 6f 00 48 65 6c \|arduino_ zero.Hel\|
+         00018894: 6c 6f 20 57 6f 72 6c 64  21 20 49 27 6d 20 54 48 \|lo World ! I'm TH\|
+         000188A4: 45 20 53 48 45 4c 4c 20  66 72 6f 6d 20 25 73 0a \|E SHELL  from %s.\|
+         000188B4: 00 67 65 74 6f 70 74 00  28 75 6e 73 69 67 6e 65 \|.getopt. (unsigne\|
 
          :bgn:`uart:~$` **flash read nvmctrl@41004000 3c000 40**
          0003C000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|

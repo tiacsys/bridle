@@ -1,12 +1,7 @@
-# Arduino Zero board configuration
+# Arduino Zero board extended configuration
 
-# Copyright (c) 2023 TiaC Systems
-# Copyright (c) 2017 Google LLC.
+# Copyright (c) 2024 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
-
-config BOARD
-	default "arduino_zero"
-	depends on BOARD_ARDUINO_ZERO
 
 config USB_SELF_POWERED
 	default n
