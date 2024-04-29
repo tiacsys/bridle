@@ -1,7 +1,7 @@
-.. _boards-arm:
+.. _boards-tiac:
 
-ARM Boards
-##########
+TiaC Systems
+############
 
 .. toctree::
    :maxdepth: 1

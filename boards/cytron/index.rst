@@ -1,6 +1,6 @@
-.. _boards_posix:
+.. _boards-cytron:
 
-POSIX/NATIVE Boards
+Cytron Technologies
 ###################
 
 .. toctree::

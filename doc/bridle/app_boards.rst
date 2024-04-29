@@ -21,7 +21,7 @@ hardware platforms.
 Boards included in tiac-zephyr
 ==============================
 
-The following boards are defined in the :file:`zephyr/boards/arm/` folder.
+The following boards are defined in the :file:`zephyr/boards/` folder.
 Also see the :ref:`zephyr:boards` section in the Zephyr documentation.
 
 .. _table:
@@ -46,7 +46,7 @@ Also see the :ref:`zephyr:boards` section in the Zephyr documentation.
 Boards included in tiac-bridle
 ==============================
 
-The following boards are defined in the :file:`bridle/boards/arm/` folder.
+The following boards are defined in the :file:`bridle/boards/` folder.
 Also see the :ref:`boards` section in this documentation.
 
 +-------------------+---------------------------------------+----------------------------------+
