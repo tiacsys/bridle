@@ -696,7 +696,7 @@ USB Device Port
 
 The `RP2040 <RP2040 SoC_>`_ MCU has a (native) USB device port that can be
 used to communicate with a host PC. See the :ref:`zephyr:usb-samples` sample
-applications for more, such as the :doc:`zephyr:samples/subsys/usb/cdc_acm/README`
+applications for more, such as the :zephyr:code-sample:`zephyr:usb-cdc-acm`
 sample which sets up a virtual serial port that echos characters back to the
 host PC. As an alternative to the default Zephyr console on serial port the
 Bridle :ref:`snippet-usb-console` can be used to enable
@@ -785,7 +785,7 @@ You can flash the Cytron Maker RP2040 boards with a SEGGER JLink debug probe as
 described in :ref:`Building, Flashing and Debugging <zephyr:west-flashing>`.
 
 Here is an example of building and flashing the
-:doc:`zephyr:samples/basic/blinky/README` application.
+:zephyr:code-sample:`zephyr:blinky` application.
 
 .. zephyr-app-commands::
    :zephyr-app: zephyr/samples/basic/blinky
@@ -820,7 +820,7 @@ checkout to a branch that supports this interface, before proceeding. Build
 and install OpenOCD as described in the README.
 
 Here is an example of building and flashing the
-:doc:`zephyr:samples/basic/blinky/README` application.
+:zephyr:code-sample:`zephyr:blinky` application.
 
 .. zephyr-app-commands::
    :zephyr-app: zephyr/samples/basic/blinky
@@ -884,8 +884,8 @@ Using OpenOCD
 
 Install OpenOCD as described for flashing the board.
 
-Here is an example for debugging the
-:doc:`zephyr:samples/basic/blinky/README` application.
+Here is an example for debugging the :zephyr:code-sample:`zephyr:blinky`
+application.
 
 .. zephyr-app-commands::
    :zephyr-app: zephyr/samples/basic/blinky
@@ -947,10 +947,10 @@ LED Blinky and Fade
          :align: right
          :alt: Maker Nano RP2040 WS2812 LED Test Pattern
 
-      See also Zephyr sample: :doc:`zephyr:samples/drivers/led_ws2812/README`
+      See also Zephyr sample: :zephyr:code-sample:`zephyr:led-strip`.
 
       .. zephyr-app-commands::
-         :app: zephyr/samples/drivers/led_ws2812
+         :app: zephyr/samples/drivers/led_strip
          :board: cytron_maker_nano_rp2040
          :build-dir: cytron_maker_rp2040
          :west-args: -p
@@ -960,7 +960,7 @@ LED Blinky and Fade
 
       .. rubric:: Blue User LED Blinky by GPIO
 
-      See also Zephyr sample: :doc:`zephyr:samples/basic/blinky/README`
+      See also Zephyr sample: :zephyr:code-sample:`zephyr:blinky`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/blinky
@@ -973,7 +973,7 @@ LED Blinky and Fade
 
       .. rubric:: Blue User LED Blinky by PWM
 
-      See also Zephyr sample: :doc:`zephyr:samples/basic/blinky_pwm/README`
+      See also Zephyr sample: :zephyr:code-sample:`zephyr:pwm-blinky`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/blinky_pwm
@@ -986,7 +986,7 @@ LED Blinky and Fade
 
       .. rubric:: Blue User LED Fade by PWM
 
-      See also Zephyr sample: :doc:`zephyr:samples/basic/fade_led/README`
+      See also Zephyr sample: :zephyr:code-sample:`zephyr:fade-led`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/fade_led
@@ -999,7 +999,7 @@ LED Blinky and Fade
 
       .. rubric:: Blue User LED On/Off by GPIO Button
 
-      See also Zephyr sample: :doc:`zephyr:samples/basic/button/README`
+      See also Zephyr sample: :zephyr:code-sample:`zephyr:button`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/button
@@ -1018,10 +1018,10 @@ LED Blinky and Fade
          :align: right
          :alt: Maker Pi RP2040 WS2812 LED Test Pattern
 
-      See also Zephyr sample: :doc:`zephyr:samples/drivers/led_ws2812/README`
+      See also Zephyr sample: :zephyr:code-sample:`zephyr:led-strip`.
 
       .. zephyr-app-commands::
-         :app: zephyr/samples/drivers/led_ws2812
+         :app: zephyr/samples/drivers/led_strip
          :board: cytron_maker_pi_rp2040
          :build-dir: cytron_maker_rp2040
          :west-args: -p
@@ -1031,7 +1031,7 @@ LED Blinky and Fade
 
       .. rubric:: Blue User LED Blinky by GPIO
 
-      See also Zephyr sample: :doc:`zephyr:samples/basic/blinky/README`
+      See also Zephyr sample: :zephyr:code-sample:`zephyr:blinky`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/blinky
@@ -1044,7 +1044,7 @@ LED Blinky and Fade
 
       .. rubric:: Blue User LED Blinky by PWM
 
-      See also Zephyr sample: :doc:`zephyr:samples/basic/blinky_pwm/README`
+      See also Zephyr sample: :zephyr:code-sample:`zephyr:pwm-blinky`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/blinky_pwm
@@ -1057,7 +1057,7 @@ LED Blinky and Fade
 
       .. rubric:: Blue User LED Fade by PWM
 
-      See also Zephyr sample: :doc:`zephyr:samples/basic/fade_led/README`
+      See also Zephyr sample: :zephyr:code-sample:`zephyr:fade-led`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/fade_led
@@ -1070,7 +1070,7 @@ LED Blinky and Fade
 
       .. rubric:: Blue User LED On/Off by GPIO Button
 
-      See also Zephyr sample: :doc:`zephyr:samples/basic/button/README`
+      See also Zephyr sample: :zephyr:code-sample:`zephyr:button`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/button
@@ -1120,7 +1120,7 @@ Input dump with USB-CDC/ACM Console
 ===================================
 
 Prints all input events as defined by the shields Devicetree. See also Zephyr
-sample: :doc:`zephyr:samples/subsys/input/input_dump/README`.
+sample: :zephyr:code-sample:`zephyr:input-dump`.
 
 .. tabs::
 
@@ -1312,7 +1312,7 @@ Drive a motor with USB-CDC/ACM Console
 
       .. rubric:: Servomotor Test
 
-      See also Zephyr sample: :doc:`zephyr:samples/basic/servo_motor/README`.
+      See also Zephyr sample: :zephyr:code-sample:`zephyr:servo-motor`.
 
       .. hint::
 
@@ -1429,7 +1429,7 @@ This samples and test applications are only applicable together with the
 
       .. rubric:: LCD Orientation and Bit Order Test
 
-      See also Zephyr sample: :doc:`zephyr:samples/drivers/display/README`.
+      See also Zephyr sample: :zephyr:code-sample:`zephyr:display`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/display
@@ -1443,7 +1443,7 @@ This samples and test applications are only applicable together with the
 
       .. rubric:: LVGL Basic Sample
 
-      See also Zephyr sample: :doc:`zephyr:samples/subsys/display/lvgl/README`.
+      See also Zephyr sample: :zephyr:code-sample:`zephyr:lvgl`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/subsys/display/lvgl
@@ -1572,7 +1572,7 @@ This samples and test applications are only applicable together with the
              LCD Backlight
       .. rubric:: LCD Orientation and Bit Order Test
 
-      See also Zephyr sample: :doc:`zephyr:samples/drivers/display/README`.
+      See also Zephyr sample: :zephyr:code-sample:`zephyr:display`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/display
@@ -1586,7 +1586,7 @@ This samples and test applications are only applicable together with the
 
       .. rubric:: LVGL Basic Sample
 
-      See also Zephyr sample: :doc:`zephyr:samples/subsys/display/lvgl/README`.
+      See also Zephyr sample: :zephyr:code-sample:`zephyr:lvgl`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/subsys/display/lvgl

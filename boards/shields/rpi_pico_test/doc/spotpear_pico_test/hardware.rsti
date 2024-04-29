@@ -35,6 +35,6 @@ connected to a simple high-resistance potentiometer.
 
        - `Spotpear Pico ALL GPIO TEST Schematic`_
 
-     - .. image:: /boards/shields/rpi_pico_test/doc/spotpear_pico_test/hardware.jpg
+     - .. image:: spotpear_pico_test/hardware.jpg
           :align: center
           :alt: Spotpear Pico ALL GPIO TEST

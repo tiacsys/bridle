@@ -97,7 +97,7 @@
 
        - :dtcompatible:`raspberrypi,pico-header-r3`
 
-     - .. image:: /boards/shields/rpi_pico_lcd/doc/waveshare_pico_restouch_lcd_3_5/pinouts.jpg
+     - .. image:: waveshare_pico_restouch_lcd_3_5/pinouts.jpg
           :align: center
           :width: 100%
           :alt: Waveshare Pico ResTouch LCD 3.5 edge pinout

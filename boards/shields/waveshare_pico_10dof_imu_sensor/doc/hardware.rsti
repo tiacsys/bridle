@@ -13,11 +13,11 @@ are connected to :strong:`different GPIO pins`.
    * - .. rubric:: Printed Circuit Board Rev2.1
      - .. rubric:: Printed Circuit Board Rev1
 
-   * - .. image:: /boards/shields/waveshare_pico_10dof_imu_sensor/doc/img/hardware-rev21.jpg
+   * - .. image:: img/hardware-rev21.jpg
           :align: center
           :alt: Waveshare Pico 10-DOF IMU Sensor Rev2.1
 
-     - .. image:: /boards/shields/waveshare_pico_10dof_imu_sensor/doc/img/hardware-rev1.jpg
+     - .. image:: img/hardware-rev1.jpg
           :align: center
           :alt: Waveshare Pico 10-DOF IMU Sensor Rev1
 

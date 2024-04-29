@@ -4,12 +4,12 @@
    :widths: 50, 50
    :header-rows: 1
 
-   * - .. image:: /boards/shields/waveshare_pico_10dof_imu_sensor/doc/img/positions-rev21.jpg
+   * - .. image:: img/positions-rev21.jpg
           :align: center
           :width: 500
           :alt: Waveshare Pico 10-DOF IMU Sensor Rev2.1 details
 
-     - .. image:: /boards/shields/waveshare_pico_10dof_imu_sensor/doc/img/positions-rev1.jpg
+     - .. image:: img/positions-rev1.jpg
           :align: center
           :width: 500
           :alt: Waveshare Pico 10-DOF IMU Sensor Rev1 details

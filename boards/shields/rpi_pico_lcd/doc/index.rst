@@ -22,19 +22,19 @@ Hardware
 
       .. _waveshare_pico_lcd_1_14:
 
-      .. include:: /boards/shields/rpi_pico_lcd/doc/waveshare_pico_lcd_1_14/hardware.rsti
+      .. include:: waveshare_pico_lcd_1_14/hardware.rsti
 
    .. group-tab:: Waveshare Pico LCD 2
 
       .. _waveshare_pico_lcd_2:
 
-      .. include:: /boards/shields/rpi_pico_lcd/doc/waveshare_pico_lcd_2/hardware.rsti
+      .. include:: waveshare_pico_lcd_2/hardware.rsti
 
    .. group-tab:: Waveshare Pico ResTouch LCD 3.5
 
       .. _waveshare_pico_restouch_lcd_3_5:
 
-      .. include:: /boards/shields/rpi_pico_lcd/doc/waveshare_pico_restouch_lcd_3_5/hardware.rsti
+      .. include:: waveshare_pico_restouch_lcd_3_5/hardware.rsti
 
 Positions
 =========
@@ -43,15 +43,15 @@ Positions
 
    .. group-tab:: Waveshare Pico LCD 1.14
 
-      .. include:: /boards/shields/rpi_pico_lcd/doc/waveshare_pico_lcd_1_14/positions.rsti
+      .. include:: waveshare_pico_lcd_1_14/positions.rsti
 
    .. group-tab:: Waveshare Pico LCD 2
 
-      .. include:: /boards/shields/rpi_pico_lcd/doc/waveshare_pico_lcd_2/positions.rsti
+      .. include:: waveshare_pico_lcd_2/positions.rsti
 
    .. group-tab:: Waveshare Pico ResTouch LCD 3.5
 
-      .. include:: /boards/shields/rpi_pico_lcd/doc/waveshare_pico_restouch_lcd_3_5/positions.rsti
+      .. include:: waveshare_pico_restouch_lcd_3_5/positions.rsti
 
 Pinouts
 =======
@@ -60,15 +60,15 @@ Pinouts
 
    .. group-tab:: Waveshare Pico LCD 1.14
 
-      .. include:: /boards/shields/rpi_pico_lcd/doc/waveshare_pico_lcd_1_14/pinouts.rsti
+      .. include:: waveshare_pico_lcd_1_14/pinouts.rsti
 
    .. group-tab:: Waveshare Pico LCD 2
 
-      .. include:: /boards/shields/rpi_pico_lcd/doc/waveshare_pico_lcd_2/pinouts.rsti
+      .. include:: waveshare_pico_lcd_2/pinouts.rsti
 
    .. group-tab:: Waveshare Pico ResTouch LCD 3.5
 
-      .. include:: /boards/shields/rpi_pico_lcd/doc/waveshare_pico_restouch_lcd_3_5/pinouts.rsti
+      .. include:: waveshare_pico_restouch_lcd_3_5/pinouts.rsti
 
 Utilization
 ***********
@@ -121,7 +121,7 @@ Programming
                :host-os: unix
                :tool: all
 
-            .. include:: /boards/shields/rpi_pico_lcd/doc/waveshare_pico_lcd_1_14/helloshell.rsti
+            .. include:: waveshare_pico_lcd_1_14/helloshell.rsti
 
          .. group-tab:: Raspberry Pi Pico W
 
@@ -136,7 +136,7 @@ Programming
                :host-os: unix
                :tool: all
 
-            .. include:: /boards/shields/rpi_pico_lcd/doc/waveshare_pico_lcd_1_14/helloshell.rsti
+            .. include:: waveshare_pico_lcd_1_14/helloshell.rsti
 
          .. group-tab:: Waveshare RP2040-Plus
 
@@ -166,7 +166,7 @@ Programming
                :host-os: unix
                :tool: all
 
-            .. include:: /boards/shields/rpi_pico_lcd/doc/waveshare_pico_lcd_1_14/helloshell.rsti
+            .. include:: waveshare_pico_lcd_1_14/helloshell.rsti
 
    .. group-tab:: Waveshare Pico LCD 2
 
@@ -189,7 +189,7 @@ Programming
                :host-os: unix
                :tool: all
 
-            .. include:: /boards/shields/rpi_pico_lcd/doc/waveshare_pico_lcd_2/helloshell.rsti
+            .. include:: waveshare_pico_lcd_2/helloshell.rsti
 
          .. group-tab:: Raspberry Pi Pico W
 
@@ -204,7 +204,7 @@ Programming
                :host-os: unix
                :tool: all
 
-            .. include:: /boards/shields/rpi_pico_lcd/doc/waveshare_pico_lcd_2/helloshell.rsti
+            .. include:: waveshare_pico_lcd_2/helloshell.rsti
 
          .. group-tab:: Waveshare RP2040-Plus
 
@@ -234,7 +234,7 @@ Programming
                :host-os: unix
                :tool: all
 
-            .. include:: /boards/shields/rpi_pico_lcd/doc/waveshare_pico_lcd_2/helloshell.rsti
+            .. include:: waveshare_pico_lcd_2/helloshell.rsti
 
    .. group-tab:: Waveshare Pico ResTouch LCD 3.5
 
@@ -257,7 +257,7 @@ Programming
                :host-os: unix
                :tool: all
 
-            .. include:: /boards/shields/rpi_pico_lcd/doc/waveshare_pico_restouch_lcd_3_5/helloshell.rsti
+            .. include:: waveshare_pico_restouch_lcd_3_5/helloshell.rsti
 
          .. group-tab:: Raspberry Pi Pico W
 
@@ -272,7 +272,7 @@ Programming
                :host-os: unix
                :tool: all
 
-            .. include:: /boards/shields/rpi_pico_lcd/doc/waveshare_pico_restouch_lcd_3_5/helloshell.rsti
+            .. include:: waveshare_pico_restouch_lcd_3_5/helloshell.rsti
 
          .. group-tab:: Waveshare RP2040-Plus
 
@@ -302,7 +302,7 @@ Programming
                :host-os: unix
                :tool: all
 
-            .. include:: /boards/shields/rpi_pico_lcd/doc/waveshare_pico_restouch_lcd_3_5/helloshell.rsti
+            .. include:: waveshare_pico_restouch_lcd_3_5/helloshell.rsti
 
 More Samples
 ************
@@ -311,7 +311,7 @@ Input dump
 ==========
 
 Prints all input events as defined by the shields Devicetree. See also Zephyr
-sample: :doc:`zephyr:samples/subsys/input/input_dump/README`.
+sample: :zephyr:code-sample:`zephyr:input-dump`.
 
 .. tabs::
 
@@ -567,7 +567,7 @@ LCD Orientation and Bit Order Test
 
 Draw some basic rectangles onto the display. The rectangle colors and positions
 are chosen so that you can check the orientation of the LCD and correct RGB bit
-order. See also Zephyr sample: :doc:`zephyr:samples/drivers/display/README`.
+order. See also Zephyr sample: :zephyr:code-sample:`zephyr:display`.
 
 .. tabs::
 
@@ -789,7 +789,7 @@ LVGL Basic Sample
 
 Displays “Hello World!” in the center of the screen and a counter at the bottom
 which increments every second. See also Zephyr sample:
-:doc:`zephyr:samples/subsys/display/lvgl/README`.
+:zephyr:code-sample:`zephyr:lvgl`.
 
 .. tabs::
 
@@ -1137,7 +1137,7 @@ ResTouch LCD 3.5| board. They will be built with activated USB-CDC/ACM console.
 
       Using the :ref:`File Systems API <zephyr:file_system_api>` ontop of the
       :ref:`Disk Access API <zephyr:disk_access_api>` with chosen TF/microSD.
-      See also Zephyr sample: :doc:`zephyr:samples/subsys/fs/fs_sample/README`.
+      See also Zephyr sample: :zephyr:code-sample:`zephyr:fs`.
 
       .. tabs::
 
@@ -1191,7 +1191,7 @@ ResTouch LCD 3.5| board. They will be built with activated USB-CDC/ACM console.
                :flash-args: -r uf2
                :compact:
 
-      .. image:: /boards/shields/rpi_pico_lcd/doc/waveshare_pico_restouch_lcd_3_5/BEACH.bmp
+      .. image:: waveshare_pico_restouch_lcd_3_5/BEACH.bmp
          :align: right
          :height: 240
          :alt: Waveshare Pico ResTouch LCD 3.5 Demo Bitmap Image

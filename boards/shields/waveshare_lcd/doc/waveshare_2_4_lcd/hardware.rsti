@@ -38,6 +38,6 @@ The LCD uses a four-wire SPI communication interface.
        - `Waveshare 2.4 LCD 2D Drawing`_
        - `Waveshare 2.4 LCD 3D Drawing`_
 
-     - .. image:: /boards/shields/waveshare_lcd/doc/waveshare_2_4_lcd/hardware.jpg
+     - .. image:: waveshare_2_4_lcd/hardware.jpg
           :align: center
           :alt: Waveshare 2.4 LCD

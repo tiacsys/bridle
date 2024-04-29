@@ -6,8 +6,8 @@ Multithreaded Dumb HTTP Server
 Overview
 ********
 
-See :doc:`zephyr:samples/net/sockets/dumb_http_server_mt/README`
-for the original description.
+See :zephyr:code-sample:`zephyr:socket-dumb-http-server-mt` for the original
+description.
 
 .. _tiac_magpie_sockets-dumb-http-server-mt-sample-requirements:
 

@@ -10,16 +10,15 @@ BME280 Sensor Sample Tweaks (samples-sensor-bme280-tweaks)
 Overview
 ********
 
-Unfortunately, the example for the :doc:`zephyr:samples/sensor/bme280/README`
-from the Zephyr upstream repository binds such a sensor hard to the SPI bus
-regardless of board and shield variations, although the :ref:`zephyr:rpi_pico`
-board has no such sensor available. Thus, no matter what you try to change via
-shields, a BME280 sensor is always defined and activated on the SPI bus as soon
-as the board name is set to :code:`rpi_pico`.
+Unfortunately, the example for the :ref:`zephyr:bme280` from the Zephyr
+upstream repository binds such a sensor hard to the SPI bus regardless
+of board and shield variations, although the :ref:`zephyr:rpi_pico` board
+has no such sensor available. Thus, no matter what you try to change via
+shields, a BME280 sensor is always defined and activated on the SPI bus
+as soon as the board name is set to :code:`rpi_pico`.
 
 This tweak snippet now always deletes such an entry and should only be used
-exclusively for the standard :doc:`zephyr:samples/sensor/bme280/README` sample
-from Zephyr.
+exclusively for the standard :ref:`zephyr:bme280` sample from Zephyr.
 
 Board specific setups
 =====================

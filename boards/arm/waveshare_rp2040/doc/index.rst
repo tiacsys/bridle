@@ -488,7 +488,7 @@ USB Device Port
 
 The `RP2040 <RP2040 SoC_>`_ MCU has a (native) USB device port that can be
 used to communicate with a host PC. See the :ref:`zephyr:usb-samples` sample
-applications for more, such as the :doc:`zephyr:samples/subsys/usb/cdc_acm/README`
+applications for more, such as the :zephyr:code-sample:`zephyr:usb-cdc-acm`
 sample which sets up a virtual serial port that echos characters back to the
 host PC. As an alternative to the default Zephyr console on serial port the
 Bridle :ref:`snippet-usb-console` can be used to enable
@@ -584,7 +584,7 @@ You can flash the Waveshare RP2040 boards with a SEGGER JLink debug probe as
 described in :ref:`Building, Flashing and Debugging <zephyr:west-flashing>`.
 
 Here is an example of building and flashing the
-:doc:`zephyr:samples/basic/blinky/README` application.
+:zephyr:code-sample:`zephyr:blinky` application.
 
 .. zephyr-app-commands::
    :zephyr-app: zephyr/samples/basic/blinky
@@ -619,7 +619,7 @@ you might need to checkout to a branch that supports this interface, before
 proceeding. Build and install OpenOCD as described in the README.
 
 Here is an example of building and flashing the
-:doc:`zephyr:samples/basic/blinky/README` application.
+:zephyr:code-sample:`zephyr:blinky` application.
 
 .. zephyr-app-commands::
    :zephyr-app: zephyr/samples/basic/blinky
@@ -683,8 +683,8 @@ Using OpenOCD
 
 Install OpenOCD as described for flashing the board.
 
-Here is an example for debugging the
-:doc:`zephyr:samples/basic/blinky/README` application.
+Here is an example for debugging the :zephyr:code-sample:`zephyr:blinky`
+application.
 
 .. zephyr-app-commands::
    :zephyr-app: zephyr/samples/basic/blinky
@@ -742,14 +742,14 @@ LED Blinky and Fade
 
       .. rubric:: WS2812 LED Test Pattern by PIO
 
-      See also Zephyr sample: :doc:`zephyr:samples/drivers/led_ws2812/README`
+      See also Zephyr sample: :zephyr:code-sample:`zephyr:led-strip`.
 
       .. image:: /boards/arm/waveshare_rp2040/doc/rp2040-one/ws2812b.gif
          :align: right
          :alt: Waveshare RP2040-One WS2812 LED Test Pattern
 
       .. zephyr-app-commands::
-         :app: zephyr/samples/drivers/led_ws2812
+         :app: zephyr/samples/drivers/led_strip
          :board: waveshare_rp2040_one
          :build-dir: waveshare_rp2040
          :west-args: -p
@@ -767,14 +767,14 @@ LED Blinky and Fade
 
       .. rubric:: WS2812 LED Test Pattern by PIO
 
-      See also Zephyr sample: :doc:`zephyr:samples/drivers/led_ws2812/README`
+      See also Zephyr sample: :zephyr:code-sample:`zephyr:led-strip`.
 
       .. image:: /boards/arm/waveshare_rp2040/doc/rp2040-zero/ws2812b.gif
          :align: right
          :alt: Waveshare RP2040-Zero WS2812 LED Test Pattern
 
       .. zephyr-app-commands::
-         :app: zephyr/samples/drivers/led_ws2812
+         :app: zephyr/samples/drivers/led_strip
          :board: waveshare_rp2040_zero
          :build-dir: waveshare_rp2040
          :west-args: -p
@@ -792,14 +792,14 @@ LED Blinky and Fade
 
       .. rubric:: WS2812 LED Test Pattern by PIO
 
-      See also Zephyr sample: :doc:`zephyr:samples/drivers/led_ws2812/README`
+      See also Zephyr sample: :zephyr:code-sample:`zephyr:led-strip`.
 
       .. image:: /boards/arm/waveshare_rp2040/doc/rp2040-matrix/ws2812b-5x5.gif
          :align: right
          :alt: Waveshare RP2040-Matrix WS2812 LED Test Pattern
 
       .. zephyr-app-commands::
-         :app: zephyr/samples/drivers/led_ws2812
+         :app: zephyr/samples/drivers/led_strip
          :board: waveshare_rp2040_matrix
          :build-dir: waveshare_rp2040
          :west-args: -p
@@ -817,14 +817,14 @@ LED Blinky and Fade
 
       .. rubric:: WS2812 LED Test Pattern by PIO
 
-      See also Zephyr sample: :doc:`zephyr:samples/drivers/led_ws2812/README`
+      See also Zephyr sample: :zephyr:code-sample:`zephyr:led-strip`.
 
       .. image:: /boards/arm/waveshare_rp2040/doc/rp2040-tiny/ws2812b.gif
          :align: right
          :alt: Waveshare RP2040-Tiny WS2812 LED Test Pattern
 
       .. zephyr-app-commands::
-         :app: zephyr/samples/drivers/led_ws2812
+         :app: zephyr/samples/drivers/led_strip
          :board: waveshare_rp2040_tiny
          :build-dir: waveshare_rp2040
          :west-args: -p
@@ -842,14 +842,14 @@ LED Blinky and Fade
 
       .. rubric:: WS2812 LED Test Pattern by PIO
 
-      See also Zephyr sample: :doc:`zephyr:samples/drivers/led_ws2812/README`
+      See also Zephyr sample: :zephyr:code-sample:`zephyr:led-strip`.
 
       .. image:: /boards/arm/waveshare_rp2040/doc/rp2040-eth/ws2812b.gif
          :align: right
          :alt: Waveshare RP2040-ETH WS2812 LED Test Pattern
 
       .. zephyr-app-commands::
-         :app: zephyr/samples/drivers/led_ws2812
+         :app: zephyr/samples/drivers/led_strip
          :board: waveshare_rp2040_eth
          :build-dir: waveshare_rp2040
          :west-args: -p
@@ -867,7 +867,7 @@ LED Blinky and Fade
 
       .. rubric:: LCD Backlight LED Blinky by GPIO
 
-      See also Zephyr sample: :doc:`zephyr:samples/basic/blinky/README`
+      See also Zephyr sample: :zephyr:code-sample:`zephyr:blinky`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/blinky
@@ -880,7 +880,7 @@ LED Blinky and Fade
 
       .. rubric:: LCD Backlight LED Blinky by PWM
 
-      See also Zephyr sample: :doc:`zephyr:samples/basic/blinky_pwm/README`
+      See also Zephyr sample: :zephyr:code-sample:`zephyr:pwm-blinky`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/blinky_pwm
@@ -893,7 +893,7 @@ LED Blinky and Fade
 
       .. rubric:: LCD Backlight LED Fade by PWM
 
-      See also Zephyr sample: :doc:`zephyr:samples/basic/fade_led/README`
+      See also Zephyr sample: :zephyr:code-sample:`zephyr:fade-led`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/fade_led
@@ -908,7 +908,7 @@ LED Blinky and Fade
 
       .. rubric:: Green User LED Blinky by GPIO
 
-      See also Zephyr sample: :doc:`zephyr:samples/basic/blinky/README`
+      See also Zephyr sample: :zephyr:code-sample:`zephyr:blinky`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/blinky
@@ -921,7 +921,7 @@ LED Blinky and Fade
 
       .. rubric:: Green User LED Blinky by PWM
 
-      See also Zephyr sample: :doc:`zephyr:samples/basic/blinky_pwm/README`
+      See also Zephyr sample: :zephyr:code-sample:`zephyr:pwm-blinky`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/blinky_pwm
@@ -934,7 +934,7 @@ LED Blinky and Fade
 
       .. rubric:: Green User LED Fade by PWM
 
-      See also Zephyr sample: :doc:`zephyr:samples/basic/fade_led/README`
+      See also Zephyr sample: :zephyr:code-sample:`zephyr:fade-led`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/fade_led
@@ -964,7 +964,7 @@ LED Blinky and Fade
 
       .. rubric:: External LED Blinky by GPIO
 
-      See also Zephyr sample: :doc:`zephyr:samples/basic/blinky/README`
+      See also Zephyr sample: :zephyr:code-sample:`zephyr:blinky`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/blinky
@@ -978,7 +978,7 @@ LED Blinky and Fade
 
       .. rubric:: External LED Blinky by PWM
 
-      See also Zephyr sample: :doc:`zephyr:samples/basic/blinky_pwm/README`
+      See also Zephyr sample: :zephyr:code-sample:`zephyr:pwm-blinky`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/blinky_pwm
@@ -992,7 +992,7 @@ LED Blinky and Fade
 
       .. rubric:: External LED Fade by PWM
 
-      See also Zephyr sample: :doc:`zephyr:samples/basic/fade_led/README`
+      See also Zephyr sample: :zephyr:code-sample:`zephyr:fade-led`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/fade_led
@@ -1006,7 +1006,7 @@ LED Blinky and Fade
 
       .. rubric:: External LED Switch ON/OFF by External Button
 
-      See also Zephyr sample: :doc:`zephyr:samples/basic/button/README`
+      See also Zephyr sample: :zephyr:code-sample:`zephyr:button`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/button
@@ -1162,8 +1162,7 @@ and |RP2040-Geek| board. They will be built with activated USB-CDC/ACM console.
       .. rubric:: LCD Orientation and Bit Order Test
 
       Using the :ref:`Display driver API <zephyr:display_api>` with chosen
-      display. See also Zephyr sample:
-      :doc:`zephyr:samples/drivers/display/README`.
+      display. See also Zephyr sample: :zephyr:code-sample:`zephyr:display`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/display
@@ -1190,7 +1189,7 @@ and |RP2040-Geek| board. They will be built with activated USB-CDC/ACM console.
 
       Using the LVGL module on top of the :ref:`Display driver API
       <zephyr:display_api>` with chosen display. See also Zephyr sample:
-      :doc:`zephyr:samples/subsys/display/lvgl/README`.
+      :zephyr:code-sample:`zephyr:lvgl`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/subsys/display/lvgl
@@ -1211,8 +1210,7 @@ and |RP2040-Geek| board. They will be built with activated USB-CDC/ACM console.
       .. rubric:: LCD Orientation and Bit Order Test
 
       Using the :ref:`Display driver API <zephyr:display_api>` with chosen
-      display. See also Zephyr sample:
-      :doc:`zephyr:samples/drivers/display/README`.
+      display. See also Zephyr sample: :zephyr:code-sample:`zephyr:display`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/display
@@ -1239,7 +1237,7 @@ and |RP2040-Geek| board. They will be built with activated USB-CDC/ACM console.
 
       Using the LVGL module on top of the :ref:`Display driver API
       <zephyr:display_api>` with chosen display. See also Zephyr sample:
-      :doc:`zephyr:samples/subsys/display/lvgl/README`.
+      :zephyr:code-sample:`zephyr:lvgl`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/subsys/display/lvgl
@@ -1272,7 +1270,7 @@ board. They will be built with activated USB-CDC/ACM console.
 
       Using the :ref:`File Systems API <zephyr:file_system_api>` ontop of the
       :ref:`Disk Access API <zephyr:disk_access_api>` with chosen TF/microSD.
-      See also Zephyr sample: :doc:`zephyr:samples/subsys/fs/fs_sample/README`.
+      See also Zephyr sample: :zephyr:code-sample:`zephyr:fs`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/subsys/fs/fs_sample

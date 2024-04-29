@@ -43,6 +43,6 @@ SPI communication interface.
 
        - `Waveshare Pico LCD 1.14 Schematic`_
 
-     - .. image:: /boards/shields/rpi_pico_lcd/doc/waveshare_pico_lcd_1_14/hardware.jpg
+     - .. image:: waveshare_pico_lcd_1_14/hardware.jpg
           :align: center
           :alt: Waveshare Pico LCD 1.14

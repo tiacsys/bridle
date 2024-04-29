@@ -6,7 +6,7 @@ DHCPv4 Client
 Overview
 ********
 
-See :doc:`zephyr:samples/net/dhcpv4_client/README` for the original description.
+See :zephyr:code-sample:`zephyr:dhcpv4-client` for the original description.
 
 .. _tiac_magpie_dhcpv4-client-sample-requirements:
 

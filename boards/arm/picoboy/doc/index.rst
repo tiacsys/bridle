@@ -227,7 +227,7 @@ USB Device Port
 
 The `RP2040 <RP2040 SoC_>`_ MCU has a (native) USB device port that can be
 used to communicate with a host PC. See the :ref:`zephyr:usb-samples` sample
-applications for more, such as the :doc:`zephyr:samples/subsys/usb/cdc_acm/README`
+applications for more, such as the :zephyr:code-sample:`zephyr:usb-cdc-acm`
 sample which sets up a virtual serial port that echos characters back to the
 host PC. The |PicoBoy| provides the Zephyr console per default on the USB port
 as :ref:`zephyr:usb_device_cdc_acm`::
@@ -316,7 +316,7 @@ LED Blinky and Fade
 
 .. rubric:: Red User LED Blinky by GPIO
 
-See also Zephyr sample: :doc:`zephyr:samples/basic/blinky/README`
+See also Zephyr sample: :zephyr:code-sample:`zephyr:blinky`.
 
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/blinky
@@ -328,7 +328,7 @@ See also Zephyr sample: :doc:`zephyr:samples/basic/blinky/README`
 
 .. rubric:: Red User LED Blinky by PWM
 
-See also Zephyr sample: :doc:`zephyr:samples/basic/blinky_pwm/README`
+See also Zephyr sample: :zephyr:code-sample:`zephyr:pwm-blinky`.
 
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/blinky_pwm
@@ -340,7 +340,7 @@ See also Zephyr sample: :doc:`zephyr:samples/basic/blinky_pwm/README`
 
 .. rubric:: Red User LED Fade by PWM
 
-See also Zephyr sample: :doc:`zephyr:samples/basic/fade_led/README`
+See also Zephyr sample: :zephyr:code-sample:`zephyr:fade-led`.
 
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/fade_led
@@ -352,7 +352,7 @@ See also Zephyr sample: :doc:`zephyr:samples/basic/fade_led/README`
 
 .. rubric:: Red User LED On/Off by GPIO Button (Joystick ENTER)
 
-See also Zephyr sample: :doc:`zephyr:samples/basic/button/README`
+See also Zephyr sample: :zephyr:code-sample:`zephyr:button`.
 
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/button
@@ -389,7 +389,7 @@ the :ref:`Input subsystem API <zephyr:input>`. That are:
 | :hwftlbl-joy:`RIGHT` : :devicetree:`zephyr,code = <INPUT_KEY_RIGHT>;`
 | :hwftlbl-joy:`ENTER` : :devicetree:`zephyr,code = <INPUT_KEY_ENTER>;`
 
-See also Zephyr sample: :doc:`zephyr:samples/subsys/input/input_dump/README`.
+See also Zephyr sample: :zephyr:code-sample:`zephyr:input-dump`.
 
 .. rubric:: Joystick Test
 
@@ -504,7 +504,7 @@ The following samples work with the chosen display. That is:
 
 Draw some basic rectangles onto the display using the :ref:`Display driver API
 <zephyr:display_api>`. See also Zephyr sample:
-:doc:`zephyr:samples/drivers/display/README`.
+:zephyr:code-sample:`zephyr:display`.
 
 .. zephyr-app-commands::
    :app: zephyr/samples/drivers/display
@@ -519,7 +519,7 @@ Draw some basic rectangles onto the display using the :ref:`Display driver API
 Displays “Hello World!” in the center of the screen and a counter at the bottom
 which increments every second using the LVGL module on top of the :ref:`Display
 driver API <zephyr:display_api>`. See also Zephyr sample:
-:doc:`zephyr:samples/subsys/display/lvgl/README`.
+:zephyr:code-sample:`zephyr:lvgl`.
 
 .. zephyr-app-commands::
    :app: zephyr/samples/subsys/display/lvgl

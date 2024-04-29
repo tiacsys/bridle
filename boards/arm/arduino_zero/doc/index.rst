@@ -166,11 +166,10 @@ USB Device Port
 
 The SAMD21 MCU has a (native) USB device port that can be used to communicate
 with a host PC. See Zephyr :ref:`zephyr:usb-samples` for more, such as the
-:doc:`zephyr:samples/subsys/usb/cdc_acm/README` sample which sets up a virtual
-serial port that echos characters back to the host PC. As an alternative to the
-default Zephyr console on serial port the Bridle :ref:`snippet-usb-console`
-can be used to enable :ref:`zephyr:usb_device_cdc_acm` and switch the console
-to USB::
+:zephyr:code-sample:`zephyr:usb-cdc-acm` sample which sets up a virtual serial
+port that echos characters back to the host PC. As an alternative to the default
+Zephyr console on serial port the Bridle :ref:`snippet-usb-console` can be used
+to enable :ref:`zephyr:usb_device_cdc_acm` and switch the console to USB::
 
    USB device idVendor=2341, idProduct=804d, bcdDevice= 3.06
    USB device strings: Mfr=1, Product=2, SerialNumber=3

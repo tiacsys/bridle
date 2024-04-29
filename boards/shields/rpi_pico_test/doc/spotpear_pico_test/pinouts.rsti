@@ -79,7 +79,7 @@
          :devicetree:`ledN = &...` entries for all LEDs over GPIO, and
          :devicetree:`pwm-ledN = &...` entries for all keys over PWM
 
-     - .. image:: /boards/shields/rpi_pico_test/doc/spotpear_pico_test/pinouts.jpg
+     - .. image:: spotpear_pico_test/pinouts.jpg
           :align: center
           :width: 100%
           :alt: Spotpear Pico ALL GPIO TEST edge pinout

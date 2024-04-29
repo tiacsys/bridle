@@ -15,17 +15,17 @@ Board Overview
 Hardware
 ========
 
-.. include:: /boards/shields/waveshare_pico_10dof_imu_sensor/doc/hardware.rsti
+.. include:: hardware.rsti
 
 Positions
 =========
 
-.. include:: /boards/shields/waveshare_pico_10dof_imu_sensor/doc/positions.rsti
+.. include:: positions.rsti
 
 Pinouts
 =======
 
-.. include:: /boards/shields/waveshare_pico_10dof_imu_sensor/doc/pinouts.rsti
+.. include:: pinouts.rsti
 
 Components
 ==========
@@ -279,7 +279,7 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
          :flash-args: -r uf2
          :tool: all
 
-      .. include:: /boards/shields/waveshare_pico_10dof_imu_sensor/doc/helloshell.rsti
+      .. include:: helloshell.rsti
 
    .. group-tab:: Raspberry Pi Pico W
 
@@ -293,7 +293,7 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
          :flash-args: -r uf2
          :tool: all
 
-      .. include:: /boards/shields/waveshare_pico_10dof_imu_sensor/doc/helloshell.rsti
+      .. include:: helloshell.rsti
 
    .. group-tab:: Waveshare RP2040-LCD-0.96
 
@@ -307,7 +307,7 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
          :flash-args: -r uf2
          :tool: all
 
-      .. include:: /boards/shields/waveshare_pico_10dof_imu_sensor/doc/helloshell.rsti
+      .. include:: helloshell.rsti
 
    .. group-tab:: Waveshare RP2040-Plus
 
@@ -335,7 +335,7 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
          :flash-args: -r uf2
          :tool: all
 
-      .. include:: /boards/shields/waveshare_pico_10dof_imu_sensor/doc/helloshell.rsti
+      .. include:: helloshell.rsti
 
 More Samples
 ************
@@ -343,9 +343,9 @@ More Samples
 LPS22HB Pressure and Temperature Sensor
 =======================================
 
-This sample shows how to use the :ref:`Sensors API <zephyr:sensor_api>` driver
-for the STM LPS22HB MEMS pressure sensor. See also Zephyr sample:
-:doc:`zephyr:samples/sensor/lps22hb/README`.
+This sample shows how to use the :ref:`Sensors API <zephyr:sensor_api>`
+driver for the STM LPS22HB MEMS pressure sensor. See also Zephyr sample:
+:ref:`zephyr:lps22hb`.
 
 .. zephyr-app-commands::
    :app: zephyr/samples/sensor/lps22hb

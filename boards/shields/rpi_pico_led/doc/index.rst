@@ -18,7 +18,7 @@ Hardware
 
       .. _waveshare_pico_rgb_led:
 
-      .. include:: /boards/shields/rpi_pico_led/doc/waveshare_pico_rgb_led/hardware.rsti
+      .. include:: waveshare_pico_rgb_led/hardware.rsti
 
 Positions
 =========
@@ -27,7 +27,7 @@ Positions
 
    .. group-tab:: Waveshare Pico RGB LED
 
-      .. include:: /boards/shields/rpi_pico_led/doc/waveshare_pico_rgb_led/positions.rsti
+      .. include:: waveshare_pico_rgb_led/positions.rsti
 
 Pinouts
 =======
@@ -36,7 +36,7 @@ Pinouts
 
    .. group-tab:: Waveshare Pico RGB LED
 
-      .. include:: /boards/shields/rpi_pico_led/doc/waveshare_pico_rgb_led/pinouts.rsti
+      .. include:: waveshare_pico_rgb_led/pinouts.rsti
 
 More Samples
 ************
@@ -48,20 +48,20 @@ LED Blinky and Fade
 
    .. group-tab:: Waveshare Pico RGB LED
 
-      .. image:: /boards/shields/rpi_pico_led/doc/waveshare_pico_rgb_led/ws2812b-16x10.gif
+      .. image:: waveshare_pico_rgb_led/ws2812b-16x10.gif
          :align: right
          :alt: Waveshare Pico RGB LED WS2812 LED Test Pattern
 
       .. rubric:: WS2812 LED Test Pattern by PIO
 
-      See also Zephyr sample: :doc:`zephyr:samples/drivers/led_ws2812/README`
+      See also Zephyr sample: :zephyr:code-sample:`zephyr:led-strip`
 
       .. tabs::
 
          .. group-tab:: Raspberry Pi Pico
 
             .. zephyr-app-commands::
-               :app: zephyr/samples/drivers/led_ws2812
+               :app: zephyr/samples/drivers/led_strip
                :build-dir: waveshare_pico_rgb_led-strip_test
                :board: rpi_pico
                :shield: waveshare_pico_rgb_led
@@ -73,7 +73,7 @@ LED Blinky and Fade
          .. group-tab:: Raspberry Pi Pico W
 
             .. zephyr-app-commands::
-               :app: zephyr/samples/drivers/led_ws2812
+               :app: zephyr/samples/drivers/led_strip
                :build-dir: waveshare_pico_rgb_led-strip_test
                :board: rpi_pico_w
                :shield: waveshare_pico_rgb_led
@@ -85,7 +85,7 @@ LED Blinky and Fade
          .. group-tab:: Waveshare RP2040-LCD-0.96
 
             .. zephyr-app-commands::
-               :app: zephyr/samples/drivers/led_ws2812
+               :app: zephyr/samples/drivers/led_strip
                :build-dir: waveshare_pico_rgb_led-strip_test
                :board: waveshare_rp2040_lcd_0_96
                :shield: waveshare_pico_rgb_led
@@ -99,7 +99,7 @@ LED Blinky and Fade
             .. rubric:: on standard ``4㎆`` revision
 
             .. zephyr-app-commands::
-               :app: zephyr/samples/drivers/led_ws2812
+               :app: zephyr/samples/drivers/led_strip
                :build-dir: waveshare_pico_rgb_led-strip_test
                :board: waveshare_rp2040_plus
                :shield: waveshare_pico_rgb_led
@@ -111,7 +111,7 @@ LED Blinky and Fade
             .. rubric:: on extended ``16㎆`` revision
 
             .. zephyr-app-commands::
-               :app: zephyr/samples/drivers/led_ws2812
+               :app: zephyr/samples/drivers/led_strip
                :build-dir: waveshare_pico_rgb_led-strip_test
                :board: waveshare_rp2040_plus@16mb
                :shield: waveshare_pico_rgb_led

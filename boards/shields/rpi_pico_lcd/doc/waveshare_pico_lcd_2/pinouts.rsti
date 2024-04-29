@@ -84,7 +84,7 @@
        - :dtcompatible:`raspberrypi,pico-header-r3`
        - :dtcompatible:`gpio-keys`
 
-     - .. image:: /boards/shields/rpi_pico_lcd/doc/waveshare_pico_lcd_2/pinouts.jpg
+     - .. image:: waveshare_pico_lcd_2/pinouts.jpg
           :align: center
           :width: 100%
           :alt: Waveshare Pico LCD 2 edge pinout

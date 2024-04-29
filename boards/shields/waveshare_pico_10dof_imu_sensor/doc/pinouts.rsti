@@ -86,7 +86,7 @@
 
        - :dtcompatible:`raspberrypi,pico-header-r3`
 
-     - .. image:: /boards/shields/waveshare_pico_10dof_imu_sensor/doc/img/pinouts-rev21.jpg
+     - .. image:: img/pinouts-rev21.jpg
           :align: center
           :width: 100%
           :alt: Waveshare Pico 10-DOF IMU Sensor Rev2.1 edge pinout
@@ -174,7 +174,7 @@
 
        - :dtcompatible:`raspberrypi,pico-header-r3`
 
-     - .. image:: /boards/shields/waveshare_pico_10dof_imu_sensor/doc/img/pinouts-rev1.jpg
+     - .. image:: img/pinouts-rev1.jpg
           :align: center
           :width: 100%
           :alt: Waveshare Pico 10-DOF IMU Sensor Rev1 edge pinout

@@ -21,7 +21,7 @@ Hardware
 
       .. _spotpear_pico_test:
 
-      .. include:: /boards/shields/rpi_pico_test/doc/spotpear_pico_test/hardware.rsti
+      .. include:: spotpear_pico_test/hardware.rsti
 
 Positions
 =========
@@ -30,7 +30,7 @@ Positions
 
    .. group-tab:: Spotpear Pico ALL GPIO TEST
 
-      .. include:: /boards/shields/rpi_pico_test/doc/spotpear_pico_test/positions.rsti
+      .. include:: spotpear_pico_test/positions.rsti
 
 Pinouts
 =======
@@ -40,7 +40,7 @@ Pinouts
 
    .. group-tab:: Spotpear Pico ALL GPIO TEST
 
-      .. include:: /boards/shields/rpi_pico_test/doc/spotpear_pico_test/pinouts.rsti
+      .. include:: spotpear_pico_test/pinouts.rsti
 
 Utilization
 ***********
@@ -77,7 +77,7 @@ Programming
                :host-os: unix
                :tool: all
 
-            .. include:: /boards/shields/rpi_pico_test/doc/spotpear_pico_test/helloshell.rsti
+            .. include:: spotpear_pico_test/helloshell.rsti
 
          .. group-tab:: Raspberry Pi Pico W
 
@@ -92,7 +92,7 @@ Programming
                :host-os: unix
                :tool: all
 
-            .. include:: /boards/shields/rpi_pico_test/doc/spotpear_pico_test/helloshell.rsti
+            .. include:: spotpear_pico_test/helloshell.rsti
 
          .. group-tab:: Waveshare RP2040-Plus
 
@@ -122,7 +122,7 @@ Programming
                :host-os: unix
                :tool: all
 
-            .. include:: /boards/shields/rpi_pico_test/doc/spotpear_pico_test/helloshell.rsti
+            .. include:: spotpear_pico_test/helloshell.rsti
 
          .. group-tab:: Waveshare RP2040-LCD-0.96
 
@@ -137,7 +137,7 @@ Programming
                :host-os: unix
                :tool: all
 
-            .. include:: /boards/shields/rpi_pico_test/doc/spotpear_pico_test/helloshell.rsti
+            .. include:: spotpear_pico_test/helloshell.rsti
 
 More Samples
 ************
@@ -146,7 +146,7 @@ Input dump
 ==========
 
 Prints all input events as defined by the shield's Devicetree. See also Zephyr
-sample: :doc:`zephyr:samples/subsys/input/input_dump/README`.
+sample: :zephyr:code-sample:`zephyr:input-dump`.
 
 .. tabs::
 
@@ -271,7 +271,7 @@ Analog-to-Digital Converter (ADC)
 =================================
 
 Read analog inputs from ADC channels as defined by the shield's Devicetree.
-See also Zephyr sample: :doc:`zephyr:samples/drivers/adc/README`.
+See also Zephyr sample: :zephyr:code-sample:`zephyr:adc_dt`.
 
 .. tabs::
 
@@ -288,7 +288,7 @@ See also Zephyr sample: :doc:`zephyr:samples/drivers/adc/README`.
          .. group-tab:: Raspberry Pi Pico
 
             .. zephyr-app-commands::
-               :app: zephyr/samples/drivers/adc
+               :app: zephyr/samples/drivers/adc/adc_dt
                :build-dir: spotpear_pico_test-drivers_adc
                :board: rpi_pico
                :shield: "spotpear_pico_test"
@@ -300,7 +300,7 @@ See also Zephyr sample: :doc:`zephyr:samples/drivers/adc/README`.
          .. group-tab:: Raspberry Pi Pico W
 
             .. zephyr-app-commands::
-               :app: zephyr/samples/drivers/adc
+               :app: zephyr/samples/drivers/adc/adc_dt
                :build-dir: spotpear_pico_test-drivers_adc
                :board: rpi_pico_w
                :shield: "spotpear_pico_test"
@@ -314,7 +314,7 @@ See also Zephyr sample: :doc:`zephyr:samples/drivers/adc/README`.
             .. rubric:: on standard ``4㎆`` revision
 
             .. zephyr-app-commands::
-               :app: zephyr/samples/drivers/adc
+               :app: zephyr/samples/drivers/adc/adc_dt
                :build-dir: spotpear_pico_test-drivers_adc
                :board: waveshare_rp2040_plus
                :shield: "spotpear_pico_test"
@@ -326,7 +326,7 @@ See also Zephyr sample: :doc:`zephyr:samples/drivers/adc/README`.
             .. rubric:: on extended ``16㎆`` revision
 
             .. zephyr-app-commands::
-               :app: zephyr/samples/drivers/adc
+               :app: zephyr/samples/drivers/adc/adc_dt
                :build-dir: spotpear_pico_test-drivers_adc
                :board: waveshare_rp2040_plus@16mb
                :shield: "spotpear_pico_test"
@@ -338,7 +338,7 @@ See also Zephyr sample: :doc:`zephyr:samples/drivers/adc/README`.
          .. group-tab:: Waveshare RP2040-LCD-0.96
 
             .. zephyr-app-commands::
-               :app: zephyr/samples/drivers/adc
+               :app: zephyr/samples/drivers/adc/adc_dt
                :build-dir: spotpear_pico_test-drivers_adc
                :board: waveshare_rp2040_lcd_0_96
                :shield: "spotpear_pico_test"
@@ -377,7 +377,7 @@ Light-Emitting Diode (LED) by PWM
 =================================
 
 Control PWM LEDs as defined by the shield's Devicetree. See also Zephyr
-sample: :doc:`zephyr:samples/drivers/led_pwm/README`.
+sample: :zephyr:code-sample:`zephyr:led-pwm`.
 
 .. tabs::
 

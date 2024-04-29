@@ -23,7 +23,7 @@ Hardware
 
       .. _waveshare_pico_clock_green:
 
-      .. include:: /boards/shields/rpi_pico_clock/doc/waveshare_pico_clock_green/hardware.rsti
+      .. include:: waveshare_pico_clock_green/hardware.rsti
 
 Positions
 =========
@@ -32,7 +32,7 @@ Positions
 
    .. group-tab:: Waveshare Pico Clock Green
 
-      .. include:: /boards/shields/rpi_pico_clock/doc/waveshare_pico_clock_green/positions.rsti
+      .. include:: waveshare_pico_clock_green/positions.rsti
 
 Pinouts
 =======
@@ -41,7 +41,7 @@ Pinouts
 
    .. group-tab:: Waveshare Pico Clock Green
 
-      .. include:: /boards/shields/rpi_pico_clock/doc/waveshare_pico_clock_green/pinouts.rsti
+      .. include:: waveshare_pico_clock_green/pinouts.rsti
 
 Utilization
 ***********
@@ -83,7 +83,7 @@ Programming
                :host-os: unix
                :tool: all
 
-            .. include:: /boards/shields/rpi_pico_clock/doc/waveshare_pico_clock_green/helloshell.rsti
+            .. include:: waveshare_pico_clock_green/helloshell.rsti
 
          .. group-tab:: Raspberry Pi Pico W
 
@@ -98,7 +98,7 @@ Programming
                :host-os: unix
                :tool: all
 
-            .. include:: /boards/shields/rpi_pico_clock/doc/waveshare_pico_clock_green/helloshell.rsti
+            .. include:: waveshare_pico_clock_green/helloshell.rsti
 
          .. group-tab:: Waveshare RP2040-Plus
 
@@ -128,7 +128,7 @@ Programming
                :host-os: unix
                :tool: all
 
-            .. include:: /boards/shields/rpi_pico_clock/doc/waveshare_pico_clock_green/helloshell.rsti
+            .. include:: waveshare_pico_clock_green/helloshell.rsti
 
 More Samples
 ************
@@ -142,7 +142,7 @@ LED Blinky and Button
 
       .. rubric:: LED Blinky
 
-      See also Zephyr sample: :doc:`zephyr:samples/basic/blinky/README`
+      See also Zephyr sample: :zephyr:code-sample:`zephyr:blinky`.
 
       .. tabs::
 
@@ -198,7 +198,7 @@ LED Blinky and Button
 
       .. rubric:: LED ON/OFF by Button
 
-      See also Zephyr sample: :doc:`zephyr:samples/basic/button/README`
+      See also Zephyr sample: :zephyr:code-sample:`zephyr:button`.
 
       .. tabs::
 
@@ -256,7 +256,7 @@ Input dump
 ==========
 
 Prints all input events as defined by the shields Devicetree. See also Zephyr
-sample: :doc:`zephyr:samples/subsys/input/input_dump/README`.
+sample: :zephyr:code-sample:`zephyr:input-dump`.
 
 .. tabs::
 
@@ -343,7 +343,7 @@ Analog-to-Digital Converter (ADC)
 =================================
 
 Read analog inputs from ADC channels as defined by the shield's Devicetree.
-See also Zephyr sample: :doc:`zephyr:samples/drivers/adc/README`.
+See also Zephyr sample: :zephyr:code-sample:`zephyr:adc_dt`.
 
 .. tabs::
 
@@ -360,7 +360,7 @@ See also Zephyr sample: :doc:`zephyr:samples/drivers/adc/README`.
          .. group-tab:: Raspberry Pi Pico
 
             .. zephyr-app-commands::
-               :app: zephyr/samples/drivers/adc
+               :app: zephyr/samples/drivers/adc/adc_dt
                :build-dir: waveshare_pico_clock_green-drivers_adc
                :board: rpi_pico
                :shield: "waveshare_pico_clock_green"
@@ -372,7 +372,7 @@ See also Zephyr sample: :doc:`zephyr:samples/drivers/adc/README`.
          .. group-tab:: Raspberry Pi Pico W
 
             .. zephyr-app-commands::
-               :app: zephyr/samples/drivers/adc
+               :app: zephyr/samples/drivers/adc/adc_dt
                :build-dir: waveshare_pico_clock_green-drivers_adc
                :board: rpi_pico_w
                :shield: "waveshare_pico_clock_green"
@@ -386,7 +386,7 @@ See also Zephyr sample: :doc:`zephyr:samples/drivers/adc/README`.
             .. rubric:: on standard ``4㎆`` revision
 
             .. zephyr-app-commands::
-               :app: zephyr/samples/drivers/adc
+               :app: zephyr/samples/drivers/adc/adc_dt
                :build-dir: waveshare_pico_clock_green-drivers_adc
                :board: waveshare_rp2040_plus
                :shield: "waveshare_pico_clock_green"
@@ -398,7 +398,7 @@ See also Zephyr sample: :doc:`zephyr:samples/drivers/adc/README`.
             .. rubric:: on extended ``16㎆`` revision
 
             .. zephyr-app-commands::
-               :app: zephyr/samples/drivers/adc
+               :app: zephyr/samples/drivers/adc/adc_dt
                :build-dir: waveshare_pico_clock_green-drivers_adc
                :board: waveshare_rp2040_plus@16mb
                :shield: "waveshare_pico_clock_green"
@@ -545,14 +545,14 @@ LED Panel Orientation and Bit Order Test
 ========================================
 
 Draw some basic rectangles onto the LED panel. The rectangle positions are
-chosen so that you can check the orientation of the LED panel and correct bit
-order. See also Zephyr sample: :doc:`zephyr:samples/drivers/display/README`.
+chosen so that you can check the orientation of the LED panel and correct
+bit order. See also Zephyr sample: :zephyr:code-sample:`zephyr:display`.
 
 .. tabs::
 
    .. group-tab:: Waveshare Pico Clock Green
 
-      .. image:: /boards/shields/rpi_pico_clock/doc/waveshare_pico_clock_green/display.gif
+      .. image:: waveshare_pico_clock_green/display.gif
          :scale: 75%
          :align: right
          :alt: Waveshare Pico Clock Green Display Test

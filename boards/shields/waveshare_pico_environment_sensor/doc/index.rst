@@ -16,17 +16,17 @@ Board Overview
 Hardware
 ========
 
-.. include:: /boards/shields/waveshare_pico_environment_sensor/doc/hardware.rsti
+.. include:: hardware.rsti
 
 Positions
 =========
 
-.. include:: /boards/shields/waveshare_pico_environment_sensor/doc/positions.rsti
+.. include:: positions.rsti
 
 Pinouts
 =======
 
-.. include:: /boards/shields/waveshare_pico_environment_sensor/doc/pinouts.rsti
+.. include:: pinouts.rsti
 
 Components
 ==========
@@ -269,7 +269,7 @@ Set ``-DSHIELD=waveshare_pico_environment_sensor`` when you invoke
          :flash-args: -r uf2
          :tool: all
 
-      .. include:: /boards/shields/waveshare_pico_environment_sensor/doc/helloshell.rsti
+      .. include:: helloshell.rsti
 
    .. group-tab:: Raspberry Pi Pico W
 
@@ -283,7 +283,7 @@ Set ``-DSHIELD=waveshare_pico_environment_sensor`` when you invoke
          :flash-args: -r uf2
          :tool: all
 
-      .. include:: /boards/shields/waveshare_pico_environment_sensor/doc/helloshell.rsti
+      .. include:: helloshell.rsti
 
    .. group-tab:: Waveshare RP2040-LCD-0.96
 
@@ -297,7 +297,7 @@ Set ``-DSHIELD=waveshare_pico_environment_sensor`` when you invoke
          :flash-args: -r uf2
          :tool: all
 
-      .. include:: /boards/shields/waveshare_pico_environment_sensor/doc/helloshell.rsti
+      .. include:: helloshell.rsti
 
    .. group-tab:: Waveshare RP2040-Plus
 
@@ -325,7 +325,7 @@ Set ``-DSHIELD=waveshare_pico_environment_sensor`` when you invoke
          :flash-args: -r uf2
          :tool: all
 
-      .. include:: /boards/shields/waveshare_pico_environment_sensor/doc/helloshell.rsti
+      .. include:: helloshell.rsti
 
 More Samples
 ************
@@ -335,8 +335,7 @@ BME280 Humidity and Pressure Sensor
 
 This sample shows how to use the :ref:`Sensors API <zephyr:sensor_api>` driver
 for the Bosch BME280 environmental sensor. See also Zephyr sample:
-:doc:`zephyr:samples/sensor/bme280/README` and
-:ref:`snippet-samples-sensor-bme280-tweaks`.
+:ref:`zephyr:bme280` and :ref:`snippet-samples-sensor-bme280-tweaks`.
 
 .. zephyr-app-commands::
    :app: zephyr/samples/sensor/bme280

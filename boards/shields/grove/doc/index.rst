@@ -575,16 +575,16 @@ GPIO mapping
       This is the **GPIO signal line mapping** from an `Arduino Uno R3`_
       or `Arduino Uno R2`_ header bindet with :dtcompatible:`arduino-header-r3`.
 
-      .. include:: /boards/shields/grove/doc/grove_gpios_arduino_header.rsti
+      .. include:: grove_gpios_arduino_header.rsti
 
-      .. include:: /boards/shields/grove/doc/grove_attention-mimxrt1010_evk.rsti
+      .. include:: grove_attention-mimxrt1010_evk.rsti
 
    .. group-tab:: Seeeduino XIAO Header
 
       This is the **GPIO signal line mapping** from a `Seeeduino XIAO`_
       header bindet with :dtcompatible:`seeed,xiao-gpio`.
 
-      .. include:: /boards/shields/grove/doc/grove_gpios_seeedxiao_header.rsti
+      .. include:: grove_gpios_seeedxiao_header.rsti
 
    .. group-tab:: Raspberry Pi Pico Header
 
@@ -602,7 +602,7 @@ GPIO mapping
       You need to know that. Boards affected by this are included in the
       last columns as a special case.
 
-      .. include:: /boards/shields/grove/doc/grove_gpios_rpipico_header.rsti
+      .. include:: grove_gpios_rpipico_header.rsti
 
 PWM mapping
 -----------
@@ -628,28 +628,28 @@ not be complete.
             This is based on the Zephyr board :ref:`zephyr:nucleo_f303re_board`
             and its :dtcompatible:`arduino-header-r3`.
 
-            .. include:: /boards/shields/grove/doc/grove_pwms-nucleo_f303re.rsti
+            .. include:: grove_pwms-nucleo_f303re.rsti
 
          .. group-tab:: ``nucleo_f401re``
 
             This is based on the Zephyr board :ref:`zephyr:nucleo_f401re_board`
             and its :dtcompatible:`arduino-header-r3`.
 
-            .. include:: /boards/shields/grove/doc/grove_pwms-nucleo_f401re.rsti
+            .. include:: grove_pwms-nucleo_f401re.rsti
 
          .. group-tab:: ``nucleo_f413zh``
 
             This is based on the Zephyr board :ref:`zephyr:nucleo_f413zh_board`
             and its :dtcompatible:`arduino-header-r3`.
 
-            .. include:: /boards/shields/grove/doc/grove_pwms-nucleo_f413zh.rsti
+            .. include:: grove_pwms-nucleo_f413zh.rsti
 
          .. group-tab:: ``nucleo_f767zi``
 
             This is based on the Zephyr board :ref:`zephyr:nucleo_f767zi_board`
             and its :dtcompatible:`arduino-header-r3`.
 
-            .. include:: /boards/shields/grove/doc/grove_pwms-nucleo_f767zi.rsti
+            .. include:: grove_pwms-nucleo_f767zi.rsti
 
    .. group-tab:: NXP Semiconductors
 
@@ -668,9 +668,9 @@ not be complete.
                with the hardware user manual and/or schematic if you need to change
                jumper or solder bridge setups for proper usage.
 
-            .. include:: /boards/shields/grove/doc/grove_pwms-mimxrt1010_evk.rsti
+            .. include:: grove_pwms-mimxrt1010_evk.rsti
 
-            .. include:: /boards/shields/grove/doc/grove_attention-mimxrt1010_evk.rsti
+            .. include:: grove_attention-mimxrt1010_evk.rsti
 
          .. group-tab:: ``mimxrt1060_evk(b)``
 
@@ -685,7 +685,7 @@ not be complete.
                with the hardware user manual and/or schematic if you need to change
                jumper or solder bridge setups for proper usage.
 
-            .. include:: /boards/shields/grove/doc/grove_pwms-mimxrt1060_evk.rsti
+            .. include:: grove_pwms-mimxrt1060_evk.rsti
 
    .. group-tab:: Atmel Semiconductors
 
@@ -705,7 +705,7 @@ not be complete.
                be used independently at the associated signals of the
                |Laced Grove Signal Interface|.
 
-            .. include:: /boards/shields/grove/doc/grove_pwms-arduino_zero.rsti
+            .. include:: grove_pwms-arduino_zero.rsti
 
          .. group-tab:: ``seeeduino_cm0``
 
@@ -721,7 +721,7 @@ not be complete.
                be used independently at the associated signals of the
                |Laced Grove Signal Interface|.
 
-            .. include:: /boards/shields/grove/doc/grove_pwms-seeeduino_cm0.rsti
+            .. include:: grove_pwms-seeeduino_cm0.rsti
 
          .. group-tab:: ``seeeduino_lotus``
 
@@ -737,7 +737,7 @@ not be complete.
                be used independently at the associated signals of the
                |Laced Grove Signal Interface|.
 
-            .. include:: /boards/shields/grove/doc/grove_pwms-seeeduino_lotus.rsti
+            .. include:: grove_pwms-seeeduino_lotus.rsti
 
          .. group-tab:: ``seeed_xiao_samd21``
 
@@ -753,7 +753,7 @@ not be complete.
                be used independently at the associated signals of the
                |Laced Grove Signal Interface|.
 
-            .. include:: /boards/shields/grove/doc/grove_pwms-seeed_xiao_samd21.rsti
+            .. include:: grove_pwms-seeed_xiao_samd21.rsti
 
          .. group-tab:: ``seeeduino_xiao``
 
@@ -769,7 +769,7 @@ not be complete.
                be used independently at the associated signals of the
                |Laced Grove Signal Interface|.
 
-            .. include:: /boards/shields/grove/doc/grove_pwms-seeeduino_xiao.rsti
+            .. include:: grove_pwms-seeeduino_xiao.rsti
 
    .. group-tab:: Raspberry Pi
 
@@ -789,7 +789,7 @@ not be complete.
                be used independently at the associated signals of the
                |Laced Grove Signal Interface|.
 
-            .. include:: /boards/shields/grove/doc/grove_pwms-rpi_pico.rsti
+            .. include:: grove_pwms-rpi_pico.rsti
 
          .. group-tab:: ``waveshare_rp2040_eth``
 
@@ -807,7 +807,7 @@ not be complete.
                be used independently at the associated signals of the
                |Laced Grove Signal Interface|.
 
-            .. include:: /boards/shields/grove/doc/grove_pwms-waveshare_rp2040_eth.rsti
+            .. include:: grove_pwms-waveshare_rp2040_eth.rsti
 
          .. group-tab:: ``waveshare_rp2040_lcd_0_96``
 
@@ -824,7 +824,7 @@ not be complete.
                be used independently at the associated signals of the
                |Laced Grove Signal Interface|.
 
-            .. include:: /boards/shields/grove/doc/grove_pwms-rpi_pico.rsti
+            .. include:: grove_pwms-rpi_pico.rsti
 
          .. group-tab:: ``waveshare_rp2040_plus``
 
@@ -841,7 +841,7 @@ not be complete.
                be used independently at the associated signals of the
                |Laced Grove Signal Interface|.
 
-            .. include:: /boards/shields/grove/doc/grove_pwms-rpi_pico.rsti
+            .. include:: grove_pwms-rpi_pico.rsti
 
 .. |pwm| replace:: :code:`<&pwm …>`
 .. |CHA| replace:: :s:`CHA`

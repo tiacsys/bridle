@@ -53,6 +53,6 @@ display and buttons for navigation and configuration.
 
        - `Waveshare Pico Clock Green Schematic`_
 
-     - .. image:: /boards/shields/rpi_pico_clock/doc/waveshare_pico_clock_green/hardware.jpg
+     - .. image:: waveshare_pico_clock_green/hardware.jpg
           :align: center
           :alt: Waveshare Pico Clock Green

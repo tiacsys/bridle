@@ -6,7 +6,7 @@ LED Blinky
 Overview
 ********
 
-See :doc:`zephyr:samples/basic/blinky/README` for the original description.
+See :zephyr:code-sample:`zephyr:blinky` for the original description.
 
 .. _tiac_magpie_led_blinky-sample-requirements:
 

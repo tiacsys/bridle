@@ -72,7 +72,7 @@
        - :dtcompatible:`raspberrypi,pico-header-r3`
        - :dtcompatible:`worldsemi,ws2812-rpi_pico-pio`
 
-     - .. image:: /boards/shields/rpi_pico_led/doc/waveshare_pico_rgb_led/pinouts.jpg
+     - .. image:: waveshare_pico_rgb_led/pinouts.jpg
           :align: center
           :width: 100%
           :alt: Waveshare Pico RGB LED edge pinout

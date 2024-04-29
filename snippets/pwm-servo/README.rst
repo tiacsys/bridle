@@ -11,8 +11,8 @@ Overview
 ********
 
 This snippet is quite board specific and prepares a dedicated PWM channel
-exclusively for the standard :doc:`zephyr:samples/basic/servo_motor/README`
-sample from Zephyr.
+exclusively for the standard :zephyr:code-sample:`zephyr:servo-motor` sample
+from Zephyr.
 
 Board specific setups
 =====================
@@ -30,15 +30,14 @@ Cytron Maker Pi RP2040
 .. _snippet-pwm-servo-cytron-maker-pi-rp2040:
 
 Connect a servomotor :hwftlbl-act:`MG996R` to the first on-board PWM channel
-for servomotors, the 4×3 pin header block at position 19.
-See the board :ref:`positions diagram <cytron_maker_pi_rp2040_positions>`
-for details.
+for servomotors, the 4×3 pin header block at position 19. See the board
+:ref:`positions diagram <cytron_maker_pi_rp2040_positions>` for details.
 
 The corresponding PWM pulse widths for a range of :b:`-90°` to :b:`+90°` (180°)
 are :bbl:`500 ㎲` to :bbl:`2,500 ㎲` with a :bbl:`period of 50 ㎐`. All these
 servomotor specific parameters are preset by the snippet :ref:`snippet-pwm-servo`
 that have to use to get access to this dedicated PWM channel together with the
-original Zephyr :doc:`zephyr:samples/basic/servo_motor/README` sample. Invoke
+original Zephyr :zephyr:code-sample:`zephyr:servo-motor` sample. Invoke
 :program:`west build` and :program:`west flash` with this snipped and optional
 mixed with others, for example:
 

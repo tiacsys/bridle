@@ -32,6 +32,6 @@ chip. It is a :bbl:`pico sized` clean-looking front panel.
 
        - `Waveshare Pico RGB LED Schematic`_
 
-     - .. image:: /boards/shields/rpi_pico_led/doc/waveshare_pico_rgb_led/hardware.jpg
+     - .. image:: waveshare_pico_rgb_led/hardware.jpg
           :align: center
           :alt: Waveshare Pico RGB LED

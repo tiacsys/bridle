@@ -85,7 +85,7 @@
 
        - :dtcompatible:`raspberrypi,pico-header-r3`
 
-     - .. image:: /boards/shields/waveshare_pico_environment_sensor/doc/img/pinouts.jpg
+     - .. image:: img/pinouts.jpg
           :align: center
           :width: 100%
           :alt: Waveshare Pico Environment Sensor edge pinout

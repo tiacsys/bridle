@@ -22,7 +22,7 @@ Hardware
 
       .. _waveshare_2_4_lcd:
 
-      .. include:: /boards/shields/waveshare_lcd/doc/waveshare_2_4_lcd/hardware.rsti
+      .. include:: waveshare_2_4_lcd/hardware.rsti
 
 Positions
 =========
@@ -31,7 +31,7 @@ Positions
 
    .. group-tab:: Waveshare 2.4 LCD
 
-      .. include:: /boards/shields/waveshare_lcd/doc/waveshare_2_4_lcd/positions.rsti
+      .. include:: waveshare_2_4_lcd/positions.rsti
 
 Pinouts
 =======
@@ -40,7 +40,7 @@ Pinouts
 
    .. group-tab:: Waveshare 2.4 LCD
 
-      .. include:: /boards/shields/waveshare_lcd/doc/waveshare_2_4_lcd/pinouts.rsti
+      .. include:: waveshare_2_4_lcd/pinouts.rsti
 
 Requirements
 ************
@@ -57,7 +57,7 @@ Pin Assignments
 
    .. group-tab:: Waveshare 2.4 LCD
 
-      .. include:: /boards/shields/waveshare_lcd/doc/waveshare_2_4_lcd/wiring.rsti
+      .. include:: waveshare_2_4_lcd/wiring.rsti
 
 Utilization
 ***********

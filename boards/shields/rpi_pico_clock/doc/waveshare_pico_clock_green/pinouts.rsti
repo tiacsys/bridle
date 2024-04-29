@@ -85,7 +85,7 @@
        - :dtcompatible:`maxim,ds3231-mfd`
          (:dtcompatible:`maxim,ds3231-rtc`, :dtcompatible:`maxim,ds3231-temp`)
 
-     - .. image:: /boards/shields/rpi_pico_clock/doc/waveshare_pico_clock_green/pinouts.jpg
+     - .. image:: waveshare_pico_clock_green/pinouts.jpg
           :align: center
           :width: 100%
           :alt: Waveshare Pico Clock Green edge pinout
@@ -109,7 +109,7 @@
 
        |nbsp|
 
-       .. image:: /boards/shields/rpi_pico_clock/doc/waveshare_pico_clock_green/sipomuxgp-spi.svg
+       .. image:: waveshare_pico_clock_green/sipomuxgp-spi.svg
           :align: center
           :alt: Waveshare Pico Clock Green LED matrix
 
