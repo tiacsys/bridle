@@ -55,6 +55,7 @@ manifest:
           - edtt
           - fatfs
           - hal_altera
+          - hal_ambiq
           - hal_atmel
           - hal_espressif
           - hal_gigadevice
