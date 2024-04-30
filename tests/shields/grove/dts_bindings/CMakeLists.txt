@@ -451,7 +451,7 @@ if(DEFINED if_path)
   endif()
 
   # check board specific add-ons for xiao
-  if(CONFIG_BOARD_SEEED_XIAO_SAMD21 OR
+  if(CONFIG_BOARD_XIAO_SAMD21 OR
      CONFIG_BOARD_SEEEDUINO_XIAO)
 
     test_if_label_on_path("grove_pwms" "${if_path}")
@@ -471,7 +471,7 @@ if(DEFINED if_path)
   endif()
 
   # check common board specific add-ons
-  if(CONFIG_BOARD_SEEED_XIAO_SAMD21 OR
+  if(CONFIG_BOARD_XIAO_SAMD21 OR
      CONFIG_BOARD_SEEEDUINO_XIAO)
 
     test_if_label_matching("grove_serial" "xiao_serial")
@@ -481,12 +481,14 @@ if(DEFINED if_path)
   endif()
 
   # check board specific add-ons for rpi_pico
-  if(CONFIG_BOARD_RPI_PICO OR
-     CONFIG_BOARD_WAVESHARE_RP2040_PLUS)
+  if(CONFIG_BOARD_RPI_PICO_RP2040 OR
+     CONFIG_BOARD_RPI_PICO_RP2040_W OR
+     CONFIG_BOARD_WAVESHARE_RP2040_PICO)
 
     test_if_label_on_path("grove_pwms" "${if_path}")
 
-    if(CONFIG_SHIELD_SEEED_GROVE_RPIPICO_V1)
+    if(CONFIG_SHIELD_SEEED_GROVE_RPIPICO_V1 AND
+       NOT CONFIG_BOARD_WAVESHARE_RP2040_ETH)
 
       test_if_label_matching("grove_pwm_d16" "pwm")
       test_if_label_matching("grove_pwm_d18" "pwm")
@@ -496,8 +498,9 @@ if(DEFINED if_path)
   endif()
 
   # check common board specific add-ons
-  if(CONFIG_BOARD_RPI_PICO OR
-     CONFIG_BOARD_WAVESHARE_RP2040_PLUS)
+  if(CONFIG_BOARD_RPI_PICO_RP2040 OR
+     CONFIG_BOARD_RPI_PICO_RP2040_W OR
+     CONFIG_BOARD_WAVESHARE_RP2040_PICO)
 
     test_if_label_matching("grove_serial" "rpipico_serial")
     test_if_label_matching("grove_i2c" "rpipico_i2c")

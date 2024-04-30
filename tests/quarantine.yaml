@@ -75,8 +75,8 @@
     - grove.connectors.x_grove_testbed.pwm.b3l5
     - grove.connectors.x_grove_testbed.pwm.b7l6
   platforms:
-    - seeed_xiao_samd21
     - seeeduino_xiao
+    - xiao_samd21
 
 - comment: "shield(grove.rpipico.x_grove_testbed.b16l18): invalid board/shield condition."
   scenarios:
@@ -89,7 +89,7 @@
     - grove.connectors.x_grove_testbed.pwm.b7l6
   platforms:
     - rpi_pico
-    - rpi_pico_w
+    - rpi_pico/rp2040/w
     - waveshare_rp2040_lcd_0_96
     - waveshare_rp2040_plus
     - waveshare_rp2040_plus@16mb
@@ -152,9 +152,9 @@
     - cytron_maker_nano_rp2040
     - cytron_maker_pi_rp2040
     - rpi_pico
-    - rpi_pico_w
+    - rpi_pico/rp2040/w
     - seeeduino_xiao
-    - seeed_xiao_samd21
+    - xiao_samd21
     - waveshare_rp2040_one
     - waveshare_rp2040_zero
     - waveshare_rp2040_matrix
@@ -184,7 +184,7 @@
     - nucleo_f746zg
     - nucleo_f767zi
     - rpi_pico
-    - rpi_pico_w
+    - rpi_pico/rp2040/w
     - seeeduino_cm0
     - seeeduino_lotus
     - waveshare_rp2040_one
@@ -233,10 +233,10 @@
     - nucleo_f413zh
     - nucleo_f746zg
     - nucleo_f767zi
-    - seeed_xiao_samd21
-    - seeeduino_xiao
     - seeeduino_cm0
     - seeeduino_lotus
+    - seeeduino_xiao
+    - xiao_samd21
 
 ##############################################################################
 #
@@ -261,9 +261,9 @@
     - cytron_maker_nano_rp2040
     - cytron_maker_pi_rp2040
     - rpi_pico
-    - rpi_pico_w
+    - rpi_pico/rp2040/w
     - seeeduino_xiao
-    - seeed_xiao_samd21
+    - xiao_samd21
     - waveshare_rp2040_one
     - waveshare_rp2040_zero
     - waveshare_rp2040_matrix
@@ -291,7 +291,7 @@
     - nucleo_f746zg
     - nucleo_f767zi
     - rpi_pico
-    - rpi_pico_w
+    - rpi_pico/rp2040/w
     - seeeduino_cm0
     - seeeduino_lotus
     - waveshare_rp2040_one
@@ -320,10 +320,10 @@
     - nucleo_f413zh
     - nucleo_f746zg
     - nucleo_f767zi
-    - seeed_xiao_samd21
-    - seeeduino_xiao
     - seeeduino_cm0
     - seeeduino_lotus
+    - seeeduino_xiao
+    - xiao_samd21
 
 - comment: "shield(grove.rpipico.grove_btn): waveshare_rp2040_eth: invalid board condition."
   platforms:
@@ -352,9 +352,9 @@
     - nucleo_f746zg
     - nucleo_f767zi
     - rpi_pico
-    - rpi_pico_w
-    - seeed_xiao_samd21
+    - rpi_pico/rp2040/w
     - seeeduino_xiao
+    - xiao_samd21
     - waveshare_rp2040_one
     - waveshare_rp2040_zero
     - waveshare_rp2040_matrix
@@ -499,9 +499,9 @@
     - cytron_maker_nano_rp2040
     - cytron_maker_pi_rp2040
     - rpi_pico
-    - rpi_pico_w
+    - rpi_pico/rp2040/w
     - seeeduino_xiao
-    - seeed_xiao_samd21
+    - xiao_samd21
     - waveshare_rp2040_one
     - waveshare_rp2040_zero
     - waveshare_rp2040_matrix
@@ -641,7 +641,7 @@
     - nucleo_f746zg
     - nucleo_f767zi
     - rpi_pico
-    - rpi_pico_w
+    - rpi_pico/rp2040/w
     - seeeduino_cm0
     - seeeduino_lotus
     - waveshare_rp2040_one
@@ -653,10 +653,10 @@
     - waveshare_rp2040_plus
     - waveshare_rp2040_plus@16mb
 
-- comment: "shield(grove.base.grove_led): seeed_xiao_samd21: invalid board condition."
+- comment: "shield(grove.base.grove_led): xiao_samd21: invalid board condition."
   platforms:
-    - seeed_xiao_samd21
     - seeeduino_xiao
+    - xiao_samd21
   scenarios:
     - grove.xiao.v1.grove_led.pwm.d0
     - grove.xiao.v1.grove_led.pwm.d6
@@ -679,10 +679,10 @@
     - nucleo_f413zh
     - nucleo_f746zg
     - nucleo_f767zi
-    - seeed_xiao_samd21
-    - seeeduino_xiao
     - seeeduino_cm0
     - seeeduino_lotus
+    - seeeduino_xiao
+    - xiao_samd21
 
 - comment: "shield(grove.rpipico.grove_led): waveshare_rp2040_eth: invalid board condition."
   platforms:
@@ -711,9 +711,9 @@
     - nucleo_f746zg
     - nucleo_f767zi
     - rpi_pico
-    - rpi_pico_w
-    - seeed_xiao_samd21
+    - rpi_pico/rp2040/w
     - seeeduino_xiao
+    - xiao_samd21
     - waveshare_rp2040_one
     - waveshare_rp2040_zero
     - waveshare_rp2040_matrix

@@ -41,11 +41,11 @@ common:
     - nucleo_f746zg
     - nucleo_f767zi
     - rpi_pico
-    - rpi_pico_w
-    - seeed_xiao_samd21
-    - seeeduino_xiao
+    - rpi_pico/rp2040/w
     - seeeduino_cm0
     - seeeduino_lotus
+    - seeeduino_xiao
+    - xiao_samd21
     - waveshare_rp2040_one
     - waveshare_rp2040_zero
     - waveshare_rp2040_matrix
@@ -480,7 +480,7 @@ tests:
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d16
     platform_allow:
       - rpi_pico
-      - rpi_pico_w
+      - rpi_pico/rp2040/w
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
@@ -491,7 +491,7 @@ tests:
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d17
     platform_allow:
       - rpi_pico
-      - rpi_pico_w
+      - rpi_pico/rp2040/w
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
@@ -502,7 +502,7 @@ tests:
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d18
     platform_allow:
       - rpi_pico
-      - rpi_pico_w
+      - rpi_pico/rp2040/w
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
@@ -513,7 +513,7 @@ tests:
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d19
     platform_allow:
       - rpi_pico
-      - rpi_pico_w
+      - rpi_pico/rp2040/w
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
@@ -524,7 +524,7 @@ tests:
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d20
     platform_allow:
       - rpi_pico
-      - rpi_pico_w
+      - rpi_pico/rp2040/w
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
@@ -535,7 +535,7 @@ tests:
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d21
     platform_allow:
       - rpi_pico
-      - rpi_pico_w
+      - rpi_pico/rp2040/w
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb

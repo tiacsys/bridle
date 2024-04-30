@@ -41,11 +41,11 @@ common:
     - nucleo_f746zg
     - nucleo_f767zi
     - rpi_pico
-    - rpi_pico_w
-    - seeed_xiao_samd21
-    - seeeduino_xiao
+    - rpi_pico/rp2040/w
     - seeeduino_cm0
     - seeeduino_lotus
+    - seeeduino_xiao
+    - xiao_samd21
     - waveshare_rp2040_one
     - waveshare_rp2040_zero
     - waveshare_rp2040_matrix
@@ -905,8 +905,8 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d1", "pwm-leds")
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_pwm_led_d1
     platform_allow:
-      - seeed_xiao_samd21
       - seeeduino_xiao
+      - xiao_samd21
   grove.xiao.v1.grove_led.pwm.d2:
     depends_on: xiao_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d2") and
@@ -915,8 +915,8 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d2", "pwm-leds")
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_pwm_led_d2
     platform_allow:
-      - seeed_xiao_samd21
       - seeeduino_xiao
+      - xiao_samd21
   grove.xiao.v1.grove_led.pwm.d3:
     depends_on: xiao_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d3") and
@@ -925,8 +925,8 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d3", "pwm-leds")
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_pwm_led_d3
     platform_allow:
-      - seeed_xiao_samd21
       - seeeduino_xiao
+      - xiao_samd21
   grove.xiao.v1.grove_led.pwm.d4:
     depends_on: xiao_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d4") and
@@ -936,8 +936,8 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d4", "pwm-leds")
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_pwm_led_d4
     platform_allow:
-      - seeed_xiao_samd21
       - seeeduino_xiao
+      - xiao_samd21
   grove.xiao.v1.grove_led.pwm.d5:
     depends_on: xiao_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d5") and
@@ -947,8 +947,8 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d5", "pwm-leds")
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_pwm_led_d5
     platform_allow:
-      - seeed_xiao_samd21
       - seeeduino_xiao
+      - xiao_samd21
   grove.xiao.v1.grove_led.pwm.d6:
     depends_on: xiao_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d6") and
@@ -974,8 +974,8 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d8", "pwm-leds")
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_pwm_led_d8
     platform_allow:
-      - seeed_xiao_samd21
       - seeeduino_xiao
+      - xiao_samd21
   grove.xiao.v1.grove_led.pwm.d9:
     depends_on: xiao_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d9") and
@@ -984,8 +984,8 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d9", "pwm-leds")
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_pwm_led_d9
     platform_allow:
-      - seeed_xiao_samd21
       - seeeduino_xiao
+      - xiao_samd21
   grove.xiao.v1.grove_led.pwm.d10:
     depends_on: xiao_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d10") and
@@ -994,8 +994,8 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d10", "pwm-leds")
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_pwm_led_d10
     platform_allow:
-      - seeed_xiao_samd21
       - seeeduino_xiao
+      - xiao_samd21
   #
   # Grove LED by simple GPIO on Grove Shield for Pi Pico
   #
@@ -1072,7 +1072,7 @@ tests:
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_led_d16
     platform_allow:
       - rpi_pico
-      - rpi_pico_w
+      - rpi_pico/rp2040/w
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
@@ -1083,7 +1083,7 @@ tests:
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_led_d17
     platform_allow:
       - rpi_pico
-      - rpi_pico_w
+      - rpi_pico/rp2040/w
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
@@ -1094,7 +1094,7 @@ tests:
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_led_d18
     platform_allow:
       - rpi_pico
-      - rpi_pico_w
+      - rpi_pico/rp2040/w
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
@@ -1105,7 +1105,7 @@ tests:
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_led_d19
     platform_allow:
       - rpi_pico
-      - rpi_pico_w
+      - rpi_pico/rp2040/w
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
@@ -1116,7 +1116,7 @@ tests:
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_led_d20
     platform_allow:
       - rpi_pico
-      - rpi_pico_w
+      - rpi_pico/rp2040/w
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
@@ -1127,7 +1127,7 @@ tests:
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_led_d21
     platform_allow:
       - rpi_pico
-      - rpi_pico_w
+      - rpi_pico/rp2040/w
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
@@ -1252,7 +1252,7 @@ tests:
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_pwm_led_d16
     platform_allow:
       - rpi_pico
-      - rpi_pico_w
+      - rpi_pico/rp2040/w
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
@@ -1264,7 +1264,7 @@ tests:
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_pwm_led_d17
     platform_allow:
       - rpi_pico
-      - rpi_pico_w
+      - rpi_pico/rp2040/w
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
@@ -1276,7 +1276,7 @@ tests:
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_pwm_led_d18
     platform_allow:
       - rpi_pico
-      - rpi_pico_w
+      - rpi_pico/rp2040/w
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
@@ -1288,7 +1288,7 @@ tests:
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_pwm_led_d19
     platform_allow:
       - rpi_pico
-      - rpi_pico_w
+      - rpi_pico/rp2040/w
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
@@ -1300,7 +1300,7 @@ tests:
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_pwm_led_d20
     platform_allow:
       - rpi_pico
-      - rpi_pico_w
+      - rpi_pico/rp2040/w
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
@@ -1312,7 +1312,7 @@ tests:
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_pwm_led_d21
     platform_allow:
       - rpi_pico
-      - rpi_pico_w
+      - rpi_pico/rp2040/w
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb

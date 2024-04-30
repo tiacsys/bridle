@@ -41,11 +41,11 @@ common:
     - nucleo_f746zg
     - nucleo_f767zi
     - rpi_pico
-    - rpi_pico_w
-    - seeed_xiao_samd21
-    - seeeduino_xiao
+    - rpi_pico/rp2040/w
     - seeeduino_cm0
     - seeeduino_lotus
+    - seeeduino_xiao
+    - xiao_samd21
     - waveshare_rp2040_one
     - waveshare_rp2040_zero
     - waveshare_rp2040_matrix
@@ -104,8 +104,8 @@ tests:
     extra_args:
       SHIELD=seeed_grove_xiao_v1;grove_btn_d0;grove_led_d1;grove_pwm_led_d1;x_grove_testbed
     platform_allow:
-      - seeed_xiao_samd21
       - seeeduino_xiao
+      - xiao_samd21
   grove.rpipico.v1.x_grove_testbed.pwm.b16l18:
     depends_on: pico_gpio
     filter: dt_nodelabel_enabled("grove_d18_header") and
@@ -117,7 +117,7 @@ tests:
       SHIELD=seeed_grove_rpipico_v1;grove_btn_d16;grove_led_d18;grove_pwm_led_d18;x_grove_testbed
     platform_allow:
       - rpi_pico
-      - rpi_pico_w
+      - rpi_pico/rp2040/w
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
