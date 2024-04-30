@@ -60,6 +60,7 @@ manifest:
           - hal_espressif
           - hal_gigadevice
           - hal_infineon
+          - hal_intel
           - hal_microchip
           - hal_nordic
           - hal_nuvoton
