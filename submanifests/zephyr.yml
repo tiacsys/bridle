@@ -49,6 +49,7 @@ manifest:
         #
         # Please keep this list sorted alphabetically.
         name-allowlist:
+          - acpica
           - canopennode
           - chre
           - cmsis
