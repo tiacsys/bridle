@@ -40,7 +40,8 @@ For more details, see: :ref:`repos_and_revs`.
      -
    * - | `tiac-zephyr`_
        | (`zephyr-core`_)
-     - | *liblc3*
+     - | *acpica*
+       | *liblc3*
        | *loramac-node*
        | *lvgl*
        | *mcuboot*
@@ -49,10 +50,12 @@ For more details, see: :ref:`repos_and_revs`.
        | *picolibc*
        | **hal** : *cmsis*
        | **hal** : *hal_altera*
+       | **hal** : *hal_ambiq*
        | **hal** : *hal_atmel*
        | **hal** : *hal_espressif*
        | **hal** : *hal_gigadevice*
        | **hal** : *hal_infineon*
+       | **hal** : *hal_intel*
        | **hal** : *hal_microchip*
        | **hal** : *hal_nordic*
        | **hal** : *hal_nuvoton*
@@ -100,14 +103,14 @@ Supported boards
 * NXP MIMXRT1010-EVK
 * NXP MIMXRT1060-EVK
 * Raspberry Pi Pico and Pico W
-* Seeed Studio XIAO SAMD21 (Seeeduino XIAO)
 * Seeeduino Cortex-M0+
 * Seeeduino Lotus Cortex-M0+
 * ST Nucleo F2xxxx
 * ST Nucleo F3xxxx / L4xxxx
 * ST Nucleo F6xxxx
-* TiaC Magpie STM32F777NIHx
+* TiaC Magpie F777NI (former TiaC Magpie STM32F777NIHx)
 * Waveshare RP2040 (series of mini and pico sized boards)
+* XIAO SAMD21 (former Seeed Studio XIAO SAMD21), also known as Seeeduino XIAO
 
 Supported shields
 *****************
@@ -142,6 +145,12 @@ Change log
 * tbd.
 * tbd.
 * tbd.
+* Allow users to still specify any old board name, and let Bridel together with
+  the Zephyr build system (board validation) to select the new board name.
+* Rename board ``tiac_magpie`` to ``magpie_f777ni`` and mark the old name as
+  deprecated.
+* Adapt **new identifier from Hardware Model v2** for *snippets*, *tests*
+  and *samples*.
 
 The following sections provide detailed lists of changes by component.
 
@@ -157,6 +166,23 @@ Take over the new build principles from Zephyr:
 * tbd.
 * tbd.
 * tbd.
+* Convert all Bridle *boards* and *SoCs* to the **new Hardware Model v2**.
+* Hook up ``board.cmake`` in Bridle's board extension folder.
+* Hook up ``Kconfig.defconfig`` in Bridle's board extension folder.
+* Add the *Ambiq Micro* HAL to support the new *Apollo 4* SoC in Zephyr upstream
+  with Bridle's common test suite ``bridle/tests/bridle/common``.
+* Add the *Intel* HAL and the *ACPI Component Architecture* library to support
+  Bridle's common test suite ``bridle/tests/bridle/common`` also for most of the
+  :ref:`Intel boards found in Zephyr upstream <zephyr:boards-intel>`.
+* Adoption of patch and compliance checks from Zephyr upstream for the **new
+  Hardware Model v2** with slight adjustments for Bridle:
+
+  * ``BRIDLE_BASE`` as an additional magic string ``<bridle-base>``
+  * Bridle with additional external module handling (``MODULE_EXT_ROOT``)
+  * use Bridle's ``checkpatch.pl`` and ``.checkpatch.conf``
+  * use Bridle's ``spelling.txt`` and ``typedefsfile``
+  * use Bridle's ``.gitlint``
+  * use Bridle's ``.yamllint``
 
 Documentation
 =============
@@ -171,6 +197,10 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`217` - [FCR] Convert board ``arduino_zero`` to board extension
+* :github:`216` - [FCR] Convert all SOCs to new HWMv2
+* :github:`215` - [BUG] ubxlib: missing header ``u_timeout.h``
+* :github:`214` - [FER] Convert all boards to new HWMv2
 * :github:`205` - [FCR] Bump to Zephyr v3.6
 * :github:`202` - [FER] Make the u-blox library GNSS example fit for demonstration
 * :github:`200` - [FCR] Support for MCUXpresso IDE (Arm GNU Toolchain)
