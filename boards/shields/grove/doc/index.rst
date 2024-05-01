@@ -781,6 +781,23 @@ not be complete.
 
             .. include:: /boards/shields/grove/doc/grove_pwms-rpi_pico.rsti
 
+         .. group-tab:: ``waveshare_rp2040_lcd_0_96``
+
+            This is based on the Bridle board
+            :ref:`RP2040-LCD-0.96 <waveshare_rp2040_lcd_0_96>`
+            and its :dtcompatible:`raspberrypi,pico-header-r3`.
+
+            .. note::
+
+               This board basically provides all channels from nearly all PWMs to
+               the outside. However, the SoC's ability to route channels to multiple
+               pads may result in channels being connected in parallel. The second
+               table below shows the possibilities which channels can really
+               be used independently at the associated signals of the
+               |Laced Grove Signal Interface|.
+
+            .. include:: /boards/shields/grove/doc/grove_pwms-rpi_pico.rsti
+
          .. group-tab:: ``waveshare_rp2040_plus``
 
             This is based on the Bridle board
