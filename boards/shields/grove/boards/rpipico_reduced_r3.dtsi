@@ -1,0 +1,99 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include "rpipico_to_grove_if.dtsi"
+
+/*
+ * Some interface pins for the Raspberry Pi Pico have been changed and
+ * will no longer comply with the board default settings. Here is the
+ * list of all possible interfaces, incl. PWM signals:
+ *
+ *   Grove pin    port   timer   channel   Raspberry Pi Pico requirements
+ *
+ *         GP0    P0                       TX      / GPIO as UART0 in default
+ *         GP1    P1                       RX      / GPIO as UART0 in default
+ *         GP2    P2                       SCK       GPIO as SPI0 in default
+ *         GP3    P3                       MOSI      GPIO as SPI0 in default
+ *         GP4    P4                       MISO/TX / GPIO as SPI0/UART1 in default
+ *         GP5    P5                       SS/RX   / GPIO as SPI0/UART1 in default
+ *         GP6    P6                       SDA     / GPIO as I2C1 in default
+ *         GP7    P7                       SCL     / GPIO as I2C1 in default
+ *         GP8    P8                       SDA     / GPIO as I2C0 in default
+ *         GP9    P9                       SCL     / GPIO as I2C0 in default
+ *         GP10   P10                                GPIO with PWM not wired
+ *         GP11   P11                                GPIO with PWM not wired
+ *         GP12   P12                                GPIO with PWM not wired
+ *         GP13   P13                                GPIO with PWM not wired
+ *         GP14   P14                                GPIO with PWM not wired
+ *         GP15   P15                                GPIO with PWM not wired
+ *         GP16   P16                                GPIO with PWM not wired
+ *         GP17   P17                      ETH_TCPCS/GPIO for internal Ethernet
+ *         GP18   P18                      ETH_CFG0 /GPIO for internal Ethernet
+ *         GP19   P19                      ETH_RSTI /GPIO for internal Ethernet
+ *         GP20   P20                      ETH_RX   /UART for internal Ethernet
+ *         GP21   P21                      ETH_TX   /UART for internal Ethernet
+ *         GP22   P22    PWM3    A  (6)              GPIO with PWM support
+ *  (SMPS) GP23   P23
+ *  (VBUS) GP24   P24
+ *   (LED) GP25   P25   (PWM4)  (B) (9)
+ *         GP26   P26                      ADC0 / GPIO
+ *         GP27   P27                      ADC1 / GPIO
+ *         GP28   P28                      ADC2 / GPIO
+ *  (VSYS) GP29   P29                     (ADC3)
+ */
+
+&pwm {
+	status = "disabled";
+	pinctrl-0 = <&pwm_default>;
+	pinctrl-names = "default";
+};
+
+#include <zephyr/dt-bindings/pinctrl/rpi-pico-rp2040-pinctrl.h>
+
+#undef GROVE_PWM_D22_SLOW
+#define GROVE_PWM_D22_SLOW				\
+	&pwm {						\
+		divider-frac-3 = <15>;			\
+		divider-int-3 = <255>;			\
+	};
+
+#undef GROVE_PWM_D22_ENABLE
+#define GROVE_PWM_D22_ENABLE				\
+	&pwm {						\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D22_PINCTRL
+#define GROVE_PWM_D22_PINCTRL				\
+	&pwm_default {					\
+		group22 {				\
+			pinmux = <PWM_3A_P22>;		\
+		};					\
+	};
+
+#undef GROVE_PWM_D25_SLOW
+#define GROVE_PWM_D25_SLOW				\
+	&pwm {						\
+		divider-frac-4 = <15>;			\
+		divider-int-4 = <255>;			\
+	};
+
+#undef GROVE_PWM_D25_ENABLE
+#define GROVE_PWM_D25_ENABLE				\
+	&pwm {						\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D25_PINCTRL
+#define GROVE_PWM_D25_PINCTRL				\
+	&pwm_default {					\
+		group25 {				\
+			pinmux = <PWM_4B_P25>;		\
+		};					\
+	};
+
+&pinctrl {
+	pwm_default: pwm_pico_default {};
+};

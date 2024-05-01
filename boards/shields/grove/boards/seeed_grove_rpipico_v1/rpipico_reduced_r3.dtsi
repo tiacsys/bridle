@@ -1,0 +1,47 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	grove_laced_if_v1: grove-laced-if-v1 {
+
+		compatible = "seeed,grove-laced-if";
+
+		#pwm-cells = <3>;
+		pwm-map-mask = <0xffffffff 0 0xffffffc0>;
+		pwm-map-pass-thru = <0 0xffffffff 0x3f>;
+		pwm-map =
+			/*  0 - GP0: not possible */
+			/*  1 - GP1: not possible */
+			/*  2 - GP2: not possible */
+			/*  3 - GP3: not possible */
+			/*  4 - GP4: not possible */
+			/*  5 - GP5: not possible */
+			/*  6 - GP6: not possible */
+			/*  7 - GP7: not possible */
+			/*  8 - GP8: not possible */
+			/*  9 - GP9: not possible */
+			/* 10 - GP10: not wired */
+			/* 11 - GP11: not wired */
+			/* 12 - GP12: not wired */
+			/* 13 - GP13: not wired */
+			/* 14 - GP14: not wired */
+			/* 15 - GP15: not wired */
+			/* 16 - GP16: not wired */
+			/* 17 - GP17: internal wired to Ethernet */
+			/* 18 - GP18: internal wired to Ethernet */
+			/* 19 - GP19: internal wired to Ethernet */
+			/* 20 - GP20: internal wired to Ethernet */
+			/* 21 - GP21: internal wired to Ethernet */
+			<22 0 0 &pwm 6 0 0>,	/* GP22: PWM3CHA (6), pin header */
+			/* 23 - GP23: not possible */
+			/* 24 - GP24: not possible */
+			<25 0 0 &pwm 9 0 0>;	/* GP25: PWM4CHB (9), on-board LED */
+	};
+};
+
+grove_pwms: &grove_laced_if_v1 {};
+
+grove_pwm_d22: &pwm {};
+grove_pwm_d25: &pwm {};

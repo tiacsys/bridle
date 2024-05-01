@@ -592,6 +592,16 @@ GPIO mapping
       or `Raspberry Pi Pico R3 W`_ header bindet with
       :dtcompatible:`raspberrypi,pico-header-r3`.
 
+      In combination with some very few boards, such as the
+      :ref:`RP2040-ETH <waveshare_rp2040_eth>` from Waveshare, not all
+      signals are connected due to the reduced number of pins. The shield
+      cannot account for this limitation. All connections are always
+      available on the shield side and are mapped accordingly, but in
+      these very rare combinations, missing connections from shield to
+      board connectors lead to missing functionalities solely in hardware.
+      You need to know that. Boards affected by this are included in the
+      last columns as a special case.
+
       .. include:: /boards/shields/grove/doc/grove_gpios_rpipico_header.rsti
 
 PWM mapping
@@ -780,6 +790,24 @@ not be complete.
                |Laced Grove Signal Interface|.
 
             .. include:: /boards/shields/grove/doc/grove_pwms-rpi_pico.rsti
+
+         .. group-tab:: ``waveshare_rp2040_eth``
+
+            This is based on the Bridle board
+            :ref:`RP2040-ETH <waveshare_rp2040_eth>`
+            and its :dtcompatible:`raspberrypi,pico-header-r3`
+            with reduced connections.
+
+            .. note::
+
+               This board basically provides all channels from nearly all PWMs to
+               the outside. However, the SoC's ability to route channels to multiple
+               pads may result in channels being connected in parallel. The second
+               table below shows the possibilities which channels can really
+               be used independently at the associated signals of the
+               |Laced Grove Signal Interface|.
+
+            .. include:: /boards/shields/grove/doc/grove_pwms-waveshare_rp2040_eth.rsti
 
          .. group-tab:: ``waveshare_rp2040_lcd_0_96``
 
