@@ -3,43 +3,63 @@ sample:
     application
   name: hello shell
 common:
-  tags: introduction
+  tags:
+    - xip
+    - kernel
+    - introduction
   integration_platforms:
     - cytron_maker_nano_rp2040
     - cytron_maker_pi_rp2040
     - native_posix
-    - native_posix_64
+    - native_posix/native/64
     - native_sim
-    - native_sim_64
+    - native_sim/native/64
     - qemu_x86
+    - qemu_x86/atom/nokpti
+    - qemu_x86/atom/nommu
+    - qemu_x86/atom/nopae
+    - qemu_x86/atom/virt
+    - qemu_x86/atom/xip
+    # Qemu issue: - qemu_x86_lakemont
+    - qemu_x86_tiny
     - qemu_x86_64
+    - qemu_x86_64/atom/nokpti
     - qemu_cortex_r5
     - qemu_cortex_m0
     - qemu_cortex_m3
     - qemu_cortex_a9
     - qemu_cortex_a53
+    - qemu_cortex_a53/qemu_cortex_a53/smp
+    - qemu_cortex_a53/qemu_cortex_a53/xip
     - qemu_kvm_arm64
-    # - qemu_arc_em
-    # - qemu_arc_hs
+    # SDK & binary size issue: - qemu_arc/qemu_arc_em
+    # SDK & binary size issue: - qemu_arc/qemu_arc_hs
+    # SDK & binary size issue: - qemu_arc/qemu_arc_hs/xip
+    # SDK & binary size issue: - qemu_arc/qemu_arc_hs5x
+    # SDK & binary size issue: - qemu_arc/qemu_arc_hs6x
     - qemu_malta
-    - qemu_malta_be
+    - qemu_malta/qemu_malta/be
     - qemu_riscv32e
     - qemu_riscv32
+    - qemu_riscv32/qemu_virt_riscv32/smp
+    # RAM overflow issue: - qemu_riscv32_xip
     - qemu_riscv64
+    - qemu_riscv64/qemu_virt_riscv64/smp
     - qemu_xtensa
+    - qemu_xtensa/dc233c/mmu
     - qemu_leon3
     - qemu_nios2
     - arduino_zero
     - mimxrt1010_evk
     - mimxrt1060_evk
     - mimxrt1060_evkb
-    - mimxrt1170_evk_cm4
-    - mimxrt1170_evk_cm7
-    - mimxrt1170_evkb_cm4
-    - mimxrt1170_evkb_cm7
-    - nrf52840dk_nrf52840
-    - nrf9160dk_nrf52840
-    - nrf9160dk_nrf9160
+    - mimxrt1170_evk/mimxrt1176/cm4
+    - mimxrt1170_evk/mimxrt1176/cm7
+    - mimxrt1170_evk@B/mimxrt1176/cm4
+    - mimxrt1170_evk@B/mimxrt1176/cm7
+    - nrf52840dk/nrf52840
+    - nrf9160dk/nrf52840
+    - nrf9160dk/nrf9160
     - nucleo_f303re
     - nucleo_f401re
     - nucleo_f413zh
@@ -48,11 +68,11 @@ common:
     - nucleo_l496zg
     - picoboy
     - rpi_pico
-    - rpi_pico_w
-    - seeed_xiao_samd21
-    - seeeduino_xiao
+    - rpi_pico/rp2040/w
     - seeeduino_cm0
     - seeeduino_lotus
+    - seeeduino_xiao
+    - xiao_samd21
     - waveshare_rp2040_one
     - waveshare_rp2040_zero
     - waveshare_rp2040_matrix
@@ -61,6 +81,7 @@ common:
     - waveshare_rp2040_lcd_0_96
     - waveshare_rp2040_plus
     - waveshare_rp2040_plus@16mb
+    - waveshare_rp2040_geek
 tests:
   bridle.samples.helloshell.commands:
     filter: CONFIG_QEMU_TARGET and CONFIG_SERIAL and

@@ -48,7 +48,7 @@ Requirements
   * :ref:`zephyr:arduino_zero` or Bridle's :ref:`arduino_zero`
   * :ref:`seeeduino_cm0`
   * :ref:`seeeduino_lotus`
-  * :ref:`zephyr:seeeduino_xiao` or Bridle's :ref:`seeed_xiao_samd21`
+  * :ref:`zephyr:seeeduino_xiao` or Bridle's :ref:`xiao_samd21`
   * :ref:`zephyr:rpi_pico`
   * :ref:`waveshare_rp2040`
 

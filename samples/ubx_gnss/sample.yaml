@@ -6,10 +6,12 @@ common:
   tags: ubxlib
   integration_platforms:
     - mimxrt1010_evk
+    - mimxrt1060_evk
     - mimxrt1060_evkb
-    - mimxrt1170_evkb_cm7
-    - nrf52840dk_nrf52840
-    - nrf9160dk_nrf9160
+    - mimxrt1170_evk/mimxrt1176/cm7
+    - mimxrt1170_evk@B/mimxrt1176/cm7
+    - nrf52840dk/nrf52840
+    - nrf9160dk/nrf9160
     - nucleo_f413zh
     - nucleo_f767zi
     - nucleo_l496zg

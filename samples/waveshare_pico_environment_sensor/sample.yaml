@@ -16,7 +16,7 @@ tests:
     extra_args: SHIELD=waveshare_pico_environment_sensor
     integration_platforms:
       - rpi_pico
-      - rpi_pico_w
+      - rpi_pico/rp2040/w
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
