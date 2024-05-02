@@ -83,6 +83,7 @@ zephyr_include_directories(
     ${UBXLIB_BASE}/common/short_range/api
     ${UBXLIB_BASE}/common/sock/api
     ${UBXLIB_BASE}/common/spartn/api
+    ${UBXLIB_BASE}/common/timeout/api
     ${UBXLIB_BASE}/common/type/api
     ${UBXLIB_BASE}/common/ubx_protocol/api
     ${UBXLIB_BASE}/common/utils/api
@@ -113,6 +114,7 @@ target_include_directories(ubxlib PRIVATE
     ${UBXLIB_BASE}/common/short_range/src
     ${UBXLIB_BASE}/common/sock/src
     ${UBXLIB_BASE}/common/spartn/src
+    ${UBXLIB_BASE}/common/timeout/src
     ${UBXLIB_BASE}/common/ubx_protocol/src
     ${UBXLIB_BASE}/common/utils/src
     ${UBXLIB_BASE}/gnss/src
@@ -137,6 +139,7 @@ add_src_dir(${UBXLIB_BASE}/common/mqtt_client/src)
 add_src_dir(${UBXLIB_BASE}/common/security/src)
 add_src_dir(${UBXLIB_BASE}/common/sock/src)
 add_src_dir(${UBXLIB_BASE}/common/spartn/src)
+add_src_dir(${UBXLIB_BASE}/common/timeout/src)
 add_src_dir(${UBXLIB_BASE}/common/ubx_protocol/src)
 add_src_dir(${UBXLIB_BASE}/common/utils/src)
 add_src_dir(${UBXLIB_BASE}/port/platform/common/debug_utils/src)
