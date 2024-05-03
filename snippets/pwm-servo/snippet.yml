@@ -1,6 +1,6 @@
 name: pwm-servo
 
 boards:
-  cytron_maker_pi_rp2040:
+  cytron_maker_pi_rp2040/rp2040:
     append:
       EXTRA_DTC_OVERLAY_FILE: boards/cytron_maker_pi_rp2040.overlay
