@@ -1,6 +1,9 @@
 name: samples-sensor-bme280-tweaks
 
 boards:
-  rpi_pico:
+  rpi_pico/rp2040:
+    append:
+      EXTRA_DTC_OVERLAY_FILE: boards/rpi_pico.overlay
+  rpi_pico/rp2040/w:
     append:
       EXTRA_DTC_OVERLAY_FILE: boards/rpi_pico.overlay
