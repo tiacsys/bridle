@@ -28,12 +28,12 @@ For example:
 
 .. code-block:: console
 
-   west build -b tiac_magpie \
-              -d build/tiac_magpie \
+   west build -b magpie_f777ni \
+              -d build/magpie_f777ni \
               -p always \
               -S can-timing-adj \
               zephyr/tests/drivers/can/timing
-   west flash -d build/tiac_magpie
+   west flash -d build/magpie_f777ni
 
 Testing
 *******
@@ -44,6 +44,6 @@ For example:
 .. code-block:: console
 
    west twister --device-testing \
-                --hardware-map map_tiac_magpie.yaml \
+                --hardware-map map_magpie_f777ni.yaml \
                 --extra-args SNIPPET="can-timing-adj" \
                 --testsuite-root zephyr/tests/drivers/can/timing
