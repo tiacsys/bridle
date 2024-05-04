@@ -5,7 +5,7 @@ Licensed to The Apache Software Foundation, http://www.apache.org/
 Benchmarking 192.168.10.197 (be patient)
 
 
-Server Software:        
+Server Software:
 Server Hostname:        192.168.10.197
 Server Port:            8080
 
@@ -14,30 +14,30 @@ Document Length:        2084 bytes
 
 Concurrency Level:      1000
 Time taken for tests:   60.001 seconds
-Complete requests:      13441
-Failed requests:        9079
-   (Connect: 0, Receive: 30, Length: 9019, Exceptions: 30)
-Total transferred:      9463080 bytes
-HTML transferred:       9215448 bytes
-Requests per second:    224.01 [#/sec] (mean)
-Time per request:       4464.059 [ms] (mean)
-Time per request:       4.464 [ms] (mean, across all concurrent requests)
-Transfer rate:          154.02 [Kbytes/sec] received
+Complete requests:      14356
+Failed requests:        11767
+   (Connect: 0, Receive: 13, Length: 11739, Exceptions: 15)
+Total transferred:      5600380 bytes
+HTML transferred:       5453828 bytes
+Requests per second:    239.26 [#/sec] (mean)
+Time per request:       4179.485 [ms] (mean)
+Time per request:       4.179 [ms] (mean, across all concurrent requests)
+Transfer rate:          91.15 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        1  208 1490.2      5   31540
-Processing:     1   35 202.8      7   13093
-Waiting:        0   13 101.8      0    9227
-Total:          3  243 1521.3     13   32183
+Connect:        1  154 1320.3      5   31531
+Processing:     0   28 238.2      6   21313
+Waiting:        0    7  67.8      0    3221
+Total:          3  183 1356.2     11   32988
 
 Percentage of the requests served within a certain time (ms)
-  50%     13
-  66%     19
-  75%     22
-  80%     25
-  90%    223
-  95%   1037
-  98%   2280
-  99%   6129
- 100%  32183 (longest request)
+  50%     11
+  66%     14
+  75%     18
+  80%     21
+  90%     30
+  95%    245
+  98%   2057
+  99%   3250
+ 100%  32988 (longest request)

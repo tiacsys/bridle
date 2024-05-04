@@ -1,4 +1,4 @@
-.. _tiac_magpie_led_blinky-sample:
+.. _magpie_f777ni_led_blinky-sample:
 
 LED Blinky
 ##########
@@ -8,7 +8,7 @@ Overview
 
 See :zephyr:code-sample:`zephyr:blinky` for the original description.
 
-.. _tiac_magpie_led_blinky-sample-requirements:
+.. _magpie_f777ni_led_blinky-sample-requirements:
 
 Requirements
 ************
@@ -23,8 +23,8 @@ Build and flash LED Blinky as follows:
 
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/blinky
-   :build-dir: led_blinky-tiac_magpie
-   :board: tiac_magpie
+   :build-dir: led_blinky-magpie_f777ni
+   :board: magpie_f777ni
    :west-args: -p
    :goals: flash
    :host-os: unix

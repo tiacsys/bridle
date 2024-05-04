@@ -1,14 +1,14 @@
-.. _tiac_magpie_board:
+.. _magpie_f777ni_board:
 
-TiaC Magpie STM32F777NIHx
-#########################
+TiaC Magpie F777NI
+##################
 
 Overview
 ********
 
-The TiaC Magpie STM32F777NIHx boards offer combinations of performance
-and power that provide an affordable and flexible way for users to build
-prototypes and try out new concepts target communication systems.
+The TiaC Magpie F777NI board offers combination of performance and power
+that provide an affordable and flexible way for users to build prototypes
+and try out new concepts for target communication systems.
 
 The board requires any separate JTAG/SWD probe, e.g. the ST-LINK/V2
 debugger/programmer.
@@ -31,23 +31,23 @@ debugger/programmer.
   - Ethernet RJ45 (depending on STM32 support)
   - 6 2x8 pin header with dedicated CAN and USB busses
   - 5 2x7 :ref:`TiaC Magpie compatible pin header
-    <tiac_magpie_board_tmph_with_dts_bindings>` with spare GPIO 
+    <magpie_f777ni_board_tmph_with_dts_bindings>` with spare GPIO
   - Single power-supply input: 12V/3A external sources
 
-.. image:: img/tiac_magpie.svg
-   :alt: Magpie STM32F777NIHx
+.. image:: img/magpie_f777ni.svg
+   :alt: TiaC Magpie F777NI
    :align: center
 
 .. More information about the board can be found at the
-   `TiaC Magpie STM32F777NIHx website`_.
+   `TiaC Magpie F777NI website`_.
 
 .. ...........................................................................
 
 Hardware
 ********
 
-The STM32F777NIHx on the TiaC Magpie board provides the following hardware
-components:
+The STM32F777NIHx on the TiaC Magpie F777NI board provides the following
+hardware components:
 
 - STM32F777NIHx in TFBGA216 package
 - ARM 32-bit Cortex®-M7 CPU with DPFPU
@@ -94,7 +94,7 @@ and the `STM32F7 Series Cortex®-M7 Processor Programming Manual (PM0253)`_.
 Supported Features
 ==================
 
-The Zephyr ``tiac_magpie`` board configuration supports the following
+The Zephyr ``magpie_f777ni`` board configuration supports the following
 hardware features:
 
 .. table:: Hardware Supported Features in Zephyr
@@ -173,15 +173,15 @@ hardware features:
 
 Other hardware features are not yet supported on this Zephyr board support.
 The default configuration can be found in the defconfig file:
-``boards/arm/tiac_magpie/tiac_magpie_defconfig``
+:bridle_file:`boards/tiac/magpie_f777ni/magpie_f777ni_defconfig`.
 
 .. For mode details please refer to
-   `TiaC Magpie STM32F777NIHx board User Manual`_.
+   `TiaC Magpie F777NI board User Manual`_.
 
 Default Zephyr Peripheral Mapping:
 ----------------------------------
 
-The TiaC Magpie STM32F777NIHx board is configured as follows:
+The TiaC Magpie F777NI board is configured as follows:
 
 - User LED 1/2 : PG11/PG12
 - JTAG(SWD) TMS/TCK/TDI/TDO/TRST : PA13/PA14/PA15/PB3/PB4 (ST-Link)
@@ -211,7 +211,7 @@ The STM32F777NIHx Real-Time Clock on the TiaC Magpie board could be driven by
 an internal or external oscillator. By default, the Real-Time Clock is driven
 by an 32.768 kHz low-speed on-board clock.
 
-See :ref:`tiac_magpie_board_clocktree_with_kconfig`
+See :ref:`magpie_f777ni_board_clocktree_with_kconfig`
 for a more detailed specification.
 
 User LED
@@ -219,7 +219,7 @@ User LED
 
 The TiaC Magpie provides two red LEDs for user purposes.
 
-See :ref:`tiac_magpie_board_gpioleds_with_dts_bindings`
+See :ref:`magpie_f777ni_board_gpioleds_with_dts_bindings`
 for a more detailed specification.
 
 Serial Port
@@ -229,7 +229,7 @@ The STM32F777NIHx on the TiaC Magpie board has 4 UARTs and 4 USARTs, but not
 all are open usable or accessible. The Zephyr console output is assigned to
 UART 7. Default settings are 115200 8N1 with hardware flow control (RTS/CTS).
 
-See :ref:`tiac_magpie_board_console_with_dts_bindings`
+See :ref:`magpie_f777ni_board_console_with_dts_bindings`
 for a more detailed specification.
 
 Ethernet MAC
@@ -240,7 +240,7 @@ MII/RMII and MDIO. The Zephyr network stack, mostly with TCP/IP support, is
 assigned to this MAC and will use the full MII with MDIO to communicate with
 the underlyed Ethernet PHY. 
 
-See :ref:`tiac_magpie_board_ethernet_with_dts_bindings`
+See :ref:`magpie_f777ni_board_ethernet_with_dts_bindings`
 for a more detailed specification.
 
 USB OTG
@@ -253,7 +253,7 @@ device or host mode. The TiaC Magpie uses the first USB 2.0 OTG FS controller
 in USB device mode. The second USB 2.0 OTG HS controller is reserved for
 USB host mode.
 
-See :ref:`tiac_magpie_board_usbdevice_with_dts_bindings`
+See :ref:`magpie_f777ni_board_usbdevice_with_dts_bindings`
 for a more detailed specification.
 
 CAN Busses
@@ -332,7 +332,7 @@ demand by the Zephyr :ref:`zephyr:can_api` API together with the driver.
      - 15
      - 2
 
-See :ref:`tiac_magpie_board_canbus_with_dts_bindings`
+See :ref:`magpie_f777ni_board_canbus_with_dts_bindings`
 for a more detailed specification.
 
 System I2C Bus
@@ -342,7 +342,7 @@ The STM32F777NIHx on the TiaC Magpie board has 4 I2C controller, but not
 all are open usable or accessible. The TiaC Magpie uses the second controller
 on-board for Power and Reset Controll on the 6 2x8 pin header, ``TUB[1..6]``.
 
-See :ref:`tiac_magpie_board_sysiic_with_dts_bindings`
+See :ref:`magpie_f777ni_board_sysiic_with_dts_bindings`
 for a more detailed specification.
 
 Pin Header
@@ -350,11 +350,11 @@ Pin Header
 
 The five TiaC Magpie pin headers ``TMPH[1..5]`` have the following layout:
 
-.. image:: img/tiac_magpie_ph.svg
+.. image:: img/magpie_f777ni_ph.svg
    :alt: TiaC Magpie Pin Header 1-5
    :align: center
 
-See :ref:`tiac_magpie_board_tmph_with_dts_bindings`
+See :ref:`magpie_f777ni_board_tmph_with_dts_bindings`
 for a more detailed specification.
 
 .. ...........................................................................
@@ -362,7 +362,7 @@ for a more detailed specification.
 Programming and Debugging
 *************************
 
-Applications for the ``tiac_magpie`` board configuration can be built and
+Applications for the ``magpie_f777ni`` board configuration can be built and
 flashed in the usual way (see :ref:`zephyr:build_an_application` and
 :ref:`zephyr:application_run` for more details).
 
@@ -371,8 +371,8 @@ Flashing
 
 The TiaC Magpie STM32F777NIHx needs an ST-LINK/V2 debug tool adapter.
 
-Flashing an application to TiaC Magpie STM32F777NIHx
-----------------------------------------------------
+Flashing an application to TiaC Magpie F777NI
+---------------------------------------------
 
 Here is an example for the :ref:`zephyr:hello_world` application.
 
@@ -386,8 +386,8 @@ Build and flash the application:
 
 .. zephyr-app-commands::
    :zephyr-app: zephyr/samples/hello_world
-   :build-dir: hello_world-tiac_magpie
-   :board: tiac_magpie
+   :build-dir: hello_world-magpie_f777ni
+   :board: magpie_f777ni
    :west-args: -p
    :goals: flash
    :host-os: unix
@@ -398,8 +398,8 @@ You should see the following message on the console:
 .. parsed-literal::
    :class: highlight-console notranslate
 
-   \*\*\* Booting Zephyr OS build v|zephyr_version_number_em| \*\*\*
-   Hello World! tiac_magpie
+   \*\*\* Booting Zephyr OS build v\ |zephyr_version_number_em| \*\*\*
+   Hello World! magpie_f777ni/stm32f777xx
 
 Debugging
 =========
@@ -409,8 +409,8 @@ You can debug an application in the usual way. Here is an example for the
 
 .. zephyr-app-commands::
    :zephyr-app: zephyr/samples/hello_world
-   :build-dir: hello_world-tiac_magpie
-   :board: tiac_magpie
+   :build-dir: hello_world-magpie_f777ni
+   :board: magpie_f777ni
    :maybe-skip-config:
    :west-args: -p
    :goals: debug
@@ -456,7 +456,7 @@ line inside your local workspace directory:
 This hardware map (``map.yaml``) could look like the following. Bold
 highlighted portions need to be added manually. Italic parts have to be
 adapted to your own specific situation, important here is the platform
-setup to *tiac_magpie*.
+setup to *magpie_f777ni*.
 
 .. parsed-literal::
    :class: highlight-console notranslate
@@ -469,7 +469,7 @@ setup to *tiac_magpie*.
        **- spi_loopback**
        **- i2c_bus_short**
      id: *DT04BNT1*
-     platform: *tiac_magpie*
+     platform: *magpie_f777ni*
      product: FT230X Basic UART
      runner: *openocd*
      serial: /dev/ttyUSB0
@@ -516,24 +516,24 @@ with a single call to Twister.
 
          Device testing on:
 
-         \| Platform    \| ID       \| Serial device   \|
-         \|-------------\|----------\|-----------------\|
-         \| tiac_magpie \| DT04BNT1 \| /dev/ttyUSB0    \|
+         \| Platform      \| ID       \| Serial device   \|
+         \|---------------\|----------\|-----------------\|
+         \| magpie_f777ni \| DT04BNT1 \| /dev/ttyUSB0    \|
 
          INFO    - JOBS: 4
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - Total complete: :bgn:`2024/2024`  100%  skipped: :byl:`1867`, failed:    :bbk:`0`, error:    :bbk:`0`
-         INFO    - 2237 test scenarios (2024 test instances) selected, 1867 configurations skipped (1840 by static filter, 27 at runtime).
-         INFO    - :bgn:`157 of 2024` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1867` skipped with :bbk:`0` warnings in :bbk:`2802.60 seconds`
-         INFO    - In total 1451 test cases were executed, 11524 skipped on 1 out of total 699 platforms (0.14%)
+         INFO    - Total complete: :bgn:`2095/2095`  100%  skipped: :byl:`1938`, failed:    :bbk:`0`, error:    :bbk:`0`
+         INFO    - 2299 test scenarios (2095 test instances) selected, 1938 configurations skipped (1910 by static filter, 28 at runtime).
+         INFO    - :bgn:`157 of 2095` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1938` skipped with :bbk:`0` warnings in :bbk:`3014.93 seconds`
+         INFO    - In total 1500 test cases were executed, 12244 skipped on 1 out of total 739 platforms (0.14%)
          INFO    - :bgn:`157` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
 
-         \| Board       \| ID       \|   Counter \|
-         \|-------------\|----------\|-----------\|
-         \| tiac_magpie \| DT04BNT1 \|       157 \|
+         \| Board         \| ID       \|   Counter \|
+         \|---------------\|----------\|-----------\|
+         \| magpie_f777ni \| DT04BNT1 \|       157 \|
 
 .. admonition:: Known but currently tolerated test cases with errors
    :class: attention
@@ -569,7 +569,7 @@ The following are valid:
 Detailed Specification
 **********************
 
-.. _tiac_magpie_board_clocktree_with_kconfig:
+.. _magpie_f777ni_board_clocktree_with_kconfig:
 
 System Clock with DTS Bindings and Kconfig
 ==========================================
@@ -597,8 +597,8 @@ specification.
 
      - :dtcompatible:`st,stm32-hse-clock` configuration:
 
-       .. literalinclude:: ../tiac_magpie.dts
-          :caption: tiac_magpie.dts
+       .. literalinclude:: ../magpie_f777ni.dts
+          :caption: magpie_f777ni.dts
           :language: DTS
           :encoding: ISO-8859-1
           :emphasize-lines: 3
@@ -608,8 +608,8 @@ specification.
 
        :dtcompatible:`st,stm32f7-pll-clock` configuration:
 
-       .. literalinclude:: ../tiac_magpie.dts
-          :caption: tiac_magpie.dts
+       .. literalinclude:: ../magpie_f777ni.dts
+          :caption: magpie_f777ni.dts
           :language: DTS
           :encoding: ISO-8859-1
           :emphasize-lines: 3
@@ -619,8 +619,8 @@ specification.
 
        :dtcompatible:`st,stm32-rcc` configuration:
 
-       .. literalinclude:: ../tiac_magpie.dts
-          :caption: tiac_magpie.dts
+       .. literalinclude:: ../magpie_f777ni.dts
+          :caption: magpie_f777ni.dts
           :language: DTS
           :encoding: ISO-8859-1
           :emphasize-lines: 3,7
@@ -630,8 +630,8 @@ specification.
 
        :dtcompatible:`st,stm32-lse-clock` configuration:
 
-       .. literalinclude:: ../tiac_magpie.dts
-          :caption: tiac_magpie.dts
+       .. literalinclude:: ../magpie_f777ni.dts
+          :caption: magpie_f777ni.dts
           :language: DTS
           :encoding: ISO-8859-1
           :emphasize-lines: 3
@@ -641,8 +641,8 @@ specification.
 
        :dtcompatible:`st,stm32-rtc` configuration:
 
-       .. literalinclude:: ../tiac_magpie.dts
-          :caption: tiac_magpie.dts
+       .. literalinclude:: ../magpie_f777ni.dts
+          :caption: magpie_f777ni.dts
           :language: DTS
           :encoding: ISO-8859-1
           :emphasize-lines: 3-4
@@ -653,8 +653,8 @@ specification.
        :kconfig:option:`CONFIG_CLOCK_CONTROL` and
        :kconfig:option:`CONFIG_COUNTER` configuration:
 
-       .. literalinclude:: ../tiac_magpie_defconfig
-          :caption: tiac_magpie_defconfig
+       .. literalinclude:: ../magpie_f777ni_defconfig
+          :caption: magpie_f777ni_defconfig
           :language: cfg
           :encoding: ISO-8859-1
           :emphasize-lines: 2,5
@@ -662,7 +662,7 @@ specification.
           :start-at: Clock Configuration
           :end-before: Enable MPU
 
-.. _tiac_magpie_board_gpioleds_with_dts_bindings:
+.. _magpie_f777ni_board_gpioleds_with_dts_bindings:
 
 User LED with DTS Bindings
 ==========================
@@ -693,8 +693,8 @@ The DTS binding following the :dtcompatible:`gpio-leds` specification.
 
      - :dtcompatible:`gpio-leds` configuration:
 
-       .. literalinclude:: ../tiac_magpie.dts
-          :caption: tiac_magpie.dts
+       .. literalinclude:: ../magpie_f777ni.dts
+          :caption: magpie_f777ni.dts
           :language: DTS
           :encoding: ISO-8859-1
           :emphasize-lines: 4,8
@@ -704,13 +704,13 @@ The DTS binding following the :dtcompatible:`gpio-leds` specification.
 
        DTS :ref:`aliases <zephyr:dt-alias-chosen>`:
 
-       .. literalinclude:: ../tiac_magpie.dts
+       .. literalinclude:: ../magpie_f777ni.dts
           :language: DTS
           :encoding: ISO-8859-1
           :start-at: led0 =
           :end-at: led1 =
 
-.. _tiac_magpie_board_console_with_dts_bindings:
+.. _magpie_f777ni_board_console_with_dts_bindings:
 
 Serial Console with DTS Bindings
 ================================
@@ -741,8 +741,8 @@ The DTS binding following the :dtcompatible:`st,stm32-uart` specification.
 
      - :dtcompatible:`st,stm32-uart` configuration:
 
-       .. literalinclude:: ../tiac_magpie.dts
-          :caption: tiac_magpie.dts
+       .. literalinclude:: ../magpie_f777ni.dts
+          :caption: magpie_f777ni.dts
           :language: DTS
           :encoding: ISO-8859-1
           :emphasize-lines: 4-7
@@ -752,19 +752,19 @@ The DTS binding following the :dtcompatible:`st,stm32-uart` specification.
 
        :kconfig:option:`CONFIG_HAS_DTS` configuration:
 
-       .. literalinclude:: ../tiac_magpie.dts
+       .. literalinclude:: ../magpie_f777ni.dts
           :language: DTS
           :encoding: ISO-8859-1
           :start-at: zephyr,console
           :end-at: zephyr,console
 
-       .. literalinclude:: ../tiac_magpie.dts
+       .. literalinclude:: ../magpie_f777ni.dts
           :language: DTS
           :encoding: ISO-8859-1
           :start-at: zephyr,shell-uart
           :end-at: zephyr,shell-uart
 
-.. _tiac_magpie_board_ethernet_with_dts_bindings:
+.. _magpie_f777ni_board_ethernet_with_dts_bindings:
 
 Ethernet MAC with DTS Bindings
 ==============================
@@ -795,8 +795,8 @@ The DTS binding following the :dtcompatible:`st,stm32-ethernet` specification.
 
      - :dtcompatible:`st,stm32-ethernet` configuration:
 
-       .. literalinclude:: ../tiac_magpie.dts
-          :caption: tiac_magpie.dts
+       .. literalinclude:: ../magpie_f777ni.dts
+          :caption: magpie_f777ni.dts
           :language: DTS
           :encoding: ISO-8859-1
           :emphasize-lines: 4-20
@@ -804,7 +804,7 @@ The DTS binding following the :dtcompatible:`st,stm32-ethernet` specification.
           :start-at: mac {
           :end-at: }; // mac
 
-.. _tiac_magpie_board_usbdevice_with_dts_bindings:
+.. _magpie_f777ni_board_usbdevice_with_dts_bindings:
 
 USB OTG with DTS Bindings
 =========================
@@ -836,8 +836,8 @@ The DTS binding following the :dtcompatible:`st,stm32-otgfs` and
 
      - :dtcompatible:`st,stm32-otgfs` configuration:
 
-       .. literalinclude:: ../tiac_magpie.dts
-          :caption: tiac_magpie.dts
+       .. literalinclude:: ../magpie_f777ni.dts
+          :caption: magpie_f777ni.dts
           :language: DTS
           :encoding: ISO-8859-1
           :emphasize-lines: 4-5
@@ -847,7 +847,7 @@ The DTS binding following the :dtcompatible:`st,stm32-otgfs` and
 
        :ref:`zephyr:usb_api` configuration:
 
-       .. literalinclude:: ../tiac_magpie.dts
+       .. literalinclude:: ../magpie_f777ni.dts
           :language: DTS
           :encoding: ISO-8859-1
           :start-at: zephyr,usb-device
@@ -878,7 +878,7 @@ The DTS binding following the :dtcompatible:`st,stm32-otgfs` and
           | support for Zephyr -- but that must be checked in detail
           | (https://github.com/zephyrproject-rtos/zephyr/pull/30361).
 
-.. _tiac_magpie_board_canbus_with_dts_bindings:
+.. _magpie_f777ni_board_canbus_with_dts_bindings:
 
 CAN Busses with DTS Bindings
 ============================
@@ -909,8 +909,8 @@ The DTS binding following the :dtcompatible:`st,stm32-bxcan` specification.
 
      - :dtcompatible:`st,stm32-bxcan` configuration:
 
-       .. literalinclude:: ../tiac_magpie.dts
-          :caption: tiac_magpie.dts
+       .. literalinclude:: ../magpie_f777ni.dts
+          :caption: magpie_f777ni.dts
           :language: DTS
           :encoding: ISO-8859-1
           :emphasize-lines: 4-5
@@ -920,7 +920,7 @@ The DTS binding following the :dtcompatible:`st,stm32-bxcan` specification.
 
        :ref:`zephyr:can_api` configuration:
 
-       .. literalinclude:: ../tiac_magpie.dts
+       .. literalinclude:: ../magpie_f777ni.dts
           :language: DTS
           :encoding: ISO-8859-1
           :start-at: zephyr,canbus
@@ -941,8 +941,8 @@ The DTS binding following the :dtcompatible:`st,stm32-bxcan` specification.
 
      - :dtcompatible:`st,stm32-bxcan` configuration:
 
-       .. literalinclude:: ../tiac_magpie.dts
-          :caption: tiac_magpie.dts
+       .. literalinclude:: ../magpie_f777ni.dts
+          :caption: magpie_f777ni.dts
           :language: DTS
           :encoding: ISO-8859-1
           :emphasize-lines: 4-5
@@ -950,7 +950,7 @@ The DTS binding following the :dtcompatible:`st,stm32-bxcan` specification.
           :start-at: can2 {
           :end-at: }; // can2
 
-.. _tiac_magpie_board_sysiic_with_dts_bindings:
+.. _magpie_f777ni_board_sysiic_with_dts_bindings:
 
 System I2C Bus with DTS Bindings
 ================================
@@ -981,8 +981,8 @@ The DTS binding following the :dtcompatible:`st,stm32-i2c-v2` specification.
 
      - :dtcompatible:`st,stm32-i2c-v2` configuration:
 
-       .. literalinclude:: ../tiac_magpie.dts
-          :caption: tiac_magpie.dts
+       .. literalinclude:: ../magpie_f777ni.dts
+          :caption: magpie_f777ni.dts
           :language: DTS
           :encoding: ISO-8859-1
           :emphasize-lines: 4-5
@@ -990,7 +990,7 @@ The DTS binding following the :dtcompatible:`st,stm32-i2c-v2` specification.
           :start-at: i2c2 {
           :end-at: }; // i2c2
 
-.. _tiac_magpie_board_tmph_with_dts_bindings:
+.. _magpie_f777ni_board_tmph_with_dts_bindings:
 
 Pin Header with DTS Bindings
 ============================
@@ -1032,8 +1032,8 @@ Alternate functions on the TiaC Magpie pin header ``TMPH1``:
           :alt: TiaC Magpie Pin Header 1
           :align: center
 
-     - .. literalinclude:: ../tiac_magpie_pin_header.dtsi
-          :caption: tiac_magpie_pin_header.dtsi
+     - .. literalinclude:: ../magpie_f777ni_pin_header.dtsi
+          :caption: magpie_f777ni_pin_header.dtsi
           :language: DTS
           :encoding: ISO-8859-1
           :emphasize-lines: 8-14
@@ -1041,19 +1041,19 @@ Alternate functions on the TiaC Magpie pin header ``TMPH1``:
           :start-at: tmph1:
           :end-at: }; // tmph1
 
-   * - .. literalinclude:: ../tiac_magpie_pin_header.dtsi
+   * - .. literalinclude:: ../magpie_f777ni_pin_header.dtsi
           :language: DTS
           :encoding: ISO-8859-1
           :start-at: tmph_serial:
           :end-at: tmph_serial:
-       .. literalinclude:: ../tiac_magpie_pin_header.dtsi
+       .. literalinclude:: ../magpie_f777ni_pin_header.dtsi
           :language: DTS
           :encoding: ISO-8859-1
           :start-at: tmph_serial1:
           :end-at: tmph_serial1:
 
-     - .. literalinclude:: ../tiac_magpie.dts
-          :caption: tiac_magpie.dts
+     - .. literalinclude:: ../magpie_f777ni.dts
+          :caption: magpie_f777ni.dts
           :language: DTS
           :encoding: ISO-8859-1
           :emphasize-lines: 4-5
@@ -1061,14 +1061,14 @@ Alternate functions on the TiaC Magpie pin header ``TMPH1``:
           :start-at: uart4 {
           :end-at: }; // uart4
 
-   * - .. literalinclude:: ../tiac_magpie_pin_header.dtsi
+   * - .. literalinclude:: ../magpie_f777ni_pin_header.dtsi
           :language: DTS
           :encoding: ISO-8859-1
           :start-at: tmph_serial2:
           :end-at: tmph_serial2:
 
-     - .. literalinclude:: ../tiac_magpie.dts
-          :caption: tiac_magpie.dts
+     - .. literalinclude:: ../magpie_f777ni.dts
+          :caption: magpie_f777ni.dts
           :language: DTS
           :encoding: ISO-8859-1
           :emphasize-lines: 4-5
@@ -1076,14 +1076,14 @@ Alternate functions on the TiaC Magpie pin header ``TMPH1``:
           :start-at: usart3 {
           :end-at: }; // usart3
 
-   * - .. literalinclude:: ../tiac_magpie_pin_header.dtsi
+   * - .. literalinclude:: ../magpie_f777ni_pin_header.dtsi
           :language: DTS
           :encoding: ISO-8859-1
           :start-at: tmph_serial3:
           :end-at: tmph_serial3:
 
-     - .. literalinclude:: ../tiac_magpie.dts
-          :caption: tiac_magpie.dts
+     - .. literalinclude:: ../magpie_f777ni.dts
+          :caption: magpie_f777ni.dts
           :language: DTS
           :encoding: ISO-8859-1
           :emphasize-lines: 4-5
@@ -1091,19 +1091,19 @@ Alternate functions on the TiaC Magpie pin header ``TMPH1``:
           :start-at: uart5 {
           :end-at: }; // uart5
 
-   * - .. literalinclude:: ../tiac_magpie_pin_header.dtsi
+   * - .. literalinclude:: ../magpie_f777ni_pin_header.dtsi
           :language: DTS
           :encoding: ISO-8859-1
           :start-at: tmph_timers:
           :end-at: tmph_timers:
-       .. literalinclude:: ../tiac_magpie_pin_header.dtsi
+       .. literalinclude:: ../magpie_f777ni_pin_header.dtsi
           :language: DTS
           :encoding: ISO-8859-1
           :start-at: tmph_pwms:
           :end-at: tmph_pwms:
 
-     - .. literalinclude:: ../tiac_magpie.dts
-          :caption: tiac_magpie.dts
+     - .. literalinclude:: ../magpie_f777ni.dts
+          :caption: magpie_f777ni.dts
           :language: DTS
           :encoding: ISO-8859-1
           :emphasize-lines: 10
@@ -1143,8 +1143,8 @@ Alternate functions on the TiaC Magpie pin header ``TMPH2``:
           :alt: TiaC Magpie Pin Header 2
           :align: center
 
-     - .. literalinclude:: ../tiac_magpie_pin_header.dtsi
-          :caption: tiac_magpie_pin_header.dtsi
+     - .. literalinclude:: ../magpie_f777ni_pin_header.dtsi
+          :caption: magpie_f777ni_pin_header.dtsi
           :language: DTS
           :encoding: ISO-8859-1
           :emphasize-lines: 7-9,12,13
@@ -1152,14 +1152,14 @@ Alternate functions on the TiaC Magpie pin header ``TMPH2``:
           :start-at: tmph2:
           :end-at: }; // tmph2
 
-   * - .. literalinclude:: ../tiac_magpie_pin_header.dtsi
+   * - .. literalinclude:: ../magpie_f777ni_pin_header.dtsi
           :language: DTS
           :encoding: ISO-8859-1
           :start-at: tmph_serial4:
           :end-at: tmph_serial4:
 
-     - .. literalinclude:: ../tiac_magpie.dts
-          :caption: tiac_magpie.dts
+     - .. literalinclude:: ../magpie_f777ni.dts
+          :caption: magpie_f777ni.dts
           :language: DTS
           :encoding: ISO-8859-1
           :emphasize-lines: 6-7
@@ -1167,14 +1167,14 @@ Alternate functions on the TiaC Magpie pin header ``TMPH2``:
           :start-at: uart8 {
           :end-at: }; // uart8
 
-   * - .. literalinclude:: ../tiac_magpie_pin_header.dtsi
+   * - .. literalinclude:: ../magpie_f777ni_pin_header.dtsi
           :language: DTS
           :encoding: ISO-8859-1
           :start-at: tmph_spi2:
           :end-at: tmph_spi2:
 
-     - .. literalinclude:: ../tiac_magpie.dts
-          :caption: tiac_magpie.dts
+     - .. literalinclude:: ../magpie_f777ni.dts
+          :caption: magpie_f777ni.dts
           :language: DTS
           :encoding: ISO-8859-1
           :emphasize-lines: 4
@@ -1182,14 +1182,14 @@ Alternate functions on the TiaC Magpie pin header ``TMPH2``:
           :start-at: spi5 {
           :end-at: }; // spi5
 
-   * - .. literalinclude:: ../tiac_magpie_pin_header.dtsi
+   * - .. literalinclude:: ../magpie_f777ni_pin_header.dtsi
           :language: DTS
           :encoding: ISO-8859-1
           :start-at: tmph_adc:
           :end-at: tmph_adc:
 
-     - .. literalinclude:: ../tiac_magpie.dts
-          :caption: tiac_magpie.dts
+     - .. literalinclude:: ../magpie_f777ni.dts
+          :caption: magpie_f777ni.dts
           :language: DTS
           :encoding: ISO-8859-1
           :emphasize-lines: 5-6
@@ -1229,8 +1229,8 @@ Alternate functions on the TiaC Magpie pin header ``TMPH3``:
           :alt: TiaC Magpie Pin Header 3
           :align: center
 
-     - .. literalinclude:: ../tiac_magpie_pin_header.dtsi
-          :caption: tiac_magpie_pin_header.dtsi
+     - .. literalinclude:: ../magpie_f777ni_pin_header.dtsi
+          :caption: magpie_f777ni_pin_header.dtsi
           :language: DTS
           :encoding: ISO-8859-1
           :emphasize-lines: 8,9,13
@@ -1238,14 +1238,14 @@ Alternate functions on the TiaC Magpie pin header ``TMPH3``:
           :start-at: tmph3:
           :end-at: }; // tmph3
 
-   * - .. literalinclude:: ../tiac_magpie_pin_header.dtsi
+   * - .. literalinclude:: ../magpie_f777ni_pin_header.dtsi
           :language: DTS
           :encoding: ISO-8859-1
           :start-at: tmph_i2c2:
           :end-at: tmph_i2c2:
 
-     - .. literalinclude:: ../tiac_magpie.dts
-          :caption: tiac_magpie.dts
+     - .. literalinclude:: ../magpie_f777ni.dts
+          :caption: magpie_f777ni.dts
           :language: DTS
           :encoding: ISO-8859-1
           :emphasize-lines: 4-5
@@ -1253,14 +1253,14 @@ Alternate functions on the TiaC Magpie pin header ``TMPH3``:
           :start-at: i2c3 {
           :end-at: }; // i2c3
 
-   * - .. literalinclude:: ../tiac_magpie_pin_header.dtsi
+   * - .. literalinclude:: ../magpie_f777ni_pin_header.dtsi
           :language: DTS
           :encoding: ISO-8859-1
           :start-at: tmph_spi2:
           :end-at: tmph_spi2:
 
-     - .. literalinclude:: ../tiac_magpie.dts
-          :caption: tiac_magpie.dts
+     - .. literalinclude:: ../magpie_f777ni.dts
+          :caption: magpie_f777ni.dts
           :language: DTS
           :encoding: ISO-8859-1
           :emphasize-lines: 5-6
@@ -1300,8 +1300,8 @@ Alternate functions on the TiaC Magpie pin header ``TMPH4``:
           :alt: TiaC Magpie Pin Header 4
           :align: center
 
-     - .. literalinclude:: ../tiac_magpie_pin_header.dtsi
-          :caption: tiac_magpie_pin_header.dtsi
+     - .. literalinclude:: ../magpie_f777ni_pin_header.dtsi
+          :caption: magpie_f777ni_pin_header.dtsi
           :language: DTS
           :encoding: ISO-8859-1
           :emphasize-lines: 6,8,10,14-16
@@ -1309,14 +1309,14 @@ Alternate functions on the TiaC Magpie pin header ``TMPH4``:
           :start-at: tmph4:
           :end-at: }; // tmph4
 
-   * - .. literalinclude:: ../tiac_magpie_pin_header.dtsi
+   * - .. literalinclude:: ../magpie_f777ni_pin_header.dtsi
           :language: DTS
           :encoding: ISO-8859-1
           :start-at: tmph_serial4:
           :end-at: tmph_serial4:
 
-     - .. literalinclude:: ../tiac_magpie.dts
-          :caption: tiac_magpie.dts
+     - .. literalinclude:: ../magpie_f777ni.dts
+          :caption: magpie_f777ni.dts
           :language: DTS
           :encoding: ISO-8859-1
           :emphasize-lines: 4-5
@@ -1324,19 +1324,19 @@ Alternate functions on the TiaC Magpie pin header ``TMPH4``:
           :start-at: uart8 {
           :end-at: }; // uart8
 
-   * - .. literalinclude:: ../tiac_magpie_pin_header.dtsi
+   * - .. literalinclude:: ../magpie_f777ni_pin_header.dtsi
           :language: DTS
           :encoding: ISO-8859-1
           :start-at: tmph_timers:
           :end-at: tmph_timers:
-       .. literalinclude:: ../tiac_magpie_pin_header.dtsi
+       .. literalinclude:: ../magpie_f777ni_pin_header.dtsi
           :language: DTS
           :encoding: ISO-8859-1
           :start-at: tmph_pwms:
           :end-at: tmph_pwms:
 
-     - .. literalinclude:: ../tiac_magpie.dts
-          :caption: tiac_magpie.dts
+     - .. literalinclude:: ../magpie_f777ni.dts
+          :caption: magpie_f777ni.dts
           :language: DTS
           :encoding: ISO-8859-1
           :emphasize-lines: 7-9
@@ -1344,14 +1344,14 @@ Alternate functions on the TiaC Magpie pin header ``TMPH4``:
           :start-at: timers8 {
           :end-at: }; // timers8
 
-   * - .. literalinclude:: ../tiac_magpie_pin_header.dtsi
+   * - .. literalinclude:: ../magpie_f777ni_pin_header.dtsi
           :language: DTS
           :encoding: ISO-8859-1
           :start-at: tmph_adc:
           :end-at: tmph_adc:
 
-     - .. literalinclude:: ../tiac_magpie.dts
-          :caption: tiac_magpie.dts
+     - .. literalinclude:: ../magpie_f777ni.dts
+          :caption: magpie_f777ni.dts
           :language: DTS
           :encoding: ISO-8859-1
           :emphasize-lines: 4
@@ -1391,8 +1391,8 @@ Alternate functions on the TiaC Magpie pin header ``TMPH5``:
           :alt: TiaC Magpie Pin Header 5
           :align: center
 
-     - .. literalinclude:: ../tiac_magpie_pin_header.dtsi
-          :caption: tiac_magpie_pin_header.dtsi
+     - .. literalinclude:: ../magpie_f777ni_pin_header.dtsi
+          :caption: magpie_f777ni_pin_header.dtsi
           :language: DTS
           :encoding: ISO-8859-1
           :emphasize-lines: 6,11-14,16,17
@@ -1400,19 +1400,19 @@ Alternate functions on the TiaC Magpie pin header ``TMPH5``:
           :start-at: tmph5:
           :end-at: }; // tmph5
 
-   * - .. literalinclude:: ../tiac_magpie_pin_header.dtsi
+   * - .. literalinclude:: ../magpie_f777ni_pin_header.dtsi
           :language: DTS
           :encoding: ISO-8859-1
           :start-at: tmph_i2c:
           :end-at: tmph_i2c:
-       .. literalinclude:: ../tiac_magpie_pin_header.dtsi
+       .. literalinclude:: ../magpie_f777ni_pin_header.dtsi
           :language: DTS
           :encoding: ISO-8859-1
           :start-at: tmph_i2c1:
           :end-at: tmph_i2c1:
 
-     - .. literalinclude:: ../tiac_magpie.dts
-          :caption: tiac_magpie.dts
+     - .. literalinclude:: ../magpie_f777ni.dts
+          :caption: magpie_f777ni.dts
           :language: DTS
           :encoding: ISO-8859-1
           :emphasize-lines: 4-5
@@ -1420,19 +1420,19 @@ Alternate functions on the TiaC Magpie pin header ``TMPH5``:
           :start-at: i2c4 {
           :end-at: }; // i2c4
 
-   * - .. literalinclude:: ../tiac_magpie_pin_header.dtsi
+   * - .. literalinclude:: ../magpie_f777ni_pin_header.dtsi
           :language: DTS
           :encoding: ISO-8859-1
           :start-at: tmph_spi:
           :end-at: tmph_spi:
-       .. literalinclude:: ../tiac_magpie_pin_header.dtsi
+       .. literalinclude:: ../magpie_f777ni_pin_header.dtsi
           :language: DTS
           :encoding: ISO-8859-1
           :start-at: tmph_spi1:
           :end-at: tmph_spi1:
 
-     - .. literalinclude:: ../tiac_magpie.dts
-          :caption: tiac_magpie.dts
+     - .. literalinclude:: ../magpie_f777ni.dts
+          :caption: magpie_f777ni.dts
           :language: DTS
           :encoding: ISO-8859-1
           :emphasize-lines: 4-7
@@ -1440,14 +1440,14 @@ Alternate functions on the TiaC Magpie pin header ``TMPH5``:
           :start-at: spi4 {
           :end-at: }; // spi4
 
-   * - .. literalinclude:: ../tiac_magpie_pin_header.dtsi
+   * - .. literalinclude:: ../magpie_f777ni_pin_header.dtsi
           :language: DTS
           :encoding: ISO-8859-1
           :start-at: tmph_spi2:
           :end-at: tmph_spi2:
 
-     - .. literalinclude:: ../tiac_magpie.dts
-          :caption: tiac_magpie.dts
+     - .. literalinclude:: ../magpie_f777ni.dts
+          :caption: magpie_f777ni.dts
           :language: DTS
           :encoding: ISO-8859-1
           :emphasize-lines: 7
@@ -1467,8 +1467,8 @@ IOC project file provided by this documentation to edit or export the
 exact corresponding pin configurations of the given hardware design,
 e.g. to CSV representation or PDF report:
 
-* TiaC Magpie STM32F7 IOC project file: :download:`STM32F777NIHx.ioc`
-* TiaC Magpie STM32F7 PDF report file: :download:`STM32F777NIHx.pdf`
+* TiaC Magpie F777NI IOC project file: :download:`STM32F777NIHx.ioc`
+* TiaC Magpie F777NI PDF report file: :download:`STM32F777NIHx.pdf`
 
 .. image:: img/STM32F777NIHx_package.jpg
    :alt: STM32F777NIHx Package Ball Overview

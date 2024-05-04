@@ -1,4 +1,4 @@
-.. _tiac_magpie_usb_mass-sample:
+.. _magpie_f777ni_usb_mass-sample:
 
 USB Mass Storage
 ################
@@ -8,7 +8,7 @@ Overview
 
 See :zephyr:code-sample:`zephyr:usb-mass` for the original description.
 
-.. _tiac_magpie_usb_mass-sample-requirements:
+.. _magpie_f777ni_usb_mass-sample-requirements:
 
 Requirements
 ************
@@ -29,8 +29,8 @@ for testing USB mass storage class implementation.
 
 .. zephyr-app-commands::
    :app: zephyr/samples/subsys/usb/mass
-   :build-dir: usb_mass-tiac_magpie
-   :board: tiac_magpie
+   :build-dir: usb_mass-magpie_f777ni
+   :board: magpie_f777ni
    :gen-args: -DEXTRA_DTC_OVERLAY_FILE="ramdisk.overlay"
    :west-args: -p
    :goals: flash
@@ -54,8 +54,8 @@ build the sample with a RAM-based disk:
 
 .. zephyr-app-commands::
    :app: zephyr/samples/subsys/usb/mass
-   :build-dir: usb_mass_fat-tiac_magpie
-   :board: tiac_magpie
+   :build-dir: usb_mass_fat-magpie_f777ni
+   :board: magpie_f777ni
    :gen-args: -DEXTRA_DTC_OVERLAY_FILE="ramdisk.overlay" -DCONFIG_APP_MSC_STORAGE_RAM=y
    :west-args: -p
    :goals: flash

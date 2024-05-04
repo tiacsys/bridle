@@ -2,9 +2,9 @@
 # Copyright (c) 2021 Li-Pro.Net
 # SPDX-License-Identifier: Apache-2.0
 
-# TiaC STM32F777NIHx Magpie board configuration
+# TiaC Magpie F777NI board configuration
 
-if BOARD_TIAC_MAGPIE
+if BOARD_MAGPIE_F777NI
 
 choice COUNTER_RTC_STM32_CLOCK_SRC
 	default COUNTER_RTC_STM32_CLOCK_LSE
@@ -29,4 +29,4 @@ config ETH_STM32_HAL_PHY_ADDRESS
 
 endif # NETWORKING
 
-endif # BOARD_TIAC_MAGPIE
+endif # BOARD_MAGPIE_F777NI

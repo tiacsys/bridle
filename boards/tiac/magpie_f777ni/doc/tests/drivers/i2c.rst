@@ -1,4 +1,4 @@
-.. _tiac_magpie_drivers_i2c-tests:
+.. _magpie_f777ni_drivers_i2c-tests:
 
 I2C Loopback (:brd:`FAILED`)
 ############################
@@ -9,7 +9,7 @@ Overview
 See :zephyr_file:`tests/drivers/i2c`
 for the original scope of tests, its structure and description.
 
-.. _tiac_magpie_drivers_i2c-tests-requirements:
+.. _magpie_f777ni_drivers_i2c-tests-requirements:
 
 Requirements
 ************
@@ -51,43 +51,45 @@ Building and Running
 
          Device testing on:
 
-         \| Platform    \| ID       \| Serial device   \|
-         \|-------------\|----------\|-----------------\|
-         \| tiac_magpie \| DT04BNT1 \| /dev/ttyUSB0    \|
+         \| Platform      \| ID       \| Serial device   \|
+         \|---------------\|----------\|-----------------\|
+         \| magpie_f777ni \| DT04BNT1 \| /dev/ttyUSB0    \|
 
          INFO    - JOBS: 4
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1708/1709 tiac_magpie               tests/drivers/i2c/i2c_api/drivers.i2c.api          :byl:`SKIPPED` (runtime filter)
-         INFO    - 1709/1709 tiac_magpie               tests/drivers/i2c/i2c_target_api/drivers.i2c.target_api.dual_role  :brd:`ERROR` Build failure (device)
-         INFO    - :byl:`.../twister-out/tiac_magpie/tests/drivers/i2c/i2c_target_api/drivers.i2c.target_api.dual_role/build.log`
+         INFO    - 1777/1780 magpie_f777ni             tests/drivers/i2c/i2c_api/drivers.i2c.api          :byl:`SKIPPED` (runtime filter)
+         INFO    - 1778/1780 magpie_f777ni             tests/drivers/i2c/i2c_ram/drivers.i2c.ram.rtio     :byl:`SKIPPED` (runtime filter)
+         INFO    - 1779/1780 magpie_f777ni             tests/drivers/i2c/i2c_ram/drivers.i2c.ram          :byl:`SKIPPED` (runtime filter)
+         INFO    - 1780/1780 magpie_f777ni             tests/drivers/i2c/i2c_target_api/drivers.i2c.target_api.dual_role  :brd:`ERROR` Build failure (device)
+         INFO    - :byl:`.../twister-out/magpie_f777ni/tests/drivers/i2c/i2c_target_api/drivers.i2c.target_api.dual_role/build.log`
 
-         INFO    - 1922 test scenarios (1709 test instances) selected, 1708 configurations skipped (1707 by static filter, 1 at runtime).
-         INFO    - :bgn:`0 of 1709` test configurations passed (0.00%), :bbk:`0` failed, :brd:`1` errored, :byl:`1708` skipped with :bbk:`0` warnings in :bbk:`18.87 seconds`
-         INFO    - In total 1 test cases were executed, 12683 skipped on 1 out of total 699 platforms (0.14%)
+         INFO    - 1984 test scenarios (1780 test instances) selected, 1779 configurations skipped (1776 by static filter, 3 at runtime).
+         INFO    - :bgn:`0 of 1780` test configurations passed (0.00%), :bbk:`0` failed, :brd:`1` errored, :byl:`1779` skipped with :bbk:`0` warnings in :bbk:`18.87 seconds`
+         INFO    - In total 1 test cases were executed, 13447 skipped on 1 out of total 739 platforms (0.14%)
          INFO    - :bgn:`0` test configurations executed on platforms, :brd:`1` test configurations were only built.
 
          Hardware distribution summary:
 
-         \| Board       \| ID       \|   Counter \|
-         \|-------------\|----------\|-----------\|
-         \| tiac_magpie \| DT04BNT1 \|         0 \|
+         \| Board         \| ID       \|   Counter \|
+         \|---------------\|----------\|-----------\|
+         \| magpie_f777ni \| DT04BNT1 \|         0 \|
 
          INFO    - Saving reports...
          INFO    - Writing JSON report .../twister-out/twister.json
          INFO    - Writing xunit report .../twister-out/twister.xml...
          INFO    - Writing xunit report .../twister-out/twister_report.xml...
-         INFO    - Writing target report for tiac_magpie...
+         INFO    - Writing target report for magpie_f777ni...
          INFO    - -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
          INFO    - The following issues were found (showing the top 10 items):
-         INFO    - 1) tests/drivers/i2c/i2c_target_api/drivers.i2c.target_api.dual_role on tiac_magpie error (Build failure)
+         INFO    - 1) tests/drivers/i2c/i2c_target_api/drivers.i2c.target_api.dual_role on magpie_f777ni error (Build failure)
          INFO    - 
          INFO    - To rerun the tests, call twister using the following commandline:
          INFO    - west twister -p <PLATFORM> -s <TEST ID>, for example:
          INFO    - 
-         INFO    - west twister -p tiac_magpie -s tests/drivers/i2c/i2c_target_api/drivers.i2c.target_api.dual_role
+         INFO    - west twister -p magpie_f777ni -s tests/drivers/i2c/i2c_target_api/drivers.i2c.target_api.dual_role
          INFO    - or with west:
-         INFO    - west build -p -b tiac_magpie tests/drivers/i2c/i2c_target_api -T drivers.i2c.target_api.dual_role
+         INFO    - west build -p -b magpie_f777ni tests/drivers/i2c/i2c_target_api -T drivers.i2c.target_api.dual_role
          INFO    - -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
          INFO    - Run completed
 

@@ -1,4 +1,4 @@
-.. _tiac_magpie_drivers_pwm-tests:
+.. _magpie_f777ni_drivers_pwm-tests:
 
 PWM Loopback (:brd:`FAILED`)
 ############################
@@ -9,7 +9,7 @@ Overview
 See :zephyr_file:`tests/drivers/pwm`
 for the original scope of tests, its structure and description.
 
-.. _tiac_magpie_drivers_pwm-tests-requirements:
+.. _magpie_f777ni_drivers_pwm-tests-requirements:
 
 Requirements
 ************
@@ -51,45 +51,44 @@ Building and Running
 
          Device testing on:
 
-         \| Platform    \| ID       \| Serial device   \|
-         \|-------------\|----------\|-----------------\|
-         \| tiac_magpie \| DT04BNT1 \| /dev/ttyUSB0    \|
+         \| Platform      \| ID       \| Serial device   \|
+         \|---------------\|----------\|-----------------\|
+         \| magpie_f777ni \| DT04BNT1 \| /dev/ttyUSB0    \|
 
          INFO    - JOBS: 4
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
+         INFO    - 1778/1780 magpie_f777ni             tests/drivers/clock_control/pwm_clock/drivers.clock.pwm_clock :byl:`SKIPPED` (runtime filter)
+         INFO    - 1779/1780 magpie_f777ni             tests/drivers/pwm/pwm_api/drivers.pwm              :bgn:`PASSED` (device: DT04BNT1, 9.089s)
+         INFO    - 1780/1780 magpie_f777ni             tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback  :brd:`FAILED`FAILED Failed (device: DT04BNT1, 3.488s)
+         INFO    - :byl:`.../twister-out/magpie_f777ni/tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback/handler.log`
 
-         INFO    - 1707/1709 tiac_magpie               tests/drivers/clock_control/pwm_clock/drivers.clock.pwm_clock :byl:`SKIPPED` (runtime filter)
-         INFO    - 1708/1709 tiac_magpie               tests/drivers/pwm/pwm_api/drivers.pwm              :bgn:`PASSED` (device: DT04BNT1, 9.130s)
-         INFO    - 1709/1709 tiac_magpie               tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback  :brd:`FAILED` Failed (device: DT04BNT1, 3.397s)
-         INFO    - :byl:`.../twister-out/tiac_magpie/tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback/handler.log`
-
-         INFO    - 1922 test scenarios (1709 test instances) selected, 1707 configurations skipped (1706 by static filter, 1 at runtime).
-         INFO    - :brd:`1 of 1709` test configurations passed (50.00%), :brd:`1` failed, :bbk:`0` errored, :byl:`1707` skipped with :bbk:`0` warnings in :bbk:`49.96 seconds`
-         INFO    - In total 10 test cases were executed, 12674 skipped on 1 out of total 699 platforms (0.14%)
+         INFO    - 1984 test scenarios (1780 test instances) selected, 1778 configurations skipped (1777 by static filter, 1 at runtime).
+         INFO    - :brd:`1 of 1780` test configurations passed (50.00%), :brd:`1` failed, :bbk:`0` errored, :byl:`1778` skipped with :bbk:`0` warnings in :bbk:`79.09 seconds`
+         INFO    - In total 10 test cases were executed, 13438 skipped on 1 out of total 739 platforms (0.14%)
          INFO    - :bgn:`2` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
 
-         \| Board       \| ID       \|   Counter \|
-         \|-------------\|----------\|-----------\|
-         \| tiac_magpie \| DT04BNT1 \|         2 \|
+         \| Board         \| ID       \|   Counter \|
+         \|---------------\|----------\|-----------\|
+         \| magpie_f777ni \| DT04BNT1 \|         2 \|
 
          INFO    - Saving reports...
          INFO    - Writing JSON report .../twister-out/twister.json
          INFO    - Writing xunit report .../twister-out/twister.xml...
          INFO    - Writing xunit report .../twister-out/twister_report.xml...
-         INFO    - Writing target report for tiac_magpie...
+         INFO    - Writing target report for magpie_f777ni...
          INFO    - -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
          INFO    - The following issues were found (showing the top 10 items):
-         INFO    - 1) tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback on tiac_magpie failed (Failed)
+         INFO    - 1) tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback on magpie_f777ni failed (Failed)
          INFO    - 
          INFO    - To rerun the tests, call twister using the following commandline:
          INFO    - west twister -p <PLATFORM> -s <TEST ID>, for example:
          INFO    - 
-         INFO    - west twister -p tiac_magpie -s tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback
+         INFO    - west twister -p magpie_f777ni -s tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback
          INFO    - or with west:
-         INFO    - west build -p -b tiac_magpie tests/drivers/pwm/pwm_loopback -T drivers.pwm.loopback
+         INFO    - west build -p -b magpie_f777ni tests/drivers/pwm/pwm_loopback -T drivers.pwm.loopback
          INFO    - -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
          INFO    - Run completed
 

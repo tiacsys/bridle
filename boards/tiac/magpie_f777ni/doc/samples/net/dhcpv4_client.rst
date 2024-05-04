@@ -1,4 +1,4 @@
-.. _tiac_magpie_dhcpv4-client-sample:
+.. _magpie_f777ni_dhcpv4-client-sample:
 
 DHCPv4 Client
 #############
@@ -8,7 +8,7 @@ Overview
 
 See :zephyr:code-sample:`zephyr:dhcpv4-client` for the original description.
 
-.. _tiac_magpie_dhcpv4-client-sample-requirements:
+.. _magpie_f777ni_dhcpv4-client-sample-requirements:
 
 Requirements
 ************
@@ -25,8 +25,8 @@ Build and flash DHCPv4 Client as follows:
 
 .. zephyr-app-commands::
    :app: zephyr/samples/net/dhcpv4_client
-   :build-dir: dhcpv4_client-tiac_magpie
-   :board: tiac_magpie
+   :build-dir: dhcpv4_client-magpie_f777ni
+   :board: magpie_f777ni
    :west-args: -p
    :goals: flash
    :host-os: unix
@@ -75,12 +75,12 @@ On Zephyr, Shell command line:
    Link addr : 02:80:E1:4F:98:16
    MTU       : 1500
    Flags     : AUTO_START,IPv4
-   Device    : ethernet\ @\ 40028000 (0x8018374)
+   Device    : ethernet\ @\ 40028000 (0x8018770)
    Ethernet capabilities supported:
 	   10 Mbits
 	   100 Mbits
    IPv4 unicast addresses (max 1):
-	   192.168.10.197 DHCP preferred
+	   192.168.10.197/255.255.255.0 DHCP preferred
    IPv4 multicast addresses (max 2):
            224.0.0.1
    IPv4 gateway : 192.168.10.1

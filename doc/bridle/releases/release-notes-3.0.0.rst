@@ -85,7 +85,7 @@ Documentation
 =============
 
 1. Renamed references to :ref:`zephyr:canbus` in the
-   :ref:`tiac_magpie_board` page.
+   :ref:`magpie_f777ni_board` page.
 #. Update all documented output messages.
 
 Issue Related Items

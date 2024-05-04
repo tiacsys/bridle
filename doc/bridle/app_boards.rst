@@ -75,7 +75,7 @@ Also see the :ref:`boards` section in this documentation.
 |                   |                                       | | ``waveshare_rp2040_plus@16mb`` |
 |                   |                                       | | ``waveshare_rp2040_geek``      |
 +-------------------+---------------------------------------+----------------------------------+
-| STM32F777NI       | :ref:`tiac_magpie_board`              | ``tiac_magpie``                  |
+| STM32F777NI       | :ref:`magpie_f777ni_board`            | ``magpie_f777ni``                |
 +-------------------+---------------------------------------+----------------------------------+
 
 

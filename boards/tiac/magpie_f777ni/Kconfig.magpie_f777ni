@@ -2,7 +2,7 @@
 # Copyright (c) 2021 Li-Pro.Net
 # SPDX-License-Identifier: Apache-2.0
 
-# TiaC STM32F777NIHx Magpie board configuration
+# TiaC Magpie F777NI board configuration
 
-config BOARD_TIAC_MAGPIE
+config BOARD_MAGPIE_F777NI
 	select SOC_STM32F777XX

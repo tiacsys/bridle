@@ -5,8 +5,8 @@
 # Loopback test shield default configuration for
 # TiaC STM32F777NIHx Magpie board
 
-if BOARD_TIAC_MAGPIE
+if BOARD_MAGPIE_F777NI
 
-comment "TiaC STM32F777NIHx Magpie board has no options for this shield."
+comment "TiaC Magpie F777NI board has no options for this shield."
 
-endif # BOARD_TIAC_MAGPIE
+endif # BOARD_MAGPIE_F777NI

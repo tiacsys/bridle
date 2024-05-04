@@ -46,10 +46,10 @@
 
 .. #### Links to TiaC Systems hardware
 
-.. _`TiaC Magpie STM32F777NIHx website`:
+.. _`TiaC Magpie F777NI website`:
    https://www.st.com/en/evaluation-tools/nucleo-f767zi.html
 
-.. _`TiaC Magpie STM32F777NIHx board User Manual`:
+.. _`TiaC Magpie F777NI board User Manual`:
    http://www.st.com/resource/en/user_manual/dm00244518.pdf
 
 

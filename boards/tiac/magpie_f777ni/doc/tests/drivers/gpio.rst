@@ -1,4 +1,4 @@
-.. _tiac_magpie_drivers_gpio-tests:
+.. _magpie_f777ni_drivers_gpio-tests:
 
 GPIO Loopback
 #############
@@ -9,7 +9,7 @@ Overview
 See :zephyr_file:`tests/drivers/gpio`
 for the original scope of tests, its structure and description.
 
-.. _tiac_magpie_drivers_gpio-tests-requirements:
+.. _magpie_f777ni_drivers_gpio-tests-requirements:
 
 Requirements
 ************
@@ -51,31 +51,32 @@ Building and Running
 
          Device testing on:
 
-         \| Platform    \| ID       \| Serial device   \|
-         \|-------------\|----------\|-----------------\|
-         \| tiac_magpie \| DT04BNT1 \| /dev/ttyUSB0    \|
+         \| Platform      \| ID       \| Serial device   \|
+         \|---------------\|----------\|-----------------\|
+         \| magpie_f777ni \| DT04BNT1 \| /dev/ttyUSB0    \|
 
          INFO    - JOBS: 4
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1707/1709 tiac_magpie               tests/drivers/gpio/gpio_get_direction/drivers.gpio.get_direction :bgn:`PASSED` (device: DT04BNT1, 2.493s)
-         INFO    - 1708/1709 tiac_magpie               tests/drivers/gpio/gpio_api_1pin/drivers.gpio.1pin :bgn:`PASSED` (device: DT04BNT1, 9.469s)
-         INFO    - 1709/1709 tiac_magpie               tests/drivers/gpio/gpio_basic_api/drivers.gpio.2pin :bgn:`PASSED` (device: DT04BNT1, 17.959s)
+         INFO    - 1777/1780 magpie_f777ni             tests/drivers/gpio/gpio_nrf/drivers.gpio.gpio_nrf  :byl:`SKIPPED` (runtime filter)
+         INFO    - 1778/1780 magpie_f777ni             tests/drivers/gpio/gpio_get_direction/drivers.gpio.get_direction :bgn:`PASSED` (device: DT04BNT1, 2.547s)
+         INFO    - 1779/1780 magpie_f777ni             tests/drivers/gpio/gpio_api_1pin/drivers.gpio.1pin :bgn:`PASSED` (device: DT04BNT1, 9.506s)
+         INFO    - 1780/1780 magpie_f777ni             tests/drivers/gpio/gpio_basic_api/drivers.gpio.2pin :bgn:`PASSED` (device: DT04BNT1, 18.049s)
 
-         INFO    - 1922 test scenarios (1709 test instances) selected, 1706 configurations skipped (1706 by static filter, 0 at runtime).
-         INFO    - :bgn:`3 of 1709` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1706` skipped with :bbk:`0` warnings in :bbk:`74.02 seconds`
-         INFO    - In total 28 test cases were executed, 12656 skipped on 1 out of total 699 platforms (0.14%)
+         INFO    - 1984 test scenarios (1780 test instances) selected, 1777 configurations skipped (1777 by static filter, 0 at runtime).
+         INFO    - :bgn:`3 of 1780` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1777` skipped with :bbk:`0` warnings in :bbk:`89.82 seconds`
+         INFO    - In total 28 test cases were executed, 13420 skipped on 1 out of total 739 platforms (0.14%)
          INFO    - :bgn:`3` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
 
-         \| Board       \| ID       \|   Counter \|
-         \|-------------\|----------\|-----------\|
-         \| tiac_magpie \| DT04BNT1 \|         3 \|
+         \| Board         \| ID       \|   Counter \|
+         \|---------------\|----------\|-----------\|
+         \| magpie_f777ni \| DT04BNT1 \|         3 \|
 
          INFO    - Saving reports...
          INFO    - Writing JSON report .../twister-out/twister.json
          INFO    - Writing xunit report .../twister-out/twister.xml...
          INFO    - Writing xunit report .../twister-out/twister_report.xml...
-         INFO    - Writing target report for tiac_magpie...
+         INFO    - Writing target report for magpie_f777ni...
          INFO    - Run completed

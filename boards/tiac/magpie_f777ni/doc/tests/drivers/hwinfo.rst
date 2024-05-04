@@ -1,4 +1,4 @@
-.. _tiac_magpie_drivers_hwinfo-tests:
+.. _magpie_f777ni_drivers_hwinfo-tests:
 
 Hardware Info-API
 #################
@@ -9,7 +9,7 @@ Overview
 See :zephyr_file:`tests/drivers/hwinfo`
 for the original scope of tests, its structure and description.
 
-.. _tiac_magpie_drivers_hwinfo-tests-requirements:
+.. _magpie_f777ni_drivers_hwinfo-tests-requirements:
 
 Requirements
 ************
@@ -44,29 +44,29 @@ Building and Running
 
          Device testing on:
 
-         \| Platform    \| ID       \| Serial device   \|
-         \|-------------\|----------\|-----------------\|
-         \| tiac_magpie \| DT04BNT1 \| /dev/ttyUSB0    \|
+         \| Platform      \| ID       \| Serial device   \|
+         \|---------------\|----------\|-----------------\|
+         \| magpie_f777ni \| DT04BNT1 \| /dev/ttyUSB0    \|
 
          INFO    - JOBS: 4
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1709/1709 tiac_magpie               tests/drivers/hwinfo/api/drivers.hwinfo.api        :bgn:`PASSED` (device: DT04BNT1, 2.454s)
+         INFO    - 1780/1780 magpie_f777ni             tests/drivers/hwinfo/api/drivers.hwinfo.api        :bgn:`PASSED` (device: DT04BNT1, 2.510s)
 
-         INFO    - 1922 test scenarios (1709 test instances) selected, 1708 configurations skipped (1708 by static filter, 0 at runtime).
-         INFO    - :bgn:`1 of 1709` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1708` skipped with :bbk:`0` warnings in :bbk:`24.39 seconds`
-         INFO    - In total 4 test cases were executed, 12680 skipped on 1 out of total 699 platforms (0.14%)
+         INFO    - 1984 test scenarios (1780 test instances) selected, 1779 configurations skipped (1779 by static filter, 0 at runtime).
+         INFO    - :bgn:`1 of 1780` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1779` skipped with :bbk:`0` warnings in :bbk:`29.52 seconds`
+         INFO    - In total 4 test cases were executed, 13444 skipped on 1 out of total 739 platforms (0.14%)
          INFO    - :bgn:`1` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
 
-         \| Board       \| ID       \|   Counter \|
-         \|-------------\|----------\|-----------\|
-         \| tiac_magpie \| DT04BNT1 \|         1 \|
+         \| Board         \| ID       \|   Counter \|
+         \|---------------\|----------\|-----------\|
+         \| magpie_f777ni \| DT04BNT1 \|         1 \|
 
          INFO    - Saving reports...
          INFO    - Writing JSON report .../twister-out/twister.json
          INFO    - Writing xunit report .../twister-out/twister.xml...
          INFO    - Writing xunit report .../twister-out/twister_report.xml...
-         INFO    - Writing target report for tiac_magpie...
+         INFO    - Writing target report for magpie_f777ni...
          INFO    - Run completed

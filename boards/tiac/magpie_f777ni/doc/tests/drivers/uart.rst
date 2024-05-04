@@ -1,4 +1,4 @@
-.. _tiac_magpie_drivers_uart-tests:
+.. _magpie_f777ni_drivers_uart-tests:
 
 UART Loopback :byl:`(not yet)`
 ##############################
@@ -9,7 +9,7 @@ Overview
 See :zephyr_file:`tests/drivers/uart`
 for the original scope of tests, its structure and description.
 
-.. _tiac_magpie_drivers_uart-tests-requirements:
+.. _magpie_f777ni_drivers_uart-tests-requirements:
 
 Requirements
 ************
@@ -28,7 +28,7 @@ Building and Running
 
 .. tabs::
 
-   .. group-tab:: Running ... t.b.d.
+   .. group-tab:: Running
 
       Build and run the tests on target as follows:
 
@@ -42,7 +42,7 @@ Building and Running
               --alt-config-root bridle/zephyr/alt-config \
               --testsuite-root zephyr/tests --tag uart
 
-   .. group-tab:: Results ... t.b.d.
+   .. group-tab:: Results
 
       You should see the following messages on host console:
 
@@ -51,34 +51,34 @@ Building and Running
 
          Device testing on:
 
-         \| Platform    \| ID       \| Serial device   \|
-         \|-------------\|----------\|-----------------\|
-         \| tiac_magpie \| DT04BNT1 \| /dev/ttyUSB0    \|
+         \| Platform      \| ID       \| Serial device   \|
+         \|---------------\|----------\|-----------------\|
+         \| magpie_f777ni \| DT04BNT1 \| /dev/ttyUSB0    \|
 
          INFO    - JOBS: 4
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1704/1709 tiac_magpie               tests/drivers/uart/uart_async_api/drivers.uart.async_api.lpuart :byl:`SKIPPED` (runtime filter)
-         INFO    - 1705/1709 tiac_magpie               tests/drivers/uart/uart_async_api/drivers.uart.async_api :byl:`SKIPPED` (runtime filter)
-         INFO    - 1706/1709 tiac_magpie               tests/subsys/logging/log_backend_uart/logging.backend.uart.multi :bgn:`PASSED` (device: DT04BNT1, 2.476s)
-         INFO    - 1707/1709 tiac_magpie               tests/subsys/logging/log_backend_uart/logging.backend.uart.single :bgn:`PASSED` (device: DT04BNT1, 2.579s)
-         INFO    - 1708/1709 tiac_magpie               tests/drivers/uart/uart_async_rx/drivers.uart.async_rx :bgn:`PASSED` (device: DT04BNT1, 13.207s)
-         INFO    - 1709/1709 tiac_magpie               tests/drivers/console/hello_world/drivers.console.uart :bgn:`PASSED` (device: DT04BNT1, 2.539s)
+         INFO    - 1775/1780 magpie_f777ni             tests/drivers/uart/uart_async_api/drivers.uart.async_api.lpuart :byl:`SKIPPED` (runtime filter)
+         INFO    - 1776/1780 magpie_f777ni             tests/drivers/uart/uart_async_api/drivers.uart.async_api :byl:`SKIPPED` (runtime filter)
+         INFO    - 1777/1780 magpie_f777ni             tests/subsys/logging/log_backend_uart/logging.backend.uart.multi :bgn:`PASSED` (device: DT04BNT1, 2.620s)
+         INFO    - 1778/1780 magpie_f777ni             tests/drivers/uart/uart_async_rx/drivers.uart.async_rx :bgn:`PASSED` (device: DT04BNT1, 12.561s)
+         INFO    - 1779/1780 magpie_f777ni             tests/subsys/logging/log_backend_uart/logging.backend.uart.single :bgn:`PASSED` (device: DT04BNT1, 3.426s)
+         INFO    - 1780/1780 magpie_f777ni             tests/drivers/console/hello_world/drivers.console.uart :bgn:`PASSED` (device: DT04BNT1, 2.513s)
 
-         INFO    - 1922 test scenarios (1709 test instances) selected, 1705 configurations skipped (1703 by static filter, 2 at runtime).
-         INFO    - :bgn:`4 of 1709` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1705` skipped with :bbk:`0` warnings in :bbk:`69.39 seconds`
-         INFO    - In total 7 test cases were executed, 12677 skipped on 1 out of total 699 platforms (0.14%)
+         INFO    - 1984 test scenarios (1780 test instances) selected, 1776 configurations skipped (1774 by static filter, 2 at runtime).
+         INFO    - :bgn:`4 of 1780` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1776` skipped with :bbk:`0` warnings in :bbk:`86.23 seconds`
+         INFO    - In total 7 test cases were executed, 13441 skipped on 1 out of total 739 platforms (0.14%)
          INFO    - :bgn:`4` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
 
-         \| Board       \| ID       \|   Counter \|
-         \|-------------\|----------\|-----------\|
-         \| tiac_magpie \| DT04BNT1 \|         4 \|
+         \| Board         \| ID       \|   Counter \|
+         \|---------------\|----------\|-----------\|
+         \| magpie_f777ni \| DT04BNT1 \|         4 \|
 
          INFO    - Saving reports...
          INFO    - Writing JSON report .../twister-out/twister.json
          INFO    - Writing xunit report .../twister-out/twister.xml...
          INFO    - Writing xunit report .../twister-out/twister_report.xml...
-         INFO    - Writing target report for tiac_magpie...
+         INFO    - Writing target report for magpie_f777ni...
          INFO    - Run completed

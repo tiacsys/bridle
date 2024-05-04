@@ -1,4 +1,4 @@
-.. _tiac_magpie_bridle-tests:
+.. _magpie_f777ni_bridle-tests:
 
 Bridle for Zephyr
 #################
@@ -9,7 +9,7 @@ Overview
 See :bridle_file:`tests/bridle`
 for the original scope of tests, its structure and description.
 
-.. _tiac_magpie_bridle-tests-requirements:
+.. _magpie_f777ni_bridle-tests-requirements:
 
 Requirements
 ************
@@ -44,29 +44,29 @@ Building and Running
 
          Device testing on:
 
-         \| Platform    \| ID       \| Serial device   \|
-         \|-------------\|----------\|-----------------\|
-         \| tiac_magpie \| DT04BNT1 \| /dev/ttyUSB0    \|
+         \| Platform      \| ID       \| Serial device   \|
+         \|---------------\|----------\|-----------------\|
+         \| magpie_f777ni \| DT04BNT1 \| /dev/ttyUSB0    \|
 
          INFO    - JOBS: 4
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 315/315 tiac_magpie               bridle/common/bridle.common                        :bgn:`PASSED` (device: DT04BNT1, 3.451s)
+         INFO    - 315/315 magpie_f777ni             bridle/common/bridle.common                        :bgn:`PASSED` (device: DT04BNT1, 3.569s)
 
          INFO    - 315 test scenarios (315 test instances) selected, 314 configurations skipped (314 by static filter, 0 at runtime).
-         INFO    - :bgn:`1 of 315` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`314` skipped with :bbk:`0` warnings in :bbk:`35.54 seconds`
-         INFO    - In total 1 test cases were executed, 314 skipped on 1 out of total 699 platforms (0.14%)
+         INFO    - :bgn:`1 of 315` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`314` skipped with :bbk:`0` warnings in :bbk:`35.07 seconds`
+         INFO    - In total 1 test cases were executed, 314 skipped on 1 out of total 739 platforms (0.14%)
          INFO    - :bgn:`1` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
 
-         \| Board       \| ID       \|   Counter \|
-         \|-------------\|----------\|-----------\|
-         \| tiac_magpie \| DT04BNT1 \|         1 \|
+         \| Board         \| ID       \|   Counter \|
+         \|---------------\|----------\|-----------\|
+         \| magpie_f777ni \| DT04BNT1 \|         1 \|
 
          INFO    - Saving reports...
          INFO    - Writing JSON report .../twister-out/twister.json
          INFO    - Writing xunit report .../twister-out/twister.xml...
          INFO    - Writing xunit report .../twister-out/twister_report.xml...
-         INFO    - Writing target report for tiac_magpie...
+         INFO    - Writing target report for magpie_f777ni...
          INFO    - Run completed

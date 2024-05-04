@@ -1,4 +1,4 @@
-.. _tiac_magpie_led_helloshell-sample:
+.. _magpie_f777ni_helloshell-sample:
 
 Hello Shell
 ###########
@@ -8,7 +8,7 @@ Overview
 
 See :ref:`helloshell` for the original description.
 
-.. _tiac_magpie_led_helloshell-sample-requirements:
+.. _magpie_f777ni_helloshell-sample-requirements:
 
 Requirements
 ************
@@ -22,8 +22,8 @@ Build and flash Hello Shell as follows:
 
 .. zephyr-app-commands::
    :app: bridle/samples/helloshell
-   :build-dir: helloshell-tiac_magpie
-   :board: tiac_magpie
+   :build-dir: helloshell-magpie_f777ni
+   :board: magpie_f777ni
    :west-args: -p
    :goals: flash
    :host-os: unix
@@ -36,7 +36,7 @@ prompt. All shell commands are available and would looks like:
 .. parsed-literal::
    :class: highlight-console notranslate
 
-   Hello World! I'm THE SHELL from tiac_magpie
+   Hello World! I'm THE SHELL from magpie_f777ni
 
 
    :bgn:`uart:~$` **<Tab>**
@@ -202,6 +202,17 @@ Simple ADC Acquisition
    Differential: 0
    Resolution: 12
 
+Simple RTC Alarm
+================
+
+.. rubric:: Oneshot for 1 second by alarm channel 0
+
+.. parsed-literal::
+   :class: highlight-console notranslate
+
+   :bgn:`uart:~$` **timer oneshot rtc@40002800 0 1000**
+   :bgn:`rtc@40002800: Alarm triggered`
+
 Simple Flash Access and Test
 ============================
 
@@ -210,11 +221,11 @@ Simple Flash Access and Test
 .. parsed-literal::
    :class: highlight-console notranslate
 
-   :bgn:`uart:~$` **flash read flash-controller@40023c00 1663a 40**
-   0001663A: 74 69 61 63 5f 6d 61 67  70 69 65 00 48 65 6c 6c \|tiac_mag pie.Hell\|
-   0001664A: 6f 20 57 6f 72 6c 64 21  20 49 27 6d 20 54 48 45 \|o World!  I'm THE\|
-   0001665A: 20 53 48 45 4c 4c 20 66  72 6f 6d 20 25 73 0a 00 \| SHELL f rom %s..\|
-   0001666A: 69 6c 6c 65 67 61 6c 20  6f 70 74 69 6f 6e 20 2d \|illegal  option -\|
+   :bgn:`uart:~$` **flash read flash-controller@40023c00 167aa 40**
+   000167AA: 6d 61 67 70 69 65 5f 66  37 37 37 6e 69 00 48 65 \|magpie_f 777ni.He\|
+   000167BA: 6c 6c 6f 20 57 6f 72 6c  64 21 20 49 27 6d 20 54 \|llo Worl d! I'm T\|
+   000167CA: 48 45 20 53 48 45 4c 4c  20 66 72 6f 6d 20 25 73 \|HE SHELL  from %s\|
+   000167DA: 0a 00 67 65 74 6f 70 74  00 28 75 6e 73 69 67 6e \|..getopt .(unsign\|
 
 .. rubric:: Erase, Write and Verify
 

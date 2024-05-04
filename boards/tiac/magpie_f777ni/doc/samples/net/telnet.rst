@@ -1,4 +1,4 @@
-.. _tiac_magpie_telnet-console-sample:
+.. _magpie_f777ni_telnet-console-sample:
 
 TELNET Console
 ##############
@@ -8,7 +8,7 @@ Overview
 
 See :zephyr:code-sample:`zephyr:telnet-console` for the original description.
 
-.. _tiac_magpie_telnet-console-sample-requirements:
+.. _magpie_f777ni_telnet-console-sample-requirements:
 
 Requirements
 ************
@@ -25,8 +25,8 @@ Build and flash TELNET Console as follows:
 
 .. zephyr-app-commands::
    :app: zephyr/samples/net/telnet
-   :build-dir: telnet-tiac_magpie
-   :board: tiac_magpie
+   :build-dir: telnet-magpie_f777ni
+   :board: magpie_f777ni
    :gen-args: -DCONFIG_NET_DHCPV4=y -DCONFIG_NET_LOG=y -DCONFIG_LOG=y -DCONFIG_GPIO_SHELL=y -DCONFIG_I2C_SHELL=y
    :west-args: -p
    :goals: flash
@@ -39,26 +39,26 @@ are shown on the console like this:
    :class: highlight-console notranslate
 
    \*\*\* Booting Zephyr OS … … …\*\*\*
-   [00:00:00.013,000] <inf> shell_telnet: Telnet shell backend initialized
-   [00:00:00.013,000] <inf> net_config: Initializing network
-   [00:00:00.013,000] <inf> net_config: Waiting interface 1 (0x20021390) to be up...
-   [00:00:00.129,000] <inf> net_config: Interface 1 (0x20021390) coming up
-   [00:00:00.130,000] <inf> net_config: IPv4 address: 192.0.2.1
-   [00:00:00.130,000] <inf> net_config: Running dhcpv4 client...
-   [00:00:00.130,000] :brd:`<err> net_if: Cannot join solicit node address ff02::1:ff00:1 (-12)`
-   [00:00:00.130,000] <inf> net_telnet_sample: Starting Telnet sample
-   [00:00:00.130,000] <inf> net_telnet_sample: Running dhcpv4 client...
-   [00:00:00.130,000] <inf> net_telnet_sample: IPv6 address: 2001:db8::1
-   [00:00:00.231,000] <inf> net_config: IPv6 address: fd9c:33d7:ba99:0:280:e1ff:fee1:9a39
-   [00:00:01.151,000] <inf> net_dhcpv4: Received: 192.168.10.197
-   [00:00:01.151,000] <inf> net_telnet_sample: IPv4 address: 192.168.10.197
-   [00:00:01.151,000] <inf> net_telnet_sample: Lease time: 28800 seconds
-   [00:00:01.151,000] <inf> net_telnet_sample: Subnet: 255.255.255.0
-   [00:00:01.151,000] <inf> net_telnet_sample: Router: 192.168.10.1
-   [00:00:01.152,000] <inf> net_config: IPv4 address: 192.168.10.197
-   [00:00:01.152,000] <inf> net_config: Lease time: 28800 seconds
-   [00:00:01.152,000] <inf> net_config: Subnet: 255.255.255.0
-   [00:00:01.152,000] <inf> net_config: Router: 192.168.10.1
+   [00:00:00.014,000] <inf> shell_telnet: Telnet shell backend initialized
+   [00:00:00.014,000] <inf> net_config: Initializing network
+   [00:00:00.014,000] <inf> net_config: Waiting interface 1 (0x200213f0) to be up...
+   [00:00:00.395,000] <inf> net_config: Interface 1 (0x200213f0) coming up
+   [00:00:00.395,000] <inf> net_config: IPv4 address: 192.0.2.1
+   [00:00:00.395,000] <inf> net_config: Running dhcpv4 client...
+   [00:00:00.396,000] :brd:`<err> net_if: Cannot join solicit node address ff02::1:ff00:1 for 1 (-12)`
+   [00:00:00.397,000] <inf> net_telnet_sample: Starting Telnet sample
+   [00:00:00.397,000] <inf> net_telnet_sample: Running dhcpv4 client...
+   [00:00:00.398,000] <inf> net_telnet_sample: IPv6 address: 2001:db8::1
+   [00:00:00.497,000] <inf> net_config: IPv6 address: fd9c:33d7:ba99:0:280:e1ff:fee1:9a39
+   [00:00:09.416,000] <inf> net_dhcpv4: Received: 192.168.10.197
+   [00:00:09.417,000] <inf> net_telnet_sample:    Address[1]: 192.168.10.197
+   [00:00:09.417,000] <inf> net_telnet_sample:     Subnet[1]: 255.255.255.0
+   [00:00:09.417,000] <inf> net_telnet_sample:     Router[1]: 192.168.10.1
+   [00:00:09.417,000] <inf> net_telnet_sample: Lease time[1]: 28800 seconds
+   [00:00:09.417,000] <inf> net_config: IPv4 address: 192.168.10.197
+   [00:00:09.417,000] <inf> net_config: Lease time: 28800 seconds
+   [00:00:09.417,000] <inf> net_config: Subnet: 255.255.255.0
+   [00:00:09.417,000] <inf> net_config: Router: 192.168.10.1
 
 To verify the Zephyr application clients are running, bind the TELNET server to
 the network interface, and has received an IPv4 address by typing on Linux host:
@@ -77,14 +77,14 @@ the network interface, and has received an IPv4 address by typing on Linux host:
    rtt min/avg/max/mdev = 0.261/0.276/0.303/0.019 ms
 
    :bgn:`$` **nmap -Pn 192.168.10.197**
-   Starting Nmap 7.80 ( https://nmap.org ) at 2024-03-12 01:20 CET
+   Starting Nmap 7.80 ( https://nmap.org ) at 2024-05-03 22:51 CEST
    Nmap scan report for 192.168.10.197
-   Host is up (0.0032s latency).
+   Host is up (0.0030s latency).
    Not shown: 999 closed ports
    PORT   STATE SERVICE
    23/tcp open  telnet
 
-   Nmap done: 1 IP address (1 host up) scanned in 6.62 seconds
+   Nmap done: 1 IP address (1 host up) scanned in 8.22 seconds
 
 At this point you should be able to connect via ``telnet`` over the network.
 On your Linux host:

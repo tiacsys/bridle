@@ -1,4 +1,4 @@
-.. _tiac_magpie_sockets-dumb-http-server-mt-sample:
+.. _magpie_f777ni_sockets-dumb-http-server-mt-sample:
 
 Multithreaded Dumb HTTP Server
 ##############################
@@ -9,7 +9,7 @@ Overview
 See :zephyr:code-sample:`zephyr:socket-dumb-http-server-mt` for the original
 description.
 
-.. _tiac_magpie_sockets-dumb-http-server-mt-sample-requirements:
+.. _magpie_f777ni_sockets-dumb-http-server-mt-sample-requirements:
 
 Requirements
 ************
@@ -29,8 +29,8 @@ this:
 
 .. zephyr-app-commands::
    :app: zephyr/samples/net/sockets/dumb_http_server_mt
-   :build-dir: dumb_http_server_mt-tiac_magpie
-   :board: tiac_magpie
+   :build-dir: dumb_http_server_mt-magpie_f777ni
+   :board: magpie_f777ni
    :gen-args: -DCONFIG_NET_UDP=y -DCONFIG_NET_DHCPV4=y
    :west-args: -p
    :goals: flash
@@ -44,8 +44,8 @@ are shown on the console like this:
 
    \*\*\* Booting Zephyr OS … … …\*\*\*
    [00:00:00.013,000] <inf> net_config: Initializing network
-   [00:00:00.013,000] <inf> net_config: Waiting interface 1 (0x200214c0) to be up...
-   [00:00:00.513,000] <inf> net_config: Interface 1 (0x200214c0) coming up
+   [00:00:00.013,000] <inf> net_config: Waiting interface 1 (0x200217d0) to be up...
+   [00:00:00.513,000] <inf> net_config: Interface 1 (0x200217d0) coming up
    [00:00:00.514,000] <inf> net_config: IPv4 address: 192.0.2.1
    [00:00:00.514,000] <inf> net_config: Running dhcpv4 client...
    [00:00:00.615,000] <inf> net_config: IPv6 address: fd9c:33d7:ba99:0:280:e1ff:fee1:9a39

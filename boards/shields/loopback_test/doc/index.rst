@@ -72,8 +72,8 @@ To build shield with specific overlay:
 
 .. zephyr-app-commands::
    :app: zephyr/tests/drivers/gpio/gpio_basic_api
-   :build-dir: loopback_test-tiac_magpie
-   :board: tiac_magpie
+   :build-dir: loopback_test-magpie_f777ni
+   :board: magpie_f777ni
    :shield: loopback_test
    :goals: flash
    :west-args: -p
@@ -83,7 +83,7 @@ To build shield with standard headers:
 .. zephyr-app-commands::
    :app: zephyr/tests/drivers/gpio/gpio_basic_api
    :build-dir: loopback_test-<board>
-   :board: [tiac_magpie | nucleo_f746zg]
+   :board: [magpie_f777ni | nucleo_f746zg]
    :shield: [loopback_test_arduino | loopback_test_mikrobus | loopback_test_tmph]
    :goals: flash
    :west-args: -p

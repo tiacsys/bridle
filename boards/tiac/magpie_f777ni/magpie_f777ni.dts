@@ -300,4 +300,4 @@
 	}; // partitions
 }; // flash0
 
-#include "tiac_magpie_pin_header.dtsi"
+#include "magpie_f777ni_pin_header.dtsi"
