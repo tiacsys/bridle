@@ -124,7 +124,7 @@ jobs:
       - name: Build samples
         working-directory: workspace
         run: |
-          west twister --verbose --integration \
+          west twister --verbose --integration --jobs 6 \
             --outdir twister-out --no-clean --inline-logs \
             --enable-size-report --platform-reports \
             --testsuite-root bridle/samples/button \
@@ -247,7 +247,7 @@ jobs:
           # --> Grove LED Shields, ~880% more time (~890 more tests)
           # --testsuite-root bridle/tests/shields/grove_led/dts_bindings \
           #
-          west twister --verbose --integration --cmake-only \
+          west twister --verbose --integration --jobs 6 --cmake-only \
             --outdir twister-out --no-clean --inline-logs \
             --enable-size-report --platform-reports \
             --quarantine-list bridle/tests/quarantine.yaml \
@@ -276,7 +276,7 @@ jobs:
 
     strategy:
       matrix:
-        board: [tiac_magpie]
+        board: [magpie_f777ni]
 
     steps:
       - name: Apply container HTTP/2 framing layer workaround

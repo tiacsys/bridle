@@ -6,7 +6,7 @@
     - spi_loopback
     - i2c_bus_short
   id: DT04ATV0
-  platform: tiac_magpie
+  platform: magpie_f777ni
   product: FT230X Basic UART
   runner: openocd
   serial: /dev/ttyUSB0
