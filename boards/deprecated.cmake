@@ -8,6 +8,9 @@
 # To add a board rename, add a line in following format:
 # set(<old_board_name>_DEPRECATED <new_board_name>)
 
+set(seeed_xiao_samd21_DEPRECATED
+    xiao_samd21
+)
 set(tiac_magpie_DEPRECATED
     magpie_f777ni
 )

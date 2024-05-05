@@ -1,7 +1,7 @@
-.. _seeed_xiao_samd21:
+.. _xiao_samd21:
 
-Seeed Studio XIAO SAMD21 (Seeeduino XIAO)
-#########################################
+XIAO SAMD21 (Seeeduino XIAO)
+############################
 
 .. admonition:: Downstream Copy!
    :class: note
@@ -15,13 +15,13 @@ Seeed Studio XIAO SAMD21 (Seeeduino XIAO)
 Overview
 ********
 
-The Seeed Studio XIAO SAMD21 (Seeeduino XIAO) is a tiny (20 mm x 17.5 mm)
-ARM development board with onboard LEDs, USB port, and range of digital
-or analog I/O broken out onto 14 pins.
+The XIAO SAMD21 (Seeeduino XIAO) is a tiny (20 mm x 17.5 mm) ARM development
+board with onboard LEDs, USB port, and range of digital or analog I/O broken
+out onto 14 pins.
 
-.. image:: img/seeed_xiao_samd21.jpg
+.. image:: img/xiao_samd21.jpg
      :align: center
-     :alt: Seeed Studio XIAO SAMD21 (Seeeduino XIAO)
+     :alt: XIAO SAMD21 (Seeeduino XIAO)
 
 Hardware
 ********
@@ -37,7 +37,7 @@ Hardware
 Supported Features
 ==================
 
-The :code:`seeed_xiao_samd21` board configuration supports the following
+The :code:`xiao_samd21` board configuration supports the following
 hardware features:
 
 +-----------+------------+------------------------------------------+
@@ -75,20 +75,20 @@ hardware features:
 Other hardware features are not currently supported by Zephyr.
 
 The default configuration can be found in the Kconfig file
-:bridle_file:`boards/arm/seeed_xiao_samd21/seeed_xiao_samd21_defconfig`.
+:bridle_file:`boards/seeed/xiao_samd21/xiao_samd21_defconfig`.
 
 Board Configurations
 ====================
 
-The :code:`seeed_xiao_samd21` board can be configured for the following
+The :code:`xiao_samd21` board can be configured for the following
 different use cases.
 
-.. rubric:: :command:`west build -b seeed_xiao_samd21`
+.. rubric:: :command:`west build -b xiao_samd21`
 
 Use the serial port SERCOM5 over |Seeed XIAO| header as Zephyr console
 and for the shell.
 
-.. rubric:: :command:`west build -b seeed_xiao_samd21 -S usb-console`
+.. rubric:: :command:`west build -b xiao_samd21 -S usb-console`
 
 Use the native USB device port with CDC-ACM as Zephyr console
 and for the shell.
@@ -96,11 +96,10 @@ and for the shell.
 Connections and IOs
 ===================
 
-The `Seeed Studio XIAO SAMD21 wiki`_ has detailed information about the board
-including `pinouts <Seeed Studio XIAO SAMD21 Pinouts_>`_ and the
-`schematic <Seeed Studio XIAO SAMD21 Schematic_>`_. There are also design data
-for `Eagle <Seeed Studio XIAO SAMD21 Design Data for Eagle_>`_ and
-`KiCAD <Seeed Studio XIAO SAMD21 Design Data for KiCAD_>`_.
+The `XIAO SAMD21 wiki`_ has detailed information about the board including
+`pinouts <XIAO SAMD21 Pinouts_>`_ and the `schematic <XIAO SAMD21 Schematic_>`_.
+There are also design data for `Eagle <XIAO SAMD21 Design Data for Eagle_>`_
+and `KiCAD <XIAO SAMD21 Design Data for KiCAD_>`_.
 
 System Clock
 ============
@@ -113,21 +112,21 @@ GPIO (PWM) Ports
 ================
 
 The SAMD21 MCU has 2 GPIO ports, 3 PWM able Timer/Capture-Counter (TCC) and
-2 simple Timer/Counter (TC). On the Seeed Studio XIAO SAMD21, TCC2 channel 1
-is available on first user LED (L), all other user LEDs can be controlled
-as GPIO. Only if :kconfig:option:`CONFIG_PWM_SAM0_TCC` is enabled then the
-first user LED (L) is driven by TCC2 instead of by GPIO. All channels of
-TCC0 and TCC1 are available on the |Seeed XIAO| header.
+2 simple Timer/Counter (TC). On the XIAO SAMD21, TCC2 channel 1 is available
+on first user LED (L), all other user LEDs can be controlled as GPIO. Only if
+:kconfig:option:`CONFIG_PWM_SAM0_TCC` is enabled then the first user LED (L)
+is driven by TCC2 instead of by GPIO. All channels of TCC0 and TCC1 are
+available on the |Seeed XIAO| header.
 
 ADC/DAC Ports
 =============
 
-The SAMD21 MCU has 1 DAC and 1 ADC. On the Seeed Studio XIAO SAMD21, the
-DAC voltage output (VOUT) is available on A0 of the |Seeed XIAO| header. The
-ADC channels 4 and 18 are available on A1 and A2 of the |Seeed XIAO| header.
-Whenever other GPIO (PWM) or serial ports are not needed and are disabled by
-DT overlays, up to 11 ADC channels can be configured according to the next
-table (default function in bold).
+The SAMD21 MCU has 1 DAC and 1 ADC. On the XIAO SAMD21, the DAC voltage output
+(VOUT) is available on A0 of the |Seeed XIAO| header. The ADC channels 4 and
+18 are available on A1 and A2 of the |Seeed XIAO| header. Whenever other GPIO
+(PWM) or serial ports are not needed and are disabled by DT overlays, up to
+11 ADC channels can be configured according to the next table (default function
+in bold).
 
 +------------------+--------+-----------+----------+
 | |Seeed XIAO|     | SAMD21 |    ADC    |    DAC   |
@@ -158,22 +157,22 @@ table (default function in bold).
 SPI Port
 ========
 
-The SAMD21 MCU has 6 SERCOM based SPIs. On the Seeed Studio XIAO SAMD21,
-SERCOM0 can be put into SPI mode and used to connect to devices over the
-|Seeed XIAO| header pin 9 (MISO), pin 10 (MOSI), and pin 8 (SCK).
+The SAMD21 MCU has 6 SERCOM based SPIs. On the XIAO SAMD21, SERCOM0 can be put
+into SPI mode and used to connect to devices over the |Seeed XIAO| header
+pin 9 (MISO), pin 10 (MOSI), and pin 8 (SCK).
 
 I2C Port
 ========
 
-The SAMD21 MCU has 6 SERCOM based USARTs. On the Seeed Studio XIAO SAMD21,
-SERCOM2 is available on the |Seeed XIAO| header pin 4 (SDA) and pin 5 (SCL).
+The SAMD21 MCU has 6 SERCOM based USARTs. On the XIAO SAMD21, SERCOM2 is
+available on the |Seeed XIAO| header pin 4 (SDA) and pin 5 (SCL).
 
 Serial Port
 ===========
 
-The SAMD21 MCU has 6 SERCOM based USARTs. On the Seeed Studio XIAO SAMD21,
-SERCOM4 is the Zephyr console and is available on the |Seeed XIAO| header
-pins 7 (RX) and 6 (TX).
+The SAMD21 MCU has 6 SERCOM based USARTs. On the XIAO SAMD21, SERCOM4 is the
+Zephyr console and is available on the |Seeed XIAO| header pins 7 (RX) and
+6 (TX).
 
 USB Device Port
 ===============
@@ -195,10 +194,9 @@ alternative to the default Zephyr console on serial port the Bridle
 Programming and Debugging
 *************************
 
-The Seeed Studio XIAO SAMD21 ships the BOSSA compatible `UF2 bootloader`_ also
-known as `Arduino Zero Bootloader`_, a modern `SAM-BA`_ (Boot Assistant)
-replacement. The bootloader can be entered by shorting the RST and GND pads
-twice::
+The XIAO SAMD21 ships the BOSSA compatible `UF2 bootloader`_ also known as
+`Arduino Zero Bootloader`_, a modern `SAM-BA`_ (Boot Assistant) replacement.
+The bootloader can be entered by shorting the RST and GND pads twice::
 
    USB device idVendor=2886, idProduct=002f, bcdDevice=42.01
    USB device strings: Mfr=1, Product=2, SerialNumber=3
@@ -209,10 +207,10 @@ twice::
 Additionally, if :kconfig:option:`CONFIG_USB_CDC_ACM` is enabled then the
 bootloader will be entered automatically when you run :code:`west flash`.
 
-.. image:: img/seeed_xiao_samd21_swd.jpg
+.. image:: img/xiao_samd21_swd.jpg
    :align: right
    :scale: 50%
-   :alt: Seeed Studio XIAO SAMD21 (Seeeduino XIAO) SWD Programming Pads
+   :alt: XIAO SAMD21 (Seeeduino XIAO) SWD Programming Pads
 
 .. tip::
 
@@ -222,8 +220,8 @@ bootloader will be entered automatically when you run :code:`west flash`.
    There is also a backup copy of the original bootloader together with
    a ready to use Segger JFlash control file inside the Bridel project:
 
-   * :bridle_file:`boards/arm/seeed_xiao_samd21/doc/bootloader/samd21_sam_ba.hex`
-   * :bridle_file:`boards/arm/seeed_xiao_samd21/doc/bootloader/samd21_sam_ba.jflash`
+   * :bridle_file:`boards/seeed/xiao_samd21/doc/bootloader/samd21_sam_ba.hex`
+   * :bridle_file:`boards/seeed/xiao_samd21/doc/bootloader/samd21_sam_ba.jflash`
 
 There are also SWD pads on board (PCB bottom side) which have to be
 used with tools like Segger J-Link for programming for bootloader restore
@@ -236,13 +234,13 @@ Flashing
 
    .. zephyr-app-commands::
       :zephyr-app: zephyr/samples/hello_world
-      :board: seeed_xiao_samd21
-      :build-dir: seeed_xiao_samd21
+      :board: xiao_samd21
+      :build-dir: xiao_samd21
       :west-args: -p
       :goals: build
       :compact:
 
-#. Connect the Seeed Studio XIAO SAMD21 to your host computer using USB.
+#. Connect the XIAO SAMD21 to your host computer using USB.
 
 #. Connect a 3.3 V USB to serial adapter to the board and to the
    host. See the `Serial Port`_ section above for the board's pin
@@ -269,9 +267,9 @@ Flashing
 
    .. code-block:: bash
 
-      west flash -d build/seeed_xiao_samd21
+      west flash -d build/xiao_samd21
 
-   You should see "Hello World! seeed_xiao_samd21" in your terminal.
+   You should see "Hello World! xiao_samd21" in your terminal.
 
 Debugging
 =========
@@ -287,8 +285,8 @@ Debugging
 
    .. zephyr-app-commands::
       :app: zephyr/samples/hello_world
-      :board: seeed_xiao_samd21
-      :build-dir: seeed_xiao_samd21
+      :board: xiao_samd21
+      :build-dir: xiao_samd21
       :gen-args: -DBOARD_FLASH_RUNNER=openocd
       :west-args: -p
       :goals: debug
@@ -304,8 +302,8 @@ LED Blinky
 
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/blinky
-   :board: seeed_xiao_samd21
-   :build-dir: seeed_xiao_samd21
+   :board: xiao_samd21
+   :build-dir: xiao_samd21
    :west-args: -p
    :goals: flash
    :compact:
@@ -315,8 +313,8 @@ LED Fade
 
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/fade_led
-   :board: seeed_xiao_samd21
-   :build-dir: seeed_xiao_samd21
+   :board: xiao_samd21
+   :build-dir: xiao_samd21
    :west-args: -p
    :goals: flash
    :compact:
@@ -326,8 +324,8 @@ Basic Threads
 
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/threads
-   :board: seeed_xiao_samd21
-   :build-dir: seeed_xiao_samd21
+   :board: xiao_samd21
+   :build-dir: xiao_samd21
    :west-args: -p
    :goals: flash
    :compact:
@@ -337,8 +335,8 @@ Hello Shell with USB-CDC/ACM Console
 
 .. zephyr-app-commands::
    :app: bridle/samples/helloshell
-   :board: seeed_xiao_samd21
-   :build-dir: seeed_xiao_samd21
+   :board: xiao_samd21
+   :build-dir: xiao_samd21
    :west-args: -p -S usb-console
    :goals: flash
    :compact:
@@ -465,11 +463,11 @@ Hello Shell with USB-CDC/ACM Console
       .. parsed-literal::
          :class: highlight-console notranslate
 
-         :bgn:`uart:~$` **flash read nvmctrl@41004000 187d8 40**
-         000187D8: 73 65 65 65 64 5f 78 69  61 6f 5f 73 61 6d 64 32 \|seeed_xi ao_samd2\|
-         000187E8: 31 00 48 65 6c 6c 6f 20  57 6f 72 6c 64 21 20 49 \|1.Hello  World! I\|
-         000187F8: 27 6d 20 54 48 45 20 53  48 45 4c 4c 20 66 72 6f \|'m THE S HELL fro\|
-         00018808: 6d 20 25 73 0a 00 69 6c  6c 65 67 61 6c 20 6f 70 \|m %s..il legal op\|
+         :bgn:`uart:~$` **flash read nvmctrl@41004000 18948 40**
+         00018948: 78 69 61 6f 5f 73 61 6d  64 32 31 00 48 65 6c 6c \|xiao_sam d21.Hell\|
+         00018958: 6f 20 57 6f 72 6c 64 21  20 49 27 6d 20 54 48 45 \|o World!  I'm THE\|
+         00018968: 20 53 48 45 4c 4c 20 66  72 6f 6d 20 25 73 0a 00 \| SHELL f rom %s..\|
+         00018978: 67 65 74 6f 70 74 00 28  75 6e 73 69 67 6e 65 64 \|getopt.( unsigned\|
 
          :bgn:`uart:~$` **flash read nvmctrl@41004000 3c000 40**
          0003C000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
@@ -509,7 +507,7 @@ Hello Shell with USB-CDC/ACM Console
 
    .. group-tab:: I2C
 
-      The Seeed Studio XIAO SAMD21 (Seeeduino XIAO) has no on-board I2C devices.
+      The XIAO SAMD21 (Seeeduino XIAO) has no on-board I2C devices.
       For this example the |Grove BMP280 Sensor|_ was connected.
 
       .. parsed-literal::

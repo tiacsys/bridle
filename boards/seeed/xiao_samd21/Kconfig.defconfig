@@ -1,4 +1,4 @@
-# Seeed Studio XIAO SAMD21 (Seeeduino XIAO) board configuration
+# XIAO SAMD21 (Seeeduino XIAO) board configuration
 
 # Copyright (c) 2023-2024 TiaC Systems
 # Copyright (c) 2020 Google LLC.
@@ -6,11 +6,11 @@
 
 config USB_SELF_POWERED
 	default n
-	depends on USB_DEVICE_STACK && BOARD_SEEED_XIAO_SAMD21
+	depends on USB_DEVICE_STACK && BOARD_XIAO_SAMD21
 
 config USB_MAX_POWER
-	default 250 if BOARD_SEEED_XIAO_SAMD21	# 500mA
-	depends on USB_DEVICE_STACK && BOARD_SEEED_XIAO_SAMD21
+	default 250 if BOARD_XIAO_SAMD21	# 500mA
+	depends on USB_DEVICE_STACK && BOARD_XIAO_SAMD21
 
 # Workaround for not being able to have commas in macro arguments
 DT_CHOSEN_Z_CONSOLE := zephyr,console
@@ -21,7 +21,7 @@ DT_COMPAT_ATMEL_USB := atmel,sam0-usb
 DT_CHOSEN_CONSOLE_NODE := $(dt_chosen_path,$(DT_CHOSEN_Z_CONSOLE))
 DT_CHOSEN_CONSOLE_PARENT := $(dt_node_parent,$(DT_CHOSEN_CONSOLE_NODE))
 
-if BOARD_SEEED_XIAO_SAMD21 && \
+if BOARD_XIAO_SAMD21 && \
    $(dt_chosen_enabled,$(DT_CHOSEN_Z_CONSOLE)) && \
    $(dt_compat_on_bus,$(DT_COMPAT_Z_CDC_ACM_UART),usb) && \
    $(dt_node_has_compat,$(DT_CHOSEN_CONSOLE_PARENT),$(DT_COMPAT_ATMEL_USB))

@@ -3,4 +3,4 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#include "seeed_xiao_samd21.dtsi"
+#include "xiao_samd21.dtsi"

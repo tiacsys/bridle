@@ -129,7 +129,7 @@
    :ref:`Waveshare Pico Clock Green <waveshare_pico_clock_green>`
 
 .. |XIAO SAMD21 (CDC ACM)| replace::
-   :ref:`XIAO SAMD21 (CDC ACM) <seeed_xiao_samd21>`
+   :ref:`XIAO SAMD21 (CDC ACM) <xiao_samd21>`
 
 .. |CDC ACM| replace:: :ref:`zephyr:usb_device_cdc_acm`
 

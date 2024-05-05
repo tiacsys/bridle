@@ -666,66 +666,6 @@ For example:
                      :host-os: unix
                      :tool: all
 
-         .. group-tab:: Seeed Studio XIAO SAMD21
-
-            This is based on the Bridle board :ref:`seeed_xiao_samd21`.
-
-            * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
-
-            .. image:: img/x_grove_testbed_seeeduino_xiao.svg
-               :alt: Seeed Studio XIAO SAMD21 Wiring Schematics
-               :align: center
-
-            .. tabs::
-
-               .. group-tab:: LED Blinky
-
-                  This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:blinky`.
-
-                  .. zephyr-app-commands::
-                     :app: zephyr/samples/basic/blinky
-                     :build-dir: blinky-seeed_xiao_samd21-x_grove_testbed
-                     :board: seeed_xiao_samd21
-                     :shield: \
-                              "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
-                     :goals: flash
-                     :west-args: -p -S usb-console
-                     :host-os: unix
-                     :tool: all
-
-               .. group-tab:: LED Fade
-
-                  This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:fade-led`.
-
-                  .. zephyr-app-commands::
-                     :app: zephyr/samples/basic/fade_led
-                     :build-dir: fade-seeed_xiao_samd21-x_grove_testbed
-                     :board: seeed_xiao_samd21
-                     :shield: \
-                              "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
-                     :goals: flash
-                     :west-args: -p -S usb-console
-                     :host-os: unix
-                     :tool: all
-
-               .. group-tab:: LED Button
-
-                  This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:button`.
-
-                  .. zephyr-app-commands::
-                     :app: zephyr/samples/basic/button
-                     :build-dir: button-seeed_xiao_samd21-x_grove_testbed
-                     :board: seeed_xiao_samd21
-                     :shield: \
-                              "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
-                     :goals: flash
-                     :west-args: -p -S usb-console
-                     :host-os: unix
-                     :tool: all
-
          .. group-tab:: Seeeduino XIAO
 
             This is based on the Zephyr board :ref:`zephyr:seeeduino_xiao`.
@@ -779,6 +719,66 @@ For example:
                      :app: zephyr/samples/basic/button
                      :build-dir: button-seeeduino_xiao-x_grove_testbed
                      :board: seeeduino_xiao
+                     :shield: \
+                              "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
+                     :goals: flash
+                     :west-args: -p -S usb-console
+                     :host-os: unix
+                     :tool: all
+
+         .. group-tab:: XIAO SAMD21
+
+            This is based on the Bridle board :ref:`xiao_samd21`.
+
+            * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
+
+            .. image:: img/x_grove_testbed_seeeduino_xiao.svg
+               :alt: XIAO SAMD21 Wiring Schematics
+               :align: center
+
+            .. tabs::
+
+               .. group-tab:: LED Blinky
+
+                  This is based on the Zephyr sample
+                  :zephyr:code-sample:`zephyr:blinky`.
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/blinky
+                     :build-dir: blinky-xiao_samd21-x_grove_testbed
+                     :board: xiao_samd21
+                     :shield: \
+                              "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
+                     :goals: flash
+                     :west-args: -p -S usb-console
+                     :host-os: unix
+                     :tool: all
+
+               .. group-tab:: LED Fade
+
+                  This is based on the Zephyr sample
+                  :zephyr:code-sample:`zephyr:fade-led`.
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/fade_led
+                     :build-dir: fade-xiao_samd21-x_grove_testbed
+                     :board: xiao_samd21
+                     :shield: \
+                              "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
+                     :goals: flash
+                     :west-args: -p -S usb-console
+                     :host-os: unix
+                     :tool: all
+
+               .. group-tab:: LED Button
+
+                  This is based on the Zephyr sample
+                  :zephyr:code-sample:`zephyr:button`.
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/button
+                     :build-dir: button-xiao_samd21-x_grove_testbed
+                     :board: xiao_samd21
                      :shield: \
                               "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
                      :goals: flash

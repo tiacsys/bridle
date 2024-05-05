@@ -426,21 +426,21 @@
 .. _`Seeed Studio XIAO`:
    https://wiki.seeedstudio.com/SeeedStudio_XIAO_Series_Introduction
 
-.. #### Links to Seeed Studio XIAO SAMD21
+.. #### Links to XIAO SAMD21
 
-.. _`Seeed Studio XIAO SAMD21 wiki`:
+.. _`XIAO SAMD21 wiki`:
     https://wiki.seeedstudio.com/Seeeduino-XIAO
 
-.. _`Seeed Studio XIAO SAMD21 Pinouts`:
+.. _`XIAO SAMD21 Pinouts`:
     https://wiki.seeedstudio.com/Seeeduino-XIAO#hardware-overview
 
-.. _`Seeed Studio XIAO SAMD21 Schematic`:
+.. _`XIAO SAMD21 Schematic`:
     https://wiki.seeedstudio.com/Seeeduino-XIAO#resourses
 
-.. _`Seeed Studio XIAO SAMD21 Design Data for Eagle`:
+.. _`XIAO SAMD21 Design Data for Eagle`:
    https://files.seeedstudio.com/wiki/Seeeduino-XIAO/res/Seeeduino-XIAO-v1.0.zip
 
-.. _`Seeed Studio XIAO SAMD21 Design Data for KiCAD`:
+.. _`XIAO SAMD21 Design Data for KiCAD`:
    https://files.seeedstudio.com/wiki/Seeeduino-XIAO/res/Seeeduino-XIAO-KICAD.zip
 
 

@@ -1,5 +1,5 @@
 board:
-  name: seeed_xiao_samd21
+  name: xiao_samd21
   vendor: seeed
   socs:
     - name: samd21g18a

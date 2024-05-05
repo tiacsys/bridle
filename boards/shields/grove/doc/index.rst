@@ -739,22 +739,6 @@ not be complete.
 
             .. include:: grove_pwms-seeeduino_lotus.rsti
 
-         .. group-tab:: ``seeed_xiao_samd21``
-
-            This is based on the Bridle board :ref:`seeed_xiao_samd21`
-            and its :dtcompatible:`seeed,xiao-gpio`.
-
-            .. note::
-
-               This board basically provides only some channels from a few timers as
-               PWM to the outside. The SoC's ability to route channels to multiple
-               pads may result in channels being connected in parallel. The second
-               table below shows the possibilities which channels can really
-               be used independently at the associated signals of the
-               |Laced Grove Signal Interface|.
-
-            .. include:: grove_pwms-seeed_xiao_samd21.rsti
-
          .. group-tab:: ``seeeduino_xiao``
 
             This is based on the Zephyr board :ref:`zephyr:seeeduino_xiao`
@@ -770,6 +754,22 @@ not be complete.
                |Laced Grove Signal Interface|.
 
             .. include:: grove_pwms-seeeduino_xiao.rsti
+
+         .. group-tab:: ``xiao_samd21``
+
+            This is based on the Bridle board :ref:`xiao_samd21`
+            and its :dtcompatible:`seeed,xiao-gpio`.
+
+            .. note::
+
+               This board basically provides only some channels from a few timers as
+               PWM to the outside. The SoC's ability to route channels to multiple
+               pads may result in channels being connected in parallel. The second
+               table below shows the possibilities which channels can really
+               be used independently at the associated signals of the
+               |Laced Grove Signal Interface|.
+
+            .. include:: grove_pwms-xiao_samd21.rsti
 
    .. group-tab:: Raspberry Pi
 
@@ -900,12 +900,12 @@ or ``cmake`` in your Zephyr application. For example:
       :host-os: unix
       :tool: all
 
-#. :ref:`seeed_xiao_samd21` on :ref:`grove_base_shield_xiao_v1`:
+#. :ref:`xiao_samd21` on :ref:`grove_base_shield_xiao_v1`:
 
    .. zephyr-app-commands::
       :app: bridle/samples/helloshell
       :build-dir: helloshell-seeed_grove_xiao_v1
-      :board: seeed_xiao_samd21
+      :board: xiao_samd21
       :shield: seeed_grove_xiao_v1
       :goals: flash
       :west-args: -p

@@ -1,9 +1,9 @@
-# Seeed Studio XIAO SAMD21 (Seeeduino XIAO) board configuration
+# XIAO SAMD21 (Seeeduino XIAO) board configuration
 
 # Copyright (c) 2023-2024 TiaC Systems
 # Copyright (c) 2024 Gerson Fernando Budke <nandojve@gmail.com>
 # Copyright (c) 2020 Google LLC.
 # SPDX-License-Identifier: Apache-2.0
 
-config BOARD_SEEED_XIAO_SAMD21
+config BOARD_XIAO_SAMD21
 	select SOC_SAMD21G18A
