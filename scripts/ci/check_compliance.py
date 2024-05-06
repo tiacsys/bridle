@@ -252,7 +252,7 @@ class CheckPatch(ComplianceTest):
     doc = "See https://docs.zephyrproject.org/latest/contribute/guidelines.html#coding-style for more details."
 
     def run(self):
-        checkpatch = ZEPHYR_BASE / 'scripts' / 'checkpatch.pl'
+        checkpatch = BRIDLE_BASE / 'scripts' / 'checkpatch.pl'
         if not checkpatch.exists():
             self.skip(f'{checkpatch} not found')
 
