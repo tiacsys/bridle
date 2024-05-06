@@ -199,7 +199,7 @@ class CheckPatch(ComplianceTest):
     path_hint = "<git-top>"
 
     def run(self):
-        checkpatch = os.path.join(ZEPHYR_BASE, 'scripts', 'checkpatch.pl')
+        checkpatch = os.path.join(BRIDLE_BASE, 'scripts', 'checkpatch.pl')
         if not os.path.exists(checkpatch):
             self.skip(f'{checkpatch} not found')
 
