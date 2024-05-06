@@ -1649,7 +1649,7 @@ class YAMLLint(ComplianceTest):
     doc = "Check YAML files with YAMLLint."
 
     def run(self):
-        config_file = ZEPHYR_BASE / ".yamllint"
+        config_file = BRIDLE_BASE / ".yamllint"
 
         for file in get_files(filter="d"):
             if Path(file).suffix not in ['.yaml', '.yml']:
