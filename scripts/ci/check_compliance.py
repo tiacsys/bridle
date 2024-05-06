@@ -1500,7 +1500,7 @@ class YAMLLint(ComplianceTest):
     path_hint = "<git-top>"
 
     def run(self):
-        config_file = os.path.join(ZEPHYR_BASE, ".yamllint")
+        config_file = os.path.join(BRIDLE_BASE, ".yamllint")
 
         for file in get_files(filter="d"):
             if Path(file).suffix not in ['.yaml', '.yml']:
