@@ -1,5 +1,5 @@
 Configuration	STM32F777NIHx
-STM32CubeMX 	6.6.1
+STM32CubeMX 	6.9.2
 Date	05/06/2024
 MCU	STM32F777NIHx
 
@@ -398,7 +398,7 @@ Project Settings :
 Project Name : STM32F777NIHx
 Project Folder : /store/EmbedTools/STM32CubeMX/magpie_f777ni
 Toolchain / IDE : STM32CubeIDE
-Firmware Package Name and Version : STM32Cube FW_F7 V1.17.0
+Firmware Package Name and Version : STM32Cube FW_F7 V1.17.1
 
 
 Code Generation Settings :
