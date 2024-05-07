@@ -10,6 +10,7 @@ RUN add-apt-repository ppa:tiac-systems/doxygen
 RUN apt-get -y update && \
 	apt-get -y upgrade && \
 	apt-get install --no-install-recommends -y \
+	bash-completion \
 	doxygen \
 	graphviz \
 	mscgen \
