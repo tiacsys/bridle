@@ -9,11 +9,11 @@
 	},
 	// Needed for USB devices in container
 	"privileged": true,
-	"postCreateCommand": "bash .devcontainer/post-create.sh /workspace ${localWorkspaceFolderBasename}",
-	"postStartCommand": "bash .devcontainer/post-start.sh /workspace",
+	"postCreateCommand": "bash ${localWorkspaceFolderBasename}/.devcontainer/post-create.sh /workspace ${localWorkspaceFolderBasename}",
+	"postStartCommand": "bash ${localWorkspaceFolderBasename}/.devcontainer/post-start.sh /workspace",
 	// Mount and set workspace folder
 	"workspaceMount": "source=${localWorkspaceFolder}/..,target=/workspace,type=bind",
-    "workspaceFolder": "/workspace/${localWorkspaceFolderBasename}",
+    "workspaceFolder": "/workspace",
 	// Username in container - align with Dockerfile
     "remoteUser": "user",
 	"mounts": [
