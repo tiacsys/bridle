@@ -14,13 +14,13 @@
 	// Mount and set workspace folder
 	"workspaceMount": "source=${localWorkspaceFolder}/..,target=/workspace,type=bind",
     "workspaceFolder": "/workspace/${localWorkspaceFolderBasename}",
-	// Username in container - align with Dockerfil
+	// Username in container - align with Dockerfile
     "remoteUser": "user",
 	"mounts": [
 		// Persist installed extensions in container
 		"source=bridle-devcontainer-extensions,target=/home/user/.vscode-server/extensions,type=volume",
 		// Allow attaching USB devices to running container
-		"source=/dev/bus/usb,target=/dev/bus/usb,type=bind"
+		"source=/dev,target=/dev,type=bind"
 	],"customizations": {
 		"vscode": {
 			"settings": {
