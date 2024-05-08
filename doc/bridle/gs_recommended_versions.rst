@@ -360,25 +360,31 @@ Building documentation
 
    * - Package
      - Version
-   * - |docutils|_
-     - |docutils_ver|
    * - |breathe|_
      - |breathe_ver|
+   * - |docutils|_
+     - |docutils_ver|
+   * - |doxmlparser|_
+     - |doxmlparser_ver|
    * - |Pygments|_
      - |Pygments_ver|
-   * - |CommonMark|_
-     - |CommonMark_ver|
-   * - |recommonmark|_
-     - |recommonmark_ver|
    * - |Sphinx|_
      - |Sphinx_ver|
    * - |sphinx_tsn_theme|_
      - |sphinx_tsn_theme_ver|
-   * - |sphinxcontrib-svg2pdfconverter|_
-     - |sphinxcontrib-svg2pdfconverter_ver|
    * - |sphinxcontrib-mscgen|_
      - |sphinxcontrib-mscgen_ver|
-   * - |sphinx-tabs|_
-     - |sphinx-tabs_ver|
+   * - |sphinxcontrib-svg2pdfconverter|_
+     - |sphinxcontrib-svg2pdfconverter_ver|
+   * - |sphinx-copybutton|_
+     - |sphinx-copybutton_ver|
    * - |sphinx-csv-filter|_
      - |sphinx-csv-filter_ver|
+   * - |sphinx-notfound-page|_
+     - |sphinx-notfound-page_ver|
+   * - |sphinx-sitemap|_
+     - |sphinx-sitemap_ver|
+   * - |sphinx-tabs|_
+     - |sphinx-tabs_ver|
+   * - |sphinx-togglebutton|_
+     - |sphinx-togglebutton_ver|

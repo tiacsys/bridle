@@ -633,21 +633,21 @@ Therefore, remember to regularly check for updates:
       .. parsed-literal::
          :class: highlight
 
-         pip3 install --upgrade  west
+         pip3 install --upgrade west
 
    .. group-tab:: macOS
 
       .. parsed-literal::
          :class: highlight
 
-         pip3 install --upgrade  west
+         pip3 install --upgrade west
 
    .. group-tab:: Windows
 
       .. parsed-literal::
          :class: highlight
 
-         pip3 install --upgrade  west
+         pip3 install --upgrade west
 
 .. _cloning_with_west:
 
@@ -842,13 +842,6 @@ Use the following commands to install the requirements for each repository.
            pip3 install --upgrade --requirement zephyr/scripts/requirements.txt
            pip3 install --upgrade --requirement bridle/scripts/requirements.txt
 
-      Optional, when you plan to generate the documentation:
-
-        .. parsed-literal::
-           :class: highlight
-
-           pip3 install --upgrade --requirement zephyr/doc/requirements.txt
-
    .. group-tab:: macOS
 
       Open a terminal window in the ``workspace`` folder and
@@ -860,13 +853,6 @@ Use the following commands to install the requirements for each repository.
            pip3 install --upgrade --requirement zephyr/scripts/requirements.txt
            pip3 install --upgrade --requirement bridle/scripts/requirements.txt
 
-      Optional, when you plan to generate the documentation:
-
-        .. parsed-literal::
-           :class: highlight
-
-           pip3 install --upgrade --requirement zephyr/doc/requirements.txt
-
    .. group-tab:: Windows
 
       Open a command prompt in the ``workspace`` folder and
@@ -877,13 +863,6 @@ Use the following commands to install the requirements for each repository.
 
            pip3 install --upgrade --requirement zephyr\\scripts\\requirements.txt
            pip3 install --upgrade --requirement bridle\\scripts\\requirements.txt
-
-      Optional, when you plan to generate the documentation:
-
-        .. parsed-literal::
-           :class: highlight
-
-           pip3 install --upgrade --requirement zephyr\\doc\\requirements.txt
 
 .. _installing_tbd:
 

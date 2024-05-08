@@ -101,19 +101,22 @@
 .. _`west`: https://pypi.org/project/west/
 .. _`windows-curses`: https://pypi.org/project/windows-curses/
 
-.. _`docutils`: https://pypi.org/project/docutils/
 .. _`breathe`: https://pypi.org/project/breathe/
+.. _`docutils`: https://pypi.org/project/docutils/
+.. _`doxmlparser`: https://pypi.org/project/doxmlparser/
 .. _`Pygments`: https://pypi.org/project/Pygments/
-.. _`CommonMark`: https://pypi.org/project/commonmark/
-.. _`recommonmark`: https://pypi.org/project/recommonmark/
 .. _`Sphinx`: https://pypi.org/project/Sphinx/
 .. _`sphinx-tsn-theme`: https://pypi.org/project/sphinx-tsn-theme/
 .. _`sphinx_tsn_theme`: https://pypi.org/project/sphinx-tsn-theme/
 .. _`sphinx-ncs-theme`: https://pypi.org/project/sphinx-ncs-theme/
-.. _`sphinxcontrib-svg2pdfconverter`: https://pypi.org/project/sphinxcontrib-svg2pdfconverter/
 .. _`sphinxcontrib-mscgen`: https://pypi.org/project/sphinxcontrib-mscgen/
-.. _`sphinx-tabs`: https://pypi.org/project/sphinx-tabs/
+.. _`sphinxcontrib-svg2pdfconverter`: https://pypi.org/project/sphinxcontrib-svg2pdfconverter/
+.. _`sphinx-copybutton`: https://pypi.org/project/sphinx-copybutton/
 .. _`sphinx-csv-filter`: https://pypi.org/project/sphinx-csv-filter/
+.. _`sphinx-notfound-page`: https://pypi.org/project/sphinx-notfound-page/
+.. _`sphinx-sitemap`: https://pypi.org/project/sphinx-sitemap/
+.. _`sphinx-tabs`: https://pypi.org/project/sphinx-tabs/
+.. _`sphinx-togglebutton`: https://pypi.org/project/sphinx-togglebutton/
 
 
 
