@@ -71,7 +71,7 @@ jobs:
       # are run in reverse order (and you do not want to cleanup before the
       # caching is saved).
       - name: Clean working directory
-        uses: FraBle/clean-after-action@v1
+        uses: tiacsys/clean-after-action@v3
         #
         # Could also be implemented with the new pre- and post-job hook scripts:
         #
@@ -184,7 +184,7 @@ jobs:
       # are run in reverse order (and you do not want to cleanup before the
       # caching is saved).
       - name: Clean working directory
-        uses: FraBle/clean-after-action@v1
+        uses: tiacsys/clean-after-action@v3
         #
         # Could also be implemented with the new pre- and post-job hook scripts:
         #
@@ -295,7 +295,7 @@ jobs:
       # are run in reverse order (and you do not want to cleanup before the
       # caching is saved).
       - name: Clean working directory
-        uses: FraBle/clean-after-action@v1
+        uses: tiacsys/clean-after-action@v3
         #
         # Could also be implemented with the new pre- and post-job hook scripts:
         #
