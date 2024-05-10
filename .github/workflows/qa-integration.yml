@@ -124,9 +124,11 @@ jobs:
       - name: Build samples
         working-directory: workspace
         run: |
-          west twister --verbose --integration --jobs 6 \
+          west twister --verbose --jobs 6 \
+            --retry-failed 5 --retry-interval 60 \
             --outdir twister-out --no-clean --inline-logs \
             --enable-size-report --platform-reports \
+            --integration \
             --testsuite-root bridle/samples/button \
             --testsuite-root bridle/samples/buzzer \
             --testsuite-root bridle/samples/helloshell \
@@ -247,9 +249,11 @@ jobs:
           # --> Grove LED Shields, ~880% more time (~890 more tests)
           # --testsuite-root bridle/tests/shields/grove_led/dts_bindings \
           #
-          west twister --verbose --integration --jobs 6 --cmake-only \
+          west twister --verbose --jobs 6 \
+            --retry-failed 5 --retry-interval 60 \
             --outdir twister-out --no-clean --inline-logs \
             --enable-size-report --platform-reports \
+            --integration --cmake-only \
             --quarantine-list bridle/tests/quarantine.yaml \
             --testsuite-root bridle/tests/shields/grove/dts_bindings \
             --testsuite-root bridle/tests/shields/x_grove_testbed/dts_bindings
