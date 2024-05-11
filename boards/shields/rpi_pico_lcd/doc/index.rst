@@ -128,7 +128,7 @@ Programming
             .. zephyr-app-commands::
                :app: bridle/samples/helloshell
                :build-dir: waveshare_pico_lcd_1_14-helloshell
-               :board: rpi_pico_w
+               :board: rpi_pico/rp2040/w
                :shield: "waveshare_pico_lcd_1_14"
                :goals: flash
                :west-args: -p -S usb-console
@@ -196,7 +196,7 @@ Programming
             .. zephyr-app-commands::
                :app: bridle/samples/helloshell
                :build-dir: waveshare_pico_lcd_2-helloshell
-               :board: rpi_pico_w
+               :board: rpi_pico/rp2040/w
                :shield: "waveshare_pico_lcd_2"
                :goals: flash
                :west-args: -p -S usb-console
@@ -264,7 +264,7 @@ Programming
             .. zephyr-app-commands::
                :app: bridle/samples/helloshell
                :build-dir: waveshare_pico_restouch_lcd_3_5-helloshell
-               :board: rpi_pico_w
+               :board: rpi_pico/rp2040/w
                :shield: "waveshare_pico_restouch_lcd_3_5"
                :goals: flash
                :west-args: -p -S usb-console
@@ -348,7 +348,7 @@ sample: :zephyr:code-sample:`zephyr:input-dump`.
             .. zephyr-app-commands::
                :app: zephyr/samples/subsys/input/input_dump
                :build-dir: waveshare_pico_lcd_1_14-input_dump
-               :board: rpi_pico_w
+               :board: rpi_pico/rp2040/w
                :shield: "waveshare_pico_lcd_1_14"
                :goals: flash
                :west-args: -p -S usb-console
@@ -435,7 +435,7 @@ sample: :zephyr:code-sample:`zephyr:input-dump`.
             .. zephyr-app-commands::
                :app: zephyr/samples/subsys/input/input_dump
                :build-dir: waveshare_pico_lcd_2-input_dump
-               :board: rpi_pico_w
+               :board: rpi_pico/rp2040/w
                :shield: "waveshare_pico_lcd_2"
                :goals: flash
                :west-args: -p -S usb-console
@@ -514,7 +514,7 @@ sample: :zephyr:code-sample:`zephyr:input-dump`.
             .. zephyr-app-commands::
                :app: zephyr/samples/subsys/input/input_dump
                :build-dir: waveshare_pico_restouch_lcd_3_5-input_dump
-               :board: rpi_pico_w
+               :board: rpi_pico/rp2040/w
                :shield: "waveshare_pico_restouch_lcd_3_5"
                :goals: flash
                :west-args: -p -S usb-console
@@ -598,7 +598,7 @@ order. See also Zephyr sample: :zephyr:code-sample:`zephyr:display`.
             .. zephyr-app-commands::
                :app: zephyr/samples/drivers/display
                :build-dir: waveshare_pico_lcd_1_14-display_test
-               :board: rpi_pico_w
+               :board: rpi_pico/rp2040/w
                :shield: "waveshare_pico_lcd_1_14"
                :goals: flash
                :west-args: -p -S usb-console
@@ -669,7 +669,7 @@ order. See also Zephyr sample: :zephyr:code-sample:`zephyr:display`.
             .. zephyr-app-commands::
                :app: zephyr/samples/drivers/display
                :build-dir: waveshare_pico_lcd_2-display_test
-               :board: rpi_pico_w
+               :board: rpi_pico/rp2040/w
                :shield: "waveshare_pico_lcd_2"
                :goals: flash
                :west-args: -p -S usb-console
@@ -740,7 +740,7 @@ order. See also Zephyr sample: :zephyr:code-sample:`zephyr:display`.
             .. zephyr-app-commands::
                :app: zephyr/samples/drivers/display
                :build-dir: waveshare_pico_restouch_lcd_3_5-display_test
-               :board: rpi_pico_w
+               :board: rpi_pico/rp2040/w
                :shield: "waveshare_pico_restouch_lcd_3_5"
                :goals: flash
                :west-args: -p -S usb-console
@@ -848,7 +848,7 @@ which increments every second. See also Zephyr sample:
             .. zephyr-app-commands::
                :app: zephyr/samples/subsys/display/lvgl
                :build-dir: waveshare_pico_lcd_1_14-lvgl_basic
-               :board: rpi_pico_w
+               :board: rpi_pico/rp2040/w
                :shield: "waveshare_pico_lcd_1_14"
                :goals: flash
                :west-args: -p -S usb-console
@@ -954,7 +954,7 @@ which increments every second. See also Zephyr sample:
             .. zephyr-app-commands::
                :app: zephyr/samples/subsys/display/lvgl
                :build-dir: waveshare_pico_lcd_2-lvgl_basic
-               :board: rpi_pico_w
+               :board: rpi_pico/rp2040/w
                :shield: "waveshare_pico_lcd_2"
                :goals: flash
                :west-args: -p -S usb-console
@@ -1045,7 +1045,7 @@ which increments every second. See also Zephyr sample:
             .. zephyr-app-commands::
                :app: zephyr/samples/subsys/display/lvgl
                :build-dir: waveshare_pico_restouch_lcd_3_5-lvgl_basic
-               :board: rpi_pico_w
+               :board: rpi_pico/rp2040/w
                :shield: "waveshare_pico_restouch_lcd_3_5"
                :goals: flash
                :west-args: -p -S usb-console
@@ -1158,7 +1158,7 @@ ResTouch LCD 3.5| board. They will be built with activated USB-CDC/ACM console.
             .. zephyr-app-commands::
                :app: zephyr/samples/subsys/fs/fs_sample
                :build-dir: waveshare_pico_restouch_lcd_3_5-display_test
-               :board: rpi_pico_w
+               :board: rpi_pico/rp2040/w
                :shield: "waveshare_pico_restouch_lcd_3_5"
                :goals: flash
                :west-args: -p -S usb-console
@@ -1312,7 +1312,7 @@ ResTouch LCD 3.5| board. They will be built with activated USB-CDC/ACM console.
             .. zephyr-app-commands::
                :app: zephyr/samples/subsys/fs/fs_sample
                :build-dir: waveshare_pico_restouch_lcd_3_5-display_test
-               :board: rpi_pico_w
+               :board: rpi_pico/rp2040/w
                :shield: "waveshare_pico_restouch_lcd_3_5"
                :goals: flash
                :west-args: -p -S usb-console

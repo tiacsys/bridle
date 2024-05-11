@@ -75,7 +75,7 @@ LED Blinky and Fade
             .. zephyr-app-commands::
                :app: zephyr/samples/drivers/led_strip
                :build-dir: waveshare_pico_rgb_led-strip_test
-               :board: rpi_pico_w
+               :board: rpi_pico/rp2040/w
                :shield: waveshare_pico_rgb_led
                :west-args: -p -S usb-console
                :flash-args: -r uf2

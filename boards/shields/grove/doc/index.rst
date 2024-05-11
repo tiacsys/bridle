@@ -937,7 +937,7 @@ or ``cmake`` in your Zephyr application. For example:
    .. zephyr-app-commands::
       :app: bridle/samples/helloshell
       :build-dir: helloshell-seeed_grove_rpipico_v1
-      :board: rpi_pico_w
+      :board: rpi_pico/rp2040/w
       :shield: seeed_grove_rpipico_v1
       :goals: flash
       :west-args: -p

@@ -90,7 +90,7 @@ Programming
             .. zephyr-app-commands::
                :app: bridle/samples/helloshell
                :build-dir: waveshare_pico_clock_green-helloshell
-               :board: rpi_pico_w
+               :board: rpi_pico/rp2040/w
                :shield: "waveshare_pico_clock_green"
                :goals: flash
                :west-args: -p -S usb-console
@@ -163,7 +163,7 @@ LED Blinky and Button
             .. zephyr-app-commands::
                :app: zephyr/samples/basic/blinky
                :build-dir: waveshare_pico_clock_green-blinky
-               :board: rpi_pico_w
+               :board: rpi_pico/rp2040/w
                :shield: "waveshare_pico_clock_green"
                :goals: flash
                :west-args: -p -S usb-console
@@ -219,7 +219,7 @@ LED Blinky and Button
             .. zephyr-app-commands::
                :app: zephyr/samples/basic/button
                :build-dir: waveshare_pico_clock_green-button
-               :board: rpi_pico_w
+               :board: rpi_pico/rp2040/w
                :shield: "waveshare_pico_clock_green"
                :goals: flash
                :west-args: -p -S usb-console
@@ -289,7 +289,7 @@ sample: :zephyr:code-sample:`zephyr:input-dump`.
             .. zephyr-app-commands::
                :app: zephyr/samples/subsys/input/input_dump
                :build-dir: waveshare_pico_clock_green-input_dump
-               :board: rpi_pico_w
+               :board: rpi_pico/rp2040/w
                :shield: "waveshare_pico_clock_green"
                :goals: flash
                :west-args: -p -S usb-console
@@ -374,7 +374,7 @@ See also Zephyr sample: :zephyr:code-sample:`zephyr:adc_dt`.
             .. zephyr-app-commands::
                :app: zephyr/samples/drivers/adc/adc_dt
                :build-dir: waveshare_pico_clock_green-drivers_adc
-               :board: rpi_pico_w
+               :board: rpi_pico/rp2040/w
                :shield: "waveshare_pico_clock_green"
                :goals: flash
                :west-args: -p -S usb-console
@@ -495,7 +495,7 @@ Sounds from the speaker
             .. zephyr-app-commands::
                :app: bridle/samples/buzzer
                :build-dir: waveshare_pico_clock_green-buzzer
-               :board: rpi_pico_w
+               :board: rpi_pico/rp2040/w
                :shield: "waveshare_pico_clock_green"
                :goals: flash
                :west-args: -p -S usb-console
@@ -581,7 +581,7 @@ bit order. See also Zephyr sample: :zephyr:code-sample:`zephyr:display`.
             .. zephyr-app-commands::
                :app: zephyr/samples/drivers/display
                :build-dir: waveshare_pico_clock_green-display_test
-               :board: rpi_pico_w
+               :board: rpi_pico/rp2040/w
                :shield: "waveshare_pico_clock_green"
                :goals: flash
                :west-args: -p -S usb-console

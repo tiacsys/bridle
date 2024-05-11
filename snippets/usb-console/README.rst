@@ -146,7 +146,7 @@ specified as required.
      - | |zephyr,console|
        | |zephyr,shell-uart|
 
-   * - :code:`rpi_pico_w`
+   * - :code:`rpi_pico/rp2040/w`
      - :code:`0x2E8A`
      - :code:`0x000A`
      - |Raspberry Pi|_

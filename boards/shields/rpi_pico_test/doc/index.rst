@@ -84,7 +84,7 @@ Programming
             .. zephyr-app-commands::
                :app: bridle/samples/helloshell
                :build-dir: spotpear_pico_test-helloshell
-               :board: rpi_pico_w
+               :board: rpi_pico/rp2040/w
                :shield: "spotpear_pico_test"
                :goals: flash
                :west-args: -p -S usb-console
@@ -201,7 +201,7 @@ sample: :zephyr:code-sample:`zephyr:input-dump`.
             .. zephyr-app-commands::
                :app: zephyr/samples/subsys/input/input_dump
                :build-dir: spotpear_pico_test-input_dump
-               :board: rpi_pico_w
+               :board: rpi_pico/rp2040/w
                :shield: "spotpear_pico_test"
                :goals: flash
                :west-args: -p -S usb-console
@@ -302,7 +302,7 @@ See also Zephyr sample: :zephyr:code-sample:`zephyr:adc_dt`.
             .. zephyr-app-commands::
                :app: zephyr/samples/drivers/adc/adc_dt
                :build-dir: spotpear_pico_test-drivers_adc
-               :board: rpi_pico_w
+               :board: rpi_pico/rp2040/w
                :shield: "spotpear_pico_test"
                :goals: flash
                :west-args: -p -S usb-console
@@ -448,7 +448,7 @@ sample: :zephyr:code-sample:`zephyr:led-pwm`.
             .. zephyr-app-commands::
                :app: zephyr/samples/drivers/led_pwm
                :build-dir: spotpear_pico_test-drivers_led_pwm
-               :board: rpi_pico_w
+               :board: rpi_pico/rp2040/w
                :shield: "spotpear_pico_test"
                :goals: flash
                :west-args: -p -S usb-console

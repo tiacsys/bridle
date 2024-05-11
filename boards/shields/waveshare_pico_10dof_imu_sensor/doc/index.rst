@@ -286,7 +286,7 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
       .. zephyr-app-commands::
          :app: bridle/samples/helloshell
          :build-dir: waveshare_pico_10dof_imu_sensor-helloshell
-         :board: rpi_pico_w
+         :board: rpi_pico/rp2040/w
          :shield: waveshare_pico_10dof_imu_sensor_r2
          :goals: flash
          :west-args: -p -S usb-console
