@@ -24,25 +24,79 @@ List of extensions
   .. list-table::
      :align: left
      :width: 50%
-     :widths: 50, 50
+     :widths: 100
 
-     * - .. rubric:: Raspberry Pi Pico
-       - .. rubric:: Raspberry Pi Pico W
+     * - .. rubric:: Raspberry Pi Pico and Pico W
 
-     * - .. literalinclude:: ../rpi_pico.conf
-           :caption: rpi_pico.conf
-           :language: cfg
-           :encoding: ISO-8859-1
-           :start-at: CONFIG_USB_SELF_POWERED
-           :end-at: CONFIG_USB_MAX_POWER
-       - .. literalinclude:: ../rpi_pico_w.conf
-           :caption: rpi_pico_w.conf
-           :language: cfg
-           :encoding: ISO-8859-1
-           :start-at: CONFIG_USB_SELF_POWERED
-           :end-at: CONFIG_USB_MAX_POWER
+     * - .. literalinclude:: ../Kconfig.defconfig
+            :caption: Kconfig.defconfig
+            :language: Kconfig
+            :encoding: ISO-8859-1
+            :emphasize-lines: 1-2,5-6
+            :start-at: config USB_SELF_POWERED
+            :end-before: Workaround for not being able to have commas in macro arguments
+
+- :brd:`change` log level and startup delay only in case of use the
+  native USB device port :dtcompatible:`raspberrypi,pico-usbd` with
+  CDC-ACM UART :dtcompatible:`zephyr,cdc-acm-uart` as Zephyr console:
+
+  - :kconfig:option:`CONFIG_USB_CDC_ACM_LOG_LEVEL_CHOICE` :=
+    :kconfig:option:`CONFIG_USB_CDC_ACM_LOG_LEVEL_OFF`
+  - :kconfig:option:`CONFIG_USB_DEVICE_LOG_LEVEL_CHOICE` :=
+    :kconfig:option:`CONFIG_USB_DEVICE_LOG_LEVEL_ERR`
+  - :kconfig:option:`CONFIG_LOG_PROCESS_THREAD_STARTUP_DELAY_MS`
+  - :kconfig:option:`CONFIG_BOOT_DELAY`
+
+  .. list-table::
+     :align: left
+     :width: 50%
+     :widths: 100
+
+     * - .. rubric:: Raspberry Pi Pico and Pico W
+
+     * - .. literalinclude:: ../Kconfig.defconfig
+            :caption: Kconfig.defconfig
+            :language: Kconfig
+            :encoding: ISO-8859-1
+            :emphasize-lines: 3-4,16-17,22-23,28-29,33-34
+            :start-at: Workaround for not being able to have commas in macro arguments
+            :end-at: endif # zephyr,cdc-acm-uart
 
 .. rubric:: Devicetree
+
+- set default entries for ``model`` and ``compatible`` of the boards:
+
+  .. list-table::
+     :align: left
+     :width: 50%
+     :widths: 100
+
+     * - .. rubric:: Raspberry Pi Pico
+
+     * - .. literalinclude:: ../rpi_pico.overlay
+            :caption: rpi_pico.overlay
+            :language: DTS
+            :encoding: ISO-8859-1
+            :prepend: / {
+            :start-at: model
+            :end-at: compatible
+            :append: };
+
+  .. list-table::
+     :align: left
+     :width: 50%
+     :widths: 100
+
+     * - .. rubric:: Raspberry Pi Pico W
+
+     * - .. literalinclude:: ../rpi_pico_w.overlay
+            :caption: rpi_pico_w.overlay
+            :language: DTS
+            :encoding: ISO-8859-1
+            :prepend: / {
+            :start-at: model
+            :end-at: compatible
+            :append: };
 
 - add the Bridle specific edge connecor binding
   :dtcompatible:`raspberrypi,pico-header-r3`
@@ -134,23 +188,23 @@ List of extensions
 
    See also: https://github.com/zephyrproject-rtos/zephyr/pull/60427
 
-  .. list-table::
-     :align: left
-     :width: 50%
-     :widths: 100
+   .. list-table::
+      :align: left
+      :width: 50%
+      :widths: 100
 
-     * - .. rubric:: Raspberry Pi Pico and Pico W
+      * - .. rubric:: Raspberry Pi Pico and Pico W
 
-     * - .. literalinclude:: ../rpipico_r3-tweaks.dtsi
-            :caption: rpipico_r3-tweaks.dtsi
-            :language: DTS
-            :encoding: ISO-8859-1
-            :start-at: &rpipico_i2c0 {
-            :end-at: };
+      * - .. literalinclude:: ../rpipico_r3-tweaks.dtsi
+             :caption: rpipico_r3-tweaks.dtsi
+             :language: DTS
+             :encoding: ISO-8859-1
+             :start-at: &rpipico_i2c0 {
+             :end-at: };
 
-         .. literalinclude:: ../rpipico_r3-tweaks.dtsi
-            :caption: rpipico_r3-tweaks.dtsi
-            :language: DTS
-            :encoding: ISO-8859-1
-            :start-at: &rpipico_i2c1 {
-            :end-at: };
+          .. literalinclude:: ../rpipico_r3-tweaks.dtsi
+             :caption: rpipico_r3-tweaks.dtsi
+             :language: DTS
+             :encoding: ISO-8859-1
+             :start-at: &rpipico_i2c1 {
+             :end-at: };

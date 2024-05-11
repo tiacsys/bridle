@@ -1,6 +1,16 @@
 /*
- * Copyright (c) 2023 TiaC Systems
+ * Copyright (c) 2024 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
+
+/ {
+	model = "Raspberry Pi Pico @ UART Concole";
+	compatible = "raspberrypi,rpi-pico", "raspberrypi,rpi-pico-uartcons";
+
+	chosen {
+		zephyr,console = &uart0;
+		zephyr,shell-uart = &uart0;
+	};
+};
 
 #include "rpipico_r3.dtsi"
