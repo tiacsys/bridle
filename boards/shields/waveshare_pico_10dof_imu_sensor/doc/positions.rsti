@@ -14,7 +14,12 @@
           :width: 500
           :alt: Waveshare Pico 10-DOF IMU Sensor Rev1 details
 
-   * - .. rubric:: Revision 2.1
+   * - .. image:: img/hardware-rev21-MPU9250.jpg
+          :align: right
+          :scale: 50%
+          :alt: Waveshare Pico 10-DOF IMU Sensor Rev2.1 – MPU-9250
+
+       .. rubric:: Revision 2.1
 
        1. | :strong:`MPU-9250`
           | 3-axis accelerometer, 3-axis gyroscope and 3-axis magnetometer
@@ -22,12 +27,20 @@
           | air pressure and temperature (TP) sensor
        #. | :strong:`RT9193-33`
           | 300㎃ low dropout, low noise, ultra-fast LDO (5V to 3.3V)
+          | |nbsp|
+          | |nbsp|
+          | |nbsp|
+          | |nbsp|
        #. | :strong:`Power indicator`
        #. | :strong:`Raspberry Pi Pico header`
-          | for attaching to Raspberry Pi Pico,
-          | stackable design
+          | for attaching to Raspberry Pi Pico, stackable design
 
-     - .. rubric:: Revision 1
+     - .. image:: img/hardware-rev1-ICM-20948.jpg
+          :align: right
+          :scale: 50%
+          :alt: Waveshare Pico 10-DOF IMU Sensor Rev1 – ICM-20948
+
+       .. rubric:: Revision 1
 
        1. | :strong:`ICM-20948`
           | 3-axis accelerometer, 3-axis gyroscope and 3-axis magnetometer
