@@ -1,0 +1,17 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	model = "Seeeduino XIAO @ UART Concole";
+	compatible = "seeed,seeeduino-xiao-uartcons",
+		     "seeed,seeeduino-xiao",
+		     "atmel,samd21g18a",
+		     "atmel,samd21";
+
+	chosen {
+		zephyr,console = &sercom4;
+		zephyr,shell-uart = &sercom4;
+	};
+};
