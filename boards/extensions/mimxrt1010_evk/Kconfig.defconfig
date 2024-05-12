@@ -1,0 +1,73 @@
+# NXP MIMXRT1010-EVK board extended configuration
+
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+config USB_SELF_POWERED
+	default y
+	depends on USB_DEVICE_STACK && BOARD_MIMXRT1010_EVK
+
+config USB_MAX_POWER
+	default 0 if BOARD_MIMXRT1010_EVK	# 0mA (self powered)
+	depends on USB_DEVICE_STACK && BOARD_MIMXRT1010_EVK
+
+# Workaround for not being able to have commas in macro arguments
+DT_CHOSEN_Z_CONSOLE := zephyr,console
+DT_COMPAT_Z_CDC_ACM_UART := zephyr,cdc-acm-uart
+DT_COMPAT_NXP_USB := nxp,ehci
+
+# Macros to shorten Kconfig expressions
+DT_CHOSEN_CONSOLE_NODE := $(dt_chosen_path,$(DT_CHOSEN_Z_CONSOLE))
+DT_CHOSEN_CONSOLE_PARENT := $(dt_node_parent,$(DT_CHOSEN_CONSOLE_NODE))
+
+if BOARD_MIMXRT1010_EVK && \
+	$(dt_chosen_enabled,$(DT_CHOSEN_Z_CONSOLE)) && \
+	$(dt_compat_on_bus,$(DT_COMPAT_Z_CDC_ACM_UART),usb) && \
+	$(dt_node_has_compat,$(DT_CHOSEN_CONSOLE_PARENT),$(DT_COMPAT_NXP_USB))
+
+# Logger cannot use itself to log
+choice USB_CDC_ACM_LOG_LEVEL_CHOICE
+	default USB_CDC_ACM_LOG_LEVEL_OFF
+	depends on LOG
+endchoice
+
+# Set USB log level to error only
+choice USB_DEVICE_LOG_LEVEL_CHOICE
+	default USB_DEVICE_LOG_LEVEL_ERR
+	depends on LOG
+endchoice
+
+# Wait 4000ms at startup for logging
+config LOG_PROCESS_THREAD_STARTUP_DELAY_MS
+	default 4000
+	depends on LOG
+
+# Wait 4000ms at startup for USB enumeration on host side
+config BOOT_DELAY
+	default 4000
+
+endif # zephyr,cdc-acm-uart
+
+#
+# WARNINGS and NOTES for the disk name (CONFIG_MASS_STORAGE_DISK_NAME):
+#
+# 1. In principle, the disk name can be freely selected. If this is changed
+#    here in Kconfig, then the corresponding property "disk-name" in the
+#    corresponding Devicetree node with the compatibility "zephyr,flash-disk"
+#    must also be adapted. This should be improved in the future, as it
+#    represents double data storage.
+#
+# 2. If the FAT file system is used, the disk name defined here will also
+#    be used as the mountpoint. The currently used FATFS implementation
+#    automatically enters the disk name as mountpoint, which means that
+#    an application can only reach the correct disk via the exact same
+#    mountpoint name. Unfortunately, the current example application under
+#    "zephyr/samples/subsys/usb/mass" is hard-coded at this point and only
+#    expects the (disk) mountpoint name "NAND" and nothing else. This must
+#    be changed, as this implicitly represents a special configuration at
+#    source code level.
+#
+
+config MASS_STORAGE_DISK_NAME
+	default "NAND" if BOARD_MIMXRT1010_EVK
+	depends on USB_DEVICE_STACK && USB_MASS_STORAGE

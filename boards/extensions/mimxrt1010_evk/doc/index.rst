@@ -23,23 +23,68 @@ List of extensions
 
   .. list-table::
      :align: left
-     :width: 25%
+     :width: 50%
      :widths: 100
 
      * - .. rubric:: NXP MIMXRT1010-EVK
 
-     * - .. literalinclude:: ../mimxrt1010_evk.conf
-            :caption: mimxrt1010_evk.conf
-            :language: cfg
+     * - .. literalinclude:: ../Kconfig.defconfig
+            :caption: Kconfig.defconfig
+            :language: Kconfig
             :encoding: ISO-8859-1
-            :start-at: CONFIG_USB_SELF_POWERED
-            :end-at: CONFIG_USB_MAX_POWER
+            :emphasize-lines: 1-2,5-6
+            :start-at: config USB_SELF_POWERED
+            :end-before: Workaround for not being able to have commas in macro arguments
+
+- :brd:`change` log level and startup delay only in case of use the
+  native USB device port :dtcompatible:`nxp,ehci` with CDC-ACM UART
+  :dtcompatible:`zephyr,cdc-acm-uart` as Zephyr console:
+
+  - :kconfig:option:`CONFIG_USB_CDC_ACM_LOG_LEVEL_CHOICE` :=
+    :kconfig:option:`CONFIG_USB_CDC_ACM_LOG_LEVEL_OFF`
+  - :kconfig:option:`CONFIG_USB_DEVICE_LOG_LEVEL_CHOICE` :=
+    :kconfig:option:`CONFIG_USB_DEVICE_LOG_LEVEL_ERR`
+  - :kconfig:option:`CONFIG_LOG_PROCESS_THREAD_STARTUP_DELAY_MS`
+  - :kconfig:option:`CONFIG_BOOT_DELAY`
+
+  .. list-table::
+     :align: left
+     :width: 50%
+     :widths: 100
+
+     * - .. rubric:: NXP MIMXRT1010-EVK
+
+     * - .. literalinclude:: ../Kconfig.defconfig
+            :caption: Kconfig.defconfig
+            :language: Kconfig
+            :encoding: ISO-8859-1
+            :emphasize-lines: 3-4,16-17,22-23,28-29,33-34
+            :start-at: Workaround for not being able to have commas in macro arguments
+            :end-at: endif # zephyr,cdc-acm-uart
 
 .. rubric:: Devicetree
 
+- set default entries for ``model`` and ``compatible`` of the boards:
+
+  .. list-table::
+     :align: left
+     :width: 50%
+     :widths: 100
+
+     * - .. rubric:: NXP MIMXRT1010-EVK
+
+     * - .. literalinclude:: ../mimxrt1010_evk.overlay
+            :caption: mimxrt1010_evk.overlay
+            :language: DTS
+            :encoding: ISO-8859-1
+            :prepend: / {
+            :start-at: model
+            :end-at: compatible
+            :append: };
+
 - overwrite the Arduino UNO R3 specific edge connecor binding
   :devicetree:`&arduino_header {...};` with additional closed
-  connections
+  connections:
 
   .. list-table::
      :align: left
@@ -86,7 +131,7 @@ List of extensions
   :devicetree:`partition = <&storage_partition>;` with the hard defined
   mass storage disk name :devicetree:`disk-name = "NAND";` – also set
   the mass storage disk name hard on Kconfig level by a new board config
-  file with :kconfig:option:`CONFIG_MASS_STORAGE_DISK_NAME`
+  file with :kconfig:option:`CONFIG_MASS_STORAGE_DISK_NAME`:
 
   .. list-table::
      :align: left
@@ -105,11 +150,11 @@ List of extensions
             :end-at: };
             :append: };
 
-         .. literalinclude:: ../mimxrt1010_evk.conf
-            :caption: mimxrt1010_evk.conf
-            :language: cfg
+         .. literalinclude:: ../Kconfig.defconfig
+            :caption: Kconfig.defconfig
+            :language: Kconfig
             :encoding: ISO-8859-1
-            :emphasize-lines: 21
             :prepend: #
-            :start-at: NOTES for the disk name (CONFIG_MASS_STORAGE_DISK_NAME):
-            :end-at: CONFIG_MASS_STORAGE_DISK_NAME=
+            :emphasize-lines: 21-22
+            :start-at: NOTES for the disk name (CONFIG_MASS_STORAGE_DISK_NAME)
+            :end-at: depends on USB_DEVICE_STACK && USB_MASS_STORAGE

@@ -6,6 +6,14 @@
 #include "arduino_r3_connector.dtsi"
 
 / {
+	model = "NXP MIMXRT1010-EVK board @ UART Concole";
+	compatible = "nxp,mimxrt1010", "nxp,mimxrt1010-uartcons";
+
+	chosen {
+		zephyr,console = &lpuart1;
+		zephyr,shell-uart = &lpuart1;
+	};
+
 	msc_disk0 {
 		compatible = "zephyr,flash-disk";
 		partition = <&storage_partition>;
