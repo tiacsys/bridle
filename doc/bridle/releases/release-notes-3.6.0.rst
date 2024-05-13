@@ -254,6 +254,13 @@ Take over the new build principles from Zephyr:
   * Check that the diff contains no binary files that are not tollerated.
   * Check that any added image is limited in allowed size.
 
+* Provide a `nix flake <https://nixos.wiki/wiki/Flakes>`_ for reproducible
+  development and build environments. The new nix flake definition, which
+  provides as output a devshell, is now setup a development environment
+  containing all necessary tools and libraries to work with Bridle. Really
+  all dependencies, i.e. both system packages on the host and all necessary
+  Python packages.
+
 Documentation
 =============
 
