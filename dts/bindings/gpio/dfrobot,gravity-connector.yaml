@@ -1,11 +1,11 @@
-# Copyright (c) 2023 TiaC Systems
+# Copyright (c) 2023-2024 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 description: |
     GPIO pins exposed on DFRobot Gravity connector.
 
     The Gravity layout provides either an 3-pin or 4-pin 2mm JST PH connector,
-    along on one edge of the board. Informations and pin assignment can be
+    along on one edge of the board. Information and pin assignment can be
     found at:
 
     - https://www.dfrobot.com/gravity

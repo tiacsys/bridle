@@ -80,10 +80,10 @@ Building and Running
          INFO    - -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
          INFO    - The following issues were found (showing the top 10 items):
          INFO    - 1) tests/drivers/adc/adc_api/drivers.adc on magpie_f777ni error (Build failure)
-         INFO    - 
+         INFO    -
          INFO    - To rerun the tests, call twister using the following commandline:
          INFO    - west twister -p <PLATFORM> -s <TEST ID>, for example:
-         INFO    - 
+         INFO    -
          INFO    - west twister -p magpie_f777ni -s tests/drivers/adc/adc_api/drivers.adc
          INFO    - or with west:
          INFO    - west build -p -b magpie_f777ni tests/drivers/adc/adc_api -T drivers.adc

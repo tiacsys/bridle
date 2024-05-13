@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 TiaC Systems
+ * Copyright (c) 2023-2024 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -400,9 +400,11 @@
 		status = "okay";			\
 	};
 
-/* FIXME: There seems to be an error in hal_atmel. There is no
+/*
+ * FIXME: There seems to be an error in hal_atmel. There is no
  * macro definition PA7E_TCC1_WO1 but PA7E_TCC0_WO1 what seems
- * to be wrong (typo?). */
+ * to be wrong (typo?).
+ */
 #undef GROVE_PWM_D9_PINCTRL
 #define GROVE_PWM_D9_PINCTRL				\
 	&tcc1_pwm_default {				\

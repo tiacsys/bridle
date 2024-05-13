@@ -1,11 +1,11 @@
-# Copyright (c) 2023 TiaC Systems
+# Copyright (c) 2023-2024 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 description: |
     GPIO pins exposed on Seeed Studio Grove connector.
 
     The Grove layout provides an 4-pin 2mm proprietary connector, along on
-    one edge of the board. Informations and pin assignment can be found at:
+    one edge of the board. Information and pin assignment can be found at:
 
     - https://wiki.seeedstudio.com/Grove_System
     - https://wiki.sipeed.com/soft/maixpy/en/modules/grove

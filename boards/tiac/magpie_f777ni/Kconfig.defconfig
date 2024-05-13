@@ -8,12 +8,12 @@ if BOARD_MAGPIE_F777NI
 
 choice COUNTER_RTC_STM32_CLOCK_SRC
 	default COUNTER_RTC_STM32_CLOCK_LSE
-        depends on COUNTER
+	depends on COUNTER
 endchoice
 
 choice RNG_GENERATOR_CHOICE
 	default ENTROPY_DEVICE_RANDOM_GENERATOR
-        depends on ENTROPY_GENERATOR
+	depends on ENTROPY_GENERATOR
 endchoice
 
 if NETWORKING

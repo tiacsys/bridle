@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 TiaC Systems
+ * Copyright (c) 2021-2024 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -15,23 +15,23 @@ K_THREAD_STACK_DEFINE(polling_thread_stack_area, MY_STACK_SIZE);
 /* Entry point function for the polling thread  */
 static void polling_thread_entry_point(void *btn_void, void *led_void, void *)
 {
-	// Unwrap the argument pointers
-	struct gpio_dt_spec *btn = (struct gpio_dt_spec*) btn_void;
-	struct gpio_dt_spec *led = (struct gpio_dt_spec*) led_void;
+	/* Unwrap the argument pointers */
+	struct gpio_dt_spec *btn = (struct gpio_dt_spec *) btn_void;
+	struct gpio_dt_spec *led = (struct gpio_dt_spec *) led_void;
 
-	// Infinite polling loop
-	while (1)
-	{
+	/* Infinite polling loop */
+	while (1) {
 		int val = gpio_pin_get_dt(btn);
+
 		gpio_pin_set_dt(led, val);
 
-		// Sleep the thread for a little while
+		/* Sleep the thread for a little while */
 		k_msleep(CONFIG_SLEEP_TIME_MS);
-	}	
+	}
 }
 
 /* Init function which spawns a dedicated polling thread  */
-static int init()
+static int init(void)
 {
 	struct k_thread polling_thread;
 
@@ -39,9 +39,9 @@ static int init()
 					polling_thread_stack_area,
 					K_THREAD_STACK_SIZEOF(polling_thread_stack_area),
 					polling_thread_entry_point,
-					(void*) &btn, (void*) &led, NULL,
+					(void *) &btn, (void *) &led, NULL,
 					MY_PRIORITY, 0, K_NO_WAIT);
-	                                 
+
 	return 0;
 }
 

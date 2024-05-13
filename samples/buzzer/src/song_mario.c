@@ -1,14 +1,13 @@
 /*
- * Copyright (c) 2023 TiaC Systems
+ * Copyright (c) 2023-2024 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
 #include "songs.h"
 
-const struct note_duration song_mario[] =
-{
+const struct note_duration song_mario[] = {
 	{.note = E6, .duration = quarter},
-	{.note = REST, .duration = eigth},
+	{.note = REST, .duration = eighth},
 	{.note = E6, .duration = quarter},
 	{.note = REST, .duration = quarter},
 	{.note = E6, .duration = quarter},

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022 TiaC Systems
+ * Copyright (c) 2021-2024 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -22,7 +22,7 @@ const struct gpio_dt_spec btn = GPIO_DT_SPEC_GET(BTN_NODE, gpios);
 const struct gpio_dt_spec led = GPIO_DT_SPEC_GET(LED_NODE, gpios);
 
 /* Init function for configuring button and led gpio pins */
-static int init()
+static int init(void)
 {
 	gpio_pin_configure_dt(&btn, GPIO_INPUT);
 	gpio_pin_configure_dt(&led, GPIO_OUTPUT);
@@ -34,4 +34,4 @@ static int init()
 SYS_INIT(init, APPLICATION, APPLICATION_IO_INIT_PRIORITY);
 
 /* Empty main */
-int main(void) {return 0;}
+int main(void) { return 0; }

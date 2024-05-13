@@ -22,9 +22,9 @@ DT_CHOSEN_CONSOLE_NODE := $(dt_chosen_path,$(DT_CHOSEN_Z_CONSOLE))
 DT_CHOSEN_CONSOLE_PARENT := $(dt_node_parent,$(DT_CHOSEN_CONSOLE_NODE))
 
 if BOARD_XIAO_SAMD21 && \
-   $(dt_chosen_enabled,$(DT_CHOSEN_Z_CONSOLE)) && \
-   $(dt_compat_on_bus,$(DT_COMPAT_Z_CDC_ACM_UART),usb) && \
-   $(dt_node_has_compat,$(DT_CHOSEN_CONSOLE_PARENT),$(DT_COMPAT_ATMEL_USB))
+	$(dt_chosen_enabled,$(DT_CHOSEN_Z_CONSOLE)) && \
+	$(dt_compat_on_bus,$(DT_COMPAT_Z_CDC_ACM_UART),usb) && \
+	$(dt_node_has_compat,$(DT_CHOSEN_CONSOLE_PARENT),$(DT_COMPAT_ATMEL_USB))
 
 config BOOTLOADER_BOSSA_DEVICE_NAME
 	default "$(dt_chosen_label,$(DT_CHOSEN_Z_CONSOLE))"

@@ -83,10 +83,10 @@ Building and Running
          INFO    - -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
          INFO    - The following issues were found (showing the top 10 items):
          INFO    - 1) tests/drivers/i2c/i2c_target_api/drivers.i2c.target_api.dual_role on magpie_f777ni error (Build failure)
-         INFO    - 
+         INFO    -
          INFO    - To rerun the tests, call twister using the following commandline:
          INFO    - west twister -p <PLATFORM> -s <TEST ID>, for example:
-         INFO    - 
+         INFO    -
          INFO    - west twister -p magpie_f777ni -s tests/drivers/i2c/i2c_target_api/drivers.i2c.target_api.dual_role
          INFO    - or with west:
          INFO    - west build -p -b magpie_f777ni tests/drivers/i2c/i2c_target_api -T drivers.i2c.target_api.dual_role

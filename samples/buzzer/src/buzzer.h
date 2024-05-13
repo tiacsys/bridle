@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 TiaC Systems
+ * Copyright (c) 2023-2024 TiaC Systems
  * Copyright (c) 2022 Golioth, Inc.
  * SPDX-License-Identifier: Apache-2.0
  */
@@ -12,8 +12,7 @@
 #include <zephyr/devicetree.h>
 #include <zephyr/drivers/pwm.h>
 
-struct buzzer_instance
-{
+struct buzzer_instance {
 	const struct pwm_dt_spec dt_spec;
 	enum song_choice song;
 };

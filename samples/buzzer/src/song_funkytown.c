@@ -1,14 +1,13 @@
 /*
- * Copyright (c) 2023 TiaC Systems
+ * Copyright (c) 2023-2024 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
 #include "songs.h"
 
-const struct note_duration song_funkytown[] =
-{
+const struct note_duration song_funkytown[] = {
 	{.note = C5, .duration = quarter},
-	{.note = REST, .duration = eigth},
+	{.note = REST, .duration = eighth},
 	{.note = C5, .duration = quarter},
 	{.note = Bb4, .duration = quarter},
 	{.note = C5, .duration = quarter},

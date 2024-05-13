@@ -6,15 +6,15 @@
 #include <zephyr/dt-bindings/pinctrl/rpi-pico-rp2040-pinctrl.h>
 
 &pinctrl {
-        i2c0_default: i2c0_default {
-                group1 {
+	i2c0_default: i2c0_default {
+		group1 {
 			pinmux = <I2C0_SDA_P20>, <I2C0_SCL_P21>;
-                        bias-pull-up;
-                };
-        };
-        i2c1_default: i2c1_default {
-                group1 {
-                        bias-pull-up;
-                };
-        };
+			bias-pull-up;
+		};
+	};
+	i2c1_default: i2c1_default {
+		group1 {
+			bias-pull-up;
+		};
+	};
 };

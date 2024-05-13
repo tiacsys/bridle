@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 TiaC Systems
+ * Copyright (c) 2023-2024 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -34,6 +34,7 @@ int mfd_sipomuxgp_bits(const struct device *dev, size_t offs, uint32_t *val)
 
 	for (size_t idx = 0; idx < 32; idx++) {
 		uint8_t bit_val = 0;
+
 		mfd_sipomuxgp_get_bit(dev, idx + offs, &bit_val);
 		*val |= (bit_val << idx);
 	}
@@ -218,8 +219,8 @@ static int mfd_sipomuxgp_set_oe(const struct device *dev, const uint8_t value)
 	uint8_t enable;
 	int ret;
 
-	enable = value && data->oe_noblank && (data->oe_noratio || \
-					      (data->oe_count % 2));
+	enable = value && data->oe_noblank &&
+		 (data->oe_noratio || (data->oe_count % 2));
 	ret = gpio_pin_set_dt(&config->enable, enable);
 	if (ret < 0) {
 		LOG_ERR("%s: can't %s output!", dev->name,
@@ -412,7 +413,7 @@ static int mfd_sipomuxgp_pm_device_pm_action(const struct device *dev,
 	(__TOTAL_BYTES(MFD_SIPOMUXGP_CTX_NUM_BITS(n, b)))
 
 #define MFD_SIPOMUXGP_CTX_BITBUF(n, b)                                      \
-	(uint8_t [(MFD_SIPOMUXGP_CTX_BITBUF_SZ(n, b))]){}
+	(uint8_t [(MFD_SIPOMUXGP_CTX_BITBUF_SZ(n, b))]) {}
 
 #define MFD_SIPOMUXGP_CTX_SHIFTING(n, b)                                    \
 	DT_PROP(INST_DT_SIPOMUXGP(n, b), shift_width)
@@ -440,7 +441,7 @@ static int mfd_sipomuxgp_pm_device_pm_action(const struct device *dev,
 #define SIPOMUXGP_INIT(n, b)                                                \
 	MFD_SIPOMUXGP_##b##_CFG_INIT(n, b);                                 \
                                                                             \
-	static const mfd_sipomuxgp_config_t mfd_sipomuxgp_config_##n = 	{   \
+	static const mfd_sipomuxgp_config_t mfd_sipomuxgp_config_##n = {    \
 		.addr = MFD_SIPOMUXGP_CTX_GPIOS_ADDR(n, b),                 \
 		.enable = MFD_SIPOMUXGP_CTX_GPIO_ENABLE(n, b),              \
 		.num_addr = MFD_SIPOMUXGP_CTX_NUM_ADDR(n, b),               \
@@ -459,8 +460,8 @@ static int mfd_sipomuxgp_pm_device_pm_action(const struct device *dev,
 	BUILD_ASSERT(8 <= MFD_SIPOMUXGP_CTX_COLUMNS(n, b),                  \
 		"Bad columns, data-width must be equal or greater than 8"); \
                                                                             \
-	BUILD_ASSERT(      MFD_SIPOMUXGP_CTX_COLUMNS(n, b)                  \
-			<= MFD_SIPOMUXGP_CTX_SHIFTING(n, b),                \
+	BUILD_ASSERT(MFD_SIPOMUXGP_CTX_COLUMNS(n, b)                        \
+		     <= MFD_SIPOMUXGP_CTX_SHIFTING(n, b),                   \
 		"Too many bits, data-width does not fit into shift-width"); \
                                                                             \
 	static mfd_sipomuxgp_data_t mfd_sipomuxgp_data_##n = {              \

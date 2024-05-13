@@ -6,7 +6,7 @@ Waveshare LCD Modules
 Overview
 ********
 
-The Waveshare LCD modules are avaliable in different sizes and resolutions.
+The Waveshare LCD modules are available in different sizes and resolutions.
 Nearly all displays comes with a special LCD controller wired over SPI up to
 the board by free wiring.
 

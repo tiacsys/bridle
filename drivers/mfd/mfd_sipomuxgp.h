@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 TiaC Systems
+ * Copyright (c) 2023-2024 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -54,19 +54,19 @@ typedef struct mfd_sipomuxgp_data {
 	uint8_t oe_count;
 } mfd_sipomuxgp_data_t;
 
-#define __BITBUF_COL(bit,cols) ((bit) % (cols))
-#define __BITBUF_ROW(bit,cols) ((bit) / (cols))
-#define __BITBUF_BIT(bit,cols) (                                             \
-		  (NUM_BITS(uint8_t) - 1)                                    \
-		- (((bit) % (cols)) % NUM_BITS(uint8_t))                     \
+#define __BITBUF_COL(bit, cols) ((bit) % (cols))
+#define __BITBUF_ROW(bit, cols) ((bit) / (cols))
+#define __BITBUF_BIT(bit, cols) (                                             \
+		  (NUM_BITS(uint8_t) - 1)                                     \
+		- (((bit) % (cols)) % NUM_BITS(uint8_t))                      \
 	)
-#define __BITBUF_IDX(bit,cols) (                                             \
-		  (__BITBUF_COL((bit),(cols)) / NUM_BITS(uint8_t))           \
-		+ (__BITBUF_ROW((bit),(cols)) * ((cols) / NUM_BITS(uint8_t)))\
+#define __BITBUF_IDX(bit, cols) (                                             \
+		  (__BITBUF_COL((bit), (cols)) / NUM_BITS(uint8_t))           \
+		+ (__BITBUF_ROW((bit), (cols)) * ((cols) / NUM_BITS(uint8_t)))\
 	)
 
-#define __TOTAL_BYTES(total_bits) (DIV_ROUND_UP(DIV_ROUND_UP(                \
-		total_bits, NUM_BITS(uint8_t)), sizeof(uint8_t))             \
+#define __TOTAL_BYTES(total_bits) (DIV_ROUND_UP(DIV_ROUND_UP(                 \
+		total_bits, NUM_BITS(uint8_t)), sizeof(uint8_t))              \
 	)
 
 extern struct k_work_q mfd_sipomuxgp_xfr_workq;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 TiaC Systems
+ * Copyright (c) 2023-2024 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -42,11 +42,11 @@
 		};
 	};
 };
-        
+
 &gpio0 {
 	status = "okay";
 };
-        
+
 rpigeek_pwms: &pwm {
 	status = "okay";
 	pinctrl-0 = <&pwm_geek_probe>;

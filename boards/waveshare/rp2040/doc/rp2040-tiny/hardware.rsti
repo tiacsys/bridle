@@ -1,6 +1,6 @@
 The RP2040-Tiny_ is a :bbl:`mini sized` RP2040 development board.
-With a splitted board design, USB and keypad circuits can be separated
-and connected over a FPC cable and an adapter PCB in a flexible manner.
+With the split board design, the circuits for USB and buttons are
+separated, but can be connected via an FPC cable and the adapter board.
 The castellated module allows soldering direct to carrier boards.
 
 .. list-table::

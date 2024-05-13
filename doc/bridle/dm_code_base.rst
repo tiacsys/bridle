@@ -97,7 +97,7 @@ In order to manage the combination of repositories and versions, |BRIDLE| uses
 :ref:`west <zephyr:west>`, the same tool that Zephyr uses to manage its
 repository set. You can learn more about the reasons behind the introduction of
 west in :ref:`this section <zephyr:west-history>` of the Zephyr documentation.
- 
+
 A :ref:`manifest repository <zephyr:west-manifests>`, `tiac-bridle`_, contains
 a file in its root folder, :file:`west.yml`, which lists all other repositories
 (west projects) included in |BRIDLE|. The |BRIDLE| repository structure has

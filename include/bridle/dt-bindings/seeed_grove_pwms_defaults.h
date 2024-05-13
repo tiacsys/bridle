@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 TiaC Systems
+ * Copyright (c) 2023-2024 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -13,10 +13,10 @@
 #define __PWM_FAST(x)		GROVE_PWM_##x##_FAST
 #define __PWM_SLOW(x)		GROVE_PWM_##x##_SLOW
 
-#define GROVE_PWMS_SETUP_AND_ENABLE(port,kind)		\
-	MACRO_MAP_CAT_N(1,__PWM_PINCTRL,port)		\
-	MACRO_MAP_CAT_N(1,__PWM_ENABLE,port)		\
-	MACRO_MAP_CAT_N(1,__PWM_##kind,port)
+#define GROVE_PWMS_SETUP_AND_ENABLE(port, kind)		\
+	MACRO_MAP_CAT_N(1, __PWM_PINCTRL, port)		\
+	MACRO_MAP_CAT_N(1, __PWM_ENABLE, port)		\
+	MACRO_MAP_CAT_N(1, __PWM_##kind, port)
 
 #define GROVE_PWM_D0_FAST	EMPTY
 #define GROVE_PWM_D0_SLOW	EMPTY

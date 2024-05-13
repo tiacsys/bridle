@@ -14,7 +14,7 @@
 LOG_MODULE_REGISTER(wspes_sample, LOG_LEVEL_INF);
 
 #if !DT_HAS_COMPAT_STATUS_OKAY(invensense_icm20948) && \
-    !DT_HAS_COMPAT_STATUS_OKAY(invensense_mpu9250)
+	!DT_HAS_COMPAT_STATUS_OKAY(invensense_mpu9250)
 #error "No invensense,icm20948/mpu9250 compatible node found in the device tree"
 #endif
 

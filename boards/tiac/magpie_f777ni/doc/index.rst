@@ -238,7 +238,7 @@ Ethernet MAC
 The STM32F777NIHx on the TiaC Magpie board has one 10/100 Ethernet MAC with
 MII/RMII and MDIO. The Zephyr network stack, mostly with TCP/IP support, is
 assigned to this MAC and will use the full MII with MDIO to communicate with
-the underlyed Ethernet PHY. 
+the underlyed Ethernet PHY.
 
 See :ref:`magpie_f777ni_board_ethernet_with_dts_bindings`
 for a more detailed specification.
@@ -340,7 +340,7 @@ System I2C Bus
 
 The STM32F777NIHx on the TiaC Magpie board has 4 I2C controller, but not
 all are open usable or accessible. The TiaC Magpie uses the second controller
-on-board for Power and Reset Controll on the 6 2x8 pin header, ``TUB[1..6]``.
+on-board for Power and Reset Control on the 6 2x8 pin header, ``TUB[1..6]``.
 
 See :ref:`magpie_f777ni_board_sysiic_with_dts_bindings`
 for a more detailed specification.

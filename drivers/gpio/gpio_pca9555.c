@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2015 Intel Corporation.
  * Copyright (c) 2020 Norbit ODM AS
- * Copyright (c) 2021-2023 TiaC Systems
+ * Copyright (c) 2021-2024 TiaC Systems
  *
  * Derived work from: zephyr/drivers/gpio_pca95xx.c
  *
@@ -44,7 +44,7 @@ LOG_MODULE_REGISTER(gpio_pca9555);
 #define REG_CONG_DFLT		0xFFFF
 
 /* Driver flags */
-// #define PCA_HAS_PUD		BIT(0)
+/* #define PCA_HAS_PUD		BIT(0) */
 #define PCA_HAS_INTERRUPT	BIT(1)
 #define PCA_HAS_RST_DFLTS	BIT(7)
 
@@ -613,6 +613,7 @@ static int gpio_pca9555_init(const struct device *dev)
 
 	if ((config->capabilities & PCA_HAS_RST_DFLTS) != 0) {
 		int ret;
+
 		ret = gpio_pca9555_reset_defaults(dev);
 		if (ret != 0) {
 			LOG_ERR("PCA9555[0x%X]: failed to reset defaults (%d)",
@@ -675,7 +676,7 @@ static const struct gpio_pca9555_config gpio_pca9555_##inst##_cfg = {	\
 		0,							\
 	IF_ENABLED(CONFIG_GPIO_PCA9555_INTERRUPT, (			\
 		.int_gpio = GPIO_DT_SPEC_INST_GET_OR(			\
-			inst, interrupt_gpios, {} ),			\
+			inst, interrupt_gpios, {}),			\
 	))								\
 };									\
 									\

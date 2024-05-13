@@ -23,8 +23,8 @@ config SLEEP_TIME_MS
 	  This defines how long the polling loop waits
 	  between subsequent queries of the push button
 	  state.
-        
-endif
+
+endif # APPLICATION_MODE_POLLING
 
 # Sources Kconfig.zephyr in the Zephyr root directory.
 source "Kconfig.zephyr"

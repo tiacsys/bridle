@@ -38,14 +38,18 @@ static inline int ds3231_temp_fetch(const struct ds3231_temp_config *config,
 		return -EIO;
 	}
 
-	/* temp is in two's complement; bit 7 and 6
-	 * in the LSB part corresponds to 0.25°C */
+	/*
+	 * temp is in two's complement; bit 7 and 6
+	 * in the LSB part corresponds to 0.25°C
+	 */
 	temp  = (regs[DS3231_TEMP_MSB_IDX] & DS3231_TEMP_MSB_BITS) << 8;
 	temp |= (regs[DS3231_TEMP_LSB_IDX] & DS3231_TEMP_LSB_BITS);
 
-	/* shift right by 6 to align data
+	/*
+	 * shift right by 6 to align data
 	 * multiply by 100 to get 0.01
-	 * and divide by 4 to get °C */
+	 * and divide by 4 to get °C
+	 */
 	data->temp = (temp / 64) * 100 / 4;
 
 	return 0;

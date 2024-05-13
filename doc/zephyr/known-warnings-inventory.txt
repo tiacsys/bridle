@@ -1,7 +1,7 @@
 # Each line should contain the regular expression of a known Sphinx warning
 # that should be filtered out additional to the original filter set
 
-# Comming later from devicetree docset
+# Coming later from devicetree docset
 .*undefined label: 'devicetree_binding_index'
 .*undefined label: 'dt_vendor_zephyr'
 
@@ -17,7 +17,7 @@
 # TODO: is ".. tab:: _`Using Segger J-Link`" realy working?
 #
 # reference target in: zephyr/doc/develop/flash_debug/probes.rst:251
-# refered to there in: zephyr/samples/bluetooth/hci_uart/README.rst:127
+# referred to there in: zephyr/samples/bluetooth/hci_uart/README.rst:127
 #
 .*undefined label: 'using segger j-link'
 .*Duplicate explicit target name: "using segger j-link"\.

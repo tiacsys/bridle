@@ -80,7 +80,7 @@ both an ``sw0`` and an ``led0`` alias.
 	 		label = "User LD1";
 	 	};
    		/* ... other leds ... */
-	 	
+
    };
 
 As shown, the ``sw0`` devicetree alias must point to a child node of a node

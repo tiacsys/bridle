@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 TiaC Systems
+ * Copyright (c) 2021-2024 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -22,16 +22,18 @@
 #define BRIDLE_MSG_VERSION		"Bridle version "
 #define BRIDLE_MSG_UNKNOWN_PARAMETER	" unknown parameter: "
 
-static int cmd_bridle_info(const struct shell *shell, size_t argc, char** argv)
+static int cmd_bridle_info(const struct shell *shell, size_t argc, char **argv)
 {
-        ARG_UNUSED(argc);
-        ARG_UNUSED(argv);
+	ARG_UNUSED(argc);
+	ARG_UNUSED(argv);
 
 #ifdef CONFIG_SHELL_GETOPT
-	/* When getopt() is active, the shell sub-system is not
+	/*
+	 * When getopt() is active, the shell sub-system is not
 	 * parsing command handler to print help message. It must
 	 * be done explicitly. But no need to use the getopt() or
-	 * getopt_long() for just one option. */
+	 * getopt_long() for just one option.
+	 */
 	if (argv[1] && (!strcmp("-h", argv[1]) || !strcmp("--help", argv[1]))) {
 		shell_help(shell);
 		return SHELL_CMD_HELP_PRINTED;
@@ -41,21 +43,21 @@ static int cmd_bridle_info(const struct shell *shell, size_t argc, char** argv)
 	}
 #endif /* CONFIG_SHELL_GETOPT */
 
-        shell_print(shell, BRIDLE_MSG_INFO_ZEPHYR "%s", KERNEL_VERSION_STRING);
-        shell_print(shell, BRIDLE_MSG_INFO_BRIDLE "%s", BRIDLE_VERSION_STRING);
+	shell_print(shell, BRIDLE_MSG_INFO_ZEPHYR "%s", KERNEL_VERSION_STRING);
+	shell_print(shell, BRIDLE_MSG_INFO_BRIDLE "%s", BRIDLE_VERSION_STRING);
 
 	return 0;
 }
 
 static int cmd_bridle_version_short(const struct shell *shell,
-				size_t argc, char** argv)
+				size_t argc, char **argv)
 {
 	uint32_t version = sys_bridle_version_get();
 
-        ARG_UNUSED(argc);
-        ARG_UNUSED(argv);
+	ARG_UNUSED(argc);
+	ARG_UNUSED(argv);
 
-        shell_print(shell, BRIDLE_MSG_VERSION "%d.%d.%d",
+	shell_print(shell, BRIDLE_MSG_VERSION "%d.%d.%d",
 			SYS_BRIDLE_VER_MAJOR(version),
 			SYS_BRIDLE_VER_MINOR(version),
 			SYS_BRIDLE_VER_PATCHLEVEL(version));
@@ -64,14 +66,14 @@ static int cmd_bridle_version_short(const struct shell *shell,
 }
 
 static int cmd_bridle_version_long(const struct shell *shell,
-				size_t argc, char** argv)
+				size_t argc, char **argv)
 {
 	uint32_t version = sys_bridle_version_get();
 
-        ARG_UNUSED(argc);
-        ARG_UNUSED(argv);
+	ARG_UNUSED(argc);
+	ARG_UNUSED(argv);
 
-        shell_print(shell, BRIDLE_MSG_VERSION "%d.%d.%d.%d",
+	shell_print(shell, BRIDLE_MSG_VERSION "%d.%d.%d.%d",
 			SYS_BRIDLE_VER_MAJOR(version),
 			SYS_BRIDLE_VER_MINOR(version),
 			SYS_BRIDLE_VER_PATCHLEVEL(version),
@@ -84,10 +86,12 @@ static int cmd_bridle_version(const struct shell *shell,
 				size_t argc, char **argv)
 {
 #ifdef CONFIG_SHELL_GETOPT
-	/* When getopt() is active, the shell sub-system is not
+	/*
+	 * When getopt() is active, the shell sub-system is not
 	 * parsing command handler to print help message. It must
 	 * be done explicitly. But no need to use the getopt() or
-	 * getopt_long() for just one option. */
+	 * getopt_long() for just one option.
+	 */
 	if (argv[1] && (!strcmp("-h", argv[1]) || !strcmp("--help", argv[1]))) {
 		shell_help(shell);
 		return SHELL_CMD_HELP_PRINTED;

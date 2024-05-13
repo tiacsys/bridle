@@ -82,7 +82,7 @@ Take over the new principles to build documentations from Zephyr:
   documentation set can build their own inventory object file to
   be able to split one document into multiple smaller documents
   and use intersphinx for inter-link resolution of all references.
-* Known warnings now will be filterd by the new Sphinx extention
+* Known warnings now will be filterd by the new Sphinx extension
   *warnings_filter* as provided with Zephyr and not anymore outside
   the Sphinx build runner anywhere on CI/CD or cmake level.
 * All scattered documentation sources are no longer merged by cmake

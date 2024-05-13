@@ -119,8 +119,8 @@ Installing the toolchain
 
 .. _gs_toolchain_zephyr_sdk_install:
 
-Prefered default toolchain
-==========================
+Preferred default toolchain
+===========================
 
 To be able to cross-compile your applications for all the various target
 architectures, you must install at least version |zephyrsdk_recommended_ver|

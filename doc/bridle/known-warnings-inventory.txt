@@ -1,12 +1,12 @@
 # Each line should contain the regular expression of a known Sphinx warning
 # that should be filtered out
 
-# Comming later from zephyr docset
+# Coming later from zephyr docset
 .*term not in glossary: 'zephyr:.*'
 .*unknown document: 'zephyr:.*'
 .*undefined label: 'zephyr:.*'
 
-# Comming later from kconfig docset
+# Coming later from kconfig docset
 .*undefined label: 'kconfig:.*'
 
 #

@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2023 Sarah Renkhoff
+ * Copyright (c) 2024 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -44,10 +45,10 @@ static const uDeviceCfg_t device_config = {
 	},
 };
 
-uDeviceHandle_t gnss_device_handle = NULL;
+uDeviceHandle_t gnss_device_handle;
 
-static int init(void) {
-
+static int init(void)
+{
 	uPortInit();
 	uDeviceInit();
 
@@ -57,17 +58,18 @@ static int init(void) {
 }
 SYS_INIT(init, APPLICATION, 90);
 
-void reset_gnss(void) {
-
+void reset_gnss(void)
+{
 	gpio_pin_set_dt(&reset_switch, 1);
 	k_msleep(200);
 	gpio_pin_set_dt(&reset_switch, 0);
 }
 
-int main(void) {
+int main(void)
+{
+	int ret;
 
-	int ret = uDeviceOpen(&device_config, &gnss_device_handle);
-
+	ret = uDeviceOpen(&device_config, &gnss_device_handle);
 	if (ret != 0) {
 		LOG_ERR("Error during uDeviceOpen: %d", ret);
 		return 0;
@@ -79,7 +81,7 @@ int main(void) {
 	printk("GNSS Device is ready!\n");
 #endif
 
-	while(true) {
+	while (true) {
 		k_msleep(1000);
 	}
 

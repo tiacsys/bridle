@@ -1,12 +1,11 @@
 /*
- * Copyright (c) 2023 TiaC Systems
+ * Copyright (c) 2023-2024 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
 #include "songs.h"
 
-const struct note_duration song_xmastime[] =
-{
+const struct note_duration song_xmastime[] = {
 	{.note = A6, .duration = quarter},
 	{.note = REST, .duration = quarter},
 	{.note = H6, .duration = quarter},
@@ -17,8 +16,8 @@ const struct note_duration song_xmastime[] =
 	{.note = G6, .duration = sixteenth},
 	{.note = REST, .duration = sixteenth},
 	{.note = Fs6, .duration = quarter},
-	{.note = G6, .duration = eigth},
-	{.note = REST, .duration = eigth},
+	{.note = G6, .duration = eighth},
+	{.note = REST, .duration = eighth},
 	/* bar */
 	{.note = A6, .duration = quarter},
 	{.note = REST, .duration = quarter},
@@ -30,8 +29,8 @@ const struct note_duration song_xmastime[] =
 	{.note = G6, .duration = sixteenth},
 	{.note = REST, .duration = sixteenth},
 	{.note = Fs6, .duration = quarter},
-	{.note = G6, .duration = eigth},
-	{.note = REST, .duration = eigth},
+	{.note = G6, .duration = eighth},
+	{.note = REST, .duration = eighth},
 	/* bar */
 	{.note = A6, .duration = quarter},
 	{.note = REST, .duration = quarter},
@@ -40,10 +39,10 @@ const struct note_duration song_xmastime[] =
 	/* bar */
 	{.note = H6, .duration = quarter},
 	{.note = REST, .duration = quarter},
-	{.note = Cs7, .duration = eigth},
-	{.note = REST, .duration = eigth},
-	{.note = D7, .duration = eigth},
-	{.note = REST, .duration = eigth},
+	{.note = Cs7, .duration = eighth},
+	{.note = REST, .duration = eighth},
+	{.note = D7, .duration = eighth},
+	{.note = REST, .duration = eighth},
 	/* bar */
 	{.note = Cs7, .duration = quarter},
 	{.note = REST, .duration = quarter},
@@ -53,49 +52,49 @@ const struct note_duration song_xmastime[] =
 	{.note = A6, .duration = (half+quarter)},
 	{.note = REST, .duration = quarter},
 	/* bar */
-	{.note = E6, .duration = (quarter+eigth)},
+	{.note = E6, .duration = (quarter+eighth)},
 	{.note = Fs6, .duration = sixteenth},
 	{.note = REST, .duration = sixteenth},
-	{.note = E6, .duration = eigth},
-	{.note = REST, .duration = eigth},
-	{.note = Fs6, .duration = eigth},
-	{.note = REST, .duration = eigth},
+	{.note = E6, .duration = eighth},
+	{.note = REST, .duration = eighth},
+	{.note = Fs6, .duration = eighth},
+	{.note = REST, .duration = eighth},
 	/* bar */
-	{.note = G6, .duration = (quarter+eigth)},
+	{.note = G6, .duration = (quarter+eighth)},
 	{.note = A6, .duration = sixteenth},
 	{.note = REST, .duration = sixteenth},
 	{.note = G6, .duration = quarter},
 	{.note = REST, .duration = quarter},
 	/* bar */
-	{.note = Fs6, .duration = (quarter+eigth)},
+	{.note = Fs6, .duration = (quarter+eighth)},
 	{.note = G6, .duration = sixteenth},
 	{.note = REST, .duration = sixteenth},
-	{.note = Fs6, .duration = eigth},
-	{.note = REST, .duration = eigth},
-	{.note = G6, .duration = eigth},
-	{.note = REST, .duration = eigth},
+	{.note = Fs6, .duration = eighth},
+	{.note = REST, .duration = eighth},
+	{.note = G6, .duration = eighth},
+	{.note = REST, .duration = eighth},
 	/* bar */
-	{.note = A6, .duration = (quarter+eigth)},
+	{.note = A6, .duration = (quarter+eighth)},
 	{.note = H6, .duration = sixteenth},
 	{.note = REST, .duration = sixteenth},
 	{.note = A6, .duration = quarter},
 	{.note = REST, .duration = quarter},
 	/* bar */
 	{.note = D7, .duration = quarter},
-	{.note = Cs7, .duration = eigth},
-	{.note = REST, .duration = eigth},
+	{.note = Cs7, .duration = eighth},
+	{.note = REST, .duration = eighth},
 	{.note = H6, .duration = quarter},
-	{.note = A6, .duration = eigth},
-	{.note = REST, .duration = eigth},
+	{.note = A6, .duration = eighth},
+	{.note = REST, .duration = eighth},
 	/* bar */
-	{.note = D7, .duration = eigth},
-	{.note = REST, .duration = eigth},
-	{.note = H6, .duration = eigth},
-	{.note = REST, .duration = eigth},
-	{.note = A6, .duration = eigth},
-	{.note = REST, .duration = eigth},
-	{.note = G6, .duration = eigth},
-	{.note = REST, .duration = eigth},
+	{.note = D7, .duration = eighth},
+	{.note = REST, .duration = eighth},
+	{.note = H6, .duration = eighth},
+	{.note = REST, .duration = eighth},
+	{.note = A6, .duration = eighth},
+	{.note = REST, .duration = eighth},
+	{.note = G6, .duration = eighth},
+	{.note = REST, .duration = eighth},
 	/* bar */
 	{.note = Fs6, .duration = quarter},
 	{.note = REST, .duration = quarter},

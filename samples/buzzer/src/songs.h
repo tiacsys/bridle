@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 TiaC Systems
+ * Copyright (c) 2023-2024 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -9,8 +9,7 @@
 #include "notes.h"
 #include <zephyr/init.h>
 
-enum song_choice
-{
+enum song_choice {
 	beep,
 	folksong,
 	xmastime,

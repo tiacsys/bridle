@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 TiaC Systems
+ * Copyright (c) 2023-2024 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -27,7 +27,9 @@ int mfd_sipomuxgp_spi_transmit(const struct device *dev, const uint8_t addr,
 	memset(padbuf, 0, ARRAY_SIZE(padbuf));
 
 	/* disable output drivers before data will be changed */
-	if ((ret = config->backend.set_oe(dev, 0)) < 0) return ret;
+	ret = config->backend.set_oe(dev, 0);
+	if (ret < 0)
+		return ret;
 
 	/* stream out new data (if any) */
 	if (tx_data != NULL) {
@@ -39,10 +41,14 @@ int mfd_sipomuxgp_spi_transmit(const struct device *dev, const uint8_t addr,
 	}
 
 	/* set new address */
-	if ((ret = config->backend.set_addr(dev, addr)) < 0) return ret;
+	ret = config->backend.set_addr(dev, addr);
+	if (ret < 0)
+		return ret;
 
 	/* enable output drivers after data were changed */
-	if ((ret = config->backend.set_oe(dev, 1)) < 0) return ret;
+	ret = config->backend.set_oe(dev, 1);
+	if (ret < 0)
+		return ret;
 
 	return 0;
 }
@@ -80,8 +86,13 @@ int mfd_sipomuxgp_spi_init(const struct device *dev)
 	}
 
 	/* configure backup resources */
-	if ((ret = config->backend.cfg_oe(dev)) < 0) return ret;
-	if ((ret = config->backend.cfg_addr(dev)) < 0) return ret;
+	ret = config->backend.cfg_oe(dev);
+	if (ret < 0)
+		return ret;
+
+	ret = config->backend.cfg_addr(dev);
+	if (ret < 0)
+		return ret;
 
 	if (!spi_is_ready_dt(&backend_config->bus)) {
 		LOG_ERR("%s: SPI device %s not ready", dev->name,

@@ -6,22 +6,28 @@
 #include <zephyr/dt-bindings/gpio/gpio.h>
 
 &rpipico_i2c0 {
-	/* The default I2C0 signals conflict with default interrupts
-	 * on the shield for GP4 @ MPU9250 and GP5 @ LPS22HB. */
+	/*
+	 * The default I2C0 signals conflict with default interrupts
+	 * on the shield for GP4 @ MPU9250 and GP5 @ LPS22HB.
+	 */
 	status = "disabled";
 };
 
 &wsptdis_sens_dof {
 	status = "okay";
 	irq-gpios = <&rpipico_header 4 GPIO_ACTIVE_HIGH>;	/* GP4 */
-	/* Frame synchronize connected at
+	/*
+	 * Frame synchronize connected at
 	 * GP22 but not supported by driver:
-	 * fsync-gpios = <&rpipico_header 22 GPIO_ACTIVE_HIGH>; */
+	 * fsync-gpios = <&rpipico_header 22 GPIO_ACTIVE_HIGH>;
+	 */
 };
 
 &wsptdis_sens_tp {
 	status = "okay";
-	/* Interrupt request connected at
+	/*
+	 * Interrupt request connected at
 	 * GP5 but not supported by driver:
-	 * irq-gpios = <&rpipico_header 5 GPIO_ACTIVE_HIGH>; */
+	 * irq-gpios = <&rpipico_header 5 GPIO_ACTIVE_HIGH>;
+	 */
 };

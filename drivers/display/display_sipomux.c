@@ -29,7 +29,7 @@ typedef struct display_sipomux_data {
 	enum display_pixel_format current_pixel_format;
 } display_sipomux_data_t;
 
-static inline int display_sipomux_set(const struct device *dev, unsigned set,
+static inline int display_sipomux_set(const struct device *dev, unsigned int set,
 				      const size_t x, const size_t y)
 {
 	const display_sipomux_cfg_t * const config = dev->config;
@@ -196,7 +196,7 @@ static int display_sipomux_init(const struct device *dev)
 		return -ENODEV;
 	}
 
-	rq_pixel = (config->gap_front + config->width) \
+	rq_pixel = (config->gap_front + config->width)
 		 * (config->gap_top + config->height);
 	av_pixel = mfd_sipomuxgp_num_bits(config->mfd);
 

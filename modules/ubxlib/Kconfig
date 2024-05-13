@@ -74,7 +74,7 @@ config UBXLIB_LOGGING
 	bool "Enable ubxlib logging"
 	default n
 	help
-	  The self contained ubxlib logging is only usefull for
+	  The self contained ubxlib logging is only useful for
 	  development and a simple tool for dumping datagram
 	  content and internal state changes.
 
@@ -89,7 +89,7 @@ config UBXLIB_TEST
 	select CPLUSPLUS
 	default n
 	help
-	  The self contained ubxlib tests are only usefull for
+	  The self contained ubxlib tests are only useful for
 	  development and depends on some special OS features,
 	  such like C++ support for the Unity test framework and
 	  the IRQ Offload to be able to test semaphore from ISR.

@@ -229,7 +229,7 @@
 		pinctrl-names = "default";
 		pinctrl-0 = <&tim8_ch1_pi5	/* TMPH4_PI5_PWM81 */
 			     &tim8_ch2_pi6	/* TMPH4_PI6_PWM82 */
-			     &tim8_ch3_pi7 	/* TMPH4_PI7_PWM83 */
+			     &tim8_ch3_pi7	/* TMPH4_PI7_PWM83 */
 			     &tim8_ch4_pi2>;	/* TMPH1_PI2_PWM84 */
 	}; // pwm8
 }; // timers8

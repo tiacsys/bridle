@@ -521,7 +521,7 @@ The `RP2040 SoC`_ comes with two PIO periherals. These are two simple
 co-processors that are designed for I/O operations. The PIOs run a custom
 instruction set, generated from a custom assembly language. PIO programs
 are assembled using :program:`pioasm`, a tool provided by Raspberry Pi.
-Further informations can be found in the `Raspberry Pi Pico C/C++ SDK`_
+Further information can be found in the `Raspberry Pi Pico C/C++ SDK`_
 document, section with title :emphasis:`"Using PIOASM, the PIO Assembler"`.
 
 Zephyr does not (currently) assemble PIO programs. Rather, they should be
@@ -573,7 +573,7 @@ program binary. On Zephyr the :code:`boot2` versions are part of the
 :|CONFIG_RP2_FLASH_W25X10CL|: :file:`boot2_w25x10cl.S`
 
 All Waveshare RP2040 boards set this option to |CONFIG_RP2_FLASH_W25Q080|.
-Further informations can be found in the `RP2040 Datasheet`_, sections with
+Further information can be found in the `RP2040 Datasheet`_, sections with
 title :emphasis:`"Bootrom"` and :emphasis:`"Processor Controlled Boot Sequence"`
 or Brian Starkey's Blog article `Pico serial bootloader`_
 

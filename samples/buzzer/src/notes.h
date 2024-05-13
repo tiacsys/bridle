@@ -1,15 +1,14 @@
 /*
- * Copyright (c) 2023 TiaC Systems
+ * Copyright (c) 2023-2024 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
 #ifndef __NOTES_H__
 #define __NOTES_H__
 
-struct note_duration
-{
-	int note;	// Hz
-	int duration;	// msec
+struct note_duration {
+	int note;	/* Hz */
+	int duration;	/* msec */
 };
 
 /* duration in msec */
@@ -17,7 +16,7 @@ struct note_duration
 #define thirtytwoth 19
 #define sixteenth   38
 #define ninth       50	/* unusually */
-#define eigth       75
+#define eighth      75
 #define sixth       100	/* unusually */
 #define quarter     150
 #define third       200	/* unusually */

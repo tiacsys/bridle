@@ -49,7 +49,7 @@
 zephyr_udc0: &usbd {
 	status = "okay";
 
-        cdc_acm_console_uart: cdc_acm_console_uart {
-                compatible = "zephyr,cdc-acm-uart";
-        };
+	cdc_acm_console_uart: cdc_acm_console_uart {
+		compatible = "zephyr,cdc-acm-uart";
+	};
 };

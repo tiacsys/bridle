@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2015 Intel Corporation.
  * Copyright (c) 2020 Norbit ODM AS
- * Copyright (c) 2021-2023 TiaC Systems
+ * Copyright (c) 2021-2024 TiaC Systems
  *
  * Derived work from: zephyr/drivers/gpio_pca95xx.c
  *
@@ -40,7 +40,7 @@ LOG_MODULE_REGISTER(gpio_pca9554);
 #define REG_CONG_DFLT		0xFF
 
 /* Driver flags */
-// #define PCA_HAS_PUD		BIT(0)
+/* #define PCA_HAS_PUD		BIT(0) */
 #define PCA_HAS_INTERRUPT	BIT(1)
 #define PCA_HAS_RST_DFLTS	BIT(7)
 
@@ -118,7 +118,6 @@ static int read_port_regs(const struct device *dev, uint8_t reg,
 		return ret;
 	}
 
-// FIXME: __REMOVE__ 	value = sys_le16_to_cpu(port_data);
 	value = (port_data & 0xFF);
 	*cache = value;
 	*buf = value;
@@ -154,7 +153,6 @@ static int write_port_regs(const struct device *dev, uint8_t reg,
 
 	buf[0] = reg;
 	buf[1] = (value & 0xFF);
-// FIXME: __REMOVE__ 	sys_put_le16(value, &buf[1]);
 
 	ret = i2c_write_dt(&config->bus, buf, sizeof(buf));
 	if (ret == 0) {
@@ -611,6 +609,7 @@ static int gpio_pca9554_init(const struct device *dev)
 
 	if ((config->capabilities & PCA_HAS_RST_DFLTS) != 0) {
 		int ret;
+
 		ret = gpio_pca9554_reset_defaults(dev);
 		if (ret != 0) {
 			LOG_ERR("PCA9554[0x%X]: failed to reset defaults (%d)",
@@ -673,7 +672,7 @@ static const struct gpio_pca9554_config gpio_pca9554_##inst##_cfg = {	\
 		0,							\
 	IF_ENABLED(CONFIG_GPIO_PCA9554_INTERRUPT, (			\
 		.int_gpio = GPIO_DT_SPEC_INST_GET_OR(			\
-			inst, interrupt_gpios, {} ),			\
+			inst, interrupt_gpios, {}),			\
 	))								\
 };									\
 									\

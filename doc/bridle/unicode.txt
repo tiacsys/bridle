@@ -98,7 +98,7 @@
    :rtrim:
 .. |x| unicode:: U+000D7 .. multiplication sign
    :trim:
-.. |:| unicode:: U+000F7 .. devision sign
+.. |:| unicode:: U+000F7 .. division sign
    :trim:
 .. |/| unicode:: U+02044 .. fraction operator
    :trim:

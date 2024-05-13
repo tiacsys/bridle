@@ -205,7 +205,7 @@ bootloader will be entered automatically when you run :program:`west flash`.
    * :bridle_file:`boards/extensions/zero/doc/bootloader/samd21_sam_ba.hex`
    * :bridle_file:`boards/extensions/zero/doc/bootloader/samd21_sam_ba.jflash`
 
-   The Segger JFlash control file is only usefull when the EDBG firmware
+   The Segger JFlash control file is only useful when the EDBG firmware
    was upgrade to the latest `J-Link firmware for Atmel EDBG`_. This was a
    special OEM firmware version for Atmel's Xplained Platforms, based on the
    `AT32UC3A4256S`_ 32-bit AVR microcontroller.

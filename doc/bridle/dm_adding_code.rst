@@ -132,9 +132,9 @@ manifest file with the list of repositories and their revisions.
 In general, the easiest thing to do is to import the :file:`west.yml` into
 `tiac-bridle`_, using west's manifest imports feature. This is demonstrated
 by the following code:
-   
+
 .. code-block:: yaml
-   
+
    # Example application-specific west.yml, using manifest imports.
    manifest:
      remotes:
@@ -187,7 +187,7 @@ For example:
          revision: your-library-SHA-or-branch
      self:
        path: application
-     
+
 The variable values starting with *your-* in the above code block are just
 examples and you can replace them as needed. The above example includes
 a fork of the ``mcuboot`` project, but you can fork any project in
@@ -200,7 +200,7 @@ it with west just like you use the `tiac-bridle`_  repository when
 replace ``tiac-bridle`` and ``bridle`` with the repository name and path
 you have chosen for your manifest repository (*your-name/your-application*
 and *your-ncs-fork*, respectively), as shown in the following code:
-   
+
 .. parsed-literal::
    :class: highlight
 

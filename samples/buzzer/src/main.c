@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 TiaC Systems
+ * Copyright (c) 2023-2024 TiaC Systems
  * Copyright (c) 2022 Golioth, Inc.
  * SPDX-License-Identifier: Apache-2.0
  */
@@ -20,10 +20,9 @@ LOG_MODULE_REGISTER(buzzersh, CONFIG_BUZZER_SHELL_LOG_LEVEL);
 #endif
 
 /* Buzzer instance structs */
-static struct buzzer_instance buzzer =
-{
+static struct buzzer_instance buzzer = {
 	.dt_spec = PWM_DT_SPEC_GET(PWM_BUZZER_NODE),
-	.song = beep // on startup
+	.song = beep /* on startup */
 };
 
 int main(void)
@@ -31,8 +30,7 @@ int main(void)
 	int err;
 
 	err = app_buzzer_init(&buzzer);
-	if (err)
-	{
+	if (err) {
 		LOG_ERR("Unable to configure buzzer");
 	}
 
