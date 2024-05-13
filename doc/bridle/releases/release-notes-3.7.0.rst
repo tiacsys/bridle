@@ -169,6 +169,10 @@ Take over the new build principles from Zephyr:
 * Convert all Bridle *boards* and *SoCs* to the **new Hardware Model v2**.
 * Hook up ``board.cmake`` in Bridle's board extension folder.
 * Hook up ``Kconfig.defconfig`` in Bridle's board extension folder.
+* With the new ``Kconfig.defconfig`` hookup in the Bridle board extension
+  folder, all static configurations can be removed and Kconfig can work more
+  sensitively, e.g. only influence the log level in the USB subsystem if the
+  USB stack is really activated.
 * Add the *Ambiq Micro* HAL to support the new *Apollo 4* SoC in Zephyr upstream
   with Bridle's common test suite ``bridle/tests/bridle/common``.
 * Add the *Intel* HAL and the *ACPI Component Architecture* library to support
@@ -197,6 +201,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`222` - [BUG] unsatisfied dependencies by static Kconfig elements
 * :github:`217` - [FCR] Convert board ``arduino_zero`` to board extension
 * :github:`216` - [FCR] Convert all SOCs to new HWMv2
 * :github:`215` - [BUG] ubxlib: missing header ``u_timeout.h``
