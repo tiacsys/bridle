@@ -1,8 +1,12 @@
 # Copyright (c) 2024 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
+if SHIELD_NXP_SC18IS604_EVB
+
 config SPI
-    default y
+	default y
 
 config MFD
-    default y
+	default y
+
+endif # SHIELD_NXP_SC18IS604_EVB

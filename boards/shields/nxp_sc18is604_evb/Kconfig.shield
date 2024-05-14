@@ -6,4 +6,3 @@ config SHIELD_NXP_SC18IS604_EVB
 
 config X_ARDUINO_HEADER_TO_NXP_SC18IS604_EVB
 	def_bool $(shields_list_contains,x_arduino_header_to_nxp_sc18is604_evb)
-	

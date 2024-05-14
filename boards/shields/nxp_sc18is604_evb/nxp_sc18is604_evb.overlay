@@ -3,76 +3,78 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-&nxp_sc18is604_evb_spi_in {
+#include <freq.h>
 
-    sc18is604: sc18is604@0 {
-        
-        status = "okay";
-        compatible = "nxp,sc18is604";
+&nxp_sc18is604_evb_spi {
+	sc18is604: sc18is604@0 {
+		compatible = "nxp,sc18is604";
+		spi-max-frequency = <DT_FREQ_K(1200)>;
+		reg = < 0 >;
 
-        reg = < 0 >;
-        spi-max-frequency = < 1200000 >;
+		/* Reset line has to be connected to pin 7 on JP5 */
+		reset-gpios = < &nxp_sc18is604_evb_header 0 GPIO_ACTIVE_LOW >;
+		int-gpios = < &nxp_sc18is604_evb_header 1 GPIO_ACTIVE_LOW >;
 
-        /* Reset line has to be connected to pin 7 on JP5 */
-        reset-gpios = < &nxp_sc18is604_evb_gpio_in 0 GPIO_ACTIVE_LOW >;
+		status = "okay";
 
-        interrupt-gpios = < &nxp_sc18is604_evb_gpio_in 1 GPIO_ACTIVE_LOW >;
+		sc18is604_evb_i2c: sc18is604-evb-i2c {
+			compatible = "nxp,sc18is604-i2c";
 
-        sc18is604_i2c: sc18is604-i2c {
+			#address-cells = < 1 >;
+			#size-cells = < 0 >;
+			clock-frequency = < I2C_BITRATE_STANDARD >;
 
-            status = "okay";
-            compatible = "nxp,sc18is604-i2c";
+			status = "okay";
+		};
 
-            #address-cells = < 1 >;
-            #size-cells = < 0 >;
-            clock-frequency = < I2C_BITRATE_STANDARD >;
-        };
+		sc18is604_evb_gpio: sc18is604-evb-gpio {
+			compatible = "nxp,sc18is604-gpio";
 
-        sc18is604_gpio: sc18is604-gpio {
+			gpio-controller;
+			#gpio-cells = < 2 >;
+			ngpios = < 5 >;
 
-            status = "okay";
-            compatible = "nxp,sc18is604-gpio";
-
-            gpio-controller;
-            #gpio-cells = < 2 >;
-            ngpios = < 5 >;
-        };
-    };
+			status = "okay";
+		};
+	};
 };
 
 / {
 
-    /* Aliases for compatibilty with samples */
-    aliases {
-        led0 = &led_d1;
-        led1 = &led_d2;
-        led2 = &led_d3;
-        led3 = &led_d4;
-    };
+	/* Aliases for compatibility with samples */
+	aliases {
+		led0 = &led_d1;
+		led1 = &led_d2;
+		led2 = &led_d3;
+		led3 = &led_d4;
+	};
 
-    leds {
-        compatible = "gpio-leds";
+	leds {
+		compatible = "gpio-leds";
 
-        led_d1: led-d1 {
-            /* Connected to IO0 */
-            gpios = < &sc18is604_gpio 0 GPIO_ACTIVE_LOW >;
-        };
+		led_d1: led-d1 {
+			/* Connected to IO0 */
+			gpios = < &sc18is604_evb_gpio 0 GPIO_ACTIVE_LOW >;
+		};
 
-        led_d2: led-d2 {
-            /* Connected to IO1 */
-            gpios = < &sc18is604_gpio 1 GPIO_ACTIVE_LOW >;
-        };
+		led_d2: led-d2 {
+			/* Connected to IO1 */
+			gpios = < &sc18is604_evb_gpio 1 GPIO_ACTIVE_LOW >;
+		};
 
-        led_d3: led-d3 {
-            /* Connected to IO2 */
-            gpios = < &sc18is604_gpio 2 GPIO_ACTIVE_LOW >;
-        };
+		led_d3: led-d3 {
+			/* Connected to IO2 */
+			gpios = < &sc18is604_evb_gpio 2 GPIO_ACTIVE_LOW >;
+		};
 
-        led_d4: led-d4 {
-            /* Connected to IO3 */
-            gpios = < &sc18is604_gpio 3 GPIO_ACTIVE_LOW >;
-        };
+		led_d4: led-d4 {
+			/* Connected to IO3 */
+			gpios = < &sc18is604_evb_gpio 3 GPIO_ACTIVE_LOW >;
+		};
 
-        /* LED D10 is connected to IO4, which can only be configured as input. */
-    };
+		/*
+		 * LED D10 is connected to IO4, which can only be used
+		 * as input and can not configured.
+		 */
+	};
 };
