@@ -20,6 +20,7 @@ let
 
       # Extra python packages that aren't in nixpkgs
       inherit (python-deps)
+        doxmlparser
         pydebuggerconfig
         pyedbglib
         pykitinfo

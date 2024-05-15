@@ -22,11 +22,11 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1705309234,
-        "narHash": "sha256-uNRRNRKmJyCRC/8y1RqBkqWBLM034y4qN7EprSdmgyA=",
+        "lastModified": 1710146030,
+        "narHash": "sha256-SZ5L6eA7HJ/nmkzGG7/ISclqe6oZdOZTNoesiInkXPQ=",
         "owner": "numtide",
         "repo": "flake-utils",
-        "rev": "1ef2e671c3b0c19053962c07dbda38332dcebf26",
+        "rev": "b1d9ab70662946ef0850d488da1c9019f3a9752a",
         "type": "github"
       },
       "original": {
@@ -212,11 +212,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1708425171,
-        "narHash": "sha256-+KbQNk1RzW1Q5EvnB9q/B7H23NQoO3VLd/bDlTOrvyk=",
+        "lastModified": 1715759904,
+        "narHash": "sha256-NfYsuN7fKZqbpur36q5yznJ1d5b7IOpF2TffYwS2KQ0=",
         "owner": "irockasingranite",
         "repo": "bridle-python-deps",
-        "rev": "d779b4e36484adb65a814d1498efc369aac57d38",
+        "rev": "5f23ee874d13dd3e1948c7e13cac4eceac4664ef",
         "type": "github"
       },
       "original": {
