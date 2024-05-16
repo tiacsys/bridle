@@ -5,11 +5,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1709126324,
-        "narHash": "sha256-q6EQdSeUZOG26WelxqkmR7kArjgWCdw5sfJVHPH/7j8=",
+        "lastModified": 1710146030,
+        "narHash": "sha256-SZ5L6eA7HJ/nmkzGG7/ISclqe6oZdOZTNoesiInkXPQ=",
         "owner": "numtide",
         "repo": "flake-utils",
-        "rev": "d465f4819400de7c8d874d50b982301f28a84605",
+        "rev": "b1d9ab70662946ef0850d488da1c9019f3a9752a",
         "type": "github"
       },
       "original": {
@@ -131,11 +131,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1709569716,
-        "narHash": "sha256-iOR44RU4jQ+YPGrn+uQeYAp7Xo7Z/+gT+wXJoGxxLTY=",
+        "lastModified": 1715668745,
+        "narHash": "sha256-xp62OkRkbUDNUc6VSqH02jB0FbOS+MsfMb7wL1RJOfA=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "617579a787259b9a6419492eaac670a5f7663917",
+        "rev": "9ddcaffecdf098822d944d4147dd8da30b4e6843",
         "type": "github"
       },
       "original": {
@@ -168,11 +168,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1709593159,
-        "narHash": "sha256-mPZaI2ctBNP78n5qTa5o+zzK54bN4gt9R7YyIfO7mgU=",
+        "lastModified": 1715798112,
+        "narHash": "sha256-jK8aZ2JnXd7vwEL4szowtKMqMXWY1079l5qi84kNV30=",
         "owner": "nix-community",
         "repo": "pyproject.nix",
-        "rev": "5ece746db4c561fdb9cd18575adc7a2a1a6026ed",
+        "rev": "688e2bd41f2e31313c822cf4bb84ac0e67292658",
         "type": "github"
       },
       "original": {
@@ -292,11 +292,11 @@
     "zephyr": {
       "flake": false,
       "locked": {
-        "lastModified": 1715803783,
-        "narHash": "sha256-dLISveYYBC9+EV6PIUUMZSbStIzaTyoZrj0gJH0odo8=",
+        "lastModified": 1715846897,
+        "narHash": "sha256-bJM8hYZtjgpZ8VipLqHrkylAVvqtQRhF1pMslYzCQ8Q=",
         "owner": "tiacsys",
         "repo": "zephyr",
-        "rev": "3992364eb88dda0dc3af68b09cbe03de6d88756d",
+        "rev": "f58854e9f9097168e2a943a8e17d88e77920d632",
         "type": "github"
       },
       "original": {
@@ -317,11 +317,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1709345571,
-        "narHash": "sha256-2MzrVPi0GFFtWNqc7i7Vc5MYqUz31HKw8KSKDf6X3m0=",
+        "lastModified": 1712044799,
+        "narHash": "sha256-OHBz1mVLAzNY3OoB3Xqy5hMDgOODfAoas3aGph5y86g=",
         "owner": "adisbladis",
         "repo": "zephyr-nix",
-        "rev": "311d2ad38ca29fedecd3201d9b7fd81848d44895",
+        "rev": "6a007cf4effdd9092e8a8d103c643ee1e26f720e",
         "type": "github"
       },
       "original": {
