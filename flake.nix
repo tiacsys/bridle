@@ -8,7 +8,7 @@
       type = "github";
       owner = "tiacsys";
       repo = "zephyr";
-      ref = "v3.6-branch";
+      ref = "tiacsys/main";
       flake = false;
     };
 
