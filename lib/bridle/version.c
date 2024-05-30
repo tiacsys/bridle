@@ -5,7 +5,7 @@
  */
 
 #include <zephyr/types.h>
-#include "version.h" /* generated at compile time */
+#include "bridle/version.h" /* generated at compile time */
 
 /**
  * @brief Return the Bridle version of the present build

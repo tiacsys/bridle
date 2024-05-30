@@ -8,7 +8,7 @@
 
 #include <zephyr/ztest.h>
 #include <bridle/core_version.h>
-#include "version.h"
+#include "bridle/version.h"
 
 /**
  * @defgroup bridle_common_tests Common Tests

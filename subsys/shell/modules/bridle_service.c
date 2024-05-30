@@ -4,7 +4,8 @@
  */
 
 #include <bridle/core.h>
-#include "version.h" /* generated at compile time */
+#include "zephyr/version.h" /* generated at compile time */
+#include "bridle/version.h" /* generated at compile time */
 
 #include <zephyr/shell/shell.h>
 

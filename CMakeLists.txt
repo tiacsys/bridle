@@ -8,18 +8,17 @@ include(bridle/boards_extensions)
 
 # Generate our version header and inject into all builds.
 add_custom_command(
-  OUTPUT ${PROJECT_BINARY_DIR}/include/generated/version_bridle.h
+  OUTPUT ${PROJECT_BINARY_DIR}/include/generated/bridle/version.h
   COMMAND ${CMAKE_COMMAND}
     -DZEPHYR_BASE=${ZEPHYR_BASE}
     -DBRIDLE_BASE=${BRIDLE_BASE}
-    -DOUT_DIR=${PROJECT_BINARY_DIR}/include/generated
-    -DOUT_FILE=version_bridle.h
-    -DEXT_FILE=version.h
+    -DOUT_DIR=${PROJECT_BINARY_DIR}/include/generated/bridle
+    -DOUT_FILE=version.h
     -P ${BRIDLE_BASE}/cmake/gen_version_h.cmake
   DEPENDS ${BRIDLE_BASE}/VERSION ${git_dependency}
 )
 add_custom_target(version_bridle_h
-  DEPENDS ${PROJECT_BINARY_DIR}/include/generated/version_bridle.h)
+  DEPENDS ${PROJECT_BINARY_DIR}/include/generated/bridle/version.h)
 add_dependencies(version_bridle_h version_h)
 add_dependencies(zephyr_interface version_bridle_h)
 
