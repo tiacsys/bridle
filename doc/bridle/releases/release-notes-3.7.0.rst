@@ -201,6 +201,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`227` - [BUG] Unable to build any application referencing bridle version information
 * :github:`222` - [BUG] unsatisfied dependencies by static Kconfig elements
 * :github:`217` - [FCR] Convert board ``arduino_zero`` to board extension
 * :github:`216` - [FCR] Convert all SOCs to new HWMv2
