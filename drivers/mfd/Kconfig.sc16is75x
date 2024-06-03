@@ -6,8 +6,10 @@ menuconfig MFD_SC16IS75X
 	default y
 	depends on DT_HAS_NXP_SC16IS75X_ENABLED
 	depends on MFD
+	select POLL # I2C and SPI transfers are internally done asynchronously
 	help
 	  Enable the NXP SC16IS75x bridge multi-function device driver.
+	  The driver requires the Zephyr asynchronous notification framework.
 
 if MFD_SC16IS75X
 
@@ -16,16 +18,20 @@ config MFD_SC16IS75X_SPI
 	default y
 	depends on $(dt_compat_on_bus,$(DT_COMPAT_NXP_SC16IS75X),spi)
 	depends on SPI
+	select SPI_ASYNC
 	help
 	  Enable the SPI bus transfer functions for SC16IS75x.
+	  The low-level driver requires the SPI asynchronous call support.
 
 config MFD_SC16IS75X_I2C
 	bool "NXP SC16IS75x I2C bus support"
 	default y
 	depends on $(dt_compat_on_bus,$(DT_COMPAT_NXP_SC16IS75X),i2c)
 	depends on I2C
+	select I2C_CALLBACK
 	help
 	  Enable the I2C bus transfer functions for SC16IS75x.
+	  The low-level driver requires the I2C asynchronous callback support.
 
 config MFD_SC16IS75X_INIT_PRIORITY
 	int "Init priority"
@@ -33,5 +39,9 @@ config MFD_SC16IS75X_INIT_PRIORITY
 	default MFD_INIT_PRIORITY
 	help
 	  Multi-function device initialization priority for SC16IS75x.
+
+config HEAP_MEM_POOL_ADD_SIZE_MFD_SC16IS75X
+	int
+	default 128 # Enough for 16 concurrent transfers (k_calloc)
 
 endif # MFD_SC16IS75X

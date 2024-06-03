@@ -52,17 +52,31 @@ struct mfd_sc16is75x_config {
 /**
  * @brief SC16IS75X MFD bus transfer functions
  *
- * The SC16IS75X supports either SPI or I2C bus communiation. Depending
- * on the device tree definitions, the driver automatically selects the
- * correct transfer functions for reading and writing raw data.
+ * The SC16IS75X supports either SPI or I2C bus communication. Depending on the
+ * device tree definitions, the driver automatically selects the correct
+ * transfer functions for reading and writing raw data.
  */
 struct mfd_sc16is75x_transfer_function {
-	/** read raw data */
-	int (*read_raw)(const struct device *dev, const uint8_t sub_address,
-			uint8_t *buf, const size_t len);
-	/** write raw data */
-	int (*write_raw)(const struct device *dev, const uint8_t sub_address,
-			 const uint8_t *buf, const size_t len);
+	/** read raw data asynchronously */
+	int (*read_raw)(const struct device *dev,
+			const uint8_t sub_address,
+			uint8_t *buf, const size_t len,
+			struct k_poll_signal *sig);
+	/** write raw data asynchronously */
+	int (*write_raw)(const struct device *dev,
+			 const uint8_t sub_address,
+			 const uint8_t *buf, const size_t len,
+			 struct k_poll_signal *sig);
+};
+
+/**
+ * @brief SC16IS75X MFD data for asynchronous interrupt handling
+ */
+struct sc16is75x_interrupt_data {
+	/** IIR value per channels */
+	uint8_t iir[SC16IS75X_UART_CHANNELS_MAX];
+	/** asynchronous notification signal per channel */
+	struct k_poll_signal signals[SC16IS75X_UART_CHANNELS_MAX];
 };
 
 /**
@@ -82,8 +96,13 @@ struct mfd_sc16is75x_data {
 	struct k_mutex transaction_lock;
 	/** GPIO port interrupt callback */
 	struct gpio_callback interrupt_cb;
-	/** GPIO port interrupt worker */
+	/** Interrupt handling work items */
+	struct k_work interrupt_work_init;
 	struct k_work interrupt_work;
+	/** Interrupt handling lock */
+	struct k_sem interrupt_lock;
+	/** Struct for passing data between interrupt handling work items */
+	struct sc16is75x_interrupt_data interrupt_data;
 	/** Chield callbacks for interrupt handling */
 	sys_slist_t callbacks;
 };

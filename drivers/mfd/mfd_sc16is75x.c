@@ -45,9 +45,10 @@ static inline int mfd_sc16is75x_sub_address(const bool read,
 	return 0;
 }
 
-static int mfd_sc16is75x_read(const struct device *dev,
-			      const uint8_t channel, const uint8_t reg,
-			      uint8_t *buf, const size_t len)
+static int mfd_sc16is75x_read_signal(const struct device *dev,
+				     const uint8_t channel, const uint8_t reg,
+				     uint8_t *buf, const size_t len,
+				     struct k_poll_signal *signal)
 {
 	struct mfd_sc16is75x_data * const data = dev->data;
 	uint8_t sub_address = 0;
@@ -59,15 +60,52 @@ static int mfd_sc16is75x_read(const struct device *dev,
 		return ret;
 	}
 
-	return data->transfer_function->read_raw(dev, sub_address, buf, len);
+	return data->transfer_function->read_raw(dev, sub_address, buf, len, signal);
+}
+
+#define READ_SC16IS75X_CHREG_SIGNAL(dev, ch, reg, val, sig)                  \
+	mfd_sc16is75x_read_signal((dev), (ch), SC16IS75X_REG_##reg,          \
+					       (val), 1, (sig));
+
+static int mfd_sc16is75x_read(const struct device *dev,
+			      const uint8_t channel, const uint8_t reg,
+			      uint8_t *buf, const size_t len)
+{
+	struct k_poll_signal signal = {0};
+	struct k_poll_event events[1] = {
+		K_POLL_EVENT_INITIALIZER(K_POLL_TYPE_SIGNAL,
+		K_POLL_MODE_NOTIFY_ONLY,
+		&signal),
+	};
+	int signaled = 0;
+	int result = 0;
+	int ret = 0;
+
+	/* Begin asynchronous operation */
+	k_poll_signal_init(&signal);
+	ret = mfd_sc16is75x_read_signal(dev, channel, reg, buf, len, &signal);
+	if (ret != 0) {
+		return ret;
+	}
+
+	/* Wait for completion and extract result from signal */
+	k_poll(events, 1, K_FOREVER);
+	k_poll_signal_check(&signal, &signaled, &result);
+
+	if (!signaled) {
+		return -1; /* TODO: Figure out correct error code */
+	}
+
+	return result;
 }
 
 #define READ_SC16IS75X_CHANNEL(dev, ch, reg, buf, len)                       \
 	mfd_sc16is75x_read((dev), (ch), SC16IS75X_REG_##reg, (buf), (len));
 
-static int mfd_sc16is75x_write(const struct device *dev,
-			       const uint8_t channel, const uint8_t reg,
-			       const uint8_t *buf, const size_t len)
+static int mfd_sc16is75x_write_signal(const struct device *dev,
+				      const uint8_t channel, const uint8_t reg,
+				      const uint8_t *buf, const size_t len,
+				      struct k_poll_signal *signal)
 {
 	struct mfd_sc16is75x_data * const data = dev->data;
 	uint8_t sub_address = 0;
@@ -79,7 +117,36 @@ static int mfd_sc16is75x_write(const struct device *dev,
 		return ret;
 	}
 
-	return data->transfer_function->write_raw(dev, sub_address, buf, len);
+	return data->transfer_function->write_raw(dev, sub_address, buf, len, signal);
+}
+
+static int mfd_sc16is75x_write(const struct device *dev,
+			       const uint8_t channel, const uint8_t reg,
+			       const uint8_t *buf, const size_t len)
+{
+	struct k_poll_signal signal = {0};
+	struct k_poll_event events[1] = {
+		K_POLL_EVENT_INITIALIZER(K_POLL_TYPE_SIGNAL,
+		K_POLL_MODE_NOTIFY_ONLY,
+		&signal),
+	};
+	int signaled = 0;
+	int result = 0;
+	int ret = 0;
+
+	/* Begin asynchronous operation */
+	k_poll_signal_init(&signal);
+	ret = mfd_sc16is75x_write_signal(dev, channel, reg, buf, len, &signal);
+
+	/* Wait for completion and extract result from signal */
+	k_poll(events, 1, K_FOREVER);
+	k_poll_signal_check(&signal, &signaled, &result);
+
+	if (!signaled) {
+		return -1; /* TODO: Figure out correct error code */
+	}
+
+	return result;
 }
 
 #define WRITE_SC16IS75X_CHANNEL(dev, ch, reg, buf, len)                      \
@@ -158,51 +225,123 @@ int mfd_sc16is75x_remove_callback(const struct device *dev,
 	return gpio_manage_callback(&data->callbacks, callback, false);
 }
 
+static void mfd_sc16is75x_interrupt_work_init_fn(struct k_work *work)
+{
+	struct mfd_sc16is75x_data * const data = CONTAINER_OF(work,
+			struct mfd_sc16is75x_data, interrupt_work_init);
+	const struct device * const dev = data->self;
+	int ret = 0;
+
+	/*
+	 * Attempt to get interrupt handling lock. If it's taken,
+	 * that means a handling transaction is already active.
+	 * In that case, reschedule self.
+	 */
+	ret = k_sem_take(&data->interrupt_lock, K_NO_WAIT);
+	if (ret != 0) {
+		k_work_submit(work);
+		return;
+	}
+
+	/* Initiate reading from IIRs */
+	for (int ch = 0; ch < SC16IS75X_UART_CHANNELS_MAX; ch++) {
+		data->interrupt_data.iir[ch] = BIT(SC16IS75X_BIT_IIR_PENDING);
+		k_poll_signal_init(&data->interrupt_data.signals[ch]);
+		ret = READ_SC16IS75X_CHREG_SIGNAL(dev, ch, IIR,
+						  &data->interrupt_data.iir[ch],
+						  &data->interrupt_data.signals[ch]);
+		if (ret != 0) {
+			/*
+			 * Propagate a failure to start the transfer the same
+			 * as a failure to complete it: Have the finalizing
+			 * work item retry the whole handling process.
+			 * To do this, raise the signal ourselves with
+			 * a generic error.
+			 */
+			k_poll_signal_raise(&data->interrupt_data.signals[ch], -1);
+		}
+	}
+
+	/* Schedule finalizing work item. */
+	ret = k_work_submit(&data->interrupt_work);
+	if (ret != 0 && ret != 1) {
+		/*
+		 * Result ret == 0 shouldn't happen, but is permissible:
+		 * at least we know the item will run. Other return values
+		 * mean we can't rely on the item to run, so we must release
+		 * the lock here to prevent a deadlock on the next interrupt.
+		 */
+		k_sem_give(&data->interrupt_lock);
+	}
+}
+
 static void mfd_sc16is75x_interrupt_work_fn(struct k_work *work)
 {
 	struct mfd_sc16is75x_data * const data = CONTAINER_OF(work,
 			struct mfd_sc16is75x_data, interrupt_work);
 	const struct device * const dev = data->self;
 	const struct mfd_sc16is75x_config * const config = dev->config;
-	uint8_t iir[SC16IS75X_UART_CHANNELS_MAX] = {
-		BIT(SC16IS75X_BIT_IIR_PENDING),
-		BIT(SC16IS75X_BIT_IIR_PENDING)
-	};
 	enum mfd_sc16is75x_event event;
-	bool retry = false; /* either IIR read error or until no pending */
-	int ret = 0;
+	bool retry = false;
 
-	/* Read all interrupt identification types in an atomic loop */
-	k_mutex_lock(&data->transaction_lock, K_FOREVER);
+	struct k_poll_event poll_events[SC16IS75X_UART_CHANNELS_MAX];
+	int results[SC16IS75X_UART_CHANNELS_MAX] = {0};
+
+	/* Check for completion of running transfers */
 	for (int ch = 0; ch < SC16IS75X_UART_CHANNELS_MAX; ch++) {
-		ret = READ_SC16IS75X_CHREG(dev, ch, IIR, &iir[ch]);
-		if (ret != 0) {
-			LOG_WRN("%s: IIR[%d] read failed (lose IRQ reason): %d",
-				dev->name, ch, ret);
+		poll_events[ch] = (struct k_poll_event)K_POLL_EVENT_INITIALIZER(
+				K_POLL_TYPE_SIGNAL,
+				K_POLL_MODE_NOTIFY_ONLY,
+				&data->interrupt_data.signals[ch]
+		);
+	}
+
+	k_poll(poll_events, SC16IS75X_UART_CHANNELS_MAX, K_NO_WAIT);
+	for (int ch = 0; ch < SC16IS75X_UART_CHANNELS_MAX; ch++) {
+		int signaled = 0;
+
+		k_poll_signal_check(&data->interrupt_data.signals[ch], &signaled, &results[ch]);
+		if (!signaled) {
+			/* At least one transfer isn't done yet, continue spinning */
+			k_work_submit(work);
+			return;
+		}
+	}
+
+	/*
+	 * Once all transfers are complete, check return values.
+	 * If any transfers failed, retry the interrupt handling
+	 * precedure.
+	 */
+	for (int ch = 0; ch < SC16IS75X_UART_CHANNELS_MAX; ch++) {
+		if (results[ch] != 0) {
 			retry = true;
 			break;
 		}
 	}
-	k_mutex_unlock(&data->transaction_lock);
 
-	if (retry) {
-		LOG_WRN("%s: retry IRQ handling", dev->name);
-		k_work_submit(&data->interrupt_work);
-		return;
-	};
-
-	/* Sorting out and triggering callbacks for the various types */
+	/*
+	 * Sort out and trigger callbacks for the various types.
+	 * Skip channels whose IIR reading transfer failed.
+	 */
 	for (int ch = 0; ch < SC16IS75X_UART_CHANNELS_MAX; ch++) {
-		uint8_t type = GET_FIELD(iir[ch], SC16IS75X_BIT_IIR_TYPE);
+		uint8_t type;
+
+		/* fast skip, if transfer was failing before */
+		if (results[ch] != 0) {
+			continue;
+		}
 
 		/* channel has not fired (0: pending, 1: not pending) */
-		if (IS_BIT_SET(iir[ch], SC16IS75X_BIT_IIR_PENDING)) {
+		if (IS_BIT_SET(data->interrupt_data.iir[ch], SC16IS75X_BIT_IIR_PENDING)) {
 			continue;
 		};
 
 		/* reset event number for each channel iterration */
 		event = SC16IS75X_EVENT_MAX;
 
+		/* fumble out interrupt type and convert to MFD event */
+		type = GET_FIELD(data->interrupt_data.iir[ch], SC16IS75X_BIT_IIR_TYPE);
 		if (type == SC16IS75X_INT_RXLSE) {          /* priority 1 */
 			retry = true;
 			event = ch ? SC16IS75X_EVENT_UART1_RXLSE
@@ -243,17 +382,16 @@ static void mfd_sc16is75x_interrupt_work_fn(struct k_work *work)
 		}
 	}
 
-	/* Resubmit handler to queue to look for further pending interrupts */
-	if (retry) {
-		k_work_submit(&data->interrupt_work);
-		return;
+	/*
+	 * Resubmit handler to queue to look for further pending interrupts,
+	 * or if interrupt pin is still active.
+	 */
+	if (retry || gpio_pin_get_dt(&config->interrupt) != 0) {
+		k_work_submit(&data->interrupt_work_init);
 	};
 
-	/* Resubmit handler to queue if interrupt is still active */
-	if (gpio_pin_get_dt(&config->interrupt) != 0) {
-		k_work_submit(&data->interrupt_work);
-		return;
-	}
+	/* Release lock */
+	k_sem_give(&data->interrupt_lock);
 }
 
 static void mfd_sc16is75x_interrupt_callback(const struct device *dev,
@@ -267,7 +405,7 @@ static void mfd_sc16is75x_interrupt_callback(const struct device *dev,
 	struct mfd_sc16is75x_data * const data = CONTAINER_OF(cb,
 			struct mfd_sc16is75x_data, interrupt_cb);
 
-	k_work_submit(&data->interrupt_work);
+	k_work_submit(&data->interrupt_work_init);
 }
 
 static int mfd_sc16is75x_init(const struct device *dev)
@@ -327,7 +465,9 @@ static int mfd_sc16is75x_init(const struct device *dev)
 	}
 
 	/* Set up interrupt handling */
+	k_work_init(&data->interrupt_work_init, mfd_sc16is75x_interrupt_work_init_fn);
 	k_work_init(&data->interrupt_work, mfd_sc16is75x_interrupt_work_fn);
+	k_sem_init(&data->interrupt_lock, 1, 1); /* Lock is initially open */
 
 	gpio_init_callback(&data->interrupt_cb,
 			   mfd_sc16is75x_interrupt_callback,
