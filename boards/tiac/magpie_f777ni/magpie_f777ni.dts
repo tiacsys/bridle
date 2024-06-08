@@ -132,7 +132,7 @@
 	pinctrl-names = "default";
 	pinctrl-0 = <&can1_rx_ph14	/* CAN_RX1 */
 		     &can1_tx_ph13>;	/* CAN_TX1 */
-	bus-speed = <1000000>;
+	bitrate = <1000000>;
 	sample-point = <889>;
 }; // can1
 
@@ -141,7 +141,7 @@
 	pinctrl-names = "default";
 	pinctrl-0 = <&can2_rx_pb12	/* CAN_RX2 */
 		     &can2_tx_pb13>;	/* CAN_TX2 */
-	bus-speed = <1000000>;
+	bitrate = <1000000>;
 	sample-point = <889>;
 }; // can2
 
