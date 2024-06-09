@@ -16,11 +16,17 @@ tests:
       - s32z2xxdc2/s32z270/rtu1
       - s32z2xxdc2@D/s32z270/rtu0
       - s32z2xxdc2@D/s32z270/rtu1
+  drivers.watchdog.stm32wwdg.timing.adj:
+    filter: dt_compat_enabled("st,stm32-window-watchdog") or dt_compat_enabled("st,stm32-watchdog")
+    extra_args: DTC_OVERLAY_FILE="boards/stm32_wwdg.overlay"
+    required_snippets:
+      - wdt-timing-adj
+    platform_allow:
+      - magpie_f777ni
   drivers.watchdog.stm32wwdg:
     filter: dt_compat_enabled("st,stm32-window-watchdog") or dt_compat_enabled("st,stm32-watchdog")
     extra_args: DTC_OVERLAY_FILE="boards/stm32_wwdg.overlay"
     platform_allow:
-      - magpie_f777ni
       - nucleo_f091rc
       - nucleo_f103rb
       - nucleo_f207zg
