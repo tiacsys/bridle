@@ -35,6 +35,10 @@ sys.path.insert(0, os.path.join(BRIDLE_BASE, 'doc', '_extensions'))
 conf = eval_config_file(os.path.join(ZEPHYR_BASE, 'doc', 'conf.py'), tags)
 locals().update(conf)
 
+# Export ZEPHYR_BASE as environment variable to make autodoc for the
+# pytest-twister-harness happy.
+os.environ['ZEPHYR_BASE'] = str(ZEPHYR_BASE)
+
 # pylint: disable=undefined-variable
 
 # Project ----------------------------------------------------------------------
