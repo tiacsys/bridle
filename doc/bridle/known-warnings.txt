@@ -4,6 +4,4 @@
 # FIXME: Sphinx emits "toctree glob pattern %r didn't match any documents"
 #        instead of:
 #        .*toctree glob pattern 'applications/\*/README' didn't match any documents
-#        .*toctree glob pattern 'tests/\*/README' didn't match any documents
-#        .*toctree glob pattern '\*\*index' didn't match any documents
 .*toctree glob pattern %r didn't match any documents

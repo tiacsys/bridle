@@ -9,21 +9,20 @@
 # Coming later from kconfig docset
 .*undefined label: 'kconfig:.*'
 
-#
-# TODO: is ".. _install_dependencies_windows:"
-#       inside ".. group-tab::" realy working?
-#
-# reference target in: bridle/doc/bridle/doc_build.rst:55
-# reference target in: bridle/doc/bridle/gs_installing.rst:58
-#
-.*Duplicate explicit target name: "install_dependencies_windows"\.
+# Coming later from devicetree docset
+.*undefined label: 'devicetree:.*'
+
+# FIXME: Sphinx emits "toctree glob pattern %r didn't match any documents"
+#        instead of:
+#        .*toctree glob pattern 'applications/\*/README' didn't match any documents
+.*toctree glob pattern %r didn't match any documents
 
 #
 # TODO: is ".. _install_dependencies_linux:"
 #       inside ".. group-tab::" realy working?
 #
-# reference target in: bridle/doc/bridle/doc_build.rst:71
-# reference target in: bridle/doc/bridle/gs_installing.rst:74
+# reference target in: bridle/doc/bridle/doc_build.rst:56
+# reference target in: bridle/doc/bridle/gs_installing.rst:59
 #
 .*Duplicate explicit target name: "install_dependencies_linux"\.
 
@@ -31,14 +30,16 @@
 # TODO: is ".. _install_dependencies_macos:"
 #       inside ".. group-tab::" realy working?
 #
-# reference target in: bridle/doc/bridle/doc_build.rst:113
-# reference target in: bridle/doc/bridle/gs_installing.rst:99
+# reference target in: bridle/doc/bridle/doc_build.rst:98
+# reference target in: bridle/doc/bridle/gs_installing.rst:75
 #
 .*Duplicate explicit target name: "install_dependencies_macos"\.
 
-# FIXME: Sphinx emits "toctree glob pattern %r didn't match any documents"
-#        instead of:
-#        .*toctree glob pattern 'applications/\*/README' didn't match any documents
-#        .*toctree glob pattern 'tests/\*/README' didn't match any documents
-#        .*toctree glob pattern '\*\*index' didn't match any documents
-.*toctree glob pattern %r didn't match any documents
+#
+# TODO: is ".. _install_dependencies_windows:"
+#       inside ".. group-tab::" realy working?
+#
+# reference target in: bridle/doc/bridle/doc_build.rst:116
+# reference target in: bridle/doc/bridle/gs_installing.rst:89
+#
+.*Duplicate explicit target name: "install_dependencies_windows"\.
