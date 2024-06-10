@@ -2,20 +2,7 @@
 # that should be filtered out additional to the original filter set
 
 #
-# TODO: anchor ".. _Using J-Link RT1170:" multiple times used!
-#
-# reference target in: zephyr/boards/arm/vmu_rt1170/doc/index.rst:222
-# reference target in: zephyr/boards/arm/mimxrt1170_evk/doc/index.rst:322
-#
-.*duplicate label using j-link rt1170.*
-
-#
 # TODO: New warnings with Doxygen v1.9.8 - unknown reasons.
 #
 .*Error in declarator or parameters.*
 .*Invalid C declaration: Expected identifier in nested name.*
-
-#
-# TODO: New warnings with West v1.3 - unknown reasons.
-#
-.*Inline strong start-string without end-string.*
