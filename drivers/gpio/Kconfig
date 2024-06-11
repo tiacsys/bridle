@@ -1,10 +1,11 @@
-# Copyright (c) 2021-2023 TiaC Systems
+# Copyright (c) 2021-2024 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 if GPIO
 
 rsource "Kconfig.pca9554"
 rsource "Kconfig.pca9555"
+rsource "Kconfig.sc18is604"
 rsource "Kconfig.sipomux"
 
 endif # GPIO
