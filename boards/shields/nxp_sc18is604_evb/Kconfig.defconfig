@@ -1,0 +1,21 @@
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+if SHIELD_NXP_SC18IS604_EVB
+
+config SPI
+	default y
+
+config MFD
+	default y
+
+config POLL
+	default y
+
+config DYNAMIC_THREAD
+	default y
+
+config DYNAMIC_THREAD_POOL_SIZE
+	default 1
+
+endif # SHIELD_NXP_SC18IS604_EVB

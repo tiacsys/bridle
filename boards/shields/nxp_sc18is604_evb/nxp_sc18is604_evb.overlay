@@ -1,0 +1,93 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <freq.h>
+
+/ {
+	nxp_sc18is604_evb_gpio: nxp-sc18is604-evb-gpio-pins {
+		compatible = "nxp,sc18is604-evb-gpio-header";
+		status = "okay";
+
+		#gpio-cells = < 2 >;
+		gpio-map-mask = < 0xffffffff 0xffffffc0 >;
+		gpio-map-pass-thru = < 0 0x3f >;
+		gpio-map =
+			< 0 0 &sc18is604_gpio 0 0 >, /* IO0 */
+			< 1 0 &sc18is604_gpio 1 0 >, /* IO1 */
+			< 2 0 &sc18is604_gpio 2 0 >, /* IO2 */
+			< 3 0 &sc18is604_gpio 3 0 >, /* IO3 */
+			< 4 0 &sc18is604_gpio 4 0 >; /* IO4 (input only) */
+	};
+};
+
+&nxp_sc18is604_evb_spi {
+	sc18is604: sc18is604@0 {
+		compatible = "nxp,sc18is604";
+		status = "okay";
+		reg = < 0 >;
+
+		spi-max-frequency = <DT_FREQ_K(1200)>;
+		
+		reset-gpios = < &nxp_sc18is604_evb_hif 7 GPIO_ACTIVE_LOW >;
+		int-gpios = < &nxp_sc18is604_evb_hif 0 GPIO_ACTIVE_LOW >;
+
+		sc18is604_i2c: sc18is604-i2c {
+			compatible = "nxp,sc18is604-i2c";
+			status = "okay";
+
+			#address-cells = < 1 >;
+			#size-cells = < 0 >;
+			clock-frequency = < I2C_BITRATE_STANDARD >;
+		};
+
+		sc18is604_gpio: sc18is604-gpio {
+			compatible = "nxp,sc18is604-gpio";
+			status = "okay";
+
+			gpio-controller;
+			#gpio-cells = < 2 >;
+			ngpios = < 5 >;
+		};
+	};
+};
+
+/ {
+	/* Aliases for compatibility with samples */
+	aliases {
+		led0 = &led_d1;
+		led1 = &led_d2;
+		led2 = &led_d3;
+		led3 = &led_d4;
+	};
+
+	leds {
+		compatible = "gpio-leds";
+
+		led_d1: led-d1 {
+			/* Connected to IO0 */
+			gpios = < &sc18is604_gpio 0 GPIO_ACTIVE_LOW >;
+		};
+
+		led_d2: led-d2 {
+			/* Connected to IO1 */
+			gpios = < &sc18is604_gpio 1 GPIO_ACTIVE_LOW >;
+		};
+
+		led_d3: led-d3 {
+			/* Connected to IO2 */
+			gpios = < &sc18is604_gpio 2 GPIO_ACTIVE_LOW >;
+		};
+
+		led_d4: led-d4 {
+			/* Connected to IO3 */
+			gpios = < &sc18is604_gpio 3 GPIO_ACTIVE_LOW >;
+		};
+
+		/*
+		 * LED D10 is connected to IO4, which can only be used
+		 * as input and can not configured.
+		 */
+	};
+};
