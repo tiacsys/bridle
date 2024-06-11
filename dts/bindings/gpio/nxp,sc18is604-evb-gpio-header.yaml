@@ -1,0 +1,13 @@
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+  GPIO pins exposed on an NXP SC18IS604-EVB.
+
+  The SC18IS604-EVB features four separate headers, one of which is a jumper
+  array. This binding describes the pins exposed on the header JP2, on pins 1
+  through 5 (pin 6 is wired to GND).
+
+compatible: "nxp,sc18is604-evb-gpio-header"
+
+include: [base.yaml, gpio-nexus.yaml]

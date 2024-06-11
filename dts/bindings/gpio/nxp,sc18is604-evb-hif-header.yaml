@@ -1,0 +1,14 @@
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+  Host interface exposed on NXP SC18IS604-EVB board headers.
+
+  The SC18IS604-EVB features four separate headers, one of which is a jumper
+  array. The host interface described by this binding comprises the header JP1
+  (pins 1 through 7), as well as pin 7 of the jumper array JP6, which exposes
+  the SC18IS604's reset pin.
+
+compatible: "nxp,sc18is604-evb-hif-header"
+
+include: [base.yaml, gpio-nexus.yaml]
