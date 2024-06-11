@@ -1,0 +1,27 @@
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+config MFD
+	default y
+	depends on SHIELD_NXP_SC18IS604_EVB
+
+config SPI
+	default y
+	depends on SHIELD_NXP_SC18IS604_EVB
+
+config I2C
+	default y if DT_HAS_NXP_SC18IS604_I2C_ENABLED
+	depends on SHIELD_NXP_SC18IS604_EVB
+
+config GPIO
+	default y if DT_HAS_NXP_SC18IS604_GPIO_ENABLED
+	depends on SHIELD_NXP_SC18IS604_EVB
+
+config DYNAMIC_THREAD_POOL_SIZE
+	default 1 if MFD_SC18IS604_ASYNC && !DYNAMIC_THREAD_ALLOC
+	depends on SHIELD_NXP_SC18IS604_EVB && MFD_SC18IS604
+
+# observation: set to half size to avoid "Verify failed" error
+config EEPROM_SHELL_BUFFER_SIZE
+	default 128 if DT_HAS_NXP_SC18IS604_I2C_ENABLED
+	depends on SHIELD_NXP_SC18IS604_EVB && EEPROM_SHELL

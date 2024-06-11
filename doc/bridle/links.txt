@@ -459,6 +459,26 @@
 
 
 
+.. ### Links to NXP Semiconductors
+
+.. _`NXP`: https://www.nxp.com/
+
+.. ### Links to NXP SC18IS604-EVB
+
+.. _`SC18IS604-EVB`:
+   https://www.nxp.com/products:SC18IS604-EVB
+
+.. _`SC18IS604-EVB User Manual`:
+   https://www.nxp.com/docs/en/user-manual/UM11665.pdf
+
+.. _`SC18IS604-EVB Design Files`:
+   https://www.nxp.com/webapp/Download?colCode=DESIGN-FILES-SC18IS604-EVB
+
+.. _`SC18IS604-EVB Schematic`:
+   https://www.nxp.com/webapp/Download?colCode=SPF-50629
+
+
+
 .. ### Links to Cytron Systems
 
 .. _`Cytron Marktplace`:
@@ -1095,6 +1115,12 @@
    https://cdn.ozdisan.com/ETicaret_Dosya/481354_7974359.pdf
 
 .. #### Links to LED or Lamps, either simple or complex with control logic on-chip
+
+.. _`PCA9533`:
+   https://www.nxp.com/products:PCA9533
+
+.. _`PCA9533 Datasheet`:
+   https://www.nxp.com/docs/en/data-sheet/PCA9533.pdf
 
 .. _`WS2812B`:
    http://www.world-semi.com/ws2812-family
@@ -1794,6 +1820,12 @@
 .. _`SC16IS762 Datasheet`:
    https://www.nxp.com/docs/en/data-sheet/SC16IS752_SC16IS762.pdf
 
+.. _`SC18IS604`:
+   https://www.nxp.com/products:SC18IS604
+
+.. _`SC18IS604 Datasheet`:
+   https://www.nxp.com/docs/en/data-sheet/SC18IS604.pdf
+
 .. #### Links to Ethernet Controllers or similar to drive networks
 
 .. _`CH9120`:
@@ -1810,6 +1842,24 @@
 .. https://www.waveshare.com/wiki/RP2040-ETH#Document
 
 .. #### Links to Memory Units or Controllers or similar to drive process memory
+
+.. _`24AA02`:
+   https://www.microchip.com/product/24AA02
+
+.. _`24FC02`:
+   https://www.microchip.com/product/24FC02
+
+.. _`24LC02B`:
+   https://www.microchip.com/product/24LC02B
+
+.. _`24AA02/24LC02B/24FC02 Datasheet Rev. N (2021/08)`:
+   https://ww1.microchip.com/downloads/en/DeviceDoc/24AA02-24LC02B-24FC02-2K-I2C-Serial-EEPROM-20001709N.pdf
+
+.. _`24AA02/24LC02B/24FC02 Datasheet Rev. M (2021/03)`:
+   https://ww1.microchip.com/downloads/en/DeviceDoc/24AA02-24LC02B-24FC02-2K-I2C-Serial-EEPROM-20001709M.pdf
+
+.. _`24AA02/24LC02B/24FC02 Datasheet Rev. L (2019/05)`:
+   https://ww1.microchip.com/downloads/en/DeviceDoc/24AA02-24LC02B-24FC02-Data-Sheet-20001709L.pdf
 
 .. _`APS6404`:
    https://www.apmemory.com/products/psram-iot-ram

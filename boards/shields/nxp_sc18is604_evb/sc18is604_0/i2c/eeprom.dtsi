@@ -1,0 +1,17 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+&nxp_sc18is604_evb_i2c {
+	nxp_sc18is604_evb_eeprom: sc18is604-0-eeprom@50 {
+		compatible = "microchip,24lc02b", "atmel,at24";
+		status = "okay";
+		reg = <0x50>;
+
+		size = <256>;
+		pagesize = <4>;
+		address-width = <8>;
+		timeout = <5>;
+	};
+};

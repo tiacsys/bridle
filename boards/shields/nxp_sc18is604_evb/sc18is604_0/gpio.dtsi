@@ -1,0 +1,32 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	nxp_sc18is604_evb_gpio: nxp-sc18is604-evb-gpio-pins {
+		compatible = "nxp,sc18is604-evb-gpio-header";
+		status = "okay";
+
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <0 0 &sc18is604_0_gpio 0 0>,	/* IO0 */
+			   <1 0 &sc18is604_0_gpio 1 0>,	/* IO1 */
+			   <2 0 &sc18is604_0_gpio 2 0>,	/* IO2 */
+			   <3 0 &sc18is604_0_gpio 3 0>,	/* IO3 */
+			   <4 0 &sc18is604_0_gpio 4 0>;	/* IO4 (input only) */
+	};
+};
+
+&sc18is604_0_gpio {
+	compatible = "nxp,sc18is604-gpio";
+	status = "okay";
+
+	gpio-controller;
+	#gpio-cells = <2>;
+
+	ngpios = <5>;
+
+	gpio-line-names = "IO0", "IO1", "IO2", "IO3", "IO4";
+};

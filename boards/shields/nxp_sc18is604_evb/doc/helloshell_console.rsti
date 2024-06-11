@@ -1,0 +1,223 @@
+.. rubric:: Simple test execution on target
+
+(text in bold is a command input)
+
+.. tabs::
+
+   .. group-tab:: Basics
+
+      .. parsed-literal::
+         :class: highlight-console notranslate
+
+         :bgn:`uart:~$` **hello -h**
+         hello - say hello
+         :bgn:`uart:~$` **hello**
+         Hello from shell.
+
+         :bgn:`uart:~$` **hwinfo devid**
+         Length: 8
+         ID: 0x8c998be1de969148
+
+         :bgn:`uart:~$` **kernel version**
+         Zephyr version |zephyr_version_number_em|
+
+         :bgn:`uart:~$` **bridle version**
+         Bridle version |version_number_em|
+
+         :bgn:`uart:~$` **bridle version long**
+         Bridle version |longversion_number_em|
+
+         :bgn:`uart:~$` **bridle info**
+         Zephyr: |zephyr_release_number_em|
+         Bridle: |release_number_em|
+
+         :bgn:`uart:~$` **device list**
+         devices:
+         - rcc\ @\ 40023800 (READY)
+         - reset-controller (READY)
+         - interrupt-controller\ @\ 40013c00 (READY)
+         - gpio\ @\ 40022800 (READY)
+         - gpio\ @\ 40022400 (READY)
+         - gpio\ @\ 40022000 (READY)
+         - gpio\ @\ 40021C00 (READY)
+         - gpio\ @\ 40021800 (READY)
+         - gpio\ @\ 40021400 (READY)
+         - gpio\ @\ 40021000 (READY)
+         - gpio\ @\ 40020C00 (READY)
+         - gpio\ @\ 40020800 (READY)
+         - gpio\ @\ 40020400 (READY)
+         - gpio\ @\ 40020000 (READY)
+         - serial\ @\ 40011400 (READY)
+         - serial\ @\ 40004800 (READY)
+         - adc\ @\ 40012000 (READY)
+         - dac\ @\ 40007400 (READY)
+         - flash-controller\ @\ 40023c00 (READY)
+         - i2c\ @\ 40005800 (READY)
+         - i2c\ @\ 40005400 (READY)
+         - pwm (READY)
+         - spi\ @\ 40013000 (READY)
+         - sc18is604\ @\ 0 (READY)
+         - sc18is604-0-i2c (READY)
+         - sc18is604-0-eeprom\ @\ 50 (READY)
+         - sc18is604-0-gpio (READY)
+         - sc18is604-0-gpio-leds (READY)
+         - leds (READY)
+         - dietemp (READY)
+         - vbat (READY)
+         - vref (READY)
+
+         :bgn:`uart:~$` **history**
+         [  0] history
+         [  1] device list
+         [  2] bridle info
+         [  3] bridle version long
+         [  4] bridle version
+         [  5] kernel version
+         [  6] hwinfo devid
+         [  7] hello
+         [  8] hello -h
+
+   .. group-tab:: LED
+
+      Operate with the on-shield LED :hwftlbl-led:`D3` at :rpi-pico-pio:`IO2`:
+
+      .. parsed-literal::
+         :class: highlight-console notranslate
+
+         :bgn:`uart:~$` **led on sc18is604-0-gpio-leds 2**
+         sc18is604-0-gpio-leds: turning on LED 2
+
+         :bgn:`uart:~$` **led off sc18is604-0-gpio-leds 2**
+         sc18is604-0-gpio-leds: turning off LED 2
+
+         :bgn:`uart:~$` **led set_brightness sc18is604-0-gpio-leds 2 100**
+         sc18is604-0-gpio-leds: setting LED 2 brightness to 100
+
+         :bgn:`uart:~$` **led set_brightness sc18is604-0-gpio-leds 2 10**
+         sc18is604-0-gpio-leds: setting LED 2 brightness to 10
+
+         :bgn:`uart:~$` **led set_brightness sc18is604-0-gpio-leds 2 0**
+         sc18is604-0-gpio-leds: setting LED 2 brightness to 0
+
+   .. group-tab:: GPIO
+
+      Operate with the on-shield LED :hwftlbl-led:`D2` at :rpi-pico-pio:`IO1`:
+
+      .. parsed-literal::
+         :class: highlight-console notranslate
+
+         :bgn:`uart:~$` **gpio get sc18is604-0-gpio 1**
+         0
+
+         :bgn:`uart:~$` **gpio conf sc18is604-0-gpio 1 ol0**
+         :bgn:`uart:~$` **gpio set sc18is604-0-gpio 1 1**
+         :bgn:`uart:~$` **gpio set sc18is604-0-gpio 1 0**
+
+         :bgn:`uart:~$` **gpio blink sc18is604-0-gpio 1**
+         Hit any key to exit
+
+      .. image:: img/SC18IS604-EVB-SW1-IO4-wiring.jpg
+         :scale: 85%
+         :align: right
+         :alt: NXP SC18IS604-EVB SW1 to IO4 Wiring Diagram
+
+      Operate with the abused on-shield RESET key :hwftlbl-btn:`SW1`
+      at :rpi-pico-pio:`IO4` (see wiring beside):
+
+      .. parsed-literal::
+         :class: highlight-console notranslate
+
+         :bgn:`uart:~$` **gpio get sc18is604-0-gpio 4**
+         1
+
+         :bgn:`uart:~$` **gpio conf sc18is604-0-gpio 4 iul**
+         :bgn:`uart:~$` **gpio get sc18is604-0-gpio 4**
+         0
+         :bgn:`uart:~$` **gpio get sc18is604-0-gpio 4**
+         1
+         :bgn:`uart:~$` **gpio get sc18is604-0-gpio 4**
+         0
+
+   .. group-tab:: I2C
+
+      Scan the on-shield I2C devices, the EEPROM and the 4-bit PWM controller:
+
+      .. parsed-literal::
+         :class: highlight-console notranslate
+
+         :bgn:`uart:~$` **i2c scan sc18is604-0-i2c**
+              0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+         00:             -- -- -- -- -- -- -- -- -- -- -- --
+         10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+         20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+         30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+         40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+         50: 50 51 52 53 54 55 56 57 -- -- -- -- -- -- -- --
+         60: -- -- 62 -- -- -- -- -- -- -- -- -- -- -- -- --
+         70: -- -- -- -- -- -- -- --
+         9 devices found on sc18is604-0-i2c
+
+      The I2C address ``0x50`` to ``0x57`` is the 256×8-bit EEPROM 24LC02B_.
+      The I2C address ``0x62`` is the 4-bit PWM controller PCA9533_.
+
+      Operate with the on-shield 4-bit PWM controller on the new I2C bus,
+      as described in the `PCA9533 Datasheet`_. Control the on-shield LED
+      :hwftlbl-led:`D6` at :rpi-pico-pwm:`LED0`:
+
+      .. parsed-literal::
+         :class: highlight-console notranslate
+
+         :bgn:`uart:~$` **i2c write_byte sc18is604-0-i2c 62 5 1**
+         :bgn:`uart:~$` **i2c write_byte sc18is604-0-i2c 62 5 2**
+         :bgn:`uart:~$` **i2c write_byte sc18is604-0-i2c 62 5 0**
+
+   .. group-tab:: EEPROM
+
+      Operate with the on-shield 256×8-bit EEPROM (256 byte):
+
+      .. parsed-literal::
+         :class: highlight-console notranslate
+
+         :bgn:`uart:~$` **eeprom read sc18is604-0-eeprom@50 0 32**
+         Reading 32 bytes from EEPROM, offset 0...
+         00000000: 11 02 03 04 23 42 ff ff  ff ff ff ff ff ff ff ff \|....#B.. ........\|
+         00000010: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+
+         :bgn:`uart:~$` **eeprom fill sc18is604-0-eeprom@50 0 256 0x5a**
+         Writing 256 bytes of 0x5a to EEPROM...
+         Verifying...
+         Verify OK
+
+         :bgn:`uart:~$` **eeprom read sc18is604-0-eeprom@50 0 256**
+         Reading 256 bytes from EEPROM, offset 0...
+         00000000: 5a 5a 5a 5a 5a 5a 5a 5a  5a 5a 5a 5a 5a 5a 5a 5a \|ZZZZZZZZ ZZZZZZZZ\|
+         00000010: 5a 5a 5a 5a 5a 5a 5a 5a  5a 5a 5a 5a 5a 5a 5a 5a \|ZZZZZZZZ ZZZZZZZZ\|
+         00000020: 5a 5a 5a 5a 5a 5a 5a 5a  5a 5a 5a 5a 5a 5a 5a 5a \|ZZZZZZZZ ZZZZZZZZ\|
+         00000030: 5a 5a 5a 5a 5a 5a 5a 5a  5a 5a 5a 5a 5a 5a 5a 5a \|ZZZZZZZZ ZZZZZZZZ\|
+         00000040: 5a 5a 5a 5a 5a 5a 5a 5a  5a 5a 5a 5a 5a 5a 5a 5a \|ZZZZZZZZ ZZZZZZZZ\|
+         00000050: 5a 5a 5a 5a 5a 5a 5a 5a  5a 5a 5a 5a 5a 5a 5a 5a \|ZZZZZZZZ ZZZZZZZZ\|
+         00000060: 5a 5a 5a 5a 5a 5a 5a 5a  5a 5a 5a 5a 5a 5a 5a 5a \|ZZZZZZZZ ZZZZZZZZ\|
+         00000070: 5a 5a 5a 5a 5a 5a 5a 5a  5a 5a 5a 5a 5a 5a 5a 5a \|ZZZZZZZZ ZZZZZZZZ\|
+         00000080: 5a 5a 5a 5a 5a 5a 5a 5a  5a 5a 5a 5a 5a 5a 5a 5a \|ZZZZZZZZ ZZZZZZZZ\|
+         00000090: 5a 5a 5a 5a 5a 5a 5a 5a  5a 5a 5a 5a 5a 5a 5a 5a \|ZZZZZZZZ ZZZZZZZZ\|
+         000000A0: 5a 5a 5a 5a 5a 5a 5a 5a  5a 5a 5a 5a 5a 5a 5a 5a \|ZZZZZZZZ ZZZZZZZZ\|
+         000000B0: 5a 5a 5a 5a 5a 5a 5a 5a  5a 5a 5a 5a 5a 5a 5a 5a \|ZZZZZZZZ ZZZZZZZZ\|
+         000000C0: 5a 5a 5a 5a 5a 5a 5a 5a  5a 5a 5a 5a 5a 5a 5a 5a \|ZZZZZZZZ ZZZZZZZZ\|
+         000000D0: 5a 5a 5a 5a 5a 5a 5a 5a  5a 5a 5a 5a 5a 5a 5a 5a \|ZZZZZZZZ ZZZZZZZZ\|
+         000000E0: 5a 5a 5a 5a 5a 5a 5a 5a  5a 5a 5a 5a 5a 5a 5a 5a \|ZZZZZZZZ ZZZZZZZZ\|
+         000000F0: 5a 5a 5a 5a 5a 5a 5a 5a  5a 5a 5a 5a 5a 5a 5a 5a \|ZZZZZZZZ ZZZZZZZZ\|
+
+         :bgn:`uart:~$` **eeprom fill sc18is604-0-eeprom@50 0 256 0xff**
+         Writing 256 bytes of 0xff to EEPROM...
+         Verifying...
+         Verify OK
+
+         :bgn:`uart:~$` **eeprom write sc18is604-0-eeprom@50 0 17 2 3 4 35 66**
+         Writing 6 bytes to EEPROM...
+         Verifying...
+         Verify OK
+
+         :bgn:`uart:~$` **eeprom read sc18is604-0-eeprom@50 0 32**
+         Reading 32 bytes from EEPROM, offset 0...
+         00000000: 11 02 03 04 23 42 ff ff  ff ff ff ff ff ff ff ff \|....#B.. ........\|
+         00000010: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|

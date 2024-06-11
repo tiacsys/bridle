@@ -1,0 +1,9 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/*
+ * This file is intentionally empty.  There is currently no device driver
+ * support for the PCA9533 LED dimmer, either in Zephyr or in Bridle.
+ */

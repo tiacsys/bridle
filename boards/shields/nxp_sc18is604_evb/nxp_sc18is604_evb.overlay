@@ -1,0 +1,33 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	/* Aliases for compatibility with samples */
+	aliases {
+		led0 = &nxp_sc18is604_evb_green_led_d1;
+		led1 = &nxp_sc18is604_evb_green_led_d2;
+		led2 = &nxp_sc18is604_evb_green_led_d3;
+		led3 = &nxp_sc18is604_evb_green_led_d4;
+		eeprom-0 = &nxp_sc18is604_evb_eeprom;
+	};
+};
+
+&nxp_sc18is604_evb_spi {
+	status = "okay";
+
+	sc18is604_0: sc18is604@0 {
+		reg = <0>;
+
+		sc18is604_0_i2c: sc18is604-0-i2c {};
+		sc18is604_0_gpio: sc18is604-0-gpio {};
+	};
+};
+
+nxp_sc18is604_evb_i2c: &sc18is604_0_i2c {};
+
+#include "sc18is604_0/core.dtsi"
+#include "sc18is604_0/i2c.dtsi"
+#include "sc18is604_0/gpio.dtsi"
+#include "sc18is604_0/leds.dtsi"

@@ -1,0 +1,41 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
+/ {
+	nxp_sc18is604_evb_gpio_leds: sc18is604-0-gpio-leds {
+		compatible = "gpio-leds";
+
+		/* Green LED D1 is connected to IO0 */
+		nxp_sc18is604_evb_green_led_d1: sc18is604-0-gpio-0-led {
+			gpios = <&sc18is604_0_gpio 0 GPIO_ACTIVE_LOW>;
+			label = "SC18IS604-EVB LED D1";
+		};
+
+		/* Green LED D2 is connected to IO1 */
+		nxp_sc18is604_evb_green_led_d2: sc18is604-0-gpio-1-led {
+			gpios = <&sc18is604_0_gpio 1 GPIO_ACTIVE_LOW>;
+			label = "SC18IS604-EVB LED D2";
+		};
+
+		/* Green LED D3 is connected to IO2 */
+		nxp_sc18is604_evb_green_led_d3: sc18is604-0-gpio-2-led {
+			gpios = <&sc18is604_0_gpio 2 GPIO_ACTIVE_LOW>;
+			label = "SC18IS604-EVB LED D3";
+		};
+
+		/* Green LED D4 is connected to IO3 */
+		nxp_sc18is604_evb_green_led_d4: sc18is604-0-gpio-3-led {
+			gpios = <&sc18is604_0_gpio 3 GPIO_ACTIVE_LOW>;
+			label = "SC18IS604-EVB LED D4";
+		};
+
+		/*
+		 * Green LED D10 is connected to IO4, which can
+		 * only be used as input and can not configured.
+		 */
+	};
+};

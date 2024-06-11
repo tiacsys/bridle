@@ -1,0 +1,11 @@
+See also Zephyr sample: :zephyr:code-sample:`zephyr:pwm-blinky`.
+
+.. zephyr-app-commands::
+   :app: zephyr/samples/basic/blinky_pwm
+   :build-dir: nxp_sc18is604_evb
+   :board: nucleo_f746zg
+   :shield: "x_nxp_sc18is604_evb;nxp_sc18is604_evb"
+   :west-args: -p always
+   :goals: flash
+   :host-os: unix
+   :compact:
