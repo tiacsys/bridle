@@ -1,0 +1,131 @@
+.. list-table::
+   :class: longtable
+   :align: center
+   :header-rows: 1
+
+   * - Arduino Uno (R3)
+     - :dtcompatible:`arduino-header-r3`
+     - :dtcompatible:`nxp,sc18is604-evb-hif-header`
+     - :ref:`nxp_sc18is604_evb_shield`
+
+   * - :rpi-pico-vdd:`3V3`
+     -
+     -
+     - :rpi-pico-vdd:`VCC`
+
+   * - :rpi-pico-adc:`A0` /
+       :rpi-pico-pio:`D14`
+     - :rpi-pico-pin:`0`
+     -
+     -
+
+   * - :rpi-pico-adc:`A1` /
+       :rpi-pico-pio:`D15`
+     - :rpi-pico-pin:`1`
+     -
+     -
+
+   * - :rpi-pico-adc:`A2` /
+       :rpi-pico-pio:`D16`
+     - :rpi-pico-pin:`2`
+     -
+     -
+
+   * - :rpi-pico-adc:`A3` /
+       :rpi-pico-pio:`D17`
+     - :rpi-pico-pin:`3`
+     -
+     -
+
+   * - :rpi-pico-adc:`A4` /
+       :rpi-pico-pio:`D18`
+     - :rpi-pico-pin:`4` /
+       :rpi-pico-pin:`20`
+     -
+     -
+
+   * - :rpi-pico-adc:`A5` /
+       :rpi-pico-pio:`D19`
+     - :rpi-pico-pin:`5` /
+       :rpi-pico-pin:`21`
+     -
+     -
+
+   * - :rpi-pico-pio:`D0`
+     - :rpi-pico-pin:`6`
+     -
+     -
+
+   * - :rpi-pico-pio:`D1`
+     - :rpi-pico-pin:`7`
+     -
+     -
+
+   * - :rpi-pico-pio:`D2`
+     - :rpi-pico-pin:`8`
+     -
+     -
+
+   * - :rpi-pico-pio:`D3`
+     - :rpi-pico-pin:`9`
+     -
+     -
+
+   * - :rpi-pico-pio:`D4`
+     - :rpi-pico-pin:`10`
+     -
+     -
+
+   * - :rpi-pico-pio:`D5`
+     - :rpi-pico-pin:`11`
+     -
+     -
+
+   * - :rpi-pico-pio:`D6`
+     - :rpi-pico-pin:`12`
+     -
+     -
+
+   * - :rpi-pico-pio:`D7`
+     - :rpi-pico-pin:`13`
+     -
+     -
+
+   * - :rpi-pico-pio:`D8`
+     - :rpi-pico-pin:`14`
+     - :rpi-pico-pin:`0`
+     - :rpi-pico-pio:`nRESET` (RESET_B)
+
+   * - :rpi-pico-pio:`D9`
+     - :rpi-pico-pin:`15`
+     - :rpi-pico-pin:`1`
+     - :rpi-pico-pio:`nINT` (INT_B)
+
+   * - :rpi-pico-pio:`D10` /
+       :rpi-pico-spi-dfl:`SS`
+     - :rpi-pico-pin:`16`
+     - :rpi-pico-pin:`5`
+     - :rpi-pico-spi:`nCS` (CS_B)
+
+   * - :rpi-pico-pio:`D11` /
+       :rpi-pico-spi-dfl:`COPI`
+     - :rpi-pico-pin:`17`
+     - :rpi-pico-pin:`3`
+     - :rpi-pico-spi:`MOSI`
+
+   * - :rpi-pico-pio:`D12` /
+       :rpi-pico-spi-dfl:`CIPO`
+     - :rpi-pico-pin:`18`
+     - :rpi-pico-pin:`4`
+     - :rpi-pico-spi:`MISO`
+
+   * - :rpi-pico-pio:`D13` /
+       :rpi-pico-spi-dfl:`SCK`
+     - :rpi-pico-pin:`19`
+     - :rpi-pico-pin:`2`
+     - :rpi-pico-spi:`SCLK`
+
+   * - :rpi-pico-gnd:`GND`
+     -
+     -
+     - :rpi-pico-gnd:`GND`
