@@ -1,0 +1,38 @@
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+    GPIO pins exposed on an NXP SC18IS604-EVB.
+
+    The SC18IS604-EVB features four separate headers, one of which is a
+    jumper array. The GPIO interface described by this binding comprises
+    the pins exposed on header JP2, on pins 1 through 5 (pin 6 is wired
+    to GND).
+
+          .------------------------------------------------.
+          | .-.         ___                                |
+        - | |o| SCL   –|   |–     __                       |
+        - | |o| GND   –|   |–   =|  |=              _____  |
+        - | |o| VCC   –|   |–   =|__|=             |  _  | |
+        - | |o| SDA   –|___|–     U5               | |_| | |
+          | `-´         U4        (PWM)            |_____| |
+          | JP4         (EEPROM)  _  _  _  _        SW1    |
+          | (I2C)                |_||_||_||_|      (RESET) |
+          |              PWM-LED: 0  1  2  3               |
+          |            .---.                               |
+          |            |o o| RESET_B <–––––––––––––––––––––| -
+          |            |o-o| INT_B                     .-. |
+          | .-.        |o-o| IO3      _____      INT_B |o| | -
+        - | |o| GND    |o-o| VCC     |     |       GND |o| | -
+        4 | |o| IO4    `---´         | 604 |      SCLK |o| | -
+        3 | |o| IO3     JP5          |_____|      MOSI |o| | -
+        2 | |o| IO2     (array)       U6          MISO |o| | -
+        1 | |o| IO1                   (bridge)    CS_B |o| | -
+        0 | |o| IO0               _  _  _  _  _    VCC |o| | -
+          | `-´                  |_||_||_||_||_|       `-´ |
+          | JP2 (GPIO)  GPIO-LED: 4  3  2  1  0  (HIF) JP1 |
+          `------------------------------------------------´
+
+compatible: "nxp,sc18is604-evb-gpio-header"
+
+include: [base.yaml, gpio-nexus.yaml]
