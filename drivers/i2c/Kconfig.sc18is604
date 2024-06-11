@@ -1,0 +1,29 @@
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+menuconfig I2C_SC18IS604
+	bool "I2C controller part of an SC18IM604 bridge"
+	default y
+	depends on DT_HAS_NXP_SC18IS604_I2C_ENABLED
+	depends on MFD_SC18IS604
+	select MFD_SC18IS604_ASYNC
+	select POLL              # dependency of MFD_SC18IS604_ASYNC
+	select DYNAMIC_THREAD    # dependency of MFD_SC18IS604_ASYNC
+	select THREAD_STACK_INFO # dependency of DYNAMIC_THREAD
+	help
+	  Enable driver for I2C controller part of an SC18IM604 bridge.
+
+config I2C_SC18IS604_INIT_PRIORITY
+	int "Init priority"
+	default 60
+	depends on I2C_SC18IS604
+	help
+	  Device driver initialization priority.
+
+if I2C_CALLBACK
+
+	config HEAP_MEM_POOL_ADD_SIZE_I2C_SC18IS604
+		int
+		default 512 # Enough for 5 in-flight async transfers
+
+endif
