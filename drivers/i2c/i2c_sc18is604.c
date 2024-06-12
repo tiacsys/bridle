@@ -16,13 +16,12 @@
 #include <zephyr/drivers/i2c.h>
 
 #include <zephyr/drivers/mfd/sc18is604.h>
+#include "i2c_sc18is604_priv.h"
 
 #include <zephyr/logging/log.h>
 LOG_MODULE_REGISTER(sc18is604_i2c, CONFIG_I2C_LOG_LEVEL);
 
-static int await_signal(struct k_poll_signal *signal,
-			int *result,
-			k_timeout_t timeout)
+int await_signal(struct k_poll_signal *signal, int *result, k_timeout_t timeout)
 {
 	struct k_poll_event events[1] = {
 		K_POLL_EVENT_INITIALIZER(K_POLL_TYPE_SIGNAL,
@@ -39,45 +38,7 @@ static int await_signal(struct k_poll_signal *signal,
 	return signaled;
 }
 
-/**
- * @brief SC18IM604 I2C controller configuration data
- *
- * This structure contains all of the state for a given SC18IM604 I2C controller
- * as well as the binding to related MFD device.
- */
-typedef struct i2c_sc18is604_config {
-	/** Parent MFD device for real operations on hardware. */
-	const struct device *parent_dev;
-} i2c_sc18is604_config_t;
 
-/**
- * @brief SC18IS604 I2C controller data
- *
- * This structure contains data structures used by a SC18IM604 I2C controller.
- *
- */
-typedef struct i2c_sc18is604_data {
-	/** Back-reference to driver instance. */
-	const struct device *dev;
-	/** I2C bus configuration flags. */
-	uint32_t i2c_config;
-	/** Lock for transactions. */
-	struct k_sem lock;
-	/** Interrupt handling callback */
-	struct gpio_callback interrupt_callback;
-	/** Lock for ongoing interrupt handling. */
-	struct k_sem interrupt_lock;
-	/** Signal for waiting on interrupts. */
-	struct k_poll_signal interrupt_signal;
-	/** Work items for interrupt handling */
-	struct k_work interrupt_work_initial;
-	struct k_work_delayable interrupt_work_final;
-	/** Struct for passing data between interrupt handling work items. */
-	struct sc18is604_interrupt_handling_data {
-		uint8_t i2cstat;
-		struct k_poll_signal signal;
-	} interrupt_handling_data;
-} i2c_sc18is604_data_t;
 
 /* Initialize reading out the interrupt source. */
 static void i2c_sc18is604_interrupt_work_fn_initial(struct k_work *work)
@@ -396,6 +357,9 @@ static const struct i2c_driver_api i2c_sc18is604_api = {
 	.configure = i2c_sc18is604_configure,
 	.get_config = i2c_sc18is604_get_config,
 	.transfer = i2c_sc18is604_transfer,
+#ifdef CONFIG_I2C_CALLBACK
+	.transfer_cb = i2c_sc18is604_transfer_cb,
+#endif /* CONFIG_I2C_CALLBACK */
 };
 
 static int i2c_sc18is604_init(const struct device *dev)
