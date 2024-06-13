@@ -216,6 +216,22 @@ int mfd_sc18is604_read_register_signal(const struct device *dev,
 #define READ_SC18IS604_REG_SIGNAL(dev, reg, val, signal) \
 	mfd_sc18is604_read_register_signal((dev), SC18IS604_REG_##reg, (val), (signal));
 
+/**
+ * @brief Read data from the internal buffer of an SC18IS604 asynchronously.
+ *
+ * @param dev An SC18IS604 MFD device.
+ * @param[out] data Data read from the buffer. Pointer must remain valid until
+ *                  the transfer is complete.
+ * @param len Number of bytes to read from the buffer.
+ * @param signal Signal that will be raised on transfer completion. Pointer must
+ *               remain valid until the transfer is complete.
+ *
+ * @return A value from mfd_sc18is604_transfer().
+ */
+int mfd_sc18is604_read_buffer_signal(const struct device *dev,
+			      uint8_t *data, size_t len,
+			      struct k_poll_signal *signal);
+
 #endif /* defined(CONFIG_MFD_SC18IS604_ASYNC) */
 
 /** @} */

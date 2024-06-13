@@ -123,3 +123,13 @@ int mfd_sc18is604_read_register_signal(const struct device *dev,
 	return mfd_sc18is604_transfer_signal(dev, cmd, ARRAY_SIZE(cmd), NULL, 0,
 					     val, 1, signal);
 }
+
+int mfd_sc18is604_read_buffer_signal(const struct device *dev,
+			      uint8_t *data, size_t len,
+			      struct k_poll_signal *signal)
+{
+	uint8_t cmd[] = {SC18IS604_CMD_READ_BUFFER};
+
+	return mfd_sc18is604_transfer_signal(dev, cmd, ARRAY_SIZE(cmd),
+					     NULL, 0, data, len, signal);
+}
