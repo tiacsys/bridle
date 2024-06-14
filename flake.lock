@@ -292,11 +292,11 @@
     "zephyr": {
       "flake": false,
       "locked": {
-        "lastModified": 1715846897,
-        "narHash": "sha256-bJM8hYZtjgpZ8VipLqHrkylAVvqtQRhF1pMslYzCQ8Q=",
+        "lastModified": 1718712621,
+        "narHash": "sha256-BXUMAIwZLGfjUbDRGDTjkpzKo3AWpoohol0WDbAA+TQ=",
         "owner": "tiacsys",
         "repo": "zephyr",
-        "rev": "f58854e9f9097168e2a943a8e17d88e77920d632",
+        "rev": "a50d3b9a4d4f19861b5cf3ae08353ad96ae3ee1a",
         "type": "github"
       },
       "original": {
