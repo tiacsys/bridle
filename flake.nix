@@ -27,7 +27,10 @@
     pyproject-nix.url = "github:nix-community/pyproject.nix";
 
     python-deps = {
-      url = "github:irockasingranite/bridle-python-deps";
+      type = "github";
+      owner = "Irockasingranite";
+      repo = "bridle-python-deps";
+      ref = "main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

@@ -26,6 +26,7 @@ let
         pyedbglib
         pykitinfo
         pymcuprog
+        python-can
         sphinx-tsn-theme
         sphinxcontrib-svg2pdfconverter
         sphinx-csv-filter;
