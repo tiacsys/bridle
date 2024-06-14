@@ -4,6 +4,8 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
 
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+
     zephyr = {
       type = "github";
       owner = "tiacsys";
@@ -36,10 +38,11 @@
 
   };
 
-  outputs = { self, nixpkgs, flake-utils, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, flake-utils, ... }@inputs:
     (flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
+        pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
         inherit (nixpkgs) lib;
 
         west2nix = callPackage inputs.west2nix.lib.mkWest2nix { };
@@ -58,7 +61,7 @@
         });
 
       in {
-        formatter = pkgs.nixfmt;
+        formatter = pkgs-unstable.nixfmt-rfc-style;
 
         packages.west2nix = inputs.west2nix.packages.${system}.default;
 
