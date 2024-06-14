@@ -1,13 +1,14 @@
-{ lib
-, callPackage
-, pythonEnv
-, mkShell
-, zephyr
-, zephyr-nix
-, bridle
-, cmake
-, ninja
-, git
+{
+  lib,
+  callPackage,
+  pythonEnv,
+  mkShell,
+  zephyr,
+  zephyr-nix,
+  bridle,
+  cmake,
+  ninja,
+  git,
 }:
 
 mkShell {

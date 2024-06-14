@@ -38,8 +38,16 @@
 
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, flake-utils, ... }@inputs:
-    (flake-utils.lib.eachDefaultSystem (system:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nixpkgs-unstable,
+      flake-utils,
+      ...
+    }@inputs:
+    (flake-utils.lib.eachDefaultSystem (
+      system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
         pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
@@ -47,20 +55,20 @@
 
         west2nix = callPackage inputs.west2nix.lib.mkWest2nix { };
 
-        callPackage = pkgs.newScope (pkgs // {
-          bridle = self;
-          zephyr = inputs.zephyr;
-          zephyr-nix = inputs.zephyr-nix.packages.${system};
-          pyproject-nix = inputs.pyproject-nix;
-          pythonEnv = callPackage ./python.nix {
-            python-deps = inputs.python-deps.packages.${system};
-          };
-          west2nixHook = west2nix.mkWest2nixHook {
-            manifest = ./west2nix.toml;
-          };
-        });
+        callPackage = pkgs.newScope (
+          pkgs
+          // {
+            bridle = self;
+            zephyr = inputs.zephyr;
+            zephyr-nix = inputs.zephyr-nix.packages.${system};
+            pyproject-nix = inputs.pyproject-nix;
+            pythonEnv = callPackage ./python.nix { python-deps = inputs.python-deps.packages.${system}; };
+            west2nixHook = west2nix.mkWest2nixHook { manifest = ./west2nix.toml; };
+          }
+        );
 
-      in {
+      in
+      {
         formatter = pkgs-unstable.nixfmt-rfc-style;
 
         packages.west2nix = inputs.west2nix.packages.${system}.default;
@@ -68,5 +76,6 @@
         devShells.default = callPackage ./shell.nix { };
 
         packages.doc = callPackage ./doc.nix { };
-      }));
+      }
+    ));
 }

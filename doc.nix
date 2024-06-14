@@ -1,15 +1,16 @@
-{ lib
-, stdenv
-, west2nixHook
-, pythonEnv
-, cmake
-, ninja
-, doxygen
-, mscgen
-, graphviz
-, git
-, zephyr
-, bridle
+{
+  lib,
+  stdenv,
+  west2nixHook,
+  pythonEnv,
+  cmake,
+  ninja,
+  doxygen,
+  mscgen,
+  graphviz,
+  git,
+  zephyr,
+  bridle,
 }:
 
 stdenv.mkDerivation {

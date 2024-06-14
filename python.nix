@@ -1,11 +1,12 @@
-{ python3
-, zephyr
-, bridle
-, python-deps
-, pyproject-nix
-, clang-tools
-, gitlint
-, lib
+{
+  python3,
+  zephyr,
+  bridle,
+  python-deps,
+  pyproject-nix,
+  clang-tools,
+  gitlint,
+  lib,
 }:
 
 let
@@ -29,7 +30,8 @@ let
         python-can
         sphinx-tsn-theme
         sphinxcontrib-svg2pdfconverter
-        sphinx-csv-filter;
+        sphinx-csv-filter
+        ;
     };
   };
 
@@ -44,23 +46,29 @@ let
 
   # Can't validate the combined packages sets, but we can at least check for
   # conflicts within each subset
-  invalidConstraints = zephyr-project.validators.validateVersionConstraints { inherit python; }
+  invalidConstraints =
+    zephyr-project.validators.validateVersionConstraints { inherit python; }
     // bridle-project.validators.validateVersionConstraints { inherit python; };
 
 in
-lib.warnIf
-  (invalidConstraints != { })
+lib.warnIf (invalidConstraints != { })
   "pythonEnv: Found invalid Python constraints for: ${builtins.toJSON (lib.attrNames invalidConstraints)}"
-  (python.buildEnv.override {
-    extraLibs = (bridle-project.renderers.withPackages {
-      inherit python;
-      # Nest one project's withPackages within the other to get a combined package
-      # set. If we want more than two, we should name these lambdas to reduce
-      # indentation.
-      extraPackages = (zephyr-project.renderers.withPackages {
-        inherit python;
-        extraPackages = ps: [ ps.west ];
-      });
-    }) python.pkgs;
-    ignoreCollisions = true;
-  })
+  (
+    python.buildEnv.override {
+      extraLibs =
+        (bridle-project.renderers.withPackages {
+          inherit python;
+          # Nest one project's withPackages within the other to get a combined package
+          # set. If we want more than two, we should name these lambdas to reduce
+          # indentation.
+          extraPackages = (
+            zephyr-project.renderers.withPackages {
+              inherit python;
+              extraPackages = ps: [ ps.west ];
+            }
+          );
+        })
+          python.pkgs;
+      ignoreCollisions = true;
+    }
+  )
