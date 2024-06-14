@@ -11,27 +11,17 @@
   git,
   zephyr,
   bridle,
+  bridleHook,
 }:
 
 stdenv.mkDerivation {
 
   name = "bridle-doc";
   src = bridle;
-  unpackPhase = ''
-    cp -r ${bridle} bridle
-    chmod +w -R bridle
-    cd bridle
-    git init
-    git config user.email "foo@bar.com"
-    git config user.name "Foo"
-    git checkout -b fake-branch
-    git add -A
-    git commit -m "Fake Commnit"
-    cd ..
-  '';
 
   nativeBuildInputs = [
     west2nixHook
+    bridleHook
     pythonEnv
     cmake
     ninja

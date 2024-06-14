@@ -64,6 +64,7 @@
             pyproject-nix = inputs.pyproject-nix;
             pythonEnv = callPackage ./python.nix { python-deps = inputs.python-deps.packages.${system}; };
             west2nixHook = west2nix.mkWest2nixHook { manifest = ./west2nix.toml; };
+            bridleHook = callPackage ./hook.nix { };
           }
         );
 
