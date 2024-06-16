@@ -1,12 +1,26 @@
+# Device tree binding vendor prefix registry. Keep this list in
+# alphabetical order.
+#
+# This isn't an exhaustive list, but you should add new prefixes to it
+# before using them to avoid name-space collisions.
+#
+# The contents of this file are parsed during documentation generation.
+# Anything that starts with a '#' is treated as a comment and ignored.
+# Non-empty lines should be in this format:
+#
+# <vendor-prefix><TAB><Full name of vendor>
+
+# zephyr-keep-sorted-start
 adafruit	Adafruit Industries, LLC
-cytron		Cytron Technologies
+cytron	Cytron Technologies
+dfrobot	DFRobot Corporation
 digilent	Digilent, Inc.
-dfrobot		DFRobot Corporation
-jsed		Jan Schulz Elektronik & Didaktik
-nxp		NXP Semiconductors N.V.
+jsed	Jan Schulz Elektronik & Didaktik
+nxp	NXP Semiconductors N.V.
 raspberrypi	Raspberry Pi Foundation
-seeed		Seeed Technology Co., Ltd
+seeed	Seeed Technology Co., Ltd
 sparkfun	SparkFun Electronics, Inc.
-st		STMicroelectronics N.V.
-tiac		TiaC Systems
+st	STMicroelectronics N.V.
+tiac	TiaC Systems
 waveshare	Waveshare Electronics Co., Ltd.
+# zephyr-keep-sorted-stop
