@@ -1,0 +1,9 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include "cjmcu_750/osc.dtsi"
+#include "cjmcu_75x/core.dtsi"
+#include "cjmcu_75x/gpio.dtsi"
+#include "cjmcu_75x/uart0.dtsi"
