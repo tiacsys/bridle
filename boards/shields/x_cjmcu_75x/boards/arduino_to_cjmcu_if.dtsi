@@ -1,0 +1,39 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+cjmcu_i2c: &arduino_i2c {};
+cjmcu_spi: &arduino_spi {};
+
+/ {
+	cjmcu_hif_i2c: cjmcu-75x-hif-i2c-pins {
+		compatible = "cjmcu,75x-hif-header";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <0 0 &arduino_header 20 0>,	/* SDA @ D18 (D14) */
+			   <1 0 &arduino_header 21 0>,	/* SCL @ D19 (D14) */
+			   /* 2: I2C/nSPI signal set to high (VCC) */
+			   <3 0 &arduino_header 15 0>,	/* nIRQ @ D9 */
+			   /* 4: NC/SO signal not connected */
+			   /* 5: A1/SI signal set to I2C addr. select */
+			   /* 6: A0/CS signal set to I2C addr. select */
+			   <7 0 &arduino_header 14 0>;	/* nRESET @ D8 */
+	};
+
+	cjmcu_hif_spi: cjmcu-75x-hif-spi-pins {
+		compatible = "cjmcu,75x-hif-header";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = /* 0: SDA/NC signal not connected */
+			   <1 0 &arduino_header 19 0>,	/* SCLK @ D13 (SCK) */
+			   /* 2: I2C/nSPI signal set to low (GND) */
+			   <3 0 &arduino_header 15 0>,	/* nIRQ @ D9 */
+			   <4 0 &arduino_header 18 0>,	/* SO @ D12 (CIPO) */
+			   <5 0 &arduino_header 17 0>,	/* SI @ D11 (COPI) */
+			   <6 0 &arduino_header 16 0>,	/* CS @ D10 (SS) */
+			   <7 0 &arduino_header 14 0>;	/* nRESET @ D8 */
+	};
+};
