@@ -349,6 +349,32 @@ add_dependencies(zephyr-html-all
 #-------------------------------------------------------------------------------
 # docset: devicetree
 
+set(devicetree_bvp_files
+    ${ZEPHYR_BASE}/dts/bindings/vendor-prefixes.txt
+    ${BRIDLE_BASE}/dts/bindings/vendor-prefixes.txt
+)
+string(REPLACE ";" "\\;" devicetree_bvp_files_escaped "${devicetree_bvp_files}")
+
+add_custom_command(
+  OUTPUT ${DTS_BINDINGS_BINARY_DIR}/vendor-prefixes.txt
+  DEPENDS
+    ${devicetree_bvp_files}
+  COMMAND ${CMAKE_COMMAND}
+    -DIN_FILES="${devicetree_bvp_files_escaped}"
+    -DOUT_FILE=${DTS_BINDINGS_BINARY_DIR}/vendor-prefixes.txt
+    -P ${BRIDLE_BASE}/doc/update_appends.cmake
+  WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
+  COMMENT "Update vendor-prefixes.txt in ${DTS_BINDINGS_BINARY_DIR}"
+  USES_TERMINAL
+)
+
+add_custom_target(
+  devicetree-vendor-prefixes
+  DEPENDS
+    ${DTS_BINDINGS_BINARY_DIR}/vendor-prefixes.txt
+  COMMENT "Generating vendor prefixes list for devicetree"
+)
+
 # The devicetree bindings discovered in ${DTS_ROOTS} are parsed and
 # documentation for them is generated in the directory
 # ${DTS_BINDINGS_RST_OUT}.
@@ -378,7 +404,7 @@ add_custom_target(
     GEN_DEVICETREE_REST_ZEPHYR_DOCSET=${GEN_DEVICETREE_REST_ZEPHYR_DOCSET}
     ${PYTHON_EXECUTABLE}
       ${GEN_DEVICETREE_REST_SCRIPT}
-        --vendor-prefixes ${ZEPHYR_BASE}/dts/bindings/vendor-prefixes.txt
+        --vendor-prefixes ${DTS_BINDINGS_BINARY_DIR}/vendor-prefixes.txt
                           ${DTS_ROOT_ARGS} ${DTS_BINDINGS_RST_OUT}
   VERBATIM
   WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
@@ -390,6 +416,7 @@ set_property(DIRECTORY APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS ${GEN_DEVICETREE_
 
 add_docset(devicetree "")
 
+add_dependencies(devicetree-content devicetree-vendor-prefixes)
 add_dependencies(devicetree-inventory devicetree-content)
 add_dependencies(devicetree-html devicetree-content)
 add_dependencies(devicetree-html-all
@@ -449,7 +476,7 @@ add_custom_target(
   bridle-versions
   DEPENDS
     ${BRIDLE_BINARY_DIR}/src/versions.txt
-  COMMENT "Generating version lists for bridle"
+  COMMENT "Generating versions list for bridle"
 )
 
 add_docset(bridle "-j 1" API)  # no parallel reading, because of sphinx-csv-filter
