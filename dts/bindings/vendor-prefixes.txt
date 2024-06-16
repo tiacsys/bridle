@@ -12,6 +12,7 @@
 
 # zephyr-keep-sorted-start
 adafruit	Adafruit Industries, LLC
+cjmcu	Changjiang Intelligent Technology Co., Ltd.
 cytron	Cytron Technologies
 dfrobot	DFRobot Corporation
 digilent	Digilent, Inc.

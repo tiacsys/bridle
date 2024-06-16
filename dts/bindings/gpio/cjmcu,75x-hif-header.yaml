@@ -1,0 +1,44 @@
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+    Host interface exposed on CJMCU SC16IS75x breakout board headers.
+
+    The SC16IS75x breakout board layout provides a wraparound header on
+    two opposite edges of the board and can be divided into three sections.
+    Firstly, up to the host controller the serial bus configuration,
+    communication and chip control, secondly the UART interface to the
+    outside, and thirdly the GPIO interface down to other I/O components.
+
+    Proceeding clockwise on SC16IS750 breakout board:
+    * A 11-pin header. 1 pins on this header are exposed by this binding.
+    * A 11-pin header. 7 pins on this header are exposed by this binding.
+
+    Proceeding clockwise on SC16IS752 breakout board:
+    * A 2x8-pin header. 0 pins on this header are exposed by this binding.
+    * A 10-pin header. 8 pins on this header are exposed by this binding.
+
+    This binding provides a nexus mapping for 8 pins where parent pins 0
+    through 7 correspond as depicted below:
+
+               SC16IS750                            SC16IS752
+       .-----------------------.         .-----------------------------.
+     2 |o I2C/nSPI        GND o| -       |           __                |
+     6 |o A0/CS     _  nRESET o| 7       |        .-´  |-          --. |
+     5 |o A1/SI  _|| ||_   RX o| -     - |o VCC   |    |-     .---´   v|
+     4 |o NC/SO   ||_||    TX o| -     - |o GND   `-.__|-  GP7|TXA  o o| - -
+     1 |o SCL/SCK         CTS o| -     7 |o nRESET         GP6|RXA  o o| - -
+     0 |o SDA/NC  _____   RTS o| -     6 |o A0/CS     _    GP5|RTSA o o| - -
+     3 |o nIRQ   |     |  IO7 o| -     5 |o A1/SI  -||_||- GP4|CTSA o o| - -
+     - |o IO0    | 750 |  IO6 o| -     4 |o NC/SO     ___  GP3|TXB  o o| - -
+     - |o IO1    |_____|  IO5 o| -     3 |o nIRQ     |   | GP2|RXB  o o| - -
+     - |o IO2   ____      IO4 o| -     2 |o I2C/nSPI | 7 | GP1|RTSB o o| - -
+     - |o VCC  |____|     IO3 o| -     1 |o SCL/SCLK | 5 | GP0|CTSB o o| - -
+       `-----------------------´       0 |o SDA/NC   | 2 | ---+    .^  |
+                                         |           |___|     `--´    |
+                                         |                             |
+                                         `-----------------------------´
+
+compatible: "cjmcu,75x-hif-header"
+
+include: [gpio-nexus.yaml, base.yaml]
