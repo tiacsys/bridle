@@ -1,0 +1,26 @@
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+config SHIELD_CJMCU_750_I2C
+	def_bool $(shields_list_contains,cjmcu_750_i2c)
+
+config SHIELD_CJMCU_750_I2C_NOIRQ
+	def_bool $(shields_list_contains,cjmcu_750_i2c_noirq)
+
+config SHIELD_CJMCU_750_SPI
+	def_bool $(shields_list_contains,cjmcu_750_spi)
+
+config SHIELD_CJMCU_750_SPI_NOIRQ
+	def_bool $(shields_list_contains,cjmcu_750_spi_noirq)
+
+config SHIELD_CJMCU_752_I2C
+	def_bool $(shields_list_contains,cjmcu_752_i2c)
+
+config SHIELD_CJMCU_752_I2C_NOIRQ
+	def_bool $(shields_list_contains,cjmcu_752_i2c_noirq)
+
+config SHIELD_CJMCU_752_SPI
+	def_bool $(shields_list_contains,cjmcu_752_spi)
+
+config SHIELD_CJMCU_752_SPI_NOIRQ
+	def_bool $(shields_list_contains,cjmcu_752_spi_noirq)

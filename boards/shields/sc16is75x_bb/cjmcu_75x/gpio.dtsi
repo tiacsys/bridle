@@ -1,0 +1,33 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	cjmcu_gpio: cjmcu-75x-gpio-pins {
+		compatible = "cjmcu,75x-gpio-header";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <0 0 &cjmcu_75x_gpio 0 0>,
+			   <1 0 &cjmcu_75x_gpio 1 0>,
+			   <2 0 &cjmcu_75x_gpio 2 0>,
+			   <3 0 &cjmcu_75x_gpio 3 0>,
+			   <4 0 &cjmcu_75x_gpio 4 0>,
+			   <5 0 &cjmcu_75x_gpio 5 0>,
+			   <6 0 &cjmcu_75x_gpio 6 0>,
+			   <7 0 &cjmcu_75x_gpio 7 0>;
+	};
+};
+
+&cjmcu_75x_gpio {
+	compatible = "nxp,sc16is75x-gpio";
+	status = "okay";
+
+	gpio-controller;
+	#gpio-cells = <2>;
+	ngpios = <8>;
+
+	gpio-line-names = "IO0", "IO1", "IO2", "IO3",
+			  "IO4", "IO5", "IO6", "IO7";
+};

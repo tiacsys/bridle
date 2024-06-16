@@ -1,0 +1,14 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	cjmcu_osc: sc16is752-osc {
+		compatible = "fixed-clock";
+		status = "okay";
+
+		#clock-cells = <0>;
+		clock-frequency = <1843200>;
+	};
+};

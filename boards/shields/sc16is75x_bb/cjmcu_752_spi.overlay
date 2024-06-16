@@ -1,0 +1,10 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include "cjmcu_752_spi_noirq.overlay"
+
+&cjmcu_75x {
+	interrupt-gpios = <&cjmcu_hif_spi 3 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+};

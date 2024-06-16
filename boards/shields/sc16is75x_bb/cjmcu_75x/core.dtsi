@@ -1,0 +1,14 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+&cjmcu_75x {
+	compatible = "nxp,sc16is75x";
+	status = "okay";
+
+	#address-cells = <1>;
+	#size-cells = <0>;
+
+	clock = <&cjmcu_osc>;
+};

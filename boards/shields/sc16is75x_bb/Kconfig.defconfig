@@ -1,0 +1,44 @@
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+config SHIELD_CJMCU_750
+	bool
+	default y if SHIELD_CJMCU_750_I2C
+	default y if SHIELD_CJMCU_750_I2C_NOIRQ
+	default y if SHIELD_CJMCU_750_SPI
+	default y if SHIELD_CJMCU_750_SPI_NOIRQ
+	default n
+
+config SHIELD_CJMCU_752
+	bool
+	default y if SHIELD_CJMCU_752_I2C
+	default y if SHIELD_CJMCU_752_I2C_NOIRQ
+	default y if SHIELD_CJMCU_752_SPI
+	default y if SHIELD_CJMCU_752_SPI_NOIRQ
+	default n
+
+config MFD
+	default y
+	depends on SHIELD_CJMCU_750 || SHIELD_CJMCU_752
+
+config I2C
+	default y if SHIELD_CJMCU_750_I2C || SHIELD_CJMCU_750_I2C_NOIRQ
+	default y if SHIELD_CJMCU_752_I2C || SHIELD_CJMCU_752_I2C_NOIRQ
+	depends on SHIELD_CJMCU_750 || SHIELD_CJMCU_752
+
+config SPI
+	default y if SHIELD_CJMCU_750_SPI || SHIELD_CJMCU_750_SPI_NOIRQ
+	default y if SHIELD_CJMCU_752_SPI || SHIELD_CJMCU_752_SPI_NOIRQ
+	depends on SHIELD_CJMCU_750 || SHIELD_CJMCU_752
+
+config SERIAL
+	default y if DT_HAS_NXP_SC16IS75X_UART_ENABLED
+	depends on SHIELD_CJMCU_750 || SHIELD_CJMCU_752
+
+config GPIO
+	default y if DT_HAS_NXP_SC16IS75X_GPIO_ENABLED
+	depends on SHIELD_CJMCU_750 || SHIELD_CJMCU_752
+
+config DYNAMIC_THREAD_POOL_SIZE
+	default 1 if MFD_SC16IS75X_ASYNC && !DYNAMIC_THREAD_ALLOC
+	depends on (SHIELD_CJMCU_750 || SHIELD_CJMCU_752) && MFD_SC16IS75X

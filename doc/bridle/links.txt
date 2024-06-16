@@ -322,6 +322,20 @@
 
 
 
+.. ### Links to Adafruit Products
+
+.. _`Adafruit Products`:
+   https://www.adafruit.com/categories
+
+
+
+.. ### Links to SparkFun Products
+
+.. _`SparkFun Products`:
+   https://www.sparkfun.com/categories
+
+
+
 .. ### Links to Raspberry Pi Products
 
 .. _`Raspberry Pi Products`:
@@ -488,6 +502,7 @@
    https://picoboy.de/einfuehrung/fuer-erfahrene-nutzer
 
 
+
 .. ### Links to Waveshare Systems
 
 .. _`Waveshare wiki`:
@@ -619,6 +634,57 @@
 
 .. _`Waveshare 2.4 LCD 3D Drawing`:
    https://www.waveshare.com/wiki/2.4inch_LCD_Module#3D_Drawing
+
+
+
+.. ### Links to CJMCU (Changjiang Zhidong Technology Co., Ltd.) Products
+
+.. |CJMCU| replace::
+   :strong:`CJMCU` (:emphasis:`Changjiang Intelligent Technology Co., Ltd.`)
+.. _`CJMCU`: https://web.archive.org/web/20150925195021/http://www.cjmcu.com/
+
+
+
+.. ### Links to Q-Baihe (Wuhan Lilly Electronics Co., Ltd.) Products
+
+.. |Q-Baihe| replace::
+   :strong:`Q-Baihe` (:emphasis:`Wuhan Lilly Electronics Co., Ltd.`)
+.. _Q-Baihe: https://www.lillyelectronicsllc.com/
+
+
+
+.. #### Links to the Adafruit STEMMA / STEMMA QT System
+
+.. _`STEMMA/QT System`:
+   https://learn.adafruit.com/introducing-adafruit-stemma-qt
+
+.. _`STEMMA/QT 4-Pin Layout (I2C)`:
+   https://learn.adafruit.com/introducing-adafruit-stemma-qt/technical-specs#stemma-4-pin-i2c-both-standard-and-stemma-qt-3035230
+
+.. _`STEMMA/QT Power Lines`:
+   https://learn.adafruit.com/introducing-adafruit-stemma-qt/technical-specs#power-lines-3035228
+
+.. _`STEMMA/QT Data Lines`:
+   https://learn.adafruit.com/introducing-adafruit-stemma-qt/technical-specs#data-lines-3035228
+
+.. _`STEMMA 3-Pin Layout (Analog/Digital/PWM)`:
+   https://learn.adafruit.com/introducing-adafruit-stemma-qt/technical-specs#stemma-3-pin-analog-slash-digital-slash-pwm-3035231
+
+
+
+.. #### Links to the SparkFun Qwiic System
+
+.. _`Qwiic System`:
+   https://www.sparkfun.com/qwiic
+
+.. _`Qwiic Specification (FAQ)`:
+   https://www.sparkfun.com/qwiic#faqs
+
+.. _`Qwiic Cable Datasheet`:
+   https://cdn.sparkfun.com/assets/e/9/8/9/8/Qwiic-Cable.pdf
+
+.. _`Qwiic Connector Datasheet`:
+   https://cdn.sparkfun.com/assets/parts/1/2/2/8/9/Qwiic_Connector_Datasheet.pdf
 
 
 
@@ -779,6 +845,35 @@
 
 .. _`Grove Variable Color LED V1.0 Eagle Files`:
    https://files.seeedstudio.com/wiki/Grove-Variable_Color_LED/res/Variable_Color_LED_eagle_file.zip
+
+
+
+.. ### Links to the Q-Baihe Breakout Boards
+
+.. #### Links to the Q-Baihe I2C/SPI-to-UART Breakout - SC16IS750
+
+.. _GT-SC16IS750: https://www.lillyelectronicsllc.com/breakout-board-for-sc16is750-i2c-spi-to-uart-ic
+
+
+
+.. ### Links to the SparkFun Breakout Boards
+
+.. #### Links to the SparkFun I2C/SPI-to-UART Breakout - SC16IS750
+
+.. _BOB-09981: https://www.sparkfun.com/products/retired/9981
+
+.. _`BOB-09981 Schematic`:
+   https://www.sparkfun.com/datasheets/BreakoutBoards/SC16IS750_Breakout-v13.pdf
+
+.. _`GT-SC16IS750 Schematic`:
+   https://oshwlab.com/rexut95/sparkfun-sc16is750-breakout
+
+.. #### Links to the SparkFun Breakout Board for SC16IS750 I2C/SPI-to-UART IC
+
+.. _BOB-09745: https://www.sparkfun.com/products/retired/9745
+
+.. _`BOB-09745 Schematic`:
+   https://www.sparkfun.com/datasheets/BreakoutBoards/SC16IS750_Breakout-v12.pdf
 
 
 
@@ -1666,6 +1761,38 @@
 .. https://grobotronics.com/images/datasheets/xpt2046-datasheet.pdf
 .. https://www.waveshare.com/wiki/Pico-ResTouch-LCD-3.5#Documents
 .. https://files.waveshare.com/upload/b/b0/XPT2046.pdf
+
+.. #### Links to Bridge Controllers or similar to drive busses
+
+.. _`SC16IS740`:
+   https://www.nxp.com/products:SC16IS740_750_760
+
+.. _`SC16IS740 Datasheet`:
+   https://www.nxp.com/docs/en/data-sheet/SC16IS740_750_760.pdf
+
+.. _`SC16IS750`:
+   https://www.nxp.com/products:SC16IS740_750_760
+
+.. _`SC16IS750 Datasheet`:
+   https://www.nxp.com/docs/en/data-sheet/SC16IS740_750_760.pdf
+
+.. _`SC16IS760`:
+   https://www.nxp.com/products:SC16IS740_750_760
+
+.. _`SC16IS760 Datasheet`:
+   https://www.nxp.com/docs/en/data-sheet/SC16IS740_750_760.pdf
+
+.. _`SC16IS752`:
+   https://www.nxp.com/products:SC16IS752_SC16IS762
+
+.. _`SC16IS752 Datasheet`:
+   https://www.nxp.com/docs/en/data-sheet/SC16IS752_SC16IS762.pdf
+
+.. _`SC16IS762`:
+   https://www.nxp.com/products:SC16IS752_SC16IS762
+
+.. _`SC16IS762 Datasheet`:
+   https://www.nxp.com/docs/en/data-sheet/SC16IS752_SC16IS762.pdf
 
 .. #### Links to Ethernet Controllers or similar to drive networks
 

@@ -1,0 +1,16 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+&cjmcu_75x_uart1 {
+	compatible = "nxp,sc16is75x-uart";
+	status = "okay";
+
+	reg = <1>;
+
+	current-speed = <115200>;
+	data-bits = <8>;
+	parity = "none";
+	stop-bits = "1";
+};
