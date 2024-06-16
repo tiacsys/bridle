@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <freq.h>
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
+&cjmcu_spi {
+	status = "okay";
+
+	cjmcu_75x: sc16is750@0 {
+		reg = <0>;
+
+		spi-max-frequency = <DT_FREQ_M(4)>;
+		reset-gpios = <&cjmcu_hif_spi 7 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+
+		cjmcu_75x_gpio: sc16is750-0-gpio {};
+		cjmcu_75x_uart0: sc16is750-0-uart@0 {};
+	};
+};
+
+#include "cjmcu_750.dtsi"
