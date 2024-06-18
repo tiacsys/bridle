@@ -18,6 +18,12 @@ Hardware
 
 .. tabs::
 
+   .. group-tab:: Waveshare Pico LCD 0.96
+
+      .. _waveshare_pico_lcd_0_96:
+
+      .. include:: waveshare_pico_lcd_0_96/hardware.rsti
+
    .. group-tab:: Waveshare Pico LCD 1.14
 
       .. _waveshare_pico_lcd_1_14:
@@ -41,6 +47,10 @@ Positions
 
 .. tabs::
 
+   .. group-tab:: Waveshare Pico LCD 0.96
+
+      .. include:: waveshare_pico_lcd_0_96/positions.rsti
+
    .. group-tab:: Waveshare Pico LCD 1.14
 
       .. include:: waveshare_pico_lcd_1_14/positions.rsti
@@ -57,6 +67,10 @@ Pinouts
 =======
 
 .. tabs::
+
+   .. group-tab:: Waveshare Pico LCD 0.96
+
+      .. include:: waveshare_pico_lcd_0_96/pinouts.rsti
 
    .. group-tab:: Waveshare Pico LCD 1.14
 
@@ -99,6 +113,74 @@ Programming
 ===========
 
 .. tabs::
+
+   .. group-tab:: Waveshare Pico LCD 0.96
+
+      Set ``-DSHIELD=waveshare_pico_lcd_0_96`` and use optional the
+      :ref:`snippet-usb-console` when you invoke ``west build``.
+      For example:
+
+      .. tabs::
+
+         .. group-tab:: Raspberry Pi Pico
+
+            .. zephyr-app-commands::
+               :app: bridle/samples/helloshell
+               :build-dir: waveshare_pico_lcd_0_96-helloshell
+               :board: rpi_pico
+               :shield: "waveshare_pico_lcd_0_96"
+               :goals: flash
+               :west-args: -p -S usb-console
+               :flash-args: -r uf2
+               :host-os: unix
+               :tool: all
+
+            .. include:: waveshare_pico_lcd_0_96/helloshell.rsti
+
+         .. group-tab:: Raspberry Pi Pico W
+
+            .. zephyr-app-commands::
+               :app: bridle/samples/helloshell
+               :build-dir: waveshare_pico_lcd_0_96-helloshell
+               :board: rpi_pico/rp2040/w
+               :shield: "waveshare_pico_lcd_0_96"
+               :goals: flash
+               :west-args: -p -S usb-console
+               :flash-args: -r uf2
+               :host-os: unix
+               :tool: all
+
+            .. include:: waveshare_pico_lcd_0_96/helloshell.rsti
+
+         .. group-tab:: Waveshare RP2040-Plus
+
+            .. rubric:: on standard ``4㎆`` revision
+
+            .. zephyr-app-commands::
+               :app: bridle/samples/helloshell
+               :build-dir: waveshare_pico_lcd_0_96-helloshell
+               :board: waveshare_rp2040_plus
+               :shield: "waveshare_pico_lcd_0_96"
+               :goals: flash
+               :west-args: -p -S usb-console
+               :flash-args: -r uf2
+               :host-os: unix
+               :tool: all
+
+            .. rubric:: on extended ``16㎆`` revision
+
+            .. zephyr-app-commands::
+               :app: bridle/samples/helloshell
+               :build-dir: waveshare_pico_lcd_0_96-helloshell
+               :board: waveshare_rp2040_plus@16mb
+               :shield: "waveshare_pico_lcd_0_96"
+               :goals: flash
+               :west-args: -p -S usb-console
+               :flash-args: -r uf2
+               :host-os: unix
+               :tool: all
+
+            .. include:: waveshare_pico_lcd_0_96/helloshell.rsti
 
    .. group-tab:: Waveshare Pico LCD 1.14
 
@@ -314,6 +396,97 @@ Prints all input events as defined by the shields Devicetree. See also Zephyr
 sample: :zephyr:code-sample:`zephyr:input-dump`.
 
 .. tabs::
+
+   .. group-tab:: Waveshare Pico LCD 0.96
+
+      Print the input events related to the five on-shield joystick keys
+      and two user keys using the :ref:`Input subsystem API <zephyr:input>`.
+      That are:
+
+      | :hwftlbl-btn:`A` : :devicetree:`zephyr,code = <INPUT_KEY_0>;`
+      | :hwftlbl-btn:`B` : :devicetree:`zephyr,code = <INPUT_KEY_1>;`
+      | :hwftlbl-joy:`UP` : :devicetree:`zephyr,code = <INPUT_KEY_UP>;`
+      | :hwftlbl-joy:`DOWN` : :devicetree:`zephyr,code = <INPUT_KEY_DOWN>;`
+      | :hwftlbl-joy:`LEFT` : :devicetree:`zephyr,code = <INPUT_KEY_LEFT>;`
+      | :hwftlbl-joy:`RIGHT` : :devicetree:`zephyr,code = <INPUT_KEY_RIGHT>;`
+      | :hwftlbl-joy:`ENTER` : :devicetree:`zephyr,code = <INPUT_KEY_ENTER>;`
+
+      .. tabs::
+
+         .. group-tab:: Raspberry Pi Pico
+
+            .. zephyr-app-commands::
+               :app: zephyr/samples/subsys/input/input_dump
+               :build-dir: waveshare_pico_lcd_0_96-input_dump
+               :board: rpi_pico
+               :shield: "waveshare_pico_lcd_0_96"
+               :goals: flash
+               :west-args: -p -S usb-console
+               :flash-args: -r uf2
+               :compact:
+
+         .. group-tab:: Raspberry Pi Pico W
+
+            .. zephyr-app-commands::
+               :app: zephyr/samples/subsys/input/input_dump
+               :build-dir: waveshare_pico_lcd_0_96-input_dump
+               :board: rpi_pico/rp2040/w
+               :shield: "waveshare_pico_lcd_0_96"
+               :goals: flash
+               :west-args: -p -S usb-console
+               :flash-args: -r uf2
+               :compact:
+
+         .. group-tab:: Waveshare RP2040-Plus
+
+            .. rubric:: on standard ``4㎆`` revision
+
+            .. zephyr-app-commands::
+               :app: zephyr/samples/subsys/input/input_dump
+               :build-dir: waveshare_pico_lcd_0_96-input_dump
+               :board: waveshare_rp2040_plus
+               :shield: "waveshare_pico_lcd_0_96"
+               :goals: flash
+               :west-args: -p -S usb-console
+               :flash-args: -r uf2
+               :compact:
+
+            .. rubric:: on extended ``16㎆`` revision
+
+            .. zephyr-app-commands::
+               :app: zephyr/samples/subsys/input/input_dump
+               :build-dir: waveshare_pico_lcd_0_96-input_dump
+               :board: waveshare_rp2040_plus@16mb
+               :shield: "waveshare_pico_lcd_0_96"
+               :goals: flash
+               :west-args: -p -S usb-console
+               :flash-args: -r uf2
+               :compact:
+
+      .. rubric:: Simple logging output on target
+
+      .. parsed-literal::
+         :class: highlight-console notranslate
+
+         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+         W: BUS RESET
+         W: BUS RESET
+         \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
+         Input sample started
+         I: input event: dev=gpio_keys        SYN type= 1 code= 11 value=1
+         I: input event: dev=gpio_keys        SYN type= 1 code= 11 value=0
+         I: input event: dev=gpio_keys        SYN type= 1 code=  2 value=1
+         I: input event: dev=gpio_keys        SYN type= 1 code=  2 value=0
+         I: input event: dev=gpio_keys        SYN type= 1 code=103 value=1
+         I: input event: dev=gpio_keys        SYN type= 1 code=103 value=0
+         I: input event: dev=gpio_keys        SYN type= 1 code=108 value=1
+         I: input event: dev=gpio_keys        SYN type= 1 code=108 value=0
+         I: input event: dev=gpio_keys        SYN type= 1 code=105 value=1
+         I: input event: dev=gpio_keys        SYN type= 1 code=105 value=0
+         I: input event: dev=gpio_keys        SYN type= 1 code=106 value=1
+         I: input event: dev=gpio_keys        SYN type= 1 code=106 value=0
+         I: input event: dev=gpio_keys        SYN type= 1 code= 28 value=1
+         I: input event: dev=gpio_keys        SYN type= 1 code= 28 value=0
 
    .. group-tab:: Waveshare Pico LCD 1.14
 
@@ -571,6 +744,77 @@ order. See also Zephyr sample: :zephyr:code-sample:`zephyr:display`.
 
 .. tabs::
 
+   .. group-tab:: Waveshare Pico LCD 0.96
+
+      Using the :ref:`Display driver API <zephyr:display_api>` with chosen
+      display. That is:
+
+      | :hwftlbl-scr:`LCD` : :devicetree:`chosen { zephyr,display = &lcd_panel; };`
+      | :hwftlbl-scr:`ST7735S` : :devicetree:`lcd_panel: &st7735s_160x80 {};`
+
+      .. tabs::
+
+         .. group-tab:: Raspberry Pi Pico
+
+            .. zephyr-app-commands::
+               :app: zephyr/samples/drivers/display
+               :build-dir: waveshare_pico_lcd_0_96-display_test
+               :board: rpi_pico
+               :shield: "waveshare_pico_lcd_0_96"
+               :goals: flash
+               :west-args: -p -S usb-console
+               :flash-args: -r uf2
+               :compact:
+
+         .. group-tab:: Raspberry Pi Pico W
+
+            .. zephyr-app-commands::
+               :app: zephyr/samples/drivers/display
+               :build-dir: waveshare_pico_lcd_0_96-display_test
+               :board: rpi_pico/rp2040/w
+               :shield: "waveshare_pico_lcd_0_96"
+               :goals: flash
+               :west-args: -p -S usb-console
+               :flash-args: -r uf2
+               :compact:
+
+         .. group-tab:: Waveshare RP2040-Plus
+
+            .. rubric:: on standard ``4㎆`` revision
+
+            .. zephyr-app-commands::
+               :app: zephyr/samples/drivers/display
+               :build-dir: waveshare_pico_lcd_0_96-display_test
+               :board: waveshare_rp2040_plus
+               :shield: "waveshare_pico_lcd_0_96"
+               :goals: flash
+               :west-args: -p -S usb-console
+               :flash-args: -r uf2
+               :compact:
+
+            .. rubric:: on extended ``16㎆`` revision
+
+            .. zephyr-app-commands::
+               :app: zephyr/samples/drivers/display
+               :build-dir: waveshare_pico_lcd_0_96-display_test
+               :board: waveshare_rp2040_plus@16mb
+               :shield: "waveshare_pico_lcd_0_96"
+               :goals: flash
+               :west-args: -p -S usb-console
+               :flash-args: -r uf2
+               :compact:
+
+      .. rubric:: Simple logging output on target
+
+      .. parsed-literal::
+         :class: highlight-console notranslate
+
+         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+         [00:00:00.415,000] :byl:`<wrn> udc_rpi: BUS RESET`
+         [00:00:00.495,000] :byl:`<wrn> udc_rpi: BUS RESET`
+         \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
+         [00:00:04.151,000] <inf> sample: Display sample for st7735s\ @\ 0
+
    .. group-tab:: Waveshare Pico LCD 1.14
 
       Using the :ref:`Display driver API <zephyr:display_api>` with chosen
@@ -792,6 +1036,118 @@ which increments every second. See also Zephyr sample:
 :zephyr:code-sample:`zephyr:lvgl`.
 
 .. tabs::
+
+   .. group-tab:: Waveshare Pico LCD 0.96
+
+      Using the LVGL module on top of the :ref:`Display driver API
+      <zephyr:display_api>` with chosen display. That is:
+
+      | :hwftlbl-scr:`LCD` : :devicetree:`chosen { zephyr,display = &lcd_panel; };`
+      | :hwftlbl-scr:`ST7735S` : :devicetree:`lcd_panel: &st7735s_160x80 {};`
+
+      .. rubric:: Devicetree compatible
+
+      - :dtcompatible:`zephyr,lvgl-button-input` with devicetree relation
+        :devicetree:`lvgl_buttons: lvgl-buttons { input = <&gpio_keys>; };`
+
+        | :hwftlbl-btn:`B` :
+          :devicetree:`input-codes = <INPUT_KEY_1>;` :
+          :devicetree:`coordinates = <80 40>;` (center of LCD)
+
+      - :dtcompatible:`zephyr,lvgl-keypad-input` with devicetree relation
+        :devicetree:`lvgl_keypad: lvgl-keypad { input = <&gpio_keys>; };`
+
+        | :hwftlbl-joy:`UP` :
+          :devicetree:`input-codes = <INPUT_KEY_UP>;` :
+          :devicetree:`lvgl-codes = <LV_KEY_UP>;`
+        | :hwftlbl-joy:`DOWN` :
+          :devicetree:`input-codes = <INPUT_KEY_DOWN>;` :
+          :devicetree:`lvgl-codes = <LV_KEY_DOWN>;`
+        | :hwftlbl-joy:`LEFT` :
+          :devicetree:`input-codes = <INPUT_KEY_LEFT>;` :
+          :devicetree:`lvgl-codes = <LV_KEY_LEFT>;`
+        | :hwftlbl-joy:`RIGHT` :
+          :devicetree:`input-codes = <INPUT_KEY_RIGHT>;` :
+          :devicetree:`lvgl-codes = <LV_KEY_RIGHT>;`
+        | :hwftlbl-joy:`ENTER` :
+          :devicetree:`input-codes = <INPUT_KEY_ENTER>;` :
+          :devicetree:`lvgl-codes = <LV_KEY_ENTER>;`
+
+      .. tabs::
+
+         .. group-tab:: Raspberry Pi Pico
+
+            .. zephyr-app-commands::
+               :app: zephyr/samples/subsys/display/lvgl
+               :build-dir: waveshare_pico_lcd_0_96-lvgl_basic
+               :board: rpi_pico
+               :shield: "waveshare_pico_lcd_0_96"
+               :goals: flash
+               :west-args: -p -S usb-console
+               :flash-args: -r uf2
+               :compact:
+
+         .. group-tab:: Raspberry Pi Pico W
+
+            .. zephyr-app-commands::
+               :app: zephyr/samples/subsys/display/lvgl
+               :build-dir: waveshare_pico_lcd_0_96-lvgl_basic
+               :board: rpi_pico/rp2040/w
+               :shield: "waveshare_pico_lcd_0_96"
+               :goals: flash
+               :west-args: -p -S usb-console
+               :flash-args: -r uf2
+               :compact:
+
+         .. group-tab:: Waveshare RP2040-Plus
+
+            .. rubric:: on standard ``4㎆`` revision
+
+            .. zephyr-app-commands::
+               :app: zephyr/samples/subsys/display/lvgl
+               :build-dir: waveshare_pico_lcd_0_96-lvgl_basic
+               :board: waveshare_rp2040_plus
+               :shield: "waveshare_pico_lcd_0_96"
+               :goals: flash
+               :west-args: -p -S usb-console
+               :flash-args: -r uf2
+               :compact:
+
+            .. rubric:: on extended ``16㎆`` revision
+
+            .. zephyr-app-commands::
+               :app: zephyr/samples/subsys/display/lvgl
+               :build-dir: waveshare_pico_lcd_0_96-lvgl_basic
+               :board: waveshare_rp2040_plus@16mb
+               :shield: "waveshare_pico_lcd_0_96"
+               :goals: flash
+               :west-args: -p -S usb-console
+               :flash-args: -r uf2
+               :compact:
+
+      .. rubric:: Simple test execution on target
+
+      .. parsed-literal::
+         :class: highlight-console notranslate
+
+         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+         [00:00:00.321,000] :byl:`<wrn> udc_rpi: BUS RESET`
+         [00:00:00.401,000] :byl:`<wrn> udc_rpi: BUS RESET`
+         \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
+         :bgn:`uart:~$` **_**
+
+         :bgn:`uart:~$` **lvgl stats memory**
+         Heap at 0x20001410 contains 2047 units in 11 buckets
+
+           bucket#    min units        total      largest      largest
+                      threshold       chunks      (units)      (bytes)
+           -----------------------------------------------------------
+                 0            1            2            1            4
+                 1            2            1            2           12
+                 6           64            1           81          644
+                10         1024            1         1354        10828
+
+         11492 free bytes, 4384 allocated bytes, overhead = 504 bytes (3.1%)
 
    .. group-tab:: Waveshare Pico LCD 1.14
 
@@ -1108,6 +1464,13 @@ This samples and test applications are only applicable on the |Waveshare Pico
 ResTouch LCD 3.5| board. They will be built with activated USB-CDC/ACM console.
 
 .. tabs::
+
+   .. group-tab:: Waveshare Pico LCD 0.96
+
+      .. hint::
+
+         The |Waveshare Pico LCD 0.96| doesn't provide a TF/microSD card slot.
+         This samples are not applicable.
 
    .. group-tab:: Waveshare Pico LCD 1.14
 

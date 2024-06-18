@@ -1,0 +1,38 @@
+.. list-table::
+   :align: center
+   :width: 66%
+   :header-rows: 1
+
+   * - .. image:: waveshare_pico_lcd_0_96/positions.jpg
+          :align: center
+          :width: 500
+          :alt: Waveshare Pico LCD 0.96 details
+
+   * - .. container:: twocol
+
+          .. container:: leftside
+
+             Inputs:
+
+             1. | :strong:`User joystick`
+                | UP, DOWN, LEFT, RIGHT, ENTER
+             #. | :strong:`User keys`
+                | momentary push buttons
+
+          .. container:: rightside
+
+             Outputs:
+
+             3. | :strong:`ST7735S`
+                | 0.96-inch 160×80 pixels 65K colorful IPS LCD
+             #. | :strong:`RT9193-33`
+                | 300㎃ low dropout, low noise, ultra-fast LDO
+
+.. rubric:: Data Sheets
+.. rst-class:: rst-columns
+
+- .. rubric:: ST7735S_
+- `ST7735S Datasheet V1.4 (2014/10)`_
+- `ST7735S Datasheet V1.1 (2011/11)`_
+- .. rubric:: RT9193-33_
+- `RT9193 Datasheet`_
