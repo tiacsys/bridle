@@ -167,6 +167,8 @@ Take over the new build principles from Zephyr:
 * tbd.
 * tbd.
 * tbd.
+* Use the new upstream *MIPI DBI driver class* for all *ST7735R* based displays.
+* Use the new upstream *MIPI DBI driver class* for all *ST7789V* based displays.
 * Convert all Bridle *boards* and *SoCs* to the **new Hardware Model v2**.
 * Hook up ``board.cmake`` in Bridle's board extension folder.
 * Hook up ``Kconfig.defconfig`` in Bridle's board extension folder.
@@ -204,6 +206,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`234` - [BUG] boards and shields with LCD do not support the new MIPI-DBI mode
 * :github:`231` - [BUG] build Zephyr docset fails
 * :github:`229` - [BUG] magpie_f777ni: wdt_basic_api/drivers.watchdog.stm32wwdg FAILED
 * :github:`227` - [BUG] Unable to build any application referencing bridle version information
