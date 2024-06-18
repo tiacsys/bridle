@@ -4,11 +4,13 @@
  */
 
 #include <freq.h>
+#include <zephyr/dt-bindings/mipi_dbi/mipi_dbi.h>
 
-&rpipico_spi_lcd {
+&mipi_dbi {
 	st7789v_240x320: st7789v@0 {
 		compatible = "sitronix,st7789v";
-		spi-max-frequency = <DT_FREQ_M(20)>;
+		mipi-max-frequency = <DT_FREQ_M(20)>;
+		mipi-mode = <MIPI_DBI_MODE_SPI_4WIRE>;
 		reg = <0>;
 
 		status = "disabled";

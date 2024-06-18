@@ -11,6 +11,10 @@
 		zephyr,display = &lcd_panel;
 	};
 
+	mipi_dbi: mipi-dbi {
+		compatible = "zephyr,mipi-dbi-spi";
+	};
+
 	lcd_backlight_en: lcd-backlight-en {
 		compatible = "regulator-fixed";
 		regulator-name = "lcd_backlight_enable";
