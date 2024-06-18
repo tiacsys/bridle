@@ -808,6 +808,14 @@
 .. _`Waveshare Pico Environment Sensor Schematic`:
    https://www.waveshare.com/wiki/Pico-Environment-Sensor#Documents
 
+.. #### Links to the Waveshare Pico LCD 0.96
+
+.. _`Waveshare Pico LCD 0.96`:
+   https://www.waveshare.com/wiki/Pico-LCD-0.96
+
+.. _`Waveshare Pico LCD 0.96 Schematic`:
+   https://www.waveshare.com/wiki/Pico-LCD-0.96#Document
+
 .. #### Links to the Waveshare Pico LCD 1.14
 
 .. _`Waveshare Pico LCD 1.14`:
