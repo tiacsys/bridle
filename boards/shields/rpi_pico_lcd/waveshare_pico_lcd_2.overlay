@@ -13,6 +13,7 @@
 
 	mipi_dbi: mipi-dbi {
 		compatible = "zephyr,mipi-dbi-spi";
+		write-only;
 	};
 
 	lcd_backlight_en: lcd-backlight-en {
