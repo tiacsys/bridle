@@ -19,6 +19,7 @@
 		reset-gpios = <&gpio0 12 GPIO_ACTIVE_LOW>;
 		dc-gpios = <&gpio0 8 GPIO_ACTIVE_HIGH>;
 		spi-dev = <&spi1>;
+		write-only;
 
 		#address-cells = <1>;
 		#size-cells = <0>;
