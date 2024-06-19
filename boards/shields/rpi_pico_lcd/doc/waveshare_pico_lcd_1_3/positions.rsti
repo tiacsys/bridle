@@ -1,0 +1,41 @@
+.. list-table::
+   :align: center
+   :width: 66%
+   :header-rows: 1
+
+   * - .. image:: waveshare_pico_lcd_1_3/positions.jpg
+          :align: center
+          :width: 500
+          :alt: Waveshare Pico LCD 1.3 details
+
+   * - .. container:: twocol
+
+          .. container:: leftside
+
+             Inputs:
+
+             1. | :strong:`User joystick`
+                | UP, DOWN, LEFT, RIGHT, ENTER
+             #. | :strong:`User keys`
+                | momentary push buttons
+
+          .. container:: rightside
+
+             Outputs:
+
+             3. | :strong:`ST7789V`
+                | 1.3-inch 240×240 pixels 65K colorful IPS LCD
+             #. | :strong:`RT9193-33`
+                | 300㎃ low dropout, low noise, ultra-fast LDO
+
+.. rubric:: Data Sheets
+.. rst-class:: rst-columns
+
+- .. rubric:: ST7789V_
+- `ST7789VW Datasheet V1.0 (2017/09)`_
+- `ST7789V Datasheet V1.6 (2017/09)`_
+- `ST7789V Datasheet V1.4 (2014/10)`_
+- `ST7789V Datasheet V1.3 (2014/03)`_
+- `ST7789V Datasheet V0.1 (2013/07)`_
+- .. rubric:: RT9193-33_
+- `RT9193 Datasheet`_

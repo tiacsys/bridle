@@ -1,0 +1,94 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/input/input-event-codes.h>
+#include <zephyr/dt-bindings/lvgl/lvgl.h>
+
+/ {
+	chosen {
+		zephyr,display = &lcd_panel;
+	};
+
+	mipi_dbi: mipi-dbi {
+		compatible = "zephyr,mipi-dbi-spi";
+		write-only;
+	};
+
+	lcd_backlight_en: lcd-backlight-en {
+		compatible = "regulator-fixed";
+		regulator-name = "lcd_backlight_enable";
+		regulator-boot-on;
+	};
+
+	lvgl_buttons: lvgl-buttons {
+		compatible = "zephyr,lvgl-button-input";
+		input = <&gpio_keys>;
+		input-codes = <INPUT_KEY_B>;
+		coordinates = <120 120>;
+	};
+
+	lvgl_keypad: lvgl-keypad {
+		compatible = "zephyr,lvgl-keypad-input";
+		input = <&gpio_keys>;
+		input-codes = <INPUT_KEY_LEFT INPUT_KEY_RIGHT
+			       INPUT_KEY_UP INPUT_KEY_DOWN
+			       INPUT_KEY_ENTER>;
+		lvgl-codes = <LV_KEY_LEFT LV_KEY_RIGHT
+			      LV_KEY_UP LV_KEY_DOWN
+			      LV_KEY_ENTER>;
+	};
+
+	gpio_keys: gpio_keys {
+		compatible = "gpio-keys";
+		button_0: button_0 {
+			label = "User button A";
+			zephyr,code = <INPUT_KEY_A>;
+		};
+		button_1: button_1 {
+			label = "User button B";
+			zephyr,code = <INPUT_KEY_B>;
+		};
+		button_2: button_2 {
+			label = "User button X";
+			zephyr,code = <INPUT_KEY_X>;
+		};
+		button_3: button_3 {
+			label = "User button Y";
+			zephyr,code = <INPUT_KEY_Y>;
+		};
+		joystick_enter: joystick_enter {
+			label = "User joystick ENTER";
+			zephyr,code = <INPUT_KEY_ENTER>;
+		};
+		joystick_right: joystick_right {
+			label = "User joystick RIGHT";
+			zephyr,code = <INPUT_KEY_RIGHT>;
+		};
+		joystick_up: joystick_up {
+			label = "User joystick UP";
+			zephyr,code = <INPUT_KEY_UP>;
+		};
+		joystick_down: joystick_down {
+			label = "User joystick DOWN";
+			zephyr,code = <INPUT_KEY_DOWN>;
+		};
+		joystick_left: joystick_left {
+			label = "User joystick LEFT";
+			zephyr,code = <INPUT_KEY_LEFT>;
+		};
+	};
+
+	aliases {
+		sw0 = &button_0;
+		sw1 = &button_1;
+		sw2 = &button_2;
+		sw3 = &button_3;
+		sw4 = &joystick_enter;
+		sw5 = &joystick_left;
+		sw6 = &joystick_down;
+		sw7 = &joystick_right;
+		sw8 = &joystick_up;
+	};
+};
