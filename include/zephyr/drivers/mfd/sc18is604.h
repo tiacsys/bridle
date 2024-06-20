@@ -169,6 +169,54 @@ int mfd_sc18is604_claim(const struct device *dev, k_timeout_t timeout);
  */
 void mfd_sc18is604_release(const struct device *dev);
 
+#if defined(CONFIG_MFD_SC18IS604_ASYNC)
+
+/**
+ * @brief Asynchronously transfer data to and from an SC18IS604 device. This is
+ *        the most general transfer routine, all other transfer variants are
+ *        implemented in terms of this one.
+ *
+ * @param dev An SC18IS604 MFD device.
+ * @param cmd A command sequence sent before the TX data. Can be NULL, in which
+ *            case no command sequence is sent).
+ * @param cmd_len Length of the command sequence.
+ * @param tx_data Data to be sent to the device. Can be NULL, in which case no
+ *                data is send).
+ * @param tx_len Length of the TX data buffer.
+ * @param[out] rx_data Buffer to hold data received from the device. Can be
+ *                     NULL, in which case no data is received.
+ * @param rx_len Length of the RX data buffer.
+ * @param signal Signal to be raised once the transfer is complete.
+ *
+ * @retval 0 If the transfer was successfully started.
+ * @return Negative error code on failure.
+ */
+int mfd_sc18is604_transfer_signal(const struct device *dev,
+				  uint8_t *cmd, size_t cmd_len,
+				  uint8_t *tx_data, size_t tx_len,
+				  uint8_t *rx_data, size_t rx_len,
+				  struct k_poll_signal *signal);
+
+/**
+ * @brief Read from an internal register asychronously.
+ *
+ * @param dev An SC18IS604 MFD device.
+ * @param reg Register address to read from.
+ * @param[out] value Value read from the register. Pointer must remain valid
+ *                   until the transfer is complete.
+ * @param signal Signal that will be raised on transfer completion. Pointer must
+ *               remain valid until the transfer is complete.
+ *
+ * @return A value from mfd_sc18is604_transfer_signal().
+ */
+int mfd_sc18is604_read_register_signal(const struct device *dev,
+				       uint8_t reg, uint8_t *val,
+				       struct k_poll_signal *signal);
+
+#define READ_SC18IS604_REG_SIGNAL(dev, reg, val, signal) \
+	mfd_sc18is604_read_register_signal((dev), SC18IS604_REG_##reg, (val), (signal));
+
+#endif /* defined(CONFIG_MFD_SC18IS604_ASYNC) */
 
 /** @} */
 

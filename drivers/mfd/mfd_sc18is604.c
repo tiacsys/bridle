@@ -155,8 +155,8 @@ static int mfd_sc18is604_clear_interrupt_source(const struct device *dev)
 }
 
 static void mfd_sc18is604_interrupt_callback(const struct device *dev,
-					     struct gpio_callback *cb,
-					     gpio_port_pins_t pins)
+						 struct gpio_callback *cb,
+						 gpio_port_pins_t pins)
 {
 	mfd_sc18is604_data_t * const data = CONTAINER_OF(cb,
 							 mfd_sc18is604_data_t,
@@ -286,6 +286,19 @@ static int mfd_sc18is604_init(const struct device *dev)
 
 	/* Initialize interrupt signal (initially open) */
 	k_sem_init(&data->interrupt_signal, 0, 1);
+
+#if defined(CONFIG_MFD_SC18IS604_ASYNC)
+	/* Initialize private work queue. */
+	size_t work_queue_stack_size = CONFIG_MFD_SC18IS604_WORKQUEUE_STACK_SIZE;
+
+	k_work_queue_init(&data->work_queue);
+	data->work_queue_stack = k_thread_stack_alloc(work_queue_stack_size, 0);
+	k_work_queue_start(&data->work_queue,
+			   data->work_queue_stack,
+			   work_queue_stack_size,
+			   K_HIGHEST_THREAD_PRIO,
+			   NULL);
+#endif /* defined(CONFIG_MFD_SC18IS604_ASYNC) */
 
 	/* Configure interrupt input pin. */
 	ret = mfd_sc18is604_configure_gpio_pin(dev, &config->interrupt,

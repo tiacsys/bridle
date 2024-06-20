@@ -69,6 +69,12 @@ typedef struct mfd_sc18is604_data {
 	struct k_sem interrupt_signal;
 	/** Interrupt callbacks registered by child devices. */
 	sys_slist_t child_callbacks;
+#if defined(CONFIG_MFD_SC18IS604_ASYNC)
+	/** Private work queue for offloading blocking work. */
+	struct k_work_q work_queue;
+	/** Stack area used by this driver instance's work queue. */
+	k_thread_stack_t *work_queue_stack;
+#endif /* defined(CONFIG_MFD_SC18IS604_ASYNC) */
 } mfd_sc18is604_data_t;
 
 #endif /* _MFD_SC18IS604_PRIV_ */
