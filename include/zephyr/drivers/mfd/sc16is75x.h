@@ -13,6 +13,7 @@ extern "C" {
 #include <stddef.h>
 #include <stdint.h>
 
+#include <zephyr/kernel.h>
 #include <zephyr/device.h>
 #include <zephyr/drivers/gpio.h>
 
@@ -347,6 +348,28 @@ int mfd_sc16is75x_read_fifo(const struct device *dev, const uint8_t channel,
  */
 int mfd_sc16is75x_write_fifo(const struct device *dev, const uint8_t channel,
 			     const uint8_t *buf, const size_t len);
+
+#ifdef CONFIG_MFD_SC16IS75X_ASYNC
+
+/**
+ * @brief Read from an internal register asynchronously.
+ *
+ * @param dev An SC16IS75x device.
+ * @param channel Channel to access.
+ * @param reg Register address to read from.
+ * @param[out] value Value of that register.
+ * @retval 0 On succes.
+ * @return Negative error code on failure.
+ */
+int mfd_sc16is75x_read_register_signal(const struct device *dev,
+				       const uint8_t channel,
+				       const uint8_t reg, uint8_t *value,
+				       struct k_poll_signal *signal);
+
+#define READ_SC16IS75X_CHREG_SIGNAL(dev, ch, reg, val, signal) \
+	mfd_sc16is75x_read_register_signal((dev), (ch), SC16IS75X_REG_##reg, (val), (signal));
+
+#endif /* CONFIG_MFD_SC16IS75X_ASYNC */
 
 /** @} */
 

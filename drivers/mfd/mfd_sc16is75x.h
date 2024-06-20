@@ -61,7 +61,24 @@ struct mfd_sc16is75x_transfer_function {
 	/** write raw data */
 	int (*write_raw)(const struct device *dev, const uint8_t sub_address,
 			 const uint8_t *buf, const size_t len);
+#ifdef CONFIG_MFD_SC16IS75X_ASYNC
+	int (*read_raw_signal)(const struct device *dev, const uint8_t sub_address,
+			       uint8_t *buf, const size_t len,
+			       struct k_poll_signal *signal);
+#endif /* CONFIG_MFD_SC16IS75X_ASYNC */
 };
+
+#ifdef CONFIG_MFD_SC16IS75X_ASYNC_WORKQUEUE
+
+/**
+ * @brief Bus agnostic asynchronous read function.
+ */
+int mfd_sc16is75x_read_raw_signal(const struct device *dev,
+					 const uint8_t sub_address,
+					 uint8_t *buf, const size_t len,
+					 struct k_poll_signal *signal);
+
+#endif /* CONFIG_MFD_SC16IS75X_ASYNC_WORKQUEUE */
 
 /**
  * @brief SC16IS75X MFD data
@@ -78,6 +95,12 @@ struct mfd_sc16is75x_data {
 	const struct mfd_sc16is75x_transfer_function *transfer_function;
 	/** Mutex to allow locking across multiple transactions */
 	struct k_mutex transaction_lock;
+#ifdef CONFIG_MFD_SC16IS75X_ASYNC_WORKQUEUE
+	/** Private work queue for offloading blocking work. */
+	struct k_work_q work_queue;
+	/** Stack area used by this driver instance's work queue. */
+	k_thread_stack_t *work_queue_stack;
+#endif /* CONFIG_MFD_SC16IS75X_ASYNC_WORKQUEUE */
 };
 
 int mfd_sc16is75x_spi_init(const struct device *dev);

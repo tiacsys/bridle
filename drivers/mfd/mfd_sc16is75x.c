@@ -142,6 +142,38 @@ int mfd_sc16is75x_write_fifo(const struct device *dev, const uint8_t channel,
 	return WRITE_SC16IS75X_CHANNEL(dev, channel, THR, buf, len);
 }
 
+#ifdef CONFIG_MFD_SC16IS75X_ASYNC
+
+static int mfd_sc16is75x_read_signal(const struct device *dev,
+				     const uint8_t channel, const uint8_t reg,
+			      	     uint8_t *buf, const size_t len,
+			      	     struct k_poll_signal *signal)
+{
+	struct mfd_sc16is75x_data * const data = dev->data;
+	uint8_t sub_address = 0;
+	int ret = 0;
+
+	ret = mfd_sc16is75x_sub_address(SC16IS75X_SA_RD, reg, channel,
+					&sub_address);
+	if (ret != 0) {
+		return ret;
+	}
+
+	return data->transfer_function->read_raw_signal(dev, sub_address,
+							buf, len, signal);
+}
+
+int mfd_sc16is75x_read_register_signal(const struct device *dev,
+				       const uint8_t channel,
+				       const uint8_t reg, uint8_t *value,
+				       struct k_poll_signal *signal)
+{
+	return mfd_sc16is75x_read_signal(dev, channel, reg, value, 1, signal);
+}
+
+#endif /* CONFIG_MFD_SC16IS75X_ASYNC */
+
+
 static int mfd_sc16is75x_init(const struct device *dev)
 {
 	const struct mfd_sc16is75x_config * const config = dev->config;
@@ -183,6 +215,19 @@ static int mfd_sc16is75x_init(const struct device *dev)
 	k_usleep(5);
 	gpio_pin_set_dt(&config->reset, 0); /* deassert */
 	k_usleep(5);
+
+#ifdef CONFIG_MFD_SC16IS75X_ASYNC_WORKQUEUE
+	/* Initialize private work queue. */
+	size_t work_queue_stack_size = CONFIG_MFD_SC16IS75X_WORKQUEUE_STACK_SIZE;
+
+	k_work_queue_init(&data->work_queue);
+	data->work_queue_stack = k_thread_stack_alloc(work_queue_stack_size, 0);
+	k_work_queue_start(&data->work_queue,
+			   data->work_queue_stack,
+			   work_queue_stack_size,
+			   K_HIGHEST_THREAD_PRIO,
+			   NULL);
+#endif /* CONFIG_MFD_SC16IS75X_ASYNC_WORKQUEUE */
 
 end:
 	return ret;
