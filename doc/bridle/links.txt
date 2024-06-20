@@ -832,6 +832,14 @@
 .. _`Waveshare Pico LCD 1.3 Schematic`:
    https://www.waveshare.com/wiki/Pico-LCD-1.3#Document
 
+.. #### Links to the Waveshare Pico LCD 1.44
+
+.. _`Waveshare Pico LCD 1.44`:
+   https://www.waveshare.com/wiki/Pico-LCD-1.44
+
+.. _`Waveshare Pico LCD 1.44 Schematic`:
+   https://www.waveshare.com/wiki/Pico-LCD-1.44#Document
+
 .. #### Links to the Waveshare Pico LCD 2
 
 .. _`Waveshare Pico LCD 2`:

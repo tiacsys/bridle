@@ -1,0 +1,49 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include "st7735s_128x128ls.dtsi"
+#include "st7735s_rgb565.dtsi"
+
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
+&rpipico_spi_lcd {
+	pinctrl-0 = <&spi1_lcd>;
+	pinctrl-names = "default";
+	cs-gpios = <&rpipico_header 9 GPIO_ACTIVE_LOW>;		/* GP9 */
+};
+
+&mipi_dbi {
+	status = "okay";
+	reset-gpios = <&rpipico_header 12 GPIO_ACTIVE_LOW>;	/* GP12 */
+	dc-gpios = <&rpipico_header 8 GPIO_ACTIVE_HIGH>;	/* GP8 */
+	spi-dev = <&rpipico_spi_lcd>;
+	#address-cells = <1>;
+	#size-cells = <0>;
+};
+
+&lcd_panel {
+	status = "okay";
+};
+
+&lcd_backlight_en {
+	status = "okay";
+	enable-gpios = <&rpipico_header 13 GPIO_ACTIVE_HIGH>;	/* GP13 */
+};
+
+&button_0 {							/* GP15 */
+	gpios = <&rpipico_header 15 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+};
+
+&button_1 {							/* GP17 */
+	gpios = <&rpipico_header 17 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+};
+
+&button_2 {							/* GP2 */
+	gpios = <&rpipico_header 2 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+};
+
+&button_3 {							/* GP3 */
+	gpios = <&rpipico_header 3 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+};
