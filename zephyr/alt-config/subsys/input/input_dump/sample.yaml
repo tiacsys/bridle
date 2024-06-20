@@ -43,6 +43,17 @@ tests:
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
   #
+  # shield: Waveshare Pico LCD 1.44
+  #
+  sample.input.input_dump.waveshare_pico_lcd_1_44:
+    extra_args:
+      SHIELD=waveshare_pico_lcd_1_44
+    integration_platforms:
+      - rpi_pico
+      - rpi_pico/rp2040/w
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb
+  #
   # shield: Waveshare Pico LCD 2
   #
   sample.input.input_dump.waveshare_pico_lcd_2:
