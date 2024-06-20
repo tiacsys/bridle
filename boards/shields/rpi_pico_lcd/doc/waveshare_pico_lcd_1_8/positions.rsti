@@ -1,0 +1,34 @@
+.. list-table::
+   :align: center
+   :width: 66%
+   :header-rows: 1
+
+   * - .. image:: waveshare_pico_lcd_1_8/positions.jpg
+          :align: center
+          :width: 500
+          :alt: Waveshare Pico LCD 1.8 details
+
+   * - .. container:: twocol
+
+          .. container:: leftside
+
+             Inputs:
+
+             1. | :strong:`ST7735S`
+                | 1.8-inch 160×128 pixels 65K colorful IPS LCD
+
+          .. container:: rightside
+
+             Outputs:
+
+             2. | :strong:`RT9193-33`
+                | 300㎃ low dropout, low noise, ultra-fast LDO
+
+.. rubric:: Data Sheets
+.. rst-class:: rst-columns
+
+- .. rubric:: ST7735S_
+- `ST7735S Datasheet V1.4 (2014/10)`_
+- `ST7735S Datasheet V1.1 (2011/11)`_
+- .. rubric:: RT9193-33_
+- `RT9193 Datasheet`_

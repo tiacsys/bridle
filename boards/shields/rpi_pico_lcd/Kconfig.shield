@@ -13,6 +13,9 @@ config SHIELD_WAVESHARE_PICO_LCD_1_3
 config SHIELD_WAVESHARE_PICO_LCD_1_44
 	def_bool $(shields_list_contains,waveshare_pico_lcd_1_44)
 
+config SHIELD_WAVESHARE_PICO_LCD_1_8
+	def_bool $(shields_list_contains,waveshare_pico_lcd_1_8)
+
 config SHIELD_WAVESHARE_PICO_LCD_2
 	def_bool $(shields_list_contains,waveshare_pico_lcd_2)
 
