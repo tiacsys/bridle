@@ -1,0 +1,43 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <freq.h>
+#include <zephyr/dt-bindings/mipi_dbi/mipi_dbi.h>
+
+&mipi_dbi {
+	st7735s_128x128pt: st7735s@0 {
+		compatible = "sitronix,st7735r";
+		mipi-max-frequency = <DT_FREQ_M(20)>;
+		mipi-mode = <MIPI_DBI_MODE_SPI_4WIRE>;
+		reg = <0>;
+
+		status = "disabled";
+
+		width = <128>;		/* portrait */
+		height = <128>;		/* portrait */
+		x-offset = <2>;		/* portrait */
+		y-offset = <1>;		/* portrait */
+
+		rgb-is-inverted;
+
+		pwctr1 = [62 02 04];
+		pwctr2 = [C0];
+		pwctr3 = [0D 00];
+		pwctr4 = [8D 6A];
+		pwctr5 = [8D EE];
+		vmctr1 = <0x0E>;
+		frmctr1 = [05 3A 3A];
+		frmctr2 = [05 3A 3A];
+		frmctr3 = [05 3A 3A 05 3A 3A];
+		invctr = <0x03>;
+		gamctrp1 = [10 0E 02 03 0E 07 02 07 0A 12 27 37 00 0D 0E 10];
+		gamctrn1 = [10 0E 03 03 0F 06 02 08 0A 13 26 36 00 0D 0E 10];
+		madctl = <0x08>;	/* portrait */
+		caset = [00 01 00 A0];
+		raset = [00 1A 00 69];
+	};
+};
+
+lcd_panel: &st7735s_128x128pt {};
