@@ -63,7 +63,7 @@ Build and flash for different boards
 
 .. zephyr-app-commands::
    :zephyr-app: bridle/samples/ubx_gnss
-   :board: nrf9160dk_nrf9160
+   :board: nrf9160dk/nrf9160
    :build-dir: nrf9160dk_nrf9160-ubx_gnss
    :west-args: -p
    :goals: flash
@@ -73,7 +73,7 @@ Build and flash for different boards
 
 .. zephyr-app-commands::
    :zephyr-app: bridle/samples/ubx_gnss
-   :board: nrf52840dk_nrf52840
+   :board: nrf52840dk/nrf52840
    :build-dir: nrf52840dk_nrf52840-ubx_gnss
    :west-args: -p
    :goals: flash
@@ -113,7 +113,7 @@ Build and flash for different boards
 
 .. zephyr-app-commands::
    :zephyr-app: bridle/samples/ubx_gnss
-   :board: mimxrt1170_evkb_cm7
+   :board: mimxrt1170_evk@B/mimxrt1176/cm7
    :build-dir: mimxrt1170_evkb_cm7-ubx_gnss
    :west-args: -p
    :flash-args: -r pyocd
