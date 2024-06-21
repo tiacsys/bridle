@@ -86,7 +86,7 @@ config UBXLIB_TEST
 	bool "Compile the ubxlib tests"
 	select TEST
 	select IRQ_OFFLOAD
-	select CPLUSPLUS
+	select CPP
 	default n
 	help
 	  The self contained ubxlib tests are only usefull for
