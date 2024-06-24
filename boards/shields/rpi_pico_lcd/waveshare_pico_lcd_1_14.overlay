@@ -25,7 +25,7 @@
 	lvgl_buttons: lvgl-buttons {
 		compatible = "zephyr,lvgl-button-input";
 		input = <&gpio_keys>;
-		input-codes = <INPUT_KEY_1>;
+		input-codes = <INPUT_KEY_B>;
 		coordinates = <120 68>;
 	};
 
@@ -44,11 +44,11 @@
 		compatible = "gpio-keys";
 		button_0: button_0 {
 			label = "User button A";
-			zephyr,code = <INPUT_KEY_0>;
+			zephyr,code = <INPUT_KEY_A>;
 		};
 		button_1: button_1 {
 			label = "User button B";
-			zephyr,code = <INPUT_KEY_1>;
+			zephyr,code = <INPUT_KEY_B>;
 		};
 		joystick_enter: joystick_enter {
 			label = "User joystick ENTER";

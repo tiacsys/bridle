@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 TiaC Systems
+ * Copyright (c) 2023-2024 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -20,18 +20,18 @@
 		x-offset = <40>;	/* landscape */
 		y-offset = <53>;	/* landscape */
 
-		vcom = <0x19>;
+		vcom = <0x1f>;
 		gctrl = <0x35>;
 		vrhs = <0x12>;
 		vdvs = <0x20>;
-		mdac = <0x70>;		/* landscape */
+		mdac = <0x60>;		/* landscape */
 		gamma = <0x01>;
 		lcm = <0x2c>;
 		porch-param = [0C 0C 00 33 33];
 		cmd2en-param = [5A 69 02 01];
 		pwctrl1-param = [A4 A1];
-		pvgam-param = [D0 04 0D 11 13 2B 3F 54 4C 18 0D 0B 1F 23];
-		nvgam-param = [D0 04 0C 11 13 2C 3F 44 51 2F 1F 1F 20 23];
+		pvgam-param = [D0 08 11 08 0C 15 39 33 50 36 13 14 29 2D];
+		nvgam-param = [D0 08 10 08 06 06 39 44 51 0B 16 14 2F 31];
 		ram-param = [00 F0];
 		rgb-param = [CD 08 14];
 	};

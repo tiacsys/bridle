@@ -3,6 +3,6 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-&st7735s_80x160 {
+&st7735s_128x160 {
 	madctl = <0x80>;		/* portrait, mirrored */
 };
