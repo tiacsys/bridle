@@ -21,7 +21,7 @@
 		min-y = <624>;
 		max-y = <3778>;
 
-		z-threshold = <50>;
+		z-threshold = <100>;
 		reads = <1>;
 	};
 };

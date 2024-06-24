@@ -7,7 +7,7 @@
 #include <zephyr/dt-bindings/mipi_dbi/mipi_dbi.h>
 
 &mipi_dbi {
-	st7735s_80x160: st7735s@0 {
+	st7735s_128x160: st7735s@0 {
 		compatible = "sitronix,st7735r";
 		mipi-max-frequency = <DT_FREQ_M(20)>;
 		mipi-mode = <MIPI_DBI_MODE_SPI_4WIRE>;
@@ -38,4 +38,4 @@
 	};
 };
 
-lcd_panel: &st7735s_80x160 {};
+lcd_panel: &st7735s_128x160 {};

@@ -4,7 +4,6 @@
  */
 
 #include <freq.h>
-#include <zephyr/dt-bindings/display/ili9xxx.h>
 
 &mipi_dbi {
 	ili9488_320x480: ili9488@0 {
@@ -16,7 +15,7 @@
 
 		width = <320>;
 		height = <480>;
-		rotation = <0>;		/* portrait */
+		rotation = <180>;	/* portrait */
 
 		disctrl = [08 82 3B];	/* non-mirrored */
 
