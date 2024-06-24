@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 TiaC Systems
+ * Copyright (c) 2023-2024 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -17,7 +17,7 @@
 &mipi_dbi {
 	status = "okay";
 	reset-gpios = <&rpipico_header 12 GPIO_ACTIVE_LOW>;	/* GP12 */
-	dc-gpios = <&rpipico_header 8 GPIO_ACTIVE_HIGH>;        /* GP8 */
+	dc-gpios = <&rpipico_header 8 GPIO_ACTIVE_HIGH>;	/* GP8 */
 	spi-dev = <&rpipico_spi_lcd>;
 	#address-cells = <1>;
 	#size-cells = <0>;

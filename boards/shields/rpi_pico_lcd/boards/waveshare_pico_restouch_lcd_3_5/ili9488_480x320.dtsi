@@ -4,7 +4,6 @@
  */
 
 #include <freq.h>
-#include <zephyr/dt-bindings/display/ili9xxx.h>
 
 &mipi_dbi {
 	ili9488_480x320: ili9488@0 {

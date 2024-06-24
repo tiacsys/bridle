@@ -1,7 +1,9 @@
 /*
- * Copyright (c) 2023 TiaC Systems
+ * Copyright (c) 2023-2024 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
+
+#include <zephyr/dt-bindings/display/ili9xxx.h>
 
 &lcd_panel {
 	pixel-format = <ILI9XXX_PIXEL_FORMAT_RGB888>;

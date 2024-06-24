@@ -4,5 +4,5 @@
  */
 
 &st7735s_160x80 {
-	madctl = <0x78>;	/* landscape, upsidedown */
+	madctl = <0xE8>;	/* landscape, upsidedown */
 };

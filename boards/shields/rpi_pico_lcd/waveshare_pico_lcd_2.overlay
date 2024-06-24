@@ -32,7 +32,7 @@
 	lvgl_keypad: lvgl-keypad {
 		compatible = "zephyr,lvgl-keypad-input";
 		input = <&gpio_keys>;
-		input-codes = <INPUT_KEY_3 INPUT_KEY_2
+		input-codes = <INPUT_KEY_2 INPUT_KEY_3
 			       INPUT_KEY_1>;
 		lvgl-codes = <LV_KEY_LEFT LV_KEY_RIGHT
 			      LV_KEY_ENTER>;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 TiaC Systems
+ * Copyright (c) 2023-2024 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -24,7 +24,7 @@
 		gctrl = <0x35>;
 		vrhs = <0x12>;
 		vdvs = <0x20>;
-		mdac = <0x00>;		/* portrait */
+		mdac = <0xC0>;		/* portrait */
 		gamma = <0x01>;
 		lcm = <0x2c>;
 		porch-param = [0C 0C 00 33 33];

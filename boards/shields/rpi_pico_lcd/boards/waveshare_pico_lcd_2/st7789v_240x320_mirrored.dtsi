@@ -1,8 +1,8 @@
 /*
- * Copyright (c) 2023 TiaC Systems
+ * Copyright (c) 2023-2024 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
 &st7789v_240x320 {
-	mdac = <0x40>;		/* portrait, mirrored */
+	mdac = <0x80>;		/* portrait, mirrored */
 };
