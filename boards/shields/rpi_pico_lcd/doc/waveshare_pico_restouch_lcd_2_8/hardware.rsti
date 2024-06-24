@@ -1,0 +1,51 @@
+The `Waveshare Pico ResTouch LCD 2.8`_ shield comes with the built-in
+controller `ST7789VW <ST7789V_>`_ inside the LCD, which is an LCD controller
+with 240 × RGB × 320 pixels, while the pixels of this LCD itself is the same,
+240 (H) RGB × 320 (V). There are two types of horizontal and vertical screens,
+so the internal RAM of the LCD is fully used. The LCD supports 12-bit, 16-bit,
+and 18-bit input color formats per pixel, namely RGB444, RGB565, and RGB888
+three color formats. This integration **uses the RGB565** color format, which
+is also a commonly used RGB format. The LCD uses a four-wire SPI communication
+interface with up to 60㎒.
+
+Additional there are a resistive Touch Screen (TS) with the TS controller
+XPT2046_ and a standard TF/microSD card slot.
+
+.. list-table::
+   :align: center
+   :width: 100%
+   :widths: 66, 33
+
+   * - .. rubric:: Features and Resources
+     - .. rubric:: Printed Circuit Board
+
+   * - :hwftlbl-vdd:`5V/40㎃`
+
+       :hwftlbl-scr:`LCD/TSC`
+       :hwftlbl-dsk:`TF/microSD`
+
+       :hwftlbl-pio:`8`
+       :hwftlbl-pwm:`1`
+       :hwftlbl-spi:`1`
+       :hwftlbl-tsi:`1`
+       :hwftlbl-sdc:`1`
+
+       .. rst-class:: rst-columns
+
+       - :bbk:`1 serial 320×240 IPS 262K LCD`
+       - :bbk:`1 LCD Backglight LED`
+       - :bbk:`1 6-wire SDIO to the TF/microSD`
+
+       - :bbk:`1 RST signal to LCD controller`
+       - :bbk:`1 C/D signal to LCD controller`
+       - :bbk:`1 IRQ signal from TS controller`
+       - :bbk:`1 VEN signal to voltage regulator (optional)`
+
+       .. rubric:: Design Data
+       .. rst-class:: rst-columns
+
+       - `Waveshare Pico ResTouch LCD 2.8 Schematic`_
+
+     - .. image:: waveshare_pico_restouch_lcd_2_8/hardware.jpg
+          :align: center
+          :alt: Waveshare Pico ResTouch LCD 2.8

@@ -19,5 +19,8 @@ config SHIELD_WAVESHARE_PICO_LCD_1_8
 config SHIELD_WAVESHARE_PICO_LCD_2
 	def_bool $(shields_list_contains,waveshare_pico_lcd_2)
 
+config SHIELD_WAVESHARE_PICO_RESTOUCH_LCD_2_8
+	def_bool $(shields_list_contains,waveshare_pico_restouch_lcd_2_8)
+
 config SHIELD_WAVESHARE_PICO_RESTOUCH_LCD_3_5
 	def_bool $(shields_list_contains,waveshare_pico_restouch_lcd_3_5)

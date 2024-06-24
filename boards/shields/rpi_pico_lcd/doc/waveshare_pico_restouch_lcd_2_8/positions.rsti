@@ -1,0 +1,50 @@
+.. list-table::
+   :align: center
+   :width: 66%
+   :header-rows: 1
+
+   * - .. image:: waveshare_pico_restouch_lcd_2_8/positions.jpg
+          :align: center
+          :width: 500
+          :alt: Waveshare Pico ResTouch LCD 2.8 details
+
+   * - .. container:: twocol
+
+          .. container:: leftside
+
+             - | :strong:`ST7789VW` (on front side)
+               | 2.8-inch 320×240 pixels 262K colorful IPS LCD
+
+             1. | :strong:`Rapsberry Pi Pico header`
+             #. | :strong:`TF/microSD card slot`
+             #. | :strong:`XPT2046`
+                | resistive touch screen controller
+
+          .. container:: rightside
+
+             4. | :strong:`RT9193-33`
+                | 300㎃ low dropout, low noise, ultra-fast LDO
+             #. | :strong:`Pico reset button`
+                | momentary push buttons
+             #. | :strong:`SS8050`
+                | LCD backlight switch transistor
+                | 1500㎃ Si NPN bipolar transistor,
+                | for LCD backlight power switching
+
+.. rubric:: Data Sheets
+.. rst-class:: rst-columns
+
+- .. rubric:: ST7789V_
+- `ST7789VW Datasheet V1.0 (2017/09)`_
+- `ST7789V Datasheet V1.6 (2017/09)`_
+- `ST7789V Datasheet V1.4 (2014/10)`_
+- `ST7789V Datasheet V1.3 (2014/03)`_
+- `ST7789V Datasheet V0.1 (2013/07)`_
+- .. rubric:: XPT2046_
+- `XPT2046 Datasheet (2007.05)`_
+- `XPT2046 Datasheet CN (2011.12)`_
+- `XPT2046 Datasheet V2.0 CN (2008.09)`_
+- .. rubric:: RT9193-33_
+- `RT9193 Datasheet`_
+- .. rubric:: SS8050_
+- `SS8050 Datasheet`_

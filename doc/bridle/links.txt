@@ -856,6 +856,14 @@
 .. _`Waveshare Pico LCD 2 Schematic`:
    https://www.waveshare.com/wiki/Pico-LCD-2#Document
 
+.. #### Links to the Waveshare Pico ResTouch LCD 2.8
+
+.. _`Waveshare Pico ResTouch LCD 2.8`:
+   https://www.waveshare.com/wiki/Pico-ResTouch-LCD-2.8
+
+.. _`Waveshare Pico ResTouch LCD 2.8 Schematic`:
+   https://www.waveshare.com/wiki/Pico-ResTouch-LCD-2.8#Documents
+
 .. #### Links to the Waveshare Pico ResTouch LCD 3.5
 
 .. _`Waveshare Pico ResTouch LCD 3.5`:
@@ -1114,6 +1122,13 @@
 
 .. _`RT9193 Datasheet`:
    https://www.richtek.com/assets/product_file/RT9193/DS9193-18.pdf
+
+.. _`SS8050`:
+   https://www.onsemi.com/products/discrete-power-modules/general-purpose-and-low-vcesat-transistors/ss8050
+
+.. _`SS8050 Datasheet`:
+   https://www.onsemi.com/download/data-sheet/pdf/ss8050-d.pdf
+.. https://www.onsemi.cn/pdf/datasheet/ss8050-d.pdf
 
 .. _`SY7208`:
    https://www.lcsc.com/search?q=SY7208

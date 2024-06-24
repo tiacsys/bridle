@@ -131,6 +131,9 @@
 .. |Waveshare Pico LCD 2| replace::
    :ref:`Waveshare Pico LCD 2 <waveshare_pico_lcd_2>`
 
+.. |Waveshare Pico ResTouch LCD 2.8| replace::
+   :ref:`Waveshare Pico ResTouch LCD 2.8 <waveshare_pico_restouch_lcd_2_8>`
+
 .. |Waveshare Pico ResTouch LCD 3.5| replace::
    :ref:`Waveshare Pico ResTouch LCD 3.5 <waveshare_pico_restouch_lcd_3_5>`
 

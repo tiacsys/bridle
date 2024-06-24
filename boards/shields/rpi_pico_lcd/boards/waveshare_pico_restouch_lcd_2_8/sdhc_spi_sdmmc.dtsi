@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+&rpipico_spi_sdc {
+	/* SPI as Secure Digital card Host Controller (SDHC). */
+	sdhc_spi_slot: sdhc@2 {
+		compatible = "zephyr,sdhc-spi-slot";
+		spi-max-frequency = <DT_FREQ_M(25)>;
+		reg = <2>;
+
+		status = "disabled";
+
+		/* Secure Digital card as Multi-Media Card (SDMMC) */
+		mmc {
+			compatible = "zephyr,sdmmc-disk";
+			status = "okay";
+		};
+	};
+};
+
+sdhc_spi: &sdhc_spi_slot {};

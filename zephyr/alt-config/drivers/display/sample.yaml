@@ -77,6 +77,17 @@ tests:
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
   #
+  # shield: Waveshare Pico ResTouch LCD 2.8
+  #
+  sample.drivers.display.waveshare_pico_restouch_lcd_2_8:
+    extra_args:
+      SHIELD=waveshare_pico_restouch_lcd_2_8
+    integration_platforms:
+      - rpi_pico
+      - rpi_pico/rp2040/w
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb
+  #
   # shield: Waveshare Pico ResTouch LCD 3.5
   #
   sample.drivers.display.waveshare_pico_restouch_lcd_3_5:
