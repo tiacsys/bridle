@@ -1,69 +1,65 @@
-.. rubric:: Simple test execution on target
-
-(text in bold is a command input)
+Set ``-DSHIELD=waveshare_pico_restouch_lcd_2_8`` and use optional the
+:ref:`snippet-usb-console` when you invoke ``west build``.
+For example:
 
 .. tabs::
 
-   .. group-tab:: Basics
+   .. group-tab:: Raspberry Pi Pico
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. zephyr-app-commands::
+         :app: bridle/samples/helloshell
+         :build-dir: waveshare_pico_restouch_lcd_2_8-helloshell
+         :board: rpi_pico
+         :shield: "waveshare_pico_restouch_lcd_2_8"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :host-os: unix
+         :tool: all
 
-         :bgn:`uart:~$` **hello -h**
-         hello - say hello
-         :bgn:`uart:~$` **hello**
-         Hello from shell.
+      .. include:: waveshare_pico_restouch_lcd_2_8/helloshell_console.rsti
 
-         :bgn:`uart:~$` **hwinfo devid**
-         Length: 8
-         ID: 0x8c998be1de969148
+   .. group-tab:: Raspberry Pi Pico W
 
-         :bgn:`uart:~$` **kernel version**
-         Zephyr version |zephyr_version_number_em|
+      .. zephyr-app-commands::
+         :app: bridle/samples/helloshell
+         :build-dir: waveshare_pico_restouch_lcd_2_8-helloshell
+         :board: rpi_pico/rp2040/w
+         :shield: "waveshare_pico_restouch_lcd_2_8"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :host-os: unix
+         :tool: all
 
-         :bgn:`uart:~$` **bridle version**
-         Bridle version |version_number_em|
+      .. include:: waveshare_pico_restouch_lcd_2_8/helloshell_console.rsti
 
-         :bgn:`uart:~$` **bridle version long**
-         Bridle version |longversion_number_em|
+   .. group-tab:: Waveshare RP2040-Plus
 
-         :bgn:`uart:~$` **bridle info**
-         Zephyr: |zephyr_release_number_em|
-         Bridle: |release_number_em|
+      .. rubric:: on standard ``4㎆`` revision
 
-         :bgn:`uart:~$` **device list**
-         devices:
-         - clock-controller\ @\ 40008000 (READY)
-         - reset-controller\ @\ 4000c000 (READY)
-         - snippet_cdc_acm_console_uart (READY)
-         - uart\ @\ 40034000 (READY)
-         - timer\ @\ 40054000 (READY)
-         - gpio\ @\ 40014000 (READY)
-         - adc\ @\ 4004c000 (READY)
-         - flash-controller\ @\ 18000000 (READY)
-         - i2c\ @\ 40044000 (READY)
-         - vreg\ @\ 40064000 (READY)
-         - lcd-backlight-en (READY)
-         - leds (READY)
+      .. zephyr-app-commands::
+         :app: bridle/samples/helloshell
+         :build-dir: waveshare_pico_restouch_lcd_2_8-helloshell
+         :board: waveshare_rp2040_plus
+         :shield: "waveshare_pico_restouch_lcd_2_8"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :host-os: unix
+         :tool: all
 
-         :bgn:`uart:~$` **history**
-         [  0] history
-         [  1] device list
-         [  2] bridle info
-         [  3] bridle version long
-         [  4] bridle version
-         [  5] kernel version
-         [  6] hwinfo devid
-         [  7] hello
-         [  8] hello -h
+      .. rubric:: on extended ``16㎆`` revision
 
-   .. group-tab:: LCD Backlight LED
+      .. zephyr-app-commands::
+         :app: bridle/samples/helloshell
+         :build-dir: waveshare_pico_restouch_lcd_2_8-helloshell
+         :board: waveshare_rp2040_plus@16mb
+         :shield: "waveshare_pico_restouch_lcd_2_8"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :host-os: unix
+         :tool: all
 
-      Operate with the LCD backlight LED :hwftlbl-led:`LCD_BL`
-      at :rpi-pico-pio:`GP13`:
-
-      .. parsed-literal::
-         :class: highlight-console notranslate
-
-         :bgn:`uart:~$` **regulator disable lcd-backlight-en**
-         :bgn:`uart:~$` **regulator enable lcd-backlight-en**
+      .. include:: waveshare_pico_restouch_lcd_2_8/helloshell_console.rsti

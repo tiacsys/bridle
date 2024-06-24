@@ -1,0 +1,80 @@
+Using the :ref:`Display driver API <zephyr:display_api>` with chosen
+display. That is:
+
+| :hwftlbl-scr:`LCD` : :devicetree:`chosen { zephyr,display = &lcd_panel; };`
+| :hwftlbl-scr:`ST7735S` : :devicetree:`lcd_panel: &st7735s_128x128ls {};`
+
+.. tabs::
+
+   .. group-tab:: Raspberry Pi Pico
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/display
+         :build-dir: waveshare_pico_lcd_1_44-display_test
+         :board: rpi_pico
+         :shield: "waveshare_pico_lcd_1_44"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :compact:
+
+   .. group-tab:: Raspberry Pi Pico W
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/display
+         :build-dir: waveshare_pico_lcd_1_44-display_test
+         :board: rpi_pico/rp2040/w
+         :shield: "waveshare_pico_lcd_1_44"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :compact:
+
+   .. group-tab:: Waveshare RP2040-Plus
+
+      .. rubric:: on standard ``4㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/display
+         :build-dir: waveshare_pico_lcd_1_44-display_test
+         :board: waveshare_rp2040_plus
+         :shield: "waveshare_pico_lcd_1_44"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :compact:
+
+      .. rubric:: on extended ``16㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/display
+         :build-dir: waveshare_pico_lcd_1_44-display_test
+         :board: waveshare_rp2040_plus@16mb
+         :shield: "waveshare_pico_lcd_1_44"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :compact:
+
+.. list-table::
+   :align: center
+   :width: 66%
+   :header-rows: 1
+
+   * - .. image:: waveshare_pico_lcd_1_44/display.*
+          :align: center
+          :alt: Waveshare Pico LCD 1.44 Display Sample Animation
+   * - .. rst-class:: centered
+
+          :brd:`TOP LEFT`, :bgn:`TOP RIGHT`, :bbl:`BOTTOM RIGHT`
+
+.. rubric:: Simple logging output on target
+
+.. parsed-literal::
+   :class: highlight-console notranslate
+
+   \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+   [00:00:00.415,000] :byl:`<wrn> udc_rpi: BUS RESET`
+   [00:00:00.495,000] :byl:`<wrn> udc_rpi: BUS RESET`
+   \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
+   [00:00:04.151,000] <inf> sample: Display sample for st7735s\ @\ 0

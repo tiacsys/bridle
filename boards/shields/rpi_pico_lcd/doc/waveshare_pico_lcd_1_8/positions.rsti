@@ -12,14 +12,10 @@
 
           .. container:: leftside
 
-             Inputs:
-
              1. | :strong:`ST7735S`
                 | 1.8-inch 160×128 pixels 65K colorful IPS LCD
 
           .. container:: rightside
-
-             Outputs:
 
              2. | :strong:`RT9193-33`
                 | 300㎃ low dropout, low noise, ultra-fast LDO
