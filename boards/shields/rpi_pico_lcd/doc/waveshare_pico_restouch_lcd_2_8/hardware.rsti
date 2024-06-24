@@ -1,12 +1,12 @@
-The `Waveshare Pico ResTouch LCD 2.8`_ shield comes with the built-in
-controller `ST7789VW <ST7789V_>`_ inside the LCD, which is an LCD controller
-with 240 × RGB × 320 pixels, while the pixels of this LCD itself is the same,
+The `Waveshare Pico ResTouch LCD 2.8`_ shield comes with the built-in controller
+`ST7789VW <ST7789V_>`_ inside the LCD, which is an LCD controller with 240 × RGB
+× 320 pixels, while the pixels of this **2.8-inch** LCD itself is the same,
 240 (H) RGB × 320 (V). There are two types of horizontal and vertical screens,
 so the internal RAM of the LCD is fully used. The LCD supports 12-bit, 16-bit,
-and 18-bit input color formats per pixel, namely RGB444, RGB565, and RGB888
-three color formats. This integration **uses the RGB565** color format, which
-is also a commonly used RGB format. The LCD uses a four-wire SPI communication
-interface with up to 60㎒.
+and 18-bit input color formats per pixel, namely RGB444, RGB565, and RGB888 three
+color formats. This integration **uses the RGB565** color format, which is also
+a commonly used RGB format. The LCD uses a four-wire SPI communication interface
+with up to 60㎒.
 
 Additional there are a resistive Touch Screen (TS) with the TS controller
 XPT2046_ and a standard TF/microSD card slot.
@@ -32,7 +32,7 @@ XPT2046_ and a standard TF/microSD card slot.
 
        .. rst-class:: rst-columns
 
-       - :bbk:`1 serial 320×240 IPS 262K LCD`
+       - :bbk:`1 serial 2.8-inch 320×240 IPS 262K LCD`
        - :bbk:`1 LCD Backglight LED`
        - :bbk:`1 6-wire SDIO to the TF/microSD`
 

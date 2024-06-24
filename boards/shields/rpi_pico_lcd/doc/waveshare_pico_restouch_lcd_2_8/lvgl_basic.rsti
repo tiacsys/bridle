@@ -1,0 +1,87 @@
+Using the LVGL module on top of the :ref:`Display driver API
+<zephyr:display_api>` and the :ref:`Input subsystem API
+<zephyr:input>` with chosen display and touchscreen panel. That is:
+
+| :hwftlbl-scr:`LCD` : :devicetree:`chosen { zephyr,display = &lcd_panel; };`
+| :hwftlbl-scr:`ST7789V` : :devicetree:`lcd_panel: &st7789v_320x240 {};`
+| :hwftlbl-scr:`TSC` : :devicetree:`lvgl_pointer { input = &tsc_panel; };`
+| :hwftlbl-scr:`XPT2046` : :devicetree:`tsc_panel: &xpt2046_240x320 {};`
+
+.. rubric:: Devicetree compatible
+
+- :dtcompatible:`zephyr,lvgl-pointer-input`
+
+.. tabs::
+
+   .. group-tab:: Raspberry Pi Pico
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/display/lvgl
+         :build-dir: waveshare_pico_restouch_lcd_2_8-lvgl_basic
+         :board: rpi_pico
+         :shield: "waveshare_pico_restouch_lcd_2_8"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :compact:
+
+   .. group-tab:: Raspberry Pi Pico W
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/display/lvgl
+         :build-dir: waveshare_pico_restouch_lcd_2_8-lvgl_basic
+         :board: rpi_pico/rp2040/w
+         :shield: "waveshare_pico_restouch_lcd_2_8"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :compact:
+
+   .. group-tab:: Waveshare RP2040-Plus
+
+      .. rubric:: on standard ``4㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/display/lvgl
+         :build-dir: waveshare_pico_restouch_lcd_2_8-lvgl_basic
+         :board: waveshare_rp2040_plus
+         :shield: "waveshare_pico_restouch_lcd_2_8"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :compact:
+
+      .. rubric:: on extended ``16㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/display/lvgl
+         :build-dir: waveshare_pico_restouch_lcd_2_8-lvgl_basic
+         :board: waveshare_rp2040_plus@16mb
+         :shield: "waveshare_pico_restouch_lcd_2_8"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :compact:
+
+.. rubric:: Simple test execution on target
+
+.. parsed-literal::
+   :class: highlight-console notranslate
+
+   [00:00:00.135,000] <inf> xpt2046: Init 'xpt2046\ @\ 1' device
+   \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+   [00:00:00.294,000] :byl:`<wrn> udc_rpi: BUS RESET`
+   [00:00:00.374,000] :byl:`<wrn> udc_rpi: BUS RESET`
+   \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
+   :bgn:`uart:~$` **_**
+
+   :bgn:`uart:~$` **lvgl stats memory**
+   Heap at 0x20001238 contains 2047 units in 11 buckets
+
+     bucket#    min units        total      largest      largest
+                threshold       chunks      (units)      (bytes)
+     -----------------------------------------------------------
+           1            2            1            2           12
+          10         1024            1         1500        11996
+
+   12008 free bytes, 3924 allocated bytes, overhead = 448 bytes (2.7%)
