@@ -19,7 +19,8 @@
 #include "waveshare_rp2040-4mb.dtsi"
 
 #include "rpigeek_lcd_backlight.dtsi"
-#include "rpigeek_lcd_st7789v.dtsi"
+#include "rpigeek_lcd_st7789v_240x135.dtsi"
+#include "rpigeek_lcd_st7789v_rgb565.dtsi"
 #include "rpigeek_mmc_sdcard.dtsi"
 #include "rpigeek_connectors.dtsi"
 
