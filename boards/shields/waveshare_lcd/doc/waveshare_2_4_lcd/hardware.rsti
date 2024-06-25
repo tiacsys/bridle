@@ -1,9 +1,9 @@
 The `Waveshare 2.4 LCD Module`_ with a resolution of 240 × RGB × 320 pixels,
-is based on the built-in controller `ILI9341 <ILI9341V_>`_ inside the LCD.
-The LCD supports 6-bit, 16-bit, and 18-bit input color formats per pixel,
-namely RGB222, RGB565, and RGB666 three color formats. This integration
-**uses the RGB565** color format, which is also a commonly used RGB format.
-The LCD uses a four-wire SPI communication interface.
+is based on the built-in controller `ILI9341 <ILI9341V_>`_ inside the
+**2.4-inch** LCD. The LCD supports 6-bit, 16-bit, and 18-bit input color
+formats per pixel, namely RGB222, RGB565, and RGB666 three color formats.
+This integration **uses the RGB565** color format, which is also a commonly
+used RGB format. The LCD uses a four-wire SPI communication interface.
 
 .. list-table::
    :align: center
@@ -23,7 +23,7 @@ The LCD uses a four-wire SPI communication interface.
 
        .. rst-class:: rst-columns
 
-       - :bbk:`1 serial 240×320 TFT 65K LCD`
+       - :bbk:`1 serial 2.4-inch 240×320 TFT 65K LCD`
        - :bbk:`1 LCD Backglight LED`
 
        - :bbk:`1 RST signal to LCD controller`

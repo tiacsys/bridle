@@ -1,0 +1,105 @@
+.. tabs::
+
+   .. group-tab:: LCD Orientation and Bit Order Test
+
+      Using the :ref:`Display driver API <zephyr:display_api>` with
+      chosen display. That is:
+
+      | :hwftlbl-scr:`LCD` : :devicetree:`chosen { zephyr,display = &lcd_panel; };`
+      | :hwftlbl-scr:`ILI9341` : :devicetree:`lcd_panel: &ili9341_240x320 {};`
+
+      .. tabs::
+
+         .. group-tab:: Arduino Nano R3
+
+            If the shield is connected to a board which has Arduino Nano
+            connector, set :console:`-DSHIELD=waveshare_2_4_lcd` when you
+            invoke :program:`west build`. For example:
+
+            .. zephyr-app-commands::
+               :app: zephyr/samples/drivers/display
+               :build-dir: waveshare_2_4_lcd-display_test
+               :board: cytron_maker_nano_rp2040
+               :shield: waveshare_2_4_lcd
+               :goals: flash
+               :west-args: -p -S usb-console
+               :flash-args: -r uf2
+               :host-os: unix
+               :tool: all
+
+         .. group-tab:: Grove System
+
+            If the shield is connected to a board which has
+            `Grove System`_ compatiple connectors, set
+            :console:`-DSHIELD=waveshare_2_4_lcd` when you invoke
+            :program:`west build` and use one of supported boards with
+            special Devicetree setup for free wiring. For example:
+
+            .. zephyr-app-commands::
+               :app: zephyr/samples/drivers/display
+               :build-dir: waveshare_2_4_lcd-display_test
+               :board: cytron_maker_pi_rp2040
+               :shield: waveshare_2_4_lcd
+               :goals: flash
+               :west-args: -p -S usb-console
+               :flash-args: -r uf2
+               :host-os: unix
+               :tool: all
+
+      .. list-table::
+         :align: center
+         :width: 66%
+         :header-rows: 1
+
+         * - .. image:: waveshare_2_4_lcd/display.*
+                :align: center
+                :alt: Waveshare 2.4 LCD Display Sample Animation
+         * - .. rst-class:: centered
+
+                :brd:`TOP LEFT`, :bgn:`TOP RIGHT`, :bbl:`BOTTOM RIGHT`
+
+   .. group-tab:: LVGL Basic Sample
+
+      Using the LVGL module on top of the :ref:`Display driver API
+      <zephyr:display_api>` with chosen display. That is:
+
+      | :hwftlbl-scr:`LCD` : :devicetree:`chosen { zephyr,display = &lcd_panel; };`
+      | :hwftlbl-scr:`ILI9341` : :devicetree:`lcd_panel: &ili9341_240x320 {};`
+
+      .. tabs::
+
+         .. group-tab:: Arduino Nano R3
+
+            If the shield is connected to a board which has Arduino Nano
+            connector, set :console:`-DSHIELD=waveshare_2_4_lcd` when you
+            invoke :program:`west build`. For example:
+
+            .. zephyr-app-commands::
+               :app: zephyr/samples/subsys/display/lvgl
+               :build-dir: waveshare_2_4_lcd-lvgl_basic
+               :board: cytron_maker_nano_rp2040
+               :shield: waveshare_2_4_lcd
+               :goals: flash
+               :west-args: -p -S usb-console
+               :flash-args: -r uf2
+               :host-os: unix
+               :tool: all
+
+         .. group-tab:: Grove System
+
+            If the shield is connected to a board which has
+            `Grove System`_ compatiple connectors, set
+            :console:`-DSHIELD=waveshare_2_4_lcd` when you invoke
+            :program:`west build` and use one of supported boards with
+            special Devicetree setup for free wiring. For example:
+
+            .. zephyr-app-commands::
+               :app: zephyr/samples/subsys/display/lvgl
+               :build-dir: waveshare_2_4_lcd-lvgl_basic
+               :board: cytron_maker_pi_rp2040
+               :shield: waveshare_2_4_lcd
+               :goals: flash
+               :west-args: -p -S usb-console
+               :flash-args: -r uf2
+               :host-os: unix
+               :tool: all
