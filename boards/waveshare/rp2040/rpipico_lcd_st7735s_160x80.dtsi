@@ -33,10 +33,10 @@
 			mipi-max-frequency = <DT_FREQ_M(20)>;
 			mipi-mode = <MIPI_DBI_MODE_SPI_4WIRE>;
 
-			width = <160>;
-			height = <80>;
-			x-offset = <1>;
-			y-offset = <26>;
+			width = <160>;		/* landscape */
+			height = <80>;		/* landscape */
+			x-offset = <1>;		/* landscape */
+			y-offset = <26>;	/* landscape */
 
 			inversion-on;
 			rgb-is-inverted;
@@ -53,8 +53,7 @@
 			invctr = <0x03>;
 			gamctrp1 = [10 0E 02 03 0E 07 02 07 0A 12 27 37 00 0D 0E 10];
 			gamctrn1 = [10 0E 03 03 0F 06 02 08 0A 13 26 36 00 0D 0E 10];
-			colmod = <0x05>;
-			madctl = <0xA8>; /* rotated: madctl = <0x78>; */
+			madctl = <0x68>;	/* landscape */
 			caset = [00 01 00 A0];
 			raset = [00 1A 00 69];
 		};

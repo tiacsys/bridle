@@ -1,0 +1,72 @@
+/*
+ * Copyright (c) 2023-2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <freq.h>
+#include <zephyr/dt-bindings/gpio/gpio.h>
+#include <zephyr/dt-bindings/mipi_dbi/mipi_dbi.h>
+
+/ {
+	chosen {
+		zephyr,display = &lcd_panel;
+	};
+
+	mipi_dbi_st7789v_240x135: mipi-dbi-st7789v-240x135 {
+		compatible = "zephyr,mipi-dbi-spi";
+		status = "okay";
+
+		reset-gpios = <&gpio0 12 GPIO_ACTIVE_LOW>;
+		dc-gpios = <&gpio0 8 GPIO_ACTIVE_HIGH>;
+		spi-dev = <&spi1>;
+		write-only;
+
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		/* LCD with ST7789V controller. */
+		st7789v_240x135: st7789v@0 {
+			compatible = "sitronix,st7789v";
+			status = "okay";
+
+			reg = <0>;
+			mipi-max-frequency = <DT_FREQ_M(20)>;
+			mipi-mode = <MIPI_DBI_MODE_SPI_4WIRE>;
+
+			width = <240>;		/* landscape */
+			height = <135>;		/* landscape */
+			x-offset = <40>;	/* landscape */
+			y-offset = <53>;	/* landscape */
+
+			vcom = <0x1f>;
+			gctrl = <0x35>;
+			vrhs = <0x12>;
+			vdvs = <0x20>;
+			mdac = <0x60>;		/* landscape */
+			gamma = <0x01>;
+			lcm = <0x2C>;
+			porch-param = [0C 0C 00 33 33];
+			cmd2en-param = [5A 69 02 01];
+			pwctrl1-param = [A4 A1];
+			pvgam-param = [D0 08 11 08 0C 15 39 33 50 36 13 14 29 2D];
+			nvgam-param = [D0 08 10 08 06 06 39 44 51 0B 16 14 2F 31];
+			ram-param = [00 F0];
+			rgb-param = [CD 08 14];
+		};
+	};
+};
+
+lcd_panel: &st7789v_240x135 {};
+
+&spi1 {
+	status = "okay";
+	pinctrl-0 = <&spi1_lcd>;
+	pinctrl-names = "default";
+
+	clock-frequency = <DT_FREQ_M(20)>;
+	cs-gpios = <&gpio0 9 GPIO_ACTIVE_LOW>;
+};
+
+&gpio0 {
+	status = "okay";
+};

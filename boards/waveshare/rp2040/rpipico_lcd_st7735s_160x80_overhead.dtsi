@@ -1,0 +1,8 @@
+/*
+ * Copyright (c) 2023-2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+&st7735s_160x80 {
+	madctl = <0xA8>;	/* landscape, overhead */
+};
