@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#include "ili9341_240x320.dtsi"
+#include "ili9341_320x240.dtsi"
 #include "ili9341_rgb565.dtsi"
 
 #include <zephyr/dt-bindings/gpio/gpio.h>

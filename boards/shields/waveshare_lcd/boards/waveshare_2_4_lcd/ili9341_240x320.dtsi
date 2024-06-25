@@ -16,7 +16,7 @@
 
 		width = <240>;
 		height = <320>;
-		rotation = <0>;			/* portrait */
+		rotation = <180>;		/* portrait */
 
 		disctrl = [08 82 27 04];	/* non-mirrored */
 		ifctl = [01 00 00];
