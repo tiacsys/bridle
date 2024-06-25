@@ -46,6 +46,10 @@ struct mfd_sc16is75x_config {
 	int (*bus_init)(const struct device *dev);
 	/** GPIO pin for chip reset */
 	struct gpio_dt_spec reset;
+	/** Number of UART channels provided by this device. */
+	uint8_t n_channels;
+	/** UART channel numbers. */
+	uint8_t channels[SC16IS75X_UART_CHANNELS_MAX];
 #ifdef CONFIG_MFD_SC16IS75X_INTERRUPTS
 	/** GPIO pin for interrupt requests */
 	struct gpio_dt_spec interrupt;

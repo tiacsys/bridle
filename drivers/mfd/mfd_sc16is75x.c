@@ -4,6 +4,7 @@
  */
 
 #include <zephyr/kernel.h>
+#include <zephyr/devicetree.h>
 #include <zephyr/drivers/gpio/gpio_utils.h>
 
 #include <zephyr/drivers/mfd/sc16is75x.h>
@@ -196,6 +197,7 @@ static void mfd_sc16is75x_interrupt_work_fn_init(struct k_work *work)
 	struct mfd_sc16is75x_data * const data = CONTAINER_OF(work,
 			struct mfd_sc16is75x_data, interrupt_work_init);
 	const struct device * const dev = data->self;
+	const struct mfd_sc16is75x_config * const config = dev->config;
 	int ret = 0;
 
 	/*
@@ -210,12 +212,13 @@ static void mfd_sc16is75x_interrupt_work_fn_init(struct k_work *work)
 	}
 
 	/* Initiate reading from IIRs */
-	for (int ch = 0; ch < SC16IS75X_UART_CHANNELS_MAX; ch++) {
-		data->interrupt_data.iir[ch] = BIT(SC16IS75X_BIT_IIR_PENDING);
-		k_poll_signal_init(&data->interrupt_data.signals[ch]);
+	for (int i = 0; i < config->n_channels; i++) {
+		data->interrupt_data.iir[i] = BIT(SC16IS75X_BIT_IIR_PENDING);
+		k_poll_signal_init(&data->interrupt_data.signals[i]);
+		uint8_t ch = config->channels[i];
 		ret = READ_SC16IS75X_CHREG_SIGNAL(dev, ch, IIR,
-						  &data->interrupt_data.iir[ch],
-						  &data->interrupt_data.signals[ch]);
+						  &data->interrupt_data.iir[i],
+						  &data->interrupt_data.signals[i]);
 		if (ret != 0) {
 			/*
 			 * Propagate a failure to start the transfer the same as
@@ -223,7 +226,7 @@ static void mfd_sc16is75x_interrupt_work_fn_init(struct k_work *work)
 			 * item retry the whole handling process. To do this,
 			 * raise the signal ourselves with a generic error.
 			 */
-			k_poll_signal_raise(&data->interrupt_data.signals[ch], -1);
+			k_poll_signal_raise(&data->interrupt_data.signals[i], -1);
 		}
 	}
 
@@ -250,23 +253,23 @@ static void mfd_sc16is75x_interrupt_work_fn_final(struct k_work *work)
 	enum mfd_sc16is75x_event event;
 	bool retry = false;
 
-	struct k_poll_event poll_events[SC16IS75X_UART_CHANNELS_MAX];
-	int results[SC16IS75X_UART_CHANNELS_MAX] = {0};
+	struct k_poll_event poll_events[config->n_channels];
+	int results[config->n_channels];
 
 	/* Check for completion of running transfers */
-	for (int ch = 0; ch < SC16IS75X_UART_CHANNELS_MAX; ch++) {
-		poll_events[ch] = (struct k_poll_event)K_POLL_EVENT_INITIALIZER(
+	for (int i = 0; i < config->n_channels; i++) {
+		poll_events[i] = (struct k_poll_event)K_POLL_EVENT_INITIALIZER(
 				K_POLL_TYPE_SIGNAL,
 				K_POLL_MODE_NOTIFY_ONLY,
-				&data->interrupt_data.signals[ch]
+				&data->interrupt_data.signals[i]
 		);
 	}
 
-	k_poll(poll_events, SC16IS75X_UART_CHANNELS_MAX, K_NO_WAIT);
-	for (int ch = 0; ch < SC16IS75X_UART_CHANNELS_MAX; ch++) {
+	k_poll(poll_events, config->n_channels, K_NO_WAIT);
+	for (int i = 0; i < config->n_channels; i++) {
 		int signaled = 0;
 
-		k_poll_signal_check(&data->interrupt_data.signals[ch], &signaled, &results[ch]);
+		k_poll_signal_check(&data->interrupt_data.signals[i], &signaled, &results[i]);
 		if (!signaled) {
 			/* At least one transfer isn't done yet, continue spinning */
 			k_work_schedule(work_delayable, K_USEC(100));
@@ -278,62 +281,73 @@ static void mfd_sc16is75x_interrupt_work_fn_final(struct k_work *work)
 	 * Once all transfers are complete, check return values. If any
 	 * transfers failed, retry the interrupt handling precedure.
 	 */
-	for (int ch = 0; ch < SC16IS75X_UART_CHANNELS_MAX; ch++) {
-		if (results[ch] != 0) {
+	for (int i = 0; i < config->n_channels; i++) {
+		if (results[i] != 0) {
 			retry = true;
 			break;
 		}
 	}
 
 	/* Sorting out and triggering callbacks for the various types */
-	for (int ch = 0; ch < SC16IS75X_UART_CHANNELS_MAX; ch++) {
-		uint8_t type = GET_FIELD(data->interrupt_data.iir[ch], SC16IS75X_BIT_IIR_TYPE);
+	for (int i = 0; i < config->n_channels; i++) {
+		uint8_t type = GET_FIELD(data->interrupt_data.iir[i], SC16IS75X_BIT_IIR_TYPE);
 
 		/* Transfer for this channel failed, no data to check */
-		if (results[ch] != 0) {
+		if (results[i] != 0) {
 			continue;
 		}
 
 		/* channel has not fired (0: pending, 1: not pending) */
-		if (IS_BIT_SET(data->interrupt_data.iir[ch], SC16IS75X_BIT_IIR_PENDING)) {
+		if (IS_BIT_SET(data->interrupt_data.iir[i], SC16IS75X_BIT_IIR_PENDING)) {
 			continue;
 		};
+
+		uint8_t ch = config->channels[i];
 
 		/* reset event number for each channel iterration */
 		event = SC16IS75X_EVENT_MAX;
 
+		/* TODO: Make this work for arbitrary channel ids */
 		if (type == SC16IS75X_INT_RXLSE) {          /* priority 1 */
 			retry = true;
-			event = ch ? SC16IS75X_EVENT_UART1_RXLSE
-				   : SC16IS75X_EVENT_UART0_RXLSE;
+			event =   (ch == 0) ? SC16IS75X_EVENT_UART0_RXLSE
+				: (ch == 1) ? SC16IS75X_EVENT_UART1_RXLSE
+				: SC16IS75X_EVENT_MAX;
 		} else if (type == SC16IS75X_INT_RXTO) {    /* priority 2 */
 			retry = true;
-			event = ch ? SC16IS75X_EVENT_UART1_RXTO
-				   : SC16IS75X_EVENT_UART0_RXTO;
+			event =   (ch == 0) ? SC16IS75X_EVENT_UART0_RXTO
+				: (ch == 1) ? SC16IS75X_EVENT_UART1_RXTO
+				: SC16IS75X_EVENT_MAX;
 		} else if (type == SC16IS75X_INT_RHRI) {    /* priority 2 */
 			retry = true;
-			event = ch ? SC16IS75X_EVENT_UART1_RHRI
-				   : SC16IS75X_EVENT_UART0_RHRI;
+			event =   (ch == 0) ? SC16IS75X_EVENT_UART0_RHRI
+				: (ch == 1) ? SC16IS75X_EVENT_UART1_RHRI
+				: SC16IS75X_EVENT_MAX;
 		} else if (type == SC16IS75X_INT_THRI) {    /* priority 3 */
 			retry = true;
-			event = ch ? SC16IS75X_EVENT_UART1_THRI
-				   : SC16IS75X_EVENT_UART0_THRI;
+			event =   (ch == 0) ? SC16IS75X_EVENT_UART0_THRI
+				: (ch == 1) ? SC16IS75X_EVENT_UART1_THRI
+				: SC16IS75X_EVENT_MAX;
 		} else if (type == SC16IS75X_INT_MSI) {     /* priority 4 */
 			retry = true;
-			event = ch ? SC16IS75X_EVENT_UART1_MSI
-				   : SC16IS75X_EVENT_UART0_MSI;
+			event =   (ch == 0) ? SC16IS75X_EVENT_UART0_MSI
+				: (ch == 1) ? SC16IS75X_EVENT_UART1_MSI
+				: SC16IS75X_EVENT_MAX;
 		} else if (type == SC16IS75X_INT_IO) {      /* priority 5 */
 			retry = true;
-			event = ch ? SC16IS75X_EVENT_IO1_STATE
-				   : SC16IS75X_EVENT_IO0_STATE;
+			event =   (ch == 0) ? SC16IS75X_EVENT_IO0_STATE
+				: (ch == 1) ? SC16IS75X_EVENT_IO1_STATE
+				: SC16IS75X_EVENT_MAX;
 		} else if (type == SC16IS75X_INT_XOFF) {    /* priority 6 */
 			retry = true;
-			event = ch ? SC16IS75X_EVENT_UART1_XOFF
-				   : SC16IS75X_EVENT_UART0_XOFF;
+			event =   (ch == 0) ? SC16IS75X_EVENT_UART0_XOFF
+				: (ch == 1) ? SC16IS75X_EVENT_UART1_XOFF
+				: SC16IS75X_EVENT_MAX;
 		} else if (type == SC16IS75X_INT_HWFL) {    /* priority 7 */
 			retry = true;
-			event = ch ? SC16IS75X_EVENT_UART1_HWFL
-				   : SC16IS75X_EVENT_UART0_HWFL;
+			event =   (ch == 0) ? SC16IS75X_EVENT_UART0_HWFL
+				: (ch == 1) ? SC16IS75X_EVENT_UART1_HWFL
+				: SC16IS75X_EVENT_MAX;
 		}
 
 		if (event < SC16IS75X_EVENT_MAX) {
@@ -483,39 +497,88 @@ static int mfd_sc16is75x_pm_device_pm_action(const struct device *dev,
 }
 #endif
 
-#define MFD_SC16IS75X_DEFINE_SPI_BUS(inst)                                   \
-	.spi = SPI_DT_SPEC_INST_GET(inst, SPI_OP_MODE_MASTER |               \
-					  SPI_WORD_SET(8), 0),               \
+/**
+ * @brief For a given child node, if it's a UART controller: return the channel
+ *        id (`reg` property), with a comma. If the child is not a UART
+ *        controller, return nothing.
+ *
+ * Note that since the property is technically an array, we take the 0th entry
+ * to avoid extra braces.
+ */
+#define MFD_SC16IS75X_CHILD_CHANNEL(child)					\
+	COND_CODE_1(DT_NODE_HAS_COMPAT(child, nxp_sc16is75x_uart),		\
+		(DT_PROP_BY_IDX(child, reg, 0),),				\
+		()								\
+	)
+/**
+ * @brief Construct a bracketed list of all child UART controllers' channel id
+ *        (== `reg` property)
+ */
+#define MFD_SC16IS75X_UART_CHANNELS(inst) {					\
+		DT_INST_FOREACH_CHILD_STATUS_OKAY(inst,				\
+						  MFD_SC16IS75X_CHILD_CHANNEL)	\
+	}
+
+/** 
+ * @brief Construct struct initializer entries for an SPI bus configuration.
+ */
+#define MFD_SC16IS75X_DEFINE_SPI_BUS(inst)					\
+	.spi = SPI_DT_SPEC_INST_GET(inst, SPI_OP_MODE_MASTER |			\
+					  SPI_WORD_SET(8), 0),			\
 	.bus_init = mfd_sc16is75x_spi_init
 
-#define MFD_SC16IS75X_DEFINE_I2C_BUS(inst)                                   \
-	.i2c = I2C_DT_SPEC_INST_GET(inst),                                   \
+/** 
+ * @brief Construct struct initializer entries for an I2C bus configuration.
+ */
+#define MFD_SC16IS75X_DEFINE_I2C_BUS(inst)					\
+	.i2c = I2C_DT_SPEC_INST_GET(inst),					\
 	.bus_init = mfd_sc16is75x_i2c_init
 
-#define MFD_SC16IS75X_DEFINE_BUS(inst)                                       \
-	COND_CODE_1(DT_INST_ON_BUS(inst, spi),                               \
-			(MFD_SC16IS75X_DEFINE_SPI_BUS(inst)),                \
+/**
+ * @brief Return one of the two bus initializer lists above, selecting the
+ *        correct bus based on the devicetree.
+ */
+#define MFD_SC16IS75X_DEFINE_BUS(inst)						\
+	COND_CODE_1(DT_INST_ON_BUS(inst, spi),					\
+			(MFD_SC16IS75X_DEFINE_SPI_BUS(inst)),			\
 			(MFD_SC16IS75X_DEFINE_I2C_BUS(inst)))
 
-#define MFD_SC16IS75X_DEFINE(inst)                                           \
-                                                                             \
-	static struct mfd_sc16is75x_config mfd_sc16is75x_config_##inst =     \
-	{                                                                    \
-		MFD_SC16IS75X_DEFINE_BUS(inst),                              \
-		.reset = GPIO_DT_SPEC_INST_GET(inst, reset_gpios),           \
-		COND_CODE_1(CONFIG_MFD_SC16IS75X_INTERRUPTS,		     \
+/**
+ * @brief Initializer macro for a device driver instance.
+ */
+#define MFD_SC16IS75X_DEFINE(inst)						\
+										\
+	/* 					
+	 * Create an instance of the channel list so we can invoke ARRAY_SIZE on
+	 * it to count the channels.
+	 */           								\
+	static uint8_t mfd_sc16is75x_uart_channels_##inst[] =			\
+		MFD_SC16IS75X_UART_CHANNELS(inst);				\
+										\
+	static struct mfd_sc16is75x_config mfd_sc16is75x_config_##inst =	\
+	{									\
+		MFD_SC16IS75X_DEFINE_BUS(inst),					\
+		.reset = GPIO_DT_SPEC_INST_GET(inst, reset_gpios),		\
+		.n_channels = ARRAY_SIZE(mfd_sc16is75x_uart_channels_##inst),	\
+		/* 
+		 * GCC doesn't like us using the above instance for
+		 * initialization, so we invoke the macro again to get a naked
+		 * initializer list.
+		 */								\
+		.channels = MFD_SC16IS75X_UART_CHANNELS(inst),			\
+		COND_CODE_1(CONFIG_MFD_SC16IS75X_INTERRUPTS,			\
 			(.interrupt = GPIO_DT_SPEC_INST_GET(inst, interrupt_gpios),), \
-			())						     \
-	};                                                                   \
-                                                                             \
-	static struct mfd_sc16is75x_data mfd_sc16is75x_data_##inst;          \
-                                                                             \
-	PM_DEVICE_DT_INST_DEFINE(inst, mfd_sc16is75x_pm_device_pm_action);   \
-                                                                             \
-	DEVICE_DT_INST_DEFINE(inst, mfd_sc16is75x_init,                      \
-			      PM_DEVICE_DT_INST_GET(inst),                   \
-			      &mfd_sc16is75x_data_##inst,                    \
-			      &mfd_sc16is75x_config_##inst, POST_KERNEL,     \
+			())							\
+	};									\
+										\
+	static struct mfd_sc16is75x_data mfd_sc16is75x_data_##inst;		\
+										\
+	PM_DEVICE_DT_INST_DEFINE(inst, mfd_sc16is75x_pm_device_pm_action);	\
+										\
+	DEVICE_DT_INST_DEFINE(inst, mfd_sc16is75x_init,				\
+			      PM_DEVICE_DT_INST_GET(inst),			\
+			      &mfd_sc16is75x_data_##inst,			\
+			      &mfd_sc16is75x_config_##inst, POST_KERNEL,	\
 			      CONFIG_MFD_SC16IS75X_INIT_PRIORITY, NULL);
 
 DT_INST_FOREACH_STATUS_OKAY(MFD_SC16IS75X_DEFINE);
