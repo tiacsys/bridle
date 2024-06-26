@@ -152,6 +152,15 @@ Change log
   deprecated.
 * Adapt **new identifier from Hardware Model v2** for *snippets*, *tests*
   and *samples*.
+* Add more shields:
+
+  * *Raspberry Pi Pico LCD Shields*:
+
+    * **Pico LCD 0.96** shield by Waveshare
+    * **Pico LCD 1.3** shield by Waveshare
+    * **Pico LCD 1.44** shield by Waveshare
+    * **Pico LCD 1.8** shield by Waveshare
+    * **Pico ResTouch LCD 2.8** shield by Waveshare
 
 The following sections provide detailed lists of changes by component.
 
@@ -207,6 +216,7 @@ Issue Related Items
 These GitHub issues were addressed since project bootstrapping:
 
 * :github:`234` - [BUG] boards and shields with LCD do not support the new MIPI-DBI mode
+* :github:`233` - [HW] Waveshare Raspberry Pi Pico LCD Modules as Shields
 * :github:`231` - [BUG] build Zephyr docset fails
 * :github:`229` - [BUG] magpie_f777ni: wdt_basic_api/drivers.watchdog.stm32wwdg FAILED
 * :github:`227` - [BUG] Unable to build any application referencing bridle version information
