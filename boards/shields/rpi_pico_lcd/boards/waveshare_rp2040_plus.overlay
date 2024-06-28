@@ -1,6 +1,12 @@
 /*
- * Copyright (c) 2023 TiaC Systems
+ * Copyright (c) 2023-2024 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
 #include "rpipico_r3.dtsi"
+
+/* link to pinctrl node from board for waveshare_rp2040_plus */
+spi0_pico: &spi0_pico_default {};
+
+/* link to pinctrl node from board for waveshare_rp2040_plus */
+pwm_pico: &pwm_pico_default {};
