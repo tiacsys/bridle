@@ -25,6 +25,7 @@
 #include "rpipico_r3_connector.dtsi"
 
 rpipico_serial: &uart0 {};
+rpipico_spi1: &spi1 {};
 rpipico_spi0: &spi0 {};
 rpipico_spi: &rpipico_spi0 {};
 rpipico_i2c1: &i2c1 {};
@@ -32,6 +33,7 @@ rpipico_i2c0: &i2c0 {};
 rpipico_i2c: &rpipico_i2c0 {};
 
 pico_serial: &rpipico_serial {};
+pico_spi1: &rpipico_spi1 {};
 pico_spi0: &rpipico_spi0 {};
 pico_spi: &pico_spi0 {};
 pico_i2c1: &rpipico_i2c1 {};
