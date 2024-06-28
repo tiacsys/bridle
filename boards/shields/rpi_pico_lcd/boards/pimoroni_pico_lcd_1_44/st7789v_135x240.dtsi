@@ -1,0 +1,40 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <freq.h>
+#include <zephyr/dt-bindings/mipi_dbi/mipi_dbi.h>
+
+&mipi_dbi {
+	st7789v_135x240: st7789v@0 {
+		compatible = "sitronix,st7789v";
+		mipi-max-frequency = <DT_FREQ_M(20)>;
+		mipi-mode = <MIPI_DBI_MODE_SPI_4WIRE>;
+		reg = <0>;
+
+		status = "disabled";
+
+		width = <135>;		/* portrait */
+		height = <240>;		/* portrait */
+		x-offset = <52>;	/* portrait */
+		y-offset = <40>;	/* portrait */
+
+		vcom = <0x3d>;
+		gctrl = <0x75>;
+		vrhs = <0x12>;
+		vdvs = <0x20>;
+		mdac = <0x00>;		/* portrait */
+		gamma = <0x01>;
+		lcm = <0x2c>;
+		porch-param = [0C 0C 00 33 33];
+		cmd2en-param = [5A 69 02 01];
+		pwctrl1-param = [A4 A1];
+		pvgam-param = [70 04 08 09 09 05 2A 33 41 07 13 13 29 2F];
+		nvgam-param = [70 03 09 0A 09 06 2B 34 41 07 12 14 28 2E];
+		ram-param = [00 F0];
+		rgb-param = [CD 08 14];
+	};
+};
+
+lcd_panel: &st7789v_135x240 {};

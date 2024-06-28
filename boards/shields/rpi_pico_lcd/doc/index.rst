@@ -18,6 +18,16 @@ Hardware
 
 .. tabs::
 
+   .. group-tab:: PiMoroni (Pico …)
+
+      .. tabs::
+
+         .. group-tab:: LCD 1.44
+
+            .. _pimoroni_pico_lcd_1_44:
+
+            .. include:: pimoroni_pico_lcd_1_44/hardware.rsti
+
    .. group-tab:: Waveshare (Pico …)
 
       .. tabs::
@@ -75,6 +85,14 @@ Positions
 
 .. tabs::
 
+   .. group-tab:: PiMoroni (Pico …)
+
+      .. tabs::
+
+         .. group-tab:: LCD 1.44
+
+            .. include:: pimoroni_pico_lcd_1_44/positions.rsti
+
    .. group-tab:: Waveshare (Pico …)
 
       .. tabs::
@@ -115,6 +133,14 @@ Pinouts
 =======
 
 .. tabs::
+
+   .. group-tab:: PiMoroni (Pico …)
+
+      .. tabs::
+
+         .. group-tab:: LCD 1.44
+
+            .. include:: pimoroni_pico_lcd_1_44/pinouts.rsti
 
    .. group-tab:: Waveshare (Pico …)
 
@@ -181,6 +207,14 @@ Programming
 
 .. tabs::
 
+   .. group-tab:: PiMoroni (Pico …)
+
+      .. tabs::
+
+         .. group-tab:: LCD 1.44
+
+            .. include:: pimoroni_pico_lcd_1_44/helloshell.rsti
+
    .. group-tab:: Waveshare (Pico …)
 
       .. tabs::
@@ -228,6 +262,14 @@ sample: :zephyr:code-sample:`zephyr:input-dump`.
 
 .. tabs::
 
+   .. group-tab:: PiMoroni (Pico …)
+
+      .. tabs::
+
+         .. group-tab:: LCD 1.44
+
+            .. include:: pimoroni_pico_lcd_1_44/input_dump.rsti
+
    .. group-tab:: Waveshare (Pico …)
 
       .. tabs::
@@ -267,6 +309,82 @@ sample: :zephyr:code-sample:`zephyr:input-dump`.
 
             .. include:: waveshare_pico_restouch_lcd_3_5/input_dump.rsti
 
+LED color change
+================
+
+Drives an RGB LED that must defined by the shields Devicetree. See also Zephyr
+sample: :zephyr:code-sample:`zephyr:rgb-led`.
+
+.. tabs::
+
+   .. group-tab:: PiMoroni (Pico …)
+
+      .. tabs::
+
+         .. group-tab:: LCD 1.44
+
+            .. include:: pimoroni_pico_lcd_1_44/led_test.rsti
+
+   .. group-tab:: Waveshare (Pico …)
+
+      .. tabs::
+
+         .. group-tab:: LCD 0.96
+
+            .. hint::
+
+               The |Waveshare Pico LCD 0.96| doesn't provide a RGB LED.
+               This samples are not applicable.
+
+         .. group-tab:: LCD 1.14
+
+            .. hint::
+
+               The |Waveshare Pico LCD 1.14| doesn't provide a RGB LED.
+               This samples are not applicable.
+
+         .. group-tab:: LCD 1.3
+
+            .. hint::
+
+               The |Waveshare Pico LCD 1.3| doesn't provide a RGB LED.
+               This samples are not applicable.
+
+         .. group-tab:: LCD 1.44
+
+            .. hint::
+
+               The |Waveshare Pico LCD 1.44| doesn't provide a RGB LED.
+               This samples are not applicable.
+
+         .. group-tab:: LCD 1.8
+
+            .. hint::
+
+               The |Waveshare Pico LCD 1.8| doesn't provide a RGB LED.
+               This samples are not applicable.
+
+         .. group-tab:: LCD 2
+
+            .. hint::
+
+               The |Waveshare Pico LCD 2| doesn't provide a RGB LED.
+               This samples are not applicable.
+
+         .. group-tab:: ResTouch LCD 2.8
+
+            .. hint::
+
+               The |Waveshare Pico ResTouch LCD 2.8| doesn't provide a RGB LED.
+               This samples are not applicable.
+
+         .. group-tab:: ResTouch LCD 3.5
+
+            .. hint::
+
+               The |Waveshare Pico ResTouch LCD 3.5| doesn't provide a RGB LED.
+               This samples are not applicable.
+
 LCD Orientation and Bit Order Test
 ==================================
 
@@ -275,6 +393,14 @@ are chosen so that you can check the orientation of the LCD and correct RGB bit
 order. See also Zephyr sample: :zephyr:code-sample:`zephyr:display`.
 
 .. tabs::
+
+   .. group-tab:: PiMoroni (Pico …)
+
+      .. tabs::
+
+         .. group-tab:: LCD 1.44
+
+            .. include:: pimoroni_pico_lcd_1_44/display_test.rsti
 
    .. group-tab:: Waveshare (Pico …)
 
@@ -321,6 +447,14 @@ which increments every second. See also Zephyr sample:
 
 .. tabs::
 
+   .. group-tab:: PiMoroni (Pico …)
+
+      .. tabs::
+
+         .. group-tab:: LCD 1.44
+
+            .. include:: pimoroni_pico_lcd_1_44/lvgl_basic.rsti
+
    .. group-tab:: Waveshare (Pico …)
 
       .. tabs::
@@ -364,6 +498,17 @@ This samples and test applications aren't applicable on all boards. They will
 be built with activated USB-CDC/ACM console.
 
 .. tabs::
+
+   .. group-tab:: PiMoroni (Pico …)
+
+      .. tabs::
+
+         .. group-tab:: LCD 1.44
+
+            .. hint::
+
+               The |PiMoroni Pico LCD 1.44| doesn't provide a TF/microSD card
+               slot. This samples are not applicable.
 
    .. group-tab:: Waveshare (Pico …)
 

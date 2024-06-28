@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include "rpipico_r3-tweaks.dtsi"
+#include "rpipico_r3-pinctrl.dtsi"
+
+#include <freq.h>
+
+&pico_spi0 {
+	pinctrl-0 = <&spi0_lcd>;
+	pinctrl-names = "default";
+	clock-frequency = <DT_FREQ_M(20)>;
+};
+
+rpipico_spi_lcd: &pico_spi0 {};
+
+&pico_pwm {
+	pinctrl-0 = <&pwm_lcd_leds>;
+	pinctrl-names = "default";
+};
+
+rpipico_pwm: &pico_pwm {};

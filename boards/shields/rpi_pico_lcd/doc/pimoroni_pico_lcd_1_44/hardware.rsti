@@ -1,0 +1,51 @@
+The `PiMoroni Pico Display Pack (PIM543)`_ shield comes with the built-in
+controller `ST7789 <ST7789V_>`_ inside the LCD, which is an LCD controller
+with 240 × RGB × 320 pixels, while the pixels of this **1.44-inch** LCD itself
+is 135 (H) RGB × 240 (V). There are two types of horizontal and vertical screens,
+so the internal RAM of the LCD is not fully used. The LCD supports 12-bit,
+16-bit, and 18-bit input color formats per pixel, namely RGB444, RGB565,
+and RGB666 three color formats. This integration **uses the RGB565** color
+format, which is also a commonly used RGB format. The LCD uses a four-wire
+SPI communication interface.
+
+.. list-table::
+   :align: center
+   :width: 100%
+   :widths: 66, 33
+
+   * - .. rubric:: Features and Resources
+     - .. rubric:: Printed Circuit Board
+
+   * - :hwftlbl-vdd:`5V/40㎃`
+
+       :hwftlbl-btn:`A`
+       :hwftlbl-btn:`B`
+       :hwftlbl-btn:`X`
+       :hwftlbl-btn:`Y`
+       :hwftlbl-led:`R`
+       :hwftlbl-led:`G`
+       :hwftlbl-led:`B`
+       :hwftlbl-scr:`LCD`
+
+       :hwftlbl-pio:`10`
+       :hwftlbl-pwm:`4`
+       :hwftlbl-spi:`1`
+
+       .. rst-class:: rst-columns
+
+       - :bbk:`1 serial 1.44-inch 240×135 IPS 65K LCD`
+       - :bbk:`1 LCD Backglight LED`
+       - :bbk:`4 User keys`
+       - :bbk:`3 User LEDs (TriColor ChipLED)`
+
+       - :bbk:`1 RST signal to LCD controller` :brd:`(RUN)`
+       - :bbk:`1 C/D signal to LCD controller`
+
+       .. rubric:: Design Data
+       .. rst-class:: rst-columns
+
+       - `PiMoroni Pico Display Pack (PIM543) Schematic`_
+
+     - .. image:: pimoroni_pico_lcd_1_44/hardware.jpg
+          :align: center
+          :alt: PiMoroni Pico LCD 1.44

@@ -1,0 +1,99 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/input/input-event-codes.h>
+#include <zephyr/dt-bindings/lvgl/lvgl.h>
+
+/ {
+	chosen {
+		zephyr,display = &lcd_panel;
+	};
+
+	mipi_dbi: mipi-dbi {
+		compatible = "zephyr,mipi-dbi-spi";
+		write-only;
+	};
+
+	lcd_backlight_en: lcd-backlight-en {
+		compatible = "regulator-fixed";
+		regulator-name = "lcd_backlight_enable";
+		regulator-boot-on;
+	};
+
+	lvgl_buttons: lvgl-buttons {
+		compatible = "zephyr,lvgl-button-input";
+		input = <&gpio_keys>;
+		input-codes = <INPUT_KEY_B>;
+		coordinates = <120 68>;
+	};
+
+	lvgl_keypad: lvgl-keypad {
+		compatible = "zephyr,lvgl-keypad-input";
+		input = <&gpio_keys>;
+		input-codes = <INPUT_KEY_Y INPUT_KEY_X
+			       INPUT_KEY_B>;
+		lvgl-codes = <LV_KEY_LEFT LV_KEY_RIGHT
+			      LV_KEY_ENTER>;
+	};
+
+	gpio_keys: gpio_keys {
+		compatible = "gpio-keys";
+		button_0: button_0 {
+			label = "User button A";
+			zephyr,code = <INPUT_KEY_A>;
+		};
+		button_1: button_1 {
+			label = "User button B";
+			zephyr,code = <INPUT_KEY_B>;
+		};
+		button_2: button_2 {
+			label = "User button X";
+			zephyr,code = <INPUT_KEY_X>;
+		};
+		button_3: button_3 {
+			label = "User button Y";
+			zephyr,code = <INPUT_KEY_Y>;
+		};
+	};
+
+	gpio_leds: gpio_leds {
+		compatible = "gpio-leds";
+		led_r: led_r {
+			label = "User LED R";
+		};
+		led_g: led_g {
+			label = "User LED G";
+		};
+		led_b: led_b {
+			label = "User LED B";
+		};
+	};
+
+	pwm_leds: pwm_leds {
+		compatible = "pwm-leds";
+		pwm_led_r: pwm_led_r {
+			label = "User LED R (PWM)";
+		};
+		pwm_led_g: pwm_led_g {
+			label = "User LED G (PWM)";
+		};
+		pwm_led_b: pwm_led_b {
+			label = "User LED B (PWM)";
+		};
+	};
+
+	aliases {
+		sw0 = &button_0;
+		sw1 = &button_1;
+		sw2 = &button_2;
+		sw3 = &button_3;
+		led0 = &led_r;
+		led1 = &led_g;
+		led2 = &led_b;
+		red-pwm-led = &pwm_led_r;
+		green-pwm-led = &pwm_led_g;
+		blue-pwm-led = &pwm_led_b;
+	};
+};
