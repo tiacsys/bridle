@@ -3,14 +3,15 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+#include "rpipico_r3-connect.dtsi"
+
 #include "st7735s_160x80.dtsi"
 #include "st7735s_rgb565.dtsi"
 
 #include <zephyr/dt-bindings/gpio/gpio.h>
 
 &rpipico_spi_lcd {
-	pinctrl-0 = <&spi1_lcd>;
-	pinctrl-names = "default";
+	status = "okay";
 	cs-gpios = <&rpipico_header 9 GPIO_ACTIVE_LOW>;		/* GP9 */
 };
 

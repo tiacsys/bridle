@@ -1,11 +1,19 @@
 /*
- * Copyright (c) 2023 TiaC Systems
+ * Copyright (c) 2023-2024 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
 #include <zephyr/dt-bindings/pinctrl/rpi-pico-rp2040-pinctrl.h>
 
 &pinctrl {
+	spi0_lcd: spi0_lcd {
+		group171819_spi {
+			pinmux = <SPI0_CSN_P17>,	/* GP17: SPI0_CSN */
+				 <SPI0_SCK_P18>,	/* GP18: SPI0_SCK */
+				 <SPI0_TX_P19>;		/* GP19: SPI0_TX */
+		};
+		/* GP12: SPI0_RX not used for LCD only access */
+	};
 	spi1_lcd: spi1_lcd {
 		group91011_spi {
 			pinmux = <SPI1_CSN_P9>,		/* GP9: SPI1_CSN */
@@ -15,6 +23,3 @@
 		/* GP12: SPI1_RX not used for LCD only access */
 	};
 };
-
-/* link to pinctrl node from board extensions for rpi_pico/_w */
-spi1_pico: &spi1_default {};
