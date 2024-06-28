@@ -1,0 +1,23 @@
+sample:
+  name: RGB LED
+common:
+  tags:
+    - zephyr
+    - shield
+    - drivers
+    - pwm
+  depends_on: pwm
+  harness: led
+  build_only: true
+tests:
+  #
+  # shield: PiMoroni Pico LCD 1.14
+  #
+  sample.basic.rgb_led.pimoroni_pico_lcd_1_44:
+    extra_args:
+      SHIELD=pimoroni_pico_lcd_1_44
+    integration_platforms:
+      - rpi_pico
+      - rpi_pico/rp2040/w
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb

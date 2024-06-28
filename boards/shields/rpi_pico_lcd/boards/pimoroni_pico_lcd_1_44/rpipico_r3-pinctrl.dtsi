@@ -1,0 +1,18 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/pinctrl/rpi-pico-rp2040-pinctrl.h>
+
+pwm_lcd_leds: &pwm_pico {
+	group6_led {
+		pinmux = <PWM_3A_P6>;		/* GP6: PWM3CHA (6) */
+	};
+	group7_led {
+		pinmux = <PWM_3B_P7>;		/* GP7: PWM3CHB (7) */
+	};
+	group8_led {
+		pinmux = <PWM_4A_P8>;		/* GP8: PWM4CHA (8) */
+	};
+};
