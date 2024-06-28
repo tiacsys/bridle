@@ -784,6 +784,12 @@
 
 .. ### Links to the Raspberry Pi Pico Shields
 
+.. #### Links to the PiMoroni Pico Display Pack (Pico LCD 1.44)
+
+.. _`PiMoroni Pico Display Pack (PIM543)`: https://pimoroni.com/picodisplay
+.. _`PiMoroni Pico Display Pack (PIM543) Schematic`:
+   https://cdn.shopify.com/s/files/1/0174/1800/files/pico_display_pack_schematic.pdf
+
 .. #### Links to the Spotpear Pico ALL GPIO TEST
 
 .. _`Spotpear Pico ALL GPIO TEST`:
@@ -981,6 +987,12 @@
    https://mcuoneclipse.com/2023/04/02/rp2040-with-pio-and-dma-to-address-ws2812b-leds
 
 .. #### Links to Transistors, Thyristors, Relais or similar for Electronic Power Switching
+
+.. _`AP2502`:
+   https://www.diodes.com/part/view/AP2502
+
+.. _`AP2502 Datasheet`:
+   https://www.diodes.com/assets/Datasheets/AP2502.pdf
 
 .. _`S8050`:
    https://www.lcsc.com/product-detail/Bipolar-Transistors-BJT_Jiangsu-Changjing-Electronics-Technology-Co-Ltd-S8050_C105433.html

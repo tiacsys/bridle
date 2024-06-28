@@ -1,0 +1,50 @@
+.. list-table::
+   :align: center
+   :width: 66%
+   :header-rows: 1
+
+   * - .. image:: pimoroni_pico_lcd_1_44/positions.jpg
+          :align: center
+          :width: 500
+          :alt: PiMoroni Pico LCD 1.44 details
+
+   * - .. container:: twocol
+
+          .. container:: leftside
+
+             Inputs:
+
+             #. | :strong:`User keys`
+                | momentary push buttons
+
+             |nbsp|
+
+             |nbsp|
+
+             |nbsp|
+
+             |nbsp|
+
+          .. container:: rightside
+
+             Outputs:
+
+             2. | :strong:`ST7789V`
+                | 1.44-inch 240×135 pixels 65K colorful IPS LCD
+             #. | :strong:`TriColor ChipLED`
+                | 3-channel RGB 1210 (3025 metric)
+             #. | :strong:`AP2502`
+                | 4-channel independent linear current sink,
+                | 20㎃ on each channel, low dropout voltage
+
+.. rubric:: Data Sheets
+.. rst-class:: rst-columns
+
+- .. rubric:: ST7789V_
+- `ST7789VW Datasheet V1.0 (2017/09)`_
+- `ST7789V Datasheet V1.6 (2017/09)`_
+- `ST7789V Datasheet V1.4 (2014/10)`_
+- `ST7789V Datasheet V1.3 (2014/03)`_
+- `ST7789V Datasheet V0.1 (2013/07)`_
+- .. rubric:: AP2502_
+- `AP2502 Datasheet`_
