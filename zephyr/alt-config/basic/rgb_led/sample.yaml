@@ -21,3 +21,14 @@ tests:
       - rpi_pico/rp2040/w
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
+  #
+  # shield: PiMoroni Pico LCD 2
+  #
+  sample.basic.rgb_led.pimoroni_pico_lcd_2:
+    extra_args:
+      SHIELD=pimoroni_pico_lcd_2
+    integration_platforms:
+      - rpi_pico
+      - rpi_pico/rp2040/w
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb

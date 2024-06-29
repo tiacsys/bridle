@@ -41,6 +41,9 @@
 .. |PiMoroni Pico LCD 1.44| replace::
    :ref:`PiMoroni Pico LCD 1.44 <pimoroni_pico_lcd_1_44>`
 
+.. |PiMoroni Pico LCD 2| replace::
+   :ref:`PiMoroni Pico LCD 2 <pimoroni_pico_lcd_2>`
+
 .. |RP2040-ETH| replace::
    :ref:`RP2040-ETH <waveshare_rp2040_eth>`
 

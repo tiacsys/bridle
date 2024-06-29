@@ -1,0 +1,17 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
+&gpio0 {
+	boot-hogs-led-rgb-off {
+		gpio-hog;
+		gpios = <6 GPIO_ACTIVE_HIGH>,	/* User LED R */
+			<7 GPIO_ACTIVE_HIGH>,	/* User LED G */
+			<8 GPIO_ACTIVE_HIGH>;	/* User LED B */
+		output-high;
+		line-name = "TriColor ChipLED switched off";
+	};
+};

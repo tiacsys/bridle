@@ -28,6 +28,12 @@ Hardware
 
             .. include:: pimoroni_pico_lcd_1_44/hardware.rsti
 
+         .. group-tab:: LCD 2
+
+            .. _pimoroni_pico_lcd_2:
+
+            .. include:: pimoroni_pico_lcd_2/hardware.rsti
+
    .. group-tab:: Waveshare (Pico …)
 
       .. tabs::
@@ -93,6 +99,10 @@ Positions
 
             .. include:: pimoroni_pico_lcd_1_44/positions.rsti
 
+         .. group-tab:: LCD 2
+
+            .. include:: pimoroni_pico_lcd_2/positions.rsti
+
    .. group-tab:: Waveshare (Pico …)
 
       .. tabs::
@@ -141,6 +151,10 @@ Pinouts
          .. group-tab:: LCD 1.44
 
             .. include:: pimoroni_pico_lcd_1_44/pinouts.rsti
+
+         .. group-tab:: LCD 2
+
+            .. include:: pimoroni_pico_lcd_2/pinouts.rsti
 
    .. group-tab:: Waveshare (Pico …)
 
@@ -215,6 +229,10 @@ Programming
 
             .. include:: pimoroni_pico_lcd_1_44/helloshell.rsti
 
+         .. group-tab:: LCD 2
+
+            .. include:: pimoroni_pico_lcd_2/helloshell.rsti
+
    .. group-tab:: Waveshare (Pico …)
 
       .. tabs::
@@ -270,6 +288,10 @@ sample: :zephyr:code-sample:`zephyr:input-dump`.
 
             .. include:: pimoroni_pico_lcd_1_44/input_dump.rsti
 
+         .. group-tab:: LCD 2
+
+            .. include:: pimoroni_pico_lcd_2/input_dump.rsti
+
    .. group-tab:: Waveshare (Pico …)
 
       .. tabs::
@@ -324,6 +346,10 @@ sample: :zephyr:code-sample:`zephyr:rgb-led`.
          .. group-tab:: LCD 1.44
 
             .. include:: pimoroni_pico_lcd_1_44/led_test.rsti
+
+         .. group-tab:: LCD 2
+
+            .. include:: pimoroni_pico_lcd_2/led_test.rsti
 
    .. group-tab:: Waveshare (Pico …)
 
@@ -402,6 +428,10 @@ order. See also Zephyr sample: :zephyr:code-sample:`zephyr:display`.
 
             .. include:: pimoroni_pico_lcd_1_44/display_test.rsti
 
+         .. group-tab:: LCD 2
+
+            .. include:: pimoroni_pico_lcd_2/display_test.rsti
+
    .. group-tab:: Waveshare (Pico …)
 
       .. tabs::
@@ -454,6 +484,10 @@ which increments every second. See also Zephyr sample:
          .. group-tab:: LCD 1.44
 
             .. include:: pimoroni_pico_lcd_1_44/lvgl_basic.rsti
+
+         .. group-tab:: LCD 2
+
+            .. include:: pimoroni_pico_lcd_2/lvgl_basic.rsti
 
    .. group-tab:: Waveshare (Pico …)
 
@@ -508,6 +542,13 @@ be built with activated USB-CDC/ACM console.
             .. hint::
 
                The |PiMoroni Pico LCD 1.44| doesn't provide a TF/microSD card
+               slot. This samples are not applicable.
+
+         .. group-tab:: LCD 2
+
+            .. hint::
+
+               The |PiMoroni Pico LCD 2| doesn't provide a TF/microSD card
                slot. This samples are not applicable.
 
    .. group-tab:: Waveshare (Pico …)

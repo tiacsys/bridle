@@ -1,0 +1,70 @@
+Iterates through the three color channels and changes the output color on the
+on-shield TriColor ChipLED using the :ref:`PWM driver API <zephyr:pwm_api>`.
+That are:
+
+| :hwftlbl-led:`R` : :devicetree:`aliases { red-pwm-led = &pwm_led_r; };`
+| :hwftlbl-led:`G` : :devicetree:`aliases { green-pwm-led = &pwm_led_g; };`
+| :hwftlbl-led:`B` : :devicetree:`aliases { blue-pwm-led = &pwm_led_b; };`
+
+.. tabs::
+
+   .. group-tab:: Raspberry Pi Pico
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/basic/rgb_led
+         :build-dir: pimoroni_pico_lcd_2-led_test
+         :board: rpi_pico
+         :shield: "pimoroni_pico_lcd_2"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :compact:
+
+   .. group-tab:: Raspberry Pi Pico W
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/basic/rgb_led
+         :build-dir: pimoroni_pico_lcd_2-led_test
+         :board: rpi_pico/rp2040/w
+         :shield: "pimoroni_pico_lcd_2"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :compact:
+
+   .. group-tab:: Waveshare RP2040-Plus
+
+      .. rubric:: on standard ``4㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/basic/rgb_led
+         :build-dir: pimoroni_pico_lcd_2-led_test
+         :board: waveshare_rp2040_plus
+         :shield: "pimoroni_pico_lcd_2"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :compact:
+
+      .. rubric:: on extended ``16㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/basic/rgb_led
+         :build-dir: pimoroni_pico_lcd_2-led_test
+         :board: waveshare_rp2040_plus@16mb
+         :shield: "pimoroni_pico_lcd_2"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :compact:
+
+.. rubric:: Simple logging output on target
+
+.. parsed-literal::
+   :class: highlight-console notranslate
+
+   \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+   W: BUS RESET
+   W: BUS RESET
+   \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
+   PWM-based RGB LED control
