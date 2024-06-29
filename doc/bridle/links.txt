@@ -790,6 +790,12 @@
 .. _`PiMoroni Pico Display Pack (PIM543) Schematic`:
    https://cdn.shopify.com/s/files/1/0174/1800/files/pico_display_pack_schematic.pdf
 
+.. #### Links to the PiMoroni Pico Display Pack 2.0 (Pico LCD 2)
+
+.. _`PiMoroni Pico Display Pack 2.0 (PIM580)`: https://pimoroni.com/picodisplay20
+.. _`PiMoroni Pico Display Pack 2.0 (PIM580) Schematic`:
+   https://cdn.shopify.com/s/files/1/0174/1800/files/pico_display_2_schematic.pdf
+
 .. #### Links to the Spotpear Pico ALL GPIO TEST
 
 .. _`Spotpear Pico ALL GPIO TEST`:
