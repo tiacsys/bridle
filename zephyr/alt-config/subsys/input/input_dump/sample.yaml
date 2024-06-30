@@ -1,0 +1,33 @@
+sample:
+  name: Input Dump
+common:
+  tags:
+    - zephyr
+    - shield
+    - input
+  build_only: true
+  depends_on: pico_gpio
+  harness: input
+tests:
+  #
+  # shield: Waveshare Pico LCD 1.14
+  #
+  sample.input.input_dump.waveshare_pico_lcd_1_14:
+    extra_args:
+      SHIELD=waveshare_pico_lcd_1_14
+    integration_platforms:
+      - rpi_pico
+      - rpi_pico/rp2040/w
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb
+  #
+  # shield: Waveshare Pico LCD 2
+  #
+  sample.input.input_dump.waveshare_pico_lcd_2:
+    extra_args:
+      SHIELD=waveshare_pico_lcd_2
+    integration_platforms:
+      - rpi_pico
+      - rpi_pico/rp2040/w
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb
