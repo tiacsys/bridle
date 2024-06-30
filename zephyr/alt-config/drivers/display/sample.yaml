@@ -1,0 +1,54 @@
+sample:
+  name: Display Bit Order and Orientation
+common:
+  tags:
+    - zephyr
+    - shield
+    - drivers
+    - display
+  depends_on: spi
+  harness: display
+  build_only: true
+tests:
+  #
+  # shield: Waveshare Pico LCD 1.14
+  #
+  sample.drivers.display.waveshare_pico_lcd_1_14:
+    extra_args:
+      SHIELD=waveshare_pico_lcd_1_14
+    integration_platforms:
+      - rpi_pico
+      - rpi_pico/rp2040/w
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb
+  #
+  # shield: Waveshare Pico LCD 2
+  #
+  sample.drivers.display.waveshare_pico_lcd_2:
+    extra_args:
+      SHIELD=waveshare_pico_lcd_2
+    integration_platforms:
+      - rpi_pico
+      - rpi_pico/rp2040/w
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb
+  #
+  # shield: Waveshare Pico ResTouch LCD 3.5
+  #
+  sample.drivers.display.waveshare_pico_restouch_lcd_3_5:
+    extra_args:
+      SHIELD=waveshare_pico_restouch_lcd_3_5
+    integration_platforms:
+      - rpi_pico
+      - rpi_pico/rp2040/w
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb
+  #
+  # shield: Waveshare 2.4 LCD
+  #
+  sample.drivers.display.waveshare_2_4_lcd:
+    extra_args:
+      SHIELD=waveshare_2_4_lcd
+    integration_platforms:
+      - cytron_maker_nano_rp2040
+      - cytron_maker_pi_rp2040
