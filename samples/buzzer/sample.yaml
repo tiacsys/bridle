@@ -1,14 +1,17 @@
 sample:
-  name: Buzzer using PWM
+  description: Buzzer using PWM
+  name: buzzer
+common:
+  tags:
+    - bridle
+    - drivers
+    - pwm
+  integration_platforms:
+    - cytron_maker_nano_rp2040
+    - cytron_maker_pi_rp2040
+    - picoboy
 tests:
   bridle.sample.buzzer:
-    tags:
-      - drivers
-      - pwm
     depends_on: pwm
     harness: buzzer
     filter: dt_alias_exists("pwm-buzzer0") and dt_compat_enabled("pwm-buzzers")
-    integration_platforms:
-      - cytron_maker_nano_rp2040
-      - cytron_maker_pi_rp2040
-      - picoboy

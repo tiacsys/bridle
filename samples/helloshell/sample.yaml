@@ -4,6 +4,7 @@ sample:
   name: hello shell
 common:
   tags:
+    - bridle
     - xip
     - kernel
     - introduction
@@ -21,7 +22,7 @@ common:
     - qemu_x86/atom/virt
     - qemu_x86/atom/xip
     # Qemu issue: - qemu_x86_lakemont
-    - qemu_x86_tiny
+    # Qemu issue: - qemu_x86_tiny
     - qemu_x86_64
     - qemu_x86_64/atom/nokpti
     - qemu_cortex_r5
@@ -83,7 +84,7 @@ common:
     - waveshare_rp2040_plus@16mb
     - waveshare_rp2040_geek
 tests:
-  bridle.samples.helloshell.commands:
+  bridle.sample.helloshell.commands:
     filter: CONFIG_QEMU_TARGET and CONFIG_SERIAL and
             (dt_chosen_enabled("zephyr,shell-uart") or
              CONFIG_XTENSA_SIM_CONSOLE)
@@ -91,7 +92,7 @@ tests:
       - CMAKE_BUILD_TYPE=ZRelease
     harness: pytest
     timeout: 300
-  bridle.samples.helloshell.sayhello:
+  bridle.sample.helloshell.sayhello:
     filter: CONFIG_QEMU_TARGET and CONFIG_CONSOLE and
             (dt_chosen_enabled("zephyr,console") or
              CONFIG_XTENSA_SIM_CONSOLE)
@@ -101,7 +102,7 @@ tests:
       type: one_line
       regex:
         - "Hello World! I'm THE SHELL from (.*)"
-  bridle.samples.helloshell.debug:
+  bridle.sample.helloshell.debug:
     build_only: true
     build_on_all: true
     extra_args: CMAKE_BUILD_TYPE=ZDebug
