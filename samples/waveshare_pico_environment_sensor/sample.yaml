@@ -2,17 +2,20 @@
 # SPDX-License-Identifier: Apache-2.0
 
 sample:
-  name: Waveshare Pico Environment Sensor Sample
+  description: Waveshare Pico Environment Sensor Sample
+  name: waveshare pico environment sensor
+common:
+  tags:
+    - bridle
+    - sensors
+    - bme280
+    - sgp40
+    - mpu9250  # FIXME: icm20948
+  depends_on:
+    - pico_i2c
+    - pico_gpio
 tests:
   bridle.sample.waveshare_pico_environment_sensor:
-    tags:
-      - sensors
-      - bme280
-      - sgp40
-      - mpu9250  # FIXME: icm20948
-    depends_on:
-      - pico_i2c
-      - pico_gpio
     extra_args: SHIELD=waveshare_pico_environment_sensor
     integration_platforms:
       - rpi_pico

@@ -2,16 +2,19 @@
 # SPDX-License-Identifier: Apache-2.0
 
 sample:
-  name: Waveshare Pico 10-DOF IMU Sensor Sample
+  description: Waveshare Pico 10-DOF IMU Sensor Sample
+  name: waveshare pico 10dof imu sensor
+common:
+  tags:
+    - bridle
+    - sensors
+    - lps22hb
+    - mpu9250
+  depends_on:
+    - pico_i2c
+    - pico_gpio
 tests:
   bridle.sample.waveshare_pico_10dof_imu_sensor_r2:
-    tags:
-      - sensors
-      - lps22hb
-      - mpu9250
-    depends_on:
-      - pico_i2c
-      - pico_gpio
     extra_args: SHIELD=waveshare_pico_10dof_imu_sensor_r2
     integration_platforms:
       - rpi_pico
@@ -20,13 +23,6 @@ tests:
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
   bridle.sample.waveshare_pico_10dof_imu_sensor_r1:
-    tags:
-      - sensors
-      - lps22hb
-      - mpu9250
-    depends_on:
-      - pico_i2c
-      - pico_gpio
     extra_args: SHIELD=waveshare_pico_10dof_imu_sensor_r1
     integration_platforms:
       - rpi_pico
