@@ -9,9 +9,10 @@ menuconfig UART_SC16IS75X
 	help
 	  Enable driver for UART controller part of an SC16IS75x bridge.
 
+if UART_SC16IS75X
+
 config UART_SC16IS75X_LOOPBACK
 	bool "Enable internal loopback"
-	depends on UART_SC16IS75X
 	help
 	  Enable the NXP SC16IS75x local UART loopback mode (internal).
 
@@ -22,6 +23,14 @@ config UART_SC16IS75X_LOOPBACK
 config UART_SC16IS75X_INIT_PRIORITY
 	int "Init priority"
 	default 60
-	depends on UART_SC16IS75X
 	help
 	  Device driver initialization priority.
+
+config UART_SC16IS75X_INTERRUPT_DRIVEN
+	bool
+	default y if MFD_SC16IS75X_INTERRUPTS
+	default n
+	depends on MFD_SC16IS75X_ASYNC
+	depends on UART_INTERRUPT_DRIVEN
+
+endif # UART_SC16IS75X

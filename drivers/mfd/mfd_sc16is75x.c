@@ -426,7 +426,7 @@ static int mfd_sc16is75x_init(const struct device *dev)
 	gpio_pin_set_dt(&config->reset, 0); /* deassert */
 	k_usleep(5);
 
-#ifdef CONFIG_MFD_SC16IS75X_ASYNC_WORKQUEUE
+#ifdef CONFIG_MFD_SC16IS75X_ASWQ
 	/* Initialize private work queue. */
 	size_t work_queue_stack_size = CONFIG_MFD_SC16IS75X_WORKQUEUE_STACK_SIZE;
 
@@ -437,7 +437,7 @@ static int mfd_sc16is75x_init(const struct device *dev)
 			   work_queue_stack_size,
 			   K_HIGHEST_THREAD_PRIO,
 			   NULL);
-#endif /* CONFIG_MFD_SC16IS75X_ASYNC_WORKQUEUE */
+#endif /* CONFIG_MFD_SC16IS75X_ASWQ */
 
 #ifdef CONFIG_MFD_SC16IS75X_INTERRUPTS
 
@@ -562,12 +562,13 @@ static int mfd_sc16is75x_pm_device_pm_action(const struct device *dev,
 		.n_channels = ARRAY_SIZE(mfd_sc16is75x_uart_channels_##inst),	\
 		/* 
 		 * GCC doesn't like us using the above instance for
-		 * initialization, so we invoke the macro again to get a naked
-		 * initializer list.
+		 * initialization, so we invoke the macro again to get
+		 * a naked initializer list.
 		 */								\
 		.channels = MFD_SC16IS75X_UART_CHANNELS(inst),			\
 		COND_CODE_1(CONFIG_MFD_SC16IS75X_INTERRUPTS,			\
-			(.interrupt = GPIO_DT_SPEC_INST_GET(inst, interrupt_gpios),), \
+			(.interrupt = GPIO_DT_SPEC_INST_GET(inst,               \
+							    interrupt_gpios),), \
 			())							\
 	};									\
 										\

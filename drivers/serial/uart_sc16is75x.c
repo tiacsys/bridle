@@ -27,12 +27,12 @@ struct uart_sc16is75x_data {
 	/* Mutex to allow locking across multiple transactions */
 	struct k_mutex transaction_lock;
 	struct uart_config uart_config;
-#ifdef CONFIG_UART_INTERRUPT_DRIVEN
+#ifdef CONFIG_UART_SC16IS75X_INTERRUPT_DRIVEN
 	const struct device *self;
 	struct gpio_callback interrupt_cb;
 	uart_irq_callback_user_data_t callback;
 	void *cb_data;
-#endif /* CONFIG_UART_INTERRUPT_DRIVEN */
+#endif /* CONFIG_UART_SC16IS75X_INTERRUPT_DRIVEN */
 };
 
 static bool uart_sc16is75x_rx_available(const struct device *dev)
@@ -694,7 +694,7 @@ end:
 
 #endif /* CONFIG_UART_LINE_CTRL */
 
-#ifdef CONFIG_UART_INTERRUPT_DRIVEN
+#ifdef CONFIG_UART_SC16IS75X_INTERRUPT_DRIVEN
 
 static int uart_sc16is75x_fifo_fill(const struct device *dev,
 				    const uint8_t *tx_data, int len)
@@ -990,7 +990,7 @@ static void uart_sc16is75x_interrupt_callback(const struct device *bus,
 	}
 }
 
-#endif /* CONFIG_UART_INTERRUPT_DRIVEN */
+#endif /* CONFIG_UART_SC16IS75X_INTERRUPT_DRIVEN */
 
 #ifdef CONFIG_UART_ASYNC_API
 
@@ -1038,7 +1038,7 @@ static const struct uart_driver_api uart_sc16is75x_api = {
 	.line_ctrl_get = uart_sc16is75x_line_ctrl_get,
 #endif /* CONFIG_UART_LINE_CTRL */
 
-#ifdef CONFIG_UART_INTERRUPT_DRIVEN
+#ifdef CONFIG_UART_SC16IS75X_INTERRUPT_DRIVEN
 	.fifo_fill = uart_sc16is75x_fifo_fill,
 	.fifo_read = uart_sc16is75x_fifo_read,
 #ifdef CONFIG_UART_WIDE_DATA
@@ -1057,7 +1057,7 @@ static const struct uart_driver_api uart_sc16is75x_api = {
 	.irq_is_pending = uart_sc16is75x_irq_is_pending,
 	.irq_update = uart_sc16is75x_irq_update,
 	.irq_callback_set = uart_sc16is75x_irq_callback_set,
-#endif /* CONFIG_UART_INTERRUPT_DRIVEN */
+#endif /* CONFIG_UART_SC16IS75X_INTERRUPT_DRIVEN */
 
 #ifdef CONFIG_UART_ASYNC_API
 	.callback_set = uart_sc16is75x_callback_set, /* Not supported */
@@ -1083,9 +1083,9 @@ static int uart_sc16is75x_init(const struct device *dev)
 {
 	const struct uart_sc16is75x_config * const config = dev->config;
 	struct uart_sc16is75x_data * const data = dev->data;
-#ifdef CONFIG_UART_INTERRUPT_DRIVEN
+#ifdef CONFIG_UART_SC16IS75X_INTERRUPT_DRIVEN
 	gpio_port_pins_t event_pins;
-#endif /* CONFIG_UART_INTERRUPT_DRIVEN */
+#endif /* CONFIG_UART_SC16IS75X_INTERRUPT_DRIVEN */
 	int ret = 0;
 
 	/* Confirm (MFD) bridge readiness */
@@ -1117,7 +1117,7 @@ static int uart_sc16is75x_init(const struct device *dev)
 		goto end;
 	}
 
-#ifdef CONFIG_UART_INTERRUPT_DRIVEN
+#ifdef CONFIG_UART_SC16IS75X_INTERRUPT_DRIVEN
 
 	/* Create back-reference for interrupt handling */
 	data->self = dev;
@@ -1156,7 +1156,7 @@ static int uart_sc16is75x_init(const struct device *dev)
 		goto end;
 	}
 
-#endif /* CONFIG_UART_INTERRUPT_DRIVEN */
+#endif /* CONFIG_UART_SC16IS75X_INTERRUPT_DRIVEN */
 
 #ifdef UART_SC16IS75X_LOOPBACK
 	/* Enable internal loopback */

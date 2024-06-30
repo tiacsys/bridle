@@ -77,7 +77,7 @@ struct mfd_sc16is75x_transfer_function {
 #endif /* CONFIG_MFD_SC16IS75X_ASYNC */
 };
 
-#ifdef CONFIG_MFD_SC16IS75X_ASYNC_WORKQUEUE
+#ifdef CONFIG_MFD_SC16IS75X_ASWQ
 
 /**
  * @brief Bus agnostic asynchronous read function.
@@ -87,7 +87,7 @@ int mfd_sc16is75x_read_raw_signal(const struct device *dev,
 					 uint8_t *buf, const size_t len,
 					 struct k_poll_signal *signal);
 
-#endif /* CONFIG_MFD_SC16IS75X_ASYNC_WORKQUEUE */
+#endif /* CONFIG_MFD_SC16IS75X_ASWQ */
 
 #ifdef CONFIG_MFD_SC16IS75X_INTERRUPTS
 
@@ -118,12 +118,12 @@ struct mfd_sc16is75x_data {
 	const struct mfd_sc16is75x_transfer_function *transfer_function;
 	/** Mutex to allow locking across multiple transactions */
 	struct k_mutex transaction_lock;
-#ifdef CONFIG_MFD_SC16IS75X_ASYNC_WORKQUEUE
+#ifdef CONFIG_MFD_SC16IS75X_ASWQ
 	/** Private work queue for offloading blocking work. */
 	struct k_work_q work_queue;
 	/** Stack area used by this driver instance's work queue. */
 	k_thread_stack_t *work_queue_stack;
-#endif /* CONFIG_MFD_SC16IS75X_ASYNC_WORKQUEUE */
+#endif /* CONFIG_MFD_SC16IS75X_ASWQ */
 #ifdef CONFIG_MFD_SC16IS75X_INTERRUPTS
 	/** Lock for interrupt handling */
 	struct k_sem interrupt_lock;
