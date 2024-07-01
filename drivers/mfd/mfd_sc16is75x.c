@@ -14,6 +14,11 @@
 #include <zephyr/logging/log.h>
 LOG_MODULE_REGISTER(mfd_sc16is75x, CONFIG_MFD_LOG_LEVEL);
 
+#if defined(CONFIG_MFD_SC16IS75X_ASWQ) \
+	&& (!CONFIG_DYNAMIC_THREAD_POOL_SIZE && !defined(CONFIG_DYNAMIC_THREAD_ALLOC))
+#error "SC16IS75x MFD driver requires either CONFIG_DYNAMIC_THREAD_POOL_SIZE>0 or CONFIG_DYNAMIC_THREAD_ALLOC"
+#endif
+
 #define SC16IS75X_SA_RD	true
 #define SC16IS75X_SA_WR	false
 

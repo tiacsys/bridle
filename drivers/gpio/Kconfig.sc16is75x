@@ -19,9 +19,8 @@ config GPIO_SC16IS75X_INIT_PRIORITY
 
 config GPIO_SC16IS75X_INTERRUPTS
 	bool "Interrupt support"
-	default y if MFD_SC16IS75X_INTERRUPTS
-	default n
-	depends on MFD_SC16IS75X_ASYNC
+	default y
+	depends on MFD_SC16IS75X_INTERRUPTS
 	help
 	  Enable interrupt support on SC16IS75x GPIO controllers.
 
