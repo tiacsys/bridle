@@ -32,10 +32,6 @@ RUN apt-get clean -y && \
 	apt-get autoremove --purge -y && \
 	rm -rf /var/lib/apt/lists/*
 
-# Add bash completion script
-ADD ./bash_completion /home/user/.bash_completion
-RUN mkdir -p /home/user/.bash_completion.d
-
 # Switch to 'user' context
 USER user
 
