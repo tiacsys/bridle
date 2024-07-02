@@ -159,6 +159,8 @@ Change log
     * **Pico LCD 1.44** shield by PiMoroni (*PIM543*, "Pico Display Pack")
     * **Pico LCD 2** shield by PiMoroni (*PIM580*, "Pico Display Pack 2.0")
 
+    * **Pico LCD 1.54** shield by Spotpear
+
     * **Pico LCD 0.96** shield by Waveshare
     * **Pico LCD 1.3** shield by Waveshare
     * **Pico LCD 1.44** shield by Waveshare
@@ -218,6 +220,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`244` - [HW] Spotpear Raspberry Pi Pico LCD Modules as Shields
 * :github:`239` - [HW] PiMoroni Raspberry Pi Pico LCD Modules as Shields
 * :github:`234` - [BUG] boards and shields with LCD do not support the new MIPI-DBI mode
 * :github:`233` - [HW] Waveshare Raspberry Pi Pico LCD Modules as Shields
