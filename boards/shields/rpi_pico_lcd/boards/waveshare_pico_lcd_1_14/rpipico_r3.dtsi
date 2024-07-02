@@ -1,7 +1,9 @@
 /*
- * Copyright (c) 2023 TiaC Systems
+ * Copyright (c) 2023-2024 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
+
+#include "rpipico_r3-connect.dtsi"
 
 #include "st7789v_240x135.dtsi"
 #include "st7789v_rgb565.dtsi"
@@ -9,15 +11,14 @@
 #include <zephyr/dt-bindings/gpio/gpio.h>
 
 &rpipico_spi_lcd {
-	pinctrl-0 = <&spi1_lcd>;
-	pinctrl-names = "default";
+	status = "okay";
 	cs-gpios = <&rpipico_header 9 GPIO_ACTIVE_LOW>;		/* GP9 */
 };
 
 &mipi_dbi {
 	status = "okay";
 	reset-gpios = <&rpipico_header 12 GPIO_ACTIVE_LOW>;	/* GP12 */
-	dc-gpios = <&rpipico_header 8 GPIO_ACTIVE_HIGH>;        /* GP8 */
+	dc-gpios = <&rpipico_header 8 GPIO_ACTIVE_HIGH>;	/* GP8 */
 	spi-dev = <&rpipico_spi_lcd>;
 	#address-cells = <1>;
 	#size-cells = <0>;

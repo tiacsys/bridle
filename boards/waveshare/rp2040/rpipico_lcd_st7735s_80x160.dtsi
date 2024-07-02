@@ -1,0 +1,76 @@
+/*
+ * Copyright (c) 2023-2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <freq.h>
+#include <zephyr/dt-bindings/gpio/gpio.h>
+#include <zephyr/dt-bindings/mipi_dbi/mipi_dbi.h>
+
+/ {
+	chosen {
+		zephyr,display = &lcd_panel;
+	};
+
+	mipi_dbi_st7735s_80x160: mipi-dbi-st7735s-80x160 {
+		compatible = "zephyr,mipi-dbi-spi";
+		status = "okay";
+
+		reset-gpios = <&gpio0 12 GPIO_ACTIVE_LOW>;
+		dc-gpios = <&gpio0 8 GPIO_ACTIVE_HIGH>;
+		spi-dev = <&spi1>;
+		write-only;
+
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		/* LCD with ST7735S controller can use with ST7735R driver. */
+		st7735s_80x160: st7735s@0 {
+			compatible = "sitronix,st7735r";
+			status = "okay";
+
+			reg = <0>;
+			mipi-max-frequency = <DT_FREQ_M(20)>;
+			mipi-mode = <MIPI_DBI_MODE_SPI_4WIRE>;
+
+			width = <80>;		/* portrait */
+			height = <160>;		/* portrait */
+			x-offset = <26>;	/* portrait */
+			y-offset = <1>;		/* portrait */
+
+			inversion-on;
+			rgb-is-inverted;
+
+			pwctr1 = [62 02 04];
+			pwctr2 = [C0];
+			pwctr3 = [0D 00];
+			pwctr4 = [8D 6A];
+			pwctr5 = [8D EE];
+			vmctr1 = <0x0E>;
+			frmctr1 = [05 3A 3A];
+			frmctr2 = [05 3A 3A];
+			frmctr3 = [05 3A 3A 05 3A 3A];
+			invctr = <0x03>;
+			gamctrp1 = [10 0E 02 03 0E 07 02 07 0A 12 27 37 00 0D 0E 10];
+			gamctrn1 = [10 0E 03 03 0F 06 02 08 0A 13 26 36 00 0D 0E 10];
+			madctl = <0x08>;	/* portrait */
+			caset = [00 01 00 A0];
+			raset = [00 1A 00 69];
+		};
+	};
+};
+
+lcd_panel: &st7735s_80x160 {};
+
+&spi1 {
+	status = "okay";
+	pinctrl-0 = <&spi1_lcd>;
+	pinctrl-names = "default";
+
+	clock-frequency = <DT_FREQ_M(20)>;
+	cs-gpios = <&gpio0 9 GPIO_ACTIVE_LOW>;
+};
+
+&gpio0 {
+	status = "okay";
+};

@@ -3,6 +3,8 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+#include "rpipico_r3-connect.dtsi"
+
 #include "sdhc_spi_sdmmc.dtsi"
 #include "xpt2046_320x480.dtsi"
 #include "ili9488_480x320.dtsi"
@@ -22,8 +24,7 @@
 };
 
 &rpipico_spi_lcd {
-	pinctrl-0 = <&spi1_pico>;
-	pinctrl-names = "default";
+	status = "okay";
 	cs-gpios = <&rpipico_header 9 GPIO_ACTIVE_LOW>,		/* LCD: GP9 */
 		   <&rpipico_header 16 GPIO_ACTIVE_LOW>,	/* TSC: GP16 */
 		   <&rpipico_header 22 GPIO_ACTIVE_LOW>;	/* SDC: GP22 */

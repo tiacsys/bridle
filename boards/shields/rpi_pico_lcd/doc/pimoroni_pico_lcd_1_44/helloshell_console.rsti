@@ -1,0 +1,103 @@
+.. rubric:: Simple test execution on target
+
+(text in bold is a command input)
+
+.. tabs::
+
+   .. group-tab:: Basics
+
+      .. parsed-literal::
+         :class: highlight-console notranslate
+
+         :bgn:`uart:~$` **hello -h**
+         hello - say hello
+         :bgn:`uart:~$` **hello**
+         Hello from shell.
+
+         :bgn:`uart:~$` **hwinfo devid**
+         Length: 8
+         ID: 0x8c998be1de969148
+
+         :bgn:`uart:~$` **kernel version**
+         Zephyr version |zephyr_version_number_em|
+
+         :bgn:`uart:~$` **bridle version**
+         Bridle version |version_number_em|
+
+         :bgn:`uart:~$` **bridle version long**
+         Bridle version |longversion_number_em|
+
+         :bgn:`uart:~$` **bridle info**
+         Zephyr: |zephyr_release_number_em|
+         Bridle: |release_number_em|
+
+         :bgn:`uart:~$` **device list**
+         devices:
+         - clock-controller\ @\ 40008000 (READY)
+         - reset-controller\ @\ 4000c000 (READY)
+         - snippet_cdc_acm_console_uart (READY)
+         - uart\ @\ 40034000 (READY)
+         - timer\ @\ 40054000 (READY)
+         - gpio\ @\ 40014000 (READY)
+         - adc\ @\ 4004c000 (READY)
+         - flash-controller\ @\ 18000000 (READY)
+         - i2c\ @\ 40044000 (READY)
+         - pwm\ @\ 40050000 (READY)
+         - vreg\ @\ 40064000 (READY)
+         - lcd-backlight-en (READY)
+         - gpio_leds (READY)
+         - leds (READY)
+
+         :bgn:`uart:~$` **history**
+         [  0] history
+         [  1] device list
+         [  2] bridle info
+         [  3] bridle version long
+         [  4] bridle version
+         [  5] kernel version
+         [  6] hwinfo devid
+         [  7] hello
+         [  8] hello -h
+
+   .. group-tab:: LCD Backlight LED
+
+      Operate with the LCD backlight LED :hwftlbl-led:`BL_EN`
+      at :rpi-pico-pio:`GP20`:
+
+      .. parsed-literal::
+         :class: highlight-console notranslate
+
+         :bgn:`uart:~$` **regulator disable lcd-backlight-en**
+         :bgn:`uart:~$` **regulator enable lcd-backlight-en**
+
+   .. group-tab:: GPIO
+
+      Operate with the user button :hwftlbl-btn:`SW_X`
+      at :rpi-pico-pio:`GP14`:
+
+      .. parsed-literal::
+         :class: highlight-console notranslate
+
+         :bgn:`uart:~$` **gpio get gpio\ @\ 40014000 14**
+         0
+
+         :bgn:`uart:~$` **gpio conf gpio@40014000 14 iul**
+         :bgn:`uart:~$` **gpio get gpio@40014000 14**
+         0
+         :bgn:`uart:~$` **gpio get gpio@40014000 14**
+         1
+         :bgn:`uart:~$` **gpio get gpio@40014000 3**
+         0
+
+   .. group-tab:: LED
+
+      Operate with the test LED :hwftlbl-led:`LED_B` at :rpi-pico-pio:`GP8`:
+
+      .. parsed-literal::
+         :class: highlight-console notranslate
+
+         :bgn:`uart:~$` **led on gpio_leds 2**
+         gpio_leds: turning on LED 2
+
+         :bgn:`uart:~$` **led off gpio_leds 2**
+         gpio_leds: turning off LED 2

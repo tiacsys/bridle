@@ -1,0 +1,99 @@
+sample:
+  name: Input Dump
+common:
+  tags:
+    - zephyr
+    - shield
+    - input
+  build_only: true
+  depends_on: pico_gpio
+  harness: input
+tests:
+  #
+  # shield: PiMoroni Pico LCD 1.14
+  #
+  sample.input.input_dump.pimoroni_pico_lcd_1_44:
+    extra_args:
+      SHIELD=pimoroni_pico_lcd_1_44
+    integration_platforms:
+      - rpi_pico
+      - rpi_pico/rp2040/w
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb
+  #
+  # shield: PiMoroni Pico LCD 2
+  #
+  sample.input.input_dump.pimoroni_pico_lcd_2:
+    extra_args:
+      SHIELD=pimoroni_pico_lcd_2
+    integration_platforms:
+      - rpi_pico
+      - rpi_pico/rp2040/w
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb
+  #
+  # shield: Spotpear Pico LCD 1.54
+  #
+  sample.input.input_dump.spotpear_pico_lcd_1_54:
+    extra_args:
+      SHIELD=spotpear_pico_lcd_1_54
+    integration_platforms:
+      - rpi_pico
+      - rpi_pico/rp2040/w
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb
+  #
+  # shield: Waveshare Pico LCD 0.96
+  #
+  sample.input.input_dump.waveshare_pico_lcd_0_96:
+    extra_args:
+      SHIELD=waveshare_pico_lcd_0_96
+    integration_platforms:
+      - rpi_pico
+      - rpi_pico/rp2040/w
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb
+  #
+  # shield: Waveshare Pico LCD 1.14
+  #
+  sample.input.input_dump.waveshare_pico_lcd_1_14:
+    extra_args:
+      SHIELD=waveshare_pico_lcd_1_14
+    integration_platforms:
+      - rpi_pico
+      - rpi_pico/rp2040/w
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb
+  #
+  # shield: Waveshare Pico LCD 1.3
+  #
+  sample.input.input_dump.waveshare_pico_lcd_1_3:
+    extra_args:
+      SHIELD=waveshare_pico_lcd_1_3
+    integration_platforms:
+      - rpi_pico
+      - rpi_pico/rp2040/w
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb
+  #
+  # shield: Waveshare Pico LCD 1.44
+  #
+  sample.input.input_dump.waveshare_pico_lcd_1_44:
+    extra_args:
+      SHIELD=waveshare_pico_lcd_1_44
+    integration_platforms:
+      - rpi_pico
+      - rpi_pico/rp2040/w
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb
+  #
+  # shield: Waveshare Pico LCD 2
+  #
+  sample.input.input_dump.waveshare_pico_lcd_2:
+    extra_args:
+      SHIELD=waveshare_pico_lcd_2
+    integration_platforms:
+      - rpi_pico
+      - rpi_pico/rp2040/w
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb

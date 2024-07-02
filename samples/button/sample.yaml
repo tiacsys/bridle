@@ -2,7 +2,9 @@ sample:
   description: Button sample, one of the simplest Zephyr application
   name: button
 common:
-  tags: introduction
+  tags:
+    - bridle
+    - introduction
   build_only: true
   platform_allow: nucleo_f413zh
   integration_platforms:

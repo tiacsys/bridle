@@ -38,6 +38,12 @@
 .. |PicoBoy| replace::
    :ref:`PicoBoy <picoboy_board>`
 
+.. |PiMoroni Pico LCD 1.44| replace::
+   :ref:`PiMoroni Pico LCD 1.44 <pimoroni_pico_lcd_1_44>`
+
+.. |PiMoroni Pico LCD 2| replace::
+   :ref:`PiMoroni Pico LCD 2 <pimoroni_pico_lcd_2>`
+
 .. |RP2040-ETH| replace::
    :ref:`RP2040-ETH <waveshare_rp2040_eth>`
 
@@ -101,6 +107,9 @@
 .. |Spotpear Pico ALL GPIO TEST| replace::
    :ref:`Spotpear Pico ALL GPIO TEST <spotpear_pico_test>`
 
+.. |Spotpear Pico LCD 1.54| replace::
+   :ref:`Spotpear Pico LCD 1.54 <spotpear_pico_lcd_1_54>`
+
 .. |STM32F767ZI-NUCLEO (CDC ACM)| replace::
    :ref:`STM32F767ZI-NUCLEO (CDC ACM) <zephyr:nucleo_f767zi_board>`
 
@@ -113,11 +122,26 @@
 .. |Waveshare Pico Environment Sensor| replace::
    :ref:`Waveshare Pico Environment Sensor <waveshare_pico_environment_sensor>`
 
+.. |Waveshare Pico LCD 0.96| replace::
+   :ref:`Waveshare Pico LCD 0.96 <waveshare_pico_lcd_0_96>`
+
 .. |Waveshare Pico LCD 1.14| replace::
    :ref:`Waveshare Pico LCD 1.14 <waveshare_pico_lcd_1_14>`
 
+.. |Waveshare Pico LCD 1.3| replace::
+   :ref:`Waveshare Pico LCD 1.3 <waveshare_pico_lcd_1_3>`
+
+.. |Waveshare Pico LCD 1.44| replace::
+   :ref:`Waveshare Pico LCD 1.44 <waveshare_pico_lcd_1_44>`
+
+.. |Waveshare Pico LCD 1.8| replace::
+   :ref:`Waveshare Pico LCD 1.8 <waveshare_pico_lcd_1_8>`
+
 .. |Waveshare Pico LCD 2| replace::
    :ref:`Waveshare Pico LCD 2 <waveshare_pico_lcd_2>`
+
+.. |Waveshare Pico ResTouch LCD 2.8| replace::
+   :ref:`Waveshare Pico ResTouch LCD 2.8 <waveshare_pico_restouch_lcd_2_8>`
 
 .. |Waveshare Pico ResTouch LCD 3.5| replace::
    :ref:`Waveshare Pico ResTouch LCD 3.5 <waveshare_pico_restouch_lcd_3_5>`

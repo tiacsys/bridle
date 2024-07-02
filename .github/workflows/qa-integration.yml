@@ -125,16 +125,14 @@ jobs:
         working-directory: workspace
         run: |
           west twister --verbose --jobs 6 \
-            --retry-failed 5 --retry-interval 60 \
             --outdir twister-out --no-clean --inline-logs \
             --enable-size-report --platform-reports \
-            --integration \
-            --testsuite-root bridle/samples/button \
-            --testsuite-root bridle/samples/buzzer \
-            --testsuite-root bridle/samples/helloshell \
-            --testsuite-root bridle/samples/ubx_gnss \
-            --testsuite-root bridle/samples/waveshare_pico_10dof_imu_sensor \
-            --testsuite-root bridle/samples/waveshare_pico_environment_sensor
+            --alt-config-root bridle/zephyr/alt-config \
+            --integration --no-detailed-test-id \
+            --testsuite-root bridle/samples \
+            --testsuite-root zephyr/samples \
+            --tag bridle \
+            --tag zephyr
 
       - name: Upload integration test results
         uses: actions/upload-artifact@v4
@@ -250,7 +248,6 @@ jobs:
           # --testsuite-root bridle/tests/shields/grove_led/dts_bindings \
           #
           west twister --verbose --jobs 6 \
-            --retry-failed 5 --retry-interval 60 \
             --outdir twister-out --no-clean --inline-logs \
             --enable-size-report --platform-reports \
             --integration --cmake-only \

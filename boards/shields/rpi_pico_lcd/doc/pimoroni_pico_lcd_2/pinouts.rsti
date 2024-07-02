@@ -1,0 +1,94 @@
+.. list-table::
+   :align: center
+   :width: 100%
+   :widths: 66, 33
+
+   * - .. rubric:: Pin Mapping
+     - .. rubric:: Pinout
+
+   * - :on-edge(1-40):
+          :hwftlbl-pio:`11`
+          :hwftlbl-pwm:`4`
+          :hwftlbl-spi:`1`
+
+       :on-shield:
+          :hwftlbl-btn:`4 BUTTON`
+          :hwftlbl-led:`3 RGB`
+          :hwftlbl-led:`1 BL`
+          :hwftlbl-scr:`1 LCD`
+
+       .. rubric:: Default Zephyr Peripheral Mapping
+
+       |nbsp|
+
+       .. rst-class:: rst-columns edge-pinout
+
+       - | :rpi-pico-pin:`1` PIO/PWM : GP0 (PWM0)
+       - | :rpi-pico-pin:`2` PIO/PWM : GP1 (PWM1)
+       - | :rpi-pico-pin:`3` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`4` PIO/PWM : GP2 (PWM2)
+       - | :rpi-pico-pin:`5` PIO/PWM : GP3 (PWM3)
+       - | :rpi-pico-pin:`6` PIO/PWM : GP4 (PWM4)
+       - | :rpi-pico-pin:`7` PIO/PWM : GP5 (PWM5)
+       - | :rpi-pico-pin:`8` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`9` :hwftlbl-led:`LED_R` : :rpi-pico-pio:`GP6` :rpi-pico-pwm:`PWM6`
+       - | :rpi-pico-pin:`10` :hwftlbl-led:`LED_G` : :rpi-pico-pio:`GP7` :rpi-pico-pwm:`PWM7`
+       - | :rpi-pico-pin:`11` :hwftlbl-led:`LED_B` : :rpi-pico-pio:`GP8` :rpi-pico-pwm:`PWM8`
+       - | :rpi-pico-pin:`12` PIO/PWM : GP9 (PWM9)
+       - | :rpi-pico-pin:`13` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`14` PIO/PWM : GP10 (PWM10)
+       - | :rpi-pico-pin:`15` PIO/PWM : GP11 (PWM11)
+       - | :rpi-pico-pin:`16` :hwftlbl-btn:`SW_A` : :rpi-pico-pio:`GP12` (PWM12)
+       - | :rpi-pico-pin:`17` :hwftlbl-btn:`SW_B` : :rpi-pico-pio:`GP13` (PWM13)
+       - | :rpi-pico-pin:`18` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`19` :hwftlbl-btn:`SW_X` : :rpi-pico-pio:`GP14` (PWM14)
+       - | :rpi-pico-pin:`20` :hwftlbl-btn:`SW_Y` : :rpi-pico-pio:`GP15` (PWM15)
+       - | :rpi-pico-pin:`21` PIO/PWM : :rpi-pico-pio:`GP16` (PWM0)
+         | :rpi-pico-pin-nc:`nc` on-shield LCD data/cmd :rpi-pico-sys:`LCD_DC`
+       - | :rpi-pico-pin:`22` :rpi-pico-spi:`SPI0_CSN` : :rpi-pico-pio:`GP17` (PWM1)
+         | :rpi-pico-pin-nc:`nc` on-shield LCD chip select :rpi-pico-sys:`LCD_CS`
+       - | :rpi-pico-pin:`23` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`24` :rpi-pico-spi:`SPI0_SCK` : GP18 (PWM2)
+         | :rpi-pico-pin-nc:`nc` on-shield LCD i/f clock :rpi-pico-sys:`LCD_SCLK`
+       - | :rpi-pico-pin:`25` :rpi-pico-spi:`SPI0_TX` : GP19 (PWM3)
+         | :rpi-pico-pin-nc:`nc` on-shield LCD i/f data :rpi-pico-sys:`LCD_MOSI`
+       - | :rpi-pico-pin:`26` PIO/PWM : :rpi-pico-pio:`GP20` :rpi-pico-pwm:`PWM4`
+         | :rpi-pico-pin-nc:`nc` on-shield LCD backlight :rpi-pico-sys:`BL_EN`
+         | :rpi-pico-pin-nc:`nc`
+       - | :rpi-pico-pin:`27` PIO/PWM : :rpi-pico-pio:`GP21` (PWM5)
+         | :rpi-pico-pin-nc:`nc` on-shield LCD tearing :rpi-pico-sys:`LCD_TE`
+         | :rpi-pico-pin-nc:`nc`
+       - | :rpi-pico-pin:`28` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`29` PIO/PWM : GP22 (PWM6)
+       - | :rpi-pico-pin:`30` :rpi-pico-sys:`RUN` (RESET)
+         | :rpi-pico-pin-nc:`nc` on-shield LCD reset :rpi-pico-sys:`LCD_RESET`
+       - | :rpi-pico-pin-nc:`nc` PIO/PWM : GP23 (PWM7)
+       - | :rpi-pico-pin-nc:`nc` PIO/PWM : GP24 (PWM8)
+       - | :rpi-pico-pin-nc:`nc` PIO/PWM : GP25 (PWM9)
+       - | :rpi-pico-pin:`31` ADC_CH0 : GP26 (PWM10)
+       - | :rpi-pico-pin:`32` ADC_CH1 : GP27 (PWM11)
+       - | :rpi-pico-pin:`33` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`34` ADC_CH2 : GP28 (PWM12)
+       - | :rpi-pico-pin-nc:`nc` ADC_CH3 : GP29 (PWM13)
+       - | :rpi-pico-pin:`35` ADC_VREF
+       - | :rpi-pico-pin:`36` :rpi-pico-sys:`3V3(OUT)`
+         | :rpi-pico-pin-nc:`nc` on-shield 3V3 power supply
+       - | :rpi-pico-pin:`37` :rpi-pico-sys:`3V3_EN`
+       - | :rpi-pico-pin:`38` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`39` :rpi-pico-vdd:`VSYS`
+       - | :rpi-pico-pin:`40` :rpi-pico-sys:`VBUS`
+
+       .. rubric:: Devicetree compatible
+
+       - :dtcompatible:`zephyr,mipi-dbi-spi`
+       - :dtcompatible:`zephyr,lvgl-button-input`
+       - :dtcompatible:`zephyr,lvgl-keypad-input`
+       - :dtcompatible:`raspberrypi,pico-header-r3`
+       - :dtcompatible:`gpio-keys`
+       - :dtcompatible:`gpio-leds`
+       - :dtcompatible:`pwm-leds`
+
+     - .. image:: pimoroni_pico_lcd_2/pinouts.jpg
+          :align: center
+          :width: 100%
+          :alt: PiMoroni Pico LCD 2 edge pinout

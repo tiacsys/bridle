@@ -82,6 +82,9 @@
 
        .. rubric:: Devicetree compatible
 
+       - :dtcompatible:`zephyr,mipi-dbi-spi`
+       - :dtcompatible:`zephyr,lvgl-button-input`
+       - :dtcompatible:`zephyr,lvgl-keypad-input`
        - :dtcompatible:`raspberrypi,pico-header-r3`
        - :dtcompatible:`gpio-keys`
 

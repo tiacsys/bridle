@@ -3,13 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#include <freq.h>
+#include "rpipico_r3-pinctrl.dtsi"
 
-&spi1 {
-	status = "okay";
-	clock-frequency = <DT_FREQ_M(60)>;
-};
-
-rpipico_spi_lcd: &spi1 {};
-rpipico_spi_tsc: &spi1 {};
-rpipico_spi_sdc: &spi1 {};
+/* link to pwm node from board for RP2040 SoC */
+pico_pwm: &pwm {};

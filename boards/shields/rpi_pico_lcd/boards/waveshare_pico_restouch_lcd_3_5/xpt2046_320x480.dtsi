@@ -4,7 +4,6 @@
  */
 
 #include <freq.h>
-#include <zephyr/dt-bindings/display/ili9xxx.h>
 
 &rpipico_spi_tsc {
 	xpt2046_320x480: xpt2046@1 {
@@ -22,7 +21,7 @@
 		min-y = <768>;
 		max-y = <3712>;
 
-		z-threshold = <50>;
+		z-threshold = <100>;
 		reads = <1>;
 	};
 };
