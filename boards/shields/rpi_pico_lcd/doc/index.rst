@@ -34,6 +34,16 @@ Hardware
 
             .. include:: pimoroni_pico_lcd_2/hardware.rsti
 
+   .. group-tab:: Spotpear (Pico …)
+
+      .. tabs::
+
+         .. group-tab:: LCD 1.54
+
+            .. _spotpear_pico_lcd_1_54:
+
+            .. include:: spotpear_pico_lcd_1_54/hardware.rsti
+
    .. group-tab:: Waveshare (Pico …)
 
       .. tabs::
@@ -103,6 +113,14 @@ Positions
 
             .. include:: pimoroni_pico_lcd_2/positions.rsti
 
+   .. group-tab:: Spotpear (Pico …)
+
+      .. tabs::
+
+         .. group-tab:: LCD 1.54
+
+            .. include:: spotpear_pico_lcd_1_54/positions.rsti
+
    .. group-tab:: Waveshare (Pico …)
 
       .. tabs::
@@ -155,6 +173,14 @@ Pinouts
          .. group-tab:: LCD 2
 
             .. include:: pimoroni_pico_lcd_2/pinouts.rsti
+
+   .. group-tab:: Spotpear (Pico …)
+
+      .. tabs::
+
+         .. group-tab:: LCD 1.54
+
+            .. include:: spotpear_pico_lcd_1_54/pinouts.rsti
 
    .. group-tab:: Waveshare (Pico …)
 
@@ -234,6 +260,14 @@ Programming
 
             .. include:: pimoroni_pico_lcd_2/helloshell.rsti
 
+   .. group-tab:: Spotpear (Pico …)
+
+      .. tabs::
+
+         .. group-tab:: LCD 1.54
+
+            .. include:: spotpear_pico_lcd_1_54/helloshell.rsti
+
    .. group-tab:: Waveshare (Pico …)
 
       .. tabs::
@@ -293,6 +327,14 @@ sample: :zephyr:code-sample:`zephyr:input-dump`.
 
             .. include:: pimoroni_pico_lcd_2/input_dump.rsti
 
+   .. group-tab:: Spotpear (Pico …)
+
+      .. tabs::
+
+         .. group-tab:: LCD 1.54
+
+            .. include:: spotpear_pico_lcd_1_54/input_dump.rsti
+
    .. group-tab:: Waveshare (Pico …)
 
       .. tabs::
@@ -351,6 +393,17 @@ sample: :zephyr:code-sample:`zephyr:rgb-led`.
          .. group-tab:: LCD 2
 
             .. include:: pimoroni_pico_lcd_2/led_test.rsti
+
+   .. group-tab:: Spotpear (Pico …)
+
+      .. tabs::
+
+         .. group-tab:: LCD 1.54
+
+            .. hint::
+
+               The |Spotpear Pico LCD 1.54| doesn't provide a RGB LED.
+               This samples are not applicable.
 
    .. group-tab:: Waveshare (Pico …)
 
@@ -433,6 +486,14 @@ order. See also Zephyr sample: :zephyr:code-sample:`zephyr:display`.
 
             .. include:: pimoroni_pico_lcd_2/display_test.rsti
 
+   .. group-tab:: Spotpear (Pico …)
+
+      .. tabs::
+
+         .. group-tab:: LCD 1.54
+
+            .. include:: spotpear_pico_lcd_1_54/display_test.rsti
+
    .. group-tab:: Waveshare (Pico …)
 
       .. tabs::
@@ -489,6 +550,14 @@ which increments every second. See also Zephyr sample:
          .. group-tab:: LCD 2
 
             .. include:: pimoroni_pico_lcd_2/lvgl_basic.rsti
+
+   .. group-tab:: Spotpear (Pico …)
+
+      .. tabs::
+
+         .. group-tab:: LCD 1.54
+
+            .. include:: spotpear_pico_lcd_1_54/lvgl_basic.rsti
 
    .. group-tab:: Waveshare (Pico …)
 
@@ -550,6 +619,17 @@ ResTouch LCD 3.5| board. They will be built with activated USB-CDC/ACM console.
             .. hint::
 
                The |PiMoroni Pico LCD 2| doesn't provide a TF/microSD card
+               slot. This samples are not applicable.
+
+   .. group-tab:: Spotpear (Pico …)
+
+      .. tabs::
+
+         .. group-tab:: LCD 1.54
+
+            .. hint::
+
+               The |Spotpear Pico LCD 1.54| doesn't provide a TF/microSD card
                slot. This samples are not applicable.
 
    .. group-tab:: Waveshare (Pico …)
