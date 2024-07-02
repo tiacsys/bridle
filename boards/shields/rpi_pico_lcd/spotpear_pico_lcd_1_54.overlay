@@ -1,0 +1,109 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/input/input-event-codes.h>
+#include <zephyr/dt-bindings/lvgl/lvgl.h>
+
+/ {
+	chosen {
+		zephyr,display = &lcd_panel;
+	};
+
+	mipi_dbi: mipi-dbi {
+		compatible = "zephyr,mipi-dbi-spi";
+		write-only;
+	};
+
+	lcd_backlight_en: lcd-backlight-en {
+		compatible = "regulator-fixed";
+		regulator-name = "lcd_backlight_enable";
+		regulator-boot-on;
+	};
+
+	lvgl_buttons: lvgl-buttons {
+		compatible = "zephyr,lvgl-button-input";
+		input = <&gpio_keys>;
+		input-codes = <INPUT_KEY_PLAY>;
+		coordinates = <120 120>;
+	};
+
+	lvgl_keypad: lvgl-keypad {
+		compatible = "zephyr,lvgl-keypad-input";
+		input = <&gpio_keys>;
+		input-codes = <INPUT_KEY_LEFT INPUT_KEY_RIGHT
+			       INPUT_KEY_UP INPUT_KEY_DOWN
+			       INPUT_KEY_ENTER>;
+		lvgl-codes = <LV_KEY_LEFT LV_KEY_RIGHT
+			      LV_KEY_UP LV_KEY_DOWN
+			      LV_KEY_ENTER>;
+	};
+
+	gpio_keys: gpio_keys {
+		compatible = "gpio-keys";
+		button_0: button_0 {
+			label = "User button X";
+			zephyr,code = <INPUT_KEY_X>;
+		};
+		button_1: button_1 {
+			label = "User button A";
+			zephyr,code = <INPUT_KEY_A>;
+		};
+		button_2: button_2 {
+			label = "User button Y";
+			zephyr,code = <INPUT_KEY_Y>;
+		};
+		button_3: button_3 {
+			label = "User button B";
+			zephyr,code = <INPUT_KEY_B>;
+		};
+		button_4: button_4 {
+			label = "User button LEFT";
+			zephyr,code = <INPUT_KEY_LEFT>;
+		};
+		button_5: button_5 {
+			label = "User button DOWN";
+			zephyr,code = <INPUT_KEY_DOWN>;
+		};
+		button_6: button_6 {
+			label = "User button UP";
+			zephyr,code = <INPUT_KEY_UP>;
+		};
+		button_7: button_7 {
+			label = "User button RIGHT";
+			zephyr,code = <INPUT_KEY_RIGHT>;
+		};
+		button_8: button_8 {
+			label = "User button SELECT";
+			zephyr,code = <INPUT_KEY_ENTER>;
+		};
+		button_9: button_9 {
+			label = "User button START";
+			zephyr,code = <INPUT_KEY_PLAY>;
+		};
+		button_10: button_10 {
+			label = "User button L";
+			zephyr,code = <INPUT_KEY_L>;
+		};
+		button_11: button_11 {
+			label = "User button R";
+			zephyr,code = <INPUT_KEY_R>;
+		};
+	};
+
+	aliases {
+		sw0 = &button_0;
+		sw1 = &button_1;
+		sw2 = &button_2;
+		sw3 = &button_3;
+		sw4 = &button_4;
+		sw5 = &button_5;
+		sw6 = &button_6;
+		sw7 = &button_7;
+		sw8 = &button_8;
+		sw9 = &button_9;
+		sw10 = &button_10;
+		sw11 = &button_11;
+	};
+};

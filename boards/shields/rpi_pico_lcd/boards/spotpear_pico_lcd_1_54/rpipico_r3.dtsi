@@ -1,0 +1,82 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include "rpipico_r3-connect.dtsi"
+
+#include "st7789v_240x240ls.dtsi"
+#include "st7789v_rgb565.dtsi"
+
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
+&rpipico_spi_lcd {
+	status = "okay";
+	cs-gpios = <&rpipico_header 9 GPIO_ACTIVE_LOW>;		/* GP9 */
+};
+
+&mipi_dbi {
+	status = "okay";
+	reset-gpios = <&rpipico_header 12 GPIO_ACTIVE_LOW>;	/* GP12 */
+	dc-gpios = <&rpipico_header 8 GPIO_ACTIVE_HIGH>;	/* GP8 */
+	spi-dev = <&rpipico_spi_lcd>;
+	#address-cells = <1>;
+	#size-cells = <0>;
+};
+
+&lcd_panel {
+	status = "okay";
+};
+
+&lcd_backlight_en {
+	status = "okay";
+	enable-gpios = <&rpipico_header 7 GPIO_ACTIVE_HIGH>;	/* GP7 */
+};
+
+&button_0 {							/* GP2 */
+	gpios = <&rpipico_header 2 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+};
+
+&button_1 {							/* GP3 */
+	gpios = <&rpipico_header 3 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+};
+
+&button_2 {							/* GP4 */
+	gpios = <&rpipico_header 4 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+};
+
+&button_3 {							/* GP6 */
+	gpios = <&rpipico_header 6 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+};
+
+&button_4 {							/* GP13 */
+	gpios = <&rpipico_header 13 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+};
+
+&button_5 {							/* GP14 */
+	gpios = <&rpipico_header 14 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+};
+
+&button_6 {							/* GP16 */
+	gpios = <&rpipico_header 16 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+};
+
+&button_7 {							/* GP17 */
+	gpios = <&rpipico_header 17 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+};
+
+&button_8 {							/* GP26 */
+	gpios = <&rpipico_header 23 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+};
+
+&button_9 {							/* GP27 */
+	gpios = <&rpipico_header 24 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+};
+
+&button_10 {							/* GP18 */
+	gpios = <&rpipico_header 18 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+};
+
+&button_11 {							/* GP1 */
+	gpios = <&rpipico_header 1 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+};

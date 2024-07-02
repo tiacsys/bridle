@@ -32,6 +32,17 @@ tests:
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
   #
+  # shield: Spotpear Pico LCD 1.54
+  #
+  sample.input.input_dump.spotpear_pico_lcd_1_54:
+    extra_args:
+      SHIELD=spotpear_pico_lcd_1_54
+    integration_platforms:
+      - rpi_pico
+      - rpi_pico/rp2040/w
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb
+  #
   # shield: Waveshare Pico LCD 0.96
   #
   sample.input.input_dump.waveshare_pico_lcd_0_96:

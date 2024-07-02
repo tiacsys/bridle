@@ -804,6 +804,19 @@
 .. _`Spotpear Pico ALL GPIO TEST Schematic`:
    https://cdn.static.spotpear.com/uploads/picture/learn/raspberry-pi/raspberry-pi-hats/pico-all-gpio-test/pico-all-gpio-test-01.pdf
 
+.. #### Links to the Spotpear Pico LCD 1.54
+
+.. _`Spotpear Pico LCD 1.54`: https://spotpear.com/index/study/detail/id/519.html
+.. .. _`Spotpear Pico LCD 1.54 Schematic`: https://spotpear.com/index/study/detail/id/519.html
+.. _`Spotpear Blue-1.54inch LCD C Code`:
+   https://cdn.static.spotpear.com/uploads/download/diver/pico-1.54inch-lcd/1.54inch-new-c.zip
+.. _`Spotpear Blue-1.54inch LCD Python Code`:
+   https://cdn.static.spotpear.com/uploads/download/diver/pico-1.54inch-lcd/pico-1.54-lcd-new.py
+.. _`Spotpear Green-1.54inch LCD C Code`:
+   https://cdn.static.spotpear.com/uploads/download/diver/pico-1.54inch-lcd/pico-154inch-lcd.zip
+.. _`Spotpear Green-1.54inch LCD Python Code`:
+   https://cdn.static.spotpear.com/uploads/download/diver/pico-1.54inch-lcd/Pico%201.54%20LCD.py
+
 .. #### Links to the Waveshare Pico 10-DOF IMU Sensor
 
 .. _`Waveshare Pico 10-DOF IMU Sensor`:

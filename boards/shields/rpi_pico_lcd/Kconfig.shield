@@ -7,6 +7,9 @@ config SHIELD_PIMORONI_PICO_LCD_1_44
 config SHIELD_PIMORONI_PICO_LCD_2
 	def_bool $(shields_list_contains,pimoroni_pico_lcd_2)
 
+config SHIELD_SPOTPEAR_PICO_LCD_1_54
+	def_bool $(shields_list_contains,spotpear_pico_lcd_1_54)
+
 config SHIELD_WAVESHARE_PICO_LCD_0_96
 	def_bool $(shields_list_contains,waveshare_pico_lcd_0_96)
 

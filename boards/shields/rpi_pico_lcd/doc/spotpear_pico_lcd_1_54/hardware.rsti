@@ -1,0 +1,58 @@
+The `Spotpear Pico LCD 1.54`_ shield comes with the built-in controller
+`ST7789 <ST7789V_>`_ inside the LCD, which is an LCD controller with
+240 × RGB × 320 pixels, while the pixels of this **1.54-inch** LCD itself is
+240 (H) RGB × 240 (V). There are two types of horizontal and vertical screens,
+so the internal RAM of the LCD is not fully used. The LCD supports 12-bit,
+16-bit, and 18-bit input color formats per pixel, namely RGB444, RGB565,
+and RGB666 three color formats. This integration **uses the RGB565** color
+format, which is also a commonly used RGB format. The LCD uses a four-wire
+SPI communication interface.
+
+.. attention::
+
+   **Only** the new **Blue 1.54inch LCD** labeled with **Rev 2.0 is supported!**
+
+.. list-table::
+   :align: center
+   :width: 100%
+   :widths: 66, 33
+
+   * - .. rubric:: Features and Resources
+     - .. rubric:: Printed Circuit Board
+
+   * - :hwftlbl-vdd:`5V/40㎃`
+
+       :hwftlbl-btn:`A`
+       :hwftlbl-btn:`B`
+       :hwftlbl-btn:`X`
+       :hwftlbl-btn:`Y`
+       :hwftlbl-btn:`R`
+       :hwftlbl-btn:`L`
+       :hwftlbl-btn:`START`
+       :hwftlbl-btn:`SELECT`
+       :hwftlbl-joy:`UP|DOWN|LEFT|RIGHT`
+       :hwftlbl-scr:`LCD`
+
+       :hwftlbl-pio:`16`
+       :hwftlbl-pwm:`1`
+       :hwftlbl-spi:`1`
+
+       .. rst-class:: rst-columns
+
+       - :bbk:`1 serial 1.54-inch 240×240 IPS 65K LCD`
+       - :bbk:`1 LCD Backglight LED`
+       - :bbk:`1 User joystick (4 keys)`
+       - :bbk:`8 User keys`
+
+       - :bbk:`1 RST signal to LCD controller`
+       - :bbk:`1 C/D signal to LCD controller`
+
+       .. rubric:: Design Data
+       .. rst-class:: rst-columns
+
+       - `Spotpear Blue-1.54inch LCD C Code`_
+       - `Spotpear Blue-1.54inch LCD Python Code`_
+
+     - .. image:: spotpear_pico_lcd_1_54/hardware.jpg
+          :align: center
+          :alt: Spotpear Pico LCD 1.54
