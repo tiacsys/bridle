@@ -1,0 +1,14 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <freq.h>
+
+&pico_spi1 {
+	pinctrl-0 = <&spi1_lcd>;
+	pinctrl-names = "default";
+	clock-frequency = <DT_FREQ_M(20)>;
+};
+
+rpipico_spi_lcd: &pico_spi1 {};

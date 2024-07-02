@@ -1,0 +1,78 @@
+Print the input events related to the four on-shield user keys
+using the :ref:`Input subsystem API <zephyr:input>`. That are:
+
+| :hwftlbl-btn:`A` : :devicetree:`zephyr,code = <INPUT_KEY_A>;`
+| :hwftlbl-btn:`B` : :devicetree:`zephyr,code = <INPUT_KEY_B>;`
+| :hwftlbl-btn:`X` : :devicetree:`zephyr,code = <INPUT_KEY_X>;`
+| :hwftlbl-btn:`Y` : :devicetree:`zephyr,code = <INPUT_KEY_Y>;`
+
+.. tabs::
+
+   .. group-tab:: Raspberry Pi Pico
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/input/input_dump
+         :build-dir: pimoroni_pico_lcd_2-input_dump
+         :board: rpi_pico
+         :shield: "pimoroni_pico_lcd_2"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :compact:
+
+   .. group-tab:: Raspberry Pi Pico W
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/input/input_dump
+         :build-dir: pimoroni_pico_lcd_2-input_dump
+         :board: rpi_pico/rp2040/w
+         :shield: "pimoroni_pico_lcd_2"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :compact:
+
+   .. group-tab:: Waveshare RP2040-Plus
+
+      .. rubric:: on standard ``4㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/input/input_dump
+         :build-dir: pimoroni_pico_lcd_2-input_dump
+         :board: waveshare_rp2040_plus
+         :shield: "pimoroni_pico_lcd_2"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :compact:
+
+      .. rubric:: on extended ``16㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/input/input_dump
+         :build-dir: pimoroni_pico_lcd_2-input_dump
+         :board: waveshare_rp2040_plus@16mb
+         :shield: "pimoroni_pico_lcd_2"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :compact:
+
+.. rubric:: Simple logging output on target
+
+.. parsed-literal::
+   :class: highlight-console notranslate
+
+   \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+   W: BUS RESET
+   W: BUS RESET
+   \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
+   Input sample started
+   I: input event: dev=gpio_keys        SYN type= 1 code= 30 value=1
+   I: input event: dev=gpio_keys        SYN type= 1 code= 30 value=0
+   I: input event: dev=gpio_keys        SYN type= 1 code= 48 value=1
+   I: input event: dev=gpio_keys        SYN type= 1 code= 48 value=0
+   I: input event: dev=gpio_keys        SYN type= 1 code= 45 value=1
+   I: input event: dev=gpio_keys        SYN type= 1 code= 45 value=0
+   I: input event: dev=gpio_keys        SYN type= 1 code= 21 value=1
+   I: input event: dev=gpio_keys        SYN type= 1 code= 21 value=0

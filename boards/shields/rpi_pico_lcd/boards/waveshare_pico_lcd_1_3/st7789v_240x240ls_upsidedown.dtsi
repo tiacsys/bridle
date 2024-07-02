@@ -1,0 +1,8 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+&st7789v_240x240ls {
+	mdac = <0x20>;		/* landscape, upsidedown */
+};
