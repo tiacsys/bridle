@@ -95,6 +95,8 @@
 
        .. rubric:: Devicetree compatible
 
+       - :dtcompatible:`zephyr,mipi-dbi-spi`
+       - :dtcompatible:`zephyr,lvgl-pointer-input`
        - :dtcompatible:`raspberrypi,pico-header-r3`
 
      - .. image:: waveshare_pico_restouch_lcd_3_5/pinouts.jpg

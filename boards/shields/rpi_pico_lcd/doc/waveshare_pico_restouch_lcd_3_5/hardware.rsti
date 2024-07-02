@@ -1,12 +1,11 @@
-The `Waveshare Pico ResTouch LCD 3.5`_ shield comes with the built-in
-controller ILI9488_ inside the LCD, which is an LCD controller with
-320 × RGB × 480 pixels, while the pixels of this LCD itself is the same,
-320 (H) RGB × 480 (V). There are two types of horizontal and vertical
-screens, so the internal RAM of the LCD is fully used. The LCD supports
-16-bit, and 24-bit input color formats per pixel, namely RGB565, and
-RGB888 three color formats. This integration **uses the RGB565** color
-format, which is also a commonly used RGB format. The LCD uses a
-four-wire SPI communication interface with up to 60㎒.
+The `Waveshare Pico ResTouch LCD 3.5`_ shield comes with the built-in controller
+ILI9488_ inside the LCD, which is an LCD controller with 320 × RGB × 480 pixels,
+while the pixels of this **3.5-inch** LCD itself is the same, 320 (H) RGB ×
+480 (V). There are two types of horizontal and vertical screens, so the internal
+RAM of the LCD is fully used. The LCD supports 16-bit, and 24-bit input color
+formats per pixel, namely RGB565, and RGB888 three color formats. This integration
+**uses the RGB565** color format, which is also a commonly used RGB format.
+The LCD uses a four-wire SPI communication interface with up to 60㎒.
 
 Additional there are a resistive Touch Screen (TS) with the TS controller
 XPT2046_ and a standard TF/microSD card slot. The board is prepared for
@@ -34,7 +33,7 @@ retrofitting the JEDEC compliant Pseudo-Static RAM (PSRAM) chip, e.g. the
 
        .. rst-class:: rst-columns
 
-       - :bbk:`1 serial 480×320 IPS 65K LCD`
+       - :bbk:`1 serial 3.5-inch 480×320 IPS 65K LCD`
        - :bbk:`1 LCD Backglight LED`
        - :bbk:`1 6-wire SDIO to the TF/microSD`
 
