@@ -1,0 +1,74 @@
+Using the :ref:`PWM driver API <zephyr:pwm_api>` with given Piezo Buzzer.
+That is:
+
+| :hwftlbl-spk:`PIEZO` : :devicetree:`aliases { pwm-buzzer0 = &pwm_buzzer_0; };`
+
+.. tabs::
+
+   .. group-tab:: Raspberry Pi Pico
+
+      .. zephyr-app-commands::
+         :app: bridle/samples/buzzer
+         :build-dir: geeekpi_pico_bb-buzzer
+         :board: rpi_pico
+         :shield: "geeekpi_pico_bb"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :compact:
+
+   .. group-tab:: Raspberry Pi Pico W
+
+      .. zephyr-app-commands::
+         :app: bridle/samples/buzzer
+         :build-dir: geeekpi_pico_bb-buzzer
+         :board: rpi_pico/rp2040/w
+         :shield: "geeekpi_pico_bb"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :compact:
+
+   .. group-tab:: Waveshare RP2040-Plus
+
+      .. rubric:: on standard ``4㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: bridle/samples/buzzer
+         :build-dir: geeekpi_pico_bb-buzzer
+         :board: waveshare_rp2040_plus
+         :shield: "geeekpi_pico_bb"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :compact:
+
+      .. rubric:: on extended ``16㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: bridle/samples/buzzer
+         :build-dir: geeekpi_pico_bb-buzzer
+         :board: waveshare_rp2040_plus@16mb
+         :shield: "geeekpi_pico_bb"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :compact:
+
+.. rubric:: Simple test execution on target
+
+#. play a beep
+#. play a funky jingle
+
+.. parsed-literal::
+   :class: highlight-console notranslate
+
+   \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+   W: BUS RESET
+   W: BUS RESET
+   \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
+   [00:00:04.003,000] <inf> buzzersh: Buzzer shell is ready!
+   :bgn:`uart:~$` **_**
+
+   :bgn:`uart:~$` **buzzer beep**
+   :bgn:`uart:~$` **buzzer play funkytown**

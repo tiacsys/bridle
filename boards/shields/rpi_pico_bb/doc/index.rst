@@ -22,6 +22,12 @@ Hardware
 
       .. tabs::
 
+         .. group-tab:: Breadboard Kit
+
+            .. _geeekpi_pico_bb:
+
+            .. include:: geeekpi_pico_bb/hardware.rsti
+
          .. group-tab:: Breadboard Kit Plus
 
             .. _geeekpi_pico_bb_plus:
@@ -37,6 +43,10 @@ Positions
 
       .. tabs::
 
+         .. group-tab:: Breadboard Kit
+
+            .. include:: geeekpi_pico_bb/positions.rsti
+
          .. group-tab:: Breadboard Kit Plus
 
             .. include:: geeekpi_pico_bb_plus/positions.rsti
@@ -49,6 +59,10 @@ Pinouts
    .. group-tab:: GeeekPi (Pico …)
 
       .. tabs::
+
+         .. group-tab:: Breadboard Kit
+
+            .. include:: geeekpi_pico_bb/pinouts.rsti
 
          .. group-tab:: Breadboard Kit Plus
 
@@ -88,6 +102,10 @@ Programming
 
       .. tabs::
 
+         .. group-tab:: Breadboard Kit
+
+            .. include:: geeekpi_pico_bb/helloshell.rsti
+
          .. group-tab:: Breadboard Kit Plus
 
             .. include:: geeekpi_pico_bb_plus/helloshell.rsti
@@ -107,6 +125,10 @@ sample: :zephyr:code-sample:`zephyr:input-dump`.
 
       .. tabs::
 
+         .. group-tab:: Breadboard Kit
+
+            .. include:: geeekpi_pico_bb/input_dump.rsti
+
          .. group-tab:: Breadboard Kit Plus
 
             .. include:: geeekpi_pico_bb_plus/input_dump.rsti
@@ -123,6 +145,10 @@ See also Bridle sample: :ref:`buzzer`.
 
       .. tabs::
 
+         .. group-tab:: Breadboard Kit
+
+            .. include:: geeekpi_pico_bb/buzzer.rsti
+
          .. group-tab:: Breadboard Kit Plus
 
             .. include:: geeekpi_pico_bb_plus/buzzer.rsti
@@ -138,6 +164,13 @@ sample: :zephyr:code-sample:`zephyr:rgb-led`.
    .. group-tab:: GeeekPi (Pico …)
 
       .. tabs::
+
+         .. group-tab:: Breadboard Kit
+
+            .. hint::
+
+               The |GeeekPi Pico Breadboard Kit| doesn't provide
+               a TriColor ChipLED. This sample is not applicable.
 
          .. group-tab:: Breadboard Kit Plus
 
@@ -158,6 +191,13 @@ See also Zephyr sample: :zephyr:code-sample:`zephyr:led-strip`.
 
       .. tabs::
 
+         .. group-tab:: Breadboard Kit
+
+            .. hint::
+
+               The |GeeekPi Pico Breadboard Kit| doesn't provide
+               a RGB LED strip. This sample is not applicable.
+
          .. group-tab:: Breadboard Kit Plus
 
             .. include:: geeekpi_pico_bb_plus/ledstrip_test.rsti
@@ -174,6 +214,10 @@ order. See also Zephyr sample: :zephyr:code-sample:`zephyr:display`.
    .. group-tab:: GeeekPi (Pico …)
 
       .. tabs::
+
+         .. group-tab:: Breadboard Kit
+
+            .. include:: geeekpi_pico_bb/display_test.rsti
 
          .. group-tab:: Breadboard Kit Plus
 
@@ -192,6 +236,10 @@ which increments every second. See also Zephyr sample:
 
       .. tabs::
 
+         .. group-tab:: Breadboard Kit
+
+            .. include:: geeekpi_pico_bb/lvgl_basic.rsti
+
          .. group-tab:: Breadboard Kit Plus
 
             .. include:: geeekpi_pico_bb_plus/lvgl_basic.rsti
@@ -208,6 +256,10 @@ theme. See also Zephyr sample: :zephyr:code-sample:`zephyr:lvgl-demos`.
 
       .. tabs::
 
+         .. group-tab:: Breadboard Kit
+
+            .. include:: geeekpi_pico_bb/lvgl_demo.rsti
+
          .. group-tab:: Breadboard Kit Plus
 
             .. include:: geeekpi_pico_bb_plus/lvgl_demo.rsti
@@ -223,6 +275,13 @@ be built with activated USB-CDC/ACM console.
    .. group-tab:: GeeekPi (Pico …)
 
       .. tabs::
+
+         .. group-tab:: Breadboard Kit
+
+            .. hint::
+
+               The |GeeekPi Pico Breadboard Kit| doesn't provide
+               a TF/microSD card slot. This sample is not applicable.
 
          .. group-tab:: Breadboard Kit Plus
 

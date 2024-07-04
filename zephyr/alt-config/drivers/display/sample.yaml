@@ -12,6 +12,17 @@ common:
   build_only: true
 tests:
   #
+  # shield: GeeekPi Pico Breadboard Kit (EP-0164)
+  #
+  sample.drivers.display.geeekpi_pico_bb:
+    extra_args:
+      SHIELD=geeekpi_pico_bb
+    integration_platforms:
+      - rpi_pico
+      - rpi_pico/rp2040/w
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb
+  #
   # shield: GeeekPi Pico Breadboard Kit Plus (EP-0172)
   #
   sample.drivers.display.geeekpi_pico_bb_plus:

@@ -784,6 +784,13 @@
 
 .. ### Links to the Raspberry Pi Pico Shields
 
+.. #### Links to the GeeekPi Pico Breadboard Kit
+
+.. _`GeeekPi Pico Breadboard Kit (EP-0164)`: https://wiki.52pi.com/index.php?title=EP-0164
+.. _`GeeekPi EP-0164 Driver Code`: https://wiki.52pi.com/images/7/7f/2.8inch-pico-screen.zip
+.. _`GeeekPi EP-0164 Demo Firmware`: https://wiki.52pi.com/images/8/84/Demo_code_libs_main.zip
+.. _`GeeekPi EP-0164 GitHub Demo Code`: https://github.com/geeekpi/picoBDK
+
 .. #### Links to the GeeekPi Pico Breadboard Kit Plus
 
 .. _`GeeekPi Pico Breadboard Kit Plus (EP-0172)`: https://wiki.52pi.com/index.php?title=EP-0172

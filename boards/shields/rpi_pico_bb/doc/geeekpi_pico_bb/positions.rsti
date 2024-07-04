@@ -1,0 +1,45 @@
+.. list-table::
+   :align: center
+   :width: 66%
+   :header-rows: 1
+
+   * - .. image:: geeekpi_pico_bb/positions.jpg
+          :align: center
+          :width: 500
+          :alt: GeeekPi Pico Breadboard Kit details
+
+   * - .. container:: twocol
+
+          .. container:: leftside
+
+             1. | :strong:`Rapsberry Pi Pico header`
+             #. | :strong:`Power Output`
+             #. | :strong:`ILI9341` (on front side)
+                | 2.8-inch 320×240 pixels 65K colorful IPS LCD
+             #. | :strong:`XPT2046` (on back side)
+                | resistive touch screen controller
+
+          .. container:: rightside
+
+             5. | :strong:`Piezo Buzzer`
+                | 5.0Vo-p (3.0~8.0V) @ 2.400㎑±300㎐ with ≥85㏈
+                | on terminal for the momentary push buttons
+             #. | :strong:`User Buttons`
+                | terminal to four momentary push buttons
+             #. | :strong:`User LEDs`
+                | terminal to four indicator LEDs
+
+.. rubric:: Data Sheets
+.. rst-class:: rst-columns
+
+- .. rubric:: `ILI9341 <ILI9341V_>`_
+- `ILI9341V Datasheet V1.00 (2013/04)`_
+- `ILI9341 Datasheet V1.13 (2011/07)`_
+- `ILI9341 Datasheet V1.09 (2011/03)`_
+- .. rubric:: XPT2046_
+- `XPT2046 Datasheet (2007.05)`_
+- `XPT2046 Datasheet CN (2011.12)`_
+- `XPT2046 Datasheet V2.0 CN (2008.09)`_
+- .. rubric:: `TMB12A05`_
+- `TMB12Axx Datasheet`_
+- `TMB12A05 Specification (2021)`_

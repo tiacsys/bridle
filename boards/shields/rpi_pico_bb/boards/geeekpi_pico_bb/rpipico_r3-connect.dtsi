@@ -1,0 +1,46 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include "rpipico_r3-pinctrl.dtsi"
+
+#include <freq.h>
+
+&pico_spi0 {
+	pinctrl-0 = <&spi0_lcd>;
+	pinctrl-names = "default";
+	clock-frequency = <DT_FREQ_M(25)>;
+};
+
+rpipico_spi_lcd: &pico_spi0 {};
+
+&pico_spi1 {
+	pinctrl-0 = <&spi1_tsc>;
+	pinctrl-names = "default";
+	clock-frequency = <DT_FREQ_M(3)>;
+};
+
+rpipico_spi_tsc: &pico_spi1 {};
+
+&pico_pwm {
+	pinctrl-0 = <&pwm_lcd_feedback>;
+	pinctrl-names = "default";
+};
+
+rpipico_pwm: &pico_pwm {};
+
+/* disable default SPI0 bus to avoid conflicts with user buttons (GPIO) */
+&pico_spi0 {
+	status = "disabled";
+};
+
+/* disable default I2C0 bus to avoid conflicts with user LEDs (PWM/GPIO) */
+&pico_i2c0 {
+	status = "disabled";
+};
+
+/* disable default I2C1 bus to avoid conflicts with LCD (SPI0) */
+&pico_i2c1 {
+	status = "disabled";
+};

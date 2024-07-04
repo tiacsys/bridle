@@ -1,0 +1,114 @@
+Using the LVGL module on top of the :ref:`Display driver API
+<zephyr:display_api>` and the :ref:`Input subsystem API
+<zephyr:input>` with chosen display and touchscreen panel. That is:
+
+| :hwftlbl-scr:`LCD` : :devicetree:`chosen { zephyr,display = &lcd_panel; };`
+| :hwftlbl-scr:`ILI9341` : :devicetree:`lcd_panel: &ili9341_320x240 {};`
+| :hwftlbl-scr:`TSC` : :devicetree:`lvgl_pointer { input = &tsc_panel; };`
+| :hwftlbl-scr:`XPT2046` : :devicetree:`tsc_panel: &xpt2046_240x320 {};`
+
+.. rubric:: Devicetree compatible
+
+- :dtcompatible:`zephyr,mipi-dbi-spi`
+- :dtcompatible:`zephyr,lvgl-pointer-input`
+
+.. tabs::
+
+   .. group-tab:: Raspberry Pi Pico
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/modules/lvgl/demos
+         :build-dir: geeekpi_pico_bb-lvgl_demos
+         :board: rpi_pico
+         :shield: "geeekpi_pico_bb"
+         :goals: flash
+         :gen-args: -DCONFIG_LV_Z_DEMO_WIDGETS=y
+         :west-args: -p -S usb-console -S del-default-aliases
+         :flash-args: -r uf2
+         :compact:
+
+   .. group-tab:: Raspberry Pi Pico W
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/modules/lvgl/demos
+         :build-dir: geeekpi_pico_bb-lvgl_demos
+         :board: rpi_pico/rp2040/w
+         :shield: "geeekpi_pico_bb"
+         :goals: flash
+         :gen-args: -DCONFIG_LV_Z_DEMO_WIDGETS=y
+         :west-args: -p -S usb-console -S del-default-aliases
+         :flash-args: -r uf2
+         :compact:
+
+   .. group-tab:: Waveshare RP2040-Plus
+
+      .. rubric:: on standard ``4㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/modules/lvgl/demos
+         :build-dir: geeekpi_pico_bb-lvgl_demos
+         :board: waveshare_rp2040_plus
+         :shield: "geeekpi_pico_bb"
+         :goals: flash
+         :gen-args: -DCONFIG_LV_Z_DEMO_WIDGETS=y
+         :west-args: -p -S usb-console -S del-default-aliases
+         :flash-args: -r uf2
+         :compact:
+
+      .. rubric:: on extended ``16㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/modules/lvgl/demos
+         :build-dir: geeekpi_pico_bb-lvgl_demos
+         :board: waveshare_rp2040_plus@16mb
+         :shield: "geeekpi_pico_bb"
+         :goals: flash
+         :gen-args: -DCONFIG_LV_Z_DEMO_WIDGETS=y
+         :west-args: -p -S usb-console -S del-default-aliases
+         :flash-args: -r uf2
+         :compact:
+
+.. note::
+
+   Resistive touchscreens have low sensitivity. This example can therefore
+   only be accessed with significant restrictions.
+
+.. list-table::
+   :align: center
+   :width: 66%
+   :header-rows: 1
+
+   * - .. image:: https://lvgl.io/github-assets/widgets-demo.gif
+          :align: center
+          :alt: GeeekPi Pico Breadboard Kit Widgets Demo
+   * - .. rst-class:: centered
+
+          | https://github.com/lvgl/lvgl?tab=readme-ov-file#light-and-versatile-graphics-library
+          | https://lvgl.io/github-assets/widgets-demo.gif
+
+.. rubric:: Simple test execution on target
+
+.. parsed-literal::
+   :class: highlight-console notranslate
+
+   \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+   [00:00:00.425,000] :byl:`<wrn> udc_rpi: BUS RESET`
+   [00:00:00.508,000] :byl:`<wrn> udc_rpi: BUS RESET`
+   \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
+   :bgn:`uart:~$` **_**
+
+   :bgn:`uart:~$` **lvgl stats memory**
+   Heap at 0x20001650 contains 6143 units in 13 buckets
+
+     bucket#    min units        total      largest      largest
+                threshold       chunks      (units)      (bytes)
+     -----------------------------------------------------------
+           0            1           30            1            4
+           1            2            7            3           20
+           2            4            1            7           52
+           3            8            1           15          116
+           4           16            4           31          244
+           6           64            1           81          644
+          10         1024            1         1915        15316
+
+   17116 free bytes, 28460 allocated bytes, overhead = 3572 bytes (7.3%)

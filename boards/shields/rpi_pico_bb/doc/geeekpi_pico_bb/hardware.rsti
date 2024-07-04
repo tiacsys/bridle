@@ -1,0 +1,88 @@
+The `GeeekPi Pico Breadboard Kit (EP-0164)`_ shield comes with the built-in
+controller `ILI9341 <ILI9341V_>`_ inside the LCD, which is an LCD controller
+with 240 × RGB × 320 pixels, while the pixels of this **2.8-inch** LCD itself
+is 240 (H) RGB × 320 (V). There are two types of horizontal and vertical
+screens, so the internal RAM of the LCD is not fully used. The LCD supports
+16-bit, and 18-bit, input color formats per pixel, namely RGB565, and RGB666,
+three color formats. This integration **uses the RGB565** color format, which
+is also a commonly used RGB format. The LCD uses a four-wire SPI communication
+interface.
+
+Additional there are a resistive Touch Screen (TS) with the TS controller
+XPT2046_.
+
+.. list-table::
+   :align: center
+   :width: 100%
+   :widths: 66, 33
+
+   * - .. rubric:: Features and Resources
+     - .. rubric:: Printed Circuit Board
+
+   * - :hwftlbl-vdd:`5V/40㎃`
+
+       :hwftlbl-btn:`0`
+       :hwftlbl-btn:`1`
+       :hwftlbl-btn:`2`
+       :hwftlbl-btn:`3`
+       :hwftlbl-led:`0`
+       :hwftlbl-led:`1`
+       :hwftlbl-led:`2`
+       :hwftlbl-led:`3`
+       :hwftlbl-spk:`PIEZO`
+       :hwftlbl-scr:`LCD/TS`
+
+       :hwftlbl-pio:`5 (14)`
+       :hwftlbl-pwm:`(5)`
+       :hwftlbl-spi:`2`
+       :hwftlbl-tsi:`1`
+
+       .. rst-class:: rst-columns
+
+       - :bbk:`1 serial 2.8-inch 320×240 IPS 262K LCD`
+       - :bbk:`4 User keys`
+       - :bbk:`4 User LEDs`
+       - :bbk:`1 Piezo` buzzer
+
+       - :bbk:`1 RST signal to LCD controller`
+       - :bbk:`1 C/D signal to LCD controller`
+       - :brd:`not wired:` :emphasis:`1 IRQ signal from TS controller`
+
+       .. rubric:: Design Data
+       .. rst-class:: rst-columns
+
+       - `GeeekPi EP-0164 Driver Code`_
+       - `GeeekPi EP-0164 Demo Firmware`_
+       - `GeeekPi EP-0164 GitHub Demo Code`_
+
+     - .. image:: geeekpi_pico_bb/hardware.jpg
+          :align: center
+          :alt: GeeekPi Pico Breadboard Kit
+
+.. admonition:: Defective Hardware
+   :class: error
+
+   Apart from the fact that the LCD and TSC are connected via unusual pins
+   to the RP2040 and thus the on-chip SPI controllers cannot be used for
+   chip select signal operation to the LCD or TSC, the final interrupt
+   provided by the TSC was not connected. This means that :brd:`the touch
+   screen of this shield cannot be used out-of-the-box`. The TSC will only
+   work with a hardware correction (see figures below). To do this, the
+   :rpi-pico-sys:`/PENIRQ` signal from **pin 11** of the **XPT2046** (U1) must
+   be connected as :rpi-pico-sys:`TP_IRQ` signal with :rpi-pico-pio:`GP9` to
+   **pin 12** of the **Raspberry Pi Pico (W) header** (J1) as digital input.
+
+.. list-table::
+   :align: center
+   :width: 100%
+   :widths: 66, 33
+
+   * - .. rubric:: Wiring Diagram
+     - .. rubric:: Printed Circuit Board
+
+   * - .. image:: geeekpi_pico_bb/hardware-fix-penirq-wiring.jpg
+          :align: center
+          :alt: GeeekPi Pico Breadboard Kit wiring diagram HW fix
+     - .. image:: geeekpi_pico_bb/hardware-fix-penirq.jpg
+          :align: center
+          :alt: GeeekPi Pico Breadboard Kit PCB HW fix with wire

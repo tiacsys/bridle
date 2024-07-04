@@ -1,0 +1,109 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include "rpipico_r3-connect.dtsi"
+
+#include "ili9341_320x240.dtsi"
+#include "ili9341_rgb565.dtsi"
+#include "xpt2046_240x320.dtsi"
+
+#include <zephyr/dt-bindings/gpio/gpio.h>
+#include <zephyr/dt-bindings/pwm/pwm.h>
+
+&rpipico_spi_lcd {
+	status = "okay";
+	cs-gpios = <&rpipico_header 13 GPIO_ACTIVE_LOW>;	/* GP13 */
+};
+
+&mipi_dbi {
+	status = "okay";
+	reset-gpios = <&rpipico_header 14 GPIO_ACTIVE_LOW>;	/* GP14 */
+	dc-gpios = <&rpipico_header 15 GPIO_ACTIVE_HIGH>;	/* GP15 */
+	spi-dev = <&rpipico_spi_lcd>;
+	#address-cells = <1>;
+	#size-cells = <0>;
+};
+
+&lcd_panel {
+	status = "okay";
+};
+
+&rpipico_spi_tsc {
+	status = "okay";
+	cs-gpios = <&rpipico_header 12 GPIO_ACTIVE_LOW>;	/* GP12 */
+};
+
+&tsc_panel {
+	status = "okay";
+	int-gpios = <&rpipico_header 9 GPIO_ACTIVE_LOW>;	/* GP9 */
+};
+
+&lvgl_pointer {
+	//invert-x;
+	invert-y;
+	//swap-xy;
+};
+
+&rpipico_pwm {
+	status = "okay";
+	divider-frac-1 = <15>;
+	divider-int-1 = <255>;
+	divider-frac-2 = <15>;
+	divider-int-2 = <255>;
+	divider-frac-3 = <15>;
+	divider-int-3 = <255>;
+};
+
+&pwm_buzzer_0 {							/* GP22:PWM3CHA */
+	pwms = <&pwm 6 PWM_HZ(880) PWM_POLARITY_NORMAL>;
+};
+
+&pwm_led_0 {							/* GP2:PWM1A */
+	pwms = <&rpipico_pwm 2 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+};
+
+&pwm_led_1 {							/* GP3:PWM1B */
+	pwms = <&rpipico_pwm 3 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+};
+
+&pwm_led_2 {							/* GP4:PWM2A */
+	pwms = <&rpipico_pwm 4 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+};
+
+&pwm_led_3 {							/* GP5:PWM2B */
+	pwms = <&rpipico_pwm 5 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+};
+
+&led_0 {							/* GP2 */
+	gpios = <&rpipico_header 2 GPIO_ACTIVE_HIGH>;
+};
+
+&led_1 {							/* GP3 */
+	gpios = <&rpipico_header 3 GPIO_ACTIVE_HIGH>;
+};
+
+&led_2 {							/* GP4 */
+	gpios = <&rpipico_header 4 GPIO_ACTIVE_HIGH>;
+};
+
+&led_3 {							/* GP5 */
+	gpios = <&rpipico_header 5 GPIO_ACTIVE_HIGH>;
+};
+
+&button_0 {							/* GP16 */
+	gpios = <&rpipico_header 16 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+};
+
+&button_1 {							/* GP17 */
+	gpios = <&rpipico_header 17 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+};
+
+&button_2 {							/* GP18 */
+	gpios = <&rpipico_header 18 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+};
+
+&button_3 {							/* GP19 */
+	gpios = <&rpipico_header 19 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+};

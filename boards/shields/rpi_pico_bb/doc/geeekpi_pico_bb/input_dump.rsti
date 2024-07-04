@@ -1,0 +1,122 @@
+Print the input events related to the on-shield touchscreen panel,
+the two user keys, and the two analog joystick achsises using the
+:ref:`Input subsystem API <zephyr:input>`. That are:
+
+| :hwftlbl-scr:`TSC` : :devicetree:`lvgl_pointer { input = &tsc_panel; };`
+| :hwftlbl-scr:`XPT2046` : :devicetree:`tsc_panel: &xpt2046_240x320 {};`
+
+| :hwftlbl-btn:`0` : :devicetree:`zephyr,code = <INPUT_KEY_0>;`
+| :hwftlbl-btn:`1` : :devicetree:`zephyr,code = <INPUT_KEY_1>;`
+| :hwftlbl-btn:`2` : :devicetree:`zephyr,code = <INPUT_KEY_2>;`
+| :hwftlbl-btn:`3` : :devicetree:`zephyr,code = <INPUT_KEY_3>;`
+
+.. rubric:: Joystick simulation by longpress codes (≥1000㎳)
+
+| :hwftlbl-btn:`0` : :devicetree:`short-code = <INPUT_KEY_RIGHT>;`
+| :hwftlbl-btn:`1` : :devicetree:`short-code = <INPUT_KEY_DOWN>;`
+| :hwftlbl-btn:`2` : :devicetree:`short-code = <INPUT_KEY_UP>;`
+| :hwftlbl-btn:`3` : :devicetree:`short-code = <INPUT_KEY_LEFT>;`
+
+| :hwftlbl-btn:`0` : :devicetree:`long-code = <INPUT_KEY_ENTER>;`
+| :hwftlbl-btn:`1` : :devicetree:`long-code = <INPUT_KEY_DOWN>;`
+| :hwftlbl-btn:`2` : :devicetree:`long-code = <INPUT_KEY_UP>;`
+| :hwftlbl-btn:`3` : :devicetree:`long-code = <INPUT_KEY_LEFT>;`
+
+.. tabs::
+
+   .. group-tab:: Raspberry Pi Pico
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/input/input_dump
+         :build-dir: geeekpi_pico_bb-input_dump
+         :board: rpi_pico
+         :shield: "geeekpi_pico_bb"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :compact:
+
+   .. group-tab:: Raspberry Pi Pico W
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/input/input_dump
+         :build-dir: geeekpi_pico_bb-input_dump
+         :board: rpi_pico/rp2040/w
+         :shield: "geeekpi_pico_bb"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :compact:
+
+   .. group-tab:: Waveshare RP2040-Plus
+
+      .. rubric:: on standard ``4㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/input/input_dump
+         :build-dir: geeekpi_pico_bb-input_dump
+         :board: waveshare_rp2040_plus
+         :shield: "geeekpi_pico_bb"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :compact:
+
+      .. rubric:: on extended ``16㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/input/input_dump
+         :build-dir: geeekpi_pico_bb-input_dump
+         :board: waveshare_rp2040_plus@16mb
+         :shield: "geeekpi_pico_bb"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :compact:
+
+.. rubric:: Simple logging output on target
+
+.. parsed-literal::
+   :class: highlight-console notranslate
+
+   \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+   W: BUS RESET
+   W: BUS RESET
+   \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
+   Input sample started
+   I: input event: dev=xpt2046@0            type= 3 code=  0 value=100
+   I: input event: dev=xpt2046@0            type= 3 code=  1 value=141
+   I: input event: dev=xpt2046@0        SYN type= 1 code=330 value=1
+   I: input event: dev=xpt2046@0        SYN type= 1 code=330 value=0
+   I: input event: dev=gpio_keys        SYN type= 1 code= 11 value=1
+   I: input event: dev=gpio_keys        SYN type= 1 code= 11 value=0
+   I: input event: dev=gpio_keys_longpress SYN type= 1 code=106 value=1
+   I: input event: dev=gpio_keys_longpress SYN type= 1 code=106 value=0
+   I: input event: dev=gpio_keys        SYN type= 1 code=  2 value=1
+   I: input event: dev=gpio_keys        SYN type= 1 code=  2 value=0
+   I: input event: dev=gpio_keys_longpress SYN type= 1 code=108 value=1
+   I: input event: dev=gpio_keys_longpress SYN type= 1 code=108 value=0
+   I: input event: dev=gpio_keys        SYN type= 1 code=  3 value=1
+   I: input event: dev=gpio_keys        SYN type= 1 code=  3 value=0
+   I: input event: dev=gpio_keys_longpress SYN type= 1 code=103 value=1
+   I: input event: dev=gpio_keys_longpress SYN type= 1 code=103 value=0
+   I: input event: dev=gpio_keys        SYN type= 1 code=  4 value=1
+   I: input event: dev=gpio_keys        SYN type= 1 code=  4 value=0
+   I: input event: dev=gpio_keys_longpress SYN type= 1 code=105 value=1
+   I: input event: dev=gpio_keys_longpress SYN type= 1 code=105 value=0
+   I: input event: dev=gpio_keys        SYN type= 1 code= 11 value=1
+   I: input event: dev=gpio_keys_longpress SYN type= 1 code= 28 value=1
+   I: input event: dev=gpio_keys        SYN type= 1 code= 11 value=0
+   I: input event: dev=gpio_keys_longpress SYN type= 1 code= 28 value=0
+   I: input event: dev=gpio_keys        SYN type= 1 code=  2 value=1
+   I: input event: dev=gpio_keys_longpress SYN type= 1 code=108 value=1
+   I: input event: dev=gpio_keys        SYN type= 1 code=  2 value=0
+   I: input event: dev=gpio_keys_longpress SYN type= 1 code=108 value=0
+   I: input event: dev=gpio_keys        SYN type= 1 code=  3 value=1
+   I: input event: dev=gpio_keys_longpress SYN type= 1 code=103 value=1
+   I: input event: dev=gpio_keys        SYN type= 1 code=  3 value=0
+   I: input event: dev=gpio_keys_longpress SYN type= 1 code=103 value=0
+   I: input event: dev=gpio_keys        SYN type= 1 code=  4 value=1
+   I: input event: dev=gpio_keys_longpress SYN type= 1 code=105 value=1
+   I: input event: dev=gpio_keys        SYN type= 1 code=  4 value=0
+   I: input event: dev=gpio_keys_longpress SYN type= 1 code=105 value=0

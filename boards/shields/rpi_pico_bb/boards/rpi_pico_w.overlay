@@ -8,6 +8,9 @@
 /* link to pinctrl node from board for rpi_pico/rp2040/w */
 spi0_pico: &spi0_default {};
 
+/* link to pinctrl node from board extensions for rpi_pico/rp2040/w */
+spi1_pico: &spi1_default {};
+
 /* link to pinctrl node from board for rpi_pico/rp2040/w */
 i2c0_pico: &i2c0_default {};
 

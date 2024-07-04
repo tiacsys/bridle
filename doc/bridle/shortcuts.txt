@@ -17,6 +17,9 @@
 .. |Arduino Zero (CDC ACM)| replace::
    :ref:`Arduino Zero (CDC ACM) <arduino_zero>`
 
+.. |GeeekPi Pico Breadboard Kit| replace::
+   :ref:`GeeekPi Pico Breadboard Kit <geeekpi_pico_bb>`
+
 .. |GeeekPi Pico Breadboard Kit Plus| replace::
    :ref:`GeeekPi Pico Breadboard Kit Plus <geeekpi_pico_bb_plus>`
 

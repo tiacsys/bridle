@@ -1,0 +1,29 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <freq.h>
+
+&rpipico_spi_tsc {
+	xpt2046_240x320: xpt2046@0 {
+		compatible = "xptek,xpt2046";
+		spi-max-frequency = <DT_FREQ_M(3)>;
+		reg = <0>;
+
+		status = "disabled";
+
+		touchscreen-size-x = <240>;	/* portrait */
+		min-x = <963>;
+		max-x = <3965>;
+
+		touchscreen-size-y = <320>;	/* portrait */
+		min-y = <624>;
+		max-y = <3778>;
+
+		z-threshold = <100>;
+		reads = <1>;
+	};
+};
+
+tsc_panel: &xpt2046_240x320 {};

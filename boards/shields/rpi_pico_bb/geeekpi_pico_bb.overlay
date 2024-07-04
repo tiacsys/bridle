@@ -1,0 +1,143 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/input/input-event-codes.h>
+#include <zephyr/dt-bindings/lvgl/lvgl.h>
+
+/ {
+	chosen {
+		zephyr,display = &lcd_panel;
+	};
+
+	mipi_dbi: mipi-dbi {
+		compatible = "zephyr,mipi-dbi-spi";
+	};
+
+	lvgl_pointer: lvgl-pointer {
+		compatible = "zephyr,lvgl-pointer-input";
+		input = <&tsc_panel>;
+	};
+
+	lvgl_buttons: lvgl-buttons {
+		compatible = "zephyr,lvgl-button-input";
+		input = <&gpio_keys>;
+		input-codes = <INPUT_KEY_1>;
+		coordinates = <160 120>;
+	};
+
+	lvgl_gpio_keypad: lvgl-gpio-keypad {
+		compatible = "zephyr,lvgl-keypad-input";
+		input = <&gpio_keys_longpress>;
+		input-codes = <INPUT_KEY_LEFT INPUT_KEY_RIGHT
+			       INPUT_KEY_UP INPUT_KEY_DOWN
+			       INPUT_KEY_ENTER>;
+		lvgl-codes = <LV_KEY_LEFT LV_KEY_RIGHT
+			      LV_KEY_UP LV_KEY_DOWN
+			      LV_KEY_ENTER>;
+	};
+
+	gpio_keys_longpress: gpio_keys_longpress {
+		compatible = "zephyr,input-longpress";
+		input = <&gpio_keys>;
+		input-codes = <INPUT_KEY_0>, <INPUT_KEY_1>,
+			      <INPUT_KEY_2>, <INPUT_KEY_3>;
+		short-codes = <INPUT_KEY_RIGHT>, <INPUT_KEY_DOWN>,
+			      <INPUT_KEY_UP>, <INPUT_KEY_LEFT>;
+		long-codes = <INPUT_KEY_ENTER>, <INPUT_KEY_DOWN>,
+			     <INPUT_KEY_UP>, <INPUT_KEY_LEFT>;
+		long-delay-ms = <1000>;
+	};
+
+	/delete-node/ keys;
+	/delete-node/ gpio_keys;
+	gpio_keys: gpio_keys {
+		compatible = "gpio-keys";
+		status = "okay";
+
+		button_0: button_0 {
+			label = "User button 0";
+			zephyr,code = <INPUT_KEY_0>;
+		};
+		button_1: button_1 {
+			label = "User button 1";
+			zephyr,code = <INPUT_KEY_1>;
+		};
+		button_2: button_2 {
+			label = "User button 2";
+			zephyr,code = <INPUT_KEY_2>;
+		};
+		button_3: button_3 {
+			label = "User button 3";
+			zephyr,code = <INPUT_KEY_3>;
+		};
+	};
+
+	/delete-node/ leds;
+	/delete-node/ gpio_leds;
+	gpio_leds: gpio_leds {
+		compatible = "gpio-leds";
+		status = "disabled";
+
+		led_0: led_0 {
+			label = "User LED 0";
+		};
+		led_1: led_1 {
+			label = "User LED 1";
+		};
+		led_2: led_2 {
+			label = "User LED 2";
+		};
+		led_3: led_3 {
+			label = "User LED 3";
+		};
+	};
+
+	/delete-node/ pwm_leds;
+	pwm_leds: pwm_leds {
+		compatible = "pwm-leds";
+		status = "okay";
+
+		pwm_led_0: pwm_led_0 {
+			label = "User LED 0 (PWM)";
+		};
+		pwm_led_1: pwm_led_1 {
+			label = "User LED 1 (PWM)";
+		};
+		pwm_led_2: pwm_led_2 {
+			label = "User LED 2 (PWM)";
+		};
+		pwm_led_3: pwm_led_3 {
+			label = "User LED 3 (PWM)";
+		};
+	};
+
+	pwm_buzzers: pwm_buzzers {
+		compatible = "pwm-buzzers";
+		status = "okay";
+
+		pwm_buzzer_0: pwm_buzzer_0 {
+			label = "User buzzer (PWM)";
+		};
+	};
+
+	aliases {
+		/delete-property/ sw0;
+		sw0 = &button_0;
+		sw1 = &button_1;
+		sw2 = &button_2;
+		sw3 = &button_3;
+		/delete-property/ led0;
+		led0 = &led_0;
+		led1 = &led_1;
+		led2 = &led_2;
+		led3 = &led_3;
+		/delete-property/ pwm-led0;
+		pwm-led0 = &pwm_led_0;
+		pwm-led1 = &pwm_led_1;
+		pwm-led2 = &pwm_led_2;
+		pwm-led3 = &pwm_led_3;
+		pwm-buzzer0 = &pwm_buzzer_0;
+	};
+};

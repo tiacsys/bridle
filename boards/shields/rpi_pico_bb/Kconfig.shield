@@ -1,5 +1,8 @@
 # Copyright (c) 2024 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
+config SHIELD_GEEEKPI_PICO_BB
+	def_bool $(shields_list_contains,geeekpi_pico_bb)
+
 config SHIELD_GEEEKPI_PICO_BB_PLUS
 	def_bool $(shields_list_contains,geeekpi_pico_bb_plus)

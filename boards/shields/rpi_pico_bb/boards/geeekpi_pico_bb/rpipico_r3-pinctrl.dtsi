@@ -1,0 +1,47 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/pinctrl/rpi-pico-rp2040-pinctrl.h>
+
+pwm_lcd_feedback: &pwm_pico {
+	group2_led {
+		pinmux = <PWM_1A_P2>;		/* GP2: PWM1CHA (2) */
+	};
+	group3_led {
+		pinmux = <PWM_1B_P3>;		/* GP3: PWM1CHB (3) */
+	};
+	group4_led {
+		pinmux = <PWM_2A_P4>;		/* GP4: PWM2CHA (4) */
+	};
+	group5_led {
+		pinmux = <PWM_2B_P5>;		/* GP5: PWM2CHB (5) */
+	};
+	group22_buzzer {
+		pinmux = <PWM_3A_P22>;		/* GP22: PWM3CHA (6) */
+	};
+};
+
+&pinctrl {
+	spi0_lcd: spi0_lcd {
+		group67_spi {
+			pinmux = /* GP5: SPI0_CSn not used, is GP13 as GPIO */
+				 <SPI0_SCK_P6>,		/* GP6: SPI0_SCK */
+				 <SPI0_TX_P7>;		/* GP7: SPI0_TX */
+		};
+		/* GP8: SPI0_RX not used for LCD only access */
+	};
+
+	spi1_tsc: spi1_tsc {
+		group1011_spi {
+			pinmux = /* GP9: SPI1_CSn not used, is GP12 as GPIO */
+				 <SPI1_SCK_P10>,	/* GP10: SPI1_SCK */
+				 <SPI1_TX_P11>;		/* GP11: SPI1_TX */
+		};
+		group8_spi {
+			pinmux = <SPI1_RX_P8>;		/* GP8: SPI1_RX */
+			input-enable;
+		};
+	};
+};
