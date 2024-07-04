@@ -84,7 +84,7 @@
 		};
 	};
 
-	i2c0_makerpi_grove_3: i2c1_makerpi_grove_3 {
+	i2c0_makerpi_grove_3: i2c0_makerpi_grove_3 {
 		group45_i2c {
 			pinmux = <I2C0_SDA_P4>,		/* GP4: I2C0_SDA */
 				 <I2C0_SCL_P5>;		/* GP5: I2C0_SCL */
