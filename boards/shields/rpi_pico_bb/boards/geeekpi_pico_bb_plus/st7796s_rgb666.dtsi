@@ -1,0 +1,14 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+&lcd_panel {
+/*
+ *	colmod = <0x06>;	/ * 18-bit, RGB666 * /
+ *
+ * This property cannot yet be set via Devicetree. The current driver supports
+ * only RGB565 or BGR656 and sets the value ST7796S_CONTROL_16BIT (0x05)
+ * accordingly in the COLMOD register (0x3A)!
+ */
+};

@@ -17,6 +17,9 @@
 .. |Arduino Zero (CDC ACM)| replace::
    :ref:`Arduino Zero (CDC ACM) <arduino_zero>`
 
+.. |GeeekPi Pico Breadboard Kit Plus| replace::
+   :ref:`GeeekPi Pico Breadboard Kit Plus <geeekpi_pico_bb_plus>`
+
 .. |Maker Nano RP2040| replace::
    :ref:`Maker Nano RP2040 <cytron_maker_nano_rp2040>`
 

@@ -1,0 +1,157 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include "rpipico_r3-connect.dtsi"
+#include "rpipico_r3-tweaks.dtsi"
+
+#include "st7796s_480x320.dtsi"
+#include "st7796s_rgb565.dtsi"
+#include "gt911_320x480.dtsi"
+#include "ws2812.dtsi"
+
+#include <zephyr/dt-bindings/gpio/gpio.h>
+#include <zephyr/dt-bindings/pwm/pwm.h>
+#include <zephyr/dt-bindings/adc/adc.h>
+
+&rpipico_spi_lcd {
+	status = "okay";
+	cs-gpios = <&rpipico_header 5 GPIO_ACTIVE_LOW>;		/* GP5 */
+};
+
+&mipi_dbi {
+	status = "okay";
+	reset-gpios = <&rpipico_header 7 GPIO_ACTIVE_LOW>;	/* GP7 */
+	dc-gpios = <&rpipico_header 6 GPIO_ACTIVE_HIGH>;	/* GP6 */
+	spi-dev = <&rpipico_spi_lcd>;
+	#address-cells = <1>;
+	#size-cells = <0>;
+};
+
+&lcd_panel {
+	status = "okay";
+};
+
+&lvgl_pointer {
+	//invert-x;
+	invert-y;
+	swap-xy;
+};
+
+&tsc_panel {
+	status = "okay";
+	irq-gpios = <&rpipico_header 11 GPIO_ACTIVE_HIGH>;	/* GP11 */
+	reset-gpios = <&rpipico_header 10 GPIO_ACTIVE_LOW>;	/* GP10 */
+};
+
+&led_strip {
+	status = "okay";
+	gpios = <&rpipico_header 12 GPIO_ACTIVE_HIGH>;		/* GP12 */
+};
+
+&pio_led_strip {
+	status = "okay";
+};
+
+&rpipico_pio {
+	status = "okay";
+};
+
+&rpipico_pwm {
+	status = "okay";
+	divider-frac-0 = <15>;
+	divider-int-0 = <255>;
+	divider-frac-6 = <15>;
+	divider-int-6 = <255>;
+};
+
+&pwm_buzzer_0 {							/* GP13:PWM6CHB */
+	pwms = <&pwm 13 PWM_HZ(880) PWM_POLARITY_NORMAL>;
+};
+
+&pwm_led_0 {							/* GP16:PWM0A */
+	pwms = <&rpipico_pwm 0 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+};
+
+&pwm_led_1 {							/* GP17:PWM0B */
+	pwms = <&rpipico_pwm 1 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+};
+
+&led_0 {							/* GP16 */
+	gpios = <&rpipico_header 16 GPIO_ACTIVE_HIGH>;
+};
+
+&led_1 {							/* GP17 */
+	gpios = <&rpipico_header 17 GPIO_ACTIVE_HIGH>;
+};
+
+&button_0 {							/* GP14 */
+	gpios = <&rpipico_header 14 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+};
+
+&button_1 {							/* GP15 */
+	gpios = <&rpipico_header 15 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+};
+
+&joystick_axis_x_keys {						/* X@ADC0 */
+	io-channels = <&rpipico_adc 0>;
+	keyup-threshold-mv = <1850>;
+};
+
+&joystick_axis_x_key_0 {
+	press-thresholds-mv = <850>;				/* X@LEFT */
+};
+
+&joystick_axis_x_key_1 {
+	press-thresholds-mv = <2180>;				/* X@RIGHT */
+};
+
+&joystick_axis_y_keys {						/* Y@ADC1 */
+	io-channels = <&rpipico_adc 1>;
+	keyup-threshold-mv = <1850>;
+};
+
+&joystick_axis_y_key_0 {
+	press-thresholds-mv = <850>;				/* Y@DOWN */
+};
+
+&joystick_axis_y_key_1 {
+	press-thresholds-mv = <2180>;				/* Y@UP */
+};
+
+&joystick_axis_x {						/* X@ADC0 */
+	io-channels = <&rpipico_adc 0>;
+	in-deadzone = <500>;
+	in-min = <500>;
+	in-max = <4000>;
+};
+
+&joystick_axis_y {						/* Y@ADC1 */
+	io-channels = <&rpipico_adc 1>;
+	in-deadzone = <500>;
+	in-min = <500>;
+	in-max = <4000>;
+};
+
+&rpipico_adc {
+	status = "okay";
+
+	/delete-node/ channel@0;
+	channel@0 {						/* ADC0 */
+		reg = <0>;
+		zephyr,gain = "ADC_GAIN_1";
+		zephyr,reference = "ADC_REF_INTERNAL";
+		zephyr,acquisition-time = <ADC_ACQ_TIME_DEFAULT>;
+		zephyr,resolution = <12>;
+	};
+
+	/delete-node/ channel@1;
+	channel@1 {						/* ADC1 */
+		reg = <1>;
+		zephyr,gain = "ADC_GAIN_1";
+		zephyr,reference = "ADC_REF_INTERNAL";
+		zephyr,acquisition-time = <ADC_ACQ_TIME_DEFAULT>;
+		zephyr,resolution = <12>;
+	};
+};

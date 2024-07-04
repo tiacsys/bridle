@@ -1,0 +1,65 @@
+Set ``-DSHIELD=geeekpi_pico_bb_plus`` and use optional the
+:ref:`snippet-usb-console` when you invoke ``west build``.
+For example:
+
+.. tabs::
+
+   .. group-tab:: Raspberry Pi Pico
+
+      .. zephyr-app-commands::
+         :app: bridle/samples/helloshell
+         :build-dir: geeekpi_pico_bb_plus-helloshell
+         :board: rpi_pico
+         :shield: "geeekpi_pico_bb_plus"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :host-os: unix
+         :tool: all
+
+      .. include:: geeekpi_pico_bb_plus/helloshell_console.rsti
+
+   .. group-tab:: Raspberry Pi Pico W
+
+      .. zephyr-app-commands::
+         :app: bridle/samples/helloshell
+         :build-dir: geeekpi_pico_bb_plus-helloshell
+         :board: rpi_pico/rp2040/w
+         :shield: "geeekpi_pico_bb_plus"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :host-os: unix
+         :tool: all
+
+      .. include:: geeekpi_pico_bb_plus/helloshell_console.rsti
+
+   .. group-tab:: Waveshare RP2040-Plus
+
+      .. rubric:: on standard ``4㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: bridle/samples/helloshell
+         :build-dir: geeekpi_pico_bb_plus-helloshell
+         :board: waveshare_rp2040_plus
+         :shield: "geeekpi_pico_bb_plus"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :host-os: unix
+         :tool: all
+
+      .. rubric:: on extended ``16㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: bridle/samples/helloshell
+         :build-dir: geeekpi_pico_bb_plus-helloshell
+         :board: waveshare_rp2040_plus@16mb
+         :shield: "geeekpi_pico_bb_plus"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :host-os: unix
+         :tool: all
+
+      .. include:: geeekpi_pico_bb_plus/helloshell_console.rsti

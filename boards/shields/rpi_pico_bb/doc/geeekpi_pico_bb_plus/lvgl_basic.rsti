@@ -1,0 +1,93 @@
+Using the LVGL module on top of the :ref:`Display driver API
+<zephyr:display_api>` and the :ref:`Input subsystem API
+<zephyr:input>` with chosen display and touchscreen panel. That is:
+
+| :hwftlbl-scr:`LCD` : :devicetree:`chosen { zephyr,display = &lcd_panel; };`
+| :hwftlbl-scr:`ST7796S` : :devicetree:`lcd_panel: &st7796s_480x320 {};`
+| :hwftlbl-scr:`TSC` : :devicetree:`lvgl_pointer { input = &tsc_panel; };`
+| :hwftlbl-scr:`GT911` : :devicetree:`tsc_panel: &gt911_320x480 {};`
+
+.. rubric:: Devicetree compatible
+
+- :dtcompatible:`zephyr,mipi-dbi-spi`
+- :dtcompatible:`zephyr,lvgl-pointer-input`
+- :dtcompatible:`zephyr,lvgl-keypad-input`
+
+.. tabs::
+
+   .. group-tab:: Raspberry Pi Pico
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/display/lvgl
+         :build-dir: geeekpi_pico_bb_plus-lvgl_basic
+         :board: rpi_pico
+         :shield: "geeekpi_pico_bb_plus"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :compact:
+
+   .. group-tab:: Raspberry Pi Pico W
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/display/lvgl
+         :build-dir: geeekpi_pico_bb_plus-lvgl_basic
+         :board: rpi_pico/rp2040/w
+         :shield: "geeekpi_pico_bb_plus"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :compact:
+
+   .. group-tab:: Waveshare RP2040-Plus
+
+      .. rubric:: on standard ``4㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/display/lvgl
+         :build-dir: geeekpi_pico_bb_plus-lvgl_basic
+         :board: waveshare_rp2040_plus
+         :shield: "geeekpi_pico_bb_plus"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :compact:
+
+      .. rubric:: on extended ``16㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/display/lvgl
+         :build-dir: geeekpi_pico_bb_plus-lvgl_basic
+         :board: waveshare_rp2040_plus@16mb
+         :shield: "geeekpi_pico_bb_plus"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :compact:
+
+.. rubric:: Simple test execution on target
+
+.. parsed-literal::
+   :class: highlight-console notranslate
+
+   \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+   [00:00:00.528,000] :byl:`<wrn> udc_rpi: BUS RESET`
+   [00:00:00.616,000] :byl:`<wrn> udc_rpi: BUS RESET`
+   \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
+   :bgn:`uart:~$` **_**
+
+   :bgn:`uart:~$` **lvgl stats memory**
+   Heap at 0x20001970 contains 6143 units in 13 buckets
+
+     bucket#    min units        total      largest      largest
+                threshold       chunks      (units)      (bytes)
+     -----------------------------------------------------------
+           0            1           30            1            4
+           1            2            6            3           20
+           2            4            1            4           28
+           3            8            2           15          116
+           4           16            4           31          244
+           6           64            1           81          644
+          10         1024            1         1898        15180
+
+   17012 free bytes, 28564 allocated bytes, overhead = 3572 bytes (7.3%)

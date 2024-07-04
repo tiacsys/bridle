@@ -1,0 +1,59 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/pinctrl/rpi-pico-rp2040-pinctrl.h>
+
+pwm_lcd_feedback: &pwm_pico {
+	group16_led {
+		pinmux = <PWM_0A_P16>;		/* GP16: PWM0CHA (0) */
+	};
+	group17_led {
+		pinmux = <PWM_0B_P17>;		/* GP17: PWM0CHB (1) */
+	};
+	group13_buzzer {
+		pinmux = <PWM_6B_P13>;		/* GP13: PWM6CHB (13) */
+	};
+};
+
+adc_joystick: &adc_pico {
+	group0_adc_x {
+		pinmux = <ADC_CH0_P26>;		/* GP26: ADC_CH0 */
+		input-enable;
+	};
+	group1_adc_y {
+		pinmux = <ADC_CH1_P27>;		/* GP27: ADC_CH1 */
+		input-enable;
+	};
+};
+
+&pinctrl {
+	spi0_lcd: spi0_lcd {
+		group235_spi {
+			pinmux = <SPI0_CSN_P5>,		/* GP5: SPI0_CSn */
+				 <SPI0_SCK_P2>,		/* GP2: SPI0_SCK */
+				 <SPI0_TX_P3>;		/* GP3: SPI0_TX */
+		};
+		group4_spi {
+			pinmux = <SPI0_RX_P4>;		/* GP4: SPI0_RX */
+			input-enable;
+		};
+	};
+
+	i2c0_tsc: i2c0_tsc {
+		group89_i2c {
+			pinmux = <I2C0_SDA_P8>,		/* GP8: I2C0_SDA */
+				 <I2C0_SCL_P9>;		/* GP9: I2C0_SCL */
+			bias-pull-up;
+			input-enable;
+			input-schmitt-enable;
+		};
+	};
+
+	pio0_ws2812: pio0_ws2812{
+		group12_pio {
+			pinmux = <PIO0_P12>;	/* GP12: PIO0 */
+		};
+	};
+};

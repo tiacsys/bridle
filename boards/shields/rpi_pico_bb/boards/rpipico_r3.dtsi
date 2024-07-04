@@ -1,0 +1,13 @@
+/*
+ * Copyright (c) 2023 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/* link to pwm node from board for RP2040 SoC */
+pico_pwm: &pwm {};
+
+/* link to adc node from board for RP2040 SoC */
+pico_adc: &adc {};
+
+/* link to pio0 node from board for RP2040 SoC */
+pico_pio0: &pio0 {};

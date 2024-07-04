@@ -784,6 +784,13 @@
 
 .. ### Links to the Raspberry Pi Pico Shields
 
+.. #### Links to the GeeekPi Pico Breadboard Kit Plus
+
+.. _`GeeekPi Pico Breadboard Kit Plus (EP-0172)`: https://wiki.52pi.com/index.php?title=EP-0172
+.. _`GeeekPi EP-0172 Demo Firmware`:
+   https://wiki.52pi.com/images/3/34/Pico%5Fbreadboard%5Fkit%5FPlus%5Fverison%5Fdemo%5Ffirmware.zip
+.. _`GeeekPi EP-0172 GitHub Demo Code`: https://github.com/geeekpi/pico_breakboard_kit
+
 .. #### Links to the PiMoroni Pico Display Pack (Pico LCD 1.44)
 
 .. _`PiMoroni Pico Display Pack (PIM543)`: https://pimoroni.com/picodisplay
@@ -1597,7 +1604,46 @@
    https://github.com/Xinyuan-LilyGO/LilyGo-HAL/raw/master/DISPLAY/ST7789V.pdf
 .. https://www.crystalfontz.com/controllers/Sitronix/ST7789V/382
 
+.. _`ST7796U`:
+   https://www.sitronix.com.tw/en/products/aiot-device-ddi
+
+.. _`ST7796U Datasheet V1.0 (2020/02)`:
+   https://focuslcds.com/wp-content/uploads/Drivers/ST7796U.pdf
+.. https://www.lcdwiki.com/res/MSP3525_MSP3526/ST7796U-Sitronix.pdf
+
+.. _`ST7796S Datasheet V1.0 (2014/11)`:
+   http://www.lcdwiki.com/res/MSP4021/ST7796S-Sitronix.pdf
+.. http://www.lcdwiki.com/res/MSP3525_MSP3526/ST7796S-Sitronix.pdf
+.. https://focuslcds.com/wp-content/uploads/Drivers/ST7796S.pdf
+.. https://www.displayfuture.com/Display/datasheet/controller/ST7796s.pdf
+.. https://www.orientdisplay.com/wp-content/uploads/2018/10/ST7796S.pdf
+
 .. #### Links to Touch Screen Controllers or similar to drive displays
+
+.. _`GT911`:
+   https://www.goodix.com/en/product/touch/touch_screen_controller
+
+.. _`GT911 Programming Guide FW 1040 (2014.08)`:
+   https://www.lcd-module.de/fileadmin/eng/pdf/zubehoer/GT911%20Programming%20Guide_20140804_Rev00.pdf
+.. https://www.crystalfontz.com/controllers/GOODIX/GT911ProgrammingGuide/478
+
+.. _`GT911 Datasheet Rev.10 (2015.06)`:
+   https://www.lcd-module.de/fileadmin/eng/pdf/zubehoer/GT911%20Datasheet_English%2020150625_Rev10.pdf
+
+.. _`GT911 Datasheet Rev.09 (2015.03)`:
+   https://www.waveshare.com/w/upload/e/eb/GT911.pdf
+.. https://focuslcds.com/wp-content/uploads/Drivers/GT911.pdf
+.. https://www.crystalfontz.com/controllers/GOODIX/GT911/464
+.. https://files.pine64.org/doc/datasheet/pine64/GT911%20Capacitive%20Touch%20Controller%20Datasheet.pdf
+
+.. _`GT911 Datasheet CN Rev.03 (2013.03)`:
+   https://files.waveshare.com/upload/d/db/GT911_Register.pdf
+
+.. _`GT911 Datasheet CN Rev.021 (2013.01)`:
+   https://linux-sunxi.org/images/4/47/Goodix_GT911_Datasheet.pdf
+
+.. _`GT911 Datasheet CN Rev.01 (2012.11)`:
+   https://dl.linux-sunxi.org/touchscreen/GT911%20Datasheet.pdf
 
 .. _`XPT2046`:
    http://www.xptek.com.cn/en/products.asp?Sid=15

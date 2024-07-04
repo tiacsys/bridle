@@ -24,6 +24,17 @@ tests:
       - waveshare_rp2040_tiny
       - waveshare_rp2040_zero
   #
+  # shield: GeeekPi Pico Breadboard Kit Plus (EP-0172)
+  #
+  sample.drivers.led_strip.geeekpi_pico_bb_plus:
+    extra_args:
+      SHIELD=geeekpi_pico_bb_plus
+    integration_platforms:
+      - rpi_pico
+      - rpi_pico/rp2040/w
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb
+  #
   # shield: Waveshare Pico RGB LED
   #
   sample.drivers.led_strip.waveshare_pico_rgb_led:

@@ -1,0 +1,42 @@
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+config SHIELD_RPI_PICO_BB
+	bool
+	default y if SHIELD_GEEEKPI_PICO_BB_PLUS
+	default n
+
+config LV_Z_VDB_SIZE
+	default 32 if SHIELD_GEEEKPI_PICO_BB_PLUS
+	depends on SHIELD_RPI_PICO_BB && DISPLAY && LVGL
+
+config LV_Z_BITS_PER_PIXEL
+	default 16 if SHIELD_GEEEKPI_PICO_BB_PLUS
+	depends on SHIELD_RPI_PICO_BB && DISPLAY && LVGL
+
+choice LV_COLOR_DEPTH
+	default LV_COLOR_DEPTH_16 if SHIELD_GEEEKPI_PICO_BB_PLUS
+	depends on SHIELD_RPI_PICO_BB && DISPLAY && LVGL
+endchoice
+
+config LV_COLOR_16_SWAP
+	default y if SHIELD_GEEEKPI_PICO_BB_PLUS
+	depends on SHIELD_RPI_PICO_BB && DISPLAY && LVGL
+
+config INPUT
+	default y if DT_HAS_ZEPHYR_LVGL_BUTTON_INPUT_ENABLED
+	default y if DT_HAS_ZEPHYR_LVGL_KEYPAD_INPUT_ENABLED
+	default y if DT_HAS_ZEPHYR_LVGL_POINTER_INPUT_ENABLED
+	depends on SHIELD_RPI_PICO_BB && DISPLAY && LVGL
+
+config INPUT_GT911_INTERRUPT
+	default y if SHIELD_GEEEKPI_PICO_BB_PLUS
+	depends on SHIELD_RPI_PICO_BB && INPUT && LVGL
+
+config ADC
+	default y if DT_HAS_ADC_KEYS_ENABLED
+	depends on SHIELD_RPI_PICO_BB && INPUT && LVGL
+
+config REGULATOR
+	default y
+	depends on DT_HAS_REGULATOR_FIXED_ENABLED

@@ -1,0 +1,18 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include "rpipico_r3.dtsi"
+
+/* link to pinctrl node from board for rpi_pico */
+spi0_pico: &spi0_default {};
+
+/* link to pinctrl node from board for rpi_pico */
+i2c0_pico: &i2c0_default {};
+
+/* link to pinctrl node from board for rpi_pico */
+pwm_pico: &pwm_ch4b_default {};
+
+/* link to pinctrl node from board for rpi_pico */
+adc_pico: &adc_default {};

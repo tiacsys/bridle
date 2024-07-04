@@ -1,0 +1,17 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <freq.h>
+
+&rpipico_i2c_tsc {
+	gt911_320x480: gt911@5d {
+		compatible = "goodix,gt911";
+		reg = <0x5d>;
+
+		status = "disabled";
+	};
+};
+
+tsc_panel: &gt911_320x480 {};

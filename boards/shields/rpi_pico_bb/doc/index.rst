@@ -1,0 +1,237 @@
+.. _rpi_pico_bb_shield:
+
+Raspberry Pi Pico Breadboard Shields
+####################################
+
+This is a collection of different shields with a breadboard area specifically
+designed for use with a Raspberry Pi Pico (W) for rapid prototyping. Ranging
+from very simple setups, just to reach the individual signals, to providing
+already more complex components such as digital inputs and outputs (buttons,
+LEDs or buzzer), joysticks (digital or analog), displays with or without
+touchscreen, multi-color (RGB) LEDs, or TF/SD card slots.
+
+Supported Shields
+*****************
+
+Hardware
+========
+
+.. tabs::
+
+   .. group-tab:: GeeekPi (Pico …)
+
+      .. tabs::
+
+         .. group-tab:: Breadboard Kit Plus
+
+            .. _geeekpi_pico_bb_plus:
+
+            .. include:: geeekpi_pico_bb_plus/hardware.rsti
+
+Positions
+=========
+
+.. tabs::
+
+   .. group-tab:: GeeekPi (Pico …)
+
+      .. tabs::
+
+         .. group-tab:: Breadboard Kit Plus
+
+            .. include:: geeekpi_pico_bb_plus/positions.rsti
+
+Pinouts
+=======
+
+.. tabs::
+
+   .. group-tab:: GeeekPi (Pico …)
+
+      .. tabs::
+
+         .. group-tab:: Breadboard Kit Plus
+
+            .. include:: geeekpi_pico_bb_plus/pinouts.rsti
+
+Utilization
+***********
+
+This shields can be used with any development board, shield, or snippet that
+provides a Devicetree node with the :dtcompatible:`raspberrypi,pico-header-r3`
+property for the compatibility. In particular, one SPI bus and some GPIO
+signals on this edge connector must be free for communication with the
+components on the breadboard shields. The shields also provide the special
+Devicetree labels :devicetree:`&rpipico_spi_lcd` and :devicetree:`&lcd_panel`
+for the special purpose of a on-shield LCD.
+
+For shields with touchscreen support, additional GPIO signals and one I2C bus
+on the edge connector must also be free for communication with the touchscreen
+controller on the shield. Then the shields also provide the special Devicetree
+labels :devicetree:`&rpipico_spi_tsc` and :devicetree:`&tsc_panel` for this
+purpose.
+
+For shields with TF/microSD card slot, even more GPIO signals on the edge
+connector must be free for communication with the card on the shield over
+SDHC/SPI. Then the shields also provide the special Devicetree labels
+:devicetree:`&rpipico_spi_sdc` and :devicetree:`&sdhc_spi` for this purpose.
+In case of the SDHC/SDIO mode up to seven additional GPIO signals must be
+free for communication with the card over a 4-bit SDHC/SDIO interface.
+But this is not yet supported and may need changes on the shield hardware.
+
+Programming
+===========
+
+.. tabs::
+
+   .. group-tab:: GeeekPi (Pico …)
+
+      .. tabs::
+
+         .. group-tab:: Breadboard Kit Plus
+
+            .. include:: geeekpi_pico_bb_plus/helloshell.rsti
+
+More Samples
+************
+
+Input dump
+==========
+
+Prints all input events as defined by the shields Devicetree. See also Zephyr
+sample: :zephyr:code-sample:`zephyr:input-dump`.
+
+.. tabs::
+
+   .. group-tab:: GeeekPi (Pico …)
+
+      .. tabs::
+
+         .. group-tab:: Breadboard Kit Plus
+
+            .. include:: geeekpi_pico_bb_plus/input_dump.rsti
+
+Sounds from the speaker
+=======================
+
+Drives an buzzer or speaker that must defined by the shields Devicetree.
+See also Bridle sample: :ref:`buzzer`.
+
+.. tabs::
+
+   .. group-tab:: GeeekPi (Pico …)
+
+      .. tabs::
+
+         .. group-tab:: Breadboard Kit Plus
+
+            .. include:: geeekpi_pico_bb_plus/buzzer.rsti
+
+LED color change
+================
+
+Drives an RGB LED that must defined by the shields Devicetree. See also Zephyr
+sample: :zephyr:code-sample:`zephyr:rgb-led`.
+
+.. tabs::
+
+   .. group-tab:: GeeekPi (Pico …)
+
+      .. tabs::
+
+         .. group-tab:: Breadboard Kit Plus
+
+            .. hint::
+
+               The |GeeekPi Pico Breadboard Kit Plus| doesn't provide
+               a TriColor ChipLED. This sample is not applicable.
+
+LED strip test pattern
+======================
+
+Drives an RGB LED strip that must defined by the shields Devicetree.
+See also Zephyr sample: :zephyr:code-sample:`zephyr:led-strip`.
+
+.. tabs::
+
+   .. group-tab:: GeeekPi (Pico …)
+
+      .. tabs::
+
+         .. group-tab:: Breadboard Kit Plus
+
+            .. include:: geeekpi_pico_bb_plus/ledstrip_test.rsti
+
+LCD Orientation and Bit Order Test
+==================================
+
+Draw some basic rectangles onto the display. The rectangle colors and positions
+are chosen so that you can check the orientation of the LCD and correct RGB bit
+order. See also Zephyr sample: :zephyr:code-sample:`zephyr:display`.
+
+.. tabs::
+
+   .. group-tab:: GeeekPi (Pico …)
+
+      .. tabs::
+
+         .. group-tab:: Breadboard Kit Plus
+
+            .. include:: geeekpi_pico_bb_plus/display_test.rsti
+
+LVGL Basic Sample
+=================
+
+Displays “Hello World!” in the center of the screen and a counter at the bottom
+which increments every second. See also Zephyr sample:
+:zephyr:code-sample:`zephyr:lvgl`.
+
+.. tabs::
+
+   .. group-tab:: GeeekPi (Pico …)
+
+      .. tabs::
+
+         .. group-tab:: Breadboard Kit Plus
+
+            .. include:: geeekpi_pico_bb_plus/lvgl_basic.rsti
+
+LVGL Widgets Demo
+=================
+
+Shows how the widgets look like out of the box using the built-in material
+theme. See also Zephyr sample: :zephyr:code-sample:`zephyr:lvgl-demos`.
+
+.. tabs::
+
+   .. group-tab:: GeeekPi (Pico …)
+
+      .. tabs::
+
+         .. group-tab:: Breadboard Kit Plus
+
+            .. include:: geeekpi_pico_bb_plus/lvgl_demo.rsti
+
+TF/microSD Demonstration
+========================
+
+This samples and test applications aren't applicable on all boards. They will
+be built with activated USB-CDC/ACM console.
+
+.. tabs::
+
+   .. group-tab:: GeeekPi (Pico …)
+
+      .. tabs::
+
+         .. group-tab:: Breadboard Kit Plus
+
+            .. hint::
+
+               The |GeeekPi Pico Breadboard Kit Plus| doesn't provide
+               a TF/microSD card slot. This sample is not applicable.
+
+References
+**********
+
+.. target-notes::

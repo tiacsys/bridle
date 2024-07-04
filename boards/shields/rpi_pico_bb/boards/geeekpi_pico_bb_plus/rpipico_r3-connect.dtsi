@@ -1,0 +1,52 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include "rpipico_r3-pinctrl.dtsi"
+
+#include <freq.h>
+#include <zephyr/dt-bindings/i2c/i2c.h>
+
+&pico_spi0 {
+	pinctrl-0 = <&spi0_lcd>;
+	pinctrl-names = "default";
+	clock-frequency = <DT_FREQ_M(62)>;
+};
+
+rpipico_spi_lcd: &pico_spi0 {};
+
+&pico_i2c0 {
+	pinctrl-0 = <&i2c0_tsc>;
+	pinctrl-names = "default";
+	clock-frequency = <I2C_BITRATE_STANDARD>;
+};
+
+rpipico_i2c_tsc: &pico_i2c0 {};
+
+&pico_pwm {
+	pinctrl-0 = <&pwm_lcd_feedback>;
+	pinctrl-names = "default";
+};
+
+rpipico_pwm: &pico_pwm {};
+
+&pico_adc {
+	pinctrl-0 = <&adc_joystick>;
+	pinctrl-names = "default";
+	#address-cells = <1>;
+	#size-cells = <0>;
+};
+
+rpipico_adc: &pico_adc {};
+
+&pico_pio0 {
+	pico_pio0_ws2812: pico-pio0-ws2812 {
+		compatible = "worldsemi,ws2812-rpi_pico-pio";
+		pinctrl-0 = <&pio0_ws2812>;
+		pinctrl-names = "default";
+	};
+};
+
+rpipico_pio: &pico_pio0 {};
+pio_led_strip: &pico_pio0_ws2812 {};

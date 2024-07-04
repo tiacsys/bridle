@@ -1,0 +1,186 @@
+.. rubric:: Simple test execution on target
+
+(text in bold is a command input)
+
+.. tabs::
+
+   .. group-tab:: Basics
+
+      .. parsed-literal::
+         :class: highlight-console notranslate
+
+         :bgn:`uart:~$` **hello -h**
+         hello - say hello
+         :bgn:`uart:~$` **hello**
+         Hello from shell.
+
+         :bgn:`uart:~$` **hwinfo devid**
+         Length: 8
+         ID: 0x8c998be1de969148
+
+         :bgn:`uart:~$` **kernel version**
+         Zephyr version |zephyr_version_number_em|
+
+         :bgn:`uart:~$` **bridle version**
+         Bridle version |version_number_em|
+
+         :bgn:`uart:~$` **bridle version long**
+         Bridle version |longversion_number_em|
+
+         :bgn:`uart:~$` **bridle info**
+         Zephyr: |zephyr_release_number_em|
+         Bridle: |release_number_em|
+
+         :bgn:`uart:~$` **device list**
+         devices:
+         - clock-controller\ @\ 40008000 (READY)
+         - reset-controller\ @\ 4000c000 (READY)
+         - snippet_cdc_acm_console_uart (READY)
+         - uart\ @\ 40034000 (READY)
+         - timer\ @\ 40054000 (READY)
+         - pio\ @\ 50200000 (READY)
+         - gpio\ @\ 40014000 (READY)
+         - adc\ @\ 4004c000 (READY)
+         - flash-controller\ @\ 18000000 (READY)
+         - i2c\ @\ 40044000 (READY)
+         - pwm\ @\ 40050000 (READY)
+         - vreg\ @\ 40064000 (READY)
+         - pwm_leds (READY)
+
+         :bgn:`uart:~$` **history**
+         [  0] history
+         [  1] device list
+         [  2] bridle info
+         [  3] bridle version long
+         [  4] bridle version
+         [  5] kernel version
+         [  6] hwinfo devid
+         [  7] hello
+         [  8] hello -h
+
+   .. group-tab:: LED
+
+      .. note:: **PWM LED conflicts with GPIO!**
+
+         Operations with the user LEDs in PWM mode will fail when ever
+         the corresponding GPIO line was configured as digital output.
+         This condition is irreversible at runtime within the shell and
+         :strong:`requires a system reset`.
+
+      Operate with the user LED :hwftlbl-led:`0` at :rpi-pico-pwm:`PWM0`:
+
+      .. parsed-literal::
+         :class: highlight-console notranslate
+
+         :bgn:`uart:~$` **led on pwm_leds 0**
+         pwm_leds: turning on LED 0
+
+         :bgn:`uart:~$` **led set_brightness pwm_leds 0 10**
+         pwm_leds: setting LED 0 brightness to 10
+
+         :bgn:`uart:~$` **led set_brightness pwm_leds 0 50**
+         pwm_leds: setting LED 0 brightness to 50
+
+         :bgn:`uart:~$` **led set_brightness pwm_leds 0 100**
+         pwm_leds: setting LED 0 brightness to 100
+
+         :bgn:`uart:~$` **led off pwm_leds 0**
+         pwm_leds: turning off LED 0
+
+   .. group-tab:: PWM
+
+      .. note:: **PWM conflicts with GPIO!**
+
+         Operations with the user LEDs in PWM mode will fail when ever
+         the corresponding GPIO line was configured as digital output.
+         This condition is irreversible at runtime within the shell and
+         :strong:`requires a system reset`.
+
+      Operate with the user LED :hwftlbl-led:`1` at :rpi-pico-pwm:`PWM1`:
+
+      .. parsed-literal::
+         :class: highlight-console notranslate
+
+         :bgn:`uart:~$` **pwm usec pwm@40050000 1 20000 20000**
+         :bgn:`uart:~$` **pwm usec pwm@40050000 1 20000 19000**
+         :bgn:`uart:~$` **pwm usec pwm@40050000 1 20000 18000**
+         :bgn:`uart:~$` **pwm usec pwm@40050000 1 20000 17000**
+         :bgn:`uart:~$` **pwm usec pwm@40050000 1 20000 16000**
+         :bgn:`uart:~$` **pwm usec pwm@40050000 1 20000 15000**
+         :bgn:`uart:~$` **pwm usec pwm@40050000 1 20000 10000**
+         :bgn:`uart:~$` **pwm usec pwm@40050000 1 20000 5000**
+         :bgn:`uart:~$` **pwm usec pwm@40050000 1 20000 2500**
+         :bgn:`uart:~$` **pwm usec pwm@40050000 1 20000 500**
+         :bgn:`uart:~$` **pwm usec pwm@40050000 1 20000 0**
+
+      Operate with the :hwftlbl-spk:`PIEZO` buzzer at
+      :rpi-pico-pio:`GP13` / :rpi-pico-pwm:`PWM13` (PWM6CHB):
+
+      #. Piezo resonance: 2,500 ㎑
+      #. Piezo high frequency: 10,000 ㎑
+
+      .. parsed-literal::
+         :class: highlight-console notranslate
+
+         :bgn:`uart:~$` **pwm usec pwm@40050000 13 400 200**
+         :bgn:`uart:~$` **pwm usec pwm@40050000 13 100 50**
+
+   .. group-tab:: GPIO
+
+      .. note:: **GPIO conflicts with PWM / PWM LED!**
+
+         Operations with the user LEDs in PWM mode will fail when ever
+         the corresponding GPIO line was configured as digital output.
+         This condition is irreversible at runtime within the shell and
+         :strong:`requires a system reset`.
+
+      Operate with the user LED :hwftlbl-led:`1` at :rpi-pico-pio:`GP17`:
+
+      .. parsed-literal::
+         :class: highlight-console notranslate
+
+         :bgn:`uart:~$` **gpio get gpio@40014000 17**
+         0
+
+         :bgn:`uart:~$` **gpio conf gpio@40014000 17 oh0**
+         :bgn:`uart:~$` **gpio set gpio@40014000 17 1**
+         :bgn:`uart:~$` **gpio set gpio@40014000 17 0**
+
+         :bgn:`uart:~$` **gpio blink gpio@40014000 17**
+         Hit any key to exit
+
+      Operate with the user key :hwftlbl-btn:`0` at :rpi-pico-pio:`GP14`:
+
+      .. parsed-literal::
+         :class: highlight-console notranslate
+
+         :bgn:`uart:~$` **gpio get gpio@40014000 14**
+         1
+
+         :bgn:`uart:~$` **gpio conf gpio@40014000 14 iul**
+         :bgn:`uart:~$` **gpio get gpio@40014000 14**
+         0
+         :bgn:`uart:~$` **gpio get gpio@40014000 14**
+         1
+         :bgn:`uart:~$` **gpio get gpio@40014000 14**
+         0
+
+   .. group-tab:: ADC
+
+      Operate with the on-shield analog joystick´s :hwftlbl-joy:`X` achsis
+      on :rpi-pico-adc:`ADC_CH0`:
+
+      .. parsed-literal::
+         :class: highlight-console notranslate
+
+         :bgn:`uart:~$` **adc adc@4004c000 resolution 12**
+         :bgn:`uart:~$` **adc adc@4004c000 channel id 0**
+
+         :bgn:`uart:~$` **adc adc@4004c000 read 0**
+         read: 2329
+
+         :bgn:`uart:~$` **adc adc@4004c000 read 0**
+         read: 316
+
+         :bgn:`uart:~$` **adc adc@4004c000 read 0**
+         read: 4046

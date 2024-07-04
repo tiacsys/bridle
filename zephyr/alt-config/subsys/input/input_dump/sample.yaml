@@ -1,5 +1,6 @@
 sample:
-  name: Input Dump
+  description: Print all input events.
+  name: input_dump_sample
 common:
   tags:
     - zephyr
@@ -9,6 +10,17 @@ common:
   depends_on: pico_gpio
   harness: input
 tests:
+  #
+  # shield: GeeekPi Pico Breadboard Kit Plus (EP-0172)
+  #
+  sample.input.input_dump.geeekpi_pico_bb_plus:
+    extra_args:
+      SHIELD=geeekpi_pico_bb_plus
+    integration_platforms:
+      - rpi_pico
+      - rpi_pico/rp2040/w
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb
   #
   # shield: PiMoroni Pico LCD 1.14
   #

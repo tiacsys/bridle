@@ -1,0 +1,26 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <freq.h>
+#include <zephyr/dt-bindings/led/led.h>
+
+&pio_led_strip {
+	/* HI: 0x3F0: 1111110000: 0.750 us high and 0.500 us low */
+	/* LO: 0x380: 1110000000: 0.375 us high and 0.875 us low */
+	bit-waveform = <3>, <3>, <4>;
+
+	ws2812_1x1: ws2812-1x1 {
+		chain-length = <1>;
+		color-mapping = <LED_COLOR_ID_RED
+				 LED_COLOR_ID_GREEN
+				 LED_COLOR_ID_BLUE>;
+
+		/* PIO0:OUT and Tbit = 1.25 us / 10 */
+		frequency = <DT_FREQ_K(800)>;
+		reset-delay = <280>;
+	};
+};
+
+led_strip: &ws2812_1x1 {};

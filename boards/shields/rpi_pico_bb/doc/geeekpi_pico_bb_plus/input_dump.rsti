@@ -1,0 +1,133 @@
+Print the input events related to the on-shield touchscreen panel,
+the two user keys, and the two analog joystick achsises using the
+:ref:`Input subsystem API <zephyr:input>`. That are:
+
+| :hwftlbl-scr:`TSC` : :devicetree:`lvgl_pointer { input = &tsc_panel; };`
+| :hwftlbl-scr:`GT911` : :devicetree:`tsc_panel: &gt911_320x480 {};`
+
+| :hwftlbl-btn:`0` : :devicetree:`zephyr,code = <INPUT_KEY_0>;`
+| :hwftlbl-btn:`1` : :devicetree:`zephyr,code = <INPUT_KEY_1>;`
+
+| :hwftlbl-joy:`Y` : :devicetree:`zephyr,code = <INPUT_ABS_Y>;`
+| :hwftlbl-joy:`UP` : :devicetree:`zephyr,code = <INPUT_KEY_UP>;`
+| :hwftlbl-joy:`DOWN` : :devicetree:`zephyr,code = <INPUT_KEY_DOWN>;`
+
+| :hwftlbl-joy:`X` : :devicetree:`zephyr,code = <INPUT_ABS_X>;`
+| :hwftlbl-joy:`LEFT` : :devicetree:`zephyr,code = <INPUT_KEY_LEFT>;`
+| :hwftlbl-joy:`RIGHT` : :devicetree:`zephyr,code = <INPUT_KEY_RIGHT>;`
+
+.. tabs::
+
+   .. group-tab:: Raspberry Pi Pico
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/input/input_dump
+         :build-dir: geeekpi_pico_bb_plus-input_dump
+         :board: rpi_pico
+         :shield: "geeekpi_pico_bb_plus"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :compact:
+
+   .. group-tab:: Raspberry Pi Pico W
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/input/input_dump
+         :build-dir: geeekpi_pico_bb_plus-input_dump
+         :board: rpi_pico/rp2040/w
+         :shield: "geeekpi_pico_bb_plus"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :compact:
+
+   .. group-tab:: Waveshare RP2040-Plus
+
+      .. rubric:: on standard ``4㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/input/input_dump
+         :build-dir: geeekpi_pico_bb_plus-input_dump
+         :board: waveshare_rp2040_plus
+         :shield: "geeekpi_pico_bb_plus"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :compact:
+
+      .. rubric:: on extended ``16㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/input/input_dump
+         :build-dir: geeekpi_pico_bb_plus-input_dump
+         :board: waveshare_rp2040_plus@16mb
+         :shield: "geeekpi_pico_bb_plus"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :compact:
+
+.. rubric:: Simple logging output on target
+
+.. parsed-literal::
+   :class: highlight-console notranslate
+
+   \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+   W: BUS RESET
+   W: BUS RESET
+   \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
+   Input sample started
+   I: input event: dev=gt911\ @\ 5d         SYN type= 1 code=330 value=0
+   I: input event: dev=gt911\ @\ 5d         SYN type= 1 code=330 value=0
+   I: input event: dev=gt911\ @\ 5d         SYN type= 1 code=330 value=0
+   I: input event: dev=joystick-analog-axis SYN type= 3 code=  0 value=128
+   I: input event: dev=joystick-analog-axis SYN type= 3 code=  1 value=128
+   I: input event: dev=gt911\ @\ 5d             type= 3 code=  0 value=136
+   I: input event: dev=gt911\ @\ 5d             type= 3 code=  1 value=214
+   I: input event: dev=gt911\ @\ 5d         SYN type= 1 code=330 value=1
+   I: input event: dev=gt911\ @\ 5d         SYN type= 1 code=330 value=0
+   I: input event: dev=gpio_keys        SYN type= 1 code= 11 value=1
+   I: input event: dev=gpio_keys        SYN type= 1 code= 11 value=0
+   I: input event: dev=gpio_keys        SYN type= 1 code=  2 value=1
+   I: input event: dev=gpio_keys        SYN type= 1 code=  2 value=0
+   I: input event: dev=joystick-axis-y-keys SYN type= 1 code=103 value=1
+   I: input event: dev=joystick-analog-axis SYN type= 3 code=  1 value=129
+   I: input event: dev=joystick-analog-axis SYN type= 3 code=  1 value=143
+   I: input event: dev=joystick-analog-axis SYN type= 3 code=  1 value=180
+   I: input event: dev=joystick-analog-axis SYN type= 3 code=  1 value=203
+   I: input event: dev=joystick-analog-axis SYN type= 3 code=  1 value=255
+   I: input event: dev=joystick-analog-axis SYN type= 3 code=  1 value=205
+   I: input event: dev=joystick-analog-axis SYN type= 3 code=  1 value=153
+   I: input event: dev=joystick-analog-axis SYN type= 3 code=  1 value=128
+   I: input event: dev=joystick-axis-y-keys SYN type= 1 code=103 value=0
+   I: input event: dev=joystick-axis-y-keys SYN type= 1 code=108 value=1
+   I: input event: dev=joystick-analog-axis SYN type= 3 code=  1 value=114
+   I: input event: dev=joystick-analog-axis SYN type= 3 code=  1 value=85
+   I: input event: dev=joystick-analog-axis SYN type= 3 code=  1 value=29
+   I: input event: dev=joystick-analog-axis SYN type= 3 code=  1 value=0
+   I: input event: dev=joystick-analog-axis SYN type= 3 code=  1 value=6
+   I: input event: dev=joystick-analog-axis SYN type= 3 code=  1 value=47
+   I: input event: dev=joystick-analog-axis SYN type= 3 code=  1 value=87
+   I: input event: dev=joystick-analog-axis SYN type= 3 code=  1 value=128
+   I: input event: dev=joystick-axis-y-keys SYN type= 1 code=108 value=0
+   I: input event: dev=joystick-axis-x-keys SYN type= 1 code=105 value=1
+   I: input event: dev=joystick-analog-axis SYN type= 3 code=  0 value=73
+   I: input event: dev=joystick-analog-axis SYN type= 3 code=  0 value=60
+   I: input event: dev=joystick-analog-axis SYN type= 3 code=  0 value=47
+   I: input event: dev=joystick-analog-axis SYN type= 3 code=  0 value=14
+   I: input event: dev=joystick-analog-axis SYN type= 3 code=  0 value=4
+   I: input event: dev=joystick-analog-axis SYN type= 3 code=  0 value=0
+   I: input event: dev=joystick-analog-axis SYN type= 3 code=  0 value=69
+   I: input event: dev=joystick-analog-axis SYN type= 3 code=  0 value=128
+   I: input event: dev=joystick-axis-x-keys SYN type= 1 code=105 value=0
+   I: input event: dev=joystick-axis-x-keys SYN type= 1 code=106 value=1
+   I: input event: dev=joystick-analog-axis SYN type= 3 code=  0 value=143
+   I: input event: dev=joystick-analog-axis SYN type= 3 code=  0 value=202
+   I: input event: dev=joystick-analog-axis SYN type= 3 code=  0 value=244
+   I: input event: dev=joystick-analog-axis SYN type= 3 code=  0 value=255
+   I: input event: dev=joystick-analog-axis SYN type= 3 code=  0 value=239
+   I: input event: dev=joystick-analog-axis SYN type= 3 code=  0 value=192
+   I: input event: dev=joystick-analog-axis SYN type= 3 code=  0 value=145
+   I: input event: dev=joystick-analog-axis SYN type= 3 code=  0 value=128
+   I: input event: dev=joystick-axis-x-keys SYN type= 1 code=106 value=0

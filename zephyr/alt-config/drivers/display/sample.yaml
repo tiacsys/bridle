@@ -1,5 +1,6 @@
 sample:
-  name: Display Bit Order and Orientation
+  description: Display Bit Order and Orientation.
+  name: display_sample
 common:
   tags:
     - zephyr
@@ -10,6 +11,17 @@ common:
   harness: display
   build_only: true
 tests:
+  #
+  # shield: GeeekPi Pico Breadboard Kit Plus (EP-0172)
+  #
+  sample.drivers.display.geeekpi_pico_bb_plus:
+    extra_args:
+      SHIELD=geeekpi_pico_bb_plus
+    integration_platforms:
+      - rpi_pico
+      - rpi_pico/rp2040/w
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb
   #
   # shield: PiMoroni Pico LCD 1.14
   #

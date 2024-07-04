@@ -1,0 +1,61 @@
+The `GeeekPi Pico Breadboard Kit Plus (EP-0172)`_ shield comes with the built-in
+controller `ST7796S <ST7796U_>`_ inside the LCD, which is an LCD controller
+with 320 × RGB × 480 pixels, while the pixels of this **3.5-inch** LCD itself
+is 320 (H) RGB × 480 (V). There are two types of horizontal and vertical
+screens, so the internal RAM of the LCD is not fully used. The LCD supports
+16-bit, 18-bit, and 24-bit input color formats per pixel, namely RGB565,
+RGB666, and RGB888 three color formats. This integration **uses the RGB565**
+color format, which is also a commonly used RGB format. The LCD uses a
+four-wire SPI communication interface.
+
+Additional there is a capasitive Touch Screen (TS) with the 5-point TS
+controller GT911_ and a standard RGB LED WS2812B_.
+
+.. list-table::
+   :align: center
+   :width: 100%
+   :widths: 66, 33
+
+   * - .. rubric:: Features and Resources
+     - .. rubric:: Printed Circuit Board
+
+   * - :hwftlbl-vdd:`5V/40㎃`
+
+       :hwftlbl-btn:`0`
+       :hwftlbl-btn:`1`
+       :hwftlbl-joy:`analog: UP|DOWN|LEFT|RIGHT`
+       :hwftlbl-led:`0`
+       :hwftlbl-led:`1`
+       :hwftlbl-led:`RGB`
+       :hwftlbl-spk:`PIEZO`
+       :hwftlbl-scr:`LCD/TS`
+
+       :hwftlbl-pio:`11`
+       :hwftlbl-pwm:`3`
+       :hwftlbl-adc:`2`
+       :hwftlbl-spi:`1`
+       :hwftlbl-i2c:`1`
+       :hwftlbl-tsi:`1`
+
+       .. rst-class:: rst-columns
+
+       - :bbk:`1 serial 3.5-inch 480×320 IPS 65K LCD`
+       - :bbk:`1 User joystick (2 analog channels)`
+       - :bbk:`2 User keys`
+       - :bbk:`2 User LEDs`
+       - :bbk:`1 Piezo` buzzer
+
+       - :bbk:`1 RST signal to LCD controller`
+       - :bbk:`1 C/D signal to LCD controller`
+       - :bbk:`1 RST signal to TS controller`
+       - :bbk:`1 IRQ signal from TS controller`
+
+       .. rubric:: Design Data
+       .. rst-class:: rst-columns
+
+       - `GeeekPi EP-0172 Demo Firmware`_
+       - `GeeekPi EP-0172 GitHub Demo Code`_
+
+     - .. image:: geeekpi_pico_bb_plus/hardware.jpg
+          :align: center
+          :alt: GeeekPi Pico Breadboard Kit Plus

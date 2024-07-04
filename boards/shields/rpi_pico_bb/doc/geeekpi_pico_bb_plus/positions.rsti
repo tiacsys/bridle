@@ -1,0 +1,60 @@
+.. list-table::
+   :align: center
+   :width: 66%
+   :header-rows: 1
+
+   * - .. image:: geeekpi_pico_bb_plus/positions.jpg
+          :align: center
+          :width: 500
+          :alt: GeeekPi Pico Breadboard Kit Plus details
+
+   * - .. container:: twocol
+
+          .. container:: leftside
+
+             1. | :strong:`Rapsberry Pi Pico header`
+             #. | :strong:`Power Output`
+             #. | :strong:`ST7796S` (on front side)
+                | 3.5-inch 480×320 pixels 65K colorful IPS LCD
+             #. | :strong:`GT911` (on back side)
+                | 5-point capacitive touch screen controller
+             #. | :strong:`Piezo Buzzer`
+                | 5.0Vo-p (3.0~8.0V) @ 2.400㎑±300㎐ with ≥85㏈
+             #. | :strong:`User LEDs`
+                | and also power indicator LEDs for 3.3V and 5.0V
+
+          .. container:: rightside
+
+             7. | :strong:`User Joystick` (2 analog channels)
+                | X-achsis @ ADC0 (LEFT, RIGHT)
+                | Y-achsis @ ADC1 (UP, DOWN)
+             #. | :strong:`WS2812B`
+                | RGB LED
+             #. | :strong:`User Buttons`
+                | momentary push buttons
+             #. | :strong:`TFT Control`
+                | 0Ω resistors, optional cut signals to LCD/TS
+
+.. rubric:: Data Sheets
+.. rst-class:: rst-columns
+
+- .. rubric:: `ST7796S <ST7796U_>`_
+- `ST7796S Datasheet V1.0 (2014/11)`_
+- .. rubric:: GT911_
+- `GT911 Programming Guide FW 1040 (2014.08)`_
+- `GT911 Datasheet Rev.10 (2015.06)`_
+- `GT911 Datasheet CN Rev.03 (2013.03)`_
+- `GT911 Datasheet CN Rev.021 (2013.01)`_
+- `GT911 Datasheet CN Rev.01 (2012.11)`_
+- .. rubric:: WS2812B_
+- `WS2812B Datasheet V5`_
+- `WS2812B Datasheet V2`_
+- `WS2812B Datasheet V1`_
+- `Understanding the WS2812`_
+- `WS2812B with RP2040 PIO & DMA`_
+- .. rubric:: `TMB12A05`_
+- `TMB12Axx Datasheet`_
+- `TMB12A05 Specification (2021)`_
+- .. rubric:: `YX-YT12095/TMB12A`_
+- `YX-YT12095/TMB12A Specification (2020)`_
+- `YX-YT12095/TMB12A Specification (2016)`_
