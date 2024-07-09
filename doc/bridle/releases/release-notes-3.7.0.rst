@@ -240,6 +240,7 @@ These GitHub issues were addressed since project bootstrapping:
 
 * :github:`254` - [FCR] Bump to Zephyr v3.7
 * :github:`252` - [FCR] Upgrade to Zephyr SDK 0.16.8
+* :github:`247` - [HW] NXP SC18IS604 SPI to I2C bridge
 * :github:`244` - [HW] Spotpear Raspberry Pi Pico LCD Modules as Shields
 * :github:`242` - [HW] 52Pi (GeeekPi) Pico Breadboard Kit -/Plus (EP-0164/0172)
 * :github:`239` - [HW] PiMoroni Raspberry Pi Pico LCD Modules as Shields
