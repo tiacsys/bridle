@@ -7,7 +7,8 @@
      - .. rubric:: Pinout
 
    * - :on-shield:
-          :hwftlbl-pio:`9`
+          :hwftlbl-pio:`10`
+          :hwftlbl-pwm:`1`
           :hwftlbl-adc:`1`
           :hwftlbl-i2c:`1`
           :hwftlbl-spi:`1`

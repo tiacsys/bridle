@@ -23,9 +23,11 @@ display and buttons for navigation and configuration.
        :hwftlbl-btn:`SET/FUNCTION`
        :hwftlbl-btn:`UP`
        :hwftlbl-btn:`DOWN`
+       :hwftlbl-spk:`PIEZO`
        :hwftlbl-scr:`LED`
 
-       :hwftlbl-pio:`9`
+       :hwftlbl-pio:`10`
+       :hwftlbl-pwm:`1`
        :hwftlbl-adc:`1`
        :hwftlbl-i2c:`1`
        :hwftlbl-spi:`1`
@@ -39,6 +41,7 @@ display and buttons for navigation and configuration.
        - :bbk:`1 RTC with temperature sensor`
        - :bbk:`1 LDR light sensor`
        - :bbk:`3 User keys`
+       - :bbk:`1 Piezo` buzzer
 
        - :bbk:`3 ADDR signals to LED matrix controller`
        - :bbk:`1 LE signal to LED matrix controller`
@@ -47,6 +50,7 @@ display and buttons for navigation and configuration.
        - :bbl:`1 I2C` controller for RTC
        - :bbl:`1 SPI` controller for LED matrix controller`
        - :bbl:`1 ADC` analog input for LDR light sensor
+       - :bbl:`1 PWM` output for Piezo buzzer
 
        .. rubric:: Design Data
        .. rst-class:: rst-columns
