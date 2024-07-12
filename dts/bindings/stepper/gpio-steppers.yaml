@@ -1,0 +1,84 @@
+# SPDX-FileCopyrightText: Copyright (c) 2024 Carl Zeiss Meditec AG
+# SPDX-FileCopyrightText: Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+  This allows you to define a group of stepper motors. Each stepper
+  motor in the group is controlled by a set of GPIOs. Each stepper
+  motor is defined in a child node of the gpio-steppers node.
+
+  Here is an example which defines three stepper motors
+  in the node /steppers:
+
+  / {
+  	steppers {
+  		compatible = "vnd,model", "gpio-steppers";
+  		motor_0 {
+  			compatible = "vnd,model", "gpio-stepper-motor";
+  			gpios = <&gpioa 9 GPIO_ACTIVE_HIGH>, /* a */
+  				<&gpioc 7 GPIO_ACTIVE_HIGH>, /* c */
+  				<&gpiob 0 GPIO_ACTIVE_HIGH>, /* b */
+  				<&gpioa 7 GPIO_ACTIVE_HIGH>; /* d */
+  			fs-per-turn = <200>;   /* 1.8° per step (360° / 1.8°) */
+  			fs-max-speed = <1000>; /* 300 RPM (60 * 1000 / 200) */
+  			friendly-name = "NEMA 17, 2A, 1.8°"
+  		};
+  		motor_1 {
+  			compatible = "vnd,model", "gpio-stepper-motor";
+  			gpios = <&gpioe 5 GPIO_ACTIVE_LOW>, /* a */
+  				<&gpiob 2 GPIO_ACTIVE_LOW>, /* c */
+  				<&gpioa 1 GPIO_ACTIVE_LOW>, /* b */
+  				<&gpioe 0 GPIO_ACTIVE_LOW>; /* d */
+  			fs-per-turn = <200>;   /* 1.8° per step (360° / 1.8°) */
+  			fs-max-speed = <500>; /* 150 RPM (60 * 500 / 200) */
+  			friendly-name = "NEMA 17, 1A, 1.8°"
+  		};
+  		motor_2 {
+  			compatible = "vnd,model", "gpio-stepper-motor";
+  			gpios = <&gpiob 8 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>, /* a */
+  				<&gpioe 3 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>, /* c */
+  				<&gpioc 6 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>, /* b */
+  				<&gpiof 2 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>; /* d */
+  			fs-per-turn = <400>;   /* 0.9° per step (360° / 0.9°) */
+  			fs-max-speed = <1000>; /* 150 RPM (60 * 1000 / 400) */
+  			friendly-name = "NEMA 17, 4A, 0.9°"
+  		};
+  	};
+  };
+
+  Above:
+
+  - motor_0 are pin 9 on gpioa, pin 7 on gpioc, pin 0 on gpiob, and
+    pin 7 on gpioa. The GPIOs are on when the pins are high, and off
+    when the pins are low.
+  - motor_1 are pin 5 on gpioe, pin 2 on gpiob, pin 1 on gpioa, and
+    pin 0 on gpioe. The GPIOs are on when the pins are low, and off
+    when the pins are high.
+  - motor_2 are pin 8 on gpiob, pin 3 on gpioe, pin 6 on gpioc, and
+    pin 2 on gpiof. The GPIOs are on when the pins are low, and the
+    pin's internal pull-up resistor should be enabled.
+
+  The array of each gpio pin set, where the stepper driver inputs
+  must be connected, follows a fixed order of assignment:
+
+           bipolar            uni-polar     gpios = a, c, b, d;
+    a o--.              a o--.
+        | |  .-.            | |  .-.        a: A1/A+
+        | | ( M )       x o-+ | ( M )       b: A2/A-
+        | |  `-´            | |  `-´        c: B1/B+
+    b o--´ .-----.      b o--´ .-----.      d: B2/B-
+           |-----|             |--+--|
+           o     o             o  o  o
+           c     d             c  x  d
+
+compatible: "gpio-steppers"
+
+child-binding:
+  compatible: "gpio-stepper-motor"
+  description: GPIO driven stepper motor child node
+  properties:
+    gpios:
+      type: phandle-array
+      required: true
+
+  include: stepper-motor.yaml

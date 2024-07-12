@@ -8,6 +8,8 @@ zephyr_library()
 
 zephyr_library_sources(stepper_common.c)
 
+zephyr_library_sources_ifdef(CONFIG_STEPPER_GPIO stepper_gpio.c)
+
 if(CONFIG_STEPPER_INFO)
 # Prepare the stepper motor info list symbol in ROM for the linker
 # similar to Zephyr's common iterable sections as declared in

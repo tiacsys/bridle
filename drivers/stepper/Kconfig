@@ -24,4 +24,6 @@ config STEPPER_INIT_PRIORITY
 config STEPPER_INFO
 	bool "Stepper motor info iterable section"
 
+rsource "Kconfig.gpio"
+
 endif
