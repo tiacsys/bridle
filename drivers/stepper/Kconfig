@@ -21,4 +21,6 @@ config STEPPER_INIT_PRIORITY
 	help
 	  System initialization priority for stepper motor drivers.
 
+rsource "Kconfig.gpio"
+
 endif

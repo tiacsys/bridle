@@ -1,0 +1,30 @@
+# SPDX-FileCopyrightText: Copyright (c) 2024 Carl Zeiss Meditec AG
+# SPDX-FileCopyrightText: Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+description: GPIO driven stepper motor
+
+compatible: "gpio-stepper"
+
+include: stepper-motor.yaml
+
+properties:
+  gpios:
+    type: phandle-array
+    required: true
+    description: |
+      The gpio pin array on which the stepper driver inputs are
+      to be connected.
+
+      Here is an example which defines one stepper motor:
+
+      / {
+              gpio_stepper {
+                      compatible = "gpio-stepper";
+                      status = "okay";
+                      gpios = <&gpioa 9 GPIO_ACTIVE_HIGH>,
+                              <&gpioc 7 GPIO_ACTIVE_HIGH>,
+                              <&gpiob 0 GPIO_ACTIVE_HIGH>,
+                              <&gpioa 7 GPIO_ACTIVE_HIGH>;
+              };
+      };
