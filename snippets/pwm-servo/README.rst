@@ -69,8 +69,3 @@ How to add support of a new board
   - :devicetree:`compatible = "pwm-servo";`
   - :devicetree:`min-pulse = <PWM_USEC(500)>;`
   - :devicetree:`max-pulse = <PWM_USEC(2500)>;`
-
-References
-**********
-
-.. target-notes::
