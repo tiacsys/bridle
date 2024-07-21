@@ -167,6 +167,11 @@ Change log
     * **Pico LCD 1.8** shield by Waveshare
     * **Pico ResTouch LCD 2.8** shield by Waveshare
 
+  * *Raspberry Pi Pico Breadboard Shields*:
+
+    * *EP-0164* **Pico Breadboard Kit** shield by 52Pi (GeeekPi)
+    * *EP-0172* **Pico Breadboard Kit Plus** shield by 52Pi (GeeekPi)
+
 The following sections provide detailed lists of changes by component.
 
 * PROJECT UPDATE to `Zephyr Project`_ v3.7
@@ -220,7 +225,9 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`252` - [FCR] Upgrade to Zephyr SDK 0.16.8
 * :github:`244` - [HW] Spotpear Raspberry Pi Pico LCD Modules as Shields
+* :github:`242` - [HW] 52Pi (GeeekPi) Pico Breadboard Kit -/Plus (EP-0164/0172)
 * :github:`239` - [HW] PiMoroni Raspberry Pi Pico LCD Modules as Shields
 * :github:`234` - [BUG] boards and shields with LCD do not support the new MIPI-DBI mode
 * :github:`233` - [HW] Waveshare Raspberry Pi Pico LCD Modules as Shields
