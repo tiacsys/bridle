@@ -1,0 +1,12 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	aliases {
+		/delete-property/ sw0;
+		/delete-property/ led0;
+		/delete-property/ pwm-led0;
+	};
+};
