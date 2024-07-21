@@ -15,7 +15,7 @@
              Outputs:
 
              1. | :strong:`ILI9341`
-                | 2.4-inch 240×350 pixels 65K colorful TFT LCD
+                | 2.4-inch 240×320 pixels 65K colorful TFT LCD
 
           .. container:: rightside
 
