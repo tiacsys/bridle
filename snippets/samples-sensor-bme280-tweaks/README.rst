@@ -58,8 +58,3 @@ How to add support of a new board
 
 * add board devicetree overlay to this snippet;
 * which add the needed tweaks
-
-References
-**********
-
-.. target-notes::
