@@ -1,0 +1,37 @@
+sample:
+  description: Demonstration of the LED strip driver.
+  name: led_strip_sample
+common:
+  tags:
+    - zephyr
+    - shield
+    - drivers
+    - led
+  filter: dt_alias_exists("led-strip")
+  harness: led_strip
+  build_only: true
+tests:
+  #
+  # boards with LED strip
+  #
+  sample.drivers.led_strip:
+    integration_platforms:
+      - cytron_maker_nano_rp2040
+      - cytron_maker_pi_rp2040
+      - waveshare_rp2040_eth
+      - waveshare_rp2040_matrix
+      - waveshare_rp2040_one
+      - waveshare_rp2040_tiny
+      - waveshare_rp2040_zero
+  #
+  # shield: Waveshare Pico RGB LED
+  #
+  sample.drivers.led_strip.waveshare_pico_rgb_led:
+    extra_args:
+      SHIELD=waveshare_pico_rgb_led
+    integration_platforms:
+      - rpi_pico
+      - rpi_pico/rp2040/w
+      - waveshare_rp2040_lcd_0_96
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb

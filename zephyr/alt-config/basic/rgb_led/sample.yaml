@@ -1,5 +1,6 @@
 sample:
-  name: RGB LED
+  description: Drive an RGB LED using the PWM API.
+  name: rgb_led_sample
 common:
   tags:
     - zephyr
