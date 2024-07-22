@@ -226,9 +226,9 @@ Utilization
 Sensing Subsystem
 =================
 
-The shield is ready for using with the Zephyr :ref:`zephyr:sensing_api`.
-The interface is disabled for default and can be enabled by an application
-overlay :file:`app.overlay` (see :ref:`zephyr:application`).
+The shield is ready for using with the Zephyr :ref:`zephyr:sensing`. The
+interface is disabled for default and can be enabled by an application overlay
+:file:`app.overlay` (see :ref:`zephyr:application`).
 
 .. list-table::
    :align: center
@@ -446,8 +446,8 @@ More Samples
 LPS22HB Pressure and Temperature Sensor
 =======================================
 
-This sample shows how to use the :ref:`Sensors API <zephyr:sensor_api>`
-driver for the STM LPS22HB MEMS pressure sensor. See also Zephyr sample:
+This sample shows how to use the :ref:`Sensors API <zephyr:sensor>` driver
+for the STM LPS22HB MEMS pressure sensor. See also Zephyr sample:
 :ref:`zephyr:lps22hb`.
 
 .. tabs::

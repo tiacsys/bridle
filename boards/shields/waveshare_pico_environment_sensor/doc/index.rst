@@ -222,9 +222,9 @@ Utilization
 Sensing Subsystem
 =================
 
-The shield is ready for using with the Zephyr :ref:`zephyr:sensing_api`.
-The interface is disabled for default and can be enabled by an application
-overlay :file:`app.overlay` (see :ref:`zephyr:application`).
+The shield is ready for using with the Zephyr :ref:`zephyr:sensing`. The
+interface is disabled for default and can be enabled by an application overlay
+:file:`app.overlay` (see :ref:`zephyr:application`).
 
 .. list-table::
    :align: center
@@ -333,7 +333,7 @@ More Samples
 BME280 Humidity and Pressure Sensor
 ===================================
 
-This sample shows how to use the :ref:`Sensors API <zephyr:sensor_api>` driver
+This sample shows how to use the :ref:`Sensors API <zephyr:sensor>` driver
 for the Bosch BME280 environmental sensor. See also Zephyr sample:
 :ref:`zephyr:bme280` and :ref:`snippet-samples-sensor-bme280-tweaks`.
 

@@ -195,7 +195,7 @@ supports the following hardware features:
    * - Temperature (Sensor)
      - :kconfig:option:`CONFIG_SENSOR`
      - :dtcompatible:`raspberrypi,pico-temp` (!!)
-     - :ref:`zephyr:sensor_api`
+     - :ref:`zephyr:sensor`
    * - Timer (Counter)
      - :kconfig:option:`CONFIG_COUNTER`
      - :dtcompatible:`raspberrypi,pico-timer`
