@@ -49,10 +49,12 @@ For more details, see: :ref:`repos_and_revs`.
        | *openthread*
        | *picolibc*
        | **hal** : *cmsis*
+       | **hal** : *hal_adi*
        | **hal** : *hal_altera*
        | **hal** : *hal_ambiq*
        | **hal** : *hal_atmel*
        | **hal** : *hal_espressif*
+       | **hal** : *hal_ethos_u*
        | **hal** : *hal_gigadevice*
        | **hal** : *hal_infineon*
        | **hal** : *hal_intel*
@@ -69,6 +71,7 @@ For more details, see: :ref:`repos_and_revs`.
        | **hal** : *hal_stm32*
        | **hal** : *hal_telink*
        | **hal** : *hal_ti*
+       | **hal** : *hal_wurthelektronik*
        | **hal** : *hal_xtensa*
        | **hal** : *libmetal*
        | **fs** : *fatfs*
@@ -209,6 +212,16 @@ Take over the new build principles from Zephyr:
   * use Bridle's ``spelling.txt`` and ``typedefsfile``
   * use Bridle's ``.gitlint``
   * use Bridle's ``.yamllint``
+
+* Add more Zephyr upstream projects to West submanifest as needed by Zephyr
+  upstream test suites:
+
+  * HAL modules for: Analog Devices (formerly Maxim)
+  * HAL modules for: Arm Ethos-U NPUs
+  * HAL modules for: Würth Elektronik
+
+* Use the Twister CLI argument ``--alt-config-root`` to reuse Zephyr upstream
+  test suites for building all drivers together with Bridle's own snippets.
 
 Documentation
 =============
