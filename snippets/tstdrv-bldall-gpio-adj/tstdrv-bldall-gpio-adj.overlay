@@ -11,5 +11,243 @@
  */
 
 / {
-	/delete-node/ test;
+	test: test {};
+};
+
+&test {
+	test_gpio_adj: gpio@feedface {
+		compatible = "vnd,gpio";
+		status = "okay";
+		reg = <0xfeedface 0x1000>;
+		gpio-controller;
+		#gpio-cells = <0x2>;
+	};
+
+	test_i2c_adj: i2c@aaaabbbb {
+		compatible = "vnd,i2c";
+		status = "okay";
+		reg = <0xaaaabbbb 0x1000>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+		clock-frequency = <100000>;
+
+		test_i2c_pca9554: pca9554@1 {
+			compatible = "nxp,pca9554";
+			reg = <0x1>;
+			gpio-controller;
+			#gpio-cells = <2>;
+			ngpios = <8>;
+			interrupt-gpios = <&test_gpio 0 0>;
+			rst-dflts;
+		};
+
+		test_i2c_pca9555: pca9555@2 {
+			compatible = "nxp,pca9555";
+			reg = <0x2>;
+			gpio-controller;
+			#gpio-cells = <2>;
+			ngpios = <16>;
+			interrupt-gpios = <&test_gpio 0 0>;
+			rst-dflts;
+		};
+	};
+
+	test_spi_adj: spi@ccccdddd {
+		compatible = "vnd,spi";
+		status = "okay";
+		reg = <0xccccdddd 0x1000>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+		clock-frequency = <2000000>;
+
+		/* one entry for every devices */
+		cs-gpios = <&test_gpio_adj 0 0>,
+			   <&test_gpio_adj 0 0>,
+			   <&test_gpio_adj 0 0>,
+			   <&test_gpio_adj 0 0>;
+
+		test_spi_sipo_mux_gp_08: sipo-mux-gp-08@0 {
+			compatible = "sipo-mux-gp-spi";
+			status = "okay";
+			reg = <0x0>;
+			spi-max-frequency = <0>;
+			refresh-time-us = <500>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+			shift-width = <8>;
+			data-width = <8>;
+			oe-gpios = <&test_gpio_adj 0 0>;
+			addr-gpios = <&test_gpio_adj 0 0>,
+				     <&test_gpio_adj 0 0>;
+
+			test_spi_sipo_mux_08_gpio_0: sipo-mux-08-gpio@0 {
+				compatible = "sipo-mux-gpio";
+				status = "okay";
+				reg = <0>;
+				gpio-controller;
+				#gpio-cells = <2>;
+				ngpios = <8>;
+				offset = <0>;
+			};
+
+			test_spi_sipo_mux_08_gpio_1: sipo-mux-08-gpio@1 {
+				compatible = "sipo-mux-gpio";
+				status = "okay";
+				reg = <1>;
+				gpio-controller;
+				#gpio-cells = <2>;
+				ngpios = <8>;
+				offset = <8>;
+			};
+
+			test_spi_sipo_mux_08_gpio_2: sipo-mux-08-gpio@2 {
+				compatible = "sipo-mux-gpio";
+				status = "okay";
+				reg = <2>;
+				gpio-controller;
+				#gpio-cells = <2>;
+				ngpios = <8>;
+				offset = <16>;
+			};
+
+			test_spi_sipo_mux_08_gpio_3: sipo-mux-08-gpio@3 {
+				compatible = "sipo-mux-gpio";
+				status = "okay";
+				reg = <3>;
+				gpio-controller;
+				#gpio-cells = <2>;
+				ngpios = <8>;
+				offset = <24>;
+			};
+		};
+
+		test_spi_sipo_mux_gp_16: sipo-mux-gp-16@1 {
+			compatible = "sipo-mux-gp-spi";
+			status = "okay";
+			reg = <0x1>;
+			spi-max-frequency = <0>;
+			refresh-time-us = <500>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+			shift-width = <16>;
+			data-width = <8>;
+			oe-gpios = <&test_gpio_adj 0 0>;
+			addr-gpios = <&test_gpio_adj 0 0>,
+				     <&test_gpio_adj 0 0>;
+
+			test_spi_sipo_mux_16_gpio_0: sipo-mux-16-gpio@0 {
+				compatible = "sipo-mux-gpio";
+				status = "okay";
+				reg = <0>;
+				gpio-controller;
+				#gpio-cells = <2>;
+				ngpios = <8>;
+				offset = <0>;
+			};
+
+			test_spi_sipo_mux_16_gpio_1: sipo-mux-16-gpio@1 {
+				compatible = "sipo-mux-gpio";
+				status = "okay";
+				reg = <1>;
+				gpio-controller;
+				#gpio-cells = <2>;
+				ngpios = <8>;
+				offset = <8>;
+			};
+
+			test_spi_sipo_mux_16_gpio_2: sipo-mux-16-gpio@2 {
+				compatible = "sipo-mux-gpio";
+				status = "okay";
+				reg = <2>;
+				gpio-controller;
+				#gpio-cells = <2>;
+				ngpios = <8>;
+				offset = <16>;
+			};
+
+			test_spi_sipo_mux_16_gpio_3: sipo-mux-16-gpio@3 {
+				compatible = "sipo-mux-gpio";
+				status = "okay";
+				reg = <3>;
+				gpio-controller;
+				#gpio-cells = <2>;
+				ngpios = <8>;
+				offset = <24>;
+			};
+		};
+
+		test_spi_sipo_mux_gp_24: sipo-mux-gp-24@2 {
+			compatible = "sipo-mux-gp-spi";
+			status = "okay";
+			reg = <0x2>;
+			spi-max-frequency = <0>;
+			refresh-time-us = <500>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+			shift-width = <24>;
+			data-width = <16>;
+			oe-gpios = <&test_gpio_adj 0 0>;
+			addr-gpios = <&test_gpio_adj 0 0>;
+
+			test_spi_sipo_mux_24_gpio_0: sipo-mux-24-gpio@0 {
+				compatible = "sipo-mux-gpio";
+				status = "okay";
+				reg = <0>;
+				gpio-controller;
+				#gpio-cells = <2>;
+				ngpios = <16>;
+				offset = <0>;
+			};
+
+			test_spi_sipo_mux_24_gpio_1: sipo-mux-24-gpio@1 {
+				compatible = "sipo-mux-gpio";
+				status = "okay";
+				reg = <1>;
+				gpio-controller;
+				#gpio-cells = <2>;
+				ngpios = <16>;
+				offset = <16>;
+			};
+		};
+
+		test_spi_sipo_mux_gp_32: sipo-mux-gp-32@3 {
+			compatible = "sipo-mux-gp-spi";
+			status = "okay";
+			reg = <0x3>;
+			spi-max-frequency = <0>;
+			refresh-time-us = <500>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+			shift-width = <32>;
+			data-width = <24>;
+			oe-gpios = <&test_gpio_adj 0 0>;
+			addr-gpios = <&test_gpio_adj 0 0>;
+
+			test_spi_sipo_mux_32_gpio_0: sipo-mux-32-gpio@0 {
+				compatible = "sipo-mux-gpio";
+				status = "okay";
+				reg = <0>;
+				gpio-controller;
+				#gpio-cells = <2>;
+				ngpios = <24>;
+				offset = <0>;
+			};
+
+			test_spi_sipo_mux_32_gpio_1: sipo-mux-32-gpio@1 {
+				compatible = "sipo-mux-gpio";
+				status = "okay";
+				reg = <1>;
+				gpio-controller;
+				#gpio-cells = <2>;
+				ngpios = <24>;
+				offset = <24>;
+			};
+		};
+	};
+
+	test_uart_adj: uart@eeeeffff {
+		compatible = "vnd,serial";
+		status = "okay";
+		reg = <0xeeeeffff 0x1000>;
+	};
 };
