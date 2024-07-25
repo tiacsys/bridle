@@ -1,0 +1,4 @@
+name: tstdrv-bldall-uart-adj
+append:
+  EXTRA_CONF_FILE: tstdrv-bldall-uart-adj.conf
+  EXTRA_DTC_OVERLAY_FILE: tstdrv-bldall-uart-adj.overlay
