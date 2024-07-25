@@ -1,0 +1,18 @@
+common:
+  build_only: true
+  tags:
+    - zephyr
+    - drivers
+    - i2c
+  integration_platforms:
+    - native_sim
+    - native_sim/native/64
+  platform_allow:
+    - native_posix
+    - native_posix/native/64
+    - native_sim
+    - native_sim/native/64
+tests:
+  drivers.i2c.build:
+    required_snippets:
+      - tstdrv-bldall-i2c-adj

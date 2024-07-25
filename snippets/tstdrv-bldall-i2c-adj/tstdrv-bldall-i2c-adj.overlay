@@ -11,5 +11,45 @@
  */
 
 / {
-	/delete-node/ test;
+	test: test {
+		#address-cells = <1>;
+		#size-cells = <1>;
+	};
+};
+
+&test {
+	test_gpio_adj: gpio@feedface {
+		compatible = "vnd,gpio";
+		status = "okay";
+		reg = <0xfeedface 0x1000>;
+		gpio-controller;
+		#gpio-cells = <0x2>;
+	};
+
+	test_i2c_adj: i2c@aaaabbbb {
+		compatible = "vnd,i2c";
+		status = "okay";
+		reg = <0xaaaabbbb 0x1000>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+		clock-frequency = <100000>;
+	};
+
+	test_spi_adj: spi@bbbbcccc {
+		compatible = "vnd,spi";
+		status = "okay";
+		reg = <0xccccdddd 0x1000>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+		clock-frequency = <2000000>;
+
+		/* one entry for every devices */
+		/* cs-gpios = <&test_gpio_adj 0 0>; */
+	};
+
+	test_uart_adj: uart@ddddeeee {
+		compatible = "vnd,serial";
+		status = "okay";
+		reg = <0xddddeeee 0x1000>;
+	};
 };
