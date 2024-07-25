@@ -77,6 +77,7 @@ manifest:
           - hal_stm32
           - hal_telink
           - hal_ti
+          - hal_wurthelektronik
           - hal_xtensa
           - libmetal
           - liblc3
