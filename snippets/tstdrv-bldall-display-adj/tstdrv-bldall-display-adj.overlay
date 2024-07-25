@@ -10,6 +10,230 @@
  * (and be extended to test) real hardware.
  */
 
+#include <zephyr/dt-bindings/mipi_dbi/mipi_dbi.h>
+
 / {
-	/delete-node/ test;
+	test: test {};
+};
+
+&test {
+	test_gpio_adj: gpio@feedface {
+		compatible = "vnd,gpio";
+		status = "okay";
+		reg = <0xfeedface 0x1000>;
+		gpio-controller;
+		#gpio-cells = <0x2>;
+	};
+
+	test_i2c_adj: i2c@aaaabbbb {
+		compatible = "vnd,i2c";
+		status = "okay";
+		reg = <0xaaaabbbb 0x1000>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+		clock-frequency = <100000>;
+	};
+
+	test_spi_adj: spi@ccccdddd {
+		compatible = "vnd,spi";
+		status = "okay";
+		reg = <0xccccdddd 0x1000>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+		clock-frequency = <2000000>;
+
+		/* one entry for every devices */
+		/* Note that this must include MIPI DBI devices as well. */
+		cs-gpios = <&test_gpio_adj 0 0>,
+			   <&test_gpio_adj 0 0>,
+			   <&test_gpio_adj 0 0>,
+			   <&test_gpio_adj 0 0>,
+			   <&test_gpio_adj 0 0>,
+			   <&test_gpio_adj 0 0>,
+			   <&test_gpio_adj 0 0>,
+			   <&test_gpio_adj 0 0>,
+			   <&test_gpio_adj 0 0>,
+			   <&test_gpio_adj 0 0>,
+			   <&test_gpio_adj 0 0>, /* 10 */
+			   <&test_gpio_adj 0 0>,
+			   <&test_gpio_adj 0 0>,
+			   <&test_gpio_adj 0 0>,
+			   <&test_gpio_adj 0 0>,
+			   <&test_gpio_adj 0 0>,
+			   <&test_gpio_adj 0 0>,
+			   <&test_gpio_adj 0 0>,
+			   <&test_gpio_adj 0 0>,
+			   <&test_gpio_adj 0 0>,
+			   <&test_gpio_adj 0 0>, /* 20 */
+			   <&test_gpio_adj 0 0>,
+			   <&test_gpio_adj 0 0>,
+			   <&test_gpio_adj 0 0>,
+			   <&test_gpio_adj 0 0>,
+			   <&test_gpio_adj 0 0>,
+			   <&test_gpio_adj 0 0>,
+			   <&test_gpio_adj 0 0>,
+			   <&test_gpio_adj 0 0>,
+			   <&test_gpio_adj 0 0>,
+			   <&test_gpio_adj 0 0>, /* 30 */
+			   <&test_gpio_adj 0 0>;
+
+		test_spi_sipo_mux_gp: sipo-mux-gp@0 {
+			compatible = "sipo-mux-gp-spi";
+			status = "okay";
+			reg = <0x0>;
+			spi-max-frequency = <0>;
+			refresh-time-us = <500>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+			shift-width = <32>;
+			data-width = <24>;
+			oe-gpios = <&test_gpio_adj 0 0>;
+			addr-gpios = <&test_gpio_adj 0 0>,
+				     <&test_gpio_adj 0 0>,
+				     <&test_gpio_adj 0 0>;
+
+			test_spi_sipo_mux_gpio_0: sipo-mux-gpio@0 {
+				compatible = "sipo-mux-gpio";
+				status = "okay";
+				reg = <0>;
+				gpio-controller;
+				#gpio-cells = <2>;
+				ngpios = <24>;
+				offset = <0>;
+			};
+
+			test_spi_sipo_mux_gpio_1: sipo-mux-gpio@1 {
+				compatible = "sipo-mux-gpio";
+				status = "okay";
+				reg = <1>;
+				gpio-controller;
+				#gpio-cells = <2>;
+				ngpios = <24>;
+				offset = <24>;
+			};
+
+			test_spi_sipo_mux_gpio_2: sipo-mux-gpio@2 {
+				compatible = "sipo-mux-gpio";
+				status = "okay";
+				reg = <2>;
+				gpio-controller;
+				#gpio-cells = <2>;
+				ngpios = <24>;
+				offset = <48>;
+			};
+
+			test_spi_sipo_mux_gpio_3: sipo-mux-gpio@3 {
+				compatible = "sipo-mux-gpio";
+				status = "okay";
+				reg = <3>;
+				gpio-controller;
+				#gpio-cells = <2>;
+				ngpios = <24>;
+				offset = <72>;
+			};
+
+			test_spi_sipo_mux_gpio_4: sipo-mux-gpio@4 {
+				compatible = "sipo-mux-gpio";
+				status = "okay";
+				reg = <4>;
+				gpio-controller;
+				#gpio-cells = <2>;
+				ngpios = <24>;
+				offset = <96>;
+			};
+
+			test_spi_sipo_mux_gpio_5: sipo-mux-gpio@5 {
+				compatible = "sipo-mux-gpio";
+				status = "okay";
+				reg = <5>;
+				gpio-controller;
+				#gpio-cells = <2>;
+				ngpios = <24>;
+				offset = <120>;
+			};
+
+			test_spi_sipo_mux_gpio_6: sipo-mux-gpio@6 {
+				compatible = "sipo-mux-gpio";
+				status = "okay";
+				reg = <6>;
+				gpio-controller;
+				#gpio-cells = <2>;
+				ngpios = <24>;
+				offset = <144>;
+			};
+
+			test_spi_sipo_mux_gpio_7: sipo-mux-gpio@7 {
+				compatible = "sipo-mux-gpio";
+				status = "okay";
+				reg = <7>;
+				gpio-controller;
+				#gpio-cells = <2>;
+				ngpios = <24>;
+				offset = <168>;
+			};
+
+			test_spi_sipo_mux_display_8: sipo-mux-display@8 {
+				compatible = "sipo-mux-display";
+				status = "okay";
+				reg = <8>;
+				height = <7>;
+				width = <22>;
+				offset = <2 1>;
+			};
+		};
+	};
+
+	test_uart_adj: uart@eeeeffff {
+		compatible = "vnd,serial";
+		status = "okay";
+		reg = <0xeeeeffff 0x1000>;
+	};
+
+	test_mipi_dbi_adj {
+		compatible = "zephyr,mipi-dbi-spi";
+		status = "okay";
+		#address-cells = <1>;
+		#size-cells = <0>;
+		reset-gpios = <&test_gpio_adj 0 0>;
+		dc-gpios = <&test_gpio_adj 0 0>;
+		spi-dev = <&test_spi_adj>;
+
+		test_mipi_dbi_ili9488: ili9342c@10 {
+			compatible = "ilitek,ili9488";
+			status = "okay";
+			reg = <10>;
+			mipi-max-frequency = <60000000>;
+			pixel-format = <0>;
+			rotation = <270>;
+			width = <480>;
+			height = <320>;
+		};
+	};
+
+	test_mipi_dbi_xfr_16bit_adj {
+		compatible = "zephyr,mipi-dbi-spi";
+		status = "okay";
+		xfr-min-bits = <MIPI_DBI_SPI_XFR_16BIT>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+		reset-gpios = <&test_gpio_adj 0 0>;
+		dc-gpios = <&test_gpio_adj 0 0>;
+		spi-dev = <&test_spi_adj>;
+
+		test_mipi_dbi_xfr_16bit_ili9488: ili9342c@20 {
+			compatible = "ilitek,ili9488";
+			status = "okay";
+			reg = <20>;
+			mipi-max-frequency = <60000000>;
+			pixel-format = <0>;
+			rotation = <270>;
+			width = <480>;
+			height = <320>;
+		};
+	};
+};
+
+/* disable device to avoid conflict with ili93xx version */
+&test_mipi_dbi_ili9342c {
+	status = "disabled";
 };
