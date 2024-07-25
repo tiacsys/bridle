@@ -1,0 +1,4 @@
+name: tstdrv-bldall-i2c-adj
+append:
+  EXTRA_CONF_FILE: tstdrv-bldall-i2c-adj.conf
+  EXTRA_DTC_OVERLAY_FILE: tstdrv-bldall-i2c-adj.overlay
