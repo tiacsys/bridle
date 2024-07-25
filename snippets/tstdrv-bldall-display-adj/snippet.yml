@@ -1,0 +1,4 @@
+name: tstdrv-bldall-display-adj
+append:
+  EXTRA_CONF_FILE: tstdrv-bldall-display-adj.conf
+  EXTRA_DTC_OVERLAY_FILE: tstdrv-bldall-display-adj.overlay
