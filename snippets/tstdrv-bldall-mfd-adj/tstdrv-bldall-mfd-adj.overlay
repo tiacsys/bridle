@@ -11,5 +11,94 @@
  */
 
 / {
-	/delete-node/ test;
+	test: test {};
+};
+
+&test {
+	test_gpio_adj: gpio@feedface {
+		compatible = "vnd,gpio";
+		status = "okay";
+		reg = <0xfeedface 0x1000>;
+		gpio-controller;
+		#gpio-cells = <0x2>;
+	};
+
+	test_i2c_adj: i2c@aaaabbbb {
+		compatible = "vnd,i2c";
+		status = "okay";
+		reg = <0xaaaabbbb 0x1000>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+		clock-frequency = <100000>;
+
+		test_i2c_ds3231_mfd: ds3231-mfd@1 {
+			compatible = "maxim,ds3231-mfd";
+			status = "okay";
+			reg = <0x1>;
+			isw-gpios = <&test_gpio_adj 0 0>;
+			32k-gpios = <&test_gpio_adj 0 0>;
+
+			test_i2c_ds3231_rtc: ds3231-rtc {
+				compatible = "maxim,ds3231-rtc";
+				status = "okay";
+			};
+
+			test_i2c_ds3231_temp: ds3231-temp {
+				compatible = "maxim,ds3231-temp";
+				status = "okay";
+			};
+		};
+	};
+
+	test_spi_adj: spi@ccccdddd {
+		compatible = "vnd,spi";
+		status = "okay";
+		reg = <0xccccdddd 0x1000>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+		clock-frequency = <2000000>;
+
+		/* one entry for every devices */
+		cs-gpios = <&test_gpio_adj 0 0>;
+
+		test_spi_sipo_mux_gp: sipo-mux-gp@0 {
+			compatible = "sipo-mux-gp-spi";
+			status = "okay";
+			reg = <0x0>;
+			spi-max-frequency = <0>;
+			refresh-time-us = <500>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+			shift-width = <32>;
+			data-width = <32>;
+			oe-gpios = <&test_gpio_adj 0 0>;
+			addr-gpios = <&test_gpio_adj 0 0>;
+
+			test_spi_sipo_mux_gpio_0: sipo-mux-gpio@0 {
+				compatible = "sipo-mux-gpio";
+				status = "okay";
+				reg = <0>;
+				gpio-controller;
+				#gpio-cells = <2>;
+				ngpios = <32>;
+				offset = <0>;
+			};
+
+			test_spi_sipo_mux_gpio_1: sipo-mux-gpio@1 {
+				compatible = "sipo-mux-gpio";
+				status = "okay";
+				reg = <1>;
+				gpio-controller;
+				#gpio-cells = <2>;
+				ngpios = <32>;
+				offset = <32>;
+			};
+		};
+	};
+
+	test_uart_adj: uart@eeeeffff {
+		compatible = "vnd,serial";
+		status = "okay";
+		reg = <0xeeeeffff 0x1000>;
+	};
 };
