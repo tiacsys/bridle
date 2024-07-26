@@ -150,6 +150,120 @@ jobs:
           fail_on_failure: false
         if: always()
 
+  qa-tests-integration:
+    name: Run integration tests for tests
+    if: github.repository_owner == 'tiacsys'
+    runs-on: [self-hosted, ci-32g-x8, linux, x64, container]
+    container:
+      image: ghcr.io/zephyrproject-rtos/ci:v0.26.13
+      options: '--cpus 4 --memory 8g --entrypoint /bin/bash'
+    env:
+      ZEPHYR_SDK_INSTALL_DIR: /opt/toolchains/zephyr-sdk-0.16.8
+
+    steps:
+      - name: Apply container owner mismatch workaround
+        run: |
+          # FIXME: The owner UID of the GITHUB_WORKSPACE directory may not
+          #        match the container user UID because of the way GitHub
+          #        Actions runner is implemented. Remove this workaround when
+          #        GitHub comes up with a fundamental fix for this problem.
+          git config --global --add safe.directory ${GITHUB_WORKSPACE}
+
+      - name: Apply container HTTP/2 framing layer workaround
+        run: |
+          # FIXME: For unknown reasons, the local development host and CI is
+          #        running in temporary "Error in the HTTP2 framing layer".
+          #        Forcing the historical but still supported HTTP/1.1 layer
+          #        seems to be a stable workaround - happened in Oct. 2023.
+          git config --global --add http.version HTTP/1.1
+
+      - name: Update GitHub PATH for west
+        run: |
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+      # It is important that this is run before any caching tasks as cleanups
+      # are run in reverse order (and you do not want to cleanup before the
+      # caching is saved).
+      - name: Clean working directory
+        uses: tiacsys/clean-after-action@v3
+        #
+        # Could also be implemented with the new pre- and post-job hook scripts:
+        #
+        # - https://stackoverflow.com/questions/70483902
+        # - https://devopsjournal.io/blog/2023/06/21/GitHub-container-based-Action-cleanup
+        # - https://docs.github.com/actions/hosting-your-own-runners/running-scripts-before-or-after-a-job
+        #
+        with:
+          keep-git: false
+
+      - name: Checkout the code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 100
+          show-progress: true
+          path: workspace/bridle
+          ref: ${{ github.ref }}
+
+      - name: Restore PIP Cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-qa-pip
+
+      - name: Install base dependencies
+        working-directory: workspace
+        run: |
+          pip3 install --upgrade pip
+          pip3 install --upgrade setuptools
+          pip3 install --upgrade --requirement bridle/scripts/requirements-base.txt
+
+      - name: West init and update
+        working-directory: workspace
+        run: |
+          west init --local bridle
+          west update --fetch-opt=--depth=100 --fetch=always --narrow --stats
+          west zephyr-export
+          west bridle-export
+
+      - name: Install build and test dependencies
+        working-directory: workspace
+        run: |
+          pip3 install --upgrade --requirement zephyr/scripts/requirements-base.txt
+          pip3 install --upgrade --requirement zephyr/scripts/requirements-build-test.txt
+          pip3 install --upgrade --requirement zephyr/scripts/requirements-run-test.txt
+          pip3 install --upgrade --requirement zephyr/scripts/requirements-extras.txt
+          pip3 install --upgrade --requirement zephyr/scripts/requirements-compliance.txt
+          pip3 install --upgrade --requirement bridle/scripts/requirements-build.txt
+
+      - name: Build tests
+        working-directory: workspace
+        run: |
+          west twister --verbose --jobs 6 \
+            --retry-failed 5 --retry-interval 60 \
+            --outdir twister-out --no-clean --inline-logs \
+            --enable-size-report --platform-reports \
+            --alt-config-root bridle/zephyr/alt-config/tests \
+            --integration --no-detailed-test-id \
+            --testsuite-root bridle/tests \
+            --testsuite-root zephyr/tests \
+            --tag bridle \
+            --tag zephyr
+
+      - name: Upload integration test results
+        uses: actions/upload-artifact@v4
+        with:
+          name: twister-tests.xml
+          path: workspace/twister-out/twister.xml
+
+      - name: Convert integration test reports to annotations
+        uses: mikepenz/action-junit-report@v4
+        with:
+          check_name: twister-report (tests)
+          report_paths: "**/twister-out/twister.xml"
+          require_tests: true
+          fail_on_failure: false
+        if: always()
+
   qa-shield-integration:
     name: Run integration tests for shields
     if: github.repository_owner == 'tiacsys'
