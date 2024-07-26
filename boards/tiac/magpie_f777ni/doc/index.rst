@@ -489,7 +489,7 @@ with a single call to Twister.
               --enable-size-report --platform-reports \
               --device-testing --hardware-map map.yaml \
               --extra-args SHIELD="loopback_test_tmph" \
-              --alt-config-root bridle/zephyr/alt-config \
+              --alt-config-root bridle/zephyr/alt-config/tests \
               --testsuite-root bridle/tests \
               --testsuite-root zephyr/tests \
               --tag arm --tag vector_relay \

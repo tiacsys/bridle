@@ -128,7 +128,7 @@ jobs:
             --retry-failed 5 --retry-interval 60 \
             --outdir twister-out --no-clean --inline-logs \
             --enable-size-report --platform-reports \
-            --alt-config-root bridle/zephyr/alt-config \
+            --alt-config-root bridle/zephyr/alt-config/samples \
             --integration --no-detailed-test-id \
             --testsuite-root bridle/samples \
             --testsuite-root zephyr/samples \
@@ -361,7 +361,7 @@ jobs:
             --enable-size-report --platform-reports \
             --device-testing --hardware-map ${HARDWARE_MAP} \
             --extra-args SHIELD="loopback_test_tmph" \
-            --alt-config-root bridle/zephyr/alt-config \
+            --alt-config-root bridle/zephyr/alt-config/tests \
             --testsuite-root bridle/tests \
             --testsuite-root zephyr/tests \
             --tag bridle \

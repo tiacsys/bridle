@@ -39,7 +39,7 @@ Building and Running
               --enable-size-report --platform-reports \
               --device-testing --hardware-map map.yaml \
               --extra-args SHIELD="loopback_test_tmph" \
-              --alt-config-root bridle/zephyr/alt-config \
+              --alt-config-root bridle/zephyr/alt-config/tests \
               --testsuite-root zephyr/tests --tag spi
 
    .. group-tab:: Results

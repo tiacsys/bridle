@@ -47,5 +47,5 @@ For example:
 
    west twister --device-testing \
                 --hardware-map map_magpie_f777ni.yaml \
-                --alt-config-root bridle/zephyr/alt-config/drivers/watchdog/wdt_basic_api \
+                --alt-config-root bridle/zephyr/alt-config/tests/drivers/watchdog/wdt_basic_api \
                 --testsuite-root zephyr/tests/drivers/watchdog/wdt_basic_api

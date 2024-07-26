@@ -36,7 +36,7 @@ Drivers
               --verbose --jobs 4 --inline-logs \
               --enable-size-report --platform-reports \
               --device-testing --hardware-map map.yaml \
-              --alt-config-root bridle/zephyr/alt-config \
+              --alt-config-root bridle/zephyr/alt-config/tests \
               --testsuite-root zephyr/tests --tag entropy
 
    .. group-tab:: Results
@@ -91,7 +91,7 @@ Cryptography
               --verbose --jobs 4 --inline-logs \
               --enable-size-report --platform-reports \
               --device-testing --hardware-map map.yaml \
-              --alt-config-root bridle/zephyr/alt-config \
+              --alt-config-root bridle/zephyr/alt-config/tests \
               --testsuite-root zephyr/tests --tag random
 
    .. group-tab:: Results
