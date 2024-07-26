@@ -55,6 +55,7 @@ manifest:
           - cmsis
           - edtt
           - fatfs
+          - hal_adi
           - hal_altera
           - hal_ambiq
           - hal_atmel
