@@ -60,6 +60,7 @@ manifest:
           - hal_ambiq
           - hal_atmel
           - hal_espressif
+          - hal_ethos_u
           - hal_gigadevice
           - hal_infineon
           - hal_intel
