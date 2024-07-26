@@ -31,7 +31,7 @@ For more details, see: :ref:`repos_and_revs`.
    * - `tiac-bridle`_
      -
      - v3.7-branch
-     - v3.7.0
+     - v3.7.0-rc1
    * - | `tiac-ubxlib`_
        | (`u-blox-ubxlib`_)
      - | *geographiclib*
@@ -238,6 +238,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`254` - [FCR] Bump to Zephyr v3.7
 * :github:`252` - [FCR] Upgrade to Zephyr SDK 0.16.8
 * :github:`244` - [HW] Spotpear Raspberry Pi Pico LCD Modules as Shields
 * :github:`242` - [HW] 52Pi (GeeekPi) Pico Breadboard Kit -/Plus (EP-0164/0172)
