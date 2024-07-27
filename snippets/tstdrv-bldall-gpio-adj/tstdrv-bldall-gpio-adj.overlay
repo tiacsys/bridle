@@ -15,6 +15,13 @@
 };
 
 &test {
+	test_fixed_clk_adj: test-fixed-clk-adj {
+		compatible = "fixed-clock";
+		status = "okay";
+		#clock-cells = <0>;
+		clock-frequency = <0>;
+	};
+
 	test_gpio_adj: gpio@feedface {
 		compatible = "vnd,gpio";
 		status = "okay";
@@ -50,6 +57,26 @@
 			interrupt-gpios = <&test_gpio 0 0>;
 			rst-dflts;
 		};
+
+		test_i2c_sc16is75x: sc16is75x-i2c@3 {
+			compatible = "nxp,sc16is75x";
+			status = "okay";
+			reg = <0x3>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+			ranges;
+			clock = <&test_fixed_clk_adj>;
+			reset-gpios = <&test_gpio_adj 0 0>;
+			interrupt-gpios = <&test_gpio_adj 0 0>;
+
+			test_i2c_sc16is75x_gpio: sc16is75x-i2c-gpio {
+				compatible = "nxp,sc16is75x-gpio";
+				status = "okay";
+				gpio-controller;
+				#gpio-cells = <2>;
+				ngpios = <8>;
+			};
+		};
 	};
 
 	test_i3c_adj: i3c@bbbbaaaa {
@@ -70,6 +97,7 @@
 
 		/* one entry for every devices */
 		cs-gpios = <&test_gpio_adj 0 0>,
+			   <&test_gpio_adj 0 0>,
 			   <&test_gpio_adj 0 0>,
 			   <&test_gpio_adj 0 0>,
 			   <&test_gpio_adj 0 0>,
@@ -267,6 +295,27 @@
 				gpio-controller;
 				#gpio-cells = <2>;
 				ngpios = <5>;
+			};
+		};
+
+		test_spi_sc16is75x: sc16is75x-spi@5 {
+			compatible = "nxp,sc16is75x";
+			status = "okay";
+			reg = <0x5>;
+			spi-max-frequency = <0>;
+			#address-cells = <1>;
+			#size-cells = <0>;
+			ranges;
+			clock = <&test_fixed_clk_adj>;
+			reset-gpios = <&test_gpio_adj 0 0>;
+			interrupt-gpios = <&test_gpio_adj 0 0>;
+
+			test_spi_sc16is75x_gpio: sc16is75x-spi-gpio {
+				compatible = "nxp,sc16is75x-gpio";
+				status = "okay";
+				gpio-controller;
+				#gpio-cells = <2>;
+				ngpios = <8>;
 			};
 		};
 	};
