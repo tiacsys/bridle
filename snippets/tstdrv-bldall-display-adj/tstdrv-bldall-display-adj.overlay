@@ -198,7 +198,7 @@
 		dc-gpios = <&test_gpio_adj 0 0>;
 		spi-dev = <&test_spi_adj>;
 
-		test_mipi_dbi_ili9488: ili9342c@10 {
+		test_mipi_dbi_ili9488: ili9342c@a {
 			compatible = "ilitek,ili9488";
 			status = "okay";
 			reg = <10>;
@@ -220,7 +220,7 @@
 		dc-gpios = <&test_gpio_adj 0 0>;
 		spi-dev = <&test_spi_adj>;
 
-		test_mipi_dbi_xfr_16bit_ili9488: ili9342c@20 {
+		test_mipi_dbi_xfr_16bit_ili9488: ili9342c@14 {
 			compatible = "ilitek,ili9488";
 			status = "okay";
 			reg = <20>;

@@ -35,7 +35,7 @@
 		clock-frequency = <100000>;
 	};
 
-	test_spi_adj: spi@bbbbcccc {
+	test_spi_adj: spi@ccccdddd {
 		compatible = "vnd,spi";
 		status = "okay";
 		reg = <0xccccdddd 0x1000>;
