@@ -48,6 +48,14 @@
 		};
 	};
 
+	test_i3c_adj: i3c@bbbbaaaa {
+		compatible = "vnd,i3c";
+		status = "okay";
+		reg = <0xbbbbaaaa 0x1000>;
+		#address-cells = <3>;
+		#size-cells = <0>;
+	};
+
 	test_spi_adj: spi@ccccdddd {
 		compatible = "vnd,spi";
 		status = "okay";
@@ -64,5 +72,14 @@
 		compatible = "vnd,serial";
 		status = "okay";
 		reg = <0xeeeeffff 0x1000>;
+	};
+
+	test_w1_adj: w1@ffffeeee {
+		compatible = "vnd,w1";
+		status = "okay";
+		reg = <0xffffeeee 0x1000>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+		ranges = <0 0>;
 	};
 };
