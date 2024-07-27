@@ -47,9 +47,9 @@
 		/* cs-gpios = <&test_gpio_adj 0 0>; */
 	};
 
-	test_uart_adj: uart@ddddeeee {
+	test_uart_adj: uart@eeeeffff {
 		compatible = "vnd,serial";
 		status = "okay";
-		reg = <0xddddeeee 0x1000>;
+		reg = <0xeeeeffff 0x1000>;
 	};
 };
