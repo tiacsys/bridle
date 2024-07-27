@@ -64,6 +64,7 @@
 		cs-gpios = <&test_gpio_adj 0 0>,
 			   <&test_gpio_adj 0 0>,
 			   <&test_gpio_adj 0 0>,
+			   <&test_gpio_adj 0 0>,
 			   <&test_gpio_adj 0 0>;
 
 		test_spi_sipo_mux_gp_08: sipo-mux-gp-08@0 {
@@ -241,6 +242,23 @@
 				#gpio-cells = <2>;
 				ngpios = <24>;
 				offset = <24>;
+			};
+		};
+
+		test_spi_sc18is604: sc18is604-spi@4 {
+			compatible = "nxp,sc18is604";
+			status = "okay";
+			reg = <0x4>;
+			spi-max-frequency = <650000>;
+			reset-gpios = <&test_gpio_adj 0 0>;
+			interrupt-gpios = <&test_gpio_adj 0 0>;
+
+			test_spi_sc18is604_gpio: sc18is604-spi-gpio {
+				compatible = "nxp,sc18is604-gpio";
+				status = "okay";
+				gpio-controller;
+				#gpio-cells = <2>;
+				ngpios = <5>;
 			};
 		};
 	};
