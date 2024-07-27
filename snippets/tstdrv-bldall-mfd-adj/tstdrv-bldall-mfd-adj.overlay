@@ -59,7 +59,8 @@
 		clock-frequency = <2000000>;
 
 		/* one entry for every devices */
-		cs-gpios = <&test_gpio_adj 0 0>;
+		cs-gpios = <&test_gpio_adj 0 0>,
+			   <&test_gpio_adj 0 0>;
 
 		test_spi_sipo_mux_gp: sipo-mux-gp@0 {
 			compatible = "sipo-mux-gp-spi";
@@ -92,6 +93,31 @@
 				#gpio-cells = <2>;
 				ngpios = <32>;
 				offset = <32>;
+			};
+		};
+
+		test_spi_sc18is604: sc18is604-spi@1 {
+			compatible = "nxp,sc18is604";
+			status = "okay";
+			reg = <0x1>;
+			spi-max-frequency = <650000>;
+			reset-gpios = <&test_gpio_adj 0 0>;
+			interrupt-gpios = <&test_gpio_adj 0 0>;
+
+			test_spi_sc18is604_gpio: sc18is604-spi-gpio {
+				compatible = "nxp,sc18is604-gpio";
+				status = "okay";
+				gpio-controller;
+				#gpio-cells = <2>;
+				ngpios = <5>;
+			};
+
+			test_spi_sc18is604_i2c: sc18is604-spi-i2c {
+				compatible = "nxp,sc18is604-i2c";
+				status = "okay";
+				#address-cells = <1>;
+				#size-cells = <0>;
+				clock-frequency = <100000>;
 			};
 		};
 	};
