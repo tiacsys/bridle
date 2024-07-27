@@ -44,7 +44,24 @@
 		clock-frequency = <2000000>;
 
 		/* one entry for every devices */
-		/* cs-gpios = <&test_gpio_adj 0 0>; */
+		cs-gpios = <&test_gpio_adj 0 0>;
+
+		test_spi_sc18is604: sc18is604-spi@0 {
+			compatible = "nxp,sc18is604";
+			status = "okay";
+			reg = <0x0>;
+			spi-max-frequency = <650000>;
+			reset-gpios = <&test_gpio_adj 0 0>;
+			interrupt-gpios = <&test_gpio_adj 0 0>;
+
+			test_spi_sc18is604_i2c: sc18is604-spi-i2c {
+				compatible = "nxp,sc18is604-i2c";
+				status = "okay";
+				#address-cells = <1>;
+				#size-cells = <0>;
+				clock-frequency = <100000>;
+			};
+		};
 	};
 
 	test_uart_adj: uart@ddddeeee {
