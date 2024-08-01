@@ -30,6 +30,10 @@ extern "C" {
 #define SC18IS604_CMD_POWER_DOWN_KEY2		0xA5
 #define SC18IS604_CMD_VERSION_STRING		0xFE
 
+/*
+ * The version string is in the form "SC18IS604 1.0.0". The total
+ * length is 16 bytes and includes a 00h null terminator.
+ */
 #define SC18IS604_VERSION_STRING_SIZE		16
 
 #define SC18IS604_REG_IO_CONFIG			0x00

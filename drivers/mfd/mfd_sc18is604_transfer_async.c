@@ -68,7 +68,7 @@ int mfd_sc18is604_transfer_signal(const struct device *dev,
 				  uint8_t *rx_data, size_t rx_len,
 				  struct k_poll_signal *signal)
 {
-	mfd_sc18is604_data_t * const data = dev->data;
+	struct mfd_sc18is604_data * const data = dev->data;
 	int ret = 0;
 
 	/* Create work item to manage transfers */

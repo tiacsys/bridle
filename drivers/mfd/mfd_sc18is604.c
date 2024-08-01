@@ -31,7 +31,7 @@ LOG_MODULE_REGISTER(mfd_sc18is604, CONFIG_MFD_LOG_LEVEL);
 int mfd_sc18is604_add_callback(const struct device *dev,
 			       struct gpio_callback *callback)
 {
-	mfd_sc18is604_data_t * const data = dev->data;
+	struct mfd_sc18is604_data * const data = dev->data;
 
 	return gpio_manage_callback(&data->child_callbacks, callback, true);
 }
@@ -39,29 +39,29 @@ int mfd_sc18is604_add_callback(const struct device *dev,
 int mfd_sc18is604_remove_callback(const struct device *dev,
 				  struct gpio_callback *callback)
 {
-	mfd_sc18is604_data_t * const data = dev->data;
+	struct mfd_sc18is604_data * const data = dev->data;
 
 	return gpio_manage_callback(&data->child_callbacks, callback, false);
 }
 
 int mfd_sc18is604_claim(const struct device *dev, k_timeout_t timeout)
 {
-	mfd_sc18is604_data_t * const data = dev->data;
+	struct mfd_sc18is604_data * const data = dev->data;
 
 	return k_sem_take(&data->lock, timeout);
 }
 
 void mfd_sc18is604_release(const struct device *dev)
 {
-	mfd_sc18is604_data_t * const data = dev->data;
+	struct mfd_sc18is604_data * const data = dev->data;
 
 	k_sem_give(&data->lock);
 }
 
 /**
  * @brief Request device version string. The string will be placed in the
- *        internal buffer. The device interrupt is set once the string is ready
- *        to be read from the buffer.
+ *        internal buffer. The device interrupt is set once the string is
+ *        ready to be read from the buffer.
  *
  * @param dev An SC18IS604 MFD device.
  *
@@ -124,7 +124,7 @@ static int mfd_sc18is604_configure_gpio_pin(const struct device *dev,
  */
 static int mfd_sc18is604_chip_reset(const struct device *dev)
 {
-	const mfd_sc18is604_config_t * const config = dev->config;
+	const struct mfd_sc18is604_config * const config = dev->config;
 	int ret = 0;
 
 	LOG_DBG("%s: resetting device", dev->name);
@@ -151,9 +151,44 @@ end:
 	return ret;
 }
 
+/**
+ * @brief Apply register default values.
+ *
+ * @param dev An SC18IS604 MFD device.
+ *
+ * @retval 0 On success.
+ * @return Negative error code on failure.
+ */
+static int mfd_sc18is604_reset_state_apply(const struct device *dev)
+{
+	static const uint8_t reset_state[][2] = {
+		{SC18IS604_REG_IO_CONFIG, 0},
+		{SC18IS604_REG_IO_STATE, 0},
+		{SC18IS604_REG_I2C_CLOCK, 0x19},
+		{SC18IS604_REG_I2C_TIMEOUT, 0},
+		{SC18IS604_REG_I2C_ADDRESS, 0},
+	};
+	int ret = 0;
+
+	LOG_WRN("%s: apply register reset state", dev->name);
+	for (int i = 0; i < ARRAY_SIZE(reset_state); ++i) {
+		ret = mfd_sc18is604_write_register(dev, reset_state[i][0],
+							reset_state[i][1]);
+		if (ret != 0) {
+			LOG_ERR("%s: failed to reset register %02x: %d",
+				dev->name, reset_state[i][0], ret);
+			goto end;
+		}
+	}
+
+end:
+	return ret;
+}
+
 static int mfd_sc18is604_clear_interrupt_source(const struct device *dev)
 {
 	uint8_t buf = 0;
+
 	/* Reset interrupt by reading from I2CStat register. */
 	int ret = READ_SC18IS604_REG(dev, I2C_STATUS, &buf);
 
@@ -164,9 +199,8 @@ static void mfd_sc18is604_interrupt_callback(const struct device *dev,
 					     struct gpio_callback *cb,
 					     gpio_port_pins_t pins)
 {
-	mfd_sc18is604_data_t * const data = CONTAINER_OF(cb,
-							 mfd_sc18is604_data_t,
-							 interrupt_callback);
+	struct mfd_sc18is604_data * const data = CONTAINER_OF(cb,
+			struct mfd_sc18is604_data, interrupt_cb);
 
 	/* Raise internal signal */
 	k_sem_give(&data->interrupt_signal);
@@ -178,7 +212,7 @@ static void mfd_sc18is604_interrupt_callback(const struct device *dev,
 static int mfd_sc18is604_check_chipid(const struct device *dev,
 				      k_timeout_t timeout)
 {
-	mfd_sc18is604_data_t * const data = dev->data;
+	struct mfd_sc18is604_data * const data = dev->data;
 	int ret = 0;
 
 	/* Lock device */
@@ -191,7 +225,11 @@ static int mfd_sc18is604_check_chipid(const struct device *dev,
 	k_sem_reset(&data->interrupt_signal);
 
 	/* Send command to place ID string in device buffer */
-	mfd_sc18is604_request_version_string(dev);
+	ret = mfd_sc18is604_request_version_string(dev);
+	if (ret != 0) {
+		ret = -EIO;
+		goto release_and_return;
+	}
 
 	/* Await interrupt signaling completion */
 	ret = k_sem_take(&data->interrupt_signal, timeout);
@@ -200,13 +238,21 @@ static int mfd_sc18is604_check_chipid(const struct device *dev,
 		goto release_and_return;
 	}
 
-	/* Clear hardware interrupt signal */
+	/*
+	 * Clear hardware interrupt signal, because the simple
+	 * data transfer by mfd_sc18is604_request_version_string()
+	 * causes at least one interrupt that can not handled
+	 * by the central MFD callback (missing interrupt source
+	 * identification inside the chip, only I2C events are
+	 * identifiable by the interrupt callback).
+	 */
 	mfd_sc18is604_clear_interrupt_source(dev);
 
 	/* Read generated string from device buffer */
-	char id[16] = {0};
+	char id[SC18IS604_VERSION_STRING_SIZE] = {0};
 
-	ret = mfd_sc18is604_read_buffer(dev, (uint8_t *) id, 16);
+	ret = mfd_sc18is604_read_buffer(dev, (uint8_t *) id,
+					SC18IS604_VERSION_STRING_SIZE);
 	if (ret != 0) {
 		ret = -EIO;
 		goto release_and_return;
@@ -220,6 +266,8 @@ static int mfd_sc18is604_check_chipid(const struct device *dev,
 		ret = -ENODEV;
 		goto release_and_return;
 	}
+
+	LOG_INF("%s: found \"%s\"", dev->name, id);
 
 release_and_return:
 	mfd_sc18is604_release(dev);
@@ -239,7 +287,7 @@ static int mfd_sc18is604_bind_interrupt(const struct device *dev,
 					const struct gpio_dt_spec *gpio,
 					const gpio_flags_t flags)
 {
-	mfd_sc18is604_data_t * const data = dev->data;
+	struct mfd_sc18is604_data * const data = dev->data;
 	int ret = 0;
 
 	if (gpio->port == NULL) {
@@ -256,11 +304,11 @@ static int mfd_sc18is604_bind_interrupt(const struct device *dev,
 		return ret;
 	}
 
-	gpio_init_callback(&data->interrupt_callback,
-				mfd_sc18is604_interrupt_callback,
-				BIT(gpio->pin));
+	gpio_init_callback(&data->interrupt_cb,
+			   mfd_sc18is604_interrupt_callback,
+			   BIT(gpio->pin));
 
-	ret = gpio_add_callback_dt(gpio, &data->interrupt_callback);
+	ret = gpio_add_callback_dt(gpio, &data->interrupt_cb);
 	if (ret != 0) {
 		LOG_ERR("%s: couldn't register callback on GPIO port %s",
 			dev->name, gpio->port->name);
@@ -272,8 +320,8 @@ static int mfd_sc18is604_bind_interrupt(const struct device *dev,
 
 static int mfd_sc18is604_init(const struct device *dev)
 {
-	const mfd_sc18is604_config_t * const config = dev->config;
-	mfd_sc18is604_data_t * const data = dev->data;
+	const struct mfd_sc18is604_config * const config = dev->config;
+	struct mfd_sc18is604_data * const data = dev->data;
 	int ret = 0;
 
 	/* Check parent bus readiness for bridge. */
@@ -289,7 +337,7 @@ static int mfd_sc18is604_init(const struct device *dev)
 	/* Initialize bus lock (initially open) */
 	k_sem_init(&data->lock, 1, 1);
 
-	/* Initialize interrupt signal (initially open) */
+	/* Initialize interrupt signal (initially closed) */
 	k_sem_init(&data->interrupt_signal, 0, 1);
 
 #ifdef CONFIG_MFD_SC18IS604_ASYNC
@@ -306,15 +354,17 @@ static int mfd_sc18is604_init(const struct device *dev)
 	ret = mfd_sc18is604_configure_gpio_pin(dev, &config->interrupt,
 						    GPIO_INPUT);
 	if (ret != 0) {
-		LOG_ERR("%s: interrupt GPIO port not given", dev->name);
-		return -EINVAL;
+		LOG_ERR("%s: interrupt GPIO pin configuration failed: %d",
+			dev->name, ret);
+		goto end;
 	}
 
 	/* Set up interrupt handling */
 	ret = mfd_sc18is604_bind_interrupt(dev, &config->interrupt,
 						GPIO_INT_EDGE_TO_ACTIVE);
 	if (ret != 0) {
-		LOG_ERR("%s: interrupt callback binding failed", dev->name);
+		LOG_ERR("%s: interrupt callback binding failed: %d",
+			dev->name, ret);
 		goto end;
 	}
 
@@ -322,20 +372,35 @@ static int mfd_sc18is604_init(const struct device *dev)
 	ret = mfd_sc18is604_configure_gpio_pin(dev, &config->reset,
 						    GPIO_OUTPUT_INACTIVE);
 	if (ret != 0) {
-		LOG_WRN("%s: reset GPIO port not given (work w/o chip reset)",
-			dev->name);
-	}
+		LOG_WRN("%s: reset GPIO pin configuration failed "
+			"(work w/o chip reset)", dev->name);
 
-	/* Reset device. */
-	ret = mfd_sc18is604_chip_reset(dev);
-	if (ret != 0) {
-		LOG_ERR("%s: couldn't reset device", dev->name);
-		goto end;
+		/* Reset device by applying register reset states. */
+		ret = mfd_sc18is604_reset_state_apply(dev);
+		if (ret != 0) {
+			LOG_ERR("%s: couldn't apply reset states: %d",
+				dev->name, ret);
+			goto end;
+		}
+
+		/* Clear hardware interrupt signal (like real reset do) */
+		mfd_sc18is604_clear_interrupt_source(dev);
+
+	} else {
+
+		/* Reset device. */
+		ret = mfd_sc18is604_chip_reset(dev);
+		if (ret != 0) {
+			LOG_ERR("%s: couldn't reset device: %d",
+				dev->name, ret);
+			goto end;
+		}
 	}
 
 	/* Check Chip ID */
 	ret = mfd_sc18is604_check_chipid(dev, K_SECONDS(5));
 	if (ret != 0) {
+		LOG_ERR("%s: couldn't read chip ID: %d", dev->name, ret);
 		return ret;
 	}
 
@@ -356,7 +421,8 @@ static int mfd_sc18is604_pm_device_pm_action(const struct device *dev,
 
 #define MFD_SC18IS604_DEFINE(inst)                                           \
                                                                              \
-	static const mfd_sc18is604_config_t mfd_sc18is604_config_##inst =    \
+	static const                                                         \
+	struct mfd_sc18is604_config mfd_sc18is604_config_##inst =            \
 	{                                                                    \
 		.spi = SPI_DT_SPEC_INST_GET(inst, SPI_OP_MODE_MASTER |       \
 						  SPI_TRANSFER_MSB |         \
@@ -375,14 +441,14 @@ static int mfd_sc18is604_pm_device_pm_action(const struct device *dev,
 					<= MFD_SC18IS604_SPI_HZ_MAX,         \
 			 "SPI bus clock too high");                          \
                                                                              \
-	static mfd_sc18is604_data_t mfd_sc18is604_data_##inst = { 0 };       \
+	static struct mfd_sc18is604_data mfd_sc18is604_data_##inst = { 0 };  \
                                                                              \
 	PM_DEVICE_DT_INST_DEFINE(inst, mfd_sc18is604_pm_device_pm_action);   \
                                                                              \
 	DEVICE_DT_INST_DEFINE(inst, mfd_sc18is604_init,                      \
-				  PM_DEVICE_DT_INST_GET(inst),               \
-				  &mfd_sc18is604_data_##inst,                \
-				  &mfd_sc18is604_config_##inst, POST_KERNEL, \
-				  CONFIG_MFD_SC18IS604_INIT_PRIORITY, NULL);
+			      PM_DEVICE_DT_INST_GET(inst),                   \
+			      &mfd_sc18is604_data_##inst,                    \
+			      &mfd_sc18is604_config_##inst, POST_KERNEL,     \
+			      CONFIG_MFD_SC18IS604_INIT_PRIORITY, NULL);
 
 DT_INST_FOREACH_STATUS_OKAY(MFD_SC18IS604_DEFINE);

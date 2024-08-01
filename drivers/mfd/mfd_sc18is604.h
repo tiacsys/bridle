@@ -46,14 +46,14 @@ BUILD_ASSERT(
  * This structure contains all of the state for a given SC18IM604 MFD
  * controller as well as the binding to related SPI device.
  */
-typedef struct mfd_sc18is604_config {
+struct mfd_sc18is604_config {
 	/** Specs of the underlying SPI bus. */
 	const struct spi_dt_spec spi;
 	/** Specs of this device's interrupt pin. */
 	const struct gpio_dt_spec interrupt;
 	/** Specs of this device's reset pin. */
 	const struct gpio_dt_spec reset;
-} mfd_sc18is604_config_t;
+};
 
 /**
  * @brief SC18IM604 MFD data
@@ -64,13 +64,13 @@ typedef struct mfd_sc18is604_config {
  * @ref mfd_sc18is604_data and @ref mfd_sc18is604_config are
  * synchronized using @a k_mutex.
  */
-typedef struct mfd_sc18is604_data {
+struct mfd_sc18is604_data {
 	/** Backreference to driver instance. */
 	const struct device *dev;
 	/** Lock for ensuring uninterrupted access to the MFD bus. */
 	struct k_sem lock;
 	/** Interrupt callback of this driver instance. */
-	struct gpio_callback interrupt_callback;
+	struct gpio_callback interrupt_cb;
 	/** Semaphore used for MFD-internal signaling of interrupts. */
 	struct k_sem interrupt_signal;
 	/** Interrupt callbacks registered by child devices. */
@@ -81,7 +81,7 @@ typedef struct mfd_sc18is604_data {
 	/** Stack area used by this driver instance's work queue. */
 	k_thread_stack_t *work_queue_stack;
 #endif /* CONFIG_MFD_SC18IS604_ASYNC */
-} mfd_sc18is604_data_t;
+};
 
 #ifdef __cplusplus
 }

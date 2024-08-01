@@ -14,7 +14,7 @@ int mfd_sc18is604_transfer(const struct device *dev,
 			   uint8_t *tx_data, size_t tx_len,
 			   uint8_t *rx_data, size_t rx_len)
 {
-	const mfd_sc18is604_config_t * const config = dev->config;
+	const struct mfd_sc18is604_config * const config = dev->config;
 	int ret = 0;
 
 	/*
