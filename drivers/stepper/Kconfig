@@ -21,6 +21,12 @@ config STEPPER_INIT_PRIORITY
 	help
 	  System initialization priority for stepper motor drivers.
 
+config STEPPER_SHELL
+	bool "Stepper shell"
+	depends on SHELL
+	help
+	  Enable stepper shell for testing.
+
 rsource "Kconfig.gpio"
 
 endif
