@@ -24,6 +24,12 @@ config STEPPER_INIT_PRIORITY
 config STEPPER_INFO
 	bool "Stepper motor info iterable section"
 
+config STEPPER_SHELL
+	bool "Stepper motor shell"
+	depends on SHELL
+	help
+	  Enable stepper shell for testing.
+
 rsource "Kconfig.gpio"
 
 endif
