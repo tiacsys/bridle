@@ -22,10 +22,10 @@ extern "C" {
  * This structure contains all of the state for a given SC18IM604
  * I2C controller as well as the binding to related MFD device.
  */
-typedef struct i2c_sc18is604_config {
+struct i2c_sc18is604_config {
 	/** Parent MFD device for real operations on hardware. */
 	const struct device *parent_dev;
-} i2c_sc18is604_config_t;
+};
 
 /**
  * @brief SC18IS604 I2C controller data
@@ -33,7 +33,7 @@ typedef struct i2c_sc18is604_config {
  * This structure contains data structures used by a SC18IM604 I2C controller.
  *
  */
-typedef struct i2c_sc18is604_data {
+struct i2c_sc18is604_data {
 	/** Back-reference to driver instance. */
 	const struct device *dev;
 	/** I2C bus configuration flags. */
@@ -41,7 +41,7 @@ typedef struct i2c_sc18is604_data {
 	/** Lock for transactions. */
 	struct k_sem lock;
 	/** Interrupt handling callback */
-	struct gpio_callback interrupt_callback;
+	struct gpio_callback interrupt_cb;
 	/** Lock for ongoing interrupt handling. */
 	struct k_sem interrupt_lock;
 	/** Signal for waiting on interrupts. */
@@ -54,7 +54,7 @@ typedef struct i2c_sc18is604_data {
 		uint8_t i2cstat;
 		struct k_poll_signal signal;
 	} interrupt_handling_data;
-} i2c_sc18is604_data_t;
+};
 
 /**
  *

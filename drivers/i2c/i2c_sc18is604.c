@@ -42,11 +42,10 @@ int await_signal(struct k_poll_signal *signal, int *result, k_timeout_t timeout)
 /* Initialize reading out the interrupt source. */
 static void i2c_sc18is604_interrupt_work_fn_initial(struct k_work *work)
 {
-	i2c_sc18is604_data_t * const data = CONTAINER_OF(work,
-							 i2c_sc18is604_data_t,
-							 interrupt_work_initial);
+	struct i2c_sc18is604_data * const data = CONTAINER_OF(work,
+			struct i2c_sc18is604_data, interrupt_work_initial);
 	const struct device *dev = data->dev;
-	const i2c_sc18is604_config_t * const config = dev->config;
+	const struct i2c_sc18is604_config * const config = dev->config;
 	int ret = 0;
 
 	/* Soft spinning on interrupt handling lock */
@@ -87,16 +86,15 @@ static void i2c_sc18is604_interrupt_work_fn_initial(struct k_work *work)
 /* Await the result of reading out the interrupt source and act on it. */
 static void i2c_sc18is604_interrupt_work_fn_final(struct k_work *work)
 {
-	struct k_work_delayable *work_delayable = CONTAINER_OF(work, struct k_work_delayable, work);
-	i2c_sc18is604_data_t * const data = CONTAINER_OF(work_delayable,
-							 i2c_sc18is604_data_t,
-							 interrupt_work_final);
+	struct k_work_delayable *work_delayable = CONTAINER_OF(work,
+					struct k_work_delayable, work);
+	struct i2c_sc18is604_data * const data = CONTAINER_OF(work_delayable,
+			struct i2c_sc18is604_data, interrupt_work_final);
 
 	/* Check result of i2c status readout */
 	int result = 0;
 	int signaled = await_signal(&data->interrupt_handling_data.signal,
-				    &result,
-				    K_NO_WAIT);
+				    &result, K_NO_WAIT);
 
 	if (!signaled) {
 		/* Transfer not complete, keep spinning */
@@ -124,12 +122,11 @@ end:
  * context.
  */
 static void i2c_sc18is604_interrupt_callback(const struct device *dev,
-					    struct gpio_callback *cb,
-					    gpio_port_pins_t pins)
+					     struct gpio_callback *cb,
+					     gpio_port_pins_t pins)
 {
-	i2c_sc18is604_data_t * const data = CONTAINER_OF(cb,
-							 i2c_sc18is604_data_t,
-							 interrupt_callback);
+	struct i2c_sc18is604_data * const data = CONTAINER_OF(cb,
+			struct i2c_sc18is604_data, interrupt_cb);
 
 	/*
 	 * Reading out the interrupt source requires bus communication, so we do
@@ -141,7 +138,7 @@ static void i2c_sc18is604_interrupt_callback(const struct device *dev,
 static inline int i2c_sc18is604_set_clock_speed(const struct device *dev,
 						uint32_t speed)
 {
-	const i2c_sc18is604_config_t * const config = dev->config;
+	const struct i2c_sc18is604_config * const config = dev->config;
 	uint8_t value;
 
 	switch (speed) {
@@ -162,8 +159,8 @@ static int i2c_sc18is604_write_message(const struct device *dev,
 				       uint8_t *data, size_t len,
 				       uint16_t addr)
 {
-	const i2c_sc18is604_config_t * const config = dev->config;
-	i2c_sc18is604_data_t * const drv_data = dev->data;
+	const struct i2c_sc18is604_config * const config = dev->config;
+	struct i2c_sc18is604_data * const drv_data = dev->data;
 	int ret;
 
 	uint8_t cmd[] = {
@@ -175,15 +172,15 @@ static int i2c_sc18is604_write_message(const struct device *dev,
 	k_poll_signal_reset(&drv_data->interrupt_signal);
 
 	/* Send 'I2C WRITE' command with data attached */
-	ret = mfd_sc18is604_transfer(config->parent_dev,
-					 cmd, ARRAY_SIZE(cmd),
-					 data, len, NULL, 0);
+	ret = mfd_sc18is604_transfer(config->parent_dev, cmd, ARRAY_SIZE(cmd),
+							 data, len, NULL, 0);
 	if (ret != 0) {
 		return ret;
 	}
 	/* Await interrupt signal */
 	int result = 0;
-	int signaled = await_signal(&drv_data->interrupt_signal, &result, K_FOREVER);
+	int signaled = await_signal(&drv_data->interrupt_signal,
+				    &result, K_FOREVER);
 
 	if (!signaled) {
 		return -EIO;
@@ -200,8 +197,8 @@ static int i2c_sc18is604_read_message(const struct device *dev,
 				      uint8_t *data, size_t len,
 				      uint16_t addr)
 {
-	const i2c_sc18is604_config_t * const config = dev->config;
-	i2c_sc18is604_data_t * const drv_data = dev->data;
+	const struct i2c_sc18is604_config * const config = dev->config;
+	struct i2c_sc18is604_data * const drv_data = dev->data;
 	int ret = 0;
 
 	uint8_t cmd[] = {
@@ -216,16 +213,16 @@ static int i2c_sc18is604_read_message(const struct device *dev,
 	k_poll_signal_reset(&drv_data->interrupt_signal);
 
 	/* Send 'I2C READ' command */
-	ret = mfd_sc18is604_transfer(config->parent_dev,
-					 cmd, ARRAY_SIZE(cmd),
-					 NULL, 0, NULL, 0);
+	ret = mfd_sc18is604_transfer(config->parent_dev, cmd, ARRAY_SIZE(cmd),
+							 NULL, 0, NULL, 0);
 	if (ret != 0) {
 		goto release_and_return;
 	}
 
 	/* Await interrupt signal */
 	int result = 0;
-	int signaled = await_signal(&drv_data->interrupt_signal, &result, K_FOREVER);
+	int signaled = await_signal(&drv_data->interrupt_signal,
+				    &result, K_FOREVER);
 
 	if (!signaled) {
 		ret = -EIO;
@@ -251,7 +248,7 @@ release_and_return:
 
 static int i2c_sc18is604_configure(const struct device *dev, uint32_t config)
 {
-	i2c_sc18is604_data_t * const data = dev->data;
+	struct i2c_sc18is604_data * const data = dev->data;
 
 	/* Device can only act as controller */
 	if ((config & I2C_MODE_CONTROLLER) != I2C_MODE_CONTROLLER) {
@@ -294,7 +291,7 @@ static int i2c_sc18is604_configure(const struct device *dev, uint32_t config)
 
 static int i2c_sc18is604_get_config(const struct device *dev, uint32_t *config)
 {
-	const i2c_sc18is604_data_t * const data = dev->data;
+	const struct i2c_sc18is604_data * const data = dev->data;
 	*config = data->i2c_config;
 	return 0;
 }
@@ -328,7 +325,7 @@ static int i2c_sc18is604_transfer(const struct device *dev,
 				  uint8_t num_msgs,
 				  uint16_t addr)
 {
-	i2c_sc18is604_data_t * const data = dev->data;
+	struct i2c_sc18is604_data * const data = dev->data;
 	int ret;
 
 	if (num_msgs == 0) {
@@ -363,13 +360,13 @@ static const struct i2c_driver_api i2c_sc18is604_api = {
 
 static int i2c_sc18is604_init(const struct device *dev)
 {
-	const i2c_sc18is604_config_t * const config = dev->config;
-	i2c_sc18is604_data_t * const data = dev->data;
+	const struct i2c_sc18is604_config * const config = dev->config;
+	struct i2c_sc18is604_data * const data = dev->data;
 	int ret = 0;
 
 	/* Check parent bus readiness */
 	if (!device_is_ready(config->parent_dev)) {
-		LOG_ERR("%s: MFD device %s not ready",
+		LOG_ERR("%s: bridge device %s not ready",
 			dev->name, config->parent_dev->name);
 		return -ENODEV;
 	}
@@ -385,20 +382,20 @@ static int i2c_sc18is604_init(const struct device *dev)
 	k_poll_signal_init(&data->interrupt_signal);
 
 	/* Register interrupt callback with parent MFD */
-	gpio_init_callback(&data->interrupt_callback,
-					   i2c_sc18is604_interrupt_callback,
-					   0xffffff);
-	ret = mfd_sc18is604_add_callback(config->parent_dev, &data->interrupt_callback);
+	gpio_init_callback(&data->interrupt_cb,
+			   i2c_sc18is604_interrupt_callback, 0xffffffff);
+	ret = mfd_sc18is604_add_callback(config->parent_dev, &data->interrupt_cb);
 	if (ret != 0) {
-		LOG_ERR("Failed to register interrupt callback for %s with %s",
-				config->parent_dev->name,
-				dev->name);
+		LOG_ERR("%s: failed to register interrupt callback on %s: %d",
+			dev->name, config->parent_dev->name, ret);
 		return ret;
 	}
 
 	/* Set up work items for interrupt handling */
-	k_work_init(&data->interrupt_work_initial, i2c_sc18is604_interrupt_work_fn_initial);
-	k_work_init_delayable(&data->interrupt_work_final, i2c_sc18is604_interrupt_work_fn_final);
+	k_work_init(&data->interrupt_work_initial,
+		    i2c_sc18is604_interrupt_work_fn_initial);
+	k_work_init_delayable(&data->interrupt_work_final,
+			      i2c_sc18is604_interrupt_work_fn_final);
 
 	/* Initialize data used by interrupt handling work items */
 	k_poll_signal_init(&data->interrupt_handling_data.signal);
@@ -421,20 +418,21 @@ static int i2c_sc18is604_pm_device_pm_action(const struct device *dev,
 
 #define I2C_SC18IS604_DEFINE(inst)                                            \
                                                                               \
-	static const i2c_sc18is604_config_t i2c_sc18is604_config_##inst =     \
+	static const                                                          \
+	struct i2c_sc18is604_config i2c_sc18is604_config_##inst =             \
 	{                                                                     \
 		.parent_dev = DEVICE_DT_GET(DT_INST_BUS(inst)),               \
 	};                                                                    \
                                                                               \
-	static i2c_sc18is604_data_t i2c_sc18is604_data_##inst = { };          \
+	static struct i2c_sc18is604_data i2c_sc18is604_data_##inst = { };     \
                                                                               \
 	PM_DEVICE_DT_INST_DEFINE(inst, i2c_sc18is604_pm_device_pm_action);    \
                                                                               \
 	DEVICE_DT_INST_DEFINE(inst, i2c_sc18is604_init,                       \
-				  PM_DEVICE_DT_INST_GET(inst),                \
-				  &i2c_sc18is604_data_##inst,                 \
-				  &i2c_sc18is604_config_##inst, POST_KERNEL,  \
-				  CONFIG_I2C_SC18IS604_INIT_PRIORITY,         \
-				  &i2c_sc18is604_api);
+			      PM_DEVICE_DT_INST_GET(inst),                    \
+			      &i2c_sc18is604_data_##inst,                     \
+			      &i2c_sc18is604_config_##inst, POST_KERNEL,      \
+			      CONFIG_I2C_SC18IS604_INIT_PRIORITY,             \
+			      &i2c_sc18is604_api);
 
 DT_INST_FOREACH_STATUS_OKAY(I2C_SC18IS604_DEFINE);
