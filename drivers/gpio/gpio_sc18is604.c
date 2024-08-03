@@ -187,6 +187,25 @@ static int gpio_sc18is604_pin_configure(const struct device *dev,
 
 	k_sem_give(&data->lock);
 
+	/* For output pins, state might also be configured */
+	if ((flags & GPIO_OUTPUT) == GPIO_OUTPUT) {
+		if ((flags & GPIO_OUTPUT_INIT_HIGH) == GPIO_OUTPUT_INIT_HIGH) {
+			pin_state |= BIT(pin);
+		} else if ((flags & GPIO_OUTPUT_INIT_LOW) == GPIO_OUTPUT_INIT_LOW) {
+			pin_state &= ~BIT(pin);
+		}
+
+		/*
+		 * Apply pin state before pin configuration in order to avoid
+		 * signal interference (glitches) due to delays caused by the
+		 * asynchronous communication principle with the bridge.
+		 */
+		ret = gpio_sc18is604_pin_write_state(dev, pin_state);
+		if (ret != 0) {
+			goto end;
+		}
+	}
+
 	/* Prepare new configuration for target pin */
 	shift = 2 * pin; /* Each pin has two configuration bits */
 	bits = 0b00;
@@ -204,25 +223,10 @@ static int gpio_sc18is604_pin_configure(const struct device *dev,
 	pin_config &= ~(0b11 << shift); /* Clear config bits */
 	pin_config |= (bits << shift);  /* Set new config */
 
-	/* Apply configuration */
+	/* Apply configuration (in principle after pin state). */
 	ret = gpio_sc18is604_pin_write_config(dev, pin_config);
 	if (ret != 0) {
 		goto end;
-	}
-
-	/* For output pins, state might also be configured */
-	if ((flags & GPIO_OUTPUT) == GPIO_OUTPUT) {
-		if ((flags & GPIO_OUTPUT_INIT_HIGH) == GPIO_OUTPUT_INIT_HIGH) {
-			pin_state |= BIT(pin);
-		} else if ((flags & GPIO_OUTPUT_INIT_LOW) == GPIO_OUTPUT_INIT_LOW) {
-			pin_state &= ~BIT(pin);
-		}
-
-		/* Apply pin state */
-		ret = gpio_sc18is604_pin_write_state(dev, pin_state);
-		if (ret != 0) {
-			goto end;
-		}
 	}
 
 end:
