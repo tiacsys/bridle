@@ -395,7 +395,124 @@ static void mfd_sc16is75x_interrupt_callback(const struct device *dev,
 	k_work_submit(&data->interrupt_work_init);
 }
 
+/**
+ * @brief Set up interrupt handling.
+ *
+ * @param dev An SC16IS75X MFD device.
+ * @param gpio The GPIO specification from devicetree.
+ * @param flags Additional GPIO flags.
+ * @retval 0 On success.
+ * @return Negative error code on failure.
+ */
+static int mfd_sc16is75x_bind_interrupt(const struct device *dev,
+					const struct gpio_dt_spec *gpio,
+					const gpio_flags_t flags)
+{
+	struct mfd_sc16is75x_data * const data = dev->data;
+	int ret = 0;
+
+	if (gpio->port == NULL) {
+		return -EINVAL;
+	}
+
+	LOG_DBG("%s: bind GPIO port %s, pin %d to interrupt handling",
+		dev->name, gpio->port->name, gpio->pin);
+
+	ret = gpio_pin_interrupt_configure_dt(gpio, flags);
+	if (ret != 0) {
+		LOG_ERR("%s: couldn't enable interrupt on GPIO pin %d",
+			dev->name, gpio->pin);
+		return ret;
+	}
+
+	gpio_init_callback(&data->interrupt_cb,
+			   mfd_sc16is75x_interrupt_callback,
+			   BIT(gpio->pin));
+
+	ret = gpio_add_callback_dt(gpio, &data->interrupt_cb);
+	if (ret != 0) {
+		LOG_ERR("%s: couldn't register callback on GPIO port %s",
+			dev->name, gpio->port->name);
+		return ret;
+	}
+
+	return 0;
+}
+
 #endif /* CONFIG_MFD_SC16IS75X_INTERRUPTS */
+
+/**
+ * @brief Reset device.
+ *
+ * @param dev An SC16IS75X MFD device.
+ *
+ * @retval 0 On success.
+ * @return Negative error code on failure.
+ */
+static int mfd_sc16is75x_chip_reset(const struct device *dev)
+{
+	const struct mfd_sc16is75x_config * const config = dev->config;
+	int ret = 0;
+
+	LOG_DBG("%s: resetting device", dev->name);
+	if (config->reset.port != NULL) {
+		ret = gpio_pin_set_dt(&config->reset, 1);
+		if (ret != 0)
+			goto end;
+
+		/* Pull reset for a few µs. */
+		k_usleep(5);
+
+		ret = gpio_pin_set_dt(&config->reset, 0);
+		if (ret != 0)
+			goto end;
+
+		/* Then wait another few µs for device startup. */
+		k_usleep(5);
+	}
+
+end:
+	return ret;
+}
+
+/**
+ * @brief Set up GPIO pin.
+ *
+ * @param dev An SC16IS75X MFD device.
+ * @param gpio The GPIO specification from devicetree.
+ * @param flags Additional GPIO flags.
+ *
+ * @retval 0 On success.
+ * @return Negative error code on failure.
+ */
+static int mfd_sc16is75x_configure_gpio_pin(const struct device *dev,
+					    const struct gpio_dt_spec *gpio,
+					    const gpio_flags_t flags)
+{
+	int ret = 0;
+
+	if (gpio->port != NULL) {
+		LOG_DBG("%s: configure GPIO port %s, pin %d",
+			dev->name, gpio->port->name, gpio->pin);
+
+		if (!gpio_is_ready_dt(gpio)) {
+			LOG_ERR("%s: GPIO port %s not ready",
+				dev->name, gpio->port->name);
+			return -ENODEV;
+		}
+
+		ret = gpio_pin_configure_dt(gpio, flags);
+		if (ret != 0) {
+			LOG_ERR("%s: couldn't configure GPIO pin %d",
+				dev->name, gpio->pin);
+			return ret;
+		}
+	} else {
+		return -EINVAL;
+	}
+
+	return 0;
+}
 
 static int mfd_sc16is75x_init(const struct device *dev)
 {
@@ -416,28 +533,21 @@ static int mfd_sc16is75x_init(const struct device *dev)
 		goto end;
 	}
 
-	/* Configure reset GPIO pin, confirm device readiness first */
-	if (gpio_is_ready_dt(&config->reset)) {
-		ret = gpio_pin_configure_dt(&config->reset, GPIO_OUTPUT);
-		if (ret != 0) {
-			LOG_ERR("%s: configure reset pin failed: %d",
-				dev->name, ret);
-			goto end;
-		}
-	} else {
-		LOG_ERR("%s: GPIO device %s with reset pin not ready",
-			dev->name, config->reset.port->name);
-		return -ENODEV;
+	/* Configure reset output pin. */
+	ret = mfd_sc16is75x_configure_gpio_pin(dev, &config->reset,
+						    GPIO_OUTPUT);
+	if (ret != 0) {
+		LOG_ERR("%s: reset GPIO pin configuration failed: %d",
+			dev->name, ret);
+		goto end;
 	}
 
-	/*
-	 * Pull reset for a few µs, then wait another
-	 * few µs for device startup.
-	 */
-	gpio_pin_set_dt(&config->reset, 1); /* assert */
-	k_usleep(5);
-	gpio_pin_set_dt(&config->reset, 0); /* deassert */
-	k_usleep(5);
+	/* Reset device. */
+	ret = mfd_sc16is75x_chip_reset(dev);
+	if (ret != 0) {
+		LOG_ERR("%s: couldn't reset device: %d", dev->name, ret);
+		goto end;
+	}
 
 #ifdef CONFIG_MFD_SC16IS75X_ASWQ
 	/* Initialize private work queue. */
@@ -457,18 +567,13 @@ static int mfd_sc16is75x_init(const struct device *dev)
 	/* Initialize interrupt handling lock as open */
 	k_sem_init(&data->interrupt_lock, 1, 1);
 
-	/* Configure interrupt GPIO pin, confirm device readiness first */
-	if (gpio_is_ready_dt(&config->interrupt)) {
-		ret = gpio_pin_configure_dt(&config->interrupt, GPIO_INPUT);
-		if (ret != 0) {
-			LOG_ERR("%s: configure interrupt pin failed: %d",
-				dev->name, ret);
-			goto end;
-		}
-	} else {
-		LOG_ERR("%s: GPIO device %s with interrupt pin not ready",
-			dev->name, config->interrupt.port->name);
-		return -ENODEV;
+	/* Configure interrupt output pin. */
+	ret = mfd_sc16is75x_configure_gpio_pin(dev, &config->reset,
+						    GPIO_INPUT);
+	if (ret != 0) {
+		LOG_ERR("%s: interrupt GPIO pin configuration failed: %d",
+			dev->name, ret);
+		goto end;
 	}
 
 	/* Set up interrupt handling */
@@ -477,20 +582,11 @@ static int mfd_sc16is75x_init(const struct device *dev)
 	k_work_init_delayable(&data->interrupt_work_final,
 			      mfd_sc16is75x_interrupt_work_fn_final);
 
-	gpio_init_callback(&data->interrupt_cb,
-			   mfd_sc16is75x_interrupt_callback,
-			   BIT(config->interrupt.pin));
-
-	ret = gpio_add_callback_dt(&config->interrupt, &data->interrupt_cb);
-	if (ret < 0) {
-		goto end;
-	}
-
-	/* Enable interrupts */
-	ret = gpio_pin_interrupt_configure_dt(&config->interrupt,
-					      GPIO_INT_EDGE_TO_ACTIVE);
+	/* Set up interrupt handling */
+	ret = mfd_sc16is75x_bind_interrupt(dev, &config->interrupt,
+						GPIO_INT_EDGE_TO_ACTIVE);
 	if (ret != 0) {
-		LOG_ERR("%s: enable interrupt on interrupt pin failed: %d",
+		LOG_ERR("%s: interrupt callback binding failed: %d",
 			dev->name, ret);
 		goto end;
 	}
