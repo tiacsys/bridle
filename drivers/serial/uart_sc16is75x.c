@@ -1151,8 +1151,8 @@ static int uart_sc16is75x_init(const struct device *dev)
 
 	ret = mfd_sc16is75x_add_callback(config->bus, &data->interrupt_cb);
 	if (ret != 0) {
-		LOG_ERR("%s: register interrupt callback failed: %d",
-			dev->name, ret);
+		LOG_ERR("%s: failed to register interrupt callback on %s: %d",
+			dev->name, config->bus->name, ret);
 		goto end;
 	}
 
