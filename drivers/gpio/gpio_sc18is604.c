@@ -25,14 +25,14 @@ LOG_MODULE_REGISTER(gpio_sc18is604, CONFIG_GPIO_LOG_LEVEL);
  * This structure contains all of the state for a given SC18IM604 GPIO
  * controller as well as the binding to related MFD device.
  */
-typedef struct gpio_sc18is604_config {
+struct gpio_sc18is604_config {
 	/** Common @ref gpio_driver_config (needs to be first) */
 	struct gpio_driver_config common;
 	/** Number of pins available in the given GPIO controller instance */
 	const gpio_pin_t num_pins;
 	/** Backend MFD (bridge) device for real operations on hardware */
 	const struct device *bridge;
-} gpio_sc18is604_config_t;
+};
 
 /**
  * @brief SC18IM604 GPIO controller data
@@ -43,7 +43,7 @@ typedef struct gpio_sc18is604_config {
  * Changes to @ref gpio_sc18is604_data and @ref gpio_sc18is604_config are
  * synchronized using @a k_sem.
  */
-typedef struct gpio_sc18is604_data {
+struct gpio_sc18is604_data {
 	/** Common @ref gpio_driver_data (needs to be first) */
 	struct gpio_driver_data common;
 	/** Semaphore to synchronize accesses to driver data and config */
@@ -52,13 +52,13 @@ typedef struct gpio_sc18is604_data {
 	uint8_t pin_config;
 	/** GPIO pin level state */
 	uint8_t pin_state;
-} gpio_sc18is604_data_t;
+};
 
 static int gpio_sc18is604_pin_write_config(const struct device *dev,
 					   uint8_t val)
 {
-	const gpio_sc18is604_config_t * const config = dev->config;
-	gpio_sc18is604_data_t * const data = dev->data;
+	const struct gpio_sc18is604_config * const config = dev->config;
+	struct gpio_sc18is604_data * const data = dev->data;
 	int ret = 0;
 
 	ret = WRITE_SC18IS604_REG(config->bridge, IO_CONFIG, val);
@@ -79,8 +79,8 @@ end:
 static int gpio_sc18is604_pin_read_config(const struct device *dev,
 					  uint8_t *val)
 {
-	const gpio_sc18is604_config_t * const config = dev->config;
-	gpio_sc18is604_data_t * const data = dev->data;
+	const struct gpio_sc18is604_config * const config = dev->config;
+	struct gpio_sc18is604_data * const data = dev->data;
 	int ret = 0;
 
 	ret = READ_SC18IS604_REG(config->bridge, IO_CONFIG, val);
@@ -101,8 +101,8 @@ end:
 static int gpio_sc18is604_pin_write_state(const struct device *dev,
 					  uint8_t val)
 {
-	const gpio_sc18is604_config_t * const config = dev->config;
-	gpio_sc18is604_data_t * const data = dev->data;
+	const struct gpio_sc18is604_config * const config = dev->config;
+	struct gpio_sc18is604_data * const data = dev->data;
 	int ret = 0;
 
 	ret = WRITE_SC18IS604_REG(config->bridge, IO_STATE, val);
@@ -123,8 +123,8 @@ end:
 static int gpio_sc18is604_pin_read_state(const struct device *dev,
 					 uint8_t *val)
 {
-	const gpio_sc18is604_config_t * const config = dev->config;
-	gpio_sc18is604_data_t * const data = dev->data;
+	const struct gpio_sc18is604_config * const config = dev->config;
+	struct gpio_sc18is604_data * const data = dev->data;
 	int ret = 0;
 
 	ret = READ_SC18IS604_REG(config->bridge, IO_STATE, val);
@@ -145,7 +145,7 @@ end:
 static int gpio_sc18is604_pin_configure(const struct device *dev,
 					gpio_pin_t pin, gpio_flags_t flags)
 {
-	gpio_sc18is604_data_t * const data = dev->data;
+	struct gpio_sc18is604_data * const data = dev->data;
 	uint8_t shift, bits, pin_config, pin_state;
 	int ret = 0;
 
@@ -255,7 +255,7 @@ end:
 static int gpio_sc18is604_set_masked_raw(const struct device *dev,
 					 uint32_t mask, uint32_t value)
 {
-	gpio_sc18is604_data_t * const data = dev->data;
+	struct gpio_sc18is604_data * const data = dev->data;
 	uint8_t pin_state;
 
 	/* Can't do operations from an ISR */
@@ -287,7 +287,7 @@ static int gpio_sc18is604_clear_bits_raw(const struct device *dev, uint32_t pins
 
 static int gpio_sc18is604_toggle_bits(const struct device *dev, uint32_t pins)
 {
-	gpio_sc18is604_data_t * const data = dev->data;
+	struct gpio_sc18is604_data * const data = dev->data;
 	uint8_t pin_state;
 
 	/* Can't do operations from an ISR */
@@ -318,8 +318,8 @@ static const struct gpio_driver_api gpio_sc18is604_api = {
 
 static int gpio_sc18is604_init(const struct device *dev)
 {
-	const gpio_sc18is604_config_t * const config = dev->config;
-	gpio_sc18is604_data_t * const data = dev->data;
+	const struct gpio_sc18is604_config * const config = dev->config;
+	struct gpio_sc18is604_data * const data = dev->data;
 	uint8_t buf;
 
 	/* Check MFD (bridge) readiness */
@@ -335,8 +335,8 @@ static int gpio_sc18is604_init(const struct device *dev)
 	gpio_sc18is604_pin_read_state(dev, &buf);
 	gpio_sc18is604_pin_read_config(dev, &buf);
 
-	LOG_DBG("%s: ready for %u pins with bridge over %s!", dev->name,
-		config->num_pins, config->bridge->name);
+	LOG_DBG("%s: ready for %u pins with bridge backend over %s!",
+		dev->name, config->num_pins, config->bridge->name);
 	return 0;
 }
 
@@ -353,7 +353,8 @@ static int gpio_sc18is604_pm_device_pm_action(const struct device *dev,
 
 #define GPIO_SC18IS604_DEFINE(inst)                                          \
                                                                              \
-	static const gpio_sc18is604_config_t gpio_sc18is604_config_##inst =  \
+	static const                                                         \
+	struct gpio_sc18is604_config gpio_sc18is604_config_##inst =          \
 	{                                                                    \
 		.common = {                                                  \
 			.port_pin_mask =                                     \
@@ -366,15 +367,15 @@ static int gpio_sc18is604_pm_device_pm_action(const struct device *dev,
 		DT_INST_PROP(inst, ngpios) <= SC18IS604_IO_NUM_PINS_MAX,     \
 		"Too many ngpios");                                          \
                                                                              \
-	static gpio_sc18is604_data_t gpio_sc18is604_data_##inst;             \
+	static struct gpio_sc18is604_data gpio_sc18is604_data_##inst;        \
                                                                              \
 	PM_DEVICE_DT_INST_DEFINE(inst, gpio_sc18is604_pm_device_pm_action);  \
                                                                              \
 	DEVICE_DT_INST_DEFINE(inst, gpio_sc18is604_init,                     \
-				  PM_DEVICE_DT_INST_GET(inst),               \
-				  &gpio_sc18is604_data_##inst,               \
-				  &gpio_sc18is604_config_##inst, POST_KERNEL,\
-				  CONFIG_GPIO_SC18IS604_INIT_PRIORITY,       \
-				  &gpio_sc18is604_api);
+			      PM_DEVICE_DT_INST_GET(inst),                   \
+			      &gpio_sc18is604_data_##inst,                   \
+			      &gpio_sc18is604_config_##inst, POST_KERNEL,    \
+			      CONFIG_GPIO_SC18IS604_INIT_PRIORITY,           \
+			      &gpio_sc18is604_api);
 
 DT_INST_FOREACH_STATUS_OKAY(GPIO_SC18IS604_DEFINE);
