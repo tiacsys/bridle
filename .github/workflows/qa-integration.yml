@@ -127,14 +127,19 @@ jobs:
           west twister --verbose --jobs 6 \
             --retry-failed 5 --retry-interval 60 \
             --outdir twister-out --no-clean --inline-logs \
-            --enable-size-report --platform-reports \
-            --integration \
+            --integration --no-detailed-test-id \
             --testsuite-root bridle/samples/button \
             --testsuite-root bridle/samples/buzzer \
             --testsuite-root bridle/samples/helloshell \
             --testsuite-root bridle/samples/ubx_gnss \
             --testsuite-root bridle/samples/waveshare_pico_10dof_imu_sensor \
             --testsuite-root bridle/samples/waveshare_pico_environment_sensor
+
+      - name: Upload integration test logging
+        uses: actions/upload-artifact@v4
+        with:
+          name: twister-samples.log
+          path: workspace/twister-out/twister.log
 
       - name: Upload integration test results
         uses: actions/upload-artifact@v4
@@ -252,11 +257,16 @@ jobs:
           west twister --verbose --jobs 6 \
             --retry-failed 5 --retry-interval 60 \
             --outdir twister-out --no-clean --inline-logs \
-            --enable-size-report --platform-reports \
             --integration --cmake-only \
             --quarantine-list bridle/tests/quarantine.yaml \
             --testsuite-root bridle/tests/shields/grove/dts_bindings \
             --testsuite-root bridle/tests/shields/x_grove_testbed/dts_bindings
+
+      - name: Upload integration test logging
+        uses: actions/upload-artifact@v4
+        with:
+          name: twister-shields.log
+          path: workspace/twister-out/twister.log
 
       - name: Upload integration test results
         uses: actions/upload-artifact@v4
@@ -360,7 +370,6 @@ jobs:
           west twister --verbose --jobs 2 \
             --retry-failed 5 --retry-interval 60 \
             --outdir twister-out --no-clean --inline-logs \
-            --enable-size-report --platform-reports \
             --device-testing --hardware-map ${HARDWARE_MAP} \
             --extra-args SHIELD="loopback_test_tmph" \
             --alt-config-root bridle/zephyr/alt-config \
@@ -376,6 +385,12 @@ jobs:
             --tag spi \
             --tag uart \
             --tag can
+
+      - name: Upload integration test logging
+        uses: actions/upload-artifact@v4
+        with:
+          name: twister-targets.log
+          path: workspace/twister-out/twister.log
 
       - name: Upload integration test results
         uses: actions/upload-artifact@v4
