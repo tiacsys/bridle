@@ -111,6 +111,15 @@ jobs:
           name: compliance.xml
           path: workspace/bridle/compliance.xml
 
+      - name: Convert compliance test reports to annotations
+        uses: mikepenz/action-junit-report@v4
+        with:
+          check_name: compliance-report (bridle)
+          report_paths: "**/bridle/compliance.xml"
+          require_tests: true
+          fail_on_failure: false
+        if: always()
+
       - name: Check warnings
         working-directory: workspace/bridle
         run: |
