@@ -1,7 +1,7 @@
 .. _bridle_release_notes_361:
 
-|BRIDLE| 3.6.1 Release Notes (Working draft)
-############################################
+|BRIDLE| 3.6.1 Release Notes
+############################
 
 This project demonstrate the integration of |TIAC| support in open
 source projects, like the Zephyr RTOS, with libraries and source code
@@ -10,8 +10,6 @@ product development.
 
 Highlights
 **********
-
-* :brd:`NOT YET, tbd.`
 
 * Add the u-blox library (**ubxlib**) and provide a simple GNSS example.
 * Add *Raspberry Pi Pico* **Clock** *Shields*.
@@ -94,14 +92,12 @@ For more details, see: :ref:`repos_and_revs`.
        | **optional** : *tf-m-tests*
      - | tiacsys/v3.6-branch
        | (v3.6-branch)
-     - v3.6.1
+     - v3.6.0
 
 .. note – component list fetched from 'west list -a -f "{name:24} {groups:40}"'
 
 Supported boards
 ****************
-
-:brd:`NOT YET, tbd.`
 
 * Arduino/Genuino Zero
 * PicoBoy Mini-Handheld
@@ -122,8 +118,6 @@ Supported boards
 Supported shields
 *****************
 
-:brd:`NOT YET, tbd.`
-
 * Seeed Studio Grove Interconnect Shields
 * Grove Button Shields
 * Grove LED Shields
@@ -138,16 +132,12 @@ Supported shields
 Supported snippets
 ******************
 
-:brd:`NOT YET, tbd.`
-
 * USB Console Snippet (usb-console)
 * PWM Servomotor Preset Snippet (pwm-servo)
 * CAN timing adjustments (can-timing-adj)
 
 Change log
 **********
-
-:brd:`NOT YET, tbd.`
 
 * When ``getopt()`` is active (``CONFIG_SHELL_GETOPT=y``), the Zephyr shell
   is not parsing command handler to print help message. It must be done
@@ -240,8 +230,6 @@ Build Infrastructure
 
 Take over the new build principles from Zephyr:
 
-:brd:`NOT YET, tbd.`
-
 * Use the new upstream *MIPI DBI API* for all *ILI9xxx* based displays.
 * Take over upstream ``ci/check_compliance.py`` from Zephyr, adapt with all
   the needs for Bridle and extend support for :ref:`external module roots
@@ -276,8 +264,6 @@ Take over the new build principles from Zephyr:
 Documentation
 =============
 
-:brd:`NOT YET, tbd.`
-
 1. All scattered links to external resources and internal references to
    sections in the various docsets (e.g. Bridle or Zephyr) were moved to
    a central location in the files `links.txt` and `shortcuts.txt` and
@@ -293,6 +279,8 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`252` - [FCR] Upgrade to Zephyr SDK 0.16.8
+* :github:`215` - [BUG] ubxlib: missing header ``u_timeout.h``
 * :github:`205` - [FCR] Bump to Zephyr v3.6
 * :github:`202` - [FER] Make the u-blox library GNSS example fit for demonstration
 * :github:`200` - [FCR] Support for MCUXpresso IDE (Arm GNU Toolchain)
