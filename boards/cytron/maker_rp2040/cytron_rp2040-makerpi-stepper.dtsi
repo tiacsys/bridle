@@ -1,0 +1,21 @@
+/*
+ * Copyright (c) 2023-2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
+/ {
+	gpio_stepper {
+		compatible = "gpio-stepper";
+		status = "okay";
+		gpios = <&gpio0 9 GPIO_ACTIVE_HIGH>,	/* M1B - A1/A+ */
+			<&gpio0 8 GPIO_ACTIVE_HIGH>,	/* M1A - A2/A- */
+			<&gpio0 11 GPIO_ACTIVE_HIGH>,	/* M2B - B1/B+ */
+			<&gpio0 10 GPIO_ACTIVE_HIGH>;	/* M2A - B2/B- */
+	};
+};
+
+&gpio0 {
+	status = "okay";
+};
