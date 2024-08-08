@@ -130,6 +130,7 @@ Supported shields
 * Waveshare LCD Modules
 * Waveshare Pico 10-DOF IMU Sensor
 * Waveshare Pico Environment Sensor
+* SC16IS75x Breakout Boards
 
 Supported snippets
 ******************
@@ -174,6 +175,16 @@ Change log
 
     * *EP-0164* **Pico Breadboard Kit** shield by 52Pi (GeeekPi)
     * *EP-0172* **Pico Breadboard Kit Plus** shield by 52Pi (GeeekPi)
+
+  * *SC16IS75x Breakout Boards as Shields*:
+
+    * *BOB-09981* **I2C/SPI-to-UART Breakout - SC16IS750** shield by SparkFun
+    * *CJMCU-750* **I2C/SPI-to-UART Breakout - SC16IS750** shield by CJMCU
+      (Changjiang Intelligent Technology Co., Ltd.)
+    * *GT-SC16IS750* **I2C/SPI-to-UART Breakout - SC16IS750** shield by Q-Baihe
+      (Wuhan Lilly Electronics Co., Ltd.)
+    * *CJMCU-752* **I2C/SPI-to-UART Breakout - SC16IS752** shield by CJMCU
+      (Changjiang Intelligent Technology Co., Ltd.)
 
 The following sections provide detailed lists of changes by component.
 
@@ -238,6 +249,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`257` - [HW] SC16IS75x Breakout Boards as Shields
 * :github:`254` - [FCR] Bump to Zephyr v3.7
 * :github:`252` - [FCR] Upgrade to Zephyr SDK 0.16.8
 * :github:`247` - [HW] NXP SC18IS604 SPI to I2C bridge
