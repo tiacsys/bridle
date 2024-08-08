@@ -131,6 +131,7 @@ Supported shields
 * Waveshare Pico 10-DOF IMU Sensor
 * Waveshare Pico Environment Sensor
 * SC16IS75x Breakout Boards
+* NXP SC18IS604-EVB
 
 Supported snippets
 ******************
@@ -139,8 +140,17 @@ Supported snippets
 
 * USB Console Snippet (usb-console)
 * PWM Servomotor Preset Snippet (pwm-servo)
+* Delete Default Devicetree Aliases Snippet (del-default-aliases)
+* BME280 Sensor Sample Tweaks (samples-sensor-bme280-tweaks)
 * CAN timing adjustments (can-timing-adj)
 * Watchdog timing adjustments (wdt-timing-adj)
+* Build all Display drivers test adjustments (tstdrv-bldall-display-adj)
+* Build all GPIO drivers test adjustments (tstdrv-bldall-gpio-adj)
+* Build all I2C drivers test adjustments (tstdrv-bldall-i2c-adj)
+* Build all MFD drivers test adjustments (tstdrv-bldall-mfd-adj)
+* Build all RTC drivers test adjustments (tstdrv-bldall-rtc-adj)
+* Build all Sensor drivers test adjustments (tstdrv-bldall-sensor-adj)
+* Build all UART drivers test adjustments (tstdrv-bldall-uart-adj)
 
 Change log
 **********
@@ -185,6 +195,10 @@ Change log
       (Wuhan Lilly Electronics Co., Ltd.)
     * *CJMCU-752* **I2C/SPI-to-UART Breakout - SC16IS752** shield by CJMCU
       (Changjiang Intelligent Technology Co., Ltd.)
+
+  * *NXP SC18IS604-EVB as Shield*:
+
+    * *SC18IS604-EVB* **SPI-to-I2C Evaluation Kit - SC18IS604** shield by NXP
 
 The following sections provide detailed lists of changes by component.
 
@@ -249,6 +263,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`258` - [HW] NXP SC18IS604-EVB as Shield
 * :github:`257` - [HW] SC16IS75x Breakout Boards as Shields
 * :github:`254` - [FCR] Bump to Zephyr v3.7
 * :github:`252` - [FCR] Upgrade to Zephyr SDK 0.16.8
