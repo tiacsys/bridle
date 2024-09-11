@@ -1,0 +1,23 @@
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+    GPIO pins exposed on TiaC SC18IS604 shields.
+
+    The TiaC SC18IS604 shields features multiple separate headers. The
+    GPIO interface described by this binding comprises the pins exposed
+    on header X1, on pins 1 through 5 (pin 6 is wired to GND).
+
+          .-.
+        0 |o| IO0
+        1 |o| IO1
+        2 |o| IO2
+        3 |o| IO3
+        4 |o| IO4
+        - |o| GND
+          `-´
+          X1 (GPIO)
+
+compatible: "tiac,604-gpio-header"
+
+include: [base.yaml, gpio-nexus.yaml]
