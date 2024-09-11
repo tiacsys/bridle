@@ -1,0 +1,12 @@
+This is based on the Bridle sample :ref:`button-sample` in polling mode.
+
+.. zephyr-app-commands::
+   :app: bridle/samples/button
+   :build-dir: tcs_604_ard
+   :board: nucleo_f746zg
+   :shield: "tcs_604_ard;grove_btn_d4;grove_led_d3;grove_sens_bmp280;tcs_604_x_grove_testbed"
+   :conf: prj-poll.conf
+   :west-args: -p always
+   :goals: flash
+   :host-os: unix
+   :compact:

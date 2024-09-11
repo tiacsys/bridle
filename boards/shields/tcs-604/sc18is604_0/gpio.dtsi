@@ -1,0 +1,16 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+&sc18is604_0_gpio {
+	compatible = "nxp,sc18is604-gpio";
+	status = "okay";
+
+	gpio-controller;
+	#gpio-cells = <2>;
+
+	ngpios = <5>;
+
+	gpio-line-names = "IO0", "IO1", "IO2", "IO3", "IO4";
+};

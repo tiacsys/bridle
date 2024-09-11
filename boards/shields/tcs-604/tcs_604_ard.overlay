@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+&arduino_spi {
+	status = "okay";
+
+	sc18is604_0: sc18is604@0 {
+		reg = <0>;
+
+		sc18is604_0_i2c: sc18is604-0-i2c {};
+		sc18is604_0_gpio: sc18is604-0-gpio {};
+	};
+};
+
+tcs_604_i2c: &sc18is604_0_i2c {};
+
+#include "sc18is604_0/core.dtsi"
+#include "sc18is604_0/i2c.dtsi"
+#include "sc18is604_0/gpio.dtsi"
+
+#include "gpio_connector.dtsi"
+#include "grove_connectors.dtsi"

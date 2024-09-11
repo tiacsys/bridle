@@ -1,0 +1,175 @@
+.. rubric:: Simple test execution on target
+
+(text in bold is a command input)
+
+.. tabs::
+
+   .. group-tab:: Basics
+
+      .. parsed-literal::
+         :class: highlight-console notranslate
+
+         :bgn:`uart:~$` **hello -h**
+         hello - say hello
+         :bgn:`uart:~$` **hello**
+         Hello from shell.
+
+         :bgn:`uart:~$` **hwinfo devid**
+         Length: 8
+         ID: 0x8c998be1de969148
+
+         :bgn:`uart:~$` **kernel version**
+         Zephyr version |zephyr_version_number_em|
+
+         :bgn:`uart:~$` **bridle version**
+         Bridle version |version_number_em|
+
+         :bgn:`uart:~$` **bridle version long**
+         Bridle version |longversion_number_em|
+
+         :bgn:`uart:~$` **bridle info**
+         Zephyr: |zephyr_release_number_em|
+         Bridle: |release_number_em|
+
+         :bgn:`uart:~$` **device list**
+         devices:
+         - rcc\ @\ 40023800 (READY)
+           DT node labels: rcc
+         - reset-controller (READY)
+           DT node labels: rctl
+         - interrupt-controller\ @\ 40013c00 (READY)
+           DT node labels: exti
+         - gpio\ @\ 40022800 (READY)
+           DT node labels: gpiok
+         - gpio\ @\ 40022400 (READY)
+           DT node labels: gpioj
+         - gpio\ @\ 40022000 (READY)
+           DT node labels: gpioi
+         - gpio\ @\ 40021C00 (READY)
+           DT node labels: gpioh
+         - gpio\ @\ 40021800 (READY)
+           DT node labels: gpiog
+         - gpio\ @\ 40021400 (READY)
+           DT node labels: gpiof
+         - gpio\ @\ 40021000 (READY)
+           DT node labels: gpioe
+         - gpio\ @\ 40020C00 (READY)
+           DT node labels: gpiod
+         - gpio\ @\ 40020800 (READY)
+           DT node labels: gpioc
+         - gpio\ @\ 40020400 (READY)
+           DT node labels: gpiob
+         - gpio\ @\ 40020000 (READY)
+           DT node labels: gpioa
+         - serial\ @\ 40011400 (READY)
+           DT node labels: usart6 arduino_serial
+         - serial\ @\ 40004800 (READY)
+           DT node labels: usart3
+         - adc\ @\ 40012000 (READY)
+           DT node labels: adc1
+         - dac\ @\ 40007400 (READY)
+           DT node labels: dac1
+         - flash-controller\ @\ 40023c00 (READY)
+           DT node labels: flash
+         - i2c\ @\ 40005800 (READY)
+           DT node labels: i2c2
+         - i2c\ @\ 40005400 (READY)
+           DT node labels: i2c1 arduino_i2c
+         - pwm (READY)
+           DT node labels: pwm1
+         - spi\ @\ 40013000 (READY)
+           DT node labels: spi1 arduino_spi
+         - sc18is604\ @\ 0 (READY)
+           DT node labels: sc18is604_0
+         - sc18is604-0-i2c (READY)
+           DT node labels: sc18is604_0_i2c tcs_604_i2c grove_i2c
+         - sc18is604-0-gpio (READY)
+           DT node labels: sc18is604_0_gpio
+         - leds (READY)
+           DT node labels: leds
+         - dietemp (READY)
+           DT node labels: die_temp
+         - vbat (READY)
+           DT node labels: vbat
+         - vref (READY)
+           DT node labels: vref
+
+         :bgn:`uart:~$` **history**
+         [  0] history
+         [  1] device list
+         [  2] bridle info
+         [  3] bridle version long
+         [  4] bridle version
+         [  5] kernel version
+         [  6] hwinfo devid
+         [  7] hello
+         [  8] hello -h
+
+   .. group-tab:: GPIO
+
+      :hwftlbl-led:`LED`: operate with one of extra connected |LED Shields|
+      by :rpi-pico-pio:`IO3` at :hwftlbl-con:`D3` (see wiring above):
+
+      .. parsed-literal::
+         :class: highlight-console notranslate
+
+         :bgn:`uart:~$` **gpio get sc18is604-0-gpio 3**
+         0
+
+         :bgn:`uart:~$` **gpio conf sc18is604-0-gpio 3 oh0**
+         :bgn:`uart:~$` **gpio set sc18is604-0-gpio 3 1**
+         :bgn:`uart:~$` **gpio set sc18is604-0-gpio 3 0**
+
+         :bgn:`uart:~$` **gpio blink sc18is604-0-gpio 3**
+         Hit any key to exit
+
+      :hwftlbl-btn:`BTN`: operate with one of extra connected |Button Shields|
+      by :rpi-pico-pio:`IO4` at :hwftlbl-con:`D4` (see wiring above):
+
+      .. parsed-literal::
+         :class: highlight-console notranslate
+
+         :bgn:`uart:~$` **gpio get sc18is604-0-gpio 4**
+         0
+
+         :bgn:`uart:~$` **gpio conf sc18is604-0-gpio 4 iuh**
+         :bgn:`uart:~$` **gpio get sc18is604-0-gpio 4**
+         0
+         :bgn:`uart:~$` **gpio get sc18is604-0-gpio 4**
+         1
+         :bgn:`uart:~$` **gpio get sc18is604-0-gpio 4**
+         0
+
+   .. group-tab:: I2C
+
+      There are no on-shield I2C devices. For this example the
+      |Grove BMP280 Sensor|_ was connected (see wiring above and
+      |Sensor Shields|). Scan the I2C devices:
+
+      .. parsed-literal::
+         :class: highlight-console notranslate
+
+         :bgn:`uart:~$` **i2c scan sc18is604-0-i2c**
+              0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+         00:             -- -- -- -- -- -- -- -- -- -- -- --
+         10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+         20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+         30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+         40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+         50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+         60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+         70: -- -- -- -- -- -- -- 77
+         1 devices found on sc18is604-0-i2c
+
+      The I2C address ``0x77`` is a Bosch BMP280 Air Pressure Sensor and their
+      Chip-ID can read from register ``0xd0``. The Chip-ID must be ``0x58``:
+
+      .. parsed-literal::
+         :class: highlight-console notranslate
+
+         :bgn:`uart:~$` **i2c read_byte sc18is604-0-i2c 77 d0**
+         Output: 0x58
+
+.. |LED Shields| replace:: :ref:`grove_led_shield`
+.. |Button Shields| replace:: :ref:`grove_button_shield`
+.. |Sensor Shields| replace:: :ref:`grove_sensor_shield`

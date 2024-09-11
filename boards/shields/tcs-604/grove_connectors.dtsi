@@ -1,0 +1,35 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+grove_i2c: &tcs_604_i2c {};
+
+#include "grove_d0_connector.dtsi"
+#include "grove_d1_connector.dtsi"
+#include "grove_d2_connector.dtsi"
+#include "grove_d3_connector.dtsi"
+#include "grove_d4_connector.dtsi"
+
+/ {
+	grove_laced_if_tcs_604: grove-laced-if-tcs-604 {
+		compatible = "seeed,grove-laced-if";
+
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map =
+			<0 0 &grove_d0_header 0 0>,	/* D0: GPIO */
+			<1 0 &grove_d1_header 0 0>,	/* D1: GPIO */
+			<2 0 &grove_d2_header 0 0>,	/* D2: GPIO */
+			<3 0 &grove_d3_header 0 0>,	/* D3: GPIO */
+			<4 0 &grove_d4_header 0 0>;	/* D4: GPIO */
+
+		#pwm-cells = <2>;
+		pwm-map-mask = <0xffffffff 0>;
+		pwm-map-pass-thru = <0 0xffffffff>;
+		pwm-map;				/* not possible */
+	};
+};
+
+grove_gpios: &grove_laced_if_tcs_604 {};

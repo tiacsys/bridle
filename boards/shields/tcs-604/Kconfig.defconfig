@@ -1,0 +1,22 @@
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+config MFD
+	default y
+	depends on SHIELD_TCS_604_ARD
+
+config SPI
+	default y
+	depends on SHIELD_TCS_604_ARD
+
+config I2C
+	default y if DT_HAS_NXP_SC18IS604_I2C_ENABLED
+	depends on SHIELD_TCS_604_ARD
+
+config GPIO
+	default y if DT_HAS_NXP_SC18IS604_GPIO_ENABLED
+	depends on SHIELD_TCS_604_ARD
+
+config DYNAMIC_THREAD_POOL_SIZE
+	default 1 if MFD_SC18IS604_ASYNC && !DYNAMIC_THREAD_ALLOC
+	depends on SHIELD_TCS_604_ARD && MFD_SC18IS604

@@ -1,0 +1,11 @@
+This is based on the Zephyr sample :zephyr:code-sample:`zephyr:blinky`.
+
+.. zephyr-app-commands::
+   :app: zephyr/samples/basic/blinky
+   :build-dir: tcs_604_ard
+   :board: nucleo_f746zg
+   :shield: "tcs_604_ard;grove_btn_d4;grove_led_d3;grove_sens_bmp280;tcs_604_x_grove_testbed"
+   :west-args: -p always
+   :goals: flash
+   :host-os: unix
+   :compact:

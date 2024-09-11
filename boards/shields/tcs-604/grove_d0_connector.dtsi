@@ -1,0 +1,15 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	grove_d0_header: grove-d0-connector {
+		compatible = "seeed,grove-connector";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <0 0 &sc18is604_0_gpio 0 0>,	/* D0 */
+			   <1 0 &sc18is604_0_gpio 1 0>;	/* D1 */
+	};
+};

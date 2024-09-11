@@ -41,6 +41,7 @@
 .. ### Links to the TiaC Systems developer zone
 
 .. _`DevZone`: https://github.com/tiacsys
+.. _`TiaC Systems`: https://tiac-systems.net/
 .. _`TiaC Systems Launchpad`: https://launchpad.net/~tiac-systems
 .. _`TiaC Systems Doxygen PPA`: https://launchpad.net/~tiac-systems/+archive/ubuntu/doxygen
 
@@ -51,6 +52,12 @@
 
 .. _`TiaC Magpie F777NI board User Manual`:
    http://www.st.com/resource/en/user_manual/dm00244518.pdf
+
+.. _`TCS-604-ARD Schematic`:
+   https://drive.google.com/file/d/1ESK6vR-rOYy9SutSvAAVBB4TkhZem1DL/view?usp=sharing
+
+.. _`TCS-604-ARD PCBA`:
+   https://drive.google.com/file/d/1McMEjmS3DjAfxmi55IOcAnv3O7X2ttRu/view?usp=sharing
 
 
 
