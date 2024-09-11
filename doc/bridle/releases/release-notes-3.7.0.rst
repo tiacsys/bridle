@@ -123,6 +123,7 @@ Supported shields
 * Seeed Studio Grove Interconnect Shields
 * Grove Button Shields
 * Grove LED Shields
+* Grove Sensor Shields
 * Raspberry Pi Pico Clock Shields
 * Raspberry Pi Pico LCD Shields
 * Raspberry Pi Pico LED Shields
@@ -132,6 +133,7 @@ Supported shields
 * Waveshare Pico Environment Sensor
 * SC16IS75x Breakout Boards
 * NXP SC18IS604-EVB
+* TiaC SC18IS604 Arduino
 
 Supported snippets
 ******************
@@ -168,6 +170,12 @@ Change log
   and *samples*.
 * Add more shields:
 
+  * *Grove Sensor Shields*:
+
+    * **Grove Temperature, Humidity and Barometer Sensor V1.0 (BME280)** by Seeed Studio
+    * **Grove Temperature and Barometer Sensor V1.0 (BMP280)** by Seeed Studio
+    * **Grove High Precision Enviromental Sensor V1.0 (DPS310)** by Seeed Studio
+
   * *Raspberry Pi Pico LCD Shields*:
 
     * **Pico LCD 1.44** shield by PiMoroni (*PIM543*, "Pico Display Pack")
@@ -199,6 +207,10 @@ Change log
   * *NXP SC18IS604-EVB as Shield*:
 
     * *SC18IS604-EVB* **SPI-to-I2C Evaluation Kit - SC18IS604** shield by NXP
+
+  * *TiaC SC18IS604 Arduino as Shield*:
+
+    * *TCS-604-ARD* **SPI-to-I2C for Arduino - SC18IS604** shield by TiaC
 
 The following sections provide detailed lists of changes by component.
 
@@ -265,6 +277,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`261` - [HW] TiaC SC18IS604 Arduino as Shield
 * :github:`258` - [HW] NXP SC18IS604-EVB as Shield
 * :github:`257` - [HW] SC16IS75x Breakout Boards as Shields
 * :github:`254` - [FCR] Bump to Zephyr v3.7
