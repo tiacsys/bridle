@@ -866,6 +866,36 @@
 .. _`Grove Variable Color LED V1.0 Eagle Files`:
    https://files.seeedstudio.com/wiki/Grove-Variable_Color_LED/res/Variable_Color_LED_eagle_file.zip
 
+.. #### Links to the Grove Temperature, Humidity and Barometer Sensor V1.0 (BME280)
+
+.. |Grove BME280 Sensor| replace::
+   :strong:`Grove Temperature, Humidity and Barometer Sensor – BME280`
+.. _`Grove BME280 Sensor`:
+   https://wiki.seeedstudio.com/Grove-Barometer_Sensor-BME280
+
+.. _`Grove BME280 Sensor V1.0 Eagle Files, Schematic and Layout`:
+   https://files.seeedstudio.com/wiki/Grove-Barometer_Sensor-BME280/res/Grove-Barometer_Sensor-BME280-v1.0_Schematics.zip
+
+.. #### Links to the Grove Temperature and Barometer Sensor V1.0 (BMP280)
+
+.. |Grove BMP280 Sensor| replace::
+   :strong:`Grove Temperature and Barometer Sensor – BMP280`
+.. _`Grove BMP280 Sensor`:
+   https://wiki.seeedstudio.com/Grove-Barometer_Sensor-BMP280
+
+.. _`Grove BMP280 Sensor V1.0 Eagle Files, Schematic and Layout`:
+   https://files.seeedstudio.com/wiki/Grove-Barometer_Sensor-BMP280/res/Grove%20-%20Barometer%20Sensor_BMP280_Schematic.zip
+
+.. #### Links to the Grove High Precision Enviromental Sensor V1.0 (DPS310)
+
+.. |Grove DPS310 Sensor| replace::
+   :strong:`Grove High Precision Temperature and Barometer Pressure Sensor – DPS310`
+.. _`Grove DPS310 Sensor`:
+   https://wiki.seeedstudio.com/Grove-High-Precision-Barometric-Pressure-Sensor-DPS310
+
+.. _`Grove DPS310 Sensor V1.0 Eagle Files, Schematic and Layout`:
+   https://files.seeedstudio.com/wiki/Grove-High-Precision-Barometer-Sensor-DPS310/res/Grove%20-%20High%20Precision%20Barometer%20Sensor%20(DPS310)_v1.0.zip
+
 
 
 .. ### Links to the Q-Baihe Breakout Boards
@@ -1465,8 +1495,16 @@
    https://www.bosch-sensortec.com/products/environmental-sensors/pressure-sensors/bmp280
 
 .. _`BMP280 Datasheet`:
-   https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmp280-ds001.pd
+   https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmp280-ds001.pdf
 .. https://files.waveshare.com/upload/a/af/BST-BMP280-DS001-09-371189.pdf
+
+.. _`DPS310`:
+   https://www.infineon.com/cms/en/product/sensor/pressure-sensors/pressure-sensors-for-iot/dps310
+
+.. _`DPS310 Datasheet`:
+   https://www.infineon.com/dgdl/Infineon-DPS310-DataSheet-v01_02-EN.pdf?fileId=5546d462576f34750157750826c42242
+.. https://files.seeedstudio.com/wiki/Grove-High-Precision-Barometer-Sensor-DPS310/res/DPS310-datasheet.pdf
+.. https://files.seeedstudio.com/products/101020812/res/DPS310-datasheet.pdf
 
 .. _`GL35 (φ3)`:
    https://www.nysenba.com/cds/3mm.html

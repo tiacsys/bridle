@@ -1,0 +1,18 @@
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+if SHIELD_GROVE_SENS
+
+config I2C
+	default y
+
+config SHIELD_GROVE_SENS_BME280
+	def_bool $(dt_nodelabel_enabled,grove_sens_bme280)
+
+config SHIELD_GROVE_SENS_BMP280
+	def_bool $(dt_nodelabel_enabled,grove_sens_bmp280)
+
+config SHIELD_GROVE_SENS_DPS310
+	def_bool $(dt_nodelabel_enabled,grove_sens_dps310)
+
+endif # SHIELD_GROVE_SENS

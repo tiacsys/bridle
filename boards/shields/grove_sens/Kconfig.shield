@@ -1,0 +1,7 @@
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+config SHIELD_GROVE_SENS
+	def_bool $(shields_list_contains,grove_sens_bme280) || \
+		 $(shields_list_contains,grove_sens_bmp280) || \
+		 $(shields_list_contains,grove_sens_dps310)

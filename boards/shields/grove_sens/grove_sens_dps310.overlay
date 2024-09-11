@@ -1,0 +1,17 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/*
+ * Device address 0x77 is assumed per default. Your device may have
+ * a different address; check solder bridge on your device if unsure.
+ */
+
+&grove_i2c {
+	dps310@77 {
+		compatible = "infineon,dps310";
+		status = "okay";
+		reg = <0x77>;
+	};
+};

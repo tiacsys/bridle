@@ -7,11 +7,6 @@
 .. _`Arduino Sensor Kit`:
    https://www.seeedstudio.com/Arduino-Sensor-Kit-Base-p-4743.html
 
-.. |Grove BMP280 Sensor| replace::
-   :strong:`Grove Temperature and Barometer Sensor – BMP280`
-.. _`Grove BMP280 Sensor`:
-   https://www.seeedstudio.com/Grove-Barometer-Sensor-BMP280.html
-
 .. Generic References
 
 .. |Arduino Zero (CDC ACM)| replace::
