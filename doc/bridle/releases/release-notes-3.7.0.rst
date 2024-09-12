@@ -214,6 +214,8 @@ Take over the new build principles from Zephyr:
 * tbd.
 * tbd.
 * tbd.
+* Update of the minimum requirements for Python to version 3.10.
+* Update of the minimum requirements for CMake to version 3.20.5.
 * Use the new upstream *MIPI DBI driver class* for all *ST7735R* based displays.
 * Use the new upstream *MIPI DBI driver class* for all *ST7789V* based displays.
 * Convert all Bridle *boards* and *SoCs* to the **new Hardware Model v2**.
