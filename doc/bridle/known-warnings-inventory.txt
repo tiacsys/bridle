@@ -1,16 +1,12 @@
 # Each line should contain the regular expression of a known Sphinx warning
 # that should be filtered out
 
+# Coming later from other docset
+.*undefined label:.*
+
 # Coming later from zephyr docset
 .*term not in glossary: 'zephyr:.*'
 .*unknown document: 'zephyr:.*'
-.*undefined label: 'zephyr:.*'
-
-# Coming later from kconfig docset
-.*undefined label: 'kconfig:.*'
-
-# Coming later from devicetree docset
-.*undefined label: 'devicetree:.*'
 
 # FIXME: Sphinx emits "toctree glob pattern %r didn't match any documents"
 #        instead of:
@@ -43,3 +39,17 @@
 # reference target in: bridle/doc/bridle/gs_installing.rst:89
 #
 .*Duplicate explicit target name: "install_dependencies_windows"\.
+
+#
+# TODO: is ".. _cytron_maker_nano_rp2040:"
+#       or ".. _cytron_maker_pi_rp2040:"
+#       or ".. _cytron_maker_pi_rp2040_positions:"
+#       inside ".. group-tab::" realy working?
+#
+# reference target in: bridle/boards/cytron/maker_rp2040/doc/index.rst:21
+# reference target in: bridle/boards/cytron/maker_rp2040/doc/index.rst:27
+# reference target in: bridle/boards/cytron/maker_rp2040/doc/index.rst:42
+#
+.*Duplicate explicit target name: "cytron_maker_nano_rp2040"\.
+.*Duplicate explicit target name: "cytron_maker_pi_rp2040"\.
+.*Duplicate explicit target name: "cytron_maker_pi_rp2040_positions"\.
