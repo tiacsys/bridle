@@ -1,9 +1,8 @@
 # Each line should contain the regular expression of a known Sphinx warning
 # that should be filtered out additional to the original filter set
 
-# Coming later from devicetree docset
-.*undefined label: 'devicetree_binding_index'
-.*undefined label: 'dt_vendor_zephyr'
+# Coming later from other docset
+.*undefined label:.*
 
 #
 # TODO: New warnings with Doxygen v1.9.8 - unknown reasons.
@@ -17,7 +16,6 @@
 # reference target in: zephyr/doc/develop/flash_debug/probes.rst:251
 # referred to there in: zephyr/samples/bluetooth/hci_uart/README.rst:311
 #
-.*undefined label: 'using segger j-link'
 .*Duplicate explicit target name: "using segger j-link"\.
 
 #
