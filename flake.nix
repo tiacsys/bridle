@@ -2,9 +2,7 @@
   description = "A flake for working with Bridle";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
-
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     zephyr = {
       type = "github";
@@ -42,7 +40,6 @@
     {
       self,
       nixpkgs,
-      nixpkgs-unstable,
       flake-utils,
       ...
     }@inputs:
@@ -50,8 +47,6 @@
       system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
-        pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
-        inherit (nixpkgs) lib;
 
         west2nix = callPackage inputs.west2nix.lib.mkWest2nix { };
 
@@ -70,7 +65,7 @@
 
       in
       {
-        formatter = pkgs-unstable.nixfmt-rfc-style;
+        formatter = pkgs.nixfmt-rfc-style;
 
         packages.west2nix = inputs.west2nix.packages.${system}.default;
 
