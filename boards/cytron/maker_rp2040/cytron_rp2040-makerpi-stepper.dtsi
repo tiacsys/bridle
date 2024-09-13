@@ -7,60 +7,75 @@
 #include <zephyr/dt-bindings/gpio/gpio.h>
 
 / {
+	dummy_stepper {
+		compatible = "dummy-steppers","sinotech,mx1508";
+		
+
+		status = "okay";
+
+		friendly-name = "Soyo SY35ST28-0504A";
+
+		fs-per-turn = <200>;	/* 1.8° per step (360° / 1.8°) */
+		fs-max-speed = <1000>;	/* 300 RPM (60 * 1000 / 200) */
+
+		microstep-res = <STEPPER_USTEP_RES_2>;
+		
+	};
+
 	gpio_steppers {
 		compatible = "gpio-steppers";
-
+	
 		motor_0 {
 			status = "okay";
 			compatible = "sinotech,mx1508",
-				     "gpio-stepper-motor";
-
+					 "gpio-stepper-motor";
+	
 			friendly-name = "Soyo SY35ST28-0504A";
-
+	
 			gpios = <&gpio0 8 GPIO_ACTIVE_HIGH>,	/* M1A - A1/A+/a */
 				<&gpio0 10 GPIO_ACTIVE_HIGH>,	/* M2A - B1/B+/c */
 				<&gpio0 9 GPIO_ACTIVE_HIGH>,	/* M1B - A2/A-/b */
 				<&gpio0 11 GPIO_ACTIVE_HIGH>;	/* M2B - B2/B-/d */
-
+	
 			fs-per-turn = <200>;	/* 1.8° per step (360° / 1.8°) */
 			fs-max-speed = <1000>;	/* 300 RPM (60 * 1000 / 200) */
-
+	
 			microstep-res = <STEPPER_USTEP_RES_2>;
 		};
-
+	
 		motor_1 {
 			status = "okay";
 			compatible = "cytron,maker-pi-rp2040-gp4-gp7",
-				     "gpio-stepper-motor";
-
+					 "gpio-stepper-motor";
+	
 			friendly-name = "Fantacy Stepper Motor 1";
-
+	
 			gpios = <&gpio0 4 GPIO_ACTIVE_HIGH>,	/* M1A - A1/A+/a */
 				<&gpio0 6 GPIO_ACTIVE_HIGH>,	/* M2A - B1/B+/c */
 				<&gpio0 5 GPIO_ACTIVE_HIGH>,	/* M1B - A2/A-/b */
 				<&gpio0 7 GPIO_ACTIVE_HIGH>;	/* M2B - B2/B-/d */
-
+	
 			fs-per-turn = <200>;	/* 1.8° per step (360° / 1.8°) */
 			fs-max-speed = <10>;	/* 3 RPM (60 * 10 / 200) */
-
+	
 			microstep-res = <STEPPER_USTEP_RES_1>;
 		};
-
+	
 		motor_2 {
 			status = "okay";
 			compatible = "cytron,maker-pi-rp2040-gp0-gp3",
-				     "gpio-stepper-motor";
-
+					 "gpio-stepper-motor";
+	
 			friendly-name = "Fantacy Stepper Motor 2";
-
+	
 			gpios = <&gpio0 0 GPIO_ACTIVE_HIGH>,	/* M1A - A1/A+/a */
 				<&gpio0 2 GPIO_ACTIVE_HIGH>,	/* M2A - B1/B+/c */
 				<&gpio0 1 GPIO_ACTIVE_HIGH>,	/* M1B - A2/A-/b */
 				<&gpio0 3 GPIO_ACTIVE_HIGH>;	/* M2B - B2/B-/d */
-
+	
 			fs-per-turn = <200>;	/* 1.8° per step (360° / 1.8°) */
 			fs-max-speed = <10>;	/* 3 RPM (60 * 10 / 200) */
-
+	
 			microstep-res = <STEPPER_USTEP_RES_1>;
 		};
 	};

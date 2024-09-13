@@ -31,5 +31,6 @@ config STEPPER_SHELL
 	  Enable stepper shell for testing.
 
 rsource "Kconfig.gpio"
+rsource "Kconfig.dummy"
 
 endif
