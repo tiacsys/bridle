@@ -53,6 +53,8 @@ static int parse_common_args(const struct shell *sh, char **argv,
 {
 	char *end_ptr;
 
+	printk("Shell: Parsing Arguments\n");
+
 	*dev = device_get_binding(argv[arg_idx_dev]);
 	if (*dev == NULL) {
 		shell_error(sh, "Device unknown (%s)", argv[arg_idx_dev]);
@@ -77,6 +79,7 @@ static int parse_common_args(const struct shell *sh, char **argv,
 
 static int cmd_move(const struct shell *sh, size_t argc, char **argv)
 {
+	printk("Shell: Move Command\n");
 	struct stepper_action action;
 	const struct device *dev;
 	uint8_t motor;
@@ -172,6 +175,7 @@ static int cmd_move(const struct shell *sh, size_t argc, char **argv)
 
 static int cmd_off(const struct shell *sh, size_t argc, char **argv)
 {
+	printk("Shell: Off Command\n");
 	const struct device *dev;
 	uint8_t motor;
 	int ret = 0;
@@ -194,6 +198,7 @@ static int cmd_off(const struct shell *sh, size_t argc, char **argv)
 
 static int cmd_on(const struct shell *sh, size_t argc, char **argv)
 {
+	printk("Shell: On Command\n");
 	const struct device *dev;
 	uint8_t motor;
 	int ret = 0;

@@ -96,6 +96,7 @@ static const int stepper_gpio_acbd[STEPPER_USTEP_RES_2]
 
 static int stepper_gpio_acbd_poweroff(const struct gpio_dt_spec *gpios)
 {
+	printk("GPIO: ABCD Power Off\n");
 	int ret = 0;
 
 	/* set to standby (not break), power stage FETs to Z-level */
@@ -121,6 +122,7 @@ static int stepper_gpio_acbd_update(const struct gpio_dt_spec *gpios,
 				    const uint32_t ustep_res,
 				    const uint32_t ustep_now)
 {
+	//printk("GPIO: ABCD Update\n");
 	uint32_t ustep_table;
 	uint32_t ustep_number;
 	const int *values;
@@ -143,6 +145,7 @@ static int stepper_gpio_acbd_update(const struct gpio_dt_spec *gpios,
 
 static void stepper_gpio_dworker(struct k_work *work)
 {
+	//printk("GPIO: DWorker\n");
 	const struct k_work_delayable *const dwork = k_work_delayable_from_work(work);
 	struct stepper_gpio_logic *const logic = CONTAINER_OF(dwork,
 				struct stepper_gpio_logic, dwork);
@@ -209,6 +212,7 @@ static int stepper_gpio_move(const struct device *dev, const uint8_t motor,
 			     const struct stepper_action *action)
 {
 	/* NOTE: motor number already verified in stepper motor API */
+	printk("GPIO: Move\n");
 
 	const struct stepper_gpio_config *config = dev->config;
 	const struct stepper_gpio_io *const io = &config->io[motor];
@@ -273,6 +277,7 @@ static int stepper_gpio_move(const struct device *dev, const uint8_t motor,
 
 static int stepper_gpio_on(const struct device *dev, const uint8_t motor)
 {
+	printk("GPIO: On\n");
 	/* NOTE: motor number already verified in stepper motor API */
 
 	const struct stepper_gpio_config *const config = dev->config;
@@ -310,6 +315,7 @@ static int stepper_gpio_on(const struct device *dev, const uint8_t motor)
 
 static int stepper_gpio_off(const struct device *dev, const uint8_t motor)
 {
+	printk("GPIO: Off\n");
 	/* NOTE: motor number already verified in stepper motor API */
 
 	const struct stepper_gpio_config *config = dev->config;
@@ -346,6 +352,7 @@ static int stepper_gpio_off(const struct device *dev, const uint8_t motor)
 
 static int stepper_gpio_init(const struct device *dev)
 {
+	printk("GPIO: Initialization\n");
 	const struct stepper_gpio_config *config = dev->config;
 	const struct stepper_data *const api_data = dev->data;
 	struct stepper_gpio_data *const data = stepper_get_private(dev);

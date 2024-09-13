@@ -496,6 +496,7 @@ __syscall int stepper_on(const struct device *dev, const uint8_t motor);
 
 static inline int z_impl_stepper_on(const struct device *dev, const uint8_t motor)
 {
+	printk("Zephyr Driver: On, Parameters: Name: %s MotorID: %d\n", dev->name, motor);
 	const struct stepper_api *api = (const struct stepper_api *)dev->api;
 	const struct stepper_data *data = (const struct stepper_data *)dev->data;
 
@@ -528,6 +529,7 @@ __syscall int stepper_off(const struct device *dev, const uint8_t motor);
 
 static inline int z_impl_stepper_off(const struct device *dev, const uint8_t motor)
 {
+	printk("Zephyr Driver: Off, Parameters: Name: %s MotorID: %d\n", dev->name, motor);
 	const struct stepper_api *api = (const struct stepper_api *)dev->api;
 	const struct stepper_data *data = (const struct stepper_data *)dev->data;
 
@@ -573,6 +575,7 @@ __syscall int stepper_move(const struct device *dev, const uint8_t motor,
 static inline int z_impl_stepper_move(const struct device *dev, const uint8_t motor,
 				      const struct stepper_action *action)
 {
+	printk("Zephyr Driver: On, Parameters: Name: %s MotorID: %d Flags: %x Value: %d\n", dev->name, motor, action->flags, action->value);
 	const struct stepper_api *api = (const struct stepper_api *)dev->api;
 	const struct stepper_data *data = (const struct stepper_data *)dev->data;
 	const struct stepper_capabilities *caps = &data->caps[motor];
