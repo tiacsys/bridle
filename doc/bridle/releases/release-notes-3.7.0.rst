@@ -217,6 +217,12 @@ Change log
 
     * *TCS-604-ARD* **SPI-to-I2C for Arduino - SC18IS604** shield by TiaC
 
+* Provide **WS2812** digital RGB LED **matrix** as standard **Zephyr display**
+  on following boards or shields:
+
+  * *Waveshare RP2040-Matrix*
+  * *Waveshare Pico RGB LED Shield*
+
 The following sections provide detailed lists of changes by component.
 
 * PROJECT UPDATE to `Zephyr Project`_ v3.7
