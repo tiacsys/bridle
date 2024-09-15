@@ -58,16 +58,16 @@ Building and Running
          INFO    - JOBS: 4
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1775/1780 magpie_f777ni             tests/drivers/spi/spi_loopback/drivers.spi.loopback.lpspi.dma :byl:`SKIPPED` (runtime filter)
-         INFO    - 1776/1780 magpie_f777ni             tests/drivers/spi/spi_loopback/drivers.spi.loopback.lpspi.async.unset :byl:`SKIPPED` (runtime filter)
-         INFO    - 1777/1780 magpie_f777ni             tests/drivers/spi/spi_loopback/drivers.spi.loopback.internal :byl:`SKIPPED` (runtime filter)
-         INFO    - 1778/1780 magpie_f777ni             tests/drivers/spi/spi_loopback/drivers.spi.loopback.lpspi.dma.async.unset :byl:`SKIPPED` (runtime filter)
-         INFO    - 1779/1780 magpie_f777ni             tests/drivers/spi/dt_spec/drivers.spi.dt_spec      :bgn:`PASSED` (device: DT04BNT1, 3.520s)
-         INFO    - 1780/1780 magpie_f777ni             tests/drivers/spi/spi_loopback/drivers.spi.loopback :bgn:`PASSED` (device: DT04BNT1, 2.933s)
+         INFO    - 1882/1887 magpie_f777ni             tests/drivers/spi/spi_loopback/drivers.spi.loopback.lpspi.dma.async.unset :byl:`SKIPPED` (runtime filter)
+         INFO    - 1883/1887 magpie_f777ni             tests/drivers/spi/spi_loopback/drivers.spi.loopback.lpspi.async.unset :byl:`SKIPPED` (runtime filter)
+         INFO    - 1884/1887 magpie_f777ni             tests/drivers/spi/spi_loopback/drivers.spi.loopback.lpspi.dma :byl:`SKIPPED` (runtime filter)
+         INFO    - 1885/1887 magpie_f777ni             tests/drivers/spi/spi_loopback/drivers.spi.loopback.internal :byl:`SKIPPED` (runtime filter)
+         INFO    - 1886/1887 magpie_f777ni             tests/drivers/spi/dt_spec/drivers.spi.dt_spec      :bgn:`PASSED` (device: DT04BNT1, 2.989s)
+         INFO    - 1887/1887 magpie_f777ni             tests/drivers/spi/spi_loopback/drivers.spi.loopback :bgn:`PASSED` (device: DT04BNT1, 2.793s)
 
-         INFO    - 1984 test scenarios (1780 test instances) selected, 1778 configurations skipped (1774 by static filter, 4 at runtime).
-         INFO    - :bgn:`2 of 1780` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1778` skipped with :bbk:`0` warnings in :bbk:`59.18 seconds`
-         INFO    - In total 2 test cases were executed, 13445 skipped on 1 out of total 739 platforms (0.14%)
+         INFO    - 2092 test scenarios (1887 test instances) selected, 1885 configurations skipped (1881 by static filter, 4 at runtime).
+         INFO    - :bgn:`2 of 1887` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1885` skipped with :bbk:`0` warnings in :bbk:`43.85 seconds`
+         INFO    - In total 2 test cases were executed, 14999 skipped on 1 out of total 1 platforms (100.00%)
          INFO    - :bgn:`2` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:

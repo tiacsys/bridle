@@ -185,7 +185,7 @@ alternative to the default Zephyr console on serial port the Bridle
 :ref:`snippet-usb-console` can be used to enable
 :ref:`zephyr:usb_device_cdc_acm` and switch the console to USB::
 
-   USB device idVendor=2886, idProduct=802f, bcdDevice= 3.06
+   USB device idVendor=2886, idProduct=802f, bcdDevice= 3.07
    USB device strings: Mfr=1, Product=2, SerialNumber=3
    Product: XIAO SAMD21 (CDC ACM)
    Manufacturer: Seeed Studio
@@ -377,17 +377,26 @@ Hello Shell with USB-CDC/ACM Console
          :bgn:`uart:~$` **device list**
          devices:
          - eic\ @\ 40001800 (READY)
+           DT node labels: eic
          - gpio\ @\ 41004480 (READY)
+           DT node labels: portb
          - gpio\ @\ 41004400 (READY)
+           DT node labels: porta
          - snippet_cdc_acm_console_uart (READY)
+           DT node labels: snippet_cdc_acm_console_uart
          - sercom\ @\ 42001800 (READY)
-         - tc\ @\ 42003800 (DISABLED)
-         - tc\ @\ 42003000 (DISABLED)
+           DT node labels: sercom4 xiao_serial
          - adc\ @\ 42004000 (READY)
+           DT node labels: adc
          - dac\ @\ 42004800 (READY)
+           DT node labels: dac0 xiao_dac
          - nvmctrl\ @\ 41004000 (READY)
+           DT node labels: nvmctrl
          - sercom\ @\ 42001000 (READY)
+           DT node labels: sercom2 xiao_i2c
          - tcc\ @\ 42002800 (READY)
+           DT node labels: tcc2
+         - leds (READY)
 
          :bgn:`uart:~$` **history**
          [  0] history
@@ -463,11 +472,11 @@ Hello Shell with USB-CDC/ACM Console
       .. parsed-literal::
          :class: highlight-console notranslate
 
-         :bgn:`uart:~$` **flash read nvmctrl@41004000 18948 40**
-         00018948: 78 69 61 6f 5f 73 61 6d  64 32 31 00 48 65 6c 6c \|xiao_sam d21.Hell\|
-         00018958: 6f 20 57 6f 72 6c 64 21  20 49 27 6d 20 54 48 45 \|o World!  I'm THE\|
-         00018968: 20 53 48 45 4c 4c 20 66  72 6f 6d 20 25 73 0a 00 \| SHELL f rom %s..\|
-         00018978: 67 65 74 6f 70 74 00 28  75 6e 73 69 67 6e 65 64 \|getopt.( unsigned\|
+         :bgn:`uart:~$` **flash read nvmctrl@41004000 13288 40**
+         00013288: 78 69 61 6f 5f 73 61 6d  64 32 31 00 48 65 6c 6c \|xiao_sam d21.Hell\|
+         00013298: 6f 20 57 6f 72 6c 64 21  20 49 27 6d 20 54 48 45 \|o World!  I'm THE\|
+         000132A8: 20 53 48 45 4c 4c 20 66  72 6f 6d 20 25 73 0a 00 \| SHELL f rom %s..\|
+         000132B8: 28 75 6e 73 69 67 6e 65  64 29 20 63 68 61 72 20 \|(unsigne d) char \|
 
          :bgn:`uart:~$` **flash read nvmctrl@41004000 3c000 40**
          0003C000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|

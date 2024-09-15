@@ -58,14 +58,14 @@ Building and Running
          INFO    - JOBS: 4
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1777/1780 magpie_f777ni             tests/drivers/gpio/gpio_nrf/drivers.gpio.gpio_nrf  :byl:`SKIPPED` (runtime filter)
-         INFO    - 1778/1780 magpie_f777ni             tests/drivers/gpio/gpio_get_direction/drivers.gpio.get_direction :bgn:`PASSED` (device: DT04BNT1, 2.547s)
-         INFO    - 1779/1780 magpie_f777ni             tests/drivers/gpio/gpio_api_1pin/drivers.gpio.1pin :bgn:`PASSED` (device: DT04BNT1, 9.506s)
-         INFO    - 1780/1780 magpie_f777ni             tests/drivers/gpio/gpio_basic_api/drivers.gpio.2pin :bgn:`PASSED` (device: DT04BNT1, 18.049s)
+         INFO    - 1884/1887 magpie_f777ni             tests/drivers/gpio/gpio_nrf/drivers.gpio.gpio_nrf  :byl:`SKIPPED` (runtime filter)
+         INFO    - 1885/1887 magpie_f777ni             tests/drivers/gpio/gpio_get_direction/drivers.gpio.get_direction :bgn:`PASSED` (device: DT04BNT1, 2.360s)
+         INFO    - 1886/1887 magpie_f777ni             tests/drivers/gpio/gpio_api_1pin/drivers.gpio.1pin :bgn:`PASSED` (device: DT04BNT1, 9.363s)
+         INFO    - 1887/1887 magpie_f777ni             tests/drivers/gpio/gpio_basic_api/drivers.gpio.2pin :bgn:`PASSED` (device: DT04BNT1, 17.853s)
 
-         INFO    - 1984 test scenarios (1780 test instances) selected, 1777 configurations skipped (1777 by static filter, 0 at runtime).
-         INFO    - :bgn:`3 of 1780` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1777` skipped with :bbk:`0` warnings in :bbk:`89.82 seconds`
-         INFO    - In total 28 test cases were executed, 13420 skipped on 1 out of total 739 platforms (0.14%)
+         INFO    - 2092 test scenarios (1887 test instances) selected, 1884 configurations skipped (1883 by static filter, 1 at runtime).
+         INFO    - :bgn:`3 of 1887` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1884` skipped with :bbk:`0` warnings in :bbk:`79.25 seconds`
+         INFO    - In total 28 test cases were executed, 14974 skipped on 1 out of total 1 platforms (100.00%)
          INFO    - :bgn:`3` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:

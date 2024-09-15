@@ -1,3 +1,11 @@
+.. rubric:: boot logging output
+
+.. parsed-literal::
+   :class: highlight-console notranslate
+
+   [00:00:00.005,000] <inf> mfd_sc18is604: sc18is604\ @\ 0: found "SC18IS604 1.0.3"
+   \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* \*\*\*
+
 .. rubric:: Simple test execution on target
 
 (text in bold is a command input)
@@ -34,37 +42,69 @@
          :bgn:`uart:~$` **device list**
          devices:
          - rcc\ @\ 40023800 (READY)
+           DT node labels: rcc
          - reset-controller (READY)
+           DT node labels: rctl
          - interrupt-controller\ @\ 40013c00 (READY)
+           DT node labels: exti
          - gpio\ @\ 40022800 (READY)
+           DT node labels: gpiok
          - gpio\ @\ 40022400 (READY)
+           DT node labels: gpioj
          - gpio\ @\ 40022000 (READY)
+           DT node labels: gpioi
          - gpio\ @\ 40021C00 (READY)
+           DT node labels: gpioh
          - gpio\ @\ 40021800 (READY)
+           DT node labels: gpiog
          - gpio\ @\ 40021400 (READY)
+           DT node labels: gpiof
          - gpio\ @\ 40021000 (READY)
+           DT node labels: gpioe
          - gpio\ @\ 40020C00 (READY)
+           DT node labels: gpiod
          - gpio\ @\ 40020800 (READY)
+           DT node labels: gpioc
          - gpio\ @\ 40020400 (READY)
+           DT node labels: gpiob
          - gpio\ @\ 40020000 (READY)
+           DT node labels: gpioa
          - serial\ @\ 40011400 (READY)
+           DT node labels: usart6 arduino_serial
          - serial\ @\ 40004800 (READY)
+           DT node labels: usart3
          - adc\ @\ 40012000 (READY)
+           DT node labels: adc1
          - dac\ @\ 40007400 (READY)
+           DT node labels: dac1
          - flash-controller\ @\ 40023c00 (READY)
+           DT node labels: flash
          - i2c\ @\ 40005800 (READY)
+           DT node labels: i2c2
          - i2c\ @\ 40005400 (READY)
+           DT node labels: i2c1 arduino_i2c
          - pwm (READY)
+           DT node labels: pwm1
          - spi\ @\ 40013000 (READY)
+           DT node labels: spi1 arduino_spi nxp_sc18is604_evb_spi
          - sc18is604\ @\ 0 (READY)
+           DT node labels: sc18is604_0
          - sc18is604-0-i2c (READY)
+           DT node labels: sc18is604_0_i2c nxp_sc18is604_evb_i2c
          - sc18is604-0-eeprom\ @\ 50 (READY)
+           DT node labels: nxp_sc18is604_evb_eeprom
          - sc18is604-0-gpio (READY)
+           DT node labels: sc18is604_0_gpio
          - sc18is604-0-gpio-leds (READY)
+           DT node labels: nxp_sc18is604_evb_gpio_leds
          - leds (READY)
+           DT node labels: leds
          - dietemp (READY)
+           DT node labels: die_temp
          - vbat (READY)
+           DT node labels: vbat
          - vref (READY)
+           DT node labels: vref
 
          :bgn:`uart:~$` **history**
          [  0] history

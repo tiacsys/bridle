@@ -37,7 +37,7 @@ are shown on the console like this:
 .. parsed-literal::
    :class: highlight-console notranslate
 
-   \*\*\* Booting Zephyr OS … … …\*\*\*
+   \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* \*\*\*
    [00:00:00.012,000] <inf> net_dhcpv4_client_sample: Run dhcpv4 client
    [00:00:00.012,000] <inf> net_dhcpv4_client_sample: Start on ethernet\ @\ 40028000: index=1
    [00:00:03.473,000] <inf> net_dhcpv4_client_sample: DHCP Option 42: 192.168.10.10
@@ -70,12 +70,12 @@ On Zephyr, Shell command line:
 
    :bgn:`uart:~$` **net iface show 1**
 
-   Interface eth0 (0x20020c88) (Ethernet) [1]
+   Interface eth0 (0x20020d78) (Ethernet) [1]
    ===================================
    Link addr : 02:80:E1:4F:98:16
    MTU       : 1500
    Flags     : AUTO_START,IPv4
-   Device    : ethernet\ @\ 40028000 (0x8018770)
+   Device    : ethernet\ @\ 40028000 (0x801cb98)
    Ethernet capabilities supported:
 	   10 Mbits
 	   100 Mbits

@@ -89,7 +89,7 @@ Using the LVGL module on top of the :ref:`Display driver API
    \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
    [00:00:00.294,000] :byl:`<wrn> udc_rpi: BUS RESET`
    [00:00:00.374,000] :byl:`<wrn> udc_rpi: BUS RESET`
-   \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
+   \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
    :bgn:`uart:~$` **_**
 
    :bgn:`uart:~$` **lvgl stats memory**

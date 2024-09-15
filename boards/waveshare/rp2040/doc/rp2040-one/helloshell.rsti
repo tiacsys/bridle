@@ -34,16 +34,27 @@
          :bgn:`uart:~$` **device list**
          devices:
          - clock-controller\ @\ 40008000 (READY)
+           DT node labels: clocks
          - reset-controller\ @\ 4000c000 (READY)
+           DT node labels: reset
          - snippet_cdc_acm_console_uart (READY)
+           DT node labels: snippet_cdc_acm_console_uart
          - uart\ @\ 40034000 (READY)
+           DT node labels: uart0 rp2040mini_serial
          - timer\ @\ 40054000 (READY)
+           DT node labels: timer
          - pio\ @\ 50200000 (READY)
+           DT node labels: ((pio_hw_t \*)0x50200000u)
          - gpio\ @\ 40014000 (READY)
+           DT node labels: gpio0
          - adc\ @\ 4004c000 (READY)
+           DT node labels: adc
          - flash-controller\ @\ 18000000 (READY)
+           DT node labels: ssi
          - i2c\ @\ 40044000 (READY)
+           DT node labels: i2c0 rp2040mini_i2c
          - vreg\ @\ 40064000 (READY)
+           DT node labels: vreg
 
          :bgn:`uart:~$` **history**
          [  0] history
@@ -86,7 +97,7 @@
          - pin
 
          :bgn:`uart:~$` **regulator disable vreg@40064000**
-         \*\*\* Booting Zephyr OS … … …\*\*\*
+         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
          Hello World! I'm THE SHELL from waveshare_rp2040_one
 
          :bgn:`uart:~$` **hwinfo reset_cause**
@@ -121,11 +132,11 @@
       .. parsed-literal::
          :class: highlight-console notranslate
 
-         :bgn:`uart:~$` **flash read flash-controller@18000000 17c7c 40**
-         00017C7C: 77 61 76 65 73 68 61 72  65 5f 72 70 32 30 34 30 \|waveshar e_rp2040\|
-         00017C8C: 5f 6f 6e 65 00 48 65 6c  6c 6f 20 57 6f 72 6c 64 \|_one.Hel lo World\|
-         00017C9C: 21 20 49 27 6d 20 54 48  45 20 53 48 45 4c 4c 20 \|! I'm TH E SHELL \|
-         00017CAC: 66 72 6f 6d 20 25 73 0a  00 67 65 74 6f 70 74 00 \|from %s. .getopt.\|
+         :bgn:`uart:~$` **flash read flash-controller@18000000 19170 40**
+         00019170: 77 61 76 65 73 68 61 72  65 5f 72 70 32 30 34 30 \|waveshar e_rp2040\|
+         00019180: 5f 6f 6e 65 00 48 65 6c  6c 6f 20 57 6f 72 6c 64 \|_one.Hel lo World\|
+         00019190: 21 20 49 27 6d 20 54 48  45 20 53 48 45 4c 4c 20 \|! I'm TH E SHELL \|
+         000191A0: 66 72 6f 6d 20 25 73 0a  00 28 75 6e 73 69 67 6e \|from %s. .(unsign\|
 
          :bgn:`uart:~$` **flash read flash-controller@18000000 3c000 40**
          0003C000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|

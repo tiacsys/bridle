@@ -347,7 +347,7 @@ alternative to the default Zephyr console on serial port the Bridle
 :ref:`snippet-usb-console` can be used to enable
 :ref:`zephyr:usb_device_cdc_acm` and switch the console to USB::
 
-   USB device idVendor=2886, idProduct=8026, bcdDevice= 3.06
+   USB device idVendor=2886, idProduct=8026, bcdDevice= 3.07
    USB device strings: Mfr=1, Product=2, SerialNumber=3
    Product: Seeeduino Lotus Cortex-M0+ (CDC ACM)
    Manufacturer: Seeed LLC
@@ -538,20 +538,32 @@ Hello Shell with USB-CDC/ACM Console
          :bgn:`uart:~$` **device list**
          devices:
          - eic\ @\ 40001800 (READY)
+           DT node labels: eic
          - gpio\ @\ 41004480 (READY)
+           DT node labels: portb
          - gpio\ @\ 41004400 (READY)
+           DT node labels: porta
          - snippet_cdc_acm_console_uart (READY)
+           DT node labels: snippet_cdc_acm_console_uart
          - sercom\ @\ 42001c00 (READY)
+           DT node labels: sercom5 grove_serial
          - sercom\ @\ 42001000 (READY)
-         - tc\ @\ 42003800 (DISABLED)
-         - tc\ @\ 42003000 (DISABLED)
+           DT node labels: sercom2 arduino_serial
          - adc\ @\ 42004000 (READY)
+           DT node labels: adc
          - dac\ @\ 42004800 (READY)
+           DT node labels: dac0
          - nvmctrl\ @\ 41004000 (READY)
+           DT node labels: nvmctrl
          - sercom\ @\ 42001400 (READY)
+           DT node labels: sercom3 arduino_i2c grove_i2c
          - tcc\ @\ 42002800 (READY)
+           DT node labels: tcc2
          - tcc\ @\ 42002400 (READY)
+           DT node labels: tcc1 grove_pwm_d8
          - tcc\ @\ 42002000 (READY)
+           DT node labels: tcc0 grove_pwm_d2 grove_pwm_d3 grove_pwm_d4 grove_pwm_d5 grove_pwm_d6 grove_pwm_d7 grove_pwm_d18 grove_pwm_d19
+         - leds (READY)
 
          :bgn:`uart:~$` **history**
          [  0] history
@@ -627,15 +639,11 @@ Hello Shell with USB-CDC/ACM Console
       .. parsed-literal::
          :class: highlight-console notranslate
 
-         :bgn:`uart:~$` **flash read nvmctrl@41004000 18a4c 40**
-         00018A4C: 73 65 65 65 64 75 69 6e  6f 5f 6c 6f 74 75 73 00 \|seeeduin o_lotus.\|
-         00018A5C: 48 65 6c 6c 6f 20 57 6f  72 6c 64 21 20 49 27 6d \|Hello Wo rld! I'm\|
-         00018A6C: 20 54 48 45 20 53 48 45  4c 4c 20 66 72 6f 6d 20 \| THE SHE LL from \|
-         00018A7C: 25 73 0a 00 67 65 74 6f  70 74 00 28 75 6e 73 69 \|%s..geto pt.(unsi\|
-         000188DC: 73 65 65 65 64 75 69 6e  6f 5f 6c 6f 74 75 73 00 \|seeeduin o_lotus.\|
-         000188EC: 48 65 6c 6c 6f 20 57 6f  72 6c 64 21 20 49 27 6d \|Hello Wo rld! I'm\|
-         000188FC: 20 54 48 45 20 53 48 45  4c 4c 20 66 72 6f 6d 20 \| THE SHE LL from \|
-         0001890C: 25 73 0a 00 69 6c 6c 65  67 61 6c 20 6f 70 74 69 \|%s..ille gal opti\|
+         :bgn:`uart:~$` **flash read nvmctrl@41004000 133e4 40**
+         000133E4: 73 65 65 65 64 75 69 6e  6f 5f 6c 6f 74 75 73 00 \|seeeduin o_lotus.\|
+         000133F4: 48 65 6c 6c 6f 20 57 6f  72 6c 64 21 20 49 27 6d \|Hello Wo rld! I'm\|
+         00013404: 20 54 48 45 20 53 48 45  4c 4c 20 66 72 6f 6d 20 \| THE SHE LL from \|
+         00013414: 25 73 0a 00 28 75 6e 73  69 67 6e 65 64 29 20 63 \|%s..(uns igned) c\|
 
          :bgn:`uart:~$` **flash read nvmctrl@41004000 3c000 40**
          0003C000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|

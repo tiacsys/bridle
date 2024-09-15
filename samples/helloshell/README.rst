@@ -144,10 +144,10 @@ Sample Output
 
 
    :bgn:`uart:~$` **<Tab>**
-     :bcy:`adc        bridle     clear      dac        device     devmem     flash`
-     :bcy:`gpio       hello      help       history    hwinfo     i2c        kernel`
-     :bcy:`led        log        pwm        regulator  rem        resize     retval`
-     :bcy:`sensor     shell      timer`
+     :bcy:`adc        bridle     clear      dac        device     devmem     eeprom`
+     :bcy:`flash      gpio       hello      help       history    hwinfo     i2c`
+     :bcy:`kernel     led        log        pwm        regulator  rem        resize`
+     :bcy:`retval     rtc        sensor     shell      timer`
 
    :bgn:`uart:~$` **help**
    Please press the <Tab> button to see all available commands.
@@ -160,37 +160,38 @@ Sample Output
    Please refer to shell documentation for more details.
 
    Available commands:
-     adc        :ADC commands
-     bridle     :Bridle commands.
-     clear      :Clear screen.
-     dac        :DAC shell commands
-     device     :Device commands
-     devmem     :Read/write physical memory
-                 Usage:
-                 Read memory at address with optional width:
-                 devmem address [width]
-                 Write memory at address with mandatory width and value:
-                 devmem address <width> <value>
-     flash      :Flash shell commands
-     gpio       :GPIO commands
-     hello      :say hello
-     help       :Prints the help message.
-     history    :Command history.
-     hwinfo     :HWINFO commands
-     i2c        :I2C commands
-     kernel     :Kernel commands
-     led        :LED commands
-     log        :Commands for controlling logger
-     pwm        :PWM shell commands
-     regulator  :Regulator playground
-     rem        :Ignore lines beginning with 'rem '
-     resize     :Console gets terminal screen size or assumes default in case the
-                 readout fails. It must be executed after each terminal width
-                 change to ensure correct text display.
-     retval     :Print return value of most recent command
-     sensor     :Sensor commands
-     shell      :Useful, not Unix-like shell commands.
-     timer      :Timer commands
+     adc        : ADC commands
+     bridle     : Bridle commands.
+     clear      : Clear screen.
+     dac        : DAC shell commands
+     device     : Device commands
+     devmem     : Read/write physical memory
+                  Usage:
+                  Read memory at address with optional width:
+                  devmem address [width]
+                  Write memory at address with mandatory width and value:
+                  devmem address <width> <value>
+     eeprom     : EEPROM shell commands
+     flash      : Flash shell commands
+     gpio       : GPIO commands
+     hello      : say hello
+     help       : Prints the help message.
+     history    : Command history.
+     hwinfo     : HWINFO commands
+     i2c        : I2C commands
+     kernel     : Kernel commands
+     led        : LED commands
+     log        : Commands for controlling logger
+     pwm        : PWM shell commands
+     regulator  : Regulator playground
+     rem        : Ignore lines beginning with 'rem '
+     resize     : Console gets terminal screen size or assumes default in case the
+                  readout fails. It must be executed after each terminal width
+                  change to ensure correct text display.
+     retval     : Print return value of most recent command
+     sensor     : Sensor commands
+     shell      : Useful, not Unix-like shell commands.
+     timer      : Timer commands
 
    :bgn:`uart:~$` **hello -h**
    hello - say hello
@@ -211,39 +212,45 @@ Sample Output
    Bridle: |release_number_em|
 
    :bgn:`uart:~$` **kernel uptime**
-   Uptime: 254707293 ms
+   Uptime: 327750 ms
 
    :bgn:`uart:~$` **kernel cycles**
-   cycles: 4281597339 hw cycles
+   cycles: 3586181929 hw cycles
 
    :bgn:`uart:~$` **kernel threads**
-   Scheduler: 328 since last call
+   Scheduler: 498 since last call
    Threads:
-    0x20021650 sysworkq
-	   options: 0x0, priority: -1 timeout: 0
-	   state: pending, entry: 0x800e4f9
-	   stack size 1024, unused 832, usage 192 / 1024 (18 %)
+    0x20010e58
+           options: 0x0, priority: -16 timeout: 0
+           state: pending, entry: 0x8002339
+           stack size 2048, unused 1920, usage 128 / 2048 (6 %)
 
-   \*0x20020a80 shell_uart
-	   options: 0x0, priority: 14 timeout: 0
-	   state: queued, entry: 0x8004e75
-	   stack size 2048, unused 1016, usage 1032 / 2048 (50 %)
+   \*0x20010ac0 shell_uart
+           options: 0x0, priority: 14 timeout: 0
+           state: queued, entry: 0x8004c59
+           stack size 2048, unused 1016, usage 1032 / 2048 (50 %)
 
-    0x20020588 logging
-	   options: 0x0, priority: 14 timeout: 0
-	   state: pending, entry: 0x8002bad
-	   stack size 768, unused 584, usage 184 / 768 (23 %)
+    0x20011728 sysworkq
+           options: 0x1, priority: -1 timeout: 0
+           state: pending, entry: 0x800ebfd
+           stack size 1024, unused 848, usage 176 / 1024 (17 %)
 
-    0x200214c0 idle
-	   options: 0x1, priority: 15 timeout: 0
-	   state: , entry: 0x80134c3
-	   stack size 320, unused 256, usage 64 / 320 (20 %)
+    0x200105c0 logging
+           options: 0x0, priority: 14 timeout: 0
+           state: pending, entry: 0x8002a21
+           stack size 768, unused 584, usage 184 / 768 (23 %)
+
+    0x200114c8 idle
+           options: 0x1, priority: 15 timeout: 0
+           state: , entry: 0x8014571
+           stack size 320, unused 256, usage 64 / 320 (20 %)
 
    :bgn:`uart:~$` **kernel stacks**
-   0x20021650 sysworkq   (real size 1024):	unused  832	usage  192 / 1024 (18 %)
-   0x20020a80 shell_uart (real size 2048):	unused  944	usage 1104 / 2048 (53 %)
-   0x20020588 logging    (real size  768):	unused  584	usage  184 /  768 (23 %)
-   0x200214c0 idle       (real size  320):	unused  256	usage   64 /  320 (20 %)
-   0x20025400 IRQ 00     (real size 2048):	unused 1684	usage  364 / 2048 (17 %)
+   0x20010e58                                  (real size 2048):   unused 1920     usage  128 / 2048 ( 6 %)
+   0x20010ac0 shell_uart                       (real size 2048):   unused  944     usage 1104 / 2048 (53 %)
+   0x20011728 sysworkq                         (real size 1024):   unused  848     usage  176 / 1024 (17 %)
+   0x200105c0 logging                          (real size  768):   unused  584     usage  184 /  768 (23 %)
+   0x200114c8 idle                             (real size  320):   unused  256     usage   64 /  320 (20 %)
+   0x20015e80 IRQ 00                           (real size 2048):   unused 1816     usage  232 / 2048 (11 %)
 
    :bgn:`uart:~$` **_**

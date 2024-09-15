@@ -702,7 +702,7 @@ host PC. As an alternative to the default Zephyr console on serial port the
 Bridle :ref:`snippet-usb-console` can be used to enable
 :ref:`zephyr:usb_device_cdc_acm` and switch the console to USB::
 
-   USB device idVendor=2e8a, idProduct=000a, bcdDevice= 3.06
+   USB device idVendor=2e8a, idProduct=000a, bcdDevice= 3.07
    USB device strings: Mfr=1, Product=2, SerialNumber=3
    Product: Maker Nano RP2040 (CDC ACM)
    Manufacturer: Cytron (Raspberry Pi)
@@ -1157,7 +1157,7 @@ sample: :zephyr:code-sample:`zephyr:input-dump`.
          \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
          W: BUS RESET
          W: BUS RESET
-         \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
+         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
          Input sample started
          I: input event: dev=gpio_keys        SYN type= 1 code= 11 value=1
          I: input event: dev=gpio_keys        SYN type= 1 code= 11 value=0
@@ -1201,7 +1201,7 @@ sample: :zephyr:code-sample:`zephyr:input-dump`.
          \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
          W: BUS RESET
          W: BUS RESET
-         \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
+         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
          Input sample started
          I: input event: dev=gpio_keys        SYN type= 1 code= 11 value=1
          I: input event: dev=gpio_keys        SYN type= 1 code= 11 value=0

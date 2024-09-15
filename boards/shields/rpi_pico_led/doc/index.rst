@@ -128,7 +128,7 @@ LED Blinky and Fade
          \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
          [00:00:00.337,000] :byl:`<wrn> udc_rpi: BUS RESET`
          [00:00:00.417,000] :byl:`<wrn> udc_rpi: BUS RESET`
-         \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
+         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
          [00:00:04.002,000] <inf> main: Found LED strip device rgb-led-strip
          [00:00:04.002,000] <inf> main: Displaying pattern on strip
 

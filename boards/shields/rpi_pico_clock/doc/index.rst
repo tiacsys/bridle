@@ -330,7 +330,7 @@ sample: :zephyr:code-sample:`zephyr:input-dump`.
          \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
          W: BUS RESET
          W: BUS RESET
-         \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
+         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
          Input sample started
          I: input event: dev=wpcg-gpio-keys   SYN type= 1 code= 28 value=1
          I: input event: dev=wpcg-gpio-keys   SYN type= 1 code= 28 value=0
@@ -415,7 +415,7 @@ See also Zephyr sample: :zephyr:code-sample:`zephyr:adc_dt`.
          \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
          W: BUS RESET
          W: BUS RESET
-         \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
+         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
          ADC reading[0]:
          - adc\ @\ 4004c000, channel 0: 907 = 730 mV
          ADC reading[1]:

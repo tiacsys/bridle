@@ -83,9 +83,8 @@ Sample Output
 
 
    :bgn:`uart:~$` **<Tab>**
-     :bcy:`bridle   buzzer   clear    device   devmem   gpio     help`
-     :bcy:`history  kernel   log      pwm      rem      resize   retval`
-     :bcy:`shell`
+     :bcy:`bridle   buzzer   clear    device   devmem   gpio     help     history`
+     :bcy:`kernel   log      pwm      rem      resize   retval   shell`
 
    :bgn:`uart:~$` **help**
    Please press the <Tab> button to see all available commands.
@@ -98,28 +97,28 @@ Sample Output
    Please refer to shell documentation for more details.
 
    Available commands:
-     bridle   :Bridle commands.
-     buzzer   :Buzzer related commands
-     clear    :Clear screen.
-     device   :Device commands
-     devmem   :Read/write physical memory
-               Usage:
-               Read memory at address with optional width:
-               devmem address [width]
-               Write memory at address with mandatory width and value:
-               devmem address <width> <value>
-     gpio     :GPIO commands
-     help     :Prints the help message.
-     history  :Command history.
-     kernel   :Kernel commands
-     log      :Commands for controlling logger
-     pwm      :PWM shell commands
-     rem      :Ignore lines beginning with 'rem '
-     resize   :Console gets terminal screen size or assumes default in case the
-               readout fails. It must be executed after each terminal width change
-               to ensure correct text display.
-     retval   :Print return value of most recent command
-     shell    :Useful, not Unix-like shell commands.
+     bridle   : Bridle commands.
+     buzzer   : Buzzer related commands
+     clear    : Clear screen.
+     device   : Device commands
+     devmem   : Read/write physical memory
+                Usage:
+                Read memory at address with optional width:
+                devmem address [width]
+                Write memory at address with mandatory width and value:
+                devmem address <width> <value>
+     gpio     : GPIO commands
+     help     : Prints the help message.
+     history  : Command history.
+     kernel   : Kernel commands
+     log      : Commands for controlling logger
+     pwm      : PWM shell commands
+     rem      : Ignore lines beginning with 'rem '
+     resize   : Console gets terminal screen size or assumes default in case the
+                readout fails. It must be executed after each terminal width change
+                to ensure correct text display.
+     retval   : Print return value of most recent command
+     shell    : Useful, not Unix-like shell commands.
 
    :bgn:`uart:~$` **buzzer -h**
    buzzer - Buzzer related commands
@@ -136,12 +135,12 @@ Sample Output
    :bgn:`uart:~$` **buzzer play**
    play - Play one of predefined sounds
    Subcommands:
-     folksong   :Play the 'folksong' song
-     xmastime   :Play the 'folksong' song
-     funkytown  :Play the 'funkytown' song
-     mario      :Play the 'mario' song
-     golioth    :Play the 'golioth' song
-     tiacsys    :Play the 'tiacsys' song
+     folksong   : Play the 'folksong' song
+     xmastime   : Play the 'folksong' song
+     funkytown  : Play the 'funkytown' song
+     mario      : Play the 'mario' song
+     golioth    : Play the 'golioth' song
+     tiacsys    : Play the 'tiacsys' song
 
    :bgn:`uart:~$` **buzzer play folksong**
    :bgn:`uart:~$` **buzzer play xmastime**

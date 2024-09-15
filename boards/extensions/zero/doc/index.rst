@@ -173,7 +173,7 @@ port that echos characters back to the host PC. As an alternative to the default
 Zephyr console on serial port the Bridle :ref:`snippet-usb-console` can be used
 to enable :ref:`zephyr:usb_device_cdc_acm` and switch the console to USB::
 
-   USB device idVendor=2341, idProduct=804d, bcdDevice= 3.06
+   USB device idVendor=2341, idProduct=804d, bcdDevice= 3.07
    USB device strings: Mfr=1, Product=2, SerialNumber=3
    Product: Arduino Zero (CDC ACM)
    Manufacturer: Arduino LLC
@@ -430,18 +430,28 @@ Hello Shell with USB-CDC/ACM Console
          :bgn:`uart:~$` **device list**
          devices:
          - eic\ @\ 40001800 (READY)
+           DT node labels: eic
          - gpio\ @\ 41004480 (READY)
+           DT node labels: portb
          - gpio\ @\ 41004400 (READY)
+           DT node labels: porta
          - snippet_cdc_acm_console_uart (READY)
+           DT node labels: snippet_cdc_acm_console_uart
          - sercom\ @\ 42001c00 (READY)
+           DT node labels: sercom5
          - sercom\ @\ 42000800 (READY)
-         - tc\ @\ 42003800 (DISABLED)
-         - tc\ @\ 42003000 (DISABLED)
+           DT node labels: sercom0 arduino_serial
          - adc\ @\ 42004000 (READY)
+           DT node labels: adc
          - dac\ @\ 42004800 (READY)
+           DT node labels: dac0
          - nvmctrl\ @\ 41004000 (READY)
+           DT node labels: nvmctrl
          - sercom\ @\ 42001400 (READY)
+           DT node labels: sercom3 arduino_i2c
          - tcc\ @\ 42002800 (READY)
+           DT node labels: tcc2
+         - leds (READY)
 
          :bgn:`uart:~$` **history**
          [  0] history
@@ -517,11 +527,11 @@ Hello Shell with USB-CDC/ACM Console
       .. parsed-literal::
          :class: highlight-console notranslate
 
-         :bgn:`uart:~$` **flash read nvmctrl@41004000 18884 40**
-         00018884: 61 72 64 75 69 6e 6f 5f  7a 65 72 6f 00 48 65 6c \|arduino_ zero.Hel\|
-         00018894: 6c 6f 20 57 6f 72 6c 64  21 20 49 27 6d 20 54 48 \|lo World ! I'm TH\|
-         000188A4: 45 20 53 48 45 4c 4c 20  66 72 6f 6d 20 25 73 0a \|E SHELL  from %s.\|
-         000188B4: 00 67 65 74 6f 70 74 00  28 75 6e 73 69 67 6e 65 \|.getopt. (unsigne\|
+         :bgn:`uart:~$` **flash read nvmctrl@41004000 13310 40**
+         00013310: 61 72 64 75 69 6e 6f 5f  7a 65 72 6f 00 48 65 6c \|arduino_ zero.Hel\|
+         00013320: 6c 6f 20 57 6f 72 6c 64  21 20 49 27 6d 20 54 48 \|lo World ! I'm TH\|
+         00013330: 45 20 53 48 45 4c 4c 20  66 72 6f 6d 20 25 73 0a \|E SHELL  from %s.\|
+         00013340: 00 28 75 6e 73 69 67 6e  65 64 29 20 63 68 61 72 \|.(unsign ed) char\|
 
          :bgn:`uart:~$` **flash read nvmctrl@41004000 3c000 40**
          0003C000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|

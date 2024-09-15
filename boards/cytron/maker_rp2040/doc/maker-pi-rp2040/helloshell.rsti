@@ -34,18 +34,31 @@
          :bgn:`uart:~$` **device list**
          devices:
          - clock-controller\ @\ 40008000 (READY)
+           DT node labels: clocks
          - reset-controller\ @\ 4000c000 (READY)
+           DT node labels: reset
          - snippet_cdc_acm_console_uart (READY)
+           DT node labels: snippet_cdc_acm_console_uart
          - uart\ @\ 40034000 (READY)
+           DT node labels: uart0 grove_serial
          - timer\ @\ 40054000 (READY)
+           DT node labels: timer
          - pio\ @\ 50200000 (READY)
+           DT node labels: ((pio_hw_t \*)0x50200000u)
          - gpio\ @\ 40014000 (READY)
+           DT node labels: gpio0
          - adc\ @\ 4004c000 (READY)
+           DT node labels: adc
          - flash-controller\ @\ 18000000 (READY)
+           DT node labels: ssi
          - i2c\ @\ 40044000 (READY)
+           DT node labels: i2c0 grove_i2c
          - pwm\ @\ 40050000 (READY)
+           DT node labels: pwm grove_pwm_d0 grove_pwm_d1 grove_pwm_d2 grove_pwm_d3 grove_pwm_d4 grove_pwm_d5 grove_pwm_d6 grove_pwm_d7 grove_pwm_d16 grove_pwm_d17 grove_pwm_d26 grove_pwm_d27 grove_pwm_d28
          - vreg\ @\ 40064000 (READY)
+           DT node labels: vreg
          - pwm_leds (READY)
+           DT node labels: pwm_leds
 
          :bgn:`uart:~$` **history**
          [  0] history
@@ -88,7 +101,7 @@
          - pin
 
          :bgn:`uart:~$` **regulator disable vreg@40064000**
-         \*\*\* Booting Zephyr OS … … …\*\*\*
+         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
          Hello World! I'm THE SHELL from cytron_maker_pi_rp2040
 
          :bgn:`uart:~$` **hwinfo reset_cause**
@@ -270,11 +283,11 @@
       .. parsed-literal::
          :class: highlight-console notranslate
 
-         :bgn:`uart:~$` **flash read flash-controller@18000000 182a0 40**
-         000182A0: 63 79 74 72 6f 6e 5f 6d  61 6b 65 72 5f 70 69 5f \|cytron_m aker_pi\_\|
-         000182B0: 72 70 32 30 34 30 00 48  65 6c 6c 6f 20 57 6f 72 \|rp2040.H ello Wor\|
-         000182C0: 6c 64 21 20 49 27 6d 20  54 48 45 20 53 48 45 4c \|ld! I'm  THE SHEL\|
-         000182D0: 4c 20 66 72 6f 6d 20 25  73 0a 00 67 65 74 6f 70 \|L from % s..getop\|
+         :bgn:`uart:~$` **flash read flash-controller@18000000 19798 40**
+         00019798: 63 79 74 72 6f 6e 5f 6d  61 6b 65 72 5f 70 69 5f \|cytron_m aker_pi\_\|
+         000197A8: 72 70 32 30 34 30 00 48  65 6c 6c 6f 20 57 6f 72 \|rp2040.H ello Wor\|
+         000197B8: 6c 64 21 20 49 27 6d 20  54 48 45 20 53 48 45 4c \|ld! I'm  THE SHEL\|
+         000197C8: 4c 20 66 72 6f 6d 20 25  73 0a 00 28 75 6e 73 69 \|L from % s..(unsi\|
 
          :bgn:`uart:~$` **flash read flash-controller@18000000 e0000 40**
          000E0000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|

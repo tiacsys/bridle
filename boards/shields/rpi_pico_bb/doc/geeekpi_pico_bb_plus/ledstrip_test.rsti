@@ -64,6 +64,6 @@ That is:
    \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
    W: BUS RESET
    W: BUS RESET
-   \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
+   \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
    [00:00:04.002,000] <inf> main: Found LED strip device ws2812-1x1
    [00:00:04.002,000] <inf> main: Displaying pattern on strip

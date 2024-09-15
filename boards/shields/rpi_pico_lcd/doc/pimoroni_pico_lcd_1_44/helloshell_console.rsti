@@ -34,18 +34,33 @@
          :bgn:`uart:~$` **device list**
          devices:
          - clock-controller\ @\ 40008000 (READY)
+           DT node labels: clocks
          - reset-controller\ @\ 4000c000 (READY)
+           DT node labels: reset
          - snippet_cdc_acm_console_uart (READY)
+           DT node labels: snippet_cdc_acm_console_uart
          - uart\ @\ 40034000 (READY)
+           DT node labels: uart0 pico_serial rpipico_serial
          - timer\ @\ 40054000 (READY)
+           DT node labels: timer
          - gpio\ @\ 40014000 (READY)
+           DT node labels: gpio0
          - adc\ @\ 4004c000 (READY)
+           DT node labels: adc
          - flash-controller\ @\ 18000000 (READY)
+           DT node labels: ssi
          - i2c\ @\ 40044000 (READY)
+           DT node labels: i2c0 pico_i2c pico_i2c0 rpipico_i2c rpipico_i2c0
          - pwm\ @\ 40050000 (READY)
+           DT node labels: pwm pico_pwm rpipico_pwm
          - vreg\ @\ 40064000 (READY)
+           DT node labels: vreg
+         - rtc\ @\ 4005c000 (READY)
+           DT node labels: rtc
          - lcd-backlight-en (READY)
+           DT node labels: lcd_backlight_en
          - gpio_leds (READY)
+           DT node labels: gpio_leds
          - leds (READY)
 
          :bgn:`uart:~$` **history**

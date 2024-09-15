@@ -277,7 +277,7 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
          \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
          [00:00:00.331,000] :byl:`<wrn> udc_rpi: BUS RESET`
          [00:00:00.411,000] :byl:`<wrn> udc_rpi: BUS RESET`
-         \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
+         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
          Hello World! I'm THE SHELL … … …
          :bgn:`uart:~$` █
 
@@ -364,7 +364,7 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
          \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
          [00:00:00.244,000] :byl:`<wrn> udc_rpi: BUS RESET`
          [00:00:00.329,000] :byl:`<wrn> udc_rpi: BUS RESET`
-         \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
+         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
          Hello World! I'm THE SHELL … … …
          :bgn:`uart:~$` █
 

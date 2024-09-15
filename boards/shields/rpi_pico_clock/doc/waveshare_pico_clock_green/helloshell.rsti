@@ -34,32 +34,61 @@
          :bgn:`uart:~$` **device list**
          devices:
          - clock-controller\ @\ 40008000 (READY)
+           DT node labels: clocks
          - reset-controller\ @\ 4000c000 (READY)
+           DT node labels: reset
          - snippet_cdc_acm_console_uart (READY)
+           DT node labels: snippet_cdc_acm_console_uart
          - uart\ @\ 40034000 (READY)
+           DT node labels: uart0 pico_serial rpipico_serial
          - timer\ @\ 40054000 (READY)
+           DT node labels: timer
          - gpio\ @\ 40014000 (READY)
+           DT node labels: gpio0 rpipico_gpio_keys clock_gpio_keys
          - adc\ @\ 4004c000 (READY)
+           DT node labels: adc
          - flash-controller\ @\ 18000000 (READY)
+           DT node labels: ssi
          - i2c\ @\ 40048000 (READY)
+           DT node labels: i2c1 pico_i2c1 rpipico_i2c1 rpipico_i2c_rtc clock_i2c_rtc
          - i2c\ @\ 40044000 (READY)
+           DT node labels: i2c0 pico_i2c pico_i2c0 rpipico_i2c rpipico_i2c0
          - pwm\ @\ 40050000 (READY)
+           DT node labels: pwm rpipico_pwm_buzzers clock_pwm_buzzers
          - vreg\ @\ 40064000 (READY)
-         - ds3231-mfd\ @\ 68 (READY)
-         - ds3231-rtc (READY)
+           DT node labels: vreg
+         - rtc\ @\ 4005c000 (READY)
+           DT node labels: rtc
          - spi\ @\ 40040000 (READY)
+           DT node labels: spi1 pico_spi1 rpipico_spi1 rpipico_spi_leds clock_spi_leds
          - spi\ @\ 4003c000 (READY)
+           DT node labels: spi0 pico_spi pico_spi0 rpipico_spi rpipico_spi0
+         - ds3231-mfd\ @\ 68 (READY)
+           DT node labels: ds3231_mfd clock_mfd
+         - ds3231-rtc (READY)
+           DT node labels: ds3231_rtc clock_rtc
          - sipo-mux-gp\ @\ 0 (READY)
+           DT node labels: sipo_mux_gp clock_sipo_mux
          - sipo-mux-gpio\ @\ 7 (READY)
+           DT node labels: sipo_mux_gpio_7 clock_gpio_7
          - sipo-mux-gpio\ @\ 6 (READY)
+           DT node labels: sipo_mux_gpio_6 clock_gpio_6
          - sipo-mux-gpio\ @\ 5 (READY)
+           DT node labels: sipo_mux_gpio_5 clock_gpio_5
          - sipo-mux-gpio\ @\ 4 (READY)
+           DT node labels: sipo_mux_gpio_4 clock_gpio_4
          - sipo-mux-gpio\ @\ 3 (READY)
+           DT node labels: sipo_mux_gpio_3 clock_gpio_3
          - sipo-mux-gpio\ @\ 2 (READY)
+           DT node labels: sipo_mux_gpio_2 clock_gpio_2
          - sipo-mux-gpio\ @\ 1 (READY)
+           DT node labels: sipo_mux_gpio_1 clock_gpio_1
          - sipo-mux-gpio\ @\ 0 (READY)
+           DT node labels: sipo_mux_gpio_0 clock_gpio_0
          - wpcg-gpio-leds (READY)
+           DT node labels: wpcg_gpio_leds
          - ds3231-dts (READY)
+           DT node labels: ds3231_dts clock_dts
 
          :bgn:`uart:~$` **history**
          [  0] history
@@ -197,7 +226,7 @@
          :class: highlight-console notranslate
 
          :bgn:`uart:~$` **rtc get ds3231-rtc**
-         2024-01-04T16:49:47:000000
+         2024-09-16T12:37:59.000
 
    .. group-tab:: Temp
 

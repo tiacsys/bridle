@@ -254,7 +254,7 @@ sample: :zephyr:code-sample:`zephyr:input-dump`.
          \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
          W: BUS RESET
          W: BUS RESET
-         \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
+         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
          Input sample started
          I: input event: dev=gpio_keys        SYN type= 1 code=108 value=1
          I: input event: dev=gpio_keys        SYN type= 1 code=108 value=0
@@ -355,7 +355,7 @@ See also Zephyr sample: :zephyr:code-sample:`zephyr:adc_dt`.
          \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
          [00:00:00.287,000] :byl:`<wrn> udc_rpi: BUS RESET`
          [00:00:00.368,000] :byl:`<wrn> udc_rpi: BUS RESET`
-         \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
+         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
          ADC reading[0]:
          - adc\ @\ 4004c000, channel 0: 25 = 20 mV
          ADC reading[1]:
@@ -501,7 +501,7 @@ sample: :zephyr:code-sample:`zephyr:led-pwm`.
          \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
          [00:00:00.181,000] :byl:`<wrn> udc_rpi: BUS RESET`
          [00:00:00.266,000] :byl:`<wrn> udc_rpi: BUS RESET`
-         \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
+         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
          [00:00:04.003,000] <inf> main: Testing LED 0 - L0: Test LED 0
          [00:00:04.004,000] <inf> main:   Turned on
          [00:00:05.005,000] <inf> main:   Turned off

@@ -16,7 +16,7 @@ This is based on the Zephyr sample :ref:`zephyr:bme280`.
    [00:00:00.005,000] <inf> mfd_sc18is604: sc18is604@0: found "SC18IS604 1.0.3"
    [00:00:00.011,000] <dbg> BME280: bme280_chip_init: ID OK (BMP280)
    [00:00:00.040,000] <dbg> BME280: bme280_chip_init: "bme280\ @\ 77" OK
-   \*\*\* Booting Zephyr OS build v3.7.0-116-g98e7aa72eb04 \*\*\*
+   \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* \*\*\*
    Found device "bme280\ @\ 77", getting sensor data
    temp: 26.671875; press: 98.640625; humidity: 1064960.0
    temp: 26.671875; press: 98.640625; humidity: 1064960.0

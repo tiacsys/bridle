@@ -34,16 +34,27 @@
          :bgn:`uart:~$` **device list**
          devices:
          - clock-controller\ @\ 40008000 (READY)
+           DT node labels: clocks
          - reset-controller\ @\ 4000c000 (READY)
+           DT node labels: reset
          - snippet_cdc_acm_console_uart (READY)
+           DT node labels: snippet_cdc_acm_console_uart
          - uart\ @\ 40038000 (READY)
+           DT node labels: uart1 rpipico_serial pico_serial
          - timer\ @\ 40054000 (READY)
+           DT node labels: timer
          - gpio\ @\ 40014000 (READY)
+           DT node labels: gpio0
          - flash-controller\ @\ 18000000 (READY)
+           DT node labels: ssi
          - i2c\ @\ 40044000 (READY)
+           DT node labels: i2c0 rpipico_i2c0 rpipico_i2c pico_i2c0 pico_i2c
          - pwm\ @\ 40050000 (READY)
+           DT node labels: pwm rpigeek_pwms
          - vreg\ @\ 40064000 (READY)
+           DT node labels: vreg
          - lcd-backlight-en (READY)
+           DT node labels: lcd_backlight_en
          - rpigeek_dbg_leds (READY)
          - rpigeek_dbg_pwm_leds (READY)
 
@@ -88,7 +99,7 @@
          - power-on reset
 
          :bgn:`uart:~$` **regulator disable vreg@40064000**
-         \*\*\* Booting Zephyr OS … … …\*\*\*
+         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
          Hello World! I'm THE SHELL from waveshare_rp2040_geek
 
          :bgn:`uart:~$` **hwinfo reset_cause**
@@ -203,11 +214,11 @@
       .. parsed-literal::
          :class: highlight-console notranslate
 
-         :bgn:`uart:~$` **flash read flash-controller@18000000 1790c 40**
-         0001790C: 77 61 76 65 73 68 61 72  65 5f 72 70 32 30 34 30 \|waveshar e_rp2040\|
-         0001791C: 5f 67 65 65 6b 00 48 65  6c 6c 6f 20 57 6f 72 6c \|_geek.He llo Worl\|
-         0001792C: 64 21 20 49 27 6d 20 54  48 45 20 53 48 45 4c 4c \|d! I'm T HE SHELL\|
-         0001793C: 20 66 72 6f 6d 20 25 73  0a 00 67 65 74 6f 70 74 \| from %s ..getopt\|
+         :bgn:`uart:~$` **flash read flash-controller@18000000 18e2c 40**
+         00018E2C: 77 61 76 65 73 68 61 72  65 5f 72 70 32 30 34 30 \|waveshar e_rp2040\|
+         00018E3C: 5f 67 65 65 6b 00 48 65  6c 6c 6f 20 57 6f 72 6c \|_geek.He llo Worl\|
+         00018E4C: 64 21 20 49 27 6d 20 54  48 45 20 53 48 45 4c 4c \|d! I'm T HE SHELL\|
+         00018E5C: 20 66 72 6f 6d 20 25 73  0a 00 28 75 6e 73 69 67 \| from %s ..(unsig\|
 
          :bgn:`uart:~$` **flash read flash-controller@18000000 3c000 40**
          0003C000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|

@@ -41,7 +41,7 @@ The output to the console will look something like this:
 .. parsed-literal::
    :class: highlight-console notranslate
 
-   \*\*\* Booting Zephyr OS … … …\*\*\*
+   \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* \*\*\*
    [00:00:00.000,000] <inf> main: No file system selected
    [00:00:00.001,000] <inf> main: The device is put in USB mass storage mode.
 
@@ -70,7 +70,7 @@ will be detected as shown by the Linux journalctl command:
 
    :bgn:`$` **journalctl -k -n 17**
    usb 1-6.3: new full-speed USB device number 16 using xhci_hcd
-   usb 1-6.3: New USB device found, idVendor=2fe3, idProduct=0008, bcdDevice= 3.06
+   usb 1-6.3: New USB device found, idVendor=2fe3, idProduct=0008, bcdDevice= 3.07
    usb 1-6.3: New USB device strings: Mfr=1, Product=2, SerialNumber=3
    usb 1-6.3: Product: Zephyr MSC sample
    usb 1-6.3: Manufacturer: ZEPHYR
@@ -93,7 +93,7 @@ The output to the console will look something like this
 .. parsed-literal::
    :class: highlight-console notranslate
 
-   \*\*\* Booting Zephyr OS … … …\*\*\*
+   \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* \*\*\*
    Mount /RAM:: 0
    /RAM:: bsize = 512 ; frsize = 512 ; blocks = 158 ; bfree = 158
    /RAM: opendir: 0

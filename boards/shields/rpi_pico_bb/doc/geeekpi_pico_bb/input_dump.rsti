@@ -82,7 +82,7 @@ the two user keys, and the two analog joystick achsises using the
    \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
    W: BUS RESET
    W: BUS RESET
-   \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
+   \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
    Input sample started
    I: input event: dev=xpt2046@0            type= 3 code=  0 value=100
    I: input event: dev=xpt2046@0            type= 3 code=  1 value=141

@@ -51,32 +51,32 @@ Building and Running
          INFO    - JOBS: 4
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1759/1780 magpie_f777ni             tests/arch/arm/arm_mem_protect/arch.arm.mem_protect.syscalls :byl:`SKIPPED` (runtime filter)
-         INFO    - 1760/1780 magpie_f777ni             tests/arch/arm/arm_irq_advanced_features/arch.arm.irq_advanced_features.secure_fw :byl:`SKIPPED` (runtime filter)
-         INFO    - 1761/1780 magpie_f777ni             tests/arch/arm/arm_irq_vector_table/arch.arm.irq_vector_table :bgn:`PASSED` (device: DT04BNT1, 3.218s)
-         INFO    - 1762/1780 magpie_f777ni             tests/arch/arm/arm_runtime_nmi/arch.arm.interrupt.nmi :bgn:`PASSED` (device: DT04BNT1, 4.457s)
-         INFO    - 1763/1780 magpie_f777ni             tests/arch/common/ramfunc/arch.common.ramfunc      :bgn:`PASSED` (device: DT04BNT1, 3.241s)
-         INFO    - 1764/1780 magpie_f777ni             tests/arch/arm/arm_irq_advanced_features/arch.arm.irq_advanced_features :bgn:`PASSED` (device: DT04BNT1, 2.695s)
-         INFO    - 1765/1780 magpie_f777ni             tests/arch/arm/arm_thread_swap_tz/arch.arm.swap.tz_off :byl:`SKIPPED` (runtime filter)
-         INFO    - 1766/1780 magpie_f777ni             tests/arch/arm/arm_tz_wrap_func/arch.arm.tz_wrap_func :bgn:`PASSED` (device: DT04BNT1, 3.975s)
-         INFO    - 1767/1780 magpie_f777ni             tests/arch/arm/arm_thread_swap_tz/arch.arm.swap.tz :byl:`SKIPPED` (runtime filter)
-         INFO    - 1768/1780 magpie_f777ni             tests/arch/arm/arm_sw_vector_relay/arch.arm.sw_vector_relay :bgn:`PASSED` (device: DT04BNT1, 2.563s)
-         INFO    - 1769/1780 magpie_f777ni             tests/arch/arm/arm_thread_swap/arch.arm.swap.common.fpu_sharing.no_optimizations :bgn:`PASSED` (device: DT04BNT1, 6.198s)
-         INFO    - 1770/1780 magpie_f777ni             tests/arch/arm/arm_thread_swap/arch.arm.swap.common.no_optimizations :bgn:`PASSED` (device: DT04BNT1, 6.246s)
-         INFO    - 1771/1780 magpie_f777ni             tests/arch/arm/arm_irq_zero_latency_levels/arch.arm.irq_zero_latency_levels.secure_fw :byl:`SKIPPED` (runtime filter)
-         INFO    - 1772/1780 magpie_f777ni             tests/arch/arm/arm_thread_swap/arch.arm.swap.common.fpu_sharing :bgn:`PASSED` (device: DT04BNT1, 3.848s)
-         INFO    - 1773/1780 magpie_f777ni             tests/arch/arm/arm_thread_swap/arch.arm.swap.common :bgn:`PASSED` (device: DT04BNT1, 3.206s)
-         INFO    - 1774/1780 magpie_f777ni             tests/arch/arm/arm_irq_zero_latency_levels/arch.arm.irq_zero_latency_levels :bgn:`PASSED` (device: DT04BNT1, 3.936s)
-         INFO    - 1775/1780 magpie_f777ni             tests/arch/arm/arm_interrupt/arch.arm.interrupt.no_optimizations :bgn:`PASSED` (device: DT04BNT1, 6.317s)
-         INFO    - 1776/1780 magpie_f777ni             tests/arch/arm/arm_interrupt/arch.arm.interrupt.extra_exception_info :bgn:`PASSED` (device: DT04BNT1, 4.695s)
-         INFO    - 1777/1780 magpie_f777ni             tests/arch/arm/arm_interrupt/arch.arm.interrupt    :bgn:`PASSED` (device: DT04BNT1, 3.544s)
-         INFO    - 1778/1780 magpie_f777ni             tests/arch/arm64/arm64_psci/arch.arm64.psci        :byl:`SKIPPED` (runtime filter)
-         INFO    - 1779/1780 magpie_f777ni             tests/arch/arm/arm_custom_interrupt/arch.arm.custom_interrupt :bgn:`PASSED` (device: DT04BNT1, 2.531s)
-         INFO    - 1780/1780 magpie_f777ni             tests/arch/arm/arm_hardfault_validation/arch.arm.interrupt.hardfault_validation :bgn:`PASSED` (device: DT04BNT1, 2.526s)
+         INFO    - 1866/1887 magpie_f777ni             tests/arch/arm/arm_mem_protect/arch.arm.mem_protect.syscalls :byl:`SKIPPED` (runtime filter)
+         INFO    - 1867/1887 magpie_f777ni             tests/arch/arm/arm_irq_advanced_features/arch.arm.irq_advanced_features.secure_fw :byl:`SKIPPED` (runtime filter)
+         INFO    - 1868/1887 magpie_f777ni             tests/arch/arm/arm_irq_vector_table/arch.arm.irq_vector_table :bgn:`PASSED` (device: DT04BNT1, 3.082s)
+         INFO    - 1869/1887 magpie_f777ni             tests/arch/arm/arm_runtime_nmi/arch.arm.interrupt.nmi :bgn:`PASSED` (device: DT04BNT1, 4.288s)
+         INFO    - 1870/1887 magpie_f777ni             tests/arch/arm/arm_irq_advanced_features/arch.arm.irq_advanced_features :bgn:`PASSED` (device: DT04BNT1, 2.381s)
+         INFO    - 1871/1887 magpie_f777ni             tests/arch/common/ramfunc/arch.common.ramfunc      :bgn:`PASSED` (device: DT04BNT1, 3.080s)
+         INFO    - 1872/1887 magpie_f777ni             tests/arch/arm/arm_thread_swap_tz/arch.arm.swap.tz_off :byl:`SKIPPED` (runtime filter)
+         INFO    - 1873/1887 magpie_f777ni             tests/arch/arm/arm_tz_wrap_func/arch.arm.tz_wrap_func :bgn:`PASSED` (device: DT04BNT1, 3.427s)
+         INFO    - 1874/1887 magpie_f777ni             tests/arch/arm/arm_thread_swap_tz/arch.arm.swap.tz :byl:`SKIPPED` (runtime filter)
+         INFO    - 1875/1887 magpie_f777ni             tests/arch/arm/arm_sw_vector_relay/arch.arm.sw_vector_relay :bgn:`PASSED` (device: DT04BNT1, 2.359s)
+         INFO    - 1876/1887 magpie_f777ni             tests/arch/arm/arm_thread_swap/arch.arm.swap.common.fpu_sharing.no_optimizations :bgn:`PASSED` (device: DT04BNT1, 5.992s)
+         INFO    - 1877/1887 magpie_f777ni             tests/arch/arm/arm_thread_swap/arch.arm.swap.common.no_optimizations :bgn:`PASSED` (device: DT04BNT1, 6.009s)
+         INFO    - 1878/1887 magpie_f777ni             tests/arch/arm/arm_irq_zero_latency_levels/arch.arm.irq_zero_latency_levels.secure_fw :byl:`SKIPPED` (runtime filter)
+         INFO    - 1879/1887 magpie_f777ni             tests/arch/arm/arm_thread_swap/arch.arm.swap.common.fpu_sharing :bgn:`PASSED` (device: DT04BNT1, 3.693s)
+         INFO    - 1880/1887 magpie_f777ni             tests/arch/arm/arm_thread_swap/arch.arm.swap.common :bgn:`PASSED` (device: DT04BNT1, 3.070s)
+         INFO    - 1881/1887 magpie_f777ni             tests/arch/arm/arm_irq_zero_latency_levels/arch.arm.irq_zero_latency_levels :bgn:`PASSED` (device: DT04BNT1, 3.552s)
+         INFO    - 1882/1887 magpie_f777ni             tests/arch/arm/arm_interrupt/arch.arm.interrupt.no_optimizations :bgn:`PASSED` (device: DT04BNT1, 6.251s)
+         INFO    - 1883/1887 magpie_f777ni             tests/arch/arm/arm_interrupt/arch.arm.interrupt.extra_exception_info :bgn:`PASSED` (device: DT04BNT1, 4.103s)
+         INFO    - 1884/1887 magpie_f777ni             tests/arch/arm/arm_interrupt/arch.arm.interrupt    :bgn:`PASSED` (device: DT04BNT1, 3.188s)
+         INFO    - 1885/1887 magpie_f777ni             tests/arch/arm64/arm64_psci/arch.arm64.psci        :byl:`SKIPPED` (runtime filter)
+         INFO    - 1886/1887 magpie_f777ni             tests/arch/arm/arm_custom_interrupt/arch.arm.custom_interrupt :bgn:`PASSED` (device: DT04BNT1, 2.377s)
+         INFO    - 1887/1887 magpie_f777ni             tests/arch/arm/arm_hardfault_validation/arch.arm.interrupt.hardfault_validation :bgn:`PASSED` (device: DT04BNT1, 2.345s)
 
-         INFO    - 1984 test scenarios (1780 test instances) selected, 1764 configurations skipped (1758 by static filter, 6 at runtime).
-         INFO    - :bgn:`16 of 1780` test configurations passed (100.00%), :bbk:`0 failed, :bbk:`0` errored, :byl:`1764` skipped with :bbk:`0` warnings in :bbk:`316.02 seconds`
-         INFO    - In total 35 test cases were executed, 13413 skipped on 1 out of total 739 platforms (0.14%)
+         INFO    - 2092 test scenarios (1887 test instances) selected, 1871 configurations skipped (1865 by static filter, 6 at runtime).
+         INFO    - :bgn:`16 of 1887` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1871` skipped with :bbk:`0` warnings in :bbk:`278.97 seconds`
+         INFO    - In total 35 test cases were executed, 14967 skipped on 1 out of total 1 platforms (100.00%)
          INFO    - :bgn:`16` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:

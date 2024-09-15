@@ -68,32 +68,32 @@ Sample Output
 .. parsed-literal::
    :class: highlight-console notranslate
 
-   [00:00:00.066,000] <dbg> MPU9250: ak8963_fetch_adj: Adjustment values 1756 1762 1698
+   [00:00:00.067,000] <dbg> MPU9250: ak8963_fetch_adj: Adjustment values 1756 1762 1698
    \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-   [00:00:00.338,000] :byl:`<wrn> udc_rpi: BUS RESET`
-   [00:00:00.419,000] :byl:`<wrn> udc_rpi: BUS RESET`
-   \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* \*\*\*
-   [00:00:04.088,000] <inf> wsptdis_sample: MPU9250: Found device "mpu9250\ @\ 68", getting sensor data
-   [00:00:04.088,000] <inf> wsptdis_sample: DOF: Configured for triggered sampling.
-   [00:00:04.088,000] <inf> wsptdis_sample: LPS22HB: Found device "lps22hb\ @\ 5c", getting sensor data
-   [00:00:04.089,000] <inf> wsptdis_sample: TP: 98.13 AirPr. [hPa]
-   [00:00:04.090,000] <inf> wsptdis_sample: TP: 29.01 Temp. [C]
-   [00:00:04.096,000] <dbg> MPU9250: mpu9250_sample_fetch: magn_st2: 16
-   [00:00:04.096,000] <inf> wsptdis_sample: DOF: 1.511339 -1.048062 10.103531 XYZ-Accel. [m/s/s]
-   [00:00:04.096,000] <inf> wsptdis_sample: DOF: -0.031442 0.011591 -0.017453 XYZ-Gyro. [rad/s]
-   [00:00:04.096,000] <inf> wsptdis_sample: DOF: 0.363492 0.096910 -0.378654 XYZ-Magn. [uG]
-   [00:00:04.096,000] <inf> wsptdis_sample: DOF: 32.22 Temp. [C]
-   [00:00:06.091,000] <inf> wsptdis_sample: TP: 98.12 AirPr. [hPa]
-   [00:00:06.091,000] <inf> wsptdis_sample: TP: 29.04 Temp. [C]
-   [00:00:06.105,000] <dbg> MPU9250: mpu9250_sample_fetch: magn_st2: 16
-   [00:00:06.105,000] <inf> wsptdis_sample: DOF: 1.508347 -1.046267 10.108917 XYZ-Accel. [m/s/s]
-   [00:00:06.106,000] <inf> wsptdis_sample: DOF: -0.032508 0.010392 -0.017453 XYZ-Gyro. [rad/s]
-   [00:00:06.106,000] <inf> wsptdis_sample: DOF: 0.354712 0.095148 -0.380352 XYZ-Magn. [uG]
-   [00:00:06.106,000] <inf> wsptdis_sample: DOF: 32.29 Temp. [C]
-   [00:00:08.092,000] <inf> wsptdis_sample: TP: 98.12 AirPr. [hPa]
-   [00:00:08.092,000] <inf> wsptdis_sample: TP: 29.08 Temp. [C]
-   [00:00:08.115,000] <dbg> MPU9250: mpu9250_sample_fetch: magn_st2: 16
-   [00:00:08.115,000] <inf> wsptdis_sample: DOF: 1.510741 -1.045070 10.106523 XYZ-Accel. [m/s/s]
-   [00:00:08.115,000] <inf> wsptdis_sample: DOF: -0.030643 0.012923 -0.017586 XYZ-Gyro. [rad/s]
-   [00:00:08.115,000] <inf> wsptdis_sample: DOF: 0.365248 0.084576 -0.373560 XYZ-Magn. [uG]
-   [00:00:08.115,000] <inf> wsptdis_sample: DOF: 32.34 Temp. [C]
+   [00:00:00.309,000] :byl:`<wrn> udc_rpi: BUS RESET`
+   [00:00:00.389,000] :byl:`<wrn> udc_rpi: BUS RESET`
+   \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+   [00:00:04.079,000] <inf> wsptdis_sample: MPU9250: Found device "mpu9250\ @\ 68", getting sensor data
+   [00:00:04.079,000] <inf> wsptdis_sample: DOF: Configured for triggered sampling.
+   [00:00:04.079,000] <inf> wsptdis_sample: LPS22HB: Found device "lps22hb\ @\ 5c", getting sensor data
+   [00:00:04.080,000] <inf> wsptdis_sample: TP: 100.52 AirPr. [hPa]
+   [00:00:04.080,000] <inf> wsptdis_sample: TP: 26.29 Temp. [C]
+   [00:00:04.086,000] <dbg> MPU9250: mpu9250_sample_fetch: magn_st2: 16
+   [00:00:04.087,000] <inf> wsptdis_sample: DOF: 0.694318 -0.566229 10.280103 XYZ-Accel. [m/s/s]
+   [00:00:04.087,000] <inf> wsptdis_sample: DOF: -0.028111 0.014255 -0.023048 XYZ-Gyro. [rad/s]
+   [00:00:04.087,000] <inf> wsptdis_sample: DOF: 0.207208 0.007048 -0.230928 XYZ-Magn. [uG]
+   [00:00:04.087,000] <inf> wsptdis_sample: DOF: 29.57 Temp. [C]
+   [00:00:06.081,000] <inf> wsptdis_sample: TP: 100.52 AirPr. [hPa]
+   [00:00:06.082,000] <inf> wsptdis_sample: TP: 26.36 Temp. [C]
+   [00:00:06.095,000] <dbg> MPU9250: mpu9250_sample_fetch: magn_st2: 16
+   [00:00:06.096,000] <inf> wsptdis_sample: DOF: 0.684741 -0.557849 10.274117 XYZ-Accel. [m/s/s]
+   [00:00:06.096,000] <inf> wsptdis_sample: DOF: -0.028111 0.014388 -0.022649 XYZ-Gyro. [rad/s]
+   [00:00:06.096,000] <inf> wsptdis_sample: DOF: 0.214232 0.014096 -0.234324 XYZ-Magn. [uG]
+   [00:00:06.096,000] <inf> wsptdis_sample: DOF: 29.67 Temp. [C]
+   [00:00:08.083,000] <inf> wsptdis_sample: TP: 100.51 AirPr. [hPa]
+   [00:00:08.083,000] <inf> wsptdis_sample: TP: 26.42 Temp. [C]
+   [00:00:08.105,000] <dbg> MPU9250: mpu9250_sample_fetch: magn_st2: 16
+   [00:00:08.105,000] <inf> wsptdis_sample: DOF: 0.693121 -0.563236 10.284891 XYZ-Accel. [m/s/s]
+   [00:00:08.105,000] <inf> wsptdis_sample: DOF: -0.028378 0.015454 -0.023448 XYZ-Gyro. [rad/s]
+   [00:00:08.105,000] <inf> wsptdis_sample: DOF: 0.217744 0.014096 -0.230928 XYZ-Magn. [uG]
+   [00:00:08.105,000] <inf> wsptdis_sample: DOF: 29.75 Temp. [C]

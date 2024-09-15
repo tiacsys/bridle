@@ -51,11 +51,11 @@ Building and Running
          INFO    - JOBS: 4
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1780/1780 magpie_f777ni             tests/drivers/hwinfo/api/drivers.hwinfo.api        :bgn:`PASSED` (device: DT04BNT1, 2.510s)
+         INFO    - 1887/1887 magpie_f777ni             tests/drivers/hwinfo/api/drivers.hwinfo.api        :bgn:`PASSED` (device: DT04BNT1, 2.365s)
 
-         INFO    - 1984 test scenarios (1780 test instances) selected, 1779 configurations skipped (1779 by static filter, 0 at runtime).
-         INFO    - :bgn:`1 of 1780` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1779` skipped with :bbk:`0` warnings in :bbk:`29.52 seconds`
-         INFO    - In total 4 test cases were executed, 13444 skipped on 1 out of total 739 platforms (0.14%)
+         INFO    - 2092 test scenarios (1887 test instances) selected, 1886 configurations skipped (1886 by static filter, 0 at runtime).
+         INFO    - :bgn:`1 of 1887` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1886` skipped with :bbk:`0` warnings in :bbk:`25.68 seconds`
+         INFO    - In total 4 test cases were executed, 14998 skipped on 1 out of total 1 platforms (100.00%)
          INFO    - :bgn:`1` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:

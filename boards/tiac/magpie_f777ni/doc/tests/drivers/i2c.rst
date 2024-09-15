@@ -58,15 +58,14 @@ Building and Running
          INFO    - JOBS: 4
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1777/1780 magpie_f777ni             tests/drivers/i2c/i2c_api/drivers.i2c.api          :byl:`SKIPPED` (runtime filter)
-         INFO    - 1778/1780 magpie_f777ni             tests/drivers/i2c/i2c_ram/drivers.i2c.ram.rtio     :byl:`SKIPPED` (runtime filter)
-         INFO    - 1779/1780 magpie_f777ni             tests/drivers/i2c/i2c_ram/drivers.i2c.ram          :byl:`SKIPPED` (runtime filter)
-         INFO    - 1780/1780 magpie_f777ni             tests/drivers/i2c/i2c_target_api/drivers.i2c.target_api.dual_role  :brd:`ERROR` Build failure (device)
+         INFO    - 1885/1887 magpie_f777ni             tests/drivers/i2c/i2c_bme688/drivers.i2c.bme688    :byl:`SKIPPED` (runtime filter)
+         INFO    - 1886/1887 magpie_f777ni             tests/drivers/i2c/i2c_api/drivers.i2c.api          :byl:`SKIPPED` (runtime filter)
+         INFO    - 1887/1887 magpie_f777ni             tests/drivers/i2c/i2c_target_api/drivers.i2c.target_api.dual_role  :brd:`ERROR` Build failure (device)
          INFO    - :byl:`.../twister-out/magpie_f777ni/tests/drivers/i2c/i2c_target_api/drivers.i2c.target_api.dual_role/build.log`
 
-         INFO    - 1984 test scenarios (1780 test instances) selected, 1779 configurations skipped (1776 by static filter, 3 at runtime).
-         INFO    - :bgn:`0 of 1780` test configurations passed (0.00%), :bbk:`0` failed, :brd:`1` errored, :byl:`1779` skipped with :bbk:`0` warnings in :bbk:`18.87 seconds`
-         INFO    - In total 1 test cases were executed, 13447 skipped on 1 out of total 739 platforms (0.14%)
+         INFO    - 2092 test scenarios (1887 test instances) selected, 1886 configurations skipped (1884 by static filter, 2 at runtime).
+         INFO    - :bgn:`0 of 1887` test configurations passed (0.00%), :bbk:`0` failed, :brd:`1` errored, :byl:`1886` skipped with :bbk:`0` warnings in :bbk:`19.83 seconds`
+         INFO    - In total 1 test cases were executed, 15001 skipped on 1 out of total 1 platforms (100.00%)
          INFO    - :bgn:`0` test configurations executed on platforms, :brd:`1` test configurations were only built.
 
          Hardware distribution summary:

@@ -40,10 +40,10 @@ prompt. All shell commands are available and would looks like:
 
 
    :bgn:`uart:~$` **<Tab>**
-     :bcy:`adc        bridle     clear      dac        device     devmem     flash`
-     :bcy:`gpio       hello      help       history    hwinfo     i2c        kernel`
-     :bcy:`led        log        pwm        regulator  rem        resize     retval`
-     :bcy:`sensor     shell      timer`
+     :bcy:`adc        bridle     clear      dac        device     devmem     eeprom`
+     :bcy:`flash      gpio       hello      help       history    hwinfo     i2c`
+     :bcy:`kernel     led        log        pwm        regulator  rem        resize`
+     :bcy:`retval     sensor     shell      timer`
 
    :bgn:`uart:~$` **help**
    Please press the <Tab> button to see all available commands.
@@ -67,6 +67,7 @@ prompt. All shell commands are available and would looks like:
                   devmem address [width]
                   Write memory at address with mandatory width and value:
                   devmem address <width> <value>
+     eeprom     : EEPROM shell commands
      flash      : Flash shell commands
      gpio       : GPIO commands
      hello      : say hello
@@ -113,28 +114,51 @@ prompt. All shell commands are available and would looks like:
    :bgn:`uart:~$` **device list**
    devices:
    - rcc\ @\ 40023800 (READY)
+     DT node labels: rcc
    - reset-controller (READY)
+     DT node labels: rctl
    - interrupt-controller\ @\ 40013c00 (READY)
+     DT node labels: exti
    - gpio\ @\ 40022800 (READY)
+     DT node labels: gpiok
    - gpio\ @\ 40022400 (READY)
+     DT node labels: gpioj
    - gpio\ @\ 40022000 (READY)
+     DT node labels: gpioi
    - gpio\ @\ 40021C00 (READY)
+     DT node labels: gpioh
    - gpio\ @\ 40021800 (READY)
+     DT node labels: gpiog
    - gpio\ @\ 40021400 (READY)
+     DT node labels: gpiof
    - gpio\ @\ 40021000 (READY)
+     DT node labels: gpioe
    - gpio\ @\ 40020C00 (READY)
+     DT node labels: gpiod
    - gpio\ @\ 40020800 (READY)
+     DT node labels: gpioc
    - gpio\ @\ 40020400 (READY)
+     DT node labels: gpiob
    - gpio\ @\ 40020000 (READY)
+     DT node labels: gpioa
    - serial\ @\ 40007800 (READY)
+     DT node labels: uart7
    - serial\ @\ 40004c00 (READY)
+     DT node labels: uart4 tmph_serial1 tmph_serial
    - rtc\ @\ 40002800 (READY)
+     DT node labels: rtc
    - adc\ @\ 40012200 (READY)
+     DT node labels: adc3 tmph_adc
    - flash-controller\ @\ 40023c00 (READY)
+     DT node labels: flash
    - i2c\ @\ 40006000 (READY)
+     DT node labels: i2c4 tmph_i2c1 tmph_i2c
    - i2c\ @\ 40005800 (READY)
+     DT node labels: i2c2
    - pwm (READY)
+     DT node labels: pwm8 tmph_pwms
    - spi\ @\ 40013400 (READY)
+     DT node labels: spi4 tmph_spi1 tmph_spi
    - leds (READY)
 
    :bgn:`uart:~$` **history**
@@ -221,11 +245,11 @@ Simple Flash Access and Test
 .. parsed-literal::
    :class: highlight-console notranslate
 
-   :bgn:`uart:~$` **flash read flash-controller@40023c00 167aa 40**
-   000167AA: 6d 61 67 70 69 65 5f 66  37 37 37 6e 69 00 48 65 \|magpie_f 777ni.He\|
-   000167BA: 6c 6c 6f 20 57 6f 72 6c  64 21 20 49 27 6d 20 54 \|llo Worl d! I'm T\|
-   000167CA: 48 45 20 53 48 45 4c 4c  20 66 72 6f 6d 20 25 73 \|HE SHELL  from %s\|
-   000167DA: 0a 00 67 65 74 6f 70 74  00 28 75 6e 73 69 67 6e \|..getopt .(unsign\|
+   :bgn:`uart:~$` **flash read flash-controller@40023c00 17bd6 40**
+   00017BD6: 6d 61 67 70 69 65 5f 66  37 37 37 6e 69 00 48 65 \|magpie_f 777ni.He\|
+   00017BE6: 6c 6c 6f 20 57 6f 72 6c  64 21 20 49 27 6d 20 54 \|llo Worl d! I'm T\|
+   00017BF6: 48 45 20 53 48 45 4c 4c  20 66 72 6f 6d 20 25 73 \|HE SHELL  from %s\|
+   00017C06: 0a 00 28 75 6e 73 69 67  6e 65 64 29 20 63 68 61 \|..(unsig ned) cha\|
 
 .. rubric:: Erase, Write and Verify
 

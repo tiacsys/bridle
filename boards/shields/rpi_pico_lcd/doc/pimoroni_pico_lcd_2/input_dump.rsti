@@ -66,7 +66,7 @@ using the :ref:`Input subsystem API <zephyr:input>`. That are:
    \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
    W: BUS RESET
    W: BUS RESET
-   \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
+   \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
    Input sample started
    I: input event: dev=gpio_keys        SYN type= 1 code= 30 value=1
    I: input event: dev=gpio_keys        SYN type= 1 code= 30 value=0

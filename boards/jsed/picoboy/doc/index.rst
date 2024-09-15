@@ -232,7 +232,7 @@ sample which sets up a virtual serial port that echos characters back to the
 host PC. The |PicoBoy| provides the Zephyr console per default on the USB port
 as :ref:`zephyr:usb_device_cdc_acm`::
 
-   USB device idVendor=2e8a, idProduct=000a, bcdDevice= 3.06
+   USB device idVendor=2e8a, idProduct=000a, bcdDevice= 3.07
    USB device strings: Mfr=1, Product=2, SerialNumber=3
    Product: PicoBoy (CDC ACM)
    Manufacturer: JSED (Raspberry Pi)
@@ -409,7 +409,7 @@ See also Zephyr sample: :zephyr:code-sample:`zephyr:input-dump`.
    \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
    W: BUS RESET
    W: BUS RESET
-   \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
+   \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
    Input sample started
    I: input event: dev=gpio_keys        SYN type= 1 code=103 value=1
    I: input event: dev=gpio_keys        SYN type= 1 code=103 value=0

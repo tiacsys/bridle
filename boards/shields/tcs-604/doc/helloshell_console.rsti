@@ -1,3 +1,11 @@
+.. rubric:: boot logging output
+
+.. parsed-literal::
+   :class: highlight-console notranslate
+
+   [00:00:00.005,000] <inf> mfd_sc18is604: sc18is604\ @\ 0: found "SC18IS604 1.0.3"
+   \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* \*\*\*
+
 .. rubric:: Simple test execution on target
 
 (text in bold is a command input)

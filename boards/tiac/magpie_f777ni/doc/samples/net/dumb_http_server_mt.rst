@@ -42,10 +42,10 @@ are shown on the console like this:
 .. parsed-literal::
    :class: highlight-console notranslate
 
-   \*\*\* Booting Zephyr OS … … …\*\*\*
+   \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* \*\*\*
    [00:00:00.013,000] <inf> net_config: Initializing network
-   [00:00:00.013,000] <inf> net_config: Waiting interface 1 (0x200217d0) to be up...
-   [00:00:00.513,000] <inf> net_config: Interface 1 (0x200217d0) coming up
+   [00:00:00.013,000] <inf> net_config: Waiting interface 1 (0x200217e8) to be up...
+   [00:00:00.513,000] <inf> net_config: Interface 1 (0x200217e8) coming up
    [00:00:00.514,000] <inf> net_config: IPv4 address: 192.0.2.1
    [00:00:00.514,000] <inf> net_config: Running dhcpv4 client...
    [00:00:00.615,000] <inf> net_config: IPv6 address: fd9c:33d7:ba99:0:280:e1ff:fee1:9a39

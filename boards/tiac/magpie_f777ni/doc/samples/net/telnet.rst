@@ -38,14 +38,13 @@ are shown on the console like this:
 .. parsed-literal::
    :class: highlight-console notranslate
 
-   \*\*\* Booting Zephyr OS … … …\*\*\*
+   \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* \*\*\*
    [00:00:00.014,000] <inf> shell_telnet: Telnet shell backend initialized
    [00:00:00.014,000] <inf> net_config: Initializing network
-   [00:00:00.014,000] <inf> net_config: Waiting interface 1 (0x200213f0) to be up...
-   [00:00:00.395,000] <inf> net_config: Interface 1 (0x200213f0) coming up
+   [00:00:00.014,000] <inf> net_config: Waiting interface 1 (0x20021378) to be up...
+   [00:00:00.395,000] <inf> net_config: Interface 1 (0x20021378) coming up
    [00:00:00.395,000] <inf> net_config: IPv4 address: 192.0.2.1
    [00:00:00.395,000] <inf> net_config: Running dhcpv4 client...
-   [00:00:00.396,000] :brd:`<err> net_if: Cannot join solicit node address ff02::1:ff00:1 for 1 (-12)`
    [00:00:00.397,000] <inf> net_telnet_sample: Starting Telnet sample
    [00:00:00.397,000] <inf> net_telnet_sample: Running dhcpv4 client...
    [00:00:00.398,000] <inf> net_telnet_sample: IPv6 address: 2001:db8::1
@@ -77,14 +76,14 @@ the network interface, and has received an IPv4 address by typing on Linux host:
    rtt min/avg/max/mdev = 0.261/0.276/0.303/0.019 ms
 
    :bgn:`$` **nmap -Pn 192.168.10.197**
-   Starting Nmap 7.80 ( https://nmap.org ) at 2024-05-03 22:51 CEST
+   Starting Nmap 7.80 ( https://nmap.org ) at … … …
    Nmap scan report for 192.168.10.197
-   Host is up (0.0030s latency).
+   Host is up (0.0027s latency).
    Not shown: 999 closed ports
    PORT   STATE SERVICE
    23/tcp open  telnet
 
-   Nmap done: 1 IP address (1 host up) scanned in 8.22 seconds
+   Nmap done: 1 IP address (1 host up) scanned in 8.23 seconds
 
 At this point you should be able to connect via ``telnet`` over the network.
 On your Linux host:
@@ -114,27 +113,49 @@ or ``kernel version``.
    :bgn:`~$` **device list**
    devices:
    - rcc\ @\ 40023800 (READY)
+     DT node labels: rcc
    - reset-controller (READY)
+     DT node labels: rctl
    - interrupt-controller\ @\ 40013c00 (READY)
+     DT node labels: exti
    - gpio\ @\ 40022800 (READY)
+     DT node labels: gpiok
    - gpio\ @\ 40022400 (READY)
+     DT node labels: gpioj
    - gpio\ @\ 40022000 (READY)
+     DT node labels: gpioi
    - gpio\ @\ 40021C00 (READY)
+     DT node labels: gpioh
    - gpio\ @\ 40021800 (READY)
+     DT node labels: gpiog
    - gpio\ @\ 40021400 (READY)
+     DT node labels: gpiof
    - gpio\ @\ 40021000 (READY)
+     DT node labels: gpioe
    - gpio\ @\ 40020C00 (READY)
+     DT node labels: gpiod
    - gpio\ @\ 40020800 (READY)
+     DT node labels: gpioc
    - gpio\ @\ 40020400 (READY)
+     DT node labels: gpiob
    - gpio\ @\ 40020000 (READY)
+     DT node labels: gpioa
    - rng\ @\ 50060800 (READY)
+     DT node labels: rng
    - serial\ @\ 40007800 (READY)
+     DT node labels: uart7
    - serial\ @\ 40004c00 (READY)
+     DT node labels: uart4 tmph_serial1 tmph_serial
    - rtc\ @\ 40002800 (READY)
+     DT node labels: rtc
    - i2c\ @\ 40006000 (READY)
+     DT node labels: i2c4 tmph_i2c1 tmph_i2c
    - i2c\ @\ 40005800 (READY)
+     DT node labels: i2c2
    - spi\ @\ 40013400 (READY)
+     DT node labels: spi4 tmph_spi1 tmph_spi
    - ethernet\ @\ 40028000 (READY)
+     DT node labels: mac
 
 Simple GPIO Operations
 ======================

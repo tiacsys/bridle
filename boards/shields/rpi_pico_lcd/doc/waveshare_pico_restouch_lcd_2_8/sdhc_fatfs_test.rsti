@@ -89,7 +89,7 @@ on the console, e.g.:
    \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
    [00:00:00.177,000] :byl:`<wrn> udc_rpi: BUS RESET`
    [00:00:00.257,000] :byl:`<wrn> udc_rpi: BUS RESET`
-   \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
+   \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
    [00:00:04.293,000] <inf> main: Block count 15523840
    Sector size 512
    Memory Size(MB) 7580
@@ -118,7 +118,7 @@ list will run again to show them, e.g.:
    \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
    [00:00:00.234,000] :byl:`<wrn> udc_rpi: BUS RESET`
    [00:00:00.314,000] :byl:`<wrn> udc_rpi: BUS RESET`
-   \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
+   \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
    [00:00:04.270,000] <inf> main: Block count 15523840
    Sector size 512
    Memory Size(MB) 7580
@@ -147,7 +147,7 @@ to re-format to FAT FS and list will run again to show them, e.g.:
    \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
    [00:00:00.318,000] :byl:`<wrn> udc_rpi: BUS RESET`
    [00:00:00.398,000] :byl:`<wrn> udc_rpi: BUS RESET`
-   \*\*\* Booting Zephyr OS … … … (delayed boot 4000ms) \*\*\*
+   \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
    [00:00:04.271,000] <inf> main: Block count 15523840
    Sector size 512
    Memory Size(MB) 7580

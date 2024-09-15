@@ -505,7 +505,7 @@ with a single call to Twister.
               --tag uart \
               --tag can
 
-      .. attention:: This will take more than a quarter of an hour.
+      .. attention:: This will take almost a whole hour.
 
    .. group-tab:: Results
 
@@ -523,10 +523,10 @@ with a single call to Twister.
          INFO    - JOBS: 4
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - Total complete: :bgn:`2095/2095`  100%  skipped: :byl:`1938`, failed:    :bbk:`0`, error:    :bbk:`0`
-         INFO    - 2299 test scenarios (2095 test instances) selected, 1938 configurations skipped (1910 by static filter, 28 at runtime).
-         INFO    - :bgn:`157 of 2095` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1938` skipped with :bbk:`0` warnings in :bbk:`3014.93 seconds`
-         INFO    - In total 1500 test cases were executed, 12244 skipped on 1 out of total 739 platforms (0.14%)
+         INFO    - Total complete: :bgn:`2202/2202`  100%  skipped: :byl:`2045`, failed:    :bbk:`0`, error:    :bbk:`0`
+         INFO    - 2407 test scenarios (2202 test instances) selected, 2045 configurations skipped (2015 by static filter, 30 at runtime).
+         INFO    - :bgn:`157 of 2202` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`2045` skipped with :bbk:`0` warnings in :bbk:`2770.37 seconds`
+         INFO    - In total 1511 test cases were executed, 13780 skipped on 1 out of total 1 platforms (100.00%)
          INFO    - :bgn:`157` test configurations executed on platforms, :brd:`0` test configurations were only built.
 
          Hardware distribution summary:
