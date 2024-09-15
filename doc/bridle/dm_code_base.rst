@@ -94,9 +94,9 @@ Repository structure
 ********************
 
 In order to manage the combination of repositories and versions, |BRIDLE| uses
-:ref:`west <zephyr:west>`, the same tool that Zephyr uses to manage its
+:ref:`west <zephyr:west>`, the same tool that the |ZEPHYR| uses to manage its
 repository set. You can learn more about the reasons behind the introduction of
-west in :ref:`this section <zephyr:west-history>` of the Zephyr documentation.
+west in :ref:`this section <zephyr:west-history>` of the |ZEPHYR| documentation.
 
 A :ref:`manifest repository <zephyr:west-manifests>`, `tiac-bridle`_, contains
 a file in its root folder, :file:`west.yml`, which lists all other repositories
@@ -130,7 +130,7 @@ repository, updating it with Git regularly and using ``west update`` to update
 the project repositories every time the manifest repository changes. More
 information about manifests can be found in the
 :ref:`west manifest section <zephyr:west-manifests>`
-of the Zephyr documentation.
+of the |ZEPHYR| documentation.
 
 Revisions
 *********
@@ -189,23 +189,25 @@ repositories distributed with |BRIDLE|. This section describes how the
 history of these OSS repositories is maintained, and how they are synchronized
 with their upstreams.
 
-The short logs for these downstream patches contain ``[bridle xyz]`` at the
+The short logs for these downstream patches contain ``[tcs xyz]`` at the
 beginning, for different ``xyz`` strings. This makes their different purposes
 downstream clearer, and makes them easier to search for and see in ``git log``.
-The current values of ``[bridle xyz]`` are:
+The current values of ``[tcs xyz]`` are:
 
-* ``[bridle mergeup]``:
+* ``[tcs mergeup]``:
   periodic merges of the upstream tree (if really needed)
-* ``[bridle fromlist]``:
+* ``[tcs fromlist]``:
   patches which have upstream pull requests, including any later revisions
-* ``[bridle toup]``:
-  patches which |TIAC| developers intend to submit upstream later
-* ``[bridle noup]``:
-  patches which are specific to |BRIDLE|
-* ``[bridle temphack]``:
-  temporary patches with some known issues
-* ``[bridle fromtree]``:
+* ``[tcs fromtree]``:
   patches which have been cherry-picked from an upstream tree
+* ``[tcs toup]``:
+  patches which |TIAC| developers intend to submit upstream later
+* ``[tcs noup]``:
+  patches which are specific to |BRIDLE|
+* ``[tcs temphack]``:
+  temporary patches with some known issues
+* ``[backport-<NUM>]``:
+  patches which have been cherry-picked from an upstream backport pull request
 
 .. note::
 

@@ -1,5 +1,6 @@
 .. |TIAC| replace:: TiaC Systems
 .. |BRIDLE| replace:: Bridle
+.. |ZEPHYR| replace:: Zephyr Project
 
 .. External References (temporary, needs local implementation)
 

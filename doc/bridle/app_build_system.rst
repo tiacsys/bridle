@@ -7,8 +7,8 @@ Build and configuration system
    :local:
    :depth: 2
 
-The |BRIDLE| build and configuration system is based on the one from Zephyr,
-with some additions.
+The |BRIDLE| build and configuration system is based on the one from the
+|ZEPHYR|, with some additions.
 
 Zephyr's build and configuration system
 ***************************************
@@ -21,10 +21,10 @@ as a foundation:
 * Devicetree, a hardware description language that is used to describe the
   hardware that |BRIDLE| is to run on.
 
-Since the build and configuration system used by |BRIDLE| comes from Zephyr,
-references to the original Zephyr documentation are provided here in order to
-avoid duplication. See the following links for information about the different
-building blocks mentioned above:
+Since the build and configuration system used by |BRIDLE| comes from the
+|ZEPHYR|, references to the original |ZEPHYR| documentation are provided here
+in order to avoid duplication. See the following links for information about
+the different building blocks mentioned above:
 
 * :ref:`zephyr:application` is a complete guide to application development
   with Zephyr, including the build and configuration system.
@@ -38,23 +38,29 @@ building blocks mentioned above:
 |BRIDLE| additions
 ******************
 
-|BRIDLE| adds some functionality on top of the Zephyr build and configuration
-system. Those additions are automatically included into the Zephyr build system
-using a :ref:`zephyr:cmake_build_config_package`.
+|BRIDLE| adds some functionality on top of the |ZEPHYR| build and configuration
+system. Those additions are automatically included into the |ZEPHYR| build
+system using a :ref:`zephyr:cmake_build_config_package`.
 
 You must be aware of these additions when you start writing your own
 Bridle applications.
 
-* The |BRIDLE| provides an additional :file:`boilerplate.cmake` that
-  is automatically included when using the Zephyr CMake package in the
+* |BRIDLE| provides an additional set of :file:`*.cmake` module files that
+  are automatically included when using the |ZEPHYR| CMake package in the
   :file:`CMakeLists.txt` file of your application::
 
-    find_package(Zephyr HINTS $ENV{ZEPHYR_BASE})
+    find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})
 
-* The |BRIDLE| allows you to
+  Also it is possible and the **default use case** to using the
+  Bridle CMake package (that automatically includes the |ZEPHYR|)
+  in the :file:`CMakeLists.txt` file of your application::
+
+    find_package(Bridle REQUIRED HINTS $ENV{BRIDLE_BASE})
+
+* |BRIDLE| allows you to
   :ref:`create custom build type files <gs_modifying_build_types>` instead
   of using a single :file:`prj.conf` file.
 
 .. * The |BRIDLE| build system extends Zephyr's with support for multi-image builds.
 ..   You can find out more about these in the :ref:`ug_multi_image` section.
-.. * The |BRIDLE| adds a partition manager, responsible for partitioning the available flash memory.
+.. * |BRIDLE| adds a partition manager, responsible for partitioning the available flash memory.

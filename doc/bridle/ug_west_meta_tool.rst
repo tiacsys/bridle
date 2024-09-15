@@ -6,11 +6,10 @@ West (Zephyr’s meta-tool)
 In European tradition, a |zephyr|_ is a light wind or a |west wind|_, named
 after |Zephyrus|_, the Greek god or personification of the west wind. Don't
 worry, this is not going to be a lesson in Greek methodology. Rather, it is
-an attempt to find a "possible" explanation why the Zephyr project in so many
-cases refers to and relies on a small, inconspicuous but essential meta-tool
-called ``west``\ [#west-repo]_. What this meta-tool is capable of doing can
-be read in detail at section :ref:`west <zephyr:west>` in the Zephyr project
-documentation.
+an attempt to find a "possible" explanation why the |ZEPHYR| in so many cases
+refers to and relies on a small, inconspicuous but essential meta-tool called
+``west``\ [#west-repo]_. What this meta-tool is capable of doing can be read
+in detail at section :ref:`west <zephyr:west>` in the |ZEPHYR| documentation.
 
 .. |zephyr| replace:: :strong:`zephyr`
 .. _zephyr: https://en.wikipedia.org/wiki/Zephyr
