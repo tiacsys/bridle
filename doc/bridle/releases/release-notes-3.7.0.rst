@@ -105,12 +105,17 @@ Supported boards
 * Cytron Maker Pi RP2040
 * NXP MIMXRT1010-EVK
 * NXP MIMXRT1060-EVK
+* NXP MIMXRT1170-EVK/EVKB (CM7)
+* Nordic nRF52840 DK
+* Nordic nRF9160 DK
 * Raspberry Pi Pico and Pico W
 * Seeeduino Cortex-M0+
 * Seeeduino Lotus Cortex-M0+
 * ST Nucleo F2xxxx
 * ST Nucleo F3xxxx / L4xxxx
+* ST Nucleo F4xxxx
 * ST Nucleo F6xxxx
+* ST Nucleo F7xxxx
 * TiaC Magpie F777NI (former TiaC Magpie STM32F777NIHx)
 * Waveshare RP2040 (series of mini and pico sized boards)
 * XIAO SAMD21 (former Seeed Studio XIAO SAMD21), also known as Seeeduino XIAO
