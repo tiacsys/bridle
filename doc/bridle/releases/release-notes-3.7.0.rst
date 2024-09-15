@@ -1,7 +1,7 @@
 .. _bridle_release_notes_370:
 
-|BRIDLE| 3.7.0 Release Notes (Working draft)
-############################################
+|BRIDLE| 3.7.0 Release Notes
+############################
 
 This project demonstrate the integration of |TIAC| support in open
 source projects, like the Zephyr RTOS, with libraries and source code
@@ -10,8 +10,6 @@ product development.
 
 Highlights
 **********
-
-* :brd:`NOT YET, tbd.`
 
 .. note:: See the changelog and readme files in the component repositories
    for a detailed description of changes.
@@ -97,8 +95,6 @@ For more details, see: :ref:`repos_and_revs`.
 Supported boards
 ****************
 
-:brd:`NOT YET, tbd.`
-
 * Arduino/Genuino Zero
 * PicoBoy Mini-Handheld
 * Cytron Maker Nano RP2040
@@ -123,8 +119,6 @@ Supported boards
 Supported shields
 *****************
 
-:brd:`NOT YET, tbd.`
-
 * Seeed Studio Grove Interconnect Shields
 * Grove Button Shields
 * Grove LED Shields
@@ -143,8 +137,6 @@ Supported shields
 Supported snippets
 ******************
 
-:brd:`NOT YET, tbd.`
-
 * USB Console Snippet (usb-console)
 * PWM Servomotor Preset Snippet (pwm-servo)
 * Delete Default Devicetree Aliases Snippet (del-default-aliases)
@@ -162,11 +154,6 @@ Supported snippets
 Change log
 **********
 
-:brd:`NOT YET, tbd.`
-
-* tbd.
-* tbd.
-* tbd.
 * Allow users to still specify any old board name, and let Bridel together with
   the Zephyr build system (board validation) to select the new board name.
 * Rename board ``tiac_magpie`` to ``magpie_f777ni`` and mark the old name as
@@ -232,11 +219,6 @@ Build Infrastructure
 
 Take over the new build principles from Zephyr:
 
-:brd:`NOT YET, tbd.`
-
-* tbd.
-* tbd.
-* tbd.
 * Update of the minimum requirements for Python to version 3.10.
 * Update of the minimum requirements for CMake to version 3.20.5.
 * Use the new upstream *MIPI DBI driver class* for all *ST7735R* based displays.
@@ -275,8 +257,6 @@ Take over the new build principles from Zephyr:
 
 Documentation
 =============
-
-:brd:`NOT YET, tbd.`
 
 1. Export ``ZEPHYR_BASE`` as environment variable to make the Sphinx extension
    ``autodoc`` for the ``pytest-twister-harness`` happy.
