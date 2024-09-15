@@ -29,3 +29,18 @@
 		};
 	};
 };
+
+/ {
+	rgb_led_strip_matrix: rgb-led-strip-matrix {
+		compatible = "led-strip-matrix";
+
+		status = "disabled";
+
+		led-strips = <&rgb_led_strip>;
+
+		width = <16>;
+		height = <10>;
+
+		circulative;
+	};
+};

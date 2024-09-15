@@ -9,6 +9,10 @@ rgb_led_pio: &rpipico_pio_leds {};
 
 #include <zephyr/dt-bindings/gpio/gpio.h>
 
+&rgb_led_strip_matrix {
+	status = "okay";
+};
+
 &rgb_led_strip {
 	gpios = <&gpio0 6 GPIO_ACTIVE_HIGH>;		/* PIO0:OUT @ GP6 */
 	status = "okay";
