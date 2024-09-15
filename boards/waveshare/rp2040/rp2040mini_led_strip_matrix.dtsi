@@ -1,0 +1,18 @@
+/*
+ * Copyright (c) 2023-2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	chosen {
+		zephyr,display = &rgb_led_strip_matrix;
+	};
+
+	rgb_led_strip_matrix: rgb_led_strip_matrix {
+		compatible = "led-strip-matrix";
+		led-strips = <&led_strip>;
+		width = <5>;
+		height = <5>;
+		circulative;
+	};
+};

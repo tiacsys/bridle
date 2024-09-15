@@ -28,6 +28,7 @@ is no option to change this from outside the board.
 
        :on-board:
           :hwftlbl-led:`5×5 RGB`
+          :hwftlbl-scr:`LED(5×5)`
 
        .. rubric:: Default Zephyr Peripheral Mapping
 
@@ -74,6 +75,7 @@ is no option to change this from outside the board.
        .. rubric:: Devicetree compatible
 
        - :dtcompatible:`waveshare,rp2040mini-header`
+       - :dtcompatible:`worldsemi,ws2812-rpi_pico-pio`
 
      - .. image:: rp2040-matrix/pinouts.jpg
           :align: center

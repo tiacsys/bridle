@@ -1147,10 +1147,45 @@ Hello Shell with USB-CDC/ACM Console
 Display Test and Demonstration
 ==============================
 
-This samples and test applications are only applicable on the |RP2040-LCD-0.96|
-and |RP2040-Geek| board. They will be built with activated USB-CDC/ACM console.
+This samples and test applications are only applicable on the |RP2040-Matrix|,
+|RP2040-LCD-0.96| and |RP2040-Geek| board. They will be built with activated
+USB-CDC/ACM console.
 
 .. tabs::
+
+   .. group-tab:: RP2040-Matrix
+
+      The following samples work with the chosen display. That is:
+
+      | :hwftlbl-scr:`LED(5×5)` : :devicetree:`chosen { zephyr,display = &rgb_led_strip_matrix; };`
+      | :hwftlbl-led:`5×5 RGB` : :devicetree:`&rgb_led_strip_matrix { led-strip = <&led_strip>; };`
+
+      .. rubric:: LCD Orientation and Bit Order Test
+
+      Using the :ref:`Display driver API <zephyr:display_api>` with chosen
+      display. See also Zephyr sample:
+      :doc:`zephyr:samples/drivers/display/README`.
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/display
+         :board: waveshare_rp2040_matrix
+         :build-dir: waveshare_rp2040
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
+      .. list-table::
+         :align: center
+         :width: 66%
+         :header-rows: 1
+
+         * - .. image:: rp2040-matrix/ws2812b-5x5-display_test.gif
+                :align: center
+                :alt: Waveshare RP2040-Matrix Display Sample Animation
+         * - .. rst-class:: centered
+
+                :brd:`TOP LEFT`, :bgn:`TOP RIGHT`, :bbl:`BOTTOM RIGHT`
 
    .. group-tab:: RP2040-LCD-0.96
 
