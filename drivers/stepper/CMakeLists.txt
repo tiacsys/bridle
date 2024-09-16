@@ -12,6 +12,7 @@ zephyr_library_sources_ifdef(CONFIG_STEPPER_SHELL stepper_shell.c)
 
 zephyr_library_sources_ifdef(CONFIG_STEPPER_GPIO stepper_gpio.c)
 zephyr_library_sources_ifdef(CONFIG_STEPPER_DUMMY stepper_dummy.c)
+zephyr_library_sources_ifdef(CONFIG_DRV84XX stepper_drv84xx.c)
 
 if(CONFIG_STEPPER_INFO)
 # Prepare the stepper motor info list symbol in ROM for the linker
