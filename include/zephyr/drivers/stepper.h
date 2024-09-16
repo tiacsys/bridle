@@ -79,7 +79,7 @@ extern "C" {
  * -   1000 (very fast),
  * - > 1500 (extremely fast).
  *
- * These are only exemplary values for full steps, where the resolution of
+ * These are only example values for full steps, where the resolution of
  * microsteps is defined as 1 (no multiplications). Depending on the common
  * step angles, usage of microstep resolution greater than 1 and whether
  * gears also play a role, these values can be completely different.
@@ -93,14 +93,14 @@ extern "C" {
 /**
  * @brief Representation of a stepper action.
  *
- * @details The action value is represented as having all values that are
+ * @details The action structure represents all values that are
  * required for general or special actions that can be executed by stepper
  * motors.
  */
 struct stepper_action {
-	/** operation mode and microstep resolution flags */
+	/** Operation mode and microstep resolution flags. */
 	uint32_t flags;
-	/** microsteps, velocity, or acceleration */
+	/** Microsteps, velocity, or acceleratio.n */
 	int32_t value;
 };
 
@@ -108,7 +108,7 @@ struct stepper_action {
  * @name Stepper motor operation mode flags.
  * @{
  *
- * @note The accelerating mode is not (yet) supported. It is unclear whether
+ * @note The acceleration mode is not (yet) supported. It is unclear whether
  * this makes sense at all, as further limit value considerations such as
  * reaching the maximum speed and the associated behavior would have to be
  * implemented. However, these are already tasks of a stepper motor control
@@ -158,7 +158,7 @@ struct stepper_action {
 
 /**
  * @typedef stepper_api_on
- * @brief API for turn on the stepper motor.
+ * @brief API for enabling the stepper motor.
  *
  * @see stepper_on() for argument descriptions.
  */
@@ -166,7 +166,7 @@ typedef int (*stepper_api_on)(const struct device *dev, const uint8_t motor);
 
 /**
  * @typedef stepper_api_off
- * @brief API for turn off the stepper motor.
+ * @brief API for disabling the stepper motor.
  *
  * @see stepper_off() for argument descriptions.
  */
@@ -174,7 +174,7 @@ typedef int (*stepper_api_off)(const struct device *dev, const uint8_t motor);
 
 /**
  * @typedef stepper_api_move
- * @brief API for flag dependent movement.
+ * @brief API for movement according to the provided action.
  *
  * @see stepper_move() for argument descriptions.
  */
@@ -182,7 +182,7 @@ typedef int (*stepper_api_move)(const struct device *dev, const uint8_t motor,
 				const struct stepper_action *action);
 
 /**
- * @brief Stepper Motor API
+ * @brief Stepper Motor API.
  *
  * @details This is the mandatory API any stepper motor device driver needs
  * to expose with exception of:
@@ -212,28 +212,28 @@ __subsystem struct stepper_api {
 /** @endcond */
 
 /**
- * @brief Stepper motor event types
+ * @brief Stepper motor event types.
  */
 enum stepper_event_type {
-	/** Device suspended (or sleep) event. */
-	STEPPER_EVT_SUSPEND,
-	/** Device reset detected. */
-	STEPPER_EVT_RESET,
-	/** Device fault detected. */
-	STEPPER_EVT_FAULT,
-	/**
-	 * Non-correctable error event, requires attention from higher
-	 * levels or application.
-	 */
-	STEPPER_EVT_ERROR,
+        /** Device suspended (or sleep) event. */
+        STEPPER_EVT_SUSPEND,
+        /** Device reset detected. */
+        STEPPER_EVT_RESET,
+        /** Device fault detected. */
+        STEPPER_EVT_FAULT,
+        /**
+         * Non-recoverable error event, requires attention from higher
+         * levels or application.
+         */
+        STEPPER_EVT_ERROR,
 };
 
 /**
  * @brief Stepper motor event.
  *
  * @details: Common structure for all events that originate from a stepper motor
- * driver and are passed to higher layer using (TODO/TBD: message queue and) a
- * callback (stepper_event_cb_t) provided by higher layer during (TODO/TBD:
+ * driver and are passed to higher layers using (TODO/TBD: message queue and) a
+ * callback (stepper_event_cb_t) provided by higher layers during (TODO/TBD:
  * driver initialization).
  */
 struct stepper_event {
@@ -260,7 +260,7 @@ struct stepper_event {
  * passed during initialization.
  *
  * @param[in] dev       Stepper motor device driver instance.
- * @param[in] event     Point to the stepper motor event description.
+ * @param[in] event     Pointer to the stepper motor event description.
  *
  * @return 0 on success, all other values should be treated as error.
  */
@@ -283,9 +283,9 @@ struct stepper_capabilities {
  * @brief Initialize a struct stepper_capabilities from devicetree.
  *
  * @details This helper allows drivers to initializes an element in the
- * stepper motor device driver capability structure using devicetree.
+ * stepper motor device driver capability structure via devicetree.
  *
- * @note The accelerating operating mode that is not (yet) supported is
+ * @note The acceleration operating mode that is not (yet) supported is
  * therefore filtered out, @see STEPPER_OP_MODE_ACCELERATION.
  *
  * @param node_id   Devicetree node identifier for the stepper motor
@@ -480,7 +480,7 @@ static inline const struct stepper_capabilities *const stepper_caps(
 /* TODO: int stepper_shutdown(const struct device *dev); */
 
 /**
- * @brief API for turn on the stepper motor.
+ * @brief API for enabling the stepper motor.
  *
  * @details This routine turns on the hardware components that supply
  * the coils of the stepper motor with electrical current.
@@ -488,9 +488,9 @@ static inline const struct stepper_capabilities *const stepper_caps(
  * @param[in] dev       Stepper motor device driver instance.
  * @param[in] motor     Stepper motor number.
  *
- * @return 0            if successful
- * @return -ENXIO       if motor is invalid or exceeds hardware capabilities
- * @return -errno code  if other failure
+ * @retval 0            If successful.
+ * @retval -ENXIO       If motor is invalid or exceeds hardware capabilities.
+ * @return -errno code  on other failure.
  */
 __syscall int stepper_on(const struct device *dev, const uint8_t motor);
 
@@ -512,7 +512,7 @@ static inline int z_impl_stepper_on(const struct device *dev, const uint8_t moto
 }
 
 /**
- * @brief API for turn off the stepper motor.
+ * @brief API for disabling the stepper motor.
  *
  * @details This routine turns off the hardware components that supply
  * the coils of the stepper motor with electrical current.
@@ -520,9 +520,9 @@ static inline int z_impl_stepper_on(const struct device *dev, const uint8_t moto
  * @param[in] dev       Stepper motor device driver instance.
  * @param[in] motor     Stepper motor number.
  *
- * @return 0            if successful
- * @return -ENXIO       if motor is invalid or exceeds hardware capabilities
- * @return -errno code  if other failure
+ * @retval 0            If successful.
+ * @retval -ENXIO       If motor is invalid or exceeds hardware capabilities.
+ * @return -errno code  on other failure.
  */
 __syscall int stepper_off(const struct device *dev, const uint8_t motor);
 
@@ -536,7 +536,7 @@ static inline int z_impl_stepper_off(const struct device *dev, const uint8_t mot
 	__ASSERT_NO_MSG(data != NULL);
 
 	if (!IN_RANGE(motor, 0, data->num_motor - 1)) {
-		/* incapable motor number */
+		/* Invalid motor number */
 		return -ENXIO;
 	}
 
@@ -558,14 +558,14 @@ static inline int z_impl_stepper_off(const struct device *dev, const uint8_t mot
  *
  * @param[in] dev       Stepper motor device driver instance.
  * @param[in] motor     Stepper motor number.
- * @param[in] action    Points to the stepper motor action description.
+ * @param[in] action    Pointer to the stepper motor action description.
  *
- * @return 0            if successful
- * @return -EIO         if internal I/O operation failure
- * @return -ENXIO       if motor is invalid or exceeds hardware capabilities
- * @return -EINVAL      if action is invalid or exceeds hardware capabilities
- * @return -ENOTSUP     if action or operation mode is not supported
- * @return -errno code  if other failure
+ * @retval 0            If successful.
+ * @retval -EIO         If internal I/O operation failure.
+ * @retval -ENXIO       If motor is invalid or exceeds hardware capabilities.
+ * @retval -EINVAL      If action is invalid or exceeds hardware capabilities.
+ * @retval -ENOTSUP     If action or operation mode is not supported.
+ * @return -errno code  on other failure.
  */
 __syscall int stepper_move(const struct device *dev, const uint8_t motor,
 			   const struct stepper_action *action);
@@ -582,40 +582,40 @@ static inline int z_impl_stepper_move(const struct device *dev, const uint8_t mo
 	__ASSERT_NO_MSG(data != NULL);
 
 	if (!IN_RANGE(motor, 0, data->num_motor - 1)) {
-		/* incapable motor number */
+		/* Invalid motor number */
 		return -ENXIO;
 	}
 
 	if (STEPPER_OP_MODE_GET(action->flags) == 0) {
-		/* no operation mode set */
+		/* No operation mode set */
 		return -EINVAL;
 	}
 
 	if (STEPPER_USTEP_RES_GET(action->flags) == 0) {
-		/* no microstep resolution set */
+		/* No microstep resolution set */
 		return -EINVAL;
 	}
 
 	if ((STEPPER_USTEP_RES_GET(action->flags) &
 	     STEPPER_USTEP_RES_GET(caps->flags)) == 0) {
-		/* incapable microstep resolutions set */
+		/* Invalid microstep resolutions set */
 		return -EINVAL;
 	}
 
 	if (!IS_POWER_OF_TWO(STEPPER_USTEP_RES_GET(action->flags))) {
-		/* multiple microstep resolutions set */
+		/* Multiple microstep resolutions set */
 		return -EINVAL;
 	}
 
 	if ((STEPPER_OP_MODE_GET(action->flags) == STEPPER_OP_MODE_POSITION) &&
 	    (!IN_RANGE(labs(action->value), 1, UINT32_MAX))) {
-		/* incapable microstep move (relative position) set */
+		/* Invalid microstep move (relative position) set */
 		return -EINVAL;
 	}
 
 	if ((STEPPER_OP_MODE_GET(action->flags) == STEPPER_OP_MODE_VELOCITY) &&
 	    (!IN_RANGE(labs(action->value), 0, caps->fs_max_speed))) {
-		/* incapable rotational speed (absolute velocity) set */
+		/* Invalid rotational speed (absolute velocity) set */
 		return -EINVAL;
 	}
 
