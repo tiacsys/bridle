@@ -9,3 +9,15 @@ config DRV84XX
 	depends on DT_HAS_DRV84XX_ENABLED
 	help
 	  Enable driver for DRV84xx stepper motor driver.
+
+if DRV84XX
+
+config DRV84XX_THREAD_PRIORITY
+	int "DRV84xx stepper thread priority"
+	default 90
+
+config DRV84XX_THREAD_STACK_SIZE
+	int
+	default 1024
+
+endif
