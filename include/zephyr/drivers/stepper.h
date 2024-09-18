@@ -584,48 +584,7 @@ static inline int z_impl_stepper_move(const struct device *dev, const uint8_t mo
 	__ASSERT_NO_MSG(api->move != NULL);
 	__ASSERT_NO_MSG(data != NULL);
 
-	if (!IN_RANGE(motor, 0, data->num_motor - 1)) {
-		/* Invalid motor number */
-		return -ENXIO;
-	}
-
-	if (STEPPER_OP_MODE_GET(action->flags) == 0) {
-		/* No operation mode set */
-		return -EINVAL;
-	}
-
-	if (STEPPER_USTEP_RES_GET(action->flags) == 0) {
-		/* No microstep resolution set */
-		return -EINVAL;
-	}
-
-	if ((STEPPER_USTEP_RES_GET(action->flags) &
-	     STEPPER_USTEP_RES_GET(caps->flags)) == 0) {
-		/* Invalid microstep resolutions set */
-		return -EINVAL;
-	}
-
-	if (!IS_POWER_OF_TWO(STEPPER_USTEP_RES_GET(action->flags))) {
-		/* Multiple microstep resolutions set */
-		return -EINVAL;
-	}
-
-	if ((STEPPER_OP_MODE_GET(action->flags) == STEPPER_OP_MODE_POSITION) &&
-	    (!IN_RANGE(labs(action->value), 1, UINT32_MAX))) {
-		/* Invalid microstep move (relative position) set */
-		return -EINVAL;
-	}
-
-	if ((STEPPER_OP_MODE_GET(action->flags) == STEPPER_OP_MODE_VELOCITY) &&
-	    (!IN_RANGE(labs(action->value), 0, caps->fs_max_speed))) {
-		/* Invalid rotational speed (absolute velocity) set */
-		return -EINVAL;
-	}
-
-	if (STEPPER_OP_MODE_GET(action->flags) == STEPPER_OP_MODE_ACCELERATION) {
-		/* TBD: accelerating mode not (yet) supported */
-		return -ENOTSUP;
-	}
+	
 
 	return api->move(dev, motor, action);
 }

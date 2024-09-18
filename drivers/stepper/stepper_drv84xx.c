@@ -99,10 +99,9 @@ static void gpio_stepper_thread_fn(void *dev_raw, void *arg2, void *arg3) {
 				   2);
 
 		} else {
-			LOG_ERR(
-			    "Invalid mode encountered in "
-			    "gpio_stepper_thread_fn: %ld",
-			    mode);
+			LOG_ERR("Invalid mode encountered in "
+				"gpio_stepper_thread_fn: %ld",
+				mode);
 			return;
 		}
 
@@ -148,6 +147,7 @@ static int drv84xx_on(const struct device *dev, const uint8_t motor) {
 static int srv84xx_off(const struct device *dev, const uint8_t motor) {
 	int ret;
 	const struct drv84xx_config *config = dev->config;
+	struct drv84xx_data *data = dev->data;
 	bool has_enable = config->en_pin.port != NULL;
 	bool has_sleep = config->sleep_pin.port != NULL;
 
@@ -177,12 +177,51 @@ static int srv84xx_off(const struct device *dev, const uint8_t motor) {
 		}
 	}
 
+	/*Reset stepper state*/
+	atomic_set(&data->stepper_mode, DRV84XX_STEPPING_MODE_OFF);
+	atomic_set(&data->remaining_steps, 0);
+	atomic_set(&data->stepper_velocity, 0);
+
 	return 0;
 }
 
 static int drv84xx_move(const struct device *dev, const uint8_t motor,
 			const struct stepper_action *action) {
-	return -ENOTSUP;
+	struct drv84xx_data *data = dev->data;
+	const struct drv84xx_config *config = dev->config;
+	int ret = 0;
+
+	if (action->value >= 0) {
+		ret = gpio_pin_set_dt(&config->dir_pin, 1);
+
+	} else {
+		ret = gpio_pin_set_dt(&config->dir_pin, 0);
+	}
+	if (ret != 0) {
+		LOG_ERR("%s: Failed to set direction pin (error: %d)",
+			dev->name, ret);
+		return ret;
+	}
+
+	if (STEPPER_OP_MODE_GET(action->flags) == STEPPER_OP_MODE_POSITION) {
+		atomic_set(&data->stepper_mode, DRV84XX_STEPPING_MODE_OFF);
+		atomic_set(&data->remaining_steps, labs(action->value));
+		atomic_set(&data->stepper_mode,
+			   DRV84XX_STEPPING_MODE_POSITIONING);
+	}
+
+	else if (STEPPER_OP_MODE_GET(action->flags) ==
+		 STEPPER_OP_MODE_VELOCITY) {
+		atomic_set(&data->stepper_mode, DRV84XX_STEPPING_MODE_OFF);
+		atomic_set(&data->remaining_steps, 0);
+		atomic_set(&data->stepper_velocity, labs(action->value));
+		if (labs(action->value) != 0) {
+			atomic_set(&data->stepper_mode,
+				   DRV84XX_STEPPING_MODE_VELOCITY);
+		}
+	}
+
+	return 0;
 }
 
 static const struct stepper_api drv84xx_api = {
@@ -217,7 +256,8 @@ static int drv84xx_init(const struct device *dev) {
 		ret = gpio_pin_configure_dt(&config->sleep_pin,
 					    GPIO_OUTPUT_ACTIVE | GPIO_INPUT);
 		if (ret != 0) {
-			LOG_ERR("%s: Failed to configure sleep_pin (error: %d)",
+			LOG_ERR("%s: Failed to configure sleep_pin "
+				"(error: %d)",
 				dev->name, ret);
 			return ret;
 		}
@@ -228,7 +268,8 @@ static int drv84xx_init(const struct device *dev) {
 		ret = gpio_pin_configure_dt(&config->en_pin,
 					    GPIO_OUTPUT_INACTIVE | GPIO_INPUT);
 		if (ret != 0) {
-			LOG_ERR("%s: Failed to configure en_pin (error: %d)",
+			LOG_ERR("%s: Failed to configure en_pin "
+				"(error: %d)",
 				dev->name, ret);
 			return ret;
 		}
@@ -263,26 +304,26 @@ static int drv84xx_init(const struct device *dev) {
 	return 0;
 }
 
-#define DRV84XX_DEVICE(inst)                                               \
-	static const struct drv84xx_config drv84xx_config_##inst = {       \
-	    .dir_pin = GPIO_DT_SPEC_INST_GET(inst, dir_gpios),             \
-	    .step_pin = GPIO_DT_SPEC_INST_GET(inst, step_gpios),           \
-	    .sleep_pin = GPIO_DT_SPEC_INST_GET_OR(inst, sleep_gpios, {0}), \
-	    .en_pin = GPIO_DT_SPEC_INST_GET_OR(inst, en_gpios, {0}),       \
-	    .m0_pin = GPIO_DT_SPEC_INST_GET_OR(inst, m0_gpios, {0}),       \
-	    .m1_pin = GPIO_DT_SPEC_INST_GET_OR(inst, m1_gpios, {0}),       \
-	};                                                                 \
-	static struct drv84xx_data drv84xx_data_##inst = {                 \
-	    .positioning_speed = 100,                                      \
-	    .stepper_mode = DRV84XX_STEPPING_MODE_OFF,                     \
-	};                                                                 \
-	STEPPER_DEVICE_DT_INST_DEFINE(                                     \
-	    inst, &drv84xx_init,	  /* Init */                       \
-	    NULL,			  /* PM */                         \
-	    &drv84xx_data_##inst,	  /* Data */                       \
-	    &drv84xx_config_##inst,	  /* Config */                     \
-	    POST_KERNEL,		  /* Init stage */                 \
-	    CONFIG_STEPPER_INIT_PRIORITY, /* Init priority */              \
+#define DRV84XX_DEVICE(inst)                                                   \
+	static const struct drv84xx_config drv84xx_config_##inst = {           \
+	    .dir_pin = GPIO_DT_SPEC_INST_GET(inst, dir_gpios),                 \
+	    .step_pin = GPIO_DT_SPEC_INST_GET(inst, step_gpios),               \
+	    .sleep_pin = GPIO_DT_SPEC_INST_GET_OR(inst, sleep_gpios, {0}),     \
+	    .en_pin = GPIO_DT_SPEC_INST_GET_OR(inst, en_gpios, {0}),           \
+	    .m0_pin = GPIO_DT_SPEC_INST_GET_OR(inst, m0_gpios, {0}),           \
+	    .m1_pin = GPIO_DT_SPEC_INST_GET_OR(inst, m1_gpios, {0}),           \
+	};                                                                     \
+	static struct drv84xx_data drv84xx_data_##inst = {                     \
+	    .positioning_speed = 1,                                            \
+	    .stepper_mode = DRV84XX_STEPPING_MODE_OFF,                         \
+	};                                                                     \
+	STEPPER_DEVICE_DT_INST_DEFINE(                                         \
+	    inst, &drv84xx_init,	  /* Init */                           \
+	    NULL,			  /* PM */                             \
+	    &drv84xx_data_##inst,	  /* Data */                           \
+	    &drv84xx_config_##inst,	  /* Config */                         \
+	    POST_KERNEL,		  /* Init stage */                     \
+	    CONFIG_STEPPER_INIT_PRIORITY, /* Init priority */                  \
 	    &drv84xx_api);		  /* API */
 
 DT_INST_FOREACH_STATUS_OKAY(DRV84XX_DEVICE)
