@@ -41,7 +41,7 @@ struct drv84xx_data {
 	atomic_t stepper_mode;
 	/** Remaining stepps in positioning mode */
 	atomic_t remaining_steps;
-	/** Positioning mode speed in steps/s */
+	/** Velocity mode speed in steps/s */
 	atomic_t stepper_velocity;
 	/** Stack area used by stepper thread */
 	k_thread_stack_t *stepper_thread_stack;
@@ -49,6 +49,8 @@ struct drv84xx_data {
 	struct k_thread stepper_thread_data;
 	/** PID of stepper thread */
 	k_tid_t stepper_thread_pid;
+	/** */
+	uint32_t pwm_min_speed;
 };
 
 static void gpio_stepper_thread_fn(void *dev_raw, void *arg2, void *arg3) {
@@ -123,6 +125,23 @@ static void pwm_pulsed(const struct device *dev, uint32_t channel,
 	}
 }
 
+static int min_pwm_speed(struct pwm_dt_spec *pwm_obj, uint32_t *min_speed) {
+	*min_speed = 1;
+	int ret = 0;
+
+	while (min_speed > 1U) {
+		ret = pwm_set_dt(&pwm_led0, PWM_SEC(1U) / *min_speed, 0U);
+		if (ret == 0) {
+			return 0;
+		} else {
+			*min_speed *= 2;
+		}
+		if (*min_speed > PWM_SEC(1U)) {
+			return -ERANGE;
+		}
+	}
+}
+
 static int drv84xx_on(const struct device *dev, const uint8_t motor) {
 	int ret;
 	const struct drv84xx_config *config = dev->config;
@@ -193,7 +212,8 @@ static int srv84xx_off(const struct device *dev, const uint8_t motor) {
 	}
 
 	if (has_pwm) {
-		ret = pwm_set_dt(&pwm_led0, PWM_SEC(1U) / 8U, 0U);
+		ret = pwm_set_dt(&pwm_led0, PWM_SEC(1U) / data->pwm_min_speed,
+				 0U);
 		if (ret != 0) {
 			LOG_ERR("Error %d: failed to zero pwm pulse ", ret);
 			return ret;
@@ -214,6 +234,7 @@ static int drv84xx_move(const struct device *dev, const uint8_t motor,
 	const struct drv84xx_config *config = dev->config;
 	bool has_pwm = config->step_pwm.dev != NULL;
 	int ret = 0;
+	long value = labs(action->value);
 
 	const struct pwm_dt_spec pwm_led0 = PWM_DT_SPEC_GET(DT_ALIAS(pwm_led0));
 
@@ -232,26 +253,26 @@ static int drv84xx_move(const struct device *dev, const uint8_t motor,
 	if (STEPPER_OP_MODE_GET(action->flags) == STEPPER_OP_MODE_POSITION) {
 
 		atomic_set(&data->stepper_mode, DRV84XX_STEPPING_MODE_OFF);
-		atomic_set(&data->remaining_steps, labs(action->value));
+		atomic_set(&data->remaining_steps, value);
 		atomic_set(&data->stepper_mode,
 			   DRV84XX_STEPPING_MODE_POSITIONING);
 	}
 
 	else if (STEPPER_OP_MODE_GET(action->flags) ==
 		 STEPPER_OP_MODE_VELOCITY) {
-		atomic_set(&data->stepper_mode, DRV84XX_STEPPING_MODE_OFF);
-		atomic_set(&data->remaining_steps, 0);
-		atomic_set(&data->stepper_velocity, labs(action->value));
-		if (labs(action->value) != 0) {
-			atomic_set(&data->stepper_mode,
-				   DRV84XX_STEPPING_MODE_VELOCITY);
-		}
 		if (has_pwm) {
+			if (value < data->pwm_min_speed && value != 0) {
+				LOG_ERR("Error %d: speed of %d is below pwm "
+					"minimum of %d",
+					-EINVAL, value,
+					data->pwm_min_speed);
+				return -EINVAL;
+			}
 			uint32_t pulse_width = 0U;
 			uint32_t period_width = PWM_SEC(1U) / 8U;
-			if (labs(action->value) != 0) {
+			if (value != 0) {
 				period_width =
-				    PWM_SEC(1U) / labs(action->value);
+				    PWM_SEC(1U) / value;
 				pulse_width = period_width / 2U;
 			}
 			ret = pwm_set_dt(&pwm_led0, period_width, pulse_width);
@@ -260,6 +281,13 @@ static int drv84xx_move(const struct device *dev, const uint8_t motor,
 					ret);
 				return ret;
 			}
+		}
+		atomic_set(&data->stepper_mode, DRV84XX_STEPPING_MODE_OFF);
+		atomic_set(&data->remaining_steps, 0);
+		atomic_set(&data->stepper_velocity, value);
+		if (labs(action->value) != 0) {
+			atomic_set(&data->stepper_mode,
+				   DRV84XX_STEPPING_MODE_VELOCITY);
 		}
 	}
 
@@ -346,7 +374,22 @@ static int drv84xx_init(const struct device *dev) {
 				pwm_led0.dev->name);
 			return ret;
 		} else {
-			ret = pwm_set_dt(&pwm_led0, period / 8U, 0U);
+
+			uint32_t pwm_min_speed = 1U;
+			ret = min_pwm_speed(&pwm_led0, &pwm_min_speed);
+			if (ret != 0) {
+				LOG_ERR("Error %d: failed to determine min "
+					"number of pwm periods per s",
+					ret);
+				return ret;
+			} else {
+				data->pwm_min_speed = pwm_min_speed;
+				LOG_INF("Min number of pwm periods per s: %d",
+					data->pwm_min_speed);
+			}
+
+			ret = pwm_set_dt(&pwm_led0,
+					 PWM_SEC(1U) / data->pwm_min_speed, 0U);
 			if (ret != 0) {
 				LOG_ERR("Error %d: failed to set initial pulse "
 					"width",
