@@ -1,0 +1,11 @@
+# SPDX-FileCopyrightText: Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+description: "Dummy Stepper"
+
+compatible: "dummy-steppers"
+
+include: stepper-motor.yaml
+
+stepper-motor-cells:
+  - motor
