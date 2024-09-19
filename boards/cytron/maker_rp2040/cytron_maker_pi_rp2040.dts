@@ -33,3 +33,4 @@ grove_i2c: &i2c0 {};
 grove_spi: &spi0 {};
 
 #include "cytron_rp2040-makerpi-tweaks.dtsi"
+#include "cytron_rp2040-makerpi-stepper.dtsi"
