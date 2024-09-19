@@ -21,4 +21,10 @@ config STEPPER_INIT_PRIORITY
 	help
 	  System initialization priority for stepper motor drivers.
 
+config STEPPER_SHELL
+	bool "Stepper motor shell"
+	depends on SHELL
+	help
+	  Enable stepper shell for testing.
+
 endif
