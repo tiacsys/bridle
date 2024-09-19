@@ -16,7 +16,7 @@ LOG_MODULE_REGISTER(stepper_drv84xx, CONFIG_STEPPER_LOG_LEVEL);
 struct drv84xx_config {
 	struct stepper_driver_config common;
 	struct gpio_dt_spec dir_pin;
-	struct gpio_dt_spec stp_pin;
+	struct gpio_dt_spec step_pin;
 	struct gpio_dt_spec sleep_pin;
 	struct gpio_dt_spec en_pin;
 	struct gpio_dt_spec m0_pin;
@@ -26,11 +26,73 @@ struct drv84xx_config {
 struct drv84xx_data {};
 
 static int drv84xx_on(const struct device *dev, const uint8_t motor) {
-	return -ENOTSUP;
+	int ret;
+	const struct drv84xx_config *config = dev->config;
+	bool has_enable = config->en_pin.port != NULL;
+	bool has_sleep = config->sleep_pin.port != NULL;
+
+	if (!has_sleep && !has_enable) {
+		LOG_ERR(
+		    "%s: Failure to set device to on, neither of sleep pin and "
+		    "enable pin are available. The device is always on",
+		    dev->name);
+		return -ENOTSUP;
+	}
+
+	if (has_sleep) {
+		ret = gpio_pin_set_dt(&config->sleep_pin, 0);
+		if (ret != 0) {
+			LOG_ERR("%s: Failed to set sleep_pin (error: %d)",
+				dev->name, ret);
+			return ret;
+		}
+	}
+
+	if (has_enable) {
+		ret = gpio_pin_set_dt(&config->en_pin, 1);
+		if (ret != 0) {
+			LOG_ERR("%s: Failed to set en_pin (error: %d)",
+				dev->name, ret);
+			return ret;
+		}
+	}
+
+	return 0;
 }
 
 static int drv84xx_off(const struct device *dev, const uint8_t motor) {
-	return -ENOTSUP;
+	int ret;
+	const struct drv84xx_config *config = dev->config;
+	bool has_enable = config->en_pin.port != NULL;
+	bool has_sleep = config->sleep_pin.port != NULL;
+
+	if (!has_sleep && !has_enable) {
+		LOG_ERR(
+		    "%s: Failure to set device to off, neither of sleep pin "
+		    "and enable pin are available. The device is always on",
+		    dev->name);
+		return -ENOTSUP;
+	}
+
+	if (has_sleep) {
+		ret = gpio_pin_set_dt(&config->sleep_pin, 1);
+		if (ret != 0) {
+			LOG_ERR("%s: Failed to set sleep_pin (error: %d)",
+				dev->name, ret);
+			return ret;
+		}
+	}
+
+	if (has_enable) {
+		ret = gpio_pin_set_dt(&config->en_pin, 0);
+		if (ret != 0) {
+			LOG_ERR("%s: Failed to set en_pin (error: %d)",
+				dev->name, ret);
+			return ret;
+		}
+	}
+
+	return 0;
 }
 
 static int drv84xx_move(const struct device *dev, const uint8_t motor,
@@ -46,10 +108,61 @@ static const struct stepper_api drv84xx_api = {
 
 static int drv84xx_init(const struct device *dev) {
 	const struct drv84xx_config *const config = dev->config;
-	struct drv84xx_data *data = dev->data;
 	int ret = 0;
 
-	// TODO: Init pins
+	/* Configure direction pin */
+	ret = gpio_pin_configure_dt(&config->dir_pin, GPIO_OUTPUT_ACTIVE);
+	if (ret != 0) {
+		LOG_ERR("%s: Failed to configure dir_pin (error: %d)",
+			dev->name, ret);
+		return ret;
+	}
+
+	/* Configure step pin */
+	ret = gpio_pin_configure_dt(&config->step_pin, GPIO_OUTPUT_INACTIVE);
+	if (ret != 0) {
+		LOG_ERR("%s: Failed to configure step_pin (error: %d)",
+			dev->name, ret);
+		return ret;
+	}
+
+	/* Configure sleep pin if it is available */
+	if (config->sleep_pin.port != NULL) {
+		ret = gpio_pin_configure_dt(&config->sleep_pin,
+					    GPIO_OUTPUT_ACTIVE | GPIO_INPUT);
+		if (ret != 0) {
+			LOG_ERR("%s: Failed to configure sleep_pin (error: %d)",
+				dev->name, ret);
+			return ret;
+		}
+	}
+
+	/* Configure enable pin if it is available */
+	if (config->en_pin.port != NULL) {
+		ret = gpio_pin_configure_dt(&config->en_pin,
+					    GPIO_OUTPUT_INACTIVE | GPIO_INPUT);
+		if (ret != 0) {
+			LOG_ERR("%s: Failed to configure en_pin (error: %d)",
+				dev->name, ret);
+			return ret;
+		}
+	}
+
+	/* Configure microstep pin 0 */
+	ret = gpio_pin_configure_dt(&config->m0_pin, GPIO_OUTPUT_INACTIVE);
+	if (ret != 0) {
+		LOG_ERR("%s: Failed to configure m0_pin (error: %d)", dev->name,
+			ret);
+		return ret;
+	}
+
+	/* Configure microstep pin 1 */
+	ret = gpio_pin_configure_dt(&config->m1_pin, GPIO_OUTPUT_INACTIVE);
+	if (ret != 0) {
+		LOG_ERR("%s: Failed to configure m1_pin (error: %d)", dev->name,
+			ret);
+		return ret;
+	}
 
 	return 0;
 }
@@ -62,13 +175,15 @@ static int drv84xx_init(const struct device *dev) {
 	static const struct drv84xx_config drv84xx_config_##inst = {       \
 	    .common = drv84xx_stepper_driver_config_##inst,                \
 	    .dir_pin = GPIO_DT_SPEC_INST_GET(inst, dir_gpios),             \
-	    .stp_pin = GPIO_DT_SPEC_INST_GET(inst, step_gpios),            \
+	    .step_pin = GPIO_DT_SPEC_INST_GET(inst, step_gpios),           \
 	    .sleep_pin = GPIO_DT_SPEC_INST_GET_OR(inst, sleep_gpios, {0}), \
 	    .en_pin = GPIO_DT_SPEC_INST_GET_OR(inst, en_gpios, {0}),       \
 	    .m0_pin = GPIO_DT_SPEC_INST_GET_OR(inst, m0_gpios, {0}),       \
 	    .m1_pin = GPIO_DT_SPEC_INST_GET_OR(inst, m1_gpios, {0}),       \
 	};                                                                 \
+                                                                           \
 	static struct drv84xx_data drv84xx_data_##inst = {};               \
+                                                                           \
 	DEVICE_DT_INST_DEFINE(                                             \
 	    inst, &drv84xx_init,	  /* Init */                       \
 	    NULL,			  /* PM */                         \
