@@ -14,7 +14,7 @@ properties:
     description: Direction pin.
 
   step-gpios:
-    #required: true
+    required: true
     type: phandle-array
     description: Step pin.
 

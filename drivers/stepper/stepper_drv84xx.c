@@ -129,15 +129,15 @@ static int min_pwm_speed(struct pwm_dt_spec *pwm_obj, uint32_t *min_speed) {
 	*min_speed = 1;
 	int ret = 0;
 
-	while (min_speed > 1U) {
-		ret = pwm_set_dt(&pwm_led0, PWM_SEC(1U) / *min_speed, 0U);
+	while (true) {
+		ret = pwm_set_dt(pwm_obj, PWM_SEC(1U) / *min_speed, 0U);
 		if (ret == 0) {
 			return 0;
 		} else {
 			*min_speed *= 2;
-		}
-		if (*min_speed > PWM_SEC(1U)) {
-			return -ERANGE;
+			if (*min_speed >= PWM_SEC(1U)) {
+				return -ERANGE;
+			}
 		}
 	}
 }
@@ -212,8 +212,8 @@ static int srv84xx_off(const struct device *dev, const uint8_t motor) {
 	}
 
 	if (has_pwm) {
-		ret = pwm_set_dt(&pwm_led0, PWM_SEC(1U) / data->pwm_min_speed,
-				 0U);
+		ret = pwm_set_dt(&config->step_pwm,
+				 PWM_SEC(1U) / data->pwm_min_speed, 0U);
 		if (ret != 0) {
 			LOG_ERR("Error %d: failed to zero pwm pulse ", ret);
 			return ret;
@@ -235,8 +235,6 @@ static int drv84xx_move(const struct device *dev, const uint8_t motor,
 	bool has_pwm = config->step_pwm.dev != NULL;
 	int ret = 0;
 	long value = labs(action->value);
-
-	const struct pwm_dt_spec pwm_led0 = PWM_DT_SPEC_GET(DT_ALIAS(pwm_led0));
 
 	if (action->value >= 0) {
 		ret = gpio_pin_set_dt(&config->dir_pin, 1);
@@ -264,18 +262,18 @@ static int drv84xx_move(const struct device *dev, const uint8_t motor,
 			if (value < data->pwm_min_speed && value != 0) {
 				LOG_ERR("Error %d: speed of %d is below pwm "
 					"minimum of %d",
-					-EINVAL, value,
-					data->pwm_min_speed);
+					-EINVAL, value, data->pwm_min_speed);
 				return -EINVAL;
 			}
 			uint32_t pulse_width = 0U;
-			uint32_t period_width = PWM_SEC(1U) / 8U;
+			uint32_t period_width =
+			    PWM_SEC(1U) / data->pwm_min_speed;
 			if (value != 0) {
-				period_width =
-				    PWM_SEC(1U) / value;
+				period_width = PWM_SEC(1U) / value;
 				pulse_width = period_width / 2U;
 			}
-			ret = pwm_set_dt(&pwm_led0, period_width, pulse_width);
+			ret = pwm_set_dt(&config->step_pwm, period_width,
+					 pulse_width);
 			if (ret != 0) {
 				LOG_ERR("Error %d: failed to set pulse width",
 					ret);
@@ -303,6 +301,7 @@ static const struct stepper_api drv84xx_api = {
 static int drv84xx_init(const struct device *dev) {
 	const struct drv84xx_config *const config = dev->config;
 	struct drv84xx_data *data = dev->data;
+	bool has_pwm = config->step_pwm.dev != NULL;
 	int ret = 0;
 
 	/* Configure direction pin */
@@ -314,12 +313,15 @@ static int drv84xx_init(const struct device *dev) {
 	}
 
 	/* Configure step pin */
-	// ret = gpio_pin_configure_dt(&config->step_pin, GPIO_OUTPUT_INACTIVE);
-	// if (ret != 0) {
-	// 	LOG_ERR("%s: Failed to configure step_pin (error: %d)",
-	// 		dev->name, ret);
-	// 	return ret;
-	// }
+	if (!has_pwm) {
+		ret = gpio_pin_configure_dt(&config->step_pin,
+					    GPIO_OUTPUT_INACTIVE);
+		if (ret != 0) {
+			LOG_ERR("%s: Failed to configure step_pin (error: %d)",
+				dev->name, ret);
+			return ret;
+		}
+	}
 
 	/* Configure sleep pin if it is available */
 	if (config->sleep_pin.port != NULL) {
@@ -362,21 +364,22 @@ static int drv84xx_init(const struct device *dev) {
 	}
 
 	/* Configure pwm if it is available */
-	if (config->step_pwm.dev != NULL) {
+	if (has_pwm) {
 		LOG_INF("Running DRV84XX Driver in pwm mode");
 		uint32_t period = PWM_SEC(1U);
-		ret = pwm_is_ready_dt(&pwm_led0);
+		ret = pwm_is_ready_dt(&config->step_pwm);
 		LOG_INF("PWM Channel: %d Device-Name: %s Device: "
 			"%x",
-			pwm_led0.channel, pwm_led0.dev->name, pwm_led0.dev);
+			config->step_pwm.channel, config->step_pwm.dev->name,
+			config->step_pwm.dev);
 		if (ret == 0) {
 			LOG_ERR("Error: PWM device %s is not ready",
-				pwm_led0.dev->name);
+				config->step_pwm.dev->name);
 			return ret;
 		} else {
 
 			uint32_t pwm_min_speed = 1U;
-			ret = min_pwm_speed(&pwm_led0, &pwm_min_speed);
+			ret = min_pwm_speed(&config->step_pwm, &pwm_min_speed);
 			if (ret != 0) {
 				LOG_ERR("Error %d: failed to determine min "
 					"number of pwm periods per s",
@@ -384,22 +387,23 @@ static int drv84xx_init(const struct device *dev) {
 				return ret;
 			} else {
 				data->pwm_min_speed = pwm_min_speed;
+				// data->pwm_min_speed = 8U;
 				LOG_INF("Min number of pwm periods per s: %d",
 					data->pwm_min_speed);
 			}
 
-			ret = pwm_set_dt(&pwm_led0,
+			ret = pwm_set_dt(&config->step_pwm,
 					 PWM_SEC(1U) / data->pwm_min_speed, 0U);
 			if (ret != 0) {
 				LOG_ERR("Error %d: failed to set initial pulse "
 					"width",
 					ret);
-				return ret;
+				// return ret;
 			}
 		}
 	}
 
-	if (config->step_pwm.dev == NULL) {
+	if (!has_pwm) {
 		/* Create stepper thread */
 		LOG_INF("Running DRV84XX Driver in gpio mode");
 		size_t stepper_thread_stack_size =
@@ -419,12 +423,12 @@ static int drv84xx_init(const struct device *dev) {
 #define DRV84XX_DEVICE(inst)                                                   \
 	static const struct drv84xx_config drv84xx_config_##inst = {           \
 	    .dir_pin = GPIO_DT_SPEC_INST_GET(inst, dir_gpios),                 \
-	    .step_pin = GPIO_DT_SPEC_INST_GET_OR(inst, step_gpios, {0}),       \
+	    .step_pin = GPIO_DT_SPEC_INST_GET(inst, step_gpios),               \
 	    .sleep_pin = GPIO_DT_SPEC_INST_GET_OR(inst, sleep_gpios, {0}),     \
 	    .en_pin = GPIO_DT_SPEC_INST_GET_OR(inst, en_gpios, {0}),           \
 	    .m0_pin = GPIO_DT_SPEC_INST_GET_OR(inst, m0_gpios, {0}),           \
 	    .m1_pin = GPIO_DT_SPEC_INST_GET_OR(inst, m1_gpios, {0}),           \
-	    .step_pwm = PWM_DT_SPEC_GET(DT_ALIAS(pwm_led0)),                   \
+	    .step_pwm = PWM_DT_SPEC_INST_GET_OR(inst, {0}),           \
 	};                                                                     \
 	static struct drv84xx_data drv84xx_data_##inst = {                     \
 	    .positioning_speed = 1,                                            \
