@@ -7,11 +7,13 @@
 #include <zephyr/device.h>
 #include <zephyr/devicetree.h>
 #include <zephyr/drivers/gpio.h>
+#include <zephyr/drivers/pwm.h>
 #include <zephyr/drivers/stepper.h>
 #include <zephyr/logging/log.h>
 
 #include "zephyr/kernel.h"
 LOG_MODULE_REGISTER(stepper_drv84xx, CONFIG_STEPPER_LOG_LEVEL);
+const struct pwm_dt_spec pwm_led0 = PWM_DT_SPEC_GET(DT_ALIAS(pwm_led0));
 
 #define DT_DRV_COMPAT drv84xx
 
@@ -29,6 +31,7 @@ struct drv84xx_config {
 	struct gpio_dt_spec en_pin;
 	struct gpio_dt_spec m0_pin;
 	struct gpio_dt_spec m1_pin;
+	struct pwm_dt_spec step_pwm;
 };
 
 struct drv84xx_data {
@@ -109,6 +112,17 @@ static void gpio_stepper_thread_fn(void *dev_raw, void *arg2, void *arg3) {
 	}
 }
 
+static void pwm_pulsed(const struct device *dev, uint32_t channel,
+		       uint32_t period_cycles, uint32_t status,
+		       void *user_data) {
+	struct drv84xx_data *data = dev->data;
+
+	atomic_dec(&data->remaining_steps);
+	if (atomic_get(&data->remaining_steps) == 0) {
+		// TODO: Set pulse width to 0 and capture to off
+	}
+}
+
 static int drv84xx_on(const struct device *dev, const uint8_t motor) {
 	int ret;
 	const struct drv84xx_config *config = dev->config;
@@ -150,6 +164,7 @@ static int srv84xx_off(const struct device *dev, const uint8_t motor) {
 	struct drv84xx_data *data = dev->data;
 	bool has_enable = config->en_pin.port != NULL;
 	bool has_sleep = config->sleep_pin.port != NULL;
+	bool has_pwm = config->step_pwm.dev != NULL;
 
 	if (!has_sleep && !has_enable) {
 		LOG_ERR(
@@ -177,6 +192,14 @@ static int srv84xx_off(const struct device *dev, const uint8_t motor) {
 		}
 	}
 
+	if (has_pwm) {
+		ret = pwm_set_dt(&pwm_led0, PWM_SEC(1U) / 8U, 0U);
+		if (ret != 0) {
+			LOG_ERR("Error %d: failed to zero pwm pulse ", ret);
+			return ret;
+		}
+	}
+
 	/*Reset stepper state*/
 	atomic_set(&data->stepper_mode, DRV84XX_STEPPING_MODE_OFF);
 	atomic_set(&data->remaining_steps, 0);
@@ -189,7 +212,10 @@ static int drv84xx_move(const struct device *dev, const uint8_t motor,
 			const struct stepper_action *action) {
 	struct drv84xx_data *data = dev->data;
 	const struct drv84xx_config *config = dev->config;
+	bool has_pwm = config->step_pwm.dev != NULL;
 	int ret = 0;
+
+	const struct pwm_dt_spec pwm_led0 = PWM_DT_SPEC_GET(DT_ALIAS(pwm_led0));
 
 	if (action->value >= 0) {
 		ret = gpio_pin_set_dt(&config->dir_pin, 1);
@@ -204,6 +230,7 @@ static int drv84xx_move(const struct device *dev, const uint8_t motor,
 	}
 
 	if (STEPPER_OP_MODE_GET(action->flags) == STEPPER_OP_MODE_POSITION) {
+
 		atomic_set(&data->stepper_mode, DRV84XX_STEPPING_MODE_OFF);
 		atomic_set(&data->remaining_steps, labs(action->value));
 		atomic_set(&data->stepper_mode,
@@ -218,6 +245,21 @@ static int drv84xx_move(const struct device *dev, const uint8_t motor,
 		if (labs(action->value) != 0) {
 			atomic_set(&data->stepper_mode,
 				   DRV84XX_STEPPING_MODE_VELOCITY);
+		}
+		if (has_pwm) {
+			uint32_t pulse_width = 0U;
+			uint32_t period_width = PWM_SEC(1U) / 8U;
+			if (labs(action->value) != 0) {
+				period_width =
+				    PWM_SEC(1U) / labs(action->value);
+				pulse_width = period_width / 2U;
+			}
+			ret = pwm_set_dt(&pwm_led0, period_width, pulse_width);
+			if (ret != 0) {
+				LOG_ERR("Error %d: failed to set pulse width",
+					ret);
+				return ret;
+			}
 		}
 	}
 
@@ -244,12 +286,12 @@ static int drv84xx_init(const struct device *dev) {
 	}
 
 	/* Configure step pin */
-	ret = gpio_pin_configure_dt(&config->step_pin, GPIO_OUTPUT_INACTIVE);
-	if (ret != 0) {
-		LOG_ERR("%s: Failed to configure step_pin (error: %d)",
-			dev->name, ret);
-		return ret;
-	}
+	// ret = gpio_pin_configure_dt(&config->step_pin, GPIO_OUTPUT_INACTIVE);
+	// if (ret != 0) {
+	// 	LOG_ERR("%s: Failed to configure step_pin (error: %d)",
+	// 		dev->name, ret);
+	// 	return ret;
+	// }
 
 	/* Configure sleep pin if it is available */
 	if (config->sleep_pin.port != NULL) {
@@ -291,15 +333,42 @@ static int drv84xx_init(const struct device *dev) {
 		return ret;
 	}
 
-	/* Create stepper thread */
-	size_t stepper_thread_stack_size = CONFIG_DRV84XX_THREAD_STACK_SIZE;
-	data->stepper_thread_stack =
-	    k_thread_stack_alloc(stepper_thread_stack_size, 0);
-	data->stepper_thread_pid = k_thread_create(
-	    &data->stepper_thread_data, data->stepper_thread_stack,
-	    K_THREAD_STACK_SIZEOF(*data->stepper_thread_stack),
-	    gpio_stepper_thread_fn, (void *)dev, NULL, NULL,
-	    CONFIG_DRV84XX_THREAD_PRIORITY, 0, K_NO_WAIT);
+	/* Configure pwm if it is available */
+	if (config->step_pwm.dev != NULL) {
+		LOG_INF("Running DRV84XX Driver in pwm mode");
+		uint32_t period = PWM_SEC(1U);
+		ret = pwm_is_ready_dt(&pwm_led0);
+		LOG_INF("PWM Channel: %d Device-Name: %s Device: "
+			"%x",
+			pwm_led0.channel, pwm_led0.dev->name, pwm_led0.dev);
+		if (ret == 0) {
+			LOG_ERR("Error: PWM device %s is not ready",
+				pwm_led0.dev->name);
+			return ret;
+		} else {
+			ret = pwm_set_dt(&pwm_led0, period / 8U, 0U);
+			if (ret != 0) {
+				LOG_ERR("Error %d: failed to set initial pulse "
+					"width",
+					ret);
+				return ret;
+			}
+		}
+	}
+
+	if (config->step_pwm.dev == NULL) {
+		/* Create stepper thread */
+		LOG_INF("Running DRV84XX Driver in gpio mode");
+		size_t stepper_thread_stack_size =
+		    CONFIG_DRV84XX_THREAD_STACK_SIZE;
+		data->stepper_thread_stack =
+		    k_thread_stack_alloc(stepper_thread_stack_size, 0);
+		data->stepper_thread_pid = k_thread_create(
+		    &data->stepper_thread_data, data->stepper_thread_stack,
+		    K_THREAD_STACK_SIZEOF(*data->stepper_thread_stack),
+		    gpio_stepper_thread_fn, (void *)dev, NULL, NULL,
+		    CONFIG_DRV84XX_THREAD_PRIORITY, 0, K_NO_WAIT);
+	}
 
 	return 0;
 }
@@ -307,11 +376,12 @@ static int drv84xx_init(const struct device *dev) {
 #define DRV84XX_DEVICE(inst)                                                   \
 	static const struct drv84xx_config drv84xx_config_##inst = {           \
 	    .dir_pin = GPIO_DT_SPEC_INST_GET(inst, dir_gpios),                 \
-	    .step_pin = GPIO_DT_SPEC_INST_GET(inst, step_gpios),               \
+	    .step_pin = GPIO_DT_SPEC_INST_GET_OR(inst, step_gpios, {0}),       \
 	    .sleep_pin = GPIO_DT_SPEC_INST_GET_OR(inst, sleep_gpios, {0}),     \
 	    .en_pin = GPIO_DT_SPEC_INST_GET_OR(inst, en_gpios, {0}),           \
 	    .m0_pin = GPIO_DT_SPEC_INST_GET_OR(inst, m0_gpios, {0}),           \
 	    .m1_pin = GPIO_DT_SPEC_INST_GET_OR(inst, m1_gpios, {0}),           \
+	    .step_pwm = PWM_DT_SPEC_GET(DT_ALIAS(pwm_led0)),                   \
 	};                                                                     \
 	static struct drv84xx_data drv84xx_data_##inst = {                     \
 	    .positioning_speed = 1,                                            \

@@ -12,6 +12,8 @@ config DRV84XX
 
 if DRV84XX
 
+CONFIG_PWM_CAPTURE = y
+
 config DRV84XX_THREAD_PRIORITY
 	int "DRV84xx stepper thread priority"
 	default 90

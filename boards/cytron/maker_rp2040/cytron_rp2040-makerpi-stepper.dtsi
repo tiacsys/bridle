@@ -8,47 +8,50 @@
 
 /* Grove 4 */
 &i2c0 {
-        status = "okay";
+	status = "okay";
 
-        mikroe_stepper_gpios: mikroe_stepper_ctrl_tca9538a@70 {
-                status = "okay";
-                compatible = "ti,tca9538";
+	mikroe_stepper_gpios: mikroe_stepper_ctrl_tca9538a@70 {
+		status = "okay";
+		compatible = "ti,tca9538";
 
-                reg = < 0x70 >;
+		reg = < 0x70 >;
 
-                gpio-controller;
-                ngpios = < 8 >;
-                #gpio-cells = < 2 >;
+		gpio-controller;
+		ngpios = < 8 >;
+		#gpio-cells = < 2 >;
 
-                gpio-reserved-ranges = < 7 1 >;
+		gpio-reserved-ranges = < 7 1 >;
 
-                gpio-line-names =
-                    "M0",
-                    "M1",
-                    "DEC0",
-                    "DEC1",
-                    "TOFF",
-                    "STP",
-                    "DIR";
-        };
+		gpio-line-names =
+		    "M0",
+		    "M1",
+		    "DEC0",
+		    "DEC1",
+		    "TOFF",
+		    "STP",
+		    "DIR";
+	};
 };
 
 / {
 
-        drv8424 {
-                status = "okay";
-                compatible = "drv84xx";
+	drv8424 {
+		status = "okay";
+		compatible = "drv84xx";
 
-                fs-per-turn = < 200 >;
-                fs-max-speed = < 500000 >; /* Steps/s */
+		fs-per-turn = < 200 >;
+		fs-max-speed = < 500000 >; /* Steps/s */
 
-                dir-gpios = < &gpio0 2 0 >;
-                step-gpios = < &gpio0 3 0 >;
-                sleep-gpios = < &gpio0 4 GPIO_ACTIVE_LOW >;
-                en-gpios  = < &gpio0 5 0 >;
-                m0-gpios = < &mikroe_stepper_gpios 0 0 >;
-                m1-gpios = < &mikroe_stepper_gpios 1 0 >;
-        };
+		dir-gpios = < &gpio0 4 0 >;
+		//step-gpios = < &gpio0 5 0 >;
+		sleep-gpios = < &gpio0 2 GPIO_ACTIVE_LOW >;
+		en-gpios  = < &gpio0 3 0 >;
+		m0-gpios = < &mikroe_stepper_gpios 0 0 >;
+		m1-gpios = < &mikroe_stepper_gpios 1 0 >;
+		//pwms = <&pwm 5 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+	};
+
+	
 
 	dummy_stepper {
 		compatible = "dummy-steppers","sinotech,mx1508";
@@ -96,9 +99,41 @@
 /* HACK to have access to GP0-7 */
 
 &uart0 {
-	status = "disabled";
+	status = "okay";
 };
 
 &spi0 {
-	status = "disabled";
+	status = "okay";
+};
+
+/ {
+	aliases {
+		led0 = &led_gp5;
+		pwm-led0 = &pwm_led_gp5;
+	};
+};
+
+&gpio_leds {
+	led_gp5: led_5 {
+		gpios = <&gpio0 5 GPIO_ACTIVE_HIGH>;
+		label = "LED5";
+	};
+};
+
+&pwm_leds {
+	pwm_led_gp5: pwm_led_5 {
+		pwms = <&pwm 5 PWM_SEC(1) PWM_POLARITY_NORMAL>;
+		label = "PWM_LED5";
+	};
+};
+
+&pwm_makerpi {
+	group5_led {
+		pinmux = <PWM_2B_P5>;		/* GP5: PWM2CHB (5) */
+	};
+};
+
+&pwm {
+	divider-frac-2 = <15>;
+	divider-int-2 = <255>;
 };
