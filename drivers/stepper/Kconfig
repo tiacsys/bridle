@@ -29,5 +29,6 @@ config STEPPER_SHELL
 
 rsource "Kconfig.dummy"
 rsource "Kconfig.drv84xx"
+rsource "Kconfig.drv84xx-gpio"
 
 endif

@@ -1,0 +1,23 @@
+# SPDX-FileCopyrightText: Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+# FIXME: https://github.com/zephyrproject-rtos/zephyr/pull/68774#discussion_r1689296474
+#        Add to build_all driver tests.
+config DRV84XX
+	bool "DRV84xx stepper motor driver"
+	default y
+	depends on DT_HAS_DRV84XX_ENABLED
+	help
+	  Enable driver for DRV84xx stepper motor driver.
+
+if DRV84XX
+
+config DRV84XX_THREAD_PRIORITY
+	int "DRV84xx stepper thread priority"
+	default 90
+
+config DRV84XX_THREAD_STACK_SIZE
+	int
+	default 1024
+
+endif
