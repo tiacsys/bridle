@@ -37,6 +37,10 @@ properties:
     required: true
     const: 0
 
+  "#stepper-motor-cells":
+    type: int
+    required: true
+
 child-binding:
   description: |
     Stepper motor driver child node, corresponds to a single stepper motor

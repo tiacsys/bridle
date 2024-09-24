@@ -16,6 +16,7 @@
 #include <errno.h>
 #include <stdlib.h>
 #include <zephyr/device.h>
+#include <zephyr/devicetree/motors.h>
 #include <zephyr/dt-bindings/stepper/stepper.h>
 #include <zephyr/kernel.h>
 #include <zephyr/sys/__assert.h>
@@ -220,6 +221,54 @@ struct stepper_driver_config {
 };
 
 /**
+ * @brief Container for stepper motor information specified in devicetree.
+ */
+struct stepper_motor_dt_spec {
+	/** The device pointer for the motor driver. */
+	const struct device *driver;
+	/** The index of this motor output on the given motor driver */
+	const uint8_t motor;
+	/** Number of full steps for one full turn of the motor shaft. */
+	const uint32_t fs_per_turn;
+	/** TODO: Other fields? Driver capabilities? */
+};
+
+#define STEPPER_MOTOR_DT_SPEC_GET_BY_IDX(node_id, idx)    \
+	STEPPER_MOTOR_DT_SPEC_STRUCT(                     \
+	    DT_STEPPER_MOTOR_DRIVER_BY_IDX(node_id, idx), \
+	    DT_STEPPER_MOTOR_OUTPUT_BY_IDX(node_id, idx))
+
+#define STEPPER_MOTOR_DT_SPEC_GET(node_id) \
+	STEPPER_MOTOR_DT_SPEC_GET_BY_IDX(node_id, 0)
+
+/**
+ * @brief Initializer for a struct stepper_motor_dt_spec from a stepper motor
+ * driver devicetree node and a motor output index
+ */
+#define STEPPER_MOTOR_DT_SPEC_STRUCT(driver_node, motor_id)               \
+	{                                                                 \
+		.driver = DEVICE_DT_GET(driver_node), .motor = motor_id,  \
+		.fs_per_turn =                                            \
+		    DT_PROP(STEPPER_MOTOR_DT_NODE(driver_node, motor_id), \
+			    fs_per_turn),                                 \
+	}
+
+/**
+ * @brief Utility macro used by @see STEPPER_MOTOR_DT_NODE that filters child
+ * nodes and only returns ones with the specified register address.
+ */
+#define STEPPER_MOTOR_DT_NODE_FOREACH(motor_node, motor_id) \
+	IF_ENABLED(IS_EQ(DT_REG_ADDR(motor_node), motor_id), (motor_node))
+
+/**
+ * @brief Get the devicetree node of a single stepper motor attached to a motor
+ * driver by output id.
+ */
+#define STEPPER_MOTOR_DT_NODE(driver_node, motor_id)                       \
+	DT_FOREACH_CHILD_VARGS(driver_node, STEPPER_MOTOR_DT_NODE_FOREACH, \
+			       motor_id)
+
+/**
  * @brief Initialize a struct stepper_driver_capabilities from a devicetree
  * node.
  *
@@ -349,6 +398,21 @@ static inline int z_impl_stepper_on(const struct device *dev,
 }
 
 /**
+ * @brief Enables a stepper motor via a struct stepper_motor_dt_spec.
+ *
+ * @param spec Motor specification from devicetree.
+ *
+ * @return A value from @see stepper_on().
+ */
+static inline int stepper_on_dt(const struct stepper_motor_dt_spec *spec) {
+	if (spec == NULL) {
+		return -EINVAL;
+	}
+
+	return stepper_on(spec->driver, spec->motor);
+}
+
+/**
  * @brief API for disabling the stepper motor.
  *
  * @details This routine turns off the hardware components that supply
@@ -379,6 +443,21 @@ static inline int z_impl_stepper_off(const struct device *dev,
 	}
 
 	return api->off(dev, motor);
+}
+
+/**
+ * @brief Disables a stepper motor via a struct stepper_motor_dt_spec.
+ *
+ * @param spec Motor specification from devicetree.
+ *
+ * @return A value from @see stepper_off().
+ */
+static inline int stepper_off_dt(const struct stepper_motor_dt_spec *spec) {
+	if (spec == NULL) {
+		return -EINVAL;
+	}
+
+	return stepper_off(spec->driver, spec->motor);
 }
 
 /**
@@ -465,6 +544,25 @@ static inline int z_impl_stepper_move(const struct device *dev,
 	}
 
 	return api->move(dev, motor, action);
+}
+
+/**
+
+ * @brief Send a move command to a stepper motor via a struct
+ stepper_motor_dt_spec.
+ *
+ * @param spec Motor specification from devicetree.
+ * @param action The movement action to perform.
+ *
+ * @return A value from @see stepper_move().
+ */
+static inline int stepper_move_dt(const struct stepper_motor_dt_spec *spec,
+				  const struct stepper_action *action) {
+	if (spec == NULL) {
+		return -EINVAL;
+	}
+
+	return stepper_move(spec->driver, spec->motor, action);
 }
 
 /**
