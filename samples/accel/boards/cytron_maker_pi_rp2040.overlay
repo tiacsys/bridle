@@ -1,0 +1,31 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/gpio/gpio.h>
+#include <zephyr/dt-bindings/pwm/pwm.h>
+
+/ {
+	zephyr,user {
+		enable-gpios = < &gpio0 3 0 >;
+		sleep-gpios = < &gpio0 2 GPIO_ACTIVE_LOW >;
+		pwms = < &pwm 5 PWM_SEC(1) PWM_POLARITY_NORMAL >;
+		direction-gpios = < &gpio0 4 0 >;
+	};
+};
+
+&gpio0 {
+	status = "okay";
+};
+
+&pwm_makerpi {
+	group3_step {
+		 pinmux = <PWM_2B_P5>;		/* GP5: PWM2CHB (5) */
+	 };
+ };
+
+ &pwm {
+	divider-frac-2 = <15>;
+	divider-int-2 = <255>;
+ };
