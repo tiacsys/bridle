@@ -7,3 +7,4 @@ zephyr_syscall_header(${BRIDLE_BASE}/include/zephyr/drivers/stepper.h)
 zephyr_library()
  
 zephyr_library_sources_ifdef(CONFIG_STEPPER_SHELL stepper_shell.c)
+zephyr_library_sources_ifdef(CONFIG_DRV84XX stepper_drv84xx.c)

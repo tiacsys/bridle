@@ -1,0 +1,44 @@
+# SPDX-FileCopyrightText: Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+  DRV84xx stepper motor driver.
+
+compatible: "drv84xx"
+
+properties:
+
+  dir-gpios:
+    required: true
+    type: phandle-array
+    description: Direction pin.
+
+  pwms:
+    required: true
+    type: phandle-array
+    description: Step pin, configured as pwm.
+
+  fault-gpios:
+    type: phandle-array
+    description: Fault pin.
+
+  en-gpios:
+    type: phandle-array
+    description: Enable pin.
+
+  sleep-gpios:
+    type: phandle-array
+    description: Sleep pin (active low).
+
+  m0-gpios:
+    type: phandle-array
+    description: Microstep configuration pin 0.
+
+  m1-gpios:
+    type: phandle-array
+    description: Microstep configuration pin 1.
+
+stepper-motor-cells:
+  - motor
+
+include: stepper-motor.yaml

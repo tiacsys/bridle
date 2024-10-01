@@ -27,4 +27,6 @@ config STEPPER_SHELL
 	help
 	  Enable stepper shell for testing.
 
+rsource "Kconfig.drv84xx"
+
 endif # STEPPER
