@@ -1,0 +1,26 @@
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+config STEPPER_ACTION_STREAM
+	bool "Stepper action streaming"
+	depends on DYNAMIC_THREAD
+	depends on HEAP_MEM_POOL_SIZE > 0
+	help
+	  Enable stepper action streaming functionality.
+
+if STEPPER_ACTION_STREAM
+
+config STEPPER_ACTION_STREAM_THREAD_STACK_SIZE
+	int "Stepper action stream thread stack size"
+	default 2048
+	help
+	  Stack size for each action stream handling thread.
+
+config STEPPER_ACTION_STREAM_THREAD_PRIO
+	int "Stepper action stream thread priority"
+	default -1
+	help
+	  Thread priority for action handling threads.
+
+endif # STEPPER_ACTION_STREAM
+

@@ -3,3 +3,4 @@
 # SPDX-License-Identifier: Apache-2.0
 
 add_subdirectory_ifdef(CONFIG_SHELL shell)
+add_subdirectory_ifdef(CONFIG_STEPPER_ACTION_STREAM stepper_action_stream)
