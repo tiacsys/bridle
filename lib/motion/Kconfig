@@ -1,0 +1,12 @@
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+config MOTION
+	bool "Motion Control library"
+	depends on STEPPER_ACTION_STREAM
+	help
+	  Enable Motion Control library.
+
+module = MOTION
+module-str = motion
+source "subsys/logging/Kconfig.template.log_config"
