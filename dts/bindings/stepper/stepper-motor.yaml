@@ -1,0 +1,96 @@
+# SPDX-FileCopyrightText: Copyright (c) 2024 Carl Zeiss Meditec AG
+# SPDX-FileCopyrightText: Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+  Stepper Motor Driver Device
+
+include: base.yaml
+
+properties:
+
+  nmotors:
+    required: true
+    type: int
+    description: |
+      Number of stepper motors this driver can drive.
+
+  fs-max-speed:
+    required: true
+    type: int
+    description: |
+      Maximum rotational speed in simplest full-step mode (steps/s).
+      Must be in range [1 ... 4294967295].
+
+  friendly-name:
+    type: string
+    description: |
+      Human readable string describing the stepper motor driver. It can be used
+      to distinguish multiple instances of the same model (e.g., X vs. Y axis)
+      to a host operating system.
+
+  "#address-cells":
+    required: true
+    const: 1
+
+  "#size-cells":
+    required: true
+    const: 0
+
+  "#stepper-motor-cells":
+    type: int
+    required: true
+
+child-binding:
+  description: |
+    Stepper motor driver child node, corresponds to a single stepper motor
+    driven by this driver.
+
+  properties:
+
+    reg:
+      type: array
+      required: true
+      description: Motor output identifier.
+
+    fs-per-turn:
+      required: true
+      type: int
+      description: |
+        Number of full-steps for one full turn. This depends on the minimal
+        step angle, e.g. a stepper motor with a 1.8° step angle will have
+        200 full-steps for every full revolution of the motor (360° / 1.8°).
+        Must be in range [1 ... 4294967295].
+
+    friendly-name:
+      type: string
+      description: |
+        Human readable string describing the stepper motor. It can be used to
+        distinguish multiple instances of the same model (e.g., X vs. Y axis)
+        to a host operating system.
+
+    microstep-res:
+      type: int
+      default: 1
+      description: |
+        Microstep resolution to be set while initializing the device driver.
+        Here is the concordance list (see dt-bindings/stepper/stepper.h)
+          1     STEPPER_USTEP_RES_1
+          2     STEPPER_USTEP_RES_2
+          4     STEPPER_USTEP_RES_4
+          8     STEPPER_USTEP_RES_8
+          16    STEPPER_USTEP_RES_16
+          32    STEPPER_USTEP_RES_32
+          64    STEPPER_USTEP_RES_64
+          128   STEPPER_USTEP_RES_128
+          256   STEPPER_USTEP_RES_256
+      enum:
+        - 1
+        - 2
+        - 4
+        - 8
+        - 16
+        - 32
+        - 64
+        - 128
+        - 256
