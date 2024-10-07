@@ -141,6 +141,70 @@ static int cmd_position(const struct shell *sh, size_t argc, char **argv)
 	return 0;
 }
 
+static int cmd_position_smooth(const struct shell *sh, size_t argc, char **argv)
+{
+	int ret = 0;
+	const struct device *dev;
+	uint8_t motor;
+
+	ret = parse_common_args(sh, argv, &dev, &motor);
+	if (ret < 0) {
+		shell_help(sh);
+		return SHELL_CMD_HELP_PRINTED;
+	}
+
+	char *steps_str = argv[3];
+	char *velocity_str = argv[4];
+	char *accel_str = argv[5];
+
+	uint32_t steps = shell_strtoul(steps_str, 10, &ret);
+	if (ret != 0) {
+		shell_error(sh, "Invalid number of steps: %s", steps_str);
+		return -EINVAL;
+	}
+	int32_t max_velocity = shell_strtol(velocity_str, 10, &ret);
+	if (ret != 0) {
+		shell_error(sh, "Invalid velocity: %s", velocity_str);
+		return -EINVAL;
+	}
+	uint32_t accel_time = shell_strtoul(accel_str, 10, &ret);
+	if (ret != 0) {
+		shell_error(sh, "Invalid acceleration time: %s", velocity_str);
+		return -EINVAL;
+	}
+
+	uint32_t flags = 0;
+	if (argc > 6) {
+		char *msr_str = argv[6];
+		ret = parse_microsteps(sh, msr_str, &flags);
+		if (ret != 0) {
+			shell_error(sh, "Invalid microstep resolution: %s", msr_str);
+			return -EINVAL;
+		}
+	} else {
+		flags = STEPPER_USTEP_RES_1;
+	}
+
+	const struct stepper_action action = {
+		.type = STEPPER_ACTION_TYPE_POSITIONING_SMOOTH,
+		.flags = flags,
+		.action.positioning_smooth =
+			{
+				.steps = steps,
+				.max_velocity = max_velocity,
+				.acceleration_time_us = accel_time,
+			},
+	};
+
+	ret = stepper_move(dev, motor, &action);
+	if (ret != 0) {
+		shell_error(sh, "Error: %d", ret);
+		return ret;
+	}
+
+	return 0;
+}
+
 static int cmd_velocity(const struct shell *sh, size_t argc, char **argv)
 {
 	int ret = 0;
@@ -336,6 +400,15 @@ SHELL_STATIC_SUBCMD_SET_CREATE(
 		      "[MSR]      - one of n=0|1|2|3|4|5|6|7|8 - microstep resolution "
 		      "(1/2^n)\n",
 		      cmd_position, 5, 1),
+	SHELL_CMD_ARG(position_smooth, &sub_stepper_dev,
+		      "Perform a positioning action with a stepper motor\n"
+		      "Usage: stepper position <device> <motor> <steps> <velocity> <accel_time> [MSR]\n"
+		      "<steps>        - Number of steps to move by\n"
+		      "<velocity>     - Maximum Stepping rate [full-steps/s]\n"
+		      "<accel_time>   - Acceleration and deceleration time [microseconds]\n"
+		      "[MSR]      - one of n=0|1|2|3|4|5|6|7|8 - microstep resolution"
+		      "(1/2^n)\n",
+		      cmd_position_smooth, 6, 1),
 	SHELL_CMD_ARG(velocity, &sub_stepper_dev,
 		      "Perform a velocity action with a stepper motor\n"
 		      "Usage: stepper velocity <device> <motor> <velocity> <duration> [MSR]\n"

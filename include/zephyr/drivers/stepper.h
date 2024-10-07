@@ -173,11 +173,10 @@ struct stepper_action {
 			uint32_t duration_us;
 		} acceleration;
 		struct positioning_smooth_action {
-			/** TODO: Resolve inconsistency with positioning action */
-			/** Number of steps to take (sign encodes direction) */
-			int32_t steps;
-			/** Maximum stepping rate (full-steps/s). */
-			uint32_t max_velocity;
+			/** Number of steps to take. */
+			uint32_t steps;
+			/** Maximum stepping rate (full-steps/s).  Sign encodes direction. */
+			int32_t max_velocity;
 			/** Time in which maximum stepping rate may be reached (microseconds). */
 			uint32_t acceleration_time_us;
 		} positioning_smooth;
@@ -640,7 +639,7 @@ static inline int z_impl_stepper_move(const struct device *dev, const uint8_t mo
 	}
 
 	if ((action->type == STEPPER_ACTION_TYPE_POSITIONING_SMOOTH) &&
-	    ((!IN_RANGE(action->action.positioning_smooth.max_velocity, 0, caps->fs_max_speed)) ||
+	    ((!IN_RANGE(labs(action->action.positioning_smooth.max_velocity), 0, caps->fs_max_speed)) ||
 	     (action->action.positioning_smooth.acceleration_time_us == 0))) {
 		/* Invalid (absolute) rotational velocity or instant acceleration set */
 		return -EINVAL;
