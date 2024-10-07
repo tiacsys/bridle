@@ -1,0 +1,75 @@
+/*
+ * Copyright (c) 2023-2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/stepper/stepper.h>
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
+/ {
+	zephyr,user {
+		stepper-motors = <&drv8424 0>;
+	};
+};
+
+&i2c1 {
+        status = "okay";
+
+        mikroe_stepper_gpios: mikroe_stepper_ctrl_tca9538a@70 {
+                status = "okay";
+                compatible = "ti,tca9538";
+
+                reg = < 0x70 >;
+
+                gpio-controller;
+                ngpios = < 8 >;
+                #gpio-cells = < 2 >;
+
+                gpio-reserved-ranges = < 7 1 >;
+
+                gpio-line-names =
+			"M0",
+			"M1",
+			"DEC0",
+			"DEC1",
+			"TOFF",
+			"STP",
+			"DIR";
+        };
+};
+
+/ {
+
+        drv8424: drv8424 {
+                status = "okay";
+                compatible = "drv84xx";
+
+                fs-max-speed = < 500000 >; /* Steps/s */
+
+                dir-gpios = < &arduino_header 18 0 >; /* D12 */
+		pwms = <&pwm2 1 PWM_SEC(1) PWM_POLARITY_NORMAL>;
+                sleep-gpios = < &arduino_header 15 GPIO_ACTIVE_LOW >; /* D9 */
+                en-gpios  = < &arduino_header 14 0 >; /* D8 */
+                m0-gpios = < &mikroe_stepper_gpios 0 0 >;
+                m1-gpios = < &mikroe_stepper_gpios 1 0 >;
+
+		nmotors = < 1 >;
+		#address-cells = < 1 >;
+		#size-cells = < 0 >;
+		#stepper-motor-cells = < 1 >;
+
+		drv8424_motor: motor@0 {
+			reg = < 0 >;
+			fs-per-turn = < 200 >;
+			microstep-res = < STEPPER_USTEP_RES_1 >;
+		};
+	};
+};
+
+&pwm2 {
+	pinctrl-0 = < &tim2_ch1_pa5 >;
+};
+
+&pwm1 {
+	status = "disabled";
+};
