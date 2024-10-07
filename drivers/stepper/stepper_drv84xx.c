@@ -324,6 +324,12 @@ static int drv84xx_set_pwm_off(const struct device *dev)
 #endif
 }
 
+static int drv84xx_set_pwm_high(const struct device *dev)
+{
+	const struct drv84xx_config *config = dev->config;
+	return pwm_set_cycles(config->step_pwm.dev, config->step_pwm.channel, 1, 1, 0);
+}
+
 static int drv84xx_set_pwm_freq(const struct device *dev, uint32_t freq_hz)
 {
 	const struct drv84xx_config *config = dev->config;
@@ -480,6 +486,43 @@ static int drv84xx_move(const struct device *dev, const uint8_t motor,
 			LOG_ERR("%s: Failed to set PWM frequency (error %d)", dev->name, ret);
 			return ret;
 		}
+
+	} else if (action->type == STEPPER_ACTION_TYPE_POSIIONING) {
+		if (action->action.positioning.velocity == 0) {
+			return -EINVAL;
+		}
+
+		int remaining_steps = action->action.positioning.steps * microstep_count;
+		bool rising = true;
+
+		ret = drv84xx_set_dir(dev, action->action.positioning.velocity);
+		if (ret != 0) {
+			LOG_ERR("%s: Failed to set direction pin (error: %d)", dev->name, ret);
+			return ret;
+		}
+
+		while (remaining_steps > 0) {
+			/* In positioning mode, alternate between setting pin
+			 * high and low */
+			if (rising) {
+				ret = drv84xx_set_pwm_high(dev);
+			} else {
+				ret = drv84xx_set_pwm_off(dev);
+			}
+			if (ret != 0) {
+				LOG_ERR("%s: Failed to toggle pwm pin (error: %d)", dev->name, ret);
+				return ret;
+			}
+
+			if (!rising) {
+				remaining_steps--;
+			}
+			rising = !rising;
+
+			k_sleep(K_NSEC((NSEC_PER_SEC /
+					(action->action.positioning.velocity * microstep_count)) /
+				       2));
+		}
 	}
 
 	return 0;
@@ -561,10 +604,10 @@ static int drv84xx_init(const struct device *dev)
 #define DRV84XX_DEVICE(inst)                                                                       \
 	STEPPER_DRIVER_CONFIG_DT_INST_DEFINE(                                                      \
 		inst, drv84xx_stepper_driver_config_,                                              \
-		(STEPPER_OP_MODE_VELOCITY | STEPPER_OP_MODE_ACCELERATION | STEPPER_USTEP_RES_1 |   \
-		 STEPPER_USTEP_RES_2 | STEPPER_USTEP_RES_4 | STEPPER_USTEP_RES_8 |                 \
-		 STEPPER_USTEP_RES_16 | STEPPER_USTEP_RES_32 | STEPPER_USTEP_RES_128 |             \
-		 STEPPER_USTEP_RES_256));                                                          \
+		(STEPPER_OP_MODE_VELOCITY | STEPPER_OP_MODE_ACCELERATION |                         \
+		 STEPPER_OP_MODE_POSITION | STEPPER_USTEP_RES_1 | STEPPER_USTEP_RES_2 |            \
+		 STEPPER_USTEP_RES_4 | STEPPER_USTEP_RES_8 | STEPPER_USTEP_RES_16 |                \
+		 STEPPER_USTEP_RES_32 | STEPPER_USTEP_RES_128 | STEPPER_USTEP_RES_256));           \
                                                                                                    \
 	static const struct drv84xx_config drv84xx_config_##inst = {                               \
 		.common = drv84xx_stepper_driver_config_##inst,                                    \
