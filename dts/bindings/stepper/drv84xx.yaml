@@ -17,6 +17,11 @@ properties:
     required: true
     type: phandle-array
     description: Step pin, configured as pwm.
+  
+  step-gpios:
+    required: true
+    type: phandle-array
+    description: Step pin, configured as gpio.
 
   fault-gpios:
     type: phandle-array
@@ -37,6 +42,11 @@ properties:
   m1-gpios:
     type: phandle-array
     description: Microstep configuration pin 1.
+
+  counter-obj:
+    required: true
+    type: phandle
+    description: Counter object.
 
 stepper-motor-cells:
   - motor

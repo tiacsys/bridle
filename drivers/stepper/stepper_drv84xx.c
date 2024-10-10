@@ -6,7 +6,9 @@
 #include <stdint.h>
 #include <zephyr/device.h>
 #include <zephyr/devicetree.h>
+#include <zephyr/drivers/counter.h>
 #include <zephyr/drivers/gpio.h>
+#include <zephyr/drivers/pinctrl.h>
 #include <zephyr/drivers/pwm.h>
 #include <zephyr/drivers/stepper.h>
 #include <zephyr/logging/log.h>
@@ -30,6 +32,8 @@ struct drv84xx_config {
 	struct gpio_dt_spec dir_pin;
 	/** Devicetree specification of the step signal pwm. */
 	struct pwm_dt_spec step_pwm;
+	/** Devicetree specification of the step pin. */
+	struct gpio_dt_spec step_pin;
 	/** Devicetree specification of the sleep pin. */
 	struct gpio_dt_spec sleep_pin;
 	/** Devicetree specification of the enable pin. */
@@ -38,14 +42,24 @@ struct drv84xx_config {
 	struct gpio_dt_spec m0_pin;
 	/** Devicetree specification of the microstep pin 1. */
 	struct gpio_dt_spec m1_pin;
+	/** Reference to couter*/
+	struct device *counter;
+	/** Pincntrl configuration of the step signal pwm */
+	struct pinctrl_dev_config *pwm_pcfg;
 };
 
 /* Struct for storing the states of output pins. */
 struct drv84xx_pin_states {
-	uint8_t sleep: 1;
-	uint8_t en: 1;
-	uint8_t m0: 2;
-	uint8_t m1: 2;
+	uint8_t sleep : 1;
+	uint8_t en : 1;
+	uint8_t m0 : 2;
+	uint8_t m1 : 2;
+};
+
+struct drv84xx_counter_data {
+	uint32_t remaining_steps;
+	bool rising;
+	struct gpio_dt_spec step_pin;
 };
 
 /**
@@ -56,17 +70,18 @@ struct drv84xx_pin_states {
 struct drv84xx_data {
 	/** Struct containing the states of different pins. */
 	struct drv84xx_pin_states pin_states;
+	/** Struct containing counter top configuration */
+	struct counter_top_cfg top_cfg;
 };
 
 /* Pin configurations for different microstep settings. */
-static const uint8_t microstep_table[9][2] = {{0, 0}, {2, 0}, {0, 1}, {1, 1}, {2, 1},
-					      {0, 2}, {2, 4}, {2, 2}, {1, 2}};
+static const uint8_t microstep_table[9][2] = {
+    {0, 0}, {2, 0}, {0, 1}, {1, 1}, {2, 1}, {0, 2}, {2, 4}, {2, 2}, {1, 2}};
 
 /*
  * If microstep setter fails, attempt to recover into previous state.
  */
-static int drv84xx_microstep_recovery(const struct device *dev)
-{
+static int drv84xx_microstep_recovery(const struct device *dev) {
 	const struct drv84xx_config *config = dev->config;
 	struct drv84xx_data *data = dev->data;
 	int ret = 0;
@@ -77,16 +92,18 @@ static int drv84xx_microstep_recovery(const struct device *dev)
 	/* Reset m0 pin as it may have been disconnected */
 	ret = gpio_pin_configure_dt(&config->m0_pin, GPIO_OUTPUT_INACTIVE);
 	if (ret != 0) {
-		LOG_ERR("%s: Failed to restore microstep configuration (error: %d)", dev->name,
-			ret);
+		LOG_ERR(
+		    "%s: Failed to restore microstep configuration (error: %d)",
+		    dev->name, ret);
 		return ret;
 	}
 
 	/* Reset m1 pin as it may have been disconnected. */
 	ret = gpio_pin_configure_dt(&config->m1_pin, GPIO_OUTPUT_INACTIVE);
 	if (ret != 0) {
-		LOG_ERR("%s: Failed to restore microstep configuration (error: %d)", dev->name,
-			ret);
+		LOG_ERR(
+		    "%s: Failed to restore microstep configuration (error: %d)",
+		    dev->name, ret);
 		return ret;
 	}
 
@@ -107,8 +124,9 @@ static int drv84xx_microstep_recovery(const struct device *dev)
 	}
 
 	if (ret != 0) {
-		LOG_ERR("%s: Failed to restore microstep configuration (error: %d)", dev->name,
-			ret);
+		LOG_ERR(
+		    "%s: Failed to restore microstep configuration (error: %d)",
+		    dev->name, ret);
 		return ret;
 	}
 
@@ -129,8 +147,9 @@ static int drv84xx_microstep_recovery(const struct device *dev)
 	}
 
 	if (ret != 0) {
-		LOG_ERR("%s: Failed to restore microstep configuration (error: %d)", dev->name,
-			ret);
+		LOG_ERR(
+		    "%s: Failed to restore microstep configuration (error: %d)",
+		    dev->name, ret);
 		return ret;
 	}
 
@@ -140,15 +159,16 @@ static int drv84xx_microstep_recovery(const struct device *dev)
 /*
  * Sets microstep resolution.
  */
-static int drv84xx_set_microstep(const struct device *dev, uint32_t microstep_id)
-{
+static int drv84xx_set_microstep(const struct device *dev,
+				 uint32_t microstep_id) {
 	const struct drv84xx_config *config = dev->config;
 	struct drv84xx_data *data = dev->data;
 	int ret = 0;
 
 	if (microstep_id > 8) {
-		LOG_ERR("%s: Microstep index of %d is too large, maximum value is 8", dev->name,
-			microstep_id);
+		LOG_ERR("%s: Microstep index of %d is too large, maximum value "
+			"is 8",
+			dev->name, microstep_id);
 		return -EINVAL;
 	}
 
@@ -158,7 +178,8 @@ static int drv84xx_set_microstep(const struct device *dev, uint32_t microstep_id
 	/* Reset m0 pin as it may have been disconnected. */
 	ret = gpio_pin_configure_dt(&config->m0_pin, GPIO_OUTPUT_INACTIVE);
 	if (ret != 0) {
-		LOG_ERR("%s: Failed to reset m0_pin (error: %d)", dev->name, ret);
+		LOG_ERR("%s: Failed to reset m0_pin (error: %d)", dev->name,
+			ret);
 		drv84xx_microstep_recovery(dev);
 		return ret;
 	}
@@ -166,7 +187,8 @@ static int drv84xx_set_microstep(const struct device *dev, uint32_t microstep_id
 	/* Reset m1 pin as it may have been disconnected */
 	ret = gpio_pin_configure_dt(&config->m1_pin, GPIO_OUTPUT_INACTIVE);
 	if (ret != 0) {
-		LOG_ERR("%s: Failed to reset m1_pin (error: %d)", dev->name, ret);
+		LOG_ERR("%s: Failed to reset m1_pin (error: %d)", dev->name,
+			ret);
 		drv84xx_microstep_recovery(dev);
 		return ret;
 	}
@@ -225,8 +247,7 @@ static int drv84xx_set_microstep(const struct device *dev, uint32_t microstep_id
 /*
  * Sets the stepper motor driver chip to on.
  */
-static int drv84xx_on(const struct device *dev, const uint8_t motor)
-{
+static int drv84xx_on(const struct device *dev, const uint8_t motor) {
 	int ret;
 	const struct drv84xx_config *config = dev->config;
 	struct drv84xx_data *data = dev->data;
@@ -236,7 +257,8 @@ static int drv84xx_on(const struct device *dev, const uint8_t motor)
 	/* Check availability of sleep and and enable pins, as these might be
 	 * hardwired. */
 	if (!has_sleep && !has_enable) {
-		LOG_ERR("%s: Failure to set device to on, neither sleep pin nor enable pin are "
+		LOG_ERR("%s: Failure to set device to on, neither sleep pin "
+			"nor enable pin are "
 			"available. The device is always on.",
 			dev->name);
 		return -ENOTSUP;
@@ -245,7 +267,8 @@ static int drv84xx_on(const struct device *dev, const uint8_t motor)
 	if (has_sleep) {
 		ret = gpio_pin_set_dt(&config->sleep_pin, 0);
 		if (ret != 0) {
-			LOG_ERR("%s: Failed to set sleep_pin (error: %d)", dev->name, ret);
+			LOG_ERR("%s: Failed to set sleep_pin (error: %d)",
+				dev->name, ret);
 			return ret;
 		}
 		data->pin_states.sleep = 0U;
@@ -254,7 +277,8 @@ static int drv84xx_on(const struct device *dev, const uint8_t motor)
 	if (has_enable) {
 		ret = gpio_pin_set_dt(&config->en_pin, 1);
 		if (ret != 0) {
-			LOG_ERR("%s: Failed to set en_pin (error: %d)", dev->name, ret);
+			LOG_ERR("%s: Failed to set en_pin (error: %d)",
+				dev->name, ret);
 			return ret;
 		}
 		data->pin_states.en = 1U;
@@ -266,8 +290,7 @@ static int drv84xx_on(const struct device *dev, const uint8_t motor)
 /*
  * Sets the stepper motor driver chip to off.
  */
-static int drv84xx_off(const struct device *dev, const uint8_t motor)
-{
+static int drv84xx_off(const struct device *dev, const uint8_t motor) {
 	int ret;
 	const struct drv84xx_config *config = dev->config;
 	struct drv84xx_data *data = dev->data;
@@ -286,7 +309,8 @@ static int drv84xx_off(const struct device *dev, const uint8_t motor)
 	if (has_sleep) {
 		ret = gpio_pin_set_dt(&config->sleep_pin, 1);
 		if (ret != 0) {
-			LOG_ERR("%s: Failed to set sleep_pin (error: %d)", dev->name, ret);
+			LOG_ERR("%s: Failed to set sleep_pin (error: %d)",
+				dev->name, ret);
 			return ret;
 		}
 		data->pin_states.sleep = 1U;
@@ -295,14 +319,15 @@ static int drv84xx_off(const struct device *dev, const uint8_t motor)
 	if (has_enable) {
 		ret = gpio_pin_set_dt(&config->en_pin, 0);
 		if (ret != 0) {
-			LOG_ERR("%s: Failed to set en_pin (error: %d)", dev->name, ret);
+			LOG_ERR("%s: Failed to set en_pin (error: %d)",
+				dev->name, ret);
 			return ret;
 		}
 		data->pin_states.en = 0U;
 	}
 
-	ret = pwm_set_cycles(config->step_pwm.dev, config->step_pwm.channel, 1U, 0U,
-			     config->step_pwm.flags);
+	ret = pwm_set_cycles(config->step_pwm.dev, config->step_pwm.channel, 1U,
+			     0U, config->step_pwm.flags);
 	if (ret != 0) {
 		LOG_ERR("Error %d: failed to zero pwm", ret);
 		return ret;
@@ -311,27 +336,27 @@ static int drv84xx_off(const struct device *dev, const uint8_t motor)
 	return 0;
 }
 
-static int drv84xx_set_pwm_off(const struct device *dev)
-{
+static int drv84xx_set_pwm_off(const struct device *dev) {
 	const struct drv84xx_config *config = dev->config;
 
 #ifdef CONFIG_DT_HAS_RASPBERRYPI_PICO_PWM_ENABLED
-	return pwm_set_cycles(config->step_pwm.dev, config->step_pwm.channel, 1, 0, 0);
+	return pwm_set_cycles(config->step_pwm.dev, config->step_pwm.channel, 1,
+			      0, 0);
 #elif CONFIG_DT_HAS_ST_STM32_PWM_ENABLED
-	return pwm_set_cycles(config->step_pwm.dev, config->step_pwm.channel, 0, 0, 0);
+	return pwm_set_cycles(config->step_pwm.dev, config->step_pwm.channel, 0,
+			      0, 0);
 #else
 #error "Unsupported PWM platform"
 #endif
 }
 
-static int drv84xx_set_pwm_high(const struct device *dev)
-{
+static int drv84xx_set_pwm_high(const struct device *dev) {
 	const struct drv84xx_config *config = dev->config;
-	return pwm_set_cycles(config->step_pwm.dev, config->step_pwm.channel, 1, 1, 0);
+	return pwm_set_cycles(config->step_pwm.dev, config->step_pwm.channel, 1,
+			      1, 0);
 }
 
-static int drv84xx_set_pwm_freq(const struct device *dev, uint32_t freq_hz)
-{
+static int drv84xx_set_pwm_freq(const struct device *dev, uint32_t freq_hz) {
 	const struct drv84xx_config *config = dev->config;
 
 	if (freq_hz == 0) {
@@ -343,8 +368,7 @@ static int drv84xx_set_pwm_freq(const struct device *dev, uint32_t freq_hz)
 	return pwm_set_dt(&config->step_pwm, period_width, pulse_width);
 }
 
-static int drv84xx_set_dir(const struct device *dev, int32_t dir)
-{
+static int drv84xx_set_dir(const struct device *dev, int32_t dir) {
 	const struct drv84xx_config *config = dev->config;
 	int ret = 0;
 
@@ -357,14 +381,31 @@ static int drv84xx_set_dir(const struct device *dev, int32_t dir)
 	return ret;
 }
 
+static void drv84xx_counter_interrupt(const struct device *dev,
+				      void *user_data) {
+	struct drv84xx_counter_data *data;
+	data = (struct drv84xx_counter_data *)user_data;
+
+	if (!data->rising) {
+		data->remaining_steps--;
+		gpio_pin_set_dt(&data->step_pin, 0);
+	}
+	else if (data->remaining_steps > 0){
+		gpio_pin_set_dt(&data->step_pin, 1);
+	}
+	data->rising = !data->rising;
+	if (data->remaining_steps == 0) {
+		counter_stop(dev);
+	}
+}
+
 /*
  * Executes motor rotation, currently only supports velocity mode
  */
 static int drv84xx_move(const struct device *dev, const uint8_t motor,
-			const struct stepper_action *action)
-{
+			const struct stepper_action *action) {
 	const struct drv84xx_config *config = dev->config;
-	const struct drv84xx_data *data = dev->data;
+	struct drv84xx_data *data = dev->data;
 	bool has_enable = config->en_pin.port != NULL;
 	bool has_sleep = config->sleep_pin.port != NULL;
 	int ret = 0;
@@ -387,30 +428,42 @@ static int drv84xx_move(const struct device *dev, const uint8_t motor,
 	int microstep_id = LOG2(microstep_count);
 	ret = drv84xx_set_microstep(dev, microstep_id);
 	if (ret != 0) {
-		LOG_ERR("%s: Failed to set microsteps (error: %d)", dev->name, ret);
+		LOG_ERR("%s: Failed to set microsteps (error: %d)", dev->name,
+			ret);
 		return ret;
 	}
 
 	if (action->type == STEPPER_ACTION_TYPE_VELOCITY) {
+		ret = pinctrl_apply_state(config->pwm_pcfg,
+					  PINCTRL_STATE_DEFAULT);
+		if (ret != 0) {
+			LOG_ERR("%s: Failed to reset step-pin pinctrl "
+				"configuration (error: %d)",
+				dev->name, ret);
+			return ret;
+		}
 		int32_t velocity = action->action.velocity.velocity;
 		ret = drv84xx_set_dir(dev, velocity);
 		if (ret != 0) {
-			LOG_ERR("%s: Failed to set direction pin (error: %d)", dev->name, ret);
+			LOG_ERR("%s: Failed to set direction pin (error: %d)",
+				dev->name, ret);
 			return ret;
 		}
 
 		if (labs(velocity) == 0) {
 			ret = drv84xx_set_pwm_off(dev);
 			if (ret != 0) {
-				LOG_ERR("%s: Failed to pause pwm (error: %d)", dev->name, ret);
+				LOG_ERR("%s: Failed to pause pwm (error: %d)",
+					dev->name, ret);
 				return ret;
 			}
 		} else {
 			uint32_t freq_hz = labs(velocity) * microstep_count;
 			ret = drv84xx_set_pwm_freq(dev, freq_hz);
 			if (ret != 0) {
-				LOG_ERR("%s: Failed to set PWM frequency (error: %d)", dev->name,
-					ret);
+				LOG_ERR("%s: Failed to set PWM frequency "
+					"(error: %d)",
+					dev->name, ret);
 				return ret;
 			}
 		}
@@ -418,7 +471,16 @@ static int drv84xx_move(const struct device *dev, const uint8_t motor,
 		k_sleep(K_USEC(action->action.velocity.duration_us));
 
 	} else if (action->type == STEPPER_ACTION_TYPE_ACCELERATION) {
-		int32_t start_velocity = action->action.acceleration.start_velocity;
+		ret = pinctrl_apply_state(config->pwm_pcfg,
+					  PINCTRL_STATE_DEFAULT);
+		if (ret != 0) {
+			LOG_ERR("%s: Failed to reset step-pin pinctrl "
+				"configuration (error: %d)",
+				dev->name, ret);
+			return ret;
+		}
+		int32_t start_velocity =
+		    action->action.acceleration.start_velocity;
 		int32_t end_velocity = action->action.acceleration.end_velocity;
 		uint32_t duration_us = action->action.acceleration.duration_us;
 
@@ -436,14 +498,16 @@ static int drv84xx_move(const struct device *dev, const uint8_t motor,
 			/* Partition the unit time interval into 1000 pieces to
 			 * let us do integer math */
 			uint64_t t_milliunit =
-				((1000 * (now_plus_half_step - start_time)) / duration_us);
+			    ((1000 * (now_plus_half_step - start_time)) /
+			     duration_us);
 
 			/* Compute target velocity as convex combination of
 			 * start- and end-velocities, with the milliunits as
 			 * affine parameter */
-			int32_t velocity = ((int32_t)(1000 - t_milliunit) * start_velocity +
-					    (int32_t)t_milliunit * end_velocity) /
-					   1000;
+			int32_t velocity =
+			    ((int32_t)(1000 - t_milliunit) * start_velocity +
+			     (int32_t)t_milliunit * end_velocity) /
+			    1000;
 
 			/* Clamp velocity to prevent overshooting on the final
 			 * timestep */
@@ -456,8 +520,9 @@ static int drv84xx_move(const struct device *dev, const uint8_t motor,
 			/* Set direction pin */
 			ret = drv84xx_set_dir(dev, velocity);
 			if (ret != 0) {
-				LOG_ERR("%s: Failed to set direction pin (error: %d)", dev->name,
-					ret);
+				LOG_ERR("%s: Failed to set direction pin "
+					"(error: %d)",
+					dev->name, ret);
 				return ret;
 			}
 
@@ -465,8 +530,9 @@ static int drv84xx_move(const struct device *dev, const uint8_t motor,
 			uint32_t freq_hz = labs(velocity) * microstep_count;
 			ret = drv84xx_set_pwm_freq(dev, freq_hz);
 			if (ret != 0) {
-				LOG_ERR("%s: Failed to set PWM frequency (error: %d)", dev->name,
-					ret);
+				LOG_ERR("%s: Failed to set PWM frequency "
+					"(error: %d)",
+					dev->name, ret);
 				return ret;
 			}
 
@@ -477,13 +543,15 @@ static int drv84xx_move(const struct device *dev, const uint8_t motor,
 		/* Set end state explicitely */
 		ret = drv84xx_set_dir(dev, end_velocity);
 		if (ret != 0) {
-			LOG_ERR("%s: Failed to set direction pin (error %d)", dev->name, ret);
+			LOG_ERR("%s: Failed to set direction pin (error %d)",
+				dev->name, ret);
 			return ret;
 		}
 		uint32_t end_freq_hz = labs(end_velocity) * microstep_count;
 		ret = drv84xx_set_pwm_freq(dev, end_freq_hz);
 		if (ret != 0) {
-			LOG_ERR("%s: Failed to set PWM frequency (error %d)", dev->name, ret);
+			LOG_ERR("%s: Failed to set PWM frequency (error %d)",
+				dev->name, ret);
 			return ret;
 		}
 
@@ -492,67 +560,81 @@ static int drv84xx_move(const struct device *dev, const uint8_t motor,
 			return -EINVAL;
 		}
 
-		int remaining_steps = action->action.positioning.steps * microstep_count;
-		bool rising = true;
-
 		ret = drv84xx_set_dir(dev, action->action.positioning.velocity);
 		if (ret != 0) {
-			LOG_ERR("%s: Failed to set direction pin (error: %d)", dev->name, ret);
+			LOG_ERR("%s: Failed to set direction pin (error: %d)",
+				dev->name, ret);
 			return ret;
 		}
-
-		while (remaining_steps > 0) {
-			/* In positioning mode, alternate between setting pin
-			 * high and low */
-			if (rising) {
-				ret = drv84xx_set_pwm_high(dev);
-			} else {
-				ret = drv84xx_set_pwm_off(dev);
-			}
-			if (ret != 0) {
-				LOG_ERR("%s: Failed to toggle pwm pin (error: %d)", dev->name, ret);
-				return ret;
-			}
-
-			if (!rising) {
-				remaining_steps--;
-			}
-			rising = !rising;
-
-			k_sleep(K_NSEC((NSEC_PER_SEC /
-					(action->action.positioning.velocity * microstep_count)) /
-				       2));
+		ret = gpio_pin_configure_dt(&config->step_pin,
+					    GPIO_OUTPUT_INACTIVE);
+		if (ret != 0) {
+			LOG_ERR("%s: Failed to configure step_pin (error: %d)",
+				dev->name, ret);
+			return ret;
 		}
+		struct drv84xx_counter_data cb_data;
+		cb_data.remaining_steps =
+		    action->action.positioning.steps * microstep_count;
+		cb_data.rising = true;
+		cb_data.step_pin = config->step_pin;
+
+		data->top_cfg.callback = drv84xx_counter_interrupt;
+		data->top_cfg.ticks = counter_us_to_ticks(
+		    config->counter,
+		    USEC_PER_SEC / (action->action.positioning.velocity *
+				    microstep_count * 2));
+		data->top_cfg.user_data = &cb_data;
+
+		counter_set_top_value(config->counter, &data->top_cfg);
+		counter_start(config->counter);
+
+		while (cb_data.remaining_steps != 0) {
+			k_sleep(K_USEC(USEC_PER_SEC / action->action.positioning.velocity *
+				    microstep_count * 2));
+		}
+		data->top_cfg.callback = NULL;
+		counter_set_top_value(config->counter, &data->top_cfg);
+		counter_start(config->counter);
 	}
 
 	return 0;
 }
 
 static const struct stepper_api drv84xx_api = {
-	.on = drv84xx_on,
-	.off = drv84xx_off,
-	.move = drv84xx_move,
+    .on = drv84xx_on,
+    .off = drv84xx_off,
+    .move = drv84xx_move,
 };
 
 /*
  * Initializes driver
  */
-static int drv84xx_init(const struct device *dev)
-{
+static int drv84xx_init(const struct device *dev) {
 	const struct drv84xx_config *const config = dev->config;
 	struct drv84xx_data *const data = dev->data;
 	int ret = 0;
 
+	/* Check Pinctrl */
+	ret = pinctrl_apply_state(config->pwm_pcfg, PINCTRL_STATE_DEFAULT);
+	if (ret != 0) {
+		LOG_ERR("%s: Failed to apply pinctrl config (error: %d)",
+			dev->name, ret);
+		return ret;
+	}
+
 	/* Configure direction pin */
 	ret = gpio_pin_configure_dt(&config->dir_pin, GPIO_OUTPUT_ACTIVE);
 	if (ret != 0) {
-		LOG_ERR("%s: Failed to configure dir_pin (error: %d)", dev->name, ret);
+		LOG_ERR("%s: Failed to configure dir_pin (error: %d)",
+			dev->name, ret);
 		return ret;
 	}
 
 	/* Configure pwm */
 	if (!pwm_is_ready_dt(&config->step_pwm)) {
-		LOG_ERR("Error: PWM device %s is not ready", config->step_pwm.dev->name);
+		LOG_ERR("Error: PWM device %s is not ready",
+			config->step_pwm.dev->name);
 		return ret;
 	} else {
 		ret = drv84xx_set_pwm_off(dev);
@@ -562,11 +644,21 @@ static int drv84xx_init(const struct device *dev)
 		}
 	}
 
+	/* Configure step pin */
+	ret = gpio_pin_configure_dt(&config->step_pin, GPIO_OUTPUT_INACTIVE);
+	if (ret != 0) {
+		LOG_ERR("%s: Failed to configure step_pin (error: %d)",
+			dev->name, ret);
+		return ret;
+	}
+
 	/* Configure sleep pin if it is available */
 	if (config->sleep_pin.port != NULL) {
-		ret = gpio_pin_configure_dt(&config->sleep_pin, GPIO_OUTPUT_ACTIVE);
+		ret = gpio_pin_configure_dt(&config->sleep_pin,
+					    GPIO_OUTPUT_ACTIVE);
 		if (ret != 0) {
-			LOG_ERR("%s: Failed to configure sleep_pin (error: %d)", dev->name, ret);
+			LOG_ERR("%s: Failed to configure sleep_pin (error: %d)",
+				dev->name, ret);
 			return ret;
 		}
 		data->pin_states.sleep = 1U;
@@ -574,9 +666,11 @@ static int drv84xx_init(const struct device *dev)
 
 	/* Configure enable pin if it is available */
 	if (config->en_pin.port != NULL) {
-		ret = gpio_pin_configure_dt(&config->en_pin, GPIO_OUTPUT_INACTIVE);
+		ret = gpio_pin_configure_dt(&config->en_pin,
+					    GPIO_OUTPUT_INACTIVE);
 		if (ret != 0) {
-			LOG_ERR("%s: Failed to configure en_pin (error: %d)", dev->name, ret);
+			LOG_ERR("%s: Failed to configure en_pin (error: %d)",
+				dev->name, ret);
 			return ret;
 		}
 		data->pin_states.en = 0U;
@@ -585,7 +679,8 @@ static int drv84xx_init(const struct device *dev)
 	/* Configure microstep pin 0 */
 	ret = gpio_pin_configure_dt(&config->m0_pin, GPIO_OUTPUT_INACTIVE);
 	if (ret != 0) {
-		LOG_ERR("%s: Failed to configure m0_pin (error: %d)", dev->name, ret);
+		LOG_ERR("%s: Failed to configure m0_pin (error: %d)", dev->name,
+			ret);
 		return ret;
 	}
 	data->pin_states.m0 = 0U;
@@ -593,7 +688,8 @@ static int drv84xx_init(const struct device *dev)
 	/* Configure microstep pin 1 */
 	ret = gpio_pin_configure_dt(&config->m1_pin, GPIO_OUTPUT_INACTIVE);
 	if (ret != 0) {
-		LOG_ERR("%s: Failed to configure m1_pin (error: %d)", dev->name, ret);
+		LOG_ERR("%s: Failed to configure m1_pin (error: %d)", dev->name,
+			ret);
 		return ret;
 	}
 	data->pin_states.m1 = 0U;
@@ -601,32 +697,41 @@ static int drv84xx_init(const struct device *dev)
 	return 0;
 }
 
-#define DRV84XX_DEVICE(inst)                                                                       \
-	STEPPER_DRIVER_CONFIG_DT_INST_DEFINE(                                                      \
-		inst, drv84xx_stepper_driver_config_,                                              \
-		(STEPPER_OP_MODE_VELOCITY | STEPPER_OP_MODE_ACCELERATION |                         \
-		 STEPPER_OP_MODE_POSITION | STEPPER_USTEP_RES_1 | STEPPER_USTEP_RES_2 |            \
-		 STEPPER_USTEP_RES_4 | STEPPER_USTEP_RES_8 | STEPPER_USTEP_RES_16 |                \
-		 STEPPER_USTEP_RES_32 | STEPPER_USTEP_RES_128 | STEPPER_USTEP_RES_256));           \
-                                                                                                   \
-	static const struct drv84xx_config drv84xx_config_##inst = {                               \
-		.common = drv84xx_stepper_driver_config_##inst,                                    \
-		.dir_pin = GPIO_DT_SPEC_INST_GET(inst, dir_gpios),                                 \
-		.step_pwm = PWM_DT_SPEC_INST_GET(inst),                                            \
-		.sleep_pin = GPIO_DT_SPEC_INST_GET_OR(inst, sleep_gpios, {0}),                     \
-		.en_pin = GPIO_DT_SPEC_INST_GET_OR(inst, en_gpios, {0}),                           \
-		.m0_pin = GPIO_DT_SPEC_INST_GET_OR(inst, m0_gpios, {0}),                           \
-		.m1_pin = GPIO_DT_SPEC_INST_GET_OR(inst, m1_gpios, {0}),                           \
-	};                                                                                         \
-                                                                                                   \
-	static struct drv84xx_data drv84xx_data_##inst = {0};                                      \
-                                                                                                   \
-	DEVICE_DT_INST_DEFINE(inst, &drv84xx_init,          /* Init */                             \
-			      NULL,                         /* PM */                               \
-			      &drv84xx_data_##inst,         /* Data */                             \
-			      &drv84xx_config_##inst,       /* Config */                           \
-			      POST_KERNEL,                  /* Init stage */                       \
-			      CONFIG_STEPPER_INIT_PRIORITY, /* Init priority */                    \
-			      &drv84xx_api);                /* API */
+#define DRV84XX_DEVICE(inst)                                                   \
+                                                                               \
+	PINCTRL_DT_DEFINE(DT_INST_PHANDLE(inst, pwms));                        \
+                                                                               \
+	STEPPER_DRIVER_CONFIG_DT_INST_DEFINE(                                  \
+	    inst, drv84xx_stepper_driver_config_,                              \
+	    (STEPPER_OP_MODE_VELOCITY | STEPPER_OP_MODE_ACCELERATION |         \
+	     STEPPER_OP_MODE_POSITION | STEPPER_USTEP_RES_1 |                  \
+	     STEPPER_USTEP_RES_2 | STEPPER_USTEP_RES_4 | STEPPER_USTEP_RES_8 | \
+	     STEPPER_USTEP_RES_16 | STEPPER_USTEP_RES_32 |                     \
+	     STEPPER_USTEP_RES_128 | STEPPER_USTEP_RES_256));                  \
+                                                                               \
+	static const struct drv84xx_config drv84xx_config_##inst = {           \
+	    .common = drv84xx_stepper_driver_config_##inst,                    \
+	    .dir_pin = GPIO_DT_SPEC_INST_GET(inst, dir_gpios),                 \
+	    .step_pwm = PWM_DT_SPEC_INST_GET(inst),                            \
+	    .step_pin = GPIO_DT_SPEC_INST_GET(inst, step_gpios),               \
+	    .sleep_pin = GPIO_DT_SPEC_INST_GET_OR(inst, sleep_gpios, {0}),     \
+	    .en_pin = GPIO_DT_SPEC_INST_GET_OR(inst, en_gpios, {0}),           \
+	    .m0_pin = GPIO_DT_SPEC_INST_GET_OR(inst, m0_gpios, {0}),           \
+	    .m1_pin = GPIO_DT_SPEC_INST_GET_OR(inst, m1_gpios, {0}),           \
+	    .counter = DEVICE_DT_GET(DT_INST_PHANDLE(inst, counter_obj)),      \
+	    .pwm_pcfg =                                                        \
+		PINCTRL_DT_DEV_CONFIG_GET(DT_INST_PHANDLE(inst, pwms)),        \
+	};                                                                     \
+                                                                               \
+	static struct drv84xx_data drv84xx_data_##inst = {0};                  \
+                                                                               \
+	DEVICE_DT_INST_DEFINE(                                                 \
+	    inst, &drv84xx_init,	  /* Init */                           \
+	    NULL,			  /* PM */                             \
+	    &drv84xx_data_##inst,	  /* Data */                           \
+	    &drv84xx_config_##inst,	  /* Config */                         \
+	    POST_KERNEL,		  /* Init stage */                     \
+	    CONFIG_STEPPER_INIT_PRIORITY, /* Init priority */                  \
+	    &drv84xx_api);		  /* API */
 
 DT_INST_FOREACH_STATUS_OKAY(DRV84XX_DEVICE)
