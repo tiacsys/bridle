@@ -1,57 +1,50 @@
-.. zephyr:code-sample:: alarm
-   :name: Counter Alarm
-   :relevant-api: counter_interface
+.. _trapezesignal:
 
-   Implement an alarm application using the counter API.
+Trapeze Signal
+###############
 
 Overview
 ********
-This sample provides an example of alarm application using :ref:`counter API <counter_api>`.
-It sets an alarm with an initial delay of 2 seconds. At each alarm
-expiry, a new alarm is configured with a delay multiplied by 2.
+This sample provides an example of trapeze signal application using :ref:`Counter API <zephyr:counter_api>`.
+It generates as signal with trapeze timings on a gpio port. The signal is intended for use with stepper
+motors that are driven by a step signal. The sample was written for the drv84xx series of drivers, hence using their microstep resolution.
 
-.. note::
-   In case of 1Hz frequency (RTC for example), precision is 1 second.
-   Therefore, the sample output may differ in 1 second
 
 Requirements
 ************
 
-This sample requires the support of a timer IP compatible with alarm setting.
+This sample requires the support of a timer IP compatible with top interrupt.
+
+This sample requires 1-3 gpio ports (2 can be disabled in code).
 
 References
 **********
 
-- :ref:`disco_l475_iot1_board`
+- :ref:`nucleo_f767zi_board`
+
 
 Building and Running
 ********************
 
  .. zephyr-app-commands::
-    :zephyr-app: samples/drivers/counter/alarm
-    :host-os: unix
-    :board: disco_l475_iot1
+    :app: bridle/samples/trapeze_signal
+    :build-dir: trapeze_signal-nucleo_f767zi
+    :board: nucleo_f767zi
     :goals: run
-    :compact:
+    :host-os: unix
 
 Sample Output
-=============
+*************
 
  .. code-block:: console
 
-    Counter alarm sample
+    Trapeze signal sample
 
-    Set alarm in 2 sec
-    !!! Alarm !!!
-    Now: 2
-    Set alarm in 4 sec
-    !!! Alarm !!!
-    Now: 6
-    Set alarm in 8 sec
-    !!! Alarm !!!
-    Now: 14
-    Set alarm in 16 sec
-    !!! Alarm !!!
-    Now: 30
+    Finished
 
-    <repeats endlessly>
+The trapeze signal will be outputted on the corresponding gpio port and can be detected for example via an led, stepper motor or oscilloscope.
+
+Background
+**********
+
+The algorithm for this sample is based on *Generate stepper-motor speed profiles in real time* by David Austin from 2005.
