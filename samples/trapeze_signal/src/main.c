@@ -179,14 +179,17 @@ static void trapeze_deceleration(const struct device *dev, void *user_data) {
 		data->n--;
 		gpio_pin_set_dt(&pin_stepper, 0);
 	} else {
+		uint32_t n_adjusted =
+		    data->n -1; /* data->n is 1 larger than actual value to
+				    prevent overflow*/
 		if (data->n > ACCURATE_STEPS) { /* Use Approximation, as long as
 						   error is small enough*/
 			float t_n = data->current_time;
-			float adjust = 2 * t_n / (4 * data->n - 1);
+			float adjust = 2 * t_n / (4 * n_adjusted - 1);
 			t_1 = t_n + adjust;
 		} else {
 			t_1 = data->base_time *
-			      (sqrtf(data->n + 1) - sqrtf(data->n));
+			      (sqrtf(n_adjusted + 1) - sqrtf(n_adjusted));
 		}
 		data->top_cfg->ticks =
 		    counter_us_to_ticks(dev, (uint32_t)t_1 / 2);
@@ -214,7 +217,7 @@ static void trapeze_constant(const struct device *dev, void *user_data) {
 	}
 	data->rising = !data->rising;
 
-	if (data->n - 1 == data->const_steps) {
+	if (data->n == data->const_steps) {
 		data->n = data->decel_steps;
 		data->top_cfg->callback = trapeze_deceleration;
 		counter_set_top_value(dev, data->top_cfg);
@@ -248,17 +251,17 @@ static void trapeze_acceleration(const struct device *dev, void *user_data) {
 	}
 	data->rising = !data->rising;
 
-	if (data->n - 1 == data->accel_steps) {
+	if (data->n == data->accel_steps) {
 		if (data->const_steps == 0) {
 			data->n = data->decel_steps;
 			data->top_cfg->callback = trapeze_deceleration;
 			counter_set_top_value(dev, data->top_cfg);
+			counter_stop(dev);
 		} else {
-			data->n = 1;
+			data->n = 0;
 			data->top_cfg->callback = trapeze_constant;
 			counter_set_top_value(dev, data->top_cfg);
 		}
-		// printk("%u\n", (uint32_t)data->current_time);
 	}
 }
 
@@ -272,7 +275,7 @@ int main(void) {
 	    &m1,
 	    GPIO_OUTPUT_ACTIVE); /* Activating microstep mode, not required*/
 
-	printk("Counter alarm sample\n\n");
+	printk("Trapeze signal sample\n\n");
 
 	if (!device_is_ready(counter_dev)) {
 		printk("device not ready.\n");
@@ -317,7 +320,7 @@ int main(void) {
 	cb_data.accel_steps = accel_steps;
 	cb_data.const_steps = const_steps;
 	cb_data.decel_steps = decel_steps;
-	cb_data.n = 1;
+	cb_data.n = 0;
 	cb_data.rising = true;
 
 	struct counter_top_cfg top_cfg;
