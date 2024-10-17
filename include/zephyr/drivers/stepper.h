@@ -108,6 +108,9 @@ extern "C" {
 /** Enable accelerating mode (forward or backward) by acceleration. */
 #define STEPPER_OP_MODE_ACCELERATION (1U << 18)
 
+/** Enable smooth position mode (forward or backward) by microsteps. */
+#define STEPPER_OP_MODE_POSITION_SMOOTH (1U << 19)
+
 /** @} */
 
 /**
@@ -123,6 +126,9 @@ enum stepper_action_type {
 	STEPPER_ACTION_TYPE_VELOCITY = STEPPER_OP_MODE_VELOCITY,
 	/** Moving the motor with a constant acceleration. */
 	STEPPER_ACTION_TYPE_ACCELERATION = STEPPER_OP_MODE_ACCELERATION,
+	/** Moving the motor by a precise number of steps with smooth acceleration and deceleration.
+	 */
+	STEPPER_ACTION_TYPE_POSITIONING_SMOOTH = STEPPER_OP_MODE_POSITION_SMOOTH,
 };
 
 /**
@@ -166,6 +172,15 @@ struct stepper_action {
 			/** Duration of the action in microseconds */
 			uint32_t duration_us;
 		} acceleration;
+		struct positioning_smooth_action {
+			/** TODO: Resolve inconsistency with positioning action */
+			/** Number of steps to take (sign encodes direction) */
+			int32_t steps;
+			/** Maximum stepping rate (full-steps/s). */
+			uint32_t max_velocity;
+			/** Time in which maximum stepping rate may be reached (microseconds). */
+			uint32_t acceleration_time_us;
+		} positioning_smooth;
 	} action;
 };
 
@@ -187,7 +202,8 @@ struct stepper_action {
 
 /** Bit mask for operation mode access in flags. */
 #define STEPPER_OP_MODE_MASK                                                                       \
-	(STEPPER_OP_MODE_POSITION | STEPPER_OP_MODE_VELOCITY | STEPPER_OP_MODE_ACCELERATION)
+	(STEPPER_OP_MODE_POSITION | STEPPER_OP_MODE_VELOCITY | STEPPER_OP_MODE_ACCELERATION |      \
+	 STEPPER_OP_MODE_POSITION_SMOOTH)
 
 /** Get stepper motor operational mode. */
 #define STEPPER_OP_MODE_GET(_flags_) ((_flags_) & (STEPPER_OP_MODE_MASK))
@@ -621,6 +637,13 @@ static inline int z_impl_stepper_move(const struct device *dev, const uint8_t mo
 			/* Invalid rotational speed */
 			return -EINVAL;
 		}
+	}
+
+	if ((action->type == STEPPER_ACTION_TYPE_POSITIONING_SMOOTH) &&
+	    ((!IN_RANGE(action->action.positioning_smooth.max_velocity, 0, caps->fs_max_speed)) ||
+	     (action->action.positioning_smooth.acceleration_time_us == 0))) {
+		/* Invalid (absolute) rotational velocity or instant acceleration set */
+		return -EINVAL;
 	}
 
 	return api->move(dev, motor, action);
