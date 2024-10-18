@@ -19,7 +19,6 @@ LOG_MODULE_REGISTER(stepper_drv84xx, CONFIG_STEPPER_LOG_LEVEL);
 
 #define DT_DRV_COMPAT drv84xx
 
-/** TODO: maybe calculate based on acceleration steps later */
 #define ACCURATE_STEPS 15
 
 /**
@@ -45,9 +44,9 @@ struct drv84xx_config {
 	struct gpio_dt_spec m0_pin;
 	/** Devicetree specification of the microstep pin 1. */
 	struct gpio_dt_spec m1_pin;
-	/** Reference to couter*/
+	/** Reference to counter. */
 	const struct device *counter;
-	/** Pincntrl configuration of the step signal pwm */
+	/** Pincntrl configuration of the step signal pwm. */
 	const struct pinctrl_dev_config *pwm_pcfg;
 };
 
@@ -59,12 +58,26 @@ struct drv84xx_pin_states {
 	uint8_t m1: 2;
 };
 
+/**
+ * @brief DRV84XX stepper driver data.
+ *
+ * This structure contains mutable data used by a DRV84XX stepper driver.
+ */
+struct drv84xx_data {
+	/** Struct containing the states of different pins. */
+	struct drv84xx_pin_states pin_states;
+	/** Struct containing counter top configuration. */
+	struct counter_top_cfg top_cfg;
+};
+
+// FIXME: Rename struct and document fields
 struct drv84xx_counter_data {
 	uint32_t remaining_steps;
 	bool rising;
 	struct gpio_dt_spec step_pin;
 };
 
+// FIXME: Rename struct and document fields
 struct drv84xx_smooth_data {
 	bool rising;
 	struct gpio_dt_spec step_pin;
@@ -74,19 +87,7 @@ struct drv84xx_smooth_data {
 	uint32_t accel_steps;
 	uint32_t const_steps;
 	uint32_t decel_steps;
-	uint32_t n;
-};
-
-/**
- * @brief DRV84XX stepper driver data.
- *
- * This structure contains mutable data used by a DRV84XX stepper driver.
- */
-struct drv84xx_data {
-	/** Struct containing the states of different pins. */
-	struct drv84xx_pin_states pin_states;
-	/** Struct containing counter top configuration */
-	struct counter_top_cfg top_cfg;
+	uint32_t n; // FIXME: Needs meaningful name
 };
 
 /* Pin configurations for different microstep settings. */
@@ -256,7 +257,8 @@ static int drv84xx_set_microstep(const struct device *dev, uint32_t microstep_id
 static int drv84xx_set_pwm_off(const struct device *dev)
 {
 	const struct drv84xx_config *config = dev->config;
-
+// TODO: Resolve platform dependency. In principle, '1, 0' should be correct here, it's just STM32
+// that needs '0.0' during init
 #ifdef CONFIG_DT_HAS_RASPBERRYPI_PICO_PWM_ENABLED
 	return pwm_set_cycles(config->step_pwm.dev, config->step_pwm.channel, 1, 0, 0);
 #elif CONFIG_DT_HAS_ST_STM32_PWM_ENABLED
@@ -381,10 +383,10 @@ static int drv84xx_set_dir(const struct device *dev, int32_t dir)
 	return ret;
 }
 
+// FIXME: Add comments, rename function to make purpose clear
 static void drv84xx_counter_interrupt(const struct device *dev, void *user_data)
 {
-	struct drv84xx_counter_data *data;
-	data = (struct drv84xx_counter_data *)user_data;
+	struct drv84xx_counter_data *data = (struct drv84xx_counter_data *)user_data;
 
 	if (!data->rising) {
 		data->remaining_steps--;
@@ -392,22 +394,25 @@ static void drv84xx_counter_interrupt(const struct device *dev, void *user_data)
 	} else if (data->remaining_steps > 0) {
 		gpio_pin_set_dt(&data->step_pin, 1);
 	}
+
 	data->rising = !data->rising;
+
 	if (data->remaining_steps == 0) {
 		counter_stop(dev);
 	}
 }
 
-static void drv84xx_smooth_deceleration(const struct device *dev, void *user_data)
+// FIXME: Add comments
+static void drv84xx_positioning_smooth_deceleration(const struct device *dev, void *user_data)
 {
-	struct drv84xx_smooth_data *data;
-	data = (struct drv84xx_smooth_data *)user_data;
+	struct drv84xx_smooth_data *data = (struct drv84xx_smooth_data *)user_data;
 
-	float t_1;
+	float t_1; // FIXME: Needs meaningful name
 
 	if (!data->rising) {
 		gpio_pin_set_dt(&data->step_pin, 0);
 		data->n--;
+
 	} else {
 		uint32_t n_adjusted = data->n - 1; /* data->n is 1 larger than actual value to
 						       prevent overflow*/
@@ -424,6 +429,7 @@ static void drv84xx_smooth_deceleration(const struct device *dev, void *user_dat
 		gpio_pin_set_dt(&data->step_pin, 1);
 		counter_set_top_value(dev, data->top_cfg);
 	}
+
 	data->rising = !data->rising;
 
 	if (data->n == 0) {
@@ -431,10 +437,10 @@ static void drv84xx_smooth_deceleration(const struct device *dev, void *user_dat
 	}
 }
 
-static void drv84xx_smooth_constant(const struct device *dev, void *user_data)
+// FIXME: Add comments
+static void drv84xx_positioning_smooth_constant(const struct device *dev, void *user_data)
 {
-	struct drv84xx_smooth_data *data;
-	data = (struct drv84xx_smooth_data *)user_data;
+	struct drv84xx_smooth_data *data = (struct drv84xx_smooth_data *)user_data;
 
 	if (!data->rising) {
 		data->n++;
@@ -442,16 +448,18 @@ static void drv84xx_smooth_constant(const struct device *dev, void *user_data)
 	} else {
 		gpio_pin_set_dt(&data->step_pin, 1);
 	}
+
 	data->rising = !data->rising;
 
 	if (data->n == data->const_steps) {
 		data->n = data->decel_steps;
-		data->top_cfg->callback = drv84xx_smooth_deceleration;
+		data->top_cfg->callback = drv84xx_positioning_smooth_deceleration;
 		counter_set_top_value(dev, data->top_cfg);
 	}
 }
 
-static void drv84xx_smooth_acceleration(const struct device *dev, void *user_data)
+// FIXME: Add comments
+static void drv84xx_positioning_smooth_acceleration(const struct device *dev, void *user_data)
 {
 	struct drv84xx_smooth_data *data;
 	data = (struct drv84xx_smooth_data *)user_data;
@@ -461,6 +469,7 @@ static void drv84xx_smooth_acceleration(const struct device *dev, void *user_dat
 	if (!data->rising) {
 		data->n++;
 		gpio_pin_set_dt(&data->step_pin, 0);
+
 	} else {
 		if (data->n > ACCURATE_STEPS) { /* Use Approximation, once error
 						   is small enough*/
@@ -475,20 +484,71 @@ static void drv84xx_smooth_acceleration(const struct device *dev, void *user_dat
 		gpio_pin_set_dt(&data->step_pin, 1);
 		counter_set_top_value(dev, data->top_cfg);
 	}
+
 	data->rising = !data->rising;
 
 	if (data->n == data->accel_steps) {
 		if (data->const_steps == 0) {
 			data->n = data->decel_steps;
-			data->top_cfg->callback = drv84xx_smooth_deceleration;
+			data->top_cfg->callback = drv84xx_positioning_smooth_deceleration;
 			counter_set_top_value(dev, data->top_cfg);
 			counter_stop(dev);
 		} else {
 			data->n = 0;
-			data->top_cfg->callback = drv84xx_smooth_constant;
+			data->top_cfg->callback = drv84xx_positioning_smooth_constant;
 			counter_set_top_value(dev, data->top_cfg);
 		}
 	}
+}
+
+static int drv84xx_move_positioning(const struct device *dev, const uint8_t motor,
+				    const struct stepper_action *action)
+{
+	const struct drv84xx_config *config = dev->config;
+	struct drv84xx_data *data = dev->data;
+	int microstep_count = STEPPER_USTEP_RES_GET(action->flags);
+	int ret = 0;
+
+	if (action->action.positioning.velocity == 0) {
+		return -EINVAL;
+	}
+
+	ret = drv84xx_set_dir(dev, action->action.positioning.velocity);
+	if (ret != 0) {
+		LOG_ERR("%s: Failed to set direction pin (error: %d)", dev->name, ret);
+		return ret;
+	}
+
+	ret = gpio_pin_configure_dt(&config->step_pin, GPIO_OUTPUT_INACTIVE);
+	if (ret != 0) {
+		LOG_ERR("%s: Failed to configure step_pin (error: %d)", dev->name, ret);
+		return ret;
+	}
+
+	struct drv84xx_counter_data cb_data;
+	cb_data.remaining_steps = action->action.positioning.steps * microstep_count;
+	cb_data.rising = true;
+	cb_data.step_pin = config->step_pin;
+
+	data->top_cfg.callback = drv84xx_counter_interrupt;
+	data->top_cfg.ticks = counter_us_to_ticks(
+		config->counter,
+		USEC_PER_SEC / (labs(action->action.positioning.velocity) * microstep_count * 2));
+	data->top_cfg.user_data = &cb_data;
+
+	counter_set_top_value(config->counter, &data->top_cfg);
+	counter_start(config->counter);
+
+	while (cb_data.remaining_steps != 0) {
+		// FIXME: What is going on here?
+		k_sleep(K_USEC(USEC_PER_SEC / labs(action->action.positioning.velocity) *
+			       microstep_count * 2));
+	}
+
+	data->top_cfg.callback = NULL;
+	counter_set_top_value(config->counter, &data->top_cfg);
+	counter_start(config->counter);
+	return 0;
 }
 
 static int drv84xx_move_velocity(const struct device *dev, const uint8_t motor,
@@ -555,23 +615,19 @@ static int drv84xx_move_acceleration(const struct device *dev, const uint8_t mot
 
 	uint64_t now = 0;
 	while ((now = (k_uptime_get() * USEC_PER_MSEC)) < end_time) {
-		/* Shift time at which we sample by half a timestep to
-		 * correct for integral error */
+		/* Shift time at which we sample by half a timestep to correct for integral error */
 		uint64_t now_plus_half_step = now + (dt_us / 2);
 
-		/* Partition the unit time interval into 1000 pieces to
-		 * let us do integer math */
+		/* Partition the unit time interval into 1000 pieces to let us do integer math */
 		uint64_t t_milliunit = ((1000 * (now_plus_half_step - start_time)) / duration_us);
 
-		/* Compute target velocity as convex combination of
-		 * start- and end-velocities, with the milliunits as
-		 * affine parameter */
+		/* Compute target velocity as convex combination of start- and end-velocities, with
+		 * the milliunits as affine parameter */
 		int32_t velocity = ((int32_t)(1000 - t_milliunit) * start_velocity +
 				    (int32_t)t_milliunit * end_velocity) /
 				   1000;
 
-		/* Clamp velocity to prevent overshooting on the final
-		 * timestep */
+		/* Clamp velocity to prevent overshooting on the final timestep */
 		if (end_velocity > start_velocity) {
 			velocity = MIN(velocity, end_velocity);
 		} else {
@@ -581,9 +637,7 @@ static int drv84xx_move_acceleration(const struct device *dev, const uint8_t mot
 		/* Set direction pin */
 		ret = drv84xx_set_dir(dev, velocity);
 		if (ret != 0) {
-			LOG_ERR("%s: Failed to set direction pin "
-				"(error: %d)",
-				dev->name, ret);
+			LOG_ERR("%s: Failed to set direction pin (error: %d)", dev->name, ret);
 			return ret;
 		}
 
@@ -591,9 +645,7 @@ static int drv84xx_move_acceleration(const struct device *dev, const uint8_t mot
 		uint32_t freq_hz = labs(velocity) * microstep_count;
 		ret = drv84xx_set_pwm_freq(dev, freq_hz);
 		if (ret != 0) {
-			LOG_ERR("%s: Failed to set PWM frequency "
-				"(error: %d)",
-				dev->name, ret);
+			LOG_ERR("%s: Failed to set PWM frequency (error: %d)", dev->name, ret);
 			return ret;
 		}
 
@@ -601,7 +653,7 @@ static int drv84xx_move_acceleration(const struct device *dev, const uint8_t mot
 		k_sleep(K_USEC(dt_us));
 	}
 
-	/* Set end state explicitely */
+	/* Set end state explicitly */
 	ret = drv84xx_set_dir(dev, end_velocity);
 	if (ret != 0) {
 		LOG_ERR("%s: Failed to set direction pin (error %d)", dev->name, ret);
@@ -616,52 +668,7 @@ static int drv84xx_move_acceleration(const struct device *dev, const uint8_t mot
 	return 0;
 }
 
-static int drv84xx_move_positioning(const struct device *dev, const uint8_t motor,
-				    const struct stepper_action *action)
-{
-	const struct drv84xx_config *config = dev->config;
-	struct drv84xx_data *data = dev->data;
-	int microstep_count = STEPPER_USTEP_RES_GET(action->flags);
-	int ret = 0;
-
-	if (action->action.positioning.velocity == 0) {
-		return -EINVAL;
-	}
-
-	ret = drv84xx_set_dir(dev, action->action.positioning.velocity);
-	if (ret != 0) {
-		LOG_ERR("%s: Failed to set direction pin (error: %d)", dev->name, ret);
-		return ret;
-	}
-	ret = gpio_pin_configure_dt(&config->step_pin, GPIO_OUTPUT_INACTIVE);
-	if (ret != 0) {
-		LOG_ERR("%s: Failed to configure step_pin (error: %d)", dev->name, ret);
-		return ret;
-	}
-	struct drv84xx_counter_data cb_data;
-	cb_data.remaining_steps = action->action.positioning.steps * microstep_count;
-	cb_data.rising = true;
-	cb_data.step_pin = config->step_pin;
-
-	data->top_cfg.callback = drv84xx_counter_interrupt;
-	data->top_cfg.ticks = counter_us_to_ticks(
-		config->counter,
-		USEC_PER_SEC / (labs(action->action.positioning.velocity) * microstep_count * 2));
-	data->top_cfg.user_data = &cb_data;
-
-	counter_set_top_value(config->counter, &data->top_cfg);
-	counter_start(config->counter);
-
-	while (cb_data.remaining_steps != 0) {
-		k_sleep(K_USEC(USEC_PER_SEC / labs(action->action.positioning.velocity) *
-			       microstep_count * 2));
-	}
-	data->top_cfg.callback = NULL;
-	counter_set_top_value(config->counter, &data->top_cfg);
-	counter_start(config->counter);
-	return 0;
-}
-
+// FIXME: Add comments
 static int drv84xx_move_positioning_smooth(const struct device *dev, const uint8_t motor,
 					   const struct stepper_action *action)
 {
@@ -679,23 +686,24 @@ static int drv84xx_move_positioning_smooth(const struct device *dev, const uint8
 		LOG_ERR("%s: Failed to set direction pin (error: %d)", dev->name, ret);
 		return ret;
 	}
+
 	ret = gpio_pin_configure_dt(&config->step_pin, GPIO_OUTPUT_INACTIVE);
 	if (ret != 0) {
 		LOG_ERR("%s: Failed to configure step_pin (error: %d)", dev->name, ret);
 		return ret;
 	}
 
-	uint32_t velocity =
-		labs(action->action.positioning_smooth.max_velocity) * microstep_count; /* steps/s*/
-	uint32_t steps = action->action.positioning_smooth.steps * microstep_count;     /* steps*/
+	uint32_t velocity = labs(action->action.positioning_smooth.max_velocity) *
+			    microstep_count;                                        /* steps/s */
+	uint32_t steps = action->action.positioning_smooth.steps * microstep_count; /* steps */
 	float accel_time =
-		action->action.positioning_smooth.acceleration_time_us * 1.0 / 1000000; /* s*/
+		action->action.positioning_smooth.acceleration_time_us * 1.0 / 1000000; /* s */
 
-	uint32_t accel_steps = (velocity * accel_time) / 2; /* steps*/
-	uint32_t decel_steps = accel_steps;                 /* steps*/
-	uint32_t const_steps;                               /* steps*/
+	uint32_t accel_steps = (velocity * accel_time) / 2; /* steps */
+	uint32_t decel_steps = accel_steps;                 /* steps */
+	uint32_t const_steps;                               /* steps */
 
-	if (2 * accel_steps > steps) { /* Max speed not achievable*/
+	if (2 * accel_steps > steps) { /* Max speed not achievable */
 		const_steps = 0;
 		if ((2 * accel_steps - steps) % 2 == 0) {
 			accel_steps = accel_steps - (2 * accel_steps - steps) / 2;
@@ -703,16 +711,17 @@ static int drv84xx_move_positioning_smooth(const struct device *dev, const uint8
 		} else {
 			accel_steps = accel_steps - (2 * accel_steps - steps) / 2;
 			decel_steps = accel_steps;
-			accel_steps++; /* Compensate for uneven number
-					  of steps*/
+			accel_steps++; /* Compensate for uneven number of steps*/
 		}
 	} else {
 		const_steps = steps - 2 * accel_steps;
 	}
 
+	// FIXME: Do the cast to float explicitly
 	float acceleration = (velocity * velocity) / (2 * accel_steps); /* steps/s² */
-	float t_1 = sqrtf(2.0f / acceleration) *
-		    1000000U; /* micro s (via 1000000), 2.0 contains *1 step*/
+	// FIXME: Meaningful name
+	float t_1 =
+		sqrtf(2.0f / acceleration) * 1000000U; /* µs (via 1000000), 2.0 contains *1 step */
 
 	struct drv84xx_smooth_data cb_data;
 	cb_data.current_time = t_1;
@@ -725,7 +734,7 @@ static int drv84xx_move_positioning_smooth(const struct device *dev, const uint8
 	cb_data.step_pin = config->step_pin;
 
 	struct counter_top_cfg top_cfg;
-	top_cfg.callback = drv84xx_smooth_acceleration;
+	top_cfg.callback = drv84xx_positioning_smooth_acceleration;
 	top_cfg.ticks = counter_us_to_ticks(config->counter, (uint32_t)t_1 / 2);
 	top_cfg.user_data = &cb_data;
 	top_cfg.flags = COUNTER_TOP_CFG_DONT_RESET;
@@ -735,13 +744,15 @@ static int drv84xx_move_positioning_smooth(const struct device *dev, const uint8
 	counter_set_top_value(config->counter, &top_cfg);
 	counter_start(config->counter);
 
-	while (!(top_cfg.callback == drv84xx_smooth_deceleration && cb_data.n == 0)) {
+	while (!(top_cfg.callback == drv84xx_positioning_smooth_deceleration && cb_data.n == 0)) {
 		k_sleep(K_USEC(USEC_PER_SEC / action->action.positioning_smooth.max_velocity *
 			       microstep_count * 2));
 	}
+
 	data->top_cfg.callback = NULL;
 	counter_set_top_value(config->counter, &data->top_cfg);
 	counter_start(config->counter);
+
 	return 0;
 }
 
@@ -763,6 +774,7 @@ static int drv84xx_move(const struct device *dev, const uint8_t motor,
 			return -EIO;
 		}
 	}
+
 	if (has_sleep) {
 		if (data->pin_states.sleep == 1) {
 			LOG_ERR("%s: Stepper is in OFF state", dev->name);
@@ -787,6 +799,7 @@ static int drv84xx_move(const struct device *dev, const uint8_t motor,
 
 	} else if (action->type == STEPPER_ACTION_TYPE_POSIIONING) {
 		ret = drv84xx_move_positioning(dev, motor, action);
+
 	} else if (action->type == STEPPER_ACTION_TYPE_POSITIONING_SMOOTH) {
 		ret = drv84xx_move_positioning_smooth(dev, motor, action);
 	}
