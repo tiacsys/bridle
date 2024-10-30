@@ -92,11 +92,11 @@ function(add_docset name sphinxopts)
   set(PROJECT_DOXYGEN_DIR ${DOCSET_BASE}/doc/_doxygen)
   set(SHARED_DOXYGEN_DIR ${CMAKE_CURRENT_LIST_DIR}/_doxygen)
   set(DOCSET_SPHINX_DIR ${CMAKE_CURRENT_LIST_DIR}/${name})
-  set(DOCSET_BUILD_DIR ${CMAKE_BINARY_DIR}/${name})
-  set(DOCSET_SRC_DIR ${CMAKE_BINARY_DIR}/${name}/src)
-  set(DOCSET_DOCTREE_DIR ${CMAKE_BINARY_DIR}/${name}/doctree)
-  set(DOCSET_HTML_DIR ${CMAKE_BINARY_DIR}/html/${name})
-  set(DOCSET_DOXY_DIR ${CMAKE_BINARY_DIR}/doxygen/${name})
+  set(DOCSET_BUILD_DIR ${CMAKE_CURRENT_BINARY_DIR}/${name})
+  set(DOCSET_SRC_DIR ${CMAKE_CURRENT_BINARY_DIR}/${name}/src)
+  set(DOCSET_DOCTREE_DIR ${CMAKE_CURRENT_BINARY_DIR}/${name}/doctree)
+  set(DOCSET_HTML_DIR ${CMAKE_CURRENT_BINARY_DIR}/html/${name})
+  set(DOCSET_DOXY_DIR ${CMAKE_CURRENT_BINARY_DIR}/doxygen/${name})
   set(DOCSET_MAKE_DIRS ${DOCSET_BUILD_DIR};${DOCSET_SRC_DIR})
   set(DOCSET_CLEAN_DIRS ${DOCSET_SRC_DIR};${DOCSET_DOCTREE_DIR};${DOCSET_HTML_DIR})
   set(DOCSET_ENV
@@ -279,19 +279,18 @@ endfunction()
 #-------------------------------------------------------------------------------
 # Paths
 
-set(ZEPHYR_BINARY_DIR ${CMAKE_BINARY_DIR}/zephyr)
-set(BRIDLE_BINARY_DIR ${CMAKE_BINARY_DIR}/bridle)
-set(DTS_BINDINGS_BINARY_DIR ${CMAKE_BINARY_DIR}/devicetree)
+set(ZEPHYR_BINARY_DIR ${CMAKE_CURRENT_BINARY_DIR}/zephyr)
+set(BRIDLE_BINARY_DIR ${CMAKE_CURRENT_BINARY_DIR}/bridle)
+set(DTS_BINDINGS_BINARY_DIR ${CMAKE_CURRENT_BINARY_DIR}/devicetree)
 
 # HTML output directory
-set(HTML_DIR ${CMAKE_BINARY_DIR}/html)
+set(HTML_DIR ${CMAKE_CURRENT_BINARY_DIR}/html)
 file(MAKE_DIRECTORY ${HTML_DIR})
 
 #-------------------------------------------------------------------------------
 # docset: Zephyr
 
 set(zephyr_kws_files
-    ${ZEPHYR_BASE}/doc/known-warnings.txt
     ${BRIDLE_BASE}/doc/zephyr/known-warnings.txt
 )
 string(REPLACE ";" "\\;" zephyr_kws_files_escaped "${zephyr_kws_files}")
@@ -310,7 +309,6 @@ add_custom_command(
 )
 
 set(zephyr_kwsi_files
-    ${ZEPHYR_BASE}/doc/known-warnings.txt
     ${BRIDLE_BASE}/doc/zephyr/known-warnings-inventory.txt
 )
 string(REPLACE ";" "\\;" zephyr_kwsi_files_escaped "${zephyr_kwsi_files}")
@@ -518,7 +516,7 @@ add_custom_target(
   COMMAND
     ${PYTHON_EXECUTABLE}
       ${BRIDLE_BASE}/doc/_scripts/merge_search_indexes.py
-        -b ${CMAKE_BINARY_DIR}
+        -b ${CMAKE_CURRENT_BINARY_DIR}
   VERBATIM
   WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
   COMMENT "Merging HTML search indexes"
