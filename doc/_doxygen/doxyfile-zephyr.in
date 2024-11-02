@@ -273,21 +273,22 @@ TAB_SIZE               = 8
 # with the commands \{ and \} for these it is advised to use the version @{ and
 # @} or use a double escape (\\{ and \\})
 
-ALIASES                = "rst=\verbatim embed:rst:leading-asterisk" \
-                         endrst=\endverbatim \
-                         "option{1}=\htmlonly <code>\1</code> \endhtmlonly \xmlonly <verbatim>embed:rst:inline :kconfig:option:`\1`</verbatim> \endxmlonly" \
-                         "kconfig{1}=\htmlonly <code>\1</code> \endhtmlonly \xmlonly <verbatim>embed:rst:inline :kconfig:option:`\1`</verbatim> \endxmlonly" \
+ALIASES                = "kconfig{1}=\verbatim \1 \endverbatim" \
                          "req{1}=\ref ZEPH_\1 \"ZEPH-\1\"" \
                          "satisfy{1}=\xrefitem satisfy \"Satisfies requirement\" \"Requirement Implementation\" \1" \
                          "verify{1}=\xrefitem verify \"Verifies requirement\" \"Requirement Verification\" \1" \
+                         "kconfig_dep{1}=\attention Available only when the following Kconfig option is enabled: \kconfig{\1}." \
+                         "kconfig_dep{2}=\attention Available only when the following Kconfig options are enabled: \kconfig{\1}, \kconfig{\2}." \
+                         "kconfig_dep{3}=\attention Available only when the following Kconfig options are enabled: \kconfig{\1}, \kconfig{\2}, \kconfig{\3}." \
                          "funcprops=\par \"Function properties (list may not be complete)\"" \
-                         "reschedule=\htmlonly reschedule \endhtmlonly \xmlonly <verbatim>embed:rst:inline :ref:`api_term_reschedule`</verbatim> \endxmlonly" \
-                         "sleep=\htmlonly sleep \endhtmlonly \xmlonly <verbatim>embed:rst:inline :ref:`api_term_sleep`</verbatim> \endxmlonly" \
-                         "no_wait=\htmlonly no-wait \endhtmlonly \xmlonly <verbatim>embed:rst:inline :ref:`api_term_no-wait`</verbatim> \endxmlonly" \
-                         "isr_ok=\htmlonly isr-ok \endhtmlonly \xmlonly <verbatim>embed:rst:inline :ref:`api_term_isr-ok`</verbatim> \endxmlonly" \
-                         "pre_kernel_ok=\htmlonly pre-kernel-ok \endhtmlonly \xmlonly <verbatim>embed:rst:inline :ref:`api_term_pre-kernel-ok`</verbatim> \endxmlonly" \
-                         "async=\htmlonly async \endhtmlonly \xmlonly <verbatim>embed:rst:inline :ref:`api_term_async`</verbatim> \endxmlonly" \
-                         "supervisor=\htmlonly supervisor \endhtmlonly \xmlonly <verbatim>embed:rst:inline :ref:`api_term_supervisor`</verbatim> \endxmlonly"
+                         "reschedule=\qualifier reschedule" \
+                         "sleep=\qualifier sleep" \
+                         "no_wait=\qualifier no-wait" \
+                         "isr_ok=\qualifier isr-ok" \
+                         "pre_kernel_ok=\qualifier pre-kernel-ok" \
+                         "async=\qualifier async" \
+                         "atomic_api=As for all atomic APIs, includes a full/sequentially-consistent memory barrier (where applicable)." \
+                         "supervisor=\qualifier supervisor"
 
 # Set the OPTIMIZE_OUTPUT_FOR_C tag to YES if your project consists of C sources
 # only. Doxygen will then generate output that is more tailored for C. For
@@ -763,7 +764,7 @@ GENERATE_DEPRECATEDLIST= YES
 # sections, marked by \if <section_label> ... \endif and \cond <section_label>
 # ... \endcond blocks.
 
-ENABLED_SECTIONS       = YES
+ENABLED_SECTIONS       =
 
 # The MAX_INITIALIZER_LINES tag determines the maximum number of lines that the
 # initial value of a variable or macro / define can have for it to appear in the
@@ -950,11 +951,13 @@ WARN_LOGFILE           = "@DOXY_LOGOUT@/@DOXY_LOGWRN@"
 INPUT                  = "@PROJECT_DOXY@/mainpage.md" \
                          "@PROJECT_DOXY@/groups.dox" \
                          "@PROJECT_BASE@/kernel/include/kernel_arch_interface.h" \
+                         "@PROJECT_BASE@/include/zephyr/arch/cache.h" \
+                         "@PROJECT_BASE@/include/zephyr/sys/atomic.h" \
                          "@PROJECT_BASE@/include" \
                          "@PROJECT_BASE@/lib/libc/minimal/include" \
                          "@PROJECT_BASE@/subsys/testsuite/include" \
                          "@PROJECT_BASE@/subsys/testsuite/ztest/include" \
-                         "@PROJECT_BASE@/tests/kernel"
+                         "@PROJECT_BASE@/subsys/secure_storage/include"
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding. Doxygen uses
@@ -2406,7 +2409,7 @@ INCLUDE_FILE_PATTERNS  =
 PREDEFINED             = __DOXYGEN__ \
                          CONFIG_ARCH_HAS_CUSTOM_BUSY_WAIT \
                          CONFIG_ARCH_HAS_CUSTOM_SWAP_TO_MAIN \
-                         CONFIG_BT_BREDR \
+                         CONFIG_BT_CLASSIC \
                          CONFIG_BT_EATT \
                          CONFIG_BT_L2CAP_SEG_RECV \
                          CONFIG_BT_MESH_MODEL_EXTENSIONS \
@@ -2453,6 +2456,7 @@ PREDEFINED             = __DOXYGEN__ \
                          XEN_GUEST_HANDLE_64(x)= \
                          _LINKER \
                          __deprecated= \
+                         __sparse_cache= \
                          __packed= \
                          __aligned(x)= \
                          __attribute_nonnull(...)= \
@@ -2461,7 +2465,11 @@ PREDEFINED             = __DOXYGEN__ \
                          __syscall= \
                          __syscall_always_inline= \
                          __must_check= \
-                         "ATOMIC_DEFINE(x, y)=atomic_t x[ATOMIC_BITMAP_SIZE(y)]"
+                         "ATOMIC_DEFINE(x, y)=atomic_t x[ATOMIC_BITMAP_SIZE(y)]" \
+                         "ZTEST(suite, fn)=void fn(void)" \
+                         "ZTEST_USER(suite, fn)=void fn(void)" \
+                         "ZTEST_USER_F(suite, fn)=void fn(void)" \
+                         "ZTEST_F(suite, fn)=void fn(void)"
 
 # If the MACRO_EXPANSION and EXPAND_ONLY_PREDEF tags are set to YES then this
 # tag can be used to specify a list of macro names that should be expanded. The
@@ -2604,7 +2612,7 @@ DOT_FONTPATH           =
 # Possible values are: NO, YES, TEXT, GRAPH and BUILTIN.
 # The default value is: YES.
 
-CLASS_GRAPH            = NO
+CLASS_GRAPH            = TEXT
 
 # If the COLLABORATION_GRAPH tag is set to YES then doxygen will generate a
 # graph for each documented class showing the direct and indirect implementation
