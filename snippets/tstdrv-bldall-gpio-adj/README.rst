@@ -15,14 +15,14 @@ Programming
 Correct snippet designation must be entered when you invoke ``west build``.
 For example:
 
-.. code-block:: console
-
-   west build -b native_sim \
-              -d build/native_sim \
-              -p always \
-              -S tstdrv-bldall-gpio-adj \
-              zephyr/tests/drivers/build_all/gpio
-   ./build/native_sim/zephyr/zephyr.exe -stop_at=2
+   .. zephyr-app-commands::
+      :app: zephyr/tests/drivers/build_all/gpio
+      :board: native_sim
+      :build-dir: native_sim
+      :west-args: -p always -S tstdrv-bldall-gpio-adj
+      :gen-args: -DCONFIG_NATIVE_EXTRA_CMDLINE_ARGS=\"-stop_at=2\"
+      :goals: run
+      :compact:
 
 .. note::
 
@@ -36,7 +36,7 @@ Correct snippet designation must be entered when you invoke ``west twister``,
 either directly on the command line or as an alternative test specification.
 For example:
 
-.. code-block:: console
+   .. code-block:: console
 
-   west twister --alt-config-root bridle/zephyr/alt-config/tests/drivers/build_all/gpio \
-                --testsuite-root zephyr/tests/drivers/build_all/gpio
+      west twister --alt-config-root bridle/zephyr/alt-config/tests/drivers/build_all/gpio \
+                   --testsuite-root zephyr/tests/drivers/build_all/gpio

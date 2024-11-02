@@ -1,7 +1,7 @@
 The `Waveshare Pico RGB LED`_ is an LED matrix module designed for
-:ref:`rpi_pico`, which has 16 × RGB × 10 (160) full-color external controlled
-constant current integrated LEDs, with embedded quality controller IC and LED
-chip. It is a :bbl:`pico sized` clean-looking front panel.
+|zephyr:board:rpi_pico|, which has 16 × RGB × 10 (160) full-color external
+controlled constant current integrated LEDs, with embedded quality controller
+IC and LED chip. It is a :bbl:`pico sized` clean-looking front panel.
 
 .. list-table::
    :align: center

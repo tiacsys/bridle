@@ -97,7 +97,8 @@ Build Infrastructure
 
 Take over the new build principles from Zephyr:
 
-* Support :ref:`zephyr:snippets` inside |BRIDLE| in same way as Zephyr does.
+* Support :external+zephyr:ref:`snippets` inside |BRIDLE|
+  in same way as Zephyr does.
 * Clean up the West manifest, remove obsolete projects from import list.
 * Twister can now used without explicit :program:`--board-root` to
   :program:`BRIDLE_BASE`.

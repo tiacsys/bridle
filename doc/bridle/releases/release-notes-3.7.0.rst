@@ -234,7 +234,7 @@ Take over the new build principles from Zephyr:
   with Bridle's common test suite ``bridle/tests/bridle/common``.
 * Add the *Intel* HAL and the *ACPI Component Architecture* library to support
   Bridle's common test suite ``bridle/tests/bridle/common`` also for most of the
-  :ref:`Intel boards found in Zephyr upstream <zephyr:boards-intel>`.
+  :zephyr:ref:`Intel boards found in Zephyr upstream <boards-intel>`.
 * Adoption of patch and compliance checks from Zephyr upstream for the **new
   Hardware Model v2** with slight adjustments for Bridle:
 

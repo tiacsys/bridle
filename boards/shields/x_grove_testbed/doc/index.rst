@@ -26,7 +26,7 @@ an |Arduino UNO R3| header, then the |Base Shield V2| can be plugged in between.
 .. note::
    Sometimes boards declare standard headers like |Arduino UNO R3| but not
    define all connections. Make sure that the board you are using have all
-   definitions to avoid build errors (see :ref:`zephyr:shields` for more
+   definitions to avoid build errors (see :zephyr:ref:`shields` for more
    details).
 
 Supported variations
@@ -126,7 +126,7 @@ For example:
 
          .. group-tab:: ST Nucleo F303RE
 
-            This is based on the Zephyr board :ref:`zephyr:nucleo_f303re_board`.
+            This is based on the Zephyr board |zephyr:board:nucleo_f303re|.
 
             * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
 
@@ -139,7 +139,7 @@ For example:
                .. group-tab:: LED Blinky
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:blinky`.
+                  :zephyr:code-sample:`blinky`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/blinky
@@ -155,7 +155,7 @@ For example:
                .. group-tab:: LED Fade
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:fade-led`.
+                  :zephyr:code-sample:`fade-led`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/fade_led
@@ -171,7 +171,7 @@ For example:
                .. group-tab:: LED Button
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:button`.
+                  :zephyr:code-sample:`button`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/button
@@ -186,7 +186,7 @@ For example:
 
          .. group-tab:: ST Nucleo F401RE
 
-            This is based on the Zephyr board :ref:`zephyr:nucleo_f401re_board`.
+            This is based on the Zephyr board |zephyr:board:nucleo_f401re|.
 
             * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
 
@@ -199,7 +199,7 @@ For example:
                .. group-tab:: LED Blinky
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:blinky`.
+                  :zephyr:code-sample:`blinky`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/blinky
@@ -215,7 +215,7 @@ For example:
                .. group-tab:: LED Fade
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:fade-led`.
+                  :zephyr:code-sample:`fade-led`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/fade_led
@@ -231,7 +231,7 @@ For example:
                .. group-tab:: LED Button
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:button`.
+                  :zephyr:code-sample:`button`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/button
@@ -246,7 +246,7 @@ For example:
 
          .. group-tab:: ST Nucleo F413ZH
 
-            This is based on the Zephyr board :ref:`zephyr:nucleo_f413zh_board`.
+            This is based on the Zephyr board |zephyr:board:nucleo_f413zh|.
 
             * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
 
@@ -259,7 +259,7 @@ For example:
                .. group-tab:: LED Blinky
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:blinky`.
+                  :zephyr:code-sample:`blinky`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/blinky
@@ -275,7 +275,7 @@ For example:
                .. group-tab:: LED Fade
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:fade-led`.
+                  :zephyr:code-sample:`fade-led`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/fade_led
@@ -291,7 +291,7 @@ For example:
                .. group-tab:: LED Button
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:button`.
+                  :zephyr:code-sample:`button`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/button
@@ -306,7 +306,7 @@ For example:
 
          .. group-tab:: ST Nucleo F767ZI
 
-            This is based on the Zephyr board :ref:`zephyr:nucleo_f767zi_board`.
+            This is based on the Zephyr board |zephyr:board:nucleo_f767zi|.
 
             * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
 
@@ -319,7 +319,7 @@ For example:
                .. group-tab:: LED Blinky
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:blinky`.
+                  :zephyr:code-sample:`blinky`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/blinky
@@ -335,7 +335,7 @@ For example:
                .. group-tab:: LED Fade
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:fade-led`.
+                  :zephyr:code-sample:`fade-led`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/fade_led
@@ -351,7 +351,7 @@ For example:
                .. group-tab:: LED Button
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:button`.
+                  :zephyr:code-sample:`button`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/button
@@ -370,7 +370,7 @@ For example:
 
          .. group-tab:: NXP MIMXRT1010-EVK
 
-            This is based on the Zephyr board :ref:`zephyr:mimxrt1010_evk`.
+            This is based on the Zephyr board |zephyr:board:mimxrt1010_evk|.
 
             * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
 
@@ -379,10 +379,10 @@ For example:
                :align: center
 
             .. note::
-               The :ref:`zephyr:mimxrt1010_evk` doesn't provide any PWM channel
+               The |zephyr:board:mimxrt1010_evk| doesn't provide any PWM channel
                on the |Laced Grove Signal Interface| line :strong:`D6` for the
                output of a variable average value of voltage over time to the
-               LED. Thus the Zephyr sample :zephyr:code-sample:`zephyr:fade-led`
+               LED. Thus the Zephyr sample :zephyr:code-sample:`fade-led`
                is not supported.
 
                Should it be absolutely necessary to use a PWM channel, then this
@@ -394,7 +394,7 @@ For example:
                .. group-tab:: LED Blinky
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:blinky`.
+                  :zephyr:code-sample:`blinky`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/blinky
@@ -411,7 +411,7 @@ For example:
                .. group-tab:: LED Button
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:button`.
+                  :zephyr:code-sample:`button`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/button
@@ -427,7 +427,7 @@ For example:
 
          .. group-tab:: NXP MIMXRT1060-EVK(B)
 
-            This is based on the Zephyr board :ref:`zephyr:mimxrt1060_evk`.
+            This is based on the Zephyr board |zephyr:board:mimxrt1060_evk|.
 
             * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
 
@@ -436,10 +436,10 @@ For example:
                :align: center
 
             .. note::
-               The :ref:`zephyr:mimxrt1060_evk` doesn't provide any PWM channel
+               The |zephyr:board:mimxrt1060_evk| doesn't provide any PWM channel
                on the |Laced Grove Signal Interface| line :strong:`D6` for the
                output of a variable average value of voltage over time to the
-               LED. Thus the Zephyr sample :zephyr:code-sample:`zephyr:fade-led`
+               LED. Thus the Zephyr sample :zephyr:code-sample:`fade-led`
                is not supported.
 
                Should it be absolutely necessary to use a PWM channel, then this
@@ -451,7 +451,7 @@ For example:
                .. group-tab:: LED Blinky
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:blinky`.
+                  :zephyr:code-sample:`blinky`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/blinky
@@ -468,7 +468,7 @@ For example:
                .. group-tab:: LED Button
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:button`.
+                  :zephyr:code-sample:`button`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/button
@@ -501,7 +501,7 @@ For example:
                .. group-tab:: LED Blinky
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:blinky`.
+                  :zephyr:code-sample:`blinky`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/blinky
@@ -517,7 +517,7 @@ For example:
                .. group-tab:: LED Fade
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:fade-led`.
+                  :zephyr:code-sample:`fade-led`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/fade_led
@@ -533,7 +533,7 @@ For example:
                .. group-tab:: LED Button
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:button`.
+                  :zephyr:code-sample:`button`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/button
@@ -561,7 +561,7 @@ For example:
                .. group-tab:: LED Blinky
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:blinky`.
+                  :zephyr:code-sample:`blinky`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/blinky
@@ -577,7 +577,7 @@ For example:
                .. group-tab:: LED Fade
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:fade-led`.
+                  :zephyr:code-sample:`fade-led`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/fade_led
@@ -593,7 +593,7 @@ For example:
                .. group-tab:: LED Button
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:button`.
+                  :zephyr:code-sample:`button`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/button
@@ -621,7 +621,7 @@ For example:
                .. group-tab:: LED Blinky
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:blinky`.
+                  :zephyr:code-sample:`blinky`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/blinky
@@ -637,7 +637,7 @@ For example:
                .. group-tab:: LED Fade
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:fade-led`.
+                  :zephyr:code-sample:`fade-led`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/fade_led
@@ -653,7 +653,7 @@ For example:
                .. group-tab:: LED Button
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:button`.
+                  :zephyr:code-sample:`button`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/button
@@ -668,7 +668,7 @@ For example:
 
          .. group-tab:: Seeeduino XIAO
 
-            This is based on the Zephyr board :ref:`zephyr:seeeduino_xiao`.
+            This is based on the Zephyr board |zephyr:board:seeeduino_xiao|.
 
             * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
 
@@ -681,7 +681,7 @@ For example:
                .. group-tab:: LED Blinky
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:blinky`.
+                  :zephyr:code-sample:`blinky`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/blinky
@@ -697,7 +697,7 @@ For example:
                .. group-tab:: LED Fade
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:fade-led`.
+                  :zephyr:code-sample:`fade-led`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/fade_led
@@ -713,7 +713,7 @@ For example:
                .. group-tab:: LED Button
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:button`.
+                  :zephyr:code-sample:`button`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/button
@@ -741,7 +741,7 @@ For example:
                .. group-tab:: LED Blinky
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:blinky`.
+                  :zephyr:code-sample:`blinky`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/blinky
@@ -757,7 +757,7 @@ For example:
                .. group-tab:: LED Fade
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:fade-led`.
+                  :zephyr:code-sample:`fade-led`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/fade_led
@@ -773,7 +773,7 @@ For example:
                .. group-tab:: LED Button
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:button`.
+                  :zephyr:code-sample:`button`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/button
@@ -792,7 +792,7 @@ For example:
 
          .. group-tab:: Raspberry Pi Pico
 
-            This is based on the Zephyr board :ref:`zephyr:rpi_pico`.
+            This is based on the Zephyr board |RPi Pico|.
 
             * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
 
@@ -805,7 +805,7 @@ For example:
                .. group-tab:: LED Blinky
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:blinky`.
+                  :zephyr:code-sample:`blinky`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/blinky
@@ -826,7 +826,7 @@ For example:
                .. group-tab:: LED Fade
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:fade-led`.
+                  :zephyr:code-sample:`fade-led`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/fade_led
@@ -847,7 +847,7 @@ For example:
                .. group-tab:: LED Button
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:button`.
+                  :zephyr:code-sample:`button`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/button
@@ -867,7 +867,7 @@ For example:
 
          .. group-tab:: Raspberry Pi Pico W
 
-            This is based on the Zephyr board :ref:`Raspberry Pi Pico W <zephyr:rpi_pico>`.
+            This is based on the Zephyr board |RPi Pico W|.
 
             * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
 
@@ -880,7 +880,7 @@ For example:
                .. group-tab:: LED Blinky
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:blinky`.
+                  :zephyr:code-sample:`blinky`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/blinky
@@ -901,7 +901,7 @@ For example:
                .. group-tab:: LED Fade
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:fade-led`.
+                  :zephyr:code-sample:`fade-led`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/fade_led
@@ -922,7 +922,7 @@ For example:
                .. group-tab:: LED Button
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:button`.
+                  :zephyr:code-sample:`button`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/button
@@ -956,7 +956,7 @@ For example:
                .. group-tab:: LED Blinky
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:blinky`.
+                  :zephyr:code-sample:`blinky`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/blinky
@@ -977,7 +977,7 @@ For example:
                .. group-tab:: LED Fade
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:fade-led`.
+                  :zephyr:code-sample:`fade-led`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/fade_led
@@ -998,7 +998,7 @@ For example:
                .. group-tab:: LED Button
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:button`.
+                  :zephyr:code-sample:`button`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/button
@@ -1032,7 +1032,7 @@ For example:
                .. group-tab:: LED Blinky
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:blinky`.
+                  :zephyr:code-sample:`blinky`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/blinky
@@ -1053,7 +1053,7 @@ For example:
                .. group-tab:: LED Fade
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:fade-led`.
+                  :zephyr:code-sample:`fade-led`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/fade_led
@@ -1074,7 +1074,7 @@ For example:
                .. group-tab:: LED Button
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:button`.
+                  :zephyr:code-sample:`button`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/button
@@ -1108,7 +1108,7 @@ For example:
                .. group-tab:: LED Blinky
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:blinky`.
+                  :zephyr:code-sample:`blinky`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/blinky
@@ -1125,7 +1125,7 @@ For example:
                .. group-tab:: LED Fade
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:fade-led`.
+                  :zephyr:code-sample:`fade-led`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/fade_led
@@ -1142,7 +1142,7 @@ For example:
                .. group-tab:: LED Button
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:button`.
+                  :zephyr:code-sample:`button`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/button
@@ -1172,7 +1172,7 @@ For example:
                .. group-tab:: LED Blinky
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:blinky`.
+                  :zephyr:code-sample:`blinky`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/blinky
@@ -1193,7 +1193,7 @@ For example:
                .. group-tab:: LED Fade
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:fade-led`.
+                  :zephyr:code-sample:`fade-led`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/fade_led
@@ -1214,7 +1214,7 @@ For example:
                .. group-tab:: LED Button
 
                   This is based on the Zephyr sample
-                  :zephyr:code-sample:`zephyr:button`.
+                  :zephyr:code-sample:`button`.
 
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/button

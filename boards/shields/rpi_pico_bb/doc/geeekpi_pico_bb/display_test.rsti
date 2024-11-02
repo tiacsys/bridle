@@ -1,8 +1,8 @@
-Using the :ref:`Display driver API <zephyr:display_api>` with chosen
+Using the :zephyr:ref:`Display driver API <display_api>` with chosen
 display. That is:
 
-| :hwftlbl-scr:`LCD` : :devicetree:`chosen { zephyr,display = &lcd_panel; };`
-| :hwftlbl-scr:`ILI9341` : :devicetree:`lcd_panel: &ili9341_320x240 {};`
+| :hwftlbl-scr:`LCD` : :dts:`chosen { zephyr,display = &lcd_panel; };`
+| :hwftlbl-scr:`ILI9341` : :dts:`lcd_panel: &ili9341_320x240 {};`
 
 .. tabs::
 

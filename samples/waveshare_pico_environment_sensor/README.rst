@@ -54,7 +54,7 @@ This project outputs sensor data to the console. It requires a BME280, a SGP40
 and a ICM-20948 (MPU-9250) sensor. It should work with any platform featuring
 a I2C peripheral interface. This example is usable with the Devicetree overlay
 that comes with the :ref:`waveshare_pico_environment_sensor` shield for the
-:ref:`zephyr:rpi_pico` board.
+|zephyr:board:rpi_pico| board.
 
 .. zephyr-app-commands::
    :app: bridle/samples/waveshare_pico_environment_sensor

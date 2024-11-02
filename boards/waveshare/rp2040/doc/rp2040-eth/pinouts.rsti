@@ -1,5 +1,5 @@
 External pin mapping on the :ref:`RP2040-ETH <waveshare_rp2040_eth>` is
-only partially identical to the original :ref:`zephyr:rpi_pico` board.
+only partially identical to the original |zephyr:board:rpi_pico| board.
 About half of the pins provided on the edge were skipped for internal
 on-board purposes.
 

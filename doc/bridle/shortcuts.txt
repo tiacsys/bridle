@@ -2,6 +2,244 @@
 .. |BRIDLE| replace:: Bridle
 .. |ZEPHYR| replace:: Zephyr Project
 
+.. USB Request Block statics
+
+.. VID 0x03EB : Atmel Corp.
+
+.. |atmel_URB_VID|	replace:: :code:`0x03EB`
+.. |atmel_VID|		replace:: :ign:`03eb`
+.. |atmel_VStr|		replace:: :ign:`Atmel Corp.`
+
+.. VID 0x0483 : STMicroelectronics
+
+.. |stm_URB_VID|	replace:: :code:`0x0483`
+.. |stm_VID|		replace:: :ign:`0483`
+.. |stm_VStr|		replace:: :ign:`STMicroelectronics`
+
+.. VID 0x1FC9 : NXP Semiconductors
+
+.. |nxp_URB_VID|	replace:: :code:`0x1FC9`
+.. |nxp_VID|		replace:: :ign:`1fc9`
+.. |nxp_VStr|		replace:: :ign:`NXP`
+
+.. VID 0x2341 : Arduino
+
+.. |arduino_URB_VID|	replace:: :code:`0x2341`
+.. |arduino_VID|	replace:: :ign:`2341`
+.. |arduino_VStr|	replace:: :ign:`Arduino LLC`
+
+.. VID 0x2886 : Seeed Studio
+
+.. |seeed_URB_VID|	replace:: :code:`0x2886`
+.. |seeed_VID|		replace:: :ign:`2886`
+.. |seeed_VStr|		replace:: :ign:`Seeed LLC`
+
+.. VID 0x2E8A : Raspberry Pi
+
+.. |rpi_URB_VID|	replace:: :code:`0x2E8A`
+.. |rpi_VID|		replace:: :ign:`2e8a`
+.. |rpi_VStr|		replace:: :ign:`Raspberry Pi`
+.. |rpi_adafruit_VStr|	replace:: :ign:`Adafruit (Raspberry Pi)`
+.. |rpi_cytron_VStr|	replace:: :ign:`Cytron (Raspberry Pi)`
+.. |rpi_jsed_VStr|	replace:: :ign:`JSED (Raspberry Pi)`
+.. |rpi_pimoroni_VStr|	replace:: :ign:`Pimoroni (Raspberry Pi)`
+.. |rpi_waveshare_VStr|	replace:: :ign:`Waveshare (Raspberry Pi)`
+
+.. VID 0x2FE3 : Zephyr Project
+
+.. |zephyr_URB_VID|	replace:: :code:`0x2FE3`
+.. |zephyr_VID|		replace:: :ign:`2fe3`
+.. |zephyr_VStr|	replace:: :ign:`Zephyr Project`
+.. |zephyr_VStr_dflt|	replace:: :ign:`ZEPHYR`
+
+.. PIDs : Atmel Corp.
+
+.. |atmel_URB_PID_EDGB|	replace:: :code:`0x2157`
+.. |atmel_PID_EDBG|	replace:: :ign:`2157`
+.. |atmel_PStr_EDBG|	replace:: :ign:`EDBG CMSIS-DAP`
+.. |atmel_BCD_EDBG|	replace:: |nbsp| :ign:`1.01`
+
+.. PIDs : STMicroelectronics
+
+.. |stm_URB_PID_VCOM|	replace:: :code:`0x5740`
+.. |stm_PID_VCOM|	replace:: :ign:`5740`
+.. |stm_PStr_VCOM|	replace:: :ign:`STM32 Virtual ComPort`
+.. |stm_BCD_VCOM|	replace:: |nbsp| :ign:`2.00`
+
+.. |stm_URB_PID_MSC|	replace:: :code:`0x5720`
+.. |stm_PID_MSC|	replace:: :ign:`5720`
+.. |stm_PStr_MSC|	replace:: :ign:`STM32 Mass Storage`
+.. |stm_BCD_MSC|	replace:: |nbsp| :ign:`2.00`
+
+.. PIDs : Raspberry Pi
+
+.. |rpi_rp2040_URB_PID|			replace:: :code:`0x0003`
+.. |rpi_rp2040_PID|			replace:: :ign:`0003`
+.. |rpi_rp2040_PStr|			replace:: :ign:`RP2 Boot`
+.. |rpi_rp2040_BCD|			replace:: |nbsp| :ign:`1.00`
+
+.. |rpi_picoprobe_URB_PID|		replace:: :code:`0x0004`
+.. |rpi_picoprobe_PID|			replace:: :ign:`0004`
+
+.. |rpi_micropython_fw_cdc_URB_PID|			replace:: :code:`0x0005`
+
+.. |rpi_pico_sdk_cdc_URB_PID|		replace:: :code:`0x0009`
+.. |rpi_pico_sdk_cdc_PID|		replace:: :ign:`0009`
+.. |rpi_pico_sdk_cdc_PStr|		replace:: :ign:`Pico`
+.. |rpi_pico_sdk_cdc_BCD|		replace:: |nbsp| :ign:`1.00`
+
+.. |rpi_pico_sdk_uart_rp2040_URB_PID|	replace:: :code:`0x000A`
+.. |rpi_pico_sdk_uart_rp2040_PID|	replace:: :ign:`000a`
+.. |rpi_pico_sdk_uart_rp2040_PStr|	replace:: :ign:`Pico`
+.. |rpi_pico_sdk_uart_rp2040_BCD|	replace:: |nbsp| :ign:`1.00`
+
+.. |rpi_circuite_python_fw_downloads_URB_PID|		replace:: :code:`0x000B`
+
+.. |rpi_rp2040_cmsis_dap_URB_PID|	replace:: :code:`0x000C`
+.. |rpi_rp2040_cmsis_dap_PID|		replace:: :ign:`000c`
+.. |rpi_rp2040_cmsis_dap_PStr|		replace:: :ign:`Debug Probe (CMSIS-DAP)`
+.. |rpi_rp2040_cmsis_dap_BCD|		replace:: |nbsp| :ign:`1.01`
+
+.. |rpi_usb3hub_usb2_URB_PID|				replace:: :code:`0x000D`
+.. |rpi_usb3hub_usb3_URB_PID|				replace:: :code:`0x000E`
+.. |rpi_rp2350_URB_PID|					replace:: :code:`0x000F`
+.. |rpi_next_URB_PID|					replace:: :code:`0x0010`
+
+.. |rpi_adafruit_rpi_zero_URB_PID|			replace:: :code:`0x100E`
+.. |rpi_adafruit_rpi_cm4io_URB_PID|			replace:: :code:`0x1012`
+.. |rpi_adafruit_rpi_pi4_URB_PID|			replace:: :code:`0x1013`
+.. |rpi_adafruit_rpi_cm4_URB_PID|			replace:: :code:`0x1014`
+.. |rpi_adafruit_rpi_zero2w_URB_PID|			replace:: :code:`0x1015`
+.. |rpi_adafruit_rpi_zero_w_URB_PID|			replace:: :code:`0x101E`
+
+.. |rpi_cytron_maker_pi_rp2040_URB_PID|			replace:: :code:`0x1000`
+.. |rpi_cytron_maker_nano_rp2040_URB_PID|		replace:: :code:`0x100F`
+.. |rpi_cytron_maker_uno_rp2040_URB_PID|		replace:: :code:`0x1071`
+.. |rpi_cytron_edu_pico_URB_PID|			replace:: :code:`0x1074`
+.. |rpi_cytron_edu_pico_rp2040_URB_PID|			replace:: :code:`0x107E`
+.. |rpi_cytron_p_iriv_io_ctrl_URB_PID|			replace:: :code:`0x1093`
+.. |rpi_cytron_motion_2350_pro_URB_PID|			replace:: :code:`0x1096`
+
+.. |rpi_pimoroni_picade_2040_URB_PID|			replace:: :code:`0x1001`
+.. |rpi_pimoroni_pico_lipo_4mb_URB_PID|			replace:: :code:`0x1002`
+.. |rpi_pimoroni_pico_lipo_16mb_URB_PID|		replace:: :code:`0x1003`
+.. |rpi_pimoroni_pga2040_URB_PID|			replace:: :code:`0x1008`
+.. |rpi_pimoroni_i75_URB_PID|				replace:: :code:`0x1009`
+.. |rpi_pimoroni_plasma2040_URB_PID|			replace:: :code:`0x100A`
+.. |rpi_pimoroni_tiny2040_URB_PID|			replace:: :code:`0x1016`
+.. |rpi_pimoroni_automation2040w_URB_PID|		replace:: :code:`0x1017`
+.. |rpi_pimoroni_inky_frame_5_7_URB_PID|		replace:: :code:`0x1018`
+.. |rpi_pimoroni_motor2040_URB_PID|			replace:: :code:`0x1019`
+.. |rpi_pimoroni_servo2040_URB_PID|			replace:: :code:`0x101A`
+.. |rpi_pimoroni_badger2040_URB_PID|			replace:: :code:`0x101B`
+.. |rpi_pimoroni_badger2040_w_URB_PID|			replace:: :code:`0x104F`
+.. |rpi_pimoroni_plasma_stick_2040_w_URB_PID|		replace:: :code:`0x1058`
+.. |rpi_pimoroni_pico_dv_demo_base_URB_PID|		replace:: :code:`0x1059`
+.. |rpi_pimoroni_pico_dv_demo_base_w_URB_PID|		replace:: :code:`0x105A`
+.. |rpi_pimoroni_yokon_URB_PID|				replace:: :code:`0x105B`
+.. |rpi_pimoroni_inky_frame_7_3_URB_PID|		replace:: :code:`0x1081`
+.. |rpi_pimoroni_picade_max_input_URB_PID|		replace:: :code:`0x1098`
+.. |rpi_pimoroni_picade_max_audio_URB_PID|		replace:: :code:`0x1099`
+.. |rpi_pimoroni_tinyfx_URB_PID|			replace:: :code:`0x10A2`
+.. |rpi_pimoroni_pico_plus_URB_PID|			replace:: :code:`0x10A3`
+.. |rpi_pimoroni_tiny2350_URB_PID|			replace:: :code:`0x10A4`
+.. |rpi_pimoroni_plasma2350_URB_PID|			replace:: :code:`0x10A5`
+.. |rpi_pimoroni_pga2350_URB_PID|			replace:: :code:`0x10A6`
+
+.. |rpi_waveshare_rp2040_zero_URB_PID|			replace:: :code:`0x101F`
+.. |rpi_waveshare_rp2040_plus_URB_PID|			replace:: :code:`0x1020`
+.. |rpi_waveshare_rp2040_lcd_0_96_URB_PID|		replace:: :code:`0x1021`
+.. |rpi_waveshare_rp2040_lcd_1_28_URB_PID|		replace:: :code:`0x1039`
+.. |rpi_waveshare_rp2040_one_URB_PID|			replace:: :code:`0x103A`
+.. |rpi_waveshare_pwr_mgmt_hat_b_one_URB_PID|		replace:: :code:`0x1044`
+.. |rpi_waveshare_rp2040_eth_URB_PID|			replace:: :code:`0x1055`
+.. |rpi_waveshare_rp2040_geek_URB_PID|			replace:: :code:`0x1056`
+.. |rpi_waveshare_rp2040_touch_lcd_1_28_URB_PID|	replace:: :code:`0x1057`
+.. |rpi_waveshare_rp2040_pizero_URB_PID|		replace:: :code:`0x1083`
+.. |rpi_waveshare_rp2040_tiny_URB_PID|			replace:: :code:`0x1084`
+.. |rpi_waveshare_rp2040_matrix_URB_PID|		replace:: :code:`0x1085`
+.. |rpi_waveshare_rp2040_ble_URB_PID|			replace:: :code:`0x1086`
+.. |rpi_waveshare_pico_cam_a_URB_PID|			replace:: :code:`0x1087`
+.. |rpi_waveshare_rp2350_zero_URB_PID|			replace:: :code:`0x10B0`
+.. |rpi_waveshare_rp2350_plus_URB_PID|			replace:: :code:`0x10B1`
+.. |rpi_waveshare_rp2350_tiny_URB_PID|			replace:: :code:`0x10B2`
+.. |rpi_waveshare_rp2350_lcd_1_28_URB_PID|		replace:: :code:`0x10B3`
+.. |rpi_waveshare_rp2350_touch_lcd_1_28_URB_PID|	replace:: :code:`0x10B4`
+.. |rpi_waveshare_rp2350_one_URB_PID|			replace:: :code:`0x10B5`
+.. |rpi_waveshare_rp2350_geek_URB_PID|			replace:: :code:`0x10B6`
+.. |rpi_waveshare_rp2350_lcd_0_96_URB_PID|		replace:: :code:`0x10B7`
+
+.. |rpi_reserved_URB_PID|				replace:: :code:`0x1022`
+
+.. PIDs : Zephyr Project
+
+.. |zephyr_URB_PID_CDC|	replace:: :code:`0x0001`
+.. |zephyr_PID_CDC|	replace:: :ign:`0001`
+.. |zephyr_PStr_CDC|	replace:: :ign:`USB CDC ACM`
+.. |zephyr_BCD_CDC|	replace:: |zephyr_version_BCD|
+
+.. |zephyr_URB_PID_CON|	replace:: :code:`0x0004`
+.. |zephyr_PID_CON|	replace:: :ign:`0004`
+.. |zephyr_PStr_CON|	replace:: :ign:`Console over USB CDC ACM`
+.. |zephyr_BCD_CON|	replace:: |zephyr_version_BCD|
+
+.. |zephyr_URB_PID_DFU_RT| replace:: :code:`0x0005`
+.. |zephyr_PID_DFU_RT|	replace:: :ign:`0005`
+.. |zephyr_PStr_DFU_RT|	replace:: :ign:`USB DFU (Run-Time)`
+.. |zephyr_BCD_DFU_RT|	replace:: |zephyr_version_BCD|
+
+.. |zephyr_URB_PID_HDI|	replace:: :code:`0x0007`
+.. |zephyr_PID_HDI|	replace:: :ign:`0007`
+.. |zephyr_PStr_HDI|	replace:: :ign:`USB HDI`
+.. |zephyr_BCD_HDI|	replace:: |zephyr_version_BCD|
+
+.. |zephyr_URB_PID_MSC|	replace:: :code:`0x0008`
+.. |zephyr_PID_MSC|	replace:: :ign:`0008`
+.. |zephyr_PStr_MSC|	replace:: :ign:`USB Mass Storage`
+.. |zephyr_PStr_MSC_dflt| replace:: :ign:`Zephyr MSC sample`
+.. |zephyr_PStr_MSC_usbd| replace:: :ign:`USBD MSC sample`
+.. |zephyr_BCD_MSC|	replace:: |zephyr_version_BCD|
+
+.. |zephyr_URB_PID_TST|	replace:: :code:`0x0009`
+.. |zephyr_PID_TST|	replace:: :ign:`0009`
+.. |zephyr_PStr_TST|	replace:: :ign:`USB testing`
+.. |zephyr_BCD_TST|	replace:: |zephyr_version_BCD|
+
+.. |zephyr_URB_PID_WEB|	replace:: :code:`0x000A`
+.. |zephyr_PID_WEB|	replace:: :ign:`000a`
+.. |zephyr_PStr_WEB|	replace:: :ign:`WebUSB`
+.. |zephyr_BCD_WEB|	replace:: |zephyr_version_BCD|
+
+.. |zephyr_URB_PID_HCI|	replace:: :code:`0x000B`
+.. |zephyr_PID_HCI|	replace:: :ign:`000b`
+.. |zephyr_PStr_HCI|	replace:: :ign:`HCI USB`
+.. |zephyr_BCD_HCI|	replace:: |zephyr_version_BCD|
+
+.. |zephyr_URB_PID_HH4|	replace:: :code:`0x000C`
+.. |zephyr_PID_HH4|	replace:: :ign:`000c`
+.. |zephyr_PStr_HH4|	replace:: :ign:`HCI H4 over USB`
+.. |zephyr_BCD_HH4|	replace:: |zephyr_version_BCD|
+
+.. |zephyr_URB_PID_WPAN| replace:: :code:`0x000D`
+.. |zephyr_PID_WPAN|	replace:: :ign:`000d`
+.. |zephyr_PStr_WPAN|	replace:: :ign:`WPAN USB`
+.. |zephyr_BCD_WPAN|	replace:: |zephyr_version_BCD|
+
+.. |zephyr_URB_PID_AAE|	replace:: :code:`0x000E`
+.. |zephyr_PID_AAE|	replace:: :ign:`000e`
+.. |zephyr_PStr_AAE|	replace:: :ign:`USB Audio asynchronous explicit feedback`
+.. |zephyr_BCD_AAE|	replace:: |zephyr_version_BCD|
+
+.. |zephyr_URB_PID_AAI|	replace:: :code:`0x000F`
+.. |zephyr_PID_AAI|	replace:: :ign:`000f`
+.. |zephyr_PStr_AAI|	replace:: :ign:`USB Audio asynchronous implicit feedback`
+.. |zephyr_BCD_AAI|	replace:: |zephyr_version_BCD|
+
+.. |zephyr_URB_PID_DFU_DM| replace:: :code:`0xFFFF`
+.. |zephyr_PID_DFU_DM|	replace:: :ign:`ffff`
+.. |zephyr_PStr_DFU_DM|	replace:: :ign:`USB DFU (DFU Mode)`
+.. |zephyr_BCD_DFU_DM|	replace:: |zephyr_version_BCD|
+
 .. External References (temporary, needs local implementation)
 
 .. |Arduino Sensor Kit| replace:: :strong:`Arduino Sensor Kit – Base`
@@ -10,35 +248,71 @@
 
 .. Generic References
 
-.. |Arduino Zero (CDC ACM)| replace::
-   :ref:`Arduino Zero (CDC ACM) <arduino_zero>`
-
 .. |GeeekPi Pico Breadboard Kit| replace::
    :ref:`GeeekPi Pico Breadboard Kit <geeekpi_pico_bb>`
 
 .. |GeeekPi Pico Breadboard Kit Plus| replace::
    :ref:`GeeekPi Pico Breadboard Kit Plus <geeekpi_pico_bb_plus>`
 
+.. |bridle:board:cytron_maker_rp2040| replace:: :ref:`cytron_maker_rp2040`
+.. :bridle:board:`cytron_maker_rp2040`
+
 .. |Maker Nano RP2040| replace::
    :ref:`Maker Nano RP2040 <cytron_maker_nano_rp2040>`
+.. :bridle:board:`Maker Nano RP2040 <cytron_maker_nano_rp2040>`
 
 .. |Maker Nano RP2040 (CDC ACM)| replace::
    :ref:`Maker Nano RP2040 (CDC ACM) <cytron_maker_nano_rp2040>`
+.. :bridle:board:`Maker Nano RP2040 (CDC ACM) <cytron_maker_nano_rp2040>`
+
+.. |cytron_maker_nano_rp2040_URB_VID|	replace:: |rpi_URB_VID|
+.. |cytron_maker_nano_rp2040_VID|	replace:: |rpi_VID|
+.. |cytron_maker_nano_rp2040_VStr|	replace:: |rpi_cytron_VStr|
+
+.. |cytron_maker_nano_rp2040_URB_PID_CON| replace:: |rpi_pico_sdk_uart_rp2040_URB_PID|
+.. |cytron_maker_nano_rp2040_PID_CON|	replace:: |rpi_pico_sdk_uart_rp2040_PID|
+.. |cytron_maker_nano_rp2040_PStr_CON|	replace:: :ign:`Maker Nano RP2040 (CDC ACM)`
+.. |cytron_maker_nano_rp2040_BCD_CON|	replace:: |zephyr_version_BCD|
 
 .. |Maker Pi RP2040| replace::
    :ref:`Maker Pi RP2040 <cytron_maker_pi_rp2040>`
+.. :bridle:board:`Maker Pi RP2040 <cytron_maker_pi_rp2040>`
 
 .. |Maker Pi RP2040 (CDC ACM)| replace::
    :ref:`Maker Pi RP2040 (CDC ACM) <cytron_maker_pi_rp2040>`
+.. :bridle:board:`Maker Pi RP2040 (CDC ACM) <cytron_maker_pi_rp2040>`
 
-.. |MIMXRT1010-EVK (CDC ACM)| replace::
-   :ref:`MIMXRT1010-EVK (CDC ACM) <zephyr:mimxrt1010_evk>`
+.. |cytron_maker_pi_rp2040_URB_VID|	replace:: |rpi_URB_VID|
+.. |cytron_maker_pi_rp2040_VID|		replace:: |rpi_VID|
+.. |cytron_maker_pi_rp2040_VStr|	replace:: |rpi_cytron_VStr|
 
-.. |MIMXRT1060-EVK (CDC ACM)| replace::
-   :ref:`MIMXRT1060-EVK (CDC ACM) <zephyr:mimxrt1060_evk>`
+.. |cytron_maker_pi_rp2040_URB_PID_CON|	replace:: |rpi_pico_sdk_uart_rp2040_URB_PID|
+.. |cytron_maker_pi_rp2040_PID_CON|	replace:: |rpi_pico_sdk_uart_rp2040_PID|
+.. |cytron_maker_pi_rp2040_PStr_CON|	replace:: :ign:`Maker Pi RP2040 (CDC ACM)`
+.. |cytron_maker_pi_rp2040_BCD_CON|	replace:: |zephyr_version_BCD|
+
+.. |bridle:board:arduino_zero| replace:: :ref:`arduino_zero-extensions`
+.. :bridle:board:`arduino_zero`
+
+.. |bridle:board:picoboy| replace:: :ref:`picoboy_board`
+.. :bridle:board:`picoboy`
 
 .. |PicoBoy| replace::
    :ref:`PicoBoy <picoboy_board>`
+.. :bridle:board:`picoboy`
+
+.. |PicoBoy (CDC ACM)| replace::
+   :ref:`PicoBoy (CDC ACM) <picoboy_board>`
+.. :bridle:board:`PicoBoy (CDC ACM) <picoboy>`
+
+.. |picoboy_URB_VID|		replace:: |rpi_URB_VID|
+.. |picoboy_VID|		replace:: |rpi_VID|
+.. |picoboy_VStr|		replace:: |rpi_jsed_VStr|
+
+.. |picoboy_URB_PID_CON|	replace:: |rpi_pico_sdk_uart_rp2040_URB_PID|
+.. |picoboy_PID_CON|		replace:: |rpi_pico_sdk_uart_rp2040_PID|
+.. |picoboy_PStr_CON|		replace:: :ign:`PicoBoy (CDC ACM)`
+.. |picoboy_BCD_CON|		replace:: |zephyr_version_BCD|
 
 .. |PiMoroni Pico LCD 1.44| replace::
    :ref:`PiMoroni Pico LCD 1.44 <pimoroni_pico_lcd_1_44>`
@@ -46,65 +320,194 @@
 .. |PiMoroni Pico LCD 2| replace::
    :ref:`PiMoroni Pico LCD 2 <pimoroni_pico_lcd_2>`
 
+.. |bridle:board:waveshare_rp2040| replace:: :ref:`waveshare_rp2040`
+.. :bridle:board:`waveshare_rp2040`
+
 .. |RP2040-ETH| replace::
    :ref:`RP2040-ETH <waveshare_rp2040_eth>`
+.. :bridle:board:`RP2040-ETH <waveshare_rp2040_eth>`
 
 .. |RP2040-ETH (CDC ACM)| replace::
    :ref:`RP2040-ETH (CDC ACM) <waveshare_rp2040_eth>`
+.. :bridle:board:`RP2040-ETH (CDC ACM) <waveshare_rp2040_eth>`
+
+.. |waveshare_rp2040_eth_URB_VID|	replace:: |rpi_URB_VID|
+.. |waveshare_rp2040_eth_VID|		replace:: |rpi_VID|
+.. |waveshare_rp2040_eth_VStr|		replace:: |rpi_waveshare_VStr|
+
+.. |waveshare_rp2040_eth_URB_PID_CON|	replace:: |rpi_pico_sdk_uart_rp2040_URB_PID|
+.. |waveshare_rp2040_eth_PID_CON|	replace:: |rpi_pico_sdk_uart_rp2040_PID|
+.. |waveshare_rp2040_eth_PStr_CON|	replace:: :ign:`RP2040-ETH (CDC ACM)`
+.. |waveshare_rp2040_eth_BCD_CON|	replace:: |zephyr_version_BCD|
 
 .. |RP2040-Geek| replace::
    :ref:`RP2040-Geek <waveshare_rp2040_geek>`
+.. :bridle:board:`RP2040-Geek <waveshare_rp2040_geek>`
 
 .. |RP2040-Geek (CDC ACM)| replace::
    :ref:`RP2040-Geek (CDC ACM) <waveshare_rp2040_geek>`
+.. :bridle:board:`RP2040-Geek (CDC ACM) <waveshare_rp2040_geek>`
+
+.. |waveshare_rp2040_geek_URB_VID|	replace:: |rpi_URB_VID|
+.. |waveshare_rp2040_geek_VID|		replace:: |rpi_VID|
+.. |waveshare_rp2040_geek_VStr|		replace:: |rpi_waveshare_VStr|
+
+.. |waveshare_rp2040_geek_URB_PID_CON|	replace:: |rpi_pico_sdk_uart_rp2040_URB_PID|
+.. |waveshare_rp2040_geek_PID_CON|	replace:: |rpi_pico_sdk_uart_rp2040_PID|
+.. |waveshare_rp2040_geek_PStr_CON|	replace:: :ign:`RP2040-Geek (CDC ACM)`
+.. |waveshare_rp2040_geek_BCD_CON|	replace:: |zephyr_version_BCD|
 
 .. |RP2040-LCD-0.96| replace::
    :ref:`RP2040-LCD-0.96 <waveshare_rp2040_lcd_0_96>`
+.. :bridle:board:`RP2040-LCD-0.96 <waveshare_rp2040_lcd_0_96>`
 
 .. |RP2040-LCD-0.96 (CDC ACM)| replace::
    :ref:`RP2040-LCD-0.96 (CDC ACM) <waveshare_rp2040_lcd_0_96>`
+.. :bridle:board:`RP2040-LCD-0.96 (CDC ACM) <waveshare_rp2040_lcd_0_96>`
+
+.. |waveshare_rp2040_lcd_0_96_URB_VID|	replace:: |rpi_URB_VID|
+.. |waveshare_rp2040_lcd_0_96_VID|	replace:: |rpi_VID|
+.. |waveshare_rp2040_lcd_0_96_VStr|	replace:: |rpi_waveshare_VStr|
+
+.. |waveshare_rp2040_lcd_0_96_URB_PID_CON| replace:: |rpi_pico_sdk_uart_rp2040_URB_PID|
+.. |waveshare_rp2040_lcd_0_96_PID_CON|	replace:: |rpi_pico_sdk_uart_rp2040_PID|
+.. |waveshare_rp2040_lcd_0_96_PStr_CON|	replace:: :ign:`RP2040-LCD-0.96 (CDC ACM)`
+.. |waveshare_rp2040_lcd_0_96_BCD_CON|	replace:: |zephyr_version_BCD|
 
 .. |RP2040-Matrix| replace::
    :ref:`RP2040-Matrix <waveshare_rp2040_matrix>`
+.. :bridle:board:`RP2040-Matrix <waveshare_rp2040_matrix>`
 
 .. |RP2040-Matrix (CDC ACM)| replace::
    :ref:`RP2040-Matrix (CDC ACM) <waveshare_rp2040_matrix>`
+.. :bridle:board:`RP2040-Matrix (CDC ACM) <waveshare_rp2040_matrix>`
+
+.. |waveshare_rp2040_matrix_URB_VID|	replace:: |rpi_URB_VID|
+.. |waveshare_rp2040_matrix_VID|	replace:: |rpi_VID|
+.. |waveshare_rp2040_matrix_VStr|	replace:: |rpi_waveshare_VStr|
+
+.. |waveshare_rp2040_matrix_URB_PID_CON| replace:: |rpi_pico_sdk_uart_rp2040_URB_PID|
+.. |waveshare_rp2040_matrix_PID_CON|	replace:: |rpi_pico_sdk_uart_rp2040_PID|
+.. |waveshare_rp2040_matrix_PStr_CON|	replace:: :ign:`RP2040-Matrix (CDC ACM)`
+.. |waveshare_rp2040_matrix_BCD_CON|	replace:: |zephyr_version_BCD|
 
 .. |RP2040-One| replace::
    :ref:`RP2040-One <waveshare_rp2040_one>`
+.. :bridle:board:`RP2040-One <waveshare_rp2040_one>`
 
 .. |RP2040-One (CDC ACM)| replace::
    :ref:`RP2040-One (CDC ACM) <waveshare_rp2040_one>`
+.. :bridle:board:`RP2040-One (CDC ACM) <waveshare_rp2040_one>`
+
+.. |waveshare_rp2040_one_URB_VID|	replace:: |rpi_URB_VID|
+.. |waveshare_rp2040_one_VID|		replace:: |rpi_VID|
+.. |waveshare_rp2040_one_VStr|		replace:: |rpi_waveshare_VStr|
+
+.. |waveshare_rp2040_one_URB_PID_CON|	replace:: |rpi_pico_sdk_uart_rp2040_URB_PID|
+.. |waveshare_rp2040_one_PID_CON|	replace:: |rpi_pico_sdk_uart_rp2040_PID|
+.. |waveshare_rp2040_one_PStr_CON|	replace:: :ign:`RP2040-One (CDC ACM)`
+.. |waveshare_rp2040_one_BCD_CON|	replace:: |zephyr_version_BCD|
 
 .. |RP2040-Plus| replace::
    :ref:`RP2040-Plus <waveshare_rp2040_plus>`
+.. :bridle:board:`RP2040-Plus <waveshare_rp2040_plus>`
 
 .. |RP2040-Plus (CDC ACM)| replace::
    :ref:`RP2040-Plus (CDC ACM) <waveshare_rp2040_plus>`
+.. :bridle:board:`RP2040-Plus (CDC ACM) <waveshare_rp2040_plus>`
+
+.. |waveshare_rp2040_plus_URB_VID|	replace:: |rpi_URB_VID|
+.. |waveshare_rp2040_plus_VID|		replace:: |rpi_VID|
+.. |waveshare_rp2040_plus_VStr|		replace:: |rpi_waveshare_VStr|
+
+.. |waveshare_rp2040_plus_URB_PID_CON|	replace:: |rpi_pico_sdk_uart_rp2040_URB_PID|
+.. |waveshare_rp2040_plus_PID_CON|	replace:: |rpi_pico_sdk_uart_rp2040_PID|
+.. |waveshare_rp2040_plus_PStr_CON|	replace:: :ign:`RP2040-Plus (CDC ACM)`
+.. |waveshare_rp2040_plus_BCD_CON|	replace:: |zephyr_version_BCD|
 
 .. |RP2040-Tiny| replace::
    :ref:`RP2040-Tiny <waveshare_rp2040_tiny>`
+.. :bridle:board:`RP2040-Tiny <waveshare_rp2040_tiny>`
 
 .. |RP2040-Tiny (CDC ACM)| replace::
    :ref:`RP2040-Tiny (CDC ACM) <waveshare_rp2040_tiny>`
+.. :bridle:board:`RP2040-Tiny (CDC ACM) <waveshare_rp2040_tiny>`
+
+.. |waveshare_rp2040_tiny_URB_VID|	replace:: |rpi_URB_VID|
+.. |waveshare_rp2040_tiny_VID|		replace:: |rpi_VID|
+.. |waveshare_rp2040_tiny_VStr|		replace:: |rpi_waveshare_VStr|
+
+.. |waveshare_rp2040_tiny_URB_PID_CON|	replace:: |rpi_pico_sdk_uart_rp2040_URB_PID|
+.. |waveshare_rp2040_tiny_PID_CON|	replace:: |rpi_pico_sdk_uart_rp2040_PID|
+.. |waveshare_rp2040_tiny_PStr_CON|	replace:: :ign:`RP2040-Tiny (CDC ACM)`
+.. |waveshare_rp2040_tiny_BCD_CON|	replace:: |zephyr_version_BCD|
 
 .. |RP2040-Zero| replace::
    :ref:`RP2040-Zero <waveshare_rp2040_zero>`
+.. :bridle:board:`RP2040-Zero <waveshare_rp2040_zero>`
 
 .. |RP2040-Zero (CDC ACM)| replace::
    :ref:`RP2040-Zero (CDC ACM) <waveshare_rp2040_zero>`
+.. :bridle:board:`RP2040-Zero (CDC ACM) <waveshare_rp2040_zero>`
 
-.. |RPi Pico (CDC ACM)| replace::
-   :ref:`RPi Pico (CDC ACM) <rpi_pico>`
+.. |waveshare_rp2040_zero_URB_VID|	replace:: |rpi_URB_VID|
+.. |waveshare_rp2040_zero_VID|		replace:: |rpi_VID|
+.. |waveshare_rp2040_zero_VStr|		replace:: |rpi_waveshare_VStr|
 
-.. |RPi Pico W (CDC ACM)| replace::
-   :ref:`RPi Pico W (CDC ACM) <rpi_pico>`
+.. |waveshare_rp2040_zero_URB_PID_CON|	replace:: |rpi_pico_sdk_uart_rp2040_URB_PID|
+.. |waveshare_rp2040_zero_PID_CON|	replace:: |rpi_pico_sdk_uart_rp2040_PID|
+.. |waveshare_rp2040_zero_PStr_CON|	replace:: :ign:`RP2040-Zero (CDC ACM)`
+.. |waveshare_rp2040_zero_BCD_CON|	replace:: |zephyr_version_BCD|
+
+.. |bridle:board:seeeduino_cm0| replace:: :ref:`seeeduino_cm0`
+.. :bridle:board:`seeeduino_cm0`
 
 .. |Seeeduino Cortex-M0+ (CDC ACM)| replace::
    :ref:`Seeeduino Cortex-M0+ (CDC ACM) <seeeduino_cm0>`
+.. :bridle:board:`Seeeduino Cortex-M0+ (CDC ACM) <seeeduino_cm0>`
+
+.. |seeeduino_cm0_URB_VID_UF2|	replace:: |seeed_URB_VID|
+.. |seeeduino_cm0_VID_UF2|	replace:: |seeed_VID|
+.. |seeeduino_cm0_VStr_UF2|	replace:: |arduino_VStr|
+
+.. |seeeduino_cm0_URB_PID_UF2|	replace:: :code:`0x0027`
+.. |seeeduino_cm0_PID_UF2|	replace:: :ign:`0027`
+.. |seeeduino_cm0_PStr_UF2|	replace:: :ign:`Seeeduino_Cortex_M0+`
+.. |seeeduino_cm0_BCD_UF2|	replace:: |nbsp| :ign:`2.00`
+
+.. |seeeduino_cm0_URB_VID|	replace:: |seeed_URB_VID|
+.. |seeeduino_cm0_VID|		replace:: |seeed_VID|
+.. |seeeduino_cm0_VStr|		replace:: |seeed_VStr|
+
+.. |seeeduino_cm0_URB_PID_CON|	replace:: :code:`0x8027`
+.. |seeeduino_cm0_PID_CON|	replace:: :ign:`8027`
+.. |seeeduino_cm0_PStr_CON|	replace:: :ign:`Seeeduino Cortex-M0+ (CDC ACM)`
+.. |seeeduino_cm0_BCD_CON|	replace:: |zephyr_version_BCD|
+
+.. |bridle:board:seeeduino_lotus| replace:: :ref:`seeeduino_lotus`
+.. :bridle:board:`seeeduino_lotus`
 
 .. |Seeeduino Lotus Cortex-M0+ (CDC ACM)| replace::
    :ref:`Seeeduino Lotus Cortex-M0+ (CDC ACM) <seeeduino_lotus>`
+.. :bridle:board:`Seeeduino Lotus Cortex-M0+ (CDC ACM) <seeeduino_lotus>`
+
+.. |seeeduino_lotus_URB_VID_UF2| replace:: |seeed_URB_VID|
+.. |seeeduino_lotus_VID_UF2|	replace:: |seeed_VID|
+.. |seeeduino_lotus_VStr_UF2|	replace:: |arduino_VStr|
+
+.. |seeeduino_lotus_URB_PID_UF2| replace:: :code:`0x0026`
+.. |seeeduino_lotus_PID_UF2|	replace:: :ign:`0026`
+.. |seeeduino_lotus_PStr_UF2|	replace:: :ign:`Seeeduino_lotus`
+.. |seeeduino_lotus_BCD_UF2|	replace:: |nbsp| :ign:`2.00`
+
+.. |seeeduino_lotus_URB_VID|	replace:: |seeed_URB_VID|
+.. |seeeduino_lotus_VID|	replace:: |seeed_VID|
+.. |seeeduino_lotus_VStr|	replace:: |seeed_VStr|
+
+.. |seeeduino_lotus_URB_PID_CON| replace:: :code:`0x8026`
+.. |seeeduino_lotus_PID_CON|	replace:: :ign:`8026`
+.. |seeeduino_lotus_PStr_CON|	replace:: :ign:`Seeeduino Lotus Cortex-M0+ (CDC ACM)`
+.. |seeeduino_lotus_BCD_CON|	replace:: |zephyr_version_BCD|
 
 .. |Spotpear Pico ALL GPIO TEST| replace::
    :ref:`Spotpear Pico ALL GPIO TEST <spotpear_pico_test>`
@@ -112,8 +515,26 @@
 .. |Spotpear Pico LCD 1.54| replace::
    :ref:`Spotpear Pico LCD 1.54 <spotpear_pico_lcd_1_54>`
 
-.. |STM32F767ZI-NUCLEO (CDC ACM)| replace::
-   :ref:`STM32F767ZI-NUCLEO (CDC ACM) <zephyr:nucleo_f767zi_board>`
+.. |bridle:board:magpie_f777ni| replace:: :ref:`magpie_f777ni_board`
+.. :bridle:board:`magpie_f777ni`
+
+.. |TiaC Magpie F777NI (CDC ACM)| replace::
+   :ref:`TiaC Magpie F777NI (CDC ACM) <magpie_f777ni_board>`
+.. :bridle:board:`TiaC Magpie F777NI (CDC ACM) <magpie_f777ni>`
+
+.. |magpie_f777ni_URB_VID|	replace:: |stm_URB_VID|
+.. |magpie_f777ni_VID|		replace:: |stm_VID|
+.. |magpie_f777ni_VStr|		replace:: |stm_VStr|
+
+.. |magpie_f777ni_URB_PID_CON|	replace:: |stm_URB_PID_VCOM|
+.. |magpie_f777ni_PID_CON|	replace:: |stm_PID_VCOM|
+.. |magpie_f777ni_PStr_CON|	replace:: :ign:`TiaC Magpie F777NI (CDC ACM)`
+.. |magpie_f777ni_BCD_CON|	replace:: |zephyr_version_BCD|
+
+.. |magpie_f777ni_URB_PID_MSC|	replace:: |stm_URB_PID_MSC|
+.. |magpie_f777ni_PID_MSC|	replace:: |stm_PID_MSC|
+.. |magpie_f777ni_PStr_MSC|	replace:: :ign:`TiaC Magpie F777NI (MSC)`
+.. |magpie_f777ni_BCD_MSC|	replace:: |zephyr_version_BCD|
 
 .. |Waveshare 2.4 LCD| replace::
    :ref:`Waveshare 2.4 LCD <waveshare_2_4_lcd>`
@@ -154,67 +575,462 @@
 .. |Waveshare Pico Clock Green| replace::
    :ref:`Waveshare Pico Clock Green <waveshare_pico_clock_green>`
 
+.. |bridle:board:xiao_samd21| replace:: :ref:`xiao_samd21`
+.. :bridle:board:`xiao_samd21`
+
 .. |XIAO SAMD21 (CDC ACM)| replace::
    :ref:`XIAO SAMD21 (CDC ACM) <xiao_samd21>`
+.. :bridle:board:`XIAO SAMD21 (CDC ACM) <xiao_samd21>`
 
-.. |CDC ACM| replace:: :ref:`zephyr:usb_device_cdc_acm`
+.. |xiao_samd21_URB_VID|	replace:: |seeeduino_xiao_URB_VID|
+.. |xiao_samd21_VID|		replace:: |seeeduino_xiao_VID|
+.. |xiao_samd21_VStr|		replace:: :ign:`Seeed Studio`
 
-.. |Zephyr USB Vendor and Product identifiers| replace::
-   Zephyr :ref:`zephyr:usb_device_vid_pid`
+.. |xiao_samd21_URB_PID_UF2|	replace:: :code:`0x002F`
+.. |xiao_samd21_PID_UF2|	replace:: :ign:`002f`
+.. |xiao_samd21_PStr_UF2|	replace:: :ign:`Seeeduino XIAO`
+.. |xiao_samd21_BCD_UF2|	replace:: :ign:`42.01`
 
-.. |zephyr,console| replace::
-   :ref:`zephyr,console <zephyr:devicetree-zephyr-chosen-nodes>`
-.. |zephyr,shell-uart| replace::
-   :ref:`zephyr,shell-uart <zephyr:devicetree-zephyr-chosen-nodes>`
+.. |xiao_samd21_URB_PID_CON|	replace:: |seeeduino_xiao_URB_PID_CON|
+.. |xiao_samd21_PID_CON|	replace:: |seeeduino_xiao_PID_CON|
+.. |xiao_samd21_PStr_CON|	replace:: :ign:`XIAO SAMD21 (CDC ACM)`
+.. |xiao_samd21_BCD_CON|	replace:: |seeeduino_xiao_BCD_CON|
+
+.. Zephyr References
+
+.. |zephyr:connectivity:networking:with:host| replace::
+   :external+zephyr:ref:`networking_with_host`
+
+.. |zephyr:connectivity:networking:with:native_sim| replace::
+   :external+zephyr:ref:`networking_with_native_sim`
+
+.. |zephyr:connectivity:networking:with:native_sim_eth_bridge| replace::
+   :external+zephyr:ref:`networking_with_native_sim_eth_bridge`
+
+.. |zephyr:connectivity:networking:with:qemu| replace::
+   :external+zephyr:ref:`networking_with_qemu`
+
+.. |zephyr:connectivity:networking:with:eth_qemu| replace::
+   :external+zephyr:ref:`networking_with_eth_qemu`
+
+.. |zephyr:connectivity:networking:with:user_qemu| replace::
+   :external+zephyr:ref:`networking_with_user_qemu`
+
+.. |zephyr:connectivity:networking:with:ieee802154_qemu| replace::
+   :external+zephyr:ref:`networking_with_ieee802154_qemu`
+
+.. |zephyr:connectivity:networking:with:multiple_instances| replace::
+   :external+zephyr:ref:`networking_with_multiple_instances`
+
+.. |zephyr:connectivity:bluetooth:bluez| replace::
+   :external+zephyr:ref:`bluetooth_bluez`
+
+.. |zephyr:connectivity:bluetooth:qemu_native| replace::
+   :external+zephyr:ref:`bluetooth_qemu_native`
+
+.. |zephyr:connectivity:bluetooth:virtual_posix| replace::
+   :external+zephyr:ref:`bluetooth_virtual_posix`
+
+.. |zephyr:connectivity:bluetooth:ctlr_bluez| replace::
+   :external+zephyr:ref:`bluetooth_ctlr_bluez`
+
+.. |zephyr:devicetree:chosen:console| replace::
+   :external+zephyr:ref:`zephyr,console <devicetree-zephyr-chosen-nodes>`
+
+.. |zephyr:devicetree:chosen:shell-uart| replace::
+   :external+zephyr:ref:`zephyr,shell-uart <devicetree-zephyr-chosen-nodes>`
+
+.. |zephyr:boards| replace::
+   :external+zephyr:ref:`boards`
+
+.. |zephyr:board:native_posix| replace::
+   :external+zephyr:ref:`native_posix`
+.. :external+zephyr:zephyr:board:`native_posix`
+
+.. |zephyr:board:native_posix32_64| replace::
+   :external+zephyr:ref:`native_posix32_64`
+.. :external+zephyr:zephyr:board:`native_posix32_64`
+
+.. |zephyr:board:native_sim| replace::
+   :external+zephyr:ref:`native_sim`
+.. :external+zephyr:zephyr:board:`native_sim`
+
+.. |zephyr:board:native_sim32_64| replace::
+   :external+zephyr:ref:`native_sim32_64`
+.. :external+zephyr:zephyr:board:`native_sim32_64`
+
+.. |zephyr:boards:bsim| replace::
+   :external+zephyr:ref:`bsim boards`
+
+.. |zephyr:board:nrf52_bsim| replace::
+   :external+zephyr:ref:`nrf52_bsim`
+.. :external+zephyr:zephyr:board:`nrf52_bsim`
+
+.. |zephyr:board:nrf5340bsim| replace::
+   :external+zephyr:ref:`nrf5340bsim`
+.. :external+zephyr:zephyr:board:`nrf5340bsim`
+
+.. |zephyr:board:nrf54l15bsim| replace::
+   :external+zephyr:ref:`nrf54l15bsim`
+.. :external+zephyr:zephyr:board:`nrf54l15bsim`
+
+.. |zephyr:boards:qemu| replace::
+   :external+zephyr:ref:`boards-qemu`
+
+.. |zephyr:board:qemu_arc| replace::
+   :external+zephyr:zephyr:board:`qemu_arc`
+
+.. |zephyr:board:qemu_cortex_a53| replace::
+   :external+zephyr:zephyr:board:`qemu_cortex_a53`
+
+.. |zephyr:board:qemu_cortex_m0| replace::
+   :external+zephyr:zephyr:board:`qemu_cortex_m0`
+
+.. |zephyr:board:qemu_cortex_m3| replace::
+   :external+zephyr:zephyr:board:`qemu_cortex_m3`
+
+.. |zephyr:board:qemu_cortex_r5| replace::
+   :external+zephyr:zephyr:board:`qemu_cortex_r5`
+
+.. |zephyr:board:qemu_kvm_arm64| replace::
+   :external+zephyr:zephyr:board:`qemu_kvm_arm64`
+
+.. |zephyr:board:qemu_leon3| replace::
+   :external+zephyr:zephyr:board:`qemu_leon3`
+
+.. |zephyr:board:qemu_malta| replace::
+   :external+zephyr:zephyr:board:`qemu_malta`
+
+.. |zephyr:board:qemu_nios2| replace::
+   :external+zephyr:zephyr:board:`qemu_nios2`
+
+.. |zephyr:board:qemu_riscv32e| replace::
+   :external+zephyr:zephyr:board:`qemu_riscv32e`
+
+.. |zephyr:board:qemu_riscv32| replace::
+   :external+zephyr:zephyr:board:`qemu_riscv32`
+
+.. |zephyr:board:qemu_riscv32_xip| replace::
+   :external+zephyr:zephyr:board:`qemu_riscv32_xip`
+
+.. |zephyr:board:qemu_riscv64| replace::
+   :external+zephyr:zephyr:board:`qemu_riscv64`
+
+.. |zephyr:board:qemu_x86| replace::
+   :external+zephyr:zephyr:board:`qemu_x86`
+
+.. |zephyr:board:qemu_xtensa| replace::
+   :external+zephyr:zephyr:board:`qemu_xtensa`
+
+.. |zephyr:board:arduino_zero| replace::
+   :external+zephyr:ref:`arduino_zero`
+.. :external+zephyr:zephyr:board:`arduino_zero`
+
+.. |Arduino Zero (CDC ACM)| replace::
+   :external+zephyr:ref:`Arduino Zero (CDC ACM) <arduino_zero>`
+.. :external+zephyr:zephyr:board:`Arduino Zero (CDC ACM) <arduino_zero>`
+
+.. |arduino_zero_URB_VID|	replace:: |arduino_URB_VID|
+.. |arduino_zero_VID|		replace:: |arduino_VID|
+.. |arduino_zero_VStr|		replace:: |arduino_VStr|
+
+.. |arduino_zero_URB_PID_UF2|	replace:: :code:`0x004D`
+.. |arduino_zero_PID_UF2|	replace:: :ign:`004d`
+.. |arduino_zero_PStr_UF2|	replace:: :ign:`Arduino Zero`
+.. |arduino_zero_BCD_UF2|	replace:: |nbsp| :ign:`2.00`
+
+.. |arduino_zero_URB_PID_CON|	replace:: :code:`0x804D`
+.. |arduino_zero_PID_CON|	replace:: :ign:`804d`
+.. |arduino_zero_PStr_CON|	replace:: :ign:`Arduino Zero (CDC ACM)`
+.. |arduino_zero_BCD_CON|	replace:: |zephyr_version_BCD|
+
+.. |zephyr:board:mimxrt1010_evk| replace::
+   :external+zephyr:zephyr:board:`mimxrt1010_evk`
+
+.. |MIMXRT1010-EVK (CDC ACM)| replace::
+   :external+zephyr:zephyr:board:`MIMXRT1010-EVK (CDC ACM) <mimxrt1010_evk>`
+
+.. |mimxrt1010_evk_URB_VID|	replace:: |nxp_URB_VID|
+.. |mimxrt1010_evk_VID|		replace:: |nxp_VID|
+.. |mimxrt1010_evk_VStr|	replace:: |nxp_VStr|
+
+.. |mimxrt1010_evk_URB_PID_CON|	replace:: :code:`0x1011`
+.. |mimxrt1010_evk_PID_CON|	replace:: :ign:`1011`
+.. |mimxrt1010_evk_PStr_CON|	replace:: :ign:`MIMXRT1010-EVK (CDC ACM)`
+.. |mimxrt1010_evk_BCD_CON|	replace:: |zephyr_version_BCD|
+
+.. |zephyr:board:mimxrt1060_evk| replace::
+   :external+zephyr:zephyr:board:`mimxrt1060_evk`
+
+.. |MIMXRT1060-EVK (CDC ACM)| replace::
+   :external+zephyr:zephyr:board:`MIMXRT1060-EVK (CDC ACM) <mimxrt1060_evk>`
+
+.. |mimxrt1060_evk_URB_VID|	replace:: |nxp_URB_VID|
+.. |mimxrt1060_evk_VID|		replace:: |nxp_VID|
+.. |mimxrt1060_evk_VStr|	replace:: |nxp_VStr|
+
+.. |mimxrt1060_evk_URB_PID_CON|	replace:: :code:`0x1062`
+.. |mimxrt1060_evk_PID_CON|	replace:: :ign:`1062`
+.. |mimxrt1060_evk_PStr_CON|	replace:: :ign:`MIMXRT1060-EVK (CDC ACM)`
+.. |mimxrt1060_evk_BCD_CON|	replace:: |zephyr_version_BCD|
+
+.. |zephyr:board:mimxrt1170_evk| replace::
+   :external+zephyr:zephyr:board:`mimxrt1170_evk`
+
+.. |MIMXRT1170-EVK/EVKB (CDC ACM)| replace::
+   :external+zephyr:zephyr:board:`MIMXRT1170-EVK/EVKB (CDC ACM) <mimxrt1170_evk>`
+
+.. |mimxrt1170_evk_URB_VID|	replace:: |nxp_URB_VID|
+.. |mimxrt1170_evk_VID|		replace:: |nxp_VID|
+.. |mimxrt1170_evk_VStr|	replace:: |nxp_VStr|
+
+.. |mimxrt1170_evk_URB_PID_CON|	replace:: :code:`0x1176`
+.. |mimxrt1170_evk_PID_CON|	replace:: :ign:`1176`
+.. |mimxrt1170_evk_PStr_CON|	replace:: :ign:`MIMXRT1170-EVK/EVKB (CDC ACM)`
+.. |mimxrt1170_evk_BCD_CON|	replace:: |zephyr_version_BCD|
+
+.. |zephyr:board:nrf52840dk_nrf52811| replace::
+   :external+zephyr:ref:`nrf52840dk_nrf52811`
+.. :external+zephyr:zephyr:board:`nrf52840dk_nrf52811`
+
+.. |zephyr:board:nrf52840dk_nrf52840| replace::
+   :external+zephyr:ref:`nrf52840dk_nrf52840`
+.. :external+zephyr:zephyr:board:`nrf52840dk_nrf52840`
+
+.. |zephyr:board:nrf52840dongle_nrf52840| replace::
+   :external+zephyr:ref:`nrf52840dongle_nrf52840`
+.. :external+zephyr:zephyr:board:`nrf52840dongle_nrf52840`
+
+.. |zephyr:board:nrf9160dk_nrf52840| replace::
+   :external+zephyr:ref:`nrf9160dk_nrf52840`
+.. :external+zephyr:zephyr:board:`nrf9160dk_nrf52840`
+
+.. |zephyr:board:nrf9160dk_nrf9160| replace::
+   :external+zephyr:ref:`nrf9160dk_nrf9160`
+.. :external+zephyr:zephyr:board:`nrf9160dk_nrf9160`
+
+.. |zephyr:board:rpi_pico| replace::
+   :external+zephyr:zephyr:board:`rpi_pico`
+
+.. |RPi Pico| replace::
+   :external+zephyr:zephyr:board:`RPi Pico <rpi_pico>`
+
+.. |RPi Pico (CDC ACM)| replace::
+   :external+zephyr:zephyr:board:`RPi Pico (CDC ACM) <rpi_pico>`
+
+.. |rpi_pico_URB_VID|		replace:: |rpi_URB_VID|
+.. |rpi_pico_VID|		replace:: |rpi_VID|
+.. |rpi_pico_VStr|		replace:: |rpi_VStr|
+
+.. |rpi_pico_URB_PID_CON|	replace:: |rpi_pico_sdk_uart_rp2040_URB_PID|
+.. |rpi_pico_PID_CON|		replace:: |rpi_pico_sdk_uart_rp2040_PID|
+.. |rpi_pico_PStr_CON|		replace:: :ign:`RPi Pico (CDC ACM)`
+.. |rpi_pico_BCD_CON|		replace:: |zephyr_version_BCD|
+
+.. |RPi Pico W| replace::
+   :external+zephyr:zephyr:board:`RPi Pico W <rpi_pico>`
+
+.. |RPi Pico W (CDC ACM)| replace::
+   :external+zephyr:zephyr:board:`RPi Pico W (CDC ACM) <rpi_pico>`
+
+.. |rpi_pico_rp2040_w_URB_VID|	replace:: |rpi_URB_VID|
+.. |rpi_pico_rp2040_w_VID|	replace:: |rpi_VID|
+.. |rpi_pico_rp2040_w_VStr|	replace:: |rpi_VStr|
+
+.. |rpi_pico_rp2040_w_URB_PID_CON| replace:: |rpi_pico_sdk_uart_rp2040_URB_PID|
+.. |rpi_pico_rp2040_w_PID_CON|	replace:: |rpi_pico_sdk_uart_rp2040_PID|
+.. |rpi_pico_rp2040_w_PStr_CON|	replace:: :ign:`RPi Pico W (CDC ACM)`
+.. |rpi_pico_rp2040_w_BCD_CON|	replace:: |zephyr_version_BCD|
+
+.. |zephyr:board:nucleo_f303re| replace::
+   :external+zephyr:zephyr:board:`nucleo_f303re`
+
+.. |STM32F303RE-NUCLEO (CDC ACM)| replace::
+   :external+zephyr:zephyr:board:`STM32F303RE-NUCLEO (CDC ACM) <nucleo_f303re>`
+
+.. |zephyr:board:nucleo_f401re| replace::
+   :external+zephyr:zephyr:board:`nucleo_f401re`
+
+.. |STM32F401RE-NUCLEO (CDC ACM)| replace::
+   :external+zephyr:zephyr:board:`STM32F401RE-NUCLEO (CDC ACM) <nucleo_f401re>`
+
+.. |zephyr:board:nucleo_f413zh| replace::
+   :external+zephyr:zephyr:board:`nucleo_f413zh`
+
+.. |STM32F413ZH-NUCLEO (CDC ACM)| replace::
+   :external+zephyr:zephyr:board:`STM32F413ZH-NUCLEO (CDC ACM) <nucleo_f413zh>`
+
+.. |zephyr:board:nucleo_f746zg| replace::
+   :external+zephyr:zephyr:board:`nucleo_f746zg`
+
+.. |STM32F746ZG-NUCLEO (CDC ACM)| replace::
+   :external+zephyr:zephyr:board:`STM32F746ZG-NUCLEO (CDC ACM) <nucleo_f746zg>`
+
+.. |zephyr:board:nucleo_f767zi| replace::
+   :external+zephyr:zephyr:board:`nucleo_f767zi`
+
+.. |STM32F767ZI-NUCLEO (CDC ACM)| replace::
+   :external+zephyr:zephyr:board:`STM32F767ZI-NUCLEO (CDC ACM) <nucleo_f767zi>`
+
+.. |nucleo_f767zi_URB_VID|	replace:: |stm_URB_VID|
+.. |nucleo_f767zi_VID|		replace:: |stm_VID|
+.. |nucleo_f767zi_VStr|		replace:: |stm_VStr|
+
+.. |nucleo_f767zi_URB_PID_CON|	replace:: |stm_URB_PID_VCOM|
+.. |nucleo_f767zi_PID_CON|	replace:: |stm_PID_VCOM|
+.. |nucleo_f767zi_PStr_CON|	replace:: :ign:`STM32F767ZI-NUCLEO (CDC ACM)`
+.. |nucleo_f767zi_BCD_CON|	replace:: |zephyr_version_BCD|
+
+.. |nucleo_f767zi_URB_PID_MSC|	replace:: |stm_URB_PID_MSC|
+.. |nucleo_f767zi_PID_MSC|	replace:: |stm_PID_MSC|
+.. |nucleo_f767zi_PStr_MSC|	replace:: :ign:`STM32F767ZI-NUCLEO (MSC)`
+.. |nucleo_f767zi_BCD_MSC|	replace:: |zephyr_version_BCD|
+
+.. |zephyr:board:nucleo_l496zg| replace::
+   :external+zephyr:zephyr:board:`nucleo_l496zg`
+
+.. |STM32L496ZG-NUCLEO (CDC ACM)| replace::
+   :external+zephyr:zephyr:board:`STM32L496ZG-NUCLEO (CDC ACM) <nucleo_l496zg>`
+
+.. |zephyr:board:seeeduino_xiao| replace::
+   :external+zephyr:zephyr:board:`seeeduino_xiao`
+
+.. |Seeed XIAO M0 (CDC ACM)| replace::
+   :external+zephyr:zephyr:board:`Seeed XIAO M0 (CDC ACM) <seeeduino_xiao>`
+
+.. |seeeduino_xiao_URB_VID|	replace:: |seeed_URB_VID|
+.. |seeeduino_xiao_VID|		replace:: |seeed_VID|
+.. |seeeduino_xiao_VStr|	replace:: :ign:`Seeed`
+
+.. |seeeduino_xiao_URB_PID_CON|	replace:: :code:`0x802F`
+.. |seeeduino_xiao_PID_CON|	replace:: :ign:`802f`
+.. |seeeduino_xiao_PStr_CON|	replace:: :ign:`Seeed XIAO M0 (CDC ACM)`
+.. |seeeduino_xiao_BCD_CON|	replace:: |zephyr_version_BCD|
 
 .. Devicetree References
 
 .. |Arduino Nano R3| replace::
-   :dtcompatible:`Arduino Nano R3 <arduino-nano-header-r3>`
+   :external+devicetree:dtcompatible:`Arduino Nano R3 <arduino-nano-header-r3>`
 
 .. |Arduino UNO R3| replace::
-   :dtcompatible:`Arduino UNO R3 <arduino-header-r3>`
+   :external+devicetree:dtcompatible:`Arduino UNO R3 <arduino-header-r3>`
 
 .. |Grove connectors| replace::
-   :dtcompatible:`Grove connectors <seeed,grove-connector>`
+   :external+devicetree:dtcompatible:`Grove connectors <seeed,grove-connector>`
 
 .. |Laced Grove Signal Interface| replace::
-   :dtcompatible:`Laced Grove Signal Interface <seeed,grove-laced-if>`
+   :external+devicetree:dtcompatible:`Laced Grove Signal Interface <seeed,grove-laced-if>`
 
 .. |MikroBus| replace::
-   :dtcompatible:`MikroBus <mikro-bus>`
+   :external+devicetree:dtcompatible:`MikroBus <mikro-bus>`
 
 .. |Raspberry Pi Pico| replace::
-   :dtcompatible:`Raspberry Pi Pico <raspberrypi,pico-header>`
+   :external+devicetree:dtcompatible:`Raspberry Pi Pico <raspberrypi,pico-header>`
 
 .. |Raspberry Pi Pico R3| replace::
-   :dtcompatible:`Raspberry Pi Pico R3 <raspberrypi,pico-header-r3>`
+   :external+devicetree:dtcompatible:`Raspberry Pi Pico R3 <raspberrypi,pico-header-r3>`
 
 .. |Seeed XIAO| replace::
-   :dtcompatible:`Seeed XIAO <seeed,xiao-gpio>`
+   :external+devicetree:dtcompatible:`Seeed XIAO <seeed,xiao-gpio>`
 
 .. |TiaC MAGPIE Pin Header| replace::
-   :dtcompatible:`TiaC MAGPIE Pin Header <tiac-magpie-pin-header>`
+   :external+devicetree:dtcompatible:`TiaC MAGPIE Pin Header <tiac-magpie-pin-header>`
 
 .. |Waveshare RP2040 Mini| replace::
-   :dtcompatible:`Waveshare RP2040 Mini <waveshare,rp2040mini-header>`
+   :external+devicetree:dtcompatible:`Waveshare RP2040 Mini <waveshare,rp2040mini-header>`
 
 .. |Waveshare RP2040 Mini PCB Pads| replace::
-   :dtcompatible:`Waveshare RP2040 Mini PCB Pads <waveshare,rp2040mini-pcbpads>`
+   :external+devicetree:dtcompatible:`Waveshare RP2040 Mini PCB Pads <waveshare,rp2040mini-pcbpads>`
 
 .. Kconfig References
 
+.. |CONFIG_BOOT_DELAY| replace::
+   :external+kconfig:kconfig:option:`CONFIG_BOOT_DELAY`
+
+.. |CONFIG_CONSOLE| replace::
+   :external+kconfig:kconfig:option:`CONFIG_CONSOLE`
+
+.. |CONFIG_LOG_PROCESS_THREAD_STARTUP_DELAY_MS| replace::
+   :external+kconfig:kconfig:option:`CONFIG_LOG_PROCESS_THREAD_STARTUP_DELAY_MS`
+
+.. |CONFIG_MASS_STORAGE_DISK_NAME| replace::
+   :external+kconfig:kconfig:option:`CONFIG_MASS_STORAGE_DISK_NAME`
+
 .. |CONFIG_RP2_FLASH_AT25SF128A| replace::
-   :kconfig:option:`CONFIG_RP2_FLASH_AT25SF128A`
+   :external+kconfig:kconfig:option:`CONFIG_RP2_FLASH_AT25SF128A`
 
 .. |CONFIG_RP2_FLASH_GENERIC_03H| replace::
-   :kconfig:option:`CONFIG_RP2_FLASH_GENERIC_03H`
+   :external+kconfig:kconfig:option:`CONFIG_RP2_FLASH_GENERIC_03H`
 
 .. |CONFIG_RP2_FLASH_IS25LP080| replace::
-   :kconfig:option:`CONFIG_RP2_FLASH_IS25LP080`
+   :external+kconfig:kconfig:option:`CONFIG_RP2_FLASH_IS25LP080`
 
 .. |CONFIG_RP2_FLASH_W25Q080| replace::
-   :kconfig:option:`CONFIG_RP2_FLASH_W25Q080`
+   :external+kconfig:kconfig:option:`CONFIG_RP2_FLASH_W25Q080`
 
 .. |CONFIG_RP2_FLASH_W25X10CL| replace::
-   :kconfig:option:`CONFIG_RP2_FLASH_W25X10CL`
+   :external+kconfig:kconfig:option:`CONFIG_RP2_FLASH_W25X10CL`
+
+.. |CONFIG_SERIAL| replace::
+   :external+kconfig:kconfig:option:`CONFIG_SERIAL`
+
+.. |CONFIG_UART_CONSOLE| replace::
+   :external+kconfig:kconfig:option:`CONFIG_UART_CONSOLE`
+
+.. |CONFIG_UART_LINE_CTRL| replace::
+   :external+kconfig:kconfig:option:`CONFIG_UART_LINE_CTRL`
+
+.. |CONFIG_USB_CDC_ACM_LOG_LEVEL_CHOICE| replace::
+   :external+kconfig:kconfig:option:`CONFIG_USB_CDC_ACM_LOG_LEVEL_CHOICE`
+
+.. |CONFIG_USB_CDC_ACM_LOG_LEVEL_OFF| replace::
+   :external+kconfig:kconfig:option:`CONFIG_USB_CDC_ACM_LOG_LEVEL_OFF`
+
+.. |CONFIG_USB_DEVICE_LOG_LEVEL_CHOICE| replace::
+   :external+kconfig:kconfig:option:`CONFIG_USB_DEVICE_LOG_LEVEL_CHOICE`
+
+.. |CONFIG_USB_DEVICE_LOG_LEVEL_ERR| replace::
+   :external+kconfig:kconfig:option:`CONFIG_USB_DEVICE_LOG_LEVEL_ERR`
+
+.. |CONFIG_USB_DEVICE_MANUFACTURER| replace::
+   :external+kconfig:kconfig:option:`CONFIG_USB_DEVICE_MANUFACTURER`
+
+.. |CONFIG_USB_DEVICE_PID| replace::
+   :external+kconfig:kconfig:option:`CONFIG_USB_DEVICE_PID`
+
+.. |CONFIG_USB_DEVICE_PRODUCT| replace::
+   :external+kconfig:kconfig:option:`CONFIG_USB_DEVICE_PRODUCT`
+
+.. |CONFIG_USB_DEVICE_STACK| replace::
+   :external+kconfig:kconfig:option:`CONFIG_USB_DEVICE_STACK`
+
+.. |CONFIG_USB_DEVICE_VID| replace::
+   :external+kconfig:kconfig:option:`CONFIG_USB_DEVICE_VID`
+
+.. |CONFIG_USB_MAX_POWER| replace::
+   :external+kconfig:kconfig:option:`CONFIG_USB_MAX_POWER`
+
+.. |CONFIG_USB_SELF_POWERED| replace::
+   :external+kconfig:kconfig:option:`CONFIG_USB_SELF_POWERED`
+
+.. Raspberry Pi Pico HAL References
+
+.. |boot2_at25sf128a.S| replace:: :file:`boot2_at25sf128a.S`
+.. _`boot2_at25sf128a.S`:
+   https://github.com/zephyrproject-rtos/hal_rpi_pico/blob/zephyr/src/rp2040/boot_stage2/boot2_at25sf128a.S
+
+.. |boot2_generic_03h.S| replace:: :file:`boot2_generic_03h.S`
+.. _`boot2_generic_03h.S`:
+   https://github.com/zephyrproject-rtos/hal_rpi_pico/blob/zephyr/src/rp2040/boot_stage2/boot2_generic_03h.S
+
+.. |boot2_is25lp080.S| replace:: :file:`boot2_is25lp080.S`
+.. _`boot2_is25lp080.S`:
+   https://github.com/zephyrproject-rtos/hal_rpi_pico/blob/zephyr/src/rp2040/boot_stage2/boot2_is25lp080.S
+
+.. |boot2_w25q080.S| replace:: :file:`boot2_w25q080.S`
+.. _`boot2_w25q080.S`:
+   https://github.com/zephyrproject-rtos/hal_rpi_pico/blob/zephyr/src/rp2040/boot_stage2/boot2_w25q080.S
+
+.. |boot2_w25x10cl.S| replace:: :file:`boot2_w25x10cl.S`
+.. _`boot2_w25x10cl.S`:
+   https://github.com/zephyrproject-rtos/hal_rpi_pico/blob/zephyr/src/rp2040/boot_stage2/boot2_w25x10cl.S

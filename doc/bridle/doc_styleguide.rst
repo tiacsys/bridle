@@ -11,7 +11,7 @@ Documentation style guide
 RST style guide
 ***************
 
-See Zephyr's :ref:`zephyr:doc_guidelines` for a short introduction to RST and,
+See Zephyr's :zephyr:ref:`doc_guidelines` for a short introduction to RST and,
 most importantly, to the conventions used in Zephyr. More information about
 RST is available in the `reStructuredText Primer`_ as part of the original
 `Sphinx Documentation`_, and about the Sphinx documentation framework in the
@@ -206,10 +206,10 @@ The following table shows just a few examples.
      - :c:`int sum(int a, int b);`
      - inline syntax highlighting for C/C++
 
-   * - | :rst:`:devicetree:\`zephyr,code = <INPUT_KEY_ENTER>;\``
-       | :rst:`:devicetree:\`chosen { zephyr,display = &st7789v_240x135; };\``
-     - | :devicetree:`zephyr,code = <INPUT_KEY_ENTER>;`
-       | :devicetree:`chosen { zephyr,display = &st7789v_240x135; };`
+   * - | :rst:`:dts:\`zephyr,code = <INPUT_KEY_ENTER>;\``
+       | :rst:`:dts:\`chosen { zephyr,display = &st7789v_240x135; };\``
+     - | :dts:`zephyr,code = <INPUT_KEY_ENTER>;`
+       | :dts:`chosen { zephyr,display = &st7789v_240x135; };`
      - inline syntax highlighting for Devicetree
 
    * - | :rst:`:hwftlbl:\`4㎆\``

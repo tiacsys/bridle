@@ -72,12 +72,12 @@
        - :dtcompatible:`gpio-keys`
        - :dtcompatible:`gpio-leds`
        - :dtcompatible:`pwm-leds`
-       - :ref:`zephyr:dt-zephyr-user` with
-         :devicetree:`io-channels = <...>` entry for ADC channel 0
-       - :ref:`zephyr:dt-alias-chosen` with
-         :devicetree:`swN = &...` entries for all keys over GPIO,
-         :devicetree:`ledN = &...` entries for all LEDs over GPIO, and
-         :devicetree:`pwm-ledN = &...` entries for all keys over PWM
+       - :zephyr:ref:`dt-zephyr-user` with
+         :dts:`io-channels = <...>` entry for ADC channel 0
+       - :zephyr:ref:`dt-alias-chosen` with
+         :dts:`swN = &...` entries for all keys over GPIO,
+         :dts:`ledN = &...` entries for all LEDs over GPIO, and
+         :dts:`pwm-ledN = &...` entries for all keys over PWM
 
      - .. image:: spotpear_pico_test/pinouts.jpg
           :align: center

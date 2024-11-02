@@ -11,9 +11,9 @@ each repository. You can switch between these documentation sets by using the
 selector in the *bottom-left corner of each page*.
 
 The entry point is the |BRIDLE| documentation that you are currently reading.
-The local :doc:`Zephyr documentation <zephyr:index>` is a slightly extended
-version of the official `Zephyr Project documentation`_, containing some
-additions specific to |TIAC|.
+The **local** :zephyr:ref:`zephyr-home` is a slightly extended version of the
+*official* `Zephyr Project documentation`_, containing some additions specific
+to |TIAC|.
 
 .. figure:: images/switcher_docset_snipped.gif
    :alt: Bridle documentation set selector

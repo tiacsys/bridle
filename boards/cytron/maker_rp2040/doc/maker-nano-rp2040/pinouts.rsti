@@ -1,5 +1,5 @@
 External pin mapping on the |Maker Nano RP2040| is identical to the original
-:ref:`zephyr:rpi_pico` board, but note that there are only analog channels
+|zephyr:board:rpi_pico| board, but note that there are only analog channels
 A0 - A3 connected to an ADC and the analog channels A4 - A7 are simple
 digital signal lines. Also all IO voltage levels are limited to 3.3V only.
 

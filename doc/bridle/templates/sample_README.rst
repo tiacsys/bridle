@@ -56,7 +56,7 @@ Requirements
 
 * One of the following development boards:
 
-  * :ref:`zephyr:nucleo_f746zg_board` (NUCLEO-F746ZG)
+  * |zephyr:board:nucleo_f746zg| (NUCLEO-F746ZG)
 
 * A Y account.
 * A Z ball.
@@ -126,7 +126,7 @@ This sample uses the following |BRIDLE| libraries:
 In addition, it uses the following Zephyr libraries:
 
 * ``include/console.h``
-* :ref:`zephyr:kernel_api`:
+* :zephyr:ref:`kernel_api`:
 
   * ``include/kernel.h``
 

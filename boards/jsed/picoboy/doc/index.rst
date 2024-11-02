@@ -7,7 +7,7 @@ The PicoBoy is a powerful mini handheld measuring just 3×5 ㎝. It is suitable
 for learning programming, developing your own games or simply playing with it.
 All you need is a PC, the PicoBoy and a USB-C cable. As the PicoBoy based on
 the `RP2040 SoC`_ by Raspberry Pi Ltd. and is compatible with the
-:ref:`zephyr:rpi_pico` programming model and process, there are countless other
+|zephyr:board:rpi_pico| programming model and process, there are countless other
 tutorials, examples and libraries on the internet to make programming easier.
 
 Board Overview
@@ -28,7 +28,7 @@ Pinouts
 
 The peripherals of the `RP2040 SoC`_ can be routed to various pins on
 the board. The configuration of these routes can be modified through
-:ref:`DTS <zephyr:devicetree>`. Please refer to the datasheet to see
+:zephyr:ref:`DTS <devicetree>`. Please refer to the datasheet to see
 the possible routings for each peripheral. The default assignments
 for the PicoBoy on-board wiring is defined below. There are no edge
 connectors, headers or solder pads with additional signals routed to
@@ -39,7 +39,7 @@ outside of the board.
 Supported Features
 ******************
 
-Similar to the :ref:`zephyr:rpi_pico` the PicoBoy board configuration
+Similar to the |zephyr:board:rpi_pico| the PicoBoy board configuration
 supports the following hardware features:
 
 .. list-table::
@@ -52,49 +52,49 @@ supports the following hardware features:
    * - PINCTRL
      - :kconfig:option:`CONFIG_PINCTRL`
      - :dtcompatible:`raspberrypi,pico-pinctrl`
-     - :ref:`zephyr:pinctrl_api`
+     - :zephyr:ref:`pinctrl_api`
    * - GPIO
      - :kconfig:option:`CONFIG_GPIO`
      - :dtcompatible:`raspberrypi,pico-gpio`
-     - :ref:`zephyr:gpio_api`
+     - :zephyr:ref:`gpio_api`
    * - USB Device
      - :kconfig:option:`CONFIG_USB_DEVICE_STACK`
      - :dtcompatible:`raspberrypi,pico-usbd`
-     - :ref:`zephyr:usb_api`
+     - :zephyr:ref:`usb_api`
    * - I2C
      - :kconfig:option:`CONFIG_I2C`
      - | :dtcompatible:`raspberrypi,pico-i2c` (!)
        | :dtcompatible:`gpio-i2c`
-     - :ref:`zephyr:i2c_api`
+     - :zephyr:ref:`i2c_api`
    * - SPI
      - :kconfig:option:`CONFIG_SPI`
      - :dtcompatible:`raspberrypi,pico-spi`
-     - :ref:`zephyr:spi_api`
+     - :zephyr:ref:`spi_api`
    * - PWM
      - :kconfig:option:`CONFIG_PWM`
      - :dtcompatible:`raspberrypi,pico-pwm`
-     - :ref:`zephyr:pwm_api`
+     - :zephyr:ref:`pwm_api`
    * - ADC
      - :kconfig:option:`CONFIG_ADC`
      - :dtcompatible:`raspberrypi,pico-adc`
-     - :ref:`zephyr:adc_api`
+     - :zephyr:ref:`adc_api`
    * - Temperature (Sensor)
      - :kconfig:option:`CONFIG_SENSOR`
      - :dtcompatible:`raspberrypi,pico-temp` (!!)
-     - :ref:`zephyr:sensor`
+     - :zephyr:ref:`sensor`
    * - Timer (Counter)
      - :kconfig:option:`CONFIG_COUNTER`
      - :dtcompatible:`raspberrypi,pico-timer`
-     - :ref:`zephyr:counter_api`
+     - :zephyr:ref:`counter_api`
    * - Watchdog Timer (WDT)
      - :kconfig:option:`CONFIG_WATCHDOG`
      - :dtcompatible:`raspberrypi,pico-watchdog`
-     - :ref:`zephyr:watchdog_api`
+     - :zephyr:ref:`watchdog_api`
    * - Flash
      - :kconfig:option:`CONFIG_FLASH`
      - :dtcompatible:`raspberrypi,pico-flash-controller`
-     - :ref:`zephyr:flash_api` and
-       :ref:`zephyr:flash_map_api`
+     - :zephyr:ref:`flash_api` and
+       :zephyr:ref:`flash_map_api`
    * - PIO
      - :kconfig:option:`CONFIG_PIO_RPI_PICO`
      - :dtcompatible:`raspberrypi,pico-pio`
@@ -102,32 +102,32 @@ supports the following hardware features:
    * - SPI (PIO)
      - :kconfig:option:`CONFIG_SPI`
      - :dtcompatible:`raspberrypi,pico-spi-pio`
-     - :ref:`zephyr:spi_api`
+     - :zephyr:ref:`spi_api`
    * - DMA
      - :kconfig:option:`CONFIG_DMA`
      - :dtcompatible:`raspberrypi,pico-dma`
-     - :ref:`zephyr:dma_api`
+     - :zephyr:ref:`dma_api`
    * - CLOCK
      - :kconfig:option:`CONFIG_CLOCK_CONTROL`
      - | :dtcompatible:`raspberrypi,pico-clock-controller`
        | :dtcompatible:`raspberrypi,pico-clock`
-     - :ref:`zephyr:clock_control_api`
+     - :zephyr:ref:`clock_control_api`
    * - RESET
      - :kconfig:option:`CONFIG_RESET`
      - :dtcompatible:`raspberrypi,pico-reset`
-     - :ref:`zephyr:reset_api`
+     - :zephyr:ref:`reset_api`
    * - VREG
      - :kconfig:option:`CONFIG_REGULATOR`
      - :dtcompatible:`raspberrypi,core-supply-regulator`
-     - :ref:`zephyr:regulator_api`
+     - :zephyr:ref:`regulator_api`
    * - NVIC
      - N/A
      - :dtcompatible:`arm,v6m-nvic`
-     - Nested Vector :ref:`zephyr:interrupts_v2` Controller
+     - Nested Vector :zephyr:ref:`interrupts_v2` Controller
    * - HWINFO
      - :kconfig:option:`CONFIG_HWINFO`
      - N/A
-     - :ref:`zephyr:hwinfo_api`
+     - :zephyr:ref:`hwinfo_api`
 
 (!) Designware I2C driver has issues:
     The :emphasis:`Raspberry Pi Pico I2C driver` is using the
@@ -226,11 +226,11 @@ USB Device Port
 ===============
 
 The `RP2040 <RP2040 SoC_>`_ MCU has a (native) USB device port that can be
-used to communicate with a host PC. See the :ref:`zephyr:usb-samples` sample
-applications for more, such as the :zephyr:code-sample:`zephyr:usb-cdc-acm`
+used to communicate with a host PC. See the :zephyr:code-sample-category:`usb`
+sample applications for more, such as the :zephyr:code-sample:`usb-cdc-acm`
 sample which sets up a virtual serial port that echos characters back to the
 host PC. The |PicoBoy| provides the Zephyr console per default on the USB port
-as :ref:`zephyr:usb_device_cdc_acm`::
+as :zephyr:ref:`usb_device_cdc_acm`::
 
    USB device idVendor=2e8a, idProduct=000a, bcdDevice= 3.07
    USB device strings: Mfr=1, Product=2, SerialNumber=3
@@ -316,7 +316,7 @@ LED Blinky and Fade
 
 .. rubric:: Red User LED Blinky by GPIO
 
-See also Zephyr sample: :zephyr:code-sample:`zephyr:blinky`.
+See also Zephyr sample: :zephyr:code-sample:`blinky`.
 
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/blinky
@@ -328,7 +328,7 @@ See also Zephyr sample: :zephyr:code-sample:`zephyr:blinky`.
 
 .. rubric:: Red User LED Blinky by PWM
 
-See also Zephyr sample: :zephyr:code-sample:`zephyr:pwm-blinky`.
+See also Zephyr sample: :zephyr:code-sample:`pwm-blinky`.
 
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/blinky_pwm
@@ -340,7 +340,7 @@ See also Zephyr sample: :zephyr:code-sample:`zephyr:pwm-blinky`.
 
 .. rubric:: Red User LED Fade by PWM
 
-See also Zephyr sample: :zephyr:code-sample:`zephyr:fade-led`.
+See also Zephyr sample: :zephyr:code-sample:`fade-led`.
 
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/fade_led
@@ -352,7 +352,7 @@ See also Zephyr sample: :zephyr:code-sample:`zephyr:fade-led`.
 
 .. rubric:: Red User LED On/Off by GPIO Button (Joystick ENTER)
 
-See also Zephyr sample: :zephyr:code-sample:`zephyr:button`.
+See also Zephyr sample: :zephyr:code-sample:`button`.
 
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/button
@@ -381,15 +381,15 @@ Input dump on the USB-CDC/ACM Console
 =====================================
 
 Print the input events related to the five on-board joystick keys using
-the :ref:`Input subsystem API <zephyr:input>`. That are:
+the :zephyr:ref:`Input subsystem API <input>`. That are:
 
-| :hwftlbl-joy:`UP` : :devicetree:`zephyr,code = <INPUT_KEY_UP>;`
-| :hwftlbl-joy:`DOWN` : :devicetree:`zephyr,code = <INPUT_KEY_DOWN>;`
-| :hwftlbl-joy:`LEFT` : :devicetree:`zephyr,code = <INPUT_KEY_LEFT>;`
-| :hwftlbl-joy:`RIGHT` : :devicetree:`zephyr,code = <INPUT_KEY_RIGHT>;`
-| :hwftlbl-joy:`ENTER` : :devicetree:`zephyr,code = <INPUT_KEY_ENTER>;`
+| :hwftlbl-joy:`UP` : :dts:`zephyr,code = <INPUT_KEY_UP>;`
+| :hwftlbl-joy:`DOWN` : :dts:`zephyr,code = <INPUT_KEY_DOWN>;`
+| :hwftlbl-joy:`LEFT` : :dts:`zephyr,code = <INPUT_KEY_LEFT>;`
+| :hwftlbl-joy:`RIGHT` : :dts:`zephyr,code = <INPUT_KEY_RIGHT>;`
+| :hwftlbl-joy:`ENTER` : :dts:`zephyr,code = <INPUT_KEY_ENTER>;`
 
-See also Zephyr sample: :zephyr:code-sample:`zephyr:input-dump`.
+See also Zephyr sample: :zephyr:code-sample:`input-dump`.
 
 .. rubric:: Joystick Test
 
@@ -472,29 +472,29 @@ Display Test and Demonstration
 
 The following samples work with the chosen display. That is:
 
-| :hwftlbl-scr:`OLED` : :devicetree:`chosen { zephyr,display = &oled_panel; };`
-| :hwftlbl-scr:`SH1106` : :devicetree:`oled_panel: &sh1106_128x64 {};`
+| :hwftlbl-scr:`OLED` : :dts:`chosen { zephyr,display = &oled_panel; };`
+| :hwftlbl-scr:`SH1106` : :dts:`oled_panel: &sh1106_128x64 {};`
 
 .. rubric:: Devicetree compatible
 
 - :dtcompatible:`zephyr,lvgl-keypad-input` with devicetree relation
-  :devicetree:`lvgl_keypad: lvgl-keypad { input = <&gpio_keys>; };`
+  :dts:`lvgl_keypad: lvgl-keypad { input = <&gpio_keys>; };`
 
   | :hwftlbl-joy:`UP` :
-    :devicetree:`input-codes = <INPUT_KEY_UP>;` :
-    :devicetree:`lvgl-codes = <LV_KEY_UP>;`
+    :dts:`input-codes = <INPUT_KEY_UP>;` :
+    :dts:`lvgl-codes = <LV_KEY_UP>;`
   | :hwftlbl-joy:`DOWN` :
-    :devicetree:`input-codes = <INPUT_KEY_DOWN>;` :
-    :devicetree:`lvgl-codes = <LV_KEY_DOWN>;`
+    :dts:`input-codes = <INPUT_KEY_DOWN>;` :
+    :dts:`lvgl-codes = <LV_KEY_DOWN>;`
   | :hwftlbl-joy:`LEFT` :
-    :devicetree:`input-codes = <INPUT_KEY_LEFT>;` :
-    :devicetree:`lvgl-codes = <LV_KEY_LEFT>;`
+    :dts:`input-codes = <INPUT_KEY_LEFT>;` :
+    :dts:`lvgl-codes = <LV_KEY_LEFT>;`
   | :hwftlbl-joy:`RIGHT` :
-    :devicetree:`input-codes = <INPUT_KEY_RIGHT>;` :
-    :devicetree:`lvgl-codes = <LV_KEY_RIGHT>;`
+    :dts:`input-codes = <INPUT_KEY_RIGHT>;` :
+    :dts:`lvgl-codes = <LV_KEY_RIGHT>;`
   | :hwftlbl-joy:`ENTER` :
-    :devicetree:`input-codes = <INPUT_KEY_ENTER>;` :
-    :devicetree:`lvgl-codes = <LV_KEY_ENTER>;`
+    :dts:`input-codes = <INPUT_KEY_ENTER>;` :
+    :dts:`lvgl-codes = <LV_KEY_ENTER>;`
 
 .. rubric:: LCD Orientation and Bit Order Test
 
@@ -502,9 +502,9 @@ The following samples work with the chosen display. That is:
    :align: right
    :alt: PicoBoy Display Test
 
-Draw some basic rectangles onto the display using the :ref:`Display driver API
-<zephyr:display_api>`. See also Zephyr sample:
-:zephyr:code-sample:`zephyr:display`.
+Draw some basic rectangles onto the display using the
+:zephyr:ref:`Display driver API <display_api>`. See also Zephyr sample:
+:zephyr:code-sample:`display`.
 
 .. zephyr-app-commands::
    :app: zephyr/samples/drivers/display
@@ -517,9 +517,9 @@ Draw some basic rectangles onto the display using the :ref:`Display driver API
 .. rubric:: LVGL Basic Sample
 
 Displays “Hello World!” in the center of the screen and a counter at the bottom
-which increments every second using the LVGL module on top of the :ref:`Display
-driver API <zephyr:display_api>`. See also Zephyr sample:
-:zephyr:code-sample:`zephyr:lvgl`.
+which increments every second using the LVGL module on top of the
+:zephyr:ref:`Display driver API <display_api>`. See also Zephyr sample:
+:zephyr:code-sample:`lvgl`.
 
 .. zephyr-app-commands::
    :app: zephyr/samples/subsys/display/lvgl

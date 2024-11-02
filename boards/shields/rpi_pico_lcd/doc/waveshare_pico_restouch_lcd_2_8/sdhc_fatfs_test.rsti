@@ -2,15 +2,15 @@ The following samples work with the chosen SDHC interface in 1-bit
 mode and connected to SPI. That is:
 
 | :hwftlbl-spi:`SDHC` :
-  :devicetree:`&rpipico_spi_sdc { &sdhc_spi { compatible = "zephyr,sdhc-spi-slot"; }; };`
+  :dts:`&rpipico_spi_sdc { &sdhc_spi { compatible = "zephyr,sdhc-spi-slot"; }; };`
 | :hwftlbl-dsk:`TF/microSD` :
-  :devicetree:`&sdhc_spi { mmc { compatible = "zephyr,sdmmc-disk"; }; };`
+  :dts:`&sdhc_spi { mmc { compatible = "zephyr,sdmmc-disk"; }; };`
 
 .. rubric:: File system manipulation
 
-Using the :ref:`File Systems API <zephyr:file_system_api>` ontop of the
-:ref:`Disk Access API <zephyr:disk_access_api>` with chosen TF/microSD.
-See also Zephyr sample: :zephyr:code-sample:`zephyr:fs`.
+Using the :zephyr:ref:`File Systems API <file_system_api>` ontop of the
+:zephyr:ref:`Disk Access API <disk_access_api>` with chosen TF/microSD.
+See also Zephyr sample: :zephyr:code-sample:`fs`.
 
 .. tabs::
 
@@ -160,7 +160,7 @@ to re-format to FAT FS and list will run again to show them, e.g.:
    [FILE] SOME.DAT (size = 0)
    [DIR ] SOME
 
-.. tsn-include:: samples/subsys/fs/fs_sample/README.rst
+.. .. tsn-include:: samples/subsys/fs/fs_sample/README.rst
    :docset: zephyr
    :start-after: sample lists them out on the debug serial output.
    :end-before: Building and Running EXT2 samples

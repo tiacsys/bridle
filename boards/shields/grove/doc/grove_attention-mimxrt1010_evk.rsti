@@ -1,6 +1,6 @@
 .. attention::
 
-   On the :ref:`zephyr:mimxrt1010_evk`, **resistors R793, R795 and R800
+   On the |zephyr:board:mimxrt1010_evk|, **resistors R793, R795 and R800
    must be fitted** for proper use. The |Laced Grove Signal Interface|
    overwrites the default settings of the board on the Arduino UNO R3
    header and **completes the missing PAD assignments for the signal

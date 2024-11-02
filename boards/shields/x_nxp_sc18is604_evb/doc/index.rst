@@ -44,8 +44,8 @@ Arduino Uno (R3) headers
 The connector standard |Arduino UNO R3| can be used with a variety of
 development boards that provide it. Any of these boards must be added
 separately. For example, the file |nucleo_f746zg_overlay| exists for
-the :ref:`zephyr:nucleo_f746zg_board` and simply integrates the
-generally valid interface |arduino_to_nxp_sc18is604_evb_if|:
+the |zephyr:board:nucleo_f746zg| and simply integrates the generally
+valid interface |arduino_to_nxp_sc18is604_evb_if|:
 
 .. literalinclude:: ../boards/nucleo_f746zg.overlay
    :caption: nucleo_f746zg.overlay (as an example)

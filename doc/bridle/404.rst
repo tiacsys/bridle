@@ -6,7 +6,7 @@
 Sorry, Page not found
 #####################
 
-.. image:: /images/knot-simple.svg
+.. image:: images/knot-simple.svg
    :alt: knot in system
    :height: 50px
    :width: 60px

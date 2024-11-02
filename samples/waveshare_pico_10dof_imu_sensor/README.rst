@@ -48,7 +48,7 @@ This project outputs sensor data to the console. It requires a LPS22HB
 and a MPU-9250 sensor. It should work with any platform featuring
 a I2C peripheral interface. This example is usable with the Devicetree overlay
 that comes with the :ref:`waveshare_pico_10dof_imu_sensor` shield for the
-:ref:`zephyr:rpi_pico` board.
+|zephyr:board:rpi_pico| board.
 
 The following examples use the shield in revision 2.1. If these should be used
 for revision 1, the variable ``SHIELD`` must be adapted accordingly.

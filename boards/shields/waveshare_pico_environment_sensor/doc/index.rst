@@ -4,7 +4,7 @@ Waveshare Pico Environment Sensor
 #################################
 
 The `Waveshare Pico Environment Sensor`_ shield is a :bbk:`pico sized` multi
-sensor module designed for the :ref:`zephyr:rpi_pico` and gives the ability
+sensor module designed for the |zephyr:board:rpi_pico| and gives the ability
 to collect environmental data like temperature & humidity, air pressure,
 ambient light intensity, VOC, UV rays, etc. It can also be used to build
 a robot that can detect motion and orientation. It communicates with the
@@ -222,9 +222,9 @@ Utilization
 Sensing Subsystem
 =================
 
-The shield is ready for using with the Zephyr :ref:`zephyr:sensing`. The
+The shield is ready for using with the Zephyr :zephyr:ref:`sensing`. The
 interface is disabled for default and can be enabled by an application overlay
-:file:`app.overlay` (see :ref:`zephyr:application`).
+:file:`app.overlay` (see :zephyr:ref:`application`).
 
 .. list-table::
    :align: center
@@ -245,9 +245,9 @@ interface is disabled for default and can be enabled by an application overlay
           :start-at: wspes_sensing: wspes-sensing {
 
      - - for the interface:
-            :devicetree:`&wspes_sensing { status = "okay"; };`
+            :dts:`&wspes_sensing { status = "okay"; };`
        - for the accelerometer sensor:
-            :devicetree:`&wspes_accel { status = "okay"; };`
+            :dts:`&wspes_accel { status = "okay"; };`
 
 Programming
 ===========
@@ -333,9 +333,9 @@ More Samples
 BME280 Humidity and Pressure Sensor
 ===================================
 
-This sample shows how to use the :ref:`Sensors API <zephyr:sensor>` driver
+This sample shows how to use the :zephyr:ref:`Sensors API <sensor>` driver
 for the Bosch BME280 environmental sensor. See also Zephyr sample:
-:ref:`zephyr:bme280` and :ref:`snippet-samples-sensor-bme280-tweaks`.
+:zephyr:code-sample:`bme280` and :ref:`snippet-samples-sensor-bme280-tweaks`.
 
 .. zephyr-app-commands::
    :app: zephyr/samples/sensor/bme280

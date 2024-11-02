@@ -9,7 +9,7 @@ Overview
 ********
 
 This is a sample app which drives a buzzer or speaker using the
-:ref:`PWM API <zephyr:pwm_api>`.
+:zephyr:ref:`PWM API <pwm_api>`.
 
 The sample plays a short beep with 1108.73 ㎐ (music note `D♭₆`_) for the
 time of a ⅛ `music note`_ at boot time and offers the special shell command

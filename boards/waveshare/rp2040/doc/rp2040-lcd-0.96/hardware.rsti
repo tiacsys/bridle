@@ -3,7 +3,7 @@ The on-board USB-C connector makes it compatible to future standards.
 It comes with an on-board 0.96-inch IPS display, a Lithium battery
 charger and higher current high-efficiency DC-DC buck-boost converter.
 The :bbl:`edge pin layout is compatible` to the original
-:ref:`zephyr:rpi_pico`.
+|zephyr:board:rpi_pico|.
 
 .. list-table::
    :align: center

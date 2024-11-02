@@ -17,18 +17,18 @@ NXP SC18IS604-EVB
 :hwftlbl-btn:`1 (RESET)`
 
 The NXP_ `SC18IS604-EVB`_ is an evaluation kit for the SC18IS604_ chip, an
-:ref:`SPI <zephyr:spi_api>` to :ref:`I2C <zephyr:i2c_api>` bus bridge with
-an integrated :ref:`GPIO <zephyr:gpio_api>` controller. Apart from the bridge
+:zephyr:ref:`SPI <spi_api>` to :zephyr:ref:`I2C <i2c_api>` bus bridge with
+an integrated :zephyr:ref:`GPIO <gpio_api>` controller. Apart from the bridge
 it features:
 
-- 5 LED connected to the :ref:`GPIO <zephyr:gpio_api>` pins
-- 1 PCA9533_, an 4-bit :ref:`PWM <zephyr:pwm_api>` controller connected to the
-  outgoing :ref:`I2C <zephyr:i2c_api>` bus which controls:
+- 5 LED connected to the :zephyr:ref:`GPIO <gpio_api>` pins
+- 1 PCA9533_, an 4-bit :zephyr:ref:`PWM <pwm_api>` controller connected to the
+  outgoing :zephyr:ref:`I2C <i2c_api>` bus which controls:
 
   - 4 additional dimmable LEDs
 
 - 1 24LC02B_ 256×8-bit EEPROM, also connected to the outgoing
-  :ref:`I2C <zephyr:i2c_api>` bus
+  :zephyr:ref:`I2C <i2c_api>` bus
 
 .. note::
 
@@ -87,8 +87,8 @@ another) connector shield, include it in the shield list for your build:
    :goals: build
    :compact:
 
-Hello Shell on :ref:`zephyr:nucleo_f746zg_board`
-------------------------------------------------
+Hello Shell on |zephyr:board:nucleo_f746zg|
+-------------------------------------------
 
 .. include:: helloshell.rsti
 

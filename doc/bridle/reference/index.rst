@@ -3,15 +3,15 @@
 API Reference
 #############
 
-* Zephyr :ref:`zephyr:api_overview` and :ref:`zephyr:api_terms`:
+Zephyr :external+zephyr:ref:`api_overview` and :external+zephyr:ref:`api_terms`:
 
-  * :ref:`zephyr:api_term_reschedule`
-  * :ref:`zephyr:api_term_sleep`
-  * :ref:`zephyr:api_term_no-wait`
-  * :ref:`zephyr:api_term_isr-ok`
-  * :ref:`zephyr:api_term_pre-kernel-ok`
-  * :ref:`zephyr:api_term_async`
-  * :ref:`zephyr:api_term_supervisor`
+   * :external+zephyr:ref:`api_term_reschedule`
+   * :external+zephyr:ref:`api_term_sleep`
+   * :external+zephyr:ref:`api_term_no-wait`
+   * :external+zephyr:ref:`api_term_isr-ok`
+   * :external+zephyr:ref:`api_term_pre-kernel-ok`
+   * :external+zephyr:ref:`api_term_async`
+   * :external+zephyr:ref:`api_term_supervisor`
 
 .. toctree::
    :maxdepth: 1

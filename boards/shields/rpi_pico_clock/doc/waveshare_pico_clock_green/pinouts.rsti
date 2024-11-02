@@ -129,15 +129,15 @@
 
        |nbsp|
 
-       :devicetree:`sipo_mux_gp: sipo-mux-gp@0 {};`
+       :dts:`sipo_mux_gp: sipo-mux-gp@0 {};`
 
           .. rst-class:: rst-columns
 
-          - :devicetree:`compatible = "sipo-mux-gp-spi";`
-          - :devicetree:`data-width = <24>;`
-          - :devicetree:`shift-width = <32>;`
-          - :devicetree:`refresh-time-us = <500>;`
-          - :devicetree:`spi-max-frequency = <DT_FREQ_M(30)>;`
+          - :dts:`compatible = "sipo-mux-gp-spi";`
+          - :dts:`data-width = <24>;`
+          - :dts:`shift-width = <32>;`
+          - :dts:`refresh-time-us = <500>;`
+          - :dts:`spi-max-frequency = <DT_FREQ_M(30)>;`
 
 
 
@@ -145,13 +145,13 @@
 
        |nbsp|
 
-       :devicetree:`sipo_mux_gpio_0: sipo-mux-gpio@0 {};`
+       :dts:`sipo_mux_gpio_0: sipo-mux-gpio@0 {};`
 
           .. rst-class:: rst-columns
 
-          - :devicetree:`compatible = "sipo-mux-gpio";`
-          - :devicetree:`offset = <0>;`
-          - :devicetree:`ngpios = <24>;`
+          - :dts:`compatible = "sipo-mux-gpio";`
+          - :dts:`offset = <0>;`
+          - :dts:`ngpios = <24>;`
 
        :rpi-pico-pio:`sipo-mux-gpio@0`
 
@@ -166,32 +166,32 @@
           - :hwftlbl:`TUE0` : :rpi-pico-pio:`6` :hwftlbl-led:`led4`
           - :hwftlbl:`TUE1` : :rpi-pico-pio:`7` :hwftlbl-led:`led5`
           - | |nbsp|
-            | :devicetree:`gpio-reserved-ranges = <8  1>;`
+            | :dts:`gpio-reserved-ranges = <8  1>;`
             | |nbsp|
           - :hwftlbl:`WED0` : :rpi-pico-pio:`9` :hwftlbl-led:`led6`
           - :hwftlbl:`WED1` : :rpi-pico-pio:`10` :hwftlbl-led:`led7`
           - | |nbsp|
-            | :devicetree:`gpio-reserved-ranges = <11  1>;`
+            | :dts:`gpio-reserved-ranges = <11  1>;`
             | |nbsp|
           - :hwftlbl:`THU0` : :rpi-pico-pio:`12` :hwftlbl-led:`led8`
           - :hwftlbl:`THU1` : :rpi-pico-pio:`13` :hwftlbl-led:`led9`
           - | |nbsp|
-            | :devicetree:`gpio-reserved-ranges = <14  1>;`
+            | :dts:`gpio-reserved-ranges = <14  1>;`
             | |nbsp|
           - :hwftlbl:`FRI0` : :rpi-pico-pio:`15` :hwftlbl-led:`led10`
           - :hwftlbl:`FRI1` : :rpi-pico-pio:`16` :hwftlbl-led:`led11`
           - | |nbsp|
-            | :devicetree:`gpio-reserved-ranges = <17  1>;`
+            | :dts:`gpio-reserved-ranges = <17  1>;`
             | |nbsp|
           - :hwftlbl:`SAT0` : :rpi-pico-pio:`18` :hwftlbl-led:`led12`
           - :hwftlbl:`SAT1` : :rpi-pico-pio:`19` :hwftlbl-led:`led13`
           - | |nbsp|
-            | :devicetree:`gpio-reserved-ranges = <20  1>;`
+            | :dts:`gpio-reserved-ranges = <20  1>;`
             | |nbsp|
           - :hwftlbl:`SUN0` : :rpi-pico-pio:`21` :hwftlbl-led:`led14`
           - :hwftlbl:`SUN1` : :rpi-pico-pio:`22` :hwftlbl-led:`led15`
           - | |nbsp|
-            | :devicetree:`gpio-reserved-ranges = <23  1>;`
+            | :dts:`gpio-reserved-ranges = <23  1>;`
             | |nbsp|
 
        Access to the two white signaling LED :hwftlbl-led:`Sign 0` and
@@ -256,13 +256,13 @@
 
        |nbsp|
 
-       :devicetree:`sipo_mux_gpio_1: sipo-mux-gpio@1 {};`
+       :dts:`sipo_mux_gpio_1: sipo-mux-gpio@1 {};`
 
           .. rst-class:: rst-columns
 
-          - :devicetree:`compatible = "sipo-mux-gpio";`
-          - :devicetree:`offset = <24>;`
-          - :devicetree:`ngpios = <24>;`
+          - :dts:`compatible = "sipo-mux-gpio";`
+          - :dts:`offset = <24>;`
+          - :dts:`ngpios = <24>;`
 
        :rpi-pico-pio:`sipo-mux-gpio@1`
 
@@ -329,13 +329,13 @@
 
        |nbsp|
 
-       :devicetree:`sipo_mux_gpio_2: sipo-mux-gpio@2 {};`
+       :dts:`sipo_mux_gpio_2: sipo-mux-gpio@2 {};`
 
           .. rst-class:: rst-columns
 
-          - :devicetree:`compatible = "sipo-mux-gpio";`
-          - :devicetree:`offset = <48>;`
-          - :devicetree:`ngpios = <24>;`
+          - :dts:`compatible = "sipo-mux-gpio";`
+          - :dts:`offset = <48>;`
+          - :dts:`ngpios = <24>;`
 
        :rpi-pico-pio:`sipo-mux-gpio@2`
 
@@ -402,13 +402,13 @@
 
        |nbsp|
 
-       :devicetree:`sipo_mux_gpio_3: sipo-mux-gpio@3 {};`
+       :dts:`sipo_mux_gpio_3: sipo-mux-gpio@3 {};`
 
           .. rst-class:: rst-columns
 
-          - :devicetree:`compatible = "sipo-mux-gpio";`
-          - :devicetree:`offset = <72>;`
-          - :devicetree:`ngpios = <24>;`
+          - :dts:`compatible = "sipo-mux-gpio";`
+          - :dts:`offset = <72>;`
+          - :dts:`ngpios = <24>;`
 
        :rpi-pico-pio:`sipo-mux-gpio@3`
 
@@ -475,13 +475,13 @@
 
        |nbsp|
 
-       :devicetree:`sipo_mux_gpio_4: sipo-mux-gpio@4 {};`
+       :dts:`sipo_mux_gpio_4: sipo-mux-gpio@4 {};`
 
           .. rst-class:: rst-columns
 
-          - :devicetree:`compatible = "sipo-mux-gpio";`
-          - :devicetree:`offset = <96>;`
-          - :devicetree:`ngpios = <24>;`
+          - :dts:`compatible = "sipo-mux-gpio";`
+          - :dts:`offset = <96>;`
+          - :dts:`ngpios = <24>;`
 
        :rpi-pico-pio:`sipo-mux-gpio@4`
 
@@ -548,13 +548,13 @@
 
        |nbsp|
 
-       :devicetree:`sipo_mux_gpio_5: sipo-mux-gpio@5 {};`
+       :dts:`sipo_mux_gpio_5: sipo-mux-gpio@5 {};`
 
           .. rst-class:: rst-columns
 
-          - :devicetree:`compatible = "sipo-mux-gpio";`
-          - :devicetree:`offset = <120>;`
-          - :devicetree:`ngpios = <24>;`
+          - :dts:`compatible = "sipo-mux-gpio";`
+          - :dts:`offset = <120>;`
+          - :dts:`ngpios = <24>;`
 
        :rpi-pico-pio:`sipo-mux-gpio@5`
 
@@ -621,13 +621,13 @@
 
        |nbsp|
 
-       :devicetree:`sipo_mux_gpio_6: sipo-mux-gpio@6 {};`
+       :dts:`sipo_mux_gpio_6: sipo-mux-gpio@6 {};`
 
           .. rst-class:: rst-columns
 
-          - :devicetree:`compatible = "sipo-mux-gpio";`
-          - :devicetree:`offset = <144>;`
-          - :devicetree:`ngpios = <24>;`
+          - :dts:`compatible = "sipo-mux-gpio";`
+          - :dts:`offset = <144>;`
+          - :dts:`ngpios = <24>;`
 
        :rpi-pico-pio:`sipo-mux-gpio@6`
 
@@ -694,13 +694,13 @@
 
        |nbsp|
 
-       :devicetree:`sipo_mux_gpio_7: sipo-mux-gpio@7 {};`
+       :dts:`sipo_mux_gpio_7: sipo-mux-gpio@7 {};`
 
           .. rst-class:: rst-columns
 
-          - :devicetree:`compatible = "sipo-mux-gpio";`
-          - :devicetree:`offset = <168>;`
-          - :devicetree:`ngpios = <24>;`
+          - :dts:`compatible = "sipo-mux-gpio";`
+          - :dts:`offset = <168>;`
+          - :dts:`ngpios = <24>;`
 
        :rpi-pico-pio:`sipo-mux-gpio@7`
 
@@ -772,14 +772,14 @@
 
        |nbsp|
 
-       :devicetree:`sipo_mux_display_8: sipo-mux-display@8 {};`
+       :dts:`sipo_mux_display_8: sipo-mux-display@8 {};`
 
           .. rst-class:: rst-columns
 
-          - :devicetree:`compatible = "sipo-mux-display";`
-          - :devicetree:`offset = <2 1>;`
-          - :devicetree:`height = <7>;`
-          - :devicetree:`width = <22>;`
+          - :dts:`compatible = "sipo-mux-display";`
+          - :dts:`offset = <2 1>;`
+          - :dts:`height = <7>;`
+          - :dts:`width = <22>;`
 
        .. rubric:: Devicetree compatible
 

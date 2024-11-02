@@ -22,48 +22,60 @@ Boards included in tiac-zephyr
 ==============================
 
 The following boards are defined in the :file:`zephyr/boards/` folder.
-Also see the :ref:`zephyr:boards` section in the |ZEPHYR| documentation.
+Also see the |zephyr:boards| section in the |ZEPHYR| documentation.
+Bridle provides some standard board extensions. For more details, see
+the :ref:`boards-extensions` section in this documentation.
 
-+-------------------+-----------------------------------+-----------------------------------+
-| Hardware platform | Board name                        | Build target                      |
-+===================+===================================+===================================+
-| Native            | :ref:`zephyr:native_posix`        | ``native_posix``                  |
-+-------------------+-----------------------------------+-----------------------------------+
-| Emulator          | :ref:`zephyr:qemu_x86`            | ``qemu_x86``                      |
-|                   +-----------------------------------+-----------------------------------+
-|                   | :ref:`zephyr:qemu_cortex_m3`      | ``qemu_cortex_m3``                |
-+-------------------+-----------------------------------+-----------------------------------+
-| ATSAMD21G18A      | :ref:`zephyr:arduino_zero`        | ``arduino_zero``                  |
-|                   +-----------------------------------+-----------------------------------+
-|                   | :ref:`zephyr:seeeduino_xiao`      | ``seeeduino_xiao``                |
-+-------------------+-----------------------------------+-----------------------------------+
-| i.MX RT1010       | :ref:`zephyr:mimxrt1010_evk`      | ``mimxrt1010_evk``                |
-+-------------------+-----------------------------------+-----------------------------------+
-| i.MX RT1060       | :ref:`zephyr:mimxrt1060_evk`      | | ``mimxrt1060_evk``              |
-|                   |                                   | | ``mimxrt1060_evkb``             |
-+-------------------+-----------------------------------+-----------------------------------+
-| i.MX RT1170 (CM7) | :ref:`zephyr:mimxrt1170_evk`      | ``mimxrt1170_evk/mimxrt1176/cm7`` |
-+-------------------+-----------------------------------+-----------------------------------+
-| nRF52840          | :ref:`zephyr:nrf52840dk_nrf52840` | ``nrf52840dk/nrf52840``           |
-+-------------------+-----------------------------------+-----------------------------------+
-| nRF9160           | :ref:`zephyr:nrf9160dk_nrf9160`   | | ``nrf9160dk/nrf9160``           |
-|                   |                                   | | ``nrf9160dk/nrf9160/ns``        |
-+-------------------+-----------------------------------+-----------------------------------+
-| RP2040            | :ref:`zephyr:rpi_pico`            | | ``rpi_pico``                    |
-|                   |                                   | | ``rpi_pico/rp2040/w``           |
-+-------------------+-----------------------------------+-----------------------------------+
-| STM32F303RE       | :ref:`zephyr:nucleo_f303re_board` | ``nucleo_f303re``                 |
-+-------------------+-----------------------------------+-----------------------------------+
-| STM32F401RE       | :ref:`zephyr:nucleo_f401re_board` | ``nucleo_f401re``                 |
-+-------------------+-----------------------------------+-----------------------------------+
-| STM32F413ZH       | :ref:`zephyr:nucleo_f413zh_board` | ``nucleo_f413zh``                 |
-+-------------------+-----------------------------------+-----------------------------------+
-| STM32F746ZG       | :ref:`zephyr:nucleo_f746zg_board` | ``nucleo_f746zg``                 |
-+-------------------+-----------------------------------+-----------------------------------+
-| STM32F767ZI       | :ref:`zephyr:nucleo_f767zi_board` | ``nucleo_f767zi``                 |
-+-------------------+-----------------------------------+-----------------------------------+
-| STM32L496ZG       | :ref:`zephyr:nucleo_l496zg_board` | ``nucleo_l496zg``                 |
-+-------------------+-----------------------------------+-----------------------------------+
++-------------------+------------------------------------+---------------------------------------+
+| Hardware platform | Board name                         | Build target                          |
++===================+====================================+=======================================+
+| Native            | |zephyr:board:native_posix|        | | ``native_posix``                    |
+|                   |                                    | | ``native_posix/native/64``          |
+|                   +------------------------------------+---------------------------------------+
+|                   | |zephyr:board:native_sim|          | | ``native_sim``                      |
+|                   |                                    | | ``native_sim/native/64``            |
++-------------------+------------------------------------+---------------------------------------+
+| Emulator          | |zephyr:board:qemu_x86|            | | ``qemu_x86``                        |
+|                   |                                    | | ``qemu_x86_64``                     |
+|                   +------------------------------------+---------------------------------------+
+|                   | |zephyr:board:qemu_cortex_m3|      | ``qemu_cortex_m3``                    |
++-------------------+------------------------------------+---------------------------------------+
+| ATSAMD21G18A      | |zephyr:board:arduino_zero|        | ``arduino_zero``                      |
+|                   +------------------------------------+---------------------------------------+
+|                   | |zephyr:board:seeeduino_xiao|      | ``seeeduino_xiao``                    |
++-------------------+------------------------------------+---------------------------------------+
+| i.MX RT1010       | |zephyr:board:mimxrt1010_evk|      | ``mimxrt1010_evk``                    |
++-------------------+------------------------------------+---------------------------------------+
+| i.MX RT1060       | |zephyr:board:mimxrt1060_evk|      | | ``mimxrt1060_evk``                  |
+|                   |                                    | | ``mimxrt1060_evkb``                 |
++-------------------+------------------------------------+---------------------------------------+
+| i.MX RT1170 (CM7) | |zephyr:board:mimxrt1170_evk|      | | ``mimxrt1170_evk/mimxrt1176/cm4``   |
+|                   |                                    | | ``mimxrt1170_evk/mimxrt1176/cm7``   |
+|                   |                                    | | ``mimxrt1170_evk@B/mimxrt1176/cm4`` |
+|                   |                                    | | ``mimxrt1170_evk@B/mimxrt1176/cm7`` |
++-------------------+------------------------------------+---------------------------------------+
+| nRF52840          | |zephyr:board:nrf52840dk_nrf52840| | ``nrf52840dk/nrf52840``               |
+|                   +------------------------------------+---------------------------------------+
+|                   | |zephyr:board:nrf9160dk_nrf52840|  | ``nrf9160dk/nrf52840``                |
++-------------------+------------------------------------+---------------------------------------+
+| nRF9160           | |zephyr:board:nrf9160dk_nrf9160|   | | ``nrf9160dk/nrf9160``               |
+|                   |                                    | | ``nrf9160dk/nrf9160/ns``            |
++-------------------+------------------------------------+---------------------------------------+
+| RP2040            | |zephyr:board:rpi_pico|            | | ``rpi_pico``                        |
+|                   |                                    | | ``rpi_pico/rp2040/w``               |
++-------------------+------------------------------------+---------------------------------------+
+| STM32F303RE       | |zephyr:board:nucleo_f303re|       | ``nucleo_f303re``                     |
++-------------------+------------------------------------+---------------------------------------+
+| STM32F401RE       | |zephyr:board:nucleo_f401re|       | ``nucleo_f401re``                     |
++-------------------+------------------------------------+---------------------------------------+
+| STM32F413ZH       | |zephyr:board:nucleo_f413zh|       | ``nucleo_f413zh``                     |
++-------------------+------------------------------------+---------------------------------------+
+| STM32F746ZG       | |zephyr:board:nucleo_f746zg|       | ``nucleo_f746zg``                     |
++-------------------+------------------------------------+---------------------------------------+
+| STM32F767ZI       | |zephyr:board:nucleo_f767zi|       | ``nucleo_f767zi``                     |
++-------------------+------------------------------------+---------------------------------------+
+| STM32L496ZG       | |zephyr:board:nucleo_l496zg|       | ``nucleo_l496zg``                     |
++-------------------+------------------------------------+---------------------------------------+
 
 
 Boards included in tiac-bridle
@@ -72,34 +84,34 @@ Boards included in tiac-bridle
 The following boards are defined in the :file:`bridle/boards/` folder.
 Also see the :ref:`boards` section in this documentation.
 
-+-------------------+----------------------------+----------------------------------+
-| Hardware platform | Board name                 | Build target                     |
-+===================+============================+==================================+
-| ATSAMD21G18A      | :ref:`arduino_zero`        | ``arduino_zero``                 |
-|                   +----------------------------+----------------------------------+
-|                   | :ref:`xiao_samd21`         | ``xiao_samd21``                  |
-|                   +----------------------------+----------------------------------+
-|                   | :ref:`seeeduino_cm0`       | ``seeeduino_cm0``                |
-|                   +----------------------------+----------------------------------+
-|                   | :ref:`seeeduino_lotus`     | ``seeeduino_lotus``              |
-+-------------------+----------------------------+----------------------------------+
-| RP2040            | :ref:`cytron_maker_rp2040` | | ``cytron_maker_nano_rp2040``   |
-|                   |                            | | ``cytron_maker_pi_rp2040``     |
-|                   +----------------------------+----------------------------------+
-|                   | :ref:`picoboy_board`       | ``picoboy``                      |
-|                   +----------------------------+----------------------------------+
-|                   | :ref:`waveshare_rp2040`    | | ``waveshare_rp2040_one``       |
-|                   |                            | | ``waveshare_rp2040_zero``      |
-|                   |                            | | ``waveshare_rp2040_matrix``    |
-|                   |                            | | ``waveshare_rp2040_tiny``      |
-|                   |                            | | ``waveshare_rp2040_eth``       |
-|                   |                            | | ``waveshare_rp2040_lcd_0_96``  |
-|                   |                            | | ``waveshare_rp2040_plus``      |
-|                   |                            | | ``waveshare_rp2040_plus@16mb`` |
-|                   |                            | | ``waveshare_rp2040_geek``      |
-+-------------------+----------------------------+----------------------------------+
-| STM32F777NI       | :ref:`magpie_f777ni_board` | ``magpie_f777ni``                |
-+-------------------+----------------------------+----------------------------------+
++-------------------+------------------------------------+----------------------------------+
+| Hardware platform | Board name                         | Build target                     |
++===================+====================================+==================================+
+| ATSAMD21G18A      | |bridle:board:arduino_zero|        | ``arduino_zero``                 |
+|                   +------------------------------------+----------------------------------+
+|                   | |bridle:board:xiao_samd21|         | ``xiao_samd21``                  |
+|                   +------------------------------------+----------------------------------+
+|                   | |bridle:board:seeeduino_cm0|       | ``seeeduino_cm0``                |
+|                   +------------------------------------+----------------------------------+
+|                   | |bridle:board:seeeduino_lotus|     | ``seeeduino_lotus``              |
++-------------------+------------------------------------+----------------------------------+
+| RP2040            | |bridle:board:cytron_maker_rp2040| | | ``cytron_maker_nano_rp2040``   |
+|                   |                                    | | ``cytron_maker_pi_rp2040``     |
+|                   +------------------------------------+----------------------------------+
+|                   | |bridle:board:picoboy|             | ``picoboy``                      |
+|                   +------------------------------------+----------------------------------+
+|                   | |bridle:board:waveshare_rp2040|    | | ``waveshare_rp2040_one``       |
+|                   |                                    | | ``waveshare_rp2040_zero``      |
+|                   |                                    | | ``waveshare_rp2040_matrix``    |
+|                   |                                    | | ``waveshare_rp2040_tiny``      |
+|                   |                                    | | ``waveshare_rp2040_eth``       |
+|                   |                                    | | ``waveshare_rp2040_lcd_0_96``  |
+|                   |                                    | | ``waveshare_rp2040_plus``      |
+|                   |                                    | | ``waveshare_rp2040_plus@16mb`` |
+|                   |                                    | | ``waveshare_rp2040_geek``      |
++-------------------+------------------------------------+----------------------------------+
+| STM32F777NI       | |bridle:board:magpie_f777ni|       | ``magpie_f777ni``                |
++-------------------+------------------------------------+----------------------------------+
 
 
 Shield names
@@ -112,6 +124,7 @@ Shields included in tiac-bridle
 ===============================
 
 The following shields are defined in the :file:`bridle/boards/shields/` folder.
+Also see the :ref:`boards-shields` section in this documentation.
 
 +------------------------------------------+-------------------------------------+----------------------------------------+
 | Hardware platform                        | Shield name                         | Build target                           |
@@ -250,13 +263,13 @@ are typically custom designs and not available publicly. To define your
 own board or shield, you can use the following |ZEPHYR| guides as reference,
 since boards are defined in |BRIDLE| just as they are in the |ZEPHYR|:
 
-* :ref:`zephyr:custom_board_definition`
+* :zephyr:ref:`custom_board_definition`
   is a guide to adding your own custom board to the Zephyr build system.
-* :ref:`zephyr:shields`
+* :zephyr:ref:`shields`
   is a complete guide to integrate your own modules as shields.
-* :ref:`zephyr:board_porting_guide`
+* :zephyr:ref:`board_porting_guide`
   is a complete guide to porting Zephyr to your own board.
-* :ref:`zephyr:soc_porting_guide`
+* :zephyr:ref:`soc_porting_guide`
   is a complete guide to porting Zephyr to your own SoC.
-* :ref:`zephyr:architecture_porting_guide`
+* :zephyr:ref:`architecture_porting_guide`
   is a complete guide to porting Zephyr to your own architecture.

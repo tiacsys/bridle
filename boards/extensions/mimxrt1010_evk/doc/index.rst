@@ -7,7 +7,7 @@ Overview
 ********
 
 This is a set of Bridle's extension to the original Zephyr upstream board
-:ref:`zephyr:mimxrt1010_evk` with some adaptions and improvement on
+|zephyr:board:mimxrt1010_evk| with some adaptions and improvement on
 Kconfig and Devicetree level.
 
 List of extensions
@@ -18,8 +18,8 @@ List of extensions
 - :bbl:`activate` self powered USB explicitly and set the maximum of
   electrical current consumption to :bbl:`0㎃`:
 
-  - :kconfig:option:`CONFIG_USB_SELF_POWERED`
-  - :kconfig:option:`CONFIG_USB_MAX_POWER`
+  - |CONFIG_USB_SELF_POWERED|
+  - |CONFIG_USB_MAX_POWER|
 
   .. list-table::
      :align: left
@@ -40,12 +40,12 @@ List of extensions
   native USB device port :dtcompatible:`nxp,ehci` with CDC-ACM UART
   :dtcompatible:`zephyr,cdc-acm-uart` as Zephyr console:
 
-  - :kconfig:option:`CONFIG_USB_CDC_ACM_LOG_LEVEL_CHOICE` :=
-    :kconfig:option:`CONFIG_USB_CDC_ACM_LOG_LEVEL_OFF`
-  - :kconfig:option:`CONFIG_USB_DEVICE_LOG_LEVEL_CHOICE` :=
-    :kconfig:option:`CONFIG_USB_DEVICE_LOG_LEVEL_ERR`
-  - :kconfig:option:`CONFIG_LOG_PROCESS_THREAD_STARTUP_DELAY_MS`
-  - :kconfig:option:`CONFIG_BOOT_DELAY`
+  - |CONFIG_USB_CDC_ACM_LOG_LEVEL_CHOICE| :=
+    |CONFIG_USB_CDC_ACM_LOG_LEVEL_OFF|
+  - |CONFIG_USB_DEVICE_LOG_LEVEL_CHOICE| :=
+    |CONFIG_USB_DEVICE_LOG_LEVEL_ERR|
+  - |CONFIG_LOG_PROCESS_THREAD_STARTUP_DELAY_MS|
+  - |CONFIG_BOOT_DELAY|
 
   .. list-table::
      :align: left
@@ -83,8 +83,7 @@ List of extensions
             :append: };
 
 - overwrite the Arduino UNO R3 specific edge connecor binding
-  :devicetree:`&arduino_header {...};` with additional closed
-  connections:
+  :dts:`&arduino_header {...};` with additional closed connections:
 
   .. list-table::
      :align: left
@@ -103,7 +102,7 @@ List of extensions
 
   .. note::
 
-     On :ref:`zephyr:mimxrt1010_evk` pin D4 (GPIO), D5 (GPIO/PWM), and
+     On |zephyr:board:mimxrt1010_evk| pin D4 (GPIO), D5 (GPIO/PWM), and
      D9 (GPIO/PWM) are disconnected in default and can be closed optionally.
      With this GPIO map overwrites the resistors R793, R795 and R800 must be
      fitted for proper use. But keep in mind that the signals are already
@@ -128,10 +127,10 @@ List of extensions
             :end-at: };
 
 - add a :dtcompatible:`zephyr,flash-disk` node linked to the
-  :devicetree:`partition = <&storage_partition>;` with the hard defined
-  mass storage disk name :devicetree:`disk-name = "NAND";` – also set
-  the mass storage disk name hard on Kconfig level by a new board config
-  file with :kconfig:option:`CONFIG_MASS_STORAGE_DISK_NAME`:
+  :dts:`partition = <&storage_partition>;` with the hard defined
+  mass storage disk name :dts:`disk-name = "NAND";` – also set
+  the mass storage disk name hard on Kconfig level by a new board
+  config file with |CONFIG_MASS_STORAGE_DISK_NAME|:
 
   .. list-table::
      :align: left

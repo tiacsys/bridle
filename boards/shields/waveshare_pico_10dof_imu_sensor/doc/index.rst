@@ -4,7 +4,7 @@ Waveshare Pico 10-DOF IMU Sensor
 #################################
 
 The `Waveshare Pico 10-DOF IMU Sensor`_ shield is a :bbk:`pico sized` multi
-sensor module designed for the :ref:`zephyr:rpi_pico` and gives the ability
+sensor module designed for the |zephyr:board:rpi_pico| and gives the ability
 to collect environmental data like temperature and air pressure. It can also
 be used to build a robot that can detect motion and orientation.
 It communicates with the Raspberry Pi Pico over I2C.
@@ -226,9 +226,9 @@ Utilization
 Sensing Subsystem
 =================
 
-The shield is ready for using with the Zephyr :ref:`zephyr:sensing`. The
+The shield is ready for using with the Zephyr :zephyr:ref:`sensing`. The
 interface is disabled for default and can be enabled by an application overlay
-:file:`app.overlay` (see :ref:`zephyr:application`).
+:file:`app.overlay` (see :zephyr:ref:`application`).
 
 .. list-table::
    :align: center
@@ -249,9 +249,9 @@ interface is disabled for default and can be enabled by an application overlay
           :start-at: wsptdis_sensing: wsptdis-sensing {
 
      - - for the interface:
-            :devicetree:`&wsptdis_sensing { status = "okay"; };`
+            :dts:`&wsptdis_sensing { status = "okay"; };`
        - for the accelerometer sensor:
-            :devicetree:`&wsptdis_accel { status = "okay"; };`
+            :dts:`&wsptdis_accel { status = "okay"; };`
 
 Programming
 ===========
@@ -446,9 +446,9 @@ More Samples
 LPS22HB Pressure and Temperature Sensor
 =======================================
 
-This sample shows how to use the :ref:`Sensors API <zephyr:sensor>` driver
+This sample shows how to use the :zephyr:ref:`Sensors API <sensor>` driver
 for the STM LPS22HB MEMS pressure sensor. See also Zephyr sample:
-:ref:`zephyr:lps22hb`.
+:zephyr:code-sample:`lps22hb`.
 
 .. tabs::
 

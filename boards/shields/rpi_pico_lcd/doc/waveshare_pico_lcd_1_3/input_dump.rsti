@@ -1,16 +1,16 @@
 Print the input events related to the five on-shield joystick keys
-and four user keys using the :ref:`Input subsystem API <zephyr:input>`.
+and four user keys using the :zephyr:ref:`Input subsystem API <input>`.
 That are:
 
-| :hwftlbl-btn:`A` : :devicetree:`zephyr,code = <INPUT_KEY_A>;`
-| :hwftlbl-btn:`B` : :devicetree:`zephyr,code = <INPUT_KEY_B>;`
-| :hwftlbl-btn:`X` : :devicetree:`zephyr,code = <INPUT_KEY_X>;`
-| :hwftlbl-btn:`Y` : :devicetree:`zephyr,code = <INPUT_KEY_Y>;`
-| :hwftlbl-joy:`UP` : :devicetree:`zephyr,code = <INPUT_KEY_UP>;`
-| :hwftlbl-joy:`DOWN` : :devicetree:`zephyr,code = <INPUT_KEY_DOWN>;`
-| :hwftlbl-joy:`LEFT` : :devicetree:`zephyr,code = <INPUT_KEY_LEFT>;`
-| :hwftlbl-joy:`RIGHT` : :devicetree:`zephyr,code = <INPUT_KEY_RIGHT>;`
-| :hwftlbl-joy:`ENTER` : :devicetree:`zephyr,code = <INPUT_KEY_ENTER>;`
+| :hwftlbl-btn:`A` : :dts:`zephyr,code = <INPUT_KEY_A>;`
+| :hwftlbl-btn:`B` : :dts:`zephyr,code = <INPUT_KEY_B>;`
+| :hwftlbl-btn:`X` : :dts:`zephyr,code = <INPUT_KEY_X>;`
+| :hwftlbl-btn:`Y` : :dts:`zephyr,code = <INPUT_KEY_Y>;`
+| :hwftlbl-joy:`UP` : :dts:`zephyr,code = <INPUT_KEY_UP>;`
+| :hwftlbl-joy:`DOWN` : :dts:`zephyr,code = <INPUT_KEY_DOWN>;`
+| :hwftlbl-joy:`LEFT` : :dts:`zephyr,code = <INPUT_KEY_LEFT>;`
+| :hwftlbl-joy:`RIGHT` : :dts:`zephyr,code = <INPUT_KEY_RIGHT>;`
+| :hwftlbl-joy:`ENTER` : :dts:`zephyr,code = <INPUT_KEY_ENTER>;`
 
 .. tabs::
 

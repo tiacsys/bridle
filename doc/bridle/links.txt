@@ -1,5 +1,6 @@
 .. ### Links to Zephyr
 
+.. |Zephyr Project| replace:: :strong:`Zephyr Project`
 .. _`Zephyr Project`: https://zephyrproject.org/
 .. _`Zephyr Project documentation`: http://docs.zephyrproject.org/
 .. _`Zephyr GitHub organization`: https://github.com/zephyrproject-rtos
@@ -267,8 +268,11 @@
 .. _`SPDX tool`: https://spdx.dev/
 .. _`SPDX identifier`: https://spdx.dev/ids/
 
+.. _`QEMU`: https://www.qemu.org/
+.. _`net-tools`: https://net-tools.sourceforge.io/
 .. _`BlueZ`: http://www.bluez.org/
 .. _`BabbleSim`: https://babblesim.github.io/
+.. _`FFF`: https://github.com/meekrosoft/fff
 
 .. _`Chocolatey`: https://chocolatey.org/
 .. _`Install chocolatey`: https://chocolatey.org/install

@@ -4,10 +4,10 @@ SC16IS75x Breakout Boards
 #########################
 
 This is a collection of very simple and often copied breakout boards as Zephyr
-:ref:`shield <zephyr:shields>` based on the NXP SC16IS750_ or SC16IS752_ chip,
-a bridge from an :ref:`I2C <zephyr:i2c_api>` or :ref:`SPI <zephyr:spi_api>`
-bus to a single or dual channel :ref:`UART <zephyr:uart_api>` with integrated
-:ref:`GPIO <zephyr:gpio_api>` controller. The origin of all breakout boards was
+:zephyr:ref:`shield <shields>` based on the NXP SC16IS750_ or SC16IS752_ chip,
+a bridge from an :zephyr:ref:`I2C <i2c_api>` or :zephyr:ref:`SPI <spi_api>`
+bus to a single or dual channel :zephyr:ref:`UART <uart_api>` with integrated
+:zephyr:ref:`GPIO <gpio_api>` controller. The origin of all breakout boards was
 the BOB-09981_ (BOB-09745_) design from SparkFun with the single-channel
 UART/GPIO bridge. This is available both as a one-to-one clone and as a modified
 version with a two-channel UART/GPIO bridge from |CJMCU|_ or |Q-Baihe|_.

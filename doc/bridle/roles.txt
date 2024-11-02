@@ -117,8 +117,12 @@
    :language: rst
    :class: highlight
 
-.. role:: devicetree(code)
-   :language: devicetree
+.. role:: dts(code)
+   :language: DTS
+   :class: highlight
+
+.. role:: yaml(code)
+   :language: YAML
    :class: highlight
 
 .. conditional raw outputs

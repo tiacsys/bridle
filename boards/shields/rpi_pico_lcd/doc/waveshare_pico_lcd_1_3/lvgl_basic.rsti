@@ -1,36 +1,36 @@
-Using the LVGL module on top of the :ref:`Display driver API
-<zephyr:display_api>` with chosen display. That is:
+Using the LVGL module on top of the :zephyr:ref:`Display driver API
+<display_api>` with chosen display. That is:
 
-| :hwftlbl-scr:`LCD` : :devicetree:`chosen { zephyr,display = &lcd_panel; };`
-| :hwftlbl-scr:`ST7789V` : :devicetree:`lcd_panel: &st7789v_240x240ls {};`
+| :hwftlbl-scr:`LCD` : :dts:`chosen { zephyr,display = &lcd_panel; };`
+| :hwftlbl-scr:`ST7789V` : :dts:`lcd_panel: &st7789v_240x240ls {};`
 
 .. rubric:: Devicetree compatible
 
 - :dtcompatible:`zephyr,lvgl-button-input` with devicetree relation
-  :devicetree:`lvgl_buttons: lvgl-buttons { input = <&gpio_keys>; };`
+  :dts:`lvgl_buttons: lvgl-buttons { input = <&gpio_keys>; };`
 
   | :hwftlbl-btn:`B` :
-    :devicetree:`input-codes = <INPUT_KEY_B>;` :
-    :devicetree:`coordinates = <120 120>;` (center of LCD)
+    :dts:`input-codes = <INPUT_KEY_B>;` :
+    :dts:`coordinates = <120 120>;` (center of LCD)
 
 - :dtcompatible:`zephyr,lvgl-keypad-input` with devicetree relation
-  :devicetree:`lvgl_keypad: lvgl-keypad { input = <&gpio_keys>; };`
+  :dts:`lvgl_keypad: lvgl-keypad { input = <&gpio_keys>; };`
 
   | :hwftlbl-joy:`UP` :
-    :devicetree:`input-codes = <INPUT_KEY_UP>;` :
-    :devicetree:`lvgl-codes = <LV_KEY_UP>;`
+    :dts:`input-codes = <INPUT_KEY_UP>;` :
+    :dts:`lvgl-codes = <LV_KEY_UP>;`
   | :hwftlbl-joy:`DOWN` :
-    :devicetree:`input-codes = <INPUT_KEY_DOWN>;` :
-    :devicetree:`lvgl-codes = <LV_KEY_DOWN>;`
+    :dts:`input-codes = <INPUT_KEY_DOWN>;` :
+    :dts:`lvgl-codes = <LV_KEY_DOWN>;`
   | :hwftlbl-joy:`LEFT` :
-    :devicetree:`input-codes = <INPUT_KEY_LEFT>;` :
-    :devicetree:`lvgl-codes = <LV_KEY_LEFT>;`
+    :dts:`input-codes = <INPUT_KEY_LEFT>;` :
+    :dts:`lvgl-codes = <LV_KEY_LEFT>;`
   | :hwftlbl-joy:`RIGHT` :
-    :devicetree:`input-codes = <INPUT_KEY_RIGHT>;` :
-    :devicetree:`lvgl-codes = <LV_KEY_RIGHT>;`
+    :dts:`input-codes = <INPUT_KEY_RIGHT>;` :
+    :dts:`lvgl-codes = <LV_KEY_RIGHT>;`
   | :hwftlbl-joy:`ENTER` :
-    :devicetree:`input-codes = <INPUT_KEY_ENTER>;` :
-    :devicetree:`lvgl-codes = <LV_KEY_ENTER>;`
+    :dts:`input-codes = <INPUT_KEY_ENTER>;` :
+    :dts:`lvgl-codes = <LV_KEY_ENTER>;`
 
 .. tabs::
 

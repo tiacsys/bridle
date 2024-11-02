@@ -53,8 +53,8 @@ some GPIO signals on pins 4 to 5, 14 to 22, 24 and 29 of this edge connector
 must be free for communication with the buttons, buzzer, LEDs, RTC and sensors
 on the shields. The ADC channel 0 on pin 31 must also be free for communication
 with the on-shield LDR (photoresistor). The shields also provide the special
-Devicetree labels :devicetree:`&rpipico_i2c_rtc`, :devicetree:`&clock_rtc`,
-:devicetree:`&rpipico_pwm_buzzers` and :devicetree:`&clock_buzzer` for this
+Devicetree labels :dts:`&rpipico_i2c_rtc`, :dts:`&clock_rtc`,
+:dts:`&rpipico_pwm_buzzers` and :dts:`&clock_buzzer` for this
 purpose.
 
 Programming
@@ -142,7 +142,7 @@ LED Blinky and Button
 
       .. rubric:: LED Blinky
 
-      See also Zephyr sample: :zephyr:code-sample:`zephyr:blinky`.
+      See also Zephyr sample: :zephyr:code-sample:`blinky`.
 
       .. tabs::
 
@@ -198,7 +198,7 @@ LED Blinky and Button
 
       .. rubric:: LED ON/OFF by Button
 
-      See also Zephyr sample: :zephyr:code-sample:`zephyr:button`.
+      See also Zephyr sample: :zephyr:code-sample:`button`.
 
       .. tabs::
 
@@ -256,19 +256,19 @@ Input dump
 ==========
 
 Prints all input events as defined by the shields Devicetree. See also Zephyr
-sample: :zephyr:code-sample:`zephyr:input-dump`.
+sample: :zephyr:code-sample:`input-dump`.
 
 .. tabs::
 
    .. group-tab:: Waveshare Pico Clock Green
 
       Print the input events related to the five on-shield user input keys
-      and two user keys using the :ref:`Input subsystem API <zephyr:input>`.
+      and two user keys using the :zephyr:ref:`Input subsystem API <input>`.
       That are:
 
-      | :hwftlbl-btn:`SET/FUNCTION` : :devicetree:`zephyr,code = <INPUT_KEY_ENTER>;`
-      | :hwftlbl-btn:`UP` : :devicetree:`zephyr,code = <INPUT_KEY_UP>;`
-      | :hwftlbl-btn:`DOWN` : :devicetree:`zephyr,code = <INPUT_KEY_DOWN>;`
+      | :hwftlbl-btn:`SET/FUNCTION` : :dts:`zephyr,code = <INPUT_KEY_ENTER>;`
+      | :hwftlbl-btn:`UP` : :dts:`zephyr,code = <INPUT_KEY_UP>;`
+      | :hwftlbl-btn:`DOWN` : :dts:`zephyr,code = <INPUT_KEY_DOWN>;`
 
       .. tabs::
 
@@ -343,17 +343,17 @@ Analog-to-Digital Converter (ADC)
 =================================
 
 Read analog inputs from ADC channels as defined by the shield's Devicetree.
-See also Zephyr sample: :zephyr:code-sample:`zephyr:adc_dt`.
+See also Zephyr sample: :zephyr:code-sample:`adc_dt`.
 
 .. tabs::
 
    .. group-tab:: Waveshare Pico Clock Green
 
       Read and print the analog input value from the one on-shield
-      high-resistance LDR using the :ref:`ADC driver API
-      <zephyr:adc_api>`. That are:
+      high-resistance LDR using the :zephyr:ref:`ADC driver API <adc_api>`.
+      That are:
 
-      | :hwftlbl:`Rₗ` : :devicetree:`zephyr,user { io-channels = <&adc 0>; };`
+      | :hwftlbl:`Rₗ` : :dts:`zephyr,user { io-channels = <&adc 0>; };`
 
       .. tabs::
 
@@ -546,7 +546,7 @@ LED Panel Orientation and Bit Order Test
 
 Draw some basic rectangles onto the LED panel. The rectangle positions are
 chosen so that you can check the orientation of the LED panel and correct
-bit order. See also Zephyr sample: :zephyr:code-sample:`zephyr:display`.
+bit order. See also Zephyr sample: :zephyr:code-sample:`display`.
 
 .. tabs::
 
@@ -559,8 +559,8 @@ bit order. See also Zephyr sample: :zephyr:code-sample:`zephyr:display`.
 
       The following samples work with the chosen display. That is:
 
-      | :hwftlbl-scr:`LED` : :devicetree:`chosen { zephyr,display = &clock_display; };`
-      | :hwftlbl-scr:`SIPOMUX-DISPLAY` : :devicetree:`clock_display: &sipo_mux_display_8 {};`
+      | :hwftlbl-scr:`LED` : :dts:`chosen { zephyr,display = &clock_display; };`
+      | :hwftlbl-scr:`SIPOMUX-DISPLAY` : :dts:`clock_display: &sipo_mux_display_8 {};`
 
       .. tabs::
 

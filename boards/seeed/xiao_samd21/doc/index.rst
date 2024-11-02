@@ -10,7 +10,7 @@ XIAO SAMD21 (Seeeduino XIAO)
    and will be used for further development, improvement and preparation of
    changes for Zephyr within Bridle. However, the original board description
    still lives within the Zephyr namespace under the original board name:
-   :ref:`zephyr:seeeduino_xiao`.
+   |zephyr:board:seeeduino_xiao|.
 
 Overview
 ********
@@ -178,12 +178,12 @@ USB Device Port
 ===============
 
 The SAMD21 MCU has a (native) USB device port that can be used to communicate
-with a host PC. See the :ref:`zephyr:usb-samples` sample applications for more,
-such as the :zephyr:code-sample:`zephyr:usb-cdc-acm` sample which sets up
+with a host PC. See the :zephyr:code-sample-category:`usb` sample applications
+for more, such as the :zephyr:code-sample:`usb-cdc-acm` sample which sets up
 a virtual serial port that echos characters back to the host PC. As an
 alternative to the default Zephyr console on serial port the Bridle
 :ref:`snippet-usb-console` can be used to enable
-:ref:`zephyr:usb_device_cdc_acm` and switch the console to USB::
+:zephyr:ref:`usb_device_cdc_acm` and switch the console to USB::
 
    USB device idVendor=2886, idProduct=802f, bcdDevice= 3.07
    USB device strings: Mfr=1, Product=2, SerialNumber=3
@@ -230,10 +230,11 @@ or direct programming and debugging.
 Flashing
 ========
 
-#. Build the Zephyr kernel and the :ref:`zephyr:hello_world` sample application:
+#. Build the Zephyr kernel and the :zephyr:code-sample:`hello_world` sample
+   application:
 
    .. zephyr-app-commands::
-      :zephyr-app: zephyr/samples/hello_world
+      :app: zephyr/samples/hello_world
       :board: xiao_samd21
       :build-dir: xiao_samd21
       :west-args: -p

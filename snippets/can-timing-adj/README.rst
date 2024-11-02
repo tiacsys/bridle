@@ -26,14 +26,13 @@ Programming
 Correct snippet designation must be entered when you invoke ``west build``.
 For example:
 
-.. code-block:: console
-
-   west build -b magpie_f777ni \
-              -d build/magpie_f777ni \
-              -p always \
-              -S can-timing-adj \
-              zephyr/tests/drivers/can/timing
-   west flash -d build/magpie_f777ni
+   .. zephyr-app-commands::
+      :app: zephyr/tests/drivers/can/timing
+      :board: magpie_f777ni
+      :build-dir: magpie_f777ni
+      :west-args: -p always -S can-timing-adj
+      :goals: flash
+      :compact:
 
 Testing
 *******
@@ -41,9 +40,9 @@ Testing
 Correct snippet designation must be entered when you invoke ``west twister``.
 For example:
 
-.. code-block:: console
+   .. code-block:: console
 
-   west twister --device-testing \
-                --hardware-map map_magpie_f777ni.yaml \
-                --extra-args SNIPPET="can-timing-adj" \
-                --testsuite-root zephyr/tests/drivers/can/timing
+      west twister --device-testing \
+                   --hardware-map map_magpie_f777ni.yaml \
+                   --extra-args SNIPPET="can-timing-adj" \
+                   --testsuite-root zephyr/tests/drivers/can/timing

@@ -7,7 +7,7 @@ Overview
 ********
 
 This is a set of Bridle's extension to the original Zephyr upstream board
-:ref:`zephyr:rpi_pico` with some adaptions and improvement on Kconfig and
+|zephyr:board:rpi_pico| with some adaptions and improvement on Kconfig and
 Devicetree level.
 
 List of extensions
@@ -18,8 +18,8 @@ List of extensions
 - :brd:`deactivate` self powered USB explicitly and set the maximum of
   electrical current consumption to :brd:`500㎃`:
 
-  - :kconfig:option:`CONFIG_USB_SELF_POWERED`
-  - :kconfig:option:`CONFIG_USB_MAX_POWER`
+  - |CONFIG_USB_SELF_POWERED|
+  - |CONFIG_USB_MAX_POWER|
 
   .. list-table::
      :align: left
@@ -40,12 +40,12 @@ List of extensions
   native USB device port :dtcompatible:`raspberrypi,pico-usbd` with
   CDC-ACM UART :dtcompatible:`zephyr,cdc-acm-uart` as Zephyr console:
 
-  - :kconfig:option:`CONFIG_USB_CDC_ACM_LOG_LEVEL_CHOICE` :=
-    :kconfig:option:`CONFIG_USB_CDC_ACM_LOG_LEVEL_OFF`
-  - :kconfig:option:`CONFIG_USB_DEVICE_LOG_LEVEL_CHOICE` :=
-    :kconfig:option:`CONFIG_USB_DEVICE_LOG_LEVEL_ERR`
-  - :kconfig:option:`CONFIG_LOG_PROCESS_THREAD_STARTUP_DELAY_MS`
-  - :kconfig:option:`CONFIG_BOOT_DELAY`
+  - |CONFIG_USB_CDC_ACM_LOG_LEVEL_CHOICE| :=
+    |CONFIG_USB_CDC_ACM_LOG_LEVEL_OFF|
+  - |CONFIG_USB_DEVICE_LOG_LEVEL_CHOICE| :=
+    |CONFIG_USB_DEVICE_LOG_LEVEL_ERR|
+  - |CONFIG_LOG_PROCESS_THREAD_STARTUP_DELAY_MS|
+  - |CONFIG_BOOT_DELAY|
 
   .. list-table::
      :align: left
@@ -119,13 +119,13 @@ List of extensions
 
 - add the Bridle specific interface labels:
 
-  - :devicetree:`rpipico_serial: &pico_serial {};`
-  - :devicetree:`rpipico_spi: &pico_spi {};`
-  - :devicetree:`rpipico_spi0: &pico_spi0 {};`
-  - :devicetree:`rpipico_spi1: &pico_spi1 {};`
-  - :devicetree:`rpipico_i2c: &pico_i2c {};`
-  - :devicetree:`rpipico_i2c0: &pico_i2c0 {};`
-  - :devicetree:`rpipico_i2c1: &pico_i2c1 {};`
+  - :dts:`rpipico_serial: &pico_serial {};`
+  - :dts:`rpipico_spi: &pico_spi {};`
+  - :dts:`rpipico_spi0: &pico_spi0 {};`
+  - :dts:`rpipico_spi1: &pico_spi1 {};`
+  - :dts:`rpipico_i2c: &pico_i2c {};`
+  - :dts:`rpipico_i2c0: &pico_i2c0 {};`
+  - :dts:`rpipico_i2c1: &pico_i2c1 {};`
 
 - enable the RP2040 SoC reset controller bindet as
   :dtcompatible:`raspberrypi,pico-reset`
@@ -147,7 +147,7 @@ List of extensions
 - prepare the RP2040 SoC SPI1 controller bindet as
   :dtcompatible:`raspberrypi,pico-spi` with default
   :dtcompatible:`raspberrypi,pico-pinctrl` and
-  :devicetree:`clock-frequency = <DT_FREQ_M(8)>;`
+  :dts:`clock-frequency = <DT_FREQ_M(8)>;`
   properties, but explicitly set this to disabled status
 
   .. list-table::

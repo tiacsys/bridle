@@ -1,10 +1,10 @@
 Iterates through the three color channels and changes the output color on the
-on-shield TriColor ChipLED using the :ref:`PWM driver API <zephyr:pwm_api>`.
+on-shield TriColor ChipLED using the :zephyr:ref:`PWM driver API <pwm_api>`.
 That are:
 
-| :hwftlbl-led:`R` : :devicetree:`aliases { red-pwm-led = &pwm_led_r; };`
-| :hwftlbl-led:`G` : :devicetree:`aliases { green-pwm-led = &pwm_led_g; };`
-| :hwftlbl-led:`B` : :devicetree:`aliases { blue-pwm-led = &pwm_led_b; };`
+| :hwftlbl-led:`R` : :dts:`aliases { red-pwm-led = &pwm_led_r; };`
+| :hwftlbl-led:`G` : :dts:`aliases { green-pwm-led = &pwm_led_g; };`
+| :hwftlbl-led:`B` : :dts:`aliases { blue-pwm-led = &pwm_led_b; };`
 
 .. tabs::
 

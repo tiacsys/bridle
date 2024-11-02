@@ -6,7 +6,7 @@ USB Mass Storage
 Overview
 ********
 
-See :zephyr:code-sample:`zephyr:usb-mass` for the original description.
+See :zephyr:code-sample:`usb-mass` for the original description.
 
 .. _magpie_f777ni_usb_mass-sample-requirements:
 

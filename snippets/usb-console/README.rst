@@ -10,8 +10,9 @@ USB Console Snippet (usb-console)
 Overview
 ********
 
-This snippet redirects serial console output to a |CDC ACM| UART. The USB
-device which should be used is configured using :ref:`zephyr:devicetree`.
+This snippet redirects serial console output to a
+:zephyr:ref:`usb_device_cdc_acm` UART. The USB device which should be used
+is configured using :zephyr:ref:`devicetree`.
 
 .. tsn-include:: connectivity/usb/device/usb_device.rst
    :docset: zephyr
@@ -21,7 +22,13 @@ device which should be used is configured using :ref:`zephyr:devicetree`.
 .. tsn-include:: connectivity/usb/device/usb_device.rst
    :docset: zephyr
    :start-after: .. _usb_device_vid_pid:
-   :end-before: Each USB :ref:`sample<usb-samples>` has its own unique Product ID.
+   :end-before: The following Product IDs are currently used:
+
+In the Zephyr documentation you will found a detailed and up to date list of
+:zephyr:ref:`usb_device_vid_pid` as they would be used for each single
+USB :zephyr:code-sample-category:`sample <usb>` without manipulation by this
+snippet. This snippet should only be applied to applications similar to the
+:zephyr:code-sample:`usb-cdc-acm-console` example, no other!
 
 Board specific identifiers
 ==========================
@@ -33,207 +40,222 @@ specified as required.
 .. list-table:: USB manufacturer and product identification
    :class: longtable
    :align: center
-   :widths: 10, 5, 5, 15, 15, 40, 10
+   :widths: 3, 3, 12, 15, 23, 34, 10
    :header-rows: 1
-   :stub-columns: 3
+   :stub-columns: 2
 
-   * - Board
-     - VID
+   * - VID
      - PID
+     - Board
      - Manufacturer
      - Product
      - Specifications and requirements
      - Chosen
 
-   * - :code:`nucleo_f767zi`
-     - :code:`0x0483`
-     - :code:`0x5740`
+   * - |nucleo_f767zi_URB_VID|
+     - |nucleo_f767zi_URB_PID_CON|
+     - :code:`nucleo_f767zi`
      - |STMicroelectronics|_
      - |STM32F767ZI-NUCLEO (CDC ACM)|
      - `STMicroelectronics USB product ID from their Virtual COM Port`_
-     - | |zephyr,console|
-       | |zephyr,shell-uart|
+     - | |zephyr:devicetree:chosen:console|
+       | |zephyr:devicetree:chosen:shell-uart|
 
-   * - :code:`mimxrt1010_evk`
-     - :code:`0x1FC9`
-     - :code:`0x1011`
+   * - |mimxrt1010_evk_URB_VID|
+     - |mimxrt1010_evk_URB_PID_CON|
+     - :code:`mimxrt1010_evk`
      - |NXP Semiconductors|_
      - |MIMXRT1010-EVK (CDC ACM)|
      - derived VID from part number MIMXRT1011DAE5A
-     - | |zephyr,console|
-       | |zephyr,shell-uart|
+     - | |zephyr:devicetree:chosen:console|
+       | |zephyr:devicetree:chosen:shell-uart|
 
-   * - | :code:`mimxrt1060_evk`
+   * - |mimxrt1060_evk_URB_VID|
+     - |mimxrt1060_evk_URB_PID_CON|
+     - | :code:`mimxrt1060_evk`
        | :code:`mimxrt1060_evkb`
        | :code:`mimxrt1060_evk_hyperflash`
-     - :code:`0x1FC9`
-     - :code:`0x1062`
      - |NXP Semiconductors|_
      - |MIMXRT1060-EVK (CDC ACM)|
      - derived VID from part number MIMXRT1062DVL6A
-     - | |zephyr,console|
-       | |zephyr,shell-uart|
+     - | |zephyr:devicetree:chosen:console|
+       | |zephyr:devicetree:chosen:shell-uart|
 
-   * - :code:`arduino_zero`
-     - :code:`0x2341`
-     - :code:`0x804D`
+   * - |arduino_zero_URB_VID|
+     - |arduino_zero_URB_PID_CON|
+     - :code:`arduino_zero`
      - |Arduino LLC|_
      - |Arduino Zero (CDC ACM)|
      - `Arduino USB product ID list with SAMD21 CPU`_
-     - | |zephyr,console|
-       | |zephyr,shell-uart|
+     - | |zephyr:devicetree:chosen:console|
+       | |zephyr:devicetree:chosen:shell-uart|
 
-   * - :code:`seeeduino_lotus`
-     - :code:`0x2886`
-     - :code:`0x8026`
+   * - |seeeduino_lotus_URB_VID|
+     - |seeeduino_lotus_URB_PID_CON|
+     - :code:`seeeduino_lotus`
      - |Seeed LLC|_
      - |Seeeduino Lotus Cortex-M0+ (CDC ACM)|
      - `Seeeduino USB product ID list with SAMD21 CPU`_
-     - | |zephyr,console|
-       | |zephyr,shell-uart|
+     - | |zephyr:devicetree:chosen:console|
+       | |zephyr:devicetree:chosen:shell-uart|
 
-   * - :code:`seeeduino_cm0`
-     - :code:`0x2886`
-     - :code:`0x8027`
+   * - |seeeduino_cm0_URB_VID|
+     - |seeeduino_cm0_URB_PID_CON|
+     - :code:`seeeduino_cm0`
      - |Seeed LLC|_
      - |Seeeduino Cortex-M0+ (CDC ACM)|
      - `Seeeduino USB product ID list with SAMD21 CPU`_
-     - | |zephyr,console|
-       | |zephyr,shell-uart|
+     - | |zephyr:devicetree:chosen:console|
+       | |zephyr:devicetree:chosen:shell-uart|
 
-   * - :code:`seeeduino_xiao`
-     - :code:`0x2886`
-     - :code:`0x802F`
+   * - |seeeduino_xiao_URB_VID|
+     - |seeeduino_xiao_URB_PID_CON|
+     - :code:`seeeduino_xiao`
      - |Seeed LLC|_
-     - :ref:`Seeed XIAO M0 (CDC ACM) <zephyr:seeeduino_xiao>`, Seeeduino XIAO
+     - | |Seeed XIAO M0 (CDC ACM)|,
+       | Seeeduino XIAO
      - `Seeeduino USB product ID list with SAMD21 CPU`_
-     - | |zephyr,console|
-       | |zephyr,shell-uart|
+     - | |zephyr:devicetree:chosen:console|
+       | |zephyr:devicetree:chosen:shell-uart|
 
-   * - :code:`xiao_samd21`
-     - :code:`0x2886`
-     - :code:`0x802F`
+   * - |xiao_samd21_URB_VID|
+     - |xiao_samd21_URB_PID_CON|
+     - :code:`xiao_samd21`
      - |Seeed Studio|_
-     - |XIAO SAMD21 (CDC ACM)|, Seeeduino XIAO
+     - | |XIAO SAMD21 (CDC ACM)|,
+       | Seeeduino XIAO
      - `Seeeduino USB product ID list with SAMD21 CPU`_
-     - | |zephyr,console|
-       | |zephyr,shell-uart|
+     - | |zephyr:devicetree:chosen:console|
+       | |zephyr:devicetree:chosen:shell-uart|
 
-   * - :code:`cytron_maker_nano_rp2040`
-     - :code:`0x2E8A`
-     - :code:`0x000A`
+   * - |cytron_maker_nano_rp2040_URB_VID|
+     - |cytron_maker_nano_rp2040_URB_PID_CON|
+     - :code:`cytron_maker_nano_rp2040`
      - |Cytron (Raspberry Pi)|_
-     - |Maker Nano RP2040 (CDC ACM)|, Raspberry Pi Pico SDK CDC UART
+     - | |Maker Nano RP2040 (CDC ACM)|,
+       | Raspberry Pi Pico SDK CDC UART
      - `Raspberry Pi USB product ID list`_
-     - | |zephyr,console|
-       | |zephyr,shell-uart|
+     - | |zephyr:devicetree:chosen:console|
+       | |zephyr:devicetree:chosen:shell-uart|
 
-   * - :code:`cytron_maker_pi_rp2040`
-     - :code:`0x2E8A`
-     - :code:`0x000A`
+   * - |cytron_maker_pi_rp2040_URB_VID|
+     - |cytron_maker_pi_rp2040_URB_PID_CON|
+     - :code:`cytron_maker_pi_rp2040`
      - |Cytron (Raspberry Pi)|_
-     - |Maker Pi RP2040 (CDC ACM)|, Raspberry Pi Pico SDK CDC UART
+     - | |Maker Pi RP2040 (CDC ACM)|,
+       | Raspberry Pi Pico SDK CDC UART
      - `Raspberry Pi USB product ID list`_
-     - | |zephyr,console|
-       | |zephyr,shell-uart|
+     - | |zephyr:devicetree:chosen:console|
+       | |zephyr:devicetree:chosen:shell-uart|
 
-   * - :code:`rpi_pico`
-     - :code:`0x2E8A`
-     - :code:`0x000A`
+   * - |rpi_pico_URB_VID|
+     - |rpi_pico_URB_PID_CON|
+     - :code:`rpi_pico`
      - |Raspberry Pi|_
-     - |RPi Pico (CDC ACM)|, Raspberry Pi Pico SDK CDC UART
+     - | |RPi Pico (CDC ACM)|,
+       | Raspberry Pi Pico SDK CDC UART
      - `Raspberry Pi USB product ID list`_
-     - | |zephyr,console|
-       | |zephyr,shell-uart|
+     - | |zephyr:devicetree:chosen:console|
+       | |zephyr:devicetree:chosen:shell-uart|
 
-   * - :code:`rpi_pico/rp2040/w`
-     - :code:`0x2E8A`
-     - :code:`0x000A`
+   * - |rpi_pico_rp2040_w_URB_VID|
+     - |rpi_pico_rp2040_w_URB_PID_CON|
+     - :code:`rpi_pico/rp2040/w`
      - |Raspberry Pi|_
-     - |RPi Pico W (CDC ACM)|, Raspberry Pi Pico SDK CDC UART
+     - | |RPi Pico W (CDC ACM)|,
+       | Raspberry Pi Pico SDK CDC UART
      - `Raspberry Pi USB product ID list`_
-     - | |zephyr,console|
-       | |zephyr,shell-uart|
+     - | |zephyr:devicetree:chosen:console|
+       | |zephyr:devicetree:chosen:shell-uart|
 
-   * - :code:`waveshare_rp2040_one`
-     - :code:`0x2E8A`
-     - :code:`0x000A`
+   * - |waveshare_rp2040_one_URB_VID|
+     - |waveshare_rp2040_one_URB_PID_CON|
+     - :code:`waveshare_rp2040_one`
      - |Waveshare (Raspberry Pi)|_
-     - |RP2040-One (CDC ACM)|, Raspberry Pi Pico SDK CDC UART
+     - | |RP2040-One (CDC ACM)|,
+       | Raspberry Pi Pico SDK CDC UART
      - `Raspberry Pi USB product ID list`_
-     - | |zephyr,console|
-       | |zephyr,shell-uart|
+     - | |zephyr:devicetree:chosen:console|
+       | |zephyr:devicetree:chosen:shell-uart|
 
-   * - :code:`waveshare_rp2040_zero`
-     - :code:`0x2E8A`
-     - :code:`0x000A`
+   * - |waveshare_rp2040_zero_URB_VID|
+     - |waveshare_rp2040_zero_URB_PID_CON|
+     - :code:`waveshare_rp2040_zero`
      - |Waveshare (Raspberry Pi)|_
-     - |RP2040-Zero (CDC ACM)|, Raspberry Pi Pico SDK CDC UART
+     - | |RP2040-Zero (CDC ACM)|,
+       | Raspberry Pi Pico SDK CDC UART
      - `Raspberry Pi USB product ID list`_
-     - | |zephyr,console|
-       | |zephyr,shell-uart|
+     - | |zephyr:devicetree:chosen:console|
+       | |zephyr:devicetree:chosen:shell-uart|
 
-   * - :code:`waveshare_rp2040_matrix`
-     - :code:`0x2E8A`
-     - :code:`0x000A`
+   * - |waveshare_rp2040_matrix_URB_VID|
+     - |waveshare_rp2040_matrix_URB_PID_CON|
+     - :code:`waveshare_rp2040_matrix`
      - |Waveshare (Raspberry Pi)|_
-     - |RP2040-Matrix (CDC ACM)|, Raspberry Pi Pico SDK CDC UART
+     - | |RP2040-Matrix (CDC ACM)|,
+       | Raspberry Pi Pico SDK CDC UART
      - `Raspberry Pi USB product ID list`_
-     - | |zephyr,console|
-       | |zephyr,shell-uart|
+     - | |zephyr:devicetree:chosen:console|
+       | |zephyr:devicetree:chosen:shell-uart|
 
-   * - :code:`waveshare_rp2040_tiny`
-     - :code:`0x2E8A`
-     - :code:`0x000A`
+   * - |waveshare_rp2040_tiny_URB_VID|
+     - |waveshare_rp2040_tiny_URB_PID_CON|
+     - :code:`waveshare_rp2040_tiny`
      - |Waveshare (Raspberry Pi)|_
-     - |RP2040-Tiny (CDC ACM)|, Raspberry Pi Pico SDK CDC UART
+     - | |RP2040-Tiny (CDC ACM)|,
+       | Raspberry Pi Pico SDK CDC UART
      - `Raspberry Pi USB product ID list`_
-     - | |zephyr,console|
-       | |zephyr,shell-uart|
+     - | |zephyr:devicetree:chosen:console|
+       | |zephyr:devicetree:chosen:shell-uart|
 
-   * - :code:`waveshare_rp2040_eth`
-     - :code:`0x2E8A`
-     - :code:`0x000A`
+   * - |waveshare_rp2040_eth_URB_VID|
+     - |waveshare_rp2040_eth_URB_PID_CON|
+     - :code:`waveshare_rp2040_eth`
      - |Waveshare (Raspberry Pi)|_
-     - |RP2040-ETH (CDC ACM)|, Raspberry Pi Pico SDK CDC UART
+     - | |RP2040-ETH (CDC ACM)|,
+       | Raspberry Pi Pico SDK CDC UART
      - `Raspberry Pi USB product ID list`_
-     - | |zephyr,console|
-       | |zephyr,shell-uart|
+     - | |zephyr:devicetree:chosen:console|
+       | |zephyr:devicetree:chosen:shell-uart|
 
-   * - :code:`waveshare_rp2040_lcd_0_96`
-     - :code:`0x2E8A`
-     - :code:`0x000A`
+   * - |waveshare_rp2040_lcd_0_96_URB_VID|
+     - |waveshare_rp2040_lcd_0_96_URB_PID_CON|
+     - :code:`waveshare_rp2040_lcd_0_96`
      - |Waveshare (Raspberry Pi)|_
-     - |RP2040-LCD-0.96 (CDC ACM)|, Raspberry Pi Pico SDK CDC UART
+     - | |RP2040-LCD-0.96 (CDC ACM)|,
+       | Raspberry Pi Pico SDK CDC UART
      - `Raspberry Pi USB product ID list`_
-     - | |zephyr,console|
-       | |zephyr,shell-uart|
+     - | |zephyr:devicetree:chosen:console|
+       | |zephyr:devicetree:chosen:shell-uart|
 
-   * - :code:`waveshare_rp2040_plus`
-     - :code:`0x2E8A`
-     - :code:`0x000A`
+   * - |waveshare_rp2040_plus_URB_VID|
+     - |waveshare_rp2040_plus_URB_PID_CON|
+     - | :code:`waveshare_rp2040_plus`
+       | :code:`waveshare_rp2040_plus@16MB`
      - |Waveshare (Raspberry Pi)|_
-     - |RP2040-Plus (CDC ACM)|, Raspberry Pi Pico SDK CDC UART
+     - | |RP2040-Plus (CDC ACM)|,
+       | Raspberry Pi Pico SDK CDC UART
      - `Raspberry Pi USB product ID list`_
-     - | |zephyr,console|
-       | |zephyr,shell-uart|
+     - | |zephyr:devicetree:chosen:console|
+       | |zephyr:devicetree:chosen:shell-uart|
 
-   * - :code:`waveshare_rp2040_geek`
-     - :code:`0x2E8A`
-     - :code:`0x000A`
+   * - |waveshare_rp2040_geek_URB_VID|
+     - |waveshare_rp2040_geek_URB_PID_CON|
+     - :code:`waveshare_rp2040_geek`
      - |Waveshare (Raspberry Pi)|_
-     - |RP2040-Geek (CDC ACM)|, Raspberry Pi Pico SDK CDC UART
+     - | |RP2040-Geek (CDC ACM)|,
+       | Raspberry Pi Pico SDK CDC UART
      - `Raspberry Pi USB product ID list`_
-     - | |zephyr,console|
-       | |zephyr,shell-uart|
+     - | |zephyr:devicetree:chosen:console|
+       | |zephyr:devicetree:chosen:shell-uart|
 
-   * -
-     - :code:`0x2FE3`
-     - :code:`0x0004`
-     - Zephyr Project
-     - Console over USB CDC ACM
-     - |Zephyr USB Vendor and Product identifiers|
-     - | |zephyr,console|
+   * - |zephyr_URB_VID|
+     - |zephyr_URB_PID_CON|
+     -
+     - |Zephyr Project|_
+     - :zephyr:code-sample:`usb-cdc-acm-console`
+     - Zephyr :zephyr:ref:`usb_device_vid_pid`
+     - | |zephyr:devicetree:chosen:console|
 
 How to add support of a new board
 *********************************
@@ -241,33 +263,32 @@ How to add support of a new board
 * add board configuration and devicetree overlay to this snippet;
 * which overwrites following options:
 
-  - :kconfig:option:`CONFIG_USB_DEVICE_VID`
-  - :kconfig:option:`CONFIG_USB_DEVICE_PID`
-  - :kconfig:option:`CONFIG_USB_DEVICE_MANUFACTURER`
-  - :kconfig:option:`CONFIG_USB_DEVICE_PRODUCT`
-  - :kconfig:option:`CONFIG_USB_DEVICE_PRODUCT`
+  - |CONFIG_USB_DEVICE_VID|
+  - |CONFIG_USB_DEVICE_PID|
+  - |CONFIG_USB_DEVICE_MANUFACTURER|
+  - |CONFIG_USB_DEVICE_PRODUCT|
 
 Requirements
 ************
 
 Hardware support for:
 
-- :kconfig:option:`CONFIG_USB_DEVICE_STACK`
-- :kconfig:option:`CONFIG_SERIAL`
-- :kconfig:option:`CONFIG_CONSOLE`
-- :kconfig:option:`CONFIG_UART_CONSOLE`
-- :kconfig:option:`CONFIG_UART_LINE_CTRL`
+   - |CONFIG_USB_DEVICE_STACK|
+   - |CONFIG_SERIAL|
+   - |CONFIG_CONSOLE|
+   - |CONFIG_UART_CONSOLE|
+   - |CONFIG_UART_LINE_CTRL|
 
 A devicetree node with node label ``zephyr_udc0`` that points to an enabled USB
 device node with driver support. This should look roughly like this in
-:ref:`your devicetree <zephyr:get-devicetree-outputs>`:
+:zephyr:ref:`your devicetree <get-devicetree-outputs>`:
 
-.. code-block:: DTS
+   .. code-block:: DTS
 
-   zephyr_udc0: usbd@deadbeef {
-   	compatible = "vnd,usb-device";
-        /* ... */
-   };
+      zephyr_udc0: usbd@deadbeef {
+           compatible = "vnd,usb-device";
+           /* ... */
+      };
 
 References
 **********

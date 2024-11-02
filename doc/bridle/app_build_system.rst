@@ -26,13 +26,13 @@ Since the build and configuration system used by |BRIDLE| comes from the
 in order to avoid duplication. See the following links for information about
 the different building blocks mentioned above:
 
-* :ref:`zephyr:application` is a complete guide to application development
+* :zephyr:ref:`application` is a complete guide to application development
   with Zephyr, including the build and configuration system.
-* :ref:`zephyr:cmake-details` describes in-depth the usage of CMake for
+* :zephyr:ref:`cmake-details` describes in-depth the usage of CMake for
   Zephyr-based applications.
-* :ref:`zephyr:application-kconfig` contains a guide for Kconfig usage
+* :zephyr:ref:`application-kconfig` contains a guide for Kconfig usage
   in applications.
-* :ref:`zephyr:set-devicetree-overlays` explains how to use devicetree
+* :zephyr:ref:`set-devicetree-overlays` explains how to use devicetree
   and its overlays to customize an application's devicetree.
 
 |BRIDLE| additions
@@ -40,7 +40,7 @@ the different building blocks mentioned above:
 
 |BRIDLE| adds some functionality on top of the |ZEPHYR| build and configuration
 system. Those additions are automatically included into the |ZEPHYR| build
-system using a :ref:`zephyr:cmake_build_config_package`.
+system using a :zephyr:ref:`cmake_build_config_package`.
 
 You must be aware of these additions when you start writing your own
 Bridle applications.

@@ -11,8 +11,8 @@ Overview
 ********
 
 This snippet is quite board specific and prepares a dedicated PWM channel
-exclusively for the standard :zephyr:code-sample:`zephyr:servo-motor` sample
-from Zephyr.
+exclusively for the standard :zephyr:code-sample:`servo-motor` sample from
+Zephyr.
 
 Board specific setups
 =====================
@@ -37,7 +37,7 @@ The corresponding PWM pulse widths for a range of :b:`-90°` to :b:`+90°` (180�
 are :bbl:`500 ㎲` to :bbl:`2,500 ㎲` with a :bbl:`period of 50 ㎐`. All these
 servomotor specific parameters are preset by the snippet :ref:`snippet-pwm-servo`
 that have to use to get access to this dedicated PWM channel together with the
-original Zephyr :zephyr:code-sample:`zephyr:servo-motor` sample. Invoke
+original Zephyr :zephyr:code-sample:`servo-motor` sample. Invoke
 :program:`west build` and :program:`west flash` with this snipped and optional
 mixed with others, for example:
 
@@ -65,6 +65,6 @@ How to add support of a new board
 * add board devicetree overlay to this snippet;
 * which add following options to the dedicated PWM node:
 
-  - :devicetree:`compatible = "pwm-servo";`
-  - :devicetree:`min-pulse = <PWM_USEC(500)>;`
-  - :devicetree:`max-pulse = <PWM_USEC(2500)>;`
+  - :dts:`compatible = "pwm-servo";`
+  - :dts:`min-pulse = <PWM_USEC(500)>;`
+  - :dts:`max-pulse = <PWM_USEC(2500)>;`

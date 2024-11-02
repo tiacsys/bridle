@@ -49,7 +49,7 @@ Pinouts
 
 The peripherals of the `RP2040 SoC`_ can be routed to various pins on
 the board. The configuration of these routes can be modified through
-:ref:`DTS <zephyr:devicetree>`. Please refer to the datasheet to see
+:zephyr:ref:`DTS <devicetree>`. Please refer to the datasheet to see
 the possible routings for each peripheral. The default assignments for
 the various Cytron Maker RP2040 boards are defined below separately
 in a single tab.
@@ -67,7 +67,7 @@ in a single tab.
 Supported Features
 ******************
 
-Similar to the :ref:`zephyr:rpi_pico` the Cytron Maker RP2040 board
+Similar to the |zephyr:board:rpi_pico| the Cytron Maker RP2040 board
 configuration supports the following hardware features:
 
 .. list-table::
@@ -80,53 +80,53 @@ configuration supports the following hardware features:
    * - PINCTRL
      - :kconfig:option:`CONFIG_PINCTRL`
      - :dtcompatible:`raspberrypi,pico-pinctrl`
-     - :ref:`zephyr:pinctrl_api`
+     - :zephyr:ref:`pinctrl_api`
    * - UART
      - :kconfig:option:`CONFIG_SERIAL`
      - :dtcompatible:`raspberrypi,pico-uart`
-     - :ref:`zephyr:uart_api`
+     - :zephyr:ref:`uart_api`
    * - GPIO
      - :kconfig:option:`CONFIG_GPIO`
      - :dtcompatible:`raspberrypi,pico-gpio`
-     - :ref:`zephyr:gpio_api`
+     - :zephyr:ref:`gpio_api`
    * - USB Device
      - :kconfig:option:`CONFIG_USB_DEVICE_STACK`
      - :dtcompatible:`raspberrypi,pico-usbd`
-     - :ref:`zephyr:usb_api`
+     - :zephyr:ref:`usb_api`
    * - I2C
      - :kconfig:option:`CONFIG_I2C`
      - | :dtcompatible:`raspberrypi,pico-i2c` (!)
        | :dtcompatible:`gpio-i2c`
-     - :ref:`zephyr:i2c_api`
+     - :zephyr:ref:`i2c_api`
    * - SPI
      - :kconfig:option:`CONFIG_SPI`
      - :dtcompatible:`raspberrypi,pico-spi`
-     - :ref:`zephyr:spi_api`
+     - :zephyr:ref:`spi_api`
    * - PWM
      - :kconfig:option:`CONFIG_PWM`
      - :dtcompatible:`raspberrypi,pico-pwm`
-     - :ref:`zephyr:pwm_api`
+     - :zephyr:ref:`pwm_api`
    * - ADC
      - :kconfig:option:`CONFIG_ADC`
      - :dtcompatible:`raspberrypi,pico-adc`
-     - :ref:`zephyr:adc_api`
+     - :zephyr:ref:`adc_api`
    * - Temperature (Sensor)
      - :kconfig:option:`CONFIG_SENSOR`
      - :dtcompatible:`raspberrypi,pico-temp` (!!)
-     - :ref:`zephyr:sensor`
+     - :zephyr:ref:`sensor`
    * - Timer (Counter)
      - :kconfig:option:`CONFIG_COUNTER`
      - :dtcompatible:`raspberrypi,pico-timer`
-     - :ref:`zephyr:counter_api`
+     - :zephyr:ref:`counter_api`
    * - Watchdog Timer (WDT)
      - :kconfig:option:`CONFIG_WATCHDOG`
      - :dtcompatible:`raspberrypi,pico-watchdog`
-     - :ref:`zephyr:watchdog_api`
+     - :zephyr:ref:`watchdog_api`
    * - Flash
      - :kconfig:option:`CONFIG_FLASH`
      - :dtcompatible:`raspberrypi,pico-flash-controller`
-     - :ref:`zephyr:flash_api` and
-       :ref:`zephyr:flash_map_api`
+     - :zephyr:ref:`flash_api` and
+       :zephyr:ref:`flash_map_api`
    * - PIO
      - :kconfig:option:`CONFIG_PIO_RPI_PICO`
      - :dtcompatible:`raspberrypi,pico-pio`
@@ -134,36 +134,36 @@ configuration supports the following hardware features:
    * - UART (PIO)
      - :kconfig:option:`CONFIG_SERIAL`
      - :dtcompatible:`raspberrypi,pico-uart-pio`
-     - :ref:`zephyr:uart_api`
+     - :zephyr:ref:`uart_api`
    * - SPI (PIO)
      - :kconfig:option:`CONFIG_SPI`
      - :dtcompatible:`raspberrypi,pico-spi-pio`
-     - :ref:`zephyr:spi_api`
+     - :zephyr:ref:`spi_api`
    * - DMA
      - :kconfig:option:`CONFIG_DMA`
      - :dtcompatible:`raspberrypi,pico-dma`
-     - :ref:`zephyr:dma_api`
+     - :zephyr:ref:`dma_api`
    * - CLOCK
      - :kconfig:option:`CONFIG_CLOCK_CONTROL`
      - | :dtcompatible:`raspberrypi,pico-clock-controller`
        | :dtcompatible:`raspberrypi,pico-clock`
-     - :ref:`zephyr:clock_control_api`
+     - :zephyr:ref:`clock_control_api`
    * - RESET
      - :kconfig:option:`CONFIG_RESET`
      - :dtcompatible:`raspberrypi,pico-reset`
-     - :ref:`zephyr:reset_api`
+     - :zephyr:ref:`reset_api`
    * - VREG
      - :kconfig:option:`CONFIG_REGULATOR`
      - :dtcompatible:`raspberrypi,core-supply-regulator`
-     - :ref:`zephyr:regulator_api`
+     - :zephyr:ref:`regulator_api`
    * - NVIC
      - N/A
      - :dtcompatible:`arm,v6m-nvic`
-     - Nested Vector :ref:`zephyr:interrupts_v2` Controller
+     - Nested Vector :zephyr:ref:`interrupts_v2` Controller
    * - HWINFO
      - :kconfig:option:`CONFIG_HWINFO`
      - N/A
-     - :ref:`zephyr:hwinfo_api`
+     - :zephyr:ref:`hwinfo_api`
 
 (!) Designware I2C driver has issues:
     The :emphasis:`Raspberry Pi Pico I2C driver` is using the
@@ -695,12 +695,12 @@ USB Device Port
 ===============
 
 The `RP2040 <RP2040 SoC_>`_ MCU has a (native) USB device port that can be
-used to communicate with a host PC. See the :ref:`zephyr:usb-samples` sample
-applications for more, such as the :zephyr:code-sample:`zephyr:usb-cdc-acm`
+used to communicate with a host PC. See the :zephyr:code-sample-category:`usb`
+sample applications for more, such as the :zephyr:code-sample:`usb-cdc-acm`
 sample which sets up a virtual serial port that echos characters back to the
 host PC. As an alternative to the default Zephyr console on serial port the
 Bridle :ref:`snippet-usb-console` can be used to enable
-:ref:`zephyr:usb_device_cdc_acm` and switch the console to USB::
+:zephyr:ref:`usb_device_cdc_acm` and switch the console to USB::
 
    USB device idVendor=2e8a, idProduct=000a, bcdDevice= 3.07
    USB device strings: Mfr=1, Product=2, SerialNumber=3
@@ -782,13 +782,13 @@ Using SEGGER JLink
 ------------------
 
 You can flash the Cytron Maker RP2040 boards with a SEGGER JLink debug probe as
-described in :ref:`Building, Flashing and Debugging <zephyr:west-flashing>`.
+described in :zephyr:ref:`Building, Flashing and Debugging <west-flashing>`.
 
-Here is an example of building and flashing the
-:zephyr:code-sample:`zephyr:blinky` application.
+Here is an example of building and flashing the :zephyr:code-sample:`blinky`
+application.
 
 .. zephyr-app-commands::
-   :zephyr-app: zephyr/samples/basic/blinky
+   :app: zephyr/samples/basic/blinky
    :board: cytron_maker_pi_rp2040
    :build-dir: cytron_maker_rp2040
    :goals: flash
@@ -819,11 +819,11 @@ OpenOCD. Depending on the interface used (such as JLink), you might need to
 checkout to a branch that supports this interface, before proceeding. Build
 and install OpenOCD as described in the README.
 
-Here is an example of building and flashing the
-:zephyr:code-sample:`zephyr:blinky` application.
+Here is an example of building and flashing the :zephyr:code-sample:`blinky`
+application.
 
 .. zephyr-app-commands::
-   :zephyr-app: zephyr/samples/basic/blinky
+   :app: zephyr/samples/basic/blinky
    :board: cytron_maker_pi_rp2040
    :build-dir: cytron_maker_rp2040
    :goals: flash
@@ -877,18 +877,17 @@ Using SEGGER JLink
 ------------------
 
 Use a SEGGER JLink debug probe and follow the instruction in
-:ref:`Building, Flashing and Debugging <zephyr:west-debugging>`.
+:zephyr:ref:`Building, Flashing and Debugging <west-debugging>`.
 
 Using OpenOCD
 -------------
 
 Install OpenOCD as described for flashing the board.
 
-Here is an example for debugging the :zephyr:code-sample:`zephyr:blinky`
-application.
+Here is an example for debugging the :zephyr:code-sample:`blinky` application.
 
 .. zephyr-app-commands::
-   :zephyr-app: zephyr/samples/basic/blinky
+   :app: zephyr/samples/basic/blinky
    :board: cytron_maker_pi_rp2040
    :build-dir: cytron_maker_rp2040
    :maybe-skip-config:
@@ -947,7 +946,7 @@ LED Blinky and Fade
          :align: right
          :alt: Maker Nano RP2040 WS2812 LED Test Pattern
 
-      See also Zephyr sample: :zephyr:code-sample:`zephyr:led-strip`.
+      See also Zephyr sample: :zephyr:code-sample:`led-strip`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/led_strip
@@ -960,7 +959,7 @@ LED Blinky and Fade
 
       .. rubric:: Blue User LED Blinky by GPIO
 
-      See also Zephyr sample: :zephyr:code-sample:`zephyr:blinky`.
+      See also Zephyr sample: :zephyr:code-sample:`blinky`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/blinky
@@ -973,7 +972,7 @@ LED Blinky and Fade
 
       .. rubric:: Blue User LED Blinky by PWM
 
-      See also Zephyr sample: :zephyr:code-sample:`zephyr:pwm-blinky`.
+      See also Zephyr sample: :zephyr:code-sample:`pwm-blinky`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/blinky_pwm
@@ -986,7 +985,7 @@ LED Blinky and Fade
 
       .. rubric:: Blue User LED Fade by PWM
 
-      See also Zephyr sample: :zephyr:code-sample:`zephyr:fade-led`.
+      See also Zephyr sample: :zephyr:code-sample:`fade-led`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/fade_led
@@ -999,7 +998,7 @@ LED Blinky and Fade
 
       .. rubric:: Blue User LED On/Off by GPIO Button
 
-      See also Zephyr sample: :zephyr:code-sample:`zephyr:button`.
+      See also Zephyr sample: :zephyr:code-sample:`button`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/button
@@ -1018,7 +1017,7 @@ LED Blinky and Fade
          :align: right
          :alt: Maker Pi RP2040 WS2812 LED Test Pattern
 
-      See also Zephyr sample: :zephyr:code-sample:`zephyr:led-strip`.
+      See also Zephyr sample: :zephyr:code-sample:`led-strip`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/led_strip
@@ -1031,7 +1030,7 @@ LED Blinky and Fade
 
       .. rubric:: Blue User LED Blinky by GPIO
 
-      See also Zephyr sample: :zephyr:code-sample:`zephyr:blinky`.
+      See also Zephyr sample: :zephyr:code-sample:`blinky`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/blinky
@@ -1044,7 +1043,7 @@ LED Blinky and Fade
 
       .. rubric:: Blue User LED Blinky by PWM
 
-      See also Zephyr sample: :zephyr:code-sample:`zephyr:pwm-blinky`.
+      See also Zephyr sample: :zephyr:code-sample:`pwm-blinky`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/blinky_pwm
@@ -1057,7 +1056,7 @@ LED Blinky and Fade
 
       .. rubric:: Blue User LED Fade by PWM
 
-      See also Zephyr sample: :zephyr:code-sample:`zephyr:fade-led`.
+      See also Zephyr sample: :zephyr:code-sample:`fade-led`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/fade_led
@@ -1070,7 +1069,7 @@ LED Blinky and Fade
 
       .. rubric:: Blue User LED On/Off by GPIO Button
 
-      See also Zephyr sample: :zephyr:code-sample:`zephyr:button`.
+      See also Zephyr sample: :zephyr:code-sample:`button`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/button
@@ -1120,25 +1119,25 @@ Input dump with USB-CDC/ACM Console
 ===================================
 
 Prints all input events as defined by the shields Devicetree. See also Zephyr
-sample: :zephyr:code-sample:`zephyr:input-dump`.
+sample: :zephyr:code-sample:`input-dump`.
 
 .. tabs::
 
    .. group-tab:: Maker Nano RP2040
 
       Print the input events related to the one on-board user button
-      using the :ref:`Input subsystem API <zephyr:input>`. That are:
+      using the :zephyr:ref:`Input subsystem API <input>`. That are:
 
-      | :hwftlbl-btn:`BTN1` : :devicetree:`zephyr,code = <INPUT_KEY_0>;`
+      | :hwftlbl-btn:`BTN1` : :dts:`zephyr,code = <INPUT_KEY_0>;`
 
       .. rubric:: Devicetree compatible
 
       - :dtcompatible:`zephyr,lvgl-keypad-input` with devicetree relation
-        :devicetree:`lvgl_keypad: lvgl-keypad { input = <&gpio_keys>; };`
+        :dts:`lvgl_keypad: lvgl-keypad { input = <&gpio_keys>; };`
 
         | :hwftlbl-btn:`BTN1` :
-          :devicetree:`input-codes = <INPUT_KEY_0>;` :
-          :devicetree:`lvgl-codes = <LV_KEY_ENTER>;`
+          :dts:`input-codes = <INPUT_KEY_0>;` :
+          :dts:`lvgl-codes = <LV_KEY_ENTER>;`
 
       .. rubric:: Button Input Dump
 
@@ -1165,22 +1164,22 @@ sample: :zephyr:code-sample:`zephyr:input-dump`.
    .. group-tab:: Maker Pi RP2040
 
       Print the input events related to the two on-board user button
-      using the :ref:`Input subsystem API <zephyr:input>`. That are:
+      using the :zephyr:ref:`Input subsystem API <input>`. That are:
 
-      | :hwftlbl-btn:`BTN1` : :devicetree:`zephyr,code = <INPUT_KEY_0>;`
-      | :hwftlbl-btn:`BTN2` : :devicetree:`zephyr,code = <INPUT_KEY_1>;`
+      | :hwftlbl-btn:`BTN1` : :dts:`zephyr,code = <INPUT_KEY_0>;`
+      | :hwftlbl-btn:`BTN2` : :dts:`zephyr,code = <INPUT_KEY_1>;`
 
       .. rubric:: Devicetree compatible
 
       - :dtcompatible:`zephyr,lvgl-keypad-input` with devicetree relation
-        :devicetree:`lvgl_keypad: lvgl-keypad { input = <&gpio_keys>; };`
+        :dts:`lvgl_keypad: lvgl-keypad { input = <&gpio_keys>; };`
 
         | :hwftlbl-btn:`BTN1` :
-          :devicetree:`input-codes = <INPUT_KEY_0>;` :
-          :devicetree:`lvgl-codes = <LV_KEY_ENTER>;`
+          :dts:`input-codes = <INPUT_KEY_0>;` :
+          :dts:`lvgl-codes = <LV_KEY_ENTER>;`
         | :hwftlbl-btn:`BTN2` :
-          :devicetree:`input-codes = <INPUT_KEY_1>;` :
-          :devicetree:`lvgl-codes = <LV_KEY_NEXT>;`
+          :dts:`input-codes = <INPUT_KEY_1>;` :
+          :dts:`lvgl-codes = <LV_KEY_NEXT>;`
 
       .. rubric:: Button Input Dump
 
@@ -1312,7 +1311,7 @@ Drive a motor with USB-CDC/ACM Console
 
       .. rubric:: Servomotor Test
 
-      See also Zephyr sample: :zephyr:code-sample:`zephyr:servo-motor`.
+      See also Zephyr sample: :zephyr:code-sample:`servo-motor`.
 
       .. hint::
 
@@ -1429,7 +1428,7 @@ This samples and test applications are only applicable together with the
 
       .. rubric:: LCD Orientation and Bit Order Test
 
-      See also Zephyr sample: :zephyr:code-sample:`zephyr:display`.
+      See also Zephyr sample: :zephyr:code-sample:`display`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/display
@@ -1443,7 +1442,7 @@ This samples and test applications are only applicable together with the
 
       .. rubric:: LVGL Basic Sample
 
-      See also Zephyr sample: :zephyr:code-sample:`zephyr:lvgl`.
+      See also Zephyr sample: :zephyr:code-sample:`lvgl`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/subsys/display/lvgl
@@ -1572,7 +1571,7 @@ This samples and test applications are only applicable together with the
              LCD Backlight
       .. rubric:: LCD Orientation and Bit Order Test
 
-      See also Zephyr sample: :zephyr:code-sample:`zephyr:display`.
+      See also Zephyr sample: :zephyr:code-sample:`display`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/display
@@ -1586,7 +1585,7 @@ This samples and test applications are only applicable together with the
 
       .. rubric:: LVGL Basic Sample
 
-      See also Zephyr sample: :zephyr:code-sample:`zephyr:lvgl`.
+      See also Zephyr sample: :zephyr:code-sample:`lvgl`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/subsys/display/lvgl

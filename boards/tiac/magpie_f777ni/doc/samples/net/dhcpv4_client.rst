@@ -6,7 +6,7 @@ DHCPv4 Client
 Overview
 ********
 
-See :zephyr:code-sample:`zephyr:dhcpv4-client` for the original description.
+See :zephyr:code-sample:`dhcpv4-client` for the original description.
 
 .. _magpie_f777ni_dhcpv4-client-sample-requirements:
 
@@ -16,7 +16,7 @@ Requirements
 - This sample application negotiate IPv4 address from a DHCPv4 server
   running everywhere in your local network.
 - The 10/100 Ethernet MAC already configured in RMII/MII mode with MDIO
-  using the ``&mac`` :ref:`devicetree <zephyr:dt-guide>` label.
+  using the ``&mac`` :zephyr:ref:`devicetree <dt-guide>` label.
 
 Building and Running
 ********************

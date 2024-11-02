@@ -11,16 +11,14 @@ Overview
 ********
 
 This snippet deletes common default alias properties from the
-:ref:`zephyr:devicetree`, e.g. such as
-:devicetree:`sw0 = &gpio_key_node;`, or
-:devicetree:`led0 = &gpio_led_node;`, or
-:devicetree:`pwm-led0 = &pwm_led_node;`.
+:zephyr:ref:`devicetree`, e.g. such as :dts:`sw0 = &gpio_key_node;`, or
+:dts:`led0 = &gpio_led_node;`, or :dts:`pwm-led0 = &pwm_led_node;`.
 In general, these are only expected from simple examples or test cases but
 can potentially cause ugly side effects if, for example, both an application
 and a Zephyr subsystem simultaneously initialize interrupt callbacks on the
 underlying hardware.
 
-In such a constellation, for example the :zephyr:code-sample:`zephyr:lvgl`
+In such a constellation, for example the :zephyr:code-sample:`lvgl`
 with the :dtcompatible:`zephyr,input-longpress` function in the input system
 on exactly the same GPIO pin, every second event would not be handled there
 for by the input system but at the application level and would therefore be

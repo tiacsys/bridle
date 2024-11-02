@@ -183,7 +183,7 @@ Set ``-DSHIELD=grove_led_dX`` or ``-DSHIELD=grove_pwm_led_dX`` when you invoke
 ``west build``, wherein ``X`` corresponds to the ordinal number of Grove signal
 from the |Laced Grove Signal Interface|. For example:
 
-#. :ref:`grove_base_shield_v2` on :ref:`zephyr:mimxrt1060_evk`
+#. :ref:`grove_base_shield_v2` on |zephyr:board:mimxrt1060_evk|
    for **GPIO driven LED** on Grove ``D5``:
 
    .. zephyr-app-commands::
@@ -196,7 +196,7 @@ from the |Laced Grove Signal Interface|. For example:
       :host-os: unix
       :tool: all
 
-#. :ref:`grove_base_shield_v2` on :ref:`zephyr:mimxrt1060_evk`
+#. :ref:`grove_base_shield_v2` on |zephyr:board:mimxrt1060_evk|
    for **PWM driven LED** on Grove ``D5``:
 
    .. zephyr-app-commands::
@@ -210,7 +210,7 @@ from the |Laced Grove Signal Interface|. For example:
       :tool: all
 
 #. :ref:`grove_base_shield_v13` or :ref:`grove_base_shield_v12` on
-   :ref:`zephyr:mimxrt1060_evk` for **GPIO driven LED** on Grove ``D5``:
+   |zephyr:board:mimxrt1060_evk| for **GPIO driven LED** on Grove ``D5``:
 
    .. zephyr-app-commands::
       :app: bridle/samples/helloshell
@@ -223,7 +223,7 @@ from the |Laced Grove Signal Interface|. For example:
       :tool: all
 
 #. :ref:`grove_base_shield_v13` or :ref:`grove_base_shield_v12` on
-   :ref:`zephyr:mimxrt1060_evk` for **GPIO driven LED** on Grove ``D5``:
+   |zephyr:board:mimxrt1060_evk| for **GPIO driven LED** on Grove ``D5``:
 
    .. zephyr-app-commands::
       :app: bridle/samples/helloshell

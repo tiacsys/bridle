@@ -47,10 +47,10 @@ Utilization
 
 This shields can only be used with a development board, shield, or snippet that
 provides a configuration for the serial console over USB device, because the
-default serial device node :devicetree:`&rpipico_serial` (a.k.a.
-:devicetree:`&pico_serial`) will be disable completely and can't be used anymore
-for serial communication such as logging or shell access. The same applies also
-to the other buses such as I2C or SPI.
+default serial device node :dts:`&rpipico_serial` (a.k.a. :dts:`&pico_serial`)
+will be disable completely and can't be used anymore for serial communication
+such as logging or shell access. The same applies also to the other buses such
+as I2C or SPI.
 
 Programming
 ===========
@@ -146,41 +146,41 @@ Input dump
 ==========
 
 Prints all input events as defined by the shield's Devicetree. See also Zephyr
-sample: :zephyr:code-sample:`zephyr:input-dump`.
+sample: :zephyr:code-sample:`input-dump`.
 
 .. tabs::
 
    .. group-tab:: Spotpear Pico ALL GPIO TEST
 
       Print the input events related to the five on-shield test keys using
-      the :ref:`Input subsystem API <zephyr:input>`. That are:
+      the :zephyr:ref:`Input subsystem API <input>`. That are:
 
-      | :hwftlbl-btn:`K1` : :devicetree:`zephyr,code = <INPUT_KEY_DOWN>;`
-      | :hwftlbl-btn:`K2` : :devicetree:`zephyr,code = <INPUT_KEY_ENTER>;`
-      | :hwftlbl-btn:`K3` : :devicetree:`zephyr,code = <INPUT_KEY_RIGHT>;`
-      | :hwftlbl-btn:`K4` : :devicetree:`zephyr,code = <INPUT_KEY_LEFT>;`
-      | :hwftlbl-btn:`K5` : :devicetree:`zephyr,code = <INPUT_KEY_UP>;`
+      | :hwftlbl-btn:`K1` : :dts:`zephyr,code = <INPUT_KEY_DOWN>;`
+      | :hwftlbl-btn:`K2` : :dts:`zephyr,code = <INPUT_KEY_ENTER>;`
+      | :hwftlbl-btn:`K3` : :dts:`zephyr,code = <INPUT_KEY_RIGHT>;`
+      | :hwftlbl-btn:`K4` : :dts:`zephyr,code = <INPUT_KEY_LEFT>;`
+      | :hwftlbl-btn:`K5` : :dts:`zephyr,code = <INPUT_KEY_UP>;`
 
       .. rubric:: Devicetree compatible
 
       - :dtcompatible:`zephyr,lvgl-keypad-input` with devicetree relation
-        :devicetree:`lvgl_keypad: lvgl-keypad { input = <&gpio_keys>; };`
+        :dts:`lvgl_keypad: lvgl-keypad { input = <&gpio_keys>; };`
 
         | :hwftlbl-btn:`K1` :
-          :devicetree:`input-codes = <INPUT_KEY_DOWN>;` :
-          :devicetree:`lvgl-codes = <LV_KEY_DOWN>;`
+          :dts:`input-codes = <INPUT_KEY_DOWN>;` :
+          :dts:`lvgl-codes = <LV_KEY_DOWN>;`
         | :hwftlbl-btn:`K2` :
-          :devicetree:`input-codes = <INPUT_KEY_ENTER>;` :
-          :devicetree:`lvgl-codes = <LV_KEY_ENTER>;`
+          :dts:`input-codes = <INPUT_KEY_ENTER>;` :
+          :dts:`lvgl-codes = <LV_KEY_ENTER>;`
         | :hwftlbl-btn:`K3` :
-          :devicetree:`input-codes = <INPUT_KEY_RIGHT>;` :
-          :devicetree:`lvgl-codes = <LV_KEY_RIGHT>;`
+          :dts:`input-codes = <INPUT_KEY_RIGHT>;` :
+          :dts:`lvgl-codes = <LV_KEY_RIGHT>;`
         | :hwftlbl-btn:`K4` :
-          :devicetree:`input-codes = <INPUT_KEY_LEFT>;` :
-          :devicetree:`lvgl-codes = <LV_KEY_LEFT>;`
+          :dts:`input-codes = <INPUT_KEY_LEFT>;` :
+          :dts:`lvgl-codes = <LV_KEY_LEFT>;`
         | :hwftlbl-btn:`K5` :
-          :devicetree:`input-codes = <INPUT_KEY_UP>;` :
-          :devicetree:`lvgl-codes = <LV_KEY_UP>;`
+          :dts:`input-codes = <INPUT_KEY_UP>;` :
+          :dts:`lvgl-codes = <LV_KEY_UP>;`
 
       .. tabs::
 
@@ -271,17 +271,17 @@ Analog-to-Digital Converter (ADC)
 =================================
 
 Read analog inputs from ADC channels as defined by the shield's Devicetree.
-See also Zephyr sample: :zephyr:code-sample:`zephyr:adc_dt`.
+See also Zephyr sample: :zephyr:code-sample:`adc_dt`.
 
 .. tabs::
 
    .. group-tab:: Spotpear Pico ALL GPIO TEST
 
       Read and print the analog input value from the one on-shield
-      high-resistance potentiometer using the :ref:`ADC driver API
-      <zephyr:adc_api>`. That are:
+      high-resistance potentiometer using the :zephyr:ref:`ADC driver
+      API <adc_api>`. That are:
 
-      | :hwftlbl:`Rₚ` : :devicetree:`zephyr,user { io-channels = <&adc 0>; };`
+      | :hwftlbl:`Rₚ` : :dts:`zephyr,user { io-channels = <&adc 0>; };`
 
       .. tabs::
 
@@ -377,7 +377,7 @@ Light-Emitting Diode (LED) by PWM
 =================================
 
 Control PWM LEDs as defined by the shield's Devicetree. See also Zephyr
-sample: :zephyr:code-sample:`zephyr:led-pwm`.
+sample: :zephyr:code-sample:`led-pwm`.
 
 .. tabs::
 
@@ -386,48 +386,48 @@ sample: :zephyr:code-sample:`zephyr:led-pwm`.
       For each of the twenty on-shield LEDs attached to the first
       :dtcompatible:`pwm-leds` device instance found in Devicetree the same
       standard test pattern (described in the original sample documentation)
-      is executed using the :ref:`LED driver API <zephyr:led_api>`. That are:
+      is executed using the :zephyr:ref:`LED driver API <led_api>`. That are:
 
       | :hwftlbl-led:`L0` :
-        :devicetree:`&pwm_leds { pl0: pl0 { pwms = <&pwm 12 /* … */>; }; };`
+        :dts:`&pwm_leds { pl0: pl0 { pwms = <&pwm 12 /* … */>; }; };`
       | :hwftlbl-led:`L1` :hwftlbl-led:`L16` :
-        :devicetree:`&pwm_leds { pl1: pl1 { pwms = <&pwm 11 /* … */>; }; };`
+        :dts:`&pwm_leds { pl1: pl1 { pwms = <&pwm 11 /* … */>; }; };`
       | :hwftlbl-led:`L2` :
-        :devicetree:`&pwm_leds { pl2: pl2 { pwms = <&pwm 1 /* … */>; }; };`
+        :dts:`&pwm_leds { pl2: pl2 { pwms = <&pwm 1 /* … */>; }; };`
       | :hwftlbl-led:`L3` :
-        :devicetree:`&pwm_leds { pl3: pl3 { pwms = <&pwm 0 /* … */>; }; };`
+        :dts:`&pwm_leds { pl3: pl3 { pwms = <&pwm 0 /* … */>; }; };`
       | :hwftlbl-led:`L4` :hwftlbl-led:`L15` :
-        :devicetree:`&pwm_leds { pl4: pl4 { pwms = <&pwm 6 /* … */>; }; };`
+        :dts:`&pwm_leds { pl4: pl4 { pwms = <&pwm 6 /* … */>; }; };`
       | :hwftlbl-led:`L5` :hwftlbl-led:`L10` :
-        :devicetree:`&pwm_leds { pl5: pl5 { pwms = <&pwm 5 /* … */>; }; };`
+        :dts:`&pwm_leds { pl5: pl5 { pwms = <&pwm 5 /* … */>; }; };`
       | :hwftlbl-led:`L6` :hwftlbl-led:`L9` :
-        :devicetree:`&pwm_leds { pl6: pl6 { pwms = <&pwm 3 /* … */>; }; };`
+        :dts:`&pwm_leds { pl6: pl6 { pwms = <&pwm 3 /* … */>; }; };`
       | :hwftlbl-led:`L7` :hwftlbl-led:`L13` :
-        :devicetree:`&pwm_leds { pl7: pl7 { pwms = <&pwm 2 /* … */>; }; };`
+        :dts:`&pwm_leds { pl7: pl7 { pwms = <&pwm 2 /* … */>; }; };`
       | :hwftlbl-led:`L8` :hwftlbl-led:`L11` :
-        :devicetree:`&pwm_leds { pl8: pl8 { pwms = <&pwm 4 /* … */>; }; };`
+        :dts:`&pwm_leds { pl8: pl8 { pwms = <&pwm 4 /* … */>; }; };`
       | :hwftlbl-led:`L6` :hwftlbl-led:`L9` :
-        :devicetree:`&pwm_leds { pl9: pl9 { pwms = <&pwm 3 /* … */>; }; };`
+        :dts:`&pwm_leds { pl9: pl9 { pwms = <&pwm 3 /* … */>; }; };`
       | :hwftlbl-led:`L5` :hwftlbl-led:`L10` :
-        :devicetree:`&pwm_leds { pl10: pl10 { pwms = <&pwm 5 /* … */>; }; };`
+        :dts:`&pwm_leds { pl10: pl10 { pwms = <&pwm 5 /* … */>; }; };`
       | :hwftlbl-led:`L11` :hwftlbl-led:`L8` :
-        :devicetree:`&pwm_leds { pl11: pl11 { pwms = <&pwm 4 /* … */>; }; };`
+        :dts:`&pwm_leds { pl11: pl11 { pwms = <&pwm 4 /* … */>; }; };`
       | :hwftlbl-led:`L12` :
-        :devicetree:`&pwm_leds { pl12: pl12 { pwms = <&pwm 15 /* … */>; }; };`
+        :dts:`&pwm_leds { pl12: pl12 { pwms = <&pwm 15 /* … */>; }; };`
       | :hwftlbl-led:`L13` :hwftlbl-led:`L7` :
-        :devicetree:`&pwm_leds { pl13: pl13 { pwms = <&pwm 2 /* … */>; }; };`
+        :dts:`&pwm_leds { pl13: pl13 { pwms = <&pwm 2 /* … */>; }; };`
       | :hwftlbl-led:`L14` :
-        :devicetree:`&pwm_leds { pl14: pl14 { pwms = <&pwm 7 /* … */>; }; };`
+        :dts:`&pwm_leds { pl14: pl14 { pwms = <&pwm 7 /* … */>; }; };`
       | :hwftlbl-led:`L15` :hwftlbl-led:`L4` :
-        :devicetree:`&pwm_leds { pl15: pl15 { pwms = <&pwm 6 /* … */>; }; };`
+        :dts:`&pwm_leds { pl15: pl15 { pwms = <&pwm 6 /* … */>; }; };`
       | :hwftlbl-led:`L16` :hwftlbl-led:`L1` :
-        :devicetree:`&pwm_leds { pl16: pl16 { pwms = <&pwm 11 /* … */>; }; };`
+        :dts:`&pwm_leds { pl16: pl16 { pwms = <&pwm 11 /* … */>; }; };`
       | :hwftlbl-led:`L17` :
-        :devicetree:`&pwm_leds { pl17: pl17 { pwms = <&pwm 10 /* … */>; }; };`
+        :dts:`&pwm_leds { pl17: pl17 { pwms = <&pwm 10 /* … */>; }; };`
       | :hwftlbl-led:`L18` :
-        :devicetree:`&pwm_leds { pl18: pl18 { pwms = <&pwm 9 /* … */>; }; };`
+        :dts:`&pwm_leds { pl18: pl18 { pwms = <&pwm 9 /* … */>; }; };`
       | :hwftlbl-led:`L19` :
-        :devicetree:`&pwm_leds { pl19: pl19 { pwms = <&pwm 8 /* … */>; }; };`
+        :dts:`&pwm_leds { pl19: pl19 { pwms = <&pwm 8 /* … */>; }; };`
 
       .. tabs::
 

@@ -226,18 +226,18 @@ provides a Devicetree node with the :dtcompatible:`raspberrypi,pico-header-r3`
 property for the compatibility. In particular, one SPI bus and some GPIO
 signals on this edge connector must be free for communication with the LCD
 on the shields. The shields also provide the special Devicetree labels
-:devicetree:`&rpipico_spi_lcd` and :devicetree:`&lcd_panel` for this purpose.
+:dts:`&rpipico_spi_lcd` and :dts:`&lcd_panel` for this purpose.
 
 For shields with touchscreen support, additional GPIO signals and on occasion
 one I2C bus on the edge connector must also be free for communication with the
 touchscreen controller on the shield. Then the shields also provide the special
-Devicetree labels :devicetree:`&rpipico_spi_tsc` and :devicetree:`&tsc_panel`
+Devicetree labels :dts:`&rpipico_spi_tsc` and :dts:`&tsc_panel`
 for this purpose.
 
 For shields with TF/microSD card slot, even more GPIO signals on the edge
 connector must be free for communication with the card on the shield over
 SDHC/SPI. The shields also provide the special Devicetree labels
-:devicetree:`&rpipico_spi_sdc` and :devicetree:`&sdhc_spi` for this purpose.
+:dts:`&rpipico_spi_sdc` and :dts:`&sdhc_spi` for this purpose.
 In case of the SDHC/SDIO mode up to seven additional GPIO signals must be
 free for communication with the card over a 4-bit SDHC/SDIO interface.
 But this is not yet supported and may need changes on the shield hardware.
@@ -310,7 +310,7 @@ Input dump
 ==========
 
 Prints all input events as defined by the shields Devicetree. See also Zephyr
-sample: :zephyr:code-sample:`zephyr:input-dump`.
+sample: :zephyr:code-sample:`input-dump`.
 
 .. tabs::
 
@@ -377,7 +377,7 @@ LED color change
 ================
 
 Drives an RGB LED that must defined by the shields Devicetree. See also Zephyr
-sample: :zephyr:code-sample:`zephyr:rgb-led`.
+sample: :zephyr:code-sample:`rgb-led`.
 
 .. tabs::
 
@@ -469,7 +469,7 @@ LCD Orientation and Bit Order Test
 
 Draw some basic rectangles onto the display. The rectangle colors and positions
 are chosen so that you can check the orientation of the LCD and correct RGB bit
-order. See also Zephyr sample: :zephyr:code-sample:`zephyr:display`.
+order. See also Zephyr sample: :zephyr:code-sample:`display`.
 
 .. tabs::
 
@@ -534,7 +534,7 @@ LVGL Basic Sample
 
 Displays “Hello World!” in the center of the screen and a counter at the bottom
 which increments every second. See also Zephyr sample:
-:zephyr:code-sample:`zephyr:lvgl`.
+:zephyr:code-sample:`lvgl`.
 
 .. tabs::
 

@@ -1,10 +1,10 @@
 Print the input events related to the four on-shield user keys using
-the :ref:`Input subsystem API <zephyr:input>`. That are:
+the :zephyr:ref:`Input subsystem API <input>`. That are:
 
-| :hwftlbl-btn:`0` : :devicetree:`zephyr,code = <INPUT_KEY_0>;`
-| :hwftlbl-btn:`1` : :devicetree:`zephyr,code = <INPUT_KEY_1>;`
-| :hwftlbl-btn:`2` : :devicetree:`zephyr,code = <INPUT_KEY_2>;`
-| :hwftlbl-btn:`3` : :devicetree:`zephyr,code = <INPUT_KEY_3>;`
+| :hwftlbl-btn:`0` : :dts:`zephyr,code = <INPUT_KEY_0>;`
+| :hwftlbl-btn:`1` : :dts:`zephyr,code = <INPUT_KEY_1>;`
+| :hwftlbl-btn:`2` : :dts:`zephyr,code = <INPUT_KEY_2>;`
+| :hwftlbl-btn:`3` : :dts:`zephyr,code = <INPUT_KEY_3>;`
 
 .. tabs::
 

@@ -104,35 +104,35 @@ hardware features:
    +-----------+------------+------------------------------------------------------+
    | Interface | Controller | Driver/Component                                     |
    +===========+============+======================================================+
-   | UART      | on-chip    | :ref:`zephyr:uart_api` (!) (?)                       |
+   | UART      | on-chip    | :zephyr:ref:`uart_api` (!) (?)                       |
    +-----------+------------+------------------------------------------------------+
-   | PINCTRL   | on-chip    | :ref:`zephyr:pinctrl_api`                            |
+   | PINCTRL   | on-chip    | :zephyr:ref:`pinctrl_api`                            |
    +-----------+------------+------------------------------------------------------+
-   | GPIO      | on-chip    | :ref:`zephyr:gpio_api`                               |
+   | GPIO      | on-chip    | :zephyr:ref:`gpio_api`                               |
    +-----------+------------+------------------------------------------------------+
-   | ETH       | on-chip    | :ref:`zephyr:ethernet_interface` (*)                 |
+   | ETH       | on-chip    | :zephyr:ref:`ethernet_interface` (*)                 |
    +-----------+------------+------------------------------------------------------+
-   | USB       | on-chip    | :ref:`zephyr:usb_api`                                |
+   | USB       | on-chip    | :zephyr:ref:`usb_api`                                |
    +-----------+------------+------------------------------------------------------+
-   | CAN       | on-chip    | :ref:`zephyr:canbus` (-)                             |
+   | CAN       | on-chip    | :zephyr:ref:`canbus` (-)                             |
    +-----------+------------+------------------------------------------------------+
-   | I2C       | on-chip    | :ref:`zephyr:i2c_api`                                |
+   | I2C       | on-chip    | :zephyr:ref:`i2c_api`                                |
    +-----------+------------+------------------------------------------------------+
-   | SPI       | on-chip    | :ref:`zephyr:spi_api` (?)                            |
+   | SPI       | on-chip    | :zephyr:ref:`spi_api` (?)                            |
    +-----------+------------+------------------------------------------------------+
-   | PWM       | on-chip    | :ref:`zephyr:pwm_api`                                |
+   | PWM       | on-chip    | :zephyr:ref:`pwm_api`                                |
    +-----------+------------+------------------------------------------------------+
-   | ADC       | on-chip    | :ref:`zephyr:adc_api` (+) (!) (?)                    |
+   | ADC       | on-chip    | :zephyr:ref:`adc_api` (+) (!) (?)                    |
    +-----------+------------+------------------------------------------------------+
-   | RTC       | on-chip    | :ref:`zephyr:rtc_api` as :ref:`zephyr:counter_api`   |
+   | RTC       | on-chip    | :zephyr:ref:`rtc_api` as :zephyr:ref:`counter_api`   |
    +-----------+------------+------------------------------------------------------+
-   | IWDG      | on-chip    | :ref:`zephyr:watchdog_api` (°)                       |
+   | IWDG      | on-chip    | :zephyr:ref:`watchdog_api` (°)                       |
    +-----------+------------+------------------------------------------------------+
-   | RNG       | on-chip    | :ref:`zephyr:entropy_api`                            |
+   | RNG       | on-chip    | :zephyr:ref:`entropy_api`                            |
    +-----------+------------+------------------------------------------------------+
-   | RCC       | on-chip    | Reset & :ref:`zephyr:clock_control_api`              |
+   | RCC       | on-chip    | Reset & :zephyr:ref:`clock_control_api`              |
    +-----------+------------+------------------------------------------------------+
-   | NVIC      | on-chip    | Nested Vector :ref:`zephyr:interrupts_v2` Controller |
+   | NVIC      | on-chip    | Nested Vector :zephyr:ref:`interrupts_v2` Controller |
    +-----------+------------+------------------------------------------------------+
 
 (*) Ethernet instability on SOC cut-A (Device marking A):
@@ -272,7 +272,7 @@ The bus timing is defined by the DTS and is preset to 1000 kBit/s. The
 calculation was verified with the help of the `CAN Bit Time Calculation Sheet`_
 and can also assume smaller bit rates according to the following table. Note
 that the value of **Prescaler**, **Seg 1** and **Seg 2** will be calculated on
-demand by the Zephyr :ref:`zephyr:can_api` API together with the driver.
+demand by the Zephyr :zephyr:ref:`can_api` API together with the driver.
 
 .. list-table:: CAN bus timing calculation
    :class: longtable
@@ -363,8 +363,8 @@ Programming and Debugging
 *************************
 
 Applications for the ``magpie_f777ni`` board configuration can be built and
-flashed in the usual way (see :ref:`zephyr:build_an_application` and
-:ref:`zephyr:application_run` for more details).
+flashed in the usual way (see :zephyr:ref:`build_an_application` and
+:zephyr:ref:`application_run` for more details).
 
 Flashing
 ========
@@ -374,7 +374,7 @@ The TiaC Magpie STM32F777NIHx needs an ST-LINK/V2 debug tool adapter.
 Flashing an application to TiaC Magpie F777NI
 ---------------------------------------------
 
-Here is an example for the :ref:`zephyr:hello_world` application.
+Here is an example for the :zephyr:code-sample:`hello_world` application.
 
 Run a serial host program to connect with your TiaC Magpie board.
 
@@ -385,7 +385,7 @@ Run a serial host program to connect with your TiaC Magpie board.
 Build and flash the application:
 
 .. zephyr-app-commands::
-   :zephyr-app: zephyr/samples/hello_world
+   :app: zephyr/samples/hello_world
    :build-dir: hello_world-magpie_f777ni
    :board: magpie_f777ni
    :west-args: -p
@@ -405,10 +405,10 @@ Debugging
 =========
 
 You can debug an application in the usual way. Here is an example for the
-:ref:`zephyr:hello_world` application.
+:zephyr:code-sample:`hello_world` application.
 
 .. zephyr-app-commands::
-   :zephyr-app: zephyr/samples/hello_world
+   :app: zephyr/samples/hello_world
    :build-dir: hello_world-magpie_f777ni
    :board: magpie_f777ni
    :maybe-skip-config:
@@ -439,7 +439,7 @@ Integration Tests
 
 Zephyr provides a large number of integration tests to evaluate the target
 architecture, the operating system core components, drivers and subsystems.
-Most of them can be build and running by the Zephyr :ref:`zephyr:twister_script`
+Most of them can be build and running by the Zephyr :zephyr:ref:`twister_script`
 without any further modification.
 
 Before a single or multiple test cases can be executed directly on the
@@ -702,7 +702,7 @@ The DTS binding following the :dtcompatible:`gpio-leds` specification.
           :start-at: leds {
           :end-at: }; // leds
 
-       DTS :ref:`aliases <zephyr:dt-alias-chosen>`:
+       DTS :zephyr:ref:`aliases <dt-alias-chosen>`:
 
        .. literalinclude:: ../magpie_f777ni.dts
           :language: DTS
@@ -845,7 +845,7 @@ The DTS binding following the :dtcompatible:`st,stm32-otgfs` and
           :start-at: usbotg_fs {
           :end-at: }; // usbotg_fs
 
-       :ref:`zephyr:usb_api` configuration:
+       :zephyr:ref:`usb_api` configuration:
 
        .. literalinclude:: ../magpie_f777ni.dts
           :language: DTS
@@ -918,7 +918,7 @@ The DTS binding following the :dtcompatible:`st,stm32-bxcan` specification.
           :start-at: can1 {
           :end-at: }; // can1
 
-       :ref:`zephyr:can_api` configuration:
+       :zephyr:ref:`can_api` configuration:
 
        .. literalinclude:: ../magpie_f777ni.dts
           :language: DTS

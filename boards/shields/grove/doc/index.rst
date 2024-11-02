@@ -625,28 +625,28 @@ not be complete.
 
          .. group-tab:: ``nucleo_f303re``
 
-            This is based on the Zephyr board :ref:`zephyr:nucleo_f303re_board`
+            This is based on the Zephyr board |zephyr:board:nucleo_f303re|
             and its :dtcompatible:`arduino-header-r3`.
 
             .. include:: grove_pwms-nucleo_f303re.rsti
 
          .. group-tab:: ``nucleo_f401re``
 
-            This is based on the Zephyr board :ref:`zephyr:nucleo_f401re_board`
+            This is based on the Zephyr board |zephyr:board:nucleo_f401re|
             and its :dtcompatible:`arduino-header-r3`.
 
             .. include:: grove_pwms-nucleo_f401re.rsti
 
          .. group-tab:: ``nucleo_f413zh``
 
-            This is based on the Zephyr board :ref:`zephyr:nucleo_f413zh_board`
+            This is based on the Zephyr board |zephyr:board:nucleo_f413zh|
             and its :dtcompatible:`arduino-header-r3`.
 
             .. include:: grove_pwms-nucleo_f413zh.rsti
 
          .. group-tab:: ``nucleo_f767zi``
 
-            This is based on the Zephyr board :ref:`zephyr:nucleo_f767zi_board`
+            This is based on the Zephyr board |zephyr:board:nucleo_f767zi|
             and its :dtcompatible:`arduino-header-r3`.
 
             .. include:: grove_pwms-nucleo_f767zi.rsti
@@ -657,7 +657,7 @@ not be complete.
 
          .. group-tab:: ``mimxrt1010_evk``
 
-            This is based on the Zephyr board :ref:`zephyr:mimxrt1010_evk`
+            This is based on the Zephyr board |zephyr:board:mimxrt1010_evk|
             and its :dtcompatible:`arduino-header-r3`.
 
             .. note::
@@ -674,7 +674,7 @@ not be complete.
 
          .. group-tab:: ``mimxrt1060_evk(b)``
 
-            This is based on the Zephyr board :ref:`zephyr:mimxrt1060_evk`
+            This is based on the Zephyr board |zephyr:board:mimxrt1060_evk|
             and its :dtcompatible:`arduino-header-r3`.
 
             .. note::
@@ -741,7 +741,7 @@ not be complete.
 
          .. group-tab:: ``seeeduino_xiao``
 
-            This is based on the Zephyr board :ref:`zephyr:seeeduino_xiao`
+            This is based on the Zephyr board |zephyr:board:seeeduino_xiao|
             and its :dtcompatible:`seeed,xiao-gpio`.
 
             .. note::
@@ -777,7 +777,7 @@ not be complete.
 
          .. group-tab:: ``rpi_pico``
 
-            This is based on the Zephyr board :ref:`zephyr:rpi_pico`
+            This is based on the Zephyr board |zephyr:board:rpi_pico|
             and its :dtcompatible:`raspberrypi,pico-header-r3`.
 
             .. note::
@@ -857,7 +857,7 @@ Set ``-DSHIELD=seeed_grove_base_v2`` or ``-DSHIELD=seeed_grove_base_v1``
 when you invoke ``west build`` or ``cmake`` in your Zephyr application. For
 example:
 
-#. :ref:`grove_base_shield_v2` on :ref:`zephyr:mimxrt1060_evk`:
+#. :ref:`grove_base_shield_v2` on |zephyr:board:mimxrt1060_evk|:
 
     .. zephyr-app-commands::
        :app: bridle/samples/helloshell
@@ -870,7 +870,7 @@ example:
        :tool: all
 
 #. :ref:`grove_base_shield_v13` or :ref:`grove_base_shield_v12` on
-   :ref:`zephyr:mimxrt1060_evk`:
+   |zephyr:board:mimxrt1060_evk|:
 
     .. zephyr-app-commands::
        :app: bridle/samples/helloshell
@@ -888,7 +888,7 @@ Grove Base Shield for XIAO
 Set ``-DSHIELD=seeed_grove_xiao_v1`` when you invoke ``west build``
 or ``cmake`` in your Zephyr application. For example:
 
-#. :ref:`zephyr:seeeduino_xiao` on :ref:`grove_base_shield_xiao_v1`:
+#. |zephyr:board:seeeduino_xiao| on :ref:`grove_base_shield_xiao_v1`:
 
    .. zephyr-app-commands::
       :app: bridle/samples/helloshell
@@ -918,8 +918,7 @@ Grove Basic Kit for Raspberry Pi Pico
 Set ``-DSHIELD=seeed_grove_rpipico_v1`` when you invoke ``west build``
 or ``cmake`` in your Zephyr application. For example:
 
-#. :ref:`Raspberry Pi Pico <zephyr:rpi_pico>` on
-   :ref:`grove_rpipico_shield_v1`:
+#. |RPi Pico| on :ref:`grove_rpipico_shield_v1`:
 
    .. zephyr-app-commands::
       :app: bridle/samples/helloshell
@@ -931,8 +930,7 @@ or ``cmake`` in your Zephyr application. For example:
       :host-os: unix
       :tool: all
 
-#. :ref:`Raspberry Pi Pico W <zephyr:rpi_pico>` on
-   :ref:`grove_rpipico_shield_v1`:
+#. |RPi Pico W| on :ref:`grove_rpipico_shield_v1`:
 
    .. zephyr-app-commands::
       :app: bridle/samples/helloshell

@@ -1,7 +1,7 @@
-Using the :ref:`PWM driver API <zephyr:pwm_api>` with given Piezo Buzzer.
+Using the :zephyr:ref:`PWM driver API <pwm_api>` with given Piezo Buzzer.
 That is:
 
-| :hwftlbl-spk:`PIEZO` : :devicetree:`aliases { pwm-buzzer0 = &pwm_buzzer_0; };`
+| :hwftlbl-spk:`PIEZO` : :dts:`aliases { pwm-buzzer0 = &pwm_buzzer_0; };`
 
 .. tabs::
 

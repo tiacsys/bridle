@@ -43,7 +43,7 @@ include all files from a folder by adding that folder as include folder::
 
    target_include_directories(app PRIVATE src)
 
-See the `CMake documentation`_ and :ref:`zephyr:cmake-details` in the Zephyr
+See the `CMake documentation`_ and :zephyr:ref:`cmake-details` in the Zephyr
 documentation for more information about how to edit :file:`CMakeLists.txt`.
 
 Maintaining CMakeLists.txt in ... t.b.d. (TBD) IDE
@@ -64,13 +64,13 @@ permanently.
 The default configuration for a library is specified in its :file:`Kconfig`
 file. Similarly, the default configuration for a board is specified in its
 :file:`*_defconfig` file (and its :file:`Kconfig.defconfig` file, see
-:ref:`zephyr:default_board_configuration` in the Zephyr documentation for
+:zephyr:ref:`default_board_configuration` in the Zephyr documentation for
 more information). The configuration for your application, which might
 override some default options of the libraries or the board, is specified
 in a :file:`prj.conf` file in the application directory.
 
 For detailed information about configuration options, see
-:ref:`zephyr:application-kconfig` in the Zephyr documentation.
+:zephyr:ref:`application-kconfig` in the Zephyr documentation.
 
 Changing the configuration permanently
 ======================================
@@ -81,7 +81,7 @@ application directory. In this file, you can specify different values for
 configuration options that are defined by a library or board, and you can
 add configuration options that are specific to your application.
 
-See :ref:`zephyr:setting_configuration_values` in the Zephyr documentation
+See :zephyr:ref:`setting_configuration_values` in the Zephyr documentation
 for information on how to edit the :file:`prj.conf` file.
 
 .. note::
@@ -106,7 +106,7 @@ directory. While it is possible to edit the :file:`.config` file directly,
 you should use a tool like menuconfig or guiconfig to update it. These tools
 present all available options and allow you to select the ones that you need.
 
-See :ref:`zephyr:menuconfig` in the Zephyr documentation for instructions on
+See :zephyr:ref:`menuconfig` in the Zephyr documentation for instructions on
 how to run menuconfig or guiconfig.
 
 To locate a specific configuration option, use the filter (:guilabel:`Jump to`
@@ -130,7 +130,7 @@ actual build, but when configuring the build.
 
 If you work on the command line, pass the additional options to the
 ``west build`` command. The options must be added after a ``--`` at the end of
-the command. See :ref:`zephyr:west-building-cmake-args` for more information.
+the command. See :zephyr:ref:`west-building-cmake-args` for more information.
 
 .. _gs_modifying_build_types:
 
@@ -155,7 +155,7 @@ Creating build type files
 To create custom build type files for your application instead of using a single
 :file:`prj.conf` file, complete the following steps:
 
-#. During :ref:`application development <zephyr:application>`, follow
+#. During :zephyr:ref:`application development <application>`, follow
    the procedure for creating the application until after the step where
    you create the :file:`CMakeLists.txt` file.
 #. In the :file:`CMakeLists.txt` file, define the file name pattern for

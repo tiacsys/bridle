@@ -8,4 +8,4 @@ multiple hardware architectures, optimized for resource constrained devices, and
 built with security in mind.
 
 The |BRIDLE| refere to the original Zephyr Project, read the
-:ref:`zephyr:getting_started`.
+:zephyr:ref:`getting_started`.

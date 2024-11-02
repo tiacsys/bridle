@@ -1,20 +1,20 @@
 Print the input events related to the on-shield touchscreen panel,
 the two user keys, and the two analog joystick achsises using the
-:ref:`Input subsystem API <zephyr:input>`. That are:
+:zephyr:ref:`Input subsystem API <input>`. That are:
 
-| :hwftlbl-scr:`TSC` : :devicetree:`lvgl_pointer { input = &tsc_panel; };`
-| :hwftlbl-scr:`GT911` : :devicetree:`tsc_panel: &gt911_320x480 {};`
+| :hwftlbl-scr:`TSC` : :dts:`lvgl_pointer { input = &tsc_panel; };`
+| :hwftlbl-scr:`GT911` : :dts:`tsc_panel: &gt911_320x480 {};`
 
-| :hwftlbl-btn:`0` : :devicetree:`zephyr,code = <INPUT_KEY_0>;`
-| :hwftlbl-btn:`1` : :devicetree:`zephyr,code = <INPUT_KEY_1>;`
+| :hwftlbl-btn:`0` : :dts:`zephyr,code = <INPUT_KEY_0>;`
+| :hwftlbl-btn:`1` : :dts:`zephyr,code = <INPUT_KEY_1>;`
 
-| :hwftlbl-joy:`Y` : :devicetree:`zephyr,code = <INPUT_ABS_Y>;`
-| :hwftlbl-joy:`UP` : :devicetree:`zephyr,code = <INPUT_KEY_UP>;`
-| :hwftlbl-joy:`DOWN` : :devicetree:`zephyr,code = <INPUT_KEY_DOWN>;`
+| :hwftlbl-joy:`Y` : :dts:`zephyr,code = <INPUT_ABS_Y>;`
+| :hwftlbl-joy:`UP` : :dts:`zephyr,code = <INPUT_KEY_UP>;`
+| :hwftlbl-joy:`DOWN` : :dts:`zephyr,code = <INPUT_KEY_DOWN>;`
 
-| :hwftlbl-joy:`X` : :devicetree:`zephyr,code = <INPUT_ABS_X>;`
-| :hwftlbl-joy:`LEFT` : :devicetree:`zephyr,code = <INPUT_KEY_LEFT>;`
-| :hwftlbl-joy:`RIGHT` : :devicetree:`zephyr,code = <INPUT_KEY_RIGHT>;`
+| :hwftlbl-joy:`X` : :dts:`zephyr,code = <INPUT_ABS_X>;`
+| :hwftlbl-joy:`LEFT` : :dts:`zephyr,code = <INPUT_KEY_LEFT>;`
+| :hwftlbl-joy:`RIGHT` : :dts:`zephyr,code = <INPUT_KEY_RIGHT>;`
 
 .. tabs::
 

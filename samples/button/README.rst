@@ -10,7 +10,7 @@ Button
    for further development, improvement and preparation of changes for
    Zephyr within Bridle. However, the original sample still lives within
    the Zephyr namespace under the exactly same name:
-   :zephyr:code-sample:`zephyr:button`.
+   :zephyr:code-sample:`button`.
 
 Overview
 ********
@@ -26,8 +26,8 @@ The board hardware must have a push button connected via a GPIO pin. These are
 called "User buttons" on many of Zephyr's :ref:`boards`.
 
 The button must be configured using the ``sw0``
-:ref:`devicetree <zephyr:dt-guide>` alias, usually in the
-:ref:`BOARD.dts file <zephyr:devicetree-in-out-files>`. You will see this error
+:zephyr:ref:`devicetree <dt-guide>` alias, usually in the
+:zephyr:ref:`BOARD.dts file <devicetree-in-out-files>`. You will see this error
 if you try to build this sample for an unsupported board:
 
 .. code-block:: none
@@ -84,16 +84,16 @@ both an ``sw0`` and an ``led0`` alias.
    };
 
 As shown, the ``sw0`` devicetree alias must point to a child node of a node
-with a "gpio-keys" :ref:`compatible <zephyr:dt-important-props>`, and the
+with a "gpio-keys" :zephyr:ref:`compatible <dt-important-props>`, and the
 ``led0`` alias must point to a child node of one with a "gpio-leds"
-:ref:`compatible <zephyr:dt-important-props>`.
+:zephyr:ref:`compatible <dt-important-props>`.
 
 The above situation is for the common case where:
 
 - ``gpio0`` is an example node label referring to a GPIO controller
 -  ``PIN`` should be a pin number, like ``8`` or ``0``
 - ``FLAGS`` should be a logical OR of
-  :ref:`GPIO configuration flags <zephyr:gpio_api>` meant to apply to the
+  :zephyr:ref:`GPIO configuration flags <gpio_api>` meant to apply to the
   button, such as ``(GPIO_PULL_UP | GPIO_ACTIVE_LOW)``
 
 This assumes the common case, where ``#gpio-cells = <2>`` in the ``gpio0``
@@ -114,12 +114,12 @@ Building and Running
 ********************
 
 This sample can be built for multiple boards, in this example we will build it
-for the :ref:`zephyr:nucleo_f413zh_board` board:
+for the |zephyr:board:nucleo_f413zh| board:
 
 #. polling thread
 
    .. zephyr-app-commands::
-      :zephyr-app: bridle/samples/button
+      :app: bridle/samples/button
       :board: nucleo_f413zh
       :build-dir: nucleo_f413zh-button-poll
       :conf: prj-poll.conf
@@ -130,7 +130,7 @@ for the :ref:`zephyr:nucleo_f413zh_board` board:
 #. interrupt callback
 
    .. zephyr-app-commands::
-      :zephyr-app: bridle/samples/button
+      :app: bridle/samples/button
       :board: nucleo_f413zh
       :build-dir: nucleo_f413zh-button-event
       :conf: prj-event.conf

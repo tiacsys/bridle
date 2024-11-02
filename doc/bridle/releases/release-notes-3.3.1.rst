@@ -89,16 +89,16 @@ The following sections provide detailed lists of changes by component.
 
   * :ref:`grove_shield`, with integration tested for:
 
-    * :ref:`arduino_zero`
-    * :ref:`zephyr:mimxrt1010_evk`
-    * :ref:`zephyr:mimxrt1060_evk`
-    * :ref:`zephyr:nucleo_f303re_board`
-    * :ref:`zephyr:nucleo_f401re_board`
-    * :ref:`zephyr:nucleo_f767zi_board`
-    * :ref:`zephyr:rpi_pico`
-    * :ref:`seeeduino_lotus`
-    * :ref:`zephyr:seeeduino_xiao`
-    * :ref:`xiao_samd21`
+    * |zephyr:board:arduino_zero|
+    * |zephyr:board:mimxrt1010_evk|
+    * |zephyr:board:mimxrt1060_evk|
+    * |zephyr:board:nucleo_f303re|
+    * |zephyr:board:nucleo_f401re|
+    * |zephyr:board:nucleo_f767zi|
+    * |zephyr:board:rpi_pico|
+    * |bridle:board:seeeduino_lotus|
+    * |zephyr:board:seeeduino_xiao|
+    * |bridle:board:xiao_samd21|
 
   * :ref:`grove_button_shield`
   * :ref:`grove_led_shield`
@@ -161,7 +161,7 @@ Documentation
 1. Update all output messages in documentation to be in sync with the upcoming
    Bridle version v3.3.1, based on Zephyr v3.3 (samples and tests).
 2. Following latest Zephyr Coding Guidelines and update terms, see
-   :ref:`zephyr:coding_guideline_inclusive_language`.
+   :zephyr:ref:`coding_guideline_inclusive_language`.
 
 Issue Related Items
 *******************

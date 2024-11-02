@@ -21,42 +21,42 @@ Requirements
 
 * One of the following development boards:
 
-  * :ref:`zephyr:native_posix`
-  * :ref:`zephyr:native_sim`
-  * :ref:`zephyr:qemu_x86`
-  * :ref:`zephyr:qemu_cortex_r5`
-  * :ref:`zephyr:qemu_cortex_m0`
-  * :ref:`zephyr:qemu_cortex_m3`
+  * |zephyr:board:native_posix|
+  * |zephyr:board:native_sim|
+  * |zephyr:board:qemu_x86|
+  * |zephyr:board:qemu_cortex_r5|
+  * |zephyr:board:qemu_cortex_m0|
+  * |zephyr:board:qemu_cortex_m3|
   * ARM Cortex-A9 Emulation (``qemu_cortex_a9``)
-  * :ref:`zephyr:qemu_cortex_a53`
-  * :ref:`zephyr:qemu_kvm_arm64`
-  * :ref:`zephyr:qemu_arc`
-  * :ref:`zephyr:qemu_malta`
-  * :ref:`zephyr:qemu_riscv32e`
-  * :ref:`zephyr:qemu_riscv32`
-  * :ref:`zephyr:qemu_riscv64`
-  * :ref:`zephyr:qemu_xtensa`
-  * :ref:`zephyr:qemu_leon3`
-  * :ref:`zephyr:qemu_nios2`
-  * :ref:`zephyr:nucleo_f303re_board` (NUCLEO-F303RE)
-  * :ref:`zephyr:nucleo_f401re_board` (NUCLEO-F401RE)
-  * :ref:`zephyr:nucleo_f413zh_board` (NUCLEO-F413ZH)
-  * :ref:`zephyr:nucleo_f746zg_board` (NUCLEO-F746ZG)
-  * :ref:`zephyr:nucleo_f767zi_board` (NUCLEO-F767ZI)
-  * :ref:`zephyr:mimxrt1010_evk`
-  * :ref:`zephyr:mimxrt1060_evk`
-  * :ref:`zephyr:arduino_zero` or Bridle's :ref:`arduino_zero`
-  * :ref:`seeeduino_cm0`
-  * :ref:`seeeduino_lotus`
-  * :ref:`zephyr:seeeduino_xiao` or Bridle's :ref:`xiao_samd21`
-  * :ref:`zephyr:rpi_pico`
-  * :ref:`waveshare_rp2040`
+  * |zephyr:board:qemu_cortex_a53|
+  * |zephyr:board:qemu_kvm_arm64|
+  * |zephyr:board:qemu_arc|
+  * |zephyr:board:qemu_malta|
+  * |zephyr:board:qemu_riscv32e|
+  * |zephyr:board:qemu_riscv32|
+  * |zephyr:board:qemu_riscv64|
+  * |zephyr:board:qemu_xtensa|
+  * |zephyr:board:qemu_leon3|
+  * |zephyr:board:qemu_nios2|
+  * |zephyr:board:nucleo_f303re| (NUCLEO-F303RE)
+  * |zephyr:board:nucleo_f401re| (NUCLEO-F401RE)
+  * |zephyr:board:nucleo_f413zh| (NUCLEO-F413ZH)
+  * |zephyr:board:nucleo_f746zg| (NUCLEO-F746ZG)
+  * |zephyr:board:nucleo_f767zi| (NUCLEO-F767ZI)
+  * |zephyr:board:mimxrt1010_evk|
+  * |zephyr:board:mimxrt1060_evk|
+  * |zephyr:board:arduino_zero| or Bridle's |bridle:board:arduino_zero|
+  * |bridle:board:seeeduino_cm0|
+  * |bridle:board:seeeduino_lotus|
+  * |zephyr:board:seeeduino_xiao| or Bridle's |bridle:board:xiao_samd21|
+  * |zephyr:board:rpi_pico|
+  * |bridle:board:waveshare_rp2040|
 
 Building and Running
 ********************
 
 This project outputs 'Hello World! I'm THE SHELL' to the console. It can be
-built and executed as emulation in :ref:`zephyr:qemu_x86` as follows:
+built and executed as emulation in |zephyr:board:qemu_x86| as follows:
 
 .. zephyr-app-commands::
    :app: bridle/samples/helloshell
@@ -68,7 +68,7 @@ built and executed as emulation in :ref:`zephyr:qemu_x86` as follows:
 
 Also it can be built and executed on following targets:
 
-* As :ref:`zephyr:native_posix`, fancy command set mode:
+* As |zephyr:board:native_posix|, fancy command set mode:
 
   .. zephyr-app-commands::
      :app: bridle/samples/helloshell
@@ -85,7 +85,7 @@ Also it can be built and executed on following targets:
 
         ./build/helloshell-native_posix/zephyr/zephyr.exe -attach_uart
 
-* As emulation in :ref:`zephyr:qemu_cortex_m3`, fancy command set mode:
+* As emulation in |zephyr:board:qemu_cortex_m3|, fancy command set mode:
 
   .. zephyr-app-commands::
      :app: bridle/samples/helloshell
@@ -97,7 +97,7 @@ Also it can be built and executed on following targets:
 
   .. hint:: Exit QEMU by pressing :kbd:`CTRL+A` :kbd:`x`.
 
-* On :ref:`zephyr:nucleo_f746zg_board` board, fancy command set mode:
+* On |zephyr:board:nucleo_f746zg| board, fancy command set mode:
 
   .. zephyr-app-commands::
      :app: bridle/samples/helloshell
@@ -110,7 +110,7 @@ Also it can be built and executed on following targets:
 Further you can deside either to run in a basic or fancy command set
 mode:
 
-* On :ref:`zephyr:nucleo_f746zg_board` board, basic command set mode:
+* On |zephyr:board:nucleo_f746zg| board, basic command set mode:
 
   .. zephyr-app-commands::
      :app: bridle/samples/helloshell
@@ -121,7 +121,7 @@ mode:
      :goals: flash
      :host-os: unix
 
-* On :ref:`zephyr:nucleo_f746zg_board` board, fancy command set mode:
+* On |zephyr:board:nucleo_f746zg| board, fancy command set mode:
 
   .. zephyr-app-commands::
      :app: bridle/samples/helloshell

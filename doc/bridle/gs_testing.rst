@@ -34,7 +34,7 @@ Connect with the following settings:
 If you want to send commands via UART, make sure to configure the required line
 endings and turn on local echo and local line editing:
 
-.. figure:: /images/putty.svg
+.. figure:: images/putty.svg
    :alt: PuTTY configuration for sending commands via UART
 
 .. UART can also be used for logging purposes as one of the

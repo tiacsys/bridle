@@ -1,4 +1,4 @@
-See also Zephyr sample: :zephyr:code-sample:`zephyr:eeprom`.
+See also Zephyr sample: :zephyr:code-sample:`eeprom`.
 
 .. zephyr-app-commands::
    :app: zephyr/samples/drivers/eeprom

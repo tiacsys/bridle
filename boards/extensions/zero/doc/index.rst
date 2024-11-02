@@ -10,7 +10,7 @@ Arduino/Genuino Zero
    be used for further development, improvement and preparation of changes for
    Zephyr within Bridle. However, the original board description still lives
    within the Zephyr namespace under the exactly same board name:
-   :ref:`zephyr:arduino_zero`.
+   |zephyr:board:arduino_zero|.
 
 Overview
 ********
@@ -167,11 +167,11 @@ USB Device Port
    :alt: Arduino Zero Native and Programming USB Ports
 
 The SAMD21 MCU has a (native) USB device port that can be used to communicate
-with a host PC. See Zephyr :ref:`zephyr:usb-samples` for more, such as the
-:zephyr:code-sample:`zephyr:usb-cdc-acm` sample which sets up a virtual serial
-port that echos characters back to the host PC. As an alternative to the default
+with a host PC. See Zephyr :zephyr:code-sample-category:`usb` for more, such as
+the :zephyr:code-sample:`usb-cdc-acm` sample which sets up a virtual serial port
+that echos characters back to the host PC. As an alternative to the default
 Zephyr console on serial port the Bridle :ref:`snippet-usb-console` can be used
-to enable :ref:`zephyr:usb_device_cdc_acm` and switch the console to USB::
+to enable :zephyr:ref:`usb_device_cdc_acm` and switch the console to USB::
 
    USB device idVendor=2341, idProduct=804d, bcdDevice= 3.07
    USB device strings: Mfr=1, Product=2, SerialNumber=3
@@ -285,10 +285,11 @@ is connected to the debug USB port for programming::
 Flashing
 ========
 
-#. Build the Zephyr kernel and the :ref:`zephyr:hello_world` sample application:
+#. Build the Zephyr kernel and the :zephyr:code-sample:`hello_world` sample
+   application:
 
    .. zephyr-app-commands::
-      :zephyr-app: zephyr/samples/hello_world
+      :app: zephyr/samples/hello_world
       :board: arduino_zero
       :build-dir: arduino_zero
       :west-args: -p

@@ -1,5 +1,5 @@
 The `Waveshare Pico Clock Green`_ is a :bbk:`special sized` LED-digit
-electronic clock designed for :ref:`zephyr:rpi_pico`, a RP2040 based
+electronic clock designed for |zephyr:board:rpi_pico|, a RP2040 based
 development board. It contains a high-precision RTC chip DS3231_ with
 an on-chip temperature sensor for ambient, auto-brightness adjustment
 by an photoresistor (LDR), alarm signaling by a simple buzzer. a LED

@@ -11,7 +11,7 @@ The |BRIDLE| documentation is written using the reStructuredText markup language
 (.rst file extension) with Sphinx extensions and processed using Sphinx. API
 documentation is included from Doxygen comments.
 
-See :ref:`zephyr:documentation-overview` in the Zephyr :ref:`zephyr:zephyr_doc`
+See :zephyr:ref:`documentation-overview` in the Zephyr :zephyr:ref:`zephyr_doc`
 developer guide for information about reStructuredText.
 
 Before you start
@@ -20,7 +20,7 @@ Before you start
 Before you can build the documentation, install |BRIDLE| as described in
 :ref:`gs_installing`. Make sure that you have installed the required
 :ref:`Python dependencies <additional_deps>`. See
-:ref:`zephyr:documentation-processors` in the Zephyr :ref:`zephyr:zephyr_doc`
+:zephyr:ref:`documentation-processors` in the Zephyr :zephyr:ref:`zephyr_doc`
 developer guide for information about installing the required tools to build
 the documentation and their supported versions.
 

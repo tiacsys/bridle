@@ -2,11 +2,11 @@
 
    .. group-tab:: LCD Orientation and Bit Order Test
 
-      Using the :ref:`Display driver API <zephyr:display_api>` with
-      chosen display. That is:
+      Using the :zephyr:ref:`Display driver API <display_api>` with chosen
+      display. That is:
 
-      | :hwftlbl-scr:`LCD` : :devicetree:`chosen { zephyr,display = &lcd_panel; };`
-      | :hwftlbl-scr:`ILI9341` : :devicetree:`lcd_panel: &ili9341_240x320 {};`
+      | :hwftlbl-scr:`LCD` : :dts:`chosen { zephyr,display = &lcd_panel; };`
+      | :hwftlbl-scr:`ILI9341` : :dts:`lcd_panel: &ili9341_240x320 {};`
 
       .. tabs::
 
@@ -60,11 +60,11 @@
 
    .. group-tab:: LVGL Basic Sample
 
-      Using the LVGL module on top of the :ref:`Display driver API
-      <zephyr:display_api>` with chosen display. That is:
+      Using the LVGL module on top of the :zephyr:ref:`Display driver API
+      <display_api>` with chosen display. That is:
 
-      | :hwftlbl-scr:`LCD` : :devicetree:`chosen { zephyr,display = &lcd_panel; };`
-      | :hwftlbl-scr:`ILI9341` : :devicetree:`lcd_panel: &ili9341_240x320 {};`
+      | :hwftlbl-scr:`LCD` : :dts:`chosen { zephyr,display = &lcd_panel; };`
+      | :hwftlbl-scr:`ILI9341` : :dts:`lcd_panel: &ili9341_240x320 {};`
 
       .. tabs::
 

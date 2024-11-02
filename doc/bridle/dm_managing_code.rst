@@ -9,7 +9,7 @@ Managing the code base
 
 
 To obtain and manage the |BRIDLE| code base, you must use a combination
-of `Git`_ and :ref:`west <zephyr:west>`.
+of `Git`_ and :zephyr:ref:`west <west>`.
 
 As described in :ref:`dm_code_base`, |BRIDLE| contains the following
 repositories:

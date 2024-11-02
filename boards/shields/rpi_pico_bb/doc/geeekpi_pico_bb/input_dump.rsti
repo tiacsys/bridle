@@ -1,26 +1,26 @@
 Print the input events related to the on-shield touchscreen panel,
 the two user keys, and the two analog joystick achsises using the
-:ref:`Input subsystem API <zephyr:input>`. That are:
+:zephyr:ref:`Input subsystem API <input>`. That are:
 
-| :hwftlbl-scr:`TSC` : :devicetree:`lvgl_pointer { input = &tsc_panel; };`
-| :hwftlbl-scr:`XPT2046` : :devicetree:`tsc_panel: &xpt2046_240x320 {};`
+| :hwftlbl-scr:`TSC` : :dts:`lvgl_pointer { input = &tsc_panel; };`
+| :hwftlbl-scr:`XPT2046` : :dts:`tsc_panel: &xpt2046_240x320 {};`
 
-| :hwftlbl-btn:`0` : :devicetree:`zephyr,code = <INPUT_KEY_0>;`
-| :hwftlbl-btn:`1` : :devicetree:`zephyr,code = <INPUT_KEY_1>;`
-| :hwftlbl-btn:`2` : :devicetree:`zephyr,code = <INPUT_KEY_2>;`
-| :hwftlbl-btn:`3` : :devicetree:`zephyr,code = <INPUT_KEY_3>;`
+| :hwftlbl-btn:`0` : :dts:`zephyr,code = <INPUT_KEY_0>;`
+| :hwftlbl-btn:`1` : :dts:`zephyr,code = <INPUT_KEY_1>;`
+| :hwftlbl-btn:`2` : :dts:`zephyr,code = <INPUT_KEY_2>;`
+| :hwftlbl-btn:`3` : :dts:`zephyr,code = <INPUT_KEY_3>;`
 
 .. rubric:: Joystick simulation by longpress codes (≥1000㎳)
 
-| :hwftlbl-btn:`0` : :devicetree:`short-code = <INPUT_KEY_RIGHT>;`
-| :hwftlbl-btn:`1` : :devicetree:`short-code = <INPUT_KEY_DOWN>;`
-| :hwftlbl-btn:`2` : :devicetree:`short-code = <INPUT_KEY_UP>;`
-| :hwftlbl-btn:`3` : :devicetree:`short-code = <INPUT_KEY_LEFT>;`
+| :hwftlbl-btn:`0` : :dts:`short-code = <INPUT_KEY_RIGHT>;`
+| :hwftlbl-btn:`1` : :dts:`short-code = <INPUT_KEY_DOWN>;`
+| :hwftlbl-btn:`2` : :dts:`short-code = <INPUT_KEY_UP>;`
+| :hwftlbl-btn:`3` : :dts:`short-code = <INPUT_KEY_LEFT>;`
 
-| :hwftlbl-btn:`0` : :devicetree:`long-code = <INPUT_KEY_ENTER>;`
-| :hwftlbl-btn:`1` : :devicetree:`long-code = <INPUT_KEY_DOWN>;`
-| :hwftlbl-btn:`2` : :devicetree:`long-code = <INPUT_KEY_UP>;`
-| :hwftlbl-btn:`3` : :devicetree:`long-code = <INPUT_KEY_LEFT>;`
+| :hwftlbl-btn:`0` : :dts:`long-code = <INPUT_KEY_ENTER>;`
+| :hwftlbl-btn:`1` : :dts:`long-code = <INPUT_KEY_DOWN>;`
+| :hwftlbl-btn:`2` : :dts:`long-code = <INPUT_KEY_UP>;`
+| :hwftlbl-btn:`3` : :dts:`long-code = <INPUT_KEY_LEFT>;`
 
 .. tabs::
 

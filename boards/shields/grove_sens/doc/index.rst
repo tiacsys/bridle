@@ -185,7 +185,7 @@ Programming
 Set ``-DSHIELD=grove_sens_X`` when you invoke ``west build``, wherein ``X``
 corresponds to the exact sensor type. For example:
 
-#. :ref:`grove_base_shield_v2` on :ref:`zephyr:mimxrt1060_evk`
+#. :ref:`grove_base_shield_v2` on |zephyr:board:mimxrt1060_evk|
    for **Grove BME280 Sensor**:
 
    .. zephyr-app-commands::
@@ -199,7 +199,7 @@ corresponds to the exact sensor type. For example:
       :tool: all
 
 #. :ref:`grove_base_shield_v13` or :ref:`grove_base_shield_v12` on
-   :ref:`zephyr:mimxrt1060_evk` for **Grove BMP280 Sensor**:
+   |zephyr:board:mimxrt1060_evk| for **Grove BMP280 Sensor**:
 
    .. zephyr-app-commands::
       :app: bridle/samples/helloshell

@@ -4,16 +4,80 @@ Supported operating systems
 ###########################
 
 |BRIDLE| supports Linux, macOS, and Microsoft Windows for development.
-However, there are some Zephyr features that are currently only available
-on Linux, including:
+In the :ref:`gs_recommended_versions` section you will find a detailed
+list of the operating system support levels (Tier 1 to 3).
 
-* :ref:`zephyr:twister_script`
-* :ref:`zephyr:native_posix`
-* :ref:`zephyr:networking_with_native_sim` and
-  :ref:`zephyr:networking_with_qemu` or
-  :ref:`zephyr:networking_with_host` (net-tools)
-* :ref:`zephyr:bluetooth_bluez` – `BlueZ`_
-* :ref:`zephyr:nrf52_bsim` – `BabbleSim`_
+However, there are some **Zephyr features that are currently only
+available on Linux, including:**
+
+.. rubric:: Native host execution:
+
+* |zephyr:board:native_posix|
+* |zephyr:connectivity:networking:with:host| (`net-tools`_)
+
+.. rubric:: Native host simulation:
+
+* |zephyr:board:native_sim|
+* |zephyr:connectivity:networking:with:native_sim|
+  – virtual network between host and multiple simulations (`net-tools`_)
+* |zephyr:connectivity:networking:with:native_sim_eth_bridge|
+  – bridged Ethernet network between multiple simulations (`net-tools`_)
+* |zephyr:boards:bsim| – `BabbleSim`_
+  – BLE stack and IEEE 802.15.4 radio protocol simulation (2.4GHz ISM band)
+
+  * |zephyr:board:nrf52_bsim|
+  * |zephyr:board:nrf5340bsim|
+  * |zephyr:board:nrf54l15bsim|
+
+* |zephyr:connectivity:bluetooth:bluez| – `BlueZ`_
+* |zephyr:connectivity:bluetooth:qemu_native| – `BlueZ`_
+  – real Bluetooth controller exported from host into `QEMU`_ runtimes
+
+  * Using the Host System Bluetooth Controller
+  * Using a Zephyr-based BLE Controller
+  * HCI Tracing
+
+* |zephyr:connectivity:bluetooth:virtual_posix| – `BlueZ`_
+  – virtual Bluetooth controller connected over an HCI TCP server
+
+  * Android Emulator
+
+* |zephyr:connectivity:bluetooth:ctlr_bluez| – `BlueZ`_
+  – use Zephyr Bluetooth controller on host (simulated or emulated)
+
+.. rubric:: Native host emulation:
+
+* |zephyr:boards:qemu| boards for emulation
+* |zephyr:connectivity:networking:with:qemu|
+* |zephyr:connectivity:networking:with:eth_qemu|
+  – virtual network between host and multiple `QEMU`_ runtimes
+* |zephyr:connectivity:networking:with:user_qemu|
+  – SLiRP user network backend
+* |zephyr:connectivity:networking:with:ieee802154_qemu|
+  – IEEE 802.15.4 link layer over UART between multiple `QEMU`_ runtimes
+
+.. rubric:: Common host networking:
+
+* |zephyr:connectivity:networking:with:multiple_instances|
+  – virtual network between multiple Zephyr instances (simulated or emulated)
+
+.. rubric:: Test framework:
+
+As a result of native execution, simulation and emulation as listed above,
+the Zephyr built-in test environment can only be reasonably used on Linux.
+
+* :zephyr:ref:`test-framework`
+
+  * Zephyr Test Framework (Ztest)
+
+    * Integration testing
+    * Unit testing
+
+  * Zephyr stress test framework (Ztress)
+  * Shuffling Test Sequence
+  * Mocking via `Fake Function Framework <FFF_>`_
+
+* :zephyr:ref:`twister_script`
 
 .. note::
 

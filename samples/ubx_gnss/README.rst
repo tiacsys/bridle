@@ -14,17 +14,17 @@ Requirements
 ************
 
 The u-blox GNSS device must be connected via UART, and a Devicetree alias
-:devicetree:`ubxlib-uart0` must exist that point towards this UART port. Also
-a single GPIO line for the module reset signal have to define. To fulfil this
+:dts:`ubxlib-uart0` must exist that point towards this UART port. Also a
+single GPIO line for the module reset signal have to define. To fulfil this
 requirement, this sample application comes with a generic application overlay
 :file:`app.overlay` that should be usable with all boards that provies an
-Arduino UNO R3 edge connector. For :devicetree:`ubxlib-uart0` the standard
-Arduino UART on D0 (RX) and D1 (TX) will be used
-(:devicetree:`&arduino_serial`). The reset signal will be controlled by
-D8 (GPIO) and is mapped to :devicetree:`<&arduino_header 14 /*…*/>`. To ensure
-to use the correct GPIO line for the module reset signal, the example provides
-the only locally usable Devicetree binding :file:`reset-switch.yaml`. This
-specifies the Devicetree compatibility string :emphasis:`reset-switch`.
+Arduino UNO R3 edge connector. For :dts:`ubxlib-uart0` the standard
+Arduino UART on D0 (RX) and D1 (TX) will be used (:dts:`&arduino_serial`).
+The reset signal will be controlled by D8 (GPIO) and is mapped to
+:dts:`<&arduino_header 14 /*…*/>`. To ensure to use the correct GPIO line for
+the module reset signal, the example provides the only locally usable
+Devicetree binding :file:`reset-switch.yaml`. This specifies the Devicetree
+compatibility string :emphasis:`reset-switch`.
 
 .. list-table::
    :align: center
@@ -62,7 +62,7 @@ Build and flash for different boards
 .. rubric:: Nordic nRF9160 DK (nRF9160)
 
 .. zephyr-app-commands::
-   :zephyr-app: bridle/samples/ubx_gnss
+   :app: bridle/samples/ubx_gnss
    :board: nrf9160dk/nrf9160
    :build-dir: nrf9160dk_nrf9160-ubx_gnss
    :west-args: -p
@@ -72,7 +72,7 @@ Build and flash for different boards
 .. rubric:: Nordic nRF52840 DK (nRF52840)
 
 .. zephyr-app-commands::
-   :zephyr-app: bridle/samples/ubx_gnss
+   :app: bridle/samples/ubx_gnss
    :board: nrf52840dk/nrf52840
    :build-dir: nrf52840dk_nrf52840-ubx_gnss
    :west-args: -p
@@ -82,7 +82,7 @@ Build and flash for different boards
 .. rubric:: ST Nucleo L496ZG
 
 .. zephyr-app-commands::
-   :zephyr-app: bridle/samples/ubx_gnss
+   :app: bridle/samples/ubx_gnss
    :board: nucleo_l496zg
    :build-dir: nucleo_l496zg-ubx_gnss
    :west-args: -p
@@ -92,7 +92,7 @@ Build and flash for different boards
 .. rubric:: ST Nucleo F413ZH
 
 .. zephyr-app-commands::
-   :zephyr-app: bridle/samples/ubx_gnss
+   :app: bridle/samples/ubx_gnss
    :board: nucleo_f413zh
    :build-dir: nucleo_f413zh-ubx_gnss
    :west-args: -p
@@ -102,7 +102,7 @@ Build and flash for different boards
 .. rubric:: ST Nucleo F767ZI
 
 .. zephyr-app-commands::
-   :zephyr-app: bridle/samples/ubx_gnss
+   :app: bridle/samples/ubx_gnss
    :board: nucleo_f767zi
    :build-dir: nucleo_f767zi-ubx_gnss
    :west-args: -p
@@ -112,7 +112,7 @@ Build and flash for different boards
 .. rubric:: NXP MIMXRT1170-EVKB (CM7)
 
 .. zephyr-app-commands::
-   :zephyr-app: bridle/samples/ubx_gnss
+   :app: bridle/samples/ubx_gnss
    :board: mimxrt1170_evk@B/mimxrt1176/cm7
    :build-dir: mimxrt1170_evkb_cm7-ubx_gnss
    :west-args: -p
@@ -123,7 +123,7 @@ Build and flash for different boards
 .. rubric:: NXP MIMXRT1060-EVK
 
 .. zephyr-app-commands::
-   :zephyr-app: bridle/samples/ubx_gnss
+   :app: bridle/samples/ubx_gnss
    :board: mimxrt1060_evk
    :build-dir: mimxrt1060_evk-ubx_gnss
    :west-args: -p
@@ -134,7 +134,7 @@ Build and flash for different boards
 .. rubric:: NXP MIMXRT1010-EVK (experimental)
 
 .. zephyr-app-commands::
-   :zephyr-app: bridle/samples/ubx_gnss
+   :app: bridle/samples/ubx_gnss
    :board: mimxrt1010_evk
    :build-dir: mimxrt1010_evk-ubx_gnss
    :gen-args: -DCONFIG_LOG=n

@@ -80,7 +80,7 @@ Take over the new build principles from Zephyr:
 * Merge search index to find tags from all docsets within each docset.
 * Restructure CMake integration for most of all docsets.
 * Extend CMake package configuration to support ``find_package("Bridle")``.
-* Introduce new :ref:`zephyr:west` command extension: ``west bridle-export``.
+* Introduce new :zephyr:ref:`west` command extension: ``west bridle-export``.
 * Split and differentiate the Bridle boilerplate: defaults, doc, version.
 * Provide a first version of a common CMake find script for Sphinx.
 * Provide a first version of an Zyphyr SDK version guard.
@@ -90,7 +90,7 @@ Take over the new build principles from Zephyr:
 Documentation
 =============
 
-1. Renamed references to :ref:`zephyr:kconfig` in the
+1. Renamed references to :zephyr:ref:`kconfig` in the
    :ref:`magpie_f777ni_board` page.
 #. Update all documented output messages.
 

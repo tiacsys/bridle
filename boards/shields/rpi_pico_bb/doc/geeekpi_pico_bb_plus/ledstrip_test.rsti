@@ -1,8 +1,8 @@
-Using the :ref:`LED driver API <zephyr:led_api>` with given LED strip.
+Using the :zephyr:ref:`LED driver API <led_api>` with given LED strip.
 That is:
 
-| :hwftlbl-led:`RGB` : :devicetree:`aliases { led-strip = &led_strip; };`
-| :hwftlbl-led:`WS2812` : :devicetree:`led_strip: &ws2812_1x1 {};`
+| :hwftlbl-led:`RGB` : :dts:`aliases { led-strip = &led_strip; };`
+| :hwftlbl-led:`WS2812` : :dts:`led_strip: &ws2812_1x1 {};`
 
 .. tabs::
 

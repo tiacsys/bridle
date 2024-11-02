@@ -1,30 +1,30 @@
-Using the LVGL module on top of the :ref:`Display driver API
-<zephyr:display_api>` with chosen display. That is:
+Using the LVGL module on top of the :zephyr:ref:`Display driver API
+<display_api>` with chosen display. That is:
 
-| :hwftlbl-scr:`LCD` : :devicetree:`chosen { zephyr,display = &lcd_panel; };`
-| :hwftlbl-scr:`ST7735S` : :devicetree:`lcd_panel: &st7735s_128x128ls {};`
+| :hwftlbl-scr:`LCD` : :dts:`chosen { zephyr,display = &lcd_panel; };`
+| :hwftlbl-scr:`ST7735S` : :dts:`lcd_panel: &st7735s_128x128ls {};`
 
 .. rubric:: Devicetree compatible
 
 - :dtcompatible:`zephyr,lvgl-button-input` with devicetree relation
-  :devicetree:`lvgl_buttons: lvgl-buttons { input = <&gpio_keys>; };`
+  :dts:`lvgl_buttons: lvgl-buttons { input = <&gpio_keys>; };`
 
   | :hwftlbl-btn:`1` :
-    :devicetree:`input-codes = <INPUT_KEY_1>;` :
-    :devicetree:`coordinates = <64 64>;` (center of LCD)
+    :dts:`input-codes = <INPUT_KEY_1>;` :
+    :dts:`coordinates = <64 64>;` (center of LCD)
 
 - :dtcompatible:`zephyr,lvgl-keypad-input` with devicetree relation
-  :devicetree:`lvgl_keypad: lvgl-keypad { input = <&gpio_keys>; };`
+  :dts:`lvgl_keypad: lvgl-keypad { input = <&gpio_keys>; };`
 
   | :hwftlbl-btn:`3` :
-    :devicetree:`input-codes = <INPUT_KEY_3>;` :
-    :devicetree:`lvgl-codes = <LV_KEY_LEFT>;`
+    :dts:`input-codes = <INPUT_KEY_3>;` :
+    :dts:`lvgl-codes = <LV_KEY_LEFT>;`
   | :hwftlbl-btn:`2` :
-    :devicetree:`input-codes = <INPUT_KEY_2>;` :
-    :devicetree:`lvgl-codes = <LV_KEY_RIGHT>;`
+    :dts:`input-codes = <INPUT_KEY_2>;` :
+    :dts:`lvgl-codes = <LV_KEY_RIGHT>;`
   | :hwftlbl-btn:`1` :
-    :devicetree:`input-codes = <INPUT_KEY_1>;` :
-    :devicetree:`lvgl-codes = <LV_KEY_ENTER>;`
+    :dts:`input-codes = <INPUT_KEY_1>;` :
+    :dts:`lvgl-codes = <LV_KEY_ENTER>;`
 
 .. tabs::
 

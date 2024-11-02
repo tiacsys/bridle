@@ -1,8 +1,8 @@
 Print the input events related to the on-shield touchscreen panel using
-the :ref:`Input subsystem API <zephyr:input>`. That are:
+the :zephyr:ref:`Input subsystem API <input>`. That are:
 
-| :hwftlbl-scr:`TSC` : :devicetree:`lvgl_pointer { input = &tsc_panel; };`
-| :hwftlbl-scr:`XPT2046` : :devicetree:`tsc_panel: &xpt2046_320x480 {};`
+| :hwftlbl-scr:`TSC` : :dts:`lvgl_pointer { input = &tsc_panel; };`
+| :hwftlbl-scr:`XPT2046` : :dts:`tsc_panel: &xpt2046_320x480 {};`
 
 .. tabs::
 

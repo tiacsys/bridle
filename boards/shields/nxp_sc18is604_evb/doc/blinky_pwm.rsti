@@ -1,4 +1,4 @@
-See also Zephyr sample: :zephyr:code-sample:`zephyr:pwm-blinky`.
+See also Zephyr sample: :zephyr:code-sample:`pwm-blinky`.
 
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/blinky_pwm
