@@ -1,6 +1,5 @@
 :root {
-  --docset-color: #15729d;
-  --visited-color: #154099;
+  --docset-color: var(--docset-color-bridle);
 }
 
 /* Home page grid display */
@@ -83,7 +82,7 @@
 }
 
 .wy-nav-content a:visited {
-  color: var(--visited-color);
+  filter: brightness(50%);
 }
 
 /* Doc link boxes on the start page */

@@ -1,5 +1,5 @@
 :root {
-  --docset-color: #333f67;
+  --docset-color: var(--docset-color-zephyr);
 }
 
 /* Home page grid display */

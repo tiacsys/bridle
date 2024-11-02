@@ -1,13 +1,18 @@
 /* Background colors for the different sets */
 
 :root {
+  --docset-color-bridle: #15729d;       /* Bridel color code */
+  --docset-color-zephyr: #333f67;       /* Zephyr color code */
+  --docset-color-kconfig: #e82424;      /* Kconfig color code */
+  --docset-color-devicetree: #e5c100;   /* Devicetree color code */
   --docset-color-theme-red: #cd5c5c;    /* IndianRed */
   --docset-color-theme-green: #228b22;  /* ForestGreen */
   --docset-color-theme-blue: #4169e1;   /* RoyalBlue */
   --docset-color-theme-cyan: #48d1cc;   /* MediumTurquoise */
   --docset-color-theme-yellow: #ffd700; /* Gold */
-  --docset-color-theme-black: #000000; /* Black */
-  --docset-color-theme-white: #ffffff; /* White */
+  --docset-color-theme-black: #000000;  /* Black */
+  --docset-color-theme-gray: #cccccc;   /* Gray */
+  --docset-color-theme-white: #ffffff;  /* White */
   --docset-color-pin-fgd: #363a44;
   --docset-color-pin-bgd: #cccccc;
   --docset-color-rpi-fgd: #ffffff;
@@ -38,31 +43,59 @@
 }
 
 /* Bridle */
-.bridle {
-    background-color: #15729d;
+a > span.bridle {
+    color: var(--docset-color-bridle);
+    background-color: var(--docset-color-theme-gray);
+    text-decoration: underline solid var(--docset-color-bridle);
+    font-style: oblique;
 }
 
-.bridle-api {
-    background-color: #15729d;
+.bridle:not(.xref) {
+    background-color: var(--docset-color-bridle);
+}
+
+.bridle-api:not(.xref) {
+    background-color: var(--docset-color-bridle);
 }
 
 /* Zephyr Project RTOS */
-.zephyr-api {
-    background-color: #333f67;
+a > span.zephyr {
+    color: var(--docset-color-zephyr);
+    background-color: var(--docset-color-theme-gray);
+    text-decoration: underline solid var(--docset-color-zephyr);
+    font-style: oblique;
 }
 
-.zephyr {
-    background-color: #333f67;
+.zephyr:not(.xref) {
+    background-color: var(--docset-color-zephyr);
+}
+
+.zephyr-api:not(.xref) {
+    background-color: var(--docset-color-zephyr);
 }
 
 /* Kconfig Reference */
-.kconfig {
-    background-color: #e82424;
+a > span.kconfig {
+    color: var(--docset-color-kconfig);
+    background-color: var(--docset-color-theme-gray);
+    text-decoration: underline solid var(--docset-color-kconfig);
+    font-style: oblique;
+}
+
+.kconfig:not(.xref) {
+    background-color: var(--docset-color-kconfig);
 }
 
 /* Devicetree Bindings */
-.devicetree {
-    background-color: #e5c100;
+a > span.devicetree {
+    color: var(--docset-color-devicetree);
+    background-color: var(--docset-color-theme-gray);
+    text-decoration: underline solid var(--docset-color-devicetree);
+    font-style: oblique;
+}
+
+.devicetree:not(.xref) {
+    background-color: var(--docset-color-devicetree);
 }
 
 /* tweak grid items color */

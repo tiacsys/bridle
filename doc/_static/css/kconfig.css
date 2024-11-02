@@ -1,9 +1,9 @@
 :root {
-    --docset-color: #e82424;
+    --docset-color: var(--docset-color-kconfig);
 }
 
 dl.kconfig {
-    background-color: unset;
+    background-color: unset !important;
 }
 
 .wy-side-nav-search input[type=text] {
