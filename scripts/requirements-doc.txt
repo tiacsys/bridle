@@ -1,11 +1,13 @@
 breathe>=4.35
-docutils>=0.18
-doxmlparser~=1.10
+docutils>=0.21
+doxmlparser~=1.12
 pygments~=2.18
-sphinx~=7.4
-sphinx-tsn-theme~=2024.1
+sphobjinv~=2.3
+sphinx~=8.1
+sphinx-tsn-theme~=2024.10
 sphinxcontrib-mscgen~=0.6
 sphinxcontrib-svg2pdfconverter~=1.2
+sphinx-autobuild~=2024.10
 sphinx-copybutton~=0.5
 sphinx-csv-filter~=0.4
 sphinx-notfound-page~=1.0

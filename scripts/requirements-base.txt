@@ -1,1 +1,4 @@
-west>=0.14.0,<1.3.0
+# it's west
+# Keep the lowest version identical to the minimum required
+# in zephyr/cmake/modules/west.cmake
+west>=0.14.0,<1.4.0
