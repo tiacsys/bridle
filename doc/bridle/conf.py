@@ -479,6 +479,32 @@ def update_config(app):
     ), color='yellow')
 
 def setup(app):
+    #
+    # Because of a really stupid and shirt-sleeved monkey patch of the
+    # original "doxygengroup" directive (no matter if from the Sphinx
+    # extension "breathe" or "zephyr.doxybridge") within the Sphinx
+    # extension "zephyr.domain", the Bridle documentation has to get
+    # back the original behavior of "breathe" by overwrite again the
+    # directive entry point with the original class from "breathe" for
+    # its own. This is an absolute stopgap solution until the Bridle
+    # documentation has completely abandoned the use of the now obsolete
+    # and no longer maintained "breathe" project and switched to the
+    # Zephyr upstream concept.
+    #
+    # Point of origin in Zephyr upstream source code:
+    #
+    # - https://github.com/zephyrproject-rtos/zephyr/blob/v4.0.0-rc1/doc/_extensions/zephyr/domain/__init__.py#L51
+    # - https://github.com/zephyrproject-rtos/zephyr/blob/v4.0.0-rc1/doc/_extensions/zephyr/domain/__init__.py#L895
+    # - https://github.com/zephyrproject-rtos/zephyr/blob/v4.0.0-rc1/doc/_extensions/zephyr/domain/__init__.py#L967
+    #
+    # Unfortunately, the Sphinx extension "zephyr.domain" cannot be
+    # omitted because Intersphinx cannot interpret the domain-specific
+    # references (roles). It may even be that this is a design defect
+    # within Sphinx itself.
+    #
+    from breathe.directives.content_block import DoxygenGroupDirective
+    app.add_directive("doxygengroup", DoxygenGroupDirective, override=True)
+
     app.connect("builder-inited", update_config, 0)
     app.add_css_file('css/common.css')
     app.add_css_file('css/bridle.css')
