@@ -133,7 +133,6 @@ extensions = [
     'zephyr.kconfig',
     'zephyr.dtcompatible-role',
     'zephyr.link-roles',
-    'zephyr.warnings_filter',
     'zephyr.doxyrunner',
 #   'zephyr.gh_utils',
 #   'zephyr.manifest_projects_table',
@@ -144,6 +143,7 @@ extensions = [
     'notfound.extension',
     'bridle.link-roles',
     'bridle.inventory_builder',
+    'bridle.warnings_filter',
     'bridle.options_from_kconfig',
     'bridle.manifest_revisions_table',
 ]

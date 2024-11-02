@@ -4,14 +4,12 @@
 # Coming later from other docset
 .*undefined label:.*
 
-# Coming later from zephyr docset
-.*term not in glossary: 'zephyr:.*'
-.*unknown document: 'zephyr:.*'
-
-# FIXME: Sphinx emits "toctree glob pattern %r didn't match any documents"
-#        instead of:
-#        .*toctree glob pattern 'applications/\*/README' didn't match any documents
+# FIXME: Sometimes Sphinx emits:
+#   "toctree glob pattern %r didn't match any documents"
 .*toctree glob pattern %r didn't match any documents
+
+.*toctree glob pattern 'applications/\*/README' didn't match any documents
+.*toctree glob pattern '\*\*/README' didn't match any documents
 
 #
 # TODO: is ".. _install_dependencies_linux:"
@@ -44,12 +42,102 @@
 # TODO: is ".. _cytron_maker_nano_rp2040:"
 #       or ".. _cytron_maker_pi_rp2040:"
 #       or ".. _cytron_maker_pi_rp2040_positions:"
+#
+#       or ".. _geeekpi_pico_bb:"
+#       or ".. _geeekpi_pico_bb_plus:"
+#
+#       or ".. _waveshare_pico_clock_green:"
+#
+#       or ".. _pimoroni_pico_lcd_1_44:"
+#       or ".. _pimoroni_pico_lcd_2:"
+#       or ".. _spotpear_pico_lcd_1_54:"
+#       or ".. _waveshare_pico_lcd_0_96:"
+#       or ".. _waveshare_pico_lcd_1_14:"
+#       or ".. _waveshare_pico_lcd_1_3:"
+#       or ".. _waveshare_pico_lcd_1_44:"
+#       or ".. _waveshare_pico_lcd_1_8:"
+#       or ".. _waveshare_pico_lcd_2:"
+#       or ".. _waveshare_pico_restouch_lcd_2_8:"
+#       or ".. _waveshare_pico_restouch_lcd_3_5:"
+#
+#       or ".. _waveshare_pico_rgb_led:"
+#
+#       or ".. _spotpear_pico_test:"
+#
+#       or ".. _waveshare_2_4_lcd:"
+#
+#       or ".. _waveshare_rp2040_one:"
+#       or ".. _waveshare_rp2040_zero:"
+#       or ".. _waveshare_rp2040_matrix:"
+#       or ".. _waveshare_rp2040_tiny:"
+#       or ".. _waveshare_rp2040_eth:"
+#       or ".. _waveshare_rp2040_lcd_0_96:"
+#       or ".. _waveshare_rp2040_plus:"
+#       or ".. _waveshare_rp2040_geek:"
+#
 #       inside ".. group-tab::" realy working?
 #
 # reference target in: bridle/boards/cytron/maker_rp2040/doc/index.rst:21
 # reference target in: bridle/boards/cytron/maker_rp2040/doc/index.rst:27
 # reference target in: bridle/boards/cytron/maker_rp2040/doc/index.rst:42
 #
+# reference target in: bridle/boards/shields/rpi_pico_bb/doc/index.rst:25
+# reference target in: bridle/boards/shields/rpi_pico_bb/doc/index.rst:31
+#
+# reference target in: bridle/boards/shields/rpi_pico_clock/doc/index.rst:23
+#
+# reference target in: bridle/boards/shields/rpi_pico_lcd/doc/index.rst:25
+# reference target in: bridle/boards/shields/rpi_pico_lcd/doc/index.rst:31
+# reference target in: bridle/boards/shields/rpi_pico_lcd/doc/index.rst:43
+# reference target in: bridle/boards/shields/rpi_pico_lcd/doc/index.rst:53
+# reference target in: bridle/boards/shields/rpi_pico_lcd/doc/index.rst:59
+# reference target in: bridle/boards/shields/rpi_pico_lcd/doc/index.rst:65
+# reference target in: bridle/boards/shields/rpi_pico_lcd/doc/index.rst:71
+# reference target in: bridle/boards/shields/rpi_pico_lcd/doc/index.rst:77
+# reference target in: bridle/boards/shields/rpi_pico_lcd/doc/index.rst:83
+# reference target in: bridle/boards/shields/rpi_pico_lcd/doc/index.rst:89
+# reference target in: bridle/boards/shields/rpi_pico_lcd/doc/index.rst:95
+#
+# reference target in: bridle/boards/shields/rpi_pico_led/doc/index.rst:18
+#
+# reference target in: bridle/boards/shields/rpi_pico_test/doc/index.rst:21
+#
+# reference target in: bridle/boards/shields/waveshare_lcd/doc/index.rst:22
+#
+# reference target in: bridle/boards/waveshare/rp2040/doc/index.rst:21
+# reference target in: bridle/boards/waveshare/rp2040/doc/index.rst:27
+# reference target in: bridle/boards/waveshare/rp2040/doc/index.rst:33
+# reference target in: bridle/boards/waveshare/rp2040/doc/index.rst:39
+# reference target in: bridle/boards/waveshare/rp2040/doc/index.rst:45
+# reference target in: bridle/boards/waveshare/rp2040/doc/index.rst:51
+# reference target in: bridle/boards/waveshare/rp2040/doc/index.rst:57
+# reference target in: bridle/boards/waveshare/rp2040/doc/index.rst:63
+#
 .*Duplicate explicit target name: "cytron_maker_nano_rp2040"\.
 .*Duplicate explicit target name: "cytron_maker_pi_rp2040"\.
 .*Duplicate explicit target name: "cytron_maker_pi_rp2040_positions"\.
+.*Duplicate explicit target name: "geeekpi_pico_bb"\.
+.*Duplicate explicit target name: "geeekpi_pico_bb_plus"\.
+.*Duplicate explicit target name: "waveshare_pico_clock_green"\.
+.*Duplicate explicit target name: "pimoroni_pico_lcd_1_44"\.
+.*Duplicate explicit target name: "pimoroni_pico_lcd_2"\.
+.*Duplicate explicit target name: "spotpear_pico_lcd_1_54"\.
+.*Duplicate explicit target name: "waveshare_pico_lcd_0_96"\.
+.*Duplicate explicit target name: "waveshare_pico_lcd_1_14"\.
+.*Duplicate explicit target name: "waveshare_pico_lcd_1_3"\.
+.*Duplicate explicit target name: "waveshare_pico_lcd_1_44"\.
+.*Duplicate explicit target name: "waveshare_pico_lcd_1_8"\.
+.*Duplicate explicit target name: "waveshare_pico_lcd_2"\.
+.*Duplicate explicit target name: "waveshare_pico_restouch_lcd_2_8"\.
+.*Duplicate explicit target name: "waveshare_pico_restouch_lcd_3_5"\.
+.*Duplicate explicit target name: "waveshare_pico_rgb_led"\.
+.*Duplicate explicit target name: "spotpear_pico_test"\.
+.*Duplicate explicit target name: "waveshare_2_4_lcd"\.
+.*Duplicate explicit target name: "waveshare_rp2040_one"\.
+.*Duplicate explicit target name: "waveshare_rp2040_zero"\.
+.*Duplicate explicit target name: "waveshare_rp2040_matrix"\.
+.*Duplicate explicit target name: "waveshare_rp2040_tiny"\.
+.*Duplicate explicit target name: "waveshare_rp2040_eth"\.
+.*Duplicate explicit target name: "waveshare_rp2040_lcd_0_96"\.
+.*Duplicate explicit target name: "waveshare_rp2040_plus"\.
+.*Duplicate explicit target name: "waveshare_rp2040_geek"\.

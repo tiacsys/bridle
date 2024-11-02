@@ -93,6 +93,7 @@ needs_sphinx = '8.1'
 extensions.extend([
     'sphinx.ext.intersphinx',
     'bridle.inventory_builder',
+    'bridle.warnings_filter',
 ])
 
 # The suffix(es) of source filenames.

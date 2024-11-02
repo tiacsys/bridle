@@ -90,11 +90,11 @@ extensions = [
     'sphinx_tabs.tabs',
     'sphinx_copybutton',
     'notfound.extension',
-    'zephyr.warnings_filter',
     'zephyr.dtcompatible-role',
     'zephyr.kconfig',
     'zephyr.external_content',
     'bridle.inventory_builder',
+    'bridle.warnings_filter',
 ]
 
 # Only use SVG converter when it is really needed, e.g. LaTeX.

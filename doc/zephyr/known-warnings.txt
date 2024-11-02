@@ -1,15 +1,2 @@
 # Each line should contain the regular expression of a known Sphinx warning
-# that should be filtered out additional to the original filter set
-
-#
-# TODO: New warnings with Doxygen v1.9.8 - unknown reasons.
-#
-.*Error in declarator or parameters.*
-.*Invalid C declaration: Expected identifier in nested name.*
-
-# Function and (enum or struct) name
-.*Duplicate C declaration.*\n.*'\.\. c:.*:: BT_.*'.*
-.*Duplicate C declaration.*\n.*'\.\. c:.*:: FS_.*'.*
-.*Duplicate C declaration.*\n.*'\.\. c:.*:: HID_REPORT_.*'.*
-.*Duplicate C declaration.*\n.*'\.\. c:.*:: PCIE_SCAN_.*'.*
-.*Duplicate C declaration.*\n.*'\.\. c:.*:: K_WORK_.*'.*
+# that should be filtered out
