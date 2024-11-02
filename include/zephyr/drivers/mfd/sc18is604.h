@@ -94,7 +94,7 @@ int mfd_sc18is604_transfer(const struct device *dev,
  *
  * @param dev An SC18IS604 MFD device.
  * @param reg Register address to write to.
- * @param value Value to write into the register.
+ * @param val Value to write into the register.
  *
  * @return A value from mfd_sc18is604_transfer().
  */
@@ -109,7 +109,7 @@ int mfd_sc18is604_read_register(const struct device *dev,
  *
  * @param dev An SC18IS604 MFD device.
  * @param reg Register address to read from.
- * @param[out] value Value read from the register.
+ * @param[out] val Value read from the register.
  *
  * @return A value from mfd_sc18is604_transfer().
  */
