@@ -91,6 +91,7 @@ extensions = [
     'sphinx_copybutton',
     'notfound.extension',
     'zephyr.dtcompatible-role',
+    "zephyr.link-roles",
     'zephyr.kconfig',
     'zephyr.external_content',
     'bridle.inventory_builder',
