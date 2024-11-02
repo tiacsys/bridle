@@ -96,6 +96,7 @@ function(add_docset name sphinxopts)
   set(DOCSET_SRC_DIR ${CMAKE_CURRENT_BINARY_DIR}/${name}/src)
   set(DOCSET_DOCTREE_DIR ${CMAKE_CURRENT_BINARY_DIR}/${name}/doctree)
   set(DOCSET_HTML_DIR ${CMAKE_CURRENT_BINARY_DIR}/html/${name})
+  set(DOCSET_LINKCHECK_DIR ${CMAKE_CURRENT_BINARY_DIR}/linkcheck/${name})
   set(DOCSET_DOXY_DIR ${CMAKE_CURRENT_BINARY_DIR}/doxygen/${name})
   set(DOCSET_MAKE_DIRS ${DOCSET_BUILD_DIR};${DOCSET_SRC_DIR})
   set(DOCSET_CLEAN_DIRS ${DOCSET_SRC_DIR};${DOCSET_DOCTREE_DIR};${DOCSET_HTML_DIR})
@@ -121,6 +122,7 @@ function(add_docset name sphinxopts)
     ${name}-inventory
     COMMAND ${CMAKE_COMMAND} -E make_directory ${DOCSET_MAKE_DIRS}
     COMMAND ${CMAKE_COMMAND} -E env ${DOCSET_ENV}
+      OUTPUT_DIR=${DOCSET_HTML_DIR}
       ${SPHINXBUILD} -v
         -b inventory
         -c ${DOCSET_SPHINX_DIR}
@@ -141,6 +143,7 @@ function(add_docset name sphinxopts)
     ${name}-html
     COMMAND ${CMAKE_COMMAND} -E make_directory ${DOCSET_MAKE_DIRS}
     COMMAND ${CMAKE_COMMAND} -E env ${DOCSET_ENV}
+      OUTPUT_DIR=${DOCSET_HTML_DIR}
       ${SPHINXBUILD} -v
         -b html
         -c ${DOCSET_SPHINX_DIR}
@@ -161,6 +164,7 @@ function(add_docset name sphinxopts)
     ${name}-linkcheck
     COMMAND ${CMAKE_COMMAND} -E make_directory ${DOCSET_MAKE_DIRS}
     COMMAND ${CMAKE_COMMAND} -E env ${DOCSET_ENV}
+      OUTPUT_DIR=${DOCSET_LINKCHECK_DIR}
       ${SPHINXBUILD} -v
         -b linkcheck
         -c ${DOCSET_SPHINX_DIR}
