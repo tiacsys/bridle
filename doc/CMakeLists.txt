@@ -481,7 +481,7 @@ add_custom_target(
   COMMENT "Generating versions list for bridle"
 )
 
-add_docset(bridle "-j 1" API)  # no parallel reading, because of sphinx-csv-filter
+add_docset(bridle "" API)
 
 add_dependencies(bridle-inventory bridle-versions)
 add_dependencies(bridle-html bridle-versions)
