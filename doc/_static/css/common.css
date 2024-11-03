@@ -107,3 +107,8 @@ a > span.devicetree {
 ul.edge-pinout > li {
   list-style: none !important;
 }
+
+/* tweak literal-block border inside a RST highlight container */
+.rst-content div[class^=highlight] > pre.literal-block {
+  border: none !important;
+}
