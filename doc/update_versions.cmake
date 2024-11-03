@@ -1,3 +1,4 @@
+# Copyright (c) 2024 TiaC Systems
 # Copyright (c) 2021 Nordic Semiconductor ASA
 # SPDX-License-Identifier: LicenseRef-Nordic-5-Clause
 
@@ -10,6 +11,12 @@ foreach(file ${TOOLS_VERSION_FILES})
     string(REGEX REPLACE "(^[^=]*)=([^\;]*)\;*.*" "\\1" program_name "${program}")
     string(TOUPPER ${program_name} PROGRAM_NAME_UPPER)
     set(${PROGRAM_NAME_UPPER}_VERSION_${OS_UPPER} ${CMAKE_MATCH_2})
+    string(REGEX MATCH "([0-9]+)[\\.-]([0-9]+)[\\.-]?([0-9]+)?"
+                       ${PROGRAM_NAME_UPPER}_VERSION_${OS_UPPER}_MATCH
+                       ${${PROGRAM_NAME_UPPER}_VERSION_${OS_UPPER}})
+    set(${PROGRAM_NAME_UPPER}_VERSION_${OS_UPPER}_MAJOR ${CMAKE_MATCH_1})
+    set(${PROGRAM_NAME_UPPER}_VERSION_${OS_UPPER}_MINOR ${CMAKE_MATCH_2})
+    set(${PROGRAM_NAME_UPPER}_VERSION_${OS_UPPER}_PATCH ${CMAKE_MATCH_3})
   endforeach()
 endforeach()
 
