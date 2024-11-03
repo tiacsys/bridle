@@ -232,7 +232,9 @@ function(add_docset name sphinxopts)
     separate_arguments(DOCSET_BRIEF)
     add_custom_command(
       OUTPUT ${DOCSET_DOXY_DIR}/doxyfile
-      DEPENDS "${SHARED_DOXYGEN_DIR}/doxyfile-${name}.in"
+      DEPENDS
+        "${BRIDLE_BASE}/doc/update_cfgfile.cmake"
+        "${SHARED_DOXYGEN_DIR}/doxyfile-${name}.in"
       COMMAND_EXPAND_LISTS
       COMMAND ${CMAKE_COMMAND} -E touch_nocreate ${DOCSET_DOXY_DIR}/doxyfile
       COMMAND ${CMAKE_COMMAND}
@@ -302,6 +304,7 @@ string(REPLACE ";" "\\;" zephyr_kws_files_escaped "${zephyr_kws_files}")
 add_custom_command(
   OUTPUT ${ZEPHYR_BINARY_DIR}/known-warnings.txt
   DEPENDS
+    ${BRIDLE_BASE}/doc/update_appends.cmake
     ${zephyr_kws_files}
   COMMAND ${CMAKE_COMMAND}
     -DIN_FILES="${zephyr_kws_files_escaped}"
@@ -320,6 +323,7 @@ string(REPLACE ";" "\\;" zephyr_kwsi_files_escaped "${zephyr_kwsi_files}")
 add_custom_command(
   OUTPUT ${ZEPHYR_BINARY_DIR}/known-warnings-inventory.txt
   DEPENDS
+    ${BRIDLE_BASE}/doc/update_appends.cmake
     ${zephyr_kwsi_files}
   COMMAND ${CMAKE_COMMAND}
     -DIN_FILES="${zephyr_kwsi_files_escaped}"
@@ -360,6 +364,7 @@ string(REPLACE ";" "\\;" devicetree_bvp_files_escaped "${devicetree_bvp_files}")
 add_custom_command(
   OUTPUT ${DTS_BINDINGS_BINARY_DIR}/vendor-prefixes.txt
   DEPENDS
+    ${BRIDLE_BASE}/doc/update_appends.cmake
     ${devicetree_bvp_files}
   COMMAND ${CMAKE_COMMAND}
     -DIN_FILES="${devicetree_bvp_files_escaped}"
@@ -460,6 +465,7 @@ set(BRIDLE_DOC_DIR ${BRIDLE_BASE}/doc/bridle)
 add_custom_command(
   OUTPUT ${BRIDLE_BINARY_DIR}/src/versions.txt
   DEPENDS
+    ${BRIDLE_BASE}/doc/update_versions.cmake
     ${BRIDLE_DOC_DIR}/versions.txt.in
     ${tools_version_files}
     ${pip_requirements_files}
