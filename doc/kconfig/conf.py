@@ -36,7 +36,7 @@ sys.path.insert(0, os.path.join(ZEPHYR_BASE, 'doc', '_extensions'))
 
 # General information about the project.
 project = utils.get_projname('kconfig')
-copyright = u'2019-2022 Zephyr Project and TiaC Systems members and individual contributors'
+copyright = u'2015-2024 Zephyr Project and TiaC Systems members and individual contributors'
 author = u'The Zephyr Project and TiaC Systems'
 
 # The following code tries to extract the information by reading the Makefile,
