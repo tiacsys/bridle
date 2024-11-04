@@ -37,6 +37,8 @@ let
         sphinx-tsn-theme
         sphinxcontrib-svg2pdfconverter
         sphinx-csv-filter
+        sphinx-lint
+        sphobjinv
         ;
 
       # WORKAROUND for missing defusedxml in nativeCheckInputs of sphinx-sitemap derivation.
