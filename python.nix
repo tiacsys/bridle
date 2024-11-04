@@ -6,6 +6,9 @@
   pyproject-nix,
   clang-tools,
   gitlint,
+  gcovr,
+  mcuboot-imgtool,
+  ruff,
   lib,
 }:
 
@@ -17,20 +20,30 @@ let
     packageOverrides = final: prev: {
       # HACK: Zephyr uses pypi to install non-Python deps
       clang-format = clang-tools;
+
+      # gcovr provided as toplevel package
+      inherit gcovr;
+
+      # gitlint provided as toplevel package
       inherit gitlint;
+
+      # imgtool provided as toplevel package
+      imgtool = mcuboot-imgtool;
+
+      # ruff provided as a toplevel package
+      inherit ruff;
 
       # Extra python packages that aren't in nixpkgs
       inherit (python-deps)
-        bz
         doxmlparser
-        pydebuggerconfig
-        pyedbglib
+        nrf-regtool
         pykitinfo
         pymcuprog
-        python-can
         sphinx-tsn-theme
         sphinxcontrib-svg2pdfconverter
         sphinx-csv-filter
+        sphinx-lint
+        sphobjinv
         ;
 
       # WORKAROUND for missing defusedxml in nativeCheckInputs of sphinx-sitemap derivation.
