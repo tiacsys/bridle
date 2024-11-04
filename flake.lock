@@ -147,11 +147,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1725983898,
-        "narHash": "sha256-4b3A9zPpxAxLnkF9MawJNHDtOOl6ruL0r6Og1TEDGCE=",
+        "lastModified": 1730531603,
+        "narHash": "sha256-Dqg6si5CqIzm87sp57j5nTaeBbWhHFaVyG7V6L8k3lY=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "1355a0cbfeac61d785b7183c0caaec1f97361b43",
+        "rev": "7ffd9ae656aec493492b44d0ddfb28e79a1ea25d",
         "type": "github"
       },
       "original": {
@@ -252,11 +252,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1718353541,
-        "narHash": "sha256-cWVEseij8XMCaECKYRCmuaOVtFxHwSKrjkiG4gouM6M=",
+        "lastModified": 1730723777,
+        "narHash": "sha256-3B6U1oUUn7OU1e2OB5572YYhYgZBSEyQhsYDi4l5SE4=",
         "owner": "Irockasingranite",
         "repo": "bridle-python-deps",
-        "rev": "886e9fc17b83c69384a4dece007804b5323d4543",
+        "rev": "079e8dcf577837cd25bfdafffacef9556d05af20",
         "type": "github"
       },
       "original": {

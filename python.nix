@@ -6,6 +6,7 @@
   pyproject-nix,
   clang-tools,
   gitlint,
+  mcuboot-imgtool,
   lib,
 }:
 
@@ -17,7 +18,12 @@ let
     packageOverrides = final: prev: {
       # HACK: Zephyr uses pypi to install non-Python deps
       clang-format = clang-tools;
+
+      # gitlint provided as toplevel package
       inherit gitlint;
+
+      # imgtool provided as toplevel package
+      imgtool = mcuboot-imgtool;
 
       # Extra python packages that aren't in nixpkgs
       inherit (python-deps)
