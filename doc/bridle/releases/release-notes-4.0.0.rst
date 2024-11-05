@@ -12,6 +12,7 @@ Highlights
 **********
 
 * :brd:`NOT YET, tbd.`
+* Bridle is now in sync and align to the latest Zephyr upstream V4 landscape.
 
 .. note:: See the changelog and readme files in the component repositories
    for a detailed description of changes.
@@ -168,6 +169,22 @@ Change log
 * tbd.
 * tbd.
 
+* Rename DTS bindings:
+
+  * PCA9554 specific I2C-based GPIO expander (w/regrst)
+    :dtcompatible:`nxp,pca9554` to :dtcompatible:`nxp,pca9554-regrst`
+  * PCA9555 specific I2C-based GPIO expander (w/regrst)
+    :dtcompatible:`nxp,pca9555` to :dtcompatible:`nxp,pca9555-regrst`
+
+* Rename drivers:
+
+  * PCA9554 I2C-based GPIO chip (w/regrst),
+    :kconfig:option:`CONFIG_GPIO_PCA9554` to
+    :kconfig:option:`CONFIG_GPIO_PCA9554_REGRST`
+  * PCA9555 I2C-based GPIO chip (w/regrst),
+    :kconfig:option:`CONFIG_GPIO_PCA9555` to
+    :kconfig:option:`CONFIG_GPIO_PCA9555_REGRST`
+
 The following sections provide detailed lists of changes by component.
 
 * PROJECT UPDATE to `Zephyr Project`_ v4.0
@@ -182,13 +199,46 @@ Take over the new build principles from Zephyr:
 * tbd.
 * tbd.
 * tbd.
+* ci: github: qa-integration: Use Zephyr CI container v0.27.4 and
+  Zephyr SDK v0.17.0 which is now required.
+* ci: github: qa-integration: The self-hosted GitHub action runner for
+  executing the integration tests on targets (HiL) requires an explicitly
+  activated virtual Python 3.12 environment for the time being. The machine
+  used as HiL gateway (RPi4) has an Ubuntu 20.04 LTS system installation
+  with the Python 3.12 packages from the Deadsnake PPA.
+  Python 3.12 is now required.
+* ci: github: qa-integration: In the hardware map file, the name of the
+  board was renamed from ``magpie_f777ni`` to the fully qualified HWMv2
+  name ``magpie_f777ni/stm32f777xx``. Also a more meaningful product name
+  and name for the unique serial console device file was set.
+* The SoC ``stm32f777xx`` of the ``stm32/stm32f7`` family/series is now
+  an independent Kconfig symbol and no longer falls back to the mostly
+  compatible SoC `stm32f767xx` of this family/series. The number of
+  interrupts :kconfig:option:`CONFIG_NUM_IRQS` and the FPU type
+  :kconfig:option:`CONFIG_CPU_HAS_FPU_DOUBLE_PRECISION` have been adopted
+  one-to-one from the ``stm32f767xx`` SoC. At CMake level, the start and
+  initialization code from Zephyr upstream is completely reused, but can
+  also be extended if necessary. A notice is issued at build time.
+* Copy and own the always removed Sphinx extension ``zephyr.warnings_filter``
+  as ``bridle.warnings_filter``. Since Bridle have to rebuild different
+  documentation sets by a split strategy (apartly the document inventory
+  first and then the other documents at all that dependent to other
+  inventories), Bridle have to expect and tolerate warnings of unknown or
+  invalid references to *"other"* inter-Sphinx documents. In the past it
+  was a good practice to filter out such expected warnings explicitly by
+  the ``warnings_filter``.
 
 Documentation
 =============
 
 :brd:`NOT YET, tbd.`
 
-1. Update all output messages in documentation to be in sync with the upcoming
+1. Upgrade to Sphinx v8.1 and thus adapt the TSN theme to be compatible to the
+   new underlayed RDT theme v3.0.
+2. Present the Sphinx copy button on all literal parsed and code blocks.
+3. Revise all inter-Sphinx links and apply the valid official syntax, a very
+   big move forward to be compatible for the future.
+4. Update all output messages in documentation to be in sync with the upcoming
    Bridle version v4.0.0, based on Zephyr v4.0 (samples and tests).
 
 Issue Related Items
@@ -196,6 +246,10 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`274` - [FCR] Bump to Zephyr v4.0
+* :github:`272` - [BUG] build all Bridle samples test runs into ``devicetree error``
+* :github:`271` - [BUG] build all GPIO drivers test runs into ``devicetree error``
+* :github:`270` - [BUG] Can't build the documentation sets for Bridle and Zephyr anymore
 * :github:`261` - [HW] TiaC SC18IS604 Arduino as Shield
 * :github:`258` - [HW] NXP SC18IS604-EVB as Shield
 * :github:`257` - [HW] SC16IS75x Breakout Boards as Shields
