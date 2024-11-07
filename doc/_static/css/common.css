@@ -112,3 +112,20 @@ ul.edge-pinout > li {
 .rst-content div[class^=highlight] > pre.literal-block {
   border: none !important;
 }
+
+/* tweak literal-block div container to be the same as pre.literal-block */
+.rst-content div.literal-block > * {
+  font-size: 80% !important;
+  line-height: 100% !important;
+  margin: 0;
+}
+
+.rst-content div.literal-block {
+  white-space: pre-line;
+  margin: 0;
+  padding: 12px;
+  font-family: SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,Courier,monospace;
+  display: inline-block;
+  overflow: auto;
+  width: 80ch;
+}
