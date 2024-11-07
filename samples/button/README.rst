@@ -23,21 +23,23 @@ Requirements
 ************
 
 The board hardware must have a push button connected via a GPIO pin. These are
-called "User buttons" on many of Zephyr's :ref:`boards`.
+called "User buttons" on many of Zephyr's :external+zephyr:ref:`boards` and
+Bridle's :ref:`boards`.
 
-The button must be configured using the ``sw0``
+The button must be configured using the :dts:`sw0`
 :zephyr:ref:`devicetree <dt-guide>` alias, usually in the
 :zephyr:ref:`BOARD.dts file <devicetree-in-out-files>`. You will see this error
 if you try to build this sample for an unsupported board:
 
-.. code-block:: none
+   .. parsed-literal::
+      :class: highlight-none notranslate
 
-   Unsupported board: sw0 devicetree alias is not defined
+      **Unsupported board**: ``sw0`` devicetree alias is **not defined**
 
-You may see additional build errors if the ``sw0`` alias exists, but is not
+You may see additional build errors if the :dts:`sw0` alias exists, but is not
 properly defined.
 
-Additionally, the sample requires the ``led0`` devicetree alias.
+Additionally, the sample requires the :dts:`led0` devicetree alias.
 
 Devicetree details
 ==================
@@ -45,70 +47,100 @@ Devicetree details
 This section provides more details on devicetree configuration.
 
 Here is a minimal devicetree fragment which supports this sample, containing
-both an ``sw0`` and an ``led0`` alias.
+both an :dts:`sw0` and an :dts:`led0` alias:
 
-.. code-block:: devicetree
+   .. code-block:: devicetree
 
-   / {
-   	aliases {
-   		sw0 = &button0;
-   		led0 = &green_led_1;
-   	};
+      / {
+          aliases {
+              sw0 = &user_button;
+              led0 = &user_lamp;
+          };
 
-   	soc {
-   		gpio0: gpio@0 {
-   			status = "okay";
-   			gpio-controller;
-   			#gpio-cells = <2>;
-   			/* ... */
-   		};
-   	};
+          soc {
+              gpio0: gpio@0 {
+                  status = "okay";
+                  gpio-controller;
+                  #gpio-cells = <2>;
+                  /* ... */
+              };
+          };
 
-   	buttons {
-   		compatible = "gpio-keys";
-   		button0: button_0 {
-   			gpios = < &gpio0 PIN FLAGS >;
-   			label = "User button";
-   		};
-   		/* ... other buttons ... */
-   	};
+          buttons {
+              compatible = "gpio-keys";
+              user_button: gpio0_button {
+                  gpios = <__GPIO_CTRL_NODE__ __PIN__ __FLAGS__>;
+                  label = "User button";
+              };
+              /* ... other buttons ... */
+          };
 
-   	leds {
-		compatible = "gpio-leds";
-	 	green_led_1: led_1 {
-	 		gpios = <&gpiob 0 GPIO_ACTIVE_HIGH>;
-	 		label = "User LD1";
-	 	};
-   		/* ... other leds ... */
+          leds {
+              compatible = "gpio-leds";
+              user_lamp: gpio0_led {
+                  gpios = <&gpio0 10 GPIO_ACTIVE_HIGH>;
+                  label = "User LD1";
+              };
+              /* ... other leds ... */
 
-   };
+      };
 
-As shown, the ``sw0`` devicetree alias must point to a child node of a node
-with a "gpio-keys" :zephyr:ref:`compatible <dt-important-props>`, and the
-``led0`` alias must point to a child node of one with a "gpio-leds"
-:zephyr:ref:`compatible <dt-important-props>`.
+.. rubric:: As shown:
 
-The above situation is for the common case where:
+- the :dts:`sw0 = &user_button;`
+  :zephyr:ref:`devicetree alias <dt-alias-chosen>` must point
+  to a child node of a node with a :dtcompatible:`gpio-keys`
+  :zephyr:ref:`compatible <dt-important-props>`, and
+- the :dts:`led0 = &user_lamp;`
+  :zephyr:ref:`devicetree alias <dt-alias-chosen>` must point
+  to a child node of one with a :dtcompatible:`gpio-leds`
+  :zephyr:ref:`compatible <dt-important-props>`.
 
-- ``gpio0`` is an example node label referring to a GPIO controller
--  ``PIN`` should be a pin number, like ``8`` or ``0``
-- ``FLAGS`` should be a logical OR of
-  :zephyr:ref:`GPIO configuration flags <gpio_api>` meant to apply to the
-  button, such as ``(GPIO_PULL_UP | GPIO_ACTIVE_LOW)``
+.. rubric:: The above situation is for the common case where:
 
-This assumes the common case, where ``#gpio-cells = <2>`` in the ``gpio0``
-node, and that the GPIO controller's devicetree binding names those two cells
-"pin" and "flags" like so:
+- :dts:`__GPIO_CTRL_NODE__` should be a reference to a node label of class
+  GPIO controller, e.g. in node :dts:`user_lamp: gpio0_led {/* … */};` the
+  reference :dts:`gpios = <&gpio0 /* … */>` uses the example node label
+  :dts:`gpio0:` and points to the given GPIO controller
+- :dts:`__PIN__` should be a pin number, like :dts:`8` or :dts:`0`, see
+  :dts:`user_lamp:` for an example
+- :dts:`__FLAGS__` should be a logical OR of :zephyr:ref:`GPIO configuration
+  flags <gpio_api>` meant to apply to the button, such as
+  :dts:`(GPIO_PULL_UP | GPIO_ACTIVE_LOW)`, see :dts:`user_lamp:` for an example
 
-.. code-block:: yaml
+.. rubric:: Required devicetree bindings:
 
-   gpio-cells:
-     - pin
-     - flags
+This assumes the common case, where is :dts:`#gpio-cells = <2>` in the
+:dts:`gpio0:` node, and that the :zephyr:ref:`GPIO controller's devicetree
+binding <dt-bindings>` declares those two cells :yaml:`pin` and :yaml:`flags`
+in :yaml:`gpio-cells` like so:
 
-This sample requires a ``pin`` cell in the ``gpios`` property. The ``flags``
-cell is optional, however, and the sample still works if the GPIO cells
-do not contain ``flags``.
+   .. code-block:: yaml
+
+      properties:
+        "#gpio-cells":
+          type: int
+          required: true
+          const: 2
+
+      gpio-cells:
+        - pin
+        - flags
+
+This sample requires a :yaml:`pin` cell in the :dts:`gpios` property. The
+:yaml:`flags` cell is optional, however, and the sample still works if the
+GPIO cells do not contain :yaml:`flags`. This assumes the common case, where
+the :dts:`gpios = <&gpio0 /* … */>` property in the :dts:`user_button:` and
+:dts:`user_lamp:` child nodes reflects an :zephyr:ref:`GPIO keys and leds
+devicetree binding <dt-bindings>` similar like so:
+
+   .. code-block:: yaml
+
+      child-binding:
+        properties:
+          gpios:
+            type: phandle-array
+            required: true
 
 Building and Running
 ********************

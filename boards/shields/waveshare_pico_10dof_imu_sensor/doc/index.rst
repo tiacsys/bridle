@@ -479,7 +479,7 @@ for the STM LPS22HB MEMS pressure sensor. See also Zephyr sample:
 The Default Shield Sample
 =========================
 
-See also :ref:`waveshare_pico_10dof_imu_sensor_sample` in Bridle.
+See also :ref:`waveshare_pico_10dof_imu_sensor-sample` in Bridle.
 
 .. tabs::
 

@@ -1,4 +1,4 @@
-.. _waveshare_pico_environment_sensor_sample:
+.. _waveshare_pico_environment_sensor-sample:
 
 
 Waveshare Pico Environment Sensor Sample
@@ -72,43 +72,46 @@ Sample Output
    :class: highlight-console notranslate
 
    [00:00:00.001,000] <dbg> BME280: bme280_chip_init: ID OK
-   [00:00:00.009,000] <dbg> BME280: bme280_chip_init: "bme280\ @\ 76" OK
+   [00:00:00.010,000] <dbg> BME280: bme280_chip_init: "**bme280@76**" OK
    [00:00:00.260,000] <dbg> SGP40: sgp40_init: Selftest succeeded!
-   [00:00:00.335,000] <dbg> MPU9250: ak8963_fetch_adj: Adjustment values 1774 1774 1709
+   [00:00:00.325,000] <dbg> MPU9250: ak8963_fetch_adj: Adjustment values 1774 1774 1709
    \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-   [00:00:00.501,000] :byl:`<wrn> udc_rpi: BUS RESET`
-   [00:00:00.590,000] :byl:`<wrn> udc_rpi: BUS RESET`
+   [00:00:00.627,000] :byl:`<wrn> udc_rpi: BUS RESET`
+   [00:00:00.707,000] :byl:`<wrn> udc_rpi: BUS RESET`
    \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
-   [00:00:04.347,000] <inf> wspes_sample: ICM20948: Found device "mpu9250\ @\ 68", getting sensor data
-   [00:00:04.347,000] <inf> wspes_sample: BME280: Found device "bme280\ @\ 76", getting sensor data
-   [00:00:04.347,000] <inf> wspes_sample: SGP40: Found device "sgp40\ @\ 59", getting sensor data
-   [00:00:06.349,000] <dbg> MPU9250: mpu9250_sample_fetch: magn_st2: 16
-   [00:00:06.385,000] <inf> wspes_sample: DOF: -0.244209 0.053869 -9.913192 XYZ-Accel. [m/s/s]
-   [00:00:06.385,000] <inf> wspes_sample: DOF: 0.017186 0.000266 0.007993 XYZ-Gyro. [rad/s]
-   [00:00:06.385,000] <inf> wspes_sample: DOF: -0.026610 0.917158 -0.955331 XYZ-Magn. [uG]
-   [00:00:06.386,000] <inf> wspes_sample: DOF: 27.74 Temp. [C]
-   [00:00:06.386,000] <inf> wspes_sample: THP: 100.42 AirPr. [hPa]
-   [00:00:06.386,000] <inf> wspes_sample: THP: 24.93 Temp. [C]
-   [00:00:06.386,000] <inf> wspes_sample: THP: 58.971 RH [%]
-   [00:00:06.386,000] <inf> wspes_sample: VOC: 26 Gas [a.u.]
-   [00:00:08.388,000] <dbg> MPU9250: mpu9250_sample_fetch: magn_st2: 16
-   [00:00:08.424,000] <inf> wspes_sample: DOF: -0.253786 0.056862 -9.917382 XYZ-Accel. [m/s/s]
-   [00:00:08.424,000] <inf> wspes_sample: DOF: 0.017986 0.000799 0.007860 XYZ-Gyro. [rad/s]
-   [00:00:08.424,000] <inf> wspes_sample: DOF: -0.024836 0.911836 -0.946786 XYZ-Magn. [uG]
-   [00:00:08.424,000] <inf> wspes_sample: DOF: 27.82 Temp. [C]
-   [00:00:08.424,000] <inf> wspes_sample: THP: 100.42 AirPr. [hPa]
-   [00:00:08.424,000] <inf> wspes_sample: THP: 24.97 Temp. [C]
-   [00:00:08.424,000] <inf> wspes_sample: THP: 58.723 RH [%]
-   [00:00:08.424,000] <inf> wspes_sample: VOC: 24795 Gas [a.u.]
-   [00:00:10.426,000] <dbg> MPU9250: mpu9250_sample_fetch: magn_st2: 16
-   [00:00:10.489,000] <inf> wspes_sample: DOF: -0.254983 0.059256 -9.923966 XYZ-Accel. [m/s/s]
-   [00:00:10.489,000] <inf> wspes_sample: DOF: 0.017453 0.000399 0.007194 XYZ-Gyro. [rad/s]
-   [00:00:10.489,000] <inf> wspes_sample: DOF: -0.015966 0.910062 -0.962167 XYZ-Magn. [uG]
-   [00:00:10.489,000] <inf> wspes_sample: DOF: 27.90 Temp. [C]
-   [00:00:10.489,000] <inf> wspes_sample: THP: 100.42 AirPr. [hPa]
-   [00:00:10.489,000] <inf> wspes_sample: THP: 25.04 Temp. [C]
-   [00:00:10.490,000] <inf> wspes_sample: THP: 58.438 RH [%]
-   [00:00:10.490,000] <inf> wspes_sample: VOC: 25663 Gas [a.u.]
+   [00:00:04.337,000] <inf> wspes_sample: ICM20948: Found device "**mpu9250@68**", getting sensor data
+   [00:00:04.337,000] <inf> wspes_sample: BME280: Found device "**bme280@76**", getting sensor data
+   [00:00:04.337,000] <inf> wspes_sample: SGP40: Found device "**sgp40@59**", getting sensor data
+
+   [00:00:06.339,000] <dbg> MPU9250: mpu9250_sample_fetch: magn_st2: 16
+   [00:00:06.372,000] <inf> wspes_sample: DOF: 0.287304 0.171783 -9.950303 XYZ-Accel. [m/s/s]
+   [00:00:06.372,000] <inf> wspes_sample: DOF: 0.018785 -0.001732 0.007993 XYZ-Gyro. [rad/s]
+   [00:00:06.373,000] <inf> wspes_sample: DOF: 0.051446 0.952638 -0.941659 XYZ-Magn. [uG]
+   [00:00:06.373,000] <inf> wspes_sample: DOF: 29.30 Temp. [C]
+   [00:00:06.373,000] <inf> wspes_sample: THP: 101.31 AirPr. [hPa]
+   [00:00:06.373,000] <inf> wspes_sample: THP: 26.50 Temp. [C]
+   [00:00:06.373,000] <inf> wspes_sample: THP: 51.318 RH [%]
+   [00:00:06.373,000] <inf> wspes_sample: VOC: 20 Gas [a.u.]
+
+   [00:00:08.375,000] <dbg> MPU9250: mpu9250_sample_fetch: magn_st2: 16
+   [00:00:08.407,000] <inf> wspes_sample: DOF: 0.303465 0.171185 -9.943719 XYZ-Accel. [m/s/s]
+   [00:00:08.408,000] <inf> wspes_sample: DOF: 0.018519 -0.000666 0.007460 XYZ-Gyro. [rad/s]
+   [00:00:08.408,000] <inf> wspes_sample: DOF: 0.053220 0.954412 -0.936532 XYZ-Magn. [uG]
+   [00:00:08.408,000] <inf> wspes_sample: DOF: 29.41 Temp. [C]
+   [00:00:08.408,000] <inf> wspes_sample: THP: 101.31 AirPr. [hPa]
+   [00:00:08.408,000] <inf> wspes_sample: THP: 26.53 Temp. [C]
+   [00:00:08.408,000] <inf> wspes_sample: THP: 51.238 RH [%]
+   [00:00:08.408,000] <inf> wspes_sample: VOC: 28285 Gas [a.u.]
+
+   [00:00:10.410,000] <dbg> MPU9250: mpu9250_sample_fetch: magn_st2: 16
+   [00:00:10.483,000] <inf> wspes_sample: DOF: 0.286705 0.164002 -9.949105 XYZ-Accel. [m/s/s]
+   [00:00:10.483,000] <inf> wspes_sample: DOF: 0.019584 -0.000932 0.008393 XYZ-Gyro. [rad/s]
+   [00:00:10.483,000] <inf> wspes_sample: DOF: 0.047898 0.956186 -0.938241 XYZ-Magn. [uG]
+   [00:00:10.483,000] <inf> wspes_sample: DOF: 29.49 Temp. [C]
+   [00:00:10.483,000] <inf> wspes_sample: THP: 101.31 AirPr. [hPa]
+   [00:00:10.483,000] <inf> wspes_sample: THP: 26.60 Temp. [C]
+   [00:00:10.484,000] <inf> wspes_sample: THP: 51.062 RH [%]
+   [00:00:10.484,000] <inf> wspes_sample: VOC: 28789 Gas [a.u.]
 
 The `SGP40 Datasheet`_ states that the raw sensor signal for the SGP40 is
 proportional to the logarithm of the sensors resistance, hence the VOC Gas

@@ -349,7 +349,7 @@ for the Bosch BME280 environmental sensor. See also Zephyr sample:
 The Default Shield Sample
 =========================
 
-See also :ref:`waveshare_pico_environment_sensor_sample` in Bridle.
+See also :ref:`waveshare_pico_environment_sensor-sample` in Bridle.
 
 .. zephyr-app-commands::
    :app: bridle/samples/waveshare_pico_environment_sensor

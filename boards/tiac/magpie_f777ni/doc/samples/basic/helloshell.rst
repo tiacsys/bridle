@@ -6,7 +6,7 @@ Hello Shell
 Overview
 ********
 
-See :ref:`helloshell` for the original description.
+See :ref:`helloshell-sample` for the original description.
 
 .. _magpie_f777ni_helloshell-sample-requirements:
 

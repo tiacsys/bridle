@@ -136,7 +136,7 @@ Sounds from the speaker
 =======================
 
 Drives an buzzer or speaker that must defined by the shields Devicetree.
-See also Bridle sample: :ref:`buzzer`.
+See also Bridle sample: :ref:`buzzer-sample`.
 
 .. tabs::
 

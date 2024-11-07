@@ -1,4 +1,4 @@
-.. _ubx_gnss_sample:
+.. _ubx_gnss-sample:
 
 Ubxlib GNSS Sample
 ##################
@@ -18,13 +18,15 @@ The u-blox GNSS device must be connected via UART, and a Devicetree alias
 single GPIO line for the module reset signal have to define. To fulfil this
 requirement, this sample application comes with a generic application overlay
 :file:`app.overlay` that should be usable with all boards that provies an
-Arduino UNO R3 edge connector. For :dts:`ubxlib-uart0` the standard
-Arduino UART on D0 (RX) and D1 (TX) will be used (:dts:`&arduino_serial`).
-The reset signal will be controlled by D8 (GPIO) and is mapped to
-:dts:`<&arduino_header 14 /*…*/>`. To ensure to use the correct GPIO line for
-the module reset signal, the example provides the only locally usable
-Devicetree binding :file:`reset-switch.yaml`. This specifies the Devicetree
-compatibility string :emphasis:`reset-switch`.
+Arduino UNO R3 edge connector. For :dts:`ubxlib-uart0 = /* … */` the
+standard Arduino UART on **D0** (*RX*) and **D1** (*TX*) will be used
+(:dts:`ubxlib-uart0 = &arduino_serial`;). The reset signal will be controlled
+by **D8** (*IO8*) and is mapped in :dts:`gpios = <&arduino_header 14 /* … */>`.
+To ensure to use the correct GPIO line for the module reset signal, the example
+provides the only locally usable Devicetree binding :file:`reset-switch.yaml`.
+This specifies the Devicetree compatibility string :yaml:`"reset-switch"` (see
+line :yaml:`compatible: "reset-switch"`) with the required :yaml:`gpios:`
+property.
 
 .. list-table::
    :align: center
@@ -143,104 +145,112 @@ Build and flash for different boards
    :goals: flash
    :compact:
 
-.. warning::
+It is more luck than sense that this example works on this extremely poorly
+equipped board. The word *"works"* should also not be overrated. This board
+requires special care when using and maintaining the code base.
 
-   This board requires special care when using and maintaining the code base.
-   First of all, there is a lack of sufficient UART interfaces. The user must
-   decide whether he wants to use the one available LPUART1 as a console via
-   the on-board debug adapter (the factory default) or whether he needs it
-   for his own purposes on the Arduino edge connector. For this example,
-   the later is the case and it is extremely important that the two jumpers
-   :strong:`JP31` for TX and :strong:`JP32` for RX are removed so that there
-   is no longer an active connection to the on-board debug adapter (isolation).
-   This also removes the channel for the standard console and the on-board
-   USB device at :strong:`J9` must be used as an alternative. This in turn
-   means that Zephyr needs the USB device software stack with the USB-CDC/ACM
-   class driver for VCOM access to the shell enabled. Note the
-   :program:`west build` parameter :code:`-S usb-console`.
+   .. admonition:: Insufficient UART interfaces
+      :class: danger
 
-   It is more luck than sense that this example works on this extremely poorly
-   equipped board. The word :emphasis:`"works"` should also not be overrated.
-   The :file:`ubxlib` software stack :strong:`is extremely memory-intensive`
-   and :strong:`requires at least 16 kB RAM for the memory heap`
-   (:kconfig:option:`CONFIG_HEAP_MEM_POOL_SIZE`). That alone is already 25%
-   of the available RAM in this system. Together with the necessary USB device
-   software stack and the USB-CDC/ACM class driver, there is hardly anything
-   left for additional functions. This means that the :strong:`Zephyr shell`
-   can only be :strong:`used in the absolute minimum configuration`
-   (:kconfig:option:`CONFIG_SHELL_MINIMAL`\ :code:`=y`) and the :strong:`Zephyr
-   logging system must be omitted completely`
-   (:kconfig:option:`CONFIG_LOG`\ :code:`=n`).
-   The :program:`CMake` parameter :code:`-DCONFIG_LOG=n` must be considered for
-   this when calling :program:`west build`.
+      First of all, there is a lack of sufficient UART interfaces. The
+      user must decide whether he wants to use the one available LPUART1
+      as a console via the on-board debug adapter (the factory default)
+      or whether he needs it for his own purposes on the Arduino edge
+      connector. For this example, the later is the case and it is
+      extremely important that the two jumpers **JP31** for TX and
+      **JP32** for RX are removed so that there is no longer an active
+      connection to the on-board debug adapter (isolation). This also
+      removes the channel for the standard console and the on-board USB
+      device at **J9** must be used as an alternative. This in turn means
+      that Zephyr needs the USB device software stack with the USB-CDC/ACM
+      class driver for VCOM access to the shell enabled.
 
-   As a result of the limited memory capacity, important runtime stacks must
-   also be reduced. That are in summary:
+      **Note:** the :program:`west build` parameter :code:`-S usb-console`.
 
-   .. list-table::
-      :align: center
-      :width: 75%
-      :widths: 50, 50
-      :header-rows: 1
+   .. admonition:: Low on-board memory
+      :class: warning
 
-      * - Board specific configuration
-        - Context and meaning
+      The :file:`ubxlib` software stack **is extremely memory-intensive**
+      and **requires at least 16 kB RAM for the memory heap**
+      (:kconfig:option:`CONFIG_HEAP_MEM_POOL_SIZE`). That alone is already
+      25% of the available RAM in this system. Together with the necessary
+      USB device software stack and the USB-CDC/ACM class driver, there is
+      hardly anything left for additional functions. This means that the
+      **Zephyr shell** can only be **used in the absolute minimum
+      configuration** (:kconfig:option:`CONFIG_SHELL_MINIMAL`\ :code:`=y`)
+      and the **Zephyr logging system must be omitted completely**
+      (:kconfig:option:`CONFIG_LOG`\ :code:`=n`).
 
-      * - .. literalinclude:: boards/mimxrt1010_evk.conf
-             :caption: boards/mimxrt1010_evk.conf
-             :language: cfg
-             :encoding: ISO-8859-1
-             :start-after: # Memory
+      **Note:** the :program:`CMake` parameter :code:`-DCONFIG_LOG=n` must
+      be considered for this when calling :program:`west build`.
 
-        - :Dynamic Memory Pool:
-             | left on :bgn:`16384`
-             | (:kconfig:option:`CONFIG_HEAP_MEM_POOL_SIZE`)
+   .. admonition:: Disabled runtime stacks
+      :class: note
 
-          :Main Context:
-             | from :ign:`4096` to :brd:`3456`
-             | (:kconfig:option:`CONFIG_MAIN_STACK_SIZE`)
+      As a result of the limited memory capacity, important other runtime
+      stacks must also be reduced. That are in summary:
 
-          :Interrupt Serive Routines:
-             | from :ign:`2048` to :brd:`1024`
-             | (:kconfig:option:`CONFIG_ISR_STACK_SIZE`)
+      .. list-table::
+         :align: center
+         :width: 75%
+         :widths: 50, 50
+         :header-rows: 1
 
-          :System Worker Queue:
-             | from :ign:`1024` to :brd:`512`
-             | (:kconfig:option:`CONFIG_SYSTEM_WORKQUEUE_STACK_SIZE`)
+         * - Board specific configuration
+           - Context and meaning
 
-          :USB-CDC/ACM Worker Queue:
-             | from :ign:`1024` to :brd:`512`
-             | (:kconfig:option:`CONFIG_USB_WORKQUEUE_STACK_SIZE`)
+         * - .. literalinclude:: boards/mimxrt1010_evk.conf
+                :caption: boards/mimxrt1010_evk.conf
+                :language: cfg
+                :encoding: ISO-8859-1
+                :start-after: # Memory
 
-          :USB-CDC/ACM Ring Buffer:
-             | from :ign:`1024` to :brd:`512`
-             | (:kconfig:option:`CONFIG_USB_CDC_ACM_RINGBUF_SIZE`)
+           - :Dynamic Memory Pool:
+                | left on :bgn:`16384`
+                | (:kconfig:option:`CONFIG_HEAP_MEM_POOL_SIZE`)
 
-   With this :u:`heuristically determined memory configuration`, the main
-   functions of this :emphasis:`"simple"` example can be used. One exception
-   is the shell command :console:`gnss single`. The subsequent function call
-   stack may grow to a point where the reduced ISR or main stack overflows
-   and, in the absence of further Zephyr functionality, the CPU simply stops
-   in a :u:`critical exception – with no visible notification to the user`.
-   This is a very dynamic effect and difficult to predict,
-   :strong:`but it happens very often`.
+             :Main Context:
+                | from :ign:`4096` to :brd:`3456`
+                | (:kconfig:option:`CONFIG_MAIN_STACK_SIZE`)
+
+             :Interrupt Serive Routines:
+                | from :ign:`2048` to :brd:`1024`
+                | (:kconfig:option:`CONFIG_ISR_STACK_SIZE`)
+
+             :System Worker Queue:
+                | from :ign:`1024` to :brd:`512`
+                | (:kconfig:option:`CONFIG_SYSTEM_WORKQUEUE_STACK_SIZE`)
+
+             :USB-CDC/ACM Worker Queue:
+                | from :ign:`1024` to :brd:`512`
+                | (:kconfig:option:`CONFIG_USB_WORKQUEUE_STACK_SIZE`)
+
+             :USB-CDC/ACM Ring Buffer:
+                | from :ign:`1024` to :brd:`512`
+                | (:kconfig:option:`CONFIG_USB_CDC_ACM_RINGBUF_SIZE`)
+
+      With this :u:`heuristically determined memory configuration`, the main
+      functions of this *"simple"* example can be used. One exception is the
+      shell command :console:`gnss single`. The subsequent function call stack
+      may grow to a point where the reduced ISR or main stack overflows and,
+      in the absence of further Zephyr functionality, the CPU simply stops
+      in a :u:`critical exception – with no visible notification to the user`.
+      This is a very dynamic effect and difficult to predict, **but it happens
+      very often**.
 
 Example console session
 =======================
 
-After power-on or hard reset, the GNSS module will be initialized automatically:
+After power-on or hard reset, the GNSS module will be initialized
+automatically. There is a simple Shell command for some standard
+evaluation steps:
+
+.. container:: highlight highlight-console notranslate
 
    .. parsed-literal::
-      :class: highlight-console notranslate
 
       \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* \*\*\*
       [00:00:02.021,000] <inf> main: GNSS Device is ready!
-      :bgn:`uart:~$` **_**
-
-There is a simple Shell command for some standard evaluation steps:
-
-   .. parsed-literal::
-      :class: highlight-console notranslate
 
       :bgn:`uart:~$` **gnss -h**
       gnss - GNSS related commands
@@ -249,39 +259,39 @@ There is a simple Shell command for some standard evaluation steps:
         stream  :Start or stop streaming of position estimates
         reset   :Reset GNSS module
         ttff    :Measure TTFF
-      :bgn:`uart:~$` **_**
 
-Reset GNSS module:
+.. rubric:: Reset GNSS module:
+
+.. container:: highlight highlight-console notranslate
 
    .. parsed-literal::
-      :class: highlight-console notranslate
 
       :bgn:`uart:~$` **gnss reset**
-      :bgn:`uart:~$` **_**
 
-   The on-module LED for PPS signaling goes off and comes back to blink
-   after TTFF.
+The on-module LED for PPS signaling goes off and comes back to blink
+after TTFF.
 
-Measure TTFF:
+.. rubric:: Measure TTFF:
+
+.. container:: highlight highlight-console notranslate
 
    .. parsed-literal::
-      :class: highlight-console notranslate
 
       :bgn:`uart:~$` **gnss ttff**
       Run 1 of 1: Acquired fix after 32.26s
       ---------------
       Avg. TTFF: 32.26
-      :bgn:`uart:~$` **_**
 
-   The on-module LED for PPS signaling goes off and comes back to blink
-   after TTFF.
+The on-module LED for PPS signaling goes off and comes back to blink
+after TTFF.
 
-   It is also possible to run several TTFF measurements sequentially. If
-   there is also a good receiving range and a reliable position already
-   exists, the TTFF will be correspondingly low:
+It is also possible to run several TTFF measurements sequentially. If
+there is also a good receiving range and a reliable position already
+exists, the TTFF will be correspondingly low:
+
+.. container:: highlight highlight-console notranslate
 
    .. parsed-literal::
-      :class: highlight-console notranslate
 
       :bgn:`uart:~$` **gnss ttff 10**
       Run 1 of 10: Acquired fix after 0.23s
@@ -296,21 +306,21 @@ Measure TTFF:
       Run 10 of 10: Acquired fix after 0.81s
       ---------------
       Avg. TTFF: 0.74
-      :bgn:`uart:~$` **_**
 
-Get a one-shot position estimate:
+.. rubric:: Get a one-shot position estimate:
+
+.. container:: highlight highlight-console notranslate
 
    .. parsed-literal::
-      :class: highlight-console notranslate
 
       :bgn:`uart:~$` **gnss single**
       Found position estimate after 0.8s: (lat, lon): (50.922432, 11.600015), alt: 192.05m, radius: 1.48m (15 SV used)
-      :bgn:`uart:~$` **_**
 
-Start or stop streaming of position estimates:
+.. rubric:: Start or stop streaming of position estimates:
+
+.. container:: highlight highlight-console notranslate
 
    .. parsed-literal::
-      :class: highlight-console notranslate
 
       :bgn:`uart:~$` **gnss stream start**
       [00:01:15.687,000] <inf> main: Found position estimate: (lat, lon): (50.922447, 11.600006), alt: 192.64m, radius: 1.45m (17 SV used)
@@ -326,10 +336,14 @@ Start or stop streaming of position estimates:
       [00:01:25.688,000] <inf> main: Found position estimate: (lat, lon): (50.922462, 11.599999), alt: 192.77m, radius: 1.48m (18 SV used)
       [00:01:26.693,000] <inf> main: Found position estimate: (lat, lon): (50.922466, 11.599998), alt: 192.69m, radius: 1.48m (18 SV used)
       [00:01:27.697,000] <inf> main: Found position estimate: (lat, lon): (50.922466, 11.599996), alt: 192.49m, radius: 1.50m (18 SV used)
+
+.. container:: highlight highlight-console notranslate
+
+   .. parsed-literal::
+
       :bgn:`uart:~$` **gnss stream stop**
       [00:01:28.905,000] <inf> main: Found position estimate: (lat, lon): (50.922470, 11.599995), alt: 192.22m, radius: 1.50m (18 SV used)
       [00:01:29.709,000] <inf> main: Found position estimate: (lat, lon): (50.922470, 11.599994), alt: 192.12m, radius: 1.50m (18 SV used)
-      :bgn:`uart:~$` **_**
 
 References
 **********
