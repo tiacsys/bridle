@@ -223,6 +223,12 @@ notfound_urls_prefix = '/doc/{}/zephyr/'.format(
 
 # Options for zephyr.external_content ------------------------------------------
 
+# Copies additional required artifacts that Bridle wants to include as content.
+external_content_contents.extend([
+    (ZEPHYR_BASE, "samples/**/*.html"),
+    (ZEPHYR_BASE, "samples/**/*.html.bin"),
+])
+
 # Clear external content keeping, Bridle provides its own docsets for that.
 external_content_keep.clear()
 
