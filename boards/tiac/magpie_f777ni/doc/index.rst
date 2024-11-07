@@ -49,43 +49,45 @@ Hardware
 The STM32F777NIHx on the TiaC Magpie F777NI board provides the following
 hardware components:
 
-- STM32F777NIHx in TFBGA216 package
-- ARM 32-bit Cortex®-M7 CPU with DPFPU
-- Chrom-ART Accelerator
-- ART Accelerator
-- 216 MHz max CPU frequency
-- VDD from 1.7 V to 3.6 V
-- 2 MB Flash
-- 512 KB SRAM
-- 7-bit watchdog timer (1)
-- 12-bit independent watchdog timer (1)
-- 24-bit system-tick timer (1)
-- 16-bit low-power timer (1)
-- 16-bit timers (12)
-- 32-bit timers (2)
-- SPI (6)
-- I2C (4)
-- I2S (3)
-- USART (4)
-- UART (4)
-- USB OTG Full Speed (1)
-- USB OTG Full Speed and High Speed (1)
-- 10/100 Ethernet MAC with MII/RMII and MDIO (1)
-- CAN (3)
-- SAI (2)
-- Dual Mode Quad SPI (1)
-- GPIO (up to 168) with external interrupt capability
-- Digital Filters for Sigma Delta Modulator (DFSDM)
-  with 8 channels / 4 filters
-- 12-bit ADC with 24 channels / 2.4 MSPS (3)
-- 12-bit DAC with 2 channels (2)
-- 16-channel DMA
-- Cryptographic Acceleration for AES 128, 192, 256, triple DES,
-  HASH (MD5, SHA-1, SHA-2), and HMAC
-- True Random Number Generator (RNG)
-- CRC calculation unit
-- RTC: subsecond accuracy, hardware calendar
-- 96-bit unique ID
+   .. rst-class:: rst-columns
+
+   - STM32F777NIHx in TFBGA216 package
+   - ARM 32-bit Cortex®-M7 CPU with DPFPU
+   - Chrom-ART Accelerator
+   - ART Accelerator
+   - 216 MHz max CPU frequency
+   - VDD from 1.7 V to 3.6 V
+   - 2 MB Flash
+   - 512 KB SRAM
+   - 7-bit watchdog timer (1)
+   - 12-bit independent watchdog timer (1)
+   - 24-bit system-tick timer (1)
+   - 16-bit low-power timer (1)
+   - 16-bit timers (12)
+   - 32-bit timers (2)
+   - SPI (6)
+   - I2C (4)
+   - I2S (3)
+   - USART (4)
+   - UART (4)
+   - USB OTG Full Speed (1)
+   - USB OTG Full Speed and High Speed (1)
+   - 10/100 Ethernet MAC with MII/RMII and MDIO (1)
+   - CAN (3)
+   - SAI (2)
+   - Dual Mode Quad SPI (1)
+   - GPIO (up to 168) with external interrupt capability
+   - Digital Filters for Sigma Delta Modulator (DFSDM)
+     with 8 channels / 4 filters
+   - 12-bit ADC with 24 channels / 2.4 MSPS (3)
+   - 12-bit DAC with 2 channels (2)
+   - 16-channel DMA
+   - Cryptographic Acceleration for AES 128, 192, 256, triple DES,
+     HASH (MD5, SHA-1, SHA-2), and HMAC
+   - True Random Number Generator (RNG)
+   - CRC calculation unit
+   - RTC: subsecond accuracy, hardware calendar
+   - 96-bit unique ID
 
 More information about the STM32F777NIHx can be found at the website about
 `STM32F777NI on www.st.com`_ or in the `STM32F777 Reference Manual (RM0410)`_
@@ -97,61 +99,115 @@ Supported Features
 The Zephyr ``magpie_f777ni`` board configuration supports the following
 hardware features:
 
-.. table:: Hardware Supported Features in Zephyr
+.. list-table:: Hardware Features Supported by Zephyr
    :class: longtable
    :align: center
+   :header-rows: 1
 
-   +-----------+------------+------------------------------------------------------+
-   | Interface | Controller | Driver/Component                                     |
-   +===========+============+======================================================+
-   | UART      | on-chip    | :zephyr:ref:`uart_api` (!) (?)                       |
-   +-----------+------------+------------------------------------------------------+
-   | PINCTRL   | on-chip    | :zephyr:ref:`pinctrl_api`                            |
-   +-----------+------------+------------------------------------------------------+
-   | GPIO      | on-chip    | :zephyr:ref:`gpio_api`                               |
-   +-----------+------------+------------------------------------------------------+
-   | ETH       | on-chip    | :zephyr:ref:`ethernet_interface` (*)                 |
-   +-----------+------------+------------------------------------------------------+
-   | USB       | on-chip    | :zephyr:ref:`usb_api`                                |
-   +-----------+------------+------------------------------------------------------+
-   | CAN       | on-chip    | :zephyr:ref:`canbus` (-)                             |
-   +-----------+------------+------------------------------------------------------+
-   | I2C       | on-chip    | :zephyr:ref:`i2c_api`                                |
-   +-----------+------------+------------------------------------------------------+
-   | SPI       | on-chip    | :zephyr:ref:`spi_api` (?)                            |
-   +-----------+------------+------------------------------------------------------+
-   | PWM       | on-chip    | :zephyr:ref:`pwm_api`                                |
-   +-----------+------------+------------------------------------------------------+
-   | ADC       | on-chip    | :zephyr:ref:`adc_api` (+) (!) (?)                    |
-   +-----------+------------+------------------------------------------------------+
-   | RTC       | on-chip    | :zephyr:ref:`rtc_api` as :zephyr:ref:`counter_api`   |
-   +-----------+------------+------------------------------------------------------+
-   | IWDG      | on-chip    | :zephyr:ref:`watchdog_api` (°)                       |
-   +-----------+------------+------------------------------------------------------+
-   | RNG       | on-chip    | :zephyr:ref:`entropy_api`                            |
-   +-----------+------------+------------------------------------------------------+
-   | RCC       | on-chip    | Reset & :zephyr:ref:`clock_control_api`              |
-   +-----------+------------+------------------------------------------------------+
-   | NVIC      | on-chip    | Nested Vector :zephyr:ref:`interrupts_v2` Controller |
-   +-----------+------------+------------------------------------------------------+
-
-(*) Ethernet instability on SOC cut-A (Device marking A):
-    TiaC Magpie with SOC cut-A (Device marking A) has some ethernet instability
-    (https://github.com/zephyrproject-rtos/zephyr/issues/26519).
-    Use of cut-Z is advised. See restrictions errata:
-    https://www.st.com/resource/en/errata_sheet/DM00257543.pdf
-
-(+) ADC 1 only supported:
-    ADC 2 or 3 is not supported properly by Zephyr STM32 ADC support, see:
-    https://github.com/zephyrproject-rtos/zephyr/issues/26874 and
-    https://github.com/zephyrproject-rtos/zephyr/issues/30977
-
-(-) CAN 1 or 2 only separate supported, never both simultaneously:
-    Simultaneous use of CAN_1 and CAN_2 not supported yet on STM32, see:
-    https://github.com/zephyrproject-rtos/zephyr/blob/c02454e/drivers/can/can_stm32.c#L28,
-    https://github.com/zephyrproject-rtos/zephyr/pull/22200 and
-    https://github.com/zephyrproject-rtos/zephyr/pull/24396 (seems to be fixed:
-    https://github.com/zephyrproject-rtos/zephyr/pull/46646)
+   * - Peripheral
+     - Kconfig option
+     - Devicetree compatible
+     - Zephyr API
+   * - PINCTRL
+     - :kconfig:option:`CONFIG_PINCTRL`
+     - :dtcompatible:`st,stm32-pinctrl`
+     - :zephyr:ref:`pinctrl_api`
+   * - GPIO
+     - :kconfig:option:`CONFIG_GPIO`
+     - :dtcompatible:`st,stm32-gpio`
+     - :zephyr:ref:`gpio_api`
+   * - UART
+     - :kconfig:option:`CONFIG_SERIAL`
+     - | :dtcompatible:`st,stm32-uart` (!) (?)
+       | :dtcompatible:`st,stm32-usart`
+     - :zephyr:ref:`uart_api`
+   * - UDC (USB Device Controller)
+     - :kconfig:option:`CONFIG_USB_DEVICE_STACK`
+     - | :dtcompatible:`st,stm32-otgfs`
+       | :dtcompatible:`st,stm32-otghs`
+     - :zephyr:ref:`usb_api`
+   * - ETH (L1: PHY, L2: MAC / LLC)
+     - :kconfig:option:`CONFIG_NET_L2_ETHERNET`
+     - :dtcompatible:`st,stm32-ethernet` (*)
+     - :zephyr:ref:`ethernet_interface`
+   * - CAN (L1: PMA / PCS, L2: DLL)
+     - :kconfig:option:`CONFIG_CAN`
+     - :dtcompatible:`st,stm32-bxcan` (-)
+     - :zephyr:ref:`canbus`
+   * - I2C
+     - :kconfig:option:`CONFIG_I2C`
+     - :dtcompatible:`st,stm32-i2c-v2`
+     - :zephyr:ref:`i2c_api`
+   * - SPI
+     - :kconfig:option:`CONFIG_SPI`
+     - | :dtcompatible:`st,stm32-spi-fifo`
+       | :dtcompatible:`st,stm32-spi` (?)
+     - :zephyr:ref:`spi_api`
+   * - PWM
+     - :kconfig:option:`CONFIG_PWM`
+     - | :dtcompatible:`st,stm32-timers`
+       | :dtcompatible:`st,stm32-pwm`
+     - :zephyr:ref:`pwm_api`
+   * - DAC
+     - :kconfig:option:`CONFIG_DAC`
+     - :dtcompatible:`st,stm32-dac`
+     - :zephyr:ref:`dac_api`
+   * - ADC
+     - :kconfig:option:`CONFIG_ADC`
+     - | :dtcompatible:`st,stm32f4-adc`
+       | :dtcompatible:`st,stm32-adc` (+) (!) (?)
+     - :zephyr:ref:`adc_api`
+   * - RTC
+     - :kconfig:option:`CONFIG_RTC`
+     - :dtcompatible:`st,stm32-rtc`
+     - :zephyr:ref:`rtc_api` as
+       :zephyr:ref:`counter_api`
+   * - Timer (Counter)
+     - :kconfig:option:`CONFIG_COUNTER`
+     - | :dtcompatible:`st,stm32-timers`
+       | :dtcompatible:`st,stm32-counter`
+     - :zephyr:ref:`counter_api`
+   * - Watchdog Timer (WDT)
+     - :kconfig:option:`CONFIG_WATCHDOG`
+     - | :dtcompatible:`st,stm32-watchdog`
+       | :dtcompatible:`st,stm32-window-watchdog` (°)
+     - :zephyr:ref:`watchdog_api`
+   * - RNG
+     - :kconfig:option:`CONFIG_ENTROPY_GENERATOR`
+     - :dtcompatible:`st,stm32-rng`
+     - :zephyr:ref:`entropy_api`
+   * - Flash
+     - :kconfig:option:`CONFIG_FLASH`
+     - | :dtcompatible:`st,stm32f7-flash-controller`
+       | :dtcompatible:`st,stm32-flash-controller`
+     - :zephyr:ref:`flash_api` and
+       :zephyr:ref:`flash_map_api`
+   * - DMA
+     - :kconfig:option:`CONFIG_DMA`
+     - :dtcompatible:`st,stm32-dma-v1`
+     - :zephyr:ref:`dma_api`
+   * - HWINFO
+     - :kconfig:option:`CONFIG_HWINFO`
+     - N/A
+     - :zephyr:ref:`hwinfo_api`
+   * - RESET
+     - :kconfig:option:`CONFIG_RESET`
+     - | :dtcompatible:`st,stm32-rcc`
+       | :dtcompatible:`st,stm32-rcc-rctl`
+     - :zephyr:ref:`reset_api`
+   * - CLOCK
+     - :kconfig:option:`CONFIG_CLOCK_CONTROL`
+     - :dtcompatible:`st,stm32-rcc`
+     - :zephyr:ref:`clock_control_api`
+   * - NVIC
+     - N/A
+     - | :dtcompatible:`st,stm32-exti`
+       | :dtcompatible:`arm,v7m-nvic`
+     - Nested Vector :zephyr:ref:`interrupts_v2` Controller
+   * - SYSTICK
+     - N/A
+     - :dtcompatible:`arm,armv7m-systick`
+     -
 
 (!) Shared IRQ line on STM32 devices:
     Share the same interrupt line on STM32 devices over multiple driver
@@ -166,6 +222,24 @@ hardware features:
     https://github.com/zephyrproject-rtos/zephyr/issues/29798,
     https://github.com/zephyrproject-rtos/zephyr/pull/32832 and
     https://github.com/zephyrproject-rtos/zephyr/issues/33485
+
+(*) Ethernet instability on SOC cut-A (Device marking A):
+    TiaC Magpie with SOC cut-A (Device marking A) has some ethernet instability
+    (https://github.com/zephyrproject-rtos/zephyr/issues/26519).
+    Use of cut-Z is advised. See restrictions errata:
+    https://www.st.com/resource/en/errata_sheet/DM00257543.pdf
+
+(-) CAN 1 or 2 only separate supported, never both simultaneously:
+    Simultaneous use of CAN_1 and CAN_2 not supported yet on STM32, see:
+    https://github.com/zephyrproject-rtos/zephyr/blob/c02454e/drivers/can/can_stm32.c#L28,
+    https://github.com/zephyrproject-rtos/zephyr/pull/22200 and
+    https://github.com/zephyrproject-rtos/zephyr/pull/24396 (seems to be fixed:
+    https://github.com/zephyrproject-rtos/zephyr/pull/46646)
+
+(+) ADC 1 only supported:
+    ADC 2 or 3 is not supported properly by Zephyr STM32 ADC support, see:
+    https://github.com/zephyrproject-rtos/zephyr/issues/26874 and
+    https://github.com/zephyrproject-rtos/zephyr/issues/30977
 
 (°) IWDG only tested:
     WWDG (Window Watchdog Timer) not yet part of board support,
@@ -183,21 +257,21 @@ Default Zephyr Peripheral Mapping:
 
 The TiaC Magpie F777NI board is configured as follows:
 
-- User LED 1/2 : PG11/PG12
-- JTAG(SWD) TMS/TCK/TDI/TDO/TRST : PA13/PA14/PA15/PB3/PB4 (ST-Link)
-- UART 7 TX/RX/RTS/CTS : PE8/PE7/PE9/PE10 (Zephyr Shell Console)
-- ETH : PA0, PA1, PA2, PA3, PA7, PB0, PB1, PB8, PB11, PC1, PC2, PC3,
-  PC4, PC5, (PC6/PC7), PG13, PG14, PI10
-- USB OTG FS DM/DP (device) : PA11/PA12
-- USB OTG HS DM/DP (host/hub) : (PB14/PB15)
-- CAN 1 TX/RX : PH13/PH14, (PH15)
-- CAN 2 RX/TX : PB12/PB13, (PC9)
-- I2C 2 SDA/SCL : PF0/PF1
-- UART 4 TX/RX : PD1/PD0 (Shields)
-- I2C 4 SCL/SDA : PF14/PF15 (Shields)
-- SPI 5 MOSI/NSS/SCK/MISO : PF11/PH5/PH6/PH7 (Shields)
-- PWM TIM 8 CH1/2/3 : PI5/PI6/PI7 (Shields)
-- ADC 3 IN9/IN14/IN15 : PF3/PF4/PF5 (Shields)
+   :User LED 1/2: PG11/PG12
+   :JTAG(SWD) TMS/TCK/TDI/TDO/TRST: PA13/PA14/PA15/PB3/PB4 (**ST-Link**)
+   :UART 7 TX/RX/RTS/CTS: PE8/PE7/PE9/PE10 (**Zephyr Shell Console**)
+   :ETH: PA0, PA1, PA2, PA3, PA7, PB0, PB1, PB8, PB11, PC1, PC2, PC3,
+         PC4, PC5, (PC6/PC7), PG13, PG14, PI10
+   :USB OTG FS DM/DP (device): PA11/PA12
+   :USB OTG HS DM/DP (host/hub): (PB14/PB15)
+   :CAN 1 TX/RX: PH13/PH14, (PH15)
+   :CAN 2 RX/TX: PB12/PB13, (PC9)
+   :I2C 2 SDA/SCL: PF0/PF1
+   :UART 4 TX/RX: PD1/PD0 (**shields**)
+   :I2C 4 SCL/SDA: PF14/PF15 (**shields**)
+   :SPI 5 MOSI/NSS/SCK/MISO: PF11/PH5/PH6/PH7 (**shields**)
+   :PWM TIM 8 CH1/2/3: PI5/PI6/PI7 (**shields**)
+   :ADC 3 IN9/IN14/IN15: PF3/PF4/PF5 (**shields**)
 
 System and Real-Time Clock
 --------------------------
@@ -456,23 +530,27 @@ line inside your local workspace directory:
 This hardware map (``map.yaml``) could look like the following. Bold
 highlighted portions need to be added manually. Italic parts have to be
 adapted to your own specific situation, important here is the platform
-setup to *magpie_f777ni*.
+setup to :ibl:`magpie_f777ni/stm32f777xx`:
 
-.. parsed-literal::
-   :class: highlight-console notranslate
+   .. container:: highlight highlight-console notranslate literal-block
 
-   - **available: true**
-     **connected: true**
-     **fixtures:**
-       **- gpio_loopback**
-       **- pwm_loopback**
-       **- spi_loopback**
-       **- i2c_bus_short**
-     id: *DT04BNT1*
-     platform: *magpie_f777ni*
-     product: FT230X Basic UART
-     runner: *openocd*
-     serial: /dev/ttyUSB0
+      .. parsed-literal::
+
+         - :bbl:`available: true`
+           :bbl:`connected: true`
+           :bbl:`fixtures:`
+             :bbl:`- pwm_loopback`
+             :bbl:`- uart_loopback`
+             :bbl:`- gpio_loopback`
+             :bbl:`- gpio_spi_loopback`
+             :bbl:`- spi_loopback`
+             :bbl:`- i2c_loopback`
+             :bbl:`- i2c_bus_short`
+           id: :ign:`DT04BNT1`
+           platform: :ibl:`magpie_f777ni/stm32f777xx`
+           product: :bbl:`TiaC Magpie F777NI`
+           runner: :ign:`openocd`
+           serial: :ign:`/dev/ttyUSB0`
 
 All currently qualified tests for TiaC Magpie can be executed and verified
 with a single call to Twister.
@@ -485,25 +563,25 @@ with a single call to Twister.
 
       .. code-block:: console
 
-         west twister --jobs 4 \
-              --enable-size-report --platform-reports \
-              --device-testing --hardware-map map.yaml \
-              --extra-args SHIELD="loopback_test_tmph" \
-              --alt-config-root bridle/zephyr/alt-config/tests \
-              --testsuite-root bridle/tests \
-              --testsuite-root zephyr/tests \
-              --tag arm --tag vector_relay \
-              --tag kernel --exclude-tag security \
-              --tag bridle \
-              --tag hwinfo \
-              --tag random \
-              --tag entropy \
-              --tag watchdog \
-              --tag counter \
-              --tag gpio \
-              --tag spi \
-              --tag uart \
-              --tag can
+         $ west twister --jobs 4 \
+                --enable-size-report --platform-reports \
+                --device-testing --hardware-map map.yaml \
+                --extra-args SHIELD="loopback_test_tmph" \
+                --alt-config-root bridle/zephyr/alt-config/tests \
+                --testsuite-root bridle/tests \
+                --testsuite-root zephyr/tests \
+                --tag arm --tag vector_relay \
+                --tag kernel --exclude-tag security \
+                --tag bridle \
+                --tag hwinfo \
+                --tag random \
+                --tag entropy \
+                --tag watchdog \
+                --tag counter \
+                --tag gpio \
+                --tag spi \
+                --tag uart \
+                --tag can
 
       .. attention:: This will take almost a whole hour.
 
@@ -516,24 +594,33 @@ with a single call to Twister.
 
          Device testing on:
 
-         \| Platform      \| ID       \| Serial device   \|
-         \|---------------\|----------\|-----------------\|
-         \| magpie_f777ni \| DT04BNT1 \| /dev/ttyUSB0    \|
+         \| Platform                  \| ID       \| Serial device   \|
+         \|---------------------------\|----------\|-----------------\|
+         \| magpie_f777ni/stm32f777xx \| DT04BNT1 \| /dev/ttyUSB0    \|
 
          INFO    - JOBS: 4
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - Total complete: :bgn:`2202/2202`  100%  skipped: :byl:`2045`, failed:    :bbk:`0`, error:    :bbk:`0`
-         INFO    - 2407 test scenarios (2202 test instances) selected, 2045 configurations skipped (2015 by static filter, 30 at runtime).
-         INFO    - :bgn:`157 of 2202` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`2045` skipped with :bbk:`0` warnings in :bbk:`2770.37 seconds`
-         INFO    - In total 1511 test cases were executed, 13780 skipped on 1 out of total 1 platforms (100.00%)
-         INFO    - :bgn:`157` test configurations executed on platforms, :brd:`0` test configurations were only built.
+         INFO    - Total complete:  :bgn:`195/ 195`  100%  built (not run):    :bbl:`0`, filtered: :byl:`2230`, failed:    :brd:`0`, error:    :bbk:`0`
+         INFO    - 2609 test scenarios (2392 test instances) selected, :byl:`2230` configurations filtered (2197 by static filter, 33 at runtime).
+         INFO    - :bgn:`162 of 162` executed test configurations passed (100.00%), :bbk:`0` built (not run), :brd:`0` failed, :bbk:`0` errored, with no warnings in :bbk:`3175.13 seconds`.
+         INFO    - 1519 of 1378 executed test cases passed (110.23%), 4 blocked on 1 out of total 876 platforms (0.11%).
+         INFO    - 14998 selected test cases not executed: 570 skipped, 14428 filtered.
+         INFO    - :bgn:`162` test configurations executed on platforms, :bbl:`0` test configurations were only built.
 
          Hardware distribution summary:
 
-         \| Board         \| ID       \|   Counter \|
-         \|---------------\|----------\|-----------\|
-         \| magpie_f777ni \| DT04BNT1 \|       157 \|
+         \| Board                     \| ID       \|   Counter \|   Failures \|
+         \|---------------------------\|----------\|-----------\|------------\|
+         \| magpie_f777ni/stm32f777xx \| DT04BNT1 \|       162 \|          0 \|
+
+         INFO    - Saving reports...
+         INFO    - Writing JSON report .../twister-out/twister.json
+         INFO    - Writing xunit report .../twister-out/twister.xml...
+         INFO    - Writing xunit report .../twister-out/twister_report.xml...
+         INFO    - Writing target report for magpie_f777ni/stm32f777xx...
+         INFO    - Writing JSON report .../twister-out/magpie_f777ni_stm32f777xx.json
+         INFO    - Run completed
 
 .. admonition:: Known but currently tolerated test cases with errors
    :class: attention

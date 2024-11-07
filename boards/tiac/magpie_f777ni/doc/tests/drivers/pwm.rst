@@ -34,13 +34,13 @@ Building and Running
 
       .. code-block:: console
 
-         west twister \
-              --verbose --jobs 4 --inline-logs \
-              --enable-size-report --platform-reports \
-              --device-testing --hardware-map map.yaml \
-              --extra-args SHIELD="loopback_test_tmph" \
-              --alt-config-root bridle/zephyr/alt-config/tests \
-              --testsuite-root zephyr/tests --tag pwm
+         $ west twister \
+                --verbose --jobs 4 --inline-logs \
+                --enable-size-report --platform-reports \
+                --device-testing --hardware-map map.yaml \
+                --extra-args SHIELD="loopback_test_tmph" \
+                --alt-config-root bridle/zephyr/alt-config/tests \
+                --testsuite-root zephyr/tests --tag pwm
 
    .. group-tab:: Results
 
@@ -51,44 +51,46 @@ Building and Running
 
          Device testing on:
 
-         \| Platform      \| ID       \| Serial device   \|
-         \|---------------\|----------\|-----------------\|
-         \| magpie_f777ni \| DT04BNT1 \| /dev/ttyUSB0    \|
+         \| Platform                  \| ID       \| Serial device   \|
+         \|---------------------------\|----------\|-----------------\|
+         \| magpie_f777ni/stm32f777xx \| DT04BNT1 \| /dev/ttyUSB0    \|
 
          INFO    - JOBS: 4
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1885/1887 magpie_f777ni             tests/drivers/clock_control/pwm_clock/drivers.clock.pwm_clock :byl:`SKIPPED` (runtime filter)
-         INFO    - 1886/1887 magpie_f777ni             tests/drivers/pwm/pwm_api/drivers.pwm              :bgn:`PASSED` (device: DT04BNT1, 9.034s)
-         INFO    - 1887/1887 magpie_f777ni             tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback  :brd:`FAILED` Failed (device: DT04BNT1, 3.296s)
-         INFO    - :byl:`.../twister-out/magpie_f777ni/tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback/handler.log`
+         INFO    - 1/3 magpie_f777ni/stm32f777xx tests/drivers/clock_control/pwm_clock/drivers.clock.pwm_clock :byl:`FILTERED` (runtime filter)
+         INFO    - 2/3 magpie_f777ni/stm32f777xx tests/drivers/pwm/pwm_api/drivers.pwm              :bgn:`PASSED` (device: DT04BNT1, 9.002s)
+         INFO    - 3/3 magpie_f777ni/stm32f777xx tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback :brd:`FAILED` Failed (device: DT04BNT1, 3.274s)
+         INFO    - :byl:`.../twister-out/magpie_f777ni_stm32f777xx/tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback/handler.log`
 
-         INFO    - 2092 test scenarios (1887 test instances) selected, 1885 configurations skipped (1884 by static filter, 1 at runtime).
-         INFO    - :brd:`1 of 1887` test configurations passed (50.00%), :brd:`1` failed, :bbk:`0` errored, :byl:`1885` skipped with :bbk:`0` warnings in :bbk:`67.98 seconds`
-         INFO    - In total 10 test cases were executed, 14992 skipped on 1 out of total 739 platforms (100.00%)
-         INFO    - :bgn:`2` test configurations executed on platforms, :brd:`0` test configurations were only built.
+         INFO    - 2294 test scenarios (2077 test instances) selected, :byl:`2075` configurations filtered (2074 by static filter, 1 at runtime).
+         INFO    - :brd:`1 of 2` executed test configurations passed (50.00%), :bbk:`0` built (not run), :brd:`1` failed, :bbk:`0` errored, with no warnings in :bbk:`53.42 seconds`.
+         INFO    - 2 of 5 executed test cases passed (40.00%), 3 failed on 1 out of total 876 platforms (0.11%).
+         INFO    - 16086 selected test cases not executed: 7 skipped, 16079 filtered.
+         INFO    - :bgn:`2` test configurations executed on platforms, :bbl:`0` test configurations were only built.
 
          Hardware distribution summary:
 
-         \| Board         \| ID       \|   Counter \|
-         \|---------------\|----------\|-----------\|
-         \| magpie_f777ni \| DT04BNT1 \|         2 \|
+         \| Board                     \| ID       \|   Counter \|   Failures \|
+         \|---------------------------\|----------\|-----------\|------------\|
+         \| magpie_f777ni/stm32f777xx \| DT04BNT1 \|         2 \|          1 \|
 
          INFO    - Saving reports...
          INFO    - Writing JSON report .../twister-out/twister.json
          INFO    - Writing xunit report .../twister-out/twister.xml...
          INFO    - Writing xunit report .../twister-out/twister_report.xml...
-         INFO    - Writing target report for magpie_f777ni...
+         INFO    - Writing target report for magpie_f777ni/stm32f777xx...
+         INFO    - Writing JSON report .../twister-out/magpie_f777ni_stm32f777xx.json
          INFO    - -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
          INFO    - The following issues were found (showing the top 10 items):
-         INFO    - 1) tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback on magpie_f777ni failed (Failed)
+         INFO    - 1) tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback on magpie_f777ni/stm32f777xx failed (Failed)
          INFO    -
          INFO    - To rerun the tests, call twister using the following commandline:
          INFO    - west twister -p <PLATFORM> -s <TEST ID>, for example:
          INFO    -
-         INFO    - west twister -p magpie_f777ni -s tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback
+         INFO    - west twister -p magpie_f777ni/stm32f777xx -s tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback
          INFO    - or with west:
-         INFO    - west build -p -b magpie_f777ni tests/drivers/pwm/pwm_loopback -T drivers.pwm.loopback
+         INFO    - west build -p -b magpie_f777ni/stm32f777xx zephyr/tests/drivers/pwm/pwm_loopback -T drivers.pwm.loopback
          INFO    - -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
          INFO    - Run completed
 

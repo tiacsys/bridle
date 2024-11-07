@@ -28,12 +28,12 @@ Building and Running
 
       .. code-block:: console
 
-         west twister \
-              --verbose --jobs 4 --inline-logs \
-              --enable-size-report --platform-reports \
-              --device-testing --hardware-map map.yaml \
-              --alt-config-root bridle/zephyr/alt-config/tests \
-              --testsuite-root zephyr/tests --tag watchdog
+         $ west twister \
+                --verbose --jobs 4 --inline-logs \
+                --enable-size-report --platform-reports \
+                --device-testing --hardware-map map.yaml \
+                --alt-config-root bridle/zephyr/alt-config/tests \
+                --testsuite-root zephyr/tests --tag watchdog
 
    .. group-tab:: Results
 
@@ -44,31 +44,33 @@ Building and Running
 
          Device testing on:
 
-         \| Platform      \| ID       \| Serial device   \|
-         \|---------------\|----------\|-----------------\|
-         \| magpie_f777ni \| DT04BNT1 \| /dev/ttyUSB0    \|
+         \| Platform                  \| ID       \| Serial device   \|
+         \|---------------------------\|----------\|-----------------\|
+         \| magpie_f777ni/stm32f777xx \| DT04BNT1 \| /dev/ttyUSB0    \|
 
          INFO    - JOBS: 4
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1885/1887 magpie_f777ni             tests/drivers/watchdog/wdt_basic_api/drivers.watchdog :byl:`SKIPPED` (runtime filter)
-         INFO    - 1886/1887 magpie_f777ni             tests/drivers/watchdog/wdt_basic_api/drivers.watchdog.stm32wwdg.timing.adj :bgn:`PASSED` (device: DT04BNT1, 2.558s)
-         INFO    - 1887/1887 magpie_f777ni             tests/drivers/watchdog/wdt_basic_api/drivers.watchdog.stm32iwdg :bgn:`PASSED` (device: DT04BNT1, 4.432s)
+         INFO    - 1/3 magpie_f777ni/stm32f777xx tests/drivers/watchdog/wdt_basic_api/drivers.watchdog :byl:`FILTERED` (runtime filter)
+         INFO    - 2/3 magpie_f777ni/stm32f777xx tests/drivers/watchdog/wdt_basic_api/drivers.watchdog.stm32wwdg.timing.adj :bgn:`PASSED` (device: DT04BNT1, 2.527s)
+         INFO    - 3/3 magpie_f777ni/stm32f777xx tests/drivers/watchdog/wdt_basic_api/drivers.watchdog.stm32iwdg :bgn:`PASSED` (device: DT04BNT1, 4.420s)
 
-         INFO    - 2092 test scenarios (1887 test instances) selected, 1885 configurations skipped (1884 by static filter, 1 at runtime).
-         INFO    - :bgn:`2 of 1887` test configurations passed (100.00%), :bbk:`0` failed, :bbk:`0` errored, :byl:`1885` skipped with :bbk:`0` warnings in :bbk:`44.72 seconds`
-         INFO    - In total 2 test cases were executed, 15000 skipped on 1 out of total 1 platforms (100.00%)
-         INFO    - :bgn:`2` test configurations executed on platforms, :brd:`0` test configurations were only built.
+         INFO    - 2294 test scenarios (2077 test instances) selected, :byl:`2075` configurations filtered (2074 by static filter, 1 at runtime).
+         INFO    - :bgn:`2 of 2` executed test configurations passed (100.00%), :bbk:`0` built (not run), :brd:`0` failed, :bbk:`0` errored, with no warnings in :bbk:`47.68 seconds`.
+         INFO    - 2 of 2 executed test cases passed (100.00%) on 1 out of total 876 platforms (0.11%).
+         INFO    - 16090 selected test cases not executed: 1 skipped, 16089 filtered.
+         INFO    - :bgn:`2` test configurations executed on platforms, :bbl:`0` test configurations were only built.
 
          Hardware distribution summary:
 
-         \| Board         \| ID       \|   Counter \|
-         \|---------------\|----------\|-----------\|
-         \| magpie_f777ni \| DT04BNT1 \|         2 \|
+         \| Board                     \| ID       \|   Counter \|   Failures \|
+         \|---------------------------\|----------\|-----------\|------------\|
+         \| magpie_f777ni/stm32f777xx \| DT04BNT1 \|         2 \|          0 \|
 
          INFO    - Saving reports...
          INFO    - Writing JSON report .../twister-out/twister.json
          INFO    - Writing xunit report .../twister-out/twister.xml...
          INFO    - Writing xunit report .../twister-out/twister_report.xml...
-         INFO    - Writing target report for magpie_f777ni...
+         INFO    - Writing target report for magpie_f777ni/stm32f777xx...
+         INFO    - Writing JSON report .../twister-out/magpie_f777ni_stm32f777xx.json
          INFO    - Run completed
