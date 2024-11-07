@@ -6,4 +6,3 @@
 .*toctree glob pattern %r didn't match any documents
 
 .*toctree glob pattern 'applications/\*/README' didn't match any documents
-.*toctree glob pattern '\*\*/README' didn't match any documents
