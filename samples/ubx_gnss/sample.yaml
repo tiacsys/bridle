@@ -6,6 +6,21 @@ common:
   tags:
     - bridle
     - ubxlib
+  sysbuild: false
+  platform_allow:
+    - mimxrt1010_evk
+    - mimxrt1060_evk
+    - mimxrt1060_evkb
+    - mimxrt1170_evk/mimxrt1176/cm7
+    - mimxrt1170_evk@B/mimxrt1176/cm7
+    - nrf52840dk/nrf52840
+    - nrf9160dk/nrf9160
+    - nucleo_f303re
+    - nucleo_f401re
+    - nucleo_f413zh
+    - nucleo_f746zg
+    - nucleo_f767zi
+    - nucleo_l496zg
   integration_platforms:
     - mimxrt1010_evk
     - mimxrt1060_evk
@@ -14,7 +29,10 @@ common:
     - mimxrt1170_evk@B/mimxrt1176/cm7
     - nrf52840dk/nrf52840
     - nrf9160dk/nrf9160
+    - nucleo_f303re
+    - nucleo_f401re
     - nucleo_f413zh
+    - nucleo_f746zg
     - nucleo_f767zi
     - nucleo_l496zg
 tests:

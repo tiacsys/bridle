@@ -8,9 +8,13 @@ common:
     - xip
     - kernel
     - introduction
+  sysbuild: false
+  platform_exclude:
+    - qemu_x86_lakemont
+    - qemu_x86_tiny
+    - qemu_cortex_m0
+    - qemu_riscv32_xip
   integration_platforms:
-    - cytron_maker_nano_rp2040
-    - cytron_maker_pi_rp2040
     - native_posix
     - native_posix/native/64
     - native_sim
@@ -21,36 +25,38 @@ common:
     - qemu_x86/atom/nopae
     - qemu_x86/atom/virt
     - qemu_x86/atom/xip
-    # Qemu issue: - qemu_x86_lakemont
-    # Qemu issue: - qemu_x86_tiny
+    # Qemu issue (-ENOTBLK): - qemu_x86_lakemont
+    # Qemu issue (-ENOTBLK): - qemu_x86_tiny
     - qemu_x86_64
     - qemu_x86_64/atom/nokpti
     - qemu_cortex_r5
-    - qemu_cortex_m0
+    # Qemu issue (-ENOTBLK): - qemu_cortex_m0
     - qemu_cortex_m3
     - qemu_cortex_a9
     - qemu_cortex_a53
     - qemu_cortex_a53/qemu_cortex_a53/smp
     - qemu_cortex_a53/qemu_cortex_a53/xip
     - qemu_kvm_arm64
-    # SDK & binary size issue: - qemu_arc/qemu_arc_em
-    # SDK & binary size issue: - qemu_arc/qemu_arc_hs
-    # SDK & binary size issue: - qemu_arc/qemu_arc_hs/xip
-    # SDK & binary size issue: - qemu_arc/qemu_arc_hs5x
-    # SDK & binary size issue: - qemu_arc/qemu_arc_hs6x
+    - qemu_arc/qemu_arc_em
+    - qemu_arc/qemu_arc_hs
+    - qemu_arc/qemu_arc_hs/xip
+    - qemu_arc/qemu_arc_hs5x
+    - qemu_arc/qemu_arc_hs6x
     - qemu_malta
     - qemu_malta/qemu_malta/be
     - qemu_riscv32e
     - qemu_riscv32
     - qemu_riscv32/qemu_virt_riscv32/smp
-    # RAM overflow issue: - qemu_riscv32_xip
+    # Qemu issue (-ENOTBLK): - qemu_riscv32_xip
     - qemu_riscv64
     - qemu_riscv64/qemu_virt_riscv64/smp
-    - qemu_xtensa
+    - qemu_xtensa/dc233c
     - qemu_xtensa/dc233c/mmu
     - qemu_leon3
     - qemu_nios2
     - arduino_zero
+    - cytron_maker_nano_rp2040
+    - cytron_maker_pi_rp2040
     - mimxrt1010_evk
     - mimxrt1060_evk
     - mimxrt1060_evkb

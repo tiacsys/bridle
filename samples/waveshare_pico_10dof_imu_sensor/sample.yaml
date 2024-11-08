@@ -13,6 +13,7 @@ common:
   depends_on:
     - pico_i2c
     - pico_gpio
+  sysbuild: false
 tests:
   bridle.sample.waveshare_pico_10dof_imu_sensor_r2:
     extra_args: SHIELD=waveshare_pico_10dof_imu_sensor_r2
