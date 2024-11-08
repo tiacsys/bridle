@@ -1,11 +1,32 @@
-# Copyright (c) 2023 TiaC Systems
+# Copyright (c) 2023-2024 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
-# stm32h735g_disco.yaml has "arduino_gpio", but
-# there is no "arduino-header-r3" node in DTS
-- comment: "board(stm32h735g_disco): wrong or incomplete arduino-header-r3."
+# Some platforms already have the sysbuild flag set and as long as our
+# tests are not ready or prepared for the new sysbuild feature, these
+# platforms need to be explicitly filtered out here in our quarantine
+# file. Unfortunately, there is no way to filter out these platforms
+# with any of the Twister filter options in the testcase.yaml files.
+- comment: "boards(sysbuild:true): feature not yet supported by Bridle tests."
   platforms:
-    - stm32h735g_disco
+    - nrf54h20dk@0.8.0/nrf54h20/cpuapp
+    - nrf54h20dk@0.9.0/nrf54h20/cpuapp
+    - nrf54h20dk@0.8.0/nrf54h20/cpurad
+    - nrf54h20dk@0.9.0/nrf54h20/cpurad
+    - nrf54h20dk@0.8.0/nrf54h20/cpuppr
+    - nrf54h20dk@0.9.0/nrf54h20/cpuppr
+    - nrf54h20dk@0.8.0/nrf54h20/cpuppr/xip
+    - nrf54h20dk@0.9.0/nrf54h20/cpuppr/xip
+    - nrf54h20dk@0.8.0/nrf54h20/cpuflpr
+    - nrf54h20dk@0.9.0/nrf54h20/cpuflpr
+    - nrf54h20dk@0.8.0/nrf54h20/cpuflpr/xip
+    - nrf54h20dk@0.9.0/nrf54h20/cpuflpr/xip
+    - nrf54l15dk/nrf54l15/cpuapp
+    - nrf54l15dk/nrf54l15/cpuflpr
+    - nrf54l15dk/nrf54l15/cpuflpr/xip
+    - nrf54l20pdk/nrf54l20/cpuapp
+    - nrf9280pdk/nrf9280/cpuapp
+    - nrf9280pdk/nrf9280/cpurad
+    - nrf9280pdk/nrf9280/cpuppr/xip
 
 ##############################################################################
 #
@@ -16,12 +37,12 @@
   scenarios:
     - .*x_grove_testbed.*
   platforms:
-    - nucleo_f746zg
-    - waveshare_rp2040_one
-    - waveshare_rp2040_zero
-    - waveshare_rp2040_matrix
-    - waveshare_rp2040_tiny
-    - waveshare_rp2040_eth
+    - nucleo_f746zg/stm32f746xx
+    - waveshare_rp2040_one/rp2040
+    - waveshare_rp2040_zero/rp2040
+    - waveshare_rp2040_matrix/rp2040
+    - waveshare_rp2040_tiny/rp2040
+    - waveshare_rp2040_eth/rp2040
 
 - comment: "shield(grove.base.x_grove_testbed.gpio.b4l6): invalid board/shield condition."
   scenarios:
@@ -33,9 +54,10 @@
     - grove.connectors.x_grove_testbed.pwm.b3l5
     - grove.connectors.x_grove_testbed.pwm.b7l6
   platforms:
-    - mimxrt1010_evk
-    - mimxrt1060_evk
-    - mimxrt1060_evkb
+    - mimxrt1010_evk/mimxrt1011
+    - mimxrt1060_evk/mimxrt1062
+    - mimxrt1060_evk@qspi/mimxrt1062
+    - mimxrt1060_evkb/mimxrt1062
 
 - comment: "shield(grove.base.x_grove_testbed.pwm.b4l6): invalid board/shield condition."
   scenarios:
@@ -47,10 +69,10 @@
     - grove.connectors.x_grove_testbed.pwm.b3l5
     - grove.connectors.x_grove_testbed.pwm.b7l6
   platforms:
-    - nucleo_f303re
-    - nucleo_f401re
-    - nucleo_f413zh
-    - nucleo_f767zi
+    - nucleo_f303re/stm32f303xe
+    - nucleo_f401re/stm32f401xe
+    - nucleo_f413zh/stm32f413xx
+    - nucleo_f767zi/stm32f767xx
 
 - comment: "shield(grove.base.x_grove_testbed.b7l6): invalid board/shield condition."
   scenarios:
@@ -62,8 +84,8 @@
     - grove.connectors.x_grove_testbed.pwm.b3l5
     - grove.connectors.x_grove_testbed.pwm.b7l6
   platforms:
-    - arduino_zero
-    - seeeduino_cm0
+    - arduino_zero/samd21g18a
+    - seeeduino_cm0/samd21g18a
 
 - comment: "shield(grove.xiao.x_grove_testbed.b0l1): invalid board/shield condition."
   scenarios:
@@ -75,8 +97,8 @@
     - grove.connectors.x_grove_testbed.pwm.b3l5
     - grove.connectors.x_grove_testbed.pwm.b7l6
   platforms:
-    - seeeduino_xiao
-    - xiao_samd21
+    - seeeduino_xiao/samd21g18a
+    - xiao_samd21/samd21g18a
 
 - comment: "shield(grove.rpipico.x_grove_testbed.b16l18): invalid board/shield condition."
   scenarios:
@@ -88,11 +110,11 @@
     - grove.connectors.x_grove_testbed.pwm.b3l5
     - grove.connectors.x_grove_testbed.pwm.b7l6
   platforms:
-    - rpi_pico
+    - rpi_pico/rp2040
     - rpi_pico/rp2040/w
-    - waveshare_rp2040_lcd_0_96
-    - waveshare_rp2040_plus
-    - waveshare_rp2040_plus@16mb
+    - waveshare_rp2040_lcd_0_96/rp2040
+    - waveshare_rp2040_plus@4mb/rp2040
+    - waveshare_rp2040_plus@16mb/rp2040
 
 - comment: "shield(grove.connectors.x_grove_testbed.b1l27): invalid board/shield condition."
   scenarios:
@@ -104,7 +126,7 @@
     - grove.connectors.x_grove_testbed.pwm.b3l5
     - grove.connectors.x_grove_testbed.pwm.b7l6
   platforms:
-    - cytron_maker_nano_rp2040
+    - cytron_maker_nano_rp2040/rp2040
 
 - comment: "shield(grove.connectors.x_grove_testbed.b3l5): invalid board/shield condition."
   scenarios:
@@ -116,7 +138,7 @@
     - grove.connectors.x_grove_testbed.pwm.b0l15
     - grove.connectors.x_grove_testbed.pwm.b7l6
   platforms:
-    - cytron_maker_pi_rp2040
+    - cytron_maker_pi_rp2040/rp2040
 
 - comment: "shield(grove.connectors.x_grove_testbed.b7l6): invalid board/shield condition."
   scenarios:
@@ -127,7 +149,7 @@
     - grove.connectors.x_grove_testbed.pwm.b0l15
     - grove.connectors.x_grove_testbed.pwm.b3l5
   platforms:
-    - seeeduino_lotus
+    - seeeduino_lotus/samd21g18a
 
 ##############################################################################
 #
@@ -141,7 +163,7 @@
     - grove.base.(v2|v1).pwms
     - grove.base.(v2|v1).arduino
   platforms:
-    - nucleo_f746zg
+    - nucleo_f746zg/stm32f746xx
 
 - comment: "shield(grove.base): invalid board/shield condition."
   scenarios:
@@ -149,20 +171,20 @@
     - grove.base.(v2|v1).pwms
     - grove.base.(v2|v1).arduino
   platforms:
-    - cytron_maker_nano_rp2040
-    - cytron_maker_pi_rp2040
-    - rpi_pico
+    - cytron_maker_nano_rp2040/rp2040
+    - cytron_maker_pi_rp2040/rp2040
+    - rpi_pico/rp2040
     - rpi_pico/rp2040/w
-    - seeeduino_xiao
-    - xiao_samd21
-    - waveshare_rp2040_one
-    - waveshare_rp2040_zero
-    - waveshare_rp2040_matrix
-    - waveshare_rp2040_tiny
-    - waveshare_rp2040_eth
-    - waveshare_rp2040_lcd_0_96
-    - waveshare_rp2040_plus
-    - waveshare_rp2040_plus@16mb
+    - seeeduino_xiao/samd21g18a
+    - xiao_samd21/samd21g18a
+    - waveshare_rp2040_one/rp2040
+    - waveshare_rp2040_zero/rp2040
+    - waveshare_rp2040_matrix/rp2040
+    - waveshare_rp2040_tiny/rp2040
+    - waveshare_rp2040_eth/rp2040
+    - waveshare_rp2040_lcd_0_96/rp2040
+    - waveshare_rp2040_plus@4mb/rp2040
+    - waveshare_rp2040_plus@16mb/rp2040
 
 # Grove Base Shield for XIAO
 
@@ -172,29 +194,30 @@
     - grove.xiao.v1.pwms
     - grove.xiao.v1.xiao
   platforms:
-    - arduino_zero
-    - cytron_maker_nano_rp2040
-    - cytron_maker_pi_rp2040
-    - mimxrt1010_evk
-    - mimxrt1060_evk
-    - mimxrt1060_evkb
-    - nucleo_f303re
-    - nucleo_f401re
-    - nucleo_f413zh
-    - nucleo_f746zg
-    - nucleo_f767zi
-    - rpi_pico
+    - arduino_zero/samd21g18a
+    - cytron_maker_nano_rp2040/rp2040
+    - cytron_maker_pi_rp2040/rp2040
+    - mimxrt1010_evk/mimxrt1011
+    - mimxrt1060_evk/mimxrt1062
+    - mimxrt1060_evk@qspi/mimxrt1062
+    - mimxrt1060_evkb/mimxrt1062
+    - nucleo_f303re/stm32f303xe
+    - nucleo_f401re/stm32f401xe
+    - nucleo_f413zh/stm32f413xx
+    - nucleo_f746zg/stm32f746xx
+    - nucleo_f767zi/stm32f767xx
+    - rpi_pico/rp2040
     - rpi_pico/rp2040/w
-    - seeeduino_cm0
-    - seeeduino_lotus
-    - waveshare_rp2040_one
-    - waveshare_rp2040_zero
-    - waveshare_rp2040_matrix
-    - waveshare_rp2040_tiny
-    - waveshare_rp2040_eth
-    - waveshare_rp2040_lcd_0_96
-    - waveshare_rp2040_plus
-    - waveshare_rp2040_plus@16mb
+    - seeeduino_cm0/samd21g18a
+    - seeeduino_lotus/samd21g18a
+    - waveshare_rp2040_one/rp2040
+    - waveshare_rp2040_zero/rp2040
+    - waveshare_rp2040_matrix/rp2040
+    - waveshare_rp2040_tiny/rp2040
+    - waveshare_rp2040_eth/rp2040
+    - waveshare_rp2040_lcd_0_96/rp2040
+    - waveshare_rp2040_plus@4mb/rp2040
+    - waveshare_rp2040_plus@16mb/rp2040
 
 # Grove Basic Kit for Raspberry Pi Pico
 
@@ -204,17 +227,17 @@
     - grove.rpipico.v1.pwms
     - grove.rpipico.v1.rpipico
   platforms:
-    - waveshare_rp2040_one
-    - waveshare_rp2040_zero
-    - waveshare_rp2040_matrix
-    - waveshare_rp2040_tiny
+    - waveshare_rp2040_one/rp2040
+    - waveshare_rp2040_zero/rp2040
+    - waveshare_rp2040_matrix/rp2040
+    - waveshare_rp2040_tiny/rp2040
 
 - comment: "shield(grove.rpipico): invalid board condition."
   scenarios:
     - grove.rpipico.v1.pwms
     - grove.rpipico.v1.rpipico
   platforms:
-    - waveshare_rp2040_eth
+    - waveshare_rp2040_eth/rp2040
 
 - comment: "shield(grove.rpipico): invalid board/shield condition."
   scenarios:
@@ -222,21 +245,22 @@
     - grove.rpipico.v1.pwms
     - grove.rpipico.v1.rpipico
   platforms:
-    - arduino_zero
-    - cytron_maker_nano_rp2040
-    - cytron_maker_pi_rp2040
-    - mimxrt1010_evk
-    - mimxrt1060_evk
-    - mimxrt1060_evkb
-    - nucleo_f303re
-    - nucleo_f401re
-    - nucleo_f413zh
-    - nucleo_f746zg
-    - nucleo_f767zi
-    - seeeduino_cm0
-    - seeeduino_lotus
-    - seeeduino_xiao
-    - xiao_samd21
+    - arduino_zero/samd21g18a
+    - cytron_maker_nano_rp2040/rp2040
+    - cytron_maker_pi_rp2040/rp2040
+    - mimxrt1010_evk/mimxrt1011
+    - mimxrt1060_evk/mimxrt1062
+    - mimxrt1060_evk@qspi/mimxrt1062
+    - mimxrt1060_evkb/mimxrt1062
+    - nucleo_f303re/stm32f303xe
+    - nucleo_f401re/stm32f401xe
+    - nucleo_f413zh/stm32f413xx
+    - nucleo_f746zg/stm32f746xx
+    - nucleo_f767zi/stm32f767xx
+    - seeeduino_cm0/samd21g18a
+    - seeeduino_lotus/samd21g18a
+    - seeeduino_xiao/samd21g18a
+    - xiao_samd21/samd21g18a
 
 ##############################################################################
 #
@@ -247,10 +271,10 @@
   scenarios:
     - .*grove_btn.*
   platforms:
-    - waveshare_rp2040_one
-    - waveshare_rp2040_zero
-    - waveshare_rp2040_matrix
-    - waveshare_rp2040_tiny
+    - waveshare_rp2040_one/rp2040
+    - waveshare_rp2040_zero/rp2040
+    - waveshare_rp2040_matrix/rp2040
+    - waveshare_rp2040_tiny/rp2040
 
 # Grove Base Shield
 
@@ -258,20 +282,20 @@
   scenarios:
     - grove.base.(v2|v1).grove_btn.gpio.d.*
   platforms:
-    - cytron_maker_nano_rp2040
-    - cytron_maker_pi_rp2040
-    - rpi_pico
+    - cytron_maker_nano_rp2040/rp2040
+    - cytron_maker_pi_rp2040/rp2040
+    - rpi_pico/rp2040
     - rpi_pico/rp2040/w
-    - seeeduino_xiao
-    - xiao_samd21
-    - waveshare_rp2040_one
-    - waveshare_rp2040_zero
-    - waveshare_rp2040_matrix
-    - waveshare_rp2040_tiny
-    - waveshare_rp2040_eth
-    - waveshare_rp2040_lcd_0_96
-    - waveshare_rp2040_plus
-    - waveshare_rp2040_plus@16mb
+    - seeeduino_xiao/samd21g18a
+    - xiao_samd21/samd21g18a
+    - waveshare_rp2040_one/rp2040
+    - waveshare_rp2040_zero/rp2040
+    - waveshare_rp2040_matrix/rp2040
+    - waveshare_rp2040_tiny/rp2040
+    - waveshare_rp2040_eth/rp2040
+    - waveshare_rp2040_lcd_0_96/rp2040
+    - waveshare_rp2040_plus@4mb/rp2040
+    - waveshare_rp2040_plus@16mb/rp2040
 
 # Grove Base Shield for XIAO
 
@@ -279,29 +303,30 @@
   scenarios:
     - grove.xiao.v1.grove_btn.gpio.d.*
   platforms:
-    - arduino_zero
-    - cytron_maker_nano_rp2040
-    - cytron_maker_pi_rp2040
-    - mimxrt1010_evk
-    - mimxrt1060_evk
-    - mimxrt1060_evkb
-    - nucleo_f303re
-    - nucleo_f401re
-    - nucleo_f413zh
-    - nucleo_f746zg
-    - nucleo_f767zi
-    - rpi_pico
+    - arduino_zero/samd21g18a
+    - cytron_maker_nano_rp2040/rp2040
+    - cytron_maker_pi_rp2040/rp2040
+    - mimxrt1010_evk/mimxrt1011
+    - mimxrt1060_evk/mimxrt1062
+    - mimxrt1060_evk@qspi/mimxrt1062
+    - mimxrt1060_evkb/mimxrt1062
+    - nucleo_f303re/stm32f303xe
+    - nucleo_f401re/stm32f401xe
+    - nucleo_f413zh/stm32f413xx
+    - nucleo_f746zg/stm32f746xx
+    - nucleo_f767zi/stm32f767xx
+    - rpi_pico/rp2040
     - rpi_pico/rp2040/w
-    - seeeduino_cm0
-    - seeeduino_lotus
-    - waveshare_rp2040_one
-    - waveshare_rp2040_zero
-    - waveshare_rp2040_matrix
-    - waveshare_rp2040_tiny
-    - waveshare_rp2040_eth
-    - waveshare_rp2040_lcd_0_96
-    - waveshare_rp2040_plus
-    - waveshare_rp2040_plus@16mb
+    - seeeduino_cm0/samd21g18a
+    - seeeduino_lotus/samd21g18a
+    - waveshare_rp2040_one/rp2040
+    - waveshare_rp2040_zero/rp2040
+    - waveshare_rp2040_matrix/rp2040
+    - waveshare_rp2040_tiny/rp2040
+    - waveshare_rp2040_eth/rp2040
+    - waveshare_rp2040_lcd_0_96/rp2040
+    - waveshare_rp2040_plus@4mb/rp2040
+    - waveshare_rp2040_plus@16mb/rp2040
 
 # Grove Basic Kit for Raspberry Pi Pico
 
@@ -309,25 +334,26 @@
   scenarios:
     - grove.rpipico.v1.grove_btn.gpio.d.*
   platforms:
-    - arduino_zero
-    - cytron_maker_nano_rp2040
-    - cytron_maker_pi_rp2040
-    - mimxrt1010_evk
-    - mimxrt1060_evk
-    - mimxrt1060_evkb
-    - nucleo_f303re
-    - nucleo_f401re
-    - nucleo_f413zh
-    - nucleo_f746zg
-    - nucleo_f767zi
-    - seeeduino_cm0
-    - seeeduino_lotus
-    - seeeduino_xiao
-    - xiao_samd21
+    - arduino_zero/samd21g18a
+    - cytron_maker_nano_rp2040/rp2040
+    - cytron_maker_pi_rp2040/rp2040
+    - mimxrt1010_evk/mimxrt1011
+    - mimxrt1060_evk/mimxrt1062
+    - mimxrt1060_evk@qspi/mimxrt1062
+    - mimxrt1060_evkb/mimxrt1062
+    - nucleo_f303re/stm32f303xe
+    - nucleo_f401re/stm32f401xe
+    - nucleo_f413zh/stm32f413xx
+    - nucleo_f746zg/stm32f746xx
+    - nucleo_f767zi/stm32f767xx
+    - seeeduino_cm0/samd21g18a
+    - seeeduino_lotus/samd21g18a
+    - seeeduino_xiao/samd21g18a
+    - xiao_samd21/samd21g18a
 
 - comment: "shield(grove.rpipico.grove_btn): waveshare_rp2040_eth: invalid board condition."
   platforms:
-    - waveshare_rp2040_eth
+    - waveshare_rp2040_eth/rp2040
   scenarios:
     - grove.rpipico.v1.grove_btn.gpio.d16
     - grove.rpipico.v1.grove_btn.gpio.d17
@@ -342,31 +368,32 @@
   scenarios:
     - grove.connectors.grove_btn.gpio.d.*
   platforms:
-    - arduino_zero
-    - mimxrt1010_evk
-    - mimxrt1060_evk
-    - mimxrt1060_evkb
-    - nucleo_f303re
-    - nucleo_f401re
-    - nucleo_f413zh
-    - nucleo_f746zg
-    - nucleo_f767zi
-    - rpi_pico
+    - arduino_zero/samd21g18a
+    - mimxrt1010_evk/mimxrt1011
+    - mimxrt1060_evk/mimxrt1062
+    - mimxrt1060_evk@qspi/mimxrt1062
+    - mimxrt1060_evkb/mimxrt1062
+    - nucleo_f303re/stm32f303xe
+    - nucleo_f401re/stm32f401xe
+    - nucleo_f413zh/stm32f413xx
+    - nucleo_f746zg/stm32f746xx
+    - nucleo_f767zi/stm32f767xx
+    - rpi_pico/rp2040
     - rpi_pico/rp2040/w
-    - seeeduino_xiao
-    - xiao_samd21
-    - waveshare_rp2040_one
-    - waveshare_rp2040_zero
-    - waveshare_rp2040_matrix
-    - waveshare_rp2040_tiny
-    - waveshare_rp2040_eth
-    - waveshare_rp2040_lcd_0_96
-    - waveshare_rp2040_plus
-    - waveshare_rp2040_plus@16mb
+    - seeeduino_xiao/samd21g18a
+    - xiao_samd21/samd21g18a
+    - waveshare_rp2040_one/rp2040
+    - waveshare_rp2040_zero/rp2040
+    - waveshare_rp2040_matrix/rp2040
+    - waveshare_rp2040_tiny/rp2040
+    - waveshare_rp2040_eth/rp2040
+    - waveshare_rp2040_lcd_0_96/rp2040
+    - waveshare_rp2040_plus@4mb/rp2040
+    - waveshare_rp2040_plus@16mb/rp2040
 
 - comment: "shield(grove.connectors.grove_btn): seeeduino_cm0: invalid board condition."
   platforms:
-    - seeeduino_cm0
+    - seeeduino_cm0/samd21g18a
   scenarios:
     - grove.connectors.grove_btn.gpio.d2
     - grove.connectors.grove_btn.gpio.d3
@@ -399,7 +426,7 @@
 
 - comment: "shield(grove.connectors.grove_btn): seeeduino_lotus: invalid board condition."
   platforms:
-    - seeeduino_lotus
+    - seeeduino_lotus/samd21g18a
   scenarios:
     - grove.connectors.grove_btn.gpio.d9
     - grove.connectors.grove_btn.gpio.d10
@@ -421,7 +448,7 @@
 
 - comment: "shield(grove.connectors.grove_btn): cytron_maker_nano_rp2040: invalid board condition."
   platforms:
-    - cytron_maker_nano_rp2040
+    - cytron_maker_nano_rp2040/rp2040
   scenarios:
     - grove.connectors.grove_btn.gpio.d2
     - grove.connectors.grove_btn.gpio.d3
@@ -454,7 +481,7 @@
 
 - comment: "shield(grove.connectors.grove_btn): cytron_maker_pi_rp2040: invalid board condition."
   platforms:
-    - cytron_maker_pi_rp2040
+    - cytron_maker_pi_rp2040/rp2040
   scenarios:
     - grove.connectors.grove_btn.gpio.d8
     - grove.connectors.grove_btn.gpio.d9
@@ -485,10 +512,10 @@
   scenarios:
     - .*grove_led.*
   platforms:
-    - waveshare_rp2040_one
-    - waveshare_rp2040_zero
-    - waveshare_rp2040_matrix
-    - waveshare_rp2040_tiny
+    - waveshare_rp2040_one/rp2040
+    - waveshare_rp2040_zero/rp2040
+    - waveshare_rp2040_matrix/rp2040
+    - waveshare_rp2040_tiny/rp2040
 
 # Grove Base Shield
 
@@ -496,26 +523,26 @@
   scenarios:
     - grove.base.(v2|v1).grove_led.(gpio|pwm).d.*
   platforms:
-    - cytron_maker_nano_rp2040
-    - cytron_maker_pi_rp2040
-    - rpi_pico
+    - cytron_maker_nano_rp2040/rp2040
+    - cytron_maker_pi_rp2040/rp2040
+    - rpi_pico/rp2040
     - rpi_pico/rp2040/w
-    - seeeduino_xiao
-    - xiao_samd21
-    - waveshare_rp2040_one
-    - waveshare_rp2040_zero
-    - waveshare_rp2040_matrix
-    - waveshare_rp2040_tiny
-    - waveshare_rp2040_eth
-    - waveshare_rp2040_lcd_0_96
-    - waveshare_rp2040_plus
-    - waveshare_rp2040_plus@16mb
+    - seeeduino_xiao/samd21g18a
+    - xiao_samd21/samd21g18a
+    - waveshare_rp2040_one/rp2040
+    - waveshare_rp2040_zero/rp2040
+    - waveshare_rp2040_matrix/rp2040
+    - waveshare_rp2040_tiny/rp2040
+    - waveshare_rp2040_eth/rp2040
+    - waveshare_rp2040_lcd_0_96/rp2040
+    - waveshare_rp2040_plus@4mb/rp2040
+    - waveshare_rp2040_plus@16mb/rp2040
 
 - comment: "shield(grove.base.grove_led): arduino_zero: invalid board condition."
   platforms:
-    - arduino_zero
-    - seeeduino_cm0
-    - seeeduino_lotus
+    - arduino_zero/samd21g18a
+    - seeeduino_cm0/samd21g18a
+    - seeeduino_lotus/samd21g18a
   scenarios:
     - grove.base.(v2|v1).grove_led.pwm.d14
     - grove.base.(v2|v1).grove_led.pwm.d15
@@ -524,7 +551,7 @@
 
 - comment: "shield(grove.base.grove_led): mimxrt1010_evk: invalid board condition."
   platforms:
-    - mimxrt1010_evk
+    - mimxrt1010_evk/mimxrt1011
   scenarios:
     - grove.base.(v2|v1).grove_led.pwm.d0
     - grove.base.(v2|v1).grove_led.pwm.d1
@@ -547,8 +574,9 @@
 
 - comment: "shield(grove.base.grove_led): mimxrt1060_evk(b): invalid board condition."
   platforms:
-    - mimxrt1060_evk
-    - mimxrt1060_evkb
+    - mimxrt1060_evk/mimxrt1062
+    - mimxrt1060_evk@qspi/mimxrt1062
+    - mimxrt1060_evkb/mimxrt1062
   scenarios:
     - grove.base.(v2|v1).grove_led.pwm.d0
     - grove.base.(v2|v1).grove_led.pwm.d1
@@ -565,7 +593,7 @@
 
 - comment: "shield(grove.base.grove_led): nucleo_f303re: invalid board condition."
   platforms:
-    - nucleo_f303re
+    - nucleo_f303re/stm32f303xe
   scenarios:
     - grove.base.(v2|v1).grove_led.pwm.d0
     - grove.base.(v2|v1).grove_led.pwm.d1
@@ -576,7 +604,7 @@
 
 - comment: "shield(grove.base.grove_led): nucleo_f401re: invalid board condition."
   platforms:
-    - nucleo_f401re
+    - nucleo_f401re/stm32f401xe
   scenarios:
     - grove.base.(v2|v1).grove_led.pwm.d0
     - grove.base.(v2|v1).grove_led.pwm.d1
@@ -589,7 +617,7 @@
 
 - comment: "shield(grove.base.grove_led): nucleo_f413zh: invalid board condition."
   platforms:
-    - nucleo_f413zh
+    - nucleo_f413zh/stm32f413xx
   scenarios:
     - grove.base.(v2|v1).grove_led.pwm.d0
     - grove.base.(v2|v1).grove_led.pwm.d1
@@ -604,13 +632,13 @@
 
 - comment: "shield(grove.base.grove_led): nucleo_f746zg: invalid board condition."
   platforms:
-    - nucleo_f746zg
+    - nucleo_f746zg/stm32f746xx
   scenarios:
     - grove.base.(v2|v1).grove_led.pwm.d.*
 
 - comment: "shield(grove.base.grove_led): nucleo_f767zi: invalid board condition."
   platforms:
-    - nucleo_f767zi
+    - nucleo_f767zi/stm32f767xx
   scenarios:
     - grove.base.(v2|v1).grove_led.pwm.d0
     - grove.base.(v2|v1).grove_led.pwm.d1
@@ -629,34 +657,35 @@
   scenarios:
     - grove.xiao.v1.grove_led.(gpio|pwm).d.*
   platforms:
-    - arduino_zero
-    - cytron_maker_nano_rp2040
-    - cytron_maker_pi_rp2040
-    - mimxrt1010_evk
-    - mimxrt1060_evk
-    - mimxrt1060_evkb
-    - nucleo_f303re
-    - nucleo_f401re
-    - nucleo_f413zh
-    - nucleo_f746zg
-    - nucleo_f767zi
-    - rpi_pico
+    - arduino_zero/samd21g18a
+    - cytron_maker_nano_rp2040/rp2040
+    - cytron_maker_pi_rp2040/rp2040
+    - mimxrt1010_evk/mimxrt1011
+    - mimxrt1060_evk/mimxrt1062
+    - mimxrt1060_evk@qspi/mimxrt1062
+    - mimxrt1060_evkb/mimxrt1062
+    - nucleo_f303re/stm32f303xe
+    - nucleo_f401re/stm32f401xe
+    - nucleo_f413zh/stm32f413xx
+    - nucleo_f746zg/stm32f746xx
+    - nucleo_f767zi/stm32f767xx
+    - rpi_pico/rp2040
     - rpi_pico/rp2040/w
-    - seeeduino_cm0
-    - seeeduino_lotus
-    - waveshare_rp2040_one
-    - waveshare_rp2040_zero
-    - waveshare_rp2040_matrix
-    - waveshare_rp2040_tiny
-    - waveshare_rp2040_eth
-    - waveshare_rp2040_lcd_0_96
-    - waveshare_rp2040_plus
-    - waveshare_rp2040_plus@16mb
+    - seeeduino_cm0/samd21g18a
+    - seeeduino_lotus/samd21g18a
+    - waveshare_rp2040_one/rp2040
+    - waveshare_rp2040_zero/rp2040
+    - waveshare_rp2040_matrix/rp2040
+    - waveshare_rp2040_tiny/rp2040
+    - waveshare_rp2040_eth/rp2040
+    - waveshare_rp2040_lcd_0_96/rp2040
+    - waveshare_rp2040_plus@4mb/rp2040
+    - waveshare_rp2040_plus@16mb/rp2040
 
 - comment: "shield(grove.base.grove_led): xiao_samd21: invalid board condition."
   platforms:
-    - seeeduino_xiao
-    - xiao_samd21
+    - seeeduino_xiao/samd21g18a
+    - xiao_samd21/samd21g18a
   scenarios:
     - grove.xiao.v1.grove_led.pwm.d0
     - grove.xiao.v1.grove_led.pwm.d6
@@ -668,25 +697,26 @@
   scenarios:
     - grove.rpipico.v1.grove_led.(gpio|pwm).d.*
   platforms:
-    - arduino_zero
-    - cytron_maker_nano_rp2040
-    - cytron_maker_pi_rp2040
-    - mimxrt1010_evk
-    - mimxrt1060_evk
-    - mimxrt1060_evkb
-    - nucleo_f303re
-    - nucleo_f401re
-    - nucleo_f413zh
-    - nucleo_f746zg
-    - nucleo_f767zi
-    - seeeduino_cm0
-    - seeeduino_lotus
-    - seeeduino_xiao
-    - xiao_samd21
+    - arduino_zero/samd21g18a
+    - cytron_maker_nano_rp2040/rp2040
+    - cytron_maker_pi_rp2040/rp2040
+    - mimxrt1010_evk/mimxrt1011
+    - mimxrt1060_evk/mimxrt1062
+    - mimxrt1060_evk@qspi/mimxrt1062
+    - mimxrt1060_evkb/mimxrt1062
+    - nucleo_f303re/stm32f303xe
+    - nucleo_f401re/stm32f401xe
+    - nucleo_f413zh/stm32f413xx
+    - nucleo_f746zg/stm32f746xx
+    - nucleo_f767zi/stm32f767xx
+    - seeeduino_cm0/samd21g18a
+    - seeeduino_lotus/samd21g18a
+    - seeeduino_xiao/samd21g18a
+    - xiao_samd21/samd21g18a
 
 - comment: "shield(grove.rpipico.grove_led): waveshare_rp2040_eth: invalid board condition."
   platforms:
-    - waveshare_rp2040_eth
+    - waveshare_rp2040_eth/rp2040
   scenarios:
     - grove.rpipico.v1.grove_led.(gpio|pwm).d16
     - grove.rpipico.v1.grove_led.(gpio|pwm).d17
@@ -701,31 +731,32 @@
   scenarios:
     - grove.connectors.grove_led.(gpio|pwm).d.*
   platforms:
-    - arduino_zero
-    - mimxrt1010_evk
-    - mimxrt1060_evk
-    - mimxrt1060_evkb
-    - nucleo_f303re
-    - nucleo_f401re
-    - nucleo_f413zh
-    - nucleo_f746zg
-    - nucleo_f767zi
-    - rpi_pico
+    - arduino_zero/samd21g18a
+    - mimxrt1010_evk/mimxrt1011
+    - mimxrt1060_evk/mimxrt1062
+    - mimxrt1060_evk@qspi/mimxrt1062
+    - mimxrt1060_evkb/mimxrt1062
+    - nucleo_f303re/stm32f303xe
+    - nucleo_f401re/stm32f401xe
+    - nucleo_f413zh/stm32f413xx
+    - nucleo_f746zg/stm32f746xx
+    - nucleo_f767zi/stm32f767xx
+    - rpi_pico/rp2040
     - rpi_pico/rp2040/w
-    - seeeduino_xiao
-    - xiao_samd21
-    - waveshare_rp2040_one
-    - waveshare_rp2040_zero
-    - waveshare_rp2040_matrix
-    - waveshare_rp2040_tiny
-    - waveshare_rp2040_eth
-    - waveshare_rp2040_lcd_0_96
-    - waveshare_rp2040_plus
-    - waveshare_rp2040_plus@16mb
+    - seeeduino_xiao/samd21g18a
+    - xiao_samd21/samd21g18a
+    - waveshare_rp2040_one/rp2040
+    - waveshare_rp2040_zero/rp2040
+    - waveshare_rp2040_matrix/rp2040
+    - waveshare_rp2040_tiny/rp2040
+    - waveshare_rp2040_eth/rp2040
+    - waveshare_rp2040_lcd_0_96/rp2040
+    - waveshare_rp2040_plus@4mb/rp2040
+    - waveshare_rp2040_plus@16mb/rp2040
 
 - comment: "shield(grove.connectors.grove_led): seeeduino_cm0: invalid board condition."
   platforms:
-    - seeeduino_cm0
+    - seeeduino_cm0/samd21g18a
   scenarios:
     - grove.connectors.grove_led.pwm.d0
     - grove.connectors.grove_led.pwm.d1
@@ -760,7 +791,7 @@
 
 - comment: "shield(grove.connectors.grove_led): seeeduino_lotus: invalid board condition."
   platforms:
-    - seeeduino_lotus
+    - seeeduino_lotus/samd21g18a
   scenarios:
     - grove.connectors.grove_led.pwm.d0
     - grove.connectors.grove_led.pwm.d1
@@ -788,7 +819,7 @@
 
 - comment: "shield(grove.connectors.grove_led): cytron_maker_nano_rp2040: invalid board condition."
   platforms:
-    - cytron_maker_nano_rp2040
+    - cytron_maker_nano_rp2040/rp2040
   scenarios:
     - grove.connectors.grove_led.(gpio|pwm).d2
     - grove.connectors.grove_led.(gpio|pwm).d3
@@ -821,7 +852,7 @@
 
 - comment: "shield(grove.connectors.grove_led): cytron_maker_pi_rp2040: invalid board condition."
   platforms:
-    - cytron_maker_pi_rp2040
+    - cytron_maker_pi_rp2040/rp2040
   scenarios:
     - grove.connectors.grove_led.(gpio|pwm).d8
     - grove.connectors.grove_led.(gpio|pwm).d9

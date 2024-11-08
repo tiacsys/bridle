@@ -2,25 +2,52 @@ common:
   tags:
     - base
     - bridle
+    - kernel
     - userspace
     - xip
   min_flash: 32
-  min_ram: 32
+  min_ram: 16
   timeout: 120
+  sysbuild: false
   integration_platforms:
+    - native_posix
+    - native_posix/native/64
     - native_sim
     - native_sim/native/64
     - qemu_x86
+    - qemu_x86/atom/nokpti
+    - qemu_x86/atom/nommu
+    - qemu_x86/atom/nopae
+    - qemu_x86/atom/virt
+    - qemu_x86/atom/xip
+    - qemu_x86_lakemont
+    - qemu_x86_tiny
     - qemu_x86_64
+    - qemu_x86_64/atom/nokpti
     - qemu_cortex_r5
-    # RAM overflow issue: - qemu_cortex_m0
+    - qemu_cortex_m0
     - qemu_cortex_m3
     - qemu_cortex_a9
     - qemu_cortex_a53
+    - qemu_cortex_a53/qemu_cortex_a53/smp
+    - qemu_cortex_a53/qemu_cortex_a53/xip
     - qemu_kvm_arm64
+    - qemu_arc/qemu_arc_em
+    - qemu_arc/qemu_arc_hs
+    - qemu_arc/qemu_arc_hs/xip
+    - qemu_arc/qemu_arc_hs5x
+    - qemu_arc/qemu_arc_hs6x
+    - qemu_malta
+    - qemu_malta/qemu_malta/be
+    - qemu_riscv32e
     - qemu_riscv32
+    - qemu_riscv32/qemu_virt_riscv32/smp
+    - qemu_riscv32_xip
     - qemu_riscv64
-    - qemu_xtensa
+    - qemu_riscv64/qemu_virt_riscv64/smp
+    - qemu_xtensa/dc233c
+    - qemu_xtensa/dc233c/mmu
+    - qemu_leon3
     - qemu_nios2
 tests:
   bridle.common:

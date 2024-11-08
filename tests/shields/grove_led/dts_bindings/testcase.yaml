@@ -10,23 +10,19 @@
 ###
 ##############################################################################
 common:
-  tags: base shields grove
+  tags:
+    - base
+    - shields
+    - grove
+  sysbuild: false
   build_only: true
   build_on_all: true
   filter: dt_compat_enabled("seeed,grove-laced-if") and
           dt_compat_enabled("seeed,grove-connector")
   # platform_exclude:
-  #   # stm32h735g_disco.yaml has "arduino_gpio", but
-  #   # there is no "arduino-header-r3" node in DTS
-  #   - stm32h735g_disco
-  #
-  # NOTE: Side effects were observed with the `platform_exclude` statement
-  # when it is used within the `common` section as well as in individual
-  # test cases. The test plan then may be set up incompletely with invalid
-  # content and there is a high risk that test cases will not be included
-  # in the test plan without being noticed!
   #
   # AVOID `platform_exclude` statement here in the `common` section!
+  #   USE the `tests/quarantine.yaml`file instead.
   #
   integration_platforms:
     - arduino_zero
@@ -237,7 +233,7 @@ tests:
     platform_exclude:
       - frdm_kw41z
       - hifive1
-      - hifive1_revb
+      - hifive1@B
   grove.base.v1.grove_led.gpio.d14:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_a0_header") and
@@ -246,7 +242,7 @@ tests:
     platform_exclude:
       - frdm_kw41z
       - hifive1
-      - hifive1_revb
+      - hifive1@B
   grove.base.v2.grove_led.gpio.d15:
     depends_on: arduino_gpio
     filter: ( dt_nodelabel_enabled("grove_a1_header") or
