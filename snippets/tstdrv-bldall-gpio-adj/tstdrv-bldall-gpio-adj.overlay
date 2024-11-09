@@ -48,8 +48,8 @@
 			rst-dflts;
 		};
 
-		test_i2c_pca9555: pca9555@2 {
-			compatible = "nxp,pca9555";
+		test_i2c_pca9555_regrst: pca9555-regrst@2 {
+			compatible = "nxp,pca9555-regrst";
 			reg = <0x2>;
 			gpio-controller;
 			#gpio-cells = <2>;
