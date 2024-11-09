@@ -38,8 +38,8 @@
 		#size-cells = <0>;
 		clock-frequency = <100000>;
 
-		test_i2c_pca9554: pca9554@1 {
-			compatible = "nxp,pca9554";
+		test_i2c_pca9554_regrst: pca9554-regrst@1 {
+			compatible = "nxp,pca9554-regrst";
 			reg = <0x1>;
 			gpio-controller;
 			#gpio-cells = <2>;

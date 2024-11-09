@@ -1,0 +1,28 @@
+# PCA9554 GPIO configuration options
+
+# Copyright (c) 2021-2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+menuconfig GPIO_PCA9554_REGRST
+	bool "PCA9554 I2C-based GPIO chip (w/regrst)"
+	default y
+	depends on DT_HAS_NXP_PCA9554_REGRST_ENABLED
+	depends on I2C
+	help
+	  Enable driver for PCA9554 I2C-based GPIO chip
+	  with the reset register to defaults feature.
+
+config GPIO_PCA9554_REGRST_INIT_PRIORITY
+	int "Init priority"
+	default 70
+	depends on GPIO_PCA9554_REGRST
+	help
+	  Device driver initialization priority.
+
+config GPIO_PCA9554_REGRST_INTERRUPT
+	bool "Interrupt enable"
+	depends on GPIO_PCA9554_REGRST
+	help
+	  Enable interrupt support in PCA9554 driver.
+	  Note that the PCA9554 cannot reliably detect
+	  short-pulse interrupts due to its design.

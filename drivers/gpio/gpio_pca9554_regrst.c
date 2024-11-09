@@ -8,10 +8,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#define DT_DRV_COMPAT nxp_pca9554
+#define DT_DRV_COMPAT nxp_pca9554_regrst
 
 /**
- * @file Driver for PCA9554 I2C-based GPIO driver.
+ * @file Driver for PCA9554 I2C-based GPIO driver (w/regrst).
  */
 
 #include <errno.h>
@@ -28,7 +28,7 @@
 
 #define LOG_LEVEL CONFIG_GPIO_LOG_LEVEL
 #include <zephyr/logging/log.h>
-LOG_MODULE_REGISTER(gpio_pca9554);
+LOG_MODULE_REGISTER(gpio_pca9554_regrst);
 
 /* Register definitions */
 #define REG_INPUT_PORT		0x00
@@ -45,18 +45,18 @@ LOG_MODULE_REGISTER(gpio_pca9554);
 #define PCA_HAS_RST_DFLTS	BIT(7)
 
 /** Configuration data */
-struct gpio_pca9554_config {
+struct gpio_pca9554_regrst_config {
 	/* gpio_driver_config needs to be first */
 	struct gpio_driver_config common;
 	struct i2c_dt_spec bus;
 	uint8_t capabilities;
-#ifdef CONFIG_GPIO_PCA9554_INTERRUPT
+#ifdef CONFIG_GPIO_PCA9554_REGRST_INTERRUPT
 	struct gpio_dt_spec int_gpio;
 #endif
 };
 
 /** Runtime driver data */
-struct gpio_pca9554_drv_data {
+struct gpio_pca9554_regrst_drv_data {
 	/* gpio_driver_data needs to be first */
 	struct gpio_driver_data common;
 
@@ -68,7 +68,7 @@ struct gpio_pca9554_drv_data {
 
 	struct k_sem lock;
 
-#ifdef CONFIG_GPIO_PCA9554_INTERRUPT
+#ifdef CONFIG_GPIO_PCA9554_REGRST_INTERRUPT
 	/* Self-reference to the driver instance */
 	const struct device *instance;
 
@@ -106,7 +106,7 @@ struct gpio_pca9554_drv_data {
 static int read_port_regs(const struct device *dev, uint8_t reg,
 			  uint8_t *cache, uint8_t *buf)
 {
-	const struct gpio_pca9554_config * const config = dev->config;
+	const struct gpio_pca9554_regrst_config * const config = dev->config;
 	uint8_t port_data, value;
 	int ret;
 
@@ -143,7 +143,7 @@ static int read_port_regs(const struct device *dev, uint8_t reg,
 static int write_port_regs(const struct device *dev, uint8_t reg,
 			   uint8_t *cache, uint8_t value)
 {
-	const struct gpio_pca9554_config * const config = dev->config;
+	const struct gpio_pca9554_regrst_config * const config = dev->config;
 	uint8_t buf[2];
 	int ret;
 
@@ -167,8 +167,8 @@ static int write_port_regs(const struct device *dev, uint8_t reg,
 
 static inline int update_input_regs(const struct device *dev, uint8_t *buf)
 {
-	struct gpio_pca9554_drv_data * const drv_data =
-		(struct gpio_pca9554_drv_data * const)dev->data;
+	struct gpio_pca9554_regrst_drv_data * const drv_data =
+		(struct gpio_pca9554_regrst_drv_data * const)dev->data;
 
 	return read_port_regs(dev, REG_INPUT_PORT,
 			      &drv_data->reg_cache.input, buf);
@@ -176,8 +176,8 @@ static inline int update_input_regs(const struct device *dev, uint8_t *buf)
 
 static inline int update_output_regs(const struct device *dev, uint8_t value)
 {
-	struct gpio_pca9554_drv_data * const drv_data =
-		(struct gpio_pca9554_drv_data * const)dev->data;
+	struct gpio_pca9554_regrst_drv_data * const drv_data =
+		(struct gpio_pca9554_regrst_drv_data * const)dev->data;
 
 	return write_port_regs(dev, REG_OUTPUT_PORT,
 			       &drv_data->reg_cache.output, value);
@@ -186,8 +186,8 @@ static inline int update_output_regs(const struct device *dev, uint8_t value)
 static inline int update_direction_regs(const struct device *dev,
 					uint8_t value)
 {
-	struct gpio_pca9554_drv_data * const drv_data =
-		(struct gpio_pca9554_drv_data * const)dev->data;
+	struct gpio_pca9554_regrst_drv_data * const drv_data =
+		(struct gpio_pca9554_regrst_drv_data * const)dev->data;
 
 	return write_port_regs(dev, REG_CONF_PORT,
 			       &drv_data->reg_cache.dir, value);
@@ -204,8 +204,8 @@ static inline int update_direction_regs(const struct device *dev,
  */
 static int setup_pin_dir(const struct device *dev, uint32_t pin, int flags)
 {
-	struct gpio_pca9554_drv_data * const drv_data =
-		(struct gpio_pca9554_drv_data * const)dev->data;
+	struct gpio_pca9554_regrst_drv_data * const drv_data =
+		(struct gpio_pca9554_regrst_drv_data * const)dev->data;
 	uint8_t reg_dir = drv_data->reg_cache.dir;
 	uint8_t reg_out = drv_data->reg_cache.output;
 	int ret;
@@ -241,15 +241,15 @@ static int setup_pin_dir(const struct device *dev, uint32_t pin, int flags)
  *
  * @return 0 if successful, failed otherwise
  */
-static int gpio_pca9554_config(const struct device *dev,
-			       gpio_pin_t pin, gpio_flags_t flags)
+static int gpio_pca9554_regrst_config(const struct device *dev,
+				      gpio_pin_t pin, gpio_flags_t flags)
 {
 	int ret;
-	struct gpio_pca9554_drv_data * const drv_data =
-		(struct gpio_pca9554_drv_data * const)dev->data;
+	struct gpio_pca9554_regrst_drv_data * const drv_data =
+		(struct gpio_pca9554_regrst_drv_data * const)dev->data;
 
 #if (CONFIG_GPIO_LOG_LEVEL >= LOG_LEVEL_DEBUG)
-	const struct gpio_pca9554_config * const config = dev->config;
+	const struct gpio_pca9554_regrst_config * const config = dev->config;
 #endif
 
 	/* Does not support disconnected pin */
@@ -283,11 +283,11 @@ done:
 	return ret;
 }
 
-static int gpio_pca9554_port_get_raw(const struct device *dev,
-				     uint32_t *value)
+static int gpio_pca9554_regrst_port_get_raw(const struct device *dev,
+					    uint32_t *value)
 {
-	struct gpio_pca9554_drv_data * const drv_data =
-		(struct gpio_pca9554_drv_data * const)dev->data;
+	struct gpio_pca9554_regrst_drv_data * const drv_data =
+		(struct gpio_pca9554_regrst_drv_data * const)dev->data;
 	uint8_t buf;
 	int ret;
 
@@ -310,11 +310,11 @@ done:
 	return ret;
 }
 
-static int gpio_pca9554_port_set_masked_raw(const struct device *dev,
-					      uint32_t mask, uint32_t value)
+static int gpio_pca9554_regrst_port_set_masked_raw(const struct device *dev,
+						   uint32_t mask, uint32_t value)
 {
-	struct gpio_pca9554_drv_data * const drv_data =
-		(struct gpio_pca9554_drv_data * const)dev->data;
+	struct gpio_pca9554_regrst_drv_data * const drv_data =
+		(struct gpio_pca9554_regrst_drv_data * const)dev->data;
 	uint8_t reg_out;
 	int ret;
 
@@ -335,23 +335,23 @@ static int gpio_pca9554_port_set_masked_raw(const struct device *dev,
 	return ret;
 }
 
-static int gpio_pca9554_port_set_bits_raw(const struct device *dev,
-					  uint32_t mask)
+static int gpio_pca9554_regrst_port_set_bits_raw(const struct device *dev,
+						 uint32_t mask)
 {
-	return gpio_pca9554_port_set_masked_raw(dev, mask, mask);
+	return gpio_pca9554_regrst_port_set_masked_raw(dev, mask, mask);
 }
 
-static int gpio_pca9554_port_clear_bits_raw(const struct device *dev,
-					    uint32_t mask)
+static int gpio_pca9554_regrst_port_clear_bits_raw(const struct device *dev,
+						   uint32_t mask)
 {
-	return gpio_pca9554_port_set_masked_raw(dev, mask, 0);
+	return gpio_pca9554_regrst_port_set_masked_raw(dev, mask, 0);
 }
 
-static int gpio_pca9554_port_toggle_bits(const struct device *dev,
-					 uint32_t mask)
+static int gpio_pca9554_regrst_port_toggle_bits(const struct device *dev,
+						uint32_t mask)
 {
-	struct gpio_pca9554_drv_data * const drv_data =
-		(struct gpio_pca9554_drv_data * const)dev->data;
+	struct gpio_pca9554_regrst_drv_data * const drv_data =
+		(struct gpio_pca9554_regrst_drv_data * const)dev->data;
 	uint8_t reg_out;
 	int ret;
 
@@ -372,11 +372,11 @@ static int gpio_pca9554_port_toggle_bits(const struct device *dev,
 	return ret;
 }
 
-#ifdef CONFIG_GPIO_PCA9554_INTERRUPT
-static void gpio_pca9554_interrupt_worker(struct k_work *work)
+#ifdef CONFIG_GPIO_PCA9554_REGRST_INTERRUPT
+static void gpio_pca9554_regrst_interrupt_worker(struct k_work *work)
 {
-	struct gpio_pca9554_drv_data * const drv_data = CONTAINER_OF(
-		work, struct gpio_pca9554_drv_data, interrupt_worker);
+	struct gpio_pca9554_regrst_drv_data * const drv_data = CONTAINER_OF(
+		work, struct gpio_pca9554_regrst_drv_data, interrupt_worker);
 	uint8_t input_new, input_cache, changed_pins, trig_edge;
 	uint8_t trig_level = 0;
 	uint32_t triggered_int = 0;
@@ -416,36 +416,36 @@ static void gpio_pca9554_interrupt_worker(struct k_work *work)
 	}
 }
 
-static void gpio_pca9554_interrupt_callback(const struct device *dev,
-					    struct gpio_callback *cb,
-					    gpio_port_pins_t pins)
+static void gpio_pca9554_regrst_interrupt_callback(const struct device *dev,
+						   struct gpio_callback *cb,
+						   gpio_port_pins_t pins)
 {
-	struct gpio_pca9554_drv_data * const drv_data =
-		CONTAINER_OF(cb, struct gpio_pca9554_drv_data, gpio_callback);
+	struct gpio_pca9554_regrst_drv_data * const drv_data = CONTAINER_OF(
+		cb, struct gpio_pca9554_regrst_drv_data, gpio_callback);
 
 	ARG_UNUSED(pins);
 
 	/* Cannot read PCA9554 registers from ISR context, queue worker */
 	k_work_submit(&drv_data->interrupt_worker);
 }
-#endif /* CONFIG_GPIO_PCA9554_INTERRUPT */
+#endif /* CONFIG_GPIO_PCA9554_REGRST_INTERRUPT */
 
-static int gpio_pca9554_pin_interrupt_configure(const struct device *dev,
-						  gpio_pin_t pin,
-						  enum gpio_int_mode mode,
-						  enum gpio_int_trig trig)
+static int gpio_pca9554_regrst_pin_interrupt_configure(const struct device *dev,
+						       gpio_pin_t pin,
+						       enum gpio_int_mode mode,
+						       enum gpio_int_trig trig)
 {
 	int ret = 0;
 
-	if (!IS_ENABLED(CONFIG_GPIO_PCA9554_INTERRUPT)
+	if (!IS_ENABLED(CONFIG_GPIO_PCA9554_REGRST_INTERRUPT)
 	    && (mode != GPIO_INT_MODE_DISABLED)) {
 		return -ENOTSUP;
 	}
 
-#ifdef CONFIG_GPIO_PCA9554_INTERRUPT
-	const struct gpio_pca9554_config * const config = dev->config;
-	struct gpio_pca9554_drv_data * const drv_data =
-		(struct gpio_pca9554_drv_data * const)dev->data;
+#ifdef CONFIG_GPIO_PCA9554_REGRST_INTERRUPT
+	const struct gpio_pca9554_regrst_config * const config = dev->config;
+	struct gpio_pca9554_regrst_drv_data * const drv_data =
+		(struct gpio_pca9554_regrst_drv_data * const)dev->data;
 	uint8_t reg;
 	bool enabled, edge, level, active;
 
@@ -511,18 +511,18 @@ static int gpio_pca9554_pin_interrupt_configure(const struct device *dev,
 
 err:
 	k_sem_give(&drv_data->lock);
-#endif /* CONFIG_GPIO_PCA9554_INTERRUPT */
+#endif /* CONFIG_GPIO_PCA9554_REGRST_INTERRUPT */
 	return ret;
 }
 
-#ifdef CONFIG_GPIO_PCA9554_INTERRUPT
-static int gpio_pca9554_manage_callback(const struct device *dev,
-					struct gpio_callback *callback,
-					bool set)
+#ifdef CONFIG_GPIO_PCA9554_REGRST_INTERRUPT
+static int gpio_pca9554_regrst_manage_callback(const struct device *dev,
+					       struct gpio_callback *callback,
+					       bool set)
 {
-	const struct gpio_pca9554_config * const config = dev->config;
-	struct gpio_pca9554_drv_data * const drv_data =
-		(struct gpio_pca9554_drv_data * const)dev->data;
+	const struct gpio_pca9554_regrst_config * const config = dev->config;
+	struct gpio_pca9554_regrst_drv_data * const drv_data =
+		(struct gpio_pca9554_regrst_drv_data * const)dev->data;
 
 	if ((config->capabilities & PCA_HAS_INTERRUPT) == 0U) {
 		return -ENOTSUP;
@@ -537,16 +537,16 @@ static int gpio_pca9554_manage_callback(const struct device *dev,
 }
 #endif
 
-static const struct gpio_driver_api gpio_pca9554_drv_api_funcs = {
-	.pin_configure = gpio_pca9554_config,
-	.port_get_raw = gpio_pca9554_port_get_raw,
-	.port_set_masked_raw = gpio_pca9554_port_set_masked_raw,
-	.port_set_bits_raw = gpio_pca9554_port_set_bits_raw,
-	.port_clear_bits_raw = gpio_pca9554_port_clear_bits_raw,
-	.port_toggle_bits = gpio_pca9554_port_toggle_bits,
-	.pin_interrupt_configure = gpio_pca9554_pin_interrupt_configure,
-#ifdef CONFIG_GPIO_PCA9554_INTERRUPT
-	.manage_callback = gpio_pca9554_manage_callback,
+static const struct gpio_driver_api gpio_pca9554_regrst_drv_api_funcs = {
+	.pin_configure = gpio_pca9554_regrst_config,
+	.port_get_raw = gpio_pca9554_regrst_port_get_raw,
+	.port_set_masked_raw = gpio_pca9554_regrst_port_set_masked_raw,
+	.port_set_bits_raw = gpio_pca9554_regrst_port_set_bits_raw,
+	.port_clear_bits_raw = gpio_pca9554_regrst_port_clear_bits_raw,
+	.port_toggle_bits = gpio_pca9554_regrst_port_toggle_bits,
+	.pin_interrupt_configure = gpio_pca9554_regrst_pin_interrupt_configure,
+#ifdef CONFIG_GPIO_PCA9554_REGRST_INTERRUPT
+	.manage_callback = gpio_pca9554_regrst_manage_callback,
 #endif
 };
 
@@ -556,11 +556,11 @@ static const struct gpio_driver_api gpio_pca9554_drv_api_funcs = {
  * @param dev Device struct
  * @return 0 if successful, failed otherwise.
  */
-static int gpio_pca9554_reset_defaults(const struct device *dev)
+static int gpio_pca9554_regrst_reset_defaults(const struct device *dev)
 {
-	const struct gpio_pca9554_config * const config = dev->config;
-	struct gpio_pca9554_drv_data * const drv_data =
-		(struct gpio_pca9554_drv_data * const)dev->data;
+	const struct gpio_pca9554_regrst_config * const config = dev->config;
+	struct gpio_pca9554_regrst_drv_data * const drv_data =
+		(struct gpio_pca9554_regrst_drv_data * const)dev->data;
 	int ret;
 
 	/* Can't do I2C bus operations from an ISR */
@@ -595,11 +595,11 @@ err:
  * @param dev Device struct
  * @return 0 if successful, failed otherwise.
  */
-static int gpio_pca9554_init(const struct device *dev)
+static int gpio_pca9554_regrst_init(const struct device *dev)
 {
-	const struct gpio_pca9554_config * const config = dev->config;
-	struct gpio_pca9554_drv_data * const drv_data =
-		(struct gpio_pca9554_drv_data * const)dev->data;
+	const struct gpio_pca9554_regrst_config * const config = dev->config;
+	struct gpio_pca9554_regrst_drv_data * const drv_data =
+		(struct gpio_pca9554_regrst_drv_data * const)dev->data;
 
 	if (!device_is_ready(config->bus.bus)) {
 		return -ENODEV;
@@ -610,7 +610,7 @@ static int gpio_pca9554_init(const struct device *dev)
 	if ((config->capabilities & PCA_HAS_RST_DFLTS) != 0) {
 		int ret;
 
-		ret = gpio_pca9554_reset_defaults(dev);
+		ret = gpio_pca9554_regrst_reset_defaults(dev);
 		if (ret != 0) {
 			LOG_ERR("PCA9554[0x%X]: failed to reset defaults (%d)",
 				config->bus.addr, ret);
@@ -618,7 +618,7 @@ static int gpio_pca9554_init(const struct device *dev)
 		}
 	}
 
-#ifdef CONFIG_GPIO_PCA9554_INTERRUPT
+#ifdef CONFIG_GPIO_PCA9554_REGRST_INTERRUPT
 	/* Check if GPIO port supports interrupts */
 	if ((config->capabilities & PCA_HAS_INTERRUPT) != 0) {
 		int ret;
@@ -628,7 +628,7 @@ static int gpio_pca9554_init(const struct device *dev)
 
 		/* Prepare interrupt worker */
 		k_work_init(&drv_data->interrupt_worker,
-			    gpio_pca9554_interrupt_worker);
+			    gpio_pca9554_regrst_interrupt_worker);
 
 		/* Configure GPIO interrupt pin */
 		if (!device_is_ready(config->int_gpio.port)) {
@@ -647,7 +647,7 @@ static int gpio_pca9554_init(const struct device *dev)
 
 		/* Prepare GPIO callback for interrupt pin */
 		gpio_init_callback(&drv_data->gpio_callback,
-				   gpio_pca9554_interrupt_callback,
+				   gpio_pca9554_regrst_interrupt_callback,
 				   BIT(config->int_gpio.pin));
 		gpio_add_callback(config->int_gpio.port, &drv_data->gpio_callback);
 	}
@@ -656,8 +656,9 @@ static int gpio_pca9554_init(const struct device *dev)
 	return 0;
 }
 
-#define GPIO_PCA9554_DEVICE_INSTANCE(inst)				\
-static const struct gpio_pca9554_config gpio_pca9554_##inst##_cfg = {	\
+#define GPIO_PCA9554_REGRST_DEVICE_INSTANCE(inst)			\
+static const struct gpio_pca9554_regrst_config				\
+gpio_pca9554_regrst_##inst##_cfg = {					\
 	.common = {							\
 		.port_pin_mask = GPIO_PORT_PIN_MASK_FROM_DT_INST(inst),	\
 	},								\
@@ -665,32 +666,33 @@ static const struct gpio_pca9554_config gpio_pca9554_##inst##_cfg = {	\
 	.capabilities =							\
 		(DT_INST_PROP(inst, rst_dflts) ?			\
 			PCA_HAS_RST_DFLTS : 0) |			\
-		IF_ENABLED(CONFIG_GPIO_PCA9554_INTERRUPT, (		\
+		IF_ENABLED(CONFIG_GPIO_PCA9554_REGRST_INTERRUPT, (	\
 		(DT_INST_NODE_HAS_PROP(inst, interrupt_gpios) ?		\
 			PCA_HAS_INTERRUPT : 0) |			\
 		))							\
 		0,							\
-	IF_ENABLED(CONFIG_GPIO_PCA9554_INTERRUPT, (			\
+	IF_ENABLED(CONFIG_GPIO_PCA9554_REGRST_INTERRUPT, (		\
 		.int_gpio = GPIO_DT_SPEC_INST_GET_OR(			\
 			inst, interrupt_gpios, {}),			\
 	))								\
 };									\
 									\
-static struct gpio_pca9554_drv_data gpio_pca9554_##inst##_drvdata = {	\
+static struct gpio_pca9554_regrst_drv_data				\
+gpio_pca9554_regrst_##inst##_drvdata = {				\
 	.reg_cache.input = 0x0,						\
 	.reg_cache.output = REG_OUTPUT_DFLT,				\
 	.reg_cache.dir = REG_CONG_DFLT,					\
-	IF_ENABLED(CONFIG_GPIO_PCA9554_INTERRUPT, (			\
+	IF_ENABLED(CONFIG_GPIO_PCA9554_REGRST_INTERRUPT, (		\
 	.interrupt_active = false,					\
 	))								\
 };									\
 									\
 DEVICE_DT_INST_DEFINE(inst,						\
-	gpio_pca9554_init,						\
+	gpio_pca9554_regrst_init,					\
 	NULL,								\
-	&gpio_pca9554_##inst##_drvdata,					\
-	&gpio_pca9554_##inst##_cfg,					\
-	POST_KERNEL, CONFIG_GPIO_PCA9554_INIT_PRIORITY,			\
-	&gpio_pca9554_drv_api_funcs);
+	&gpio_pca9554_regrst_##inst##_drvdata,				\
+	&gpio_pca9554_regrst_##inst##_cfg,				\
+	POST_KERNEL, CONFIG_GPIO_PCA9554_REGRST_INIT_PRIORITY,		\
+	&gpio_pca9554_regrst_drv_api_funcs);
 
-DT_INST_FOREACH_STATUS_OKAY(GPIO_PCA9554_DEVICE_INSTANCE)
+DT_INST_FOREACH_STATUS_OKAY(GPIO_PCA9554_REGRST_DEVICE_INSTANCE)

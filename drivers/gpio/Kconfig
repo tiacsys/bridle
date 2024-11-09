@@ -3,7 +3,7 @@
 
 if GPIO
 
-rsource "Kconfig.pca9554"
+rsource "Kconfig.pca9554_regrst"
 rsource "Kconfig.pca9555"
 rsource "Kconfig.sc16is75x"
 rsource "Kconfig.sc18is604"
