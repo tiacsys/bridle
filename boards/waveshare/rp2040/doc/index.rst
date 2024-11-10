@@ -152,7 +152,9 @@ Supported Features
 Similar to the |zephyr:board:rpi_pico| the Waveshare RP2040 board configuration
 supports the following hardware features:
 
-.. list-table::
+.. list-table:: Hardware Features Supported by Zephyr
+   :class: longtable
+   :align: center
    :header-rows: 1
 
    * - Peripheral
@@ -163,15 +165,15 @@ supports the following hardware features:
      - :kconfig:option:`CONFIG_PINCTRL`
      - :dtcompatible:`raspberrypi,pico-pinctrl`
      - :zephyr:ref:`pinctrl_api`
-   * - UART
-     - :kconfig:option:`CONFIG_SERIAL`
-     - :dtcompatible:`raspberrypi,pico-uart`
-     - :zephyr:ref:`uart_api`
    * - GPIO
      - :kconfig:option:`CONFIG_GPIO`
      - :dtcompatible:`raspberrypi,pico-gpio`
      - :zephyr:ref:`gpio_api`
-   * - USB Device
+   * - UART
+     - :kconfig:option:`CONFIG_SERIAL`
+     - :dtcompatible:`raspberrypi,pico-uart`
+     - :zephyr:ref:`uart_api`
+   * - UDC (USB Device Controller)
      - :kconfig:option:`CONFIG_USB_DEVICE_STACK`
      - :dtcompatible:`raspberrypi,pico-usbd`
      - :zephyr:ref:`usb_api`
@@ -196,6 +198,10 @@ supports the following hardware features:
      - :kconfig:option:`CONFIG_SENSOR`
      - :dtcompatible:`raspberrypi,pico-temp` (!!)
      - :zephyr:ref:`sensor`
+   * - RTC
+     - :kconfig:option:`CONFIG_RTC`
+     - :dtcompatible:`raspberrypi,pico-rtc`
+     - :zephyr:ref:`rtc_api`
    * - Timer (Counter)
      - :kconfig:option:`CONFIG_COUNTER`
      - :dtcompatible:`raspberrypi,pico-timer`
@@ -225,27 +231,31 @@ supports the following hardware features:
      - :kconfig:option:`CONFIG_DMA`
      - :dtcompatible:`raspberrypi,pico-dma`
      - :zephyr:ref:`dma_api`
+   * - HWINFO
+     - :kconfig:option:`CONFIG_HWINFO`
+     - N/A
+     - :zephyr:ref:`hwinfo_api`
+   * - VREG
+     - :kconfig:option:`CONFIG_REGULATOR`
+     - :dtcompatible:`raspberrypi,core-supply-regulator`
+     - :zephyr:ref:`regulator_api`
+   * - RESET
+     - :kconfig:option:`CONFIG_RESET`
+     - :dtcompatible:`raspberrypi,pico-reset`
+     - :zephyr:ref:`reset_api`
    * - CLOCK
      - :kconfig:option:`CONFIG_CLOCK_CONTROL`
      - | :dtcompatible:`raspberrypi,pico-clock-controller`
        | :dtcompatible:`raspberrypi,pico-clock`
      - :zephyr:ref:`clock_control_api`
-   * - RESET
-     - :kconfig:option:`CONFIG_RESET`
-     - :dtcompatible:`raspberrypi,pico-reset`
-     - :zephyr:ref:`reset_api`
-   * - VREG
-     - :kconfig:option:`CONFIG_REGULATOR`
-     - :dtcompatible:`raspberrypi,core-supply-regulator`
-     - :zephyr:ref:`regulator_api`
    * - NVIC
      - N/A
      - :dtcompatible:`arm,v6m-nvic`
      - Nested Vector :zephyr:ref:`interrupts_v2` Controller
-   * - HWINFO
-     - :kconfig:option:`CONFIG_HWINFO`
+   * - SYSTICK
      - N/A
-     - :zephyr:ref:`hwinfo_api`
+     - :dtcompatible:`arm,armv6m-systick`
+     -
 
 (!) Designware I2C driver has issues:
     The :emphasis:`Raspberry Pi Pico I2C driver` is using the
@@ -271,14 +281,14 @@ supports the following hardware features:
 Other hardware features are not currently supported by Zephyr. The default
 configuration can be found in the different Kconfig files:
 
-- :bridle_file:`boards/waveshare/rp2040/waveshare_rp2040_one_defconfig`
-- :bridle_file:`boards/waveshare/rp2040/waveshare_rp2040_zero_defconfig`
-- :bridle_file:`boards/waveshare/rp2040/waveshare_rp2040_matrix_defconfig`
-- :bridle_file:`boards/waveshare/rp2040/waveshare_rp2040_tiny_defconfig`
-- :bridle_file:`boards/waveshare/rp2040/waveshare_rp2040_eth_defconfig`
-- :bridle_file:`boards/waveshare/rp2040/waveshare_rp2040_lcd_0_96_defconfig`
-- :bridle_file:`boards/waveshare/rp2040/waveshare_rp2040_plus_defconfig`
-- :bridle_file:`boards/waveshare/rp2040/waveshare_rp2040_geek_defconfig`
+   - :bridle_file:`boards/waveshare/rp2040/waveshare_rp2040_one_defconfig`
+   - :bridle_file:`boards/waveshare/rp2040/waveshare_rp2040_zero_defconfig`
+   - :bridle_file:`boards/waveshare/rp2040/waveshare_rp2040_matrix_defconfig`
+   - :bridle_file:`boards/waveshare/rp2040/waveshare_rp2040_tiny_defconfig`
+   - :bridle_file:`boards/waveshare/rp2040/waveshare_rp2040_eth_defconfig`
+   - :bridle_file:`boards/waveshare/rp2040/waveshare_rp2040_lcd_0_96_defconfig`
+   - :bridle_file:`boards/waveshare/rp2040/waveshare_rp2040_plus_defconfig`
+   - :bridle_file:`boards/waveshare/rp2040/waveshare_rp2040_geek_defconfig`
 
 Board Configurations
 ====================
@@ -492,27 +502,146 @@ sample applications for more, such as the :zephyr:code-sample:`usb-cdc-acm`
 sample which sets up a virtual serial port that echos characters back to the
 host PC. As an alternative to the default Zephyr console on serial port the
 Bridle :ref:`snippet-usb-console` can be used to enable
-:zephyr:ref:`usb_device_cdc_acm` and switch the console to USB::
+:zephyr:ref:`usb_device_cdc_acm` and switch the console to USB
 
-   USB device idVendor=2e8a, idProduct=000a, bcdDevice= 3.07
-   USB device strings: Mfr=1, Product=2, SerialNumber=3
-   Product: RP2040-Plus (CDC ACM)
-   Manufacturer: Waveshare (Raspberry Pi)
-   SerialNumber: B69F8448A6E91514
+.. tabs::
 
-To integrate specific USB device functions that do not follow a USB standard
-class, the following alternate identifier numbers are available for the various
-Waveshare RP2040 boards according to the `Raspberry Pi USB product ID list`_:
+   .. group-tab:: RP2040-One
 
-:0x101F: |RP2040-Zero|
-:0x1020: |RP2040-Plus|
-:0x1021: |RP2040-LCD-0.96|
-:0x1039: RP2040-LCD-1.28
-:0x103A: |RP2040-One|
-:0x1044: Power Management HAT (B)
-:0x1055: |RP2040-ETH|
-:0x1056: RP2040-HACK
-:0x1057: RP2040-Touch-LCD-1.28
+         .. container:: highlight-console notranslate literal-block
+
+            .. parsed-literal::
+
+               USB device idVendor=\ |waveshare_rp2040_one_VID|, idProduct=\ |waveshare_rp2040_one_PID_CON|, bcdDevice=\ |waveshare_rp2040_one_BCD_CON|
+               USB device strings: Mfr=1, Product=2, SerialNumber=3
+               Product: |waveshare_rp2040_one_PStr_CON|
+               Manufacturer: |waveshare_rp2040_one_VStr|
+               SerialNumber: B69F8448A6E91514
+
+   .. group-tab:: RP2040-Zero
+
+         .. container:: highlight-console notranslate literal-block
+
+            .. parsed-literal::
+
+               USB device idVendor=\ |waveshare_rp2040_zero_VID|, idProduct=\ |waveshare_rp2040_zero_PID_CON|, bcdDevice=\ |waveshare_rp2040_zero_BCD_CON|
+               USB device strings: Mfr=1, Product=2, SerialNumber=3
+               Product: |waveshare_rp2040_zero_PStr_CON|
+               Manufacturer: |waveshare_rp2040_zero_VStr|
+               SerialNumber: B69F8448A6E91514
+
+   .. group-tab:: RP2040-Matrix
+
+         .. container:: highlight-console notranslate literal-block
+
+            .. parsed-literal::
+
+               USB device idVendor=\ |waveshare_rp2040_matrix_VID|, idProduct=\ |waveshare_rp2040_matrix_PID_CON|, bcdDevice=\ |waveshare_rp2040_matrix_BCD_CON|
+               USB device strings: Mfr=1, Product=2, SerialNumber=3
+               Product: |waveshare_rp2040_matrix_PStr_CON|
+               Manufacturer: |waveshare_rp2040_matrix_VStr|
+               SerialNumber: B69F8448A6E91514
+
+   .. group-tab:: RP2040-Tiny
+
+         .. container:: highlight-console notranslate literal-block
+
+            .. parsed-literal::
+
+               USB device idVendor=\ |waveshare_rp2040_tiny_VID|, idProduct=\ |waveshare_rp2040_tiny_PID_CON|, bcdDevice=\ |waveshare_rp2040_tiny_BCD_CON|
+               USB device strings: Mfr=1, Product=2, SerialNumber=3
+               Product: |waveshare_rp2040_tiny_PStr_CON|
+               Manufacturer: |waveshare_rp2040_tiny_VStr|
+               SerialNumber: B69F8448A6E91514
+
+   .. group-tab:: RP2040-ETH
+
+         .. container:: highlight-console notranslate literal-block
+
+            .. parsed-literal::
+
+               USB device idVendor=\ |waveshare_rp2040_eth_VID|, idProduct=\ |waveshare_rp2040_eth_PID_CON|, bcdDevice=\ |waveshare_rp2040_eth_BCD_CON|
+               USB device strings: Mfr=1, Product=2, SerialNumber=3
+               Product: |waveshare_rp2040_eth_PStr_CON|
+               Manufacturer: |waveshare_rp2040_eth_VStr|
+               SerialNumber: B69F8448A6E91514
+
+   .. group-tab:: RP2040-LCD-0.96
+
+         .. container:: highlight-console notranslate literal-block
+
+            .. parsed-literal::
+
+               USB device idVendor=\ |waveshare_rp2040_lcd_0_96_VID|, idProduct=\ |waveshare_rp2040_lcd_0_96_PID_CON|, bcdDevice=\ |waveshare_rp2040_lcd_0_96_BCD_CON|
+               USB device strings: Mfr=1, Product=2, SerialNumber=3
+               Product: |waveshare_rp2040_lcd_0_96_PStr_CON|
+               Manufacturer: |waveshare_rp2040_lcd_0_96_VStr|
+               SerialNumber: B69F8448A6E91514
+
+   .. group-tab:: RP2040-Plus
+
+         .. container:: highlight-console notranslate literal-block
+
+            .. parsed-literal::
+
+               USB device idVendor=\ |waveshare_rp2040_plus_VID|, idProduct=\ |waveshare_rp2040_plus_PID_CON|, bcdDevice=\ |waveshare_rp2040_plus_BCD_CON|
+               USB device strings: Mfr=1, Product=2, SerialNumber=3
+               Product: |waveshare_rp2040_plus_PStr_CON|
+               Manufacturer: |waveshare_rp2040_plus_VStr|
+               SerialNumber: B69F8448A6E91514
+
+   .. group-tab:: RP2040-Geek
+
+         .. container:: highlight-console notranslate literal-block
+
+            .. parsed-literal::
+
+               USB device idVendor=\ |waveshare_rp2040_geek_VID|, idProduct=\ |waveshare_rp2040_geek_PID_CON|, bcdDevice=\ |waveshare_rp2040_geek_BCD_CON|
+               USB device strings: Mfr=1, Product=2, SerialNumber=3
+               Product: |waveshare_rp2040_geek_PStr_CON|
+               Manufacturer: |waveshare_rp2040_geek_VStr|
+               SerialNumber: B69F8448A6E91514
+
+To integrate specific USB device functions that do not follow
+a USB standard class, the following alternate identifier numbers
+are available for the various Waveshare RP2040 and RP2350 boards
+according to the `Raspberry Pi USB product ID list`_:
+
+.. container:: twocol
+
+   .. container:: leftside
+
+      .. rubric:: RP2040
+
+      :|rpi_waveshare_rp2040_zero_URB_PID|: |RP2040-Zero|
+      :|rpi_waveshare_rp2040_plus_URB_PID|: |RP2040-Plus|
+      :|rpi_waveshare_rp2040_lcd_0_96_URB_PID|: |RP2040-LCD-0.96|
+      :|rpi_waveshare_rp2040_lcd_1_28_URB_PID|: RP2040-LCD-1.28
+      :|rpi_waveshare_rp2040_one_URB_PID|: |RP2040-One|
+      :|rpi_waveshare_pwr_mgmt_hat_b_one_URB_PID|: Power Management HAT (B)
+      :|rpi_waveshare_rp2040_eth_URB_PID|: |RP2040-ETH|
+      :|rpi_waveshare_rp2040_geek_URB_PID|: |RP2040-Geek|
+      :|rpi_waveshare_rp2040_touch_lcd_1_28_URB_PID|: RP2040-Touch-LCD-1.28
+      :|rpi_waveshare_rp2040_pizero_URB_PID|: RP2040-PiZero
+      :|rpi_waveshare_rp2040_tiny_URB_PID|: |RP2040-Tiny|
+      :|rpi_waveshare_rp2040_matrix_URB_PID|: |RP2040-Matrix|
+      :|rpi_waveshare_rp2040_ble_URB_PID|: RP2040-BLE
+      :|rpi_waveshare_pico_cam_a_URB_PID|: PICO-Cam-A
+
+   .. container:: rightside
+
+      .. rubric:: RP2350
+
+      :|rpi_waveshare_rp2350_zero_URB_PID|: RP2350-Zero
+      :|rpi_waveshare_rp2350_plus_URB_PID|: RP2350-Plus
+      :|rpi_waveshare_rp2350_tiny_URB_PID|: RP2350-Tiny
+      :|rpi_waveshare_rp2350_lcd_1_28_URB_PID|: RP2350-LCD-1.28
+      :|rpi_waveshare_rp2350_touch_lcd_1_28_URB_PID|: RP2350-Touch-LCD-1.28
+      :|rpi_waveshare_rp2350_one_URB_PID|: RP2350-One
+      :|rpi_waveshare_rp2350_geek_URB_PID|: RP2350-Geek
+      :|rpi_waveshare_rp2350_lcd_0_96_URB_PID|: RP2350-LCD-0.96
+
+|nbsp|
 
 Programmable I/O (PIO)
 **********************
@@ -542,13 +671,17 @@ If you don't have an SWD adapter, you can flash the Waveshare RP2040 boards
 with a UF2 file. By default, building an app for this board will generate a
 :file:`build/zephyr/zephyr.uf2` file. If the board is powered on with the
 :kbd:`BOOTSEL` button pressed, it will appear on the host as a mass
-storage device::
+storage device:
 
-   USB device idVendor=2e8a, idProduct=0003, bcdDevice= 1.00
-   USB device strings: Mfr=1, Product=2, SerialNumber=3
-   Product: RP2 Boot
-   Manufacturer: Raspberry Pi
-   SerialNumber: E0C9125B0D9B
+   .. container:: highlight-console notranslate literal-block
+
+      .. parsed-literal::
+
+         USB device idVendor=\ |rpi_VID|, idProduct=\ |rpi_rp2040_PID|, bcdDevice=\ |rpi_rp2040_BCD|
+         USB device strings: Mfr=1, Product=2, SerialNumber=0
+         Product: |rpi_rp2040_PStr|
+         Manufacturer: |rpi_VStr|
+         SerialNumber: E0C9125B0D9B
 
 The UF2 file should be drag-and-dropped or copied on command line to the
 device, which will then flash the Waveshare RP2040 board.
@@ -566,11 +699,11 @@ exactly 256 bytes of code which is put right at the start of the eventual
 program binary. On Zephyr the :code:`boot2` versions are part of the
 `Raspberry Pi Pico HAL`_ module. Possible selections:
 
-:|CONFIG_RP2_FLASH_AT25SF128A|: :file:`boot2_at25sf128a.S`
-:|CONFIG_RP2_FLASH_GENERIC_03H|: :file:`boot2_generic_03h.S`
-:|CONFIG_RP2_FLASH_IS25LP080|: :file:`boot2_is25lp080.S`
-:|CONFIG_RP2_FLASH_W25Q080|: :file:`boot2_w25q080.S`
-:|CONFIG_RP2_FLASH_W25X10CL|: :file:`boot2_w25x10cl.S`
+:|CONFIG_RP2_FLASH_AT25SF128A|: |boot2_at25sf128a.S|_
+:|CONFIG_RP2_FLASH_GENERIC_03H|: |boot2_generic_03h.S|_
+:|CONFIG_RP2_FLASH_IS25LP080|: |boot2_is25lp080.S|_
+:|CONFIG_RP2_FLASH_W25Q080|: |boot2_w25q080.S|_
+:|CONFIG_RP2_FLASH_W25X10CL|: |boot2_w25x10cl.S|_
 
 All Waveshare RP2040 boards set this option to |CONFIG_RP2_FLASH_W25Q080|.
 Further information can be found in the `RP2040 Datasheet`_, sections with
@@ -599,12 +732,14 @@ Using OpenOCD
 
 To use `PicoProbe`_ or `Raspberry Pi Debug Probe`_, you must configure
 :program:`udev`. Create a file in :file:`/etc/udev.rules.d` with any name,
-and write the line below.
+and write the line below:
 
-.. code-block:: bash
+   .. container:: highlight highlight-none notranslate literal-block
 
-   ATTRS{idVendor}=="2e8a", ATTRS{idProduct}=="0004", MODE="660", GROUP="plugdev", TAG+="uaccess"
-   ATTRS{idVendor}=="2e8a", ATTRS{idProduct}=="000c", MODE="660", GROUP="plugdev", TAG+="uaccess"
+      .. parsed-literal::
+
+         ATTRS{idVendor}=="2e8a", ATTRS{idProduct}=="0004", MODE="660", GROUP="plugdev", TAG+="uaccess"
+         ATTRS{idVendor}=="2e8a", ATTRS{idProduct}=="000c", MODE="660", GROUP="plugdev", TAG+="uaccess"
 
 This example is valid for the case that the user joins to :code:`plugdev`
 groups.
@@ -748,7 +883,7 @@ LED Blinky and Fade
          :alt: Waveshare RP2040-One WS2812 LED Test Pattern
 
       .. zephyr-app-commands::
-         :app: zephyr/samples/drivers/led_strip
+         :app: zephyr/samples/drivers/led/led_strip
          :board: waveshare_rp2040_one
          :build-dir: waveshare_rp2040
          :west-args: -p
@@ -773,7 +908,7 @@ LED Blinky and Fade
          :alt: Waveshare RP2040-Zero WS2812 LED Test Pattern
 
       .. zephyr-app-commands::
-         :app: zephyr/samples/drivers/led_strip
+         :app: zephyr/samples/drivers/led/led_strip
          :board: waveshare_rp2040_zero
          :build-dir: waveshare_rp2040
          :west-args: -p
@@ -798,7 +933,7 @@ LED Blinky and Fade
          :alt: Waveshare RP2040-Matrix WS2812 LED Test Pattern
 
       .. zephyr-app-commands::
-         :app: zephyr/samples/drivers/led_strip
+         :app: zephyr/samples/drivers/led/led_strip
          :board: waveshare_rp2040_matrix
          :build-dir: waveshare_rp2040
          :west-args: -p
@@ -823,7 +958,7 @@ LED Blinky and Fade
          :alt: Waveshare RP2040-Tiny WS2812 LED Test Pattern
 
       .. zephyr-app-commands::
-         :app: zephyr/samples/drivers/led_strip
+         :app: zephyr/samples/drivers/led/led_strip
          :board: waveshare_rp2040_tiny
          :build-dir: waveshare_rp2040
          :west-args: -p
@@ -848,7 +983,7 @@ LED Blinky and Fade
          :alt: Waveshare RP2040-ETH WS2812 LED Test Pattern
 
       .. zephyr-app-commands::
-         :app: zephyr/samples/drivers/led_strip
+         :app: zephyr/samples/drivers/led/led_strip
          :board: waveshare_rp2040_eth
          :build-dir: waveshare_rp2040
          :west-args: -p
@@ -1322,90 +1457,95 @@ board. They will be built with activated USB-CDC/ACM console.
       any files or directories present in the card, the sample lists them out
       on the console, e.g.:
 
-      * :bbl:`(optional)` Boot Sector:
-        :strong:`MBR` :emphasis:`(Master Boot Record)`
-      * :bbl:`(optional)` 1st Primary Partition:
-        :strong:`W95 FAT32 (LBA)` :emphasis:`(ID: 0x0C)`
-      * FAT File System: :strong:`FAT (32-bit version)`
-      * Content: :download:`rp2040-geek/RP2040-GEEK.bmp`
+         * :bbl:`(optional)` Boot Sector:
+           :strong:`MBR` :emphasis:`(Master Boot Record)`
+         * :bbl:`(optional)` 1st Primary Partition:
+           :strong:`W95 FAT32 (LBA)` :emphasis:`(ID: 0x0C)`
+         * FAT File System: :strong:`FAT (32-bit version)`
+         * Content: :download:`rp2040-geek/RP2040-GEEK.bmp`
 
       .. rubric:: Simple logging output on target
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate no-copybutton
 
-         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-         [00:00:00.464,000] :byl:`<wrn> udc_rpi: BUS RESET`
-         [00:00:00.548,000] :byl:`<wrn> udc_rpi: BUS RESET`
-         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
-         [00:00:04.269,000] <inf> main: Block count 15759360
-         Sector size 512
-         Memory Size(MB) 7695
-         Disk mounted.
+         .. parsed-literal::
 
-         Listing dir /SD: ...
-         [FILE] RP2040~1.BMP (size = 97254)
+            \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+            [00:00:00.464,000] :byl:`<wrn> udc_rpi: BUS RESET`
+            [00:00:00.548,000] :byl:`<wrn> udc_rpi: BUS RESET`
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+            [00:00:04.269,000] <inf> main: Block count 15759360
+            Sector size 512
+            Memory Size(MB) 7695
+            Disk mounted.
+
+            Listing dir /SD: ...
+            [FILE] RP2040~1.BMP (size = 97254)
 
       In case when no files could be listed, because there are none (empty FS),
       :file:`some.dir` directory and :file:`other.txt` file will be created and
       list will run again to show them, e.g.:
 
-      * :bbl:`(optional)` Boot Sector:
-        :strong:`MBR` :emphasis:`(Master Boot Record)`
-      * :bbl:`(optional)` 1st Primary Partition:
-        :strong:`W95 FAT32 (LBA)` :emphasis:`(ID: 0x0C)`
-      * FAT File System: :strong:`FAT (32-bit version)`
-      * Content: :brd:`NONE (empty FS)`
+         * :bbl:`(optional)` Boot Sector:
+           :strong:`MBR` :emphasis:`(Master Boot Record)`
+         * :bbl:`(optional)` 1st Primary Partition:
+           :strong:`W95 FAT32 (LBA)` :emphasis:`(ID: 0x0C)`
+         * FAT File System: :strong:`FAT (32-bit version)`
+         * Content: :brd:`NONE (empty FS)`
 
       .. rubric:: Simple logging output on target
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate no-copybutton
 
-         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-         [00:00:00.326,000] :byl:`<wrn> udc_rpi: BUS RESET`
-         [00:00:00.406,000] :byl:`<wrn> udc_rpi: BUS RESET`
-         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
-         [00:00:04.192,000] <inf> main: Block count 15759360
-         Sector size 512
-         Memory Size(MB) 7695
-         Disk mounted.
+         .. parsed-literal::
 
-         Listing dir /SD: ...
-         [00:00:04.317,000] <inf> main: Creating some dir entries in /SD:
+            \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+            [00:00:00.326,000] :byl:`<wrn> udc_rpi: BUS RESET`
+            [00:00:00.406,000] :byl:`<wrn> udc_rpi: BUS RESET`
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+            [00:00:04.192,000] <inf> main: Block count 15759360
+            Sector size 512
+            Memory Size(MB) 7695
+            Disk mounted.
 
-         Listing dir /SD: ...
-         [FILE] SOME.DAT (size = 0)
-         [DIR ] SOME
+            Listing dir /SD: ...
+            [00:00:04.317,000] <inf> main: Creating some dir entries in /SD:
+
+            Listing dir /SD: ...
+            [FILE] SOME.DAT (size = 0)
+            [DIR ] SOME
 
       In there is no FS (or the FS is corrupted), the disk is attempted
       to re-format to FAT FS and list will run again to show them, e.g.:
 
-      * Boot Sector: :brd:`NONE (empty boot sector, no partition table)`
-        – :bbl:`(optional)` :strong:`MBR` :emphasis:`(Master Boot Record)`
-      * 1st Primary Partition: :brd:`NONE (empty partition table entry)`
-        – :bbl:`(optional)` :strong:`W95 FAT32 (LBA)` :emphasis:`(ID: 0x0C)`
-      * FAT File System: :brd:`NONE (empty partition)`
-      * Content: :brd:`NONE (empty FS)`
+         * Boot Sector: :brd:`NONE (empty boot sector, no partition table)`
+           – :bbl:`(optional)` :strong:`MBR` :emphasis:`(Master Boot Record)`
+         * 1st Primary Partition: :brd:`NONE (empty partition table entry)`
+           – :bbl:`(optional)` :strong:`W95 FAT32 (LBA)` :emphasis:`(ID: 0x0C)`
+         * FAT File System: :brd:`NONE (empty partition)`
+         * Content: :brd:`NONE (empty FS)`
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. rubric:: Simple logging output on target
 
-         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-         [00:00:00.367,000] :byl:`<wrn> udc_rpi: BUS RESET`
-         [00:00:00.447,000] :byl:`<wrn> udc_rpi: BUS RESET`
-         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
-         [00:00:04.236,000] <inf> main: Block count 15759360
-         Sector size 512
-         Memory Size(MB) 7695
-         Disk mounted.
+      .. container:: highlight highlight-console notranslate no-copybutton
 
-         Listing dir /SD: ...
-         [00:00:11.844,000] <inf> main: Creating some dir entries in /SD:
+         .. parsed-literal::
 
-         Listing dir /SD: ...
-         [FILE] SOME.DAT (size = 0)
-         [DIR ] SOME
+            \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+            [00:00:00.367,000] :byl:`<wrn> udc_rpi: BUS RESET`
+            [00:00:00.447,000] :byl:`<wrn> udc_rpi: BUS RESET`
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+            [00:00:04.236,000] <inf> main: Block count 15759360
+            Sector size 512
+            Memory Size(MB) 7695
+            Disk mounted.
+
+            Listing dir /SD: ...
+            [00:00:11.844,000] <inf> main: Creating some dir entries in /SD:
+
+            Listing dir /SD: ...
+            [FILE] SOME.DAT (size = 0)
+            [DIR ] SOME
 
       .. tsn-include:: samples/subsys/fs/fs_sample/README.rst
          :docset: zephyr
