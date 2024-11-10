@@ -61,7 +61,7 @@ LED Blinky and Fade
          .. group-tab:: Raspberry Pi Pico
 
             .. zephyr-app-commands::
-               :app: zephyr/samples/drivers/led_strip
+               :app: zephyr/samples/drivers/led/led_strip
                :build-dir: waveshare_pico_rgb_led-strip_test
                :board: rpi_pico
                :shield: waveshare_pico_rgb_led
@@ -73,7 +73,7 @@ LED Blinky and Fade
          .. group-tab:: Raspberry Pi Pico W
 
             .. zephyr-app-commands::
-               :app: zephyr/samples/drivers/led_strip
+               :app: zephyr/samples/drivers/led/led_strip
                :build-dir: waveshare_pico_rgb_led-strip_test
                :board: rpi_pico/rp2040/w
                :shield: waveshare_pico_rgb_led
@@ -85,7 +85,7 @@ LED Blinky and Fade
          .. group-tab:: Waveshare RP2040-LCD-0.96
 
             .. zephyr-app-commands::
-               :app: zephyr/samples/drivers/led_strip
+               :app: zephyr/samples/drivers/led/led_strip
                :build-dir: waveshare_pico_rgb_led-strip_test
                :board: waveshare_rp2040_lcd_0_96
                :shield: waveshare_pico_rgb_led
@@ -99,7 +99,7 @@ LED Blinky and Fade
             .. rubric:: on standard ``4㎆`` revision
 
             .. zephyr-app-commands::
-               :app: zephyr/samples/drivers/led_strip
+               :app: zephyr/samples/drivers/led/led_strip
                :build-dir: waveshare_pico_rgb_led-strip_test
                :board: waveshare_rp2040_plus
                :shield: waveshare_pico_rgb_led
@@ -111,7 +111,7 @@ LED Blinky and Fade
             .. rubric:: on extended ``16㎆`` revision
 
             .. zephyr-app-commands::
-               :app: zephyr/samples/drivers/led_strip
+               :app: zephyr/samples/drivers/led/led_strip
                :build-dir: waveshare_pico_rgb_led-strip_test
                :board: waveshare_rp2040_plus@16mb
                :shield: waveshare_pico_rgb_led
@@ -122,15 +122,16 @@ LED Blinky and Fade
 
       .. rubric:: Simple logging output on target
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate no-copybutton
 
-         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-         [00:00:00.337,000] :byl:`<wrn> udc_rpi: BUS RESET`
-         [00:00:00.417,000] :byl:`<wrn> udc_rpi: BUS RESET`
-         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
-         [00:00:04.002,000] <inf> main: Found LED strip device rgb-led-strip
-         [00:00:04.002,000] <inf> main: Displaying pattern on strip
+         .. parsed-literal::
+
+            \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+            [00:00:00.337,000] :byl:`<wrn> udc_rpi: BUS RESET`
+            [00:00:00.417,000] :byl:`<wrn> udc_rpi: BUS RESET`
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+            [00:00:04.002,000] <inf> main: Found LED strip device rgb-led-strip
+            [00:00:04.002,000] <inf> main: Displaying pattern on strip
 
       .. hint::
 
@@ -227,14 +228,15 @@ RGB bit order. See also Zephyr sample: :zephyr:code-sample:`display`.
 
       .. rubric:: Simple logging output on target
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate no-copybutton
 
-         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-         [00:00:00.337,000] :byl:`<wrn> udc_rpi: BUS RESET`
-         [00:00:00.417,000] :byl:`<wrn> udc_rpi: BUS RESET`
-         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
-         [00:00:04.002,000] <inf> sample: Display sample for rgb-led-strip-matrix
+         .. parsed-literal::
+
+            \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+            [00:00:00.337,000] :byl:`<wrn> udc_rpi: BUS RESET`
+            [00:00:00.417,000] :byl:`<wrn> udc_rpi: BUS RESET`
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+            [00:00:04.002,000] <inf> sample: Display sample for rgb-led-strip-matrix
 
 References
 **********
