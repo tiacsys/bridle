@@ -90,6 +90,7 @@ with open(os.path.join(ZEPHYR_BASE, 'VERSION')) as f:
     else:
         major, minor, patch, tweak, extra = m.groups(1)
         zephyr_release = zephyr_version = zephyr_longversion = ".".join((major, minor, patch))
+        zephyr_urb_bcddevice = '{:d}.{:02d}'.format(int(major), int(minor))
         if tweak:
             zephyr_longversion += "." + tweak
         if extra:
@@ -100,6 +101,7 @@ with open(os.path.join(ZEPHYR_BASE, 'VERSION')) as f:
 logcfg = sphinx.util.logging.getLogger(__name__)
 logcfg.info(project + ' ' + release + ' (' + longversion + ')', color='yellow')
 logcfg.info('With Zephyr {} ({})'.format(zephyr_release, zephyr_longversion), color='green')
+logcfg.info('With URB bcdDevice "{}"'.format(zephyr_urb_bcddevice), color='green')
 logcfg.info('Build with tags: ' + ':'.join(map(str, tags)), color='red')
 logcfg.info('BRIDLE_BASE is: "{}"'.format(BRIDLE_BASE), color='green')
 logcfg.info('BRIDLE_WORKD is: "{}"'.format(BRIDLE_WORKD), color='yellow')
@@ -222,6 +224,7 @@ rst_epilog = '''
 .. |zephyr_longversion_number| replace:: {zephyr_longversion}
 .. |zephyr_longversion_number_tt| replace:: ``{zephyr_longversion}``
 .. |zephyr_longversion_number_em| replace:: *{zephyr_longversion}*
+.. |zephyr_version_BCD| replace:: |nbsp| :bbl:`{zephyr_urb_bcddevice}`
 '''.format(
     release = release,
     version = version,
@@ -229,6 +232,7 @@ rst_epilog = '''
     zephyr_release = zephyr_release,
     zephyr_version = zephyr_version,
     zephyr_longversion = zephyr_longversion,
+    zephyr_urb_bcddevice = zephyr_urb_bcddevice,
 )
 
 # Options for HTML output ------------------------------------------------------
