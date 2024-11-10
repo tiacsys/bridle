@@ -26,13 +26,15 @@ out onto 14 pins.
 Hardware
 ********
 
-- `ATSAMD21G18A`_ ARM Cortex-M0+ processor at 48 MHz
-- 32.768 kHz crystal oscillator
-- 256 KiB flash memory and 32 KiB of RAM
-- 3 user LEDs (L/Rx/Tx)
-- One reset pad (solderable), beside an free GND pad
-- |Seeed XIAO| header
-- Native USB port
+   .. rst-class:: rst-columns
+
+   - `ATSAMD21G18A`_ ARM Cortex-M0+ processor at 48 MHz
+   - 32.768 kHz crystal oscillator
+   - 256 KiB flash memory and 32 KiB of RAM
+   - 3 user LEDs (L/Rx/Tx)
+   - One reset pad (solderable), beside an free GND pad
+   - |Seeed XIAO| header
+   - Native USB port
 
 Supported Features
 ==================
@@ -40,37 +42,90 @@ Supported Features
 The :code:`xiao_samd21` board configuration supports the following
 hardware features:
 
-+-----------+------------+------------------------------------------+
-| Interface | Controller | Driver/Component                         |
-+===========+============+==========================================+
-| ADC       | on-chip    | Analogue to digital converter            |
-+-----------+------------+------------------------------------------+
-| DAC       | on-chip    | Digital to analogue converter            |
-+-----------+------------+------------------------------------------+
-| DMA       | on-chip    | Direct memory access                     |
-+-----------+------------+------------------------------------------+
-| Flash     | on-chip    | Can be used with LittleFS to store files |
-+-----------+------------+------------------------------------------+
-| GPIO      | on-chip    | I/O ports                                |
-+-----------+------------+------------------------------------------+
-| HWINFO    | on-chip    | Hardware info                            |
-+-----------+------------+------------------------------------------+
-| I2C       | on-chip    | Inter-Integrated Circuit                 |
-+-----------+------------+------------------------------------------+
-| NVIC      | on-chip    | nested vector interrupt controller       |
-+-----------+------------+------------------------------------------+
-| PWM       | on-chip    | Pulse Width Modulation                   |
-+-----------+------------+------------------------------------------+
-| SPI       | on-chip    | Serial Peripheral Interface ports        |
-+-----------+------------+------------------------------------------+
-| SYSTICK   | on-chip    | systick                                  |
-+-----------+------------+------------------------------------------+
-| USART     | on-chip    | Serial ports                             |
-+-----------+------------+------------------------------------------+
-| USB       | on-chip    | USB device                               |
-+-----------+------------+------------------------------------------+
-| WDT       | on-chip    | Watchdog                                 |
-+-----------+------------+------------------------------------------+
+.. list-table:: Hardware Features Supported by Zephyr
+   :class: longtable
+   :align: center
+   :header-rows: 1
+
+   * - Peripheral
+     - Kconfig option
+     - Devicetree compatible
+     - Zephyr API
+   * - PINCTRL
+     - :kconfig:option:`CONFIG_PINCTRL`
+     - :dtcompatible:`atmel,sam0-pinctrl`
+     - :zephyr:ref:`pinctrl_api`
+   * - GPIO
+     - :kconfig:option:`CONFIG_GPIO`
+     - :dtcompatible:`atmel,sam0-gpio`
+     - :zephyr:ref:`gpio_api`
+   * - UART
+     - :kconfig:option:`CONFIG_SERIAL`
+     - :dtcompatible:`atmel,sam0-uart`
+     - :zephyr:ref:`uart_api`
+   * - UDC (USB Device Controller)
+     - :kconfig:option:`CONFIG_USB_DEVICE_STACK`
+     - :dtcompatible:`atmel,sam0-usb`
+     - :zephyr:ref:`usb_api`
+   * - I2C
+     - :kconfig:option:`CONFIG_I2C`
+     - :dtcompatible:`atmel,sam0-i2c`
+     - :zephyr:ref:`i2c_api`
+   * - SPI
+     - :kconfig:option:`CONFIG_SPI`
+     - :dtcompatible:`atmel,sam0-spi`
+     - :zephyr:ref:`spi_api`
+   * - PWM
+     - :kconfig:option:`CONFIG_PWM`
+     - :dtcompatible:`atmel,sam0-tcc-pwm`
+     - :zephyr:ref:`pwm_api`
+   * - DAC
+     - :kconfig:option:`CONFIG_DAC`
+     - :dtcompatible:`atmel,sam0-dac`
+     - :zephyr:ref:`dac_api`
+   * - ADC
+     - :kconfig:option:`CONFIG_ADC`
+     - :dtcompatible:`atmel,sam0-adc`
+     - :zephyr:ref:`adc_api`
+   * - RTC
+     - :kconfig:option:`CONFIG_RTC`
+     - :dtcompatible:`atmel,sam0-rtc`
+     - :zephyr:ref:`rtc_api`
+   * - Timer (Counter)
+     - :kconfig:option:`CONFIG_COUNTER`
+     - :dtcompatible:`atmel,sam0-tcc`
+     - :zephyr:ref:`counter_api`
+   * - Watchdog Timer (WDT)
+     - :kconfig:option:`CONFIG_WATCHDOG`
+     - :dtcompatible:`atmel,sam0-watchdog`
+     - :zephyr:ref:`watchdog_api`
+   * - Flash
+     - :kconfig:option:`CONFIG_FLASH`
+     - :dtcompatible:`atmel,sam0-nvmctrl`
+     - :zephyr:ref:`flash_api` and
+       :zephyr:ref:`flash_map_api`
+   * - DMA
+     - :kconfig:option:`CONFIG_DMA`
+     - :dtcompatible:`atmel,sam0-dmac`
+     - :zephyr:ref:`dma_api`
+   * - HWINFO
+     - :kconfig:option:`CONFIG_HWINFO`
+     - :dtcompatible:`atmel,sam0-id`
+     - :zephyr:ref:`hwinfo_api`
+   * - CLOCK / PM
+     - **not supported**
+     - | :dtcompatible:`atmel,samd2x-gclk`
+       | :dtcompatible:`atmel,samd2x-pm`
+     - :zephyr:ref:`clock_control_api`
+   * - NVIC
+     - N/A
+     - | :dtcompatible:`atmel,sam0-eic`
+       | :dtcompatible:`arm,v6m-nvic`
+     - Nested Vector :zephyr:ref:`interrupts_v2` Controller
+   * - SYSTICK
+     - N/A
+     - :dtcompatible:`arm,armv6m-systick`
+     -
 
 Other hardware features are not currently supported by Zephyr.
 
@@ -183,26 +238,34 @@ for more, such as the :zephyr:code-sample:`usb-cdc-acm` sample which sets up
 a virtual serial port that echos characters back to the host PC. As an
 alternative to the default Zephyr console on serial port the Bridle
 :ref:`snippet-usb-console` can be used to enable
-:zephyr:ref:`usb_device_cdc_acm` and switch the console to USB::
+:zephyr:ref:`usb_device_cdc_acm` and switch the console to USB:
 
-   USB device idVendor=2886, idProduct=802f, bcdDevice= 3.07
-   USB device strings: Mfr=1, Product=2, SerialNumber=3
-   Product: XIAO SAMD21 (CDC ACM)
-   Manufacturer: Seeed Studio
-   SerialNumber: AC3FB5052F48A3F7
+   .. container:: highlight-console notranslate literal-block
+
+      .. parsed-literal::
+
+         USB device idVendor=\ |xiao_samd21_VID|, idProduct=\ |xiao_samd21_PID_CON|, bcdDevice=\ |xiao_samd21_BCD_CON|
+         USB device strings: Mfr=1, Product=2, SerialNumber=3
+         Product: |xiao_samd21_PStr_CON|
+         Manufacturer: |xiao_samd21_VStr|
+         SerialNumber: AC3FB5052F48A3F7
 
 Programming and Debugging
 *************************
 
 The XIAO SAMD21 ships the BOSSA compatible `UF2 bootloader`_ also known as
 `Arduino Zero Bootloader`_, a modern `SAM-BA`_ (Boot Assistant) replacement.
-The bootloader can be entered by shorting the RST and GND pads twice::
+The bootloader can be entered by shorting the RST and GND pads twice:
 
-   USB device idVendor=2886, idProduct=002f, bcdDevice=42.01
-   USB device strings: Mfr=1, Product=2, SerialNumber=3
-   Product: Seeeduino XIAO
-   Manufacturer: Seeed Studio
-   SerialNumber: 2601F57F2E175D24AC3FB5052F48A3F7
+   .. container:: highlight-console notranslate literal-block
+
+      .. parsed-literal::
+
+         USB device idVendor=\ |xiao_samd21_VID|, idProduct=\ |xiao_samd21_PID_UF2|, bcdDevice=\ |xiao_samd21_BCD_UF2|
+         USB device strings: Mfr=1, Product=2, SerialNumber=0
+         Product: |xiao_samd21_PStr_UF2|
+         Manufacturer: |xiao_samd21_VStr|
+         SerialNumber: 2601F57F2E175D24AC3FB5052F48A3F7
 
 Additionally, if :kconfig:option:`CONFIG_USB_CDC_ACM` is enabled then the
 bootloader will be entered automatically when you run :code:`west flash`.
@@ -220,8 +283,8 @@ bootloader will be entered automatically when you run :code:`west flash`.
    There is also a backup copy of the original bootloader together with
    a ready to use Segger JFlash control file inside the Bridel project:
 
-   * :bridle_file:`boards/seeed/xiao_samd21/doc/bootloader/samd21_sam_ba.hex`
-   * :bridle_file:`boards/seeed/xiao_samd21/doc/bootloader/samd21_sam_ba.jflash`
+      * :bridle_file:`boards/seeed/xiao_samd21/doc/bootloader/samd21_sam_ba.hex`
+      * :bridle_file:`boards/seeed/xiao_samd21/doc/bootloader/samd21_sam_ba.jflash`
 
 There are also SWD pads on board (PCB bottom side) which have to be
 used with tools like Segger J-Link for programming for bootloader restore
@@ -252,15 +315,15 @@ Flashing
 
    .. code-block:: console
 
-      $ minicom -D /dev/ttyUSB0 -o
+      minicom -D /dev/ttyUSB0 -o
 
-   The -o option tells minicom not to send the modem initialization
+   The :code:`-o` option tells minicom not to send the modem initialization
    string. Connection should be configured as follows:
 
-   - Speed: 115200
-   - Data: 8 bits
-   - Parity: None
-   - Stop bits: 1
+      - Speed: 115200
+      - Data: 8 bits
+      - Parity: None
+      - Stop bits: 1
 
 #. Short the RST and GND pads twice quickly to enter bootloader mode.
 
@@ -350,203 +413,294 @@ Hello Shell with USB-CDC/ACM Console
 
    .. group-tab:: Basics
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **hello -h**
-         hello - say hello
-         :bgn:`uart:~$` **hello**
-         Hello from shell.
+         .. parsed-literal::
 
-         :bgn:`uart:~$` **hwinfo devid**
-         Length: 16
-         ID: 0x2601f57f2e175d24ac3fb5052f48a3f7
+            :bgn:`uart:~$` **hello -h**
+            hello - say hello
+            :bgn:`uart:~$` **hello**
+            Hello from shell.
 
-         :bgn:`uart:~$` **kernel version**
-         Zephyr version |zephyr_version_number_em|
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **bridle version**
-         Bridle version |version_number_em|
+         .. parsed-literal::
 
-         :bgn:`uart:~$` **bridle version long**
-         Bridle version |longversion_number_em|
+            :bgn:`uart:~$` **hwinfo devid**
+            Length: 16
+            ID: 0x2601f57f2e175d24ac3fb5052f48a3f7
 
-         :bgn:`uart:~$` **bridle info**
-         Zephyr: |zephyr_release_number_em|
-         Bridle: |release_number_em|
+            :bgn:`uart:~$` **kernel version**
+            Zephyr version |zephyr_version_number_em|
 
-         :bgn:`uart:~$` **device list**
-         devices:
-         - eic\ @\ 40001800 (READY)
-           DT node labels: eic
-         - gpio\ @\ 41004480 (READY)
-           DT node labels: portb
-         - gpio\ @\ 41004400 (READY)
-           DT node labels: porta
-         - snippet_cdc_acm_console_uart (READY)
-           DT node labels: snippet_cdc_acm_console_uart
-         - sercom\ @\ 42001800 (READY)
-           DT node labels: sercom4 xiao_serial
-         - adc\ @\ 42004000 (READY)
-           DT node labels: adc
-         - dac\ @\ 42004800 (READY)
-           DT node labels: dac0 xiao_dac
-         - nvmctrl\ @\ 41004000 (READY)
-           DT node labels: nvmctrl
-         - sercom\ @\ 42001000 (READY)
-           DT node labels: sercom2 xiao_i2c
-         - tcc\ @\ 42002800 (READY)
-           DT node labels: tcc2
-         - leds (READY)
+            :bgn:`uart:~$` **bridle version**
+            Bridle version |version_number_em|
 
-         :bgn:`uart:~$` **history**
-         [  0] history
-         [  1] device list
-         [  2] bridle info
-         [  3] bridle version long
-         [  4] bridle version
-         [  5] kernel version
-         [  6] hwinfo devid
-         [  7] hello
-         [  8] hello -h
+            :bgn:`uart:~$` **bridle version long**
+            Bridle version |longversion_number_em|
+
+            :bgn:`uart:~$` **bridle info**
+            Zephyr: |zephyr_release_number_em|
+            Bridle: |release_number_em|
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **device list**
+            devices:
+            - eic\ @\ 40001800 (READY)
+              DT node labels: eic
+            - gpio\ @\ 41004480 (READY)
+              DT node labels: portb
+            - gpio\ @\ 41004400 (READY)
+              DT node labels: porta
+            - snippet_cdc_acm_console_uart (READY)
+              DT node labels: snippet_cdc_acm_console_uart
+            - sercom\ @\ 42001800 (READY)
+              DT node labels: sercom4 xiao_serial
+            - adc\ @\ 42004000 (READY)
+              DT node labels: adc
+            - dac\ @\ 42004800 (READY)
+              DT node labels: dac0 xiao_dac
+            - nvmctrl\ @\ 41004000 (READY)
+              DT node labels: nvmctrl
+            - sercom\ @\ 42001000 (READY)
+              DT node labels: sercom2 xiao_i2c
+            - tcc\ @\ 42002800 (READY)
+              DT node labels: tcc2
+            - leds (READY)
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **history**
+            [  0] history
+            [  1] device list
+            [  2] bridle info
+            [  3] bridle version long
+            [  4] bridle version
+            [  5] kernel version
+            [  6] hwinfo devid
+            [  7] hello
+            [  8] hello -h
 
    .. group-tab:: GPIO
 
       Operate with the red Rx user LED:
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **gpio get gpio@41004400 18**
-         0
+         .. parsed-literal::
 
-         :bgn:`uart:~$` **gpio conf gpio@41004400 18 ol0**
+            :bgn:`uart:~$` **gpio get gpio@41004400 18**
+            0
 
-         :bgn:`uart:~$` **gpio set gpio@41004400 18 1**
-         :bgn:`uart:~$` **gpio set gpio@41004400 18 0**
+            :bgn:`uart:~$` **gpio conf gpio@41004400 18 ol0**
 
-         :bgn:`uart:~$` **gpio blink gpio@41004400 18**
-         Hit any key to exit
+            :bgn:`uart:~$` **gpio set gpio@41004400 18 1**
+            :bgn:`uart:~$` **gpio set gpio@41004400 18 0**
+
+            :bgn:`uart:~$` **gpio blink gpio@41004400 18**
+            Hit any key to exit
 
    .. group-tab:: PWM
 
       Operate with the blue user LED:
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 20000**
-         :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 19000**
-         :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 18000**
-         :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 17000**
-         :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 16000**
-         :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 15000**
-         :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 10000**
-         :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 5000**
-         :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 2500**
-         :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 500**
-         :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 0**
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 20000**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 19000**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 18000**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 17000**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 16000**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 15000**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 10000**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 5000**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 2500**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 500**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 0**
 
    .. group-tab:: DAC/ADC
 
       Operate with the loop-back wire from A0 (DAC CH0 VOUT)
       to A1 (ADC CH2 AIN):
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **dac setup dac@42004800 0 10**
-         :bgn:`uart:~$` **adc adc@42004000 resolution 12**
-         :bgn:`uart:~$` **adc adc@42004000 acq_time 10 us**
-         :bgn:`uart:~$` **adc adc@42004000 channel positive 4**
+         .. parsed-literal::
 
-         :bgn:`uart:~$` **dac write_value dac@42004800 0 512**
-         :bgn:`uart:~$` **adc adc@42004000 read 4**
-         read: 2028
+            :bgn:`uart:~$` **dac setup dac@42004800 0 10**
+            :bgn:`uart:~$` **adc adc@42004000 resolution 12**
+            :bgn:`uart:~$` **adc adc@42004000 acq_time 10 us**
+            :bgn:`uart:~$` **adc adc@42004000 channel positive 4**
 
-         :bgn:`uart:~$` **dac write_value dac@42004800 0 1023**
-         :bgn:`uart:~$` **adc adc@42004000 read 4**
-         read: 4054
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **dac write_value dac@42004800 0 512**
+            :bgn:`uart:~$` **adc adc@42004000 read 4**
+            read: 2028
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **dac write_value dac@42004800 0 1023**
+            :bgn:`uart:~$` **adc adc@42004000 read 4**
+            read: 4054
 
    .. group-tab:: Flash access
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **flash read nvmctrl@41004000 13288 40**
-         00013288: 78 69 61 6f 5f 73 61 6d  64 32 31 00 48 65 6c 6c \|xiao_sam d21.Hell\|
-         00013298: 6f 20 57 6f 72 6c 64 21  20 49 27 6d 20 54 48 45 \|o World!  I'm THE\|
-         000132A8: 20 53 48 45 4c 4c 20 66  72 6f 6d 20 25 73 0a 00 \| SHELL f rom %s..\|
-         000132B8: 28 75 6e 73 69 67 6e 65  64 29 20 63 68 61 72 20 \|(unsigne d) char \|
+         .. parsed-literal::
 
-         :bgn:`uart:~$` **flash read nvmctrl@41004000 3c000 40**
-         0003C000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
-         0003C010: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
-         0003C020: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
-         0003C030: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+            :bgn:`uart:~$` **flash read nvmctrl@41004000 134c0 40**
+            000134C0: 78 69 61 6f 5f 73 61 6d  64 32 31 00 48 65 6c 6c \|xiao_sam d21.Hell\|
+            000134D0: 6f 20 57 6f 72 6c 64 21  20 49 27 6d 20 54 48 45 \|o World!  I'm THE\|
+            000134E0: 20 53 48 45 4c 4c 20 66  72 6f 6d 20 25 73 0a 00 \| SHELL f rom %s..\|
+            000134F0: 28 75 6e 73 69 67 6e 65  64 29 20 63 68 61 72 20 \|(unsigne d) char \|
 
-         :bgn:`uart:~$` **flash test nvmctrl@41004000 3c000 400 2**
-         Erase OK.
-         Write OK.
-         Verified OK.
-         Erase OK.
-         Write OK.
-         Verified OK.
-         Erase-Write-Verify test done.
+      .. rubric:: Erase, Write and Verify
 
-         :bgn:`uart:~$` **flash read nvmctrl@41004000 3c000 40**
-         0003C000: 00 01 02 03 04 05 06 07  08 09 0a 0b 0c 0d 0e 0f \|........ ........\|
-         0003C010: 10 11 12 13 14 15 16 17  18 19 1a 1b 1c 1d 1e 1f \|........ ........\|
-         0003C020: 20 21 22 23 24 25 26 27  28 29 2a 2b 2c 2d 2e 2f \| !"#$%&' ()*+,-./\|
-         0003C030: 30 31 32 33 34 35 36 37  38 39 3a 3b 3c 3d 3e 3f \|01234567 89:;<=>?\|
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **flash page_info 3c000**
-         Page for address 0x3c000:
-         start offset: 0x3c000
-         size: 256
-         index: 960
+         .. parsed-literal::
 
-         :bgn:`uart:~$` **flash erase nvmctrl@41004000 3c000 400**
-         Erase success.
+            :bgn:`uart:~$` **flash read nvmctrl@41004000 3c000 40**
+            0003C000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+            0003C010: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+            0003C020: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+            0003C030: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
 
-         :bgn:`uart:~$` **flash read nvmctrl@41004000 3c000 40**
-         0003C000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
-         0003C010: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
-         0003C020: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
-         0003C030: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+            :bgn:`uart:~$` **flash test nvmctrl@41004000 3c000 400 2**
+            Erase OK.
+            Write OK.
+            Verified OK.
+            Erase OK.
+            Write OK.
+            Verified OK.
+            Erase-Write-Verify test done.
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **flash read nvmctrl@41004000 3c000 40**
+            0003C000: 00 01 02 03 04 05 06 07  08 09 0a 0b 0c 0d 0e 0f \|........ ........\|
+            0003C010: 10 11 12 13 14 15 16 17  18 19 1a 1b 1c 1d 1e 1f \|........ ........\|
+            0003C020: 20 21 22 23 24 25 26 27  28 29 2a 2b 2c 2d 2e 2f \| !"#$%&' ()*+,-./\|
+            0003C030: 30 31 32 33 34 35 36 37  38 39 3a 3b 3c 3d 3e 3f \|01234567 89:;<=>?\|
+
+            :bgn:`uart:~$` **flash page_info 3c000**
+            Page for address 0x3c000:
+            start offset: 0x3c000
+            size: 256
+            index: 960
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **flash erase nvmctrl@41004000 3c000 400**
+            Erase success.
+
+            :bgn:`uart:~$` **flash read nvmctrl@41004000 3c000 40**
+            0003C000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+            0003C010: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+            0003C020: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+            0003C030: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
 
    .. group-tab:: I2C
 
       The XIAO SAMD21 (Seeeduino XIAO) has no on-board I2C devices.
       For this example the |Grove BMP280 Sensor|_ was connected.
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **log enable none i2c_sam0**
+         .. parsed-literal::
 
-         :bgn:`uart:~$` **i2c scan sercom@42001000**
-              0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
-         00:             -- -- -- -- -- -- -- -- -- -- -- --
-         10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-         20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-         30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-         40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-         50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-         60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-         70: -- -- -- -- -- -- -- 77
-         1 devices found on sercom\ @\ 42001000
+            :bgn:`uart:~$` **log enable none i2c_sam0**
 
-         :bgn:`uart:~$` **log enable inf i2c_sam0**
+            :bgn:`uart:~$` **i2c scan sercom@42001000**
+                 0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+            00:             -- -- -- -- -- -- -- -- -- -- -- --
+            10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            70: -- -- -- -- -- -- -- 77
+            1 devices found on sercom\ @\ 42001000
+
+            :bgn:`uart:~$` **log enable inf i2c_sam0**
 
       The I2C address ``0x77`` is a Bosch BMP280 Air Pressure Sensor and their
       Chip-ID can read from register ``0xd0``. The Chip-ID must be ``0x58``:
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **i2c read_byte sercom@42001000 77 d0**
-         Output: 0x58
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **i2c read_byte sercom@42001000 77 d0**
+            Output: 0x58
 
 References
 **********
