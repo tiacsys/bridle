@@ -6,72 +6,85 @@
 
    .. group-tab:: Basics
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **hello -h**
-         hello - say hello
-         :bgn:`uart:~$` **hello**
-         Hello from shell.
+         .. parsed-literal::
 
-         :bgn:`uart:~$` **hwinfo devid**
-         Length: 8
-         ID: 0x8c998be1de969148
+            :bgn:`uart:~$` **hello -h**
+            hello - say hello
+            :bgn:`uart:~$` **hello**
+            Hello from shell.
 
-         :bgn:`uart:~$` **kernel version**
-         Zephyr version |zephyr_version_number_em|
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **bridle version**
-         Bridle version |version_number_em|
+         .. parsed-literal::
 
-         :bgn:`uart:~$` **bridle version long**
-         Bridle version |longversion_number_em|
+            :bgn:`uart:~$` **hwinfo devid**
+            Length: 8
+            ID: 0x8c998be1de969148
 
-         :bgn:`uart:~$` **bridle info**
-         Zephyr: |zephyr_release_number_em|
-         Bridle: |release_number_em|
+            :bgn:`uart:~$` **kernel version**
+            Zephyr version |zephyr_version_number_em|
 
-         :bgn:`uart:~$` **device list**
-         devices:
-         - clock-controller\ @\ 40008000 (READY)
-           DT node labels: clocks
-         - reset-controller\ @\ 4000c000 (READY)
-           DT node labels: reset
-         - snippet_cdc_acm_console_uart (READY)
-           DT node labels: snippet_cdc_acm_console_uart
-         - uart\ @\ 40034000 (READY)
-           DT node labels: uart0 pico_serial rpipico_serial
-         - timer\ @\ 40054000 (READY)
-           DT node labels: timer
-         - pio\ @\ 50200000 (READY)
-           DT node labels: ((pio_hw_t \*)0x50200000u) pico_pio0 rpipico_pio
-         - gpio\ @\ 40014000 (READY)
-           DT node labels: gpio0
-         - adc\ @\ 4004c000 (READY)
-           DT node labels: adc pico_adc rpipico_adc
-         - flash-controller\ @\ 18000000 (READY)
-           DT node labels: ssi
-         - i2c\ @\ 40044000 (READY)
-           DT node labels: i2c0 pico_i2c pico_i2c0 rpipico_i2c rpipico_i2c0 rpipico_i2c_tsc
-         - pwm\ @\ 40050000 (READY)
-           DT node labels: pwm pico_pwm rpipico_pwm
-         - vreg\ @\ 40064000 (READY)
-           DT node labels: vreg
-         - rtc\ @\ 4005c000 (READY)
-           DT node labels: rtc
-         - pwm_leds (READY)
-           DT node labels: pwm_leds
+            :bgn:`uart:~$` **bridle version**
+            Bridle version |version_number_em|
 
-         :bgn:`uart:~$` **history**
-         [  0] history
-         [  1] device list
-         [  2] bridle info
-         [  3] bridle version long
-         [  4] bridle version
-         [  5] kernel version
-         [  6] hwinfo devid
-         [  7] hello
-         [  8] hello -h
+            :bgn:`uart:~$` **bridle version long**
+            Bridle version |longversion_number_em|
+
+            :bgn:`uart:~$` **bridle info**
+            Zephyr: |zephyr_release_number_em|
+            Bridle: |release_number_em|
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **device list**
+            devices:
+            - clock-controller\ @\ 40008000 (READY)
+              DT node labels: clocks
+            - reset-controller\ @\ 4000c000 (READY)
+              DT node labels: reset
+            - snippet_cdc_acm_console_uart (READY)
+              DT node labels: snippet_cdc_acm_console_uart
+            - uart\ @\ 40034000 (READY)
+              DT node labels: uart0 pico_serial rpipico_serial
+            - timer\ @\ 40054000 (READY)
+              DT node labels: timer
+            - pio\ @\ 50200000 (READY)
+              DT node labels: ((pio_hw_t \*)0x50200000u) pico_pio0 rpipico_pio
+            - gpio\ @\ 40014000 (READY)
+              DT node labels: gpio0
+            - adc\ @\ 4004c000 (READY)
+              DT node labels: adc pico_adc rpipico_adc
+            - flash-controller\ @\ 18000000 (READY)
+              DT node labels: ssi
+            - i2c\ @\ 40044000 (READY)
+              DT node labels: i2c0 pico_i2c pico_i2c0 rpipico_i2c rpipico_i2c0 rpipico_i2c_tsc
+            - pwm\ @\ 40050000 (READY)
+              DT node labels: pwm pico_pwm rpipico_pwm
+            - vreg\ @\ 40064000 (READY)
+              DT node labels: vreg
+            - rtc\ @\ 4005c000 (READY)
+              DT node labels: rtc
+            - pwm_leds (READY)
+              DT node labels: pwm_leds
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **history**
+            [  0] history
+            [  1] device list
+            [  2] bridle info
+            [  3] bridle version long
+            [  4] bridle version
+            [  5] kernel version
+            [  6] hwinfo devid
+            [  7] hello
+            [  8] hello -h
 
    .. group-tab:: LED
 
@@ -84,23 +97,40 @@
 
       Operate with the user LED :hwftlbl-led:`0` at :rpi-pico-pwm:`PWM0`:
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **led on pwm_leds 0**
-         pwm_leds: turning on LED 0
+         .. parsed-literal::
 
-         :bgn:`uart:~$` **led set_brightness pwm_leds 0 10**
-         pwm_leds: setting LED 0 brightness to 10
+            :bgn:`uart:~$` **led on pwm_leds 0**
+            pwm_leds: turning on LED 0
 
-         :bgn:`uart:~$` **led set_brightness pwm_leds 0 50**
-         pwm_leds: setting LED 0 brightness to 50
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **led set_brightness pwm_leds 0 100**
-         pwm_leds: setting LED 0 brightness to 100
+         .. parsed-literal::
 
-         :bgn:`uart:~$` **led off pwm_leds 0**
-         pwm_leds: turning off LED 0
+            :bgn:`uart:~$` **led set_brightness pwm_leds 0 10**
+            pwm_leds: setting LED 0 brightness to 10
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led set_brightness pwm_leds 0 50**
+            pwm_leds: setting LED 0 brightness to 50
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led set_brightness pwm_leds 0 100**
+            pwm_leds: setting LED 0 brightness to 100
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led off pwm_leds 0**
+            pwm_leds: turning off LED 0
 
    .. group-tab:: PWM
 
@@ -113,32 +143,89 @@
 
       Operate with the user LED :hwftlbl-led:`1` at :rpi-pico-pwm:`PWM1`:
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **pwm usec pwm@40050000 1 20000 20000**
-         :bgn:`uart:~$` **pwm usec pwm@40050000 1 20000 19000**
-         :bgn:`uart:~$` **pwm usec pwm@40050000 1 20000 18000**
-         :bgn:`uart:~$` **pwm usec pwm@40050000 1 20000 17000**
-         :bgn:`uart:~$` **pwm usec pwm@40050000 1 20000 16000**
-         :bgn:`uart:~$` **pwm usec pwm@40050000 1 20000 15000**
-         :bgn:`uart:~$` **pwm usec pwm@40050000 1 20000 10000**
-         :bgn:`uart:~$` **pwm usec pwm@40050000 1 20000 5000**
-         :bgn:`uart:~$` **pwm usec pwm@40050000 1 20000 2500**
-         :bgn:`uart:~$` **pwm usec pwm@40050000 1 20000 500**
-         :bgn:`uart:~$` **pwm usec pwm@40050000 1 20000 0**
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm@40050000 1 20000 20000**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm@40050000 1 20000 19000**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm@40050000 1 20000 18000**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm@40050000 1 20000 17000**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm@40050000 1 20000 16000**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm@40050000 1 20000 15000**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm@40050000 1 20000 10000**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm@40050000 1 20000 5000**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm@40050000 1 20000 2500**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm@40050000 1 20000 500**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm@40050000 1 20000 0**
 
       Operate with the :hwftlbl-spk:`PIEZO` buzzer at
       :rpi-pico-pio:`GP13` / :rpi-pico-pwm:`PWM13` (PWM6CHB):
 
-      #. Piezo resonance: 2,500 ㎑
-      #. Piezo high frequency: 10,000 ㎑
+         #. Piezo resonance: 2,500 ㎑
+         #. Piezo high frequency: 10,000 ㎑
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **pwm usec pwm@40050000 13 400 200**
-         :bgn:`uart:~$` **pwm usec pwm@40050000 13 100 50**
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm@40050000 13 400 200**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm@40050000 13 100 50**
 
    .. group-tab:: GPIO
 
@@ -151,51 +238,66 @@
 
       Operate with the user LED :hwftlbl-led:`1` at :rpi-pico-pio:`GP17`:
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **gpio get gpio@40014000 17**
-         0
+         .. parsed-literal::
 
-         :bgn:`uart:~$` **gpio conf gpio@40014000 17 oh0**
-         :bgn:`uart:~$` **gpio set gpio@40014000 17 1**
-         :bgn:`uart:~$` **gpio set gpio@40014000 17 0**
+            :bgn:`uart:~$` **gpio get gpio@40014000 17**
+            0
 
-         :bgn:`uart:~$` **gpio blink gpio@40014000 17**
-         Hit any key to exit
+            :bgn:`uart:~$` **gpio conf gpio@40014000 17 oh0**
+            :bgn:`uart:~$` **gpio set gpio@40014000 17 1**
+            :bgn:`uart:~$` **gpio set gpio@40014000 17 0**
+
+            :bgn:`uart:~$` **gpio blink gpio@40014000 17**
+            Hit any key to exit
 
       Operate with the user key :hwftlbl-btn:`0` at :rpi-pico-pio:`GP14`:
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **gpio get gpio@40014000 14**
-         1
+         .. parsed-literal::
 
-         :bgn:`uart:~$` **gpio conf gpio@40014000 14 iul**
-         :bgn:`uart:~$` **gpio get gpio@40014000 14**
-         0
-         :bgn:`uart:~$` **gpio get gpio@40014000 14**
-         1
-         :bgn:`uart:~$` **gpio get gpio@40014000 14**
-         0
+            :bgn:`uart:~$` **gpio get gpio@40014000 14**
+            1
+
+            :bgn:`uart:~$` **gpio conf gpio@40014000 14 iul**
+            :bgn:`uart:~$` **gpio get gpio@40014000 14**
+            0
+            :bgn:`uart:~$` **gpio get gpio@40014000 14**
+            1
+            :bgn:`uart:~$` **gpio get gpio@40014000 14**
+            0
 
    .. group-tab:: ADC
 
       Operate with the on-shield analog joystick´s :hwftlbl-joy:`X` achsis
       on :rpi-pico-adc:`ADC_CH0`:
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **adc adc@4004c000 resolution 12**
-         :bgn:`uart:~$` **adc adc@4004c000 channel id 0**
+         .. parsed-literal::
 
-         :bgn:`uart:~$` **adc adc@4004c000 read 0**
-         read: 2329
+            :bgn:`uart:~$` **adc adc@4004c000 resolution 12**
+            :bgn:`uart:~$` **adc adc@4004c000 channel id 0**
 
-         :bgn:`uart:~$` **adc adc@4004c000 read 0**
-         read: 316
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **adc adc@4004c000 read 0**
-         read: 4046
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **adc adc@4004c000 read 0**
+            read: 2329
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **adc adc@4004c000 read 0**
+            read: 316
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **adc adc@4004c000 read 0**
+            read: 4046

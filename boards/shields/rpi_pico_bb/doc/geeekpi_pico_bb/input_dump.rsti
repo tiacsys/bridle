@@ -76,47 +76,48 @@ the two user keys, and the two analog joystick achsises using the
 
 .. rubric:: Simple logging output on target
 
-.. parsed-literal::
-   :class: highlight-console notranslate
+.. container:: highlight highlight-console notranslate no-copybutton
 
-   \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-   W: BUS RESET
-   W: BUS RESET
-   \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
-   Input sample started
-   I: input event: dev=xpt2046@0            type= 3 code=  0 value=100
-   I: input event: dev=xpt2046@0            type= 3 code=  1 value=141
-   I: input event: dev=xpt2046@0        SYN type= 1 code=330 value=1
-   I: input event: dev=xpt2046@0        SYN type= 1 code=330 value=0
-   I: input event: dev=gpio_keys        SYN type= 1 code= 11 value=1
-   I: input event: dev=gpio_keys        SYN type= 1 code= 11 value=0
-   I: input event: dev=gpio_keys_longpress SYN type= 1 code=106 value=1
-   I: input event: dev=gpio_keys_longpress SYN type= 1 code=106 value=0
-   I: input event: dev=gpio_keys        SYN type= 1 code=  2 value=1
-   I: input event: dev=gpio_keys        SYN type= 1 code=  2 value=0
-   I: input event: dev=gpio_keys_longpress SYN type= 1 code=108 value=1
-   I: input event: dev=gpio_keys_longpress SYN type= 1 code=108 value=0
-   I: input event: dev=gpio_keys        SYN type= 1 code=  3 value=1
-   I: input event: dev=gpio_keys        SYN type= 1 code=  3 value=0
-   I: input event: dev=gpio_keys_longpress SYN type= 1 code=103 value=1
-   I: input event: dev=gpio_keys_longpress SYN type= 1 code=103 value=0
-   I: input event: dev=gpio_keys        SYN type= 1 code=  4 value=1
-   I: input event: dev=gpio_keys        SYN type= 1 code=  4 value=0
-   I: input event: dev=gpio_keys_longpress SYN type= 1 code=105 value=1
-   I: input event: dev=gpio_keys_longpress SYN type= 1 code=105 value=0
-   I: input event: dev=gpio_keys        SYN type= 1 code= 11 value=1
-   I: input event: dev=gpio_keys_longpress SYN type= 1 code= 28 value=1
-   I: input event: dev=gpio_keys        SYN type= 1 code= 11 value=0
-   I: input event: dev=gpio_keys_longpress SYN type= 1 code= 28 value=0
-   I: input event: dev=gpio_keys        SYN type= 1 code=  2 value=1
-   I: input event: dev=gpio_keys_longpress SYN type= 1 code=108 value=1
-   I: input event: dev=gpio_keys        SYN type= 1 code=  2 value=0
-   I: input event: dev=gpio_keys_longpress SYN type= 1 code=108 value=0
-   I: input event: dev=gpio_keys        SYN type= 1 code=  3 value=1
-   I: input event: dev=gpio_keys_longpress SYN type= 1 code=103 value=1
-   I: input event: dev=gpio_keys        SYN type= 1 code=  3 value=0
-   I: input event: dev=gpio_keys_longpress SYN type= 1 code=103 value=0
-   I: input event: dev=gpio_keys        SYN type= 1 code=  4 value=1
-   I: input event: dev=gpio_keys_longpress SYN type= 1 code=105 value=1
-   I: input event: dev=gpio_keys        SYN type= 1 code=  4 value=0
-   I: input event: dev=gpio_keys_longpress SYN type= 1 code=105 value=0
+   .. parsed-literal::
+
+      \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+      W: BUS RESET
+      W: BUS RESET
+      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+      Input sample started
+      I: input event: dev=xpt2046@0            type= 3 code=  0 value=100
+      I: input event: dev=xpt2046@0            type= 3 code=  1 value=141
+      I: input event: dev=xpt2046@0        SYN type= 1 code=330 value=1
+      I: input event: dev=xpt2046@0        SYN type= 1 code=330 value=0
+      I: input event: dev=gpio_keys        SYN type= 1 code= 11 value=1
+      I: input event: dev=gpio_keys        SYN type= 1 code= 11 value=0
+      I: input event: dev=gpio_keys_longpress SYN type= 1 code=106 value=1
+      I: input event: dev=gpio_keys_longpress SYN type= 1 code=106 value=0
+      I: input event: dev=gpio_keys        SYN type= 1 code=  2 value=1
+      I: input event: dev=gpio_keys        SYN type= 1 code=  2 value=0
+      I: input event: dev=gpio_keys_longpress SYN type= 1 code=108 value=1
+      I: input event: dev=gpio_keys_longpress SYN type= 1 code=108 value=0
+      I: input event: dev=gpio_keys        SYN type= 1 code=  3 value=1
+      I: input event: dev=gpio_keys        SYN type= 1 code=  3 value=0
+      I: input event: dev=gpio_keys_longpress SYN type= 1 code=103 value=1
+      I: input event: dev=gpio_keys_longpress SYN type= 1 code=103 value=0
+      I: input event: dev=gpio_keys        SYN type= 1 code=  4 value=1
+      I: input event: dev=gpio_keys        SYN type= 1 code=  4 value=0
+      I: input event: dev=gpio_keys_longpress SYN type= 1 code=105 value=1
+      I: input event: dev=gpio_keys_longpress SYN type= 1 code=105 value=0
+      I: input event: dev=gpio_keys        SYN type= 1 code= 11 value=1
+      I: input event: dev=gpio_keys_longpress SYN type= 1 code= 28 value=1
+      I: input event: dev=gpio_keys        SYN type= 1 code= 11 value=0
+      I: input event: dev=gpio_keys_longpress SYN type= 1 code= 28 value=0
+      I: input event: dev=gpio_keys        SYN type= 1 code=  2 value=1
+      I: input event: dev=gpio_keys_longpress SYN type= 1 code=108 value=1
+      I: input event: dev=gpio_keys        SYN type= 1 code=  2 value=0
+      I: input event: dev=gpio_keys_longpress SYN type= 1 code=108 value=0
+      I: input event: dev=gpio_keys        SYN type= 1 code=  3 value=1
+      I: input event: dev=gpio_keys_longpress SYN type= 1 code=103 value=1
+      I: input event: dev=gpio_keys        SYN type= 1 code=  3 value=0
+      I: input event: dev=gpio_keys_longpress SYN type= 1 code=103 value=0
+      I: input event: dev=gpio_keys        SYN type= 1 code=  4 value=1
+      I: input event: dev=gpio_keys_longpress SYN type= 1 code=105 value=1
+      I: input event: dev=gpio_keys        SYN type= 1 code=  4 value=0
+      I: input event: dev=gpio_keys_longpress SYN type= 1 code=105 value=0

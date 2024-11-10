@@ -70,11 +70,12 @@ display. That is:
 
 .. rubric:: Simple logging output on target
 
-.. parsed-literal::
-   :class: highlight-console notranslate
+.. container:: highlight highlight-console notranslate no-copybutton
 
-   \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-   [00:00:00.415,000] :byl:`<wrn> udc_rpi: BUS RESET`
-   [00:00:00.495,000] :byl:`<wrn> udc_rpi: BUS RESET`
-   \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
-   [00:00:04.151,000] <inf> sample: Display sample for st7796s\ @\ 0
+   .. parsed-literal::
+
+      \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+      [00:00:00.415,000] :byl:`<wrn> udc_rpi: BUS RESET`
+      [00:00:00.495,000] :byl:`<wrn> udc_rpi: BUS RESET`
+      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+      [00:00:04.151,000] <inf> sample: Display sample for st7796s\ @\ 0

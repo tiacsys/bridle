@@ -9,7 +9,7 @@ That is:
    .. group-tab:: Raspberry Pi Pico
 
       .. zephyr-app-commands::
-         :app: zephyr/samples/drivers/led_strip
+         :app: zephyr/samples/drivers/led/led_strip
          :build-dir: geeekpi_pico_bb_plus-ledstrip_test
          :board: rpi_pico
          :shield: "geeekpi_pico_bb_plus"
@@ -21,7 +21,7 @@ That is:
    .. group-tab:: Raspberry Pi Pico W
 
       .. zephyr-app-commands::
-         :app: zephyr/samples/drivers/led_strip
+         :app: zephyr/samples/drivers/led/led_strip
          :build-dir: geeekpi_pico_bb_plus-ledstrip_test
          :board: rpi_pico/rp2040/w
          :shield: "geeekpi_pico_bb_plus"
@@ -35,7 +35,7 @@ That is:
       .. rubric:: on standard ``4㎆`` revision
 
       .. zephyr-app-commands::
-         :app: zephyr/samples/drivers/led_strip
+         :app: zephyr/samples/drivers/led/led_strip
          :build-dir: geeekpi_pico_bb_plus-ledstrip_test
          :board: waveshare_rp2040_plus
          :shield: "geeekpi_pico_bb_plus"
@@ -47,7 +47,7 @@ That is:
       .. rubric:: on extended ``16㎆`` revision
 
       .. zephyr-app-commands::
-         :app: zephyr/samples/drivers/led_strip
+         :app: zephyr/samples/drivers/led/led_strip
          :build-dir: geeekpi_pico_bb_plus-ledstrip_test
          :board: waveshare_rp2040_plus@16mb
          :shield: "geeekpi_pico_bb_plus"
@@ -58,12 +58,13 @@ That is:
 
 .. rubric:: Simple logging output on target
 
-.. parsed-literal::
-   :class: highlight-console notranslate
+.. container:: highlight highlight-console notranslate no-copybutton
 
-   \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-   W: BUS RESET
-   W: BUS RESET
-   \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
-   [00:00:04.002,000] <inf> main: Found LED strip device ws2812-1x1
-   [00:00:04.002,000] <inf> main: Displaying pattern on strip
+   .. parsed-literal::
+
+      \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+      W: BUS RESET
+      W: BUS RESET
+      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+      [00:00:04.002,000] <inf> main: Found LED strip device ws2812-1x1
+      [00:00:04.002,000] <inf> main: Displaying pattern on strip

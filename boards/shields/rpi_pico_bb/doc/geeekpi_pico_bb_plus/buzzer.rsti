@@ -60,15 +60,25 @@ That is:
 #. play a beep
 #. play a funky jingle
 
-.. parsed-literal::
-   :class: highlight-console notranslate
+.. container:: highlight highlight-console notranslate no-copybutton
 
-   \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-   W: BUS RESET
-   W: BUS RESET
-   \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
-   [00:00:04.003,000] <inf> buzzersh: Buzzer shell is ready!
-   :bgn:`uart:~$` **_**
+   .. parsed-literal::
 
-   :bgn:`uart:~$` **buzzer beep**
-   :bgn:`uart:~$` **buzzer play funkytown**
+      \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+      W: BUS RESET
+      W: BUS RESET
+      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+      [00:00:04.003,000] <inf> buzzersh: Buzzer shell is ready!
+      :bgn:`uart:~$` **█**
+
+.. container:: highlight highlight-console notranslate
+
+   .. parsed-literal::
+
+      :bgn:`uart:~$` **buzzer beep**
+
+.. container:: highlight highlight-console notranslate
+
+   .. parsed-literal::
+
+      :bgn:`uart:~$` **buzzer play funkytown**

@@ -67,27 +67,32 @@ chosen display and touchscreen panel. That is:
 
 .. rubric:: Simple test execution on target
 
-.. parsed-literal::
-   :class: highlight-console notranslate
+.. container:: highlight highlight-console notranslate no-copybutton
 
-   \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-   [00:00:00.528,000] :byl:`<wrn> udc_rpi: BUS RESET`
-   [00:00:00.616,000] :byl:`<wrn> udc_rpi: BUS RESET`
-   \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
-   :bgn:`uart:~$` **_**
+   .. parsed-literal::
 
-   :bgn:`uart:~$` **lvgl stats memory**
-   Heap at 0x20001970 contains 6143 units in 13 buckets
+      \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+      [00:00:00.528,000] :byl:`<wrn> udc_rpi: BUS RESET`
+      [00:00:00.616,000] :byl:`<wrn> udc_rpi: BUS RESET`
+      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+      :bgn:`uart:~$` **█**
 
-     bucket#    min units        total      largest      largest
-                threshold       chunks      (units)      (bytes)
-     -----------------------------------------------------------
-           0            1           30            1            4
-           1            2            6            3           20
-           2            4            1            4           28
-           3            8            2           15          116
-           4           16            4           31          244
-           6           64            1           81          644
-          10         1024            1         1898        15180
+.. container:: highlight highlight-console notranslate
 
-   17012 free bytes, 28564 allocated bytes, overhead = 3572 bytes (7.3%)
+   .. parsed-literal::
+
+      :bgn:`uart:~$` **lvgl stats memory**
+      Heap at 0x20001970 contains 6143 units in 13 buckets
+
+        bucket#    min units        total      largest      largest
+                   threshold       chunks      (units)      (bytes)
+        -----------------------------------------------------------
+              0            1           30            1            4
+              1            2            6            3           20
+              2            4            1            4           28
+              3            8            2           15          116
+              4           16            4           31          244
+              6           64            1           81          644
+             10         1024            1         1898        15180
+
+      17012 free bytes, 28564 allocated bytes, overhead = 3572 bytes (7.3%)
