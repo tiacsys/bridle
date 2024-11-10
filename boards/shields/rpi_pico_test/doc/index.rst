@@ -248,24 +248,25 @@ sample: :zephyr:code-sample:`input-dump`.
 
       .. rubric:: Simple test execution on target
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate no-copybutton
 
-         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-         W: BUS RESET
-         W: BUS RESET
-         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
-         Input sample started
-         I: input event: dev=gpio_keys        SYN type= 1 code=108 value=1
-         I: input event: dev=gpio_keys        SYN type= 1 code=108 value=0
-         I: input event: dev=gpio_keys        SYN type= 1 code= 28 value=1
-         I: input event: dev=gpio_keys        SYN type= 1 code= 28 value=0
-         I: input event: dev=gpio_keys        SYN type= 1 code=106 value=1
-         I: input event: dev=gpio_keys        SYN type= 1 code=106 value=0
-         I: input event: dev=gpio_keys        SYN type= 1 code=105 value=1
-         I: input event: dev=gpio_keys        SYN type= 1 code=105 value=0
-         I: input event: dev=gpio_keys        SYN type= 1 code=103 value=1
-         I: input event: dev=gpio_keys        SYN type= 1 code=103 value=0
+         .. parsed-literal::
+
+            \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+            W: BUS RESET
+            W: BUS RESET
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+            Input sample started
+            I: input event: dev=gpio_keys        SYN type= 1 code=108 value=1
+            I: input event: dev=gpio_keys        SYN type= 1 code=108 value=0
+            I: input event: dev=gpio_keys        SYN type= 1 code= 28 value=1
+            I: input event: dev=gpio_keys        SYN type= 1 code= 28 value=0
+            I: input event: dev=gpio_keys        SYN type= 1 code=106 value=1
+            I: input event: dev=gpio_keys        SYN type= 1 code=106 value=0
+            I: input event: dev=gpio_keys        SYN type= 1 code=105 value=1
+            I: input event: dev=gpio_keys        SYN type= 1 code=105 value=0
+            I: input event: dev=gpio_keys        SYN type= 1 code=103 value=1
+            I: input event: dev=gpio_keys        SYN type= 1 code=103 value=0
 
 Analog-to-Digital Converter (ADC)
 =================================
@@ -349,29 +350,30 @@ See also Zephyr sample: :zephyr:code-sample:`adc_dt`.
 
       .. rubric:: Simple test execution on target
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate no-copybutton
 
-         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-         [00:00:00.287,000] :byl:`<wrn> udc_rpi: BUS RESET`
-         [00:00:00.368,000] :byl:`<wrn> udc_rpi: BUS RESET`
-         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
-         ADC reading[0]:
-         - adc\ @\ 4004c000, channel 0: 25 = 20 mV
-         ADC reading[1]:
-         - adc\ @\ 4004c000, channel 0: 171 = 137 mV
-         ADC reading[2]:
-         - adc\ @\ 4004c000, channel 0: 979 = 788 mV
-         ADC reading[3]:
-         - adc\ @\ 4004c000, channel 0: 1818 = 1464 mV
-         ADC reading[4]:
-         - adc\ @\ 4004c000, channel 0: 2521 = 2031 mV
-         ADC reading[5]:
-         - adc\ @\ 4004c000, channel 0: 3152 = 2539 mV
-         ADC reading[6]:
-         - adc\ @\ 4004c000, channel 0: 4019 = 3237 mV
-         ADC reading[7]:
-         - adc\ @\ 4004c000, channel 0: 4095 = 3299 mV
+         .. parsed-literal::
+
+            \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+            [00:00:00.287,000] :byl:`<wrn> udc_rpi: BUS RESET`
+            [00:00:00.368,000] :byl:`<wrn> udc_rpi: BUS RESET`
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+            ADC reading[0]:
+            - adc\ @\ 4004c000, channel 0: 25 = 20 mV
+            ADC reading[1]:
+            - adc\ @\ 4004c000, channel 0: 171 = 137 mV
+            ADC reading[2]:
+            - adc\ @\ 4004c000, channel 0: 979 = 788 mV
+            ADC reading[3]:
+            - adc\ @\ 4004c000, channel 0: 1818 = 1464 mV
+            ADC reading[4]:
+            - adc\ @\ 4004c000, channel 0: 2521 = 2031 mV
+            ADC reading[5]:
+            - adc\ @\ 4004c000, channel 0: 3152 = 2539 mV
+            ADC reading[6]:
+            - adc\ @\ 4004c000, channel 0: 4019 = 3237 mV
+            ADC reading[7]:
+            - adc\ @\ 4004c000, channel 0: 4095 = 3299 mV
 
 Light-Emitting Diode (LED) by PWM
 =================================
@@ -434,7 +436,7 @@ sample: :zephyr:code-sample:`led-pwm`.
          .. group-tab:: Raspberry Pi Pico
 
             .. zephyr-app-commands::
-               :app: zephyr/samples/drivers/led_pwm
+               :app: zephyr/samples/drivers/led/pwm
                :build-dir: spotpear_pico_test-drivers_led_pwm
                :board: rpi_pico
                :shield: "spotpear_pico_test"
@@ -446,7 +448,7 @@ sample: :zephyr:code-sample:`led-pwm`.
          .. group-tab:: Raspberry Pi Pico W
 
             .. zephyr-app-commands::
-               :app: zephyr/samples/drivers/led_pwm
+               :app: zephyr/samples/drivers/led/pwm
                :build-dir: spotpear_pico_test-drivers_led_pwm
                :board: rpi_pico/rp2040/w
                :shield: "spotpear_pico_test"
@@ -460,7 +462,7 @@ sample: :zephyr:code-sample:`led-pwm`.
             .. rubric:: on standard ``4㎆`` revision
 
             .. zephyr-app-commands::
-               :app: zephyr/samples/drivers/led_pwm
+               :app: zephyr/samples/drivers/led/pwm
                :build-dir: spotpear_pico_test-drivers_led_pwm
                :board: waveshare_rp2040_plus
                :shield: "spotpear_pico_test"
@@ -472,7 +474,7 @@ sample: :zephyr:code-sample:`led-pwm`.
             .. rubric:: on extended ``16㎆`` revision
 
             .. zephyr-app-commands::
-               :app: zephyr/samples/drivers/led_pwm
+               :app: zephyr/samples/drivers/led/pwm
                :build-dir: spotpear_pico_test-drivers_led_pwm
                :board: waveshare_rp2040_plus@16mb
                :shield: "spotpear_pico_test"
@@ -484,7 +486,7 @@ sample: :zephyr:code-sample:`led-pwm`.
          .. group-tab:: Waveshare RP2040-LCD-0.96
 
             .. zephyr-app-commands::
-               :app: zephyr/samples/drivers/led_pwm
+               :app: zephyr/samples/drivers/led/pwm
                :build-dir: spotpear_pico_test-drivers_led_pwm
                :board: waveshare_rp2040_lcd_0_96
                :shield: "spotpear_pico_test"
@@ -495,113 +497,154 @@ sample: :zephyr:code-sample:`led-pwm`.
 
       .. rubric:: Simple test execution on target
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate no-copybutton
 
-         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-         [00:00:00.181,000] :byl:`<wrn> udc_rpi: BUS RESET`
-         [00:00:00.266,000] :byl:`<wrn> udc_rpi: BUS RESET`
-         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
-         [00:00:04.003,000] <inf> main: Testing LED 0 - L0: Test LED 0
-         [00:00:04.004,000] <inf> main:   Turned on
-         [00:00:05.005,000] <inf> main:   Turned off
-         [00:00:06.005,000] <inf> main:   Increasing brightness gradually
-         [00:00:08.026,000] :brd:`<err> main: err=-22`
-         [00:00:08.026,000] <inf> main: Testing LED 1 - L1: Test LED 1
-         [00:00:08.027,000] <inf> main:   Turned on
-         [00:00:09.027,000] <inf> main:   Turned off
-         [00:00:10.028,000] <inf> main:   Increasing brightness gradually
-         [00:00:12.049,000] :brd:`<err> main: err=-22`
-         [00:00:12.049,000] <inf> main: Testing LED 2 - L2: Test LED 2
-         [00:00:12.049,000] <inf> main:   Turned on
-         [00:00:13.050,000] <inf> main:   Turned off
-         [00:00:14.050,000] <inf> main:   Increasing brightness gradually
-         [00:00:16.071,000] :brd:`<err> main: err=-22`
-         [00:00:16.071,000] <inf> main: Testing LED 3 - L3: Test LED 3
-         [00:00:16.072,000] <inf> main:   Turned on
-         [00:00:17.072,000] <inf> main:   Turned off
-         [00:00:18.073,000] <inf> main:   Increasing brightness gradually
-         [00:00:20.094,000] :brd:`<err> main: err=-22`
-         [00:00:20.094,000] <inf> main: Testing LED 4 - L4: Test LED 4
-         [00:00:20.094,000] <inf> main:   Turned on
-         [00:00:21.095,000] <inf> main:   Turned off
-         [00:00:22.095,000] <inf> main:   Increasing brightness gradually
-         [00:00:24.116,000] :brd:`<err> main: err=-22`
-         [00:00:24.117,000] <inf> main: Testing LED 5 - L5: Test LED 5
-         [00:00:24.117,000] <inf> main:   Turned on
-         [00:00:25.118,000] <inf> main:   Turned off
-         [00:00:26.118,000] <inf> main:   Increasing brightness gradually
-         [00:00:28.139,000] :brd:`<err> main: err=-22`
-         [00:00:28.139,000] <inf> main: Testing LED 6 - L6: Test LED 6
-         [00:00:28.140,000] <inf> main:   Turned on
-         [00:00:29.140,000] <inf> main:   Turned off
-         [00:00:30.141,000] <inf> main:   Increasing brightness gradually
-         [00:00:32.162,000] :brd:`<err> main: err=-22`
-         [00:00:32.162,000] <inf> main: Testing LED 7 - L7: Test LED 7
-         [00:00:32.162,000] <inf> main:   Turned on
-         [00:00:33.163,000] <inf> main:   Turned off
-         [00:00:34.163,000] <inf> main:   Increasing brightness gradually
-         [00:00:36.184,000] :brd:`<err> main: err=-22`
-         [00:00:36.184,000] <inf> main: Testing LED 8 - L8: Test LED 8
-         [00:00:36.185,000] <inf> main:   Turned on
-         [00:00:37.185,000] <inf> main:   Turned off
-         [00:00:38.186,000] <inf> main:   Increasing brightness gradually
-         [00:00:40.207,000] :brd:`<err> main: err=-22`
-         [00:00:40.207,000] <inf> main: Testing LED 9 - L9: Test LED 9
-         [00:00:40.207,000] <inf> main:   Turned on
-         [00:00:41.208,000] <inf> main:   Turned off
-         [00:00:42.208,000] <inf> main:   Increasing brightness gradually
-         [00:00:44.229,000] :brd:`<err> main: err=-22`
-         [00:00:44.230,000] <inf> main: Testing LED 10 - L10: Test LED 10
-         [00:00:44.230,000] <inf> main:   Turned on
-         [00:00:45.231,000] <inf> main:   Turned off
-         [00:00:46.231,000] <inf> main:   Increasing brightness gradually
-         [00:00:48.252,000] :brd:`<err> main: err=-22`
-         [00:00:48.252,000] <inf> main: Testing LED 11 - L11: Test LED 11
-         [00:00:48.253,000] <inf> main:   Turned on
-         [00:00:49.253,000] <inf> main:   Turned off
-         [00:00:50.254,000] <inf> main:   Increasing brightness gradually
-         [00:00:52.275,000] :brd:`<err> main: err=-22`
-         [00:00:52.275,000] <inf> main: Testing LED 12 - L12: Test LED 12
-         [00:00:52.275,000] <inf> main:   Turned on
-         [00:00:53.276,000] <inf> main:   Turned off
-         [00:00:54.276,000] <inf> main:   Increasing brightness gradually
-         [00:00:56.297,000] :brd:`<err> main: err=-22`
-         [00:00:56.298,000] <inf> main: Testing LED 13 - L13: Test LED 13
-         [00:00:56.298,000] <inf> main:   Turned on
-         [00:00:57.298,000] <inf> main:   Turned off
-         [00:00:58.299,000] <inf> main:   Increasing brightness gradually
-         [00:01:00.320,000] :brd:`<err> main: err=-22`
-         [00:01:00.320,000] <inf> main: Testing LED 14 - L14: Test LED 14
-         [00:01:00.321,000] <inf> main:   Turned on
-         [00:01:01.321,000] <inf> main:   Turned off
-         [00:01:02.322,000] <inf> main:   Increasing brightness gradually
-         [00:01:04.342,000] :brd:`<err> main: err=-22`
-         [00:01:04.343,000] <inf> main: Testing LED 15 - L15: Test LED 15
-         [00:01:04.343,000] <inf> main:   Turned on
-         [00:01:05.344,000] <inf> main:   Turned off
-         [00:01:06.344,000] <inf> main:   Increasing brightness gradually
-         [00:01:08.365,000] :brd:`<err> main: err=-22`
-         [00:01:08.365,000] <inf> main: Testing LED 16 - L16: Test LED 16
-         [00:01:08.366,000] <inf> main:   Turned on
-         [00:01:09.366,000] <inf> main:   Turned off
-         [00:01:10.367,000] <inf> main:   Increasing brightness gradually
-         [00:01:12.388,000] :brd:`<err> main: err=-22`
-         [00:01:12.388,000] <inf> main: Testing LED 17 - L17: Test LED 17
-         [00:01:12.388,000] <inf> main:   Turned on
-         [00:01:13.389,000] <inf> main:   Turned off
-         [00:01:14.389,000] <inf> main:   Increasing brightness gradually
-         [00:01:16.410,000] :brd:`<err> main: err=-22`
-         [00:01:16.411,000] <inf> main: Testing LED 18 - L18: Test LED 18
-         [00:01:16.411,000] <inf> main:   Turned on
-         [00:01:17.412,000] <inf> main:   Turned off
-         [00:01:18.412,000] <inf> main:   Increasing brightness gradually
-         [00:01:20.433,000] :brd:`<err> main: err=-22`
-         [00:01:20.433,000] <inf> main: Testing LED 19 - L19: Test LED 19
-         [00:01:20.434,000] <inf> main:   Turned on
-         [00:01:21.434,000] <inf> main:   Turned off
-         [00:01:22.435,000] <inf> main:   Increasing brightness gradually
-         [00:01:24.456,000] :brd:`<err> main: err=-22`
+         .. parsed-literal::
+
+            \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+            [00:00:00.374,000] :byl:`<wrn> udc_rpi: BUS RESET`
+            [00:00:00.454,000] :byl:`<wrn> udc_rpi: BUS RESET`
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+            [00:00:04.003,000] <inf> main: Testing LED 0 - L0: Test LED 0
+            [00:00:04.004,000] <inf> main:   Turned on
+            [00:00:05.004,000] <inf> main:   Turned off
+            [00:00:06.005,000] <inf> main:   Increasing brightness gradually
+            [00:00:08.531,000] <inf> main:   Blinking on: 20 msec, off: 20 msec
+            [00:00:13.531,000] <inf> main:   Blinking on: 65 msec, off: 65 msec
+            [00:00:18.532,000] <inf> main:   Turned off, loop end
+            [00:00:18.532,000] <inf> main: Testing LED 1 - L1: Test LED 1
+            [00:00:18.533,000] <inf> main:   Turned on
+            [00:00:19.533,000] <inf> main:   Turned off
+            [00:00:20.534,000] <inf> main:   Increasing brightness gradually
+            [00:00:23.059,000] <inf> main:   Blinking on: 20 msec, off: 20 msec
+            [00:00:28.060,000] <inf> main:   Blinking on: 65 msec, off: 65 msec
+            [00:00:33.061,000] <inf> main:   Turned off, loop end
+            [00:00:33.061,000] <inf> main: Testing LED 2 - L2: Test LED 2
+            [00:00:33.061,000] <inf> main:   Turned on
+            [00:00:34.062,000] <inf> main:   Turned off
+            [00:00:35.062,000] <inf> main:   Increasing brightness gradually
+            [00:00:37.588,000] <inf> main:   Blinking on: 20 msec, off: 20 msec
+            [00:00:42.588,000] <inf> main:   Blinking on: 65 msec, off: 65 msec
+            [00:00:47.589,000] <inf> main:   Turned off, loop end
+            [00:00:47.589,000] <inf> main: Testing LED 3 - L3: Test LED 3
+            [00:00:47.590,000] <inf> main:   Turned on
+            [00:00:48.590,000] <inf> main:   Turned off
+            [00:00:49.591,000] <inf> main:   Increasing brightness gradually
+            [00:00:52.116,000] <inf> main:   Blinking on: 20 msec, off: 20 msec
+            [00:00:57.117,000] <inf> main:   Blinking on: 65 msec, off: 65 msec
+            [00:01:02.118,000] <inf> main:   Turned off, loop end
+            [00:01:02.118,000] <inf> main: Testing LED 4 - L4: Test LED 4
+            [00:01:02.118,000] <inf> main:   Turned on
+            [00:01:03.119,000] <inf> main:   Turned off
+            [00:01:04.119,000] <inf> main:   Increasing brightness gradually
+            [00:01:06.645,000] <inf> main:   Blinking on: 20 msec, off: 20 msec
+            [00:01:11.645,000] <inf> main:   Blinking on: 65 msec, off: 65 msec
+            [00:01:16.646,000] <inf> main:   Turned off, loop end
+            [00:01:16.646,000] <inf> main: Testing LED 5 - L5: Test LED 5
+            [00:01:16.647,000] <inf> main:   Turned on
+            [00:01:17.647,000] <inf> main:   Turned off
+            [00:01:18.648,000] <inf> main:   Increasing brightness gradually
+            [00:01:21.173,000] <inf> main:   Blinking on: 20 msec, off: 20 msec
+            [00:01:26.174,000] <inf> main:   Blinking on: 65 msec, off: 65 msec
+            [00:01:31.175,000] <inf> main:   Turned off, loop end
+            [00:01:31.175,000] <inf> main: Testing LED 6 - L6: Test LED 6
+            [00:01:31.175,000] <inf> main:   Turned on
+            [00:01:32.176,000] <inf> main:   Turned off
+            [00:01:33.176,000] <inf> main:   Increasing brightness gradually
+            [00:01:35.702,000] <inf> main:   Blinking on: 20 msec, off: 20 msec
+            [00:01:40.702,000] <inf> main:   Blinking on: 65 msec, off: 65 msec
+            [00:01:45.703,000] <inf> main:   Turned off, loop end
+            [00:01:45.703,000] <inf> main: Testing LED 7 - L7: Test LED 7
+            [00:01:45.704,000] <inf> main:   Turned on
+            [00:01:46.704,000] <inf> main:   Turned off
+            [00:01:47.705,000] <inf> main:   Increasing brightness gradually
+            [00:01:50.230,000] <inf> main:   Blinking on: 20 msec, off: 20 msec
+            [00:01:55.231,000] <inf> main:   Blinking on: 65 msec, off: 65 msec
+            [00:02:00.232,000] <inf> main:   Turned off, loop end
+            [00:02:00.232,000] <inf> main: Testing LED 8 - L8: Test LED 8
+            [00:02:00.232,000] <inf> main:   Turned on
+            [00:02:01.233,000] <inf> main:   Turned off
+            [00:02:02.233,000] <inf> main:   Increasing brightness gradually
+            [00:02:04.759,000] <inf> main:   Blinking on: 20 msec, off: 20 msec
+            [00:02:09.759,000] <inf> main:   Blinking on: 65 msec, off: 65 msec
+            [00:02:14.760,000] <inf> main:   Turned off, loop end
+            [00:02:14.760,000] <inf> main: Testing LED 9 - L9: Test LED 9
+            [00:02:14.761,000] <inf> main:   Turned on
+            [00:02:15.761,000] <inf> main:   Turned off
+            [00:02:16.762,000] <inf> main:   Increasing brightness gradually
+            [00:02:19.287,000] <inf> main:   Blinking on: 20 msec, off: 20 msec
+            [00:02:24.288,000] <inf> main:   Blinking on: 65 msec, off: 65 msec
+            [00:02:29.289,000] <inf> main:   Turned off, loop end
+            [00:02:29.289,000] <inf> main: Testing LED 10 - L10: Test LED 10
+            [00:02:29.289,000] <inf> main:   Turned on
+            [00:02:30.290,000] <inf> main:   Turned off
+            [00:02:31.290,000] <inf> main:   Increasing brightness gradually
+            [00:02:33.816,000] <inf> main:   Blinking on: 20 msec, off: 20 msec
+            [00:02:38.816,000] <inf> main:   Blinking on: 65 msec, off: 65 msec
+            [00:02:43.817,000] <inf> main:   Turned off, loop end
+            [00:02:43.817,000] <inf> main: Testing LED 11 - L11: Test LED 11
+            [00:02:43.818,000] <inf> main:   Turned on
+            [00:02:44.818,000] <inf> main:   Turned off
+            [00:02:45.819,000] <inf> main:   Increasing brightness gradually
+            [00:02:48.344,000] <inf> main:   Blinking on: 20 msec, off: 20 msec
+            [00:02:53.345,000] <inf> main:   Blinking on: 65 msec, off: 65 msec
+            [00:02:58.346,000] <inf> main:   Turned off, loop end
+            [00:02:58.346,000] <inf> main: Testing LED 12 - L12: Test LED 12
+            [00:02:58.346,000] <inf> main:   Turned on
+            [00:02:59.347,000] <inf> main:   Turned off
+            [00:03:00.347,000] <inf> main:   Increasing brightness gradually
+            [00:03:02.873,000] <inf> main:   Blinking on: 20 msec, off: 20 msec
+            [00:03:07.873,000] <inf> main:   Blinking on: 65 msec, off: 65 msec
+            [00:03:12.874,000] <inf> main:   Turned off, loop end
+            [00:03:12.874,000] <inf> main: Testing LED 13 - L13: Test LED 13
+            [00:03:12.875,000] <inf> main:   Turned on
+            [00:03:13.875,000] <inf> main:   Turned off
+            [00:03:14.876,000] <inf> main:   Increasing brightness gradually
+            [00:03:17.401,000] <inf> main:   Blinking on: 20 msec, off: 20 msec
+            [00:03:22.402,000] <inf> main:   Blinking on: 65 msec, off: 65 msec
+            [00:03:27.403,000] <inf> main:   Turned off, loop end
+            [00:03:27.403,000] <inf> main: Testing LED 14 - L14: Test LED 14
+            [00:03:27.403,000] <inf> main:   Turned on
+            [00:03:28.404,000] <inf> main:   Turned off
+            [00:03:29.404,000] <inf> main:   Increasing brightness gradually
+            [00:03:31.930,000] <inf> main:   Blinking on: 20 msec, off: 20 msec
+            [00:03:36.930,000] <inf> main:   Blinking on: 65 msec, off: 65 msec
+            [00:03:41.931,000] <inf> main:   Turned off, loop end
+            [00:03:41.931,000] <inf> main: Testing LED 15 - L15: Test LED 15
+            [00:03:41.932,000] <inf> main:   Turned on
+            [00:03:42.932,000] <inf> main:   Turned off
+            [00:03:43.933,000] <inf> main:   Increasing brightness gradually
+            [00:03:46.458,000] <inf> main:   Blinking on: 20 msec, off: 20 msec
+            [00:03:51.459,000] <inf> main:   Blinking on: 65 msec, off: 65 msec
+            [00:03:56.460,000] <inf> main:   Turned off, loop end
+            [00:03:56.460,000] <inf> main: Testing LED 16 - L16: Test LED 16
+            [00:03:56.460,000] <inf> main:   Turned on
+            [00:03:57.461,000] <inf> main:   Turned off
+            [00:03:58.461,000] <inf> main:   Increasing brightness gradually
+            [00:04:00.987,000] <inf> main:   Blinking on: 20 msec, off: 20 msec
+            [00:04:05.987,000] <inf> main:   Blinking on: 65 msec, off: 65 msec
+            [00:04:10.988,000] <inf> main:   Turned off, loop end
+            [00:04:10.988,000] <inf> main: Testing LED 17 - L17: Test LED 17
+            [00:04:10.989,000] <inf> main:   Turned on
+            [00:04:11.989,000] <inf> main:   Turned off
+            [00:04:12.990,000] <inf> main:   Increasing brightness gradually
+            [00:04:15.515,000] <inf> main:   Blinking on: 20 msec, off: 20 msec
+            [00:04:20.516,000] <inf> main:   Blinking on: 65 msec, off: 65 msec
+            [00:04:25.517,000] <inf> main:   Turned off, loop end
+            [00:04:25.517,000] <inf> main: Testing LED 18 - L18: Test LED 18
+            [00:04:25.517,000] <inf> main:   Turned on
+            [00:04:26.518,000] <inf> main:   Turned off
+            [00:04:27.518,000] <inf> main:   Increasing brightness gradually
+            [00:04:30.044,000] <inf> main:   Blinking on: 20 msec, off: 20 msec
+            [00:04:35.044,000] <inf> main:   Blinking on: 65 msec, off: 65 msec
+            [00:04:40.045,000] <inf> main:   Turned off, loop end
+            [00:04:40.045,000] <inf> main: Testing LED 19 - L19: Test LED 19
+            [00:04:40.046,000] <inf> main:   Turned on
+            [00:04:41.046,000] <inf> main:   Turned off
+            [00:04:42.047,000] <inf> main:   Increasing brightness gradually
+            [00:04:44.572,000] <inf> main:   Blinking on: 20 msec, off: 20 msec
+            [00:04:49.573,000] <inf> main:   Blinking on: 65 msec, off: 65 msec
+            [00:04:54.574,000] <inf> main:   Turned off, loop end
 
 References
 **********
