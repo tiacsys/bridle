@@ -15,6 +15,7 @@
 		/* Secure Digital card as Multi-Media Card (SDMMC) */
 		mmc {
 			compatible = "zephyr,sdmmc-disk";
+			disk-name = "SD";
 			status = "okay";
 		};
 	};
