@@ -42,7 +42,9 @@ Supported Features
 Similar to the |zephyr:board:rpi_pico| the PicoBoy board configuration
 supports the following hardware features:
 
-.. list-table::
+.. list-table:: Hardware Features Supported by Zephyr
+   :class: longtable
+   :align: center
    :header-rows: 1
 
    * - Peripheral
@@ -57,7 +59,7 @@ supports the following hardware features:
      - :kconfig:option:`CONFIG_GPIO`
      - :dtcompatible:`raspberrypi,pico-gpio`
      - :zephyr:ref:`gpio_api`
-   * - USB Device
+   * - UDC (USB Device Controller)
      - :kconfig:option:`CONFIG_USB_DEVICE_STACK`
      - :dtcompatible:`raspberrypi,pico-usbd`
      - :zephyr:ref:`usb_api`
@@ -82,6 +84,10 @@ supports the following hardware features:
      - :kconfig:option:`CONFIG_SENSOR`
      - :dtcompatible:`raspberrypi,pico-temp` (!!)
      - :zephyr:ref:`sensor`
+   * - RTC
+     - :kconfig:option:`CONFIG_RTC`
+     - :dtcompatible:`raspberrypi,pico-rtc`
+     - :zephyr:ref:`rtc_api`
    * - Timer (Counter)
      - :kconfig:option:`CONFIG_COUNTER`
      - :dtcompatible:`raspberrypi,pico-timer`
@@ -107,27 +113,31 @@ supports the following hardware features:
      - :kconfig:option:`CONFIG_DMA`
      - :dtcompatible:`raspberrypi,pico-dma`
      - :zephyr:ref:`dma_api`
+   * - HWINFO
+     - :kconfig:option:`CONFIG_HWINFO`
+     - N/A
+     - :zephyr:ref:`hwinfo_api`
+   * - VREG
+     - :kconfig:option:`CONFIG_REGULATOR`
+     - :dtcompatible:`raspberrypi,core-supply-regulator`
+     - :zephyr:ref:`regulator_api`
+   * - RESET
+     - :kconfig:option:`CONFIG_RESET`
+     - :dtcompatible:`raspberrypi,pico-reset`
+     - :zephyr:ref:`reset_api`
    * - CLOCK
      - :kconfig:option:`CONFIG_CLOCK_CONTROL`
      - | :dtcompatible:`raspberrypi,pico-clock-controller`
        | :dtcompatible:`raspberrypi,pico-clock`
      - :zephyr:ref:`clock_control_api`
-   * - RESET
-     - :kconfig:option:`CONFIG_RESET`
-     - :dtcompatible:`raspberrypi,pico-reset`
-     - :zephyr:ref:`reset_api`
-   * - VREG
-     - :kconfig:option:`CONFIG_REGULATOR`
-     - :dtcompatible:`raspberrypi,core-supply-regulator`
-     - :zephyr:ref:`regulator_api`
    * - NVIC
      - N/A
      - :dtcompatible:`arm,v6m-nvic`
      - Nested Vector :zephyr:ref:`interrupts_v2` Controller
-   * - HWINFO
-     - :kconfig:option:`CONFIG_HWINFO`
+   * - SYSTICK
      - N/A
-     - :zephyr:ref:`hwinfo_api`
+     - :dtcompatible:`arm,armv6m-systick`
+     -
 
 (!) Designware I2C driver has issues:
     The :emphasis:`Raspberry Pi Pico I2C driver` is using the
@@ -153,7 +163,7 @@ supports the following hardware features:
 Other hardware features are not currently supported by Zephyr. The default
 configuration can be found in the following Kconfig file:
 
-- :bridle_file:`boards/jsed/picoboy/picoboy_defconfig`
+   - :bridle_file:`boards/jsed/picoboy/picoboy_defconfig`
 
 Board Configurations
 ====================
@@ -230,13 +240,17 @@ used to communicate with a host PC. See the :zephyr:code-sample-category:`usb`
 sample applications for more, such as the :zephyr:code-sample:`usb-cdc-acm`
 sample which sets up a virtual serial port that echos characters back to the
 host PC. The |PicoBoy| provides the Zephyr console per default on the USB port
-as :zephyr:ref:`usb_device_cdc_acm`::
+as :zephyr:ref:`usb_device_cdc_acm`:
 
-   USB device idVendor=2e8a, idProduct=000a, bcdDevice= 3.07
-   USB device strings: Mfr=1, Product=2, SerialNumber=3
-   Product: PicoBoy (CDC ACM)
-   Manufacturer: JSED (Raspberry Pi)
-   SerialNumber: BD774B2618DAAA7D
+   .. container:: highlight-console notranslate literal-block
+
+      .. parsed-literal::
+
+         USB device idVendor=\ |picoboy_VID|, idProduct=\ |picoboy_PID_CON|, bcdDevice=\ |picoboy_BCD_CON|
+         USB device strings: Mfr=1, Product=2, SerialNumber=3
+         Product: |picoboy_PStr_CON|
+         Manufacturer: |picoboy_VStr|
+         SerialNumber: BD774B2618DAAA7D
 
 Programmable I/O (PIO)
 **********************
@@ -267,13 +281,17 @@ Using UF2
 By default, building an app for the |PicoBoy| board will generate a
 :file:`build/zephyr/zephyr.uf2` file. If the board is powered on with the
 :kbd:`BOOTSEL` button pressed, it will appear on the host as a mass
-storage device::
+storage device:
 
-   USB device idVendor=2e8a, idProduct=0003, bcdDevice= 1.00
-   USB device strings: Mfr=1, Product=2, SerialNumber=3
-   Product: RP2 Boot
-   Manufacturer: Raspberry Pi
-   SerialNumber: E0C9125B0D9B
+   .. container:: highlight-console notranslate literal-block
+
+      .. parsed-literal::
+
+         USB device idVendor=\ |rpi_VID|, idProduct=\ |rpi_rp2040_PID|, bcdDevice=\ |rpi_rp2040_BCD|
+         USB device strings: Mfr=1, Product=2, SerialNumber=0
+         Product: |rpi_rp2040_PStr|
+         Manufacturer: |rpi_VStr|
+         SerialNumber: E0C9125B0D9B
 
 The UF2 file should be drag-and-dropped or copied on command line to the
 device, which will then flash the |PicoBoy| board.
@@ -291,11 +309,11 @@ exactly 256 bytes of code which is put right at the start of the eventual
 program binary. On Zephyr the :code:`boot2` versions are part of the
 `Raspberry Pi Pico HAL`_ module. Possible selections:
 
-:|CONFIG_RP2_FLASH_AT25SF128A|: :file:`boot2_at25sf128a.S`
-:|CONFIG_RP2_FLASH_GENERIC_03H|: :file:`boot2_generic_03h.S`
-:|CONFIG_RP2_FLASH_IS25LP080|: :file:`boot2_is25lp080.S`
-:|CONFIG_RP2_FLASH_W25Q080|: :file:`boot2_w25q080.S`
-:|CONFIG_RP2_FLASH_W25X10CL|: :file:`boot2_w25x10cl.S`
+:|CONFIG_RP2_FLASH_AT25SF128A|: |boot2_at25sf128a.S|_
+:|CONFIG_RP2_FLASH_GENERIC_03H|: |boot2_generic_03h.S|_
+:|CONFIG_RP2_FLASH_IS25LP080|: |boot2_is25lp080.S|_
+:|CONFIG_RP2_FLASH_W25Q080|: |boot2_w25q080.S|_
+:|CONFIG_RP2_FLASH_W25X10CL|: |boot2_w25x10cl.S|_
 
 The |PicoBoy| board set this option to |CONFIG_RP2_FLASH_W25Q080|. Further
 information can be found in the `RP2040 Datasheet`_, sections with title
@@ -403,24 +421,25 @@ See also Zephyr sample: :zephyr:code-sample:`input-dump`.
 
 .. rubric:: Simple logging output on target
 
-.. parsed-literal::
-   :class: highlight-console notranslate
+.. container:: highlight highlight-console notranslate no-copybutton
 
-   \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-   W: BUS RESET
-   W: BUS RESET
-   \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
-   Input sample started
-   I: input event: dev=gpio_keys        SYN type= 1 code=103 value=1
-   I: input event: dev=gpio_keys        SYN type= 1 code=103 value=0
-   I: input event: dev=gpio_keys        SYN type= 1 code=108 value=1
-   I: input event: dev=gpio_keys        SYN type= 1 code=108 value=0
-   I: input event: dev=gpio_keys        SYN type= 1 code=105 value=1
-   I: input event: dev=gpio_keys        SYN type= 1 code=105 value=0
-   I: input event: dev=gpio_keys        SYN type= 1 code=106 value=1
-   I: input event: dev=gpio_keys        SYN type= 1 code=106 value=0
-   I: input event: dev=gpio_keys        SYN type= 1 code= 28 value=1
-   I: input event: dev=gpio_keys        SYN type= 1 code= 28 value=0
+   .. parsed-literal::
+
+      \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+      W: BUS RESET
+      W: BUS RESET
+      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+      Input sample started
+      I: input event: dev=gpio_keys        SYN type= 1 code=103 value=1
+      I: input event: dev=gpio_keys        SYN type= 1 code=103 value=0
+      I: input event: dev=gpio_keys        SYN type= 1 code=108 value=1
+      I: input event: dev=gpio_keys        SYN type= 1 code=108 value=0
+      I: input event: dev=gpio_keys        SYN type= 1 code=105 value=1
+      I: input event: dev=gpio_keys        SYN type= 1 code=105 value=0
+      I: input event: dev=gpio_keys        SYN type= 1 code=106 value=1
+      I: input event: dev=gpio_keys        SYN type= 1 code=106 value=0
+      I: input event: dev=gpio_keys        SYN type= 1 code= 28 value=1
+      I: input event: dev=gpio_keys        SYN type= 1 code= 28 value=0
 
 Sounds from the speaker on the USB-CDC/ACM Console
 ==================================================
@@ -460,12 +479,23 @@ Invoke :program:`west build` and :program:`west flash`:
 #. play a folk song
 #. play a chrismas song
 
-.. parsed-literal::
-   :class: highlight-console notranslate
+.. container:: highlight highlight-console notranslate
 
-   :bgn:`uart:~$` **buzzer beep**
-   :bgn:`uart:~$` **buzzer play folksong**
-   :bgn:`uart:~$` **buzzer play xmastime**
+   .. parsed-literal::
+
+      :bgn:`uart:~$` **buzzer beep**
+
+.. container:: highlight highlight-console notranslate
+
+   .. parsed-literal::
+
+      :bgn:`uart:~$` **buzzer play folksong**
+
+.. container:: highlight highlight-console notranslate
+
+   .. parsed-literal::
+
+      :bgn:`uart:~$` **buzzer play xmastime**
 
 Display Test and Demonstration
 ==============================
@@ -534,33 +564,34 @@ on the console, here configured for a USB console:
 
 .. rubric:: Simple test execution on target
 
-.. parsed-literal::
-   :class: highlight-console notranslate
+.. container:: highlight highlight-console notranslate
 
-   :bgn:`uart:~$` **lvgl**
-   lvgl - LVGL shell commands
-   Subcommands:
-     stats   :Show LVGL statistics
-     monkey  :LVGL monkey testing
+   .. parsed-literal::
 
-   :bgn:`uart:~$` **lvgl stats**
-   stats - Show LVGL statistics
-   Subcommands:
-     memory  :Show LVGL memory statistics
-              Usage: lvgl stats memory [-c]
-              -c  dump chunk information
+      :bgn:`uart:~$` **lvgl**
+      lvgl - LVGL shell commands
+      Subcommands:
+        stats   :Show LVGL statistics
+        monkey  :LVGL monkey testing
 
-   :bgn:`uart:~$` **lvgl stats memory**
-   Heap at 0x20001270 contains 2047 units in 11 buckets
+      :bgn:`uart:~$` **lvgl stats**
+      stats - Show LVGL statistics
+      Subcommands:
+        memory  :Show LVGL memory statistics
+                 Usage: lvgl stats memory [-c]
+                 -c  dump chunk information
 
-     bucket#    min units        total      largest      largest
-                threshold       chunks      (units)      (bytes)
-     -----------------------------------------------------------
-           0            1            1            1            4
-           1            2            1            2           12
-          10         1024            1         1824        14588
+      :bgn:`uart:~$` **lvgl stats memory**
+      Heap at 0x20001270 contains 2047 units in 11 buckets
 
-   14604 free bytes, 1544 allocated bytes, overhead = 232 bytes (1.4%)
+        bucket#    min units        total      largest      largest
+                   threshold       chunks      (units)      (bytes)
+        -----------------------------------------------------------
+              0            1            1            1            4
+              1            2            1            2           12
+             10         1024            1         1824        14588
+
+      14604 free bytes, 1544 allocated bytes, overhead = 232 bytes (1.4%)
 
 References
 **********
