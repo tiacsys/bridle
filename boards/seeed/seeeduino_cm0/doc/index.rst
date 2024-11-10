@@ -18,17 +18,19 @@ header. It provides 3 on-board |Grove connectors| for I2C and UART.
 Hardware
 ********
 
-- `ATSAMD21G18A`_ ARM Cortex-M0+ processor at 48 MHz
-- 32.768 kHz crystal oscillator
-- 256 KiB flash memory and 32 KiB of RAM
-- 3 user LEDs (blue/Rx/Tx)
-- One reset button
-- Native USB-C port (supply power and transmit data)
-- 3 |Grove connectors|
-- |Arduino UNO R3| header
-- Arduino ICSP header
-- `MP1496`_, switching step-down converter (max. 2A)
-- 7~15V DC power-in jack
+   .. rst-class:: rst-columns
+
+   - `ATSAMD21G18A`_ ARM Cortex-M0+ processor at 48 MHz
+   - 32.768 kHz crystal oscillator
+   - 256 KiB flash memory and 32 KiB of RAM
+   - 3 user LEDs (blue/Rx/Tx)
+   - One reset button
+   - Native USB-C port (supply power and transmit data)
+   - 3 |Grove connectors|
+   - |Arduino UNO R3| header
+   - Arduino ICSP header
+   - `MP1496`_, switching step-down converter (max. 2A)
+   - 7~15V DC power-in jack
 
 Supported Features
 ==================
@@ -36,37 +38,90 @@ Supported Features
 The :code:`seeeduino_cm0` board configuration supports the following
 hardware features:
 
-+-----------+------------+------------------------------------------+
-| Interface | Controller | Driver/Component                         |
-+===========+============+==========================================+
-| ADC       | on-chip    | Analogue to digital converter            |
-+-----------+------------+------------------------------------------+
-| DAC       | on-chip    | Digital to analogue converter            |
-+-----------+------------+------------------------------------------+
-| DMA       | on-chip    | Direct memory access                     |
-+-----------+------------+------------------------------------------+
-| Flash     | on-chip    | Can be used with LittleFS to store files |
-+-----------+------------+------------------------------------------+
-| GPIO      | on-chip    | I/O ports                                |
-+-----------+------------+------------------------------------------+
-| HWINFO    | on-chip    | Hardware info                            |
-+-----------+------------+------------------------------------------+
-| I2C       | on-chip    | Inter-Integrated Circuit                 |
-+-----------+------------+------------------------------------------+
-| NVIC      | on-chip    | nested vector interrupt controller       |
-+-----------+------------+------------------------------------------+
-| PWM       | on-chip    | Pulse Width Modulation                   |
-+-----------+------------+------------------------------------------+
-| SPI       | on-chip    | Serial Peripheral Interface ports        |
-+-----------+------------+------------------------------------------+
-| SYSTICK   | on-chip    | systick                                  |
-+-----------+------------+------------------------------------------+
-| USART     | on-chip    | Serial ports                             |
-+-----------+------------+------------------------------------------+
-| USB       | on-chip    | USB device                               |
-+-----------+------------+------------------------------------------+
-| WDT       | on-chip    | Watchdog                                 |
-+-----------+------------+------------------------------------------+
+.. list-table:: Hardware Features Supported by Zephyr
+   :class: longtable
+   :align: center
+   :header-rows: 1
+
+   * - Peripheral
+     - Kconfig option
+     - Devicetree compatible
+     - Zephyr API
+   * - PINCTRL
+     - :kconfig:option:`CONFIG_PINCTRL`
+     - :dtcompatible:`atmel,sam0-pinctrl`
+     - :zephyr:ref:`pinctrl_api`
+   * - GPIO
+     - :kconfig:option:`CONFIG_GPIO`
+     - :dtcompatible:`atmel,sam0-gpio`
+     - :zephyr:ref:`gpio_api`
+   * - UART
+     - :kconfig:option:`CONFIG_SERIAL`
+     - :dtcompatible:`atmel,sam0-uart`
+     - :zephyr:ref:`uart_api`
+   * - UDC (USB Device Controller)
+     - :kconfig:option:`CONFIG_USB_DEVICE_STACK`
+     - :dtcompatible:`atmel,sam0-usb`
+     - :zephyr:ref:`usb_api`
+   * - I2C
+     - :kconfig:option:`CONFIG_I2C`
+     - :dtcompatible:`atmel,sam0-i2c`
+     - :zephyr:ref:`i2c_api`
+   * - SPI
+     - :kconfig:option:`CONFIG_SPI`
+     - :dtcompatible:`atmel,sam0-spi`
+     - :zephyr:ref:`spi_api`
+   * - PWM
+     - :kconfig:option:`CONFIG_PWM`
+     - :dtcompatible:`atmel,sam0-tcc-pwm`
+     - :zephyr:ref:`pwm_api`
+   * - DAC
+     - :kconfig:option:`CONFIG_DAC`
+     - :dtcompatible:`atmel,sam0-dac`
+     - :zephyr:ref:`dac_api`
+   * - ADC
+     - :kconfig:option:`CONFIG_ADC`
+     - :dtcompatible:`atmel,sam0-adc`
+     - :zephyr:ref:`adc_api`
+   * - RTC
+     - :kconfig:option:`CONFIG_RTC`
+     - :dtcompatible:`atmel,sam0-rtc`
+     - :zephyr:ref:`rtc_api`
+   * - Timer (Counter)
+     - :kconfig:option:`CONFIG_COUNTER`
+     - :dtcompatible:`atmel,sam0-tcc`
+     - :zephyr:ref:`counter_api`
+   * - Watchdog Timer (WDT)
+     - :kconfig:option:`CONFIG_WATCHDOG`
+     - :dtcompatible:`atmel,sam0-watchdog`
+     - :zephyr:ref:`watchdog_api`
+   * - Flash
+     - :kconfig:option:`CONFIG_FLASH`
+     - :dtcompatible:`atmel,sam0-nvmctrl`
+     - :zephyr:ref:`flash_api` and
+       :zephyr:ref:`flash_map_api`
+   * - DMA
+     - :kconfig:option:`CONFIG_DMA`
+     - :dtcompatible:`atmel,sam0-dmac`
+     - :zephyr:ref:`dma_api`
+   * - HWINFO
+     - :kconfig:option:`CONFIG_HWINFO`
+     - :dtcompatible:`atmel,sam0-id`
+     - :zephyr:ref:`hwinfo_api`
+   * - CLOCK / PM
+     - **not supported**
+     - | :dtcompatible:`atmel,samd2x-gclk`
+       | :dtcompatible:`atmel,samd2x-pm`
+     - :zephyr:ref:`clock_control_api`
+   * - NVIC
+     - N/A
+     - | :dtcompatible:`atmel,sam0-eic`
+       | :dtcompatible:`arm,v6m-nvic`
+     - Nested Vector :zephyr:ref:`interrupts_v2` Controller
+   * - SYSTICK
+     - N/A
+     - :dtcompatible:`arm,armv6m-systick`
+     -
 
 Other hardware features are not currently supported by Zephyr.
 
@@ -105,8 +160,8 @@ These are provided by a specific interface for general signal mapping, the
 
 Following mappings are well known:
 
-* ``grove_gpios``: GPIO mapping
-* ``grove_pwms``: PWM mapping
+   * ``grove_gpios``: GPIO mapping
+   * ``grove_pwms``: PWM mapping
 
 .. tabs::
 
@@ -116,77 +171,7 @@ Following mappings are well known:
       header bindet with :dtcompatible:`arduino-header-r3` to the set of
       |Grove connectors| provided as |Laced Grove Signal Interface|.
 
-      +-----------------------------+-------------------------+--------------------------------+
-      | phandle index to shield --> | **Signal** : *Meaning*  |   ``seeeduino_cm0``            |
-      +=============================+=========================+================================+
-      | ``<&grove_gpios 0 …>``      | **D0:** *UART-RX*       | | ``<&grove_uart_header 0 …>`` |
-      |                             | (SERCOM5)               | | ↳                            |
-      +-----------------------------+-------------------------+--------------------------------+
-      | ``<&grove_gpios 1 …>``      | **D1:** *UART-TX*       | | ``<&grove_uart_header 1 …>`` |
-      |                             | (SERCOM5)               | | ↳                            |
-      +-----------------------------+-------------------------+--------------------------------+
-      | ``<&grove_gpios 2 …>``      | **D2**                  |   **not wired**                |
-      +-----------------------------+-------------------------+--------------------------------+
-      | ``<&grove_gpios 3 …>``      | **D3**                  |   **not wired**                |
-      +-----------------------------+-------------------------+--------------------------------+
-      | ``<&grove_gpios 4 …>``      | **D4**                  |   **not wired**                |
-      +-----------------------------+-------------------------+--------------------------------+
-      | ``<&grove_gpios 5 …>``      | **D5**                  |   **not wired**                |
-      +-----------------------------+-------------------------+--------------------------------+
-      | ``<&grove_gpios 6 …>``      | **D6**                  |   **not wired**                |
-      +-----------------------------+-------------------------+--------------------------------+
-      | ``<&grove_gpios 7 …>``      | **D7**                  |   **not wired**                |
-      +-----------------------------+-------------------------+--------------------------------+
-      | ``<&grove_gpios 8 …>``      | **D8**                  |   **not wired**                |
-      +-----------------------------+-------------------------+--------------------------------+
-      | ``<&grove_gpios 9 …>``      | **D9**                  |   **not wired**                |
-      +-----------------------------+-------------------------+--------------------------------+
-      | ``<&grove_gpios 10 …>``     | **D10:** *SPI-CS*       |   **not wired**                |
-      +-----------------------------+-------------------------+--------------------------------+
-      | ``<&grove_gpios 11 …>``     | **D11:** *SPI-MOSI*     |   **not wired**                |
-      +-----------------------------+-------------------------+--------------------------------+
-      | ``<&grove_gpios 12 …>``     | **D12:** *SPI-MISO*     |   **not wired**                |
-      +-----------------------------+-------------------------+--------------------------------+
-      | ``<&grove_gpios 13 …>``     | **D13:** *SPI-CLK*      |   **not wired**                |
-      +-----------------------------+-------------------------+--------------------------------+
-      | ``<&grove_gpios 14 …>``     | **D14:** *A0* as GPIO   |   **not wired**                |
-      +-----------------------------+-------------------------+--------------------------------+
-      | ``<&grove_gpios 15 …>``     | **D15:** *A1* as GPIO   |   **not wired**                |
-      +-----------------------------+-------------------------+--------------------------------+
-      | ``<&grove_gpios 16 …>``     | **D16:** *A2* as GPIO   |   **not wired**                |
-      +-----------------------------+-------------------------+--------------------------------+
-      | ``<&grove_gpios 17 …>``     | **D17:** *A3* as GPIO   |   **not wired**                |
-      +-----------------------------+-------------------------+--------------------------------+
-      | ``<&grove_gpios 18 …>``     | **D18:** *I2C-SDA*      | | ``<&grove_i2c_header 1 …>``, |
-      |                             |                         | | ↳ ``<&arduino_header 20 …>`` |
-      +-----------------------------+-------------------------+--------------------------------+
-      | ``<&grove_gpios 19 …>``     | **D19:** *I2C-SCL*      | | ``<&grove_i2c_header 0 …>``  |
-      |                             |                         | | ↳ ``<&arduino_header 21 …>`` |
-      +-----------------------------+-------------------------+--------------------------------+
-      | ``<&grove_gpios 20 …>``     | **D20:** *ADC6* as GPIO |   **not wired**                |
-      +-----------------------------+-------------------------+--------------------------------+
-      | ``<&grove_gpios 21 …>``     |                         |                                |
-      +-----------------------------+-------------------------+--------------------------------+
-      | ``<&grove_gpios 22 …>``     |                         |                                |
-      +-----------------------------+-------------------------+--------------------------------+
-      | ``<&grove_gpios 23 …>``     |                         |                                |
-      +-----------------------------+-------------------------+--------------------------------+
-      | ``<&grove_gpios 24 …>``     |                         |                                |
-      +-----------------------------+-------------------------+--------------------------------+
-      | ``<&grove_gpios 25 …>``     |                         |                                |
-      +-----------------------------+-------------------------+--------------------------------+
-      | ``<&grove_gpios 26 …>``     |                         |                                |
-      +-----------------------------+-------------------------+--------------------------------+
-      | ``<&grove_gpios 27 …>``     |                         |                                |
-      +-----------------------------+-------------------------+--------------------------------+
-      | ``<&grove_gpios 28 …>``     |                         |                                |
-      +-----------------------------+-------------------------+--------------------------------+
-      | ``<&grove_gpios 29 …>``     |                         |                                |
-      +-----------------------------+-------------------------+--------------------------------+
-      | ``<&grove_gpios 30 …>``     |                         |                                |
-      +-----------------------------+-------------------------+--------------------------------+
-      | ``<&grove_gpios 31 …>``     |                         |                                |
-      +-----------------------------+-------------------------+--------------------------------+
+      .. include:: grove_gpios.rsti
 
    .. group-tab:: PWM mapping ``grove_pwms``
 
@@ -199,73 +184,7 @@ Following mappings are well known:
 
       **This list must not be complete!**
 
-      +--------------------+-----------------------------+-------------------------+-------------------------+
-      | Grove PWM Label    | phandle index to shield --> | **Signal** : *Meaning*  | ``seeeduino_cm0``       |
-      +====================+=============================+=========================+=========================+
-      |                    | ``<&grove_pwms 0 …>``       | **D0:** *UART-RX*       | **not possible**        |
-      +--------------------+-----------------------------+-------------------------+-------------------------+
-      |                    | ``<&grove_pwms 1 …>``       | **D1:** *UART-TX*       | **not possible**        |
-      +--------------------+-----------------------------+-------------------------+-------------------------+
-      |                    | ``<&grove_pwms 2 …>``       | **D2**                  | **not wired**           |
-      +--------------------+-----------------------------+-------------------------+-------------------------+
-      |                    | ``<&grove_pwms 3 …>``       | **D3**                  | **not wired**           |
-      +--------------------+-----------------------------+-------------------------+-------------------------+
-      |                    | ``<&grove_pwms 4 …>``       | **D4**                  | **not wired**           |
-      +--------------------+-----------------------------+-------------------------+-------------------------+
-      |                    | ``<&grove_pwms 5 …>``       | **D5**                  | **not wired**           |
-      +--------------------+-----------------------------+-------------------------+-------------------------+
-      |                    | ``<&grove_pwms 6 …>``       | **D6**                  | **not wired**           |
-      +--------------------+-----------------------------+-------------------------+-------------------------+
-      |                    | ``<&grove_pwms 7 …>``       | **D7**                  | **not wired**           |
-      +--------------------+-----------------------------+-------------------------+-------------------------+
-      |                    | ``<&grove_pwms 8 …>``       | **D8**                  | **not wired**           |
-      +--------------------+-----------------------------+-------------------------+-------------------------+
-      |                    | ``<&grove_pwms 9 …>``       | **D9**                  | **not wired**           |
-      +--------------------+-----------------------------+-------------------------+-------------------------+
-      |                    | ``<&grove_pwms 10 …>``      | **D10:** *SPI-CS*       | **not wired**           |
-      +--------------------+-----------------------------+-------------------------+-------------------------+
-      |                    | ``<&grove_pwms 11 …>``      | **D11:** *SPI-MOSI*     | **not wired**           |
-      +--------------------+-----------------------------+-------------------------+-------------------------+
-      |                    | ``<&grove_pwms 12 …>``      | **D12:** *SPI-MISO*     | **not wired**           |
-      +--------------------+-----------------------------+-------------------------+-------------------------+
-      |                    | ``<&grove_pwms 13 …>``      | **D13:** *SPI-CLK*      | **not wired**           |
-      +--------------------+-----------------------------+-------------------------+-------------------------+
-      |                    | ``<&grove_pwms 14 …>``      | **D14:** *A0*           | **not wired**           |
-      +--------------------+-----------------------------+-------------------------+-------------------------+
-      |                    | ``<&grove_pwms 15 …>``      | **D15:** *A1*           | **not wired**           |
-      +--------------------+-----------------------------+-------------------------+-------------------------+
-      |                    | ``<&grove_pwms 16 …>``      | **D16:** *A2*           | **not wired**           |
-      +--------------------+-----------------------------+-------------------------+-------------------------+
-      |                    | ``<&grove_pwms 17 …>``      | **D17:** *A3*           | **not wired**           |
-      +--------------------+-----------------------------+-------------------------+-------------------------+
-      | ``&grove_pwm_d18`` | ``<&grove_pwms 18 …>``      | **D18:** *I2C-SDA*      | ``<&tcc0 0 …>`` (WO4)   |
-      +--------------------+-----------------------------+-------------------------+-------------------------+
-      | ``&grove_pwm_d19`` | ``<&grove_pwms 19 …>``      | **D19:** *I2C-SCL*      | ``<&tcc0 1 …>`` (WO5)   |
-      +--------------------+-----------------------------+-------------------------+-------------------------+
-      |                    | ``<&grove_pwms 20 …>``      | **D20:** *ADC6*         | **not wired**           |
-      +--------------------+-----------------------------+-------------------------+-------------------------+
-      |                    | ``<&grove_pwms 21 …>``      |                         |                         |
-      +--------------------+-----------------------------+-------------------------+-------------------------+
-      |                    | ``<&grove_pwms 22 …>``      |                         |                         |
-      +--------------------+-----------------------------+-------------------------+-------------------------+
-      |                    | ``<&grove_pwms 23 …>``      |                         |                         |
-      +--------------------+-----------------------------+-------------------------+-------------------------+
-      |                    | ``<&grove_pwms 24 …>``      |                         |                         |
-      +--------------------+-----------------------------+-------------------------+-------------------------+
-      |                    | ``<&grove_pwms 25 …>``      |                         |                         |
-      +--------------------+-----------------------------+-------------------------+-------------------------+
-      |                    | ``<&grove_pwms 26 …>``      |                         |                         |
-      +--------------------+-----------------------------+-------------------------+-------------------------+
-      |                    | ``<&grove_pwms 27 …>``      |                         |                         |
-      +--------------------+-----------------------------+-------------------------+-------------------------+
-      |                    | ``<&grove_pwms 28 …>``      |                         |                         |
-      +--------------------+-----------------------------+-------------------------+-------------------------+
-      |                    | ``<&grove_pwms 29 …>``      |                         |                         |
-      +--------------------+-----------------------------+-------------------------+-------------------------+
-      |                    | ``<&grove_pwms 30 …>``      |                         |                         |
-      +--------------------+-----------------------------+-------------------------+-------------------------+
-      |                    | ``<&grove_pwms 31 …>``      |                         |                         |
-      +--------------------+-----------------------------+-------------------------+-------------------------+
+      .. include:: grove_pwms.rsti
 
 System Clock
 ============
@@ -327,25 +246,33 @@ for more, such as the :zephyr:code-sample:`usb-cdc-acm` sample which sets up
 a virtual serial port that echos characters back to the host PC. As an
 alternative to the default Zephyr console on serial port the Bridle
 :ref:`snippet-usb-console` can be used to enable
-:zephyr:ref:`usb_device_cdc_acm` and switch the console to USB::
+:zephyr:ref:`usb_device_cdc_acm` and switch the console to USB:
 
-   USB device idVendor=2886, idProduct=8027, bcdDevice= 3.07
-   USB device strings: Mfr=1, Product=2, SerialNumber=3
-   Product: Seeeduino Cortex-M0+ (CDC ACM)
-   Manufacturer: Seeed LLC
-   SerialNumber: 8159F378B63F73EE
+   .. container:: highlight-console notranslate literal-block
+
+      .. parsed-literal::
+
+         USB device idVendor=\ |seeeduino_cm0_VID|, idProduct=\ |seeeduino_cm0_PID_CON|, bcdDevice=\ |seeeduino_cm0_BCD_CON|
+         USB device strings: Mfr=1, Product=2, SerialNumber=3
+         Product: |seeeduino_cm0_PStr_CON|
+         Manufacturer: |seeeduino_cm0_VStr|
+         SerialNumber: 8159F378B63F73EE
 
 Programming and Debugging
 *************************
 
 The Cortex-M0+ ships the BOSSA compatible `UF2 bootloader`_ also known as
 `Arduino Zero Bootloader`_, a modern `SAM-BA`_ (Boot Assistant) replacement.
-The bootloader can be entered by pressing the RST button twice::
+The bootloader can be entered by pressing the RST button twice:
 
-   USB device idVendor=2886, idProduct=0027, bcdDevice= 2.00
-   USB device strings: Mfr=1, Product=2, SerialNumber=0
-   Product: Seeeduino_Cortex_M0+
-   Manufacturer: Arduino LLC
+   .. container:: highlight-console notranslate literal-block
+
+      .. parsed-literal::
+
+         USB device idVendor=\ |seeeduino_cm0_VID_UF2|, idProduct=\ |seeeduino_cm0_PID_UF2|, bcdDevice=\ |seeeduino_cm0_BCD_UF2|
+         USB device strings: Mfr=1, Product=2, SerialNumber=0
+         Product: |seeeduino_cm0_PStr_UF2|
+         Manufacturer: |seeeduino_cm0_VStr_UF2|
 
 Additionally, if :kconfig:option:`CONFIG_USB_CDC_ACM` is enabled then the
 bootloader will be entered automatically when you run :program:`west flash`.
@@ -363,8 +290,8 @@ bootloader will be entered automatically when you run :program:`west flash`.
    There is also a backup copy of the original bootloader together with
    a ready to use Segger JFlash control file inside the Bridel project:
 
-   * :bridle_file:`boards/seeed/seeeduino_cm0/doc/bootloader/samd21_sam_ba.hex`
-   * :bridle_file:`boards/seeed/seeeduino_cm0/doc/bootloader/samd21_sam_ba.jflash`
+      * :bridle_file:`boards/seeed/seeeduino_cm0/doc/bootloader/samd21_sam_ba.hex`
+      * :bridle_file:`boards/seeed/seeeduino_cm0/doc/bootloader/samd21_sam_ba.jflash`
 
 There is also a SWD header (J10, not populated) on board which have to be
 used with tools like Segger J-Link for programming for bootloader restore
@@ -397,13 +324,13 @@ Flashing
 
       minicom -D /dev/ttyUSB0 -o
 
-   The -o option tells minicom not to send the modem initialization
+   The :code:`-o` option tells minicom not to send the modem initialization
    string. Connection should be configured as follows:
 
-   - Speed: 115200
-   - Data: 8 bits
-   - Parity: None
-   - Stop bits: 1
+      - Speed: 115200
+      - Data: 8 bits
+      - Parity: None
+      - Stop bits: 1
 
 #. Pressing the RST button twice quickly to enter bootloader mode.
 
@@ -493,207 +420,298 @@ Hello Shell with USB-CDC/ACM Console
 
    .. group-tab:: Basics
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **hello -h**
-         hello - say hello
-         :bgn:`uart:~$` **hello**
-         Hello from shell.
+         .. parsed-literal::
 
-         :bgn:`uart:~$` **hwinfo devid**
-         Length: 16
-         ID: 0x17d5dcb1101244738159f378b63f73ee
+            :bgn:`uart:~$` **hello -h**
+            hello - say hello
+            :bgn:`uart:~$` **hello**
+            Hello from shell.
 
-         :bgn:`uart:~$` **kernel version**
-         Zephyr version |zephyr_version_number_em|
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **bridle version**
-         Bridle version |version_number_em|
+         .. parsed-literal::
 
-         :bgn:`uart:~$` **bridle version long**
-         Bridle version |longversion_number_em|
+            :bgn:`uart:~$` **hwinfo devid**
+            Length: 16
+            ID: 0x17d5dcb1101244738159f378b63f73ee
 
-         :bgn:`uart:~$` **bridle info**
-         Zephyr: |zephyr_release_number_em|
-         Bridle: |release_number_em|
+            :bgn:`uart:~$` **kernel version**
+            Zephyr version |zephyr_version_number_em|
 
-         :bgn:`uart:~$` **device list**
-         devices:
-         - eic\ @\ 40001800 (READY)
-           DT node labels: eic
-         - gpio\ @\ 41004480 (READY)
-           DT node labels: portb
-         - gpio\ @\ 41004400 (READY)
-           DT node labels: porta
-         - snippet_cdc_acm_console_uart (READY)
-           DT node labels: snippet_cdc_acm_console_uart
-         - sercom\ @\ 42001c00 (READY)
-           DT node labels: sercom5 grove_serial
-         - sercom\ @\ 42001000 (READY)
-           DT node labels: sercom2 arduino_serial
-         - adc\ @\ 42004000 (READY)
-           DT node labels: adc
-         - dac\ @\ 42004800 (READY)
-           DT node labels: dac0
-         - nvmctrl\ @\ 41004000 (READY)
-           DT node labels: nvmctrl
-         - sercom\ @\ 42001400 (READY)
-           DT node labels: sercom3 arduino_i2c grove_i2c
-         - tcc\ @\ 42002800 (READY)
-           DT node labels: tcc2
-         - tcc\ @\ 42002000 (READY)
-           DT node labels: tcc0 grove_pwm_d18 grove_pwm_d19
-         - leds (READY)
+            :bgn:`uart:~$` **bridle version**
+            Bridle version |version_number_em|
 
-         :bgn:`uart:~$` **history**
-         [  0] history
-         [  1] device list
-         [  2] bridle info
-         [  3] bridle version long
-         [  4] bridle version
-         [  5] kernel version
-         [  6] hwinfo devid
-         [  7] hello
-         [  8] hello -h
+            :bgn:`uart:~$` **bridle version long**
+            Bridle version |longversion_number_em|
+
+            :bgn:`uart:~$` **bridle info**
+            Zephyr: |zephyr_release_number_em|
+            Bridle: |release_number_em|
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **device list**
+            devices:
+            - eic\ @\ 40001800 (READY)
+              DT node labels: eic
+            - gpio\ @\ 41004480 (READY)
+              DT node labels: portb
+            - gpio\ @\ 41004400 (READY)
+              DT node labels: porta
+            - snippet_cdc_acm_console_uart (READY)
+              DT node labels: snippet_cdc_acm_console_uart
+            - sercom\ @\ 42001c00 (READY)
+              DT node labels: sercom5 grove_serial
+            - sercom\ @\ 42001000 (READY)
+              DT node labels: sercom2 arduino_serial
+            - adc\ @\ 42004000 (READY)
+              DT node labels: adc
+            - dac\ @\ 42004800 (READY)
+              DT node labels: dac0
+            - nvmctrl\ @\ 41004000 (READY)
+              DT node labels: nvmctrl
+            - sercom\ @\ 42001400 (READY)
+              DT node labels: sercom3 arduino_i2c grove_i2c
+            - tcc\ @\ 42002800 (READY)
+              DT node labels: tcc2
+            - tcc\ @\ 42002000 (READY)
+              DT node labels: tcc0 grove_pwm_d18 grove_pwm_d19
+            - leds (READY)
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **history**
+            [  0] history
+            [  1] device list
+            [  2] bridle info
+            [  3] bridle version long
+            [  4] bridle version
+            [  5] kernel version
+            [  6] hwinfo devid
+            [  7] hello
+            [  8] hello -h
 
    .. group-tab:: GPIO
 
       Operate with the red Rx user LED:
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **gpio get gpio@41004480 3**
-         0
+         .. parsed-literal::
 
-         :bgn:`uart:~$` **gpio conf gpio@41004480 3 ol0**
+            :bgn:`uart:~$` **gpio get gpio@41004480 3**
+            0
 
-         :bgn:`uart:~$` **gpio set gpio@41004480 3 1**
-         :bgn:`uart:~$` **gpio set gpio@41004480 3 0**
+            :bgn:`uart:~$` **gpio conf gpio@41004480 3 ol0**
 
-         :bgn:`uart:~$` **gpio blink gpio@41004480 3**
-         Hit any key to exit
+            :bgn:`uart:~$` **gpio set gpio@41004480 3 1**
+            :bgn:`uart:~$` **gpio set gpio@41004480 3 0**
+
+            :bgn:`uart:~$` **gpio blink gpio@41004480 3**
+            Hit any key to exit
 
    .. group-tab:: PWM
 
       Operate with the blue user LED:
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 20000**
-         :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 19000**
-         :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 18000**
-         :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 17000**
-         :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 16000**
-         :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 15000**
-         :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 10000**
-         :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 5000**
-         :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 2500**
-         :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 500**
-         :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 0**
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 20000**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 19000**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 18000**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 17000**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 16000**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 15000**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 10000**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 5000**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 2500**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 500**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 0**
 
    .. group-tab:: DAC/ADC
 
       Operate with the loop-back wire from A0 (DAC CH0 VOUT)
       to A1 (ADC CH2 AIN):
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **dac setup dac@42004800 0 10**
-         :bgn:`uart:~$` **adc adc@42004000 resolution 12**
-         :bgn:`uart:~$` **adc adc@42004000 acq_time 10 us**
-         :bgn:`uart:~$` **adc adc@42004000 channel positive 2**
+         .. parsed-literal::
 
-         :bgn:`uart:~$` **dac write_value dac@42004800 0 512**
-         :bgn:`uart:~$` **adc adc@42004000 read 2**
-         read: 2035
+            :bgn:`uart:~$` **dac setup dac@42004800 0 10**
+            :bgn:`uart:~$` **adc adc@42004000 resolution 12**
+            :bgn:`uart:~$` **adc adc@42004000 acq_time 10 us**
+            :bgn:`uart:~$` **adc adc@42004000 channel positive 2**
 
-         :bgn:`uart:~$` **dac write_value dac@42004800 0 1023**
-         :bgn:`uart:~$` **adc adc@42004000 read 2**
-         read: 4068
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **dac write_value dac@42004800 0 512**
+            :bgn:`uart:~$` **adc adc@42004000 read 2**
+            read: 2035
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **dac write_value dac@42004800 0 1023**
+            :bgn:`uart:~$` **adc adc@42004000 read 2**
+            read: 4068
 
    .. group-tab:: Flash access
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **flash read nvmctrl@41004000 13374 40**
-         00013374: 73 65 65 65 64 75 69 6e  6f 5f 63 6d 30 00 48 65 \|seeeduin o_cm0.He\|
-         00013384: 6c 6c 6f 20 57 6f 72 6c  64 21 20 49 27 6d 20 54 \|llo Worl d! I'm T\|
-         00013394: 48 45 20 53 48 45 4c 4c  20 66 72 6f 6d 20 25 73 \|HE SHELL  from %s\|
-         000133A4: 0a 00 28 75 6e 73 69 67  6e 65 64 29 20 63 68 61 \|..(unsig ned) cha\|
+         .. parsed-literal::
 
-         :bgn:`uart:~$` **flash read nvmctrl@41004000 3c000 40**
-         0003C000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
-         0003C010: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
-         0003C020: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
-         0003C030: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+            :bgn:`uart:~$` **flash read nvmctrl@41004000 135ac 40**
+            000135AC: 73 65 65 65 64 75 69 6e  6f 5f 63 6d 30 00 48 65 \|seeeduin o_cm0.He\|
+            000135BC: 6c 6c 6f 20 57 6f 72 6c  64 21 20 49 27 6d 20 54 \|llo Worl d! I'm T\|
+            000135CC: 48 45 20 53 48 45 4c 4c  20 66 72 6f 6d 20 25 73 \|HE SHELL  from %s\|
+            000135DC: 0a 00 28 75 6e 73 69 67  6e 65 64 29 20 63 68 61 \|..(unsig ned) cha\|
 
-         :bgn:`uart:~$` **flash test nvmctrl@41004000 3c000 400 2**
-         Erase OK.
-         Write OK.
-         Verified OK.
-         Erase OK.
-         Write OK.
-         Verified OK.
-         Erase-Write-Verify test done.
+      .. rubric:: Erase, Write and Verify
 
-         :bgn:`uart:~$` **flash read nvmctrl@41004000 3c000 40**
-         0003C000: 00 01 02 03 04 05 06 07  08 09 0a 0b 0c 0d 0e 0f \|........ ........\|
-         0003C010: 10 11 12 13 14 15 16 17  18 19 1a 1b 1c 1d 1e 1f \|........ ........\|
-         0003C020: 20 21 22 23 24 25 26 27  28 29 2a 2b 2c 2d 2e 2f \| !"#$%&' ()*+,-./\|
-         0003C030: 30 31 32 33 34 35 36 37  38 39 3a 3b 3c 3d 3e 3f \|01234567 89:;<=>?\|
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **flash page_info 3c000**
-         Page for address 0x3c000:
-         start offset: 0x3c000
-         size: 256
-         index: 960
+         .. parsed-literal::
 
-         :bgn:`uart:~$` **flash erase nvmctrl@41004000 3c000 400**
-         Erase success.
+            :bgn:`uart:~$` **flash read nvmctrl@41004000 3c000 40**
+            0003C000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+            0003C010: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+            0003C020: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+            0003C030: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
 
-         :bgn:`uart:~$` **flash read nvmctrl@41004000 3c000 40**
-         0003C000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
-         0003C010: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
-         0003C020: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
-         0003C030: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+            :bgn:`uart:~$` **flash test nvmctrl@41004000 3c000 400 2**
+            Erase OK.
+            Write OK.
+            Verified OK.
+            Erase OK.
+            Write OK.
+            Verified OK.
+            Erase-Write-Verify test done.
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **flash read nvmctrl@41004000 3c000 40**
+            0003C000: 00 01 02 03 04 05 06 07  08 09 0a 0b 0c 0d 0e 0f \|........ ........\|
+            0003C010: 10 11 12 13 14 15 16 17  18 19 1a 1b 1c 1d 1e 1f \|........ ........\|
+            0003C020: 20 21 22 23 24 25 26 27  28 29 2a 2b 2c 2d 2e 2f \| !"#$%&' ()*+,-./\|
+            0003C030: 30 31 32 33 34 35 36 37  38 39 3a 3b 3c 3d 3e 3f \|01234567 89:;<=>?\|
+
+            :bgn:`uart:~$` **flash page_info 3c000**
+            Page for address 0x3c000:
+            start offset: 0x3c000
+            size: 256
+            index: 960
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **flash erase nvmctrl@41004000 3c000 400**
+            Erase success.
+
+            :bgn:`uart:~$` **flash read nvmctrl@41004000 3c000 40**
+            0003C000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+            0003C010: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+            0003C020: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+            0003C030: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
 
    .. group-tab:: I2C
 
       The Cortex-M0+ has no on-board I2C devices. For this example the
       |Grove BMP280 Sensor|_ was connected.
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **log enable none i2c_sam0**
+         .. parsed-literal::
 
-         :bgn:`uart:~$` **i2c scan sercom@42001400**
-              0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
-         00:             -- -- -- -- -- -- -- -- -- -- -- --
-         10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-         20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-         30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-         40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-         50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-         60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-         70: -- -- -- -- -- -- -- 77
-         1 devices found on sercom\ @\ 42001400
+            :bgn:`uart:~$` **log enable none i2c_sam0**
 
-         :bgn:`uart:~$` **log enable inf i2c_sam0**
+            :bgn:`uart:~$` **i2c scan sercom@42001400**
+                 0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+            00:             -- -- -- -- -- -- -- -- -- -- -- --
+            10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            70: -- -- -- -- -- -- -- 77
+            1 devices found on sercom\ @\ 42001400
+
+            :bgn:`uart:~$` **log enable inf i2c_sam0**
 
       The I2C address ``0x77`` is a Bosch BMP280 Air Pressure Sensor and their
       Chip-ID can read from register ``0xd0``. The Chip-ID must be ``0x58``:
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **i2c read_byte sercom@42001400 77 d0**
-         Output: 0x58
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **i2c read_byte sercom@42001400 77 d0**
+            Output: 0x58
 
 References
 **********
