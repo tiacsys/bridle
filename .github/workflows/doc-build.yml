@@ -103,14 +103,6 @@ jobs:
         run: |
           cmake -B build -GNinja bridle/doc
           ninja -C build build-all
-          #
-          # For some unknown reason, the layout of the Sphinx Tabs extension
-          # in the docset "devicetree" is no longer rendered properly by the
-          # HTML Builder of Sphinx v6. Only cleaning it up and rebuilding it
-          # helps so far.
-          #
-          ninja -C build devicetree-clean
-          ninja -C build devicetree-html
 
       - name: Archive documentation
         working-directory: workspace/build
