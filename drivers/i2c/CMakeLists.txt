@@ -6,5 +6,5 @@
 # build errors can occur!
 zephyr_library_amend()
 
-zephyr_library_sources_ifdef(CONFIG_I2C_SC18IS604 i2c_sc18is604.c)
-zephyr_library_sources_ifdef(CONFIG_I2C_CALLBACK i2c_sc18is604_callback.c)
+zephyr_library_sources_ifdef(CONFIG_I2C_SC18IS604	i2c_sc18is604.c)
+zephyr_library_sources_ifdef(CONFIG_I2C_SC18IS604_CB	i2c_sc18is604_callback.c)

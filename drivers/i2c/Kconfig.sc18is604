@@ -20,10 +20,14 @@ config I2C_SC18IS604_INIT_PRIORITY
 	help
 	  Device driver initialization priority.
 
-if I2C_CALLBACK
+if I2C_SC18IS604 && I2C_CALLBACK
 
-	config HEAP_MEM_POOL_ADD_SIZE_I2C_SC18IS604
-		int
-		default 512 # Enough for 5 in-flight async transfers
+config I2C_SC18IS604_CB
+	bool
+	default y
+
+config HEAP_MEM_POOL_ADD_SIZE_I2C_SC18IS604
+	int
+	default 512 # Enough for 5 in-flight async transfers
 
 endif
