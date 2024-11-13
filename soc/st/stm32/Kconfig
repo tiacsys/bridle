@@ -1,0 +1,10 @@
+# ST Microelectronics STM32 MCU line
+
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+if SOC_FAMILY_STM32
+
+rsource "*/Kconfig"
+
+endif # SOC_FAMILY_STM32
