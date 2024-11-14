@@ -1,0 +1,14 @@
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+if LVGL
+
+comment "LVGL configuration (fixes and enxtensions)"
+
+choice LV_FONT_DEFAULT
+	config LV_FONT_DEFAULT_MONTSERRAT_10
+		bool "Montserrat 10"
+		select LV_FONT_MONTSERRAT_10
+endchoice
+
+endif
