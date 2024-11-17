@@ -324,20 +324,21 @@ sample: :zephyr:code-sample:`input-dump`.
 
       .. rubric:: Simple logging output on target
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate no-copybutton
 
-         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-         W: BUS RESET
-         W: BUS RESET
-         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
-         Input sample started
-         I: input event: dev=wpcg-gpio-keys   SYN type= 1 code= 28 value=1
-         I: input event: dev=wpcg-gpio-keys   SYN type= 1 code= 28 value=0
-         I: input event: dev=wpcg-gpio-keys   SYN type= 1 code=103 value=1
-         I: input event: dev=wpcg-gpio-keys   SYN type= 1 code=103 value=0
-         I: input event: dev=wpcg-gpio-keys   SYN type= 1 code=108 value=1
-         I: input event: dev=wpcg-gpio-keys   SYN type= 1 code=108 value=0
+         .. parsed-literal::
+
+            \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+            W: BUS RESET
+            W: BUS RESET
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+            Input sample started
+            I: input event: dev=wpcg-gpio-keys   SYN type= 1 code= 28 value=1
+            I: input event: dev=wpcg-gpio-keys   SYN type= 1 code= 28 value=0
+            I: input event: dev=wpcg-gpio-keys   SYN type= 1 code=103 value=1
+            I: input event: dev=wpcg-gpio-keys   SYN type= 1 code=103 value=0
+            I: input event: dev=wpcg-gpio-keys   SYN type= 1 code=108 value=1
+            I: input event: dev=wpcg-gpio-keys   SYN type= 1 code=108 value=0
 
 Analog-to-Digital Converter (ADC)
 =================================
@@ -409,60 +410,61 @@ See also Zephyr sample: :zephyr:code-sample:`adc_dt`.
 
       .. rubric:: Simple test execution on target
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate no-copybutton
 
-         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-         W: BUS RESET
-         W: BUS RESET
-         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
-         ADC reading[0]:
-         - adc\ @\ 4004c000, channel 0: 907 = 730 mV
-         ADC reading[1]:
-         - adc\ @\ 4004c000, channel 0: 910 = 733 mV
-         ADC reading[2]:
-         - adc\ @\ 4004c000, channel 0: 1233 = 993 mV
-         ADC reading[3]:
-         - adc\ @\ 4004c000, channel 0: 1196 = 963 mV
-         ADC reading[4]:
-         - adc\ @\ 4004c000, channel 0: 569 = 458 mV
-         ADC reading[5]:
-         - adc\ @\ 4004c000, channel 0: 336 = 270 mV
-         ADC reading[6]:
-         - adc\ @\ 4004c000, channel 0: 285 = 229 mV
-         ADC reading[7]:
-         - adc\ @\ 4004c000, channel 0: 181 = 145 mV
-         ADC reading[8]:
-         - adc\ @\ 4004c000, channel 0: 56 = 45 mV
-         ADC reading[9]:
-         - adc\ @\ 4004c000, channel 0: 59 = 47 mV
-         ADC reading[10]:
-         - adc\ @\ 4004c000, channel 0: 56 = 45 mV
-         ADC reading[11]:
-         - adc\ @\ 4004c000, channel 0: 480 = 386 mV
-         ADC reading[12]:
-         - adc\ @\ 4004c000, channel 0: 868 = 699 mV
-         ADC reading[13]:
-         - adc\ @\ 4004c000, channel 0: 1878 = 1513 mV
-         ADC reading[14]:
-         - adc\ @\ 4004c000, channel 0: 3256 = 2623 mV
-         ADC reading[15]:
-         - adc\ @\ 4004c000, channel 0: 3413 = 2749 mV
-         ADC reading[16]:
-         - adc\ @\ 4004c000, channel 0: 3446 = 2776 mV
-         ADC reading[17]:
-         - adc\ @\ 4004c000, channel 0: 3470 = 2795 mV
-         ADC reading[18]:
-         - adc\ @\ 4004c000, channel 0: 3451 = 2780 mV
-         ADC reading[19]:
-         - adc\ @\ 4004c000, channel 0: 1029 = 829 mV
-         ADC reading[20]:
-         - adc\ @\ 4004c000, channel 0: 1004 = 808 mV
-         ADC reading[21]:
-         - adc\ @\ 4004c000, channel 0: 1005 = 809 mV
-         ADC reading[22]:
-         - adc\ @\ 4004c000, channel 0: 1000 = 805 mV
-         … … …
+         .. parsed-literal::
+
+            \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+            W: BUS RESET
+            W: BUS RESET
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+            ADC reading[0]:
+            - adc\ @\ 4004c000, channel 0: 907 = 730 mV
+            ADC reading[1]:
+            - adc\ @\ 4004c000, channel 0: 910 = 733 mV
+            ADC reading[2]:
+            - adc\ @\ 4004c000, channel 0: 1233 = 993 mV
+            ADC reading[3]:
+            - adc\ @\ 4004c000, channel 0: 1196 = 963 mV
+            ADC reading[4]:
+            - adc\ @\ 4004c000, channel 0: 569 = 458 mV
+            ADC reading[5]:
+            - adc\ @\ 4004c000, channel 0: 336 = 270 mV
+            ADC reading[6]:
+            - adc\ @\ 4004c000, channel 0: 285 = 229 mV
+            ADC reading[7]:
+            - adc\ @\ 4004c000, channel 0: 181 = 145 mV
+            ADC reading[8]:
+            - adc\ @\ 4004c000, channel 0: 56 = 45 mV
+            ADC reading[9]:
+            - adc\ @\ 4004c000, channel 0: 59 = 47 mV
+            ADC reading[10]:
+            - adc\ @\ 4004c000, channel 0: 56 = 45 mV
+            ADC reading[11]:
+            - adc\ @\ 4004c000, channel 0: 480 = 386 mV
+            ADC reading[12]:
+            - adc\ @\ 4004c000, channel 0: 868 = 699 mV
+            ADC reading[13]:
+            - adc\ @\ 4004c000, channel 0: 1878 = 1513 mV
+            ADC reading[14]:
+            - adc\ @\ 4004c000, channel 0: 3256 = 2623 mV
+            ADC reading[15]:
+            - adc\ @\ 4004c000, channel 0: 3413 = 2749 mV
+            ADC reading[16]:
+            - adc\ @\ 4004c000, channel 0: 3446 = 2776 mV
+            ADC reading[17]:
+            - adc\ @\ 4004c000, channel 0: 3470 = 2795 mV
+            ADC reading[18]:
+            - adc\ @\ 4004c000, channel 0: 3451 = 2780 mV
+            ADC reading[19]:
+            - adc\ @\ 4004c000, channel 0: 1029 = 829 mV
+            ADC reading[20]:
+            - adc\ @\ 4004c000, channel 0: 1004 = 808 mV
+            ADC reading[21]:
+            - adc\ @\ 4004c000, channel 0: 1005 = 809 mV
+            ADC reading[22]:
+            - adc\ @\ 4004c000, channel 0: 1000 = 805 mV
+            … … …
 
 Sounds from the speaker
 =======================
@@ -534,12 +536,23 @@ Sounds from the speaker
       #. play a folk song
       #. play a chrismas song
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **buzzer beep**
-         :bgn:`uart:~$` **buzzer play folksong**
-         :bgn:`uart:~$` **buzzer play xmastime**
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **buzzer beep**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **buzzer play folksong**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **buzzer play xmastime**
 
 LED Panel Orientation and Bit Order Test
 ========================================
