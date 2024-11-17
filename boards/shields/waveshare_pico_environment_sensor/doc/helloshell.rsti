@@ -6,93 +6,107 @@
 
    .. group-tab:: Basics
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **hello -h**
-         hello - say hello
-         :bgn:`uart:~$` **hello**
-         Hello from shell.
+         .. parsed-literal::
 
-         :bgn:`uart:~$` **hwinfo devid**
-         Length: 8
-         ID: 0x8c998be1de969148
+            :bgn:`uart:~$` **hello -h**
+            hello - say hello
+            :bgn:`uart:~$` **hello**
+            Hello from shell.
 
-         :bgn:`uart:~$` **kernel version**
-         Zephyr version |zephyr_version_number_em|
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **bridle version**
-         Bridle version |version_number_em|
+         .. parsed-literal::
 
-         :bgn:`uart:~$` **bridle version long**
-         Bridle version |longversion_number_em|
+            :bgn:`uart:~$` **hwinfo devid**
+            Length: 8
+            ID: 0x8c998be1de969148
 
-         :bgn:`uart:~$` **bridle info**
-         Zephyr: |zephyr_release_number_em|
-         Bridle: |release_number_em|
+            :bgn:`uart:~$` **kernel version**
+            Zephyr version |zephyr_version_number_em|
 
-         :bgn:`uart:~$` **device list**
-         devices:
-         - clock-controller\ @\ 40008000 (READY)
-           DT node labels: clocks
-         - reset-controller\ @\ 4000c000 (READY)
-           DT node labels: reset
-         - snippet_cdc_acm_console_uart (READY)
-           DT node labels: snippet_cdc_acm_console_uart
-         - uart\ @\ 40034000 (READY)
-           DT node labels: uart0 pico_serial rpipico_serial
-         - timer\ @\ 40054000 (READY)
-           DT node labels: timer
-         - gpio\ @\ 40014000 (READY)
-           DT node labels: gpio0
-         - adc\ @\ 4004c000 (READY)
-           DT node labels: adc
-         - flash-controller\ @\ 18000000 (READY)
-           DT node labels: ssi
-         - i2c\ @\ 40044000 (READY)
-           DT node labels: i2c0 pico_i2c pico_i2c0 rpipico_i2c rpipico_i2c0
-         - vreg\ @\ 40064000 (READY)
-           DT node labels: vreg
-         - rtc\ @\ 4005c000 (READY)
-           DT node labels: rtc
-         - leds (READY)
-         - bme280\ @\ 76 (READY)
-           DT node labels: wspes_sens_thp
-         - sgp40\ @\ 59 (READY)
-           DT node labels: wspes_sens_voc
-         - mpu9250\ @\ 68 (READY)
-           DT node labels: wspes_sens_dof
+            :bgn:`uart:~$` **bridle version**
+            Bridle version |version_number_em|
 
-         :bgn:`uart:~$` **history**
-         [  0] history
-         [  1] device list
-         [  2] bridle info
-         [  3] bridle version long
-         [  4] bridle version
-         [  5] kernel version
-         [  6] hwinfo devid
-         [  7] hello
-         [  8] hello -h
+            :bgn:`uart:~$` **bridle version long**
+            Bridle version |longversion_number_em|
+
+            :bgn:`uart:~$` **bridle info**
+            Zephyr: |zephyr_release_number_em|
+            Bridle: |release_number_em|
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **device list**
+            devices:
+            - clock-controller\ @\ 40008000 (READY)
+              DT node labels: clocks
+            - reset-controller\ @\ 4000c000 (READY)
+              DT node labels: reset
+            - snippet_cdc_acm_console_uart (READY)
+              DT node labels: snippet_cdc_acm_console_uart
+            - uart\ @\ 40034000 (READY)
+              DT node labels: uart0 pico_serial rpipico_serial
+            - timer\ @\ 40054000 (READY)
+              DT node labels: timer
+            - gpio\ @\ 40014000 (READY)
+              DT node labels: gpio0
+            - adc\ @\ 4004c000 (READY)
+              DT node labels: adc
+            - flash-controller\ @\ 18000000 (READY)
+              DT node labels: ssi
+            - i2c\ @\ 40044000 (READY)
+              DT node labels: i2c0 pico_i2c pico_i2c0 rpipico_i2c rpipico_i2c0
+            - vreg\ @\ 40064000 (READY)
+              DT node labels: vreg
+            - rtc\ @\ 4005c000 (READY)
+              DT node labels: rtc
+            - leds (READY)
+            - bme280\ @\ 76 (READY)
+              DT node labels: wspes_sens_thp
+            - sgp40\ @\ 59 (READY)
+              DT node labels: wspes_sens_voc
+            - mpu9250\ @\ 68 (READY)
+              DT node labels: wspes_sens_dof
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **history**
+            [  0] history
+            [  1] device list
+            [  2] bridle info
+            [  3] bridle version long
+            [  4] bridle version
+            [  5] kernel version
+            [  6] hwinfo devid
+            [  7] hello
+            [  8] hello -h
 
    .. group-tab:: I2C
 
       The |Waveshare Pico Environment Sensor| provides four on-shield sensors
       connected on I2C0.
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **i2c scan i2c@40044000**
-              0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
-         00:             -- -- -- -- -- -- -- -- -- -- -- --
-         10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-         20: -- -- -- -- -- -- -- -- -- 29 -- -- -- -- -- --
-         30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-         40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-         50: -- -- -- 53 -- -- -- -- -- 59 -- -- -- -- -- --
-         60: -- -- -- -- -- -- -- -- 68 -- -- -- -- -- -- --
-         70: -- -- -- -- -- -- 76 --
-         5 devices found on i2c\ @\ 40044000
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **i2c scan i2c@40044000**
+                 0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+            00:             -- -- -- -- -- -- -- -- -- -- -- --
+            10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            20: -- -- -- -- -- -- -- -- -- 29 -- -- -- -- -- --
+            30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            50: -- -- -- 53 -- -- -- -- -- 59 -- -- -- -- -- --
+            60: -- -- -- -- -- -- -- -- 68 -- -- -- -- -- -- --
+            70: -- -- -- -- -- -- 76 --
+            5 devices found on i2c\ @\ 40044000
 
       - The I2C address ``0x29`` is the ASM `TSL25911`_, an
         ambient IR and visible light sensor (ALS).
@@ -110,78 +124,114 @@
       The "Who am I" register of the InvenSense MPU-9250 9-DOF sensor can read
       from register ``0x75`` and must be ``0x71``:
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **i2c read_byte i2c@40044000 68 75**
-         Output: 0x71
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **i2c read_byte i2c@40044000 68 75**
+            Output: 0x71
 
       The Chip-ID of the Bosch BME280 environmental sensor can read from
       register ``0xd0`` and must be ``0x60``:
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **i2c read_byte i2c@40044000 76 d0**
-         Output: 0x60
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **i2c read_byte i2c@40044000 76 d0**
+            Output: 0x60
 
    .. group-tab:: Sensors
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **sensor info**
-         device name: bme280\ @\ 76, vendor: Bosch Sensortec GmbH, model: bme280, friendly name: (null)
-         device name: mpu9250\ @\ 68, vendor: InvenSense Inc., model: mpu9250, friendly name: (null)
-         device name: sgp40\ @\ 59, vendor: Sensirion AG, model: sgp40, friendly name: (null)
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor info**
+            device name: bme280\ @\ 76, vendor: Bosch Sensortec GmbH, model: bme280, friendly name: (null)
+            device name: mpu9250\ @\ 68, vendor: InvenSense Inc., model: mpu9250, friendly name: (null)
+            device name: sgp40\ @\ 59, vendor: Sensirion AG, model: sgp40, friendly name: (null)
 
       .. rubric:: BME280 (THP)
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **sensor get bme280@76**
-         channel idx=13 ambient_temp shift=7 num_samples=1 value=40464800000ns (28.069999)
-         channel idx=14 press shift=7 num_samples=1 value=40464800000ns (100.944643)
-         channel idx=16 humidity shift=7 num_samples=1 value=40464800000ns (37.618163)
-         :bgn:`uart:~$` **sensor get bme280@76**
-         channel idx=13 ambient_temp shift=7 num_samples=1 value=44841400000ns (28.079999)
-         channel idx=14 press shift=7 num_samples=1 value=44841400000ns (100.945768)
-         channel idx=16 humidity shift=7 num_samples=1 value=44841400000ns (37.618163)
-         :bgn:`uart:~$` **sensor get bme280@76**
-         channel idx=13 ambient_temp shift=7 num_samples=1 value=45757900000ns (28.079999)
-         channel idx=14 press shift=7 num_samples=1 value=45757900000ns (100.945596)
-         channel idx=16 humidity shift=7 num_samples=1 value=45757900000ns (37.604491)
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor get bme280@76**
+            channel idx=13 ambient_temp shift=7 num_samples=1 value=40464800000ns (28.069999)
+            channel idx=14 press shift=7 num_samples=1 value=40464800000ns (100.944643)
+            channel idx=16 humidity shift=7 num_samples=1 value=40464800000ns (37.618163)
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor get bme280@76**
+            channel idx=13 ambient_temp shift=7 num_samples=1 value=44841400000ns (28.079999)
+            channel idx=14 press shift=7 num_samples=1 value=44841400000ns (100.945768)
+            channel idx=16 humidity shift=7 num_samples=1 value=44841400000ns (37.618163)
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor get bme280@76**
+            channel idx=13 ambient_temp shift=7 num_samples=1 value=45757900000ns (28.079999)
+            channel idx=14 press shift=7 num_samples=1 value=45757900000ns (100.945596)
+            channel idx=16 humidity shift=7 num_samples=1 value=45757900000ns (37.604491)
 
       .. rubric:: SGP40 (VOC)
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **sensor get sgp40@59**
-         channel idx=29 gas_resistance shift=2 num_samples=1 value=7499000000ns (1.999999)
-         :bgn:`uart:~$` **sensor get sgp40@59**
-         channel idx=29 gas_resistance shift=15 num_samples=1 value=8509500000ns (3553.196197)
-         :bgn:`uart:~$` **sensor get sgp40@59**
-         channel idx=29 gas_resistance shift=15 num_samples=1 value=9527500000ns (4021.196197)
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor get sgp40@59**
+            channel idx=29 gas_resistance shift=2 num_samples=1 value=7499000000ns (1.999999)
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor get sgp40@59**
+            channel idx=29 gas_resistance shift=15 num_samples=1 value=8509500000ns (3553.196197)
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor get sgp40@59**
+            channel idx=29 gas_resistance shift=15 num_samples=1 value=9527500000ns (4021.196197)
 
       .. rubric:: MPU-9250 (9-DOF)
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **sensor get mpu9250@68**
-         channel idx=3 accel_xyz shift=5 num_samples=1 value=133465500000ns, (-0.152630, -0.034118, -9.957485)
-         channel idx=7 gyro_xyz shift=5 num_samples=1 value=133465500000ns, (0.010923, -0.001465, 0.018784)
-         channel idx=11 magn_xyz shift=5 num_samples=1 value=133465500000ns, (0.021287, 0.918931, -0.960458)
-         channel idx=12 die_temp shift=5 num_samples=1 value=133465500000ns (30.772454)
-         :bgn:`uart:~$` **sensor get mpu9250@68**
-         channel idx=3 accel_xyz shift=5 num_samples=1 value=134743500000ns, (-0.150237, -0.036512, -9.961675)
-         channel idx=7 gyro_xyz shift=5 num_samples=1 value=134743500000ns, (0.010790, -0.001732, 0.019184)
-         channel idx=11 magn_xyz shift=5 num_samples=1 value=134743500000ns, (0.010643, 0.940219, -0.957040)
-         channel idx=12 die_temp shift=5 num_samples=1 value=134743500000ns (30.769460)
-         :bgn:`uart:~$` **sensor get mpu9250@68**
-         channel idx=3 accel_xyz shift=5 num_samples=1 value=135771400000ns, (-0.148441, -0.035315, -9.968858)
-         channel idx=7 gyro_xyz shift=5 num_samples=1 value=135771400000ns, (0.011723, -0.001732, 0.019450)
-         channel idx=11 magn_xyz shift=5 num_samples=1 value=135771400000ns, (0.015965, 0.938445, -0.938241)
-         channel idx=12 die_temp shift=5 num_samples=1 value=135771400000ns (30.781436)
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor get mpu9250@68**
+            channel idx=3 accel_xyz shift=5 num_samples=1 value=133465500000ns, (-0.152630, -0.034118, -9.957485)
+            channel idx=7 gyro_xyz shift=5 num_samples=1 value=133465500000ns, (0.010923, -0.001465, 0.018784)
+            channel idx=11 magn_xyz shift=5 num_samples=1 value=133465500000ns, (0.021287, 0.918931, -0.960458)
+            channel idx=12 die_temp shift=5 num_samples=1 value=133465500000ns (30.772454)
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor get mpu9250@68**
+            channel idx=3 accel_xyz shift=5 num_samples=1 value=134743500000ns, (-0.150237, -0.036512, -9.961675)
+            channel idx=7 gyro_xyz shift=5 num_samples=1 value=134743500000ns, (0.010790, -0.001732, 0.019184)
+            channel idx=11 magn_xyz shift=5 num_samples=1 value=134743500000ns, (0.010643, 0.940219, -0.957040)
+            channel idx=12 die_temp shift=5 num_samples=1 value=134743500000ns (30.769460)
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor get mpu9250@68**
+            channel idx=3 accel_xyz shift=5 num_samples=1 value=135771400000ns, (-0.148441, -0.035315, -9.968858)
+            channel idx=7 gyro_xyz shift=5 num_samples=1 value=135771400000ns, (0.011723, -0.001732, 0.019450)
+            channel idx=11 magn_xyz shift=5 num_samples=1 value=135771400000ns, (0.015965, 0.938445, -0.938241)
+            channel idx=12 die_temp shift=5 num_samples=1 value=135771400000ns (30.781436)
