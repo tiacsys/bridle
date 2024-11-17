@@ -562,8 +562,8 @@ signal mapping, the |Laced Grove Signal Interface|.
 
 Following mappings are well known:
 
-* ``grove_gpios``: GPIO mapping
-* ``grove_pwms``: PWM mapping
+   * ``grove_gpios``: GPIO mapping
+   * ``grove_pwms``: PWM mapping
 
 GPIO mapping
 ------------
