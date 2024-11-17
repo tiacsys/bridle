@@ -6,96 +6,116 @@
 
    .. group-tab:: Basics
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **hello -h**
-         hello - say hello
-         :bgn:`uart:~$` **hello**
-         Hello from shell.
+         .. parsed-literal::
 
-         :bgn:`uart:~$` **hwinfo devid**
-         Length: 8
-         ID: 0x8c998be1de969148
+            :bgn:`uart:~$` **hello -h**
+            hello - say hello
+            :bgn:`uart:~$` **hello**
+            Hello from shell.
 
-         :bgn:`uart:~$` **kernel version**
-         Zephyr version |zephyr_version_number_em|
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **bridle version**
-         Bridle version |version_number_em|
+         .. parsed-literal::
 
-         :bgn:`uart:~$` **bridle version long**
-         Bridle version |longversion_number_em|
+            :bgn:`uart:~$` **hwinfo devid**
+            Length: 8
+            ID: 0x8c998be1de969148
 
-         :bgn:`uart:~$` **bridle info**
-         Zephyr: |zephyr_release_number_em|
-         Bridle: |release_number_em|
+            :bgn:`uart:~$` **kernel version**
+            Zephyr version |zephyr_version_number_em|
 
-         :bgn:`uart:~$` **device list**
-         devices:
-         - clock-controller\ @\ 40008000 (READY)
-           DT node labels: clocks
-         - reset-controller\ @\ 4000c000 (READY)
-           DT node labels: reset
-         - snippet_cdc_acm_console_uart (READY)
-           DT node labels: snippet_cdc_acm_console_uart
-         - uart\ @\ 40034000 (READY)
-           DT node labels: uart0 pico_serial rpipico_serial
-         - timer\ @\ 40054000 (READY)
-           DT node labels: timer
-         - gpio\ @\ 40014000 (READY)
-           DT node labels: gpio0
-         - adc\ @\ 4004c000 (READY)
-           DT node labels: adc
-         - flash-controller\ @\ 18000000 (READY)
-           DT node labels: ssi
-         - i2c\ @\ 40044000 (READY)
-           DT node labels: i2c0 pico_i2c pico_i2c0 rpipico_i2c rpipico_i2c0
-         - vreg\ @\ 40064000 (READY)
-           DT node labels: vreg
-         - rtc\ @\ 4005c000 (READY)
-           DT node labels: rtc
-         - lcd-backlight-en (READY)
-           DT node labels: lcd_backlight_en
-         - leds (READY)
+            :bgn:`uart:~$` **bridle version**
+            Bridle version |version_number_em|
 
-         :bgn:`uart:~$` **history**
-         [  0] history
-         [  1] device list
-         [  2] bridle info
-         [  3] bridle version long
-         [  4] bridle version
-         [  5] kernel version
-         [  6] hwinfo devid
-         [  7] hello
-         [  8] hello -h
+            :bgn:`uart:~$` **bridle version long**
+            Bridle version |longversion_number_em|
+
+            :bgn:`uart:~$` **bridle info**
+            Zephyr: |zephyr_release_number_em|
+            Bridle: |release_number_em|
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **device list**
+            devices:
+            - clock-controller\ @\ 40008000 (READY)
+              DT node labels: clocks
+            - reset-controller\ @\ 4000c000 (READY)
+              DT node labels: reset
+            - snippet_cdc_acm_console_uart (READY)
+              DT node labels: snippet_cdc_acm_console_uart
+            - uart\ @\ 40034000 (READY)
+              DT node labels: uart0 pico_serial rpipico_serial
+            - timer\ @\ 40054000 (READY)
+              DT node labels: timer
+            - gpio\ @\ 40014000 (READY)
+              DT node labels: gpio0
+            - adc\ @\ 4004c000 (READY)
+              DT node labels: adc
+            - flash-controller\ @\ 18000000 (READY)
+              DT node labels: ssi
+            - i2c\ @\ 40044000 (READY)
+              DT node labels: i2c0 pico_i2c pico_i2c0 rpipico_i2c rpipico_i2c0
+            - vreg\ @\ 40064000 (READY)
+              DT node labels: vreg
+            - rtc\ @\ 4005c000 (READY)
+              DT node labels: rtc
+            - lcd-backlight-en (READY)
+              DT node labels: lcd_backlight_en
+            - leds (READY)
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **history**
+            [  0] history
+            [  1] device list
+            [  2] bridle info
+            [  3] bridle version long
+            [  4] bridle version
+            [  5] kernel version
+            [  6] hwinfo devid
+            [  7] hello
+            [  8] hello -h
 
    .. group-tab:: LCD Backlight LED
 
       Operate with the LCD backlight LED :hwftlbl-led:`LCD_BL`
       at :rpi-pico-pio:`GP13`:
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **regulator disable lcd-backlight-en**
-         :bgn:`uart:~$` **regulator enable lcd-backlight-en**
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **regulator disable lcd-backlight-en**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **regulator enable lcd-backlight-en**
 
    .. group-tab:: GPIO
 
       Operate with the user button :hwftlbl-btn:`3`
       at :rpi-pico-pio:`GP3`:
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **gpio get gpio\ @\ 40014000 3**
-         0
+         .. parsed-literal::
 
-         :bgn:`uart:~$` **gpio conf gpio@40014000 3 iul**
-         :bgn:`uart:~$` **gpio get gpio@40014000 3**
-         0
-         :bgn:`uart:~$` **gpio get gpio@40014000 3**
-         1
-         :bgn:`uart:~$` **gpio get gpio@40014000 3**
-         0
+            :bgn:`uart:~$` **gpio get gpio\ @\ 40014000 3**
+            0
+
+            :bgn:`uart:~$` **gpio conf gpio@40014000 3 iul**
+            :bgn:`uart:~$` **gpio get gpio@40014000 3**
+            0
+            :bgn:`uart:~$` **gpio get gpio@40014000 3**
+            1
+            :bgn:`uart:~$` **gpio get gpio@40014000 3**
+            0

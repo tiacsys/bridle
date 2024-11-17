@@ -58,15 +58,16 @@ the :zephyr:ref:`Input subsystem API <input>`. That are:
 
 .. rubric:: Simple logging output on target
 
-.. parsed-literal::
-   :class: highlight-console notranslate
+.. container:: highlight highlight-console notranslate no-copybutton
 
-   \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-   W: BUS RESET
-   W: BUS RESET
-   \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
-   Input sample started
-   I: input event: dev=xpt2046@1            type= 3 code=  0 value=98
-   I: input event: dev=xpt2046@1            type= 3 code=  1 value=174
-   I: input event: dev=xpt2046@1        SYN type= 1 code=330 value=1
-   I: input event: dev=xpt2046@1        SYN type= 1 code=330 value=0
+   .. parsed-literal::
+
+      \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+      W: BUS RESET
+      W: BUS RESET
+      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+      Input sample started
+      I: input event: dev=xpt2046@1            type= 3 code=  0 value=98
+      I: input event: dev=xpt2046@1            type= 3 code=  1 value=174
+      I: input event: dev=xpt2046@1        SYN type= 1 code=330 value=1
+      I: input event: dev=xpt2046@1        SYN type= 1 code=330 value=0

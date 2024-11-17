@@ -66,29 +66,30 @@ That are:
 
 .. rubric:: Simple logging output on target
 
-.. parsed-literal::
-   :class: highlight-console notranslate
+.. container:: highlight highlight-console notranslate no-copybutton
 
-   \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-   W: BUS RESET
-   W: BUS RESET
-   \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
-   Input sample started
-   I: input event: dev=gpio_keys        SYN type= 1 code= 30 value=1
-   I: input event: dev=gpio_keys        SYN type= 1 code= 30 value=0
-   I: input event: dev=gpio_keys        SYN type= 1 code= 48 value=1
-   I: input event: dev=gpio_keys        SYN type= 1 code= 48 value=0
-   I: input event: dev=gpio_keys        SYN type= 1 code= 45 value=1
-   I: input event: dev=gpio_keys        SYN type= 1 code= 45 value=0
-   I: input event: dev=gpio_keys        SYN type= 1 code= 21 value=1
-   I: input event: dev=gpio_keys        SYN type= 1 code= 21 value=0
-   I: input event: dev=gpio_keys        SYN type= 1 code=103 value=1
-   I: input event: dev=gpio_keys        SYN type= 1 code=103 value=0
-   I: input event: dev=gpio_keys        SYN type= 1 code=108 value=1
-   I: input event: dev=gpio_keys        SYN type= 1 code=108 value=0
-   I: input event: dev=gpio_keys        SYN type= 1 code=105 value=1
-   I: input event: dev=gpio_keys        SYN type= 1 code=105 value=0
-   I: input event: dev=gpio_keys        SYN type= 1 code=106 value=1
-   I: input event: dev=gpio_keys        SYN type= 1 code=106 value=0
-   I: input event: dev=gpio_keys        SYN type= 1 code= 28 value=1
-   I: input event: dev=gpio_keys        SYN type= 1 code= 28 value=0
+   .. parsed-literal::
+
+      \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+      W: BUS RESET
+      W: BUS RESET
+      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+      Input sample started
+      I: input event: dev=gpio_keys        SYN type= 1 code= 30 value=1
+      I: input event: dev=gpio_keys        SYN type= 1 code= 30 value=0
+      I: input event: dev=gpio_keys        SYN type= 1 code= 48 value=1
+      I: input event: dev=gpio_keys        SYN type= 1 code= 48 value=0
+      I: input event: dev=gpio_keys        SYN type= 1 code= 45 value=1
+      I: input event: dev=gpio_keys        SYN type= 1 code= 45 value=0
+      I: input event: dev=gpio_keys        SYN type= 1 code= 21 value=1
+      I: input event: dev=gpio_keys        SYN type= 1 code= 21 value=0
+      I: input event: dev=gpio_keys        SYN type= 1 code=103 value=1
+      I: input event: dev=gpio_keys        SYN type= 1 code=103 value=0
+      I: input event: dev=gpio_keys        SYN type= 1 code=108 value=1
+      I: input event: dev=gpio_keys        SYN type= 1 code=108 value=0
+      I: input event: dev=gpio_keys        SYN type= 1 code=105 value=1
+      I: input event: dev=gpio_keys        SYN type= 1 code=105 value=0
+      I: input event: dev=gpio_keys        SYN type= 1 code=106 value=1
+      I: input event: dev=gpio_keys        SYN type= 1 code=106 value=0
+      I: input event: dev=gpio_keys        SYN type= 1 code= 28 value=1
+      I: input event: dev=gpio_keys        SYN type= 1 code= 28 value=0
