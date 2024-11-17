@@ -271,15 +271,16 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
 
       .. rubric:: Startup logging output on target
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate no-copybutton
 
-         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-         [00:00:00.331,000] :byl:`<wrn> udc_rpi: BUS RESET`
-         [00:00:00.411,000] :byl:`<wrn> udc_rpi: BUS RESET`
-         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
-         Hello World! I'm THE SHELL … … …
-         :bgn:`uart:~$` █
+         .. parsed-literal::
+
+            \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+            [00:00:00.331,000] :byl:`<wrn> udc_rpi: BUS RESET`
+            [00:00:00.411,000] :byl:`<wrn> udc_rpi: BUS RESET`
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+            Hello World! I'm THE SHELL … … …
+            :bgn:`uart:~$` **█**
 
       .. tabs::
 
@@ -357,16 +358,17 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
 
       .. rubric:: Startup logging output on target
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate no-copybutton
 
-         [00:00:00.002,000] :brd:`<err> MPU9250: Invalid chip ID.`
-         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-         [00:00:00.244,000] :byl:`<wrn> udc_rpi: BUS RESET`
-         [00:00:00.329,000] :byl:`<wrn> udc_rpi: BUS RESET`
-         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
-         Hello World! I'm THE SHELL … … …
-         :bgn:`uart:~$` █
+         .. parsed-literal::
+
+            [00:00:00.002,000] :brd:`<err> MPU9250: Invalid chip ID.`
+            \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+            [00:00:00.244,000] :byl:`<wrn> udc_rpi: BUS RESET`
+            [00:00:00.329,000] :byl:`<wrn> udc_rpi: BUS RESET`
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+            Hello World! I'm THE SHELL … … …
+            :bgn:`uart:~$` **█**
 
       .. tabs::
 

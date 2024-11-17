@@ -6,93 +6,107 @@
 
    .. group-tab:: Basics
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **hello -h**
-         hello - say hello
-         :bgn:`uart:~$` **hello**
-         Hello from shell.
+         .. parsed-literal::
 
-         :bgn:`uart:~$` **hwinfo devid**
-         Length: 8
-         ID: 0x8c998be1de969148
+            :bgn:`uart:~$` **hello -h**
+            hello - say hello
+            :bgn:`uart:~$` **hello**
+            Hello from shell.
 
-         :bgn:`uart:~$` **kernel version**
-         Zephyr version |zephyr_version_number_em|
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **bridle version**
-         Bridle version |version_number_em|
+         .. parsed-literal::
 
-         :bgn:`uart:~$` **bridle version long**
-         Bridle version |longversion_number_em|
+            :bgn:`uart:~$` **hwinfo devid**
+            Length: 8
+            ID: 0x8c998be1de969148
 
-         :bgn:`uart:~$` **bridle info**
-         Zephyr: |zephyr_release_number_em|
-         Bridle: |release_number_em|
+            :bgn:`uart:~$` **kernel version**
+            Zephyr version |zephyr_version_number_em|
 
-         :bgn:`uart:~$` **device list**
-         devices:
-         - clock-controller\ @\ 40008000 (READY)
-           DT node labels: clocks
-         - reset-controller\ @\ 4000c000 (READY)
-           DT node labels: reset
-         - snippet_cdc_acm_console_uart (READY)
-           DT node labels: snippet_cdc_acm_console_uart
-         - uart\ @\ 40034000 (READY)
-           DT node labels: uart0 pico_serial rpipico_serial
-         - timer\ @\ 40054000 (READY)
-           DT node labels: timer
-         - gpio\ @\ 40014000 (READY)
-           DT node labels: gpio0
-         - adc\ @\ 4004c000 (READY)
-           DT node labels: adc
-         - flash-controller\ @\ 18000000 (READY)
-           DT node labels: ssi
-         - i2c\ @\ 40048000 (READY)
-           DT node labels: i2c1 pico_i2c1 rpipico_i2c1
-         - i2c\ @\ 40044000 (READY)
-           DT node labels: i2c0 pico_i2c pico_i2c0 rpipico_i2c rpipico_i2c0
-         - vreg\ @\ 40064000 (READY)
-           DT node labels: vreg
-         - rtc\ @\ 4005c000 (READY)
-           DT node labels: rtc
-         - leds (READY)
-         - lps22hb\ @\ 5c (READY)
-           DT node labels: wsptdis_sens_tp
-         - mpu9250\ @\ 68 (DISABLED)
-           DT node labels: wsptdis_sens_dof
+            :bgn:`uart:~$` **bridle version**
+            Bridle version |version_number_em|
 
-         :bgn:`uart:~$` **history**
-         [  0] history
-         [  1] device list
-         [  2] bridle info
-         [  3] bridle version long
-         [  4] bridle version
-         [  5] kernel version
-         [  6] hwinfo devid
-         [  7] hello
-         [  8] hello -h
+            :bgn:`uart:~$` **bridle version long**
+            Bridle version |longversion_number_em|
+
+            :bgn:`uart:~$` **bridle info**
+            Zephyr: |zephyr_release_number_em|
+            Bridle: |release_number_em|
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **device list**
+            devices:
+            - clock-controller\ @\ 40008000 (READY)
+              DT node labels: clocks
+            - reset-controller\ @\ 4000c000 (READY)
+              DT node labels: reset
+            - snippet_cdc_acm_console_uart (READY)
+              DT node labels: snippet_cdc_acm_console_uart
+            - uart\ @\ 40034000 (READY)
+              DT node labels: uart0 pico_serial rpipico_serial
+            - timer\ @\ 40054000 (READY)
+              DT node labels: timer
+            - gpio\ @\ 40014000 (READY)
+              DT node labels: gpio0
+            - adc\ @\ 4004c000 (READY)
+              DT node labels: adc
+            - flash-controller\ @\ 18000000 (READY)
+              DT node labels: ssi
+            - i2c\ @\ 40048000 (READY)
+              DT node labels: i2c1 pico_i2c1 rpipico_i2c1
+            - i2c\ @\ 40044000 (READY)
+              DT node labels: i2c0 pico_i2c pico_i2c0 rpipico_i2c rpipico_i2c0
+            - vreg\ @\ 40064000 (READY)
+              DT node labels: vreg
+            - rtc\ @\ 4005c000 (READY)
+              DT node labels: rtc
+            - leds (READY)
+            - lps22hb\ @\ 5c (READY)
+              DT node labels: wsptdis_sens_tp
+            - mpu9250\ @\ 68 (DISABLED)
+              DT node labels: wsptdis_sens_dof
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **history**
+            [  0] history
+            [  1] device list
+            [  2] bridle info
+            [  3] bridle version long
+            [  4] bridle version
+            [  5] kernel version
+            [  6] hwinfo devid
+            [  7] hello
+            [  8] hello -h
 
    .. group-tab:: I2C
 
       The |Waveshare Pico Environment Sensor| provides four on-shield sensors
       connected on I2C0.
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **i2c scan i2c@40048000**
-              0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
-         00:             -- -- -- -- -- -- -- -- -- -- -- --
-         10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-         20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-         30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-         40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-         50: -- -- -- -- -- -- -- -- -- -- -- -- 5c -- -- --
-         60: -- -- -- -- -- -- -- -- 68 -- -- -- -- -- -- --
-         70: -- -- -- -- -- -- -- --
-         2 devices found on i2c\ @\ 40048000
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **i2c scan i2c@40048000**
+                 0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+            00:             -- -- -- -- -- -- -- -- -- -- -- --
+            10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            50: -- -- -- -- -- -- -- -- -- -- -- -- 5c -- -- --
+            60: -- -- -- -- -- -- -- -- 68 -- -- -- -- -- -- --
+            70: -- -- -- -- -- -- -- --
+            2 devices found on i2c\ @\ 40048000
 
       - The I2C address ``0x5c`` is the STM `LPS22HB`_, an
         air pressure and temperature sensor (TP).
@@ -103,49 +117,64 @@
       The "Who am I" register of the STM LPS22HB environmental sensor can read
       from register ``0x0f`` and must be ``0xb1``:
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **i2c read_byte i2c@40048000 5c 0f**
-         Output: 0xb1
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **i2c read_byte i2c@40048000 5c 0f**
+            Output: 0xb1
 
       The "Who am I" register of the InvenSense ICM-20948 9-DOF sensor can read
       from register ``0x00`` and must be ``0xea``:
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **i2c read_byte i2c@40048000 68 0**
-         Output: 0xea
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **i2c read_byte i2c@40048000 68 0**
+            Output: 0xea
 
    .. group-tab:: Sensors
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **sensor info**
-         device name: lps22hb\ @\ 5c, vendor: STMicroelectronics, model: lps22hb-press, friendly name: (null)
-         device name: mpu9250\ @\ 68, vendor: InvenSense Inc., model: mpu9250, friendly name: (null)
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor info**
+            device name: lps22hb\ @\ 5c, vendor: STMicroelectronics, model: lps22hb-press, friendly name: (null)
+            device name: mpu9250\ @\ 68, vendor: InvenSense Inc., model: mpu9250, friendly name: (null)
 
       .. rubric:: LPS22HB (TP)
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **sensor get lps22hb@5c**
-         channel idx=13 ambient_temp shift=7 num_samples=1 value=457076700000ns (29.499999)
-         channel idx=14 press shift=7 num_samples=1 value=457076700000ns (97.807176)
-         :bgn:`uart:~$` **sensor get lps22hb@5c**
-         channel idx=13 ambient_temp shift=7 num_samples=1 value=458111600000ns (29.489999)
-         channel idx=14 press shift=7 num_samples=1 value=458111600000ns (97.802635)
-         :bgn:`uart:~$` **sensor get lps22hb@5c**
-         channel idx=13 ambient_temp shift=7 num_samples=1 value=459521100000ns (29.499999)
-         channel idx=14 press shift=7 num_samples=1 value=459521100000ns (97.801683)
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor get lps22hb@5c**
+            channel idx=13 ambient_temp shift=7 num_samples=1 value=457076700000ns (29.499999)
+            channel idx=14 press shift=7 num_samples=1 value=457076700000ns (97.807176)
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor get lps22hb@5c**
+            channel idx=13 ambient_temp shift=7 num_samples=1 value=458111600000ns (29.489999)
+            channel idx=14 press shift=7 num_samples=1 value=458111600000ns (97.802635)
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor get lps22hb@5c**
+            channel idx=13 ambient_temp shift=7 num_samples=1 value=459521100000ns (29.499999)
+            channel idx=14 press shift=7 num_samples=1 value=459521100000ns (97.801683)
 
       .. rubric:: MPU-9250 (9-DOF)
 
-      .. parsed-literal::
-         :class: highlight-console notranslate
+      .. container:: highlight highlight-console notranslate
 
-         :bgn:`uart:~$` **sensor get mpu9250@68**
-         :brd:`Device unknown (mpu9250@68)`
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor get mpu9250@68**
+            :brd:`Device unknown (mpu9250@68)`
