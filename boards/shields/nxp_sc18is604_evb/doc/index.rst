@@ -3,8 +3,6 @@
 NXP SC18IS604-EVB
 #################
 
-.. toctree::
-
 .. image:: ./img/SC18IS604-EVB.jpg
    :align: center
    :alt: NXP SC18IS604-EVB PCBA (top)
