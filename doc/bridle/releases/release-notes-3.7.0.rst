@@ -29,12 +29,12 @@ For more details, see: :ref:`repos_and_revs`.
    * - `tiac-bridle`_
      -
      - v3.7-branch
-     - v3.7.0-rc1
+     - v3.7.0
    * - | `tiac-ubxlib`_
        | (`u-blox-ubxlib`_)
      - | *geographiclib*
-     - | tiacsys/main
-       | (main)
+     - | tiacsys/master
+       | (master)
      -
    * - | `tiac-zephyr`_
        | (`zephyr-core`_)
