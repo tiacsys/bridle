@@ -32,12 +32,12 @@ For more details, see: :ref:`repos_and_revs`.
    * - `tiac-bridle`_
      -
      - main
-     - v3.7.99
+     - v4.0.0-rc1
    * - | `tiac-ubxlib`_
        | (`u-blox-ubxlib`_)
      - | *geographiclib*
-     - | tiacsys/main
-       | (main)
+     - | tiacsys/master
+       | (master)
      -
    * - | `tiac-zephyr`_
        | (`zephyr-core`_)
@@ -89,9 +89,9 @@ For more details, see: :ref:`repos_and_revs`.
        | **optional** : *chre*
        | **optional** : *psa-arch-tests*
        | **optional** : *tf-m-tests*
-     - | tiacsys/main
-       | (main)
-     - v3.7.99
+     - | tiacsys/v4.0-branch
+       | (v4.0-branch)
+     - v4.0.0
 
 .. note – component list fetched from 'west list -a -f "{name:24} {groups:40}"'
 
