@@ -3,7 +3,7 @@ imagesize>=1.4
 intelhex>=2.3
 pyelftools>=0.31
 pylint>=3.3
-regex>=2024.9
+regex>=2024.11
 
 #
 # Interim solution as long as the discussion continues upstream,
