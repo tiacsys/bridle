@@ -64,10 +64,12 @@ with open(os.path.join(BRIDLE_BASE, 'VERSION')) as f:
         version = longversion = 'Unknown'
     else:
         major, minor, patch, tweak, extra = m.groups(1)
-        release = version = longversion = ".".join((major, minor, patch))
+        release = version = ".".join((major, minor, patch))
+        shortversion = longversion = version
         if tweak:
             longversion += "." + tweak
         if extra:
+            version += "-" + extra
             release += "-" + extra
 
 # parse Zephyr version from 'VERSION' file
@@ -89,18 +91,20 @@ with open(os.path.join(ZEPHYR_BASE, 'VERSION')) as f:
         zephyr_version = zephyr_longversion = 'Unknown'
     else:
         major, minor, patch, tweak, extra = m.groups(1)
-        zephyr_release = zephyr_version = zephyr_longversion = ".".join((major, minor, patch))
+        zephyr_release = zephyr_version = ".".join((major, minor, patch))
+        zephyr_shortversion = zephyr_longversion = zephyr_version
         zephyr_urb_bcddevice = '{:d}.{:02d}'.format(int(major), int(minor))
         if tweak:
             zephyr_longversion += "." + tweak
         if extra:
+            zephyr_version += "-" + extra
             zephyr_release += "-" + extra
 
 # Overview ---------------------------------------------------------------------
 
 logcfg = sphinx.util.logging.getLogger(__name__)
-logcfg.info(project + ' ' + release + ' (' + longversion + ')', color='yellow')
-logcfg.info('With Zephyr {} ({})'.format(zephyr_release, zephyr_longversion), color='green')
+logcfg.info(project + ' ' + version + ' (' + longversion + ')', color='yellow')
+logcfg.info('With Zephyr {} ({})'.format(zephyr_version, zephyr_longversion), color='green')
 logcfg.info('With URB bcdDevice "{}"'.format(zephyr_urb_bcddevice), color='green')
 logcfg.info('Build with tags: ' + ':'.join(map(str, tags)), color='red')
 logcfg.info('BRIDLE_BASE is: "{}"'.format(BRIDLE_BASE), color='green')
@@ -200,6 +204,12 @@ rst_epilog = '''
 .. |version_number| replace:: {version}
 .. |version_number_tt| replace:: ``{version}``
 .. |version_number_em| replace:: *{version}*
+.. |shortversion| replace:: v{shortversion}
+.. |shortversion_tt| replace:: ``v{shortversion}``
+.. |shortversion_em| replace:: *v{shortversion}*
+.. |shortversion_number| replace:: {shortversion}
+.. |shortversion_number_tt| replace:: ``{shortversion}``
+.. |shortversion_number_em| replace:: *{shortversion}*
 .. |longversion| replace:: v{longversion}
 .. |longversion_tt| replace:: ``v{longversion}``
 .. |longversion_em| replace:: *v{longversion}*
@@ -218,6 +228,12 @@ rst_epilog = '''
 .. |zephyr_version_number| replace:: {zephyr_version}
 .. |zephyr_version_number_tt| replace:: ``{zephyr_version}``
 .. |zephyr_version_number_em| replace:: *{zephyr_version}*
+.. |zephyr_shortversion| replace:: v{zephyr_shortversion}
+.. |zephyr_shortversion_tt| replace:: ``v{zephyr_shortversion}``
+.. |zephyr_shortversion_em| replace:: *v{zephyr_shortversion}*
+.. |zephyr_shortversion_number| replace:: {zephyr_shortversion}
+.. |zephyr_shortversion_number_tt| replace:: ``{zephyr_shortversion}``
+.. |zephyr_shortversion_number_em| replace:: *{zephyr_shortversion}*
 .. |zephyr_longversion| replace:: v{zephyr_longversion}
 .. |zephyr_longversion_tt| replace:: ``v{zephyr_longversion}``
 .. |zephyr_longversion_em| replace:: *v{zephyr_longversion}*
@@ -228,9 +244,11 @@ rst_epilog = '''
 '''.format(
     release = release,
     version = version,
+    shortversion = shortversion,
     longversion = longversion,
     zephyr_release = zephyr_release,
     zephyr_version = zephyr_version,
+    zephyr_shortversion = zephyr_shortversion,
     zephyr_longversion = zephyr_longversion,
     zephyr_urb_bcddevice = zephyr_urb_bcddevice,
 )
