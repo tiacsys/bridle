@@ -107,7 +107,7 @@ or ``kernel version``.
       Zephyr version |zephyr_version_number_em|
 
       :bgn:`~$` **bridle version**
-      Bridle version |version_number_em|
+      Bridle version |shortversion_number_em|
 
       :bgn:`~$` **device list**
       devices:

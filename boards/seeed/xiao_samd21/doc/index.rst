@@ -434,7 +434,7 @@ Hello Shell with USB-CDC/ACM Console
             Zephyr version |zephyr_version_number_em|
 
             :bgn:`uart:~$` **bridle version**
-            Bridle version |version_number_em|
+            Bridle version |shortversion_number_em|
 
             :bgn:`uart:~$` **bridle version long**
             Bridle version |longversion_number_em|
