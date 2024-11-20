@@ -246,6 +246,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`275` - [BUG] Lost Bridle's document version selector
 * :github:`274` - [FCR] Bump to Zephyr v4.0
 * :github:`272` - [BUG] build all Bridle samples test runs into ``devicetree error``
 * :github:`271` - [BUG] build all GPIO drivers test runs into ``devicetree error``
