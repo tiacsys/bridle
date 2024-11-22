@@ -24,7 +24,7 @@ Configuration options
 
 import logging
 import re
-from typing import Dict, Any, List, Optional
+from typing import Any, Optional
 
 from sphinx.application import Sphinx
 from sphinx.util.logging import NAMESPACE
@@ -42,7 +42,7 @@ class WarningsFilter(logging.Filter):
         name: Filter name.
     """
 
-    def __init__(self, expressions: List[str], silent: bool, name: str = "") -> None:
+    def __init__(self, expressions: list[str], silent: bool, name: str = "") -> None:
         super().__init__(name)
 
         self._expressions = expressions
@@ -119,7 +119,7 @@ def finished(app: Sphinx, exception: Optional[Exception]):
             logging.warning(f"Unused expression: {expression.pattern}")
 
 
-def setup(app: Sphinx) -> Dict[str, Any]:
+def setup(app: Sphinx) -> dict[str, Any]:
     app.add_config_value("warnings_filter_config", "", "")
     app.add_config_value("warnings_filter_silent", True, "")
 

@@ -24,13 +24,14 @@ Options
 
 - ``manifest_projects_table_manifest``: Path to the manifest file.
 
-Copyright (c) Nordic Semiconductor ASA 2022
-Copyright (c) Intel Corp 2023
+Copyright (c) 2025 TiaC Systems
+Copyright (c) 2023 Intel Corp
+Copyright (c) 2022 Nordic Semiconductor ASA
 SPDX-License-Identifier: Apache-2.0
 """
 
 import re
-from typing import Any, Dict, List
+from typing import Any
 
 from docutils import nodes
 from docutils.parsers.rst import directives
@@ -72,7 +73,7 @@ class ManifestProjectsTable(SphinxDirective):
 
         return f"{base_url}/releases/tag/{rev}"
 
-    def run(self) -> List[nodes.Element]:
+    def run(self) -> list[nodes.Element]:
         # parse filter option
         active_filter = self.options.get("filter", None)
 
@@ -84,7 +85,7 @@ class ManifestProjectsTable(SphinxDirective):
             else []
         )
 
-        if active_filter not in ['active', 'inactive', 'all']:
+        if active_filter not in ["active", "inactive", "all"]:
             raise ExtensionError(f"Invalid filter option: {active_filter}")
 
         # sort manifest projects accounting for show-first
@@ -93,17 +94,14 @@ class ManifestProjectsTable(SphinxDirective):
         for project in manifest.projects:
             if project.name == "manifest":
                 continue
-            if active_filter == 'active' and manifest.is_active(project):
-                if project.name in show_first:
-                    projects[show_first.index(project.name)] = project
-                else:
-                    projects.append(project)
-            elif active_filter == 'inactive' and not manifest.is_active(project):
-                if project.name in show_first:
-                    projects[show_first.index(project.name)] = project
-                else:
-                    projects.append(project)
-            elif active_filter == 'all' or active_filter is None:
+            if (
+                active_filter == "active"
+                and manifest.is_active(project)
+                or active_filter == "inactive"
+                and not manifest.is_active(project)
+                or active_filter == "all"
+                or active_filter is None
+            ):
                 if project.name in show_first:
                     projects[show_first.index(project.name)] = project
                 else:
@@ -159,7 +157,7 @@ class ManifestProjectsTable(SphinxDirective):
         return [table]
 
 
-def setup(app: Sphinx) -> Dict[str, Any]:
+def setup(app: Sphinx) -> dict[str, Any]:
     app.add_config_value("manifest_projects_table_manifest", None, "env")
 
     directives.register_directive("manifest-projects-table", ManifestProjectsTable)
