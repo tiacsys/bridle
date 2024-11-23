@@ -129,3 +129,13 @@ ul.edge-pinout > li {
   overflow: auto;
   width: 80ch;
 }
+
+/* tweak toggle-button link position and color */
+.rst-content .admonition.toggle {
+  overflow: visible;
+}
+
+.rst-content .admonition.toggle button {
+  display: inline-flex;
+  color: var(--admonition-note-title-color);
+}

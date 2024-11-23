@@ -146,6 +146,7 @@ extensions = [
     'zephyr.domain',
 #   'zephyr.api_overview',
     'sphinx_copybutton',
+    'sphinx_togglebutton',
     'notfound.extension',
     'bridle.link-roles',
     'bridle.inventory_builder',
