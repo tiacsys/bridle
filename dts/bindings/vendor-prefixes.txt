@@ -24,5 +24,6 @@ seeed	Seeed Technology Co., Ltd
 sparkfun	SparkFun Electronics, Inc.
 st	STMicroelectronics N.V.
 tiac	TiaC Systems
+uicpal	UICPAL, AliExpress Shop-ID 1102351032
 waveshare	Waveshare Electronics Co., Ltd.
 # zephyr-keep-sorted-stop
