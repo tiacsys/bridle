@@ -29,4 +29,16 @@
 			input-enable;
 		};
 	};
+
+	pwm_default: pwm-default {
+		group22 {
+			pinmux = <PWM_3A_P22>;
+		};
+	};
+
+	pio0_ws2812_default: pio0-ws2812-default {
+		group22 {
+			pinmux = <PIO0_P22>;
+		};
+	};
 };

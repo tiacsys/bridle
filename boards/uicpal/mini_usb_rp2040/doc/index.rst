@@ -13,6 +13,20 @@ connection to the RP2040 on-chip USB controller. The Raspberry Pi Pico
 on-chip USB bootloader allows the ability to flash without any adapter,
 in a drag-and-drop manner.
 
+.. admonition:: Incorrect PCB assemblies in circulation!
+   :class: error
+
+   The feedback on AliExpress indicates that instead of the digital LED
+   WS2812 (NeoPixel), a normal two or three-color chip LED (0606) is
+   populated. Without the necessary series resistor, the LED is operated
+   with far too much current and the lifetime of either the LED or the
+   output pad in the RP2040 is limited. **This leads to damage during
+   continuous operation and should never be left unattended!**
+
+   In this case, the **LED must be throttled via the PWM. Please use the
+   special board revision** ``mini_usb_rp2040@chipled`` and not the default
+   revision ``mini_usb_rp2040@neopixel``.
+
 Hardware
 ********
 
@@ -27,7 +41,7 @@ Hardware
 - 16 PWM channels
 - USB 1.1 controller (host/device)
 - 8 Programmable I/O (PIO) for custom peripherals
-- On-board digital LED WS2812 (NeoPixel)
+- On-board digital LED WS2812 (NeoPixel) – **See warning above!**
 - 1 Watchdog timer peripheral
 
 .. figure:: img/mini_usb_rp2040.jpg
@@ -65,6 +79,10 @@ hardware features:
      - :kconfig:option:`CONFIG_USB_DEVICE_STACK`
      - :dtcompatible:`raspberrypi,pico-usbd`
      - :zephyr:ref:`usb_api`
+   * - PWM
+     - :kconfig:option:`CONFIG_PWM`
+     - :dtcompatible:`raspberrypi,pico-pwm`
+     - :zephyr:ref:`pwm_api`
    * - Timer (Counter)
      - :kconfig:option:`CONFIG_COUNTER`
      - :dtcompatible:`raspberrypi,pico-timer`
@@ -78,6 +96,22 @@ hardware features:
      - :dtcompatible:`raspberrypi,pico-flash-controller`
      - :zephyr:ref:`flash_api` and
        :zephyr:ref:`flash_map_api`
+   * - PIO
+     - :kconfig:option:`CONFIG_PIO_RPI_PICO`
+     - :dtcompatible:`raspberrypi,pico-pio`
+     - N/A
+   * - UART (PIO)
+     - :kconfig:option:`CONFIG_SERIAL`
+     - :dtcompatible:`raspberrypi,pico-uart-pio`
+     - :zephyr:ref:`uart_api`
+   * - SPI (PIO)
+     - :kconfig:option:`CONFIG_SPI`
+     - :dtcompatible:`raspberrypi,pico-spi-pio`
+     - :zephyr:ref:`spi_api`
+   * - WS2812 (PIO)
+     - :kconfig:option:`CONFIG_LED_STRIP`
+     - :dtcompatible:`worldsemi,ws2812-rpi-pico-pio`
+     - N/A
    * - DMA
      - :kconfig:option:`CONFIG_DMA`
      - :dtcompatible:`raspberrypi,pico-dma`
@@ -129,6 +163,30 @@ Default Zephyr Peripheral Mapping:
 - GPIO8 : GP8
 - UART0_CTS : GP14 (optional, not default)
 - UART0_RTS : GP15 (optional, not default)
+- PIO0 : GP22 (on ``mini_usb_rp2040@neopixel``)
+- PWM_3A : GP22 (on ``mini_usb_rp2040@chipled``)
+
+Programmable I/O (PIO)
+**********************
+
+The RP2040 SoC comes with two PIO periherals. These are two simple co-processors
+that are designed for I/O operations. The PIOs run a custom instruction set,
+generated from a custom assembly language. PIO programs are assembled using
+:command:`pioasm`, a tool provided by Raspberry Pi.
+
+Zephyr does not (currently) assemble PIO programs. Rather, they should be
+manually assembled and embedded in source code. An example of how this is done
+can be found at :zephyr_file:`drivers/serial/uart_rpi_pico_pio.c`.
+
+Sample: SPI via PIO
+===================
+
+The :zephyr_file:`samples/sensor/bme280/README.rst` sample includes a
+demonstration of using the PIO SPI driver to communicate with an
+environmental sensor. The PIO SPI driver supports using any
+combination of GPIO pins for an SPI bus, as well as allowing up to
+four independent SPI buses on a single board (using the two SPI
+devices as well as both PIO devices).
 
 Programming and Debugging
 *************************
@@ -153,9 +211,21 @@ There is no SWD interface, thus debugging is not possible on thsi board.
 Hello Shell on the USB Console (CDC/ACM)
 ========================================
 
+.. rubric:: For board revision ``mini_usb_rp2040@neopixel`` (default):
+
 .. zephyr-app-commands::
    :app: bridle/samples/helloshell
    :board: mini_usb_rp2040
+   :build-dir: mini_usb_rp2040
+   :west-args: -p
+   :goals: flash
+   :compact:
+
+.. rubric:: For board revision ``mini_usb_rp2040@chipled``:
+
+.. zephyr-app-commands::
+   :app: bridle/samples/helloshell
+   :board: mini_usb_rp2040@chipled
    :build-dir: mini_usb_rp2040
    :west-args: -p
    :goals: flash
@@ -193,6 +263,39 @@ Simple test execution on target
    .. admonition:: Devices
       :class: note dropdown
 
+      .. rubric:: On board revision ``mini_usb_rp2040@neopixel`` (default):
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **device list**
+            devices:
+            - clock-controller\ @\ 40008000 (READY)
+              DT node labels: clocks
+            - reset-controller\ @\ 4000c000 (READY)
+              DT node labels: reset
+            - cdc-acm-console-uart (READY)
+              DT node labels: cdc_acm_console_uart
+            - uart\ @\ 40034000 (READY)
+              DT node labels: uart0
+            - watchdog\ @\ 40058000 (READY)
+              DT node labels: wdt0
+            - timer\ @\ 40054000 (READY)
+              DT node labels: timer
+            - pio\ @\ 50200000 (READY)
+              DT node labels: ((pio_hw_t \*)0x50200000u)
+            - dma\ @\ 50000000 (READY)
+              DT node labels: dma
+            - gpio\ @\ 40014000 (READY)
+              DT node labels: gpio0
+            - flash-controller\ @\ 18000000 (READY)
+              DT node labels: ssi
+            - vreg\ @\ 40064000 (READY)
+              DT node labels: vreg
+
+      .. rubric:: On board revision ``mini_usb_rp2040@chipled``:
+
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
@@ -217,8 +320,12 @@ Simple test execution on target
               DT node labels: gpio0
             - flash-controller\ @\ 18000000 (READY)
               DT node labels: ssi
+            - pwm\ @\ 40050000 (READY)
+              DT node labels: pwm
             - vreg\ @\ 40064000 (READY)
               DT node labels: vreg
+            - pwm-leds (READY)
+              DT node labels: pwm_leds
 
    .. admonition:: Voltage Regulator
       :class: note dropdown

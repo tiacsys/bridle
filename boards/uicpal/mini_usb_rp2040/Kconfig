@@ -1,0 +1,18 @@
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+if BOARD_MINI_USB_RP2040_RP2040
+
+config BOARD_MINI_USB_RP2040_INIT_PRIORITY
+	int "Board control initialization priority"
+	default 60
+	help
+	  Set the priority for board control (tweaks), must be greater than
+	  KERNEL_INIT_PRIORITY_DEVICE but smaller than LED_INIT_PRIORITY and
+	  APPLICATION_INIT_PRIORITY.
+
+module = BOARD_MINI_USB_RP2040
+module-str = Board Control
+source "subsys/logging/Kconfig.template.log_config"
+
+endif # BOARD_MINI_USB_RP2040
