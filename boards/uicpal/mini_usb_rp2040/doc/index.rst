@@ -65,6 +65,14 @@ hardware features:
      - :kconfig:option:`CONFIG_USB_DEVICE_STACK`
      - :dtcompatible:`raspberrypi,pico-usbd`
      - :zephyr:ref:`usb_api`
+   * - Timer (Counter)
+     - :kconfig:option:`CONFIG_COUNTER`
+     - :dtcompatible:`raspberrypi,pico-timer`
+     - :zephyr:ref:`counter_api`
+   * - Watchdog Timer (WDT)
+     - :kconfig:option:`CONFIG_WATCHDOG`
+     - :dtcompatible:`raspberrypi,pico-watchdog`
+     - :zephyr:ref:`watchdog_api`
    * - Flash
      - :kconfig:option:`CONFIG_FLASH`
      - :dtcompatible:`raspberrypi,pico-flash-controller`
@@ -199,6 +207,10 @@ Simple test execution on target
               DT node labels: cdc_acm_console_uart
             - uart\ @\ 40034000 (READY)
               DT node labels: uart0
+            - watchdog\ @\ 40058000 (READY)
+              DT node labels: wdt0
+            - timer\ @\ 40054000 (READY)
+              DT node labels: timer
             - dma\ @\ 50000000 (READY)
               DT node labels: dma
             - gpio\ @\ 40014000 (READY)
@@ -251,6 +263,18 @@ Simple test execution on target
             :bgn:`uart:~$` **hwinfo reset_cause**
             reset caused by:
             - power-on reset
+
+   .. admonition:: Timer
+      :class: note dropdown
+
+      .. rubric:: Operate with the on-chip timer unit:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **timer oneshot timer@40054000 0 1000000**
+            :bgn:`timer@40054000: Alarm triggered`
 
    .. admonition:: Flash Controller
       :class: note dropdown
