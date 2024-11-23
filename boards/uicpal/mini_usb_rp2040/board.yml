@@ -3,6 +3,13 @@
 
 boards:
   - name: mini_usb_rp2040
+    full_name: Mini USB RP2040
     vendor: uicpal
+    revision:
+      format: "custom"
+      default: "neopixel"
+      revisions:
+        - name: "neopixel"
+        - name: "chipled"
     socs:
       - name: rp2040

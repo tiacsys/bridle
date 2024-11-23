@@ -1,0 +1,44 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/gpio/gpio.h>
+#include <zephyr/dt-bindings/pwm/pwm.h>
+
+/ {
+	model = "UICPAL Mini USB RP2040 (Chip-LED) @ USB-CDC/ACM Concole";
+	compatible = "uicpal,mini-usb-rp2040",
+		     "uicpal,mini-usb-rp2040-usbcons",
+		     "uicpal,mini-usb-rp2040-chipled",
+		     "uicpal,mini-usb-rp2040-chipled-usbcons";
+
+	aliases {
+		led0 = &gpio_led0;
+		pwm-led0 = &pwm_led0;
+	};
+
+	gpio_leds: gpio-leds {
+		compatible = "gpio-leds";
+		status = "disabled";
+		gpio_led0: gpio-led-0 {
+			gpios = <&gpio0 22 GPIO_ACTIVE_LOW>;
+			label = "LED";
+		};
+	};
+
+	pwm_leds: pwm-leds {
+		compatible = "pwm-leds";
+		status = "okay";
+		pwm_led0: pwm-led-0 {
+			pwms = <&pwm 6 PWM_MSEC(20) PWM_POLARITY_INVERTED>;
+			label = "PWM_LED";
+		};
+	};
+};
+
+&pwm {
+	status = "okay";
+	divider-int-3 = <255>;
+	divider-frac-3 = <15>;
+};
