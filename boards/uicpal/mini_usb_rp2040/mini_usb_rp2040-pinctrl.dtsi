@@ -41,4 +41,12 @@
 			pinmux = <PIO0_P22>;
 		};
 	};
+
+	adc_default: adc-default {
+		group26272829 {
+			pinmux = <ADC_CH0_P26>, <ADC_CH1_P27>,
+				 <ADC_CH2_P28>, <ADC_CH3_P29>;
+			input-enable;
+		};
+	};
 };

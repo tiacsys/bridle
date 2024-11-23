@@ -12,6 +12,7 @@ toolchain:
   - gnuarmemb
   - xtools
 supported:
+  - adc
   - clock
   - counter
   - dma
