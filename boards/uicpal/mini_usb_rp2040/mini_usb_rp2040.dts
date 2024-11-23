@@ -87,6 +87,17 @@
 	status = "okay";
 };
 
+&adc {
+	status = "okay";
+	pinctrl-0 = <&adc_default>;
+	pinctrl-names = "default";
+};
+
+&die_temp {
+	status = "okay";
+	friendly-name = "RP2040 chip temperature";
+};
+
 &gpio0 {
 	status = "okay";
 };
