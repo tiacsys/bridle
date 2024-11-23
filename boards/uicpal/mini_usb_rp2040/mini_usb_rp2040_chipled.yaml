@@ -1,8 +1,8 @@
 # Copyright (c) 2024 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
-identifier: mini_usb_rp2040@chipled
-name: Mini USB RP2040 (Chip-LED)
+identifier: mini_usb_rp2040@pwmled
+name: Mini USB RP2040 (PWM LED)
 type: mcu
 arch: arm
 flash: 4096
@@ -20,6 +20,7 @@ supported:
   - hwinfo
   - led
   - pwm
+  - rtc
   - uart
   - usb_device
   - usb_cdc

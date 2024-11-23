@@ -27,6 +27,7 @@
 
 	aliases {
 		watchdog0 = &wdt0;
+		rtc = &rtc;
 	};
 };
 
@@ -70,6 +71,11 @@
 };
 
 &wdt0 {
+	status = "okay";
+};
+
+&rtc {
+	clocks = <&clocks RPI_PICO_CLKID_CLK_RTC>;
 	status = "okay";
 };
 

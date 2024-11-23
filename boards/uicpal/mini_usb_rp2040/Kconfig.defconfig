@@ -26,6 +26,14 @@ config WDT_DISABLE_AT_BOOT
 	default y if HAS_WDT_DISABLE_AT_BOOT
 	depends on WATCHDOG && BOARD_MINI_USB_RP2040
 
+config RTC
+	default y
+	depends on DT_HAS_RASPBERRYPI_PICO_RTC_ENABLED
+
+config RTC_ALARM
+	default y
+	depends on RTC && BOARD_MINI_USB_RP2040
+
 config COUNTER
 	default y
 	depends on DT_HAS_RASPBERRYPI_PICO_TIMER_ENABLED
