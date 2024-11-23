@@ -19,9 +19,11 @@ supported:
   - flash
   - gpio
   - hwinfo
+  - i2c
   - led
   - pwm
   - rtc
+  - spi
   - uart
   - usb_device
   - usb_cdc

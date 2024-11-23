@@ -79,6 +79,14 @@ hardware features:
      - :kconfig:option:`CONFIG_USB_DEVICE_STACK`
      - :dtcompatible:`raspberrypi,pico-usbd`
      - :zephyr:ref:`usb_api`
+   * - I2C
+     - :kconfig:option:`CONFIG_I2C`
+     - :dtcompatible:`raspberrypi,pico-i2c` (!)
+     - :zephyr:ref:`i2c_api`
+   * - SPI
+     - :kconfig:option:`CONFIG_SPI`
+     - :dtcompatible:`raspberrypi,pico-spi`
+     - :zephyr:ref:`spi_api`
    * - PWM
      - :kconfig:option:`CONFIG_PWM`
      - :dtcompatible:`raspberrypi,pico-pwm`
@@ -154,6 +162,12 @@ hardware features:
      - :dtcompatible:`arm,armv6m-systick`
      -
 
+(!) Designware I2C driver has issues:
+    The *Raspberry Pi Pico I2C driver* is using the *Designware I2C driver*
+    automatically. There is an open PR on upstream. See also:
+
+       https://github.com/zephyrproject-rtos/zephyr/pull/60427
+
 Pin Mapping
 ===========
 
@@ -172,9 +186,17 @@ Default Zephyr Peripheral Mapping:
 
 - UART0_TX : GP0
 - UART0_RX : GP1
+- SPI0_SCK : GP2
+- SPI0_TX : GP3
+- SPI0_RX : GP4
+- SPI0_CSN : GP5
+- I2C1_SDA : GP6
+- I2C1_SCL : GP7
 - GPIO8 : GP8
 - UART0_CTS : GP14 (optional, not default)
 - UART0_RTS : GP15 (optional, not default)
+- I2C0_SDA : GP16 (Qwiic)
+- I2C0_SCL : GP17 (Qwiic)
 - PIO0 : GP22 (on ``mini_usb_rp2040@neopixel``)
 - PWM_3A : GP22 (on ``mini_usb_rp2040@chipled``)
 - ADC_CH0 : GP26
@@ -309,6 +331,8 @@ Simple test execution on target
               DT node labels: adc
             - flash-controller\ @\ 18000000 (READY)
               DT node labels: ssi
+            - i2c\ @\ 40044000 (READY)
+              DT node labels: i2c0
             - vreg\ @\ 40064000 (READY)
               DT node labels: vreg
             - rtc\ @\ 4005c000 (READY)
@@ -344,6 +368,8 @@ Simple test execution on target
               DT node labels: adc
             - flash-controller\ @\ 18000000 (READY)
               DT node labels: ssi
+            - i2c\ @\ 40044000 (READY)
+              DT node labels: i2c0
             - pwm\ @\ 40050000 (READY)
               DT node labels: pwm
             - vreg\ @\ 40064000 (READY)
@@ -563,6 +589,38 @@ Simple test execution on target
             000E0010: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
             000E0020: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
             000E0030: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+
+   .. admonition:: I2C on Qwiic with BMP280
+      :class: note dropdown
+
+      The Mini USB RP2040 has no on-board I2C devices. For this example an
+      |Grove BMP280 Sensor|_ was plugged into the Qwiic connector.
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **i2c scan i2c@40044000**
+                 0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+            00:             -- -- -- -- -- -- -- -- -- -- -- --
+            10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            70: -- -- -- -- -- -- -- 77
+            1 devices found on i2c\ @\ 40044000
+
+      The I2C address ``0x77`` is a Bosch BMP280 Air Pressure Sensor and their
+      Chip-ID can read from register ``0xd0``. The Chip-ID must be ``0x58``:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **i2c read_byte i2c@40044000 77 d0**
+            Output: 0x58
 
 References
 **********
