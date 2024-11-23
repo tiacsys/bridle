@@ -18,3 +18,5 @@ supported:
   - gpio
   - hwinfo
   - uart
+  - usb_device
+  - usb_cdc
