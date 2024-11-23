@@ -13,6 +13,7 @@ toolchain:
   - xtools
 supported:
   - clock
+  - counter
   - dma
   - flash
   - gpio
@@ -20,3 +21,4 @@ supported:
   - uart
   - usb_device
   - usb_cdc
+  - watchdog

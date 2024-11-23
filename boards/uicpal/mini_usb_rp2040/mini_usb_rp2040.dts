@@ -24,6 +24,10 @@
 		zephyr,console = &cdc_acm_console_uart;
 		zephyr,shell-uart = &cdc_acm_console_uart;
 	};
+
+	aliases {
+		watchdog0 = &wdt0;
+	};
 };
 
 &flash0 {
@@ -63,6 +67,14 @@
 &vreg {
 	regulator-always-on;
 	regulator-allowed-modes = <REGULATOR_RPI_PICO_MODE_NORMAL>;
+};
+
+&wdt0 {
+	status = "okay";
+};
+
+&timer {
+	status = "okay";
 };
 
 &dma {
