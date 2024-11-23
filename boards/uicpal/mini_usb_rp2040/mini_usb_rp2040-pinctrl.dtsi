@@ -1,0 +1,32 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/pinctrl/rpi-pico-rp2040-pinctrl.h>
+
+&pinctrl {
+	clocks_default: clocks-default {
+		/* no external clocks */
+	};
+
+	uart0_default: uart0-default {
+		group0 {
+			pinmux = <UART0_TX_P0>;
+		};
+		group1 {
+			pinmux = <UART0_RX_P1>;
+			input-enable;
+		};
+	};
+
+	uart0_hwflow: uart0-hwflow {
+		group015 {
+			pinmux = <UART0_TX_P0>, <UART0_RTS_P15>;
+		};
+		group114 {
+			pinmux = <UART0_RX_P1>, <UART0_CTS_P14>;
+			input-enable;
+		};
+	};
+};

@@ -1,0 +1,8 @@
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+boards:
+  - name: mini_usb_rp2040
+    vendor: uicpal
+    socs:
+      - name: rp2040

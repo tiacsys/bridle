@@ -1,0 +1,27 @@
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+config RP2_FLASH_W25Q080
+	default y
+	depends on BOARD_MINI_USB_RP2040
+
+config CLOCK_CONTROL
+	default y
+	depends on DT_HAS_RASPBERRYPI_PICO_CLOCK_ENABLED && \
+		   DT_HAS_RASPBERRYPI_PICO_CLOCK_CONTROLLER_ENABLED
+
+config REGULATOR
+	default y
+	depends on DT_HAS_REGULATOR_FIXED_ENABLED
+
+config RESET
+	default y
+	depends on DT_HAS_RASPBERRYPI_PICO_RESET_ENABLED
+
+config DMA
+	default y
+	depends on DT_HAS_RASPBERRYPI_PICO_DMA_ENABLED
+
+config GPIO
+	default y
+	depends on DT_HAS_RASPBERRYPI_PICO_GPIO_ENABLED

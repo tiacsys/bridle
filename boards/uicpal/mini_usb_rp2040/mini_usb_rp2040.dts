@@ -1,0 +1,84 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/dts-v1/;
+
+#include <mem.h>
+#include <rpi_pico/rp2040.dtsi>
+#include <zephyr/dt-bindings/clock/rpi_pico_clock.h>
+#include <zephyr/dt-bindings/regulator/rpi_pico.h>
+
+#include "mini_usb_rp2040-pinctrl.dtsi"
+
+/ {
+	model = "UICPAL Mini USB RP2040 @ UART Concole";
+	compatible = "uicpal,mini-usb-rp2040", "uicpal,mini-usb-rp2040-uartcons";
+
+	chosen {
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+		zephyr,flash-controller = &ssi;
+		zephyr,code-partition = &code_partition;
+		zephyr,console = &uart0;
+		zephyr,shell-uart = &uart0;
+	};
+};
+
+&flash0 {
+	status = "okay";
+	reg = <0x10000000 DT_SIZE_M(4)>;
+
+	partitions {
+		compatible = "fixed-partitions";
+		#address-cells = <1>;
+		#size-cells = <1>;
+
+		/* Reserved memory for the second stage bootloader */
+		second_stage_bootloader: partition@0 {
+			label = "second-stage-bootloader";
+			reg = <0x0 0x100>;
+			read-only;
+		};
+
+		/*
+		 * Usable flash. Starts at 0x100, after the second stage
+		 * bootloader. The partition size is 4MB minus the 0x100
+		 * bytes taken by the second stage bootloader.
+		 */
+		code_partition: partition@100 {
+			label = "code-partition";
+			reg = <0x100 (DT_SIZE_M(4) - 0x100)>;
+			read-only;
+		};
+	};
+};
+
+&clocks {
+	pinctrl-0 = <&clocks_default>;
+	pinctrl-names = "default";
+};
+
+&vreg {
+	regulator-always-on;
+	regulator-allowed-modes = <REGULATOR_RPI_PICO_MODE_NORMAL>;
+};
+
+&dma {
+	status = "okay";
+};
+
+&gpio0 {
+	status = "okay";
+};
+
+&uart0 {
+	status = "okay";
+	pinctrl-0 = <&uart0_default>;
+	pinctrl-names = "default";
+	current-speed = <115200>;
+	data-bits = <8>;
+	parity = "none";
+	stop-bits = "1";
+};
