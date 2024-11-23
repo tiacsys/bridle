@@ -61,6 +61,10 @@ hardware features:
      - :kconfig:option:`CONFIG_SERIAL`
      - :dtcompatible:`raspberrypi,pico-uart`
      - :zephyr:ref:`uart_api`
+   * - UDC (USB Device Controller)
+     - :kconfig:option:`CONFIG_USB_DEVICE_STACK`
+     - :dtcompatible:`raspberrypi,pico-usbd`
+     - :zephyr:ref:`usb_api`
    * - Flash
      - :kconfig:option:`CONFIG_FLASH`
      - :dtcompatible:`raspberrypi,pico-flash-controller`
@@ -138,8 +142,8 @@ Debugging
 
 There is no SWD interface, thus debugging is not possible on thsi board.
 
-Hello Shell on the UART Console
-===============================
+Hello Shell on the USB Console (CDC/ACM)
+========================================
 
 .. zephyr-app-commands::
    :app: bridle/samples/helloshell
@@ -191,6 +195,8 @@ Simple test execution on target
               DT node labels: clocks
             - reset-controller\ @\ 4000c000 (READY)
               DT node labels: reset
+            - cdc-acm-console-uart (READY)
+              DT node labels: cdc_acm_console_uart
             - uart\ @\ 40034000 (READY)
               DT node labels: uart0
             - dma\ @\ 50000000 (READY)
@@ -235,7 +241,7 @@ Simple test execution on target
             - pin
 
             :bgn:`uart:~$` **regulator disable vreg@40064000**
-            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* \*\*\*
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
             Hello World! I'm THE SHELL from mini_usb_rp2040
 
       .. container:: highlight highlight-console notranslate

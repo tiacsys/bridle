@@ -13,16 +13,16 @@
 #include "mini_usb_rp2040-pinctrl.dtsi"
 
 / {
-	model = "UICPAL Mini USB RP2040 @ UART Concole";
-	compatible = "uicpal,mini-usb-rp2040", "uicpal,mini-usb-rp2040-uartcons";
+	model = "UICPAL Mini USB RP2040 @ USB-CDC/ACM Concole";
+	compatible = "uicpal,mini-usb-rp2040", "uicpal,mini-usb-rp2040-usbcons";
 
 	chosen {
 		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
 		zephyr,flash-controller = &ssi;
 		zephyr,code-partition = &code_partition;
-		zephyr,console = &uart0;
-		zephyr,shell-uart = &uart0;
+		zephyr,console = &cdc_acm_console_uart;
+		zephyr,shell-uart = &cdc_acm_console_uart;
 	};
 };
 
@@ -81,4 +81,11 @@
 	data-bits = <8>;
 	parity = "none";
 	stop-bits = "1";
+};
+
+zephyr_udc0: &usbd {
+	status = "okay";
+	cdc_acm_console_uart: cdc-acm-console-uart {
+		compatible = "zephyr,cdc-acm-uart";
+	};
 };
