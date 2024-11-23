@@ -83,6 +83,10 @@ hardware features:
      - :kconfig:option:`CONFIG_PWM`
      - :dtcompatible:`raspberrypi,pico-pwm`
      - :zephyr:ref:`pwm_api`
+   * - RTC
+     - :kconfig:option:`CONFIG_RTC`
+     - :dtcompatible:`raspberrypi,pico-rtc`
+     - :zephyr:ref:`rtc_api`
    * - Timer (Counter)
      - :kconfig:option:`CONFIG_COUNTER`
      - :dtcompatible:`raspberrypi,pico-timer`
@@ -293,6 +297,8 @@ Simple test execution on target
               DT node labels: ssi
             - vreg\ @\ 40064000 (READY)
               DT node labels: vreg
+            - rtc\ @\ 4005c000 (READY)
+              DT node labels: rtc
 
       .. rubric:: On board revision ``mini_usb_rp2040@chipled``:
 
@@ -324,6 +330,8 @@ Simple test execution on target
               DT node labels: pwm
             - vreg\ @\ 40064000 (READY)
               DT node labels: vreg
+            - rtc\ @\ 4005c000 (READY)
+              DT node labels: rtc
             - pwm-leds (READY)
               DT node labels: pwm_leds
 
@@ -370,6 +378,37 @@ Simple test execution on target
             :bgn:`uart:~$` **hwinfo reset_cause**
             reset caused by:
             - power-on reset
+
+   .. admonition:: RTC shell command not working!
+      :class: warning
+
+      It seems, more precise compiler optimazations have to be set
+      to fetch valid RTC values from hardware by the Pico SDK.
+
+      .. admonition:: RTC
+         :class: note dropdown
+
+         .. rubric:: Operate with the on-chip RTC unit:
+
+         .. container:: highlight highlight-console notranslate
+
+            .. parsed-literal::
+
+               :bgn:`uart:~$` **rtc get rtc@4005c000**
+               RTC not set
+
+         .. container:: highlight highlight-console notranslate
+
+            .. parsed-literal::
+
+               :bgn:`uart:~$` **rtc set rtc@4005c000 2024-11-23T18:37:55**
+
+         .. container:: highlight highlight-console notranslate
+
+            .. parsed-literal::
+
+               :bgn:`uart:~$` **rtc get rtc@4005c000**
+               2024-11-23T18:37:59.000
 
    .. admonition:: Timer
       :class: note dropdown
