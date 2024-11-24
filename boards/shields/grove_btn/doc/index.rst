@@ -21,27 +21,69 @@ Variants and Versions
 Here find the comparison between various variants and versions of Seeed Studio
 Button Shields:
 
-+-----------------------+--------------+--------------+
-| Parameter             | Button V1.2  | Button V1.0  |
-+=======================+==============+==============+
-| Release Date          | Dec 2016     | Apr 2011     |
-+-----------------------+--------------+--------------+
-| Operation Voltage     | 3.3V or 5V   | 3.3V or 5V   |
-+-----------------------+--------------+--------------+
-| Operation Temperature | -25℃ to +70℃ |              |
-+-----------------------+--------------+--------------+
-| Grove Connectors      | 1            | 1            |
-+-----------------------+--------------+--------------+
-| Digital Ports         | 1            | 1            |
-+-----------------------+--------------+--------------+
-| Analog Ports          |              |              |
-+-----------------------+--------------+--------------+
-| UART Ports            |              |              |
-+-----------------------+--------------+--------------+
-| I2C Ports             |              |              |
-+-----------------------+--------------+--------------+
-| SPI Ports             |              |              |
-+-----------------------+--------------+--------------+
++-----------------------+-----------------+--------------+--------------+
+| Parameter             | LED Button V1.0 | Button V1.2  | Button V1.0  |
++=======================+=================+==============+==============+
+| Release Date          | Jun 2018        | Dec 2016     | Apr 2011     |
++-----------------------+-----------------+--------------+--------------+
+| Operation Voltage     | 3.3V or 5V      | 3.3V or 5V   | 3.3V or 5V   |
++-----------------------+-----------------+--------------+--------------+
+| Operation Temperature |                 | -25℃ to +70℃ | -25℃ to +70℃ |
++-----------------------+-----------------+--------------+--------------+
+| Grove Connectors      | 1               | 1            | 1            |
++-----------------------+-----------------+--------------+--------------+
+| Digital Ports         | 1               | 1            | 1            |
++-----------------------+-----------------+--------------+--------------+
+| Analog Ports          |                 |              |              |
++-----------------------+-----------------+--------------+--------------+
+| UART Ports            |                 |              |              |
++-----------------------+-----------------+--------------+--------------+
+| I2C Ports             |                 |              |              |
++-----------------------+-----------------+--------------+--------------+
+| SPI Ports             |                 |              |              |
++-----------------------+-----------------+--------------+--------------+
+
+Grove LED Button V1.0
+=====================
+
+Overview
+--------
+
+**Model:** 111020044 (r), 111020045 (y), 111020046 (b)
+
+The `Grove LED Button V1.0`_ is a combined module of either yellow, blue
+or red LED with a momentary and tactile push button in Grove form factor.
+It uses a N-Channel MOSFET to control the LED to ensure the high switching
+speed and a low current consumption. The button is low active and drives
+high in dormant state by an pull up resistance.
+
+.. figure:: seeed_grove_led_button.jpg
+   :align: center
+   :alt: SEEED_GROVE_LED_BUTTON
+
+Pinout Diagram
+--------------
+
+The pinout of Grove Button following the `Grove Digital Layout`_.
+
++-----+----------+----------------+--------+--------+
+| Pin | Function | Meaning        | Shield | Board  |
++=====+==========+================+========+========+
+|  1  | Dn       | Digital Signal | Input  | Output |
++-----+----------+----------------+--------+--------+
+|  2  | Dn+1     | Digital Signal | Output | Input  |
++-----+----------+----------------+--------+--------+
+|  3  | VCC      | 3.3V or 5V     | Input  | Output |
++-----+----------+----------------+--------+--------+
+|  4  | GND      | Ground         |        |        |
++-----+----------+----------------+--------+--------+
+
+Hardware
+--------
+
+The button outputs (Dn+1) a LOW signal when pressed, and HIGH when released.
+
+- `Grove LED Button V1.0 Eagle Files, Schematic and Layout`_
 
 Grove Button V1.2 and V1.0
 ==========================
@@ -101,6 +143,36 @@ Programming
 Set ``-DSHIELD=grove_btn_dX`` when you invoke ``west build``, wherein ``X``
 corresponds to the ordinal number of a signal from the
 |Laced Grove Signal Interface|. For example:
+
+.. rubric:: Grove LED Button V1.0
+
+#. :ref:`grove_base_shield_v2` on |zephyr:board:mimxrt1060_evk|
+   for **GPIO driven Button** on Grove ``D4``:
+
+   .. zephyr-app-commands::
+      :app: bridle/samples/helloshell
+      :build-dir: helloshell-seeed_grove_base_v2-grove_btn_d4_inv
+      :board: mimxrt1060_evkb
+      :shield: "seeed_grove_base_v2 grove_btn_d4_inv"
+      :goals: flash
+      :west-args: -p
+      :host-os: unix
+      :tool: all
+
+#. :ref:`grove_base_shield_v13` or :ref:`grove_base_shield_v12` on
+   |zephyr:board:mimxrt1060_evk| for **GPIO driven Button** on Grove ``D4``:
+
+   .. zephyr-app-commands::
+      :app: bridle/samples/helloshell
+      :build-dir: helloshell-seeed_grove_base_v1-grove_btn_d4_inv
+      :board: mimxrt1060_evkb
+      :shield: "seeed_grove_base_v1 grove_btn_d4_inv"
+      :goals: flash
+      :west-args: -p
+      :host-os: unix
+      :tool: all
+
+.. rubric:: Grove Button V1.2 and V1.0
 
 #. :ref:`grove_base_shield_v2` on |zephyr:board:mimxrt1060_evk|
    for **GPIO driven Button** on Grove ``D4``:

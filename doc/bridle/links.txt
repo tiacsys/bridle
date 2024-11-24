@@ -907,6 +907,14 @@
 
 .. ### Links to the Grove Modules
 
+.. #### Links to the Grove LED Button V1.0
+
+.. _`Grove LED Button V1.0`:
+   https://wiki.seeedstudio.com/Grove-LED_Button
+
+.. _`Grove LED Button V1.0 Eagle Files, Schematic and Layout`:
+   https://files.seeedstudio.com/wiki/Grove-Red_LED_Button/res/Grove-Red_LED_Button.zip
+
 .. #### Links to the Grove Button V1.2
 
 .. _`Grove Button V1.2`:
