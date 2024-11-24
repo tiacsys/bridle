@@ -3,34 +3,66 @@
 
 config SHIELD_GROVE_BTN
 	def_bool $(shields_list_contains,grove_btn_d0) || \
+		 $(shields_list_contains,grove_btn_d0_inv) || \
 		 $(shields_list_contains,grove_btn_d1) || \
+		 $(shields_list_contains,grove_btn_d1_inv) || \
 		 $(shields_list_contains,grove_btn_d2) || \
+		 $(shields_list_contains,grove_btn_d2_inv) || \
 		 $(shields_list_contains,grove_btn_d3) || \
+		 $(shields_list_contains,grove_btn_d3_inv) || \
 		 $(shields_list_contains,grove_btn_d4) || \
+		 $(shields_list_contains,grove_btn_d4_inv) || \
 		 $(shields_list_contains,grove_btn_d5) || \
+		 $(shields_list_contains,grove_btn_d5_inv) || \
 		 $(shields_list_contains,grove_btn_d6) || \
+		 $(shields_list_contains,grove_btn_d6_inv) || \
 		 $(shields_list_contains,grove_btn_d7) || \
+		 $(shields_list_contains,grove_btn_d7_inv) || \
 		 $(shields_list_contains,grove_btn_d8) || \
+		 $(shields_list_contains,grove_btn_d8_inv) || \
 		 $(shields_list_contains,grove_btn_d9) || \
+		 $(shields_list_contains,grove_btn_d9_inv) || \
 		 $(shields_list_contains,grove_btn_d10) || \
+		 $(shields_list_contains,grove_btn_d10_inv) || \
 		 $(shields_list_contains,grove_btn_d11) || \
+		 $(shields_list_contains,grove_btn_d11_inv) || \
 		 $(shields_list_contains,grove_btn_d12) || \
+		 $(shields_list_contains,grove_btn_d12_inv) || \
 		 $(shields_list_contains,grove_btn_d13) || \
+		 $(shields_list_contains,grove_btn_d13_inv) || \
 		 $(shields_list_contains,grove_btn_d14) || \
+		 $(shields_list_contains,grove_btn_d14_inv) || \
 		 $(shields_list_contains,grove_btn_d15) || \
+		 $(shields_list_contains,grove_btn_d15_inv) || \
 		 $(shields_list_contains,grove_btn_d16) || \
+		 $(shields_list_contains,grove_btn_d16_inv) || \
 		 $(shields_list_contains,grove_btn_d17) || \
+		 $(shields_list_contains,grove_btn_d17_inv) || \
 		 $(shields_list_contains,grove_btn_d18) || \
+		 $(shields_list_contains,grove_btn_d18_inv) || \
 		 $(shields_list_contains,grove_btn_d19) || \
+		 $(shields_list_contains,grove_btn_d19_inv) || \
 		 $(shields_list_contains,grove_btn_d20) || \
+		 $(shields_list_contains,grove_btn_d20_inv) || \
 		 $(shields_list_contains,grove_btn_d21) || \
+		 $(shields_list_contains,grove_btn_d21_inv) || \
 		 $(shields_list_contains,grove_btn_d22) || \
+		 $(shields_list_contains,grove_btn_d22_inv) || \
 		 $(shields_list_contains,grove_btn_d23) || \
+		 $(shields_list_contains,grove_btn_d23_inv) || \
 		 $(shields_list_contains,grove_btn_d24) || \
+		 $(shields_list_contains,grove_btn_d24_inv) || \
 		 $(shields_list_contains,grove_btn_d25) || \
+		 $(shields_list_contains,grove_btn_d25_inv) || \
 		 $(shields_list_contains,grove_btn_d26) || \
+		 $(shields_list_contains,grove_btn_d26_inv) || \
 		 $(shields_list_contains,grove_btn_d27) || \
+		 $(shields_list_contains,grove_btn_d27_inv) || \
 		 $(shields_list_contains,grove_btn_d28) || \
+		 $(shields_list_contains,grove_btn_d28_inv) || \
 		 $(shields_list_contains,grove_btn_d29) || \
+		 $(shields_list_contains,grove_btn_d29_inv) || \
 		 $(shields_list_contains,grove_btn_d30) || \
-		 $(shields_list_contains,grove_btn_d31)
+		 $(shields_list_contains,grove_btn_d30_inv) || \
+		 $(shields_list_contains,grove_btn_d31) || \
+		 $(shields_list_contains,grove_btn_d31_inv)

@@ -1,0 +1,19 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
+/ {
+	grove_btns {
+		status = "okay";
+
+		compatible = "gpio-keys";
+
+		grove_btn_d0: grove-btn-d0-inv {
+			label = "Grove Button D0 (inverted)";
+			gpios = <&grove_gpios 0 (GPIO_PULL_DOWN | GPIO_ACTIVE_LOW)>;
+		};
+	};
+};
