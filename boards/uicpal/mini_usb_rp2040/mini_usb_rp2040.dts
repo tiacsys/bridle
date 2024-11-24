@@ -13,6 +13,7 @@
 #include <zephyr/dt-bindings/i2c/i2c.h>
 
 #include "mini_usb_rp2040-pinctrl.dtsi"
+#include "mini_usb_rp2040-grove.dtsi"
 
 / {
 	model = "UICPAL Mini USB RP2040 @ USB-CDC/ACM Concole";
