@@ -1,0 +1,64 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include "mini_usb_rp2040-grove-i2c.dtsi"
+
+/ {
+	grove_laced_if_murp2040: grove-laced-if-murp2040 {
+		compatible = "seeed,grove-laced-if";
+
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map =
+			/*  0 - D0:  not wired */
+			/*  1 - D1:  not wired */
+			/*  2 - D2:  not wired */
+			/*  3 - D3:  not wired */
+			/*  4 - D4:  not wired */
+			/*  5 - D5:  not wired */
+			/*  6 - D6:  not wired */
+			/*  7 - D7:  not wired */
+			/*  8 - D8:  not wired */
+			/*  9 - D9:  not wired */
+			/* 10 - D10: not wired */
+			/* 11 - D11: not wired */
+			/* 12 - D12: not wired */
+			/* 13 - D13: not wired */
+			/* 14 - D14: not wired */
+			/* 15 - D15: not wired */
+			<16 0 &grove_i2c_header 1 0>,	/* D16: I2C0-SDA as GPIO */
+			<17 0 &grove_i2c_header 0 0>;	/* D17: I2C0-SCL as GPIO */
+
+		#pwm-cells = <3>;
+		pwm-map-mask = <0xffffffff 0 0xffffffc0>;
+		pwm-map-pass-thru = <0 0xffffffff 0x3f>;
+		pwm-map =
+			/*  0 - D0:  not wired */
+			/*  1 - D1:  not wired */
+			/*  2 - D2:  not wired */
+			/*  3 - D3:  not wired */
+			/*  4 - D4:  not wired */
+			/*  5 - D5:  not wired */
+			/*  6 - D6:  not wired */
+			/*  7 - D7:  not wired */
+			/*  8 - D8:  not wired */
+			/*  9 - D9:  not wired */
+			/* 10 - D10: not wired */
+			/* 11 - D11: not wired */
+			/* 12 - D12: not wired */
+			/* 13 - D13: not wired */
+			/* 14 - D14: not wired */
+			/* 15 - D15: not wired */
+			<16 0 0 &pwm 0 0 0>,	/* D16: GP16 as PWM0CHA (0) */
+			<17 0 0 &pwm 1 0 0>;	/* D17: GP17 as PWM0CHB (1) */
+	};
+};
+
+grove_gpios: &grove_laced_if_murp2040 {};
+grove_pwms: &grove_laced_if_murp2040 {};
+
+grove_pwm_d16: &pwm {};
+grove_pwm_d17: &pwm {};

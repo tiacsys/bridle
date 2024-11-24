@@ -332,7 +332,7 @@ Simple test execution on target
             - flash-controller\ @\ 18000000 (READY)
               DT node labels: ssi
             - i2c\ @\ 40044000 (READY)
-              DT node labels: i2c0
+              DT node labels: i2c0 grove_i2c
             - vreg\ @\ 40064000 (READY)
               DT node labels: vreg
             - rtc\ @\ 4005c000 (READY)
@@ -369,9 +369,9 @@ Simple test execution on target
             - flash-controller\ @\ 18000000 (READY)
               DT node labels: ssi
             - i2c\ @\ 40044000 (READY)
-              DT node labels: i2c0
+              DT node labels: i2c0 grove_i2c
             - pwm\ @\ 40050000 (READY)
-              DT node labels: pwm
+              DT node labels: pwm grove_pwm_d16 grove_pwm_d17
             - vreg\ @\ 40064000 (READY)
               DT node labels: vreg
             - rtc\ @\ 4005c000 (READY)
@@ -621,6 +621,208 @@ Simple test execution on target
 
             :bgn:`uart:~$` **i2c read_byte i2c@40044000 77 d0**
             Output: 0x58
+
+Samples with Grove Modules on Qwiic connector
+=============================================
+
+Hello Shell with sensor access to Grove BMP280
+----------------------------------------------
+
+.. rubric:: For board revision ``mini_usb_rp2040@neopixel`` (default):
+
+.. zephyr-app-commands::
+   :app: bridle/samples/helloshell
+   :board: mini_usb_rp2040
+   :shield: "grove_sens_bmp280"
+   :build-dir: mini_usb_rp2040
+   :west-args: -p
+   :goals: flash
+   :compact:
+
+.. rubric:: For board revision ``mini_usb_rp2040@chipled``:
+
+.. zephyr-app-commands::
+   :app: bridle/samples/helloshell
+   :board: mini_usb_rp2040@chipled
+   :shield: "grove_sens_bmp280"
+   :build-dir: mini_usb_rp2040
+   :west-args: -p
+   :goals: flash
+   :compact:
+
+(text in bold is a command input)
+
+   .. admonition:: Devices
+      :class: note dropdown
+
+      .. rubric:: Only an excerpt from the full list:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **device list**
+            devices:
+              … … …
+            - bmp280\ @\ 77 (READY)
+            - dietemp (READY)
+              DT node labels: die_temp
+
+   .. admonition:: Sensor access from Zephyr Shell
+      :class: note dropdown toggle-shown
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor info**
+            device name: dietemp, vendor: Raspberry Pi Foundation, model: pico-temp, friendly name: RP2040 chip temperature
+            device name: bmp280\ @\ 77, vendor: Bosch Sensortec GmbH, model: bme280, friendly name: (null)
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor get bmp280@77**
+            :bgn:`channel type=13(ambient_temp) index=0 shift=16 num_samples=1 value=53909207971ns (24.739990)`
+            :bgn:`channel type=14(press) index=0 shift=23 num_samples=1 value=53909207971ns (99.210937)`
+            :bgn:`channel type=16(humidity) index=0 shift=21 num_samples=1 value=53909207971ns (0.000000)`
+
+LED Blinky with Grove LED Button (Qwiic signals as GPIO)
+--------------------------------------------------------
+
+.. rubric:: For board revision ``mini_usb_rp2040@neopixel`` (default):
+
+.. zephyr-app-commands::
+   :app: zephyr/samples/basic/blinky
+   :board: mini_usb_rp2040
+   :shield: "grove_btn_d16 grove_led_d17 grove_pwm_led_d17 x_grove_testbed"
+   :build-dir: mini_usb_rp2040
+   :west-args: -p
+   :goals: flash
+   :compact:
+
+.. rubric:: For board revision ``mini_usb_rp2040@chipled``:
+
+.. zephyr-app-commands::
+   :app: zephyr/samples/basic/blinky
+   :board: mini_usb_rp2040@chipled
+   :shield: "grove_btn_d16 grove_led_d17 grove_pwm_led_d17 x_grove_testbed"
+   :build-dir: mini_usb_rp2040
+   :west-args: -p
+   :goals: flash
+   :compact:
+
+(text in bold is a command input)
+
+   .. admonition:: Console Output
+      :class: note dropdown toggle-shown
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            … … …
+            LED state: OFF
+            LED state: ON
+            LED state: OFF
+            LED state: ON
+            LED … … …
+
+LED Fade with Grove LED Button (Qwiic signals as PWM)
+-----------------------------------------------------
+
+.. rubric:: For board revision ``mini_usb_rp2040@neopixel`` (default):
+
+.. zephyr-app-commands::
+   :app: zephyr/samples/basic/fade_led
+   :board: mini_usb_rp2040
+   :shield: "grove_btn_d16 grove_led_d17 grove_pwm_led_d17 x_grove_testbed"
+   :build-dir: mini_usb_rp2040
+   :west-args: -p
+   :goals: flash
+   :compact:
+
+.. rubric:: For board revision ``mini_usb_rp2040@chipled``:
+
+.. zephyr-app-commands::
+   :app: zephyr/samples/basic/fade_led
+   :board: mini_usb_rp2040@chipled
+   :shield: "grove_btn_d16 grove_led_d17 grove_pwm_led_d17 x_grove_testbed"
+   :build-dir: mini_usb_rp2040
+   :west-args: -p
+   :goals: flash
+   :compact:
+
+(text in bold is a command input)
+
+   .. admonition:: Console Output
+      :class: note dropdown toggle-shown
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            PWM-based LED fade
+            Using pulse width 0%
+            Using pulse width 2%
+            Using pulse width 4%
+            … … …
+            Using pulse width 94%
+            Using pulse width 96%
+            Using pulse width 98%
+            Using pulse width 96%
+            Using pulse width 94%
+            … … …
+            Using pulse width 4%
+            Using pulse width 2%
+            Using pulse width 0%
+            Using pulse width 2%
+            Using pulse width 4%
+            Using pulse width … … …
+
+LED Switch with Grove LED Button (Qwiic signals as GPIO)
+--------------------------------------------------------
+
+.. rubric:: For board revision ``mini_usb_rp2040@neopixel`` (default):
+
+.. zephyr-app-commands::
+   :app: zephyr/samples/basic/button
+   :board: mini_usb_rp2040
+   :shield: "grove_btn_d16 grove_led_d17 grove_pwm_led_d17 x_grove_testbed"
+   :build-dir: mini_usb_rp2040
+   :west-args: -p
+   :goals: flash
+   :compact:
+
+.. rubric:: For board revision ``mini_usb_rp2040@chipled``:
+
+.. zephyr-app-commands::
+   :app: zephyr/samples/basic/button
+   :board: mini_usb_rp2040@chipled
+   :shield: "grove_btn_d16 grove_led_d17 grove_pwm_led_d17 x_grove_testbed"
+   :build-dir: mini_usb_rp2040
+   :west-args: -p
+   :goals: flash
+   :compact:
+
+(text in bold is a command input)
+
+   .. admonition:: Console Output
+      :class: note dropdown toggle-shown
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            Set up button at gpio@40014000 pin 16
+            Set up LED at gpio@40014000 pin 17
+            Press the button
+            Button pressed at 1050252053
+            Button pressed at 1338164194
+            Button pressed at 1515853740
+            Button pressed at 1595751687
+            Button … … …
 
 References
 **********

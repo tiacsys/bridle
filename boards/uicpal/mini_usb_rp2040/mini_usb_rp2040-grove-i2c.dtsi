@@ -1,0 +1,62 @@
+/*
+ * Copyright (c) 2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <bridle/dt-bindings/seeed_grove_pwms_defaults.h>
+
+/ {
+	grove_i2c_header: grove-i2c-connector {
+		compatible = "seeed,grove-connector";
+
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <0 0 &gpio0 17 0>,	/* GP17 as I2C0-SCL */
+			   <1 0 &gpio0 16 0>;	/* GP16 as I2C0-SDA */
+	};
+};
+
+grove_i2c: &i2c0 {};
+
+#undef GROVE_PWM_D16_SLOW
+#define GROVE_PWM_D16_SLOW				\
+	&pwm {						\
+		divider-frac-0 = <15>;			\
+		divider-int-0 = <255>;			\
+	};
+
+#undef GROVE_PWM_D16_ENABLE
+#define GROVE_PWM_D16_ENABLE				\
+	&pwm {						\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D16_PINCTRL
+#define GROVE_PWM_D16_PINCTRL				\
+	&pwm_default {					\
+		group16 {				\
+			pinmux = <PWM_0A_P16>;		\
+		};					\
+	};
+
+#undef GROVE_PWM_D17_SLOW
+#define GROVE_PWM_D17_SLOW				\
+	&pwm {						\
+		divider-frac-0 = <15>;			\
+		divider-int-0 = <255>;			\
+	};
+
+#undef GROVE_PWM_D17_ENABLE
+#define GROVE_PWM_D17_ENABLE				\
+	&pwm {						\
+		status = "okay";			\
+	};
+
+#undef GROVE_PWM_D17_PINCTRL
+#define GROVE_PWM_D17_PINCTRL				\
+	&pwm_default {					\
+		group17 {				\
+			pinmux = <PWM_0B_P17>;		\
+		};					\
+	};
