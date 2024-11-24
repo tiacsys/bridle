@@ -356,11 +356,17 @@
     - waveshare_rp2040_eth/rp2040
   scenarios:
     - grove.rpipico.v1.grove_btn.gpio.d16
+    - grove.rpipico.v1.grove_btn.gpio.d16.inv
     - grove.rpipico.v1.grove_btn.gpio.d17
+    - grove.rpipico.v1.grove_btn.gpio.d17.inv
     - grove.rpipico.v1.grove_btn.gpio.d18
+    - grove.rpipico.v1.grove_btn.gpio.d18.inv
     - grove.rpipico.v1.grove_btn.gpio.d19
+    - grove.rpipico.v1.grove_btn.gpio.d19.inv
     - grove.rpipico.v1.grove_btn.gpio.d20
+    - grove.rpipico.v1.grove_btn.gpio.d20.inv
     - grove.rpipico.v1.grove_btn.gpio.d21
+    - grove.rpipico.v1.grove_btn.gpio.d21.inv
 
 # Grove Connectors (directly) On-Board
 
@@ -396,112 +402,204 @@
     - seeeduino_cm0/samd21g18a
   scenarios:
     - grove.connectors.grove_btn.gpio.d2
+    - grove.connectors.grove_btn.gpio.d2.inv
     - grove.connectors.grove_btn.gpio.d3
+    - grove.connectors.grove_btn.gpio.d3.inv
     - grove.connectors.grove_btn.gpio.d4
+    - grove.connectors.grove_btn.gpio.d4.inv
     - grove.connectors.grove_btn.gpio.d5
+    - grove.connectors.grove_btn.gpio.d5.inv
     - grove.connectors.grove_btn.gpio.d6
+    - grove.connectors.grove_btn.gpio.d6.inv
     - grove.connectors.grove_btn.gpio.d7
+    - grove.connectors.grove_btn.gpio.d7.inv
     - grove.connectors.grove_btn.gpio.d8
+    - grove.connectors.grove_btn.gpio.d8.inv
     - grove.connectors.grove_btn.gpio.d9
+    - grove.connectors.grove_btn.gpio.d9.inv
     - grove.connectors.grove_btn.gpio.d10
+    - grove.connectors.grove_btn.gpio.d10.inv
     - grove.connectors.grove_btn.gpio.d11
+    - grove.connectors.grove_btn.gpio.d11.inv
     - grove.connectors.grove_btn.gpio.d12
+    - grove.connectors.grove_btn.gpio.d12.inv
     - grove.connectors.grove_btn.gpio.d13
+    - grove.connectors.grove_btn.gpio.d13.inv
     - grove.connectors.grove_btn.gpio.d14
+    - grove.connectors.grove_btn.gpio.d14.inv
     - grove.connectors.grove_btn.gpio.d15
+    - grove.connectors.grove_btn.gpio.d15.inv
     - grove.connectors.grove_btn.gpio.d16
+    - grove.connectors.grove_btn.gpio.d16.inv
     - grove.connectors.grove_btn.gpio.d17
+    - grove.connectors.grove_btn.gpio.d17.inv
     - grove.connectors.grove_btn.gpio.d20
+    - grove.connectors.grove_btn.gpio.d20.inv
     - grove.connectors.grove_btn.gpio.d21
+    - grove.connectors.grove_btn.gpio.d21.inv
     - grove.connectors.grove_btn.gpio.d22
+    - grove.connectors.grove_btn.gpio.d22.inv
     - grove.connectors.grove_btn.gpio.d23
+    - grove.connectors.grove_btn.gpio.d23.inv
     - grove.connectors.grove_btn.gpio.d24
+    - grove.connectors.grove_btn.gpio.d24.inv
     - grove.connectors.grove_btn.gpio.d25
+    - grove.connectors.grove_btn.gpio.d25.inv
     - grove.connectors.grove_btn.gpio.d26
+    - grove.connectors.grove_btn.gpio.d26.inv
     - grove.connectors.grove_btn.gpio.d27
+    - grove.connectors.grove_btn.gpio.d27.inv
     - grove.connectors.grove_btn.gpio.d28
+    - grove.connectors.grove_btn.gpio.d28.inv
     - grove.connectors.grove_btn.gpio.d29
+    - grove.connectors.grove_btn.gpio.d29.inv
     - grove.connectors.grove_btn.gpio.d30
+    - grove.connectors.grove_btn.gpio.d30.inv
     - grove.connectors.grove_btn.gpio.d31
+    - grove.connectors.grove_btn.gpio.d31.inv
 
 - comment: "shield(grove.connectors.grove_btn): seeeduino_lotus: invalid board condition."
   platforms:
     - seeeduino_lotus/samd21g18a
   scenarios:
     - grove.connectors.grove_btn.gpio.d9
+    - grove.connectors.grove_btn.gpio.d9.inv
     - grove.connectors.grove_btn.gpio.d10
+    - grove.connectors.grove_btn.gpio.d10.inv
     - grove.connectors.grove_btn.gpio.d11
+    - grove.connectors.grove_btn.gpio.d11.inv
     - grove.connectors.grove_btn.gpio.d12
+    - grove.connectors.grove_btn.gpio.d12.inv
     - grove.connectors.grove_btn.gpio.d13
+    - grove.connectors.grove_btn.gpio.d13.inv
     - grove.connectors.grove_btn.gpio.d20
+    - grove.connectors.grove_btn.gpio.d20.inv
     - grove.connectors.grove_btn.gpio.d21
+    - grove.connectors.grove_btn.gpio.d21.inv
     - grove.connectors.grove_btn.gpio.d22
+    - grove.connectors.grove_btn.gpio.d22.inv
     - grove.connectors.grove_btn.gpio.d23
+    - grove.connectors.grove_btn.gpio.d23.inv
     - grove.connectors.grove_btn.gpio.d24
+    - grove.connectors.grove_btn.gpio.d24.inv
     - grove.connectors.grove_btn.gpio.d25
+    - grove.connectors.grove_btn.gpio.d25.inv
     - grove.connectors.grove_btn.gpio.d26
+    - grove.connectors.grove_btn.gpio.d26.inv
     - grove.connectors.grove_btn.gpio.d27
+    - grove.connectors.grove_btn.gpio.d27.inv
     - grove.connectors.grove_btn.gpio.d28
+    - grove.connectors.grove_btn.gpio.d28.inv
     - grove.connectors.grove_btn.gpio.d29
+    - grove.connectors.grove_btn.gpio.d29.inv
     - grove.connectors.grove_btn.gpio.d30
+    - grove.connectors.grove_btn.gpio.d30.inv
     - grove.connectors.grove_btn.gpio.d31
+    - grove.connectors.grove_btn.gpio.d31.inv
 
 - comment: "shield(grove.connectors.grove_btn): cytron_maker_nano_rp2040: invalid board condition."
   platforms:
     - cytron_maker_nano_rp2040/rp2040
   scenarios:
     - grove.connectors.grove_btn.gpio.d2
+    - grove.connectors.grove_btn.gpio.d2.inv
     - grove.connectors.grove_btn.gpio.d3
+    - grove.connectors.grove_btn.gpio.d3.inv
     - grove.connectors.grove_btn.gpio.d4
+    - grove.connectors.grove_btn.gpio.d4.inv
     - grove.connectors.grove_btn.gpio.d5
+    - grove.connectors.grove_btn.gpio.d5.inv
     - grove.connectors.grove_btn.gpio.d6
+    - grove.connectors.grove_btn.gpio.d6.inv
     - grove.connectors.grove_btn.gpio.d7
+    - grove.connectors.grove_btn.gpio.d7.inv
     - grove.connectors.grove_btn.gpio.d8
+    - grove.connectors.grove_btn.gpio.d8.inv
     - grove.connectors.grove_btn.gpio.d9
+    - grove.connectors.grove_btn.gpio.d9.inv
     - grove.connectors.grove_btn.gpio.d10
+    - grove.connectors.grove_btn.gpio.d10.inv
     - grove.connectors.grove_btn.gpio.d11
+    - grove.connectors.grove_btn.gpio.d11.inv
     - grove.connectors.grove_btn.gpio.d12
+    - grove.connectors.grove_btn.gpio.d12.inv
     - grove.connectors.grove_btn.gpio.d13
+    - grove.connectors.grove_btn.gpio.d13.inv
     - grove.connectors.grove_btn.gpio.d16
+    - grove.connectors.grove_btn.gpio.d16.inv
     - grove.connectors.grove_btn.gpio.d17
+    - grove.connectors.grove_btn.gpio.d17.inv
     - grove.connectors.grove_btn.gpio.d18
+    - grove.connectors.grove_btn.gpio.d18.inv
     - grove.connectors.grove_btn.gpio.d19
+    - grove.connectors.grove_btn.gpio.d19.inv
     - grove.connectors.grove_btn.gpio.d20
+    - grove.connectors.grove_btn.gpio.d20.inv
     - grove.connectors.grove_btn.gpio.d21
+    - grove.connectors.grove_btn.gpio.d21.inv
     - grove.connectors.grove_btn.gpio.d22
+    - grove.connectors.grove_btn.gpio.d22.inv
     - grove.connectors.grove_btn.gpio.d23
+    - grove.connectors.grove_btn.gpio.d23.inv
     - grove.connectors.grove_btn.gpio.d24
+    - grove.connectors.grove_btn.gpio.d24.inv
     - grove.connectors.grove_btn.gpio.d25
+    - grove.connectors.grove_btn.gpio.d25.inv
     - grove.connectors.grove_btn.gpio.d26
+    - grove.connectors.grove_btn.gpio.d26.inv
     - grove.connectors.grove_btn.gpio.d27
+    - grove.connectors.grove_btn.gpio.d27.inv
     - grove.connectors.grove_btn.gpio.d28
+    - grove.connectors.grove_btn.gpio.d28.inv
     - grove.connectors.grove_btn.gpio.d29
+    - grove.connectors.grove_btn.gpio.d29.inv
     - grove.connectors.grove_btn.gpio.d30
+    - grove.connectors.grove_btn.gpio.d30.inv
     - grove.connectors.grove_btn.gpio.d31
+    - grove.connectors.grove_btn.gpio.d31.inv
 
 - comment: "shield(grove.connectors.grove_btn): cytron_maker_pi_rp2040: invalid board condition."
   platforms:
     - cytron_maker_pi_rp2040/rp2040
   scenarios:
     - grove.connectors.grove_btn.gpio.d8
+    - grove.connectors.grove_btn.gpio.d8.inv
     - grove.connectors.grove_btn.gpio.d9
+    - grove.connectors.grove_btn.gpio.d9.inv
     - grove.connectors.grove_btn.gpio.d10
+    - grove.connectors.grove_btn.gpio.d10.inv
     - grove.connectors.grove_btn.gpio.d11
+    - grove.connectors.grove_btn.gpio.d11.inv
     - grove.connectors.grove_btn.gpio.d12
+    - grove.connectors.grove_btn.gpio.d12.inv
     - grove.connectors.grove_btn.gpio.d13
+    - grove.connectors.grove_btn.gpio.d13.inv
     - grove.connectors.grove_btn.gpio.d14
+    - grove.connectors.grove_btn.gpio.d14.inv
     - grove.connectors.grove_btn.gpio.d15
+    - grove.connectors.grove_btn.gpio.d15.inv
     - grove.connectors.grove_btn.gpio.d18
+    - grove.connectors.grove_btn.gpio.d18.inv
     - grove.connectors.grove_btn.gpio.d19
+    - grove.connectors.grove_btn.gpio.d19.inv
     - grove.connectors.grove_btn.gpio.d20
+    - grove.connectors.grove_btn.gpio.d20.inv
     - grove.connectors.grove_btn.gpio.d21
+    - grove.connectors.grove_btn.gpio.d21.inv
     - grove.connectors.grove_btn.gpio.d22
+    - grove.connectors.grove_btn.gpio.d22.inv
     - grove.connectors.grove_btn.gpio.d23
+    - grove.connectors.grove_btn.gpio.d23.inv
     - grove.connectors.grove_btn.gpio.d24
+    - grove.connectors.grove_btn.gpio.d24.inv
     - grove.connectors.grove_btn.gpio.d25
+    - grove.connectors.grove_btn.gpio.d25.inv
     - grove.connectors.grove_btn.gpio.d29
+    - grove.connectors.grove_btn.gpio.d29.inv
     - grove.connectors.grove_btn.gpio.d30
+    - grove.connectors.grove_btn.gpio.d30.inv
     - grove.connectors.grove_btn.gpio.d31
+    - grove.connectors.grove_btn.gpio.d31.inv
 
 ##############################################################################
 #
