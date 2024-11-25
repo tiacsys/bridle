@@ -185,6 +185,17 @@ Change log
     :kconfig:option:`CONFIG_GPIO_PCA9555` to
     :kconfig:option:`CONFIG_GPIO_PCA9555_REGRST`
 
+* Add more shields:
+
+  * *Grove Button Shields*:
+
+    * **Grove Dual Button V1.0 (Sep 2019)** by Seeed Studio
+    * **Grove LED Button V1.0 (Jun 2018)** by Seeed Studio
+
+  * *Grove LED Shields*:
+
+    * **Grove LED Button V1.0 (Jun 2018)** by Seeed Studio
+
 The following sections provide detailed lists of changes by component.
 
 * PROJECT UPDATE to `Zephyr Project`_ v4.0
@@ -246,6 +257,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`277` - [HW] Grove Dual and LED Button Module as Shield
 * :github:`275` - [BUG] Lost Bridle's document version selector
 * :github:`274` - [FCR] Bump to Zephyr v4.0
 * :github:`272` - [BUG] build all Bridle samples test runs into ``devicetree error``
