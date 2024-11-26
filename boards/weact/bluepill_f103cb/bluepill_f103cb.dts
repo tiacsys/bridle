@@ -25,6 +25,7 @@
 	aliases {
 		led0 = &user_led;
 		sw0 = &user_button;
+		watchdog0 = &iwdg;
 	};
 
 	gpio_leds {
@@ -45,16 +46,40 @@
 	};
 };
 
-&clk_hsi {
+&clk_lse {
 	status = "okay";
+	clock-frequency = <32768>;
+};
+
+&clk_hse {
+	status = "okay";
+	clock-frequency = <DT_FREQ_M(8)>;
+};
+
+&pll {
+	status = "okay";
+	clocks = <&clk_hse>;
+	mul = <9>;
+	usbpre;
 };
 
 &rcc {
-	clocks = <&clk_hsi>;
-	clock-frequency = <DT_FREQ_M(8)>;
+	clocks = <&pll>;
+	clock-frequency = <DT_FREQ_M(72)>;
 	ahb-prescaler = <1>;
-	apb1-prescaler = <1>;
+	apb1-prescaler = <2>;
 	apb2-prescaler = <1>;
+	adc-prescaler = <6>;
+};
+
+&iwdg {
+	status = "okay";
+};
+
+&rtc {
+	status = "okay";
+	clocks = <&rcc STM32_CLOCK_BUS_APB1 0x10000000>,
+		 <&rcc STM32_SRC_LSE RTC_SEL(1)>;
 };
 
 &usart1 {
