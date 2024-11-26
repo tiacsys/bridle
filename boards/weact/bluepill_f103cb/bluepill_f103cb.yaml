@@ -1,0 +1,17 @@
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+identifier: bluepill_f103cb
+vendor: weact
+name: WeAct Studio Blue Pill Plus V1.0 (F103CB)
+type: mcu
+arch: arm
+flash: 128
+ram: 20
+toolchain:
+  - zephyr
+  - gnuarmemb
+  - xtools
+supported:
+  - gpio
+  - uart
