@@ -1,0 +1,9 @@
+# Copyright (c) 2024 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+board:
+  name: bluepill_f103cb
+  full_name: Blue Pill Plus V1.0
+  vendor: weact
+  socs:
+    - name: stm32f103xb
