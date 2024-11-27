@@ -15,10 +15,12 @@
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 
 / {
-	model = "WeAct Studio Blue Pill Plus V1.0 Board @ UART Concole";
-	compatible = "weact,bluepill-f103cb", "weact,bluepill-f103cb-uartcons";
+	model = "WeAct Studio Blue Pill Plus V1.0 Board @ USB-CDC/ACM Concole";
+	compatible = "weact,bluepill-f103cb", "weact,bluepill-f103cb-usbcons";
 
 	chosen {
+		/* TODO: zephyr,console = &cdc_acm_console_uart; */
+		/* TODO: zephyr,shell-uart = &cdc_acm_console_uart; */
 		zephyr,console = &usart1;
 		zephyr,shell-uart = &usart1;
 		zephyr,sram = &sram0;
@@ -121,6 +123,16 @@
 		status = "okay";
 		pinctrl-0 = <&tim4_ch1_pwm_out_pb6 &tim4_ch2_pwm_out_pb7>;
 		pinctrl-names = "default";
+	};
+};
+
+zephyr_udc0: &usb {
+	status = "okay";
+	pinctrl-0 = <&usb_dm_pa11 &usb_dp_pa12>;
+	pinctrl-names = "default";
+
+	cdc_acm_console_uart: cdc-acm-console-uart {
+		compatible = "zephyr,cdc-acm-uart";
 	};
 };
 
