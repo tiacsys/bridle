@@ -10,6 +10,7 @@
 #include <st/f1/stm32f103Xb.dtsi>
 #include <st/f1/stm32f103c(8-b)tx-pinctrl.dtsi>
 #include <zephyr/dt-bindings/gpio/gpio.h>
+#include <zephyr/dt-bindings/pwm/pwm.h>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 
 / {
@@ -27,6 +28,7 @@
 		led0 = &user_led;
 		sw0 = &user_button;
 		watchdog0 = &iwdg;
+		die-temp0 = &die_temp;
 	};
 
 	gpio_leds {
@@ -83,6 +85,10 @@
 		 <&rcc STM32_SRC_LSE RTC_SEL(1)>;
 };
 
+&die_temp {
+	status = "okay";
+};
+
 &dma1 {
 	status = "okay";
 };
@@ -98,6 +104,22 @@
 			label = "storage";
 			reg = <0x0001f800 DT_SIZE_K(2)>;
 		};
+	};
+};
+
+&adc1 {
+	status = "okay";
+	pinctrl-0 = <&adc1_in1_pa1>;
+	pinctrl-names = "default";
+};
+
+&timers4 {
+	status = "okay";
+
+	pwm4: pwm {
+		status = "okay";
+		pinctrl-0 = <&tim4_ch1_pwm_out_pb6 &tim4_ch2_pwm_out_pb7>;
+		pinctrl-names = "default";
 	};
 };
 
