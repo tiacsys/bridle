@@ -3,6 +3,7 @@
 
 # F103CB based Blue Pill Plus V1.0 board board configuration
 
-if BOARD_BLUEPILL_F103CB
+config SPI_STM32_INTERRUPT
+	default y
+	depends on SPI && BOARD_BLUEPILL_F103CB
 
-endif # BOARD_BLUEPILL_F103CB
