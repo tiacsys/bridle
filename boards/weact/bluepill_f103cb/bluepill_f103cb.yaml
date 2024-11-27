@@ -18,6 +18,8 @@ supported:
   - watchdog
   - counter
   - rtc
+  - pwm
+  - adc
   - dma
   - nvs
   - flash
