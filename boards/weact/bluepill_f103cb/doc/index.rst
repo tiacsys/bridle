@@ -212,6 +212,18 @@ Bridle's Hello Shell
    :goals: flash
    :compact:
 
+When RAM overflow error occurs, try to disable the Flash memory controller:
+
+.. zephyr-app-commands::
+   :app: bridle/samples/helloshell
+   :board: bluepill_f103cb
+   :build-dir: bluepill_f103cb
+   :conf: prj-hwstartup.conf
+   :gen-args: -DCONFIG_FLASH=n -DCONFIG_FLASH_SHELL=n
+   :west-args: -p
+   :goals: flash
+   :compact:
+
 References
 **********
 
