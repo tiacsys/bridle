@@ -9,6 +9,8 @@ if [ ! -d ".west" ]; then
     west init -l $REPO_NAME
 fi
 
+ln -s $REPO_NAME/.devcontainer/.clangd
+
 west update
 west bridle-export
 
