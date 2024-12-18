@@ -1,4 +1,14 @@
-pykitinfo>=1.0
-pymcuprog>=3.16
-pyserial>=3.5
+pykitinfo>=1.1
+pymcuprog>=3.17
 pyocd>=0.36
+pyserial>=3.5
+pytest>=8.3
+
+#
+# Interim solution as long as the discussion continues upstream,
+# see: https://github.com/zephyrproject-rtos/zephyr/issues/79380
+#      - zephyrproject-rtos/zephyr@0b18f31246cd
+# see: https://github.com/zephyrproject-rtos/zephyr/pull/79381
+#      - zephyrproject-rtos/zephyr@5d155d9bc8b7
+#
+nrf-regtool==5.3.0
