@@ -29,5 +29,5 @@ manifest:
       path: modules/lib/ubxlib
       remote: tiacsys
       repo-path: ubxlib
-      revision: tiacsys/master
+      revision: 62c0021cbf079b43cdd9a219e9b10b49ea616e19
       submodules: true
