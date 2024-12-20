@@ -43,10 +43,10 @@ The current minimum required version for the main dependencies are:
 
    * - Tool
      - Min. Version
-   * - |cmake|_
-     - |cmake_min_ver|
    * - |python|_
      - |python_min_ver|
+   * - |cmake|_
+     - |cmake_min_ver|
    * - |dtc|_
      - |dtc_min_ver|
 
@@ -57,6 +57,18 @@ The installation process is different depending on your operating system.
    .. group-tab:: Linux
 
       .. _install_dependencies_linux:
+
+      If using an Ubuntu version older than 22.04, it is necessary to add extra
+      repositories to meet the minimum required Python version listed above.
+      In that case inspect, evaluate and then apply the `Deadsnakes PPA`_ from
+      Canonical Launchpad:
+
+         .. parsed-literal::
+            :class: highlight
+
+            sudo add-apt-repository ppa:deadsnakes/ppa
+            sudo apt update
+            sudo apt install |python_bin|\ -dev |python_bin|\ -tk |python_bin|\ -venv
 
       To install the required tools on Ubuntu, complete the following steps:
 
@@ -221,11 +233,10 @@ To set up the toolchain, complete the following steps:
           you have installed the toolchain to ``~/gnuarmemb``; if not, change
           the value for ``GNUARMEMB_TOOLCHAIN_PATH``):
 
-            .. parsed-literal::
-              :class: highlight
+             .. code-block::
 
-              export ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb
-              export GNUARMEMB_TOOLCHAIN_PATH="${HOME}/gnuarmemb"
+                export ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb
+                export GNUARMEMB_TOOLCHAIN_PATH="${HOME}/gnuarmemb"
 
        .. group-tab:: macOS
 
@@ -233,11 +244,10 @@ To set up the toolchain, complete the following steps:
           you have installed the toolchain to ``~/gnuarmemb``; if not, change
           the value for ``GNUARMEMB_TOOLCHAIN_PATH``):
 
-            .. parsed-literal::
-              :class: highlight
+             .. code-block::
 
-              export ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb
-              export GNUARMEMB_TOOLCHAIN_PATH="${HOME}/gnuarmemb"
+                export ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb
+                export GNUARMEMB_TOOLCHAIN_PATH="${HOME}/gnuarmemb"
 
        .. group-tab:: Windows
 
@@ -245,11 +255,10 @@ To set up the toolchain, complete the following steps:
           you have installed the toolchain to ``c:\gnuarmemb``; if not, change
           the value for ``GNUARMEMB_TOOLCHAIN_PATH``):
 
-            .. parsed-literal::
-               :class: highlight
+             .. code-block::
 
-               set ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb
-               set GNUARMEMB_TOOLCHAIN_PATH=c:\\gnuarmemb
+                set ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb
+                set GNUARMEMB_TOOLCHAIN_PATH=c:\\gnuarmemb
 
 .. _gs_toolchain_persistent_environment:
 
@@ -377,11 +386,10 @@ To set up the toolchain, complete the following steps:
           you have installed the toolchain to ``/opt/st/stm32cubeclt``; if not,
           change the value for ``CROSS_COMPILE``):
 
-            .. parsed-literal::
-              :class: highlight
+             .. code-block::
 
-              export ZEPHYR_TOOLCHAIN_VARIANT=cross-compile
-              export CROSS_COMPILE="/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-"
+                export ZEPHYR_TOOLCHAIN_VARIANT=cross-compile
+                export CROSS_COMPILE="/opt/st/stm32cubeclt/GNU-tools-for-STM32/bin/arm-none-eabi-"
 
        .. group-tab:: macOS
 
@@ -389,11 +397,10 @@ To set up the toolchain, complete the following steps:
           you have installed the toolchain to ``/Applications/STM32CubeCLT``; if
           not, change the value for ``CROSS_COMPILE``):
 
-            .. parsed-literal::
-              :class: highlight
+             .. code-block::
 
-              export ZEPHYR_TOOLCHAIN_VARIANT=cross-compile
-              export CROSS_COMPILE="/Applications/STM32CubeCLT/GNU-tools-for-STM32/bin/arm-none-eabi-"
+                export ZEPHYR_TOOLCHAIN_VARIANT=cross-compile
+                export CROSS_COMPILE="/Applications/STM32CubeCLT/GNU-tools-for-STM32/bin/arm-none-eabi-"
 
        .. group-tab:: Windows
 
@@ -401,11 +408,10 @@ To set up the toolchain, complete the following steps:
           you have installed the toolchain to ``C:\ST\STM32CubeCLT``; if not,
           change the value for ``CROSS_COMPILE``):
 
-            .. parsed-literal::
-               :class: highlight
+             .. code-block::
 
-               set ZEPHYR_TOOLCHAIN_VARIANT=cross-compile
-               set CROSS_COMPILE="C:\\ST\\STM32CubeCLT\\GNU-tools-for-STM32\\bin\\arm-none-eabi-"
+                set ZEPHYR_TOOLCHAIN_VARIANT=cross-compile
+                set CROSS_COMPILE="C:\\ST\\STM32CubeCLT\\GNU-tools-for-STM32\\bin\\arm-none-eabi-"
 
 #. Set the environment variables persistently, proceed as described above for
    the :ref:`Arm GNU Toolchain <gs_toolchain_persistent_environment>`.
@@ -474,11 +480,10 @@ To set up the toolchain, complete the following steps:
           you have installed the toolchain to ``/usr/local/mcuxpressoide``; if not,
           change the value for ``CROSS_COMPILE``):
 
-            .. parsed-literal::
-              :class: highlight
+             .. code-block::
 
-              export ZEPHYR_TOOLCHAIN_VARIANT=cross-compile
-              export CROSS_COMPILE="/usr/local/mcuxpressoide/ide/tools/bin/arm-none-eabi-"
+                export ZEPHYR_TOOLCHAIN_VARIANT=cross-compile
+                export CROSS_COMPILE="/usr/local/mcuxpressoide/ide/tools/bin/arm-none-eabi-"
 
        .. group-tab:: macOS
 
@@ -486,11 +491,10 @@ To set up the toolchain, complete the following steps:
           you have installed the toolchain to ``/Applications/MCUXpressoIDE``; if
           not, change the value for ``CROSS_COMPILE``):
 
-            .. parsed-literal::
-              :class: highlight
+             .. code-block::
 
-              export ZEPHYR_TOOLCHAIN_VARIANT=cross-compile
-              export CROSS_COMPILE="/Applications/MCUXpressoIDE/ide/tools/bin/arm-none-eabi-"
+                export ZEPHYR_TOOLCHAIN_VARIANT=cross-compile
+                export CROSS_COMPILE="/Applications/MCUXpressoIDE/ide/tools/bin/arm-none-eabi-"
 
        .. group-tab:: Windows
 
@@ -498,11 +502,10 @@ To set up the toolchain, complete the following steps:
           you have installed the toolchain to ``C:\NXP\MCUXpressoIDE``; if not,
           change the value for ``CROSS_COMPILE``):
 
-            .. parsed-literal::
-               :class: highlight
+             .. code-block::
 
-               set ZEPHYR_TOOLCHAIN_VARIANT=cross-compile
-               set CROSS_COMPILE="C:\\NXP\\MCUXpressoIDE\\ide\\tools\\bin\\arm-none-eabi-"
+                set ZEPHYR_TOOLCHAIN_VARIANT=cross-compile
+                set CROSS_COMPILE="C:\\NXP\\MCUXpressoIDE\\ide\\tools\\bin\\arm-none-eabi-"
 
 #. Set the environment variables persistently, proceed as described above for
    the :ref:`Arm GNU Toolchain <gs_toolchain_persistent_environment>`.
@@ -551,7 +554,7 @@ about the tool itself.
 Setup Python Virtual Environment
 ================================
 
-**Create a new and complet empty workspace directory** (e.g. ``workspace``),
+**Create a new and complet empty workspace directory** (e.g. :ugn:`workspace`),
 change into this new folder and execute:
 
 .. tabs::
@@ -561,31 +564,31 @@ change into this new folder and execute:
       .. parsed-literal::
          :class: highlight
 
-         python3 -m venv --clear --copies --prompt="$(basename $(pwd))[$(python3 --version)]" .env
+         |python_bin| -m venv --clear --copies --prompt="$(basename $(pwd))[$(|python_bin| --version)]" .env
          source .env/bin/activate
-         pip3 install --upgrade pip
-         pip3 install --upgrade setuptools
+         |pip_bin| install --upgrade pip
+         |pip_bin| install --upgrade setuptools
 
    .. group-tab:: macOS
 
       .. parsed-literal::
          :class: highlight
 
-         python3 -m venv --clear --copies --prompt="$(basename $(pwd))[$(python3 --version)]" .env
+         |python_bin| -m venv --clear --copies --prompt="$(basename $(pwd))[$(|python_bin| --version)]" .env
          source .env/bin/activate
-         pip3 install --upgrade pip
-         pip3 install --upgrade setuptools
+         |pip_bin| install --upgrade pip
+         |pip_bin| install --upgrade setuptools
 
    .. group-tab:: Windows
 
       .. parsed-literal::
          :class: highlight
 
-         for /f "delims=" %A in ('python --version') do set PV=%A
-         python -m venv --clear --copies --prompt="%CD%[%PV%]" .env
+         for /f "delims=" %A in ('|python_bin| --version') do set PV=%A
+         |python_bin| -m venv --clear --copies --prompt="%CD%[%PV%]" .env
          .env\Scripts\activate
-         python -m pip install --upgrade pip
-         python -m pip install --upgrade setuptools
+         |pip_bin| install --upgrade pip
+         |pip_bin| install --upgrade setuptools
 
 .. _gs_installing_west:
 
@@ -603,21 +606,21 @@ Install west by entering the following command:
       .. parsed-literal::
          :class: highlight
 
-         pip3 install west
+         |pip_bin| install west
 
    .. group-tab:: macOS
 
       .. parsed-literal::
          :class: highlight
 
-         pip3 install west
+         |pip_bin| install west
 
    .. group-tab:: Windows
 
       .. parsed-literal::
          :class: highlight
 
-         pip3 install west
+         |pip_bin| install west
 
 You only need to do this once.
 
@@ -633,21 +636,21 @@ Therefore, remember to regularly check for updates:
       .. parsed-literal::
          :class: highlight
 
-         pip3 install --upgrade west
+         |pip_bin| install --upgrade west
 
    .. group-tab:: macOS
 
       .. parsed-literal::
          :class: highlight
 
-         pip3 install --upgrade west
+         |pip_bin| install --upgrade west
 
    .. group-tab:: Windows
 
       .. parsed-literal::
          :class: highlight
 
-         pip3 install --upgrade west
+         |pip_bin| install --upgrade west
 
 .. _cloning_with_west:
 
@@ -658,9 +661,10 @@ Cloning the repositories
 
 To clone the repositories, complete the following steps:
 
-#. Open a command window and **go into the workspace directory.** This folder
-   will hold all |BRIDLE| repositories together with the Python Virtual
-   Environment that is already created and setup as described above.
+#. Open a command window and **go into the workspace directory** (e.g.
+   :ugn:`workspace`). This folder will hold all |BRIDLE| repositories
+   together with the Python Virtual Environment that is already created
+   and setup as described above.
 
 #. Determine what revision of |BRIDLE| you want to work with. The recommended
    way is to work with a specific release.
@@ -676,26 +680,26 @@ To clone the repositories, complete the following steps:
      ``4b44408145d4843f2bf13952a7723680240d0f95``).
 
 #. Initialize west with the revision of |BRIDLE| that you want to check out,
-   replacing *BRIDLE_revision* with the revision:
+   replacing :ird:`BRIDLE_revision` with the revision:
 
    .. parsed-literal::
       :class: highlight
 
-      west init -m https\://github.com/tiacsys/bridle --mr *BRIDLE_revision*
+      west init -m https\://github.com/tiacsys/bridle --mr :ird:`BRIDLE_revision`
 
-   For example, to check out the |release| release, enter the following command:
-
-   .. parsed-literal::
-      :class: highlight
-
-      west init -m https\://github.com/tiacsys/bridle --mr |release|
-
-   To check out the latest state of development, enter the following command:
+   For example, to check out the |release_em| release, enter the following command:
 
    .. parsed-literal::
       :class: highlight
 
-      west init -m https\://github.com/tiacsys/bridle --mr main
+      west init -m https\://github.com/tiacsys/bridle --mr |release_em|
+
+   To check out the :brd:`latest state of development`, enter the following command:
+
+   .. parsed-literal::
+      :class: highlight
+
+      west init -m https\://github.com/tiacsys/bridle --mr :brd:`main`
 
    .. west-error-start
 
@@ -731,27 +735,36 @@ To clone the repositories, complete the following steps:
       west zephyr-export
       west bridle-export
 
-Your directory structure now looks similar to this::
+Your directory structure now looks similar to this:
 
-   workspace
-    ├── .env
-    ├── .west
-    ├── bridle
-    ├── modules
-    │   ├── fs
-    │   │   └── fatfs
-    │   ├── hal
-    │   │   ├── altera
-    │   │   ├── cmsis
-    │   │   ├── espressif
-    │   │   ├── stm32
-    │   │   └── xtensa
-    │   └── lib
-    │       └── canopennode
-    ├── tools
-    │   └── net-tools
-    ├── zephyr
-    └── ...
+   .. parsed-literal::
+      :class: highlight
+
+      :ugn:`workspace`
+       ├── :ibl:`.env`
+       ├── :ibl:`.west`
+       ├── :brd:`bridle`
+       ├── modules
+       │   ├── fs
+       │   │   ├── fatfs
+       │   │   └── ...
+       │   ├── hal
+       │   │   ├── altera
+       │   │   ├── cmsis
+       │   │   ├── espressif
+       │   │   ├── stm32
+       │   │   ├── xtensa
+       │   │   └── ...
+       │   ├── lib
+       │   │   ├── canopennode
+       │   │   └── ...
+       │   └── ...
+       ├── tools
+       │   ├── net-tools
+       │   └── ...
+       ├── ...
+       ├── :brd:`zephyr`
+       └── ...
 
 Note that there are additional folders, and that the structure might change.
 The full set of repositories and folders is defined in the manifest file.
@@ -780,43 +793,43 @@ manifest file.
    :start-after: west-error-start
    :end-before: west-error-end
 
-For example, to switch to release |release| of |BRIDLE|, enter the
-following commands in the ``workspace/bridle`` directory:
+For example, to switch to release |release_em| of |BRIDLE|, enter the
+following commands in the :ugn:`workspace/bridle` directory:
 
-.. parsed-literal::
-   :class: highlight
+   .. parsed-literal::
+      :class: highlight
 
-   git fetch origin
-   git checkout |release|
-   west update
+      git fetch origin
+      git checkout |release_em|
+      west update
 
-To update to a particular revision (SHA), make sure that you have that
+To update to :brd:`a particular revision (SHA)`, make sure that you have that
 particular revision locally before you check it out (by running
 ``git fetch origin``):
 
-.. parsed-literal::
-   :class: highlight
+   .. parsed-literal::
+      :class: highlight
 
-   git fetch origin
-   git checkout 4b44408145d4843f2bf13952a7723680240d0f95
-   west update
+      git fetch origin
+      git checkout 4b44408145d4843f2bf13952a7723680240d0f95
+      west update
 
-To switch to the latest state of development, enter the
++To switch to the :brd:`latest state of development`, enter the
 following commands:
 
-.. parsed-literal::
-   :class: highlight
+   .. parsed-literal::
+      :class: highlight
 
-   git fetch origin
-   git checkout origin/main
-   west update
+      git fetch origin
+      git checkout origin/main
+      west update
 
-.. note::
+   .. note::
 
-   Run ``west update`` every time you change or modify the current working
-   branch (for example, when you pull, rebase, or check out a different
-   branch). This will bring the project repositories to the matching revision
-   defined by the manifest file.
+      Run ``west update`` every time you change or modify the current
+      working branch (for example, when you pull, rebase, or check out
+      a different branch). This will bring the project repositories to
+      the matching revision defined by the manifest file.
 
 .. _additional_deps:
 
@@ -833,36 +846,36 @@ Use the following commands to install the requirements for each repository.
 
    .. group-tab:: Linux
 
-      Open a terminal window in the ``workspace`` folder and
+      Open a terminal window in the :ugn:`workspace` folder and
       enter the following commands:
 
         .. parsed-literal::
            :class: highlight
 
-           pip3 install --upgrade --requirement zephyr/scripts/requirements.txt
-           pip3 install --upgrade --requirement bridle/scripts/requirements.txt
+           |pip_bin| install --upgrade --requirement zephyr/scripts/requirements.txt
+           |pip_bin| install --upgrade --requirement bridle/scripts/requirements.txt
 
    .. group-tab:: macOS
 
-      Open a terminal window in the ``workspace`` folder and
+      Open a terminal window in the :ugn:`workspace` folder and
       enter the following commands:
 
         .. parsed-literal::
            :class: highlight
 
-           pip3 install --upgrade --requirement zephyr/scripts/requirements.txt
-           pip3 install --upgrade --requirement bridle/scripts/requirements.txt
+           |pip_bin| install --upgrade --requirement zephyr/scripts/requirements.txt
+           |pip_bin| install --upgrade --requirement bridle/scripts/requirements.txt
 
    .. group-tab:: Windows
 
-      Open a command prompt in the ``workspace`` folder and
+      Open a command prompt in the :ugn:`workspace` folder and
       enter the following commands:
 
         .. parsed-literal::
            :class: highlight
 
-           pip3 install --upgrade --requirement zephyr\\scripts\\requirements.txt
-           pip3 install --upgrade --requirement bridle\\scripts\\requirements.txt
+           |pip_bin| install --upgrade --requirement zephyr\\scripts\\requirements.txt
+           |pip_bin| install --upgrade --requirement bridle\\scripts\\requirements.txt
 
 .. _installing_tbd:
 
@@ -950,7 +963,7 @@ operating system:
 
    .. group-tab:: Linux
 
-      Navigate to the ``workspace`` folder and enter the following command:
+      Navigate to the :ugn:`workspace` folder and enter the following command:
       ``source zephyr/zephyr-env.sh``
 
       If you need to define additional environment variables, create the file
@@ -959,7 +972,7 @@ operating system:
 
    .. group-tab:: macOS
 
-      Navigate to the ``workspace`` folder and enter the following command:
+      Navigate to the :ugn:`workspace` folder and enter the following command:
       ``source zephyr/zephyr-env.sh``
 
       If you need to define additional environment variables, create the file
@@ -968,7 +981,7 @@ operating system:
 
    .. group-tab:: Windows
 
-      Navigate to the ``workspace`` folder and enter the following command:
+      Navigate to the :ugn:`workspace` folder and enter the following command:
       ``zephyr\zephyr-env.cmd``
 
       If you need to define additional environment variables, create the file

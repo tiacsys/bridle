@@ -66,8 +66,11 @@ Complete the following steps to install the required tools:
          To upgrade and install additional required tools on Ubuntu, complete
          the following steps:
 
-         #. Setup the ``apt`` environment to install system packages from the
-            `TiaC Systems Doxygen PPA`_:
+         #. If using an Ubuntu version older than 22.04, it is necessary to
+            add extra repositories to meet the minimum required versions for
+            the main dependencies listed above. In that case inspect, evaluate
+            and then apply the `TiaC Systems Doxygen PPA`_ from Canonical
+            Launchpad:
 
             .. code-block:: bash
 
@@ -137,12 +140,15 @@ a way with direct calls to the necessary configuration and build tools.
 
 :use west:
 
-   .. code-block:: console
-
-      west build --cmake-only -b none -d build/bridle-doc bridle/doc
-      west build -t zephyr-doxygen -b none -d build/bridle-doc
-      west build -t bridle-doxygen -b none -d build/bridle-doc
-      west build -t build-all -b none -d build/bridle-doc
+   .. zephyr-app-commands::
+      :app: bridle/doc
+      :build-dir: bridle-doc
+      :goals: zephyr-doxygen bridle-doxygen build-all
+      :west-args: --cmake-only
+      :generator: ninja
+      :tool: west
+      :host-os: all
+      :compact:
 
 :direct calls:
 
@@ -169,9 +175,9 @@ a way with direct calls to the necessary configuration and build tools.
          :app: bridle/doc
          :build-dir: bridle-doc
          :goals: zephyr-doxygen bridle-doxygen build-all
-         :host-os: unix
-         :tool: cmake
          :generator: ninja
+         :tool: cmake
+         :host-os: all
          :compact:
 
 This command will build all documentation sets and can take up to 20 minutes.
@@ -183,18 +189,14 @@ the Kconfig Reference and Devicetree Bindings (1st), Zephyr (2nd), and
 
 :use west:
 
-   .. code-block:: console
-
-      # Use west to configure a Ninja-based buildsystem with cmake:
-      west build --cmake-only -b none -d build/bridle-doc bridle/doc
-
-      # Now run west on the generated build system:
-      west build -t kconfig -b none -d build/bridle-doc
-      west build -t devicetree -b none -d build/bridle-doc
-      west build -t zephyr-doxygen -b none -d build/bridle-doc
-      west build -t zephyr -b none -d build/bridle-doc
-      west build -t bridle-doxygen -b none -d build/bridle-doc
-      west build -t bridle -b none -d build/bridle-doc
+   .. zephyr-app-commands::
+      :app: bridle/doc
+      :build-dir: bridle-doc
+      :goals: kconfig devicetree zephyr-doxygen zephyr bridle-doxygen bridle
+      :west-args: --cmake-only
+      :generator: ninja
+      :tool: west
+      :host-os: all
 
 :direct calls:
 
@@ -202,22 +204,50 @@ the Kconfig Reference and Devicetree Bindings (1st), Zephyr (2nd), and
       :app: bridle/doc
       :build-dir: bridle-doc
       :goals: kconfig devicetree zephyr-doxygen zephyr bridle-doxygen bridle
-      :host-os: unix
-      :tool: cmake
       :generator: ninja
+      :tool: cmake
+      :host-os: all
 
    It is important to keep the order of build targets!
 
 The documentation output is written to :file:`build/bridle-doc/html` or
 :file:`build/bridle-doc/doxygen/*/html` in case of the standalone API
-documentation of Zephyr and Bride. Double-click the :file:`index.html`
-file to display the documentation in your browser or type in:
+documentation of Zephyr and Bride.
 
-.. code-block:: console
+.. tabs::
 
-   firefox build/bridle-doc/html/index.html &
-   firefox build/bridle-doc/doxygen/zephyr/html/index.html &
-   firefox build/bridle-doc/doxygen/bridle/html/index.html &
+   .. group-tab:: Linux
+
+      Double-click the :file:`index.html` file to display the documentation
+      in your default browser or type in:
+
+         .. code-block:: console
+
+            xdg-open build/bridle-doc/html/index.html
+            xdg-open build/bridle-doc/doxygen/zephyr/html/index.html
+            xdg-open build/bridle-doc/doxygen/bridle/html/index.html
+
+   .. group-tab:: macOS
+
+      Double-click the :file:`index.html` file to display the documentation
+      in your default browser or type in:
+
+         .. code-block:: console
+
+            open build/bridle-doc/html/index.html
+            open build/bridle-doc/doxygen/zephyr/html/index.html
+            open build/bridle-doc/doxygen/bridle/html/index.html
+
+   .. group-tab:: Windows
+
+      Double-click the :file:`index.html` file to display the documentation
+      in your default browser or type in:
+
+         .. code-block:: console
+
+            start build\bridle-doc\html\index.html
+            start build\bridle-doc\doxygen\zephyr\html\index.html
+            start build\bridle-doc\doxygen\bridle\html\index.html
 
 .. tip::
 
@@ -232,18 +262,42 @@ file to display the documentation in your browser or type in:
 Serve documentation locally
 ***************************
 
-Allow running from localhost; local build can be served with Python
-HTTP server module:
+Allow running from :bbl:`localhost` at port :bgn:`4711`; local build can be
+served with `Python HTTP server`_ module:
 
-.. code-block:: console
+.. parsed-literal::
+   :class: highlight
 
-   python -m http.server -b localhost -d build/bridle-doc/html 4711 &
+   |python_bin| -m http.server -b :bbl:`localhost` -d build/bridle-doc/html :bgn:`4711` &
 
-Now you can browse locally with:
+.. tabs::
 
-.. code-block:: console
+   .. group-tab:: Linux
 
-   firefox http://localhost:4711/index.html &
+      Now you can browse locally with:
+
+         .. parsed-literal::
+            :class: highlight
+
+            xdg-open http\:\/\/:bbl:`localhost`::bgn:`4711`/index.html &
+
+   .. group-tab:: macOS
+
+      Now you can browse locally with:
+
+         .. parsed-literal::
+            :class: highlight
+
+            open http\:\/\/:bbl:`localhost`::bgn:`4711`/index.html &
+
+   .. group-tab:: Windows
+
+      Now you can browse locally with:
+
+         .. parsed-literal::
+            :class: highlight
+
+            start http\:\/\/:bbl:`localhost`::bgn:`4711`/index.html &
 
 .. _caching_and_cleaning:
 
@@ -266,13 +320,13 @@ To clean the build folders for the Kconfig Reference:
 
    .. code-block:: console
 
-      west build -t kconfig-clean -b none -d build/bridle-doc
+      west build -t kconfig-clean -d build/bridle-doc
 
 :direct calls:
 
    .. code-block:: console
 
-      ninja -C build/bridle-doc kconfig-clean
+      ninja -Cbuild/bridle-doc kconfig-clean
 
 To clean the build folders for the Devicetree Bindings:
 
@@ -280,13 +334,13 @@ To clean the build folders for the Devicetree Bindings:
 
    .. code-block:: console
 
-      west build -t devicetree-clean -b none -d build/bridle-doc
+      west build -t devicetree-clean -d build/bridle-doc
 
 :direct calls:
 
    .. code-block:: console
 
-      ninja -C build/bridle-doc devicetree-clean
+      ninja -Cbuild/bridle-doc devicetree-clean
 
 To clean the build folders for the Zephyr RTOS documentation:
 
@@ -294,13 +348,13 @@ To clean the build folders for the Zephyr RTOS documentation:
 
    .. code-block:: console
 
-      west build -t zephyr-clean -b none -d build/bridle-doc
+      west build -t zephyr-clean -d build/bridle-doc
 
 :direct calls:
 
    .. code-block:: console
 
-      ninja -C build/bridle-doc zephyr-clean
+      ninja -Cbuild/bridle-doc zephyr-clean
 
 To clean the build folders for |BRIDLE| documentation:
 
@@ -308,13 +362,13 @@ To clean the build folders for |BRIDLE| documentation:
 
    .. code-block:: console
 
-      west build -t bridle-clean -b none -d build/bridle-doc
+      west build -t bridle-clean -d build/bridle-doc
 
 :direct calls:
 
    .. code-block:: console
 
-      ninja -C build/bridle-doc bridle-clean
+      ninja -Cbuild/bridle-doc bridle-clean
 
 To clean all the documentation sets build files:
 
@@ -322,13 +376,13 @@ To clean all the documentation sets build files:
 
    .. code-block:: console
 
-      west build -t clean -b none -d build/bridle-doc
+      west build -t clean -d build/bridle-doc
 
 :direct calls:
 
    .. code-block:: console
 
-      ninja -C build/bridle-doc clean
+      ninja -Cbuild/bridle-doc clean
 
 If you want to build the documentation from scratch just delete the contents
 of the build folder and run :command:`cmake` and then :command:`ninja` again:
@@ -354,19 +408,21 @@ on a web server. To test the version drop-down locally, complete the
 following steps:
 
 1. In the documentation build folder (for example, :file:`build/bridle-doc`),
-   rename the :file:`html` folder to :file:`latest`.
-#. Open a command window in the documentation build folder and enter the
-   following command to start a Python web server:
+   :ubl:`rename` the :file:`html` folder to :file:`latest`.
+#. Open a command window :ubl:`inside the documentation build folder` and
+   enter the following command to start a `Python HTTP server`_:
 
-   .. code-block:: console
+   .. parsed-literal::
+      :class: highlight
 
-      python -m http.server
+      |python_bin| -m http.server &
 
    Alternative set the documentation build folder as document root:
 
-   .. code-block:: console
+   .. parsed-literal::
+      :class: highlight
 
-      python -m http.server -d build/bridle-doc
+      |python_bin| -m http.server -d build/bridle-doc &
 
 #. Access http://localhost:8000/latest/index.html with your browser to see
    the documentation.

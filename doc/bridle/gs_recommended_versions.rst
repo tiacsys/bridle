@@ -117,9 +117,8 @@ Required tools
 **************
 
 The following table shows the tools that are required for working with |BRIDLE|
-v\ |version|. It lists the minimum version that is required and the version
-that is installed when using the :ref:`gs_app_sim` as described in
-:ref:`gs_assistant`.
+|version|. It lists the minimum version that is required and the version that is
+installed when using the :ref:`gs_app_sim` as described in :ref:`gs_assistant`.
 
 .. _req_tools_table:
 
@@ -130,39 +129,90 @@ that is installed when using the :ref:`gs_app_sim` as described in
       .. list-table::
          :header-rows: 1
 
-         * - Tool
+         * - Tool / Suggestion
            - Minimum version
            - Tested version
-         * - |ccache|_
-           -
-           - |ccache_recommended_ver_linux|
-         * - |cmake|_
-           - |cmake_min_ver|
-           - |cmake_recommended_ver_linux|
-         * - |dfu_util|_
-           -
-           - |dfu_util_recommended_ver_linux|
-         * - |dtc_linux|_
-           - |dtc_min_ver|
-           - |dtc_recommended_ver_linux|
-         * - |openocd|_
-           - |openocd_min_ver|
-           - |openocd_recommended_ver_linux|
-         * - |git|_
-           -
-           - |git_recommended_ver_linux|
-         * - |gperf|_
-           - |gperf_min_ver|
-           - |gperf_recommended_ver_linux|
-         * - |ninja|_
-           - |ninja_min_ver|
-           - |ninja_recommended_ver_linux|
-         * - |python|_
-           - |python_min_ver|
-           - |python_recommended_ver_linux|
-         * - |west|_
+         * - | |Git|_
+             | |git_linux|_
+           - |
+             |
+           - |
+             | |git_recommended_ver_linux|
+         * - | |Python 3|_
+             | |python_linux|_
+           - | |python_min_ver|
+             |
+           - |
+             | |python_recommended_ver_linux|
+         * - |west_pypa|_
            - |west_min_ver|
            - |west_recommended_ver_linux|
+         * - | |CMake|_
+             | |cmake_linux|_
+           - | |cmake_min_ver|
+             |
+           - |
+             | |cmake_recommended_ver_linux|
+         * - | |Ninja|_
+             | |ninja_linux|_
+           - | |ninja_min_ver|
+             |
+           - |
+             | |ninja_recommended_ver_linux|
+         * - | |Device tree compiler|_
+             | |dtc_linux|_
+           - | |dtc_min_ver|
+             |
+           - |
+             | |dtc_recommended_ver_linux|
+         * - | |OpenOCD|_
+             | |openocd_linux|_
+           - | |openocd_min_ver|
+             |
+           - |
+             | |openocd_recommended_ver_linux|
+         * - | |DFU Utilities|_
+             | |dfu_linux|_
+           - |
+             |
+           - |
+             | |dfu_util_recommended_ver_linux|
+         * - | |GNU gperf|_
+             | |gperf_linux|_
+           - | |gperf_min_ver|
+             |
+           - |
+             | |gperf_recommended_ver_linux|
+         * - **Tools for documentation**
+           -
+           -
+         * - | |Doxygen|_
+             | |doxygen_linux|_
+           - | |doxygen_min_ver|
+             |
+           - |
+             | |doxygen_recommended_ver_linux|
+         * - | |Graphviz|_
+             | |graphviz_linux|_
+           - | |graphviz_min_ver|
+             |
+           - |
+             | |graphviz_recommended_ver_linux|
+         * - | |MscGen|_
+             | |mscgen_linux|_
+           - | |mscgen_min_ver|
+             |
+           - |
+             | |mscgen_recommended_ver_linux|
+         * - | |ccache|_
+             | |ccache_linux|_
+           - |
+             |
+           - |
+             | |ccache_recommended_ver_linux|
+         * - **SDK suites for development**
+           -
+           -
          * - |zephyrsdk|_
            - |zephyrsdk_min_ver|
            - |zephyrsdk_recommended_ver_linux|
@@ -178,48 +228,90 @@ that is installed when using the :ref:`gs_app_sim` as described in
          * - |mcuxpressoide|_
            - |mcuxpressoide_min_ver|
            - |mcuxpressoide_recommended_ver_linux|
-         * - |doxygen|_
-           - |doxygen_min_ver|
-           - |doxygen_recommended_ver_linux|
-         * - |graphviz|_
-           - |graphviz_min_ver|
-           - |graphviz_recommended_ver_linux|
-         * - |mscgen|_
-           - |mscgen_min_ver|
-           - |mscgen_recommended_ver_linux|
 
    .. group-tab:: macOS
 
       .. list-table::
          :header-rows: 1
 
-         * - Tool
+         * - Tool / Suggestion
            - Minimum version
            - Tested version
-         * - |cmake|_
-           - |cmake_min_ver|
-           - |cmake_recommended_ver_macos|
-         * - |dtc_macos|_
-           - |dtc_min_ver|
-           - |dtc_recommended_ver_macos|
-         * - |openocd|_
-           - |openocd_min_ver|
-           - |openocd_recommended_ver_macos|
-         * - |git|_
-           -
-           - |git_recommended_ver_macos|
-         * - |gperf|_
-           - |gperf_min_ver|
-           - |gperf_recommended_ver_macos|
-         * - |ninja|_
-           - |ninja_min_ver|
-           - |ninja_recommended_ver_macos|
-         * - |python|_
-           - |python_min_ver|
-           - |python_recommended_ver_macos|
-         * - |west|_
+         * - | |Git|_
+             | |git_macos|_
+           - |
+             |
+           - |
+             | |git_recommended_ver_macos|
+         * - | |Python 3|_
+             | |python_macos|_
+           - | |python_min_ver|
+             |
+           - |
+             | |python_recommended_ver_macos|
+         * - |west_pypa|_
            - |west_min_ver|
            - |west_recommended_ver_macos|
+         * - | |CMake|_
+             | |cmake_macos|_
+           - | |cmake_min_ver|
+             |
+           - |
+             | |cmake_recommended_ver_macos|
+         * - | |Ninja|_
+             | |ninja_macos|_
+           - | |ninja_min_ver|
+             |
+           - |
+             | |ninja_recommended_ver_macos|
+         * - | |Device tree compiler|_
+             | |dtc_macos|_
+           - | |dtc_min_ver|
+             |
+           - |
+             | |dtc_recommended_ver_macos|
+         * - | |OpenOCD|_
+             | |openocd_macos|_
+           - | |openocd_min_ver|
+             |
+           - |
+             | |openocd_recommended_ver_macos|
+         * - | |DFU Utilities|_
+             | |dfu_macos|_
+           - |
+             |
+           - |
+             | |dfu_util_recommended_ver_macos|
+         * - | |GNU gperf|_
+             | |gperf_macos|_
+           - | |gperf_min_ver|
+             |
+           - |
+             | |gperf_recommended_ver_macos|
+         * - **Tools for documentation**
+           -
+           -
+         * - | |Doxygen|_
+             | |doxygen_macos|_
+           - | |doxygen_min_ver|
+             |
+           - |
+             | |doxygen_recommended_ver_macos|
+         * - | |Graphviz|_
+             | |graphviz_macos|_
+           - | |graphviz_min_ver|
+             |
+           - |
+             | |graphviz_recommended_ver_macos|
+         * - | |MscGen|_
+             | |mscgen_macos|_
+           - | |mscgen_min_ver|
+             |
+           - |
+             | |mscgen_recommended_ver_macos|
+         * - **SDK suites for development**
+           -
+           -
          * - |zephyrsdk|_
            - |zephyrsdk_min_ver|
            - |zephyrsdk_recommended_ver_macos|
@@ -235,48 +327,90 @@ that is installed when using the :ref:`gs_app_sim` as described in
          * - |mcuxpressoide|_
            - |mcuxpressoide_min_ver|
            - |mcuxpressoide_recommended_ver_macos|
-         * - |doxygen|_
-           - |doxygen_min_ver|
-           -
-         * - |graphviz|_
-           - |graphviz_min_ver|
-           -
-         * - |mscgen|_
-           - |mscgen_min_ver|
-           -
 
    .. group-tab:: Windows
 
       .. list-table::
          :header-rows: 1
 
-         * - Tool
+         * - Tool / Suggestion
            - Minimum version
            - Tested version
-         * - |cmake|_
-           - |cmake_min_ver|
-           - |cmake_recommended_ver_win10|
-         * - |dtc_win10|_
-           - |dtc_min_ver|
-           - |dtc_recommended_ver_win10|
-         * - |openocd|_
-           - |openocd_min_ver|
-           - |openocd_recommended_ver_win10|
-         * - |git|_
-           -
-           - |git_recommended_ver_win10|
-         * - |gperf|_
-           - |gperf_min_ver|
-           - |gperf_recommended_ver_win10|
-         * - |ninja|_
-           - |ninja_min_ver|
-           - |ninja_recommended_ver_win10|
-         * - |python|_
-           - |python_min_ver|
-           - |python_recommended_ver_win10|
-         * - |west|_
+         * - | |Git|_
+             | |git_win10|_
+           - |
+             |
+           - |
+             | |git_recommended_ver_win10|
+         * - | |Python 3|_
+             | |python_win10|_
+           - | |python_min_ver|
+             |
+           - |
+             | |python_recommended_ver_win10|
+         * - |west_pypa|_
            - |west_min_ver|
            - |west_recommended_ver_win10|
+         * - | |CMake|_
+             | |cmake_win10|_
+           - | |cmake_min_ver|
+             |
+           - |
+             | |cmake_recommended_ver_win10|
+         * - | |Ninja|_
+             | |ninja_win10|_
+           - | |ninja_min_ver|
+             |
+           - |
+             | |ninja_recommended_ver_win10|
+         * - | |Device tree compiler|_
+             | |dtc_win10|_
+           - | |dtc_min_ver|
+             |
+           - |
+             | |dtc_recommended_ver_win10|
+         * - | |OpenOCD|_
+             | |openocd_win10|_
+           - | |openocd_min_ver|
+             |
+           - |
+             | |openocd_recommended_ver_win10|
+         * - | |DFU Utilities|_
+             | |dfu_win10|_
+           - |
+             |
+           - |
+             | |dfu_util_recommended_ver_win10|
+         * - | |GNU gperf|_
+             | |gperf_win10|_
+           - | |gperf_min_ver|
+             |
+           - |
+             | |gperf_recommended_ver_win10|
+         * - **Tools for documentation**
+           -
+           -
+         * - | |Doxygen|_
+             | |doxygen_win10|_
+           - | |doxygen_min_ver|
+             |
+           - |
+             | |doxygen_recommended_ver_win10|
+         * - | |Graphviz|_
+             | |graphviz_win10|_
+           - | |graphviz_min_ver|
+             |
+           - |
+             | |graphviz_recommended_ver_win10|
+         * - | |MscGen|_
+             | |mscgen_win10|_
+           - | |mscgen_min_ver|
+             |
+           - |
+             | |mscgen_recommended_ver_win10|
+         * - **SDK suites for development**
+           -
+           -
          * - |zephyrsdk|_
            - |zephyrsdk_min_ver|
            - |zephyrsdk_recommended_ver_win10|
@@ -292,26 +426,18 @@ that is installed when using the :ref:`gs_app_sim` as described in
          * - |mcuxpressoide|_
            - |mcuxpressoide_min_ver|
            - |mcuxpressoide_recommended_ver_win10|
-         * - |doxygen|_
-           - |doxygen_min_ver|
-           -
-         * - |graphviz|_
-           - |graphviz_min_ver|
-           -
-         * - |mscgen|_
-           - |mscgen_min_ver|
-           -
 
 .. _gs_required_python_packages:
 
 Required Python dependencies
 ****************************
 
-The following table shows the Python packages that are required for working with
-|BRIDLE| v\ |version|. If no version is specified, the default version provided
-with pip is recommended. If a version is specified, it is important that the
-installed version matches the required version. See :ref:`additional_deps` for
-instructions on how to install the Python dependencies.
+The following table shows the Python packages that are required for working
+with |BRIDLE| |version|. If no version is specified, the default version
+provided with :command:`pip` is recommended. If a version is specified, it
+is important that the installed version matches the required version. See
+:ref:`additional_deps` for instructions on how to install the Python
+dependencies.
 
 .. _python_req_development:
 
@@ -333,6 +459,8 @@ Building and running applications, samples, and tests
      - |intelhex_ver|
    * - |pyelftools|_
      - |pyelftools_ver|
+   * - |pykitinfo|_
+     - |pykitinfo_ver|
    * - |pymcuprog|_
      - |pymcuprog_ver|
    * - |pyserial|_
@@ -341,8 +469,12 @@ Building and running applications, samples, and tests
      - |pyocd_ver|
    * - |pylint|_
      - |pylint_ver|
+   * - |pytest|_
+     - |pytest_ver|
    * - |PyYAML|_
      - |PyYAML_ver|
+   * - |regex|_
+     - |regex_ver|
    * - |west|_
      - |west_ver|
    * - |windows-curses|_ (only Windows)
