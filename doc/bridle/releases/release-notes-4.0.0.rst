@@ -1,7 +1,7 @@
 .. _bridle_release_notes_400:
 
-|BRIDLE| 4.0.0 Release Notes (Working draft)
-############################################
+|BRIDLE| 4.0.0 Release Notes
+############################
 
 This project demonstrate the integration of |TIAC| support in open
 source projects, like the Zephyr RTOS, with libraries and source code
@@ -10,8 +10,6 @@ product development.
 
 Highlights
 **********
-
-* :brd:`NOT YET, tbd.`
 
 * Bridle is now in sync and align to the latest Zephyr upstream V4 landscape.
 * Simplify Zephyr SDK location.
@@ -100,8 +98,6 @@ For more details, see: :ref:`repos_and_revs`.
 Supported boards
 ****************
 
-:brd:`NOT YET, tbd.`
-
 * Arduino/Genuino Zero
 * PicoBoy Mini-Handheld
 * Cytron Maker Nano RP2040
@@ -126,8 +122,6 @@ Supported boards
 Supported shields
 *****************
 
-:brd:`NOT YET, tbd.`
-
 * Seeed Studio Grove Interconnect Shields
 * Grove Button Shields
 * Grove LED Shields
@@ -146,8 +140,6 @@ Supported shields
 Supported snippets
 ******************
 
-:brd:`NOT YET, tbd.`
-
 * USB Console Snippet (usb-console)
 * PWM Servomotor Preset Snippet (pwm-servo)
 * Delete Default Devicetree Aliases Snippet (del-default-aliases)
@@ -164,12 +156,6 @@ Supported snippets
 
 Change log
 **********
-
-:brd:`NOT YET, tbd.`
-
-* tbd.
-* tbd.
-* tbd.
 
 * Simplify Zephyr SDK location.
 
@@ -209,11 +195,6 @@ Build Infrastructure
 
 Take over the new build principles from Zephyr:
 
-:brd:`NOT YET, tbd.`
-
-* tbd.
-* tbd.
-* tbd.
 * Bridle now fully relies on the ``find_package`` CMake script provided
   by Zephyr to locate at least the required or a valid Zephyr SDK version.
 * ci: github: qa-integration: Use Zephyr CI container v0.27.4 and
@@ -247,8 +228,6 @@ Take over the new build principles from Zephyr:
 
 Documentation
 =============
-
-:brd:`NOT YET, tbd.`
 
 1. Upgrade to Sphinx v8.1 and thus adapt the TSN theme to be compatible to the
    new underlayed RDT theme v3.0.
