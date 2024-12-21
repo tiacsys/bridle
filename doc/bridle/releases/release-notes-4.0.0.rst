@@ -12,7 +12,9 @@ Highlights
 **********
 
 * :brd:`NOT YET, tbd.`
+
 * Bridle is now in sync and align to the latest Zephyr upstream V4 landscape.
+* Simplify Zephyr SDK location.
 
 .. note:: See the changelog and readme files in the component repositories
    for a detailed description of changes.
@@ -31,12 +33,12 @@ For more details, see: :ref:`repos_and_revs`.
      - Tag
    * - `tiac-bridle`_
      -
-     - main
-     - v4.0.0-rc1
+     - v4.0-branch
+     - v4.0.0
    * - | `tiac-ubxlib`_
        | (`u-blox-ubxlib`_)
      - | *geographiclib*
-     - | tiacsys/master
+     - | 62c0021cbf079b43cdd9a219e9b10b49ea616e19
        | (master)
      -
    * - | `tiac-zephyr`_
@@ -169,6 +171,8 @@ Change log
 * tbd.
 * tbd.
 
+* Simplify Zephyr SDK location.
+
 * Rename DTS bindings:
 
   * PCA9554 specific I2C-based GPIO expander (w/regrst)
@@ -210,6 +214,8 @@ Take over the new build principles from Zephyr:
 * tbd.
 * tbd.
 * tbd.
+* Bridle now fully relies on the ``find_package`` CMake script provided
+  by Zephyr to locate at least the required or a valid Zephyr SDK version.
 * ci: github: qa-integration: Use Zephyr CI container v0.27.4 and
   Zephyr SDK v0.17.0 which is now required.
 * ci: github: qa-integration: The self-hosted GitHub action runner for
