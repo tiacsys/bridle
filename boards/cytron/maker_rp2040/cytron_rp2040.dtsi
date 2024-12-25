@@ -4,7 +4,7 @@
  */
 
 #include <mem.h>
-#include <rpi_pico/rp2040.dtsi>
+#include <raspberrypi/rpi_pico/rp2040.dtsi>
 #include <zephyr/dt-bindings/regulator/rpi_pico.h>
 
 #include "cytron_rp2040-pinctrl.dtsi"
