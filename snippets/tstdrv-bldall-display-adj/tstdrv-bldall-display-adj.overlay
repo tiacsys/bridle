@@ -211,15 +211,19 @@
 		status = "okay";
 		#address-cells = <1>;
 		#size-cells = <0>;
+
 		reset-gpios = <&test_gpio_adj 0 0>;
 		dc-gpios = <&test_gpio_adj 0 0>;
 		spi-dev = <&test_spi_adj>;
 
-		test_mipi_dbi_ili9488: ili9342c@a {
+		xfr-min-bits = <MIPI_DBI_SPI_XFR_8BIT>;
+
+		test_mipi_dbi_ili9488: ili9488@a {
 			compatible = "ilitek,ili9488";
 			status = "okay";
 			reg = <10>;
 			mipi-max-frequency = <60000000>;
+			mipi-mode = "MIPI_DBI_MODE_SPI_4WIRE";
 			pixel-format = <0>;
 			rotation = <270>;
 			width = <480>;
@@ -230,18 +234,22 @@
 	test_mipi_dbi_xfr_16bit_adj {
 		compatible = "zephyr,mipi-dbi-spi";
 		status = "okay";
-		xfr-min-bits = <MIPI_DBI_SPI_XFR_16BIT>;
 		#address-cells = <1>;
 		#size-cells = <0>;
+
 		reset-gpios = <&test_gpio_adj 0 0>;
 		dc-gpios = <&test_gpio_adj 0 0>;
 		spi-dev = <&test_spi_adj>;
 
-		test_mipi_dbi_xfr_16bit_ili9488: ili9342c@14 {
+		xfr-min-bits = <MIPI_DBI_SPI_XFR_16BIT>;
+		write-only;
+
+		test_mipi_dbi_xfr_16bit_ili9488: ili9488@14 {
 			compatible = "ilitek,ili9488";
 			status = "okay";
 			reg = <20>;
 			mipi-max-frequency = <60000000>;
+			mipi-mode = "MIPI_DBI_MODE_SPI_4WIRE";
 			pixel-format = <0>;
 			rotation = <270>;
 			width = <480>;

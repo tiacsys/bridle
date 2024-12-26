@@ -31,7 +31,7 @@
 
 			reg = <0>;
 			mipi-max-frequency = <DT_FREQ_M(20)>;
-			mipi-mode = <MIPI_DBI_MODE_SPI_4WIRE>;
+			mipi-mode = "MIPI_DBI_MODE_SPI_4WIRE";
 
 			width = <240>;		/* landscape */
 			height = <135>;		/* landscape */

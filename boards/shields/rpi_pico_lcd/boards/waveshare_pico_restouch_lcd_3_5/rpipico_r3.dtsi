@@ -43,6 +43,7 @@
 	spi-dev = <&rpipico_spi_lcd>;
 	#address-cells = <1>;
 	#size-cells = <0>;
+	write-only;
 };
 
 &lcd_panel {

@@ -10,7 +10,7 @@
 	st7796s_320x480: st7796s@0 {
 		compatible = "sitronix,st7796s";
 		mipi-max-frequency = <DT_FREQ_M(62)>;
-		mipi-mode = <MIPI_DBI_MODE_SPI_4WIRE>;
+		mipi-mode = "MIPI_DBI_MODE_SPI_4WIRE";
 		reg = <0>;
 
 		status = "disabled";

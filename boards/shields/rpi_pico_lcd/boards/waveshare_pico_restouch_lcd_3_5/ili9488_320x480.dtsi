@@ -9,6 +9,7 @@
 	ili9488_320x480: ili9488@0 {
 		compatible = "ilitek,ili9488";
 		mipi-max-frequency = <DT_FREQ_M(60)>;
+		mipi-mode = "MIPI_DBI_MODE_SPI_4WIRE";
 		reg = <0>;
 
 		status = "disabled";
