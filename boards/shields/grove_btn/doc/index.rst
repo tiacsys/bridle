@@ -194,7 +194,7 @@ corresponds to the ordinal number of a signal from the
    .. zephyr-app-commands::
       :app: bridle/samples/helloshell
       :build-dir: helloshell-seeed_grove_base_v2-grove_btn_d4_inv
-      :board: mimxrt1060_evkb
+      :board: mimxrt1060_evk@B//qspi
       :shield: "seeed_grove_base_v2 grove_btn_d4_inv"
       :goals: flash
       :west-args: -p
@@ -207,7 +207,7 @@ corresponds to the ordinal number of a signal from the
    .. zephyr-app-commands::
       :app: bridle/samples/helloshell
       :build-dir: helloshell-seeed_grove_base_v1-grove_btn_d4_inv
-      :board: mimxrt1060_evkb
+      :board: mimxrt1060_evk@B//qspi
       :shield: "seeed_grove_base_v1 grove_btn_d4_inv"
       :goals: flash
       :west-args: -p
@@ -222,7 +222,7 @@ corresponds to the ordinal number of a signal from the
    .. zephyr-app-commands::
       :app: bridle/samples/helloshell
       :build-dir: helloshell-seeed_grove_base_v2-grove_btn_d4
-      :board: mimxrt1060_evkb
+      :board: mimxrt1060_evk@B//qspi
       :shield: "seeed_grove_base_v2 grove_btn_d4"
       :goals: flash
       :west-args: -p
@@ -235,7 +235,7 @@ corresponds to the ordinal number of a signal from the
    .. zephyr-app-commands::
       :app: bridle/samples/helloshell
       :build-dir: helloshell-seeed_grove_base_v1-grove_btn_d4
-      :board: mimxrt1060_evkb
+      :board: mimxrt1060_evk@B//qspi
       :shield: "seeed_grove_base_v1 grove_btn_d4"
       :goals: flash
       :west-args: -p

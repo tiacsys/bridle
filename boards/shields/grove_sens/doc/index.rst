@@ -191,7 +191,7 @@ corresponds to the exact sensor type. For example:
    .. zephyr-app-commands::
       :app: bridle/samples/helloshell
       :build-dir: helloshell-seeed_grove_base_v2-grove_sens_bme280
-      :board: mimxrt1060_evkb
+      :board: mimxrt1060_evk@B//qspi
       :shield: "seeed_grove_base_v2 grove_sens_bme280"
       :goals: flash
       :west-args: -p
@@ -204,7 +204,7 @@ corresponds to the exact sensor type. For example:
    .. zephyr-app-commands::
       :app: bridle/samples/helloshell
       :build-dir: helloshell-seeed_grove_base_v1-grove_sens_bmp280
-      :board: mimxrt1060_evkb
+      :board: mimxrt1060_evk@B//qspi
       :shield: "seeed_grove_base_v1 grove_sens_bmp280"
       :goals: flash
       :west-args: -p

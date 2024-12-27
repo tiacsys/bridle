@@ -456,7 +456,7 @@ For example:
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/blinky
                      :build-dir: blinky-mimxrt1060_evkb-x_grove_testbed
-                     :board: mimxrt1060_evkb
+                     :board: mimxrt1060_evk@B//qspi
                      :shield: \
                               "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 x_grove_testbed"
                      :goals: flash
@@ -473,7 +473,7 @@ For example:
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/button
                      :build-dir: button-mimxrt1060_evkb-x_grove_testbed
-                     :board: mimxrt1060_evkb
+                     :board: mimxrt1060_evk@B//qspi
                      :shield: \
                               "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 x_grove_testbed"
                      :goals: flash

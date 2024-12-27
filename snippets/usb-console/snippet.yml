@@ -12,11 +12,7 @@ boards:
     append:
       EXTRA_CONF_FILE: boards/mimxrt1010_evk.conf
       EXTRA_DTC_OVERLAY_FILE: boards/mimxrt1010_evk.overlay
-  mimxrt1060_evk/mimxrt1062:
-    append:
-      EXTRA_CONF_FILE: boards/mimxrt1060_evk.conf
-      EXTRA_DTC_OVERLAY_FILE: boards/mimxrt1060_evk.overlay
-  mimxrt1060_evkb/mimxrt1062:
+  /mimxrt1060_evk.*/mimxrt1062/.*/:
     append:
       EXTRA_CONF_FILE: boards/mimxrt1060_evk.conf
       EXTRA_DTC_OVERLAY_FILE: boards/mimxrt1060_evk.overlay

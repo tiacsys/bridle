@@ -231,7 +231,7 @@ from the |Laced Grove Signal Interface|. For example:
    .. zephyr-app-commands::
       :app: bridle/samples/helloshell
       :build-dir: helloshell-seeed_grove_base_v2-grove_led_d5
-      :board: mimxrt1060_evkb
+      :board: mimxrt1060_evk@B//qspi
       :shield: "seeed_grove_base_v2 grove_led_d5"
       :goals: flash
       :west-args: -p
@@ -244,7 +244,7 @@ from the |Laced Grove Signal Interface|. For example:
    .. zephyr-app-commands::
       :app: bridle/samples/helloshell
       :build-dir: helloshell-seeed_grove_base_v2-grove_pwm_led_d5
-      :board: mimxrt1060_evkb
+      :board: mimxrt1060_evk@B//qspi
       :shield: "seeed_grove_base_v2 grove_pwm_led_d5"
       :goals: flash
       :west-args: -p
@@ -257,7 +257,7 @@ from the |Laced Grove Signal Interface|. For example:
    .. zephyr-app-commands::
       :app: bridle/samples/helloshell
       :build-dir: helloshell-seeed_grove_base_v1-grove_led_d5
-      :board: mimxrt1060_evkb
+      :board: mimxrt1060_evk@B//qspi
       :shield: "seeed_grove_base_v1 grove_led_d5"
       :goals: flash
       :west-args: -p
@@ -270,7 +270,7 @@ from the |Laced Grove Signal Interface|. For example:
    .. zephyr-app-commands::
       :app: bridle/samples/helloshell
       :build-dir: helloshell-seeed_grove_base_v1-grove_pwm_led_d5
-      :board: mimxrt1060_evkb
+      :board: mimxrt1060_evk@B//qspi
       :shield: "seeed_grove_base_v1 grove_pwm_led_d5"
       :goals: flash
       :west-args: -p

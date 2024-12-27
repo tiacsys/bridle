@@ -862,7 +862,7 @@ example:
     .. zephyr-app-commands::
        :app: bridle/samples/helloshell
        :build-dir: helloshell-seeed_grove_base_v2
-       :board: mimxrt1060_evkb
+       :board: mimxrt1060_evk@B//qspi
        :shield: seeed_grove_base_v2
        :goals: flash
        :west-args: -p
@@ -875,7 +875,7 @@ example:
     .. zephyr-app-commands::
        :app: bridle/samples/helloshell
        :build-dir: helloshell-seeed_grove_base_v1
-       :board: mimxrt1060_evkb
+       :board: mimxrt1060_evk@B//qspi
        :shield: seeed_grove_base_v1
        :goals: flash
        :west-args: -p

@@ -93,8 +93,8 @@ List of extensions
 
      * - .. rubric:: NXP MIMXRT1060-EVKB
 
-     * - .. literalinclude:: ../mimxrt1060_evkb.overlay
-            :caption: mimxrt1060_evkb.overlay
+     * - .. literalinclude:: ../mimxrt1060_evk_mimxrt1062_qspi_B.overlay
+            :caption: mimxrt1060_evk_mimxrt1062_qspi_B.overlay
             :language: DTS
             :encoding: ISO-8859-1
             :emphasize-lines: 3,6
