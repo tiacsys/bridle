@@ -69,6 +69,7 @@ For more details, see: :ref:`repos_and_revs`.
        | **hal** : *hal_silabs*
        | **hal** : *hal_st*
        | **hal** : *hal_stm32*
+       | **hal** : *hal_tdk*
        | **hal** : *hal_telink*
        | **hal** : *hal_ti*
        | **hal** : *hal_wurthelektronik*
@@ -186,6 +187,8 @@ Build Infrastructure
 * tbd.
 * tbd.
 * tbd.
+* Enable support for the TDK HAL in the West manifest. This HAL is needed by
+  Zephyr upstream test suite to build all sensor drivers.
 
 Documentation
 =============
