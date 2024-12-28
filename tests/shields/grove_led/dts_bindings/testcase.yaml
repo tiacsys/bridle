@@ -1616,7 +1616,9 @@ tests:
   # Grove LED by dedicated PWM on Grove Connectors
   #
   grove.connectors.grove_led.pwm.d0:
-    depends_on: grove_gpio grove_pwm
+    depends_on:
+      - grove_gpio
+      - grove_pwm
     filter: dt_nodelabel_enabled("grove_pwm_d0") and
             ( dt_nodelabel_enabled("grove_d0_header") or
               dt_nodelabel_enabled("grove_uart_header") ) and
@@ -1626,7 +1628,9 @@ tests:
       - cytron_maker_nano_rp2040
       - cytron_maker_pi_rp2040
   grove.connectors.grove_led.pwm.d1:
-    depends_on: grove_gpio grove_pwm
+    depends_on:
+      - grove_gpio
+      - grove_pwm
     filter: dt_nodelabel_enabled("grove_pwm_d1") and
             ( dt_nodelabel_enabled("grove_d1_header") or
               dt_nodelabel_enabled("grove_d0_header") or
@@ -1637,7 +1641,9 @@ tests:
       - cytron_maker_nano_rp2040
       - cytron_maker_pi_rp2040
   grove.connectors.grove_led.pwm.d2:
-    depends_on: grove_gpio grove_pwm
+    depends_on:
+      - grove_gpio
+      - grove_pwm
     filter: dt_nodelabel_enabled("grove_pwm_d2") and
             ( dt_nodelabel_enabled("grove_d2_header") or
               dt_nodelabel_enabled("grove_d1_header") ) and
@@ -1647,7 +1653,9 @@ tests:
       - cytron_maker_pi_rp2040
       - seeeduino_lotus
   grove.connectors.grove_led.pwm.d3:
-    depends_on: grove_gpio grove_pwm
+    depends_on:
+      - grove_gpio
+      - grove_pwm
     filter: dt_nodelabel_enabled("grove_pwm_d3") and
             ( dt_nodelabel_enabled("grove_d3_header") or
               dt_nodelabel_enabled("grove_d2_header") ) and
@@ -1657,7 +1665,9 @@ tests:
       - cytron_maker_pi_rp2040
       - seeeduino_lotus
   grove.connectors.grove_led.pwm.d4:
-    depends_on: grove_gpio grove_pwm
+    depends_on:
+      - grove_gpio
+      - grove_pwm
     filter: dt_nodelabel_enabled("grove_pwm_d4") and
             ( dt_nodelabel_enabled("grove_d4_header") or
               dt_nodelabel_enabled("grove_d3_header") ) and
@@ -1667,7 +1677,9 @@ tests:
       - cytron_maker_pi_rp2040
       - seeeduino_lotus
   grove.connectors.grove_led.pwm.d5:
-    depends_on: grove_gpio grove_pwm
+    depends_on:
+      - grove_gpio
+      - grove_pwm
     filter: dt_nodelabel_enabled("grove_pwm_d5") and
             ( dt_nodelabel_enabled("grove_d5_header") or
               dt_nodelabel_enabled("grove_d4_header") ) and
@@ -1677,7 +1689,9 @@ tests:
       - cytron_maker_pi_rp2040
       - seeeduino_lotus
   grove.connectors.grove_led.pwm.d6:
-    depends_on: grove_gpio grove_pwm
+    depends_on:
+      - grove_gpio
+      - grove_pwm
     filter: dt_nodelabel_enabled("grove_pwm_d6") and
             ( dt_nodelabel_enabled("grove_d6_header") or
               dt_nodelabel_enabled("grove_d5_header") ) and
@@ -1687,7 +1701,9 @@ tests:
       - cytron_maker_pi_rp2040
       - seeeduino_lotus
   grove.connectors.grove_led.pwm.d7:
-    depends_on: grove_gpio grove_pwm
+    depends_on:
+      - grove_gpio
+      - grove_pwm
     filter: dt_nodelabel_enabled("grove_pwm_d7") and
             ( dt_nodelabel_enabled("grove_d7_header") or
               dt_nodelabel_enabled("grove_d6_header") ) and
@@ -1697,7 +1713,9 @@ tests:
       - cytron_maker_pi_rp2040
       - seeeduino_lotus
   grove.connectors.grove_led.pwm.d8:
-    depends_on: grove_gpio grove_pwm
+    depends_on:
+      - grove_gpio
+      - grove_pwm
     filter: dt_nodelabel_enabled("grove_pwm_d8") and
             ( dt_nodelabel_enabled("grove_d8_header") or
               dt_nodelabel_enabled("grove_d7_header") ) and
@@ -1706,7 +1724,9 @@ tests:
     platform_allow:
       - seeeduino_lotus
   grove.connectors.grove_led.pwm.d9:
-    depends_on: grove_gpio grove_pwm
+    depends_on:
+      - grove_gpio
+      - grove_pwm
     filter: dt_nodelabel_enabled("grove_pwm_d9") and
             ( dt_nodelabel_enabled("grove_d9_header") or
               dt_nodelabel_enabled("grove_d8_header") ) and
@@ -1714,7 +1734,9 @@ tests:
     extra_args: SHIELD=grove_pwm_led_d9
     skip: true
   grove.connectors.grove_led.pwm.d10:
-    depends_on: grove_gpio grove_pwm
+    depends_on:
+      - grove_gpio
+      - grove_pwm
     filter: dt_nodelabel_enabled("grove_pwm_d10") and
             ( dt_nodelabel_enabled("grove_d10_header") or
               dt_nodelabel_enabled("grove_d9_header") ) and
@@ -1722,7 +1744,9 @@ tests:
     extra_args: SHIELD=grove_pwm_led_d10
     skip: true
   grove.connectors.grove_led.pwm.d11:
-    depends_on: grove_gpio grove_pwm
+    depends_on:
+      - grove_gpio
+      - grove_pwm
     filter: dt_nodelabel_enabled("grove_pwm_d11") and
             ( dt_nodelabel_enabled("grove_d11_header") or
               dt_nodelabel_enabled("grove_d10_header") ) and
@@ -1730,7 +1754,9 @@ tests:
     extra_args: SHIELD=grove_pwm_led_d11
     skip: true
   grove.connectors.grove_led.pwm.d12:
-    depends_on: grove_gpio grove_pwm
+    depends_on:
+      - grove_gpio
+      - grove_pwm
     filter: dt_nodelabel_enabled("grove_pwm_d12") and
             ( dt_nodelabel_enabled("grove_d12_header") or
               dt_nodelabel_enabled("grove_d11_header") ) and
@@ -1738,7 +1764,9 @@ tests:
     extra_args: SHIELD=grove_pwm_led_d12
     skip: true
   grove.connectors.grove_led.pwm.d13:
-    depends_on: grove_gpio grove_pwm
+    depends_on:
+      - grove_gpio
+      - grove_pwm
     filter: dt_nodelabel_enabled("grove_pwm_d13") and
             ( dt_nodelabel_enabled("grove_d13_header") or
               dt_nodelabel_enabled("grove_d12_header") ) and
@@ -1746,7 +1774,9 @@ tests:
     extra_args: SHIELD=grove_pwm_led_d13
     skip: true
   grove.connectors.grove_led.pwm.d14:
-    depends_on: grove_gpio grove_pwm
+    depends_on:
+      - grove_gpio
+      - grove_pwm
     filter: dt_nodelabel_enabled("grove_pwm_d14") and
             ( dt_nodelabel_enabled("grove_d14_header") or
               dt_nodelabel_enabled("grove_d13_header") or
@@ -1756,7 +1786,9 @@ tests:
     platform_allow:
       - cytron_maker_nano_rp2040
   grove.connectors.grove_led.pwm.d15:
-    depends_on: grove_gpio grove_pwm
+    depends_on:
+      - grove_gpio
+      - grove_pwm
     filter: dt_nodelabel_enabled("grove_pwm_d15") and
             ( dt_nodelabel_enabled("grove_d15_header") or
               dt_nodelabel_enabled("grove_d14_header") or
@@ -1767,7 +1799,9 @@ tests:
     platform_allow:
       - cytron_maker_nano_rp2040
   grove.connectors.grove_led.pwm.d16:
-    depends_on: grove_gpio grove_pwm
+    depends_on:
+      - grove_gpio
+      - grove_pwm
     filter: dt_nodelabel_enabled("grove_pwm_d16") and
             ( dt_nodelabel_enabled("grove_d16_header") or
               dt_nodelabel_enabled("grove_d15_header") or
@@ -1778,7 +1812,9 @@ tests:
     platform_allow:
       - cytron_maker_pi_rp2040
   grove.connectors.grove_led.pwm.d17:
-    depends_on: grove_gpio grove_pwm
+    depends_on:
+      - grove_gpio
+      - grove_pwm
     filter: dt_nodelabel_enabled("grove_pwm_d17") and
             ( dt_nodelabel_enabled("grove_d17_header") or
               dt_nodelabel_enabled("grove_d16_header") or
@@ -1789,7 +1825,9 @@ tests:
     platform_allow:
       - cytron_maker_pi_rp2040
   grove.connectors.grove_led.pwm.d18:
-    depends_on: grove_gpio grove_pwm
+    depends_on:
+      - grove_gpio
+      - grove_pwm
     filter: dt_nodelabel_enabled("grove_pwm_d18") and
             ( dt_nodelabel_enabled("grove_d18_header") or
               dt_nodelabel_enabled("grove_i2c_header") or
@@ -1797,7 +1835,9 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d18", "pwm-leds")
     extra_args: SHIELD=grove_pwm_led_d18
   grove.connectors.grove_led.pwm.d19:
-    depends_on: grove_gpio grove_pwm
+    depends_on:
+      - grove_gpio
+      - grove_pwm
     filter: dt_nodelabel_enabled("grove_pwm_d19") and
             ( dt_nodelabel_enabled("grove_d19_header") or
               dt_nodelabel_enabled("grove_i2c_header") or
@@ -1805,7 +1845,9 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d19", "pwm-leds")
     extra_args: SHIELD=grove_pwm_led_d19
   grove.connectors.grove_led.pwm.d20:
-    depends_on: grove_gpio grove_pwm
+    depends_on:
+      - grove_gpio
+      - grove_pwm
     filter: dt_nodelabel_enabled("grove_pwm_d20") and
             ( dt_nodelabel_enabled("grove_d20_header") or
               dt_nodelabel_enabled("grove_a6_header") ) and
@@ -1813,7 +1855,9 @@ tests:
     extra_args: SHIELD=grove_pwm_led_d20
     skip: true
   grove.connectors.grove_led.pwm.d21:
-    depends_on: grove_gpio grove_pwm
+    depends_on:
+      - grove_gpio
+      - grove_pwm
     filter: dt_nodelabel_enabled("grove_pwm_d21") and
             ( dt_nodelabel_enabled("grove_d21_header") or
               dt_nodelabel_enabled("grove_d20_header") ) and
@@ -1821,7 +1865,9 @@ tests:
     extra_args: SHIELD=grove_pwm_led_d21
     skip: true
   grove.connectors.grove_led.pwm.d22:
-    depends_on: grove_gpio grove_pwm
+    depends_on:
+      - grove_gpio
+      - grove_pwm
     filter: dt_nodelabel_enabled("grove_pwm_d22") and
             ( dt_nodelabel_enabled("grove_d22_header") or
               dt_nodelabel_enabled("grove_d21_header") ) and
@@ -1829,7 +1875,9 @@ tests:
     extra_args: SHIELD=grove_pwm_led_d22
     skip: true
   grove.connectors.grove_led.pwm.d23:
-    depends_on: grove_gpio grove_pwm
+    depends_on:
+      - grove_gpio
+      - grove_pwm
     filter: dt_nodelabel_enabled("grove_pwm_d23") and
             ( dt_nodelabel_enabled("grove_d23_header") or
               dt_nodelabel_enabled("grove_d22_header") ) and
@@ -1837,7 +1885,9 @@ tests:
     extra_args: SHIELD=grove_pwm_led_d23
     skip: true
   grove.connectors.grove_led.pwm.d24:
-    depends_on: grove_gpio grove_pwm
+    depends_on:
+      - grove_gpio
+      - grove_pwm
     filter: dt_nodelabel_enabled("grove_pwm_d24") and
             ( dt_nodelabel_enabled("grove_d24_header") or
               dt_nodelabel_enabled("grove_d23_header") ) and
@@ -1845,7 +1895,9 @@ tests:
     extra_args: SHIELD=grove_pwm_led_d24
     skip: true
   grove.connectors.grove_led.pwm.d25:
-    depends_on: grove_gpio grove_pwm
+    depends_on:
+      - grove_gpio
+      - grove_pwm
     filter: dt_nodelabel_enabled("grove_pwm_d25") and
             ( dt_nodelabel_enabled("grove_d25_header") or
               dt_nodelabel_enabled("grove_d24_header") ) and
@@ -1853,7 +1905,9 @@ tests:
     extra_args: SHIELD=grove_pwm_led_d25
     skip: true
   grove.connectors.grove_led.pwm.d26:
-    depends_on: grove_gpio grove_pwm
+    depends_on:
+      - grove_gpio
+      - grove_pwm
     filter: dt_nodelabel_enabled("grove_pwm_d26") and
             ( dt_nodelabel_enabled("grove_d26_header") or
               dt_nodelabel_enabled("grove_d25_header") ) and
@@ -1862,7 +1916,9 @@ tests:
     platform_allow:
       - cytron_maker_pi_rp2040
   grove.connectors.grove_led.pwm.d27:
-    depends_on: grove_gpio grove_pwm
+    depends_on:
+      - grove_gpio
+      - grove_pwm
     filter: dt_nodelabel_enabled("grove_pwm_d27") and
             ( dt_nodelabel_enabled("grove_d27_header") or
               dt_nodelabel_enabled("grove_d26_header") ) and
@@ -1871,7 +1927,9 @@ tests:
     platform_allow:
       - cytron_maker_pi_rp2040
   grove.connectors.grove_led.pwm.d28:
-    depends_on: grove_gpio grove_pwm
+    depends_on:
+      - grove_gpio
+      - grove_pwm
     filter: dt_nodelabel_enabled("grove_pwm_d28") and
             ( dt_nodelabel_enabled("grove_d28_header") or
               dt_nodelabel_enabled("grove_d27_header") ) and
@@ -1880,7 +1938,9 @@ tests:
     platform_allow:
       - cytron_maker_pi_rp2040
   grove.connectors.grove_led.pwm.d29:
-    depends_on: grove_gpio grove_pwm
+    depends_on:
+      - grove_gpio
+      - grove_pwm
     filter: dt_nodelabel_enabled("grove_pwm_d29") and
             ( dt_nodelabel_enabled("grove_d29_header") or
               dt_nodelabel_enabled("grove_d28_header") ) and
@@ -1888,7 +1948,9 @@ tests:
     extra_args: SHIELD=grove_pwm_led_d29
     skip: true
   grove.connectors.grove_led.pwm.d30:
-    depends_on: grove_gpio grove_pwm
+    depends_on:
+      - grove_gpio
+      - grove_pwm
     filter: dt_nodelabel_enabled("grove_pwm_d30") and
             ( dt_nodelabel_enabled("grove_d30_header") or
               dt_nodelabel_enabled("grove_d29_header") ) and
@@ -1896,7 +1958,9 @@ tests:
     extra_args: SHIELD=grove_pwm_led_d30
     skip: true
   grove.connectors.grove_led.pwm.d31:
-    depends_on: grove_gpio grove_pwm
+    depends_on:
+      - grove_gpio
+      - grove_pwm
     filter: dt_nodelabel_enabled("grove_pwm_d31") and
             ( dt_nodelabel_enabled("grove_d31_header") or
               dt_nodelabel_enabled("grove_d30_header") ) and

@@ -120,7 +120,9 @@ tests:
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
   grove.connectors.x_grove_testbed.pwm.b0l15:
-    depends_on: grove_gpio grove_pwm
+    depends_on:
+      - grove_gpio
+      - grove_pwm
     filter: dt_nodelabel_enabled("grove_d15_header") and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d15", "pwm-leds") and
             dt_label_with_parent_compat_enabled("grove_led_d15", "gpio-leds") and
@@ -131,7 +133,9 @@ tests:
     platform_allow:
       - cytron_maker_nano_rp2040
   grove.connectors.x_grove_testbed.pwm.b3l5:
-    depends_on: grove_gpio grove_pwm
+    depends_on:
+      - grove_gpio
+      - grove_pwm
     filter: dt_nodelabel_enabled("grove_d5_header") and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d5", "pwm-leds") and
             dt_label_with_parent_compat_enabled("grove_led_d5", "gpio-leds") and
@@ -142,7 +146,9 @@ tests:
     platform_allow:
       - cytron_maker_pi_rp2040
   grove.connectors.x_grove_testbed.pwm.b7l6:
-    depends_on: grove_gpio grove_pwm
+    depends_on:
+      - grove_gpio
+      - grove_pwm
     filter: dt_nodelabel_enabled("grove_d6_header") and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d6", "pwm-leds") and
             dt_label_with_parent_compat_enabled("grove_led_d6", "gpio-leds") and
