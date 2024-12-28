@@ -6,9 +6,10 @@ common:
     - zephyr
     - shield
     - input
-  build_only: true
   depends_on: pico_gpio
-  harness: input
+  harness: console
+  harness_config:
+    fixture: fixture_input
 tests:
   #
   # shield: GeeekPi Pico Breadboard Kit (EP-0164)

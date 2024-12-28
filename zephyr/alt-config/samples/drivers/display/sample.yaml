@@ -8,8 +8,9 @@ common:
     - drivers
     - display
   depends_on: spi
-  harness: display
-  build_only: true
+  harness: console
+  harness_config:
+    fixture: fixture_display
 tests:
   #
   # shield: GeeekPi Pico Breadboard Kit (EP-0164)

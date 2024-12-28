@@ -8,9 +8,16 @@ common:
     - drivers
     - pwm
   depends_on: pwm
-  harness: led
-  build_only: true
+  harness: console
+  harness_config:
+    fixture: fixture_led
 tests:
+  sample.basic.rgb_led:
+    filter: dt_alias_exists("red-pwm-led") and
+            dt_alias_exists("green-pwm-led") and
+            dt_alias_exists("blue-pwm-led")
+    integration_platforms:
+      - nrf52840_mdk
   #
   # shield: PiMoroni Pico LCD 1.14
   #

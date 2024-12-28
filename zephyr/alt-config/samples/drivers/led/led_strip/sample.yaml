@@ -8,8 +8,9 @@ common:
     - drivers
     - led
   filter: dt_alias_exists("led-strip")
-  harness: led_strip
-  build_only: true
+  harness: console
+  harness_config:
+    fixture: fixture_led_strip
 tests:
   #
   # boards with LED strip
