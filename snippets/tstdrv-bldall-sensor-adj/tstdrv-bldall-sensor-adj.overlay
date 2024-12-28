@@ -111,31 +111,5 @@
 		compatible = "vnd,w1";
 		status = "okay";
 		reg = <0xffffeeee 0x1000>;
-		#address-cells = <1>;
-		#size-cells = <0>;
-		ranges = <0 0>;
-	};
-};
-
-/* FIX: /test/w1@66660000: unnecessary #address-cells/#size-cells
- *      without "ranges" or child "reg" property
- *  OR: /test/w1@66660000:ranges: empty "ranges" property
- *      but its #size-cells (0) differs from /test (1)
- */
-&test_w1 {
-	ranges = <0 0>;
-};
-
-/* FIX: /test/i2c@11112222/lis2dux12@8a: duplicate unit-address
- *      (also used in node /test/i2c@11112222/iis328dq@8a)
- */
-/delete-node/ &test_i2c_iis328dq;
-&test_i2c_adj {
-	test_i2c_iis328dq: iis328dq@8a {
-		compatible = "st,iis328dq";
-		status = "okay";
-		reg = <0x8a>;
-		int2-gpios = <&test_gpio 0 0>;
-		threshold-int-pad = <2>;
 	};
 };
