@@ -240,7 +240,7 @@
 	pinctrl-0 = <&adc3_in9_pf3	/* TMPH4_PF3_ADC39 */
 		     &adc3_in14_pf4	/* TMPH2_PF4_ADC314 */
 		     &adc3_in15_pf5>;	/* TMPH2_PF5_ADC315 */
-	st,adc-clock-source = <SYNC>;
+	st,adc-clock-source = "SYNC";
 	st,adc-prescaler = <2>;
 }; // adc3
 
