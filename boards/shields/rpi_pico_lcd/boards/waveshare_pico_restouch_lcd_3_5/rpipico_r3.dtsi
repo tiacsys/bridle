@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 TiaC Systems
+ * Copyright (c) 2023-2025 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -37,7 +37,7 @@
 
 &mipi_dbi {
 	status = "okay";
-	xfr-min-bits = <MIPI_DBI_SPI_XFR_16BIT>;  /* 16-bit shifted xfr */
+	xfr-min-bits = "MIPI_DBI_SPI_XFR_16BIT";  /* 16-bit shifted xfr */
 	reset-gpios = <&rpipico_header 15 GPIO_ACTIVE_LOW>;	/* GP15 */
 	dc-gpios = <&rpipico_header 8 GPIO_ACTIVE_HIGH>;	/* GP8 */
 	spi-dev = <&rpipico_spi_lcd>;

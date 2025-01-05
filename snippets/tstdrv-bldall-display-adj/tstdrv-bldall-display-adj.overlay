@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 TiaC Systems
+ * Copyright (c) 2024-2025 TiaC Systems
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -216,7 +216,7 @@
 		dc-gpios = <&test_gpio_adj 0 0>;
 		spi-dev = <&test_spi_adj>;
 
-		xfr-min-bits = <MIPI_DBI_SPI_XFR_8BIT>;
+		xfr-min-bits = "MIPI_DBI_SPI_XFR_8BIT";
 
 		test_mipi_dbi_ili9488: ili9488@a {
 			compatible = "ilitek,ili9488";
@@ -241,7 +241,7 @@
 		dc-gpios = <&test_gpio_adj 0 0>;
 		spi-dev = <&test_spi_adj>;
 
-		xfr-min-bits = <MIPI_DBI_SPI_XFR_16BIT>;
+		xfr-min-bits = "MIPI_DBI_SPI_XFR_16BIT";
 		write-only;
 
 		test_mipi_dbi_xfr_16bit_ili9488: ili9488@14 {
