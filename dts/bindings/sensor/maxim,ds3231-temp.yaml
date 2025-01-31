@@ -1,8 +1,0 @@
-# Copyright (c) 2024 TiaC Systems
-# SPDX-License-Identifier: Apache-2.0
-
-description: Digital Temperature Sensor inside Maxim DS3231 RTC
-
-compatible: "maxim,ds3231-temp"
-
-include: [sensor-device.yaml]

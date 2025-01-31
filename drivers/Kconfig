@@ -9,7 +9,6 @@ rsource "gpio/Kconfig"
 rsource "i2c/Kconfig"
 rsource "mfd/Kconfig"
 rsource "rtc/Kconfig"
-rsource "sensor/Kconfig"
 rsource "serial/Kconfig"
 
 endmenu

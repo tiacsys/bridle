@@ -1,8 +1,0 @@
-# Copyright (c) 2024 TiaC Systems
-# SPDX-License-Identifier: Apache-2.0
-
-if SENSOR
-
-rsource "Kconfig.ds3231_temp"
-
-endif # SENSOR
