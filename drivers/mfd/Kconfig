@@ -1,9 +1,8 @@
-# Copyright (c) 2023-2024 TiaC Systems
+# Copyright (c) 2023-2025 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 if MFD
 
-rsource "Kconfig.ds3231"
 rsource "Kconfig.sc16is75x"
 rsource "Kconfig.sc18is604"
 rsource "Kconfig.sipomuxgp"

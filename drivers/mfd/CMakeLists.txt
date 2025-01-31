@@ -1,4 +1,4 @@
-# Copyright (c) 2023-2024 TiaC Systems
+# Copyright (c) 2023-2025 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 # Add to the existing mfd library from zephyr instead of defining our own.
@@ -6,7 +6,6 @@
 # build errors can occur!
 zephyr_library_amend()
 
-zephyr_library_sources_ifdef(CONFIG_MFD_DS3231		mfd_ds3231.c)
 zephyr_library_sources_ifdef(CONFIG_MFD_SC16IS75X	mfd_sc16is75x.c)
 zephyr_library_sources_ifdef(CONFIG_MFD_SC16IS75X_SPI	mfd_sc16is75x_spi.c)
 zephyr_library_sources_ifdef(CONFIG_MFD_SC16IS75X_I2C	mfd_sc16is75x_i2c.c)
