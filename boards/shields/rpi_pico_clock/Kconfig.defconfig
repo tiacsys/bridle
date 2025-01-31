@@ -1,4 +1,4 @@
-# Copyright (c) 2023-2024 TiaC Systems
+# Copyright (c) 2023-2025 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 config SHIELD_RPI_PICO_CLOCK
@@ -10,6 +10,14 @@ config SHIELD_RPI_PICO_CLOCK_HIYOU
 	bool
 	default y if SHIELD_WAVESHARE_PICO_CLOCK_GREEN
 	default n
+
+config RTC_ALARM
+	default y if DT_HAS_MAXIM_DS3231_RTC_ENABLED
+	depends on RTC
+
+config RTC_UPDATE
+	default y if DT_HAS_MAXIM_DS3231_RTC_ENABLED
+	depends on RTC
 
 config SPI
 	default y if DT_HAS_SIPO_MUX_GP_SPI_ENABLED

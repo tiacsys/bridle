@@ -74,8 +74,6 @@
               DT node labels: spi0 pico_spi pico_spi0 rpipico_spi rpipico_spi0
             - ds3231-mfd\ @\ 68 (READY)
               DT node labels: ds3231_mfd clock_mfd
-            - ds3231-rtc (READY)
-              DT node labels: ds3231_rtc clock_rtc
             - sipo-mux-gp\ @\ 0 (READY)
               DT node labels: sipo_mux_gp clock_sipo_mux
             - sipo-mux-gpio\ @\ 7 (READY)
@@ -94,10 +92,12 @@
               DT node labels: sipo_mux_gpio_1 clock_gpio_1
             - sipo-mux-gpio\ @\ 0 (READY)
               DT node labels: sipo_mux_gpio_0 clock_gpio_0
-            - wpcg-gpio-leds (READY)
-              DT node labels: wpcg_gpio_leds
+            - ds3231-rtc (READY)
+              DT node labels: ds3231_rtc clock_rtc
             - ds3231-dts (READY)
               DT node labels: ds3231_dts clock_dts
+            - wpcg-gpio-leds (READY)
+              DT node labels: wpcg_gpio_leds
 
       .. container:: highlight highlight-console notranslate
 
@@ -179,11 +179,11 @@
 
             :bgn:`uart:~$` **gpio conf gpio@40014000 SET iul**
             :bgn:`uart:~$` **gpio get gpio@40014000 SET**
-            1
-            :bgn:`uart:~$` **gpio get gpio@40014000 SET**
             0
             :bgn:`uart:~$` **gpio get gpio@40014000 SET**
             1
+            :bgn:`uart:~$` **gpio get gpio@40014000 SET**
+            0
 
    .. group-tab:: ADC
 
@@ -252,7 +252,7 @@
             :bgn:`uart:~$` **i2c read_byte i2c@40048000 68 12**
             Output: 0x40
 
-      For example, for 25.75℃ the register content must be ``0x19``
+      For example, for 24.75℃ the register content must be ``0x19``
       and ``0xc0``:
 
       .. container:: highlight highlight-console notranslate
@@ -260,7 +260,7 @@
          .. parsed-literal::
 
             :bgn:`uart:~$` **i2c read_byte i2c@40048000 68 11**
-            Output: 0x19
+            Output: 0x18
             :bgn:`uart:~$` **i2c read_byte i2c@40048000 68 12**
             Output: 0xc0
 
@@ -270,8 +270,9 @@
 
          .. parsed-literal::
 
+            :bgn:`uart:~$` **rtc set ds3231-rtc 2013-12-11T10:09:08**
             :bgn:`uart:~$` **rtc get ds3231-rtc**
-            2024-09-16T12:37:59.000
+            2013-12-11T10:09:16.000
 
    .. group-tab:: Temp
 
@@ -279,5 +280,5 @@
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **sensor get ds3231-dts**
-            channel idx=13 ambient_temp shift=5 num_samples=1 value=6848100000ns (25.749999)
+            :bgn:`uart:~$` **sensor get ds3231-dts 13**
+            channel type=13(ambient_temp) index=0 shift=7 num_samples=1 value=958127057056ns (24.750000)

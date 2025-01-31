@@ -84,7 +84,7 @@
        - :dtcompatible:`pwm-buzzers`
        - :dtcompatible:`gpio-keys`
        - :dtcompatible:`maxim,ds3231-mfd`
-         (:dtcompatible:`maxim,ds3231-rtc`, :dtcompatible:`maxim,ds3231-temp`)
+         (:dtcompatible:`maxim,ds3231-rtc`, :dtcompatible:`maxim,ds3231-sensor`)
 
      - .. image:: waveshare_pico_clock_green/pinouts.jpg
           :align: center

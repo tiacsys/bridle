@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 TiaC Systems
+ * Copyright (c) 2023-2025 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -19,12 +19,12 @@ clock_pwm_buzzers: &rpipico_pwm_buzzers {};
 	status = "okay";
 };
 
-&clock_rtc {
+&clock_rtc {							/* GP3 */
+	isw-gpios = <&rpipico_header 3 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 	status = "okay";
 };
 
-&clock_mfd {							/* GP3 */
-	isw-gpios = <&rpipico_header 3 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+&clock_mfd {
 	status = "okay";
 };
 
