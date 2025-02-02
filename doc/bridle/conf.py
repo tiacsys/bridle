@@ -360,27 +360,33 @@ doxyrunner_doxydir = os.environ.get('DOCSET_DOXY_PRJ', os.path.join(
                       BRIDLE_BASE, 'doc', '_doxygen'))
 doxyrunner_doxyfile = os.environ.get('DOCSET_DOXY_IN', os.path.join(
                       BRIDLE_BASE, 'doc', '_doxygen', 'doxyfile-bridle.in'))
-doxyrunner_outdir = os.path.join(BRIDLE_BUILD, 'doxygen')
-doxyrunner_outdir_var = 'DOXY_OUT'
+
 doxyrunner_silent = True
-doxyrunner_fmt = True
-doxyrunner_fmt_pattern = '@{}@'
-doxyrunner_fmt_vars = {
-    'DOXY_SET': u'bridle',
-    'DOXY_IN': str(Path(doxyrunner_doxyfile).absolute().parent),
-    'DOXY_LAYOUT': u'zephyr-doxyrunner',
-    'DOXY_LOGOUT': str(Path(BRIDLE_WORKD).absolute()),
-    'DOXY_LOGWRN': u'doxygen-warnings.txt',
-    'PROJECT_DOXY': str(Path(doxyrunner_doxydir).absolute()),
-    'PROJECT_BASE': str(BRIDLE_BASE),
-    'PROJECT_NAME': project,
-    'PROJECT_VERSION': version,
-    'PROJECT_BRIEF': str(os.environ.get('DOCSET_BRIEF', 'Unknown project brief!')),
+doxyrunner_projects = {
+    'bridle': {
+        'doxyfile': str(Path(doxyrunner_doxyfile).absolute()),
+        'outdir': os.path.join(BRIDLE_BUILD, 'doxygen'),
+        'outdir_var': 'DOXY_OUT',
+        'fmt': True,
+        'fmt_pattern': '@{}@',
+        'fmt_vars': {
+            'DOXY_SET': u'bridle',
+            'DOXY_IN': str(Path(doxyrunner_doxyfile).absolute().parent),
+            'DOXY_LAYOUT': u'zephyr-doxyrunner',
+            'DOXY_LOGOUT': str(Path(BRIDLE_WORKD).absolute()),
+            'DOXY_LOGWRN': u'doxygen-warnings.txt',
+            'PROJECT_DOXY': str(Path(doxyrunner_doxydir).absolute()),
+            'PROJECT_BASE': str(BRIDLE_BASE),
+            'PROJECT_NAME': project,
+            'PROJECT_VERSION': version,
+            'PROJECT_BRIEF': str(os.environ.get('DOCSET_BRIEF', 'Unknown project brief!')),
+        },
+    },
 }
 
 # Options for breathe ----------------------------------------------------------
 
-breathe_projects = {project: '{}/xml'.format(doxyrunner_outdir)}
+breathe_projects = {project: '{}/xml'.format(doxyrunner_projects['bridle']['outdir'])}
 breathe_default_project = project
 breathe_domain_by_extension = {
     'h': 'c',
