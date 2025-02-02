@@ -187,22 +187,28 @@ doxyrunner_doxydir = os.environ.get('DOCSET_DOXY_PRJ', os.path.join(
                       ZEPHYR_BASE, 'doc', '_doxygen'))
 doxyrunner_doxyfile = os.environ.get('DOCSET_DOXY_IN', os.path.join(
                       BRIDLE_BASE, 'doc', '_doxygen', 'doxyfile-zephyr.in'))
-doxyrunner_outdir = os.path.join(ZEPHYR_BUILD, 'doxygen')
-doxyrunner_outdir_var = 'DOXY_OUT'
+
 doxyrunner_silent = True
-doxyrunner_fmt = True
-doxyrunner_fmt_pattern = '@{}@'
-doxyrunner_fmt_vars = {
-    'DOXY_SET': u'zephyr',
-    'DOXY_IN': str(Path(doxyrunner_doxyfile).absolute().parent),
-    'DOXY_LAYOUT': u'zephyr-doxyrunner',
-    'DOXY_LOGOUT': str(Path(ZEPHYR_WORKD).absolute()),
-    'DOXY_LOGWRN': u'doxygen-warnings.txt',
-    'PROJECT_DOXY': str(Path(doxyrunner_doxydir).absolute()),
-    'PROJECT_BASE': str(ZEPHYR_BASE),
-    'PROJECT_NAME': project,
-    'PROJECT_VERSION': version,
-    'PROJECT_BRIEF': str(os.environ.get('DOCSET_BRIEF', 'Unknown project brief!')),
+doxyrunner_projects = {
+    'zephyr': {
+        'doxyfile': str(Path(doxyrunner_doxyfile).absolute()),
+        'outdir': os.path.join(ZEPHYR_BUILD, 'doxygen'),
+        'outdir_var': 'DOXY_OUT',
+        'fmt': True,
+        'fmt_pattern': '@{}@',
+        'fmt_vars': {
+            'DOXY_SET': u'zephyr',
+            'DOXY_IN': str(Path(doxyrunner_doxyfile).absolute().parent),
+            'DOXY_LAYOUT': u'zephyr-doxyrunner',
+            'DOXY_LOGOUT': str(Path(ZEPHYR_WORKD).absolute()),
+            'DOXY_LOGWRN': u'doxygen-warnings.txt',
+            'PROJECT_DOXY': str(Path(doxyrunner_doxydir).absolute()),
+            'PROJECT_BASE': str(ZEPHYR_BASE),
+            'PROJECT_NAME': project,
+            'PROJECT_VERSION': version,
+            'PROJECT_BRIEF': str(os.environ.get('DOCSET_BRIEF', 'Unknown project brief!')),
+        },
+    },
 }
 
 # -- Options for zephyr.kconfig ------------------------------------------------
