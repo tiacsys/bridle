@@ -42,7 +42,7 @@ sys.path.insert(0, os.path.join(ZEPHYR_BASE, 'doc', '_extensions'))
 
 # General information about the project.
 project = utils.get_projname('bridle')
-copyright = u'2019-2024 TiaC Systems members and individual contributors'
+copyright = u'2019-2025 TiaC Systems members and individual contributors'
 author = u'TiaC Systems'
 
 # parse version from 'VERSION' file
