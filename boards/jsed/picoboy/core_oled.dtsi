@@ -28,7 +28,7 @@
 		spi-max-frequency = <DT_FREQ_M(20)>;
 
 		reset-gpios = <&gpio0 9 GPIO_ACTIVE_LOW>;
-		data_cmd-gpios = <&gpio0 8 GPIO_ACTIVE_HIGH>;
+		data-cmd-gpios = <&gpio0 8 GPIO_ACTIVE_HIGH>;
 
 		width = <128>;
 		height = <64>;
