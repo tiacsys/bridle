@@ -1,4 +1,4 @@
-# Copyright (c) 2023-2024 TiaC Systems
+# Copyright (c) 2023-2025 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 # Some platforms already have the sysbuild flag set and as long as our
@@ -63,7 +63,10 @@
     - mimxrt1010_evk/mimxrt1011
     - mimxrt1060_evk@A/mimxrt1062/hyperflash
     - mimxrt1060_evk@A/mimxrt1062/qspi
+    - mimxrt1060_evk@B/mimxrt1062/hyperflash
     - mimxrt1060_evk@B/mimxrt1062/qspi
+    - mimxrt1060_evk@C/mimxrt1062/hyperflash
+    - mimxrt1060_evk@C/mimxrt1062/qspi
 
 - comment: "shield(grove.base.x_grove_testbed.pwm.b4l6): invalid board/shield condition."
   scenarios:
@@ -206,7 +209,10 @@
     - mimxrt1010_evk/mimxrt1011
     - mimxrt1060_evk@A/mimxrt1062/hyperflash
     - mimxrt1060_evk@A/mimxrt1062/qspi
+    - mimxrt1060_evk@B/mimxrt1062/hyperflash
     - mimxrt1060_evk@B/mimxrt1062/qspi
+    - mimxrt1060_evk@C/mimxrt1062/hyperflash
+    - mimxrt1060_evk@C/mimxrt1062/qspi
     - nucleo_f303re/stm32f303xe
     - nucleo_f401re/stm32f401xe
     - nucleo_f413zh/stm32f413xx
@@ -257,7 +263,10 @@
     - mimxrt1010_evk/mimxrt1011
     - mimxrt1060_evk@A/mimxrt1062/hyperflash
     - mimxrt1060_evk@A/mimxrt1062/qspi
+    - mimxrt1060_evk@B/mimxrt1062/hyperflash
     - mimxrt1060_evk@B/mimxrt1062/qspi
+    - mimxrt1060_evk@C/mimxrt1062/hyperflash
+    - mimxrt1060_evk@C/mimxrt1062/qspi
     - nucleo_f303re/stm32f303xe
     - nucleo_f401re/stm32f401xe
     - nucleo_f413zh/stm32f413xx
@@ -315,7 +324,10 @@
     - mimxrt1010_evk/mimxrt1011
     - mimxrt1060_evk@A/mimxrt1062/hyperflash
     - mimxrt1060_evk@A/mimxrt1062/qspi
+    - mimxrt1060_evk@B/mimxrt1062/hyperflash
     - mimxrt1060_evk@B/mimxrt1062/qspi
+    - mimxrt1060_evk@C/mimxrt1062/hyperflash
+    - mimxrt1060_evk@C/mimxrt1062/qspi
     - nucleo_f303re/stm32f303xe
     - nucleo_f401re/stm32f401xe
     - nucleo_f413zh/stm32f413xx
@@ -346,7 +358,10 @@
     - mimxrt1010_evk/mimxrt1011
     - mimxrt1060_evk@A/mimxrt1062/hyperflash
     - mimxrt1060_evk@A/mimxrt1062/qspi
+    - mimxrt1060_evk@B/mimxrt1062/hyperflash
     - mimxrt1060_evk@B/mimxrt1062/qspi
+    - mimxrt1060_evk@C/mimxrt1062/hyperflash
+    - mimxrt1060_evk@C/mimxrt1062/qspi
     - nucleo_f303re/stm32f303xe
     - nucleo_f401re/stm32f401xe
     - nucleo_f413zh/stm32f413xx
@@ -384,7 +399,10 @@
     - mimxrt1010_evk/mimxrt1011
     - mimxrt1060_evk@A/mimxrt1062/hyperflash
     - mimxrt1060_evk@A/mimxrt1062/qspi
+    - mimxrt1060_evk@B/mimxrt1062/hyperflash
     - mimxrt1060_evk@B/mimxrt1062/qspi
+    - mimxrt1060_evk@C/mimxrt1062/hyperflash
+    - mimxrt1060_evk@C/mimxrt1062/qspi
     - nucleo_f303re/stm32f303xe
     - nucleo_f401re/stm32f401xe
     - nucleo_f413zh/stm32f413xx
@@ -680,7 +698,10 @@
   platforms:
     - mimxrt1060_evk@A/mimxrt1062/hyperflash
     - mimxrt1060_evk@A/mimxrt1062/qspi
+    - mimxrt1060_evk@B/mimxrt1062/hyperflash
     - mimxrt1060_evk@B/mimxrt1062/qspi
+    - mimxrt1060_evk@C/mimxrt1062/hyperflash
+    - mimxrt1060_evk@C/mimxrt1062/qspi
   scenarios:
     - grove.base.(v2|v1).grove_led.pwm.d0
     - grove.base.(v2|v1).grove_led.pwm.d1
@@ -767,7 +788,10 @@
     - mimxrt1010_evk/mimxrt1011
     - mimxrt1060_evk@A/mimxrt1062/hyperflash
     - mimxrt1060_evk@A/mimxrt1062/qspi
+    - mimxrt1060_evk@B/mimxrt1062/hyperflash
     - mimxrt1060_evk@B/mimxrt1062/qspi
+    - mimxrt1060_evk@C/mimxrt1062/hyperflash
+    - mimxrt1060_evk@C/mimxrt1062/qspi
     - nucleo_f303re/stm32f303xe
     - nucleo_f401re/stm32f401xe
     - nucleo_f413zh/stm32f413xx
@@ -807,7 +831,10 @@
     - mimxrt1010_evk/mimxrt1011
     - mimxrt1060_evk@A/mimxrt1062/hyperflash
     - mimxrt1060_evk@A/mimxrt1062/qspi
+    - mimxrt1060_evk@B/mimxrt1062/hyperflash
     - mimxrt1060_evk@B/mimxrt1062/qspi
+    - mimxrt1060_evk@C/mimxrt1062/hyperflash
+    - mimxrt1060_evk@C/mimxrt1062/qspi
     - nucleo_f303re/stm32f303xe
     - nucleo_f401re/stm32f401xe
     - nucleo_f413zh/stm32f413xx
@@ -839,7 +866,10 @@
     - mimxrt1010_evk/mimxrt1011
     - mimxrt1060_evk@A/mimxrt1062/hyperflash
     - mimxrt1060_evk@A/mimxrt1062/qspi
+    - mimxrt1060_evk@B/mimxrt1062/hyperflash
     - mimxrt1060_evk@B/mimxrt1062/qspi
+    - mimxrt1060_evk@C/mimxrt1062/hyperflash
+    - mimxrt1060_evk@C/mimxrt1062/qspi
     - nucleo_f303re/stm32f303xe
     - nucleo_f401re/stm32f401xe
     - nucleo_f413zh/stm32f413xx

@@ -27,9 +27,10 @@ common:
   integration_platforms:
     - arduino_zero
     - mimxrt1010_evk
-    - mimxrt1060_evk@A/mimxrt1062/hyperflash
+    - mimxrt1060_evk/mimxrt1062/hyperflash
     - mimxrt1060_evk@A/mimxrt1062/qspi
     - mimxrt1060_evk@B/mimxrt1062/qspi
+    - mimxrt1060_evk@C/mimxrt1062/qspi
     - nucleo_f303re
     - nucleo_f401re
     - nucleo_f413zh

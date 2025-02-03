@@ -126,7 +126,7 @@ Build and flash for different boards
 
 .. zephyr-app-commands::
    :app: bridle/samples/ubx_gnss
-   :board: mimxrt1060_evk
+   :board: mimxrt1060_evk@B//qspi
    :build-dir: mimxrt1060_evk-ubx_gnss
    :west-args: -p
    :flash-args: -r pyocd

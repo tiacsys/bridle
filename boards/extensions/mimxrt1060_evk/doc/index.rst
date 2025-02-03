@@ -26,7 +26,7 @@ List of extensions
      :width: 50%
      :widths: 100
 
-     * - .. rubric:: NXP MIMXRT1060-EVK and MIMXRT1060-EVKB
+     * - .. rubric:: NXP MIMXRT1060-EVK, MIMXRT1060-EVKB and MIMXRT1060-EVKC
 
      * - .. literalinclude:: ../Kconfig.defconfig
             :caption: Kconfig.defconfig
@@ -52,7 +52,7 @@ List of extensions
      :width: 50%
      :widths: 100
 
-     * - .. rubric:: NXP MIMXRT1060-EVK and MIMXRT1060-EVKB
+     * - .. rubric:: NXP MIMXRT1060-EVK, MIMXRT1060-EVKB and MIMXRT1060-EVKC
 
      * - .. literalinclude:: ../Kconfig.defconfig
             :caption: Kconfig.defconfig
@@ -71,7 +71,7 @@ List of extensions
      :width: 50%
      :widths: 100
 
-     * - .. rubric:: NXP MIMXRT1060-EVK and MIMXRT1060-EVKB
+     * - .. rubric:: NXP MIMXRT1060-EVK, MIMXRT1060-EVKB and MIMXRT1060-EVKC
 
      * - .. literalinclude:: ../mimxrt1060_evk.dtsi
             :caption: mimxrt1060_evk.dtsi
@@ -83,18 +83,28 @@ List of extensions
             :append: };
 
 - FlexPWM not routed to the green user LED ``LED1`` on the EVK **B**
-  revision, thus why board DTS disables :dts:`&flexpwm2_pwm3` but
-  neither related :dts:`&pwmleds` node nor alias:
+  and **C** revision, thus why board DTS disables :dts:`&flexpwm2_pwm3`
+  but neither related :dts:`&pwmleds` node nor alias:
 
   .. list-table::
      :align: left
      :width: 50%
      :widths: 100
 
-     * - .. rubric:: NXP MIMXRT1060-EVKB
+     * - .. rubric:: NXP MIMXRT1060-EVKB and MIMXRT1060-EVKC
 
      * - .. literalinclude:: ../mimxrt1060_evk_mimxrt1062_qspi_B.overlay
             :caption: mimxrt1060_evk_mimxrt1062_qspi_B.overlay
+            :language: DTS
+            :encoding: ISO-8859-1
+            :emphasize-lines: 3,6
+            :prepend: / {
+            :start-at: aliases {
+            :end-at: /delete-node/ pwmleds;
+            :append: };
+
+         .. literalinclude:: ../mimxrt1060_evk_mimxrt1062_qspi_C.overlay
+            :caption: mimxrt1060_evk_mimxrt1062_qspi_C.overlay
             :language: DTS
             :encoding: ISO-8859-1
             :emphasize-lines: 3,6
@@ -114,7 +124,7 @@ List of extensions
      :width: 50%
      :widths: 100
 
-     * - .. rubric:: NXP MIMXRT1060-EVK and MIMXRT1060-EVKB
+     * - .. rubric:: NXP MIMXRT1060-EVK, MIMXRT1060-EVKB and MIMXRT1060-EVKC
 
      * - .. literalinclude:: ../mimxrt1060_evk.dtsi
             :caption: mimxrt1060_evk.dtsi

@@ -72,9 +72,10 @@ specified as required.
 
    * - |mimxrt1060_evk_URB_VID|
      - |mimxrt1060_evk_URB_PID_CON|
-     - | :code:`mimxrt1060_evk@B/mimxrt1062/qspi`
+     - | :code:`mimxrt1060_evk@C/mimxrt1062/qspi`
+       | :code:`mimxrt1060_evk@B/mimxrt1062/qspi`
        | :code:`mimxrt1060_evk@A/mimxrt1062/qspi`
-       | :code:`mimxrt1060_evk@A/mimxrt1062/hyperflash`
+       | :code:`mimxrt1060_evk/mimxrt1062/hyperflash`
      - |NXP Semiconductors|_
      - |MIMXRT1060-EVK (CDC ACM)|
      - derived VID from part number MIMXRT1062DVL6A

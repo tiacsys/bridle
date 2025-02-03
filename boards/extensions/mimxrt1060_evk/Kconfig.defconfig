@@ -1,6 +1,6 @@
 # NXP MIMXRT1060-EVK board extended configuration
 
-# Copyright (c) 2024 TiaC Systems
+# Copyright (c) 2024-2025 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 config USB_SELF_POWERED

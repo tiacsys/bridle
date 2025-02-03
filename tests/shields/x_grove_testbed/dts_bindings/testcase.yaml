@@ -29,9 +29,10 @@ common:
     - cytron_maker_nano_rp2040
     - cytron_maker_pi_rp2040
     - mimxrt1010_evk
-    - mimxrt1060_evk@A/mimxrt1062/hyperflash
+    - mimxrt1060_evk/mimxrt1062/hyperflash
     - mimxrt1060_evk@A/mimxrt1062/qspi
     - mimxrt1060_evk@B/mimxrt1062/qspi
+    - mimxrt1060_evk@C/mimxrt1062/qspi
     - nucleo_f303re
     - nucleo_f401re
     - nucleo_f413zh
@@ -62,9 +63,10 @@ tests:
       SHIELD=seeed_grove_base_v2;grove_btn_d4;grove_led_d6;x_grove_testbed
     platform_allow:
       - mimxrt1010_evk
-      - mimxrt1060_evk@A/mimxrt1062/hyperflash
+      - mimxrt1060_evk/mimxrt1062/hyperflash
       - mimxrt1060_evk@A/mimxrt1062/qspi
       - mimxrt1060_evk@B/mimxrt1062/qspi
+      - mimxrt1060_evk@C/mimxrt1062/qspi
   grove.base.v2.x_grove_testbed.pwm.b4l6:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_d4_header") and
