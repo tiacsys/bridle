@@ -23,8 +23,6 @@ extern "C" {
  * SC16IS75X register bit/field access operations
  */
 
-#define IS_BIT_SET(reg, bit)		(((reg >> bit) & (0x1)) != 0)
-
 #define FIELD_POS(field)		field##_POS
 #define FIELD_SIZE(field)		field##_SIZE
 
