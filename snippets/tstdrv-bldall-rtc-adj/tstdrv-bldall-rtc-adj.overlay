@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 TiaC Systems
+ * Copyright (c) 2024-2025 TiaC Systems
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -38,12 +38,12 @@
 			compatible = "maxim,ds3231-mfd";
 			status = "okay";
 			reg = <0x1>;
-			isw-gpios = <&test_gpio_adj 0 0>;
-			32k-gpios = <&test_gpio_adj 0 0>;
 
 			test_i2c_ds3231_rtc: ds3231-rtc {
 				compatible = "maxim,ds3231-rtc";
 				status = "okay";
+				isw-gpios = <&test_gpio_adj 0 0>;
+				freq-32khz-gpios = <&test_gpio_adj 0 0>;
 			};
 		};
 	};
