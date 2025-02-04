@@ -8,6 +8,7 @@
 # with any of the Twister filter options in the testcase.yaml files.
 - comment: "boards(sysbuild:true): feature not yet supported by Bridle tests."
   platforms:
+    - nrf5340dk/nrf5340/cpuapp/ns
     - nrf54h20dk@0.8.0/nrf54h20/cpuapp
     - nrf54h20dk@0.9.0/nrf54h20/cpuapp
     - nrf54h20dk@0.8.0/nrf54h20/cpurad
@@ -20,10 +21,15 @@
     - nrf54h20dk@0.9.0/nrf54h20/cpuflpr
     - nrf54h20dk@0.8.0/nrf54h20/cpuflpr/xip
     - nrf54h20dk@0.9.0/nrf54h20/cpuflpr/xip
+    - nrf54l09pdk/nrf54l09/cpuapp
+    - nrf54l15dk/nrf54l05/cpuapp
+    - nrf54l15dk/nrf54l10/cpuapp
     - nrf54l15dk/nrf54l15/cpuapp
     - nrf54l15dk/nrf54l15/cpuflpr
     - nrf54l15dk/nrf54l15/cpuflpr/xip
     - nrf54l20pdk/nrf54l20/cpuapp
+    - nrf9160dk@0.7.0/nrf9160/ns
+    - nrf9160dk@0.14.0/nrf9160/ns
     - nrf9280pdk/nrf9280/cpuapp
     - nrf9280pdk/nrf9280/cpurad
     - nrf9280pdk/nrf9280/cpuppr/xip
