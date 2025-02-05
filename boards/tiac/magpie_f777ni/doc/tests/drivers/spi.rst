@@ -58,18 +58,18 @@ Building and Running
          INFO    - JOBS: 4
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1/7 magpie_f777ni/stm32f777xx tests/drivers/spi/spi_loopback/drivers.spi.max32_dma.loopback :byl:`FILTERED` (runtime filter)
-         INFO    - 2/7 magpie_f777ni/stm32f777xx tests/drivers/spi/spi_loopback/drivers.spi.loopback.lpspi.async.unset :byl:`FILTERED` (runtime filter)
-         INFO    - 3/7 magpie_f777ni/stm32f777xx tests/drivers/spi/spi_loopback/drivers.spi.loopback.lpspi.dma :byl:`FILTERED` (runtime filter)
-         INFO    - 4/7 magpie_f777ni/stm32f777xx tests/drivers/spi/spi_loopback/drivers.spi.loopback.lpspi.dma.async.unset :byl:`FILTERED` (runtime filter)
-         INFO    - 5/7 magpie_f777ni/stm32f777xx tests/drivers/spi/spi_loopback/drivers.spi.loopback.internal :byl:`FILTERED` (runtime filter)
-         INFO    - 6/7 magpie_f777ni/stm32f777xx tests/drivers/spi/dt_spec/drivers.spi.dt_spec      :bgn:`PASSED` (device: DT04BNT1, 2.962s)
-         INFO    - 7/7 magpie_f777ni/stm32f777xx tests/drivers/spi/spi_loopback/drivers.spi.loopback :bgn:`PASSED` (device: DT04BNT1, 2.753s)
+         INFO    - 1/8 magpie_f777ni/stm32f777xx tests/drivers/spi/spi_loopback/drivers.spi.max32_dma.loopback :byl:`FILTERED` (runtime filter)
+         INFO    - 2/8 magpie_f777ni/stm32f777xx tests/drivers/spi/spi_loopback/drivers.spi.nrf_pm_runtime :byl:`FILTERED` (runtime filter)
+         INFO    - 3/8 magpie_f777ni/stm32f777xx tests/drivers/spi/spi_loopback/drivers.spi.loopback.lpspi.dma.async.unset :byl:`FILTERED` (runtime filter)
+         INFO    - 4/8 magpie_f777ni/stm32f777xx tests/drivers/spi/spi_loopback/drivers.spi.loopback.lpspi.async.unset :byl:`FILTERED` (runtime filter)
+         INFO    - 5/8 magpie_f777ni/stm32f777xx tests/drivers/spi/spi_loopback/drivers.spi.loopback.internal :byl:`FILTERED` (runtime filter)
+         INFO    - 6/8 magpie_f777ni/stm32f777xx tests/drivers/spi/spi_loopback/drivers.spi.loopback.lpspi.dma :byl:`FILTERED` (runtime filter)
+         INFO    - 7/8 magpie_f777ni/stm32f777xx tests/drivers/spi/dt_spec/drivers.spi.dt_spec      :bgn:`PASSED` (device: DT04BNT1, 2.495s <zephyr>)
+         INFO    - 8/8 magpie_f777ni/stm32f777xx tests/drivers/spi/spi_loopback/drivers.spi.loopback :bgn:`PASSED` (device: DT04BNT1, 2.884s <zephyr>)
 
-         INFO    - 2294 test scenarios (2077 test instances) selected, :byl:`2075` configurations filtered (2070 by static filter, 5 at runtime).
-         INFO    - :bgn:`2 of 2` executed test configurations passed (100.00%), :bbk:`0` built (not run), :brd:`0` failed, :bbk:`0` errored, with no warnings in :bbk:`48.23 seconds`.
-         INFO    - 2 of 2 executed test cases passed (100.00%) on 1 out of total 876 platforms (0.11%).
-         INFO    - 16089 selected test cases not executed: 10 skipped, 16079 filtered.
+         INFO    - 2537 test scenarios (2325 configurations) selected, :byl:`2323` configurations filtered (2317 by static filter, 6 at runtime).
+         INFO    - :bgn:`2 of 2` executed test configurations passed (100.00%), :bbk:`0` built (not run), :brd:`0` failed, :bbk:`0` errored, with no warnings in :bbk:`43.39 seconds`.
+         INFO    - 2 of 2 executed test cases passed (100.00%) on 1 out of total 947 platforms (0.11%).
          INFO    - :bgn:`2` test configurations executed on platforms, :bbl:`0` test configurations were only built.
 
          Hardware distribution summary:

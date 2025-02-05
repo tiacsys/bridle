@@ -60,13 +60,12 @@ Building and Running
          INFO    - Added initial list of jobs to queue
          INFO    - 1/3 magpie_f777ni/stm32f777xx tests/drivers/i2c/i2c_bme688/drivers.i2c.bme688    :byl:`FILTERED` (runtime filter)
          INFO    - 2/3 magpie_f777ni/stm32f777xx tests/drivers/i2c/i2c_api/drivers.i2c.api          :byl:`FILTERED` (runtime filter)
-         INFO    - 3/3 magpie_f777ni/stm32f777xx tests/drivers/i2c/i2c_target_api/drivers.i2c.target_api.dual_role :brd:`ERROR` Build failure (device)
+         INFO    - 3/3 magpie_f777ni/stm32f777xx tests/drivers/i2c/i2c_target_api/drivers.i2c.target_api.dual_role :brd:`ERROR` Build failure (device <zephyr>)
          INFO    - :byl:`.../twister-out/magpie_f777ni_stm32f777xx/tests/drivers/i2c/i2c_target_api/drivers.i2c.target_api.dual_role/build.log`
 
-         INFO    - 2294 test scenarios (2077 test instances) selected, :byl:`2076` configurations filtered (2074 by static filter, 2 at runtime).
-         INFO    - :bgn:`0 of 1` executed test configurations passed (0.00%), :bbk:`0` built (not run), :brd:`0` failed, :bbk:`1` errored, with no warnings in :bbk:`22.66 seconds`.
-         INFO    - 0 of 1 executed test cases passed (0.00%), 1 blocked on 1 out of total 876 platforms (0.11%).
-         INFO    - 16091 selected test cases not executed: 6 skipped, 16085 filtered.
+         INFO    - 2537 test scenarios (2325 configurations) selected, :byl:`2324` configurations filtered (2322 by static filter, 2 at runtime).
+         INFO    - :bgn:`0 of 1` executed test configurations passed (0.00%), :bbk:`0` built (not run), :brd:`0` failed, :bbk:`1` errored, with no warnings in :bbk:`21.01 seconds`.
+         INFO    - 0 of 1 executed test cases passed (0.00%), 1 blocked on 1 out of total 947 platforms (0.11%).
          INFO    - :bgn:`0` test configurations executed on platforms, :bbl:`1` test configurations were only built.
 
          Hardware distribution summary:

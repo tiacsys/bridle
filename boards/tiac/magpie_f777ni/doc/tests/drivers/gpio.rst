@@ -59,14 +59,14 @@ Building and Running
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
          INFO    - 1/4 magpie_f777ni/stm32f777xx tests/drivers/gpio/gpio_nrf/drivers.gpio.gpio_nrf  :byl:`FILTERED` (runtime filter)
-         INFO    - 2/4 magpie_f777ni/stm32f777xx tests/drivers/gpio/gpio_get_direction/drivers.gpio.get_direction :bgn:`PASSED` (device: DT04BNT1, 2.349s)
-         INFO    - 3/4 magpie_f777ni/stm32f777xx tests/drivers/gpio/gpio_api_1pin/drivers.gpio.1pin :bgn:`PASSED` (device: DT04BNT1, 9.371s)
-         INFO    - 4/4 magpie_f777ni/stm32f777xx tests/drivers/gpio/gpio_basic_api/drivers.gpio.2pin :bgn:`PASSED` (device: DT04BNT1, 17.850s)
+         INFO    - 2/4 magpie_f777ni/stm32f777xx tests/drivers/gpio/gpio_api_1pin/drivers.gpio.1pin :bgn:`PASSED` (device: DT04BNT1, 9.394s <zephyr>)
+         INFO    - 3/4 magpie_f777ni/stm32f777xx tests/drivers/gpio/gpio_basic_api/drivers.gpio.2pin :bgn:`PASSED` (device: DT04BNT1, 17.920s <zephyr>)
+         INFO    - 4/4 magpie_f777ni/stm32f777xx tests/drivers/gpio/gpio_get_direction/drivers.gpio.get_direction :bgn:`PASSED` (device: DT04BNT1, 2.493s <zephyr>)
 
-         INFO    - 2294 test scenarios (2077 test instances) selected, :byl:`2074` configurations filtered (2073 by static filter, 1 at runtime).
-         INFO    - :bgn:`3 of 3` executed test configurations passed (100.00%), :bbk:`0` built (not run), :brd:`0` failed, :bbk:`0` errored, with no warnings in :bbk:`82.26 seconds`.
-         INFO    - 28 of 17 executed test cases passed (164.71%) on 1 out of total 876 platforms (0.11%).
-         INFO    - 16075 selected test cases not executed: 24 skipped, 16051 filtered.
+         INFO    - 2537 test scenarios (2325 configurations) selected, :byl:`2322` configurations filtered (2321 by static filter, 1 at runtime).
+         INFO    - :bgn:`3 of 3` executed test configurations passed (100.00%), :bbk:`0` built (not run), :brd:`0` failed, :bbk:`0` errored, with no warnings in :bbk:`69.27 seconds`.
+         INFO    - 28 of 28 executed test cases passed (100.00%) on 1 out of total 947 platforms (0.11%).
+         INFO    - 11 selected test cases not executed: 11 skipped.
          INFO    - :bgn:`3` test configurations executed on platforms, :bbl:`0` test configurations were only built.
 
          Hardware distribution summary:
