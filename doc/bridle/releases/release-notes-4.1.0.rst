@@ -165,9 +165,10 @@ Change log
 
 :brd:`NOT YET, tbd.`
 
-* tbd.
-* tbd.
-* tbd.
+* Remove our own Maxim DS3231 RTC and temperature sensor driver, use the new
+  Zephyr upstream driver instead.
+* Support new revision C of NXP MIMXRT1060-EVK.
+* Use new unified DTS property names.
 
 The following sections provide detailed lists of changes by component.
 
@@ -186,7 +187,8 @@ Build Infrastructure
 
 * tbd.
 * tbd.
-* tbd.
+* Remove ``xtools`` toolchain variant references. The ``xtools`` toolchain
+  variant has been deprecated since Zephyr v3.3.0 and now removed.
 * Enable support for the TDK HAL in the West manifest. This HAL is needed by
   Zephyr upstream test suite to build all sensor drivers.
 
@@ -197,7 +199,9 @@ Documentation
 
 1. tbd.
 2. tbd.
-3. tbd.
+3. Porting to new doxyrunner. The Sphinx extension ``doxyrunner`` now supports
+   multiple Doxygen projects. Adapt it for the original upstream Zephyr API
+   and our own Bridle downstream API documentation.
 4. Update all output messages in documentation to be in sync with the upcoming
    Bridle version v4.1.0, based on Zephyr v4.1 (samples and tests).
 
