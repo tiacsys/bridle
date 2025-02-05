@@ -7,7 +7,6 @@ ram: 264
 toolchain:
   - zephyr
   - gnuarmemb
-  - xtools
 supported:
   - rpipico_serial
   - rpipico_gpio

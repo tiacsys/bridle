@@ -7,7 +7,6 @@ ram: 264
 toolchain:
   - zephyr
   - gnuarmemb
-  - xtools
 supported:
   - rp2040mini_serial
   - rp2040mini_spi
