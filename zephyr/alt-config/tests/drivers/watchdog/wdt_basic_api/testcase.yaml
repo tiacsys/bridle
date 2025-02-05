@@ -54,11 +54,17 @@ tests:
     platform_allow:
       - nucleo_h753zi
       - nucleo_h743zi
+  drivers.watchdog.stm32iwdg.boot.off:
+    filter: dt_compat_enabled("st,stm32-window-watchdog") or dt_compat_enabled("st,stm32-watchdog")
+    extra_args: DTC_OVERLAY_FILE="boards/stm32_iwdg.overlay"
+    extra_configs:
+      - CONFIG_WDT_DISABLE_AT_BOOT=y
+    platform_allow:
+      - magpie_f777ni
   drivers.watchdog.stm32iwdg:
     filter: dt_compat_enabled("st,stm32-window-watchdog") or dt_compat_enabled("st,stm32-watchdog")
     extra_args: DTC_OVERLAY_FILE="boards/stm32_iwdg.overlay"
     platform_allow:
-      - magpie_f777ni
       - nucleo_f091rc
       - nucleo_f103rb
       - nucleo_f207zg
