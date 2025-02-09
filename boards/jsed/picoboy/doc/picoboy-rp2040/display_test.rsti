@@ -1,0 +1,118 @@
+The following samples work with the chosen display. That is:
+
+| :hwftlbl-scr:`OLED` : :dts:`chosen { zephyr,display = &oled_panel; };`
+| :hwftlbl-scr:`SH1106` : :dts:`oled_panel: &sh1106_128x64 {};`
+
+.. rubric:: Devicetree compatible
+
+- :dtcompatible:`zephyr,lvgl-keypad-input` with devicetree relation
+  :dts:`lvgl_keypad: lvgl-keypad { input = <&gpio_keys>; };`
+
+  | :hwftlbl-joy:`UP` :
+    :dts:`input-codes = <INPUT_KEY_UP>;` :
+    :dts:`lvgl-codes = <LV_KEY_UP>;`
+  | :hwftlbl-joy:`DOWN` :
+    :dts:`input-codes = <INPUT_KEY_DOWN>;` :
+    :dts:`lvgl-codes = <LV_KEY_DOWN>;`
+  | :hwftlbl-joy:`LEFT` :
+    :dts:`input-codes = <INPUT_KEY_LEFT>;` :
+    :dts:`lvgl-codes = <LV_KEY_LEFT>;`
+  | :hwftlbl-joy:`RIGHT` :
+    :dts:`input-codes = <INPUT_KEY_RIGHT>;` :
+    :dts:`lvgl-codes = <LV_KEY_RIGHT>;`
+  | :hwftlbl-joy:`ENTER` :
+    :dts:`input-codes = <INPUT_KEY_ENTER>;` :
+    :dts:`lvgl-codes = <LV_KEY_ENTER>;`
+
+.. rubric:: LCD Orientation and Bit Order Test
+
+.. image:: picoboy-rp2040/display.gif
+   :align: right
+   :alt: PicoBoy Display Test
+
+Draw some basic rectangles onto the display using the
+:zephyr:ref:`Display driver API <display_api>`. See also Zephyr sample:
+:zephyr:code-sample:`display`.
+
+.. zephyr-app-commands::
+   :app: zephyr/samples/drivers/display
+   :board: picoboy/rp2040
+   :build-dir: picoboy
+   :west-args: -p
+   :goals: flash
+   :compact:
+
+.. rubric:: LVGL Basic Sample
+
+Displays “Hello World!” in the center of the screen and a counter at the
+bottom which increments every second using the LVGL module on top of the
+:zephyr:ref:`Display driver API <display_api>`. See also Zephyr sample:
+:zephyr:code-sample:`lvgl`.
+
+.. zephyr-app-commands::
+   :app: zephyr/samples/subsys/display/lvgl
+   :board: picoboy/rp2040
+   :build-dir: picoboy
+   :west-args: -p
+   :goals: flash
+   :compact:
+
+This sample comes with a Shell command line access to the LVGL backend
+on the console, here configured for a USB console:
+
+.. rubric:: Simple test execution on target
+
+.. container:: highlight highlight-console notranslate
+
+   .. parsed-literal::
+
+      :bgn:`uart:~$` **lvgl**
+      lvgl - LVGL shell commands
+      Subcommands:
+        stats   : Show LVGL statistics
+        monkey  : LVGL monkey testing
+
+      :bgn:`uart:~$` **lvgl stats**
+      stats - Show LVGL statistics
+      Subcommands:
+        memory  : Show LVGL memory statistics
+                  Usage: lvgl stats memory [-c]
+                  -c  dump chunk information
+
+      :bgn:`uart:~$` **lvgl stats memory**
+      Heap at 0x20001250 contains 2047 units in 11 buckets
+
+        bucket#    min units        total      largest      largest
+                   threshold       chunks      (units)      (bytes)
+        -----------------------------------------------------------
+              1            2            1            2           12
+             10         1024            1         1456        11644
+
+      11656 free bytes, 4464 allocated bytes, overhead = 260 bytes (1.6%)
+
+   .. parsed-literal::
+
+      :bgn:`uart:~$` **device list**
+      devices:
+      - clock-controller\ @\ 40008000 (READY)
+        DT node labels: clocks
+      - reset-controller\ @\ 4000c000 (READY)
+        DT node labels: reset
+      - cdc_acm_console_uart (READY)
+        DT node labels: cdc_acm_console_uart
+      - watchdog\ @\ 40058000 (READY)
+        DT node labels: wdt0
+      - dma\ @\ 50000000 (READY)
+        DT node labels: dma
+      - gpio\ @\ 40014000 (READY)
+        DT node labels: gpio0
+      - pwm\ @\ 40050000 (READY)
+        DT node labels: pwm
+      - spi\ @\ 4003c000 (READY)
+        DT node labels: spi0
+      - sh1106_128x64\ @\ 0 (READY)
+        DT node labels: sh1106_128x64 oled_panel
+      - gpio_keys (READY)
+        DT node labels: gpio_keys
+      - lvgl-keypad (READY)
+        DT node labels: lvgl_keypad

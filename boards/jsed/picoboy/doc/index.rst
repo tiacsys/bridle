@@ -1,4 +1,4 @@
-.. _picoboy_board:
+.. _the_picoboy:
 
 The PicoBoy
 ###########
@@ -16,12 +16,22 @@ Board Overview
 Hardware
 ========
 
-.. include:: hardware.rsti
+.. tabs::
+
+   .. group-tab:: PicoBoy
+
+      .. _picoboy_rp2040:
+
+      .. include:: picoboy-rp2040/hardware.rsti
 
 Positions
 =========
 
-.. include:: positions.rsti
+.. tabs::
+
+   .. group-tab:: PicoBoy
+
+      .. include:: picoboy-rp2040/positions.rsti
 
 Pinouts
 =======
@@ -34,7 +44,11 @@ for the PicoBoy on-board wiring is defined below. There are no edge
 connectors, headers or solder pads with additional signals routed to
 outside of the board.
 
-.. include:: pinouts.rsti
+.. tabs::
+
+   .. group-tab:: PicoBoy
+
+      .. include:: picoboy-rp2040/pinouts.rsti
 
 Supported Features
 ******************
@@ -142,16 +156,21 @@ supports the following hardware features:
 Other hardware features are not currently supported by Zephyr. The default
 configuration can be found in the following Kconfig file:
 
-   - :bridle_file:`boards/jsed/picoboy/picoboy_defconfig`
+   - :bridle_file:`boards/jsed/picoboy/picoboy_rp2040_defconfig`
 
 Board Configurations
 ====================
 
 The PicoBoy board can be configured only for the following single use cases.
 
-.. rubric:: :command:`west build -b picoboy`
+.. tabs::
 
-Use the native USB device port with CDC-ACM as Zephyr console and for the shell.
+   .. group-tab:: PicoBoy
+
+      .. rubric:: :command:`west build -b picoboy/rp2040`
+
+      Use the native USB device port with CDC-ACM as
+      Zephyr console and for the shell.
 
 Connections and IOs
 ===================
@@ -221,15 +240,19 @@ sample which sets up a virtual serial port that echos characters back to the
 host PC. The |PicoBoy| provides the Zephyr console per default on the USB port
 as :zephyr:ref:`usb_device_cdc_acm`:
 
-   .. container:: highlight-console notranslate literal-block
+.. tabs::
 
-      .. parsed-literal::
+   .. group-tab:: PicoBoy
 
-         USB device idVendor=\ |picoboy_VID|, idProduct=\ |picoboy_PID_CON|, bcdDevice=\ |picoboy_BCD_CON|
-         USB device strings: Mfr=1, Product=2, SerialNumber=3
-         Product: |picoboy_PStr_CON|
-         Manufacturer: |picoboy_VStr|
-         SerialNumber: BD774B2618DAAA7D
+         .. container:: highlight-console notranslate literal-block
+
+            .. parsed-literal::
+
+               USB device idVendor=\ |picoboy_VID|, idProduct=\ |picoboy_PID_CON|, bcdDevice=\ |picoboy_BCD_CON|
+               USB device strings: Mfr=1, Product=2, SerialNumber=3
+               Product: |picoboy_PStr_CON|
+               Manufacturer: |picoboy_VStr|
+               SerialNumber: BD774B2618DAAA7D
 
 Programmable I/O (PIO)
 **********************
@@ -305,129 +328,32 @@ Debugging
 The |PicoBoy| does not provide any SWD connector, thus debugging software
 is not possible.
 
-More Samples
-************
+Basic Samples
+*************
 
 LED Blinky and Fade
 ===================
 
-.. rubric:: Red User LED Blinky by GPIO
+.. tabs::
 
-See also Zephyr sample: :zephyr:code-sample:`blinky`.
+   .. group-tab:: PicoBoy
 
-.. zephyr-app-commands::
-   :app: zephyr/samples/basic/blinky
-   :board: picoboy
-   :build-dir: picoboy
-   :west-args: -p
-   :goals: flash
-   :compact:
+      .. include:: picoboy-rp2040/blinky_fade.rsti
 
-.. rubric:: Red User LED Blinky by PWM
+Hello Shell on USB-CDC/ACM Console
+==================================
 
-See also Zephyr sample: :zephyr:code-sample:`pwm-blinky`.
+.. tabs::
 
-.. zephyr-app-commands::
-   :app: zephyr/samples/basic/blinky_pwm
-   :board: picoboy
-   :build-dir: picoboy
-   :west-args: -p
-   :goals: flash
-   :compact:
+   .. group-tab:: PicoBoy
 
-.. rubric:: Red User LED Fade by PWM
+      .. include:: picoboy-rp2040/helloshell.rsti
 
-See also Zephyr sample: :zephyr:code-sample:`fade-led`.
+More Samples
+************
 
-.. zephyr-app-commands::
-   :app: zephyr/samples/basic/fade_led
-   :board: picoboy
-   :build-dir: picoboy
-   :west-args: -p
-   :goals: flash
-   :compact:
-
-.. rubric:: Red User LED On/Off by GPIO Button (Joystick ENTER)
-
-See also Zephyr sample: :zephyr:code-sample:`button`.
-
-.. zephyr-app-commands::
-   :app: zephyr/samples/basic/button
-   :board: picoboy
-   :build-dir: picoboy
-   :west-args: -p
-   :goals: flash
-   :compact:
-
-Hello Shell on the USB-CDC/ACM Console
-======================================
-
-.. rubric:: Hello Shell
-
-.. zephyr-app-commands::
-   :app: bridle/samples/helloshell
-   :board: picoboy
-   :build-dir: picoboy
-   :west-args: -p
-   :goals: flash
-   :compact:
-
-.. include:: helloshell.rsti
-
-Input dump on the USB-CDC/ACM Console
-=====================================
-
-Print the input events related to the five on-board joystick keys using
-the :zephyr:ref:`Input subsystem API <input>`. That are:
-
-| :hwftlbl-joy:`UP` : :dts:`zephyr,code = <INPUT_KEY_UP>;`
-| :hwftlbl-joy:`DOWN` : :dts:`zephyr,code = <INPUT_KEY_DOWN>;`
-| :hwftlbl-joy:`LEFT` : :dts:`zephyr,code = <INPUT_KEY_LEFT>;`
-| :hwftlbl-joy:`RIGHT` : :dts:`zephyr,code = <INPUT_KEY_RIGHT>;`
-| :hwftlbl-joy:`ENTER` : :dts:`zephyr,code = <INPUT_KEY_ENTER>;`
-
-See also Zephyr sample: :zephyr:code-sample:`input-dump`.
-
-.. rubric:: Joystick Test
-
-.. zephyr-app-commands::
-   :app: zephyr/samples/subsys/input/input_dump
-   :board: picoboy
-   :build-dir: picoboy
-   :west-args: -p
-   :goals: flash
-   :compact:
-
-.. rubric:: Simple logging output on target
-
-.. container:: highlight highlight-console notranslate no-copybutton
-
-   .. parsed-literal::
-
-      \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-      W: BUS RESET
-      W: BUS RESET
-      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
-      Input sample started
-      I: input event: dev=gpio_keys        SYN type= 1 code=103 value=1
-      I: input event: dev=gpio_keys        SYN type= 1 code=103 value=0
-      I: input event: dev=gpio_keys        SYN type= 1 code=108 value=1
-      I: input event: dev=gpio_keys        SYN type= 1 code=108 value=0
-      I: input event: dev=gpio_keys        SYN type= 1 code=105 value=1
-      I: input event: dev=gpio_keys        SYN type= 1 code=105 value=0
-      I: input event: dev=gpio_keys        SYN type= 1 code=106 value=1
-      I: input event: dev=gpio_keys        SYN type= 1 code=106 value=0
-      I: input event: dev=gpio_keys        SYN type= 1 code= 28 value=1
-      I: input event: dev=gpio_keys        SYN type= 1 code= 28 value=0
-
-Sounds from the speaker on the USB-CDC/ACM Console
-==================================================
-
-.. rubric:: Speaker Test
-
-.. image:: img/speaker.jpg
-   :align: right
-   :alt: PicoBoy Speaker Test
+Sounds from the speaker on USB-CDC/ACM Console
+==============================================
 
 The sample is prepared for the on-board :hwftlbl-spk:`PWM_SPEAKER` connected
 to the PWM channel at :rpi-pico-pio:`GP15` / :rpi-pico-pwm:`PWM15` (PWM7CHB).
@@ -442,161 +368,29 @@ The PWM period is 880 ㎐, twice the concert pitch frequency of 440 ㎐.
    :linenos:
    :start-at: / {
 
-Invoke :program:`west build` and :program:`west flash`:
+.. tabs::
 
-.. zephyr-app-commands::
-   :app: bridle/samples/buzzer
-   :board: picoboy
-   :build-dir: picoboy
-   :west-args: -p
-   :goals: flash
-   :compact:
+   .. group-tab:: PicoBoy
 
-.. rubric:: Simple test execution on target
+      .. include:: picoboy-rp2040/speaker.rsti
 
-#. play a beep
-#. play a folk song
-#. play a chrismas song
+Input dump on USB-CDC/ACM Console
+=================================
 
-.. container:: highlight highlight-console notranslate
+.. tabs::
 
-   .. parsed-literal::
+   .. group-tab:: PicoBoy
 
-      :bgn:`uart:~$` **buzzer beep**
-
-.. container:: highlight highlight-console notranslate
-
-   .. parsed-literal::
-
-      :bgn:`uart:~$` **buzzer play folksong**
-
-.. container:: highlight highlight-console notranslate
-
-   .. parsed-literal::
-
-      :bgn:`uart:~$` **buzzer play xmastime**
+      .. include:: picoboy-rp2040/input_dump.rsti
 
 Display Test and Demonstration
 ==============================
 
-The following samples work with the chosen display. That is:
+.. tabs::
 
-| :hwftlbl-scr:`OLED` : :dts:`chosen { zephyr,display = &oled_panel; };`
-| :hwftlbl-scr:`SH1106` : :dts:`oled_panel: &sh1106_128x64 {};`
+   .. group-tab:: PicoBoy
 
-.. rubric:: Devicetree compatible
-
-- :dtcompatible:`zephyr,lvgl-keypad-input` with devicetree relation
-  :dts:`lvgl_keypad: lvgl-keypad { input = <&gpio_keys>; };`
-
-  | :hwftlbl-joy:`UP` :
-    :dts:`input-codes = <INPUT_KEY_UP>;` :
-    :dts:`lvgl-codes = <LV_KEY_UP>;`
-  | :hwftlbl-joy:`DOWN` :
-    :dts:`input-codes = <INPUT_KEY_DOWN>;` :
-    :dts:`lvgl-codes = <LV_KEY_DOWN>;`
-  | :hwftlbl-joy:`LEFT` :
-    :dts:`input-codes = <INPUT_KEY_LEFT>;` :
-    :dts:`lvgl-codes = <LV_KEY_LEFT>;`
-  | :hwftlbl-joy:`RIGHT` :
-    :dts:`input-codes = <INPUT_KEY_RIGHT>;` :
-    :dts:`lvgl-codes = <LV_KEY_RIGHT>;`
-  | :hwftlbl-joy:`ENTER` :
-    :dts:`input-codes = <INPUT_KEY_ENTER>;` :
-    :dts:`lvgl-codes = <LV_KEY_ENTER>;`
-
-.. rubric:: LCD Orientation and Bit Order Test
-
-.. image:: img/display.gif
-   :align: right
-   :alt: PicoBoy Display Test
-
-Draw some basic rectangles onto the display using the
-:zephyr:ref:`Display driver API <display_api>`. See also Zephyr sample:
-:zephyr:code-sample:`display`.
-
-.. zephyr-app-commands::
-   :app: zephyr/samples/drivers/display
-   :board: picoboy
-   :build-dir: picoboy
-   :west-args: -p
-   :goals: flash
-   :compact:
-
-.. rubric:: LVGL Basic Sample
-
-Displays “Hello World!” in the center of the screen and a counter at the bottom
-which increments every second using the LVGL module on top of the
-:zephyr:ref:`Display driver API <display_api>`. See also Zephyr sample:
-:zephyr:code-sample:`lvgl`.
-
-.. zephyr-app-commands::
-   :app: zephyr/samples/subsys/display/lvgl
-   :board: picoboy
-   :build-dir: picoboy
-   :west-args: -p
-   :goals: flash
-   :compact:
-
-This sample comes with a Shell command line access to the LVGL backend
-on the console, here configured for a USB console:
-
-.. rubric:: Simple test execution on target
-
-.. container:: highlight highlight-console notranslate
-
-   .. parsed-literal::
-
-      :bgn:`uart:~$` **lvgl**
-      lvgl - LVGL shell commands
-      Subcommands:
-        stats   : Show LVGL statistics
-        monkey  : LVGL monkey testing
-
-      :bgn:`uart:~$` **lvgl stats**
-      stats - Show LVGL statistics
-      Subcommands:
-        memory  : Show LVGL memory statistics
-                  Usage: lvgl stats memory [-c]
-                  -c  dump chunk information
-
-      :bgn:`uart:~$` **lvgl stats memory**
-      Heap at 0x20001250 contains 2047 units in 11 buckets
-
-        bucket#    min units        total      largest      largest
-                   threshold       chunks      (units)      (bytes)
-        -----------------------------------------------------------
-              1            2            1            2           12
-             10         1024            1         1456        11644
-
-      11656 free bytes, 4464 allocated bytes, overhead = 260 bytes (1.6%)
-
-   .. parsed-literal::
-
-      :bgn:`uart:~$` **device list**
-      devices:
-      - clock-controller\ @\ 40008000 (READY)
-        DT node labels: clocks
-      - reset-controller\ @\ 4000c000 (READY)
-        DT node labels: reset
-      - cdc_acm_console_uart (READY)
-        DT node labels: cdc_acm_console_uart
-      - watchdog\ @\ 40058000 (READY)
-        DT node labels: wdt0
-      - dma\ @\ 50000000 (READY)
-        DT node labels: dma
-      - gpio\ @\ 40014000 (READY)
-        DT node labels: gpio0
-      - pwm\ @\ 40050000 (READY)
-        DT node labels: pwm
-      - spi\ @\ 4003c000 (READY)
-        DT node labels: spi0
-      - sh1106_128x64\ @\ 0 (READY)
-        DT node labels: sh1106_128x64 oled_panel
-      - gpio_keys (READY)
-        DT node labels: gpio_keys
-      - lvgl-keypad (READY)
-        DT node labels: lvgl_keypad
+      .. include:: picoboy-rp2040/display_test.rsti
 
 References
 **********

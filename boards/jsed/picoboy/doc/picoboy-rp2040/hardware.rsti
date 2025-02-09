@@ -67,6 +67,6 @@ The `PicoBoy`_ is a :bbk:`special mini sized` RP2040 development board.
        - `PicoBoy Details`_ (German)
        - :emphasis:`PicoBoy Schematic`, (not yet) available
 
-     - .. image:: img/hardware.jpg
+     - .. image:: picoboy-rp2040/hardware.jpg
           :align: center
           :alt: PicoBoy

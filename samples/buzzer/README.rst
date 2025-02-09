@@ -44,8 +44,8 @@ alias :dts:`pwm-buzzer0`. You will need to do something like this:
 Note that a commonly used period value is 880 ㎐, twice the concert pitch
 frequency of 440 ㎐. See one of the following development boards:
 
-  * :ref:`cytron_maker_rp2040`
-  * :ref:`picoboy_board`
+  * |bridle:board:cytron_maker_rp2040|
+  * |bridle:board:picoboy|
 
 Building and Running
 ********************

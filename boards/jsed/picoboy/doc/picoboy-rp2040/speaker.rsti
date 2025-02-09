@@ -1,0 +1,39 @@
+.. rubric:: Speaker Test
+
+.. image:: picoboy-rp2040/speaker.jpg
+   :align: right
+   :alt: PicoBoy Speaker Test
+
+Invoke :program:`west build` and :program:`west flash`:
+
+.. zephyr-app-commands::
+   :app: bridle/samples/buzzer
+   :board: picoboy/rp2040
+   :build-dir: picoboy
+   :west-args: -p
+   :goals: flash
+   :compact:
+
+.. rubric:: Simple test execution on target
+
+#. play a beep
+#. play a folk song
+#. play a chrismas song
+
+.. container:: highlight highlight-console notranslate
+
+   .. parsed-literal::
+
+      :bgn:`uart:~$` **buzzer beep**
+
+.. container:: highlight highlight-console notranslate
+
+   .. parsed-literal::
+
+      :bgn:`uart:~$` **buzzer play folksong**
+
+.. container:: highlight highlight-console notranslate
+
+   .. parsed-literal::
+
+      :bgn:`uart:~$` **buzzer play xmastime**

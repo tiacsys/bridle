@@ -1,0 +1,11 @@
+.. rubric:: Hello Shell
+
+.. zephyr-app-commands::
+   :app: bridle/samples/helloshell
+   :board: picoboy/rp2040
+   :build-dir: picoboy
+   :west-args: -p
+   :goals: flash
+   :compact:
+
+.. include:: picoboy-rp2040/helloshell_console.rsti

@@ -1,0 +1,42 @@
+Print the input events related to the five on-board joystick keys using
+the :zephyr:ref:`Input subsystem API <input>`. That are:
+
+| :hwftlbl-joy:`UP` : :dts:`zephyr,code = <INPUT_KEY_UP>;`
+| :hwftlbl-joy:`DOWN` : :dts:`zephyr,code = <INPUT_KEY_DOWN>;`
+| :hwftlbl-joy:`LEFT` : :dts:`zephyr,code = <INPUT_KEY_LEFT>;`
+| :hwftlbl-joy:`RIGHT` : :dts:`zephyr,code = <INPUT_KEY_RIGHT>;`
+| :hwftlbl-joy:`ENTER` : :dts:`zephyr,code = <INPUT_KEY_ENTER>;`
+
+See also Zephyr sample: :zephyr:code-sample:`input-dump`.
+
+.. rubric:: Joystick Test
+
+.. zephyr-app-commands::
+   :app: zephyr/samples/subsys/input/input_dump
+   :board: picoboy/rp2040
+   :build-dir: picoboy
+   :west-args: -p
+   :goals: flash
+   :compact:
+
+.. rubric:: Simple logging output on target
+
+.. container:: highlight highlight-console notranslate no-copybutton
+
+   .. parsed-literal::
+
+      \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+      W: BUS RESET
+      W: BUS RESET
+      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+      Input sample started
+      I: input event: dev=gpio_keys        SYN type= 1 code=103 value=1
+      I: input event: dev=gpio_keys        SYN type= 1 code=103 value=0
+      I: input event: dev=gpio_keys        SYN type= 1 code=108 value=1
+      I: input event: dev=gpio_keys        SYN type= 1 code=108 value=0
+      I: input event: dev=gpio_keys        SYN type= 1 code=105 value=1
+      I: input event: dev=gpio_keys        SYN type= 1 code=105 value=0
+      I: input event: dev=gpio_keys        SYN type= 1 code=106 value=1
+      I: input event: dev=gpio_keys        SYN type= 1 code=106 value=0
+      I: input event: dev=gpio_keys        SYN type= 1 code= 28 value=1
+      I: input event: dev=gpio_keys        SYN type= 1 code= 28 value=0
