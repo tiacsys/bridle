@@ -1,0 +1,26 @@
+# Copyright (c) 2023-2025 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+identifier: picoboy/rp2040/color
+vendor: jsed
+name: The PicoBoy Color (PBC) Mini-Handheld
+type: mcu
+arch: arm
+flash: 2048
+ram: 264
+toolchain:
+  - zephyr
+  - gnuarmemb
+supported:
+  - gpio
+  - i2c
+  - spi
+  - hwinfo
+  - watchdog
+  - pwm
+  - flash
+  - dma
+  - counter
+  - clock
+  - usb_device
+  - usb_cdc

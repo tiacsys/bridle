@@ -618,6 +618,17 @@
 .. _`PicoBoy Details`:
    https://picoboy.de/einfuehrung/fuer-erfahrene-nutzer
 
+.. ### Links to PicoBoy Color
+
+.. _`PicoBoy Color`:
+   https://picoboy.de/der-picoboy-color
+
+.. _`PicoBoy Color Details`:
+   https://picoboy.de/der-picoboy-color/die-hardware-des-picoboy-color
+
+.. _`PicoBoy Color Schematic`:
+   https://picoboy.de/files/PBC_schematic.svg
+
 
 
 .. ### Links to Waveshare Systems
@@ -1235,6 +1246,14 @@
 .. _`CMT-7525S Datasheet`:
    https://www.cuidevices.com/product/resource/cmt-7525s-smt-tr.pdf
 
+.. _`FUET-4020`:
+   http://www.tzfsdz.com/proinfo/198
+.. http://www.fsdzsz.com/eng/product/2_108
+
+.. _`FUET-4020 Datasheet`:
+   http://www.tzfsdz.com/static/index/zm001/download/FUET-4020.pdf
+.. https://www.lcsc.com/datasheet/lcsc_datasheet_2410121831_FUET-FUET-4020_C391027.pdf
+
 .. _`KLJ-4020`:
    https://www.keliking.com/KLJ-4020-Magnetic-Buzzer-pd6886835.html
 
@@ -1434,6 +1453,13 @@
 
 .. _`RT9193 Datasheet`:
    https://www.richtek.com/assets/product_file/RT9193/DS9193-18.pdf
+
+.. _`TX4310B`:
+   http://www.xdssemi.com/icshow-82-99-1.html
+
+.. _`TX4310B Datasheet`:
+   http://www.xdssemi.com/uploadfile/2025/0113/20250113013447947.pdf
+.. https://www.lcsc.com/datasheet/lcsc_datasheet_1912231403_XDS-TX4310B_C448640.pdf
 
 .. _`SS8050`:
    https://www.onsemi.com/products/discrete-power-modules/general-purpose-and-low-vcesat-transistors/ss8050

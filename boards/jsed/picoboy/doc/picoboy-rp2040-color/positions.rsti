@@ -1,0 +1,68 @@
+.. list-table::
+   :align: center
+   :width: 66%
+   :header-rows: 1
+
+   * - .. image:: picoboy-rp2040-color/positions.jpg
+          :align: center
+          :width: 500
+          :alt: PicoBoy Color details
+
+   * - .. container:: twocol
+
+          .. container:: leftside
+
+             Front side:
+
+             1. | :strong:`ST7789V`
+                | 1.69-inch 240×280 pixels 65K colorful IPS LCD
+             #. | :strong:`User joystick`
+                | UP, DOWN, LEFT, RIGHT, ENTER
+             #. | :strong:`User keys`
+                | momentary push buttons
+             #. | :strong:`LED monochrome`
+                | user LEDs for diagnostic (not power indicator)
+             #. | :strong:`Magnetic Speaker`
+                | 3.0Vo-p (2.0~4.0V) @ 4,000㎐ with ≫65㏈A
+
+             Back side:
+
+             1. :strong:`RP2040`
+
+          .. container:: rightside
+
+             2. | :strong:`USB Type-C connector`
+                | Supports USB1.1 hosts and slave devices
+             #. | :strong:`Power Supply Switch`
+             #. | :strong:`RESET and BOOT button`
+                | press it when resetting to enter download mode
+             #. | :strong:`W25Q16JV`
+                | 2㎆ NOR-Flash
+             #. | :strong:`AAA`
+                | 2×1.5V @ 1,200㎃h battery holder
+
+             - | :strong:`TX4310B (N1IF)`
+               | 150㎃ DC-DC buck-boost converter, power switch for 3.3V
+             - | :strong:`S8050 (J3Y)`
+               | SMD NPN Transistor 300㎽, 40V @ 500㎃, SOT-23
+
+.. rubric:: Data Sheets
+.. rst-class:: rst-columns
+
+- .. rubric:: `RP2040 SoC`_
+- `RP2040 Datasheet`_
+- `Hardware design with RP2040`_
+- .. rubric:: W25Q16JV_
+- `W25Q16JV Datasheet`_
+- .. rubric:: ST7789V_
+- `ST7789VW Datasheet V1.0 (2017/09)`_
+- `ST7789V Datasheet V1.6 (2017/09)`_
+- `ST7789V Datasheet V1.4 (2014/10)`_
+- `ST7789V Datasheet V1.3 (2014/03)`_
+- `ST7789V Datasheet V0.1 (2013/07)`_
+- .. rubric:: TX4310B_
+- `TX4310B Datasheet`_
+- .. rubric:: S8050_
+- `S8050 Datasheet`_
+- .. rubric:: `FUET-4020`_
+- `FUET-4020 Datasheet`_

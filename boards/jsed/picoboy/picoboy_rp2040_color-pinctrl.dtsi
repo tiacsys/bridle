@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2025 TiaC Systems
+ * Copyright (c) 2024-2025 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -10,7 +10,7 @@
 		/* no external clocks */
 	};
 
-	uart1_default: uart1_default {			/* alt: sensors */
+	uart1_default: uart1_default {			/* solder pads */
 		group20 {				/* as UART i/f */
 			pinmux = <UART1_TX_P20>;
 		};
@@ -20,10 +20,10 @@
 		};
 	};
 
-	i2c0_default: i2c0_default {
-		group2021 {
-			pinmux = <I2C0_SDA_P20>,	/* acceleration */
-				 <I2C0_SCL_P21>;	/* sensor STK8BA58 */
+	i2c0_default: i2c0_default {			/* solder pads */
+		group2021 {				/* as I2C bus */
+			pinmux = <I2C0_SDA_P20>,
+				 <I2C0_SCL_P21>;
 			input-enable;
 			input-schmitt-enable;
 		};
@@ -32,8 +32,8 @@
 	spi0_default: spi0_default {
 		group171819 {
 			pinmux = <SPI0_CSN_P17>,	/* not wired */
-				 <SPI0_SCK_P18>,	/* OLED display */
-				 <SPI0_TX_P19>;		/* SH1106 (128x64) */
+				 <SPI0_SCK_P18>,	/* LCD display */
+				 <SPI0_TX_P19>;		/* ST7789V (240x280) */
 		};
 		group16 {
 			pinmux = <SPI0_RX_P16>;		/* not wired */
@@ -42,14 +42,14 @@
 	};
 
 	pwm_default: pwm_default {
-		group5 {
-			pinmux = <PWM_2B_P5>;		/* Red LED */
+		group12 {
+			pinmux = <PWM_6A_P12>;		/* Green LED */
 		};
-		group6 {
-			pinmux = <PWM_3A_P6>;		/* Yellow LED */
+		group13 {
+			pinmux = <PWM_6B_P13>;		/* Yellow LED */
 		};
-		group7 {
-			pinmux = <PWM_3B_P7>;		/* Green LED */
+		group14 {
+			pinmux = <PWM_7A_P14>;		/* Red LED */
 		};
 		group15 {
 			pinmux = <PWM_7B_P15>;		/* Speaker */
@@ -57,18 +57,6 @@
 	};
 
 	adc_default: adc_default {
-		group26 {
-			pinmux = <ADC_CH0_P26>;
-			input-enable;
-		};
-		group27 {
-			pinmux = <ADC_CH1_P27>;
-			input-enable;
-		};
-		group28 {
-			pinmux = <ADC_CH2_P28>;
-			input-enable;
-		};
 		group29 {
 			pinmux = <ADC_CH3_P29>;
 			input-enable;

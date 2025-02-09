@@ -1,14 +1,23 @@
 .. _the_picoboy:
 
-The PicoBoy
-###########
+The PicoBoy (Color)
+###################
 
-The PicoBoy is a powerful mini handheld measuring just 3×5 ㎝. It is suitable
-for learning programming, developing your own games or simply playing with it.
-All you need is a PC, the PicoBoy and a USB-C cable. As the PicoBoy based on
-the `RP2040 SoC`_ by Raspberry Pi Ltd. and is compatible with the
-|zephyr:board:rpi_pico| programming model and process, there are countless other
-tutorials, examples and libraries on the internet to make programming easier.
+The **PicoBoy** is a powerful mini handheld measuring just 3×5 ㎝. It is
+suitable for learning programming, developing your own games or simply
+playing with it. All you need is a PC, the *PicoBoy* and a USB-C cable.
+As the *PicoBoy* based on the `RP2040 SoC`_ by Raspberry Pi Ltd. and is
+compatible with the |zephyr:board:rpi_pico| programming model and process,
+there are countless other tutorials, examples and libraries on the internet
+to make programming easier.
+
+The **PicoBoy Color** is the further development of the popular *PicoBoy*
+handheld, now with a color display for even more gaming fun. Whether you
+want to learn programming, develop your own games or simply play, the
+*PicoBoy Color* offers a wide range of possibilities. Although the original
+*PicoBoy* remains a great starting point for beginners and school classes,
+the *PicoBoy Color* offers an enhanced gaming experience and new possibilities
+for those who want more.
 
 Board Overview
 **************
@@ -17,6 +26,12 @@ Hardware
 ========
 
 .. tabs::
+
+   .. group-tab:: PicoBoy Color
+
+      .. _picoboy_rp2040_color:
+
+      .. include:: picoboy-rp2040-color/hardware.rsti
 
    .. group-tab:: PicoBoy
 
@@ -28,6 +43,10 @@ Positions
 =========
 
 .. tabs::
+
+   .. group-tab:: PicoBoy Color
+
+      .. include:: picoboy-rp2040-color/positions.rsti
 
    .. group-tab:: PicoBoy
 
@@ -45,6 +64,10 @@ connectors, headers or solder pads with additional signals routed to
 outside of the board.
 
 .. tabs::
+
+   .. group-tab:: PicoBoy Color
+
+      .. include:: picoboy-rp2040-color/pinouts.rsti
 
    .. group-tab:: PicoBoy
 
@@ -156,14 +179,22 @@ supports the following hardware features:
 Other hardware features are not currently supported by Zephyr. The default
 configuration can be found in the following Kconfig file:
 
+   - :bridle_file:`boards/jsed/picoboy/picoboy_rp2040_color_defconfig`
    - :bridle_file:`boards/jsed/picoboy/picoboy_rp2040_defconfig`
 
 Board Configurations
 ====================
 
-The PicoBoy board can be configured only for the following single use cases.
+The PicoBoy boards can be configured only for the following single use cases.
 
 .. tabs::
+
+   .. group-tab:: PicoBoy Color
+
+      .. rubric:: :command:`west build -b picoboy/rp2040/color`
+
+      Use the native USB device port with CDC-ACM as
+      Zephyr console and for the shell.
 
    .. group-tab:: PicoBoy
 
@@ -175,9 +206,10 @@ The PicoBoy board can be configured only for the following single use cases.
 Connections and IOs
 ===================
 
-The `PicoBoy <PicoBoy Details_>`_ website has detailed information about board
-connections. Download the different datasheets there or as linked above on the
-positions for more details.
+The `PicoBoy <PicoBoy Details_>`_
+and `PicoBoy Color <PicoBoy Color Details_>`_ website has detailed information
+about board connections. Download the different datasheets there or as linked
+above on the positions for more details.
 
 System Clock
 ============
@@ -193,7 +225,9 @@ GPIO (PWM) Ports
 The `RP2040 <RP2040 SoC_>`_ MCU has 1 GPIO cell which covers all I/O pads and
 8 PWM function unit each with 2 channels beside a dedicated Timer unit. On
 the |PicoBoy|, only 4 PWM channels are available on the three user LEDs and
-the passive magnetic speaker.
+the passive magnetic speaker. On the |PicoBoy Color|, only 5 PWM channels are
+available on the LCD backlight, the three user LEDs and the passive magnetic
+speaker.
 
 ADC/TS Ports
 ============
@@ -203,32 +237,50 @@ fifth channel for the on-chip temperature sensor (TS). The ADC channels 0-3
 are no available for any on-board function and may be completely unusable,
 but they ar all configured.
 
-Also it is completely unclear if the external voltage reference ADC_VREF
-is connected to any voltage level, e.g. to the 3.3V power supply.
-
 SPI Port
 ========
 
 The `RP2040 <RP2040 SoC_>`_ MCU has 2 SPIs. The serial bus SPI0 is connect
-to the on-board OLED display over GP19 (MOSI), GP16 (MISO), GP18 (SCK), and
-GP17 (CSn), but only MOSI and SCK is really used for the OLED. The display
-chip-select signal will driven as simple GPIO by GP10 and the display itself
-does not provide any data out signal (MISO). SPI1 is not available in any
-default setup.
+to the on-board OLED display or LCD over GP19 (MOSI), GP16 (MISO), GP18 (SCK),
+and GP17 (CSn), but only MOSI and SCK is used for write-only communication.
+The display chip-select signal will driven as simple GPIO by GP10 and the
+display itself does not provide any data out signal (MISO). SPI1 is not
+available in any default setup.
 
 I2C Port
 ========
 
-The `RP2040 <RP2040 SoC_>`_ MCU has 2 I2Cs. The serial bus I2C0 is connect
-to the on-board acceleration sensor over GP20 (I2C0_SDA), GP21 (I2C0_SCL).
-I2C1 is not available in any default setup.
+The `RP2040 <RP2040 SoC_>`_ MCU has 2 I2Cs. On the |PicoBoy|, serial bus
+I2C0 is connect to the on-board acceleration sensor over GP20 (I2C0_SDA),
+GP21 (I2C0_SCL). I2C1 is not available in any default setup.
+
+.. image:: picoboy-rp2040-color/solderpads-i2c.jpg
+   :align: right
+   :alt: PicoBoy Color I2C Port
+
+The |PicoBoy Color| has no on-board acceleration sensor, but the serial bus
+I2C0 is connect to the on-board solder pads. The I2C port cannot be used at
+the same time as the UART port. Both share the required lines on GP20 and GP21.
+
+The I2C port is **enabled** by default.
 
 Serial Port
 ===========
 
-The `RP2040 <RP2040 SoC_>`_ MCU has 2 UARTs. Neither UART0 nor UART1 are
-available in any of the default setups. Then ever a Zephyr serial console
-will be needed, the USB port have to be used.
+The `RP2040 <RP2040 SoC_>`_ MCU has 2 UARTs. On the |PicoBoy|, neither UART0
+nor UART1 are available in any of the default setups. When ever a Zephyr
+serial console will be needed, the USB port have to be used.
+
+.. image:: picoboy-rp2040-color/solderpads-uart.jpg
+   :align: right
+   :alt: PicoBoy Color UART Port
+
+On the |PicoBoy Color|, the serial port UART1 is connect to the on-board
+solder pads over GP20 (UART1_TX), GP21 (UART1_RX). UART0 is not available
+in any default setup. The UART port cannot be used at the same time as the
+I2C port. Both share the required lines on GP20 and GP21.
+
+The UART port is **disabled** by default.
 
 USB Device Port
 ===============
@@ -237,10 +289,22 @@ The `RP2040 <RP2040 SoC_>`_ MCU has a (native) USB device port that can be
 used to communicate with a host PC. See the :zephyr:code-sample-category:`usb`
 sample applications for more, such as the :zephyr:code-sample:`usb-cdc-acm`
 sample which sets up a virtual serial port that echos characters back to the
-host PC. The |PicoBoy| provides the Zephyr console per default on the USB port
-as :zephyr:ref:`usb_device_cdc_acm`:
+host PC. The |PicoBoy| and |PicoBoy Color| provides the Zephyr console per
+default on the USB port as :zephyr:ref:`usb_device_cdc_acm`:
 
 .. tabs::
+
+   .. group-tab:: PicoBoy Color
+
+         .. container:: highlight-console notranslate literal-block
+
+            .. parsed-literal::
+
+               USB device idVendor=\ |picoboy_color_VID|, idProduct=\ |picoboy_color_PID_CON|, bcdDevice=\ |picoboy_color_BCD_CON|
+               USB device strings: Mfr=1, Product=2, SerialNumber=3
+               Product: |picoboy_color_PStr_CON|
+               Manufacturer: |picoboy_color_VStr|
+               SerialNumber: B69CA314D5626E5B
 
    .. group-tab:: PicoBoy
 
@@ -280,9 +344,9 @@ The |PicoBoy| can only be flashed with a UF2 file. There is no SWD connector.
 Using UF2
 ---------
 
-By default, building an app for the |PicoBoy| board will generate a
-:file:`build/zephyr/zephyr.uf2` file. If the board is powered on with the
-:kbd:`BOOTSEL` button pressed, it will appear on the host as a mass
+By default, building an app for the |PicoBoy| or |PicoBoy Color| board will
+generate a :file:`build/zephyr/zephyr.uf2` file. If the board is powered on
+with the :kbd:`BOOTSEL` button pressed, it will appear on the host as a mass
 storage device:
 
    .. container:: highlight-console notranslate literal-block
@@ -296,7 +360,7 @@ storage device:
          SerialNumber: E0C9125B0D9B
 
 The UF2 file should be drag-and-dropped or copied on command line to the
-device, which will then flash the |PicoBoy| board.
+device, which will then flash the |PicoBoy| or |PicoBoy Color| board.
 
 Each `RP2040 SoC`_ ships the `UF2 compatible <UF2 bootloader_>`_ bootloader
 pico-bootrom_, a native support in silicon. The full source for the RP2040
@@ -325,8 +389,8 @@ or Brian Starkey's Blog article `Pico serial bootloader`_
 Debugging
 =========
 
-The |PicoBoy| does not provide any SWD connector, thus debugging software
-is not possible.
+The |PicoBoy| or |PicoBoy Color| does not provide any SWD connector, thus
+debugging software is not possible.
 
 Basic Samples
 *************
@@ -336,6 +400,10 @@ LED Blinky and Fade
 
 .. tabs::
 
+   .. group-tab:: PicoBoy Color
+
+      .. include:: picoboy-rp2040-color/blinky_fade.rsti
+
    .. group-tab:: PicoBoy
 
       .. include:: picoboy-rp2040/blinky_fade.rsti
@@ -344,6 +412,10 @@ Hello Shell on USB-CDC/ACM Console
 ==================================
 
 .. tabs::
+
+   .. group-tab:: PicoBoy Color
+
+      .. include:: picoboy-rp2040-color/helloshell.rsti
 
    .. group-tab:: PicoBoy
 
@@ -370,6 +442,10 @@ The PWM period is 880 ㎐, twice the concert pitch frequency of 440 ㎐.
 
 .. tabs::
 
+   .. group-tab:: PicoBoy Color
+
+      .. include:: picoboy-rp2040-color/speaker.rsti
+
    .. group-tab:: PicoBoy
 
       .. include:: picoboy-rp2040/speaker.rsti
@@ -379,6 +455,10 @@ Input dump on USB-CDC/ACM Console
 
 .. tabs::
 
+   .. group-tab:: PicoBoy Color
+
+      .. include:: picoboy-rp2040-color/input_dump.rsti
+
    .. group-tab:: PicoBoy
 
       .. include:: picoboy-rp2040/input_dump.rsti
@@ -387,6 +467,10 @@ Display Test and Demonstration
 ==============================
 
 .. tabs::
+
+   .. group-tab:: PicoBoy Color
+
+      .. include:: picoboy-rp2040-color/display_test.rsti
 
    .. group-tab:: PicoBoy
 

@@ -314,6 +314,23 @@
 .. |picoboy_PStr_CON|		replace:: :ign:`PicoBoy (CDC ACM)`
 .. |picoboy_BCD_CON|		replace:: |zephyr_version_BCD|
 
+.. |PicoBoy Color| replace::
+   :ref:`PicoBoy Color <picoboy_rp2040_color>`
+.. :bridle:board:`picoboy_rp2040_color`
+
+.. |PicoBoy Color (CDC ACM)| replace::
+   :ref:`PicoBoy Color (CDC ACM) <picoboy_rp2040_color>`
+.. :bridle:board:`PicoBoy Color (CDC ACM) <picoboy_rp2040_color>`
+
+.. |picoboy_color_URB_VID|	replace:: |rpi_URB_VID|
+.. |picoboy_color_VID|		replace:: |rpi_VID|
+.. |picoboy_color_VStr|		replace:: |rpi_jsed_VStr|
+
+.. |picoboy_color_URB_PID_CON|	replace:: |rpi_pico_sdk_uart_rp2040_URB_PID|
+.. |picoboy_color_PID_CON|	replace:: |rpi_pico_sdk_uart_rp2040_PID|
+.. |picoboy_color_PStr_CON|	replace:: :ign:`PicoBoy Color (CDC ACM)`
+.. |picoboy_color_BCD_CON|	replace:: |zephyr_version_BCD|
+
 .. |PiMoroni Pico LCD 1.44| replace::
    :ref:`PiMoroni Pico LCD 1.44 <pimoroni_pico_lcd_1_44>`
 

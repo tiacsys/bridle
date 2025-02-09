@@ -1,0 +1,96 @@
+.. list-table::
+   :align: center
+   :width: 100%
+   :widths: 100
+
+   * - .. rubric:: Pin Mapping
+
+   * - :on-board:
+          :hwftlbl-pio:`11`
+          :hwftlbl-pwm:`5`
+          :hwftlbl-adc:`1`
+          :hwftlbl-i2c:`1`
+          :hwftlbl-spi:`1`
+
+       :on-board:
+          :hwftlbl-btn:`1 RST`
+          :hwftlbl-btn:`1 BOOT`
+          :hwftlbl-btn:`2 USER`
+          :hwftlbl-joy:`1 CURSOR`
+          :hwftlbl-led:`1 RED`
+          :hwftlbl-led:`1 YELLOW`
+          :hwftlbl-led:`1 GREEN`
+          :hwftlbl-scr:`1 LCD`
+          :hwftlbl-spk:`1 PASSIVE`
+
+       .. rubric:: Default Zephyr On-Board Mapping
+
+       |nbsp|
+
+       .. container:: twocol
+
+          .. container:: leftside
+
+             .. rubric:: Buttons
+             .. rst-class:: rst-columns edge-pinout
+
+             - | :hwftlbl-joy:`ENTER` : :rpi-pico-pio:`GP0` (PWM0)
+             - | :hwftlbl-joy:`RIGHT` : :rpi-pico-pio:`GP1` (PWM1)
+             - | :hwftlbl-joy:`DOWN` : :rpi-pico-pio:`GP2` (PWM2)
+             - | :hwftlbl-joy:`LEFT` : :rpi-pico-pio:`GP3` (PWM3)
+             - | :hwftlbl-joy:`UP` : :rpi-pico-pio:`GP4` (PWM4)
+             - | :hwftlbl-btn:`BACK` : :rpi-pico-pio:`GP27` (PWM11)
+             - | :hwftlbl-btn:`FORWARD` : :rpi-pico-pio:`GP28` (PWM12)
+
+          .. container:: rightside
+
+             .. rubric:: LEDs
+             .. rst-class:: rst-columns edge-pinout
+
+             - | :hwftlbl-led:`GREEN` : :rpi-pico-pio:`GP12` :rpi-pico-pwm:`PWM12`
+             - | :hwftlbl-led:`YELLOW` : :rpi-pico-pio:`GP13` :rpi-pico-pwm:`PWM13`
+             - | :hwftlbl-led:`RED` : :rpi-pico-pio:`GP14` :rpi-pico-pwm:`PWM14`
+
+       .. container:: twocol
+
+          .. container:: leftside
+
+             .. rubric:: Display and Speaker
+             .. rst-class:: rst-columns edge-pinout
+
+             - | :rpi-pico-sys:`n.c.` : GP5 (PWM5)
+             - | :rpi-pico-sys:`n.c.` : GP6 (PWM6)
+             - | :rpi-pico-sys:`n.c.` : GP7 (PWM7)
+             - | :hwftlbl-scr:`LCD` : :rpi-pico-pio:`GP8` (PWM8)
+               | on-board LCD data/cmd :rpi-pico-sys:`LCD_DC`
+             - | :hwftlbl-scr:`LCD` : :rpi-pico-pio:`GP9` (PWM9)
+               | on-board LCD reset :rpi-pico-sys:`LCD_RST`
+             - | :hwftlbl-scr:`LCD` : :rpi-pico-pio:`GP10` (PWM10)
+               | on-board LCD chip select :rpi-pico-sys:`LCD_CS`
+             - | :rpi-pico-sys:`n.c.` : GP11 (PWM11)
+             - | :hwftlbl-spk:`PASSIVE` : :rpi-pico-pio:`GP15` :rpi-pico-pwm:`PWM15`
+             - | :rpi-pico-sys:`n.c.` :rpi-pico-spi:`SPI0_RX` : GP16 (PWM0)
+             - | :rpi-pico-sys:`n.c.` :rpi-pico-spi:`SPI0_CSN` : GP17 (PWM1)
+             - | :hwftlbl-scr:`LCD` :rpi-pico-spi:`SPI0_SCK` : GP18 (PWM2)
+               | on-board LCD i/f clock :rpi-pico-sys:`LCD_CLK`
+             - | :hwftlbl-scr:`LCD` :rpi-pico-spi:`SPI0_TX` : GP19 (PWM3)
+               | on-board LCD i/f data :rpi-pico-sys:`LCD_DIN`
+             - | :hwftlbl-scr:`LCD` :rpi-pico-pio:`GPIO26` : GP26 (PWM10)
+               | on-board LCD backlight :rpi-pico-sys:`LCD_BL`
+
+          .. container:: rightside
+
+             .. rubric:: Sensors via solder pads
+             .. rst-class:: rst-columns edge-pinout
+
+             - | :rpi-pico-i2c:`I2C0_SDA` : :rpi-pico-uart:`UART1_TX` : GP20 (PWM4)
+               | on-board solder pads i/f data :rpi-pico-sys:`I2C_SDA`
+               | on-board solder pads i/f data :rpi-pico-sys:`UART_TX`
+             - | :rpi-pico-i2c:`I2C0_SCL` : :rpi-pico-uart:`UART1_RX` : GP21 (PWM5)
+               | on-board solder pads i/f clock :rpi-pico-sys:`I2C_SCL`
+               | on-board solder pads i/f data :rpi-pico-sys:`UART_RX`
+             - | :rpi-pico-sys:`n.c.` : GP22 (PWM6)
+             - | :rpi-pico-sys:`n.c.` : GP23 (PWM7)
+             - | :rpi-pico-sys:`n.c.` : GP24 (PWM8)
+             - | :rpi-pico-sys:`n.c.` : GP25 (PWM9)
+             - | :rpi-pico-sys:`n.c.` :rpi-pico-adc:`ADC_CH3` : GP29 (PWM13)

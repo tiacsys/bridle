@@ -18,6 +18,15 @@
 	clock-frequency = <I2C_BITRATE_STANDARD>;
 };
 
+&uart1 {
+	pinctrl-0 = <&uart1_default>;
+	pinctrl-names = "default";
+	current-speed = <115200>;
+	data-bits = <8>;
+	parity = "none";
+	stop-bits = "1";
+};
+
 &pwm {
 	pinctrl-0 = <&pwm_default>;
 	pinctrl-names = "default";

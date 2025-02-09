@@ -1,0 +1,47 @@
+.. rubric:: Red User LED Blinky by GPIO
+
+See also Zephyr sample: :zephyr:code-sample:`blinky`.
+
+.. zephyr-app-commands::
+   :app: zephyr/samples/basic/blinky
+   :board: picoboy/rp2040/color
+   :build-dir: picoboy
+   :west-args: -p
+   :goals: flash
+   :compact:
+
+.. rubric:: Red User LED Blinky by PWM
+
+See also Zephyr sample: :zephyr:code-sample:`pwm-blinky`.
+
+.. zephyr-app-commands::
+   :app: zephyr/samples/basic/blinky_pwm
+   :board: picoboy/rp2040/color
+   :build-dir: picoboy
+   :west-args: -p
+   :goals: flash
+   :compact:
+
+.. rubric:: All User LED Fade by PWM
+
+See also Zephyr sample: :zephyr:code-sample:`fade-led`.
+
+.. zephyr-app-commands::
+   :app: zephyr/samples/basic/fade_led
+   :board: picoboy/rp2040/color
+   :build-dir: picoboy
+   :west-args: -p
+   :goals: flash
+   :compact:
+
+.. rubric:: Red User LED On/Off by GPIO Button (left side user button BACK)
+
+See also Zephyr sample: :zephyr:code-sample:`button`.
+
+.. zephyr-app-commands::
+   :app: zephyr/samples/basic/button
+   :board: picoboy/rp2040/color
+   :build-dir: picoboy
+   :west-args: -p
+   :goals: flash
+   :compact:

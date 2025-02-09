@@ -5,11 +5,10 @@
 
 &i2c0 {
 	status = "okay";	/* default sensor/io */
-	/* Accelerometer with STK8BA58 3D acceleration sensor. */
 };
 
 &uart1 {
-	status = "disabled";	/* unusable sensor/io */
+	status = "disabled";	/* alternative sensor/io */
 };
 
 &adc {

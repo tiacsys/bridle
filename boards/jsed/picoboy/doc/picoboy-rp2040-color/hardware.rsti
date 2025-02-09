@@ -1,0 +1,73 @@
+The `PicoBoy Color`_ is a :bbk:`special mini sized` RP2040 development board.
+
+.. list-table::
+   :align: center
+   :width: 100%
+   :widths: 66, 33
+
+   * - .. rubric:: Features and Resources
+     - .. rubric:: Printed Circuit Board
+
+   * - :hwftlbl-vdd:`5V/125~250㎃`
+       :hwftlbl-vdd:`3.0~3.3V/100~150㎃`
+
+       :hwftlbl:`133㎒`
+       :hwftlbl:`2㎆`
+       :hwftlbl:`264㎅`
+       :hwftlbl-con:`USB-C`
+       :hwftlbl-bat:`2×AAA`
+       :hwftlbl-dbg:`UF2`
+
+       :hwftlbl-btn:`RST`
+       :hwftlbl-btn:`BOOT`
+       :hwftlbl-btn:`USER`
+       :hwftlbl-joy:`UP|DOWN|LEFT|RIGHT|ENTER`
+
+       :hwftlbl-led:`RED`
+       :hwftlbl-led:`YELLOW`
+       :hwftlbl-led:`GREEN`
+       :hwftlbl-scr:`LCD`
+       :hwftlbl-spk:`PASSIVE`
+
+       :hwftlbl-pio:`11`
+       :hwftlbl-pwm:`5`
+       :hwftlbl-adc:`1`
+       :hwftlbl-i2c:`1`
+       :hwftlbl-spi:`1`
+
+       .. rst-class:: rst-columns
+
+       - Dual core Arm Cortex-M0+ processor running up to 133㎒
+       - :bbk:`264㎅` on-chip SRAM
+       - :bbk:`2㎆` on-board QSPI flash with XIP capabilities
+       - USB 1.1 controller (host/device)
+       - On-board :bbl:`USB-C connector`
+       - On-board :bbl:`3.3V DC-DC buck-boost converter with 250㎃ switch`
+       - On-board :bbl:`2 AAA battery holder`
+       - On-board :bbk:`RESET` button
+       - On-board :bbl:`BOOT` button
+       - On-board :bbl:`1 User joystick (5 keys)`
+       - On-board :bbl:`2 User button`
+       - On-board :bbl:`3 User LEDs`
+       - On-board :bbl:`1.69-inch 240×280 pixels LCD`, 65K colorful IPS (serial)
+       - On-board :bbl:`1 passive magnetic speaker`
+       - :bbk:`1 RST signal to LCD controller`
+       - :bbk:`1 C/D signal to LCD controller`
+       - :bbk:`1 SPI` controller for LCD
+       - :bbk:`1 I2C` controller for external sensor
+       - :bbl:`5 PWM` channels for LEDs, LCD backlight and speaker
+       - :bbl:`1 ADC` analog inputs
+       - 8 Programmable I/O (PIO) state machines for custom peripherals
+       - 1 Watchdog timer peripheral
+       - 1 Temperature sensor on-chip
+
+       .. rubric:: Design Data
+       .. rst-class:: rst-columns
+
+       - `PicoBoy Color Introduction <PicoBoy Color_>`_ (German)
+       - `PicoBoy Color Details`_ (German)
+       - `PicoBoy color Schematic`_
+
+     - .. image:: picoboy-rp2040-color/hardware.jpg
+          :align: center
+          :alt: PicoBoy Color

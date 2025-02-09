@@ -100,7 +100,8 @@ Also see the :ref:`boards` section in this documentation.
 | RP2040            | |bridle:board:cytron_maker_rp2040| | | ``cytron_maker_nano_rp2040``   |
 |                   |                                    | | ``cytron_maker_pi_rp2040``     |
 |                   +------------------------------------+----------------------------------+
-|                   | |bridle:board:picoboy|             | ``picoboy``                      |
+|                   | |bridle:board:picoboy|             | | ``picoboy/rp2040``             |
+|                   |                                    | | ``picoboy/rp2040/color``       |
 |                   +------------------------------------+----------------------------------+
 |                   | |bridle:board:waveshare_rp2040|    | | ``waveshare_rp2040_one``       |
 |                   |                                    | | ``waveshare_rp2040_zero``      |

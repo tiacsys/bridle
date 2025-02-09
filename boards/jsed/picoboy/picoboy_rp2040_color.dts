@@ -1,0 +1,27 @@
+/*
+ * Copyright (c) 2023-2025 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/dts-v1/;
+
+/ {
+	model = "JSED PicoBoy Color @ USB-CDC/ACM Concole";
+	compatible = "jsed,picoboy-color", "jsed,picoboy-color-usbcons";
+
+	chosen {
+		zephyr,console = &cdc_acm_console_uart;
+		zephyr,shell-uart = &cdc_acm_console_uart;
+	};
+};
+
+#include "picoboy_rp2040_color.dtsi"
+
+#include "picoboy-core.dtsi"
+#include "picoboy-2mb.dtsi"
+
+#include "color-joystick.dtsi"
+#include "color-sensors.dtsi"
+#include "color-speaker.dtsi"
+#include "color-leds.dtsi"
+#include "color-lcd.dtsi"

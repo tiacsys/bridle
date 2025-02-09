@@ -1,0 +1,133 @@
+The following samples work with the chosen display. That is:
+
+| :hwftlbl-scr:`LCD` : :dts:`chosen { zephyr,display = &lcd_panel; };`
+| :hwftlbl-scr:`ST7789V` : :dts:`lcd_panel: &st7789v_240x280 {};`
+
+.. rubric:: Devicetree compatible
+
+- :dtcompatible:`zephyr,lvgl-button-input` with devicetree relation
+  :dts:`lvgl_buttons: lvgl-buttons { input = <&gpio_keys>; };`
+
+  | :hwftlbl-btn:`FORWARD` :
+    :dts:`input-codes = <INPUT_KEY_FORWARD>;` :
+    :dts:`coordinates = <120 140>;` (center of LCD)
+
+- :dtcompatible:`zephyr,lvgl-keypad-input` with devicetree relation
+  :dts:`lvgl_keypad: lvgl-keypad { input = <&gpio_keys>; };`
+
+  | :hwftlbl-joy:`UP` :
+    :dts:`input-codes = <INPUT_KEY_UP>;` :
+    :dts:`lvgl-codes = <LV_KEY_UP>;`
+  | :hwftlbl-joy:`DOWN` :
+    :dts:`input-codes = <INPUT_KEY_DOWN>;` :
+    :dts:`lvgl-codes = <LV_KEY_DOWN>;`
+  | :hwftlbl-joy:`LEFT` :
+    :dts:`input-codes = <INPUT_KEY_LEFT>;` :
+    :dts:`lvgl-codes = <LV_KEY_LEFT>;`
+  | :hwftlbl-joy:`RIGHT` :
+    :dts:`input-codes = <INPUT_KEY_RIGHT>;` :
+    :dts:`lvgl-codes = <LV_KEY_RIGHT>;`
+  | :hwftlbl-joy:`ENTER` :
+    :dts:`input-codes = <INPUT_KEY_ENTER>;` :
+    :dts:`lvgl-codes = <LV_KEY_ENTER>;`
+
+.. rubric:: LCD Orientation and Bit Order Test
+
+.. image:: picoboy-rp2040-color/display.svg
+   :align: right
+   :alt: PicoBoy Color Display Test
+
+Draw some basic rectangles onto the display using the
+:zephyr:ref:`Display driver API <display_api>`. See also Zephyr sample:
+:zephyr:code-sample:`display`.
+
+.. zephyr-app-commands::
+   :app: zephyr/samples/drivers/display
+   :board: picoboy/rp2040/color
+   :build-dir: picoboy
+   :west-args: -p
+   :goals: flash
+   :compact:
+
+.. rubric:: LVGL Basic Sample
+
+Displays “Hello World!” in the center of the screen and a counter at the
+bottom which increments every second using the LVGL module on top of the
+:zephyr:ref:`Display driver API <display_api>`. See also Zephyr sample:
+:zephyr:code-sample:`lvgl`.
+
+.. zephyr-app-commands::
+   :app: zephyr/samples/subsys/display/lvgl
+   :board: picoboy/rp2040/color
+   :build-dir: picoboy
+   :west-args: -p
+   :goals: flash
+   :compact:
+
+This sample comes with a Shell command line access to the LVGL backend
+on the console, here configured for a USB console:
+
+.. rubric:: Simple test execution on target
+
+.. container:: highlight highlight-console notranslate
+
+   .. parsed-literal::
+
+      :bgn:`uart:~$` **lvgl**
+      lvgl - LVGL shell commands
+      Subcommands:
+        stats   : Show LVGL statistics
+        monkey  : LVGL monkey testing
+
+      :bgn:`uart:~$` **lvgl stats**
+      stats - Show LVGL statistics
+      Subcommands:
+        memory  : Show LVGL memory statistics
+                  Usage: lvgl stats memory [-c]
+                  -c  dump chunk information
+
+      :bgn:`uart:~$` **lvgl stats memory**
+      Heap at 0x20001390 contains 2047 units in 11 buckets
+
+        bucket#    min units        total      largest      largest
+                   threshold       chunks      (units)      (bytes)
+        -----------------------------------------------------------
+              1            2            1            2           12
+              9          512            1         1012         8092
+
+      8104 free bytes, 7700 allocated bytes, overhead = 576 bytes (3.5%)
+
+   .. parsed-literal::
+
+      :bgn:`uart:~$` **device list**
+      devices:
+      - clock-controller\ @\ 40008000 (READY)
+        DT node labels: clocks
+      - reset-controller\ @\ 4000c000 (READY)
+        DT node labels: reset
+      - cdc_acm_console_uart (READY)
+        DT node labels: cdc_acm_console_uart
+      - watchdog\ @\ 40058000 (READY)
+        DT node labels: wdt0
+      - dma\ @\ 50000000 (READY)
+        DT node labels: dma
+      - gpio\ @\ 40014000 (READY)
+        DT node labels: gpio0
+      - pwm\ @\ 40050000 (READY)
+        DT node labels: pwm
+      - vreg\ @\ 40064000 (READY)
+        DT node labels: vreg
+      - spi\ @\ 4003c000 (READY)
+        DT node labels: spi0
+      - lcd_backlight_en (READY)
+        DT node labels: lcd_backlight_en
+      - mipi_dbi_spi0 (READY)
+        DT node labels: mipi_dbi_spi0
+      - st7789v\ @\ 0 (READY)
+        DT node labels: st7789v_240x280 lcd_panel
+      - gpio_keys (READY)
+        DT node labels: gpio_keys
+      - lvgl-buttons (READY)
+        DT node labels: lvgl_buttons
+      - lvgl-keypad (READY)
+        DT node labels: lvgl_keypad

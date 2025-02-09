@@ -1,0 +1,80 @@
+/*
+ * Copyright (c) 2024-2025 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <freq.h>
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
+/ {
+	chosen {
+		zephyr,display = &lcd_panel;
+	};
+
+	lcd_backlight_en: lcd_backlight_en {
+		compatible = "regulator-fixed";
+		enable-gpios = <&gpio0 26 GPIO_ACTIVE_HIGH>;
+		regulator-name = "lcd_backlight_enable";
+		regulator-boot-on;
+	};
+
+	mipi_dbi_spi0: mipi_dbi_spi0 {
+		compatible = "zephyr,mipi-dbi-spi";
+		status = "okay";
+
+		reset-gpios = <&gpio0 9 GPIO_ACTIVE_LOW>;
+		dc-gpios = <&gpio0 8 GPIO_ACTIVE_HIGH>;
+		spi-dev = <&spi0>;
+		write-only;
+
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		/* LCD with ST7789V controller. */
+		st7789v_240x280: st7789v@0 {
+			compatible = "sitronix,st7789v";
+			status = "okay";
+
+			reg = <0>;
+			mipi-max-frequency = <DT_FREQ_M(20)>;
+			mipi-mode = "MIPI_DBI_MODE_SPI_4WIRE";
+
+			width = <240>;		/* portrait */
+			height = <280>;		/* portrait */
+			x-offset = <0>;		/* portrait */
+			y-offset = <20>;	/* portrait */
+
+			vcom = <0x1f>;
+			gctrl = <0x35>;
+			vrhs = <0x12>;
+			vdvs = <0x20>;
+		//	mdac = <0x00>;		/* portrait */
+		//	mdac = <0x40>;		/* portrait, mirrored */
+			mdac = <0xC0>;		/* portrait, overhead */
+		//	mdac = <0x80>;		/* portrait, upsidedown */
+			colmod = <0x05>;	/* 16-bit, RGB565 */
+			gamma = <0x01>;
+			lcm = <0x2C>;
+			porch-param = [0C 0C 00 33 33];
+			cmd2en-param = [5A 69 02 01];
+			pwctrl1-param = [A4 A1];
+			pvgam-param = [D0 08 11 08 0C 15 39 33 50 36 13 14 29 2D];
+			nvgam-param = [D0 08 10 08 06 06 39 44 51 0B 16 14 2F 31];
+			ram-param = [00 F0];
+			rgb-param = [CD 08 14];
+		};
+	};
+};
+
+lcd_panel: &st7789v_240x280 {};
+
+&spi0 {
+	status = "okay";
+
+	clock-frequency = <DT_FREQ_M(20)>;
+	cs-gpios = <&gpio0 10 GPIO_ACTIVE_LOW>;
+};
+
+&gpio0 {
+	status = "okay";
+};

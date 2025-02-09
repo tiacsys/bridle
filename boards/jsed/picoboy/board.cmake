@@ -3,6 +3,8 @@
 
 if("${NORMALIZED_BOARD_TARGET}" STREQUAL "picoboy_rp2040")
   set(BOARD_FULL_NAME "The PicoBoy Mini-Handheld")
+elseif("${NORMALIZED_BOARD_TARGET}" STREQUAL "picoboy_rp2040_color")
+  set(BOARD_FULL_NAME "The PicoBoy Color (PBC) Mini-Handheld")
 else()
   message(FATAL_ERROR "Unsupported board variant: "
                       "'${BOARD}${BOARD_QUALIFIERS}'\n")
