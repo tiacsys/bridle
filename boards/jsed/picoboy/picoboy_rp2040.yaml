@@ -1,4 +1,8 @@
-identifier: picoboy
+# Copyright (c) 2023-2025 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+identifier: picoboy/rp2040
+vendor: jsed
 name: The PicoBoy Mini-Handheld
 type: mcu
 arch: arm

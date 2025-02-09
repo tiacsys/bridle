@@ -58,6 +58,7 @@
 };
 
 &pwm {
+	status = "okay";
 	divider-frac-2 = <15>;
 	divider-int-2 = <255>;
 	divider-frac-3 = <15>;

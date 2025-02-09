@@ -1,0 +1,17 @@
+/*
+ * Copyright (c) 2023-2025 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+&i2c0 {
+	status = "okay";
+	/* Accelerometer with STK8BA58 3D acceleration sensor. */
+};
+
+&adc {
+	status = "okay";
+};
+
+&die_temp {
+	status = "okay";
+};

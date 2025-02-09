@@ -22,7 +22,7 @@ See also Zephyr sample: :zephyr:code-sample:`pwm-blinky`.
    :goals: flash
    :compact:
 
-.. rubric:: Red User LED Fade by PWM
+.. rubric:: All User LED Fade by PWM
 
 See also Zephyr sample: :zephyr:code-sample:`fade-led`.
 

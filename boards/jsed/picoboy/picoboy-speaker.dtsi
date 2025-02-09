@@ -22,5 +22,6 @@
 };
 
 &pwm {
+	status = "okay";
 	divider-int-7 = <255>;
 };

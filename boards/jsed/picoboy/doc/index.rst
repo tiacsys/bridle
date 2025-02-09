@@ -360,11 +360,11 @@ to the PWM channel at :rpi-pico-pio:`GP15` / :rpi-pico-pwm:`PWM15` (PWM7CHB).
 
 The PWM period is 880 ㎐, twice the concert pitch frequency of 440 ㎐.
 
-.. literalinclude:: ../core_speaker.dtsi
+.. literalinclude:: ../picoboy-speaker.dtsi
    :caption: core_speaker.dtsi
    :language: DTS
    :encoding: ISO-8859-1
-   :emphasize-lines: 3,11,18
+   :emphasize-lines: 3,11,19
    :linenos:
    :start-at: / {
 
