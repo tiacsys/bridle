@@ -48,8 +48,12 @@
               DT node labels: reset
             - cdc_acm_console_uart (READY)
               DT node labels: cdc_acm_console_uart
+            - watchdog\ @\ 40058000 (READY)
+              DT node labels: wdt0
             - timer\ @\ 40054000 (READY)
               DT node labels: timer
+            - dma\ @\ 50000000 (READY)
+              DT node labels: dma
             - gpio\ @\ 40014000 (READY)
               DT node labels: gpio0
             - adc\ @\ 4004c000 (READY)
@@ -64,6 +68,8 @@
               DT node labels: vreg
             - pwm_leds (READY)
               DT node labels: pwm_leds
+            - dietemp (READY)
+              DT node labels: die_temp
 
       .. container:: highlight highlight-console notranslate
 
@@ -333,11 +339,14 @@
          .. parsed-literal::
 
             :bgn:`uart:~$` **adc adc@4004c000 resolution 12**
-            :bgn:`uart:~$` **adc adc@4004c000 channel id 0**
-            :bgn:`uart:~$` **adc adc@4004c000 channel id 1**
-            :bgn:`uart:~$` **adc adc@4004c000 channel id 2**
-            :bgn:`uart:~$` **adc adc@4004c000 channel id 3**
-            :bgn:`uart:~$` **adc adc@4004c000 channel id 4**
+            :bgn:`uart:~$` **adc adc@4004c000 print**
+            adc\ @\ 4004c000:
+            Gain: 1
+            Reference: INTERNAL
+            Acquisition Time: 0
+            Channel ID: 0
+            Differential: 0
+            Resolution: 12
 
       .. container:: highlight highlight-console notranslate
 
@@ -391,11 +400,11 @@
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **flash read flash-controller@18000000 193f4 40**
-            000193F4: 70 69 63 6f 62 6f 79 00  48 65 6c 6c 6f 20 57 6f \|picoboy. Hello Wo\|
-            00019404: 72 6c 64 21 20 49 27 6d  20 54 48 45 20 53 48 45 \|rld! I'm  THE SHE\|
-            00019414: 4c 4c 20 66 72 6f 6d 20  25 73 0a 00 28 75 6e 73 \|LL from  %s..(uns\|
-            00019424: 69 67 6e 65 64 29 20 63  68 61 72 20 2a 20 75 73 \|igned) c har \* us\|
+            :bgn:`uart:~$` **flash read flash-controller@18000000 1a274 40**
+            0001A274: 70 69 63 6f 62 6f 79 00  48 65 6c 6c 6f 20 57 6f \|picoboy. Hello Wo\|
+            0001A284: 72 6c 64 21 20 49 27 6d  20 54 48 45 20 53 48 45 \|rld! I'm  THE SHE\|
+            0001A294: 4c 4c 20 66 72 6f 6d 20  25 73 0a 00 28 75 6e 73 \|LL from  %s..(uns\|
+            0001A2A4: 69 67 6e 65 64 29 20 63  68 61 72 20 2a 20 75 73 \|igned) c har * us\|
 
       .. rubric:: Erase, Write and Verify
 
@@ -477,3 +486,21 @@
 
             :bgn:`uart:~$` **i2c read_byte i2c@40044000 18 0**
             Output: 0x87
+
+   .. group-tab:: Sensors
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor info**
+            device name: dietemp, vendor: Raspberry Pi Foundation, model: pico-temp, friendly name: (null)
+
+      .. rubric:: on-chip temperature sensor
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor get dietemp**
+            channel type=12(die_temp) index=0 shift=5 num_samples=1 value=96691043776ns (29.905286)

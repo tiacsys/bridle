@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 TiaC Systems
+ * Copyright (c) 2023-2025 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -22,5 +22,3 @@
 #include "core_leds.dtsi"
 #include "core_joystick.dtsi"
 #include "core_speaker.dtsi"
-
-#include "picoboy-core-tweaks.dtsi"

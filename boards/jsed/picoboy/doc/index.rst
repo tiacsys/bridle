@@ -65,7 +65,7 @@ supports the following hardware features:
      - :zephyr:ref:`usb_api`
    * - I2C
      - :kconfig:option:`CONFIG_I2C`
-     - | :dtcompatible:`raspberrypi,pico-i2c` (!)
+     - | :dtcompatible:`raspberrypi,pico-i2c`
        | :dtcompatible:`gpio-i2c`
      - :zephyr:ref:`i2c_api`
    * - SPI
@@ -82,7 +82,7 @@ supports the following hardware features:
      - :zephyr:ref:`adc_api`
    * - Temperature (Sensor)
      - :kconfig:option:`CONFIG_SENSOR`
-     - :dtcompatible:`raspberrypi,pico-temp` (!!)
+     - :dtcompatible:`raspberrypi,pico-temp`
      - :zephyr:ref:`sensor`
    * - RTC
      - :kconfig:option:`CONFIG_RTC`
@@ -138,27 +138,6 @@ supports the following hardware features:
      - N/A
      - :dtcompatible:`arm,armv6m-systick`
      -
-
-(!) Designware I2C driver has issues:
-    The :emphasis:`Raspberry Pi Pico I2C driver` is using the
-    :emphasis:`Designware I2C driver` automatically. According to our
-    observation, this driver has some :strong:`shortcomings in interrupt
-    handling` and :brd:`leads to a dead-lock of the entire runtime system`.
-    Also known is the lack of support for 0 byte transfers, which prevents
-    a proper I2C device scan. Thus, the :strong:`PicoBoy board` will be
-    configured to :strong:`use the simple GPIO-I2C bit-bang driver` as
-    long as this driver is not applicable as expected.
-
-    See also: https://github.com/zephyrproject-rtos/zephyr/pull/60427
-
-(!!) Die-Temperature Sensor driver has issues:
-     It seems the RP2040 Die-Temperature sensor driver has also race conditions
-     and :brd:`leads to a dead-lock of the entire runtime system`. Thus, all
-     :strong:`PicoBoy board` will be configured to :strong:`disable this
-     sensor` node in DTS explicitly. As a workaround the ADC channel 4 can be
-     used, but that result have to convert manually to the corresponding chip
-     temperature following the formula that can be found in the
-     `RP2040 Datasheet`_, section with title :emphasis:`"Temperature Sensor"`.
 
 Other hardware features are not currently supported by Zephyr. The default
 configuration can be found in the following Kconfig file:
@@ -571,27 +550,53 @@ on the console, here configured for a USB console:
       :bgn:`uart:~$` **lvgl**
       lvgl - LVGL shell commands
       Subcommands:
-        stats   :Show LVGL statistics
-        monkey  :LVGL monkey testing
+        stats   : Show LVGL statistics
+        monkey  : LVGL monkey testing
 
       :bgn:`uart:~$` **lvgl stats**
       stats - Show LVGL statistics
       Subcommands:
-        memory  :Show LVGL memory statistics
-                 Usage: lvgl stats memory [-c]
-                 -c  dump chunk information
+        memory  : Show LVGL memory statistics
+                  Usage: lvgl stats memory [-c]
+                  -c  dump chunk information
 
       :bgn:`uart:~$` **lvgl stats memory**
-      Heap at 0x20001270 contains 2047 units in 11 buckets
+      Heap at 0x20001250 contains 2047 units in 11 buckets
 
         bucket#    min units        total      largest      largest
                    threshold       chunks      (units)      (bytes)
         -----------------------------------------------------------
-              0            1            1            1            4
               1            2            1            2           12
-             10         1024            1         1824        14588
+             10         1024            1         1456        11644
 
-      14604 free bytes, 1544 allocated bytes, overhead = 232 bytes (1.4%)
+      11656 free bytes, 4464 allocated bytes, overhead = 260 bytes (1.6%)
+
+   .. parsed-literal::
+
+      :bgn:`uart:~$` **device list**
+      devices:
+      - clock-controller\ @\ 40008000 (READY)
+        DT node labels: clocks
+      - reset-controller\ @\ 4000c000 (READY)
+        DT node labels: reset
+      - cdc_acm_console_uart (READY)
+        DT node labels: cdc_acm_console_uart
+      - watchdog\ @\ 40058000 (READY)
+        DT node labels: wdt0
+      - dma\ @\ 50000000 (READY)
+        DT node labels: dma
+      - gpio\ @\ 40014000 (READY)
+        DT node labels: gpio0
+      - pwm\ @\ 40050000 (READY)
+        DT node labels: pwm
+      - spi\ @\ 4003c000 (READY)
+        DT node labels: spi0
+      - sh1106_128x64\ @\ 0 (READY)
+        DT node labels: sh1106_128x64 oled_panel
+      - gpio_keys (READY)
+        DT node labels: gpio_keys
+      - lvgl-keypad (READY)
+        DT node labels: lvgl_keypad
 
 References
 **********

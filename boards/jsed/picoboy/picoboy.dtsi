@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 TiaC Systems
+ * Copyright (c) 2023-2025 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -42,8 +42,12 @@
 	status = "okay";
 };
 
+&dma {
+	status = "okay";
+};
+
 &die_temp {
-	status = "disabled";
+	status = "okay";
 };
 
 zephyr_udc0: &usbd {
