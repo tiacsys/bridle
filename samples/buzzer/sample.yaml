@@ -21,4 +21,4 @@ tests:
   bridle.sample.buzzer:
     depends_on: pwm
     harness: buzzer
-    filter: dt_alias_exists("pwm-buzzer0") and dt_compat_enabled("pwm-buzzers")
+    filter: dt_enabled_alias_with_parent_compat("pwm-buzzer0", "pwm-buzzers")

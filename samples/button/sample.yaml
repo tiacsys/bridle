@@ -31,10 +31,10 @@ common:
     - picoboy/rp2040/color
 tests:
   bridle.sample.button.poll:
-    filter: dt_alias_exists("sw0") and dt_compat_enabled("gpio-keys") and
-            dt_alias_exists("led0") and dt_compat_enabled("gpio-leds")
+    filter: dt_enabled_alias_with_parent_compat("sw0", "gpio-keys") and
+            dt_enabled_alias_with_parent_compat("led0", "gpio-leds")
     extra_args: CONF_FILE=prj-poll.conf
   bridle.sample.button.event:
-    filter: dt_alias_exists("sw0") and dt_compat_enabled("gpio-keys") and
-            dt_alias_exists("led0") and dt_compat_enabled("gpio-leds")
+    filter: dt_enabled_alias_with_parent_compat("sw0", "gpio-keys") and
+            dt_enabled_alias_with_parent_compat("led0", "gpio-leds")
     extra_args: CONF_FILE=prj-event.conf
