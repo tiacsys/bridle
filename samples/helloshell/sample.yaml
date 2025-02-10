@@ -75,7 +75,8 @@ common:
     - nucleo_f746zg
     - nucleo_f767zi
     - nucleo_l496zg
-    - picoboy
+    - picoboy/rp2040
+    - picoboy/rp2040/color
     - rpi_pico
     - rpi_pico/rp2040/w
     - seeeduino_cm0

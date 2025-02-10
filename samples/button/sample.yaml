@@ -27,7 +27,8 @@ common:
     - nucleo_f746zg
     - nucleo_f767zi
     - nucleo_l496zg
-    - picoboy
+    - picoboy/rp2040
+    - picoboy/rp2040/color
 tests:
   bridle.sample.button.poll:
     filter: dt_alias_exists("sw0") and dt_compat_enabled("gpio-keys") and

@@ -10,11 +10,13 @@ common:
   platform_allow:
     - cytron_maker_nano_rp2040
     - cytron_maker_pi_rp2040
-    - picoboy
+    - picoboy/rp2040
+    - picoboy/rp2040/color
   integration_platforms:
     - cytron_maker_nano_rp2040
     - cytron_maker_pi_rp2040
-    - picoboy
+    - picoboy/rp2040
+    - picoboy/rp2040/color
 tests:
   bridle.sample.buzzer:
     depends_on: pwm
