@@ -102,6 +102,7 @@ Supported boards
 
 * Arduino/Genuino Zero
 * PicoBoy Mini-Handheld
+* PicoBoy Color (PBC) Mini-Handheld
 * Cytron Maker Nano RP2040
 * Cytron Maker Pi RP2040
 * NXP MIMXRT1010-EVK
@@ -210,6 +211,13 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`296` - [HW] The PicoBoy Color as additional board variant
+* :github:`277` - [HW] Grove Dual and LED Button Module as Shield
+* :github:`275` - [BUG] Lost Bridle's document version selector
+* :github:`274` - [FCR] Bump to Zephyr v4.0
+* :github:`272` - [BUG] build all Bridle samples test runs into ``devicetree error``
+* :github:`271` - [BUG] build all GPIO drivers test runs into ``devicetree error``
+* :github:`270` - [BUG] Can't build the documentation sets for Bridle and Zephyr anymore
 * :github:`261` - [HW] TiaC SC18IS604 Arduino as Shield
 * :github:`258` - [HW] NXP SC18IS604-EVB as Shield
 * :github:`257` - [HW] SC16IS75x Breakout Boards as Shields
