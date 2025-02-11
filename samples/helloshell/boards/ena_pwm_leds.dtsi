@@ -1,0 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+&pwm_leds {
+	status = "okay";
+};
