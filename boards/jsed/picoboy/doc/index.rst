@@ -29,15 +29,15 @@ Hardware
 
    .. group-tab:: PicoBoy Color
 
-      .. _picoboy_rp2040_color:
+      .. _picoboy_color:
 
-      .. include:: picoboy-rp2040-color/hardware.rsti
+      .. include:: picoboy-color/hardware.rsti
 
    .. group-tab:: PicoBoy
 
-      .. _picoboy_rp2040:
+      .. _picoboy:
 
-      .. include:: picoboy-rp2040/hardware.rsti
+      .. include:: picoboy/hardware.rsti
 
 Positions
 =========
@@ -46,11 +46,11 @@ Positions
 
    .. group-tab:: PicoBoy Color
 
-      .. include:: picoboy-rp2040-color/positions.rsti
+      .. include:: picoboy-color/positions.rsti
 
    .. group-tab:: PicoBoy
 
-      .. include:: picoboy-rp2040/positions.rsti
+      .. include:: picoboy/positions.rsti
 
 Pinouts
 =======
@@ -67,11 +67,11 @@ outside of the board.
 
    .. group-tab:: PicoBoy Color
 
-      .. include:: picoboy-rp2040-color/pinouts.rsti
+      .. include:: picoboy-color/pinouts.rsti
 
    .. group-tab:: PicoBoy
 
-      .. include:: picoboy-rp2040/pinouts.rsti
+      .. include:: picoboy/pinouts.rsti
 
 Supported Features
 ******************
@@ -102,12 +102,12 @@ supports the following hardware features:
      - :zephyr:ref:`usb_api`
    * - I2C
      - :kconfig:option:`CONFIG_I2C`
-     - | :dtcompatible:`raspberrypi,pico-i2c`
-       | :dtcompatible:`gpio-i2c`
+     - :dtcompatible:`raspberrypi,pico-i2c`
      - :zephyr:ref:`i2c_api`
    * - SPI
      - :kconfig:option:`CONFIG_SPI`
-     - :dtcompatible:`raspberrypi,pico-spi`
+     - | :dtcompatible:`raspberrypi,pico-spi`
+       | :dtcompatible:`arm,pl022`
      - :zephyr:ref:`spi_api`
    * - PWM
      - :kconfig:option:`CONFIG_PWM`
@@ -179,8 +179,8 @@ supports the following hardware features:
 Other hardware features are not currently supported by Zephyr. The default
 configuration can be found in the following Kconfig file:
 
-   - :bridle_file:`boards/jsed/picoboy/picoboy_rp2040_color_defconfig`
-   - :bridle_file:`boards/jsed/picoboy/picoboy_rp2040_defconfig`
+   - :bridle_file:`boards/jsed/picoboy/picoboy_color_defconfig`
+   - :bridle_file:`boards/jsed/picoboy/picoboy_defconfig`
 
 Board Configurations
 ====================
@@ -191,7 +191,7 @@ The PicoBoy boards can be configured only for the following single use cases.
 
    .. group-tab:: PicoBoy Color
 
-      .. rubric:: :command:`west build -b picoboy/rp2040/color`
+      .. rubric:: :command:`west build -b picoboy_color/rp2040`
 
       Use the native USB device port with CDC-ACM as
       Zephyr console and for the shell.
@@ -254,7 +254,7 @@ The `RP2040 <RP2040 SoC_>`_ MCU has 2 I2Cs. On the |PicoBoy|, serial bus
 I2C0 is connect to the on-board acceleration sensor over GP20 (I2C0_SDA),
 GP21 (I2C0_SCL). I2C1 is not available in any default setup.
 
-.. image:: picoboy-rp2040-color/solderpads-i2c.jpg
+.. image:: picoboy-color/solderpads-i2c.jpg
    :align: right
    :alt: PicoBoy Color I2C Port
 
@@ -271,7 +271,7 @@ The `RP2040 <RP2040 SoC_>`_ MCU has 2 UARTs. On the |PicoBoy|, neither UART0
 nor UART1 are available in any of the default setups. When ever a Zephyr
 serial console will be needed, the USB port have to be used.
 
-.. image:: picoboy-rp2040-color/solderpads-uart.jpg
+.. image:: picoboy-color/solderpads-uart.jpg
    :align: right
    :alt: PicoBoy Color UART Port
 
@@ -402,11 +402,11 @@ LED Blinky and Fade
 
    .. group-tab:: PicoBoy Color
 
-      .. include:: picoboy-rp2040-color/blinky_fade.rsti
+      .. include:: picoboy-color/blinky_fade.rsti
 
    .. group-tab:: PicoBoy
 
-      .. include:: picoboy-rp2040/blinky_fade.rsti
+      .. include:: picoboy/blinky_fade.rsti
 
 Hello Shell on USB-CDC/ACM Console
 ==================================
@@ -415,11 +415,11 @@ Hello Shell on USB-CDC/ACM Console
 
    .. group-tab:: PicoBoy Color
 
-      .. include:: picoboy-rp2040-color/helloshell.rsti
+      .. include:: picoboy-color/helloshell.rsti
 
    .. group-tab:: PicoBoy
 
-      .. include:: picoboy-rp2040/helloshell.rsti
+      .. include:: picoboy/helloshell.rsti
 
 More Samples
 ************
@@ -432,8 +432,8 @@ to the PWM channel at :rpi-pico-pio:`GP15` / :rpi-pico-pwm:`PWM15` (PWM7CHB).
 
 The PWM period is 880 ㎐, twice the concert pitch frequency of 440 ㎐.
 
-.. literalinclude:: ../picoboy-speaker.dtsi
-   :caption: core_speaker.dtsi
+.. literalinclude:: ../pb-speaker.dtsi
+   :caption: pb-speaker.dtsi
    :language: DTS
    :encoding: ISO-8859-1
    :emphasize-lines: 3,11,19
@@ -444,11 +444,11 @@ The PWM period is 880 ㎐, twice the concert pitch frequency of 440 ㎐.
 
    .. group-tab:: PicoBoy Color
 
-      .. include:: picoboy-rp2040-color/speaker.rsti
+      .. include:: picoboy-color/speaker.rsti
 
    .. group-tab:: PicoBoy
 
-      .. include:: picoboy-rp2040/speaker.rsti
+      .. include:: picoboy/speaker.rsti
 
 Input dump on USB-CDC/ACM Console
 =================================
@@ -457,11 +457,11 @@ Input dump on USB-CDC/ACM Console
 
    .. group-tab:: PicoBoy Color
 
-      .. include:: picoboy-rp2040-color/input_dump.rsti
+      .. include:: picoboy-color/input_dump.rsti
 
    .. group-tab:: PicoBoy
 
-      .. include:: picoboy-rp2040/input_dump.rsti
+      .. include:: picoboy/input_dump.rsti
 
 Display Test and Demonstration
 ==============================
@@ -470,11 +470,11 @@ Display Test and Demonstration
 
    .. group-tab:: PicoBoy Color
 
-      .. include:: picoboy-rp2040-color/display_test.rsti
+      .. include:: picoboy-color/display_test.rsti
 
    .. group-tab:: PicoBoy
 
-      .. include:: picoboy-rp2040/display_test.rsti
+      .. include:: picoboy/display_test.rsti
 
 References
 **********

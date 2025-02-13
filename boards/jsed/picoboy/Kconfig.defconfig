@@ -1,9 +1,31 @@
 # Copyright (c) 2023-2025 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
+config BOARD_PICOBOY_OLED_1_3
+	bool
+	default y if BOARD_PICOBOY
+	default n
+
+config BOARD_PICOBOY_LCD_1_69
+	bool
+	default y if BOARD_PICOBOY_COLOR
+	default n
+
+config BOARD_PICOBOY_USBCONS
+	bool
+	default y if BOARD_PICOBOY
+	default y if BOARD_PICOBOY_COLOR
+	default n
+
 config RP2_FLASH_W25Q080
-	default y
-	depends on BOARD_PICOBOY
+	default y if BOARD_PICOBOY
+	default y if BOARD_PICOBOY_COLOR
+	depends on SOC_SERIES_RP2040
+
+config I2C_DW_CLOCK_SPEED
+	default 125 if BOARD_PICOBOY
+	default 125 if BOARD_PICOBOY_COLOR
+	depends on DT_HAS_RASPBERRYPI_PICO_I2C_ENABLED
 
 config CLOCK_CONTROL
 	default y
@@ -38,73 +60,69 @@ config WDT_DISABLE_AT_BOOT
 	default y
 	depends on HAS_WDT_DISABLE_AT_BOOT
 
-config I2C_DW_CLOCK_SPEED
-	default 125
-	depends on I2C_DW && BOARD_PICOBOY
-
 choice ST7789V_PIXEL_FORMAT
-	default ST7789V_RGB565 if BOARD_PICOBOY_RP2040_COLOR
-	depends on DISPLAY && LVGL && BOARD_PICOBOY_RP2040_COLOR
+	default ST7789V_RGB565 if BOARD_PICOBOY_LCD_1_69
+	depends on DISPLAY && LVGL
 endchoice
 
 config LV_Z_VDB_SIZE
-	default 64 if BOARD_PICOBOY_RP2040
-	depends on DISPLAY && LVGL && BOARD_PICOBOY_RP2040
+	default 64 if BOARD_PICOBOY_OLED_1_3
+	depends on DISPLAY && LVGL
 
 config LV_DPI_DEF
-	default 116 if BOARD_PICOBOY_RP2040
-	depends on DISPLAY && LVGL && BOARD_PICOBOY_RP2040
+	default 116 if BOARD_PICOBOY_OLED_1_3
+	depends on DISPLAY && LVGL
 
 config LV_Z_BITS_PER_PIXEL
-	default 1 if BOARD_PICOBOY_RP2040
-	default 16 if BOARD_PICOBOY_RP2040_COLOR
-	depends on DISPLAY && LVGL && BOARD_PICOBOY_RP2040
+	default 1 if BOARD_PICOBOY_OLED_1_3
+	default 16 if BOARD_PICOBOY_LCD_1_69
+	depends on DISPLAY && LVGL
 
 choice LV_COLOR_DEPTH
-	default LV_COLOR_DEPTH_1 if BOARD_PICOBOY_RP2040
-	default LV_COLOR_DEPTH_16 if BOARD_PICOBOY_RP2040_COLOR
-	depends on DISPLAY && LVGL && BOARD_PICOBOY_RP2040
+	default LV_COLOR_DEPTH_1 if BOARD_PICOBOY_OLED_1_3
+	default LV_COLOR_DEPTH_16 if BOARD_PICOBOY_LCD_1_69
+	depends on DISPLAY && LVGL
 endchoice
 
 config LV_COLOR_16_SWAP
-	default y if BOARD_PICOBOY_RP2040_COLOR
-	depends on DISPLAY && LVGL && BOARD_PICOBOY_RP2040_COLOR
+	default y if BOARD_PICOBOY_LCD_1_69
+	depends on DISPLAY && LVGL
 
 config LV_FONT_MONTSERRAT_8
-	default y if BOARD_PICOBOY_RP2040
-	depends on DISPLAY && LVGL && BOARD_PICOBOY_RP2040
+	default y if BOARD_PICOBOY_OLED_1_3
+	depends on DISPLAY && LVGL
 
 config LV_FONT_MONTSERRAT_10
-	default y if BOARD_PICOBOY_RP2040
-	depends on DISPLAY && LVGL && BOARD_PICOBOY_RP2040
+	default y if BOARD_PICOBOY_OLED_1_3
+	depends on DISPLAY && LVGL
 
 config LV_FONT_MONTSERRAT_12
-	default y if BOARD_PICOBOY_RP2040
-	depends on DISPLAY && LVGL && BOARD_PICOBOY_RP2040
+	default y if BOARD_PICOBOY_OLED_1_3
+	depends on DISPLAY && LVGL
 
 config LV_FONT_MONTSERRAT_14
-	default y if BOARD_PICOBOY_RP2040
-	depends on DISPLAY && LVGL && BOARD_PICOBOY_RP2040
+	default y if BOARD_PICOBOY_OLED_1_3
+	depends on DISPLAY && LVGL
 
 choice LV_FONT_DEFAULT
 	default LV_FONT_DEFAULT_MONTSERRAT_10 if !LV_CONF_MINIMAL
 	default LV_FONT_DEFAULT_UNSCII_8 if LV_CONF_MINIMAL
-	depends on DISPLAY && LVGL && BOARD_PICOBOY_RP2040
+	depends on DISPLAY && LVGL
 endchoice
 
 config INPUT
 	default y if DT_HAS_ZEPHYR_LVGL_BUTTON_INPUT_ENABLED
 	default y if DT_HAS_ZEPHYR_LVGL_KEYPAD_INPUT_ENABLED
-	depends on DISPLAY && LVGL && BOARD_PICOBOY
+	depends on DISPLAY && LVGL
 
 config USB_SELF_POWERED
 	default n
-	depends on USB_DEVICE_STACK && BOARD_PICOBOY
+	depends on USB_DEVICE_STACK && BOARD_PICOBOY_USBCONS
 
 config USB_MAX_POWER
-	default 125 if BOARD_PICOBOY_RP2040		# 250mA
-	default 125 if BOARD_PICOBOY_RP2040_COLOR	# 250mA
-	depends on USB_DEVICE_STACK && BOARD_PICOBOY
+	default 125 if BOARD_PICOBOY		# 250mA
+	default 125 if BOARD_PICOBOY_COLOR	# 250mA
+	depends on USB_DEVICE_STACK && BOARD_PICOBOY_USBCONS
 
 # Workaround for not being able to have commas in macro arguments
 DT_CHOSEN_Z_CONSOLE := zephyr,console
@@ -115,7 +133,7 @@ DT_COMPAT_RPIPICO_USB := raspberrypi,pico-usbd
 DT_CHOSEN_CONSOLE_NODE := $(dt_chosen_path,$(DT_CHOSEN_Z_CONSOLE))
 DT_CHOSEN_CONSOLE_PARENT := $(dt_node_parent,$(DT_CHOSEN_CONSOLE_NODE))
 
-if BOARD_PICOBOY && \
+if BOARD_PICOBOY_USBCONS && \
 	$(dt_chosen_enabled,$(DT_CHOSEN_Z_CONSOLE)) && \
 	$(dt_compat_on_bus,$(DT_COMPAT_Z_CDC_ACM_UART),usb) && \
 	$(dt_node_has_compat,$(DT_CHOSEN_CONSOLE_PARENT),$(DT_COMPAT_RPIPICO_USB))

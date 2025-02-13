@@ -298,12 +298,12 @@
 .. :bridle:board:`picoboy`
 
 .. |PicoBoy| replace::
-   :ref:`PicoBoy <picoboy_rp2040>`
-.. :bridle:board:`picoboy_rp2040`
+   :ref:`PicoBoy <picoboy>`
+.. :bridle:board:`picoboy`
 
 .. |PicoBoy (CDC ACM)| replace::
-   :ref:`PicoBoy (CDC ACM) <picoboy_rp2040>`
-.. :bridle:board:`PicoBoy (CDC ACM) <picoboy_rp2040>`
+   :ref:`PicoBoy (CDC ACM) <picoboy>`
+.. :bridle:board:`PicoBoy (CDC ACM) <picoboy>`
 
 .. |picoboy_URB_VID|		replace:: |rpi_URB_VID|
 .. |picoboy_VID|		replace:: |rpi_VID|
@@ -315,12 +315,12 @@
 .. |picoboy_BCD_CON|		replace:: |zephyr_version_BCD|
 
 .. |PicoBoy Color| replace::
-   :ref:`PicoBoy Color <picoboy_rp2040_color>`
-.. :bridle:board:`picoboy_rp2040_color`
+   :ref:`PicoBoy Color <picoboy_color>`
+.. :bridle:board:`picoboy_color`
 
 .. |PicoBoy Color (CDC ACM)| replace::
-   :ref:`PicoBoy Color (CDC ACM) <picoboy_rp2040_color>`
-.. :bridle:board:`PicoBoy Color (CDC ACM) <picoboy_rp2040_color>`
+   :ref:`PicoBoy Color (CDC ACM) <picoboy_color>`
+.. :bridle:board:`PicoBoy Color (CDC ACM) <picoboy_color>`
 
 .. |picoboy_color_URB_VID|	replace:: |rpi_URB_VID|
 .. |picoboy_color_VID|		replace:: |rpi_VID|

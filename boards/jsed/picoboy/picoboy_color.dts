@@ -15,13 +15,13 @@
 	};
 };
 
-#include "picoboy_rp2040_color.dtsi"
+#include "picoboy_color.dtsi"
 
 #include "picoboy-core.dtsi"
 #include "picoboy-2mb.dtsi"
 
-#include "color-joystick.dtsi"
-#include "color-sensors.dtsi"
-#include "color-speaker.dtsi"
-#include "color-leds.dtsi"
-#include "color-lcd.dtsi"
+#include "pbc-joystick.dtsi"
+#include "pbc-sensors.dtsi"
+#include "pbc-speaker.dtsi"
+#include "pbc-leds.dtsi"
+#include "pbc-lcd.dtsi"

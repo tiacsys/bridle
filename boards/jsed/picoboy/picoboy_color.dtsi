@@ -8,7 +8,12 @@
 #include <raspberrypi/rpi_pico/rp2040.dtsi>
 #include <zephyr/dt-bindings/regulator/rpi_pico.h>
 
-#include "picoboy_rp2040_color-pinctrl.dtsi"
+#include "pbc-pinctrl.dtsi"
+
+#define __FLASH_MBR_NODE second_stage_bootloader
+#define __FLASH_MBR_SIZE 0x100
+
+#define __FLASH_CTRL_NODE ssi
 
 / {
 	chosen {

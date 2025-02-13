@@ -612,7 +612,7 @@
 
 .. ### Links to PicoBoy
 
-.. _`PicoBoy`:
+.. _`PicoBoy Origin`:
    https://picoboy.de/einfuehrung/das-geraet
 
 .. _`PicoBoy Details`:
@@ -620,7 +620,7 @@
 
 .. ### Links to PicoBoy Color
 
-.. _`PicoBoy Color`:
+.. _`PicoBoy Color Origin`:
    https://picoboy.de/der-picoboy-color
 
 .. _`PicoBoy Color Details`:

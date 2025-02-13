@@ -3,12 +3,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#define __FLASH_RPI_PICO_BOOTLOADER_SIZE	0x100
+#define __STRINGIFY(x) #x
+#define STRINGIFY(s) __STRINGIFY(s)
 
 / {
 	chosen {
 		zephyr,flash = &flash0;
-		zephyr,flash-controller = &ssi;
+		zephyr,flash-controller = &__FLASH_CTRL_NODE;
 		zephyr,code-partition = &code_partition;
 	};
 };
@@ -19,10 +20,10 @@
 		#address-cells = <1>;
 		#size-cells = <1>;
 
-		/* Reserved memory for the second stage bootloader */
-		second_stage_bootloader: partition@0 {
-			label = "second_stage_bootloader";
-			reg = <0x00000000 __FLASH_RPI_PICO_BOOTLOADER_SIZE>;
+		/* Reserved memory for the RP2040 second stage bootloader. */
+		__FLASH_MBR_NODE: partition@0 {
+			label = STRINGIFY(__FLASH_MBR_NODE);
+			reg = <0x00000000 __FLASH_MBR_SIZE>;
 			read-only;
 		};
 
@@ -33,3 +34,6 @@
 		};
 	};
 };
+
+#undef STRINGIFY
+#undef __STRINGIFY

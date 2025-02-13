@@ -21,7 +21,7 @@
 
             :bgn:`uart:~$` **hwinfo devid**
             Length: 8
-            ID: 0xb69ca314d5626e5b
+            ID: 0xbd774b2618daaa7d
 
             :bgn:`uart:~$` **kernel version**
             Zephyr version |zephyr_version_number_em|
@@ -66,8 +66,6 @@
               DT node labels: pwm
             - vreg\ @\ 40064000 (READY)
               DT node labels: vreg
-            - lcd_backlight_en (READY)
-              DT node labels: lcd_backlight_en
             - pwm_leds (READY)
               DT node labels: pwm_leds
             - dietemp (READY)
@@ -131,31 +129,17 @@
             reset caused by:
             - power-on reset
 
-      Operate with the fixed voltage regulator for LCD backlight:
-
-      .. container:: highlight highlight-console notranslate
-
-         .. parsed-literal::
-
-            :bgn:`uart:~$` **regulator is_enabled lcd_backlight_en**
-            Regulator is enabled
-
-            :bgn:`uart:~$` **regulator disable lcd_backlight_en**
-
-            :bgn:`uart:~$` **regulator is_enabled lcd_backlight_en**
-            Regulator is disabled
-
    .. group-tab:: LED
 
       .. note:: **PWM LED conflicts with GPIO!**
 
          Operations with the red user LED in PWM mode will fail when ever
-         the corresponding GPIO line 14 was configured as digital output.
+         the corresponding GPIO line 5 was configured as digital output.
          This condition is irreversible at runtime within the shell and
          :strong:`requires a system reset`.
 
       Operate with the red user LED :hwftlbl-led:`PWM_LED`
-      at :rpi-pico-pio:`GP14` / :rpi-pico-pwm:`PWM14` (PWM7CHA):
+      at :rpi-pico-pio:`GP5` / :rpi-pico-pwm:`PWM5` (PWM2CHA):
 
       .. container:: highlight highlight-console notranslate
 
@@ -197,78 +181,78 @@
       .. note:: **PWM conflicts with GPIO!**
 
          Operations with the red user LED in PWM mode will fail when ever
-         the corresponding GPIO line 14 was configured as digital output.
+         the corresponding GPIO line 5 was configured as digital output.
          This condition is irreversible at runtime within the shell and
          :strong:`requires a system reset`.
 
       Operate with the red user LED :hwftlbl-led:`PWM_LED`
-      at :rpi-pico-pio:`GP14` / :rpi-pico-pwm:`PWM14` (PWM7CHA):
+      at :rpi-pico-pio:`GP5` / :rpi-pico-pwm:`PWM5` (PWM2CHA):
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **pwm usec pwm@40050000 14 20000 20000**
+            :bgn:`uart:~$` **pwm usec pwm@40050000 5 20000 20000**
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **pwm usec pwm@40050000 14 20000 19000**
+            :bgn:`uart:~$` **pwm usec pwm@40050000 5 20000 19000**
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **pwm usec pwm@40050000 14 20000 18000**
+            :bgn:`uart:~$` **pwm usec pwm@40050000 5 20000 18000**
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **pwm usec pwm@40050000 14 20000 17000**
+            :bgn:`uart:~$` **pwm usec pwm@40050000 5 20000 17000**
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **pwm usec pwm@40050000 14 20000 16000**
+            :bgn:`uart:~$` **pwm usec pwm@40050000 5 20000 16000**
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **pwm usec pwm@40050000 14 20000 15000**
+            :bgn:`uart:~$` **pwm usec pwm@40050000 5 20000 15000**
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **pwm usec pwm@40050000 14 20000 10000**
+            :bgn:`uart:~$` **pwm usec pwm@40050000 5 20000 10000**
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **pwm usec pwm@40050000 14 20000 5000**
+            :bgn:`uart:~$` **pwm usec pwm@40050000 5 20000 5000**
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **pwm usec pwm@40050000 14 20000 2500**
+            :bgn:`uart:~$` **pwm usec pwm@40050000 5 20000 2500**
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **pwm usec pwm@40050000 14 20000 500**
+            :bgn:`uart:~$` **pwm usec pwm@40050000 5 20000 500**
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **pwm usec pwm@40050000 14 20000 0**
+            :bgn:`uart:~$` **pwm usec pwm@40050000 5 20000 0**
 
       Operate with the :hwftlbl-spk:`PASSIVE` magnetic speaker
       at :rpi-pico-pio:`GP15` / :rpi-pico-pwm:`PWM15` (PWM7CHB):
@@ -305,21 +289,21 @@
    .. group-tab:: GPIO
 
       Operate with the red user LED :hwftlbl-led:`LED`
-      at :rpi-pico-pio:`GP14`:
+      at :rpi-pico-pio:`GP5`:
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **gpio get gpio@40014000 14**
+            :bgn:`uart:~$` **gpio get gpio@40014000 5**
             0
 
-            :bgn:`uart:~$` **gpio conf gpio@40014000 14 oh0**
+            :bgn:`uart:~$` **gpio conf gpio@40014000 5 oh0**
 
-            :bgn:`uart:~$` **gpio set gpio@40014000 14 1**
-            :bgn:`uart:~$` **gpio set gpio@40014000 14 0**
+            :bgn:`uart:~$` **gpio set gpio@40014000 5 1**
+            :bgn:`uart:~$` **gpio set gpio@40014000 5 0**
 
-            :bgn:`uart:~$` **gpio blink gpio@40014000 14**
+            :bgn:`uart:~$` **gpio blink gpio@40014000 5**
             Hit any key to exit
 
       Operate with the user joystick center button :hwftlbl-btn:`ENTER`
@@ -344,6 +328,9 @@
 
       Operate with the channels:
 
+         - :rpi-pico-adc:`ADC0`, pulled to unknown voltage level
+         - :rpi-pico-adc:`ADC1`, pulled to unknown voltage level
+         - :rpi-pico-adc:`ADC2`, pulled to unknown voltage level
          - :rpi-pico-adc:`ADC3`, pulled to unknown voltage level
          - on-chip temperature sensor on channel :rpi-pico-adc:`ADC4`
 
@@ -360,6 +347,27 @@
             Channel ID: 0
             Differential: 0
             Resolution: 12
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **adc adc@4004c000 read 0**
+            read: 681
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **adc adc@4004c000 read 1**
+            read: 617
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **adc adc@4004c000 read 2**
+            read: 745
 
       .. container:: highlight highlight-console notranslate
 
@@ -392,11 +400,11 @@
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **flash read flash-controller@18000000 1a44c 40**
-            0001A44C: 70 69 63 6f 62 6f 79 00  48 65 6c 6c 6f 20 57 6f \|picoboy. Hello Wo\|
-            0001A45C: 72 6c 64 21 20 49 27 6d  20 54 48 45 20 53 48 45 \|rld! I'm  THE SHE\|
-            0001A46C: 4c 4c 20 66 72 6f 6d 20  25 73 0a 00 28 75 6e 73 \|LL from  %s..(uns\|
-            0001A47C: 69 67 6e 65 64 29 20 63  68 61 72 20 2a 20 75 73 \|igned) c har * us\|
+            :bgn:`uart:~$` **flash read flash-controller@18000000 1a294 40**
+            0001A294: 70 69 63 6f 62 6f 79 00  48 65 6c 6c 6f 20 57 6f \|picoboy. Hello Wo\|
+            0001A2A4: 72 6c 64 21 20 49 27 6d  20 54 48 45 20 53 48 45 \|rld! I'm  THE SHE\|
+            0001A2B4: 4c 4c 20 66 72 6f 6d 20  25 73 0a 00 28 75 6e 73 \|LL from  %s..(uns\|
+            0001A2C4: 69 67 6e 65 64 29 20 63  68 61 72 20 2a 20 75 73 \|igned) c har * us\|
 
       .. rubric:: Erase, Write and Verify
 
@@ -450,8 +458,7 @@
 
    .. group-tab:: I2C
 
-      The |PicoBoy Color| has no on-board I2C devices. For this example the
-      |Grove BMP280 Sensor|_ was connected.
+      The |PicoBoy| has the on-board acceleration sensor connected on I2C0.
 
       .. container:: highlight highlight-console notranslate
 
@@ -460,24 +467,25 @@
             :bgn:`uart:~$` **i2c scan i2c@40044000**
                  0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
             00:             -- -- -- -- -- -- -- -- -- -- -- --
-            10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            10: -- -- -- -- -- -- -- -- 18 -- -- -- -- -- -- --
             20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
             30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
             40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
             50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
             60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-            70: -- -- -- -- -- -- -- 77
+            70: -- -- -- -- -- -- -- --
             1 devices found on i2c\ @\ 40044000
 
-      The I2C address ``0x77`` is a Bosch BMP280 Air Pressure Sensor and their
-      Chip-ID can read from register ``0xd0``. The Chip-ID must be ``0x58``:
+      The I2C address ``0x18`` is a Sensortek STK8BA58_ 3D Acceleration Sensor
+      and their Chip-ID can read from register ``0x0``. The Chip-ID must be
+      ``0x87``:
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **i2c read_byte i2c@40044000 77 d0**
-            Output: 0x58
+            :bgn:`uart:~$` **i2c read_byte i2c@40044000 18 0**
+            Output: 0x87
 
    .. group-tab:: Sensors
 
@@ -495,4 +503,4 @@
          .. parsed-literal::
 
             :bgn:`uart:~$` **sensor get dietemp**
-            channel type=12(die_temp) index=0 shift=6 num_samples=1 value=144882710603ns (39.202207)
+            :bgn:`channel type=12(die_temp) index=0 shift=5 num_samples=1 value=96691043776ns (29.905286)`

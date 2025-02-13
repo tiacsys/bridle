@@ -1,9 +1,16 @@
 The following samples work with the chosen display. That is:
 
-| :hwftlbl-scr:`OLED` : :dts:`chosen { zephyr,display = &oled_panel; };`
-| :hwftlbl-scr:`SH1106` : :dts:`oled_panel: &sh1106_128x64 {};`
+| :hwftlbl-scr:`LCD` : :dts:`chosen { zephyr,display = &lcd_panel; };`
+| :hwftlbl-scr:`ST7789V` : :dts:`lcd_panel: &st7789v_240x280 {};`
 
 .. rubric:: Devicetree compatible
+
+- :dtcompatible:`zephyr,lvgl-button-input` with devicetree relation
+  :dts:`lvgl_buttons: lvgl-buttons { input = <&gpio_keys>; };`
+
+  | :hwftlbl-btn:`FORWARD` :
+    :dts:`input-codes = <INPUT_KEY_FORWARD>;` :
+    :dts:`coordinates = <120 140>;` (center of LCD)
 
 - :dtcompatible:`zephyr,lvgl-keypad-input` with devicetree relation
   :dts:`lvgl_keypad: lvgl-keypad { input = <&gpio_keys>; };`
@@ -26,9 +33,9 @@ The following samples work with the chosen display. That is:
 
 .. rubric:: LCD Orientation and Bit Order Test
 
-.. image:: picoboy-rp2040/display.gif
+.. image:: picoboy-color/display.svg
    :align: right
-   :alt: PicoBoy Display Test
+   :alt: PicoBoy Color Display Test
 
 Draw some basic rectangles onto the display using the
 :zephyr:ref:`Display driver API <display_api>`. See also Zephyr sample:
@@ -36,7 +43,7 @@ Draw some basic rectangles onto the display using the
 
 .. zephyr-app-commands::
    :app: zephyr/samples/drivers/display
-   :board: picoboy/rp2040
+   :board: picoboy_color/rp2040
    :build-dir: picoboy
    :west-args: -p
    :goals: flash
@@ -51,7 +58,7 @@ bottom which increments every second using the LVGL module on top of the
 
 .. zephyr-app-commands::
    :app: zephyr/samples/subsys/display/lvgl
-   :board: picoboy/rp2040
+   :board: picoboy_color/rp2040
    :build-dir: picoboy
    :west-args: -p
    :goals: flash
@@ -80,15 +87,15 @@ on the console, here configured for a USB console:
                   -c  dump chunk information
 
       :bgn:`uart:~$` **lvgl stats memory**
-      Heap at 0x20001250 contains 2047 units in 11 buckets
+      Heap at 0x20001390 contains 2047 units in 11 buckets
 
         bucket#    min units        total      largest      largest
                    threshold       chunks      (units)      (bytes)
         -----------------------------------------------------------
               1            2            1            2           12
-             10         1024            1         1456        11644
+              9          512            1         1012         8092
 
-      11656 free bytes, 4464 allocated bytes, overhead = 260 bytes (1.6%)
+      8104 free bytes, 7700 allocated bytes, overhead = 576 bytes (3.5%)
 
    .. parsed-literal::
 
@@ -108,11 +115,19 @@ on the console, here configured for a USB console:
         DT node labels: gpio0
       - pwm\ @\ 40050000 (READY)
         DT node labels: pwm
+      - vreg\ @\ 40064000 (READY)
+        DT node labels: vreg
       - spi\ @\ 4003c000 (READY)
         DT node labels: spi0
-      - sh1106_128x64\ @\ 0 (READY)
-        DT node labels: sh1106_128x64 oled_panel
+      - lcd_backlight_en (READY)
+        DT node labels: lcd_backlight_en
+      - mipi_dbi_spi0 (READY)
+        DT node labels: mipi_dbi_spi0
+      - st7789v\ @\ 0 (READY)
+        DT node labels: st7789v_240x280 lcd_panel
       - gpio_keys (READY)
         DT node labels: gpio_keys
+      - lvgl-buttons (READY)
+        DT node labels: lvgl_buttons
       - lvgl-keypad (READY)
         DT node labels: lvgl_keypad

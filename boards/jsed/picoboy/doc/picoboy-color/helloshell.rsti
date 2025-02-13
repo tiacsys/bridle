@@ -2,10 +2,10 @@
 
 .. zephyr-app-commands::
    :app: bridle/samples/helloshell
-   :board: picoboy/rp2040/color
+   :board: picoboy_color/rp2040
    :build-dir: picoboy
    :west-args: -p
    :goals: flash
    :compact:
 
-.. include:: picoboy-rp2040-color/helloshell_console.rsti
+.. include:: picoboy-color/helloshell_console.rsti

@@ -3,7 +3,7 @@
    :width: 66%
    :header-rows: 1
 
-   * - .. image:: picoboy-rp2040-color/positions.jpg
+   * - .. image:: picoboy-color/positions.jpg
           :align: center
           :width: 500
           :alt: PicoBoy Color details
@@ -24,14 +24,18 @@
                 | user LEDs for diagnostic (not power indicator)
              #. | :strong:`Magnetic Speaker`
                 | 3.0Vo-p (2.0~4.0V) @ 4,000㎐ with ≫65㏈A
+             #. | :strong:`Solder Pads`
+                | supports **I2C0** (default), UART1, GPIO/PWM
+
+             - | :strong:`S8050 (J3Y)`
+               | SMD NPN Transistor 300㎽, 40V @ 500㎃, SOT-23
+
+          .. container:: rightside
 
              Back side:
 
              1. :strong:`RP2040`
-
-          .. container:: rightside
-
-             2. | :strong:`USB Type-C connector`
+             #. | :strong:`USB Type-C connector`
                 | Supports USB1.1 hosts and slave devices
              #. | :strong:`Power Supply Switch`
              #. | :strong:`RESET and BOOT button`
@@ -41,10 +45,11 @@
              #. | :strong:`AAA`
                 | 2×1.5V @ 1,200㎃h battery holder
 
+             |
+             |
+
              - | :strong:`TX4310B (N1IF)`
                | 150㎃ DC-DC buck-boost converter, power switch for 3.3V
-             - | :strong:`S8050 (J3Y)`
-               | SMD NPN Transistor 300㎽, 40V @ 500㎃, SOT-23
 
 .. rubric:: Data Sheets
 .. rst-class:: rst-columns
