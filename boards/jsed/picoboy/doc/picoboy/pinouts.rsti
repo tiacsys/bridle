@@ -21,6 +21,7 @@
           :hwftlbl-led:`1 GREEN`
           :hwftlbl-scr:`1 OLED`
           :hwftlbl-spk:`1 PASSIVE`
+          :hwftlbl-cps:`3-DOF`
 
        .. rubric:: Default Zephyr On-Board Mapping
 
@@ -75,13 +76,17 @@
 
           .. container:: rightside
 
-             .. rubric:: Sensors and ADCs
+             .. rubric:: Sensor I/O
              .. rst-class:: rst-columns edge-pinout
 
              - | :rpi-pico-i2c:`I2C0_SDA` : GP20 (PWM4)
-               | on-board acceleration sensor i/f data :rpi-pico-sys:`ACCS_SDA`
+               | on-board acc. sensor i/f data :rpi-pico-sys:`ACCS_SDA`
              - | :rpi-pico-i2c:`I2C0_SCL` : GP21 (PWM5)
-               | on-board acceleration sensor i/f clock :rpi-pico-sys:`ACCS_SCL`
+               | on-board acc. sensor i/f clock :rpi-pico-sys:`ACCS_SCL`
+
+             .. rubric:: GPIO and ADC
+             .. rst-class:: rst-columns edge-pinout
+
              - | :rpi-pico-sys:`n.c.` : GP22 (PWM6)
              - | :rpi-pico-sys:`n.c.` : GP23 (PWM7)
              - | :rpi-pico-sys:`n.c.` : GP24 (PWM8)

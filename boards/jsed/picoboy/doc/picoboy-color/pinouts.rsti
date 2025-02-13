@@ -83,12 +83,16 @@
              .. rubric:: Sensors via solder pads
              .. rst-class:: rst-columns edge-pinout
 
-             - | :rpi-pico-i2c:`I2C0_SDA` : :rpi-pico-uart:`UART1_TX` : GP20 (PWM4)
+             - | :rpi-pico-i2c-dfl:`I2C0_SDA` : :rpi-pico-uart:`UART1_TX` : GP20 (PWM4)
                | on-board solder pads i/f data :rpi-pico-sys:`I2C_SDA`
                | on-board solder pads i/f data :rpi-pico-sys:`UART_TX`
-             - | :rpi-pico-i2c:`I2C0_SCL` : :rpi-pico-uart:`UART1_RX` : GP21 (PWM5)
+             - | :rpi-pico-i2c-dfl:`I2C0_SCL` : :rpi-pico-uart:`UART1_RX` : GP21 (PWM5)
                | on-board solder pads i/f clock :rpi-pico-sys:`I2C_SCL`
                | on-board solder pads i/f data :rpi-pico-sys:`UART_RX`
+
+             .. rubric:: GPIO and ADC
+             .. rst-class:: rst-columns edge-pinout
+
              - | :rpi-pico-sys:`n.c.` : GP22 (PWM6)
              - | :rpi-pico-sys:`n.c.` : GP23 (PWM7)
              - | :rpi-pico-sys:`n.c.` : GP24 (PWM8)

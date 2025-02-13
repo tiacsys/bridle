@@ -3,7 +3,7 @@
    :width: 66%
    :header-rows: 1
 
-   * - .. image:: picoboy-rp2040/positions.jpg
+   * - .. image:: picoboy/positions.jpg
           :align: center
           :width: 500
           :alt: PicoBoy details
@@ -41,8 +41,9 @@
              #. | :strong:`CR2032`
                 | 3.0V @ 235㎃h coin battery holder
 
-             - | :strong:`BL9366`
-               | 600㎃ DC-DC buck-boost converter, power switch for 3.3V
+             - | :strong:`XC6206P332MR (662K)`
+               | 200㎃ low dropout, low quiescent current
+               | 3.3V power supply, SOT-23
              - | :strong:`S8050 (J3Y)`
                | SMD NPN Transistor 300㎽, 40V @ 500㎃, SOT-23
 
@@ -61,9 +62,8 @@
 - `SSD1306 Datasheet V1.1 (2008/04)`_
 - .. rubric:: STK8BA58_
 - `STK8BA58 Datasheet`_
-- .. rubric:: BL9366_
-- `BL9366 Datasheet`_
-- `Buck DC/DC converter BL9366`_
+- .. rubric:: XC6206_
+- `XC6206 Datasheet`_
 - .. rubric:: S8050_
 - `S8050 Datasheet`_
 - .. rubric:: `KLJ-4020`_

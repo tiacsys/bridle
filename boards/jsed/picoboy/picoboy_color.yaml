@@ -1,7 +1,7 @@
 # Copyright (c) 2023-2025 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
-identifier: picoboy/rp2040/color
+identifier: picoboy_color/rp2040
 vendor: jsed
 name: The PicoBoy Color (PBC) Mini-Handheld
 type: mcu

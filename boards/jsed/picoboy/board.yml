@@ -4,5 +4,8 @@ boards:
     vendor: jsed
     socs:
       - name: rp2040
-        variants:
-          - name: "color"
+  - name: picoboy_color
+    full_name: The PicoBoy Color
+    vendor: jsed
+    socs:
+      - name: rp2040

@@ -101,7 +101,7 @@ Also see the :ref:`boards` section in this documentation.
 |                   |                                    | | ``cytron_maker_pi_rp2040``     |
 |                   +------------------------------------+----------------------------------+
 |                   | |bridle:board:picoboy|             | | ``picoboy/rp2040``             |
-|                   |                                    | | ``picoboy/rp2040/color``       |
+|                   |                                    | | ``picoboy_color/rp2040``       |
 |                   +------------------------------------+----------------------------------+
 |                   | |bridle:board:waveshare_rp2040|    | | ``waveshare_rp2040_one``       |
 |                   |                                    | | ``waveshare_rp2040_zero``      |
