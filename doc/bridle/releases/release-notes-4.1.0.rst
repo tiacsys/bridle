@@ -103,6 +103,7 @@ Supported boards
 * Arduino/Genuino Zero
 * PicoBoy Mini-Handheld
 * PicoBoy Color (PBC) Mini-Handheld
+* PicoBoy Color Plus (PBC+) Mini-Handheld
 * Cytron Maker Nano RP2040
 * Cytron Maker Pi RP2040
 * NXP MIMXRT1010-EVK
@@ -211,6 +212,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`297` - [HW] The PicoBoy Color Plus as additional board variant
 * :github:`296` - [HW] The PicoBoy Color as additional board variant
 * :github:`277` - [HW] Grove Dual and LED Button Module as Shield
 * :github:`275` - [BUG] Lost Bridle's document version selector
