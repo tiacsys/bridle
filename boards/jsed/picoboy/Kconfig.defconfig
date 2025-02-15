@@ -9,12 +9,14 @@ config BOARD_PICOBOY_OLED_1_3
 config BOARD_PICOBOY_LCD_1_69
 	bool
 	default y if BOARD_PICOBOY_COLOR
+	default y if BOARD_PICOBOY_COLOR_PLUS
 	default n
 
 config BOARD_PICOBOY_USBCONS
 	bool
 	default y if BOARD_PICOBOY
 	default y if BOARD_PICOBOY_COLOR
+	default y if BOARD_PICOBOY_COLOR_PLUS
 	default n
 
 config RP2_FLASH_W25Q080
@@ -122,6 +124,7 @@ config USB_SELF_POWERED
 config USB_MAX_POWER
 	default 125 if BOARD_PICOBOY		# 250mA
 	default 125 if BOARD_PICOBOY_COLOR	# 250mA
+	default 125 if BOARD_PICOBOY_COLOR_PLUS	# 250mA
 	depends on USB_DEVICE_STACK && BOARD_PICOBOY_USBCONS
 
 # Workaround for not being able to have commas in macro arguments

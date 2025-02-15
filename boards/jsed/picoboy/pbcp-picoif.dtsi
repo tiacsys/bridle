@@ -1,0 +1,12 @@
+/*
+ * Copyright (c) 2023-2025 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+rpipico_serial: &uart0 {};
+rpipico_i2c0: &i2c0 {};
+rpipico_i2c: &rpipico_i2c0 {};
+
+pico_serial: &rpipico_serial {};
+pico_i2c0: &rpipico_i2c0 {};
+pico_i2c: &pico_i2c0 {};

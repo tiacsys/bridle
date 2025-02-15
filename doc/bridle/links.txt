@@ -457,6 +457,12 @@
 .. _`pico-bootrom`:
    https://github.com/raspberrypi/pico-bootrom
 
+.. _`pico-bootrom-rp2040`:
+   https://github.com/raspberrypi/pico-bootrom-rp2040
+
+.. _`pico-bootrom-rp2350`:
+   https://github.com/raspberrypi/pico-bootrom-rp2350
+
 .. _`PicoProbe`:
    https://github.com/raspberrypi/picoprobe
 
@@ -628,6 +634,17 @@
 
 .. _`PicoBoy Color Schematic`:
    https://picoboy.de/files/PBC_schematic.svg
+
+.. ### Links to PicoBoy Color Plus
+
+.. _`PicoBoy Color Plus Origin`:
+   https://picoboy.de/der-picoboy-color-plus
+
+.. _`PicoBoy Color Plus Details`:
+   https://picoboy.de/der-picoboy-color-plus/die-hardware-des-picoboy-color
+
+.. _`PicoBoy Color Plus Schematic`:
+   https://picoboy.de/files/PBC+_schematic.svg
 
 
 
@@ -1304,6 +1321,12 @@
 
 .. _`WS2812B with RP2040 PIO & DMA`:
    https://mcuoneclipse.com/2023/04/02/rp2040-with-pio-and-dma-to-address-ws2812b-leds
+
+.. _`SK6805-EC14`:
+   http://www.normandled.com/Product/view/id/893.html
+
+.. _`SK6805-EC14 Datasheet`:
+   http://www.normandled.com/upload/202110/SK6805-EC14%20LED%20Datasheet.pdf
 
 .. #### Links to Transistors, Thyristors, Relais or similar for Electronic Power Switching
 
@@ -2126,3 +2149,14 @@
 
 .. _`Hardware design with RP2040`:
    https://datasheets.raspberrypi.com/rp2040/hardware-design-with-rp2040.pdf
+
+.. ##### Links to RP2350 Cortex®-M33 Processors
+
+.. _`RP2350 SoC`:
+   https://www.raspberrypi.com/products/rp2350
+
+.. _`RP2350 Datasheet`:
+   https://datasheets.raspberrypi.com/rp2350/rp2350-datasheet.pdf
+
+.. _`Hardware design with RP2350`:
+   https://datasheets.raspberrypi.com/rp2350/hardware-design-with-rp2350.pdf

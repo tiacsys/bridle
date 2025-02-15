@@ -86,35 +86,37 @@ Boards included in tiac-bridle
 The following boards are defined in the :file:`bridle/boards/` folder.
 Also see the :ref:`boards` section in this documentation.
 
-+-------------------+------------------------------------+----------------------------------+
-| Hardware platform | Board name                         | Build target                     |
-+===================+====================================+==================================+
-| ATSAMD21G18A      | |bridle:board:arduino_zero|        | ``arduino_zero``                 |
-|                   +------------------------------------+----------------------------------+
-|                   | |bridle:board:xiao_samd21|         | ``xiao_samd21``                  |
-|                   +------------------------------------+----------------------------------+
-|                   | |bridle:board:seeeduino_cm0|       | ``seeeduino_cm0``                |
-|                   +------------------------------------+----------------------------------+
-|                   | |bridle:board:seeeduino_lotus|     | ``seeeduino_lotus``              |
-+-------------------+------------------------------------+----------------------------------+
-| RP2040            | |bridle:board:cytron_maker_rp2040| | | ``cytron_maker_nano_rp2040``   |
-|                   |                                    | | ``cytron_maker_pi_rp2040``     |
-|                   +------------------------------------+----------------------------------+
-|                   | |bridle:board:picoboy|             | | ``picoboy/rp2040``             |
-|                   |                                    | | ``picoboy_color/rp2040``       |
-|                   +------------------------------------+----------------------------------+
-|                   | |bridle:board:waveshare_rp2040|    | | ``waveshare_rp2040_one``       |
-|                   |                                    | | ``waveshare_rp2040_zero``      |
-|                   |                                    | | ``waveshare_rp2040_matrix``    |
-|                   |                                    | | ``waveshare_rp2040_tiny``      |
-|                   |                                    | | ``waveshare_rp2040_eth``       |
-|                   |                                    | | ``waveshare_rp2040_lcd_0_96``  |
-|                   |                                    | | ``waveshare_rp2040_plus``      |
-|                   |                                    | | ``waveshare_rp2040_plus@16mb`` |
-|                   |                                    | | ``waveshare_rp2040_geek``      |
-+-------------------+------------------------------------+----------------------------------+
-| STM32F777NI       | |bridle:board:magpie_f777ni|       | ``magpie_f777ni``                |
-+-------------------+------------------------------------+----------------------------------+
++-------------------+------------------------------------+------------------------------------+
+| Hardware platform | Board name                         | Build target                       |
++===================+====================================+====================================+
+| ATSAMD21G18A      | |bridle:board:arduino_zero|        | ``arduino_zero``                   |
+|                   +------------------------------------+------------------------------------+
+|                   | |bridle:board:xiao_samd21|         | ``xiao_samd21``                    |
+|                   +------------------------------------+------------------------------------+
+|                   | |bridle:board:seeeduino_cm0|       | ``seeeduino_cm0``                  |
+|                   +------------------------------------+------------------------------------+
+|                   | |bridle:board:seeeduino_lotus|     | ``seeeduino_lotus``                |
++-------------------+------------------------------------+------------------------------------+
+| RP2040            | |bridle:board:cytron_maker_rp2040| | | ``cytron_maker_nano_rp2040``     |
+|                   |                                    | | ``cytron_maker_pi_rp2040``       |
+|                   +------------------------------------+------------------------------------+
+|                   | |bridle:board:picoboy|             | | ``picoboy/rp2040``               |
+|                   |                                    | | ``picoboy_color/rp2040``         |
+|                   +------------------------------------+------------------------------------+
+|                   | |bridle:board:waveshare_rp2040|    | | ``waveshare_rp2040_one``         |
+|                   |                                    | | ``waveshare_rp2040_zero``        |
+|                   |                                    | | ``waveshare_rp2040_matrix``      |
+|                   |                                    | | ``waveshare_rp2040_tiny``        |
+|                   |                                    | | ``waveshare_rp2040_eth``         |
+|                   |                                    | | ``waveshare_rp2040_lcd_0_96``    |
+|                   |                                    | | ``waveshare_rp2040_plus``        |
+|                   |                                    | | ``waveshare_rp2040_plus@16mb``   |
+|                   |                                    | | ``waveshare_rp2040_geek``        |
++-------------------+------------------------------------+------------------------------------+
+| RP2350            | |bridle:board:picoboy|             | ``picoboy_color_plus/rp2350a/m33`` |
++-------------------+------------------------------------+------------------------------------+
+| STM32F777NI       | |bridle:board:magpie_f777ni|       | ``magpie_f777ni``                  |
++-------------------+------------------------------------+------------------------------------+
 
 
 Shield names

@@ -3,6 +3,8 @@
 
 if("${NORMALIZED_BOARD_QUALIFIERS}" STREQUAL "_rp2040")
   board_runner_args(uf2 "--board-id=RPI-RP2")
+elseif("${NORMALIZED_BOARD_QUALIFIERS}" STREQUAL "_rp2350a_m33")
+  board_runner_args(uf2 "--board-id=RP2350")
 else()
   message(FATAL_ERROR "Unsupported board qualifiers: "
                       "'${NORMALIZED_BOARD_QUALIFIERS}'\n")

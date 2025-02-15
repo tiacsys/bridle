@@ -1,0 +1,29 @@
+/*
+ * Copyright (c) 2023-2025 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/dts-v1/;
+
+/ {
+	model = "JSED PicoBoy Color Plus @ USB-CDC/ACM Concole";
+	compatible = "jsed,picoboy-color-plus", "jsed,picoboy-color-plus-usbcons";
+
+	chosen {
+		zephyr,console = &cdc_acm_console_uart;
+		zephyr,shell-uart = &cdc_acm_console_uart;
+	};
+};
+
+#include "picoboy_color_plus_rp2350a_m33.dtsi"
+
+#include "picoboy-core.dtsi"
+#include "picoboy-16mb.dtsi"
+
+#include "pbcp-joystick.dtsi"
+#include "pbcp-sensors.dtsi"
+#include "pbcp-speaker.dtsi"
+#include "pbcp-leds.dtsi"
+#include "pbcp-lcd.dtsi"
+
+#include "pbcp-picoif.dtsi"

@@ -8,15 +8,15 @@
 #include "picoboy-flash.dtsi"
 
 &flash0 {
-	reg = <0x10000000 DT_SIZE_M(2)>;
+	reg = <0x10000000 DT_SIZE_M(16)>;
 };
 
 /*
  * Usable flash. Starts after the RP2040 second stage bootloader or
- * the RP2050 image definition. The partition size is 2MB minus the
+ * the RP2050 image definition. The partition size is 16MB minus the
  * __FLASH_MBR_SIZE bytes taken by the RP2040 second stage bootloader
  * or the RP2050 image definition.
  */
 &code_partition {
-	reg = <0x100 (DT_SIZE_M(2) - __FLASH_MBR_SIZE)>;
+	reg = <0x100 (DT_SIZE_M(16) - __FLASH_MBR_SIZE)>;
 };
