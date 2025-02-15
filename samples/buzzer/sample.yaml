@@ -12,11 +12,13 @@ common:
     - cytron_maker_pi_rp2040
     - picoboy/rp2040
     - picoboy_color/rp2040
+    - picoboy_color_plus/rp2350a/m33
   integration_platforms:
     - cytron_maker_nano_rp2040
     - cytron_maker_pi_rp2040
     - picoboy/rp2040
     - picoboy_color/rp2040
+    - picoboy_color_plus/rp2350a/m33
 tests:
   bridle.sample.buzzer:
     depends_on: pwm

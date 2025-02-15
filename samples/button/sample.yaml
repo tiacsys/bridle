@@ -29,6 +29,7 @@ common:
     - nucleo_l496zg
     - picoboy/rp2040
     - picoboy_color/rp2040
+    - picoboy_color_plus/rp2350a/m33
 tests:
   bridle.sample.button.poll:
     filter: dt_enabled_alias_with_parent_compat("sw0", "gpio-keys") and
