@@ -102,7 +102,12 @@
 
 .. |rpi_usb3hub_usb2_URB_PID|				replace:: :code:`0x000D`
 .. |rpi_usb3hub_usb3_URB_PID|				replace:: :code:`0x000E`
-.. |rpi_rp2350_URB_PID|					replace:: :code:`0x000F`
+
+.. |rpi_rp2350_URB_PID|			replace:: :code:`0x000F`
+.. |rpi_rp2350_PID|			replace:: :ign:`000f`
+.. |rpi_rp2350_PStr|			replace:: :ign:`RP2350 Boot`
+.. |rpi_rp2350_BCD|			replace:: |nbsp| :ign:`1.00`
+
 .. |rpi_next_URB_PID|					replace:: :code:`0x0010`
 
 .. |rpi_adafruit_rpi_zero_URB_PID|			replace:: :code:`0x100E`
@@ -330,6 +335,23 @@
 .. |picoboy_color_PID_CON|	replace:: |rpi_pico_sdk_uart_rp2040_PID|
 .. |picoboy_color_PStr_CON|	replace:: :ign:`PicoBoy Color (CDC ACM)`
 .. |picoboy_color_BCD_CON|	replace:: |zephyr_version_BCD|
+
+.. |PicoBoy Color Plus| replace::
+   :ref:`PicoBoy Color Plus <picoboy_color_plus>`
+.. :bridle:board:`picoboy_color_plus`
+
+.. |PicoBoy Color Plus (CDC ACM)| replace::
+   :ref:`PicoBoy Color Plus (CDC ACM) <picoboy_color_plus>`
+.. :bridle:board:`PicoBoy Color Plus (CDC ACM) <picoboy_color_plus>`
+
+.. |picoboy_color_plus_URB_VID|		replace:: |rpi_URB_VID|
+.. |picoboy_color_plus_VID|		replace:: |rpi_VID|
+.. |picoboy_color_plus_VStr|		replace:: |rpi_jsed_VStr|
+
+.. |picoboy_color_plus_URB_PID_CON|	replace:: |rpi_pico_sdk_uart_rp2040_URB_PID|
+.. |picoboy_color_plus_PID_CON|		replace:: |rpi_pico_sdk_uart_rp2040_PID|
+.. |picoboy_color_plus_PStr_CON|	replace:: :ign:`PicoBoy Color Plus (CDC ACM)`
+.. |picoboy_color_plus_BCD_CON|		replace:: |zephyr_version_BCD|
 
 .. |PiMoroni Pico LCD 1.44| replace::
    :ref:`PiMoroni Pico LCD 1.44 <pimoroni_pico_lcd_1_44>`

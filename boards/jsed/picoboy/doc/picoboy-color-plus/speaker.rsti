@@ -1,0 +1,39 @@
+.. rubric:: Speaker Test
+
+.. image:: picoboy-color-plus/speaker.jpg
+   :align: right
+   :alt: PicoBoy Color Plus Speaker Test
+
+Invoke :program:`west build` and :program:`west flash`:
+
+.. zephyr-app-commands::
+   :app: bridle/samples/buzzer
+   :board: picoboy_color_plus/rp2350a/m33
+   :build-dir: picoboy
+   :west-args: -p
+   :goals: flash
+   :compact:
+
+.. rubric:: Simple test execution on target
+
+#. play a beep
+#. play a folk song
+#. play a chrismas song
+
+.. container:: highlight highlight-console notranslate
+
+   .. parsed-literal::
+
+      :bgn:`uart:~$` **buzzer beep**
+
+.. container:: highlight highlight-console notranslate
+
+   .. parsed-literal::
+
+      :bgn:`uart:~$` **buzzer play folksong**
+
+.. container:: highlight highlight-console notranslate
+
+   .. parsed-literal::
+
+      :bgn:`uart:~$` **buzzer play xmastime**

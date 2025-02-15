@@ -20,7 +20,10 @@
 		#address-cells = <1>;
 		#size-cells = <1>;
 
-		/* Reserved memory for the RP2040 second stage bootloader. */
+		/*
+		 * Reserved memory for the RP2040 second stage bootloader
+		 * or the RP2050 image definition.
+		 */
 		__FLASH_MBR_NODE: partition@0 {
 			label = STRINGIFY(__FLASH_MBR_NODE);
 			reg = <0x00000000 __FLASH_MBR_SIZE>;

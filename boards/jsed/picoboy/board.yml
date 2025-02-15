@@ -9,3 +9,8 @@ boards:
     vendor: jsed
     socs:
       - name: rp2040
+  - name: picoboy_color_plus
+    full_name: The PicoBoy Color Plus
+    vendor: jsed
+    socs:
+      - name: rp2350a

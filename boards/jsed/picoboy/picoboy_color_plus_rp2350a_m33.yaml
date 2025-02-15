@@ -1,0 +1,30 @@
+# Copyright (c) 2023-2025 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+identifier: picoboy_color_plus/rp2350a/m33
+vendor: jsed
+name: The PicoBoy Color Plus (PBC+) Mini-Handheld
+type: mcu
+arch: arm
+flash: 16384
+ram: 520
+toolchain:
+  - zephyr
+  - gnuarmemb
+supported:
+  - rpipico_serial
+  - rpipico_i2c
+  - pico_serial
+  - pico_i2c
+  - gpio
+  - i2c
+  - spi
+  - hwinfo
+  - watchdog
+  - pwm
+  - flash
+  - dma
+  - counter
+  - clock
+  - usb_device
+  - usb_cdc
