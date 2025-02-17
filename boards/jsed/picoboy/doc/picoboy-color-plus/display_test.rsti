@@ -87,7 +87,7 @@ on the console, here configured for a USB console:
                   -c  dump chunk information
 
       :bgn:`uart:~$` **lvgl stats memory**
-      Heap at 0x20001460 contains 2047 units in 11 buckets
+      Heap at 0x20001530 contains 2047 units in 11 buckets
 
         bucket#    min units        total      largest      largest
                    threshold       chunks      (units)      (bytes)
@@ -107,6 +107,8 @@ on the console, here configured for a USB console:
         DT node labels: reset
       - cdc_acm_console_uart (READY)
         DT node labels: cdc_acm_console_uart
+      - uart\ @\ 40070000 (READY)
+        DT node labels: uart0 rpipico_serial pico_serial
       - watchdog\ @\ 400d8000 (READY)
         DT node labels: wdt0
       - dma\ @\ 50000000 (READY)
@@ -114,7 +116,9 @@ on the console, here configured for a USB console:
       - gpio\ @\ 40028000 (READY)
         DT node labels: gpio0
       - pwm\ @\ 400a8000 (READY)
-        DT node labels: pwm
+        DT node labels: pwm grove_pwm_d20 grove_pwm_d21
+      - spi\ @\ 40088000 (READY)
+        DT node labels: spi1
       - spi\ @\ 40080000 (READY)
         DT node labels: spi0
       - lcd_backlight_en (READY)

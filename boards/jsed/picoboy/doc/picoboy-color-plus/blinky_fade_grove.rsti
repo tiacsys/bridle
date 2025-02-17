@@ -1,0 +1,55 @@
+.. rubric:: Grove LED Blinky by GPIO
+
+See also |LED Shields| in Bridle and Zephyr sample:
+:zephyr:code-sample:`blinky`.
+
+.. zephyr-app-commands::
+   :app: zephyr/samples/basic/blinky
+   :board: picoboy_color_plus/rp2350a/m33
+   :shield: "grove_btn_d20 grove_led_d21 grove_pwm_led_d21 x_grove_testbed"
+   :build-dir: picoboy
+   :west-args: -p
+   :goals: flash
+   :compact:
+
+.. rubric:: Grove LED Blinky by PWM
+
+See also |LED Shields| in Bridle and Zephyr sample:
+:zephyr:code-sample:`pwm-blinky`.
+
+.. zephyr-app-commands::
+   :app: zephyr/samples/basic/blinky_pwm
+   :board: picoboy_color_plus/rp2350a/m33
+   :shield: "grove_btn_d20 grove_led_d21 grove_pwm_led_d21 x_grove_testbed"
+   :build-dir: picoboy
+   :west-args: -p
+   :goals: flash
+   :compact:
+
+.. rubric:: Grove and the two other User LED Fade by PWM
+
+See also |LED Shields| in Bridle and Zephyr sample:
+:zephyr:code-sample:`fade-led`.
+
+.. zephyr-app-commands::
+   :app: zephyr/samples/basic/fade_led
+   :board: picoboy_color_plus/rp2350a/m33
+   :shield: "grove_btn_d20 grove_led_d21 grove_pwm_led_d21 x_grove_testbed"
+   :build-dir: picoboy
+   :west-args: -p
+   :goals: flash
+   :compact:
+
+.. rubric:: Grove LED On/Off by Grove Button
+
+See also |LED Shields| and |Button Shields| in Bridle and Zephyr sample:
+:zephyr:code-sample:`button`.
+
+.. zephyr-app-commands::
+   :app: zephyr/samples/basic/button
+   :board: picoboy_color_plus/rp2350a/m33
+   :shield: "grove_btn_d20 grove_led_d21 grove_pwm_led_d21 x_grove_testbed"
+   :build-dir: picoboy
+   :west-args: -p
+   :goals: flash
+   :compact:

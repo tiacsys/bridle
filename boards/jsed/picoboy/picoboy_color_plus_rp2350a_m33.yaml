@@ -16,6 +16,9 @@ supported:
   - rpipico_i2c
   - pico_serial
   - pico_i2c
+  - grove_gpios
+  - grove_pwms
+  - grove_i2c
   - gpio
   - i2c
   - spi

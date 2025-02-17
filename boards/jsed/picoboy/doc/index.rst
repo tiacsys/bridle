@@ -630,7 +630,28 @@ Display Test and Demonstration
 
       .. include:: picoboy/display_test.rsti
 
+Grove Module Samples
+********************
+
+The following examples require the Qwiic / STEMMA QT connection (Maker Port) and
+can therefore only be built and executed for and on the |PicoBoy Color Plus|.
+
+Sensor access to Grove BMP280 (Qwiic signals as I2C)
+====================================================
+
+.. include:: picoboy-color-plus/helloshell_grove.rsti
+.. include:: picoboy-color-plus/bme280_grove.rsti
+
+LED Blinky and Fade with Grove LED Button (Qwiic signals as GPIO)
+=================================================================
+
+.. include:: picoboy-color-plus/blinky_fade_grove.rsti
+
 References
 **********
 
 .. target-notes::
+
+.. |LED Shields| replace:: :ref:`grove_led_shield`
+.. |Button Shields| replace:: :ref:`grove_button_shield`
+.. |Sensor Shields| replace:: :ref:`grove_sensor_shield`
