@@ -26,4 +26,5 @@
 #include "pbcp-leds.dtsi"
 #include "pbcp-lcd.dtsi"
 
+#include "pbcp-groveif.dtsi"
 #include "pbcp-picoif.dtsi"

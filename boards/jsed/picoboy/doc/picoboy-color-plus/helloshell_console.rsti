@@ -63,9 +63,9 @@
             - adc\ @\ 400a0000 (READY)
               DT node labels: adc
             - i2c\ @\ 40090000 (READY)
-              DT node labels: i2c0 rpipico_i2c0 rpipico_i2c pico_i2c0 pico_i2c
+              DT node labels: i2c0 grove_i2c rpipico_i2c0 rpipico_i2c pico_i2c0 pico_i2c
             - pwm\ @\ 400a8000 (READY)
-              DT node labels: pwm
+              DT node labels: pwm grove_pwm_d20 grove_pwm_d21
             - lcd_backlight_en (READY)
               DT node labels: lcd_backlight_en
             - pwm_leds (READY)
@@ -411,11 +411,11 @@
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **flash read flash-controller@400d0000 18570 40**
-            00018570: 70 69 63 6f 62 6f 79 5f  63 6f 6c 6f 72 5f 70 6c \|picoboy\_ color_pl\|
-            00018580: 75 73 00 48 65 6c 6c 6f  20 57 6f 72 6c 64 21 20 \|us.Hello  World! \|
-            00018590: 49 27 6d 20 54 48 45 20  53 48 45 4c 4c 20 66 72 \|I'm THE  SHELL fr\|
-            000185A0: 6f 6d 20 25 73 0a 00 28  75 6e 73 69 67 6e 65 64 \|om %s..( unsigned\|
+            :bgn:`uart:~$` **flash read flash-controller@400d0000 1857c 40**
+            0001857C: 70 69 63 6f 62 6f 79 5f  63 6f 6c 6f 72 5f 70 6c \|picoboy\_ color_pl\|
+            0001858C: 75 73 00 48 65 6c 6c 6f  20 57 6f 72 6c 64 21 20 \|us.Hello  World! \|
+            0001859C: 49 27 6d 20 54 48 45 20  53 48 45 4c 4c 20 66 72 \|I'm THE  SHELL fr\|
+            000185AC: 6f 6d 20 25 73 0a 00 28  75 6e 73 69 67 6e 65 64 \|om %s..( unsigned\|
 
       .. rubric:: Erase, Write and Verify
 
