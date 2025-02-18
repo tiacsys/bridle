@@ -34,7 +34,7 @@ common:
     - qemu_cortex_m3
     - qemu_cortex_a9
     - qemu_cortex_a53
-    - qemu_cortex_a53/qemu_cortex_a53/smp
+    # Qemu issue (pytest race conditions): - qemu_cortex_a53/qemu_cortex_a53/smp
     - qemu_cortex_a53/qemu_cortex_a53/xip
     - qemu_kvm_arm64
     - qemu_arc/qemu_arc_em
