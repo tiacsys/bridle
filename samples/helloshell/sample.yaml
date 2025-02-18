@@ -34,7 +34,7 @@ common:
     - qemu_cortex_m3
     - qemu_cortex_a9
     - qemu_cortex_a53
-    - qemu_cortex_a53/qemu_cortex_a53/smp
+    # Qemu issue (pytest race conditions): - qemu_cortex_a53/qemu_cortex_a53/smp
     - qemu_cortex_a53/qemu_cortex_a53/xip
     - qemu_kvm_arm64
     - qemu_arc/qemu_arc_em
@@ -76,7 +76,8 @@ common:
     - nucleo_f767zi
     - nucleo_l496zg
     - picoboy/rp2040
-    - picoboy/rp2040/color
+    - picoboy_color/rp2040
+    - picoboy_color_plus/rp2350a/m33
     - rpi_pico
     - rpi_pico/rp2040/w
     - seeeduino_cm0
