@@ -70,15 +70,14 @@ struct mfd_sc16is75x_config {
  */
 struct mfd_sc16is75x_transfer_function {
 	/** read raw data */
-	int (*read_raw)(const struct device *dev, const uint8_t sub_address,
-			uint8_t *buf, const size_t len);
+	int (*read_raw)(const struct device *dev, const uint8_t sub_address, uint8_t *buf,
+			const size_t len);
 	/** write raw data */
-	int (*write_raw)(const struct device *dev, const uint8_t sub_address,
-			 const uint8_t *buf, const size_t len);
+	int (*write_raw)(const struct device *dev, const uint8_t sub_address, const uint8_t *buf,
+			 const size_t len);
 #ifdef CONFIG_MFD_SC16IS75X_ASYNC
-	int (*read_raw_signal)(const struct device *dev, const uint8_t sub_address,
-			       uint8_t *buf, const size_t len,
-			       struct k_poll_signal *signal);
+	int (*read_raw_signal)(const struct device *dev, const uint8_t sub_address, uint8_t *buf,
+			       const size_t len, struct k_poll_signal *signal);
 #endif /* CONFIG_MFD_SC16IS75X_ASYNC */
 };
 
@@ -87,10 +86,8 @@ struct mfd_sc16is75x_transfer_function {
 /**
  * @brief Bus agnostic asynchronous read function.
  */
-int mfd_sc16is75x_read_raw_signal(const struct device *dev,
-				  const uint8_t sub_address,
-				  uint8_t *buf, const size_t len,
-				  struct k_poll_signal *signal);
+int mfd_sc16is75x_read_raw_signal(const struct device *dev, const uint8_t sub_address, uint8_t *buf,
+				  const size_t len, struct k_poll_signal *signal);
 
 #endif /* CONFIG_MFD_SC16IS75X_ASWQ */
 

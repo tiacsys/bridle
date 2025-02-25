@@ -19,17 +19,28 @@
 #include <zephyr/logging/log.h>
 LOG_MODULE_REGISTER(mfd_sc16is75x_spi, CONFIG_MFD_LOG_LEVEL);
 
-static int mfd_sc16is75x_spi_read_raw(const struct device *dev,
-				      const uint8_t sub_address,
+static int mfd_sc16is75x_spi_read_raw(const struct device *dev, const uint8_t sub_address,
 				      uint8_t *buf, const size_t len)
 {
-	const struct mfd_sc16is75x_config * const config = dev->config;
+	const struct mfd_sc16is75x_config *const config = dev->config;
 	int ret = 0;
 
-	const struct spi_buf tx_buffers[] = { { .buf = (void *)&sub_address, .len = 1, },
-					      { .buf = NULL, .len = len, } };
-	const struct spi_buf rx_buffers[] = { { .buf = NULL, .len = 1, },
-					      { .buf = buf, .len = len, } };
+	const struct spi_buf tx_buffers[] = {{
+						     .buf = (void *)&sub_address,
+						     .len = 1,
+					     },
+					     {
+						     .buf = NULL,
+						     .len = len,
+					     }};
+	const struct spi_buf rx_buffers[] = {{
+						     .buf = NULL,
+						     .len = 1,
+					     },
+					     {
+						     .buf = buf,
+						     .len = len,
+					     }};
 	struct spi_buf_set tx = {
 		.buffers = tx_buffers,
 		.count = ARRAY_SIZE(tx_buffers),
@@ -43,15 +54,20 @@ static int mfd_sc16is75x_spi_read_raw(const struct device *dev,
 	return ret;
 }
 
-static int mfd_sc16is75x_spi_write_raw(const struct device *dev,
-				       const uint8_t sub_address,
+static int mfd_sc16is75x_spi_write_raw(const struct device *dev, const uint8_t sub_address,
 				       const uint8_t *buf, const size_t len)
 {
-	const struct mfd_sc16is75x_config * const config = dev->config;
+	const struct mfd_sc16is75x_config *const config = dev->config;
 	int ret = 0;
 
-	const struct spi_buf tx_buffers[] = { { .buf = (void *)&sub_address, .len = 1, },
-					      { .buf = (void *)buf, .len = len, } };
+	const struct spi_buf tx_buffers[] = {{
+						     .buf = (void *)&sub_address,
+						     .len = 1,
+					     },
+					     {
+						     .buf = (void *)buf,
+						     .len = len,
+					     }};
 	const struct spi_buf_set tx = {
 		.buffers = tx_buffers,
 		.count = ARRAY_SIZE(tx_buffers),
@@ -68,8 +84,7 @@ struct mfd_sc16is75x_spi_xfer_data {
 	struct k_poll_signal *signal;
 };
 
-static void mfd_sc16is75x_spi_xfer_complete(const struct device *dev,
-					    int result, void *data)
+static void mfd_sc16is75x_spi_xfer_complete(const struct device *dev, int result, void *data)
 {
 	struct mfd_sc16is75x_spi_xfer_data *xfer_data = data;
 
@@ -77,12 +92,11 @@ static void mfd_sc16is75x_spi_xfer_complete(const struct device *dev,
 	k_free(xfer_data);
 }
 
-static int mfd_sc16is75x_spi_read_raw_signal(const struct device *dev,
-					     const uint8_t sub_address,
+static int mfd_sc16is75x_spi_read_raw_signal(const struct device *dev, const uint8_t sub_address,
 					     uint8_t *buf, const size_t len,
 					     struct k_poll_signal *signal)
 {
-	const struct mfd_sc16is75x_config * const config = dev->config;
+	const struct mfd_sc16is75x_config *const config = dev->config;
 	struct mfd_sc16is75x_spi_xfer_data *xfer_data;
 	int ret = 0;
 
@@ -102,10 +116,22 @@ static int mfd_sc16is75x_spi_read_raw_signal(const struct device *dev,
 	};
 
 	/* Setup transfer data buffers */
-	const struct spi_buf tx_buffers[] = { { .buf = &xfer_data->sub_address, .len = 1, },
-					      { .buf = NULL, .len = len, } };
-	const struct spi_buf rx_buffers[] = { { .buf = NULL, .len = 1, },
-					      { .buf = buf, .len = len, } };
+	const struct spi_buf tx_buffers[] = {{
+						     .buf = &xfer_data->sub_address,
+						     .len = 1,
+					     },
+					     {
+						     .buf = NULL,
+						     .len = len,
+					     }};
+	const struct spi_buf rx_buffers[] = {{
+						     .buf = NULL,
+						     .len = 1,
+					     },
+					     {
+						     .buf = buf,
+						     .len = len,
+					     }};
 	const struct spi_buf_set tx = {
 		.buffers = tx_buffers,
 		.count = ARRAY_SIZE(tx_buffers),
@@ -116,8 +142,7 @@ static int mfd_sc16is75x_spi_read_raw_signal(const struct device *dev,
 	};
 
 	ret = spi_transceive_cb(config->spi.bus, &config->spi.config, &tx, &rx,
-				mfd_sc16is75x_spi_xfer_complete,
-				(void *)xfer_data);
+				mfd_sc16is75x_spi_xfer_complete, (void *)xfer_data);
 	if (ret != 0) {
 		k_free(xfer_data);
 	}
@@ -127,14 +152,13 @@ static int mfd_sc16is75x_spi_read_raw_signal(const struct device *dev,
 
 #endif /* defined(CONFIG_MFD_SC16IS75X_ASYNC) && defined(CONFIG_SPI_ASYNC) */
 
-static const struct mfd_sc16is75x_transfer_function
-mfd_sc16is75x_spi_init_transfer_function = {
+static const struct mfd_sc16is75x_transfer_function mfd_sc16is75x_spi_init_transfer_function = {
 	.read_raw = mfd_sc16is75x_spi_read_raw,
 	.write_raw = mfd_sc16is75x_spi_write_raw,
 #ifdef CONFIG_MFD_SC16IS75X_ASYNC
 #ifdef CONFIG_SPI_ASYNC
 	.read_raw_signal = mfd_sc16is75x_spi_read_raw_signal,
-#else /* CONFIG_SPI_ASYNC */
+#else  /* CONFIG_SPI_ASYNC */
 	.read_raw_signal = mfd_sc16is75x_read_raw_signal,
 #endif /* CONFIG_SPI_ASYNC */
 #endif /* CONFIG_MFD_SC16IS75X_ASYNC */
@@ -142,15 +166,14 @@ mfd_sc16is75x_spi_init_transfer_function = {
 
 int mfd_sc16is75x_spi_init(const struct device *dev)
 {
-	const struct mfd_sc16is75x_config * const config = dev->config;
-	struct mfd_sc16is75x_data * const data = dev->data;
+	const struct mfd_sc16is75x_config *const config = dev->config;
+	struct mfd_sc16is75x_data *const data = dev->data;
 
 	data->transfer_function = &mfd_sc16is75x_spi_init_transfer_function;
 
 	/* Confirm device readiness */
 	if (!spi_is_ready_dt(&config->spi)) {
-		LOG_ERR("%s: SPI device %s not ready",
-			dev->name, config->spi.bus->name);
+		LOG_ERR("%s: SPI device %s not ready", dev->name, config->spi.bus->name);
 		return -ENODEV;
 	}
 

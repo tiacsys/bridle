@@ -64,11 +64,11 @@ struct gpio_sc16is75x_config {
  * for the calculation of edge and level triggered events.
  */
 struct gpio_sc16is75x_interrupts {
-	uint8_t enabled;        /**< pin is event source */
-	uint8_t edge_rising;    /**< pin should trigger on rising edge */
-	uint8_t edge_falling;   /**< pin should trigger on falling edge */
-	uint8_t level_high;     /**< pin should trigger on high level */
-	uint8_t level_low;      /**< pin should trigger on low level */
+	uint8_t enabled;      /**< pin is event source */
+	uint8_t edge_rising;  /**< pin should trigger on rising edge */
+	uint8_t edge_falling; /**< pin should trigger on falling edge */
+	uint8_t level_high;   /**< pin should trigger on high level */
+	uint8_t level_low;    /**< pin should trigger on low level */
 };
 
 #endif /* CONFIG_GPIO_SC16IS75X_INTERRUPTS */
@@ -106,7 +106,7 @@ struct gpio_sc16is75x_data {
 
 static inline uint8_t gpio_sc16is75x_cached_pin_dir(const struct device *dev)
 {
-	struct gpio_sc16is75x_data * const data = dev->data;
+	struct gpio_sc16is75x_data *const data = dev->data;
 	uint8_t pin_dir;
 
 	k_mutex_lock(&data->lock, K_FOREVER);
@@ -116,11 +116,10 @@ static inline uint8_t gpio_sc16is75x_cached_pin_dir(const struct device *dev)
 	return pin_dir;
 }
 
-static inline int gpio_sc16is75x_write_pin_dir(const struct device *dev,
-					       const uint8_t dir)
+static inline int gpio_sc16is75x_write_pin_dir(const struct device *dev, const uint8_t dir)
 {
-	const struct gpio_sc16is75x_config * const config = dev->config;
-	struct gpio_sc16is75x_data * const data = dev->data;
+	const struct gpio_sc16is75x_config *const config = dev->config;
+	struct gpio_sc16is75x_data *const data = dev->data;
 	int ret = 0;
 
 	k_mutex_lock(&data->lock, K_FOREVER);
@@ -133,11 +132,10 @@ static inline int gpio_sc16is75x_write_pin_dir(const struct device *dev,
 	return ret;
 }
 
-static inline int gpio_sc16is75x_read_pin_dir(const struct device *dev,
-					      uint8_t *dir)
+static inline int gpio_sc16is75x_read_pin_dir(const struct device *dev, uint8_t *dir)
 {
-	const struct gpio_sc16is75x_config * const config = dev->config;
-	struct gpio_sc16is75x_data * const data = dev->data;
+	const struct gpio_sc16is75x_config *const config = dev->config;
+	struct gpio_sc16is75x_data *const data = dev->data;
 	int ret = 0;
 
 	k_mutex_lock(&data->lock, K_FOREVER);
@@ -152,7 +150,7 @@ static inline int gpio_sc16is75x_read_pin_dir(const struct device *dev,
 
 static inline uint8_t gpio_sc16is75x_cached_pin_state(const struct device *dev)
 {
-	struct gpio_sc16is75x_data * const data = dev->data;
+	struct gpio_sc16is75x_data *const data = dev->data;
 	uint8_t pin_state;
 
 	k_mutex_lock(&data->lock, K_FOREVER);
@@ -162,11 +160,10 @@ static inline uint8_t gpio_sc16is75x_cached_pin_state(const struct device *dev)
 	return pin_state;
 }
 
-static inline int gpio_sc16is75x_write_pin_state(const struct device *dev,
-						 uint8_t state)
+static inline int gpio_sc16is75x_write_pin_state(const struct device *dev, uint8_t state)
 {
-	const struct gpio_sc16is75x_config * const config = dev->config;
-	struct gpio_sc16is75x_data * const data = dev->data;
+	const struct gpio_sc16is75x_config *const config = dev->config;
+	struct gpio_sc16is75x_data *const data = dev->data;
 	int ret = 0;
 
 	k_mutex_lock(&data->lock, K_FOREVER);
@@ -179,11 +176,10 @@ static inline int gpio_sc16is75x_write_pin_state(const struct device *dev,
 	return ret;
 }
 
-static inline int gpio_sc16is75x_read_pin_state(const struct device *dev,
-						uint8_t *state)
+static inline int gpio_sc16is75x_read_pin_state(const struct device *dev, uint8_t *state)
 {
-	const struct gpio_sc16is75x_config * const config = dev->config;
-	struct gpio_sc16is75x_data * const data = dev->data;
+	const struct gpio_sc16is75x_config *const config = dev->config;
+	struct gpio_sc16is75x_data *const data = dev->data;
 	int ret = 0;
 
 	k_mutex_lock(&data->lock, K_FOREVER);
@@ -196,11 +192,10 @@ static inline int gpio_sc16is75x_read_pin_state(const struct device *dev,
 	return ret;
 }
 
-
-static int gpio_sc16is75x_pin_configure(const struct device *dev,
-					gpio_pin_t pin, gpio_flags_t flags)
+static int gpio_sc16is75x_pin_configure(const struct device *dev, gpio_pin_t pin,
+					gpio_flags_t flags)
 {
-	const struct gpio_sc16is75x_config * const config = dev->config;
+	const struct gpio_sc16is75x_config *const config = dev->config;
 	uint8_t dir, state;
 	int ret = 0;
 
@@ -266,10 +261,9 @@ end:
 	return ret;
 }
 
-static int gpio_sc16is75x_port_get_raw(const struct device *dev,
-				       gpio_port_value_t *value)
+static int gpio_sc16is75x_port_get_raw(const struct device *dev, gpio_port_value_t *value)
 {
-	uint8_t * const state = (uint8_t *)value;
+	uint8_t *const state = (uint8_t *)value;
 
 	/* Can't do bus operations from an ISR */
 	if (k_is_in_isr()) {
@@ -280,8 +274,7 @@ static int gpio_sc16is75x_port_get_raw(const struct device *dev,
 	return gpio_sc16is75x_read_pin_state(dev, state);
 }
 
-static int gpio_sc16is75x_port_set_masked_raw(const struct device *dev,
-					      const gpio_port_pins_t mask,
+static int gpio_sc16is75x_port_set_masked_raw(const struct device *dev, const gpio_port_pins_t mask,
 					      const gpio_port_value_t value)
 {
 	uint8_t state = gpio_sc16is75x_cached_pin_state(dev);
@@ -298,20 +291,17 @@ static int gpio_sc16is75x_port_set_masked_raw(const struct device *dev,
 	return gpio_sc16is75x_write_pin_state(dev, state);
 }
 
-static int gpio_sc16is75x_port_set_bits_raw(const struct device *dev,
-					    const gpio_port_pins_t pins)
+static int gpio_sc16is75x_port_set_bits_raw(const struct device *dev, const gpio_port_pins_t pins)
 {
 	return gpio_sc16is75x_port_set_masked_raw(dev, pins, pins);
 }
 
-static int gpio_sc16is75x_port_clear_bits_raw(const struct device *dev,
-					      const gpio_port_pins_t pins)
+static int gpio_sc16is75x_port_clear_bits_raw(const struct device *dev, const gpio_port_pins_t pins)
 {
 	return gpio_sc16is75x_port_set_masked_raw(dev, pins, 0);
 }
 
-static int gpio_sc16is75x_port_toggle_bits(const struct device *dev,
-					   const gpio_port_pins_t pins)
+static int gpio_sc16is75x_port_toggle_bits(const struct device *dev, const gpio_port_pins_t pins)
 {
 	uint8_t state = gpio_sc16is75x_cached_pin_state(dev);
 
@@ -329,14 +319,13 @@ static int gpio_sc16is75x_port_toggle_bits(const struct device *dev,
 
 #ifdef CONFIG_GPIO_SC16IS75X_INTERRUPTS
 
-static inline int gpio_sc16is75x_write_pin_irq(const struct device *dev,
-					       const gpio_pin_t pin,
+static inline int gpio_sc16is75x_write_pin_irq(const struct device *dev, const gpio_pin_t pin,
 					       const enum gpio_int_mode mode,
 					       const enum gpio_int_trig trig)
 {
-	const struct gpio_sc16is75x_config * const config = dev->config;
-	struct gpio_sc16is75x_data * const data = dev->data;
-	struct gpio_sc16is75x_interrupts * const irq = &data->pin_irq;
+	const struct gpio_sc16is75x_config *const config = dev->config;
+	struct gpio_sc16is75x_data *const data = dev->data;
+	struct gpio_sc16is75x_interrupts *const irq = &data->pin_irq;
 	int ret = 0;
 
 	/* Update interrupt masks */
@@ -352,41 +341,39 @@ static inline int gpio_sc16is75x_write_pin_irq(const struct device *dev,
 	WRITE_BIT(irq->edge_falling, pin, enabled && edge && low);
 	WRITE_BIT(irq->level_high, pin, enabled && level && high);
 	WRITE_BIT(irq->level_low, pin, enabled && level && low);
-	ret =  WRITE_SC16IS75X_REG(config->bus, IOINTENA, irq->enabled);
+	ret = WRITE_SC16IS75X_REG(config->bus, IOINTENA, irq->enabled);
 	k_mutex_unlock(&data->lock);
 
 	return ret;
 }
 
-static inline gpio_port_pins_t gpio_sc16is75x_trig_edge(
-					const struct device *dev,
-					const gpio_port_pins_t changed_pins,
-					const gpio_port_pins_t new_state)
+static inline gpio_port_pins_t gpio_sc16is75x_trig_edge(const struct device *dev,
+							const gpio_port_pins_t changed_pins,
+							const gpio_port_pins_t new_state)
 {
-	struct gpio_sc16is75x_data * const data = dev->data;
-	struct gpio_sc16is75x_interrupts * const irq = &data->pin_irq;
+	struct gpio_sc16is75x_data *const data = dev->data;
+	struct gpio_sc16is75x_interrupts *const irq = &data->pin_irq;
 	gpio_port_pins_t trig_edge;
 
 	k_mutex_lock(&data->lock, K_FOREVER);
-	trig_edge = (changed_pins & new_state & irq->edge_rising)
-		  | (changed_pins & ~new_state & irq->edge_falling);
+	trig_edge = (changed_pins & new_state & irq->edge_rising) |
+		    (changed_pins & ~new_state & irq->edge_falling);
 	k_mutex_unlock(&data->lock);
 
 	return trig_edge;
 }
 
-static inline gpio_port_pins_t gpio_sc16is75x_trig_level(
-					const struct device *dev,
-					const gpio_port_pins_t changed_pins,
-					const gpio_port_pins_t new_state)
+static inline gpio_port_pins_t gpio_sc16is75x_trig_level(const struct device *dev,
+							 const gpio_port_pins_t changed_pins,
+							 const gpio_port_pins_t new_state)
 {
-	struct gpio_sc16is75x_data * const data = dev->data;
-	struct gpio_sc16is75x_interrupts * const irq = &data->pin_irq;
+	struct gpio_sc16is75x_data *const data = dev->data;
+	struct gpio_sc16is75x_interrupts *const irq = &data->pin_irq;
 	gpio_port_pins_t trig_level;
 
 	k_mutex_lock(&data->lock, K_FOREVER);
-	trig_level = (changed_pins & new_state & irq->level_high)
-		   | (changed_pins & ~new_state & irq->level_low);
+	trig_level = (changed_pins & new_state & irq->level_high) |
+		     (changed_pins & ~new_state & irq->level_low);
 	k_mutex_unlock(&data->lock);
 
 	return trig_level;
@@ -394,9 +381,9 @@ static inline gpio_port_pins_t gpio_sc16is75x_trig_level(
 
 static void gpio_sc16is75x_interrupt_work_fn(struct k_work *work)
 {
-	struct gpio_sc16is75x_data * const data = CONTAINER_OF(work,
-			struct gpio_sc16is75x_data, interrupt_work);
-	const struct device * const dev = data->self;
+	struct gpio_sc16is75x_data *const data =
+		CONTAINER_OF(work, struct gpio_sc16is75x_data, interrupt_work);
+	const struct device *const dev = data->self;
 	gpio_port_pins_t changed_pins, triggered_pins;
 	gpio_port_pins_t triggered_edge, triggered_level;
 	uint8_t cur_state, new_state;
@@ -432,8 +419,7 @@ static void gpio_sc16is75x_interrupt_work_fn(struct k_work *work)
 	}
 }
 
-static void gpio_sc16is75x_interrupt_callback(const struct device *dev,
-					      struct gpio_callback *cb,
+static void gpio_sc16is75x_interrupt_callback(const struct device *dev, struct gpio_callback *cb,
 					      gpio_port_pins_t event_pins)
 {
 	/*
@@ -441,19 +427,17 @@ static void gpio_sc16is75x_interrupt_callback(const struct device *dev,
 	 * an automatic rescheduling in the worker queue. The work
 	 * item is therefore scheduled immediately for all entries.
 	 */
-	struct gpio_sc16is75x_data * const data = CONTAINER_OF(cb,
-			struct gpio_sc16is75x_data, interrupt_cb);
+	struct gpio_sc16is75x_data *const data =
+		CONTAINER_OF(cb, struct gpio_sc16is75x_data, interrupt_cb);
 
 	k_work_submit(&data->interrupt_work);
 }
 
-
-static int gpio_sc16is75x_pin_interrupt_configure(const struct device *dev,
-						  const gpio_pin_t pin,
+static int gpio_sc16is75x_pin_interrupt_configure(const struct device *dev, const gpio_pin_t pin,
 						  const enum gpio_int_mode mode,
 						  const enum gpio_int_trig trig)
 {
-	const struct gpio_sc16is75x_config * const config = dev->config;
+	const struct gpio_sc16is75x_config *const config = dev->config;
 
 	/* Check for invalid pin number */
 	if ((BIT(pin) & config->common.port_pin_mask) == 0) {
@@ -469,11 +453,10 @@ static int gpio_sc16is75x_pin_interrupt_configure(const struct device *dev,
 	return gpio_sc16is75x_write_pin_irq(dev, pin, mode, trig);
 }
 
-static int gpio_sc16is75x_manage_callback(const struct device *dev,
-					  struct gpio_callback *callback,
+static int gpio_sc16is75x_manage_callback(const struct device *dev, struct gpio_callback *callback,
 					  const bool set)
 {
-	struct gpio_sc16is75x_data * const data = dev->data;
+	struct gpio_sc16is75x_data *const data = dev->data;
 
 	return gpio_manage_callback(&data->callbacks, callback, set);
 }
@@ -493,17 +476,15 @@ static const struct gpio_driver_api gpio_sc16is75x_api = {
 #endif /* CONFIG_GPIO_SC16IS75X_INTERRUPTS */
 };
 
-
 static int gpio_sc16is75x_init(const struct device *dev)
 {
-	const struct gpio_sc16is75x_config * const config = dev->config;
-	struct gpio_sc16is75x_data * const data = dev->data;
+	const struct gpio_sc16is75x_config *const config = dev->config;
+	struct gpio_sc16is75x_data *const data = dev->data;
 	int ret = 0;
 
 	/* Confirm (MFD) bridge readiness */
 	if (!device_is_ready(config->bus)) {
-		LOG_ERR("%s: bridge device %s not ready",
-			dev->name, config->bus->name);
+		LOG_ERR("%s: bridge device %s not ready", dev->name, config->bus->name);
 		return -ENODEV;
 	}
 
@@ -513,15 +494,13 @@ static int gpio_sc16is75x_init(const struct device *dev)
 	/* Initialize register cache for interrupt handling */
 	ret = gpio_sc16is75x_read_pin_dir(dev, &data->pin_dir);
 	if (ret != 0) {
-		LOG_ERR("%s: read pin directions failed: %d",
-			dev->name, ret);
+		LOG_ERR("%s: read pin directions failed: %d", dev->name, ret);
 		goto end;
 	}
 
 	ret = gpio_sc16is75x_read_pin_state(dev, &data->pin_state);
 	if (ret != 0) {
-		LOG_ERR("%s: read pin state failed: %d",
-			dev->name, ret);
+		LOG_ERR("%s: read pin state failed: %d", dev->name, ret);
 		goto end;
 	}
 
@@ -536,22 +515,20 @@ static int gpio_sc16is75x_init(const struct device *dev)
 	k_work_init(&data->interrupt_work, gpio_sc16is75x_interrupt_work_fn);
 
 	/* Set up and register our own callback on our parent device */
-	gpio_init_callback(&data->interrupt_cb,
-			   gpio_sc16is75x_interrupt_callback,
-			   BIT(SC16IS75X_EVENT_IO0_STATE)
-			 | BIT(SC16IS75X_EVENT_IO1_STATE));
+	gpio_init_callback(&data->interrupt_cb, gpio_sc16is75x_interrupt_callback,
+			   BIT(SC16IS75X_EVENT_IO0_STATE) | BIT(SC16IS75X_EVENT_IO1_STATE));
 
 	ret = mfd_sc16is75x_add_callback(config->bus, &data->interrupt_cb);
 	if (ret != 0) {
-		LOG_ERR("%s: failed to register interrupt callback on %s: %d",
-			dev->name, config->bus->name, ret);
+		LOG_ERR("%s: failed to register interrupt callback on %s: %d", dev->name,
+			config->bus->name, ret);
 		goto end;
 	}
 
 #endif /* CONFIG_GPIO_SC16IS75X_INTERRUPTS */
 
-	LOG_DBG("%s: ready for %u pins with bridge backend over %s!",
-		dev->name, config->num_pins, config->bus->name);
+	LOG_DBG("%s: ready for %u pins with bridge backend over %s!", dev->name, config->num_pins,
+		config->bus->name);
 
 end:
 	return ret;
@@ -568,30 +545,25 @@ static int gpio_sc16is75x_pm_device_pm_action(const struct device *dev,
 }
 #endif
 
-#define GPIO_SC16IS75X_DEFINE(inst)                                          \
-                                                                             \
-	static struct gpio_sc16is75x_config gpio_sc16is75x_config_##inst =   \
-	{                                                                    \
-		.common = {                                                  \
-			.port_pin_mask =                                     \
-				GPIO_PORT_PIN_MASK_FROM_DT_INST(inst),       \
-		},                                                           \
-		.bus = DEVICE_DT_GET(DT_INST_BUS(inst)),                     \
-		.num_pins = DT_INST_PROP(inst, ngpios),                      \
-	};                                                                   \
-	BUILD_ASSERT(                                                        \
-		DT_INST_PROP(inst, ngpios) <= SC16IS75X_IO_NUM_PINS_MAX,     \
-		"Too many ngpios");                                          \
-                                                                             \
-	static struct gpio_sc16is75x_data gpio_sc16is75x_data_##inst;        \
-                                                                             \
-	PM_DEVICE_DT_INST_DEFINE(inst, gpio_sc16is75x_pm_device_pm_action);  \
-                                                                             \
-	DEVICE_DT_INST_DEFINE(inst, gpio_sc16is75x_init,                     \
-			      PM_DEVICE_DT_INST_GET(inst),                   \
-			      &gpio_sc16is75x_data_##inst,                   \
-			      &gpio_sc16is75x_config_##inst, POST_KERNEL,    \
-			      CONFIG_GPIO_SC16IS75X_INIT_PRIORITY,           \
+#define GPIO_SC16IS75X_DEFINE(inst)                                                                \
+                                                                                                   \
+	static struct gpio_sc16is75x_config gpio_sc16is75x_config_##inst = {                       \
+		.common =                                                                          \
+			{                                                                          \
+				.port_pin_mask = GPIO_PORT_PIN_MASK_FROM_DT_INST(inst),            \
+			},                                                                         \
+		.bus = DEVICE_DT_GET(DT_INST_BUS(inst)),                                           \
+		.num_pins = DT_INST_PROP(inst, ngpios),                                            \
+	};                                                                                         \
+	BUILD_ASSERT(DT_INST_PROP(inst, ngpios) <= SC16IS75X_IO_NUM_PINS_MAX, "Too many ngpios");  \
+                                                                                                   \
+	static struct gpio_sc16is75x_data gpio_sc16is75x_data_##inst;                              \
+                                                                                                   \
+	PM_DEVICE_DT_INST_DEFINE(inst, gpio_sc16is75x_pm_device_pm_action);                        \
+                                                                                                   \
+	DEVICE_DT_INST_DEFINE(inst, gpio_sc16is75x_init, PM_DEVICE_DT_INST_GET(inst),              \
+			      &gpio_sc16is75x_data_##inst, &gpio_sc16is75x_config_##inst,          \
+			      POST_KERNEL, CONFIG_GPIO_SC16IS75X_INIT_PRIORITY,                    \
 			      &gpio_sc16is75x_api);
 
 DT_INST_FOREACH_STATUS_OKAY(GPIO_SC16IS75X_DEFINE);
