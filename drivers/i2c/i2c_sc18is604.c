@@ -67,7 +67,7 @@ static void i2c_sc18is604_interrupt_work_fn_initial(struct k_work *work)
 	/* Soft spinning on interrupt handling lock */
 	ret = k_sem_take(&data->interrupt_lock, K_NO_WAIT);
 	if (ret != 0) {
-		k_work_submit(work);
+		k_work_submit_to_queue(&data->work_queue, work);
 		return;
 	}
 
@@ -81,13 +81,13 @@ static void i2c_sc18is604_interrupt_work_fn_initial(struct k_work *work)
 					&data->interrupt_handling_data.signal);
 	if (ret != 0) {
 		/* Failed to read out I2C status, retry */
-		k_work_submit(work);
+		k_work_submit_to_queue(&data->work_queue, work);
 		k_sem_give(&data->interrupt_lock);
 		return;
 	}
 
 	/* Submit work item for awaiting result */
-	ret = k_work_schedule(&data->interrupt_work_final, K_NO_WAIT);
+	ret = k_work_schedule_for_queue(&data->work_queue, &data->interrupt_work_final, K_NO_WAIT);
 	if (ret != 0 && ret != 1) {
 		/*
 		 * ret == 0 shouldn't happen, but is permissible: at least we
@@ -112,13 +112,13 @@ static void i2c_sc18is604_interrupt_work_fn_final(struct k_work *work)
 
 	if (!signaled) {
 		/* Transfer not complete, keep spinning */
-		k_work_schedule(work_delayable, K_MSEC(1));
+		k_work_schedule_for_queue(&data->work_queue, work_delayable, K_MSEC(1));
 		return;
 	}
 
 	/* If bus transfer failed, try again */
 	if (result != 0) {
-		k_work_submit(&data->interrupt_work_initial);
+		k_work_submit_to_queue(&data->work_queue, &data->interrupt_work_initial);
 		goto end;
 	}
 
@@ -144,7 +144,7 @@ static void i2c_sc18is604_interrupt_callback(const struct device *dev, struct gp
 	 * Reading out the interrupt source requires bus communication, so we do
 	 * it via work queue items
 	 */
-	k_work_submit(&data->interrupt_work_initial);
+	k_work_submit_to_queue(&data->work_queue, &data->interrupt_work_initial);
 }
 
 static inline int i2c_sc18is604_set_clock_speed(const struct device *dev, uint32_t speed)
@@ -319,7 +319,7 @@ static int i2c_sc18is604_transfer(const struct device *dev, struct i2c_msg *msgs
 				  uint16_t addr)
 {
 	struct i2c_sc18is604_data *const data = dev->data;
-	int ret;
+	int ret = 0;
 
 	if (num_msgs == 0) {
 		return 0;
@@ -386,6 +386,11 @@ static int i2c_sc18is604_init(const struct device *dev)
 	k_work_init(&data->interrupt_work_initial, i2c_sc18is604_interrupt_work_fn_initial);
 	k_work_init_delayable(&data->interrupt_work_final, i2c_sc18is604_interrupt_work_fn_final);
 
+	/* Set up work queue for driver instance */
+	k_work_queue_init(&data->work_queue);
+	k_work_queue_start(&data->work_queue, data->work_queue_stack,
+			   CONFIG_I2C_SC18IS604_WORKQUEUE_STACK_SIZE, K_HIGHEST_THREAD_PRIO, NULL);
+
 	/* Initialize data used by interrupt handling work items */
 	k_poll_signal_init(&data->interrupt_handling_data.signal);
 
@@ -405,18 +410,22 @@ static int i2c_sc18is604_pm_device_pm_action(const struct device *dev, enum pm_d
 
 #define I2C_SC18IS604_DEFINE(inst)                                                                 \
                                                                                                    \
+	K_THREAD_STACK_DEFINE(i2c_sc18is604_wq_stack_##inst,                                       \
+			      CONFIG_I2C_SC18IS604_WORKQUEUE_STACK_SIZE);                          \
 	static const struct i2c_sc18is604_config i2c_sc18is604_config_##inst = {                   \
 		.parent_dev = DEVICE_DT_GET(DT_INST_BUS(inst)),                                    \
 	};                                                                                         \
                                                                                                    \
-	static struct i2c_sc18is604_data i2c_sc18is604_data_##inst = {};                           \
+	static struct i2c_sc18is604_data i2c_sc18is604_data_##inst = {                             \
+		.work_queue_stack = i2c_sc18is604_wq_stack_##inst,                                 \
+	};                                                                                         \
                                                                                                    \
 	PM_DEVICE_DT_INST_DEFINE(inst, i2c_sc18is604_pm_device_pm_action);                         \
                                                                                                    \
-	DEVICE_DT_INST_DEFINE(inst, i2c_sc18is604_init, PM_DEVICE_DT_INST_GET(inst),               \
-			      &i2c_sc18is604_data_##inst, &i2c_sc18is604_config_##inst,            \
-			      POST_KERNEL, CONFIG_I2C_SC18IS604_INIT_PRIORITY,                     \
-			      &i2c_sc18is604_api);
+	I2C_DEVICE_DT_INST_DEFINE(inst, i2c_sc18is604_init, PM_DEVICE_DT_INST_GET(inst),           \
+				  &i2c_sc18is604_data_##inst, &i2c_sc18is604_config_##inst,        \
+				  POST_KERNEL, CONFIG_I2C_SC18IS604_INIT_PRIORITY,                 \
+				  &i2c_sc18is604_api);
 
 DT_INST_FOREACH_STATUS_OKAY(I2C_SC18IS604_DEFINE);
 

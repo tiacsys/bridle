@@ -13,6 +13,7 @@
 #include <string.h>
 
 #include <zephyr/kernel.h>
+#include <zephyr/sys/util_macro.h>
 #include <zephyr/device.h>
 #include <zephyr/pm/device.h>
 
@@ -26,12 +27,6 @@
 
 #include <zephyr/logging/log.h>
 LOG_MODULE_REGISTER(mfd_sc18is604, CONFIG_MFD_LOG_LEVEL);
-
-#if defined(CONFIG_MFD_SC18IS604_ASYNC) &&                                                         \
-	(!CONFIG_DYNAMIC_THREAD_POOL_SIZE && !defined(CONFIG_DYNAMIC_THREAD_ALLOC))
-#error "SC18IS604 MFD driver requires either CONFIG_DYNAMIC_THREAD_POOL_SIZE>0" \
-	"or CONFIG_DYNAMIC_THREAD_ALLOC"
-#endif
 
 int mfd_sc18is604_add_callback(const struct device *dev, struct gpio_callback *callback)
 {
@@ -332,12 +327,9 @@ static int mfd_sc18is604_init(const struct device *dev)
 
 #ifdef CONFIG_MFD_SC18IS604_ASYNC
 	/* Initialize private work queue. */
-	size_t work_queue_stack_size = CONFIG_MFD_SC18IS604_WORKQUEUE_STACK_SIZE;
-
 	k_work_queue_init(&data->work_queue);
-	data->work_queue_stack = k_thread_stack_alloc(work_queue_stack_size, 0);
-	k_work_queue_start(&data->work_queue, data->work_queue_stack, work_queue_stack_size,
-			   K_HIGHEST_THREAD_PRIO, NULL);
+	k_work_queue_start(&data->work_queue, data->work_queue_stack,
+			   CONFIG_MFD_SC18IS604_WORKQUEUE_STACK_SIZE, K_HIGHEST_THREAD_PRIO, NULL);
 #endif /* CONFIG_MFD_SC18IS604_ASYNC */
 
 	/* Configure interrupt input pin. */
@@ -403,6 +395,9 @@ static int mfd_sc18is604_pm_device_pm_action(const struct device *dev, enum pm_d
 #endif
 
 #define MFD_SC18IS604_DEFINE(inst)                                                                 \
+	IF_ENABLED(CONFIG_MFD_SC18IS604_ASYNC,                                                     \
+		   (K_THREAD_STACK_DEFINE(mfd_sc18is604_wq_stack_##inst,                           \
+					  CONFIG_MFD_SC18IS604_WORKQUEUE_STACK_SIZE)));            \
                                                                                                    \
 	static const struct mfd_sc18is604_config mfd_sc18is604_config_##inst = {                   \
 		.spi = SPI_DT_SPEC_INST_GET(inst,                                                  \
@@ -418,7 +413,10 @@ static int mfd_sc18is604_pm_device_pm_action(const struct device *dev, enum pm_d
 	BUILD_ASSERT(DT_INST_PROP(inst, spi_max_frequency) <= MFD_SC18IS604_SPI_HZ_MAX,            \
 		     "SPI bus clock too high");                                                    \
                                                                                                    \
-	static struct mfd_sc18is604_data mfd_sc18is604_data_##inst = {0};                          \
+	static struct mfd_sc18is604_data mfd_sc18is604_data_##inst = {                             \
+		IF_ENABLED(CONFIG_MFD_SC18IS604_ASYNC,                                             \
+			   (.work_queue_stack = mfd_sc18is604_wq_stack_##inst,))                   \
+	};                                                                                         \
                                                                                                    \
 	PM_DEVICE_DT_INST_DEFINE(inst, mfd_sc18is604_pm_device_pm_action);                         \
                                                                                                    \
