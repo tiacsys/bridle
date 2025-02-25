@@ -14,12 +14,10 @@
 
 #include "mfd_sc18is604.h"
 
-int mfd_sc18is604_transfer(const struct device *dev,
-			   uint8_t *cmd, size_t cmd_len,
-			   uint8_t *tx_data, size_t tx_len,
-			   uint8_t *rx_data, size_t rx_len)
+int mfd_sc18is604_transfer(const struct device *dev, uint8_t *cmd, size_t cmd_len, uint8_t *tx_data,
+			   size_t tx_len, uint8_t *rx_data, size_t rx_len)
 {
-	const struct mfd_sc18is604_config * const config = dev->config;
+	const struct mfd_sc18is604_config *const config = dev->config;
 	int ret = 0;
 
 	/*
@@ -35,10 +33,7 @@ int mfd_sc18is604_transfer(const struct device *dev,
 		.len = 1,
 	};
 
-	const struct spi_buf_set buf_set = {
-		.buffers = &buffer,
-		.count = 1
-	};
+	const struct spi_buf_set buf_set = {.buffers = &buffer, .count = 1};
 
 	/* Write command sequence */
 	if (cmd != NULL) {
@@ -92,29 +87,23 @@ end:
 	return ret;
 }
 
-int mfd_sc18is604_read_register(const struct device *dev,
-				uint8_t reg, uint8_t *val)
+int mfd_sc18is604_read_register(const struct device *dev, uint8_t reg, uint8_t *val)
 {
 	uint8_t cmd[] = {SC18IS604_CMD_READ_REGISTER, reg};
 
-	return mfd_sc18is604_transfer(dev, cmd, ARRAY_SIZE(cmd),
-					   NULL, 0, val, 1);
+	return mfd_sc18is604_transfer(dev, cmd, ARRAY_SIZE(cmd), NULL, 0, val, 1);
 }
 
-int mfd_sc18is604_write_register(const struct device *dev,
-				 uint8_t reg, uint8_t val)
+int mfd_sc18is604_write_register(const struct device *dev, uint8_t reg, uint8_t val)
 {
 	uint8_t cmd[] = {SC18IS604_CMD_WRITE_REGISTER, reg};
 
-	return mfd_sc18is604_transfer(dev, cmd, ARRAY_SIZE(cmd),
-					   &val, 1, NULL, 0);
+	return mfd_sc18is604_transfer(dev, cmd, ARRAY_SIZE(cmd), &val, 1, NULL, 0);
 }
 
-int mfd_sc18is604_read_buffer(const struct device *dev,
-			      uint8_t *data, size_t len)
+int mfd_sc18is604_read_buffer(const struct device *dev, uint8_t *data, size_t len)
 {
 	uint8_t cmd[] = {SC18IS604_CMD_READ_BUFFER};
 
-	return mfd_sc18is604_transfer(dev, cmd, ARRAY_SIZE(cmd),
-					   NULL, 0, data, len);
+	return mfd_sc18is604_transfer(dev, cmd, ARRAY_SIZE(cmd), NULL, 0, data, len);
 }

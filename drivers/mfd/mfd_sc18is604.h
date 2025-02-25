@@ -25,22 +25,20 @@ extern "C" {
  * Values in Hz, intentionally to be comparable with the spi-max-frequency
  * property from DT bindings in spi-device.yaml.
  */
-#define MFD_SC18IS604_SPI_HZ_MIN		100000
-#define MFD_SC18IS604_SPI_HZ_MAX		1200000
+#define MFD_SC18IS604_SPI_HZ_MIN 100000
+#define MFD_SC18IS604_SPI_HZ_MAX 1200000
 
-#define MFD_SC18IS604_SPI_DELAY_USEC		8 /* between two SPI bytes */
-#define MFD_SC18IS604_RESET_SETUP_USEC		1 /* >= 125ns acceptance time */
-#define MFD_SC18IS604_RESET_TIME_USEC		500
+#define MFD_SC18IS604_SPI_DELAY_USEC   8 /* between two SPI bytes */
+#define MFD_SC18IS604_RESET_SETUP_USEC 1 /* >= 125ns acceptance time */
+#define MFD_SC18IS604_RESET_TIME_USEC  500
 
 /* timeout for about two times a maximum command (three byte) at 100kHz */
-#define MFD_SC18IS604_CMD_MAX_TOUT_USEC		200
+#define MFD_SC18IS604_CMD_MAX_TOUT_USEC 200
 
 /* expected chip in version string */
-#define MFD_SC18IS604_VERSION_CHIP		"SC18IS604"
-BUILD_ASSERT(
-	ARRAY_SIZE(MFD_SC18IS604_VERSION_CHIP) <= SC18IS604_VERSION_STRING_SIZE,
-	"Chip name too long"
-);
+#define MFD_SC18IS604_VERSION_CHIP "SC18IS604"
+BUILD_ASSERT(ARRAY_SIZE(MFD_SC18IS604_VERSION_CHIP) <= SC18IS604_VERSION_STRING_SIZE,
+	     "Chip name too long");
 
 /**
  * @brief SC18IM604 MFD configuration data
