@@ -15,7 +15,6 @@ extern "C" {
 #include <zephyr/drivers/gpio.h>
 #include <zephyr/drivers/i2c.h>
 
-
 /**
  * @brief SC18IM604 I2C controller configuration data
  *
@@ -68,8 +67,7 @@ struct i2c_sc18is604_data {
  * @retval 0 If the signal was not raised within the timeout.
  * @return Negative error code if some failure occurs during k_poll().
  */
-int await_signal(struct k_poll_signal *signal,
-		 int *result, k_timeout_t timeout);
+int await_signal(struct k_poll_signal *signal, int *result, k_timeout_t timeout);
 
 /**
  * @brief Transfer I2C messages asynchronously.
@@ -82,10 +80,8 @@ int await_signal(struct k_poll_signal *signal,
  * @param cb Callback to be invoked on transfer completion (or failure).
  * @param userdata User data passed to callback.
  */
-int i2c_sc18is604_transfer_cb(const struct device *dev,
-			      struct i2c_msg *msgs, uint8_t num_msgs,
-			      uint16_t addr,
-			      i2c_callback_t cb, void *userdata);
+int i2c_sc18is604_transfer_cb(const struct device *dev, struct i2c_msg *msgs, uint8_t num_msgs,
+			      uint16_t addr, i2c_callback_t cb, void *userdata);
 
 #ifdef __cplusplus
 }
