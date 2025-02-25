@@ -68,12 +68,11 @@ struct i2c_sc18is604_xfr_cb_work {
  * Finish an asynchronous transfer with some result,
  * cleaning up locks and resources.
  */
-static void i2c_sc18is604_transfer_cb_process_done(
-		struct i2c_sc18is604_xfr_cb_work *transfer_work,
-		int result)
+static void i2c_sc18is604_transfer_cb_process_done(struct i2c_sc18is604_xfr_cb_work *transfer_work,
+						   int result)
 {
 	const struct device *dev = transfer_work->dev;
-	struct i2c_sc18is604_data * const data = dev->data;
+	struct i2c_sc18is604_data *const data = dev->data;
 
 	/* Release driver lock */
 	k_sem_give(&data->lock);
@@ -88,21 +87,18 @@ static void i2c_sc18is604_transfer_cb_process_done(
 	cb(dev, result, userdata);
 }
 
-static void i2c_sc18is604_init_msg_read(
-		struct i2c_sc18is604_xfr_cb_work *transfer_work,
-		uint16_t addr, struct i2c_msg *msg)
+static void i2c_sc18is604_init_msg_read(struct i2c_sc18is604_xfr_cb_work *transfer_work,
+					uint16_t addr, struct i2c_msg *msg)
 {
 	const struct device *dev = transfer_work->dev;
-	const struct i2c_sc18is604_config * const config = dev->config;
+	const struct i2c_sc18is604_config *const config = dev->config;
 	int ret = 0;
 
 	/* Call asynchronous transfer function with our internal signal. */
-	uint8_t cmd[] = {SC18IS604_CMD_READ_I2C, msg->len, (uint8_t) addr};
+	uint8_t cmd[] = {SC18IS604_CMD_READ_I2C, msg->len, (uint8_t)addr};
 
-	ret = mfd_sc18is604_transfer_signal(config->parent_dev,
-					    cmd, ARRAY_SIZE(cmd),
-					    NULL, 0, NULL, 0,
-					    &transfer_work->signal);
+	ret = mfd_sc18is604_transfer_signal(config->parent_dev, cmd, ARRAY_SIZE(cmd), NULL, 0, NULL,
+					    0, &transfer_work->signal);
 	if (ret != 0) {
 		mfd_sc18is604_release(config->parent_dev);
 		i2c_sc18is604_transfer_cb_process_done(transfer_work, -EIO);
@@ -118,22 +114,18 @@ static void i2c_sc18is604_init_msg_read(
 	}
 }
 
-static void i2c_sc18is604_init_msg_write(
-		struct i2c_sc18is604_xfr_cb_work *transfer_work,
-		 uint16_t addr, struct i2c_msg *msg)
+static void i2c_sc18is604_init_msg_write(struct i2c_sc18is604_xfr_cb_work *transfer_work,
+					 uint16_t addr, struct i2c_msg *msg)
 {
 	const struct device *dev = transfer_work->dev;
-	const struct i2c_sc18is604_config * const config = dev->config;
+	const struct i2c_sc18is604_config *const config = dev->config;
 	int ret = 0;
 
-	uint8_t cmd[] = {SC18IS604_CMD_WRITE_I2C, msg->len, (uint8_t) addr};
+	uint8_t cmd[] = {SC18IS604_CMD_WRITE_I2C, msg->len, (uint8_t)addr};
 
 	/* Call asynchronous transfer function with our internal signal. */
-	ret = mfd_sc18is604_transfer_signal(config->parent_dev,
-					    cmd, ARRAY_SIZE(cmd),
-					    msg->buf, msg->len,
-					    NULL, 0,
-					    &transfer_work->signal);
+	ret = mfd_sc18is604_transfer_signal(config->parent_dev, cmd, ARRAY_SIZE(cmd), msg->buf,
+					    msg->len, NULL, 0, &transfer_work->signal);
 	if (ret != 0) {
 		i2c_sc18is604_transfer_cb_process_done(transfer_work, -EIO);
 		return;
@@ -149,10 +141,10 @@ static void i2c_sc18is604_init_msg_write(
 
 static void i2c_sc18is604_init_msg_work_fn(struct k_work *work)
 {
-	struct i2c_sc18is604_xfr_cb_work *transfer_work = CONTAINER_OF(work,
-			struct i2c_sc18is604_xfr_cb_work, work_init_msg);
+	struct i2c_sc18is604_xfr_cb_work *transfer_work =
+		CONTAINER_OF(work, struct i2c_sc18is604_xfr_cb_work, work_init_msg);
 	const struct device *dev = transfer_work->dev;
-	struct i2c_sc18is604_data * const data = dev->data;
+	struct i2c_sc18is604_data *const data = dev->data;
 	int ret = 0;
 
 	/* Get device lock, or reschedule to retry later */
@@ -161,8 +153,7 @@ static void i2c_sc18is604_init_msg_work_fn(struct k_work *work)
 		if (ret != 0) {
 			ret = k_work_submit(work);
 			if (ret != 1 && ret != 0) {
-				i2c_sc18is604_transfer_cb_process_done(
-							transfer_work, -EIO);
+				i2c_sc18is604_transfer_cb_process_done(transfer_work, -EIO);
 				return;
 			}
 			return;
@@ -212,23 +203,21 @@ static void i2c_sc18is604_init_msg_work_fn(struct k_work *work)
 
 static void i2c_sc18is604_buffer_readout_work_fn(struct k_work *work)
 {
-	struct i2c_sc18is604_xfr_cb_work *transfer_work = CONTAINER_OF(work,
-			struct i2c_sc18is604_xfr_cb_work, work_buffer_readout);
+	struct i2c_sc18is604_xfr_cb_work *transfer_work =
+		CONTAINER_OF(work, struct i2c_sc18is604_xfr_cb_work, work_buffer_readout);
 	const struct device *dev = transfer_work->dev;
-	const struct i2c_sc18is604_config * const config = dev->config;
-	struct i2c_sc18is604_data * const data = dev->data;
+	const struct i2c_sc18is604_config *const config = dev->config;
+	struct i2c_sc18is604_data *const data = dev->data;
 	int ret = 0;
 
 	/* Await completion of the previous transfer */
 	int result = 0;
-	int signaled = await_signal(&transfer_work->signal,
-				    &result, K_NO_WAIT);
+	int signaled = await_signal(&transfer_work->signal, &result, K_NO_WAIT);
 
 	if (!signaled) {
 		ret = k_work_submit(work);
 		if (ret != 1 && ret != 0) {
-			i2c_sc18is604_transfer_cb_process_done(
-						transfer_work, -EIO);
+			i2c_sc18is604_transfer_cb_process_done(transfer_work, -EIO);
 			return;
 		}
 		return;
@@ -248,8 +237,7 @@ static void i2c_sc18is604_buffer_readout_work_fn(struct k_work *work)
 		 */
 		ret = k_work_submit(work);
 		if (ret != 1 && ret != 0) {
-			i2c_sc18is604_transfer_cb_process_done(
-						transfer_work, -EIO);
+			i2c_sc18is604_transfer_cb_process_done(transfer_work, -EIO);
 			return;
 		}
 		return;
@@ -271,8 +259,7 @@ static void i2c_sc18is604_buffer_readout_work_fn(struct k_work *work)
 	uint8_t index = transfer_work->msg_index;
 	struct i2c_msg *msg = &transfer_work->msgs[index];
 
-	ret = mfd_sc18is604_read_buffer_signal(config->parent_dev,
-					       msg->buf, msg->len,
+	ret = mfd_sc18is604_read_buffer_signal(config->parent_dev, msg->buf, msg->len,
 					       &transfer_work->signal);
 	if (ret != 0) {
 		i2c_sc18is604_transfer_cb_process_done(transfer_work, -EIO);
@@ -289,21 +276,19 @@ static void i2c_sc18is604_buffer_readout_work_fn(struct k_work *work)
 
 static void i2c_sc18is604_finish_msg_work_fn(struct k_work *work)
 {
-	struct i2c_sc18is604_xfr_cb_work *transfer_work = CONTAINER_OF(work,
-			struct i2c_sc18is604_xfr_cb_work, work_finish_msg);
+	struct i2c_sc18is604_xfr_cb_work *transfer_work =
+		CONTAINER_OF(work, struct i2c_sc18is604_xfr_cb_work, work_finish_msg);
 	const struct device *dev = transfer_work->dev;
-	struct i2c_sc18is604_data * const data = dev->data;
+	struct i2c_sc18is604_data *const data = dev->data;
 	int ret = 0;
 
 	int result = 0;
-	int signaled = await_signal(&transfer_work->signal,
-				    &result, K_NO_WAIT);
+	int signaled = await_signal(&transfer_work->signal, &result, K_NO_WAIT);
 
 	if (!signaled) {
 		ret = k_work_submit(work);
 		if (ret != 1 && ret != 0) {
-			i2c_sc18is604_transfer_cb_process_done(
-						transfer_work, -EIO);
+			i2c_sc18is604_transfer_cb_process_done(transfer_work, -EIO);
 			return;
 		}
 		return;
@@ -319,13 +304,11 @@ static void i2c_sc18is604_finish_msg_work_fn(struct k_work *work)
 	struct i2c_msg *msg = &transfer_work->msgs[index];
 
 	if ((msg->flags & I2C_MSG_READ) != I2C_MSG_READ) {
-		signaled = await_signal(&data->interrupt_signal,
-					&result, K_NO_WAIT);
+		signaled = await_signal(&data->interrupt_signal, &result, K_NO_WAIT);
 		if (!signaled) {
 			ret = k_work_submit(work);
 			if (ret != 1 && ret != 0) {
-				i2c_sc18is604_transfer_cb_process_done(
-							transfer_work, -EIO);
+				i2c_sc18is604_transfer_cb_process_done(transfer_work, -EIO);
 				return;
 			}
 			return;
@@ -336,8 +319,7 @@ static void i2c_sc18is604_finish_msg_work_fn(struct k_work *work)
 		 * signal).
 		 */
 		if (result != SC18IS604_I2C_STATUS_SUCCESS) {
-			i2c_sc18is604_transfer_cb_process_done(
-						transfer_work, -EIO);
+			i2c_sc18is604_transfer_cb_process_done(transfer_work, -EIO);
 			return;
 		}
 	}
@@ -358,22 +340,20 @@ static void i2c_sc18is604_finish_msg_work_fn(struct k_work *work)
 	}
 }
 
-int i2c_sc18is604_transfer_cb(const struct device *dev,
-			      struct i2c_msg *msgs, uint8_t num_msgs,
-			      uint16_t addr,
-			      i2c_callback_t cb, void *userdata)
+int i2c_sc18is604_transfer_cb(const struct device *dev, struct i2c_msg *msgs, uint8_t num_msgs,
+			      uint16_t addr, i2c_callback_t cb, void *userdata)
 {
 	int ret = 0;
 
 	/* Create work item for tracking this transfer */
-	struct i2c_sc18is604_xfr_cb_work *transfer_work = k_calloc(1,
-				sizeof(struct i2c_sc18is604_xfr_cb_work));
+	struct i2c_sc18is604_xfr_cb_work *transfer_work =
+		k_calloc(1, sizeof(struct i2c_sc18is604_xfr_cb_work));
 
 	if (transfer_work == NULL) {
 		return -ENOMEM;
 	}
 
-	*transfer_work = (struct i2c_sc18is604_xfr_cb_work) {
+	*transfer_work = (struct i2c_sc18is604_xfr_cb_work){
 		.dev = dev,
 		.owns_lock = false,
 		.msg_index = 0,
@@ -383,12 +363,9 @@ int i2c_sc18is604_transfer_cb(const struct device *dev,
 		.cb = cb,
 		.userdata = userdata,
 	};
-	k_work_init(&transfer_work->work_init_msg,
-		    i2c_sc18is604_init_msg_work_fn);
-	k_work_init(&transfer_work->work_buffer_readout,
-		    i2c_sc18is604_buffer_readout_work_fn);
-	k_work_init(&transfer_work->work_finish_msg,
-		    i2c_sc18is604_finish_msg_work_fn);
+	k_work_init(&transfer_work->work_init_msg, i2c_sc18is604_init_msg_work_fn);
+	k_work_init(&transfer_work->work_buffer_readout, i2c_sc18is604_buffer_readout_work_fn);
+	k_work_init(&transfer_work->work_finish_msg, i2c_sc18is604_finish_msg_work_fn);
 	k_poll_signal_init(&transfer_work->signal);
 
 	ret = k_work_submit(&transfer_work->work_init_msg);
