@@ -333,6 +333,26 @@ static const struct gpio_driver_api gpio_sc18is604_api = {
 	.port_toggle_bits = gpio_sc18is604_toggle_bits,
 };
 
+static int gpio_sc18is604_pm_device_pm_action(const struct device *dev,
+					      enum pm_device_action action)
+{
+	struct gpio_sc18is604_data *const data = dev->data;
+	int ret = 0;
+
+	switch (action) {
+	case PM_DEVICE_ACTION_SUSPEND:
+	case PM_DEVICE_ACTION_RESUME:
+	case PM_DEVICE_ACTION_TURN_OFF:
+		break; /* No action necessary for these transitions. */
+	case PM_DEVICE_ACTION_TURN_ON:
+		/* Write cached values back to IC to restore state before turn_off. */
+		ret |= gpio_sc18is604_pin_write_config(dev, data->pin_config);
+		ret |= gpio_sc18is604_pin_write_state(dev, data->pin_state);
+	};
+
+	return ret;
+}
+
 static int gpio_sc18is604_init(const struct device *dev)
 {
 	const struct gpio_sc18is604_config *const config = dev->config;
@@ -353,19 +373,9 @@ static int gpio_sc18is604_init(const struct device *dev)
 
 	LOG_DBG("%s: ready for %u pins with bridge backend over %s!", dev->name, config->num_pins,
 		config->bridge->name);
-	return 0;
-}
 
-#ifdef CONFIG_PM_DEVICE
-static int gpio_sc18is604_pm_device_pm_action(const struct device *dev,
-					      enum pm_device_action action)
-{
-	ARG_UNUSED(dev);
-	ARG_UNUSED(action);
-
-	return 0;
+	return pm_device_driver_init(dev, gpio_sc18is604_pm_device_pm_action);
 }
-#endif
 
 #define GPIO_SC18IS604_DEFINE(inst)                                                                \
                                                                                                    \

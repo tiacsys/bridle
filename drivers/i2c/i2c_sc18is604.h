@@ -63,6 +63,10 @@ struct i2c_sc18is604_data {
 		uint8_t i2cstat;
 		struct k_poll_signal signal;
 	} interrupt_handling_data;
+	/** Driver workqueue */
+	struct k_work_q work_queue;
+	/** Stack for driver workqueue */
+	k_thread_stack_t *work_queue_stack;
 };
 
 /**

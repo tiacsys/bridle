@@ -105,14 +105,14 @@ int mfd_sc18is604_transfer(const struct device *dev,
  *
  * @param dev An SC18IS604 MFD device.
  * @param reg Register address to write to.
- * @param val Value to write into the register.
+ * @param value Value to write into the register.
  *
  * @return A value from mfd_sc18is604_transfer().
  */
 int mfd_sc18is604_read_register(const struct device *dev,
 				uint8_t reg, uint8_t *val);
 
-#define READ_SC18IS604_REG(dev, reg, val)                                    \
+#define READ_SC18IS604_REG(dev, reg, val) \
 	mfd_sc18is604_read_register((dev), SC18IS604_REG_##reg, (val));
 
 /**
@@ -120,14 +120,14 @@ int mfd_sc18is604_read_register(const struct device *dev,
  *
  * @param dev An SC18IS604 MFD device.
  * @param reg Register address to read from.
- * @param[out] val Value read from the register.
+ * @param[out] value Value read from the register.
  *
  * @return A value from mfd_sc18is604_transfer().
  */
 int mfd_sc18is604_write_register(const struct device *dev,
 				 uint8_t reg, uint8_t val);
 
-#define WRITE_SC18IS604_REG(dev, reg, val)                                   \
+#define WRITE_SC18IS604_REG(dev, reg, val) \
 	mfd_sc18is604_write_register((dev), SC18IS604_REG_##reg, (val));
 
 /**
@@ -184,7 +184,7 @@ int mfd_sc18is604_claim(const struct device *dev, k_timeout_t timeout);
  */
 void mfd_sc18is604_release(const struct device *dev);
 
-#ifdef CONFIG_MFD_SC18IS604_ASYNC
+#if defined(CONFIG_MFD_SC18IS604_ASYNC)
 
 /**
  * @brief Asynchronously transfer data to and from an SC18IS604 device. This is
@@ -219,8 +219,8 @@ int mfd_sc18is604_transfer_signal(const struct device *dev,
  * @param reg Register address to read from.
  * @param[out] value Value read from the register. Pointer must remain valid
  *                   until the transfer is complete.
- * @param signal Signal that will be raised on transfer completion. Pointer
- *               must remain valid until the transfer is complete.
+ * @param signal Signal that will be raised on transfer completion. Pointer must
+ *               remain valid until the transfer is complete.
  *
  * @return A value from mfd_sc18is604_transfer_signal().
  */
@@ -228,9 +228,8 @@ int mfd_sc18is604_read_register_signal(const struct device *dev,
 				       uint8_t reg, uint8_t *val,
 				       struct k_poll_signal *signal);
 
-#define READ_SC18IS604_REG_SIGNAL(dev, reg, val, signal)                     \
-	mfd_sc18is604_read_register_signal((dev), SC18IS604_REG_##reg,       \
-						  (val), (signal));
+#define READ_SC18IS604_REG_SIGNAL(dev, reg, val, signal) \
+	mfd_sc18is604_read_register_signal((dev), SC18IS604_REG_##reg, (val), (signal));
 
 /**
  * @brief Read data from the internal buffer of an SC18IS604 asynchronously.
@@ -239,16 +238,16 @@ int mfd_sc18is604_read_register_signal(const struct device *dev,
  * @param[out] data Data read from the buffer. Pointer must remain valid until
  *                  the transfer is complete.
  * @param len Number of bytes to read from the buffer.
- * @param signal Signal that will be raised on transfer completion. Pointer
- *               must remain valid until the transfer is complete.
+ * @param signal Signal that will be raised on transfer completion. Pointer must
+ *               remain valid until the transfer is complete.
  *
  * @return A value from mfd_sc18is604_transfer().
  */
 int mfd_sc18is604_read_buffer_signal(const struct device *dev,
-				     uint8_t *data, size_t len,
-				     struct k_poll_signal *signal);
+			      uint8_t *data, size_t len,
+			      struct k_poll_signal *signal);
 
-#endif /* CONFIG_MFD_SC18IS604_ASYNC */
+#endif /* defined(CONFIG_MFD_SC18IS604_ASYNC) */
 
 /** @} */
 
