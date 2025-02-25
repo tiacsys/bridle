@@ -21,30 +21,6 @@ config MFD_SC16IS75X_ASYNC_NEEDS_WORKQUEUE
 	default y if MFD_SC16IS75X_I2C && !I2C_CALLBACK
 	default n
 
-if MFD_SC16IS75X_ASYNC_NEEDS_WORKQUEUE
-
-config MFD_SC16IS75X_ASYNC
-	bool
-	default n
-	depends on POLL
-	depends on DYNAMIC_THREAD
-
-config MFD_SC16IS75X_INTERRUPTS
-	bool "Interrupt support"
-	default y if $(DT_NXP_SC16IS75X_HAS_IRQ)
-	default n
-	depends on GPIO
-	select MFD_SC16IS75X_ASYNC
-	select POLL              # dependency of MFD_SC16IS75X_ASYNC
-	select DYNAMIC_THREAD    # dependency of MFD_SC16IS75X_ASWQ
-	select THREAD_STACK_INFO # dependency of DYNAMIC_THREAD
-	help
-	  Enable interrupts on SC16IS75x bridges.
-
-endif # MFD_SC16IS75X_ASYNC_NEEDS_WORKQUEUE
-
-if !MFD_SC16IS75X_ASYNC_NEEDS_WORKQUEUE
-
 config MFD_SC16IS75X_ASYNC
 	bool
 	default n
@@ -53,14 +29,11 @@ config MFD_SC16IS75X_ASYNC
 config MFD_SC16IS75X_INTERRUPTS
 	bool "Interrupt support"
 	default y if $(DT_NXP_SC16IS75X_HAS_IRQ)
-	default n
 	depends on GPIO
 	select MFD_SC16IS75X_ASYNC
 	select POLL # dependency of MFD_SC16IS75X_ASYNC
 	help
 	  Enable interrupts on SC16IS75x bridges.
-
-endif # !MFD_SC16IS75X_ASYNC_NEEDS_WORKQUEUE
 
 config MFD_SC16IS75X_SPI
 	bool "NXP SC16IS75x SPI bus support"
@@ -96,7 +69,6 @@ config MFD_SC16IS75X_ASWQ
 	bool
 	default y if MFD_SC16IS75X_ASYNC && MFD_SC16IS75X_ASYNC_NEEDS_WORKQUEUE
 	default n
-	depends on DYNAMIC_THREAD
 
 config MFD_SC16IS75X_WORKQUEUE_STACK_SIZE
 	int

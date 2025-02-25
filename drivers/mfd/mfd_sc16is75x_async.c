@@ -33,7 +33,7 @@ struct mfd_sc16is75x_transfer_work {
 
 /*
  * Work item that performs the actual transfers on the underlying SPI bus.
- * Must be submitted to the work queue owned by the driver instance .
+ * Must be submitted to the work queue owned by the driver instance.
  */
 static void mfd_sc16is75x_transfer_work_fn(struct k_work *work)
 {

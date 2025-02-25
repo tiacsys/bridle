@@ -73,7 +73,7 @@ static bool uart_sc16is75x_rx_available(const struct device *dev)
 	 */
 
 	if (IS_BIT_SET(lsr, SC16IS75X_BIT_LSR_RX_OVERRUN)) {
-		LOG_WRN("%s: overrun error has occurred", dev->name);
+		LOG_WRN_ONCE("%s: overrun error has occurred", dev->name);
 	}
 
 	return IS_BIT_SET(lsr, SC16IS75X_BIT_LSR_RX_DATA);
@@ -101,7 +101,7 @@ static bool uart_sc16is75x_tx_possible(const struct device *dev)
 	return (GET_FIELD(txlvl, SC16IS75X_BIT_TXLVL_SP) >= 1);
 }
 
-#ifdef UART_SC16IS75X_LOOPBACK
+#ifdef CONFIG_UART_SC16IS75X_LOOPBACK
 
 static int uart_sc16is75x_enable_loopback(const struct device *dev, bool enable)
 {
@@ -112,7 +112,7 @@ static int uart_sc16is75x_enable_loopback(const struct device *dev, bool enable)
 				      enable);
 }
 
-#endif /* UART_SC16IS75X_LOOPBACK */
+#endif /* CONFIG_UART_SC16IS75X_LOOPBACK */
 
 static int uart_sc16is75x_enable_fifo(const struct device *dev, bool enable)
 {
@@ -402,8 +402,6 @@ static int uart_sc16is75x_set_rs485_flow_ctrl(const struct device *dev, bool ena
 				      enable);
 }
 
-#ifdef CONFIG_UART_USE_RUNTIME_CONFIGURE
-
 static int uart_sc16is75x_configure(const struct device *dev, const struct uart_config *cfg)
 {
 	const struct uart_sc16is75x_config *const config = dev->config;
@@ -563,7 +561,7 @@ end:
 	return ret;
 }
 
-#endif /* CONFIG_UART_USE_RUNTIME_CONFIGURE */
+#ifdef CONFIG_UART_USE_RUNTIME_CONFIGURE
 
 static int uart_sc16is75x_config_get(const struct device *dev, struct uart_config *cfg)
 {
@@ -573,6 +571,8 @@ static int uart_sc16is75x_config_get(const struct device *dev, struct uart_confi
 
 	return 0;
 }
+
+#endif /* CONFIG_UART_USE_RUNTIME_CONFIGURE */
 
 #ifdef CONFIG_UART_LINE_CTRL
 
@@ -1013,8 +1013,8 @@ static const struct uart_driver_api uart_sc16is75x_api = {
 	.err_check = uart_sc16is75x_err_check,
 #ifdef CONFIG_UART_USE_RUNTIME_CONFIGURE
 	.configure = uart_sc16is75x_configure,
-#endif /* CONFIG_UART_USE_RUNTIME_CONFIGURE */
 	.config_get = uart_sc16is75x_config_get,
+#endif /* CONFIG_UART_USE_RUNTIME_CONFIGURE */
 #ifdef CONFIG_UART_LINE_CTRL
 	.line_ctrl_set = uart_sc16is75x_line_ctrl_set,
 	.line_ctrl_get = uart_sc16is75x_line_ctrl_get,
@@ -1061,6 +1061,15 @@ static const struct uart_driver_api uart_sc16is75x_api = {
 
 };
 
+static int uart_sc16is75x_pm_device_pm_action(const struct device *const dev,
+					      enum pm_device_action action)
+{
+	ARG_UNUSED(dev);
+	ARG_UNUSED(action);
+
+	return 0;
+}
+
 static int uart_sc16is75x_init(const struct device *dev)
 {
 	const struct uart_sc16is75x_config *const config = dev->config;
@@ -1083,19 +1092,19 @@ static int uart_sc16is75x_init(const struct device *dev)
 	ret = uart_sc16is75x_configure(dev, &data->uart_config);
 	if (ret != 0) {
 		LOG_ERR("%s: configure device failed: %d", dev->name, ret);
-		goto end;
+		return ret;
 	}
 
 	/* Enable internal FIFO */
 	ret = uart_sc16is75x_reset_fifos(dev);
 	if (ret != 0) {
 		LOG_ERR("%s: reset FIFO failed: %d", dev->name, ret);
-		goto end;
+		return ret;
 	}
 	ret = uart_sc16is75x_enable_fifo(dev, true);
 	if (ret != 0) {
 		LOG_ERR("%s: enable FIFO failed: %d", dev->name, ret);
-		goto end;
+		return ret;
 	}
 
 #ifdef CONFIG_UART_SC16IS75X_INTERRUPT_DRIVEN
@@ -1129,37 +1138,26 @@ static int uart_sc16is75x_init(const struct device *dev)
 	if (ret != 0) {
 		LOG_ERR("%s: failed to register interrupt callback on %s: %d", dev->name,
 			config->bus->name, ret);
-		goto end;
+		return ret;
 	}
 
 #endif /* CONFIG_UART_SC16IS75X_INTERRUPT_DRIVEN */
 
-#ifdef UART_SC16IS75X_LOOPBACK
+#ifdef CONFIG_UART_SC16IS75X_LOOPBACK
 	/* Enable internal loopback */
 	ret = uart_sc16is75x_enable_loopback(dev, true);
 	if (ret != 0) {
 		LOG_ERR("%s: enable internal loopback failed: %d", dev->name, ret);
-		goto end;
+		return ret;
 	}
-#endif /* UART_SC16IS75X_LOOPBACK */
+#endif /* CONFIG_UART_SC16IS75X_LOOPBACK */
 
 	LOG_DBG("%s: ready for %u bps with bridge backend over %s!", dev->name,
 		data->uart_config.baudrate, config->bus->name);
 
-end:
-	return ret;
+	return pm_device_driver_init(dev, uart_sc16is75x_pm_device_pm_action);
+	;
 }
-
-#ifdef CONFIG_PM_DEVICE
-static int uart_sc16is75x_pm_device_pm_action(const struct device *const dev,
-					      enum pm_device_action action)
-{
-	ARG_UNUSED(dev);
-	ARG_UNUSED(action);
-
-	return 0;
-}
-#endif
 
 #define UART_SC16IS75X_DEFINE(inst)                                                                \
                                                                                                    \

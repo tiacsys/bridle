@@ -476,6 +476,26 @@ static const struct gpio_driver_api gpio_sc16is75x_api = {
 #endif /* CONFIG_GPIO_SC16IS75X_INTERRUPTS */
 };
 
+static int gpio_sc16is75x_pm_device_pm_action(const struct device *dev,
+					      enum pm_device_action action)
+{
+	struct gpio_sc16is75x_data *const data = dev->data;
+	int ret = 0;
+
+	switch (action) {
+	case PM_DEVICE_ACTION_SUSPEND:
+	case PM_DEVICE_ACTION_RESUME:
+	case PM_DEVICE_ACTION_TURN_OFF:
+		break; /* No action necessary for these transitions. */
+	case PM_DEVICE_ACTION_TURN_ON:
+		/* Write cached values back to IC to restore state before turn_off. */
+		ret |= gpio_sc16is75x_write_pin_dir(dev, data->pin_dir);
+		ret |= gpio_sc16is75x_write_pin_state(dev, data->pin_state);
+	};
+
+	return ret;
+}
+
 static int gpio_sc16is75x_init(const struct device *dev)
 {
 	const struct gpio_sc16is75x_config *const config = dev->config;
@@ -495,13 +515,13 @@ static int gpio_sc16is75x_init(const struct device *dev)
 	ret = gpio_sc16is75x_read_pin_dir(dev, &data->pin_dir);
 	if (ret != 0) {
 		LOG_ERR("%s: read pin directions failed: %d", dev->name, ret);
-		goto end;
+		return ret;
 	}
 
 	ret = gpio_sc16is75x_read_pin_state(dev, &data->pin_state);
 	if (ret != 0) {
 		LOG_ERR("%s: read pin state failed: %d", dev->name, ret);
-		goto end;
+		return ret;
 	}
 
 #ifdef CONFIG_GPIO_SC16IS75X_INTERRUPTS
@@ -522,7 +542,7 @@ static int gpio_sc16is75x_init(const struct device *dev)
 	if (ret != 0) {
 		LOG_ERR("%s: failed to register interrupt callback on %s: %d", dev->name,
 			config->bus->name, ret);
-		goto end;
+		return ret;
 	}
 
 #endif /* CONFIG_GPIO_SC16IS75X_INTERRUPTS */
@@ -530,20 +550,8 @@ static int gpio_sc16is75x_init(const struct device *dev)
 	LOG_DBG("%s: ready for %u pins with bridge backend over %s!", dev->name, config->num_pins,
 		config->bus->name);
 
-end:
-	return ret;
+	return pm_device_driver_init(dev, gpio_sc16is75x_pm_device_pm_action);
 }
-
-#ifdef CONFIG_PM_DEVICE
-static int gpio_sc16is75x_pm_device_pm_action(const struct device *dev,
-					      enum pm_device_action action)
-{
-	ARG_UNUSED(dev);
-	ARG_UNUSED(action);
-
-	return 0;
-}
-#endif
 
 #define GPIO_SC16IS75X_DEFINE(inst)                                                                \
                                                                                                    \
