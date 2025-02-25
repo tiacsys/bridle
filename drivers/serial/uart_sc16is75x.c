@@ -55,7 +55,7 @@ struct uart_sc16is75x_data {
 
 static bool uart_sc16is75x_rx_available(const struct device *dev)
 {
-	const struct uart_sc16is75x_config * const config = dev->config;
+	const struct uart_sc16is75x_config *const config = dev->config;
 	uint8_t lsr = 0;
 	int ret = 0;
 
@@ -81,7 +81,7 @@ static bool uart_sc16is75x_rx_available(const struct device *dev)
 
 static bool uart_sc16is75x_tx_possible(const struct device *dev)
 {
-	const struct uart_sc16is75x_config * const config = dev->config;
+	const struct uart_sc16is75x_config *const config = dev->config;
 	uint8_t txlvl = 0;
 	int ret = 0;
 
@@ -105,39 +105,37 @@ static bool uart_sc16is75x_tx_possible(const struct device *dev)
 
 static int uart_sc16is75x_enable_loopback(const struct device *dev, bool enable)
 {
-	const struct uart_sc16is75x_config * const config = dev->config;
+	const struct uart_sc16is75x_config *const config = dev->config;
 
 	/* Internal loopback is enabled by setting MCR[4] to 1 */
-	return SETBIT_SC16IS75X_CHREG(config->bus, config->channel, MCR,
-				      SC16IS75X_BIT_MCR_LOOPBACK, enable);
+	return SETBIT_SC16IS75X_CHREG(config->bus, config->channel, MCR, SC16IS75X_BIT_MCR_LOOPBACK,
+				      enable);
 }
 
 #endif /* UART_SC16IS75X_LOOPBACK */
 
 static int uart_sc16is75x_enable_fifo(const struct device *dev, bool enable)
 {
-	const struct uart_sc16is75x_config * const config = dev->config;
+	const struct uart_sc16is75x_config *const config = dev->config;
 
 	/* FIFO is enabled by setting FCR[0] to 1 */
-	return SETBIT_SC16IS75X_CHREG(config->bus, config->channel, FCR,
-				      SC16IS75X_BIT_FCR_FIFOENA, enable);
+	return SETBIT_SC16IS75X_CHREG(config->bus, config->channel, FCR, SC16IS75X_BIT_FCR_FIFOENA,
+				      enable);
 }
 
 static int uart_sc16is75x_reset_fifos(const struct device *dev)
 {
-	const struct uart_sc16is75x_config * const config = dev->config;
+	const struct uart_sc16is75x_config *const config = dev->config;
 
 	/* FIFO reset is controlled by FCR[1] (RX) and FCR[2] (TX) */
-	uint8_t fcr = (BIT(SC16IS75X_BIT_FCR_RXFIFORST)
-		    | BIT(SC16IS75X_BIT_FCR_TXFIFORST));
+	uint8_t fcr = (BIT(SC16IS75X_BIT_FCR_RXFIFORST) | BIT(SC16IS75X_BIT_FCR_TXFIFORST));
 
 	return WRITE_SC16IS75X_CHREG(config->bus, config->channel, FCR, fcr);
 }
 
-static int uart_sc16is75x_poll_in(const struct device *dev,
-				  unsigned char *p_char)
+static int uart_sc16is75x_poll_in(const struct device *dev, unsigned char *p_char)
 {
-	const struct uart_sc16is75x_config * const config = dev->config;
+	const struct uart_sc16is75x_config *const config = dev->config;
 
 	if (!uart_sc16is75x_rx_available(dev)) {
 		return -1;
@@ -146,23 +144,20 @@ static int uart_sc16is75x_poll_in(const struct device *dev,
 	return READ_SC16IS75X_CHREG(config->bus, config->channel, RHR, p_char);
 }
 
-static void uart_sc16is75x_poll_out(const struct device *dev,
-				    unsigned char out_char)
+static void uart_sc16is75x_poll_out(const struct device *dev, unsigned char out_char)
 {
-	const struct uart_sc16is75x_config * const config = dev->config;
+	const struct uart_sc16is75x_config *const config = dev->config;
 
 	if (uart_sc16is75x_tx_possible(dev)) {
-		WRITE_SC16IS75X_CHREG(config->bus, config->channel,
-						   THR, out_char);
+		WRITE_SC16IS75X_CHREG(config->bus, config->channel, THR, out_char);
 	}
 }
 
 #ifdef CONFIG_UART_WIDE_DATA
 
-static int uart_sc16is75x_poll_in_u16(const struct device *dev,
-				      uint16_t *p_u16)
+static int uart_sc16is75x_poll_in_u16(const struct device *dev, uint16_t *p_u16)
 {
-	const struct uart_sc16is75x_config * const config = dev->config;
+	const struct uart_sc16is75x_config *const config = dev->config;
 	uint8_t rxlvl = 0;
 	uint8_t buf = 0;
 	int ret = 0;
@@ -195,10 +190,9 @@ static int uart_sc16is75x_poll_in_u16(const struct device *dev,
 	return 0;
 }
 
-static void uart_sc16is75x_poll_out_u16(const struct device *dev,
-					uint16_t out_u16)
+static void uart_sc16is75x_poll_out_u16(const struct device *dev, uint16_t out_u16)
 {
-	const struct uart_sc16is75x_config * const config = dev->config;
+	const struct uart_sc16is75x_config *const config = dev->config;
 	uint8_t txlvl = 0;
 	uint8_t buf = 0;
 	int ret = 0;
@@ -225,7 +219,7 @@ static void uart_sc16is75x_poll_out_u16(const struct device *dev,
 
 static int uart_sc16is75x_err_check(const struct device *dev)
 {
-	const struct uart_sc16is75x_config * const config = dev->config;
+	const struct uart_sc16is75x_config *const config = dev->config;
 	uint8_t lsr = 0;
 	int errors = 0;
 	int ret = 0;
@@ -265,11 +259,10 @@ static int uart_sc16is75x_err_check(const struct device *dev)
 	return errors;
 }
 
-static int uart_sc16is75x_set_baudrate(const struct device *dev,
-				       uint32_t baudrate)
+static int uart_sc16is75x_set_baudrate(const struct device *dev, uint32_t baudrate)
 {
-	const struct uart_sc16is75x_config * const config = dev->config;
-	struct uart_sc16is75x_data * const data = dev->data;
+	const struct uart_sc16is75x_config *const config = dev->config;
+	struct uart_sc16is75x_data *const data = dev->data;
 	bool dlena = false;
 	int ret = 0;
 
@@ -282,8 +275,8 @@ static int uart_sc16is75x_set_baudrate(const struct device *dev,
 	k_mutex_lock(&data->transaction_lock, K_FOREVER);
 
 	/* Set LCR[7] to 1 to enable access to DLL and DLH registers */
-	ret = SETBIT_SC16IS75X_CHREG(config->bus, config->channel, LCR,
-				     SC16IS75X_BIT_LCR_DLENA, true);
+	ret = SETBIT_SC16IS75X_CHREG(config->bus, config->channel, LCR, SC16IS75X_BIT_LCR_DLENA,
+				     true);
 	if (ret != 0) {
 		goto end;
 	}
@@ -291,20 +284,18 @@ static int uart_sc16is75x_set_baudrate(const struct device *dev,
 	dlena = true;
 
 	/* Write values to device. */
-	ret = WRITE_SC16IS75X_CHREG(config->bus, config->channel,
-						 DLL, divisor_lsb);
+	ret = WRITE_SC16IS75X_CHREG(config->bus, config->channel, DLL, divisor_lsb);
 	if (ret != 0) {
 		goto end;
 	}
-	ret = WRITE_SC16IS75X_CHREG(config->bus, config->channel,
-						 DLH, divisor_msb);
+	ret = WRITE_SC16IS75X_CHREG(config->bus, config->channel, DLH, divisor_msb);
 	if (ret != 0) {
 		goto end;
 	}
 
 	/* Unset LCR[7] to access normal registers again */
-	ret = SETBIT_SC16IS75X_CHREG(config->bus, config->channel, LCR,
-				     SC16IS75X_BIT_LCR_DLENA, false);
+	ret = SETBIT_SC16IS75X_CHREG(config->bus, config->channel, LCR, SC16IS75X_BIT_LCR_DLENA,
+				     false);
 	if (ret != 0) {
 		goto end;
 	}
@@ -325,11 +316,10 @@ end:
 	return ret;
 }
 
-static int uart_sc16is75x_set_hw_flow_ctrl(const struct device *dev,
-					   bool enable)
+static int uart_sc16is75x_set_hw_flow_ctrl(const struct device *dev, bool enable)
 {
-	const struct uart_sc16is75x_config * const config = dev->config;
-	struct uart_sc16is75x_data * const data = dev->data;
+	const struct uart_sc16is75x_config *const config = dev->config;
+	struct uart_sc16is75x_data *const data = dev->data;
 	bool enhanced_reg_enabled = false;
 	uint8_t lcr = 0;
 	uint8_t efr = 0;
@@ -348,8 +338,8 @@ static int uart_sc16is75x_set_hw_flow_ctrl(const struct device *dev,
 		goto end;
 	}
 
-	ret = WRITE_SC16IS75X_CHREG(config->bus, config->channel,
-				    LCR, SC16IS75X_BIT_LCR_ACCESS_EFR);
+	ret = WRITE_SC16IS75X_CHREG(config->bus, config->channel, LCR,
+				    SC16IS75X_BIT_LCR_ACCESS_EFR);
 	if (ret != 0) {
 		goto end;
 	}
@@ -357,8 +347,7 @@ static int uart_sc16is75x_set_hw_flow_ctrl(const struct device *dev,
 	enhanced_reg_enabled = true;
 
 	/* Get value of EFR register */
-	ret = READ_SC16IS75X_CHREG(config->bus, config->channel,
-						EFR, &efr);
+	ret = READ_SC16IS75X_CHREG(config->bus, config->channel, EFR, &efr);
 	if (ret != 0) {
 		goto end;
 	}
@@ -368,8 +357,7 @@ static int uart_sc16is75x_set_hw_flow_ctrl(const struct device *dev,
 	WRITE_BIT(efr, SC16IS75X_BIT_EFR_CTSENA, enable); /* Auto-CTS */
 
 	/* Write back modified value */
-	ret = WRITE_SC16IS75X_CHREG(config->bus, config->channel,
-						 EFR, efr);
+	ret = WRITE_SC16IS75X_CHREG(config->bus, config->channel, EFR, efr);
 	if (ret != 0) {
 		goto end;
 	}
@@ -377,18 +365,16 @@ static int uart_sc16is75x_set_hw_flow_ctrl(const struct device *dev,
 end:
 	/* Unlock device after transaction, and possibly do restore */
 	if (enhanced_reg_enabled) {
-		ret = WRITE_SC16IS75X_CHREG(config->bus, config->channel,
-							 LCR, lcr);
+		ret = WRITE_SC16IS75X_CHREG(config->bus, config->channel, LCR, lcr);
 	}
 
 	k_mutex_unlock(&data->transaction_lock);
 	return ret;
 }
 
-static int uart_sc16is75x_use_modem_pins(const struct device *dev,
-					 bool enable)
+static int uart_sc16is75x_use_modem_pins(const struct device *dev, bool enable)
 {
-	const struct uart_sc16is75x_config * const config = dev->config;
+	const struct uart_sc16is75x_config *const config = dev->config;
 	uint8_t bit;
 
 	/*
@@ -407,23 +393,21 @@ static int uart_sc16is75x_use_modem_pins(const struct device *dev,
 	return SETBIT_SC16IS75X_REG(config->bus, IOCONTROL, bit, enable);
 }
 
-static int uart_sc16is75x_set_rs485_flow_ctrl(const struct device *dev,
-					      bool enable)
+static int uart_sc16is75x_set_rs485_flow_ctrl(const struct device *dev, bool enable)
 {
-	const struct uart_sc16is75x_config * const config = dev->config;
+	const struct uart_sc16is75x_config *const config = dev->config;
 
 	/* EFCR[0] controls RS-485 (9-bit) mode */
-	return SETBIT_SC16IS75X_CHREG(config->bus, config->channel, EFCR,
-				      SC16IS75X_BIT_EFCR_RS485, enable);
+	return SETBIT_SC16IS75X_CHREG(config->bus, config->channel, EFCR, SC16IS75X_BIT_EFCR_RS485,
+				      enable);
 }
 
 #ifdef CONFIG_UART_USE_RUNTIME_CONFIGURE
 
-static int uart_sc16is75x_configure(const struct device *dev,
-				    const struct uart_config *cfg)
+static int uart_sc16is75x_configure(const struct device *dev, const struct uart_config *cfg)
 {
-	const struct uart_sc16is75x_config * const config = dev->config;
-	struct uart_sc16is75x_data * const data = dev->data;
+	const struct uart_sc16is75x_config *const config = dev->config;
+	struct uart_sc16is75x_data *const data = dev->data;
 	uint8_t lcr = 0;
 	uint8_t parity = 0;
 	uint8_t stop_bits = 0;
@@ -458,13 +442,13 @@ static int uart_sc16is75x_configure(const struct device *dev,
 	/* Stop bits */
 	if (cfg->stop_bits == UART_CFG_STOP_BITS_1) {
 		stop_bits = SC16IS75X_STOP_LEN_1;
-	} else if ((cfg->stop_bits == UART_CFG_STOP_BITS_1_5)
-			&& (cfg->data_bits == UART_CFG_DATA_BITS_5)) {
+	} else if ((cfg->stop_bits == UART_CFG_STOP_BITS_1_5) &&
+		   (cfg->data_bits == UART_CFG_DATA_BITS_5)) {
 		stop_bits = SC16IS75X_STOP_LEN_1_5;
-	} else if ((cfg->stop_bits == UART_CFG_STOP_BITS_2)
-			&& ((cfg->data_bits == UART_CFG_DATA_BITS_6)
-				|| (cfg->data_bits == UART_CFG_DATA_BITS_7)
-				|| (cfg->data_bits == UART_CFG_DATA_BITS_8))) {
+	} else if ((cfg->stop_bits == UART_CFG_STOP_BITS_2) &&
+		   ((cfg->data_bits == UART_CFG_DATA_BITS_6) ||
+		    (cfg->data_bits == UART_CFG_DATA_BITS_7) ||
+		    (cfg->data_bits == UART_CFG_DATA_BITS_8))) {
 		stop_bits = SC16IS75X_STOP_LEN_2;
 	} else {
 		return -ENOTSUP;
@@ -581,10 +565,9 @@ end:
 
 #endif /* CONFIG_UART_USE_RUNTIME_CONFIGURE */
 
-static int uart_sc16is75x_config_get(const struct device *dev,
-				     struct uart_config *cfg)
+static int uart_sc16is75x_config_get(const struct device *dev, struct uart_config *cfg)
 {
-	struct uart_sc16is75x_data * const data = dev->data;
+	struct uart_sc16is75x_data *const data = dev->data;
 
 	*cfg = data->uart_config;
 
@@ -593,11 +576,10 @@ static int uart_sc16is75x_config_get(const struct device *dev,
 
 #ifdef CONFIG_UART_LINE_CTRL
 
-static int uart_sc16is75x_line_ctrl_set(const struct device *dev,
-					uint32_t ctrl, uint32_t val)
+static int uart_sc16is75x_line_ctrl_set(const struct device *dev, uint32_t ctrl, uint32_t val)
 {
-	const struct uart_sc16is75x_config * const config = dev->config;
-	struct uart_sc16is75x_data * const data = dev->data;
+	const struct uart_sc16is75x_config *const config = dev->config;
+	struct uart_sc16is75x_data *const data = dev->data;
 	uint8_t reg_val = 0;
 	uint8_t reg = 0;
 	uint8_t bit = 0;
@@ -635,16 +617,14 @@ static int uart_sc16is75x_line_ctrl_set(const struct device *dev,
 	/* Lock device before multi-transfer transaction */
 	k_mutex_lock(&data->transaction_lock, K_FOREVER);
 
-	ret = mfd_sc16is75x_read_register(config->bus, config->channel,
-						       reg, &reg_val);
+	ret = mfd_sc16is75x_read_register(config->bus, config->channel, reg, &reg_val);
 	if (ret != 0) {
 		goto end;
 	}
 
 	WRITE_BIT(reg_val, bit, val);
 
-	ret = mfd_sc16is75x_write_register(config->bus, config->channel,
-							reg, reg_val);
+	ret = mfd_sc16is75x_write_register(config->bus, config->channel, reg, reg_val);
 	if (ret != 0) {
 		goto end;
 	}
@@ -654,11 +634,10 @@ end:
 	return ret;
 }
 
-static int uart_sc16is75x_line_ctrl_get(const struct device *dev,
-					uint32_t ctrl, uint32_t *val)
+static int uart_sc16is75x_line_ctrl_get(const struct device *dev, uint32_t ctrl, uint32_t *val)
 {
-	const struct uart_sc16is75x_config * const config = dev->config;
-	struct uart_sc16is75x_data * const data = dev->data;
+	const struct uart_sc16is75x_config *const config = dev->config;
+	struct uart_sc16is75x_data *const data = dev->data;
 	uint8_t reg_val = 0;
 	uint8_t reg = 0;
 	uint8_t bit = 0;
@@ -698,8 +677,7 @@ static int uart_sc16is75x_line_ctrl_get(const struct device *dev,
 		return -EINVAL;
 	}
 
-	ret = mfd_sc16is75x_read_register(config->bus, config->channel,
-						       reg, &reg_val);
+	ret = mfd_sc16is75x_read_register(config->bus, config->channel, reg, &reg_val);
 	if (ret != 0) {
 		goto end;
 	}
@@ -714,11 +692,10 @@ end:
 
 #ifdef CONFIG_UART_SC16IS75X_INTERRUPT_DRIVEN
 
-static int uart_sc16is75x_fifo_fill(const struct device *dev,
-				    const uint8_t *tx_data, int len)
+static int uart_sc16is75x_fifo_fill(const struct device *dev, const uint8_t *tx_data, int len)
 {
-	const struct uart_sc16is75x_config * const config = dev->config;
-	uint8_t data_mut[SC16IS75X_FIFO_CAPACITY] = { 0 };
+	const struct uart_sc16is75x_config *const config = dev->config;
+	uint8_t data_mut[SC16IS75X_FIFO_CAPACITY] = {0};
 	uint8_t txlvl = 0;
 	int ret = 0;
 
@@ -737,8 +714,7 @@ static int uart_sc16is75x_fifo_fill(const struct device *dev,
 	memcpy(data_mut, tx_data, len);
 
 	/* Write that many bytes to FIFO */
-	ret = mfd_sc16is75x_write_fifo(config->bus, config->channel,
-				       data_mut, len);
+	ret = mfd_sc16is75x_write_fifo(config->bus, config->channel, data_mut, len);
 	if (ret != 0) {
 		return ret;
 	}
@@ -746,10 +722,9 @@ static int uart_sc16is75x_fifo_fill(const struct device *dev,
 	return len;
 }
 
-static int uart_sc16is75x_fifo_read(const struct device *dev,
-				    uint8_t *rx_data, const int size)
+static int uart_sc16is75x_fifo_read(const struct device *dev, uint8_t *rx_data, const int size)
 {
-	const struct uart_sc16is75x_config * const config = dev->config;
+	const struct uart_sc16is75x_config *const config = dev->config;
 	uint8_t rxlvl = 0;
 	int bytes_to_read;
 	int ret = 0;
@@ -771,8 +746,7 @@ static int uart_sc16is75x_fifo_read(const struct device *dev,
 	}
 
 	/* Read that many bytes from FIFO */
-	ret = mfd_sc16is75x_read_fifo(config->bus, config->channel,
-				      rx_data, bytes_to_read);
+	ret = mfd_sc16is75x_read_fifo(config->bus, config->channel, rx_data, bytes_to_read);
 	if (ret != 0) {
 		return ret;
 	}
@@ -782,11 +756,10 @@ static int uart_sc16is75x_fifo_read(const struct device *dev,
 
 #ifdef CONFIG_UART_WIDE_DATA
 
-static int uart_sc16is75x_fifo_fill_u16(const struct device *dev,
-					const uint16_t *tx_data, int len)
+static int uart_sc16is75x_fifo_fill_u16(const struct device *dev, const uint16_t *tx_data, int len)
 {
-	const struct uart_sc16is75x_config * const config = dev->config;
-	uint8_t data_mut[SC16IS75X_FIFO_CAPACITY] = { 0 };
+	const struct uart_sc16is75x_config *const config = dev->config;
+	uint8_t data_mut[SC16IS75X_FIFO_CAPACITY] = {0};
 	uint8_t txlvl = 0;
 	int txlvl_words;
 	int len_bytes;
@@ -814,8 +787,7 @@ static int uart_sc16is75x_fifo_fill_u16(const struct device *dev,
 	memcpy(data_mut, (uint8_t *)tx_data, len_bytes);
 
 	/* Write that many words to FIFO */
-	ret = mfd_sc16is75x_write_fifo(config->bus, config->channel,
-				       data_mut, len_bytes);
+	ret = mfd_sc16is75x_write_fifo(config->bus, config->channel, data_mut, len_bytes);
 	if (ret != 0) {
 		return ret;
 	}
@@ -823,10 +795,9 @@ static int uart_sc16is75x_fifo_fill_u16(const struct device *dev,
 	return len;
 }
 
-static int uart_sc16is75x_fifo_read_u16(const struct device *dev,
-					uint16_t *rx_data, const int size)
+static int uart_sc16is75x_fifo_read_u16(const struct device *dev, uint16_t *rx_data, const int size)
 {
-	const struct uart_sc16is75x_config * const config = dev->config;
+	const struct uart_sc16is75x_config *const config = dev->config;
 	uint8_t rxlvl = 0;
 	int rxlvl_words;
 	int words_to_read;
@@ -850,8 +821,8 @@ static int uart_sc16is75x_fifo_read_u16(const struct device *dev,
 	bytes_to_read = 2 * words_to_read;
 
 	/* Read that many words from FIFO */
-	ret = mfd_sc16is75x_read_fifo(config->bus, config->channel,
-				      (uint8_t *)rx_data, bytes_to_read);
+	ret = mfd_sc16is75x_read_fifo(config->bus, config->channel, (uint8_t *)rx_data,
+				      bytes_to_read);
 	if (ret != 0) {
 		return ret;
 	}
@@ -861,14 +832,13 @@ static int uart_sc16is75x_fifo_read_u16(const struct device *dev,
 
 #endif /* CONFIG_UART_WIDE_DATA */
 
-static inline void uart_sc16is75x_irq_tx_set(const struct device *dev,
-					     bool enable)
+static inline void uart_sc16is75x_irq_tx_set(const struct device *dev, bool enable)
 {
-	const struct uart_sc16is75x_config * const config = dev->config;
+	const struct uart_sc16is75x_config *const config = dev->config;
 
 	/* IER[1] enables THR interrupt */
-	SETBIT_SC16IS75X_CHREG(config->bus, config->channel, IER,
-			       SC16IS75X_BIT_IER_TXHSENA, enable);
+	SETBIT_SC16IS75X_CHREG(config->bus, config->channel, IER, SC16IS75X_BIT_IER_TXHSENA,
+			       enable);
 }
 
 static void uart_sc16is75x_irq_tx_enable(const struct device *dev)
@@ -883,7 +853,7 @@ static void uart_sc16is75x_irq_tx_disable(const struct device *dev)
 
 static int uart_sc16is75x_irq_tx_ready(const struct device *dev)
 {
-	const struct uart_sc16is75x_config * const config = dev->config;
+	const struct uart_sc16is75x_config *const config = dev->config;
 	uint8_t txlvl = 0;
 	int ret = 0;
 
@@ -898,7 +868,7 @@ static int uart_sc16is75x_irq_tx_ready(const struct device *dev)
 
 static int uart_sc16is75x_irq_tx_complete(const struct device *dev)
 {
-	const struct uart_sc16is75x_config * const config = dev->config;
+	const struct uart_sc16is75x_config *const config = dev->config;
 	uint8_t lsr = 0;
 	int ret = 0;
 
@@ -911,14 +881,13 @@ static int uart_sc16is75x_irq_tx_complete(const struct device *dev)
 	return IS_BIT_SET(lsr, SC16IS75X_BIT_LSR_THREMPTY);
 }
 
-static inline void uart_sc16is75x_irq_rx_set(const struct device *dev,
-					     bool enable)
+static inline void uart_sc16is75x_irq_rx_set(const struct device *dev, bool enable)
 {
-	const struct uart_sc16is75x_config * const config = dev->config;
+	const struct uart_sc16is75x_config *const config = dev->config;
 
 	/* IER[0] enables RHR interrupt */
-	SETBIT_SC16IS75X_CHREG(config->bus, config->channel, IER,
-			       SC16IS75X_BIT_IER_RXHSENA, enable);
+	SETBIT_SC16IS75X_CHREG(config->bus, config->channel, IER, SC16IS75X_BIT_IER_RXHSENA,
+			       enable);
 }
 
 static void uart_sc16is75x_irq_rx_enable(const struct device *dev)
@@ -936,14 +905,13 @@ static int uart_sc16is75x_irq_rx_ready(const struct device *dev)
 	return uart_sc16is75x_rx_available(dev);
 }
 
-static inline void uart_sc16is75x_irq_err_set(const struct device *dev,
-					     bool enable)
+static inline void uart_sc16is75x_irq_err_set(const struct device *dev, bool enable)
 {
-	const struct uart_sc16is75x_config * const config = dev->config;
+	const struct uart_sc16is75x_config *const config = dev->config;
 
 	/* IER[2] enables LSR interrupt */
-	SETBIT_SC16IS75X_CHREG(config->bus, config->channel, IER,
-			       SC16IS75X_BIT_IER_RXLSENA, enable);
+	SETBIT_SC16IS75X_CHREG(config->bus, config->channel, IER, SC16IS75X_BIT_IER_RXLSENA,
+			       enable);
 }
 
 static void uart_sc16is75x_irq_err_enable(const struct device *dev)
@@ -958,7 +926,7 @@ static void uart_sc16is75x_irq_err_disable(const struct device *dev)
 
 static int uart_sc16is75x_irq_is_pending(const struct device *dev)
 {
-	const struct uart_sc16is75x_config * const config = dev->config;
+	const struct uart_sc16is75x_config *const config = dev->config;
 	uint8_t iir = 0;
 	int ret = 0;
 
@@ -985,21 +953,19 @@ static int uart_sc16is75x_irq_update(const struct device *dev)
 }
 
 static void uart_sc16is75x_irq_callback_set(const struct device *dev,
-					    uart_irq_callback_user_data_t cb,
-					    void *user_data)
+					    uart_irq_callback_user_data_t cb, void *user_data)
 {
-	struct uart_sc16is75x_data * const data = dev->data;
+	struct uart_sc16is75x_data *const data = dev->data;
 
 	data->callback = cb;
 	data->cb_data = user_data;
 }
 
-static void uart_sc16is75x_interrupt_callback(const struct device *bus,
-					      struct gpio_callback *cb,
+static void uart_sc16is75x_interrupt_callback(const struct device *bus, struct gpio_callback *cb,
 					      gpio_port_pins_t event_pins)
 {
-	struct uart_sc16is75x_data * const data = CONTAINER_OF(cb,
-			struct uart_sc16is75x_data, interrupt_cb);
+	struct uart_sc16is75x_data *const data =
+		CONTAINER_OF(cb, struct uart_sc16is75x_data, interrupt_cb);
 	const struct device *dev = data->self;
 
 	/* Call registered UART IRQ callback, if there is one */
@@ -1012,8 +978,7 @@ static void uart_sc16is75x_interrupt_callback(const struct device *bus,
 
 #ifdef CONFIG_UART_ASYNC_API
 
-static int uart_sc16is75x_callback_set(const struct device *dev,
-				       uart_callback_t callback,
+static int uart_sc16is75x_callback_set(const struct device *dev, uart_callback_t callback,
 				       void *user_data)
 {
 	ARG_UNUSED(dev);
@@ -1027,8 +992,7 @@ static int uart_sc16is75x_callback_set(const struct device *dev,
 
 #ifdef CONFIG_UART_DRV_CMD
 
-static int uart_sc16is75x_drv_cmd(const struct device *dev,
-				  uint32_t cmd, uint32_t p)
+static int uart_sc16is75x_drv_cmd(const struct device *dev, uint32_t cmd, uint32_t p)
 {
 	ARG_UNUSED(dev);
 	ARG_UNUSED(cmd);
@@ -1099,8 +1063,8 @@ static const struct uart_driver_api uart_sc16is75x_api = {
 
 static int uart_sc16is75x_init(const struct device *dev)
 {
-	const struct uart_sc16is75x_config * const config = dev->config;
-	struct uart_sc16is75x_data * const data = dev->data;
+	const struct uart_sc16is75x_config *const config = dev->config;
+	struct uart_sc16is75x_data *const data = dev->data;
 #ifdef CONFIG_UART_SC16IS75X_INTERRUPT_DRIVEN
 	gpio_port_pins_t event_pins;
 #endif /* CONFIG_UART_SC16IS75X_INTERRUPT_DRIVEN */
@@ -1108,8 +1072,7 @@ static int uart_sc16is75x_init(const struct device *dev)
 
 	/* Confirm (MFD) bridge readiness */
 	if (!device_is_ready(config->bus)) {
-		LOG_ERR("%s: bridge device %s not ready",
-			dev->name, config->bus->name);
+		LOG_ERR("%s: bridge device %s not ready", dev->name, config->bus->name);
 		return -ENODEV;
 	}
 
@@ -1143,19 +1106,15 @@ static int uart_sc16is75x_init(const struct device *dev)
 	/* Set up interrupt handling */
 	switch (config->channel) {
 	case 0:
-		event_pins = BIT(SC16IS75X_EVENT_UART0_RXLSE)
-			   | BIT(SC16IS75X_EVENT_UART0_RXTO)
-			   | BIT(SC16IS75X_EVENT_UART0_RHRI)
-			   | BIT(SC16IS75X_EVENT_UART0_THRI);
+		event_pins = BIT(SC16IS75X_EVENT_UART0_RXLSE) | BIT(SC16IS75X_EVENT_UART0_RXTO) |
+			     BIT(SC16IS75X_EVENT_UART0_RHRI) | BIT(SC16IS75X_EVENT_UART0_THRI);
 		/* no modem signals: BIT(SC16IS75X_EVENT_UART0_MSI) */
 		/* no Xoff/Xon trigger: BIT(SC16IS75X_EVENT_UART0_XOFF) */
 		/* no RTS/CTS trigger: BIT(SC16IS75X_EVENT_UART0_HWFL) */
 		break;
 	case 1:
-		event_pins = BIT(SC16IS75X_EVENT_UART1_RXLSE)
-			   | BIT(SC16IS75X_EVENT_UART1_RXTO)
-			   | BIT(SC16IS75X_EVENT_UART1_RHRI)
-			   | BIT(SC16IS75X_EVENT_UART1_THRI);
+		event_pins = BIT(SC16IS75X_EVENT_UART1_RXLSE) | BIT(SC16IS75X_EVENT_UART1_RXTO) |
+			     BIT(SC16IS75X_EVENT_UART1_RHRI) | BIT(SC16IS75X_EVENT_UART1_THRI);
 		/* no modem signals: BIT(SC16IS75X_EVENT_UART1_MSI) */
 		/* no Xoff/Xon trigger: BIT(SC16IS75X_EVENT_UART1_XOFF) */
 		/* no RTS/CTS trigger: BIT(SC16IS75X_EVENT_UART1_HWFL) */
@@ -1164,13 +1123,12 @@ static int uart_sc16is75x_init(const struct device *dev)
 		return -ENODEV;
 	}
 
-	gpio_init_callback(&data->interrupt_cb,
-			   uart_sc16is75x_interrupt_callback, event_pins);
+	gpio_init_callback(&data->interrupt_cb, uart_sc16is75x_interrupt_callback, event_pins);
 
 	ret = mfd_sc16is75x_add_callback(config->bus, &data->interrupt_cb);
 	if (ret != 0) {
-		LOG_ERR("%s: failed to register interrupt callback on %s: %d",
-			dev->name, config->bus->name, ret);
+		LOG_ERR("%s: failed to register interrupt callback on %s: %d", dev->name,
+			config->bus->name, ret);
 		goto end;
 	}
 
@@ -1180,21 +1138,20 @@ static int uart_sc16is75x_init(const struct device *dev)
 	/* Enable internal loopback */
 	ret = uart_sc16is75x_enable_loopback(dev, true);
 	if (ret != 0) {
-		LOG_ERR("%s: enable internal loopback failed: %d",
-			dev->name, ret);
+		LOG_ERR("%s: enable internal loopback failed: %d", dev->name, ret);
 		goto end;
 	}
 #endif /* UART_SC16IS75X_LOOPBACK */
 
-	LOG_DBG("%s: ready for %u bps with bridge backend over %s!",
-		dev->name, data->uart_config.baudrate, config->bus->name);
+	LOG_DBG("%s: ready for %u bps with bridge backend over %s!", dev->name,
+		data->uart_config.baudrate, config->bus->name);
 
 end:
 	return ret;
 }
 
 #ifdef CONFIG_PM_DEVICE
-static int uart_sc16is75x_pm_device_pm_action(const struct device * const dev,
+static int uart_sc16is75x_pm_device_pm_action(const struct device *const dev,
 					      enum pm_device_action action)
 {
 	ARG_UNUSED(dev);
@@ -1204,45 +1161,34 @@ static int uart_sc16is75x_pm_device_pm_action(const struct device * const dev,
 }
 #endif
 
-#define UART_SC16IS75X_DEFINE(inst)                                          \
-                                                                             \
-	static struct uart_sc16is75x_config uart_sc16is75x_config_##inst =   \
-	{                                                                    \
-		.bus = DEVICE_DT_GET(DT_INST_BUS(inst)),                     \
-		.channel = DT_INST_REG_ADDR(inst),                           \
-		.clock_frequency = DT_PROP_BY_PHANDLE(DT_INST_PARENT(inst),  \
-						      clock,                 \
-						      clock_frequency),      \
-	};                                                                   \
-	BUILD_ASSERT(                                                        \
-		DT_INST_REG_ADDR(inst) < SC16IS75X_UART_CHANNELS_MAX,        \
-		"Too many channels");                                        \
-                                                                             \
-	static struct uart_sc16is75x_data uart_sc16is75x_data_##inst =       \
-	{                                                                    \
-		.uart_config = {                                             \
-			.baudrate = DT_INST_PROP_OR(inst,                    \
-					current_speed, 9600),                \
-			.parity = DT_INST_ENUM_IDX_OR(inst,                  \
-					parity, UART_CFG_PARITY_EVEN),       \
-			.stop_bits = DT_INST_ENUM_IDX_OR(inst,               \
-					stop_bits, UART_CFG_STOP_BITS_2),    \
-			.data_bits = DT_INST_ENUM_IDX_OR(inst,               \
-					data_bits, UART_CFG_DATA_BITS_6),    \
+#define UART_SC16IS75X_DEFINE(inst)                                                                \
+                                                                                                   \
+	static struct uart_sc16is75x_config uart_sc16is75x_config_##inst = {                       \
+		.bus = DEVICE_DT_GET(DT_INST_BUS(inst)),                                           \
+		.channel = DT_INST_REG_ADDR(inst),                                                 \
+		.clock_frequency =                                                                 \
+			DT_PROP_BY_PHANDLE(DT_INST_PARENT(inst), clock, clock_frequency),          \
+	};                                                                                         \
+	BUILD_ASSERT(DT_INST_REG_ADDR(inst) < SC16IS75X_UART_CHANNELS_MAX, "Too many channels");   \
+                                                                                                   \
+	static struct uart_sc16is75x_data uart_sc16is75x_data_##inst = {                           \
+		.uart_config = {                                                                   \
+			.baudrate = DT_INST_PROP_OR(inst, current_speed, 9600),                    \
+			.parity = DT_INST_ENUM_IDX_OR(inst, parity, UART_CFG_PARITY_EVEN),         \
+			.stop_bits = DT_INST_ENUM_IDX_OR(inst, stop_bits, UART_CFG_STOP_BITS_2),   \
+			.data_bits = DT_INST_ENUM_IDX_OR(inst, data_bits, UART_CFG_DATA_BITS_6),   \
 			.flow_ctrl = COND_CODE_1(DT_INST_PROP_OR(inst,       \
 						hw_flow_control, false),     \
 					(UART_CFG_FLOW_CTRL_RTS_CTS),        \
-					(UART_CFG_FLOW_CTRL_NONE)),          \
-		},                                                           \
-	};                                                                   \
-                                                                             \
-	PM_DEVICE_DT_INST_DEFINE(inst, uart_sc16is75x_pm_device_pm_action);  \
-                                                                             \
-	DEVICE_DT_INST_DEFINE(inst, uart_sc16is75x_init,                     \
-			      PM_DEVICE_DT_INST_GET(inst),                   \
-			      &uart_sc16is75x_data_##inst,                   \
-			      &uart_sc16is75x_config_##inst, POST_KERNEL,    \
-			      CONFIG_UART_SC16IS75X_INIT_PRIORITY,           \
+					(UART_CFG_FLOW_CTRL_NONE)),      \
+			},                                                                         \
+	};                                                                                         \
+                                                                                                   \
+	PM_DEVICE_DT_INST_DEFINE(inst, uart_sc16is75x_pm_device_pm_action);                        \
+                                                                                                   \
+	DEVICE_DT_INST_DEFINE(inst, uart_sc16is75x_init, PM_DEVICE_DT_INST_GET(inst),              \
+			      &uart_sc16is75x_data_##inst, &uart_sc16is75x_config_##inst,          \
+			      POST_KERNEL, CONFIG_UART_SC16IS75X_INIT_PRIORITY,                    \
 			      &uart_sc16is75x_api);
 
 DT_INST_FOREACH_STATUS_OKAY(UART_SC16IS75X_DEFINE);

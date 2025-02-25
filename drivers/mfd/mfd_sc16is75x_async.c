@@ -38,17 +38,15 @@ struct mfd_sc16is75x_transfer_work {
 static void mfd_sc16is75x_transfer_work_fn(struct k_work *work)
 {
 	/* Access bundled data */
-	struct mfd_sc16is75x_transfer_work *transfer_work = CONTAINER_OF(work,
-		struct mfd_sc16is75x_transfer_work, work);
+	struct mfd_sc16is75x_transfer_work *transfer_work =
+		CONTAINER_OF(work, struct mfd_sc16is75x_transfer_work, work);
 	const struct device *dev = transfer_work->dev;
-	struct mfd_sc16is75x_data * const data = dev->data;
+	struct mfd_sc16is75x_data *const data = dev->data;
 	int ret = 0;
 
 	/* Call blocking transfer */
-	ret = data->transfer_function->read_raw(dev,
-						transfer_work->sub_address,
-						transfer_work->rx_data,
-						transfer_work->rx_len);
+	ret = data->transfer_function->read_raw(dev, transfer_work->sub_address,
+						transfer_work->rx_data, transfer_work->rx_len);
 
 	/* Report result through signal */
 	k_poll_signal_raise(transfer_work->signal, ret);
@@ -57,23 +55,20 @@ static void mfd_sc16is75x_transfer_work_fn(struct k_work *work)
 	k_free(transfer_work);
 }
 
-
-int mfd_sc16is75x_read_raw_signal(const struct device *dev,
-					 const uint8_t sub_address,
-					 uint8_t *buf, const size_t len,
-					 struct k_poll_signal *signal)
+int mfd_sc16is75x_read_raw_signal(const struct device *dev, const uint8_t sub_address, uint8_t *buf,
+				  const size_t len, struct k_poll_signal *signal)
 {
-	struct mfd_sc16is75x_data * const data = dev->data;
+	struct mfd_sc16is75x_data *const data = dev->data;
 	int ret = 0;
 
 	/* Create work item to manage transfers */
-	struct mfd_sc16is75x_transfer_work *transfer_work = k_malloc(
-		sizeof(struct mfd_sc16is75x_transfer_work));
+	struct mfd_sc16is75x_transfer_work *transfer_work =
+		k_malloc(sizeof(struct mfd_sc16is75x_transfer_work));
 	if (transfer_work == NULL) {
 		return -ENOMEM;
 	}
 
-	*transfer_work = (struct mfd_sc16is75x_transfer_work) {
+	*transfer_work = (struct mfd_sc16is75x_transfer_work){
 		.dev = dev,
 		.sub_address = sub_address,
 		.rx_data = buf,

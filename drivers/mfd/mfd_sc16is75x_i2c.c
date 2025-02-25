@@ -19,22 +19,20 @@
 #include <zephyr/logging/log.h>
 LOG_MODULE_REGISTER(mfd_sc16is75x_i2c, CONFIG_MFD_LOG_LEVEL);
 
-static int mfd_sc16is75x_i2c_read_raw(const struct device *dev,
-				      const uint8_t sub_address,
+static int mfd_sc16is75x_i2c_read_raw(const struct device *dev, const uint8_t sub_address,
 				      uint8_t *buf, const size_t len)
 {
-	const struct mfd_sc16is75x_config * const config = dev->config;
+	const struct mfd_sc16is75x_config *const config = dev->config;
 	int ret = 0;
 
 	ret = i2c_write_read_dt(&config->i2c, &sub_address, 1, buf, len);
 	return ret;
 }
 
-static int mfd_sc16is75x_i2c_write_raw(const struct device *dev,
-				       const uint8_t sub_address,
+static int mfd_sc16is75x_i2c_write_raw(const struct device *dev, const uint8_t sub_address,
 				       const uint8_t *buf, const size_t len)
 {
-	const struct mfd_sc16is75x_config * const config = dev->config;
+	const struct mfd_sc16is75x_config *const config = dev->config;
 	uint8_t buffer[SC16IS75X_FIFO_CAPACITY + 1] = {0};
 	int ret = 0;
 
@@ -57,8 +55,7 @@ struct mfd_sc16is75x_i2c_xfer_data {
 	struct k_poll_signal *signal;
 };
 
-static void mfd_sc16is75x_i2c_xfer_complete(const struct device *dev,
-					    int result, void *data)
+static void mfd_sc16is75x_i2c_xfer_complete(const struct device *dev, int result, void *data)
 {
 	struct mfd_sc16is75x_i2c_xfer_data *xfer_data = data;
 
@@ -66,12 +63,11 @@ static void mfd_sc16is75x_i2c_xfer_complete(const struct device *dev,
 	k_free(xfer_data);
 }
 
-static int mfd_sc16is75x_i2c_read_raw_signal(const struct device *dev,
-				 const uint8_t sub_address,
-				 uint8_t *buf, const size_t len,
-				 struct k_poll_signal *signal)
+static int mfd_sc16is75x_i2c_read_raw_signal(const struct device *dev, const uint8_t sub_address,
+					     uint8_t *buf, const size_t len,
+					     struct k_poll_signal *signal)
 {
-	const struct mfd_sc16is75x_config * const config = dev->config;
+	const struct mfd_sc16is75x_config *const config = dev->config;
 	struct mfd_sc16is75x_i2c_xfer_data *xfer_data;
 	int ret = 0;
 
@@ -105,8 +101,7 @@ static int mfd_sc16is75x_i2c_read_raw_signal(const struct device *dev,
 	};
 
 	ret = i2c_transfer_cb_dt(&config->i2c, msgs, ARRAY_SIZE(msgs),
-				 mfd_sc16is75x_i2c_xfer_complete,
-				 (void *)xfer_data);
+				 mfd_sc16is75x_i2c_xfer_complete, (void *)xfer_data);
 	if (ret != 0) {
 		k_free(xfer_data);
 	}
@@ -116,14 +111,13 @@ static int mfd_sc16is75x_i2c_read_raw_signal(const struct device *dev,
 
 #endif /* defined(CONFIG_MFD_SC16IS75X_ASYNC) && defined(CONFIG_I2C_CALLBACK) */
 
-static const struct mfd_sc16is75x_transfer_function
-mfd_sc16is75x_i2c_init_transfer_function = {
+static const struct mfd_sc16is75x_transfer_function mfd_sc16is75x_i2c_init_transfer_function = {
 	.read_raw = mfd_sc16is75x_i2c_read_raw,
 	.write_raw = mfd_sc16is75x_i2c_write_raw,
 #ifdef CONFIG_MFD_SC16IS75X_ASYNC
 #ifdef CONFIG_I2C_CALLBACK
 	.read_raw_signal = mfd_sc16is75x_i2c_read_raw_signal,
-#else /* CONFIG_I2C_CALLBACK */
+#else  /* CONFIG_I2C_CALLBACK */
 	.read_raw_signal = mfd_sc16is75x_read_raw_signal,
 #endif /* CONFIG_I2C_CALLBACK */
 #endif /* CONFIG_MFD_SC16IS75X_ASYNC */
@@ -131,15 +125,14 @@ mfd_sc16is75x_i2c_init_transfer_function = {
 
 int mfd_sc16is75x_i2c_init(const struct device *dev)
 {
-	const struct mfd_sc16is75x_config * const config = dev->config;
-	struct mfd_sc16is75x_data * const data = dev->data;
+	const struct mfd_sc16is75x_config *const config = dev->config;
+	struct mfd_sc16is75x_data *const data = dev->data;
 
 	data->transfer_function = &mfd_sc16is75x_i2c_init_transfer_function;
 
 	/* Confirm device readiness */
 	if (!i2c_is_ready_dt(&config->i2c)) {
-		LOG_ERR("%s: I2C device %s not ready",
-			dev->name, config->i2c.bus->name);
+		LOG_ERR("%s: I2C device %s not ready", dev->name, config->i2c.bus->name);
 		return -ENODEV;
 	}
 
