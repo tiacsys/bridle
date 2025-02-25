@@ -15,15 +15,10 @@
 #include <zephyr/drivers/mfd/sc16is75x.h>
 
 #include "mfd_sc16is75x.h"
+#include "zephyr/sys/util_macro.h"
 
 #include <zephyr/logging/log.h>
 LOG_MODULE_REGISTER(mfd_sc16is75x, CONFIG_MFD_LOG_LEVEL);
-
-#if defined(CONFIG_MFD_SC16IS75X_ASWQ) &&                                                          \
-	(!CONFIG_DYNAMIC_THREAD_POOL_SIZE && !defined(CONFIG_DYNAMIC_THREAD_ALLOC))
-#error "SC16IS75x MFD driver requires either CONFIG_DYNAMIC_THREAD_POOL_SIZE>0" \
-	"or CONFIG_DYNAMIC_THREAD_ALLOC"
-#endif
 
 #define SC16IS75X_SA_RD true
 #define SC16IS75X_SA_WR false
@@ -188,115 +183,40 @@ int mfd_sc16is75x_remove_callback(const struct device *dev, struct gpio_callback
 	return gpio_manage_callback(&data->callbacks, callback, false);
 }
 
-static void mfd_sc16is75x_interrupt_work_fn_init(struct k_work *work)
+static void mfd_sc16is75x_interrupt_work_fn(struct k_work *work)
 {
 	struct mfd_sc16is75x_data *const data =
-		CONTAINER_OF(work, struct mfd_sc16is75x_data, interrupt_work_init);
-	const struct device *const dev = data->self;
-	const struct mfd_sc16is75x_config *const config = dev->config;
-	int ret = 0;
-
-	/*
-	 * Attempt to get interrupt handling lock. If it's taken, that means
-	 * a handling transaction is already active. In that case, reschedule
-	 * self.
-	 */
-	ret = k_sem_take(&data->interrupt_lock, K_NO_WAIT);
-	if (ret != 0) {
-		k_work_submit(work);
-		return;
-	}
-
-	/* Initiate reading from IIRs */
-	for (int i = 0; i < config->n_channels; i++) {
-		data->interrupt_data.iir[i] = BIT(SC16IS75X_BIT_IIR_PENDING);
-		k_poll_signal_init(&data->interrupt_data.signals[i]);
-		uint8_t ch = config->channels[i];
-
-		ret = READ_SC16IS75X_CHREG_SIGNAL(dev, ch, IIR, &data->interrupt_data.iir[i],
-						  &data->interrupt_data.signals[i]);
-		if (ret != 0) {
-			/*
-			 * Propagate a failure to start the transfer the same
-			 * as a failure to complete it: Have the finalizing
-			 * work item retry the whole handling process. To do
-			 * this, raise the signal ourselves with a generic
-			 * error.
-			 */
-			k_poll_signal_raise(&data->interrupt_data.signals[i], -1);
-		}
-	}
-
-	/* Schedule finalizing work item. */
-	ret = k_work_schedule(&data->interrupt_work_final, K_USEC(100));
-	if (ret != 0 && ret != 1) {
-		/*
-		 * Result ret == 0 shouldn't happen, but is permissible: at
-		 * least we know the item will run. Other return values mean we
-		 * can't rely on the item to run, so we must release the lock
-		 * here to prevent a deadlock on the next interrupt.
-		 */
-		k_sem_give(&data->interrupt_lock);
-	}
-}
-
-static void mfd_sc16is75x_interrupt_work_fn_final(struct k_work *work)
-{
-	struct k_work_delayable *work_delayable = (struct k_work_delayable *)work;
-	struct mfd_sc16is75x_data *const data =
-		CONTAINER_OF(work_delayable, struct mfd_sc16is75x_data, interrupt_work_final);
+		CONTAINER_OF(work, struct mfd_sc16is75x_data, interrupt_work);
 	const struct device *const dev = data->self;
 	const struct mfd_sc16is75x_config *const config = dev->config;
 	enum mfd_sc16is75x_event event;
 	bool retry = false;
 
-	struct k_poll_event poll_events[config->n_channels];
-	int results[config->n_channels];
+	int ret = 0;
 
-	/* Check for completion of running transfers */
+	/* Read data from IIRs */
+	uint8_t iir[config->n_channels];
 	for (int i = 0; i < config->n_channels; i++) {
-		poll_events[i] = (struct k_poll_event)K_POLL_EVENT_INITIALIZER(
-			K_POLL_TYPE_SIGNAL, K_POLL_MODE_NOTIFY_ONLY,
-			&data->interrupt_data.signals[i]);
-	}
 
-	k_poll(poll_events, config->n_channels, K_NO_WAIT);
-	for (int i = 0; i < config->n_channels; i++) {
-		int signaled = 0;
+		uint8_t ch = config->channels[i];
 
-		k_poll_signal_check(&data->interrupt_data.signals[i], &signaled, &results[i]);
-		if (!signaled) {
-			/*
-			 * At least one transfer isn't done yet,
-			 * continue spinning.
-			 */
-			k_work_schedule(work_delayable, K_USEC(100));
+		iir[i] = 0;
+
+		ret = READ_SC16IS75X_CHREG(dev, ch, IIR, &iir[i]);
+		if (ret != 0) {
+			LOG_ERR("%s: Failed to read IIR of channel %d during interrupt handling "
+				"(error %d)",
+				dev->name, ch, ret);
 			return;
-		}
-	}
-
-	/*
-	 * Once all transfers are complete, check return values. If any
-	 * transfers failed, retry the interrupt handling precedure.
-	 */
-	for (int i = 0; i < config->n_channels; i++) {
-		if (results[i] != 0) {
-			retry = true;
-			break;
 		}
 	}
 
 	/* Sorting out and triggering callbacks for the various types */
 	for (int i = 0; i < config->n_channels; i++) {
-		uint8_t type = GET_FIELD(data->interrupt_data.iir[i], SC16IS75X_BIT_IIR_TYPE);
-
-		/* Transfer for this channel failed, no data to check */
-		if (results[i] != 0) {
-			continue;
-		}
+		uint8_t type = GET_FIELD(iir[i], SC16IS75X_BIT_IIR_TYPE);
 
 		/* channel has not fired (0: pending, 1: not pending) */
-		if (IS_BIT_SET(data->interrupt_data.iir[i], SC16IS75X_BIT_IIR_PENDING)) {
+		if (IS_BIT_SET(iir[i], SC16IS75X_BIT_IIR_PENDING)) {
 			continue;
 		};
 
@@ -356,12 +276,9 @@ static void mfd_sc16is75x_interrupt_work_fn_final(struct k_work *work)
 	 * Resubmit handler to queue to look for further pending interrupts,
 	 * or if interrupt pin is still active.
 	 */
-	if (retry || gpio_pin_get_dt(&config->interrupt) != 0) {
-		k_work_submit(&data->interrupt_work_init);
+	if (retry || gpio_pin_get_dt(&config->interrupt)) {
+		k_work_submit(&data->interrupt_work);
 	};
-
-	/* Release lock */
-	k_sem_give(&data->interrupt_lock);
 }
 
 static void mfd_sc16is75x_interrupt_callback(const struct device *dev, struct gpio_callback *cb,
@@ -374,7 +291,7 @@ static void mfd_sc16is75x_interrupt_callback(const struct device *dev, struct gp
 	struct mfd_sc16is75x_data *const data =
 		CONTAINER_OF(cb, struct mfd_sc16is75x_data, interrupt_cb);
 
-	k_work_submit(&data->interrupt_work_init);
+	k_work_submit(&data->interrupt_work);
 }
 
 /**
@@ -394,6 +311,16 @@ static int mfd_sc16is75x_bind_interrupt(const struct device *dev, const struct g
 
 	if (gpio->port == NULL) {
 		return -EINVAL;
+	}
+
+	LOG_DBG("%s: Configure GPIO port %s, pin %d as input", dev->name, gpio->port->name,
+		gpio->pin);
+
+	ret = gpio_pin_configure_dt(gpio, GPIO_INPUT);
+	if (ret != 0) {
+		LOG_ERR("%s: couldn't configure GPIO port %s, pin %d as input", dev->name,
+			gpio->port->name, gpio->pin);
+		return ret;
 	}
 
 	LOG_DBG("%s: bind GPIO port %s, pin %d to interrupt handling", dev->name, gpio->port->name,
@@ -449,6 +376,13 @@ static int mfd_sc16is75x_chip_reset(const struct device *dev)
 
 		/* Then wait another few µs for device startup. */
 		k_usleep(5);
+	} else {
+		LOG_DBG("%s: Reset pin unavailable, performing software reset", dev->name);
+		ret = mfd_sc16is75x_set_register_bit(dev, 0, SC16IS75X_REG_IOCONTROL,
+						     SC16IS75X_BIT_IOCONTROL_SRESET, 1);
+		if (ret != 0) {
+			return ret;
+		}
 	}
 
 end:
@@ -492,6 +426,27 @@ static int mfd_sc16is75x_configure_gpio_pin(const struct device *dev,
 	return 0;
 }
 
+static int mfd_sc16is75x_sw_reset(const struct device *dev)
+{
+	int ret = 0;
+
+	ret = mfd_sc16is75x_set_register_bit(dev, 0, SC16IS75X_REG_IOCONTROL,
+					     SC16IS75X_BIT_IOCONTROL_SRESET, 1);
+	if (ret != 0) {
+		return ret;
+	}
+
+	return 0;
+}
+
+static int mfd_sc16is75x_pm_device_pm_action(const struct device *dev, enum pm_device_action action)
+{
+	ARG_UNUSED(dev);
+	ARG_UNUSED(action);
+
+	return 0;
+}
+
 static int mfd_sc16is75x_init(const struct device *dev)
 {
 	const struct mfd_sc16is75x_config *const config = dev->config;
@@ -508,71 +463,59 @@ static int mfd_sc16is75x_init(const struct device *dev)
 	ret = config->bus_init(dev);
 	if (ret != 0) {
 		LOG_ERR("%s: bus initialization failed: %d", dev->name, ret);
-		goto end;
+		return ret;
 	}
 
 	/* Configure reset output pin. */
 	ret = mfd_sc16is75x_configure_gpio_pin(dev, &config->reset, GPIO_OUTPUT);
 	if (ret != 0) {
-		LOG_ERR("%s: reset GPIO pin configuration failed: %d", dev->name, ret);
-		goto end;
+
+		LOG_WRN("%s: reset GPIO pin configuration failed (work w/o chip reset)", dev->name);
+
+		/* Apply software reset. */
+		ret = mfd_sc16is75x_sw_reset(dev);
+		if (ret != 0) {
+			LOG_ERR("%s: failed to apply software reset: %d", dev->name, ret);
+			return ret;
+		}
 	}
 
 	/* Reset device. */
 	ret = mfd_sc16is75x_chip_reset(dev);
 	if (ret != 0) {
 		LOG_ERR("%s: couldn't reset device: %d", dev->name, ret);
-		goto end;
+		return ret;
 	}
 
 #ifdef CONFIG_MFD_SC16IS75X_ASWQ
 	/* Initialize private work queue. */
-	size_t work_queue_stack_size = CONFIG_MFD_SC16IS75X_WORKQUEUE_STACK_SIZE;
-
 	k_work_queue_init(&data->work_queue);
-	data->work_queue_stack = k_thread_stack_alloc(work_queue_stack_size, 0);
-	k_work_queue_start(&data->work_queue, data->work_queue_stack, work_queue_stack_size,
-			   K_HIGHEST_THREAD_PRIO, NULL);
+	k_work_queue_start(&data->work_queue, data->work_queue_stack,
+			   CONFIG_MFD_SC16IS75X_WORKQUEUE_STACK_SIZE, K_HIGHEST_THREAD_PRIO, NULL);
 #endif /* CONFIG_MFD_SC16IS75X_ASWQ */
 
 #ifdef CONFIG_MFD_SC16IS75X_INTERRUPTS
 
-	/* Initialize interrupt handling lock as open */
-	k_sem_init(&data->interrupt_lock, 1, 1);
-
 	/* Configure interrupt output pin. */
-	ret = mfd_sc16is75x_configure_gpio_pin(dev, &config->reset, GPIO_INPUT);
+	ret = mfd_sc16is75x_configure_gpio_pin(dev, &config->interrupt, GPIO_INPUT);
 	if (ret != 0) {
 		LOG_ERR("%s: interrupt GPIO pin configuration failed: %d", dev->name, ret);
-		goto end;
+		return ret;
 	}
 
 	/* Set up interrupt handling */
-	k_work_init(&data->interrupt_work_init, mfd_sc16is75x_interrupt_work_fn_init);
-	k_work_init_delayable(&data->interrupt_work_final, mfd_sc16is75x_interrupt_work_fn_final);
-
-	/* Set up interrupt handling */
-	ret = mfd_sc16is75x_bind_interrupt(dev, &config->interrupt, GPIO_INT_EDGE_TO_ACTIVE);
+	k_work_init(&data->interrupt_work, mfd_sc16is75x_interrupt_work_fn);
+	ret = mfd_sc16is75x_bind_interrupt(dev, &config->interrupt,
+					   GPIO_INT_EDGE_TO_ACTIVE | GPIO_INT_LEVEL_ACTIVE);
 	if (ret != 0) {
 		LOG_ERR("%s: interrupt callback binding failed: %d", dev->name, ret);
-		goto end;
+		return ret;
 	}
 
 #endif /* CONFIG_MFD_SC16IS75X_INTERRUPTS */
 
-end:
-	return ret;
+	return pm_device_driver_init(dev, mfd_sc16is75x_pm_device_pm_action);
 }
-
-#ifdef CONFIG_PM_DEVICE
-static int mfd_sc16is75x_pm_device_pm_action(const struct device *dev, enum pm_device_action action)
-{
-	ARG_UNUSED(dev);
-	ARG_UNUSED(action);
-
-	return 0;
-}
-#endif
 
 /**
  * @brief For a given child node, if it's a UART controller: return the
@@ -583,8 +526,10 @@ static int mfd_sc16is75x_pm_device_pm_action(const struct device *dev, enum pm_d
  * to avoid extra braces.
  */
 #define MFD_SC16IS75X_CHILD_CHANNEL(child)                                                         \
-	COND_CODE_1(DT_NODE_HAS_COMPAT(child, nxp_sc16is75x_uart),                                 \
-		    (DT_PROP_BY_IDX(child, reg, 0), ), ())
+	COND_CODE_1(DT_NODE_HAS_COMPAT(child, nxp_sc16is75x_uart),           \
+		(DT_PROP_BY_IDX(child, reg, 0),),                            \
+		()                                                           \
+	)
 
 /**
  * @brief Construct a bracketed list of all child UART controllers' channel id
@@ -611,8 +556,9 @@ static int mfd_sc16is75x_pm_device_pm_action(const struct device *dev, enum pm_d
  *        correct bus based on the devicetree.
  */
 #define MFD_SC16IS75X_DEFINE_BUS(inst)                                                             \
-	COND_CODE_1(DT_INST_ON_BUS(inst, spi), (MFD_SC16IS75X_DEFINE_SPI_BUS(inst)),               \
-		    (MFD_SC16IS75X_DEFINE_I2C_BUS(inst)))
+	COND_CODE_1(DT_INST_ON_BUS(inst, spi),                               \
+			(MFD_SC16IS75X_DEFINE_SPI_BUS(inst)),                \
+			(MFD_SC16IS75X_DEFINE_I2C_BUS(inst)))
 
 /**
  * @brief Initializer macro for a device driver instance.
@@ -626,14 +572,23 @@ static int mfd_sc16is75x_pm_device_pm_action(const struct device *dev, enum pm_d
                                                                                                    \
 	static uint8_t mfd_sc16is75x_uart_channels_##inst[] = MFD_SC16IS75X_UART_CHANNELS(inst);   \
                                                                                                    \
+	IF_ENABLED(CONFIG_MFD_SC16IS75X_ASWQ,                                  \
+		   (K_THREAD_STACK_DEFINE(mfd_sc16is75x_wq_thread_stack_##inst,\
+			      CONFIG_MFD_SC16IS75X_WORKQUEUE_STACK_SIZE)));            \
+                                                                                                   \
 	static struct mfd_sc16is75x_config mfd_sc16is75x_config_##inst = {                         \
-		MFD_SC16IS75X_DEFINE_BUS(inst), .reset = GPIO_DT_SPEC_INST_GET(inst, reset_gpios), \
+		MFD_SC16IS75X_DEFINE_BUS(inst),                                                    \
+		.reset = GPIO_DT_SPEC_INST_GET_OR(inst, reset_gpios, {0}),                         \
 		.n_channels = ARRAY_SIZE(mfd_sc16is75x_uart_channels_##inst),                      \
 		.channels = MFD_SC16IS75X_UART_CHANNELS(inst),                                     \
-		COND_CODE_1(CONFIG_MFD_SC16IS75X_INTERRUPTS,                                       \
-			    (.interrupt = GPIO_DT_SPEC_INST_GET(inst, interrupt_gpios), ), ())};        \
+		IF_ENABLED(CONFIG_MFD_SC16IS75X_INTERRUPTS,                    \
+			(.interrupt = GPIO_DT_SPEC_INST_GET(inst,              \
+							interrupt_gpios),)) };           \
                                                                                                    \
-	static struct mfd_sc16is75x_data mfd_sc16is75x_data_##inst;                                \
+	static struct mfd_sc16is75x_data mfd_sc16is75x_data_##inst = {                             \
+		IF_ENABLED(CONFIG_MFD_SC16IS75X_ASWQ,                          \
+			   (.work_queue_stack                                  \
+				= mfd_sc16is75x_wq_thread_stack_##inst,)) };           \
                                                                                                    \
 	PM_DEVICE_DT_INST_DEFINE(inst, mfd_sc16is75x_pm_device_pm_action);                         \
                                                                                                    \

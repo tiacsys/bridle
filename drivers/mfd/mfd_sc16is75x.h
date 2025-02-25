@@ -91,20 +91,6 @@ int mfd_sc16is75x_read_raw_signal(const struct device *dev, const uint8_t sub_ad
 
 #endif /* CONFIG_MFD_SC16IS75X_ASWQ */
 
-#ifdef CONFIG_MFD_SC16IS75X_INTERRUPTS
-
-/**
- * @brief SC16IS75X MFD data for asynchronous interrupt handling
- */
-struct sc16is75x_interrupt_data {
-	/** IIR value per channels */
-	uint8_t iir[SC16IS75X_UART_CHANNELS_MAX];
-	/** asynchronous notification signal per channel */
-	struct k_poll_signal signals[SC16IS75X_UART_CHANNELS_MAX];
-};
-
-#endif /* CONFIG_MFD_SC16IS75X_INTERRUPTS */
-
 /**
  * @brief SC16IS75X MFD data
  *
@@ -127,15 +113,10 @@ struct mfd_sc16is75x_data {
 	k_thread_stack_t *work_queue_stack;
 #endif /* CONFIG_MFD_SC16IS75X_ASWQ */
 #ifdef CONFIG_MFD_SC16IS75X_INTERRUPTS
-	/** Lock for interrupt handling */
-	struct k_sem interrupt_lock;
 	/** GPIO port interrupt callback */
 	struct gpio_callback interrupt_cb;
-	/** GPIO port interrupt worker */
-	struct k_work interrupt_work_init;
-	struct k_work_delayable interrupt_work_final;
-	/** Struct for passing data between interrupt handling work items */
-	struct sc16is75x_interrupt_data interrupt_data;
+	/** Interrupt worker */
+	struct k_work interrupt_work;
 	/** Child callbacks for interrupt handling */
 	sys_slist_t callbacks;
 #endif /* CONFIG_MFD_SC16IS75X_INTERRUPTS */
