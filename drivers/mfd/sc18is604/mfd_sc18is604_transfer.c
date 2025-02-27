@@ -14,6 +14,38 @@
 
 #include "mfd_sc18is604.h"
 
+#if defined(CONFIG_MFD_SC18IS604_TRANSFER_NODELAY)
+
+int mfd_sc18is604_transfer(const struct device *dev, uint8_t *cmd, size_t cmd_len, uint8_t *tx_data,
+			   size_t tx_len, uint8_t *rx_data, size_t rx_len)
+{
+	const struct mfd_sc18is604_config *const config = dev->config;
+	int ret = 0;
+
+	/* Set up SPI buffers */
+	struct spi_buf tx_buffers[] = {
+		{.buf = cmd, .len = cmd_len},
+		{.buf = tx_data, .len = tx_len},
+		{.buf = NULL, .len = rx_len},
+	};
+
+	struct spi_buf rx_buffers[] = {
+		{.buf = NULL, .len = cmd_len},
+		{.buf = NULL, .len = tx_len},
+		{.buf = rx_data, .len = rx_len},
+	};
+
+	const struct spi_buf_set tx = {.buffers = tx_buffers, .count = ARRAY_SIZE(tx_buffers)};
+	const struct spi_buf_set rx = {.buffers = rx_buffers, .count = ARRAY_SIZE(rx_buffers)};
+
+	ret = spi_transceive_dt(&config->spi, &tx, &rx);
+
+	spi_release_dt(&config->spi);
+	return ret;
+}
+
+#else /* CONFIG_MFD_SC18IS604_TRANSFER_NODELAY */
+
 int mfd_sc18is604_transfer(const struct device *dev, uint8_t *cmd, size_t cmd_len, uint8_t *tx_data,
 			   size_t tx_len, uint8_t *rx_data, size_t rx_len)
 {
@@ -86,6 +118,8 @@ end:
 
 	return ret;
 }
+
+#endif /* CONFIG_MFD_SC18IS604_TRANSFER_NODELAY */
 
 int mfd_sc18is604_read_register(const struct device *dev, uint8_t reg, uint8_t *val)
 {
