@@ -34,3 +34,11 @@ if MFD_SC18IS604_ASYNC
 		default 256
 
 endif # MFD_SC18IS604_ASYNC
+
+config MFD_SC18IS604_TRANSFER_NODELAY
+	bool "Disable delays during SPI transfers"
+	default n
+	depends on MFD_SC18IS604
+	help
+	  Disable artificial delays between bytes during SPI transfers. This makes the driver
+	  compatible with emulators that expect atomic SPI transactions.
