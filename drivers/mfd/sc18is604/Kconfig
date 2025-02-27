@@ -42,3 +42,13 @@ config MFD_SC18IS604_TRANSFER_NODELAY
 	help
 	  Disable artificial delays between bytes during SPI transfers. This makes the driver
 	  compatible with emulators that expect atomic SPI transactions.
+
+config EMUL_MFD_SC18IS604
+	bool "Emulate an SC18IS604 MFD"
+	default y
+	depends on EMUL
+	depends on MFD_SC18IS604
+	select MFD_SC18IS604_TRANSFER_NODELAY
+	help
+	  Enables an emulator for SC18IS604 devices that can be used to test the related GPIO and
+	  I2C drivers without real hardware.
