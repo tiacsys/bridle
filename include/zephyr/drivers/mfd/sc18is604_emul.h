@@ -28,7 +28,7 @@ struct mfd_sc18is604_emul_transmission {
  *
  * @return The number of bytes received, or a negative error code on failure.
  */
-int mfd_sc18is604_emul_i2c_receive(const struct emul *target, uint8_t *buf, size_t len);
+int mfd_sc18is604_emul_i2c_set_rx(const struct emul *target, uint8_t *buf, size_t len);
 
 /**
  * @brief Get the last transmission sent by the device.
