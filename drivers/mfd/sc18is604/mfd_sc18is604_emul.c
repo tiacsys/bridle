@@ -54,7 +54,7 @@ int mfd_sc18is604_emul_i2c_get_last_tx(const struct emul *target,
 				       struct mfd_sc18is604_emul_transmission *transmission)
 {
 	struct mfd_sc18is604_emul_data *data = target->data;
-	memcpy(transmission, &data->last_transmission, sizeof(*transmission));
+	*transmission = data->last_transmission;
 	return 0;
 }
 
@@ -137,9 +137,18 @@ static uint8_t mfd_sc18is604_get_register(const struct emul *target, uint8_t reg
 {
 	__ASSERT(reg < SC18IS604_N_REGISTERS, "Invalid register address");
 	struct mfd_sc18is604_emul_data *data = target->data;
-	return data->reg[reg];
 
-	// TODO: Reset interrupt if I2C status reg is read
+	/* If I2C status register is read, clear interrupt */
+	if (reg == SC18IS604_REG_I2C_STATUS) {
+		const struct mfd_sc18is604_config *dev_config = target->dev->config;
+		int ret = gpio_emul_input_set(dev_config->interrupt.port, dev_config->interrupt.pin,
+					      0);
+		if (ret != 0) {
+			LOG_ERR("Failed to de-assert interrupt pin");
+		}
+	}
+
+	return data->reg[reg];
 }
 
 static void mfd_sc18is604_set_register(const struct emul *target, uint8_t reg, uint8_t val)
@@ -149,8 +158,6 @@ static void mfd_sc18is604_set_register(const struct emul *target, uint8_t reg, u
 	data->reg[reg] = val;
 
 	LOG_DBG("Set register 0x%02x to 0x%02x", reg, val);
-
-	// TODO: Handle side-effects of register writes
 }
 
 static void mfd_sc18is604_emul_read_i2c(const struct emul *target, size_t len)
@@ -175,13 +182,27 @@ static void mfd_sc18is604_emul_write_i2c(const struct emul *target, uint8_t addr
 					 const uint8_t *msg, size_t len)
 {
 	struct mfd_sc18is604_emul_data *data = target->data;
+	const struct mfd_sc18is604_config *dev_config = target->dev->config;
 
 	__ASSERT(len <= SC18IS604_BUFFER_SIZE, "Message too long");
 
+	/* Get address in 7-bit format */
+	uint8_t addr_raw = addr >> 1;
+
 	/* Register as last transmission */
-	data->last_transmission.addr = addr;
-	memset(data->last_transmission.msg, 0, sizeof(data->last_transmission));
+	data->last_transmission.addr = addr_raw;
+	data->last_transmission.len = len;
+	memset(data->last_transmission.msg, 0, sizeof(data->last_transmission.msg));
 	memcpy(data->last_transmission.msg, msg, len);
+
+	/* Set I2C status register */
+	data->reg[SC18IS604_REG_I2C_STATUS] = SC18IS604_I2C_STATUS_SUCCESS;
+
+	/* Assert interrupt */
+	int ret = gpio_emul_input_set(dev_config->interrupt.port, dev_config->interrupt.pin, 1);
+	if (ret != 0) {
+		LOG_ERR("Failed to assert interrupt pin");
+	}
 }
 
 static int mfd_sc18is604_emul_io_spi(const struct emul *target, const struct spi_config *config,
@@ -238,7 +259,7 @@ static int mfd_sc18is604_emul_io_spi(const struct emul *target, const struct spi
 		size_t len = tx[1];
 		uint8_t addr = tx[2];
 		uint8_t *data = tx + 3;
-		__ASSERT(len < tx_len - 3, "Message length exceeds buffer length");
+		__ASSERT(len >= tx_len - 3, "Message length exceeds buffer length");
 		mfd_sc18is604_emul_write_i2c(target, addr, data, len);
 	} break;
 
