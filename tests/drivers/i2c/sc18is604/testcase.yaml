@@ -1,0 +1,10 @@
+tests:
+  drivers.i2c.sc18is604:
+    tags:
+      - drivers
+      - i2c
+      - sc18is604
+    platform_allow:
+      - native_sim
+    integration_platforms:
+      - native_sim
