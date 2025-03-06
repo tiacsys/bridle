@@ -1,5 +1,5 @@
 {
-	"name": "Bridle",
+	"name": "${localWorkspaceFolderBasename}",
 	"build": {
 		"dockerfile": "Dockerfile",
 		// Specify version for Zephyr Container
@@ -13,15 +13,17 @@
 	"postCreateCommand": "bash ${localWorkspaceFolderBasename}/.devcontainer/post-create.sh /workspace ${localWorkspaceFolderBasename}",
 	"postStartCommand": "bash ${localWorkspaceFolderBasename}/.devcontainer/post-start.sh /workspace",
 	// Mount and set workspace folder
-	"workspaceMount": "source=${localWorkspaceFolder}/..,target=/workspace,type=bind",
+	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace/${localWorkspaceFolderBasename},type=bind",
 	"workspaceFolder": "/workspace",
 	// Username in container - align with Dockerfile
 	"remoteUser": "user",
 	"mounts": [
 		// Persist installed extensions in container
-		"source=bridle-devcontainer-extensions,target=/home/user/.vscode-server/extensions,type=volume",
+		"source=${localWorkspaceFolderBasename}-devcontainer-extensions,target=/home/user/.vscode-server/extensions,type=volume",
 		// Allow attaching USB devices to running container
-		"source=/dev,target=/dev,type=bind"
+		"source=/dev,target=/dev,type=bind",
+		// Use a volume to store Zephyr modules etc.
+		"source=${localWorkspaceFolderBasename}-zephyr-modules,target=/workspace,type=volume"
 	],
 	"customizations": {
 		"vscode": {
@@ -32,7 +34,8 @@
 					"--compile-commands-dir=/workspace/build",
 					"--header-insertion=never"
 				],
-				"clangd.path": "clangd-16"
+				"clangd.path": "clangd-16",
+				"C_Cpp.intelliSenseEngine": "disabled"
 			},
 			"extensions": [
 				"marus25.cortex-debug",
