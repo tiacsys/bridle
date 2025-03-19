@@ -60,50 +60,56 @@ jobs:
         run: |
           echo "$HOME/.local/bin" >> $GITHUB_PATH
 
+      - name: Install packages
+        run: |
+          sudo add-apt-repository -y -u ppa:tiac-systems/doxygen
+          sudo apt-get install -y git ninja-build python3-pip wget
+          sudo apt-get install -y doxygen mscgen graphviz
+
       - name: Checkout the code
         uses: actions/checkout@v4
         with:
           path: workspace/bridle
 
-      - name: Install packages
-        run: |
-          sudo add-apt-repository -y -u ppa:tiac-systems/doxygen
-          sudo apt-get install -y ninja-build doxygen mscgen graphviz
-
-      - name: Restore PIP Cache
-        uses: actions/cache@v4
+      - name: Setup Zephyr workspace from Bridle
+        uses: zephyrproject-rtos/action-zephyr-setup@v1
         with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-doc-pip
+          app-path: bridle
+          base-path: workspace
+          manifest-file-name: west.yml
+          sdk-version: 0.17.0
+          toolchains: 'all'
 
-      - name: Install base dependencies
+      - name: Export Zephyr workspace with Bridle
         working-directory: workspace
         run: |
-          pip3 install --upgrade pip
-          pip3 install --upgrade setuptools
-          pip3 install --upgrade --requirement bridle/scripts/requirements-base.txt
-
-      - name: West init and update
-        working-directory: workspace
-        run: |
-          west init --local bridle
-          west update --fetch=always --stats
           west zephyr-export
           west bridle-export
 
       - name: Install documentation dependencies
         working-directory: workspace
         run: |
-          pip3 install --upgrade --requirement zephyr/scripts/requirements-base.txt
-          pip3 install --upgrade --requirement zephyr/scripts/requirements-build-test.txt
-          pip3 install --upgrade --requirement zephyr/scripts/requirements-run-test.txt
           pip3 install --upgrade --requirement bridle/scripts/requirements-doc.txt
 
       - name: Build documentation
         working-directory: workspace
         run: |
-          cmake -B build -GNinja bridle/doc
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            cmake -DDT_TURBO_MODE=1 -DHW_FEATURES_TURBO_MODE=1 \
+                  -B build -GNinja bridle/doc
+          else
+            cmake -B build -GNinja bridle/doc
+          fi
           ninja -C build build-all
+
+      - name: Compress documentation
+        working-directory: workspace/build
+        run: |
+          tar --use-compress-program="xz -T0" -cf html-output.tar.xz \
+              --exclude html/*/_sources --exclude html/*/doxygen/xml \
+              html
+          tar --use-compress-program="xz -T0" -cf api-output.tar.xz \
+              html/*/doxygen/html
 
       - name: Archive documentation
         working-directory: workspace/build
@@ -135,7 +141,19 @@ jobs:
             fi
           fi
 
-      - name: Upload artifact
+      - name: Upload API documentation
+        uses: actions/upload-artifact@v4
+        with:
+          name: api-output
+          path: workspace/build/api-output.tar.xz
+
+      - name: Upload HTML documentation
+        uses: actions/upload-artifact@v4
+        with:
+          name: html-output
+          path: workspace/build/html-output.tar.xz
+
+      - name: Upload archived documentation
         uses: actions/upload-artifact@v4
         with:
           name: doc
