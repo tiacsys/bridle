@@ -1,4 +1,4 @@
-# Copyright (c) 2021-2024 TiaC Systems
+# Copyright (c) 2021-2025 TiaC Systems
 # Copyright (c) 2021 Li-Pro.Net
 # SPDX-License-Identifier: Apache-2.0
 
@@ -13,7 +13,7 @@ on:
 jobs:
   qa-manifest:
     name: Run manifest checks points to patch series (PR)
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Checkout the code

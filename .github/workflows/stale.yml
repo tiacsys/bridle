@@ -1,4 +1,4 @@
-# Copyright (c) 2021-2024 TiaC Systems
+# Copyright (c) 2021-2025 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 name: Mark Stale Issues and Pull Requests
@@ -10,7 +10,7 @@ on:
 jobs:
   stale:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       issues: write
       pull-requests: write

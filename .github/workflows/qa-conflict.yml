@@ -1,4 +1,4 @@
-# Copyright (c) 2021 TiaC Systems
+# Copyright (c) 2021-2025 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 name: QA Conflict Finder and Labeler
@@ -11,7 +11,7 @@ on:
 jobs:
   qa-conflict:
     name: Run merge conflicts finder on patch series (PR)
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Run conflict finder and labeler

@@ -1,4 +1,4 @@
-# Copyright (c) 2021-2024 TiaC Systems
+# Copyright (c) 2021-2025 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 name: QA License Check
@@ -11,7 +11,7 @@ on:
 jobs:
   qa-licenses:
     name: Run scancode for licenses
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Checkout the code

@@ -1,4 +1,4 @@
-# Copyright (c) 2021-2024 TiaC Systems
+# Copyright (c) 2021-2025 TiaC Systems
 # Copyright (c) 2021 Li-Pro.Net
 # SPDX-License-Identifier: Apache-2.0
 
@@ -12,7 +12,7 @@ on:
 jobs:
   doc-publish:
     name: Publish archived documentation actions from artifacts
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
 
     steps:
