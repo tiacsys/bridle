@@ -35,7 +35,7 @@
   "COMPONENTS_BY_VERSION": {
     "latest": {
       "bridle": "4.0.99",
-      "zephyr": "4.0.99"
+      "zephyr": "4.1.0"
     },
     "4.0": {
       "bridle": "4.0.0",
