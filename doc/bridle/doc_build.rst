@@ -303,6 +303,19 @@ served with `Python HTTP server`_ module:
 
                start http\:\/\/:bbl:`localhost`::bgn:`4711`/index.html &
 
+Developer-mode Document Building
+********************************
+
+When making and testing major changes to the documentation, we provide an option
+to temporarily stub-out the auto-generated Devicetree bindings documentation so
+the doc build process runs faster.
+
+To enable this mode, set the following option when invoking :command:`cmake`:
+
+   .. code-block:: console
+
+      -DDT_TURBO_MODE=1
+
 .. _caching_and_cleaning:
 
 Caching and cleaning

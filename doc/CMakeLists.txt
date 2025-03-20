@@ -36,6 +36,7 @@ file(TO_CMAKE_PATH "${BRIDLE_BASE}" BRIDLE_BASE)
 
 set(SPHINXOPTS_DEFAULT "-j auto -W --keep-going -T" CACHE INTERNAL "Default Sphinx Options")
 set(SPHINXOPTS_EXTRA "" CACHE STRING "Extra Sphinx Options (from CLI/CI)")
+set(DT_TURBO_MODE OFF CACHE BOOL "Enable DT turbo mode")
 
 separate_arguments(SPHINXOPTS_DEFAULT)
 separate_arguments(SPHINXOPTS_EXTRA)
@@ -390,6 +391,11 @@ set(DTS_ROOT_ARGS)
 foreach(root ${DTS_ROOTS})
   list(APPEND DTS_ROOT_ARGS --dts-root ${root})
 endforeach()
+
+if(DT_TURBO_MODE)
+  message(STATUS "Stub-out the auto-generated Devicetree bindings documentation")
+  list(APPEND DTS_ROOT_ARGS --turbo-mode)
+endif()
 
 # The CMake variable GEN_DEVICETREE_REST_ZEPHYR_DOCSET will
 # be passed to the script in the environment. This allows separating
