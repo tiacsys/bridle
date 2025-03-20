@@ -59,7 +59,7 @@ endif()
 # - name: Docset name.
 # - sphinxopts: Local options passed to the Sphinx build.
 # - API: Enable/disable "API" mode. If enabled, Doxygen will be executed.
-# - DODGY: Enable/disable "dodgy" mode. If enabled, the ${SPHINXOPTS_EXTRA}
+# - DODGY: Enable/disable "dodgy" mode. If enabled, the ${SPHINXOPTS_DEFAULT}
 #   option (used to enable things like -W) will not be passed to Sphinx. It can
 #   be useful for external docsets that are likely to generate build warnings.
 #
@@ -115,7 +115,7 @@ function(add_docset name sphinxopts)
   separate_arguments(sphinxopts)
 
   if(${DOCSET_DODGY})
-    list(REMOVE_ITEM SPHINXOPTS "-W" "--keep-going")
+    list(REMOVE_ITEM SPHINXOPTS_DEFAULT "-W" "--keep-going")
   endif()
 
   add_doc_target(
