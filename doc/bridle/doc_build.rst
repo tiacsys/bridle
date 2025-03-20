@@ -316,6 +316,14 @@ To enable this mode, set the following option when invoking :command:`cmake`:
 
       -DDT_TURBO_MODE=1
 
+Another step that typically takes a long time is the generation of the list of
+supported features for each board. This can be disabled by setting the following
+option when invoking :command:`cmake`:
+
+   .. code-block:: console
+
+      -DHW_FEATURES_TURBO_MODE=1
+
 .. _caching_and_cleaning:
 
 Caching and cleaning

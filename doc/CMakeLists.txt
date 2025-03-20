@@ -37,6 +37,7 @@ file(TO_CMAKE_PATH "${BRIDLE_BASE}" BRIDLE_BASE)
 set(SPHINXOPTS_DEFAULT "-j auto -W --keep-going -T" CACHE INTERNAL "Default Sphinx Options")
 set(SPHINXOPTS_EXTRA "" CACHE STRING "Extra Sphinx Options (from CLI/CI)")
 set(DT_TURBO_MODE OFF CACHE BOOL "Enable DT turbo mode")
+set(HW_FEATURES_TURBO_MODE OFF CACHE BOOL "Enable HW features turbo mode")
 
 separate_arguments(SPHINXOPTS_DEFAULT)
 separate_arguments(SPHINXOPTS_EXTRA)
@@ -343,7 +344,12 @@ add_custom_target(
   COMMENT "Generating known warnings lists for zephyr"
 )
 
-add_docset(zephyr "" API)
+if(HW_FEATURES_TURBO_MODE)
+  message(STATUS "Stub-out the documentation of supported board features in Zephyr")
+  add_docset(zephyr "-t hw_features_turbo" API)
+else()
+  add_docset(zephyr "" API)
+endif()
 
 add_dependencies(zephyr-inventory zephyr-known-warnings)
 add_dependencies(zephyr-html zephyr-known-warnings)
@@ -493,7 +499,12 @@ add_custom_target(
   COMMENT "Generating versions list for bridle"
 )
 
-add_docset(bridle "" API)
+if(HW_FEATURES_TURBO_MODE)
+  message(STATUS "Stub-out the documentation of supported board features in Bridle")
+  add_docset(bridle "-t hw_features_turbo" API)
+else()
+  add_docset(bridle "" API)
+endif()
 
 add_dependencies(bridle-inventory bridle-versions)
 add_dependencies(bridle-html bridle-versions)
