@@ -30,6 +30,19 @@ endif()
 # Save default values for later restore.
 set(CMAKE_CURRENT_MESSAGE_INDENT ${CMAKE_MESSAGE_INDENT})
 
+if(SYSBUILD)
+
+  list(APPEND CMAKE_MESSAGE_INDENT " ❗❗❗ ")
+  message(STATUS "----------------------------------------------------------------------")
+  message(STATUS "Bridle does not yet support SYSBUILD properly. Ensure yourself that")
+  message(STATUS "you are using the correct toolchain. In the case of the Zephyr SDK,")
+  message(STATUS "Bridle would ensure a considered version "
+                 "${BRIDLE_TOOLCHAIN_ZEPHYR_SDK_CONSIDERED_VERSIONS} would be ")
+  message(STATUS "found and used, but cannot support you with automatic protection.")
+  message(STATUS "----------------------------------------------------------------------")
+
+else() # NOT SYSBUILD (only supported)
+
 # Set internal variables if set in environment.
 zephyr_get(ZEPHYR_TOOLCHAIN_VARIANT)
 zephyr_get(ZEPHYR_SDK_INSTALL_DIR)
@@ -68,6 +81,8 @@ if(("zephyr" STREQUAL ${ZEPHYR_TOOLCHAIN_VARIANT}) OR
             "/v${BRIDLE_TOOLCHAIN_ZEPHYR_SDK_VERSION}\n")
   endif()
 endif()
+
+endif() # NOT SYSBUILD (only supported)
 
 # Clean up temp variables
 set(CMAKE_MESSAGE_INDENT ${CMAKE_CURRENT_MESSAGE_INDENT})
