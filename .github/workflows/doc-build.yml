@@ -64,7 +64,7 @@ jobs:
         run: |
           sudo add-apt-repository -y -u ppa:tiac-systems/doxygen
           sudo apt-get install -y git ninja-build python3-pip wget
-          sudo apt-get install -y doxygen mscgen graphviz
+          sudo apt-get install -y doxygen mscgen graphviz lcov
 
       - name: Checkout the code
         uses: actions/checkout@v4
@@ -90,6 +90,7 @@ jobs:
         working-directory: workspace
         run: |
           pip3 install --upgrade --requirement bridle/scripts/requirements-doc.txt
+          pip3 install coverxygen
 
       - name: Build documentation
         working-directory: workspace
@@ -102,6 +103,24 @@ jobs:
           fi
           ninja -C build build-all
 
+      - name: API documentation coverage
+        working-directory: workspace
+        run: |
+          for api in zephyr bridle; do
+            python3 -m coverxygen --scope all --kind all --src-dir ${api} \
+                                  --xml-dir build/html/${api}/doxygen/xml \
+                                  --output apidoc-coverage-${api}.info \
+                                  --format lcov
+            lcov --ignore-errors unused \
+                 --remove apidoc-coverage-${api}.info \*/deprecated \
+                 --remove apidoc-coverage-${api}.info \*/_doxygen\* \
+                 --output-file apidoc-coverage-${api}-interim.info
+            genhtml --no-function-coverage --no-branch-coverage \
+                    --output-directory build/apidoc-coverage-report/${api} \
+                    apidoc-coverage-${api}-interim.info
+            rm -vf apidoc-coverage-${api}*.info
+          done
+
       - name: Compress documentation
         working-directory: workspace/build
         run: |
@@ -110,6 +129,8 @@ jobs:
               html
           tar --use-compress-program="xz -T0" -cf api-output.tar.xz \
               html/*/doxygen/html
+          tar --use-compress-program="xz -T0" -cf api-coverage.tar.xz \
+              apidoc-coverage-report
 
       - name: Archive documentation
         working-directory: workspace/build
@@ -140,6 +161,12 @@ jobs:
               fi
             fi
           fi
+
+      - name: Upload API coverage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: api-coverage
+          path: workspace/build/api-coverage.tar.xz
 
       - name: Upload API documentation
         uses: actions/upload-artifact@v4
