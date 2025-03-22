@@ -10,8 +10,6 @@ common:
   timeout: 120
   sysbuild: false
   integration_platforms:
-    - native_posix
-    - native_posix/native/64
     - native_sim
     - native_sim/native/64
     - qemu_x86

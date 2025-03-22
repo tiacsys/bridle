@@ -21,7 +21,6 @@ Requirements
 
 * One of the following development boards:
 
-  * |zephyr:board:native_posix|
   * |zephyr:board:native_sim|
   * |zephyr:board:qemu_x86|
   * |zephyr:board:qemu_cortex_r5|
@@ -70,12 +69,12 @@ built and executed as emulation in |zephyr:board:qemu_x86| as follows:
 
 Also it can be built and executed on following targets:
 
-* As |zephyr:board:native_posix|, fancy command set mode:
+* As |zephyr:board:native_sim|, fancy command set mode:
 
   .. zephyr-app-commands::
      :app: bridle/samples/helloshell
-     :build-dir: helloshell-native_posix
-     :board: native_posix
+     :build-dir: helloshell-native_sim
+     :board: native_sim
      :west-args: -p
      :goals: run
      :host-os: unix
@@ -85,7 +84,7 @@ Also it can be built and executed on following targets:
 
      .. code-block:: console
 
-        ./build/helloshell-native_posix/zephyr/zephyr.exe -attach_uart
+        ./build/helloshell-native_sim/zephyr/zephyr.exe -attach_uart
 
 * As emulation in |zephyr:board:qemu_cortex_m3|, fancy command set mode:
 
