@@ -1,0 +1,50 @@
+.. rubric:: Hello Shell
+
+.. zephyr-app-commands::
+   :app: bridle/samples/helloshell
+   :board: picoboy_color_plus/rp2350a/m33
+   :shield: "grove_sens_bmp280"
+   :build-dir: picoboy
+   :west-args: -p
+   :goals: flash
+   :compact:
+
+.. rubric:: Simple test execution on target
+
+(text in bold is a command input)
+
+   .. admonition:: Devices
+      :class: note dropdown
+
+      .. rubric:: Only an excerpt from the full list:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **device list**
+            devices:
+              … … …
+            - bmp280\ @\ 77 (READY)
+            - dietemp (READY)
+              DT node labels: die_temp
+
+   .. admonition:: Sensor access from Zephyr Shell
+      :class: note dropdown toggle-shown
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor info**
+            device name: bmp280\ @\ 77, vendor: Bosch Sensortec GmbH, model: bme280, friendly name: (null)
+            device name: dietemp, vendor: Raspberry Pi Foundation, model: pico-temp, friendly name: RP2040 chip temperature
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor get bmp280@77**
+            :bgn:`channel type=13(ambient_temp) index=0 shift=16 num_samples=1 value=88094851080ns (24.069976)`
+            :bgn:`channel type=14(press) index=0 shift=23 num_samples=1 value=88094851080ns (100.218750)`
+            :bgn:`channel type=16(humidity) index=0 shift=21 num_samples=1 value=88094851080ns (0.000000)`

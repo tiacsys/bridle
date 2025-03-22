@@ -1,0 +1,39 @@
+/*
+ * Copyright (c) 2023-2025 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include "pbc-leds.dtsi"
+
+#include <freq.h>
+#include <zephyr/dt-bindings/led/led.h>
+
+/ {
+	aliases {
+		led-strip = &led_strip;
+	};
+};
+
+&spi1 {
+	status = "okay";
+	pinctrl-0 = <&spi1_default>;
+	pinctrl-names = "default";
+
+	led_strip: sk6805@0 {
+		compatible = "worldsemi,ws2812-spi";
+		status = "okay";
+
+		reg = <0>;
+		spi-max-frequency = <DT_FREQ_K(6400)>;  /* Tbit = 156.25 ns */
+
+		/* HI: 0xFC: 11111100: 0.937 us high and 0.313 us low */
+		/* LO: 0xC0: 11000000: 0.313 us high and 0.937 us low */
+		spi-one-frame = <0xfc>;
+		spi-zero-frame = <0xc0>;
+
+		chain-length = <1>;
+		color-mapping = <LED_COLOR_ID_RED
+				 LED_COLOR_ID_GREEN
+				 LED_COLOR_ID_BLUE>;
+	};
+};
