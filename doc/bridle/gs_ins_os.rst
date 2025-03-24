@@ -12,7 +12,7 @@ available on Linux, including:**
 
 .. rubric:: Native host execution:
 
-* |zephyr:board:native_posix|
+* |zephyr:board:native_sim|
 * |zephyr:connectivity:networking:with:host| (`net-tools`_)
 
 .. rubric:: Native host simulation:

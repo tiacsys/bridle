@@ -29,10 +29,7 @@ the :ref:`boards-extensions` section in this documentation.
 +-------------------+------------------------------------+--------------------------------------------+
 | Hardware platform | Board name                         | Build target                               |
 +===================+====================================+============================================+
-| Native            | |zephyr:board:native_posix|        | | ``native_posix``                         |
-|                   |                                    | | ``native_posix/native/64``               |
-|                   +------------------------------------+--------------------------------------------+
-|                   | |zephyr:board:native_sim|          | | ``native_sim``                           |
+| Native            | |zephyr:board:native_sim|          | | ``native_sim``                           |
 |                   |                                    | | ``native_sim/native/64``                 |
 +-------------------+------------------------------------+--------------------------------------------+
 | Emulator          | |zephyr:board:qemu_x86|            | | ``qemu_x86``                             |
