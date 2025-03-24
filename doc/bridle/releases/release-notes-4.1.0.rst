@@ -16,6 +16,7 @@ Highlights
 * Hardware tweaks on RP2040 based boards are no longer required, neither
   directly at board level nor hidden in shields.
 * First evaluation against upstream boards with :zephyr:ref:`sysbuild` support.
+* First evaluation against upstream sample :zephyr:code-sample:`draw_touch_events`.
 
 .. note:: See the changelog and readme files in the component repositories
    for a detailed description of changes.
@@ -221,6 +222,7 @@ These GitHub issues were addressed since project bootstrapping:
 * :github:`298` - [FER] Remove all DTS tweaks on RP2040 based boards
 * :github:`297` - [HW] The PicoBoy Color Plus as additional board variant
 * :github:`296` - [HW] The PicoBoy Color as additional board variant
+* :github:`287` - [FER] Add touch controller to the ``/chosen`` node
 * :github:`277` - [HW] Grove Dual and LED Button Module as Shield
 * :github:`275` - [BUG] Lost Bridle's document version selector
 * :github:`274` - [FCR] Bump to Zephyr v4.0
