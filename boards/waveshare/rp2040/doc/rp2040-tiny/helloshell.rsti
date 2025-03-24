@@ -64,6 +64,8 @@
               DT node labels: i2c0 rp2040mini_i2c
             - vreg\ @\ 40064000 (READY)
               DT node labels: vreg
+            - dietemp (READY)
+              DT node labels: die_temp
 
       .. container:: highlight highlight-console notranslate
 
@@ -158,11 +160,11 @@
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **flash read flash-controller@18000000 19438 40**
-            00019438: 77 61 76 65 73 68 61 72  65 5f 72 70 32 30 34 30 \|waveshar e_rp2040\|
-            00019448: 5f 74 69 6e 79 00 48 65  6c 6c 6f 20 57 6f 72 6c \|_tiny.He llo Worl\|
-            00019458: 64 21 20 49 27 6d 20 54  48 45 20 53 48 45 4c 4c \|d! I'm T HE SHELL\|
-            00019468: 20 66 72 6f 6d 20 25 73  0a 00 28 75 6e 73 69 67 \| from %s ..(unsig\|
+            :bgn:`uart:~$` **flash read flash-controller@18000000 19cdc 40**
+            00019CDC: 77 61 76 65 73 68 61 72  65 5f 72 70 32 30 34 30 \|waveshar e_rp2040\|
+            00019CEC: 5f 74 69 6e 79 00 48 65  6c 6c 6f 20 57 6f 72 6c \|_tiny.He llo Worl\|
+            00019CFC: 64 21 20 49 27 6d 20 54  48 45 20 53 48 45 4c 4c \|d! I'm T HE SHELL\|
+            00019D0C: 20 66 72 6f 6d 20 25 73  0a 00 28 75 6e 73 69 67 \| from %s ..(unsig\|
 
       .. rubric:: Erase, Write and Verify
 
@@ -244,3 +246,21 @@
 
             :bgn:`uart:~$` **i2c read_byte i2c@40044000 77 d0**
             Output: 0x58
+
+   .. group-tab:: Sensors
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor info**
+            device name: dietemp, vendor: Raspberry Pi Foundation, model: pico-temp, friendly name: (null)
+
+      .. rubric:: on-chip temperature sensor
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor get dietemp**
+            :bgn:`channel type=12(die_temp) index=0 shift=5 num_samples=1 value=61820848792ns (28.743171)`

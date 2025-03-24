@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 TiaC Systems
+ * Copyright (c) 2023-2025 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -35,5 +35,3 @@ pico_i2c1: &rpipico_i2c1 {};
 pico_i2c0: &rpipico_i2c0 {};
 pico_i2c: &pico_i2c0 {};
 pico_adc: &rpipico_adc {};
-
-#include "waveshare_rp2040-geek-tweaks.dtsi"

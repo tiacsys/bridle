@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 TiaC Systems
+ * Copyright (c) 2023-2025 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -34,4 +34,8 @@
 			   <2 0 &gpio0 28 0>,	/* GP28(PWM6A/ADC2)/I2C0-SDA */
 			   <3 0 &gpio0 29 0>;	/* GP29(PWM6B/ADC3)/I2C0-SCL */
 	};
+};
+
+&gpio0 {
+	status = "okay";
 };

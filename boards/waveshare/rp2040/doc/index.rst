@@ -179,8 +179,7 @@ supports the following hardware features:
      - :zephyr:ref:`usb_api`
    * - I2C
      - :kconfig:option:`CONFIG_I2C`
-     - | :dtcompatible:`raspberrypi,pico-i2c` (!)
-       | :dtcompatible:`gpio-i2c`
+     - :dtcompatible:`raspberrypi,pico-i2c`
      - :zephyr:ref:`i2c_api`
    * - SPI
      - :kconfig:option:`CONFIG_SPI`
@@ -196,7 +195,7 @@ supports the following hardware features:
      - :zephyr:ref:`adc_api`
    * - Temperature (Sensor)
      - :kconfig:option:`CONFIG_SENSOR`
-     - :dtcompatible:`raspberrypi,pico-temp` (!!)
+     - :dtcompatible:`raspberrypi,pico-temp`
      - :zephyr:ref:`sensor`
    * - RTC
      - :kconfig:option:`CONFIG_RTC`
@@ -256,27 +255,6 @@ supports the following hardware features:
      - N/A
      - :dtcompatible:`arm,armv6m-systick`
      -
-
-(!) Designware I2C driver has issues:
-    The :emphasis:`Raspberry Pi Pico I2C driver` is using the
-    :emphasis:`Designware I2C driver` automatically. According to our
-    observation, this driver has some :strong:`shortcomings in interrupt
-    handling` and :brd:`leads to a dead-lock of the entire runtime system`.
-    Also known is the lack of support for 0 byte transfers, which prevents
-    a proper I2C device scan. Thus, all :strong:`Waveshare RP2040 boards`
-    will be configured to :strong:`use the simple GPIO-I2C bit-bang driver`
-    as long as this driver is not applicable as expected.
-
-    See also: https://github.com/zephyrproject-rtos/zephyr/pull/60427
-
-(!!) Die-Temperature Sensor driver has issues:
-     It seems the RP2040 Die-Temperature sensor driver has also race conditions
-     and :brd:`leads to a dead-lock of the entire runtime system`. Thus, all
-     :strong:`Waveshare RP2040 boards` will be configured to :strong:`disable
-     this sensor` node in DTS explicitly. As a workaround the ADC channel 4
-     can be used, but that result have to convert manually to the corresponding
-     chip temperature following the formula that can be found in the
-     `RP2040 Datasheet`_, section with title :emphasis:`"Temperature Sensor"`.
 
 Other hardware features are not currently supported by Zephyr. The default
 configuration can be found in the different Kconfig files:

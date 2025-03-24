@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 TiaC Systems
+ * Copyright (c) 2023-2025 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -25,5 +25,3 @@
 rp2040mini_serial: &uart0 {};
 rp2040mini_spi: &spi0 {};
 rp2040mini_i2c: &i2c0 {};
-
-#include "waveshare_rp2040-mini-tweaks.dtsi"

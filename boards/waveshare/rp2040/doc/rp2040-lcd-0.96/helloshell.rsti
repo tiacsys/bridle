@@ -66,6 +66,8 @@
               DT node labels: vreg
             - pwm_leds (READY)
               DT node labels: pwm_leds
+            - dietemp (READY)
+              DT node labels: die_temp
 
       .. container:: highlight highlight-console notranslate
 
@@ -311,11 +313,11 @@
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **flash read flash-controller@18000000 198f8 40**
-            000198F8: 77 61 76 65 73 68 61 72  65 5f 72 70 32 30 34 30 \|waveshar e_rp2040\|
-            00019908: 5f 6c 63 64 5f 30 5f 39  36 00 48 65 6c 6c 6f 20 \|_lcd_0_9 6.Hello \|
-            00019918: 57 6f 72 6c 64 21 20 49  27 6d 20 54 48 45 20 53 \|World! I 'm THE S\|
-            00019928: 48 45 4c 4c 20 66 72 6f  6d 20 25 73 0a 00 28 75 \|HELL fro m %s..(u\|
+            :bgn:`uart:~$` **flash read flash-controller@18000000 1a1a0 40**
+            0001A1A0: 77 61 76 65 73 68 61 72  65 5f 72 70 32 30 34 30 \|waveshar e_rp2040\|
+            0001A1B0: 5f 6c 63 64 5f 30 5f 39  36 00 48 65 6c 6c 6f 20 \|_lcd_0_9 6.Hello \|
+            0001A1C0: 57 6f 72 6c 64 21 20 49  27 6d 20 54 48 45 20 53 \|World! I 'm THE S\|
+            0001A1D0: 48 45 4c 4c 20 66 72 6f  6d 20 25 73 0a 00 28 75 \|HELL fro m %s..(u\|
 
       .. rubric:: Erase, Write and Verify
 
@@ -397,3 +399,21 @@
 
             :bgn:`uart:~$` **i2c read_byte i2c@40044000 77 d0**
             Output: 0x58
+
+   .. group-tab:: Sensors
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor info**
+            device name: dietemp, vendor: Raspberry Pi Foundation, model: pico-temp, friendly name: (null)
+
+      .. rubric:: on-chip temperature sensor
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor get dietemp**
+            :bgn:`channel type=12(die_temp) index=0 shift=5 num_samples=1 value=25086603304ns (50.823357)`

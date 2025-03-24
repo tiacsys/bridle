@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 TiaC Systems
+ * Copyright (c) 2023-2025 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -19,4 +19,8 @@
 			   <7 0 &gpio0 24 0>,	/* GP24 */
 			   <8 0 &gpio0 25 0>;	/* GP25 */
 	};
+};
+
+&gpio0 {
+	status = "okay";
 };
