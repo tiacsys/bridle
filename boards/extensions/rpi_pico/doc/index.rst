@@ -172,39 +172,3 @@ List of extensions
             :start-at: spi1_default: spi1_default {
             :end-before: }; // pinctrl
             :append: };
-
-.. rubric:: Devicetree tweaks
-
-1. :brd:`Designware I2C driver has issues.`
-
-   The :emphasis:`Raspberry Pi Pico I2C driver` is using the
-   :emphasis:`Designware I2C driver` automatically. According to our
-   observation, this driver has some :strong:`shortcomings in interrupt
-   handling` and :brd:`leads to a dead-lock of the entire runtime system`.
-   Also known is the lack of support for 0 byte transfers, which prevents
-   a proper I2C device scan. Thus, all :strong:`Raspberry Pi Pico boards`
-   will be reconfigured to :strong:`use the simple GPIO-I2C bit-bang driver`
-   as long as this driver is not applicable as expected.
-
-   See also: https://github.com/zephyrproject-rtos/zephyr/pull/60427
-
-   .. list-table::
-      :align: left
-      :width: 50%
-      :widths: 100
-
-      * - .. rubric:: Raspberry Pi Pico and Pico W
-
-      * - .. literalinclude:: ../rpipico_r3-tweaks.dtsi
-             :caption: rpipico_r3-tweaks.dtsi
-             :language: DTS
-             :encoding: ISO-8859-1
-             :start-at: &rpipico_i2c0 {
-             :end-at: };
-
-          .. literalinclude:: ../rpipico_r3-tweaks.dtsi
-             :caption: rpipico_r3-tweaks.dtsi
-             :language: DTS
-             :encoding: ISO-8859-1
-             :start-at: &rpipico_i2c1 {
-             :end-at: };
