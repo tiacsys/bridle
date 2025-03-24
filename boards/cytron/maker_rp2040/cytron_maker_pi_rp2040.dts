@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 TiaC Systems
+ * Copyright (c) 2023-2025 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -31,5 +31,3 @@
 grove_serial: &uart0 {};
 grove_i2c: &i2c0 {};
 grove_spi: &spi0 {};
-
-#include "cytron_rp2040-makerpi-tweaks.dtsi"
