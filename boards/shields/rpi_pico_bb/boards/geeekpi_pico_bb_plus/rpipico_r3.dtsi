@@ -1,10 +1,9 @@
 /*
- * Copyright (c) 2024 TiaC Systems
+ * Copyright (c) 2024-2025 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
 #include "rpipico_r3-connect.dtsi"
-#include "rpipico_r3-tweaks.dtsi"
 
 #include "st7796s_480x320.dtsi"
 #include "st7796s_rgb565.dtsi"
