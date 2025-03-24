@@ -1,0 +1,75 @@
+Using the :zephyr:ref:`Display driver API <display_api>` and the
+:zephyr:ref:`Input subsystem API <input>` with chosen display and
+touchscreen panel. That is:
+
+| :hwftlbl-scr:`LCD` : :dts:`chosen { zephyr,display = &lcd_panel; };`
+| :hwftlbl-scr:`ST7796S` : :dts:`lcd_panel: &st7796s_480x320 {};`
+| :hwftlbl-scr:`TSC` : :dts:`chosen { zephyr,touch = &tsc_panel; };`
+| :hwftlbl-scr:`GT911` : :dts:`tsc_panel: &gt911_320x480 {};`
+
+.. tabs::
+
+   .. group-tab:: Raspberry Pi Pico
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/input/draw_touch_events
+         :build-dir: geeekpi_pico_bb_plus-touch_test
+         :board: rpi_pico
+         :shield: "geeekpi_pico_bb_plus"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :compact:
+
+   .. group-tab:: Raspberry Pi Pico W
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/input/draw_touch_events
+         :build-dir: geeekpi_pico_bb_plus-touch_test
+         :board: rpi_pico/rp2040/w
+         :shield: "geeekpi_pico_bb_plus"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :compact:
+
+   .. group-tab:: Waveshare RP2040-Plus
+
+      .. rubric:: on standard ``4㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/input/draw_touch_events
+         :build-dir: geeekpi_pico_bb_plus-touch_test
+         :board: waveshare_rp2040_plus
+         :shield: "geeekpi_pico_bb_plus"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :compact:
+
+      .. rubric:: on extended ``16㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/input/draw_touch_events
+         :build-dir: geeekpi_pico_bb_plus-touch_test
+         :board: waveshare_rp2040_plus@16mb
+         :shield: "geeekpi_pico_bb_plus"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :compact:
+
+.. rubric:: Simple logging output on target
+
+.. container:: highlight highlight-console notranslate no-copybutton
+
+   .. parsed-literal::
+
+      \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+      [00:00:00.477,000] :byl:`<wrn> udc_rpi: BUS RESET`
+      [00:00:00.557,000] :byl:`<wrn> udc_rpi: BUS RESET`
+      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+      [00:00:04.319,000] <inf> sample: Touch sample for touchscreen: gt911\ @\ 5d, dc: st7796s\ @\ 0
+      [00:01:30.649,000] <inf> sample: TOUCH PRESS X, Y: (156, 130)
+      [00:01:30.751,000] <inf> sample: TOUCH PRESS X, Y: (156, 130)
+      [00:01:30.852,000] <inf> sample: TOUCH RELEASE X, Y: (156, 130)

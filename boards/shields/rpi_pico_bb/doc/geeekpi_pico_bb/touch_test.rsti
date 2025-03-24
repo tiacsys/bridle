@@ -1,0 +1,74 @@
+Using the :zephyr:ref:`Display driver API <display_api>` and the
+:zephyr:ref:`Input subsystem API <input>` with chosen display and
+touchscreen panel. That is:
+
+| :hwftlbl-scr:`LCD` : :dts:`chosen { zephyr,display = &lcd_panel; };`
+| :hwftlbl-scr:`ILI9341` : :dts:`lcd_panel: &ili9341_320x240 {};`
+| :hwftlbl-scr:`TSC` : :dts:`chosen { zephyr,touch = &tsc_panel; };`
+| :hwftlbl-scr:`XPT2046` : :dts:`tsc_panel: &xpt2046_240x320 {};`
+
+.. tabs::
+
+   .. group-tab:: Raspberry Pi Pico
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/input/draw_touch_events
+         :build-dir: geeekpi_pico_bb-touch_test
+         :board: rpi_pico
+         :shield: "geeekpi_pico_bb"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :compact:
+
+   .. group-tab:: Raspberry Pi Pico W
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/input/draw_touch_events
+         :build-dir: geeekpi_pico_bb-touch_test
+         :board: rpi_pico/rp2040/w
+         :shield: "geeekpi_pico_bb"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :compact:
+
+   .. group-tab:: Waveshare RP2040-Plus
+
+      .. rubric:: on standard ``4㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/input/draw_touch_events
+         :build-dir: geeekpi_pico_bb-touch_test
+         :board: waveshare_rp2040_plus
+         :shield: "geeekpi_pico_bb"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :compact:
+
+      .. rubric:: on extended ``16㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/input/draw_touch_events
+         :build-dir: geeekpi_pico_bb-touch_test
+         :board: waveshare_rp2040_plus@16mb
+         :shield: "geeekpi_pico_bb"
+         :goals: flash
+         :west-args: -p -S usb-console
+         :flash-args: -r uf2
+         :compact:
+
+.. rubric:: Simple logging output on target
+
+.. container:: highlight highlight-console notranslate no-copybutton
+
+   .. parsed-literal::
+
+      [00:00:00.134,000] <inf> xpt2046: Init 'xpt2046\ @\ 0' device
+      \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+      [00:00:00.301,000] :byl:`<wrn> udc_rpi: BUS RESET`
+      [00:00:00.382,000] :byl:`<wrn> udc_rpi: BUS RESET`
+      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+      [00:00:04.135,000] <inf> sample: Touch sample for touchscreen: xpt2046\ @\ 0, dc: ili9341\ @\ 0
+      [00:00:04.136,000] :brd:`<err> sample: Unsupported BPP=0`

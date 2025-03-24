@@ -222,6 +222,27 @@ order. See also Zephyr sample: :zephyr:code-sample:`display`.
 
             .. include:: geeekpi_pico_bb_plus/display_test.rsti
 
+Draw touch events on LCD
+========================
+
+Draw a small plus in the last touched coordinates. In this way, parameters such
+as inverted/swapped axes can be examined. See also Zephyr sample:
+:zephyr:code-sample:`draw_touch_events`.
+
+.. tabs::
+
+   .. group-tab:: GeeekPi (Pico …)
+
+      .. tabs::
+
+         .. group-tab:: Breadboard Kit
+
+            .. include:: geeekpi_pico_bb/touch_test.rsti
+
+         .. group-tab:: Breadboard Kit Plus
+
+            .. include:: geeekpi_pico_bb_plus/touch_test.rsti
+
 LVGL Basic Sample
 =================
 
