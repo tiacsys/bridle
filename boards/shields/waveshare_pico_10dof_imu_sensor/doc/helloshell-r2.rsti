@@ -175,27 +175,54 @@
          .. parsed-literal::
 
             :bgn:`uart:~$` **sensor get mpu9250@68**
-            channel idx=3 accel_xyz shift=6 num_samples=1 value=502957400000ns, (2.649183, -1.729212, 9.787495)
-            channel idx=7 gyro_xyz shift=6 num_samples=1 value=502957400000ns, (-0.029843, 0.013588, -0.018519)
-            channel idx=11 magn_xyz shift=6 num_samples=1 value=502957400000ns, (0.365247, 0.056383, -0.387144)
-            channel idx=12 die_temp shift=6 num_samples=1 value=502957400000ns (32.748501)
+            channel type=0(accel_x) index=0 shift=5 num_samples=1 value=34735791872ns (10.188524)
+            channel type=1(accel_y) index=0 shift=5 num_samples=1 value=34735791872ns (0.204703)
+            channel type=2(accel_z) index=0 shift=5 num_samples=1 value=34735791872ns (0.141855)
+            channel type=3(accel_xyz) index=0 shift=5 num_samples=1 value=34735791872ns, (10.188524, 0.204703, 0.141855)
+            channel type=4(gyro_x) index=0 shift=5 num_samples=1 value=34735791872ns (-0.037571)
+            channel type=5(gyro_y) index=0 shift=5 num_samples=1 value=34735791872ns (0.014787)
+            channel type=6(gyro_z) index=0 shift=5 num_samples=1 value=34735791872ns (-0.018519)
+            channel type=7(gyro_xyz) index=0 shift=5 num_samples=1 value=34735791872ns, (-0.037571, 0.014787, -0.018519)
+            channel type=8(magn_x) index=0 shift=5 num_samples=1 value=34735791872ns (0.105359)
+            channel type=9(magn_y) index=0 shift=5 num_samples=1 value=34735791872ns (-0.200868)
+            channel type=10(magn_z) index=0 shift=5 num_samples=1 value=34735791872ns (-0.590904)
+            channel type=11(magn_xyz) index=0 shift=5 num_samples=1 value=34735791872ns, (0.105359, -0.200868, -0.590904)
+            channel type=12(die_temp) index=0 shift=5 num_samples=1 value=34735791872ns (30.826346)
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
             :bgn:`uart:~$` **sensor get mpu9250@68**
-            channel idx=3 accel_xyz shift=6 num_samples=1 value=504647300000ns, (2.652175, -1.733403, 9.788692)
-            channel idx=7 gyro_xyz shift=6 num_samples=1 value=504647300000ns, (-0.031442, 0.011856, -0.018652)
-            channel idx=11 magn_xyz shift=6 num_samples=1 value=504647300000ns, (0.372271, 0.052859, -0.414312)
-            channel idx=12 die_temp shift=6 num_samples=1 value=504647300000ns (32.745507)
+            channel type=0(accel_x) index=0 shift=5 num_samples=1 value=35111755672ns (10.176553)
+            channel type=1(accel_y) index=0 shift=5 num_samples=1 value=35111755672ns (0.204703)
+            channel type=2(accel_z) index=0 shift=5 num_samples=1 value=35111755672ns (0.154425)
+            channel type=3(accel_xyz) index=0 shift=5 num_samples=1 value=35111755672ns, (10.176553, 0.204703, 0.154425)
+            channel type=4(gyro_x) index=0 shift=5 num_samples=1 value=35111755672ns (-0.037970)
+            channel type=5(gyro_y) index=0 shift=5 num_samples=1 value=35111755672ns (0.014787)
+            channel type=6(gyro_z) index=0 shift=5 num_samples=1 value=35111755672ns (-0.017985)
+            channel type=7(gyro_xyz) index=0 shift=5 num_samples=1 value=35111755672ns, (-0.037970, 0.014787, -0.017985)
+            channel type=8(magn_x) index=0 shift=5 num_samples=1 value=35111755672ns (0.091311)
+            channel type=9(magn_y) index=0 shift=5 num_samples=1 value=35111755672ns (-0.197344)
+            channel type=10(magn_z) index=0 shift=5 num_samples=1 value=35111755672ns (-0.567132)
+            channel type=11(magn_xyz) index=0 shift=5 num_samples=1 value=35111755672ns, (0.091311, -0.197344, -0.567132)
+            channel type=12(die_temp) index=0 shift=5 num_samples=1 value=35111755672ns (30.835328)
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
             :bgn:`uart:~$` **sensor get mpu9250@68**
-            channel idx=3 accel_xyz shift=6 num_samples=1 value=506617500000ns, (2.653971, -1.736994, 9.803057)
-            channel idx=7 gyro_xyz shift=6 num_samples=1 value=506617500000ns, (-0.030376, 0.011989, -0.018652)
-            channel idx=11 magn_xyz shift=6 num_samples=1 value=506617500000ns, (0.377539, 0.065193, -0.405822)
-            channel idx=12 die_temp shift=6 num_samples=1 value=506617500000ns (32.748501)
+            channel type=0(accel_x) index=0 shift=5 num_samples=1 value=35472841576ns (10.176553)
+            channel type=1(accel_y) index=0 shift=5 num_samples=1 value=35472841576ns (0.198119)
+            channel type=2(accel_z) index=0 shift=5 num_samples=1 value=35472841576ns (0.148439)
+            channel type=3(accel_xyz) index=0 shift=5 num_samples=1 value=35472841576ns, (10.176553, 0.198119, 0.148439)
+            channel type=4(gyro_x) index=0 shift=5 num_samples=1 value=35472841576ns (-0.037970)
+            channel type=5(gyro_y) index=0 shift=5 num_samples=1 value=35472841576ns (0.014521)
+            channel type=6(gyro_z) index=0 shift=5 num_samples=1 value=35472841576ns (-0.017719)
+            channel type=7(gyro_xyz) index=0 shift=5 num_samples=1 value=35472841576ns, (-0.037970, 0.014521, -0.017719)
+            channel type=8(magn_x) index=0 shift=5 num_samples=1 value=35472841576ns (0.091311)
+            channel type=9(magn_y) index=0 shift=5 num_samples=1 value=35472841576ns (-0.200868)
+            channel type=10(magn_z) index=0 shift=5 num_samples=1 value=35472841576ns (-0.577320)
+            channel type=11(magn_xyz) index=0 shift=5 num_samples=1 value=35472841576ns, (0.091311, -0.200868, -0.577320)
+            channel type=12(die_temp) index=0 shift=5 num_samples=1 value=35472841576ns (30.832334)

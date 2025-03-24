@@ -177,4 +177,4 @@
          .. parsed-literal::
 
             :bgn:`uart:~$` **sensor get mpu9250@68**
-            :brd:`Device unknown (mpu9250@68)`
+            :brd:`Sensor device unknown (mpu9250@68)`
