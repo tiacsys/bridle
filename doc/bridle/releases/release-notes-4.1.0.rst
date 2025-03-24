@@ -13,6 +13,10 @@ Highlights
 
 * :brd:`NOT YET, tbd.`
 
+* Hardware tweaks on RP2040 based boards are no longer required, neither
+  directly at board level nor hidden in shields.
+* First evaluation against upstream boards with :zephyr:ref:`sysbuild` support.
+
 .. note:: See the changelog and readme files in the component repositories
    for a detailed description of changes.
 
@@ -188,7 +192,8 @@ Build Infrastructure
 :brd:`NOT YET, tbd.`
 
 * tbd.
-* tbd.
+* Add a warning that the Zephyr SDK version cannot (yet) be automatically
+  identified and safeguarded by Bridle when using a :zephyr:ref:`sysbuild`.
 * Remove ``xtools`` toolchain variant references. The ``xtools`` toolchain
   variant has been deprecated since Zephyr v3.3.0 and now removed.
 * Enable support for the TDK HAL in the West manifest. This HAL is needed by
@@ -201,10 +206,11 @@ Documentation
 
 1. tbd.
 2. tbd.
-3. Porting to new doxyrunner. The Sphinx extension ``doxyrunner`` now supports
+3. Support new hardware feature generator in Zephyr upstream documentation.
+4. Porting to new doxyrunner. The Sphinx extension ``doxyrunner`` now supports
    multiple Doxygen projects. Adapt it for the original upstream Zephyr API
    and our own Bridle downstream API documentation.
-4. Update all output messages in documentation to be in sync with the upcoming
+5. Update all output messages in documentation to be in sync with the upcoming
    Bridle version v4.1.0, based on Zephyr v4.1 (samples and tests).
 
 Issue Related Items
@@ -212,6 +218,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`298` - [FER] Remove all DTS tweaks on RP2040 based boards
 * :github:`297` - [HW] The PicoBoy Color Plus as additional board variant
 * :github:`296` - [HW] The PicoBoy Color as additional board variant
 * :github:`277` - [HW] Grove Dual and LED Button Module as Shield
