@@ -529,6 +529,98 @@ order. See also Zephyr sample: :zephyr:code-sample:`display`.
 
             .. include:: waveshare_pico_restouch_lcd_3_5/display_test.rsti
 
+Draw touch events on LCD
+========================
+
+Draw a small plus in the last touched coordinates. In this way, parameters such
+as inverted/swapped axes can be examined. See also Zephyr sample:
+:zephyr:code-sample:`draw_touch_events`.
+
+.. tabs::
+
+   .. group-tab:: PiMoroni (Pico …)
+
+      .. tabs::
+
+         .. group-tab:: LCD 1.44
+
+            .. hint::
+
+               The |PiMoroni Pico LCD 1.44| doesn't provide a touchscreen panel.
+               This sample is not applicable.
+
+         .. group-tab:: LCD 2
+
+            .. hint::
+
+               The |PiMoroni Pico LCD 2| doesn't provide a touchscreen panel.
+               This sample is not applicable.
+
+   .. group-tab:: Spotpear (Pico …)
+
+      .. tabs::
+
+         .. group-tab:: LCD 1.54
+
+            .. hint::
+
+               The |Spotpear Pico LCD 1.54| doesn't provide a touchscreen panel.
+               This sample is not applicable.
+
+   .. group-tab:: Waveshare (Pico …)
+
+      .. tabs::
+
+         .. group-tab:: LCD 0.96
+
+            .. hint::
+
+               The |Waveshare Pico LCD 0.96| doesn't provide a touchscreen panel.
+               This sample is not applicable.
+
+         .. group-tab:: LCD 1.14
+
+            .. hint::
+
+               The |Waveshare Pico LCD 1.14| doesn't provide a touchscreen panel.
+               This sample is not applicable.
+
+         .. group-tab:: LCD 1.3
+
+            .. hint::
+
+               The |Waveshare Pico LCD 1.3| doesn't provide a touchscreen panel.
+               This sample is not applicable.
+
+         .. group-tab:: LCD 1.44
+
+            .. hint::
+
+               The |Waveshare Pico LCD 1.44| doesn't provide a touchscreen panel.
+               This sample is not applicable.
+
+         .. group-tab:: LCD 1.8
+
+            .. hint::
+
+               The |Waveshare Pico LCD 1.8| doesn't provide a touchscreen panel.
+               This sample is not applicable.
+
+         .. group-tab:: LCD 2
+
+            .. hint::
+
+               The |Waveshare Pico LCD 2| doesn't provide a touchscreen panel.
+               This sample is not applicable.
+
+         .. group-tab:: ResTouch LCD 2.8
+
+            .. include:: waveshare_pico_restouch_lcd_2_8/touch_test.rsti
+
+         .. group-tab:: ResTouch LCD 3.5
+
+            .. include:: waveshare_pico_restouch_lcd_3_5/touch_test.rsti
+
 LVGL Basic Sample
 =================
 
