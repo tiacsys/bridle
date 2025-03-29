@@ -72,6 +72,8 @@
               DT node labels: pwm_leds
             - dietemp (READY)
               DT node labels: die_temp
+            - stk8ba58\ @\ 18 (READY)
+              DT node labels: stk8ba58
 
       .. container:: highlight highlight-console notranslate
 
@@ -519,6 +521,7 @@
 
             :bgn:`uart:~$` **sensor info**
             device name: dietemp, vendor: Raspberry Pi Foundation, model: pico-temp, friendly name: (null)
+            device name: stk8ba58\ @\ 18, vendor: Sensortek Technology Corporation, model: stk8ba58, friendly name: (null)
 
       .. rubric:: on-chip temperature sensor
 
@@ -528,3 +531,72 @@
 
             :bgn:`uart:~$` **sensor get dietemp**
             :bgn:`channel type=12(die_temp) index=0 shift=5 num_samples=1 value=14554473307ns (31.067401)`
+
+      .. rubric:: on-board 3-axis accelerometer
+
+      Default attributes for all three axis:
+
+      - **range**, :console:`full_scale`: 2g = 19.613300 |m/s2|
+      - **ODR**, :console:`sampling_frequency`: 250 |Hz|
+      - **sleep**, :console:`configuration`: 25 |ms| (low-power mode)
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor attr_get stk8ba58@18 accel_xyz full_scale**
+            :bgn:`stk8ba58@18(channel=accel_xyz, attr=full_scale) value=19.613300`
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor attr_get stk8ba58@18 accel_xyz sampling_frequency**
+            :bgn:`stk8ba58@18(channel=accel_xyz, attr=sampling_frequency) value=250.000000`
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor attr_get stk8ba58@18 accel_xyz configuration**
+            :bgn:`stk8ba58@18(channel=accel_xyz, attr=configuration) value=25.000000`
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor get stk8ba58@18**
+            :bgn:`channel type=0(accel_x) index=0 shift=4 num_samples=1 value=61368586658ns (-1.345472)`
+            :bgn:`channel type=1(accel_y) index=0 shift=4 num_samples=1 value=61368586658ns (3.651995)`
+            :bgn:`channel type=2(accel_z) index=0 shift=4 num_samples=1 value=61368586658ns (-9.812338)`
+            :bgn:`channel type=3(accel_xyz) index=0 shift=4 num_samples=1 value=61368586658ns, (-1.345472, 3.651995, -9.812338)`
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor trig stk8ba58@18 on data_ready**
+            :bgn:`Enabled trigger idx=1 data_ready on device stk8ba58@18`
+            [00:03:39.519,000] <inf> sensor_shell: sensor=stk8ba58, chan=accel_x, num_samples=138, data=-1.085779
+            [00:03:39.519,000] <inf> sensor_shell: sensor=stk8ba58, chan=accel_y, num_samples=138, data=4.899622
+            [00:03:39.519,000] <inf> sensor_shell: sensor=stk8ba58, chan=accel_z, num_samples=138, data=-9.081102
+            [00:03:44.566,000] <inf> sensor_shell: sensor=stk8ba58, chan=accel_x, num_samples=138, data=-1.096364
+            [00:03:44.566,000] <inf> sensor_shell: sensor=stk8ba58, chan=accel_y, num_samples=138, data=4.910068
+            [00:03:44.566,000] <inf> sensor_shell: sensor=stk8ba58, chan=accel_z, num_samples=138, data=-9.079361
+            [00:03:49.613,000] <inf> sensor_shell: sensor=stk8ba58, chan=accel_x, num_samples=138, data=-1.088982
+            [00:03:49.613,000] <inf> sensor_shell: sensor=stk8ba58, chan=accel_y, num_samples=138, data=4.913968
+            [00:03:49.613,000] <inf> sensor_shell: sensor=stk8ba58, chan=accel_z, num_samples=138, data=-9.078735
+            [00:03:54.661,000] <inf> sensor_shell: sensor=stk8ba58, chan=accel_x, num_samples=138, data=-1.087241
+            [00:03:54.661,000] <inf> sensor_shell: sensor=stk8ba58, chan=accel_y, num_samples=138, data=4.902616
+            [00:03:54.661,000] <inf> sensor_shell: sensor=stk8ba58, chan=accel_z, num_samples=138, data=-9.084933
+            [00:03:59.708,000] <inf> sensor_shell: sensor=stk8ba58, chan=accel_x, num_samples=138, data=-1.090932
+            [00:03:59.708,000] <inf> sensor_shell: sensor=stk8ba58, chan=accel_y, num_samples=138, data=4.900109
+            [00:03:59.709,000] <inf> sensor_shell: sensor=stk8ba58, chan=accel_z, num_samples=138, data=-9.085768
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor trig stk8ba58@18 off data_ready**
+            :bgn:`Disabled trigger idx=1 data_ready on device stk8ba58@18`
+            [00:05:48.412,000] :byl:`<wrn> STK8BA58: stk8ba58: no handler`
