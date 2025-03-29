@@ -951,6 +951,7 @@ WARN_LOGFILE           = "@DOXY_LOGOUT@/@DOXY_LOGWRN@"
 INPUT                  = "@PROJECT_DOXY@/mainpage.md" \
                          "@PROJECT_DOXY@/groups.dox" \
                          "@PROJECT_BASE@/include" \
+                         "@PROJECT_BASE@/drivers" \
                          "@PROJECT_BASE@/lib" \
                          "@PROJECT_BASE@/applications" \
                          "@PROJECT_BASE@/subsys" \
