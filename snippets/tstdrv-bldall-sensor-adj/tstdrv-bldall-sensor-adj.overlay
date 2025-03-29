@@ -10,6 +10,8 @@
  * (and be extended to test) real hardware.
  */
 
+#include <zephyr/dt-bindings/sensor/stk8ba58.h>
+
 / {
 	test: test {};
 };
@@ -76,6 +78,18 @@
 				compatible = "maxim,ds3231-sensor";
 				status = "okay";
 			};
+		};
+
+		test_i2c_stk8ba58: stk8ba58@2 {
+			compatible = "sensortek,stk8ba58";
+			status = "okay";
+			reg = <0x2>;
+
+			irq-gpios = <&test_gpio 0 0>;
+
+			power-mode = <STK8BA58_DT_LOW_POWER_4ms>;
+			odr = <STK8BA58_DT_ODR_125Hz>;
+			range = <4>;
 		};
 	};
 
