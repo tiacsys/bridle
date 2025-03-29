@@ -1269,17 +1269,20 @@
 
 .. _`FUET-4020 Datasheet`:
    http://www.tzfsdz.com/static/index/zm001/download/FUET-4020.pdf
+.. https://xonstorage.blob.core.windows.net/pdf/4152703_FST4020_link.pdf
 .. https://www.lcsc.com/datasheet/lcsc_datasheet_2410121831_FUET-FUET-4020_C391027.pdf
 
 .. _`KLJ-4020`:
    https://www.keliking.com/KLJ-4020-Magnetic-Buzzer-pd6886835.html
 
 .. _`KLJ-4020 Datasheet`:
-   https://datasheet.lcsc.com/lcsc/2005191833_KELIKING-KLJ-4020_C556936.pdf
+   https://xonstorage.blob.core.windows.net/pdf/keliking_klj4020_xonjuly20_12_link.pdf
+.. https://datasheet.lcsc.com/lcsc/2005191833_KELIKING-KLJ-4020_C556936.pdf
 
 .. _`TMB12A05`:
    https://www.jshnbuzzer.com/Product/5VDC-85dB-Mini-Pin-Buzzer.html
 .. https://www.jshnbuzzer.com/Product/5VDC-85dB-Mini-Active-Buzzer.html
+.. http://www.huawha.com/content/?93.html
 
 .. _`TMB12Axx Datasheet`:
    https://www.estudioelectronica.com/wp-content/uploads/2018/09/SHT-TMB12A05.pdf
@@ -1449,8 +1452,9 @@
 
 .. _`MT3608 Datasheet R1 (2011)`:
    https://supereyes.ru/img/instructions/MT3608_manual.pdf
-.. https://e2e.ti.com/cfs-file/__key/communityserver-discussions-components-files/196/4012002220_2D004753D358_IC_5B00_MT3608_2C00_SMD_2C00_SOT23_2D00_6L_2C00_AEROSEMI_5D00_.pdf
+.. https://datasheet4u.com/pdf-down/M/T/3/MT3608-AEROSEMI.pdf
 .. https://datasheetspdf.com/pdf-file/909246/AEROSEMI/MT3608/1
+.. https://e2e.ti.com/cfs-file/__key/communityserver-discussions-components-files/196/4012002220_2D004753D358_IC_5B00_MT3608_2C00_SMD_2C00_SOT23_2D00_6L_2C00_AEROSEMI_5D00_.pdf
 
 .. _`RT9013-33`:
    https://www.richtek.com/Products/Linear%20Regulator/Single%20Output%20Linear%20Regulator/RT9013
@@ -1823,7 +1827,8 @@
    https://www.sensortek.com.tw/index.php/en/products/mems-sensor
 
 .. _`STK8BA58 Datasheet`:
-   https://datasheet.lcsc.com/lcsc/2109101230_SENSORTEK-STK8BA58-LGA-12PIN_C2890989.pdf
+   https://datasheet4u.com/pdf-down/S/T/K/STK8BA58-Sensortek.pdf
+.. https://datasheet.lcsc.com/lcsc/2109101230_SENSORTEK-STK8BA58-LGA-12PIN_C2890989.pdf
 .. https://xonstorage.blob.core.windows.net/pdf/sensortek_stk8ba58lga12pin_apr22_xonlink.pdf
 .. https://picoboy.de/files/STK8BA58.pdf
 
