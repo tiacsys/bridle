@@ -1,0 +1,60 @@
+# Copyright (c) 2025 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+mainmenu "STK8BA58 3-axis accelerometer sample application"
+
+config APPLICATION_RANGE
+	int "Application range in m/s^2"
+	default 80
+	range 20 80
+	help
+	  Application range (multiply of g) that have to set in polling
+	  and trigger mode. Only following values are meaningfull:
+
+	  20 ~ 2g (19.61330 m/s^2)
+	  40 - 4g (39.22660 m/s^2)
+	  80 - 8g (78.45320 m/s^2)
+
+config APPLICATION_ODR
+	int "Application ODR in Hz"
+	default 15
+	range 0 2000
+	depends on STK8BA58_TRIGGER
+	help
+	  Application output data rate (ODR) that have to set
+	  in trigger mode. Only following values are meaningfull:
+
+	     0 - OFF (STK8BA58_DT_ODR_OFF)
+	    15 Hz (STK8BA58_DT_ODR_15Hz63)
+	    31 Hz (STK8BA58_DT_ODR_31Hz25)
+	    62 Hz (STK8BA58_DT_ODR_62Hz5)
+	   125 Hz (STK8BA58_DT_ODR_125Hz)
+	   250 Hz (STK8BA58_DT_ODR_250Hz)
+	   500 Hz (STK8BA58_DT_ODR_500Hz)
+	  1000 Hz (STK8BA58_DT_ODR_1000Hz)
+	  2000 Hz (STK8BA58_DT_ODR_2000Hz)
+
+config APPLICATION_LPSLEEP
+	int "Application low-power sleep in us"
+	default 1000000
+	range 0 1000000
+	depends on STK8BA58_TRIGGER
+	help
+	  Application low-power sleep duration that have to set
+	  in trigger mode. Only following values are meaningfull:
+
+	        0 - OFF (STK8BA58_DT_POWER_NORMAL)
+	      500 us (STK8BA58_DT_LOW_POWER_0ms5)
+	     1000 us (STK8BA58_DT_LOW_POWER_1ms)
+	     2000 us (STK8BA58_DT_LOW_POWER_2ms)
+	     4000 us (STK8BA58_DT_LOW_POWER_4ms)
+	     6000 us (STK8BA58_DT_LOW_POWER_6ms)
+	    10000 us (STK8BA58_DT_LOW_POWER_10ms)
+	    25000 us (STK8BA58_DT_LOW_POWER_25ms)
+	    50000 us (STK8BA58_DT_LOW_POWER_50ms)
+	   100000 us (STK8BA58_DT_LOW_POWER_100ms)
+	   500000 us (STK8BA58_DT_LOW_POWER_500ms)
+	  1000000 us (STK8BA58_DT_LOW_POWER_1000ms)
+
+# Sources Kconfig.zephyr in the Zephyr root directory.
+source "Kconfig.zephyr"
