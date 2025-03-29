@@ -13,6 +13,7 @@ Highlights
 
 * :brd:`NOT YET, tbd.`
 
+* Final board support for the PicoBoy board family.
 * Hardware tweaks on RP2040 based boards are no longer required, neither
   directly at board level nor hidden in shields.
 * First evaluation against upstream boards with :zephyr:ref:`sysbuild` support.
@@ -211,7 +212,9 @@ Documentation
 4. Porting to new doxyrunner. The Sphinx extension ``doxyrunner`` now supports
    multiple Doxygen projects. Adapt it for the original upstream Zephyr API
    and our own Bridle downstream API documentation.
-5. Update all output messages in documentation to be in sync with the upcoming
+5. Both Doxygen (standalone) and the DoxyRunner within Sphinx (extension)
+   extracts **API documentation also from** the ``drivers`` folder.
+6. Update all output messages in documentation to be in sync with the upcoming
    Bridle version v4.1.0, based on Zephyr v4.1 (samples and tests).
 
 Issue Related Items
@@ -219,6 +222,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`310` - [HW] STK8BA58 accelerometer
 * :github:`298` - [FER] Remove all DTS tweaks on RP2040 based boards
 * :github:`297` - [HW] The PicoBoy Color Plus as additional board variant
 * :github:`296` - [HW] The PicoBoy Color as additional board variant
