@@ -1,0 +1,104 @@
+# Copyright (c) 2025 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+    Sensortek Technology STK8BA58 3-axis accelerometer
+
+    When setting the odr and power-mode properties in a .dts or .dtsi file
+    you may include stk8ba58.h and use the macros defined there.
+
+    Example:
+    #include <zephyr/dt-bindings/sensor/stk8ba58.h>
+
+    stk8ba58: stk8ba58@18 {
+      ...
+
+      power-mode = <STK8BA58_DT_LOW_POWER_25ms>;
+      odr = <STK8BA58_DT_ODR_250Hz>;
+    };
+
+compatible: "sensortek,stk8ba58"
+
+include: [sensor-device.yaml, i2c-device.yaml]
+
+properties:
+  irq-gpios:
+    type: phandle-array
+    description: |
+      INT1 pin
+
+      This pin defaults to active high when produced by the sensor.
+      The property value should ensure the flags properly describe
+      the signal that is presented to the driver.
+
+  range:
+    type: int
+    default: 2
+    description: |
+      Range in g. Default is power-up configuration, 2g (0.98 mg/LSB).
+
+      - 8 # 8g (3.91 mg/LSB)
+      - 4 # 4g (1.95 mg/LSB)
+      - 2 # 2g (0.98 mg/LSB)
+
+    enum: [8, 4, 2]
+
+  power-mode:
+    type: int
+    default: 0
+    description: |
+      Specify the sensor power mode, the sleep duration.
+      Default is power-normal mode.
+
+      - 0 # STK8BA58_DT_POWER_NORMAL
+      - 1 # STK8BA58_DT_LOW_POWER_0ms5
+      - 2 # STK8BA58_DT_LOW_POWER_1ms
+      - 3 # STK8BA58_DT_LOW_POWER_2ms
+      - 4 # STK8BA58_DT_LOW_POWER_4ms
+      - 5 # STK8BA58_DT_LOW_POWER_6ms
+      - 6 # STK8BA58_DT_LOW_POWER_10ms
+      - 7 # STK8BA58_DT_LOW_POWER_25ms
+      - 8 # STK8BA58_DT_LOW_POWER_50ms
+      - 9 # STK8BA58_DT_LOW_POWER_100ms
+      - 10 # STK8BA58_DT_LOW_POWER_500ms
+      - 11 # STK8BA58_DT_LOW_POWER_1000ms
+
+    enum: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+
+  odr:
+    type: int
+    default: 8
+    description: |
+      Specify the default output data rate expressed in samples
+      per second (Hz). It is twice of the bandwidth (filtered).
+      Off means unfiltered with maximum sample rate of 2000 Hz.
+      Default is power-up configuration, filtered 2000 Hz.
+
+      - 0 # STK8BA58_DT_ODR_OFF
+      - 1 # STK8BA58_DT_ODR_15Hz63
+      - 2 # STK8BA58_DT_ODR_31Hz25
+      - 3 # STK8BA58_DT_ODR_62Hz5
+      - 4 # STK8BA58_DT_ODR_125Hz
+      - 5 # STK8BA58_DT_ODR_250Hz
+      - 6 # STK8BA58_DT_ODR_500Hz
+      - 7 # STK8BA58_DT_ODR_1000Hz
+      - 8 # STK8BA58_DT_ODR_2000Hz
+
+      NOTE: In low-power mode with sleep durations the ODR becomes
+      non-linear. Here is an example for bandwidth of 1000 Hz.
+
+      Duration  Actually ODR
+      ========  ============
+        0.5 ms      295 Hz
+          1 ms      255 Hz
+          2 ms      202 Hz
+          4 ms      140 Hz
+          6 ms      110 Hz
+         10 ms       75 Hz
+         25 ms       34 Hz
+         50 ms       18 Hz
+        100 ms       10 Hz
+        500 ms        2 Hz
+       1000 ms        1 Hz
+
+    enum: [0, 1, 2, 3, 4, 5, 6, 7, 8]
