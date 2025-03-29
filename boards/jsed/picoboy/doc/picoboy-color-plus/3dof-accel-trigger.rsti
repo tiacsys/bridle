@@ -1,0 +1,23 @@
+Invoke :program:`west build` and :program:`west flash`:
+
+.. zephyr-app-commands::
+   :app: zephyr/samples/sensor/accel_trig
+   :board: picoboy_color_plus/rp2350a/m33
+   :build-dir: picoboy
+   :west-args: -p
+   :goals: flash
+   :compact:
+
+.. rubric:: Simple test execution on target
+
+.. container:: highlight highlight-console notranslate
+
+   .. parsed-literal::
+
+      \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+           stk8ba58\ @\ 18 [m/s^2]:    (   -1.777945,     4.238238,    -9.427917)
+           stk8ba58\ @\ 18 [m/s^2]:    (   -1.739503,     4.151743,    -9.562465)
+           stk8ba58\ @\ 18 [m/s^2]:    (   -1.816387,     4.170964,    -9.514412)
+           stk8ba58\ @\ 18 [m/s^2]:    (   -1.845219,     4.276680,    -9.427917)
+           stk8ba58\ @\ 18 [m/s^2]:    (   -1.864440,     4.084469,    -9.370254)

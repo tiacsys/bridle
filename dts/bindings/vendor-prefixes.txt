@@ -21,6 +21,7 @@ jsed	Jan Schulz Elektronik & Didaktik
 nxp	NXP Semiconductors N.V.
 raspberrypi	Raspberry Pi Foundation
 seeed	Seeed Technology Co., Ltd
+sensortek	Sensortek Technology Corporation
 sparkfun	SparkFun Electronics, Inc.
 st	STMicroelectronics N.V.
 tiac	TiaC Systems
