@@ -1,0 +1,21 @@
+# Copyright (c) 2025 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+sample:
+  description: STK8BA58 3-Axis Accelerometer Sample
+  name: stk8ba58 3axis accelerometer
+common:
+  tags:
+    - bridle
+    - sensors
+    - stk8ba58
+  depends_on:
+    - i2c
+    - gpio
+  filter: dt_compat_enabled("sensortek,stk8ba58")
+  sysbuild: false
+tests:
+  bridle.sample.stk8ba58:
+    integration_platforms:
+      - picoboy/rp2040
+      - picoboy_color_plus/rp2350a/m33

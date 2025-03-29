@@ -68,6 +68,17 @@ for their originally intended integration platforms (checks only
 
    .. group-tab:: PQRS
 
+      .. rubric:: Check :ref:`stk8ba58_3_axis_accelerometer-sample` sample:
+
+      .. code-block:: console
+
+         $ west twister \
+                --jobs 4 \
+                --verbose \
+                --inline-logs \
+                --integration \
+                --testsuite-root bridle/samples/stk8ba58
+
    .. group-tab:: TUV
 
       .. rubric:: Check :ref:`ubx_gnss-sample` sample:
