@@ -4,3 +4,8 @@
  */
 
 #include "pb-sensors.dtsi"
+
+&stk8ba58 {
+	/* GP22 as INT1 from STK8BA58 accelerometer sensor. */
+	irq-gpios = <&gpio0 22 GPIO_ACTIVE_HIGH>;
+};

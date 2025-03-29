@@ -70,6 +70,8 @@
               DT node labels: pwm_leds
             - dietemp (READY)
               DT node labels: die_temp
+            - stk8ba58\ @\ 18 (READY)
+              DT node labels: stk8ba58
 
       .. container:: highlight highlight-console notranslate
 
@@ -495,6 +497,7 @@
 
             :bgn:`uart:~$` **sensor info**
             device name: dietemp, vendor: Raspberry Pi Foundation, model: pico-temp, friendly name: (null)
+            device name: stk8ba58\ @\ 18, vendor: Sensortek Technology Corporation, model: stk8ba58, friendly name: (null)
 
       .. rubric:: on-chip temperature sensor
 
@@ -504,3 +507,42 @@
 
             :bgn:`uart:~$` **sensor get dietemp**
             :bgn:`channel type=12(die_temp) index=0 shift=5 num_samples=1 value=96691043776ns (29.905286)`
+
+      .. rubric:: on-board 3-axis accelerometer
+
+      Default attributes for all three axis:
+
+      - **range**, :console:`full_scale`: 2g = 19.613300 |m/s2|
+      - **ODR**, :console:`sampling_frequency`: 250 |Hz|
+      - **sleep**, :console:`configuration`: 25 |ms| (low-power mode)
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor attr_get stk8ba58@18 accel_xyz full_scale**
+            :bgn:`stk8ba58@18(channel=accel_xyz, attr=full_scale) value=19.613300`
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor attr_get stk8ba58@18 accel_xyz sampling_frequency**
+            :bgn:`stk8ba58@18(channel=accel_xyz, attr=sampling_frequency) value=250.000000`
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor attr_get stk8ba58@18 accel_xyz configuration**
+            :bgn:`stk8ba58@18(channel=accel_xyz, attr=configuration) value=25.000000`
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor get stk8ba58@18**
+            :bgn:`channel type=0(accel_x) index=0 shift=4 num_samples=1 value=35274098880ns (5.756698)`
+            :bgn:`channel type=1(accel_y) index=0 shift=4 num_samples=1 value=35274098880ns (-1.729892)`
+            :bgn:`channel type=2(accel_z) index=0 shift=4 num_samples=1 value=35274098880ns (-8.774402)`
+            :bgn:`channel type=3(accel_xyz) index=0 shift=4 num_samples=1 value=35274098880ns, (5.756698, -1.729892, -8.774402)`

@@ -566,6 +566,105 @@ Hello Shell on USB-CDC/ACM Console
 More Samples
 ************
 
+3-Axis accelerometer data on USB-CDC/ACM Console
+================================================
+
+The samples are prepared for the on-board :hwftlbl-cps:`3-DOF` accelerometer
+connected to the I2C0 bus on the |PicoBoy| and |PicoBoy Color Plus|.
+
+.. literalinclude:: ../pb-sensors.dtsi
+   :caption: pb-sensors.dtsi
+   :language: DTS
+   :encoding: ISO-8859-1
+   :emphasize-lines: 3,11
+   :linenos:
+   :start-at: / {
+   :end-before: &uart1 {
+
+.. literalinclude:: ../pbcp-sensors.dtsi
+   :caption: pb-sensors.dtsi
+   :language: DTS
+   :encoding: ISO-8859-1
+   :emphasize-lines: 3,5
+   :linenos:
+   :start-at: #include "pb-sensors.dtsi"
+   :end-at: };
+
+Chip-specific
+-------------
+
+Get 3-axis accelerometer data from an STK8BA58 sensor (polling & trigger mode)
+using the :zephyr:ref:`Sensors API <sensor>`. See also Bridle sample
+:ref:`stk8ba58_3_axis_accelerometer-sample`.
+
+.. tabs::
+
+   .. group-tab:: PicoBoy Color Plus
+
+      See section :ref:`stk8ba58-sample-pbcp` in the Bridle sample documentation.
+
+   .. group-tab:: PicoBoy Color
+
+      .. hint::
+
+         The |PicoBoy Color| doesn't provide a on-board 3-Axis accelerometer.
+         This sample is not applicable.
+
+   .. group-tab:: PicoBoy
+
+      See section :ref:`stk8ba58-sample-picoboy` in the Bridle sample documentation.
+
+Polling Mode
+------------
+
+Get 3-axis accelerometer data from the on-board sensor (polling mode) using
+the :zephyr:ref:`Sensors API <sensor>`. See also Zephyr sample
+:zephyr:code-sample:`accel_polling`.
+
+.. tabs::
+
+   .. group-tab:: PicoBoy Color Plus
+
+      .. include:: picoboy-color-plus/3dof-accel-polling.rsti
+
+   .. group-tab:: PicoBoy Color
+
+      .. hint::
+
+         The |PicoBoy Color| doesn't provide a on-board 3-Axis accelerometer.
+         This sample is not applicable.
+
+   .. group-tab:: PicoBoy
+
+      .. include:: picoboy/3dof-accel-polling.rsti
+
+Trigger Mode
+------------
+
+Get 3-axis accelerometer data from the on-board sensor (trigger mode) using
+the :zephyr:ref:`Sensors API <sensor>`. See also Zephyr sample
+:zephyr:code-sample:`accel_trig`.
+
+.. tabs::
+
+   .. group-tab:: PicoBoy Color Plus
+
+      .. include:: picoboy-color-plus/3dof-accel-trigger.rsti
+
+   .. group-tab:: PicoBoy Color
+
+      .. hint::
+
+         The |PicoBoy Color| doesn't provide a on-board 3-Axis accelerometer.
+         This sample is not applicable.
+
+   .. group-tab:: PicoBoy
+
+      .. hint::
+
+         The |PicoBoy| doesn't provide the interrupt line to the on-board
+         3-Axis accelerometer. This sample is not applicable.
+
 Sounds from the speaker on USB-CDC/ACM Console
 ==============================================
 

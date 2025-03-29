@@ -3,9 +3,28 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+#include <zephyr/dt-bindings/sensor/stk8ba58.h>
+
+/ {
+	aliases {
+		accel0 = &stk8ba58;
+	};
+};
+
 &i2c0 {
 	status = "okay";	/* default sensor/io */
-	/* Accelerometer with STK8BA58 3D acceleration sensor. */
+
+	/* Accelerometer with STK8BA58 sensor. */
+	stk8ba58: stk8ba58@18 {
+		compatible = "sensortek,stk8ba58";
+		status = "okay";
+
+		reg = <0x18>;
+
+		power-mode = <STK8BA58_DT_LOW_POWER_25ms>;
+		odr = <STK8BA58_DT_ODR_250Hz>;
+		range = <2>;
+	};
 };
 
 &uart1 {
