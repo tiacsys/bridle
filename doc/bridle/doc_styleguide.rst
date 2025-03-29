@@ -679,6 +679,12 @@ The following table shows just a few examples.
      - U+033A3 |...| U+033A6
      - square milli, centi, deci, kilo meter cubed
 
+   * - :rst:`|m/s|/|m/s2|`
+     - |m2|/|m/s2|
+     - U+033A7 |...| U+033A8
+     - square meter over second / second squared for
+       velocity and acceleration
+
    * - :rst:`|ul|/|ml|/|dl|`
      - |ul|/|ml|/|dl|
      - U+03395 |...| U+03397

@@ -253,6 +253,13 @@
 .. |_km3_| unicode:: U+033A6 .. square kilo meter cubed
    :trim:
 
+.. |m/s| replace:: :raw-latex:`{` |_m/s_| :raw-latex:`}`
+.. |_m/s_| unicode:: U+033A7 .. square meter over second
+   :trim:
+.. |m/s2| replace:: :raw-latex:`{` |_m/s2_| :raw-latex:`}`
+.. |_m/s2_| unicode:: U+033A8 .. square meter over second squared
+   :trim:
+
 .. |ps| replace:: :raw-latex:`{` |_ps_| :raw-latex:`}`
 .. |_ps_| unicode:: U+033B0 .. pico second
    :trim:
