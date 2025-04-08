@@ -60,6 +60,7 @@
             pythonEnv = callPackage ./python.nix { python-deps = inputs.python-deps.packages.${system}; };
             west2nixHook = west2nix.mkWest2nixHook { manifest = ./west2nix.toml; };
             bridleHook = callPackage ./hook.nix { };
+            inherit west2nix;
           }
         );
 
@@ -72,6 +73,12 @@
         devShells.default = callPackage ./shell.nix { };
 
         packages.doc = callPackage ./doc.nix { };
+
+        packages.helloshell = callPackage ./build.nix {
+          app-path = "samples/helloshell";
+          board = "native_sim";
+          target = "x86_64-zephyr-elf";
+        };
       }
     ));
 }
