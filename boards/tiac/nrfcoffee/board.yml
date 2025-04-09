@@ -1,0 +1,6 @@
+board:
+  name: tiac_nrfcoffee
+  full_name: TiaC Systems nRFCoffee
+  vendor: tiac
+  socs:
+  - name: nrf52840
