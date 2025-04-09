@@ -1,0 +1,23 @@
+identifier: tiac_coffeecaller/nrf52840
+name: coffeecaller
+type: mcu
+arch: arm
+ram: 256
+flash: 1024
+toolchain:
+  - zephyr
+  - gnuarmemb
+supported:
+  - adc
+  - ble
+  - counter
+  - gpio
+  - i2c
+  - i2s
+  - pwm
+  - spi
+  - usb_device
+  - usbd
+  - watchdog
+  - netif:openthread
+vendor: nordic

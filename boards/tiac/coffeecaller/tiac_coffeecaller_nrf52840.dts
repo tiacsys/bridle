@@ -1,0 +1,179 @@
+/*
+ * Copyright (c) 2025 TiaC Systems
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/dts-v1/;
+#include <nordic/nrf52840_qiaa.dtsi>
+#include <nordic/nrf52840_partition_uf2_sdv7.dtsi>
+#include "nrf52840-pinctrl.dtsi"
+#include <zephyr/dt-bindings/input/input-event-codes.h>
+#include <zephyr/dt-bindings/led/led.h>
+
+/ {
+	model = "TiaC Systems CoffeeCaller";
+	compatible = "nordic,nrf52840";
+
+	chosen {
+		zephyr,console = &cdc_acm_uart0;
+		zephyr,shell-uart = &cdc_acm_uart0;
+		zephyr,uart-mcumgr = &cdc_acm_uart0;
+		zephyr,bt-mon-uart = &cdc_acm_uart0;
+		zephyr,bt-c2h-uart = &cdc_acm_uart0;
+		zephyr,ieee802154 = &ieee802154;
+	};
+
+	pwmleds {
+		compatible = "pwm-leds";
+		pwm_led0: pwm_led_0 {
+			pwms = <&pwm0 0 PWM_HZ(440) PWM_POLARITY_NORMAL>;
+		};
+	};
+
+	servo: servo {
+		compatible = "pwm-servo";
+		pwms = <&pwm1 1 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+		min-pulse = <PWM_USEC(700)>;
+		max-pulse = <PWM_USEC(2500)>;
+	};
+
+	buttons {
+		compatible = "gpio-keys";
+		button0: button_0 {
+			gpios = <&gpio0 4 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+			label = "Push button switch 0";
+			zephyr,code = <INPUT_KEY_0>;
+		};
+		button1: button_1 {
+			gpios = <&gpio0 31 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+			label = "Push button switch 1";
+			zephyr,code = <INPUT_KEY_1>;
+		};
+		button2: button_2 {
+			gpios = <&gpio0 29 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+			label = "Push button switch 2";
+			zephyr,code = <INPUT_KEY_2>;
+		};
+		button3: button_3 {
+			gpios = <&gpio0 2 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+			label = "Push button switch 3";
+			zephyr,code = <INPUT_KEY_3>;
+		};
+		button4: button_4 {
+			gpios = <&gpio1 15 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+			label = "Push button switch 4";
+			zephyr,code = <INPUT_KEY_4>;
+		};
+	};
+
+	leds {
+		compatible = "gpio-leds";
+		ld1: ld1 {
+			gpios = <&gpio1 6 GPIO_ACTIVE_LOW>;
+			label = "White LD1";
+		};
+		ld2: ld2 {
+			gpios = <&gpio1 7 GPIO_ACTIVE_LOW>;
+			label = "White LD2";
+		};
+		ld3: ld3 {
+			gpios = <&gpio1 2 GPIO_ACTIVE_LOW>;
+			label = "White LD3";
+		};
+		ld4: ld4 {
+			gpios = <&gpio1 4 GPIO_ACTIVE_LOW>;
+			label = "White LD4";
+		};
+	};
+
+	led_strip: ws2812 {
+		compatible = "worldsemi,ws2812-gpio";
+		chain-length = <4>;
+		color-mapping = <LED_COLOR_ID_GREEN
+				LED_COLOR_ID_RED
+				LED_COLOR_ID_BLUE>;
+		gpios = <&gpio0 26 0>;
+	};
+
+	aliases {
+	pwm-led0 = &pwm_led0;
+	buzzer0 = &pwm_led0;
+	sw0 = &button0;
+	sw1 = &button1;
+	sw2 = &button2;
+	sw3 = &button3;
+	sw4 = &button4;
+	mcuboot-button0 = &button0;
+	watchdog0 = &wdt0;
+	led-strip = &led_strip;
+	led0 = &ld1;
+	led1 = &ld2;
+	led2 = &ld3;
+	led3 = &ld4;
+	};
+};
+
+&reg0 {
+	status = "okay";
+};
+
+&reg1 {
+	regulator-initial-mode = <NRF5X_REG_MODE_LDO>;
+};
+
+&adc {
+	status = "disabled";
+};
+
+&gpiote {
+	status = "okay";
+};
+
+&gpio0 {
+	status = "okay";
+};
+
+&gpio1 {
+	status = "okay";
+};
+
+&pwm0 {
+	status = "okay";
+	pinctrl-0 = <&pwm0_default>;
+	pinctrl-1 = <&pwm0_sleep>;
+	pinctrl-names = "default", "sleep";
+};
+
+&pwm1 {
+	status = "okay";
+	pinctrl-0 = <&pwm1_default>;
+	pinctrl-1 = <&pwm1_sleep>;
+	pinctrl-names = "default", "sleep";
+};
+
+&i2c0 {
+	compatible = "nordic,nrf-twi";
+	status = "okay";
+	pinctrl-0 = <&i2c0_default>;
+	pinctrl-1 = <&i2c0_sleep>;
+	pinctrl-names = "default", "sleep";
+	clock-frequency = <100000>;
+	sht4x: sht4x@46 {
+		compatible = "sensirion,sht4x";
+		reg = <0x46>;
+		repeatability = <2>;
+	};
+};
+
+&ieee802154 {
+	status = "okay";
+};
+
+zephyr_udc0: &usbd {
+	compatible = "nordic,nrf-usbd";
+	status = "okay";
+	cdc_acm_uart0: cdc_acm_uart0 {
+		compatible = "zephyr,cdc-acm-uart";
+	};
+};
