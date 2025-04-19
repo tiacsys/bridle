@@ -1,7 +1,7 @@
 .. _bridle_release_notes_410:
 
-|BRIDLE| 4.1.0 Release Notes (Working draft)
-############################################
+|BRIDLE| 4.1.0 Release Notes
+############################
 
 This project demonstrate the integration of |TIAC| support in open
 source projects, like the Zephyr RTOS, with libraries and source code
@@ -10,8 +10,6 @@ product development.
 
 Highlights
 **********
-
-* :brd:`NOT YET, tbd.`
 
 * Final board support for the PicoBoy board family.
 * Hardware tweaks on RP2040 based boards are no longer required, neither
@@ -104,8 +102,6 @@ For more details, see: :ref:`repos_and_revs`.
 Supported boards
 ****************
 
-:brd:`NOT YET, tbd.`
-
 * Arduino/Genuino Zero
 * PicoBoy Mini-Handheld
 * PicoBoy Color (PBC) Mini-Handheld
@@ -132,8 +128,6 @@ Supported boards
 Supported shields
 *****************
 
-:brd:`NOT YET, tbd.`
-
 * Seeed Studio Grove Interconnect Shields
 * Grove Button Shields
 * Grove LED Shields
@@ -152,8 +146,6 @@ Supported shields
 Supported snippets
 ******************
 
-:brd:`NOT YET, tbd.`
-
 * USB Console Snippet (usb-console)
 * PWM Servomotor Preset Snippet (pwm-servo)
 * Delete Default Devicetree Aliases Snippet (del-default-aliases)
@@ -171,8 +163,6 @@ Supported snippets
 Change log
 **********
 
-:brd:`NOT YET, tbd.`
-
 * Remove our own Maxim DS3231 RTC and temperature sensor driver, use the new
   Zephyr upstream driver instead.
 * Support new revision C of NXP MIMXRT1060-EVK.
@@ -180,20 +170,11 @@ Change log
 
 The following sections provide detailed lists of changes by component.
 
-:brd:`NOT YET, tbd.`
-
-* tbd.
-* tbd.
-* tbd.
-
 * PROJECT UPDATE to `Zephyr Project`_ v4.1.0
 
 Build Infrastructure
 ====================
 
-:brd:`NOT YET, tbd.`
-
-* tbd.
 * Add a warning that the Zephyr SDK version cannot (yet) be automatically
   identified and safeguarded by Bridle when using a :zephyr:ref:`sysbuild`.
 * Remove ``xtools`` toolchain variant references. The ``xtools`` toolchain
@@ -204,17 +185,13 @@ Build Infrastructure
 Documentation
 =============
 
-:brd:`NOT YET, tbd.`
-
-1. tbd.
-2. tbd.
-3. Support new hardware feature generator in Zephyr upstream documentation.
-4. Porting to new doxyrunner. The Sphinx extension ``doxyrunner`` now supports
+1. Support new hardware feature generator in Zephyr upstream documentation.
+2. Porting to new doxyrunner. The Sphinx extension ``doxyrunner`` now supports
    multiple Doxygen projects. Adapt it for the original upstream Zephyr API
    and our own Bridle downstream API documentation.
-5. Both Doxygen (standalone) and the DoxyRunner within Sphinx (extension)
+3. Both Doxygen (standalone) and the DoxyRunner within Sphinx (extension)
    extracts **API documentation also from** the ``drivers`` folder.
-6. Update all output messages in documentation to be in sync with the upcoming
+4. Update all output messages in documentation to be in sync with the upcoming
    Bridle version v4.1.0, based on Zephyr v4.1 (samples and tests).
 
 Issue Related Items
@@ -226,6 +203,7 @@ These GitHub issues were addressed since project bootstrapping:
 * :github:`298` - [FER] Remove all DTS tweaks on RP2040 based boards
 * :github:`297` - [HW] The PicoBoy Color Plus as additional board variant
 * :github:`296` - [HW] The PicoBoy Color as additional board variant
+* :github:`292` - [FCR] Bump to Zephyr v4.1
 * :github:`287` - [FER] Add touch controller to the ``/chosen`` node
 * :github:`277` - [HW] Grove Dual and LED Button Module as Shield
 * :github:`275` - [BUG] Lost Bridle's document version selector
