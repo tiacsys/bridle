@@ -397,8 +397,8 @@ static int uart_sc16is75x_set_rs485_flow_ctrl(const struct device *dev, bool ena
 {
 	const struct uart_sc16is75x_config *const config = dev->config;
 
-	/* EFCR[0] controls RS-485 (9-bit) mode */
-	return SETBIT_SC16IS75X_CHREG(config->bus, config->channel, EFCR, SC16IS75X_BIT_EFCR_RS485,
+	/* EFCR[4] enables RTS control by the transmitter */
+	return SETBIT_SC16IS75X_CHREG(config->bus, config->channel, EFCR, SC16IS75X_BIT_EFCR_RTSCON,
 				      enable);
 }
 
@@ -555,6 +555,8 @@ static int uart_sc16is75x_configure(const struct device *dev, const struct uart_
 		ret = -EINVAL;
 		goto end;
 	}
+
+	data->uart_config.flow_ctrl = cfg->flow_ctrl;
 
 end:
 	k_mutex_unlock(&data->transaction_lock);
