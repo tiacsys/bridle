@@ -762,12 +762,10 @@
    :external+zephyr:zephyr:board:`qemu_xtensa`
 
 .. |zephyr:board:arduino_zero| replace::
-   :external+zephyr:ref:`arduino_zero`
-.. :external+zephyr:zephyr:board:`arduino_zero`
+   :external+zephyr:zephyr:board:`arduino_zero`
 
 .. |Arduino Zero (CDC ACM)| replace::
-   :external+zephyr:ref:`Arduino Zero (CDC ACM) <arduino_zero>`
-.. :external+zephyr:zephyr:board:`Arduino Zero (CDC ACM) <arduino_zero>`
+   :external+zephyr:zephyr:board:`Arduino Zero (CDC ACM) <arduino_zero>`
 
 .. |arduino_zero_URB_VID|	replace:: |arduino_URB_VID|
 .. |arduino_zero_VID|		replace:: |arduino_VID|
@@ -829,24 +827,21 @@
 .. |mimxrt1170_evk_BCD_CON|	replace:: |zephyr_version_BCD|
 
 .. |zephyr:board:nrf52840dk_nrf52811| replace::
-   :external+zephyr:ref:`nrf52840dk_nrf52811`
-.. :external+zephyr:zephyr:board:`nrf52840dk_nrf52811`
+   :external+zephyr:zephyr:board:`nrf52840dk`
 
 .. |zephyr:board:nrf52840dk_nrf52840| replace::
-   :external+zephyr:ref:`nrf52840dk_nrf52840`
-.. :external+zephyr:zephyr:board:`nrf52840dk_nrf52840`
+   :external+zephyr:zephyr:board:`nrf52840dk`
 
 .. |zephyr:board:nrf52840dongle_nrf52840| replace::
-   :external+zephyr:ref:`nrf52840dongle_nrf52840`
-.. :external+zephyr:zephyr:board:`nrf52840dongle_nrf52840`
+   :external+zephyr:zephyr:board:`nrf52840dongle`
 
 .. |zephyr:board:nrf9160dk_nrf52840| replace::
    :external+zephyr:ref:`nrf9160dk_nrf52840`
-.. :external+zephyr:zephyr:board:`nrf9160dk_nrf52840`
+.. :external+zephyr:zephyr:board:`nrf9160dk`
 
 .. |zephyr:board:nrf9160dk_nrf9160| replace::
    :external+zephyr:ref:`nrf9160dk_nrf9160`
-.. :external+zephyr:zephyr:board:`nrf9160dk_nrf9160`
+.. :external+zephyr:zephyr:board:`nrf9160dk`
 
 .. |zephyr:board:rpi_pico| replace::
    :external+zephyr:zephyr:board:`rpi_pico`
