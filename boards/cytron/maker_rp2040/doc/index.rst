@@ -238,7 +238,7 @@ Following mappings are well known:
 
    .. group-tab:: Maker Nano RP2040
 
-      In addition to the |Arduino Nano R3| header, there are also
+      In addition to the |Arduino Nano| header, there are also
       2 |Grove connectors| (Qwiic/STEMMA QT).
 
       .. tabs::
@@ -326,7 +326,7 @@ ADC/TS Ports
 
 The `RP2040 <RP2040 SoC_>`_ MCU has 1 ADC with 4 channels and an additional
 fifth channel for the on-chip temperature sensor (TS). The ADC channels 0-3
-are available on the |Arduino Nano R3| header, channel 0-1 also on one of the
+are available on the |Arduino Nano| header, channel 0-1 also on one of the
 two Qwiic / STEMMA QT compatiple connectors on |Maker Nano RP2040|, but this
 is not the default pin operation. On |Maker Pi RP2040| only the ADC channel
 0-2 are available on three of the four Grove compatiple connectors, ADC
@@ -340,7 +340,7 @@ SPI Port
 
 The `RP2040 <RP2040 SoC_>`_ MCU has 2 SPIs. The serial bus SPI0 is connect to
 external devices over GP19 (MOSI), GP16 (MISO), GP18 (SCK), and GP17 (CSn)
-on the |Arduino Nano R3| header of |Maker Nano RP2040| or over GP3 (MOSI),
+on the |Arduino Nano| header of |Maker Nano RP2040| or over GP3 (MOSI),
 GP4 (MISO), GP2 (SCK), and GP5 (CSn) by two Grove compatiple connectors on
 the |Maker Pi RP2040|. SPI1 is not available in any default setup.
 
@@ -349,7 +349,7 @@ I2C Port
 
 The `RP2040 <RP2040 SoC_>`_ MCU has 2 I2Cs. The serial bus I2C0 and I2C1 are
 connect to external devices over GP12 (I2C0_SDA), GP13 (I2C0_SCL),
-GP26 (I2C1_SDA), and GP27 (I2C1_SCL) on the |Arduino Nano R3| header of
+GP26 (I2C1_SDA), and GP27 (I2C1_SCL) on the |Arduino Nano| header of
 |Maker Nano RP2040| or over GP16 (I2C0_SDA), GP17 (I2C0_SCL) by default or
 alternatively over GP4 (I2C0_SDA), GP5 (I2C0_SCL), GP2 (I2C1_SDA) and
 GP3 (I2C1_SCL) on the Grove compatiple connectors on the |Maker Pi RP2040|.
@@ -1088,7 +1088,7 @@ This samples and test applications are only applicable together with the
    .. group-tab:: Maker Nano RP2040
 
       Connect the |Waveshare 2.4 LCD| module by free wiring to the
-      |Arduino Nano R3| header. Following module's pin assignments
+      |Arduino Nano| header. Following module's pin assignments
       for *Arduino Nano R3*.
 
       .. list-table::

@@ -943,8 +943,8 @@
 
 .. Devicetree References
 
-.. |Arduino Nano R3| replace::
-   :external+devicetree:dtcompatible:`Arduino Nano R3 <arduino-nano-header-r3>`
+.. |Arduino Nano| replace::
+   :external+devicetree:dtcompatible:`Arduino Nano <arduino-nano-header>`
 
 .. |Arduino UNO R3| replace::
    :external+devicetree:dtcompatible:`Arduino UNO R3 <arduino-header-r3>`
