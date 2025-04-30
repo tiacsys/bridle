@@ -682,14 +682,6 @@
 .. |zephyr:boards| replace::
    :external+zephyr:ref:`boards`
 
-.. |zephyr:board:native_posix| replace::
-   :external+zephyr:ref:`native_posix`
-.. :external+zephyr:zephyr:board:`native_posix`
-
-.. |zephyr:board:native_posix32_64| replace::
-   :external+zephyr:ref:`native_posix32_64`
-.. :external+zephyr:zephyr:board:`native_posix32_64`
-
 .. |zephyr:board:native_sim| replace::
    :external+zephyr:ref:`native_sim`
 .. :external+zephyr:zephyr:board:`native_sim`
