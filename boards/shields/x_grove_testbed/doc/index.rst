@@ -488,7 +488,7 @@ For example:
 
          .. group-tab:: Arduino Zero
 
-            This is based on the Bridle board :ref:`arduino_zero`.
+            This is based on the Bridle board |bridle:board:arduino_zero|.
 
             * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
 
@@ -548,7 +548,7 @@ For example:
 
          .. group-tab:: Seeeduino Cortex-M0+
 
-            This is based on the Bridle board :ref:`seeeduino_cm0`.
+            This is based on the Bridle board |bridle:board:seeeduino_cm0|.
 
             * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
 
@@ -608,7 +608,7 @@ For example:
 
          .. group-tab:: Seeeduino Lotus Cortex-M0+
 
-            This is based on the Bridle board :ref:`seeeduino_lotus`.
+            This is based on the Bridle board |bridle:board:seeeduino_lotus|.
 
             * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
 
@@ -728,7 +728,7 @@ For example:
 
          .. group-tab:: XIAO SAMD21
 
-            This is based on the Bridle board :ref:`xiao_samd21`.
+            This is based on the Bridle board |bridle:board:xiao_samd21|.
 
             * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
 
@@ -942,8 +942,7 @@ For example:
 
          .. group-tab:: Waveshare RP2040-Plus
 
-            This is based on the Bridle board
-            :ref:`RP2040-Plus <waveshare_rp2040_plus>`.
+            This is based on the Bridle board |RP2040-Plus|.
 
             * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
 
@@ -1018,8 +1017,7 @@ For example:
 
          .. group-tab:: Waveshare RP2040-LCD-0.96
 
-            This is based on the Bridle board
-            :ref:`RP2040-LCD-0.96 <waveshare_rp2040_lcd_0_96>`.
+            This is based on the Bridle board |RP2040-LCD-0.96|.
 
             * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
 
@@ -1094,8 +1092,7 @@ For example:
 
          .. group-tab:: Cytron Maker Nano RP2040
 
-            This is based on the Bridle board
-            :ref:`Maker Nano RP2040 <cytron_maker_nano_rp2040>`
+            This is based on the Bridle board |Maker Nano RP2040|.
 
             * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
 
@@ -1158,8 +1155,7 @@ For example:
 
          .. group-tab:: Cytron Maker Pi RP2040
 
-            This is based on the Bridle board
-            :ref:`Maker Pi RP2040 <cytron_maker_pi_rp2040>`
+            This is based on the Bridle board |Maker Pi RP2040|.
 
             * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
 

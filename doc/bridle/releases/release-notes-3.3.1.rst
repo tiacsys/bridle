@@ -81,9 +81,9 @@ The following sections provide detailed lists of changes by component.
 
 * Add new boards:
 
-  * :ref:`arduino_zero`, improved copy from Zephyr
-  * :ref:`seeeduino_lotus`, new for Zephyr too
-  * :ref:`xiao_samd21`, improved copy from Zephyr
+  * |bridle:board:arduino_zero|, improved copy from Zephyr
+  * |bridle:board:seeeduino_lotus|, new for Zephyr too
+  * |bridle:board:xiao_samd21|, improved copy from Zephyr
 
 * Add new shields:
 

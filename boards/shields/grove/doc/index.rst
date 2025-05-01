@@ -592,15 +592,14 @@ GPIO mapping
       or `Raspberry Pi Pico R3 W`_ header bindet with
       :dtcompatible:`raspberrypi,pico-header-r3`.
 
-      In combination with some very few boards, such as the
-      :ref:`RP2040-ETH <waveshare_rp2040_eth>` from Waveshare, not all
-      signals are connected due to the reduced number of pins. The shield
-      cannot account for this limitation. All connections are always
-      available on the shield side and are mapped accordingly, but in
-      these very rare combinations, missing connections from shield to
-      board connectors lead to missing functionalities solely in hardware.
-      You need to know that. Boards affected by this are included in the
-      last columns as a special case.
+      In combination with some very few boards, such as the |RP2040-ETH|
+      from Waveshare, not all signals are connected due to the reduced
+      number of pins. The shield cannot account for this limitation. All
+      connections are always available on the shield side and are mapped
+      accordingly, but in these very rare combinations, missing connections
+      from shield to board connectors lead to missing functionalities
+      solely in hardware. You need to know that. Boards affected by
+      this are included in the last columns as a special case.
 
       .. include:: grove_gpios_rpipico_header.rsti
 
@@ -693,7 +692,7 @@ not be complete.
 
          .. group-tab:: ``arduino_zero``
 
-            This is based on the Bridle board :ref:`arduino_zero`
+            This is based on the Bridle board |bridle:board:arduino_zero|
             and its :dtcompatible:`arduino-header-r3`.
 
             .. note::
@@ -709,7 +708,7 @@ not be complete.
 
          .. group-tab:: ``seeeduino_cm0``
 
-            This is based on the Bridle board :ref:`seeeduino_cm0`
+            This is based on the Bridle board |bridle:board:seeeduino_cm0|
             and its :dtcompatible:`arduino-header-r3`.
 
             .. note::
@@ -725,7 +724,7 @@ not be complete.
 
          .. group-tab:: ``seeeduino_lotus``
 
-            This is based on the Bridle board :ref:`seeeduino_lotus`
+            This is based on the Bridle board |bridle:board:seeeduino_lotus|
             and its :dtcompatible:`arduino-header-r3`.
 
             .. note::
@@ -757,7 +756,7 @@ not be complete.
 
          .. group-tab:: ``xiao_samd21``
 
-            This is based on the Bridle board :ref:`xiao_samd21`
+            This is based on the Bridle board |bridle:board:xiao_samd21|
             and its :dtcompatible:`seeed,xiao-gpio`.
 
             .. note::
@@ -793,8 +792,7 @@ not be complete.
 
          .. group-tab:: ``waveshare_rp2040_eth``
 
-            This is based on the Bridle board
-            :ref:`RP2040-ETH <waveshare_rp2040_eth>`
+            This is based on the Bridle board |RP2040-ETH|
             and its :dtcompatible:`raspberrypi,pico-header-r3`
             with reduced connections.
 
@@ -811,8 +809,7 @@ not be complete.
 
          .. group-tab:: ``waveshare_rp2040_lcd_0_96``
 
-            This is based on the Bridle board
-            :ref:`RP2040-LCD-0.96 <waveshare_rp2040_lcd_0_96>`
+            This is based on the Bridle board |RP2040-LCD-0.96|
             and its :dtcompatible:`raspberrypi,pico-header-r3`.
 
             .. note::
@@ -828,8 +825,7 @@ not be complete.
 
          .. group-tab:: ``waveshare_rp2040_plus``
 
-            This is based on the Bridle board
-            :ref:`RP2040-Plus <waveshare_rp2040_plus>`
+            This is based on the Bridle board |RP2040-Plus|
             and its :dtcompatible:`raspberrypi,pico-header-r3`.
 
             .. note::
@@ -900,7 +896,7 @@ or ``cmake`` in your Zephyr application. For example:
       :host-os: unix
       :tool: all
 
-#. :ref:`xiao_samd21` on :ref:`grove_base_shield_xiao_v1`:
+#. |bridle:board:xiao_samd21| on :ref:`grove_base_shield_xiao_v1`:
 
    .. zephyr-app-commands::
       :app: bridle/samples/helloshell

@@ -91,7 +91,7 @@ Documentation
 =============
 
 1. Renamed references to :zephyr:ref:`kconfig` in the
-   :ref:`magpie_f777ni_board` page.
+   |bridle:board:magpie_f777ni| page.
 #. Update all documented output messages.
 
 Issue Related Items

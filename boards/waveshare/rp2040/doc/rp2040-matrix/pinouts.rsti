@@ -1,9 +1,8 @@
-External pin mapping on the :ref:`RP2040-Matrix <waveshare_rp2040_matrix>`
-is :strong:`not identical` to the original |zephyr:board:rpi_pico| board.
-Almost all pins are rearranged in a more compact order. Likewise, the
-voltage sense and monitoring functions are not integrated. Thus all
-internal R2040 GPIO lines are available for free use, insofar there
-is sufficient space for them on the outer edge of the board.
+External pin mapping on the |RP2040-Matrix| is :strong:`not identical` to the
+original |zephyr:board:rpi_pico| board. Almost all pins are rearranged in a
+more compact order. Likewise, the voltage sense and monitoring functions are
+not integrated. Thus all internal R2040 GPIO lines are available for free use,
+insofar there is sufficient space for them on the outer edge of the board.
 
 Only GPIO line 16 is exclusively routed to the on-board user 5×5 RGB
 LED array. The analog voltage reference is internally hard-wired to the

@@ -1,7 +1,6 @@
-External pin mapping on the :ref:`RP2040-ETH <waveshare_rp2040_eth>` is
-only partially identical to the original |zephyr:board:rpi_pico| board.
-About half of the pins provided on the edge were skipped for internal
-on-board purposes.
+External pin mapping on the |RP2040-ETH| is only partially identical to the
+original |zephyr:board:rpi_pico| board. About half of the pins provided on
+the edge were skipped for internal on-board purposes.
 
 Note that also internal signals are not wired in same way. The internal
 RP2040 GPIO line 23 is not routed to the voltage regulator for SMPS power

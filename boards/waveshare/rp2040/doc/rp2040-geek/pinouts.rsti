@@ -1,8 +1,8 @@
-External pin mapping on the :ref:`RP2040-Geek <waveshare_rp2040_geek>` is
-compatible to the original `Raspberry Pi Debug Probe`_, but not identical.
-One additional edge connector provides two special IO pins for target board
-testing (I2C or ADC in default). There is no SPI bus on any edge connector.
-These are used internally to connect the on-board LCD and TF card slots.
+External pin mapping on the |RP2040-Geek| is compatible to the original
+`Raspberry Pi Debug Probe`_, but not identical. One additional edge
+connector provides two special IO pins for target board testing (I2C
+or ADC in default). There is no SPI bus on any edge connector. These
+are used internally to connect the on-board LCD and TF card slots.
 
 .. list-table::
    :align: center

@@ -1,9 +1,9 @@
-External pin mapping on the :ref:`RP2040-LCD-0.96 <waveshare_rp2040_lcd_0_96>`
-is identical to the original |zephyr:board:rpi_pico| board, but note that
-internal RP2040 GPIO lines 23 and 24 are routed to the voltage regulator
-and USB connector for SMPS (TPS63000) power saving modes and USB VBUS
-sense. GPIO line 25 is routed to the on-board user LCD backlight and
-GPIO line 29 will be used for VSYS/3 voltage monitoring per default.
+External pin mapping on the |RP2040-LCD-0.96| is identical to the original
+|zephyr:board:rpi_pico| board, but note that internal RP2040 GPIO lines
+23 and 24 are routed to the voltage regulator and USB connector for SMPS
+(TPS63000) power saving modes and USB VBUS sense. GPIO line 25 is routed
+to the on-board user LCD backlight and GPIO line 29 will be used for VSYS/3
+voltage monitoring per default.
 
 In addition, GPIO lines 8 to 12 are used for control and SPI communication
 with the on-board LCD, but are still available externally in parallel.
