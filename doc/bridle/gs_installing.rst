@@ -99,11 +99,30 @@ The installation process is different depending on your operating system.
 
    .. group-tab:: Windows
 
+      .. note::
+
+         Due to issues finding executables or have easy access to USB devices,
+         both the |ZEPHYR| and |TIAC| |BRIDLE| doesn't currently support
+         application flashing using the `Windows Subsystem for Linux (WSL)
+         <https://msdn.microsoft.com/en-us/commandline/wsl/install_guide>`_
+         (WSL).
+
+         **Therefore, we don't recommend using WSL when getting started!**
+
+      In modern version of Windows (10 and later) it is recommended to install
+      the Windows Terminal application from the Microsoft Store. Instructions
+      are provided for a ``cmd.exe`` or PowerShell command prompts.
+
       .. _install_dependencies_windows:
 
       The recommended way for installing the required tools on Windows is
-      to use `Chocolatey`_, a package manager for Windows. Chocolatey installs
-      the tools so that you can use them from a Windows command prompt.
+      to use `winget`_, Windows' official package manager. WinGet installs
+      the tools so that you can use them from a Windows command prompt. If
+      using WinGet isn't an option, you can either use the third party and
+      also well known alternative package manager `Chocolatey`_ in similar
+      way or you can install dependencies from their respective websites and
+      ensure the command line tools are on your :envvar:`PATH`
+      :zephyr:ref:`environment variable <env_vars>`.
 
       To install the required tools on Windows, complete the following steps:
 
@@ -111,7 +130,7 @@ The installation process is different depending on your operating system.
          :docset: zephyr
          :dedent: 6
          :start-after: .. _install_dependencies_windows:
-         :end-before: .. _Chocolatey:
+         :end-before: .. _winget:
 
 .. _gs_installing_toolchain:
 

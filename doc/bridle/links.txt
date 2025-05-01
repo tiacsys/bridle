@@ -274,6 +274,8 @@
 .. _`BabbleSim`: https://babblesim.github.io/
 .. _`FFF`: https://github.com/meekrosoft/fff
 
+.. _`WinGet`: https://learn.microsoft.com/windows/package-manager
+.. _`Install WinGet`: https://aka.ms/getwinget
 .. _`Chocolatey`: https://chocolatey.org/
 .. _`Install chocolatey`: https://chocolatey.org/install
 .. _`Windows Python Path`: https://docs.python.org/3/using/windows.html#finding-the-python-executable
