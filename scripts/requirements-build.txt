@@ -2,6 +2,7 @@ ecdsa>=0.19.0
 imagesize>=1.4
 intelhex>=2.3
 pyelftools>=0.32
+pykwalify>=1.8
 pylint>=3.3
 regex>=2024.11
 
@@ -12,4 +13,4 @@ regex>=2024.11
 # see: https://github.com/zephyrproject-rtos/zephyr/pull/79381
 #      - zephyrproject-rtos/zephyr@5d155d9bc8b7
 #
-nrf-regtool>=8.1
+nrf-regtool>=9.1
