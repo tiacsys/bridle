@@ -180,7 +180,7 @@ documentation in ":external+zephyr:ref:`toolchain_zephyr_sdk_install`"):
            - |zephyrsdk_recommended_ver_macos|
          * - Windows
            - |zephyrsdk_min_ver|
-           - |zephyrsdk_recommended_ver_win10|
+           - |zephyrsdk_recommended_ver_win1x|
 
 #. Extract the bundle into a folder of your choice. We recommend to use the
    folder ``/opt`` on Linux or macOS and ``%PROGRAMFILES%`` on Windows.
@@ -233,7 +233,7 @@ To set up the toolchain, complete the following steps:
            - |armgnutc_recommended_ver_macos|
          * - Windows
            - |armgnutc_min_ver|
-           - |armgnutc_recommended_ver_win10|
+           - |armgnutc_recommended_ver_win1x|
 
 #. Extract the toolchain into a folder of your choice. We recommend to use the
    folder ``~/gnuarmemb`` on Linux or macOS and ``c:\gnuarmemb`` on Windows.
@@ -340,7 +340,7 @@ To set up the toolchain, complete the steps above for |armgnutc|.
         - |gnuarmemb_recommended_ver_macos|
       * - Windows
         - |gnuarmemb_min_ver|
-        - |gnuarmemb_recommended_ver_win10|
+        - |gnuarmemb_recommended_ver_win1x|
 
 .. _gs_toolchain_stm32cubeclt_install:
 .. _gs_toolchain_gnu_tools_for_stm32_install:
@@ -385,7 +385,7 @@ To set up the toolchain, complete the following steps:
            - |stm32cubeclt_recommended_ver_macos|
          * - Windows
            - |stm32cubeclt_min_ver|
-           - |stm32cubeclt_recommended_ver_win10|
+           - |stm32cubeclt_recommended_ver_win1x|
 
 #. Extract the toolchain into a folder of your choice. We recommend to use the
    default as specified by STMicroelectronics, folder ``/opt/st/stm32cubeclt``
@@ -479,7 +479,7 @@ To set up the toolchain, complete the following steps:
            - |mcuxpressoide_recommended_ver_macos|
          * - Windows
            - |mcuxpressoide_min_ver|
-           - |mcuxpressoide_recommended_ver_win10|
+           - |mcuxpressoide_recommended_ver_win1x|
 
 #. Extract the toolchain into a folder of your choice. We recommend to use the
    default as specified by NXP, folder ``/usr/local/mcuxpressoide`` on Linux,

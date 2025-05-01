@@ -7,109 +7,120 @@
 .. |cmake| replace:: :strong:`CMake`
 .. |cmake_linux| replace:: :strong:`CMake` (Ubuntu DPKG)
 .. |cmake_macos| replace:: :strong:`CMake` (Homebrew Formulae)
-.. |cmake_win10| replace:: :strong:`CMake` (Chocolatey Package)
+.. |cmake_win1x_winget| replace:: :strong:`CMake` (WinGet Package)
+.. |cmake_win1x_choco| replace:: :strong:`CMake` (Chocolatey Package)
 .. |cmake_min_ver| replace:: @CMAKE_VERSION_MINIMUM@
 .. |cmake_recommended_ver_linux| replace:: @CMAKE_VERSION_LINUX@
 .. |cmake_recommended_ver_macos| replace:: @CMAKE_VERSION_MACOS@
-.. |cmake_recommended_ver_win10| replace:: @CMAKE_VERSION_WIN10@
+.. |cmake_recommended_ver_win1x| replace:: @CMAKE_VERSION_WIN10@
 
 .. |DFU Utilities| replace:: :emphasis:`DFU Utilities`
 .. |dfu_util| replace:: :strong:`DFU Utilities`
 .. |dfu_linux| replace:: :strong:`DFU Utilities` (Ubuntu DPKG)
 .. |dfu_macos| replace:: :strong:`DFU Utilities` (Homebrew Formulae)
-.. |dfu_win10| replace:: :strong:`DFU Utilities` (Binary TAR/XZ)
+.. |dfu_win1x_bintarxz| replace:: :strong:`DFU Utilities` (Binary TAR/XZ)
 .. |dfu_util_recommended_ver_linux| replace:: @DFU-UTIL_VERSION_LINUX@
 .. |dfu_util_recommended_ver_macos| replace:: @DFU-UTIL_VERSION_MACOS@
-.. |dfu_util_recommended_ver_win10| replace:: @DFU-UTIL_VERSION_WIN10@
+.. |dfu_util_recommended_ver_win1x| replace:: @DFU-UTIL_VERSION_WIN10@
 
 .. |Doxygen| replace:: :emphasis:`Doxygen`
 .. |doxygen| replace:: :strong:`Doxygen`
 .. |doxygen_linux| replace:: :strong:`Doxygen` (Ubuntu DPKG)
 .. |doxygen_macos| replace:: :strong:`Doxygen` (Homebrew Cask)
-.. |doxygen_win10| replace:: :strong:`Doxygen` (Chocolatey Package)
+.. |doxygen_win1x_winget| replace:: :strong:`Doxygen` (WinGet Package)
+.. |doxygen_win1x_choco| replace:: :strong:`Doxygen` (Chocolatey Package)
 .. |doxygen_min_ver| replace:: @DOXYGEN_VERSION_MINIMUM@
 .. |doxygen_recommended_ver_linux| replace:: @DOXYGEN_VERSION_LINUX@
 .. |doxygen_recommended_ver_macos| replace:: @DOXYGEN_VERSION_MACOS@
-.. |doxygen_recommended_ver_win10| replace:: @DOXYGEN_VERSION_WIN10@
+.. |doxygen_recommended_ver_win1x| replace:: @DOXYGEN_VERSION_WIN10@
 
 .. |Device tree compiler| replace:: :emphasis:`Device tree compiler`
 .. |dtc| replace:: :strong:`Device tree compiler`
 .. |dtc_linux| replace:: :strong:`Device tree compiler` (Ubuntu DPKG)
 .. |dtc_macos| replace:: :strong:`Device tree compiler` (Homebrew Formulae)
-.. |dtc_win10| replace:: :strong:`Device tree compiler` (Chocolatey Package)
+.. |dtc_win1x_winget| replace:: :strong:`Device tree compiler` (WinGet Package)
+.. |dtc_win1x_choco| replace:: :strong:`Device tree compiler` (Chocolatey Package)
 .. |dtc_min_ver| replace:: @DTC_VERSION_MINIMUM@
 .. |dtc_recommended_ver_linux| replace:: @DEVICE-TREE-COMPILER_VERSION_LINUX@
 .. |dtc_recommended_ver_macos| replace:: @DTC_VERSION_MACOS@
-.. |dtc_recommended_ver_win10| replace:: @DTC_VERSION_WIN10@
+.. |dtc_winget_recommended_ver_win1x| replace:: @DTC_WINGET_VERSION_WIN10@
+.. |dtc_choco_recommended_ver_win1x| replace:: @DTC_CHOCO_VERSION_WIN10@
 
 .. |Git| replace:: :emphasis:`Git`
 .. |git| replace:: :strong:`Git`
 .. |git_linux| replace:: :strong:`Git` (Ubuntu DPKG)
 .. |git_macos| replace:: :strong:`Git` (Homebrew Formulae)
-.. |git_win10| replace:: :strong:`Git` (Chocolatey Package)
+.. |git_win1x_winget| replace:: :strong:`Git` (WinGet Package)
+.. |git_win1x_choco| replace:: :strong:`Git` (Chocolatey Package)
 .. |git_recommended_ver_linux| replace:: @GIT_VERSION_LINUX@
 .. |git_recommended_ver_macos| replace:: @GIT_VERSION_MACOS@
-.. |git_recommended_ver_win10| replace:: @GIT_VERSION_WIN10@
+.. |git_recommended_ver_win1x| replace:: @GIT_VERSION_WIN10@
 
 .. |GNU gperf| replace:: :emphasis:`GNU gperf`
 .. |gperf| replace:: :strong:`GNU gperf`
 .. |gperf_linux| replace:: :strong:`GNU gperf` (Ubuntu DPKG)
 .. |gperf_macos| replace:: :strong:`GNU gperf` (Homebrew Formulae)
-.. |gperf_win10| replace:: :strong:`GNU gperf` (Chocolatey Package)
+.. |gperf_win1x_winget| replace:: :strong:`GNU gperf` (WinGet Package)
+.. |gperf_win1x_choco| replace:: :strong:`GNU gperf` (Chocolatey Package)
 .. |gperf_min_ver| replace:: @GPERF_VERSION_MINIMUM@
 .. |gperf_recommended_ver_linux| replace:: @GPERF_VERSION_LINUX@
 .. |gperf_recommended_ver_macos| replace:: @GPERF_VERSION_MACOS@
-.. |gperf_recommended_ver_win10| replace:: @GPERF_VERSION_WIN10@
+.. |gperf_recommended_ver_win1x| replace:: @GPERF_VERSION_WIN10@
 
 .. |Graphviz| replace:: :emphasis:`Graphviz` :command:`dot`
 .. |graphviz| replace:: :strong:`Graphviz`
 .. |graphviz_linux| replace:: :strong:`Graphviz` (Ubuntu DPKG)
 .. |graphviz_macos| replace:: :strong:`Graphviz` (Homebrew Formulae)
-.. |graphviz_win10| replace:: :strong:`Graphviz` (Chocolatey Package)
+.. |graphviz_win1x_winget| replace:: :strong:`Graphviz` (WinGet Package)
+.. |graphviz_win1x_choco| replace:: :strong:`Graphviz` (Chocolatey Package)
 .. |graphviz_min_ver| replace:: @GRAPHVIZ_VERSION_MINIMUM@
 .. |graphviz_recommended_ver_linux| replace:: @GRAPHVIZ_VERSION_LINUX@
 .. |graphviz_recommended_ver_macos| replace:: @GRAPHVIZ_VERSION_MACOS@
-.. |graphviz_recommended_ver_win10| replace:: @GRAPHVIZ_VERSION_WIN10@
+.. |graphviz_recommended_ver_win1x| replace:: @GRAPHVIZ_VERSION_WIN10@
 
 .. |MscGen| replace:: :emphasis:`MscGen`
 .. |mscgen| replace:: :strong:`MscGen`
 .. |mscgen_linux| replace:: :strong:`MscGen` (Ubuntu DPKG)
 .. |mscgen_macos| replace:: :strong:`MscGen` (Homebrew Formulae)
-.. |mscgen_win10| replace:: :strong:`MscGen` (Windows Installer)
+.. |mscgen_win1x| replace:: :strong:`MscGen` (Windows Installer)
 .. |mscgen_min_ver| replace:: @MSCGEN_VERSION_MINIMUM@
 .. |mscgen_recommended_ver_linux| replace:: @MSCGEN_VERSION_LINUX@
 .. |mscgen_recommended_ver_macos| replace:: @MSCGEN_VERSION_MACOS@
-.. |mscgen_recommended_ver_win10| replace:: @MSCGEN_VERSION_WIN10@
+.. |mscgen_recommended_ver_win1x| replace:: @MSCGEN_VERSION_WIN10@
 
 .. |Ninja| replace:: :emphasis:`Ninja`
 .. |ninja| replace:: :strong:`Ninja`
 .. |ninja_linux| replace:: :strong:`Ninja` (Ubuntu DPKG)
 .. |ninja_macos| replace:: :strong:`Ninja` (Homebrew Formulae)
-.. |ninja_win10| replace:: :strong:`Ninja` (Chocolatey Package)
+.. |ninja_win1x_winget| replace:: :strong:`Ninja` (WinGet Package)
+.. |ninja_win1x_choco| replace:: :strong:`Ninja` (Chocolatey Package)
 .. |ninja_min_ver| replace:: @NINJA_VERSION_MINIMUM@
 .. |ninja_recommended_ver_linux| replace:: @NINJA-BUILD_VERSION_LINUX@
 .. |ninja_recommended_ver_macos| replace:: @NINJA_VERSION_MACOS@
-.. |ninja_recommended_ver_win10| replace:: @NINJA_VERSION_WIN10@
+.. |ninja_recommended_ver_win1x| replace:: @NINJA_VERSION_WIN10@
 
 .. |OpenOCD| replace:: :emphasis:`OpenOCD`
 .. |openocd| replace:: :strong:`OpenOCD`
 .. |openocd_linux| replace:: :strong:`OpenOCD` (Ubuntu DPKG)
 .. |openocd_macos| replace:: :strong:`OpenOCD` (Homebrew Formulae)
-.. |openocd_win10| replace:: :strong:`OpenOCD` (Chocolatey Package)
+.. |openocd_win1x_xpack| replace:: :strong:`OpenOCD` (xPack Package)
+.. |openocd_win1x_choco| replace:: :strong:`OpenOCD` (Chocolatey Package)
 .. |openocd_min_ver| replace:: @OPENOCD_VERSION_MINIMUM@
 .. |openocd_recommended_ver_linux| replace:: @OPENOCD_VERSION_LINUX@
 .. |openocd_recommended_ver_macos| replace:: @OPENOCD_VERSION_MACOS@
-.. |openocd_recommended_ver_win10| replace:: @OPENOCD_VERSION_WIN10@
+.. |openocd_xpack_recommended_ver_win1x| replace:: @OPENOCD_XPACK_VERSION_WIN10@
+.. |openocd_choco_recommended_ver_win1x| replace:: @OPENOCD_CHOCO_VERSION_WIN10@
 
 .. |Python 3| replace:: :emphasis:`Python 3`
 .. |python| replace:: :strong:`Python 3`
 .. |python_linux| replace:: :strong:`Python 3` (Ubuntu DPKG)
 .. |python_macos| replace:: :strong:`Python 3` (Homebrew Formulae)
-.. |python_win10| replace:: :strong:`Python 3` (Chocolatey Package)
+.. |python_win1x_winget| replace:: :strong:`Python 3` (WinGet Package)
+.. |python_win1x_choco| replace:: :strong:`Python 3` (Chocolatey Package)
 .. |python_min_ver| replace:: @PYTHON_VERSION_MINIMUM@
 .. |python_recommended_ver_linux| replace:: @PYTHON3_VERSION_LINUX@
 .. |python_recommended_ver_macos| replace:: @PYTHON_VERSION_MACOS@
-.. |python_recommended_ver_win10| replace:: @PYTHON_VERSION_WIN10@
+.. |python_recommended_ver_win1x| replace:: @PYTHON_VERSION_WIN10@
 .. |python_bin| replace:: python@PYTHON_VERSION_MINIMUM_MAJOR@.@PYTHON_VERSION_MINIMUM_MINOR@
 .. |pip_bin| replace:: pip@PYTHON_VERSION_MINIMUM_MAJOR@
 
@@ -176,7 +187,7 @@
 .. |west_min_ver| replace:: @WEST_VERSION_MINIMUM@
 .. |west_recommended_ver_linux| replace:: @WEST_VERSION_LINUX@
 .. |west_recommended_ver_macos| replace:: @WEST_VERSION_MACOS@
-.. |west_recommended_ver_win10| replace:: @WEST_VERSION_WIN10@
+.. |west_recommended_ver_win1x| replace:: @WEST_VERSION_WIN10@
 
 .. |windows-curses| replace:: :strong:`windows-curses`
 .. |windows-curses_ver| replace:: @WINDOWS-CURSES_VERSION@
@@ -185,38 +196,38 @@
 .. |zephyrsdk| replace:: :strong:`Zephyr SDK`
 .. |zephyrsdk_min_ver| replace:: @ZEPHYR-SDK_VERSION_MINIMUM@
 .. |zephyrsdk_recommended_ver| replace:: :strong:`@ZEPHYR-SDK_VERSION_MINIMUM@`
-.. |zephyrsdk_recommended_ver_win10| replace:: @ZEPHYR-SDK_VERSION_WIN10@
-.. |zephyrsdk_recommended_ver_macos| replace:: @ZEPHYR-SDK_VERSION_MACOS@
 .. |zephyrsdk_recommended_ver_linux| replace:: @ZEPHYR-SDK_VERSION_LINUX@
+.. |zephyrsdk_recommended_ver_macos| replace:: @ZEPHYR-SDK_VERSION_MACOS@
+.. |zephyrsdk_recommended_ver_win1x| replace:: @ZEPHYR-SDK_VERSION_WIN10@
 
 .. |Arm GNU Toolchain| replace:: :emphasis:`Arm GNU Toolchain`
 .. |armgnutc| replace:: :strong:`Arm GNU Toolchain`
 .. |armgnutc_min_ver| replace:: @ARMGNUTC_VERSION_MINIMUM@
 .. |armgnutc_recommended_ver| replace:: :strong:`@ARMGNUTC_VERSION_MINIMUM@`
-.. |armgnutc_recommended_ver_win10| replace:: @ARMGNUTC_VERSION_WIN10@
-.. |armgnutc_recommended_ver_macos| replace:: @ARMGNUTC_VERSION_MACOS@
 .. |armgnutc_recommended_ver_linux| replace:: @ARMGNUTC_VERSION_LINUX@
+.. |armgnutc_recommended_ver_macos| replace:: @ARMGNUTC_VERSION_MACOS@
+.. |armgnutc_recommended_ver_win1x| replace:: @ARMGNUTC_VERSION_WIN10@
 
 .. |GNU Arm Embedded Toolchain| replace:: :emphasis:`GNU Arm Embedded Toolchain`
 .. |gnuarmemb| replace:: :strong:`GNU Arm Embedded Toolchain`
 .. |gnuarmemb_min_ver| replace:: @GNUARMEMB_VERSION_MINIMUM@
 .. |gnuarmemb_recommended_ver| replace:: :strong:`@GNUARMEMB_VERSION_MINIMUM@`
-.. |gnuarmemb_recommended_ver_win10| replace:: @GNUARMEMB_VERSION_WIN10@
-.. |gnuarmemb_recommended_ver_macos| replace:: @GNUARMEMB_VERSION_MACOS@
 .. |gnuarmemb_recommended_ver_linux| replace:: @GNUARMEMB_VERSION_LINUX@
+.. |gnuarmemb_recommended_ver_macos| replace:: @GNUARMEMB_VERSION_MACOS@
+.. |gnuarmemb_recommended_ver_win1x| replace:: @GNUARMEMB_VERSION_WIN10@
 
 .. |STM32CubeCLT (GNU tools for STM32)| replace:: :emphasis:`STM32CubeCLT (GNU tools for STM32)`
 .. |stm32cubeclt| replace:: :strong:`STM32CubeCLT (GNU tools for STM32)`
 .. |stm32cubeclt_min_ver| replace:: @STM32CUBECLT_VERSION_MINIMUM@
 .. |stm32cubeclt_recommended_ver| replace:: :strong:`@STM32CUBECLT_VERSION_MINIMUM@`
-.. |stm32cubeclt_recommended_ver_win10| replace:: @STM32CUBECLT_VERSION_WIN10@
-.. |stm32cubeclt_recommended_ver_macos| replace:: @STM32CUBECLT_VERSION_MACOS@
 .. |stm32cubeclt_recommended_ver_linux| replace:: @STM32CUBECLT_VERSION_LINUX@
+.. |stm32cubeclt_recommended_ver_macos| replace:: @STM32CUBECLT_VERSION_MACOS@
+.. |stm32cubeclt_recommended_ver_win1x| replace:: @STM32CUBECLT_VERSION_WIN10@
 
 .. |MCUXpresso IDE (Arm GNU Toolchain)| replace:: :emphasis:`MCUXpresso IDE (Arm GNU Toolchain)`
 .. |mcuxpressoide| replace:: :strong:`MCUXpresso IDE (Arm GNU Toolchain)`
 .. |mcuxpressoide_min_ver| replace:: @MCUXPRESSOIDE_VERSION_MINIMUM@
 .. |mcuxpressoide_recommended_ver| replace:: :strong:`@MCUXPRESSOIDE_VERSION_MINIMUM@`
-.. |mcuxpressoide_recommended_ver_win10| replace:: @MCUXPRESSOIDE_VERSION_WIN10@
-.. |mcuxpressoide_recommended_ver_macos| replace:: @MCUXPRESSOIDE_VERSION_MACOS@
 .. |mcuxpressoide_recommended_ver_linux| replace:: @MCUXPRESSOIDE_VERSION_LINUX@
+.. |mcuxpressoide_recommended_ver_macos| replace:: @MCUXPRESSOIDE_VERSION_MACOS@
+.. |mcuxpressoide_recommended_ver_win1x| replace:: @MCUXPRESSOIDE_VERSION_WIN10@

@@ -357,95 +357,122 @@ installed when using the :ref:`gs_app_sim` as described in :ref:`gs_assistant`.
            - Minimum version
            - Tested version
          * - | |Git|_
-             | |git_win10|_
+             | |git_win1x_winget|_
+             | |git_win1x_choco|_
            - |
              |
+             |
            - |
-             | |git_recommended_ver_win10|
+             | |git_recommended_ver_win1x|
+             | |git_recommended_ver_win1x|
          * - | |Python 3|_
-             | |python_win10|_
+             | |python_win1x_winget|_
+             | |python_win1x_choco|_
            - | |python_min_ver|
              |
+             |
            - |
-             | |python_recommended_ver_win10|
+             | |python_recommended_ver_win1x|
+             | |python_recommended_ver_win1x|
          * - |west_pypa|_
            - |west_min_ver|
-           - |west_recommended_ver_win10|
+           - |west_recommended_ver_win1x|
          * - | |CMake|_
-             | |cmake_win10|_
+             | |cmake_win1x_winget|_
+             | |cmake_win1x_choco|_
            - | |cmake_min_ver|
              |
+             |
            - |
-             | |cmake_recommended_ver_win10|
+             | |cmake_recommended_ver_win1x|
+             | |cmake_recommended_ver_win1x|
          * - | |Ninja|_
-             | |ninja_win10|_
+             | |ninja_win1x_winget|_
+             | |ninja_win1x_choco|_
            - | |ninja_min_ver|
              |
+             |
            - |
-             | |ninja_recommended_ver_win10|
+             | |ninja_recommended_ver_win1x|
+             | |ninja_recommended_ver_win1x|
          * - | |Device tree compiler|_
-             | |dtc_win10|_
+             | |dtc_win1x_winget|_
+             | |dtc_win1x_choco|_
            - | |dtc_min_ver|
              |
+             |
            - |
-             | |dtc_recommended_ver_win10|
+             | |dtc_winget_recommended_ver_win1x|
+             | |dtc_choco_recommended_ver_win1x|
          * - | |OpenOCD|_
-             | |openocd_win10|_
+             | |openocd_win1x_xpack|_
+             | |openocd_win1x_choco|_
            - | |openocd_min_ver|
              |
+             |
            - |
-             | |openocd_recommended_ver_win10|
+             | |openocd_xpack_recommended_ver_win1x|
+             | |openocd_choco_recommended_ver_win1x|
          * - | |DFU Utilities|_
-             | |dfu_win10|_
+             | |dfu_win1x_bintarxz|_
            - |
              |
            - |
-             | |dfu_util_recommended_ver_win10|
+             | |dfu_util_recommended_ver_win1x|
          * - | |GNU gperf|_
-             | |gperf_win10|_
+             | |gperf_win1x_winget|_
+             | |gperf_win1x_choco|_
            - | |gperf_min_ver|
              |
+             |
            - |
-             | |gperf_recommended_ver_win10|
+             | |gperf_recommended_ver_win1x|
+             | |gperf_recommended_ver_win1x|
          * - **Tools for documentation**
            -
            -
          * - | |Doxygen|_
-             | |doxygen_win10|_
+             | |doxygen_win1x_winget|_
+             | |doxygen_win1x_choco|_
            - | |doxygen_min_ver|
              |
-           - |
-             | |doxygen_recommended_ver_win10|
-         * - | |Graphviz|_
-             | |graphviz_win10|_
-           - | |graphviz_min_ver|
              |
            - |
-             | |graphviz_recommended_ver_win10|
+             | |doxygen_recommended_ver_win1x|
+             | |doxygen_recommended_ver_win1x|
+         * - | |Graphviz|_
+             | |graphviz_win1x_winget|_
+             | |graphviz_win1x_choco|_
+           - | |graphviz_min_ver|
+             |
+             |
+           - |
+             | |graphviz_recommended_ver_win1x|
+             | |graphviz_recommended_ver_win1x|
          * - | |MscGen|_
-             | |mscgen_win10|_
+             | |mscgen_win1x|_
            - | |mscgen_min_ver|
              |
            - |
-             | |mscgen_recommended_ver_win10|
+             | |mscgen_recommended_ver_win1x|
          * - **SDK suites for development**
            -
            -
          * - |zephyrsdk|_
            - |zephyrsdk_min_ver|
-           - |zephyrsdk_recommended_ver_win10|
+           - |zephyrsdk_recommended_ver_win1x|
          * - |armgnutc|_
            - |armgnutc_min_ver|
-           - |armgnutc_recommended_ver_win10|
+           - |armgnutc_recommended_ver_win1x|
          * - |gnuarmemb|_
            - |gnuarmemb_min_ver|
-           - |gnuarmemb_recommended_ver_win10|
+           - |gnuarmemb_recommended_ver_win1x|
          * - |stm32cubeclt|_
            - |stm32cubeclt_min_ver|
-           - |stm32cubeclt_recommended_ver_win10|
+           - |stm32cubeclt_recommended_ver_win1x|
          * - |mcuxpressoide|_
            - |mcuxpressoide_min_ver|
-           - |mcuxpressoide_recommended_ver_win10|
+           - |mcuxpressoide_recommended_ver_win1x|
 
 .. _gs_required_python_packages:
 

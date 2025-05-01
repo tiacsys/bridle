@@ -1,5 +1,5 @@
 python3=3.12.3-0ubuntu2
-git=1:2.43.0-1ubuntu7.1
+git=1:2.43.0-1ubuntu7.2
 cmake=3.28.3-1build7
 ninja-build=1.11.1-2
 gperf=3.1-1build1
@@ -14,5 +14,5 @@ gnuarmemb=10.3-2021.10
 stm32cubeclt=1.14.0 (11.3.rel1)
 mcuxpressoide=11.9.0 (12.3.rel1)
 doxygen=1.9.8+ds-2build5
-graphviz=2.42.2-9build1
+graphviz=2.42.2-9ubuntu0.1
 mscgen=0.20-15

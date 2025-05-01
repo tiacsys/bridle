@@ -73,8 +73,10 @@
 .. _`cmake_linux`: https://packages.ubuntu.com/noble/cmake
 .. _`CMake (Homebrew Formulae)`: https://formulae.brew.sh/formula/cmake
 .. _`cmake_macos`: https://formulae.brew.sh/formula/cmake
+.. _`CMake (WinGet Package)`: https://winstall.app/apps/Kitware.CMake
+.. _`cmake_win1x_winget`: https://winstall.app/apps/Kitware.CMake
 .. _`CMake (Chocolatey Package)`: https://community.chocolatey.org/packages/cmake
-.. _`cmake_win10`: https://community.chocolatey.org/packages/cmake
+.. _`cmake_win1x_choco`: https://community.chocolatey.org/packages/cmake
 
 .. _`DFU Utilities`: https://dfu-util.sourceforge.net/
 .. _`dfu_util`: http://dfu-util.sourceforge.net/
@@ -83,15 +85,17 @@
 .. _`DFU Utilities (Homebrew Formulae)`: https://formulae.brew.sh/formula/dfu-util
 .. _`dfu_macos`: https://formulae.brew.sh/formula/dfu-util
 .. _`DFU Utilities (Binary TAR/XZ)`: https://dfu-util.sourceforge.net/releases
-.. _`dfu_win10`: https://dfu-util.sourceforge.net/releases
+.. _`dfu_win1x_bintarxz`: https://dfu-util.sourceforge.net/releases
 
 .. _`Doxygen`: https://www.doxygen.org/
 .. _`Doxygen (Ubuntu DPKG)`: https://packages.ubuntu.com/noble/doxygen
 .. _`doxygen_linux`: https://packages.ubuntu.com/noble/doxygen
 .. _`Doxygen (Homebrew Cask)`: https://formulae.brew.sh/cask/doxygen
 .. _`doxygen_macos`: https://formulae.brew.sh/cask/doxygen
+.. _`Doxygen (WinGet Package)`: https://winstall.app/apps/DimitriVanHeesch.Doxygen
+.. _`doxygen_win1x_winget`: https://winstall.app/apps/DimitriVanHeesch.Doxygen
 .. _`Doxygen (Chocolatey Package)`: https://community.chocolatey.org/packages/doxygen.install
-.. _`doxygen_win10`: https://community.chocolatey.org/packages/doxygen.install
+.. _`doxygen_win1x_choco`: https://community.chocolatey.org/packages/doxygen.install
 
 .. _`Device tree compiler`: https://www.devicetree.org/
 .. _`dtc`: https://www.devicetree.org/
@@ -99,16 +103,20 @@
 .. _`dtc_linux`: https://packages.ubuntu.com/noble/device-tree-compiler
 .. _`Device tree compiler (Homebrew Formulae)`: https://formulae.brew.sh/formula/dtc
 .. _`dtc_macos`: https://formulae.brew.sh/formula/dtc
+.. _`Device tree compiler (WinGet Package)`: https://winstall.app/apps/oss-winget.dtc
+.. _`dtc_win1x_winget`: https://winstall.app/apps/oss-winget.dtc
 .. _`Device tree compiler (Chocolatey Package)`: https://community.chocolatey.org/packages/dtc-msys2
-.. _`dtc_win10`: https://community.chocolatey.org/packages/dtc-msys2
+.. _`dtc_win1x_choco`: https://community.chocolatey.org/packages/dtc-msys2
 
 .. _`Git`: https://git-scm.com/downloads
 .. _`Git (Ubuntu DPKG)`: https://packages.ubuntu.com/noble/git
 .. _`git_linux`: https://packages.ubuntu.com/noble/git
 .. _`Git (Homebrew Formulae)`: https://formulae.brew.sh/formula/git
 .. _`git_macos`: https://formulae.brew.sh/formula/git
+.. _`Git (WinGet Package)`: https://winstall.app/apps/Git.Git
+.. _`git_win1x_winget`: https://winstall.app/apps/Git.Git
 .. _`Git (Chocolatey Package)`: https://community.chocolatey.org/packages/git
-.. _`git_win10`: https://community.chocolatey.org/packages/git
+.. _`git_win1x_choco`: https://community.chocolatey.org/packages/git
 
 .. _`GNU gperf`: https://www.gnu.org/software/gperf/
 .. _`gperf`: https://www.gnu.org/software/gperf/
@@ -116,16 +124,20 @@
 .. _`gperf_linux`: https://packages.ubuntu.com/noble/gperf
 .. _`GNU gperf (Homebrew Formulae)`: https://formulae.brew.sh/formula/gperf
 .. _`gperf_macos`: https://formulae.brew.sh/formula/gperf
+.. _`GNU gperf (WinGet Package)`: https://winstall.app/apps/oss-winget.gperf
+.. _`gperf_win1x_winget`: https://winstall.app/apps/oss-winget.gperf
 .. _`GNU gperf (Chocolatey Package)`: https://community.chocolatey.org/packages/gperf
-.. _`gperf_win10`: https://community.chocolatey.org/packages/gperf
+.. _`gperf_win1x_choco`: https://community.chocolatey.org/packages/gperf
 
 .. _`Graphviz`: https://graphviz.org/
-.. _`Graphviz (Ubuntu DPKG)`: https://packages.ubuntu.com/noble/graphviz
-.. _`graphviz_linux`: https://packages.ubuntu.com/noble/graphviz
+.. _`Graphviz (Ubuntu DPKG)`: https://packages.ubuntu.com/noble-updates/graphviz
+.. _`graphviz_linux`: https://packages.ubuntu.com/noble-updates/graphviz
 .. _`Graphviz (Homebrew Formulae)`: https://formulae.brew.sh/formula/graphviz
 .. _`graphviz_macos`: https://formulae.brew.sh/formula/graphviz
+.. _`Graphviz (WinGet Package)`: https://winstall.app/apps/Graphviz.Graphviz
+.. _`graphviz_win1x_winget`: https://winstall.app/apps/Graphviz.Graphviz
 .. _`Graphviz (Chocolatey Package)`: https://community.chocolatey.org/packages/graphviz
-.. _`graphviz_win10`: https://community.chocolatey.org/packages/graphviz
+.. _`graphviz_win1x_choco`: https://community.chocolatey.org/packages/graphviz
 
 .. _`MscGen`: https://www.mcternan.me.uk/mscgen
 .. _`MscGen (Ubuntu DPKG)`: https://packages.ubuntu.com/noble/mscgen
@@ -133,32 +145,38 @@
 .. _`MscGen (Homebrew Formulae)`: https://formulae.brew.sh/formula/mscgen
 .. _`mscgen_macos`: https://formulae.brew.sh/formula/mscgen
 .. _`MscGen (Windows Installer)`: https://www.mcternan.me.uk/mscgen
-.. _`mscgen_win10`: https://www.mcternan.me.uk/mscgen
+.. _`mscgen_win1x`: https://www.mcternan.me.uk/mscgen
 
 .. _`Ninja`: https://github.com/ninja-build/ninja/releases
 .. _`Ninja (Ubuntu DPKG)`: https://packages.ubuntu.com/noble/ninja-build
 .. _`ninja_linux`: https://packages.ubuntu.com/noble/ninja-build
 .. _`Ninja (Homebrew Formulae)`: https://formulae.brew.sh/formula/ninja
 .. _`ninja_macos`: https://formulae.brew.sh/formula/ninja
+.. _`Ninja (WinGet Package)`: https://winstall.app/apps/Ninja-build.Ninja
+.. _`ninja_win1x_winget`: https://winstall.app/apps/Ninja-build.Ninja
 .. _`Ninja (Chocolatey Package)`: https://community.chocolatey.org/packages/ninja
-.. _`ninja_win10`: https://community.chocolatey.org/packages/ninja
+.. _`ninja_win1x_choco`: https://community.chocolatey.org/packages/ninja
 
 .. _`OpenOCD`: https://openocd.org/pages/getting-openocd.html
 .. _`OpenOCD (Ubuntu DPKG)`: https://packages.ubuntu.com/noble/openocd
 .. _`openocd_linux`: https://packages.ubuntu.com/noble/openocd
 .. _`OpenOCD (Homebrew Formulae)`: https://formulae.brew.sh/formula/open-ocd
 .. _`openocd_macos`: https://formulae.brew.sh/formula/open-ocd
+.. _`OpenOCD (xPack Package)`: https://github.com/xpack-dev-tools/openocd-xpack/releases
+.. _`openocd_win1x_xpack`: https://github.com/xpack-dev-tools/openocd-xpack/releases
 .. _`OpenOCD (Chocolatey Package)`: https://community.chocolatey.org/packages/openocd
-.. _`openocd_win10`: https://community.chocolatey.org/packages/openocd
+.. _`openocd_win1x_choco`: https://community.chocolatey.org/packages/openocd
 
 .. _`Python 3`: https://www.python.org/downloads
 .. _`python`: https://www.python.org/downloads
-.. _`Python 3 (Ubuntu DPKG)`: https://packages.ubuntu.com/noble/python3
-.. _`python_linux`: https://packages.ubuntu.com/noble/python3
+.. _`Python 3 (Ubuntu DPKG)`: https://packages.ubuntu.com/noble-updates/python3
+.. _`python_linux`: https://packages.ubuntu.com/noble-updates/python3
 .. _`Python 3 (Homebrew Formulae)`: https://formulae.brew.sh/formula/python@3.12
 .. _`python_macos`: https://formulae.brew.sh/formula/python@3.12
-.. _`Python 3 (Chocolatey Package)`: https://community.chocolatey.org/packages/python311
-.. _`python_win10`: https://community.chocolatey.org/packages/python311
+.. _`Python 3 (WinGet Package)`: https://winstall.app/apps/Python.Python.3.12
+.. _`python_win1x_winget`: https://winstall.app/apps/Python.Python.3.12
+.. _`Python 3 (Chocolatey Package)`: https://community.chocolatey.org/packages/python312
+.. _`python_win1x_choco`: https://community.chocolatey.org/packages/python312
 .. _`Python HTTP server`: https://docs.python.org/3/library/http.server.html
 .. _`Deadsnakes PPA`: https://launchpad.net/~deadsnakes/+archive/ubuntu/ppa
 
