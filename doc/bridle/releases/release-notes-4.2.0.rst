@@ -189,7 +189,8 @@ Build Infrastructure
 * tbd.
 * tbd.
 * tbd.
-
+* Remove `native_posix` as it has reached its end of life in Zephyr v4.2, after
+  being deprecated since Zephyr v4.0.
 
 Documentation
 =============
@@ -199,7 +200,11 @@ Documentation
 1. tbd.
 2. tbd.
 3. tbd.
-4. Update all output messages in documentation to be in sync with the upcoming
+4. Switch getting started guide for Windows to Winget. Winget has become the
+   standard Windows package manager, and it already contains all the packages
+   required for Zephyr and Bridle development. Switch to it from Chocolatey
+   for simplicity and consistency with the OS.
+5. Update all output messages in documentation to be in sync with the upcoming
    Bridle version v4.2.0, based on Zephyr v4.2 (samples and tests).
 
 Issue Related Items
@@ -213,6 +218,7 @@ These GitHub issues were addressed since project bootstrapping:
 * :github:`296` - [HW] The PicoBoy Color as additional board variant
 * :github:`292` - [FCR] Bump to Zephyr v4.1
 * :github:`287` - [FER] Add touch controller to the ``/chosen`` node
+* :github:`286` - [BUG] Remove "Native POSIX" board support
 * :github:`277` - [HW] Grove Dual and LED Button Module as Shield
 * :github:`275` - [BUG] Lost Bridle's document version selector
 * :github:`274` - [FCR] Bump to Zephyr v4.0
