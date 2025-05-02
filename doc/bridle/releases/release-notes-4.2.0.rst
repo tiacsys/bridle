@@ -170,6 +170,11 @@ Change log
 * tbd.
 * tbd.
 * tbd.
+* The `hello_shell` sample now enables the full Ethernet network stack with
+  MDIO support and all helpful shell commands for the TiaC Magpie F777NI board.
+* The TiaC Magpie F777NI board now provides the required device tree properties
+  `phy-connection-type` and `phy-handle`. The related but deprecated Kconfig
+  options `ETH_STM32_HAL_MII` and `ETH_STM32_HAL_PHY_ADDRESS` were removed.
 
 The following sections provide detailed lists of changes by component.
 
@@ -212,6 +217,8 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`317` - [BUG] Rename Kconfig option ``SCHED_DUMB`` and ``WAITQ_DUMB``
+* :github:`316` - [BUG] Remove Kconfig option ``ETH_STM32_HAL_MII`` and ``ETH_STM32_HAL_PHY_ADDRESS``
 * :github:`310` - [HW] STK8BA58 accelerometer
 * :github:`298` - [FER] Remove all DTS tweaks on RP2040 based boards
 * :github:`297` - [HW] The PicoBoy Color Plus as additional board variant
