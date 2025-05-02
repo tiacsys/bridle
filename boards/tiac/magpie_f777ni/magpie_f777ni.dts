@@ -101,9 +101,7 @@
 &mac {
 	status = "okay";
 	pinctrl-names = "default";
-	pinctrl-0 = <&eth_mdc_pc1	/* MII_MDC */
-		     &eth_mdio_pa2	/* MII_MDIO */
-		     &eth_col_pa3	/* MII_COL */
+	pinctrl-0 = <&eth_col_pa3	/* MII_COL */
 		     &eth_crs_pa0	/* MII_CRS */
 		     &eth_txd3_pb8	/* MII_TXD3 */
 		     &eth_txd2_pc2	/* MII_TXD2 */
@@ -118,7 +116,21 @@
 		     &eth_rxd0_pc4	/* MII_RXD0 */
 		     &eth_rx_dv_pa7	/* MII_RXDV */
 		     &eth_rx_clk_pa1>;	/* MII_RXC */
+	phy-connection-type = "mii";
+	phy-handle = <&eth_phy>;
 }; // mac
+
+&mdio {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&eth_mdc_pc1	/* MII_MDC */
+		     &eth_mdio_pa2>;	/* MII_MDIO */
+
+	eth_phy: ethernet-phy@0 {
+		compatible = "ethernet-phy";
+		reg = <0x00>;
+	}; // eth_phy
+}; // mdio
 
 &usbotg_fs {
 	status = "okay";

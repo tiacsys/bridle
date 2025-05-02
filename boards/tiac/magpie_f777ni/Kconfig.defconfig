@@ -16,12 +16,6 @@ if NETWORKING
 config NET_L2_ETHERNET
 	default y
 
-config ETH_STM32_HAL_MII
-	default y
-
-config ETH_STM32_HAL_PHY_ADDRESS
-	default 7
-
 endif # NETWORKING
 
 endif # BOARD_MAGPIE_F777NI

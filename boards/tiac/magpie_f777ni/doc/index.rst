@@ -130,6 +130,10 @@ hardware features:
      - :kconfig:option:`CONFIG_NET_L2_ETHERNET`
      - :dtcompatible:`st,stm32-ethernet` (*)
      - :external+zephyr:ref:`ethernet_interface`
+   * - MDIO (L1: PHY)
+     - :kconfig:option:`CONFIG_MDIO`
+     - :dtcompatible:`st,stm32-mdio`
+     - :external+zephyr:ref:`mdio_api`
    * - CAN (L1: PMA / PCS, L2: DLL)
      - :kconfig:option:`CONFIG_CAN`
      - :dtcompatible:`st,stm32-bxcan` (-)
