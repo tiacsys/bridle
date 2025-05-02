@@ -1,5 +1,5 @@
-Using the :zephyr:ref:`Display driver API <display_api>` and the
-:zephyr:ref:`Input subsystem API <input>` with chosen display and
+Using the :external+zephyr:ref:`Display driver API <display_api>` and the
+:external+zephyr:ref:`Input subsystem API <input>` with chosen display and
 touchscreen panel. That is:
 
 | :hwftlbl-scr:`LCD` : :dts:`chosen { zephyr,display = &lcd_panel; };`

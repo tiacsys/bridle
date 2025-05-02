@@ -126,7 +126,7 @@ This sample uses the following |BRIDLE| libraries:
 In addition, it uses the following Zephyr libraries:
 
 * ``include/console.h``
-* :zephyr:ref:`kernel_api`:
+* :external+zephyr:ref:`kernel_api`:
 
   * ``include/kernel.h``
 

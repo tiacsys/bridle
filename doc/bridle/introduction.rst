@@ -69,10 +69,10 @@ to building them.
 
    |BRIDLE| tools and configuration methods
 
-* :zephyr:ref:`kconfig` generates definitions that configure libraries
+* :external+zephyr:ref:`kconfig` generates definitions that configure libraries
   and subsystems.
   See also the `Kconfig language`_.
-* :zephyr:ref:`Devicetree <dt-guide>` describes the hardware.
+* :external+zephyr:ref:`Devicetree <dt-guide>` describes the hardware.
   See also the `Devicetree reference`_.
 * CMake generates build files based on the provided :file:`CMakeLists.txt`
   files, which use information from Kconfig and devicetree.
@@ -145,23 +145,23 @@ West Tool
 *********
 
 The Zephyr project includes a tool called west. The |BRIDLE| uses
-:zephyr:ref:`west <west>` to manage the combination of multiple
+:external+zephyr:ref:`west <west>` to manage the combination of multiple
 Git repositories and versions.
 
 Some of west’s features are similar to those provided by Git Submodules and
 Google’s Repo tool. But west also includes custom features required by the
 :ref:`zephyr_intro` that were not sufficiently supported by the existing tools.
 For more details about the reasons behind the introduction of west, see the
-:zephyr:ref:`west-history` section of the Zephyr documentation.
+:external+zephyr:ref:`west-history` section of the Zephyr documentation.
 
 West's workspace contains exactly one
-:zephyr:ref:`manifest repository <west-basics>`, which is a main Git repository
-containing a `west manifest file`_. Additional Git repositories in the workspace
-managed by west are called projects. The manifest repository controls which
-commits to use from the different projects through the manifest file. In the
-|BRIDLE|, the main repository `tiac-bridle`_ contains a west manifest file
-|west manifest file|_, that determines the revision of all other repositories
-and that is complete different from Zephyr’s west manifest file
+:external+zephyr:ref:`manifest repository <west-basics>`, which is a main
+Git repository containing a `west manifest file`_. Additional Git repositories
+in the workspace managed by west are called projects. The manifest repository
+controls which commits to use from the different projects through the manifest
+file. In the |BRIDLE|, the main repository `tiac-bridle`_ contains a west
+manifest file |west manifest file|_, that determines the revision of all other
+repositories and that is complete different from Zephyr’s west manifest file
 :zephyr_file:`west.yml`. This means that ``tiac-bridle`` acts as the manifest
 repository, while the other repositories are projects, like Zephyr in the case
 of |BRIDLE|. When developing in the |BRIDLE|, your application will use
@@ -185,8 +185,8 @@ sure your workspace contains the project repositories the new revision expects
 (according to the manifest file).
 
 For more information about :command:`west init`, :command:`west update`, and
-other built-in commands, see :zephyr:ref:`west-built-in-cmds`. For more
-information about the west tool, see the :zephyr:ref:`west` user guide.
+other built-in commands, see :external+zephyr:ref:`west-built-in-cmds`. For more
+information about the west tool, see the :external+zephyr:ref:`west` user guide.
 
 See :ref:`getting_started` for information about how to install |BRIDLE| and
 about the first steps. See :ref:`dev-model` for more information about the

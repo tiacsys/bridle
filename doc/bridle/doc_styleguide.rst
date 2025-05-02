@@ -11,9 +11,9 @@ Documentation style guide
 RST style guide
 ***************
 
-See Zephyr's :zephyr:ref:`doc_guidelines` for a short introduction to RST and,
-most importantly, to the conventions used in Zephyr. More information about
-RST is available in the `reStructuredText Primer`_ as part of the original
+See Zephyr's :external+zephyr:ref:`doc_guidelines` for a short introduction to
+RST and, most importantly, to the conventions used in Zephyr. More information
+about RST is available in the `reStructuredText Primer`_ as part of the original
 `Sphinx Documentation`_, and about the Sphinx documentation framework in the
 `Li-Pro.Net Sphinx Primer`_.
 

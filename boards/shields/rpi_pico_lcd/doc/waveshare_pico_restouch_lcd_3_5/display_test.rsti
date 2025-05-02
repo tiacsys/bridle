@@ -1,5 +1,5 @@
-Using the :zephyr:ref:`Display driver API <display_api>` with chosen display.
-That is:
+Using the :external+zephyr:ref:`Display driver API <display_api>`
+with chosen display. That is:
 
 | :hwftlbl-scr:`LCD` : :dts:`chosen { zephyr,display = &lcd_panel; };`
 | :hwftlbl-scr:`ILI9488` : :dts:`lcd_panel: &ili9488_480x320 {};`

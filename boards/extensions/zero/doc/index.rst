@@ -56,74 +56,74 @@ hardware features:
    * - PINCTRL
      - :kconfig:option:`CONFIG_PINCTRL`
      - :dtcompatible:`atmel,sam0-pinctrl`
-     - :zephyr:ref:`pinctrl_api`
+     - :external+zephyr:ref:`pinctrl_api`
    * - GPIO
      - :kconfig:option:`CONFIG_GPIO`
      - :dtcompatible:`atmel,sam0-gpio`
-     - :zephyr:ref:`gpio_api`
+     - :external+zephyr:ref:`gpio_api`
    * - UART
      - :kconfig:option:`CONFIG_SERIAL`
      - :dtcompatible:`atmel,sam0-uart`
-     - :zephyr:ref:`uart_api`
+     - :external+zephyr:ref:`uart_api`
    * - UDC (USB Device Controller)
      - :kconfig:option:`CONFIG_USB_DEVICE_STACK`
      - :dtcompatible:`atmel,sam0-usb`
-     - :zephyr:ref:`usb_api`
+     - :external+zephyr:ref:`usb_api`
    * - I2C
      - :kconfig:option:`CONFIG_I2C`
      - :dtcompatible:`atmel,sam0-i2c`
-     - :zephyr:ref:`i2c_api`
+     - :external+zephyr:ref:`i2c_api`
    * - SPI
      - :kconfig:option:`CONFIG_SPI`
      - :dtcompatible:`atmel,sam0-spi`
-     - :zephyr:ref:`spi_api`
+     - :external+zephyr:ref:`spi_api`
    * - PWM
      - :kconfig:option:`CONFIG_PWM`
      - :dtcompatible:`atmel,sam0-tcc-pwm`
-     - :zephyr:ref:`pwm_api`
+     - :external+zephyr:ref:`pwm_api`
    * - DAC
      - :kconfig:option:`CONFIG_DAC`
      - :dtcompatible:`atmel,sam0-dac`
-     - :zephyr:ref:`dac_api`
+     - :external+zephyr:ref:`dac_api`
    * - ADC
      - :kconfig:option:`CONFIG_ADC`
      - :dtcompatible:`atmel,sam0-adc`
-     - :zephyr:ref:`adc_api`
+     - :external+zephyr:ref:`adc_api`
    * - RTC
      - :kconfig:option:`CONFIG_RTC`
      - :dtcompatible:`atmel,sam0-rtc`
-     - :zephyr:ref:`rtc_api`
+     - :external+zephyr:ref:`rtc_api`
    * - Timer (Counter)
      - :kconfig:option:`CONFIG_COUNTER`
      - :dtcompatible:`atmel,sam0-tcc`
-     - :zephyr:ref:`counter_api`
+     - :external+zephyr:ref:`counter_api`
    * - Watchdog Timer (WDT)
      - :kconfig:option:`CONFIG_WATCHDOG`
      - :dtcompatible:`atmel,sam0-watchdog`
-     - :zephyr:ref:`watchdog_api`
+     - :external+zephyr:ref:`watchdog_api`
    * - Flash
      - :kconfig:option:`CONFIG_FLASH`
      - :dtcompatible:`atmel,sam0-nvmctrl`
-     - :zephyr:ref:`flash_api` and
-       :zephyr:ref:`flash_map_api`
+     - :external+zephyr:ref:`flash_api` and
+       :external+zephyr:ref:`flash_map_api`
    * - DMA
      - :kconfig:option:`CONFIG_DMA`
      - :dtcompatible:`atmel,sam0-dmac`
-     - :zephyr:ref:`dma_api`
+     - :external+zephyr:ref:`dma_api`
    * - HWINFO
      - :kconfig:option:`CONFIG_HWINFO`
      - :dtcompatible:`atmel,sam0-id`
-     - :zephyr:ref:`hwinfo_api`
+     - :external+zephyr:ref:`hwinfo_api`
    * - CLOCK / PM
      - **not supported**
      - | :dtcompatible:`atmel,samd2x-gclk`
        | :dtcompatible:`atmel,samd2x-pm`
-     - :zephyr:ref:`clock_control_api`
+     - :external+zephyr:ref:`clock_control_api`
    * - NVIC
      - N/A
      - | :dtcompatible:`atmel,sam0-eic`
        | :dtcompatible:`arm,v6m-nvic`
-     - Nested Vector :zephyr:ref:`interrupts_v2` Controller
+     - Nested Vector :external+zephyr:ref:`interrupts_v2` Controller
    * - SYSTICK
      - N/A
      - :dtcompatible:`arm,armv6m-systick`
@@ -222,11 +222,12 @@ USB Device Port
    :alt: Arduino Zero Native and Programming USB Ports
 
 The SAMD21 MCU has a (native) USB device port that can be used to communicate
-with a host PC. See Zephyr :zephyr:code-sample-category:`usb` for more, such as
-the :zephyr:code-sample:`usb-cdc-acm` sample which sets up a virtual serial port
-that echos characters back to the host PC. As an alternative to the default
-Zephyr console on serial port the Bridle :ref:`snippet-usb-console` can be used
-to enable :zephyr:ref:`usb_device_cdc_acm` and switch the console to USB:
+with a host PC. See Zephyr :external+zephyr:zephyr:code-sample-category:`usb`
+for more, such as the :external+zephyr:zephyr:code-sample:`usb-cdc-acm` sample
+which sets up a virtual serial port that echos characters back to the host PC.
+As an alternative to the default Zephyr console on serial port the Bridle
+:ref:`snippet-usb-console` can be used to enable
+:external+zephyr:ref:`usb_device_cdc_acm` and switch the console to USB:
 
    .. container:: highlight-console notranslate literal-block
 
@@ -352,8 +353,8 @@ is connected to the debug USB port for programming:
 Flashing
 ========
 
-#. Build the Zephyr kernel and the :zephyr:code-sample:`hello_world` sample
-   application:
+#. Build the Zephyr kernel and the
+   :external+zephyr:zephyr:code-sample:`hello_world` sample application:
 
    .. zephyr-app-commands::
       :app: zephyr/samples/hello_world

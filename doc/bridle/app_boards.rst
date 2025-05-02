@@ -268,13 +268,13 @@ are typically custom designs and not available publicly. To define your
 own board or shield, you can use the following |ZEPHYR| guides as reference,
 since boards are defined in |BRIDLE| just as they are in the |ZEPHYR|:
 
-* :zephyr:ref:`custom_board_definition`
+* :external+zephyr:ref:`custom_board_definition`
   is a guide to adding your own custom board to the Zephyr build system.
-* :zephyr:ref:`shields`
+* :external+zephyr:ref:`shields`
   is a complete guide to integrate your own modules as shields.
-* :zephyr:ref:`board_porting_guide`
+* :external+zephyr:ref:`board_porting_guide`
   is a complete guide to porting Zephyr to your own board.
-* :zephyr:ref:`soc_porting_guide`
+* :external+zephyr:ref:`soc_porting_guide`
   is a complete guide to porting Zephyr to your own SoC.
-* :zephyr:ref:`architecture_porting_guide`
+* :external+zephyr:ref:`architecture_porting_guide`
   is a complete guide to porting Zephyr to your own architecture.

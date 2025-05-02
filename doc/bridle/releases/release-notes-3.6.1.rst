@@ -231,9 +231,10 @@ Build Infrastructure
 Take over the new build principles from Zephyr:
 
 * Use the new upstream *MIPI DBI API* for all *ILI9xxx* based displays.
-* Take over upstream ``ci/check_compliance.py`` from Zephyr, adapt with all
-  the needs for Bridle and extend support for :zephyr:ref:`external module
-  roots <modules>` as defined by Zephyr module settings (``MODULE_EXT_ROOT``).
+* Take over upstream ``ci/check_compliance.py`` from Zephyr, adapt with
+  all the needs for Bridle and extend support for
+  :external+zephyr:ref:`external module roots <modules>` as defined by
+  Zephyr module settings (``MODULE_EXT_ROOT``).
 * Use new ``ci/check_compliance.py`` on GitHub workflow *QA Compliance Check*
   to do following with each PR:
 

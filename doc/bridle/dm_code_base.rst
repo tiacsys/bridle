@@ -94,18 +94,20 @@ Repository structure
 ********************
 
 In order to manage the combination of repositories and versions, |BRIDLE| uses
-:zephyr:ref:`west <west>`, the same tool that the |ZEPHYR| uses to manage its
-repository set. You can learn more about the reasons behind the introduction of
-west in :zephyr:ref:`this section <west-history>` of the |ZEPHYR| documentation.
+:external+zephyr:ref:`west <west>`, the same tool that the |ZEPHYR| uses to
+manage its repository set. You can learn more about the reasons behind the
+introduction of west in :external+zephyr:ref:`this section <west-history>`
+of the |ZEPHYR| documentation.
 
-A :zephyr:ref:`manifest repository <west-manifests>`, `tiac-bridle`_, contains
-a file in its root folder, :file:`west.yml`, which lists all other repositories
-(west projects) included in |BRIDLE|. The |BRIDLE| repository structure has
-a star topology, with the `tiac-bridle`_ repository being the center of the
-star and all other repositories being west projects that are managed by
-:file:`west.yml`. This is equivalent to topology :zephyr:ref:`T2 <west-t2>`
-in the :zephyr:ref:`west documentation <west-topologies>` and more detailed
-describe in :zephyr:ref:`west-mr-model`.
+A :external+zephyr:ref:`manifest repository <west-manifests>`, `tiac-bridle`_,
+contains a file in its root folder, :file:`west.yml`, which lists all other
+repositories (west projects) included in |BRIDLE|. The |BRIDLE| repository
+structure has a star topology, with the `tiac-bridle`_ repository being the
+center of the star and all other repositories being west projects that are
+managed by :file:`west.yml`. This is equivalent to topology
+:external+zephyr:ref:`T2 <west-t2>` in the
+:external+zephyr:ref:`west documentation <west-topologies>` and more detailed
+describe in :external+zephyr:ref:`west-mr-model`.
 
 .. figure:: images/bridle-west-repos.svg
    :alt: A graphical depiction of the |BRIDLE| repository structure
@@ -129,7 +131,7 @@ the latest state of development by using the main branch of the `tiac-bridle`_
 repository, updating it with Git regularly and using ``west update`` to update
 the project repositories every time the manifest repository changes. More
 information about manifests can be found in the
-:zephyr:ref:`west manifest section <west-manifests>`
+:external+zephyr:ref:`west manifest section <west-manifests>`
 of the |ZEPHYR| documentation.
 
 Revisions

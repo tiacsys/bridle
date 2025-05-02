@@ -10,7 +10,7 @@ Button
    for further development, improvement and preparation of changes for
    Zephyr within Bridle. However, the original sample still lives within
    the Zephyr namespace under the exactly same name:
-   :zephyr:code-sample:`button`.
+   :external+zephyr:zephyr:code-sample:`button`.
 
 Overview
 ********
@@ -27,9 +27,9 @@ called "User buttons" on many of Zephyr's :external+zephyr:ref:`boards` and
 Bridle's :ref:`boards`.
 
 The button must be configured using the :dts:`sw0`
-:zephyr:ref:`devicetree <dt-guide>` alias, usually in the
-:zephyr:ref:`BOARD.dts file <devicetree-in-out-files>`. You will see this error
-if you try to build this sample for an unsupported board:
+:external+zephyr:ref:`devicetree <dt-guide>` alias, usually in the
+:external+zephyr:ref:`BOARD.dts file <devicetree-in-out-files>`. You will see
+this error if you try to build this sample for an unsupported board:
 
    .. parsed-literal::
       :class: highlight-none notranslate
@@ -88,13 +88,13 @@ both an :dts:`sw0` and an :dts:`led0` alias:
 .. rubric:: As shown:
 
 - the :dts:`sw0 = &user_button;`
-  :zephyr:ref:`devicetree alias <dt-alias-chosen>` must point
+  :external+zephyr:ref:`devicetree alias <dt-alias-chosen>` must point
   to a child node of a node with a :dtcompatible:`gpio-keys`
-  :zephyr:ref:`compatible <dt-important-props>`, and
+  :external+zephyr:ref:`compatible <dt-important-props>`, and
 - the :dts:`led0 = &user_lamp;`
-  :zephyr:ref:`devicetree alias <dt-alias-chosen>` must point
+  :external+zephyr:ref:`devicetree alias <dt-alias-chosen>` must point
   to a child node of one with a :dtcompatible:`gpio-leds`
-  :zephyr:ref:`compatible <dt-important-props>`.
+  :external+zephyr:ref:`compatible <dt-important-props>`.
 
 .. rubric:: The above situation is for the common case where:
 
@@ -104,16 +104,17 @@ both an :dts:`sw0` and an :dts:`led0` alias:
   :dts:`gpio0:` and points to the given GPIO controller
 - :dts:`__PIN__` should be a pin number, like :dts:`8` or :dts:`0`, see
   :dts:`user_lamp:` for an example
-- :dts:`__FLAGS__` should be a logical OR of :zephyr:ref:`GPIO configuration
-  flags <gpio_api>` meant to apply to the button, such as
-  :dts:`(GPIO_PULL_UP | GPIO_ACTIVE_LOW)`, see :dts:`user_lamp:` for an example
+- :dts:`__FLAGS__` should be a logical OR of
+  :external+zephyr:ref:`GPIO configuration flags <gpio_api>` meant to apply
+  to the button, such as :dts:`(GPIO_PULL_UP | GPIO_ACTIVE_LOW)`, see
+  :dts:`user_lamp:` for an example
 
 .. rubric:: Required devicetree bindings:
 
 This assumes the common case, where is :dts:`#gpio-cells = <2>` in the
-:dts:`gpio0:` node, and that the :zephyr:ref:`GPIO controller's devicetree
-binding <dt-bindings>` declares those two cells :yaml:`pin` and :yaml:`flags`
-in :yaml:`gpio-cells` like so:
+:dts:`gpio0:` node, and that the :external+zephyr:ref:`GPIO controller's
+devicetree binding <dt-bindings>` declares those two cells :yaml:`pin` and
+:yaml:`flags` in :yaml:`gpio-cells` like so:
 
    .. code-block:: yaml
 
@@ -131,8 +132,8 @@ This sample requires a :yaml:`pin` cell in the :dts:`gpios` property. The
 :yaml:`flags` cell is optional, however, and the sample still works if the
 GPIO cells do not contain :yaml:`flags`. This assumes the common case, where
 the :dts:`gpios = <&gpio0 /* … */>` property in the :dts:`user_button:` and
-:dts:`user_lamp:` child nodes reflects an :zephyr:ref:`GPIO keys and leds
-devicetree binding <dt-bindings>` similar like so:
+:dts:`user_lamp:` child nodes reflects an :external+zephyr:ref:`GPIO keys and
+leds devicetree binding <dt-bindings>` similar like so:
 
    .. code-block:: yaml
 

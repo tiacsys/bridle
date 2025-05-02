@@ -61,8 +61,8 @@ have kept the original set of repositories,
 of the |BRIDLE| source code, which is self-contained in a single folder, you
 can then proceed to manage that code in any way you see fit.
 
-Unless you take some :zephyr:ref:`additional steps <no-west>`, west itself must
-still be installed in order to build applications.
+Unless you take some :external+zephyr:ref:`additional steps <no-west>`, west
+itself must still be installed in order to build applications.
 
 Workflow 2: Out-of-tree application repository
 ==============================================
@@ -211,4 +211,4 @@ and *your-ncs-fork*, respectively), as shown in the following code:
 After that, to modify the |BRIDLE| version associated with your app,
 change the ``revision`` value in the manifest file to the `tiac-bridle`_
 Git tag, SHA, or the branch you want to use, save the file, and run
-``west update``. See :zephyr:ref:`west-mr-model` for more details.
+``west update``. See :external+zephyr:ref:`west-mr-model` for more details.

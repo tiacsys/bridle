@@ -1,6 +1,6 @@
 Print the input events related to the on-shield touchscreen panel,
 the two user keys, and the two analog joystick achsises using the
-:zephyr:ref:`Input subsystem API <input>`. That are:
+:external+zephyr:ref:`Input subsystem API <input>`. That are:
 
 | :hwftlbl-scr:`TSC` : :dts:`lvgl_pointer { input = &tsc_panel; };`
 | :hwftlbl-scr:`GT911` : :dts:`tsc_panel: &gt911_320x480 {};`

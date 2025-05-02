@@ -11,8 +11,8 @@ Overview
 ********
 
 This snippet redirects serial console output to a
-:zephyr:ref:`usb_device_cdc_acm` UART. The USB device which should be used
-is configured using :zephyr:ref:`devicetree`.
+:external+zephyr:ref:`usb_device_cdc_acm` UART. The USB device which
+should be used is configured using :external+zephyr:ref:`devicetree`.
 
 .. tsn-include:: connectivity/usb/device/usb_device.rst
    :docset: zephyr
@@ -24,11 +24,12 @@ is configured using :zephyr:ref:`devicetree`.
    :start-after: .. _usb_device_vid_pid:
    :end-before: The following Product IDs are currently used:
 
-In the Zephyr documentation you will found a detailed and up to date list of
-:zephyr:ref:`usb_device_vid_pid` as they would be used for each single
-USB :zephyr:code-sample-category:`sample <usb>` without manipulation by this
-snippet. This snippet should only be applied to applications similar to the
-:zephyr:code-sample:`usb-cdc-acm-console` example, no other!
+In the Zephyr documentation you will found a detailed and up to date list
+of :external+zephyr:ref:`usb_device_vid_pid` as they would be used for each
+single USB :external+zephyr:zephyr:code-sample-category:`sample <usb>`
+without manipulation by this snippet. This snippet should only be applied to
+applications similar to the
+:external+zephyr:zephyr:code-sample:`usb-cdc-acm-console` example, no other!
 
 Board specific identifiers
 ==========================
@@ -254,8 +255,8 @@ specified as required.
      - |zephyr_URB_PID_CON|
      -
      - |Zephyr Project|_
-     - :zephyr:code-sample:`usb-cdc-acm-console`
-     - Zephyr :zephyr:ref:`usb_device_vid_pid`
+     - :external+zephyr:zephyr:code-sample:`usb-cdc-acm-console`
+     - Zephyr :external+zephyr:ref:`usb_device_vid_pid`
      - | |zephyr:devicetree:chosen:console|
 
 How to add support of a new board
@@ -282,7 +283,7 @@ Hardware support for:
 
 A devicetree node with node label ``zephyr_udc0`` that points to an enabled USB
 device node with driver support. This should look roughly like this in
-:zephyr:ref:`your devicetree <get-devicetree-outputs>`:
+:external+zephyr:ref:`your devicetree <get-devicetree-outputs>`:
 
    .. code-block:: DTS
 

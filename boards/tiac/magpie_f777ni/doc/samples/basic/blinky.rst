@@ -6,15 +6,16 @@ LED Blinky
 Overview
 ********
 
-See :zephyr:code-sample:`blinky` for the original description.
+See :external+zephyr:zephyr:code-sample:`blinky` for the original description.
 
 .. _magpie_f777ni_led_blinky-sample-requirements:
 
 Requirements
 ************
 
-The TiaC Magpie board have two "User LEDs" connected via GPIO pins. The first
-LED is configured using the ``led0`` :zephyr:ref:`devicetree <dt-guide>` alias.
+The TiaC Magpie board have two "User LEDs" connected via GPIO pins.
+The first LED is configured using the ``led0``
+:external+zephyr:ref:`devicetree <dt-guide>` alias.
 
 Building and Running
 ********************

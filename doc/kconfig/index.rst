@@ -5,10 +5,11 @@
 Kconfig Search
 ##############
 
-This is a searchable reference documentation for all :ref:`Kconfig <kconfig>`
-options as it is used for Zephyr and Bridle development. For a high-level
-guide, see :ref:`kconfig`. For a platform-independent specification, see the
-official `Kconfig language documentation`_.
+This is a searchable reference documentation for all
+:external+zephyr:ref:`Kconfig <kconfig>` options as it is used for Zephyr and
+Bridle development. For a high-level guide, see :external+zephyr:ref:`kconfig`.
+For a platform-independent specification, see the official
+`Kconfig language documentation`_.
 
 .. _Kconfig language documentation:
    https://www.kernel.org/doc/html/latest/kbuild/kconfig-language.html

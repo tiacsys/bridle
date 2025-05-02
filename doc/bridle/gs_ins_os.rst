@@ -66,7 +66,7 @@ available on Linux, including:**
 As a result of native execution, simulation and emulation as listed above,
 the Zephyr built-in test environment can only be reasonably used on Linux.
 
-* :zephyr:ref:`test-framework`
+* :external+zephyr:ref:`test-framework`
 
   * Zephyr Test Framework (Ztest)
 
@@ -77,7 +77,7 @@ the Zephyr built-in test environment can only be reasonably used on Linux.
   * Shuffling Test Sequence
   * Mocking via `Fake Function Framework <FFF_>`_
 
-* :zephyr:ref:`twister_script`
+* :external+zephyr:ref:`twister_script`
 
 .. note::
 

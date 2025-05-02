@@ -3,9 +3,9 @@
 Buildability over all Bridle drivers
 ####################################
 
-As noted in :zephyr:ref:`ci tests` it is a common best practice to running
-regression test suites locally before submit. Checking the buildability of
-all drivers maintained by Bridle is not a single test suite but rather the
+As noted in :external+zephyr:ref:`ci tests` it is a common best practice to
+running regression test suites locally before submit. Checking the buildability
+of all drivers maintained by Bridle is not a single test suite but rather the
 reuse of Zephyr's :zephyr_file:`tests/drivers/build_all` test strategy with
 significant adaptations to Bridle's needs. The following :command:`west`
 commands can be used to check individual driver sets or really all drivers
@@ -33,7 +33,7 @@ commands can be used to check individual driver sets or really all drivers
 
    .. group-tab:: DEF
 
-      .. rubric:: Check all :zephyr:ref:`display_api` drivers:
+      .. rubric:: Check all :external+zephyr:ref:`display_api` drivers:
 
       .. code-block:: console
 
@@ -49,7 +49,7 @@ commands can be used to check individual driver sets or really all drivers
 
    .. group-tab:: GHI
 
-      .. rubric:: Check all :zephyr:ref:`gpio_api` drivers:
+      .. rubric:: Check all :external+zephyr:ref:`gpio_api` drivers:
 
       .. code-block:: console
 
@@ -63,7 +63,7 @@ commands can be used to check individual driver sets or really all drivers
                 --tag bridle \
                 --tag zephyr
 
-      .. rubric:: Check all :zephyr:ref:`i2c_api` drivers:
+      .. rubric:: Check all :external+zephyr:ref:`i2c_api` drivers:
 
       .. code-block:: console
 
@@ -97,7 +97,7 @@ commands can be used to check individual driver sets or really all drivers
 
    .. group-tab:: PQRS
 
-      .. rubric:: Check all :zephyr:ref:`rtc_api` drivers:
+      .. rubric:: Check all :external+zephyr:ref:`rtc_api` drivers:
 
       .. code-block:: console
 
@@ -111,7 +111,7 @@ commands can be used to check individual driver sets or really all drivers
                 --tag bridle \
                 --tag zephyr
 
-      .. rubric:: Check all :zephyr:ref:`sensor` drivers:
+      .. rubric:: Check all :external+zephyr:ref:`sensor` drivers:
 
       .. code-block:: console
 
@@ -127,7 +127,7 @@ commands can be used to check individual driver sets or really all drivers
 
    .. group-tab:: TUV
 
-      .. rubric:: Check all :zephyr:ref:`uart_api` drivers:
+      .. rubric:: Check all :external+zephyr:ref:`uart_api` drivers:
 
       .. code-block:: console
 

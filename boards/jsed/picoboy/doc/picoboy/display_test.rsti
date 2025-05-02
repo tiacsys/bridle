@@ -31,8 +31,8 @@ The following samples work with the chosen display. That is:
    :alt: PicoBoy Display Test
 
 Draw some basic rectangles onto the display using the
-:zephyr:ref:`Display driver API <display_api>`. See also Zephyr sample:
-:zephyr:code-sample:`display`.
+:external+zephyr:ref:`Display driver API <display_api>`.
+See also Zephyr sample: :external+zephyr:zephyr:code-sample:`display`.
 
 .. zephyr-app-commands::
    :app: zephyr/samples/drivers/display
@@ -46,8 +46,8 @@ Draw some basic rectangles onto the display using the
 
 Displays “Hello World!” in the center of the screen and a counter at the
 bottom which increments every second using the LVGL module on top of the
-:zephyr:ref:`Display driver API <display_api>`. See also Zephyr sample:
-:zephyr:code-sample:`lvgl`.
+:external+zephyr:ref:`Display driver API <display_api>`.
+See also Zephyr sample: :external+zephyr:zephyr:code-sample:`lvgl`.
 
 .. zephyr-app-commands::
    :app: zephyr/samples/subsys/display/lvgl

@@ -84,7 +84,7 @@ Take over the new build principles from Zephyr:
 Documentation
 =============
 
-1. Renamed references to :zephyr:ref:`canbus` in the
+1. Renamed references to :external+zephyr:ref:`canbus` in the
    |bridle:board:magpie_f777ni| page.
 #. Update all documented output messages.
 

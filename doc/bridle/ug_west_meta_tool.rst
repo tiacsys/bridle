@@ -9,7 +9,8 @@ worry, this is not going to be a lesson in Greek methodology. Rather, it is
 an attempt to find a "possible" explanation why the |ZEPHYR| in so many cases
 refers to and relies on a small, inconspicuous but essential meta-tool called
 ``west``\ [#west-repo]_. What this meta-tool is capable of doing can be read
-in detail at section :zephyr:ref:`west <west>` in the |ZEPHYR| documentation.
+in detail at section :external+zephyr:ref:`west <west>` in the |ZEPHYR|
+documentation.
 
 .. |zephyr| replace:: :strong:`zephyr`
 .. _zephyr: https://en.wikipedia.org/wiki/Zephyr
@@ -23,7 +24,7 @@ in detail at section :zephyr:ref:`west <west>` in the |ZEPHYR| documentation.
 
    west_bridle_cmds
 
-For details on west's Python APIs, see :zephyr:ref:`west-apis`.
+For details on west's Python APIs, see :external+zephyr:ref:`west-apis`.
 
 .. rubric:: Footnotes
 

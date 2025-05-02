@@ -142,7 +142,7 @@ LED Blinky and Button
 
       .. rubric:: LED Blinky
 
-      See also Zephyr sample: :zephyr:code-sample:`blinky`.
+      See also Zephyr sample: :external+zephyr:zephyr:code-sample:`blinky`.
 
       .. tabs::
 
@@ -198,7 +198,7 @@ LED Blinky and Button
 
       .. rubric:: LED ON/OFF by Button
 
-      See also Zephyr sample: :zephyr:code-sample:`button`.
+      See also Zephyr sample: :external+zephyr:zephyr:code-sample:`button`.
 
       .. tabs::
 
@@ -256,15 +256,15 @@ Input dump
 ==========
 
 Prints all input events as defined by the shields Devicetree. See also Zephyr
-sample: :zephyr:code-sample:`input-dump`.
+sample: :external+zephyr:zephyr:code-sample:`input-dump`.
 
 .. tabs::
 
    .. group-tab:: Waveshare Pico Clock Green
 
       Print the input events related to the five on-shield user input keys
-      and two user keys using the :zephyr:ref:`Input subsystem API <input>`.
-      That are:
+      and two user keys using the :external+zephyr:ref:`Input subsystem API
+      <input>`. That are:
 
       | :hwftlbl-btn:`SET/FUNCTION` : :dts:`zephyr,code = <INPUT_KEY_ENTER>;`
       | :hwftlbl-btn:`UP` : :dts:`zephyr,code = <INPUT_KEY_UP>;`
@@ -344,15 +344,15 @@ Analog-to-Digital Converter (ADC)
 =================================
 
 Read analog inputs from ADC channels as defined by the shield's Devicetree.
-See also Zephyr sample: :zephyr:code-sample:`adc_dt`.
+See also Zephyr sample: :external+zephyr:zephyr:code-sample:`adc_dt`.
 
 .. tabs::
 
    .. group-tab:: Waveshare Pico Clock Green
 
       Read and print the analog input value from the one on-shield
-      high-resistance LDR using the :zephyr:ref:`ADC driver API <adc_api>`.
-      That are:
+      high-resistance LDR using the :external+zephyr:ref:`ADC driver API
+      <adc_api>`. That are:
 
       | :hwftlbl:`Rₗ` : :dts:`zephyr,user { io-channels = <&adc 0>; };`
 
@@ -557,9 +557,10 @@ Sounds from the speaker
 LED Panel Orientation and Bit Order Test
 ========================================
 
-Draw some basic rectangles onto the LED panel. The rectangle positions are
-chosen so that you can check the orientation of the LED panel and correct
-bit order. See also Zephyr sample: :zephyr:code-sample:`display`.
+Draw some basic rectangles onto the LED panel. The rectangle positions
+are chosen so that you can check the orientation of the LED panel and
+correct bit order.
+See also Zephyr sample: :external+zephyr:zephyr:code-sample:`display`.
 
 .. tabs::
 

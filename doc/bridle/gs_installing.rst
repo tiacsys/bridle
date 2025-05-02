@@ -23,8 +23,8 @@ the |BRIDLE| repositories. See the following sections for detailed instructions.
 
 The first two steps, :ref:`gs_installing_tools` and
 :ref:`gs_installing_toolchain`, are similar to the installation steps in
-Zephyr's :zephyr:ref:`getting_started`. If you already have your system set up
-to work with the Zephyr OS, you can skip these steps.
+Zephyr's :external+zephyr:ref:`getting_started`. If you already have your
+system set up to work with the Zephyr OS, you can skip these steps.
 
 See :ref:`gs_installing_os` for information on the supported operating systems
 and Zephyr features.
@@ -80,7 +80,7 @@ The installation process is different depending on your operating system.
          :end-before: .. group-tab:: macOS
 
       For additional information and instructions for other Linux operating
-      systems, see the :zephyr:ref:`linux_requirements` section in the Zephyr
+      systems, see the :external+zephyr:ref:`linux_requirements` section in the Zephyr
       documentation.
 
    .. group-tab:: macOS
@@ -95,7 +95,7 @@ The installation process is different depending on your operating system.
          :start-after: .. _install_dependencies_macos:
          :end-before: .. group-tab:: Windows
 
-      Also see :zephyr:ref:`mac-setup-alts` for additional information.
+      Also see :external+zephyr:ref:`mac-setup-alts` for additional information.
 
    .. group-tab:: Windows
 
@@ -122,7 +122,7 @@ The installation process is different depending on your operating system.
       also well known alternative package manager `Chocolatey`_ in similar
       way or you can install dependencies from their respective websites and
       ensure the command line tools are on your :envvar:`PATH`
-      :zephyr:ref:`environment variable <env_vars>`.
+      :external+zephyr:ref:`environment variable <env_vars>`.
 
       To install the required tools on Windows, complete the following steps:
 
@@ -160,7 +160,7 @@ of the |zephyrsdk|_. Refere the :ref:`list of required tools <req_tools_table>`
 for the correct and tested version!
 
 To set up the toolchain, complete the following steps (refere also Zephyr's
-documentation in ":zephyr:ref:`toolchain_zephyr_sdk_install`"):
+documentation in ":external+zephyr:ref:`toolchain_zephyr_sdk_install`"):
 
 .. _toolchain_setup:
 
@@ -212,8 +212,8 @@ and tested version!
 For installation and handling of the |armgnutc| with Zephyr, the same steps
 apply as for the |gnuarmemb|. From Zephyr's point of view, only the name has
 changed. Therefore the same variable prefixes will be used (``GNUARMEMB``).
-For more details, see the section :zephyr:ref:`toolchain_gnuarmemb` in the
-Zephyr documentation.
+For more details, see the section :external+zephyr:ref:`toolchain_gnuarmemb`
+in the Zephyr documentation.
 
 To set up the toolchain, complete the following steps:
 
@@ -320,8 +320,9 @@ version!
 
 For installation and handling of the |gnuarmemb| with Zephyr, the same steps
 apply as for the |armgnutc|. For more details, see the section
-:zephyr:ref:`toolchain_gnuarmemb` in the Zephyr documentation. The |gnuarmemb|
-is the discontinued predecessor of the |armgnutc| and should no longer be used.
+:external+zephyr:ref:`toolchain_gnuarmemb` in the Zephyr documentation. The
+|gnuarmemb| is the discontinued predecessor of the |armgnutc| and should no
+longer be used.
 
 To set up the toolchain, complete the steps above for |armgnutc|.
 
@@ -364,7 +365,7 @@ proprietary tools within their own IDE frameworks.
 For installation the |stm32cubeclt|, see the accompanying original documentation
 by STMicroelectronics. For handling the |stm32cubeclt| with Zephyr you have to
 choose the same way as for other common cross-compilers. For more details, see
-the section :zephyr:ref:`other_x_compilers` in the Zephyr documentation.
+the section :external+zephyr:ref:`other_x_compilers` in the Zephyr documentation.
 
 To set up the toolchain, complete the following steps:
 
@@ -458,7 +459,7 @@ and compilation based on the standard :ref:`gs_toolchain_arm_gnu_install`.
 For installation the |mcuxpressoide|, see the accompanying original documentation
 by NXP. For handling the |mcuxpressoide| with Zephyr you have to choose the same
 way as for other common cross-compilers. For more details, see the section
-:zephyr:ref:`other_x_compilers` in the Zephyr documentation.
+:external+zephyr:ref:`other_x_compilers` in the Zephyr documentation.
 
 To set up the toolchain, complete the following steps:
 
@@ -555,17 +556,17 @@ each of those repositories is determined by the current revision of the main
    always work with a specific release of |BRIDLE|.
 
 To manage the combination of repositories and versions, |BRIDLE|
-uses :zephyr:ref:`west`. The main repository, `tiac-bridle`_, contains
+uses :external+zephyr:ref:`west`. The main repository, `tiac-bridle`_, contains
 a `west manifest file`_, :file:`west.yml`, that determines the revision
 of all other repositories. This means that *bridle* acts as the
-:zephyr:ref:`manifest repository <west-manifests>`, while the other
+:external+zephyr:ref:`manifest repository <west-manifests>`, while the other
 repositories are project repositories.
 
 You can find additional information about the repository and development
 model in the :ref:`development model section <dev-model>`.
 
-See the :zephyr:ref:`west documentation <west>` for detailed information
-about the tool itself.
+See the :external+zephyr:ref:`west documentation <west>` for detailed
+information about the tool itself.
 
 .. _gs_setup_pyvenv:
 
@@ -739,7 +740,7 @@ To clone the repositories, complete the following steps:
 
       If you get an error message when running west,
       :ref:`update west <west_update>` to the latest version. See
-      :zephyr:ref:`west-troubleshooting` if you need more information.
+      :external+zephyr:ref:`west-troubleshooting` if you need more information.
 
       .. west-error-end
 
@@ -758,9 +759,9 @@ To clone the repositories, complete the following steps:
 
          west update
 
-#. Export the :zephyr:ref:`Zephyr CMake package <cmake_pkg>` and also for
-   |BRIDLE|. This allows CMake to automatically load the boilerplate code
-   required for building |BRIDLE| applications:
+#. Export the :external+zephyr:ref:`Zephyr CMake package <cmake_pkg>` and
+   also for |BRIDLE|. This allows CMake to automatically load the boilerplate
+   code required for building |BRIDLE| applications:
 
    .. container:: highlight highlight-console notranslate
 
@@ -992,9 +993,9 @@ Setting up the command line build environment
 If you want to build and program your application from the command line,
 you must set up your build environment by defining the required environment
 variables every time you open a new command prompt or terminal window.
-
-See :zephyr:ref:`env_vars` and :zephyr:ref:`important-build-vars` information
-about the various relevant environment variables.
+See :external+zephyr:ref:`env_vars`
+and :external+zephyr:ref:`important-build-vars`
+information about the various relevant environment variables.
 
 Define the required environment variables as follows, depending on your
 operating system:

@@ -72,10 +72,10 @@ Pinouts
 
 The peripherals of the `RP2040 SoC`_ and `RP2350 SoC`_ can be routed to
 various pins on the board. The configuration of these routes can be modified
-through :zephyr:ref:`DTS <devicetree>`. Please refer to the datasheet to see
-the possible routings for each peripheral. The default assignments for the
-PicoBoy (Color/Plus) on-board wiring is defined below. There is only an edge
-connector on the PicoBoy Color Plus, otherwise not. The PicoBoy Color and
+through :external+zephyr:ref:`DTS <devicetree>`. Please refer to the datasheet
+to see the possible routings for each peripheral. The default assignments for
+the PicoBoy (Color/Plus) on-board wiring is defined below. There is only an
+edge connector on the PicoBoy Color Plus, otherwise not. The PicoBoy Color and
 Color Plus has solder pads with additional signals routed to outside of the
 board.
 
@@ -111,58 +111,58 @@ configuration supports the following hardware features:
    * - PINCTRL
      - :kconfig:option:`CONFIG_PINCTRL`
      - :dtcompatible:`raspberrypi,pico-pinctrl`
-     - :zephyr:ref:`pinctrl_api`
+     - :external+zephyr:ref:`pinctrl_api`
    * - GPIO
      - :kconfig:option:`CONFIG_GPIO`
      - :dtcompatible:`raspberrypi,pico-gpio`
-     - :zephyr:ref:`gpio_api`
+     - :external+zephyr:ref:`gpio_api`
    * - UART
      - :kconfig:option:`CONFIG_SERIAL`
      - | :dtcompatible:`raspberrypi,pico-uart`
        | :dtcompatible:`arm,pl011`
-     - :zephyr:ref:`uart_api`
+     - :external+zephyr:ref:`uart_api`
    * - UDC (USB Device Controller)
      - :kconfig:option:`CONFIG_USB_DEVICE_STACK`
      - :dtcompatible:`raspberrypi,pico-usbd`
-     - :zephyr:ref:`usb_api`
+     - :external+zephyr:ref:`usb_api`
    * - I2C
      - :kconfig:option:`CONFIG_I2C`
      - :dtcompatible:`raspberrypi,pico-i2c`
-     - :zephyr:ref:`i2c_api`
+     - :external+zephyr:ref:`i2c_api`
    * - SPI
      - :kconfig:option:`CONFIG_SPI`
      - | :dtcompatible:`raspberrypi,pico-spi`
        | :dtcompatible:`arm,pl022`
-     - :zephyr:ref:`spi_api`
+     - :external+zephyr:ref:`spi_api`
    * - PWM
      - :kconfig:option:`CONFIG_PWM`
      - :dtcompatible:`raspberrypi,pico-pwm`
-     - :zephyr:ref:`pwm_api`
+     - :external+zephyr:ref:`pwm_api`
    * - ADC
      - :kconfig:option:`CONFIG_ADC`
      - :dtcompatible:`raspberrypi,pico-adc`
-     - :zephyr:ref:`adc_api`
+     - :external+zephyr:ref:`adc_api`
    * - Temperature (Sensor)
      - :kconfig:option:`CONFIG_SENSOR`
      - :dtcompatible:`raspberrypi,pico-temp`
-     - :zephyr:ref:`sensor`
+     - :external+zephyr:ref:`sensor`
    * - RTC
      - :kconfig:option:`CONFIG_RTC`
      - :dtcompatible:`raspberrypi,pico-rtc`
-     - :zephyr:ref:`rtc_api`
+     - :external+zephyr:ref:`rtc_api`
    * - Timer (Counter)
      - :kconfig:option:`CONFIG_COUNTER`
      - :dtcompatible:`raspberrypi,pico-timer`
-     - :zephyr:ref:`counter_api`
+     - :external+zephyr:ref:`counter_api`
    * - Watchdog Timer (WDT)
      - :kconfig:option:`CONFIG_WATCHDOG`
      - :dtcompatible:`raspberrypi,pico-watchdog`
-     - :zephyr:ref:`watchdog_api`
+     - :external+zephyr:ref:`watchdog_api`
    * - Flash
      - :kconfig:option:`CONFIG_FLASH`
      - :dtcompatible:`raspberrypi,pico-flash-controller` (!)
-     - :zephyr:ref:`flash_api` and
-       :zephyr:ref:`flash_map_api`
+     - :external+zephyr:ref:`flash_api` and
+       :external+zephyr:ref:`flash_map_api`
    * - PIO
      - :kconfig:option:`CONFIG_PIO_RPI_PICO`
      - :dtcompatible:`raspberrypi,pico-pio`
@@ -170,37 +170,37 @@ configuration supports the following hardware features:
    * - UART (PIO)
      - :kconfig:option:`CONFIG_SERIAL`
      - :dtcompatible:`raspberrypi,pico-uart-pio`
-     - :zephyr:ref:`uart_api`
+     - :external+zephyr:ref:`uart_api`
    * - SPI (PIO)
      - :kconfig:option:`CONFIG_SPI`
      - :dtcompatible:`raspberrypi,pico-spi-pio`
-     - :zephyr:ref:`spi_api`
+     - :external+zephyr:ref:`spi_api`
    * - DMA
      - :kconfig:option:`CONFIG_DMA`
      - :dtcompatible:`raspberrypi,pico-dma`
-     - :zephyr:ref:`dma_api`
+     - :external+zephyr:ref:`dma_api`
    * - HWINFO
      - :kconfig:option:`CONFIG_HWINFO`
      - N/A
-     - :zephyr:ref:`hwinfo_api`
+     - :external+zephyr:ref:`hwinfo_api`
    * - VREG
      - :kconfig:option:`CONFIG_REGULATOR`
      - :dtcompatible:`raspberrypi,core-supply-regulator` (!)
-     - :zephyr:ref:`regulator_api`
+     - :external+zephyr:ref:`regulator_api`
    * - RESET
      - :kconfig:option:`CONFIG_RESET`
      - :dtcompatible:`raspberrypi,pico-reset`
-     - :zephyr:ref:`reset_api`
+     - :external+zephyr:ref:`reset_api`
    * - CLOCK
      - :kconfig:option:`CONFIG_CLOCK_CONTROL`
      - | :dtcompatible:`raspberrypi,pico-clock-controller`
        | :dtcompatible:`raspberrypi,pico-clock`
-     - :zephyr:ref:`clock_control_api`
+     - :external+zephyr:ref:`clock_control_api`
    * - NVIC
      - N/A
      - | :dtcompatible:`arm,v6m-nvic`
        | :dtcompatible:`arm,v8m-nvic`
-     - Nested Vector :zephyr:ref:`interrupts_v2` Controller
+     - Nested Vector :external+zephyr:ref:`interrupts_v2` Controller
    * - SYSTICK
      - N/A
      - | :dtcompatible:`arm,armv6m-systick`
@@ -366,11 +366,11 @@ USB Device Port
 
 The `RP2040 <RP2040 SoC_>`_ and `RP2350 <RP2350 SoC_>`_ MCU has a (native)
 USB device port that can be used to communicate with a host PC. See the
-:zephyr:code-sample-category:`usb` sample applications for more, such as the
-:zephyr:code-sample:`usb-cdc-acm` sample which sets up a virtual serial port
-that echos characters back to the host PC. The |PicoBoy|, |PicoBoy Color| and
-|PicoBoy Color Plus| provide the Zephyr console per default on the USB port
-as :zephyr:ref:`usb_device_cdc_acm`:
+:external+zephyr:zephyr:code-sample-category:`usb` sample applications for more,
+such as the :external+zephyr:zephyr:code-sample:`usb-cdc-acm` sample which sets
+up a virtual serial port that echos characters back to the host PC. The
+|PicoBoy|, |PicoBoy Color| and |PicoBoy Color Plus| provide the Zephyr console
+per default on the USB port as :external+zephyr:ref:`usb_device_cdc_acm`:
 
 .. tabs::
 
@@ -594,7 +594,7 @@ Chip-specific
 -------------
 
 Get 3-axis accelerometer data from an STK8BA58 sensor (polling & trigger mode)
-using the :zephyr:ref:`Sensors API <sensor>`. See also Bridle sample
+using the :external+zephyr:ref:`Sensors API <sensor>`. See also Bridle sample
 :ref:`stk8ba58_3_axis_accelerometer-sample`.
 
 .. tabs::
@@ -618,8 +618,8 @@ Polling Mode
 ------------
 
 Get 3-axis accelerometer data from the on-board sensor (polling mode) using
-the :zephyr:ref:`Sensors API <sensor>`. See also Zephyr sample
-:zephyr:code-sample:`accel_polling`.
+the :external+zephyr:ref:`Sensors API <sensor>`. See also Zephyr sample
+:external+zephyr:zephyr:code-sample:`accel_polling`.
 
 .. tabs::
 
@@ -642,8 +642,8 @@ Trigger Mode
 ------------
 
 Get 3-axis accelerometer data from the on-board sensor (trigger mode) using
-the :zephyr:ref:`Sensors API <sensor>`. See also Zephyr sample
-:zephyr:code-sample:`accel_trig`.
+the :external+zephyr:ref:`Sensors API <sensor>`. See also Zephyr sample
+:external+zephyr:zephyr:code-sample:`accel_trig`.
 
 .. tabs::
 

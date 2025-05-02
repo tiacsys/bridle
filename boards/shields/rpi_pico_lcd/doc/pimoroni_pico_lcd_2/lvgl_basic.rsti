@@ -1,4 +1,4 @@
-Using the LVGL module on top of the :zephyr:ref:`Display driver API
+Using the LVGL module on top of the :external+zephyr:ref:`Display driver API
 <display_api>` with chosen display. That is:
 
 | :hwftlbl-scr:`LCD` : :dts:`chosen { zephyr,display = &lcd_panel; };`

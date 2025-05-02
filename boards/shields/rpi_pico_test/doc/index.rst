@@ -146,14 +146,14 @@ Input dump
 ==========
 
 Prints all input events as defined by the shield's Devicetree. See also Zephyr
-sample: :zephyr:code-sample:`input-dump`.
+sample: :external+zephyr:zephyr:code-sample:`input-dump`.
 
 .. tabs::
 
    .. group-tab:: Spotpear Pico ALL GPIO TEST
 
       Print the input events related to the five on-shield test keys using
-      the :zephyr:ref:`Input subsystem API <input>`. That are:
+      the :external+zephyr:ref:`Input subsystem API <input>`. That are:
 
       | :hwftlbl-btn:`K1` : :dts:`zephyr,code = <INPUT_KEY_DOWN>;`
       | :hwftlbl-btn:`K2` : :dts:`zephyr,code = <INPUT_KEY_ENTER>;`
@@ -272,15 +272,15 @@ Analog-to-Digital Converter (ADC)
 =================================
 
 Read analog inputs from ADC channels as defined by the shield's Devicetree.
-See also Zephyr sample: :zephyr:code-sample:`adc_dt`.
+See also Zephyr sample: :external+zephyr:zephyr:code-sample:`adc_dt`.
 
 .. tabs::
 
    .. group-tab:: Spotpear Pico ALL GPIO TEST
 
       Read and print the analog input value from the one on-shield
-      high-resistance potentiometer using the :zephyr:ref:`ADC driver
-      API <adc_api>`. That are:
+      high-resistance potentiometer using the
+      :external+zephyr:ref:`ADC driver API <adc_api>`. That are:
 
       | :hwftlbl:`Rₚ` : :dts:`zephyr,user { io-channels = <&adc 0>; };`
 
@@ -379,7 +379,7 @@ Light-Emitting Diode (LED) by PWM
 =================================
 
 Control PWM LEDs as defined by the shield's Devicetree. See also Zephyr
-sample: :zephyr:code-sample:`led-pwm`.
+sample: :external+zephyr:zephyr:code-sample:`led-pwm`.
 
 .. tabs::
 
@@ -388,7 +388,8 @@ sample: :zephyr:code-sample:`led-pwm`.
       For each of the twenty on-shield LEDs attached to the first
       :dtcompatible:`pwm-leds` device instance found in Devicetree the same
       standard test pattern (described in the original sample documentation)
-      is executed using the :zephyr:ref:`LED driver API <led_api>`. That are:
+      is executed using the :external+zephyr:ref:`LED driver API <led_api>`.
+      That are:
 
       | :hwftlbl-led:`L0` :
         :dts:`&pwm_leds { pl0: pl0 { pwms = <&pwm 12 /* … */>; }; };`

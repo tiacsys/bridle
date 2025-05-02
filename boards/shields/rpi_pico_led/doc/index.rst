@@ -54,7 +54,7 @@ LED Blinky and Fade
 
       .. rubric:: WS2812 LED Test Pattern by PIO
 
-      See also Zephyr sample: :zephyr:code-sample:`led-strip`
+      See also Zephyr sample: :external+zephyr:zephyr:code-sample:`led-strip`.
 
       .. tabs::
 
@@ -144,7 +144,8 @@ LED Display Orientation and Bit Order Test
 
 Draw some basic rectangles onto the display. The rectangle colors and positions
 are chosen so that you can check the orientation of the LED display and correct
-RGB bit order. See also Zephyr sample: :zephyr:code-sample:`display`.
+RGB bit order.
+See also Zephyr sample: :external+zephyr:zephyr:code-sample:`display`.
 
 .. tabs::
 
@@ -154,8 +155,8 @@ RGB bit order. See also Zephyr sample: :zephyr:code-sample:`display`.
          :align: right
          :alt: Waveshare Pico RGB LED Display Test Pattern
 
-      Using the :zephyr:ref:`Display driver API <display_api>` with chosen
-      display. That is:
+      Using the :external+zephyr:ref:`Display driver API <display_api>`
+      with chosen display. That is:
 
       | :hwftlbl-scr:`LED(16×10)` :
         :dts:`chosen { zephyr,display = &rgb_led_strip_matrix; };`

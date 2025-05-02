@@ -1,5 +1,5 @@
-Using the :zephyr:ref:`PWM driver API <pwm_api>` with given Piezo Buzzer.
-That is:
+Using the :external+zephyr:ref:`PWM driver API <pwm_api>`
+with given Piezo Buzzer. That is:
 
 | :hwftlbl-spk:`PIEZO` : :dts:`aliases { pwm-buzzer0 = &pwm_buzzer_0; };`
 

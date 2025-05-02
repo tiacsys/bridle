@@ -19,9 +19,10 @@ Overview
 ********
 
 The TiaC SC18IS604 Arduino is an evaluation shield for the SC18IS604_ chip, an
-:zephyr:ref:`SPI <spi_api>` to :zephyr:ref:`I2C <i2c_api>` bus bridge with an
-integrated :zephyr:ref:`GPIO <gpio_api>` controller. This shield requires a
-board which provides the standard |Arduino UNO R3| connector.
+:external+zephyr:ref:`SPI <spi_api>` to :external+zephyr:ref:`I2C <i2c_api>`
+bus bridge with an integrated :external+zephyr:ref:`GPIO <gpio_api>`
+controller. This shield requires a board which provides the standard
+|Arduino UNO R3| connector.
 
 Apart from the bridge it features 3 Sparkfun `Qwiic System`_ and
 9 Seeed Studio `Grove System`_ connectors:

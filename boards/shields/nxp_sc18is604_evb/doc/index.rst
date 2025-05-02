@@ -15,18 +15,19 @@ NXP SC18IS604-EVB
 :hwftlbl-btn:`1 (RESET)`
 
 The NXP_ `SC18IS604-EVB`_ is an evaluation kit for the SC18IS604_ chip, an
-:zephyr:ref:`SPI <spi_api>` to :zephyr:ref:`I2C <i2c_api>` bus bridge with
-an integrated :zephyr:ref:`GPIO <gpio_api>` controller. Apart from the bridge
-it features:
+:external+zephyr:ref:`SPI <spi_api>` to :external+zephyr:ref:`I2C <i2c_api>`
+bus bridge with an integrated :external+zephyr:ref:`GPIO <gpio_api>`
+controller. Apart from the bridge it features:
 
-- 5 LED connected to the :zephyr:ref:`GPIO <gpio_api>` pins
-- 1 PCA9533_, an 4-bit :zephyr:ref:`PWM <pwm_api>` controller connected to the
-  outgoing :zephyr:ref:`I2C <i2c_api>` bus which controls:
+- 5 LED connected to the :external+zephyr:ref:`GPIO <gpio_api>` pins
+- 1 PCA9533_, an 4-bit :external+zephyr:ref:`PWM <pwm_api>` controller
+  connected to the outgoing :external+zephyr:ref:`I2C <i2c_api>`
+  bus which controls:
 
   - 4 additional dimmable LEDs
 
 - 1 24LC02B_ 256×8-bit EEPROM, also connected to the outgoing
-  :zephyr:ref:`I2C <i2c_api>` bus
+  :external+zephyr:ref:`I2C <i2c_api>` bus
 
 .. note::
 

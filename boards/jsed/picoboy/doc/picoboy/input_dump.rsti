@@ -1,5 +1,5 @@
 Print the input events related to the five on-board joystick keys using
-the :zephyr:ref:`Input subsystem API <input>`. That are:
+the :external+zephyr:ref:`Input subsystem API <input>`. That are:
 
 | :hwftlbl-joy:`UP` : :dts:`zephyr,code = <INPUT_KEY_UP>;`
 | :hwftlbl-joy:`DOWN` : :dts:`zephyr,code = <INPUT_KEY_DOWN>;`
@@ -7,7 +7,7 @@ the :zephyr:ref:`Input subsystem API <input>`. That are:
 | :hwftlbl-joy:`RIGHT` : :dts:`zephyr,code = <INPUT_KEY_RIGHT>;`
 | :hwftlbl-joy:`ENTER` : :dts:`zephyr,code = <INPUT_KEY_ENTER>;`
 
-See also Zephyr sample: :zephyr:code-sample:`input-dump`.
+See also Zephyr sample: :external+zephyr:zephyr:code-sample:`input-dump`.
 
 .. rubric:: Joystick Test
 

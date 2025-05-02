@@ -1,6 +1,5 @@
-Print the input events related to the five on-shield joystick keys
-and four user keys using the :zephyr:ref:`Input subsystem API <input>`.
-That are:
+Print the input events related to the five on-shield joystick keys and four user
+keys using the :external+zephyr:ref:`Input subsystem API <input>`. That are:
 
 | :hwftlbl-btn:`A` : :dts:`zephyr,code = <INPUT_KEY_A>;`
 | :hwftlbl-btn:`B` : :dts:`zephyr,code = <INPUT_KEY_B>;`

@@ -1,5 +1,5 @@
 Print the input events related to the four on-shield user keys using
-the :zephyr:ref:`Input subsystem API <input>`. That are:
+the :external+zephyr:ref:`Input subsystem API <input>`. That are:
 
 | :hwftlbl-btn:`0` : :dts:`zephyr,code = <INPUT_KEY_0>;`
 | :hwftlbl-btn:`1` : :dts:`zephyr,code = <INPUT_KEY_1>;`

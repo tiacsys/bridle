@@ -45,10 +45,10 @@ Pinouts
 Requirements
 ************
 
-This shields can be used with any board which provides a configuration either
-for Arduino or Arduino Nano connectors or for a special connector set and
-defines node aliases for SPI and GPIO interfaces (see :zephyr:ref:`shields`
-for more details).
+This shields can be used with any board which provides a configuration
+either for Arduino or Arduino Nano connectors or for a special connector
+set and defines node aliases for SPI and GPIO interfaces (see
+:external+zephyr:ref:`shields` for more details).
 
 Pin Assignments
 ===============

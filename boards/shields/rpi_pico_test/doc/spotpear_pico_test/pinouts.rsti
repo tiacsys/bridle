@@ -72,9 +72,9 @@
        - :dtcompatible:`gpio-keys`
        - :dtcompatible:`gpio-leds`
        - :dtcompatible:`pwm-leds`
-       - :zephyr:ref:`dt-zephyr-user` with
+       - :external+zephyr:ref:`dt-zephyr-user` with
          :dts:`io-channels = <...>` entry for ADC channel 0
-       - :zephyr:ref:`dt-alias-chosen` with
+       - :external+zephyr:ref:`dt-alias-chosen` with
          :dts:`swN = &...` entries for all keys over GPIO,
          :dts:`ledN = &...` entries for all LEDs over GPIO, and
          :dts:`pwm-ledN = &...` entries for all keys over PWM

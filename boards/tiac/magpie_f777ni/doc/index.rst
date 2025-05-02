@@ -111,99 +111,99 @@ hardware features:
    * - PINCTRL
      - :kconfig:option:`CONFIG_PINCTRL`
      - :dtcompatible:`st,stm32-pinctrl`
-     - :zephyr:ref:`pinctrl_api`
+     - :external+zephyr:ref:`pinctrl_api`
    * - GPIO
      - :kconfig:option:`CONFIG_GPIO`
      - :dtcompatible:`st,stm32-gpio`
-     - :zephyr:ref:`gpio_api`
+     - :external+zephyr:ref:`gpio_api`
    * - UART
      - :kconfig:option:`CONFIG_SERIAL`
      - | :dtcompatible:`st,stm32-uart` (!) (?)
        | :dtcompatible:`st,stm32-usart`
-     - :zephyr:ref:`uart_api`
+     - :external+zephyr:ref:`uart_api`
    * - UDC (USB Device Controller)
      - :kconfig:option:`CONFIG_USB_DEVICE_STACK`
      - | :dtcompatible:`st,stm32-otgfs`
        | :dtcompatible:`st,stm32-otghs`
-     - :zephyr:ref:`usb_api`
+     - :external+zephyr:ref:`usb_api`
    * - ETH (L1: PHY, L2: MAC / LLC)
      - :kconfig:option:`CONFIG_NET_L2_ETHERNET`
      - :dtcompatible:`st,stm32-ethernet` (*)
-     - :zephyr:ref:`ethernet_interface`
+     - :external+zephyr:ref:`ethernet_interface`
    * - CAN (L1: PMA / PCS, L2: DLL)
      - :kconfig:option:`CONFIG_CAN`
      - :dtcompatible:`st,stm32-bxcan` (-)
-     - :zephyr:ref:`canbus`
+     - :external+zephyr:ref:`canbus`
    * - I2C
      - :kconfig:option:`CONFIG_I2C`
      - :dtcompatible:`st,stm32-i2c-v2`
-     - :zephyr:ref:`i2c_api`
+     - :external+zephyr:ref:`i2c_api`
    * - SPI
      - :kconfig:option:`CONFIG_SPI`
      - | :dtcompatible:`st,stm32-spi-fifo`
        | :dtcompatible:`st,stm32-spi` (?)
-     - :zephyr:ref:`spi_api`
+     - :external+zephyr:ref:`spi_api`
    * - PWM
      - :kconfig:option:`CONFIG_PWM`
      - | :dtcompatible:`st,stm32-timers`
        | :dtcompatible:`st,stm32-pwm`
-     - :zephyr:ref:`pwm_api`
+     - :external+zephyr:ref:`pwm_api`
    * - DAC
      - :kconfig:option:`CONFIG_DAC`
      - :dtcompatible:`st,stm32-dac`
-     - :zephyr:ref:`dac_api`
+     - :external+zephyr:ref:`dac_api`
    * - ADC
      - :kconfig:option:`CONFIG_ADC`
      - | :dtcompatible:`st,stm32f4-adc`
        | :dtcompatible:`st,stm32-adc` (+) (!) (?)
-     - :zephyr:ref:`adc_api`
+     - :external+zephyr:ref:`adc_api`
    * - RTC
      - :kconfig:option:`CONFIG_RTC`
      - :dtcompatible:`st,stm32-rtc`
-     - :zephyr:ref:`rtc_api` as
-       :zephyr:ref:`counter_api`
+     - :external+zephyr:ref:`rtc_api` as
+       :external+zephyr:ref:`counter_api`
    * - Timer (Counter)
      - :kconfig:option:`CONFIG_COUNTER`
      - | :dtcompatible:`st,stm32-timers`
        | :dtcompatible:`st,stm32-counter`
-     - :zephyr:ref:`counter_api`
+     - :external+zephyr:ref:`counter_api`
    * - Watchdog Timer (WDT)
      - :kconfig:option:`CONFIG_WATCHDOG`
      - | :dtcompatible:`st,stm32-watchdog`
        | :dtcompatible:`st,stm32-window-watchdog` (°)
-     - :zephyr:ref:`watchdog_api`
+     - :external+zephyr:ref:`watchdog_api`
    * - RNG
      - :kconfig:option:`CONFIG_ENTROPY_GENERATOR`
      - :dtcompatible:`st,stm32-rng`
-     - :zephyr:ref:`entropy_api`
+     - :external+zephyr:ref:`entropy_api`
    * - Flash
      - :kconfig:option:`CONFIG_FLASH`
      - | :dtcompatible:`st,stm32f7-flash-controller`
        | :dtcompatible:`st,stm32-flash-controller`
-     - :zephyr:ref:`flash_api` and
-       :zephyr:ref:`flash_map_api`
+     - :external+zephyr:ref:`flash_api` and
+       :external+zephyr:ref:`flash_map_api`
    * - DMA
      - :kconfig:option:`CONFIG_DMA`
      - :dtcompatible:`st,stm32-dma-v1`
-     - :zephyr:ref:`dma_api`
+     - :external+zephyr:ref:`dma_api`
    * - HWINFO
      - :kconfig:option:`CONFIG_HWINFO`
      - N/A
-     - :zephyr:ref:`hwinfo_api`
+     - :external+zephyr:ref:`hwinfo_api`
    * - RESET
      - :kconfig:option:`CONFIG_RESET`
      - | :dtcompatible:`st,stm32-rcc`
        | :dtcompatible:`st,stm32-rcc-rctl`
-     - :zephyr:ref:`reset_api`
+     - :external+zephyr:ref:`reset_api`
    * - CLOCK
      - :kconfig:option:`CONFIG_CLOCK_CONTROL`
      - :dtcompatible:`st,stm32-rcc`
-     - :zephyr:ref:`clock_control_api`
+     - :external+zephyr:ref:`clock_control_api`
    * - NVIC
      - N/A
      - | :dtcompatible:`st,stm32-exti`
        | :dtcompatible:`arm,v7m-nvic`
-     - Nested Vector :zephyr:ref:`interrupts_v2` Controller
+     - Nested Vector :external+zephyr:ref:`interrupts_v2` Controller
    * - SYSTICK
      - N/A
      - :dtcompatible:`arm,armv7m-systick`
@@ -346,7 +346,7 @@ The bus timing is defined by the DTS and is preset to 1000 kBit/s. The
 calculation was verified with the help of the `CAN Bit Time Calculation Sheet`_
 and can also assume smaller bit rates according to the following table. Note
 that the value of **Prescaler**, **Seg 1** and **Seg 2** will be calculated on
-demand by the Zephyr :zephyr:ref:`can_api` API together with the driver.
+demand by the Zephyr :external+zephyr:ref:`can_api` API together with the driver.
 
 .. list-table:: CAN bus timing calculation
    :class: longtable
@@ -437,8 +437,8 @@ Programming and Debugging
 *************************
 
 Applications for the ``magpie_f777ni`` board configuration can be built and
-flashed in the usual way (see :zephyr:ref:`build_an_application` and
-:zephyr:ref:`application_run` for more details).
+flashed in the usual way (see :external+zephyr:ref:`build_an_application` and
+:external+zephyr:ref:`application_run` for more details).
 
 Flashing
 ========
@@ -448,7 +448,8 @@ The TiaC Magpie STM32F777NIHx needs an ST-LINK/V2 debug tool adapter.
 Flashing an application to TiaC Magpie F777NI
 ---------------------------------------------
 
-Here is an example for the :zephyr:code-sample:`hello_world` application.
+Here is an example for the :external+zephyr:zephyr:code-sample:`hello_world`
+application.
 
 Run a serial host program to connect with your TiaC Magpie board.
 
@@ -479,7 +480,7 @@ Debugging
 =========
 
 You can debug an application in the usual way. Here is an example for the
-:zephyr:code-sample:`hello_world` application.
+:external+zephyr:zephyr:code-sample:`hello_world` application.
 
 .. zephyr-app-commands::
    :app: zephyr/samples/hello_world
@@ -513,8 +514,8 @@ Integration Tests
 
 Zephyr provides a large number of integration tests to evaluate the target
 architecture, the operating system core components, drivers and subsystems.
-Most of them can be build and running by the Zephyr :zephyr:ref:`twister_script`
-without any further modification.
+Most of them can be build and running by the Zephyr
+:external+zephyr:ref:`twister_script` without any further modification.
 
 Before a single or multiple test cases can be executed directly on the
 TiaC Magpie, a so-called hardware map must be created with the help of
@@ -794,7 +795,7 @@ The DTS binding following the :dtcompatible:`gpio-leds` specification.
           :start-at: leds {
           :end-at: }; // leds
 
-       DTS :zephyr:ref:`aliases <dt-alias-chosen>`:
+       DTS :external+zephyr:ref:`aliases <dt-alias-chosen>`:
 
        .. literalinclude:: ../magpie_f777ni.dts
           :language: DTS
@@ -937,7 +938,7 @@ The DTS binding following the :dtcompatible:`st,stm32-otgfs` and
           :start-at: usbotg_fs {
           :end-at: }; // usbotg_fs
 
-       :zephyr:ref:`usb_api` configuration:
+       :external+zephyr:ref:`usb_api` configuration:
 
        .. literalinclude:: ../magpie_f777ni.dts
           :language: DTS
@@ -1010,7 +1011,7 @@ The DTS binding following the :dtcompatible:`st,stm32-bxcan` specification.
           :start-at: can1 {
           :end-at: }; // can1
 
-       :zephyr:ref:`can_api` configuration:
+       :external+zephyr:ref:`can_api` configuration:
 
        .. literalinclude:: ../magpie_f777ni.dts
           :language: DTS

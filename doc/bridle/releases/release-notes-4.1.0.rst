@@ -14,8 +14,10 @@ Highlights
 * Final board support for the PicoBoy board family.
 * Hardware tweaks on RP2040 based boards are no longer required, neither
   directly at board level nor hidden in shields.
-* First evaluation against upstream boards with :zephyr:ref:`sysbuild` support.
-* First evaluation against upstream sample :zephyr:code-sample:`draw_touch_events`.
+* First evaluation against upstream boards with
+  :external+zephyr:ref:`sysbuild` support.
+* First evaluation against upstream sample
+  :external+zephyr:zephyr:code-sample:`draw_touch_events`.
 
 .. note:: See the changelog and readme files in the component repositories
    for a detailed description of changes.
@@ -176,7 +178,8 @@ Build Infrastructure
 ====================
 
 * Add a warning that the Zephyr SDK version cannot (yet) be automatically
-  identified and safeguarded by Bridle when using a :zephyr:ref:`sysbuild`.
+  identified and safeguarded by Bridle when using a
+  :external+zephyr:ref:`sysbuild`.
 * Remove ``xtools`` toolchain variant references. The ``xtools`` toolchain
   variant has been deprecated since Zephyr v3.3.0 and now removed.
 * Enable support for the TDK HAL in the West manifest. This HAL is needed by

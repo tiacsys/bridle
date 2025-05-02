@@ -4,11 +4,11 @@ Release Notes
 #############
 
 |BRIDLE| plans to following
-:zephyr:ref:`Zephyr's release scheduling <release_process>` that is currently
-updates approximately every three-months. As long as there is no reason to do
-other |BRIDLE| takes over Zephyr's version number, but try to reflect it on
-the `Semantic Versioning 2.0.0`_ scheme. See the release notes below for
-information about specific |BRIDLE| releases.
+:external+zephyr:ref:`Zephyr's release scheduling <release_process>` that is
+currently updates approximately every three-months. As long as there is no
+reason to do other |BRIDLE| takes over Zephyr's version number, but try to
+reflect it on the `Semantic Versioning 2.0.0`_ scheme. See the release notes
+below for information about specific |BRIDLE| releases.
 
 .. important::
 

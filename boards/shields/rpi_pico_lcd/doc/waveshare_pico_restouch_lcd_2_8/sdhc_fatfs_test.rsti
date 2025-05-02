@@ -8,9 +8,9 @@ mode and connected to SPI. That is:
 
 .. rubric:: File system manipulation
 
-Using the :zephyr:ref:`File Systems API <file_system_api>` ontop of the
-:zephyr:ref:`Disk Access API <disk_access_api>` with chosen TF/microSD.
-See also Zephyr sample: :zephyr:code-sample:`fs`.
+Using the :external+zephyr:ref:`File Systems API <file_system_api>` ontop of the
+:external+zephyr:ref:`Disk Access API <disk_access_api>` with chosen TF/microSD.
+See also Zephyr sample: :external+zephyr:zephyr:code-sample:`fs`.
 
 .. tabs::
 

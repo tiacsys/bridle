@@ -161,7 +161,7 @@ Documentation
 1. Update all output messages in documentation to be in sync with the upcoming
    Bridle version v3.3.1, based on Zephyr v3.3 (samples and tests).
 2. Following latest Zephyr Coding Guidelines and update terms, see
-   :zephyr:ref:`coding_guideline_inclusive_language`.
+   :external+zephyr:ref:`coding_guideline_inclusive_language`.
 
 Issue Related Items
 *******************
