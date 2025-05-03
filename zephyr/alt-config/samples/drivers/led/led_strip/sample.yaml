@@ -1,6 +1,6 @@
 sample:
   description: Demonstration of the LED strip driver.
-  name: led_strip_sample
+  name: LED strip sample
 common:
   tags:
     - zephyr

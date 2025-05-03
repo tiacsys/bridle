@@ -1,6 +1,6 @@
 sample:
   description: Display Bit Order and Orientation.
-  name: display_sample
+  name: Display sample
 common:
   tags:
     - zephyr
@@ -11,6 +11,9 @@ common:
   harness: console
   harness_config:
     fixture: fixture_display
+    type: one_line
+    regex:
+      - "Display sample for (.*)"
 tests:
   #
   # shield: GeeekPi Pico Breadboard Kit (EP-0164)

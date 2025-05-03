@@ -1,6 +1,6 @@
 sample:
   description: Print all input events.
-  name: input_dump_sample
+  name: Input Dump
 common:
   tags:
     - zephyr
