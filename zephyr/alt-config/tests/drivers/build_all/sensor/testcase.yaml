@@ -13,27 +13,27 @@ common:
   required_snippets:
     - tstdrv-bldall-sensor-adj
 tests:
-  drivers.sensors.build.sensorhub:
+  drivers.sensors.sensorhub.build:
     extra_args: EXTRA_CONF_FILE=sensors_shub.conf;sensors_die_temp.conf
-  drivers.sensors.build.trigger.own:
+  drivers.sensors.trigger.own.build:
     extra_args: EXTRA_CONF_FILE=sensors_trigger_own.conf;sensors_die_temp.conf
     extra_configs:
       - CONFIG_STK8BA58_TRIGGER_OWN_THREAD=y
-  drivers.sensors.build.trigger.global:
+  drivers.sensors.trigger.global.build:
     extra_args: EXTRA_CONF_FILE=sensors_trigger_global.conf;sensors_die_temp.conf
     extra_configs:
       - CONFIG_STK8BA58_TRIGGER_GLOBAL_THREAD=y
-  drivers.sensors.build.trigger.none:
+  drivers.sensors.trigger.none.build:
     extra_args: EXTRA_CONF_FILE=sensors_trigger_none.conf;sensors_die_temp.conf
     extra_configs:
       - CONFIG_STK8BA58_TRIGGER_NONE=y
-  drivers.sensors.build.no_default:
+  drivers.sensors.no_default.build:
     extra_args: EXTRA_CONF_FILE=sensors_no_default.conf
   drivers.sensors.build:
     extra_args: EXTRA_CONF_FILE=sensors_die_temp.conf
     extra_configs:
       - CONFIG_UART_INTERRUPT_DRIVEN=y
-  drivers.sensors.build.pm:
+  drivers.sensors.pm.build:
     extra_configs:
       - CONFIG_PM=y
       - CONFIG_PM_DEVICE=y
