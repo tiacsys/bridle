@@ -2,3 +2,9 @@ name: tstdrv-bldall-sensor-adj
 append:
   EXTRA_CONF_FILE: tstdrv-bldall-sensor-adj.conf
   EXTRA_DTC_OVERLAY_FILE: tstdrv-bldall-sensor-adj.overlay
+
+boards:
+  native_sim/native/64:
+    append:
+      EXTRA_CONF_FILE: boards/native_sim_native_64.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/native_sim_native_64.overlay

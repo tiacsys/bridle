@@ -40,3 +40,17 @@ For example:
 
       west twister --alt-config-root bridle/zephyr/alt-config/tests/drivers/build_all/sensor \
                    --testsuite-root zephyr/tests/drivers/build_all/sensor
+
+Findings
+********
+
+.. rubric:: on native_sim/native/64
+
+- disable ADXL362 at SPI, because of compilation errors:
+  ``cast to pointer from integer of different size``
+- disable ADXL367 at SPI and I2C, because of compilation errors:
+  ``cast to pointer from integer of different size``
+- disable ADXL372 at SPI and I2C, because of compilation errors:
+  ``cast to pointer from integer of different size``
+- disable BMA4XX at I2C, because of test assertion failed:
+  ``expected_shifted not within actual_shifted +/- epsilon_shifted``
