@@ -456,7 +456,7 @@ add_dependencies(kconfig-html-all zephyr-inventory)
 set(tools_version_files
     ${BRIDLE_BASE}/scripts/tools-versions-minimum.txt
     ${BRIDLE_BASE}/scripts/tools-versions-macos.txt
-    ${BRIDLE_BASE}/scripts/tools-versions-win10.txt
+    ${BRIDLE_BASE}/scripts/tools-versions-win1x.txt
     ${BRIDLE_BASE}/scripts/tools-versions-linux.txt
 )
 
