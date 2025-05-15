@@ -21,18 +21,18 @@ BRIDLE_BASE = Path(__file__).absolute().parents[2]
 
 # Add the '_extensions' directory to sys.path, to enable finding Bridle's
 # utilities for Sphinx configuration within.
-sys.path.insert(0, os.path.join(BRIDLE_BASE, 'doc', '_utils'))
+sys.path.insert(0, str(BRIDLE_BASE / 'doc' / '_utils'))
 import utils
 
 ZEPHYR_BASE = utils.get_projdir('zephyr')
-ZEPHYR_WORKD = os.path.join(utils.get_builddir(), 'zephyr')
+ZEPHYR_WORKD = utils.get_builddir() / 'zephyr'
 
 # Add the '_extensions' directory to sys.path, to enable finding Bridle's
 # Sphinx extensions within.
-sys.path.insert(0, os.path.join(BRIDLE_BASE, 'doc', '_extensions'))
+sys.path.insert(0, str(BRIDLE_BASE / 'doc' / '_extensions'))
 
 # Import all Zephyr configuration, override as needed later
-conf = eval_config_file(os.path.join(ZEPHYR_BASE, 'doc', 'conf.py'), tags)
+conf = eval_config_file(str(ZEPHYR_BASE / 'doc' / 'conf.py'), tags)
 locals().update(conf)
 
 # Export ZEPHYR_BASE as environment variable to make autodoc for the
@@ -47,7 +47,7 @@ os.environ['ZEPHYR_BASE'] = str(ZEPHYR_BASE)
 project = utils.get_projname('zephyr')
 
 # parse Bridle version from 'VERSION' file
-with open(os.path.join(BRIDLE_BASE, 'VERSION')) as f:
+with open(BRIDLE_BASE / 'VERSION') as f:
     m = re.match(
         (
             r'^VERSION_MAJOR\s*=\s*(\d+)$\n'
@@ -183,16 +183,16 @@ if devicetree_mapping:
 # Options for zephyr.doxyrunner plugin -----------------------------------------
 
 doxyrunner_doxygen = os.environ.get('DOXYGEN_EXECUTABLE', 'doxygen')
-doxyrunner_doxydir = os.environ.get('DOCSET_DOXY_PRJ', os.path.join(
-                      ZEPHYR_BASE, 'doc', '_doxygen'))
-doxyrunner_doxyfile = os.environ.get('DOCSET_DOXY_IN', os.path.join(
-                      BRIDLE_BASE, 'doc', '_doxygen', 'doxyfile-zephyr.in'))
+doxyrunner_doxydir = os.environ.get('DOCSET_DOXY_PRJ', str(
+                     ZEPHYR_BASE / 'doc' / '_doxygen'))
+doxyrunner_doxyfile = os.environ.get('DOCSET_DOXY_IN', str(
+                      BRIDLE_BASE / 'doc' / '_doxygen' / 'doxyfile-zephyr.in'))
 
 doxyrunner_silent = True
 doxyrunner_projects = {
     'zephyr': {
-        'doxyfile': str(Path(doxyrunner_doxyfile).absolute()),
-        'outdir': os.path.join(ZEPHYR_BUILD, 'doxygen'),
+        'doxyfile': Path(doxyrunner_doxyfile).absolute(),
+        'outdir': ZEPHYR_BUILD / 'doxygen',
         'outdir_var': 'DOXY_OUT',
         'fmt': True,
         'fmt_pattern': '@{}@',
@@ -219,7 +219,7 @@ kconfig_ext_paths.clear()
 
 # Options for zephyr.warnings_filter -------------------------------------------
 
-warnings_filter_config = os.path.join(ZEPHYR_WORKD, 'known-warnings.txt')
+warnings_filter_config = str(ZEPHYR_WORKD / 'known-warnings.txt')
 warnings_filter_silent = True
 
 # -- Options for notfound.extension --------------------------------------------
@@ -266,8 +266,8 @@ def update_inventory_warnings_filter_config(app):
     # Check if the value was provided by the original configuration.
     if "warnings_filter_config" in app.config:
         # Update the warnings_filter_config value.
-        app.config.warnings_filter_config = os.path.join(
-            ZEPHYR_WORKD, 'known-warnings-inventory.txt'
+        app.config.warnings_filter_config = str(
+            ZEPHYR_WORKD / 'known-warnings-inventory.txt'
         )
 
 def update_config(app):

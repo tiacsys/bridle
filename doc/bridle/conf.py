@@ -24,19 +24,19 @@ BRIDLE_BUILD = Path(args.outputdir).resolve()
 
 # Add the '_extensions' directory to sys.path, to enable finding Bridle's
 # utilities for Sphinx configuration within.
-sys.path.insert(0, os.path.join(BRIDLE_BASE, 'doc', '_utils'))
+sys.path.insert(0, str(BRIDLE_BASE / 'doc' / '_utils'))
 import utils
 
 ZEPHYR_BASE = utils.get_projdir('zephyr')
-BRIDLE_WORKD = os.path.join(utils.get_builddir(), 'bridle')
+BRIDLE_WORKD = utils.get_builddir() / 'bridle'
 
 # Add the '_extensions' directory to sys.path, to enable finding Bridle's
 # Sphinx extensions within.
-sys.path.insert(0, os.path.join(BRIDLE_BASE, 'doc', '_extensions'))
+sys.path.insert(0, str(BRIDLE_BASE / 'doc' / '_extensions'))
 
 # Add the 'extensions' directory to sys.path, to enable finding Zephyr's
 # Sphinx extensions within.
-sys.path.insert(0, os.path.join(ZEPHYR_BASE, 'doc', '_extensions'))
+sys.path.insert(0, str(ZEPHYR_BASE / 'doc' / '_extensions'))
 
 # Project ----------------------------------------------------------------------
 
@@ -46,7 +46,7 @@ copyright = u'2019-2025 TiaC Systems members and individual contributors'
 author = u'TiaC Systems'
 
 # parse version from 'VERSION' file
-with open(os.path.join(BRIDLE_BASE, 'VERSION')) as f:
+with open(BRIDLE_BASE / 'VERSION') as f:
     m = re.match(
         (
             r'^VERSION_MAJOR\s*=\s*(\d+)$\n'
@@ -73,7 +73,7 @@ with open(os.path.join(BRIDLE_BASE, 'VERSION')) as f:
             release += "-" + extra
 
 # parse Zephyr version from 'VERSION' file
-with open(os.path.join(ZEPHYR_BASE, 'VERSION')) as f:
+with open(ZEPHYR_BASE / 'VERSION') as f:
     m = re.match(
         (
             r'^VERSION_MAJOR\s*=\s*(\d+)$\n'
@@ -356,16 +356,16 @@ if devicetree_mapping:
 # Options for zephyr.doxyrunner plugin -----------------------------------------
 
 doxyrunner_doxygen = os.environ.get('DOXYGEN_EXECUTABLE', 'doxygen')
-doxyrunner_doxydir = os.environ.get('DOCSET_DOXY_PRJ', os.path.join(
-                      BRIDLE_BASE, 'doc', '_doxygen'))
-doxyrunner_doxyfile = os.environ.get('DOCSET_DOXY_IN', os.path.join(
-                      BRIDLE_BASE, 'doc', '_doxygen', 'doxyfile-bridle.in'))
+doxyrunner_doxydir = os.environ.get('DOCSET_DOXY_PRJ', str(
+                     BRIDLE_BASE / 'doc' / '_doxygen'))
+doxyrunner_doxyfile = os.environ.get('DOCSET_DOXY_IN', str(
+                      BRIDLE_BASE / 'doc' / '_doxygen' / 'doxyfile-bridle.in'))
 
 doxyrunner_silent = True
 doxyrunner_projects = {
     'bridle': {
-        'doxyfile': str(Path(doxyrunner_doxyfile).absolute()),
-        'outdir': os.path.join(BRIDLE_BUILD, 'doxygen'),
+        'doxyfile': Path(doxyrunner_doxyfile).absolute(),
+        'outdir': BRIDLE_BUILD / 'doxygen',
         'outdir_var': 'DOXY_OUT',
         'fmt': True,
         'fmt_pattern': '@{}@',
@@ -422,7 +422,7 @@ tsn_include_mapping = {
 
 # Options for zephyr.warnings_filter -------------------------------------------
 
-warnings_filter_config = os.path.join(BRIDLE_BASE, 'doc', 'bridle', 'known-warnings.txt')
+warnings_filter_config = str(BRIDLE_BASE / 'doc' / 'bridle' / 'known-warnings.txt')
 warnings_filter_silent = True
 
 # -- Options for notfound.extension --------------------------------------------
@@ -469,7 +469,7 @@ options_from_kconfig_zephyr_dir = ZEPHYR_BASE
 
 # Options for bridle.manifest_revisions_table ----------------------------------
 
-manifest_revisions_table_manifest = os.path.join(BRIDLE_BASE, 'west.yml')
+manifest_revisions_table_manifest = BRIDLE_BASE / 'west.yml'
 
 # -- Options for sphinx.ext.graphviz --------------------------------------
 
@@ -516,9 +516,8 @@ linkcheck_anchors_ignore = [r'page=', r'L[0-9]?']
 
 tls_verify = True
 tls_cacerts = {
-    'asf.microchip.com': os.path.join(
-        BRIDLE_BASE, 'doc', '_cacerts', 'asf.microchip.com.pem'
-    ),
+    'asf.microchip.com':
+        str(BRIDLE_BASE / 'doc' / '_cacerts' / 'asf.microchip.com.pem'),
 }
 
 
@@ -528,8 +527,8 @@ def update_inventory_warnings_filter_config(app):
     # Check if the value was provided by the original configuration.
     if "warnings_filter_config" in app.config:
         # Update the warnings_filter_config value.
-        app.config.warnings_filter_config = os.path.join(
-            BRIDLE_BASE, 'doc', 'bridle', 'known-warnings-inventory.txt'
+        app.config.warnings_filter_config = str(
+            BRIDLE_BASE / 'doc' / 'bridle' / 'known-warnings-inventory.txt'
         )
 
 def update_config(app):

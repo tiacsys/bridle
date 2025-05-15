@@ -17,18 +17,18 @@ BRIDLE_BASE = Path(__file__).absolute().parents[2]
 
 # Add the '_extensions' directory to sys.path, to enable finding Bridle's
 # utilities for Sphinx configuration within.
-sys.path.insert(0, os.path.join(BRIDLE_BASE, 'doc', '_utils'))
+sys.path.insert(0, str(BRIDLE_BASE / 'doc' / '_utils'))
 import utils
 
 ZEPHYR_BASE = utils.get_projdir('zephyr')
 
 # Add the '_extensions' directory to sys.path, to enable finding Bridle's
 # Sphinx extensions within.
-sys.path.insert(0, os.path.join(BRIDLE_BASE, 'doc', '_extensions'))
+sys.path.insert(0, str(BRIDLE_BASE / 'doc' / '_extensions'))
 
 # Add the 'extensions' directory to sys.path, to enable finding Zephyr's
 # Sphinx extensions within.
-sys.path.insert(0, os.path.join(ZEPHYR_BASE, 'doc', '_extensions'))
+sys.path.insert(0, str(ZEPHYR_BASE / 'doc' / '_extensions'))
 
 # Project ----------------------------------------------------------------------
 
@@ -44,7 +44,7 @@ try:
     version_minor = None
     patchlevel = None
     extraversion = None
-    for line in open(os.path.join(BRIDLE_BASE, 'VERSION')):
+    for line in open(BRIDLE_BASE / 'VERSION'):
         key, val = [x.strip() for x in line.split('=', 2)]
         if key == 'VERSION_MAJOR':
             version_major = val
@@ -191,7 +191,7 @@ if bridle_mapping:
 
 # Options for zephyr.warnings_filter -------------------------------------------
 
-warnings_filter_config = os.path.join(BRIDLE_BASE, 'doc', 'devicetree', 'known-warnings.txt')
+warnings_filter_config = str(BRIDLE_BASE / 'doc' / 'devicetree' / 'known-warnings.txt')
 warnings_filter_silent = True
 
 # -- Options for notfound.extension --------------------------------------------
@@ -225,8 +225,8 @@ def update_inventory_warnings_filter_config(app):
     # Check if the value was provided by the original configuration.
     if "warnings_filter_config" in app.config:
         # Update the warnings_filter_config value.
-        app.config.warnings_filter_config = os.path.join(
-            BRIDLE_BASE, 'doc', 'devicetree', 'known-warnings-inventory.txt'
+        app.config.warnings_filter_config = str(
+            BRIDLE_BASE / 'doc' / 'devicetree' / 'known-warnings-inventory.txt'
         )
 
 def update_config(app):
