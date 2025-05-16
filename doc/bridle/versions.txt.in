@@ -124,8 +124,6 @@
 .. |python_bin| replace:: python@PYTHON_VERSION_MINIMUM_MAJOR@.@PYTHON_VERSION_MINIMUM_MINOR@
 .. |pip_bin| replace:: pip@PYTHON_VERSION_MINIMUM_MAJOR@
 
-.. |breathe| replace:: :strong:`breathe`
-.. |breathe_ver| replace:: @BREATHE_VERSION@
 .. |docutils| replace:: :strong:`docutils`
 .. |docutils_ver| replace:: @DOCUTILS_VERSION@
 .. |doxmlparser| replace:: :strong:`doxmlparser`

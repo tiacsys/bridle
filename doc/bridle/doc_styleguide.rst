@@ -5,7 +5,7 @@ Documentation style guide
 
 |BRIDLE| documentation is written in two formats:
 
-* doxygen for API documentation
+* Doxygen for API documentation
 * RST for conceptual documentation
 
 RST style guide
@@ -32,7 +32,7 @@ restrictive rules:
 
      For the conceptual documentation written in RST, you can have more than
      80 characters per line. The requirement for 80 characters per line applies
-     only to the code documentation written in doxygen.
+     only to the code documentation written in Doxygen.
 
 Hyperlinks
 ==========
@@ -96,45 +96,34 @@ Kconfig options can be linked to from RST by using the ``:option:`` domain::
 
    :option:`CONFIG_DEBUG`
 
-Breathe
-=======
+DoxyRunner and DoxyBridge
+=========================
 
-The Breathe Sphinx plugin provides a bridge between RST and doxygen.
+The Zephyr Project provides the two Sphinx plugins ``zephyr.doxyrunner`` and
+``zephyr.doxybridge`` for generating API documentation with `Doxygen`_ and
+create a bridge between RST and Doxygen.
 
-The doxygen documentation is not automatically included in RST. Therefore,
+The Doxygen documentation is not automatically included in RST. Therefore,
 every group must be explicitly added to an RST file.
 
 .. code-block:: python
-   :caption: Example of how to include a doxygen group
+   :caption: Example of how to include a Doxygen group
 
    .. doxygengroup:: nemo_lab_transport
       :project: bridle
-      :members:
 
-.. note::
+To link directly to a Doxygen reference from RST, use the following
+Sphinx domains:
 
-   Including a group on a page does not include all its subgroups
-   automatically. To include subgroups, list them on the page of the group
-   they belong to.
-
-The `Breathe documentation`_ contains information about what you can link to.
-
-To link directly to a doxygen reference from RST, use the following
-Breathe domains:
-
-* Function: ``:cpp:func:``
-* Structure: ``:c:type:``
-* Enum (i.e. the list): ``:cpp:enum:``
-* Enumerator (i.e. an item): ``:cpp:enumerator:``
 * Macro: ``:c:macro:``
-* Structure member: ``:cpp:member:``
-
-.. note::
-
-   The ``:cpp:enum:`` and ``:cpp:enumerator:`` domains do not generate a link
-   due to `Breathe issue #437`_. As a workaround, use the following command::
-
-      :cpp:enumerator:`ENUM_VALUE <DOXYGEN_GROUP::ENUM_VALUE>`
+* Function: ``:c:func:``
+* Type Definition: ``:c:type:``
+* Union: ``:c:union:``
+* Structure: ``:c:struct:``
+* Structure member: ``:c:member:``
+* Enum (i.e. the list): ``:c:enum:``
+* Enumerator (i.e. an item): ``:c:enumerator:``
+* Variable: ``:c:var:``
 
 Special Roles
 =============
@@ -763,7 +752,7 @@ The following table shows just a few examples.
 Doxygen style guide
 *******************
 
-This style guide covers guidelines for the doxygen-based API documentation.
+This style guide covers guidelines for the Doxygen-based API documentation.
 
 General documentation guidelines
 ================================
@@ -773,7 +762,7 @@ General documentation guidelines
    end everything with period.
 #. Everything that is documented must belong to a group (see below).
 #. Use capitalization sparingly. When in doubt, use lowercase.
-#. Line breaks: In doxygen, break after 80 characters (following the dev
+#. Line breaks: In Doxygen, break after 80 characters (following the dev
    guidelines). In RST, break after each sentence.
 #. **@note** and **@warning** should only be used in the details section, and
    only when really needed for emphasis. Use notes for emphasis and warnings
@@ -977,7 +966,7 @@ documentation will not show up.
 References
 ==========
 
-To link to functions, enums, or structs from within doxygen itself, use the
+To link to functions, enums, or structs from within Doxygen itself, use the
 ``@ref`` keyword.
 
 .. code-block:: c
@@ -987,10 +976,6 @@ To link to functions, enums, or structs from within doxygen itself, use the
     *  Use this structure with the function @ref function_name and
     *  this structure is related to another structure, @ref structure_name.
     */
-
-.. note::
-
-   Linking to functions does not currently work due to `Breathe issue #438`_.
 
 Typedefs
 ========

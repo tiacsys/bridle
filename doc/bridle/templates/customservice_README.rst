@@ -60,7 +60,7 @@ API documentation
 
 .. note::
 
-   Remove the code block and replace with the name of the doxygen group that
+   Remove the code block and replace with the name of the Doxygen group that
    contains the API.
 
 .. code-block:: python

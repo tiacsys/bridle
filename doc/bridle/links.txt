@@ -180,7 +180,6 @@
 .. _`Python HTTP server`: https://docs.python.org/3/library/http.server.html
 .. _`Deadsnakes PPA`: https://launchpad.net/~deadsnakes/+archive/ubuntu/ppa
 
-.. _`breathe`: https://pypi.org/project/breathe
 .. _`docutils`: https://pypi.org/project/docutils
 .. _`doxmlparser`: https://pypi.org/project/doxmlparser
 .. _`ecdsa`: https://pypi.org/project/ecdsa
@@ -267,8 +266,6 @@
 
 .. _`SMP over console`: https://github.com/apache/mynewt-mcumgr/blob/master/transport/smp-console.md
 
-.. _`Breathe issue #437`: https://github.com/michaeljones/breathe/issues/437
-.. _`Breathe issue #438`: https://github.com/michaeljones/breathe/issues/438
 .. _`Sphinx parser issue`: https://github.com/sphinx-doc/sphinx/issues/2683
 
 .. _`HID usage tables`: https://www.usb.org/hid
@@ -358,8 +355,6 @@
 .. _`Sphinx Documentation`: https://www.sphinx-doc.org/en/master/contents.html
 .. _`reStructuredText Primer`: https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
 .. _`Li-Pro.Net Sphinx Primer`: https://lpn-doc-sphinx-primer.readthedocs.io/en/latest/
-
-.. _`Breathe documentation`: https://breathe.readthedocs.io/en/stable/directives.html#directives
 
 .. _`TinyCBOR`: https://intel.github.io/tinycbor/current/
 

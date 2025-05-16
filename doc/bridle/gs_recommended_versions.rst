@@ -539,8 +539,6 @@ Building documentation
 
    * - Package
      - Version
-   * - |breathe|_
-     - |breathe_ver|
    * - |docutils|_
      - |docutils_ver|
    * - |doxmlparser|_

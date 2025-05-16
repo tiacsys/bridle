@@ -467,7 +467,7 @@ When building the documentation, all warnings are regarded as errors, so they
 will make the documentation build fail.
 
 However, there are some expected warnings when creating the Sphinx inventory
-file for each documentation set and also known issues with Sphinx and Breathe
+file for each documentation set and also known issues with Sphinx and DoxyBridge
 that generate Sphinx warnings even though the input is valid C code. To deal
 with such unavoidable warnings, Bridle provides the Sphinx extension
 :file:`bridle.warnings_filter` that filters out warnings based on a set of

@@ -1,4 +1,3 @@
-breathe>=4.36
 docutils>=0.21
 doxmlparser~=1.13
 pygments~=2.19
