@@ -35,7 +35,7 @@ def parse_xml_dir(dir_name):
 
 class ApiOverview(SphinxDirective):
     """
-    This is a Zephyr directive to generate a table containing an overview
+    This is a Bridle directive to generate a table containing an overview
     of all APIs. This table will show the API name, version and since which
     version it is present - all information extracted from Doxygen XML output.
 
@@ -63,7 +63,7 @@ class ApiOverview(SphinxDirective):
 
         thead = nodes.thead()
         thead_row = nodes.row()
-        for header_name in ["API", "Version", "Available in Zephyr Since"]:
+        for header_name in ["API", "Version", "Available in Bridle Since"]:
             colspec = nodes.colspec()
             tgroup += colspec
 
