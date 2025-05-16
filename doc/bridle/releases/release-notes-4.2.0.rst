@@ -205,11 +205,19 @@ Documentation
 1. tbd.
 2. tbd.
 3. tbd.
-4. Switch getting started guide for Windows to Winget. Winget has become the
+4. Use Sphinx 8.2 and Zephyr's `DoxyRunner` with `DoxyBridge`, `DoxyToolTip`
+   and `APIOverview` for documentation processing.
+5. The Sphinx extension `APIOverview` was copied into Bridle namespace and all
+   hard coded strings (e.g. *"Available in … Since"*) were adopted to Bridle.
+6. The Sphinx extension `ManifestProjectTable` (former `ManifestRevisionTable`)
+   was copied into Bridle namespace and the old functionality from the sdk-nrf
+   repository by Nordic (``show-first`` option) was merged with the new
+   functionality from Zephyr upstream (``filter`` option).
+7. Switch getting started guide for Windows to Winget. Winget has become the
    standard Windows package manager, and it already contains all the packages
    required for Zephyr and Bridle development. Switch to it from Chocolatey
    for simplicity and consistency with the OS.
-5. Update all output messages in documentation to be in sync with the upcoming
+8. Update all output messages in documentation to be in sync with the upcoming
    Bridle version v4.2.0, based on Zephyr v4.2 (samples and tests).
 
 Issue Related Items
