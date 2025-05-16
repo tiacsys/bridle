@@ -31,3 +31,13 @@ ineffective:
              --inline-logs \
              --integration \
              --testsuite-root bridle/tests/bridle/common
+
+API Reference
+*************
+
+   .. doxygengroup:: bridle_common_tests
+      :project: bridle
+
+.. rubric:: Functions
+
+- :c:func:`test_version()`

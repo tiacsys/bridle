@@ -22,6 +22,15 @@ References
 
 - `STK8BA58 sensor <STK8BA58_>`_ (`STK8BA58 Datasheet`_)
 
+API
+===
+
+   .. doxygengroup:: io_sensors_imu_stk8ba58
+      :project: bridle
+
+   .. doxygengroup:: STK8BA58
+      :project: bridle
+
 Building and Running
 ********************
 

@@ -385,4 +385,19 @@ Programming
 References
 **********
 
+API
+===
+
+   .. doxygengroup:: mfd_interface_sc16is75x
+      :project: bridle
+
+   .. doxygengroup:: io_gpio_sc16is75x
+      :project: bridle
+
+   .. doxygengroup:: io_serial_sc16is75x
+      :project: bridle
+
+Links
+=====
+
 .. target-notes::

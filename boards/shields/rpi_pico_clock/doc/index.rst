@@ -631,4 +631,19 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`display`.
 References
 **********
 
+API
+===
+
+   .. doxygengroup:: mdf_interface_sipomuxgp
+      :project: bridle
+
+   .. doxygengroup:: io_gpio_sipomux
+      :project: bridle
+
+   .. doxygengroup:: io_display_sipomux
+      :project: bridle
+
+Links
+=====
+
 .. target-notes::

@@ -127,4 +127,19 @@ On-Shield EEPROM Read/Write
 References
 **********
 
+API
+===
+
+   .. doxygengroup:: mfd_interface_sc18is604
+      :project: bridle
+
+   .. doxygengroup:: io_gpio_sc18is604
+      :project: bridle
+
+   .. doxygengroup:: io_i2c_sc18is604
+      :project: bridle
+
+Links
+=====
+
 .. target-notes::
