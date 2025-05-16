@@ -12,6 +12,7 @@
   --docset-color-theme-yellow: #ffd700; /* Gold */
   --docset-color-theme-black: #000000;  /* Black */
   --docset-color-theme-gray: #cccccc;   /* Gray */
+  --docset-color-theme-light: #fffaf0;  /* FloralWhite */
   --docset-color-theme-white: #ffffff;  /* White */
   --docset-color-pin-fgd: #363a44;
   --docset-color-pin-bgd: #cccccc;
@@ -40,6 +41,20 @@
   --docset-color-rpi-dsi: #54c4ff;
   --docset-color-rpi-dpp: #2f69f8;
   --docset-color-rpi-tsi: #df6da6;
+
+  /* tweak colors for Doxygen Tool Tip */
+  --content-wrap-background-color: var(--docset-color-theme-light);
+  --navbar-heading-color: var(--docset-color-theme-cyan);
+  --link-color: var(--docset-color-theme-cyan);
+  --code-literal-color: var(--docset-color-theme-red);
+  --admonition-background-color: #e7f2fa;
+  --admonition-color: #404040;
+  --admonition-title-background-color: #6ab0de;
+  --admonition-title-color: #fff;
+  --admonition-note-background-color: var(--admonition-background-color);
+  --admonition-note-color: var(--admonition-color);
+  --admonition-note-title-background-color: var(--admonition-title-background-color);
+  --admonition-note-title-color: var(--admonition-title-color);
 }
 
 /* Bridle */
@@ -96,6 +111,19 @@ a > span.devicetree {
 
 .devicetree:not(.xref) {
     background-color: var(--docset-color-devicetree);
+}
+
+/* Doxygen */
+.doxygroup::after {
+    content: 'Doxygen';
+    display: inline-block;
+    background-color: var(--admonition-note-title-background-color);
+    color: var(--admonition-note-title-color);
+    padding: 2px 8px;
+    border-radius: 12px;
+    margin-left: 8px;
+    font-size: 0.875em;
+    font-weight: bold;
 }
 
 /* tweak grid items color */

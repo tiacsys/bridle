@@ -121,8 +121,6 @@ needs_sphinx = '8.1'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'breathe',
-    'interbreathe',
 #   'table_from_rows',
     'tsn_include',
     'sphinx.ext.intersphinx',
@@ -140,6 +138,8 @@ extensions = [
     'zephyr.dtcompatible-role',
     'zephyr.link-roles',
     'zephyr.doxyrunner',
+    'zephyr.doxybridge',
+    'zephyr.doxytooltip',
 #   'zephyr.gh_utils',
 #   'zephyr.manifest_projects_table',
     'zephyr.external_content',
@@ -384,32 +384,9 @@ doxyrunner_projects = {
     },
 }
 
-# Options for breathe ----------------------------------------------------------
+# Options for zephyr.doxybridge ------------------------------------------------
 
-breathe_projects = {project: '{}/xml'.format(doxyrunner_projects['bridle']['outdir'])}
-breathe_default_project = project
-breathe_domain_by_extension = {
-    'h': 'c',
-    'c': 'c',
-}
-breathe_show_enumvalue_initializer = True
-breathe_separate_member_pages = True
-
-cpp_id_attributes = [
-    '__syscall',
-    "__syscall_always_inline",
-    '__deprecated',
-    '__may_alias',
-    '__used',
-    '__unused',
-    '__weak',
-    '__attribute_const__',
-    '__DEPRECATED_MACRO',
-    'FUNC_NORETURN',
-    '__subsystem',
-    'ALWAYS_INLINE',
-]
-c_id_attributes = cpp_id_attributes
+doxybridge_projects = {'bridle': doxyrunner_projects['bridle']['outdir']}
 
 # Options for tsn_include ------------------------------------------------------
 
