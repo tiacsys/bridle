@@ -732,9 +732,6 @@
 .. |zephyr:board:qemu_malta| replace::
    :external+zephyr:zephyr:board:`qemu_malta`
 
-.. |zephyr:board:qemu_nios2| replace::
-   :external+zephyr:zephyr:board:`qemu_nios2`
-
 .. |zephyr:board:qemu_riscv32e| replace::
    :external+zephyr:zephyr:board:`qemu_riscv32e`
 

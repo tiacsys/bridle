@@ -51,7 +51,6 @@ common:
     - qemu_xtensa/dc233c
     - qemu_xtensa/dc233c/mmu
     - qemu_leon3
-    - qemu_nios2
     - arduino_zero
     - cytron_maker_nano_rp2040
     - cytron_maker_pi_rp2040

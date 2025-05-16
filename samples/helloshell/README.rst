@@ -36,7 +36,6 @@ Requirements
   * |zephyr:board:qemu_riscv64|
   * |zephyr:board:qemu_xtensa|
   * |zephyr:board:qemu_leon3|
-  * |zephyr:board:qemu_nios2|
   * |zephyr:board:nucleo_f303re| (NUCLEO-F303RE)
   * |zephyr:board:nucleo_f401re| (NUCLEO-F401RE)
   * |zephyr:board:nucleo_f413zh| (NUCLEO-F413ZH)
