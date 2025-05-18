@@ -565,8 +565,6 @@ add_dependencies(zephyr-html-all
 
 add_dependencies(bridle-html-all
     zephyr-html-all
-    kconfig-html-all
-    devicetree-html-all
 )
 
 add_custom_target(build-all ALL)
@@ -574,9 +572,6 @@ add_dependencies(build-all
     copy-extra-content
     merge-search-indexes
     bridle-html-all
-    zephyr-html-all
-    kconfig-html-all
-    devicetree-html-all
 )
 
 add_custom_target(linkcheck)
