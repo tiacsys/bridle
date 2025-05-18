@@ -3,6 +3,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+/**
+ * @file
+ * @brief Driver of the SIPO/MUX GPIO controller
+ */
+
 #define DT_DRV_COMPAT sipo_mux_gpio
 
 #include <zephyr/kernel.h>
@@ -16,6 +21,22 @@
 
 #include <zephyr/logging/log.h>
 LOG_MODULE_REGISTER(gpio_sipomux, CONFIG_GPIO_LOG_LEVEL);
+
+/**
+ * @brief    Generic latched SIPO/MUX GPIO controller
+ * @defgroup io_gpio_sipomux SIPO/MUX GPIO Controller
+ * @ingroup  io_gpio
+ * @since    3.6
+ * @version  1.0.0
+ *
+ * The generic latched SIPO/MUX GPIO controller based on the MFD interface
+ * to the generic latched SIPO/MUX General Purpose (GP) matrix controller.
+ *
+ * @par SIPO/MUX:
+ * Serial Input Parallel Output / Multiplexing hardware
+ *
+ * @{
+ */
 
 /**
  * @brief SIPO/MUX GPIO controller configuration data
@@ -264,3 +285,5 @@ static int gpio_sipomux_pm_device_pm_action(const struct device *dev,
 			      &gpio_sipomux_api);
 
 DT_INST_FOREACH_STATUS_OKAY(GPIO_SIPOMUX_DEFINE)
+
+/** @} */
