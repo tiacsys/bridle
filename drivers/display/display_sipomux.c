@@ -3,6 +3,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+/**
+ * @file
+ * @brief Driver of the SIPO/MUX Display controller
+ */
+
 #define DT_DRV_COMPAT sipo_mux_display
 
 #include <zephyr/kernel.h>
@@ -15,6 +20,22 @@
 
 #include <zephyr/logging/log.h>
 LOG_MODULE_REGISTER(display_sipomux, CONFIG_DISPLAY_LOG_LEVEL);
+
+/**
+ * @brief    Generic latched SIPO/MUX Display controller
+ * @defgroup io_display_sipomux SIPO/MUX Display
+ * @ingroup  io_display
+ * @since    3.6
+ * @version  1.0.0
+ *
+ * The generic latched SIPO/MUX display controller based on the MFD interface
+ * to the generic latched SIPO/MUX General Purpose (GP) matrix controller.
+ *
+ * @par SIPO/MUX:
+ * Serial Input Parallel Output / Multiplexing hardware
+ *
+ * @{
+ */
 
 typedef struct display_sipomux_cfg {
 	const uint16_t height;
@@ -251,3 +272,5 @@ static int display_sipomux_pm_device_pm_action(const struct device *dev,
 			      &display_sipomux_api);
 
 DT_INST_FOREACH_STATUS_OKAY(DISPLAY_SIPOMUX_DEFINE)
+
+/** @} */
