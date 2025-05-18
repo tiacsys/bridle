@@ -5,6 +5,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+/**
+ * @file
+ * @brief Driver for an STK8BA58 I2C-based 3-axis accelerometer
+ */
+
 #define DT_DRV_COMPAT sensortek_stk8ba58
 
 #include <zephyr/drivers/sensor.h>
@@ -18,6 +23,18 @@
 
 #include <zephyr/logging/log.h>
 LOG_MODULE_REGISTER(STK8BA58, CONFIG_SENSOR_LOG_LEVEL);
+
+/**
+ * @brief    3-axis Accelerometer Sensor STK8BA58
+ * @defgroup io_sensors_imu_stk8ba58 STK8BA58 3-Axis Accelerometer
+ * @ingroup  io_sensors_imu
+ * @since    4.1
+ * @version  1.0.0
+ *
+ * The IMU sensor driver for an I2C-based STK8BA58 3-axis accelerometer.
+ *
+ * @{
+ */
 
 static int stk8ba58_get_range(const struct device *dev, uint8_t *range)
 {
@@ -588,3 +605,5 @@ static int stk8ba58_init(const struct device *dev)
 			    &stk8ba58_driver_api);
 
 DT_INST_FOREACH_STATUS_OKAY(STK8BA58_DEFINE)
+
+/** @} */

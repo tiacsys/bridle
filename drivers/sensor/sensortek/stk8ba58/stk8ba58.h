@@ -5,8 +5,22 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+/**
+ * @file
+ * @brief Driver Interface for an STK8BA58 I2C-based 3-axis accelerometer
+ */
+
 #ifndef ZEPHYR_DRIVERS_SENSOR_SENSORTEK_STK8BA58_H_
 #define ZEPHYR_DRIVERS_SENSOR_SENSORTEK_STK8BA58_H_
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/**
+ * @ingroup io_sensors_imu_stk8ba58
+ * @{
+ */
 
 #include <zephyr/types.h>
 #include <zephyr/drivers/sensor.h>
@@ -187,6 +201,12 @@ int stk8ba58_trigger_set(const struct device *dev,
 			 sensor_trigger_handler_t handler);
 
 int stk8ba58_trigger_init(const struct device *dev);
+#endif
+
+/** @} */
+
+#ifdef __cplusplus
+}
 #endif
 
 #endif /* ZEPHYR_DRIVERS_SENSOR_SENSORTEK_STK8BA58_H_ */

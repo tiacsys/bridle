@@ -6,12 +6,20 @@
  *
  */
 
+/**
+ * @file
+ * @brief I2C-Bus Access for an STK8BA58
+ */
+
 #include "stk8ba58_reg.h"
 
 /**
- * @defgroup  STK8BA58
  * @brief     This file provides a set of functions needed to drive the
- *            stk8ba58 simplified inertial module.
+ *            STK8BA58 simplified inertial module.
+ * @defgroup  STK8BA58 STK8BA58 Register Access
+ * @ingroup   io_sensors_imu_stk8ba58
+ * @since     4.1
+ * @version   1.0.0
  *
  * I2C chip register access for the Sensortek Technology STK8BA58 3-axis
  * accelerometer. Data sheet can be found here:

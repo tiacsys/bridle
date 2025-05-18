@@ -5,7 +5,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#define DT_DRV_COMPAT sensortek_stk8ba58
+/**
+ * @file
+ * @brief Driver Callback for the STK8BA58 3-axis accelerometer
+ */
 
 #include "stk8ba58.h"
 

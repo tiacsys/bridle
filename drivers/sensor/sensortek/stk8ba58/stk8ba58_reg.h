@@ -6,6 +6,11 @@
  *
  */
 
+/**
+ * @file
+ * @brief I2C-Bus Access Interface for an STK8BA58
+ */
+
 #ifndef STK8BA58_REGS_H
 #define STK8BA58_REGS_H
 
@@ -19,7 +24,8 @@ extern "C" {
 
 #include <zephyr/drivers/i2c.h>
 
-/** @addtogroup STK8BA58
+/**
+ * @addtogroup STK8BA58
  *
  * The values for the defines below as well as the register definitions
  * were taken from the datasheet revision 1.0, which can be found at:
@@ -29,7 +35,8 @@ extern "C" {
  *
  */
 
-/** @defgroup  STK8BA58_BO Endianness definitions
+/**
+ * @defgroup  STK8BA58_BO Endianness definitions
  * @{
  *
  * The endianness of the STK8BA58 registers depends on the definition
@@ -58,7 +65,16 @@ extern "C" {
 
 #endif /* STK8BA58_BYTE_ORDER */
 
-/** @defgroup STK8BA58_INF Infos
+/** @endcond */
+
+/**
+ * @}
+ *
+ */
+
+/**
+ * @defgroup STK8BA58_INF Infos
+ * @brief    This section provide a set of default and identification values.
  * @{
  *
  */

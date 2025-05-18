@@ -2,6 +2,28 @@
  * Copyright (c) 2025 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
+
+/**
+ * @file
+ * @brief STK8BA58 Power Mode and Output Data Rate definitions
+ *
+ * Defines meant to be used in conjunction with the "sensortek,stk8ba58"
+ * Sensortek Technology STK8BA58 3-axis accelerometer.
+ *
+ * Example usage:
+ *
+ * @code{.dts}
+ * &i2c0 {
+ *         example_device: example-dev@18 {
+ *                 compatible = "sensortek,stk8ba58";
+ *                 reg = <0x18>;
+ *                 power-mode = <STK8BA58_DT_LOW_POWER_25ms>;
+ *                 odr = <STK8BA58_DT_ODR_250Hz>;
+ *         };
+ * };
+ * @endcode
+ */
+
 #ifndef ZEPHYR_INCLUDE_DT_BINDINGS_SENSORTEK_STK8BA58_H_
 #define ZEPHYR_INCLUDE_DT_BINDINGS_SENSORTEK_STK8BA58_H_
 
