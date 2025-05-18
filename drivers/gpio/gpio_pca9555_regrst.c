@@ -8,11 +8,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#define DT_DRV_COMPAT nxp_pca9555_regrst
-
 /**
- * @file Driver for PCA9555 I2C-based GPIO driver (w/regrst).
+ * @file
+ * @brief Driver for an PCA9555 I2C-based GPIO controller (w/regrst)
  */
+
+#define DT_DRV_COMPAT nxp_pca9555_regrst
 
 #include <errno.h>
 
@@ -29,6 +30,19 @@
 #define LOG_LEVEL CONFIG_GPIO_LOG_LEVEL
 #include <zephyr/logging/log.h>
 LOG_MODULE_REGISTER(gpio_pca9555_regrst);
+
+/**
+ * @brief    GPIO controller for an PCA9555 (w/regrst)
+ * @defgroup io_gpio_pca9555_regrst PCA9555 GPIO Controller (w/regrst)
+ * @ingroup  io_gpio
+ * @since    3.4
+ * @version  1.0.0
+ *
+ * The GPIO controller for the I2C-based PCA9555 chip with the
+ * reset register to defaults feature.
+ *
+ * @{
+ */
 
 /* Register and default value definitions */
 #define REG_INPUT_PORT0		0x00
@@ -700,3 +714,5 @@ DEVICE_DT_INST_DEFINE(inst,						\
 	&gpio_pca9555_regrst_drv_api_funcs);
 
 DT_INST_FOREACH_STATUS_OKAY(GPIO_PCA9555_REGRST_DEVICE_INSTANCE)
+
+/** @} */
