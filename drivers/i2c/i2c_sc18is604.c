@@ -3,6 +3,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+/**
+ * @file
+ * @brief Driver for the I2C controller part of an SC18IM604 bridge
+ */
+
 #ifndef CONFIG_MFD_SC18IS604_ASYNC
 #error "CONFIG_MFD_SC18IS604_ASYNC must be enabled for I2C controller to function."
 #endif /* CONFIG_MFD_SC18IS604_ASYNC */
@@ -21,6 +26,19 @@
 
 #include <zephyr/logging/log.h>
 LOG_MODULE_REGISTER(sc18is604_i2c, CONFIG_I2C_LOG_LEVEL);
+
+/**
+ * @brief    I2C controller part of an SC18IM604 bridge
+ * @defgroup io_i2c_sc18is604 SC18IM604 I2C Controller
+ * @ingroup  io_i2c
+ * @since    3.7
+ * @version  1.0.0
+ *
+ * The I2C controller part based on the MFD interface to the SC18IM604
+ * SPI to I2C and GPIO controller bridge.
+ *
+ * @{
+ */
 
 int await_signal(struct k_poll_signal *signal, int *result, k_timeout_t timeout)
 {
@@ -436,3 +454,5 @@ static int i2c_sc18is604_pm_device_pm_action(const struct device *dev,
 			      &i2c_sc18is604_api);
 
 DT_INST_FOREACH_STATUS_OKAY(I2C_SC18IS604_DEFINE);
+
+/** @} */

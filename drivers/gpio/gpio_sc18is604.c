@@ -3,6 +3,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+/**
+ * @file
+ * @brief Driver for the GPIO controller part of an SC18IM604 bridge
+ */
+
 #define DT_DRV_COMPAT nxp_sc18is604_gpio
 
 #include <zephyr/kernel.h>
@@ -16,6 +21,19 @@
 
 #include <zephyr/logging/log.h>
 LOG_MODULE_REGISTER(gpio_sc18is604, CONFIG_GPIO_LOG_LEVEL);
+
+/**
+ * @brief    GPIO controller part of an SC18IM604 bridge
+ * @defgroup io_gpio_sc18is604 SC18IM604 GPIO Controller
+ * @ingroup  io_gpio
+ * @since    3.7
+ * @version  1.0.0
+ *
+ * The GPIO controller part based on the MFD interface to the SC18IM604
+ * SPI to I2C and GPIO controller bridge.
+ *
+ * @{
+ */
 
 /**
  * @brief SC18IM604 GPIO controller configuration data
@@ -383,3 +401,5 @@ static int gpio_sc18is604_pm_device_pm_action(const struct device *dev,
 			      &gpio_sc18is604_api);
 
 DT_INST_FOREACH_STATUS_OKAY(GPIO_SC18IS604_DEFINE);
+
+/** @} */

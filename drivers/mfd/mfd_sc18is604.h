@@ -3,6 +3,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+/**
+ * @file
+ * @brief MFD Driver Interface for an SC18IM604 bridge
+ */
+
 #ifndef ZEPHYR_DRIVERS_MFD_SC18IS604_H_
 #define ZEPHYR_DRIVERS_MFD_SC18IS604_H_
 

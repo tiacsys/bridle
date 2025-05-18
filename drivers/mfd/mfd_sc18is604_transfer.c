@@ -3,6 +3,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+/**
+ * @file
+ * @brief MFD Bus Transfer Driver for an SC18IM604 bridge
+ */
+
 #include <zephyr/kernel.h>
 
 #include <zephyr/drivers/mfd/sc18is604.h>

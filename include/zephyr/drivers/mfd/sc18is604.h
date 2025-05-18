@@ -3,6 +3,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+/**
+ * @file
+ * @brief MFD Interface for an SC18IM604 bridge
+ */
+
 #ifndef ZEPHYR_INCLUDE_DRIVERS_MFD_SC18IS604_H_
 #define ZEPHYR_INCLUDE_DRIVERS_MFD_SC18IS604_H_
 
@@ -61,8 +66,14 @@ extern "C" {
 #define SC18IS604_I2C_CLOCK_375KHZ		5
 
 /**
- * @defgroup mfd_interface_sc18is604 MFD SC18IM604 Interface
- * @ingroup mfd_interfaces
+ * @brief    MFD interface for an SC18IM604 bridge
+ * @defgroup mfd_interface_sc18is604 SC18IM604 MFD Interface
+ * @ingroup  mfd_interfaces
+ * @since    3.7
+ * @version  1.0.0
+ *
+ * The MFD interface for an SC18IM604 SPI to I2C and GPIO controller bridge.
+ *
  * @{
  */
 

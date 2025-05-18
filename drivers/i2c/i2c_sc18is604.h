@@ -3,6 +3,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+/**
+ * @file
+ * @brief Driver Interface for the I2C controller part of an SC18IM604 bridge
+ */
+
 #ifndef ZEPHYR_DRIVERS_I2C_SC18IS604_H_
 #define ZEPHYR_DRIVERS_I2C_SC18IS604_H_
 
@@ -10,11 +15,15 @@
 extern "C" {
 #endif
 
+/**
+ * @ingroup io_i2c_sc18is604
+ * @{
+ */
+
 #include <zephyr/kernel.h>
 #include <zephyr/device.h>
 #include <zephyr/drivers/gpio.h>
 #include <zephyr/drivers/i2c.h>
-
 
 /**
  * @brief SC18IM604 I2C controller configuration data
@@ -86,6 +95,8 @@ int i2c_sc18is604_transfer_cb(const struct device *dev,
 			      struct i2c_msg *msgs, uint8_t num_msgs,
 			      uint16_t addr,
 			      i2c_callback_t cb, void *userdata);
+
+/** @} */
 
 #ifdef __cplusplus
 }

@@ -3,14 +3,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#include <zephyr/kernel.h>
-#include <zephyr/device.h>
-
-#include <zephyr/drivers/mfd/sc18is604.h>
-
-#include "i2c_sc18is604.h"
-
-/*
+/**
+ * @file
+ * @brief Driver Callback for the I2C controller part of an SC18IM604 bridge
+ *
  * Asynchronous message transfers are processed by a tracking structure
  * being passed between 3 separate work items: One for initiating transfers,
  * one for performing RX buffer readouts, and one for awaiting completion of
@@ -28,6 +24,18 @@
  * to `i2c_transfer_cb` is processed at the same time. Multiple calls can still
  * be made in succession, but it is not guaranteed that they will be processed
  * in the order they are submitted.
+ */
+
+#include <zephyr/kernel.h>
+#include <zephyr/device.h>
+
+#include <zephyr/drivers/mfd/sc18is604.h>
+
+#include "i2c_sc18is604.h"
+
+/**
+ * @ingroup io_i2c_sc18is604
+ * @{
  */
 
 /** Data structure for tracking a asynchronous I2C transfer. */
@@ -390,3 +398,5 @@ int i2c_sc18is604_transfer_cb(const struct device *dev,
 
 	return 0;
 }
+
+/** @} */
