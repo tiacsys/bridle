@@ -3,6 +3,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+/**
+ * @file
+ * @brief MFD Driver Worker Queue for an SIPO/MUX GP matrix controller
+ */
+
 #include "mfd_sipomuxgp.h"
 
 #include <zephyr/init.h>

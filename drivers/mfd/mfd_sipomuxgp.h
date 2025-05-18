@@ -3,6 +3,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+/**
+ * @file
+ * @brief MFD Driver Interface for an SIPO/MUX GP matrix controller
+ */
+
 #ifndef DRIVERS_MFD_MFD_SIPOMUXGP_H_
 #define DRIVERS_MFD_MFD_SIPOMUXGP_H_
 

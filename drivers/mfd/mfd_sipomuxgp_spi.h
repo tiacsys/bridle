@@ -3,6 +3,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+/**
+ * @file
+ * @brief MFD SPI-Bus Transfer Driver Interface for an SIPO/MUX GP matrix controller
+ */
+
 #ifndef DRIVERS_MFD_MFD_SIPOMUXGP_SPI_H_
 #define DRIVERS_MFD_MFD_SIPOMUXGP_SPI_H_
 

@@ -2,6 +2,12 @@
  * Copyright (c) 2023 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
+
+/**
+ * @file
+ * @brief MFD Interface for an SIPO/MUX GP matrix controller
+ */
+
 #ifndef ZEPHYR_INCLUDE_DRIVERS_MFD_SIPOMUXGP_H_
 #define ZEPHYR_INCLUDE_DRIVERS_MFD_SIPOMUXGP_H_
 
@@ -10,8 +16,18 @@ extern "C" {
 #endif
 
 /**
- * @defgroup mdf_interface_sipomuxgp MFD SIPO/MUX GP Interface
- * @ingroup mfd_interfaces
+ * @brief    MFD interface for an generic latched SIPO/MUX GP matrix controller
+ * @defgroup mdf_interface_sipomuxgp SIPO/MUX GP MFD Interface
+ * @ingroup  mfd_interfaces
+ * @since    3.6
+ * @version  1.0.0
+ *
+ * The MFD interface for an generic latched SIPO/MUX General Purpose (GP)
+ * matrix controller.
+ *
+ * @par SIPO/MUX:
+ * Serial Input Parallel Output / Multiplexing hardware
+ *
  * @{
  */
 

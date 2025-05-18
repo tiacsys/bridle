@@ -3,6 +3,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+/**
+ * @file
+ * @brief MFD SPI-Bus Transfer Driver for an SIPO/MUX GP matrix controller
+ */
+
 #include "mfd_sipomuxgp_spi.h"
 
 #include <zephyr/logging/log.h>
