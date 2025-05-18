@@ -3,6 +3,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+/**
+ * @file
+ * @brief MFD Interface for an SC16IS75X bridge
+ */
+
 #ifndef ZEPHYR_INCLUDE_DRIVERS_MFD_SC16IS75X_H_
 #define ZEPHYR_INCLUDE_DRIVERS_MFD_SC16IS75X_H_
 
@@ -244,8 +249,15 @@ extern "C" {
 #define SC16IS75X_REG_XOFF2			0x07
 
 /**
- * @defgroup mfd_interface_sc16is75x MFD SC16IS75X Interface
- * @ingroup mfd_interfaces
+ * @brief    MFD interface for an SC16IS75x bridge
+ * @defgroup mfd_interface_sc16is75x SC16IS75x MFD Interface
+ * @ingroup  mfd_interfaces
+ * @since    3.7
+ * @version  1.0.0
+ *
+ * The MFD interface for an SC16IS75x SPI or I2C to
+ * UART and GPIO controller bridge.
+ *
  * @{
  */
 

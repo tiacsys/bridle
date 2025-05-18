@@ -3,6 +3,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+/**
+ * @file
+ * @brief Driver for the UART part of an SC16IS75x bridge
+ */
+
 #define DT_DRV_COMPAT nxp_sc16is75x_uart
 
 #include <zephyr/kernel.h>
@@ -16,6 +21,19 @@
 
 #include <zephyr/logging/log.h>
 LOG_MODULE_REGISTER(uart_sc16is75x, CONFIG_UART_LOG_LEVEL);
+
+/**
+ * @brief    UART part of an SC16IS75x bridge
+ * @defgroup io_serial_sc16is75x SC16IS75x UART Driver
+ * @ingroup  io_serial
+ * @since    3.7
+ * @version  1.0.0
+ *
+ * The UART driver part based on the MFD interface to the SC16IS75x
+ * SPI/I2C to UART and GPIO controller bridge.
+ *
+ * @{
+ */
 
 struct uart_sc16is75x_config {
 	const struct device *bus;
@@ -1228,3 +1246,5 @@ static int uart_sc16is75x_pm_device_pm_action(const struct device * const dev,
 			      &uart_sc16is75x_api);
 
 DT_INST_FOREACH_STATUS_OKAY(UART_SC16IS75X_DEFINE);
+
+/** @} */

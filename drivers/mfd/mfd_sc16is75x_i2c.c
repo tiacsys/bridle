@@ -3,6 +3,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+/**
+ * @file
+ * @brief MFD I2C-Bus Transfer Driver for an SC16IS75X bridge
+ */
+
 #include <zephyr/kernel.h>
 #include <zephyr/device.h>
 

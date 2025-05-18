@@ -3,6 +3,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+/**
+ * @file
+ * @brief Driver for the GPIO controller part of an SC16IS75x bridge
+ */
+
 #define DT_DRV_COMPAT nxp_sc16is75x_gpio
 
 #include <zephyr/kernel.h>
@@ -16,6 +21,19 @@
 
 #include <zephyr/logging/log.h>
 LOG_MODULE_REGISTER(gpio_sc16is75x, CONFIG_GPIO_LOG_LEVEL);
+
+/**
+ * @brief    GPIO controller part of an SC16IS75x bridge
+ * @defgroup io_gpio_sc16is75x SC16IS75x GPIO Controller
+ * @ingroup  io_gpio
+ * @since    3.7
+ * @version  1.0.0
+ *
+ * The GPIO controller part based on the MFD interface to the SC16IS75x
+ * SPI/I2C to UART and GPIO controller bridge.
+ *
+ * @{
+ */
 
 /**
  * @brief SC16IS75X GPIO controller configuration data
@@ -577,3 +595,5 @@ static int gpio_sc16is75x_pm_device_pm_action(const struct device *dev,
 			      &gpio_sc16is75x_api);
 
 DT_INST_FOREACH_STATUS_OKAY(GPIO_SC16IS75X_DEFINE);
+
+/** @} */

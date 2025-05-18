@@ -3,6 +3,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+/**
+ * @file
+ * @brief MFD Driver Interface for an SC16IS75X bridge
+ */
+
 #ifndef ZEPHYR_DRIVERS_MFD_SC16IS75X_H_
 #define ZEPHYR_DRIVERS_MFD_SC16IS75X_H_
 

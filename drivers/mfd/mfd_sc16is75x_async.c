@@ -3,6 +3,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+/**
+ * @file
+ * @brief MFD Bus Transfer Driver Callbacks for an SC16IS75X bridge
+ */
+
 #include <zephyr/kernel.h>
 #include <zephyr/device.h>
 
