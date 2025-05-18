@@ -217,6 +217,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`320` - [BUG] CMSIS_6 module required by the ARM port for Cortex-M
 * :github:`317` - [BUG] Rename Kconfig option ``SCHED_DUMB`` and ``WAITQ_DUMB``
 * :github:`316` - [BUG] Remove Kconfig option ``ETH_STM32_HAL_MII`` and ``ETH_STM32_HAL_PHY_ADDRESS``
 * :github:`310` - [HW] STK8BA58 accelerometer
