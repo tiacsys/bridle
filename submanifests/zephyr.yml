@@ -53,6 +53,7 @@ manifest:
           - canopennode
           - chre
           - cmsis
+          - cmsis_6
           - edtt
           - fatfs
           - hal_adi
