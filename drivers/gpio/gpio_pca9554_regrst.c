@@ -8,11 +8,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#define DT_DRV_COMPAT nxp_pca9554_regrst
-
 /**
- * @file Driver for PCA9554 I2C-based GPIO driver (w/regrst).
+ * @file
+ * @brief Driver for an PCA9554 I2C-based GPIO controller (w/regrst)
  */
+
+#define DT_DRV_COMPAT nxp_pca9554_regrst
 
 #include <errno.h>
 
@@ -29,6 +30,19 @@
 #define LOG_LEVEL CONFIG_GPIO_LOG_LEVEL
 #include <zephyr/logging/log.h>
 LOG_MODULE_REGISTER(gpio_pca9554_regrst);
+
+/**
+ * @brief    GPIO controller for an PCA9555 (w/regrst)
+ * @defgroup io_gpio_pca9554_regrst PCA9554 GPIO Controller (w/regrst)
+ * @ingroup  io_gpio
+ * @since    3.4
+ * @version  1.0.0
+ *
+ * The GPIO controller for the I2C-based PCA9554 chip with the
+ * reset register to defaults feature.
+ *
+ * @{
+ */
 
 /* Register definitions */
 #define REG_INPUT_PORT		0x00
@@ -696,3 +710,5 @@ DEVICE_DT_INST_DEFINE(inst,						\
 	&gpio_pca9554_regrst_drv_api_funcs);
 
 DT_INST_FOREACH_STATUS_OKAY(GPIO_PCA9554_REGRST_DEVICE_INSTANCE)
+
+/** @} */
