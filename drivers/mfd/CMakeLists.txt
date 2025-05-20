@@ -14,6 +14,4 @@ zephyr_library_sources_ifdef(CONFIG_MFD_SIPOMUXGP	mfd_sipomuxgp.c
 							mfd_sipomuxgp_workq.c)
 zephyr_library_sources_ifdef(CONFIG_MFD_SIPOMUXGP_SPI	mfd_sipomuxgp_spi.c)
 
-zephyr_library_sources_ifdef(CONFIG_MFD_SC18IS604 mfd_sc18is604.c)
-zephyr_library_sources_ifdef(CONFIG_MFD_SC18IS604 mfd_sc18is604_transfer.c)
-zephyr_library_sources_ifdef(CONFIG_MFD_SC18IS604_ASYNC mfd_sc18is604_transfer_async.c)
+add_subdirectory_ifdef(CONFIG_MFD_SC18IS604 sc18is604)
