@@ -4,7 +4,7 @@
 if MFD
 
 rsource "Kconfig.sc16is75x"
-rsource "Kconfig.sc18is604"
 rsource "Kconfig.sipomuxgp"
+rsource "sc18is604/Kconfig"
 
 endif # MFD
