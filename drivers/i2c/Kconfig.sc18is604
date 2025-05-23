@@ -7,9 +7,7 @@ menuconfig I2C_SC18IS604
 	depends on DT_HAS_NXP_SC18IS604_I2C_ENABLED
 	depends on MFD_SC18IS604
 	select MFD_SC18IS604_ASYNC
-	select POLL              # dependency of MFD_SC18IS604_ASYNC
-	select DYNAMIC_THREAD    # dependency of MFD_SC18IS604_ASYNC
-	select THREAD_STACK_INFO # dependency of DYNAMIC_THREAD
+	select POLL # dependency of MFD_SC18IS604_ASYNC
 	help
 	  Enable driver for I2C controller part of an SC18IM604 bridge.
 
@@ -19,6 +17,10 @@ config I2C_SC18IS604_INIT_PRIORITY
 	depends on I2C_SC18IS604
 	help
 	  Device driver initialization priority.
+
+config I2C_SC18IS604_WORKQUEUE_STACK_SIZE
+	int
+	default 512
 
 if I2C_SC18IS604 && I2C_CALLBACK
 
@@ -30,4 +32,4 @@ config HEAP_MEM_POOL_ADD_SIZE_I2C_SC18IS604
 	int
 	default 512 # Enough for 5 in-flight async transfers
 
-endif
+endif # I2C_CALLBACK

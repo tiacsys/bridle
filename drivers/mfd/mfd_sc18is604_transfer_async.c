@@ -46,18 +46,15 @@ struct mfd_sc18is604_transfer_work {
 static void mfd_sc18is604_transfer_work_fn(struct k_work *work)
 {
 	/* Access bundled data */
-	struct mfd_sc18is604_transfer_work *transfer_work = CONTAINER_OF(work,
-				struct mfd_sc18is604_transfer_work, work);
+	struct mfd_sc18is604_transfer_work *transfer_work =
+		CONTAINER_OF(work, struct mfd_sc18is604_transfer_work, work);
 	const struct device *dev = transfer_work->dev;
 	int ret = 0;
 
 	/* Call blocking transfer */
-	ret = mfd_sc18is604_transfer(dev, transfer_work->cmd,
-					  transfer_work->cmd_len,
-					  transfer_work->tx_data,
-					  transfer_work->tx_len,
-					  transfer_work->rx_data,
-					  transfer_work->rx_len);
+	ret = mfd_sc18is604_transfer(dev, transfer_work->cmd, transfer_work->cmd_len,
+				     transfer_work->tx_data, transfer_work->tx_len,
+				     transfer_work->rx_data, transfer_work->rx_len);
 
 	/* Report result through signal */
 	k_poll_signal_raise(transfer_work->signal, ret);
@@ -67,23 +64,21 @@ static void mfd_sc18is604_transfer_work_fn(struct k_work *work)
 	k_free(transfer_work);
 }
 
-int mfd_sc18is604_transfer_signal(const struct device *dev,
-				  uint8_t *cmd, size_t cmd_len,
-				  uint8_t *tx_data, size_t tx_len,
-				  uint8_t *rx_data, size_t rx_len,
+int mfd_sc18is604_transfer_signal(const struct device *dev, uint8_t *cmd, size_t cmd_len,
+				  uint8_t *tx_data, size_t tx_len, uint8_t *rx_data, size_t rx_len,
 				  struct k_poll_signal *signal)
 {
-	struct mfd_sc18is604_data * const data = dev->data;
+	struct mfd_sc18is604_data *const data = dev->data;
 	int ret = 0;
 
 	/* Create work item to manage transfers */
-	struct mfd_sc18is604_transfer_work *transfer_work = k_malloc(
-			sizeof(struct mfd_sc18is604_transfer_work));
+	struct mfd_sc18is604_transfer_work *transfer_work =
+		k_malloc(sizeof(struct mfd_sc18is604_transfer_work));
 	if (transfer_work == NULL) {
 		return -ENOMEM;
 	}
 
-	*transfer_work = (struct mfd_sc18is604_transfer_work) {
+	*transfer_work = (struct mfd_sc18is604_transfer_work){
 		.dev = dev,
 		.cmd_len = cmd_len,
 		.tx_data = tx_data,
@@ -119,22 +114,18 @@ int mfd_sc18is604_transfer_signal(const struct device *dev,
 	return 0;
 }
 
-int mfd_sc18is604_read_register_signal(const struct device *dev,
-				       uint8_t reg, uint8_t *val,
+int mfd_sc18is604_read_register_signal(const struct device *dev, uint8_t reg, uint8_t *val,
 				       struct k_poll_signal *signal)
 {
-	uint8_t cmd[] = { SC18IS604_CMD_READ_REGISTER, reg };
+	uint8_t cmd[] = {SC18IS604_CMD_READ_REGISTER, reg};
 
-	return mfd_sc18is604_transfer_signal(dev, cmd, ARRAY_SIZE(cmd),
-						  NULL, 0, val, 1, signal);
+	return mfd_sc18is604_transfer_signal(dev, cmd, ARRAY_SIZE(cmd), NULL, 0, val, 1, signal);
 }
 
-int mfd_sc18is604_read_buffer_signal(const struct device *dev,
-			      uint8_t *data, size_t len,
-			      struct k_poll_signal *signal)
+int mfd_sc18is604_read_buffer_signal(const struct device *dev, uint8_t *data, size_t len,
+				     struct k_poll_signal *signal)
 {
-	uint8_t cmd[] = { SC18IS604_CMD_READ_BUFFER };
+	uint8_t cmd[] = {SC18IS604_CMD_READ_BUFFER};
 
-	return mfd_sc18is604_transfer_signal(dev, cmd, ARRAY_SIZE(cmd),
-						  NULL, 0, data, len, signal);
+	return mfd_sc18is604_transfer_signal(dev, cmd, ARRAY_SIZE(cmd), NULL, 0, data, len, signal);
 }
