@@ -25,22 +25,26 @@ static int mfd_sc16is75x_spi_read_raw(const struct device *dev, const uint8_t su
 	const struct mfd_sc16is75x_config *const config = dev->config;
 	int ret = 0;
 
-	const struct spi_buf tx_buffers[] = {{
-						     .buf = (void *)&sub_address,
-						     .len = 1,
-					     },
-					     {
-						     .buf = NULL,
-						     .len = len,
-					     }};
-	const struct spi_buf rx_buffers[] = {{
-						     .buf = NULL,
-						     .len = 1,
-					     },
-					     {
-						     .buf = buf,
-						     .len = len,
-					     }};
+	const struct spi_buf tx_buffers[] = {
+		{
+			.buf = (void *)&sub_address,
+			.len = 1,
+		},
+		{
+			.buf = NULL,
+			.len = len,
+		}
+	};
+	const struct spi_buf rx_buffers[] = {
+		{
+			.buf = NULL,
+			.len = 1,
+		},
+		{
+			.buf = buf,
+			.len = len,
+		}
+	};
 	struct spi_buf_set tx = {
 		.buffers = tx_buffers,
 		.count = ARRAY_SIZE(tx_buffers),
@@ -60,14 +64,16 @@ static int mfd_sc16is75x_spi_write_raw(const struct device *dev, const uint8_t s
 	const struct mfd_sc16is75x_config *const config = dev->config;
 	int ret = 0;
 
-	const struct spi_buf tx_buffers[] = {{
-						     .buf = (void *)&sub_address,
-						     .len = 1,
-					     },
-					     {
-						     .buf = (void *)buf,
-						     .len = len,
-					     }};
+	const struct spi_buf tx_buffers[] = {
+		{
+			.buf = (void *)&sub_address,
+			.len = 1,
+		},
+		{
+			.buf = (void *)buf,
+			.len = len,
+		}
+	};
 	const struct spi_buf_set tx = {
 		.buffers = tx_buffers,
 		.count = ARRAY_SIZE(tx_buffers),
@@ -116,22 +122,26 @@ static int mfd_sc16is75x_spi_read_raw_signal(const struct device *dev, const uin
 	};
 
 	/* Setup transfer data buffers */
-	const struct spi_buf tx_buffers[] = {{
-						     .buf = &xfer_data->sub_address,
-						     .len = 1,
-					     },
-					     {
-						     .buf = NULL,
-						     .len = len,
-					     }};
-	const struct spi_buf rx_buffers[] = {{
-						     .buf = NULL,
-						     .len = 1,
-					     },
-					     {
-						     .buf = buf,
-						     .len = len,
-					     }};
+	const struct spi_buf tx_buffers[] = {
+		{
+			.buf = &xfer_data->sub_address,
+			.len = 1,
+		},
+		{
+			.buf = NULL,
+			.len = len,
+		}
+	};
+	const struct spi_buf rx_buffers[] = {
+		{
+			.buf = NULL,
+			.len = 1,
+		},
+		{
+			.buf = buf,
+			.len = len,
+		}
+	};
 	const struct spi_buf_set tx = {
 		.buffers = tx_buffers,
 		.count = ARRAY_SIZE(tx_buffers),
