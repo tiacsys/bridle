@@ -242,6 +242,39 @@ enable=
     # Custom Zephyr check scripts
     zephyr-arg-parse,
 
+
+[FORMAT]
+
+# Maximum number of characters on a single line.
+max-line-length=100
+
+# Regexp for a line that is allowed to be longer than the limit.
+ignore-long-lines=^\s*(# )?<?https?://\S+>?$
+
+# Allow the body of an if to be on the same line as the test if there is no
+# else.
+single-line-if-stmt=no
+
+# List of optional constructs for which whitespace checking is disabled. `dict-
+# separator` is used to allow tabulation in dicts, etc.: {1  : 1,\n222: 2}.
+# `trailing-comma` allows a space between comma and closing bracket: (a, ).
+# `empty-line` allows space-only lines.
+# no-space-check=trailing-comma, dict-separator  # Deprecated since pylint 2.6
+
+# Maximum number of lines in a module
+max-module-lines=1000
+
+# Number of spaces of indent required inside a hanging  or continued line.
+indent-after-paren=4
+
+# String used as indentation unit. This is usually "    " (4 spaces) or "\t" (1
+# tab).
+indent-string='    '
+
+# Expected format of line ending, e.g. empty (any line ending), LF or CRLF.
+expected-line-ending-format=LF
+
+
 [SIMILARITIES]
 
 # Minimum lines number of a similarity.
