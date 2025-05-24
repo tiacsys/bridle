@@ -95,10 +95,20 @@ def get_module_setting_root(root, settings_file):
 
         lines = content.strip().split('\n')
         for line in lines:
+            line = line.strip()
+
+            # in case of "zephyr/module.yml"
+            root = root.lower()
+            if line.startswith((f'{root}_root:', f'"{root}_root":')):
+                _, root_path = line.split(":", 1)
+                root_paths.append(Path(root_path.strip()))
+
+            # in case of temporary "settings_file.txt"
             root = root.upper()
             if line.startswith(f'"{root}_ROOT":'):
                 _, root_path = line.split(":", 1)
                 root_paths.append(Path(root_path.strip('"')))
+
     return root_paths
 
 def get_vendor_prefixes(path, errfn = print) -> set[str]:
