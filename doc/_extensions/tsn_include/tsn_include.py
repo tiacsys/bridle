@@ -12,8 +12,8 @@ import os
 import os.path
 
 from docutils import io, statemachine
-from docutils.utils.error_reporting import SafeString, ErrorString
 from docutils.parsers.rst import directives
+from docutils.utils.error_reporting import ErrorString, SafeString
 from sphinx.util.docutils import SphinxDirective
 
 
@@ -38,50 +38,48 @@ class TsnInclude(SphinxDirective):
             raise self.severe('Invalid "tsn_include_mapping" config')
 
         docset = self.options.get('docset', None)
-        if docset is not None and \
-                docset not in self.config.tsn_include_mapping:
-            raise self.severe('The supplied "docset" was not found: "%s"' %
-                              docset)
+        if docset is not None and docset not in self.config.tsn_include_mapping:
+            raise self.severe(f'The supplied "docset" was not found: "{docset}"')
 
         indent = self.options.get('indent', 0)
         dedent = self.options.get('dedent', 0)
         auto_dedent = 'auto-dedent' in self.options
 
         if indent and (dedent or auto_dedent):
-            raise self.severe('Both "indent" and one of the "dedent" options '
-                              'are set, please use only one')
+            raise self.severe(
+                'Both "indent" and one of the "dedent" options ' 'are set, please use only one'
+            )
 
         if dedent and auto_dedent:
             raise self.severe('Choose one of "dedent" and "auto-dedent" only')
 
         if not self.state.document.settings.file_insertion_enabled:
-            raise self.warning('"%s" directive disabled.' % self.name)
+            raise self.warning(f'"{self.name}" directive disabled.')
 
         if docset is None:
             # without a docset fallback to Sphinx style include
             _, path = self.env.relfn2path(self.arguments[0])
         else:
-            path = os.path.join(self.config.tsn_include_mapping[docset],
-                                self.arguments[0])
+            path = os.path.join(self.config.tsn_include_mapping[docset], self.arguments[0])
 
-        encoding = self.options.get(
-            'encoding', self.state.document.settings.input_encoding)
+        encoding = self.options.get('encoding', self.state.document.settings.input_encoding)
         e_handler = self.state.document.settings.input_encoding_error_handler
-        tab_width = self.options.get(
-            'tab-width', self.state.document.settings.tab_width)
+        tab_width = self.options.get('tab-width', self.state.document.settings.tab_width)
         try:
             self.state.document.settings.record_dependencies.add(path)
-            include_file = io.FileInput(source_path=path,
-                                        encoding=encoding,
-                                        error_handler=e_handler)
+            include_file = io.FileInput(
+                source_path=path, encoding=encoding, error_handler=e_handler
+            )
         except UnicodeEncodeError:
-            raise self.severe('Problems with "%s" directive path:\n'
-                              'Cannot encode input file path "%s" '
-                              '(wrong locale?).' %
-                              (self.name, SafeString(path)))
-        except IOError as error:
-            raise self.severe('Problems with "%s" directive path:\n%s.' %
-                              (self.name, ErrorString(error)))
+            raise self.severe(
+                f'Problems with "{self.name}" directive path:\n'
+                f'Cannot encode input file path "{SafeString(path)}" '
+                '(wrong locale?).'
+            ) from None
+        except OSError as error:
+            raise self.severe(
+                f'Problems with "{self.name}" directive path:\n{ErrorString(error)}.'
+            ) from error
 
         # Get to-be-included content
         startline = self.options.get('start-line', None)
@@ -93,8 +91,9 @@ class TsnInclude(SphinxDirective):
             else:
                 rawtext = include_file.read()
         except UnicodeError as error:
-            raise self.severe(u'Problem with "%s" directive:\n%s' %
-                              (self.name, ErrorString(error)))
+            raise self.severe(
+                f'Problem with "{self.name}" directive:\n{ErrorString(error)}'
+            ) from error
         # start-after/end-before: no restrictions on newlines in match-text,
         # and no restrictions on matching inside lines vs. line boundaries
         after_text = self.options.get('start-after', None)
@@ -102,20 +101,23 @@ class TsnInclude(SphinxDirective):
             # skip content in rawtext before *and incl.* a matching text
             after_index = rawtext.find(after_text)
             if after_index < 0:
-                raise self.severe('Problem with "start-after" option of "%s" '
-                                  'directive:\nText not found.' % self.name)
-            rawtext = rawtext[after_index + len(after_text):]
+                raise self.severe(
+                    f'Problem with "start-after" option of "{self.name}" '
+                    'directive:\nText not found.'
+                )
+            rawtext = rawtext[after_index + len(after_text) :]
         before_text = self.options.get('end-before', None)
         if before_text:
             # skip content in rawtext after *and incl.* a matching text
             before_index = rawtext.find(before_text)
             if before_index < 0:
-                raise self.severe('Problem with "end-before" option of "%s" '
-                                  'directive:\nText not found.' % self.name)
+                raise self.severe(
+                    f'Problem with "end-before" option of "{self.name}" '
+                    'directive:\nText not found.'
+                )
             rawtext = rawtext[:before_index]
 
-        include_lines = statemachine.string2lines(rawtext, tab_width,
-                                                  convert_whitespace=True)
+        include_lines = statemachine.string2lines(rawtext, tab_width, convert_whitespace=True)
 
         def is_blank(line):
             # XXX might need to check for a stripped line
@@ -123,7 +125,7 @@ class TsnInclude(SphinxDirective):
 
         if auto_dedent:
             min_spaces = None
-            for i, line in enumerate(include_lines):
+            for _i, line in enumerate(include_lines):
                 if is_blank(line):
                     continue
                 spaces = len(line) - len(line.lstrip(' '))

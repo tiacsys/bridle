@@ -18,18 +18,16 @@ Copyright (c) 2021 Nordic Semiconductor ASA
 import argparse
 import copy
 import json
-from pathlib import Path
 import re
 import shutil
 import sys
-from typing import Dict
-
+from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).absolute().parents[1] / "_utils"))
 import utils
 
 
-def load_search_index(file: Path, prefix: str) -> Dict:
+def load_search_index(file: Path, prefix: str) -> dict:
     """Load search index from a file
 
     Args:
@@ -53,7 +51,7 @@ def load_search_index(file: Path, prefix: str) -> Dict:
     return index
 
 
-def dump_search_index(index: Dict, dst: Path) -> None:
+def dump_search_index(index: dict, dst: Path) -> None:
     """Dump a search index to a file.
 
     Args:
@@ -67,7 +65,7 @@ def dump_search_index(index: Dict, dst: Path) -> None:
         f.write(");")
 
 
-def merge_doc_file_names(src: Dict, dst: Dict, src_docset: str) -> None:
+def merge_doc_file_names(src: dict, dst: dict, src_docset: str) -> None:
     """Merge docnames and filenames entries.
 
     Args:
@@ -84,7 +82,7 @@ def merge_doc_file_names(src: Dict, dst: Dict, src_docset: str) -> None:
     dst["titles"] += src["titles"]
 
 
-def merge_terms(src: Dict, dst: Dict, offset: int) -> None:
+def merge_terms(src: dict, dst: dict, offset: int) -> None:
     """Merge terms entries.
 
     This function merges the terms or titleterms fields of a source index into
@@ -116,7 +114,7 @@ def merge_terms(src: Dict, dst: Dict, offset: int) -> None:
             dst_entry[term] = existing + [value + offset for value in values]
 
 
-def merge_objects(src: Dict, dst: Dict, offset: int) -> None:
+def merge_objects(src: dict, dst: dict, offset: int) -> None:
     """Merge objects entries
 
     Args:
@@ -131,10 +129,7 @@ def merge_objects(src: Dict, dst: Dict, offset: int) -> None:
     for src_index, src_value in src["objnames"].items():
         found = False
         for dst_index, dst_value in dst["objnames"].items():
-            if (
-                src_value == dst_value
-                and src["objtypes"][src_index] == dst["objtypes"][dst_index]
-            ):
+            if src_value == dst_value and src["objtypes"][src_index] == dst["objtypes"][dst_index]:
                 obj_map[src_index] = dst_index
                 found = True
                 break
@@ -152,13 +147,15 @@ def merge_objects(src: Dict, dst: Dict, offset: int) -> None:
 
         dst_objects = dst["objects"][src_prefix]
         for src_object in src_objects:
-            dst_objects.append([
-                src_object[0] + offset,
-                obj_map[str(src_object[1])],
-                src_object[2],
-                src_object[3],
-                src_object[4],
-            ])
+            dst_objects.append(
+                [
+                    src_object[0] + offset,
+                    obj_map[str(src_object[1])],
+                    src_object[2],
+                    src_object[3],
+                    src_object[4],
+                ]
+            )
 
 
 def main(build_dir: Path) -> None:
