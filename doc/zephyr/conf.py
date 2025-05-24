@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 #
 # Zephyr documentation build configuration file.
 #
@@ -11,8 +10,9 @@
 import os
 import re
 import sys
-import sphinx
 from pathlib import Path
+
+import sphinx
 from sphinx.config import eval_config_file
 
 # Paths ------------------------------------------------------------------------
@@ -22,7 +22,7 @@ BRIDLE_BASE = Path(__file__).absolute().parents[2]
 # Add the '_extensions' directory to sys.path, to enable finding Bridle's
 # utilities for Sphinx configuration within.
 sys.path.insert(0, str(BRIDLE_BASE / 'doc' / '_utils'))
-import utils
+import utils  # noqa: E402
 
 ZEPHYR_BASE = utils.get_projdir('zephyr')
 ZEPHYR_WORKD = utils.get_builddir() / 'zephyr'
@@ -32,7 +32,7 @@ ZEPHYR_WORKD = utils.get_builddir() / 'zephyr'
 sys.path.insert(0, str(BRIDLE_BASE / 'doc' / '_extensions'))
 
 # Import all Zephyr configuration, override as needed later
-conf = eval_config_file(str(ZEPHYR_BASE / 'doc' / 'conf.py'), tags)
+conf = eval_config_file(str(ZEPHYR_BASE / 'doc' / 'conf.py'), tags)  # noqa: F821
 locals().update(conf)
 
 # Export ZEPHYR_BASE as environment variable to make autodoc for the
@@ -74,27 +74,29 @@ with open(BRIDLE_BASE / 'VERSION') as f:
 # Overview ---------------------------------------------------------------------
 
 logcfg = sphinx.util.logging.getLogger(__name__)
-logcfg.info(project + ' ' + release, color='yellow')
-logcfg.info('From Bridle {} ({})'.format(bridle_release, bridle_longversion), color='green')
-logcfg.info('Build with tags: ' + ':'.join(map(str, tags)), color='red')
-logcfg.info('BRIDLE_BASE is: "{}"'.format(BRIDLE_BASE), color='green')
-logcfg.info('ZEPHYR_BASE is: "{}"'.format(ZEPHYR_BASE), color='green')
-logcfg.info('ZEPHYR_WORKD is: "{}"'.format(ZEPHYR_WORKD), color='yellow')
-logcfg.info('ZEPHYR_BUILD is: "{}"'.format(ZEPHYR_BUILD), color='yellow')
+logcfg.info(project + ' ' + release, color='yellow')  # noqa: F821
+logcfg.info(f'From Bridle {bridle_release} ({bridle_longversion})', color='green')
+logcfg.info('Build with tags: ' + ':'.join(map(str, tags)), color='red')  # noqa: F821
+logcfg.info(f'BRIDLE_BASE is: "{BRIDLE_BASE}"', color='green')
+logcfg.info(f'ZEPHYR_BASE is: "{ZEPHYR_BASE}"', color='green')
+logcfg.info(f'ZEPHYR_WORKD is: "{ZEPHYR_WORKD}"', color='yellow')
+logcfg.info(f'ZEPHYR_BUILD is: "{ZEPHYR_BUILD}"', color='yellow')  # noqa: F821
 
 # General ----------------------------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
-needs_sphinx = '8.1'
+needs_sphinx = '8.2'
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones. Extensions that interfere should also removed here.
-extensions.extend([
-    'sphinx.ext.intersphinx',
-    'bridle.inventory_builder',
-    'bridle.warnings_filter',
-])
+extensions.extend(  # noqa: F821
+    [
+        'sphinx.ext.intersphinx',
+        'bridle.inventory_builder',
+        'bridle.warnings_filter',
+    ]
+)
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
@@ -130,8 +132,7 @@ html_theme_path = []
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['{}/doc/_static'.format(BRIDLE_BASE),
-                    '{}/doc/_static'.format(ZEPHYR_BASE)]
+html_static_path = [f'{BRIDLE_BASE}/doc/_static', f'{ZEPHYR_BASE}/doc/_static']
 
 # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
 # using the given strftime format.
@@ -165,8 +166,8 @@ html_theme_options = {
 }
 
 # Disable Google search engine.
-del html_context["google_searchengine_id"]
-del html_additional_pages["gsearch"]
+del html_context["google_searchengine_id"]  # noqa: F821
+del html_additional_pages["gsearch"]  # noqa: F821
 
 # Options for intersphinx ------------------------------------------------------
 
@@ -183,29 +184,29 @@ if devicetree_mapping:
 # Options for zephyr.doxyrunner plugin -----------------------------------------
 
 doxyrunner_doxygen = os.environ.get('DOXYGEN_EXECUTABLE', 'doxygen')
-doxyrunner_doxydir = os.environ.get('DOCSET_DOXY_PRJ', str(
-                     ZEPHYR_BASE / 'doc' / '_doxygen'))
-doxyrunner_doxyfile = os.environ.get('DOCSET_DOXY_IN', str(
-                      BRIDLE_BASE / 'doc' / '_doxygen' / 'doxyfile-zephyr.in'))
+doxyrunner_doxydir = os.environ.get('DOCSET_DOXY_PRJ', str(ZEPHYR_BASE / 'doc' / '_doxygen'))
+doxyrunner_doxyfile = os.environ.get(
+    'DOCSET_DOXY_IN', str(BRIDLE_BASE / 'doc' / '_doxygen' / 'doxyfile-zephyr.in')
+)
 
 doxyrunner_silent = True
 doxyrunner_projects = {
     'zephyr': {
         'doxyfile': Path(doxyrunner_doxyfile).absolute(),
-        'outdir': ZEPHYR_BUILD / 'doxygen',
+        'outdir': ZEPHYR_BUILD / 'doxygen',  # noqa: F821
         'outdir_var': 'DOXY_OUT',
         'fmt': True,
         'fmt_pattern': '@{}@',
         'fmt_vars': {
-            'DOXY_SET': u'zephyr',
+            'DOXY_SET': 'zephyr',
             'DOXY_IN': str(Path(doxyrunner_doxyfile).absolute().parent),
-            'DOXY_LAYOUT': u'zephyr-doxyrunner',
+            'DOXY_LAYOUT': 'zephyr-doxyrunner',
             'DOXY_LOGOUT': str(Path(ZEPHYR_WORKD).absolute()),
-            'DOXY_LOGWRN': u'doxygen-warnings.txt',
+            'DOXY_LOGWRN': 'doxygen-warnings.txt',
             'PROJECT_DOXY': str(Path(doxyrunner_doxydir).absolute()),
             'PROJECT_BASE': str(ZEPHYR_BASE),
             'PROJECT_NAME': project,
-            'PROJECT_VERSION': version,
+            'PROJECT_VERSION': version,  # noqa: F821
             'PROJECT_BRIEF': str(os.environ.get('DOCSET_BRIEF', 'Unknown project brief!')),
         },
     },
@@ -215,7 +216,7 @@ doxyrunner_projects = {
 
 # Disable Kconfig database generation, Bridle provides its own kconfig docset.
 kconfig_generate_db = False
-kconfig_ext_paths.clear()
+kconfig_ext_paths.clear()  # noqa: F821
 
 # Options for zephyr.warnings_filter -------------------------------------------
 
@@ -224,20 +225,20 @@ warnings_filter_silent = True
 
 # -- Options for notfound.extension --------------------------------------------
 
-notfound_urls_prefix = '/doc/{}/zephyr/'.format(
-    bridle_version if is_release else 'latest'
-)
+notfound_urls_prefix = '/doc/{}/zephyr/'.format(bridle_version if is_release else 'latest')  # noqa: F821
 
 # Options for zephyr.external_content ------------------------------------------
 
 # Copies additional required artifacts that Bridle wants to include as content.
-external_content_contents.extend([
-    (ZEPHYR_BASE, "samples/**/*.html"),
-    (ZEPHYR_BASE, "samples/**/*.html.bin"),
-])
+external_content_contents.extend(  # noqa: F821
+    [
+        (ZEPHYR_BASE, "samples/**/*.html"),
+        (ZEPHYR_BASE, "samples/**/*.html.bin"),
+    ]
+)
 
 # Clear external content keeping, Bridle provides its own docsets for that.
-external_content_keep.clear()
+external_content_keep.clear()  # noqa: F821
 
 # Linkcheck options ------------------------------------------------------------
 
@@ -266,18 +267,16 @@ def update_inventory_warnings_filter_config(app):
     # Check if the value was provided by the original configuration.
     if "warnings_filter_config" in app.config:
         # Update the warnings_filter_config value.
-        app.config.warnings_filter_config = str(
-            ZEPHYR_WORKD / 'known-warnings-inventory.txt'
-        )
+        app.config.warnings_filter_config = str(ZEPHYR_WORKD / 'known-warnings-inventory.txt')
+
 
 def update_config(app):
     # Check if a specific builder was initialized by the user.
-    if "inventory" == app.builder.name:
+    if app.builder.name == "inventory":
         update_inventory_warnings_filter_config(app)
 
-    logcfg.info('Warnings filter from: "{}"'.format(
-        app.config.warnings_filter_config
-    ), color='yellow')
+    logcfg.info(f'Warnings filter from: "{app.config.warnings_filter_config}"', color='yellow')
+
 
 def setup(app):
     app.connect("builder-inited", update_config, 0)

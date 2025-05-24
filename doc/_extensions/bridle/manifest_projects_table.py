@@ -40,7 +40,6 @@ from sphinx.errors import ExtensionError
 from sphinx.util.docutils import SphinxDirective
 from west.manifest import Manifest
 
-
 __version__ = "0.2.0"
 
 
@@ -80,9 +79,7 @@ class ManifestProjectsTable(SphinxDirective):
         # parse show-first option
         show_first_raw = self.options.get("show-first", None)
         show_first = (
-            [entry.strip() for entry in show_first_raw.split(",")]
-            if show_first_raw
-            else []
+            [entry.strip() for entry in show_first_raw.split(",")] if show_first_raw else []
         )
 
         if active_filter not in ["active", "inactive", "all"]:

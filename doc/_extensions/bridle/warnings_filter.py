@@ -24,11 +24,10 @@ Configuration options
 
 import logging
 import re
-from typing import Any, Optional
+from typing import Any
 
 from sphinx.application import Sphinx
 from sphinx.util.logging import NAMESPACE
-
 
 __version__ = "0.1.0"
 
@@ -53,7 +52,8 @@ class WarningsFilter(logging.Filter):
             return True
 
         for expression in self._expressions:
-            # The message isn't always a string so we convert it before regexing as we can only regex strings
+            # The message isn't always a string so we convert it
+            # before regexing as we can only regex strings.
             if expression.match(str(record.msg)):
                 if self._silent:
                     return False
@@ -103,9 +103,10 @@ def configure(app: Sphinx) -> None:
         handler.filters.insert(0, filter)
 
 
-def finished(app: Sphinx, exception: Optional[Exception]):
+def finished(app: Sphinx, exception: Exception | None):
     """
-    Prints out any patterns that have not matched a log line to allow us to clean up any that are not used.
+    Prints out any patterns that have not matched a log line to allow us
+    to clean up any that are not used.
     """
     if exception:
         # Early exit if there has been an exception as matching data is only

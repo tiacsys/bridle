@@ -11,12 +11,10 @@ from docutils.parsers.rst import directives
 from sphinx.application import Sphinx
 from sphinx.util.docutils import SphinxDirective
 
-
 __version__ = '0.0.1'
 
 
 class OptionsFromKconfig(SphinxDirective):
-
     has_content = True
     required_arguments = 0
     optional_arguments = 1
@@ -41,32 +39,28 @@ class OptionsFromKconfig(SphinxDirective):
 
     def _get_kconfig_path(self, path):
         rel_path = os.path.relpath(path, self.env.srcdir)
-        return os.path.join(
-            self.config.options_from_kconfig_base_dir, rel_path, 'Kconfig'
-        )
+        return os.path.join(self.config.options_from_kconfig_base_dir, rel_path, 'Kconfig')
 
     def run(self):
         if len(self.arguments) > 0:
             _, path = self.env.relfn2path(self.arguments[0])
         else:
             source = self.state_machine.input_lines.source(
-                self.lineno - self.state_machine.input_offset - 1)
+                self.lineno - self.state_machine.input_offset - 1
+            )
             source_dir = os.path.dirname(os.path.abspath(source))
             path = self._get_kconfig_path(source_dir)
 
         sys.path.append(
-            os.path.join(
-                self.config.options_from_kconfig_zephyr_dir,
-                'scripts',
-                'kconfig'
-            )
+            os.path.join(self.config.options_from_kconfig_zephyr_dir, 'scripts', 'kconfig')
         )
         os.environ["ZEPHYR_BASE"] = str(self.config.options_from_kconfig_zephyr_dir)
         import kconfiglib
+
         self._monkey_patch_kconfiglib(kconfiglib)
 
         # kconfiglib wants this env var defined
-        os.environ['srctree'] = os.path.dirname(os.path.abspath(__file__))
+        os.environ['srctree'] = os.path.dirname(os.path.abspath(__file__))  # noqa: SIM112
         kconfig = kconfiglib.Kconfig(filename=path)
 
         prefix = self.options.get('prefix', None)
@@ -84,8 +78,9 @@ class OptionsFromKconfig(SphinxDirective):
                 typ_ = kconfiglib.TYPE_TO_STR[sym.type]
                 text += '``(' + typ_ + ')`` '
             if prefix is not None:
-                if (prefix.startswith('"') and prefix.endswith('"')) or \
-                   (prefix.startswith("'") and prefix.endswith("'")):
+                if (prefix.startswith('"') and prefix.endswith('"')) or (
+                    prefix.startswith("'") and prefix.endswith("'")
+                ):
                     prefix = prefix[1:-1]
                 text += prefix
             try:
@@ -97,8 +92,9 @@ class OptionsFromKconfig(SphinxDirective):
             else:
                 text += prompt_
             if suffix is not None:
-                if (suffix.startswith('"') and suffix.endswith('"')) or \
-                   (suffix.startswith("'") and suffix.endswith("'")):
+                if (suffix.startswith('"') and suffix.endswith('"')) or (
+                    suffix.startswith("'") and suffix.endswith("'")
+                ):
                     suffix = suffix[1:-1]
                 text += suffix
             lines.append(f'{text}\n')

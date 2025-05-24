@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 #
 # Bridle documentation build configuration file.
 #
@@ -11,9 +10,9 @@
 import os
 import re
 import sys
-import sphinx
 from pathlib import Path
 
+import sphinx
 from sphinx.cmd.build import get_parser
 
 # Paths ------------------------------------------------------------------------
@@ -25,7 +24,7 @@ BRIDLE_BUILD = Path(args.outputdir).resolve()
 # Add the '_extensions' directory to sys.path, to enable finding Bridle's
 # utilities for Sphinx configuration within.
 sys.path.insert(0, str(BRIDLE_BASE / 'doc' / '_utils'))
-import utils
+import utils  # noqa: E402
 
 ZEPHYR_BASE = utils.get_projdir('zephyr')
 BRIDLE_WORKD = utils.get_builddir() / 'bridle'
@@ -42,8 +41,8 @@ sys.path.insert(0, str(ZEPHYR_BASE / 'doc' / '_extensions'))
 
 # General information about the project.
 project = utils.get_projname('bridle')
-copyright = u'2019-2025 TiaC Systems members and individual contributors'
-author = u'TiaC Systems'
+copyright = '2019-2025 TiaC Systems members and individual contributors'
+author = 'TiaC Systems'
 
 # parse version from 'VERSION' file
 with open(BRIDLE_BASE / 'VERSION') as f:
@@ -93,7 +92,7 @@ with open(ZEPHYR_BASE / 'VERSION') as f:
         major, minor, patch, tweak, extra = m.groups(1)
         zephyr_release = zephyr_version = ".".join((major, minor, patch))
         zephyr_shortversion = zephyr_longversion = zephyr_version
-        zephyr_urb_bcddevice = '{:d}.{:02d}'.format(int(major), int(minor))
+        zephyr_urb_bcddevice = f'{int(major):d}.{int(minor):02d}'
         if tweak:
             zephyr_longversion += "." + tweak
         if extra:
@@ -104,29 +103,29 @@ with open(ZEPHYR_BASE / 'VERSION') as f:
 
 logcfg = sphinx.util.logging.getLogger(__name__)
 logcfg.info(project + ' ' + version + ' (' + longversion + ')', color='yellow')
-logcfg.info('With Zephyr {} ({})'.format(zephyr_version, zephyr_longversion), color='green')
-logcfg.info('With URB bcdDevice "{}"'.format(zephyr_urb_bcddevice), color='green')
-logcfg.info('Build with tags: ' + ':'.join(map(str, tags)), color='red')
-logcfg.info('BRIDLE_BASE is: "{}"'.format(BRIDLE_BASE), color='green')
-logcfg.info('BRIDLE_WORKD is: "{}"'.format(BRIDLE_WORKD), color='yellow')
-logcfg.info('BRIDLE_BUILD is: "{}"'.format(BRIDLE_BUILD), color='yellow')
-logcfg.info('ZEPHYR_BASE is: "{}"'.format(ZEPHYR_BASE), color='green')
+logcfg.info(f'With Zephyr {zephyr_version} ({zephyr_longversion})', color='green')
+logcfg.info(f'With URB bcdDevice "{zephyr_urb_bcddevice}"', color='green')
+logcfg.info('Build with tags: ' + ':'.join(map(str, tags)), color='red')  # noqa: F821
+logcfg.info(f'BRIDLE_BASE is: "{BRIDLE_BASE}"', color='green')
+logcfg.info(f'BRIDLE_WORKD is: "{BRIDLE_WORKD}"', color='yellow')
+logcfg.info(f'BRIDLE_BUILD is: "{BRIDLE_BUILD}"', color='yellow')
+logcfg.info(f'ZEPHYR_BASE is: "{ZEPHYR_BASE}"', color='green')
 
 # General ----------------------------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
-needs_sphinx = '8.1'
+needs_sphinx = '8.2'
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-#   'table_from_rows',
+    #   'table_from_rows',
     'tsn_include',
     'sphinx.ext.intersphinx',
     'sphinx.ext.todo',
     'sphinx.ext.extlinks',
-#   'sphinx.ext.autodoc',
+    #   'sphinx.ext.autodoc',
     'sphinx.ext.graphviz',
     'sphinx.ext.ifconfig',
     'sphinxcontrib.mscgen',
@@ -140,8 +139,8 @@ extensions = [
     'zephyr.doxyrunner',
     'zephyr.doxybridge',
     'zephyr.doxytooltip',
-#   'zephyr.gh_utils',
-#   'zephyr.manifest_projects_table',
+    #   'zephyr.gh_utils',
+    #   'zephyr.manifest_projects_table',
     'zephyr.external_content',
     'zephyr.domain',
     'sphinx_copybutton',
@@ -156,7 +155,8 @@ extensions = [
 ]
 
 # Only use SVG converter when it is really needed, e.g. LaTeX.
-if tags.has('svgconvert'):  # pylint: disable=undefined-variable
+# pylint: disable=undefined-variable
+if tags.has('svgconvert'):  # noqa: F821
     extensions.append('sphinxcontrib.rsvgconverter')
 
 # The suffix(es) of source filenames.
@@ -188,7 +188,7 @@ rst_prolog = '''
 .. include:: /roles.txt
 '''
 
-rst_epilog = '''
+rst_epilog = f'''
 .. include:: /links.txt
 .. include:: /shortcuts.txt
 .. include:: /versions.txt
@@ -242,17 +242,7 @@ rst_epilog = '''
 .. |zephyr_longversion_number_tt| replace:: ``{zephyr_longversion}``
 .. |zephyr_longversion_number_em| replace:: *{zephyr_longversion}*
 .. |zephyr_version_BCD| replace:: |nbsp| :bbl:`{zephyr_urb_bcddevice}`
-'''.format(
-    release = release,
-    version = version,
-    shortversion = shortversion,
-    longversion = longversion,
-    zephyr_release = zephyr_release,
-    zephyr_version = zephyr_version,
-    zephyr_shortversion = zephyr_shortversion,
-    zephyr_longversion = zephyr_longversion,
-    zephyr_urb_bcddevice = zephyr_urb_bcddevice,
-)
+'''
 
 # Options for HTML output ------------------------------------------------------
 
@@ -266,12 +256,12 @@ html_title = project
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
-html_favicon = '{}/doc/_static/images/bridle.ico'.format(BRIDLE_BASE)
+html_favicon = f'{BRIDLE_BASE}/doc/_static/images/bridle.ico'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['{}/doc/_static'.format(BRIDLE_BASE)]
+html_static_path = [f'{BRIDLE_BASE}/doc/_static']
 
 # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
 # using the given strftime format.
@@ -356,10 +346,10 @@ if devicetree_mapping:
 # Options for zephyr.doxyrunner plugin -----------------------------------------
 
 doxyrunner_doxygen = os.environ.get('DOXYGEN_EXECUTABLE', 'doxygen')
-doxyrunner_doxydir = os.environ.get('DOCSET_DOXY_PRJ', str(
-                     BRIDLE_BASE / 'doc' / '_doxygen'))
-doxyrunner_doxyfile = os.environ.get('DOCSET_DOXY_IN', str(
-                      BRIDLE_BASE / 'doc' / '_doxygen' / 'doxyfile-bridle.in'))
+doxyrunner_doxydir = os.environ.get('DOCSET_DOXY_PRJ', str(BRIDLE_BASE / 'doc' / '_doxygen'))
+doxyrunner_doxyfile = os.environ.get(
+    'DOCSET_DOXY_IN', str(BRIDLE_BASE / 'doc' / '_doxygen' / 'doxyfile-bridle.in')
+)
 
 doxyrunner_silent = True
 doxyrunner_projects = {
@@ -370,11 +360,11 @@ doxyrunner_projects = {
         'fmt': True,
         'fmt_pattern': '@{}@',
         'fmt_vars': {
-            'DOXY_SET': u'bridle',
+            'DOXY_SET': 'bridle',
             'DOXY_IN': str(Path(doxyrunner_doxyfile).absolute().parent),
-            'DOXY_LAYOUT': u'zephyr-doxyrunner',
+            'DOXY_LAYOUT': 'zephyr-doxyrunner',
             'DOXY_LOGOUT': str(Path(BRIDLE_WORKD).absolute()),
-            'DOXY_LOGWRN': u'doxygen-warnings.txt',
+            'DOXY_LOGWRN': 'doxygen-warnings.txt',
             'PROJECT_DOXY': str(Path(doxyrunner_doxydir).absolute()),
             'PROJECT_BASE': str(BRIDLE_BASE),
             'PROJECT_NAME': project,
@@ -409,9 +399,7 @@ warnings_filter_silent = True
 
 # -- Options for notfound.extension --------------------------------------------
 
-notfound_urls_prefix = '/doc/{}/bridle/'.format(
-    'latest' if version.endswith('99') else version
-)
+notfound_urls_prefix = '/doc/{}/bridle/'.format('latest' if version.endswith('99') else version)
 
 # Options for zephyr.external_content ------------------------------------------
 
@@ -498,8 +486,7 @@ linkcheck_anchors_ignore = [r'page=', r'L[0-9]?']
 
 tls_verify = True
 tls_cacerts = {
-    'asf.microchip.com':
-        str(BRIDLE_BASE / 'doc' / '_cacerts' / 'asf.microchip.com.pem'),
+    'asf.microchip.com': str(BRIDLE_BASE / 'doc' / '_cacerts' / 'asf.microchip.com.pem'),
 }
 
 
@@ -513,14 +500,14 @@ def update_inventory_warnings_filter_config(app):
             BRIDLE_BASE / 'doc' / 'bridle' / 'known-warnings-inventory.txt'
         )
 
+
 def update_config(app):
     # Check if a specific builder was initialized by the user.
-    if "inventory" == app.builder.name:
+    if app.builder.name == "inventory":
         update_inventory_warnings_filter_config(app)
 
-    logcfg.info('Warnings filter from: "{}"'.format(
-        app.config.warnings_filter_config
-    ), color='yellow')
+    logcfg.info(f'Warnings filter from: "{app.config.warnings_filter_config}"', color='yellow')
+
 
 def setup(app):
     app.connect("builder-inited", update_config, 0)
