@@ -1,8 +1,18 @@
 /*
- * Copyright (c) 2021 TiaC Systems
+ * Copyright (c) 2021-2025 TiaC Systems
  * Copyright (c) 2021 Li-Pro.Net
  * SPDX-License-Identifier: Apache-2.0
  */
+
+#include <freq.h>
+
+&tmph_spi1_fast {
+	/*
+	 * Reduce fast transfer clock to max. 15 MHz,
+	 * because of missing DMA setup.
+	 */
+	spi-max-frequency = <DT_FREQ_M(15)>;
+}; // tmph_spi1
 
 &tmph_spi2 {
 	status = "disabled";	/* conflicts with tmph_i2c2 */

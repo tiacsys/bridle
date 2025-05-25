@@ -1,8 +1,10 @@
 /*
- * Copyright (c) 2021-2022 TiaC Systems
+ * Copyright (c) 2021-2025 TiaC Systems
  * Copyright (c) 2021 Li-Pro.Net
  * SPDX-License-Identifier: Apache-2.0
  */
+
+#include <freq.h>
 
 / {
 	gpio_basic_api_0 {
@@ -31,16 +33,16 @@
 &tmph_spi1 {
 	status = "okay";
 
-	slow@0 {
+	tmph_spi1_slow: slow@0 {
 		compatible = "test-spi-loopback-slow";
 		reg = <0>;
-		spi-max-frequency = <500000>;
+		spi-max-frequency = <DT_FREQ_K(500)>;
 	};
 
-	fast@0 {
+	tmph_spi1_fast: fast@0 {
 		compatible = "test-spi-loopback-fast";
 		reg = <0>;
-		spi-max-frequency = <50000000>;
+		spi-max-frequency = <DT_FREQ_M(50)>;
 	};
 }; // tmph_spi1
 
