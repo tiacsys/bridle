@@ -151,6 +151,7 @@ extensions = [
     'bridle.inventory_builder',
     'bridle.warnings_filter',
     'bridle.options_from_kconfig',
+    'bridle.table_from_rows',
     'bridle.manifest_projects_table',
 ]
 
@@ -436,6 +437,11 @@ external_content_keep = ['versions.txt']
 
 options_from_kconfig_base_dir = BRIDLE_BASE
 options_from_kconfig_zephyr_dir = ZEPHYR_BASE
+
+# Options for bridle.table_from_rows -------------------------------------------
+
+table_from_rows_base_dir = BRIDLE_BASE
+table_from_sample_yaml_board_reference = "/includes/sample_board_rows.txt"
 
 # Options for bridle.manifest_revisions_table ----------------------------------
 
