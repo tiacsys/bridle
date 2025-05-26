@@ -35,6 +35,7 @@ exclude = [
     "./doc/_extensions/bridle/link-roles.py",
     "./doc/_extensions/bridle/manifest_projects_table.py",
     "./doc/_extensions/bridle/options_from_kconfig.py",
+    "./doc/_extensions/bridle/table_from_rows.py",
     "./doc/_extensions/bridle/warnings_filter.py",
     "./doc/_extensions/tsn_include/__init__.py",
     "./doc/_extensions/tsn_include/tsn_include.py",

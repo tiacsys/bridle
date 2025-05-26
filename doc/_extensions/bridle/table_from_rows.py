@@ -2,22 +2,20 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-from pathlib import Path
-from docutils import io, statemachine
-from docutils.utils.error_reporting import ErrorString
-from docutils.parsers.rst import directives
-from sphinx.util.docutils import SphinxDirective
-from typing import Dict, Set, List
 import os
-import yaml
 import re
+from pathlib import Path
 
+import yaml
+from docutils import io, statemachine
+from docutils.parsers.rst import directives
+from docutils.utils.error_reporting import ErrorString
+from sphinx.util.docutils import SphinxDirective
 
 __version__ = '0.0.2'
 
 
 class TableFromRows(SphinxDirective):
-
     has_content = True
     required_arguments = 1
     optional_arguments = 0
@@ -40,20 +38,19 @@ class TableFromRows(SphinxDirective):
             if found_section and line != '':
                 section_lines.append(line)
         if len(section_lines) == 0:
-            raise self.severe('Problems building table; "%s" section not found.' %
-                              section)
+            raise self.severe(f'Problems building table; "{section}" section not found.')
         return section_lines
 
     def _column_sizes(self, row):
         cols = row.split('|')
         if len(cols) < 2 or cols[0] != '' or cols[-1] != '':
-            raise self.severe('Row does not look like a table: "%s"' % row)
+            raise self.severe(f'Row does not look like a table: "{row}"')
         return [len(el.strip()) for el in cols[1:-1]]
 
     @staticmethod
     def _adjust_column_sizes(sizes, line):
         columns = []
-        for size, column in zip(sizes, line.split('|')[1:-1]):
+        for size, column in zip(sizes, line.split('|')[1:-1], strict=False):
             column = column.strip()
             columns.append(column + ' ' * (size - len(column)))
         return '|' + '|'.join(columns) + '|'
@@ -76,13 +73,13 @@ class TableFromRows(SphinxDirective):
         for row in header_lines[1:]:
             row_sizes = self._column_sizes(row)
             if len(sizes) != len(row_sizes):
-                raise self.severe('Incompatible number of columns: "%s"' % row)
+                raise self.severe(f'Incompatible number of columns: "{row}"')
             sizes = [max(sizes[i], row_sizes[i]) for i, _ in enumerate(sizes)]
         for row_set in rows:
             for row in row_set:
                 row_sizes = self._column_sizes(row)
                 if len(sizes) != len(row_sizes):
-                    raise self.severe('Incompatible number of columns: "%s"' % row)
+                    raise self.severe(f'Incompatible number of columns: "{row}"')
                 sizes = [max(sizes[i], row_sizes[i]) for i, _ in enumerate(sizes)]
         return sizes
 
@@ -97,9 +94,10 @@ class TableFromRows(SphinxDirective):
         try:
             self.state.document.settings.record_dependencies.add(source_path)
             include_file = io.FileInput(source_path=source_path)
-        except IOError as error:
-            raise self.severe('Problems with "%s" directive path:\n%s.' %
-                              (self.name, ErrorString(error)))
+        except OSError as error:
+            raise self.severe(
+                f'Problems with "{self.name}" directive path:\n{ErrorString(error)}.'
+            ) from error
         lines = include_file.readlines()
         header_lines = self._load_section(lines, header_section)
         rows = [self._load_section(lines, section) for section in rows_sections]
@@ -123,27 +121,26 @@ class TableFromRows(SphinxDirective):
         if header is not None:
             header = header.strip()
         else:
-            raise self.severe('Problem with "header" option of "%s" '
-                              'directive:\nEmpty content.' % self.name)
+            raise self.severe(
+                f'Problem with "header" option of "{self.name}" ' 'directive:\nEmpty content.'
+            )
         rows = self.options.get('rows', None)
         if rows is not None:
             rows = [r.strip() for r in rows.split(',') if r.strip() != '']
         else:
-            raise self.severe('No "rows" content provided for "%s" '
-                              % self.name)
+            raise self.severe(f'No "rows" content provided for "{self.name}" ')
 
         # join all rows for uniqueness, using the order given in
         # the :rows: option.
         all_rows = {}
         all_rows.update(dict.fromkeys(rows))
-        raw = '\n'.join(self._load_header_and_rows(path, header,
-                                                   all_rows.keys()))
+        raw = '\n'.join(self._load_header_and_rows(path, header, all_rows.keys()))
         lines = statemachine.string2lines(raw)
         self.state_machine.insert_input(lines, path)
         return []
 
-class TableFromSampleYaml(TableFromRows):
 
+class TableFromSampleYaml(TableFromRows):
     option_spec = {}
     required_arguments = 0
 
@@ -168,13 +165,12 @@ class TableFromSampleYaml(TableFromRows):
             rows.remove(row)
 
     @staticmethod
-    def _normalize_boards(boards: List[str]) -> List[str]:
+    def _normalize_boards(boards: list[str]) -> list[str]:
         return [board.replace("/", "_") for board in boards]
 
     @staticmethod
-    def _find_shields(shields: Dict[str, Set[str]], sample_data: dict):
-        """Associate all integration platforms for a sample with any shield used.
-        """
+    def _find_shields(shields: dict[str, set[str]], sample_data: dict):
+        """Associate all integration platforms for a sample with any shield used."""
 
         extra_args_raw = sample_data.get('extra_args')
         if not extra_args_raw:
@@ -239,24 +235,22 @@ class TableFromSampleYaml(TableFromRows):
 
             if 'common' in data and 'integration_platforms' in data['common']:
                 boards.update(
-                   TableFromSampleYaml._normalize_boards(
-                       data['common']['integration_platforms']
-                    )
+                    TableFromSampleYaml._normalize_boards(data['common']['integration_platforms'])
                 )
                 self._find_shields(shields, data['common'])
             for test in data['tests'].values():
                 if 'integration_platforms' in test:
                     boards.update(
-                        TableFromSampleYaml._normalize_boards(
-                            test['integration_platforms']
-                        )
+                        TableFromSampleYaml._normalize_boards(test['integration_platforms'])
                     )
                     self._find_shields(shields, test)
 
-        boards = list(filter(
-            lambda b: not b.startswith('qemu') and not b.startswith('nrf51'),
-            boards,
-        ))
+        boards = list(
+            filter(
+                lambda b: not b.startswith('qemu') and not b.startswith('nrf51'),
+                boards,
+            )
+        )
         boards.sort(reverse=True)
 
         if not boards:
@@ -269,17 +263,20 @@ class TableFromSampleYaml(TableFromRows):
         _, path = self.env.relfn2path(reference_file)
 
         source = self.state_machine.input_lines.source(
-                self.lineno - self.state_machine.input_offset - 1)
+            self.lineno - self.state_machine.input_offset - 1
+        )
         source_dir = os.path.dirname(os.path.abspath(source))
         sample_yaml_rows, shields = self._rows_from_sample_yaml(source_dir)
 
-        raw = '\n'.join(self._load_header_and_rows(
-            path,
-            'heading',
-            sample_yaml_rows,
-            transform_rows_func=self._merge_rows,
-            shields=shields,
-        ))
+        raw = '\n'.join(
+            self._load_header_and_rows(
+                path,
+                'heading',
+                sample_yaml_rows,
+                transform_rows_func=self._merge_rows,
+                shields=shields,
+            )
+        )
         lines = statemachine.string2lines(raw)
         self.state_machine.insert_input(lines, path)
         return []
