@@ -41,6 +41,19 @@ properly defined.
 
 Additionally, the sample requires the :dts:`led0` devicetree alias.
 
+The sample supports the following platforms (located
+in :bridle_file:`samples/button/sample.yaml`):
+
+.. table-from-sample-yaml::
+
+Configuration options
+=====================
+
+The following sample-specific Kconfig options are used in this sample (located
+in :bridle_file:`samples/button/Kconfig`):
+
+.. options-from-kconfig::
+
 Devicetree details
 ==================
 
