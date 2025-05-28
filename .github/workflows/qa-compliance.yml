@@ -83,11 +83,13 @@ jobs:
           ls -la
           git log --pretty=oneline | head -n 10
           # -m Kconfig \
+          # -m SysbuildKconfig \
           ${BRIDLE_BASE}/scripts/ci/check_compliance.py \
             --annotate \
             -m BinaryFiles \
             -m BoardYml \
             -m Checkpatch \
+            -m ClangFormat \
             -m DevicetreeBindings \
             -m GitDiffCheck \
             -m Gitlint \
@@ -101,6 +103,11 @@ jobs:
             -m ModulesMaintainers \
             -m Nits \
             -m Pylint \
+            -m Ruff \
+            -m SphinxLint \
+            -m SysbuildKconfigBasic \
+            -m SysbuildKconfigBasicNoModules \
+            -m TextEncoding \
             -m YAMLLint \
             -c origin/${BASE_REF}..
 

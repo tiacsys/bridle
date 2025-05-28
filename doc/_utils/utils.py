@@ -2,11 +2,9 @@
 
 from os import PathLike
 from pathlib import Path
-from typing import Optional
 
 from sphinx.cmd.build import get_parser
 from west.manifest import Manifest
-
 
 _BRIDLE_BASE = Path(__file__).parents[2]
 """Bridle Repository root"""
@@ -35,6 +33,7 @@ def get_default_docset() -> str:
     """
     docsets = ALL_DOCSETS.copy()
     return list(docsets.keys())[0]
+
 
 def get_docsets(docset: str) -> dict[str, str]:
     """Obtain all docsets that should be displayed.
@@ -124,7 +123,7 @@ def get_srcdir(docset: str) -> PathLike:
     return get_builddir() / docset / "src"
 
 
-def get_intersphinx_mapping(docset: str) -> Optional[tuple[str, str]]:
+def get_intersphinx_mapping(docset: str) -> tuple[str, str] | None:
     """Obtain intersphinx configuration for a given docset.
 
     Args:
