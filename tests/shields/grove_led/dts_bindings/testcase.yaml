@@ -235,7 +235,7 @@ tests:
     platform_exclude:
       - frdm_kw41z
       - hifive1
-      - hifive1@B
+      - hifive1_revb
   grove.base.v1.grove_led.gpio.d14:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_a0_header") and
@@ -244,7 +244,7 @@ tests:
     platform_exclude:
       - frdm_kw41z
       - hifive1
-      - hifive1@B
+      - hifive1_revb
   grove.base.v2.grove_led.gpio.d15:
     depends_on: arduino_gpio
     filter: ( dt_nodelabel_enabled("grove_a1_header") or
