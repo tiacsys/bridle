@@ -1,3 +1,6 @@
+# Copyright (c) 2024-2025 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 family:
 - name: stm32
   series:
