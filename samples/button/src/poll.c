@@ -33,7 +33,7 @@ static void polling_thread_entry_point(void *btn_void, void *led_void, void *)
 /* Init function which spawns a dedicated polling thread  */
 static int init(void)
 {
-	struct k_thread polling_thread;
+	static struct k_thread polling_thread;
 
 	__unused k_tid_t tid = k_thread_create(&polling_thread,
 					polling_thread_stack_area,
@@ -42,6 +42,7 @@ static int init(void)
 					(void *) &btn, (void *) &led, NULL,
 					MY_PRIORITY, 0, K_NO_WAIT);
 
+	printk("Press the button\n");
 	return 0;
 }
 

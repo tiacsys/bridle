@@ -24,9 +24,32 @@ const struct gpio_dt_spec led = GPIO_DT_SPEC_GET(LED_NODE, gpios);
 /* Init function for configuring button and led gpio pins */
 static int init(void)
 {
-	gpio_pin_configure_dt(&btn, GPIO_INPUT);
-	gpio_pin_configure_dt(&led, GPIO_OUTPUT);
+	int ret;
 
+	if (!gpio_is_ready_dt(&btn)) {
+		printk("Error: button device %s is not ready\n", btn.port->name);
+		return -ENODEV;
+	}
+
+	ret = gpio_pin_configure_dt(&btn, GPIO_INPUT);
+	if (ret != 0) {
+		printk("Error %d: failed to configure %s pin %d\n", ret, btn.port->name, btn.pin);
+		return ret;
+	}
+
+	if (!gpio_is_ready_dt(&led)) {
+		printk("Error: LED device %s is not ready\n", led.port->name);
+		return -ENODEV;
+	}
+
+	ret = gpio_pin_configure_dt(&led, GPIO_OUTPUT);
+	if (ret != 0) {
+		printk("Error %d: failed to configure %s pin %d\n", ret, led.port->name, led.pin);
+		return ret;
+	}
+
+	printk("Set up button at %s pin %d\n", btn.port->name, btn.pin);
+	printk("Set up LED at %s pin %d\n", led.port->name, led.pin);
 	return 0;
 }
 
