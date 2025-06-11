@@ -80,6 +80,7 @@ manifest:
           - hal_tdk
           - hal_telink
           - hal_ti
+          - hal_wch
           - hal_wurthelektronik
           - hal_xtensa
           - libmetal
