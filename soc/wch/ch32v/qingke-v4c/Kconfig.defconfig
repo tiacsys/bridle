@@ -1,0 +1,12 @@
+# WinChipHead QingKe RISC-V4C MCU line
+
+# Copyright (c) 2025 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+# Kconfig symbols common to QingKe RISC-V4C series
+
+if SOC_SERIES_QINGKE_V4C
+
+rsource "Kconfig.defconfig.*"
+
+endif # SOC_SERIES_QINGKE_V4C
