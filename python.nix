@@ -45,11 +45,6 @@ let
         sphinx-lint
         sphobjinv
         ;
-
-      # WORKAROUND for missing defusedxml in nativeCheckInputs of sphinx-sitemap derivation.
-      sphinx-sitemap = prev.sphinx-sitemap.overrideAttrs (old: {
-        pytestCheckPhase = ''true'';
-      });
     };
   };
 
