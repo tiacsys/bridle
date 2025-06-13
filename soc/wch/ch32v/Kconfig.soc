@@ -1,0 +1,6 @@
+# WinChipHead CH32V MCU line
+
+# Copyright (c) 2025 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+rsource "*/Kconfig.soc"
