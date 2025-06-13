@@ -1,50 +1,27 @@
 {
-  python3,
+  pkgs,
+  lib,
   zephyr,
   bridle,
   python-deps,
   pyproject-nix,
-  clang-tools,
-  gitlint,
-  gcovr,
-  mcuboot-imgtool,
-  ruff,
-  lib,
 }:
 
 let
 
   # Create a python whose `withPackages` knows about some extra stuff we need
-  python = python3.override {
+  python = pkgs.python3.override {
     self = python;
     packageOverrides = final: prev: {
-      # HACK: Zephyr uses pypi to install non-Python deps
-      clang-format = clang-tools;
+      # Some packages zephyr likes to install using pypi are provided as toplevel packages in
+      # nixpkgs. Adding them to this package set makes sure they can be pulled into the build/dev
+      # environment by being referenced in a requirements.txt
 
-      # gcovr provided as toplevel package
-      inherit gcovr;
+      inherit (pkgs) gcovr gitlint ruff;
+      clang-format = pkgs.clang-tools;
+      imgtool = pkgs.mcuboot-imgtool;
 
-      # gitlint provided as toplevel package
-      inherit gitlint;
-
-      # imgtool provided as toplevel package
-      imgtool = mcuboot-imgtool;
-
-      # ruff provided as a toplevel package
-      inherit ruff;
-
-      # Extra python packages that aren't in nixpkgs
-      inherit (python-deps)
-        doxmlparser
-        nrf-regtool
-        pykitinfo
-        pymcuprog
-        sphinx-tsn-theme
-        sphinxcontrib-svg2pdfconverter
-        sphinx-csv-filter
-        sphinx-lint
-        sphobjinv
-        ;
+      inherit (python-deps) nrf-regtool sphinx-lint;
     };
   };
 
