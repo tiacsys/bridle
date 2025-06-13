@@ -12,6 +12,7 @@
 
 # zephyr-keep-sorted-start
 adafruit	Adafruit Industries, LLC
+albg	alpha-board GmbH
 cjmcu	Changjiang Intelligent Technology Co., Ltd.
 cytron	Cytron Technologies
 dfrobot	DFRobot Corporation
@@ -28,5 +29,6 @@ st	STMicroelectronics N.V.
 tiac	TiaC Systems
 vccgnd	VccGND Studio (Source Instrument and Equipment)
 waveshare	Waveshare Electronics Co., Ltd.
+wch	(WinChipHead) Nanjing Qinheng Microelectronics Co., Ltd.
 weact	WeAct Studio (WeiXing Electronic Store)
 # zephyr-keep-sorted-stop
