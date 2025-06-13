@@ -46,7 +46,12 @@
     (flake-utils.lib.eachDefaultSystem (
       system:
       let
-        pkgs = nixpkgs.legacyPackages.${system};
+        pkgs = import nixpkgs {
+          inherit system;
+          overlays = [
+            inputs.python-deps.overlays.default
+          ];
+        };
 
         west2nix = callPackage inputs.west2nix.lib.mkWest2nix { };
 
