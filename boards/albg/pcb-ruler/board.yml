@@ -1,0 +1,6 @@
+boards:
+  - name: albg_pcb_ruler_ch32x035
+    vendor: albg
+    full_name: ALBG PCB Ruler CH32X035C8T6
+    socs:
+      - name: ch32x035

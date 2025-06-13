@@ -1,0 +1,14 @@
+# WinChipHead CH32X035 MCU configuration options
+
+# Copyright (c) 2025 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+if SOC_CH32X035
+
+config VECTOR_TABLE_SIZE
+	default 55
+
+config NUM_IRQS
+	default 128
+
+endif # SOC_CH32X035
