@@ -1,0 +1,19 @@
+/*
+ * Copyright (c) 2025 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <wch/ch32x035/ch32x035.dtsi>
+
+/ {
+	soc {
+		usart1: uart@40013800 {
+			compatible = "wch,usart";
+			reg = <0x40013800 0x20>;
+			clocks = <&rcc CH32X035_CLOCK_USART1>;
+			interrupt-parent = <&pfic>;
+			interrupts = <32>;
+			status = "disabled";
+		};
+	};
+};

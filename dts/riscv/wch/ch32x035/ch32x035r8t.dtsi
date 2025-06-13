@@ -1,0 +1,14 @@
+/*
+ * Copyright (c) 2025 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <wch/ch32x035/ch32x035cgr8x.dtsi>
+
+&gpiob {
+	gpio-reserved-ranges = <22 2>;
+};
+
+&gpioc {
+	gpio-reserved-ranges = <8 6>, <20 4>;
+};

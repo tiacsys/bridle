@@ -1,0 +1,11 @@
+# WinChipHead CH32X035 MCU line
+
+# Copyright (c) 2025 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+config SOC_CH32X035
+	bool
+	select SOC_SERIES_QINGKE_V4C
+
+config SOC
+	default "ch32x035" if SOC_CH32X035
