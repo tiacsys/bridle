@@ -12,6 +12,7 @@ common:
   platform_exclude:
     - qemu_x86_lakemont
     - qemu_x86_tiny
+    - qemu_cortex_r5
     - qemu_cortex_m0
     - qemu_riscv32_xip
   integration_platforms:
@@ -27,7 +28,7 @@ common:
     # Qemu issue (-ENOTBLK): - qemu_x86_tiny
     - qemu_x86_64
     - qemu_x86_64/atom/nokpti
-    - qemu_cortex_r5
+    # Qemu issue (-ENOTBLK): - qemu_cortex_r5
     # Qemu issue (-ENOTBLK): - qemu_cortex_m0
     - qemu_cortex_m3
     - qemu_cortex_a9
