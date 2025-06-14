@@ -744,6 +744,9 @@
 .. |zephyr:board:qemu_riscv64| replace::
    :external+zephyr:zephyr:board:`qemu_riscv64`
 
+.. |zephyr:board:qemu_rx| replace::
+   :external+zephyr:zephyr:board:`qemu_rx`
+
 .. |zephyr:board:qemu_x86| replace::
    :external+zephyr:zephyr:board:`qemu_x86`
 
