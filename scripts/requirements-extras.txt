@@ -1,5 +1,5 @@
 pykitinfo>=1.1
-pymcuprog>=3.17
+pymcuprog>=3.19
 pyocd>=0.36
 pyserial>=3.5
-pytest>=8.3
+pytest>=8.4
