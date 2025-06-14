@@ -170,11 +170,11 @@ Change log
 * tbd.
 * tbd.
 * tbd.
-* The `hello_shell` sample now enables the full Ethernet network stack with
+* The ``hello_shell`` sample now enables the full Ethernet network stack with
   MDIO support and all helpful shell commands for the TiaC Magpie F777NI board.
 * The TiaC Magpie F777NI board now provides the required device tree properties
-  `phy-connection-type` and `phy-handle`. The related but deprecated Kconfig
-  options `ETH_STM32_HAL_MII` and `ETH_STM32_HAL_PHY_ADDRESS` were removed.
+  ``phy-connection-type`` and ``phy-handle``. The related but deprecated Kconfig
+  options ``ETH_STM32_HAL_MII`` and ``ETH_STM32_HAL_PHY_ADDRESS`` were removed.
 
 The following sections provide detailed lists of changes by component.
 
@@ -194,7 +194,7 @@ Build Infrastructure
 * tbd.
 * tbd.
 * tbd.
-* Remove `native_posix` as it has reached its end of life in Zephyr v4.2, after
+* Remove ``native_posix`` as it has reached its end of life in Zephyr v4.2, after
   being deprecated since Zephyr v4.0.
 
 Documentation
@@ -205,11 +205,11 @@ Documentation
 1. tbd.
 2. tbd.
 3. tbd.
-4. Use Sphinx 8.2 and Zephyr's `DoxyRunner` with `DoxyBridge`, `DoxyToolTip`
-   and `APIOverview` for documentation processing.
-5. The Sphinx extension `APIOverview` was copied into Bridle namespace and all
+4. Use Sphinx 8.2 and Zephyr's ``DoxyRunner`` with ``DoxyBridge``, ``DoxyToolTip``
+   and ``APIOverview`` for documentation processing.
+5. The Sphinx extension ``APIOverview`` was copied into Bridle namespace and all
    hard coded strings (e.g. *"Available in … Since"*) were adopted to Bridle.
-6. The Sphinx extension `ManifestProjectTable` (former `ManifestRevisionTable`)
+6. The Sphinx extension ``ManifestProjectTable`` (former ``ManifestRevisionTable``)
    was copied into Bridle namespace and the old functionality from the sdk-nrf
    repository by Nordic (``show-first`` option) was merged with the new
    functionality from Zephyr upstream (``filter`` option).
