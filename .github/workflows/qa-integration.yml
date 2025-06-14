@@ -41,7 +41,7 @@ jobs:
     if: github.repository_owner == 'tiacsys'
     runs-on: [self-hosted, ci-32g-x8, linux, x64, container]
     container:
-      image: ghcr.io/zephyrproject-rtos/ci:v0.27.4
+      image: ghcr.io/zephyrproject-rtos/ci:v0.27.5
       options: '--cpus 4 --memory 8g --entrypoint /bin/bash'
     env:
       ZEPHYR_SDK_INSTALL_DIR: /opt/toolchains/zephyr-sdk-0.17.0
@@ -160,7 +160,7 @@ jobs:
     if: github.repository_owner == 'tiacsys'
     runs-on: [self-hosted, ci-32g-x8, linux, x64, container]
     container:
-      image: ghcr.io/zephyrproject-rtos/ci:v0.27.4
+      image: ghcr.io/zephyrproject-rtos/ci:v0.27.5
       options: '--cpus 4 --memory 8g --entrypoint /bin/bash'
     env:
       ZEPHYR_SDK_INSTALL_DIR: /opt/toolchains/zephyr-sdk-0.17.0
@@ -279,7 +279,7 @@ jobs:
     if: github.repository_owner == 'tiacsys'
     runs-on: [self-hosted, ci-32g-x8, linux, x64, container]
     container:
-      image: ghcr.io/zephyrproject-rtos/ci:v0.27.4
+      image: ghcr.io/zephyrproject-rtos/ci:v0.27.5
       options: '--cpus 4 --memory 8g --entrypoint /bin/bash'
     env:
       ZEPHYR_SDK_INSTALL_DIR: /opt/toolchains/zephyr-sdk-0.17.0
