@@ -70,6 +70,7 @@ jobs:
         working-directory: workspace
         run: |
           pip3 install --upgrade --requirement zephyr/scripts/requirements-compliance.txt
+          pip3 install --upgrade --requirement zephyr/scripts/requirements-actions.in
 
       - name: Run compliance tests
         id: compliance
