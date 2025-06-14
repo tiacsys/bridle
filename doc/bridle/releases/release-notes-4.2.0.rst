@@ -225,6 +225,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`333` - [FER] upgrade to west 1.4.0
 * :github:`325` - [BUG] SPI Loopback test suit files on TiaC Magpie F777NI
 * :github:`320` - [BUG] CMSIS_6 module required by the ARM port for Cortex-M
 * :github:`317` - [BUG] Rename Kconfig option ``SCHED_DUMB`` and ``WAITQ_DUMB``
