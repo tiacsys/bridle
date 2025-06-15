@@ -7,5 +7,6 @@
 zephyr_library_amend()
 
 # zephyr-keep-sorted-start
+zephyr_library_sources_ifdef(CONFIG_UART_CH32		uart_ch32.c)
 zephyr_library_sources_ifdef(CONFIG_UART_SC16IS75X	uart_sc16is75x.c)
 # zephyr-keep-sorted-stop

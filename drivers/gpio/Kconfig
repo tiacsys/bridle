@@ -4,6 +4,7 @@
 if GPIO
 
 # zephyr-keep-sorted-start
+rsource "Kconfig.ch32"
 rsource "Kconfig.pca9554_regrst"
 rsource "Kconfig.pca9555_regrst"
 rsource "Kconfig.sc16is75x"

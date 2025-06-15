@@ -28,5 +28,6 @@ st	STMicroelectronics N.V.
 tiac	TiaC Systems
 vccgnd	VccGND Studio (Source Instrument and Equipment)
 waveshare	Waveshare Electronics Co., Ltd.
+wch	WCH (WinChipHead), Nanjing Qinheng Microelectronics Co., Ltd.
 weact	WeAct Studio (WeiXing Electronic Store)
 # zephyr-keep-sorted-stop

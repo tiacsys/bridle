@@ -7,6 +7,7 @@
 zephyr_library_amend()
 
 # zephyr-keep-sorted-start
+zephyr_library_sources_ifdef(CONFIG_GPIO_CH32		gpio_ch32.c)
 zephyr_library_sources_ifdef(CONFIG_GPIO_PCA9554_REGRST	gpio_pca9554_regrst.c)
 zephyr_library_sources_ifdef(CONFIG_GPIO_PCA9555_REGRST	gpio_pca9555_regrst.c)
 zephyr_library_sources_ifdef(CONFIG_GPIO_SC16IS75X	gpio_sc16is75x.c)

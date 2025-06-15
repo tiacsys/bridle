@@ -1,11 +1,11 @@
-# Copyright (c) 2024-2025 TiaC Systems
+# Copyright (c) 2025 TiaC Systems
+# Copyright (c) 2024 Matthew Tran
 # SPDX-License-Identifier: Apache-2.0
 
-if SERIAL
+if ADC
 
 # zephyr-keep-sorted-start
 rsource "Kconfig.ch32"
-rsource "Kconfig.sc16is75x"
 # zephyr-keep-sorted-stop
 
-endif # SERIAL
+endif # ADC
