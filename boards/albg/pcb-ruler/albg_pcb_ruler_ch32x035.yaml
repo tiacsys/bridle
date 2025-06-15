@@ -1,0 +1,15 @@
+identifier: albg_pcb_ruler_ch32x035
+name: ALBG PCB Ruler CH32X035C8T6
+type: mcu
+arch: riscv
+toolchain:
+  - cross-compile
+  - zephyr
+ram: 20
+flash: 62
+supported:
+  - gpio
+  - i2c
+  - spi
+  - uart
+  - pwm
