@@ -1,0 +1,5 @@
+boards:
+  - name: albg_pcb_ruler_ch32x035
+    vendor: albg
+    socs:
+      - name: ch32x035
