@@ -1,0 +1,6 @@
+family:
+- name: ch32
+  series:
+  - name: ch32x035
+    socs:
+    - name: ch32x035

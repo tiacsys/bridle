@@ -1,0 +1,25 @@
+description: CH32 UART node
+
+compatible: "wch,ch32-uart"
+
+include: uart-controller.yaml
+
+properties:
+  reg:
+    required: true
+
+  irq:
+    type: array
+    required: true
+
+  clk:
+    type: array
+    required: true
+
+  pinctrl:
+    type: array
+    required: true
+
+  remap:
+    type: array
+    default: [0]

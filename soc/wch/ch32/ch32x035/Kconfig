@@ -1,0 +1,12 @@
+config SOC_SERIES_CH32X035
+    bool
+    select SOC_FAMILY_WCH_CH32
+    select RISCV_ISA_RV32I
+    select RISCV_ISA_EXT_M
+    select RISCV_ISA_EXT_A
+    select RISCV_ISA_EXT_C
+    select RISCV_ISA_EXT_ZICSR
+    select ATOMIC_OPERATIONS_BUILTIN
+
+config SOC_SERIES
+    default "ch32x035" if SOC_SERIES_CH32X035

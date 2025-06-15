@@ -1,0 +1,125 @@
+#include <mem.h>
+
+#include <zephyr/dt-bindings/adc/ch32x035-adc.h>
+#include <zephyr/dt-bindings/clock/ch32x035-clock.h>
+
+/ {
+    cpus {
+        #address-cells = <1>;
+        #size-cells = <0>;
+
+        cpu0: cpu@0 {
+            device_type = "cpu";
+            riscv,isa = "rv32imac_zicsr";
+            reg = <0>;
+        };
+    };
+
+    soc {
+        #address-cells = <1>;
+        #size-cells = <1>;
+
+        flash0: flash@0 {
+            compatible = "soc-nv-flash";
+            reg = <0x0 DT_SIZE_K(62)>;
+        };
+
+        sram0: memory@20000000 {
+            compatible = "mmio-sram";
+            reg = <0x20000000 DT_SIZE_K(20)>;
+        };
+
+        // TODO interrupt controller driver for pfic
+        // TODO timer driver for systick
+        // TODO clock driver for rcc
+        // TODO pinctrl driver for gpio and remap
+
+        usart1: serial@40013800 {
+            compatible = "wch,ch32-uart";
+            reg = <0x40013800 0x400>;
+            clk = <RCC_Type_APB2 RCC_APB2Periph_USART1>;
+            irq = <32>; // USART1_IRQn
+            status = "disabled";
+        };
+
+        usart2: serial@40004400 {
+            compatible = "wch,ch32-uart";
+            reg = <0x40004400 0x400>;
+            clk = <RCC_Type_APB1 RCC_APB1Periph_USART2>;
+            irq = <39>; // USART2_IRQn
+            status = "disabled";
+        };
+
+        usart3: serial@40004800 {
+            compatible = "wch,ch32-uart";
+            reg = <0x40004800 0x400>;
+            clk = <RCC_Type_APB1 RCC_APB1Periph_USART3>;
+            irq = <42>; // USART3_IRQn
+            status = "disabled";
+        };
+
+        usart4: serial@40004C00 {
+            compatible = "wch,ch32-uart";
+            reg = <0x40004C00 0x400>;
+            clk = <RCC_Type_APB1 RCC_APB1Periph_USART4>;
+            irq = <43>; // USART4_IRQn
+            status = "disabled";
+        };
+
+        gpioa: gpio@40010800 {
+            compatible = "wch,ch32-gpio";
+            reg = <0x40010800 0x400>;
+            clk = <RCC_Type_APB2 RCC_APB2Periph_GPIOA>;
+            gpio-controller;
+            #gpio-cells = <2>;
+            status = "disabled";
+        };
+
+        gpiob: gpio@40010C00 {
+            compatible = "wch,ch32-gpio";
+            reg = <0x40010C00 0x400>;
+            clk = <RCC_Type_APB2 RCC_APB2Periph_GPIOB>;
+            gpio-controller;
+            #gpio-cells = <2>;
+            status = "disabled";
+        };
+
+        gpioc: gpio@40011000 {
+            compatible = "wch,ch32-gpio";
+            reg = <0x40011000 0x400>;
+            clk = <RCC_Type_APB2 RCC_APB2Periph_GPIOC>;
+            gpio-controller;
+            #gpio-cells = <2>;
+            status = "disabled";
+        };
+
+        adc1: adc@40012400 {
+            compatible = "wch,ch32-adc";
+            reg = <0x40012400 0x400>;
+            clk = <RCC_Type_APB2 RCC_APB2Periph_ADC1>;
+            irq = <22>; // DMA1_Channel1_IRQn
+            dma = <ADC1_DMA_CHANNEL ADC1_DMA_FLAG_TC>;
+            #address-cells = <1>;
+            #size-cells = <0>;
+            #io-channel-cells = <1>;
+            status = "disabled";
+        };
+
+        usbfs: usbd@40023400 {
+            compatible = "wch,ch32-usbfs";
+            reg = <0x40023400 0x400>;
+            clk = <RCC_Type_AHB RCC_AHBPeriph_USBFS>;
+            irq = <45>; // USBFS_IRQn
+            num-bidir-endpoints = <8>;
+            status = "disabled";
+        };
+
+        usbpd: usbpd@40027000 {
+            compatible = "wch,ch32-ucpd";
+            reg = <0x40027000 0x400>;
+            clk = <RCC_Type_AHB RCC_AHBPeriph_USBPD>;
+            irq = <49>; // USBPD_IRQn
+            status = "disabled";
+        };
+    };
+};

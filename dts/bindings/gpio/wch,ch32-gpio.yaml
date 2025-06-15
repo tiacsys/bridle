@@ -1,0 +1,17 @@
+description: CH32 GPIO node
+
+compatible: "wch,ch32-gpio"
+
+include: [gpio-controller.yaml, base.yaml]
+
+properties:
+  clk:
+    type: array
+    required: true
+
+  "#gpio-cells":
+    const: 2
+
+gpio-cells:
+  - pin
+  - flags
