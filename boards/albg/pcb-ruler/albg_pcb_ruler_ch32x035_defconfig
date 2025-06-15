@@ -1,0 +1,12 @@
+# Copyright (c) 2025 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+CONFIG_GPIO=y
+
+CONFIG_SERIAL=y
+CONFIG_CONSOLE=y
+CONFIG_UART_CONSOLE=y
+
+# workaround for now, see wch_ch32/common/irq.c
+CONFIG_TRACING=y
+CONFIG_TRACING_USER=y
