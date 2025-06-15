@@ -1,0 +1,20 @@
+config SOC_FAMILY_WCH_CH32
+	bool
+	select RISCV
+	select RISCV_ISA_RV32I
+	select RISCV_ISA_EXT_M
+	select RISCV_ISA_EXT_A
+	select RISCV_ISA_EXT_C
+	select RISCV_ISA_EXT_ZICSR
+	select RISCV_ISA_EXT_ZIFENCEI
+	select RISCV_SOC_HAS_GP_RELATIVE_ADDRESSING
+	select ARCH_HAS_CUSTOM_CPU_IDLE
+	select ARCH_HAS_CUSTOM_CPU_ATOMIC_IDLE
+	select INCLUDE_RESET_VECTOR
+	select BUILD_OUTPUT_HEX
+	select TICKLESS_CAPABLE
+	imply XIP
+#	check ARCH_HAS_CUSTOM_CPU_IDLE and ARCH_HAS_CUSTOM_CPU_ATOMIC_IDLE
+#	and try to use Zephyr functions in: arch/riscv/core/cpu_idle.c
+
+rsource "*/Kconfig"

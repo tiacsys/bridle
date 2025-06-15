@@ -26,4 +26,5 @@ sparkfun	SparkFun Electronics, Inc.
 st	STMicroelectronics N.V.
 tiac	TiaC Systems
 waveshare	Waveshare Electronics Co., Ltd.
+wch	WCH (WinChipHead), Nanjing Qinheng Microelectronics Co., Ltd.
 # zephyr-keep-sorted-stop
