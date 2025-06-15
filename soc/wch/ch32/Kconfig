@@ -1,0 +1,9 @@
+config SOC_FAMILY_WCH_CH32
+	bool
+	select RISCV
+	select RISCV_GP
+	select INCLUDE_RESET_VECTOR
+	select BUILD_OUTPUT_HEX
+	select TICKLESS_CAPABLE
+
+rsource "*/Kconfig"

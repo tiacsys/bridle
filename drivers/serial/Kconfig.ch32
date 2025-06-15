@@ -1,0 +1,9 @@
+# Copyright (c) 2024 Matthew Tran
+# SPDX-License-Identifier: Apache-2.0
+
+menuconfig UART_CH32
+	bool "CH32 UART driver"
+	default y
+	depends on DT_HAS_WCH_CH32_UART_ENABLED
+	select SERIAL_HAS_DRIVER
+	select SERIAL_SUPPORT_INTERRUPT

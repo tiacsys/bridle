@@ -1,0 +1,37 @@
+description: CH32 ADC node
+
+compatible: "wch,ch32-adc"
+
+include: adc-controller.yaml
+
+properties:
+  reg:
+    required: true
+
+  irq:
+    type: array
+    required: true
+
+  clk:
+    type: array
+    required: true
+
+  dma:
+    type: array
+    required: true
+    description: DMA channel to use
+
+  prescaler:
+    type: int
+    required: true
+    description: ADC clock prescaler, use macros
+  
+  vref-mv:
+    type: int
+    required: true
+
+  "#io-channel-cells":
+    const: 1
+
+io-channel-cells:
+  - input

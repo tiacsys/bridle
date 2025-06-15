@@ -1,0 +1,8 @@
+if SOC_FAMILY_WCH_CH32
+
+config GNU_C_EXTENSIONS
+    default y
+
+endif # SOC_FAMILY_WCH_CH32
+
+rsource "*/Kconfig.defconfig"

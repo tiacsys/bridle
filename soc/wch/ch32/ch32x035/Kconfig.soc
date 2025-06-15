@@ -1,0 +1,6 @@
+config SOC_CH32X035
+    bool
+    select SOC_SERIES_CH32X035
+
+config SOC
+    default "ch32x035" if SOC_CH32X035
