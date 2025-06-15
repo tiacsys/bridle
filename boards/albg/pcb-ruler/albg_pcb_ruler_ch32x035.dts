@@ -1,0 +1,85 @@
+/*
+ * Copyright (c) 2025 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/dts-v1/;
+
+#include <wch/wch_ch32x035.dtsi>
+
+#include <zephyr/dt-bindings/adc/adc.h>
+#include <zephyr/dt-bindings/usb-c/pd.h>
+#include <zephyr/dt-bindings/gpio/gpio.h>
+#include <zephyr/dt-bindings/input/input-event-codes.h>
+
+#include "albg_pcb_ruler_ch32x035-pinctrl.dtsi"
+
+/ {
+	model = "albg_pcb_ruler_ch32x035";
+	compatible = "wch,ch32x035";
+
+	chosen {
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+		zephyr,console = &usart1;
+		zephyr,shell-uart = &usart1;
+	};
+
+	aliases {
+		led0 = &ir_led;
+		sw0 = &keya;
+		sw1 = &keyb;
+		sw2 = &keyx;
+		sw3 = &keyy;
+	};
+
+	leds {
+		compatible = "gpio-leds";
+		status = "okay";
+
+		ir_led: d129 {
+			gpios = <&gpiob 3 GPIO_ACTIVE_HIGH>;
+		};
+	};
+
+	buttons {
+		compatible = "gpio-keys";
+		status = "okay";
+
+		keya: sw1 {
+			gpios = <&gpioc 6 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+			zephyr,code = <INPUT_KEY_A>;
+		};
+		keyb: sw2 {
+			gpios = <&gpioc 7 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+			zephyr,code = <INPUT_KEY_B>;
+		};
+		keyx: sw3 {
+			gpios = <&gpiob 13 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+			zephyr,code = <INPUT_KEY_X>;
+		};
+		keyy: sw4 {
+			gpios = <&gpiob 12 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+			zephyr,code = <INPUT_KEY_Y>;
+		};
+	};
+};
+
+&gpioa {
+	status = "okay";
+};
+
+&gpiob {
+	status = "okay";
+};
+
+&gpioc {
+	status = "okay";
+};
+
+&usart1 {
+	status = "okay";
+	pinctrl-0 = <&usart1_default>;
+	pinctrl-names = "default";
+	current-speed = <115200>;
+};

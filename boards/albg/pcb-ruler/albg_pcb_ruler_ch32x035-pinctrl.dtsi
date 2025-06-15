@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) 2025 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/pinctrl/ch32x035-pinctrl.h>
+
+&pinctrl {
+	usart1_default: usart1_default {
+		group1 {
+			pinmux = <USART1_TX_PB10_0>;
+			slew-rate = "max-speed-10mhz";
+			drive-push-pull;
+			output-high;
+		};
+
+		group2 {
+			pinmux = <USART1_RX_PB11_0>;
+			bias-pull-up;
+		};
+	};
+};
