@@ -1,4 +1,4 @@
-# Copyright (c) 2021-2024 TiaC Systems
+# Copyright (c) 2021-2025 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 # Add to the existing gpio library from zephyr instead of defining our own.
@@ -6,6 +6,7 @@
 # build errors can occur!
 zephyr_library_amend()
 
+zephyr_library_sources_ifdef(CONFIG_GPIO_CH32		gpio_ch32.c)
 zephyr_library_sources_ifdef(CONFIG_GPIO_PCA9554	gpio_pca9554.c)
 zephyr_library_sources_ifdef(CONFIG_GPIO_PCA9555	gpio_pca9555.c)
 zephyr_library_sources_ifdef(CONFIG_GPIO_SC16IS75X	gpio_sc16is75x.c)
