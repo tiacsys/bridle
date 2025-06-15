@@ -1,0 +1,170 @@
+# The west submanifest file for all OpenWCH SDK.
+#
+# Copyright (c) 2025 TiaC Systems
+#
+# SPDX-License-Identifier: Apache-2.0
+
+manifest:
+  version: "0.13"
+
+  # If not otherwise specified, the projects below should be obtained
+  # from the tiacsys remote.
+  defaults:
+    remote: tiacsys
+
+  # "remotes" is a list of locations where git repositories are cloned
+  # and fetched from.
+  remotes:
+    - name: tiacsys
+      url-base: https://github.com/tiacsys
+
+  # "projects" is a list of git repositories which make up the TIAC
+  # source code. Please add items below based on alphabetical order.
+  projects:
+
+    # Forked projects in the TIAC organization of the freely accessible
+    # SDKs for various WinChipHead microcontrollers.
+
+    - name: hal_ch32f20x
+      description: SDK and HDK for CH32F202/8 chips (Cortex-M3)
+      path: modules/hal/openwch/ch32f20x
+      remote: tiacsys
+      repo-path: openwch-ch32f20x
+      revision: refs/tags/2.3
+      groups:
+        - hal
+
+    - name: hal_ch32l103
+      description: SDK and HDK for CH32L103 chips (Qingke RISC-V4C)
+      path: modules/hal/openwch/ch32l103
+      remote: tiacsys
+      repo-path: openwch-ch32l103
+      revision: refs/tags/1.6
+      groups:
+        - hal
+
+    - name: hal_ch32m030
+      description: SDK and HDK for CH32M030 chips (Qingke RISC-V3B)
+      path: modules/hal/openwch/ch32m030
+      remote: tiacsys
+      repo-path: openwch-ch32m030
+      revision: refs/tags/1.3
+      groups:
+        - hal
+
+    - name: hal_ch32v002_004_005_006_007
+      description: SDK and HDK for CH32V002/4/5/6/7 chips (Qingke RISC-V2C)
+      path: modules/hal/openwch/ch32v002_004_005_006_007
+      remote: tiacsys
+      repo-path: openwch-ch32v002_004_005_006_007
+      revision: refs/tags/1.4
+      groups:
+        - hal
+
+    - name: hal_ch32v003
+      description: SDK and HDK for CH32V003 chips (Qingke RISC-V2A)
+      path: modules/hal/openwch/ch32v003
+      remote: tiacsys
+      repo-path: openwch-ch32v003
+      revision: refs/tags/2.1
+      groups:
+        - hal
+
+    - name: hal_ch32v103
+      description: SDK and HDK for CH32V103 chips (Qingke RISC-V3A)
+      path: modules/hal/openwch/ch32v103
+      remote: tiacsys
+      repo-path: openwch-ch32v103
+      revision: refs/tags/2.7
+      groups:
+        - hal
+
+    - name: hal_ch32v20x
+      description: SDK and HDK for CH32V203/8 chips (Qingke RISC-V4B/-V4C)
+      path: modules/hal/openwch/ch32v20x
+      remote: tiacsys
+      repo-path: openwch-ch32v20x
+      revision: refs/tags/2.2
+      groups:
+        - hal
+
+    - name: hal_ch32v307
+      description: SDK and HDK for CH32V305/7 chips (Qingke RISC-V4F)
+      path: modules/hal/openwch/ch32v307
+      remote: tiacsys
+      repo-path: openwch-ch32v307
+      revision: refs/tags/2.8
+      groups:
+        - hal
+
+    - name: hal_ch32x035
+      description: SDK and HDK for CH32X035 chips (Qingke RISC-V4C)
+      path: modules/hal/openwch/ch32x035
+      remote: tiacsys
+      repo-path: openwch-ch32x035
+      revision: refs/tags/1.8
+      groups:
+        - hal
+
+    - name: hal_ch569
+      description: SDK and HDK for CH565/9 chips (Qingke RISC-V3A)
+      path: modules/hal/openwch/ch569
+      remote: tiacsys
+      repo-path: openwch-ch569
+      revision: refs/tags/1.8
+      groups:
+        - hal
+
+    - name: hal_ch570
+      description: SDK and HDK for CH570/2 chips (Qingke RISC-V3C)
+      path: modules/hal/openwch/ch570
+      remote: tiacsys
+      repo-path: openwch-ch570
+      revision: refs/tags/1.2
+      groups:
+        - hal
+
+    - name: hal_ch583
+      description: SDK and HDK for CH581/2/3 chips (Qingke RISC-V4A)
+      path: modules/hal/openwch/ch583
+      remote: tiacsys
+      repo-path: openwch-ch583
+      revision: refs/tags/2.3
+      groups:
+        - hal
+
+    - name: hal_ch585
+      description: SDK and HDK for CH584/5 chips (Qingke RISC-V3C)
+      path: modules/hal/openwch/ch585
+      remote: tiacsys
+      repo-path: openwch-ch585
+      revision: refs/tags/1.4
+      groups:
+        - hal
+
+    - name: hal_ch592
+      description: SDK and HDK for CH591/2 chips (Qingke RISC-V4C)
+      path: modules/hal/openwch/ch592
+      remote: tiacsys
+      repo-path: openwch-ch592
+      revision: refs/tags/1.5
+      groups:
+        - hal
+
+    - name: hal_ch641
+      description: SDK and HDK for CH641 chips (Qingke RISC-V2A)
+      path: modules/hal/openwch/ch641
+      remote: tiacsys
+      repo-path: openwch-ch641
+      revision: refs/tags/1.4
+      groups:
+        - hal
+
+    - name: hal_ch643
+      description: SDK and HDK for CH643 chips (Qingke RISC-V4C)
+      path: modules/hal/openwch/ch643
+      remote: tiacsys
+      repo-path: openwch-ch643
+      revision: refs/tags/1.9
+      groups:
+        - hal
