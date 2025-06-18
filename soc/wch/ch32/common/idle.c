@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2024 Matthew Tran
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 #include <zephyr/kernel.h>
 
 // adapted from zephyr/arch/riscv/core/cpu_idle.c

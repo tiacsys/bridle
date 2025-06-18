@@ -1,3 +1,6 @@
+# Copyright (c) 2024 Matthew Tran
+# SPDX-License-Identifier: Apache-2.0
+
 if SOC_FAMILY_WCH_CH32
 
 config GNU_C_EXTENSIONS

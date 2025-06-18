@@ -5,8 +5,10 @@ compatible: "wch,ch32-gpio"
 include: [gpio-controller.yaml, base.yaml]
 
 properties:
-  clk:
-    type: array
+  reg:
+    required: true
+
+  clocks:
     required: true
 
   "#gpio-cells":

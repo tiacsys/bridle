@@ -1,4 +1,5 @@
 /*
+ * Copyright (c) 2025 TiaC Systems
  * Copyright (c) 2024 Matthew Tran
  * SPDX-License-Identifier: Apache-2.0
  */
@@ -8,8 +9,9 @@
 #include <errno.h>
 #include <zephyr/device.h>
 #include <zephyr/drivers/adc.h>
+#include <zephyr/drivers/clock_control.h>
 #include <zephyr/irq.h>
-#include <zephyrboards/dt-bindings/adc/ch32x035-adc.h>
+#include <zephyr/dt-bindings/adc/ch32x035-adc.h>
 #include <soc.h>
 
 #define ADC_CHANNEL_NUM  (16)
@@ -17,7 +19,8 @@
 
 struct adc_ch32_config {
     ADC_TypeDef *base;
-    uint32_t clock_type, clock_mask;
+    const struct device *clock_dev;
+    uint8_t clock_id;
     uint32_t prescaler;
     DMA_Channel_TypeDef *dma;
     uint32_t dma_tc;
@@ -240,7 +243,7 @@ static int adc_ch32_init(const struct device *dev) {
 
     config->irq_config_func();
 
-    clock_control_on(config->clock_type, config->clock_mask);
+    clock_control_on(config->clock_dev, (clock_control_subsys_t *)(uintptr_t)config->clock_id);
     ADC_DeInit(config->base);
     ADC_Cmd(config->base, ENABLE); // turn on
     ADC_DMACmd(config->base, ENABLE);
@@ -298,8 +301,8 @@ static const struct adc_driver_api adc_ch32_driver_api = {
                                                                                   \
     static const struct adc_ch32_config adc_ch32_##n##_config = {                 \
         .base            = (ADC_TypeDef*) DT_INST_REG_ADDR(n),                    \
-        .clock_type      = DT_INST_PROP_BY_IDX(n, clk, 0),                        \
-        .clock_mask      = DT_INST_PROP_BY_IDX(n, clk, 1),                        \
+        .clock_dev       = DEVICE_DT_GET(DT_INST_CLOCKS_CTLR(n)),                 \
+        .clock_id        = DT_INST_CLOCKS_CELL(n, id),                            \
         .prescaler       = DT_INST_PROP(n, prescaler),                            \
         .dma             = (DMA_Channel_TypeDef*) DT_INST_PROP_BY_IDX(n, dma, 0), \
         .dma_tc          = DT_INST_PROP_BY_IDX(n, dma, 1),                        \

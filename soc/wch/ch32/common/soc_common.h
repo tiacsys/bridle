@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2025 TiaC Systems
+ * Copyright (c) 2024 Matthew Tran
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 #ifndef SOC_COMMON_H
 #define SOC_COMMON_H
 
@@ -9,15 +15,6 @@
 #define GPIO_GET_PIN(x)   ((x) & 0xFF)
 
 #ifndef _ASMLANGUAGE
-
-static inline void clock_control_on(uint32_t type, uint32_t mask) {
-    // see dt-bindings/clock/${SOC}_clock.h
-    switch (type) {
-        case 0: RCC_AHBPeriphClockCmd (mask, ENABLE); break;
-        case 1: RCC_APB2PeriphClockCmd(mask, ENABLE); break;
-        case 2: RCC_APB1PeriphClockCmd(mask, ENABLE); break;
-    }
-}
 
 static inline void pinctrl_configure_pins(uint32_t pin, GPIOMode_TypeDef mode) {
     GPIO_InitTypeDef cfg = {

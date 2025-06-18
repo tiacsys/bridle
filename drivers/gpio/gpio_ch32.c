@@ -1,4 +1,5 @@
 /*
+ * Copyright (c) 2025 TiaC Systems
  * Copyright (c) 2024 Matthew Tran
  * SPDX-License-Identifier: Apache-2.0
  */
@@ -9,12 +10,14 @@
 #include <zephyr/device.h>
 #include <zephyr/drivers/gpio.h>
 #include <zephyr/drivers/gpio/gpio_utils.h>
+#include <zephyr/drivers/clock_control.h>
 #include <zephyr/irq.h>
 #include <soc.h>
 
 struct gpio_ch32_config {
     GPIO_TypeDef *base;
-    uint32_t clock_type, clock_mask;
+    const struct device *clock_dev;
+    uint8_t clock_id;
 };
 
 struct gpio_ch32_data {
@@ -112,7 +115,7 @@ static uint32_t gpio_ch32_get_pending_int(const struct device *dev) {
 
 static int gpio_ch32_init(const struct device *dev) {
     const struct gpio_ch32_config *config = dev->config;
-    clock_control_on(config->clock_type, config->clock_mask);
+    clock_control_on(config->clock_dev, (clock_control_subsys_t *)(uintptr_t)config->clock_id);
     return 0;
 }
 
@@ -130,9 +133,9 @@ static const struct gpio_driver_api gpio_ch32_driver_api = {
 
 #define GPIO_CH32_INIT(n)                                           \
     static const struct gpio_ch32_config gpio_ch32_##n##_config = { \
-        .base       = (GPIO_TypeDef*) DT_INST_REG_ADDR(n),          \
-        .clock_type = DT_INST_PROP_BY_IDX(n, clk, 0),               \
-        .clock_mask = DT_INST_PROP_BY_IDX(n, clk, 1),               \
+        .base      = (GPIO_TypeDef*) DT_INST_REG_ADDR(n),           \
+        .clock_dev = DEVICE_DT_GET(DT_INST_CLOCKS_CTLR(n)),         \
+        .clock_id = DT_INST_CLOCKS_CELL(n, id),                     \
     };                                                              \
                                                                     \
     static struct gpio_ch32_data gpio_ch32_##n##_data;              \
