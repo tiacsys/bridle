@@ -1,0 +1,61 @@
+# Copyright (c) 2025 TiaC Systems
+# Copyright (c) 2024 Michael Hope
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+  WCH CH32F20x Reset and Clock Control (RCC)
+
+  Adds the CH32F20x AHB prescaler to the standard generic CH32 RCC.
+  For more description confere wch,ch32-rcc.yaml
+
+compatible: "wch,ch32f20x-rcc"
+
+include: wch,ch32-rcc.yaml
+
+properties:
+  ahb-prescaler:
+    type: int
+    required: true
+    enum:
+      - 1
+      - 2
+      - 4
+      - 8
+      - 16
+      - 64
+      - 128
+      - 256
+      - 512
+    description: |
+        AHB prescaler. Defines actual core clock frequency (HCLK)
+        based on system frequency input.
+        The HCLK clocks CPU, AHB, memories and DMA.
+
+  apb1-prescaler:
+    type: int
+    required: true
+    enum:
+      - 1
+      - 2
+      - 4
+      - 8
+      - 16
+
+  apb2-prescaler:
+    type: int
+    required: true
+    enum:
+      - 1
+      - 2
+      - 4
+      - 8
+      - 16
+
+  adc-prescaler:
+    type: int
+    default: 2
+    enum:
+      - 2
+      - 4
+      - 6
+      - 8

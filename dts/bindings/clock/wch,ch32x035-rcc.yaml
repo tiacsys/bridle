@@ -1,0 +1,36 @@
+# Copyright (c) 2025 TiaC Systems
+# Copyright (c) 2024 Michael Hope
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+  WCH CH32X035 Reset and Clock Control (RCC)
+
+  Adds the CH32X035 AHB prescaler to the standard generic CH32 RCC.
+  For more description confere wch,ch32-rcc.yaml
+
+compatible: "wch,ch32x035-rcc"
+
+include: wch,ch32-rcc.yaml
+
+properties:
+  ahb-prescaler:
+    type: int
+    required: true
+    enum:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 16
+      - 32
+      - 64
+      - 128
+      - 256
+    description: |
+        AHB prescaler. Defines actual core clock frequency (HCLK)
+        based on system frequency input.
+        The HCLK clocks CPU, AHB, memories and DMA.

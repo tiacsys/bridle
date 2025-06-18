@@ -1,0 +1,60 @@
+# Copyright (c) 2025 TiaC Systems
+# Copyright (c) 2024 Michael Hope
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+  WCH CH32 Reset and Clock Control (RCC)
+
+  This node is in charge of system clock ('SYSCLK') source selection and controlling
+  clocks for AHB (Advanced High Performance) and APB (Advanced Peripheral) bus domains.
+
+  Configuring CH32 Reset and Clock controller node:
+
+  System clock source should be selected amongst the clock nodes available in "clocks"
+  node (typically 'clk_hse, clk_hsi', 'pll', ...).
+  Core clock frequency should also be defined, using "clock-frequency" property.
+  Note:
+          Core clock frequency  = SYSCLK / AHB prescaler
+  Last, peripheral bus clocks (typically PCLK1, PCLK2) should be configured using matching
+  prescaler properties.
+  Here is an example of correctly configured rcc node:
+  &rcc {
+           clocks = <&pll>;  /* Select 80MHz pll as SYSCLK source */
+           ahb-prescaler = <2>;
+           clock-frequency = <DT_FREQ_M(40)>; /* = SYSCLK / AHB prescaler */
+           apb1-prescaler = <1>;
+           apb2-prescaler = <1>;
+  }
+
+  Specifying a gated clock:
+
+  To specify a gated clock, a peripheral should define a "clocks" property encoded
+  in the following way:
+  ... {
+           ...
+           clocks = <&rcc CH32xxxx_CLOCK_USART1>;
+           ...
+  }
+  After the phandle referring to rcc node, the first index specifies the peripheral
+  clock identifier. The gated clock is required when accessing to the peripheral
+  controller is needed (generally for configuring the device).
+
+compatible: "wch,ch32-rcc"
+
+include: [clock-controller.yaml, base.yaml]
+
+properties:
+  reg:
+    required: true
+
+  "#clock-cells":
+    const: 1
+
+  clock-frequency:
+    required: true
+    type: int
+    description: |
+      default frequency in Hz for clock output
+
+clock-cells:
+  - id

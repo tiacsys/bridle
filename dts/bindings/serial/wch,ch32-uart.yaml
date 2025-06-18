@@ -12,11 +12,10 @@ properties:
   reg:
     required: true
 
-  irq:
-    type: array
+  clocks:
     required: true
 
-  clk:
+  irq:
     type: array
     required: true
 

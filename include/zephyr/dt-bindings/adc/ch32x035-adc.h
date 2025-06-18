@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2024 Matthew Tran
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 #ifndef ZEPHYRBOARDS_INCLUDE_DT_BINDINGS_ADC_CH32X035_ADC_H_
 #define ZEPHYRBOARDS_INCLUDE_DT_BINDINGS_ADC_CH32X035_ADC_H_
 

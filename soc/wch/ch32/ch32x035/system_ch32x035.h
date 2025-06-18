@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2024 Matthew Tran
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 #ifndef SYSTEM_CH32X035_H
 #define SYSTEM_CH32X035_H
 

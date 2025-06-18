@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2025 TiaC Systems
+ * Copyright (c) 2024 Matthew Tran
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 #ifndef SOC_H
 #define SOC_H
 
@@ -6,8 +12,6 @@
 #include <ch32x035_adc.h>
 #include <ch32x035_dma.h>
 #include <ch32x035_gpio.h>
-#include <ch32x035_pwr.h>
-#include <ch32x035_rcc.h>
 #include <ch32x035_usart.h>
 #include <ch32x035_usbpd.h>
 

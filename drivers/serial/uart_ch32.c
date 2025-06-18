@@ -1,4 +1,5 @@
 /*
+ * Copyright (c) 2025 TiaC Systems
  * Copyright (c) 2024 Matthew Tran
  * SPDX-License-Identifier: Apache-2.0
  */
@@ -8,12 +9,14 @@
 #include <errno.h>
 #include <zephyr/device.h>
 #include <zephyr/drivers/uart.h>
+#include <zephyr/drivers/clock_control.h>
 #include <zephyr/irq.h>
 #include <soc.h>
 
 struct uart_ch32_config {
     USART_TypeDef *base;
-    uint32_t clock_type, clock_mask;
+    const struct device *clock_dev;
+    uint8_t clock_id;
     uint32_t pin_tx, pin_rx;
     uint32_t remap;
 #ifdef CONFIG_UART_INTERRUPT_DRIVEN
@@ -71,7 +74,83 @@ static int uart_ch32_err_check(const struct device *dev) {
 static int uart_ch32_configure(const struct device *dev, const struct uart_config *cfg) {
     const struct uart_ch32_config *config = dev->config;
     struct uart_ch32_data *data = dev->data;
+    USART_TypeDef *base = config->base;
 
+#if 1
+    uint32_t clock_rate;
+    clock_control_subsys_t clock_sys = (clock_control_subsys_t *)(uintptr_t)config->clock_id;
+    int err = clock_control_get_rate(config->clock_dev, clock_sys, &clock_rate);
+    if (err != 0) {
+        return err;
+    }
+
+    uint32_t divn = 0;
+    uint32_t integerdivider = 0;
+    uint32_t fractionaldivider = 0;
+
+    integerdivider = ((25 * clock_rate) / (4 * (cfg->baudrate)));
+    divn = (integerdivider / 100) << 4;
+    fractionaldivider = integerdivider - (100 * (divn >> 4));
+    divn |= ((((fractionaldivider * 16) + 50) / 100)) & ((uint8_t)0x0F);
+
+    uint32_t ctlr1 = USART_CTLR1_TE | USART_CTLR1_RE | USART_CTLR1_UE;
+    switch (cfg->data_bits) {
+    case UART_CFG_DATA_BITS_8:
+        break;
+    case UART_CFG_DATA_BITS_9:
+        ctlr1 |= USART_CTLR1_M;
+        break;
+    default:
+        return -EINVAL;
+    }
+
+    switch (cfg->parity) {
+    case UART_CFG_PARITY_NONE:
+        break;
+    case UART_CFG_PARITY_ODD:
+        ctlr1 |= USART_CTLR1_PCE | USART_CTLR1_PS;
+        break;
+    case UART_CFG_PARITY_EVEN:
+        ctlr1 |= USART_CTLR1_PCE;
+        break;
+    default:
+        return -EINVAL;
+    }
+
+    uint32_t ctlr2 = 0;
+    switch (cfg->stop_bits) {
+    case UART_CFG_STOP_BITS_0_5:
+        ctlr2 |= USART_CTLR2_STOP_0;
+        break;
+    case UART_CFG_STOP_BITS_1:
+        break;
+    case UART_CFG_STOP_BITS_1_5:
+        ctlr2 |= USART_CTLR2_STOP_0 | USART_CTLR2_STOP_1;
+        break;
+    case UART_CFG_STOP_BITS_2:
+        ctlr2 |= USART_CTLR2_STOP_1;
+        break;
+    default:
+        return -EINVAL;
+    }
+
+    uint32_t ctlr3 = 0;
+    switch (cfg->flow_ctrl) {
+    case UART_CFG_FLOW_CTRL_NONE:
+        break;
+    case UART_CFG_FLOW_CTRL_RTS_CTS:
+        ctlr3 |= USART_CTLR3_RTSE | USART_CTLR3_CTSE;
+        break;
+    default:
+        return -EINVAL;
+    }
+
+    base->BRR = divn;
+    base->CTLR1 = ctlr1;
+    base->CTLR2 = ctlr2;
+    base->CTLR3 = ctlr3;
+
+#else
     USART_InitTypeDef usart_cfg = {
         .USART_BaudRate = cfg->baudrate,
         .USART_Mode     = USART_Mode_Tx | USART_Mode_Rx,
@@ -106,6 +185,7 @@ static int uart_ch32_configure(const struct device *dev, const struct uart_confi
 
     USART_Init(config->base, &usart_cfg); // note can silently fail
     USART_Cmd(config->base, ENABLE);
+# endif
 
     data->uart_cfg = *cfg;
     return 0;
@@ -219,7 +299,7 @@ static int uart_ch32_init(const struct device *dev) {
     pinctrl_configure_pins(config->pin_tx, GPIO_Mode_AF_PP);
     pinctrl_configure_pins(config->pin_rx, GPIO_Mode_IN_FLOATING);
     pinctrl_apply_state(config->remap);
-    clock_control_on(config->clock_type, config->clock_mask);
+    clock_control_on(config->clock_dev, (clock_control_subsys_t *)(uintptr_t)config->clock_id);
 
     err = uart_ch32_configure(dev, &data->uart_cfg);
 
@@ -257,29 +337,29 @@ static const struct uart_driver_api uart_ch32_driver_api = {
 };
 
 #ifdef CONFIG_UART_INTERRUPT_DRIVEN
-#define CH32_UART_IRQ_CONFIG(n)                        \
+#define UART_CH32_IRQ_CONFIG(n)                        \
     static void uart_ch32_##n##_irq_config(void) {     \
         IRQ_CONNECT(DT_INST_PROP_BY_IDX(n, irq, 0), 0, \
             uart_ch32_isr, DEVICE_DT_INST_GET(n), 0);  \
-        irq_enable(DT_INST_PROP_BY_IDX(n, irq, 0));                   \
+        irq_enable(DT_INST_PROP_BY_IDX(n, irq, 0));    \
     }
-#define CH32_UART_IRQ_INIT(n) .irq_config_func = uart_ch32_##n##_irq_config,
+#define UART_CH32_IRQ_INIT(n) .irq_config_func = uart_ch32_##n##_irq_config,
 #else
-#define CH32_UART_IRQ_CONFIG(n)
-#define CH32_UART_IRQ_INIT(n)
+#define UART_CH32_IRQ_CONFIG(n)
+#define UART_CH32_IRQ_INIT(n)
 #endif // CONFIG_UART_INTERRUPT_DRIVEN
 
-#define CH32_UART_INIT(n)                                             \
-    CH32_UART_IRQ_CONFIG(n)                                           \
+#define UART_CH32_INIT(n)                                             \
+    UART_CH32_IRQ_CONFIG(n)                                           \
                                                                       \
     static const struct uart_ch32_config uart_ch32_##n##_config = {   \
-        .base       = (USART_TypeDef*) DT_INST_REG_ADDR(n),           \
-        .clock_type = DT_INST_PROP_BY_IDX(n, clk, 0),                 \
-        .clock_mask = DT_INST_PROP_BY_IDX(n, clk, 1),                 \
-        .pin_tx     = DT_INST_PROP_BY_IDX(n, pinctrl, 0),             \
-        .pin_rx     = DT_INST_PROP_BY_IDX(n, pinctrl, 1),             \
-        .remap      = DT_INST_PROP_BY_IDX(n, remap, 0),               \
-        CH32_UART_IRQ_INIT(n)                                         \
+        .base      = (USART_TypeDef*) DT_INST_REG_ADDR(n),            \
+        .clock_dev = DEVICE_DT_GET(DT_INST_CLOCKS_CTLR(n)),           \
+        .clock_id  = DT_INST_CLOCKS_CELL(n, id),                      \
+        .pin_tx    = DT_INST_PROP_BY_IDX(n, pinctrl, 0),              \
+        .pin_rx    = DT_INST_PROP_BY_IDX(n, pinctrl, 1),              \
+        .remap     = DT_INST_PROP_BY_IDX(n, remap, 0),                \
+        UART_CH32_IRQ_INIT(n)                                         \
     };                                                                \
                                                                       \
     static struct uart_ch32_data uart_ch32_##n##_data = {             \
@@ -303,4 +383,4 @@ static const struct uart_driver_api uart_ch32_driver_api = {
         &uart_ch32_driver_api                                         \
     );
 
-DT_INST_FOREACH_STATUS_OKAY(CH32_UART_INIT)
+DT_INST_FOREACH_STATUS_OKAY(UART_CH32_INIT)
