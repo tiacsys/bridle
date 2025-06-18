@@ -90,18 +90,15 @@ jobs:
           path: workspace/bridle
           ref: ${{ github.ref }}
 
-      - name: Restore PIP Cache
-        uses: actions/cache@v4
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
         with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-qa-pip
+          enable-cache: true
 
       - name: Install base dependencies
         working-directory: workspace
         run: |
-          pip3 install --upgrade pip
-          pip3 install --upgrade setuptools
-          pip3 install --upgrade --requirement bridle/scripts/requirements-base.txt
+          uv pip install --system --upgrade --requirement bridle/scripts/requirements-base.txt
 
       - name: West init and update
         working-directory: workspace
@@ -114,12 +111,12 @@ jobs:
       - name: Install build and test dependencies
         working-directory: workspace
         run: |
-          pip3 install --upgrade --requirement zephyr/scripts/requirements-base.txt
-          pip3 install --upgrade --requirement zephyr/scripts/requirements-build-test.txt
-          pip3 install --upgrade --requirement zephyr/scripts/requirements-run-test.txt
-          pip3 install --upgrade --requirement zephyr/scripts/requirements-extras.txt
-          pip3 install --upgrade --requirement zephyr/scripts/requirements-compliance.txt
-          pip3 install --upgrade --requirement bridle/scripts/requirements-build.txt
+          uv pip install --system --upgrade --requirement zephyr/scripts/requirements-base.txt
+          uv pip install --system --upgrade --requirement zephyr/scripts/requirements-build-test.txt
+          uv pip install --system --upgrade --requirement zephyr/scripts/requirements-run-test.txt
+          uv pip install --system --upgrade --requirement zephyr/scripts/requirements-extras.txt
+          uv pip install --system --upgrade --requirement zephyr/scripts/requirements-compliance.txt
+          uv pip install --system --upgrade --requirement bridle/scripts/requirements-build.txt
 
       - name: Build samples
         working-directory: workspace
@@ -209,18 +206,15 @@ jobs:
           path: workspace/bridle
           ref: ${{ github.ref }}
 
-      - name: Restore PIP Cache
-        uses: actions/cache@v4
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
         with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-qa-pip
+          enable-cache: true
 
       - name: Install base dependencies
         working-directory: workspace
         run: |
-          pip3 install --upgrade pip
-          pip3 install --upgrade setuptools
-          pip3 install --upgrade --requirement bridle/scripts/requirements-base.txt
+          uv pip install --system --upgrade --requirement bridle/scripts/requirements-base.txt
 
       - name: West init and update
         working-directory: workspace
@@ -233,12 +227,12 @@ jobs:
       - name: Install build and test dependencies
         working-directory: workspace
         run: |
-          pip3 install --upgrade --requirement zephyr/scripts/requirements-base.txt
-          pip3 install --upgrade --requirement zephyr/scripts/requirements-build-test.txt
-          pip3 install --upgrade --requirement zephyr/scripts/requirements-run-test.txt
-          pip3 install --upgrade --requirement zephyr/scripts/requirements-extras.txt
-          pip3 install --upgrade --requirement zephyr/scripts/requirements-compliance.txt
-          pip3 install --upgrade --requirement bridle/scripts/requirements-build.txt
+          uv pip install --system --upgrade --requirement zephyr/scripts/requirements-base.txt
+          uv pip install --system --upgrade --requirement zephyr/scripts/requirements-build-test.txt
+          uv pip install --system --upgrade --requirement zephyr/scripts/requirements-run-test.txt
+          uv pip install --system --upgrade --requirement zephyr/scripts/requirements-extras.txt
+          uv pip install --system --upgrade --requirement zephyr/scripts/requirements-compliance.txt
+          uv pip install --system --upgrade --requirement bridle/scripts/requirements-build.txt
 
       - name: Build tests
         working-directory: workspace
@@ -328,18 +322,15 @@ jobs:
           path: workspace/bridle
           ref: ${{ github.ref }}
 
-      - name: Restore PIP Cache
-        uses: actions/cache@v4
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
         with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-qa-pip
+          enable-cache: true
 
       - name: Install base dependencies
         working-directory: workspace
         run: |
-          pip3 install --upgrade pip
-          pip3 install --upgrade setuptools
-          pip3 install --upgrade --requirement bridle/scripts/requirements-base.txt
+          uv pip install --system --upgrade --requirement bridle/scripts/requirements-base.txt
 
       - name: West init and update
         working-directory: workspace
@@ -352,12 +343,12 @@ jobs:
       - name: Install build and test dependencies
         working-directory: workspace
         run: |
-          pip3 install --upgrade --requirement zephyr/scripts/requirements-base.txt
-          pip3 install --upgrade --requirement zephyr/scripts/requirements-build-test.txt
-          pip3 install --upgrade --requirement zephyr/scripts/requirements-run-test.txt
-          pip3 install --upgrade --requirement zephyr/scripts/requirements-extras.txt
-          pip3 install --upgrade --requirement zephyr/scripts/requirements-compliance.txt
-          pip3 install --upgrade --requirement bridle/scripts/requirements-build.txt
+          uv pip install --system --upgrade --requirement zephyr/scripts/requirements-base.txt
+          uv pip install --system --upgrade --requirement zephyr/scripts/requirements-build-test.txt
+          uv pip install --system --upgrade --requirement zephyr/scripts/requirements-run-test.txt
+          uv pip install --system --upgrade --requirement zephyr/scripts/requirements-extras.txt
+          uv pip install --system --upgrade --requirement zephyr/scripts/requirements-compliance.txt
+          uv pip install --system --upgrade --requirement bridle/scripts/requirements-build.txt
 
       - name: Build integration tests for shields
         working-directory: workspace
@@ -441,21 +432,24 @@ jobs:
           path: workspace/bridle
           ref: ${{ github.ref }}
 
-      - name: Setup Pyhton 3.12 virtual environment
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Setup Python 3.12 virtual environment
         working-directory: workspace
         run: |
-          python3.12 -m venv --clear --copies .env
-          source .env/bin/activate
+          uv venv --python 3.12
+          source .venv/bin/activate
           echo "$PATH" > $GITHUB_PATH
 
       - name: Install base dependencies
         working-directory: workspace
         run: |
           which python3 && python3 --version
-          which pip3 && pip3 --version
-          pip3 install --upgrade pip
-          pip3 install --upgrade setuptools
-          pip3 install --upgrade --requirement bridle/scripts/requirements-base.txt
+          which uv && uv --version
+          uv pip install --upgrade --requirement bridle/scripts/requirements-base.txt
 
       - name: West init and update
         working-directory: workspace
@@ -468,12 +462,12 @@ jobs:
       - name: Install build and test dependencies
         working-directory: workspace
         run: |
-          pip3 install --upgrade --requirement zephyr/scripts/requirements-base.txt
-          pip3 install --upgrade --requirement zephyr/scripts/requirements-build-test.txt
-          pip3 install --upgrade --requirement zephyr/scripts/requirements-run-test.txt
-          pip3 install --upgrade --requirement zephyr/scripts/requirements-extras.txt
-          pip3 install --upgrade --requirement zephyr/scripts/requirements-compliance.txt
-          pip3 install --upgrade --requirement bridle/scripts/requirements-build.txt
+          uv pip install --upgrade --requirement zephyr/scripts/requirements-base.txt
+          uv pip install --upgrade --requirement zephyr/scripts/requirements-build-test.txt
+          uv pip install --upgrade --requirement zephyr/scripts/requirements-run-test.txt
+          uv pip install --upgrade --requirement zephyr/scripts/requirements-extras.txt
+          uv pip install --upgrade --requirement zephyr/scripts/requirements-compliance.txt
+          uv pip install --upgrade --requirement bridle/scripts/requirements-build.txt
 
       - name: Execute integration tests on target
         working-directory: workspace

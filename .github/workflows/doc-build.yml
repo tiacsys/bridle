@@ -86,11 +86,23 @@ jobs:
           west zephyr-export
           west bridle-export
 
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Create and enter python environment
+        run: |
+          uv venv --python 3.12
+          source .venv/bin/activate
+          echo "$PATH" > $GITHUB_PATH
+
       - name: Install documentation dependencies
         working-directory: workspace
         run: |
-          pip3 install --upgrade --requirement bridle/scripts/requirements-doc.txt
-          pip3 install coverxygen
+          uv pip install --upgrade --requirement bridle/scripts/requirements-doc.txt
+          uv pip install --upgrade --requirement zephyr/scripts/requirements-actions.txt
+          uv pip install coverxygen
 
       - name: Build documentation
         working-directory: workspace

@@ -33,19 +33,22 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 0
 
-      - name: Restore PIP Cache
-        uses: actions/cache@v4
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
         with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-doc-pip
+          enable-cache: true
+
+      - name: Create and enter python environment
+        run: |
+          uv venv --python 3.12
+          source .venv/bin/activate
+          echo "$PATH" > $GITHUB_PATH
 
       - name: Install base dependencies
         working-directory: workspace
         run: |
-          pip3 install --upgrade pip
-          pip3 install --upgrade setuptools
-          pip3 install --upgrade --requirement bridle/scripts/requirements-base.txt
-          pip3 show -f west
+          uv pip install --upgrade --requirement bridle/scripts/requirements-base.txt
+          uv pip show -f west
 
       - name: West init and update
         working-directory: workspace
@@ -69,8 +72,8 @@ jobs:
       - name: Install compliance dependencies
         working-directory: workspace
         run: |
-          pip3 install --upgrade --requirement zephyr/scripts/requirements-compliance.txt
-          pip3 install --upgrade --requirement zephyr/scripts/requirements-actions.in
+          uv pip install --upgrade --requirement zephyr/scripts/requirements-compliance.txt
+          uv pip install --upgrade --requirement zephyr/scripts/requirements-actions.in
 
       - name: Run compliance tests
         id: compliance
