@@ -93,72 +93,42 @@
 			reg = <0x00000000 DT_SIZE_K(62)>;
 		};
 
-		// TODO pinctrl driver for gpio and remap
-//		pinctrl: pin-controller@40010000 {
-//			compatible = "wch,ch32-afio";
-//			reg = <0x40010000 16>;
-//			clocks = <&rcc CH32X035_CLOCK_AFIO>;
-//			#address-cells = <1>;
-//			#size-cells = <1>;
-//
-//			gpioa: gpio@40010800 {
-//				compatible = "wch,ch32-gpio";
-//				reg = <0x40010800 0x20>;
-//				clocks = <&rcc CH32X035_CLOCK_IOPA>;
-//				gpio-controller;
-//				#gpio-cells = <2>;
-//				ngpios = <24>;
-//				status = "disabled";
-//			};
-//
-//			gpiob: gpio@40010C00 {
-//				compatible = "wch,ch32-gpio";
-//				reg = <0x40010C00 0x20>;
-//				clocks = <&rcc CH32X035_CLOCK_IOPB>;
-//				gpio-controller;
-//				#gpio-cells = <2>;
-//				ngpios = <24>;
-//				status = "disabled";
-//			};
-//
-//			gpioc: gpio@40011000 {
-//				compatible = "wch,ch32-gpio";
-//				reg = <0x40011000 0x20>;
-//				clocks = <&rcc CH32X035_CLOCK_IOPC>;
-//				gpio-controller;
-//				#gpio-cells = <2>;
-//				ngpios = <24>;
-//				status = "disabled";
-//			};
-//		};
-		gpioa: gpio@40010800 {
-			compatible = "wch,ch32-gpio";
-			reg = <0x40010800 0x400>;
-			clocks = <&rcc CH32X035_CLOCK_IOPA>;
-			gpio-controller;
-			#gpio-cells = <2>;
-			ngpios = <24>;
-			status = "disabled";
-		};
+		pinctrl: pin-controller@40010000 {
+			compatible = "wch,ch32x035-afio", "wch,ch32-afio";
+			reg = <0x40010000 16>;
+			clocks = <&rcc CH32X035_CLOCK_AFIO>;
+			#address-cells = <1>;
+			#size-cells = <1>;
 
-		gpiob: gpio@40010c00 {
-			compatible = "wch,ch32-gpio";
-			reg = <0x40010C00 0x400>;
-			clocks = <&rcc CH32X035_CLOCK_IOPB>;
-			gpio-controller;
-			#gpio-cells = <2>;
-			ngpios = <24>;
-			status = "disabled";
-		};
+			gpioa: gpio@40010800 {
+				compatible = "wch,ch32-gpio";
+				reg = <0x40010800 0x20>;
+				clocks = <&rcc CH32X035_CLOCK_IOPA>;
+				gpio-controller;
+				#gpio-cells = <2>;
+				ngpios = <24>;
+				status = "disabled";
+			};
 
-		gpioc: gpio@40011000 {
-			compatible = "wch,ch32-gpio";
-			reg = <0x40011000 0x400>;
-			clocks = <&rcc CH32X035_CLOCK_IOPC>;
-			gpio-controller;
-			#gpio-cells = <2>;
-			ngpios = <24>;
-			status = "disabled";
+			gpiob: gpio@40010C00 {
+				compatible = "wch,ch32-gpio";
+				reg = <0x40010C00 0x20>;
+				clocks = <&rcc CH32X035_CLOCK_IOPB>;
+				gpio-controller;
+				#gpio-cells = <2>;
+				ngpios = <24>;
+				status = "disabled";
+			};
+
+			gpioc: gpio@40011000 {
+				compatible = "wch,ch32-gpio";
+				reg = <0x40011000 0x20>;
+				clocks = <&rcc CH32X035_CLOCK_IOPC>;
+				gpio-controller;
+				#gpio-cells = <2>;
+				ngpios = <24>;
+				status = "disabled";
+			};
 		};
 
 		usart1: serial@40013800 {

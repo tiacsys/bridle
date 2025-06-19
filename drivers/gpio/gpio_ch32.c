@@ -26,7 +26,7 @@ struct gpio_ch32_data {
 
 static int gpio_ch32_pin_configure(const struct device *dev, gpio_pin_t pin, gpio_flags_t flags) {
     const struct gpio_ch32_config *config = dev->config;
-    GPIOMode_TypeDef mode = GPIO_Mode_AIN;
+    GPIO_TypeDef *base = config->base;
 
     if ((flags & GPIO_INPUT) && (flags & GPIO_OUTPUT)) {
         return -ENOTSUP;
@@ -40,6 +40,55 @@ static int gpio_ch32_pin_configure(const struct device *dev, gpio_pin_t pin, gpi
         return -ENOTSUP;
     }
 
+#if 1
+    uint32_t cnf_mode;
+    uint32_t bsbr = 0;
+
+#define GPIO_CNF_IN_ANALOG   0b0000	// 0
+#define GPIO_CNF_IN_FLOATING 0b0100	// 4
+#define GPIO_CNF_IN_PUPD     0b1000	// 8
+#define GPIO_CNF_OUT_PP      0b0001	// 1
+#define GPIO_CNF_OUT_OD      0b0101	// 5
+#define GPIO_CNF_OUT_PP_AF   0b1001	// 9
+#define GPIO_CNF_OUT_OD_AF   0b1101	// 13
+
+    if ((flags & GPIO_OUTPUT) != 0) {
+        cnf_mode = GPIO_CNF_OUT_PP;
+        if ((flags & GPIO_OUTPUT_INIT_HIGH) != 0) {
+            bsbr = 1 << pin;
+        } else if ((flags & GPIO_OUTPUT_INIT_LOW) != 0) {
+            bsbr = 1 << (16 + pin);
+        }
+    } else if ((flags & GPIO_INPUT) != 0) {
+        if ((flags & GPIO_PULL_UP) != 0) {
+            cnf_mode = GPIO_CNF_IN_PUPD;
+            bsbr = 1 << pin;
+        } else if ((flags & GPIO_PULL_DOWN) != 0) {
+            cnf_mode = GPIO_CNF_IN_PUPD;
+            bsbr = 1 << (16 + pin);
+        } else {
+            cnf_mode = GPIO_CNF_IN_FLOATING;
+        }
+    } else {
+        cnf_mode = GPIO_CNF_IN_ANALOG;
+    }
+
+    if (pin < 8) {
+        base->CFGLR = (base->CFGLR & ~(0x0F << (4 * pin))) | (cnf_mode << (4 * pin));
+    } else if (pin < 16) {
+        base->CFGHR = (base->CFGHR & ~(0x0F << (4 * (pin - 8)))) | (cnf_mode << (4 * (pin - 8)));
+    } else {
+        base->CFGXR = (base->CFGXR & ~(0x0F << (4 * (pin - 16)))) | (cnf_mode << (4 * (pin - 16)));
+    }
+    if (pin < 16) {
+        base->BSHR = bsbr;
+    } else {
+        base->BSXR = bsbr;
+    }
+
+#else
+    GPIOMode_TypeDef mode = GPIO_Mode_AIN;
+
     if (flags & GPIO_INPUT) {
         if      (flags & GPIO_PULL_UP)   { mode = GPIO_Mode_IPU;         }
         else if (flags & GPIO_PULL_DOWN) { mode = GPIO_Mode_IPD;         }
@@ -48,49 +97,50 @@ static int gpio_ch32_pin_configure(const struct device *dev, gpio_pin_t pin, gpi
         mode = GPIO_Mode_Out_PP;
     }
 
-    if (flags & GPIO_OUTPUT_INIT_LOW)  { GPIO_WriteBit(config->base, BIT(pin), RESET); }
-    if (flags & GPIO_OUTPUT_INIT_HIGH) { GPIO_WriteBit(config->base, BIT(pin), SET);   }
+    if (flags & GPIO_OUTPUT_INIT_LOW)  { GPIO_WriteBit(base, BIT(pin), RESET); }
+    if (flags & GPIO_OUTPUT_INIT_HIGH) { GPIO_WriteBit(base, BIT(pin), SET);   }
 
     GPIO_InitTypeDef cfg = {
         .GPIO_Pin   = BIT(pin),
         .GPIO_Speed = GPIO_Speed_50MHz,
         .GPIO_Mode  = mode,
     };
-    GPIO_Init(config->base, &cfg);
+    GPIO_Init(base, &cfg);
+#endif
 
     return 0;
 }
 
 static int gpio_ch32_port_get_raw(const struct device *dev, uint32_t *value) {
     const struct gpio_ch32_config *config = dev->config;
-    *value = GPIO_ReadInputData(config->base);
+    *value = config->base->INDR;
     return 0;
 }
 
 static int gpio_ch32_port_set_masked_raw(const struct device *dev, uint32_t mask, uint32_t value) {
     const struct gpio_ch32_config *config = dev->config;
-    GPIO_SetBits(config->base,   mask & value);
-    GPIO_ResetBits(config->base, mask & ~value);
+    config->base->BSHR = FIELD_GET(GENMASK(15, 0), mask & value);
+    config->base->BSXR = FIELD_GET(GENMASK(31, 16), mask & value) >> 16;
+    config->base->BCR = (mask & ~value);
     return 0;
 }
 
-static int gpio_ch32_port_set_bits_raw(const struct device *dev, uint32_t mask) {
+static int gpio_ch32_port_set_bits_raw(const struct device *dev, uint32_t pins) {
     const struct gpio_ch32_config *config = dev->config;
-    GPIO_SetBits(config->base, mask);
+    config->base->BSHR = FIELD_GET(GENMASK(15, 0), pins);
+    config->base->BSXR = FIELD_GET(GENMASK(31, 16), pins) >> 16;
     return 0;
 }
 
-static int gpio_ch32_port_clear_bits_raw(const struct device *dev, uint32_t mask) {
+static int gpio_ch32_port_clear_bits_raw(const struct device *dev, uint32_t pins) {
     const struct gpio_ch32_config *config = dev->config;
-    GPIO_ResetBits(config->base, mask);
+    config->base->BCR = pins;
     return 0;
 }
 
-static int gpio_ch32_port_toggle_bits(const struct device *dev, uint32_t mask) {
+static int gpio_ch32_port_toggle_bits(const struct device *dev, uint32_t pins) {
     const struct gpio_ch32_config *config = dev->config;
-    uint32_t value = ~GPIO_ReadOutputData(config->base);
-    GPIO_SetBits(config->base,   mask & value);
-    GPIO_ResetBits(config->base, mask & ~value);
+    gpio_ch32_port_set_masked_raw(dev, pins, ~config->base->OUTDR);
     return 0;
 }
 

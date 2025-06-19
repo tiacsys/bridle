@@ -134,7 +134,6 @@ static int clock_control_ch32_rcc_init(const struct device *dev)
 
 // TODO: use clock_control_ch32_rcc_on() with correct clock identifier. */
 //	RCC_AHBPeriphClockCmd (RCC_AHBPeriph_DMA1,  ENABLE); // enable DMA
-//	RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO, ENABLE); // enable pin remap and EXTI
 
 	return 0;
 };
