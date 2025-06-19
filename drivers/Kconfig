@@ -10,6 +10,7 @@ rsource "display/Kconfig"
 rsource "gpio/Kconfig"
 rsource "i2c/Kconfig"
 rsource "mfd/Kconfig"
+rsource "pinctrl/Kconfig"
 rsource "sensor/Kconfig"
 rsource "serial/Kconfig"
 

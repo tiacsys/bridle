@@ -1,8 +1,12 @@
-description: CH32 UART node
+# Copyright (c) 2025 TiaC Systems
+# Copyright (c) 2024 Matthew Tran
+# SPDX-License-Identifier: Apache-2.0
+
+description: WCH CH32 Universal Asynchronous Receiver Transmitter (UART)
 
 compatible: "wch,ch32-uart"
 
-include: uart-controller.yaml
+include: [uart-controller.yaml, pinctrl-device.yaml]
 
 properties:
   reg:
@@ -15,10 +19,5 @@ properties:
     type: array
     required: true
 
-  pinctrl:
-    type: array
+  pinctrl-0:
     required: true
-
-  remap:
-    type: array
-    default: [0]

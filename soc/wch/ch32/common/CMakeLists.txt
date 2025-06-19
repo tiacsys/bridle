@@ -7,7 +7,6 @@ set(WCH_SDK_DIR ${ZEPHYR_BASE}/../modules/hal/openwch/${SOC_SERIES}/EVT/EXAM/SRC
 
 file(GLOB WCH_SDK_SRCS
     ${WCH_SDK_DIR}/Core/core_riscv.c
-    ${WCH_SDK_DIR}/Peripheral/src/ch32x035_gpio.c
     ${WCH_SDK_DIR}/Peripheral/src/ch32x035_usart.c
 )
 

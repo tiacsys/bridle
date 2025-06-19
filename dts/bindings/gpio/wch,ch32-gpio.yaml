@@ -1,4 +1,8 @@
-description: CH32 GPIO node
+# Copyright (c) 2025 TiaC Systems
+# Copyright (c) 2024 Matthew Tran
+# SPDX-License-Identifier: Apache-2.0
+
+description: WCH CH32 General Purpose Input Output (GPIO) Controller
 
 compatible: "wch,ch32-gpio"
 

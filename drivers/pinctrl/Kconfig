@@ -1,0 +1,8 @@
+# Copyright (c) 2025 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+if PINCTRL
+
+rsource "Kconfig.ch32x035"
+
+endif # PINCTRL

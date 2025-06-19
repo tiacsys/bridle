@@ -7,9 +7,11 @@
 #define DT_DRV_COMPAT wch_ch32_uart
 
 #include <errno.h>
-#include <zephyr/device.h>
+
+//#include <zephyr/device.h>
 #include <zephyr/drivers/uart.h>
 #include <zephyr/drivers/clock_control.h>
+#include <zephyr/drivers/pinctrl.h>
 #include <zephyr/irq.h>
 #include <soc.h>
 
@@ -17,8 +19,7 @@ struct uart_ch32_config {
     USART_TypeDef *base;
     const struct device *clock_dev;
     uint8_t clock_id;
-    uint32_t pin_tx, pin_rx;
-    uint32_t remap;
+    const struct pinctrl_dev_config *pin_cfg;
 #ifdef CONFIG_UART_INTERRUPT_DRIVEN
     void (*irq_config_func)(void);
 #endif
@@ -296,18 +297,23 @@ static int uart_ch32_init(const struct device *dev) {
     struct uart_ch32_data *data = dev->data;
     int err = 0;
 
-    pinctrl_configure_pins(config->pin_tx, GPIO_Mode_AF_PP);
-    pinctrl_configure_pins(config->pin_rx, GPIO_Mode_IN_FLOATING);
-    pinctrl_apply_state(config->remap);
     clock_control_on(config->clock_dev, (clock_control_subsys_t *)(uintptr_t)config->clock_id);
 
     err = uart_ch32_configure(dev, &data->uart_cfg);
+    if (err != 0) {
+        return err;
+    }
+
+    err = pinctrl_apply_state(config->pin_cfg, PINCTRL_STATE_DEFAULT);
+    if (err != 0) {
+        return err;
+    }
 
 #ifdef CONFIG_UART_INTERRUPT_DRIVEN
     config->irq_config_func();
 #endif
 
-    return err;
+    return 0;
 }
 
 static const struct uart_driver_api uart_ch32_driver_api = {
@@ -350,15 +356,14 @@ static const struct uart_driver_api uart_ch32_driver_api = {
 #endif // CONFIG_UART_INTERRUPT_DRIVEN
 
 #define UART_CH32_INIT(n)                                             \
+    PINCTRL_DT_INST_DEFINE(n);                                        \
     UART_CH32_IRQ_CONFIG(n)                                           \
                                                                       \
     static const struct uart_ch32_config uart_ch32_##n##_config = {   \
         .base      = (USART_TypeDef*) DT_INST_REG_ADDR(n),            \
         .clock_dev = DEVICE_DT_GET(DT_INST_CLOCKS_CTLR(n)),           \
         .clock_id  = DT_INST_CLOCKS_CELL(n, id),                      \
-        .pin_tx    = DT_INST_PROP_BY_IDX(n, pinctrl, 0),              \
-        .pin_rx    = DT_INST_PROP_BY_IDX(n, pinctrl, 1),              \
-        .remap     = DT_INST_PROP_BY_IDX(n, remap, 0),                \
+        .pin_cfg   = PINCTRL_DT_INST_DEV_CONFIG_GET(n),               \
         UART_CH32_IRQ_INIT(n)                                         \
     };                                                                \
                                                                       \
