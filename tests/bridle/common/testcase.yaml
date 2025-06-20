@@ -9,6 +9,8 @@ common:
   min_ram: 16
   timeout: 120
   sysbuild: false
+  platform_exclude:
+    - qemu_riscv32_xip
   integration_platforms:
     - native_sim
     - native_sim/native/64
@@ -40,7 +42,7 @@ common:
     - qemu_riscv32e
     - qemu_riscv32
     - qemu_riscv32/qemu_virt_riscv32/smp
-    - qemu_riscv32_xip
+    # Qemu issue (-ENOTBLK): - qemu_riscv32_xip
     - qemu_riscv64
     - qemu_riscv64/qemu_virt_riscv64/smp
     - qemu_xtensa/dc233c
