@@ -12,6 +12,8 @@ common:
   platform_exclude:
     - qemu_x86_lakemont
     - qemu_x86_tiny
+    - qemu_x86_64
+    - qemu_x86_64/atom/nokpti
     - qemu_cortex_r5
     - qemu_cortex_m0
     - qemu_riscv32_xip
@@ -26,8 +28,8 @@ common:
     - qemu_x86/atom/xip
     # Qemu issue (-ENOTBLK): - qemu_x86_lakemont
     # Qemu issue (-ENOTBLK): - qemu_x86_tiny
-    - qemu_x86_64
-    - qemu_x86_64/atom/nokpti
+    # Qemu issue (-ENOTBLK): - qemu_x86_64
+    # Qemu issue (-ENOTBLK): - qemu_x86_64/atom/nokpti
     # Qemu issue (-ENOTBLK): - qemu_cortex_r5
     # Qemu issue (-ENOTBLK): - qemu_cortex_m0
     - qemu_cortex_m3
@@ -98,8 +100,8 @@ tests:
              CONFIG_XTENSA_SIM_CONSOLE)
     extra_args:
       - CMAKE_BUILD_TYPE=ZRelease
-    harness: pytest
     timeout: 300
+    harness: pytest
   bridle.sample.helloshell.sayhello:
     filter: CONFIG_QEMU_TARGET and CONFIG_CONSOLE and
             (dt_chosen_enabled("zephyr,console") or
