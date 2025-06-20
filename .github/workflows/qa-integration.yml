@@ -95,10 +95,19 @@ jobs:
         with:
           enable-cache: true
 
+      - name: Create and enter Python 3.12 virtual environment
+        working-directory: workspace
+        run: |
+          uv venv --python 3.12
+          . .venv/bin/activate
+          echo "$PATH" > $GITHUB_PATH
+
       - name: Install base dependencies
         working-directory: workspace
         run: |
-          uv pip install --system --upgrade --requirement bridle/scripts/requirements-base.txt
+          which python3 && python3 --version
+          which uv && uv --version
+          uv pip install --upgrade --requirement bridle/scripts/requirements-base.txt
 
       - name: West init and update
         working-directory: workspace
@@ -111,12 +120,12 @@ jobs:
       - name: Install build and test dependencies
         working-directory: workspace
         run: |
-          uv pip install --system --upgrade --requirement zephyr/scripts/requirements-base.txt
-          uv pip install --system --upgrade --requirement zephyr/scripts/requirements-build-test.txt
-          uv pip install --system --upgrade --requirement zephyr/scripts/requirements-run-test.txt
-          uv pip install --system --upgrade --requirement zephyr/scripts/requirements-extras.txt
-          uv pip install --system --upgrade --requirement zephyr/scripts/requirements-compliance.txt
-          uv pip install --system --upgrade --requirement bridle/scripts/requirements-build.txt
+          uv pip install --upgrade --requirement zephyr/scripts/requirements-base.txt
+          uv pip install --upgrade --requirement zephyr/scripts/requirements-build-test.txt
+          uv pip install --upgrade --requirement zephyr/scripts/requirements-run-test.txt
+          uv pip install --upgrade --requirement zephyr/scripts/requirements-extras.txt
+          uv pip install --upgrade --requirement zephyr/scripts/requirements-compliance.txt
+          uv pip install --upgrade --requirement bridle/scripts/requirements-build.txt
 
       - name: Build samples
         working-directory: workspace
@@ -211,10 +220,19 @@ jobs:
         with:
           enable-cache: true
 
+      - name: Create and enter Python 3.12 virtual environment
+        working-directory: workspace
+        run: |
+          uv venv --python 3.12
+          . .venv/bin/activate
+          echo "$PATH" > $GITHUB_PATH
+
       - name: Install base dependencies
         working-directory: workspace
         run: |
-          uv pip install --system --upgrade --requirement bridle/scripts/requirements-base.txt
+          which python3 && python3 --version
+          which uv && uv --version
+          uv pip install --upgrade --requirement bridle/scripts/requirements-base.txt
 
       - name: West init and update
         working-directory: workspace
@@ -227,12 +245,12 @@ jobs:
       - name: Install build and test dependencies
         working-directory: workspace
         run: |
-          uv pip install --system --upgrade --requirement zephyr/scripts/requirements-base.txt
-          uv pip install --system --upgrade --requirement zephyr/scripts/requirements-build-test.txt
-          uv pip install --system --upgrade --requirement zephyr/scripts/requirements-run-test.txt
-          uv pip install --system --upgrade --requirement zephyr/scripts/requirements-extras.txt
-          uv pip install --system --upgrade --requirement zephyr/scripts/requirements-compliance.txt
-          uv pip install --system --upgrade --requirement bridle/scripts/requirements-build.txt
+          uv pip install --upgrade --requirement zephyr/scripts/requirements-base.txt
+          uv pip install --upgrade --requirement zephyr/scripts/requirements-build-test.txt
+          uv pip install --upgrade --requirement zephyr/scripts/requirements-run-test.txt
+          uv pip install --upgrade --requirement zephyr/scripts/requirements-extras.txt
+          uv pip install --upgrade --requirement zephyr/scripts/requirements-compliance.txt
+          uv pip install --upgrade --requirement bridle/scripts/requirements-build.txt
 
       - name: Build tests
         working-directory: workspace
@@ -327,10 +345,19 @@ jobs:
         with:
           enable-cache: true
 
+      - name: Create and enter Python 3.12 virtual environment
+        working-directory: workspace
+        run: |
+          uv venv --python 3.12
+          . .venv/bin/activate
+          echo "$PATH" > $GITHUB_PATH
+
       - name: Install base dependencies
         working-directory: workspace
         run: |
-          uv pip install --system --upgrade --requirement bridle/scripts/requirements-base.txt
+          which python3 && python3 --version
+          which uv && uv --version
+          uv pip install --upgrade --requirement bridle/scripts/requirements-base.txt
 
       - name: West init and update
         working-directory: workspace
@@ -343,12 +370,12 @@ jobs:
       - name: Install build and test dependencies
         working-directory: workspace
         run: |
-          uv pip install --system --upgrade --requirement zephyr/scripts/requirements-base.txt
-          uv pip install --system --upgrade --requirement zephyr/scripts/requirements-build-test.txt
-          uv pip install --system --upgrade --requirement zephyr/scripts/requirements-run-test.txt
-          uv pip install --system --upgrade --requirement zephyr/scripts/requirements-extras.txt
-          uv pip install --system --upgrade --requirement zephyr/scripts/requirements-compliance.txt
-          uv pip install --system --upgrade --requirement bridle/scripts/requirements-build.txt
+          uv pip install --upgrade --requirement zephyr/scripts/requirements-base.txt
+          uv pip install --upgrade --requirement zephyr/scripts/requirements-build-test.txt
+          uv pip install --upgrade --requirement zephyr/scripts/requirements-run-test.txt
+          uv pip install --upgrade --requirement zephyr/scripts/requirements-extras.txt
+          uv pip install --upgrade --requirement zephyr/scripts/requirements-compliance.txt
+          uv pip install --upgrade --requirement bridle/scripts/requirements-build.txt
 
       - name: Build integration tests for shields
         working-directory: workspace
@@ -437,7 +464,7 @@ jobs:
         with:
           enable-cache: true
 
-      - name: Setup Python 3.12 virtual environment
+      - name: Create and enter Python 3.12 virtual environment
         working-directory: workspace
         run: |
           uv venv --python 3.12

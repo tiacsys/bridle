@@ -38,7 +38,7 @@ jobs:
         with:
           enable-cache: true
 
-      - name: Create and enter python environment
+      - name: Create and enter Python 3.12 virtual environment
         run: |
           uv venv --python 3.12
           source .venv/bin/activate
