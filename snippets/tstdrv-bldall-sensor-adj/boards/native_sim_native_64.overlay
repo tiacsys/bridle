@@ -14,6 +14,14 @@
 	status = "disabled";
 };
 
+&test_spi_adxl366 {
+	status = "disabled";
+};
+
+&test_i2c_adxl366 {
+	status = "disabled";
+};
+
 &test_spi_adxl367 {
 	status = "disabled";
 };
