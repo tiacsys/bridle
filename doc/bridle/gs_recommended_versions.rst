@@ -37,7 +37,7 @@ the |BRIDLE| development environment:
            - S390X
          * - `Ubuntu 24.04 LTS`_
            - :rd:`Not applicable`
-           - :bbl:`Tier 2`
+           - :bgn:`Tier 1`
            - Not supported
            - :byl:`Tier 3`
            - Not supported
@@ -45,7 +45,7 @@ the |BRIDLE| development environment:
            - Not supported
          * - `Ubuntu 22.04 LTS`_
            - :rd:`Not applicable`
-           - :bgn:`Tier 1`
+           - :bbl:`Tier 2`
            - Not supported
            - :byl:`Tier 3`
            - Not supported
