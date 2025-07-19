@@ -1,5 +1,10 @@
 pykitinfo>=1.3
 pymcuprog>=3.19
-pyocd>=0.36
+
+# Zephyr upstream requires spsdk==2.6.0,
+#          that depends on spsdk-pyocd<1,>=0.2.0 --> 0.3.2,
+#          that depends on pyocd<0.37
+pyocd<0.37,>=0.36
+
 pyserial>=3.5
 pytest>=8.4
