@@ -1,4 +1,4 @@
-# Copyright (c) 2024 TiaC Systems
+# Copyright (c) 2021-2025 TiaC Systems
 # Copyright (c) 2021 Nordic Semiconductor ASA
 # SPDX-License-Identifier: LicenseRef-Nordic-5-Clause
 
@@ -23,7 +23,7 @@ endforeach()
 foreach(pip_file ${PIP_REQUIREMENTS_FILES})
   file(STRINGS ${pip_file} PACKAGE_VERSIONS REGEX "^[^#].*")
   foreach(package ${PACKAGE_VERSIONS})
-    string(REGEX REPLACE "(^[^~>=\;]*)([\;]|([~>=][^\;]*))\;*.*" "\\1" package_name "${package}")
+    string(REGEX REPLACE "(^[^~>=<\;]*)([\;]|([~>=<][^\;]*))\;*.*" "\\1" package_name "${package}")
     string(TOUPPER ${package_name} PACKAGE_NAME_UPPER)
     set(${PACKAGE_NAME_UPPER}_VERSION ${CMAKE_MATCH_3})
     if("${${PACKAGE_NAME_UPPER}_VERSION}" STREQUAL "")
