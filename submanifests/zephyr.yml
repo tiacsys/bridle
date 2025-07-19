@@ -1,6 +1,6 @@
 # The west submanifest file for Zephyr.
 #
-# Copyright (c) 2021-2023 TiaC Systems
+# Copyright (c) 2021-2025 TiaC Systems
 #
 # SPDX-License-Identifier: Apache-2.0
 
@@ -33,7 +33,7 @@ manifest:
       path: zephyr
       remote: tiacsys
       repo-path: zephyr
-      revision: tiacsys/main
+      revision: tiacsys/v4.2.0
       clone-depth: 5000
       # import submodules from Zephyr manifest
       import:
