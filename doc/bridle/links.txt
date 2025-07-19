@@ -201,6 +201,7 @@
 .. _`sphinx_tsn_theme`: https://pypi.org/project/sphinx-tsn-theme
 .. _`sphinx-ncs-theme`: https://pypi.org/project/sphinx-ncs-theme
 .. _`sphinxcontrib-mscgen`: https://pypi.org/project/sphinxcontrib-mscgen
+.. _`sphinxcontrib-programoutput`: https://pypi.org/project/sphinxcontrib-programoutput
 .. _`sphinxcontrib-svg2pdfconverter`: https://pypi.org/project/sphinxcontrib-svg2pdfconverter
 .. _`sphinx-autobuild`: https://pypi.org/project/sphinx-autobuild
 .. _`sphinx-copybutton`: https://pypi.org/project/sphinx-copybutton

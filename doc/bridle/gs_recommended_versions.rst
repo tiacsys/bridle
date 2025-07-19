@@ -551,6 +551,8 @@ Building documentation
      - |sphinx_tsn_theme_ver|
    * - |sphinxcontrib-mscgen|_
      - |sphinxcontrib-mscgen_ver|
+   * - |sphinxcontrib-programoutput|_
+     - |sphinxcontrib-programoutput_ver|
    * - |sphinxcontrib-svg2pdfconverter|_
      - |sphinxcontrib-svg2pdfconverter_ver|
    * - |sphinx-autobuild|_
