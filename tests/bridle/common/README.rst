@@ -15,11 +15,11 @@ Currently this integration test verifies the auto-generated version number:
              --testsuite-root bridle/tests/bridle/common
 
 Depending on the number of compatible boards, this test suite will take several
-minutes or hours to complete (:bbl:`≈3.00h` on :ibl:`≈880 platforms`).
+minutes or hours to complete (:bbl:`≈4.00h` on :ibl:`≈1130 platforms`).
 
 With the option :code:`--integration` the time for testing can be reduced
 significantly by limiting the test runs to the boards currently supported
-by this test suite (checks only :bbl:`≈4.50%` of all platforms). But then
+by this test suite (checks only :bbl:`≈3.10%` of all platforms). But then
 the runtime filter will not act as intended and the filtering rules become
 ineffective:
 

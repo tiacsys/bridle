@@ -8,8 +8,8 @@ against all possible :zephyr:term:`boards <board>` and shields that are supporte
 by :external+zephyr:ref:`Zephyr <boards>` and :ref:`Bridle <boards>`.
 
 Depending on the number of compatible boards, this test suite will take several
-hours to complete (:bbl:`≈22.00h` for :ibl:`≈200 test scenarios` on
-:ibl:`≈880 platforms`):
+hours to complete (:bbl:`≈28.25h` for :ibl:`≈195 test scenarios` on
+:ibl:`≈1130 platforms`):
 
    .. code-block:: console
 
@@ -36,7 +36,7 @@ the filtering rules become ineffective:
 
 Even more time can be saved with the option :code:`--integration` by limiting
 the test runs to the boards currently supported by this shield and that will
-be used for maintenance (checks only :bbl:`≈3.00%` of all platforms):
+be used for maintenance (checks only :bbl:`≈2.40%` of all platforms):
 
    .. code-block:: console
 
