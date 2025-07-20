@@ -48,6 +48,7 @@ common:
     - qemu_xtensa/dc233c
     - qemu_xtensa/dc233c/mmu
     - qemu_leon3
+    - qemu_rx
 tests:
   bridle.common:
     build_on_all: true
