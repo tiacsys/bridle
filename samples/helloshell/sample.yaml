@@ -12,11 +12,8 @@ common:
   platform_exclude:
     - qemu_x86_lakemont
     - qemu_x86_tiny
-    - qemu_x86_64
-    - qemu_x86_64/atom/nokpti
-    - qemu_cortex_r5
-    - qemu_cortex_m0
     - qemu_riscv32_xip
+    - qemu_rx
   integration_platforms:
     - native_sim
     - native_sim/native/64
@@ -28,10 +25,10 @@ common:
     - qemu_x86/atom/xip
     # Qemu issue (-ENOTBLK): - qemu_x86_lakemont
     # Qemu issue (-ENOTBLK): - qemu_x86_tiny
-    # Qemu issue (-ENOTBLK): - qemu_x86_64
-    # Qemu issue (-ENOTBLK): - qemu_x86_64/atom/nokpti
-    # Qemu issue (-ENOTBLK): - qemu_cortex_r5
-    # Qemu issue (-ENOTBLK): - qemu_cortex_m0
+    - qemu_x86_64
+    - qemu_x86_64/atom/nokpti
+    - qemu_cortex_r5
+    - qemu_cortex_m0
     - qemu_cortex_m3
     - qemu_cortex_a9
     - qemu_cortex_a53
@@ -54,6 +51,8 @@ common:
     - qemu_xtensa/dc233c
     - qemu_xtensa/dc233c/mmu
     - qemu_leon3
+    # Qemu issue (-ENOTBLK): - qemu_rx
+    - magpie_f777ni
     - arduino_zero
     - cytron_maker_nano_rp2040
     - cytron_maker_pi_rp2040
