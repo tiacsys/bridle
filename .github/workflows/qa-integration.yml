@@ -510,11 +510,6 @@ jobs:
           # --tag vector_relay \
           # --tag kernel \
           #
-          # TODO: Re-enable counter API tests as soon as possible,
-          # yet before Zephyr and Bridle v4.2.0 release:
-          #
-          # --tag counter \
-          #
           west twister --verbose --jobs 2 \
             --retry-failed 5 --retry-interval 60 \
             --outdir twister-out --no-clean --inline-logs \
@@ -528,6 +523,7 @@ jobs:
             --tag random \
             --tag entropy \
             --tag watchdog \
+            --tag counter \
             --tag gpio \
             --tag spi \
             --tag uart \
