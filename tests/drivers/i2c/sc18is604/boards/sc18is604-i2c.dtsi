@@ -1,0 +1,40 @@
+/*
+ * Copyright (c) 2025 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <freq.h>
+#include <zephyr/dt-bindings/i2c/i2c.h>
+
+&spi0 {
+	status = "okay";
+	sc18is604: sc18is604@0 {
+		compatible = "nxp,sc18is604";
+		status = "okay";
+		spi-max-frequency = <DT_FREQ_K(1200)>;
+		reg = <0>;
+
+		interrupt-gpios = <&gpio0 0 0>;
+		reset-gpios = <&gpio0 1 0>;
+
+		sc18is604_i2c: sc18is604-i2c {
+			compatible = "nxp,sc18is604-i2c";
+			status = "okay";
+
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			clock-frequency = <I2C_BITRATE_STANDARD>;
+		};
+
+	};
+};
+
+&gpio0 {
+	status = "okay";
+	ngpios = <8>;
+	rising-edge;
+	falling-edge;
+	high-level;
+	low-level;
+};
