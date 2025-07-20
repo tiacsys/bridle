@@ -59,13 +59,14 @@ Building and Running
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
          INFO    - 1/3 magpie_f777ni/stm32f777xx tests/drivers/clock_control/pwm_clock/drivers.clock.pwm_clock :byl:`FILTERED` (runtime filter)
-         INFO    - 2/3 magpie_f777ni/stm32f777xx tests/drivers/pwm/pwm_api/drivers.pwm              :bgn:`PASSED` (device: DT04BNT1, 8.999s <zephyr>)
-         INFO    - 3/3 magpie_f777ni/stm32f777xx tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback :brd:`FAILED` Failed harness:'Testsuite failed' (device: DT04BNT1, 3.156s <zephyr>)
+         INFO    - 2/3 magpie_f777ni/stm32f777xx tests/drivers/pwm/pwm_api/drivers.pwm              :bgn:`PASSED` (device: DT04BNT1, 8.971s <zephyr>)
+         INFO    - 3/3 magpie_f777ni/stm32f777xx tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback :brd:`FAILED` Failed harness:'Testsuite failed' (device: DT04BNT1, 3.147s <zephyr>)
          INFO    - :byl:`.../twister-out/magpie_f777ni_stm32f777xx/tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback/handler.log`
 
-         INFO    - 2537 test scenarios (2325 configurations) selected, :byl:`2323` configurations filtered (2322 by static filter, 1 at runtime).
-         INFO    - :brd:`1 of 2` executed test configurations passed (50.00%), :bbk:`0` built (not run), :brd:`1` failed, :bbk:`0` errored, with no warnings in :bbk:`57.32 seconds`.
-         INFO    - 2 of 10 executed test cases passed (20.00%), 7 blocked, 1 failed on 1 out of total 947 platforms (0.11%).
+         INFO    - 2763 test scenarios (2539 configurations) selected, :byl:`2537` configurations filtered (2536 by static filter, 1 at runtime).
+         INFO    - :brd:`1 of 2` executed test configurations passed (50.00%), :bbk:`0` built (not run), :brd:`1` failed, :bbk:`0` errored, with no warnings in :bbk:`76.03 seconds`.
+         INFO    - 2 of 3 executed test cases passed (66.67%), 1 failed on 1 out of total 1133 platforms (0.09%).
+         INFO    - 7 selected test cases not executed: 7 skipped.
          INFO    - :bgn:`2` test configurations executed on platforms, :bbl:`0` test configurations were only built.
 
          Hardware distribution summary:

@@ -43,21 +43,24 @@ are shown on the console like this:
 
    .. parsed-literal::
 
+      [00:00:00.050,000] <inf> phy_mii: PHY (0) ID 221560
       \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* \*\*\*
-      [00:00:00.011,000] <inf> net_config: Initializing network
-      [00:00:00.011,000] <inf> net_config: Waiting interface 1 (0x200217e8) to be up...
-      [00:00:00.512,000] <inf> net_config: Interface 1 (0x200217e8) coming up
-      [00:00:00.512,000] <inf> net_config: IPv4 address: 192.0.2.1
-      [00:00:00.512,000] <inf> net_config: Running dhcpv4 client...
-      [00:00:00.614,000] <inf> net_config: IPv6 address: fd9c:33d7:ba99:0:280:e1ff:fee1:9a39
-      [00:00:00.614,000] <inf> net_dumb_http_srv_mt_sample: Network connected
-      [00:00:00.615,000] <dbg> net_dumb_http_srv_mt_sample: process_tcp6: Waiting for **IPv6 HTTP** connections on port **8080**, sock 3
-      [00:00:00.615,000] <dbg> net_dumb_http_srv_mt_sample: process_tcp4: Waiting for **IPv4 HTTP** connections on port **8080**, sock 4
-      [00:00:08.531,000] <inf> net_dhcpv4: Received: **192.168.10.197**
-      [00:00:08.531,000] <inf> net_config: IPv4 address: 192.168.10.197
-      [00:00:08.531,000] <inf> net_config: Lease time: 28800 seconds
-      [00:00:08.532,000] <inf> net_config: Subnet: 255.255.255.0
-      [00:00:08.532,000] <inf> net_config: Router: 192.168.10.1
+      [00:00:00.057,000] <inf> net_config: Initializing network
+      [00:00:00.057,000] <inf> net_config: Waiting interface 1 (0x200218f0) to be up...
+      [00:00:02.651,000] <inf> phy_mii: PHY (0) Link speed **100 Mb**, **full duplex**
+      [00:00:02.657,000] <inf> net_config: Interface 1 (0x200218f0) coming up
+      [00:00:02.658,000] <inf> net_config: IPv4 address: 192.0.2.1
+      [00:00:02.658,000] <inf> net_config: Running dhcpv4 client...
+      [00:00:02.758,000] <inf> net_config: IPv6 address: 2001:db8::1
+      [00:00:02.758,000] <inf> net_dumb_http_srv_mt_sample: Network connected
+      [00:00:02.759,000] <dbg> net_dumb_http_srv_mt_sample: process_tcp6: Waiting for **IPv6 HTTP** connections on port **8080**, sock 3
+      [00:00:02.759,000] <dbg> net_dumb_http_srv_mt_sample: process_tcp4: Waiting for **IPv4 HTTP** connections on port **8080**, sock 4
+      [00:00:03.759,000] <inf> net_config: IPv6 address: 2001:db8::1
+      [00:00:05.678,000] <inf> net_dhcpv4: Received: **192.168.10.197**
+      [00:00:05.678,000] <inf> net_config: IPv4 address: 192.168.10.197
+      [00:00:05.678,000] <inf> net_config: Lease time: 28800 seconds
+      [00:00:05.678,000] <inf> net_config: Subnet: 255.255.255.0
+      [00:00:05.678,000] <inf> net_config: Router: 192.168.10.1
 
 Now the sample was starting, it expects connections at **192.168.10.197**,
 port **8080**. The easiest way to connect is by opening a following URL in

@@ -50,11 +50,11 @@ Building and Running
          INFO    - JOBS: 4
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1/1 magpie_f777ni/stm32f777xx bridle/common/bridle.common                        :bgn:`PASSED` (device: DT04BNT1, 10.676s <zephyr>)
+         INFO    - 1/1 magpie_f777ni/stm32f777xx bridle/common/bridle.common                        :bgn:`PASSED` (device: DT04BNT1, 3.428s <zephyr>)
 
-         INFO    - 413 test scenarios (413 configurations) selected, :byl:`412` configurations filtered (412 by static filter, 0 at runtime).
-         INFO    - :bgn:`1 of 1` executed test configurations passed (100.00%), :bbk:`0` built (not run), :brd:`0` failed, :bbk:`0` errored, with no warnings in :bbk:`39.91 seconds`.
-         INFO    - 1 of 1 executed test cases passed (100.00%) on 1 out of total 947 platforms (0.11%).
+         INFO    - 415 test scenarios (415 configurations) selected, :byl:`414` configurations filtered (414 by static filter, 0 at runtime).
+         INFO    - :bgn:`1 of 1` executed test configurations passed (100.00%), :bbk:`0` built (not run), :brd:`0` failed, :bbk:`0` errored, with no warnings in :bbk:`41.64 seconds`.
+         INFO    - 1 of 1 executed test cases passed (100.00%) on 1 out of total 1133 platforms (0.09%).
          INFO    - :bgn:`1` test configurations executed on platforms, :bbl:`0` test configurations were only built.
 
          Hardware distribution summary:

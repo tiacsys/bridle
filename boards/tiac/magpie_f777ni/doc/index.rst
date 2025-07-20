@@ -607,22 +607,18 @@ with a single call to Twister.
          INFO    - JOBS: 4
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         WARNING - TS_START: already STARTED 'wdt_basic_test_suite':{'count': 1, 'repeat': 0}led:    0, error:    0
-         WARNING - TC_START: already STARTED case 'drivers.watchdog.stm32iwdg.boot.off.wdt_basic_test_suite.wdt':{'count': 1}
-         WARNING - TS_START: already STARTED 'wdt_basic_test_suite':{'count': 1, 'repeat': 0}led:    0, error:    0
-         WARNING - TC_START: already STARTED case 'drivers.watchdog.stm32wwdg.timing.adj.wdt_basic_test_suite.wdt':{'count': 1}
-         INFO    - Total complete:  :bgn:`179/ 179`  100%  built (not run):    :bbl:`0`, filtered: :byl:`2590`, failed:    :brd:`0`, error:    :bbk:`0`
-         INFO    - 2950 test scenarios (2738 configurations) selected, :byl:`2590` configurations filtered (2559 by static filter, 31 at runtime).
-         INFO    - :bgn:`148 of 148` executed test configurations passed (100.00%), :bbk:`0` built (not run), :brd:`0` failed, :bbk:`0` errored, with no warnings in :bbk:`2966.67 seconds`.
-         INFO    - 1586 of 1652 executed test cases passed (96.00%), 66 blocked on 1 out of total 947 platforms (0.11%).
-         INFO    - 79 selected test cases not executed: 79 skipped.
-         INFO    - :bgn:`148` test configurations executed on platforms, :bbl:`0` test configurations were only built.
+         INFO    - Total complete:  :bgn:`184/ 184`  100%  built (not run):    :bbl:`0`, filtered: :byl:`2803`, failed:    :brd:`0`, error:    :bbk:`0`
+         INFO    - 3178 test scenarios (2954 configurations) selected, :byl:`2803` configurations filtered (2770 by static filter, 33 at runtime).
+         INFO    - :bgn:`151 of 151` executed test configurations passed (100.00%), :bbk:`0` built (not run), :brd:`0` failed, :bbk:`0` errored, with no warnings in :bbk:`3092.93 seconds`.
+         INFO    - 1654 of 1654 executed test cases passed (100.00%), 66 blocked on 1 out of total 1133 platforms (0.09%).
+         INFO    - 155 selected test cases not executed: 155 skipped.
+         INFO    - :bgn:`151` test configurations executed on platforms, :bbl:`0` test configurations were only built.
 
          Hardware distribution summary:
 
          \| Board                     \| ID       \|   Counter \|   Failures \|
          \|---------------------------\|----------\|-----------\|------------\|
-         \| magpie_f777ni/stm32f777xx \| DT04BNT1 \|       148 \|          0 \|
+         \| magpie_f777ni/stm32f777xx \| DT04BNT1 \|       151 \|          0 \|
 
          INFO    - Saving reports...
          INFO    - Writing JSON report .../twister-out/twister.json

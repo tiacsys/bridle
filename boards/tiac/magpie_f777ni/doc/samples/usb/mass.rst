@@ -71,7 +71,7 @@ will be detected as shown by the Linux journalctl command:
    .. parsed-literal::
 
       :bgn:`$` **journalctl -k -n 17**
-      usb 1-6.3: new full-speed USB device number 16 using xhci_hcd
+      usb 1-6.3: new full-speed USB device number 19 using xhci_hcd
       usb 1-6.3: New USB device found, idVendor=\ |zephyr_VID|, idProduct=\ |zephyr_PID_MSC|, bcdDevice=\ |zephyr_BCD_MSC|
       usb 1-6.3: New USB device strings: Mfr=1, Product=2, SerialNumber=3
       usb 1-6.3: Product: |zephyr_PStr_MSC_dflt|
@@ -101,7 +101,7 @@ The output to the console will look something like this
       /RAM:: bsize = 512 ; frsize = 512 ; blocks = 158 ; bfree = 158
       /RAM: opendir: 0
       End of files
-      [00:00:00.061,000] <inf> main: The device is put in **USB mass storage mode**.
+      [00:00:00.063,000] <inf> main: The device is put in **USB mass storage mode**.
 
 On most operating systems the drive will be automatically mounted.
 
@@ -110,4 +110,4 @@ On most operating systems the drive will be automatically mounted.
    .. parsed-literal::
 
       :bgn:`$` **df -hlT -t vfat** | **tail -n1**
-      /dev/sdz   vfat   79K     0   79K   0% /media/user/4821-0000
+      /dev/sdz   vfat   79K     0   79K   0% /media/user/6506-11f0

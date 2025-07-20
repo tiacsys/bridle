@@ -51,17 +51,14 @@ Building and Running
          INFO    - JOBS: 4
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1/3 magpie_f777ni/stm32f777xx tests/drivers/watchdog/wdt_basic_api/drivers.watchdog :byl:`FILTERED` (runtime filter)
-         WARNING - TS_START: already STARTED 'wdt_basic_test_suite':{'count': 1, 'repeat': 0}
-         WARNING - TC_START: already STARTED case 'drivers.watchdog.stm32wwdg.timing.adj.wdt_basic_test_suite.wdt':{'count': 1}
-         INFO    - 2/3 magpie_f777ni/stm32f777xx tests/drivers/watchdog/wdt_basic_api/drivers.watchdog.stm32wwdg.timing.adj :bgn:`PASSED` (device: DT04BNT1, 2.626s <zephyr>)
-         WARNING - TS_START: already STARTED 'wdt_basic_test_suite':{'count': 1, 'repeat': 0}
-         WARNING - TC_START: already STARTED case 'drivers.watchdog.stm32iwdg.boot.off.wdt_basic_test_suite.wdt':{'count': 1}
-         INFO    - 3/3 magpie_f777ni/stm32f777xx tests/drivers/watchdog/wdt_basic_api/drivers.watchdog.stm32iwdg.boot.off :bgn:`PASSED` (device: DT04BNT1, 4.477s <zephyr>)
+         INFO    - 1/4 magpie_f777ni/stm32f777xx tests/drivers/watchdog/wdt_basic_reset_none/drivers.watchdog.reset_none :byl:`FILTERED` (runtime filter)
+         INFO    - 2/4 magpie_f777ni/stm32f777xx tests/drivers/watchdog/wdt_basic_api/drivers.watchdog :byl:`FILTERED` (runtime filter)
+         INFO    - 3/4 magpie_f777ni/stm32f777xx tests/drivers/watchdog/wdt_basic_api/drivers.watchdog.stm32wwdg.timing.adj :bgn:`PASSED` (device: DT04BNT1, 2.559s <zephyr>)
+         INFO    - 4/4 magpie_f777ni/stm32f777xx tests/drivers/watchdog/wdt_basic_api/drivers.watchdog.stm32iwdg.boot.off :bgn:`PASSED` (device: DT04BNT1, 4.443s <zephyr>)
 
-         INFO    - 2537 test scenarios (2325 configurations) selected, :byl:`2323` configurations filtered (2322 by static filter, 1 at runtime).
-         INFO    - :bgn:`2 of 2` executed test configurations passed (100.00%), :bbk:`0` built (not run), :brd:`0` failed, :bbk:`0` errored, with no warnings in :bbk:`40.39 seconds`.
-         INFO    - 2 of 2 executed test cases passed (100.00%) on 1 out of total 947 platforms (0.11%).
+         INFO    - 2763 test scenarios (2539 configurations) selected, :byl:`2537` configurations filtered (2535 by static filter, 2 at runtime).
+         INFO    - :bgn:`2 of 2` executed test configurations passed (100.00%), :bbk:`0` built (not run), :brd:`0` failed, :bbk:`0` errored, with no warnings in :bbk:`54.48 seconds`.
+         INFO    - 2 of 2 executed test cases passed (100.00%) on 1 out of total 1133 platforms (0.09%).
          INFO    - :bgn:`2` test configurations executed on platforms, :bbl:`0` test configurations were only built.
 
          Hardware distribution summary:

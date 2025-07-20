@@ -39,18 +39,20 @@ are shown on the console like this:
 
    .. parsed-literal::
 
+      [00:00:00.050,000] <inf> phy_mii: PHY (0) ID 221560
       \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* \*\*\*
-      [00:00:00.012,000] <inf> net_dhcpv4_client_sample: Run dhcpv4 client
-      [00:00:00.012,000] <inf> net_dhcpv4_client_sample: Start on **ethernet@40028000**: index=1
-      [00:00:03.517,000] <inf> net_dhcpv4_client_sample: DHCP Option 42: 192.168.10.10
-      [00:00:03.517,000] :byl:`<wrn> net_dhcpv4: DHCP server provided more DNS servers than can be saved`
-      [00:00:03.533,000] <inf> net_dhcpv4_client_sample: DHCP Option 42: 192.168.10.10
-      [00:00:03.533,000] :byl:`<wrn> net_dhcpv4: DHCP server provided more DNS servers than can be saved`
-      [00:00:03.534,000] <inf> net_dhcpv4: Received: **192.168.10.197**
-      [00:00:03.534,000] <inf> net_dhcpv4_client_sample:    Address[1]: 192.168.10.197
-      [00:00:03.534,000] <inf> net_dhcpv4_client_sample:     Subnet[1]: 255.255.255.0
-      [00:00:03.534,000] <inf> net_dhcpv4_client_sample:     Router[1]: 192.168.10.1
-      [00:00:03.534,000] <inf> net_dhcpv4_client_sample: Lease time[1]: 28800 seconds
+      [00:00:00.057,000] <inf> net_dhcpv4_client_sample: Run dhcpv4 client
+      [00:00:00.057,000] <inf> net_dhcpv4_client_sample: Start on **ethernet**: index=1
+      [00:00:02.651,000] <inf> phy_mii: PHY (0) Link speed **100 Mb**, **full duplex**
+      [00:00:05.658,000] <inf> net_dhcpv4_client_sample: DHCP Option 42: 192.168.10.10
+      [00:00:05.658,000] :byl:`<wrn> net_dhcpv4: DHCP server provided more DNS servers than can be saved`
+      [00:00:05.668,000] <inf> net_dhcpv4_client_sample: DHCP Option 42: 192.168.10.10
+      [00:00:05.668,000] :byl:`<wrn> net_dhcpv4: DHCP server provided more DNS servers than can be saved`
+      [00:00:05.669,000] <inf> net_dhcpv4: Received: **192.168.10.197**
+      [00:00:05.669,000] <inf> net_dhcpv4_client_sample:    Address[1]: 192.168.10.197
+      [00:00:05.669,000] <inf> net_dhcpv4_client_sample:     Subnet[1]: 255.255.255.0
+      [00:00:05.669,000] <inf> net_dhcpv4_client_sample:     Router[1]: 192.168.10.1
+      [00:00:05.669,000] <inf> net_dhcpv4_client_sample: Lease time[1]: 28800 seconds
 
 To verify the Zephyr application client is running and has received
 an IPv4 address by typing on Linux host:
@@ -61,13 +63,13 @@ an IPv4 address by typing on Linux host:
 
       :bgn:`$` **ping -c3 192.168.10.197**
       PING 192.168.10.197 (192.168.10.197) 56(84) bytes of data.
-      64 bytes from 192.168.10.197: icmp_seq=1 ttl=64 time=0.333 ms
-      64 bytes from 192.168.10.197: icmp_seq=2 ttl=64 time=0.264 ms
-      64 bytes from 192.168.10.197: icmp_seq=3 ttl=64 time=0.274 ms
+      64 bytes from 192.168.10.197: icmp_seq=1 ttl=64 time=0.874 ms
+      64 bytes from 192.168.10.197: icmp_seq=2 ttl=64 time=0.410 ms
+      64 bytes from 192.168.10.197: icmp_seq=3 ttl=64 time=0.385 ms
 
       --- 192.168.10.197 ping statistics ---
-      3 packets transmitted, 3 received, 0% packet loss, time 2043ms
-      rtt min/avg/max/mdev = 0.264/0.290/0.333/0.030 ms
+      3 packets transmitted, 3 received, 0% packet loss, time 2019ms
+      rtt min/avg/max/mdev = 0.385/0.556/0.874/0.224 ms
 
 On Zephyr, Shell command line:
 
@@ -77,27 +79,30 @@ On Zephyr, Shell command line:
 
       :bgn:`uart:~$` **net iface show 1**
 
-      Interface eth0 (0x20020d68) (Ethernet) [1]
+      Interface eth0 (0x20020e80) (Ethernet) [1]
       ===================================
       Link addr : **02:80:E1:4F:98:16**
       MTU       : 1500
       Flags     : AUTO_START,IPv4
-      Device    : **ethernet@40028000** (0x801d17c)
+      Device    : **ethernet** (0x801fed4)
+      Status    : oper=UP, admin=UP, carrier=ON
       Ethernet capabilities supported:
 	      10 Mbits
 	      100 Mbits
+      Ethernet PHY device: **ethernet-phy@0** (0x801feb0)
+      Ethernet link speed: **100 Mbits full-duplex**
       IPv4 unicast addresses (max 1):
 	      **192.168.10.197**/255.255.255.0 DHCP preferred
       IPv4 multicast addresses (max 2):
               224.0.0.1
       IPv4 gateway : 192.168.10.1
-      IPv4 netmask : 255.255.255.0
       DHCPv4 lease time : 28800
       DHCPv4 renew time : 14400
       DHCPv4 server     : 192.168.10.10
       DHCPv4 requested  : 192.168.10.197
       DHCPv4 state      : bound
       DHCPv4 attempts   : 1
+      DHCPv4 state      : bound
 
 .. container:: highlight highlight-console notranslate
 

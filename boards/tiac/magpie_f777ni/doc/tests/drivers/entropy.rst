@@ -55,12 +55,13 @@ Drivers
          INFO    - JOBS: 4
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1/2 magpie_f777ni/stm32f777xx tests/drivers/entropy/api/drivers.entropy.psa_crypto :byl:`FILTERED` (runtime filter)
-         INFO    - 2/2 magpie_f777ni/stm32f777xx tests/drivers/entropy/api/drivers.entropy          :bgn:`PASSED` (device: DT04BNT1, 2.368s <zephyr>)
+         INFO    - 1/3 magpie_f777ni/stm32f777xx tests/drivers/entropy/api/drivers.entropy.virtio   :byl:`FILTERED` (runtime filter)
+         INFO    - 2/3 magpie_f777ni/stm32f777xx tests/drivers/entropy/api/drivers.entropy.psa_crypto :byl:`FILTERED` (runtime filter)
+         INFO    - 3/3 magpie_f777ni/stm32f777xx tests/drivers/entropy/api/drivers.entropy          :bgn:`PASSED` (device: DT04BNT1, 2.407s <zephyr>)
 
-         INFO    - 2537 test scenarios (2325 configurations) selected, :byl:`2324` configurations filtered (2323 by static filter, 1 at runtime).
-         INFO    - :bgn:`1 of 1` executed test configurations passed (100.00%), :bbk:`0` built (not run), :brd:`0` failed, :bbk:`0` errored, with no warnings in :bbk:`30.72 seconds`.
-         INFO    - 1 of 1 executed test cases passed (100.00%) on 1 out of total 947 platforms (0.11%).
+         INFO    - 2763 test scenarios (2539 configurations) selected, :byl:`2538` configurations filtered (2536 by static filter, 2 at runtime).
+         INFO    - :bgn:`1 of 1` executed test configurations passed (100.00%), :bbk:`0` built (not run), :brd:`0` failed, :bbk:`0` errored, with no warnings in :bbk:`40.60 seconds`.
+         INFO    - 1 of 1 executed test cases passed (100.00%) on 1 out of total 1133 platforms (0.09%).
          INFO    - :bgn:`1` test configurations executed on platforms, :bbl:`0` test configurations were only built.
 
          Hardware distribution summary:
@@ -112,14 +113,14 @@ Cryptography
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
          INFO    - 1/5 magpie_f777ni/stm32f777xx tests/subsys/random/rng/drivers.rng.random_psa_crypto :byl:`FILTERED` (runtime filter)
-         INFO    - 2/5 magpie_f777ni/stm32f777xx tests/subsys/random/rng/crypto.rng.random_sw_systimer :bgn:`PASSED` (device: DT04BNT1, 2.547s <zephyr>)
-         INFO    - 3/5 magpie_f777ni/stm32f777xx tests/subsys/random/rng/crypto.rng                 :bgn:`PASSED` (device: DT04BNT1, 2.428s <zephyr>)
-         INFO    - 4/5 magpie_f777ni/stm32f777xx tests/subsys/random/rng/crypto.rng.random_hw_xoshiro :bgn:`PASSED` (device: DT04BNT1, 2.500s <zephyr>)
-         INFO    - 5/5 magpie_f777ni/stm32f777xx tests/subsys/random/rng/crypto.rng.random_ctr_drbg :bgn:`PASSED` (device: DT04BNT1, 2.462s <zephyr>)
+         INFO    - 2/5 magpie_f777ni/stm32f777xx tests/subsys/random/rng/crypto.rng.random_sw_systimer :bgn:`PASSED` (device: DT04BNT1, 6.095s <zephyr>)
+         INFO    - 3/5 magpie_f777ni/stm32f777xx tests/subsys/random/rng/crypto.rng.random_ctr_drbg :bgn:`PASSED` (device: DT04BNT1, 2.396s <zephyr>)
+         INFO    - 4/5 magpie_f777ni/stm32f777xx tests/subsys/random/rng/crypto.rng                 :bgn:`PASSED` (device: DT04BNT1, 2.408s <zephyr>)
+         INFO    - 5/5 magpie_f777ni/stm32f777xx tests/subsys/random/rng/crypto.rng.random_hw_xoshiro :bgn:`PASSED` (device: DT04BNT1, 2.430s <zephyr>)
 
-         INFO    - 2537 test scenarios (2325 configurations) selected, :byl:`2321` configurations filtered (2320 by static filter, 1 at runtime).
-         INFO    - :bgn:`4 of 4` executed test configurations passed (100.00%), :bbk:`0` built (not run), :brd:`0` failed, :bbk:`0` errored, with no warnings in :bbk:`52.94 seconds`.
-         INFO    - 4 of 4 executed test cases passed (100.00%) on 1 out of total 947 platforms (0.11%).
+         INFO    - 2763 test scenarios (2539 configurations) selected, :byl:`2535` configurations filtered (2534 by static filter, 1 at runtime).
+         INFO    - :bgn:`4 of 4` executed test configurations passed (100.00%), :bbk:`0` built (not run), :brd:`0` failed, :bbk:`0` errored, with no warnings in :bbk:`82.03 seconds`.
+         INFO    - 4 of 4 executed test cases passed (100.00%) on 1 out of total 1133 platforms (0.09%).
          INFO    - :bgn:`4` test configurations executed on platforms, :bbl:`0` test configurations were only built.
 
          Hardware distribution summary:

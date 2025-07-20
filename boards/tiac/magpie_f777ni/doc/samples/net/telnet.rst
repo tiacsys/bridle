@@ -40,21 +40,23 @@ are shown on the console like this:
 
    .. parsed-literal::
 
+      [00:00:00.050,000] <inf> phy_mii: PHY (0) ID 221560
       \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* \*\*\*
-      [00:00:00.012,000] <inf> shell_telnet: Telnet shell backend initialized
-      [00:00:00.012,000] <inf> net_config: Initializing network
-      [00:00:00.012,000] <inf> net_config: Waiting interface 1 (0x20021348) to be up...
-      [00:00:00.071,000] <inf> net_config: Interface 1 (0x20021348) coming up
-      [00:00:00.071,000] <inf> net_config: IPv4 address: 192.0.2.1
-      [00:00:00.071,000] <inf> net_config: Running dhcpv4 client...
-      [00:00:00.073,000] <inf> net_telnet_sample: Starting Telnet sample
-      [00:00:00.172,000] <inf> net_config: IPv6 address: fd9c:33d7:ba99:0:280:e1ff:fee1:9a39
-      [00:00:00.172,000] <inf> net_config: IPv6 address: fd9c:33d7:ba99:0:280:e1ff:fee1:9a39
-      [00:00:04.092,000] <inf> net_dhcpv4: Received: **192.168.10.197**
-      [00:00:04.092,000] <inf> net_config: IPv4 address: 192.168.10.197
-      [00:00:04.092,000] <inf> net_config: Lease time: 28800 seconds
-      [00:00:04.092,000] <inf> net_config: Subnet: 255.255.255.0
-      [00:00:04.092,000] <inf> net_config: Router: 192.168.10.1
+      [00:00:00.060,000] <inf> shell_telnet: Telnet shell backend initialized
+      [00:00:00.060,000] <inf> net_config: Initializing network
+      [00:00:00.060,000] <inf> net_config: Waiting interface 1 (0x20021440) to be up...
+      [00:00:02.652,000] <inf> phy_mii: PHY (0) Link speed **100 Mb**, **full duplex**
+      [00:00:02.658,000] <inf> net_config: Interface 1 (0x20021440) coming up
+      [00:00:02.658,000] <inf> net_config: IPv4 address: 192.0.2.1
+      [00:00:02.658,000] <inf> net_config: Running dhcpv4 client...
+      [00:00:02.659,000] <inf> net_telnet_sample: Starting Telnet sample
+      [00:00:02.759,000] <inf> net_config: IPv6 address: 2001:db8::1
+      [00:00:03.680,000] <inf> net_dhcpv4: Received: **192.168.10.197**
+      [00:00:03.680,000] <inf> net_config: IPv4 address: 192.168.10.197
+      [00:00:03.680,000] <inf> net_config: Lease time: 28800 seconds
+      [00:00:03.680,000] <inf> net_config: Subnet: 255.255.255.0
+      [00:00:03.680,000] <inf> net_config: Router: 192.168.10.1
+      [00:00:03.760,000] <inf> net_config: IPv6 address: 2001:db8::1
 
 To verify the Zephyr application clients are running, bind the TELNET server to
 the network interface, and has received an IPv4 address by typing on Linux host:
@@ -65,23 +67,23 @@ the network interface, and has received an IPv4 address by typing on Linux host:
 
       :bgn:`$` **ping -c3 192.168.10.197**
       PING 192.168.10.197 (192.168.10.197) 56(84) bytes of data.
-      64 bytes from 192.168.10.197: icmp_seq=1 ttl=64 time=0.303 ms
-      64 bytes from 192.168.10.197: icmp_seq=2 ttl=64 time=0.261 ms
-      64 bytes from 192.168.10.197: icmp_seq=3 ttl=64 time=0.264 ms
+      64 bytes from 192.168.10.197: icmp_seq=1 ttl=64 time=0.808 ms
+      64 bytes from 192.168.10.197: icmp_seq=2 ttl=64 time=0.396 ms
+      64 bytes from 192.168.10.197: icmp_seq=3 ttl=64 time=0.501 ms
 
       --- 192.168.10.197 ping statistics ---
-      3 packets transmitted, 3 received, 0% packet loss, time 2052ms
-      rtt min/avg/max/mdev = 0.261/0.276/0.303/0.019 ms
+      3 packets transmitted, 3 received, 0% packet loss, time 2060ms
+      rtt min/avg/max/mdev = 0.396/0.568/0.808/0.174 ms
 
       :bgn:`$` **nmap -Pn 192.168.10.197**
       Starting Nmap 7.80 ( https://nmap.org ) at … … …
       Nmap scan report for 192.168.10.197
-      Host is up (0.0018s latency).
+      Host is up (0.00083s latency).
       Not shown: 999 closed ports
       PORT   STATE SERVICE
       23/tcp open  telnet
 
-      Nmap done: 1 IP address (1 host up) scanned in 4.33 seconds
+      Nmap done: 1 IP address (1 host up) scanned in 4.99 seconds
 
 At this point you should be able to connect via ``telnet`` over the network.
 On your Linux host:
@@ -154,7 +156,11 @@ or ``kernel version``.
         DT node labels: i2c2
       - spi\ @\ 40013400 (READY)
         DT node labels: spi4 tmph_spi1 tmph_spi
-      - ethernet\ @\ 40028000 (READY)
+      - mdio (READY)
+        DT node labels: mdio
+      - ethernet-phy\ @\ 0 (READY)
+        DT node labels: eth_phy
+      - ethernet (READY)
         DT node labels: mac
 
 Simple GPIO Operations
@@ -166,15 +172,15 @@ Simple GPIO Operations
 
    .. parsed-literal::
 
-      :bgn:`~$` **gpio get gpio@40021800 12**
+      :bgn:`~$` **gpio get gpiog 12**
       0
 
-      :bgn:`~$` **gpio conf gpio@40021800 12 oh0**
+      :bgn:`~$` **gpio conf gpiog 12 oh0**
 
-      :bgn:`~$` **gpio set gpio@40021800 12 1**
-      :bgn:`~$` **gpio set gpio@40021800 12 0**
+      :bgn:`~$` **gpio set gpiog 12 1**
+      :bgn:`~$` **gpio set gpiog 12 0**
 
-      :bgn:`~$` **gpio blink gpio@40021800 12**
+      :bgn:`~$` **gpio blink gpiog 12**
       Hit any key to exit
 
 Simple I2C Operations
@@ -186,7 +192,7 @@ Simple I2C Operations
 
    .. parsed-literal::
 
-      :bgn:`~$` **i2c scan i2c@40005800**
+      :bgn:`~$` **i2c scan i2c2**
            0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
       00:             -- -- -- -- -- -- -- -- -- -- -- --
       10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
@@ -196,4 +202,4 @@ Simple I2C Operations
       50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
       60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
       70: -- -- -- -- -- -- -- --
-      9 devices found on i2c\ @\ 40005800
+      9 devices found on i2c2
