@@ -92,7 +92,11 @@ Sample Output
 
    .. parsed-literal::
 
-      [00:00:00.003,000] <inf> buzzersh: Buzzer shell is ready!
+      \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+      [00:00:00.311,000] :byl:`<wrn> udc_rpi: BUS RESET`
+      [00:00:00.391,000] :byl:`<wrn> udc_rpi: BUS RESET`
+      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* \*\*\*
+      [00:00:04.003,000] <inf> buzzersh: Buzzer shell is ready!
 
 
       :bgn:`uart:~$` **<Tab>**
