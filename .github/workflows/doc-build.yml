@@ -21,6 +21,7 @@ on:
       - 'scripts/tools-versions-*'
       - 'scripts/requirements-*'
       - 'scripts/requirements.txt'
+      - 'submanifests/*.yml'
       - 'west.yml'
       - '.github/workflows/doc-*.yml'
   push:
@@ -39,6 +40,7 @@ on:
       - 'scripts/tools-versions-*'
       - 'scripts/requirements-*'
       - 'scripts/requirements.txt'
+      - 'submanifests/*.yml'
       - 'west.yml'
       - '.github/workflows/doc-*.yml'
 
