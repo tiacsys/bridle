@@ -263,6 +263,7 @@ jobs:
             --integration --no-detailed-test-id \
             --testsuite-root bridle/tests \
             --testsuite-root zephyr/tests \
+            --tag sc18is604 \
             --tag bridle \
             --tag zephyr
 
