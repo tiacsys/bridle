@@ -260,6 +260,7 @@ static int mfd_sc18is604_emul_io_spi(const struct emul *target, const struct spi
 		rx_len = tx_len;
 	}
 
+	__ASSERT(rx_len != 0, "SPI IO must always include RX byte(s)");
 	uint8_t rx[rx_len];
 
 	memset(rx, 0, rx_len);
