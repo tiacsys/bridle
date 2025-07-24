@@ -820,6 +820,32 @@
    :strong:`NologoTech` (:emphasis:`No Name Technology`)
 .. _NologoTech: https://www.nologo.tech/
 
+.. ### Links to Mini USB RP2040
+
+.. _`Mini USB RP2040`:
+   https://www.nologo.tech/product/raspberrypie/RP2040/rp2040usb/rp2040_usb1.html
+
+.. _`AliExpress webshops for Mini USB RP2040`:
+   https://aliexpress.com/w/wholesale-MINI-USB-RP2040.html
+
+.. _`Mini USB RP2040 Schematic`:
+   https://www.nologo.tech/product/raspberrypie/RP2040/rp2040usb/rp2040_usb1.html#原理图
+
+.. _`Mini USB RP2040 Schematic (PNG file)`:
+   https://ziliao.nologo.tech/无名科技Nologo资料/RaspberryPie开发板/RP2040USB/原理图.png
+
+.. _`Mini USB RP2040 STEP 3D-Model`:
+   https://www.nologo.tech/product/raspberrypie/RP2040/rp2040usb/rp2040_usb1.html#pcb封装
+
+.. _`Mini USB RP2040 STEP 3D-Model (STEP file)`:
+   https://ziliao.nologo.tech/无名科技Nologo资料/RaspberryPie开发板/RP2040USB/USB%20RP2040.step
+
+.. _`Mini USB RP2040 WS2812 Test`:
+   https://www.nologo.tech/product/raspberrypie/RP2040/rp2040usb/rp2040_usb1.html#测试程序
+
+.. _`Mini USB RP2040 WS2812 Test (UF2 file)`:
+   https://ziliao.nologo.tech/无名科技Nologo资料/RaspberryPie开发板//RP2040USB/RP2040USB测试程序.uf2
+
 
 
 .. #### Links to the Adafruit STEMMA / STEMMA QT System
@@ -1435,10 +1461,23 @@
    http://www.eta-semi.com/wp-content/uploads/2022/03/ETA6096_V1.4.pdf
 
 .. _`ME6217C33`:
-   http://www.microne.com.cn/en/ProductDetail.aspx?id=8
+   https://www.microne.com.cn/en/product/258.html
+.. http://www.microne.com.cn/en/ProductDetail.aspx?id=8
 
 .. _`ME6217 Datasheet`:
-   http://www.microne.com.cn/UploadFiles/Files2/20190429/20190429164112.pdf
+   https://www.onwaytech.com/static/upload/file/20231009/1696841020308260.pdf
+.. http://www.microne.com.cn/UploadFiles/Files2/20190429/20190429164112.pdf
+.. https://datasheet4u.com/pdf-down/M/E/6/ME6217-Microne.pdf
+
+.. _`ME6231C33`:
+   https://www.microne.com.cn/en/product/247.html
+
+.. _`ME6231 Datasheet`:
+   https://img.iceasy.com/product/product/files/202111/8a8a8a1a7d4ccb29017d5592bc6305d3.pdf
+.. https://datasheet4u.com/pdf-down/M/E/6/ME6231-Microne.pdf
+
+.. _`ME6231 Datasheet (CN) V03`:
+   https://www.onwaytech.com/static/upload/file/20230421/1682060578398779.pdf
 
 .. _`MCP73831`:
    https://www.microchip.com/en-us/product/mcp73831

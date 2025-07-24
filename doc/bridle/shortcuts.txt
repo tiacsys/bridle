@@ -42,6 +42,7 @@
 .. |rpi_adafruit_VStr|	replace:: :ign:`Adafruit (Raspberry Pi)`
 .. |rpi_cytron_VStr|	replace:: :ign:`Cytron (Raspberry Pi)`
 .. |rpi_jsed_VStr|	replace:: :ign:`JSED (Raspberry Pi)`
+.. |rpi_nologo_VStr|	replace:: :ign:`Nologo (Raspberry Pi)`
 .. |rpi_pimoroni_VStr|	replace:: :ign:`Pimoroni (Raspberry Pi)`
 .. |rpi_waveshare_VStr|	replace:: :ign:`Waveshare (Raspberry Pi)`
 
@@ -298,6 +299,26 @@
 
 .. |bridle:board:arduino_zero| replace:: :ref:`arduino_zero-extensions`
 .. :bridle:board:`arduino_zero`
+
+.. |bridle:board:mini_usb_rp2040| replace:: :ref:`mini_usb_rp2040`
+.. :bridle:board:`mini_usb_rp2040`
+
+.. |Mini USB RP2040| replace::
+   :ref:`Mini USB RP2040 <mini_usb_rp2040>`
+.. :bridle:board:`Mini USB RP2040 <mini_usb_rp2040>`
+
+.. |Mini USB RP2040 (CDC ACM)| replace::
+   :ref:`Mini USB RP2040 (CDC ACM) <mini_usb_rp2040>`
+.. :bridle:board:`RP2040-One (CDC ACM) <mini_usb_rp2040>`
+
+.. |mini_usb_rp2040_URB_VID|		replace:: |rpi_URB_VID|
+.. |mini_usb_rp2040_VID|		replace:: |rpi_VID|
+.. |mini_usb_rp2040_VStr|		replace:: |rpi_nologo_VStr|
+
+.. |mini_usb_rp2040_URB_PID_CON|	replace:: |rpi_pico_sdk_uart_rp2040_URB_PID|
+.. |mini_usb_rp2040_PID_CON|		replace:: |rpi_pico_sdk_uart_rp2040_PID|
+.. |mini_usb_rp2040_PStr_CON|		replace:: :ign:`Mini USB RP2040 (CDC ACM)`
+.. |mini_usb_rp2040_BCD_CON|		replace:: |zephyr_version_BCD|
 
 .. |bridle:board:picoboy| replace:: :ref:`the_picoboy`
 .. :bridle:board:`picoboy`
