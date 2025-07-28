@@ -18,6 +18,18 @@ config RESET
 	default y
 	depends on DT_HAS_RASPBERRYPI_PICO_RESET_ENABLED
 
+config WATCHDOG
+	default y
+	depends on DT_HAS_RASPBERRYPI_PICO_WATCHDOG_ENABLED
+
+config WDT_DISABLE_AT_BOOT
+	default y if HAS_WDT_DISABLE_AT_BOOT
+	depends on WATCHDOG && BOARD_MINI_USB_RP2040
+
+config COUNTER
+	default y
+	depends on DT_HAS_RASPBERRYPI_PICO_TIMER_ENABLED
+
 config DMA
 	default y
 	depends on DT_HAS_RASPBERRYPI_PICO_DMA_ENABLED
