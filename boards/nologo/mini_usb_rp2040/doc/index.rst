@@ -285,6 +285,10 @@ features:
      - :kconfig:option:`CONFIG_USB_DEVICE_STACK`
      - :dtcompatible:`raspberrypi,pico-usbd`
      - :zephyr:ref:`usb_api`
+   * - RTC
+     - :kconfig:option:`CONFIG_RTC`
+     - :dtcompatible:`raspberrypi,pico-rtc`
+     - :zephyr:ref:`rtc_api`
    * - Timer (Counter)
      - :kconfig:option:`CONFIG_COUNTER`
      - :dtcompatible:`raspberrypi,pico-timer`
@@ -478,6 +482,8 @@ Simple test execution on target
               DT node labels: ssi
             - vreg\ @\ 40064000 (READY)
               DT node labels: vreg
+            - rtc\ @\ 4005c000 (READY)
+              DT node labels: rtc
 
    .. admonition:: Voltage Regulator
       :class: note dropdown
@@ -522,6 +528,27 @@ Simple test execution on target
             :bgn:`uart:~$` **hwinfo reset_cause**
             reset caused by:
             - power-on reset
+
+   .. admonition:: RTC
+      :class: note dropdown
+
+      .. rubric:: Operate with the on-chip RTC unit:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **rtc get rtc**
+            RTC not set
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **rtc set rtc 2024-11-23T18:37:55**
+
+            :bgn:`uart:~$` **rtc get rtc**
+            2024-11-23T18:37:59.000
 
    .. admonition:: Timer
       :class: note dropdown

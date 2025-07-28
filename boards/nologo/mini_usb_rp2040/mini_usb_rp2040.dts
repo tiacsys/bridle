@@ -7,6 +7,7 @@
 
 #include <mem.h>
 #include <raspberrypi/rpi_pico/rp2040.dtsi>
+#include <zephyr/dt-bindings/clock/rpi_pico_rp2040_clock.h>
 #include <zephyr/dt-bindings/regulator/rpi_pico.h>
 
 #include "mini_usb_rp2040-pinctrl.dtsi"
@@ -29,6 +30,7 @@
 
 	aliases {
 		watchdog0 = &wdt0;
+		rtc = &rtc;
 	};
 };
 
@@ -67,6 +69,11 @@
 };
 
 &wdt0 {
+	status = "okay";
+};
+
+&rtc {
+	clocks = <&clocks RPI_PICO_CLKID_CLK_RTC>;
 	status = "okay";
 };
 

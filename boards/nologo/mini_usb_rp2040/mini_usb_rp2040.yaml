@@ -17,6 +17,7 @@ supported:
   - flash
   - gpio
   - hwinfo
+  - rtc
   - uart
   - usb_device
   - usb_cdc
