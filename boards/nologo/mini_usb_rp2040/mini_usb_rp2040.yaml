@@ -22,6 +22,7 @@ supported:
   - grove_pwm
   - hwinfo
   - i2c
+  - pio
   - rtc
   - spi
   - uart
