@@ -253,6 +253,10 @@ Default Zephyr Peripheral Mapping:
 - UART0_CTS : GP2 (optional, not default)
 - UART0_RTS : GP3 (optional, not default)
 - GPIO8 : GP8 (free usable)
+- ADC_CH0 : GP26
+- ADC_CH1 : GP27
+- ADC_CH2 : GP28
+- ADC_CH3 : GP29
 
 Supported Features
 ******************
@@ -285,6 +289,14 @@ features:
      - :kconfig:option:`CONFIG_USB_DEVICE_STACK`
      - :dtcompatible:`raspberrypi,pico-usbd`
      - :zephyr:ref:`usb_api`
+   * - ADC
+     - :kconfig:option:`CONFIG_ADC`
+     - :dtcompatible:`raspberrypi,pico-adc`
+     - :zephyr:ref:`adc_api`
+   * - Temperature (Sensor)
+     - :kconfig:option:`CONFIG_SENSOR`
+     - :dtcompatible:`raspberrypi,pico-temp`
+     - :zephyr:ref:`sensor`
    * - RTC
      - :kconfig:option:`CONFIG_RTC`
      - :dtcompatible:`raspberrypi,pico-rtc`
@@ -363,6 +375,16 @@ The `RP2040 <RP2040 SoC_>`_ MCU has 1 GPIO cell which covers all I/O pads and
 the |Mini USB RP2040|, almost all 16 PWM channels are available on the edge
 connectors, although some channels are occupied by special signals if their
 function is enabled.
+
+ADC/TS Ports
+============
+
+The `RP2040 <RP2040 SoC_>`_ MCU has 1 ADC with 4 channels and an additional
+fifth channel for the on-chip temperature sensor (TS). The ADC channels 0-3
+are available on the edge connectors.
+
+The external voltage reference ADC_VREF is directly connected to the 3.3V
+power supply.
 
 Serial Port
 ===========
@@ -478,12 +500,16 @@ Simple test execution on target
               DT node labels: dma
             - gpio-port\ @\ 0 (READY)
               DT node labels: gpio0
+            - adc\ @\ 4004c000 (READY)
+              DT node labels: adc
             - flash-controller\ @\ 18000000 (READY)
               DT node labels: ssi
             - vreg\ @\ 40064000 (READY)
               DT node labels: vreg
             - rtc\ @\ 4005c000 (READY)
               DT node labels: rtc
+            - dietemp (READY)
+              DT node labels: die_temp
 
    .. admonition:: Voltage Regulator
       :class: note dropdown
@@ -561,6 +587,71 @@ Simple test execution on target
 
             :bgn:`uart:~$` **timer oneshot timer 0 1000000**
             :bgn:`timer: Alarm triggered`
+
+   .. admonition:: Die Temperature Sensor
+      :class: note dropdown
+
+      .. rubric:: Operate with the on-chip temperature sensor on ADC channel 4:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor info**
+            device name: dietemp, vendor: Raspberry Pi Foundation, model: pico-temp, friendly name: RP2040 chip temperature
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor get dietemp**
+            :bgn:`channel type=12(die_temp) index=0 shift=6 num_samples=1 value=560319800000ns (35.134804)`
+
+   .. admonition:: ADC Channel
+      :class: note dropdown
+
+      .. rubric:: Operate with the ADC channels 0 until 4:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **adc adc@4004c000 resolution 12**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **adc adc@4004c000 read 0**
+            read: 749
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **adc adc@4004c000 read 1**
+            read: 959
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **adc adc@4004c000 read 2**
+            read: 1197
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **adc adc@4004c000 read 3**
+            read: 1107
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **adc adc@4004c000 read 4**
+            read: 860
 
    .. admonition:: Flash Controller
       :class: note dropdown
