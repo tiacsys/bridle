@@ -30,6 +30,32 @@
 		};
 	};
 
+	i2c0_default: i2c0-default {
+		group1617 {
+			pinmux = <I2C0_SDA_P16>, <I2C0_SCL_P17>;
+			input-enable;
+			input-schmitt-enable;
+		};
+	};
+
+	i2c1_default: i2c1-default {
+		group1415 {
+			pinmux = <I2C1_SDA_P14>, <I2C1_SCL_P15>;
+			input-enable;
+			input-schmitt-enable;
+		};
+	};
+
+	spi0_default: spi0-default {
+		group567 {
+			pinmux = <SPI0_CSN_P5>, <SPI0_SCK_P6>, <SPI0_TX_P7>;
+		};
+		group4 {
+			pinmux = <SPI0_RX_P4>;
+			input-enable;
+		};
+	};
+
 	adc_default: adc-default {
 		group26272829 {
 			pinmux = <ADC_CH0_P26>, <ADC_CH1_P27>,
