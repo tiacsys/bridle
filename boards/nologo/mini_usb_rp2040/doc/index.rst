@@ -281,6 +281,10 @@ features:
      - :kconfig:option:`CONFIG_SERIAL`
      - :dtcompatible:`raspberrypi,pico-uart`
      - :zephyr:ref:`uart_api`
+   * - UDC (USB Device Controller)
+     - :kconfig:option:`CONFIG_USB_DEVICE_STACK`
+     - :dtcompatible:`raspberrypi,pico-usbd`
+     - :zephyr:ref:`usb_api`
    * - Flash
      - :kconfig:option:`CONFIG_FLASH`
      - :dtcompatible:`raspberrypi,pico-flash-controller`
@@ -356,6 +360,27 @@ connected to external devices over GP0 (TX) and GP1 (RX) on the edge
 connectors. Optional the hardware handshake signals GP2 (CTS) and GP3 (RTS)
 can be used for flow control.
 
+USB Device Port
+===============
+
+The `RP2040 <RP2040 SoC_>`_ MCU has a (native) USB device port that can be used
+to communicate with a host PC. See the
+:external+zephyr:zephyr:code-sample-category:`usb` sample applications for more,
+such as the :external+zephyr:zephyr:code-sample:`usb-cdc-acm` sample which sets
+up a virtual serial port that echos characters back to the host PC. The
+|Mini USB RP2040| provides the Zephyr console per default on the USB port
+as :external+zephyr:ref:`usb_device_cdc_acm`:
+
+   .. container:: highlight-console notranslate literal-block
+
+      .. parsed-literal::
+
+         USB device idVendor=\ |mini_usb_rp2040_VID|, idProduct=\ |mini_usb_rp2040_PID_CON|, bcdDevice=\ |mini_usb_rp2040_BCD_CON|
+         USB device strings: Mfr=1, Product=2, SerialNumber=3
+         Product: |mini_usb_rp2040_PStr_CON|
+         Manufacturer: |mini_usb_rp2040_VStr|
+         SerialNumber: B163A72F0CF0C97A
+
 Programming and Debugging
 *************************
 
@@ -376,8 +401,8 @@ Debugging
 
 There is no SWD interface, thus debugging is not possible on thsi board.
 
-Hello Shell on the UART Console
-===============================
+Hello Shell on the USB Console (CDC/ACM)
+========================================
 
 .. zephyr-app-commands::
    :app: bridle/samples/helloshell
@@ -429,6 +454,8 @@ Simple test execution on target
               DT node labels: clocks
             - reset-controller\ @\ 4000c000 (READY)
               DT node labels: reset
+            - cdc-acm-console-uart (READY)
+              DT node labels: cdc_acm_console_uart
             - uart\ @\ 40034000 (READY)
               DT node labels: uart0
             - dma\ @\ 50000000 (READY)
@@ -473,7 +500,7 @@ Simple test execution on target
             - pin
 
             :bgn:`uart:~$` **regulator disable vreg**
-            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* \*\*\*
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
             Hello World! I'm THE SHELL from mini_usb_rp2040
 
       .. container:: highlight highlight-console notranslate
