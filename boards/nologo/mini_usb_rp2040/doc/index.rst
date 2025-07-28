@@ -305,6 +305,10 @@ features:
      - :kconfig:option:`CONFIG_SPI`
      - :dtcompatible:`raspberrypi,pico-spi`
      - :zephyr:ref:`spi_api`
+   * - PWM
+     - :kconfig:option:`CONFIG_PWM`
+     - :dtcompatible:`raspberrypi,pico-pwm`
+     - :zephyr:ref:`pwm_api`
    * - ADC
      - :kconfig:option:`CONFIG_ADC`
      - :dtcompatible:`raspberrypi,pico-adc`
@@ -374,6 +378,44 @@ data they give is pretty sketchy, especially those provided by retailers, which
 keep things to the bare minimum and often mess it up. The content provided here
 is the result of extensive technical evaluation, correction, rectification, and
 supplementation of this publicly available information.
+
+.. _mini_usb_rp2040_grove_if:
+
+Laced Grove Signal Interface
+----------------------------
+
+The |Mini USB RP2040| offers the option of connecting hardware modules via one
+single Qwiic/STEMMA QT (|Grove connectors|). This is provided by a specific
+interface for general signal mapping, the |Laced Grove Signal Interface|.
+
+Following mappings are well known:
+
+   * ``grove_gpios``: GPIO mapping
+   * ``grove_pwms``: PWM mapping
+
+.. tabs::
+
+   .. group-tab:: GPIO mapping ``grove_gpios``
+
+      This is the **GPIO signal line mapping** from the `RP2040 SOC`_ to the
+      set of |Grove connectors| provided as |Laced Grove Signal Interface|.
+
+      **This list must not be stable!**
+
+      .. include:: grove_gpios.rsti
+
+   .. group-tab:: PWM mapping ``grove_pwms``
+
+      The corresponding mapping is always board or SOC specific. In addition
+      to the **PWM signal line mapping**, the valid references to the PWM
+      function units in the SOC or on the board are therefore also defined
+      as **Grove PWM Labels**. The following table reflects the currently
+      supported mapping for :code:`mini_usb_rp2040`, but this list will be
+      growing up with further development and maintenance.
+
+      **This list must not be complete or stable!**
+
+      .. include:: grove_pwms.rsti
 
 System Clock
 ============
@@ -537,7 +579,7 @@ Simple test execution on target
             - flash-controller\ @\ 18000000 (READY)
               DT node labels: ssi
             - i2c\ @\ 40044000 (READY)
-              DT node labels: i2c0
+              DT node labels: i2c0 grove_i2c
             - vreg\ @\ 40064000 (READY)
               DT node labels: vreg
             - rtc\ @\ 4005c000 (READY)
@@ -779,6 +821,165 @@ Simple test execution on target
 
             :bgn:`uart:~$` **i2c read_byte i2c0 77 d0**
             Output: 0x58
+
+Grove Module Samples
+********************
+
+All currently supported Grove modules can be reused on the Qwiic / STEMMA QT
+connector using a conversion cable. Only the corresponding shield stacks need
+to be specified.
+
+Hello Shell with sensor access to Grove BMP280
+==============================================
+
+.. zephyr-app-commands::
+   :app: bridle/samples/helloshell
+   :board: mini_usb_rp2040
+   :shield: "grove_sens_bmp280"
+   :build-dir: mini_usb_rp2040
+   :west-args: -p
+   :goals: flash
+   :compact:
+
+Simple test execution on target
+-------------------------------
+
+(text in bold is a command input)
+
+   .. admonition:: Devices
+      :class: note dropdown
+
+      .. rubric:: Only an excerpt from the full list:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **device list**
+            devices:
+              … … …
+            - bmp280\ @\ 77 (READY)
+              … … …
+
+   .. admonition:: Sensor access from Zephyr Shell
+      :class: note dropdown toggle-shown
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor info**
+            device name: dietemp, vendor: Raspberry Pi Foundation, model: pico-temp, friendly name: RP2040 chip temperature
+            device name: bmp280\ @\ 77, vendor: Bosch Sensortec GmbH, model: bme280, friendly name: (null)
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor get bmp280@77**
+            :bgn:`channel type=13(ambient_temp) index=0 shift=16 num_samples=1 value=53909207971ns (24.739990)`
+            :bgn:`channel type=14(press) index=0 shift=23 num_samples=1 value=53909207971ns (99.210937)`
+            :bgn:`channel type=16(humidity) index=0 shift=21 num_samples=1 value=53909207971ns (0.000000)`
+
+LED Blinky with Grove LED Button (Qwiic signals as GPIO)
+========================================================
+
+.. zephyr-app-commands::
+   :app: zephyr/samples/basic/blinky
+   :board: mini_usb_rp2040
+   :shield: "grove_btn_d16 grove_led_d17 grove_pwm_led_d17 x_grove_testbed"
+   :build-dir: mini_usb_rp2040
+   :west-args: -p
+   :goals: flash
+   :compact:
+
+Simple test execution on target
+-------------------------------
+
+   .. admonition:: Console Output
+      :class: note dropdown toggle-shown
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            … … …
+            LED state: OFF
+            LED state: ON
+            LED state: OFF
+            LED state: ON
+            LED … … …
+
+LED Fade with Grove LED Button (Qwiic signals as PWM)
+=====================================================
+
+.. zephyr-app-commands::
+   :app: zephyr/samples/basic/fade_led
+   :board: mini_usb_rp2040
+   :shield: "grove_btn_d16 grove_led_d17 grove_pwm_led_d17 x_grove_testbed"
+   :build-dir: mini_usb_rp2040
+   :west-args: -p
+   :goals: flash
+   :compact:
+
+Simple test execution on target
+-------------------------------
+
+   .. admonition:: Console Output
+      :class: note dropdown toggle-shown
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            PWM-based LED fade
+            Using pulse width 0%
+            Using pulse width 2%
+            Using pulse width 4%
+            … … …
+            Using pulse width 94%
+            Using pulse width 96%
+            Using pulse width 98%
+            Using pulse width 96%
+            Using pulse width 94%
+            … … …
+            Using pulse width 4%
+            Using pulse width 2%
+            Using pulse width 0%
+            Using pulse width 2%
+            Using pulse width 4%
+            Using pulse width … … …
+
+LED Switch with Grove LED Button (Qwiic signals as GPIO)
+========================================================
+
+.. zephyr-app-commands::
+   :app: zephyr/samples/basic/button
+   :board: mini_usb_rp2040
+   :shield: "grove_btn_d16 grove_led_d17 grove_pwm_led_d17 x_grove_testbed"
+   :build-dir: mini_usb_rp2040
+   :west-args: -p
+   :goals: flash
+   :compact:
+
+Simple test execution on target
+-------------------------------
+
+   .. admonition:: Console Output
+      :class: note dropdown toggle-shown
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            Set up button at gpio@40014000 pin 16
+            Set up LED at gpio@40014000 pin 17
+            Press the button
+            Button pressed at 1050252053
+            Button pressed at 1338164194
+            Button pressed at 1515853740
+            Button pressed at 1595751687
+            Button … … …
 
 References
 **********
