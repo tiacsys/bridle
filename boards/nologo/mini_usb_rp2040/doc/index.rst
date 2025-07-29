@@ -33,7 +33,7 @@ The castellated module allows soldering direct to carrier boards.
        :hwftlbl-vdd:`3.3V(OUT)`
 
        :hwftlbl:`133㎒`
-       :hwftlbl:`4㎆`
+       :hwftlbl:`4㎆/16㎆`
        :hwftlbl:`264㎅`
        :hwftlbl-btn:`RST`
        :hwftlbl-led:`RGB`
@@ -52,6 +52,7 @@ The castellated module allows soldering direct to carrier boards.
        - Dual core Arm Cortex-M0+ processor running up to 133㎒
        - :bbk:`264㎅` on-chip SRAM
        - :bbl:`4㎆` on-board QSPI flash with XIP capabilities
+         – optional :brd:`16㎆`
        - USB 1.1 controller (host/device)
        - On-board :bbl:`PCB USB-A connector`
        - On-board :bbl:`RGB LED` (NeoPixel)
@@ -105,6 +106,7 @@ Positions
                 | 500㎃ low dropout, low noise LDO
              #. | :strong:`On-board flash memory`
                 | 4㎆ NOR-Flash :strong:`W25Q32JV`
+                | 16㎆ NOR-Flash :strong:`W25Q128JV`
              #. :strong:`RP2040`
              #. | :strong:`WS2812B`
                 | RGB LED
@@ -129,6 +131,8 @@ Positions
 - `Hardware design with RP2040`_
 - .. rubric:: W25Q32JV_
 - `W25Q32JV Datasheet`_
+- .. rubric:: W25Q128JV_
+- `W25Q128JV Datasheet`_
 - .. rubric:: WS2812B_
 - `WS2812B Datasheet V5`_
 - `WS2812B Datasheet V2`_
@@ -398,6 +402,28 @@ configuration can be found in the different Kconfig files:
 
    - :bridle_file:`boards/nologo/mini_usb_rp2040/mini_usb_rp2040_defconfig`
 
+Board Configurations
+====================
+
+The |Mini USB RP2040| board offers an assembly option with 16㎆ Flash,
+which is mapped as a hardware revision.
+
+.. rubric:: :command:`west build -b mini_usb_rp2040`
+
+Use the native USB device port with CDC-ACM as Zephyr console and for the
+shell. Setup QSPI Flash controller to work with 4㎆.
+
+.. rubric:: :command:`west build -b mini_usb_rp2040@4mb`
+
+Use the native USB device port with CDC-ACM as Zephyr console and for the
+shell. Setup QSPI Flash controller to work with 4㎆ – the same as the default
+board configuration ``mini_usb_rp2040``.
+
+.. rubric:: :command:`west build -b mini_usb_rp2040@16mb`
+
+Use the native USB device port with CDC-ACM as Zephyr console and for the
+shell. Setup QSPI Flash controller to work with 16㎆.
+
 Connections and IOs
 ===================
 
@@ -563,9 +589,21 @@ There is no SWD interface, thus debugging is not possible on thsi board.
 Hello Shell on the USB Console (CDC/ACM)
 ========================================
 
+.. rubric:: Hello Shell on ``@4mb`` revision (default)
+
 .. zephyr-app-commands::
    :app: bridle/samples/helloshell
    :board: mini_usb_rp2040
+   :build-dir: mini_usb_rp2040
+   :west-args: -p
+   :goals: flash
+   :compact:
+
+.. rubric:: Hello Shell on ``@16mb`` revision
+
+.. zephyr-app-commands::
+   :app: bridle/samples/helloshell
+   :board: mini_usb_rp2040@16mb
    :build-dir: mini_usb_rp2040
    :west-args: -p
    :goals: flash
@@ -662,7 +700,7 @@ Simple test execution on target
             1.250 V
             1.300 V
 
-      .. rubric:: Trigger a power-off/on sequence:
+      .. rubric:: Trigger a power-off/on sequence on ``@4mb`` revision:
 
       .. container:: highlight highlight-console notranslate
 
@@ -673,6 +711,24 @@ Simple test execution on target
             - pin
 
             :bgn:`uart:~$` **regulator disable vreg**
+            [00:00:00.001,000] <inf> board_control: mini_usb_rp2040\ @\ 4mb/rp2040
+            [00:00:00.001,000] <inf> board_control: QSPI-Flash: 4MB
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+            Hello World! I'm THE SHELL from mini_usb_rp2040
+
+      .. rubric:: Trigger a power-off/on sequence on ``@16mb`` revision:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **hwinfo reset_cause**
+            reset caused by:
+            - pin
+
+            :bgn:`uart:~$` **regulator disable vreg**
+            [00:00:00.001,000] <inf> board_control: mini_usb_rp2040\ @\ 16mb/rp2040
+            [00:00:00.001,000] <inf> board_control: QSPI-Flash: 16MB
             \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
             Hello World! I'm THE SHELL from mini_usb_rp2040
 

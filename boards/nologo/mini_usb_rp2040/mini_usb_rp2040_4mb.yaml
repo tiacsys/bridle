@@ -1,0 +1,31 @@
+# Copyright (c) 2025 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+identifier: mini_usb_rp2040@4mb
+name: Mini USB RP2040 (4MB)
+type: mcu
+arch: arm
+flash: 4096
+ram: 264
+toolchain:
+  - zephyr
+  - gnuarmemb
+supported:
+  - adc
+  - clock
+  - counter
+  - dma
+  - flash
+  - gpio
+  - grove_gpio
+  - grove_i2c
+  - grove_pwm
+  - hwinfo
+  - i2c
+  - pio
+  - rtc
+  - spi
+  - uart
+  - usb_device
+  - usb_cdc
+  - watchdog

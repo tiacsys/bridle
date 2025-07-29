@@ -5,7 +5,6 @@
 
 /dts-v1/;
 
-#include <mem.h>
 #include <freq.h>
 #include <raspberrypi/rpi_pico/rp2040.dtsi>
 #include <zephyr/dt-bindings/clock/rpi_pico_rp2040_clock.h>
@@ -26,9 +25,6 @@
 
 	chosen {
 		zephyr,sram = &sram0;
-		zephyr,flash = &flash0;
-		zephyr,flash-controller = &ssi;
-		zephyr,code-partition = &code_partition;
 		zephyr,console = &cdc_acm_console_uart;
 		zephyr,shell-uart = &cdc_acm_console_uart;
 	};
@@ -37,35 +33,6 @@
 		led-strip = &ws2812_single;
 		watchdog0 = &wdt0;
 		rtc = &rtc;
-	};
-};
-
-&flash0 {
-	status = "okay";
-	reg = <0x10000000 DT_SIZE_M(4)>;
-
-	partitions {
-		compatible = "fixed-partitions";
-		#address-cells = <1>;
-		#size-cells = <1>;
-
-		/* Reserved memory for the second stage bootloader */
-		second_stage_bootloader: partition@0 {
-			label = "second-stage-bootloader";
-			reg = <0x0 0x100>;
-			read-only;
-		};
-
-		/*
-		 * Usable flash. Starts at 0x100, after the second stage
-		 * bootloader. The partition size is 4MB minus the 0x100
-		 * bytes taken by the second stage bootloader.
-		 */
-		code_partition: partition@100 {
-			label = "code-partition";
-			reg = <0x100 (DT_SIZE_M(4) - 0x100)>;
-			read-only;
-		};
 	};
 };
 
