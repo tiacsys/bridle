@@ -4,6 +4,7 @@
  */
 
 #include "mini_usb_rp2040-16mb.dtsi"
+#include "mini_usb_rp2040-neopixel.dtsi"
 
 / {
 	model = "Nologo Mini USB RP2040 (16MB) @ USB-CDC/ACM Concole";
@@ -11,4 +12,8 @@
 		     "nologo,mini-usb-rp2040-usbcons",
 		     "nologo,mini-usb-rp2040-16mb",
 		     "nologo,mini-usb-rp2040-16mb-usbcons";
+
+	aliases {
+		led-strip = &ws2812_single;
+	};
 };

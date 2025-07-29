@@ -13,3 +13,4 @@ boards:
       revisions:
         - name: "4mb"
         - name: "16mb"
+        - name: "chipled"

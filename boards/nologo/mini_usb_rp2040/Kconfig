@@ -9,7 +9,7 @@ config BOARD_MINI_USB_RP2040_INIT_PRIORITY
 	help
 	  Set the priority for board control (tweaks), must be
 	  greater than KERNEL_INIT_PRIORITY_DEVICE but smaller
-	  than APPLICATION_INIT_PRIORITY.
+	  than LED_INIT_PRIORITY and APPLICATION_INIT_PRIORITY.
 
 module = BOARD_MINI_USB_RP2040
 module-str = Board Control

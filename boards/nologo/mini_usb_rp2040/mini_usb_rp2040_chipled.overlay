@@ -1,0 +1,20 @@
+/*
+ * Copyright (c) 2025 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include "mini_usb_rp2040-4mb.dtsi"
+#include "mini_usb_rp2040-chipled.dtsi"
+
+/ {
+	model = "Nologo Mini USB RP2040 (4MB with Chip-LED) @ USB-CDC/ACM Concole";
+	compatible = "nologo,mini-usb-rp2040",
+		     "nologo,mini-usb-rp2040-usbcons",
+		     "nologo,mini-usb-rp2040-4mb-chipled",
+		     "nologo,mini-usb-rp2040-4mb-chipled-usbcons";
+
+	aliases {
+		gpio-chipled = &gpio_chipled;
+		pwm-chipled = &pwm_chipled;
+	};
+};

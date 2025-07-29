@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 if (BOARD STREQUAL "mini_usb_rp2040")
-  set(MINI_USB_RP2040_REVISIONS "4mb" "16mb")
+  set(MINI_USB_RP2040_REVISIONS "4mb" "16mb" "chipled")
   if (NOT DEFINED BOARD_REVISION)
     set(BOARD_REVISION "4mb")
   else()

@@ -10,6 +10,36 @@ the PCB with a direct connection to the RP2040 on-chip USB controller. The
 Raspberry Pi Pico on-chip USB bootloader allows the ability to flash without
 any adapter, in a drag-and-drop manner.
 
+.. admonition:: Incorrect PCB assemblies in circulation!
+   :class: error
+
+   Feedback on AliExpress suggests that assemblies are in circulation that
+   use a normal two- or three-color chip LED (0606) instead of the original
+   intended digital LED WS2812 (NeoPixel). Without the required series
+   resistor, a chip LED is operating out of specification with far too
+   much electrical current. However, the schematic and PCB layout do not
+   provide any place for a series resistor to the digital LED, so it can't
+   also be added later. This poses a long-term risk of irreversible damage
+   to either the incorrectly fitted chip LED or the output pad in the RP2040.
+
+   **This will cause damage during continuous operation and the device
+   should never being using unattended!**
+
+   In such cases, **the incorrectly equipped chip LED must be throttled**
+   as quickly as possible after a reset or restart by the firmware via the
+   on-chip PWM unit. Please make sure to use the special board revision
+   ``mini_usb_rp2040@chipled`` for this purpose and never the standard
+   revisions ``mini_usb_rp2040@4mb`` or ``mini_usb_rp2040@16mb``. This
+   special board revision (``@chipled``) automatically sets the duty cycle
+   to 0% on the preconfigured PWM channel before the application code is
+   started. **The user must avoid outputting 100% themselves.** There is
+   no further protection against overload due to insufficient electrical
+   current. **Any duty cycle above 10% should be avoided!**
+
+   **Please note that the special board revision (**\ ``@chipled``\ **)
+   is only designed for boards with 4㎆ QSPI Flash memory (and even the
+   incorrectly equipped chip LED)!**
+
 Board Overview
 **************
 
@@ -55,8 +85,9 @@ The castellated module allows soldering direct to carrier boards.
          – optional :brd:`16㎆`
        - USB 1.1 controller (host/device)
        - On-board :bbl:`PCB USB-A connector`
-       - On-board :bbl:`RGB LED` (NeoPixel)
        - On-board :bbl:`3.3V LDO regulator with 500㎃`
+       - On-board :bbl:`RGB LED` (NeoPixel)
+         – :brd:`See warning above!`
        - On-board :bbl:`RESET` button
        - On-board :bbk:`BOOT` button
        - :bbl:`15 GPIO` pins via :bbk:`edge pinout`
@@ -275,6 +306,7 @@ Default Zephyr Peripheral Mapping:
 - GPIO20 : GP20 (free usable pad)
 - GPIO21 : GP21 (free usable pad)
 - PIO0 : GP22
+- PWM_3A : GP22 (only ``@chipled``)
 - GPIO23 : GP23 (free usable pad)
 - GPIO24 : GP24 (free usable pad)
 - GPIO25 : GP25 (free usable pad)
@@ -411,18 +443,27 @@ which is mapped as a hardware revision.
 .. rubric:: :command:`west build -b mini_usb_rp2040`
 
 Use the native USB device port with CDC-ACM as Zephyr console and for the
-shell. Setup QSPI Flash controller to work with 4㎆.
+shell. Setup QSPI Flash controller to work with 4㎆. Bind GP22 to PIO0
+and drive the on-board digital RGB-LED WS2812 (NeoPixel).
 
 .. rubric:: :command:`west build -b mini_usb_rp2040@4mb`
 
 Use the native USB device port with CDC-ACM as Zephyr console and for the
 shell. Setup QSPI Flash controller to work with 4㎆ – the same as the default
-board configuration ``mini_usb_rp2040``.
+board configuration ``mini_usb_rp2040``. Bind GP22 to PIO0 and drive the
+on-board digital RGB-LED WS2812 (NeoPixel).
 
 .. rubric:: :command:`west build -b mini_usb_rp2040@16mb`
 
 Use the native USB device port with CDC-ACM as Zephyr console and for the
-shell. Setup QSPI Flash controller to work with 16㎆.
+shell. Setup QSPI Flash controller to work with 16㎆. Bind GP22 to PIO0
+and drive the on-board digital RGB-LED WS2812 (NeoPixel).
+
+.. rubric:: :command:`west build -b mini_usb_rp2040@chipled`
+
+Use the native USB device port with CDC-ACM as Zephyr console and for the
+shell. Setup QSPI Flash controller to work with 4㎆. Bind GP22 to PWM6 (3A)
+and drive the incorrectly equipped on-board chip LED; 0% duty cycle on boot.
 
 Connections and IOs
 ===================
@@ -609,6 +650,16 @@ Hello Shell on the USB Console (CDC/ACM)
    :goals: flash
    :compact:
 
+.. rubric:: Hello Shell on ``@chipled`` revision (PWM throttling)
+
+.. zephyr-app-commands::
+   :app: bridle/samples/helloshell
+   :board: mini_usb_rp2040@chipled
+   :build-dir: mini_usb_rp2040
+   :west-args: -p
+   :goals: flash
+   :compact:
+
 Simple test execution on target
 -------------------------------
 
@@ -640,6 +691,8 @@ Simple test execution on target
 
    .. admonition:: Devices
       :class: note dropdown
+
+      .. rubric:: On board revision ``@4mb`` or ``@16mb``:
 
       .. container:: highlight highlight-console notranslate
 
@@ -675,6 +728,47 @@ Simple test execution on target
               DT node labels: vreg
             - rtc\ @\ 4005c000 (READY)
               DT node labels: rtc
+            - dietemp (READY)
+              DT node labels: die_temp
+
+      .. rubric:: On board revision ``@chipled``:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **device list**
+            devices:
+            - clock-controller\ @\ 40008000 (READY)
+              DT node labels: clocks
+            - reset-controller\ @\ 4000c000 (READY)
+              DT node labels: reset
+            - cdc-acm-console-uart (READY)
+              DT node labels: cdc_acm_console_uart
+            - uart\ @\ 40034000 (READY)
+              DT node labels: uart0
+            - watchdog\ @\ 40058000 (READY)
+              DT node labels: wdt0
+            - timer\ @\ 40054000 (READY)
+              DT node labels: timer
+            - dma\ @\ 50000000 (READY)
+              DT node labels: dma
+            - gpio-port\ @\ 0 (READY)
+              DT node labels: gpio0
+            - adc\ @\ 4004c000 (READY)
+              DT node labels: adc
+            - flash-controller\ @\ 18000000 (READY)
+              DT node labels: ssi
+            - i2c\ @\ 40044000 (READY)
+              DT node labels: i2c0 grove_i2c
+            - pwm\ @\ 40050000 (READY)
+              DT node labels: pwm grove_pwm_d16 grove_pwm_d17
+            - vreg\ @\ 40064000 (READY)
+              DT node labels: vreg
+            - rtc\ @\ 4005c000 (READY)
+              DT node labels: rtc
+            - pwm-leds (READY)
+              DT node labels: pwm_leds
             - dietemp (READY)
               DT node labels: die_temp
 
@@ -729,6 +823,23 @@ Simple test execution on target
             :bgn:`uart:~$` **regulator disable vreg**
             [00:00:00.001,000] <inf> board_control: mini_usb_rp2040\ @\ 16mb/rp2040
             [00:00:00.001,000] <inf> board_control: QSPI-Flash: 16MB
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+            Hello World! I'm THE SHELL from mini_usb_rp2040
+
+      .. rubric:: Trigger a power-off/on sequence on ``@chipled`` revision:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **hwinfo reset_cause**
+            reset caused by:
+            - pin
+
+            :bgn:`uart:~$` **regulator disable vreg**
+            [00:00:00.001,000] <inf> board_control: mini_usb_rp2040\ @\ chipled/rp2040
+            [00:00:00.001,000] <inf> board_control: QSPI-Flash: 16MB
+            [00:00:00.002,000] <inf> board_control: Chip-LED configured.
             \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
             Hello World! I'm THE SHELL from mini_usb_rp2040
 
