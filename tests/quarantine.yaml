@@ -182,6 +182,9 @@
   platforms:
     - cytron_maker_nano_rp2040/rp2040
     - cytron_maker_pi_rp2040/rp2040
+    - mini_usb_rp2040@4mb/rp2040
+    - mini_usb_rp2040@16mb/rp2040
+    - mini_usb_rp2040@chipled/rp2040
     - rpi_pico/rp2040
     - rpi_pico/rp2040/w
     - seeeduino_xiao/samd21g18a
@@ -206,6 +209,9 @@
     - arduino_zero/samd21g18a
     - cytron_maker_nano_rp2040/rp2040
     - cytron_maker_pi_rp2040/rp2040
+    - mini_usb_rp2040@4mb/rp2040
+    - mini_usb_rp2040@16mb/rp2040
+    - mini_usb_rp2040@chipled/rp2040
     - mimxrt1010_evk/mimxrt1011
     - mimxrt1060_evk@A/mimxrt1062/hyperflash
     - mimxrt1060_evk@A/mimxrt1062/qspi
@@ -260,6 +266,9 @@
     - arduino_zero/samd21g18a
     - cytron_maker_nano_rp2040/rp2040
     - cytron_maker_pi_rp2040/rp2040
+    - mini_usb_rp2040@4mb/rp2040
+    - mini_usb_rp2040@16mb/rp2040
+    - mini_usb_rp2040@chipled/rp2040
     - mimxrt1010_evk/mimxrt1011
     - mimxrt1060_evk@A/mimxrt1062/hyperflash
     - mimxrt1060_evk@A/mimxrt1062/qspi
