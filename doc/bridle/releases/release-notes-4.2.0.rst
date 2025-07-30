@@ -12,6 +12,11 @@ Highlights
 **********
 
 * :brd:`NOT YET, tbd.`
+* new board support for:
+
+  * Mini USB RP2040 with board revisions for different sizes of QSPI flash
+    memory and a workaround, as far as possible, for rarely existing boards
+    with incorrectly assembled chip LED.
 
 .. note:: See the changelog and readme files in the component repositories
    for a detailed description of changes.
@@ -106,6 +111,7 @@ Supported boards
 * PicoBoy Color Plus (PBC+) Mini-Handheld
 * Cytron Maker Nano RP2040
 * Cytron Maker Pi RP2040
+* Mini USB RP2040
 * NXP MIMXRT1010-EVK
 * NXP MIMXRT1060-EVK
 * NXP MIMXRT1170-EVK/EVKB (CM7)
@@ -225,6 +231,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`341` - [HW] Mini USB RP2040 by AliExpress (No Name Technology)
 * :github:`339` - [BUG] SC18IS604 emulation has compilation warning on zero size VAL
 * :github:`333` - [FER] upgrade to west 1.4.0
 * :github:`325` - [BUG] SPI Loopback test suit files on TiaC Magpie F777NI
