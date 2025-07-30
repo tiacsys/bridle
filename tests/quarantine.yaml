@@ -308,6 +308,9 @@
   platforms:
     - cytron_maker_nano_rp2040/rp2040
     - cytron_maker_pi_rp2040/rp2040
+    - mini_usb_rp2040@4mb/rp2040
+    - mini_usb_rp2040@16mb/rp2040
+    - mini_usb_rp2040@chipled/rp2040
     - rpi_pico/rp2040
     - rpi_pico/rp2040/w
     - seeeduino_xiao/samd21g18a
@@ -330,6 +333,9 @@
     - arduino_zero/samd21g18a
     - cytron_maker_nano_rp2040/rp2040
     - cytron_maker_pi_rp2040/rp2040
+    - mini_usb_rp2040@4mb/rp2040
+    - mini_usb_rp2040@16mb/rp2040
+    - mini_usb_rp2040@chipled/rp2040
     - mimxrt1010_evk/mimxrt1011
     - mimxrt1060_evk@A/mimxrt1062/hyperflash
     - mimxrt1060_evk@A/mimxrt1062/qspi
@@ -364,6 +370,9 @@
     - arduino_zero/samd21g18a
     - cytron_maker_nano_rp2040/rp2040
     - cytron_maker_pi_rp2040/rp2040
+    - mini_usb_rp2040@4mb/rp2040
+    - mini_usb_rp2040@16mb/rp2040
+    - mini_usb_rp2040@chipled/rp2040
     - mimxrt1010_evk/mimxrt1011
     - mimxrt1060_evk@A/mimxrt1062/hyperflash
     - mimxrt1060_evk@A/mimxrt1062/qspi
@@ -627,6 +636,73 @@
     - grove.connectors.grove_btn.gpio.d24.inv
     - grove.connectors.grove_btn.gpio.d25
     - grove.connectors.grove_btn.gpio.d25.inv
+    - grove.connectors.grove_btn.gpio.d29
+    - grove.connectors.grove_btn.gpio.d29.inv
+    - grove.connectors.grove_btn.gpio.d30
+    - grove.connectors.grove_btn.gpio.d30.inv
+    - grove.connectors.grove_btn.gpio.d31
+    - grove.connectors.grove_btn.gpio.d31.inv
+
+- comment: "shield(grove.connectors.grove_btn): mini_usb_rp2040: invalid board condition."
+  platforms:
+    - mini_usb_rp2040@4mb/rp2040
+    - mini_usb_rp2040@16mb/rp2040
+    - mini_usb_rp2040@chipled/rp2040
+  scenarios:
+    - grove.connectors.grove_btn.gpio.d0
+    - grove.connectors.grove_btn.gpio.d0.inv
+    - grove.connectors.grove_btn.gpio.d1
+    - grove.connectors.grove_btn.gpio.d1.inv
+    - grove.connectors.grove_btn.gpio.d2
+    - grove.connectors.grove_btn.gpio.d2.inv
+    - grove.connectors.grove_btn.gpio.d3
+    - grove.connectors.grove_btn.gpio.d3.inv
+    - grove.connectors.grove_btn.gpio.d4
+    - grove.connectors.grove_btn.gpio.d4.inv
+    - grove.connectors.grove_btn.gpio.d5
+    - grove.connectors.grove_btn.gpio.d5.inv
+    - grove.connectors.grove_btn.gpio.d6
+    - grove.connectors.grove_btn.gpio.d6.inv
+    - grove.connectors.grove_btn.gpio.d7
+    - grove.connectors.grove_btn.gpio.d7.inv
+    - grove.connectors.grove_btn.gpio.d8
+    - grove.connectors.grove_btn.gpio.d8.inv
+    - grove.connectors.grove_btn.gpio.d9
+    - grove.connectors.grove_btn.gpio.d9.inv
+    - grove.connectors.grove_btn.gpio.d10
+    - grove.connectors.grove_btn.gpio.d10.inv
+    - grove.connectors.grove_btn.gpio.d11
+    - grove.connectors.grove_btn.gpio.d11.inv
+    - grove.connectors.grove_btn.gpio.d12
+    - grove.connectors.grove_btn.gpio.d12.inv
+    - grove.connectors.grove_btn.gpio.d13
+    - grove.connectors.grove_btn.gpio.d13.inv
+    - grove.connectors.grove_btn.gpio.d14
+    - grove.connectors.grove_btn.gpio.d14.inv
+    - grove.connectors.grove_btn.gpio.d15
+    - grove.connectors.grove_btn.gpio.d15.inv
+    - grove.connectors.grove_btn.gpio.d18
+    - grove.connectors.grove_btn.gpio.d18.inv
+    - grove.connectors.grove_btn.gpio.d19
+    - grove.connectors.grove_btn.gpio.d19.inv
+    - grove.connectors.grove_btn.gpio.d20
+    - grove.connectors.grove_btn.gpio.d20.inv
+    - grove.connectors.grove_btn.gpio.d21
+    - grove.connectors.grove_btn.gpio.d21.inv
+    - grove.connectors.grove_btn.gpio.d22
+    - grove.connectors.grove_btn.gpio.d22.inv
+    - grove.connectors.grove_btn.gpio.d23
+    - grove.connectors.grove_btn.gpio.d23.inv
+    - grove.connectors.grove_btn.gpio.d24
+    - grove.connectors.grove_btn.gpio.d24.inv
+    - grove.connectors.grove_btn.gpio.d25
+    - grove.connectors.grove_btn.gpio.d25.inv
+    - grove.connectors.grove_btn.gpio.d26
+    - grove.connectors.grove_btn.gpio.d26.inv
+    - grove.connectors.grove_btn.gpio.d27
+    - grove.connectors.grove_btn.gpio.d27.inv
+    - grove.connectors.grove_btn.gpio.d28
+    - grove.connectors.grove_btn.gpio.d28.inv
     - grove.connectors.grove_btn.gpio.d29
     - grove.connectors.grove_btn.gpio.d29.inv
     - grove.connectors.grove_btn.gpio.d30
