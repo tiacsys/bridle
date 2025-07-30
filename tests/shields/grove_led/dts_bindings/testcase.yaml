@@ -38,6 +38,9 @@ common:
     - nucleo_f413zh
     - nucleo_f746zg
     - nucleo_f767zi
+    - mini_usb_rp2040
+    - mini_usb_rp2040@16mb
+    - mini_usb_rp2040@chipled
     - rpi_pico
     - rpi_pico/rp2040/w
     - seeeduino_cm0
@@ -1512,6 +1515,9 @@ tests:
     extra_args: SHIELD=grove_led_d16
     platform_allow:
       - cytron_maker_pi_rp2040
+      - mini_usb_rp2040
+      - mini_usb_rp2040@16mb
+      - mini_usb_rp2040@chipled
       - seeeduino_lotus
   grove.connectors.grove_led.gpio.d17:
     depends_on: grove_gpio
@@ -1523,6 +1529,9 @@ tests:
     extra_args: SHIELD=grove_led_d17
     platform_allow:
       - cytron_maker_pi_rp2040
+      - mini_usb_rp2040
+      - mini_usb_rp2040@16mb
+      - mini_usb_rp2040@chipled
       - seeeduino_lotus
   grove.connectors.grove_led.gpio.d18:
     depends_on: grove_gpio
@@ -1824,6 +1833,9 @@ tests:
     extra_args: SHIELD=grove_pwm_led_d16
     platform_allow:
       - cytron_maker_pi_rp2040
+      - mini_usb_rp2040
+      - mini_usb_rp2040@16mb
+      - mini_usb_rp2040@chipled
   grove.connectors.grove_led.pwm.d17:
     depends_on:
       - grove_gpio
@@ -1837,6 +1849,9 @@ tests:
     extra_args: SHIELD=grove_pwm_led_d17
     platform_allow:
       - cytron_maker_pi_rp2040
+      - mini_usb_rp2040
+      - mini_usb_rp2040@16mb
+      - mini_usb_rp2040@chipled
   grove.connectors.grove_led.pwm.d18:
     depends_on:
       - grove_gpio
