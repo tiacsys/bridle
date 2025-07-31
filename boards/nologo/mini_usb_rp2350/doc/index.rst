@@ -282,6 +282,10 @@ features:
      - :kconfig:option:`CONFIG_SERIAL`
      - :dtcompatible:`raspberrypi,pico-uart`
      - :zephyr:ref:`uart_api`
+   * - UDC (USB Device Controller)
+     - :kconfig:option:`CONFIG_USB_DEVICE_STACK`
+     - :dtcompatible:`raspberrypi,pico-usbd`
+     - :zephyr:ref:`usb_api`
    * - Flash
      - :kconfig:option:`CONFIG_FLASH`
      - :dtcompatible:`raspberrypi,pico-flash-controller` (!)
@@ -362,6 +366,27 @@ connected to external devices over GP0 (TX) and GP1 (RX) on the edge
 connectors. Optional the hardware handshake signals GP2 (CTS) and GP3 (RTS)
 can be used for flow control.
 
+USB Device Port
+===============
+
+The `RP2350 <RP2350 SoC_>`_ MCU has a (native) USB device port that can be used
+to communicate with a host PC. See the
+:external+zephyr:zephyr:code-sample-category:`usb` sample applications for more,
+such as the :external+zephyr:zephyr:code-sample:`usb-cdc-acm` sample which sets
+up a virtual serial port that echos characters back to the host PC. The
+|Mini USB RP2350| provides the Zephyr console per default on the USB port
+as :external+zephyr:ref:`usb_device_cdc_acm`:
+
+   .. container:: highlight-console notranslate literal-block
+
+      .. parsed-literal::
+
+         USB device idVendor=\ |mini_usb_rp2350_VID|, idProduct=\ |mini_usb_rp2350_PID_CON|, bcdDevice=\ |mini_usb_rp2350_BCD_CON|
+         USB device strings: Mfr=1, Product=2, SerialNumber=3
+         Product: |mini_usb_rp2350_PStr_CON|
+         Manufacturer: |mini_usb_rp2350_VStr|
+         SerialNumber: B163A72F0CF0C97A
+
 Programming and Debugging
 *************************
 
@@ -382,8 +407,8 @@ Debugging
 
 There is no SWD interface, thus debugging is not possible on thsi board.
 
-Hello Shell on the UART Console
-===============================
+Hello Shell on the USB Console (CDC/ACM)
+========================================
 
 .. zephyr-app-commands::
    :app: bridle/samples/helloshell
@@ -435,6 +460,8 @@ Simple test execution on target
               DT node labels: clocks
             - reset-controller\ @\ 40020000 (READY)
               DT node labels: reset
+            - cdc-acm-console-uart (READY)
+              DT node labels: cdc_acm_console_uart
             - uart\ @\ 40070000 (READY)
               DT node labels: uart0
             - dma\ @\ 50000000 (READY)
