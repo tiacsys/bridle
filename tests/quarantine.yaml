@@ -749,6 +749,8 @@
     - mini_usb_rp2040@4mb/rp2040
     - mini_usb_rp2040@16mb/rp2040
     - mini_usb_rp2040@chipled/rp2040
+    - mini_usb_rp2350@4mb/rp2350a/m33
+    - mini_usb_rp2350@16mb/rp2350a/m33
     - rpi_pico/rp2040
     - rpi_pico/rp2040/w
     - seeeduino_xiao/samd21g18a
@@ -890,6 +892,8 @@
     - mini_usb_rp2040@4mb/rp2040
     - mini_usb_rp2040@16mb/rp2040
     - mini_usb_rp2040@chipled/rp2040
+    - mini_usb_rp2350@4mb/rp2350a/m33
+    - mini_usb_rp2350@16mb/rp2350a/m33
     - mimxrt1010_evk/mimxrt1011
     - mimxrt1060_evk@A/mimxrt1062/hyperflash
     - mimxrt1060_evk@A/mimxrt1062/qspi
@@ -936,6 +940,8 @@
     - mini_usb_rp2040@4mb/rp2040
     - mini_usb_rp2040@16mb/rp2040
     - mini_usb_rp2040@chipled/rp2040
+    - mini_usb_rp2350@4mb/rp2350a/m33
+    - mini_usb_rp2350@16mb/rp2350a/m33
     - mimxrt1010_evk/mimxrt1011
     - mimxrt1060_evk@A/mimxrt1062/hyperflash
     - mimxrt1060_evk@A/mimxrt1062/qspi
@@ -1116,11 +1122,13 @@
     - grove.connectors.grove_led.(gpio|pwm).d30
     - grove.connectors.grove_led.(gpio|pwm).d31
 
-- comment: "shield(grove.connectors.grove_led): mini_usb_rp2040: invalid board condition."
+- comment: "shield(grove.connectors.grove_led): mini_usb_rp2040/_rp2350: invalid board condition."
   platforms:
     - mini_usb_rp2040@4mb/rp2040
     - mini_usb_rp2040@16mb/rp2040
     - mini_usb_rp2040@chipled/rp2040
+    - mini_usb_rp2350@4mb/rp2350a/m33
+    - mini_usb_rp2350@16mb/rp2350a/m33
   scenarios:
     - grove.connectors.grove_led.(gpio|pwm).d0
     - grove.connectors.grove_led.(gpio|pwm).d1
