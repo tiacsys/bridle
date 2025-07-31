@@ -7,3 +7,9 @@ boards:
     vendor: nologo
     socs:
       - name: rp2350a
+    revision:
+      format: "custom"
+      default: "4mb"
+      revisions:
+        - name: "4mb"
+        - name: "16mb"

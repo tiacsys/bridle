@@ -1,0 +1,14 @@
+/*
+ * Copyright (c) 2025 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include "mini_usb_rp2350-16mb.dtsi"
+
+/ {
+	model = "Nologo Mini USB RP2350 (16MB) @ USB-CDC/ACM Concole";
+	compatible = "nologo,mini-usb-rp2350",
+		     "nologo,mini-usb-rp2350-usbcons",
+		     "nologo,mini-usb-rp2350-16mb",
+		     "nologo,mini-usb-rp2350-16mb-usbcons";
+};

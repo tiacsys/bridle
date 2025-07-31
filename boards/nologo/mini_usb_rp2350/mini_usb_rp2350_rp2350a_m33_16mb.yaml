@@ -1,0 +1,30 @@
+# Copyright (c) 2025 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+identifier: mini_usb_rp2350@16mb/rp2350a/m33
+name: Mini USB RP2350 (16MB)
+type: mcu
+arch: arm
+flash: 16384
+ram: 520
+toolchain:
+  - zephyr
+  - gnuarmemb
+supported:
+  - adc
+  - clock
+  - counter
+  - dma
+  - flash
+  - gpio
+  - grove_gpio
+  - grove_i2c
+  - grove_pwm
+  - hwinfo
+  - i2c
+  - pio
+  - spi
+  - uart
+  - usb_device
+  - usb_cdc
+  - watchdog

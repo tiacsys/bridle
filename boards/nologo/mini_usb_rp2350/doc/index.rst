@@ -33,7 +33,7 @@ The castellated module allows soldering direct to carrier boards.
        :hwftlbl-vdd:`3.3V(OUT)`
 
        :hwftlbl:`150㎒`
-       :hwftlbl:`4㎆`
+       :hwftlbl:`4㎆/16㎆`
        :hwftlbl:`520㎅`
        :hwftlbl-btn:`RST`
        :hwftlbl-led:`RGB`
@@ -53,6 +53,7 @@ The castellated module allows soldering direct to carrier boards.
          processor running up to 150㎒
        - :bbk:`520㎅` on-chip SRAM
        - :bbl:`4㎆` on-board QSPI flash with XIP capabilities
+         – optional :brd:`16㎆`
        - USB 1.1 controller (host/device)
        - On-board :bbl:`PCB USB-A connector`
        - On-board :bbl:`RGB LED` (NeoPixel)
@@ -106,6 +107,7 @@ Positions
                 | 500㎃ low dropout, low noise LDO
              #. | :strong:`On-board flash memory`
                 | 4㎆ NOR-Flash :strong:`W25Q32JV`
+                | 16㎆ NOR-Flash :strong:`W25Q128JV`
              #. :strong:`RP2350A`
              #. | :strong:`WS2812B`
                 | RGB LED
@@ -130,6 +132,8 @@ Positions
 - `Hardware design with RP2350`_
 - .. rubric:: W25Q32JV_
 - `W25Q32JV Datasheet`_
+- .. rubric:: W25Q128JV_
+- `W25Q128JV Datasheet`_
 - .. rubric:: WS2812B_
 - `WS2812B Datasheet V5`_
 - `WS2812B Datasheet V2`_
@@ -400,6 +404,28 @@ configuration can be found in the different Kconfig files:
 
    - :bridle_file:`boards/nologo/mini_usb_rp2350/mini_usb_rp2350_rp2350a_m33_defconfig`
 
+Board Configurations
+====================
+
+The |Mini USB RP2350| board offers an assembly option with 16㎆ Flash,
+which is mapped as a hardware revision.
+
+.. rubric:: :command:`west build -b mini_usb_rp2350/rp2350a/m33`
+
+Use the native USB device port with CDC-ACM as Zephyr console and for the
+shell. Setup QSPI Flash controller to work with 4㎆.
+
+.. rubric:: :command:`west build -b mini_usb_rp2350@4mb/rp2350a/m33`
+
+Use the native USB device port with CDC-ACM as Zephyr console and for the
+shell. Setup QSPI Flash controller to work with 4㎆ – the same as the default
+board configuration ``mini_usb_rp2350``.
+
+.. rubric:: :command:`west build -b mini_usb_rp2350@16mb/rp2350a/m33`
+
+Use the native USB device port with CDC-ACM as Zephyr console and for the
+shell. Setup QSPI Flash controller to work with 16㎆.
+
 Connections and IOs
 ===================
 
@@ -565,9 +591,21 @@ There is no SWD interface, thus debugging is not possible on thsi board.
 Hello Shell on the USB Console (CDC/ACM)
 ========================================
 
+.. rubric:: Hello Shell on ``@4mb`` revision (default)
+
 .. zephyr-app-commands::
    :app: bridle/samples/helloshell
    :board: mini_usb_rp2350/rp2350a/m33
+   :build-dir: mini_usb_rp2350
+   :west-args: -p
+   :goals: flash
+   :compact:
+
+.. rubric:: Hello Shell on ``@16mb`` revision
+
+.. zephyr-app-commands::
+   :app: bridle/samples/helloshell
+   :board: mini_usb_rp2350@16mb/rp2350a/m33
    :build-dir: mini_usb_rp2350
    :west-args: -p
    :goals: flash

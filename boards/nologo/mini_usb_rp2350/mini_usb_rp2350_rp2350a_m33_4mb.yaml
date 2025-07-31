@@ -1,8 +1,8 @@
 # Copyright (c) 2025 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
-identifier: mini_usb_rp2350
-name: Mini USB RP2350
+identifier: mini_usb_rp2350@4mb/rp2350a/m33
+name: Mini USB RP2350 (4MB)
 type: mcu
 arch: arm
 flash: 4096
