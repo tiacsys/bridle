@@ -844,7 +844,33 @@
    https://www.nologo.tech/product/raspberrypie/RP2040/rp2040usb/rp2040_usb1.html#测试程序
 
 .. _`Mini USB RP2040 WS2812 Test (UF2 file)`:
-   https://ziliao.nologo.tech/无名科技Nologo资料/RaspberryPie开发板//RP2040USB/RP2040USB测试程序.uf2
+   https://ziliao.nologo.tech/无名科技Nologo资料/RaspberryPie开发板/RP2040USB/RP2040USB测试程序.uf2
+
+.. ### Links to Mini USB RP2350
+
+.. _`Mini USB RP2350`:
+   https://www.nologo.tech/product/raspberrypie/RP2350/rp2350usb/rp2350_usb1.html
+
+.. _`AliExpress webshops for Mini USB RP2350`:
+   https://aliexpress.com/w/wholesale-MINI-USB-RP2350.html
+
+.. _`Mini USB RP2350 Schematic`:
+   https://www.nologo.tech/product/raspberrypie/RP2350/rp2350usb/rp2350_usb1.html#原理图
+
+.. _`Mini USB RP2350 Schematic (PNG file)`:
+   https://ziliao.nologo.tech/无名科技Nologo资料/RaspberryPie开发板/RP2350USB/原理图.png
+
+.. _`Mini USB RP2350 STEP 3D-Model`:
+   https://www.nologo.tech/product/raspberrypie/RP2350/rp2350usb/rp2350_usb1.html#_3d模型
+
+.. _`Mini USB RP2350 STEP 3D-Model (STEP file)`:
+   https://ziliao.nologo.tech/无名科技Nologo资料/RaspberryPie开发板/RP2350USB/USB%20RP2350%20.step
+
+.. _`Mini USB RP2350 WS2812 Test`:
+   https://www.nologo.tech/product/raspberrypie/RP2350/rp2350usb/rp2350_usb1.html#测试程序
+
+.. _`Mini USB RP2350 WS2812 Test (UF2 file)`:
+   https://ziliao.nologo.tech/无名科技Nologo资料/RaspberryPie开发板/RP2350USB/USBRP2350测试程序.uf2
 
 
 

@@ -320,6 +320,26 @@
 .. |mini_usb_rp2040_PStr_CON|		replace:: :ign:`Mini USB RP2040 (CDC ACM)`
 .. |mini_usb_rp2040_BCD_CON|		replace:: |zephyr_version_BCD|
 
+.. |bridle:board:mini_usb_rp2350| replace:: :ref:`mini_usb_rp2350`
+.. :bridle:board:`mini_usb_rp2350`
+
+.. |Mini USB RP2350| replace::
+   :ref:`Mini USB RP2350 <mini_usb_rp2350>`
+.. :bridle:board:`Mini USB RP2350 <mini_usb_rp2350>`
+
+.. |Mini USB RP2350 (CDC ACM)| replace::
+   :ref:`Mini USB RP2350 (CDC ACM) <mini_usb_rp2350>`
+.. :bridle:board:`RP2350-One (CDC ACM) <mini_usb_rp2350>`
+
+.. |mini_usb_rp2350_URB_VID|		replace:: |rpi_URB_VID|
+.. |mini_usb_rp2350_VID|		replace:: |rpi_VID|
+.. |mini_usb_rp2350_VStr|		replace:: |rpi_nologo_VStr|
+
+.. |mini_usb_rp2350_URB_PID_CON|	replace:: |rpi_pico_sdk_uart_rp2040_URB_PID|
+.. |mini_usb_rp2350_PID_CON|		replace:: |rpi_pico_sdk_uart_rp2040_PID|
+.. |mini_usb_rp2350_PStr_CON|		replace:: :ign:`Mini USB RP2350 (CDC ACM)`
+.. |mini_usb_rp2350_BCD_CON|		replace:: |zephyr_version_BCD|
+
 .. |bridle:board:picoboy| replace:: :ref:`the_picoboy`
 .. :bridle:board:`picoboy`
 
