@@ -41,6 +41,8 @@ common:
     - mini_usb_rp2040
     - mini_usb_rp2040@16mb
     - mini_usb_rp2040@chipled
+    - mini_usb_rp2350@4mb/rp2350a/m33
+    - mini_usb_rp2350@16mb/rp2350a/m33
     - rpi_pico
     - rpi_pico/rp2040/w
     - seeeduino_cm0
@@ -1340,6 +1342,8 @@ tests:
       - mini_usb_rp2040
       - mini_usb_rp2040@16mb
       - mini_usb_rp2040@chipled
+      - mini_usb_rp2350@4mb/rp2350a/m33
+      - mini_usb_rp2350@16mb/rp2350a/m33
       - seeeduino_lotus
   grove.connectors.grove_btn.gpio.d16.inv:
     depends_on: grove_gpio
@@ -1354,6 +1358,8 @@ tests:
       - mini_usb_rp2040
       - mini_usb_rp2040@16mb
       - mini_usb_rp2040@chipled
+      - mini_usb_rp2350@4mb/rp2350a/m33
+      - mini_usb_rp2350@16mb/rp2350a/m33
       - seeeduino_lotus
   grove.connectors.grove_btn.gpio.d17:
     depends_on: grove_gpio
@@ -1368,6 +1374,8 @@ tests:
       - mini_usb_rp2040
       - mini_usb_rp2040@16mb
       - mini_usb_rp2040@chipled
+      - mini_usb_rp2350@4mb/rp2350a/m33
+      - mini_usb_rp2350@16mb/rp2350a/m33
       - seeeduino_lotus
   grove.connectors.grove_btn.gpio.d17.inv:
     depends_on: grove_gpio
@@ -1382,6 +1390,8 @@ tests:
       - mini_usb_rp2040
       - mini_usb_rp2040@16mb
       - mini_usb_rp2040@chipled
+      - mini_usb_rp2350@4mb/rp2350a/m33
+      - mini_usb_rp2350@16mb/rp2350a/m33
       - seeeduino_lotus
   grove.connectors.grove_btn.gpio.d18:
     depends_on: grove_gpio
