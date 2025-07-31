@@ -11,6 +11,7 @@ toolchain:
   - zephyr
   - gnuarmemb
 supported:
+  - adc
   - clock
   - counter
   - dma
