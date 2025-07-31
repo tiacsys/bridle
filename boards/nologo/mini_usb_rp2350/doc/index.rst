@@ -258,10 +258,23 @@ Default Zephyr Peripheral Mapping:
 - SPI0_SCK : GP6
 - SPI0_TX : GP7
 - GPIO8 : GP8 (free usable)
+- GPIO9 : GP9 (free usable pad)
+- GPIO10 : GP10 (free usable pad)
+- GPIO11 : GP11 (free usable pad)
+- GPIO12 : GP12 (free usable pad)
+- GPIO13 : GP13 (free usable pad)
 - I2C1_SDA : GP14
 - I2C1_SCL : GP15
 - I2C0_SDA : GP16 (Qwiic)
 - I2C0_SCL : GP17 (Qwiic)
+- GPIO18 : GP18 (free usable pad)
+- GPIO19 : GP19 (free usable pad)
+- GPIO20 : GP20 (free usable pad)
+- GPIO21 : GP21 (free usable pad)
+- PIO0 : GP22
+- GPIO23 : GP23 (free usable pad)
+- GPIO24 : GP24 (free usable pad)
+- GPIO25 : GP25 (free usable pad)
 - ADC_CH0 : GP26
 - ADC_CH1 : GP27
 - ADC_CH2 : GP28
@@ -331,6 +344,22 @@ features:
      - :dtcompatible:`raspberrypi,pico-flash-controller` (!)
      - :zephyr:ref:`flash_api` and
        :zephyr:ref:`flash_map_api`
+   * - PIO
+     - :kconfig:option:`CONFIG_PIO_RPI_PICO`
+     - :dtcompatible:`raspberrypi,pico-pio`
+     - N/A
+   * - UART (PIO)
+     - :kconfig:option:`CONFIG_SERIAL`
+     - :dtcompatible:`raspberrypi,pico-uart-pio`
+     - :zephyr:ref:`uart_api`
+   * - SPI (PIO)
+     - :kconfig:option:`CONFIG_SPI`
+     - :dtcompatible:`raspberrypi,pico-spi-pio`
+     - :zephyr:ref:`spi_api`
+   * - WS2812 (PIO)
+     - :kconfig:option:`CONFIG_LED_STRIP`
+     - :dtcompatible:`worldsemi,ws2812-rpi-pico-pio`
+     - N/A
    * - DMA
      - :kconfig:option:`CONFIG_DMA`
      - :dtcompatible:`raspberrypi,pico-dma`
@@ -491,6 +520,28 @@ as :external+zephyr:ref:`usb_device_cdc_acm`:
          Manufacturer: |mini_usb_rp2350_VStr|
          SerialNumber: B163A72F0CF0C97A
 
+Programmable I/O (PIO)
+**********************
+
+The RP2350 SoC comes with three PIO periherals. These are three simple
+co-processors that are designed for I/O operations. The PIOs run a custom
+instruction set, generated from a custom assembly language. PIO programs
+are assembled using :command:`pioasm`, a tool provided by Raspberry Pi.
+
+Zephyr does not (currently) assemble PIO programs. Rather, they should be
+manually assembled and embedded in source code. An example of how this is done
+can be found at :zephyr_file:`drivers/serial/uart_rpi_pico_pio.c`.
+
+Sample: SPI via PIO
+===================
+
+The :zephyr_file:`samples/sensor/bme280/README.rst` sample includes a
+demonstration of using the PIO SPI driver to communicate with an
+environmental sensor. The PIO SPI driver supports using any
+combination of GPIO pins for an SPI bus, as well as allowing up to
+four independent SPI buses on a single board (using the two SPI
+devices as well as both PIO devices).
+
 Programming and Debugging
 *************************
 
@@ -574,6 +625,8 @@ Simple test execution on target
               DT node labels: timer1
             - timer\ @\ 400b0000 (READY)
               DT node labels: timer0
+            - pio\ @\ 50200000 (READY)
+              DT node labels: ((pio_hw_t \*)0x50200000u)
             - dma\ @\ 50000000 (READY)
               DT node labels: dma
             - gpio-port\ @\ 0 (READY)
@@ -704,6 +757,43 @@ Simple test execution on target
 
             :bgn:`uart:~$` **i2c read_byte i2c0 77 d0**
             Output: 0x58
+
+More Samples
+************
+
+LED Blinky and Fade
+===================
+
+.. hint::
+
+   Neither LED Blinky nor LED Fade can be built and executed on standard
+   |Mini USB RP2350|, because this system has only one digital RGB LED.
+   A simple GPIO or PWM control is not possible!
+
+WS2812 LED Test Pattern by PIO
+==============================
+
+.. zephyr-app-commands::
+   :app: zephyr/samples/drivers/led/led_strip
+   :board: mini_usb_rp2350/rp2350a/m33
+   :build-dir: mini_usb_rp2350
+   :west-args: -p
+   :goals: flash
+   :compact:
+
+Simple test execution on target
+-------------------------------
+
+   .. admonition:: Console Output
+      :class: note dropdown toggle-shown
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+            [00:00:04.001,000] <inf> main: Found LED strip device ws2812-single
+            [00:00:04.001,000] <inf> main: Displaying pattern on strip
 
 Grove Module Samples
 ********************
