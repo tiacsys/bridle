@@ -253,7 +253,15 @@ Default Zephyr Peripheral Mapping:
 - UART0_RX : GP1
 - UART0_CTS : GP2 (optional, not default)
 - UART0_RTS : GP3 (optional, not default)
+- SPI0_RX : GP4
+- SPI0_CSN : GP5
+- SPI0_SCK : GP6
+- SPI0_TX : GP7
 - GPIO8 : GP8 (free usable)
+- I2C1_SDA : GP14
+- I2C1_SCL : GP15
+- I2C0_SDA : GP16 (Qwiic)
+- I2C0_SCL : GP17 (Qwiic)
 - ADC_CH0 : GP26
 - ADC_CH1 : GP27
 - ADC_CH2 : GP28
@@ -290,6 +298,14 @@ features:
      - :kconfig:option:`CONFIG_USB_DEVICE_STACK`
      - :dtcompatible:`raspberrypi,pico-usbd`
      - :zephyr:ref:`usb_api`
+   * - I2C
+     - :kconfig:option:`CONFIG_I2C`
+     - :dtcompatible:`raspberrypi,pico-i2c`
+     - :zephyr:ref:`i2c_api`
+   * - SPI
+     - :kconfig:option:`CONFIG_SPI`
+     - :dtcompatible:`raspberrypi,pico-spi`
+     - :zephyr:ref:`spi_api`
    * - ADC
      - :kconfig:option:`CONFIG_ADC`
      - :dtcompatible:`raspberrypi,pico-adc`
@@ -387,6 +403,22 @@ are available on the edge connectors.
 
 The external voltage reference ADC_VREF is directly connected to the 3.3V
 power supply.
+
+SPI Port
+========
+
+The `RP2350 <RP2350 SoC_>`_ MCU has 2 SPIs. The serial bus SPI0 is connect to
+external devices over GP7 (MOSI), GP4 (MISO), GP6 (SCK), and GP5 (CSn) on the
+edge connectors. SPI1 is not available in any default setup.
+
+I2C Port
+========
+
+The `RP2350 <RP2350 SoC_>`_ MCU has 2 I2Cs. The serial bus I2C0 and I2C1 are
+connect to external devices by default over GP16 (I2C0_SDA), GP17 (I2C0_SCL)
+on the Grove compatible Qwiic/STEMMA QT connector and GP14 (I2C1_SDA),
+GP15 (I2C1_SCL) on the edge connectors. I2C1 is available but disabled in
+any default setup.
 
 Serial Port
 ===========
@@ -506,6 +538,8 @@ Simple test execution on target
               DT node labels: gpio0 gpio0_lo
             - adc\ @\ 400a0000 (READY)
               DT node labels: adc
+            - i2c\ @\ 40090000 (READY)
+              DT node labels: i2c0
             - dietemp (READY)
               DT node labels: die_temp
 
@@ -592,6 +626,42 @@ Simple test execution on target
 
             :bgn:`uart:~$` **adc adc@400a0000 read 4**
             read: 876
+
+   .. admonition:: I2C on Qwiic with BMP280
+      :class: note dropdown
+
+      The Mini USB RP2350 has no on-board I2C devices. For this example an
+      |Grove BMP280 Sensor|_ was plugged into the Qwiic connector.
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **log enable none i2c_dw**
+
+            :bgn:`uart:~$` **i2c scan i2c0**
+                 0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+            00:             -- -- -- -- -- -- -- -- -- -- -- --
+            10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            70: -- -- -- -- -- -- -- 77
+            1 devices found on i2c0
+
+            :bgn:`uart:~$` **log enable inf i2c_dw**
+
+      The I2C address ``0x77`` is a Bosch BMP280 Air Pressure Sensor and their
+      Chip-ID can read from register ``0xd0``. The Chip-ID must be ``0x58``:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **i2c read_byte i2c0 77 d0**
+            Output: 0x58
 
 References
 **********
