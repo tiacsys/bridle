@@ -286,6 +286,14 @@ features:
      - :kconfig:option:`CONFIG_USB_DEVICE_STACK`
      - :dtcompatible:`raspberrypi,pico-usbd`
      - :zephyr:ref:`usb_api`
+   * - Timer (Counter)
+     - :kconfig:option:`CONFIG_COUNTER`
+     - :dtcompatible:`raspberrypi,pico-timer`
+     - :zephyr:ref:`counter_api`
+   * - Watchdog Timer (WDT)
+     - :kconfig:option:`CONFIG_WATCHDOG`
+     - :dtcompatible:`raspberrypi,pico-watchdog`
+     - :zephyr:ref:`watchdog_api`
    * - Flash
      - :kconfig:option:`CONFIG_FLASH`
      - :dtcompatible:`raspberrypi,pico-flash-controller` (!)
@@ -464,10 +472,35 @@ Simple test execution on target
               DT node labels: cdc_acm_console_uart
             - uart\ @\ 40070000 (READY)
               DT node labels: uart0
+            - watchdog\ @\ 400d8000 (READY)
+              DT node labels: wdt0
+            - timer\ @\ 400b8000 (READY)
+              DT node labels: timer1
+            - timer\ @\ 400b0000 (READY)
+              DT node labels: timer0
             - dma\ @\ 50000000 (READY)
               DT node labels: dma
             - gpio-port\ @\ 0 (READY)
               DT node labels: gpio0 gpio0_lo
+
+   .. admonition:: Timer
+      :class: note dropdown
+
+      .. rubric:: Operate with the tow on-chip timer units:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **timer oneshot timer0 0 1000000**
+            :bgn:`timer: Alarm triggered`
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **timer oneshot timer1 0 1000000**
+            :bgn:`timer: Alarm triggered`
 
 References
 **********

@@ -26,6 +26,10 @@
 		zephyr,console = &cdc_acm_console_uart;
 		zephyr,shell-uart = &cdc_acm_console_uart;
 	};
+
+	aliases {
+		watchdog0 = &wdt0;
+	};
 };
 
 &flash0 {
@@ -55,6 +59,18 @@
 			read-only;
 		};
 	};
+};
+
+&wdt0 {
+	status = "okay";
+};
+
+&timer0 {
+	status = "okay";
+};
+
+&timer1 {
+	status = "okay";
 };
 
 &dma {
