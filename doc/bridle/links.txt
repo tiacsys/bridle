@@ -719,8 +719,6 @@
 .. _`PicoBoy Color Plus Schematic`:
    https://picoboy.de/files/PBC+_schematic.svg
 
-
-
 .. ### Links to VccGND Studio (Source Instrument and Equipment)
 
 .. |VccGND Studio| replace::
@@ -730,6 +728,18 @@
 .. |VccGND Studio on AliExpress| replace::
    :strong:`VccGND Studio` (:emphasis:`Source Instrument and Equipment`) :strong:`on AliExpress`
 .. _`VccGND Studio on AliExpress`: https://vcc-gnd.aliexpress.com/store/5881833
+
+
+
+.. ### Links to WeAct Studio (WeiXing Store)
+
+.. |WeAct Studio on GitHub| replace::
+   :strong:`WeAct Studio` (:emphasis:`WeiXing Store`) :strong:`on GitHub`
+.. _`WeAct Studio on GitHub`: https://github.com/WeActStudio
+
+.. |WeAct Studio on AliExpress| replace::
+   :strong:`WeAct Studio` (:emphasis:`WeiXing Store`) :strong:`on AliExpress`
+.. _`WeAct Studio on AliExpress`: https://weactstudio.aliexpress.com/store/910567080
 
 
 
