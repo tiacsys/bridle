@@ -5,7 +5,7 @@
 		// Specify version for Zephyr Container
 		// See https://github.com/zephyrproject-rtos/docker-image/releases
 		"args": {
-			"ZEPHYR_TAG": "v0.27.4"
+			"ZEPHYR_TAG": "v0.28.2"
 		}
 	},
 	// Needed for USB devices in container
