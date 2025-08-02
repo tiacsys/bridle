@@ -25,6 +25,7 @@ raspberrypi	Raspberry Pi Foundation
 seeed	Seeed Technology Co., Ltd
 sensortek	Sensortek Technology Corporation
 sparkfun	SparkFun Electronics, Inc.
+spotpear	Spotpear Electronics Co., Ltd.
 st	STMicroelectronics N.V.
 tiac	TiaC Systems
 vccgnd	VccGND Studio (Source Instrument and Equipment)
