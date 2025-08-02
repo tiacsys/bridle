@@ -10,22 +10,25 @@ description: |
     This binding provides a nexus mapping for 13 pads where parent pins 0
     through 12 correspond as depicted below:
 
-                  .---------.
-          --------|         |--------
-          |       |  USB-A  |       |
-          |       `---------´       |
-          |                         |
-          ]                         [
-          ]                 0 GP9   [
-          ]  GP25 12        1 GP10  [
-          ]  GP24 11        2 GP11  [
-          ]  GP23 10        3 GP12  [
-          ]  GP22 9         4 GP13  [
-          ]  GP21 8         5 GP18  [
-          ]  GP20 7         6 GP19  [
-          ]                         [
-          |                         |
-          `-------------------------´
+             .---------.
+             |         |
+             |  USB-A  |
+             |         |
+             |         |
+             |         |
+          .--´         `--.
+          |               |
+          ]               [
+          ]         GP9   [ 0
+       12 ]  GP25   GP10  [ 1
+       11 ]  GP24   GP11  [ 2
+       10 ]  GP23   GP12  [ 3
+        9 ]  GP22   GP13  [ 4
+        8 ]  GP21   GP18  [ 5
+        7 ]  GP20   GP19  [ 6
+          ]               [
+          |               |
+          `---------------´
 
 compatible: "nologo,miniusb-pcbpads"
 
