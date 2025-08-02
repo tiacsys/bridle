@@ -1,0 +1,49 @@
+# Copyright (c) 2025 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+    GPIO pins exposed on No Name Technology BluePill and BluePill+ headers.
+
+    The BluePill and BluePill+ layout provides a wraparound header on the
+    longer freely accessible edges of the board and can be divided into
+    two sections, two headers on the longer opposite sides.
+
+    Proceeding counter-clockwise:
+    * A 20-pin header. 17 pins on this header are exposed by this binding.
+    * A 20-pin header. 15 pins on this header are exposed by this binding.
+
+    This binding provides a nexus mapping for 32 pins where parent pins 20
+    through 29 correspond to ADC0 through ADC9, and parent pins 0 through 16
+    and other pins above correspond as depicted below:
+
+                  .---------.                       on  BluePill  BluePill+
+          .-------|         |-------.           ======  ========  =========
+        0 B12 NSS |   USB   |     (!) -         (!) ->  GND       5V
+        1 B13 SCK `---------´     GND -
+        2 B14 MISO                3V3 -
+        3 B15 MOSI               NRST -
+        4 A8  (MCO)    (RX#/SDA#) B11 31
+        5 A9  UART TX  (TX#/SCL#) B10 30
+        6 A10 UART RX        ADC9  B1 29
+        7 A11 (USB DN)       ADC8  B0 28
+        8 A12 (USB DP)       ADC7  A7 27
+        9 A15 (JTDI)         ADC6  A6 26
+       10 B3  (JTDO)         ADC5  A5 25
+       11 B4  (JTRST)        ADC4  A4 24
+       12 B5                 ADC3  A3 23
+       13 B6  SCL            ADC2  A2 22
+       14 B7  SDA            ADC1  A1 21
+       15 B8  CAN RX  (WKUP) ADC0  A0 20
+       16 B9  CAN TX  (OSC32 OUT) C15 19
+        - 5V           (OSC32 IN) C14 18
+        - GND                 (*) C13 17        (*) ->  LED       free
+        - 3V3       o o o o      VBAT -
+          `---------|-|-|-|---------´
+                    | | | |
+
+             3V3 ---´     `--- GND
+    (JTMS) SWDIO -----´ `----- SWCLK (JTCK)
+
+compatible: "nologo,bluepill-header"
+
+include: [gpio-nexus.yaml, base.yaml]
