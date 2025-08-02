@@ -1,0 +1,60 @@
+.. list-table::
+   :align: center
+   :width: 66%
+   :header-rows: 1
+
+   * - .. image:: img/positions.jpg
+          :align: center
+          :width: 500
+          :alt: WeAct BluePill+ CH32V203Cx details
+
+   * - .. container:: twocol
+
+          .. container:: leftside
+
+             1. | :strong:`USB Type-C connector`
+                | Supports USB1.1 slave devices
+             #. | :strong:`ME6231C33 (VCWK)`
+                | 300㎃ low dropout, low noise LDO
+                | also possible: :strong:`ME6209A33`, :strong:`ME6216A33`, or
+                  :strong:`LN1132P332M`
+             #. | :strong:`CH32V203Cx`
+                | one of the supported by |WCH|
+             #. | :strong:`USER LED monochrome`
+                | user LED for diagnostic (not power indicator)
+
+          .. container:: rightside
+
+             5. | :strong:`USER button`
+             #. | :strong:`BOOT0 button`
+                | press it when resetting to enter download mode
+             #. :strong:`RESET button`
+             #. | :strong:`SWD Port`
+                | for flashing and debugging (with 3V3 power supply)
+             #. | :strong:`On-board SPI flash memory (unpopulated)`
+                | 4㎆ NOR-Flash :strong:`W25Q32JV`
+                | 8㎆ NOR-Flash :strong:`W25Q64JV`
+                | 16㎆ NOR-Flash :strong:`W25Q128JV`
+
+.. rubric:: Data Sheets
+.. rst-class:: rst-columns
+
+- .. rubric:: `CH32V203 SoC <CH32V203_>`_
+- `CH32V203 Reference Manual <CH32V2x/V3x Reference Manual V2.3_>`_
+- `CH32V203 Datasheet <CH32V203 Datasheet V2.8_>`_
+- .. rubric:: W25Q32JV_
+- `W25Q32JV Datasheet`_
+- .. rubric:: W25Q64JV_
+- `W25Q64JV Datasheet`_
+- .. rubric:: W25Q128JV_
+- `W25Q128JV Datasheet`_
+- .. rubric:: LN1132P332M_
+- `LN1132 Datasheet`_
+- .. rubric:: ME6231C33_
+- `ME6231 Datasheet`_
+- .. rubric:: ME6216A33_
+- `ME6216 Datasheet V08`_
+- `ME6216 Datasheet V02`_
+- .. rubric:: ME6209A33_
+- `ME6209 Datasheet V12`_
+- `ME6209 Datasheet V02`_

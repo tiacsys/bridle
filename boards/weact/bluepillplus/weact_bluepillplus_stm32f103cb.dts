@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) 2025 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/dts-v1/;
+
+#include <st/f1/stm32f103Xb.dtsi>
+#include <st/f1/stm32f103c(8-b)tx-pinctrl.dtsi>
+
+/ {
+	model = "WeAct Studio BluePill+ STM32F103CB @ UART Concole";
+	compatible = "weact,bluepillplus-stm32f103cb",
+		     "weact,bluepillplus-stm32f103cb-uartcons";
+};
+
+#include "stm32/72mhz.dtsi"
+#include "stm32/usart1.dtsi"
+
+#include "stm32/user_button.dtsi"
+#include "stm32/user_led.dtsi"
+
+#include "stm32/connector.dtsi"
+bluepill_serial: &usart1 {};

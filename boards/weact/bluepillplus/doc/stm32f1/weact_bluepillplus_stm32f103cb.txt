@@ -1,0 +1,69 @@
+Configuration	weact_bluepillplus_stm32f103cb
+STM32CubeMX 	6.15.0
+Date	08/08/2025
+MCU	STM32F103CBTx
+
+
+
+PERIPHERALS	MODES	FUNCTIONS	PINS
+RCC	Crystal/Ceramic Resonator	RCC_OSC_IN	PD0-OSC_IN
+RCC	Crystal/Ceramic Resonator	RCC_OSC_OUT	PD1-OSC_OUT
+SYS	Serial Wire	SYS_JTCK-SWCLK	PA14
+SYS	Serial Wire	SYS_JTMS-SWDIO	PA13
+SYS	SysTick	SYS_VS_Systick	VP_SYS_VS_Systick
+USART1	Asynchronous	USART1_RX	PA10
+USART1	Asynchronous	USART1_TX	PA9
+
+
+
+Pin Nb	PINs	FUNCTIONs	LABELs
+5	PD0-OSC_IN	RCC_OSC_IN
+6	PD1-OSC_OUT	RCC_OSC_OUT
+10	PA0-WKUP	GPIO_Input	USER_KEY_WKUP
+20	PB2	GPIO_Output	USER_LED_BOOT1
+30	PA9	USART1_TX
+31	PA10	USART1_RX
+34	PA13	SYS_JTMS-SWDIO	SYS_SWDIO
+37	PA14	SYS_JTCK-SWCLK	SYS_SWCLK
+PERIPHERALS	MODES	FUNCTIONS	PINS
+RCC	Crystal/Ceramic Resonator	RCC_OSC_IN	PD0-OSC_IN
+RCC	Crystal/Ceramic Resonator	RCC_OSC_OUT	PD1-OSC_OUT
+SYS	Serial Wire	SYS_JTCK-SWCLK	PA14
+SYS	Serial Wire	SYS_JTMS-SWDIO	PA13
+SYS	SysTick	SYS_VS_Systick	VP_SYS_VS_Systick
+USART1	Asynchronous	USART1_RX	PA10
+USART1	Asynchronous	USART1_TX	PA9
+
+
+
+Pin Nb	PINs	FUNCTIONs	LABELs
+5	PD0-OSC_IN	RCC_OSC_IN
+6	PD1-OSC_OUT	RCC_OSC_OUT
+10	PA0-WKUP	GPIO_Input	USER_KEY_WKUP
+20	PB2	GPIO_Output	USER_LED_BOOT1
+30	PA9	USART1_TX
+31	PA10	USART1_RX
+34	PA13	SYS_JTMS-SWDIO	SYS_SWDIO
+37	PA14	SYS_JTCK-SWCLK	SYS_SWCLK
+
+
+
+SOFTWARE PROJECT
+
+Project Settings :
+Project Name : weact_bluepillplus_stm32f103cb
+Project Folder : /store/EmbedTools/STM32CubeMX/weact_bluepillplus/weact_bluepillplus_stm32f103cb
+Toolchain / IDE : CMake
+Firmware Package Name and Version : STM32Cube FW_F1 V1.8.6
+
+
+Code Generation Settings :
+STM32Cube MCU packages and embedded software packs : Copy all used libraries into the project folder
+Generate peripheral initialization as a pair of '.c/.h' files per peripheral : No
+Backup previously generated files when re-generating : Yes
+Delete previously generated files when not re-generated : Yes
+Set all free pins as analog (to optimize the power consumption) : Yes
+
+
+Toolchains Settings :
+Compiler Optimizations :

@@ -1,0 +1,10 @@
+/*
+ * Copyright (c) 2025 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <mem.h>
+
+&flash0 {
+	reg = <0x08000000 DT_SIZE_K(32)>;
+};

@@ -1,0 +1,129 @@
+.. list-table::
+   :align: center
+   :width: 100%
+   :widths: 66, 33
+
+   * - .. rubric:: Pin Mapping
+     - .. rubric:: Pinout
+
+   * - :on-board:
+          :hwftlbl-btn:`1 BUTTON`
+          :hwftlbl-led:`1 SIGNAL`
+
+       :on-header:
+          :hwftlbl-pio:`5`
+          :hwftlbl-pwm:`3`
+          :hwftlbl-adc:`10`
+          :hwftlbl-i2c:`2`
+          :hwftlbl-spi:`1`
+          :hwftlbl-uart:`1`
+          :hwftlbl-can:`1`
+
+       .. rubric:: Default Zephyr Peripheral Mapping
+
+       |nbsp|
+
+       .. rst-class:: rst-columns edge-pinout
+
+       - | :rpi-pico-pin:`1`     :rpi-pico-spi-dfl:`SPI2_NSS`    : :rpi-pico-pio:`PB12`
+       - | :rpi-pico-pin:`2`     :rpi-pico-spi-dfl:`SPI2_SCK`    : :rpi-pico-pio:`PB13`
+       - | :rpi-pico-pin:`3`     :rpi-pico-spi-dfl:`SPI2_MISO`   : :rpi-pico-pio:`PB14`
+       - | :rpi-pico-pin:`4`     :rpi-pico-spi-dfl:`SPI2_MOSI`   : :rpi-pico-pio:`PB15`
+       - | :rpi-pico-pin:`5`     :rpi-pico-sys:`MCO`             : :rpi-pico-pio:`PA8`
+         | :rpi-pico-pin-nc:`nc` :rpi-pico-pwm:`T1C1` alternative
+       - | :rpi-pico-pin:`6`     :rpi-pico-uart-dfl:`USART1_TXD` : :rpi-pico-pio:`PA9`
+       - | :rpi-pico-pin:`7`     :rpi-pico-uart-dfl:`USART1_RXD` : :rpi-pico-pio:`PA10`
+       - | :rpi-pico-pin:`8`     :rpi-pico-sys:`USB_DM`          : :rpi-pico-pio:`PA11`
+       - | :rpi-pico-pin:`9`     :rpi-pico-sys:`USB_DP`          : :rpi-pico-pio:`PA12`
+       - | :rpi-pico-pin:`10`    GPIO_EXTI15/SPI1                : :rpi-pico-pio:`PA15`
+       - | :rpi-pico-pin:`11`    GPIO_EXTI3/SPI1                 : :rpi-pico-pio:`PB3`
+       - | :rpi-pico-pin:`12`    GPIO_EXTI4/SPI1                 : :rpi-pico-pio:`PB4`
+         | :rpi-pico-pin-nc:`nc` :rpi-pico-pwm:`T3C1` alternative
+       - | :rpi-pico-pin:`13`    GPIO_EXTI5/SPI1                 : :rpi-pico-pio:`PB5`
+         | :rpi-pico-pin-nc:`nc` :rpi-pico-pwm:`T2C2` alternative
+       - | :rpi-pico-pin:`14`    :rpi-pico-i2c-dfl:`I2C1_SCL`    : :rpi-pico-pio:`PB6`
+       - | :rpi-pico-pin:`15`    :rpi-pico-i2c-dfl:`I2C1_SDA`    : :rpi-pico-pio:`PB7`
+       - | :rpi-pico-pin:`16`    :rpi-pico-can-dfl:`CAN_RX`      : :rpi-pico-pio:`PB8`
+       - | :rpi-pico-pin:`17`    :rpi-pico-can-dfl:`CAN_TX`      : :rpi-pico-pio:`PB9`
+       - | :rpi-pico-pin:`18`    :rpi-pico-vdd:`5V`
+       - | :rpi-pico-pin:`19`    :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`20`    :rpi-pico-vdd:`3V3`
+       - | :rpi-pico-pin:`21`    :rpi-pico-vdd:`VBAT`
+       - | :rpi-pico-pin:`22`    GPIO_EXTI13/RTC                 : :rpi-pico-pio:`PC13`
+       - | :rpi-pico-pin:`23`    GPIO_EXTI14/RTC                 : :rpi-pico-pio:`PC14`
+         | :rpi-pico-pin-nc:`nc` on-board :rpi-pico-sys:`OSC32_IN` for RTC
+       - | :rpi-pico-pin:`24`    GPIO_EXTI15/RTC                 : :rpi-pico-pio:`PC15`
+         | :rpi-pico-pin-nc:`nc` on-board :rpi-pico-sys:`OSC32_OUT` for RTC
+       - | :rpi-pico-pin:`25`    :rpi-pico-adc:`ADC1_IN1`        : :rpi-pico-pio:`PA0`
+         | :rpi-pico-pin-nc:`nc` on-chip :rpi-pico-sys:`WKUP` to exit sleep mode
+       - | :rpi-pico-pin:`26`    :rpi-pico-adc:`ADC1_IN2`        : :rpi-pico-pio:`PA1`
+       - | :rpi-pico-pin:`27`    :rpi-pico-adc:`ADC1_IN3`        : :rpi-pico-pio:`PA2`
+       - | :rpi-pico-pin:`28`    :rpi-pico-adc:`ADC1_IN4`        : :rpi-pico-pio:`PA3`
+       - | :rpi-pico-pin:`29`    :rpi-pico-adc:`ADC1_IN5`        : :rpi-pico-pio:`PA4`
+       - | :rpi-pico-pin:`30`    :rpi-pico-adc:`ADC1_IN6`        : :rpi-pico-pio:`PA5`
+       - | :rpi-pico-pin:`31`    :rpi-pico-adc:`ADC1_IN7`        : :rpi-pico-pio:`PA6`
+       - | :rpi-pico-pin:`32`    :rpi-pico-adc:`ADC1_IN8`        : :rpi-pico-pio:`PA7`
+       - | :rpi-pico-pin:`33`    :rpi-pico-adc:`ADC1_IN9`        : :rpi-pico-pio:`PB0`
+       - | :rpi-pico-pin:`34`    :rpi-pico-adc:`ADC1_IN10`       : :rpi-pico-pio:`PB1`
+       - | :rpi-pico-pin:`35`    :rpi-pico-i2c:`I2C2_SCL`        : :rpi-pico-pio:`PB10`
+         | :rpi-pico-pin-nc:`nc` :rpi-pico-uart:`USART3_TXD` alternative
+       - | :rpi-pico-pin:`36`    :rpi-pico-i2c:`I2C2_SDA`        : :rpi-pico-pio:`PB11`
+         | :rpi-pico-pin-nc:`nc` :rpi-pico-uart:`USART3_RXD` alternative
+       - | :rpi-pico-pin:`37`    :rpi-pico-sys:`NRST`
+       - | :rpi-pico-pin:`38`    :rpi-pico-vdd:`3V3`
+       - | :rpi-pico-pin:`39`    :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`40`    :rpi-pico-vdd:`5V`
+
+       .. rubric:: On-Board Mapping for :hwftlbl-dbg:`SWD`
+
+       |nbsp|
+
+       .. rst-class:: rst-columns edge-pinout
+
+       - | :rpi-pico-pin-nc:`nc` :rpi-pico-swd:`SYS_SWDIO` : :rpi-pico-pio:`PA13`
+       - | :rpi-pico-pin-nc:`nc`
+       - | :rpi-pico-pin-nc:`nc` :rpi-pico-swd:`SYS_SWCLK` : :rpi-pico-pio:`PA14`
+       - | :rpi-pico-pin-nc:`nc`
+       - | :rpi-pico-pin-nc:`nc` :rpi-pico-vdd:`3V3`
+       - | :rpi-pico-pin-nc:`nc` :rpi-pico-gnd:`GND`
+
+       .. rubric:: On-Board Mapping for :hwftlbl-led:`USER` and :hwftlbl-btn:`USER`
+
+       |nbsp|
+
+       .. rst-class:: rst-columns edge-pinout
+
+       - | :rpi-pico-pin-nc:`nc` GPIO_EXTI2                      : :rpi-pico-pio:`PB2`
+         | :rpi-pico-pin-nc:`nc` on-chip :rpi-pico-sys:`BOOT1` @ 10kΩ pull-down
+       - | :rpi-pico-pin-nc:`nc` GPIO_EXTI0 :rpi-pico-sys:`WKUP` : :rpi-pico-pio:`PA0`
+         | :rpi-pico-pin-nc:`nc` competes with :rpi-pico-adc:`ADC1_IN1`
+
+       .. rubric:: On-Board Routings for :hwftlbl:`SPI Flash` (unpopulated)
+
+       |nbsp|
+
+       .. rst-class:: rst-columns edge-pinout
+
+       - | :rpi-pico-pin-nc:`nc` :rpi-pico-spi:`SPI1_NSS`  : :rpi-pico-pio:`PA4`
+         | :rpi-pico-pin-nc:`nc` competes with :rpi-pico-adc:`ADC1_IN5`
+       - | :rpi-pico-pin-nc:`nc` :rpi-pico-spi:`SPI1_SCK`  : :rpi-pico-pio:`PA5`
+         | :rpi-pico-pin-nc:`nc` competes with :rpi-pico-adc:`ADC1_IN6`
+       - | :rpi-pico-pin-nc:`nc`
+       - | :rpi-pico-pin-nc:`nc`
+       - | :rpi-pico-pin-nc:`nc` :rpi-pico-spi:`SPI1_MISO` : :rpi-pico-pio:`PA6`
+         | :rpi-pico-pin-nc:`nc` competes with :rpi-pico-adc:`ADC1_IN7`
+       - | :rpi-pico-pin-nc:`nc`
+       - | :rpi-pico-pin-nc:`nc`
+       - | :rpi-pico-pin-nc:`nc` :rpi-pico-spi:`SPI1_MOSI` : :rpi-pico-pio:`PA7`
+         | :rpi-pico-pin-nc:`nc` competes with :rpi-pico-adc:`ADC1_IN8`
+
+       .. rubric:: Devicetree compatible
+
+       - :dtcompatible:`nologo,bluepill-header`
+       - :dtcompatible:`gpio-leds`
+       - :dtcompatible:`gpio-keys`
+
+     - .. image:: img/pinouts.jpg
+          :align: center
+          :width: 100%
+          :alt: WeAct BluePill+ edge pinout

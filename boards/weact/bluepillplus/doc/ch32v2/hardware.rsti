@@ -1,0 +1,81 @@
+The |BluePill-Plus-CH32|_ is available with an CH32V203 in two different
+configurations featuring different sizes of on-chip flash memory.
+It follows the general BluePill connector concept with two opposing
+20-pin headers. The underlying schematic diagram also provides an additional
+SPI flash (unpopulated). This can be mounted on the bottom of the board at
+position U3 as an SOIC8 package. It is connected via the first SPI bus, but
+through pins PA4 to PA7, and thus conflicts with ADC channels 4 to 7, which
+are located on the same pins as on the BluePill header.
+
+.. list-table::
+   :align: center
+   :width: 100%
+   :widths: 66, 33
+
+   * - .. rubric:: Features and Resources
+     - .. rubric:: Printed Circuit Board
+
+   * - :hwftlbl-vdd:`5V/480㎃`
+       :hwftlbl-vdd:`3.3V/300㎃`
+       :hwftlbl-vdd:`3.3V(OUT)`
+
+       :hwftlbl:`144㎒`
+       :hwftlbl:`32/64㎆`
+       :hwftlbl:`10/20㎅`
+       :hwftlbl-btn:`RST`
+       :hwftlbl-btn:`BOOT`
+       :hwftlbl-btn:`USER`
+       :hwftlbl-led:`BLUE`
+       :hwftlbl-con:`USB-C`
+       :hwftlbl-dbg:`SWD`
+
+       :hwftlbl-pio:`5`
+       :hwftlbl-pwm:`3`
+       :hwftlbl-adc:`10`
+       :hwftlbl-i2c:`2`
+       :hwftlbl-spi:`1`
+       :hwftlbl-uart:`1`
+       :hwftlbl-can:`1`
+
+       .. rst-class:: rst-columns
+
+       - Single core RISC-V QingKe V4B processor running up to 144㎒
+       - :bbk:`10/20㎅` on-chip SRAM
+       - :bbk:`32/64㎆` on-chip flash with XIP capabilities
+       - USB 1.1 controller (device)
+       - CAN 2.0 A/B controller (SOF, 14 filter)
+       - On-board :bbk:`USB-C connector`
+       - On-board :bbl:`3.3V LDO regulator with 300㎃`
+       - On-board :bbk:`RESET` button
+       - On-board :bbl:`BOOT0` button
+       - On-board :bbl:`USER` button
+       - On-board :bbl:`LED`
+       - :bbl:`32 GPIO` pins via :bbk:`edge pinout` (6 free)
+       - :bbl:`15 PWM` channels (3 free)
+       - :bbl:`10 ADC` analog inputs
+       - :bbk:`1 UART` peripherals
+       - :bbk:`2 I2C` controllers
+       - :bbk:`1 SPI` controllers
+       - 1 Watchdog timer peripheral
+       - 1 Temperature sensor on-chip
+
+       .. rubric:: Design Data
+       .. rst-class:: rst-columns
+
+       - `BluePill-Plus-CH32 V1.1 Schematic`_
+
+       .. admonition:: Remarks
+          :class: warning
+
+          - **Warning:** The +5V pins on the board headers are directly
+            connected to the +5V pin of the USB connector via a protective
+            diode. With schematic V1.1, this can be bypassed by a solder
+            bridge (SB1) provided on the bottom directly below the USB-C
+            connector. In this case, do not power this board through USB
+            and an external power supply at the same time!
+          - **Warning:** The optional SPI flash (U3) will use the same pins
+            PA4 to PA7 as the BluePill header for ADC channels 4 to 7.
+
+     - .. image:: img/hardware.jpg
+          :align: center
+          :alt: WeAct BluePill+ CH32V203Cx

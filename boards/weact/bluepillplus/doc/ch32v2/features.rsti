@@ -1,0 +1,50 @@
+.. list-table:: Hardware Features Supported by Zephyr
+   :class: longtable
+   :align: center
+   :header-rows: 1
+
+   * - Peripheral
+     - Kconfig option
+     - Devicetree compatible
+     - Zephyr API
+   * - PINCTRL
+     - :kconfig:option:`CONFIG_PINCTRL`
+     - :dtcompatible:`wch,20x_30x-afio`
+     - :external+zephyr:ref:`pinctrl_api`
+   * - GPIO
+     - :kconfig:option:`CONFIG_GPIO`
+     - :dtcompatible:`wch,gpio`
+     - :external+zephyr:ref:`gpio_api`
+   * - UART
+     - :kconfig:option:`CONFIG_SERIAL`
+     - :dtcompatible:`wch,usart`
+     - :external+zephyr:ref:`uart_api`
+   * - SPI
+     - :kconfig:option:`CONFIG_SPI`
+     - | :dtcompatible:`wch,spi`
+     - :external+zephyr:ref:`spi_api`
+   * - RESET
+     - :kconfig:option:`CONFIG_RESET`
+     - :dtcompatible:`wch,rcc`
+     - :external+zephyr:ref:`reset_api`
+   * - CLOCK
+     - :kconfig:option:`CONFIG_CLOCK_CONTROL`
+     - | :dtcompatible:`wch,rcc`
+       | :dtcompatible:`wch,ch32v20x_30x-pll-clock`
+       | :dtcompatible:`wch,ch32v00x-hse-clock`
+       | :dtcompatible:`wch,ch32v00x-hsi-clock`
+     - :external+zephyr:ref:`clock_control_api`
+   * - NVIC (PFIC)
+     - N/A
+     - :dtcompatible:`wch,pfic`
+     - Nested Vector :external+zephyr:ref:`interrupts_v2` Controller
+   * - SYSTICK
+     - N/A
+     - :dtcompatible:`wch,systick`
+     -
+
+Other hardware features are not currently supported by Zephyr. The default
+configuration can be found in the different Kconfig files:
+
+   - :bridle_file:`boards/weact/bluepillplus/weact_bluepillplus_ch32v203c8_defconfig`
+   - :bridle_file:`boards/weact/bluepillplus/weact_bluepillplus_ch32v203c6_defconfig`

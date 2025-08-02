@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) 2025 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
+/ {
+	aliases {
+		led0 = &user_led;
+	};
+
+	gpio_leds {
+		compatible = "gpio-leds";
+		user_led: led {
+			gpios = <&gpiob 2 GPIO_ACTIVE_HIGH>;
+			label = "User LED";
+		};
+	};
+};
+
+&gpiob {
+	status = "okay";
+};

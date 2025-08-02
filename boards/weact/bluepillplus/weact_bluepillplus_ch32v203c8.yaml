@@ -1,0 +1,18 @@
+# Copyright (c) 2025 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+identifier: weact_bluepillplus_ch32v203c8
+vendor: weact
+name: WeAct Studio BluePill+ CH32V203C8
+type: mcu
+arch: riscv
+flash: 64
+ram: 20
+toolchain:
+  - zephyr
+  - cross-compile
+supported:
+  - bluepill_gpio
+  - bluepill_serial
+  - gpio
+  - uart

@@ -757,6 +757,33 @@
    :strong:`WeAct Studio` (:emphasis:`WeiXing Store`) :strong:`on AliExpress`
 .. _`WeAct Studio on AliExpress`: https://weactstudio.aliexpress.com/store/910567080
 
+.. |BluePill-Plus| replace:: :emphasis:`WeAct Studio` :strong:`BluePill-Plus`
+.. _BluePill-Plus: https://github.com/WeActStudio/BluePill-Plus
+.. _`BluePill-Plus V1.1 Schematic`:
+   https://raw.githubusercontent.com/WeActStudio/BluePill-Plus/refs/heads/master/HDK/BluePillPlus_V11_SchDoc.pdf
+.. _`BluePill-Plus V1.0 Schematic`:
+   https://raw.githubusercontent.com/WeActStudio/BluePill-Plus/refs/heads/master/HDK/BluePillPlus_V10_SchDoc.pdf
+
+.. |STM32-base BluePill-Plus| replace::
+   :emphasis:`STM32-base:` :strong:`BluePill-Plus`
+.. _`STM32-base BluePill-Plus`:
+   https://stm32-base.org/boards/STM32F103C8T6-WeAct-Blue-Pill-Plus-Clone
+
+.. |BluePill-Plus-APM32| replace:: :emphasis:`WeAct Studio` :strong:`BluePill-Plus-APM32`
+.. _BluePill-Plus-APM32: https://github.com/WeActStudio/WeActStudio.BluePill-Plus-APM32
+.. _`BluePill-Plus-APM32 V1.1 Schematic`:
+   https://raw.githubusercontent.com/WeActStudio/WeActStudio.BluePill-Plus-APM32/blob/main/HDK/BluePillPlus_V11_SchDoc.pdf
+
+.. |BluePill-Plus-CH32| replace:: :emphasis:`WeAct Studio` :strong:`BluePill-Plus-CH32`
+.. _BluePill-Plus-CH32: https://github.com/WeActStudio/WeActStudio.BluePill-Plus-CH32
+.. _`BluePill-Plus-CH32 V1.1 Schematic`:
+   https://raw.githubusercontent.com/WeActStudio/WeActStudio.BluePill-Plus-CH32/blob/master/HDK/BluePillPlus_V11_SchDoc.pdf
+
+.. |BluePill-Plus-GD32| replace:: :emphasis:`WeAct Studio` :strong:`BluePill-Plus-GD32`
+.. _BluePill-Plus-GD32: https://github.com/WeActStudio/WeActStudio.BluePill-Plus-GD32
+.. _`BluePill-Plus-GD32 V1.1 Schematic`:
+   https://raw.githubusercontent.com/WeActStudio/WeActStudio.BluePill-Plus-GD32/blob/main/HDK/BluePillPlus_V11_SchDoc.pdf
+
 
 
 .. ### Links to Waveshare Systems
@@ -1598,6 +1625,35 @@
 .. _`ETA6096 Datasheet`:
    http://www.eta-semi.com/wp-content/uploads/2022/03/ETA6096_V1.4.pdf
 
+.. _`LN1132P332M`:
+   http://www.natlinear.com/product/product/pone/18
+
+.. _`LN1132 Datasheet`:
+   http://www.natlinear.com/Public/Home/default/static/PDF/LN1132_E.pdf
+.. https://mekatronik.org/forum/attachments/ln1132_e-pdf.31312
+
+.. _`LN1132 (CN) Datasheet`:
+   http://www.natlinear.com/Public/Home/default/static/PDF/LN1132_C.pdf
+
+.. _`ME6209A33`:
+   https://www.microne.com.cn/en/product/255.html
+
+.. _`ME6209 Datasheet V12`:
+   https://datasheet4u.com/pdf-down/M/E/6/ME6209-Microne.pdf
+.. https://adjuntos.yoreparo.com/default/0006/26/50681e10073ef4bd6d7d10ecf3c84c409d369f19.pdf
+
+.. _`ME6209 Datasheet V02`:
+   http://www.icgu.com/file/upload/201507/16/13-25-44-17-20.pdf
+
+.. _`ME6216A33`:
+   https://www.microne.com.cn/en/product/267.html
+
+.. _`ME6216 Datasheet V08`:
+   https://static.chipdip.ru/lib/821/DOC012821740.pdf
+
+.. _`ME6216 Datasheet V02`:
+   https://datasheet4u.com/pdf-down/M/E/6/ME6216-Microne.pdf
+
 .. _`ME6217C33`:
    https://www.microne.com.cn/en/product/258.html
 .. http://www.microne.com.cn/en/ProductDetail.aspx?id=8
@@ -2330,6 +2386,12 @@
 .. _`W25Q32JV Datasheet`:
    https://www.winbond.com/hq/support/documentation/levelOne.jsp?__locale=en&DocNo=DA00-W25Q32JV.1
 
+.. _`W25Q64JV`:
+   https://www.winbond.com/hq/product/code-storage-flash-memory/serial-nor-flash/index.html?__locale=en&partNo=W25Q64JV
+
+.. _`W25Q64JV Datasheet`:
+   https://www.winbond.com/hq/support/documentation/levelOne.jsp?__locale=en&DocNo=DA00-W25Q64JV
+
 .. _`W25Q128JV`:
    https://www.winbond.com/hq/product/code-storage-flash-memory/serial-nor-flash/index.html?__locale=en&partNo=W25Q128JV
 
@@ -2340,11 +2402,112 @@
 
 .. |ACM0| replace:: :strong:`Arm Cortex-M0`
 .. |ACM3| replace:: :strong:`Arm Cortex-M3`
+.. |ACM4| replace:: :strong:`Arm Cortex-M4`
+.. |RVQ3A| replace:: :strong:`RISC-V QingKe V3A`
+.. |RVQ4B| replace:: :strong:`RISC-V QingKe V4B`
 
 .. ##### Links to silicon vendors of SoC/MCU/CPU
 
+.. |GD| replace:: :emphasis:`GigaDevice`
+.. _GD: https://www.gigadevice.com/
+
+.. |GS| replace:: :emphasis:`Geehy`
+.. _GS: https://global.geehy.com/
+
 .. |STM| replace:: :emphasis:`STMicroelectronics`
 .. _STM: https://www.st.com/
+
+.. |WCH| replace:: :emphasis:`WinChipHead`
+.. _WCH: https://www.wch.cn/
+
+.. ##### Links to APM32F103 Series Cortex®-M3 Processors
+
+.. _APM32: https://global.geehy.com/product/third/apm32
+
+.. _APM32F103: https://global.geehy.com/product/fifth/APM32F103
+
+.. |APM32F103C8| replace:: APM32F103C\ :strong:`8`
+.. _APM32F103C8: https://global.geehy.com/product/fifth/APM32F103
+
+.. |APM32F103CB| replace:: APM32F103C\ :strong:`B`
+.. _APM32F103CB: https://global.geehy.com/product/fifth/APM32F103
+
+.. ##### Links to CH32F103 Series Cortex®-M3 Processors
+
+.. _CH32F: https://www.wch.cn/products/productsCenter/mcuInterface?categoryId=71
+
+.. _CH32F103: https://www.wch.cn/products/CH32F103.html
+
+.. |CH32F103C6| replace:: CH32F103C\ :strong:`6`
+.. _CH32F103C6: https://www.wch.cn/products/CH32F103.html
+
+.. |CH32F103C8| replace:: CH32F103C\ :strong:`8`
+.. _CH32F103C8: https://www.wch.cn/products/CH32F103.html
+
+.. ##### Links to CH32V Series RISC-V QingKe Processors
+
+.. _CH32V: https://www.wch.cn/products/productsCenter/mcuInterface?categoryId=70
+
+.. ##### Links to CH32V103 Series RISC-V QingKe V3A (RV32IMAC) Processors
+
+.. _CH32V103: https://www.wch.cn/products/CH32V103.html
+
+.. |CH32V103C6| replace:: CH32V103C\ :strong:`6`
+.. _CH32V103C6: https://www.wch.cn/products/CH32V103.html
+
+.. |CH32V103C8| replace:: CH32V103C\ :strong:`8`
+.. _CH32V103C8: https://www.wch.cn/products/CH32V103.html
+
+.. ##### Links to CH32V203 Series RISC-V QingKe V4B (RV32IMAC) Processors
+
+.. _`CH32V2x/V3x Reference Manual V2.3`:
+   https://www.wch-ic.com/download/file?id=324
+.. --> CH32FV2x_V3xRM.PDF
+.. https://www.wch-ic.com/downloads/CH32FV2x_V3xRM_PDF.html
+
+.. _`CH32V2x/V3x (CN) Reference Manual V2.4`:
+   https://www.wch.cn/download/file?id=371
+.. --> CH32FV2x_V3xRM.PDF
+.. https://www.wch.cn/downloads/CH32FV2x_V3xRM_PDF.html
+
+.. _CH32V203: https://www.wch.cn/products/CH32V203.html
+
+.. _`CH32V203 Datasheet V2.8`:
+   https://www.wch-ic.com/download/file?id=354
+.. --> CH32V203DS0.PDF
+.. https://www.wch-ic.com/downloads/CH32V203DS0_PDF.html
+
+.. _`CH32V203 (CN) Datasheet V2.8`:
+   https://www.wch.cn/download/file?id=414
+.. --> CH32V203DS0.PDF
+.. https://www.wch.cn/downloads/CH32V203DS0_PDF.html
+
+.. |CH32V203C6| replace:: CH32V203C\ :strong:`6`
+.. _CH32V203C6: https://www.wch.cn/products/CH32V203.html
+
+.. |CH32V203C8| replace:: CH32V203C\ :strong:`8`
+.. _CH32V203C8: https://www.wch.cn/products/CH32V203.html
+
+.. ##### Links to GD32F10x Series Cortex®-M3 Processors
+
+.. _GD32F10x: https://www.gigadevice.com/product/mcu/main-stream-mcus/gd32f10x-series
+
+.. _GD32F103: https://www.gigadevice.com/product/mcu/main-stream-mcus/gd32f10x-series/gd32f103
+
+.. |GD32F103C8| replace:: GD32F103C\ :strong:`8`
+.. _GD32F103C8: https://www.gigadevice.com/product/mcu/mcus-product-selector/gd32f103c8t6
+
+.. |GD32F103CB| replace:: GD32F103C\ :strong:`B`
+.. _GD32F103CB: https://www.gigadevice.com/product/mcu/mcus-product-selector/gd32f103cbt6
+
+.. ##### Links to GD32F30x Series Cortex®-M4 Processors
+
+.. _GD32F30x: https://www.gigadevice.com/product/mcu/main-stream-mcus/gd32f30x-series
+
+.. _GD32F303: https://www.gigadevice.com/product/mcu/main-stream-mcus/gd32f30x-series/gd32f303
+
+.. |GD32F303CC| replace:: GD32F303C\ :strong:`C`
+.. _GD32F303CC: https://www.gigadevice.com/product/mcu/mcus-product-selector/gd32f303cct6
 
 .. ##### Links to STM32F0 Series Cortex®-M0 Processors
 

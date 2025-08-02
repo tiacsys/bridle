@@ -1,0 +1,15 @@
+.. tabs::
+
+   .. group-tab:: |STM32F103CB|
+
+      .. rubric:: :command:`west build -b weact_bluepillplus_stm32f103cb`
+
+      Use the serial port USART1 on edge header as
+      Zephyr console and for the shell.
+
+   .. group-tab:: |STM32F103C8|
+
+      .. rubric:: :command:`west build -b weact_bluepillplus_stm32f103c8`
+
+      Use the serial port USART1 on edge header as
+      Zephyr console and for the shell.

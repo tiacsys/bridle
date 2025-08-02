@@ -1,0 +1,26 @@
+/*
+ * Copyright (c) 2025 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/dts-v1/;
+
+#include <wch/ch32v203/ch32v203c8t.dtsi>
+
+#include "ch32v203c8t/fixes.dtsi"
+
+/ {
+	model = "WeAct Studio BluePill+ CH32V203C8 @ UART Concole";
+	compatible = "weact,bluepillplus-ch32v203c8",
+		     "weact,bluepillplus-ch32v203c8-uartcons";
+};
+
+#include "ch32v2/pinctrl.dtsi"
+#include "ch32v2/120mhz.dtsi"
+#include "ch32v2/usart1.dtsi"
+
+#include "stm32/user_button.dtsi"
+#include "stm32/user_led.dtsi"
+
+#include "stm32/connector.dtsi"
+bluepill_serial: &usart1 {};

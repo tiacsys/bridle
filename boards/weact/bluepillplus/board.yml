@@ -1,0 +1,24 @@
+# Copyright (c) 2025 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+boards:
+  - name: weact_bluepillplus_stm32f103c8
+    full_name: WeAct BluePill+ STM32F103C8
+    vendor: weact
+    socs:
+      - name: stm32f103xb
+  - name: weact_bluepillplus_stm32f103cb
+    full_name: WeAct BluePill+ STM32F103CB
+    vendor: weact
+    socs:
+      - name: stm32f103xb
+  - name: weact_bluepillplus_ch32v203c6
+    full_name: WeAct BluePill+ CH32V203C6
+    vendor: weact
+    socs:
+      - name: ch32v203
+  - name: weact_bluepillplus_ch32v203c8
+    full_name: WeAct BluePill+ CH32V203C8
+    vendor: weact
+    socs:
+      - name: ch32v203

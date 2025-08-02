@@ -1,0 +1,57 @@
+/*
+ * Copyright (c) 2025 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	bluepill_header: connector {
+		compatible = "nologo,bluepill-header";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <0 0 &gpiob 12 0>,	/* SPI2 / PB12 (NSS) */
+			   <1 0 &gpiob 13 0>,	/* SPI2 / PB13 (SCK) */
+			   <2 0 &gpiob 14 0>,	/* SPI2 / PB14 (MISO) */
+			   <3 0 &gpiob 15 0>,	/* SPI2 / PB15 (MOSI) */
+			   <4 0 &gpioa 8 0>,	/* GPIO / PA8 (MCO)*/
+			   <5 0 &gpioa 9 0>,	/* USART1 / PA9 (TX) */
+			   <6 0 &gpioa 10 0>,	/* USART1 / PA10 (RX) */
+			   <7 0 &gpioa 11 0>,	/* USBD / PA11 (DN) */
+			   <8 0 &gpioa 12 0>,	/* USBD / PA12 (DP) */
+			   <9 0 &gpioa 15 0>,	/* GPIO / PA15 */
+			   <10 0 &gpiob 3 0>,	/* GPIO / PB3 */
+			   <11 0 &gpiob 4 0>,	/* GPIO / PB4 */
+			   <12 0 &gpiob 5 0>,	/* GPIO / PB5 */
+			   <13 0 &gpiob 6 0>,	/* I2C1 / PB6 (SCL) */
+			   <14 0 &gpiob 7 0>,	/* I2C1 / PB7 (SDA) */
+			   <15 0 &gpiob 8 0>,	/* CAN1 / PB8 (RX) */
+			   <16 0 &gpiob 9 0>,	/* CAN1 / PB9 (TX) */
+			   <17 0 &gpioc 13 0>,	/* GPIO / PC13 */
+			   <18 0 &gpioc 14 0>,	/* GPIO / PC14 (OSC32 IN) */
+			   <19 0 &gpioc 15 0>,	/* GPIO / PC15 (OSC32 OUT) */
+			   <20 0 &gpioa 0 0>,	/* ADC0 / PA0 (WKUP) */
+			   <21 0 &gpioa 1 0>,	/* ADC1 / PA1 */
+			   <22 0 &gpioa 2 0>,	/* ADC2 / PA2 */
+			   <23 0 &gpioa 3 0>,	/* ADC3 / PA3 */
+			   <24 0 &gpioa 4 0>,	/* ADC4 / PA4 */
+			   <25 0 &gpioa 5 0>,	/* ADC5 / PA5 */
+			   <26 0 &gpioa 6 0>,	/* ADC6 / PA6 */
+			   <27 0 &gpioa 7 0>,	/* ADC7 / PA7 */
+			   <28 0 &gpiob 0 0>,	/* ADC8 / PB0 */
+			   <29 0 &gpiob 1 0>,	/* ADC9 / PB1 */
+			   <30 0 &gpiob 10 0>,	/* I2C2 / PB10 (SCL) */
+			   <31 0 &gpiob 11 0>;	/* I2C2 / PB11 (SDA) */
+	};
+};
+
+&gpioa {
+	status = "okay";
+};
+
+&gpiob {
+	status = "okay";
+};
+
+&gpioc {
+	status = "okay";
+};

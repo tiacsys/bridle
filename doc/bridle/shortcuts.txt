@@ -1044,6 +1044,9 @@
 .. |arduino_zero_PStr_CON|	replace:: :ign:`Arduino Zero (CDC ACM)`
 .. |arduino_zero_BCD_CON|	replace:: |zephyr_version_BCD|
 
+.. |zephyr:board:bluepillplus_ch32v203| replace::
+   :external+zephyr:zephyr:board:`bluepillplus_ch32v203`
+
 .. |zephyr:board:mimxrt1010_evk| replace::
    :external+zephyr:zephyr:board:`mimxrt1010_evk`
 

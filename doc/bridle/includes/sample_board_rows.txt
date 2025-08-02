@@ -101,3 +101,19 @@
 .. picoboy_color_plus_rp2350a_m33
 
 | RP2040 | | :ref:`the_picoboy` | - ``picoboy_color_plus/rp2350a/m33`` |
+
+.. weact_bluepillplus_ch32v203c6
+
+| CH32V203 | | :ref:`weact_bluepillplus` | - ``weact_bluepillplus_ch32v203c6`` |
+
+.. weact_bluepillplus_ch32v203c8
+
+| CH32V203 | | :ref:`weact_bluepillplus` | - ``weact_bluepillplus_ch32v203c8`` |
+
+.. weact_bluepillplus_stm32f103c8
+
+| STM32F103 | | :ref:`weact_bluepillplus` | - ``weact_bluepillplus_stm32f103c8`` |
+
+.. weact_bluepillplus_stm32f103cb
+
+| STM32F103 | | :ref:`weact_bluepillplus` | - ``weact_bluepillplus_stm32f103cb`` |

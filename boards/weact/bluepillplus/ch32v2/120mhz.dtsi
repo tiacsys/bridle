@@ -1,0 +1,33 @@
+/*
+ * Copyright (c) 2025 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <freq.h>
+
+/ {
+	chosen {
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+	};
+};
+
+&clk_hse {
+	status = "okay";
+	clock-frequency = <DT_FREQ_M(8)>;
+};
+
+&pll {
+	status = "okay";
+	clocks = <&clk_hse>;
+	mul = <15>;
+};
+
+&rcc {
+	status = "okay";
+	clocks = <&pll>;
+};
+
+&cpu0 {
+	clock-frequency = <DT_FREQ_M(120)>;
+};

@@ -114,6 +114,9 @@ Also see the :ref:`boards` section in this documentation.
 +-------------------+------------------------------------+--------------------------------------+
 | Hardware platform | Board name                         | Build target                         |
 +===================+====================================+======================================+
+| APM32F103Cx       | |bridle:board:weact_bluepillplus|  | | ``weact_bluepillplus_apm32f103c8`` |
+|                   |                                    | | ``weact_bluepillplus_apm32f103cb`` |
++-------------------+------------------------------------+--------------------------------------+
 | ATSAMD21G18A      | |bridle:board:arduino_zero|        | ``arduino_zero``                     |
 |                   +------------------------------------+--------------------------------------+
 |                   | |bridle:board:xiao_samd21|         | ``xiao_samd21``                      |
@@ -121,6 +124,20 @@ Also see the :ref:`boards` section in this documentation.
 |                   | |bridle:board:seeeduino_cm0|       | ``seeeduino_cm0``                    |
 |                   +------------------------------------+--------------------------------------+
 |                   | |bridle:board:seeeduino_lotus|     | ``seeeduino_lotus``                  |
++-------------------+------------------------------------+--------------------------------------+
+| CH32F103Cx        | |bridle:board:weact_bluepillplus|  | | ``weact_bluepillplus_ch32f103c6``  |
+|                   |                                    | | ``weact_bluepillplus_ch32f103c8``  |
++-------------------+                                    +--------------------------------------+
+| CH32V103Cx        |                                    | | ``weact_bluepillplus_ch32v103c6``  |
+|                   |                                    | | ``weact_bluepillplus_ch32v103c8``  |
++-------------------+                                    +--------------------------------------+
+| CH32V203Cx        |                                    | | ``weact_bluepillplus_ch32v203c6``  |
+|                   |                                    | | ``weact_bluepillplus_ch32v203c8``  |
++-------------------+                                    +--------------------------------------+
+| GD32F103Cx        |                                    | | ``weact_bluepillplus_gd32f103c8``  |
+|                   |                                    | | ``weact_bluepillplus_gd32f103cb``  |
++-------------------+                                    +--------------------------------------+
+| GD32F303CC        |                                    | | ``weact_bluepillplus_gd32f303cc``  |
 +-------------------+------------------------------------+--------------------------------------+
 | nRF52840          | |bridle:board:coffeecaller_nrf52|  | ``coffeecaller_nrf52``               |
 +-------------------+------------------------------------+--------------------------------------+
@@ -158,6 +175,9 @@ Also see the :ref:`boards` section in this documentation.
 +-------------------+                                    +--------------------------------------+
 | STM32F103Cx       |                                    | | ``vccgnd_bluepill_stm32f103c8``    |
 |                   |                                    | | ``vccgnd_bluepill_stm32f103cb``    |
+|                   +------------------------------------+--------------------------------------+
+|                   | |bridle:board:weact_bluepillplus|  | | ``weact_bluepillplus_stm32f103c8`` |
+|                   |                                    | | ``weact_bluepillplus_stm32f103cb`` |
 +-------------------+------------------------------------+--------------------------------------+
 | STM32F777NI       | |bridle:board:magpie_f777ni|       | ``magpie_f777ni``                    |
 +-------------------+------------------------------------+--------------------------------------+
