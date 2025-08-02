@@ -8,7 +8,7 @@ description: |
     longer freely accessible edges of the board and can be divided into
     two sections, two headers on the longer opposite sides.
 
-    Proceeding counterclockwise:
+    Proceeding counter-clockwise:
     * A 9-pin header. 9 pins on this header are exposed by this binding.
     * A 9-pin header. 6 pins on this header are exposed by this binding.
 
@@ -16,22 +16,25 @@ description: |
     through 14 correspond to ADC0 through ADC3, and parent pins 0 through 14
     correspond as depicted below:
 
-                  .---------.
-          .-------|         |-------.
-          |       |  USB-A  |       |
-          |       `---------´       |
-          |                         |
-        0 GP0                      5V -
-        1 GP1                     GND -
-        2 GP2                     3V3 -
-        3 GP3               ADC3/GP29 14
-        4 GP4               ADC2/GP28 13
-        5 GP5               ADC1/GP27 12
-        6 GP6               ADC0/GP26 11
-        7 GP7                    GP15 10
-        8 GP8                    GP14 9
-          |                         |
-          `-------------------------´
+             .---------.
+             |         |
+             |  USB-A  |
+             |         |
+             |         |
+             |         |
+          .--´         `--.
+          |               |
+        0 GP0            5V -
+        1 GP1           GND -
+        2 GP2           3V3 -
+        3 GP3     ADC3/GP29 14
+        4 GP4     ADC2/GP28 13
+        5 GP5     ADC1/GP27 12
+        6 GP6     ADC0/GP26 11
+        7 GP7          GP15 10
+        8 GP8          GP14 9
+          |               |
+          `---------------´
 
 compatible: "nologo,miniusb-header"
 
