@@ -20,6 +20,7 @@ geeekpi	52Pi (GeeekPi) Information Technology., Ltd.
 jsed	Jan Schulz Elektronik & Didaktik
 nologo	NologoTech (No Name Technology)
 nxp	NXP Semiconductors N.V.
+pimoroni	Pimoroni Ltd.
 raspberrypi	Raspberry Pi Foundation
 seeed	Seeed Technology Co., Ltd
 sensortek	Sensortek Technology Corporation
