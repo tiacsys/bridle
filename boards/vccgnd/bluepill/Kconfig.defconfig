@@ -1,0 +1,25 @@
+# Copyright (c) 2025 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+config BOARD_VCCGND_BLUEPILL
+	bool
+	default y if BOARD_VCCGND_BLUEPILL_STM32F103C8
+	default y if BOARD_VCCGND_BLUEPILL_STM32F103CB
+	default y if BOARD_VCCGND_BLUEPILL_STM32F072C8
+	default y if BOARD_VCCGND_BLUEPILL_STM32F072CB
+	default y if BOARD_VCCGND_BLUEPILL_STM32F051C8
+	default y if BOARD_VCCGND_BLUEPILL_STM32F030C8
+	default n
+
+config CLOCK_CONTROL
+	default y
+	depends on DT_HAS_ST_STM32F1_RCC_ENABLED
+	depends on DT_HAS_ST_STM32F0_RCC_ENABLED
+
+config RESET
+	default y
+	depends on DT_HAS_ST_STM32_RCC_RCTL_ENABLED
+
+config GPIO
+	default y
+	depends on DT_HAS_ST_STM32_GPIO_ENABLED

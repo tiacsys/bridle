@@ -1,0 +1,79 @@
+The |BluePill-F1|_ is available with an STM32F103 in two different
+configurations featuring different sizes of on-chip flash memory.
+It follows the general BluePill connector concept with two opposing
+20-pin headers.
+
+.. list-table::
+   :align: center
+   :width: 100%
+   :widths: 66, 33
+
+   * - .. rubric:: Features and Resources
+     - .. rubric:: Printed Circuit Board
+
+   * - :hwftlbl-vdd:`5V/480㎃`
+       :hwftlbl-vdd:`3.3V/300㎃`
+       :hwftlbl-vdd:`3.3V(OUT)`
+
+       :hwftlbl:`72㎒`
+       :hwftlbl:`64/128㎆`
+       :hwftlbl:`16/20㎅`
+       :hwftlbl-btn:`RST`
+       :hwftlbl-led:`GREEN`
+       :hwftlbl-con:`USB-B`
+       :hwftlbl-dbg:`SWD`
+
+       :hwftlbl-pio:`5`
+       :hwftlbl-pwm:`3`
+       :hwftlbl-adc:`10`
+       :hwftlbl-i2c:`2`
+       :hwftlbl-spi:`1`
+       :hwftlbl-uart:`1`
+       :hwftlbl-can:`1`
+
+       .. rst-class:: rst-columns
+
+       - Single core Arm Cortex-M3 processor running up to 72㎒
+       - :bbk:`16/20㎅` on-chip SRAM
+       - :bbk:`64/128㎆` on-chip flash with XIP capabilities
+       - USB 1.1 controller (device)
+       - CAN 2.0 A/B controller (SOF, 14 filter)
+       - On-board :bbk:`USB-B micro connector`
+       - On-board :bbl:`3.3V LDO regulator with 300㎃`
+       - On-board :bbk:`RESET` button
+       - On-board :bbl:`BOOT0` jumper
+       - On-board :bbl:`BOOT1` jumper
+       - On-board :bbl:`LED`
+       - :bbl:`32 GPIO` pins via :bbk:`edge pinout` (5 free)
+       - :bbl:`15 PWM` channels (3 free)
+       - :bbl:`10 ADC` analog inputs
+       - :bbk:`1 UART` peripherals
+       - :bbk:`2 I2C` controllers
+       - :bbk:`1 SPI` controllers
+       - 1 Watchdog timer peripheral
+       - 1 Temperature sensor on-chip
+
+       .. rubric:: Design Data
+       .. rst-class:: rst-columns
+
+       - `BluePill-STM32F1 Schematic`_
+       - |STM32-base BluePill-F1|_
+
+       .. admonition:: Remarks
+          :class: warning
+
+          - **Warning:** The +5V pins on the board headers are directly
+            connected to the +5V pin of the USB connector. There is no
+            protection in place. Do not power this board through USB and
+            an external power supply at the same time!
+          - **Warning:** This board may have a wrong value of resistor (R10)
+            on the USB D+ pin. Instead of a 1.5kΩ it has either a 10kΩ or
+            4.7kΩ resistor. This can be solved by replacing the resistor
+            with the right value.
+          - **Warning:** The board is **also available with** type
+            **STM32F072**. The Zephyr board configuration is then a mixture
+            of the STM32F1 schematic but a STM32F0 software definition.
+
+     - .. image:: stm32f1/hardware.jpg
+          :align: center
+          :alt: VccGND BluePill STM32F103Cx/F072Cx

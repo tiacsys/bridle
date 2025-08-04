@@ -1,0 +1,105 @@
+.. list-table:: Hardware Features Supported by Zephyr
+   :class: longtable
+   :align: center
+   :header-rows: 1
+
+   * - Peripheral
+     - Kconfig option
+     - Devicetree compatible
+     - Zephyr API
+   * - PINCTRL
+     - :kconfig:option:`CONFIG_PINCTRL`
+     - :dtcompatible:`st,stm32f1-pinctrl`
+     - :external+zephyr:ref:`pinctrl_api`
+   * - GPIO
+     - :kconfig:option:`CONFIG_GPIO`
+     - :dtcompatible:`st,stm32-gpio`
+     - :external+zephyr:ref:`gpio_api`
+   * - UART
+     - :kconfig:option:`CONFIG_SERIAL`
+     - | :dtcompatible:`st,stm32-uart`
+       | :dtcompatible:`st,stm32-usart`
+     - :external+zephyr:ref:`uart_api`
+   * - UDC (USB Device Controller)
+     - :kconfig:option:`CONFIG_USB_DEVICE_STACK`
+     - | :dtcompatible:`st,stm32-usb`
+       | :dtcompatible:`usb-nop-xceiv`
+     - :external+zephyr:ref:`usb_api`
+   * - CAN (L1: PMA / PCS, L2: DLL)
+     - :kconfig:option:`CONFIG_CAN`
+     - :dtcompatible:`st,stm32-bxcan`
+     - :external+zephyr:ref:`canbus`
+   * - I2C
+     - :kconfig:option:`CONFIG_I2C`
+     - :dtcompatible:`st,stm32-i2c-v1`
+     - :external+zephyr:ref:`i2c_api`
+   * - SPI
+     - :kconfig:option:`CONFIG_SPI`
+     - | :dtcompatible:`st,stm32-spi`
+     - :external+zephyr:ref:`spi_api`
+   * - PWM
+     - :kconfig:option:`CONFIG_PWM`
+     - | :dtcompatible:`st,stm32-timers`
+       | :dtcompatible:`st,stm32-pwm`
+     - :external+zephyr:ref:`pwm_api`
+   * - ADC
+     - :kconfig:option:`CONFIG_ADC`
+     - | :dtcompatible:`st,stm32f1-adc`
+       | :dtcompatible:`st,stm32-adc`
+     - :external+zephyr:ref:`adc_api`
+   * - RTC
+     - :kconfig:option:`CONFIG_RTC`
+     - :dtcompatible:`st,stm32-rtc`
+     - :external+zephyr:ref:`rtc_api` as
+       :external+zephyr:ref:`counter_api`
+   * - Timer (Counter)
+     - :kconfig:option:`CONFIG_COUNTER`
+     - | :dtcompatible:`st,stm32-timers`
+       | :dtcompatible:`st,stm32-counter`
+     - :external+zephyr:ref:`counter_api`
+   * - Watchdog Timer (WDT)
+     - :kconfig:option:`CONFIG_WATCHDOG`
+     - | :dtcompatible:`st,stm32-watchdog`
+       | :dtcompatible:`st,stm32-window-watchdog`
+     - :external+zephyr:ref:`watchdog_api`
+   * - Flash
+     - :kconfig:option:`CONFIG_FLASH`
+     - | :dtcompatible:`st,stm32f1-flash-controller`
+       | :dtcompatible:`st,stm32-flash-controller`
+     - :external+zephyr:ref:`flash_api` and
+       :external+zephyr:ref:`flash_map_api`
+   * - DMA
+     - :kconfig:option:`CONFIG_DMA`
+     - :dtcompatible:`st,stm32-dma-v2bis`
+     - :external+zephyr:ref:`dma_api`
+   * - HWINFO
+     - :kconfig:option:`CONFIG_HWINFO`
+     - N/A
+     - :external+zephyr:ref:`hwinfo_api`
+   * - RESET
+     - :kconfig:option:`CONFIG_RESET`
+     - | :dtcompatible:`st,stm32f1-rcc`
+       | :dtcompatible:`st,stm32-rcc-rctl`
+     - :external+zephyr:ref:`reset_api`
+   * - CLOCK
+     - :kconfig:option:`CONFIG_CLOCK_CONTROL`
+     - | :dtcompatible:`st,stm32f1-rcc`
+       | :dtcompatible:`st,stm32f1-clock-mco`
+       | :dtcompatible:`st,stm32f1-pll-clock`
+       | :dtcompatible:`st,stm32-hse-clock`
+     - :external+zephyr:ref:`clock_control_api`
+   * - NVIC
+     - N/A
+     - | :dtcompatible:`st,stm32-exti`
+       | :dtcompatible:`arm,v7m-nvic`
+     - Nested Vector :external+zephyr:ref:`interrupts_v2` Controller
+   * - SYSTICK
+     - N/A
+     - :dtcompatible:`arm,armv7m-systick`
+     -
+
+Other hardware features are not currently supported by Zephyr. The default
+configuration can be found in the different Kconfig files:
+
+   - :bridle_file:`boards/weact/bluepillplus/vccgnd_bluepill_stm32f103cb_defconfig`
+   - :bridle_file:`boards/weact/bluepillplus/vccgnd_bluepill_stm32f103cb_defconfig`

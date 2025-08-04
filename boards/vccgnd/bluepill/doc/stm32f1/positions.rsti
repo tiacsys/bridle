@@ -1,0 +1,55 @@
+.. list-table::
+   :align: center
+   :width: 66%
+   :header-rows: 1
+
+   * - .. image:: stm32f1/positions.jpg
+          :align: center
+          :width: 500
+          :alt: VccGND BluePill STM32F103Cx/F072Cx details
+
+   * - .. container:: twocol
+
+          .. container:: leftside
+
+             1. | :strong:`USB Type-B connector`
+                | Supports USB1.1 slave devices
+             #. | :strong:`XC6219B332MR (LB2K)`
+                | 300㎃ low dropout, low noise, ultra-fast LDO
+                | also possible: :strong:`TX6211B (DE=A1D)`, or :strong:`RT9193-33`
+             #. | :strong:`STM32F103Cx` or  :strong:`STM32F072Cx`
+                | one of the supported by |STM|
+
+          .. container:: rightside
+
+             4. | :strong:`USER LED monochrome`
+                | user LED for diagnostic (not power indicator)
+             #. | :strong:`BOOT0/1 jumper`
+                | select correct when resetting to enter download mode
+             #. :strong:`RESET button`
+             #. | :strong:`SWD Port`
+                | for flashing and debugging (with 3V3 power supply)
+
+.. rubric:: Data Sheets
+.. rst-class:: rst-columns
+
+- .. rubric:: `STM32F1 SoC <STM32F1_>`_
+- `STM32F1 Reference Manual <STM32F101xx/102xx/103xx/105xx/107xx Reference Manual (RM0008)_>`_
+- `STM32F1 Programming Manual <STM32F10xxx/20xxx/21xxx/L1xxxx Series Cortex®-M3 Processor Programming Manual (PM0056)_>`_
+- .. rubric:: `STM32F103C8 SoC <STM32F103C8_>`_
+- `STM32F103C8 Datasheet`_
+- .. rubric:: `STM32F103CB SoC <STM32F103CB_>`_
+- `STM32F103CB Datasheet`_
+- .. rubric:: `STM32F0 SoC <STM32F0_>`_
+- `STM32F0 Programming Manual <STM32F0 Series Cortex®-M0 Processor Programming Manual (PM0215)_>`_
+- `STM32F072 Reference Manual <STM32F0x1/STM32F0x2/STM32F0x8 Reference Manual (RM0091)_>`_
+- .. rubric:: `STM32F072C8 SoC <STM32F072C8_>`_
+- `STM32F072C8 Datasheet`_
+- .. rubric:: `STM32F072CB SoC <STM32F072CB_>`_
+- `STM32F072CB Datasheet`_
+- .. rubric:: XC6219_
+- `XC6219 Datasheet`_
+- .. rubric:: TX6211B_
+- `TX6211B Datasheet`_
+- .. rubric:: RT9193-33_
+- `RT9193 Datasheet`_

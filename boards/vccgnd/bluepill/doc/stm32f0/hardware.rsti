@@ -1,0 +1,81 @@
+The |BluePill-F0|_ is available with an STM32F0 of the types F051 or F030
+It follows the general BluePill connector concept with two opposing 20-pin
+connectors. The underlying schematic of the |BluePill-F0| is similar to
+the original |BluePill-F1| and offers with the two supported types F051
+or F030 an additional EEPROM (unpopulated). This can be mounted onto the
+bottom of the board at position U3 as a SOP8 package. It is connected via
+the second I2C bus but pins PF6 and PF7 and not, as on the BluePill header,
+PB10 and PB11. CAN and USB is not available, but the USB-B micro connector
+is using for standard power supply.
+
+.. list-table::
+   :align: center
+   :width: 100%
+   :widths: 66, 33
+
+   * - .. rubric:: Features and Resources
+     - .. rubric:: Printed Circuit Board
+
+   * - :hwftlbl-vdd:`5V/480㎃`
+       :hwftlbl-vdd:`3.3V/300㎃`
+       :hwftlbl-vdd:`3.3V(OUT)`
+
+       :hwftlbl:`48㎒`
+       :hwftlbl:`64㎆`
+       :hwftlbl:`8㎅`
+       :hwftlbl-btn:`RST`
+       :hwftlbl-led:`RED`
+       :hwftlbl-con:`USB-B`
+       :hwftlbl-dbg:`SWD`
+
+       :hwftlbl-pio:`7`
+       :hwftlbl-pwm:`5`
+       :hwftlbl-adc:`10`
+       :hwftlbl-i2c:`2`
+       :hwftlbl-spi:`1`
+       :hwftlbl-uart:`1`
+
+       .. rst-class:: rst-columns
+
+       - Single core Arm Cortex-M0 processor running up to 48㎒
+       - :bbk:`8㎅` on-chip SRAM
+       - :bbk:`64㎆` on-chip flash with XIP capabilities
+       - On-board :bbk:`USB-B micro connector`
+       - On-board :bbl:`3.3V LDO regulator with 300㎃`
+       - On-board :bbk:`RESET` button
+       - On-board :bbl:`BOOT0` jumper
+       - On-board :bbl:`LED`
+       - :bbl:`32 GPIO` pins via :bbk:`edge pinout` (7 free)
+       - :bbl:`15 PWM` channels (5 free)
+       - :bbl:`10 ADC` analog inputs
+       - :bbk:`1 UART` peripherals
+       - :bbk:`2 I2C` controllers
+       - :bbk:`1 SPI` controllers
+       - 1 Watchdog timer peripheral
+       - 1 Temperature sensor on-chip
+
+       .. rubric:: Design Data
+       .. rst-class:: rst-columns
+
+       - `BluePill-STM32F1 Schematic`_
+       - |STM32-base BluePill-F0|_
+
+       .. admonition:: Remarks
+          :class: warning
+
+          - **Warning:** The +5V pins on the board headers are directly
+            connected to the +5V pin of the USB connector. There is no
+            protection in place. Do not power this board through USB and
+            an external power supply at the same time!
+          - **Warning:** The optional EEPROM (U3) will use the same I2C
+            bus on pins PF6/PF7 as the BluePill header on pins PB10/11.
+            The I2C bus can only be used on one of the two pin pairs.
+          - **Warning:** The special board version with an **STM32F072**
+            is only supported by the STM32F1 schematic because of support
+            for CAN and USB. Thus the Zephyr board configuration is then
+            a mixture of the STM32F1 schematic but a STM32F0 software
+            definition.
+
+     - .. image:: stm32f0/hardware.jpg
+          :align: center
+          :alt: VccGND BluePill STM32F051C8/F030C8

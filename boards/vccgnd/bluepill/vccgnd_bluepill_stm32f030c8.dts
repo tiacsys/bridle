@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) 2025 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/dts-v1/;
+
+#include <st/f0/stm32f030X8.dtsi>
+#include <st/f0/stm32f030c8tx-pinctrl.dtsi>
+
+/ {
+	model = "VccGND Studio BluePill STM32F030C8 @ UART Concole";
+	compatible = "vccgnd,bluepill-stm32f030c8",
+		     "vccgnd,bluepill-stm32f030c8-uartcons";
+};
+
+#include "stm32/48mhz.dtsi"
+#include "stm32/usart1.dtsi"
+
+#include "stm32/user_led.dtsi"
+
+#include "stm32/connector.dtsi"
+bluepill_serial: &usart1 {};

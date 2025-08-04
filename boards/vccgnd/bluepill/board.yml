@@ -1,0 +1,34 @@
+# Copyright (c) 2025 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+boards:
+  - name: vccgnd_bluepill_stm32f103c8
+    full_name: VccGND BluePill STM32F103C8
+    vendor: vccgnd
+    socs:
+      - name: stm32f103xb
+  - name: vccgnd_bluepill_stm32f103cb
+    full_name: VccGND BluePill STM32F103CB
+    vendor: vccgnd
+    socs:
+      - name: stm32f103xb
+  - name: vccgnd_bluepill_stm32f072c8
+    full_name: VccGND BluePill STM32F072C8
+    vendor: vccgnd
+    socs:
+      - name: stm32f072xb
+  - name: vccgnd_bluepill_stm32f072cb
+    full_name: VccGND BluePill STM32F072CB
+    vendor: vccgnd
+    socs:
+      - name: stm32f072xb
+  - name: vccgnd_bluepill_stm32f051c8
+    full_name: VccGND BluePill STM32F051C8
+    vendor: vccgnd
+    socs:
+      - name: stm32f051x8
+  - name: vccgnd_bluepill_stm32f030c8
+    full_name: VccGND BluePill STM32F030C8
+    vendor: vccgnd
+    socs:
+      - name: stm32f030x8

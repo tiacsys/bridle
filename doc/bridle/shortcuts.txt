@@ -1057,6 +1057,9 @@
 .. |rpi_pico_rp2040_w_PStr_CON|	replace:: :ign:`RPi Pico W (CDC ACM)`
 .. |rpi_pico_rp2040_w_BCD_CON|	replace:: |zephyr_version_BCD|
 
+.. |zephyr:board:stm32_min_dev| replace::
+   :external+zephyr:zephyr:board:`stm32_min_dev`
+
 .. |zephyr:board:nucleo_f303re| replace::
    :external+zephyr:zephyr:board:`nucleo_f303re`
 

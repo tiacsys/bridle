@@ -1,0 +1,49 @@
+.. list-table::
+   :align: center
+   :width: 66%
+   :header-rows: 1
+
+   * - .. image:: stm32f0/positions.jpg
+          :align: center
+          :width: 500
+          :alt: VccGND BluePill STM32F051C8/F030C8 details
+
+   * - .. container:: twocol
+
+          .. container:: leftside
+
+             1. | :strong:`USB Type-B connector`
+                | Only for power supply
+             #. | :strong:`XC6204E331MR (4A2D)`
+                | 300㎃ low dropout, low noise, ultra-fast LDO
+                | also possible: :strong:`XC6204B332MR (4B2X)`, or
+                  :strong:`XC6205`
+             #. | :strong:`STM32F051C8` or  :strong:`STM32F030C8`
+                | one of the supported by |STM|
+
+          .. container:: rightside
+
+             4. | :strong:`USER LED monochrome`
+                | user LED for diagnostic (not power indicator)
+             #. | :strong:`BOOT0 jumper`
+                | select correct when resetting to enter download mode
+             #. :strong:`RESET button`
+             #. | :strong:`SWD Port`
+                | for flashing and debugging (with 3V3 power supply)
+             #. :strong:`On-board I2C EEPROM memory (unpopulated)`
+
+.. rubric:: Data Sheets
+.. rst-class:: rst-columns
+
+- .. rubric:: `STM32F0 SoC <STM32F0_>`_
+- `STM32F0 Programming Manual <STM32F0 Series Cortex®-M0 Processor Programming Manual (PM0215)_>`_
+- `STM32F051 Reference Manual <STM32F0x1/STM32F0x2/STM32F0x8 Reference Manual (RM0091)_>`_
+- `STM32F030 Reference Manual <STM32F030x4/x6/x8/xC and STM32F070x6/xB Reference Manual (RM0360)_>`_
+- .. rubric:: `STM32F051C8 SoC <STM32F051C8_>`_
+- `STM32F051C8 Datasheet`_
+- .. rubric:: `STM32F030C8 SoC <STM32F030C8_>`_
+- `STM32F030C8 Datasheet`_
+- .. rubric:: XC6204_
+- `XC6204 Datasheet`_
+- .. rubric:: XC6205_
+- `XC6205 Datasheet`_

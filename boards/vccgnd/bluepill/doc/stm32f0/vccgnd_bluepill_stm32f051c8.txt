@@ -1,0 +1,67 @@
+Configuration	vccgnd_bluepill_stm32f051c8
+STM32CubeMX 	6.15.0
+Date	08/06/2025
+MCU	STM32F051C8Tx
+
+
+
+PERIPHERALS	MODES	FUNCTIONS	PINS
+RCC	Crystal/Ceramic Resonator	RCC_OSC_IN	PF0-OSC_IN
+RCC	Crystal/Ceramic Resonator	RCC_OSC_OUT	PF1-OSC_OUT
+SYS	Serial_Wire	SYS_SWCLK	PA14
+SYS	Serial_Wire	SYS_SWDIO	PA13
+SYS	SysTick	SYS_VS_Systick	VP_SYS_VS_Systick
+USART1	Asynchronous	USART1_RX	PA10
+USART1	Asynchronous	USART1_TX	PA9
+
+
+
+Pin Nb	PINs	FUNCTIONs	LABELs
+2	PC13	GPIO_Output	USER_LED
+5	PF0-OSC_IN	RCC_OSC_IN
+6	PF1-OSC_OUT	RCC_OSC_OUT
+30	PA9	USART1_TX
+31	PA10	USART1_RX
+34	PA13	SYS_SWDIO	SYS_SWDIO
+37	PA14	SYS_SWCLK	SYS_SWCLK
+PERIPHERALS	MODES	FUNCTIONS	PINS
+RCC	Crystal/Ceramic Resonator	RCC_OSC_IN	PF0-OSC_IN
+RCC	Crystal/Ceramic Resonator	RCC_OSC_OUT	PF1-OSC_OUT
+SYS	Serial_Wire	SYS_SWCLK	PA14
+SYS	Serial_Wire	SYS_SWDIO	PA13
+SYS	SysTick	SYS_VS_Systick	VP_SYS_VS_Systick
+USART1	Asynchronous	USART1_RX	PA10
+USART1	Asynchronous	USART1_TX	PA9
+
+
+
+Pin Nb	PINs	FUNCTIONs	LABELs
+2	PC13	GPIO_Output	USER_LED
+5	PF0-OSC_IN	RCC_OSC_IN
+6	PF1-OSC_OUT	RCC_OSC_OUT
+30	PA9	USART1_TX
+31	PA10	USART1_RX
+34	PA13	SYS_SWDIO	SYS_SWDIO
+37	PA14	SYS_SWCLK	SYS_SWCLK
+
+
+
+SOFTWARE PROJECT
+
+Project Settings :
+Project Name : vccgnd_bluepill_stm32f051c8
+Project Folder : /store/EmbedTools/STM32CubeMX/vccgnd_bluepill/vccgnd_bluepill_stm32f051c8
+Toolchain / IDE : CMake
+Firmware Package Name and Version : STM32Cube FW_F0 V1.11.5
+
+
+Code Generation Settings :
+STM32Cube MCU packages and embedded software packs : Copy all used libraries into the project folder
+Generate peripheral initialization as a pair of '.c/.h' files per peripheral : No
+Backup previously generated files when re-generating : Yes
+Delete previously generated files when not re-generated : Yes
+Set all free pins as analog (to optimize the power consumption) : Yes
+
+
+Toolchains Settings :
+Compiler Optimizations :

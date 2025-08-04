@@ -729,6 +729,22 @@
    :strong:`VccGND Studio` (:emphasis:`Source Instrument and Equipment`) :strong:`on AliExpress`
 .. _`VccGND Studio on AliExpress`: https://vcc-gnd.aliexpress.com/store/5881833
 
+.. |BluePill-F1| replace:: :emphasis:`VccGND Studio` :strong:`BluePill-STM32F1`
+.. _BluePill-F1:
+   https://web.archive.org/web/http://www.vcc-gnd.com/rtd/html/STM32/quickref.html#stm32f1
+.. _`BluePill-STM32F1 Schematic`:
+   https://stm32-base.org/assets/pdf/boards/original-schematic-STM32F103C8T6-Blue_Pill.pdf
+
+.. |STM32-base BluePill-F1| replace:: :emphasis:`STM32-base:` :strong:`STM32F1 BluePill`
+.. _`STM32-base BluePill-F1`: https://stm32-base.org/boards/STM32F103C8T6-Blue-Pill
+
+.. |BluePill-F0| replace:: :emphasis:`VccGND Studio` :strong:`BluePill-STM32F0`
+.. _BluePill-F0:
+   https://web.archive.org/web/http://www.vcc-gnd.com/rtd/html/STM32/quickref.html#stm32f0
+
+.. |STM32-base BluePill-F0| replace:: :emphasis:`STM32-base:` :strong:`STM32F0 BluePill`
+.. _`STM32-base BluePill-F0`: https://stm32-base.org/boards/STM32F051C8T6-Blue-Pill
+
 
 
 .. ### Links to WeAct Studio (WeiXing Store)
@@ -1673,6 +1689,12 @@
    http://www.xdssemi.com/uploadfile/2025/0113/20250113013447947.pdf
 .. https://www.lcsc.com/datasheet/lcsc_datasheet_1912231403_XDS-TX4310B_C448640.pdf
 
+.. _`TX6211B`:
+   https://txsemi.com/cn/productd.html?p_id=25&id=43
+
+.. _`TX6211B Datasheet`:
+   https://stm32-base.org/assets/pdf/regulators/TX6211B.pdf
+
 .. _`SS8050`:
    https://www.onsemi.com/products/discrete-power-modules/general-purpose-and-low-vcesat-transistors/ss8050
 
@@ -1706,11 +1728,29 @@
 .. _`TPS63000 Datasheet`:
    https://www.ti.com/lit/gpn/tps63000
 
+.. _`XC6204`:
+   https://product.torexsemi.com/en/series/xc6204
+
+.. _`XC6204 Datasheet`:
+   https://product.torexsemi.com/system/files/series/xc6204.pdf
+
+.. _`XC6205`:
+   https://product.torexsemi.com/en/series/xc6205
+
+.. _`XC6205 Datasheet`:
+   https://product.torexsemi.com/system/files/series/xc6205.pdf
+
 .. _`XC6206`:
    https://product.torexsemi.com/en/series/xc6206
 
 .. _`XC6206 Datasheet`:
    https://product.torexsemi.com/system/files/series/xc6206.pdf
+
+.. _`XC6219`:
+   https://product.torexsemi.com/en/series/xc6219
+
+.. _`XC6219 Datasheet`:
+   https://product.torexsemi.com/system/files/series/xc6219.pdf
 
 .. #### Links to Standard Logic Gates or similar to drive digital logic
 
@@ -2297,6 +2337,91 @@
    https://www.winbond.com/hq/support/documentation/levelOne.jsp?__locale=en&DocNo=DA00-W25Q128JV
 
 .. #### Links to Microcontroller or similar to drive Computer Core Components
+
+.. |ACM0| replace:: :strong:`Arm Cortex-M0`
+.. |ACM3| replace:: :strong:`Arm Cortex-M3`
+
+.. ##### Links to silicon vendors of SoC/MCU/CPU
+
+.. |STM| replace:: :emphasis:`STMicroelectronics`
+.. _STM: https://www.st.com/
+
+.. ##### Links to STM32F0 Series Cortex®-M0 Processors
+
+.. _STM32F0: https://www.st.com/STM32F0
+
+.. _`STM32F0 Series Cortex®-M0 Processor Programming Manual (PM0215)`:
+   https://www.st.com/resource/en/programming_manual/DM00051352.pdf
+
+.. _STM32F0x0: https://www.st.com/en/microcontrollers-microprocessors/stm32f0x0-value-line.html
+
+.. _`STM32F030x4/x6/x8/xC and STM32F070x6/xB Reference Manual (RM0360)`:
+   https://www.st.com/resource/en/reference_manual/DM00091010.pdf
+
+.. |STM32F030C8| replace:: STM32F030C\ :strong:`8`
+.. _STM32F030C8: https://www.st.com/en/microcontrollers-microprocessors/stm32f030c8.html
+
+.. _`STM32F030C8 Datasheet`:
+   https://www.st.com/resource/en/datasheet/stm32f030c8.pdf
+
+.. _STM32F0x1: https://www.st.com/en/microcontrollers-microprocessors/stm32f0x1.html
+
+.. _`STM32F0x1/STM32F0x2/STM32F0x8 Reference Manual (RM0091)`:
+   https://www.st.com/resource/en/reference_manual/DM00031936.pdf
+
+.. |STM32F051C8| replace:: STM32F051C\ :strong:`8`
+.. _STM32F051C8: https://www.st.com/en/microcontrollers-microprocessors/stm32f051c8.html
+
+.. _`STM32F051C8 Datasheet`:
+   https://www.st.com/resource/en/datasheet/stm32f051c8.pdf
+
+.. _STM32F0x2: https://www.st.com/en/microcontrollers-microprocessors/stm32f0x2.html
+
+.. |STM32F072C8| replace:: STM32F072C\ :strong:`8`
+.. _STM32F072C8: https://www.st.com/en/microcontrollers-microprocessors/stm32f072c8.html
+
+.. _`STM32F072C8 Datasheet`:
+   https://www.st.com/resource/en/datasheet/stm32f072c8.pdf
+
+.. |STM32F072CB| replace:: STM32F072C\ :strong:`B`
+.. _STM32F072CB: https://www.st.com/en/microcontrollers-microprocessors/stm32f072cb.html
+
+.. _`STM32F072CB Datasheet`:
+   https://www.st.com/resource/en/datasheet/stm32f072cb.pdf
+
+.. _STM32F0x8: https://www.st.com/en/microcontrollers-microprocessors/stm32f0x8.html
+
+.. ##### Links to STM32F1 Series Cortex®-M3 Processors
+
+.. _STM32F1: https://www.st.com/STM32F1
+
+.. _`STM32F10xxx/20xxx/21xxx/L1xxxx Series Cortex®-M3 Processor Programming Manual (PM0056)`:
+   https://www.st.com/resource/en/programming_manual/CD00228163.pdf
+
+.. _`STM32F101xx/102xx/103xx/105xx/107xx Reference Manual (RM0008)`:
+   https://www.st.com/resource/en/reference_manual/CD00171190.pdf
+
+.. _STM32F100: https://www.st.com/en/microcontrollers-microprocessors/stm32f100-value-line.html
+
+.. _STM32F101: https://www.st.com/en/microcontrollers-microprocessors/stm32f101.html
+
+.. _STM32F102: https://www.st.com/en/microcontrollers-microprocessors/stm32f102.html
+
+.. _STM32F103: https://www.st.com/en/microcontrollers-microprocessors/stm32f103.html
+
+.. |STM32F103C8| replace:: STM32F103C\ :strong:`8`
+.. _STM32F103C8: https://www.st.com/en/microcontrollers-microprocessors/stm32f103c8.html
+
+.. _`STM32F103C8 Datasheet`:
+   https://www.st.com/resource/en/datasheet/stm32f103c8.pdf
+
+.. |STM32F103CB| replace:: STM32F103C\ :strong:`B`
+.. _STM32F103CB: https://www.st.com/en/microcontrollers-microprocessors/stm32f103cb.html
+
+.. _`STM32F103CB Datasheet`:
+   https://www.st.com/resource/en/datasheet/stm32f103cb.pdf
+
+.. _STM32F105/107: https://www.st.com/en/microcontrollers-microprocessors/stm32f105-107.html
 
 .. ##### Links to STM32F7 Series Cortex®-M7 Processors
 

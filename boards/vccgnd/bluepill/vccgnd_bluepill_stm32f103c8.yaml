@@ -1,0 +1,18 @@
+# Copyright (c) 2025 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+identifier: vccgnd_bluepill_stm32f103c8
+vendor: vccgnd
+name: VccGND Studio BluePill STM32F103C8
+type: mcu
+arch: arm
+flash: 64
+ram: 20
+toolchain:
+  - zephyr
+  - gnuarmemb
+supported:
+  - bluepill_gpio
+  - bluepill_serial
+  - gpio
+  - uart
