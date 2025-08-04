@@ -721,6 +721,18 @@
 
 
 
+.. ### Links to VccGND Studio (Source Instrument and Equipment)
+
+.. |VccGND Studio| replace::
+   :strong:`VccGND Studio` (:emphasis:`WeiXing Store`)
+.. _`VccGND Studio`: http://www.vcc-gnd.com/
+
+.. |VccGND Studio on AliExpress| replace::
+   :strong:`VccGND Studio` (:emphasis:`Source Instrument and Equipment`) :strong:`on AliExpress`
+.. _`VccGND Studio on AliExpress`: https://vcc-gnd.aliexpress.com/store/5881833
+
+
+
 .. ### Links to Waveshare Systems
 
 .. _`Waveshare wiki`:
