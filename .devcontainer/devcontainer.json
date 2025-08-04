@@ -30,17 +30,22 @@
 			"settings": {
 				"editor.trimAutoWhitespace": true,
 				"editor.insertFinalNewline": true,
+				"editor.insertSpaces": false,
 				"clangd.arguments": [
 					"--compile-commands-dir=/workspace/build",
 					"--header-insertion=never"
 				],
-				"clangd.path": "clangd-16",
-				"C_Cpp.intelliSenseEngine": "disabled"
+				"clangd.path": "clangd-20",
+				"editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd",
+				"C_Cpp.intelliSenseEngine": "disabled",
+				"python.terminal.activateEnvironment": true,
+				"python.terminal.activateEnvInCurrentTerminal": true
 			},
 			"extensions": [
 				"marus25.cortex-debug",
 				"ms-vscode.cmake-tools",
-				"llvm-vs-code-extensions.vscode-clangd"
+				"llvm-vs-code-extensions.vscode-clangd",
+				"ms-python.python"
 			]
 		}
 	}
