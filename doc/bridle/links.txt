@@ -311,6 +311,19 @@
 .. _`EMAT`: https://en.wikipedia.org/wiki/Electromagnetic_acoustic_transducer
 .. _`Piezoelectric Speaker`: https://en.wikipedia.org/wiki/Piezoelectric_speaker
 
+.. _`MRS binaries`: https://www.mounriver.com/download
+.. _WCH-Link: https://www.wch.cn/products/WCH-Link.html
+.. _`QingKe RISC-V`: https://www.wch.cn/products/QingKe.html
+.. _minichlink: https://github.com/cnlohr/ch32fun/tree/master/minichlink#readme
+.. _ch32fun: https://github.com/cnlohr/ch32fun?tab=readme-ov-file#readme
+.. _openocd-wch: https://github.com/jnk0le/openocd-wch
+.. _wch-openocd: https://github.com/cjacker/wch-openocd
+
+.. |WCH-Tools| replace:: :strong:`Note:` Please refer to the section
+   :ref:`gs_installing_wchlink_tools`. Either :program:`minichlink` or
+   :program:`openocd` with WCH-Link support is required for programming
+   the :strong:`CH32V` microcontrollers.
+
 
 
 .. ### Source: ubuntu.com

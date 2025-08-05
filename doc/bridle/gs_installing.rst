@@ -132,6 +132,88 @@ The installation process is different depending on your operating system.
          :start-after: .. _install_dependencies_windows:
          :end-before: .. _winget:
 
+.. _gs_installing_wchlink_tools:
+
+.. rst-class:: numbered-step
+
+Installing optional WCH-Link tools
+**********************************
+
+.. note::
+
+   The WCH-Link_ module can be used for on-target debugging and downloading
+   of firmware binaries build for `QingKe RISC-V`_ (Highland Barley) cores,
+   well known as CH32Vxxx microcontrollers and designed by WinChipHead (WCH),
+   and also for on-target debugging and downloading to all of their ARM Cortex
+   microcontrollers with SWD interface. At the same time, it has one dedicated
+   serial port to facilitate console debugging output. Make sure to install
+   the tools and versions that are mentioned below.
+
+For working with the WCH-Link, either minichlink_ from the ch32fun_ project
+or OpenOCD from MounRiver Studio (MRS), equipped with a special driver, can
+be used. Both tools are natively supported by the Zephyr build system. The
+source code of OpenOCD with specific driver support has now been made freely
+available and has been readily taken up by the community in order to get it
+upstream. Unfortunately, serious incompatibilities of the WCH RISC-V debugging
+core seem to be valid reasons against its inclusion by the OpenOCD team.
+`Details can be found here. <https://github.com/fxsheep/openocd_wchlink-rv/issues/1>`_
+However, there is now a `“liberated” OpenOCD source code <openocd-wch_>`_
+in a separate Git repository, which can be used to install a specific OpenOCD
+with QingKe RISC-V and WCH-Link support.
+
+The steps for compilation and installation are described here for Linux only.
+For macOS and Windows, the individual steps are similarly simple, as long
+as all necessary host tools such as compilers and configuration utilities
+are available. If in doubt, however, the pre-compiled `MRS binaries`_ can
+also be installed and used, especially with regard to OpenOCD.
+
+.. tabs::
+
+   .. group-tab:: minichlink
+
+         .. container:: highlight highlight-console notranslate
+
+            .. parsed-literal::
+
+               :brd:`sudo apt-get update`
+               :brd:`sudo apt-get install build-essential libudev-dev libusb-1.0-0-dev`
+
+               cd /var/tmp
+               git clone :bbk:`--recurse-submodules` :bl:`https://github.com/cnlohr/ch32fun.git`
+
+               cd ch32fun/minichlink
+               :bgn:`make all`
+
+               :brd:`sudo install -m 0755 -o 0 -g 0 -d /opt/wchtools/bin`
+               :brd:`sudo install -m 0755 -o 0 -g 0 -s minichlink /opt/wchtools/bin/minichlink`
+
+               :brd:`sudo install -m 0644 -o 0 -g 0 99-minichlink.rules \\
+                            /etc/udev/rules.d/99-minichlink.rules`
+               :brd:`sudo udevadm control --reload`
+               :brd:`sudo udevadm trigger`
+
+   .. group-tab:: OpenOCD/WCH
+
+         .. container:: highlight highlight-console notranslate
+
+            .. parsed-literal::
+
+               :brd:`sudo apt-get update`
+               :brd:`sudo apt-get install build-essential libudev-dev libusb-dev libusb-1.0-0-dev`
+               :brd:`sudo apt-get install libftdi1-dev libftdi-dev libhidapi-dev libgpiod-dev`
+               :brd:`sudo apt-get install libcapstone-dev libjaylink-dev`
+               :brd:`sudo apt-get install autotools-dev autoconf automake libtool pkg-config cmake`
+
+               cd /var/tmp
+               git clone :bbk:`--recurse-submodules` :bl:`https://github.com/jnk0le/openocd-wch.git`
+
+               cd openocd-wch
+               :bbl:`./bootstrap`
+               :bbl:`./configure --prefix=/opt/wchtools --enable-wlinke --disable-ch347`
+               :bgn:`make all`
+
+               :brd:`sudo make install`
+
 .. _gs_installing_toolchain:
 
 .. rst-class:: numbered-step
