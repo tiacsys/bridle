@@ -191,6 +191,20 @@ provided voltage reference source (VREF) and the external battery voltage
 (VBAT) when supported. The ADC channels 0-9 are available on the edge
 connectors.
 
+SPI Port
+--------
+
+The |bridle:board:vccgnd_bluepill| boards features one five wire SPI bus over
+SPI2 also available on the edge connectors and the standard pins. SPI1 is not
+available in any default setup.
+
+I2C Port
+--------
+
+The |bridle:board:vccgnd_bluepill| boards features two I2C buses over at I2C1
+and I2C2 also available on the edge connectors and the standard pins. I2C1 is
+the BluePill standard bus.
+
 Serial Port
 -----------
 
@@ -301,10 +315,10 @@ Hello Shell
 
                   .. parsed-literal::
 
-                     [178/178] Linking C executable zephyr/zephyr.elf
+                     [181/181] Linking C executable zephyr/zephyr.elf
                      Memory region         Used Size  Region Size  %age Used
-                                FLASH:       53664 B       128 KB     40.94%
-                                  RAM:       17984 B        20 KB     87.81%
+                                FLASH:       56148 B       128 KB     42.84%
+                                  RAM:       18184 B        20 KB     88.79%
                              IDT_LIST:          0 GB        32 KB      0.00%
 
          .. group-tab:: |STM32F103C8|
@@ -327,10 +341,10 @@ Hello Shell
 
                   .. parsed-literal::
 
-                     [178/178] Linking C executable zephyr/zephyr.elf
+                     [181/181] Linking C executable zephyr/zephyr.elf
                      Memory region         Used Size  Region Size  %age Used
-                                FLASH:       53664 B        64 KB     81.88%
-                                  RAM:       17984 B        20 KB     87.81%
+                                FLASH:       56148 B        64 KB     85.68%
+                                  RAM:       18184 B        20 KB     88.79%
                              IDT_LIST:          0 GB        32 KB      0.00%
 
    .. group-tab:: STM32F0
@@ -345,7 +359,7 @@ Hello Shell
                :build-dir: vccgnd_bluepill
                :gen-args: \
                   -DEXTRA_CONF_FILE="prj-minimal.conf" -DCONFIG_STM32_ENABLE_DEBUG_SLEEP_STOP=y \
-                  -DCONFIG_ADC=y -DCONFIG_ADC_SHELL=y
+                  -DCONFIG_ADC=y -DCONFIG_ADC_SHELL=y -DCONFIG_I2C=y -DCONFIG_I2C_SHELL=y
                :west-args: -p
                :flash-args: -r pyocd
                :goals: flash
@@ -358,10 +372,10 @@ Hello Shell
 
                   .. parsed-literal::
 
-                     [153/153] Linking C executable zephyr/zephyr.elf
+                     [159/159] Linking C executable zephyr/zephyr.elf
                      Memory region         Used Size  Region Size  %age Used
-                                FLASH:       31864 B       128 KB     24.31%
-                                  RAM:        8720 B        16 KB     53.22%
+                                FLASH:       37640 B       128 KB     28.72%
+                                  RAM:        8912 B        16 KB     54.39%
                              IDT_LIST:          0 GB        32 KB      0.00%
 
          .. group-tab:: |STM32F072C8|
@@ -372,7 +386,7 @@ Hello Shell
                :build-dir: vccgnd_bluepill
                :gen-args: \
                   -DEXTRA_CONF_FILE="prj-minimal.conf" -DCONFIG_STM32_ENABLE_DEBUG_SLEEP_STOP=y \
-                  -DCONFIG_ADC=y -DCONFIG_ADC_SHELL=y
+                  -DCONFIG_ADC=y -DCONFIG_ADC_SHELL=y -DCONFIG_I2C=y -DCONFIG_I2C_SHELL=y
                :west-args: -p
                :flash-args: -r pyocd
                :goals: flash
@@ -385,10 +399,10 @@ Hello Shell
 
                   .. parsed-literal::
 
-                     [153/153] Linking C executable zephyr/zephyr.elf
+                     [159/159] Linking C executable zephyr/zephyr.elf
                      Memory region         Used Size  Region Size  %age Used
-                                FLASH:       31864 B        64 KB     48.62%
-                                  RAM:        8720 B        16 KB     53.22%
+                                FLASH:       37640 B        64 KB     57.43%
+                                  RAM:        8912 B        16 KB     54.39%
                              IDT_LIST:          0 GB        32 KB      0.00%
 
          .. group-tab:: |STM32F051C8|
@@ -399,7 +413,7 @@ Hello Shell
                :build-dir: vccgnd_bluepill
                :gen-args: \
                   -DEXTRA_CONF_FILE="prj-tiny.conf" -DCONFIG_STM32_ENABLE_DEBUG_SLEEP_STOP=y \
-                  -DCONFIG_ADC=y -DCONFIG_ADC_SHELL=y
+                  -DCONFIG_ADC=y -DCONFIG_ADC_SHELL=y -DCONFIG_I2C=y -DCONFIG_I2C_SHELL=y
                :west-args: -p
                :flash-args: -r pyocd
                :goals: flash
@@ -412,10 +426,10 @@ Hello Shell
 
                   .. parsed-literal::
 
-                     [153/153] Linking C executable zephyr/zephyr.elf
+                     [159/159] Linking C executable zephyr/zephyr.elf
                      Memory region         Used Size  Region Size  %age Used
-                                FLASH:       28884 B        64 KB     44.07%
-                                  RAM:        7912 B         8 KB     96.58%
+                                FLASH:       34008 B        64 KB     51.89%
+                                  RAM:        8112 B         8 KB     99.02%
                              IDT_LIST:          0 GB        32 KB      0.00%
 
          .. group-tab:: |STM32F030C8|
@@ -426,7 +440,7 @@ Hello Shell
                :build-dir: vccgnd_bluepill
                :gen-args: \
                   -DEXTRA_CONF_FILE="prj-tiny.conf" -DCONFIG_STM32_ENABLE_DEBUG_SLEEP_STOP=y \
-                  -DCONFIG_ADC=y -DCONFIG_ADC_SHELL=y
+                  -DCONFIG_ADC=y -DCONFIG_ADC_SHELL=y -DCONFIG_I2C=y -DCONFIG_I2C_SHELL=y
                :west-args: -p
                :flash-args: -r pyocd
                :goals: flash
@@ -439,10 +453,10 @@ Hello Shell
 
                   .. parsed-literal::
 
-                     [153/153] Linking C executable zephyr/zephyr.elf
+                     [159/159] Linking C executable zephyr/zephyr.elf
                      Memory region         Used Size  Region Size  %age Used
-                                FLASH:       28652 B        64 KB     43.72%
-                                  RAM:        7904 B         8 KB     96.48%
+                                FLASH:       33776 B        64 KB     51.54%
+                                  RAM:        8104 B         8 KB     98.93%
                              IDT_LIST:          0 GB        32 KB      0.00%
 
 References

@@ -14,6 +14,10 @@ toolchain:
 supported:
   - adc
   - bluepill_gpio
+  - bluepill_i2c
+  - bluepill_spi
   - bluepill_serial
   - gpio
+  - i2c
+  - spi
   - uart

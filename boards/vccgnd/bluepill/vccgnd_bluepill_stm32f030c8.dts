@@ -19,9 +19,14 @@
 #include "stm32/dietemp.dtsi"
 #include "stm32/vref.dtsi"
 #include "stm32f0/adc.dtsi"
+#include "stm32f0/spi.dtsi"
 
 #include "stm32/io_adc.dtsi"
+#include "stm32/io_i2c.dtsi"
+#include "stm32/io_spi.dtsi"
 #include "stm32/user_led.dtsi"
 
 #include "stm32/connector.dtsi"
 bluepill_serial: &usart1 {};
+bluepill_i2c: &i2c1 {};
+bluepill_spi: &spi2 {};

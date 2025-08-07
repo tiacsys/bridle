@@ -1,0 +1,11 @@
+/*
+ * Copyright (c) 2025 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+&spi2 {
+	status = "okay";
+	pinctrl-0 = <&spi2_nss_pb12 &spi2_sck_pb13
+		     &spi2_miso_pb14 &spi2_mosi_pb15>;
+	pinctrl-names = "default";
+};
