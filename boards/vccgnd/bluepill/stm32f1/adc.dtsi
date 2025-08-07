@@ -1,0 +1,16 @@
+/*
+ * Copyright (c) 2025 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+&rcc {
+	adc-prescaler = <6>;
+};
+
+&adc1 {
+	status = "okay";
+	pinctrl-0 = <&adc1_in0_pa0 &adc1_in1_pa1 &adc1_in2_pa2 &adc1_in3_pa3
+		     &adc1_in4_pa4 &adc1_in5_pa5 &adc1_in6_pa6 &adc1_in7_pa7
+		     &adc1_in8_pb0 &adc1_in9_pb1>;
+	pinctrl-names = "default";
+};

@@ -1,5 +1,5 @@
 #PCC Sequence - do not modify
-#Thu Aug 07 17:19:54 CEST 2025
+#Thu Aug 07 18:11:04 CEST 2025
 PCC.Battery=Li-SOCL2(A3400)
 PCC.Battery.Capacity=3400.0
 PCC.Battery.InParallel=1

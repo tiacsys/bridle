@@ -16,7 +16,11 @@
 
 #include "stm32/48mhz.dtsi"
 #include "stm32/usart1.dtsi"
+#include "stm32/dietemp.dtsi"
+#include "stm32/vref.dtsi"
+#include "stm32f0/adc.dtsi"
 
+#include "stm32/io_adc.dtsi"
 #include "stm32/user_led.dtsi"
 
 #include "stm32/connector.dtsi"

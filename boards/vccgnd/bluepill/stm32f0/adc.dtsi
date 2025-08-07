@@ -1,0 +1,15 @@
+/*
+ * Copyright (c) 2025 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+&adc1 {
+	status = "okay";
+	pinctrl-0 = <&adc_in0_pa0 &adc_in1_pa1 &adc_in2_pa2 &adc_in3_pa3
+		     &adc_in4_pa4 &adc_in5_pa5 &adc_in6_pa6 &adc_in7_pa7
+		     &adc_in8_pb0 &adc_in9_pb1>;
+	pinctrl-names = "default";
+
+	st,adc-clock-source = "SYNC";
+	st,adc-prescaler = <4>;
+};
