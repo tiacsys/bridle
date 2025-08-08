@@ -205,6 +205,139 @@ The |bridle:board:vccgnd_bluepill| boards features two I2C buses over at I2C1
 and I2C2 also available on the edge connectors and the standard pins. I2C1 is
 the BluePill standard bus.
 
+CAN Port
+--------
+
+The |bridle:board:vccgnd_bluepill| boards with STM32F1 and STM32F072 features
+one CAN controller, but without any CAN transceiver on board. The bus timing
+is defined by the DTS and is preset to 1000 kBit/s. The calculation was
+verified with the help of the `CAN Bit Time Calculation Sheet`_ and can also
+assume smaller bit rates according to the following table. Note that the value
+of **Prescaler**, **Seg 1** and **Seg 2** will be calculated on demand by the
+Zephyr :external+zephyr:ref:`can_api` API together with the driver.
+
+.. tabs::
+
+   .. group-tab:: STM32F1
+
+      .. list-table:: CAN bus timing calculation for STM32F1 @ 36㎒
+         :class: longtable
+         :align: center
+         :widths: 10, 10, 10, 35, 35
+         :header-rows: 1
+         :stub-columns: 2
+
+         * - Bit Rate
+           - Sample Point at
+           - Prescaler
+           - Seg 1 (``prop-seg + phase-seg1``)
+           - Seg 2 (``phase-seg2``)
+         * - 1000 kBit/s
+           - 88.9 %
+           - 2
+           - 15
+           - 2
+         * - 800 kBit/s
+           - 88.9 %
+           - 5
+           - 7
+           - 1
+         * - 500 kBit/s
+           - 88.9 %
+           - 4
+           - 15
+           - 2
+         * - 250 kBit/s
+           - 88.9 %
+           - 8
+           - 15
+           - 2
+         * - 125 kBit/s
+           - 88.9 %
+           - 16
+           - 15
+           - 2
+         * - 100 kBit/s
+           - 88.9 %
+           - 20
+           - 15
+           - 2
+         * - 50 kBit/s
+           - 88.9 %
+           - 40
+           - 15
+           - 2
+         * - 20 kBit/s
+           - 88.9 %
+           - 100
+           - 15
+           - 2
+         * - 10 kBit/s
+           - 88.9 %
+           - 200
+           - 15
+           - 2
+
+   .. group-tab:: STM32F0
+
+      .. list-table:: CAN bus timing calculation for STM32F0 @ 48㎒
+         :class: longtable
+         :align: center
+         :widths: 10, 10, 10, 35, 35
+         :header-rows: 1
+         :stub-columns: 2
+
+         * - Bit Rate
+           - Sample Point at
+           - Prescaler
+           - Seg 1 (``prop-seg + phase-seg1``)
+           - Seg 2 (``phase-seg2``)
+         * - 1000 kBit/s
+           - 87.5 %
+           - 3
+           - 13
+           - 2
+         * - 800 kBit/s
+           - 86.7 %
+           - 4
+           - 12
+           - 2
+         * - 500 kBit/s
+           - 87.5 %
+           - 6
+           - 13
+           - 2
+         * - 250 kBit/s
+           - 87.5 %
+           - 12
+           - 13
+           - 2
+         * - 125 kBit/s
+           - 87.5 %
+           - 24
+           - 13
+           - 2
+         * - 100 kBit/s
+           - 87.5 %
+           - 30
+           - 13
+           - 2
+         * - 50 kBit/s
+           - 87.5 %
+           - 60
+           - 13
+           - 2
+         * - 20 kBit/s
+           - 87.5 %
+           - 150
+           - 13
+           - 2
+         * - 10 kBit/s
+           - 87.5 %
+           - 300
+           - 13
+           - 2
+
 Serial Port
 -----------
 
@@ -213,6 +346,45 @@ at USART1 and the standard pins (PA9/PA10) to be compatible with the STMicro
 on-chip bootloader for firmware downloads over UART. The Zephyr console output
 is assigned to this USART with the default settings of 115200/8N1 without any
 flow control (no XON/XOFF, no RTS/CTS).
+
+USB Device Port
+---------------
+
+The |bridle:board:vccgnd_bluepill| boards with STM32F1 and STM32F072 features
+one (native) USB full-speed device port that can be used to communicate with
+a host PC. See the
+:external+zephyr:zephyr:code-sample-category:`usb`
+sample applications for more, such as the
+:external+zephyr:zephyr:code-sample:`usb-cdc-acm`
+sample which sets up a virtual serial port that echos characters back to the
+host PC. This boards provide the Zephyr console per default on the USB port
+as :external+zephyr:ref:`usb_device_cdc_acm`:
+
+.. tabs::
+
+   .. group-tab:: STM32F1
+
+      .. container:: highlight-console notranslate literal-block
+
+         .. parsed-literal::
+
+            USB device idVendor=\ |vccgnd_bluepill_STM32F1_VID|, idProduct=\ |vccgnd_bluepill_STM32F1_PID_CON|, bcdDevice=\ |vccgnd_bluepill_STM32F1_BCD_CON|
+            USB device strings: Mfr=1, Product=2, SerialNumber=3
+            Product: |vccgnd_bluepill_STM32F1_PStr_CON|
+            Manufacturer: |vccgnd_bluepill_STM32F1_VStr|
+            SerialNumber: 93F49F68D18508F0
+
+   .. group-tab:: STM32F0
+
+      .. container:: highlight-console notranslate literal-block
+
+         .. parsed-literal::
+
+            USB device idVendor=\ |vccgnd_bluepill_STM32F0_VID|, idProduct=\ |vccgnd_bluepill_STM32F0_PID_CON|, bcdDevice=\ |vccgnd_bluepill_STM32F0_BCD_CON|
+            USB device strings: Mfr=1, Product=2, SerialNumber=3
+            Product: |vccgnd_bluepill_STM32F0_PStr_CON|
+            Manufacturer: |vccgnd_bluepill_STM32F0_VStr|
+            SerialNumber: 8255970716DB9402
 
 Programming and Debugging
 *************************
@@ -285,6 +457,63 @@ You can debug an application in the usual way. Here is an example for the
 
 Tests and Examples
 ******************
+
+LED Blinky with USB-CDC/ACM Console
+===================================
+
+.. tabs::
+
+   .. group-tab:: STM32F1
+
+      .. tabs::
+
+         .. group-tab:: |STM32F103CB|
+
+            .. zephyr-app-commands::
+               :app: zephyr/samples/basic/blinky
+               :board: vccgnd_bluepill_stm32f103cb
+               :build-dir: vccgnd_bluepill
+               :west-args: -p -S usb-console
+               :flash-args: -r pyocd
+               :goals: flash
+               :compact:
+
+         .. group-tab:: |STM32F103C8|
+
+            .. zephyr-app-commands::
+               :app: zephyr/samples/basic/blinky
+               :board: vccgnd_bluepill_stm32f103c8
+               :build-dir: vccgnd_bluepill
+               :west-args: -p -S usb-console
+               :flash-args: -r pyocd
+               :goals: flash
+               :compact:
+
+   .. group-tab:: STM32F0
+
+      .. tabs::
+
+         .. group-tab:: |STM32F072CB|
+
+            .. zephyr-app-commands::
+               :app: zephyr/samples/basic/blinky
+               :board: vccgnd_bluepill_stm32f072cb
+               :build-dir: vccgnd_bluepill
+               :west-args: -p -S usb-console
+               :flash-args: -r pyocd
+               :goals: flash
+               :compact:
+
+         .. group-tab:: |STM32F072C8|
+
+            .. zephyr-app-commands::
+               :app: zephyr/samples/basic/blinky
+               :board: vccgnd_bluepill_stm32f072c8
+               :build-dir: vccgnd_bluepill
+               :west-args: -p -S usb-console
+               :flash-args: -r pyocd
+               :goals: flash
+               :compact:
 
 Hello Shell
 ===========

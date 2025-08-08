@@ -1,0 +1,17 @@
+/*
+ * Copyright (c) 2025 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <freq.h>
+
+/ {
+	chosen {
+		zephyr,canbus = &can1;
+	};
+};
+
+&can1 {
+	bitrate = <DT_FREQ_M(1)>;
+	sample-point = <875>;
+};

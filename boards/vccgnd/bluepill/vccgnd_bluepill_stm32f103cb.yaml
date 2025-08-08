@@ -13,11 +13,15 @@ toolchain:
   - gnuarmemb
 supported:
   - adc
+  - bluepill_can
   - bluepill_gpio
   - bluepill_i2c
   - bluepill_spi
   - bluepill_serial
+  - can
   - gpio
   - i2c
   - spi
   - uart
+  - usb_device
+  - usb_cdc
