@@ -12,6 +12,7 @@ toolchain:
   - zephyr
   - gnuarmemb
 supported:
+  - adc
   - bluepill_gpio
   - bluepill_serial
   - gpio

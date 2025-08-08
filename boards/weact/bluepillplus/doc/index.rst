@@ -187,6 +187,16 @@ The |bridle:board:weact_bluepillplus| boards feature one tactile push button
 for user purposes at GPIO port A line 0 (PA0) in parallel to the WKUP signal
 and the first ADC channel. The push button is high active.
 
+ADC/TS Ports
+------------
+
+The |bridle:board:weact_bluepillplus| boards features an 12-bit ADC with
+10 external usable channels and, when supported, some additional channels
+connected internaly to the on-chip temperature sensor (TS), the internal
+provided voltage reference source (VREF) and the external battery voltage
+(VBAT) when supported. The ADC channels 0-9 are available on the edge
+connectors.
+
 Serial Port
 -----------
 
@@ -297,10 +307,10 @@ Hello Shell
 
                   .. parsed-literal::
 
-                     [177/177] Linking C executable zephyr/zephyr.elf
+                     [178/178] Linking C executable zephyr/zephyr.elf
                      Memory region         Used Size  Region Size  %age Used
-                                FLASH:       48372 B       128 KB     36.90%
-                                  RAM:       17728 B        20 KB     86.56%
+                                FLASH:       53668 B       128 KB     40.95%
+                                  RAM:       17984 B        20 KB     87.81%
                              IDT_LIST:          0 GB        32 KB      0.00%
 
          .. group-tab:: |STM32F103C8|
@@ -323,10 +333,10 @@ Hello Shell
 
                   .. parsed-literal::
 
-                     [177/177] Linking C executable zephyr/zephyr.elf
+                     [178/178] Linking C executable zephyr/zephyr.elf
                      Memory region         Used Size  Region Size  %age Used
-                                FLASH:       48372 B        64 KB     73.81%
-                                  RAM:       17728 B        20 KB     86.56%
+                                FLASH:       53668 B        64 KB     81.89%
+                                  RAM:       17984 B        20 KB     87.81%
                              IDT_LIST:          0 GB        32 KB      0.00%
 
    .. group-tab:: CH32V2
