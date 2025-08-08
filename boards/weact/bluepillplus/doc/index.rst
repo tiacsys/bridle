@@ -197,6 +197,20 @@ provided voltage reference source (VREF) and the external battery voltage
 (VBAT) when supported. The ADC channels 0-9 are available on the edge
 connectors.
 
+SPI Port
+--------
+
+The |bridle:board:weact_bluepillplus| boards features one five wire SPI bus
+over SPI2 also available on the edge connectors and the standard pins. SPI1
+is not available in any default setup.
+
+I2C Port
+--------
+
+The |bridle:board:weact_bluepillplus| boards features two I2C buses over at
+I2C1 and I2C2 also available on the edge connectors and the standard pins.
+I2C1 is the BluePill standard bus.
+
 Serial Port
 -----------
 
@@ -307,10 +321,10 @@ Hello Shell
 
                   .. parsed-literal::
 
-                     [178/178] Linking C executable zephyr/zephyr.elf
+                     [181/181] Linking C executable zephyr/zephyr.elf
                      Memory region         Used Size  Region Size  %age Used
-                                FLASH:       53668 B       128 KB     40.95%
-                                  RAM:       17984 B        20 KB     87.81%
+                                FLASH:       56148 B       128 KB     42.84%
+                                  RAM:       18184 B        20 KB     88.79%
                              IDT_LIST:          0 GB        32 KB      0.00%
 
          .. group-tab:: |STM32F103C8|
@@ -333,10 +347,10 @@ Hello Shell
 
                   .. parsed-literal::
 
-                     [178/178] Linking C executable zephyr/zephyr.elf
+                     [181/181] Linking C executable zephyr/zephyr.elf
                      Memory region         Used Size  Region Size  %age Used
-                                FLASH:       53668 B        64 KB     81.89%
-                                  RAM:       17984 B        20 KB     87.81%
+                                FLASH:       56148 B        64 KB     85.68%
+                                  RAM:       18184 B        20 KB     88.79%
                              IDT_LIST:          0 GB        32 KB      0.00%
 
    .. group-tab:: CH32V2

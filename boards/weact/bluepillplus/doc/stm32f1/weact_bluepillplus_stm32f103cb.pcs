@@ -1,5 +1,5 @@
 #PCC Sequence - do not modify
-#Fri Aug 08 13:27:58 CEST 2025
+#Fri Aug 08 20:46:30 CEST 2025
 PCC.Battery=Li-SOCL2(A3400)
 PCC.Battery.Capacity=3400.0
 PCC.Battery.InParallel=1
@@ -11,7 +11,7 @@ PCC.Line=STM32F103
 PCC.MCU=STM32F103C(8-B)Tx
 PCC.PartNumber=STM32F103CBTx
 PCC.Seq0=2
-PCC.Seq0.Step0.Average_Current=4.58 mA
+PCC.Seq0.Step0.Average_Current=4.86 mA
 PCC.Seq0.Step0.CPU_Frequency=8 MHz
 PCC.Seq0.Step0.Category=In DS Table
 PCC.Seq0.Step0.DMIPS=10.0
@@ -20,8 +20,8 @@ PCC.Seq0.Step0.Frequency=8 MHz
 PCC.Seq0.Step0.Memory=FLASH
 PCC.Seq0.Step0.Mode=RUN
 PCC.Seq0.Step0.Oscillator=HSI
-PCC.Seq0.Step0.Peripherals=ADC1 APB2-Bridge GPIOA GPIOB GPIOD USART1
-PCC.Seq0.Step0.TaMax=104.17
+PCC.Seq0.Step0.Peripherals=ADC1 APB1-Bridge APB2-Bridge GPIOA GPIOB GPIOD I2C1 I2C2 SPI2 USART1
+PCC.Seq0.Step0.TaMax=104.12
 PCC.Seq0.Step0.User's_Consumption=0 mA
 PCC.Seq0.Step0.Vcore=No Scale
 PCC.Seq0.Step0.Vdd=3.3
