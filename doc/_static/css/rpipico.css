@@ -40,6 +40,8 @@
 .rpi-pico-spi-dfl { background: var(--docset-color-rpi-spi-dfl); }
 .rpi-pico-i2c { background: var(--docset-color-rpi-i2c); }
 .rpi-pico-i2c-dfl { background: var(--docset-color-rpi-i2c-dfl); }
+.rpi-pico-can { background: var(--docset-color-rpi-can); }
+.rpi-pico-can-dfl { background: var(--docset-color-rpi-can-dfl); }
 .rpi-pico-uart { background: var(--docset-color-rpi-uart); }
 .rpi-pico-uart-dfl { background: var(--docset-color-rpi-uart-dfl); }
 
@@ -52,6 +54,7 @@
 .rpi-pico-adc,
 .rpi-pico-spi, .rpi-pico-spi-dfl,
 .rpi-pico-i2c, .rpi-pico-i2c-dfl,
+.rpi-pico-can, .rpi-pico-can-dfl,
 .rpi-pico-uart, .rpi-pico-uart-dfl {
   color: var(--docset-color-rpi-fgd);
   font-weight: bold;

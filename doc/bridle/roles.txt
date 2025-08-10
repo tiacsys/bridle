@@ -297,6 +297,12 @@
 .. role:: rpi-pico-i2c-dfl
    :class: rpi-pico-i2c-dfl
 
+.. role:: rpi-pico-can
+   :class: rpi-pico-can
+
+.. role:: rpi-pico-can-dfl
+   :class: rpi-pico-can-dfl
+
 .. role:: rpi-pico-uart
    :class: rpi-pico-uart
 

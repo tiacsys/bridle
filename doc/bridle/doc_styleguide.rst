@@ -538,6 +538,18 @@ The following table shows just a few examples.
        - Total number of I2C0_SDA (Serial Data line on default I2C ``0``)
        - Total number of I2C1_SCL (Serial Clock line on I2C ``1``)
 
+   * - | :rst:`:rpi-pico-can-dfl:\`CAN0_TX\``
+       | :rst:`:rpi-pico-can:\`CAN1_RX\``
+
+     - :rpi-pico-can-dfl:`CAN0_TX`
+
+       :rpi-pico-can:`CAN1_RX`
+
+     - Raspberry Pi Pico :u:`signal line label` special purpose
+
+       - Total number of CAN0_TX (Data Transmit line on default CAN ``0``)
+       - Total number of CAN1_RX (Data Receive line on CAN ``1``)
+
    * - | :rst:`:rpi-pico-uart-dfl:\`UART0_TX\``
        | :rst:`:rpi-pico-uart:\`UART1_RX\``
 
