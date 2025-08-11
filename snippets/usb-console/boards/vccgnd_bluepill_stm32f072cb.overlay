@@ -1,0 +1,14 @@
+/*
+ * Copyright (c) 2025 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	model = "VccGND Studio BluePill STM32F072CB @ USB-CDC/ACM Concole";
+	compatible = "vccgnd,bluepill-stm32f072cb",
+		     "vccgnd,bluepill-stm32f072cb-usbcons";
+
+	chosen {
+		zephyr,shell-uart = &snippet_cdc_acm_console_uart;
+	};
+};

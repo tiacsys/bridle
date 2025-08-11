@@ -62,6 +62,18 @@ specified as required.
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
 
+   * - |vccgnd_bluepill_URB_VID|
+     - |vccgnd_bluepill_URB_PID_CON|
+     - | :code:`vccgnd_bluepill_stm32f103cb`
+       | :code:`vccgnd_bluepill_stm32f103c8`
+       | :code:`vccgnd_bluepill_stm32f072cb`
+       | :code:`vccgnd_bluepill_stm32f072c8`
+     - |STMicroelectronics|_
+     - |VccGND BluePill (CDC ACM)|
+     - `STMicroelectronics USB product ID from their Virtual COM Port`_
+     - | |zephyr:devicetree:chosen:console|
+       | |zephyr:devicetree:chosen:shell-uart|
+
    * - |mimxrt1010_evk_URB_VID|
      - |mimxrt1010_evk_URB_PID_CON|
      - :code:`mimxrt1010_evk`

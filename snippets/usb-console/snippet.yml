@@ -8,6 +8,22 @@ boards:
     append:
       EXTRA_CONF_FILE: boards/nucleo_f767zi.conf
       EXTRA_DTC_OVERLAY_FILE: boards/nucleo_f767zi.overlay
+  vccgnd_bluepill_stm32f103cb/stm32f103xb:
+    append:
+      EXTRA_CONF_FILE: boards/vccgnd_bluepill_stm32f103.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/vccgnd_bluepill_stm32f103cb.overlay
+  vccgnd_bluepill_stm32f103c8/stm32f103xb:
+    append:
+      EXTRA_CONF_FILE: boards/vccgnd_bluepill_stm32f103.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/vccgnd_bluepill_stm32f103c8.overlay
+  vccgnd_bluepill_stm32f072cb/stm32f072xb:
+    append:
+      EXTRA_CONF_FILE: boards/vccgnd_bluepill_stm32f072.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/vccgnd_bluepill_stm32f072cb.overlay
+  vccgnd_bluepill_stm32f072c8/stm32f072xb:
+    append:
+      EXTRA_CONF_FILE: boards/vccgnd_bluepill_stm32f072.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/vccgnd_bluepill_stm32f072c8.overlay
   mimxrt1010_evk/mimxrt1011:
     append:
       EXTRA_CONF_FILE: boards/mimxrt1010_evk.conf
