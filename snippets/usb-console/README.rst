@@ -53,6 +53,15 @@ specified as required.
      - Specifications and requirements
      - Chosen
 
+   * - |magpie_f777ni_URB_VID|
+     - |magpie_f777ni_URB_PID_CON|
+     - :code:`magpie_f777ni`
+     - |STMicroelectronics|_
+     - |TiaC Magpie F777NI (CDC ACM)|
+     - `STMicroelectronics USB product ID from their Virtual COM Port`_
+     - | |zephyr:devicetree:chosen:console|
+       | |zephyr:devicetree:chosen:shell-uart|
+
    * - |nucleo_f767zi_URB_VID|
      - |nucleo_f767zi_URB_PID_CON|
      - :code:`nucleo_f767zi`

@@ -1,0 +1,13 @@
+/*
+ * Copyright (c) 2025 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	model = "TiaC Magpie F777NI board @ USB-CDC/ACM Concole";
+	compatible = "tiac,magpie-f777ni", "tiac,magpie-f777ni-usbcons";
+
+	chosen {
+		zephyr,shell-uart = &snippet_cdc_acm_console_uart;
+	};
+};

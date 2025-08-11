@@ -4,6 +4,10 @@ append:
   EXTRA_DTC_OVERLAY_FILE: usb-console.overlay
 
 boards:
+  magpie_f777ni/stm32f777xx:
+    append:
+      EXTRA_CONF_FILE: boards/magpie_f777ni.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/magpie_f777ni.overlay
   nucleo_f767zi/stm32f767xx:
     append:
       EXTRA_CONF_FILE: boards/nucleo_f767zi.conf
