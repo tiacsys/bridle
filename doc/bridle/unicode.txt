@@ -362,3 +362,11 @@
 .. |_?_| unicode:: U+02753 .. red question mark
 .. |!| replace:: :raw-latex:`{` |_!_| :raw-latex:`}`
 .. |_!_| unicode:: U+02757 .. red exclamation mark
+
+.. |okay| replace:: :raw-latex:`{` |_okay_| :raw-latex:`}`
+.. |_okay_| unicode:: U+02705 .. white heavy check mark
+.. |warn| replace:: :raw-latex:`{` |_warn_| :raw-latex:`}`
+.. |_warn_| replace:: ⚠️
+.. .. |_warn_| unicode:: U+026A0 .. warning (emoji) sign
+.. |notyet| replace:: :raw-latex:`{` |_notyet_| :raw-latex:`}`
+.. |_notyet_| unicode:: U+0274C .. cross mark

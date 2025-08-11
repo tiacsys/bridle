@@ -610,6 +610,11 @@ The following table shows just a few examples.
      - U+02753, U+02757
      - red question and exclamation mark
 
+   * - :rst:`|okay| |warn| |notyet|`
+     - |okay| |warn| |notyet|
+     - U+02705, U+026A0, U+0274C
+     - white heavy check mark, warning (emoji) sign, cross mark
+
    * - :rst:`|candle| |star| |open book|`
      - |candle| |star| |open book|
      - U+1F56F, U+02B50, U+1F4D6
