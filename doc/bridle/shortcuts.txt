@@ -17,6 +17,15 @@
 .. |stm_VStr|		replace:: :ign:`STMicroelectronics`
 .. |stm_tiac_VStr|	replace:: :ign:`TiaC (STMicroelectronics)`
 .. |stm_vccgnd_VStr|	replace:: :ign:`VccGND (STMicroelectronics)`
+.. |stm_weact_VStr|	replace:: :ign:`WeAct (STMicroelectronics)`
+
+.. VID 0x1A86 : Nanjing Qinheng Microelectronics Co., Ltd. (WCH / WinChipHead)
+
+.. |nqm_URB_VID|	replace:: :code:`0x1A86`
+.. |nqm_VID|		replace:: :ign:`1a86`
+.. |nqm_VStr|		replace:: :ign:`WCH`
+.. |nqm_vccgnd_VStr|	replace:: :ign:`VccGND (WCH)`
+.. |nqm_weact_VStr|	replace:: :ign:`WeAct (WCH)`
 
 .. VID 0x1915 : Nordic Semiconductor ASA
 
@@ -49,6 +58,14 @@
 .. |seeed_VID|		replace:: :ign:`2886`
 .. |seeed_VStr|		replace:: :ign:`Seeed LLC`
 
+.. VID 0x28E9 : GigaDevice Semiconductor (Beijing) Inc.
+
+.. |gds_URB_VID|	replace:: :code:`0x28E9`
+.. |gds_VID|		replace:: :ign:`28e9`
+.. |gds_VStr|		replace:: :ign:`GigaDevice`
+.. |gds_vccgnd_VStr|	replace:: :ign:`VccGND (GigaDevice)`
+.. |gds_weact_VStr|	replace:: :ign:`WeAct (GigaDevice)`
+
 .. VID 0x2E8A : Raspberry Pi
 
 .. |rpi_URB_VID|	replace:: :code:`0x2E8A`
@@ -67,6 +84,22 @@
 .. |zephyr_VID|		replace:: :ign:`2fe3`
 .. |zephyr_VStr|	replace:: :ign:`Zephyr Project`
 .. |zephyr_VStr_dflt|	replace:: :ign:`ZEPHYR`
+
+.. VID 0x314B : Geehy Semiconductor Co., Ltd.
+
+.. |gee_URB_VID|	replace:: :code:`0x314B`
+.. |gee_VID|		replace:: :ign:`314b`
+.. |gee_VStr|		replace:: :ign:`Geehy`
+.. |gee_vccgnd_VStr|	replace:: :ign:`VccGND (Geehy)`
+.. |gee_weact_VStr|	replace:: :ign:`WeAct (Geehy)`
+
+.. VID 0x4348 : Nanjing Qinheng Microelectronics Co., Ltd. (WCH / WinChipHead)
+
+.. |wch_URB_VID|	replace:: :code:`0x4348`
+.. |wch_VID|		replace:: :ign:`4348`
+.. |wch_VStr|		replace:: :ign:`WinChipHead`
+.. |wch_vccgnd_VStr|	replace:: :ign:`VccGND (WinChipHead)`
+.. |wch_weact_VStr|	replace:: :ign:`WeAct (WinChipHead)`
 
 .. PIDs : Atmel Corp.
 
@@ -802,6 +835,55 @@
 
 .. |Waveshare Pico Clock Green| replace::
    :ref:`Waveshare Pico Clock Green <waveshare_pico_clock_green>`
+
+.. |bridle:board:weact_bluepillplus| replace:: :ref:`weact_bluepillplus`
+.. :bridle:board:`weact_bluepillplus`
+
+.. |WeAct BluePill+ (CDC ACM)| replace::
+   :ref:`WeAct BluePill+ (CDC ACM) <weact_bluepillplus>`
+.. :bridle:board:`WeAct BluePill+ (CDC ACM) <weact_bluepillplus>`
+
+.. |weact_bluepillplus_URB_VID|		replace:: |stm_URB_VID|
+.. |weact_bluepillplus_VID|		replace:: |stm_VID|
+.. |weact_bluepillplus_VStr|		replace:: |stm_weact_VStr|
+
+.. |weact_bluepillplus_URB_PID_CON|	replace:: |stm_URB_PID_VCOM|
+.. |weact_bluepillplus_PID_CON|		replace:: |stm_PID_VCOM|
+.. |weact_bluepillplus_PStr_CON|	replace:: :ign:`BluePill+ (CDC ACM)`
+.. |weact_bluepillplus_BCD_CON|		replace:: |zephyr_version_BCD|
+
+.. |weact_bluepillplus_URB_PID_MSC|	replace:: |stm_URB_PID_MSC|
+.. |weact_bluepillplus_PID_MSC|		replace:: |stm_PID_MSC|
+.. |weact_bluepillplus_PStr_MSC|	replace:: :ign:`BluePill+ (MSC)`
+.. |weact_bluepillplus_BCD_MSC|		replace:: |zephyr_version_BCD|
+
+.. |weact_bluepillplus_STM32F1_URB_VID|	replace:: |weact_bluepillplus_URB_VID|
+.. |weact_bluepillplus_STM32F1_VID|	replace:: |weact_bluepillplus_VID|
+.. |weact_bluepillplus_STM32F1_VStr|	replace:: |weact_bluepillplus_VStr|
+
+.. |weact_bluepillplus_STM32F1_URB_PID_CON| replace:: |weact_bluepillplus_URB_PID_CON|
+.. |weact_bluepillplus_STM32F1_PID_CON|	replace:: |weact_bluepillplus_PID_CON|
+.. |weact_bluepillplus_STM32F1_PStr_CON| replace:: :ign:`BluePill+ STM32F103 (CDC ACM)`
+.. |weact_bluepillplus_STM32F1_BCD_CON|	replace:: |weact_bluepillplus_BCD_CON|
+
+.. |weact_bluepillplus_STM32F1_URB_PID_MSC| replace:: |weact_bluepillplus_URB_PID_MSC|
+.. |weact_bluepillplus_STM32F1_PID_MSC|	replace:: |weact_bluepillplus_PID_MSC|
+.. |weact_bluepillplus_STM32F1_PStr_MSC| replace:: :ign:`BluePill+ STM32F103 (MSC)`
+.. |weact_bluepillplus_STM32F1_BCD_MSC|	replace:: |weact_bluepillplus_BCD_MSC|
+
+.. |weact_bluepillplus_CH32V2_URB_VID|	replace:: |weact_bluepillplus_URB_VID|
+.. |weact_bluepillplus_CH32V2_VID|	replace:: |weact_bluepillplus_VID|
+.. |weact_bluepillplus_CH32V2_VStr|	replace:: |weact_bluepillplus_VStr|
+
+.. |weact_bluepillplus_CH32V2_URB_PID_CON| replace:: |weact_bluepillplus_URB_PID_CON|
+.. |weact_bluepillplus_CH32V2_PID_CON|	replace:: |weact_bluepillplus_PID_CON|
+.. |weact_bluepillplus_CH32V2_PStr_CON| replace:: :ign:`BluePill+ CH32V203 (CDC ACM)`
+.. |weact_bluepillplus_CH32V2_BCD_CON|	replace:: |weact_bluepillplus_BCD_CON|
+
+.. |weact_bluepillplus_CH32V2_URB_PID_MSC| replace:: |weact_bluepillplus_URB_PID_MSC|
+.. |weact_bluepillplus_CH32V2_PID_MSC|	replace:: |weact_bluepillplus_PID_MSC|
+.. |weact_bluepillplus_CH32V2_PStr_MSC| replace:: :ign:`BluePill+ CH32V203 (MSC)`
+.. |weact_bluepillplus_CH32V2_BCD_MSC|	replace:: |weact_bluepillplus_BCD_MSC|
 
 .. |bridle:board:xiao_samd21| replace:: :ref:`xiao_samd21`
 .. :bridle:board:`xiao_samd21`

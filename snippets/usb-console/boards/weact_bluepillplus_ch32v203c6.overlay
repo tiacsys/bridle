@@ -1,0 +1,14 @@
+/*
+ * Copyright (c) 2025 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	model = "WeAct Studio BluePill+ CH32V203C6 @ USB-CDC/ACM Concole";
+	compatible = "weact,bluepillplus-ch32v203c6",
+		     "weact,bluepillplus-ch32v203c6-usbcons";
+
+	chosen {
+		zephyr,shell-uart = &snippet_cdc_acm_console_uart;
+	};
+};

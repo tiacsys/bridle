@@ -74,6 +74,18 @@ specified as required.
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
 
+   * - |weact_bluepillplus_URB_VID|
+     - |weact_bluepillplus_URB_PID_CON|
+     - | :code:`weact_bluepillplus_stm32f103cb`
+       | :code:`weact_bluepillplus_stm32f103c8`
+       | :code:`weact_bluepillplus_ch32v203c8`
+       | :code:`weact_bluepillplus_ch32v203c6`
+     - |STMicroelectronics|_
+     - |WeAct BluePill+ (CDC ACM)|
+     - `STMicroelectronics USB product ID from their Virtual COM Port`_
+     - | |zephyr:devicetree:chosen:console|
+       | |zephyr:devicetree:chosen:shell-uart|
+
    * - |mimxrt1010_evk_URB_VID|
      - |mimxrt1010_evk_URB_PID_CON|
      - :code:`mimxrt1010_evk`
