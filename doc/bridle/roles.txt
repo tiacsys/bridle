@@ -1,3 +1,9 @@
+.. special inline images
+
+.. |counterfeit| image:: /images/counterfeit.svg
+   :class: no-scaled-link
+   :height: 2ex
+
 .. simple colorization and formatting class mappings
 
 .. role:: rd

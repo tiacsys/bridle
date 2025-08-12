@@ -1307,6 +1307,23 @@
 
 
 
+.. ##### Links to STMicro fakes and clones
+
+.. _`STM32 clones: the good, the bad and the ugly`:
+   https://hackaday.com/2020/10/22/stm32-clones-the-good-the-bad-and-the-ugly
+.. _`Test your ‘Blue Pill’ board for a genuine STM32F103C8 MCU`:
+   https://hackaday.com/2021/06/23/test-your-blue-pill-board-for-a-genuine-stm32f103c8-mcu
+.. _`Bluepill Diagnostics V1.640`:
+   https://mecrisp-stellaris-folkdoc.sourceforge.io/bluepill-diags-v1.640.html
+.. _`Bluepill Diagnostics V1.6`:
+   https://mecrisp-stellaris-folkdoc.sourceforge.io/bluepill-diagnostics-v1.6.html
+.. _`STM32F103C8T6 - Counterfeit confirmed by ST`:
+   https://www-mikrocontroller-net.translate.goog/topic/488417?_x_tr_sl=de&_x_tr_tl=en
+.. _`STM32 Originals, Clones and Counterfeits (Richi´s Lab)`:
+   https://www-richis--lab-de.translate.goog/STM32.htm?_x_tr_sl=de&_x_tr_tl=en
+
+
+
 .. ### Links to hardware specifications, application notes and similar documents
 
 .. #### Links to Connectors, Headers, Switches or Bottons

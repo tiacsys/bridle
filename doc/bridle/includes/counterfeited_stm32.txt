@@ -1,0 +1,53 @@
+.. figure:: /images/counterfeited_stm32.webp
+   :alt: Counterfeited (STM32) parts purchased from Aliexpress
+   :align: right
+   :width: 640px
+
+   `STM32F103C8T6 - Counterfeit confirmed by ST`_
+
+|nbsp|
+
+   .. container:: notranslate
+
+      For several years now, the **market has been flooded with counterfeit
+      STM32F103 chips**. The **C8T6** and **CBT6** variants (*LQFP48*) with
+      48 pins are the most affected. The counterfeits, usually relabeled as
+      STM32, often contain an:
+
+      .. rst-class:: rst-columns
+
+      * **APM32F103**
+      * **GD32F103**
+      * **CKS32F103**
+      * **HK32F103**
+      * **CH32F103**
+      * **CS32F103**
+      * **BLM32F103**
+      * **MM32F103**
+
+.. rubric:: The following defects have been reported:
+.. rst-class:: rst-columns
+
+* DMA controller hangs.
+* DMA controller triggers wrong interrupts.
+* OCN outputs of the timers do not work (affects PWM).
+* :brd:`Timer 5 is missing.`
+* :brd:`I²C does not work.`
+* :brd:`USB does not work.`
+* :brd:`Debugging does not work.`
+* Flashing only works via SWD, only via UART, or only at 115200 baud.
+* The chip ID can be read via firmware and mostly wrong or invalid
+  (this is not possible with the original).
+
+The defects mentioned only occur partially (never all together). The major
+problem is that you don't know which ones you are being sold.
+
+.. rubric:: For more details read also:
+
+* `STM32 clones: the good, the bad and the ugly`_
+* `Test your ‘Blue Pill’ board for a genuine STM32F103C8 MCU`_
+
+  * `Bluepill Diagnostics V1.640`_
+  * `Bluepill Diagnostics V1.6`_
+
+* `STM32 Originals, Clones and Counterfeits (Richi´s Lab)`_
