@@ -16,6 +16,13 @@
 .. |stm_VID|		replace:: :ign:`0483`
 .. |stm_VStr|		replace:: :ign:`STMicroelectronics`
 
+.. VID 0x1915 : Nordic Semiconductor ASA
+
+.. |nordic_URB_VID|	replace:: :code:`0x1915`
+.. |nordic_VID|		replace:: :ign:`1915`
+.. |nordic_VStr|	replace:: :ign:`Nordic Semiconductor ASA`
+.. |nordic_tiac_VStr|	replace:: :ign:`TiaC (Nordic Semiconductor ASA)`
+
 .. VID 0x1FC9 : NXP Semiconductors
 
 .. |nxp_URB_VID|	replace:: :code:`0x1FC9`
@@ -27,6 +34,12 @@
 .. |arduino_URB_VID|	replace:: :code:`0x2341`
 .. |arduino_VID|	replace:: :ign:`2341`
 .. |arduino_VStr|	replace:: :ign:`Arduino LLC`
+
+.. VID 0x239A : Adafruit
+
+.. |adafruit_URB_VID|	replace:: :code:`0x239A`
+.. |adafruit_VID|	replace:: :ign:`239a`
+.. |adafruit_VStr|	replace:: :ign:`Seeed LLC`
 
 .. VID 0x2886 : Seeed Studio
 
@@ -46,7 +59,7 @@
 .. |rpi_pimoroni_VStr|	replace:: :ign:`Pimoroni (Raspberry Pi)`
 .. |rpi_waveshare_VStr|	replace:: :ign:`Waveshare (Raspberry Pi)`
 
-.. VID 0x2FE3 : Zephyr Project
+.. VID 0x2FE3 : Zephyr Project (NordicSemiconductor)
 
 .. |zephyr_URB_VID|	replace:: :code:`0x2FE3`
 .. |zephyr_VID|		replace:: :ign:`2fe3`
@@ -71,6 +84,61 @@
 .. |stm_PID_MSC|	replace:: :ign:`5720`
 .. |stm_PStr_MSC|	replace:: :ign:`STM32 Mass Storage`
 .. |stm_BCD_MSC|	replace:: |nbsp| :ign:`2.00`
+
+.. PIDs : Nordic Semiconductor ASA
+
+.. https://linux-hardware.org/?id=usb:1915-1025
+.. |nordic_URB_PID_UCD|	replace:: :code:`0x1025`
+.. |nordic_PID_UCD|	replace:: :ign:`1025`
+.. |nordic_PStr_UCD|	replace:: :ign:`USB Composite Device`
+.. |nordic_BCD_UCD|	replace:: |zephyr_version_BCD|
+
+.. https://linux-hardware.org/?id=usb:1915-154b
+.. |nordic_URB_PID_WSN|	replace:: :code:`0x154B`
+.. |nordic_PID_WSN|	replace:: :ign:`154b`
+.. |nordic_PStr_WSN|	replace:: :ign:`nRF 802154 Sniffer`
+.. |nordic_BCD_WSN|	replace:: |zephyr_version_BCD|
+
+.. https://linux-hardware.org/?id=usb:1915-520a
+.. |nordic_URB_PID_UDO|	replace:: :code:`0x520a`
+.. |nordic_PID_UDO|	replace:: :ign:`520a`
+.. |nordic_PStr_UDO|	replace:: :ign:`USBDongle`
+.. |nordic_BCD_UDO|	replace:: |zephyr_version_BCD|
+
+.. https://linux-hardware.org/?id=usb:1915-520c
+.. |nordic_URB_PID_USB|	replace:: :code:`0x520C`
+.. |nordic_PID_USB|	replace:: :ign:`520c`
+.. |nordic_PStr_USB|	replace:: :ign:`nRF52 USB Product`
+.. |nordic_BCD_USB|	replace:: |zephyr_version_BCD|
+
+.. https://linux-hardware.org/?id=usb:1915-521a
+.. |nordic_URB_PID_BLE|	replace:: :code:`0x521A`
+.. |nordic_PID_BLE|	replace:: :ign:`521a`
+.. |nordic_PStr_BLE|	replace:: :ign:`nRF52 USB CDC BLE Demo`
+.. |nordic_BCD_BLE|	replace:: |zephyr_version_BCD|
+
+.. https://linux-hardware.org/?id=usb:1915-522a
+.. |nordic_URB_PID_BSN|	replace:: :code:`0x522A`
+.. |nordic_PID_BSN|	replace:: :ign:`522a`
+.. |nordic_PStr_BSN|	replace:: :ign:`nRF Sniffer for Bluetooth LE`
+.. |nordic_BCD_BSN|	replace:: |zephyr_version_BCD|
+
+.. https://linux-hardware.org/?id=usb:1915-c00a
+.. |nordic_URB_PID_CON|	replace:: :code:`0xC00A`
+.. |nordic_PID_CON|	replace:: :ign:`c00a`
+.. |nordic_PStr_CON|	replace:: :ign:`nRF52 Connectivity`
+.. |nordic_BCD_CON|	replace:: |zephyr_version_BCD|
+
+.. |nordic_URB_PID_CCA|	replace:: :code:`0xC0CA`
+.. |nordic_PID_CCA|	replace:: :ign:`c0ca`
+.. |nordic_PStr_CCA|	replace:: :ign:`nRF52 CoffeeCaller`
+.. |nordic_BCD_CCA|	replace:: |zephyr_version_BCD|
+
+.. https://linux-hardware.org/?id=usb:1915-cafe
+.. |nordic_URB_PID_OTD|	replace:: :code:`0xCAFE`
+.. |nordic_PID_OTD|	replace:: :ign:`cafe`
+.. |nordic_PStr_OTD|	replace:: :ign:`nRF528xx OpenThread Device`
+.. |nordic_BCD_OTD|	replace:: |zephyr_version_BCD|
 
 .. PIDs : Raspberry Pi
 
@@ -594,6 +662,35 @@
 
 .. |Spotpear Pico LCD 1.54| replace::
    :ref:`Spotpear Pico LCD 1.54 <spotpear_pico_lcd_1_54>`
+
+.. |bridle:board:coffeecaller_nrf52| replace:: :ref:`coffeecaller_nrf52_board`
+.. :bridle:board:`coffeecaller_nrf52`
+
+.. |TiaC CoffeeCaller nRF52| replace::
+   :ref:`TiaC CoffeeCaller nRF52 <coffeecaller_nrf52_board>`
+.. :bridle:board:`TiaC CoffeeCaller nRF52 <coffeecaller_nrf52>`
+
+.. |TiaC CoffeeCaller nRF52 (CDC ACM)| replace::
+   :ref:`TiaC CoffeeCaller nRF52 (CDC ACM) <coffeecaller_nrf52_board>`
+.. :bridle:board:`TiaC CoffeeCaller nRF52 (CDC ACM) <coffeecaller_nrf52>`
+
+.. |coffeecaller_nrf52_URB_VID_UF2|	replace:: |adafruit_URB_VID|
+.. |coffeecaller_nrf52_VID_UF2|		replace:: |adafruit_VID|
+.. |coffeecaller_nrf52_VStr_UF2|	replace:: :ign:`TiaC`
+
+.. |coffeecaller_nrf52_URB_PID_UF2|	replace:: :code:`0x00DA`
+.. |coffeecaller_nrf52_PID_UF2|		replace:: :ign:`00da`
+.. |coffeecaller_nrf52_PStr_UF2|	replace:: :ign:`coffeecaller`
+.. |coffeecaller_nrf52_BCD_UF2|		replace:: |nbsp| :ign:`1.00`
+
+.. |coffeecaller_nrf52_URB_VID|		replace:: |nordic_URB_VID|
+.. |coffeecaller_nrf52_VID|		replace:: |nordic_VID|
+.. |coffeecaller_nrf52_VStr|		replace:: |nordic_tiac_VStr|
+
+.. |coffeecaller_nrf52_URB_PID_CON|	replace:: |nordic_URB_PID_CCA|
+.. |coffeecaller_nrf52_PID_CON|		replace:: |nordic_PID_CCA|
+.. |coffeecaller_nrf52_PStr_CON|	replace:: :ign:`CoffeeCaller nRF52 (CDC ACM)`
+.. |coffeecaller_nrf52_BCD_CON|		replace:: |zephyr_version_BCD|
 
 .. |bridle:board:magpie_f777ni| replace:: :ref:`magpie_f777ni_board`
 .. :bridle:board:`magpie_f777ni`

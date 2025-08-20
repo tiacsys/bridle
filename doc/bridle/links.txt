@@ -48,6 +48,20 @@
 
 .. #### Links to TiaC Systems hardware
 
+.. _`TiaC CoffeeCaller nRF52 website`:
+   https://github.com/tiacsys/ecad-coffeecaller
+
+.. _`TiaC CoffeeCaller nRF52 Schematic (v1.0.1)`:
+   https://raw.githubusercontent.com/tiacsys/ecad-coffeecaller/refs/tags/v1.0.1/coffeecaller.pdf
+
+.. _`TiaC CoffeeCaller nRF52 UF2 bootloader`:
+   https://github.com/andreaskurz/Adafruit_nRF52_Bootloader
+
+.. _`Building and flashing the CoffeeCaller bootloader`:
+   https://github.com/andreaskurz/Adafruit_nRF52_Bootloader/blob/askz/add-nrf-coffee/README.md#building-and-flashing-the-coffeecaller-bootloader
+
+.. #### Links to TiaC Systems hardware
+
 .. _`TiaC Magpie F777NI website`:
    https://www.st.com/en/evaluation-tools/nucleo-f767zi.html
 
@@ -389,6 +403,36 @@
 
 .. |Cytron (Raspberry Pi)| replace:: :strong:`Cytron (Raspberry Pi)`
 .. _`Cytron (Raspberry Pi)`: https://devicehunt.com/view/type/usb/vendor/2e8a
+
+.. |Nordic Semiconductor ASA| replace:: :strong:`Nordic Semiconductor ASA`
+.. _`Nordic Semiconductor ASA`: https://devicehunt.com/view/type/usb/vendor/1915
+
+.. _`Custom USB device descriptor with Nordic Semiconductor's vendor ID`:
+   https://devzone.nordicsemi.com/f/nordic-q-a/83664/custom-usb-device-descriptor-with-nordic-semiconductor-s-vendor-id
+
+.. _`Linux Device 'Nordic Semiconductor ASA USB Composite Device'`:
+   https://linux-hardware.org/?id=usb:1915-1025
+
+.. _`Linux Device 'Nordic Semiconductor ASA nRF 802154 Sniffer'`:
+   https://linux-hardware.org/?id=usb:1915-154b
+
+.. _`Linux Device 'Nordic Semiconductor ASA USBDongle'`:
+   https://linux-hardware.org/?id=usb:1915-520a
+
+.. _`Linux Device 'Nordic Semiconductor ASA nRF52 USB Product'`:
+   https://linux-hardware.org/?id=usb:1915-520c
+
+.. _`Linux Device 'Nordic Semiconductor ASA nRF52 USB CDC BLE Demo'`:
+   https://linux-hardware.org/?id=usb:1915-521a
+
+.. _`Linux Device 'Nordic Semiconductor ASA nRF Sniffer for Bluetooth LE'`:
+   https://linux-hardware.org/?id=usb:1915-522a
+
+.. _`Linux Device 'Nordic Semiconductor ASA nRF52 Connectivity'`:
+   https://linux-hardware.org/?id=usb:1915-c00a
+
+.. _`Linux Device 'Nordic Semiconductor ASA nRF528xx OpenThread Device'`:
+   https://linux-hardware.org/?id=usb:1915-cafe
 
 .. |NXP Semiconductors| replace:: :strong:`NXP Semiconductors`
 .. _`NXP Semiconductors`: https://devicehunt.com/view/type/usb/vendor/1fc9
@@ -2262,6 +2306,23 @@
 
 .. _`AT32UC3A4256S`:
     https://www.microchip.com/product/AT32UC3A4256S
+
+.. ##### Links to nRF52840 Cortex®-M4 Processors
+
+.. _`nRF52840`:
+   https://www.nordicsemi.com/Products/nRF52840
+
+.. _`nRF52840 Errata`:
+   https://docs.nordicsemi.com/bundle?labelkey=nrf52840&labelkey=errata
+
+.. _`nRF52840 Documentation`:
+   https://docs.nordicsemi.com/category/nrf52840-category
+
+.. _`nRF52840 Product Specification`:
+   https://docs.nordicsemi.com/bundle/ps_nrf52840/page/keyfeatures_html5.html
+
+.. _`nRF52840 Product Change Notifications`:
+   https://docs.nordicsemi.com/search?rpp=10&labelkey=nrf52840&labelkey=product-change-notification
 
 .. ##### Links to RP2040 Cortex®-M0+ Processors
 
