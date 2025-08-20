@@ -29,6 +29,11 @@ common:
     - coffeecaller_nrf52
     - cytron_maker_nano_rp2040
     - cytron_maker_pi_rp2040
+    - mini_usb_rp2040@4mb/rp2040
+    - mini_usb_rp2040@16mb/rp2040
+    - mini_usb_rp2040@chipled/rp2040
+    - mini_usb_rp2350@4mb/rp2350a/m33
+    - mini_usb_rp2350@16mb/rp2350a/m33
     - mimxrt1010_evk
     - mimxrt1060_evk/mimxrt1062/hyperflash
     - mimxrt1060_evk@A/mimxrt1062/qspi
@@ -161,6 +166,22 @@ tests:
       SHIELD=grove_btn_d7;grove_led_d6;grove_pwm_led_d6;x_grove_testbed
     platform_allow:
       - seeeduino_lotus
+  grove.connectors.x_grove_testbed.pwm.b16l17:
+    depends_on:
+      - grove_gpio
+    filter: dt_nodelabel_enabled("grove_d16_header") and
+            dt_label_with_parent_compat_enabled("grove_pwm_led_d17", "pwm-leds") and
+            dt_label_with_parent_compat_enabled("grove_led_d17", "gpio-leds") and
+            dt_nodelabel_enabled("grove_d17_header") and
+            dt_label_with_parent_compat_enabled("grove_btn_d16", "gpio-keys")
+    extra_args:
+      SHIELD=grove_btn_d16;grove_led_d17;grove_pwm_led_d17;x_grove_testbed
+    platform_allow:
+      - mini_usb_rp2040@4mb/rp2040
+      - mini_usb_rp2040@16mb/rp2040
+      - mini_usb_rp2040@chipled/rp2040
+      - mini_usb_rp2350@4mb/rp2350a/m33
+      - mini_usb_rp2350@16mb/rp2350a/m33
   grove.connectors.x_grove_testbed.gpio.b16l17:
     depends_on:
       - grove_gpio
