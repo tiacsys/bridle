@@ -20,24 +20,24 @@ enum song_choice {
 };
 
 extern const size_t song_beep_notes;
-extern const struct note_duration song_beep[];
+extern const note_t song_beep[];
 
 extern const size_t song_folksong_notes;
-extern const struct note_duration song_folksong[];
+extern const note_t song_folksong[];
 
 extern const size_t song_xmastime_notes;
-extern const struct note_duration song_xmastime[];
+extern const note_t song_xmastime[];
 
 extern const size_t song_funkytown_notes;
-extern const struct note_duration song_funkytown[];
+extern const note_t song_funkytown[];
 
 extern const size_t song_mario_notes;
-extern const struct note_duration song_mario[];
+extern const note_t song_mario[];
 
 extern const size_t song_golioth_notes;
-extern const struct note_duration song_golioth[];
+extern const note_t song_golioth[];
 
 extern const size_t song_tiacsys_notes;
-extern const struct note_duration song_tiacsys[];
+extern const note_t song_tiacsys[];
 
 #endif /* __SONGS_H__ */

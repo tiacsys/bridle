@@ -5,18 +5,11 @@
 
 #include "songs.h"
 
-const struct note_duration song_golioth[] = {
-	{.note = C6, .duration = quarter},
-	{.note = REST, .duration = sixth},
-	{.note = G5, .duration = sixth},
-	{.note = A5, .duration = sixth},
-	{.note = Bb5, .duration = sixth},
-	{.note = REST, .duration = sixth},
-	{.note = Bb5, .duration = sixth},
-	{.note = REST, .duration = quarter},
-	{.note = C5, .duration = half},
-	{.note = REST, .duration = half},
-	{.note = REST, .duration = quarter},
-	{.note = C6, .duration = quarter}
-};
+const note_t song_golioth[] = {
+	{.pitch = C6, .duration = quarter},   {.pitch = REST, .duration = sixth},
+	{.pitch = G5, .duration = sixth},     {.pitch = A5, .duration = sixth},
+	{.pitch = Bb5, .duration = sixth},    {.pitch = REST, .duration = sixth},
+	{.pitch = Bb5, .duration = sixth},    {.pitch = REST, .duration = quarter},
+	{.pitch = C5, .duration = half},      {.pitch = REST, .duration = half},
+	{.pitch = REST, .duration = quarter}, {.pitch = C6, .duration = quarter}};
 const size_t song_golioth_notes = ARRAY_SIZE(song_golioth);

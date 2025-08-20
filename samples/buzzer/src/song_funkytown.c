@@ -5,19 +5,13 @@
 
 #include "songs.h"
 
-const struct note_duration song_funkytown[] = {
-	{.note = C5, .duration = quarter},
-	{.note = REST, .duration = eighth},
-	{.note = C5, .duration = quarter},
-	{.note = Bb4, .duration = quarter},
-	{.note = C5, .duration = quarter},
-	{.note = REST, .duration = quarter},
-	{.note = G4, .duration = quarter},
-	{.note = REST, .duration = quarter},
-	{.note = G4, .duration = quarter},
-	{.note = C5, .duration = quarter},
-	{.note = F5, .duration = quarter},
-	{.note = E5, .duration = quarter},
-	{.note = C5, .duration = quarter},
+const note_t song_funkytown[] = {
+	{.pitch = C5, .duration = quarter}, {.pitch = REST, .duration = eighth},
+	{.pitch = C5, .duration = quarter}, {.pitch = Bb4, .duration = quarter},
+	{.pitch = C5, .duration = quarter}, {.pitch = REST, .duration = quarter},
+	{.pitch = G4, .duration = quarter}, {.pitch = REST, .duration = quarter},
+	{.pitch = G4, .duration = quarter}, {.pitch = C5, .duration = quarter},
+	{.pitch = F5, .duration = quarter}, {.pitch = E5, .duration = quarter},
+	{.pitch = C5, .duration = quarter},
 };
 const size_t song_funkytown_notes = ARRAY_SIZE(song_funkytown);

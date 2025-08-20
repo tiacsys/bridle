@@ -18,7 +18,7 @@ static k_tid_t buzzer_tid;
 static struct k_thread buzzer_thread;
 static struct buzzer_instance *buzzer_instance;
 K_THREAD_STACK_DEFINE(buzzer_stack, 1024);
-K_SEM_DEFINE(buzzer_initialized_sem, 0, 1);	/* wait until buzzer is ready */
+K_SEM_DEFINE(buzzer_initialized_sem, 0, 1); /* wait until buzzer is ready */
 
 #define BUZZER_MAX_FREQ 2500
 #define BUZZER_MIN_FREQ 10
@@ -32,8 +32,8 @@ K_SEM_DEFINE(buzzer_initialized_sem, 0, 1);	/* wait until buzzer is ready */
 
 	while (1) {
 		const struct pwm_dt_spec *pwm = &(buzzer_instance->dt_spec);
-		const struct note_duration *replay;	/* the song with ... */
-		size_t notes;	/* ... number of notes in replay */
+		const note_t *replay; /* the song with ... */
+		size_t notes;         /* ... number of notes in replay */
 
 		switch (buzzer_instance->song) {
 		case beep:
@@ -91,16 +91,15 @@ K_SEM_DEFINE(buzzer_initialized_sem, 0, 1);	/* wait until buzzer is ready */
 			/* ... replay the song */
 			for (int i = 0; i < notes; i++) {
 
-				int note = replay[i].note;
-				int duration = replay[i].duration;
+				note_pitch_t pitch = replay[i].pitch;
+				note_duration_t duration = replay[i].duration;
 
-				if (note < BUZZER_MIN_FREQ) {
+				if (pitch < BUZZER_MIN_FREQ) {
 					/* 'pause' on frequency notes */
 					pwm_set_pulse_dt(pwm, 0);
 					k_msleep(duration);
 				} else {
-					pwm_set_dt(pwm, PWM_HZ(note),
-							PWM_HZ(note) / 2);
+					pwm_set_dt(pwm, PWM_HZ(pitch), PWM_HZ(pitch) / 2);
 					k_msleep(duration);
 				}
 			}
@@ -120,17 +119,17 @@ int app_buzzer_init(struct buzzer_instance *buzzer)
 		return -ENODEV;
 	}
 
-	buzzer_tid = k_thread_create(&buzzer_thread,
-			buzzer_stack, K_THREAD_STACK_SIZEOF(buzzer_stack),
-			buzzer_entry, buzzer, NULL, NULL,
-			K_LOWEST_APPLICATION_THREAD_PRIO, 0, K_SECONDS(2));
+	buzzer_tid = k_thread_create(&buzzer_thread, buzzer_stack,
+				     K_THREAD_STACK_SIZEOF(buzzer_stack), buzzer_entry, buzzer,
+				     NULL, NULL, K_LOWEST_APPLICATION_THREAD_PRIO, 0, K_SECONDS(2));
 	k_sem_give(&buzzer_initialized_sem);
 	return 0;
 }
 
 void app_buzzer_play_song(enum song_choice song)
 {
-	if (buzzer_instance)
+	if (buzzer_instance) {
 		buzzer_instance->song = song;
+	}
 	k_wakeup(buzzer_tid);
 }
