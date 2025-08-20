@@ -1,5 +1,5 @@
 boards:
-  - name: tiac_coffeecaller
+  - name: coffeecaller_nrf52
     full_name: TiaC CoffeeCaller nRF52
     vendor: tiac
     socs:

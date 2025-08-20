@@ -11,6 +11,12 @@
 set(seeed_xiao_samd21_DEPRECATED
     xiao_samd21
 )
+set(tiac_coffeecaller_DEPRECATED
+    coffeecaller_nrf52
+)
+set(tiac_coffeecaller/nrf52840_DEPRECATED
+    coffeecaller_nrf52/nrf52840
+)
 set(tiac_magpie_DEPRECATED
     magpie_f777ni
 )

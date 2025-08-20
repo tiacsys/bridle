@@ -6,7 +6,7 @@
 #include <zephyr/init.h>
 #include <hal/nrf_power.h>
 
-static int board_tiac_coffeecaller_nrf52840_init(void)
+static int board_coffeecaller_nrf52_nrf52840_init(void)
 {
 	/*
 	 * If the TiaC CoffeeCaller nRF52 board is powered from USB
@@ -38,5 +38,4 @@ static int board_tiac_coffeecaller_nrf52840_init(void)
 	return 0;
 }
 
-SYS_INIT(board_tiac_coffeecaller_nrf52840_init, PRE_KERNEL_1,
-	 CONFIG_KERNEL_INIT_PRIORITY_DEFAULT);
+SYS_INIT(board_coffeecaller_nrf52_nrf52840_init, PRE_KERNEL_1, CONFIG_KERNEL_INIT_PRIORITY_DEFAULT);

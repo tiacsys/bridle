@@ -1,4 +1,4 @@
-identifier: tiac_coffeecaller/nrf52840
+identifier: coffeecaller_nrf52/nrf52840
 name: TiaC CoffeeCaller nRF52
 vendor: tiac
 type: mcu
