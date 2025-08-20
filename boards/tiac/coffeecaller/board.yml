@@ -1,6 +1,6 @@
-board:
-  name: tiac_coffeecaller
-  full_name: TiaC Systems CoffeeCaller
-  vendor: tiac
-  socs:
-  - name: nrf52840
+boards:
+  - name: tiac_coffeecaller
+    full_name: TiaC CoffeeCaller nRF52
+    vendor: tiac
+    socs:
+      - name: nrf52840

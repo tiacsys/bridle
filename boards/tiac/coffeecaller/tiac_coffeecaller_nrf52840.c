@@ -1,6 +1,5 @@
 /*
  * Copyright (c) 2025 TiaC Systems
- *
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -9,10 +8,10 @@
 
 static int board_tiac_coffeecaller_nrf52840_init(void)
 {
-
-	/* if the tiac_coffeecaller board is powered from USB
+	/*
+	 * If the TiaC CoffeeCaller nRF52 board is powered from USB
 	 * (high voltage mode), GPIO output voltage is set to 1.8 volts by
-	 * default and that is not enough to turn the green and blue LEDs on.
+	 * default and that is not enough to turn the user LEDs on.
 	 * Increase GPIO voltage to 3.3 volts.
 	 */
 	if ((nrf_power_mainregstatus_get(NRF_POWER) == NRF_POWER_MAINREGSTATUS_HIGH) &&
@@ -39,4 +38,5 @@ static int board_tiac_coffeecaller_nrf52840_init(void)
 	return 0;
 }
 
-SYS_INIT(board_tiac_coffeecaller_nrf52840_init, PRE_KERNEL_1, CONFIG_KERNEL_INIT_PRIORITY_DEFAULT);
+SYS_INIT(board_tiac_coffeecaller_nrf52840_init, PRE_KERNEL_1,
+	 CONFIG_KERNEL_INIT_PRIORITY_DEFAULT);

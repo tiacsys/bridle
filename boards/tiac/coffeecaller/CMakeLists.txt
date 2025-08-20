@@ -2,4 +2,4 @@
 # SPDX-License-Identifier: Apache-2.0
 
 zephyr_library()
-zephyr_library_sources(board.c)
+zephyr_library_sources_ifdef(CONFIG_BOARD_TIAC_COFFEECALLER tiac_coffeecaller_nrf52840.c)
