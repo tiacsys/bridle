@@ -56,6 +56,7 @@
     - grove.base.v2.x_grove_testbed.pwm.b7l6
     - grove.xiao.v1.x_grove_testbed.pwm.b0l1
     - grove.rpipico.v1.x_grove_testbed.pwm.b16l18
+    - grove.connectors.x_grove_testbed.gpio.b16l17
     - grove.connectors.x_grove_testbed.pwm.b0l15
     - grove.connectors.x_grove_testbed.pwm.b3l5
     - grove.connectors.x_grove_testbed.pwm.b7l6
@@ -74,6 +75,7 @@
     - grove.base.v2.x_grove_testbed.pwm.b7l6
     - grove.xiao.v1.x_grove_testbed.pwm.b0l1
     - grove.rpipico.v1.x_grove_testbed.pwm.b16l18
+    - grove.connectors.x_grove_testbed.gpio.b16l17
     - grove.connectors.x_grove_testbed.pwm.b0l15
     - grove.connectors.x_grove_testbed.pwm.b3l5
     - grove.connectors.x_grove_testbed.pwm.b7l6
@@ -89,6 +91,7 @@
     - grove.base.v2.x_grove_testbed.pwm.b4l6
     - grove.xiao.v1.x_grove_testbed.pwm.b0l1
     - grove.rpipico.v1.x_grove_testbed.pwm.b16l18
+    - grove.connectors.x_grove_testbed.gpio.b16l17
     - grove.connectors.x_grove_testbed.pwm.b0l15
     - grove.connectors.x_grove_testbed.pwm.b3l5
     - grove.connectors.x_grove_testbed.pwm.b7l6
@@ -102,6 +105,7 @@
     - grove.base.v2.x_grove_testbed.pwm.b4l6
     - grove.base.v2.x_grove_testbed.pwm.b7l6
     - grove.rpipico.v1.x_grove_testbed.pwm.b16l18
+    - grove.connectors.x_grove_testbed.gpio.b16l17
     - grove.connectors.x_grove_testbed.pwm.b0l15
     - grove.connectors.x_grove_testbed.pwm.b3l5
     - grove.connectors.x_grove_testbed.pwm.b7l6
@@ -115,6 +119,7 @@
     - grove.base.v2.x_grove_testbed.pwm.b4l6
     - grove.base.v2.x_grove_testbed.pwm.b7l6
     - grove.xiao.v1.x_grove_testbed.pwm.b0l1
+    - grove.connectors.x_grove_testbed.gpio.b16l17
     - grove.connectors.x_grove_testbed.pwm.b0l15
     - grove.connectors.x_grove_testbed.pwm.b3l5
     - grove.connectors.x_grove_testbed.pwm.b7l6
@@ -132,6 +137,7 @@
     - grove.base.v2.x_grove_testbed.pwm.b7l6
     - grove.xiao.v1.x_grove_testbed.pwm.b0l1
     - grove.rpipico.v1.x_grove_testbed.pwm.b16l18
+    - grove.connectors.x_grove_testbed.gpio.b16l17
     - grove.connectors.x_grove_testbed.pwm.b3l5
     - grove.connectors.x_grove_testbed.pwm.b7l6
   platforms:
@@ -144,6 +150,7 @@
     - grove.base.v2.x_grove_testbed.pwm.b7l6
     - grove.xiao.v1.x_grove_testbed.pwm.b0l1
     - grove.rpipico.v1.x_grove_testbed.pwm.b16l18
+    - grove.connectors.x_grove_testbed.gpio.b16l17
     - grove.connectors.x_grove_testbed.pwm.b0l15
     - grove.connectors.x_grove_testbed.pwm.b7l6
   platforms:
@@ -155,10 +162,24 @@
     - grove.base.v2.x_grove_testbed.pwm.b4l6
     - grove.xiao.v1.x_grove_testbed.pwm.b0l1
     - grove.rpipico.v1.x_grove_testbed.pwm.b16l18
+    - grove.connectors.x_grove_testbed.gpio.b16l17
     - grove.connectors.x_grove_testbed.pwm.b0l15
     - grove.connectors.x_grove_testbed.pwm.b3l5
   platforms:
     - seeeduino_lotus/samd21g18a
+
+- comment: "shield(grove.connectors.x_grove_testbed.gpio.b16l17): invalid board/shield condition."
+  scenarios:
+    - grove.base.v2.x_grove_testbed.gpio.b4l6
+    - grove.base.v2.x_grove_testbed.pwm.b4l6
+    - grove.base.v2.x_grove_testbed.pwm.b7l6
+    - grove.xiao.v1.x_grove_testbed.pwm.b0l1
+    - grove.rpipico.v1.x_grove_testbed.pwm.b16l18
+    - grove.connectors.x_grove_testbed.pwm.b0l15
+    - grove.connectors.x_grove_testbed.pwm.b3l5
+    - grove.connectors.x_grove_testbed.pwm.b7l6
+  platforms:
+    - coffeecaller_nrf52/nrf52840
 
 ##############################################################################
 #

@@ -26,6 +26,7 @@ common:
   #
   integration_platforms:
     - arduino_zero
+    - coffeecaller_nrf52
     - cytron_maker_nano_rp2040
     - cytron_maker_pi_rp2040
     - mimxrt1010_evk
@@ -160,3 +161,14 @@ tests:
       SHIELD=grove_btn_d7;grove_led_d6;grove_pwm_led_d6;x_grove_testbed
     platform_allow:
       - seeeduino_lotus
+  grove.connectors.x_grove_testbed.gpio.b16l17:
+    depends_on:
+      - grove_gpio
+    filter: dt_nodelabel_enabled("grove_d16_header") and
+            dt_label_with_parent_compat_enabled("grove_led_d17", "gpio-leds") and
+            dt_nodelabel_enabled("grove_d17_header") and
+            dt_label_with_parent_compat_enabled("grove_btn_d16", "gpio-keys")
+    extra_args:
+      SHIELD=grove_btn_d16;grove_led_d17;x_grove_testbed
+    platform_allow:
+      - coffeecaller_nrf52
