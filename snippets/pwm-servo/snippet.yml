@@ -4,3 +4,6 @@ boards:
   cytron_maker_pi_rp2040/rp2040:
     append:
       EXTRA_DTC_OVERLAY_FILE: boards/cytron_maker_pi_rp2040.overlay
+  coffeecaller_nrf52/nrf52840:
+    append:
+      EXTRA_DTC_OVERLAY_FILE: boards/coffeecaller_nrf52.overlay

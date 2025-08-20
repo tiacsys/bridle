@@ -23,41 +23,61 @@ configuration.
 Supported boards are:
 
 * Cytron |Maker Pi RP2040|
+* |TiaC CoffeeCaller nRF52|
 
-Cytron Maker Pi RP2040
-----------------------
+.. tabs::
 
-.. _snippet-pwm-servo-cytron-maker-pi-rp2040:
+   .. group-tab:: Cytron Maker Pi RP2040
 
-Connect a servomotor :hwftlbl-act:`MG996R` to the first on-board PWM channel
-for servomotors, the 4×3 pin header block at position 19. See the board
-:ref:`positions diagram <cytron_maker_pi_rp2040_positions>` for details.
+      .. _snippet-pwm-servo-cytron-maker-pi-rp2040:
 
-The corresponding PWM pulse widths for a range of :b:`-90°` to :b:`+90°` (180°)
-are :bbl:`500 ㎲` to :bbl:`2,500 ㎲` with a :bbl:`period of 50 ㎐`. All these
-servomotor specific parameters are preset by the snippet :ref:`snippet-pwm-servo`
-that have to use to get access to this dedicated PWM channel together with the
-original Zephyr :zephyr:code-sample:`servo-motor` sample. Invoke
-:program:`west build` and :program:`west flash` with this snipped and optional
-mixed with others, for example:
+      Connect a servomotor :hwftlbl-act:`MG996R` to the first on-board PWM channel for servomotors, the 4×3 pin header block at position 19. See the board :ref:`positions diagram <cytron_maker_pi_rp2040_positions>` for details.
 
-.. zephyr-app-commands::
-   :app: zephyr/samples/basic/servo_motor
-   :board: cytron_maker_pi_rp2040
-   :build-dir: cytron_maker_rp2040
-   :west-args: -p -S usb-console -S pwm-servo
-   :flash-args: -r uf2
-   :goals: flash
-   :compact:
+      The corresponding PWM pulse widths for a range of :b:`-90°` to :b:`+90°` (180°) are :bbl:`500 ㎲` to :bbl:`2,500 ㎲` with a :bbl:`period of 50 ㎐`. All these servomotor specific parameters are preset by the snippet :ref:`snippet-pwm-servo` that have to use to get access to this dedicated PWM channel together with the original Zephyr :zephyr:code-sample:`servo-motor` sample. Invoke :program:`west build` and :program:`west flash` with this snipped and optional mixed with others, for example:
 
-.. literalinclude:: boards/cytron_maker_pi_rp2040.overlay
-   :caption: boards/cytron_maker_pi_rp2040.overlay
-   :language: DTS
-   :encoding: ISO-8859-1
-   :emphasize-lines: 3-4
-   :linenos:
-   :start-at: servo:
-   :end-at: };
+      .. zephyr-app-commands::
+         :app: zephyr/samples/basic/servo_motor
+         :board: cytron_maker_pi_rp2040
+         :build-dir: cytron_maker_rp2040
+         :west-args: -p -S usb-console -S pwm-servo
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
+      .. literalinclude:: boards/cytron_maker_pi_rp2040.overlay
+         :caption: boards/cytron_maker_pi_rp2040.overlay
+         :language: DTS
+         :encoding: ISO-8859-1
+         :emphasize-lines: 3-4
+         :linenos:
+         :start-at: servo:
+         :end-at: };
+
+   .. group-tab:: TiaC CoffeeCaller nRF52
+
+      .. _snippet-pwm-servo-tiac-coffeecaller-nrf52:
+
+      Connect a servomotor :hwftlbl-act:`MG996R` to the first on-board PWM channel for servomotors, the 4×3 pin header block (HDR1 and HDR2).
+
+      The corresponding PWM pulse widths for a range of :b:`-90°` to :b:`+90°` (180°) are :bbl:`500 ㎲` to :bbl:`2,500 ㎲` with a :bbl:`period of 50 ㎐`. All these servomotor specific parameters are preset by the snippet :ref:`snippet-pwm-servo` that have to use to get access to this dedicated PWM channel together with the original Zephyr :zephyr:code-sample:`servo-motor` sample. Invoke :program:`west build` and :program:`west flash` with this snipped and optional mixed with others, for example:
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/basic/servo_motor
+         :board: coffeecaller_nrf52/nrf52840
+         :build-dir: coffeecaller_nrf52
+         :west-args: -p -S pwm-servo
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
+      .. literalinclude:: boards/coffeecaller_nrf52.overlay
+         :caption: boards/coffeecaller_nrf52.overlay
+         :language: DTS
+         :encoding: ISO-8859-1
+         :emphasize-lines: 3-4
+         :linenos:
+         :start-at: servo:
+         :end-at: };
 
 How to add support of a new board
 *********************************
