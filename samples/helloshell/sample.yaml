@@ -54,6 +54,7 @@ common:
     # Qemu issue (-ENOTBLK): - qemu_rx
     - magpie_f777ni
     - arduino_zero
+    - coffeecaller_nrf52
     - cytron_maker_nano_rp2040
     - cytron_maker_pi_rp2040
     - mimxrt1010_evk
