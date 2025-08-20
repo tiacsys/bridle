@@ -26,6 +26,7 @@ common:
   #
   integration_platforms:
     - arduino_zero
+    - coffeecaller_nrf52
     - cytron_maker_nano_rp2040
     - cytron_maker_pi_rp2040
     - mimxrt1010_evk
@@ -1516,6 +1517,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_led_d16", "gpio-leds")
     extra_args: SHIELD=grove_led_d16
     platform_allow:
+      - coffeecaller_nrf52
       - cytron_maker_pi_rp2040
       - mini_usb_rp2040
       - mini_usb_rp2040@16mb
@@ -1532,6 +1534,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_led_d17", "gpio-leds")
     extra_args: SHIELD=grove_led_d17
     platform_allow:
+      - coffeecaller_nrf52
       - cytron_maker_pi_rp2040
       - mini_usb_rp2040
       - mini_usb_rp2040@16mb
@@ -1838,6 +1841,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d16", "pwm-leds")
     extra_args: SHIELD=grove_pwm_led_d16
     platform_allow:
+      - coffeecaller_nrf52
       - cytron_maker_pi_rp2040
       - mini_usb_rp2040
       - mini_usb_rp2040@16mb
@@ -1856,6 +1860,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d17", "pwm-leds")
     extra_args: SHIELD=grove_pwm_led_d17
     platform_allow:
+      - coffeecaller_nrf52
       - cytron_maker_pi_rp2040
       - mini_usb_rp2040
       - mini_usb_rp2040@16mb
