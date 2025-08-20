@@ -15,6 +15,7 @@
 .. |stm_URB_VID|	replace:: :code:`0x0483`
 .. |stm_VID|		replace:: :ign:`0483`
 .. |stm_VStr|		replace:: :ign:`STMicroelectronics`
+.. |stm_tiac_VStr|	replace:: :ign:`TiaC (STMicroelectronics)`
 
 .. VID 0x1915 : Nordic Semiconductor ASA
 
@@ -701,16 +702,16 @@
 
 .. |magpie_f777ni_URB_VID|	replace:: |stm_URB_VID|
 .. |magpie_f777ni_VID|		replace:: |stm_VID|
-.. |magpie_f777ni_VStr|		replace:: |stm_VStr|
+.. |magpie_f777ni_VStr|		replace:: |stm_tiac_VStr|
 
 .. |magpie_f777ni_URB_PID_CON|	replace:: |stm_URB_PID_VCOM|
 .. |magpie_f777ni_PID_CON|	replace:: |stm_PID_VCOM|
-.. |magpie_f777ni_PStr_CON|	replace:: :ign:`TiaC Magpie F777NI (CDC ACM)`
+.. |magpie_f777ni_PStr_CON|	replace:: :ign:`Magpie F777NI (CDC ACM)`
 .. |magpie_f777ni_BCD_CON|	replace:: |zephyr_version_BCD|
 
 .. |magpie_f777ni_URB_PID_MSC|	replace:: |stm_URB_PID_MSC|
 .. |magpie_f777ni_PID_MSC|	replace:: |stm_PID_MSC|
-.. |magpie_f777ni_PStr_MSC|	replace:: :ign:`TiaC Magpie F777NI (MSC)`
+.. |magpie_f777ni_PStr_MSC|	replace:: :ign:`Magpie F777NI (MSC)`
 .. |magpie_f777ni_BCD_MSC|	replace:: |zephyr_version_BCD|
 
 .. |Waveshare 2.4 LCD| replace::
