@@ -273,8 +273,11 @@ as :external+zephyr:ref:`usb_device_cdc_acm`:
       Manufacturer: |coffeecaller_nrf52_VStr|
       SerialNumber: 9D167F0C551481F7
 
+Connections and IOs
+===================
+
 Selecting the pins
-==================
+------------------
 
 Pins can be configured in the board pinctrl file (
 :bridle_file:`boards/tiac/coffeecaller/nrf52840-pinctrl.dtsi`
@@ -283,6 +286,45 @@ Pins can be configured in the board pinctrl file (
 assignments* select the pins marked *General purpose I/O*. Note that pins
 marked as *low frequency I/O only* can only be used in under-10㎑
 applications. They are not suitable for 115200 speed of UART.
+
+.. _coffeecaller_nrf52_grove_if:
+
+Laced Grove Signal Interface
+----------------------------
+
+The |bridle:board:coffeecaller_nrf52| board offers the option of connecting
+hardware modules via one single Qwiic/STEMMA QT (|Grove connectors|). This is
+provided by a specific interface for general signal mapping, the
+|Laced Grove Signal Interface|.
+
+Following mappings are well known:
+
+   * ``grove_gpios``: GPIO mapping
+   * ``grove_pwms``: PWM mapping (not yet finally supported)
+
+.. tabs::
+
+   .. group-tab:: GPIO mapping ``grove_gpios``
+
+      This is the **GPIO signal line mapping** from the nRF52840_ to the
+      set of |Grove connectors| provided as |Laced Grove Signal Interface|.
+
+      **This list must not be stable!**
+
+      .. include:: grove_gpios.rsti
+
+   .. group-tab:: PWM mapping ``grove_pwms``
+
+      The corresponding mapping is always board or SOC specific. In addition
+      to the **PWM signal line mapping**, the valid references to the PWM
+      function units in the SOC or on the board are therefore also defined
+      as **Grove PWM Labels**. The following table reflects the currently
+      supported mapping for :code:`coffeecaller_nrf52`, but this list will
+      be growing up with further development and maintenance.
+
+      **This list must not be complete or stable!**
+
+      .. include:: grove_pwms.rsti
 
 Programming and Debugging
 *************************
@@ -864,6 +906,173 @@ You should see the following message on the console:
          \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
          \*\*\* Booting Zephyr OS build v\ |zephyr_version_number_em| \*\*\*
          Servomotor control
+
+Grove Module Samples
+********************
+
+All currently supported Grove modules can be reused on the Qwiic / STEMMA QT
+connector using a conversion cable. Only the corresponding shield stacks need
+to be specified.
+
+Hello Shell with sensor access to Grove BMP280
+==============================================
+
+.. zephyr-app-commands::
+   :app: bridle/samples/helloshell
+   :board: coffeecaller_nrf52
+   :shield: "grove_sens_bmp280"
+   :build-dir: coffeecaller_nrf52
+   :west-args: -p
+   :flash-args: -r uf2
+   :goals: flash
+   :compact:
+
+Simple test execution on target
+-------------------------------
+
+(text in bold is a command input)
+
+   .. admonition:: Devices
+      :class: note dropdown
+
+      .. rubric:: Only an excerpt from the full list:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **device list**
+            devices:
+              … … …
+            - bmp280\ @\ 77 (READY)
+              … … …
+
+   .. admonition:: Sensor access from Zephyr Shell
+      :class: note dropdown toggle-shown
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor info**
+            device name: bmp280\ @\ 77, vendor: Bosch Sensortec GmbH, model: bme280, friendly name: (null)
+            device name: sht4x\ @\ 46, vendor: Sensirion AG, model: sht4x, friendly name: (null)
+            device name: temp\ @\ 4000c000, vendor: Nordic Semiconductor, model: nrf-temp, friendly name: (null)
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor get bmp280@77**
+            :bgn:`channel type=13(ambient_temp) index=0 shift=16 num_samples=1 value=83516265870ns (27.299987)`
+            :bgn:`channel type=14(press) index=0 shift=23 num_samples=1 value=83516265870ns (99.054687)`
+            :bgn:`channel type=16(humidity) index=0 shift=21 num_samples=1 value=83516265870ns (0.000000)`
+
+BME280 humidity and pressure sensor with Grove BMP280
+=====================================================
+
+See also Zephyr sample: :external+zephyr:zephyr:code-sample:`bme280`.
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/sensor/bme280
+      :board: coffeecaller_nrf52
+      :shield: "grove_sens_bmp280"
+      :build-dir: coffeecaller_nrf52
+      :west-args: -p
+      :flash-args: -r uf2
+      :goals: flash
+      :compact:
+
+You should see the following message on the console:
+
+   .. container:: highlight highlight-console notranslate
+
+      .. parsed-literal::
+
+         [00:00:00.000,305] <dbg> temp_nrf5: temp_nrf5_sample_fetch: sample: 112
+         [00:00:00.000,305] <dbg> temp_nrf5: temp_nrf5_channel_get: Temperature:28,0
+         [00:00:00.002,838] <dbg> BME280: bme280_chip_init: ID OK (BMP280)
+         [00:00:00.012,084] <dbg> BME280: bme280_chip_init: "bmp280\ @\ 77" OK
+         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+         \*\*\* Booting Zephyr OS build v\ |zephyr_version_number_em| \*\*\*
+         Found device "**bmp280@77**", getting sensor data
+         temp: 27.319976; press: 99.58593; humidity: 0.7812
+         [00:00:04.032,348] <dbg> temp_nrf5: temp_nrf5_sample_fetch: sample: 112
+         [00:00:04.032,348] <dbg> temp_nrf5: temp_nrf5_channel_get: Temperature:28,0
+         temp: 27.319976; press: 99.58593; humidity: 0.7812
+         temp: 27.319976; press: 99.58593; humidity: 0.7812
+         temp: 27.319976; press: 99.58593; humidity: 0.7812
+         [00:00:08.032,531] <dbg> temp_nrf5: temp_nrf5_sample_fetch: sample: 109
+         [00:00:08.032,531] <dbg> temp_nrf5: temp_nrf5_channel_get: Temperature:27,250000
+         temp: 27.319976; press: 99.58593; humidity: 0.7812
+         temp: 27.319976; press: 99.58593; humidity: 0.7812
+         temp: 27.319976; press: 99.58593; humidity: 0.7812
+         temp: 27.319976; press: 99.58593; humidity: 0.7812
+         temp: 27.319976; press: 99.58593; humidity: 0.7812
+         … … …
+
+LED Blinky with Grove LED Button (Qwiic signals as GPIO)
+========================================================
+
+See also Zephyr sample: :external+zephyr:zephyr:code-sample:`blinky`.
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/basic/blinky
+      :board: coffeecaller_nrf52
+      :shield: "grove_btn_d16 grove_led_d17 x_grove_testbed"
+      :build-dir: coffeecaller_nrf52
+      :west-args: -p
+      :flash-args: -r uf2
+      :goals: flash
+      :compact:
+
+You should see the following message on the console:
+
+   .. container:: highlight highlight-console notranslate
+
+      .. parsed-literal::
+
+         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+         \*\*\* Booting Zephyr OS build v\ |zephyr_version_number_em| \*\*\*
+         LED state: OFF
+         LED state: ON
+         LED state: OFF
+         LED state: ON
+         LED … … …
+
+LED Switch with Grove LED Button (Qwiic signals as GPIO)
+========================================================
+
+See also Zephyr sample: :external+zephyr:zephyr:code-sample:`button`.
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/basic/button
+      :board: coffeecaller_nrf52
+      :shield: "grove_btn_d16 grove_led_d17 x_grove_testbed"
+      :build-dir: coffeecaller_nrf52
+      :west-args: -p
+      :flash-args: -r uf2
+      :goals: flash
+      :compact:
+
+You should see the following message on the console:
+
+   .. container:: highlight highlight-console notranslate
+
+      .. parsed-literal::
+
+         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
+         \*\*\* Booting Zephyr OS build v\ |zephyr_version_number_em| \*\*\*
+         Set up button at gpio\ @\ 50000000 pin 20
+         Set up LED at gpio\ @\ 50000000 pin 24
+         Press the button
+         Button pressed at 914048
+         Button pressed at 969568
+         Button pressed at 976710
+         Button pressed at 1000039
+         Button pressed at 1097113
+         Button pressed at 1114151
+         Button … … …
 
 References
 **********

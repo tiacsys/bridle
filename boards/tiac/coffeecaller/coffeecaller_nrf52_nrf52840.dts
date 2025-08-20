@@ -15,6 +15,9 @@
 
 #include "nrf52840-pinctrl.dtsi"
 
+#include "coffeecaller_nrf52_grove_connector.dtsi"
+#include "coffeecaller_nrf52_connector.dtsi"
+
 / {
 	model = "TiaC CoffeeCaller nRF52 @ USB-CDC/ACM Concole";
 	compatible = "tiac,coffeecaller-nrf52", "tiac,coffeecaller-nrf52-usbcons";

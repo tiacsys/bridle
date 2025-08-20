@@ -1,0 +1,37 @@
+/*
+ * Copyright (c) 2025 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	grove_d17_header: grove-d17-connector {
+		compatible = "seeed,grove-connector";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <0 0 &gpio0 24 0>,	/* P0.24 as I2C0-SCL */
+			   <1 0 &gpio0 20 0>;	/* P0.20 as I2C0-SDA */
+	};
+};
+
+&gpio0 {
+	status = "okay";
+};
+
+#undef GROVE_PWM_D16_SLOW
+#define GROVE_PWM_D16_SLOW
+
+#undef GROVE_PWM_D16_ENABLE
+#define GROVE_PWM_D16_ENABLE
+
+#undef GROVE_PWM_D16_PINCTRL
+#define GROVE_PWM_D16_PINCTRL
+
+#undef GROVE_PWM_D17_SLOW
+#define GROVE_PWM_D17_SLOW
+
+#undef GROVE_PWM_D17_ENABLE
+#define GROVE_PWM_D17_ENABLE
+
+#undef GROVE_PWM_D17_PINCTRL
+#define GROVE_PWM_D17_PINCTRL

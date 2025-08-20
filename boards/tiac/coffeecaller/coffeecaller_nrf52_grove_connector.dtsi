@@ -1,0 +1,105 @@
+/*
+ * Copyright (c) 2025 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <bridle/dt-bindings/seeed_grove_pwms_defaults.h>
+
+&pinctrl {
+	pwm_grove: pwm-default-node-not-yet-referenced-to-grove-node-still-empty {};
+};
+
+#include "grove_d17_header.dtsi"
+
+grove_i2c_header: &grove_d17_header {};
+
+/* tweaked labels: Pin 0 isn't the primary data line! */
+grove_d16_header: &grove_d17_header {}; /* D16 is on D17 header pin 1 */
+
+/ {
+	grove_laced_if_coffeecaller: grove-laced-if-coffeecaller {
+		compatible = "seeed,grove-laced-if";
+
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map =
+			/*  0 - not wired */
+			/*  1 - not wired */
+			/*  2 - not wired */
+			/*  3 - not wired */
+			/*  4 - not wired */
+			/*  5 - not wired */
+			/*  6 - not wired */
+			/*  7 - not wired */
+			/*  8 - not wired */
+			/*  9 - not wired */
+			/* 10 - not wired */
+			/* 11 - not wired */
+			/* 12 - not wired */
+			/* 13 - not wired */
+			/* 14 - not wired */
+			/* 15 - not wired */
+			<16 0 &grove_d17_header 1 0>,	/* P0.20: I2C0-SDA as GPIO */
+			<17 0 &grove_d17_header 0 0>;	/* P0.24: I2C0-SCL as GPIO */
+			/* 18 - not wired */
+			/* 19 - not wired */
+			/* 20 - not wired */
+			/* 21 - not wired */
+			/* 22 - not wired */
+			/* 23 - not wired */
+			/* 24 - not wired */
+			/* 25 - not wired */
+			/* 26 - not wired */
+			/* 27 - not wired */
+			/* 28 - not wired */
+			/* 29 - not wired */
+			/* 30 - not wired */
+			/* 31 - not wired */
+
+		#pwm-cells = <3>;
+		pwm-map-mask = <0xffffffff 0 0xffffffc0>;
+		pwm-map-pass-thru = <0 0xffffffff 0x3f>;
+		pwm-map;
+			/*  0 - not wired */
+			/*  1 - not wired */
+			/*  2 - not wired */
+			/*  3 - not wired */
+			/*  4 - not wired */
+			/*  5 - not wired */
+			/*  6 - not wired */
+			/*  7 - not wired */
+			/*  8 - not wired */
+			/*  9 - not wired */
+			/* 10 - not wired */
+			/* 11 - not wired */
+			/* 12 - not wired */
+			/* 13 - not wired */
+			/* 14 - not wired */
+			/* 16 - not (yet) supported */
+			/* 17 - not (yet) supported */
+			/* 15 - not wired */
+			/* 18 - not wired */
+			/* 19 - not wired */
+			/* 20 - not wired */
+			/* 21 - not wired */
+			/* 22 - not wired */
+			/* 23 - not wired */
+			/* 24 - not wired */
+			/* 25 - not wired */
+			/* 26 - not wired */
+			/* 27 - not wired */
+			/* 28 - not wired */
+			/* 29 - not wired */
+			/* 30 - not wired */
+			/* 31 - not wired */
+	};
+};
+
+grove_gpios: &grove_laced_if_coffeecaller {};
+grove_pwms: &grove_laced_if_coffeecaller {};
+
+/* not yet: grove_pwm_d16: &pwm {}; */
+/* not yet: grove_pwm_d17: &pwm {}; */
+
+grove_i2c: &i2c0 {};

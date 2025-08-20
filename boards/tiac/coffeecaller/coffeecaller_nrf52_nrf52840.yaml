@@ -13,6 +13,8 @@ supported:
   - clock
   - flash
   - gpio
+  - grove_gpio
+  - grove_i2c
   - hwinfo
   - i2c
   - pwm

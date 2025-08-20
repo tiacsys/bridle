@@ -1,0 +1,37 @@
+/*
+ * Copyright (c) 2025 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	coffeecaller_free_pin_header: connector {
+		compatible = "generic-pin-header";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <0 0 &gpio0 6 0>,	/* UART0 / P0.06 */
+			   /*  1 - VBUS: not usable */
+			   <2 0 &gpio0 8 0>,	/* UART0 / P0.08 */
+			   /*  3 - 3V3: not usable */
+			   <4 0 &gpio1 9 0>,	/* P1.09 */
+			   <5 0 &gpio1 0 0>,	/* P1.00 */
+			   <6 0 &gpio0 12 0>,	/* P0.12 */
+			   <7 0 &gpio0 20 0>,	/* I2C0 / P0.20 */
+			   <8 0 &gpio0 13 0>,	/* P0.13 */
+			   <9 0 &gpio0 24 0>,	/* I2C0 / P0.24 */
+			   <10 0 &gpio0 15 0>,	/* P0.15 */
+			   /* 11 - SWDIO: not usable */
+			   <12 0 &gpio0 22 0>,	/* P0.22 */
+			   /* 13 - SWDCLK: not usable */
+			   <14 0 &gpio0 17 0>;	/* P0.17 */
+			   /* 15 - GND: not usable */
+	};
+};
+
+&gpio0 {
+	status = "okay";
+};
+
+&gpio1 {
+	status = "okay";
+};
