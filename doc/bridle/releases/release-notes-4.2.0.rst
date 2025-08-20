@@ -14,6 +14,10 @@ Highlights
 * :brd:`NOT YET, tbd.`
 * new board support for:
 
+  * TiaC CoffeeCaller nRF52 with SHT40 temperature and humidity sensor,
+    one on-board PWM driven Buzzer and four Servo Motor connectors.
+    Immediately ready to use, thanks to the integrated UF2-compatible
+    bootloader (preprogrammed in the internal on-chip flash).
   * Mini USB RP2040 with board revisions for different sizes of QSPI flash
     memory and a workaround, as far as possible, for rarely existing boards
     with incorrectly assembled chip LED.
@@ -128,6 +132,7 @@ Supported boards
 * ST Nucleo F4xxxx
 * ST Nucleo F6xxxx
 * ST Nucleo F7xxxx
+* TiaC CoffeeCaller nRF52
 * TiaC Magpie F777NI (former TiaC Magpie STM32F777NIHx)
 * Waveshare RP2040 (series of mini and pico sized boards)
 * XIAO SAMD21 (former Seeed Studio XIAO SAMD21), also known as Seeeduino XIAO
@@ -203,8 +208,17 @@ Build Infrastructure
 * tbd.
 * tbd.
 * tbd.
-* Remove ``native_posix`` as it has reached its end of life in Zephyr v4.2, after
-  being deprecated since Zephyr v4.0.
+* Upgrade to west version 1.4.0 as minimal required version.
+* Switch west manifest to CMSIS version 6 for ARM Cortex-M.
+* Remove Nios2 usage. Maybe we will bring back this architecture later within
+  Bridle as a self contained downstream support for historical reason to being
+  able to use obsolete and deprecated hardware. Even this is interesting for
+  training and education.
+* Remove ``native_posix`` as it has reached its end of life in Zephyr v4.2,
+  after being deprecated since Zephyr v4.0.
+* The new SPI loopback test cases from Zephyr have been qualified and adapted
+  to the requirements and capabilities of the Bridle integration platform
+  (TiaC Magpie F777NI).
 
 Documentation
 =============
@@ -243,6 +257,7 @@ These GitHub issues were addressed since project bootstrapping:
 * :github:`317` - [BUG] Rename Kconfig option ``SCHED_DUMB`` and ``WAITQ_DUMB``
 * :github:`316` - [BUG] Remove Kconfig option ``ETH_STM32_HAL_MII`` and ``ETH_STM32_HAL_PHY_ADDRESS``
 * :github:`315` - [FCR] Bump to Zephyr v4.2
+* :github:`312` - [HW] Add initial version of TiaC CoffeeCaller
 * :github:`310` - [HW] STK8BA58 accelerometer
 * :github:`298` - [FER] Remove all DTS tweaks on RP2040 based boards
 * :github:`297` - [HW] The PicoBoy Color Plus as additional board variant
