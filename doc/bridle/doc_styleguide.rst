@@ -183,7 +183,7 @@ The following table shows just a few examples.
 
      - inline colorization in underline decoration
 
-   * - :rst:`:rst:\`:program:\\\`honkomat\\\`\``
+   * - :rst:`\ :rst:\`:program:\\\`honkomat\\\`\`\ `
      - :rst:`:program:\`honkomat\``
      - inline syntax highlighting for reStructuredText
 
@@ -625,6 +625,26 @@ The following table shows just a few examples.
      - U+03299, U+1F21A, U+1F23A, U+1F234
      - CJK signes: secret, free of charge, open for business, passing grade
 
+   * - :rst:`|+-|/|-+|/|8|`
+     - |+-|/|-+|/|8|
+     - U+000B1, U+02213, U+0221E
+     - plus minus sign, minus or plus sign, infinity
+
+   * - :rst:`|x| |nbsp| |:| |nbsp| |*| |nbsp| |/|`
+     - |x| |nbsp| |:| |nbsp| |*| |nbsp| |/|
+     - U+000D7, U+000F7, U+022C5, U+02044
+     - multiplication and division sign, multiplication and fraction operator
+
+   * - :rst:`|<-|/|>-|/|<=|/|>=|/|<~|/|>~|`
+     - |<-|/|>-|/|<=|/|>=|/|<~|/|>~|
+     - U+02264 |...| U+02267, U+02272, U+02273
+     - comparison operations
+
+   * - :rst:`|:=|/|=:|/|/=|`
+     - |:=|/|=:|/|/=|
+     - U+02254, U+02255, U+02260
+     - assignment operations
+
    * - :rst:`|oneq|`
      - |oneq|
      - U+000BC
@@ -647,7 +667,7 @@ The following table shows just a few examples.
 
    * - :rst:`|sup2| |sup3| |/| |sub3| |sub2|`
      - |sup2| |sup3| |/| |sub3| |sub2|
-     - U+0338F
+     - U+02044
      - special fraction
 
    * - :rst:`X |sup7| |sup(| |sup8| |sup-| |sup9| |sup)|`

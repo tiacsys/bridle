@@ -94,6 +94,10 @@
 .. |sub)| unicode:: U+0208E .. subscript right parenthesis
    :trim:
 
+.. |8| unicode:: U+0221E .. infinity
+   :trim:
+.. |-+| unicode:: U+02213 .. minus or plus sign
+   :rtrim:
 .. |+-| unicode:: U+000B1 .. plus minus sign
    :rtrim:
 .. |x| unicode:: U+000D7 .. multiplication sign
@@ -115,6 +119,12 @@
 .. |<~| unicode:: U+02272 .. less-than or equivalent to
    :trim:
 .. |>~| unicode:: U+02273 .. greater-than or equivalent to
+   :trim:
+.. |:=| unicode:: U+02254 .. colon equals
+   :trim:
+.. |=:| unicode:: U+02255 .. equals colon
+   :trim:
+.. |/=| unicode:: U+02260 .. not equal to
    :trim:
 
 .. Other symbols (https://www.compart.com/en/unicode/category/So):
