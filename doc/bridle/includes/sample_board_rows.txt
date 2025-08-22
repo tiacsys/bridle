@@ -2,6 +2,10 @@
 
 | Hardware platforms | Order number | Board name | Board target |
 
+.. coffeecaller_nrf52
+
+| nRF52840 | | :ref:`coffeecaller_nrf52_board` | - ``coffeecaller_nrf52`` |
+
 .. cytron_maker_nano_rp2040
 
 | RP2040 | | :ref:`cytron_maker_rp2040` | - ``cytron_maker_nano_rp2040`` |
