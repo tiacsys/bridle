@@ -210,6 +210,11 @@ tests:
     extra_args:
       - CMAKE_BUILD_TYPE=ZDebug
       - EXTRA_CONF_FILE="prj-hwstartup.conf"
+      - platform:vccgnd_bluepill_stm32f103cb/stm32f103xb:"CONFIG_STM32_ENABLE_DEBUG_SLEEP_STOP=y"
+      - platform:vccgnd_bluepill_stm32f103c8/stm32f103xb:"CONFIG_STM32_ENABLE_DEBUG_SLEEP_STOP=y"
+    integration_platforms:
+      - vccgnd_bluepill_stm32f103cb
+      - vccgnd_bluepill_stm32f103c8
   bridle.sample.helloshell.minimal.debug:
     build_only: true
     build_on_all: false
@@ -218,6 +223,19 @@ tests:
     extra_args:
       - CMAKE_BUILD_TYPE=ZDebug
       - EXTRA_CONF_FILE="prj-minimal.conf"
+      - platform:vccgnd_bluepill_stm32f072cb/stm32f072xb:"CONFIG_ADC=y"
+      - platform:vccgnd_bluepill_stm32f072cb/stm32f072xb:"CONFIG_ADC_SHELL=y"
+      - platform:vccgnd_bluepill_stm32f072cb/stm32f072xb:"CONFIG_I2C=y"
+      - platform:vccgnd_bluepill_stm32f072cb/stm32f072xb:"CONFIG_I2C_SHELL=y"
+      - platform:vccgnd_bluepill_stm32f072cb/stm32f072xb:"CONFIG_STM32_ENABLE_DEBUG_SLEEP_STOP=y"
+      - platform:vccgnd_bluepill_stm32f072c8/stm32f072xb:"CONFIG_ADC=y"
+      - platform:vccgnd_bluepill_stm32f072c8/stm32f072xb:"CONFIG_ADC_SHELL=y"
+      - platform:vccgnd_bluepill_stm32f072c8/stm32f072xb:"CONFIG_I2C=y"
+      - platform:vccgnd_bluepill_stm32f072c8/stm32f072xb:"CONFIG_I2C_SHELL=y"
+      - platform:vccgnd_bluepill_stm32f072c8/stm32f072xb:"CONFIG_STM32_ENABLE_DEBUG_SLEEP_STOP=y"
+    integration_platforms:
+      - vccgnd_bluepill_stm32f072cb
+      - vccgnd_bluepill_stm32f072c8
   bridle.sample.helloshell.tiny.debug:
     build_only: true
     build_on_all: false
@@ -226,3 +244,16 @@ tests:
     extra_args:
       - CMAKE_BUILD_TYPE=ZDebug
       - EXTRA_CONF_FILE="prj-tiny.conf"
+      - platform:vccgnd_bluepill_stm32f051c8/stm32f051x8:"CONFIG_ADC=y"
+      - platform:vccgnd_bluepill_stm32f051c8/stm32f051x8:"CONFIG_ADC_SHELL=y"
+      - platform:vccgnd_bluepill_stm32f051c8/stm32f051x8:"CONFIG_I2C=y"
+      - platform:vccgnd_bluepill_stm32f051c8/stm32f051x8:"CONFIG_I2C_SHELL=y"
+      - platform:vccgnd_bluepill_stm32f051c8/stm32f051x8:"CONFIG_STM32_ENABLE_DEBUG_SLEEP_STOP=y"
+      - platform:vccgnd_bluepill_stm32f030c8/stm32f030x8:"CONFIG_ADC=y"
+      - platform:vccgnd_bluepill_stm32f030c8/stm32f030x8:"CONFIG_ADC_SHELL=y"
+      - platform:vccgnd_bluepill_stm32f030c8/stm32f030x8:"CONFIG_I2C=y"
+      - platform:vccgnd_bluepill_stm32f030c8/stm32f030x8:"CONFIG_I2C_SHELL=y"
+      - platform:vccgnd_bluepill_stm32f030c8/stm32f030x8:"CONFIG_STM32_ENABLE_DEBUG_SLEEP_STOP=y"
+    integration_platforms:
+      - vccgnd_bluepill_stm32f051c8
+      - vccgnd_bluepill_stm32f030c8
