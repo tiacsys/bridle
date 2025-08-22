@@ -17,89 +17,10 @@ common:
   integration_platforms:
     - native_sim
     - native_sim/native/64
-    - qemu_x86
-    - qemu_x86/atom/nokpti
-    - qemu_x86/atom/nommu
-    - qemu_x86/atom/nopae
-    - qemu_x86/atom/virt
-    - qemu_x86/atom/xip
-    # Qemu issue (-ENOTBLK): - qemu_x86_lakemont
-    # Qemu issue (-ENOTBLK): - qemu_x86_tiny
-    - qemu_x86_64
-    - qemu_x86_64/atom/nokpti
-    - qemu_cortex_r5
-    - qemu_cortex_m0
-    - qemu_cortex_m3
-    - qemu_cortex_a9
-    - qemu_cortex_a53
-    - qemu_cortex_a53/qemu_cortex_a53/smp
-    - qemu_cortex_a53/qemu_cortex_a53/xip
-    - qemu_kvm_arm64
-    - qemu_arc/qemu_arc_em
-    - qemu_arc/qemu_arc_hs
-    - qemu_arc/qemu_arc_hs/xip
-    - qemu_arc/qemu_arc_hs5x
-    - qemu_arc/qemu_arc_hs6x
-    - qemu_malta
-    - qemu_malta/qemu_malta/be
-    - qemu_riscv32e
-    - qemu_riscv32
-    - qemu_riscv32/qemu_virt_riscv32/smp
-    # Qemu issue (-ENOTBLK): - qemu_riscv32_xip
-    - qemu_riscv64
-    - qemu_riscv64/qemu_virt_riscv64/smp
-    - qemu_xtensa/dc233c
-    - qemu_xtensa/dc233c/mmu
-    - qemu_leon3
-    # Qemu issue (-ENOTBLK): - qemu_rx
-    - magpie_f777ni
-    - arduino_zero
-    - coffeecaller_nrf52
-    - cytron_maker_nano_rp2040
-    - cytron_maker_pi_rp2040
-    - mimxrt1010_evk
-    - mimxrt1060_evk/mimxrt1062/hyperflash
-    - mimxrt1060_evk@A/mimxrt1062/qspi
-    - mimxrt1060_evk@B/mimxrt1062/qspi
-    - mimxrt1060_evk@C/mimxrt1062/qspi
-    - mimxrt1170_evk/mimxrt1176/cm4
-    - mimxrt1170_evk/mimxrt1176/cm7
-    - mimxrt1170_evk@B/mimxrt1176/cm4
-    - mimxrt1170_evk@B/mimxrt1176/cm7
-    - nrf52840dk/nrf52840
-    - nrf9160dk/nrf52840
-    - nrf9160dk/nrf9160
-    - nucleo_f303re
-    - nucleo_f401re
-    - nucleo_f413zh
-    - nucleo_f746zg
-    - nucleo_f767zi
-    - nucleo_l496zg
-    - mini_usb_rp2040
-    - mini_usb_rp2040@16mb
-    - mini_usb_rp2040@chipled
-    - mini_usb_rp2350/rp2350a/m33
-    - mini_usb_rp2350@16mb/rp2350a/m33
-    - picoboy/rp2040
-    - picoboy_color/rp2040
-    - picoboy_color_plus/rp2350a/m33
-    - rpi_pico
-    - rpi_pico/rp2040/w
-    - seeeduino_cm0
-    - seeeduino_lotus
-    - seeeduino_xiao
-    - xiao_samd21
-    - waveshare_rp2040_one
-    - waveshare_rp2040_zero
-    - waveshare_rp2040_matrix
-    - waveshare_rp2040_tiny
-    - waveshare_rp2040_eth
-    - waveshare_rp2040_lcd_0_96
-    - waveshare_rp2040_plus
-    - waveshare_rp2040_plus@16mb
-    - waveshare_rp2040_geek
 tests:
   bridle.sample.helloshell.commands:
+    min_ram: 16
+    min_flash: 128
     filter: CONFIG_QEMU_TARGET and CONFIG_SERIAL and
             (dt_chosen_enabled("zephyr,shell-uart") or
              CONFIG_XTENSA_SIM_CONSOLE)
@@ -107,17 +28,201 @@ tests:
       - CMAKE_BUILD_TYPE=ZRelease
     timeout: 300
     harness: pytest
+    integration_platforms:
+      - qemu_x86
+      - qemu_x86/atom/nokpti
+      - qemu_x86/atom/nommu
+      - qemu_x86/atom/nopae
+      - qemu_x86/atom/virt
+      - qemu_x86/atom/xip
+      # Qemu issue (-ENOTBLK): - qemu_x86_lakemont
+      # Qemu issue (-ENOTBLK): - qemu_x86_tiny
+      - qemu_x86_64
+      - qemu_x86_64/atom/nokpti
+      - qemu_cortex_r5
+      - qemu_cortex_m0
+      - qemu_cortex_m3
+      - qemu_cortex_a9
+      - qemu_cortex_a53
+      - qemu_cortex_a53/qemu_cortex_a53/smp
+      - qemu_cortex_a53/qemu_cortex_a53/xip
+      - qemu_kvm_arm64
+      - qemu_arc/qemu_arc_em
+      - qemu_arc/qemu_arc_hs
+      - qemu_arc/qemu_arc_hs/xip
+      - qemu_arc/qemu_arc_hs5x
+      - qemu_arc/qemu_arc_hs6x
+      - qemu_malta
+      - qemu_malta/qemu_malta/be
+      - qemu_riscv32e
+      - qemu_riscv32
+      - qemu_riscv32/qemu_virt_riscv32/smp
+      # Qemu issue (-ENOTBLK): - qemu_riscv32_xip
+      - qemu_riscv64
+      - qemu_riscv64/qemu_virt_riscv64/smp
+      - qemu_xtensa/dc233c
+      - qemu_xtensa/dc233c/mmu
+      - qemu_leon3
+      # Qemu issue (-ENOTBLK): - qemu_rx
   bridle.sample.helloshell.sayhello:
+    min_ram: 16
+    min_flash: 128
     filter: CONFIG_QEMU_TARGET and CONFIG_CONSOLE and
             (dt_chosen_enabled("zephyr,console") or
              CONFIG_XTENSA_SIM_CONSOLE)
-    extra_args: CMAKE_BUILD_TYPE=ZRelease
+    extra_args:
+      - CMAKE_BUILD_TYPE=ZRelease
     harness: console
     harness_config:
       type: one_line
       regex:
         - "Hello World! I'm THE SHELL from (.*)"
-  bridle.sample.helloshell.debug:
+    integration_platforms:
+      - qemu_x86
+      - qemu_x86/atom/nokpti
+      - qemu_x86/atom/nommu
+      - qemu_x86/atom/nopae
+      - qemu_x86/atom/virt
+      - qemu_x86/atom/xip
+      # Qemu issue (-ENOTBLK): - qemu_x86_lakemont
+      # Qemu issue (-ENOTBLK): - qemu_x86_tiny
+      - qemu_x86_64
+      - qemu_x86_64/atom/nokpti
+      - qemu_cortex_r5
+      - qemu_cortex_m0
+      - qemu_cortex_m3
+      - qemu_cortex_a9
+      - qemu_cortex_a53
+      - qemu_cortex_a53/qemu_cortex_a53/smp
+      - qemu_cortex_a53/qemu_cortex_a53/xip
+      - qemu_kvm_arm64
+      - qemu_arc/qemu_arc_em
+      - qemu_arc/qemu_arc_hs
+      - qemu_arc/qemu_arc_hs/xip
+      - qemu_arc/qemu_arc_hs5x
+      - qemu_arc/qemu_arc_hs6x
+      - qemu_malta
+      - qemu_malta/qemu_malta/be
+      - qemu_riscv32e
+      - qemu_riscv32
+      - qemu_riscv32/qemu_virt_riscv32/smp
+      # Qemu issue (-ENOTBLK): - qemu_riscv32_xip
+      - qemu_riscv64
+      - qemu_riscv64/qemu_virt_riscv64/smp
+      - qemu_xtensa/dc233c
+      - qemu_xtensa/dc233c/mmu
+      - qemu_leon3
+      # Qemu issue (-ENOTBLK): - qemu_rx
+  bridle.sample.helloshell.default.debug:
     build_only: true
     build_on_all: true
-    extra_args: CMAKE_BUILD_TYPE=ZDebug
+    min_ram: 16
+    min_flash: 128
+    extra_args:
+      - CMAKE_BUILD_TYPE=ZDebug
+    integration_platforms:
+      - qemu_x86
+      - qemu_x86/atom/nokpti
+      - qemu_x86/atom/nommu
+      - qemu_x86/atom/nopae
+      - qemu_x86/atom/virt
+      - qemu_x86/atom/xip
+      # Qemu issue (-ENOTBLK): - qemu_x86_lakemont
+      # Qemu issue (-ENOTBLK): - qemu_x86_tiny
+      - qemu_x86_64
+      - qemu_x86_64/atom/nokpti
+      - qemu_cortex_r5
+      - qemu_cortex_m0
+      - qemu_cortex_m3
+      - qemu_cortex_a9
+      - qemu_cortex_a53
+      - qemu_cortex_a53/qemu_cortex_a53/smp
+      - qemu_cortex_a53/qemu_cortex_a53/xip
+      - qemu_kvm_arm64
+      - qemu_arc/qemu_arc_em
+      - qemu_arc/qemu_arc_hs
+      - qemu_arc/qemu_arc_hs/xip
+      - qemu_arc/qemu_arc_hs5x
+      - qemu_arc/qemu_arc_hs6x
+      - qemu_malta
+      - qemu_malta/qemu_malta/be
+      - qemu_riscv32e
+      - qemu_riscv32
+      - qemu_riscv32/qemu_virt_riscv32/smp
+      # Qemu issue (-ENOTBLK): - qemu_riscv32_xip
+      - qemu_riscv64
+      - qemu_riscv64/qemu_virt_riscv64/smp
+      - qemu_xtensa/dc233c
+      - qemu_xtensa/dc233c/mmu
+      - qemu_leon3
+      # Qemu issue (-ENOTBLK): - qemu_rx
+      - magpie_f777ni
+      - arduino_zero
+      - coffeecaller_nrf52
+      - cytron_maker_nano_rp2040
+      - cytron_maker_pi_rp2040
+      - mimxrt1010_evk
+      - mimxrt1060_evk/mimxrt1062/hyperflash
+      - mimxrt1060_evk@A/mimxrt1062/qspi
+      - mimxrt1060_evk@B/mimxrt1062/qspi
+      - mimxrt1060_evk@C/mimxrt1062/qspi
+      - mimxrt1170_evk/mimxrt1176/cm4
+      - mimxrt1170_evk/mimxrt1176/cm7
+      - mimxrt1170_evk@B/mimxrt1176/cm4
+      - mimxrt1170_evk@B/mimxrt1176/cm7
+      - nrf52840dk/nrf52840
+      - nrf9160dk/nrf52840
+      - nrf9160dk/nrf9160
+      - nucleo_f303re
+      - nucleo_f401re
+      - nucleo_f413zh
+      - nucleo_f746zg
+      - nucleo_f767zi
+      - nucleo_l496zg
+      - mini_usb_rp2040
+      - mini_usb_rp2040@16mb
+      - mini_usb_rp2040@chipled
+      - mini_usb_rp2350/rp2350a/m33
+      - mini_usb_rp2350@16mb/rp2350a/m33
+      - picoboy/rp2040
+      - picoboy_color/rp2040
+      - picoboy_color_plus/rp2350a/m33
+      - rpi_pico
+      - rpi_pico/rp2040/w
+      - seeeduino_cm0
+      - seeeduino_lotus
+      - seeeduino_xiao
+      - xiao_samd21
+      - waveshare_rp2040_one
+      - waveshare_rp2040_zero
+      - waveshare_rp2040_matrix
+      - waveshare_rp2040_tiny
+      - waveshare_rp2040_eth
+      - waveshare_rp2040_lcd_0_96
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb
+      - waveshare_rp2040_geek
+  bridle.sample.helloshell.hwstartup.debug:
+    build_only: true
+    build_on_all: false
+    min_ram: 16
+    min_flash: 64
+    extra_args:
+      - CMAKE_BUILD_TYPE=ZDebug
+      - EXTRA_CONF_FILE="prj-hwstartup.conf"
+  bridle.sample.helloshell.minimal.debug:
+    build_only: true
+    build_on_all: false
+    min_ram: 10
+    min_flash: 32
+    extra_args:
+      - CMAKE_BUILD_TYPE=ZDebug
+      - EXTRA_CONF_FILE="prj-minimal.conf"
+  bridle.sample.helloshell.tiny.debug:
+    build_only: true
+    build_on_all: false
+    min_ram: 8
+    min_flash: 24
+    extra_args:
+      - CMAKE_BUILD_TYPE=ZDebug
+      - EXTRA_CONF_FILE="prj-tiny.conf"

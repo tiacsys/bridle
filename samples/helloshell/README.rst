@@ -110,12 +110,25 @@ Also it can be built and executed on following targets:
 Further you can deside either to run in a basic or fancy command set
 mode:
 
-* On |zephyr:board:nucleo_f746zg| board, basic command set mode:
+* On |zephyr:board:nucleo_f746zg| board, tiny command set mode for
+  an absolutely minimal environment (lowest memory footprint):
 
   .. zephyr-app-commands::
      :app: bridle/samples/helloshell
      :build-dir: helloshell-nucleo_f746zg
-     :conf: prj-minimal.conf
+     :gen-args: -DEXTRA_CONF_FILE="prj-tiny.conf"
+     :board: nucleo_f746zg
+     :west-args: -p
+     :goals: flash
+     :host-os: unix
+
+* On |zephyr:board:nucleo_f746zg| board, minimal command set mode for
+  basic system operations:
+
+  .. zephyr-app-commands::
+     :app: bridle/samples/helloshell
+     :build-dir: helloshell-nucleo_f746zg
+     :gen-args: -DEXTRA_CONF_FILE="prj-minimal.conf"
      :board: nucleo_f746zg
      :west-args: -p
      :goals: flash
@@ -127,18 +140,18 @@ mode:
   .. zephyr-app-commands::
      :app: bridle/samples/helloshell
      :build-dir: helloshell-nucleo_f746zg
-     :conf: prj-hwstartup.conf
+     :gen-args: -DEXTRA_CONF_FILE="prj-hwstartup.conf"
      :board: nucleo_f746zg
      :west-args: -p
      :goals: flash
      :host-os: unix
 
-* On |zephyr:board:nucleo_f746zg| board, fancy command set mode:
+* On |zephyr:board:nucleo_f746zg| board, fancy command set mode
+  (implies :file:`prj.conf` merged with board specific configuration):
 
   .. zephyr-app-commands::
      :app: bridle/samples/helloshell
      :build-dir: helloshell-nucleo_f746zg
-     :conf: prj.conf
      :board: nucleo_f746zg
      :west-args: -p
      :goals: flash
