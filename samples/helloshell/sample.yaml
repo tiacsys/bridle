@@ -212,9 +212,16 @@ tests:
       - EXTRA_CONF_FILE="prj-hwstartup.conf"
       - platform:vccgnd_bluepill_stm32f103cb/stm32f103xb:"CONFIG_STM32_ENABLE_DEBUG_SLEEP_STOP=y"
       - platform:vccgnd_bluepill_stm32f103c8/stm32f103xb:"CONFIG_STM32_ENABLE_DEBUG_SLEEP_STOP=y"
+      - platform:weact_bluepillplus_ch32v203c8/ch32v203:"CONFIG_FLASH=n"
+      - platform:weact_bluepillplus_ch32v203c8/ch32v203:"CONFIG_FLASH_SHELL=n"
+      - platform:weact_bluepillplus_stm32f103cb/stm32f103xb:"CONFIG_STM32_ENABLE_DEBUG_SLEEP_STOP=y"
+      - platform:weact_bluepillplus_stm32f103c8/stm32f103xb:"CONFIG_STM32_ENABLE_DEBUG_SLEEP_STOP=y"
     integration_platforms:
       - vccgnd_bluepill_stm32f103cb
       - vccgnd_bluepill_stm32f103c8
+      - weact_bluepillplus_ch32v203c8
+      - weact_bluepillplus_stm32f103cb
+      - weact_bluepillplus_stm32f103c8
   bridle.sample.helloshell.minimal.debug:
     build_only: true
     build_on_all: false
@@ -236,6 +243,7 @@ tests:
     integration_platforms:
       - vccgnd_bluepill_stm32f072cb
       - vccgnd_bluepill_stm32f072c8
+      - weact_bluepillplus_ch32v203c6
   bridle.sample.helloshell.tiny.debug:
     build_only: true
     build_on_all: false
