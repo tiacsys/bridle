@@ -18,6 +18,18 @@ Highlights
     one on-board PWM driven Buzzer and four Servo Motor connectors.
     Immediately ready to use, thanks to the integrated UF2-compatible
     bootloader (preprogrammed in the internal on-chip flash).
+  * VccGND Studio BluePill boards and derivates with following solderd chips:
+
+    - STM32F103C8T6 / STM32F103CBT6
+    - STM32F072C8T6 / STM32F072CBT6
+    - STM32F051C8T6 (no USB, no CAN)
+    - STM32F030C8T6 (no USB, no CAN)
+
+  * WeAct Studio BluePill+ boards and derivates with following solderd chips:
+
+    - STM32F103C8T6 / STM32F103CBT6
+    - CH32V203C8T6 / CH32V203C6T6
+
   * Mini USB RP2040 with board revisions for different sizes of QSPI flash
     memory and a workaround, as far as possible, for rarely existing boards
     with incorrectly assembled chip LED.
@@ -134,6 +146,8 @@ Supported boards
 * ST Nucleo F7xxxx
 * TiaC CoffeeCaller nRF52
 * TiaC Magpie F777NI (former TiaC Magpie STM32F777NIHx)
+* VccGND Studio BluePill boards and derivates
+* WeAct Studio BluePill+ boards and derivates
 * Waveshare RP2040 (series of mini and pico sized boards)
 * XIAO SAMD21 (former Seeed Studio XIAO SAMD21), also known as Seeeduino XIAO
 
@@ -184,7 +198,7 @@ Change log
 * tbd.
 * tbd.
 * tbd.
-* The ``hello_shell`` sample now enables the full Ethernet network stack with
+* The ``helloshell`` sample now enables the full Ethernet network stack with
   MDIO support and all helpful shell commands for the TiaC Magpie F777NI board.
 * The TiaC Magpie F777NI board now provides the required device tree properties
   ``phy-connection-type`` and ``phy-handle``. The related but deprecated Kconfig
@@ -197,6 +211,11 @@ The following sections provide detailed lists of changes by component.
 * tbd.
 * tbd.
 * tbd.
+* Support for new board TiaC CoffeeCaller nRF52.
+* Support for new VccGND Studio BluePill boards and derivates.
+* Support for new WeAct Studio BluePill+ boards and derivates.
+* Support for new board Mini USB RP2040 with board revisions.
+* Support for new board Mini USB RP2350 with board revisions.
 
 * PROJECT UPDATE to `Zephyr Project`_ v4.2.0
 
@@ -208,6 +227,8 @@ Build Infrastructure
 * tbd.
 * tbd.
 * tbd.
+* Rework Bridle's sample ``helloshell`` and ``button`` to work with the CMake
+  variable ``EXTRA_CONF_FILE`` instead of ``CONF_FILE``.
 * Upgrade to west version 1.4.0 as minimal required version.
 * Switch west manifest to CMSIS version 6 for ARM Cortex-M.
 * Remove Nios2 usage. Maybe we will bring back this architecture later within
@@ -248,7 +269,10 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`352` - [BUG] wrong handling of special project configuration in ``button`` sample
+* :github:`351` - [BUG] wrong handling of special project configuration in ``helloshell`` sample
 * :github:`344` - [HW] Mini USB RP2350 by AliExpress (No Name Technology)
+* :github:`342` - [HW] WeAct Studio BluePill+ and Vcc-GND Studio BluePill
 * :github:`341` - [HW] Mini USB RP2040 by AliExpress (No Name Technology)
 * :github:`339` - [BUG] SC18IS604 emulation has compilation warning on zero size VAL
 * :github:`333` - [FER] upgrade to west 1.4.0
