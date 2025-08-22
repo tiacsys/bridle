@@ -7,6 +7,8 @@ common:
     - introduction
   sysbuild: false
   build_only: true
+  min_ram: 8
+  min_flash: 16
   integration_platforms:
     - coffeecaller_nrf52
     - cytron_maker_nano_rp2040
@@ -35,8 +37,10 @@ tests:
   bridle.sample.button.poll:
     filter: dt_enabled_alias_with_parent_compat("sw0", "gpio-keys") and
             dt_enabled_alias_with_parent_compat("led0", "gpio-leds")
-    extra_args: CONF_FILE=prj-poll.conf
+    extra_args:
+      - EXTRA_CONF_FILE=prj-poll.conf
   bridle.sample.button.event:
     filter: dt_enabled_alias_with_parent_compat("sw0", "gpio-keys") and
             dt_enabled_alias_with_parent_compat("led0", "gpio-leds")
-    extra_args: CONF_FILE=prj-event.conf
+    extra_args:
+      - EXTRA_CONF_FILE=prj-event.conf
