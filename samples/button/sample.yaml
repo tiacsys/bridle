@@ -8,6 +8,7 @@ common:
   sysbuild: false
   build_only: true
   integration_platforms:
+    - coffeecaller_nrf52
     - cytron_maker_nano_rp2040
     - cytron_maker_pi_rp2040
     - mimxrt1010_evk
