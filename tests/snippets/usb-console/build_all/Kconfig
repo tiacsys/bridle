@@ -1,0 +1,88 @@
+# Copyright (c) 2025 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+comment "Buildability over all Bridle USB Console Boards and Snippets (usb-console)"
+
+comment "Test configuration:"
+config TEST_NAME
+	string "Test Name"
+	default "Verify USB device descriptor data for USB console (CDC ACM)"
+
+config TEST_CHOSEN_ZEPHYR_SHELL_UART
+	bool "Test `/chosen` property `zephyr,shell-uart`"
+	default n
+
+menuconfig TEST_EXPECTED_USB_DEVICE_STACK
+	bool "Expected USB Device Support"
+	default n
+	help
+	  Expect, USB device stack is enabled.
+
+if TEST_EXPECTED_USB_DEVICE_STACK
+
+module = TEST_EXPECTED_USB_DEVICE
+module-str = expected usb device
+source "subsys/logging/Kconfig.template.log_config"
+
+config TEST_EXPECTED_USB_DEVICE_VID
+	hex "Expected USB Vendor ID"
+	default 0x2FE3
+	help
+	  Expected USB device vendor ID.
+	  MUST be configured by vendor.
+
+config TEST_EXPECTED_USB_DEVICE_PID
+	hex "Expected USB Product ID"
+	default 0x0100
+	help
+	  Expected USB device product ID.
+	  MUST be configured by vendor.
+
+config TEST_EXPECTED_USB_DEVICE_MANUFACTURER
+	string "Expected USB Manufacturer Name"
+	default "ZEPHYR"
+	help
+	  Expected USB device manufacturer string.
+	  MUST be configured by vendor.
+
+config TEST_EXPECTED_USB_DEVICE_PRODUCT
+	string "Expected USB Product Name"
+	default "USB-DEV"
+	help
+	  Expected USB device product string.
+	  MUST be configured by vendor.
+
+config TEST_EXPECTED_USB_DEVICE_SN
+	string "Expected USB Device Serial Number String"
+	default "0123456789ABCDEF"
+	help
+	  Expected placeholder for USB device serial number string.
+	  serial number string will be derived from
+	  Hardware Information Driver (HWINFO).
+
+config TEST_EXPECTED_USB_DEVICE_INITIALIZE_AT_BOOT
+	bool "Expect initialize USB Device Support at boot"
+	depends on TEST_EXPECTED_USB_CDC_ACM
+	default n
+	help
+	  Expect use CDC ACM UART as backend for console, shell, or logging.
+
+menuconfig TEST_EXPECTED_USB_CDC_ACM
+	bool "Expected USB CDC ACM Class Support"
+	default n
+	help
+	  Expected USB CDC ACM class support.
+
+if TEST_EXPECTED_USB_CDC_ACM
+
+module = TEST_EXPECTED_USB_CDC_ACM
+module-str = expected usb cdc acm
+source "subsys/logging/Kconfig.template.log_config"
+
+endif # TEST_EXPECTED_USB_CDC_ACM
+
+endif # TEST_EXPECTED_USB_DEVICE_STACK
+
+# Sources Kconfig.zephyr in the Zephyr root directory.
+comment "Zephyr configuration:"
+source "Kconfig.zephyr"

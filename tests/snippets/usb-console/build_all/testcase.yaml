@@ -1,0 +1,181 @@
+##############################################################################
+###
+### ATTENTION:
+###
+### This test suite will be controlled by the standard integration platforms
+### and must be invoked with the corresponding quarantine list. Otherwise,
+### many board-shield constellations will terminate with an error.
+###
+###     west twister -G --quarantine-list bridle/tests/quarantine.yaml … … …
+###
+##############################################################################
+common:
+  tags:
+    - base
+    - snippets
+    - usb-console
+    - usb
+  sysbuild: false
+  build_only: true
+  build_on_all: true
+  filter: dt_chosen_enabled("zephyr,console") and
+          dt_compat_enabled("zephyr,cdc-acm-uart") and CONFIG_USB_CDC_ACM and
+          CONFIG_USB_DEVICE_DRIVER and CONFIG_USB_DEVICE_STACK
+  # platform_exclude:
+  #
+  # AVOID `platform_exclude` statement here in the `common` section!
+  #   USE the `tests/quarantine.yaml`file instead.
+  #
+  platform_allow:
+    - native_sim
+    - native_sim/native/64
+    - arduino_zero
+    - coffeecaller_nrf52
+    - cytron_maker_nano_rp2040
+    - cytron_maker_pi_rp2040
+    - mimxrt1010_evk
+    - mimxrt1060_evk/mimxrt1062/hyperflash
+    - mimxrt1060_evk@A/mimxrt1062/qspi
+    - mimxrt1060_evk@B/mimxrt1062/qspi
+    - mimxrt1060_evk@C/mimxrt1062/qspi
+    - mini_usb_rp2040
+    - mini_usb_rp2040@16mb
+    # Build issue (mini_usb_rp2040/src/chipled_pwm_chipled_off.c): - mini_usb_rp2040@chipled
+    - mini_usb_rp2350/rp2350a/m33
+    - mini_usb_rp2350@16mb/rp2350a/m33
+    - nucleo_f767zi
+    - picoboy/rp2040
+    - picoboy_color/rp2040
+    - picoboy_color_plus/rp2350a/m33
+    - rpi_pico
+    - rpi_pico/rp2040/w
+    - seeeduino_cm0
+    - seeeduino_lotus
+    - seeeduino_xiao
+    - xiao_samd21
+    - vccgnd_bluepill_stm32f103cb
+    - vccgnd_bluepill_stm32f103c8
+    - vccgnd_bluepill_stm32f072cb
+    - vccgnd_bluepill_stm32f072c8
+    # Build issue (undefined node label 'zephyr_udc0') [USB WIP]: - weact_bluepillplus_ch32v203c6
+    # Build issue (undefined node label 'zephyr_udc0') [USB WIP]: - weact_bluepillplus_ch32v203c8
+    - weact_bluepillplus_stm32f103cb
+    - weact_bluepillplus_stm32f103c8
+    - waveshare_rp2040_one
+    - waveshare_rp2040_zero
+    - waveshare_rp2040_matrix
+    - waveshare_rp2040_tiny
+    - waveshare_rp2040_eth
+    - waveshare_rp2040_lcd_0_96
+    - waveshare_rp2040_plus
+    - waveshare_rp2040_plus@16mb
+    - waveshare_rp2040_geek
+tests:
+  #
+  # Well known bords (Bridle) with snippet support.
+  #
+  snippets.usb-console:
+    depends_on:
+      - usb_device
+      - usb_cdc
+    filter: CONFIG_USB_DEVICE_INITIALIZE_AT_BOOT and
+            dt_nodelabel_enabled("snippet_cdc_acm_console_uart") and
+            dt_chosen_enabled("zephyr,shell-uart") and
+            dt_chosen_enabled("zephyr,console")
+    required_snippets:
+      - usb-console
+    integration_platforms:
+      - cytron_maker_nano_rp2040
+      - cytron_maker_pi_rp2040
+      - seeeduino_cm0
+      - seeeduino_lotus
+      - vccgnd_bluepill_stm32f103cb
+      - vccgnd_bluepill_stm32f103c8
+      - vccgnd_bluepill_stm32f072cb
+      - vccgnd_bluepill_stm32f072c8
+      - waveshare_rp2040_one
+      - waveshare_rp2040_zero
+      - waveshare_rp2040_matrix
+      - waveshare_rp2040_tiny
+      - waveshare_rp2040_eth
+      - waveshare_rp2040_lcd_0_96
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb
+      - waveshare_rp2040_geek
+      # Build issue (undefined node label 'zephyr_udc0') [USB WIP]: - weact_bluepillplus_ch32v203c6
+      # Build issue (undefined node label 'zephyr_udc0') [USB WIP]: - weact_bluepillplus_ch32v203c8
+      - weact_bluepillplus_stm32f103cb
+      - weact_bluepillplus_stm32f103c8
+  #
+  # Forein bords (Zephyr) with snippet support.
+  #
+  snippets.usb-console.forein:
+    #
+    # Twister issue (No hardware support for {'usb_device'}) on platforms:
+    #
+    # - mimxrt1060_evk@B/mimxrt1062/qspi
+    # - mimxrt1060_evk@C/mimxrt1062/qspi
+    # - rpi_pico
+    # - rpi_pico/rp2040/w
+    #
+    # That needs to resolve (why and vs. {'usbd'}) and thus it is not yet active.
+    #
+    # depends_on:
+    #   - usb_device
+    #
+    filter: CONFIG_USB_DEVICE_INITIALIZE_AT_BOOT and
+            dt_nodelabel_enabled("snippet_cdc_acm_console_uart") and
+            dt_chosen_enabled("zephyr,shell-uart") and
+            dt_chosen_enabled("zephyr,console")
+    required_snippets:
+      - usb-console
+    integration_platforms:
+      - arduino_zero
+      - mimxrt1010_evk
+      - mimxrt1060_evk/mimxrt1062/hyperflash
+      - mimxrt1060_evk@A/mimxrt1062/qspi
+      - mimxrt1060_evk@B/mimxrt1062/qspi
+      - mimxrt1060_evk@C/mimxrt1062/qspi
+      - nucleo_f767zi
+      - rpi_pico
+      - rpi_pico/rp2040/w
+      - seeeduino_xiao
+      - xiao_samd21
+  #
+  # Well known bords (Bridle) with self contained support.
+  #
+  boards.usb-console:
+    depends_on:
+      - usb_device
+      - usb_cdc
+    filter: CONFIG_USB_DEVICE_INITIALIZE_AT_BOOT and
+            dt_chosen_enabled("zephyr,shell-uart") and
+            dt_chosen_enabled("zephyr,console")
+    integration_platforms:
+      - coffeecaller_nrf52
+      - mini_usb_rp2040
+      - mini_usb_rp2040@16mb
+      # Build issue (mini_usb_rp2040/src/chipled_pwm_chipled_off.c): - mini_usb_rp2040@chipled
+      - mini_usb_rp2350/rp2350a/m33
+      - mini_usb_rp2350@16mb/rp2350a/m33
+      - picoboy/rp2040
+      - picoboy_color/rp2040
+      - picoboy_color_plus/rp2350a/m33
+  #
+  # Forein bords (Zephyr) without or unknown snippet support.
+  #
+  boards.usb-console.forein:
+    depends_on:
+      - usb_device
+    filter: dt_nodelabel_enabled("snippet_cdc_acm_console_uart") and
+            dt_chosen_enabled("zephyr,shell-uart") and
+            dt_chosen_enabled("zephyr,console")
+    required_snippets:
+      - usb-console
+    extra_args:
+      - CONFIG_USB_CDC_ACM_LOG_LEVEL_OFF=y
+      - CONFIG_USB_DEVICE_LOG_LEVEL_ERR=y
+      - CONFIG_USB_DEVICE_INITIALIZE_AT_BOOT=y
+    integration_platforms:
+      - native_sim
+      - native_sim/native/64
