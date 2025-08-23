@@ -24,3 +24,4 @@ supported:
   - counter
   - clock
   - usb_device
+  - usb_cdc

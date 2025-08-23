@@ -28,4 +28,5 @@ supported:
   - uart
   - usb
   - usb_device
+  - usb_cdc
   - watchdog

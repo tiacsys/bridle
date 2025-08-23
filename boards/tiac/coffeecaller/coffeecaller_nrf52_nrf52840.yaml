@@ -21,5 +21,6 @@ supported:
   - uart
   - usbd
   - usb_device
+  - usb_cdc
   - watchdog
   - netif:openthread
