@@ -227,6 +227,7 @@ Build Infrastructure
 * tbd.
 * tbd.
 * tbd.
+* GitHub now also tests the buildability with the Bridle USB Console snippet.
 * Rework Bridle's sample ``helloshell`` and ``button`` to work with the CMake
   variable ``EXTRA_CONF_FILE`` instead of ``CONF_FILE``.
 * Upgrade to west version 1.4.0 as minimal required version.
@@ -284,6 +285,7 @@ These GitHub issues were addressed since project bootstrapping:
 * :github:`312` - [HW] Add initial version of TiaC CoffeeCaller
 * :github:`310` - [HW] STK8BA58 accelerometer
 * :github:`298` - [FER] Remove all DTS tweaks on RP2040 based boards
+* :github:`288` - [FER] Add QA integration test for Bridle's snippet ``usb-console``
 * :github:`297` - [HW] The PicoBoy Color Plus as additional board variant
 * :github:`296` - [HW] The PicoBoy Color as additional board variant
 * :github:`292` - [FCR] Bump to Zephyr v4.1
