@@ -1,7 +1,7 @@
 .. _bridle_release_notes_420:
 
-|BRIDLE| 4.2.0 Release Notes (Working draft)
-############################################
+|BRIDLE| 4.2.0 Release Notes
+############################
 
 This project demonstrate the integration of |TIAC| support in open
 source projects, like the Zephyr RTOS, with libraries and source code
@@ -11,30 +11,29 @@ product development.
 Highlights
 **********
 
-* :brd:`NOT YET, tbd.`
-* new board support for:
+New board support for:
 
-  * TiaC CoffeeCaller nRF52 with SHT40 temperature and humidity sensor,
-    one on-board PWM driven Buzzer and four Servo Motor connectors.
-    Immediately ready to use, thanks to the integrated UF2-compatible
-    bootloader (preprogrammed in the internal on-chip flash).
-  * VccGND Studio BluePill boards and derivates with following solderd chips:
+* TiaC CoffeeCaller nRF52 with SHT40 temperature and humidity sensor,
+  one on-board PWM driven Buzzer and four Servo Motor connectors.
+  Immediately ready to use, thanks to the integrated UF2-compatible
+  bootloader (preprogrammed in the internal on-chip flash).
+* VccGND Studio BluePill boards and derivates with following solderd chips:
 
-    - STM32F103C8T6 / STM32F103CBT6
-    - STM32F072C8T6 / STM32F072CBT6
-    - STM32F051C8T6 (no USB, no CAN)
-    - STM32F030C8T6 (no USB, no CAN)
+  - STM32F103C8T6 / STM32F103CBT6
+  - STM32F072C8T6 / STM32F072CBT6
+  - STM32F051C8T6 (no USB, no CAN)
+  - STM32F030C8T6 (no USB, no CAN)
 
-  * WeAct Studio BluePill+ boards and derivates with following solderd chips:
+* WeAct Studio BluePill+ boards and derivates with following solderd chips:
 
-    - STM32F103C8T6 / STM32F103CBT6
-    - CH32V203C8T6 / CH32V203C6T6
+  - STM32F103C8T6 / STM32F103CBT6
+  - CH32V203C8T6 / CH32V203C6T6
 
-  * Mini USB RP2040 with board revisions for different sizes of QSPI flash
-    memory and a workaround, as far as possible, for rarely existing boards
-    with incorrectly assembled chip LED.
-  * Mini USB RP2350 with board revisions for different sizes of QSPI flash
-    memory
+* Mini USB RP2040 with board revisions for different sizes of QSPI flash
+  memory and a workaround, as far as possible, for rarely existing boards
+  with incorrectly assembled chip LED.
+* Mini USB RP2350 with board revisions for different sizes of QSPI flash
+  memory
 
 .. note:: See the changelog and readme files in the component repositories
    for a detailed description of changes.
@@ -121,8 +120,6 @@ For more details, see: :ref:`repos_and_revs`.
 Supported boards
 ****************
 
-:brd:`NOT YET, tbd.`
-
 * Arduino/Genuino Zero
 * PicoBoy Mini-Handheld
 * PicoBoy Color (PBC) Mini-Handheld
@@ -154,8 +151,6 @@ Supported boards
 Supported shields
 *****************
 
-:brd:`NOT YET, tbd.`
-
 * Seeed Studio Grove Interconnect Shields
 * Grove Button Shields
 * Grove LED Shields
@@ -174,8 +169,6 @@ Supported shields
 Supported snippets
 ******************
 
-:brd:`NOT YET, tbd.`
-
 * USB Console Snippet (usb-console)
 * PWM Servomotor Preset Snippet (pwm-servo)
 * Delete Default Devicetree Aliases Snippet (del-default-aliases)
@@ -193,11 +186,6 @@ Supported snippets
 Change log
 **********
 
-:brd:`NOT YET, tbd.`
-
-* tbd.
-* tbd.
-* tbd.
 * The ``helloshell`` sample now enables the full Ethernet network stack with
   MDIO support and all helpful shell commands for the TiaC Magpie F777NI board.
 * The TiaC Magpie F777NI board now provides the required device tree properties
@@ -206,11 +194,6 @@ Change log
 
 The following sections provide detailed lists of changes by component.
 
-:brd:`NOT YET, tbd.`
-
-* tbd.
-* tbd.
-* tbd.
 * Support for new board TiaC CoffeeCaller nRF52.
 * Support for new VccGND Studio BluePill boards and derivates.
 * Support for new WeAct Studio BluePill+ boards and derivates.
@@ -222,11 +205,6 @@ The following sections provide detailed lists of changes by component.
 Build Infrastructure
 ====================
 
-:brd:`NOT YET, tbd.`
-
-* tbd.
-* tbd.
-* tbd.
 * GitHub now also tests the buildability with the Bridle USB Console snippet.
 * Rework Bridle's sample ``helloshell`` and ``button`` to work with the CMake
   variable ``EXTRA_CONF_FILE`` instead of ``CONF_FILE``.
@@ -245,24 +223,19 @@ Build Infrastructure
 Documentation
 =============
 
-:brd:`NOT YET, tbd.`
-
-1. tbd.
-2. tbd.
-3. tbd.
-4. Use Sphinx 8.2 and Zephyr's ``DoxyRunner`` with ``DoxyBridge``, ``DoxyToolTip``
+1. Use Sphinx 8.2 and Zephyr's ``DoxyRunner`` with ``DoxyBridge``, ``DoxyToolTip``
    and ``APIOverview`` for documentation processing.
-5. The Sphinx extension ``APIOverview`` was copied into Bridle namespace and all
+2. The Sphinx extension ``APIOverview`` was copied into Bridle namespace and all
    hard coded strings (e.g. *"Available in … Since"*) were adopted to Bridle.
-6. The Sphinx extension ``ManifestProjectTable`` (former ``ManifestRevisionTable``)
+3. The Sphinx extension ``ManifestProjectTable`` (former ``ManifestRevisionTable``)
    was copied into Bridle namespace and the old functionality from the sdk-nrf
    repository by Nordic (``show-first`` option) was merged with the new
    functionality from Zephyr upstream (``filter`` option).
-7. Switch getting started guide for Windows to Winget. Winget has become the
+4. Switch getting started guide for Windows to Winget. Winget has become the
    standard Windows package manager, and it already contains all the packages
    required for Zephyr and Bridle development. Switch to it from Chocolatey
    for simplicity and consistency with the OS.
-8. Update all output messages in documentation to be in sync with the upcoming
+5. Update all output messages in documentation to be in sync with the upcoming
    Bridle version v4.2.0, based on Zephyr v4.2 (samples and tests).
 
 Issue Related Items
