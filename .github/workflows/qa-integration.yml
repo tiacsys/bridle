@@ -379,7 +379,7 @@ jobs:
           uv pip install --upgrade --requirement zephyr/scripts/requirements-compliance.txt
           uv pip install --upgrade --requirement bridle/scripts/requirements-build.txt
 
-      - name: Build integration tests for shields
+      - name: Build integration tests for shields and snippets
         working-directory: workspace
         run: |
           #
@@ -397,7 +397,8 @@ jobs:
             --integration --cmake-only \
             --quarantine-list bridle/tests/quarantine.yaml \
             --testsuite-root bridle/tests/shields/grove/dts_bindings \
-            --testsuite-root bridle/tests/shields/x_grove_testbed/dts_bindings
+            --testsuite-root bridle/tests/shields/x_grove_testbed/dts_bindings \
+            --testsuite-root bridle/tests/snippets/usb-console/build_all
 
       - name: Upload integration test logging
         uses: actions/upload-artifact@v4
