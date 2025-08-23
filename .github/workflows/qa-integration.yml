@@ -131,7 +131,17 @@ jobs:
       - name: Build samples
         working-directory: workspace
         run: |
+          #
+          # TODO/FIXME: Bridle have to swap from the legacy USB stack to the
+          # next new USB stack. Since June 2025 the API of the legacy USB stack
+          # was marked as deprecated and thus the compiler warnings will lead
+          # errors, false positive errors. As a QnD hack and ONLY FOR THE TIME
+          # BEING Twister have to tolerate warnings. Details, see issue #358.
+          #
           west twister --verbose --jobs 6 \
+            \
+            --disable-warnings-as-errors \
+            \
             --retry-failed 5 --retry-interval 60 \
             --outdir twister-out --no-clean --inline-logs \
             --alt-config-root bridle/zephyr/alt-config/samples \
@@ -256,7 +266,17 @@ jobs:
       - name: Build tests
         working-directory: workspace
         run: |
+          #
+          # TODO/FIXME: Bridle have to swap from the legacy USB stack to the
+          # next new USB stack. Since June 2025 the API of the legacy USB stack
+          # was marked as deprecated and thus the compiler warnings will lead
+          # errors, false positive errors. As a QnD hack and ONLY FOR THE TIME
+          # BEING Twister have to tolerate warnings. Details, see issue #358.
+          #
           west twister --verbose --jobs 6 \
+            \
+            --disable-warnings-as-errors \
+            \
             --retry-failed 5 --retry-interval 60 \
             --outdir twister-out --no-clean --inline-logs \
             --alt-config-root bridle/zephyr/alt-config/tests \
@@ -527,7 +547,16 @@ jobs:
           # --tag vector_relay \
           # --tag kernel \
           #
+          # TODO/FIXME: Bridle have to swap from the legacy USB stack to the
+          # next new USB stack. Since June 2025 the API of the legacy USB stack
+          # was marked as deprecated and thus the compiler warnings will lead
+          # errors, false positive errors. As a QnD hack and ONLY FOR THE TIME
+          # BEING Twister have to tolerate warnings. Details, see issue #358.
+          #
           west twister --verbose --jobs 2 \
+            \
+            --disable-warnings-as-errors \
+            \
             --retry-failed 5 --retry-interval 60 \
             --outdir twister-out --no-clean --inline-logs \
             --device-testing --hardware-map ${HARDWARE_MAP} \
