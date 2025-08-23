@@ -8,6 +8,17 @@
 # with any of the Twister filter options in the testcase.yaml files.
 - comment: "boards(sysbuild:true): feature not yet supported by Bridle tests."
   platforms:
+    - bl54l15_dvk/nrf54l10/cpuapp
+    - bl54l15_dvk/nrf54l10/cpuapp/ns
+    - bl54l15_dvk/nrf54l15/cpuapp
+    - bl54l15_dvk/nrf54l15/cpuapp/ns
+    - bl54l15_dvk/nrf54l15/cpuflpr
+    - bl54l15_dvk/nrf54l15/cpuflpr/xip
+    - bl54l15u_dvk/nrf54l15/cpuapp
+    - bl54l15u_dvk/nrf54l15/cpuapp/ns
+    - bl54l15u_dvk/nrf54l15/cpuflpr
+    - bl54l15u_dvk/nrf54l15/cpuflpr/xip
+    - nrf5340_audio_dk/nrf5340/cpuapp/ns
     - nrf5340dk/nrf5340/cpuapp/ns
     - nrf54h20dk@0.8.0/nrf54h20/cpuapp
     - nrf54h20dk@0.9.0/nrf54h20/cpuapp
@@ -27,12 +38,29 @@
     - nrf54l15dk/nrf54l15/cpuapp
     - nrf54l15dk/nrf54l15/cpuflpr
     - nrf54l15dk/nrf54l15/cpuflpr/xip
-    - nrf54l20pdk/nrf54l20/cpuapp
+    - nrf54lm20dk/nrf54lm20a/cpuapp
+    - nrf54lm20dk/nrf54lm20a/cpuflpr
+    - nrf54lm20dk/nrf54lm20a/cpuflpr/xip
+    - nrf9131ek/nrf9131/ns
+    - nrf9151dk/nrf9151/ns
     - nrf9160dk@0.7.0/nrf9160/ns
     - nrf9160dk@0.14.0/nrf9160/ns
+    - nrf9161dk@0.7.0/nrf9161/ns
+    - nrf9161dk@0.14.0/nrf9161/ns
     - nrf9280pdk/nrf9280/cpuapp
     - nrf9280pdk/nrf9280/cpurad
     - nrf9280pdk/nrf9280/cpuppr/xip
+    - ophelia4ev/nrf54l15/cpuapp
+    - ophelia4ev/nrf54l15/cpuflpr
+    - panb511evb/nrf54l15/cpuapp
+    - panb511evb/nrf54l15/cpuflpr
+    - panb511evb/nrf54l15/cpuflpr/xip
+    - raytac_an54l15q_db/nrf54l15/cpuapp
+    - raytac_an54l15q_db/nrf54l15/cpuflpr
+    - raytac_an54l15q_db/nrf54l15/cpuflpr/xip
+    - thingy53/nrf5340/cpuapp/ns
+    - xiao_nrf54l15/nrf54l15/cpuapp
+    - xiao_nrf54l15/nrf54l15/cpuflpr
 
 ##############################################################################
 #
