@@ -39,7 +39,7 @@ tests:
       # Qemu issue (-ENOTBLK): - qemu_x86_tiny
       - qemu_x86_64
       - qemu_x86_64/atom/nokpti
-      - qemu_cortex_r5
+      # Qemu issue (-ENOTBLK): - qemu_cortex_r5
       - qemu_cortex_m0
       - qemu_cortex_m3
       - qemu_cortex_a9
@@ -88,7 +88,7 @@ tests:
       # Qemu issue (-ENOTBLK): - qemu_x86_tiny
       - qemu_x86_64
       - qemu_x86_64/atom/nokpti
-      - qemu_cortex_r5
+      # Qemu issue (-ENOTBLK): - qemu_cortex_r5
       - qemu_cortex_m0
       - qemu_cortex_m3
       - qemu_cortex_a9
@@ -131,7 +131,7 @@ tests:
       # Qemu issue (-ENOTBLK): - qemu_x86_tiny
       - qemu_x86_64
       - qemu_x86_64/atom/nokpti
-      - qemu_cortex_r5
+      # Qemu issue (-ENOTBLK): - qemu_cortex_r5
       - qemu_cortex_m0
       - qemu_cortex_m3
       - qemu_cortex_a9
