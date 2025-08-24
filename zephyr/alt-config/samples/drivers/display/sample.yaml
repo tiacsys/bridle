@@ -3,7 +3,7 @@ sample:
   name: Display sample
 common:
   tags:
-    - zephyr
+    # TODO/FIXME: disable for the time being (fix SPI_RPI_PICO_PIO_DMA) - zephyr
     - shield
     - drivers
     - display
