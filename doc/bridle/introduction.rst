@@ -182,7 +182,10 @@ makes sure your workspace contains Git repositories matching the projects
 defined in the manifest file. Whenever you check out a different revision
 in your manifest repository, you should run :command:`west update` to make
 sure your workspace contains the project repositories the new revision expects
-(according to the manifest file).
+(according to the manifest file). For some target systems, it is necessary to
+also install the associated :external+zephyr:ref:`bin-blobs` in the west
+workspace. The second important west command, :command:`west blobs`, is
+responsible for this.
 
 For more information about :command:`west init`, :command:`west update`, and
 other built-in commands, see :external+zephyr:ref:`west-built-in-cmds`. For more

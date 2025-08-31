@@ -25,6 +25,17 @@ repositories:
   file. They are entirely managed by west, which will clone them or check
   out a specific revision of them every time you run ``west update``.
 
+* The west :external+zephyr:ref:`binary blobs <bin-blobs>`.
+  Those are defined in some (not all) west projct entries in their Zephyr
+  module file. They are entirely managed by west, which will download,
+  clone or check out a specific revision of them every time you run
+  ``west blobs fetch``.
+
+  .. tsn-include:: contribute/bin_blobs.rst
+     :docset: zephyr
+     :start-at: Most binary blobs are distributed under proprietary licenses
+     :end-before: Hosting
+
 .. _dm-wf-get-bridle:
 
 Obtaining a copy of |BRIDLE|
@@ -38,6 +49,7 @@ in a folder named :file:`tiacsys`, use the following commands:
    west init -m https://github.com/tiacsys/bridle.git --mr {revision} tiacsys
    cd tiacsys
    west update
+   west blobs --auto-accept fetch
 
 Replace ``{revision}`` with any revision you wish to obtain. This can be
 ``main`` if you want the latest state, or any released version (e.g.
@@ -60,6 +72,7 @@ switch to a new revision, then you only need to do the following:
    # or check out a release
    git checkout {revision}
    west update
+   west blobs --auto-accept fetch
 
 Where ``{remote}`` is the Git remote that points to the official |TIAC|
 repository. This is called ``origin`` by default for the `tiac-bridle`_

@@ -134,6 +134,28 @@ information about manifests can be found in the
 :external+zephyr:ref:`west manifest section <west-manifests>`
 of the |ZEPHYR| documentation.
 
+Binary Blobs
+============
+
+.. tsn-include:: contribute/bin_blobs.rst
+   :docset: zephyr
+   :start-at: In the context of an operating system
+   :end-before: Software license
+
+.. tsn-include:: contribute/bin_blobs.rst
+   :docset: zephyr
+   :start-at: Most binary blobs are distributed under proprietary licenses
+   :end-before: Hosting
+
+.. tsn-include:: contribute/bin_blobs.rst
+   :docset: zephyr
+   :start-at: The blobs themselves must be specified in
+   :end-before: Each blob which may be fetched must be individually identified
+
+Blobs are fetched from official third-party sources by the ``west blobs``
+:external+zephyr:ref:`command <west-blobs>`. For details read the related
+Zephyr upstream documentation :external+zephyr:ref:`bin-blobs`.
+
 Revisions
 *********
 
