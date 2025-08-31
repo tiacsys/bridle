@@ -52,9 +52,10 @@
     - nrf9280pdk/nrf9280/cpuppr/xip
     - ophelia4ev/nrf54l15/cpuapp
     - ophelia4ev/nrf54l15/cpuflpr
-    - panb511evb/nrf54l15/cpuapp
-    - panb511evb/nrf54l15/cpuflpr
-    - panb511evb/nrf54l15/cpuflpr/xip
+    - panb611evb/nrf54l15/cpuapp
+    - panb611evb/nrf54l15/cpuapp/ns
+    - panb611evb/nrf54l15/cpuflpr
+    - panb611evb/nrf54l15/cpuflpr/xip
     - raytac_an54l15q_db/nrf54l15/cpuapp
     - raytac_an54l15q_db/nrf54l15/cpuflpr
     - raytac_an54l15q_db/nrf54l15/cpuflpr/xip
