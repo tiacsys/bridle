@@ -841,6 +841,17 @@ To clone the repositories, complete the following steps:
 
          west update
 
+#. Enter the following command to fetch all known binary blobs:
+
+   .. container:: highlight highlight-console notranslate
+
+      .. parsed-literal::
+
+         west blobs --auto-accept fetch
+
+   To remove outdated artifacts from the build system, you can also precede
+   it with :command:`west blobs clean`.
+
 #. Export the :external+zephyr:ref:`Zephyr CMake package <cmake_pkg>` and
    also for |BRIDLE|. This allows CMake to automatically load the boilerplate
    code required for building |BRIDLE| applications:

@@ -177,7 +177,7 @@ For example:
          remote: tiacsys
          revision: v0.1.5
          import: true
-       # Example for how to override a repository in the BRIDLE with your own:
+       # Example for how to override a repository in BRIDLE with your own:
        - name: mcuboot
          remote: your-remote
          revision: your-mcuboot-fork-SHA-or-branch
@@ -207,6 +207,7 @@ and *your-ncs-fork*, respectively), as shown in the following code:
    west init -m https:\ //github.com/*your-name/your-application* *your-tiacsys-fork*
    cd *your-tiacsys-fork*
    west update
+   west blobs --auto-accept fetch
 
 After that, to modify the |BRIDLE| version associated with your app,
 change the ``revision`` value in the manifest file to the `tiac-bridle`_
