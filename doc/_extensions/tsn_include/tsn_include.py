@@ -1,4 +1,4 @@
-# Copyright (c) 2021 TiaC Systems
+# Copyright (c) 2021-2025 TiaC Systems
 # Copyright (c) 2021 Nordic Semiconductor ASA
 #
 # SPDX-License-Identifier: Apache-2.0
@@ -29,7 +29,9 @@ class TsnInclude(SphinxDirective):
         'tab-width': int,
         'start-line': int,
         'end-line': int,
+        'start-at': directives.unchanged_required,
         'start-after': directives.unchanged_required,
+        'end-at': directives.unchanged_required,
         'end-before': directives.unchanged_required,
     }
 
@@ -94,8 +96,19 @@ class TsnInclude(SphinxDirective):
             raise self.severe(
                 f'Problem with "{self.name}" directive:\n{ErrorString(error)}'
             ) from error
-        # start-after/end-before: no restrictions on newlines in match-text,
-        # and no restrictions on matching inside lines vs. line boundaries
+        # start-at/start-after and end-at/end-before: no restrictions on
+        # newlines in match-text, and no restrictions on matching inside
+        # lines vs. line boundaries
+        at_text = self.options.get('start-at', None)
+        if at_text:
+            # skip content in rawtext before *and incl.* a matching text
+            at_index = rawtext.find(at_text)
+            if at_index < 0:
+                raise self.severe(
+                    f'Problem with "start-at" option of "{self.name}" '
+                    'directive:\nText not found.'
+                )
+            rawtext = rawtext[at_index :]
         after_text = self.options.get('start-after', None)
         if after_text:
             # skip content in rawtext before *and incl.* a matching text
@@ -106,6 +119,16 @@ class TsnInclude(SphinxDirective):
                     'directive:\nText not found.'
                 )
             rawtext = rawtext[after_index + len(after_text) :]
+        at_text = self.options.get('end-at', None)
+        if at_text:
+            # skip content in rawtext after *and incl.* a matching text
+            at_index = rawtext.find(at_text)
+            if at_index < 0:
+                raise self.severe(
+                    f'Problem with "end-at" option of "{self.name}" '
+                    'directive:\nText not found.'
+                )
+            rawtext = rawtext[:at_index + len(at_text)]
         before_text = self.options.get('end-before', None)
         if before_text:
             # skip content in rawtext after *and incl.* a matching text
