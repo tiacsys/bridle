@@ -194,7 +194,7 @@ Build Infrastructure
 * tbd.
 * tbd.
 * tbd.
-
+* Bridle now requires binary blobs that have to fetch with :command:`west blobs`.
 
 Documentation
 =============
@@ -206,7 +206,6 @@ Documentation
 3. tbd.
 4. Update all output messages in documentation to be in sync with the upcoming
    Bridle version v4.3.0, based on Zephyr v4.3 (samples and tests).
-
 
 Issue Related Items
 *******************
