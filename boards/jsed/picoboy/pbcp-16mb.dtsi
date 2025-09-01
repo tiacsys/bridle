@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2025 TiaC Systems
+ * Copyright (c) 2023-2025 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
 #include <mem.h>
 
-#include "mini_usb_flash.dtsi"
+#include "pbcp-flash.dtsi"
 
 &flash0 {
 	status = "okay";
@@ -13,5 +13,5 @@
 };
 
 &code_partition {
-	reg = <0x0 DT_SIZE_M(16)>;
+	reg = <0x00000000 DT_SIZE_M(16)>;
 };

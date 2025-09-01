@@ -128,9 +128,9 @@ the following Zephyr hardware features:
      - :dtcompatible:`nordic,nrf-uarte`
      - :external+zephyr:ref:`uart_api`
    * - UDC (USB Device Controller)
-     - :kconfig:option:`CONFIG_USB_DEVICE_STACK`
+     - :kconfig:option:`CONFIG_USB_DEVICE_STACK_NEXT`
      - :dtcompatible:`nordic,nrf-usbd`
-     - :external+zephyr:ref:`usb_api`
+     - :external+zephyr:ref:`usb_device_next_api`
    * - RADIO (L1: GFSK / O-QPSK, L2: IEEE 802.15.4)
      - :kconfig:option:`CONFIG_NET_L2_IEEE802154`
      - | :dtcompatible:`nordic,nrf-radio`

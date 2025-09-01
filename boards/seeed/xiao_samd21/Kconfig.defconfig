@@ -1,16 +1,8 @@
 # XIAO SAMD21 (Seeeduino XIAO) board configuration
 
-# Copyright (c) 2023-2024 TiaC Systems
+# Copyright (c) 2023-2025 TiaC Systems
 # Copyright (c) 2020 Google LLC.
 # SPDX-License-Identifier: Apache-2.0
-
-config USB_SELF_POWERED
-	default n
-	depends on USB_DEVICE_STACK && BOARD_XIAO_SAMD21
-
-config USB_MAX_POWER
-	default 250 if BOARD_XIAO_SAMD21	# 500mA
-	depends on USB_DEVICE_STACK && BOARD_XIAO_SAMD21
 
 # Workaround for not being able to have commas in macro arguments
 DT_CHOSEN_Z_CONSOLE := zephyr,console
@@ -30,25 +22,30 @@ config BOOTLOADER_BOSSA_DEVICE_NAME
 	default "$(dt_chosen_label,$(DT_CHOSEN_Z_CONSOLE))"
 	depends on USB_CDC_ACM
 
+config CDC_ACM_SERIAL_SELF_POWERED
+	default n
+	depends on USB_DEVICE_STACK_NEXT && USBD_CDC_ACM_CLASS
+
+config CDC_ACM_SERIAL_MAX_POWER
+	default 250 if BOARD_XIAO_SAMD21	# 500mA
+	depends on USB_DEVICE_STACK_NEXT && USBD_CDC_ACM_CLASS
+
 # Logger cannot use itself to log
-choice USB_CDC_ACM_LOG_LEVEL_CHOICE
-	default USB_CDC_ACM_LOG_LEVEL_OFF
-	depends on LOG
+choice USBD_CDC_ACM_LOG_LEVEL_CHOICE
+	default USBD_CDC_ACM_LOG_LEVEL_OFF
+	depends on LOG && USB_DEVICE_STACK_NEXT && USBD_CDC_ACM_CLASS
 endchoice
 
 # Set USB log level to error only
-choice USB_DEVICE_LOG_LEVEL_CHOICE
-	default USB_DEVICE_LOG_LEVEL_ERR
-	depends on LOG
+choice USBD_LOG_LEVEL_CHOICE
+	default USBD_LOG_LEVEL_ERR
+	depends on LOG && USB_DEVICE_STACK_NEXT && USBD_CDC_ACM_CLASS
 endchoice
 
-# Wait 4000ms at startup for logging
-config LOG_PROCESS_THREAD_STARTUP_DELAY_MS
-	default 4000
-	depends on LOG
-
-# Wait 4000ms at startup for USB enumeration on host side
-config BOOT_DELAY
-	default 4000
+# Set UDC driver log level to error only
+choice UDC_DRIVER_LOG_LEVEL_CHOICE
+	default UDC_DRIVER_LOG_LEVEL_ERR
+	depends on LOG && USB_DEVICE_STACK_NEXT && USBD_CDC_ACM_CLASS
+endchoice
 
 endif # zephyr,cdc-acm-uart

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 TiaC Systems
+ * Copyright (c) 2023-2025 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -17,7 +17,7 @@
 	msc_disk0 {
 		compatible = "zephyr,flash-disk";
 		partition = <&storage_partition>;
-		disk-name = "NAND"; // CONFIG_MASS_STORAGE_DISK_NAME
+		disk-name = "NAND";
 		cache-size = <4096>;
 	};
 };

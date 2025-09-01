@@ -33,9 +33,18 @@
 	};
 };
 
+&clocks {
+	pinctrl-0 = <&clocks_default>;
+	pinctrl-names = "default";
+};
+
 &vreg {
 	regulator-always-on;
 	regulator-allowed-modes = <REGULATOR_RPI_PICO_MODE_NORMAL>;
+};
+
+&reset {
+	status = "okay";
 };
 
 &wdt0 {
