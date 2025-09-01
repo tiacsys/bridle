@@ -1246,14 +1246,8 @@
 
 .. Kconfig References
 
-.. |CONFIG_BOOT_DELAY| replace::
-   :external+kconfig:kconfig:option:`CONFIG_BOOT_DELAY`
-
 .. |CONFIG_CONSOLE| replace::
    :external+kconfig:kconfig:option:`CONFIG_CONSOLE`
-
-.. |CONFIG_LOG_PROCESS_THREAD_STARTUP_DELAY_MS| replace::
-   :external+kconfig:kconfig:option:`CONFIG_LOG_PROCESS_THREAD_STARTUP_DELAY_MS`
 
 .. |CONFIG_RP2_FLASH_AT25SF128A| replace::
    :external+kconfig:kconfig:option:`CONFIG_RP2_FLASH_AT25SF128A`
@@ -1279,38 +1273,44 @@
 .. |CONFIG_UART_LINE_CTRL| replace::
    :external+kconfig:kconfig:option:`CONFIG_UART_LINE_CTRL`
 
-.. |CONFIG_USB_CDC_ACM_LOG_LEVEL_CHOICE| replace::
-   :external+kconfig:kconfig:option:`CONFIG_USB_CDC_ACM_LOG_LEVEL_CHOICE`
+.. |CONFIG_USBD_CDC_ACM_LOG_LEVEL_CHOICE| replace::
+   :external+kconfig:kconfig:option:`CONFIG_USBD_CDC_ACM_LOG_LEVEL_CHOICE`
 
-.. |CONFIG_USB_CDC_ACM_LOG_LEVEL_OFF| replace::
-   :external+kconfig:kconfig:option:`CONFIG_USB_CDC_ACM_LOG_LEVEL_OFF`
+.. |CONFIG_USBD_CDC_ACM_LOG_LEVEL_OFF| replace::
+   :external+kconfig:kconfig:option:`CONFIG_USBD_CDC_ACM_LOG_LEVEL_OFF`
 
-.. |CONFIG_USB_DEVICE_LOG_LEVEL_CHOICE| replace::
-   :external+kconfig:kconfig:option:`CONFIG_USB_DEVICE_LOG_LEVEL_CHOICE`
+.. |CONFIG_UDC_DRIVER_LOG_LEVEL_CHOICE| replace::
+   :external+kconfig:kconfig:option:`CONFIG_UDC_DRIVER_LOG_LEVEL_CHOICE`
 
-.. |CONFIG_USB_DEVICE_LOG_LEVEL_ERR| replace::
-   :external+kconfig:kconfig:option:`CONFIG_USB_DEVICE_LOG_LEVEL_ERR`
+.. |CONFIG_UDC_DRIVER_LOG_LEVEL_ERR| replace::
+   :external+kconfig:kconfig:option:`CONFIG_UDC_DRIVER_LOG_LEVEL_ERR`
 
-.. |CONFIG_USB_DEVICE_MANUFACTURER| replace::
-   :external+kconfig:kconfig:option:`CONFIG_USB_DEVICE_MANUFACTURER`
+.. |CONFIG_USBD_LOG_LEVEL_CHOICE| replace::
+   :external+kconfig:kconfig:option:`CONFIG_USBD_LOG_LEVEL_CHOICE`
 
-.. |CONFIG_USB_DEVICE_PID| replace::
-   :external+kconfig:kconfig:option:`CONFIG_USB_DEVICE_PID`
+.. |CONFIG_USBD_LOG_LEVEL_ERR| replace::
+   :external+kconfig:kconfig:option:`CONFIG_USBD_LOG_LEVEL_ERR`
 
-.. |CONFIG_USB_DEVICE_PRODUCT| replace::
-   :external+kconfig:kconfig:option:`CONFIG_USB_DEVICE_PRODUCT`
+.. |CONFIG_CDC_ACM_SERIAL_MANUFACTURER_STRING| replace::
+   :external+kconfig:kconfig:option:`CONFIG_CDC_ACM_SERIAL_MANUFACTURER_STRING`
 
-.. |CONFIG_USB_DEVICE_STACK| replace::
-   :external+kconfig:kconfig:option:`CONFIG_USB_DEVICE_STACK`
+.. |CONFIG_CDC_ACM_SERIAL_PID| replace::
+   :external+kconfig:kconfig:option:`CONFIG_CDC_ACM_SERIAL_PID`
 
-.. |CONFIG_USB_DEVICE_VID| replace::
-   :external+kconfig:kconfig:option:`CONFIG_USB_DEVICE_VID`
+.. |CONFIG_CDC_ACM_SERIAL_PRODUCT_STRING| replace::
+   :external+kconfig:kconfig:option:`CONFIG_CDC_ACM_SERIAL_PRODUCT_STRING`
 
-.. |CONFIG_USB_MAX_POWER| replace::
-   :external+kconfig:kconfig:option:`CONFIG_USB_MAX_POWER`
+.. |CONFIG_USB_DEVICE_STACK_NEXT| replace::
+   :external+kconfig:kconfig:option:`CONFIG_USB_DEVICE_STACK_NEXT`
 
-.. |CONFIG_USB_SELF_POWERED| replace::
-   :external+kconfig:kconfig:option:`CONFIG_USB_SELF_POWERED`
+.. |CONFIG_CDC_ACM_SERIAL_VID| replace::
+   :external+kconfig:kconfig:option:`CONFIG_CDC_ACM_SERIAL_VID`
+
+.. |CONFIG_CDC_ACM_SERIAL_MAX_POWER| replace::
+   :external+kconfig:kconfig:option:`CONFIG_CDC_ACM_SERIAL_MAX_POWER`
+
+.. |CONFIG_CDC_ACM_SERIAL_SELF_POWERED| replace::
+   :external+kconfig:kconfig:option:`CONFIG_CDC_ACM_SERIAL_SELF_POWERED`
 
 .. Raspberry Pi Pico HAL References
 

@@ -289,17 +289,17 @@ How to add support of a new board
 * add board configuration and devicetree overlay to this snippet;
 * which overwrites following options:
 
-  - |CONFIG_USB_DEVICE_VID|
-  - |CONFIG_USB_DEVICE_PID|
-  - |CONFIG_USB_DEVICE_MANUFACTURER|
-  - |CONFIG_USB_DEVICE_PRODUCT|
+  - |CONFIG_CDC_ACM_SERIAL_VID|
+  - |CONFIG_CDC_ACM_SERIAL_PID|
+  - |CONFIG_CDC_ACM_SERIAL_MANUFACTURER_STRING|
+  - |CONFIG_CDC_ACM_SERIAL_PRODUCT_STRING|
 
 Requirements
 ************
 
 Hardware support for:
 
-   - |CONFIG_USB_DEVICE_STACK|
+   - |CONFIG_USB_DEVICE_STACK_NEXT|
    - |CONFIG_SERIAL|
    - |CONFIG_CONSOLE|
    - |CONFIG_UART_CONSOLE|
