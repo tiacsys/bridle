@@ -1,4 +1,4 @@
-# Copyright (c) 2023-2024 TiaC Systems
+# Copyright (c) 2023-2025 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 config BOARD_CYTRON_RP2040
@@ -16,34 +16,41 @@ config CLOCK_CONTROL
 	depends on DT_HAS_RASPBERRYPI_PICO_CLOCK_ENABLED && \
 		   DT_HAS_RASPBERRYPI_PICO_CLOCK_CONTROLLER_ENABLED
 
+config REGULATOR
+	default y
+	depends on DT_HAS_REGULATOR_FIXED_ENABLED
+
 config RESET
 	default y
 	depends on DT_HAS_RASPBERRYPI_PICO_RESET_ENABLED
+
+config WATCHDOG
+	default y
+	depends on DT_HAS_RASPBERRYPI_PICO_WATCHDOG_ENABLED
+
+config WDT_DISABLE_AT_BOOT
+	default y if HAS_WDT_DISABLE_AT_BOOT
+	depends on WATCHDOG && BOARD_CYTRON_RP2040
+
+config COUNTER
+	default y
+	depends on DT_HAS_RASPBERRYPI_PICO_TIMER_ENABLED
+
+config DMA
+	default y
+	depends on DT_HAS_RASPBERRYPI_PICO_DMA_ENABLED
 
 config GPIO
 	default y
 	depends on DT_HAS_RASPBERRYPI_PICO_GPIO_ENABLED
 
-config REGULATOR
+config PWM
 	default y
-	depends on DT_HAS_REGULATOR_FIXED_ENABLED
-
-config I2C_DW_CLOCK_SPEED
-	default 125
-	depends on I2C_DW && BOARD_CYTRON_RP2040
+	depends on DT_HAS_RASPBERRYPI_PICO_PWM_ENABLED
 
 config INPUT
 	default y if DT_HAS_ZEPHYR_LVGL_KEYPAD_INPUT_ENABLED
-	depends on BOARD_PICOBOY_RP2040 && DISPLAY && LVGL
-
-config USB_SELF_POWERED
-	default n
-	depends on USB_DEVICE_STACK && BOARD_CYTRON_RP2040
-
-config USB_MAX_POWER
-	default 215 if BOARD_CYTRON_MAKER_NANO_RP2040	# 430mA
-	default 250 if BOARD_CYTRON_MAKER_PI_RP2040	# 500mA
-	depends on USB_DEVICE_STACK && BOARD_CYTRON_RP2040
+	depends on DISPLAY && LVGL
 
 # Workaround for not being able to have commas in macro arguments
 DT_CHOSEN_Z_CONSOLE := zephyr,console
@@ -59,25 +66,31 @@ if BOARD_CYTRON_RP2040 && \
 	$(dt_compat_on_bus,$(DT_COMPAT_Z_CDC_ACM_UART),usb) && \
 	$(dt_node_has_compat,$(DT_CHOSEN_CONSOLE_PARENT),$(DT_COMPAT_RPIPICO_USB))
 
+config CDC_ACM_SERIAL_SELF_POWERED
+	default n
+	depends on USB_DEVICE_STACK_NEXT && USBD_CDC_ACM_CLASS
+
+config CDC_ACM_SERIAL_MAX_POWER
+	default 215 if BOARD_CYTRON_MAKER_NANO_RP2040	# 430mA
+	default 250 if BOARD_CYTRON_MAKER_PI_RP2040	# 500mA
+	depends on USB_DEVICE_STACK_NEXT && USBD_CDC_ACM_CLASS
+
 # Logger cannot use itself to log
-choice USB_CDC_ACM_LOG_LEVEL_CHOICE
-	default USB_CDC_ACM_LOG_LEVEL_OFF
-	depends on LOG
+choice USBD_CDC_ACM_LOG_LEVEL_CHOICE
+	default USBD_CDC_ACM_LOG_LEVEL_OFF
+	depends on LOG && USB_DEVICE_STACK_NEXT && USBD_CDC_ACM_CLASS
 endchoice
 
 # Set USB log level to error only
-choice USB_DEVICE_LOG_LEVEL_CHOICE
-	default USB_DEVICE_LOG_LEVEL_ERR
-	depends on LOG
+choice USBD_LOG_LEVEL_CHOICE
+	default USBD_LOG_LEVEL_ERR
+	depends on LOG && USB_DEVICE_STACK_NEXT && USBD_CDC_ACM_CLASS
 endchoice
 
-# Wait 4000ms at startup for logging
-config LOG_PROCESS_THREAD_STARTUP_DELAY_MS
-	default 4000
-	depends on LOG
-
-# Wait 4000ms at startup for USB enumeration on host side
-config BOOT_DELAY
-	default 4000
+# Set UDC driver log level to error only
+choice UDC_DRIVER_LOG_LEVEL_CHOICE
+	default UDC_DRIVER_LOG_LEVEL_ERR
+	depends on LOG && USB_DEVICE_STACK_NEXT && USBD_CDC_ACM_CLASS
+endchoice
 
 endif # zephyr,cdc-acm-uart

@@ -17,4 +17,5 @@
 
 &die_temp {
 	status = "okay";
+	friendly-name = "RP2040 chip temperature";
 };

@@ -11,11 +11,6 @@
 
 #include "pbcp-pinctrl.dtsi"
 
-#define __FLASH_MBR_NODE image_def
-#define __FLASH_MBR_SIZE 0x100
-
-#define __FLASH_CTRL_NODE qmi
-
 / {
 	chosen {
 		zephyr,sram = &sram0;

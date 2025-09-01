@@ -11,6 +11,7 @@
 &grove_i2c {
 	dps310@77 {
 		compatible = "infineon,dps310";
+		friendly-name = "Grove High Precision TP Sensor V1.0 (DPS310)";
 		status = "okay";
 		reg = <0x77>;
 	};

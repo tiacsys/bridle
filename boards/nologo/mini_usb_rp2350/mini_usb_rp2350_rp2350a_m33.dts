@@ -35,6 +35,15 @@
 	};
 };
 
+&clocks {
+	pinctrl-0 = <&clocks_default>;
+	pinctrl-names = "default";
+};
+
+&reset {
+	status = "okay";
+};
+
 &wdt0 {
 	status = "okay";
 };

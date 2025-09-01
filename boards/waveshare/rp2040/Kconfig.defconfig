@@ -38,21 +38,37 @@ config CLOCK_CONTROL
 	depends on DT_HAS_RASPBERRYPI_PICO_CLOCK_ENABLED && \
 		   DT_HAS_RASPBERRYPI_PICO_CLOCK_CONTROLLER_ENABLED
 
+config REGULATOR
+	default y
+	depends on DT_HAS_REGULATOR_FIXED_ENABLED
+
 config RESET
 	default y
 	depends on DT_HAS_RASPBERRYPI_PICO_RESET_ENABLED
+
+config WATCHDOG
+	default y
+	depends on DT_HAS_RASPBERRYPI_PICO_WATCHDOG_ENABLED
+
+config WDT_DISABLE_AT_BOOT
+	default y if HAS_WDT_DISABLE_AT_BOOT
+	depends on WATCHDOG && BOARD_WAVESHARE_RP2040
+
+config COUNTER
+	default y
+	depends on DT_HAS_RASPBERRYPI_PICO_TIMER_ENABLED
+
+config DMA
+	default y
+	depends on DT_HAS_RASPBERRYPI_PICO_DMA_ENABLED
 
 config GPIO
 	default y
 	depends on DT_HAS_RASPBERRYPI_PICO_GPIO_ENABLED
 
-config REGULATOR
+config PWM
 	default y
-	depends on DT_HAS_REGULATOR_FIXED_ENABLED
-
-config I2C_DW_CLOCK_SPEED
-	default 125
-	depends on I2C_DW && BOARD_WAVESHARE_RP2040
+	depends on DT_HAS_RASPBERRYPI_PICO_PWM_ENABLED
 
 config LED_STRIP
 	default y
@@ -79,21 +95,6 @@ config LV_COLOR_16_SWAP
 	default y if BOARD_WAVESHARE_RP2040_GEEK
 	depends on BOARD_WAVESHARE_RP2040_LCD && DISPLAY && LVGL
 
-config USB_SELF_POWERED
-	default n
-	depends on USB_DEVICE_STACK && BOARD_WAVESHARE_RP2040
-
-config USB_MAX_POWER
-	default 150 if BOARD_WAVESHARE_RP2040_ONE	# 300mA
-	default 240 if BOARD_WAVESHARE_RP2040_ZERO	# 480mA
-	default 150 if BOARD_WAVESHARE_RP2040_MATRIX	# 300mA
-	default 150 if BOARD_WAVESHARE_RP2040_TINY	# 300mA
-	default 240 if BOARD_WAVESHARE_RP2040_ETH	# 480mA
-	default 250 if BOARD_WAVESHARE_RP2040_LCD_0_96	# 500mA
-	default 250 if BOARD_WAVESHARE_RP2040_PLUS	# 500mA
-	default 100 if BOARD_WAVESHARE_RP2040_GEEK	# 200mA
-	depends on USB_DEVICE_STACK && BOARD_WAVESHARE_RP2040
-
 # Workaround for not being able to have commas in macro arguments
 DT_CHOSEN_Z_CONSOLE := zephyr,console
 DT_COMPAT_Z_CDC_ACM_UART := zephyr,cdc-acm-uart
@@ -108,25 +109,37 @@ if BOARD_WAVESHARE_RP2040 && \
 	$(dt_compat_on_bus,$(DT_COMPAT_Z_CDC_ACM_UART),usb) && \
 	$(dt_node_has_compat,$(DT_CHOSEN_CONSOLE_PARENT),$(DT_COMPAT_RPIPICO_USB))
 
+config CDC_ACM_SERIAL_SELF_POWERED
+	default n
+	depends on USB_DEVICE_STACK_NEXT && USBD_CDC_ACM_CLASS
+
+config CDC_ACM_SERIAL_MAX_POWER
+	default 150 if BOARD_WAVESHARE_RP2040_ONE	# 300mA
+	default 240 if BOARD_WAVESHARE_RP2040_ZERO	# 480mA
+	default 150 if BOARD_WAVESHARE_RP2040_MATRIX	# 300mA
+	default 150 if BOARD_WAVESHARE_RP2040_TINY	# 300mA
+	default 240 if BOARD_WAVESHARE_RP2040_ETH	# 480mA
+	default 250 if BOARD_WAVESHARE_RP2040_LCD_0_96	# 500mA
+	default 250 if BOARD_WAVESHARE_RP2040_PLUS	# 500mA
+	default 100 if BOARD_WAVESHARE_RP2040_GEEK	# 200mA
+	depends on USB_DEVICE_STACK_NEXT && USBD_CDC_ACM_CLASS
+
 # Logger cannot use itself to log
-choice USB_CDC_ACM_LOG_LEVEL_CHOICE
-	default USB_CDC_ACM_LOG_LEVEL_OFF
-	depends on LOG
+choice USBD_CDC_ACM_LOG_LEVEL_CHOICE
+	default USBD_CDC_ACM_LOG_LEVEL_OFF
+	depends on LOG && USB_DEVICE_STACK_NEXT && USBD_CDC_ACM_CLASS
 endchoice
 
 # Set USB log level to error only
-choice USB_DEVICE_LOG_LEVEL_CHOICE
-	default USB_DEVICE_LOG_LEVEL_ERR
-	depends on LOG
+choice USBD_LOG_LEVEL_CHOICE
+	default USBD_LOG_LEVEL_ERR
+	depends on LOG && USB_DEVICE_STACK_NEXT && USBD_CDC_ACM_CLASS
 endchoice
 
-# Wait 4000ms at startup for logging
-config LOG_PROCESS_THREAD_STARTUP_DELAY_MS
-	default 4000
-	depends on LOG
-
-# Wait 4000ms at startup for USB enumeration on host side
-config BOOT_DELAY
-	default 4000
+# Set UDC driver log level to error only
+choice UDC_DRIVER_LOG_LEVEL_CHOICE
+	default UDC_DRIVER_LOG_LEVEL_ERR
+	depends on LOG && USB_DEVICE_STACK_NEXT && USBD_CDC_ACM_CLASS
+endchoice
 
 endif # zephyr,cdc-acm-uart
