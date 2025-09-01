@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) 2023-2025 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <mem.h>
+
+#include "pb-flash.dtsi"
+
+&flash0 {
+	status = "okay";
+	reg = <0x10000000 DT_SIZE_M(2)>;
+};
+
+/*
+ * Usable flash. Starts after the RP2040 second stage bootloader. The
+ * partition size is 2MB minus the 0x100 bytes taken by the RP2040
+ * second stage bootloader.
+ */
+&code_partition {
+	reg = <0x00000100 (DT_SIZE_M(2) - 0x100)>;
+};

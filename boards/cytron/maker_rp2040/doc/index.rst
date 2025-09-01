@@ -104,9 +104,9 @@ configuration supports the following hardware features:
      - :dtcompatible:`raspberrypi,pico-uart`
      - :external+zephyr:ref:`uart_api`
    * - UDC (USB Device Controller)
-     - :kconfig:option:`CONFIG_USB_DEVICE_STACK`
+     - :kconfig:option:`CONFIG_USB_DEVICE_STACK_NEXT`
      - :dtcompatible:`raspberrypi,pico-usbd`
-     - :external+zephyr:ref:`usb_api`
+     - :external+zephyr:ref:`usb_device_next_api`
    * - I2C
      - :kconfig:option:`CONFIG_I2C`
      - :dtcompatible:`raspberrypi,pico-i2c`

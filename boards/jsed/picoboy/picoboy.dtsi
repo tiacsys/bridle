@@ -10,11 +10,6 @@
 
 #include "pb-pinctrl.dtsi"
 
-#define __FLASH_MBR_NODE second_stage_bootloader
-#define __FLASH_MBR_SIZE 0x100
-
-#define __FLASH_CTRL_NODE ssi
-
 / {
 	chosen {
 		zephyr,sram = &sram0;
@@ -25,14 +20,14 @@
 	};
 };
 
-&vreg {
-	regulator-always-on;
-	regulator-allowed-modes = <REGULATOR_RPI_PICO_MODE_NORMAL>;
-};
-
 &clocks {
 	pinctrl-0 = <&clocks_default>;
 	pinctrl-names = "default";
+};
+
+&vreg {
+	regulator-always-on;
+	regulator-allowed-modes = <REGULATOR_RPI_PICO_MODE_NORMAL>;
 };
 
 &reset {
@@ -40,6 +35,11 @@
 };
 
 &wdt0 {
+	status = "okay";
+};
+
+&rtc {
+	clocks = <&clocks RPI_PICO_CLKID_CLK_RTC>;
 	status = "okay";
 };
 
