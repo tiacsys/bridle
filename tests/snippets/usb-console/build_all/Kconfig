@@ -12,76 +12,84 @@ config TEST_CHOSEN_ZEPHYR_SHELL_UART
 	bool "Test `/chosen` property `zephyr,shell-uart`"
 	default n
 
-menuconfig TEST_EXPECTED_USB_DEVICE_STACK
+menuconfig TEST_EXPECTED_USB_DEVICE_STACK_NEXT
 	bool "Expected USB Device Support"
 	default n
 	help
 	  Expect, USB device stack is enabled.
 
-if TEST_EXPECTED_USB_DEVICE_STACK
+if TEST_EXPECTED_USB_DEVICE_STACK_NEXT
 
-module = TEST_EXPECTED_USB_DEVICE
-module-str = expected usb device
+module = TEST_EXPECTED_USBD
+module-str = expected usbd
 source "subsys/logging/Kconfig.template.log_config"
 
-config TEST_EXPECTED_USB_DEVICE_VID
-	hex "Expected USB Vendor ID"
-	default 0x2FE3
-	help
-	  Expected USB device vendor ID.
-	  MUST be configured by vendor.
-
-config TEST_EXPECTED_USB_DEVICE_PID
-	hex "Expected USB Product ID"
-	default 0x0100
-	help
-	  Expected USB device product ID.
-	  MUST be configured by vendor.
-
-config TEST_EXPECTED_USB_DEVICE_MANUFACTURER
-	string "Expected USB Manufacturer Name"
-	default "ZEPHYR"
-	help
-	  Expected USB device manufacturer string.
-	  MUST be configured by vendor.
-
-config TEST_EXPECTED_USB_DEVICE_PRODUCT
-	string "Expected USB Product Name"
-	default "USB-DEV"
-	help
-	  Expected USB device product string.
-	  MUST be configured by vendor.
-
-config TEST_EXPECTED_USB_DEVICE_SN
-	string "Expected USB Device Serial Number String"
-	default "0123456789ABCDEF"
-	help
-	  Expected placeholder for USB device serial number string.
-	  serial number string will be derived from
-	  Hardware Information Driver (HWINFO).
-
-config TEST_EXPECTED_USB_DEVICE_INITIALIZE_AT_BOOT
-	bool "Expect initialize USB Device Support at boot"
-	depends on TEST_EXPECTED_USB_CDC_ACM
-	default n
-	help
-	  Expect use CDC ACM UART as backend for console, shell, or logging.
-
-menuconfig TEST_EXPECTED_USB_CDC_ACM
+menuconfig TEST_EXPECTED_USBD_CDC_ACM_CLASS
 	bool "Expected USB CDC ACM Class Support"
 	default n
 	help
 	  Expected USB CDC ACM class support.
 
-if TEST_EXPECTED_USB_CDC_ACM
+if TEST_EXPECTED_USBD_CDC_ACM_CLASS
 
-module = TEST_EXPECTED_USB_CDC_ACM
-module-str = expected usb cdc acm
+module = TEST_EXPECTED_USBD_CDC_ACM
+module-str = expected usbd cdc acm
 source "subsys/logging/Kconfig.template.log_config"
 
-endif # TEST_EXPECTED_USB_CDC_ACM
+menuconfig TEST_EXPECTED_CDC_ACM_SERIAL_INITIALIZE_AT_BOOT
+	bool "Expect initialize USB Device Support at boot"
+	default n
+	help
+	  Expect use CDC ACM UART as backend for console, shell, or logging.
 
-endif # TEST_EXPECTED_USB_DEVICE_STACK
+if TEST_EXPECTED_CDC_ACM_SERIAL_INITIALIZE_AT_BOOT
+
+config TEST_EXPECTED_CDC_ACM_SERIAL_VID
+	hex "Expected USB CDC ACM Vendor ID"
+	default 0x2FE3
+	help
+	  Expected USB CDC ACM device vendor ID.
+	  MUST be configured by vendor.
+
+config TEST_EXPECTED_CDC_ACM_SERIAL_PID
+	hex "Expected USB CDC ACM Product ID"
+	default 0x0100
+	help
+	  Expected USB CDC ACM device product ID.
+	  MUST be configured by vendor.
+
+config TEST_EXPECTED_CDC_ACM_SERIAL_MANUFACTURER_STRING
+	string "Expected USB CDC ACM Manufacturer Name"
+	default "ZEPHYR"
+	help
+	  Expected USB CDC ACM device manufacturer string.
+	  MUST be configured by vendor.
+
+config TEST_EXPECTED_CDC_ACM_SERIAL_PRODUCT_STRING
+	string "Expected USB CDC ACM Product Name"
+	default "USB-DEV"
+	help
+	  Expected USB CDC ACM device product string.
+	  MUST be configured by vendor.
+
+config TEST_EXPECTED_CDC_ACM_SERIAL_SELF_POWERED
+	bool "Expected USB CDC ACM Device Self-Powered"
+	default y
+	help
+	  Expected self-powered attribute in the configuration.
+
+config TEST_EXPECTED_CDC_ACM_SERIAL_MAX_POWER
+	int "Expected USB CDC ACM Device bMaxPower Value"
+	default 125
+	range 0 250
+	help
+	  Expected bMaxPower value in the configuration in 2 mA units.
+
+endif # TEST_EXPECTED_CDC_ACM_SERIAL_INITIALIZE_AT_BOOT
+
+endif # TEST_EXPECTED_USBD_CDC_ACM_CLASS
+
+endif # TEST_EXPECTED_USB_DEVICE_STACK_NEXT
 
 # Sources Kconfig.zephyr in the Zephyr root directory.
 comment "Zephyr configuration:"
