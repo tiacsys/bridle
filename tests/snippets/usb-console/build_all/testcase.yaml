@@ -18,9 +18,9 @@ common:
   sysbuild: false
   build_only: true
   build_on_all: true
-  filter: dt_chosen_enabled("zephyr,console") and
-          dt_compat_enabled("zephyr,cdc-acm-uart") and CONFIG_USB_CDC_ACM and
-          CONFIG_USB_DEVICE_DRIVER and CONFIG_USB_DEVICE_STACK
+  filter: CONFIG_USB_DEVICE_STACK_NEXT and CONFIG_USBD_CDC_ACM_CLASS and
+          dt_compat_enabled("zephyr,cdc-acm-uart") and
+          dt_chosen_enabled("zephyr,console")
   # platform_exclude:
   #
   # AVOID `platform_exclude` statement here in the `common` section!
@@ -33,6 +33,7 @@ common:
     - coffeecaller_nrf52
     - cytron_maker_nano_rp2040
     - cytron_maker_pi_rp2040
+    - magpie_f777ni
     - mimxrt1010_evk
     - mimxrt1060_evk@A/mimxrt1062/qspi
     - mimxrt1060_evk@B/mimxrt1062/qspi
@@ -40,7 +41,7 @@ common:
     - mimxrt1060_evk@C/mimxrt1062/hyperflash
     - mini_usb_rp2040
     - mini_usb_rp2040@16mb
-    # Build issue (mini_usb_rp2040/src/chipled_pwm_chipled_off.c): - mini_usb_rp2040@chipled
+    - mini_usb_rp2040@chipled
     - mini_usb_rp2350/rp2350a/m33
     - mini_usb_rp2350@16mb/rp2350a/m33
     - nucleo_f767zi
@@ -57,10 +58,6 @@ common:
     - vccgnd_bluepill_stm32f103c8
     - vccgnd_bluepill_stm32f072cb
     - vccgnd_bluepill_stm32f072c8
-    # Build issue (undefined node label 'zephyr_udc0') [USB WIP]: - weact_bluepillplus_ch32v203c6
-    # Build issue (undefined node label 'zephyr_udc0') [USB WIP]: - weact_bluepillplus_ch32v203c8
-    - weact_bluepillplus_stm32f103cb
-    - weact_bluepillplus_stm32f103c8
     - waveshare_rp2040_one
     - waveshare_rp2040_zero
     - waveshare_rp2040_matrix
@@ -70,6 +67,10 @@ common:
     - waveshare_rp2040_plus
     - waveshare_rp2040_plus@16mb
     - waveshare_rp2040_geek
+    # Build issue (undefined node label 'zephyr_udc0') [USB WIP]: - weact_bluepillplus_ch32v203c6
+    # Build issue (undefined node label 'zephyr_udc0') [USB WIP]: - weact_bluepillplus_ch32v203c8
+    - weact_bluepillplus_stm32f103cb
+    - weact_bluepillplus_stm32f103c8
 tests:
   #
   # Well known bords (Bridle) with snippet support.
@@ -78,7 +79,7 @@ tests:
     depends_on:
       - usb_device
       - usb_cdc
-    filter: CONFIG_USB_DEVICE_INITIALIZE_AT_BOOT and
+    filter: CONFIG_CDC_ACM_SERIAL_INITIALIZE_AT_BOOT and
             dt_nodelabel_enabled("snippet_cdc_acm_console_uart") and
             dt_chosen_enabled("zephyr,shell-uart") and
             dt_chosen_enabled("zephyr,console")
@@ -87,6 +88,7 @@ tests:
     integration_platforms:
       - cytron_maker_nano_rp2040
       - cytron_maker_pi_rp2040
+      - magpie_f777ni
       - seeeduino_cm0
       - seeeduino_lotus
       - vccgnd_bluepill_stm32f103cb
@@ -123,7 +125,7 @@ tests:
     # depends_on:
     #   - usb_device
     #
-    filter: CONFIG_USB_DEVICE_INITIALIZE_AT_BOOT and
+    filter: CONFIG_CDC_ACM_SERIAL_INITIALIZE_AT_BOOT and
             dt_nodelabel_enabled("snippet_cdc_acm_console_uart") and
             dt_chosen_enabled("zephyr,shell-uart") and
             dt_chosen_enabled("zephyr,console")
@@ -148,14 +150,14 @@ tests:
     depends_on:
       - usb_device
       - usb_cdc
-    filter: CONFIG_USB_DEVICE_INITIALIZE_AT_BOOT and
+    filter: CONFIG_CDC_ACM_SERIAL_INITIALIZE_AT_BOOT and
             dt_chosen_enabled("zephyr,shell-uart") and
             dt_chosen_enabled("zephyr,console")
     integration_platforms:
       - coffeecaller_nrf52
       - mini_usb_rp2040
       - mini_usb_rp2040@16mb
-      # Build issue (mini_usb_rp2040/src/chipled_pwm_chipled_off.c): - mini_usb_rp2040@chipled
+      - mini_usb_rp2040@chipled
       - mini_usb_rp2350/rp2350a/m33
       - mini_usb_rp2350@16mb/rp2350a/m33
       - picoboy/rp2040
@@ -173,9 +175,9 @@ tests:
     required_snippets:
       - usb-console
     extra_args:
-      - CONFIG_USB_CDC_ACM_LOG_LEVEL_OFF=y
-      - CONFIG_USB_DEVICE_LOG_LEVEL_ERR=y
-      - CONFIG_USB_DEVICE_INITIALIZE_AT_BOOT=y
+      - CONFIG_USBD_LOG_LEVEL_ERR=y
+      - CONFIG_USBD_CDC_ACM_LOG_LEVEL_OFF=y
+      - CONFIG_CDC_ACM_SERIAL_INITIALIZE_AT_BOOT=y
     integration_platforms:
       - native_sim
       - native_sim/native/64
