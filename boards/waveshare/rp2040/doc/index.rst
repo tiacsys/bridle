@@ -699,13 +699,13 @@ described in
 Here is an example of building and flashing the
 :external+zephyr:zephyr:code-sample:`blinky` application.
 
-.. zephyr-app-commands::
-   :app: zephyr/samples/basic/blinky
-   :board: waveshare_rp2040_plus
-   :build-dir: waveshare_rp2040
-   :goals: flash
-   :flash-args: -r jlink
-   :west-args: -p
+   .. zephyr-app-commands::
+      :app: zephyr/samples/basic/blinky
+      :build-dir: waveshare_rp2040
+      :board: waveshare_rp2040_plus
+      :flash-args: -r jlink
+      :west-args: -p
+      :goals: flash
 
 Using OpenOCD
 -------------
@@ -736,17 +736,17 @@ proceeding. Build and install OpenOCD as described in the README.
 Here is an example of building and flashing the
 :external+zephyr:zephyr:code-sample:`blinky` application.
 
-.. zephyr-app-commands::
-   :app: zephyr/samples/basic/blinky
-   :board: waveshare_rp2040_plus
-   :build-dir: waveshare_rp2040
-   :goals: flash
-   :west-args: -p
-   :flash-args: -r openocd
-   :gen-args: \
-              -DOPENOCD=/usr/local/bin/openocd \
-              -DOPENOCD_DEFAULT_PATH=/usr/local/share/openocd/scripts \
-              -DWAVESHARE_RP2040_DEBUG_ADAPTER=picoprobe
+   .. zephyr-app-commands::
+      :app: zephyr/samples/basic/blinky
+      :build-dir: waveshare_rp2040
+      :board: waveshare_rp2040_plus
+      :gen-args: \
+                 -DOPENOCD=/usr/local/bin/openocd \
+                 -DOPENOCD_DEFAULT_PATH=/usr/local/share/openocd/scripts \
+                 -DWAVESHARE_RP2040_DEBUG_ADAPTER=picoprobe
+      :west-args: -p
+      :flash-args: -r openocd
+      :goals: flash
 
 Set the environment variables :strong:`OPENOCD` to
 :file:`/usr/local/bin/openocd` and :strong:`OPENOCD_DEFAULT_PATH` to
@@ -801,19 +801,19 @@ Install OpenOCD as described for flashing the board.
 Here is an example for debugging the
 :external+zephyr:zephyr:code-sample:`blinky` application.
 
-.. zephyr-app-commands::
-   :app: zephyr/samples/basic/blinky
-   :board: waveshare_rp2040_plus
-   :build-dir: waveshare_rp2040
-   :maybe-skip-config:
-   :goals: debug
-   :west-args: -p
-   :flash-args: -r openocd
-   :gen-args: \
-              -DOPENOCD=/usr/local/bin/openocd \
-              -DOPENOCD_DEFAULT_PATH=/usr/local/share/openocd/scripts \
-              -DWAVESHARE_RP2040_DEBUG_ADAPTER=raspberrypi-swd
-   :host-os: unix
+   .. zephyr-app-commands::
+      :app: zephyr/samples/basic/blinky
+      :build-dir: waveshare_rp2040
+      :board: waveshare_rp2040_plus
+      :maybe-skip-config:
+      :gen-args: \
+                 -DOPENOCD=/usr/local/bin/openocd \
+                 -DOPENOCD_DEFAULT_PATH=/usr/local/share/openocd/scripts \
+                 -DWAVESHARE_RP2040_DEBUG_ADAPTER=raspberrypi-swd
+      :west-args: -p
+      :flash-args: -r openocd
+      :goals: debug
+      :host-os: unix
 
 As with flashing, you can specify the debug adapter by specifying
 :strong:`WAVESHARE_RP2040_DEBUG_ADAPTER` at :program:`west build` time.
@@ -865,8 +865,8 @@ LED Blinky and Fade
 
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/led/led_strip
-         :board: waveshare_rp2040_one
          :build-dir: waveshare_rp2040
+         :board: waveshare_rp2040_one
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -890,8 +890,8 @@ LED Blinky and Fade
 
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/led/led_strip
-         :board: waveshare_rp2040_zero
          :build-dir: waveshare_rp2040
+         :board: waveshare_rp2040_zero
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -915,8 +915,8 @@ LED Blinky and Fade
 
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/led/led_strip
-         :board: waveshare_rp2040_matrix
          :build-dir: waveshare_rp2040
+         :board: waveshare_rp2040_matrix
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -940,8 +940,8 @@ LED Blinky and Fade
 
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/led/led_strip
-         :board: waveshare_rp2040_tiny
          :build-dir: waveshare_rp2040
+         :board: waveshare_rp2040_tiny
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -965,8 +965,8 @@ LED Blinky and Fade
 
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/led/led_strip
-         :board: waveshare_rp2040_eth
          :build-dir: waveshare_rp2040
+         :board: waveshare_rp2040_eth
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -986,8 +986,8 @@ LED Blinky and Fade
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/blinky
-         :board: waveshare_rp2040_lcd_0_96
          :build-dir: waveshare_rp2040
+         :board: waveshare_rp2040_lcd_0_96
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -999,8 +999,8 @@ LED Blinky and Fade
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/blinky_pwm
-         :board: waveshare_rp2040_lcd_0_96
          :build-dir: waveshare_rp2040
+         :board: waveshare_rp2040_lcd_0_96
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -1012,8 +1012,8 @@ LED Blinky and Fade
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/fade_led
-         :board: waveshare_rp2040_lcd_0_96
          :build-dir: waveshare_rp2040
+         :board: waveshare_rp2040_lcd_0_96
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -1027,8 +1027,8 @@ LED Blinky and Fade
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/blinky
-         :board: waveshare_rp2040_plus
          :build-dir: waveshare_rp2040
+         :board: waveshare_rp2040_plus
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -1040,8 +1040,8 @@ LED Blinky and Fade
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/blinky_pwm
-         :board: waveshare_rp2040_plus
          :build-dir: waveshare_rp2040
+         :board: waveshare_rp2040_plus
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -1053,8 +1053,8 @@ LED Blinky and Fade
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/fade_led
-         :board: waveshare_rp2040_plus
          :build-dir: waveshare_rp2040
+         :board: waveshare_rp2040_plus
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -1083,9 +1083,9 @@ LED Blinky and Fade
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/blinky
+         :build-dir: waveshare_rp2040
          :board: waveshare_rp2040_geek
          :shield: loopback_test
-         :build-dir: waveshare_rp2040
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -1097,9 +1097,9 @@ LED Blinky and Fade
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/blinky_pwm
+         :build-dir: waveshare_rp2040
          :board: waveshare_rp2040_geek
          :shield: loopback_test
-         :build-dir: waveshare_rp2040
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -1111,9 +1111,9 @@ LED Blinky and Fade
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/fade_led
+         :build-dir: waveshare_rp2040
          :board: waveshare_rp2040_geek
          :shield: loopback_test
-         :build-dir: waveshare_rp2040
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -1125,9 +1125,9 @@ LED Blinky and Fade
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/button
+         :build-dir: waveshare_rp2040
          :board: waveshare_rp2040_geek
          :shield: loopback_test
-         :build-dir: waveshare_rp2040
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -1144,9 +1144,10 @@ Hello Shell with USB-CDC/ACM Console
 
       .. zephyr-app-commands::
          :app: bridle/samples/helloshell
-         :board: waveshare_rp2040_one
          :build-dir: waveshare_rp2040
-         :west-args: -p -S usb-console
+         :board: waveshare_rp2040_one
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
          :goals: flash
          :compact:
@@ -1159,9 +1160,10 @@ Hello Shell with USB-CDC/ACM Console
 
       .. zephyr-app-commands::
          :app: bridle/samples/helloshell
-         :board: waveshare_rp2040_zero
          :build-dir: waveshare_rp2040
-         :west-args: -p -S usb-console
+         :board: waveshare_rp2040_zero
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
          :goals: flash
          :compact:
@@ -1174,9 +1176,10 @@ Hello Shell with USB-CDC/ACM Console
 
       .. zephyr-app-commands::
          :app: bridle/samples/helloshell
-         :board: waveshare_rp2040_matrix
          :build-dir: waveshare_rp2040
-         :west-args: -p -S usb-console
+         :board: waveshare_rp2040_matrix
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
          :goals: flash
          :compact:
@@ -1189,9 +1192,10 @@ Hello Shell with USB-CDC/ACM Console
 
       .. zephyr-app-commands::
          :app: bridle/samples/helloshell
-         :board: waveshare_rp2040_tiny
          :build-dir: waveshare_rp2040
-         :west-args: -p -S usb-console
+         :board: waveshare_rp2040_tiny
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
          :goals: flash
          :compact:
@@ -1204,9 +1208,10 @@ Hello Shell with USB-CDC/ACM Console
 
       .. zephyr-app-commands::
          :app: bridle/samples/helloshell
-         :board: waveshare_rp2040_eth
          :build-dir: waveshare_rp2040
-         :west-args: -p -S usb-console
+         :board: waveshare_rp2040_eth
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
          :goals: flash
          :compact:
@@ -1219,9 +1224,10 @@ Hello Shell with USB-CDC/ACM Console
 
       .. zephyr-app-commands::
          :app: bridle/samples/helloshell
-         :board: waveshare_rp2040_lcd_0_96
          :build-dir: waveshare_rp2040
-         :west-args: -p -S usb-console
+         :board: waveshare_rp2040_lcd_0_96
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
          :goals: flash
          :compact:
@@ -1234,9 +1240,10 @@ Hello Shell with USB-CDC/ACM Console
 
       .. zephyr-app-commands::
          :app: bridle/samples/helloshell
-         :board: waveshare_rp2040_plus@16mb
          :build-dir: waveshare_rp2040
-         :west-args: -p -S usb-console
+         :board: waveshare_rp2040_plus@16mb
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
          :goals: flash
          :compact:
@@ -1249,10 +1256,11 @@ Hello Shell with USB-CDC/ACM Console
 
       .. zephyr-app-commands::
          :app: bridle/samples/helloshell
-         :board: waveshare_rp2040_geek
          :shield: loopback_test
+         :board: waveshare_rp2040_geek
          :build-dir: waveshare_rp2040
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
          :goals: flash
          :compact:
@@ -1282,9 +1290,10 @@ USB-CDC/ACM console.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/display
-         :board: waveshare_rp2040_matrix
          :build-dir: waveshare_rp2040
-         :west-args: -p -S usb-console
+         :board: waveshare_rp2040_matrix
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
          :goals: flash
          :compact:
@@ -1316,9 +1325,10 @@ USB-CDC/ACM console.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/display
-         :board: waveshare_rp2040_lcd_0_96
          :build-dir: waveshare_rp2040
-         :west-args: -p -S usb-console
+         :board: waveshare_rp2040_lcd_0_96
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
          :goals: flash
          :compact:
@@ -1344,9 +1354,10 @@ USB-CDC/ACM console.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/subsys/display/lvgl
-         :board: waveshare_rp2040_lcd_0_96
          :build-dir: waveshare_rp2040
-         :west-args: -p -S usb-console
+         :board: waveshare_rp2040_lcd_0_96
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
          :goals: flash
          :compact:
@@ -1366,9 +1377,10 @@ USB-CDC/ACM console.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/display
-         :board: waveshare_rp2040_geek
          :build-dir: waveshare_rp2040
-         :west-args: -p -S usb-console
+         :board: waveshare_rp2040_geek
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
          :goals: flash
          :compact:
@@ -1394,9 +1406,10 @@ USB-CDC/ACM console.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/subsys/display/lvgl
-         :board: waveshare_rp2040_geek
          :build-dir: waveshare_rp2040
-         :west-args: -p -S usb-console
+         :board: waveshare_rp2040_geek
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
          :goals: flash
          :compact:
@@ -1428,9 +1441,10 @@ board. They will be built with activated USB-CDC/ACM console.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/subsys/fs/fs_sample
-         :board: waveshare_rp2040_geek
          :build-dir: waveshare_rp2040
-         :west-args: -p -S usb-console
+         :board: waveshare_rp2040_geek
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
          :goals: flash
          :compact:
@@ -1456,10 +1470,7 @@ board. They will be built with activated USB-CDC/ACM console.
 
          .. parsed-literal::
 
-            \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-            [00:00:00.464,000] :byl:`<wrn> udc_rpi: BUS RESET`
-            [00:00:00.548,000] :byl:`<wrn> udc_rpi: BUS RESET`
-            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
             [00:00:04.269,000] <inf> main: Block count 15759360
             Sector size 512
             Memory Size(MB) 7695
@@ -1485,10 +1496,7 @@ board. They will be built with activated USB-CDC/ACM console.
 
          .. parsed-literal::
 
-            \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-            [00:00:00.326,000] :byl:`<wrn> udc_rpi: BUS RESET`
-            [00:00:00.406,000] :byl:`<wrn> udc_rpi: BUS RESET`
-            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
             [00:00:04.192,000] <inf> main: Block count 15759360
             Sector size 512
             Memory Size(MB) 7695
@@ -1517,10 +1525,7 @@ board. They will be built with activated USB-CDC/ACM console.
 
          .. parsed-literal::
 
-            \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-            [00:00:00.367,000] :byl:`<wrn> udc_rpi: BUS RESET`
-            [00:00:00.447,000] :byl:`<wrn> udc_rpi: BUS RESET`
-            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
             [00:00:04.236,000] <inf> main: Block count 15759360
             Sector size 512
             Memory Size(MB) 7695
@@ -1540,9 +1545,10 @@ board. They will be built with activated USB-CDC/ACM console.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/subsys/fs/fs_sample
-         :board: waveshare_rp2040_geek
          :build-dir: waveshare_rp2040
-         :west-args: -p -S usb-console
+         :board: waveshare_rp2040_geek
+         :snippets: "usb-console"
+         :west-args: -p
          :gen-args: -DCONFIG_FS_FATFS_MOUNT_MKFS=n
          :flash-args: -r uf2
          :goals: flash

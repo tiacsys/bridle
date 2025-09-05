@@ -289,7 +289,7 @@ Programming
                :build-dir: cjmcu_750
                :board: nucleo_f746zg
                :shield: "x_cjmcu_75x cjmcu_750_spi"
-               :west-args: -p always
+               :west-args: -p
                :goals: flash
                :host-os: unix
                :compact:
@@ -301,7 +301,7 @@ Programming
                :build-dir: cjmcu_750
                :board: nucleo_f746zg
                :shield: "x_cjmcu_75x cjmcu_750_spi_noirq"
-               :west-args: -p always
+               :west-args: -p
                :goals: flash
                :host-os: unix
                :compact:
@@ -313,7 +313,7 @@ Programming
                :build-dir: cjmcu_750
                :board: nucleo_f746zg
                :shield: "x_cjmcu_75x cjmcu_750_i2c"
-               :west-args: -p always
+               :west-args: -p
                :goals: flash
                :host-os: unix
                :compact:
@@ -325,7 +325,7 @@ Programming
                :build-dir: cjmcu_750
                :board: nucleo_f746zg
                :shield: "x_cjmcu_75x cjmcu_750_i2c_noirq"
-               :west-args: -p always
+               :west-args: -p
                :goals: flash
                :host-os: unix
                :compact:
@@ -341,7 +341,7 @@ Programming
                :build-dir: cjmcu_752
                :board: nucleo_f746zg
                :shield: "x_cjmcu_75x cjmcu_752_spi"
-               :west-args: -p always
+               :west-args: -p
                :goals: flash
                :host-os: unix
                :compact:
@@ -353,7 +353,7 @@ Programming
                :build-dir: cjmcu_752
                :board: nucleo_f746zg
                :shield: "x_cjmcu_75x cjmcu_752_spi_noirq"
-               :west-args: -p always
+               :west-args: -p
                :goals: flash
                :host-os: unix
                :compact:
@@ -365,7 +365,7 @@ Programming
                :build-dir: cjmcu_752
                :board: nucleo_f746zg
                :shield: "x_cjmcu_75x cjmcu_752_i2c"
-               :west-args: -p always
+               :west-args: -p
                :goals: flash
                :host-os: unix
                :compact:
@@ -377,7 +377,7 @@ Programming
                :build-dir: cjmcu_752
                :board: nucleo_f746zg
                :shield: "x_cjmcu_75x cjmcu_752_i2c_noirq"
-               :west-args: -p always
+               :west-args: -p
                :goals: flash
                :host-os: unix
                :compact:

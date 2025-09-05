@@ -148,9 +148,9 @@
          .. parsed-literal::
 
             :bgn:`uart:~$` **sensor info**
-            device name: bme280\ @\ 76, vendor: Bosch Sensortec GmbH, model: bme280, friendly name: (null)
-            device name: mpu9250\ @\ 68, vendor: InvenSense Inc., model: mpu9250, friendly name: (null)
-            device name: sgp40\ @\ 59, vendor: Sensirion AG, model: sgp40, friendly name: (null)
+            device name: bme280\ @\ 76, vendor: Bosch Sensortec GmbH, model: bme280, friendly name: WSP Environment: temperature, humidity and air pressure
+            device name: mpu9250\ @\ 68, vendor: InvenSense Inc., model: mpu9250, friendly name: WSP Environment: accelerometer, gyroscope and magnetometer (9-DOF)
+            device name: sgp40\ @\ 59, vendor: Sensirion AG, model: sgp40, friendly name: WSP Environment: air quality (VOC)
 
       .. rubric:: BME280 (THP)
 

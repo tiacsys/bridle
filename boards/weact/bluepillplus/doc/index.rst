@@ -429,8 +429,8 @@ Build and flash the application:
 
    .. zephyr-app-commands::
       :app: zephyr/samples/hello_world
-      :board: weact_bluepillplus_stm32f103c8
       :build-dir: weact_bluepillplus
+      :board: weact_bluepillplus_stm32f103c8
       :west-args: -p
       :flash-args: -r openocd
       :goals: flash
@@ -443,7 +443,7 @@ You should see the following message on the console:
 
       .. parsed-literal::
 
-         \*\*\* Booting Zephyr OS build v\ |zephyr_version_number_em| \*\*\*
+         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
          Hello World! weact_bluepillplus_stm32f103c8
 
 Debugging
@@ -457,8 +457,8 @@ You can debug an application in the usual way. Here is an example for the
 
    .. zephyr-app-commands::
       :app: zephyr/samples/hello_world
-      :board: weact_bluepillplus_stm32f103c8
       :build-dir: weact_bluepillplus
+      :board: weact_bluepillplus_stm32f103c8
       :maybe-skip-config:
       :west-args: -p
       :debug-args: -r openocd
@@ -481,9 +481,10 @@ LED Blinky with USB-CDC/ACM Console
 
             .. zephyr-app-commands::
                :app: zephyr/samples/basic/blinky
-               :board: weact_bluepillplus_stm32f103cb
                :build-dir: weact_bluepillplus
-               :west-args: -p -S usb-console
+               :board: weact_bluepillplus_stm32f103cb
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r openocd
                :goals: flash
                :compact:
@@ -492,9 +493,10 @@ LED Blinky with USB-CDC/ACM Console
 
             .. zephyr-app-commands::
                :app: zephyr/samples/basic/blinky
-               :board: weact_bluepillplus_stm32f103c8
                :build-dir: weact_bluepillplus
-               :west-args: -p -S usb-console
+               :board: weact_bluepillplus_stm32f103c8
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r openocd
                :goals: flash
                :compact:
@@ -511,8 +513,8 @@ LED Blinky with USB-CDC/ACM Console
 
             .. zephyr-app-commands::
                :app: zephyr/samples/basic/blinky
-               :board: weact_bluepillplus_ch32v203c8
                :build-dir: weact_bluepillplus
+               :board: weact_bluepillplus_ch32v203c8
                :west-args: -p
                :flash-args: -r minichlink
                :goals: flash
@@ -524,8 +526,8 @@ LED Blinky with USB-CDC/ACM Console
 
             .. zephyr-app-commands::
                :app: zephyr/samples/basic/blinky
-               :board: weact_bluepillplus_ch32v203c6
                :build-dir: weact_bluepillplus
+               :board: weact_bluepillplus_ch32v203c6
                :west-args: -p
                :flash-args: -r minichlink
                :goals: flash
@@ -544,8 +546,8 @@ Hello Shell
 
             .. zephyr-app-commands::
                :app: bridle/samples/helloshell
-               :board: weact_bluepillplus_stm32f103cb
                :build-dir: weact_bluepillplus
+               :board: weact_bluepillplus_stm32f103cb
                :gen-args: \
                   -DEXTRA_CONF_FILE="prj-hwstartup.conf" -DCONFIG_STM32_ENABLE_DEBUG_SLEEP_STOP=y
                :west-args: -p
@@ -570,8 +572,8 @@ Hello Shell
 
             .. zephyr-app-commands::
                :app: bridle/samples/helloshell
-               :board: weact_bluepillplus_stm32f103c8
                :build-dir: weact_bluepillplus
+               :board: weact_bluepillplus_stm32f103c8
                :gen-args: \
                   -DEXTRA_CONF_FILE="prj-hwstartup.conf" -DCONFIG_STM32_ENABLE_DEBUG_SLEEP_STOP=y
                :west-args: -p
@@ -602,8 +604,8 @@ Hello Shell
 
             .. zephyr-app-commands::
                :app: bridle/samples/helloshell
-               :board: weact_bluepillplus_ch32v203c8
                :build-dir: weact_bluepillplus
+               :board: weact_bluepillplus_ch32v203c8
                :gen-args: \
                   -DEXTRA_CONF_FILE="prj-hwstartup.conf" -DCONFIG_FLASH=n -DCONFIG_FLASH_SHELL=n
                :west-args: -p
@@ -630,8 +632,8 @@ Hello Shell
 
             .. zephyr-app-commands::
                :app: bridle/samples/helloshell
-               :board: weact_bluepillplus_ch32v203c6
                :build-dir: weact_bluepillplus
+               :board: weact_bluepillplus_ch32v203c6
                :gen-args: -DEXTRA_CONF_FILE="prj-minimal.conf"
                :west-args: -p
                :flash-args: -r minichlink

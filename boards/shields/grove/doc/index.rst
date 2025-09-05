@@ -858,12 +858,11 @@ example:
     .. zephyr-app-commands::
        :app: bridle/samples/helloshell
        :build-dir: helloshell-seeed_grove_base_v2
-       :board: mimxrt1060_evk@B//qspi
-       :shield: seeed_grove_base_v2
+       :board: mimxrt1060_evk@B/mimxrt1062/qspi
+       :shield: "seeed_grove_base_v1"
        :goals: flash
        :west-args: -p
        :host-os: unix
-       :tool: all
 
 #. :ref:`grove_base_shield_v13` or :ref:`grove_base_shield_v12` on
    |zephyr:board:mimxrt1060_evk|:
@@ -871,12 +870,11 @@ example:
     .. zephyr-app-commands::
        :app: bridle/samples/helloshell
        :build-dir: helloshell-seeed_grove_base_v1
-       :board: mimxrt1060_evk@B//qspi
-       :shield: seeed_grove_base_v1
+       :board: mimxrt1060_evk@B/mimxrt1062/qspi
+       :shield: "seeed_grove_base_v1"
        :goals: flash
        :west-args: -p
        :host-os: unix
-       :tool: all
 
 Grove Base Shield for XIAO
 --------------------------
@@ -890,11 +888,10 @@ or ``cmake`` in your Zephyr application. For example:
       :app: bridle/samples/helloshell
       :build-dir: helloshell-seeed_grove_xiao_v1
       :board: seeeduino_xiao
-      :shield: seeed_grove_xiao_v1
+      :shield: "seeed_grove_xiao_v1"
       :goals: flash
       :west-args: -p
       :host-os: unix
-      :tool: all
 
 #. |bridle:board:xiao_samd21| on :ref:`grove_base_shield_xiao_v1`:
 
@@ -902,11 +899,10 @@ or ``cmake`` in your Zephyr application. For example:
       :app: bridle/samples/helloshell
       :build-dir: helloshell-seeed_grove_xiao_v1
       :board: xiao_samd21
-      :shield: seeed_grove_xiao_v1
+      :shield: "seeed_grove_xiao_v1"
       :goals: flash
       :west-args: -p
       :host-os: unix
-      :tool: all
 
 Grove Basic Kit for Raspberry Pi Pico
 -------------------------------------
@@ -920,11 +916,10 @@ or ``cmake`` in your Zephyr application. For example:
       :app: bridle/samples/helloshell
       :build-dir: helloshell-seeed_grove_rpipico_v1
       :board: rpi_pico
-      :shield: seeed_grove_rpipico_v1
+      :shield: "seeed_grove_rpipico_v1"
       :goals: flash
       :west-args: -p
       :host-os: unix
-      :tool: all
 
 #. |RPi Pico W| on :ref:`grove_rpipico_shield_v1`:
 
@@ -932,11 +927,11 @@ or ``cmake`` in your Zephyr application. For example:
       :app: bridle/samples/helloshell
       :build-dir: helloshell-seeed_grove_rpipico_v1
       :board: rpi_pico/rp2040/w
-      :shield: seeed_grove_rpipico_v1
+      :shield: "seeed_grove_rpipico_v1"
+      :snippets: "wifi-ip"
       :goals: flash
       :west-args: -p
       :host-os: unix
-      :tool: all
 
 References
 **********

@@ -139,8 +139,8 @@
          .. parsed-literal::
 
             :bgn:`uart:~$` **sensor info**
-            device name: lps22hb\ @\ 5c, vendor: STMicroelectronics, model: lps22hb-press, friendly name: (null)
-            device name: mpu9250\ @\ 68, vendor: InvenSense Inc., model: mpu9250, friendly name: (null)
+            device name: lps22hb\ @\ 5c, vendor: STMicroelectronics, model: lps22hb-press, friendly name: WSP 10-DOF IMU: absolute barometric air pressure with ambient temperature
+            device name: mpu9250\ @\ 68, vendor: InvenSense Inc., model: mpu9250, friendly name: WSP 10-DOF IMU: accelerometer, gyroscope and magnetometer (9-DOF)
 
       .. rubric:: LPS22HB (TP)
 

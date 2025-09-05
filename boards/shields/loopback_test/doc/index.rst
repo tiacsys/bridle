@@ -74,7 +74,7 @@ To build shield with specific overlay:
    :app: zephyr/tests/drivers/gpio/gpio_basic_api
    :build-dir: loopback_test-magpie_f777ni
    :board: magpie_f777ni
-   :shield: loopback_test
+   :shield: "loopback_test_tmph"
    :goals: flash
    :west-args: -p
 

@@ -4,8 +4,8 @@ This is based on the Zephyr sample :zephyr:code-sample:`bme280`.
    :app: zephyr/samples/sensor/bme280
    :build-dir: tcs_604_ard
    :board: nucleo_f746zg
-   :shield: "tcs_604_ard;grove_btn_d4;grove_led_d3;grove_sens_bmp280;tcs_604_x_grove_testbed"
-   :west-args: -p always
+   :shield: "tcs_604_ard grove_btn_d4 grove_led_d3 grove_sens_bmp280 tcs_604_x_grove_testbed"
+   :west-args: -p
    :goals: flash
    :host-os: unix
    :compact:
@@ -18,7 +18,7 @@ This is based on the Zephyr sample :zephyr:code-sample:`bme280`.
       [00:00:00.011,000] <dbg> BME280: bme280_chip_init: ID OK (BMP280)
       [00:00:00.040,000] <dbg> BME280: bme280_chip_init: "bme280\ @\ 77" OK
       \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* \*\*\*
-      Found device "bme280\ @\ 77", getting sensor data
+      Found device "**bme280@77**", getting sensor data
       temp: 26.671875; press: 98.640625; humidity: 1064960.0
       temp: 26.671875; press: 98.640625; humidity: 1064960.0
       … … …

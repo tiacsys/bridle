@@ -141,67 +141,67 @@
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **pwm usec pwm@40050000 0 20000 20000**
+            :bgn:`uart:~$` **pwm usec pwm 0 20000 20000**
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **pwm usec pwm@40050000 0 20000 19000**
+            :bgn:`uart:~$` **pwm usec pwm 0 20000 19000**
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **pwm usec pwm@40050000 0 20000 18000**
+            :bgn:`uart:~$` **pwm usec pwm 0 20000 18000**
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **pwm usec pwm@40050000 0 20000 17000**
+            :bgn:`uart:~$` **pwm usec pwm 0 20000 17000**
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **pwm usec pwm@40050000 0 20000 16000**
+            :bgn:`uart:~$` **pwm usec pwm 0 20000 16000**
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **pwm usec pwm@40050000 0 20000 15000**
+            :bgn:`uart:~$` **pwm usec pwm 0 20000 15000**
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **pwm usec pwm@40050000 0 20000 10000**
+            :bgn:`uart:~$` **pwm usec pwm 0 20000 10000**
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **pwm usec pwm@40050000 0 20000 5000**
+            :bgn:`uart:~$` **pwm usec pwm 0 20000 5000**
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **pwm usec pwm@40050000 0 20000 2500**
+            :bgn:`uart:~$` **pwm usec pwm 0 20000 2500**
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **pwm usec pwm@40050000 0 20000 500**
+            :bgn:`uart:~$` **pwm usec pwm 0 20000 500**
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **pwm usec pwm@40050000 0 20000 0**
+            :bgn:`uart:~$` **pwm usec pwm 0 20000 0**
 
    .. group-tab:: GPIO
 
@@ -211,14 +211,14 @@
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **gpio get gpio@40014000 21**
+            :bgn:`uart:~$` **gpio get gpio0 21**
             0
 
-            :bgn:`uart:~$` **gpio conf gpio@40014000 21 oh0**
-            :bgn:`uart:~$` **gpio set gpio@40014000 21 1**
-            :bgn:`uart:~$` **gpio set gpio@40014000 21 0**
+            :bgn:`uart:~$` **gpio conf gpio0 21 oh0**
+            :bgn:`uart:~$` **gpio set gpio0 21 1**
+            :bgn:`uart:~$` **gpio set gpio0 21 0**
 
-            :bgn:`uart:~$` **gpio blink gpio@40014000 21**
+            :bgn:`uart:~$` **gpio blink gpio0 21**
             Hit any key to exit
 
       Operate with the ENTER test key :hwftlbl-btn:`K2` at :rpi-pico-pio:`GP13`:
@@ -227,15 +227,15 @@
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **gpio get gpio@40014000 13**
+            :bgn:`uart:~$` **gpio get gpio0 13**
             0
 
-            :bgn:`uart:~$` **gpio conf gpio@40014000 13 iul**
-            :bgn:`uart:~$` **gpio get gpio@40014000 13**
+            :bgn:`uart:~$` **gpio conf gpio0 13 iul**
+            :bgn:`uart:~$` **gpio get gpio0 13**
             0
-            :bgn:`uart:~$` **gpio get gpio@40014000 13**
+            :bgn:`uart:~$` **gpio get gpio0 13**
             1
-            :bgn:`uart:~$` **gpio get gpio@40014000 13**
+            :bgn:`uart:~$` **gpio get gpio0 13**
             0
 
    .. group-tab:: ADC
@@ -248,7 +248,6 @@
          .. parsed-literal::
 
             :bgn:`uart:~$` **adc adc@4004c000 resolution 12**
-            :bgn:`uart:~$` **adc adc@4004c000 channel id 0**
 
       .. container:: highlight highlight-console notranslate
 

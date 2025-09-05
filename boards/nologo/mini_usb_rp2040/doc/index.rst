@@ -718,6 +718,8 @@ Simple test execution on target
               DT node labels: dma
             - gpio-port\ @\ 0 (READY)
               DT node labels: gpio0
+            - usbd\ @\ 50110000 (READY)
+              DT node labels: usbd zephyr_udc0
             - adc\ @\ 4004c000 (READY)
               DT node labels: adc
             - flash-controller\ @\ 18000000 (READY)
@@ -755,6 +757,8 @@ Simple test execution on target
               DT node labels: dma
             - gpio-port\ @\ 0 (READY)
               DT node labels: gpio0
+            - usbd\ @\ 50110000 (READY)
+              DT node labels: usbd zephyr_udc0
             - adc\ @\ 4004c000 (READY)
               DT node labels: adc
             - flash-controller\ @\ 18000000 (READY)
@@ -806,8 +810,8 @@ Simple test execution on target
 
             :bgn:`uart:~$` **regulator disable vreg**
             [00:00:00.001,000] <inf> board_control: mini_usb_rp2040\ @\ 4mb/rp2040
-            [00:00:00.001,000] <inf> board_control: QSPI-Flash: 4MB
-            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+            [00:00:00.001,000] <inf> board_control: QSPI-Flash: **4MB**
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
             Hello World! I'm THE SHELL from mini_usb_rp2040
 
       .. rubric:: Trigger a power-off/on sequence on ``@16mb`` revision:
@@ -822,8 +826,8 @@ Simple test execution on target
 
             :bgn:`uart:~$` **regulator disable vreg**
             [00:00:00.001,000] <inf> board_control: mini_usb_rp2040\ @\ 16mb/rp2040
-            [00:00:00.001,000] <inf> board_control: QSPI-Flash: 16MB
-            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+            [00:00:00.001,000] <inf> board_control: QSPI-Flash: **16MB**
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
             Hello World! I'm THE SHELL from mini_usb_rp2040
 
       .. rubric:: Trigger a power-off/on sequence on ``@chipled`` revision:
@@ -838,9 +842,9 @@ Simple test execution on target
 
             :bgn:`uart:~$` **regulator disable vreg**
             [00:00:00.001,000] <inf> board_control: mini_usb_rp2040\ @\ chipled/rp2040
-            [00:00:00.001,000] <inf> board_control: QSPI-Flash: 16MB
-            [00:00:00.002,000] <inf> board_control: Chip-LED configured.
-            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+            [00:00:00.001,000] <inf> board_control: QSPI-Flash: **4MB**
+            [00:00:00.002,000] <inf> board_control: **Chip-LED configured.**
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
             Hello World! I'm THE SHELL from mini_usb_rp2040
 
       .. container:: highlight highlight-console notranslate
@@ -1075,9 +1079,9 @@ Simple test execution on target
 
          .. parsed-literal::
 
-            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
-            [00:00:04.002,000] <inf> main: Found LED strip device ws2812-single
-            [00:00:04.002,000] <inf> main: Displaying pattern on strip
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
+            [00:00:00.003,000] <inf> main: Found LED strip device ws2812-single
+            [00:00:00.003,000] <inf> main: Displaying pattern on strip
 
 Grove Module Samples
 ********************
@@ -1127,7 +1131,7 @@ Simple test execution on target
 
             :bgn:`uart:~$` **sensor info**
             device name: dietemp, vendor: Raspberry Pi Foundation, model: pico-temp, friendly name: RP2040 chip temperature
-            device name: bmp280\ @\ 77, vendor: Bosch Sensortec GmbH, model: bme280, friendly name: (null)
+            device name: bmp280\ @\ 77, vendor: Bosch Sensortec GmbH, model: bme280, friendly name: Grove TP Sensor V1.0 (BME280)
 
       .. container:: highlight highlight-console notranslate
 

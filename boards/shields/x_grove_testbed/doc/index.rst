@@ -113,10 +113,9 @@ For example:
    :build-dir: <sample_name>-x_grove_testbed
    :board: <board_name>
    :shield: "<shield_name_with_grove_connectors> grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
-   :goals: flash
    :west-args: -p
+   :goals: flash
    :host-os: unix
-   :tool: all
 
 .. tabs::
 
@@ -147,10 +146,9 @@ For example:
                      :board: nucleo_f303re
                      :shield: \
                               "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
-                     :goals: flash
                      :west-args: -p
+                     :goals: flash
                      :host-os: unix
-                     :tool: all
 
                .. group-tab:: LED Fade
 
@@ -163,10 +161,9 @@ For example:
                      :board: nucleo_f303re
                      :shield: \
                               "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
-                     :goals: flash
                      :west-args: -p
+                     :goals: flash
                      :host-os: unix
-                     :tool: all
 
                .. group-tab:: LED Button
 
@@ -179,10 +176,9 @@ For example:
                      :board: nucleo_f303re
                      :shield: \
                               "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
-                     :goals: flash
                      :west-args: -p
+                     :goals: flash
                      :host-os: unix
-                     :tool: all
 
          .. group-tab:: ST Nucleo F401RE
 
@@ -207,10 +203,9 @@ For example:
                      :board: nucleo_f401re
                      :shield: \
                               "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
-                     :goals: flash
                      :west-args: -p
+                     :goals: flash
                      :host-os: unix
-                     :tool: all
 
                .. group-tab:: LED Fade
 
@@ -223,10 +218,9 @@ For example:
                      :board: nucleo_f401re
                      :shield: \
                               "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
-                     :goals: flash
                      :west-args: -p
+                     :goals: flash
                      :host-os: unix
-                     :tool: all
 
                .. group-tab:: LED Button
 
@@ -239,10 +233,9 @@ For example:
                      :board: nucleo_f401re
                      :shield: \
                               "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
-                     :goals: flash
                      :west-args: -p
+                     :goals: flash
                      :host-os: unix
-                     :tool: all
 
          .. group-tab:: ST Nucleo F413ZH
 
@@ -267,10 +260,9 @@ For example:
                      :board: nucleo_f413zh
                      :shield: \
                               "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
-                     :goals: flash
                      :west-args: -p
+                     :goals: flash
                      :host-os: unix
-                     :tool: all
 
                .. group-tab:: LED Fade
 
@@ -283,10 +275,9 @@ For example:
                      :board: nucleo_f413zh
                      :shield: \
                               "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
-                     :goals: flash
                      :west-args: -p
+                     :goals: flash
                      :host-os: unix
-                     :tool: all
 
                .. group-tab:: LED Button
 
@@ -299,10 +290,9 @@ For example:
                      :board: nucleo_f413zh
                      :shield: \
                               "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
-                     :goals: flash
                      :west-args: -p
+                     :goals: flash
                      :host-os: unix
-                     :tool: all
 
          .. group-tab:: ST Nucleo F767ZI
 
@@ -327,10 +317,9 @@ For example:
                      :board: nucleo_f767zi
                      :shield: \
                               "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
-                     :goals: flash
                      :west-args: -p
+                     :goals: flash
                      :host-os: unix
-                     :tool: all
 
                .. group-tab:: LED Fade
 
@@ -343,10 +332,9 @@ For example:
                      :board: nucleo_f767zi
                      :shield: \
                               "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
-                     :goals: flash
                      :west-args: -p
+                     :goals: flash
                      :host-os: unix
-                     :tool: all
 
                .. group-tab:: LED Button
 
@@ -359,10 +347,9 @@ For example:
                      :board: nucleo_f767zi
                      :shield: \
                               "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
-                     :goals: flash
                      :west-args: -p
+                     :goals: flash
                      :host-os: unix
-                     :tool: all
 
    .. group-tab:: NXP Semiconductors
 
@@ -402,11 +389,10 @@ For example:
                      :board: mimxrt1010_evk
                      :shield: \
                               "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 x_grove_testbed"
-                     :goals: flash
                      :west-args: -p
                      :flash-args: -r pyocd
+                     :goals: flash
                      :host-os: unix
-                     :tool: all
 
                .. group-tab:: LED Button
 
@@ -419,11 +405,10 @@ For example:
                      :board: mimxrt1010_evk
                      :shield: \
                               "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 x_grove_testbed"
-                     :goals: flash
                      :west-args: -p
                      :flash-args: -r pyocd
+                     :goals: flash
                      :host-os: unix
-                     :tool: all
 
          .. group-tab:: NXP MIMXRT1060-EVK(B)
 
@@ -459,11 +444,10 @@ For example:
                      :board: mimxrt1060_evk@B//qspi
                      :shield: \
                               "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 x_grove_testbed"
-                     :goals: flash
                      :west-args: -p
                      :flash-args: -r pyocd
+                     :goals: flash
                      :host-os: unix
-                     :tool: all
 
                .. group-tab:: LED Button
 
@@ -476,11 +460,10 @@ For example:
                      :board: mimxrt1060_evk@B//qspi
                      :shield: \
                               "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 x_grove_testbed"
-                     :goals: flash
                      :west-args: -p
                      :flash-args: -r pyocd
+                     :goals: flash
                      :host-os: unix
-                     :tool: all
 
    .. group-tab:: Atmel Semiconductors
 
@@ -509,10 +492,10 @@ For example:
                      :board: arduino_zero
                      :shield: \
                               "seeed_grove_base_v2 grove_btn_d7 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :snippets: "usb-console"
+                     :west-args: -p
                      :goals: flash
-                     :west-args: -p -S usb-console
                      :host-os: unix
-                     :tool: all
 
                .. group-tab:: LED Fade
 
@@ -525,10 +508,10 @@ For example:
                      :board: arduino_zero
                      :shield: \
                               "seeed_grove_base_v2 grove_btn_d7 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :snippets: "usb-console"
+                     :west-args: -p
                      :goals: flash
-                     :west-args: -p -S usb-console
                      :host-os: unix
-                     :tool: all
 
                .. group-tab:: LED Button
 
@@ -541,10 +524,10 @@ For example:
                      :board: arduino_zero
                      :shield: \
                               "seeed_grove_base_v2 grove_btn_d7 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :snippets: "usb-console"
+                     :west-args: -p
                      :goals: flash
-                     :west-args: -p -S usb-console
                      :host-os: unix
-                     :tool: all
 
          .. group-tab:: Seeeduino Cortex-M0+
 
@@ -569,10 +552,10 @@ For example:
                      :board: seeeduino_cm0
                      :shield: \
                               "seeed_grove_base_v2 grove_btn_d7 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :snippets: "usb-console"
+                     :west-args: -p
                      :goals: flash
-                     :west-args: -p -S usb-console
                      :host-os: unix
-                     :tool: all
 
                .. group-tab:: LED Fade
 
@@ -585,10 +568,10 @@ For example:
                      :board: seeeduino_cm0
                      :shield: \
                               "seeed_grove_base_v2 grove_btn_d7 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :snippets: "usb-console"
+                     :west-args: -p
                      :goals: flash
-                     :west-args: -p -S usb-console
                      :host-os: unix
-                     :tool: all
 
                .. group-tab:: LED Button
 
@@ -601,10 +584,10 @@ For example:
                      :board: seeeduino_cm0
                      :shield: \
                               "seeed_grove_base_v2 grove_btn_d7 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :snippets: "usb-console"
+                     :west-args: -p
                      :goals: flash
-                     :west-args: -p -S usb-console
                      :host-os: unix
-                     :tool: all
 
          .. group-tab:: Seeeduino Lotus Cortex-M0+
 
@@ -629,10 +612,10 @@ For example:
                      :board: seeeduino_lotus
                      :shield: \
                               "grove_btn_d7 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :snippets: "usb-console"
+                     :west-args: -p
                      :goals: flash
-                     :west-args: -p -S usb-console
                      :host-os: unix
-                     :tool: all
 
                .. group-tab:: LED Fade
 
@@ -645,10 +628,10 @@ For example:
                      :board: seeeduino_lotus
                      :shield: \
                               "grove_btn_d7 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :snippets: "usb-console"
+                     :west-args: -p
                      :goals: flash
-                     :west-args: -p -S usb-console
                      :host-os: unix
-                     :tool: all
 
                .. group-tab:: LED Button
 
@@ -661,10 +644,10 @@ For example:
                      :board: seeeduino_lotus
                      :shield: \
                               "grove_btn_d7 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :snippets: "usb-console"
+                     :west-args: -p
                      :goals: flash
-                     :west-args: -p -S usb-console
                      :host-os: unix
-                     :tool: all
 
          .. group-tab:: Seeeduino XIAO
 
@@ -689,10 +672,10 @@ For example:
                      :board: seeeduino_xiao
                      :shield: \
                               "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
+                     :snippets: "usb-console"
+                     :west-args: -p
                      :goals: flash
-                     :west-args: -p -S usb-console
                      :host-os: unix
-                     :tool: all
 
                .. group-tab:: LED Fade
 
@@ -705,10 +688,10 @@ For example:
                      :board: seeeduino_xiao
                      :shield: \
                               "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
+                     :snippets: "usb-console"
+                     :west-args: -p
                      :goals: flash
-                     :west-args: -p -S usb-console
                      :host-os: unix
-                     :tool: all
 
                .. group-tab:: LED Button
 
@@ -721,10 +704,10 @@ For example:
                      :board: seeeduino_xiao
                      :shield: \
                               "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
+                     :snippets: "usb-console"
+                     :west-args: -p
                      :goals: flash
-                     :west-args: -p -S usb-console
                      :host-os: unix
-                     :tool: all
 
          .. group-tab:: XIAO SAMD21
 
@@ -749,10 +732,10 @@ For example:
                      :board: xiao_samd21
                      :shield: \
                               "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
+                     :snippets: "usb-console"
+                     :west-args: -p
                      :goals: flash
-                     :west-args: -p -S usb-console
                      :host-os: unix
-                     :tool: all
 
                .. group-tab:: LED Fade
 
@@ -765,10 +748,10 @@ For example:
                      :board: xiao_samd21
                      :shield: \
                               "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
+                     :snippets: "usb-console"
+                     :west-args: -p
                      :goals: flash
-                     :west-args: -p -S usb-console
                      :host-os: unix
-                     :tool: all
 
                .. group-tab:: LED Button
 
@@ -781,10 +764,10 @@ For example:
                      :board: xiao_samd21
                      :shield: \
                               "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
+                     :snippets: "usb-console"
+                     :west-args: -p
                      :goals: flash
-                     :west-args: -p -S usb-console
                      :host-os: unix
-                     :tool: all
 
    .. group-tab:: Raspberry Pi
 
@@ -813,15 +796,14 @@ For example:
                      :board: rpi_pico
                      :shield: \
                               "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
-                     :goals: flash
                      :gen-args: \
                                 -DBOARD_FLASH_RUNNER=openocd \
                                 -DRPI_PICO_DEBUG_ADAPTER=cmsis-dap \
                                 -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
                                 -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
                      :west-args: -p
+                     :goals: flash
                      :host-os: unix
-                     :tool: all
 
                .. group-tab:: LED Fade
 
@@ -834,15 +816,14 @@ For example:
                      :board: rpi_pico
                      :shield: \
                               "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
-                     :goals: flash
                      :gen-args: \
                                 -DBOARD_FLASH_RUNNER=openocd \
                                 -DRPI_PICO_DEBUG_ADAPTER=cmsis-dap \
                                 -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
                                 -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
                      :west-args: -p
+                     :goals: flash
                      :host-os: unix
-                     :tool: all
 
                .. group-tab:: LED Button
 
@@ -855,15 +836,14 @@ For example:
                      :board: rpi_pico
                      :shield: \
                               "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
-                     :goals: flash
                      :gen-args: \
                                 -DBOARD_FLASH_RUNNER=openocd \
                                 -DRPI_PICO_DEBUG_ADAPTER=cmsis-dap \
                                 -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
                                 -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
                      :west-args: -p
+                     :goals: flash
                      :host-os: unix
-                     :tool: all
 
          .. group-tab:: Raspberry Pi Pico W
 
@@ -888,15 +868,14 @@ For example:
                      :board: rpi_pico/rp2040/w
                      :shield: \
                               "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
-                     :goals: flash
                      :gen-args: \
                                 -DBOARD_FLASH_RUNNER=openocd \
                                 -DRPI_PICO_DEBUG_ADAPTER=cmsis-dap \
                                 -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
                                 -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
                      :west-args: -p
+                     :goals: flash
                      :host-os: unix
-                     :tool: all
 
                .. group-tab:: LED Fade
 
@@ -909,15 +888,14 @@ For example:
                      :board: rpi_pico/rp2040/w
                      :shield: \
                               "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
-                     :goals: flash
                      :gen-args: \
                                 -DBOARD_FLASH_RUNNER=openocd \
                                 -DRPI_PICO_DEBUG_ADAPTER=cmsis-dap \
                                 -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
                                 -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
                      :west-args: -p
+                     :goals: flash
                      :host-os: unix
-                     :tool: all
 
                .. group-tab:: LED Button
 
@@ -930,15 +908,14 @@ For example:
                      :board: rpi_pico/rp2040/w
                      :shield: \
                               "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
-                     :goals: flash
                      :gen-args: \
                                 -DBOARD_FLASH_RUNNER=openocd \
                                 -DRPI_PICO_DEBUG_ADAPTER=cmsis-dap \
                                 -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
                                 -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
                      :west-args: -p
+                     :goals: flash
                      :host-os: unix
-                     :tool: all
 
          .. group-tab:: Waveshare RP2040-Plus
 
@@ -963,15 +940,14 @@ For example:
                      :board: waveshare_rp2040_plus
                      :shield: \
                               "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
-                     :goals: flash
                      :gen-args: \
                                 -DBOARD_FLASH_RUNNER=openocd \
                                 -DWAVESHARE_RP2040_DEBUG_ADAPTER=cmsis-dap \
                                 -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
                                 -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
                      :west-args: -p
+                     :goals: flash
                      :host-os: unix
-                     :tool: all
 
                .. group-tab:: LED Fade
 
@@ -984,15 +960,14 @@ For example:
                      :board: waveshare_rp2040_plus
                      :shield: \
                               "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
-                     :goals: flash
                      :gen-args: \
                                 -DBOARD_FLASH_RUNNER=openocd \
                                 -DWAVESHARE_RP2040_DEBUG_ADAPTER=cmsis-dap \
                                 -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
                                 -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
                      :west-args: -p
+                     :goals: flash
                      :host-os: unix
-                     :tool: all
 
                .. group-tab:: LED Button
 
@@ -1005,15 +980,14 @@ For example:
                      :board: waveshare_rp2040_plus
                      :shield: \
                               "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
-                     :goals: flash
                      :gen-args: \
                                 -DBOARD_FLASH_RUNNER=openocd \
                                 -DWAVESHARE_RP2040_DEBUG_ADAPTER=cmsis-dap \
                                 -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
                                 -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
                      :west-args: -p
+                     :goals: flash
                      :host-os: unix
-                     :tool: all
 
          .. group-tab:: Waveshare RP2040-LCD-0.96
 
@@ -1038,15 +1012,14 @@ For example:
                      :board: waveshare_rp2040_lcd_0_96
                      :shield: \
                               "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
-                     :goals: flash
                      :gen-args: \
                                 -DBOARD_FLASH_RUNNER=openocd \
                                 -DWAVESHARE_RP2040_DEBUG_ADAPTER=cmsis-dap \
                                 -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
                                 -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
                      :west-args: -p
+                     :goals: flash
                      :host-os: unix
-                     :tool: all
 
                .. group-tab:: LED Fade
 
@@ -1059,15 +1032,14 @@ For example:
                      :board: waveshare_rp2040_lcd_0_96
                      :shield: \
                               "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
-                     :goals: flash
                      :gen-args: \
                                 -DBOARD_FLASH_RUNNER=openocd \
                                 -DWAVESHARE_RP2040_DEBUG_ADAPTER=cmsis-dap \
                                 -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
                                 -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
                      :west-args: -p
+                     :goals: flash
                      :host-os: unix
-                     :tool: all
 
                .. group-tab:: LED Button
 
@@ -1080,15 +1052,14 @@ For example:
                      :board: waveshare_rp2040_lcd_0_96
                      :shield: \
                               "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
-                     :goals: flash
                      :gen-args: \
                                 -DBOARD_FLASH_RUNNER=openocd \
                                 -DWAVESHARE_RP2040_DEBUG_ADAPTER=cmsis-dap \
                                 -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
                                 -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
                      :west-args: -p
+                     :goals: flash
                      :host-os: unix
-                     :tool: all
 
          .. group-tab:: Cytron Maker Nano RP2040
 
@@ -1113,11 +1084,11 @@ For example:
                      :board: cytron_maker_nano_rp2040
                      :shield: \
                               "grove_btn_d0 grove_led_d15 grove_pwm_led_d15 x_grove_testbed"
-                     :goals: flash
-                     :west-args: -p -S usb-console
+                     :snippets: "usb-console"
+                     :west-args: -p
                      :flash-args: -r uf2
+                     :goals: flash
                      :host-os: unix
-                     :tool: all
 
                .. group-tab:: LED Fade
 
@@ -1130,11 +1101,11 @@ For example:
                      :board: cytron_maker_nano_rp2040
                      :shield: \
                               "grove_btn_d0 grove_led_d15 grove_pwm_led_d15 x_grove_testbed"
-                     :goals: flash
-                     :west-args: -p -S usb-console
+                     :snippets: "usb-console"
+                     :west-args: -p
                      :flash-args: -r uf2
+                     :goals: flash
                      :host-os: unix
-                     :tool: all
 
                .. group-tab:: LED Button
 
@@ -1147,11 +1118,11 @@ For example:
                      :board: cytron_maker_nano_rp2040
                      :shield: \
                               "grove_btn_d0 grove_led_d15 grove_pwm_led_d15 x_grove_testbed"
-                     :goals: flash
-                     :west-args: -p -S usb-console
+                     :snippets: "usb-console"
+                     :west-args: -p
                      :flash-args: -r uf2
+                     :goals: flash
                      :host-os: unix
-                     :tool: all
 
          .. group-tab:: Cytron Maker Pi RP2040
 
@@ -1176,15 +1147,14 @@ For example:
                      :board: cytron_maker_pi_rp2040
                      :shield: \
                               "grove_btn_d3 grove_led_d5 grove_pwm_led_d5 x_grove_testbed"
-                     :goals: flash
                      :gen-args: \
                                 -DBOARD_FLASH_RUNNER=openocd \
                                 -DCYTRON_RP2040_DEBUG_ADAPTER=cmsis-dap \
                                 -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
                                 -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
                      :west-args: -p
+                     :goals: flash
                      :host-os: unix
-                     :tool: all
 
                .. group-tab:: LED Fade
 
@@ -1197,15 +1167,14 @@ For example:
                      :board: cytron_maker_pi_rp2040
                      :shield: \
                               "grove_btn_d3 grove_led_d5 grove_pwm_led_d5 x_grove_testbed"
-                     :goals: flash
                      :gen-args: \
                                 -DBOARD_FLASH_RUNNER=openocd \
                                 -DCYTRON_RP2040_DEBUG_ADAPTER=cmsis-dap \
                                 -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
                                 -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
                      :west-args: -p
+                     :goals: flash
                      :host-os: unix
-                     :tool: all
 
                .. group-tab:: LED Button
 
@@ -1218,15 +1187,14 @@ For example:
                      :board: cytron_maker_pi_rp2040
                      :shield: \
                               "grove_btn_d3 grove_led_d5 grove_pwm_led_d5 x_grove_testbed"
-                     :goals: flash
                      :gen-args: \
                                 -DBOARD_FLASH_RUNNER=openocd \
                                 -DCYTRON_RP2040_DEBUG_ADAPTER=cmsis-dap \
                                 -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
                                 -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
                      :west-args: -p
+                     :goals: flash
                      :host-os: unix
-                     :tool: all
 
 References
 **********

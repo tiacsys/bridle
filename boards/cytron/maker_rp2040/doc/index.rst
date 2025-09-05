@@ -500,15 +500,15 @@ You can flash the Cytron Maker RP2040 boards with a SEGGER JLink debug probe as
 described in :external+zephyr:ref:`Building, Flashing and Debugging <west-flashing>`.
 
 Here is an example of building and flashing the
-:external+zephyr:zephyr:code-sample:`blinky` application.
+:external+zephyr:zephyr:code-sample:`blinky` application:
 
-.. zephyr-app-commands::
-   :app: zephyr/samples/basic/blinky
-   :board: cytron_maker_pi_rp2040
-   :build-dir: cytron_maker_rp2040
-   :goals: flash
-   :flash-args: -r jlink
-   :west-args: -p
+   .. zephyr-app-commands::
+      :app: zephyr/samples/basic/blinky
+      :build-dir: cytron_maker_rp2040
+      :board: cytron_maker_pi_rp2040
+      :flash-args: -r jlink
+      :west-args: -p
+      :goals: flash
 
 Using OpenOCD
 -------------
@@ -537,19 +537,19 @@ checkout to a branch that supports this interface, before proceeding. Build
 and install OpenOCD as described in the README.
 
 Here is an example of building and flashing the
-:external+zephyr:zephyr:code-sample:`blinky` application.
+:external+zephyr:zephyr:code-sample:`blinky` application:
 
-.. zephyr-app-commands::
-   :app: zephyr/samples/basic/blinky
-   :board: cytron_maker_pi_rp2040
-   :build-dir: cytron_maker_rp2040
-   :goals: flash
-   :west-args: -p
-   :flash-args: -r openocd
-   :gen-args: \
-              -DOPENOCD=/usr/local/bin/openocd \
-              -DOPENOCD_DEFAULT_PATH=/usr/local/share/openocd/scripts \
-              -DCYTRON_RP2040_DEBUG_ADAPTER=picoprobe
+   .. zephyr-app-commands::
+      :app: zephyr/samples/basic/blinky
+      :build-dir: cytron_maker_rp2040
+      :board: cytron_maker_pi_rp2040
+      :gen-args: \
+                 -DOPENOCD=/usr/local/bin/openocd \
+                 -DOPENOCD_DEFAULT_PATH=/usr/local/share/openocd/scripts \
+                 -DCYTRON_RP2040_DEBUG_ADAPTER=picoprobe
+      :west-args: -p
+      :flash-args: -r openocd
+      :goals: flash
 
 Set the environment variables :strong:`OPENOCD` to
 :file:`/usr/local/bin/openocd` and :strong:`OPENOCD_DEFAULT_PATH` to
@@ -602,21 +602,21 @@ Using OpenOCD
 Install OpenOCD as described for flashing the board.
 
 Here is an example for debugging the
-:external+zephyr:zephyr:code-sample:`blinky` application.
+:external+zephyr:zephyr:code-sample:`blinky` application:
 
-.. zephyr-app-commands::
-   :app: zephyr/samples/basic/blinky
-   :board: cytron_maker_pi_rp2040
-   :build-dir: cytron_maker_rp2040
-   :maybe-skip-config:
-   :goals: debug
-   :west-args: -p
-   :flash-args: -r openocd
-   :gen-args: \
-              -DOPENOCD=/usr/local/bin/openocd \
-              -DOPENOCD_DEFAULT_PATH=/usr/local/share/openocd/scripts \
-              -DCYTRON_RP2040_DEBUG_ADAPTER=raspberrypi-swd
-   :host-os: unix
+   .. zephyr-app-commands::
+      :app: zephyr/samples/basic/blinky
+      :build-dir: cytron_maker_rp2040
+      :board: cytron_maker_pi_rp2040
+      :maybe-skip-config:
+      :gen-args: \
+                 -DOPENOCD=/usr/local/bin/openocd \
+                 -DOPENOCD_DEFAULT_PATH=/usr/local/share/openocd/scripts \
+                 -DCYTRON_RP2040_DEBUG_ADAPTER=raspberrypi-swd
+      :west-args: -p
+      :flash-args: -r openocd
+      :goals: debug
+      :host-os: unix
 
 As with flashing, you can specify the debug adapter by specifying
 :strong:`CYTRON_RP2040_DEBUG_ADAPTER` at :program:`west build` time.
@@ -668,8 +668,8 @@ LED Blinky and Fade
 
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/led/led_strip
-         :board: cytron_maker_nano_rp2040
          :build-dir: cytron_maker_rp2040
+         :board: cytron_maker_nano_rp2040
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -681,8 +681,8 @@ LED Blinky and Fade
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/blinky
-         :board: cytron_maker_nano_rp2040
          :build-dir: cytron_maker_rp2040
+         :board: cytron_maker_nano_rp2040
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -694,8 +694,8 @@ LED Blinky and Fade
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/blinky_pwm
-         :board: cytron_maker_nano_rp2040
          :build-dir: cytron_maker_rp2040
+         :board: cytron_maker_nano_rp2040
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -707,8 +707,8 @@ LED Blinky and Fade
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/fade_led
-         :board: cytron_maker_nano_rp2040
          :build-dir: cytron_maker_rp2040
+         :board: cytron_maker_nano_rp2040
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -720,8 +720,8 @@ LED Blinky and Fade
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/button
-         :board: cytron_maker_nano_rp2040
          :build-dir: cytron_maker_rp2040
+         :board: cytron_maker_nano_rp2040
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -739,8 +739,8 @@ LED Blinky and Fade
 
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/led/led_strip
-         :board: cytron_maker_pi_rp2040
          :build-dir: cytron_maker_rp2040
+         :board: cytron_maker_pi_rp2040
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -752,8 +752,8 @@ LED Blinky and Fade
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/blinky
-         :board: cytron_maker_pi_rp2040
          :build-dir: cytron_maker_rp2040
+         :board: cytron_maker_pi_rp2040
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -765,8 +765,8 @@ LED Blinky and Fade
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/blinky_pwm
-         :board: cytron_maker_pi_rp2040
          :build-dir: cytron_maker_rp2040
+         :board: cytron_maker_pi_rp2040
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -778,8 +778,8 @@ LED Blinky and Fade
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/fade_led
-         :board: cytron_maker_pi_rp2040
          :build-dir: cytron_maker_rp2040
+         :board: cytron_maker_pi_rp2040
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -791,8 +791,8 @@ LED Blinky and Fade
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/button
-         :board: cytron_maker_pi_rp2040
          :build-dir: cytron_maker_rp2040
+         :board: cytron_maker_pi_rp2040
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -809,9 +809,10 @@ Hello Shell with USB-CDC/ACM Console
 
       .. zephyr-app-commands::
          :app: bridle/samples/helloshell
-         :board: cytron_maker_nano_rp2040
          :build-dir: cytron_maker_rp2040
-         :west-args: -p -S usb-console
+         :board: cytron_maker_nano_rp2040
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
          :goals: flash
          :compact:
@@ -824,9 +825,10 @@ Hello Shell with USB-CDC/ACM Console
 
       .. zephyr-app-commands::
          :app: bridle/samples/helloshell
-         :board: cytron_maker_pi_rp2040
          :build-dir: cytron_maker_rp2040
-         :west-args: -p -S usb-console
+         :board: cytron_maker_pi_rp2040
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
          :goals: flash
          :compact:
@@ -861,9 +863,10 @@ sample: :external+zephyr:zephyr:code-sample:`input-dump`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/subsys/input/input_dump
-         :board: cytron_maker_nano_rp2040
          :build-dir: cytron_maker_rp2040
-         :west-args: -p -S usb-console
+         :board: cytron_maker_nano_rp2040
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
          :goals: flash
          :compact:
@@ -874,10 +877,7 @@ sample: :external+zephyr:zephyr:code-sample:`input-dump`.
 
          .. parsed-literal::
 
-            \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-            W: BUS RESET
-            W: BUS RESET
-            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
             Input sample started
             I: input event: dev=gpio_keys        SYN type= 1 code= 11 value=1
             I: input event: dev=gpio_keys        SYN type= 1 code= 11 value=0
@@ -906,9 +906,10 @@ sample: :external+zephyr:zephyr:code-sample:`input-dump`.
 
       .. zephyr-app-commands::
          :app: zephyr/samples/subsys/input/input_dump
-         :board: cytron_maker_pi_rp2040
          :build-dir: cytron_maker_rp2040
-         :west-args: -p -S usb-console
+         :board: cytron_maker_pi_rp2040
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
          :goals: flash
          :compact:
@@ -919,10 +920,7 @@ sample: :external+zephyr:zephyr:code-sample:`input-dump`.
 
          .. parsed-literal::
 
-            \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-            W: BUS RESET
-            W: BUS RESET
-            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
             Input sample started
             I: input event: dev=gpio_keys        SYN type= 1 code= 11 value=1
             I: input event: dev=gpio_keys        SYN type= 1 code= 11 value=0
@@ -959,9 +957,10 @@ Sounds from the speaker with USB-CDC/ACM Console
 
       .. zephyr-app-commands::
          :app: bridle/samples/buzzer
-         :board: cytron_maker_nano_rp2040
          :build-dir: cytron_maker_rp2040
-         :west-args: -p -S usb-console
+         :board: cytron_maker_nano_rp2040
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
          :goals: flash
          :compact:
@@ -1015,9 +1014,10 @@ Sounds from the speaker with USB-CDC/ACM Console
 
       .. zephyr-app-commands::
          :app: bridle/samples/buzzer
-         :board: cytron_maker_pi_rp2040
          :build-dir: cytron_maker_rp2040
-         :west-args: -p -S usb-console
+         :board: cytron_maker_pi_rp2040
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
          :goals: flash
          :compact:
@@ -1166,10 +1166,11 @@ This samples and test applications are only applicable together with the
 
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/display
+         :build-dir: cytron_maker_rp2040
          :board: cytron_maker_nano_rp2040
          :shield: waveshare_2_4_lcd
-         :build-dir: cytron_maker_rp2040
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
          :goals: flash
          :compact:
@@ -1180,10 +1181,11 @@ This samples and test applications are only applicable together with the
 
       .. zephyr-app-commands::
          :app: zephyr/samples/subsys/display/lvgl
+         :build-dir: cytron_maker_rp2040
          :board: cytron_maker_nano_rp2040
          :shield: waveshare_2_4_lcd
-         :build-dir: cytron_maker_rp2040
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
          :goals: flash
          :compact:
@@ -1310,10 +1312,11 @@ This samples and test applications are only applicable together with the
 
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/display
+         :build-dir: cytron_maker_rp2040
          :board: cytron_maker_pi_rp2040
          :shield: waveshare_2_4_lcd
-         :build-dir: cytron_maker_rp2040
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
          :goals: flash
          :compact:
@@ -1324,10 +1327,11 @@ This samples and test applications are only applicable together with the
 
       .. zephyr-app-commands::
          :app: zephyr/samples/subsys/display/lvgl
+         :build-dir: cytron_maker_rp2040
          :board: cytron_maker_pi_rp2040
          :shield: waveshare_2_4_lcd
-         :build-dir: cytron_maker_rp2040
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
          :goals: flash
          :compact:

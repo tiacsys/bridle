@@ -419,8 +419,8 @@ Build and flash the application:
 
    .. zephyr-app-commands::
       :app: zephyr/samples/hello_world
-      :board: vccgnd_bluepill_stm32f103c8
       :build-dir: vccgnd_bluepill
+      :board: vccgnd_bluepill_stm32f103c8
       :west-args: -p
       :flash-args: -r pyocd
       :goals: flash
@@ -433,7 +433,7 @@ You should see the following message on the console:
 
       .. parsed-literal::
 
-         \*\*\* Booting Zephyr OS build v\ |zephyr_version_number_em| \*\*\*
+         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
          Hello World! vccgnd_bluepill_stm32f103c8
 
 Debugging
@@ -447,8 +447,8 @@ You can debug an application in the usual way. Here is an example for the
 
    .. zephyr-app-commands::
       :app: zephyr/samples/hello_world
-      :board: vccgnd_bluepill_stm32f103c8
       :build-dir: vccgnd_bluepill
+      :board: vccgnd_bluepill_stm32f103c8
       :maybe-skip-config:
       :west-args: -p
       :debug-args: -r pyocd
@@ -471,9 +471,10 @@ LED Blinky with USB-CDC/ACM Console
 
             .. zephyr-app-commands::
                :app: zephyr/samples/basic/blinky
-               :board: vccgnd_bluepill_stm32f103cb
                :build-dir: vccgnd_bluepill
-               :west-args: -p -S usb-console
+               :board: vccgnd_bluepill_stm32f103cb
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r pyocd
                :goals: flash
                :compact:
@@ -482,9 +483,10 @@ LED Blinky with USB-CDC/ACM Console
 
             .. zephyr-app-commands::
                :app: zephyr/samples/basic/blinky
-               :board: vccgnd_bluepill_stm32f103c8
                :build-dir: vccgnd_bluepill
-               :west-args: -p -S usb-console
+               :board: vccgnd_bluepill_stm32f103c8
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r pyocd
                :goals: flash
                :compact:
@@ -497,9 +499,10 @@ LED Blinky with USB-CDC/ACM Console
 
             .. zephyr-app-commands::
                :app: zephyr/samples/basic/blinky
-               :board: vccgnd_bluepill_stm32f072cb
                :build-dir: vccgnd_bluepill
-               :west-args: -p -S usb-console
+               :board: vccgnd_bluepill_stm32f072cb
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r pyocd
                :goals: flash
                :compact:
@@ -508,9 +511,10 @@ LED Blinky with USB-CDC/ACM Console
 
             .. zephyr-app-commands::
                :app: zephyr/samples/basic/blinky
-               :board: vccgnd_bluepill_stm32f072c8
                :build-dir: vccgnd_bluepill
-               :west-args: -p -S usb-console
+               :board: vccgnd_bluepill_stm32f072c8
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r pyocd
                :goals: flash
                :compact:
@@ -528,8 +532,8 @@ Hello Shell
 
             .. zephyr-app-commands::
                :app: bridle/samples/helloshell
-               :board: vccgnd_bluepill_stm32f103cb
                :build-dir: vccgnd_bluepill
+               :board: vccgnd_bluepill_stm32f103cb
                :gen-args: \
                   -DEXTRA_CONF_FILE="prj-hwstartup.conf" -DCONFIG_STM32_ENABLE_DEBUG_SLEEP_STOP=y
                :west-args: -p
@@ -554,8 +558,8 @@ Hello Shell
 
             .. zephyr-app-commands::
                :app: bridle/samples/helloshell
-               :board: vccgnd_bluepill_stm32f103c8
                :build-dir: vccgnd_bluepill
+               :board: vccgnd_bluepill_stm32f103c8
                :gen-args: \
                   -DEXTRA_CONF_FILE="prj-hwstartup.conf" -DCONFIG_STM32_ENABLE_DEBUG_SLEEP_STOP=y
                :west-args: -p
@@ -584,8 +588,8 @@ Hello Shell
 
             .. zephyr-app-commands::
                :app: bridle/samples/helloshell
-               :board: vccgnd_bluepill_stm32f072cb
                :build-dir: vccgnd_bluepill
+               :board: vccgnd_bluepill_stm32f072cb
                :gen-args: \
                   -DEXTRA_CONF_FILE="prj-minimal.conf" -DCONFIG_STM32_ENABLE_DEBUG_SLEEP_STOP=y \
                   -DCONFIG_ADC=y -DCONFIG_ADC_SHELL=y -DCONFIG_I2C=y -DCONFIG_I2C_SHELL=y
@@ -611,8 +615,8 @@ Hello Shell
 
             .. zephyr-app-commands::
                :app: bridle/samples/helloshell
-               :board: vccgnd_bluepill_stm32f072c8
                :build-dir: vccgnd_bluepill
+               :board: vccgnd_bluepill_stm32f072c8
                :gen-args: \
                   -DEXTRA_CONF_FILE="prj-minimal.conf" -DCONFIG_STM32_ENABLE_DEBUG_SLEEP_STOP=y \
                   -DCONFIG_ADC=y -DCONFIG_ADC_SHELL=y -DCONFIG_I2C=y -DCONFIG_I2C_SHELL=y
@@ -638,8 +642,8 @@ Hello Shell
 
             .. zephyr-app-commands::
                :app: bridle/samples/helloshell
-               :board: vccgnd_bluepill_stm32f051c8
                :build-dir: vccgnd_bluepill
+               :board: vccgnd_bluepill_stm32f051c8
                :gen-args: \
                   -DEXTRA_CONF_FILE="prj-tiny.conf" -DCONFIG_STM32_ENABLE_DEBUG_SLEEP_STOP=y \
                   -DCONFIG_ADC=y -DCONFIG_ADC_SHELL=y -DCONFIG_I2C=y -DCONFIG_I2C_SHELL=y
@@ -665,8 +669,8 @@ Hello Shell
 
             .. zephyr-app-commands::
                :app: bridle/samples/helloshell
-               :board: vccgnd_bluepill_stm32f030c8
                :build-dir: vccgnd_bluepill
+               :board: vccgnd_bluepill_stm32f030c8
                :gen-args: \
                   -DEXTRA_CONF_FILE="prj-tiny.conf" -DCONFIG_STM32_ENABLE_DEBUG_SLEEP_STOP=y \
                   -DCONFIG_ADC=y -DCONFIG_ADC_SHELL=y -DCONFIG_I2C=y -DCONFIG_I2C_SHELL=y

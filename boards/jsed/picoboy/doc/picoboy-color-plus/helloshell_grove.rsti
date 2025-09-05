@@ -2,9 +2,9 @@
 
 .. zephyr-app-commands::
    :app: bridle/samples/helloshell
+   :build-dir: picoboy
    :board: picoboy_color_plus/rp2350a/m33
    :shield: "grove_sens_bmp280"
-   :build-dir: picoboy
    :west-args: -p
    :goals: flash
    :compact:
@@ -37,8 +37,8 @@
          .. parsed-literal::
 
             :bgn:`uart:~$` **sensor info**
-            device name: bmp280\ @\ 77, vendor: Bosch Sensortec GmbH, model: bme280, friendly name: (null)
-            device name: dietemp, vendor: Raspberry Pi Foundation, model: pico-temp, friendly name: RP2040 chip temperature
+            device name: bmp280\ @\ 77, vendor: Bosch Sensortec GmbH, model: bme280, friendly name: Grove TP Sensor V1.0 (BME280)
+            device name: dietemp, vendor: Raspberry Pi Foundation, model: pico-temp, friendly name: RP2350 chip temperature
 
       .. container:: highlight highlight-console notranslate
 

@@ -156,15 +156,15 @@
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **gpio get sipo-mux-gpio@0 SIG0**
+            :bgn:`uart:~$` **gpio get clock_gpio_0 SIG0**
             0
 
-            :bgn:`uart:~$` **gpio conf sipo-mux-gpio@0 SIG0 oh0**
+            :bgn:`uart:~$` **gpio conf clock_gpio_0 SIG0 oh0**
 
-            :bgn:`uart:~$` **gpio set sipo-mux-gpio@0 SIG0 1**
-            :bgn:`uart:~$` **gpio set sipo-mux-gpio@0 SIG0 0**
+            :bgn:`uart:~$` **gpio set clock_gpio_0 SIG0 1**
+            :bgn:`uart:~$` **gpio set clock_gpio_0 SIG0 0**
 
-            :bgn:`uart:~$` **gpio blink sipo-mux-gpio@0 SIG0**
+            :bgn:`uart:~$` **gpio blink clock_gpio_0 SIG0**
             Hit any key to exit
 
       Operate with the user input button :hwftlbl-btn:`SET/FUNCTION`
@@ -174,15 +174,15 @@
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **gpio get gpio@40014000 SET**
+            :bgn:`uart:~$` **gpio get clock_gpio_keys SET**
             0
 
-            :bgn:`uart:~$` **gpio conf gpio@40014000 SET iul**
-            :bgn:`uart:~$` **gpio get gpio@40014000 SET**
+            :bgn:`uart:~$` **gpio conf clock_gpio_keys SET iul**
+            :bgn:`uart:~$` **gpio get clock_gpio_keys SET**
             0
-            :bgn:`uart:~$` **gpio get gpio@40014000 SET**
+            :bgn:`uart:~$` **gpio get clock_gpio_keys SET**
             1
-            :bgn:`uart:~$` **gpio get gpio@40014000 SET**
+            :bgn:`uart:~$` **gpio get clock_gpio_keys SET**
             0
 
    .. group-tab:: ADC
@@ -195,7 +195,6 @@
          .. parsed-literal::
 
             :bgn:`uart:~$` **adc adc@4004c000 resolution 12**
-            :bgn:`uart:~$` **adc adc@4004c000 channel id 0**
 
       .. container:: highlight highlight-console notranslate
 
@@ -226,7 +225,7 @@
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **i2c scan i2c@40048000**
+            :bgn:`uart:~$` **i2c scan clock_i2c_rtc**
                  0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
             00:             -- -- -- -- -- -- -- -- -- -- -- --
             10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
@@ -236,7 +235,7 @@
             50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
             60: -- -- -- -- -- -- -- -- 68 -- -- -- -- -- -- --
             70: -- -- -- -- -- -- -- --
-            1 devices found on i2c\ @\ 40048000
+            1 devices found on clock_i2c_rtc
 
       The I2C address ``0x68`` is a Maxim / Analog Devices DS3231_ RTC with
       integraterd Temperature Sensor and they current temperature can read
@@ -247,9 +246,9 @@
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **i2c read_byte i2c@40048000 68 11**
+            :bgn:`uart:~$` **i2c read_byte clock_i2c_rtc 68 11**
             Output: 0x1a
-            :bgn:`uart:~$` **i2c read_byte i2c@40048000 68 12**
+            :bgn:`uart:~$` **i2c read_byte clock_i2c_rtc 68 12**
             Output: 0x40
 
       For example, for 24.75℃ the register content must be ``0x19``
@@ -259,9 +258,9 @@
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **i2c read_byte i2c@40048000 68 11**
+            :bgn:`uart:~$` **i2c read_byte clock_i2c_rtc 68 11**
             Output: 0x18
-            :bgn:`uart:~$` **i2c read_byte i2c@40048000 68 12**
+            :bgn:`uart:~$` **i2c read_byte clock_i2c_rtc 68 12**
             Output: 0xc0
 
    .. group-tab:: RTC
@@ -270,8 +269,8 @@
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **rtc set ds3231-rtc 2013-12-11T10:09:08**
-            :bgn:`uart:~$` **rtc get ds3231-rtc**
+            :bgn:`uart:~$` **rtc set clock_rtc 2013-12-11T10:09:08**
+            :bgn:`uart:~$` **rtc get clock_rtc**
             2013-12-11T10:09:16.000
 
    .. group-tab:: Temp
@@ -280,5 +279,5 @@
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **sensor get ds3231-dts 13**
+            :bgn:`uart:~$` **sensor get clock_dts 13**
             channel type=13(ambient_temp) index=0 shift=7 num_samples=1 value=958127057056ns (24.750000)

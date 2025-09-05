@@ -20,12 +20,12 @@
                :app: zephyr/samples/drivers/display
                :build-dir: waveshare_2_4_lcd-display_test
                :board: cytron_maker_nano_rp2040
-               :shield: waveshare_2_4_lcd
-               :goals: flash
-               :west-args: -p -S usb-console
+               :shield: "waveshare_2_4_lcd"
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r uf2
+               :goals: flash
                :host-os: unix
-               :tool: all
 
          .. group-tab:: Grove System
 
@@ -39,12 +39,12 @@
                :app: zephyr/samples/drivers/display
                :build-dir: waveshare_2_4_lcd-display_test
                :board: cytron_maker_pi_rp2040
-               :shield: waveshare_2_4_lcd
-               :goals: flash
-               :west-args: -p -S usb-console
+               :shield: "waveshare_2_4_lcd"
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r uf2
+               :goals: flash
                :host-os: unix
-               :tool: all
 
       .. list-table::
          :align: center
@@ -78,12 +78,12 @@
                :app: zephyr/samples/subsys/display/lvgl
                :build-dir: waveshare_2_4_lcd-lvgl_basic
                :board: cytron_maker_nano_rp2040
-               :shield: waveshare_2_4_lcd
-               :goals: flash
-               :west-args: -p -S usb-console
+               :shield: "waveshare_2_4_lcd"
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r uf2
+               :goals: flash
                :host-os: unix
-               :tool: all
 
          .. group-tab:: Grove System
 
@@ -97,9 +97,9 @@
                :app: zephyr/samples/subsys/display/lvgl
                :build-dir: waveshare_2_4_lcd-lvgl_basic
                :board: cytron_maker_pi_rp2040
-               :shield: waveshare_2_4_lcd
-               :goals: flash
-               :west-args: -p -S usb-console
+               :shield: "waveshare_2_4_lcd"
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r uf2
+               :goals: flash
                :host-os: unix
-               :tool: all

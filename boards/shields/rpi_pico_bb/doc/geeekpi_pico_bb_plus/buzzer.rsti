@@ -12,9 +12,10 @@ with given Piezo Buzzer. That is:
          :build-dir: geeekpi_pico_bb_plus-buzzer
          :board: rpi_pico
          :shield: "geeekpi_pico_bb_plus"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
    .. group-tab:: Raspberry Pi Pico W
@@ -24,9 +25,10 @@ with given Piezo Buzzer. That is:
          :build-dir: geeekpi_pico_bb_plus-buzzer
          :board: rpi_pico/rp2040/w
          :shield: "geeekpi_pico_bb_plus"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
    .. group-tab:: Waveshare RP2040-Plus
@@ -38,9 +40,10 @@ with given Piezo Buzzer. That is:
          :build-dir: geeekpi_pico_bb_plus-buzzer
          :board: waveshare_rp2040_plus
          :shield: "geeekpi_pico_bb_plus"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
       .. rubric:: on extended ``16㎆`` revision
@@ -50,9 +53,10 @@ with given Piezo Buzzer. That is:
          :build-dir: geeekpi_pico_bb_plus-buzzer
          :board: waveshare_rp2040_plus@16mb
          :shield: "geeekpi_pico_bb_plus"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
 .. rubric:: Simple test execution on target
@@ -64,10 +68,7 @@ with given Piezo Buzzer. That is:
 
    .. parsed-literal::
 
-      \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-      W: BUS RESET
-      W: BUS RESET
-      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
       [00:00:04.003,000] <inf> buzzersh: Buzzer shell is ready!
       :bgn:`uart:~$` **█**
 

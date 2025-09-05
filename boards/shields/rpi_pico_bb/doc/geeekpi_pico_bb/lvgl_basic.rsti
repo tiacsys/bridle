@@ -23,9 +23,10 @@ with chosen display and touchscreen panel. That is:
          :build-dir: geeekpi_pico_bb-lvgl_basic
          :board: rpi_pico
          :shield: "geeekpi_pico_bb"
-         :goals: flash
-         :west-args: -p -S usb-console -S del-default-aliases
+         :snippets: "usb-console del-default-aliases"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
    .. group-tab:: Raspberry Pi Pico W
@@ -35,9 +36,10 @@ with chosen display and touchscreen panel. That is:
          :build-dir: geeekpi_pico_bb-lvgl_basic
          :board: rpi_pico/rp2040/w
          :shield: "geeekpi_pico_bb"
-         :goals: flash
-         :west-args: -p -S usb-console -S del-default-aliases
+         :snippets: "usb-console del-default-aliases"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
    .. group-tab:: Waveshare RP2040-Plus
@@ -49,9 +51,10 @@ with chosen display and touchscreen panel. That is:
          :build-dir: geeekpi_pico_bb-lvgl_basic
          :board: waveshare_rp2040_plus
          :shield: "geeekpi_pico_bb"
-         :goals: flash
-         :west-args: -p -S usb-console -S del-default-aliases
+         :snippets: "usb-console del-default-aliases"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
       .. rubric:: on extended ``16㎆`` revision
@@ -61,9 +64,10 @@ with chosen display and touchscreen panel. That is:
          :build-dir: geeekpi_pico_bb-lvgl_basic
          :board: waveshare_rp2040_plus@16mb
          :shield: "geeekpi_pico_bb"
-         :goals: flash
-         :west-args: -p -S usb-console -S del-default-aliases
+         :snippets: "usb-console del-default-aliases"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
 .. rubric:: Simple test execution on target
@@ -72,10 +76,7 @@ with chosen display and touchscreen panel. That is:
 
    .. parsed-literal::
 
-      \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-      [00:00:00.314,000] :byl:`<wrn> udc_rpi: BUS RESET`
-      [00:00:00.395,000] :byl:`<wrn> udc_rpi: BUS RESET`
-      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
       :bgn:`uart:~$` **█**
 
 .. container:: highlight highlight-console notranslate

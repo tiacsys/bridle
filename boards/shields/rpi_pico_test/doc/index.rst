@@ -71,11 +71,11 @@ Programming
                :build-dir: spotpear_pico_test-helloshell
                :board: rpi_pico
                :shield: "spotpear_pico_test"
-               :goals: flash
-               :west-args: -p -S usb-console
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r uf2
+               :goals: flash
                :host-os: unix
-               :tool: all
 
             .. include:: spotpear_pico_test/helloshell.rsti
 
@@ -86,11 +86,11 @@ Programming
                :build-dir: spotpear_pico_test-helloshell
                :board: rpi_pico/rp2040/w
                :shield: "spotpear_pico_test"
-               :goals: flash
-               :west-args: -p -S usb-console
+               :snippets: "usb-console wifi-ip"
+               :west-args: -p
                :flash-args: -r uf2
+               :goals: flash
                :host-os: unix
-               :tool: all
 
             .. include:: spotpear_pico_test/helloshell.rsti
 
@@ -103,11 +103,11 @@ Programming
                :build-dir: spotpear_pico_test-helloshell
                :board: waveshare_rp2040_plus
                :shield: "spotpear_pico_test"
-               :goals: flash
-               :west-args: -p -S usb-console
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r uf2
+               :goals: flash
                :host-os: unix
-               :tool: all
 
             .. rubric:: on extended ``16㎆`` revision
 
@@ -116,11 +116,11 @@ Programming
                :build-dir: spotpear_pico_test-helloshell
                :board: waveshare_rp2040_plus@16mb
                :shield: "spotpear_pico_test"
-               :goals: flash
-               :west-args: -p -S usb-console
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r uf2
+               :goals: flash
                :host-os: unix
-               :tool: all
 
             .. include:: spotpear_pico_test/helloshell.rsti
 
@@ -131,11 +131,11 @@ Programming
                :build-dir: spotpear_pico_test-helloshell
                :board: waveshare_rp2040_lcd_0_96
                :shield: "spotpear_pico_test"
-               :goals: flash
-               :west-args: -p -S usb-console
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r uf2
+               :goals: flash
                :host-os: unix
-               :tool: all
 
             .. include:: spotpear_pico_test/helloshell.rsti
 
@@ -191,9 +191,10 @@ sample: :external+zephyr:zephyr:code-sample:`input-dump`.
                :build-dir: spotpear_pico_test-input_dump
                :board: rpi_pico
                :shield: "spotpear_pico_test"
-               :goals: flash
-               :west-args: -p -S usb-console
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r uf2
+               :goals: flash
                :compact:
 
          .. group-tab:: Raspberry Pi Pico W
@@ -203,9 +204,10 @@ sample: :external+zephyr:zephyr:code-sample:`input-dump`.
                :build-dir: spotpear_pico_test-input_dump
                :board: rpi_pico/rp2040/w
                :shield: "spotpear_pico_test"
-               :goals: flash
-               :west-args: -p -S usb-console
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r uf2
+               :goals: flash
                :compact:
 
          .. group-tab:: Waveshare RP2040-Plus
@@ -217,9 +219,10 @@ sample: :external+zephyr:zephyr:code-sample:`input-dump`.
                :build-dir: spotpear_pico_test-input_dump
                :board: waveshare_rp2040_plus
                :shield: "spotpear_pico_test"
-               :goals: flash
-               :west-args: -p -S usb-console
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r uf2
+               :goals: flash
                :compact:
 
             .. rubric:: on extended ``16㎆`` revision
@@ -229,9 +232,10 @@ sample: :external+zephyr:zephyr:code-sample:`input-dump`.
                :build-dir: spotpear_pico_test-input_dump
                :board: waveshare_rp2040_plus@16mb
                :shield: "spotpear_pico_test"
-               :goals: flash
-               :west-args: -p -S usb-console
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r uf2
+               :goals: flash
                :compact:
 
          .. group-tab:: Waveshare RP2040-LCD-0.96
@@ -241,9 +245,10 @@ sample: :external+zephyr:zephyr:code-sample:`input-dump`.
                :build-dir: spotpear_pico_test-input_dump
                :board: waveshare_rp2040_lcd_0_96
                :shield: "spotpear_pico_test"
-               :goals: flash
-               :west-args: -p -S usb-console
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r uf2
+               :goals: flash
                :compact:
 
       .. rubric:: Simple test execution on target
@@ -252,10 +257,7 @@ sample: :external+zephyr:zephyr:code-sample:`input-dump`.
 
          .. parsed-literal::
 
-            \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-            W: BUS RESET
-            W: BUS RESET
-            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
             Input sample started
             I: input event: dev=gpio_keys        SYN type= 1 code=108 value=1
             I: input event: dev=gpio_keys        SYN type= 1 code=108 value=0
@@ -293,9 +295,10 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`adc_dt`.
                :build-dir: spotpear_pico_test-drivers_adc
                :board: rpi_pico
                :shield: "spotpear_pico_test"
-               :goals: flash
-               :west-args: -p -S usb-console
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r uf2
+               :goals: flash
                :compact:
 
          .. group-tab:: Raspberry Pi Pico W
@@ -305,9 +308,10 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`adc_dt`.
                :build-dir: spotpear_pico_test-drivers_adc
                :board: rpi_pico/rp2040/w
                :shield: "spotpear_pico_test"
-               :goals: flash
-               :west-args: -p -S usb-console
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r uf2
+               :goals: flash
                :compact:
 
          .. group-tab:: Waveshare RP2040-Plus
@@ -319,9 +323,10 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`adc_dt`.
                :build-dir: spotpear_pico_test-drivers_adc
                :board: waveshare_rp2040_plus
                :shield: "spotpear_pico_test"
-               :goals: flash
-               :west-args: -p -S usb-console
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r uf2
+               :goals: flash
                :compact:
 
             .. rubric:: on extended ``16㎆`` revision
@@ -331,9 +336,10 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`adc_dt`.
                :build-dir: spotpear_pico_test-drivers_adc
                :board: waveshare_rp2040_plus@16mb
                :shield: "spotpear_pico_test"
-               :goals: flash
-               :west-args: -p -S usb-console
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r uf2
+               :goals: flash
                :compact:
 
          .. group-tab:: Waveshare RP2040-LCD-0.96
@@ -343,9 +349,10 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`adc_dt`.
                :build-dir: spotpear_pico_test-drivers_adc
                :board: waveshare_rp2040_lcd_0_96
                :shield: "spotpear_pico_test"
-               :goals: flash
-               :west-args: -p -S usb-console
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r uf2
+               :goals: flash
                :compact:
 
       .. rubric:: Simple test execution on target
@@ -354,10 +361,7 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`adc_dt`.
 
          .. parsed-literal::
 
-            \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-            [00:00:00.287,000] :byl:`<wrn> udc_rpi: BUS RESET`
-            [00:00:00.368,000] :byl:`<wrn> udc_rpi: BUS RESET`
-            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
             ADC reading[0]:
             - adc\ @\ 4004c000, channel 0: 25 = 20 mV
             ADC reading[1]:
@@ -441,9 +445,10 @@ sample: :external+zephyr:zephyr:code-sample:`led-pwm`.
                :build-dir: spotpear_pico_test-drivers_led_pwm
                :board: rpi_pico
                :shield: "spotpear_pico_test"
-               :goals: flash
-               :west-args: -p -S usb-console
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r uf2
+               :goals: flash
                :compact:
 
          .. group-tab:: Raspberry Pi Pico W
@@ -453,9 +458,10 @@ sample: :external+zephyr:zephyr:code-sample:`led-pwm`.
                :build-dir: spotpear_pico_test-drivers_led_pwm
                :board: rpi_pico/rp2040/w
                :shield: "spotpear_pico_test"
-               :goals: flash
-               :west-args: -p -S usb-console
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r uf2
+               :goals: flash
                :compact:
 
          .. group-tab:: Waveshare RP2040-Plus
@@ -467,9 +473,10 @@ sample: :external+zephyr:zephyr:code-sample:`led-pwm`.
                :build-dir: spotpear_pico_test-drivers_led_pwm
                :board: waveshare_rp2040_plus
                :shield: "spotpear_pico_test"
-               :goals: flash
-               :west-args: -p -S usb-console
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r uf2
+               :goals: flash
                :compact:
 
             .. rubric:: on extended ``16㎆`` revision
@@ -479,9 +486,10 @@ sample: :external+zephyr:zephyr:code-sample:`led-pwm`.
                :build-dir: spotpear_pico_test-drivers_led_pwm
                :board: waveshare_rp2040_plus@16mb
                :shield: "spotpear_pico_test"
-               :goals: flash
-               :west-args: -p -S usb-console
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r uf2
+               :goals: flash
                :compact:
 
          .. group-tab:: Waveshare RP2040-LCD-0.96
@@ -491,9 +499,10 @@ sample: :external+zephyr:zephyr:code-sample:`led-pwm`.
                :build-dir: spotpear_pico_test-drivers_led_pwm
                :board: waveshare_rp2040_lcd_0_96
                :shield: "spotpear_pico_test"
-               :goals: flash
-               :west-args: -p -S usb-console
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r uf2
+               :goals: flash
                :compact:
 
       .. rubric:: Simple test execution on target
@@ -502,10 +511,7 @@ sample: :external+zephyr:zephyr:code-sample:`led-pwm`.
 
          .. parsed-literal::
 
-            \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-            [00:00:00.374,000] :byl:`<wrn> udc_rpi: BUS RESET`
-            [00:00:00.454,000] :byl:`<wrn> udc_rpi: BUS RESET`
-            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
             [00:00:04.003,000] <inf> main: Testing LED 0 - L0: Test LED 0
             [00:00:04.004,000] <inf> main:   Turned on
             [00:00:05.004,000] <inf> main:   Turned off
