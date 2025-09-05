@@ -78,8 +78,9 @@ LED Blinky and Fade
                :app: zephyr/samples/drivers/led/led_strip
                :build-dir: waveshare_pico_rgb_led-strip_test
                :board: rpi_pico
-               :shield: waveshare_pico_rgb_led
-               :west-args: -p -S usb-console
+               :shield: "waveshare_pico_rgb_led"
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r uf2
                :goals: flash
                :compact:
@@ -90,8 +91,9 @@ LED Blinky and Fade
                :app: zephyr/samples/drivers/led/led_strip
                :build-dir: waveshare_pico_rgb_led-strip_test
                :board: rpi_pico/rp2040/w
-               :shield: waveshare_pico_rgb_led
-               :west-args: -p -S usb-console
+               :shield: "waveshare_pico_rgb_led"
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r uf2
                :goals: flash
                :compact:
@@ -102,8 +104,9 @@ LED Blinky and Fade
                :app: zephyr/samples/drivers/led/led_strip
                :build-dir: waveshare_pico_rgb_led-strip_test
                :board: waveshare_rp2040_lcd_0_96
-               :shield: waveshare_pico_rgb_led
-               :west-args: -p -S usb-console
+               :shield: "waveshare_pico_rgb_led"
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r uf2
                :goals: flash
                :compact:
@@ -116,8 +119,9 @@ LED Blinky and Fade
                :app: zephyr/samples/drivers/led/led_strip
                :build-dir: waveshare_pico_rgb_led-strip_test
                :board: waveshare_rp2040_plus
-               :shield: waveshare_pico_rgb_led
-               :west-args: -p -S usb-console
+               :shield: "waveshare_pico_rgb_led"
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r uf2
                :goals: flash
                :compact:
@@ -128,8 +132,9 @@ LED Blinky and Fade
                :app: zephyr/samples/drivers/led/led_strip
                :build-dir: waveshare_pico_rgb_led-strip_test
                :board: waveshare_rp2040_plus@16mb
-               :shield: waveshare_pico_rgb_led
-               :west-args: -p -S usb-console
+               :shield: "waveshare_pico_rgb_led"
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r uf2
                :goals: flash
                :compact:
@@ -140,10 +145,7 @@ LED Blinky and Fade
 
          .. parsed-literal::
 
-            \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-            [00:00:00.337,000] :byl:`<wrn> udc_rpi: BUS RESET`
-            [00:00:00.417,000] :byl:`<wrn> udc_rpi: BUS RESET`
-            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
             [00:00:04.002,000] <inf> main: Found LED strip device rgb-led-strip
             [00:00:04.002,000] <inf> main: Displaying pattern on strip
 
@@ -189,8 +191,9 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`display`.
                :app: zephyr/samples/drivers/display
                :build-dir: waveshare_pico_rgb_led-display_test
                :board: rpi_pico
-               :shield: waveshare_pico_rgb_led
-               :west-args: -p -S usb-console
+               :shield: "waveshare_pico_rgb_led"
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r uf2
                :goals: flash
                :compact:
@@ -201,8 +204,9 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`display`.
                :app: zephyr/samples/drivers/display
                :build-dir: waveshare_pico_rgb_led-display_test
                :board: rpi_pico_w
-               :shield: waveshare_pico_rgb_led
-               :west-args: -p -S usb-console
+               :shield: "waveshare_pico_rgb_led"
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r uf2
                :goals: flash
                :compact:
@@ -213,8 +217,9 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`display`.
                :app: zephyr/samples/drivers/display
                :build-dir: waveshare_pico_rgb_led-display_test
                :board: waveshare_rp2040_lcd_0_96
-               :shield: waveshare_pico_rgb_led
-               :west-args: -p -S usb-console
+               :shield: "waveshare_pico_rgb_led"
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r uf2
                :goals: flash
                :compact:
@@ -227,8 +232,9 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`display`.
                :app: zephyr/samples/drivers/display
                :build-dir: waveshare_pico_rgb_led-display_test
                :board: waveshare_rp2040_plus
-               :shield: waveshare_pico_rgb_led
-               :west-args: -p -S usb-console
+               :shield: "waveshare_pico_rgb_led"
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r uf2
                :goals: flash
                :compact:
@@ -239,8 +245,9 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`display`.
                :app: zephyr/samples/drivers/display
                :build-dir: waveshare_pico_rgb_led-display_test
                :board: waveshare_rp2040_plus@16mb
-               :shield: waveshare_pico_rgb_led
-               :west-args: -p -S usb-console
+               :shield: "waveshare_pico_rgb_led"
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r uf2
                :goals: flash
                :compact:
@@ -251,10 +258,7 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`display`.
 
          .. parsed-literal::
 
-            \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-            [00:00:00.337,000] :byl:`<wrn> udc_rpi: BUS RESET`
-            [00:00:00.417,000] :byl:`<wrn> udc_rpi: BUS RESET`
-            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
             [00:00:04.002,000] <inf> sample: Display sample for rgb-led-strip-matrix
 
    .. zephyr-keep-sorted-stop

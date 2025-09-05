@@ -109,13 +109,13 @@
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **gpio get gpio@40014000 3**
+            :bgn:`uart:~$` **gpio get gpio0 3**
             0
 
-            :bgn:`uart:~$` **gpio conf gpio@40014000 3 iul**
-            :bgn:`uart:~$` **gpio get gpio@40014000 3**
+            :bgn:`uart:~$` **gpio conf gpio0 3 iul**
+            :bgn:`uart:~$` **gpio get gpio0 3**
             0
-            :bgn:`uart:~$` **gpio get gpio@40014000 3**
+            :bgn:`uart:~$` **gpio get gpio0 3**
             1
-            :bgn:`uart:~$` **gpio get gpio@40014000 3**
+            :bgn:`uart:~$` **gpio get gpio0 3**
             0

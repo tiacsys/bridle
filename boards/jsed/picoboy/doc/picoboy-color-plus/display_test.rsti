@@ -43,8 +43,8 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`display`.
 
 .. zephyr-app-commands::
    :app: zephyr/samples/drivers/display
-   :board: picoboy_color_plus/rp2350a/m33
    :build-dir: picoboy
+   :board: picoboy_color_plus/rp2350a/m33
    :west-args: -p
    :goals: flash
    :compact:
@@ -58,8 +58,8 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`lvgl`.
 
 .. zephyr-app-commands::
    :app: zephyr/samples/subsys/display/lvgl
-   :board: picoboy_color_plus/rp2350a/m33
    :build-dir: picoboy
+   :board: picoboy_color_plus/rp2350a/m33
    :west-args: -p
    :goals: flash
    :compact:
@@ -87,15 +87,17 @@ on the console, here configured for a USB console:
                   -c  dump chunk information
 
       :bgn:`uart:~$` **lvgl stats memory**
-      Heap at 0x20001530 contains 2047 units in 11 buckets
+      Heap at 0x200017e8 contains 2047 units in 11 buckets
 
         bucket#    min units        total      largest      largest
                    threshold       chunks      (units)      (bytes)
         -----------------------------------------------------------
-              1            2            1            2           12
-              9          512            1         1012         8092
+              1            2            1            2           16
+              3            8            1           11           88
+              6           64            1           81          648
+              9          512            1          921         7368
 
-      8104 free bytes, 7700 allocated bytes, overhead = 576 bytes (3.5%)
+      8120 free bytes, 8192 allocated bytes, overhead = 68 bytes (0.4%)
 
    .. parsed-literal::
 
@@ -111,10 +113,16 @@ on the console, here configured for a USB console:
         DT node labels: uart0 rpipico_serial pico_serial
       - watchdog\ @\ 400d8000 (READY)
         DT node labels: wdt0
+      - timer\ @\ 400b8000 (READY)
+        DT node labels: timer1
+      - timer\ @\ 400b0000 (READY)
+        DT node labels: timer0
       - dma\ @\ 50000000 (READY)
         DT node labels: dma
-      - gpio\ @\ 40028000 (READY)
+      - gpio-port\ @\ 0 (READY)
         DT node labels: gpio0
+      - usbd\ @\ 50110000 (READY)
+        DT node labels: usbd zephyr_udc0
       - pwm\ @\ 400a8000 (READY)
         DT node labels: pwm grove_pwm_d20 grove_pwm_d21
       - spi\ @\ 40088000 (READY)

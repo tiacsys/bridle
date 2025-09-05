@@ -4,9 +4,9 @@ See also Zephyr sample: :zephyr:code-sample:`bme280`
 
 .. zephyr-app-commands::
    :app: zephyr/samples/sensor/bme280
+   :build-dir: picoboy
    :board: picoboy_color_plus/rp2350a/m33
    :shield: "grove_sens_bmp280"
-   :build-dir: picoboy
    :west-args: -p
    :goals: flash
    :compact:
@@ -19,10 +19,7 @@ See also Zephyr sample: :zephyr:code-sample:`bme280`
 
       [00:00:00.001,000] <dbg> BME280: bme280_chip_init: ID OK (BMP280)
       [00:00:00.006,000] <dbg> BME280: bme280_chip_init: "bmp280\ @\ 77" OK
-      \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-      [00:00:00.294,000] :byl:`<wrn> udc_rpi: BUS RESET`
-      [00:00:00.395,000] :byl:`<wrn> udc_rpi: BUS RESET`
-      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
       Found device "**bmp280@77**", getting sensor data
       temp: 23.879974; press: 100.648437; humidity: 1196032.0
       temp: 23.889984; press: 100.648437; humidity: 1196032.0

@@ -51,16 +51,17 @@ that comes with the :ref:`waveshare_pico_10dof_imu_sensor` shield for the
 |zephyr:board:rpi_pico| board.
 
 The following examples use the shield in revision 2.1. If these should be used
-for revision 1, the variable :code:`SHIELD` must be adapted accordingly.
+for revision 1, the variable :code:`SHIELD` must be adapted accordingly:
 
-.. zephyr-app-commands::
-   :app: bridle/samples/waveshare_pico_10dof_imu_sensor
-   :board: rpi_pico
-   :shield: waveshare_pico_10dof_imu_sensor_r2
-   :build-dir: waveshare_pico_10dof_imu_sensor_r2
-   :west-args: -p -S usb-console
-   :flash-args: -r uf2
-   :goals: flash
+   .. zephyr-app-commands::
+      :app: bridle/samples/waveshare_pico_10dof_imu_sensor
+      :build-dir: waveshare_pico_10dof_imu_sensor_r2
+      :board: rpi_pico
+      :shield: "waveshare_pico_10dof_imu_sensor_r2"
+      :snippets: "usb-console"
+      :west-args: -p
+      :flash-args: -r uf2
+      :goals: flash
 
 Sample Output
 =============
@@ -69,10 +70,7 @@ Sample Output
    :class: highlight-console notranslate
 
    [00:00:00.067,000] <dbg> MPU9250: ak8963_fetch_adj: Adjustment values 1756 1762 1698
-   \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-   [00:00:00.328,000] :byl:`<wrn> udc_rpi: BUS RESET`
-   [00:00:00.408,000] :byl:`<wrn> udc_rpi: BUS RESET`
-   \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+   \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
    [00:00:04.079,000] <inf> wsptdis_sample: MPU9250: Found device "**mpu9250@68**", getting sensor data
    [00:00:04.079,000] <inf> wsptdis_sample: DOF: Configured for triggered sampling.
    [00:00:04.079,000] <inf> wsptdis_sample: LPS22HB: Found device "**lps22hb@5c**", getting sensor data

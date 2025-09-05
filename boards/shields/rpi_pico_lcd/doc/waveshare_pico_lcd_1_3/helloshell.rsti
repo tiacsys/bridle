@@ -13,11 +13,11 @@ For example:
          :build-dir: waveshare_pico_lcd_1_3-helloshell
          :board: rpi_pico
          :shield: "waveshare_pico_lcd_1_3"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :host-os: unix
-         :tool: all
 
       .. include:: waveshare_pico_lcd_1_3/helloshell_console.rsti
 
@@ -28,11 +28,11 @@ For example:
          :build-dir: waveshare_pico_lcd_1_3-helloshell
          :board: rpi_pico/rp2040/w
          :shield: "waveshare_pico_lcd_1_3"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console wifi-ip"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :host-os: unix
-         :tool: all
 
       .. include:: waveshare_pico_lcd_1_3/helloshell_console.rsti
 
@@ -45,11 +45,11 @@ For example:
          :build-dir: waveshare_pico_lcd_1_3-helloshell
          :board: waveshare_rp2040_plus
          :shield: "waveshare_pico_lcd_1_3"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :host-os: unix
-         :tool: all
 
       .. rubric:: on extended ``16㎆`` revision
 
@@ -58,11 +58,11 @@ For example:
          :build-dir: waveshare_pico_lcd_1_3-helloshell
          :board: waveshare_rp2040_plus@16mb
          :shield: "waveshare_pico_lcd_1_3"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :host-os: unix
-         :tool: all
 
       .. include:: waveshare_pico_lcd_1_3/helloshell_console.rsti
 

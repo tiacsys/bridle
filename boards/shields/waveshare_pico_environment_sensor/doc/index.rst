@@ -263,11 +263,11 @@ Set ``-DSHIELD=waveshare_pico_environment_sensor`` when you invoke
          :app: bridle/samples/helloshell
          :build-dir: waveshare_pico_environment_sensor-helloshell
          :board: rpi_pico
-         :shield: waveshare_pico_environment_sensor
-         :goals: flash
-         :west-args: -p -S usb-console
+         :shield: "waveshare_pico_environment_sensor"
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
-         :tool: all
+         :goals: flash
 
       .. include:: helloshell.rsti
 
@@ -277,11 +277,11 @@ Set ``-DSHIELD=waveshare_pico_environment_sensor`` when you invoke
          :app: bridle/samples/helloshell
          :build-dir: waveshare_pico_environment_sensor-helloshell
          :board: rpi_pico/rp2040/w
-         :shield: waveshare_pico_environment_sensor
-         :goals: flash
-         :west-args: -p -S usb-console
+         :shield: "waveshare_pico_environment_sensor"
+         :snippets: "usb-console wifi-ip"
+         :west-args: -p
          :flash-args: -r uf2
-         :tool: all
+         :goals: flash
 
       .. include:: helloshell.rsti
 
@@ -291,11 +291,11 @@ Set ``-DSHIELD=waveshare_pico_environment_sensor`` when you invoke
          :app: bridle/samples/helloshell
          :build-dir: waveshare_pico_environment_sensor-helloshell
          :board: waveshare_rp2040_lcd_0_96
-         :shield: waveshare_pico_environment_sensor
-         :goals: flash
-         :west-args: -p -S usb-console
+         :shield: "waveshare_pico_environment_sensor"
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
-         :tool: all
+         :goals: flash
 
       .. include:: helloshell.rsti
 
@@ -307,11 +307,11 @@ Set ``-DSHIELD=waveshare_pico_environment_sensor`` when you invoke
          :app: bridle/samples/helloshell
          :build-dir: waveshare_pico_environment_sensor-helloshell
          :board: waveshare_rp2040_plus
-         :shield: waveshare_pico_environment_sensor
-         :goals: flash
-         :west-args: -p -S usb-console
+         :shield: "waveshare_pico_environment_sensor"
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
-         :tool: all
+         :goals: flash
 
       .. rubric:: on extended ``16㎆`` revision
 
@@ -319,11 +319,11 @@ Set ``-DSHIELD=waveshare_pico_environment_sensor`` when you invoke
          :app: bridle/samples/helloshell
          :build-dir: waveshare_pico_environment_sensor-helloshell
          :board: waveshare_rp2040_plus@16mb
-         :shield: waveshare_pico_environment_sensor
-         :goals: flash
-         :west-args: -p -S usb-console
+         :shield: "waveshare_pico_environment_sensor"
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
-         :tool: all
+         :goals: flash
 
       .. include:: helloshell.rsti
 
@@ -342,10 +342,11 @@ driver for the Bosch BME280 environmental sensor. See also Zephyr sample:
    :app: zephyr/samples/sensor/bme280
    :build-dir: waveshare_pico_environment_sensor-bme280
    :board: rpi_pico
-   :shield: waveshare_pico_environment_sensor
-   :goals: flash
-   :west-args: -p -S usb-console -S samples-sensor-bme280-tweaks
+   :shield: "waveshare_pico_environment_sensor"
+   :snippets: "usb-console samples-sensor-bme280-tweaks"
+   :west-args: -p
    :flash-args: -r uf2
+   :goals: flash
 
 The Default Shield Sample
 =========================
@@ -356,10 +357,11 @@ See also :ref:`waveshare_pico_environment_sensor-sample` in Bridle.
    :app: bridle/samples/waveshare_pico_environment_sensor
    :build-dir: waveshare_pico_environment_sensor
    :board: rpi_pico
-   :shield: waveshare_pico_environment_sensor
-   :goals: flash
-   :west-args: -p -S usb-console
+   :shield: "waveshare_pico_environment_sensor"
+   :snippets: "usb-console"
+   :west-args: -p
    :flash-args: -r uf2
+   :goals: flash
 
 References
 **********

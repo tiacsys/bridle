@@ -91,11 +91,11 @@ Programming
                :build-dir: waveshare_pico_clock_green-helloshell
                :board: rpi_pico
                :shield: "waveshare_pico_clock_green"
+               :snippets: "usb-console"
                :goals: flash
-               :west-args: -p -S usb-console
+               :west-args: -p
                :flash-args: -r uf2
                :host-os: unix
-               :tool: all
 
             .. include:: waveshare_pico_clock_green/helloshell.rsti
 
@@ -106,11 +106,11 @@ Programming
                :build-dir: waveshare_pico_clock_green-helloshell
                :board: rpi_pico/rp2040/w
                :shield: "waveshare_pico_clock_green"
+               :snippets: "usb-console wifi-ip"
                :goals: flash
-               :west-args: -p -S usb-console
+               :west-args: -p
                :flash-args: -r uf2
                :host-os: unix
-               :tool: all
 
             .. include:: waveshare_pico_clock_green/helloshell.rsti
 
@@ -123,11 +123,11 @@ Programming
                :build-dir: waveshare_pico_clock_green-helloshell
                :board: waveshare_rp2040_plus
                :shield: "waveshare_pico_clock_green"
+               :snippets: "usb-console"
                :goals: flash
-               :west-args: -p -S usb-console
+               :west-args: -p
                :flash-args: -r uf2
                :host-os: unix
-               :tool: all
 
             .. rubric:: on extended ``16㎆`` revision
 
@@ -136,11 +136,11 @@ Programming
                :build-dir: waveshare_pico_clock_green-helloshell
                :board: waveshare_rp2040_plus@16mb
                :shield: "waveshare_pico_clock_green"
+               :snippets: "usb-console"
                :goals: flash
-               :west-args: -p -S usb-console
+               :west-args: -p
                :flash-args: -r uf2
                :host-os: unix
-               :tool: all
 
             .. include:: waveshare_pico_clock_green/helloshell.rsti
 
@@ -171,8 +171,9 @@ LED Blinky and Button
                :build-dir: waveshare_pico_clock_green-blinky
                :board: rpi_pico
                :shield: "waveshare_pico_clock_green"
+               :snippets: "usb-console"
                :goals: flash
-               :west-args: -p -S usb-console
+               :west-args: -p
                :flash-args: -r uf2
                :compact:
 
@@ -183,8 +184,9 @@ LED Blinky and Button
                :build-dir: waveshare_pico_clock_green-blinky
                :board: rpi_pico/rp2040/w
                :shield: "waveshare_pico_clock_green"
+               :snippets: "usb-console"
                :goals: flash
-               :west-args: -p -S usb-console
+               :west-args: -p
                :flash-args: -r uf2
                :compact:
 
@@ -197,8 +199,9 @@ LED Blinky and Button
                :build-dir: waveshare_pico_clock_green-blinky
                :board: waveshare_rp2040_plus
                :shield: "waveshare_pico_clock_green"
+               :snippets: "usb-console"
                :goals: flash
-               :west-args: -p -S usb-console
+               :west-args: -p
                :flash-args: -r uf2
                :compact:
 
@@ -209,8 +212,9 @@ LED Blinky and Button
                :build-dir: waveshare_pico_clock_green-blinky
                :board: waveshare_rp2040_plus@16mb
                :shield: "waveshare_pico_clock_green"
+               :snippets: "usb-console"
                :goals: flash
-               :west-args: -p -S usb-console
+               :west-args: -p
                :flash-args: -r uf2
                :compact:
 
@@ -227,8 +231,9 @@ LED Blinky and Button
                :build-dir: waveshare_pico_clock_green-button
                :board: rpi_pico
                :shield: "waveshare_pico_clock_green"
+               :snippets: "usb-console"
                :goals: flash
-               :west-args: -p -S usb-console
+               :west-args: -p
                :flash-args: -r uf2
                :compact:
 
@@ -239,8 +244,9 @@ LED Blinky and Button
                :build-dir: waveshare_pico_clock_green-button
                :board: rpi_pico/rp2040/w
                :shield: "waveshare_pico_clock_green"
+               :snippets: "usb-console"
                :goals: flash
-               :west-args: -p -S usb-console
+               :west-args: -p
                :flash-args: -r uf2
                :compact:
 
@@ -253,8 +259,9 @@ LED Blinky and Button
                :build-dir: waveshare_pico_clock_green-button
                :board: waveshare_rp2040_plus
                :shield: "waveshare_pico_clock_green"
+               :snippets: "usb-console"
                :goals: flash
-               :west-args: -p -S usb-console
+               :west-args: -p
                :flash-args: -r uf2
                :compact:
 
@@ -265,8 +272,9 @@ LED Blinky and Button
                :build-dir: waveshare_pico_clock_green-button
                :board: waveshare_rp2040_plus@16mb
                :shield: "waveshare_pico_clock_green"
+               :snippets: "usb-console"
                :goals: flash
-               :west-args: -p -S usb-console
+               :west-args: -p
                :flash-args: -r uf2
                :compact:
 
@@ -301,8 +309,9 @@ sample: :external+zephyr:zephyr:code-sample:`input-dump`.
                :build-dir: waveshare_pico_clock_green-input_dump
                :board: rpi_pico
                :shield: "waveshare_pico_clock_green"
+               :snippets: "usb-console"
                :goals: flash
-               :west-args: -p -S usb-console
+               :west-args: -p
                :flash-args: -r uf2
                :compact:
 
@@ -313,8 +322,9 @@ sample: :external+zephyr:zephyr:code-sample:`input-dump`.
                :build-dir: waveshare_pico_clock_green-input_dump
                :board: rpi_pico/rp2040/w
                :shield: "waveshare_pico_clock_green"
+               :snippets: "usb-console"
                :goals: flash
-               :west-args: -p -S usb-console
+               :west-args: -p
                :flash-args: -r uf2
                :compact:
 
@@ -327,8 +337,9 @@ sample: :external+zephyr:zephyr:code-sample:`input-dump`.
                :build-dir: waveshare_pico_clock_green-input_dump
                :board: waveshare_rp2040_plus
                :shield: "waveshare_pico_clock_green"
+               :snippets: "usb-console"
                :goals: flash
-               :west-args: -p -S usb-console
+               :west-args: -p
                :flash-args: -r uf2
                :compact:
 
@@ -339,8 +350,9 @@ sample: :external+zephyr:zephyr:code-sample:`input-dump`.
                :build-dir: waveshare_pico_clock_green-input_dump
                :board: waveshare_rp2040_plus@16mb
                :shield: "waveshare_pico_clock_green"
+               :snippets: "usb-console"
                :goals: flash
-               :west-args: -p -S usb-console
+               :west-args: -p
                :flash-args: -r uf2
                :compact:
 
@@ -350,10 +362,7 @@ sample: :external+zephyr:zephyr:code-sample:`input-dump`.
 
          .. parsed-literal::
 
-            \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-            W: BUS RESET
-            W: BUS RESET
-            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
             Input sample started
             I: input event: dev=wpcg-gpio-keys   SYN type= 1 code= 28 value=1
             I: input event: dev=wpcg-gpio-keys   SYN type= 1 code= 28 value=0
@@ -391,8 +400,9 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`adc_dt`.
                :build-dir: waveshare_pico_clock_green-drivers_adc
                :board: rpi_pico
                :shield: "waveshare_pico_clock_green"
+               :snippets: "usb-console"
                :goals: flash
-               :west-args: -p -S usb-console
+               :west-args: -p
                :flash-args: -r uf2
                :compact:
 
@@ -403,8 +413,9 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`adc_dt`.
                :build-dir: waveshare_pico_clock_green-drivers_adc
                :board: rpi_pico/rp2040/w
                :shield: "waveshare_pico_clock_green"
+               :snippets: "usb-console"
                :goals: flash
-               :west-args: -p -S usb-console
+               :west-args: -p
                :flash-args: -r uf2
                :compact:
 
@@ -417,8 +428,9 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`adc_dt`.
                :build-dir: waveshare_pico_clock_green-drivers_adc
                :board: waveshare_rp2040_plus
                :shield: "waveshare_pico_clock_green"
+               :snippets: "usb-console"
                :goals: flash
-               :west-args: -p -S usb-console
+               :west-args: -p
                :flash-args: -r uf2
                :compact:
 
@@ -429,8 +441,9 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`adc_dt`.
                :build-dir: waveshare_pico_clock_green-drivers_adc
                :board: waveshare_rp2040_plus@16mb
                :shield: "waveshare_pico_clock_green"
+               :snippets: "usb-console"
                :goals: flash
-               :west-args: -p -S usb-console
+               :west-args: -p
                :flash-args: -r uf2
                :compact:
 
@@ -440,10 +453,7 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`adc_dt`.
 
          .. parsed-literal::
 
-            \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-            W: BUS RESET
-            W: BUS RESET
-            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
             ADC reading[0]:
             - adc\ @\ 4004c000, channel 0: 907 = 730 mV
             ADC reading[1]:
@@ -517,8 +527,9 @@ Sounds from the speaker
                :build-dir: waveshare_pico_clock_green-buzzer
                :board: rpi_pico
                :shield: "waveshare_pico_clock_green"
+               :snippets: "usb-console"
                :goals: flash
-               :west-args: -p -S usb-console
+               :west-args: -p
                :flash-args: -r uf2
                :compact:
 
@@ -529,8 +540,9 @@ Sounds from the speaker
                :build-dir: waveshare_pico_clock_green-buzzer
                :board: rpi_pico/rp2040/w
                :shield: "waveshare_pico_clock_green"
+               :snippets: "usb-console"
                :goals: flash
-               :west-args: -p -S usb-console
+               :west-args: -p
                :flash-args: -r uf2
                :compact:
 
@@ -543,8 +555,9 @@ Sounds from the speaker
                :build-dir: waveshare_pico_clock_green-buzzer
                :board: waveshare_rp2040_plus
                :shield: "waveshare_pico_clock_green"
+               :snippets: "usb-console"
                :goals: flash
-               :west-args: -p -S usb-console
+               :west-args: -p
                :flash-args: -r uf2
                :compact:
 
@@ -555,8 +568,9 @@ Sounds from the speaker
                :build-dir: waveshare_pico_clock_green-buzzer
                :board: waveshare_rp2040_plus@16mb
                :shield: "waveshare_pico_clock_green"
+               :snippets: "usb-console"
                :goals: flash
-               :west-args: -p -S usb-console
+               :west-args: -p
                :flash-args: -r uf2
                :compact:
 
@@ -619,8 +633,9 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`display`.
                :build-dir: waveshare_pico_clock_green-display_test
                :board: rpi_pico
                :shield: "waveshare_pico_clock_green"
+               :snippets: "usb-console"
                :goals: flash
-               :west-args: -p -S usb-console
+               :west-args: -p
                :flash-args: -r uf2
                :compact:
 
@@ -631,8 +646,9 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`display`.
                :build-dir: waveshare_pico_clock_green-display_test
                :board: rpi_pico/rp2040/w
                :shield: "waveshare_pico_clock_green"
+               :snippets: "usb-console"
                :goals: flash
-               :west-args: -p -S usb-console
+               :west-args: -p
                :flash-args: -r uf2
                :compact:
 
@@ -645,8 +661,9 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`display`.
                :build-dir: waveshare_pico_clock_green-display_test
                :board: waveshare_rp2040_plus
                :shield: "waveshare_pico_clock_green"
+               :snippets: "usb-console"
                :goals: flash
-               :west-args: -p -S usb-console
+               :west-args: -p
                :flash-args: -r uf2
                :compact:
 
@@ -657,8 +674,9 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`display`.
                :build-dir: waveshare_pico_clock_green-display_test
                :board: waveshare_rp2040_plus@16mb
                :shield: "waveshare_pico_clock_green"
+               :snippets: "usb-console"
                :goals: flash
-               :west-args: -p -S usb-console
+               :west-args: -p
                :flash-args: -r uf2
                :compact:
 

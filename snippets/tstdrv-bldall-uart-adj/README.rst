@@ -17,10 +17,11 @@ For example:
 
    .. zephyr-app-commands::
       :app: zephyr/tests/drivers/build_all/uart
-      :board: native_sim
       :build-dir: native_sim
-      :west-args: -p always -S tstdrv-bldall-uart-adj
+      :board: native_sim
+      :snippets: "tstdrv-bldall-uart-adj"
       :gen-args: -DCONFIG_NATIVE_EXTRA_CMDLINE_ARGS=\"-stop_at=2\"
+      :west-args: -p always
       :goals: run
       :compact:
 

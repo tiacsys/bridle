@@ -37,9 +37,10 @@ Raspberry Pi Pico
 
 .. zephyr-app-commands::
    :app: zephyr/samples/sensor/bme280
-   :board: rpi_pico
    :build-dir: rpi_pico
-   :west-args: -p -S usb-console -S samples-sensor-bme280-tweaks
+   :board: rpi_pico
+   :snippets: "usb-console samples-sensor-bme280-tweaks"
+   :west-args: -p always
    :flash-args: -r uf2
    :goals: flash
    :compact:

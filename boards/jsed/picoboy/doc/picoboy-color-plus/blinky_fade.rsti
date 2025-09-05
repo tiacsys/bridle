@@ -4,8 +4,8 @@ See also Zephyr sample: :zephyr:code-sample:`blinky`.
 
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/blinky
-   :board: picoboy_color_plus/rp2350a/m33
    :build-dir: picoboy
+   :board: picoboy_color_plus/rp2350a/m33
    :west-args: -p
    :goals: flash
    :compact:
@@ -16,8 +16,8 @@ See also Zephyr sample: :zephyr:code-sample:`pwm-blinky`.
 
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/blinky_pwm
-   :board: picoboy_color_plus/rp2350a/m33
    :build-dir: picoboy
+   :board: picoboy_color_plus/rp2350a/m33
    :west-args: -p
    :goals: flash
    :compact:
@@ -28,8 +28,8 @@ See also Zephyr sample: :zephyr:code-sample:`fade-led`.
 
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/fade_led
-   :board: picoboy_color_plus/rp2350a/m33
    :build-dir: picoboy
+   :board: picoboy_color_plus/rp2350a/m33
    :west-args: -p
    :goals: flash
    :compact:
@@ -40,8 +40,8 @@ See also Zephyr sample: :zephyr:code-sample:`button`.
 
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/button
-   :board: picoboy_color_plus/rp2350a/m33
    :build-dir: picoboy
+   :board: picoboy_color_plus/rp2350a/m33
    :west-args: -p
    :goals: flash
    :compact:
@@ -56,8 +56,8 @@ See also Zephyr sample: :zephyr:code-sample:`led-strip`.
 
 .. zephyr-app-commands::
    :app: zephyr/samples/drivers/led/led_strip
-   :board: picoboy_color_plus/rp2350a/m33
    :build-dir: picoboy
+   :board: picoboy_color_plus/rp2350a/m33
    :gen-args: -DCONFIG_SAMPLE_LED_UPDATE_DELAY=500
    :west-args: -p
    :goals: flash
