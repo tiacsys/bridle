@@ -22,9 +22,10 @@ keys using the :external+zephyr:ref:`Input subsystem API <input>`. That are:
          :build-dir: waveshare_pico_lcd_1_3-input_dump
          :board: rpi_pico
          :shield: "waveshare_pico_lcd_1_3"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
    .. group-tab:: Raspberry Pi Pico W
@@ -34,9 +35,10 @@ keys using the :external+zephyr:ref:`Input subsystem API <input>`. That are:
          :build-dir: waveshare_pico_lcd_1_3-input_dump
          :board: rpi_pico/rp2040/w
          :shield: "waveshare_pico_lcd_1_3"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
    .. group-tab:: Waveshare RP2040-Plus
@@ -48,9 +50,10 @@ keys using the :external+zephyr:ref:`Input subsystem API <input>`. That are:
          :build-dir: waveshare_pico_lcd_1_3-input_dump
          :board: waveshare_rp2040_plus
          :shield: "waveshare_pico_lcd_1_3"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
       .. rubric:: on extended ``16㎆`` revision
@@ -60,9 +63,10 @@ keys using the :external+zephyr:ref:`Input subsystem API <input>`. That are:
          :build-dir: waveshare_pico_lcd_1_3-input_dump
          :board: waveshare_rp2040_plus@16mb
          :shield: "waveshare_pico_lcd_1_3"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
    .. zephyr-keep-sorted-stop
@@ -73,10 +77,7 @@ keys using the :external+zephyr:ref:`Input subsystem API <input>`. That are:
 
    .. parsed-literal::
 
-      \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-      W: BUS RESET
-      W: BUS RESET
-      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
       Input sample started
       I: input event: dev=gpio_keys        SYN type= 1 code= 30 value=1
       I: input event: dev=gpio_keys        SYN type= 1 code= 30 value=0

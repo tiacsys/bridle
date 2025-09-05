@@ -275,10 +275,7 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
 
          .. parsed-literal::
 
-            \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-            [00:00:00.331,000] :byl:`<wrn> udc_rpi: BUS RESET`
-            [00:00:00.411,000] :byl:`<wrn> udc_rpi: BUS RESET`
-            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
             Hello World! I'm THE SHELL … … …
             :bgn:`uart:~$` **█**
 
@@ -292,11 +289,11 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
                :app: bridle/samples/helloshell
                :build-dir: waveshare_pico_10dof_imu_sensor-helloshell
                :board: rpi_pico
-               :shield: waveshare_pico_10dof_imu_sensor_r2
+               :shield: "waveshare_pico_10dof_imu_sensor_r2"
+               :snippets: "usb-console"
                :goals: flash
-               :west-args: -p -S usb-console
+               :west-args: -p
                :flash-args: -r uf2
-               :tool: all
 
             .. include:: helloshell-r2.rsti
 
@@ -306,11 +303,11 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
                :app: bridle/samples/helloshell
                :build-dir: waveshare_pico_10dof_imu_sensor-helloshell
                :board: rpi_pico/rp2040/w
-               :shield: waveshare_pico_10dof_imu_sensor_r2
+               :shield: "waveshare_pico_10dof_imu_sensor_r2"
+               :snippets: "usb-console wifi-ip"
                :goals: flash
-               :west-args: -p -S usb-console
+               :west-args: -p
                :flash-args: -r uf2
-               :tool: all
 
             .. include:: helloshell-r2.rsti
 
@@ -320,11 +317,11 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
                :app: bridle/samples/helloshell
                :build-dir: waveshare_pico_10dof_imu_sensor-helloshell
                :board: waveshare_rp2040_lcd_0_96
-               :shield: waveshare_pico_10dof_imu_sensor_r2
+               :shield: "waveshare_pico_10dof_imu_sensor_r2"
+               :snippets: "usb-console"
                :goals: flash
-               :west-args: -p -S usb-console
+               :west-args: -p
                :flash-args: -r uf2
-               :tool: all
 
             .. include:: helloshell-r2.rsti
 
@@ -336,11 +333,11 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
                :app: bridle/samples/helloshell
                :build-dir: waveshare_pico_10dof_imu_sensor-helloshell
                :board: waveshare_rp2040_plus
-               :shield: waveshare_pico_10dof_imu_sensor_r2
+               :shield: "waveshare_pico_10dof_imu_sensor_r2"
+               :snippets: "usb-console"
                :goals: flash
-               :west-args: -p -S usb-console
+               :west-args: -p
                :flash-args: -r uf2
-               :tool: all
 
             .. rubric:: on extended ``16㎆`` revision
 
@@ -348,11 +345,11 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
                :app: bridle/samples/helloshell
                :build-dir: waveshare_pico_10dof_imu_sensor-helloshell
                :board: waveshare_rp2040_plus@16mb
-               :shield: waveshare_pico_10dof_imu_sensor_r2
+               :shield: "waveshare_pico_10dof_imu_sensor_r2"
+               :snippets: "usb-console"
                :goals: flash
-               :west-args: -p -S usb-console
+               :west-args: -p
                :flash-args: -r uf2
-               :tool: all
 
             .. include:: helloshell-r2.rsti
 
@@ -367,10 +364,7 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
          .. parsed-literal::
 
             [00:00:00.002,000] :brd:`<err> MPU9250: Invalid chip ID.`
-            \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-            [00:00:00.244,000] :byl:`<wrn> udc_rpi: BUS RESET`
-            [00:00:00.329,000] :byl:`<wrn> udc_rpi: BUS RESET`
-            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
             Hello World! I'm THE SHELL … … …
             :bgn:`uart:~$` **█**
 
@@ -384,11 +378,11 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
                :app: bridle/samples/helloshell
                :build-dir: waveshare_pico_10dof_imu_sensor-helloshell
                :board: rpi_pico
-               :shield: waveshare_pico_10dof_imu_sensor_r1
+               :shield: "waveshare_pico_10dof_imu_sensor_r1"
+               :snippets: "usb-console"
                :goals: flash
-               :west-args: -p -S usb-console
+               :west-args: -p
                :flash-args: -r uf2
-               :tool: all
 
             .. include:: helloshell-r1.rsti
 
@@ -398,11 +392,11 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
                :app: bridle/samples/helloshell
                :build-dir: waveshare_pico_10dof_imu_sensor-helloshell
                :board: rpi_pico/rp2040/w
-               :shield: waveshare_pico_10dof_imu_sensor_r1
+               :shield: "waveshare_pico_10dof_imu_sensor_r1"
+               :snippets: "usb-console wifi-ip"
                :goals: flash
-               :west-args: -p -S usb-console
+               :west-args: -p
                :flash-args: -r uf2
-               :tool: all
 
             .. include:: helloshell-r1.rsti
 
@@ -412,11 +406,11 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
                :app: bridle/samples/helloshell
                :build-dir: waveshare_pico_10dof_imu_sensor-helloshell
                :board: waveshare_rp2040_lcd_0_96
-               :shield: waveshare_pico_10dof_imu_sensor_r1
+               :shield: "waveshare_pico_10dof_imu_sensor_r1"
+               :snippets: "usb-console"
                :goals: flash
-               :west-args: -p -S usb-console
+               :west-args: -p
                :flash-args: -r uf2
-               :tool: all
 
             .. include:: helloshell-r1.rsti
 
@@ -428,11 +422,11 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
                :app: bridle/samples/helloshell
                :build-dir: waveshare_pico_10dof_imu_sensor-helloshell
                :board: waveshare_rp2040_plus
-               :shield: waveshare_pico_10dof_imu_sensor_r1
+               :shield: "waveshare_pico_10dof_imu_sensor_r1"
+               :snippets: "usb-console"
                :goals: flash
-               :west-args: -p -S usb-console
+               :west-args: -p
                :flash-args: -r uf2
-               :tool: all
 
             .. rubric:: on extended ``16㎆`` revision
 
@@ -440,11 +434,11 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
                :app: bridle/samples/helloshell
                :build-dir: waveshare_pico_10dof_imu_sensor-helloshell
                :board: waveshare_rp2040_plus@16mb
-               :shield: waveshare_pico_10dof_imu_sensor_r1
+               :shield: "waveshare_pico_10dof_imu_sensor_r1"
+               :snippets: "usb-console"
                :goals: flash
-               :west-args: -p -S usb-console
+               :west-args: -p
                :flash-args: -r uf2
-               :tool: all
 
             .. include:: helloshell-r1.rsti
 
@@ -468,9 +462,10 @@ driver for the STM LPS22HB MEMS pressure sensor. See also Zephyr sample:
          :app: zephyr/samples/sensor/lps22hb
          :build-dir: waveshare_pico_10dof_imu_sensor-lps22hb
          :board: rpi_pico
-         :shield: waveshare_pico_10dof_imu_sensor_r2
+         :shield: "waveshare_pico_10dof_imu_sensor_r2"
+         :snippets: "usb-console"
          :goals: flash
-         :west-args: -p -S usb-console
+         :west-args: -p
          :flash-args: -r uf2
 
    .. group-tab:: Revision 1
@@ -479,9 +474,10 @@ driver for the STM LPS22HB MEMS pressure sensor. See also Zephyr sample:
          :app: zephyr/samples/sensor/lps22hb
          :build-dir: waveshare_pico_10dof_imu_sensor-lps22hb
          :board: rpi_pico
-         :shield: waveshare_pico_10dof_imu_sensor_r1
+         :shield: "waveshare_pico_10dof_imu_sensor_r1"
+         :snippets: "usb-console"
          :goals: flash
-         :west-args: -p -S usb-console
+         :west-args: -p
          :flash-args: -r uf2
 
 The Default Shield Sample
@@ -497,9 +493,10 @@ See also :ref:`waveshare_pico_10dof_imu_sensor-sample` in Bridle.
          :app: bridle/samples/waveshare_pico_10dof_imu_sensor
          :build-dir: waveshare_pico_10dof_imu_sensor
          :board: rpi_pico
-         :shield: waveshare_pico_10dof_imu_sensor_r2
+         :shield: "waveshare_pico_10dof_imu_sensor_r2"
+         :snippets: "usb-console"
          :goals: flash
-         :west-args: -p -S usb-console
+         :west-args: -p
          :flash-args: -r uf2
 
    .. group-tab:: Revision 1
@@ -508,9 +505,10 @@ See also :ref:`waveshare_pico_10dof_imu_sensor-sample` in Bridle.
          :app: bridle/samples/waveshare_pico_10dof_imu_sensor
          :build-dir: waveshare_pico_10dof_imu_sensor
          :board: rpi_pico
-         :shield: waveshare_pico_10dof_imu_sensor_r1
+         :shield: "waveshare_pico_10dof_imu_sensor_r1"
+         :snippets: "usb-console"
          :goals: flash
-         :west-args: -p -S usb-console
+         :west-args: -p
          :flash-args: -r uf2
 
 References

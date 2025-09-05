@@ -28,9 +28,10 @@ For example:
 
    .. zephyr-app-commands::
       :app: zephyr/tests/drivers/can/timing
-      :board: magpie_f777ni
       :build-dir: magpie_f777ni
-      :west-args: -p always -S can-timing-adj
+      :board: magpie_f777ni
+      :snippets: "can-timing-adj"
+      :west-args: -p always
       :goals: flash
       :compact:
 

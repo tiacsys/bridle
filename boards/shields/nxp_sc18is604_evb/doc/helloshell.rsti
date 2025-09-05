@@ -6,10 +6,9 @@ Set ``--shield x_nxp_sc18is604_evb;nxp_sc18is604_evb`` when you invoke
       :app: bridle/samples/helloshell
       :build-dir: nxp_sc18is604_evb
       :board: nucleo_f746zg
-      :shield: "x_nxp_sc18is604_evb;nxp_sc18is604_evb"
-      :west-args: -p always
+      :shield: "x_nxp_sc18is604_evb nxp_sc18is604_evb"
+      :west-args: -p
       :goals: flash
       :host-os: unix
-      :tool: all
 
 .. include:: helloshell_console.rsti

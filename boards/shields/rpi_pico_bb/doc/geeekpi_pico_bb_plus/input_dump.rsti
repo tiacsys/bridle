@@ -27,9 +27,10 @@ the two user keys, and the two analog joystick achsises using the
          :build-dir: geeekpi_pico_bb_plus-input_dump
          :board: rpi_pico
          :shield: "geeekpi_pico_bb_plus"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
    .. group-tab:: Raspberry Pi Pico W
@@ -39,9 +40,10 @@ the two user keys, and the two analog joystick achsises using the
          :build-dir: geeekpi_pico_bb_plus-input_dump
          :board: rpi_pico/rp2040/w
          :shield: "geeekpi_pico_bb_plus"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
    .. group-tab:: Waveshare RP2040-Plus
@@ -53,9 +55,10 @@ the two user keys, and the two analog joystick achsises using the
          :build-dir: geeekpi_pico_bb_plus-input_dump
          :board: waveshare_rp2040_plus
          :shield: "geeekpi_pico_bb_plus"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
       .. rubric:: on extended ``16㎆`` revision
@@ -65,9 +68,10 @@ the two user keys, and the two analog joystick achsises using the
          :build-dir: geeekpi_pico_bb_plus-input_dump
          :board: waveshare_rp2040_plus@16mb
          :shield: "geeekpi_pico_bb_plus"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
    .. zephyr-keep-sorted-stop
@@ -78,10 +82,7 @@ the two user keys, and the two analog joystick achsises using the
 
    .. parsed-literal::
 
-      \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-      W: BUS RESET
-      W: BUS RESET
-      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
       Input sample started
       I: input event: dev=gt911\ @\ 5d         SYN type= 1 code=330 value=0
       I: input event: dev=gt911\ @\ 5d         SYN type= 1 code=330 value=0
