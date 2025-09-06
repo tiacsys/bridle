@@ -1,0 +1,31 @@
+/*
+ * Copyright (c) 2025 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/* the XL2515QF20 Chip is compatible to MicroChip MCP2515 */
+&spi1 {
+	status = "okay";
+	pinctrl-0 = <&spi1_default>;
+    pinctrl-names = "default";
+	cs-gpios = <&pico_header 9 GPIO_ACTIVE_LOW>;
+
+	xl2515_can_pico: can@0 {
+		compatible = "microchip,mcp2515";
+		spi-max-frequency = <1000000>;
+		int-gpios = <&pico_header 8 GPIO_ACTIVE_LOW>;
+		status = "okay";
+		reg = <0x0>;
+		osc-freq = <16000000>;
+
+		can-transceiver {
+			max-bitrate = <1000000>;
+		};
+	};
+};
+
+/ {
+	chosen {
+		zephyr,canbus = &xl2515_can_pico;
+	};
+};
