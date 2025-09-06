@@ -1,0 +1,9 @@
+# Copyright (c) 2025 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+boards:
+  - name: waveshare_rp2350_can
+    full_name: Waveshare RP2350-CAN
+    vendor: waveshare
+    socs:
+      - name: rp2350a

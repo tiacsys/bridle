@@ -1,0 +1,43 @@
+/*
+ * Copyright (c) 2025 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <freq.h>
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
+/ {
+	chosen {
+		zephyr,canbus = &can0;
+	};
+};
+
+&spi1 {
+	status = "okay";
+	pinctrl-0 = <&spi1_pico>;
+	pinctrl-names = "default";
+
+	clock-frequency = <DT_FREQ_M(10)>;
+	cs-gpios = <&gpio0 9 GPIO_ACTIVE_LOW>;
+
+	/* Xinluda XL2515QF20 is compatible to MicroChip MCP2515 */
+	xl2515_can0: xl2515@0 {
+		compatible = "microchip,mcp2515";
+		status = "okay";
+
+		reg = <0x0>;
+		spi-max-frequency = <DT_FREQ_M(10)>;
+		int-gpios = <&gpio0 8 GPIO_ACTIVE_LOW>;
+		osc-freq = <DT_FREQ_M(16)>;
+
+		can-transceiver {
+			max-bitrate = <DT_FREQ_M(1)>;
+		};
+	};
+};
+
+can0: &xl2515_can0 {};
+
+&gpio0 {
+	status = "okay";
+};

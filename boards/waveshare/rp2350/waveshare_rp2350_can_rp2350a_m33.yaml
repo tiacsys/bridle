@@ -1,0 +1,34 @@
+identifier: waveshare_rp2350_can/rp2350a/m33
+name: Waveshare RP2350-CAN (Cortex-M33)
+type: mcu
+arch: arm
+flash: 4096
+ram: 520
+toolchain:
+  - zephyr
+  - gnuarmemb
+supported:
+  - rpipico_serial
+  - rpipico_gpio
+  - rpipico_i2c
+  - rpipico_spi
+  - pico_serial
+  - pico_gpio
+  - pico_i2c
+  - pico_spi
+  - uart
+  - gpio
+  - adc
+  - i2c
+  - spi
+  - can
+  - hwinfo
+  - watchdog
+  - pwm
+  - flash
+  - dma
+  - counter
+  - clock
+  - usbd
+  - usb_device
+  - usb_cdc
