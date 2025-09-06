@@ -1,0 +1,8 @@
+# Copyright (c) 2025 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+config BOARD_RP2350_CAN
+	select SOC_RP2350A
+
+config  BOARD_RP2350_CAN_RP2350A_M33
+	select SOC_RP2350A_M33
