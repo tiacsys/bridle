@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) 2024 Andrew Featherstone
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/dts-v1/;
+
+/* The build system assumes that there's a cpucluster-specific file.
+ *
+ * This file provides composition of the device tree:
+ * 1. The common features of the SoC
+ * 2. Core-specific configuration.
+ * 3. Board-specific configuration.
+ */
+#include <raspberrypi/rpi_pico/rp2350a.dtsi>
+#include <raspberrypi/rpi_pico/m33.dtsi>
+
+/* there's nothing specific to the Cortex-M33 cores vs the (not yet
+ * implemented) Hazard3 cores.
+ */
+#include "rp2350_can_rp2350a_m33.dtsi"
+#include "rpi_pico-led.dtsi"
