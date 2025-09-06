@@ -3,7 +3,7 @@ sample:
   name: Input Dump
 common:
   tags:
-    # TODO/FIXME: disable for the time being (fix SPI_RPI_PICO_PIO_DMA) - zephyr
+    - zephyr
     - shield
     - input
   depends_on: pico_gpio
