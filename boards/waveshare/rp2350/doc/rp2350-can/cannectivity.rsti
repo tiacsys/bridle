@@ -1,0 +1,92 @@
+.. rubric:: Simple test execution on target
+
+
+.. tabs::
+
+   .. group-tab:: dmesg
+
+      .. container:: highlight highlight-console notranslate
+
+         assuming a udev rule installed the dmesg output is as follow
+
+         .. parsed-literal::
+
+            [30059.264589] gs_usb 3-6.3.2.4:1.0: Configuring for 1 interfaces
+            [30194.031980] usb 3-6.3.2.4: USB disconnect, device number 52
+            [30213.408260] usb 3-6.3.2.4: new full-speed USB device number 53 using xhci_hcd
+            [30213.495072] usb 3-6.3.2.4: New USB device found, idVendor=1209, idProduct=ca01, bcdDevice= 1.03
+            [30213.495089] usb 3-6.3.2.4: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+            [30213.495095] usb 3-6.3.2.4: Product: CANnectivity USB to CAN adapter
+            [30213.495100] usb 3-6.3.2.4: Manufacturer: CANnectivity
+            [30213.495103] usb 3-6.3.2.4: SerialNumber: 4150345A34363719
+            [30213.505045] gs_usb 3-6.3.2.4:1.0: Configuring for 1 interfaces
+
+   .. group-tab:: command input
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            sudo ip link set can0 type can bitrate 1000000
+            sudo ip link set can1 type can bitrate 1000000
+            sudo ip link set can0 up
+            sudo ip link set can1 up
+
+            cansend can0 123#deadbeef
+            cansend can1 123#deadbeef
+
+            sudo ip link set can0 down
+            sudo ip link set can1 dcown
+
+
+   .. group-tab:: zerphyr console
+
+      debug build output via microcom -p /dev/ttyUSB0
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            [00:06:05.901,000] <dbg> gs_usb: gs_usb_rx_thread: RX host frame
+            [00:06:05.901,000] <dbg> gs_usb: gs_usb_rx_thread: RX host frame
+                                             00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00 |........ ........
+                                             00 00 00 00 4c 36 cf 15                          |....L6..
+            [00:06:20.499,000] <dbg> gs_usb: gs_usb_tx_thread: TX host frame
+                                             00 00 00 00 02 01 00 00  04 00 00 00 de ad be ef |........ ........
+                                             00 00 00 00                                      |....
+            [00:06:20.499,000] <dbg> gs_usb: gs_usb_can_tx_callback: TX done
+            [00:06:05.901,000] <dbg> gs_usb: gs_usb_rx_thread: RX host frame
+            [00:06:05.901,000] <dbg> gs_usb: gs_usb_rx_thread: RX host frame
+                                             00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00 |........ ........
+                                             00 00 00 00 4c 36 cf 15                          |....L6..
+            [00:06:20.499,000] <dbg> gs_usb: gs_usb_tx_thread: TX host frame
+                                             00 00 00 00 02 01 00 00  04 00 00 00 de ad be ef |........ ........
+                                             00 00 00 00                                      |....
+            [00:06:20.499,000] <dbg> gs_usb: gs_usb_can_tx_callback: TX done
+
+   .. group-tab:: candump can0
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            can0  100   [4]  DE AD BE EF
+            can0  100   [4]  DE AD BE EF
+
+   .. group-tab:: candump can1
+
+      The |RP2040-Zero| has no on-board I2C devices. For this example the
+      |Grove BMP280 Sensor|_ was connected.
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            can1  100   [4]  DE AD BE EF
+            can1  100   [4]  DE AD BE EF
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+https://cannectivity.org/

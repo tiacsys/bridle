@@ -692,6 +692,23 @@
 .. |waveshare_rp2040_zero_PStr_CON|	replace:: :ign:`RP2040-Zero (CDC ACM)`
 .. |waveshare_rp2040_zero_BCD_CON|	replace:: |zephyr_version_BCD|
 
+.. |RP2350-CAN| replace::
+   :ref:`RP2350-CAN <waveshare_rp2350_can>`
+.. :bridle:board:`RP2350-CAN <waveshare_rp2350_can>`
+
+.. |RP2350-CAN (CDC ACM)| replace::
+   :ref:`RP2350-CAN (CDC ACM) <waveshare_rp2350_can>`
+.. :bridle:board:`RP2350-CAN (CDC ACM) <waveshare_rp2350_can>`
+
+.. |waveshare_rp2350_can_URB_VID|	replace:: |rpi_URB_VID|
+.. |waveshare_rp2350_can_VID|		replace:: |rpi_VID|
+.. |waveshare_rp2350_can_VStr|		replace:: |rpi_waveshare_VStr|
+
+.. |waveshare_rp2350_can_URB_PID_CON|	replace:: |rpi_pico_sdk_uart_rp2040_URB_PID|
+.. |waveshare_rp2350_can_PID_CON|	replace:: |rpi_pico_sdk_uart_rp2040_PID|
+.. |waveshare_rp2350_can_PStr_CON|	replace:: :ign:`RP2350-CAN (CDC ACM)`
+.. |waveshare_rp2350_can_BCD_CON|	replace:: |zephyr_version_BCD|
+
 .. |bridle:board:seeeduino_cm0| replace:: :ref:`seeeduino_cm0`
 .. :bridle:board:`seeeduino_cm0`
 
