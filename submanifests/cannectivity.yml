@@ -1,0 +1,6 @@
+manifest:
+  projects:
+    - name: cannectivity
+      url: https://github.com/CANnectivity/cannectivity.git
+      revision: main
+      path: samples/cannectivity
