@@ -1,0 +1,93 @@
+.. image:: rp2350-can/cannectivity.jpg
+   :align: right
+   :alt: Waveshare RP2350-CAN Test CANnectivity
+
+To verify the CANnectivity application is running, plug in two devices to
+your Linux development host, check the Linux kernel messages and use the
+`can-utils`_ for testing.
+
+.. rubric:: Simple test execution on Linux host
+
+(text in bold is a command input)
+
+.. tabs::
+
+   .. group-tab:: Linux kernel messages
+
+      Assuming the `CANnectivity udev rule`_ installed the :program:`dmesg`
+      output is as follow:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`$` **dmesg -w**
+            usb 1-6.3: new full-speed USB device number 57 using xhci_hcd
+            usb 1-6.3: New USB device found, idVendor=\ |pc_VID|, idProduct=\ |pc_cannectivity_PID_U2C|, bcdDevice=\ |pc_cannectivity_BCD_U2C|
+            usb 1-6.3: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+            usb 1-6.3: Product: |pc_cannectivity_PStr_U2C|
+            usb 1-6.3: Manufacturer: |pc_cannectivity_VStr|
+            usb 1-6.3: SerialNumber: B46993A480CF94B1
+            gs_usb 1-6.3:1.0: Configuring for 1 interfaces
+
+            usb 1-6.4: new full-speed USB device number 58 using xhci_hcd
+            usb 1-6.4: New USB device found, idVendor=\ |pc_VID|, idProduct=\ |pc_cannectivity_PID_U2C|, bcdDevice=\ |pc_cannectivity_BCD_U2C|
+            usb 1-6.4: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+            usb 1-6.4: Product: |pc_cannectivity_PStr_U2C|
+            usb 1-6.4: Manufacturer: |pc_cannectivity_VStr|
+            usb 1-6.4: SerialNumber: BC6E3797335B08DC
+            gs_usb 1-6.4:1.0: Configuring for 1 interfaces
+
+   .. group-tab:: SocketCAN interface setup
+
+      Set CAN 2.0 (nominal) *bitrate* of **1Mbps** and
+      change *link state* to **up** for both interfaces:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`$` **sudo ip link set dev can0 type can bitrate 1000000**
+            :bgn:`$` **sudo ip link set dev can0 up**
+
+            :bgn:`$` **sudo ip link set dev can1 type can bitrate 1000000**
+            :bgn:`$` **sudo ip link set dev can1 up**
+
+   .. group-tab:: SocketCAN user space
+
+      - random noisy data generation on ``can0`` and ``can1``
+        with the :program:`cangen` tool
+      - monitor incoming and outgoing frames on ``can0`` with
+        the :program:`candump` tool
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`$` **cangen can0 &**
+            :bgn:`$` **cangen can1 &**
+
+            :bgn:`$` **candump -edx can0**
+              can0  TX - -  71B   [4]  07 35 5C 7D
+              can0  RX - -  1F5   [8]  3B 41 D1 7C CE 5A 71 2C
+              can0  TX - -  182   [8]  CF B0 36 63 93 63 2C 01
+              can0  RX - -  759   [5]  85 6C D2 6D EB
+              can0  TX - -  4FC   [8]  0B 59 FD 0D 45 03 9C 68
+              can0  RX - -  0F8   [0]
+              can0  TX - -  143   [6]  12 67 FE 19 1C D4
+              can0  RX - -  7CC   [3]  4F 26 77
+              can0  TX - -  27F   [8]  82 B7 06 19 B7 E6 08 14
+              can0  RX - -  705   [8]  E6 B5 6E 5E BE B3 0B 5D
+              can0  TX - -  5C0   [1]  7C
+              can0  RX - -  16B   [5]  4F 51 01 78 B3
+              can0  TX - -  1AB   [0]
+              can0  RX - -  31A   [7]  A4 73 32 55 93 7F 29
+              can0  TX - -  6C1   [6]  77 5A C6 71 DC 25
+              can0  RX - -  468   [4]  E1 BB 90 06
+              can0  TX - -  53A   [8]  45 B4 00 3C BC DE 50 0E
+              can0  RX - -  593   [8]  2C B9 F7 48 ED 6C F1 04
+              can0  TX - -  759   [4]  50 42 7D 0F
+              can0  RX - -  332   [1]  D8
+              can0  TX - -  5B1   [8]  9B D7 74 73 F5 86 88 2A
+              can0  RX - -  6F2   [6]  FE 9E 3A 32 BE 6E
+            … … …

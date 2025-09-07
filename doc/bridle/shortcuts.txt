@@ -19,6 +19,33 @@
 .. |stm_vccgnd_VStr|	replace:: :ign:`VccGND (STMicroelectronics)`
 .. |stm_weact_VStr|	replace:: :ign:`WeAct (STMicroelectronics)`
 
+.. VID 0x1209 : pid.codes (Generic OpenHW)
+.. https://devicehunt.com/search/type/usb/vendor/1209/device/any
+.. https://pid.codes/1209
+.. https://pid.codes/pids
+.. https://pid.codes/orgs
+.. https://hackaday.com/2015/04/03/usb-pids-for-all
+.. https://hackaday.com/2013/10/22/usb-implementers-forum-says-no-to-open-source
+
+.. |pc_URB_VID|		replace:: :code:`0x1209`
+.. |pc_VID|		replace:: :ign:`1209`
+.. https://pid.codes/org/CANnectivity
+.. |pc_cannectivity_VStr| replace:: :ign:`CANnectivity`
+.. https://pid.codes/org/Calliope
+.. |pc_calliope_VStr|	replace:: :ign:`Calliope`
+.. https://pid.codes/org/pidcodes
+.. |pc_pidcodes_VStr|	replace:: :ign:`pid.codes`
+.. https://pid.codes/org/TinyFPGA
+.. |pc_tinyfpga_VStr|	replace:: :ign:`TinyFPGA`
+.. https://pid.codes/org/TinyGo
+.. |pc_tinygo_VStr|	replace:: :ign:`TinyGo`
+.. https://pid.codes/org/tinyVision.ai
+.. |pc_tinyvision_VStr|	replace:: :ign:`tinyVision.ai Inc.`
+.. https://pid.codes/org/WeActStudio
+.. |pc_weact_VStr|	replace:: :ign:`WeAct Studio`
+.. https://pid.codes/org/zeptoforth
+.. |pc_zeptoforth_VStr|	replace:: :ign:`zeptoforth`
+
 .. VID 0x1A86 : Nanjing Qinheng Microelectronics Co., Ltd. (WCH / WinChipHead)
 
 .. |nqm_URB_VID|	replace:: :code:`0x1A86`
@@ -120,6 +147,20 @@
 .. |stm_PID_MSC|	replace:: :ign:`5720`
 .. |stm_PStr_MSC|	replace:: :ign:`STM32 Mass Storage`
 .. |stm_BCD_MSC|	replace:: |nbsp| :ign:`2.00`
+
+.. PIDs : pid.codes (Generic OpenHW)
+
+.. https://pid.codes/1209/CA01
+.. |pc_cannectivity_URB_PID_U2C|	replace:: :code:`0xCA01`
+.. |pc_cannectivity_PID_U2C|		replace:: :ign:`ca01`
+.. |pc_cannectivity_PStr_U2C|		replace:: :ign:`CANnectivity USB to CAN adapter`
+.. |pc_cannectivity_BCD_U2C|		replace:: |cannectivity_version_BCD|
+
+.. https://pid.codes/1209/CA02
+.. |pc_cannectivity_URB_PID_U2C_DFU|	replace:: :code:`0xCA02`
+.. |pc_cannectivity_PID_U2C_DFU|	replace:: :ign:`ca02`
+.. |pc_cannectivity_PStr_U2C_DFU|	replace:: :ign:`CANnectivity USB to CAN adapter (DFU)`
+.. |pc_cannectivity_BCD_U2C_DFU|	replace:: |cannectivity_version_BCD|
 
 .. PIDs : Nordic Semiconductor ASA
 
@@ -691,6 +732,26 @@
 .. |waveshare_rp2040_zero_PID_CON|	replace:: |rpi_pico_sdk_uart_rp2040_PID|
 .. |waveshare_rp2040_zero_PStr_CON|	replace:: :ign:`RP2040-Zero (CDC ACM)`
 .. |waveshare_rp2040_zero_BCD_CON|	replace:: |zephyr_version_BCD|
+
+.. |bridle:board:waveshare_rp2350| replace:: :ref:`waveshare_rp2350`
+.. :bridle:board:`waveshare_rp2350`
+
+.. |RP2350-CAN| replace::
+   :ref:`RP2350-CAN <waveshare_rp2350_can>`
+.. :bridle:board:`RP2350-CAN <waveshare_rp2350_can>`
+
+.. |RP2350-CAN (CDC ACM)| replace::
+   :ref:`RP2350-CAN (CDC ACM) <waveshare_rp2350_can>`
+.. :bridle:board:`RP2350-CAN (CDC ACM) <waveshare_rp2350_can>`
+
+.. |waveshare_rp2350_can_URB_VID|	replace:: |rpi_URB_VID|
+.. |waveshare_rp2350_can_VID|		replace:: |rpi_VID|
+.. |waveshare_rp2350_can_VStr|		replace:: |rpi_waveshare_VStr|
+
+.. |waveshare_rp2350_can_URB_PID_CON|	replace:: |rpi_pico_sdk_uart_rp2040_URB_PID|
+.. |waveshare_rp2350_can_PID_CON|	replace:: |rpi_pico_sdk_uart_rp2040_PID|
+.. |waveshare_rp2350_can_PStr_CON|	replace:: :ign:`RP2350-CAN (CDC ACM)`
+.. |waveshare_rp2350_can_BCD_CON|	replace:: |zephyr_version_BCD|
 
 .. |bridle:board:seeeduino_cm0| replace:: :ref:`seeeduino_cm0`
 .. :bridle:board:`seeeduino_cm0`

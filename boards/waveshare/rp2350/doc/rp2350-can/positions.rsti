@@ -1,0 +1,63 @@
+.. list-table::
+   :align: center
+   :width: 66%
+   :header-rows: 1
+
+   * - .. image:: rp2350-can/positions.jpg
+          :align: center
+          :width: 500
+          :alt: Waveshare RP2350-CAN details
+
+   * - .. container:: twocol
+
+          .. container:: leftside
+
+             1. :strong:`RP2350A`
+             #. | :strong:`On-board flash memory`
+                | 4㎆ NOR-Flash :strong:`P25Q32SH-UXH-IR` (W25Q32JV)
+             #. | :strong:`BOOT button`
+                | press it when resetting to enter download mode
+             #. :strong:`RESET button`
+             #. | :strong:`MP28164`
+                | 1.8A DC-DC buck-boost converter, power switch
+             #. | :strong:`LED monochrome`
+                | user LED (not power indicator)
+             #. | :strong:`USB Type-C connector`
+                | Supports USB1.1 hosts and slave devices
+
+          .. container:: rightside
+
+             8. | :strong:`Debug pins`
+                | Serial Wire Debug (SWD)
+             #. | :strong:`SIT65HVD230DR` (SN65HVD230)
+                | CAN transceiver
+             #. | :strong:`XL2515QF20` (MCP2515)
+                | CAN controller
+             #. | :strong:`Terminal resistor selection`
+                | enable/disable 120R CAN matching resistor
+             #. :strong:`CAN screw terminal`
+             #. | :strong:`Pinout`
+                | compatible with Raspberry Pi Pico
+
+.. rubric:: Data Sheets
+.. rst-class:: rst-columns
+
+- .. rubric:: `RP2350 SoC`_
+- `RP2350 Datasheet`_
+- `Hardware design with RP2350`_
+- .. rubric:: P25Q32SH_ (W25Q32JV_)
+- `P25Q32SH Datasheet V2.0 (2025/07)`_
+- `P25Q32SH Datasheet V1.9 (2024/07)`_
+- `P25Q32SH Datasheet V1.8 (2023/10)`_
+- `P25Q32SH Datasheet V1.7 (2023/08)`_
+- `W25Q32JV Datasheet`_
+- .. rubric:: XL2515QF20_ (MCP2515_)
+- `XL2515QF20 Datasheet`_
+- `MCP2515 Datasheet`_
+- `MCP2515 Silicon Errata`_
+- .. rubric:: SIT65HVD230_ (SN65HVD230_)
+- `SIT65HVD230 Datasheet`_
+- `SN65HVD230 Datasheet`_
+- .. rubric:: MP28164_
+- `MP28164 Datasheet`_
+- `MP28164 Reliability Report`_

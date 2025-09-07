@@ -23,6 +23,10 @@
 .. _`CANnectivity Project documentation`: https://cannectivity.org/
 .. _`CANnectivity GitHub organization`: https://github.com/CANnectivity
 
+.. _`CANnectivity udev rule`:
+   https://raw.githubusercontent.com/CANnectivity/cannectivity/refs/heads/main/99-cannectivity.rules
+.. https://github.com/CANnectivity/cannectivity/blob/main/99-cannectivity.rules
+
 .. |cannectivity_repo| replace:: https://github.com/CANnectivity/cannectivity
 .. _`cannectivity-core`: https://github.com/CANnectivity/cannectivity
 
@@ -92,6 +96,8 @@
 
 
 .. ### Links to required tools and PyPi packages
+
+.. _`can-utils`: https://github.com/linux-can/can-utils
 
 .. _`Ccache`: https://ccache.dev/download.html
 .. _`Ccache (Ubuntu DPKG)`: https://packages.ubuntu.com/noble/ccache
@@ -167,6 +173,8 @@
 .. _`graphviz_win1x_winget`: https://winstall.app/apps/Graphviz.Graphviz
 .. _`Graphviz (Chocolatey Package)`: https://community.chocolatey.org/packages/graphviz
 .. _`graphviz_win1x_choco`: https://community.chocolatey.org/packages/graphviz
+
+.. _`MCUboot`: https://www.trustedfirmware.org/projects/mcuboot
 
 .. _`MscGen`: https://www.mcternan.me.uk/mscgen
 .. _`MscGen (Ubuntu DPKG)`: https://packages.ubuntu.com/noble/mscgen
@@ -924,6 +932,19 @@
 .. _`RP2040-Geek Schematic`:
    https://www.waveshare.com/wiki/RP2040-GEEK#Document
 .. https://files.waveshare.com/wiki/RP2040-GEEK/RP2040-GEEK-Schematic.pdf
+
+.. ### Links to Waveshare RP2350-CAN
+
+.. _`RP2350-CAN`:
+   https://www.waveshare.com/wiki/RP2350-CAN
+
+.. _`RP2350-CAN Schematic`:
+   https://www.waveshare.com/wiki/RP2350-CAN#Documents
+.. https://files.waveshare.com/wiki/RP2350-CAN/RP2350-CAN-Schematic.pdf
+
+.. _`RP2350-CAN Demo`:
+   https://www.waveshare.com/wiki/RP2350-CAN#Demo_2
+.. https://files.waveshare.com/wiki/RP2350-CAN/RP2350-CAN-Demo.zip
 
 .. ### Links to the Waveshare 2.4 LCD Module
 
@@ -2336,6 +2357,38 @@
 .. _`SC18IS604 Datasheet`:
    https://www.nxp.com/docs/en/data-sheet/SC18IS604.pdf
 
+.. #### Links to CAN Controllers or similar to drive field busses
+
+.. _`MCP2515`:
+   https://www.microchip.com/en-us/product/mcp2515
+
+.. _`MCP2515 Datasheet`:
+   https://ww1.microchip.com/downloads/aemDocuments/documents/APID/ProductDocuments/DataSheets/MCP2515-Family-Data-Sheet-DS20001801K.pdf
+
+.. _`MCP2515 Silicon Errata`:
+   https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/Errata/80000179H.pdf
+
+.. _`SIT65HVD230`:
+   http://en.sitcores.com/show-38-154-1.html
+.. http://www.sitcores.com/show-38-131-1.html
+
+.. _`SIT65HVD230 Datasheet`:
+   http://www.sitcores.com/uploadfile/2023/1110/20231110052516809.pdf
+.. http://www.sitcores.com/uploadfile/2023/1110/20231110052517308.pdf
+
+.. _`SN65HVD230`:
+   https://www.ti.com/product/SN65HVD230
+
+.. _`SN65HVD230 Datasheet`:
+   https://www.ti.com/lit/ds/symlink/sn65hvd230.pdf
+
+.. _`XL2515QF20`:
+   https://www.xinluda.com/en/CAN-Bus-controller/20250103618.html
+
+.. _`XL2515QF20 Datasheet`:
+   https://files.waveshare.com/wiki/common/XL2515_DataSheet_EN.pdf
+.. https://www.xinluda.com/upload/datasheet/XL2515QF20.pdf
+
 .. #### Links to Ethernet Controllers or similar to drive networks
 
 .. _`CH9120`:
@@ -2394,6 +2447,22 @@
 
 .. _`IPS6404L‐SQ Datasheet V1.1 (2018/07)`:
    http://platform.digiic.com/Docs/Product/IPS6404L-SQ-SPN/IPUS%2064Mbit%20SQPI%20PSRAM%20.pdf
+
+.. _`P25Q32SH`:
+   https://www.puyasemi.com/en/h_series653/3177.html
+.. https://www.puyasemi.com/h_xilie519/2653.html
+
+.. _`P25Q32SH Datasheet V2.0 (2025/07)`:
+   https://www.puyasemi.com/download_path/数据手册/Flash/P25Q32SH_Datasheet_V2.0.pdf
+
+.. _`P25Q32SH Datasheet V1.9 (2024/07)`:
+   https://www.puyasemi.com/download_path/数据手册/Flash/P25Q32SH_Datasheet_V1.9.pdf
+
+.. _`P25Q32SH Datasheet V1.8 (2023/10)`:
+   https://www.puyasemi.com/download_path/数据手册/Flash/P25Q32SH_Datasheet_V1.8.pdf
+
+.. _`P25Q32SH Datasheet V1.7 (2023/08)`:
+   https://www.puyasemi.com/download_path/数据手册/Flash/P25Q32SH_Datasheet_V1.7.pdf
 
 .. _`W25Q16JV`:
    https://www.winbond.com/hq/product/code-storage-flash-memory/serial-nor-flash/index.html?__locale=en&partNo=W25Q16JV
