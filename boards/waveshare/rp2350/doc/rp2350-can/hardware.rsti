@@ -1,0 +1,67 @@
+The RP2350-CAN is a :bbl:`normally sized` RP2350 CAN bus focused development board.
+The on-board USB-C connector makes it compatible to future standards.
+The castellated module allows soldering direct to carrier boards.
+
+.. list-table::
+   :align: center
+   :width: 100%
+   :widths: 66, 33
+
+   * - .. rubric:: Features and Resources
+     - .. rubric:: Printed Circuit Board
+
+   * - :hwftlbl-vdd:`5V/480㎃`
+       :hwftlbl-vdd:`3.3V/800㎃`
+       :hwftlbl-vdd:`3.3V(OUT)`
+
+       :hwftlbl:`150㎒`
+       :hwftlbl:`4㎆`
+       :hwftlbl:`520㎅`
+       :hwftlbl-btn:`RST`
+       :hwftlbl-led:`bue`
+       :hwftlbl-con:`USB-C`
+       :hwftlbl-dbg:`UF2`
+
+       :hwftlbl-pio:`20+9`
+       :hwftlbl-pwm:`16`
+       :hwftlbl-adc:`4`
+       :hwftlbl-i2c:`2`
+       :hwftlbl-spi:`2`
+       :hwftlbl-uart:`2`
+
+       .. rst-class:: rst-columns
+
+       - Dual core Arm Cortex-M33 processor running up to 150㎒
+       - :bbk:`520㎅` on-chip SRAM
+       - :bbk:`4㎆` on-board QSPI flash with XIP capabilities
+       - USB 1.1 controller (host/device)
+       - On-board :bbl:`USB-C connector`
+       - On-board :bbl:`BLUE LED`
+       - On-board :bbl:`3.3V LDO regulator with 800㎃`
+       - On-board :bbl:`RESET` button
+       - On-board :bbk:`BOOT` button
+       - :bbl:`20 GPIO` pins via :bbk:`edge pinout`
+       - :bbl:`9 GPIO` pins via :bbl:`solder points`
+       - :bbk:`2 UART` peripherals
+       - :bbk:`2 I2C` controllers
+       - :bbk:`2 SPI` controllers
+       - :bbk:`16 PWM` channels
+       - :bbl:`4 ADC` analog inputs
+       - 8 Programmable I/O (PIO) state machines for custom peripherals
+       - 1 Watchdog timer peripheral
+       - 1 Temperature sensor on-chip
+
+       .. rubric:: Design Data
+       .. rst-class:: rst-columns
+
+       - `RP2350-CAN Schematic`_
+       - `RP2350-CAN STEP 3D-Model`_
+
+     - .. image:: rp2350-can/hardware.jpg
+          :align: center
+          :alt: Waveshare RP2350-CAN
+
+https://www.waveshare.com/wiki/RP2350-CAN
+https://files.waveshare.com/wiki/RP2350-CAN/RP2350-CAN-Schematic.pdf
+https://files.waveshare.com/wiki/common/XL2515_DataSheet_EN.pdf
+
