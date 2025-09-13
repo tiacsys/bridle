@@ -1,4 +1,4 @@
-# Copyright (c) 2023 TiaC Systems
+# Copyright (c) 2023-2025 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 cmake_minimum_required(VERSION 3.20.0)
@@ -62,6 +62,7 @@ if(NOT CONFIG_SHIELD_GROVE_PWM_LED AND CONFIG_PWM)
   )
 endif()
 
+# zephyr-keep-sorted-start
 test_if(CONFIG_SHIELD_GROVE_LED_D0 "/grove_leds" "grove_led_d0" "Grove LED D0")
 test_if(CONFIG_SHIELD_GROVE_LED_D1 "/grove_leds" "grove_led_d1" "Grove LED D1")
 test_if(CONFIG_SHIELD_GROVE_LED_D2 "/grove_leds" "grove_led_d2" "Grove LED D2")
@@ -72,6 +73,9 @@ test_if(CONFIG_SHIELD_GROVE_LED_D6 "/grove_leds" "grove_led_d6" "Grove LED D6")
 test_if(CONFIG_SHIELD_GROVE_LED_D7 "/grove_leds" "grove_led_d7" "Grove LED D7")
 test_if(CONFIG_SHIELD_GROVE_LED_D8 "/grove_leds" "grove_led_d8" "Grove LED D8")
 test_if(CONFIG_SHIELD_GROVE_LED_D9 "/grove_leds" "grove_led_d9" "Grove LED D9")
+# zephyr-keep-sorted-stop
+
+# zephyr-keep-sorted-start
 test_if(CONFIG_SHIELD_GROVE_LED_D10 "/grove_leds" "grove_led_d10" "Grove LED D10")
 test_if(CONFIG_SHIELD_GROVE_LED_D11 "/grove_leds" "grove_led_d11" "Grove LED D11")
 test_if(CONFIG_SHIELD_GROVE_LED_D12 "/grove_leds" "grove_led_d12" "Grove LED D12")
@@ -82,6 +86,9 @@ test_if(CONFIG_SHIELD_GROVE_LED_D16 "/grove_leds" "grove_led_d16" "Grove LED D16
 test_if(CONFIG_SHIELD_GROVE_LED_D17 "/grove_leds" "grove_led_d17" "Grove LED D17")
 test_if(CONFIG_SHIELD_GROVE_LED_D18 "/grove_leds" "grove_led_d18" "Grove LED D18")
 test_if(CONFIG_SHIELD_GROVE_LED_D19 "/grove_leds" "grove_led_d19" "Grove LED D19")
+# zephyr-keep-sorted-stop
+
+# zephyr-keep-sorted-start
 test_if(CONFIG_SHIELD_GROVE_LED_D20 "/grove_leds" "grove_led_d20" "Grove LED D20")
 test_if(CONFIG_SHIELD_GROVE_LED_D21 "/grove_leds" "grove_led_d21" "Grove LED D21")
 test_if(CONFIG_SHIELD_GROVE_LED_D22 "/grove_leds" "grove_led_d22" "Grove LED D22")
@@ -92,9 +99,14 @@ test_if(CONFIG_SHIELD_GROVE_LED_D26 "/grove_leds" "grove_led_d26" "Grove LED D26
 test_if(CONFIG_SHIELD_GROVE_LED_D27 "/grove_leds" "grove_led_d27" "Grove LED D27")
 test_if(CONFIG_SHIELD_GROVE_LED_D28 "/grove_leds" "grove_led_d28" "Grove LED D28")
 test_if(CONFIG_SHIELD_GROVE_LED_D29 "/grove_leds" "grove_led_d29" "Grove LED D29")
+# zephyr-keep-sorted-stop
+
+# zephyr-keep-sorted-start
 test_if(CONFIG_SHIELD_GROVE_LED_D30 "/grove_leds" "grove_led_d30" "Grove LED D30")
 test_if(CONFIG_SHIELD_GROVE_LED_D31 "/grove_leds" "grove_led_d31" "Grove LED D31")
+# zephyr-keep-sorted-stop
 
+# zephyr-keep-sorted-start
 test_if(CONFIG_SHIELD_GROVE_PWM_LED_D0 "/grove_pwm_leds" "grove_pwm_led_d0" "Grove LED D0")
 test_if(CONFIG_SHIELD_GROVE_PWM_LED_D1 "/grove_pwm_leds" "grove_pwm_led_d1" "Grove LED D1")
 test_if(CONFIG_SHIELD_GROVE_PWM_LED_D2 "/grove_pwm_leds" "grove_pwm_led_d2" "Grove LED D2")
@@ -105,6 +117,9 @@ test_if(CONFIG_SHIELD_GROVE_PWM_LED_D6 "/grove_pwm_leds" "grove_pwm_led_d6" "Gro
 test_if(CONFIG_SHIELD_GROVE_PWM_LED_D7 "/grove_pwm_leds" "grove_pwm_led_d7" "Grove LED D7")
 test_if(CONFIG_SHIELD_GROVE_PWM_LED_D8 "/grove_pwm_leds" "grove_pwm_led_d8" "Grove LED D8")
 test_if(CONFIG_SHIELD_GROVE_PWM_LED_D9 "/grove_pwm_leds" "grove_pwm_led_d9" "Grove LED D9")
+# zephyr-keep-sorted-stop
+
+# zephyr-keep-sorted-start
 test_if(CONFIG_SHIELD_GROVE_PWM_LED_D10 "/grove_pwm_leds" "grove_pwm_led_d10" "Grove LED D10")
 test_if(CONFIG_SHIELD_GROVE_PWM_LED_D11 "/grove_pwm_leds" "grove_pwm_led_d11" "Grove LED D11")
 test_if(CONFIG_SHIELD_GROVE_PWM_LED_D12 "/grove_pwm_leds" "grove_pwm_led_d12" "Grove LED D12")
@@ -115,6 +130,9 @@ test_if(CONFIG_SHIELD_GROVE_PWM_LED_D16 "/grove_pwm_leds" "grove_pwm_led_d16" "G
 test_if(CONFIG_SHIELD_GROVE_PWM_LED_D17 "/grove_pwm_leds" "grove_pwm_led_d17" "Grove LED D17")
 test_if(CONFIG_SHIELD_GROVE_PWM_LED_D18 "/grove_pwm_leds" "grove_pwm_led_d18" "Grove LED D18")
 test_if(CONFIG_SHIELD_GROVE_PWM_LED_D19 "/grove_pwm_leds" "grove_pwm_led_d19" "Grove LED D19")
+# zephyr-keep-sorted-stop
+
+# zephyr-keep-sorted-start
 test_if(CONFIG_SHIELD_GROVE_PWM_LED_D20 "/grove_pwm_leds" "grove_pwm_led_d20" "Grove LED D20")
 test_if(CONFIG_SHIELD_GROVE_PWM_LED_D21 "/grove_pwm_leds" "grove_pwm_led_d21" "Grove LED D21")
 test_if(CONFIG_SHIELD_GROVE_PWM_LED_D22 "/grove_pwm_leds" "grove_pwm_led_d22" "Grove LED D22")
@@ -125,5 +143,9 @@ test_if(CONFIG_SHIELD_GROVE_PWM_LED_D26 "/grove_pwm_leds" "grove_pwm_led_d26" "G
 test_if(CONFIG_SHIELD_GROVE_PWM_LED_D27 "/grove_pwm_leds" "grove_pwm_led_d27" "Grove LED D27")
 test_if(CONFIG_SHIELD_GROVE_PWM_LED_D28 "/grove_pwm_leds" "grove_pwm_led_d28" "Grove LED D28")
 test_if(CONFIG_SHIELD_GROVE_PWM_LED_D29 "/grove_pwm_leds" "grove_pwm_led_d29" "Grove LED D29")
+# zephyr-keep-sorted-stop
+
+# zephyr-keep-sorted-start
 test_if(CONFIG_SHIELD_GROVE_PWM_LED_D30 "/grove_pwm_leds" "grove_pwm_led_d30" "Grove LED D30")
 test_if(CONFIG_SHIELD_GROVE_PWM_LED_D31 "/grove_pwm_leds" "grove_pwm_led_d31" "Grove LED D31")
+# zephyr-keep-sorted-stop

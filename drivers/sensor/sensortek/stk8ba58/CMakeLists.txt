@@ -3,5 +3,7 @@
 
 zephyr_library()
 
+# zephyr-keep-sorted-start
 zephyr_library_sources(stk8ba58.c stk8ba58_reg.c)
 zephyr_library_sources_ifdef(CONFIG_STK8BA58_TRIGGER stk8ba58_trigger.c)
+# zephyr-keep-sorted-stop

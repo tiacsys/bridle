@@ -1,4 +1,4 @@
-# Copyright (c) 2021-2023 TiaC Systems
+# Copyright (c) 2021-2025 TiaC Systems
 # Copyright (c) 2019-2021 Li-Pro.Net
 # Copyright (c) 2019-2021 Nordic Semiconductor ASA
 # SPDX-License-Identifier: LicenseRef-Nordic-5-Clause
@@ -453,13 +453,16 @@ add_dependencies(kconfig-html-all zephyr-inventory)
 #-------------------------------------------------------------------------------
 # docset: bridle
 
+# zephyr-keep-sorted-start
 set(tools_version_files
     ${BRIDLE_BASE}/doc/tools-versions-minimum.txt
     ${BRIDLE_BASE}/doc/tools-versions-macos.txt
     ${BRIDLE_BASE}/doc/tools-versions-win1x.txt
     ${BRIDLE_BASE}/doc/tools-versions-linux.txt
-)
+  )
+# zephyr-keep-sorted-stop
 
+# zephyr-keep-sorted-start
 set(pip_requirements_files
     ${ZEPHYR_BASE}/doc/requirements.txt
     ${ZEPHYR_BASE}/scripts/requirements-base.txt
@@ -467,7 +470,8 @@ set(pip_requirements_files
     ${BRIDLE_BASE}/zephyr/requirements-doc.txt
     ${BRIDLE_BASE}/zephyr/requirements-build.txt
     ${BRIDLE_BASE}/zephyr/requirements-extras.txt
-)
+  )
+# zephyr-keep-sorted-stop
 
 string(REPLACE ";" "\\;" tools_files_escaped "${tools_version_files}")
 string(REPLACE ";" "\\;" pip_files_escaped "${pip_requirements_files}")

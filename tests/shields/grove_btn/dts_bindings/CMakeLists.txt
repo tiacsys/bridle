@@ -1,4 +1,4 @@
-# Copyright (c) 2023 TiaC Systems
+# Copyright (c) 2023-2025 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 cmake_minimum_required(VERSION 3.20.0)
@@ -49,6 +49,7 @@ endif()
 #  )
 #endif()
 
+# zephyr-keep-sorted-start
 test_if(CONFIG_SHIELD_GROVE_BTN_D0 "/grove_btns" "grove_btn_d0" "Grove Button D0" "Grove Button D0 (inverted)")
 test_if(CONFIG_SHIELD_GROVE_BTN_D1 "/grove_btns" "grove_btn_d1" "Grove Button D1" "Grove Button D1 (inverted)")
 test_if(CONFIG_SHIELD_GROVE_BTN_D2 "/grove_btns" "grove_btn_d2" "Grove Button D2" "Grove Button D2 (inverted)")
@@ -59,6 +60,9 @@ test_if(CONFIG_SHIELD_GROVE_BTN_D6 "/grove_btns" "grove_btn_d6" "Grove Button D6
 test_if(CONFIG_SHIELD_GROVE_BTN_D7 "/grove_btns" "grove_btn_d7" "Grove Button D7" "Grove Button D7 (inverted)")
 test_if(CONFIG_SHIELD_GROVE_BTN_D8 "/grove_btns" "grove_btn_d8" "Grove Button D8" "Grove Button D8 (inverted)")
 test_if(CONFIG_SHIELD_GROVE_BTN_D9 "/grove_btns" "grove_btn_d9" "Grove Button D9" "Grove Button D9 (inverted)")
+# zephyr-keep-sorted-stop
+
+# zephyr-keep-sorted-start
 test_if(CONFIG_SHIELD_GROVE_BTN_D10 "/grove_btns" "grove_btn_d10" "Grove Button D10" "Grove Button D10 (inverted)")
 test_if(CONFIG_SHIELD_GROVE_BTN_D11 "/grove_btns" "grove_btn_d11" "Grove Button D11" "Grove Button D11 (inverted)")
 test_if(CONFIG_SHIELD_GROVE_BTN_D12 "/grove_btns" "grove_btn_d12" "Grove Button D12" "Grove Button D12 (inverted)")
@@ -69,6 +73,9 @@ test_if(CONFIG_SHIELD_GROVE_BTN_D16 "/grove_btns" "grove_btn_d16" "Grove Button 
 test_if(CONFIG_SHIELD_GROVE_BTN_D17 "/grove_btns" "grove_btn_d17" "Grove Button D17" "Grove Button D17 (inverted)")
 test_if(CONFIG_SHIELD_GROVE_BTN_D18 "/grove_btns" "grove_btn_d18" "Grove Button D18" "Grove Button D18 (inverted)")
 test_if(CONFIG_SHIELD_GROVE_BTN_D19 "/grove_btns" "grove_btn_d19" "Grove Button D19" "Grove Button D19 (inverted)")
+# zephyr-keep-sorted-stop
+
+# zephyr-keep-sorted-start
 test_if(CONFIG_SHIELD_GROVE_BTN_D20 "/grove_btns" "grove_btn_d20" "Grove Button D20" "Grove Button D20 (inverted)")
 test_if(CONFIG_SHIELD_GROVE_BTN_D21 "/grove_btns" "grove_btn_d21" "Grove Button D21" "Grove Button D21 (inverted)")
 test_if(CONFIG_SHIELD_GROVE_BTN_D22 "/grove_btns" "grove_btn_d22" "Grove Button D22" "Grove Button D22 (inverted)")
@@ -79,5 +86,9 @@ test_if(CONFIG_SHIELD_GROVE_BTN_D26 "/grove_btns" "grove_btn_d26" "Grove Button 
 test_if(CONFIG_SHIELD_GROVE_BTN_D27 "/grove_btns" "grove_btn_d27" "Grove Button D27" "Grove Button D27 (inverted)")
 test_if(CONFIG_SHIELD_GROVE_BTN_D28 "/grove_btns" "grove_btn_d28" "Grove Button D28" "Grove Button D28 (inverted)")
 test_if(CONFIG_SHIELD_GROVE_BTN_D29 "/grove_btns" "grove_btn_d29" "Grove Button D29" "Grove Button D29 (inverted)")
+# zephyr-keep-sorted-stop
+
+# zephyr-keep-sorted-start
 test_if(CONFIG_SHIELD_GROVE_BTN_D30 "/grove_btns" "grove_btn_d30" "Grove Button D30" "Grove Button D30 (inverted)")
 test_if(CONFIG_SHIELD_GROVE_BTN_D31 "/grove_btns" "grove_btn_d31" "Grove Button D31" "Grove Button D31 (inverted)")
+# zephyr-keep-sorted-stop

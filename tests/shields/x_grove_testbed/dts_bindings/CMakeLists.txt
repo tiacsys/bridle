@@ -1,4 +1,4 @@
-# Copyright (c) 2023 TiaC Systems
+# Copyright (c) 2023-2025 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 cmake_minimum_required(VERSION 3.20.0)
@@ -94,11 +94,15 @@ if(CONFIG_SHIELD_SEEED_GROVE_BASE_V2)
        CONFIG_BOARD_SEEEDUINO_CM0 OR
        CONFIG_BOARD_SEEEDUINO_LOTUS)
 
+      # zephyr-keep-sorted-start re(^\s+\w)
       test_if(CONFIG_SHIELD_GROVE_BTN "sw0" "grove_btn_d7" "Grove Button D7")
+      # zephyr-keep-sorted-stop
 
     else()
 
+      # zephyr-keep-sorted-start re(^\s+\w)
       test_if(CONFIG_SHIELD_GROVE_BTN "sw0" "grove_btn_d4" "Grove Button D4")
+      # zephyr-keep-sorted-stop
 
     endif()
 
@@ -111,7 +115,9 @@ if(CONFIG_SHIELD_SEEED_GROVE_BASE_V2)
     )
   else()
 
+    # zephyr-keep-sorted-start re(^\s+\w)
     test_if(CONFIG_SHIELD_GROVE_LED "led0" "grove_led_d6" "Grove LED D6")
+    # zephyr-keep-sorted-stop
 
   endif()
 
@@ -129,7 +135,9 @@ if(CONFIG_SHIELD_SEEED_GROVE_BASE_V2)
       )
     else()
 
+      # zephyr-keep-sorted-start re(^\s+\w)
       test_if(CONFIG_SHIELD_GROVE_PWM_LED "pwm-led0" "grove_pwm_led_d6" "Grove LED D6")
+      # zephyr-keep-sorted-stop
 
     endif()
 
@@ -146,7 +154,9 @@ if(CONFIG_SHIELD_SEEED_GROVE_XIAO_V1)
     )
   else()
 
+    # zephyr-keep-sorted-start re(^\s+\w)
     test_if(CONFIG_SHIELD_GROVE_BTN "sw0" "grove_btn_d0" "Grove Button D0")
+    # zephyr-keep-sorted-stop
 
   endif()
 
@@ -157,7 +167,9 @@ if(CONFIG_SHIELD_SEEED_GROVE_XIAO_V1)
     )
   else()
 
+    # zephyr-keep-sorted-start re(^\s+\w)
     test_if(CONFIG_SHIELD_GROVE_LED "led0" "grove_led_d1" "Grove LED D1")
+    # zephyr-keep-sorted-stop
 
   endif()
 
@@ -171,7 +183,9 @@ if(CONFIG_SHIELD_SEEED_GROVE_XIAO_V1)
       )
     else()
 
+      # zephyr-keep-sorted-start re(^\s+\w)
       test_if(CONFIG_SHIELD_GROVE_PWM_LED "pwm-led0" "grove_pwm_led_d1" "Grove LED D1")
+      # zephyr-keep-sorted-stop
 
     endif()
 
@@ -188,7 +202,9 @@ if(CONFIG_SHIELD_SEEED_GROVE_RPIPICO_V1)
     )
   else()
 
+      # zephyr-keep-sorted-start re(^\s+\w)
     test_if(CONFIG_SHIELD_GROVE_BTN "sw0" "grove_btn_d16" "Grove Button D16")
+    # zephyr-keep-sorted-stop
 
   endif()
 
@@ -199,7 +215,9 @@ if(CONFIG_SHIELD_SEEED_GROVE_RPIPICO_V1)
     )
   else()
 
+    # zephyr-keep-sorted-start re(^\s+\w)
     test_if(CONFIG_SHIELD_GROVE_LED "led0" "grove_led_d18" "Grove LED D18")
+    # zephyr-keep-sorted-stop
 
   endif()
 
@@ -214,7 +232,9 @@ if(CONFIG_SHIELD_SEEED_GROVE_RPIPICO_V1)
       )
     else()
 
+      # zephyr-keep-sorted-start re(^\s+\w)
       test_if(CONFIG_SHIELD_GROVE_PWM_LED "pwm-led0" "grove_pwm_led_d18" "Grove LED D18")
+      # zephyr-keep-sorted-stop
 
     endif()
 
@@ -233,7 +253,9 @@ if(CONFIG_SHIELD_X_GROVE_TESTBED_SINGLE_BOARD)
       )
     else()
 
+      # zephyr-keep-sorted-start re(^\s+\w)
       test_if(CONFIG_SHIELD_GROVE_BTN "sw0" "grove_btn_d16" "Grove Button D16")
+      # zephyr-keep-sorted-stop
 
     endif()
 
@@ -244,7 +266,9 @@ if(CONFIG_SHIELD_X_GROVE_TESTBED_SINGLE_BOARD)
       )
     else()
 
+      # zephyr-keep-sorted-start re(^\s+\w)
       test_if(CONFIG_SHIELD_GROVE_LED "led0" "grove_led_d17" "Grove LED D17")
+      # zephyr-keep-sorted-stop
 
     endif()
 
@@ -255,7 +279,9 @@ if(CONFIG_SHIELD_X_GROVE_TESTBED_SINGLE_BOARD)
     # not yet:   )
     # not yet: else()
 
+    # not yet:   # zephyr-keep-sorted-start re(^\s+\w)
     # not yet:   test_if(CONFIG_SHIELD_GROVE_PWM_LED "pwm-led0" "grove_pwm_led_d17" "Grove LED D17")
+    # not yet:   # zephyr-keep-sorted-stop
 
     # not yet: endif()
 
@@ -270,7 +296,9 @@ if(CONFIG_SHIELD_X_GROVE_TESTBED_SINGLE_BOARD)
       )
     else()
 
+      # zephyr-keep-sorted-start re(^\s+\w)
       test_if(CONFIG_SHIELD_GROVE_BTN "sw0" "grove_btn_d0" "Grove Button D0")
+      # zephyr-keep-sorted-stop
 
     endif()
 
@@ -281,7 +309,9 @@ if(CONFIG_SHIELD_X_GROVE_TESTBED_SINGLE_BOARD)
       )
     else()
 
+      # zephyr-keep-sorted-start re(^\s+\w)
       test_if(CONFIG_SHIELD_GROVE_LED "led0" "grove_led_d15" "Grove LED D15")
+      # zephyr-keep-sorted-stop
 
     endif()
 
@@ -292,7 +322,9 @@ if(CONFIG_SHIELD_X_GROVE_TESTBED_SINGLE_BOARD)
       )
     else()
 
+      # zephyr-keep-sorted-start re(^\s+\w)
       test_if(CONFIG_SHIELD_GROVE_PWM_LED "pwm-led0" "grove_pwm_led_d15" "Grove LED D15")
+      # zephyr-keep-sorted-stop
 
     endif()
 
@@ -307,7 +339,9 @@ if(CONFIG_SHIELD_X_GROVE_TESTBED_SINGLE_BOARD)
       )
     else()
 
+      # zephyr-keep-sorted-start re(^\s+\w)
       test_if(CONFIG_SHIELD_GROVE_BTN "sw0" "grove_btn_d3" "Grove Button D3")
+      # zephyr-keep-sorted-stop
 
     endif()
 
@@ -318,7 +352,9 @@ if(CONFIG_SHIELD_X_GROVE_TESTBED_SINGLE_BOARD)
       )
     else()
 
+      # zephyr-keep-sorted-start re(^\s+\w)
       test_if(CONFIG_SHIELD_GROVE_LED "led0" "grove_led_d5" "Grove LED D5")
+      # zephyr-keep-sorted-stop
 
     endif()
 
@@ -329,7 +365,9 @@ if(CONFIG_SHIELD_X_GROVE_TESTBED_SINGLE_BOARD)
       )
     else()
 
+      # zephyr-keep-sorted-start re(^\s+\w)
       test_if(CONFIG_SHIELD_GROVE_PWM_LED "pwm-led0" "grove_pwm_led_d5" "Grove LED D5")
+      # zephyr-keep-sorted-stop
 
     endif()
 
@@ -344,7 +382,9 @@ if(CONFIG_SHIELD_X_GROVE_TESTBED_SINGLE_BOARD)
       )
     else()
 
+      # zephyr-keep-sorted-start re(^\s+\w)
       test_if(CONFIG_SHIELD_GROVE_BTN "sw0" "grove_btn_d16" "Grove Button D16")
+      # zephyr-keep-sorted-stop
 
     endif()
 
@@ -355,7 +395,9 @@ if(CONFIG_SHIELD_X_GROVE_TESTBED_SINGLE_BOARD)
       )
     else()
 
+      # zephyr-keep-sorted-start re(^\s+\w)
       test_if(CONFIG_SHIELD_GROVE_LED "led0" "grove_led_d17" "Grove LED D17")
+      # zephyr-keep-sorted-stop
 
     endif()
 
@@ -366,7 +408,9 @@ if(CONFIG_SHIELD_X_GROVE_TESTBED_SINGLE_BOARD)
       )
     else()
 
+      # zephyr-keep-sorted-start re(^\s+\w)
       test_if(CONFIG_SHIELD_GROVE_PWM_LED "pwm-led0" "grove_pwm_led_d17" "Grove LED D17")
+      # zephyr-keep-sorted-stop
 
     endif()
 
@@ -381,7 +425,9 @@ if(CONFIG_SHIELD_X_GROVE_TESTBED_SINGLE_BOARD)
       )
     else()
 
+      # zephyr-keep-sorted-start re(^\s+\w)
       test_if(CONFIG_SHIELD_GROVE_BTN "sw0" "grove_btn_d7" "Grove Button D7")
+      # zephyr-keep-sorted-stop
 
     endif()
 
@@ -392,7 +438,9 @@ if(CONFIG_SHIELD_X_GROVE_TESTBED_SINGLE_BOARD)
       )
     else()
 
+      # zephyr-keep-sorted-start re(^\s+\w)
       test_if(CONFIG_SHIELD_GROVE_LED "led0" "grove_led_d6" "Grove LED D6")
+      # zephyr-keep-sorted-stop
 
     endif()
 
@@ -403,7 +451,9 @@ if(CONFIG_SHIELD_X_GROVE_TESTBED_SINGLE_BOARD)
       )
     else()
 
+      # zephyr-keep-sorted-start re(^\s+\w)
       test_if(CONFIG_SHIELD_GROVE_PWM_LED "pwm-led0" "grove_pwm_led_d6" "Grove LED D6")
+      # zephyr-keep-sorted-stop
 
     endif()
 
