@@ -14,29 +14,41 @@ Hardware
 
 .. tabs::
 
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+
    .. group-tab:: Waveshare Pico RGB LED
 
       .. _waveshare_pico_rgb_led:
 
       .. include:: waveshare_pico_rgb_led/hardware.rsti
 
+   .. zephyr-keep-sorted-stop
+
 Positions
 =========
 
 .. tabs::
 
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+
    .. group-tab:: Waveshare Pico RGB LED
 
       .. include:: waveshare_pico_rgb_led/positions.rsti
+
+   .. zephyr-keep-sorted-stop
 
 Pinouts
 =======
 
 .. tabs::
 
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+
    .. group-tab:: Waveshare Pico RGB LED
 
       .. include:: waveshare_pico_rgb_led/pinouts.rsti
+
+   .. zephyr-keep-sorted-stop
 
 More Samples
 ************
@@ -45,6 +57,8 @@ LED Blinky and Fade
 ===================
 
 .. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: Waveshare Pico RGB LED
 
@@ -139,6 +153,8 @@ LED Blinky and Fade
          |Waveshare Pico RGB LED|, because this shield has only digital
          RGB LEDs. A simple GPIO or PWM control is not possible!
 
+   .. zephyr-keep-sorted-stop
+
 LED Display Orientation and Bit Order Test
 ==========================================
 
@@ -148,6 +164,8 @@ RGB bit order.
 See also Zephyr sample: :external+zephyr:zephyr:code-sample:`display`.
 
 .. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: Waveshare Pico RGB LED
 
@@ -238,6 +256,8 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`display`.
             [00:00:00.417,000] :byl:`<wrn> udc_rpi: BUS RESET`
             \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
             [00:00:04.002,000] <inf> sample: Display sample for rgb-led-strip-matrix
+
+   .. zephyr-keep-sorted-stop
 
 References
 **********

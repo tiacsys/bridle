@@ -18,6 +18,8 @@ Hardware
 
 .. tabs::
 
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+
    .. group-tab:: GeeekPi (Pico …)
 
       .. tabs::
@@ -34,10 +36,14 @@ Hardware
 
             .. include:: geeekpi_pico_bb_plus/hardware.rsti
 
+   .. zephyr-keep-sorted-stop
+
 Positions
 =========
 
 .. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: GeeekPi (Pico …)
 
@@ -51,10 +57,14 @@ Positions
 
             .. include:: geeekpi_pico_bb_plus/positions.rsti
 
+   .. zephyr-keep-sorted-stop
+
 Pinouts
 =======
 
 .. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: GeeekPi (Pico …)
 
@@ -67,6 +77,8 @@ Pinouts
          .. group-tab:: Breadboard Kit Plus
 
             .. include:: geeekpi_pico_bb_plus/pinouts.rsti
+
+   .. zephyr-keep-sorted-stop
 
 Utilization
 ***********
@@ -97,6 +109,8 @@ Programming
 
 .. tabs::
 
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+
    .. group-tab:: GeeekPi (Pico …)
 
       .. tabs::
@@ -109,6 +123,8 @@ Programming
 
             .. include:: geeekpi_pico_bb_plus/helloshell.rsti
 
+   .. zephyr-keep-sorted-stop
+
 More Samples
 ************
 
@@ -119,6 +135,8 @@ Prints all input events as defined by the shields Devicetree. See also Zephyr
 sample: :zephyr:code-sample:`input-dump`.
 
 .. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: GeeekPi (Pico …)
 
@@ -132,6 +150,8 @@ sample: :zephyr:code-sample:`input-dump`.
 
             .. include:: geeekpi_pico_bb_plus/input_dump.rsti
 
+   .. zephyr-keep-sorted-stop
+
 Sounds from the speaker
 =======================
 
@@ -139,6 +159,8 @@ Drives an buzzer or speaker that must defined by the shields Devicetree.
 See also Bridle sample: :ref:`buzzer-sample`.
 
 .. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: GeeekPi (Pico …)
 
@@ -152,6 +174,8 @@ See also Bridle sample: :ref:`buzzer-sample`.
 
             .. include:: geeekpi_pico_bb_plus/buzzer.rsti
 
+   .. zephyr-keep-sorted-stop
+
 LED color change
 ================
 
@@ -159,6 +183,8 @@ Drives an RGB LED that must defined by the shields Devicetree. See also Zephyr
 sample: :zephyr:code-sample:`rgb-led`.
 
 .. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: GeeekPi (Pico …)
 
@@ -178,6 +204,8 @@ sample: :zephyr:code-sample:`rgb-led`.
                The |GeeekPi Pico Breadboard Kit Plus| doesn't provide
                a TriColor ChipLED. This sample is not applicable.
 
+   .. zephyr-keep-sorted-stop
+
 LED strip test pattern
 ======================
 
@@ -185,6 +213,8 @@ Drives an RGB LED strip that must defined by the shields Devicetree.
 See also Zephyr sample: :zephyr:code-sample:`led-strip`.
 
 .. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: GeeekPi (Pico …)
 
@@ -201,6 +231,8 @@ See also Zephyr sample: :zephyr:code-sample:`led-strip`.
 
             .. include:: geeekpi_pico_bb_plus/ledstrip_test.rsti
 
+   .. zephyr-keep-sorted-stop
+
 LCD Orientation and Bit Order Test
 ==================================
 
@@ -209,6 +241,8 @@ are chosen so that you can check the orientation of the LCD and correct RGB bit
 order. See also Zephyr sample: :zephyr:code-sample:`display`.
 
 .. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: GeeekPi (Pico …)
 
@@ -222,6 +256,8 @@ order. See also Zephyr sample: :zephyr:code-sample:`display`.
 
             .. include:: geeekpi_pico_bb_plus/display_test.rsti
 
+   .. zephyr-keep-sorted-stop
+
 Draw touch events on LCD
 ========================
 
@@ -230,6 +266,8 @@ as inverted/swapped axes can be examined. See also Zephyr sample:
 :zephyr:code-sample:`draw_touch_events`.
 
 .. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: GeeekPi (Pico …)
 
@@ -243,6 +281,8 @@ as inverted/swapped axes can be examined. See also Zephyr sample:
 
             .. include:: geeekpi_pico_bb_plus/touch_test.rsti
 
+   .. zephyr-keep-sorted-stop
+
 LVGL Basic Sample
 =================
 
@@ -251,6 +291,8 @@ which increments every second. See also Zephyr sample:
 :zephyr:code-sample:`lvgl`.
 
 .. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: GeeekPi (Pico …)
 
@@ -264,6 +306,8 @@ which increments every second. See also Zephyr sample:
 
             .. include:: geeekpi_pico_bb_plus/lvgl_basic.rsti
 
+   .. zephyr-keep-sorted-stop
+
 LVGL Widgets Demo
 =================
 
@@ -271,6 +315,8 @@ Shows how the widgets look like out of the box using the built-in material
 theme. See also Zephyr sample: :zephyr:code-sample:`lvgl-demos`.
 
 .. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: GeeekPi (Pico …)
 
@@ -284,6 +330,8 @@ theme. See also Zephyr sample: :zephyr:code-sample:`lvgl-demos`.
 
             .. include:: geeekpi_pico_bb_plus/lvgl_demo.rsti
 
+   .. zephyr-keep-sorted-stop
+
 TF/microSD Demonstration
 ========================
 
@@ -291,6 +339,8 @@ This samples and test applications aren't applicable on all boards. They will
 be built with activated USB-CDC/ACM console.
 
 .. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: GeeekPi (Pico …)
 
@@ -309,6 +359,8 @@ be built with activated USB-CDC/ACM console.
 
                The |GeeekPi Pico Breadboard Kit Plus| doesn't provide
                a TF/microSD card slot. This sample is not applicable.
+
+   .. zephyr-keep-sorted-stop
 
 References
 **********

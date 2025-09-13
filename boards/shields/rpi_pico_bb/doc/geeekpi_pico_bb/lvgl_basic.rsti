@@ -16,6 +16,8 @@ with chosen display and touchscreen panel. That is:
 
 .. tabs::
 
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+
    .. group-tab:: Raspberry Pi Pico
 
       .. zephyr-app-commands::
@@ -65,6 +67,8 @@ with chosen display and touchscreen panel. That is:
          :west-args: -p -S usb-console -S del-default-aliases
          :flash-args: -r uf2
          :compact:
+
+   .. zephyr-keep-sorted-stop
 
 .. rubric:: Simple test execution on target
 

@@ -61,13 +61,27 @@ Building and Running
 Build and flash for different boards
 ====================================
 
-.. rubric:: Nordic nRF9160 DK (nRF9160)
+.. zephyr-keep-sorted-start re(^\.\. rubric:: \w)
+
+.. rubric:: NXP MIMXRT1060-EVK
 
 .. zephyr-app-commands::
    :app: bridle/samples/ubx_gnss
-   :board: nrf9160dk/nrf9160
-   :build-dir: nrf9160dk_nrf9160-ubx_gnss
+   :board: mimxrt1060_evk@B//qspi
+   :build-dir: mimxrt1060_evk-ubx_gnss
    :west-args: -p
+   :flash-args: -r pyocd
+   :goals: flash
+   :compact:
+
+.. rubric:: NXP MIMXRT1170-EVKB (CM7)
+
+.. zephyr-app-commands::
+   :app: bridle/samples/ubx_gnss
+   :board: mimxrt1170_evk@B/mimxrt1176/cm7
+   :build-dir: mimxrt1170_evkb_cm7-ubx_gnss
+   :west-args: -p
+   :flash-args: -r pyocd
    :goals: flash
    :compact:
 
@@ -81,12 +95,12 @@ Build and flash for different boards
    :goals: flash
    :compact:
 
-.. rubric:: ST Nucleo L496ZG
+.. rubric:: Nordic nRF9160 DK (nRF9160)
 
 .. zephyr-app-commands::
    :app: bridle/samples/ubx_gnss
-   :board: nucleo_l496zg
-   :build-dir: nucleo_l496zg-ubx_gnss
+   :board: nrf9160dk/nrf9160
+   :build-dir: nrf9160dk_nrf9160-ubx_gnss
    :west-args: -p
    :goals: flash
    :compact:
@@ -111,27 +125,17 @@ Build and flash for different boards
    :goals: flash
    :compact:
 
-.. rubric:: NXP MIMXRT1170-EVKB (CM7)
+.. rubric:: ST Nucleo L496ZG
 
 .. zephyr-app-commands::
    :app: bridle/samples/ubx_gnss
-   :board: mimxrt1170_evk@B/mimxrt1176/cm7
-   :build-dir: mimxrt1170_evkb_cm7-ubx_gnss
+   :board: nucleo_l496zg
+   :build-dir: nucleo_l496zg-ubx_gnss
    :west-args: -p
-   :flash-args: -r pyocd
    :goals: flash
    :compact:
 
-.. rubric:: NXP MIMXRT1060-EVK
-
-.. zephyr-app-commands::
-   :app: bridle/samples/ubx_gnss
-   :board: mimxrt1060_evk@B//qspi
-   :build-dir: mimxrt1060_evk-ubx_gnss
-   :west-args: -p
-   :flash-args: -r pyocd
-   :goals: flash
-   :compact:
+.. zephyr-keep-sorted-stop
 
 .. rubric:: NXP MIMXRT1010-EVK (experimental)
 

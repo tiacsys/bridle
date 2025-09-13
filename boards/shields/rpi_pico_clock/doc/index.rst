@@ -19,29 +19,41 @@ Hardware
 
 .. tabs::
 
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+
    .. group-tab:: Waveshare Pico Clock Green
 
       .. _waveshare_pico_clock_green:
 
       .. include:: waveshare_pico_clock_green/hardware.rsti
 
+   .. zephyr-keep-sorted-stop
+
 Positions
 =========
 
 .. tabs::
 
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+
    .. group-tab:: Waveshare Pico Clock Green
 
       .. include:: waveshare_pico_clock_green/positions.rsti
+
+   .. zephyr-keep-sorted-stop
 
 Pinouts
 =======
 
 .. tabs::
 
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+
    .. group-tab:: Waveshare Pico Clock Green
 
       .. include:: waveshare_pico_clock_green/pinouts.rsti
+
+   .. zephyr-keep-sorted-stop
 
 Utilization
 ***********
@@ -61,6 +73,8 @@ Programming
 ===========
 
 .. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: Waveshare Pico Clock Green
 
@@ -130,6 +144,8 @@ Programming
 
             .. include:: waveshare_pico_clock_green/helloshell.rsti
 
+   .. zephyr-keep-sorted-stop
+
 More Samples
 ************
 
@@ -137,6 +153,8 @@ LED Blinky and Button
 =====================
 
 .. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: Waveshare Pico Clock Green
 
@@ -252,6 +270,8 @@ LED Blinky and Button
                :flash-args: -r uf2
                :compact:
 
+   .. zephyr-keep-sorted-stop
+
 Input dump
 ==========
 
@@ -259,6 +279,8 @@ Prints all input events as defined by the shields Devicetree. See also Zephyr
 sample: :external+zephyr:zephyr:code-sample:`input-dump`.
 
 .. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: Waveshare Pico Clock Green
 
@@ -340,6 +362,8 @@ sample: :external+zephyr:zephyr:code-sample:`input-dump`.
             I: input event: dev=wpcg-gpio-keys   SYN type= 1 code=108 value=1
             I: input event: dev=wpcg-gpio-keys   SYN type= 1 code=108 value=0
 
+   .. zephyr-keep-sorted-stop
+
 Analog-to-Digital Converter (ADC)
 =================================
 
@@ -347,6 +371,8 @@ Read analog inputs from ADC channels as defined by the shield's Devicetree.
 See also Zephyr sample: :external+zephyr:zephyr:code-sample:`adc_dt`.
 
 .. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: Waveshare Pico Clock Green
 
@@ -466,10 +492,14 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`adc_dt`.
             - adc\ @\ 4004c000, channel 0: 1000 = 805 mV
             … … …
 
+   .. zephyr-keep-sorted-stop
+
 Sounds from the speaker
 =======================
 
 .. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: Waveshare Pico Clock Green
 
@@ -554,6 +584,8 @@ Sounds from the speaker
 
             :bgn:`uart:~$` **buzzer play xmastime**
 
+   .. zephyr-keep-sorted-stop
+
 LED Panel Orientation and Bit Order Test
 ========================================
 
@@ -563,6 +595,8 @@ correct bit order.
 See also Zephyr sample: :external+zephyr:zephyr:code-sample:`display`.
 
 .. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: Waveshare Pico Clock Green
 
@@ -627,6 +661,8 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`display`.
                :west-args: -p -S usb-console
                :flash-args: -r uf2
                :compact:
+
+   .. zephyr-keep-sorted-stop
 
 References
 **********

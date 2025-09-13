@@ -18,29 +18,41 @@ Hardware
 
 .. tabs::
 
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+
    .. group-tab:: Waveshare 2.4 LCD
 
       .. _waveshare_2_4_lcd:
 
       .. include:: waveshare_2_4_lcd/hardware.rsti
 
+   .. zephyr-keep-sorted-stop
+
 Positions
 =========
 
 .. tabs::
 
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+
    .. group-tab:: Waveshare 2.4 LCD
 
       .. include:: waveshare_2_4_lcd/positions.rsti
+
+   .. zephyr-keep-sorted-stop
 
 Pinouts
 =======
 
 .. tabs::
 
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+
    .. group-tab:: Waveshare 2.4 LCD
 
       .. include:: waveshare_2_4_lcd/pinouts.rsti
+
+   .. zephyr-keep-sorted-stop
 
 Requirements
 ************
@@ -55,9 +67,13 @@ Pin Assignments
 
 .. tabs::
 
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+
    .. group-tab:: Waveshare 2.4 LCD
 
       .. include:: waveshare_2_4_lcd/wiring.rsti
+
+   .. zephyr-keep-sorted-stop
 
 Utilization
 ***********
@@ -75,9 +91,13 @@ Programming
 
 .. tabs::
 
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+
    .. group-tab:: Waveshare 2.4 LCD
 
       .. include:: waveshare_2_4_lcd/programming.rsti
+
+   .. zephyr-keep-sorted-stop
 
 References
 **********

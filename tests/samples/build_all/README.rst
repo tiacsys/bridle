@@ -23,6 +23,8 @@ checked for their originally intended integration platforms (checks only
                 --integration \
                 --testsuite-root bridle/samples
 
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+
    .. group-tab:: ABC
 
       .. rubric:: Check :ref:`button-sample` sample:
@@ -115,3 +117,5 @@ checked for their originally intended integration platforms (checks only
                 --inline-logs \
                 --integration \
                 --testsuite-root bridle/samples/waveshare_pico_environment_sensor
+
+   .. zephyr-keep-sorted-stop

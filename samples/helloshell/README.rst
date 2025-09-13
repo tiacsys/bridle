@@ -19,36 +19,40 @@ built into modes:
 Requirements
 ************
 
+.. zephyr-keep-sorted-start re(^\s+\* \|\w)
+
 * One of the following development boards:
 
+  * |bridle:board:seeeduino_cm0|
+  * |bridle:board:seeeduino_lotus|
+  * |bridle:board:waveshare_rp2040|
+  * |zephyr:board:arduino_zero| or Bridle's |bridle:board:arduino_zero|
+  * |zephyr:board:mimxrt1010_evk|
+  * |zephyr:board:mimxrt1060_evk|
   * |zephyr:board:native_sim|
-  * |zephyr:board:qemu_x86|
-  * |zephyr:board:qemu_cortex_r5|
-  * |zephyr:board:qemu_cortex_m0|
-  * |zephyr:board:qemu_cortex_m3|
-  * ARM Cortex-A9 Emulation (``qemu_cortex_a9``)
-  * |zephyr:board:qemu_cortex_a53|
-  * |zephyr:board:qemu_kvm_arm64|
-  * |zephyr:board:qemu_arc|
-  * |zephyr:board:qemu_malta|
-  * |zephyr:board:qemu_riscv32e|
-  * |zephyr:board:qemu_riscv32|
-  * |zephyr:board:qemu_riscv64|
-  * |zephyr:board:qemu_xtensa|
-  * |zephyr:board:qemu_leon3|
   * |zephyr:board:nucleo_f303re| (NUCLEO-F303RE)
   * |zephyr:board:nucleo_f401re| (NUCLEO-F401RE)
   * |zephyr:board:nucleo_f413zh| (NUCLEO-F413ZH)
   * |zephyr:board:nucleo_f746zg| (NUCLEO-F746ZG)
   * |zephyr:board:nucleo_f767zi| (NUCLEO-F767ZI)
-  * |zephyr:board:mimxrt1010_evk|
-  * |zephyr:board:mimxrt1060_evk|
-  * |zephyr:board:arduino_zero| or Bridle's |bridle:board:arduino_zero|
-  * |bridle:board:seeeduino_cm0|
-  * |bridle:board:seeeduino_lotus|
-  * |zephyr:board:seeeduino_xiao| or Bridle's |bridle:board:xiao_samd21|
+  * |zephyr:board:qemu_arc|
+  * ARM Cortex-A9 Emulation (``qemu_cortex_a9``)
+  * |zephyr:board:qemu_cortex_a53|
+  * |zephyr:board:qemu_cortex_m0|
+  * |zephyr:board:qemu_cortex_m3|
+  * |zephyr:board:qemu_cortex_r5|
+  * |zephyr:board:qemu_kvm_arm64|
+  * |zephyr:board:qemu_leon3|
+  * |zephyr:board:qemu_malta|
+  * |zephyr:board:qemu_riscv32e|
+  * |zephyr:board:qemu_riscv32|
+  * |zephyr:board:qemu_riscv64|
+  * |zephyr:board:qemu_x86|
+  * |zephyr:board:qemu_xtensa|
   * |zephyr:board:rpi_pico|
-  * |bridle:board:waveshare_rp2040|
+  * |zephyr:board:seeeduino_xiao| or Bridle's |bridle:board:xiao_samd21|
+
+.. zephyr-keep-sorted-stop
 
 Building and Running
 ********************

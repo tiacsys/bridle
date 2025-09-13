@@ -178,7 +178,11 @@ the following Zephyr hardware features:
 Other hardware features are not currently supported by Zephyr. The default
 configuration can be found in the different Kconfig files:
 
-   - :bridle_file:`boards/tiac/coffeecaller/coffeecaller_nrf52_nrf52840_defconfig`
+.. zephyr-keep-sorted-start re(^\* :bridle_file:`\w)
+
+* :bridle_file:`boards/tiac/coffeecaller/coffeecaller_nrf52_nrf52840_defconfig`
+
+.. zephyr-keep-sorted-stop
 
 Board Configurations
 ====================
@@ -186,9 +190,13 @@ Board Configurations
 The |bridle:board:coffeecaller_nrf52| board can be configured
 for the following different use cases.
 
+.. zephyr-keep-sorted-start re(^\.\. rubric:: :command:`\w)
+
 .. rubric:: :command:`west build -b coffeecaller_nrf52`
 
 Use the native USB device port with CDC-ACM as Zephyr console and for the shell.
+
+.. zephyr-keep-sorted-stop
 
 User LED
 --------
@@ -263,15 +271,15 @@ sample which sets up a virtual serial port that echos characters back to the
 host PC. This board provide the Zephyr console per default on the USB port
 as :external+zephyr:ref:`usb_device_cdc_acm`:
 
-.. container:: highlight-console notranslate literal-block
+   .. container:: highlight-console notranslate literal-block
 
-   .. parsed-literal::
+      .. parsed-literal::
 
-      USB device idVendor=\ |coffeecaller_nrf52_VID|, idProduct=\ |coffeecaller_nrf52_PID_CON|, bcdDevice=\ |coffeecaller_nrf52_BCD_CON|
-      USB device strings: Mfr=1, Product=2, SerialNumber=3
-      Product: |coffeecaller_nrf52_PStr_CON|
-      Manufacturer: |coffeecaller_nrf52_VStr|
-      SerialNumber: 9D167F0C551481F7
+         USB device idVendor=\ |coffeecaller_nrf52_VID|, idProduct=\ |coffeecaller_nrf52_PID_CON|, bcdDevice=\ |coffeecaller_nrf52_BCD_CON|
+         USB device strings: Mfr=1, Product=2, SerialNumber=3
+         Product: |coffeecaller_nrf52_PStr_CON|
+         Manufacturer: |coffeecaller_nrf52_VStr|
+         SerialNumber: 9D167F0C551481F7
 
 Connections and IOs
 ===================
@@ -299,10 +307,16 @@ provided by a specific interface for general signal mapping, the
 
 Following mappings are well known:
 
-   * ``grove_gpios``: GPIO mapping
-   * ``grove_pwms``: PWM mapping (not yet finally supported)
+.. zephyr-keep-sorted-start re(^\* \|\w)
+
+* ``grove_gpios``: GPIO mapping
+* ``grove_pwms``: PWM mapping
+
+.. zephyr-keep-sorted-stop
 
 .. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: GPIO mapping ``grove_gpios``
 
@@ -325,6 +339,8 @@ Following mappings are well known:
       **This list must not be complete or stable!**
 
       .. include:: grove_pwms.rsti
+
+   .. zephyr-keep-sorted-stop
 
 Programming and Debugging
 *************************

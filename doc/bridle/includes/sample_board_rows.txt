@@ -2,9 +2,23 @@
 
 | Hardware platforms | Order number | Board name | Board target |
 
-.. coffeecaller_nrf52
+.. zephyr-keep-sorted-start re(^\| \w)
 
-| nRF52840 | | :ref:`coffeecaller_nrf52_board` | - ``coffeecaller_nrf52`` |
+.. weact_bluepillplus_ch32v203c6
+
+| CH32V203 | | :ref:`weact_bluepillplus` | - ``weact_bluepillplus_ch32v203c6`` |
+
+.. weact_bluepillplus_ch32v203c8
+
+| CH32V203 | | :ref:`weact_bluepillplus` | - ``weact_bluepillplus_ch32v203c8`` |
+
+.. native_sim
+
+| Native (32-bit) | | :external+zephyr:zephyr:board:`native_sim` | - ``native_sim`` |
+
+.. native_sim_native_64
+
+| Native (64-bit) | | :external+zephyr:zephyr:board:`native_sim` | - ``native_sim/native/64`` |
 
 .. cytron_maker_nano_rp2040
 
@@ -14,57 +28,25 @@
 
 | RP2040 | | :ref:`cytron_maker_rp2040` | - ``cytron_maker_pi_rp2040`` |
 
-.. mimxrt1010_evk
+.. picoboy_rp2040
 
-| i.MX RT1010 | | :external+zephyr:zephyr:board:`mimxrt1010_evk` | - ``mimxrt1010_evk`` |
+| RP2040 | | :ref:`the_picoboy` | - ``picoboy/rp2040`` |
 
-.. mimxrt1060_evk_mimxrt1062_hyperflash
+.. picoboy_color_rp2040
 
-| i.MX RT1060 | | :external+zephyr:zephyr:board:`mimxrt1060_evk` | - ``mimxrt1060_evk/mimxrt1062/hyperflash`` |
+| RP2040 | | :ref:`the_picoboy` | - ``picoboy_color/rp2040`` |
 
-.. mimxrt1060_evk@A_mimxrt1062_qspi
+.. picoboy_color_plus_rp2350a_m33
 
-| i.MX RT1060 | | :external+zephyr:zephyr:board:`mimxrt1060_evk` | - ``mimxrt1060_evk@A/mimxrt1062/qspi`` |
+| RP2350 | | :ref:`the_picoboy` | - ``picoboy_color_plus/rp2350a/m33`` |
 
-.. mimxrt1060_evk@B_mimxrt1062_qspi
+.. weact_bluepillplus_stm32f103c8
 
-| i.MX RT1060 | | :external+zephyr:zephyr:board:`mimxrt1060_evk` | - ``mimxrt1060_evk@B/mimxrt1062/qspi`` |
+| STM32F103 | | :ref:`weact_bluepillplus` | - ``weact_bluepillplus_stm32f103c8`` |
 
-.. mimxrt1060_evk@C_mimxrt1062_qspi
+.. weact_bluepillplus_stm32f103cb
 
-| i.MX RT1060 | | :external+zephyr:zephyr:board:`mimxrt1060_evk` | - ``mimxrt1060_evk@C/mimxrt1062/qspi`` |
-
-.. mimxrt1170_evk_mimxrt1176_cm4
-
-| i.MX RT1170 (CM4) | | :external+zephyr:zephyr:board:`mimxrt1170_evk` | - ``mimxrt1170_evk/mimxrt1176/cm4`` |
-
-.. mimxrt1170_evk_mimxrt1176_cm7
-
-| i.MX RT1170 (CM7) | | :external+zephyr:zephyr:board:`mimxrt1170_evk` | - ``mimxrt1170_evk/mimxrt1176/cm7`` |
-
-.. mimxrt1170_evk@B_mimxrt1176_cm4
-
-| i.MX RT1170 (CM4) | | :external+zephyr:zephyr:board:`mimxrt1170_evk` | - ``mimxrt1170_evk@B/mimxrt1176/cm4`` |
-
-.. mimxrt1170_evk@B_mimxrt1176_cm7
-
-| i.MX RT1170 (CM7) | | :external+zephyr:zephyr:board:`mimxrt1170_evk` | - ``mimxrt1170_evk@B/mimxrt1176/cm7`` |
-
-.. native_sim
-
-| Native | | :external+zephyr:ref:`native_sim` | - ``native_sim`` |
-
-.. native_sim_native_64
-
-| Native (64-bit) | | :external+zephyr:ref:`native_sim` | - ``native_sim/native/64`` |
-
-.. nrf52840dk_nrf52840
-
-| nRF52840 | | :external+zephyr:zephyr:board:`nrf52840dk` | - ``nrf52840dk/nrf52840`` |
-
-.. nrf9160dk_nrf9160
-
-| nRF9160 | | :external+zephyr:ref:`nrf9160dk_nrf9160` | - ``nrf9160dk/nrf9160`` |
+| STM32F103 | | :ref:`weact_bluepillplus` | - ``weact_bluepillplus_stm32f103cb`` |
 
 .. nucleo_f303re
 
@@ -90,30 +72,52 @@
 
 | STM32L496ZG | | :external+zephyr:zephyr:board:`nucleo_l496zg` | - ``nucleo_l496zg`` |
 
-.. picoboy_rp2040
+.. mimxrt1010_evk
 
-| RP2040 | | :ref:`the_picoboy` | - ``picoboy/rp2040`` |
+| i.MX RT1010 | | :external+zephyr:zephyr:board:`mimxrt1010_evk` | - ``mimxrt1010_evk`` |
 
-.. picoboy_color_rp2040
+.. mimxrt1060_evk_mimxrt1062_hyperflash
 
-| RP2040 | | :ref:`the_picoboy` | - ``picoboy_color/rp2040`` |
+| i.MX RT1060 | | :external+zephyr:zephyr:board:`mimxrt1060_evk` | - ``mimxrt1060_evk/mimxrt1062/hyperflash`` |
 
-.. picoboy_color_plus_rp2350a_m33
+.. mimxrt1060_evk@A_mimxrt1062_qspi
 
-| RP2040 | | :ref:`the_picoboy` | - ``picoboy_color_plus/rp2350a/m33`` |
+| i.MX RT1060 | | :external+zephyr:zephyr:board:`mimxrt1060_evk` | - ``mimxrt1060_evk@A/mimxrt1062/qspi`` |
 
-.. weact_bluepillplus_ch32v203c6
+.. mimxrt1060_evk@B_mimxrt1062_qspi
 
-| CH32V203 | | :ref:`weact_bluepillplus` | - ``weact_bluepillplus_ch32v203c6`` |
+| i.MX RT1060 | | :external+zephyr:zephyr:board:`mimxrt1060_evk` | - ``mimxrt1060_evk@B/mimxrt1062/qspi`` |
 
-.. weact_bluepillplus_ch32v203c8
+.. mimxrt1060_evk@C_mimxrt1062_qspi
 
-| CH32V203 | | :ref:`weact_bluepillplus` | - ``weact_bluepillplus_ch32v203c8`` |
+| i.MX RT1060 | | :external+zephyr:zephyr:board:`mimxrt1060_evk` | - ``mimxrt1060_evk@C/mimxrt1062/qspi`` |
 
-.. weact_bluepillplus_stm32f103c8
+.. mimxrt1170_evk_mimxrt1176_cm4
 
-| STM32F103 | | :ref:`weact_bluepillplus` | - ``weact_bluepillplus_stm32f103c8`` |
+| i.MX RT1170 (CM4) | | :external+zephyr:zephyr:board:`mimxrt1170_evk` | - ``mimxrt1170_evk/mimxrt1176/cm4`` |
 
-.. weact_bluepillplus_stm32f103cb
+.. mimxrt1170_evk@B_mimxrt1176_cm4
 
-| STM32F103 | | :ref:`weact_bluepillplus` | - ``weact_bluepillplus_stm32f103cb`` |
+| i.MX RT1170 (CM4) | | :external+zephyr:zephyr:board:`mimxrt1170_evk` | - ``mimxrt1170_evk@B/mimxrt1176/cm4`` |
+
+.. mimxrt1170_evk_mimxrt1176_cm7
+
+| i.MX RT1170 (CM7) | | :external+zephyr:zephyr:board:`mimxrt1170_evk` | - ``mimxrt1170_evk/mimxrt1176/cm7`` |
+
+.. mimxrt1170_evk@B_mimxrt1176_cm7
+
+| i.MX RT1170 (CM7) | | :external+zephyr:zephyr:board:`mimxrt1170_evk` | - ``mimxrt1170_evk@B/mimxrt1176/cm7`` |
+
+.. nrf52840dk_nrf52840
+
+| nRF52840 | | :external+zephyr:zephyr:board:`nrf52840dk` | - ``nrf52840dk/nrf52840`` |
+
+.. coffeecaller_nrf52
+
+| nRF52840 | | :ref:`coffeecaller_nrf52_board` | - ``coffeecaller_nrf52`` |
+
+.. nrf9160dk_nrf9160
+
+| nRF9160 | | :external+zephyr:ref:`nrf9160dk_nrf9160` | - ``nrf9160dk/nrf9160`` |
+
+.. zephyr-keep-sorted-stop

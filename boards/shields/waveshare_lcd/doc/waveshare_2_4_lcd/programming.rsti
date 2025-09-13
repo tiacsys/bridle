@@ -10,6 +10,8 @@
 
       .. tabs::
 
+         .. zephyr-keep-sorted-start re(^\s{9}\.\. group-tab:: \w)
+
          .. group-tab:: Arduino Nano R3
 
             If the shield is connected to a board which has Arduino Nano
@@ -45,6 +47,8 @@
                :flash-args: -r uf2
                :host-os: unix
                :tool: all
+
+         .. zephyr-keep-sorted-stop
 
       .. list-table::
          :align: center
@@ -68,6 +72,8 @@
 
       .. tabs::
 
+         .. zephyr-keep-sorted-start re(^\s{9}\.\. group-tab:: \w)
+
          .. group-tab:: Arduino Nano R3
 
             If the shield is connected to a board which has Arduino Nano
@@ -103,3 +109,5 @@
                :flash-args: -r uf2
                :host-os: unix
                :tool: all
+
+         .. zephyr-keep-sorted-stop

@@ -16,14 +16,18 @@
 
       .. rst-class:: rst-columns
 
+      .. zephyr-keep-sorted-start re(^\s+\* \*+\w)
+
       * **APM32F103**
-      * **GD32F103**
-      * **CKS32F103**
-      * **HK32F103**
-      * **CH32F103**
-      * **CS32F103**
       * **BLM32F103**
+      * **CH32F103**
+      * **CKS32F103**
+      * **CS32F103**
+      * **GD32F103**
+      * **HK32F103**
       * **MM32F103**
+
+      .. zephyr-keep-sorted-stop
 
 .. rubric:: The following defects have been reported:
 .. rst-class:: rst-columns

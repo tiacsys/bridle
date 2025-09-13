@@ -18,19 +18,19 @@ header. It provides 3 on-board |Grove connectors| for I2C and UART.
 Hardware
 ********
 
-   .. rst-class:: rst-columns
+.. rst-class:: rst-columns
 
-   - `ATSAMD21G18A`_ ARM Cortex-M0+ processor at 48 MHz
-   - 32.768 kHz crystal oscillator
-   - 256 KiB flash memory and 32 KiB of RAM
-   - 3 user LEDs (blue/Rx/Tx)
-   - One reset button
-   - Native USB-C port (supply power and transmit data)
-   - 3 |Grove connectors|
-   - |Arduino UNO R3| header
-   - Arduino ICSP header
-   - `MP1496`_, switching step-down converter (max. 2A)
-   - 7~15V DC power-in jack
+- `ATSAMD21G18A`_ ARM Cortex-M0+ processor at 48 MHz
+- 32.768 kHz crystal oscillator
+- 256 KiB flash memory and 32 KiB of RAM
+- 3 user LEDs (blue/Rx/Tx)
+- One reset button
+- Native USB-C port (supply power and transmit data)
+- 3 |Grove connectors|
+- |Arduino UNO R3| header
+- Arduino ICSP header
+- `MP1496`_, switching step-down converter (max. 2A)
+- 7~15V DC power-in jack
 
 Supported Features
 ==================
@@ -134,13 +134,17 @@ Board Configurations
 The :code:`seeeduino_cm0` board can be configured for the following different
 use cases.
 
-.. rubric:: :command:`west build -b seeeduino_cm0`
-
-Use the serial port SERCOM2 as Zephyr console and for the shell.
+.. zephyr-keep-sorted-start re(^\.\. rubric:: :command:`\w)
 
 .. rubric:: :command:`west build -b seeeduino_cm0 -S usb-console`
 
 Use the USB device port with CDC-ACM as Zephyr console and for the shell.
+
+.. rubric:: :command:`west build -b seeeduino_cm0`
+
+Use the serial port SERCOM2 as Zephyr console and for the shell.
+
+.. zephyr-keep-sorted-stop
 
 Connections and IOs
 ===================
@@ -160,10 +164,16 @@ These are provided by a specific interface for general signal mapping, the
 
 Following mappings are well known:
 
-   * ``grove_gpios``: GPIO mapping
-   * ``grove_pwms``: PWM mapping
+.. zephyr-keep-sorted-start re(^\* \|\w)
+
+* ``grove_gpios``: GPIO mapping
+* ``grove_pwms``: PWM mapping
+
+.. zephyr-keep-sorted-stop
 
 .. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: GPIO mapping ``grove_gpios``
 
@@ -185,6 +195,8 @@ Following mappings are well known:
       **This list must not be complete!**
 
       .. include:: grove_pwms.rsti
+
+   .. zephyr-keep-sorted-stop
 
 System Clock
 ============

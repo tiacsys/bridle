@@ -11,6 +11,8 @@ keys using the :external+zephyr:ref:`Input subsystem API <input>`. That are:
 
 .. tabs::
 
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+
    .. group-tab:: Raspberry Pi Pico
 
       .. zephyr-app-commands::
@@ -60,6 +62,8 @@ keys using the :external+zephyr:ref:`Input subsystem API <input>`. That are:
          :west-args: -p -S usb-console
          :flash-args: -r uf2
          :compact:
+
+   .. zephyr-keep-sorted-stop
 
 .. rubric:: Simple logging output on target
 

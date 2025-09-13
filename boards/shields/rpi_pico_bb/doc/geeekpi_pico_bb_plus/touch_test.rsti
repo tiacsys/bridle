@@ -9,6 +9,8 @@ touchscreen panel. That is:
 
 .. tabs::
 
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+
    .. group-tab:: Raspberry Pi Pico
 
       .. zephyr-app-commands::
@@ -58,6 +60,8 @@ touchscreen panel. That is:
          :west-args: -p -S usb-console
          :flash-args: -r uf2
          :compact:
+
+   .. zephyr-keep-sorted-stop
 
 .. rubric:: Simple logging output on target
 

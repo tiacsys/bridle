@@ -101,7 +101,11 @@
 Other hardware features are not currently supported by Zephyr. The default
 configuration can be found in the different Kconfig files:
 
-   - :bridle_file:`boards/weact/bluepillplus/vccgnd_bluepill_stm32f072cb_defconfig`
-   - :bridle_file:`boards/weact/bluepillplus/vccgnd_bluepill_stm32f072cb_defconfig`
-   - :bridle_file:`boards/weact/bluepillplus/vccgnd_bluepill_stm32f051c8_defconfig`
-   - :bridle_file:`boards/weact/bluepillplus/vccgnd_bluepill_stm32f030c8_defconfig`
+.. zephyr-keep-sorted-start re(^\* :bridle_file:`\w)
+
+* :bridle_file:`boards/weact/bluepillplus/vccgnd_bluepill_stm32f030c8_defconfig`
+* :bridle_file:`boards/weact/bluepillplus/vccgnd_bluepill_stm32f051c8_defconfig`
+* :bridle_file:`boards/weact/bluepillplus/vccgnd_bluepill_stm32f072c8_defconfig`
+* :bridle_file:`boards/weact/bluepillplus/vccgnd_bluepill_stm32f072cb_defconfig`
+
+.. zephyr-keep-sorted-stop

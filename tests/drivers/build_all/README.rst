@@ -29,6 +29,8 @@ commands can be used to check individual driver sets or really all drivers
                 --tag bridle \
                 --tag zephyr
 
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+
    .. group-tab:: ABC
 
    .. group-tab:: DEF
@@ -142,3 +144,5 @@ commands can be used to check individual driver sets or really all drivers
                 --tag zephyr
 
    .. group-tab:: WXYZ
+
+   .. zephyr-keep-sorted-stop

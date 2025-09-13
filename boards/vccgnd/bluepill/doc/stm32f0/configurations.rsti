@@ -2,38 +2,54 @@
 
    .. group-tab:: |STM32F072CB|
 
-      .. rubric:: :command:`west build -b vccgnd_bluepill_stm32f072cb`
-
-      Use the serial port USART1 on edge header as
-      Zephyr console and for the shell.
+      .. zephyr-keep-sorted-start re(^\s{6}\.\. rubric:: :command:`\w)
 
       .. rubric:: :command:`west build -b vccgnd_bluepill_stm32f072cb -S usb-console`
 
       Use the native USB device port with CDC-ACM as
       Zephyr console and for the shell.
 
-   .. group-tab:: |STM32F072C8|
-
-      .. rubric:: :command:`west build -b vccgnd_bluepill_stm32f072c8`
+      .. rubric:: :command:`west build -b vccgnd_bluepill_stm32f072cb`
 
       Use the serial port USART1 on edge header as
       Zephyr console and for the shell.
+
+      .. zephyr-keep-sorted-stop
+
+   .. group-tab:: |STM32F072C8|
+
+      .. zephyr-keep-sorted-start re(^\s{6}\.\. rubric:: :command:`\w)
 
       .. rubric:: :command:`west build -b vccgnd_bluepill_stm32f072c8 -S usb-console`
 
       Use the native USB device port with CDC-ACM as
       Zephyr console and for the shell.
 
+      .. rubric:: :command:`west build -b vccgnd_bluepill_stm32f072c8`
+
+      Use the serial port USART1 on edge header as
+      Zephyr console and for the shell.
+
+      .. zephyr-keep-sorted-stop
+
    .. group-tab:: |STM32F051C8|
+
+      .. zephyr-keep-sorted-start re(^\s{6}\.\. rubric:: :command:`\w)
 
       .. rubric:: :command:`west build -b vccgnd_bluepill_stm32f051c8`
 
       Use the serial port USART1 on edge header as
       Zephyr console and for the shell.
 
+      .. zephyr-keep-sorted-stop
+
    .. group-tab:: |STM32F030C8|
+
+      .. zephyr-keep-sorted-start re(^\s{6}\.\. rubric:: :command:`\w)
 
       .. rubric:: :command:`west build -b vccgnd_bluepill_stm32f030c8`
 
       Use the serial port USART1 on edge header as
       Zephyr console and for the shell.
+
+      .. zephyr-keep-sorted-stop

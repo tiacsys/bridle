@@ -402,7 +402,11 @@ features:
 Other hardware features are not currently supported by Zephyr. The default
 configuration can be found in the different Kconfig files:
 
-   - :bridle_file:`boards/nologo/mini_usb_rp2350/mini_usb_rp2350_rp2350a_m33_defconfig`
+.. zephyr-keep-sorted-start re(^\* :bridle_file:`\w)
+
+* :bridle_file:`boards/nologo/mini_usb_rp2350/mini_usb_rp2350_rp2350a_m33_defconfig`
+
+.. zephyr-keep-sorted-stop
 
 Board Configurations
 ====================
@@ -410,10 +414,17 @@ Board Configurations
 The |Mini USB RP2350| board offers an assembly option with 16㎆ Flash,
 which is mapped as a hardware revision.
 
+.. zephyr-keep-sorted-start re(^\.\. rubric:: :command:`\w)
+
 .. rubric:: :command:`west build -b mini_usb_rp2350/rp2350a/m33`
 
 Use the native USB device port with CDC-ACM as Zephyr console and for the
 shell. Setup QSPI Flash controller to work with 4㎆.
+
+.. rubric:: :command:`west build -b mini_usb_rp2350@16mb/rp2350a/m33`
+
+Use the native USB device port with CDC-ACM as Zephyr console and for the
+shell. Setup QSPI Flash controller to work with 16㎆.
 
 .. rubric:: :command:`west build -b mini_usb_rp2350@4mb/rp2350a/m33`
 
@@ -421,10 +432,7 @@ Use the native USB device port with CDC-ACM as Zephyr console and for the
 shell. Setup QSPI Flash controller to work with 4㎆ – the same as the default
 board configuration ``mini_usb_rp2350``.
 
-.. rubric:: :command:`west build -b mini_usb_rp2350@16mb/rp2350a/m33`
-
-Use the native USB device port with CDC-ACM as Zephyr console and for the
-shell. Setup QSPI Flash controller to work with 16㎆.
+.. zephyr-keep-sorted-stop
 
 Connections and IOs
 ===================
@@ -447,10 +455,16 @@ interface for general signal mapping, the |Laced Grove Signal Interface|.
 
 Following mappings are well known:
 
-   * ``grove_gpios``: GPIO mapping
-   * ``grove_pwms``: PWM mapping
+.. zephyr-keep-sorted-start re(^\* \|\w)
+
+* ``grove_gpios``: GPIO mapping
+* ``grove_pwms``: PWM mapping
+
+.. zephyr-keep-sorted-stop
 
 .. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: GPIO mapping ``grove_gpios``
 
@@ -473,6 +487,8 @@ Following mappings are well known:
       **This list must not be complete or stable!**
 
       .. include:: grove_pwms.rsti
+
+   .. zephyr-keep-sorted-stop
 
 System Clock
 ============

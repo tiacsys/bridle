@@ -40,7 +40,10 @@ For more details, see: :ref:`repos_and_revs`.
      -
    * - | `tiac-zephyr`_
        | (`zephyr-core`_)
-     - | *acpica*
+
+     - .. zephyr-keep-sorted-start re(^\s+\| \*+\w)
+
+       | *acpica*
        | *liblc3*
        | *loramac-node*
        | *lvgl*
@@ -48,6 +51,11 @@ For more details, see: :ref:`repos_and_revs`.
        | *open-amp*
        | *openthread*
        | *picolibc*
+
+       .. zephyr-keep-sorted-stop
+
+       .. zephyr-keep-sorted-start re(^\s+\| \*+\w)
+
        | **hal** : *cmsis*
        | **hal** : *hal_adi*
        | **hal** : *hal_altera*
@@ -75,20 +83,53 @@ For more details, see: :ref:`repos_and_revs`.
        | **hal** : *hal_wurthelektronik*
        | **hal** : *hal_xtensa*
        | **hal** : *libmetal*
+
+       .. zephyr-keep-sorted-stop
+
+       .. zephyr-keep-sorted-start re(^\s+\| \*+\w)
+
        | **fs** : *fatfs*
        | **fs** : *littlefs*
+
+       .. zephyr-keep-sorted-stop
+
+       .. zephyr-keep-sorted-start re(^\s+\| \*+\w)
+
        | **tee** : *trusted-firmware-a*
        | **tee** : *trusted-firmware-m*
+
+       .. zephyr-keep-sorted-stop
+
+       .. zephyr-keep-sorted-start re(^\s+\| \*+\w)
+
        | **crypto** : *mbedtls*
        | **crypto** : *tinycrypt*
+
+       .. zephyr-keep-sorted-stop
+
+       .. zephyr-keep-sorted-start re(^\s+\| \*+\w)
+
        | **debug** : *mipi-sys-t*
        | **debug** : *segger*
+
+       .. zephyr-keep-sorted-stop
+
+       .. zephyr-keep-sorted-start re(^\s+\| \*+\w)
+
        | **tools** : *edtt*
        | **tools** : *net-tools*
+
+       .. zephyr-keep-sorted-stop
+
+       .. zephyr-keep-sorted-start re(^\s+\| \*+\w)
+
        | **optional** : *canopennode*
        | **optional** : *chre*
        | **optional** : *psa-arch-tests*
        | **optional** : *tf-m-tests*
+
+       .. zephyr-keep-sorted-stop
+
      - | tiacsys/v4.3.0
        | (v4.3-branch)
      - v4.3.0
@@ -100,10 +141,9 @@ Supported boards
 
 :brd:`NOT YET, tbd.`
 
+.. zephyr-keep-sorted-start re(^\* \w)
+
 * Arduino/Genuino Zero
-* PicoBoy Mini-Handheld
-* PicoBoy Color (PBC) Mini-Handheld
-* PicoBoy Color Plus (PBC+) Mini-Handheld
 * Cytron Maker Nano RP2040
 * Cytron Maker Pi RP2040
 * Mini USB RP2040
@@ -113,52 +153,58 @@ Supported boards
 * NXP MIMXRT1170-EVK/EVKB (CM7)
 * Nordic nRF52840 DK
 * Nordic nRF9160 DK
+* PicoBoy Color (PBC) Mini-Handheld
+* PicoBoy Color Plus (PBC+) Mini-Handheld
+* PicoBoy Mini-Handheld
 * Raspberry Pi Pico and Pico W
-* Seeeduino Cortex-M0+
-* Seeeduino Lotus Cortex-M0+
 * ST Nucleo F2xxxx
 * ST Nucleo F3xxxx / L4xxxx
 * ST Nucleo F4xxxx
 * ST Nucleo F6xxxx
 * ST Nucleo F7xxxx
+* Seeeduino Cortex-M0+
+* Seeeduino Lotus Cortex-M0+
 * TiaC CoffeeCaller nRF52
 * TiaC Magpie F777NI (former TiaC Magpie STM32F777NIHx)
 * VccGND Studio BluePill boards and derivates
-* WeAct Studio BluePill+ boards and derivates
 * Waveshare RP2040 (series of mini and pico sized boards)
+* WeAct Studio BluePill+ boards and derivates
 * XIAO SAMD21 (former Seeed Studio XIAO SAMD21), also known as Seeeduino XIAO
+
+.. zephyr-keep-sorted-stop
 
 Supported shields
 *****************
 
 :brd:`NOT YET, tbd.`
 
-* Seeed Studio Grove Interconnect Shields
+.. zephyr-keep-sorted-start re(^\* \w)
+
 * Grove Button Shields
 * Grove LED Shields
 * Grove Sensor Shields
+* NXP SC18IS604-EVB
 * Raspberry Pi Pico Clock Shields
 * Raspberry Pi Pico LCD Shields
 * Raspberry Pi Pico LED Shields
 * Raspberry Pi Pico TEST Shields
+* SC16IS75x Breakout Boards
+* Seeed Studio Grove Interconnect Shields
+* TiaC SC18IS604 Arduino
 * Waveshare LCD Modules
 * Waveshare Pico 10-DOF IMU Sensor
 * Waveshare Pico Environment Sensor
-* SC16IS75x Breakout Boards
-* NXP SC18IS604-EVB
-* TiaC SC18IS604 Arduino
+
+.. zephyr-keep-sorted-stop
 
 Supported snippets
 ******************
 
 :brd:`NOT YET, tbd.`
 
-* USB Console Snippet (usb-console)
-* PWM Servomotor Preset Snippet (pwm-servo)
-* Delete Default Devicetree Aliases Snippet (del-default-aliases)
+.. zephyr-keep-sorted-start re(^\* \w)
+
 * BME280 Sensor Sample Tweaks (samples-sensor-bme280-tweaks)
-* CAN timing adjustments (can-timing-adj)
-* Watchdog timing adjustments (wdt-timing-adj)
 * Build all Display drivers test adjustments (tstdrv-bldall-display-adj)
 * Build all GPIO drivers test adjustments (tstdrv-bldall-gpio-adj)
 * Build all I2C drivers test adjustments (tstdrv-bldall-i2c-adj)
@@ -166,6 +212,13 @@ Supported snippets
 * Build all RTC drivers test adjustments (tstdrv-bldall-rtc-adj)
 * Build all Sensor drivers test adjustments (tstdrv-bldall-sensor-adj)
 * Build all UART drivers test adjustments (tstdrv-bldall-uart-adj)
+* CAN timing adjustments (can-timing-adj)
+* Delete Default Devicetree Aliases Snippet (del-default-aliases)
+* PWM Servomotor Preset Snippet (pwm-servo)
+* USB Console Snippet (usb-console)
+* Watchdog timing adjustments (wdt-timing-adj)
+
+.. zephyr-keep-sorted-stop
 
 Change log
 **********

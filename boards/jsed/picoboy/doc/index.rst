@@ -32,17 +32,7 @@ Hardware
 
 .. tabs::
 
-   .. group-tab:: PicoBoy Color Plus
-
-      .. _picoboy_color_plus:
-
-      .. include:: picoboy-color-plus/hardware.rsti
-
-   .. group-tab:: PicoBoy Color
-
-      .. _picoboy_color:
-
-      .. include:: picoboy-color/hardware.rsti
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: PicoBoy
 
@@ -50,22 +40,40 @@ Hardware
 
       .. include:: picoboy/hardware.rsti
 
+   .. group-tab:: PicoBoy Color
+
+      .. _picoboy_color:
+
+      .. include:: picoboy-color/hardware.rsti
+
+   .. group-tab:: PicoBoy Color Plus
+
+      .. _picoboy_color_plus:
+
+      .. include:: picoboy-color-plus/hardware.rsti
+
+   .. zephyr-keep-sorted-stop
+
 Positions
 =========
 
 .. tabs::
 
-   .. group-tab:: PicoBoy Color Plus
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
-      .. include:: picoboy-color-plus/positions.rsti
+   .. group-tab:: PicoBoy
+
+      .. include:: picoboy/positions.rsti
 
    .. group-tab:: PicoBoy Color
 
       .. include:: picoboy-color/positions.rsti
 
-   .. group-tab:: PicoBoy
+   .. group-tab:: PicoBoy Color Plus
 
-      .. include:: picoboy/positions.rsti
+      .. include:: picoboy-color-plus/positions.rsti
+
+   .. zephyr-keep-sorted-stop
 
 Pinouts
 =======
@@ -81,17 +89,21 @@ board.
 
 .. tabs::
 
-   .. group-tab:: PicoBoy Color Plus
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
-      .. include:: picoboy-color-plus/pinouts.rsti
+   .. group-tab:: PicoBoy
+
+      .. include:: picoboy/pinouts.rsti
 
    .. group-tab:: PicoBoy Color
 
       .. include:: picoboy-color/pinouts.rsti
 
-   .. group-tab:: PicoBoy
+   .. group-tab:: PicoBoy Color Plus
 
-      .. include:: picoboy/pinouts.rsti
+      .. include:: picoboy-color-plus/pinouts.rsti
+
+   .. zephyr-keep-sorted-stop
 
 Supported Features
 ******************
@@ -215,9 +227,13 @@ configuration supports the following hardware features:
 Other hardware features are not currently supported by Zephyr. The default
 configuration can be found in the following Kconfig file:
 
-   - :bridle_file:`boards/jsed/picoboy/picoboy_color_plus_rp2350a_m33_defconfig`
-   - :bridle_file:`boards/jsed/picoboy/picoboy_color_defconfig`
-   - :bridle_file:`boards/jsed/picoboy/picoboy_defconfig`
+.. zephyr-keep-sorted-start re(^\* :bridle_file:`\w)
+
+* :bridle_file:`boards/jsed/picoboy/picoboy_color_defconfig`
+* :bridle_file:`boards/jsed/picoboy/picoboy_color_plus_rp2350a_m33_defconfig`
+* :bridle_file:`boards/jsed/picoboy/picoboy_defconfig`
+
+.. zephyr-keep-sorted-stop
 
 Board Configurations
 ====================
@@ -226,9 +242,11 @@ The PicoBoy boards can be configured only for the following single use cases.
 
 .. tabs::
 
-   .. group-tab:: PicoBoy Color Plus
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
-      .. rubric:: :command:`west build -b picoboy_color_plus/rp2350a/m33`
+   .. group-tab:: PicoBoy
+
+      .. rubric:: :command:`west build -b picoboy/rp2040`
 
       Use the native USB device port with CDC-ACM as
       Zephyr console and for the shell.
@@ -240,12 +258,14 @@ The PicoBoy boards can be configured only for the following single use cases.
       Use the native USB device port with CDC-ACM as
       Zephyr console and for the shell.
 
-   .. group-tab:: PicoBoy
+   .. group-tab:: PicoBoy Color Plus
 
-      .. rubric:: :command:`west build -b picoboy/rp2040`
+      .. rubric:: :command:`west build -b picoboy_color_plus/rp2350a/m33`
 
       Use the native USB device port with CDC-ACM as
       Zephyr console and for the shell.
+
+   .. zephyr-keep-sorted-stop
 
 Connections and IOs
 ===================
@@ -374,17 +394,19 @@ per default on the USB port as :external+zephyr:ref:`usb_device_cdc_acm`:
 
 .. tabs::
 
-   .. group-tab:: PicoBoy Color Plus
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+
+   .. group-tab:: PicoBoy
 
          .. container:: highlight-console notranslate literal-block
 
             .. parsed-literal::
 
-               USB device idVendor=\ |picoboy_color_plus_VID|, idProduct=\ |picoboy_color_plus_PID_CON|, bcdDevice=\ |picoboy_color_plus_BCD_CON|
+               USB device idVendor=\ |picoboy_VID|, idProduct=\ |picoboy_PID_CON|, bcdDevice=\ |picoboy_BCD_CON|
                USB device strings: Mfr=1, Product=2, SerialNumber=3
-               Product: |picoboy_color_plus_PStr_CON|
-               Manufacturer: |picoboy_color_plus_VStr|
-               SerialNumber: B163A72F0CF0C97A
+               Product: |picoboy_PStr_CON|
+               Manufacturer: |picoboy_VStr|
+               SerialNumber: BD774B2618DAAA7D
 
    .. group-tab:: PicoBoy Color
 
@@ -398,17 +420,19 @@ per default on the USB port as :external+zephyr:ref:`usb_device_cdc_acm`:
                Manufacturer: |picoboy_color_VStr|
                SerialNumber: B69CA314D5626E5B
 
-   .. group-tab:: PicoBoy
+   .. group-tab:: PicoBoy Color Plus
 
          .. container:: highlight-console notranslate literal-block
 
             .. parsed-literal::
 
-               USB device idVendor=\ |picoboy_VID|, idProduct=\ |picoboy_PID_CON|, bcdDevice=\ |picoboy_BCD_CON|
+               USB device idVendor=\ |picoboy_color_plus_VID|, idProduct=\ |picoboy_color_plus_PID_CON|, bcdDevice=\ |picoboy_color_plus_BCD_CON|
                USB device strings: Mfr=1, Product=2, SerialNumber=3
-               Product: |picoboy_PStr_CON|
-               Manufacturer: |picoboy_VStr|
-               SerialNumber: BD774B2618DAAA7D
+               Product: |picoboy_color_plus_PStr_CON|
+               Manufacturer: |picoboy_color_plus_VStr|
+               SerialNumber: B163A72F0CF0C97A
+
+   .. zephyr-keep-sorted-stop
 
 Programmable I/O (PIO)
 **********************
@@ -444,17 +468,19 @@ storage device:
 
 .. tabs::
 
-   .. group-tab:: PicoBoy Color Plus
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+
+   .. group-tab:: PicoBoy
 
          .. container:: highlight-console notranslate literal-block
 
             .. parsed-literal::
 
-               USB device idVendor=\ |rpi_VID|, idProduct=\ |rpi_rp2350_PID|, bcdDevice=\ |rpi_rp2350_BCD|
+               USB device idVendor=\ |rpi_VID|, idProduct=\ |rpi_rp2040_PID|, bcdDevice=\ |rpi_rp2040_BCD|
                USB device strings: Mfr=1, Product=2, SerialNumber=0
-               Product: |rpi_rp2350_PStr|
+               Product: |rpi_rp2040_PStr|
                Manufacturer: |rpi_VStr|
-               SerialNumber: E9DB4B801D503140
+               SerialNumber: E0C9125B0D9B
 
    .. group-tab:: PicoBoy Color
 
@@ -468,17 +494,19 @@ storage device:
                Manufacturer: |rpi_VStr|
                SerialNumber: E0C9125B0D9B
 
-   .. group-tab:: PicoBoy
+   .. group-tab:: PicoBoy Color Plus
 
          .. container:: highlight-console notranslate literal-block
 
             .. parsed-literal::
 
-               USB device idVendor=\ |rpi_VID|, idProduct=\ |rpi_rp2040_PID|, bcdDevice=\ |rpi_rp2040_BCD|
+               USB device idVendor=\ |rpi_VID|, idProduct=\ |rpi_rp2350_PID|, bcdDevice=\ |rpi_rp2350_BCD|
                USB device strings: Mfr=1, Product=2, SerialNumber=0
-               Product: |rpi_rp2040_PStr|
+               Product: |rpi_rp2350_PStr|
                Manufacturer: |rpi_VStr|
-               SerialNumber: E0C9125B0D9B
+               SerialNumber: E9DB4B801D503140
+
+   .. zephyr-keep-sorted-stop
 
 The UF2 file should be drag-and-dropped or copied on command line to the
 device, which will then flash the |PicoBoy|, |PicoBoy Color| or
@@ -534,34 +562,42 @@ LED Blinky and Fade
 
 .. tabs::
 
-   .. group-tab:: PicoBoy Color Plus
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
-      .. include:: picoboy-color-plus/blinky_fade.rsti
+   .. group-tab:: PicoBoy
+
+      .. include:: picoboy/blinky_fade.rsti
 
    .. group-tab:: PicoBoy Color
 
       .. include:: picoboy-color/blinky_fade.rsti
 
-   .. group-tab:: PicoBoy
+   .. group-tab:: PicoBoy Color Plus
 
-      .. include:: picoboy/blinky_fade.rsti
+      .. include:: picoboy-color-plus/blinky_fade.rsti
+
+   .. zephyr-keep-sorted-stop
 
 Hello Shell on USB-CDC/ACM Console
 ==================================
 
 .. tabs::
 
-   .. group-tab:: PicoBoy Color Plus
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
-      .. include:: picoboy-color-plus/helloshell.rsti
+   .. group-tab:: PicoBoy
+
+      .. include:: picoboy/helloshell.rsti
 
    .. group-tab:: PicoBoy Color
 
       .. include:: picoboy-color/helloshell.rsti
 
-   .. group-tab:: PicoBoy
+   .. group-tab:: PicoBoy Color Plus
 
-      .. include:: picoboy/helloshell.rsti
+      .. include:: picoboy-color-plus/helloshell.rsti
+
+   .. zephyr-keep-sorted-stop
 
 More Samples
 ************
@@ -599,9 +635,11 @@ using the :external+zephyr:ref:`Sensors API <sensor>`. See also Bridle sample
 
 .. tabs::
 
-   .. group-tab:: PicoBoy Color Plus
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
-      See section :ref:`stk8ba58-sample-pbcp` in the Bridle sample documentation.
+   .. group-tab:: PicoBoy
+
+      See section :ref:`stk8ba58-sample-picoboy` in the Bridle sample documentation.
 
    .. group-tab:: PicoBoy Color
 
@@ -610,9 +648,11 @@ using the :external+zephyr:ref:`Sensors API <sensor>`. See also Bridle sample
          The |PicoBoy Color| doesn't provide a on-board 3-Axis accelerometer.
          This sample is not applicable.
 
-   .. group-tab:: PicoBoy
+   .. group-tab:: PicoBoy Color Plus
 
-      See section :ref:`stk8ba58-sample-picoboy` in the Bridle sample documentation.
+      See section :ref:`stk8ba58-sample-pbcp` in the Bridle sample documentation.
+
+   .. zephyr-keep-sorted-stop
 
 Polling Mode
 ------------
@@ -623,9 +663,11 @@ the :external+zephyr:ref:`Sensors API <sensor>`. See also Zephyr sample
 
 .. tabs::
 
-   .. group-tab:: PicoBoy Color Plus
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
-      .. include:: picoboy-color-plus/3dof-accel-polling.rsti
+   .. group-tab:: PicoBoy
+
+      .. include:: picoboy/3dof-accel-polling.rsti
 
    .. group-tab:: PicoBoy Color
 
@@ -634,9 +676,11 @@ the :external+zephyr:ref:`Sensors API <sensor>`. See also Zephyr sample
          The |PicoBoy Color| doesn't provide a on-board 3-Axis accelerometer.
          This sample is not applicable.
 
-   .. group-tab:: PicoBoy
+   .. group-tab:: PicoBoy Color Plus
 
-      .. include:: picoboy/3dof-accel-polling.rsti
+      .. include:: picoboy-color-plus/3dof-accel-polling.rsti
+
+   .. zephyr-keep-sorted-stop
 
 Trigger Mode
 ------------
@@ -647,9 +691,14 @@ the :external+zephyr:ref:`Sensors API <sensor>`. See also Zephyr sample
 
 .. tabs::
 
-   .. group-tab:: PicoBoy Color Plus
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
-      .. include:: picoboy-color-plus/3dof-accel-trigger.rsti
+   .. group-tab:: PicoBoy
+
+      .. hint::
+
+         The |PicoBoy| doesn't provide the interrupt line to the on-board
+         3-Axis accelerometer. This sample is not applicable.
 
    .. group-tab:: PicoBoy Color
 
@@ -658,12 +707,11 @@ the :external+zephyr:ref:`Sensors API <sensor>`. See also Zephyr sample
          The |PicoBoy Color| doesn't provide a on-board 3-Axis accelerometer.
          This sample is not applicable.
 
-   .. group-tab:: PicoBoy
+   .. group-tab:: PicoBoy Color Plus
 
-      .. hint::
+      .. include:: picoboy-color-plus/3dof-accel-trigger.rsti
 
-         The |PicoBoy| doesn't provide the interrupt line to the on-board
-         3-Axis accelerometer. This sample is not applicable.
+   .. zephyr-keep-sorted-stop
 
 Sounds from the speaker on USB-CDC/ACM Console
 ==============================================
@@ -683,51 +731,63 @@ The PWM period is 880 ㎐, twice the concert pitch frequency of 440 ㎐.
 
 .. tabs::
 
-   .. group-tab:: PicoBoy Color Plus
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
-      .. include:: picoboy-color-plus/speaker.rsti
+   .. group-tab:: PicoBoy
+
+      .. include:: picoboy/speaker.rsti
 
    .. group-tab:: PicoBoy Color
 
       .. include:: picoboy-color/speaker.rsti
 
-   .. group-tab:: PicoBoy
+   .. group-tab:: PicoBoy Color Plus
 
-      .. include:: picoboy/speaker.rsti
+      .. include:: picoboy-color-plus/speaker.rsti
+
+   .. zephyr-keep-sorted-stop
 
 Input dump on USB-CDC/ACM Console
 =================================
 
 .. tabs::
 
-   .. group-tab:: PicoBoy Color Plus
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
-      .. include:: picoboy-color-plus/input_dump.rsti
+   .. group-tab:: PicoBoy
+
+      .. include:: picoboy/input_dump.rsti
 
    .. group-tab:: PicoBoy Color
 
       .. include:: picoboy-color/input_dump.rsti
 
-   .. group-tab:: PicoBoy
+   .. group-tab:: PicoBoy Color Plus
 
-      .. include:: picoboy/input_dump.rsti
+      .. include:: picoboy-color-plus/input_dump.rsti
+
+   .. zephyr-keep-sorted-stop
 
 Display Test and Demonstration
 ==============================
 
 .. tabs::
 
-   .. group-tab:: PicoBoy Color Plus
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
-      .. include:: picoboy-color-plus/display_test.rsti
+   .. group-tab:: PicoBoy
+
+      .. include:: picoboy/display_test.rsti
 
    .. group-tab:: PicoBoy Color
 
       .. include:: picoboy-color/display_test.rsti
 
-   .. group-tab:: PicoBoy
+   .. group-tab:: PicoBoy Color Plus
 
-      .. include:: picoboy/display_test.rsti
+      .. include:: picoboy-color-plus/display_test.rsti
+
+   .. zephyr-keep-sorted-stop
 
 Grove Module Samples
 ********************

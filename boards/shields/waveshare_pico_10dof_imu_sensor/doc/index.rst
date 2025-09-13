@@ -284,6 +284,8 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
 
       .. tabs::
 
+         .. zephyr-keep-sorted-start re(^\s{9}\.\. group-tab:: \w)
+
          .. group-tab:: Raspberry Pi Pico
 
             .. zephyr-app-commands::
@@ -353,6 +355,8 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
                :tool: all
 
             .. include:: helloshell-r2.rsti
+
+         .. zephyr-keep-sorted-stop
 
    .. group-tab:: Revision 1
 
@@ -372,6 +376,8 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
 
       .. tabs::
 
+         .. zephyr-keep-sorted-start re(^\s{9}\.\. group-tab:: \w)
+
          .. group-tab:: Raspberry Pi Pico
 
             .. zephyr-app-commands::
@@ -441,6 +447,8 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
                :tool: all
 
             .. include:: helloshell-r1.rsti
+
+         .. zephyr-keep-sorted-stop
 
 More Samples
 ************

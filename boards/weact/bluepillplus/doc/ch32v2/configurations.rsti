@@ -2,24 +2,32 @@
 
    .. group-tab:: |CH32V203C8|
 
-      .. rubric:: :command:`west build -b weact_bluepillplus_ch32v203c8`
-
-      Use the serial port USART1 on edge header as
-      Zephyr console and for the shell.
+      .. zephyr-keep-sorted-start re(^\s{6}\.\. rubric:: :command:`\w)
 
       .. .. rubric:: :command:`west build -b weact_bluepillplus_ch32v203c8 -S usb-console`
 
       .. Use the native USB device port with CDC-ACM as
       .. Zephyr console and for the shell.
 
+      .. rubric:: :command:`west build -b weact_bluepillplus_ch32v203c8`
+
+      Use the serial port USART1 on edge header as
+      Zephyr console and for the shell.
+
+      .. zephyr-keep-sorted-stop
+
    .. group-tab:: |CH32V203C6|
+
+      .. zephyr-keep-sorted-start re(^\s{6}\.\. rubric:: :command:`\w)
+
+      .. .. rubric:: :command:`west build -b weact_bluepillplus_ch32v203c6 -S usb-console`
+
+      .. Use the native USB device port with CDC-ACM as
+      .. Zephyr console and for the shell.
 
       .. rubric:: :command:`west build -b weact_bluepillplus_ch32v203c6`
 
       Use the serial port USART1 on edge header as
       Zephyr console and for the shell.
 
-      .. .. rubric:: :command:`west build -b weact_bluepillplus_ch32v203c6 -S usb-console`
-
-      .. Use the native USB device port with CDC-ACM as
-      .. Zephyr console and for the shell.
+      .. zephyr-keep-sorted-stop

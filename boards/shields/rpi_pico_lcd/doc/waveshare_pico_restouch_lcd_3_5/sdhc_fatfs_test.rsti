@@ -14,6 +14,8 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`fs`.
 
 .. tabs::
 
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+
    .. group-tab:: Raspberry Pi Pico
 
       .. zephyr-app-commands::
@@ -63,6 +65,8 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`fs`.
          :west-args: -p -S usb-console
          :flash-args: -r uf2
          :compact:
+
+   .. zephyr-keep-sorted-stop
 
 .. image:: waveshare_pico_restouch_lcd_3_5/BEACH.bmp
    :align: right

@@ -22,10 +22,16 @@ configuration.
 
 Supported boards are:
 
+.. zephyr-keep-sorted-start re(^\* .\w)
+
 * Cytron |Maker Pi RP2040|
 * |TiaC CoffeeCaller nRF52|
 
+.. zephyr-keep-sorted-stop
+
 .. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: Cytron Maker Pi RP2040
 
@@ -78,6 +84,8 @@ Supported boards are:
          :linenos:
          :start-at: servo:
          :end-at: };
+
+   .. zephyr-keep-sorted-stop
 
 How to add support of a new board
 *********************************

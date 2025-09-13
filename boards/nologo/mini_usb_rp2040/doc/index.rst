@@ -432,7 +432,11 @@ features:
 Other hardware features are not currently supported by Zephyr. The default
 configuration can be found in the different Kconfig files:
 
-   - :bridle_file:`boards/nologo/mini_usb_rp2040/mini_usb_rp2040_defconfig`
+.. zephyr-keep-sorted-start re(^\* :bridle_file:`\w)
+
+* :bridle_file:`boards/nologo/mini_usb_rp2040/mini_usb_rp2040_defconfig`
+
+.. zephyr-keep-sorted-stop
 
 Board Configurations
 ====================
@@ -440,10 +444,12 @@ Board Configurations
 The |Mini USB RP2040| board offers an assembly option with 16㎆ Flash,
 which is mapped as a hardware revision.
 
-.. rubric:: :command:`west build -b mini_usb_rp2040`
+.. zephyr-keep-sorted-start re(^\.\. rubric:: :command:`\w)
+
+.. rubric:: :command:`west build -b mini_usb_rp2040@16mb`
 
 Use the native USB device port with CDC-ACM as Zephyr console and for the
-shell. Setup QSPI Flash controller to work with 4㎆. Bind GP22 to PIO0
+shell. Setup QSPI Flash controller to work with 16㎆. Bind GP22 to PIO0
 and drive the on-board digital RGB-LED WS2812 (NeoPixel).
 
 .. rubric:: :command:`west build -b mini_usb_rp2040@4mb`
@@ -453,17 +459,19 @@ shell. Setup QSPI Flash controller to work with 4㎆ – the same as the default
 board configuration ``mini_usb_rp2040``. Bind GP22 to PIO0 and drive the
 on-board digital RGB-LED WS2812 (NeoPixel).
 
-.. rubric:: :command:`west build -b mini_usb_rp2040@16mb`
-
-Use the native USB device port with CDC-ACM as Zephyr console and for the
-shell. Setup QSPI Flash controller to work with 16㎆. Bind GP22 to PIO0
-and drive the on-board digital RGB-LED WS2812 (NeoPixel).
-
 .. rubric:: :command:`west build -b mini_usb_rp2040@chipled`
 
 Use the native USB device port with CDC-ACM as Zephyr console and for the
 shell. Setup QSPI Flash controller to work with 4㎆. Bind GP22 to PWM6 (3A)
 and drive the incorrectly equipped on-board chip LED; 0% duty cycle on boot.
+
+.. rubric:: :command:`west build -b mini_usb_rp2040`
+
+Use the native USB device port with CDC-ACM as Zephyr console and for the
+shell. Setup QSPI Flash controller to work with 4㎆. Bind GP22 to PIO0
+and drive the on-board digital RGB-LED WS2812 (NeoPixel).
+
+.. zephyr-keep-sorted-stop
 
 Connections and IOs
 ===================
@@ -486,10 +494,16 @@ interface for general signal mapping, the |Laced Grove Signal Interface|.
 
 Following mappings are well known:
 
-   * ``grove_gpios``: GPIO mapping
-   * ``grove_pwms``: PWM mapping
+.. zephyr-keep-sorted-start re(^\* \|\w)
+
+* ``grove_gpios``: GPIO mapping
+* ``grove_pwms``: PWM mapping
+
+.. zephyr-keep-sorted-stop
 
 .. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: GPIO mapping ``grove_gpios``
 
@@ -512,6 +526,8 @@ Following mappings are well known:
       **This list must not be complete or stable!**
 
       .. include:: grove_pwms.rsti
+
+   .. zephyr-keep-sorted-stop
 
 System Clock
 ============

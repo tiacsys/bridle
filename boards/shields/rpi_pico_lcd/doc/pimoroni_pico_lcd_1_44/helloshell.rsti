@@ -4,6 +4,8 @@ For example:
 
 .. tabs::
 
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+
    .. group-tab:: Raspberry Pi Pico
 
       .. zephyr-app-commands::
@@ -63,3 +65,5 @@ For example:
          :tool: all
 
       .. include:: pimoroni_pico_lcd_1_44/helloshell_console.rsti
+
+   .. zephyr-keep-sorted-stop

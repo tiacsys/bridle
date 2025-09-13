@@ -17,6 +17,8 @@ Hardware
 
 .. tabs::
 
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+
    .. group-tab:: Maker Nano RP2040
 
       .. _cytron_maker_nano_rp2040:
@@ -29,10 +31,14 @@ Hardware
 
       .. include:: maker-pi-rp2040/hardware.rsti
 
+   .. zephyr-keep-sorted-stop
+
 Positions
 =========
 
 .. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: Maker Nano RP2040
 
@@ -43,6 +49,8 @@ Positions
       .. _cytron_maker_pi_rp2040_positions:
 
       .. include:: maker-pi-rp2040/positions.rsti
+
+   .. zephyr-keep-sorted-stop
 
 Pinouts
 =======
@@ -56,6 +64,8 @@ in a single tab.
 
 .. tabs::
 
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+
    .. group-tab:: Maker Nano RP2040
 
       .. include:: maker-nano-rp2040/pinouts.rsti
@@ -63,6 +73,8 @@ in a single tab.
    .. group-tab:: Maker Pi RP2040
 
       .. include:: maker-pi-rp2040/pinouts.rsti
+
+   .. zephyr-keep-sorted-stop
 
 Supported Features
 ******************
@@ -177,8 +189,12 @@ configuration supports the following hardware features:
 Other hardware features are not currently supported by Zephyr. The default
 configuration can be found in the different Kconfig files:
 
-   - :bridle_file:`boards/cytron/maker_rp2040/cytron_maker_nano_rp2040_defconfig`
-   - :bridle_file:`boards/cytron/maker_rp2040/cytron_maker_pi_rp2040_defconfig`
+.. zephyr-keep-sorted-start re(^\* :bridle_file:`\w)
+
+* :bridle_file:`boards/cytron/maker_rp2040/cytron_maker_nano_rp2040_defconfig`
+* :bridle_file:`boards/cytron/maker_rp2040/cytron_maker_pi_rp2040_defconfig`
+
+.. zephyr-keep-sorted-stop
 
 Board Configurations
 ====================
@@ -188,29 +204,33 @@ use cases.
 
 .. tabs::
 
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+
    .. group-tab:: Maker Nano RP2040
-
-      .. rubric:: :command:`west build -b cytron_maker_nano_rp2040`
-
-      Use the serial port UART0 on edge header as
-      Zephyr console and for the shell.
 
       .. rubric:: :command:`west build -b cytron_maker_nano_rp2040 -S usb-console`
 
       Use the native USB device port with CDC-ACM as
       Zephyr console and for the shell.
 
+      .. rubric:: :command:`west build -b cytron_maker_nano_rp2040`
+
+      Use the serial port UART0 on edge header as
+      Zephyr console and for the shell.
+
    .. group-tab:: Maker Pi RP2040
+
+      .. rubric:: :command:`west build -b cytron_maker_pi_rp2040 -S usb-console`
+
+      Use the native USB device port with CDC-ACM as
+      Zephyr console and for the shell.
 
       .. rubric:: :command:`west build -b cytron_maker_pi_rp2040`
 
       Use the serial port UART0 on edge header as
       Zephyr console and for the shell.
 
-      .. rubric:: :command:`west build -b cytron_maker_pi_rp2040 -S usb-console`
-
-      Use the native USB device port with CDC-ACM as
-      Zephyr console and for the shell.
+   .. zephyr-keep-sorted-stop
 
 Connections and IOs
 ===================
@@ -231,10 +251,16 @@ These are provided by a specific interface for general signal mapping, the
 
 Following mappings are well known:
 
-   * ``grove_gpios``: GPIO mapping
-   * ``grove_pwms``: PWM mapping
+.. zephyr-keep-sorted-start re(^\* \|\w)
+
+* ``grove_gpios``: GPIO mapping
+* ``grove_pwms``: PWM mapping
+
+.. zephyr-keep-sorted-stop
 
 .. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: Maker Nano RP2040
 
@@ -297,6 +323,8 @@ Following mappings are well known:
             **This list must not be complete or stable!**
 
             .. include:: maker-pi-rp2040/grove_pwms.rsti
+
+   .. zephyr-keep-sorted-stop
 
 System Clock
 ============
@@ -374,31 +402,35 @@ alternative to the default Zephyr console on serial port the Bridle
 :ref:`snippet-usb-console` can be used to enable
 :external+zephyr:ref:`usb_device_cdc_acm` and switch the console to USB:
 
-   .. tabs::
+.. tabs::
 
-      .. group-tab:: Maker Nano RP2040
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
-         .. container:: highlight-console notranslate literal-block
+   .. group-tab:: Maker Nano RP2040
 
-            .. parsed-literal::
+      .. container:: highlight-console notranslate literal-block
 
-               USB device idVendor=\ |cytron_maker_nano_rp2040_VID|, idProduct=\ |cytron_maker_nano_rp2040_PID_CON|, bcdDevice=\ |cytron_maker_nano_rp2040_BCD_CON|
-               USB device strings: Mfr=1, Product=2, SerialNumber=3
-               Product: |cytron_maker_nano_rp2040_PStr_CON|
-               Manufacturer: |cytron_maker_nano_rp2040_VStr|
-               SerialNumber: BF002B12140C620C
+         .. parsed-literal::
 
-      .. group-tab:: Maker Pi RP2040
+            USB device idVendor=\ |cytron_maker_nano_rp2040_VID|, idProduct=\ |cytron_maker_nano_rp2040_PID_CON|, bcdDevice=\ |cytron_maker_nano_rp2040_BCD_CON|
+            USB device strings: Mfr=1, Product=2, SerialNumber=3
+            Product: |cytron_maker_nano_rp2040_PStr_CON|
+            Manufacturer: |cytron_maker_nano_rp2040_VStr|
+            SerialNumber: BF002B12140C620C
 
-         .. container:: highlight-console notranslate literal-block
+   .. group-tab:: Maker Pi RP2040
 
-            .. parsed-literal::
+      .. container:: highlight-console notranslate literal-block
 
-               USB device idVendor=\ |cytron_maker_pi_rp2040_VID|, idProduct=\ |cytron_maker_pi_rp2040_PID_CON|, bcdDevice=\ |cytron_maker_pi_rp2040_BCD_CON|
-               USB device strings: Mfr=1, Product=2, SerialNumber=3
-               Product: |cytron_maker_pi_rp2040_PStr_CON|
-               Manufacturer: |cytron_maker_pi_rp2040_VStr|
-               SerialNumber: BF002B12140C620C
+         .. parsed-literal::
+
+            USB device idVendor=\ |cytron_maker_pi_rp2040_VID|, idProduct=\ |cytron_maker_pi_rp2040_PID_CON|, bcdDevice=\ |cytron_maker_pi_rp2040_BCD_CON|
+            USB device strings: Mfr=1, Product=2, SerialNumber=3
+            Product: |cytron_maker_pi_rp2040_PStr_CON|
+            Manufacturer: |cytron_maker_pi_rp2040_VStr|
+            SerialNumber: BF002B12140C620C
+
+   .. zephyr-keep-sorted-stop
 
 To integrate specific USB device functions that do not follow
 a USB standard class, the following alternate identifier numbers
@@ -656,6 +688,8 @@ LED Blinky and Fade
 
 .. tabs::
 
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+
    .. group-tab:: Maker Nano RP2040
 
       .. rubric:: WS2812 LED Test Pattern by PIO
@@ -798,10 +832,14 @@ LED Blinky and Fade
          :goals: flash
          :compact:
 
+   .. zephyr-keep-sorted-stop
+
 Hello Shell with USB-CDC/ACM Console
 ====================================
 
 .. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: Maker Nano RP2040
 
@@ -833,6 +871,8 @@ Hello Shell with USB-CDC/ACM Console
 
       .. include:: maker-pi-rp2040/helloshell.rsti
 
+   .. zephyr-keep-sorted-stop
+
 Input dump with USB-CDC/ACM Console
 ===================================
 
@@ -840,6 +880,8 @@ Prints all input events as defined by the shields Devicetree. See also Zephyr
 sample: :external+zephyr:zephyr:code-sample:`input-dump`.
 
 .. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: Maker Nano RP2040
 
@@ -929,10 +971,14 @@ sample: :external+zephyr:zephyr:code-sample:`input-dump`.
             I: input event: dev=gpio_keys        SYN type= 1 code=  2 value=1
             I: input event: dev=gpio_keys        SYN type= 1 code=  2 value=0
 
+   .. zephyr-keep-sorted-stop
+
 Sounds from the speaker with USB-CDC/ACM Console
 ================================================
 
 .. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: Maker Nano RP2040
 
@@ -1036,10 +1082,14 @@ Sounds from the speaker with USB-CDC/ACM Console
             :bgn:`uart:~$` **buzzer play folksong**
             :bgn:`uart:~$` **buzzer play xmastime**
 
+   .. zephyr-keep-sorted-stop
+
 Drive a motor with USB-CDC/ACM Console
 ======================================
 
 .. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: Maker Nano RP2040
 
@@ -1077,6 +1127,8 @@ Drive a motor with USB-CDC/ACM Console
          :start-after: .. _snippet-pwm-servo-cytron-maker-pi-rp2040:
          :end-before: .. literalinclude:
 
+   .. zephyr-keep-sorted-stop
+
 Display Test and Demonstration
 ==============================
 
@@ -1084,6 +1136,8 @@ This samples and test applications are only applicable together with the
 |Waveshare 2.4 LCD| shield. This LCD module have to connected by free wiring.
 
 .. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: Maker Nano RP2040
 
@@ -1364,6 +1418,8 @@ This samples and test applications are only applicable together with the
                    10         1024            1         1550        12396
 
             12408 free bytes, 3560 allocated bytes, overhead = 412 bytes (2.5%)
+
+   .. zephyr-keep-sorted-stop
 
 References
 **********

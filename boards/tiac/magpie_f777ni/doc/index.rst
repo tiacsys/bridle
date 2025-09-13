@@ -49,45 +49,45 @@ Hardware
 The STM32F777NIHx on the TiaC Magpie F777NI board provides the following
 hardware components:
 
-   .. rst-class:: rst-columns
+.. rst-class:: rst-columns
 
-   - STM32F777NIHx in TFBGA216 package
-   - ARM 32-bit Cortex®-M7 CPU with DPFPU
-   - Chrom-ART Accelerator
-   - ART Accelerator
-   - 216 MHz max CPU frequency
-   - VDD from 1.7 V to 3.6 V
-   - 2 MB Flash
-   - 512 KB SRAM
-   - 7-bit watchdog timer (1)
-   - 12-bit independent watchdog timer (1)
-   - 24-bit system-tick timer (1)
-   - 16-bit low-power timer (1)
-   - 16-bit timers (12)
-   - 32-bit timers (2)
-   - SPI (6)
-   - I2C (4)
-   - I2S (3)
-   - USART (4)
-   - UART (4)
-   - USB OTG Full Speed (1)
-   - USB OTG Full Speed and High Speed (1)
-   - 10/100 Ethernet MAC with MII/RMII and MDIO (1)
-   - CAN (3)
-   - SAI (2)
-   - Dual Mode Quad SPI (1)
-   - GPIO (up to 168) with external interrupt capability
-   - Digital Filters for Sigma Delta Modulator (DFSDM)
-     with 8 channels / 4 filters
-   - 12-bit ADC with 24 channels / 2.4 MSPS (3)
-   - 12-bit DAC with 2 channels (2)
-   - 16-channel DMA
-   - Cryptographic Acceleration for AES 128, 192, 256, triple DES,
-     HASH (MD5, SHA-1, SHA-2), and HMAC
-   - True Random Number Generator (RNG)
-   - CRC calculation unit
-   - RTC: subsecond accuracy, hardware calendar
-   - 96-bit unique ID
+- STM32F777NIHx in TFBGA216 package
+- ARM 32-bit Cortex®-M7 CPU with DPFPU
+- Chrom-ART Accelerator
+- ART Accelerator
+- 216 MHz max CPU frequency
+- VDD from 1.7 V to 3.6 V
+- 2 MB Flash
+- 512 KB SRAM
+- 7-bit watchdog timer (1)
+- 12-bit independent watchdog timer (1)
+- 24-bit system-tick timer (1)
+- 16-bit low-power timer (1)
+- 16-bit timers (12)
+- 32-bit timers (2)
+- SPI (6)
+- I2C (4)
+- I2S (3)
+- USART (4)
+- UART (4)
+- USB OTG Full Speed (1)
+- USB OTG Full Speed and High Speed (1)
+- 10/100 Ethernet MAC with MII/RMII and MDIO (1)
+- CAN (3)
+- SAI (2)
+- Dual Mode Quad SPI (1)
+- GPIO (up to 168) with external interrupt capability
+- Digital Filters for Sigma Delta Modulator (DFSDM)
+  with 8 channels / 4 filters
+- 12-bit ADC with 24 channels / 2.4 MSPS (3)
+- 12-bit DAC with 2 channels (2)
+- 16-channel DMA
+- Cryptographic Acceleration for AES 128, 192, 256, triple DES,
+  HASH (MD5, SHA-1, SHA-2), and HMAC
+- True Random Number Generator (RNG)
+- CRC calculation unit
+- RTC: subsecond accuracy, hardware calendar
+- 96-bit unique ID
 
 More information about the STM32F777NIHx can be found at the website about
 `STM32F777NI on www.st.com`_ or in the `STM32F777 Reference Manual (RM0410)`_

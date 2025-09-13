@@ -26,17 +26,17 @@ additional hardware.
 Hardware
 ********
 
-   .. rst-class:: rst-columns
+.. rst-class:: rst-columns
 
-   - `ATSAMD21G18A`_ ARM Cortex-M0+ processor at 48 MHz
-   - 32.768 kHz crystal oscillator
-   - 256 KiB flash memory and 32 KiB of RAM
-   - 3 user LEDs (L/Rx/Tx)
-   - One reset button
-   - On-board USB based EDBG unit with serial console
-   - Native USB port
-   - |Arduino UNO R3| header
-   - Arduino ICSP header
+- `ATSAMD21G18A`_ ARM Cortex-M0+ processor at 48 MHz
+- 32.768 kHz crystal oscillator
+- 256 KiB flash memory and 32 KiB of RAM
+- 3 user LEDs (L/Rx/Tx)
+- One reset button
+- On-board USB based EDBG unit with serial console
+- Native USB port
+- |Arduino UNO R3| header
+- Arduino ICSP header
 
 Supported Features
 ==================
@@ -142,14 +142,18 @@ Board Configurations
 The :code:`arduino_zero` board can be configured for the following different
 use cases.
 
-.. rubric:: :command:`west build -b arduino_zero`
-
-Use the serial port SERCOM5 over EDBG as Zephyr console and for the shell.
+.. zephyr-keep-sorted-start re(^\.\. rubric:: :command:`\w)
 
 .. rubric:: :command:`west build -b arduino_zero -S usb-console`
 
 Use the native USB device port with CDC-ACM as Zephyr console and for the shell,
 see :ref:`snippet-usb-console`.
+
+.. rubric:: :command:`west build -b arduino_zero`
+
+Use the serial port SERCOM5 over EDBG as Zephyr console and for the shell.
+
+.. zephyr-keep-sorted-stop
 
 Connections and IOs
 ===================

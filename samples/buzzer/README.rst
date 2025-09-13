@@ -44,11 +44,17 @@ alias :dts:`pwm-buzzer0`. You will need to do something like this:
 Note that a commonly used period value is 880 ㎐, twice the concert pitch
 frequency of 440 ㎐. See one of the following development boards:
 
-  * |bridle:board:cytron_maker_rp2040|
-  * |bridle:board:picoboy|
+.. zephyr-keep-sorted-start re(^\* \|\w)
+
+* |bridle:board:cytron_maker_rp2040|
+* |bridle:board:picoboy|
+
+.. zephyr-keep-sorted-stop
 
 Building and Running
 ********************
+
+.. zephyr-keep-sorted-start re(^\* \w)
 
 * On |Maker Nano RP2040| board:
 
@@ -82,6 +88,8 @@ Building and Running
      :flash-args: -r uf2
      :goals: flash
      :host-os: unix
+
+.. zephyr-keep-sorted-stop
 
 Sample Output
 =============

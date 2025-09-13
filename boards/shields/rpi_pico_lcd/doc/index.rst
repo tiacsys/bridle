@@ -18,6 +18,8 @@ Hardware
 
 .. tabs::
 
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+
    .. group-tab:: PiMoroni (Pico …)
 
       .. tabs::
@@ -96,10 +98,14 @@ Hardware
 
             .. include:: waveshare_pico_restouch_lcd_3_5/hardware.rsti
 
+   .. zephyr-keep-sorted-stop
+
 Positions
 =========
 
 .. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: PiMoroni (Pico …)
 
@@ -157,10 +163,14 @@ Positions
 
             .. include:: waveshare_pico_restouch_lcd_3_5/positions.rsti
 
+   .. zephyr-keep-sorted-stop
+
 Pinouts
 =======
 
 .. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: PiMoroni (Pico …)
 
@@ -218,6 +228,8 @@ Pinouts
 
             .. include:: waveshare_pico_restouch_lcd_3_5/pinouts.rsti
 
+   .. zephyr-keep-sorted-stop
+
 Utilization
 ***********
 
@@ -246,6 +258,8 @@ Programming
 ===========
 
 .. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: PiMoroni (Pico …)
 
@@ -303,6 +317,8 @@ Programming
 
             .. include:: waveshare_pico_restouch_lcd_3_5/helloshell.rsti
 
+   .. zephyr-keep-sorted-stop
+
 More Samples
 ************
 
@@ -313,6 +329,8 @@ Prints all input events as defined by the shields Devicetree. See also Zephyr
 sample: :zephyr:code-sample:`input-dump`.
 
 .. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: PiMoroni (Pico …)
 
@@ -373,6 +391,8 @@ sample: :zephyr:code-sample:`input-dump`.
 
             .. include:: waveshare_pico_restouch_lcd_3_5/input_dump.rsti
 
+   .. zephyr-keep-sorted-stop
+
 LED color change
 ================
 
@@ -380,6 +400,8 @@ Drives an RGB LED that must defined by the shields Devicetree. See also Zephyr
 sample: :zephyr:code-sample:`rgb-led`.
 
 .. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: PiMoroni (Pico …)
 
@@ -464,6 +486,8 @@ sample: :zephyr:code-sample:`rgb-led`.
                The |Waveshare Pico ResTouch LCD 3.5| doesn't provide a RGB LED.
                This samples are not applicable.
 
+   .. zephyr-keep-sorted-stop
+
 LCD Orientation and Bit Order Test
 ==================================
 
@@ -472,6 +496,8 @@ are chosen so that you can check the orientation of the LCD and correct RGB bit
 order. See also Zephyr sample: :zephyr:code-sample:`display`.
 
 .. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: PiMoroni (Pico …)
 
@@ -529,6 +555,8 @@ order. See also Zephyr sample: :zephyr:code-sample:`display`.
 
             .. include:: waveshare_pico_restouch_lcd_3_5/display_test.rsti
 
+   .. zephyr-keep-sorted-stop
+
 Draw touch events on LCD
 ========================
 
@@ -537,6 +565,8 @@ as inverted/swapped axes can be examined. See also Zephyr sample:
 :zephyr:code-sample:`draw_touch_events`.
 
 .. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: PiMoroni (Pico …)
 
@@ -621,6 +651,8 @@ as inverted/swapped axes can be examined. See also Zephyr sample:
 
             .. include:: waveshare_pico_restouch_lcd_3_5/touch_test.rsti
 
+   .. zephyr-keep-sorted-stop
+
 LVGL Basic Sample
 =================
 
@@ -629,6 +661,8 @@ which increments every second. See also Zephyr sample:
 :zephyr:code-sample:`lvgl`.
 
 .. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: PiMoroni (Pico …)
 
@@ -686,6 +720,8 @@ which increments every second. See also Zephyr sample:
 
             .. include:: waveshare_pico_restouch_lcd_3_5/lvgl_basic.rsti
 
+   .. zephyr-keep-sorted-stop
+
 TF/microSD Demonstration
 ========================
 
@@ -693,6 +729,8 @@ This samples and test applications aren't applicable on all boards. They will
 be built with activated USB-CDC/ACM console.
 
 .. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: PiMoroni (Pico …)
 
@@ -776,6 +814,8 @@ be built with activated USB-CDC/ACM console.
          .. group-tab:: ResTouch LCD 3.5
 
             .. include:: waveshare_pico_restouch_lcd_3_5/sdhc_fatfs_test.rsti
+
+   .. zephyr-keep-sorted-stop
 
 References
 **********

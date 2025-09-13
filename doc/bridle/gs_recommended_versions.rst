@@ -493,39 +493,41 @@ Building and running applications, samples, and tests
 
 .. _req_devpkgs_table:
 
+.. zephyr-keep-sorted-start re(^\s+\* - \|\w)
+
 .. list-table::
    :header-rows: 1
 
    * - Package
      - Version
+   * - |PyYAML|_
+     - |PyYAML_ver|
    * - |ecdsa|_
      - |ecdsa_ver|
-   * - |imagesize|_
-     - |imagesize_ver|
    * - |intelhex|_
      - |intelhex_ver|
    * - |pyelftools|_
      - |pyelftools_ver|
    * - |pykitinfo|_
      - |pykitinfo_ver|
-   * - |pymcuprog|_
-     - |pymcuprog_ver|
-   * - |pyserial|_
-     - |pyserial_ver|
-   * - |pyocd|_
-     - |pyocd_ver|
    * - |pylint|_
      - |pylint_ver|
+   * - |pymcuprog|_
+     - |pymcuprog_ver|
+   * - |pyocd|_
+     - |pyocd_ver|
+   * - |pyserial|_
+     - |pyserial_ver|
    * - |pytest|_
      - |pytest_ver|
-   * - |PyYAML|_
-     - |PyYAML_ver|
    * - |regex|_
      - |regex_ver|
    * - |west|_
      - |west_ver|
    * - |windows-curses|_ (only Windows)
      - |windows-curses_ver|
+
+.. zephyr-keep-sorted-stop
 
 .. _python_req_documentation:
 
@@ -534,27 +536,23 @@ Building documentation
 
 .. _req_docpkgs_table:
 
+.. zephyr-keep-sorted-start re(^\s+\* - \|\w)
+
 .. list-table::
    :header-rows: 1
 
    * - Package
      - Version
-   * - |docutils|_
-     - |docutils_ver|
-   * - |doxmlparser|_
-     - |doxmlparser_ver|
    * - |Pygments|_
      - |Pygments_ver|
    * - |Sphinx|_
      - |Sphinx_ver|
-   * - |sphinx_tsn_theme|_
-     - |sphinx_tsn_theme_ver|
-   * - |sphinxcontrib-mscgen|_
-     - |sphinxcontrib-mscgen_ver|
-   * - |sphinxcontrib-programoutput|_
-     - |sphinxcontrib-programoutput_ver|
-   * - |sphinxcontrib-svg2pdfconverter|_
-     - |sphinxcontrib-svg2pdfconverter_ver|
+   * - |docutils|_
+     - |docutils_ver|
+   * - |doxmlparser|_
+     - |doxmlparser_ver|
+   * - |imagesize|_
+     - |imagesize_ver|
    * - |sphinx-autobuild|_
      - |sphinx-autobuild_ver|
    * - |sphinx-copybutton|_
@@ -569,3 +567,13 @@ Building documentation
      - |sphinx-tabs_ver|
    * - |sphinx-togglebutton|_
      - |sphinx-togglebutton_ver|
+   * - |sphinx_tsn_theme|_
+     - |sphinx_tsn_theme_ver|
+   * - |sphinxcontrib-mscgen|_
+     - |sphinxcontrib-mscgen_ver|
+   * - |sphinxcontrib-programoutput|_
+     - |sphinxcontrib-programoutput_ver|
+   * - |sphinxcontrib-svg2pdfconverter|_
+     - |sphinxcontrib-svg2pdfconverter_ver|
+
+.. zephyr-keep-sorted-stop

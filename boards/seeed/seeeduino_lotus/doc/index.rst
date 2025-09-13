@@ -18,19 +18,19 @@ digital I/O (10 of which support PWM) and 6 analog I/O broken out onto
 Hardware
 ********
 
-   .. rst-class:: rst-columns
+.. rst-class:: rst-columns
 
-   - `ATSAMD21G18A`_ ARM Cortex-M0+ processor at 48 MHz
-   - 32.768 kHz crystal oscillator
-   - 256 KiB flash memory and 32 KiB of RAM
-   - 3 user LEDs (blue/Rx/Tx)
-   - One reset button
-   - Native USB port
-   - 12 |Grove connectors|
-   - |Arduino UNO R3| header
-   - Arduino ICSP header
-   - `MP2617B`_, switching battery charger (max. 2A)
-   - JST2.0 Li-Po battery connector
+- `ATSAMD21G18A`_ ARM Cortex-M0+ processor at 48 MHz
+- 32.768 kHz crystal oscillator
+- 256 KiB flash memory and 32 KiB of RAM
+- 3 user LEDs (blue/Rx/Tx)
+- One reset button
+- Native USB port
+- 12 |Grove connectors|
+- |Arduino UNO R3| header
+- Arduino ICSP header
+- `MP2617B`_, switching battery charger (max. 2A)
+- JST2.0 Li-Po battery connector
 
 Supported Features
 ==================
@@ -134,13 +134,17 @@ Board Configurations
 The :code:`seeeduino_lotus` board can be configured for the following different
 use cases.
 
-.. rubric:: :command:`west build -b seeeduino_lotus`
-
-Use the serial port SERCOM2 as Zephyr console and for the shell.
+.. zephyr-keep-sorted-start re(^\.\. rubric:: :command:`\w)
 
 .. rubric:: :command:`west build -b seeeduino_lotus -S usb-console`
 
 Use the USB device port with CDC-ACM as Zephyr console and for the shell.
+
+.. rubric:: :command:`west build -b seeeduino_lotus`
+
+Use the serial port SERCOM2 as Zephyr console and for the shell.
+
+.. zephyr-keep-sorted-stop
 
 Connections and IOs
 ===================
@@ -160,10 +164,16 @@ These are provided by a specific interface for general signal mapping, the
 
 Following mappings are well known:
 
-   * ``grove_gpios``: GPIO mapping
-   * ``grove_pwms``: PWM mapping
+.. zephyr-keep-sorted-start re(^\* \|\w)
+
+* ``grove_gpios``: GPIO mapping
+* ``grove_pwms``: PWM mapping
+
+.. zephyr-keep-sorted-stop
 
 .. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: GPIO mapping ``grove_gpios``
 
@@ -185,6 +195,8 @@ Following mappings are well known:
       **This list must not be complete!**
 
       .. include:: grove_pwms.rsti
+
+   .. zephyr-keep-sorted-stop
 
 System Clock
 ============

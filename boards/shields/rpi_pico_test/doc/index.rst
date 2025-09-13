@@ -17,30 +17,41 @@ Hardware
 
 .. tabs::
 
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+
    .. group-tab:: Spotpear Pico ALL GPIO TEST
 
       .. _spotpear_pico_test:
 
       .. include:: spotpear_pico_test/hardware.rsti
 
+   .. zephyr-keep-sorted-stop
+
 Positions
 =========
 
 .. tabs::
 
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+
    .. group-tab:: Spotpear Pico ALL GPIO TEST
 
       .. include:: spotpear_pico_test/positions.rsti
+
+   .. zephyr-keep-sorted-stop
 
 Pinouts
 =======
 
 .. tabs::
 
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: Spotpear Pico ALL GPIO TEST
 
       .. include:: spotpear_pico_test/pinouts.rsti
+
+   .. zephyr-keep-sorted-stop
 
 Utilization
 ***********
@@ -56,6 +67,8 @@ Programming
 ===========
 
 .. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: Spotpear Pico ALL GPIO TEST
 
@@ -139,6 +152,8 @@ Programming
 
             .. include:: spotpear_pico_test/helloshell.rsti
 
+   .. zephyr-keep-sorted-stop
+
 More Samples
 ************
 
@@ -149,6 +164,8 @@ Prints all input events as defined by the shield's Devicetree. See also Zephyr
 sample: :external+zephyr:zephyr:code-sample:`input-dump`.
 
 .. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: Spotpear Pico ALL GPIO TEST
 
@@ -268,6 +285,8 @@ sample: :external+zephyr:zephyr:code-sample:`input-dump`.
             I: input event: dev=gpio_keys        SYN type= 1 code=103 value=1
             I: input event: dev=gpio_keys        SYN type= 1 code=103 value=0
 
+   .. zephyr-keep-sorted-stop
+
 Analog-to-Digital Converter (ADC)
 =================================
 
@@ -275,6 +294,8 @@ Read analog inputs from ADC channels as defined by the shield's Devicetree.
 See also Zephyr sample: :external+zephyr:zephyr:code-sample:`adc_dt`.
 
 .. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: Spotpear Pico ALL GPIO TEST
 
@@ -375,6 +396,8 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`adc_dt`.
             ADC reading[7]:
             - adc\ @\ 4004c000, channel 0: 4095 = 3299 mV
 
+   .. zephyr-keep-sorted-stop
+
 Light-Emitting Diode (LED) by PWM
 =================================
 
@@ -382,6 +405,8 @@ Control PWM LEDs as defined by the shield's Devicetree. See also Zephyr
 sample: :external+zephyr:zephyr:code-sample:`led-pwm`.
 
 .. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
    .. group-tab:: Spotpear Pico ALL GPIO TEST
 
@@ -646,6 +671,8 @@ sample: :external+zephyr:zephyr:code-sample:`led-pwm`.
             [00:04:44.572,000] <inf> main:   Blinking on: 20 msec, off: 20 msec
             [00:04:49.573,000] <inf> main:   Blinking on: 65 msec, off: 65 msec
             [00:04:54.574,000] <inf> main:   Turned off, loop end
+
+   .. zephyr-keep-sorted-stop
 
 References
 **********
