@@ -1,4 +1,4 @@
-# Copyright (c) 2022 TiaC Systems
+# Copyright (c) 2022-2025 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 include_guard(GLOBAL)
@@ -56,7 +56,7 @@ else()
 endif()
 
 # This will determine and set the required Sphinx version.
-file(STRINGS ${BRIDLE_BASE}/scripts/requirements-doc.txt
+file(STRINGS ${BRIDLE_BASE}/zephyr/requirements-doc.txt
      sphinx_string LIMIT_COUNT 1 REGEX "^sphinx[~,<,>]?="
 )
 string(REGEX MATCH "=([^ \t]*)[^ \t]*,[<,>]([^ \t]*)"
@@ -73,7 +73,7 @@ if(NOT CMAKE_MATCH_1)
     else()
       message(FATAL_ERROR "Sphinx: malformatted PIP version string as input?\n"
           "Got: '${sphinx_string}'\n"
-          "Check: ${BRIDLE_BASE}/scripts/requirements-doc.txt"
+          "Check: ${BRIDLE_BASE}/zephyr/requirements-doc.txt"
       )
     endif()
   endif()
@@ -87,7 +87,7 @@ else()
   else()
     message(FATAL_ERROR "Sphinx: malformatted PIP version string as input?\n"
         "Got: '${sphinx_string}'\n"
-        "Check: ${BRIDLE_BASE}/scripts/requirements-doc.txt"
+        "Check: ${BRIDLE_BASE}/zephyr/requirements-doc.txt"
     )
   endif()
 endif()
