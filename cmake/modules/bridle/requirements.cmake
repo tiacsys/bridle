@@ -4,14 +4,14 @@
 include_guard(GLOBAL)
 
 if(${CMAKE_HOST_SYSTEM_NAME} STREQUAL "Linux")
-  set(tools_versions_os ${BRIDLE_BASE}/scripts/tools-versions-linux.txt)
+  set(tools_versions_os ${BRIDLE_BASE}/doc/tools-versions-linux.txt)
 elseif(CMAKE_HOST_APPLE)
-  set(tools_versions_os ${BRIDLE_BASE}/scripts/tools-versions-macos.txt)
+  set(tools_versions_os ${BRIDLE_BASE}/doc/tools-versions-macos.txt)
 elseif(CMAKE_HOST_WIN32)
-  set(tools_versions_os ${BRIDLE_BASE}/scripts/tools-versions-win10.txt)
+  set(tools_versions_os ${BRIDLE_BASE}/doc/tools-versions-win10.txt)
 endif()
 
-set(tools_versions_min ${BRIDLE_BASE}/scripts/tools-versions-minimum.txt)
+set(tools_versions_min ${BRIDLE_BASE}/doc/tools-versions-minimum.txt)
 
 # This will determine and set the required Zephyr SDK version.
 file(STRINGS ${tools_versions_min}
