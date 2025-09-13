@@ -19,8 +19,8 @@ on:
       - '.known-issues/doc/**'
       - '**/Kconfig*'
       - 'scripts/tools-versions-*'
-      - 'scripts/requirements-*'
-      - 'scripts/requirements.txt'
+      - 'zephyr/requirements-*'
+      - 'zephyr/requirements.txt'
       - 'submanifests/*.yml'
       - 'west.yml'
       - '.github/workflows/doc-*.yml'
@@ -38,8 +38,8 @@ on:
       - '.known-issues/doc/**'
       - '**/Kconfig*'
       - 'scripts/tools-versions-*'
-      - 'scripts/requirements-*'
-      - 'scripts/requirements.txt'
+      - 'zephyr/requirements-*'
+      - 'zephyr/requirements.txt'
       - 'submanifests/*.yml'
       - 'west.yml'
       - '.github/workflows/doc-*.yml'
@@ -103,7 +103,7 @@ jobs:
       - name: Install documentation dependencies
         working-directory: workspace
         run: |
-          uv pip install --upgrade --requirement bridle/scripts/requirements-doc.txt
+          uv pip install --upgrade --requirement bridle/zephyr/requirements-doc.txt
           uv pip install --upgrade --requirement zephyr/scripts/requirements-actions.txt
           uv pip install coverxygen
 

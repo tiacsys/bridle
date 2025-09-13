@@ -47,7 +47,7 @@ jobs:
       - name: Install base dependencies
         working-directory: workspace
         run: |
-          uv pip install --upgrade --requirement bridle/scripts/requirements-base.txt
+          uv pip install --upgrade --requirement bridle/zephyr/requirements-base.txt
           uv pip show -f west
 
       - name: West init and update
