@@ -954,8 +954,7 @@
    :external+zephyr:ref:`boards`
 
 .. |zephyr:board:native_sim| replace::
-   :external+zephyr:ref:`native_sim`
-.. :external+zephyr:zephyr:board:`native_sim`
+   :external+zephyr:zephyr:board:`native_sim`
 
 .. |zephyr:board:native_sim32_64| replace::
    :external+zephyr:ref:`native_sim32_64`
