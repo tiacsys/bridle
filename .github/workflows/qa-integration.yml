@@ -30,8 +30,8 @@ on:
       - '**.defconfig'
       - '**.overlay'
       - '**.yaml'
-      - 'scripts/requirements-*'
-      - 'scripts/requirements.txt'
+      - 'zephyr/requirements-*'
+      - 'zephyr/requirements.txt'
       - 'submanifests/*.yml'
       - 'west.yml'
       - '.github/workflows/qa-integration.yml'
@@ -108,7 +108,7 @@ jobs:
         run: |
           which python3 && python3 --version
           which uv && uv --version
-          uv pip install --upgrade --requirement bridle/scripts/requirements-base.txt
+          uv pip install --upgrade --requirement bridle/zephyr/requirements-base.txt
 
       - name: West init and update
         working-directory: workspace
@@ -126,7 +126,7 @@ jobs:
           uv pip install --upgrade --requirement zephyr/scripts/requirements-run-test.txt
           uv pip install --upgrade --requirement zephyr/scripts/requirements-extras.txt
           uv pip install --upgrade --requirement zephyr/scripts/requirements-compliance.txt
-          uv pip install --upgrade --requirement bridle/scripts/requirements-build.txt
+          uv pip install --upgrade --requirement bridle/zephyr/requirements-build.txt
 
       - name: Fetch binary blobs
         working-directory: workspace
@@ -248,7 +248,7 @@ jobs:
         run: |
           which python3 && python3 --version
           which uv && uv --version
-          uv pip install --upgrade --requirement bridle/scripts/requirements-base.txt
+          uv pip install --upgrade --requirement bridle/zephyr/requirements-base.txt
 
       - name: West init and update
         working-directory: workspace
@@ -266,7 +266,7 @@ jobs:
           uv pip install --upgrade --requirement zephyr/scripts/requirements-run-test.txt
           uv pip install --upgrade --requirement zephyr/scripts/requirements-extras.txt
           uv pip install --upgrade --requirement zephyr/scripts/requirements-compliance.txt
-          uv pip install --upgrade --requirement bridle/scripts/requirements-build.txt
+          uv pip install --upgrade --requirement bridle/zephyr/requirements-build.txt
 
       - name: Build tests
         working-directory: workspace
@@ -384,7 +384,7 @@ jobs:
         run: |
           which python3 && python3 --version
           which uv && uv --version
-          uv pip install --upgrade --requirement bridle/scripts/requirements-base.txt
+          uv pip install --upgrade --requirement bridle/zephyr/requirements-base.txt
 
       - name: West init and update
         working-directory: workspace
@@ -402,7 +402,7 @@ jobs:
           uv pip install --upgrade --requirement zephyr/scripts/requirements-run-test.txt
           uv pip install --upgrade --requirement zephyr/scripts/requirements-extras.txt
           uv pip install --upgrade --requirement zephyr/scripts/requirements-compliance.txt
-          uv pip install --upgrade --requirement bridle/scripts/requirements-build.txt
+          uv pip install --upgrade --requirement bridle/zephyr/requirements-build.txt
 
       - name: Build integration tests for shields and snippets
         working-directory: workspace
@@ -504,7 +504,7 @@ jobs:
         run: |
           which python3 && python3 --version
           which uv && uv --version
-          uv pip install --upgrade --requirement bridle/scripts/requirements-base.txt
+          uv pip install --upgrade --requirement bridle/zephyr/requirements-base.txt
 
       - name: West init and update
         working-directory: workspace
@@ -522,7 +522,7 @@ jobs:
           uv pip install --upgrade --requirement zephyr/scripts/requirements-run-test.txt
           uv pip install --upgrade --requirement zephyr/scripts/requirements-extras.txt
           uv pip install --upgrade --requirement zephyr/scripts/requirements-compliance.txt
-          uv pip install --upgrade --requirement bridle/scripts/requirements-build.txt
+          uv pip install --upgrade --requirement bridle/zephyr/requirements-build.txt
 
       - name: Execute integration tests on target
         working-directory: workspace
