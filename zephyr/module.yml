@@ -1,4 +1,4 @@
-# Copyright (c) 2021 TiaC Systems
+# Copyright (c) 2021-2025 TiaC Systems
 # Copyright (c) 2019-2021 Li-Pro.Net
 # SPDX-License-Identifier: Apache-2.0
 
@@ -20,6 +20,14 @@ build:
     arch_root: .
     # mark this project as external module
     module_ext_root: .
+
+# point to out of tree package manager dependencies (west packages)
+package-managers:
+  # support Package Installer for Python
+  pip:
+    # provide custom requirements
+    requirement-files:
+      - zephyr/requirements.txt
 
 # pointed to out of tree boards for Zephyr test runner (twister)
 boards:

@@ -1,5 +1,9 @@
+# used by board "Arduino/Genuino Zero" for
+# Microchip's own Python MCU programmer
+# zephyr-keep-sorted-start
 pykitinfo>=1.4
 pymcuprog>=3.19
+# zephyr-keep-sorted-stop
 
 # Zephyr upstream requires spsdk==2.6.0,
 #          that depends on spsdk-pyocd<1,>=0.2.0 --> 0.3.2,
