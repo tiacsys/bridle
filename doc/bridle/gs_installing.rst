@@ -969,47 +969,16 @@ following commands:
 Installing additional Python dependencies
 *****************************************
 
-The |BRIDLE| requires additional Python packages to be installed.
+The |BRIDLE| requires additional Python packages to be installed. Use the
+following commands to install the requirements for each repository. Open
+a terminal window in the :ugn:`workspace` folder and enter the following
+commands:
 
-Use the following commands to install the requirements for each repository.
+.. container:: highlight highlight-console notranslate
 
-.. tabs::
+   .. parsed-literal::
 
-   .. group-tab:: Linux
-
-      Open a terminal window in the :ugn:`workspace` folder and
-      enter the following commands:
-
-         .. container:: highlight highlight-console notranslate
-
-            .. parsed-literal::
-
-               |pip_bin| install --upgrade --requirement zephyr/scripts/requirements.txt
-               |pip_bin| install --upgrade --requirement bridle/scripts/requirements.txt
-
-   .. group-tab:: macOS
-
-      Open a terminal window in the :ugn:`workspace` folder and
-      enter the following commands:
-
-         .. container:: highlight highlight-console notranslate
-
-            .. parsed-literal::
-
-               |pip_bin| install --upgrade --requirement zephyr/scripts/requirements.txt
-               |pip_bin| install --upgrade --requirement bridle/scripts/requirements.txt
-
-   .. group-tab:: Windows
-
-      Open a command prompt in the :ugn:`workspace` folder and
-      enter the following commands:
-
-         .. container:: highlight highlight-console notranslate
-
-            .. parsed-literal::
-
-               |pip_bin| install --upgrade --requirement zephyr\\scripts\\requirements.txt
-               |pip_bin| install --upgrade --requirement bridle\\scripts\\requirements.txt
+      west packages pip --install
 
 .. _installing_tbd:
 
