@@ -339,17 +339,31 @@ doc/**/*_warnings.txt
 !lib
 
 # List of compliance generated files
-compliance.xml
-MaintainersFormat.txt
-ImageSize.txt
-Nits.txt
+# zephyr-keep-sorted-start
 BinaryFiles.txt
-Kconfig.txt
-Identity.txt
-KconfigBasic.txt
-DevicetreeBindings.txt
-Pylint.txt
+BoardYml.txt
 Checkpatch.txt
+ClangFormat.txt
+DevicetreeBindings.txt
+GitDiffCheck.txt
 Gitlint.txt
-YAMLLint.txt
+Identity.txt
+ImageSize.txt
+Kconfig.txt
+KconfigBasic.txt
+KconfigBasicNoModules.txt
+KconfigHWMv2.txt
+KeepSorted.txt
+MaintainersFormat.txt
+ModulesMaintainers.txt
+Nits.txt
+Pylint.txt
 Ruff.txt
+SphinxLint.txt
+SysbuildKconfig.txt
+SysbuildKconfigBasic.txt
+SysbuildKconfigBasicNoModules.txt
+TextEncoding.txt
+YAMLLint.txt
+compliance.xml
+# zephyr-keep-sorted-stop
