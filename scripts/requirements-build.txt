@@ -1,10 +1,35 @@
-ecdsa>=0.19
-imagesize>=1.4
+# required by Zephyr module: MCUboot (interim solution)
+cbor>=1.0.0
+imgtool>=2.2.0
+
+# required by Zephyr module: Espressif HAL (interim solution)
+esptool>=5.0.2
+
+# intelhex used by mergehex.py
 intelhex>=2.3
+
+# used by various build scripts
 pyelftools>=0.32
+
+# used by dts generation to parse binding YAMLs, also used by
+# twister to parse YAMLs, by west, zephyr_module, ...
+PyYAML>=6.0
+
+# YAML validation. Used by zephyr_module.
 pykwalify>=1.8
+
+# used by ci/check_compliance
 pylint>=3.3
-regex>=2024.11
+regex>=2025.9
+
+# maybe used by signing with ECDSA for legacy nRF bootloaders
+# see: https://docs.nordicsemi.com/bundle/ncs-latest
+# --> Libraries
+#     --> Security libraries
+#         --> nRF Security
+#             --> Configuring nRF Security with legacy crypto APIs
+#                 "ECDSA configurations"
+ecdsa>=0.19
 
 #
 # Interim solution as long as the discussion continues upstream,

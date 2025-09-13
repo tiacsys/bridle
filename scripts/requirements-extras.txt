@@ -1,4 +1,4 @@
-pykitinfo>=1.3
+pykitinfo>=1.4
 pymcuprog>=3.19
 
 # Zephyr upstream requires spsdk==2.6.0,
@@ -6,5 +6,8 @@ pymcuprog>=3.19
 #          that depends on pyocd<0.37
 pyocd<0.37,>=0.36
 
+# used by west_commands
 pyserial>=3.5
+
+# used for west-command testing, also used by twister
 pytest>=8.4
