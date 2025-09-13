@@ -31,7 +31,7 @@ let
   };
 
   bridle-project = pyproject-nix.lib.project.loadRequirementsTxt {
-    requirements = bridle + "/scripts/requirements.txt";
+    requirements = bridle + "/zephyr/requirements.txt";
   };
 
   # Can't validate the combined packages sets, but we can at least check for
