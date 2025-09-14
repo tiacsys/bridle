@@ -1,4 +1,4 @@
-# Copyright (c) 2023 Sarah Renkhoff
+# Copyright (c) 2023-2025 Sarah Renkhoff
 # SPDX-License-Identifier: Apache-2.0
 
 menu "Ubxlib GNSS sample settings"
@@ -9,6 +9,7 @@ source "subsys/logging/Kconfig.template.log_config"
 
 endmenu
 
+# Sources Kconfig.zephyr in the Zephyr root directory.
 menu "Zephyr Kernel"
 source "Kconfig.zephyr"
 endmenu

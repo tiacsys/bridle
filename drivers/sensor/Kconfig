@@ -3,6 +3,8 @@
 
 if SENSOR
 
+# zephyr-keep-sorted-start
 rsource "sensortek/Kconfig"
+# zephyr-keep-sorted-stop
 
 endif # SENSOR

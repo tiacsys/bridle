@@ -1,4 +1,4 @@
-# Copyright (c) 2021-2022 TiaC Systems
+# Copyright (c) 2021-2025 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 mainmenu "Button"
@@ -27,4 +27,6 @@ config SLEEP_TIME_MS
 endif # APPLICATION_MODE_POLLING
 
 # Sources Kconfig.zephyr in the Zephyr root directory.
+menu "Zephyr Kernel"
 source "Kconfig.zephyr"
+endmenu

@@ -1,4 +1,6 @@
-# Copyright (c) 2024 TiaC Systems
+# Copyright (c) 2024-2025 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
+# zephyr-keep-sorted-start
 rsource "seeeduino_xiao/Kconfig.defconfig"
+# zephyr-keep-sorted-stop

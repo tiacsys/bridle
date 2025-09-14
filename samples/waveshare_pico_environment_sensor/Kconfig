@@ -1,4 +1,4 @@
-# Copyright (c) 2024 TiaC Systems
+# Copyright (c) 2024-2025 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 mainmenu "Waveshare Pico Environment Sensor sample application"
@@ -7,4 +7,7 @@ config APP_USE_COMPENSATION
 	bool "Use the T/RH compensation feature of the SGP40"
 	default y
 
+# Sources Kconfig.zephyr in the Zephyr root directory.
+menu "Zephyr Kernel"
 source "Kconfig.zephyr"
+endmenu

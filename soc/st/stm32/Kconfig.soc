@@ -1,6 +1,8 @@
 # ST Microelectronics STM32 MCU line
 
-# Copyright (c) 2024 TiaC Systems
+# Copyright (c) 2024-2025 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
+# zephyr-keep-sorted-start
 rsource "*/Kconfig.soc"
+# zephyr-keep-sorted-stop

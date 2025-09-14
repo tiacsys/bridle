@@ -4,11 +4,13 @@
 
 menu "Device Drivers"
 
+# zephyr-keep-sorted-start
 rsource "display/Kconfig"
 rsource "gpio/Kconfig"
 rsource "i2c/Kconfig"
 rsource "mfd/Kconfig"
 rsource "sensor/Kconfig"
 rsource "serial/Kconfig"
+# zephyr-keep-sorted-stop
 
 endmenu

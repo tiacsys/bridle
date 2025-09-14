@@ -1,6 +1,6 @@
 # Shell configuration options
 
-# Copyright (c) 2021 TiaC Systems
+# Copyright (c) 2021-2025 TiaC Systems
 # Copyright (c) 2014-2015 Wind River Systems, Inc.
 # Copyright (c) 2016 Intel Corporation
 # Copyright (c) 2018 Nordic Semiconductor ASA
@@ -8,6 +8,8 @@
 
 if SHELL
 
+# zephyr-keep-sorted-start
 rsource "modules/Kconfig"
+# zephyr-keep-sorted-stop
 
 endif # SHELL

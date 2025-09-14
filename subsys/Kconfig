@@ -1,9 +1,11 @@
-# Copyright (c) 2021 TiaC Systems
+# Copyright (c) 2021-2025 TiaC Systems
 # Copyright (c) 2019-2021 Li-Pro.Net
 # SPDX-License-Identifier: Apache-2.0
 
 menu "Sub Systems and OS Services"
 
+# zephyr-keep-sorted-start
 rsource "shell/Kconfig"
+# zephyr-keep-sorted-stop
 
 endmenu

@@ -1,8 +1,10 @@
-# Copyright (c) 2023 TiaC Systems
+# Copyright (c) 2023-2025 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 if DISPLAY
 
+# zephyr-keep-sorted-start
 rsource "Kconfig.sipomux"
+# zephyr-keep-sorted-stop
 
 endif # DISPLAY

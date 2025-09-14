@@ -3,8 +3,10 @@
 
 if MFD
 
+# zephyr-keep-sorted-start
 rsource "Kconfig.sc16is75x"
 rsource "Kconfig.sipomuxgp"
 rsource "sc18is604/Kconfig"
+# zephyr-keep-sorted-stop
 
 endif # MFD

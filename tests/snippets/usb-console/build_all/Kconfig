@@ -1,7 +1,7 @@
 # Copyright (c) 2025 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
-comment "Buildability over all Bridle USB Console Boards and Snippets (usb-console)"
+mainmenu "Buildability over all Bridle USB Console Boards and Snippets (usb-console)"
 
 comment "Test configuration:"
 config TEST_NAME
@@ -85,4 +85,6 @@ endif # TEST_EXPECTED_USB_DEVICE_STACK
 
 # Sources Kconfig.zephyr in the Zephyr root directory.
 comment "Zephyr configuration:"
+menu "Zephyr Kernel"
 source "Kconfig.zephyr"
+endmenu
