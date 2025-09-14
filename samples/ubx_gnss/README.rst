@@ -203,7 +203,8 @@ requires special care when using and maintaining the code base.
                 :caption: boards/mimxrt1010_evk.conf
                 :language: cfg
                 :encoding: ISO-8859-1
-                :start-after: # Memory
+                :start-after: # zephyr-keep-sorted-start
+                :end-before: # zephyr-keep-sorted-stop
 
            - :Dynamic Memory Pool:
                 | left on :bgn:`16384`
