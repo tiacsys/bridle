@@ -98,11 +98,23 @@ jobs:
           source .venv/bin/activate
           echo "$PATH" > $GITHUB_PATH
 
+      - name: Install base dependencies
+        working-directory: workspace
+        run: |
+          which python3 && python3 --version
+          which uv && uv --version
+          uv pip install --upgrade --requirement bridle/zephyr/requirements-base.txt
+          uv pip show -f west
+          west -V
+
       - name: Install documentation dependencies
         working-directory: workspace
         run: |
-          uv pip install --upgrade --requirement bridle/zephyr/requirements-doc.txt
-          uv pip install --upgrade --requirement zephyr/scripts/requirements-actions.txt
+          # uv pip install --upgrade --requirement zephyr/scripts/requirements-actions.txt
+          # uv pip install --upgrade --requirement zephyr/doc/requirements.txt
+          # uv pip install --upgrade --requirement bridle/zephyr/requirements-doc.txt
+          # uv pip install coverxygen
+          west packages pip | xargs uv pip install --upgrade
           uv pip install coverxygen
 
       - name: Build documentation
