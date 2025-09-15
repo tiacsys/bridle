@@ -221,6 +221,7 @@
 .. _`sphinx-autobuild`: https://pypi.org/project/sphinx-autobuild
 .. _`sphinx-copybutton`: https://pypi.org/project/sphinx-copybutton
 .. _`sphinx-csv-filter`: https://pypi.org/project/sphinx-csv-filter
+.. _`sphinx-filter-tabs`: https://pypi.org/project/sphinx-filter-tabs
 .. _`sphinx-notfound-page`: https://pypi.org/project/sphinx-notfound-page
 .. _`sphinx-sitemap`: https://pypi.org/project/sphinx-sitemap
 .. _`sphinx-tabs`: https://pypi.org/project/sphinx-tabs

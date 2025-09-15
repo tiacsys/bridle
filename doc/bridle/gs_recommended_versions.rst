@@ -561,6 +561,8 @@ Building documentation
      - |sphinx-copybutton_ver|
    * - |sphinx-csv-filter|_
      - |sphinx-csv-filter_ver|
+   * - |sphinx-filter-tabs|_
+     - |sphinx-filter-tabs_ver|
    * - |sphinx-notfound-page|_
      - |sphinx-notfound-page_ver|
    * - |sphinx-sitemap|_
