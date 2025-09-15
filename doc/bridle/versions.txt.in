@@ -159,6 +159,8 @@
 
 .. zephyr-keep-sorted-start re(^\.{2} \|.*\| replace:: :strong:`\w)
 
+.. |Pillow| replace:: :strong:`Pillow`
+.. |Pillow_ver| replace:: @PILLOW_VERSION@
 .. |PyYAML| replace:: :strong:`PyYAML`
 .. |PyYAML_ver| replace:: @PYYAML_VERSION@
 .. |Pygments| replace:: :strong:`Pygments`

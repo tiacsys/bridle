@@ -199,6 +199,7 @@
 .. _`ecdsa`: https://pypi.org/project/ecdsa
 .. _`imagesize`: https://pypi.org/project/imagesize
 .. _`intelhex`: https://pypi.org/project/intelhex
+.. _`Pillow`: https://pypi.org/project/Pillow
 .. _`pyelftools`: https://pypi.org/project/pyelftools
 .. _`Pygments`: https://pypi.org/project/Pygments
 .. _`pykitinfo`: https://pypi.org/project/pykitinfo

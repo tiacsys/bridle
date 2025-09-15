@@ -543,6 +543,8 @@ Building documentation
 
    * - Package
      - Version
+   * - |Pillow|_
+     - |Pillow_ver|
    * - |Pygments|_
      - |Pygments_ver|
    * - |Sphinx|_
