@@ -156,6 +156,9 @@
 .. |sphinxcontrib-programoutput_ver| replace:: @SPHINXCONTRIB-PROGRAMOUTPUT_VERSION@
 .. |sphinxcontrib-svg2pdfconverter| replace:: :strong:`sphinxcontrib-svg2pdfconverter`
 .. |sphinxcontrib-svg2pdfconverter_ver| replace:: @SPHINXCONTRIB-SVG2PDFCONVERTER_VERSION@
+.. |sphobjinv| replace:: :strong:`sphobjinv`
+.. |sphobjinv_des| replace:: Sphinx objects.inv files manipulator and inspector
+.. |sphobjinv_ver| replace:: @SPHOBJINV_VERSION@
 
 .. zephyr-keep-sorted-stop
 

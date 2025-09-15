@@ -581,3 +581,22 @@ Building documentation
      - |sphinxcontrib-svg2pdfconverter_ver|
 
 .. zephyr-keep-sorted-stop
+
+Utilities that assist documentation writing
+-------------------------------------------
+
+.. _req_docpkgs_utils_table:
+
+.. zephyr-keep-sorted-start re(^\s+\* - \|\w)
+
+.. list-table::
+   :header-rows: 1
+
+   * - Package
+     - Version
+     - Description
+   * - |sphobjinv|_
+     - |sphobjinv_ver|
+     - |sphobjinv_des|
+
+.. zephyr-keep-sorted-stop

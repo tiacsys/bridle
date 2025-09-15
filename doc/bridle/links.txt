@@ -226,6 +226,7 @@
 .. _`sphinx-sitemap`: https://pypi.org/project/sphinx-sitemap
 .. _`sphinx-tabs`: https://pypi.org/project/sphinx-tabs
 .. _`sphinx-togglebutton`: https://pypi.org/project/sphinx-togglebutton
+.. _`sphobjinv`: https://pypi.org/project/sphobjinv
 
 .. _`Zephyr RTOS meta tool`: https://pypi.org/project/west
 .. _`west_pypa`: https://pypi.org/project/west/
