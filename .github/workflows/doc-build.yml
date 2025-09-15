@@ -78,7 +78,7 @@ jobs:
           base-path: workspace
           manifest-file-name: west.yml
           west-version: 1.4.0
-          sdk-version: 0.17.2
+          sdk-version: 0.17.4
           toolchains: 'all'
 
       - name: Export Zephyr workspace with Bridle
