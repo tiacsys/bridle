@@ -268,6 +268,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`364` - [FCR] Upgrade to Zephyr SDK 0.17.4 and CI container 0.28.4
 * :github:`362` - [FER] switch to west controlled package manager dependencies
 * :github:`352` - [BUG] wrong handling of special project configuration in ``button`` sample
 * :github:`351` - [BUG] wrong handling of special project configuration in ``helloshell`` sample
