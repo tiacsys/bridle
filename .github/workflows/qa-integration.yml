@@ -99,6 +99,7 @@ jobs:
       - name: Create and enter Python 3.12 virtual environment
         working-directory: workspace
         run: |
+          # Zephyr CI container doesn't support 'source', use '.' instead
           uv venv --python 3.12
           . .venv/bin/activate
           echo "$PATH" > $GITHUB_PATH
@@ -109,6 +110,8 @@ jobs:
           which python3 && python3 --version
           which uv && uv --version
           uv pip install --upgrade --requirement bridle/zephyr/requirements-base.txt
+          uv pip show -f west
+          west -V
 
       - name: West init and update
         working-directory: workspace
@@ -121,12 +124,13 @@ jobs:
       - name: Install build and test dependencies
         working-directory: workspace
         run: |
-          uv pip install --upgrade --requirement zephyr/scripts/requirements-base.txt
-          uv pip install --upgrade --requirement zephyr/scripts/requirements-build-test.txt
-          uv pip install --upgrade --requirement zephyr/scripts/requirements-run-test.txt
-          uv pip install --upgrade --requirement zephyr/scripts/requirements-extras.txt
-          uv pip install --upgrade --requirement zephyr/scripts/requirements-compliance.txt
-          uv pip install --upgrade --requirement bridle/zephyr/requirements-build.txt
+          # uv pip install --upgrade --requirement zephyr/scripts/requirements-base.txt
+          # uv pip install --upgrade --requirement zephyr/scripts/requirements-build-test.txt
+          # uv pip install --upgrade --requirement zephyr/scripts/requirements-run-test.txt
+          # uv pip install --upgrade --requirement zephyr/scripts/requirements-extras.txt
+          # uv pip install --upgrade --requirement zephyr/scripts/requirements-compliance.txt
+          # uv pip install --upgrade --requirement bridle/zephyr/requirements-build.txt
+          west packages pip | xargs uv pip install --upgrade
 
       - name: Fetch binary blobs
         working-directory: workspace
@@ -239,6 +243,7 @@ jobs:
       - name: Create and enter Python 3.12 virtual environment
         working-directory: workspace
         run: |
+          # Zephyr CI container doesn't support 'source', use '.' instead
           uv venv --python 3.12
           . .venv/bin/activate
           echo "$PATH" > $GITHUB_PATH
@@ -249,6 +254,8 @@ jobs:
           which python3 && python3 --version
           which uv && uv --version
           uv pip install --upgrade --requirement bridle/zephyr/requirements-base.txt
+          uv pip show -f west
+          west -V
 
       - name: West init and update
         working-directory: workspace
@@ -261,12 +268,13 @@ jobs:
       - name: Install build and test dependencies
         working-directory: workspace
         run: |
-          uv pip install --upgrade --requirement zephyr/scripts/requirements-base.txt
-          uv pip install --upgrade --requirement zephyr/scripts/requirements-build-test.txt
-          uv pip install --upgrade --requirement zephyr/scripts/requirements-run-test.txt
-          uv pip install --upgrade --requirement zephyr/scripts/requirements-extras.txt
-          uv pip install --upgrade --requirement zephyr/scripts/requirements-compliance.txt
-          uv pip install --upgrade --requirement bridle/zephyr/requirements-build.txt
+          # uv pip install --upgrade --requirement zephyr/scripts/requirements-base.txt
+          # uv pip install --upgrade --requirement zephyr/scripts/requirements-build-test.txt
+          # uv pip install --upgrade --requirement zephyr/scripts/requirements-run-test.txt
+          # uv pip install --upgrade --requirement zephyr/scripts/requirements-extras.txt
+          # uv pip install --upgrade --requirement zephyr/scripts/requirements-compliance.txt
+          # uv pip install --upgrade --requirement bridle/zephyr/requirements-build.txt
+          west packages pip | xargs uv pip install --upgrade
 
       - name: Build tests
         working-directory: workspace
@@ -375,6 +383,7 @@ jobs:
       - name: Create and enter Python 3.12 virtual environment
         working-directory: workspace
         run: |
+          # Zephyr CI container doesn't support 'source', use '.' instead
           uv venv --python 3.12
           . .venv/bin/activate
           echo "$PATH" > $GITHUB_PATH
@@ -385,6 +394,8 @@ jobs:
           which python3 && python3 --version
           which uv && uv --version
           uv pip install --upgrade --requirement bridle/zephyr/requirements-base.txt
+          uv pip show -f west
+          west -V
 
       - name: West init and update
         working-directory: workspace
@@ -397,12 +408,13 @@ jobs:
       - name: Install build and test dependencies
         working-directory: workspace
         run: |
-          uv pip install --upgrade --requirement zephyr/scripts/requirements-base.txt
-          uv pip install --upgrade --requirement zephyr/scripts/requirements-build-test.txt
-          uv pip install --upgrade --requirement zephyr/scripts/requirements-run-test.txt
-          uv pip install --upgrade --requirement zephyr/scripts/requirements-extras.txt
-          uv pip install --upgrade --requirement zephyr/scripts/requirements-compliance.txt
-          uv pip install --upgrade --requirement bridle/zephyr/requirements-build.txt
+          # uv pip install --upgrade --requirement zephyr/scripts/requirements-base.txt
+          # uv pip install --upgrade --requirement zephyr/scripts/requirements-build-test.txt
+          # uv pip install --upgrade --requirement zephyr/scripts/requirements-run-test.txt
+          # uv pip install --upgrade --requirement zephyr/scripts/requirements-extras.txt
+          # uv pip install --upgrade --requirement zephyr/scripts/requirements-compliance.txt
+          # uv pip install --upgrade --requirement bridle/zephyr/requirements-build.txt
+          west packages pip | xargs uv pip install --upgrade
 
       - name: Build integration tests for shields and snippets
         working-directory: workspace
@@ -505,6 +517,8 @@ jobs:
           which python3 && python3 --version
           which uv && uv --version
           uv pip install --upgrade --requirement bridle/zephyr/requirements-base.txt
+          uv pip show -f west
+          west -V
 
       - name: West init and update
         working-directory: workspace
@@ -517,12 +531,13 @@ jobs:
       - name: Install build and test dependencies
         working-directory: workspace
         run: |
-          uv pip install --upgrade --requirement zephyr/scripts/requirements-base.txt
-          uv pip install --upgrade --requirement zephyr/scripts/requirements-build-test.txt
-          uv pip install --upgrade --requirement zephyr/scripts/requirements-run-test.txt
-          uv pip install --upgrade --requirement zephyr/scripts/requirements-extras.txt
-          uv pip install --upgrade --requirement zephyr/scripts/requirements-compliance.txt
-          uv pip install --upgrade --requirement bridle/zephyr/requirements-build.txt
+          # uv pip install --upgrade --requirement zephyr/scripts/requirements-base.txt
+          # uv pip install --upgrade --requirement zephyr/scripts/requirements-build-test.txt
+          # uv pip install --upgrade --requirement zephyr/scripts/requirements-run-test.txt
+          # uv pip install --upgrade --requirement zephyr/scripts/requirements-extras.txt
+          # uv pip install --upgrade --requirement zephyr/scripts/requirements-compliance.txt
+          # uv pip install --upgrade --requirement bridle/zephyr/requirements-build.txt
+          west packages pip | xargs uv pip install --upgrade
 
       - name: Execute integration tests on target
         working-directory: workspace
