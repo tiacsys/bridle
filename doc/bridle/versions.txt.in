@@ -131,33 +131,59 @@
 .. zephyr-keep-sorted-start re(^\.{2} \|.*\| replace:: :strong:`\w)
 
 .. |Sphinx| replace:: :strong:`Sphinx`
+.. |Sphinx_des| replace:: documentation generator based on `reStructuredText (RST) <reStructuredText Primer_>`_ files
 .. |Sphinx_ver| replace:: @SPHINX_VERSION@
+
 .. |sphinx-autobuild| replace:: :strong:`sphinx-autobuild`
+.. |sphinx-autobuild_des| replace:: rebuilding Sphinx documentation on changes, with hot reloading in browsers
 .. |sphinx-autobuild_ver| replace:: @SPHINX-AUTOBUILD_VERSION@
+
 .. |sphinx-copybutton| replace:: :strong:`sphinx-copybutton`
+.. |sphinx-copybutton_des| replace:: adds a :kbd:`copy` button to code blocks
 .. |sphinx-copybutton_ver| replace:: @SPHINX-COPYBUTTON_VERSION@
+
 .. |sphinx-csv-filter| replace:: :strong:`sphinx-csv-filter`
+.. |sphinx-csv-filter_des| replace:: adds CSV row filtering options to the :rst:`csv-table` directive
 .. |sphinx-csv-filter_ver| replace:: @SPHINX-CSV-FILTER_VERSION@
+
 .. |sphinx-filter-tabs| replace:: :strong:`sphinx-filter-tabs`
+.. |sphinx-filter-tabs_des| replace:: creating accessible, filterable content tabs
 .. |sphinx-filter-tabs_ver| replace:: @SPHINX-FILTER-TABS_VERSION@
+
 .. |sphinx-notfound-page| replace:: :strong:`sphinx-notfound-page`
+.. |sphinx-notfound-page_des| replace:: creates a custom 404 page with absolute URLs hardcoded
 .. |sphinx-notfound-page_ver| replace:: @SPHINX-NOTFOUND-PAGE_VERSION@
+
 .. |sphinx-sitemap| replace:: :strong:`sphinx-sitemap`
+.. |sphinx-sitemap_des| replace:: generate multiversion and multilanguage sitemaps.org_ compliant sitemaps
 .. |sphinx-sitemap_ver| replace:: @SPHINX-SITEMAP_VERSION@
+
 .. |sphinx-tabs| replace:: :strong:`sphinx-tabs`
+.. |sphinx-tabs_des| replace:: creates tabbed content
 .. |sphinx-tabs_ver| replace:: @SPHINX-TABS_VERSION@
+
 .. |sphinx-togglebutton| replace:: :strong:`sphinx-togglebutton`
+.. |sphinx-togglebutton_des| replace:: enables a :kbd:`toggle` button for sections
 .. |sphinx-togglebutton_ver| replace:: @SPHINX-TOGGLEBUTTON_VERSION@
+
 .. |sphinx_tsn_theme| replace:: :strong:`sphinx-tsn-theme`
+.. |sphinx_tsn_theme_des| replace:: `Sphinx theme <Sphinx HTML theming_>`_ for TiaC Systems Network (TSN) documentation
 .. |sphinx_tsn_theme_ver| replace:: @SPHINX-TSN-THEME_VERSION@
+
 .. |sphinxcontrib-mscgen| replace:: :strong:`sphinxcontrib-mscgen`
+.. |sphinxcontrib-mscgen_des| replace:: allows embedded :command:`mscgen`\ -formatted Message Sequence Chart (MSC) graphs
 .. |sphinxcontrib-mscgen_ver| replace:: @SPHINXCONTRIB-MSCGEN_VERSION@
+
 .. |sphinxcontrib-programoutput| replace:: :strong:`sphinxcontrib-programoutput`
+.. |sphinxcontrib-programoutput_des| replace:: literally insert output of arbitrary commands into documents
 .. |sphinxcontrib-programoutput_ver| replace:: @SPHINXCONTRIB-PROGRAMOUTPUT_VERSION@
+
 .. |sphinxcontrib-svg2pdfconverter| replace:: :strong:`sphinxcontrib-svg2pdfconverter`
+.. |sphinxcontrib-svg2pdfconverter_des| replace:: SVG images to PDF converter for builder does not support SVG
 .. |sphinxcontrib-svg2pdfconverter_ver| replace:: @SPHINXCONTRIB-SVG2PDFCONVERTER_VERSION@
+
 .. |sphobjinv| replace:: :strong:`sphobjinv`
-.. |sphobjinv_des| replace:: Sphinx objects.inv files manipulator and inspector
+.. |sphobjinv_des| replace:: Sphinx_ objects.inv files manipulator and inspector
 .. |sphobjinv_ver| replace:: @SPHOBJINV_VERSION@
 
 .. zephyr-keep-sorted-stop
@@ -165,41 +191,73 @@
 .. zephyr-keep-sorted-start re(^\.{2} \|.*\| replace:: :strong:`\w)
 
 .. |Pillow| replace:: :strong:`Pillow`
+.. |Pillow_des| replace:: Python_ Imaging Library (former and successor of PIL)
 .. |Pillow_ver| replace:: @PILLOW_VERSION@
+
 .. |PyYAML| replace:: :strong:`PyYAML`
+.. |PyYAML_des| replace:: YAML parser and emitter for Python_
 .. |PyYAML_ver| replace:: @PYYAML_VERSION@
+
 .. |Pygments| replace:: :strong:`Pygments`
+.. |Pygments_des| replace:: syntax highlighting package for HTML, LaTeX, RTF, SVG, images by Pillow_ (PIL) and ANSI sequences
 .. |Pygments_ver| replace:: @PYGMENTS_VERSION@
+
 .. |docutils| replace:: :strong:`docutils`
+.. |docutils_des| replace:: modular system for processing `RST <reStructuredText Primer_>`_ documentation, backend of Sphinx_
 .. |docutils_ver| replace:: @DOCUTILS_VERSION@
+
 .. |doxmlparser| replace:: :strong:`doxmlparser`
+.. |doxmlparser_des| replace:: parses the XML output produced by Doxygen_
 .. |doxmlparser_ver| replace:: @DOXMLPARSER_VERSION@
+
 .. |ecdsa| replace:: :strong:`ecdsa`
+.. |ecdsa_des| replace:: easy-to-use Python_ implementation of elliptic curve algorithm (ECC, ECDSA, EdDSA, ECDH)
 .. |ecdsa_ver| replace:: @ECDSA_VERSION@
+
 .. |imagesize| replace:: :strong:`imagesize`
+.. |imagesize_des| replace:: parses image files’ header and return image size
 .. |imagesize_ver| replace:: @IMAGESIZE_VERSION@
+
 .. |intelhex| replace:: :strong:`intelhex`
+.. |intelhex_des| replace:: read, write, create and manipulate data from Intel HEX file
 .. |intelhex_ver| replace:: @INTELHEX_VERSION@
+
 .. |pyelftools| replace:: :strong:`pyelftools`
+.. |pyelftools_des| replace:: analyzing ELF files and DWARF debugging information
 .. |pyelftools_ver| replace:: @PYELFTOOLS_VERSION@
+
 .. |pykitinfo| replace:: :strong:`pykitinfo`
+.. |pykitinfo_des| replace:: provide information from Microchip development kits connected via USB
 .. |pykitinfo_ver| replace:: @PYKITINFO_VERSION@
+
 .. |pylint| replace:: :strong:`pylint`
+.. |pylint_des| replace:: static code analyser for Python_ 2 or 3 without actually running it
 .. |pylint_ver| replace:: @PYLINT_VERSION@
+
 .. |pymcuprog| replace:: :strong:`pymcuprog`
+.. |pymcuprog_des| replace:: programming various Microchip MCU devices using Microchip CMSIS-DAP based debuggers
 .. |pymcuprog_ver| replace:: @PYMCUPROG_VERSION@
+
 .. |pyocd| replace:: :strong:`pyocd`
+.. |pyocd_des| replace:: programming and debugging Arm Cortex-M MCU with a wide range of debug probes
 .. |pyocd_ver| replace:: @PYOCD_VERSION@
+
 .. |pyserial| replace:: :strong:`pyserial`
+.. |pyserial_des| replace:: cross-platform (Windows, OSX, Linux, BSD) access to the serial port
 .. |pyserial_ver| replace:: @PYSERIAL_VERSION@
+
 .. |pytest| replace:: :strong:`pytest`
+.. |pytest_des| replace:: simple powerful testing framework for Python_
 .. |pytest_ver| replace:: @PYTEST_VERSION@
+
 .. |regex| replace:: :strong:`regex`
+.. |regex_des| replace:: RegEx with additional functionality; backwards-compatible to the standard Python_ :python:`re` module
 .. |regex_ver| replace:: @REGEX_VERSION@
 
 .. |Zephyr RTOS meta tool| replace:: :emphasis:`Zephyr RTOS meta tool`
 .. |west_pypa| replace:: :emphasis:`Zephyr RTOS meta tool` :command:`west` (PyPA)
 .. |west| replace:: :strong:`west`
+.. |west_des| replace:: The `Zephyr RTOS Project <Zephyr Project_>`_ meta-tool, a swiss-army knife command line tool
 .. |west_ver| replace:: @WEST_VERSION@
 .. |west_min_ver| replace:: @WEST_VERSION_MINIMUM@
 .. |west_recommended_ver_linux| replace:: @WEST_VERSION_LINUX@
@@ -207,6 +265,7 @@
 .. |west_recommended_ver_win1x| replace:: @WEST_VERSION_WIN1X@
 
 .. |windows-curses| replace:: :strong:`windows-curses`
+.. |windows-curses_des| replace:: wide character extension to the standard Python_ :python:`curses` module on Windows
 .. |windows-curses_ver| replace:: @WINDOWS-CURSES_VERSION@
 
 .. zephyr-keep-sorted-stop

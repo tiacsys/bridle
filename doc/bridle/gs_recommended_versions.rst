@@ -500,32 +500,46 @@ Building and running applications, samples, and tests
 
    * - Package
      - Version
+     - Description
    * - |PyYAML|_
      - |PyYAML_ver|
+     - |PyYAML_des|
    * - |ecdsa|_
      - |ecdsa_ver|
+     - |ecdsa_des|
    * - |intelhex|_
      - |intelhex_ver|
+     - |intelhex_des|
    * - |pyelftools|_
      - |pyelftools_ver|
+     - |pyelftools_des|
    * - |pykitinfo|_
      - |pykitinfo_ver|
+     - |pykitinfo_des|
    * - |pylint|_
      - |pylint_ver|
+     - |pylint_des|
    * - |pymcuprog|_
      - |pymcuprog_ver|
+     - |pymcuprog_des|
    * - |pyocd|_
      - |pyocd_ver|
+     - |pyocd_des|
    * - |pyserial|_
      - |pyserial_ver|
+     - |pyserial_des|
    * - |pytest|_
      - |pytest_ver|
+     - |pytest_des|
    * - |regex|_
      - |regex_ver|
+     - |regex_des|
    * - |west|_
      - |west_ver|
+     - |west_des|
    * - |windows-curses|_ (only Windows)
      - |windows-curses_ver|
+     - |windows-curses_des|
 
 .. zephyr-keep-sorted-stop
 
@@ -543,42 +557,61 @@ Building documentation
 
    * - Package
      - Version
+     - Description
    * - |Pillow|_
      - |Pillow_ver|
+     - |Pillow_des|
    * - |Pygments|_
      - |Pygments_ver|
+     - |Pygments_des|
    * - |Sphinx|_
      - |Sphinx_ver|
+     - |Sphinx_des|
    * - |docutils|_
      - |docutils_ver|
+     - |docutils_des|
    * - |doxmlparser|_
      - |doxmlparser_ver|
+     - |doxmlparser_des|
    * - |imagesize|_
      - |imagesize_ver|
+     - |imagesize_des|
    * - |sphinx-autobuild|_
      - |sphinx-autobuild_ver|
+     - |sphinx-autobuild_des|
    * - |sphinx-copybutton|_
      - |sphinx-copybutton_ver|
+     - |sphinx-copybutton_des|
    * - |sphinx-csv-filter|_
      - |sphinx-csv-filter_ver|
+     - |sphinx-csv-filter_des|
    * - |sphinx-filter-tabs|_
      - |sphinx-filter-tabs_ver|
+     - |sphinx-filter-tabs_des|
    * - |sphinx-notfound-page|_
      - |sphinx-notfound-page_ver|
+     - |sphinx-notfound-page_des|
    * - |sphinx-sitemap|_
      - |sphinx-sitemap_ver|
+     - |sphinx-sitemap_des|
    * - |sphinx-tabs|_
      - |sphinx-tabs_ver|
+     - |sphinx-tabs_des|
    * - |sphinx-togglebutton|_
      - |sphinx-togglebutton_ver|
+     - |sphinx-togglebutton_des|
    * - |sphinx_tsn_theme|_
      - |sphinx_tsn_theme_ver|
+     - |sphinx_tsn_theme_des|
    * - |sphinxcontrib-mscgen|_
      - |sphinxcontrib-mscgen_ver|
+     - |sphinxcontrib-mscgen_des|
    * - |sphinxcontrib-programoutput|_
      - |sphinxcontrib-programoutput_ver|
+     - |sphinxcontrib-programoutput_des|
    * - |sphinxcontrib-svg2pdfconverter|_
      - |sphinxcontrib-svg2pdfconverter_ver|
+     - |sphinxcontrib-svg2pdfconverter_des|
 
 .. zephyr-keep-sorted-stop
 

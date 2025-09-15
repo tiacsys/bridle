@@ -384,8 +384,11 @@
 .. _`Devicetree reference`: https://elinux.org/Device_Tree_Reference
 
 .. _`Sphinx Documentation`: https://www.sphinx-doc.org/en/master/contents.html
+.. _`Sphinx HTML theming`: https://www.sphinx-doc.org/en/master/usage/theming.html
 .. _`reStructuredText Primer`: https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
 .. _`Li-Pro.Net Sphinx Primer`: https://lpn-doc-sphinx-primer.readthedocs.io/en/latest/
+
+.. _`sitemaps.org`: https://sitemaps.org/protocol.html
 
 .. _`TinyCBOR`: https://intel.github.io/tinycbor/current/
 
