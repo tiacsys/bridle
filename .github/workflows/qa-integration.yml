@@ -84,7 +84,7 @@ jobs:
           keep-git: false
 
       - name: Checkout the code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 100
           show-progress: true
@@ -92,7 +92,7 @@ jobs:
           ref: ${{ github.ref }}
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v5
+        uses: astral-sh/setup-uv@v6
         with:
           enable-cache: true
 
@@ -173,7 +173,7 @@ jobs:
           path: workspace/twister-out/twister.xml
 
       - name: Convert integration test reports to annotations
-        uses: mikepenz/action-junit-report@v4
+        uses: mikepenz/action-junit-report@v5
         with:
           check_name: twister-report (samples)
           report_paths: "**/twister-out/twister.xml"
@@ -228,7 +228,7 @@ jobs:
           keep-git: false
 
       - name: Checkout the code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 100
           show-progress: true
@@ -236,7 +236,7 @@ jobs:
           ref: ${{ github.ref }}
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v5
+        uses: astral-sh/setup-uv@v6
         with:
           enable-cache: true
 
@@ -313,7 +313,7 @@ jobs:
           path: workspace/twister-out/twister.xml
 
       - name: Convert integration test reports to annotations
-        uses: mikepenz/action-junit-report@v4
+        uses: mikepenz/action-junit-report@v5
         with:
           check_name: twister-report (tests)
           report_paths: "**/twister-out/twister.xml"
@@ -368,7 +368,7 @@ jobs:
           keep-git: false
 
       - name: Checkout the code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 100
           show-progress: true
@@ -376,7 +376,7 @@ jobs:
           ref: ${{ github.ref }}
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v5
+        uses: astral-sh/setup-uv@v6
         with:
           enable-cache: true
 
@@ -450,7 +450,7 @@ jobs:
           path: workspace/twister-out/twister.xml
 
       - name: Convert integration test reports to annotations
-        uses: mikepenz/action-junit-report@v4
+        uses: mikepenz/action-junit-report@v5
         with:
           check_name: twister-report (shields)
           report_paths: "**/twister-out/twister.xml"
@@ -492,7 +492,7 @@ jobs:
           keep-git: false
 
       - name: Checkout the code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 100
           show-progress: true
@@ -500,7 +500,7 @@ jobs:
           ref: ${{ github.ref }}
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v5
+        uses: astral-sh/setup-uv@v6
         with:
           enable-cache: true
 
@@ -601,7 +601,7 @@ jobs:
           path: workspace/twister-out/twister.xml
 
       - name: Convert integration test reports to annotations
-        uses: mikepenz/action-junit-report@v4
+        uses: mikepenz/action-junit-report@v5
         with:
           check_name: twister-report (${{ matrix.board }})
           report_paths: "**/twister-out/twister.xml"

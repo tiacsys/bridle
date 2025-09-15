@@ -27,14 +27,14 @@ jobs:
           echo "$HOME/.local/bin" >> $GITHUB_PATH
 
       - name: Checkout the code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           path: workspace/bridle
           ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 0
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v5
+        uses: astral-sh/setup-uv@v6
         with:
           enable-cache: true
 
@@ -125,7 +125,7 @@ jobs:
           path: workspace/bridle/compliance.xml
 
       - name: Convert compliance test reports to annotations
-        uses: mikepenz/action-junit-report@v4
+        uses: mikepenz/action-junit-report@v5
         with:
           check_name: compliance-report (bridle)
           report_paths: "**/bridle/compliance.xml"
