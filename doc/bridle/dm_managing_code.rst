@@ -49,6 +49,8 @@ in a folder named :file:`tiacsys`, use the following commands:
    west init -m https://github.com/tiacsys/bridle.git --mr {revision} tiacsys
    cd tiacsys
    west update
+
+   west packages pip --install
    west blobs --auto-accept fetch
 
 Replace ``{revision}`` with any revision you wish to obtain. This can be
@@ -67,11 +69,16 @@ switch to a new revision, then you only need to do the following:
 
    cd tiacsys/bridle
    git fetch {remote}
+
    # Check out the latest main branch
    git checkout {remote}/main
+
    # or check out a release
    git checkout {revision}
+
    west update
+
+   west packages pip --install
    west blobs --auto-accept fetch
 
 Where ``{remote}`` is the Git remote that points to the official |TIAC|

@@ -841,17 +841,6 @@ To clone the repositories, complete the following steps:
 
          west update
 
-#. Enter the following command to fetch all known binary blobs:
-
-   .. container:: highlight highlight-console notranslate
-
-      .. parsed-literal::
-
-         west blobs --auto-accept fetch
-
-   To remove outdated artifacts from the build system, you can also precede
-   it with :command:`west blobs clean`.
-
 #. Export the :external+zephyr:ref:`Zephyr CMake package <cmake_pkg>` and
    also for |BRIDLE|. This allows CMake to automatically load the boilerplate
    code required for building |BRIDLE| applications:
@@ -969,7 +958,7 @@ following commands:
 Installing additional Python dependencies
 *****************************************
 
-The |BRIDLE| requires additional Python packages to be installed. Use the
+|BRIDLE| requires additional Python packages to be installed. Use the
 following commands to install the requirements for each repository. Open
 a terminal window in the :ugn:`workspace` folder and enter the following
 commands:
@@ -979,6 +968,27 @@ commands:
    .. parsed-literal::
 
       west packages pip --install
+
+.. rst-class:: numbered-step
+
+Installing additional binary blobs
+**********************************
+
+|ZEPHYR| and, at some point, |BRIDLE| too requires additional
+:external+zephyr:ref:`binary blobs <bin-blobs>` that have to fetch or
+download from official third-party sources by the :command:`west blobs`
+:external+zephyr:ref:`command <west-blobs>`. Open a terminal window in the
+:ugn:`workspace` folder and enter the following command to fetch all known
+binary blobs:
+
+.. container:: highlight highlight-console notranslate
+
+   .. parsed-literal::
+
+      west blobs --auto-accept fetch
+
+To remove outdated artifacts from the build system, you can also precede
+it with :command:`west blobs clean`.
 
 .. _installing_tbd:
 
