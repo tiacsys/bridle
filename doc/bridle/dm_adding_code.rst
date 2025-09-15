@@ -144,7 +144,7 @@ by the following code:
        - name: bridle
          repo-path: bridle
          remote: tiacsys
-         revision: v0.1.5
+         revision: v3.7.1
          import: true
      self:
        path: application
@@ -175,7 +175,7 @@ For example:
      projects:
        - name: bridle
          remote: tiacsys
-         revision: v0.1.5
+         revision: v3.7.1
          import: true
        # Example for how to override a repository in BRIDLE with your own:
        - name: mcuboot
@@ -207,6 +207,8 @@ and *your-ncs-fork*, respectively), as shown in the following code:
    west init -m https:\ //github.com/*your-name/your-application* *your-tiacsys-fork*
    cd *your-tiacsys-fork*
    west update
+
+   west packages pip --install
    west blobs --auto-accept fetch
 
 After that, to modify the |BRIDLE| version associated with your app,
