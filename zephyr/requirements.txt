@@ -1,0 +1,6 @@
+# zephyr-keep-sorted-start
+-r requirements-base.txt
+-r requirements-build.txt
+-r requirements-doc.txt
+-r requirements-extras.txt
+# zephyr-keep-sorted-stop
