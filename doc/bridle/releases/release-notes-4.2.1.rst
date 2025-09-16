@@ -192,8 +192,10 @@ Build Infrastructure
 :brd:`NOT YET, tbd.`
 
 * tbd.
-* tbd.
-* tbd.
+* Using :command:`west` package manager dependencies with :command:`uv` on all
+  GitHub workflows, especially QA integration and documentation build.
+* When setting up a workspace, you should no longer use the requirements TXT files
+  directly, but instead call the command :command:`west packages pip --install`.
 * Bridle now requires binary blobs that have to fetch with :command:`west blobs`.
 
 Documentation
@@ -203,7 +205,8 @@ Documentation
 
 1. tbd.
 2. tbd.
-3. tbd.
+3. All list files for the required tool versions are now located in the
+   :file:`doc/` folder and must also be used from there.
 4. Update all output messages in documentation to be in sync with the upcoming
    Bridle version v4.2.1, based on Zephyr v4.2 (samples and tests).
 
@@ -212,6 +215,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`362` - [FER] switch to west controlled package manager dependencies
 * :github:`352` - [BUG] wrong handling of special project configuration in ``button`` sample
 * :github:`351` - [BUG] wrong handling of special project configuration in ``helloshell`` sample
 * :github:`344` - [HW] Mini USB RP2350 by AliExpress (No Name Technology)
