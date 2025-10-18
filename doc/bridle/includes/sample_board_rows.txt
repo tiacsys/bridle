@@ -34,13 +34,13 @@
 
 | i.MX RT1060 | | :external+zephyr:zephyr:board:`mimxrt1060_evk` | - ``mimxrt1060_evk@C/mimxrt1062/qspi`` |
 
-.. mimxrt1170_evk_mimxrt1176_cm4
+.. mimxrt1170_evk@A_mimxrt1176_cm4
 
-| i.MX RT1170 (CM4) | | :external+zephyr:zephyr:board:`mimxrt1170_evk` | - ``mimxrt1170_evk/mimxrt1176/cm4`` |
+| i.MX RT1170 (CM4) | | :external+zephyr:zephyr:board:`mimxrt1170_evk` | - ``mimxrt1170_evk@A/mimxrt1176/cm4`` |
 
-.. mimxrt1170_evk_mimxrt1176_cm7
+.. mimxrt1170_evk@A_mimxrt1176_cm7
 
-| i.MX RT1170 (CM7) | | :external+zephyr:zephyr:board:`mimxrt1170_evk` | - ``mimxrt1170_evk/mimxrt1176/cm7`` |
+| i.MX RT1170 (CM7) | | :external+zephyr:zephyr:board:`mimxrt1170_evk` | - ``mimxrt1170_evk@A/mimxrt1176/cm7`` |
 
 .. mimxrt1170_evk@B_mimxrt1176_cm4
 
