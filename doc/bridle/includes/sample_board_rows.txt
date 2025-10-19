@@ -18,10 +18,6 @@
 
 | i.MX RT1010 | | :external+zephyr:zephyr:board:`mimxrt1010_evk` | - ``mimxrt1010_evk`` |
 
-.. mimxrt1060_evk_mimxrt1062_hyperflash
-
-| i.MX RT1060 | | :external+zephyr:zephyr:board:`mimxrt1060_evk` | - ``mimxrt1060_evk/mimxrt1062/hyperflash`` |
-
 .. mimxrt1060_evk@A_mimxrt1062_qspi
 
 | i.MX RT1060 | | :external+zephyr:zephyr:board:`mimxrt1060_evk` | - ``mimxrt1060_evk@A/mimxrt1062/qspi`` |
@@ -29,6 +25,10 @@
 .. mimxrt1060_evk@B_mimxrt1062_qspi
 
 | i.MX RT1060 | | :external+zephyr:zephyr:board:`mimxrt1060_evk` | - ``mimxrt1060_evk@B/mimxrt1062/qspi`` |
+
+.. mimxrt1060_evk@C_mimxrt1062_hyperflash
+
+| i.MX RT1060 | | :external+zephyr:zephyr:board:`mimxrt1060_evk` | - ``mimxrt1060_evk@C/mimxrt1062/hyperflash`` |
 
 .. mimxrt1060_evk@C_mimxrt1062_qspi
 
