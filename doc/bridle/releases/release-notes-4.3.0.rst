@@ -44,6 +44,7 @@ For more details, see: :ref:`repos_and_revs`.
      - .. zephyr-keep-sorted-start re(^\s+\| \*+\w)
 
        | *acpica*
+       | *hostap*
        | *liblc3*
        | *loramac-node*
        | *lvgl*
@@ -268,6 +269,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`368` - [BUG] current nightly QA integration tests failing
 * :github:`364` - [FCR] Upgrade to Zephyr SDK 0.17.4 and CI container 0.28.4
 * :github:`362` - [FER] switch to west controlled package manager dependencies
 * :github:`352` - [BUG] wrong handling of special project configuration in ``button`` sample
