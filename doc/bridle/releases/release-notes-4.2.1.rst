@@ -215,6 +215,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`373` - Backportings to v4.2-branch
 * :github:`366` - Backportings to v4.2-branch
 * :github:`364` - [FCR] Upgrade to Zephyr SDK 0.17.4 and CI container 0.28.4
 * :github:`362` - [FER] switch to west controlled package manager dependencies
