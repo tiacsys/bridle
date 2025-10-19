@@ -34,10 +34,10 @@ common:
     - cytron_maker_nano_rp2040
     - cytron_maker_pi_rp2040
     - mimxrt1010_evk
-    - mimxrt1060_evk/mimxrt1062/hyperflash
     - mimxrt1060_evk@A/mimxrt1062/qspi
     - mimxrt1060_evk@B/mimxrt1062/qspi
     - mimxrt1060_evk@C/mimxrt1062/qspi
+    - mimxrt1060_evk@C/mimxrt1062/hyperflash
     - mini_usb_rp2040
     - mini_usb_rp2040@16mb
     # Build issue (mini_usb_rp2040/src/chipled_pwm_chipled_off.c): - mini_usb_rp2040@chipled
@@ -132,10 +132,10 @@ tests:
     integration_platforms:
       - arduino_zero
       - mimxrt1010_evk
-      - mimxrt1060_evk/mimxrt1062/hyperflash
       - mimxrt1060_evk@A/mimxrt1062/qspi
       - mimxrt1060_evk@B/mimxrt1062/qspi
       - mimxrt1060_evk@C/mimxrt1062/qspi
+      - mimxrt1060_evk@C/mimxrt1062/hyperflash
       - nucleo_f767zi
       - rpi_pico
       - rpi_pico/rp2040/w

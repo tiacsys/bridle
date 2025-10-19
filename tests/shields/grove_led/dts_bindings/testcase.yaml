@@ -30,10 +30,10 @@ common:
     - cytron_maker_nano_rp2040
     - cytron_maker_pi_rp2040
     - mimxrt1010_evk
-    - mimxrt1060_evk/mimxrt1062/hyperflash
     - mimxrt1060_evk@A/mimxrt1062/qspi
     - mimxrt1060_evk@B/mimxrt1062/qspi
     - mimxrt1060_evk@C/mimxrt1062/qspi
+    - mimxrt1060_evk@C/mimxrt1062/hyperflash
     - nucleo_f303re
     - nucleo_f401re
     - nucleo_f413zh
@@ -393,10 +393,10 @@ tests:
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d2
     platform_allow:
       - arduino_zero
-      - mimxrt1060_evk/mimxrt1062/hyperflash
       - mimxrt1060_evk@A/mimxrt1062/qspi
       - mimxrt1060_evk@B/mimxrt1062/qspi
       - mimxrt1060_evk@C/mimxrt1062/qspi
+      - mimxrt1060_evk@C/mimxrt1062/hyperflash
       - nucleo_f303re
       - nucleo_f401re
       - seeeduino_cm0
@@ -410,10 +410,10 @@ tests:
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d2
     platform_allow:
       - arduino_zero
-      - mimxrt1060_evk/mimxrt1062/hyperflash
       - mimxrt1060_evk@A/mimxrt1062/qspi
       - mimxrt1060_evk@B/mimxrt1062/qspi
       - mimxrt1060_evk@C/mimxrt1062/qspi
+      - mimxrt1060_evk@C/mimxrt1062/hyperflash
       - nucleo_f303re
       - nucleo_f401re
       - seeeduino_cm0
@@ -427,10 +427,10 @@ tests:
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d3
     platform_allow:
       - arduino_zero
-      - mimxrt1060_evk/mimxrt1062/hyperflash
       - mimxrt1060_evk@A/mimxrt1062/qspi
       - mimxrt1060_evk@B/mimxrt1062/qspi
       - mimxrt1060_evk@C/mimxrt1062/qspi
+      - mimxrt1060_evk@C/mimxrt1062/hyperflash
       - nucleo_f303re
       - nucleo_f401re
       - nucleo_f413zh
@@ -446,10 +446,10 @@ tests:
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d3
     platform_allow:
       - arduino_zero
-      - mimxrt1060_evk/mimxrt1062/hyperflash
       - mimxrt1060_evk@A/mimxrt1062/qspi
       - mimxrt1060_evk@B/mimxrt1062/qspi
       - mimxrt1060_evk@C/mimxrt1062/qspi
+      - mimxrt1060_evk@C/mimxrt1062/hyperflash
       - nucleo_f303re
       - nucleo_f401re
       - nucleo_f413zh
@@ -465,10 +465,10 @@ tests:
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d4
     platform_allow:
       - arduino_zero
-      - mimxrt1060_evk/mimxrt1062/hyperflash
       - mimxrt1060_evk@A/mimxrt1062/qspi
       - mimxrt1060_evk@B/mimxrt1062/qspi
       - mimxrt1060_evk@C/mimxrt1062/qspi
+      - mimxrt1060_evk@C/mimxrt1062/hyperflash
       - nucleo_f303re
       - seeeduino_cm0
       - seeeduino_lotus
@@ -481,10 +481,10 @@ tests:
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d4
     platform_allow:
       - arduino_zero
-      - mimxrt1060_evk/mimxrt1062/hyperflash
       - mimxrt1060_evk@A/mimxrt1062/qspi
       - mimxrt1060_evk@B/mimxrt1062/qspi
       - mimxrt1060_evk@C/mimxrt1062/qspi
+      - mimxrt1060_evk@C/mimxrt1062/hyperflash
       - nucleo_f303re
       - seeeduino_cm0
       - seeeduino_lotus
@@ -497,10 +497,10 @@ tests:
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d5
     platform_allow:
       - arduino_zero
-      - mimxrt1060_evk/mimxrt1062/hyperflash
       - mimxrt1060_evk@A/mimxrt1062/qspi
       - mimxrt1060_evk@B/mimxrt1062/qspi
       - mimxrt1060_evk@C/mimxrt1062/qspi
+      - mimxrt1060_evk@C/mimxrt1062/hyperflash
       - nucleo_f303re
       - nucleo_f401re
       - nucleo_f413zh
@@ -516,10 +516,10 @@ tests:
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d5
     platform_allow:
       - arduino_zero
-      - mimxrt1060_evk/mimxrt1062/hyperflash
       - mimxrt1060_evk@A/mimxrt1062/qspi
       - mimxrt1060_evk@B/mimxrt1062/qspi
       - mimxrt1060_evk@C/mimxrt1062/qspi
+      - mimxrt1060_evk@C/mimxrt1062/hyperflash
       - nucleo_f303re
       - nucleo_f401re
       - nucleo_f413zh
@@ -651,10 +651,10 @@ tests:
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d10
     platform_allow:
       - arduino_zero
-      - mimxrt1060_evk/mimxrt1062/hyperflash
       - mimxrt1060_evk@A/mimxrt1062/qspi
       - mimxrt1060_evk@B/mimxrt1062/qspi
       - mimxrt1060_evk@C/mimxrt1062/qspi
+      - mimxrt1060_evk@C/mimxrt1062/hyperflash
       - nucleo_f303re
       - nucleo_f401re
       - nucleo_f413zh
@@ -671,10 +671,10 @@ tests:
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d11
     platform_allow:
       - arduino_zero
-      - mimxrt1060_evk/mimxrt1062/hyperflash
       - mimxrt1060_evk@A/mimxrt1062/qspi
       - mimxrt1060_evk@B/mimxrt1062/qspi
       - mimxrt1060_evk@C/mimxrt1062/qspi
+      - mimxrt1060_evk@C/mimxrt1062/hyperflash
       - nucleo_f303re
       - nucleo_f401re
       - nucleo_f413zh
@@ -691,10 +691,10 @@ tests:
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d12
     platform_allow:
       - arduino_zero
-      - mimxrt1060_evk/mimxrt1062/hyperflash
       - mimxrt1060_evk@A/mimxrt1062/qspi
       - mimxrt1060_evk@B/mimxrt1062/qspi
       - mimxrt1060_evk@C/mimxrt1062/qspi
+      - mimxrt1060_evk@C/mimxrt1062/hyperflash
       - nucleo_f303re
       - nucleo_f413zh
       - nucleo_f767zi
@@ -710,10 +710,10 @@ tests:
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d13
     platform_allow:
       - arduino_zero
-      - mimxrt1060_evk/mimxrt1062/hyperflash
       - mimxrt1060_evk@A/mimxrt1062/qspi
       - mimxrt1060_evk@B/mimxrt1062/qspi
       - mimxrt1060_evk@C/mimxrt1062/qspi
+      - mimxrt1060_evk@C/mimxrt1062/hyperflash
       - nucleo_f303re
       - nucleo_f401re
       - nucleo_f413zh
