@@ -149,9 +149,9 @@ jobs:
       - name: Compress documentation
         working-directory: workspace/build
         run: |
-          tar --use-compress-program="xz -T0" -cf html-output.tar.xz \
-              --exclude html/*/_sources --exclude html/*/doxygen/xml \
-              html
+          # tar --use-compress-program="xz -T0" -cf html-output.tar.xz \
+          #     --exclude html/*/_sources --exclude html/*/doxygen/xml \
+          #     html
           tar --use-compress-program="xz -T0" -cf api-output.tar.xz \
               html/*/doxygen/html
           tar --use-compress-program="xz -T0" -cf api-coverage.tar.xz \
@@ -187,6 +187,14 @@ jobs:
             fi
           fi
 
+      - name: Clean documentation before uploads
+        working-directory: workspace/build
+        run: |
+          rm -rf html
+          echo "READY FOR UPLOAD from $(pwd)/doc"
+          ls -alh $(pwd)/doc $(pwd)/api-*.tar.xz
+          df -hT $(pwd)/doc
+
       - name: Upload API coverage report
         uses: actions/upload-artifact@v4
         with:
@@ -199,11 +207,11 @@ jobs:
           name: api-output
           path: workspace/build/api-output.tar.xz
 
-      - name: Upload HTML documentation
-        uses: actions/upload-artifact@v4
-        with:
-          name: html-output
-          path: workspace/build/html-output.tar.xz
+      # - name: Upload HTML documentation
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: html-output
+      #     path: workspace/build/html-output.tar.xz
 
       - name: Upload archived documentation
         uses: actions/upload-artifact@v4
