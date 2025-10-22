@@ -5,6 +5,13 @@
 .*undefined label:.*
 
 #
+# TODO: is ":zephyr:board-catalog:`boards using this compatible
+#       <#compatibles=ti,hdc2080>`" realy working?
+#
+# caused in: zephyr/doc/contribute/documentation/guidelines.rst:1315
+.*zephyr:board-catalog reference target not found:.*compatibles=ti,hdc2080.*
+
+#
 # TODO: is ".. tab:: _`Using Segger J-Link`" realy working?
 #
 # reference target in: zephyr/doc/develop/flash_debug/probes.rst:251
