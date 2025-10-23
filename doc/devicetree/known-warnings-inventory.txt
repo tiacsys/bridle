@@ -2,4 +2,5 @@
 # that should be filtered out additional to the original filter set
 
 # Coming later from other docset
+.*zephyr:board-catalog reference target not found:.*compatibles=.*
 .*undefined label:.*

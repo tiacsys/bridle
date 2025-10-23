@@ -1,2 +1,6 @@
 # Each line should contain the regular expression of a known Sphinx warning
 # that should be filtered out
+
+# Coming later from other docset
+# TODO: CIRCULAR DEPENDENCY: devicetree <--> zephyr
+.*zephyr:board-catalog reference target not found:.*compatibles=.*
