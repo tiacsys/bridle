@@ -45,7 +45,7 @@ on:
 jobs:
   doc-build:
     name: Build and upload documentation to artifacts
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Apply container HTTP/2 framing layer workaround
