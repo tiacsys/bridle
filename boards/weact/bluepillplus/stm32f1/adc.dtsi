@@ -3,10 +3,6 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-&rcc {
-	adc-prescaler = <6>;
-};
-
 &adc1 {
 	status = "okay";
 	pinctrl-0 = <&adc1_in0_pa0 &adc1_in1_pa1 &adc1_in2_pa2 &adc1_in3_pa3
