@@ -14,8 +14,10 @@
 #
 # TODO: is ".. tab:: _`Using Segger J-Link`" realy working?
 #
-# reference target in: zephyr/doc/develop/flash_debug/probes.rst:251
-# referred to there in: zephyr/samples/bluetooth/hci_uart/README.rst:311
+# reference target in: zephyr/doc/develop/flash_debug/probes.rst:411
+# referred to there in: zephyr/samples/bluetooth/hci_uart/README.rst:128
+# referred to there in: zephyr/samples/bluetooth/hci_uart_async/README.rst:120
+# referred to there in: zephyr/samples/bluetooth/hci_uart_3wire/README.rst:128
 #
 .*Duplicate explicit target name: "using segger j-link"\.
 
@@ -23,7 +25,7 @@
 # TODO: is ".. _install_dependencies_ubuntu:"
 #       inside ".. group-tab::" realy working?
 #
-# reference target in: zephyr/doc/develop/getting_started/index.rst:73
+# reference target in: zephyr/doc/develop/getting_started/index.rst:74
 #
 .*Duplicate explicit target name: "install_dependencies_ubuntu"\.
 
@@ -31,7 +33,7 @@
 # TODO: is ".. _install_dependencies_macos:"
 #       inside ".. group-tab::" realy working?
 #
-# reference target in: zephyr/doc/develop/getting_started/index.rst:111
+# reference target in: zephyr/doc/develop/getting_started/index.rst:103
 #
 .*Duplicate explicit target name: "install_dependencies_macos"\.
 
@@ -39,23 +41,23 @@
 # TODO: is ".. _install_dependencies_windows:"
 #       inside ".. group-tab::" realy working?
 #
-# reference target in: zephyr/doc/develop/getting_started/index.rst:168
+# reference target in: zephyr/doc/develop/getting_started/index.rst:160
 #
 .*Duplicate explicit target name: "install_dependencies_windows"\.
 
 #
-# TODO: is ".. _ubuntu_zephyr_sdk:"
+# TODO: is ".. _linux_zephyr_sdk:"
 #       inside ".. group-tab::" realy working?
 #
-# reference target in: zephyr/doc/develop/toolchains/zephyr_sdk.rst:88
+# reference target in: zephyr/doc/develop/toolchains/zephyr_sdk.rst:90
 #
-.*Duplicate explicit target name: "ubuntu_zephyr_sdk"\.
+.*Duplicate explicit target name: "linux_zephyr_sdk"\.
 
 #
 # TODO: is ".. _macos_zephyr_sdk:"
 #       inside ".. group-tab::" realy working?
 #
-# reference target in: zephyr/doc/develop/toolchains/zephyr_sdk.rst:144
+# reference target in: zephyr/doc/develop/toolchains/zephyr_sdk.rst:146
 #
 .*Duplicate explicit target name: "macos_zephyr_sdk"\.
 
@@ -63,6 +65,6 @@
 # TODO: is ".. _windows_zephyr_sdk:"
 #       inside ".. group-tab::" realy working?
 #
-# reference target in: zephyr/doc/develop/toolchains/zephyr_sdk.rst:192
+# reference target in: zephyr/doc/develop/toolchains/zephyr_sdk.rst:194
 #
 .*Duplicate explicit target name: "windows_zephyr_sdk"\.
