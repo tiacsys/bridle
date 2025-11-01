@@ -1,7 +1,7 @@
 .. _bridle_release_notes_421:
 
-|BRIDLE| 4.2.1 Release Notes (Working draft)
-############################################
+|BRIDLE| 4.2.1 Release Notes
+############################
 
 This project demonstrate the integration of |TIAC| support in open
 source projects, like the Zephyr RTOS, with libraries and source code
@@ -11,7 +11,8 @@ product development.
 Highlights
 **********
 
-* :brd:`NOT YET, tbd.`
+* Freez for Zephyr v4.2 with its first patch level v4.2.1.
+* Use Zephyr SDK v0.17.4.
 
 .. note:: See the changelog and readme files in the component repositories
    for a detailed description of changes.
@@ -98,8 +99,6 @@ For more details, see: :ref:`repos_and_revs`.
 Supported boards
 ****************
 
-:brd:`NOT YET, tbd.`
-
 * Arduino/Genuino Zero
 * PicoBoy Mini-Handheld
 * PicoBoy Color (PBC) Mini-Handheld
@@ -131,8 +130,6 @@ Supported boards
 Supported shields
 *****************
 
-:brd:`NOT YET, tbd.`
-
 * Seeed Studio Grove Interconnect Shields
 * Grove Button Shields
 * Grove LED Shields
@@ -151,8 +148,6 @@ Supported shields
 Supported snippets
 ******************
 
-:brd:`NOT YET, tbd.`
-
 * USB Console Snippet (usb-console)
 * PWM Servomotor Preset Snippet (pwm-servo)
 * Delete Default Devicetree Aliases Snippet (del-default-aliases)
@@ -170,28 +165,15 @@ Supported snippets
 Change log
 **********
 
-:brd:`NOT YET, tbd.`
-
-* tbd.
-* tbd.
-* tbd.
-
-The following sections provide detailed lists of changes by component.
-
-:brd:`NOT YET, tbd.`
-
-* tbd.
-* tbd.
-* tbd.
+* Sync copy-n-owned test specifications with Zephyr upstream v4.2.1.
+* Improve CI worker on GitHub.
 
 * PROJECT UPDATE to `Zephyr Project`_ v4.2.1
 
 Build Infrastructure
 ====================
 
-:brd:`NOT YET, tbd.`
-
-* tbd.
+* Bump to Zephyr SDK to 0.17.4 and Zephyr CI container to v0.28.4.
 * Using :command:`west` package manager dependencies with :command:`uv` on all
   GitHub workflows, especially QA integration and documentation build.
 * When setting up a workspace, you should no longer use the requirements TXT files
@@ -201,13 +183,9 @@ Build Infrastructure
 Documentation
 =============
 
-:brd:`NOT YET, tbd.`
-
-1. tbd.
-2. tbd.
-3. All list files for the required tool versions are now located in the
+1. All list files for the required tool versions are now located in the
    :file:`doc/` folder and must also be used from there.
-4. Update all output messages in documentation to be in sync with the upcoming
+2. Update all output messages in documentation to be in sync with the upcoming
    Bridle version v4.2.1, based on Zephyr v4.2 (samples and tests).
 
 Issue Related Items
