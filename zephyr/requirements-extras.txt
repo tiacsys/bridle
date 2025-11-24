@@ -5,13 +5,9 @@ pykitinfo>=1.4
 pymcuprog>=3.19
 # zephyr-keep-sorted-stop
 
-# Zephyr upstream requires spsdk==2.6.0,
-#          that depends on spsdk-pyocd<1,>=0.2.0 --> 0.3.2,
-#          that depends on pyocd<0.37
-pyocd<0.37,>=0.36
-
 # used by west_commands
+pyocd>=0.36
 pyserial>=3.5
 
 # used for west-command testing, also used by twister
-pytest>=8.4
+pytest<9.0,>=8.4

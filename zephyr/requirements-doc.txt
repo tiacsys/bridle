@@ -1,15 +1,15 @@
 # zephyr-keep-sorted-start
-docutils>=0.21,<0.22
-doxmlparser~=1.14
+docutils<0.22,>=0.21
+doxmlparser~=1.15
 imagesize>=1.4
-pillow~=11.3
+pillow~=12.0
 pygments~=2.19,!=2.19.0
 sphinx-autobuild~=2025.8
 sphinx-copybutton~=0.5
 sphinx-csv-filter~=0.4
 sphinx-filter-tabs~=1.2
 sphinx-notfound-page~=1.1
-sphinx-sitemap~=2.8
+sphinx-sitemap~=2.9
 sphinx-tabs~=3.4
 sphinx-togglebutton~=0.3
 sphinx-tsn-theme~=2024.11

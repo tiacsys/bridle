@@ -13,8 +13,8 @@ pykwalify>=1.8
 
 # used by ci/check_compliance
 # zephyr-keep-sorted-start
-pylint>=3.3
-regex>=2025.9
+pylint<4.0,>=3.3
+regex>=2025.11
 # zephyr-keep-sorted-stop
 
 # maybe used by signing with ECDSA for legacy nRF bootloaders
