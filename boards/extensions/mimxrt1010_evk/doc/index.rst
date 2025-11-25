@@ -128,9 +128,7 @@ List of extensions
 
 - add a :dtcompatible:`zephyr,flash-disk` node linked to the
   :dts:`partition = <&storage_partition>;` with the hard defined
-  mass storage disk name :dts:`disk-name = "NAND";` – also set
-  the mass storage disk name hard on Kconfig level by a new board
-  config file with |CONFIG_MASS_STORAGE_DISK_NAME|:
+  mass storage disk name :dts:`disk-name = "NAND";`:
 
   .. list-table::
      :align: left
@@ -148,12 +146,3 @@ List of extensions
             :start-at: msc_disk0 {
             :end-at: };
             :append: };
-
-         .. literalinclude:: ../Kconfig.defconfig
-            :caption: Kconfig.defconfig
-            :language: Kconfig
-            :encoding: ISO-8859-1
-            :prepend: #
-            :emphasize-lines: 21-22
-            :start-at: NOTES for the disk name (CONFIG_MASS_STORAGE_DISK_NAME)
-            :end-at: depends on USB_DEVICE_STACK && USB_MASS_STORAGE
