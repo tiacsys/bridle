@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Checkout the code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Scan the code
         uses: zephyrproject-rtos/action_scancode@v4
@@ -24,7 +24,7 @@ jobs:
           directory-to-scan: 'scan/'
 
       - name: Upload results
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: scancode
           path: ./artifacts

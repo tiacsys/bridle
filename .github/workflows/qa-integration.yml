@@ -84,7 +84,7 @@ jobs:
           keep-git: false
 
       - name: Checkout the code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 100
           show-progress: true
@@ -92,7 +92,7 @@ jobs:
           ref: ${{ github.ref }}
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v6
+        uses: astral-sh/setup-uv@v7
         with:
           enable-cache: true
 
@@ -161,13 +161,13 @@ jobs:
             --tag zephyr
 
       - name: Upload integration test logging
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: twister-samples.log
           path: workspace/twister-out/twister.log
 
       - name: Upload integration test results
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: twister-samples.xml
           path: workspace/twister-out/twister.xml
@@ -228,7 +228,7 @@ jobs:
           keep-git: false
 
       - name: Checkout the code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 100
           show-progress: true
@@ -236,7 +236,7 @@ jobs:
           ref: ${{ github.ref }}
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v6
+        uses: astral-sh/setup-uv@v7
         with:
           enable-cache: true
 
@@ -301,13 +301,13 @@ jobs:
             --tag zephyr
 
       - name: Upload integration test logging
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: twister-tests.log
           path: workspace/twister-out/twister.log
 
       - name: Upload integration test results
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: twister-tests.xml
           path: workspace/twister-out/twister.xml
@@ -368,7 +368,7 @@ jobs:
           keep-git: false
 
       - name: Checkout the code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 100
           show-progress: true
@@ -376,7 +376,7 @@ jobs:
           ref: ${{ github.ref }}
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v6
+        uses: astral-sh/setup-uv@v7
         with:
           enable-cache: true
 
@@ -438,13 +438,13 @@ jobs:
             --testsuite-root bridle/tests/snippets/usb-console/build_all
 
       - name: Upload integration test logging
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: twister-shields.log
           path: workspace/twister-out/twister.log
 
       - name: Upload integration test results
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: twister-shields.xml
           path: workspace/twister-out/twister.xml
@@ -492,7 +492,7 @@ jobs:
           keep-git: false
 
       - name: Checkout the code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 100
           show-progress: true
@@ -500,7 +500,7 @@ jobs:
           ref: ${{ github.ref }}
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v6
+        uses: astral-sh/setup-uv@v7
         with:
           enable-cache: true
 
@@ -589,13 +589,13 @@ jobs:
             --tag gpio
 
       - name: Upload integration test logging
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: twister-targets.log
           path: workspace/twister-out/twister.log
 
       - name: Upload integration test results
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: twister-targets.xml
           path: workspace/twister-out/twister.xml

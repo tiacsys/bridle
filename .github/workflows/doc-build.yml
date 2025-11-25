@@ -78,7 +78,7 @@ jobs:
           sudo apt-get install -y doxygen mscgen graphviz lcov
 
       - name: Checkout the code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           path: workspace/bridle
 
@@ -99,7 +99,7 @@ jobs:
           west bridle-export
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v6
+        uses: astral-sh/setup-uv@v7
         with:
           enable-cache: true
 
@@ -207,25 +207,25 @@ jobs:
           df -hT $(pwd)/doc
 
       - name: Upload API coverage report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: api-coverage
           path: workspace/build/api-coverage.tar.xz
 
       - name: Upload API documentation
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: api-output
           path: workspace/build/api-output.tar.xz
 
       # - name: Upload HTML documentation
-      #   uses: actions/upload-artifact@v4
+      #   uses: actions/upload-artifact@v5
       #   with:
       #     name: html-output
       #     path: workspace/build/html-output.tar.xz
 
       - name: Upload archived documentation
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: doc
           path: workspace/build/doc
