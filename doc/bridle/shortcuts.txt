@@ -1255,9 +1255,6 @@
 .. |CONFIG_LOG_PROCESS_THREAD_STARTUP_DELAY_MS| replace::
    :external+kconfig:kconfig:option:`CONFIG_LOG_PROCESS_THREAD_STARTUP_DELAY_MS`
 
-.. |CONFIG_MASS_STORAGE_DISK_NAME| replace::
-   :external+kconfig:kconfig:option:`CONFIG_MASS_STORAGE_DISK_NAME`
-
 .. |CONFIG_RP2_FLASH_AT25SF128A| replace::
    :external+kconfig:kconfig:option:`CONFIG_RP2_FLASH_AT25SF128A`
 
