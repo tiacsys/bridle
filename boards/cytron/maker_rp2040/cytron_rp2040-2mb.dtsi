@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 TiaC Systems
+ * Copyright (c) 2023-2025 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -12,9 +12,10 @@
 };
 
 /*
- * Usable flash. Starts at 0x100, after the bootloader. The partition
- * size is 2MB minus the 0x100 bytes taken by the bootloader.
+ * Usable flash. Starts after the RP2040 second stage bootloader. The
+ * partition size is 2MB minus the 0x100 bytes taken by the RP2040
+ * second stage bootloader.
  */
 &code_partition {
-	reg = <0x100 (DT_SIZE_M(2) - __FLASH_RPI_PICO_BOOTLOADER_SIZE)>;
+	reg = <0x00000100 (DT_SIZE_M(2) - 0x100)>;
 };
