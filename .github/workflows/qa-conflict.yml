@@ -12,6 +12,9 @@ jobs:
   qa-conflict:
     name: Run merge conflicts finder on patch series (PR)
     runs-on: ubuntu-24.04
+    defaults:
+      run:
+        shell: bash
 
     steps:
       - name: Run conflict finder and labeler

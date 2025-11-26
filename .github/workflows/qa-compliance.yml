@@ -12,6 +12,12 @@ jobs:
   qa-compliance:
     name: Run compliance checks on patch series (PR)
     runs-on: ubuntu-24.04
+    env:
+      BASE_REF: ${{ github.base_ref }}
+      HEAD_REF: ${{ github.head_ref }}
+    defaults:
+      run:
+        shell: bash
 
     steps:
       - name: Apply container HTTP/2 framing layer workaround
@@ -29,16 +35,73 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@v6
         with:
+          fetch-depth: 0
+          show-progress: true
           path: workspace/bridle
           ref: ${{ github.event.pull_request.head.sha }}
-          fetch-depth: 0
+
+      - id: history
+        name: Ensure linear history in PR
+        working-directory: workspace/bridle
+        run: |
+          # Ensure BASE_REF is set
+          if [[ -z "${BASE_REF}" ]]; then
+            echo "::error ::BASE_REF is empty (github.base_ref not set)"
+            exit 1
+          fi
+          echo "BASE_REF='${BASE_REF}'"
+
+          # Ensure we have origin/${BASE_REF} locally
+          git remote -v
+
+          # Fetch the base branch explicitly (safe even if it already exists)
+          git fetch origin "${BASE_REF}" --quiet || \
+            (echo "::error ::Failed to fetch 'origin/${BASE_REF}'"; exit 1)
+
+          # Ensure HEAD_REF is set
+          if [[ -z "${HEAD_REF}" ]]; then
+            echo "::error ::HEAD_REF is empty (github.head_ref not set)"
+            exit 1
+          fi
+          echo "HEAD_REF='${HEAD_REF}'"
+
+          # Ensure we have origin/${HEAD_REF} locally
+          git remote -v
+
+          # Fetch the head branch explicitly (safe even if it already exists)
+          git fetch origin "${HEAD_REF}" --quiet || \
+            (echo "::error ::Failed to fetch 'origin/${HEAD_REF}'"; exit 1)
+
+          # Count merge commits reachable from the PR but not from base
+          merge_count=$(git rev-list --merges --count "origin/${BASE_REF}..origin/${HEAD_REF}" 2>/dev/null || echo "ERR")
+          if [[ "${merge_count}" == "ERR" ]]; then
+            echo "::error ::git rev-list failed; ensure 'origin/${BASE_REF}' and 'origin/${HEAD_REF}' exists"
+            exit 1
+          fi
+          if ! [[ "${merge_count}" =~ ^[0-9]+$ ]]; then
+            echo "::error ::Unexpected rev-list output: ${merge_count}"
+            exit 1
+          fi
+          if [[ "${merge_count}" -ne 0 ]]; then
+            echo "::error ::Merge commits not allowed, rebase instead"
+            exit 1
+          fi
+
+          # Rebase onto origin/${BASE_REF}
+          git rebase "origin/${BASE_REF}" || \
+            (echo "::error ::Rebase failed; resolve conflicts then push"; exit 1)
+
+          # Show some history
+          git log --pretty=oneline --decorate --max-count=10
 
       - name: Install uv
         uses: astral-sh/setup-uv@v7
         with:
+          working-directory: workspace
           enable-cache: true
 
       - name: Create and enter Python 3.12 virtual environment
+        working-directory: workspace
         run: |
           uv venv --python 3.12
           source .venv/bin/activate
@@ -50,24 +113,13 @@ jobs:
           which python3 && python3 --version
           which uv && uv --version
           uv pip install --upgrade --requirement bridle/zephyr/requirements-base.txt
-          uv pip show -f west
-          west -V
+          uv pip show --files west
+          which west && west --version
 
       - name: West init and update
         working-directory: workspace
-        env:
-          BASE_REF: ${{ github.base_ref }}
         run: |
-          git -C bridle config --global user.email "you@example.com"
-          git -C bridle config --global user.name "Your Name"
-          git -C bridle remote -v
-          # Ensure there's no merge commits in the PR
-          [[ "$(git -C bridle rev-list --merges --count origin/${BASE_REF}..)" == "0" ]] || \
-          (echo "::error ::Merge commits not allowed, rebase instead";false)
-          git -C bridle rebase origin/${BASE_REF}
-          # debug
-          git -C bridle log  --pretty=oneline | head -n 10
-          west init --local bridle || true
+          west init --local bridle
           west update --fetch=always --stats
           west zephyr-export
           west bridle-export
@@ -78,17 +130,35 @@ jobs:
           uv pip install --upgrade --requirement zephyr/scripts/requirements-compliance.txt
           uv pip install --upgrade --requirement zephyr/scripts/requirements-actions.in
 
-      - name: Run compliance tests
-        id: compliance
+      - id: compliance
+        name: Run compliance tests
         working-directory: workspace/bridle
-        env:
-          BASE_REF: ${{ github.base_ref }}
         run: |
+          # Ensure BRIDLE_BASE is an Git folder
           export BRIDLE_BASE="$(pwd)"
+          if [[ -z "${BRIDLE_BASE}" || ! -d "${BRIDLE_BASE}" ]]; then
+            echo "::error ::BRIDLE_BASE is empty or not a folder"
+            exit 1
+          fi
+          git -C "${BRIDLE_BASE}" remote -v
+          echo "BRIDLE_BASE='${BRIDLE_BASE}'"
+
+          # Ensure ZEPHYR_BASE is an Git folder
           export ZEPHYR_BASE="$(dirname "$(pwd)")/zephyr"
-          # debug
-          ls -la
-          git log --pretty=oneline | head -n 10
+          if [[ -z "${ZEPHYR_BASE}" || ! -d "${ZEPHYR_BASE}" ]]; then
+            echo "::error ::ZEPHYR_BASE is empty or not a folder"
+            exit 1
+          fi
+          git -C "${ZEPHYR_BASE}" remote -v
+          echo "ZEPHYR_BASE='${ZEPHYR_BASE}'"
+
+          # Show some history
+          echo "Bridle latest history:"
+          git -C "${BRIDLE_BASE}" log --pretty=oneline --decorate --max-count=20
+          echo "Zephyr latest history:"
+          git -C "${ZEPHYR_BASE}" log --pretty=oneline --decorate --max-count=20
+
+          # Check compliance
           # -m Kconfig \
           # -m SysbuildKconfig \
           ${BRIDLE_BASE}/scripts/ci/check_compliance.py \
@@ -116,30 +186,37 @@ jobs:
             -m SysbuildKconfigBasicNoModules \
             -m TextEncoding \
             -m YAMLLint \
-            -c origin/${BASE_REF}..
+            -c "origin/${BASE_REF}..origin/${HEAD_REF}"
 
       - name: Upload compliance tests results
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: compliance.xml
           path: workspace/bridle/compliance.xml
 
       - name: Convert compliance test reports to annotations
+        if: always()
         uses: mikepenz/action-junit-report@v5
         with:
           check_name: compliance-report (bridle)
           report_paths: "**/bridle/compliance.xml"
           require_tests: true
           fail_on_failure: false
-        if: always()
 
-      - name: Check warnings
+      - id: check
+        name: Check warnings
+        if: always()
         working-directory: workspace/bridle
         run: |
+          # Ensure there is an compliance check result file
           if [[ ! -s "compliance.xml" ]]; then
+            echo "::error ::compliance.xml file is empty or missed"
             exit 1;
           fi
 
+          # Parse sub-result files
+          rc=0
           #       Checkpatch.txt \
           #       Kconfig.txt \
           for file in \
@@ -158,16 +235,17 @@ jobs:
                   ImageSize.txt \
                   BinaryFiles.txt \
               ; do
-            if [[ -s $file ]]; then
-              errors=$(cat $file)
+            if [[ -s "${file}" ]]; then
+              errors=$(cat "${file}")
               errors="${errors//'%'/'%25'}"
               errors="${errors//$'\n'/'%0A'}"
               errors="${errors//$'\r'/'%0D'}"
-              echo "::error file=${file}::$errors"
-              exit=1
+              echo "::error file=${file}::${errors}"
+              rc=1
             fi
           done
 
-          if [[ $exit == 1 ]]; then
+          # Final fail
+          if [[ "${rc}" -ne 0 ]]; then
             exit 1
           fi

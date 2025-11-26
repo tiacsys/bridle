@@ -39,13 +39,16 @@ on:
 jobs:
   qa-samples-integration:
     name: Run integration tests for samples
-    if: github.repository_owner == 'tiacsys'
-    runs-on: [self-hosted, ci-32g-x8, linux, x64, container]
+    if: ${{ github.repository_owner == 'tiacsys' }}
+    runs-on: [self-hosted, ci-32g-x8, linux, x64, container, for-zephyr-qa]
     container:
       image: ghcr.io/zephyrproject-rtos/ci:v0.28.4
       options: '--cpus 4 --memory 8g --entrypoint /bin/bash'
     env:
       ZEPHYR_SDK_INSTALL_DIR: /opt/toolchains/zephyr-sdk-0.17.4
+    defaults:
+      run:
+        shell: bash
 
     steps:
       - name: Apply container owner mismatch workaround
@@ -94,15 +97,19 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v7
         with:
+          working-directory: workspace
           enable-cache: true
 
       - name: Create and enter Python 3.12 virtual environment
         working-directory: workspace
         run: |
-          # Zephyr CI container doesn't support 'source', use '.' instead
           uv venv --python 3.12
-          . .venv/bin/activate
+          source .venv/bin/activate
           echo "$PATH" > $GITHUB_PATH
+
+      - name: Setup Zephyr SDK
+        run: |
+          "${ZEPHYR_SDK_INSTALL_DIR}/setup.sh" -t all -h -c
 
       - name: Install base dependencies
         working-directory: workspace
@@ -110,8 +117,8 @@ jobs:
           which python3 && python3 --version
           which uv && uv --version
           uv pip install --upgrade --requirement bridle/zephyr/requirements-base.txt
-          uv pip show -f west
-          west -V
+          uv pip show --files west
+          which west && west --version
 
       - name: West init and update
         working-directory: workspace
@@ -173,23 +180,26 @@ jobs:
           path: workspace/twister-out/twister.xml
 
       - name: Convert integration test reports to annotations
+        if: always()
         uses: mikepenz/action-junit-report@v5
         with:
           check_name: twister-report (samples)
           report_paths: "**/twister-out/twister.xml"
           require_tests: true
           fail_on_failure: false
-        if: always()
 
   qa-tests-integration:
     name: Run integration tests from upstream
-    if: github.repository_owner == 'tiacsys'
-    runs-on: [self-hosted, ci-32g-x8, linux, x64, container]
+    if: ${{ github.repository_owner == 'tiacsys' }}
+    runs-on: [self-hosted, ci-32g-x8, linux, x64, container, for-zephyr-qa]
     container:
       image: ghcr.io/zephyrproject-rtos/ci:v0.28.4
       options: '--cpus 4 --memory 8g --entrypoint /bin/bash'
     env:
       ZEPHYR_SDK_INSTALL_DIR: /opt/toolchains/zephyr-sdk-0.17.4
+    defaults:
+      run:
+        shell: bash
 
     steps:
       - name: Apply container owner mismatch workaround
@@ -238,15 +248,19 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v7
         with:
+          working-directory: workspace
           enable-cache: true
 
       - name: Create and enter Python 3.12 virtual environment
         working-directory: workspace
         run: |
-          # Zephyr CI container doesn't support 'source', use '.' instead
           uv venv --python 3.12
-          . .venv/bin/activate
+          source .venv/bin/activate
           echo "$PATH" > $GITHUB_PATH
+
+      - name: Setup Zephyr SDK
+        run: |
+          "${ZEPHYR_SDK_INSTALL_DIR}/setup.sh" -t all -h -c
 
       - name: Install base dependencies
         working-directory: workspace
@@ -254,8 +268,8 @@ jobs:
           which python3 && python3 --version
           which uv && uv --version
           uv pip install --upgrade --requirement bridle/zephyr/requirements-base.txt
-          uv pip show -f west
-          west -V
+          uv pip show --files west
+          which west && west --version
 
       - name: West init and update
         working-directory: workspace
@@ -313,23 +327,26 @@ jobs:
           path: workspace/twister-out/twister.xml
 
       - name: Convert integration test reports to annotations
+        if: always()
         uses: mikepenz/action-junit-report@v5
         with:
           check_name: twister-report (tests)
           report_paths: "**/twister-out/twister.xml"
           require_tests: true
           fail_on_failure: false
-        if: always()
 
   qa-shield-integration:
     name: Run integration tests for shields
-    if: github.repository_owner == 'tiacsys'
-    runs-on: [self-hosted, ci-32g-x8, linux, x64, container]
+    if: ${{ github.repository_owner == 'tiacsys' }}
+    runs-on: [self-hosted, ci-32g-x8, linux, x64, container, for-zephyr-qa]
     container:
       image: ghcr.io/zephyrproject-rtos/ci:v0.28.4
       options: '--cpus 4 --memory 8g --entrypoint /bin/bash'
     env:
       ZEPHYR_SDK_INSTALL_DIR: /opt/toolchains/zephyr-sdk-0.17.4
+    defaults:
+      run:
+        shell: bash
 
     steps:
       - name: Apply container owner mismatch workaround
@@ -378,15 +395,19 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v7
         with:
+          working-directory: workspace
           enable-cache: true
 
       - name: Create and enter Python 3.12 virtual environment
         working-directory: workspace
         run: |
-          # Zephyr CI container doesn't support 'source', use '.' instead
           uv venv --python 3.12
-          . .venv/bin/activate
+          source .venv/bin/activate
           echo "$PATH" > $GITHUB_PATH
+
+      - name: Setup Zephyr SDK
+        run: |
+          "${ZEPHYR_SDK_INSTALL_DIR}/setup.sh" -t all -h -c
 
       - name: Install base dependencies
         working-directory: workspace
@@ -394,8 +415,8 @@ jobs:
           which python3 && python3 --version
           which uv && uv --version
           uv pip install --upgrade --requirement bridle/zephyr/requirements-base.txt
-          uv pip show -f west
-          west -V
+          uv pip show --files west
+          which west && west --version
 
       - name: West init and update
         working-directory: workspace
@@ -450,18 +471,21 @@ jobs:
           path: workspace/twister-out/twister.xml
 
       - name: Convert integration test reports to annotations
+        if: always()
         uses: mikepenz/action-junit-report@v5
         with:
           check_name: twister-report (shields)
           report_paths: "**/twister-out/twister.xml"
           require_tests: true
           fail_on_failure: false
-        if: always()
 
   qa-target-integration:
     name: Run integration tests on targets
-    if: github.repository_owner == 'tiacsys'
+    if: ${{ github.repository_owner == 'tiacsys' }}
     runs-on: [self-hosted, linux, gnuarmemb, zephyr-sdk, tiac_magpie]
+    defaults:
+      run:
+        shell: bash
 
     strategy:
       matrix:
@@ -502,6 +526,7 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v7
         with:
+          working-directory: workspace
           enable-cache: true
 
       - name: Create and enter Python 3.12 virtual environment
@@ -517,8 +542,8 @@ jobs:
           which python3 && python3 --version
           which uv && uv --version
           uv pip install --upgrade --requirement bridle/zephyr/requirements-base.txt
-          uv pip show -f west
-          west -V
+          uv pip show --files west
+          which west && west --version
 
       - name: West init and update
         working-directory: workspace
@@ -601,10 +626,10 @@ jobs:
           path: workspace/twister-out/twister.xml
 
       - name: Convert integration test reports to annotations
+        if: always()
         uses: mikepenz/action-junit-report@v5
         with:
           check_name: twister-report (${{ matrix.board }})
           report_paths: "**/twister-out/twister.xml"
           require_tests: true
           fail_on_failure: false
-        if: always()

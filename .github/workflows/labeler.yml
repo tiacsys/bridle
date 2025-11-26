@@ -8,9 +8,21 @@ on:
   pull_request_target:
 
 jobs:
-  triage:
+  labeler:
+    name: Automatically label
+    if: ${{ github.repository == 'tiacsys/bridle' }}
     runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
+    defaults:
+      run:
+        shell: bash
+
     steps:
       - uses: actions/labeler@v6
         with:
-          repo-token: '${{ secrets.GITHUB_TOKEN }}'
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          sync-labels: true
+          dot: true

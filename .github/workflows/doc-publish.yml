@@ -12,8 +12,11 @@ on:
 jobs:
   doc-publish:
     name: Publish archived documentation actions from artifacts
-    runs-on: ubuntu-24.04
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        shell: bash
 
     steps:
       - name: Download artifact

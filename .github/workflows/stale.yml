@@ -9,17 +9,21 @@ on:
 
 jobs:
   stale:
-
+    name: Automatically stale
+    if: ${{ github.repository == 'tiacsys/bridle' }}
     runs-on: ubuntu-24.04
     permissions:
       issues: write
       pull-requests: write
-
-    if: github.repository == 'tiacsys/bridle'
+    defaults:
+      run:
+        shell: bash
 
     steps:
       - uses: actions/stale@v10
         with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          operations-per-run: 400
           days-before-stale: 90
           days-before-close: 30
           exempt-issue-labels: 'In progress,Enhancement,Feature,Feature Request,RFC,Meta'
@@ -28,5 +32,3 @@ jobs:
           exempt-pr-labels: 'Blocked,In progress'
           stale-pr-label: 'Stale'
           stale-pr-message: 'This pull request has been marked as stale because it has been open (more than) 90 days with no activity. Remove the stale label or add a comment saying that you would like to have the label removed otherwise this pull request will automatically be closed in 30 days. Note, that you can always re-open a closed pull request at any time.'
-          operations-per-run: 400
-          repo-token: ${{ secrets.GITHUB_TOKEN }}

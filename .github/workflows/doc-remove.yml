@@ -24,6 +24,9 @@ jobs:
   doc-remove:
     name: Remove preview documentation for PRs
     runs-on: ubuntu-24.04
+    defaults:
+      run:
+        shell: bash
 
     steps:
       - name: Create documentation removing monitor
