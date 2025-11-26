@@ -45,9 +45,26 @@ on:
 jobs:
   doc-build:
     name: Build and upload documentation to artifacts
-    runs-on: ubuntu-22.04
+    if: ${{ github.repository_owner == 'tiacsys' }}
+    runs-on: [self-hosted, ci-32g-x8, linux, x64, container, for-zephyr-doc]
+    container:
+      image: ghcr.io/zephyrproject-rtos/ci:v0.28.4
+      options: '--cpus 4 --memory 8g --entrypoint /bin/bash'
+    env:
+      ZEPHYR_SDK_INSTALL_DIR: /opt/toolchains/zephyr-sdk-0.17.4
+    defaults:
+      run:
+        shell: bash
 
     steps:
+      - name: Apply container owner mismatch workaround
+        run: |
+          # FIXME: The owner UID of the GITHUB_WORKSPACE directory may not
+          #        match the container user UID because of the way GitHub
+          #        Actions runner is implemented. Remove this workaround when
+          #        GitHub comes up with a fundamental fix for this problem.
+          git config --global --add safe.directory ${GITHUB_WORKSPACE}
+
       - name: Apply container HTTP/2 framing layer workaround
         run: |
           # FIXME: For unknown reasons, the local development host and CI is
@@ -60,54 +77,51 @@ jobs:
         run: |
           echo "$HOME/.local/bin" >> $GITHUB_PATH
 
-      - name: Free disk space
-        uses: jlumbroso/free-disk-space@v1.3.1
+      # It is important that this is run before any caching tasks as cleanups
+      # are run in reverse order (and you do not want to cleanup before the
+      # caching is saved).
+      - name: Clean working directory
+        uses: tiacsys/clean-after-action@v3
+        #
+        # Could also be implemented with the new pre- and post-job hook scripts:
+        #
+        # - https://stackoverflow.com/questions/70483902
+        # - https://devopsjournal.io/blog/2023/06/21/GitHub-container-based-Action-cleanup
+        # - https://docs.github.com/actions/hosting-your-own-runners/running-scripts-before-or-after-a-job
+        #
         with:
-          tool-cache: true
-          android: true
-          dotnet: true
-          haskell: true
-          large-packages: true
-          docker-images: true
-          swap-storage: true
+          keep-git: false
 
-      - name: Install packages
+      - name: Checkout the code
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 100
+          show-progress: true
+          path: workspace/bridle
+          ref: ${{ github.ref }}
+
+      - name: Install system packages
         run: |
           sudo add-apt-repository -y -u ppa:tiac-systems/doxygen
           sudo apt-get install -y git ninja-build python3-pip wget
           sudo apt-get install -y doxygen mscgen graphviz lcov
 
-      - name: Checkout the code
-        uses: actions/checkout@v6
-        with:
-          path: workspace/bridle
-
-      - name: Setup Zephyr workspace from Bridle
-        uses: zephyrproject-rtos/action-zephyr-setup@v1
-        with:
-          app-path: bridle
-          base-path: workspace
-          manifest-file-name: west.yml
-          west-version: 1.4.0
-          sdk-version: 0.17.4
-          toolchains: 'all'
-
-      - name: Export Zephyr workspace with Bridle
-        working-directory: workspace
-        run: |
-          west zephyr-export
-          west bridle-export
-
       - name: Install uv
         uses: astral-sh/setup-uv@v7
         with:
+          working-directory: workspace
           enable-cache: true
 
       - name: Create and enter Python 3.12 virtual environment
+        working-directory: workspace
         run: |
           uv venv --python 3.12
           source .venv/bin/activate
           echo "$PATH" > $GITHUB_PATH
+
+      - name: Setup Zephyr SDK
+        run: |
+          "${ZEPHYR_SDK_INSTALL_DIR}/setup.sh" -t all -h -c
 
       - name: Install base dependencies
         working-directory: workspace
@@ -115,8 +129,16 @@ jobs:
           which python3 && python3 --version
           which uv && uv --version
           uv pip install --upgrade --requirement bridle/zephyr/requirements-base.txt
-          uv pip show -f west
-          west -V
+          uv pip show --files west
+          which west && west --version
+
+      - name: West init and update
+        working-directory: workspace
+        run: |
+          west init --local bridle
+          west update --fetch-opt=--depth=100 --fetch=always --narrow --stats
+          west zephyr-export
+          west bridle-export
 
       - name: Install documentation dependencies
         working-directory: workspace
