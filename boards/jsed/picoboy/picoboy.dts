@@ -18,8 +18,8 @@
 #include "picoboy.dtsi"
 
 #include "picoboy-core.dtsi"
-#include "picoboy-2mb.dtsi"
 
+#include "pb-2mb.dtsi"
 #include "pb-joystick.dtsi"
 #include "pb-sensors.dtsi"
 #include "pb-speaker.dtsi"

@@ -3,13 +3,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#define __STRINGIFY(x) #x
-#define STRINGIFY(s) __STRINGIFY(s)
-
 / {
 	chosen {
 		zephyr,flash = &flash0;
-		zephyr,flash-controller = &__FLASH_CTRL_NODE;
+		zephyr,flash-controller = &ssi;
 		zephyr,code-partition = &code_partition;
 	};
 };
@@ -20,13 +17,10 @@
 		#address-cells = <1>;
 		#size-cells = <1>;
 
-		/*
-		 * Reserved memory for the RP2040 second stage bootloader
-		 * or the RP2050 image definition.
-		 */
-		__FLASH_MBR_NODE: partition@0 {
-			label = STRINGIFY(__FLASH_MBR_NODE);
-			reg = <0x00000000 __FLASH_MBR_SIZE>;
+		/* Reserved memory for the RP2040 second stage bootloader */
+		second_stage_bootloader: partition@0 {
+			label = "second-stage-bootloader";
+			reg = <0x00000000 0x100>;
 			read-only;
 		};
 
@@ -37,6 +31,3 @@
 		};
 	};
 };
-
-#undef STRINGIFY
-#undef __STRINGIFY

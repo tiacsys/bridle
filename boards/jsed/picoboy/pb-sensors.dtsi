@@ -17,6 +17,7 @@
 	/* Accelerometer with STK8BA58 sensor. */
 	stk8ba58: stk8ba58@18 {
 		compatible = "sensortek,stk8ba58";
+		friendly-name = "on-board accelerometer";
 		status = "okay";
 
 		reg = <0x18>;
@@ -37,4 +38,5 @@
 
 &die_temp {
 	status = "okay";
+	friendly-name = "RP2040 chip temperature";
 };
