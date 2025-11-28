@@ -5,17 +5,13 @@
 
 #include <mem.h>
 
-#include "mini_usb_flash.dtsi"
+#include "mini_usb_rp2350-flash.dtsi"
 
 &flash0 {
 	status = "okay";
 	reg = <0x10000000 DT_SIZE_M(4)>;
 };
 
-/*
- * Usable flash. Starts at 0x100, after the image definition. The partition
- * size is 4MB minus the 0x100 bytes taken by the image definition.
- */
 &code_partition {
-	reg = <0x100 (DT_SIZE_M(4) - __FLASH_RP2350_IMAGE_DEF)>;
+	reg = <0x00000000 DT_SIZE_M(4)>;
 };

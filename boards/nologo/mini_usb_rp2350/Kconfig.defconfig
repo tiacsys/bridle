@@ -8,7 +8,7 @@ config CLOCK_CONTROL
 
 config REGULATOR
 	default y
-	depends on DT_HAS_REGULATOR_FIXED_ENABLED
+	depends on DT_HAS_RASPBERRYPI_CORE_SUPPLY_REGULATOR_ENABLED
 
 config RESET
 	default y
@@ -19,8 +19,8 @@ config WATCHDOG
 	depends on DT_HAS_RASPBERRYPI_PICO_WATCHDOG_ENABLED
 
 config WDT_DISABLE_AT_BOOT
-	default y if HAS_WDT_DISABLE_AT_BOOT
-	depends on WATCHDOG && BOARD_MINI_USB_RP2350
+	default y if BOARD_MINI_USB_RP2350
+	depends on WATCHDOG && HAS_WDT_DISABLE_AT_BOOT
 
 config COUNTER
 	default y
@@ -33,6 +33,10 @@ config DMA
 config GPIO
 	default y
 	depends on DT_HAS_RASPBERRYPI_PICO_GPIO_ENABLED
+
+config PWM
+	default y
+	depends on DT_HAS_RASPBERRYPI_PICO_PWM_ENABLED
 
 config USB_SELF_POWERED
 	default n
