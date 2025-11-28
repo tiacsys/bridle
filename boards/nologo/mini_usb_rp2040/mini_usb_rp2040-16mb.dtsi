@@ -5,7 +5,7 @@
 
 #include <mem.h>
 
-#include "mini_usb_flash.dtsi"
+#include "mini_usb_rp2040-flash.dtsi"
 
 &flash0 {
 	status = "okay";
@@ -13,9 +13,10 @@
 };
 
 /*
- * Usable flash. Starts at 0x100, after the bootloader. The partition
- * size is 16MB minus the 0x100 bytes taken by the bootloader.
+ * Usable flash. Starts after the RP2040 second stage bootloader. The
+ * partition size is 16MB minus the 0x100 bytes taken by the RP2040
+ * second stage bootloader.
  */
 &code_partition {
-	reg = <0x100 (DT_SIZE_M(16) - __FLASH_RPI_PICO_BOOTLOADER_SIZE)>;
+	reg = <0x00000100 (DT_SIZE_M(16) - 0x100)>;
 };
