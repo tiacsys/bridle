@@ -1,9 +1,7 @@
 /*
- * Copyright (c) 2023-2024 TiaC Systems
+ * Copyright (c) 2023-2025 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
-
-#define __FLASH_RPI_PICO_BOOTLOADER_SIZE	0x100
 
 / {
 	chosen {
@@ -19,10 +17,10 @@
 		#address-cells = <1>;
 		#size-cells = <1>;
 
-		/* Reserved memory for the second stage bootloader */
+		/* Reserved memory for the RP2040 second stage bootloader */
 		second_stage_bootloader: partition@0 {
 			label = "second_stage_bootloader";
-			reg = <0x00000000 __FLASH_RPI_PICO_BOOTLOADER_SIZE>;
+			reg = <0x00000000 0x100>;
 			read-only;
 		};
 

@@ -19,14 +19,14 @@
 	};
 };
 
-&vreg {
-	regulator-always-on;
-	regulator-allowed-modes = <REGULATOR_RPI_PICO_MODE_NORMAL>;
-};
-
 &clocks {
 	pinctrl-0 = <&clocks_default>;
 	pinctrl-names = "default";
+};
+
+&vreg {
+	regulator-always-on;
+	regulator-allowed-modes = <REGULATOR_RPI_PICO_MODE_NORMAL>;
 };
 
 &reset {
@@ -37,12 +37,22 @@
 	status = "okay";
 };
 
+&rtc {
+	clocks = <&clocks RPI_PICO_CLKID_CLK_RTC>;
+	status = "okay";
+};
+
 &timer {
+	status = "okay";
+};
+
+&dma {
 	status = "okay";
 };
 
 &die_temp {
 	status = "okay";
+	friendly-name = "RP2040 chip temperature";
 };
 
 &adc {
