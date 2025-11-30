@@ -153,6 +153,11 @@
 	status = "disabled";
 };
 
+&temp {
+	status = "okay";
+	friendly-name = "nRF52 chip temperature";
+};
+
 &gpiote {
 	status = "okay";
 };
@@ -198,6 +203,7 @@
 		compatible = "sensirion,sht4x";
 		reg = <0x46>;
 		repeatability = <2>;
+		friendly-name = "on-board temperature and humidity";
 	};
 };
 
