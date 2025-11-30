@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 TiaC Systems
+ * Copyright (c) 2024-2025 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -12,6 +12,7 @@
 	wsptdis_sens_dof: mpu9250@68 {
 		status = "disabled";
 		compatible = "invensense,mpu9250";
+		friendly-name = "WSP 10-DOF IMU: accelerometer, gyroscope, magnetometer (9-DOF)";
 		reg = <0x68>;
 		accel-fs = <2>;
 		accel-dlpf = "5.05";
@@ -23,6 +24,7 @@
 	wsptdis_sens_tp: lps22hb@5c {
 		status = "disabled";
 		compatible = "st,lps22hb-press";
+		friendly-name = "WSP 10-DOF IMU: absolute air pressure with ambient temperature";
 		reg = <0x5c>;
 	};
 };

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 TiaC Systems
+ * Copyright (c) 2024-2025 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -12,6 +12,7 @@
 	wspes_sens_voc: sgp40@59 {
 		status = "okay";
 		compatible = "sensirion,sgp40";
+		friendly-name = "WSP Environment: air quality (VOC)";
 		reg = <0x59>;
 		enable-selftest;
 	};
@@ -19,6 +20,7 @@
 	wspes_sens_dof: mpu9250@68 {
 		status = "okay";
 		compatible = "invensense,mpu9250";
+		friendly-name = "WSP Environment: accelerometer, gyroscope, magnetometer (9-DOF)";
 		reg = <0x68>;
 		accel-fs = <2>;
 		accel-dlpf = "5.05";
@@ -30,6 +32,7 @@
 	wspes_sens_thp: bme280@76 {
 		status = "okay";
 		compatible = "bosch,bme280";
+		friendly-name = "WSP Environment: temperature, humidity and air pressure";
 		reg = <0x76>;
 	};
 };
