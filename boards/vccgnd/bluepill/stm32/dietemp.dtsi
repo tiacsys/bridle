@@ -5,4 +5,5 @@
 
 &die_temp {
 	status = "okay";
+	friendly-name = "STM32 chip temperature";
 };
