@@ -12,6 +12,89 @@ common:
     - native_sim/native/64
   required_snippets:
     - tstdrv-bldall-sensor-adj
+  #
+  # avoid false positive deprecation warning in SPI DT macros as error
+  #
+  # The macro SPI_DT_SPEC_GET() checks for non-empty __VA_ARGS__
+  # list; not directly in that macro, it's in SPI_CS_CONTROL_INIT().
+  # The problem now is that regardless of whether SPI_DT_SPEC_GET()
+  # or the instance wrapper SPI_DT_SPEC_INST_GET() has two (new,
+  # without delay) or three arguments (deprecated, with delay), the
+  # message regarding the delay parameter in SPI DT is still issued
+  # by the compiler as a warning and thus appears as an error in
+  # the tests.
+  #
+  # Delay parameter in SPI DT macros is deprecated, use DT prop instead:
+  # - zephyr/drivers/mfd/mfd_bd8lb600fs.c:242:13:
+  # - zephyr/drivers/mfd/mfd_tle9104.c:625:13:
+  # - zephyr/drivers/sensor/adi/ad2s1210/ad2s1210.c:898:13:
+  # - zephyr/drivers/sensor/adi/adt7310/adt7310.c:303:13:
+  # - zephyr/drivers/sensor/adi/adxl345/adxl345.c:611:13:
+  # - zephyr/drivers/sensor/adi/adxl362/adxl362.c:845:13:
+  # - zephyr/drivers/sensor/adi/adxl367/adxl367.c:1198:13:
+  # - zephyr/drivers/sensor/adi/adxl367/adxl367.c:1202:13:
+  # - zephyr/drivers/sensor/adi/adxl372/adxl372.c:957:13:
+  # - zephyr/drivers/sensor/bosch/bme280/bme280.c:476:13:
+  # - zephyr/drivers/sensor/bosch/bme680/bme680.c:524:13:
+  # - zephyr/drivers/sensor/bosch/bmi08x/bmi08x_accel.c:850:13:
+  # - zephyr/drivers/sensor/bosch/bmi08x/bmi08x_gyro.c:515:13:
+  # - zephyr/drivers/sensor/bosch/bmi160/bmi160.c:1225:13:
+  # - zephyr/drivers/sensor/bosch/bmi270/bmi270.c:840:13:
+  # - zephyr/drivers/sensor/bosch/bmi323/bmi323.c:1340:13:
+  # - zephyr/drivers/sensor/bosch/bmm150/bmm150.c:743:13:
+  # - zephyr/drivers/sensor/bosch/bmp388/bmp388.c:578:13:
+  # - zephyr/drivers/sensor/bosch/bmp388/bmp388.c:582:13:
+  # - zephyr/drivers/sensor/ens160/ens160.c:330:13:
+  # - zephyr/drivers/sensor/maxim/max31855/max31855.c:133:13:
+  # - zephyr/drivers/sensor/maxim/max31865/max31865.c:333:13:
+  # - zephyr/drivers/sensor/maxim/max6675/max6675.c:114:13:
+  # - zephyr/drivers/sensor/meas/ms5607/ms5607.c:357:13:
+  # - zephyr/drivers/sensor/nxp/fxls8974/fxls8974.c:637:13:
+  # - zephyr/drivers/sensor/pixart/paa3905/paa3905.c:338:13:
+  # - zephyr/drivers/sensor/pixart/pat9136/pat9136.c:472:13:
+  # - zephyr/drivers/sensor/pni/rm3100/rm3100.c:261:13:
+  # - zephyr/drivers/sensor/st/hts221/hts221.c:274:13:
+  # - zephyr/drivers/sensor/st/i3g4250d/i3g4250d.c:227:13:
+  # - zephyr/drivers/sensor/st/iis2dh/iis2dh.c:324:13:
+  # - zephyr/drivers/sensor/st/iis2dlpc/iis2dlpc.c:497:13:
+  # - zephyr/drivers/sensor/st/iis2iclx/iis2iclx.c:685:13:
+  # - zephyr/drivers/sensor/st/iis2mdc/iis2mdc.c:385:13:
+  # - zephyr/drivers/sensor/st/iis328dq/iis328dq.c:456:13:
+  # - zephyr/drivers/sensor/st/iis3dhhc/iis3dhhc.c:243:13:
+  # - zephyr/drivers/sensor/st/iis3dwb/iis3dwb.c:395:13:
+  # - zephyr/drivers/sensor/st/ism330dhcx/ism330dhcx.c:807:13:
+  # - zephyr/drivers/sensor/st/lis2de12/lis2de12.c:471:13:
+  # - zephyr/drivers/sensor/st/lis2dh/lis2dh.c:661:13:
+  # - zephyr/drivers/sensor/st/lis2ds12/lis2ds12.c:404:13:
+  # - zephyr/drivers/sensor/st/lis2du12/lis2du12.c:478:13:
+  # - zephyr/drivers/sensor/st/lis2dux12/lis2dux12.c:373:13:
+  # - zephyr/drivers/sensor/st/lis2dux12/lis2dux12.c:377:13:
+  # - zephyr/drivers/sensor/st/lis2dw12/lis2dw12.c:699:13:
+  # - zephyr/drivers/sensor/st/lis2mdl/lis2mdl.c:563:13:
+  # - zephyr/drivers/sensor/st/lps22hh/lps22hh.c:380:13:
+  # - zephyr/drivers/sensor/st/lps2xdf/lps2xdf.c:223:13:
+  # - zephyr/drivers/sensor/st/lps2xdf/lps2xdf.c:227:13:
+  # - zephyr/drivers/sensor/st/lps2xdf/lps2xdf.c:231:13:
+  # - zephyr/drivers/sensor/st/lsm6dsl/lsm6dsl.c:959:13:
+  # - zephyr/drivers/sensor/st/lsm6dso16is/lsm6dso16is.c:914:13:
+  # - zephyr/drivers/sensor/st/lsm6dso/lsm6dso.c:948:13:
+  # - zephyr/drivers/sensor/st/lsm6dso/lsm6dso.c:952:13:
+  # - zephyr/drivers/sensor/st/lsm6dsv16x/lsm6dsv16x.c:1426:13:
+  # - zephyr/drivers/sensor/st/lsm6dsv16x/lsm6dsv16x.c:1430:13:
+  # - zephyr/drivers/sensor/tdk/icm42605/icm42605.c:453:13:
+  # - zephyr/drivers/sensor/tdk/icm4268x/icm4268x.c:417:13:
+  # - zephyr/drivers/sensor/tdk/icm42x70/icm42x70.c:1030:13:
+  # - zephyr/drivers/sensor/tdk/icm45686/icm45686.c:466:13:
+  # - zephyr/drivers/sensor/tdk/icp201xx/icp201xx_drv.c:444:13:
+  # - zephyr/drivers/sensor/ti/tmag5170/tmag5170.c:585:13:
+  #
+  # See: https://github.com/zephyrproject-rtos/zephyr/issues/97212
+  #
+  # See: https://github.com/zephyrproject-rtos/zephyr/commit/a60f93d742a
+  #      https://github.com/zephyrproject-rtos/zephyr/pull/87427
+  #
+  extra_args:
+    - CONFIG_COMPILER_WARNINGS_AS_ERRORS=n
 tests:
   drivers.sensor.sensorhub.build:
     extra_args: EXTRA_CONF_FILE=sensors_shub.conf;sensors_die_temp.conf
