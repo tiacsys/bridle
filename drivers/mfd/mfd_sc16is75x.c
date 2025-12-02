@@ -596,4 +596,28 @@ static int mfd_sc16is75x_init(const struct device *dev)
 			      &mfd_sc16is75x_data_##inst, &mfd_sc16is75x_config_##inst,            \
 			      POST_KERNEL, CONFIG_MFD_SC16IS75X_INIT_PRIORITY, NULL);
 
+/*
+ * Avoid false positive compile warnings from SPI DT macros.
+ *
+ * The macro SPI_DT_SPEC_GET() checks for non-empty __VA_ARGS__
+ * list; not directly in that macro, it's in SPI_CS_CONTROL_INIT().
+ * The problem now is that regardless of whether SPI_DT_SPEC_GET()
+ * or the instance wrapper SPI_DT_SPEC_INST_GET() has two (new,
+ * without delay) or three arguments (deprecated, with delay), the
+ * message regarding the delay parameter in SPI DT is still issued
+ * by the compiler as a warning and thus appears as an error in
+ * the tests:
+ *
+ * Delay parameter in SPI DT macros is deprecated, use DT prop instead
+ *  599 | DT_INST_FOREACH_STATUS_OKAY(MFD_SC16IS75X_DEFINE);
+ *      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ * cc1: all warnings being treated as errors
+ *
+ * See: https://github.com/zephyrproject-rtos/zephyr/issues/97212
+ *      comment by Pawel Osypiuk <pawelosyp@gmail.com> in Nov. 2025.
+ */
+#ifdef SPI_DEPRECATE_DELAY_WARN
+#undef SPI_DEPRECATE_DELAY_WARN
+#endif
+
 DT_INST_FOREACH_STATUS_OKAY(MFD_SC16IS75X_DEFINE);
