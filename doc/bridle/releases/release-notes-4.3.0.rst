@@ -243,6 +243,8 @@ The following sections provide detailed lists of changes by component.
 
 :brd:`NOT YET, tbd.`
 
+* Migrate SPI DT macros to Zephyr v4.3 in MFD driver for SC18IS604, SC16IS75X,
+  and SIPOMUXGP (Generic latched SIPO/MUX GP matrix controller).
 * tbd.
 * tbd.
 * tbd.
@@ -279,6 +281,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`385` - [FER] Migrate SPI DT macros to Zephyr v4.3
 * :github:`368` - [BUG] current nightly QA integration tests failing
 * :github:`364` - [FCR] Upgrade to Zephyr SDK 0.17.4 and CI container 0.28.4
 * :github:`362` - [FER] switch to west controlled package manager dependencies
