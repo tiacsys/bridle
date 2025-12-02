@@ -227,6 +227,14 @@ Change log
 
 :brd:`NOT YET, tbd.`
 
+* Improve CI worker on GitHub and use self-hosted runner for
+  documentation build.
+* Improve several board and shield configurations; automatic API
+  enable of simple standard functions such as regulator, counter,
+  RTC, DMA, PWM, Flash controller and partitioning.
+* Add an friendly name to all knwon sensors in DTS artefact files.
+* Remove special handling of USB MSC disk name as DTS property and
+  as Kconfig options.
 * tbd.
 * tbd.
 * tbd.
