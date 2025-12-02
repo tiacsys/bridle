@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 TiaC Systems
+ * Copyright (c) 2024-2025 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -394,17 +394,18 @@ static int mfd_sc18is604_pm_device_pm_action(const struct device *dev, enum pm_d
 }
 #endif
 
+/* clang-format off */
+#define MFD_SC18IS604_SPI_OPTS                                                                     \
+	(SPI_OP_MODE_MASTER | SPI_TRANSFER_MSB | SPI_HOLD_ON_CS | SPI_LOCK_ON | SPI_MODE_CPOL |    \
+	 SPI_MODE_CPHA | SPI_WORD_SET(8))
+
 #define MFD_SC18IS604_DEFINE(inst)                                                                 \
 	IF_ENABLED(CONFIG_MFD_SC18IS604_ASYNC,                                                     \
 		   (K_THREAD_STACK_DEFINE(mfd_sc18is604_wq_stack_##inst,                           \
 					  CONFIG_MFD_SC18IS604_WORKQUEUE_STACK_SIZE)));            \
                                                                                                    \
 	static const struct mfd_sc18is604_config mfd_sc18is604_config_##inst = {                   \
-		.spi = SPI_DT_SPEC_INST_GET(inst,                                                  \
-					    SPI_OP_MODE_MASTER | SPI_TRANSFER_MSB |                \
-						    SPI_HOLD_ON_CS | SPI_LOCK_ON | SPI_MODE_CPOL | \
-						    SPI_MODE_CPHA | SPI_WORD_SET(8),               \
-					    0),                                                    \
+		.spi = SPI_DT_SPEC_INST_GET(inst, MFD_SC18IS604_SPI_OPTS),                         \
 		.interrupt = GPIO_DT_SPEC_INST_GET(inst, interrupt_gpios),                         \
 		.reset = GPIO_DT_SPEC_INST_GET_OR(inst, reset_gpios, {0}),                         \
 	};                                                                                         \
@@ -423,5 +424,6 @@ static int mfd_sc18is604_pm_device_pm_action(const struct device *dev, enum pm_d
 	DEVICE_DT_INST_DEFINE(inst, mfd_sc18is604_init, PM_DEVICE_DT_INST_GET(inst),               \
 			      &mfd_sc18is604_data_##inst, &mfd_sc18is604_config_##inst,            \
 			      POST_KERNEL, CONFIG_MFD_SC18IS604_INIT_PRIORITY, NULL);
+/* clang-format on */
 
 DT_INST_FOREACH_STATUS_OKAY(MFD_SC18IS604_DEFINE);
