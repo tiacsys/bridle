@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 TiaC Systems
+ * Copyright (c) 2023-2025 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -19,14 +19,10 @@ typedef struct mfd_sipomuxgp_spi_config {
 	const struct spi_dt_spec bus;
 } mfd_sipomuxgp_spi_config_t;
 
-#define MFD_SIPOMUXGP_spi_CFG_INIT(n, b)                        \
-	static const mfd_sipomuxgp_spi_config_t                 \
-			    mfd_sipomuxgp_spi_config_##n =      \
-	{                                                       \
-		.bus = SPI_DT_SPEC_GET(INST_DT_SIPOMUXGP(n, b), \
-				       SPI_OP_MODE_MASTER |     \
-				       SPI_TRANSFER_MSB |       \
-				       SPI_WORD_SET(8), 0),     \
+#define MFD_SIPOMUXGP_spi_CFG_INIT(n, b)                                                           \
+	static const mfd_sipomuxgp_spi_config_t mfd_sipomuxgp_spi_config_##n = {                   \
+		.bus = SPI_DT_SPEC_GET(INST_DT_SIPOMUXGP(n, b),                                    \
+				       SPI_OP_MODE_MASTER | SPI_TRANSFER_MSB | SPI_WORD_SET(8)),   \
 	};
 
 int mfd_sipomuxgp_spi_init(const struct device *dev);
