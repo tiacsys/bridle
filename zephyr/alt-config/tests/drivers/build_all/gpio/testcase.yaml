@@ -10,6 +10,42 @@ common:
   platform_allow:
     - native_sim
     - native_sim/native/64
+  #
+  # avoid false positive deprecation warning in SPI DT macros as error
+  #
+  # The macro SPI_DT_SPEC_GET() checks for non-empty __VA_ARGS__
+  # list; not directly in that macro, it's in SPI_CS_CONTROL_INIT().
+  # The problem now is that regardless of whether SPI_DT_SPEC_GET()
+  # or the instance wrapper SPI_DT_SPEC_INST_GET() has two (new,
+  # without delay) or three arguments (deprecated, with delay), the
+  # message regarding the delay parameter in SPI DT is still issued
+  # by the compiler as a warning and thus appears as an error in
+  # the tests.
+  #
+  # Delay parameter in SPI DT macros is deprecated, use DT prop instead:
+  # - zephyr/drivers/gpio/gpio_max14917.c:358:13
+  # - zephyr/drivers/gpio/gpio_max14906.c:495:13
+  # - zephyr/drivers/gpio/gpio_max2219x.c:689:13
+  # - zephyr/drivers/gpio/gpio_max2219x.c:693:13
+  # - zephyr/drivers/gpio/gpio_max14916.c:400:13
+  # - zephyr/drivers/gpio/gpio_max14916.c:404:13
+  # - zephyr/drivers/gpio/gpio_mcp23sxx.c:147:13
+  # - zephyr/drivers/gpio/gpio_mcp23sxx.c:150:13
+  # - zephyr/drivers/gpio/gpio_mcp23sxx.c:153:13
+  # - zephyr/drivers/gpio/gpio_mcp23sxx.c:156:13
+  # - zephyr/drivers/gpio/gpio_sn74hc595.c:238:13
+  # - zephyr/drivers/mfd/mfd_ad559x.c:110:13
+  # - zephyr/drivers/mfd/mfd_tle9104.c:625:13
+  # - zephyr/drivers/mfd/mfd_bd8lb600fs.c:242:13
+  # - zephyr/drivers/mfd/mfd_max22017.c:390:13
+  #
+  # See: https://github.com/zephyrproject-rtos/zephyr/issues/97212
+  #
+  # See: https://github.com/zephyrproject-rtos/zephyr/commit/a60f93d742a
+  #      https://github.com/zephyrproject-rtos/zephyr/pull/87427
+  #
+  extra_args:
+    - CONFIG_COMPILER_WARNINGS_AS_ERRORS=n
 tests:
   drivers.gpio.build:
     required_snippets:
