@@ -10,6 +10,8 @@
  * (and be extended to test) real hardware.
  */
 
+#include <freq.h>
+#include <zephyr/dt-bindings/i2c/i2c.h>
 #include <zephyr/dt-bindings/mipi_dbi/mipi_dbi.h>
 
 / {
@@ -17,6 +19,13 @@
 };
 
 &test {
+	test_fixed_clk_adj: test-fixed-clk-adj {
+		compatible = "fixed-clock";
+		status = "okay";
+		#clock-cells = <0>;
+		clock-frequency = <0>;
+	};
+
 	test_gpio_adj: gpio@feedface {
 		compatible = "vnd,gpio";
 		status = "okay";
@@ -31,7 +40,7 @@
 		reg = <0xaaaabbbb 0x1000>;
 		#address-cells = <1>;
 		#size-cells = <0>;
-		clock-frequency = <100000>;
+		clock-frequency = <I2C_BITRATE_STANDARD>;
 	};
 
 	test_i3c_adj: i3c@bbbbaaaa {
@@ -48,7 +57,7 @@
 		reg = <0xccccdddd 0x1000>;
 		#address-cells = <1>;
 		#size-cells = <0>;
-		clock-frequency = <2000000>;
+		clock-frequency = <DT_FREQ_M(2)>;
 
 		/* one entry for every devices */
 		/* Note that this must include MIPI DBI devices as well. */
@@ -222,7 +231,7 @@
 			compatible = "ilitek,ili9488";
 			status = "okay";
 			reg = <10>;
-			mipi-max-frequency = <60000000>;
+			mipi-max-frequency = <DT_FREQ_M(60)>;
 			mipi-mode = "MIPI_DBI_MODE_SPI_4WIRE";
 			pixel-format = <0>;
 			rotation = <270>;
@@ -248,7 +257,7 @@
 			compatible = "ilitek,ili9488";
 			status = "okay";
 			reg = <20>;
-			mipi-max-frequency = <60000000>;
+			mipi-max-frequency = <DT_FREQ_M(60)>;
 			mipi-mode = "MIPI_DBI_MODE_SPI_4WIRE";
 			pixel-format = <0>;
 			rotation = <270>;
@@ -256,9 +265,4 @@
 			height = <320>;
 		};
 	};
-};
-
-/* disable device to avoid conflict with ili93xx version */
-&test_mipi_dbi_ili9342c {
-	status = "disabled";
 };

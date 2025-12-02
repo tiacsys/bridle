@@ -10,6 +10,9 @@
  * (and be extended to test) real hardware.
  */
 
+#include <freq.h>
+#include <zephyr/dt-bindings/i2c/i2c.h>
+
 / {
 	test: test {
 		#address-cells = <1>;
@@ -18,6 +21,13 @@
 };
 
 &test {
+	test_fixed_clk_adj: test-fixed-clk-adj {
+		compatible = "fixed-clock";
+		status = "okay";
+		#clock-cells = <0>;
+		clock-frequency = <0>;
+	};
+
 	test_gpio_adj: gpio@feedface {
 		compatible = "vnd,gpio";
 		status = "okay";
@@ -32,7 +42,7 @@
 		reg = <0xaaaabbbb 0x1000>;
 		#address-cells = <1>;
 		#size-cells = <0>;
-		clock-frequency = <100000>;
+		clock-frequency = <I2C_BITRATE_STANDARD>;
 
 		test_i2c_ds3231_mfd: ds3231-mfd@1 {
 			compatible = "maxim,ds3231-mfd";
@@ -62,7 +72,7 @@
 		reg = <0xccccdddd 0x1000>;
 		#address-cells = <1>;
 		#size-cells = <0>;
-		clock-frequency = <2000000>;
+		clock-frequency = <DT_FREQ_M(2)>;
 
 		/* one entry for every devices */
 		/* cs-gpios = <&test_gpio_adj 0 0>; */

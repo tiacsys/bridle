@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 TiaC Systems
+ * Copyright (c) 2024-2025 TiaC Systems
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -9,6 +9,9 @@
  * with real-world devicetree nodes, to allow these tests to run on
  * (and be extended to test) real hardware.
  */
+
+#include <freq.h>
+#include <zephyr/dt-bindings/i2c/i2c.h>
 
 / {
 	test: test {};
@@ -36,7 +39,7 @@
 		reg = <0xaaaabbbb 0x1000>;
 		#address-cells = <1>;
 		#size-cells = <0>;
-		clock-frequency = <100000>;
+		clock-frequency = <I2C_BITRATE_STANDARD>;
 
 		test_i2c_pca9554_regrst: pca9554-regrst@1 {
 			compatible = "nxp,pca9554-regrst";
@@ -93,7 +96,7 @@
 		reg = <0xccccdddd 0x1000>;
 		#address-cells = <1>;
 		#size-cells = <0>;
-		clock-frequency = <2000000>;
+		clock-frequency = <DT_FREQ_M(2)>;
 
 		/* one entry for every devices */
 		cs-gpios = <&test_gpio_adj 0 0>,
@@ -285,7 +288,7 @@
 			compatible = "nxp,sc18is604";
 			status = "okay";
 			reg = <0x4>;
-			spi-max-frequency = <650000>;
+			spi-max-frequency = <DT_FREQ_K(650)>;
 			reset-gpios = <&test_gpio_adj 0 0>;
 			interrupt-gpios = <&test_gpio_adj 0 0>;
 
