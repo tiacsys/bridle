@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 TiaC Systems
+ * Copyright (c) 2024-2025 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -542,7 +542,7 @@ static int mfd_sc16is75x_init(const struct device *dev)
  * @brief Construct struct initializer entries for an SPI bus configuration.
  */
 #define MFD_SC16IS75X_DEFINE_SPI_BUS(inst)                                                         \
-	.spi = SPI_DT_SPEC_INST_GET(inst, SPI_OP_MODE_MASTER | SPI_WORD_SET(8), 0),                \
+	.spi = SPI_DT_SPEC_INST_GET(inst, SPI_OP_MODE_MASTER | SPI_WORD_SET(8)),                   \
 	.bus_init = mfd_sc16is75x_spi_init
 
 /**
