@@ -10,6 +10,32 @@ common:
   platform_allow:
     - native_sim
     - native_sim/native/64
+  #
+  # avoid false positive deprecation warning in SPI DT macros as error
+  #
+  # The macro SPI_DT_SPEC_GET() checks for non-empty __VA_ARGS__
+  # list; not directly in that macro, it's in SPI_CS_CONTROL_INIT().
+  # The problem now is that regardless of whether SPI_DT_SPEC_GET()
+  # or the instance wrapper SPI_DT_SPEC_INST_GET() has two (new,
+  # without delay) or three arguments (deprecated, with delay), the
+  # message regarding the delay parameter in SPI DT is still issued
+  # by the compiler as a warning and thus appears as an error in
+  # the tests.
+  #
+  # Delay parameter in SPI DT macros is deprecated, use DT prop instead:
+  # - zephyr/drivers/display/ls0xx.c:272:13
+  # - zephyr/drivers/display/display_max7219.c:344:13
+  # - zephyr/drivers/display/ssd1306.c:575:13
+  # - zephyr/drivers/led_strip/lpd880x.c:149:13
+  # - zephyr/drivers/led_strip/ws2812_spi.c:288:13
+  #
+  # See: https://github.com/zephyrproject-rtos/zephyr/issues/97212
+  #
+  # See: https://github.com/zephyrproject-rtos/zephyr/commit/a60f93d742a
+  #      https://github.com/zephyrproject-rtos/zephyr/pull/87427
+  #
+  extra_args:
+    - CONFIG_COMPILER_WARNINGS_AS_ERRORS=n
 tests:
   drivers.display.build:
     required_snippets:
