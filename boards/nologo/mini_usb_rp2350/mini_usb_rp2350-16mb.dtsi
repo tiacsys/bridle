@@ -13,5 +13,5 @@
 };
 
 &code_partition {
-	reg = <0x00000100 DT_SIZE_M(16)>;
+	reg = <0x00000000 DT_SIZE_M(16)>;
 };
