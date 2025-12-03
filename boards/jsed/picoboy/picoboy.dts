@@ -16,7 +16,6 @@
 };
 
 #include "picoboy.dtsi"
-
 #include "picoboy-core.dtsi"
 
 #include "pb-2mb.dtsi"

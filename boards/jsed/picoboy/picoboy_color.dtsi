@@ -25,13 +25,13 @@
 	pinctrl-names = "default";
 };
 
-&reset {
-	status = "okay";
-};
-
 &vreg {
 	regulator-always-on;
 	regulator-allowed-modes = <REGULATOR_RPI_PICO_MODE_NORMAL>;
+};
+
+&reset {
+	status = "okay";
 };
 
 &wdt0 {

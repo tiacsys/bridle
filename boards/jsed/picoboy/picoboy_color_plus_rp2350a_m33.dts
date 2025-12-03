@@ -16,7 +16,6 @@
 };
 
 #include "picoboy_color_plus_rp2350a_m33.dtsi"
-
 #include "picoboy-core.dtsi"
 
 #include "pbcp-16mb.dtsi"
