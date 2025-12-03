@@ -50,7 +50,7 @@ config PWM
 
 config INPUT
 	default y if DT_HAS_ZEPHYR_LVGL_KEYPAD_INPUT_ENABLED
-	depends on BOARD_PICOBOY_RP2040 && DISPLAY && LVGL
+	depends on DISPLAY && LVGL
 
 config USB_SELF_POWERED
 	default n
