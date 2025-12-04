@@ -60,9 +60,9 @@ hardware features:
      - :dtcompatible:`atmel,sam0-uart`
      - :external+zephyr:ref:`uart_api`
    * - UDC (USB Device Controller)
-     - :kconfig:option:`CONFIG_USB_DEVICE_STACK`
+     - :kconfig:option:`CONFIG_USB_DEVICE_STACK_NEXT`
      - :dtcompatible:`atmel,sam0-usb`
-     - :external+zephyr:ref:`usb_api`
+     - :external+zephyr:ref:`usb_device_next_api`
    * - I2C
      - :kconfig:option:`CONFIG_I2C`
      - :dtcompatible:`atmel,sam0-i2c`
