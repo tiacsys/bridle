@@ -22,14 +22,6 @@ config DELAY_T0L
 	default 64 if BOARD_COFFEECALLER_NRF52
 	depends on LED_STRIP && DT_HAS_WORLDSEMI_WS2812_GPIO_ENABLED
 
-config USB_SELF_POWERED
-	default n
-	depends on USB_DEVICE_STACK && BOARD_COFFEECALLER_NRF52
-
-config USB_MAX_POWER
-	default 75 if BOARD_COFFEECALLER_NRF52	# 150mA
-	depends on USB_DEVICE_STACK && BOARD_COFFEECALLER_NRF52
-
 # Workaround for not being able to have commas in macro arguments
 DT_CHOSEN_Z_CONSOLE := zephyr,console
 DT_COMPAT_Z_CDC_ACM_UART := zephyr,cdc-acm-uart
@@ -44,25 +36,30 @@ if BOARD_COFFEECALLER_NRF52 && \
 	$(dt_compat_on_bus,$(DT_COMPAT_Z_CDC_ACM_UART),usb) && \
 	$(dt_node_has_compat,$(DT_CHOSEN_CONSOLE_PARENT),$(DT_COMPAT_NORDICNRF_USB))
 
+config CDC_ACM_SERIAL_SELF_POWERED
+	default n
+	depends on USB_DEVICE_STACK_NEXT && USBD_CDC_ACM_CLASS
+
+config CDC_ACM_SERIAL_MAX_POWER
+	default 75 if BOARD_COFFEECALLER_NRF52	# 150mA
+	depends on USB_DEVICE_STACK_NEXT && USBD_CDC_ACM_CLASS
+
 # Logger cannot use itself to log
-choice USB_CDC_ACM_LOG_LEVEL_CHOICE
-	default USB_CDC_ACM_LOG_LEVEL_OFF
-	depends on LOG
+choice USBD_CDC_ACM_LOG_LEVEL_CHOICE
+	default USBD_CDC_ACM_LOG_LEVEL_OFF
+	depends on LOG && USB_DEVICE_STACK_NEXT && USBD_CDC_ACM_CLASS
 endchoice
 
 # Set USB log level to error only
-choice USB_DEVICE_LOG_LEVEL_CHOICE
-	default USB_DEVICE_LOG_LEVEL_ERR
-	depends on LOG
+choice USBD_LOG_LEVEL_CHOICE
+	default USBD_LOG_LEVEL_ERR
+	depends on LOG && USB_DEVICE_STACK_NEXT && USBD_CDC_ACM_CLASS
 endchoice
 
-# Wait 4000ms at startup for logging
-config LOG_PROCESS_THREAD_STARTUP_DELAY_MS
-	default 4000
-	depends on LOG
-
-# Wait 4000ms at startup for USB enumeration on host side
-config BOOT_DELAY
-	default 4000
+# Set UDC driver log level to error only
+choice UDC_DRIVER_LOG_LEVEL_CHOICE
+	default UDC_DRIVER_LOG_LEVEL_ERR
+	depends on LOG && USB_DEVICE_STACK_NEXT && USBD_CDC_ACM_CLASS
+endchoice
 
 endif # zephyr,cdc-acm-uart
