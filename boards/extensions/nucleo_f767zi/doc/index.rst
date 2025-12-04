@@ -18,8 +18,8 @@ List of extensions
 - :bbl:`activate` self powered USB explicitly and set the maximum of
   electrical current consumption to :bbl:`0㎃`:
 
-  - |CONFIG_USB_SELF_POWERED|
-  - |CONFIG_USB_MAX_POWER|
+  - |CONFIG_CDC_ACM_SERIAL_SELF_POWERED|
+  - |CONFIG_CDC_ACM_SERIAL_MAX_POWER|
 
   .. list-table::
      :align: left
@@ -33,19 +33,19 @@ List of extensions
             :language: Kconfig
             :encoding: ISO-8859-1
             :emphasize-lines: 1-2,5-6
-            :start-at: config USB_SELF_POWERED
-            :end-before: Workaround for not being able to have commas in macro arguments
+            :start-at: config CDC_ACM_SERIAL_SELF_POWERED
+            :end-before: Logger cannot use itself to log
 
-- :brd:`change` log level and startup delay only in case of use the
-  native USB device port :dtcompatible:`st,stm32-otgfs` with CDC-ACM
+- :brd:`change` log level only in case of use the native USB device port
+  :dtcompatible:`st,stm32-otgfs` with CDC-ACM
   UART :dtcompatible:`zephyr,cdc-acm-uart` as Zephyr console:
 
-  - |CONFIG_USB_CDC_ACM_LOG_LEVEL_CHOICE| :=
-    |CONFIG_USB_CDC_ACM_LOG_LEVEL_OFF|
-  - |CONFIG_USB_DEVICE_LOG_LEVEL_CHOICE| :=
-    |CONFIG_USB_DEVICE_LOG_LEVEL_ERR|
-  - |CONFIG_LOG_PROCESS_THREAD_STARTUP_DELAY_MS|
-  - |CONFIG_BOOT_DELAY|
+  - |CONFIG_USBD_CDC_ACM_LOG_LEVEL_CHOICE| :=
+    |CONFIG_USBD_CDC_ACM_LOG_LEVEL_OFF|
+  - |CONFIG_USBD_LOG_LEVEL_CHOICE| :=
+    |CONFIG_USBD_LOG_LEVEL_ERR|
+  - |CONFIG_UDC_DRIVER_LOG_LEVEL_CHOICE| :=
+    |CONFIG_UDC_DRIVER_LOG_LEVEL_ERR|
 
   .. list-table::
      :align: left
@@ -58,7 +58,8 @@ List of extensions
             :caption: Kconfig.defconfig
             :language: Kconfig
             :encoding: ISO-8859-1
-            :emphasize-lines: 3-4,16-17,22-23,28-29,33-34
+            :lines: -14,23-
+            :emphasize-lines: 3-4,16-17,22-23,28-29
             :start-at: Workaround for not being able to have commas in macro arguments
             :end-at: endif # zephyr,cdc-acm-uart
 
