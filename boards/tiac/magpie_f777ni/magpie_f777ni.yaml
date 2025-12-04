@@ -26,6 +26,8 @@ supported:
   - adc
   - nvs
   - dma
+  - usb_device
+  - usb_cdc
   - watchdog
   - counter
 testing:

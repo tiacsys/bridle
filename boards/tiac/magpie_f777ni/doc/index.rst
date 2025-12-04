@@ -122,10 +122,10 @@ hardware features:
        | :dtcompatible:`st,stm32-usart`
      - :external+zephyr:ref:`uart_api`
    * - UDC (USB Device Controller)
-     - :kconfig:option:`CONFIG_USB_DEVICE_STACK`
+     - :kconfig:option:`CONFIG_USB_DEVICE_STACK_NEXT`
      - | :dtcompatible:`st,stm32-otgfs`
        | :dtcompatible:`st,stm32-otghs`
-     - :external+zephyr:ref:`usb_api`
+     - :external+zephyr:ref:`usb_device_next_api`
    * - ETH (L1: PHY, L2: MAC / LLC)
      - :kconfig:option:`CONFIG_NET_L2_ETHERNET`
      - :dtcompatible:`st,stm32-ethernet` (*)
