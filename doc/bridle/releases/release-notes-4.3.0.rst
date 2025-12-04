@@ -13,6 +13,8 @@ Highlights
 
 * :brd:`NOT YET, tbd.`
 
+* Use the new USB stack, which can now also support high-speed devices.
+
 .. note:: See the changelog and readme files in the component repositories
    for a detailed description of changes.
 
@@ -245,6 +247,11 @@ The following sections provide detailed lists of changes by component.
 
 * Migrate SPI DT macros to Zephyr v4.3 in MFD driver for SC18IS604, SC16IS75X,
   and SIPOMUXGP (Generic latched SIPO/MUX GP matrix controller).
+* Since Zephyr upstream PR 87269 the legacy USB stack is marked as deprecated.
+  Bridle has now migrated all boards and the ``usb-console`` snippet to the
+  new USB stack, which can now also support high-speed devices. Regarding the
+  discussion in Zephyr upstream PR 87269, this can lead to significantly
+  increased RAM and ROM footprints.
 * tbd.
 * tbd.
 * tbd.
@@ -285,6 +292,7 @@ These GitHub issues were addressed since project bootstrapping:
 * :github:`368` - [BUG] current nightly QA integration tests failing
 * :github:`364` - [FCR] Upgrade to Zephyr SDK 0.17.4 and CI container 0.28.4
 * :github:`362` - [FER] switch to west controlled package manager dependencies
+* :github:`358` - [BUG] Bridle have to swap to next new USB stack
 * :github:`352` - [BUG] wrong handling of special project configuration in ``button`` sample
 * :github:`351` - [BUG] wrong handling of special project configuration in ``helloshell`` sample
 * :github:`344` - [HW] Mini USB RP2350 by AliExpress (No Name Technology)
