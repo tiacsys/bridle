@@ -21,10 +21,10 @@
        | :dtcompatible:`st,stm32-usart`
      - :external+zephyr:ref:`uart_api`
    * - UDC (USB Device Controller)
-     - :kconfig:option:`CONFIG_USB_DEVICE_STACK`
+     - :kconfig:option:`CONFIG_USB_DEVICE_STACK_NEXT`
      - | :dtcompatible:`st,stm32-usb`
        | :dtcompatible:`usb-nop-xceiv`
-     - :external+zephyr:ref:`usb_api`
+     - :external+zephyr:ref:`usb_device_next_api`
    * - CAN (L1: PMA / PCS, L2: DLL)
      - :kconfig:option:`CONFIG_CAN`
      - :dtcompatible:`st,stm32-bxcan`
