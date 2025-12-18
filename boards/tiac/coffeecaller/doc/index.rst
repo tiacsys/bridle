@@ -399,8 +399,8 @@ Then build and flash the application in the usual way.
 
    .. zephyr-app-commands::
       :app: zephyr/samples/hello_world
-      :board: coffeecaller_nrf52
       :build-dir: coffeecaller_nrf52
+      :board: coffeecaller_nrf52
       :west-args: -p
       :flash-args: -r uf2
       :goals: flash
@@ -413,8 +413,7 @@ You should see the following message on the console:
 
       .. parsed-literal::
 
-         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-         \*\*\* Booting Zephyr OS build v\ |zephyr_version_number_em| \*\*\*
+         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
          Hello World! coffeecaller_nrf52/nrf52840
 
 Debugging
@@ -429,8 +428,8 @@ debugging the :external+zephyr:zephyr:code-sample:`hello_world` application:
 
    .. zephyr-app-commands::
       :app: zephyr/samples/hello_world
-      :board: coffeecaller_nrf52
       :build-dir: coffeecaller_nrf52
+      :board: coffeecaller_nrf52
       :maybe-skip-config:
       :west-args: -p
       :debug-args: -r jlink
@@ -445,8 +444,8 @@ Hello Shell on the USB Console (CDC/ACM)
 
 .. zephyr-app-commands::
    :app: bridle/samples/helloshell
-   :board: coffeecaller_nrf52
    :build-dir: coffeecaller_nrf52
+   :board: coffeecaller_nrf52
    :west-args: -p
    :flash-args: -r uf2
    :goals: flash
@@ -458,8 +457,7 @@ You should see the following message on the console:
 
       .. parsed-literal::
 
-         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-         \*\*\* Booting Zephyr OS build v\ |zephyr_version_number_em| \*\*\*
+         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
          Hello World! I'm THE SHELL from coffeecaller_nrf52
          :bgn:`uart:~$` **█**
 
@@ -511,10 +509,12 @@ Simple test execution on target
               DT node labels: cdc_acm_uart0
             - uart\ @\ 40002000 (READY)
               DT node labels: uart0
+            - usbd\ @\ 40027000 (READY)
+              DT node labels: usbd zephyr_udc0
             - flash-controller\ @\ 4001e000 (READY)
               DT node labels: flash_controller
             - i2c\ @\ 40003000 (READY)
-              DT node labels: i2c0
+              DT node labels: i2c0 grove_i2c
             - pwm\ @\ 40021000 (READY)
               DT node labels: pwm1
             - pwm\ @\ 4001c000 (READY)
@@ -611,8 +611,8 @@ Simple test execution on target
          .. parsed-literal::
 
             :bgn:`uart:~$` **sensor info**
-            device name: sht4x\ @\ 46, vendor: Sensirion AG, model: sht4x, friendly name: (null)
-            device name: temp\ @\ 4000c000, vendor: Nordic Semiconductor, model: nrf-temp, friendly name: (null)
+            device name: sht4x\ @\ 46, vendor: Sensirion AG, model: sht4x, friendly name: on-board temperature and humidity
+            device name: temp\ @\ 4000c000, vendor: Nordic Semiconductor, model: nrf-temp, friendly name: nRF52 chip temperature
 
       .. container:: highlight highlight-console notranslate
 
@@ -737,8 +737,8 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`blinky`.
 
    .. zephyr-app-commands::
       :app: zephyr/samples/basic/blinky
-      :board: coffeecaller_nrf52
       :build-dir: coffeecaller_nrf52
+      :board: coffeecaller_nrf52
       :west-args: -p
       :flash-args: -r uf2
       :goals: flash
@@ -750,8 +750,7 @@ You should see the following message on the console:
 
       .. parsed-literal::
 
-         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-         \*\*\* Booting Zephyr OS build v\ |zephyr_version_number_em| \*\*\*
+         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
          LED state: OFF
          LED state: ON
          LED state: OFF
@@ -765,8 +764,8 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`button`.
 
    .. zephyr-app-commands::
       :app: zephyr/samples/basic/button
-      :board: coffeecaller_nrf52
       :build-dir: coffeecaller_nrf52
+      :board: coffeecaller_nrf52
       :west-args: -p
       :flash-args: -r uf2
       :goals: flash
@@ -778,8 +777,7 @@ You should see the following message on the console:
 
       .. parsed-literal::
 
-         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-         \*\*\* Booting Zephyr OS build v\ |zephyr_version_number_em| \*\*\*
+         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
          Set up button at gpio\ @\ 50000000 pin 4
          Set up LED at gpio\ @\ 50000300 pin 6
          Press the button
@@ -798,8 +796,8 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`led-strip`.
 
    .. zephyr-app-commands::
       :app: zephyr/samples/drivers/led/led_strip
-      :board: coffeecaller_nrf52
       :build-dir: coffeecaller_nrf52
+      :board: coffeecaller_nrf52
       :west-args: -p
       :flash-args: -r uf2
       :goals: flash
@@ -811,8 +809,7 @@ You should see the following message on the console:
 
       .. parsed-literal::
 
-         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-         \*\*\* Booting Zephyr OS build v\ |zephyr_version_number_em| \*\*\*
+         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
          [00:00:04.013,671] <inf> main: Found LED strip device ws2812
          [00:00:04.013,671] <inf> main: Displaying pattern on strip
 
@@ -823,8 +820,8 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`input-dump`.
 
    .. zephyr-app-commands::
       :app: zephyr/samples/subsys/input/input_dump
-      :board: coffeecaller_nrf52
       :build-dir: coffeecaller_nrf52
+      :board: coffeecaller_nrf52
       :west-args: -p
       :flash-args: -r uf2
       :goals: flash
@@ -836,8 +833,7 @@ You should see the following message on the console:
 
       .. parsed-literal::
 
-         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-         \*\*\* Booting Zephyr OS build v\ |zephyr_version_number_em| \*\*\*
+         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
          Input sample started
          I: input event: dev=buttons          SYN type= 1 code= 11 value=1
          I: input event: dev=buttons          SYN type= 1 code= 11 value=0
@@ -858,8 +854,8 @@ connected to the PWM0 channel 0.
 
    .. zephyr-app-commands::
       :app: bridle/samples/buzzer
-      :board: coffeecaller_nrf52
       :build-dir: coffeecaller_nrf52
+      :board: coffeecaller_nrf52
       :west-args: -p
       :flash-args: -r uf2
       :goals: flash
@@ -871,9 +867,7 @@ You should see the following message on the console:
 
       .. parsed-literal::
 
-         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-         \*\*\* Booting Zephyr OS build v\ |zephyr_version_number_em| \*\*\*
-         [00:00:04.014,892] <inf> buzzersh: Buzzer shell is ready!
+         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
          :bgn:`uart:~$` **█**
 
 .. rubric:: Simple test execution on target
@@ -903,15 +897,19 @@ You should see the following message on the console:
 Drive a servo motor
 ===================
 
+.. image:: img/servo.png
+   :align: right
+   :alt: TiaC CoffeeCaller nRF52 Servomotor Test
+
 See also Zephyr sample: :external+zephyr:zephyr:code-sample:`servo-motor`.
 
 This Zephyr sample is applicable for first on-board servo motor connector
 corresponding to the PWM1 channel 0.
 
-   .. tsn-include:: snippets/pwm-servo/README.rst
-      :docset: bridle
-      :start-after: .. _snippet-pwm-servo-tiac-coffeecaller-nrf52:
-      :end-before: .. literalinclude:
+.. tsn-include:: snippets/pwm-servo/README.rst
+   :docset: bridle
+   :start-after: .. _snippet-pwm-servo-tiac-coffeecaller-nrf52:
+   :end-before: .. literalinclude:
 
 You should see the following message on the console:
 
@@ -919,8 +917,7 @@ You should see the following message on the console:
 
       .. parsed-literal::
 
-         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-         \*\*\* Booting Zephyr OS build v\ |zephyr_version_number_em| \*\*\*
+         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
          Servomotor control
 
 Grove Module Samples
@@ -935,9 +932,9 @@ Hello Shell with sensor access to Grove BMP280
 
 .. zephyr-app-commands::
    :app: bridle/samples/helloshell
+   :build-dir: coffeecaller_nrf52
    :board: coffeecaller_nrf52
    :shield: "grove_sens_bmp280"
-   :build-dir: coffeecaller_nrf52
    :west-args: -p
    :flash-args: -r uf2
    :goals: flash
@@ -971,9 +968,9 @@ Simple test execution on target
          .. parsed-literal::
 
             :bgn:`uart:~$` **sensor info**
-            device name: bmp280\ @\ 77, vendor: Bosch Sensortec GmbH, model: bme280, friendly name: (null)
-            device name: sht4x\ @\ 46, vendor: Sensirion AG, model: sht4x, friendly name: (null)
-            device name: temp\ @\ 4000c000, vendor: Nordic Semiconductor, model: nrf-temp, friendly name: (null)
+            device name: bmp280\ @\ 77, vendor: Bosch Sensortec GmbH, model: bme280, friendly name: Grove TP Sensor V1.0 (BME280)
+            device name: sht4x\ @\ 46, vendor: Sensirion AG, model: sht4x, friendly name: on-board temperature and humidity
+            device name: temp\ @\ 4000c000, vendor: Nordic Semiconductor, model: nrf-temp, friendly name: nRF52 chip temperature
 
       .. container:: highlight highlight-console notranslate
 
@@ -991,9 +988,9 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`bme280`.
 
    .. zephyr-app-commands::
       :app: zephyr/samples/sensor/bme280
+      :build-dir: coffeecaller_nrf52
       :board: coffeecaller_nrf52
       :shield: "grove_sens_bmp280"
-      :build-dir: coffeecaller_nrf52
       :west-args: -p
       :flash-args: -r uf2
       :goals: flash
@@ -1009,8 +1006,7 @@ You should see the following message on the console:
          [00:00:00.000,305] <dbg> temp_nrf5: temp_nrf5_channel_get: Temperature:28,0
          [00:00:00.002,838] <dbg> BME280: bme280_chip_init: ID OK (BMP280)
          [00:00:00.012,084] <dbg> BME280: bme280_chip_init: "bmp280\ @\ 77" OK
-         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-         \*\*\* Booting Zephyr OS build v\ |zephyr_version_number_em| \*\*\*
+         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
          Found device "**bmp280@77**", getting sensor data
          temp: 27.319976; press: 99.58593; humidity: 0.7812
          [00:00:04.032,348] <dbg> temp_nrf5: temp_nrf5_sample_fetch: sample: 112
@@ -1034,9 +1030,9 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`blinky`.
 
    .. zephyr-app-commands::
       :app: zephyr/samples/basic/blinky
-      :board: coffeecaller_nrf52
-      :shield: "grove_btn_d16 grove_led_d17 x_grove_testbed"
       :build-dir: coffeecaller_nrf52
+      :board: coffeecaller_nrf52
+      :shield: "grove_btn_d16_inv grove_led_d17 x_grove_testbed"
       :west-args: -p
       :flash-args: -r uf2
       :goals: flash
@@ -1048,8 +1044,7 @@ You should see the following message on the console:
 
       .. parsed-literal::
 
-         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-         \*\*\* Booting Zephyr OS build v\ |zephyr_version_number_em| \*\*\*
+         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
          LED state: OFF
          LED state: ON
          LED state: OFF
@@ -1063,9 +1058,9 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`button`.
 
    .. zephyr-app-commands::
       :app: zephyr/samples/basic/button
-      :board: coffeecaller_nrf52
-      :shield: "grove_btn_d16 grove_led_d17 x_grove_testbed"
       :build-dir: coffeecaller_nrf52
+      :board: coffeecaller_nrf52
+      :shield: "grove_btn_d16_inv grove_led_d17 x_grove_testbed"
       :west-args: -p
       :flash-args: -r uf2
       :goals: flash
@@ -1077,8 +1072,7 @@ You should see the following message on the console:
 
       .. parsed-literal::
 
-         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-         \*\*\* Booting Zephyr OS build v\ |zephyr_version_number_em| \*\*\*
+         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
          Set up button at gpio\ @\ 50000000 pin 20
          Set up LED at gpio\ @\ 50000000 pin 24
          Press the button
