@@ -318,8 +318,8 @@ Flashing
 
    .. zephyr-app-commands::
       :app: zephyr/samples/hello_world
-      :board: seeeduino_lotus
       :build-dir: seeeduino_lotus
+      :board: seeeduino_lotus
       :west-args: -p
       :goals: build
       :compact:
@@ -369,8 +369,8 @@ Debugging
 
    .. zephyr-app-commands::
       :app: zephyr/samples/hello_world
-      :board: seeeduino_lotus
       :build-dir: seeeduino_lotus
+      :board: seeeduino_lotus
       :gen-args: -DBOARD_FLASH_RUNNER=openocd
       :west-args: -p
       :goals: debug
@@ -386,8 +386,8 @@ LED Blinky
 
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/blinky
-   :board: seeeduino_lotus
    :build-dir: seeeduino_lotus
+   :board: seeeduino_lotus
    :west-args: -p
    :goals: flash
    :compact:
@@ -397,8 +397,8 @@ LED Fade
 
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/fade_led
-   :board: seeeduino_lotus
    :build-dir: seeeduino_lotus
+   :board: seeeduino_lotus
    :west-args: -p
    :goals: flash
    :compact:
@@ -408,8 +408,8 @@ Basic Threads
 
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/threads
-   :board: seeeduino_lotus
    :build-dir: seeeduino_lotus
+   :board: seeeduino_lotus
    :west-args: -p
    :goals: flash
    :compact:
@@ -419,9 +419,10 @@ Hello Shell with USB-CDC/ACM Console
 
 .. zephyr-app-commands::
    :app: bridle/samples/helloshell
-   :board: seeeduino_lotus
    :build-dir: seeeduino_lotus
-   :west-args: -p -S usb-console
+   :board: seeeduino_lotus
+   :snippets: "usb-console"
+   :west-args: -p
    :goals: flash
    :compact:
 
@@ -481,6 +482,8 @@ Hello Shell with USB-CDC/ACM Console
               DT node labels: sercom5 grove_serial
             - sercom\ @\ 42001000 (READY)
               DT node labels: sercom2 arduino_serial
+            - usb\ @\ 41005000 (READY)
+              DT node labels: usb0 zephyr_udc0
             - adc\ @\ 42004000 (READY)
               DT node labels: adc
             - dac\ @\ 42004800 (READY)
@@ -520,15 +523,15 @@ Hello Shell with USB-CDC/ACM Console
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **gpio get gpio@41004480 3**
+            :bgn:`uart:~$` **gpio get portb 3**
             0
 
-            :bgn:`uart:~$` **gpio conf gpio@41004480 3 ol0**
+            :bgn:`uart:~$` **gpio conf portb 3 ol0**
 
-            :bgn:`uart:~$` **gpio set gpio@41004480 3 1**
-            :bgn:`uart:~$` **gpio set gpio@41004480 3 0**
+            :bgn:`uart:~$` **gpio set portb 3 1**
+            :bgn:`uart:~$` **gpio set portb 3 0**
 
-            :bgn:`uart:~$` **gpio blink gpio@41004480 3**
+            :bgn:`uart:~$` **gpio blink portb 3**
             Hit any key to exit
 
    .. group-tab:: PWM
@@ -539,67 +542,67 @@ Hello Shell with USB-CDC/ACM Console
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 20000**
+            :bgn:`uart:~$` **pwm usec tcc2 1 20000 20000**
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 19000**
+            :bgn:`uart:~$` **pwm usec tcc2 1 20000 19000**
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 18000**
+            :bgn:`uart:~$` **pwm usec tcc2 1 20000 18000**
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 17000**
+            :bgn:`uart:~$` **pwm usec tcc2 1 20000 17000**
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 16000**
+            :bgn:`uart:~$` **pwm usec tcc2 1 20000 16000**
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 15000**
+            :bgn:`uart:~$` **pwm usec tcc2 1 20000 15000**
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 10000**
+            :bgn:`uart:~$` **pwm usec tcc2 1 20000 10000**
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 5000**
+            :bgn:`uart:~$` **pwm usec tcc2 1 20000 5000**
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 2500**
+            :bgn:`uart:~$` **pwm usec tcc2 1 20000 2500**
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 500**
+            :bgn:`uart:~$` **pwm usec tcc2 1 20000 500**
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **pwm usec tcc@42002800 1 20000 0**
+            :bgn:`uart:~$` **pwm usec tcc2 1 20000 0**
 
    .. group-tab:: DAC/ADC
 
@@ -610,7 +613,7 @@ Hello Shell with USB-CDC/ACM Console
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **dac setup dac@42004800 0 10**
+            :bgn:`uart:~$` **dac setup dac0 0 10**
             :bgn:`uart:~$` **adc adc@42004000 resolution 12**
             :bgn:`uart:~$` **adc adc@42004000 acq_time 10 us**
             :bgn:`uart:~$` **adc adc@42004000 channel positive 2**
@@ -619,7 +622,7 @@ Hello Shell with USB-CDC/ACM Console
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **dac write_value dac@42004800 0 512**
+            :bgn:`uart:~$` **dac write_value dac0 0 512**
             :bgn:`uart:~$` **adc adc@42004000 read 2**
             read: 2025
 
@@ -627,21 +630,11 @@ Hello Shell with USB-CDC/ACM Console
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **dac write_value dac@42004800 0 1023**
+            :bgn:`uart:~$` **dac write_value dac0 0 1023**
             :bgn:`uart:~$` **adc adc@42004000 read 2**
             read: 4061
 
    .. group-tab:: Flash access
-
-      .. container:: highlight highlight-console notranslate
-
-         .. parsed-literal::
-
-            :bgn:`uart:~$` **flash read nvmctrl@41004000 1361c 40**
-            0001361C: 73 65 65 65 64 75 69 6e  6f 5f 6c 6f 74 75 73 00 \|seeeduin o_lotus.\|
-            0001362C: 48 65 6c 6c 6f 20 57 6f  72 6c 64 21 20 49 27 6d \|Hello Wo rld! I'm\|
-            0001363C: 20 54 48 45 20 53 48 45  4c 4c 20 66 72 6f 6d 20 \| THE SHE LL from \|
-            0001364C: 25 73 0a 00 28 75 6e 73  69 67 6e 65 64 29 20 63 \|%s..(uns igned) c\|
 
       .. rubric:: Erase, Write and Verify
 
@@ -649,13 +642,13 @@ Hello Shell with USB-CDC/ACM Console
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **flash read nvmctrl@41004000 3c000 40**
+            :bgn:`uart:~$` **flash read nvmctrl 3c000 40**
             0003C000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
             0003C010: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
             0003C020: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
             0003C030: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
 
-            :bgn:`uart:~$` **flash test nvmctrl@41004000 3c000 400 2**
+            :bgn:`uart:~$` **flash test nvmctrl 3c000 400 2**
             Erase OK.
             Write OK.
             Verified OK.
@@ -668,7 +661,7 @@ Hello Shell with USB-CDC/ACM Console
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **flash read nvmctrl@41004000 3c000 40**
+            :bgn:`uart:~$` **flash read nvmctrl 3c000 40**
             0003C000: 00 01 02 03 04 05 06 07  08 09 0a 0b 0c 0d 0e 0f \|........ ........\|
             0003C010: 10 11 12 13 14 15 16 17  18 19 1a 1b 1c 1d 1e 1f \|........ ........\|
             0003C020: 20 21 22 23 24 25 26 27  28 29 2a 2b 2c 2d 2e 2f \| !"#$%&' ()*+,-./\|
@@ -684,10 +677,10 @@ Hello Shell with USB-CDC/ACM Console
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **flash erase nvmctrl@41004000 3c000 400**
+            :bgn:`uart:~$` **flash erase nvmctrl 3c000 400**
             Erase success.
 
-            :bgn:`uart:~$` **flash read nvmctrl@41004000 3c000 40**
+            :bgn:`uart:~$` **flash read nvmctrl 3c000 40**
             0003C000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
             0003C010: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
             0003C020: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
@@ -704,7 +697,7 @@ Hello Shell with USB-CDC/ACM Console
 
             :bgn:`uart:~$` **log enable none i2c_sam0**
 
-            :bgn:`uart:~$` **i2c scan sercom@42001400**
+            :bgn:`uart:~$` **i2c scan grove_i2c**
                  0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
             00:             -- -- -- -- -- -- -- -- -- -- -- --
             10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
@@ -714,7 +707,7 @@ Hello Shell with USB-CDC/ACM Console
             50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
             60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
             70: -- -- -- -- -- -- -- 77
-            1 devices found on sercom\ @\ 42001400
+            1 devices found on grove_i2c
 
             :bgn:`uart:~$` **log enable inf i2c_sam0**
 
@@ -725,7 +718,7 @@ Hello Shell with USB-CDC/ACM Console
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **i2c read_byte sercom@42001400 77 d0**
+            :bgn:`uart:~$` **i2c read_byte grove_i2c 77 d0**
             Output: 0x58
 
 References
