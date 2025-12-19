@@ -5,9 +5,9 @@ See also |LED Shields| in Bridle and Zephyr sample:
 
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/blinky
-   :board: picoboy_color_plus/rp2350a/m33
-   :shield: "grove_btn_d20 grove_led_d21 grove_pwm_led_d21 x_grove_testbed"
    :build-dir: picoboy
+   :board: picoboy_color_plus/rp2350a/m33
+   :shield: "grove_btn_d20_inv grove_led_d21 grove_pwm_led_d21 x_grove_testbed"
    :west-args: -p
    :goals: flash
    :compact:
@@ -19,9 +19,9 @@ See also |LED Shields| in Bridle and Zephyr sample:
 
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/blinky_pwm
-   :board: picoboy_color_plus/rp2350a/m33
-   :shield: "grove_btn_d20 grove_led_d21 grove_pwm_led_d21 x_grove_testbed"
    :build-dir: picoboy
+   :board: picoboy_color_plus/rp2350a/m33
+   :shield: "grove_btn_d20_inv grove_led_d21 grove_pwm_led_d21 x_grove_testbed"
    :west-args: -p
    :goals: flash
    :compact:
@@ -33,9 +33,9 @@ See also |LED Shields| in Bridle and Zephyr sample:
 
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/fade_led
-   :board: picoboy_color_plus/rp2350a/m33
-   :shield: "grove_btn_d20 grove_led_d21 grove_pwm_led_d21 x_grove_testbed"
    :build-dir: picoboy
+   :board: picoboy_color_plus/rp2350a/m33
+   :shield: "grove_btn_d20_inv grove_led_d21 grove_pwm_led_d21 x_grove_testbed"
    :west-args: -p
    :goals: flash
    :compact:
@@ -47,9 +47,9 @@ See also |LED Shields| and |Button Shields| in Bridle and Zephyr sample:
 
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/button
-   :board: picoboy_color_plus/rp2350a/m33
-   :shield: "grove_btn_d20 grove_led_d21 grove_pwm_led_d21 x_grove_testbed"
    :build-dir: picoboy
+   :board: picoboy_color_plus/rp2350a/m33
+   :shield: "grove_btn_d20_inv grove_led_d21 grove_pwm_led_d21 x_grove_testbed"
    :west-args: -p
    :goals: flash
    :compact:

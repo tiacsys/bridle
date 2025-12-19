@@ -8,8 +8,8 @@ Invoke :program:`west build` and :program:`west flash`:
 
 .. zephyr-app-commands::
    :app: bridle/samples/buzzer
-   :board: picoboy_color_plus/rp2350a/m33
    :build-dir: picoboy
+   :board: picoboy_color_plus/rp2350a/m33
    :west-args: -p
    :goals: flash
    :compact:

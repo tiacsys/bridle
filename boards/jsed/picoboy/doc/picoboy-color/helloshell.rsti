@@ -2,8 +2,8 @@
 
 .. zephyr-app-commands::
    :app: bridle/samples/helloshell
-   :board: picoboy_color/rp2040
    :build-dir: picoboy
+   :board: picoboy_color/rp2040
    :west-args: -p
    :goals: flash
    :compact:

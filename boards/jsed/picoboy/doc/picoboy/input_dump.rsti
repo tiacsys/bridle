@@ -13,8 +13,8 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`input-dump`.
 
 .. zephyr-app-commands::
    :app: zephyr/samples/subsys/input/input_dump
-   :board: picoboy/rp2040
    :build-dir: picoboy
+   :board: picoboy/rp2040
    :west-args: -p
    :goals: flash
    :compact:
@@ -25,10 +25,7 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`input-dump`.
 
    .. parsed-literal::
 
-      \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-      W: BUS RESET
-      W: BUS RESET
-      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
       Input sample started
       I: input event: dev=gpio_keys        SYN type= 1 code=103 value=1
       I: input event: dev=gpio_keys        SYN type= 1 code=103 value=0

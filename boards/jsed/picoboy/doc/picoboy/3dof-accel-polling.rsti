@@ -2,8 +2,8 @@ Invoke :program:`west build` and :program:`west flash`:
 
 .. zephyr-app-commands::
    :app: zephyr/samples/sensor/accel_polling
-   :board: picoboy/rp2040
    :build-dir: picoboy
+   :board: picoboy/rp2040
    :west-args: -p
    :goals: flash
    :compact:
@@ -14,8 +14,7 @@ Invoke :program:`west build` and :program:`west flash`:
 
    .. parsed-literal::
 
-      \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
            stk8ba58\ @\ 18 [m/s^2]:    (    4.747595,    -1.710672,    -9.572076)
            stk8ba58\ @\ 18 [m/s^2]:    (    4.747595,    -1.710672,    -9.572076)
            stk8ba58\ @\ 18 [m/s^2]:    (    4.622658,    -1.710672,    -9.581686)
