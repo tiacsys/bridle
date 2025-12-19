@@ -43,9 +43,10 @@ Supported boards are:
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/servo_motor
-         :board: cytron_maker_pi_rp2040
          :build-dir: cytron_maker_rp2040
-         :west-args: -p -S usb-console -S pwm-servo
+         :board: cytron_maker_pi_rp2040
+         :snippets: "usb-console pwm-servo"
+         :west-args: -p always
          :flash-args: -r uf2
          :goals: flash
          :compact:
@@ -69,9 +70,10 @@ Supported boards are:
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/servo_motor
-         :board: coffeecaller_nrf52/nrf52840
          :build-dir: coffeecaller_nrf52
-         :west-args: -p -S pwm-servo
+         :board: coffeecaller_nrf52/nrf52840
+         :snippets: "pwm-servo"
+         :west-args: -p always
          :flash-args: -r uf2
          :goals: flash
          :compact:
