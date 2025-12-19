@@ -252,6 +252,12 @@ The following sections provide detailed lists of changes by component.
   new USB stack, which can now also support high-speed devices. Regarding the
   discussion in Zephyr upstream PR 87269, this can lead to significantly
   increased RAM and ROM footprints.
+* LCD setups have been migrated to the correct pixel formats of ``RGB565``
+  or ``BGR565``, which were previously used interchangeably in the Zephyr
+  upstream display example. This has now been fixed in upstream. Boards,
+  shields, and applications that were tested or developed based on the
+  previous example may be affected by this upstream change. For more
+  information, see the discussion in Zephyr upstream PR 79996.
 * tbd.
 * tbd.
 * tbd.
@@ -288,6 +294,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`389` - [BUG] Fix RGB565 / BGR565 interchange issue in Zephyr display
 * :github:`385` - [FER] Migrate SPI DT macros to Zephyr v4.3
 * :github:`368` - [BUG] current nightly QA integration tests failing
 * :github:`364` - [FCR] Upgrade to Zephyr SDK 0.17.4 and CI container 0.28.4
