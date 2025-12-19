@@ -17,10 +17,11 @@ For example:
 
    .. zephyr-app-commands::
       :app: zephyr/tests/drivers/build_all/i2c
-      :board: native_sim
       :build-dir: native_sim
-      :west-args: -p always -S tstdrv-bldall-i2c-adj
+      :board: native_sim
+      :snippets: "tstdrv-bldall-i2c-adj"
       :gen-args: -DCONFIG_NATIVE_EXTRA_CMDLINE_ARGS=\"-stop_at=2\"
+      :west-args: -p always
       :goals: run
       :compact:
 
