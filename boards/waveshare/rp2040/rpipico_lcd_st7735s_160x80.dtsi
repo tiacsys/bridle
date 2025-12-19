@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 TiaC Systems
+ * Copyright (c) 2023-2025 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -39,7 +39,6 @@
 			y-offset = <26>;	/* landscape */
 
 			inversion-on;
-			rgb-is-inverted;
 
 			pwctr1 = [62 02 04];
 			pwctr2 = [C0];

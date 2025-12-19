@@ -19,6 +19,7 @@
 #include "waveshare_rp2040-2mb.dtsi"
 
 #include "rpipico_led.dtsi"
+#include "rpigeek_lcd_backlight.dtsi"
 #include "rpipico_lcd_st7735s_160x80.dtsi"
 #include "rpipico_lcd_st7735s_rgb565.dtsi"
 #include "rpipico_connector.dtsi"
