@@ -76,8 +76,8 @@ choice STK8BA58_TRIGGER_MODE
 endchoice
 
 choice ST7789V_PIXEL_FORMAT
-	default ST7789V_RGB565 if BOARD_PICOBOY_LCD_1_69
-	depends on DISPLAY && LVGL
+	default ST7789V_BGR565 if BOARD_PICOBOY_LCD_1_69
+	depends on DISPLAY
 endchoice
 
 config LV_Z_VDB_SIZE
