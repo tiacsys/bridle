@@ -429,8 +429,8 @@ Build and flash the application:
 
    .. zephyr-app-commands::
       :app: zephyr/samples/hello_world
-      :board: weact_bluepillplus_stm32f103c8
       :build-dir: weact_bluepillplus
+      :board: weact_bluepillplus_stm32f103c8
       :west-args: -p
       :flash-args: -r openocd
       :goals: flash
@@ -443,7 +443,7 @@ You should see the following message on the console:
 
       .. parsed-literal::
 
-         \*\*\* Booting Zephyr OS build v\ |zephyr_version_number_em| \*\*\*
+         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
          Hello World! weact_bluepillplus_stm32f103c8
 
 Debugging
@@ -457,8 +457,8 @@ You can debug an application in the usual way. Here is an example for the
 
    .. zephyr-app-commands::
       :app: zephyr/samples/hello_world
-      :board: weact_bluepillplus_stm32f103c8
       :build-dir: weact_bluepillplus
+      :board: weact_bluepillplus_stm32f103c8
       :maybe-skip-config:
       :west-args: -p
       :debug-args: -r openocd
@@ -481,23 +481,53 @@ LED Blinky with USB-CDC/ACM Console
 
             .. zephyr-app-commands::
                :app: zephyr/samples/basic/blinky
-               :board: weact_bluepillplus_stm32f103cb
                :build-dir: weact_bluepillplus
-               :west-args: -p -S usb-console
+               :board: weact_bluepillplus_stm32f103cb
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r openocd
                :goals: flash
                :compact:
+
+            .. admonition:: memory consumption
+               :class: hint dropdown
+
+               .. container:: highlight highlight-console notranslate
+
+                  .. parsed-literal::
+
+                     [174/174] Linking C executable zephyr/zephyr.elf
+                     Memory region         Used Size  Region Size  %age Used
+                                FLASH:       45000 B       128 KB     34.33%
+                                  RAM:       14648 B        20 KB     71.52%
+                                SRAM0:          0 GB        20 KB      0.00%
+                             IDT_LIST:          0 GB        32 KB      0.00%
 
          .. group-tab:: |STM32F103C8|
 
             .. zephyr-app-commands::
                :app: zephyr/samples/basic/blinky
-               :board: weact_bluepillplus_stm32f103c8
                :build-dir: weact_bluepillplus
-               :west-args: -p -S usb-console
+               :board: weact_bluepillplus_stm32f103c8
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r openocd
                :goals: flash
                :compact:
+
+            .. admonition:: memory consumption
+               :class: hint dropdown
+
+               .. container:: highlight highlight-console notranslate
+
+                  .. parsed-literal::
+
+                     [174/174] Linking C executable zephyr/zephyr.elf
+                     Memory region         Used Size  Region Size  %age Used
+                                FLASH:       45000 B        64 KB     68.66%
+                                  RAM:       14648 B        20 KB     71.52%
+                                SRAM0:          0 GB        20 KB      0.00%
+                             IDT_LIST:          0 GB        32 KB      0.00%
 
    .. group-tab:: CH32V2
 
@@ -511,12 +541,25 @@ LED Blinky with USB-CDC/ACM Console
 
             .. zephyr-app-commands::
                :app: zephyr/samples/basic/blinky
-               :board: weact_bluepillplus_ch32v203c8
                :build-dir: weact_bluepillplus
+               :board: weact_bluepillplus_ch32v203c8
                :west-args: -p
                :flash-args: -r minichlink
                :goals: flash
                :compact:
+
+            .. admonition:: memory consumption
+               :class: hint dropdown
+
+               .. container:: highlight highlight-console notranslate
+
+                  .. parsed-literal::
+
+                     [126/126] Linking C executable zephyr/zephyr.elf
+                     Memory region         Used Size  Region Size  %age Used
+                                  ROM:       12960 B        64 KB     19.78%
+                                  RAM:        4224 B        20 KB     20.62%
+                             IDT_LIST:          0 GB         4 KB      0.00%
 
          .. group-tab:: |CH32V203C6|
 
@@ -524,12 +567,25 @@ LED Blinky with USB-CDC/ACM Console
 
             .. zephyr-app-commands::
                :app: zephyr/samples/basic/blinky
-               :board: weact_bluepillplus_ch32v203c6
                :build-dir: weact_bluepillplus
+               :board: weact_bluepillplus_ch32v203c6
                :west-args: -p
                :flash-args: -r minichlink
                :goals: flash
                :compact:
+
+            .. admonition:: memory consumption
+               :class: hint dropdown
+
+               .. container:: highlight highlight-console notranslate
+
+                  .. parsed-literal::
+
+                     [126/126] Linking C executable zephyr/zephyr.elf
+                     Memory region         Used Size  Region Size  %age Used
+                                  ROM:       12964 B        32 KB     39.56%
+                                  RAM:        4224 B        10 KB     41.25%
+                             IDT_LIST:          0 GB         4 KB      0.00%
 
 Hello Shell
 ===========
@@ -544,8 +600,8 @@ Hello Shell
 
             .. zephyr-app-commands::
                :app: bridle/samples/helloshell
-               :board: weact_bluepillplus_stm32f103cb
                :build-dir: weact_bluepillplus
+               :board: weact_bluepillplus_stm32f103cb
                :gen-args: \
                   -DEXTRA_CONF_FILE="prj-hwstartup.conf" -DCONFIG_STM32_ENABLE_DEBUG_SLEEP_STOP=y
                :west-args: -p
@@ -560,18 +616,19 @@ Hello Shell
 
                   .. parsed-literal::
 
-                     [181/181] Linking C executable zephyr/zephyr.elf
+                     [185/185] Linking C executable zephyr/zephyr.elf
                      Memory region         Used Size  Region Size  %age Used
-                                FLASH:       56148 B       128 KB     42.84%
-                                  RAM:       18184 B        20 KB     88.79%
+                                FLASH:       57264 B       128 KB     43.69%
+                                  RAM:       16840 B        20 KB     82.23%
+                                SRAM0:          0 GB        20 KB      0.00%
                              IDT_LIST:          0 GB        32 KB      0.00%
 
          .. group-tab:: |STM32F103C8|
 
             .. zephyr-app-commands::
                :app: bridle/samples/helloshell
-               :board: weact_bluepillplus_stm32f103c8
                :build-dir: weact_bluepillplus
+               :board: weact_bluepillplus_stm32f103c8
                :gen-args: \
                   -DEXTRA_CONF_FILE="prj-hwstartup.conf" -DCONFIG_STM32_ENABLE_DEBUG_SLEEP_STOP=y
                :west-args: -p
@@ -586,10 +643,11 @@ Hello Shell
 
                   .. parsed-literal::
 
-                     [181/181] Linking C executable zephyr/zephyr.elf
+                     [185/185] Linking C executable zephyr/zephyr.elf
                      Memory region         Used Size  Region Size  %age Used
-                                FLASH:       56148 B        64 KB     85.68%
-                                  RAM:       18184 B        20 KB     88.79%
+                                FLASH:       57264 B        64 KB     87.38%
+                                  RAM:       16840 B        20 KB     82.23%
+                                SRAM0:          0 GB        20 KB      0.00%
                              IDT_LIST:          0 GB        32 KB      0.00%
 
    .. group-tab:: CH32V2
@@ -602,8 +660,8 @@ Hello Shell
 
             .. zephyr-app-commands::
                :app: bridle/samples/helloshell
-               :board: weact_bluepillplus_ch32v203c8
                :build-dir: weact_bluepillplus
+               :board: weact_bluepillplus_ch32v203c8
                :gen-args: \
                   -DEXTRA_CONF_FILE="prj-hwstartup.conf" -DCONFIG_FLASH=n -DCONFIG_FLASH_SHELL=n
                :west-args: -p
@@ -618,10 +676,10 @@ Hello Shell
 
                   .. parsed-literal::
 
-                     [149/149] Linking C executable zephyr/zephyr.elf
+                     [152/152] Linking C executable zephyr/zephyr.elf
                      Memory region         Used Size  Region Size  %age Used
-                                  ROM:       46200 B        64 KB     70.50%
-                                  RAM:        9388 B        20 KB     45.84%
+                                  ROM:       47528 B        64 KB     72.52%
+                                  RAM:        8064 B        20 KB     39.38%
                              IDT_LIST:          0 GB         4 KB      0.00%
 
          .. group-tab:: |CH32V203C6|
@@ -630,8 +688,8 @@ Hello Shell
 
             .. zephyr-app-commands::
                :app: bridle/samples/helloshell
-               :board: weact_bluepillplus_ch32v203c6
                :build-dir: weact_bluepillplus
+               :board: weact_bluepillplus_ch32v203c6
                :gen-args: -DEXTRA_CONF_FILE="prj-minimal.conf"
                :west-args: -p
                :flash-args: -r minichlink
@@ -645,10 +703,10 @@ Hello Shell
 
                   .. parsed-literal::
 
-                     [127/127] Linking C executable zephyr/zephyr.elf
+                     [135/135] Linking C executable zephyr/zephyr.elf
                      Memory region         Used Size  Region Size  %age Used
-                                  ROM:       25076 B        32 KB     76.53%
-                                  RAM:        8456 B        10 KB     82.58%
+                                  ROM:       22596 B        32 KB     68.96%
+                                  RAM:        7136 B        10 KB     69.69%
                              IDT_LIST:          0 GB         4 KB      0.00%
 
 References
