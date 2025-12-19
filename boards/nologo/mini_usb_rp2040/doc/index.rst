@@ -734,6 +734,8 @@ Simple test execution on target
               DT node labels: dma
             - gpio-port\ @\ 0 (READY)
               DT node labels: gpio0
+            - usbd\ @\ 50110000 (READY)
+              DT node labels: usbd zephyr_udc0
             - adc\ @\ 4004c000 (READY)
               DT node labels: adc
             - flash-controller\ @\ 18000000 (READY)
@@ -771,6 +773,8 @@ Simple test execution on target
               DT node labels: dma
             - gpio-port\ @\ 0 (READY)
               DT node labels: gpio0
+            - usbd\ @\ 50110000 (READY)
+              DT node labels: usbd zephyr_udc0
             - adc\ @\ 4004c000 (READY)
               DT node labels: adc
             - flash-controller\ @\ 18000000 (READY)
@@ -783,8 +787,8 @@ Simple test execution on target
               DT node labels: vreg
             - rtc\ @\ 4005c000 (READY)
               DT node labels: rtc
-            - pwm-leds (READY)
-              DT node labels: pwm_leds
+            - pwm-chipleds (READY)
+              DT node labels: pwm_chipleds
             - dietemp (READY)
               DT node labels: die_temp
 
@@ -822,8 +826,8 @@ Simple test execution on target
 
             :bgn:`uart:~$` **regulator disable vreg**
             [00:00:00.001,000] <inf> board_control: mini_usb_rp2040\ @\ 4mb/rp2040
-            [00:00:00.001,000] <inf> board_control: QSPI-Flash: 4MB
-            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+            [00:00:00.001,000] <inf> board_control: QSPI-Flash: **4MB**
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
             Hello World! I'm THE SHELL from mini_usb_rp2040
 
       .. rubric:: Trigger a power-off/on sequence on ``@16mb`` revision:
@@ -838,8 +842,8 @@ Simple test execution on target
 
             :bgn:`uart:~$` **regulator disable vreg**
             [00:00:00.001,000] <inf> board_control: mini_usb_rp2040\ @\ 16mb/rp2040
-            [00:00:00.001,000] <inf> board_control: QSPI-Flash: 16MB
-            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+            [00:00:00.001,000] <inf> board_control: QSPI-Flash: **16MB**
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
             Hello World! I'm THE SHELL from mini_usb_rp2040
 
       .. rubric:: Trigger a power-off/on sequence on ``@chipled`` revision:
@@ -854,9 +858,9 @@ Simple test execution on target
 
             :bgn:`uart:~$` **regulator disable vreg**
             [00:00:00.001,000] <inf> board_control: mini_usb_rp2040\ @\ chipled/rp2040
-            [00:00:00.001,000] <inf> board_control: QSPI-Flash: 16MB
-            [00:00:00.002,000] <inf> board_control: Chip-LED configured.
-            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+            [00:00:00.001,000] <inf> board_control: QSPI-Flash: **4MB**
+            [00:00:00.002,000] <inf> board_control: **Chip-LED configured.**
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
             Hello World! I'm THE SHELL from mini_usb_rp2040
 
       .. container:: highlight highlight-console notranslate
@@ -1032,8 +1036,6 @@ Simple test execution on target
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **log enable none i2c_dw**
-
             :bgn:`uart:~$` **i2c scan i2c0**
                  0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
             00:             -- -- -- -- -- -- -- -- -- -- -- --
@@ -1045,8 +1047,6 @@ Simple test execution on target
             60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
             70: -- -- -- -- -- -- -- 77
             1 devices found on i2c0
-
-            :bgn:`uart:~$` **log enable inf i2c_dw**
 
       The I2C address ``0x77`` is a Bosch BMP280 Air Pressure Sensor and their
       Chip-ID can read from register ``0xd0``. The Chip-ID must be ``0x58``:
@@ -1091,9 +1091,9 @@ Simple test execution on target
 
          .. parsed-literal::
 
-            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
-            [00:00:04.002,000] <inf> main: Found LED strip device ws2812-single
-            [00:00:04.002,000] <inf> main: Displaying pattern on strip
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
+            [00:00:00.003,000] <inf> main: Found LED strip device ws2812-single
+            [00:00:00.003,000] <inf> main: Displaying pattern on strip
 
 Grove Module Samples
 ********************
@@ -1143,7 +1143,7 @@ Simple test execution on target
 
             :bgn:`uart:~$` **sensor info**
             device name: dietemp, vendor: Raspberry Pi Foundation, model: pico-temp, friendly name: RP2040 chip temperature
-            device name: bmp280\ @\ 77, vendor: Bosch Sensortec GmbH, model: bme280, friendly name: (null)
+            device name: bmp280\ @\ 77, vendor: Bosch Sensortec GmbH, model: bme280, friendly name: Grove TP Sensor V1.0 (BME280)
 
       .. container:: highlight highlight-console notranslate
 
@@ -1160,7 +1160,7 @@ LED Blinky with Grove LED Button (Qwiic signals as GPIO)
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/blinky
    :board: mini_usb_rp2040
-   :shield: "grove_btn_d16 grove_led_d17 grove_pwm_led_d17 x_grove_testbed"
+   :shield: "grove_btn_d16_inv grove_led_d17 grove_pwm_led_d17 x_grove_testbed"
    :build-dir: mini_usb_rp2040
    :west-args: -p
    :goals: flash
@@ -1189,7 +1189,7 @@ LED Fade with Grove LED Button (Qwiic signals as PWM)
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/fade_led
    :board: mini_usb_rp2040
-   :shield: "grove_btn_d16 grove_led_d17 grove_pwm_led_d17 x_grove_testbed"
+   :shield: "grove_btn_d16_inv grove_led_d17 grove_pwm_led_d17 x_grove_testbed"
    :build-dir: mini_usb_rp2040
    :west-args: -p
    :goals: flash
@@ -1229,7 +1229,7 @@ LED Switch with Grove LED Button (Qwiic signals as GPIO)
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/button
    :board: mini_usb_rp2040
-   :shield: "grove_btn_d16 grove_led_d17 grove_pwm_led_d17 x_grove_testbed"
+   :shield: "grove_btn_d16_inv grove_led_d17 grove_pwm_led_d17 x_grove_testbed"
    :build-dir: mini_usb_rp2040
    :west-args: -p
    :goals: flash
