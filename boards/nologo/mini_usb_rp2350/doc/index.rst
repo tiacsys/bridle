@@ -659,6 +659,8 @@ Simple test execution on target
    .. admonition:: Devices
       :class: note dropdown
 
+      .. rubric:: On board revision ``@4mb`` or ``@16mb``:
+
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
@@ -685,8 +687,12 @@ Simple test execution on target
               DT node labels: dma
             - gpio-port\ @\ 0 (READY)
               DT node labels: gpio0 gpio0_lo
+            - usbd\ @\ 50110000 (READY)
+              DT node labels: usbd zephyr_udc0
             - adc\ @\ 400a0000 (READY)
               DT node labels: adc
+            - flash-controller\ @\ 400d0000 (READY)
+              DT node labels: qmi
             - i2c\ @\ 40090000 (READY)
               DT node labels: i2c0 grove_i2c
             - dietemp (READY)
@@ -776,6 +782,63 @@ Simple test execution on target
             :bgn:`uart:~$` **adc adc@400a0000 read 4**
             read: 876
 
+   .. admonition:: Flash Controller
+      :class: note dropdown
+
+      .. rubric:: Erase, Write and Verify
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **flash read qmi e0000 40**
+            000E0000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+            000E0010: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+            000E0020: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+            000E0030: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+
+            :bgn:`uart:~$` **flash test qmi e0000 1000 2**
+            Erase OK.
+            Write OK.
+            Verified OK.
+            Erase OK.
+            Write OK.
+            Verified OK.
+            Erase-Write-Verify test done.
+
+      .. rubric:: Details
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **flash read qmi e0000 40**
+            000E0000: 00 01 02 03 04 05 06 07  08 09 0a 0b 0c 0d 0e 0f \|........ ........\|
+            000E0010: 10 11 12 13 14 15 16 17  18 19 1a 1b 1c 1d 1e 1f \|........ ........\|
+            000E0020: 20 21 22 23 24 25 26 27  28 29 2a 2b 2c 2d 2e 2f \| !"#$%&' ()*+,-./\|
+            000E0030: 30 31 32 33 34 35 36 37  38 39 3a 3b 3c 3d 3e 3f \|01234567 89:;<=>?\|
+
+            :bgn:`uart:~$` **flash page_info e0000**
+            Page for address 0xe0000:
+            start offset: 0xe0000
+            size: 4096
+            index: 224
+
+      .. rubric:: Revert
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **flash erase qmi e0000 1000**
+            Erase success.
+
+            :bgn:`uart:~$` **flash read qmi e0000 40**
+            000E0000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+            000E0010: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+            000E0020: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+            000E0030: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+
    .. admonition:: I2C on Qwiic with BMP280
       :class: note dropdown
 
@@ -785,8 +848,6 @@ Simple test execution on target
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
-
-            :bgn:`uart:~$` **log enable none i2c_dw**
 
             :bgn:`uart:~$` **i2c scan i2c0**
                  0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
@@ -799,8 +860,6 @@ Simple test execution on target
             60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
             70: -- -- -- -- -- -- -- 77
             1 devices found on i2c0
-
-            :bgn:`uart:~$` **log enable inf i2c_dw**
 
       The I2C address ``0x77`` is a Bosch BMP280 Air Pressure Sensor and their
       Chip-ID can read from register ``0xd0``. The Chip-ID must be ``0x58``:
@@ -845,9 +904,9 @@ Simple test execution on target
 
          .. parsed-literal::
 
-            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
-            [00:00:04.001,000] <inf> main: Found LED strip device ws2812-single
-            [00:00:04.001,000] <inf> main: Displaying pattern on strip
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
+            [00:00:00.001,000] <inf> main: Found LED strip device ws2812-single
+            [00:00:00.001,000] <inf> main: Displaying pattern on strip
 
 Grove Module Samples
 ********************
@@ -897,7 +956,7 @@ Simple test execution on target
 
             :bgn:`uart:~$` **sensor info**
             device name: dietemp, vendor: Raspberry Pi Foundation, model: pico-temp, friendly name: RP2350 chip temperature
-            device name: bmp280\ @\ 77, vendor: Bosch Sensortec GmbH, model: bme280, friendly name: (null)
+            device name: bmp280\ @\ 77, vendor: Bosch Sensortec GmbH, model: bme280, friendly name: Grove TP Sensor V1.0 (BME280)
 
       .. container:: highlight highlight-console notranslate
 
@@ -914,7 +973,7 @@ LED Blinky with Grove LED Button (Qwiic signals as GPIO)
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/blinky
    :board: mini_usb_rp2350/rp2350a/m33
-   :shield: "grove_btn_d16 grove_led_d17 grove_pwm_led_d17 x_grove_testbed"
+   :shield: "grove_btn_d16_inv grove_led_d17 grove_pwm_led_d17 x_grove_testbed"
    :build-dir: mini_usb_rp2350
    :west-args: -p
    :goals: flash
@@ -943,7 +1002,7 @@ LED Fade with Grove LED Button (Qwiic signals as PWM)
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/fade_led
    :board: mini_usb_rp2350/rp2350a/m33
-   :shield: "grove_btn_d16 grove_led_d17 grove_pwm_led_d17 x_grove_testbed"
+   :shield: "grove_btn_d16_inv grove_led_d17 grove_pwm_led_d17 x_grove_testbed"
    :build-dir: mini_usb_rp2350
    :west-args: -p
    :goals: flash
@@ -983,7 +1042,7 @@ LED Switch with Grove LED Button (Qwiic signals as GPIO)
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/button
    :board: mini_usb_rp2350/rp2350a/m33
-   :shield: "grove_btn_d16 grove_led_d17 grove_pwm_led_d17 x_grove_testbed"
+   :shield: "grove_btn_d16_inv grove_led_d17 grove_pwm_led_d17 x_grove_testbed"
    :build-dir: mini_usb_rp2350
    :west-args: -p
    :goals: flash
