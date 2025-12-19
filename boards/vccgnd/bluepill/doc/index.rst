@@ -419,8 +419,8 @@ Build and flash the application:
 
    .. zephyr-app-commands::
       :app: zephyr/samples/hello_world
-      :board: vccgnd_bluepill_stm32f103c8
       :build-dir: vccgnd_bluepill
+      :board: vccgnd_bluepill_stm32f103c8
       :west-args: -p
       :flash-args: -r pyocd
       :goals: flash
@@ -433,7 +433,7 @@ You should see the following message on the console:
 
       .. parsed-literal::
 
-         \*\*\* Booting Zephyr OS build v\ |zephyr_version_number_em| \*\*\*
+         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
          Hello World! vccgnd_bluepill_stm32f103c8
 
 Debugging
@@ -447,8 +447,8 @@ You can debug an application in the usual way. Here is an example for the
 
    .. zephyr-app-commands::
       :app: zephyr/samples/hello_world
-      :board: vccgnd_bluepill_stm32f103c8
       :build-dir: vccgnd_bluepill
+      :board: vccgnd_bluepill_stm32f103c8
       :maybe-skip-config:
       :west-args: -p
       :debug-args: -r pyocd
@@ -471,23 +471,53 @@ LED Blinky with USB-CDC/ACM Console
 
             .. zephyr-app-commands::
                :app: zephyr/samples/basic/blinky
-               :board: vccgnd_bluepill_stm32f103cb
                :build-dir: vccgnd_bluepill
-               :west-args: -p -S usb-console
+               :board: vccgnd_bluepill_stm32f103cb
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r pyocd
                :goals: flash
                :compact:
+
+            .. admonition:: memory consumption
+               :class: hint dropdown
+
+               .. container:: highlight highlight-console notranslate
+
+                  .. parsed-literal::
+
+                     [174/174] Linking C executable zephyr/zephyr.elf
+                     Memory region         Used Size  Region Size  %age Used
+                                FLASH:       45004 B       128 KB     34.34%
+                                  RAM:       14648 B        20 KB     71.52%
+                                SRAM0:          0 GB        20 KB      0.00%
+                             IDT_LIST:          0 GB        32 KB      0.00%
 
          .. group-tab:: |STM32F103C8|
 
             .. zephyr-app-commands::
                :app: zephyr/samples/basic/blinky
-               :board: vccgnd_bluepill_stm32f103c8
                :build-dir: vccgnd_bluepill
-               :west-args: -p -S usb-console
+               :board: vccgnd_bluepill_stm32f103c8
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r pyocd
                :goals: flash
                :compact:
+
+            .. admonition:: memory consumption
+               :class: hint dropdown
+
+               .. container:: highlight highlight-console notranslate
+
+                  .. parsed-literal::
+
+                     [174/174] Linking C executable zephyr/zephyr.elf
+                     Memory region         Used Size  Region Size  %age Used
+                                FLASH:       45004 B        64 KB     68.67%
+                                  RAM:       14648 B        20 KB     71.52%
+                                SRAM0:          0 GB        20 KB      0.00%
+                             IDT_LIST:          0 GB        32 KB      0.00%
 
    .. group-tab:: STM32F0
 
@@ -497,23 +527,53 @@ LED Blinky with USB-CDC/ACM Console
 
             .. zephyr-app-commands::
                :app: zephyr/samples/basic/blinky
-               :board: vccgnd_bluepill_stm32f072cb
                :build-dir: vccgnd_bluepill
-               :west-args: -p -S usb-console
+               :board: vccgnd_bluepill_stm32f072cb
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r pyocd
                :goals: flash
                :compact:
+
+            .. admonition:: memory consumption
+               :class: hint dropdown
+
+               .. container:: highlight highlight-console notranslate
+
+                  .. parsed-literal::
+
+                     [175/175] Linking C executable zephyr/zephyr.elf
+                     Memory region         Used Size  Region Size  %age Used
+                                FLASH:       44224 B       128 KB     33.74%
+                                  RAM:       14856 B        16 KB     90.67%
+                                SRAM0:          0 GB        16 KB      0.00%
+                             IDT_LIST:          0 GB        32 KB      0.00%
 
          .. group-tab:: |STM32F072C8|
 
             .. zephyr-app-commands::
                :app: zephyr/samples/basic/blinky
-               :board: vccgnd_bluepill_stm32f072c8
                :build-dir: vccgnd_bluepill
-               :west-args: -p -S usb-console
+               :board: vccgnd_bluepill_stm32f072c8
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r pyocd
                :goals: flash
                :compact:
+
+            .. admonition:: memory consumption
+               :class: hint dropdown
+
+               .. container:: highlight highlight-console notranslate
+
+                  .. parsed-literal::
+
+                     [175/175] Linking C executable zephyr/zephyr.elf
+                     Memory region         Used Size  Region Size  %age Used
+                                FLASH:       44224 B        64 KB     67.48%
+                                  RAM:       14856 B        16 KB     90.67%
+                                SRAM0:          0 GB        16 KB      0.00%
+                             IDT_LIST:          0 GB        32 KB      0.00%
 
 Hello Shell
 ===========
@@ -528,8 +588,8 @@ Hello Shell
 
             .. zephyr-app-commands::
                :app: bridle/samples/helloshell
-               :board: vccgnd_bluepill_stm32f103cb
                :build-dir: vccgnd_bluepill
+               :board: vccgnd_bluepill_stm32f103cb
                :gen-args: \
                   -DEXTRA_CONF_FILE="prj-hwstartup.conf" -DCONFIG_STM32_ENABLE_DEBUG_SLEEP_STOP=y
                :west-args: -p
@@ -544,18 +604,19 @@ Hello Shell
 
                   .. parsed-literal::
 
-                     [181/181] Linking C executable zephyr/zephyr.elf
+                     [185/185] Linking C executable zephyr/zephyr.elf
                      Memory region         Used Size  Region Size  %age Used
-                                FLASH:       56148 B       128 KB     42.84%
-                                  RAM:       18184 B        20 KB     88.79%
+                                FLASH:       57260 B       128 KB     43.69%
+                                  RAM:       16840 B        20 KB     82.23%
+                                SRAM0:          0 GB        20 KB      0.00%
                              IDT_LIST:          0 GB        32 KB      0.00%
 
          .. group-tab:: |STM32F103C8|
 
             .. zephyr-app-commands::
                :app: bridle/samples/helloshell
-               :board: vccgnd_bluepill_stm32f103c8
                :build-dir: vccgnd_bluepill
+               :board: vccgnd_bluepill_stm32f103c8
                :gen-args: \
                   -DEXTRA_CONF_FILE="prj-hwstartup.conf" -DCONFIG_STM32_ENABLE_DEBUG_SLEEP_STOP=y
                :west-args: -p
@@ -570,10 +631,11 @@ Hello Shell
 
                   .. parsed-literal::
 
-                     [181/181] Linking C executable zephyr/zephyr.elf
+                     [185/185] Linking C executable zephyr/zephyr.elf
                      Memory region         Used Size  Region Size  %age Used
-                                FLASH:       56148 B        64 KB     85.68%
-                                  RAM:       18184 B        20 KB     88.79%
+                                FLASH:       57260 B        64 KB     87.37%
+                                  RAM:       16840 B        20 KB     82.23%
+                                SRAM0:          0 GB        20 KB      0.00%
                              IDT_LIST:          0 GB        32 KB      0.00%
 
    .. group-tab:: STM32F0
@@ -584,8 +646,8 @@ Hello Shell
 
             .. zephyr-app-commands::
                :app: bridle/samples/helloshell
-               :board: vccgnd_bluepill_stm32f072cb
                :build-dir: vccgnd_bluepill
+               :board: vccgnd_bluepill_stm32f072cb
                :gen-args: \
                   -DEXTRA_CONF_FILE="prj-minimal.conf" -DCONFIG_STM32_ENABLE_DEBUG_SLEEP_STOP=y \
                   -DCONFIG_ADC=y -DCONFIG_ADC_SHELL=y -DCONFIG_I2C=y -DCONFIG_I2C_SHELL=y
@@ -601,18 +663,19 @@ Hello Shell
 
                   .. parsed-literal::
 
-                     [159/159] Linking C executable zephyr/zephyr.elf
+                     [168/168] Linking C executable zephyr/zephyr.elf
                      Memory region         Used Size  Region Size  %age Used
-                                FLASH:       37640 B       128 KB     28.72%
-                                  RAM:        8912 B        16 KB     54.39%
+                                FLASH:       35556 B       128 KB     27.13%
+                                  RAM:        7576 B        16 KB     46.24%
+                                SRAM0:          0 GB        16 KB      0.00%
                              IDT_LIST:          0 GB        32 KB      0.00%
 
          .. group-tab:: |STM32F072C8|
 
             .. zephyr-app-commands::
                :app: bridle/samples/helloshell
-               :board: vccgnd_bluepill_stm32f072c8
                :build-dir: vccgnd_bluepill
+               :board: vccgnd_bluepill_stm32f072c8
                :gen-args: \
                   -DEXTRA_CONF_FILE="prj-minimal.conf" -DCONFIG_STM32_ENABLE_DEBUG_SLEEP_STOP=y \
                   -DCONFIG_ADC=y -DCONFIG_ADC_SHELL=y -DCONFIG_I2C=y -DCONFIG_I2C_SHELL=y
@@ -628,18 +691,19 @@ Hello Shell
 
                   .. parsed-literal::
 
-                     [159/159] Linking C executable zephyr/zephyr.elf
+                     [168/168] Linking C executable zephyr/zephyr.elf
                      Memory region         Used Size  Region Size  %age Used
-                                FLASH:       37640 B        64 KB     57.43%
-                                  RAM:        8912 B        16 KB     54.39%
+                                FLASH:       35556 B        64 KB     54.25%
+                                  RAM:        7576 B        16 KB     46.24%
+                                SRAM0:          0 GB        16 KB      0.00%
                              IDT_LIST:          0 GB        32 KB      0.00%
 
          .. group-tab:: |STM32F051C8|
 
             .. zephyr-app-commands::
                :app: bridle/samples/helloshell
-               :board: vccgnd_bluepill_stm32f051c8
                :build-dir: vccgnd_bluepill
+               :board: vccgnd_bluepill_stm32f051c8
                :gen-args: \
                   -DEXTRA_CONF_FILE="prj-tiny.conf" -DCONFIG_STM32_ENABLE_DEBUG_SLEEP_STOP=y \
                   -DCONFIG_ADC=y -DCONFIG_ADC_SHELL=y -DCONFIG_I2C=y -DCONFIG_I2C_SHELL=y
@@ -655,18 +719,19 @@ Hello Shell
 
                   .. parsed-literal::
 
-                     [159/159] Linking C executable zephyr/zephyr.elf
+                     [168/168] Linking C executable zephyr/zephyr.elf
                      Memory region         Used Size  Region Size  %age Used
-                                FLASH:       34008 B        64 KB     51.89%
-                                  RAM:        8112 B         8 KB     99.02%
+                                FLASH:       32172 B        64 KB     49.09%
+                                  RAM:        4784 B         8 KB     58.40%
+                                SRAM0:          0 GB         8 KB      0.00%
                              IDT_LIST:          0 GB        32 KB      0.00%
 
          .. group-tab:: |STM32F030C8|
 
             .. zephyr-app-commands::
                :app: bridle/samples/helloshell
-               :board: vccgnd_bluepill_stm32f030c8
                :build-dir: vccgnd_bluepill
+               :board: vccgnd_bluepill_stm32f030c8
                :gen-args: \
                   -DEXTRA_CONF_FILE="prj-tiny.conf" -DCONFIG_STM32_ENABLE_DEBUG_SLEEP_STOP=y \
                   -DCONFIG_ADC=y -DCONFIG_ADC_SHELL=y -DCONFIG_I2C=y -DCONFIG_I2C_SHELL=y
@@ -682,10 +747,11 @@ Hello Shell
 
                   .. parsed-literal::
 
-                     [159/159] Linking C executable zephyr/zephyr.elf
+                     [168/168] Linking C executable zephyr/zephyr.elf
                      Memory region         Used Size  Region Size  %age Used
-                                FLASH:       33776 B        64 KB     51.54%
-                                  RAM:        8104 B         8 KB     98.93%
+                                FLASH:       31956 B        64 KB     48.76%
+                                  RAM:        4776 B         8 KB     58.30%
+                                SRAM0:          0 GB         8 KB      0.00%
                              IDT_LIST:          0 GB        32 KB      0.00%
 
 References
