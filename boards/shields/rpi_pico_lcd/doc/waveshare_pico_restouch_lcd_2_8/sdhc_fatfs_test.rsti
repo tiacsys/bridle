@@ -23,9 +23,10 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`fs`.
          :build-dir: waveshare_pico_restouch_lcd_2_8-sdhc_fatfs_test
          :board: rpi_pico
          :shield: "waveshare_pico_restouch_lcd_2_8"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
    .. group-tab:: Raspberry Pi Pico W
@@ -35,9 +36,10 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`fs`.
          :build-dir: waveshare_pico_restouch_lcd_2_8-sdhc_fatfs_test
          :board: rpi_pico/rp2040/w
          :shield: "waveshare_pico_restouch_lcd_2_8"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
    .. group-tab:: Waveshare RP2040-Plus
@@ -49,9 +51,10 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`fs`.
          :build-dir: waveshare_pico_restouch_lcd_2_8-sdhc_fatfs_test
          :board: waveshare_rp2040_plus
          :shield: "waveshare_pico_restouch_lcd_2_8"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
       .. rubric:: on extended ``16㎆`` revision
@@ -61,9 +64,10 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`fs`.
          :build-dir: waveshare_pico_restouch_lcd_2_8-sdhc_fatfs_test
          :board: waveshare_rp2040_plus@16mb
          :shield: "waveshare_pico_restouch_lcd_2_8"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
    .. zephyr-keep-sorted-stop
@@ -91,11 +95,8 @@ on the console, e.g.:
 
    .. parsed-literal::
 
-      \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-      [00:00:00.177,000] :byl:`<wrn> udc_rpi: BUS RESET`
-      [00:00:00.257,000] :byl:`<wrn> udc_rpi: BUS RESET`
-      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
-      [00:00:04.293,000] <inf> main: Block count 15523840
+      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
+      [00:00:00.048,000] <inf> main: Block count 15523840
       Sector size 512
       Memory Size(MB) 7580
       Disk mounted.
@@ -121,17 +122,14 @@ list will run again to show them, e.g.:
 
    .. parsed-literal::
 
-      \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-      [00:00:00.234,000] :byl:`<wrn> udc_rpi: BUS RESET`
-      [00:00:00.314,000] :byl:`<wrn> udc_rpi: BUS RESET`
-      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
-      [00:00:04.270,000] <inf> main: Block count 15523840
+      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
+      [00:00:00.048,000] <inf> main: Block count 15523840
       Sector size 512
       Memory Size(MB) 7580
       Disk mounted.
 
       Listing dir /SD: ...
-      [00:00:04.366,000] <inf> main: Creating some dir entries in /SD:
+      [00:00:00.366,000] <inf> main: Creating some dir entries in /SD:
 
       Listing dir /SD: ...
       [FILE] SOME.DAT (size = 0)
@@ -153,17 +151,14 @@ to re-format to FAT FS and list will run again to show them, e.g.:
 
    .. parsed-literal::
 
-      \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-      [00:00:00.318,000] :byl:`<wrn> udc_rpi: BUS RESET`
-      [00:00:00.398,000] :byl:`<wrn> udc_rpi: BUS RESET`
-      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
-      [00:00:04.271,000] <inf> main: Block count 15523840
+      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
+      [00:00:00.048,000] <inf> main: Block count 15523840
       Sector size 512
       Memory Size(MB) 7580
       Disk mounted.
 
       Listing dir /SD: ...
-      [00:00:08.116,000] <inf> main: Creating some dir entries in /SD:
+      [00:00:04.116,000] <inf> main: Creating some dir entries in /SD:
 
       Listing dir /SD: ...
       [FILE] SOME.DAT (size = 0)
@@ -183,10 +178,11 @@ to re-format to FAT FS and list will run again to show them, e.g.:
          :build-dir: waveshare_pico_restouch_lcd_2_8-sdhc_fatfs_test
          :board: rpi_pico
          :shield: "waveshare_pico_restouch_lcd_2_8"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
          :gen-args: -DCONFIG_FS_FATFS_MOUNT_MKFS=n
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
    .. group-tab:: Raspberry Pi Pico W
@@ -196,10 +192,11 @@ to re-format to FAT FS and list will run again to show them, e.g.:
          :build-dir: waveshare_pico_restouch_lcd_2_8-sdhc_fatfs_test
          :board: rpi_pico/rp2040/w
          :shield: "waveshare_pico_restouch_lcd_2_8"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
          :gen-args: -DCONFIG_FS_FATFS_MOUNT_MKFS=n
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
    .. group-tab:: Waveshare RP2040-Plus
@@ -211,10 +208,11 @@ to re-format to FAT FS and list will run again to show them, e.g.:
          :build-dir: waveshare_pico_restouch_lcd_2_8-sdhc_fatfs_test
          :board: waveshare_rp2040_plus
          :shield: "waveshare_pico_restouch_lcd_2_8"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
          :gen-args: -DCONFIG_FS_FATFS_MOUNT_MKFS=n
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
       .. rubric:: on extended ``16㎆`` revision
@@ -224,8 +222,9 @@ to re-format to FAT FS and list will run again to show them, e.g.:
          :build-dir: waveshare_pico_restouch_lcd_2_8-sdhc_fatfs_test
          :board: waveshare_rp2040_plus@16mb
          :shield: "waveshare_pico_restouch_lcd_2_8"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
          :gen-args: -DCONFIG_FS_FATFS_MOUNT_MKFS=n
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:

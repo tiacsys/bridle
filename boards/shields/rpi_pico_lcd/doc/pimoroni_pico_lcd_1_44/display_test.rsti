@@ -15,9 +15,10 @@ with chosen display. That is:
          :build-dir: pimoroni_pico_lcd_1_44-display_test
          :board: rpi_pico
          :shield: "pimoroni_pico_lcd_1_44"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
    .. group-tab:: Raspberry Pi Pico W
@@ -27,9 +28,10 @@ with chosen display. That is:
          :build-dir: pimoroni_pico_lcd_1_44-display_test
          :board: rpi_pico/rp2040/w
          :shield: "pimoroni_pico_lcd_1_44"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
    .. group-tab:: Waveshare RP2040-Plus
@@ -41,9 +43,10 @@ with chosen display. That is:
          :build-dir: pimoroni_pico_lcd_1_44-display_test
          :board: waveshare_rp2040_plus
          :shield: "pimoroni_pico_lcd_1_44"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
       .. rubric:: on extended ``16㎆`` revision
@@ -53,9 +56,10 @@ with chosen display. That is:
          :build-dir: pimoroni_pico_lcd_1_44-display_test
          :board: waveshare_rp2040_plus@16mb
          :shield: "pimoroni_pico_lcd_1_44"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
    .. zephyr-keep-sorted-stop
@@ -78,8 +82,6 @@ with chosen display. That is:
 
    .. parsed-literal::
 
-      \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-      [00:00:00.415,000] :byl:`<wrn> udc_rpi: BUS RESET`
-      [00:00:00.495,000] :byl:`<wrn> udc_rpi: BUS RESET`
-      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
-      [00:00:04.151,000] <inf> sample: Display sample for st7789v\ @\ 0
+      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
+      [00:00:00.169,000] <inf> sample: Display sample for st7789v\ @\ 0
+      [00:00:00.228,000] <inf> sample: Display starts

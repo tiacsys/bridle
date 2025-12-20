@@ -18,9 +18,10 @@ touchscreen panel. That is:
          :build-dir: waveshare_pico_restouch_lcd_2_8-touch_test
          :board: rpi_pico
          :shield: "waveshare_pico_restouch_lcd_2_8"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
    .. group-tab:: Raspberry Pi Pico W
@@ -30,9 +31,10 @@ touchscreen panel. That is:
          :build-dir: waveshare_pico_restouch_lcd_2_8-touch_test
          :board: rpi_pico/rp2040/w
          :shield: "waveshare_pico_restouch_lcd_2_8"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
    .. group-tab:: Waveshare RP2040-Plus
@@ -44,9 +46,10 @@ touchscreen panel. That is:
          :build-dir: waveshare_pico_restouch_lcd_2_8-touch_test
          :board: waveshare_rp2040_plus
          :shield: "waveshare_pico_restouch_lcd_2_8"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
       .. rubric:: on extended ``16㎆`` revision
@@ -56,9 +59,10 @@ touchscreen panel. That is:
          :build-dir: waveshare_pico_restouch_lcd_2_8-touch_test
          :board: waveshare_rp2040_plus@16mb
          :shield: "waveshare_pico_restouch_lcd_2_8"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
    .. zephyr-keep-sorted-stop
@@ -70,9 +74,5 @@ touchscreen panel. That is:
    .. parsed-literal::
 
       [00:00:00.189,000] <inf> xpt2046: Init 'xpt2046\ @\ 1' device
-      \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-      [00:00:00.344,000] :byl:`<wrn> udc_rpi: BUS RESET`
-      [00:00:00.428,000] :byl:`<wrn> udc_rpi: BUS RESET`
-      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
-      [00:00:04.191,000] <inf> sample: Touch sample for touchscreen: xpt2046\ @\ 1, dc: st7789v\ @\ 0
-      [00:00:04.192,000] :brd:`<err> sample: Unsupported BPP=0`
+      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
+      [00:00:00.190,000] <inf> sample: Touch sample for touchscreen: xpt2046\ @\ 1, dc: st7789v\ @\ 0

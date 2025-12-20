@@ -15,9 +15,10 @@ Using the LVGL module on top of the :external+zephyr:ref:`Display driver API
          :build-dir: waveshare_pico_lcd_1_8-lvgl_basic
          :board: rpi_pico
          :shield: "waveshare_pico_lcd_1_8"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
    .. group-tab:: Raspberry Pi Pico W
@@ -27,9 +28,9 @@ Using the LVGL module on top of the :external+zephyr:ref:`Display driver API
          :build-dir: waveshare_pico_lcd_1_8-lvgl_basic
          :board: rpi_pico/rp2040/w
          :shield: "waveshare_pico_lcd_1_8"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
    .. group-tab:: Waveshare RP2040-Plus
@@ -41,9 +42,10 @@ Using the LVGL module on top of the :external+zephyr:ref:`Display driver API
          :build-dir: waveshare_pico_lcd_1_8-lvgl_basic
          :board: waveshare_rp2040_plus
          :shield: "waveshare_pico_lcd_1_8"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
       .. rubric:: on extended ``16㎆`` revision
@@ -53,9 +55,10 @@ Using the LVGL module on top of the :external+zephyr:ref:`Display driver API
          :build-dir: waveshare_pico_lcd_1_8-lvgl_basic
          :board: waveshare_rp2040_plus@16mb
          :shield: "waveshare_pico_lcd_1_8"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
    .. zephyr-keep-sorted-stop
@@ -66,10 +69,7 @@ Using the LVGL module on top of the :external+zephyr:ref:`Display driver API
 
    .. parsed-literal::
 
-      \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-      [00:00:00.321,000] :byl:`<wrn> udc_rpi: BUS RESET`
-      [00:00:00.401,000] :byl:`<wrn> udc_rpi: BUS RESET`
-      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
       :bgn:`uart:~$` **█**
 
 .. container:: highlight highlight-console notranslate
@@ -77,14 +77,12 @@ Using the LVGL module on top of the :external+zephyr:ref:`Display driver API
    .. parsed-literal::
 
       :bgn:`uart:~$` **lvgl stats memory**
-      Heap at 0x20001410 contains 2047 units in 11 buckets
+      Heap at 0x200013b8 contains 2047 units in 11 buckets
 
         bucket#    min units        total      largest      largest
                    threshold       chunks      (units)      (bytes)
         -----------------------------------------------------------
-              0            1            2            1            4
-              1            2            1            2           12
-              6           64            1           81          644
-             10         1024            1         1354        10828
+              0            1            1            1            8
+             10         1024            1         1169         9352
 
-      11492 free bytes, 4384 allocated bytes, overhead = 504 bytes (3.1%)
+      9360 free bytes, 6952 allocated bytes, overhead = 68 bytes (0.4%)

@@ -52,8 +52,10 @@
               DT node labels: uart0 pico_serial rpipico_serial
             - timer\ @\ 40054000 (READY)
               DT node labels: timer
-            - gpio\ @\ 40014000 (READY)
+            - gpio-port\ @\ 0 (READY)
               DT node labels: gpio0
+            - usbd\ @\ 50110000 (READY)
+              DT node labels: usbd zephyr_udc0
             - adc\ @\ 4004c000 (READY)
               DT node labels: adc
             - flash-controller\ @\ 18000000 (READY)
@@ -109,13 +111,13 @@
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **gpio get gpio@40014000 3**
+            :bgn:`uart:~$` **gpio get gpio0 3**
             0
 
-            :bgn:`uart:~$` **gpio conf gpio@40014000 3 iul**
-            :bgn:`uart:~$` **gpio get gpio@40014000 3**
+            :bgn:`uart:~$` **gpio conf gpio0 3 iul**
+            :bgn:`uart:~$` **gpio get gpio0 3**
             0
-            :bgn:`uart:~$` **gpio get gpio@40014000 3**
+            :bgn:`uart:~$` **gpio get gpio0 3**
             1
-            :bgn:`uart:~$` **gpio get gpio@40014000 3**
+            :bgn:`uart:~$` **gpio get gpio0 3**
             0
