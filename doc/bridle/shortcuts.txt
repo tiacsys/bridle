@@ -83,7 +83,8 @@
 .. |zephyr_URB_VID|	replace:: :code:`0x2FE3`
 .. |zephyr_VID|		replace:: :ign:`2fe3`
 .. |zephyr_VStr|	replace:: :ign:`Zephyr Project`
-.. |zephyr_VStr_dflt|	replace:: :ign:`ZEPHYR`
+.. |zephyr_VStr_usbd|	replace:: :ign:`Zephyr Project`
+.. |zephyr_VStr_lgcy|	replace:: :ign:`ZEPHYR`
 
 .. VID 0x314B : Geehy Semiconductor Co., Ltd.
 
@@ -305,8 +306,8 @@
 .. |zephyr_URB_PID_MSC|	replace:: :code:`0x0008`
 .. |zephyr_PID_MSC|	replace:: :ign:`0008`
 .. |zephyr_PStr_MSC|	replace:: :ign:`USB Mass Storage`
-.. |zephyr_PStr_MSC_dflt| replace:: :ign:`Zephyr MSC sample`
 .. |zephyr_PStr_MSC_usbd| replace:: :ign:`USBD MSC sample`
+.. |zephyr_PStr_MSC_lgcy| replace:: :ign:`Zephyr MSC sample`
 .. |zephyr_BCD_MSC|	replace:: |zephyr_version_BCD|
 
 .. |zephyr_URB_PID_TST|	replace:: :code:`0x0009`
