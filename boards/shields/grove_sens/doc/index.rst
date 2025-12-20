@@ -191,12 +191,11 @@ corresponds to the exact sensor type. For example:
    .. zephyr-app-commands::
       :app: bridle/samples/helloshell
       :build-dir: helloshell-seeed_grove_base_v2-grove_sens_bme280
-      :board: mimxrt1060_evk@B//qspi
+      :board: mimxrt1060_evk@B/mimxrt1062/qspi
       :shield: "seeed_grove_base_v2 grove_sens_bme280"
       :goals: flash
       :west-args: -p
       :host-os: unix
-      :tool: all
 
 #. :ref:`grove_base_shield_v13` or :ref:`grove_base_shield_v12` on
    |zephyr:board:mimxrt1060_evk| for **Grove BMP280 Sensor**:
@@ -204,12 +203,11 @@ corresponds to the exact sensor type. For example:
    .. zephyr-app-commands::
       :app: bridle/samples/helloshell
       :build-dir: helloshell-seeed_grove_base_v1-grove_sens_bmp280
-      :board: mimxrt1060_evk@B//qspi
+      :board: mimxrt1060_evk@B/mimxrt1062/qspi
       :shield: "seeed_grove_base_v1 grove_sens_bmp280"
       :goals: flash
       :west-args: -p
       :host-os: unix
-      :tool: all
 
 References
 **********
