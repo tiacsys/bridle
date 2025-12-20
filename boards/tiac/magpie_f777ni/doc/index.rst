@@ -118,7 +118,7 @@ hardware features:
      - :external+zephyr:ref:`gpio_api`
    * - UART
      - :kconfig:option:`CONFIG_SERIAL`
-     - | :dtcompatible:`st,stm32-uart` (!) (?)
+     - | :dtcompatible:`st,stm32-uart`
        | :dtcompatible:`st,stm32-usart`
      - :external+zephyr:ref:`uart_api`
    * - UDC (USB Device Controller)
@@ -128,7 +128,7 @@ hardware features:
      - :external+zephyr:ref:`usb_device_next_api`
    * - ETH (L1: PHY, L2: MAC / LLC)
      - :kconfig:option:`CONFIG_NET_L2_ETHERNET`
-     - :dtcompatible:`st,stm32-ethernet` (*)
+     - :dtcompatible:`st,stm32-ethernet` (!)
      - :external+zephyr:ref:`ethernet_interface`
    * - MDIO (L1: PHY)
      - :kconfig:option:`CONFIG_MDIO`
@@ -136,7 +136,7 @@ hardware features:
      - :external+zephyr:ref:`mdio_api`
    * - CAN (L1: PMA / PCS, L2: DLL)
      - :kconfig:option:`CONFIG_CAN`
-     - :dtcompatible:`st,stm32-bxcan` (-)
+     - :dtcompatible:`st,stm32-bxcan`
      - :external+zephyr:ref:`canbus`
    * - I2C
      - :kconfig:option:`CONFIG_I2C`
@@ -145,7 +145,7 @@ hardware features:
    * - SPI
      - :kconfig:option:`CONFIG_SPI`
      - | :dtcompatible:`st,stm32-spi-fifo`
-       | :dtcompatible:`st,stm32-spi` (?)
+       | :dtcompatible:`st,stm32-spi`
      - :external+zephyr:ref:`spi_api`
    * - PWM
      - :kconfig:option:`CONFIG_PWM`
@@ -159,7 +159,7 @@ hardware features:
    * - ADC
      - :kconfig:option:`CONFIG_ADC`
      - | :dtcompatible:`st,stm32f4-adc`
-       | :dtcompatible:`st,stm32-adc` (+) (!) (?)
+       | :dtcompatible:`st,stm32-adc`
      - :external+zephyr:ref:`adc_api`
    * - RTC
      - :kconfig:option:`CONFIG_RTC`
@@ -174,7 +174,7 @@ hardware features:
    * - Watchdog Timer (WDT)
      - :kconfig:option:`CONFIG_WATCHDOG`
      - | :dtcompatible:`st,stm32-watchdog`
-       | :dtcompatible:`st,stm32-window-watchdog` (°)
+       | :dtcompatible:`st,stm32-window-watchdog` (?)
      - :external+zephyr:ref:`watchdog_api`
    * - RNG
      - :kconfig:option:`CONFIG_ENTROPY_GENERATOR`
@@ -213,39 +213,13 @@ hardware features:
      - :dtcompatible:`arm,armv7m-systick`
      -
 
-(!) Shared IRQ line on STM32 devices:
-    Share the same interrupt line on STM32 devices over multiple driver
-    instances of same device class is not supported properly by Zephyr, see:
-    https://github.com/zephyrproject-rtos/zephyr/issues/26874 and
-    https://github.com/zephyrproject-rtos/zephyr/pull/27886
-
-(?) DMA transfer for STM32 devices:
-    Data cache invalidate/clean operation in DMA context is not properly
-    integrated for STM32 devices, see:
-    https://github.com/zephyrproject-rtos/zephyr/pull/27911,
-    https://github.com/zephyrproject-rtos/zephyr/issues/29798,
-    https://github.com/zephyrproject-rtos/zephyr/pull/32832 and
-    https://github.com/zephyrproject-rtos/zephyr/issues/33485
-
-(*) Ethernet instability on SOC cut-A (Device marking A):
+(!) Ethernet instability on SOC cut-A (Device marking A):
     TiaC Magpie with SOC cut-A (Device marking A) has some ethernet instability
     (https://github.com/zephyrproject-rtos/zephyr/issues/26519).
     Use of cut-Z is advised. See restrictions errata:
     https://www.st.com/resource/en/errata_sheet/DM00257543.pdf
 
-(-) CAN 1 or 2 only separate supported, never both simultaneously:
-    Simultaneous use of CAN_1 and CAN_2 not supported yet on STM32, see:
-    https://github.com/zephyrproject-rtos/zephyr/blob/c02454e/drivers/can/can_stm32.c#L28,
-    https://github.com/zephyrproject-rtos/zephyr/pull/22200 and
-    https://github.com/zephyrproject-rtos/zephyr/pull/24396 (seems to be fixed:
-    https://github.com/zephyrproject-rtos/zephyr/pull/46646)
-
-(+) ADC 1 only supported:
-    ADC 2 or 3 is not supported properly by Zephyr STM32 ADC support, see:
-    https://github.com/zephyrproject-rtos/zephyr/issues/26874 and
-    https://github.com/zephyrproject-rtos/zephyr/issues/30977
-
-(°) IWDG only tested:
+(?) IWDG only tested:
     WWDG (Window Watchdog Timer) not yet part of board support,
     testet only with IWDG (Independent Watchdog Timer).
 
@@ -477,7 +451,7 @@ You should see the following message on the console:
 .. parsed-literal::
    :class: highlight-console notranslate
 
-   \*\*\* Booting Zephyr OS build v\ |zephyr_version_number_em| \*\*\*
+   \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
    Hello World! magpie_f777ni/stm32f777xx
 
 Debugging
@@ -589,7 +563,7 @@ with a single call to Twister.
                 --tag uart \
                 --tag can
 
-      .. attention:: This will take almost a whole hour.
+      .. attention:: That will take more than an hour.
 
    .. group-tab:: Results
 
@@ -607,18 +581,18 @@ with a single call to Twister.
          INFO    - JOBS: 4
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - Total complete:  :bgn:`184/ 184`  100%  built (not run):    :bbl:`0`, filtered: :byl:`2803`, failed:    :brd:`0`, error:    :bbk:`0`
-         INFO    - 3178 test scenarios (2954 configurations) selected, :byl:`2803` configurations filtered (2770 by static filter, 33 at runtime).
-         INFO    - :bgn:`151 of 151` executed test configurations passed (100.00%), :bbk:`0` built (not run), :brd:`0` failed, :bbk:`0` errored, with no warnings in :bbk:`3092.93 seconds`.
-         INFO    - 1654 of 1654 executed test cases passed (100.00%), 66 blocked on 1 out of total 1133 platforms (0.09%).
-         INFO    - 155 selected test cases not executed: 155 skipped.
-         INFO    - :bgn:`151` test configurations executed on platforms, :bbl:`0` test configurations were only built.
+         INFO    - Total complete:  :bgn:`187/ 187`  100%  built (not run):    :bbl:`0`, filtered: :byl:`2923`, failed:    :brd:`0`, error:    :bbk:`0`
+         INFO    - 3288 test scenarios (3076 configurations) selected, :byl:`2923` configurations filtered (:byl:`2889` by static filter, :byl:`34` at runtime).
+         INFO    - :bgn:`153 of 153` executed test configurations passed (100.00%), :bbk:`0` built (not run), :brd:`0` failed, :bbk:`0` errored, with no warnings in :bbk:`3346.49 seconds`.
+         INFO    - 1645 of 1645 executed test cases passed (100.00%), on 1 out of total 1293 platforms (0.08%).
+         INFO    - 157 selected test cases not executed: 157 skipped.
+         INFO    - :bgn:`153` test configurations executed on platforms, :bbl:`0` test configurations were only built.
 
          Hardware distribution summary:
 
          \| Board                     \| ID       \|   Counter \|   Failures \|
          \|---------------------------\|----------\|-----------\|------------\|
-         \| magpie_f777ni/stm32f777xx \| DT04BNT1 \|       151 \|          0 \|
+         \| magpie_f777ni/stm32f777xx \| DT04BNT1 \|       153 \|          0 \|
 
          INFO    - Saving reports...
          INFO    - Writing JSON report .../twister-out/twister.json
@@ -938,7 +912,7 @@ The DTS binding following the :dtcompatible:`st,stm32-otgfs` and
           :start-at: usbotg_fs {
           :end-at: }; // usbotg_fs
 
-       :external+zephyr:ref:`usb_api` configuration:
+       :external+zephyr:ref:`usb_device_next_api` configuration:
 
        .. literalinclude:: ../magpie_f777ni.dts
           :language: DTS
@@ -965,7 +939,7 @@ The DTS binding following the :dtcompatible:`st,stm32-otgfs` and
           :class: warning
 
           | Only USB device function is supported in Zephyr at the moment
-          | (https://github.com/zephyrproject-rtos/zephyr/issues/12386).
+          | (https://github.com/zephyrproject-rtos/zephyr/issues/42066).
           |
           | Since end of 2020 there is an PR with experimental USB host
           | support for Zephyr -- but that must be checked in detail

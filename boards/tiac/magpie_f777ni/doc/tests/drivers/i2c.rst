@@ -58,14 +58,14 @@ Building and Running
          INFO    - JOBS: 4
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1/3 magpie_f777ni/stm32f777xx tests/drivers/i2c/i2c_api/drivers.i2c.api          :byl:`FILTERED` (runtime filter)
-         INFO    - 2/3 magpie_f777ni/stm32f777xx tests/drivers/i2c/i2c_bme688/drivers.i2c.bme688    :byl:`FILTERED` (runtime filter)
-         INFO    - 3/3 magpie_f777ni/stm32f777xx tests/drivers/i2c/i2c_target_api/drivers.i2c.target_api.dual_role :brd:`ERROR` Build failure (device <zephyr>)
+         INFO    - 1/3 magpie_f777ni/stm32f777xx drivers.i2c.bme688                                 :byl:`FILTERED` (runtime filter)
+         INFO    - 2/3 magpie_f777ni/stm32f777xx drivers.i2c.api                                    :byl:`FILTERED` (runtime filter)
+         INFO    - 3/3 magpie_f777ni/stm32f777xx drivers.i2c.target_api.dual_role                   :brd:`ERROR` Build failure (device <zephyr>)
          INFO    - :byl:`.../twister-out/magpie_f777ni_stm32f777xx/tests/drivers/i2c/i2c_target_api/drivers.i2c.target_api.dual_role/build.log`
 
-         INFO    - 2763 test scenarios (2539 configurations) selected, :byl:`2538` configurations filtered (2536 by static filter, 2 at runtime).
-         INFO    - :bgn:`0 of 1` executed test configurations passed (0.00%), :bbk:`0` built (not run), :brd:`0` failed, :bbk:`1` errored, with no warnings in :bbk:`28.30 seconds`.
-         INFO    - 0 of 2 executed test cases passed (0.00%), 2 blocked on 1 out of total 1133 platforms (0.09%).
+         INFO    - 2867 test scenarios (2655 configurations) selected, :byl:`2654` configurations filtered (:byl:`2652` by static filter, :byl:`2` at runtime).
+         INFO    - :bgn:`0 of 1` executed test configurations passed (0.00%), :bbk:`0` built (not run), :brd:`0` failed, :bbk:`1` errored, with no warnings in :bbk:`34.61 seconds`.
+         INFO    - 0 of 2 executed test cases passed (0.00%), 2 blocked on 1 out of total 1293 platforms (0.08%).
          INFO    - :bgn:`0` test configurations executed on platforms, :bbl:`1` test configurations were only built.
 
          Hardware distribution summary:
@@ -82,12 +82,12 @@ Building and Running
          INFO    - Writing JSON report .../twister-out/magpie_f777ni_stm32f777xx.json
          INFO    - -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
          INFO    - The following issues were found (showing the top 10 items):
-         INFO    - 1) tests/drivers/i2c/i2c_target_api/drivers.i2c.target_api.dual_role on magpie_f777ni/stm32f777xx error (Build failure - error: 'i2c_eeprom_target_init' defined but not used [-Werror=unused-function])
+         INFO    - 1) drivers.i2c.target_api.dual_role on magpie_f777ni/stm32f777xx error (Build failure - error: 'i2c_eeprom_target_init' defined but not used [-Werror=unused-function])
          INFO    -
          INFO    - To rerun the tests, call twister using the following commandline:
          INFO    - west twister -p <PLATFORM> -s <TEST ID>, for example:
          INFO    -
-         INFO    - west twister -p magpie_f777ni/stm32f777xx -s tests/drivers/i2c/i2c_target_api/drivers.i2c.target_api.dual_role
+         INFO    - west twister -p magpie_f777ni/stm32f777xx -s drivers.i2c.target_api.dual_role
          INFO    - or with west:
          INFO    - west build -p -b magpie_f777ni/stm32f777xx zephyr/tests/drivers/i2c/i2c_target_api -T drivers.i2c.target_api.dual_role
          INFO    - -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+

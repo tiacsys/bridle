@@ -10,34 +10,34 @@ Server Hostname:        192.168.10.197
 Server Port:            8080
 
 Document Path:          /
-Document Length:        0 bytes
+Document Length:        2067 bytes
 
 Concurrency Level:      1000
 Time taken for tests:   60.001 seconds
-Complete requests:      24905
-Failed requests:        23537
-   (Connect: 0, Receive: 9908, Length: 3721, Exceptions: 9908)
-Total transferred:      7903929 bytes
-HTML transferred:       7695441 bytes
-Requests per second:    415.08 [#/sec] (mean)
-Time per request:       2409.179 [ms] (mean)
-Time per request:       2.409 [ms] (mean, across all concurrent requests)
-Transfer rate:          128.64 [Kbytes/sec] received
+Complete requests:      14372
+Failed requests:        991
+   (Connect: 0, Receive: 0, Length: 991, Exceptions: 0)
+Total transferred:      28409986 bytes
+HTML transferred:       27660594 bytes
+Requests per second:    239.53 [#/sec] (mean)
+Time per request:       4174.849 [ms] (mean)
+Time per request:       4.175 [ms] (mean, across all concurrent requests)
+Transfer rate:          462.39 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        0   86 867.4      3   31626
-Processing:     0  190 1405.1      5   31608
-Waiting:        0    9  83.1      0    6464
-Total:          1  276 1649.9      8   32952
+Connect:        1   39 483.4      2   31540
+Processing:     1   10  18.0     10     667
+Waiting:        0    6  17.4      6     661
+Total:          3   49 484.4     13   31556
 
 Percentage of the requests served within a certain time (ms)
-  50%      8
-  66%     10
+  50%     13
+  66%     13
   75%     13
-  80%     17
-  90%    225
-  95%   1031
-  98%   3045
-  99%   7073
- 100%  32952 (longest request)
+  80%     13
+  90%     14
+  95%     16
+  98%    222
+  99%   1030
+ 100%  31556 (longest request)

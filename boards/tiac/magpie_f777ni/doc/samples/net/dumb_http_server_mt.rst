@@ -27,40 +27,43 @@ Build and flash Multithreaded Dumb HTTP Server as follows:
 Build the Zephyr version of the sockets/dumb_http_server_mt application like
 this:
 
-.. zephyr-app-commands::
-   :app: zephyr/samples/net/sockets/dumb_http_server_mt
-   :build-dir: dumb_http_server_mt-magpie_f777ni
-   :board: magpie_f777ni
-   :gen-args: -DCONFIG_NET_UDP=y -DCONFIG_NET_DHCPV4=y
-   :west-args: -p
-   :goals: flash
-   :host-os: unix
+   .. zephyr-app-commands::
+      :app: zephyr/samples/net/sockets/dumb_http_server_mt
+      :build-dir: dumb_http_server_mt-magpie_f777ni
+      :board: magpie_f777ni
+      :gen-args: -DCONFIG_NET_UDP=y -DCONFIG_NET_DHCPV4=y
+      :west-args: -p
+      :goals: flash
+      :host-os: unix
+
+Sample Output
+=============
 
 Once DHCPv4 client address negotiation completed with server, details
 are shown on the console like this:
 
-.. container:: highlight highlight-console notranslate no-copybutton
+   .. container:: highlight highlight-console notranslate no-copybutton
 
-   .. parsed-literal::
+      .. parsed-literal::
 
-      [00:00:00.050,000] <inf> phy_mii: PHY (0) ID 221560
-      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* \*\*\*
-      [00:00:00.057,000] <inf> net_config: Initializing network
-      [00:00:00.057,000] <inf> net_config: Waiting interface 1 (0x200218f0) to be up...
-      [00:00:02.651,000] <inf> phy_mii: PHY (0) Link speed **100 Mb**, **full duplex**
-      [00:00:02.657,000] <inf> net_config: Interface 1 (0x200218f0) coming up
-      [00:00:02.658,000] <inf> net_config: IPv4 address: 192.0.2.1
-      [00:00:02.658,000] <inf> net_config: Running dhcpv4 client...
-      [00:00:02.758,000] <inf> net_config: IPv6 address: 2001:db8::1
-      [00:00:02.758,000] <inf> net_dumb_http_srv_mt_sample: Network connected
-      [00:00:02.759,000] <dbg> net_dumb_http_srv_mt_sample: process_tcp6: Waiting for **IPv6 HTTP** connections on port **8080**, sock 3
-      [00:00:02.759,000] <dbg> net_dumb_http_srv_mt_sample: process_tcp4: Waiting for **IPv4 HTTP** connections on port **8080**, sock 4
-      [00:00:03.759,000] <inf> net_config: IPv6 address: 2001:db8::1
-      [00:00:05.678,000] <inf> net_dhcpv4: Received: **192.168.10.197**
-      [00:00:05.678,000] <inf> net_config: IPv4 address: 192.168.10.197
-      [00:00:05.678,000] <inf> net_config: Lease time: 28800 seconds
-      [00:00:05.678,000] <inf> net_config: Subnet: 255.255.255.0
-      [00:00:05.678,000] <inf> net_config: Router: 192.168.10.1
+         [00:00:00.050,000] <inf> phy_mii: PHY (0) ID 221560
+         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* \*\*\*
+         [00:00:00.057,000] <inf> net_config: Initializing network
+         [00:00:00.057,000] <inf> net_config: Waiting interface 1 (0x20021a70) to be up...
+         [00:00:02.651,000] <inf> phy_mii: PHY (0) Link speed **100 Mb**, **full duplex**
+         [00:00:02.657,000] <inf> net_config: Interface 1 (0x20021a70) coming up
+         [00:00:02.658,000] <inf> net_config: IPv4 address: 192.0.2.1
+         [00:00:02.658,000] <inf> net_config: Running dhcpv4 client...
+         [00:00:02.758,000] <inf> net_config: IPv6 address: 2001:db8::1
+         [00:00:02.758,000] <inf> net_dumb_http_srv_mt_sample: Network connected
+         [00:00:02.759,000] <dbg> net_dumb_http_srv_mt_sample: process_tcp6: Waiting for **IPv6 HTTP** connections on port **8080**, sock 3
+         [00:00:02.759,000] <dbg> net_dumb_http_srv_mt_sample: process_tcp4: Waiting for **IPv4 HTTP** connections on port **8080**, sock 4
+         [00:00:03.759,000] <inf> net_config: IPv6 address: 2001:db8::1
+         [00:00:05.678,000] <inf> net_dhcpv4: Received: **192.168.10.197**
+         [00:00:05.678,000] <inf> net_config: IPv4 address: 192.168.10.197
+         [00:00:05.678,000] <inf> net_config: Lease time: 28800 seconds
+         [00:00:05.678,000] <inf> net_config: Subnet: 255.255.255.0
+         [00:00:05.678,000] <inf> net_config: Router: 192.168.10.1
 
 Now the sample was starting, it expects connections at **192.168.10.197**,
 port **8080**. The easiest way to connect is by opening a following URL in
@@ -77,20 +80,21 @@ content on the live Zephyr site).
 The following console output can be observed parallel to the action
 of the web browser from the host:
 
-.. container:: highlight highlight-console notranslate no-copybutton
+   .. container:: highlight highlight-console notranslate no-copybutton
 
-   .. parsed-literal::
+      .. parsed-literal::
 
-      [00:00:34.613,000] <dbg> net_dumb_http_srv_mt_sample: process_tcp: [5] Connection #1 from **192.168.10.100**
-      [00:00:34.613,000] <dbg> net_dumb_http_srv_mt_sample: process_tcp: [6] Connection #2 from **192.168.10.100**
+         [00:01:22.774,000] <dbg> net_dumb_http_srv_mt_sample: process_tcp: [5] Connection #1 from **192.168.10.100**
+         [00:01:22.774,000] <dbg> net_dumb_http_srv_mt_sample: process_tcp: [6] Connection #2 from **192.168.10.100**
+         [00:01:32.122,000] <dbg> net_dumb_http_srv_mt_sample: client_conn_handler: [6] Connection **closed by peer**
 
 Alternatively, a tool like ``curl`` can be used:
 
-.. container:: highlight highlight-console notranslate
+   .. container:: highlight highlight-console notranslate
 
-   .. parsed-literal::
+      .. parsed-literal::
 
-      :bgn:`$` **curl http://192.168.10.197:8080/**
+         :bgn:`$` **curl http://192.168.10.197:8080/**
 
 The following raw HTML output should appear:
 
@@ -104,12 +108,12 @@ The following raw HTML output should appear:
 Finally, you can run an HTTP profiling/load tool like Apache Bench
 (``ab``) against the server:
 
-.. container:: highlight highlight-console notranslate
+   .. container:: highlight highlight-console notranslate
 
-   .. parsed-literal::
+      .. parsed-literal::
 
-      :bgn:`$` **ab -r -g dumb_http_server_mt_ab.csv -t 60 -c 1000 http://192.168.10.197:8080/** | \\
-             **tee dumb_http_server_mt_ab.log** && **gnuplot dumb_http_server_mt_ab.p**
+         :bgn:`$` **ab -r -g dumb_http_server_mt_ab.csv -t 60 -c 1000 http://192.168.10.197:8080/** | \\
+                **tee dumb_http_server_mt_ab.log** && **gnuplot dumb_http_server_mt_ab.p**
 
 The ``-n`` parameter specifies the number of HTTP requests to issue against
 a server. The ``-c`` parameter specifies the number of multiple requests to

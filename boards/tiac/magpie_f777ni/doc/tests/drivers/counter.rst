@@ -51,11 +51,11 @@ Building and Running
          INFO    - JOBS: 4
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1/1 magpie_f777ni/stm32f777xx tests/drivers/counter/counter_basic_api/drivers.counter.basic_api :bgn:`PASSED` (device: DT04BNT1, 326.104s <zephyr>)
+         INFO    - 1/1 magpie_f777ni/stm32f777xx drivers.counter.basic_api                          :bgn:`PASSED` (device: DT04BNT1, 326.659s <zephyr>)
 
-         INFO    - 2763 test scenarios (2539 configurations) selected, :byl:`2538` configurations filtered (2538 by static filter, 0 at runtime).
-         INFO    - :bgn:`1 of 1` executed test configurations passed (100.00%), :bbk:`0` built (not run), :brd:`0` failed, :bbk:`0` errored, with no warnings in :bbk:`373.76 seconds`.
-         INFO    - 4 of 4 executed test cases passed (100.00%) on 1 out of total 1133 platforms (0.09%).
+         INFO    - 2867 test scenarios (2655 configurations) selected, :byl:`2654` configurations filtered (:byl:`2654` by static filter, :byl:`0` at runtime).
+         INFO    - :bgn:`1 of 1` executed test configurations passed (100.00%), :bbk:`0` built (not run), :brd:`0` failed, :bbk:`0` errored, with no warnings in :bbk:`377.80 seconds`.
+         INFO    - 4 of 4 executed test cases passed (100.00%) on 1 out of total 1293 platforms (0.08%).
          INFO    - 7 selected test cases not executed: 7 skipped.
          INFO    - :bgn:`1` test configurations executed on platforms, :bbl:`0` test configurations were only built.
 

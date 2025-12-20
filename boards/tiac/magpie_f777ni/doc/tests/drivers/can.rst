@@ -51,22 +51,22 @@ Building and Running
          INFO    - JOBS: 4
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    -  1/12 magpie_f777ni/stm32f777xx tests/subsys/canbus/isotp/implementation/canbus.isotp.implementation :bgn:`PASSED` (device: DT04BNT1, 18.329s <zephyr>)
-         INFO    -  2/12 magpie_f777ni/stm32f777xx tests/subsys/canbus/isotp/conformance/canbus.isotp.conformance.fd.txdl_32 :bgn:`PASSED` (device: DT04BNT1, 3.174s <zephyr>)
-         INFO    -  3/12 magpie_f777ni/stm32f777xx tests/drivers/can/api/drivers.can.api.nxp_s32_canxl.non_rx_fifo :byl:`FILTERED` (runtime filter)
-         INFO    -  4/12 magpie_f777ni/stm32f777xx tests/subsys/canbus/isotp/conformance/canbus.isotp.conformance.fd.unused :bgn:`PASSED` (device: DT04BNT1, 13.579s <zephyr>)
-         INFO    -  5/12 magpie_f777ni/stm32f777xx tests/subsys/canbus/isotp/conformance/canbus.isotp.conformance.fd.txdl_64 :bgn:`PASSED` (device: DT04BNT1, 4.142s <zephyr>)
-         INFO    -  6/12 magpie_f777ni/stm32f777xx tests/subsys/canbus/isotp/conformance/canbus.isotp.conformance :bgn:`PASSED` (device: DT04BNT1, 13.896s <zephyr>)
-         INFO    -  7/12 magpie_f777ni/stm32f777xx tests/drivers/can/shell/drivers.can.shell          :bgn:`PASSED` (device: DT04BNT1, 5.455s <zephyr>)
-         INFO    -  8/12 magpie_f777ni/stm32f777xx tests/drivers/can/api/drivers.can.api.rtr          :bgn:`PASSED` (device: DT04BNT1, 8.445s <zephyr>)
-         INFO    -  9/12 magpie_f777ni/stm32f777xx tests/drivers/can/api/drivers.can.api              :bgn:`PASSED` (device: DT04BNT1, 5.635s <zephyr>)
-         INFO    - 10/12 magpie_f777ni/stm32f777xx tests/drivers/can/timing/drivers.can.timing.adj    :bgn:`PASSED` (device: DT04BNT1, 3.318s <zephyr>)
-         INFO    - 11/12 magpie_f777ni/stm32f777xx tests/net/socket/can/net.socket.can                :bgn:`PASSED` (device: DT04BNT1, 2.424s <zephyr>)
-         INFO    - 12/12 magpie_f777ni/stm32f777xx tests/drivers/can/timing/drivers.can.timing        :bgn:`PASSED` (device: DT04BNT1, 3.147s <zephyr>)
+         INFO    -  1/12 magpie_f777ni/stm32f777xx canbus.isotp.implementation                        :bgn:`PASSED` (device: DT04BNT1, 18.260s <zephyr>)
+         INFO    -  2/12 magpie_f777ni/stm32f777xx canbus.isotp.conformance.fd.txdl_32                :bgn:`PASSED` (device: DT04BNT1, 3.147s <zephyr>)
+         INFO    -  3/12 magpie_f777ni/stm32f777xx drivers.can.api.nxp_s32_canxl.non_rx_fifo          :byl:`FILTERED` (runtime filter)
+         INFO    -  4/12 magpie_f777ni/stm32f777xx canbus.isotp.conformance.fd.unused                 :bgn:`PASSED` (device: DT04BNT1, 13.579s <zephyr>)
+         INFO    -  5/12 magpie_f777ni/stm32f777xx canbus.isotp.conformance.fd.txdl_64                :bgn:`PASSED` (device: DT04BNT1, 4.489s <zephyr>)
+         INFO    -  6/12 magpie_f777ni/stm32f777xx canbus.isotp.conformance                           :bgn:`PASSED` (device: DT04BNT1, 13.668s <zephyr>)
+         INFO    -  7/12 magpie_f777ni/stm32f777xx drivers.can.shell                                  :bgn:`PASSED` (device: DT04BNT1, 5.655s <zephyr>)
+         INFO    -  8/12 magpie_f777ni/stm32f777xx drivers.can.api.rtr                                :bgn:`PASSED` (device: DT04BNT1, 7.636s <zephyr>)
+         INFO    -  9/12 magpie_f777ni/stm32f777xx drivers.can.api                                    :bgn:`PASSED` (device: DT04BNT1, 7.751s <zephyr>)
+         INFO    - 10/12 magpie_f777ni/stm32f777xx drivers.can.timing.adj                             :bgn:`PASSED` (device: DT04BNT1, 4.536s <zephyr>)
+         INFO    - 11/12 magpie_f777ni/stm32f777xx net.socket.can                                     :bgn:`PASSED` (device: DT04BNT1, 2.396s <zephyr>)
+         INFO    - 12/12 magpie_f777ni/stm32f777xx drivers.can.timing                                 :bgn:`PASSED` (device: DT04BNT1, 3.713s <zephyr>)
 
-         INFO    - 2763 test scenarios (2539 configurations) selected, :byl:`2528` configurations filtered (2527 by static filter, 1 at runtime).
-         INFO    - :bgn:`11 of 11` executed test configurations passed (100.00%), :bbk:`0` built (not run), :brd:`0` failed, :bbk:`0` errored, with no warnings in :bbk:`275.52 seconds`.
-         INFO    - 196 of 196 executed test cases passed (74.81%) on 1 out of total 1133 platforms (0.09%).
+         INFO    - 2867 test scenarios (2655 configurations) selected, :byl:`2644` configurations filtered (:byl:`2643` by static filter, :byl:`1` at runtime).
+         INFO    - :bgn:`11 of 11` executed test configurations passed (100.00%), :bbk:`0` built (not run), :brd:`0` failed, :bbk:`0` errored, with no warnings in :bbk:`291.36 seconds`.
+         INFO    - 196 of 196 executed test cases passed (74.81%) on 1 out of total 1293 platforms (0.08%).
          INFO    - 78 selected test cases not executed: 78 skipped.
          INFO    - :bgn:`11` test configurations executed on platforms, :bbl:`0` test configurations were only built.
 

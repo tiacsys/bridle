@@ -1,7 +1,7 @@
 .. _magpie_f777ni_drivers_adc-tests:
 
-ADC Loopback (:brd:`FAILED`)
-############################
+ADC Loopback (:byl:`FILTERED`)
+##############################
 
 Overview
 ********
@@ -58,13 +58,13 @@ Building and Running
          INFO    - JOBS: 4
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1/1 magpie_f777ni/stm32f777xx tests/drivers/adc/adc_api/drivers.adc              :brd:`ERROR` Build failure (device <zephyr>)
-         INFO    - :byl:`.../twister-out/magpie_f777ni_stm32f777xx/tests/drivers/adc/adc_api/drivers.adc/build.log`
+         INFO    - 1/2 magpie_f777ni/stm32f777xx drivers.adc.b_u585i_iot02a_adc4                    :byl:`FILTERED` (runtime filter)
+         INFO    - 2/2 magpie_f777ni/stm32f777xx drivers.adc                                        :byl:`FILTERED` (runtime filter)
 
-         INFO    - 2763 test scenarios (2539 configurations) selected, :byl:`2538` configurations filtered (2538 by static filter, 0 at runtime).
-         INFO    - :bgn:`0 of 1` test configurations passed (0.00%), :bbk:`0` built (not run), :brd:`0` failed, :bbk:`1` errored, with no warnings in :bbk:`20.00 seconds`.
-         INFO    - 0 of 6 executed test cases passed (0.00%), 6 blocked on 1 out of total 1133 platforms (0.09%).
-         INFO    - :bgn:`0` test configurations executed on platforms, :bbl:`1` test configurations were only built.
+         INFO    - 2867 test scenarios (2655 configurations) selected, :byl:`2655` configurations filtered (:byl:`2653` by static filter, :byl:`2` at runtime).
+         INFO    - :bgn:`0 of 0` test configurations passed (0.00%), :bbk:`0` built (not run), :brd:`0` failed, :bbk:`0` errored, with no warnings in :bbk:`19.91 seconds`.
+         INFO    - 0 of 0 executed test cases passed (0.00%) on 0 out of total 1293 platforms (0.00%).
+         INFO    - :bgn:`0` test configurations executed on platforms, :bbl:`0` test configurations were only built.
 
          Hardware distribution summary:
 
@@ -78,40 +78,4 @@ Building and Running
          INFO    - Writing xunit report .../twister-out/twister_report.xml...
          INFO    - Writing target report for magpie_f777ni/stm32f777xx...
          INFO    - Writing JSON report .../twister-out/magpie_f777ni_stm32f777xx.json
-         INFO    - -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-         INFO    - The following issues were found (showing the top 10 items):
-         INFO    - 1) tests/drivers/adc/adc_api/drivers.adc on magpie_f777ni/stm32f777xx error (Build failure - error: #error "Unsupported board.")
-         INFO    -
-         INFO    - To rerun the tests, call twister using the following commandline:
-         INFO    - west twister -p <PLATFORM> -s <TEST ID>, for example:
-         INFO    -
-         INFO    - west twister -p magpie_f777ni/stm32f777xx -s tests/drivers/adc/adc_api/drivers.adc
-         INFO    - or with west:
-         INFO    - west build -p -b magpie_f777ni/stm32f777xx tests/drivers/adc/adc_api -T drivers.adc
-         INFO    - -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
          INFO    - Run completed
-
-Open Issues
-***********
-
-.. parsed-literal::
-   :class: highlight-console notranslate
-
-   ... ... ...
-   .../zephyr/tests/drivers/adc/adc_api/src/test_adc.c:52:2: :brd:`error:` #error "Unsupported board."
-   .../zephyr/tests/drivers/adc/adc_api/src/test_adc.c:57:31: :brd:`error:` :bbk:`'adc_channels'` undeclared here ...
-   .../zephyr/tests/drivers/adc/adc_api/src/test_adc.c:89:39: :brd:`error:` :bbk:`'adc_channels'` undeclared here ...
-   .../zephyr/tests/drivers/adc/adc_api/src/test_adc.c:91:25: :brd:`error:` :bbk:`'adc_channels_count'` undeclared here ...
-   .../zephyr/tests/drivers/adc/adc_api/src/test_adc.c:142:37: :brd:`error:` :bbk:`'adc_channels'` undeclared here ...
-   .../zephyr/tests/drivers/adc/adc_api/src/test_adc.c:169:37: :brd:`error:` :bbk:`'adc_channels'` undeclared here ...
-   .../zephyr/tests/drivers/adc/adc_api/src/test_adc.c:171:29: :brd:`error:` :bbk:`'adc_channels_count'` undeclared here ...
-   .../zephyr/tests/drivers/adc/adc_api/src/test_adc.c:188:13: :brd:`error:` :bbk:`'adc_channels_count'` undeclared here ...
-   .../zephyr/tests/drivers/adc/adc_api/src/test_adc.c:220:37: :brd:`error:` :bbk:`'adc_channels'` undeclared here ...
-   .../zephyr/tests/drivers/adc/adc_api/src/test_adc.c:279:37: :brd:`error:` :bbk:`'adc_channels'` undeclared here ...
-   .../zephyr/tests/drivers/adc/adc_api/src/test_adc.c:312:35: :brd:`error:` :bbk:`'adc_channels_count'` undeclared here ...
-   .../zephyr/tests/drivers/adc/adc_api/src/test_adc.c:355:37: :brd:`error:` :bbk:`'adc_channels'` undeclared here ...
-   .../zephyr/tests/drivers/adc/adc_api/src/test_adc.c:357:13: :brd:`error:` :bbk:`'adc_channels_count'` undeclared here ...
-   .../zephyr/tests/drivers/adc/adc_api/src/test_adc.c:382:36: :brd:`error:` :bbk:`'adc_channels'` undeclared here ...
-   ... ... ...
-   ... ... ...
-   ... ... ...

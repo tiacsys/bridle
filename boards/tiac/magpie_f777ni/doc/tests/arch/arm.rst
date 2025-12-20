@@ -51,40 +51,43 @@ Building and Running
          INFO    - JOBS: 4
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    -  1/22 magpie_f777ni/stm32f777xx tests/arch/arm/arm_mem_protect/arch.arm.mem_protect.syscalls :byl:`FILTERED` (runtime filter)
-         INFO    -  2/22 magpie_f777ni/stm32f777xx tests/arch/arm/arm_irq_advanced_features/arch.arm.irq_advanced_features.secure_fw :byl:`FILTERED` (runtime filter)
-         INFO    -  3/22 magpie_f777ni/stm32f777xx tests/arch/arm/arm_irq_vector_table/arch.arm.irq_vector_table :bgn:`PASSED` (device: DT04BNT1, 3.181s <zephyr>)
-         INFO    -  4/22 magpie_f777ni/stm32f777xx tests/arch/arm/arm_runtime_nmi/arch.arm.interrupt.nmi :bgn:`PASSED` (device: DT04BNT1, 4.480s <zephyr>)
-         INFO    -  5/22 magpie_f777ni/stm32f777xx tests/arch/common/ramfunc/arch.common.ramfunc      :bgn:`PASSED` (device: DT04BNT1, 3.821s <zephyr>)
-         INFO    -  6/22 magpie_f777ni/stm32f777xx tests/arch/arm/arm_irq_advanced_features/arch.arm.irq_advanced_features :bgn:`PASSED` (device: DT04BNT1, 2.683s <zephyr>)
-         INFO    -  7/22 magpie_f777ni/stm32f777xx tests/arch/arm/arm_thread_swap_tz/arch.arm.swap.tz_off :byl:`FILTERED` (runtime filter)
-         INFO    -  8/22 magpie_f777ni/stm32f777xx tests/arch/arm/arm_tz_wrap_func/arch.arm.tz_wrap_func :bgn:`PASSED` (device: DT04BNT1, 3.817s <zephyr>)
-         INFO    -  9/22 magpie_f777ni/stm32f777xx tests/arch/arm/arm_thread_swap_tz/arch.arm.swap.tz :byl:`FILTERED` (runtime filter)
-         INFO    - 10/22 magpie_f777ni/stm32f777xx tests/arch/arm/arm_sw_vector_relay/arch.arm.sw_vector_relay :bgn:`PASSED` (device: DT04BNT1, 2.391s <zephyr>)
-         INFO    - 11/22 magpie_f777ni/stm32f777xx tests/arch/arm/arm_thread_swap/arch.arm.swap.common.fpu_sharing.no_optimizations :bgn:`PASSED` (device: DT04BNT1, 7.111s <zephyr>)
-         INFO    - 12/22 magpie_f777ni/stm32f777xx tests/arch/arm/arm_irq_zero_latency_levels/arch.arm.irq_zero_latency_levels.secure_fw :byl:`FILTERED` (runtime filter)
-         INFO    - 13/22 magpie_f777ni/stm32f777xx tests/arch/arm/arm_thread_swap/arch.arm.swap.common.no_optimizations :bgn:`PASSED` (device: DT04BNT1, 6.043s <zephyr>)
-         INFO    - 14/22 magpie_f777ni/stm32f777xx tests/arch/arm/arm_thread_swap/arch.arm.swap.common.fpu_sharing :bgn:`PASSED` (device: DT04BNT1, 3.754s <zephyr>)
-         INFO    - 15/22 magpie_f777ni/stm32f777xx tests/arch/arm/arm_thread_swap/arch.arm.swap.common :bgn:`PASSED` (device: DT04BNT1, 3.121s <zephyr>)
-         INFO    - 16/22 magpie_f777ni/stm32f777xx tests/arch/arm/arm_irq_zero_latency_levels/arch.arm.irq_zero_latency_levels :bgn:`PASSED` (device: DT04BNT1, 4.573s <zephyr>)
-         INFO    - 17/22 magpie_f777ni/stm32f777xx tests/arch/arm/arm_interrupt/arch.arm.interrupt.no_optimizations :bgn:`PASSED` (device: DT04BNT1, 6.180s <zephyr>)
-         INFO    - 18/22 magpie_f777ni/stm32f777xx tests/arch/arm/arm_interrupt/arch.arm.interrupt.extra_exception_info :bgn:`PASSED` (device: DT04BNT1, 3.636s <zephyr>)
-         INFO    - 19/22 magpie_f777ni/stm32f777xx tests/arch/arm/arm_interrupt/arch.arm.interrupt    :bgn:`PASSED` (device: DT04BNT1, 4.241s <zephyr>)
-         INFO    - 20/22 magpie_f777ni/stm32f777xx tests/arch/arm64/arm64_psci/arch.arm64.psci        :byl:`FILTERED` (runtime filter)
-         INFO    - 21/22 magpie_f777ni/stm32f777xx tests/arch/arm/arm_custom_interrupt/arch.arm.custom_interrupt :bgn:`PASSED` (device: DT04BNT1, 2.360s <zephyr>)
-         INFO    - 22/22 magpie_f777ni/stm32f777xx tests/arch/arm/arm_hardfault_validation/arch.arm.interrupt.hardfault_validation :bgn:`PASSED` (device: DT04BNT1, 2.389s <zephyr>)
+         INFO    -  1/25 magpie_f777ni/stm32f777xx arch.arm.mem_protect.syscalls                      :byl:`FILTERED` (runtime filter)
+         INFO    -  2/25 magpie_f777ni/stm32f777xx arch.arm.irq_advanced_features.secure_fw           :byl:`FILTERED` (runtime filter)
+         INFO    -  3/25 magpie_f777ni/stm32f777xx arch.arm.irq_vector_table                          :bgn:`PASSED` (device: DT04BNT1, 3.248s <zephyr>)
+         INFO    -  4/25 magpie_f777ni/stm32f777xx arch.arm.interrupt.nmi                             :bgn:`PASSED` (device: DT04BNT1, 4.363s <zephyr>)
+         INFO    -  5/25 magpie_f777ni/stm32f777xx arch.common.ramfunc                                :bgn:`PASSED` (device: DT04BNT1, 4.649s <zephyr>)
+         INFO    -  6/25 magpie_f777ni/stm32f777xx arch.arm.irq_advanced_features                     :bgn:`PASSED` (device: DT04BNT1, 2.471s <zephyr>)
+         INFO    -  7/25 magpie_f777ni/stm32f777xx arch.arm.tz_wrap_func                              :bgn:`PASSED` (device: DT04BNT1, 3.401s <zephyr>)
+         INFO    -  8/25 magpie_f777ni/stm32f777xx arch.arm.user.stack.float                          :bgn:`PASSED` (device: DT04BNT1, 4.397s <zephyr>)
+         INFO    -  9/25 magpie_f777ni/stm32f777xx arch.arm.sw_vector_relay.sram_vector_table         :bgn:`PASSED` (device: DT04BNT1, 2.562s <zephyr>)
+         INFO    - 10/25 magpie_f777ni/stm32f777xx arch.arm.user.stack                                :bgn:`PASSED` (device: DT04BNT1, 4.143s <zephyr>)
+         INFO    - 11/25 magpie_f777ni/stm32f777xx arch.arm.swap.tz_off                               :byl:`FILTERED` (runtime filter)
+         INFO    - 12/25 magpie_f777ni/stm32f777xx arch.arm.sw_vector_relay                           :bgn:`PASSED` (device: DT04BNT1, 2.450s <zephyr>)
+         INFO    - 13/25 magpie_f777ni/stm32f777xx arch.arm.swap.tz                                   :byl:`FILTERED` (runtime filter)
+         INFO    - 14/25 magpie_f777ni/stm32f777xx arch.arm.swap.common.fpu_sharing.no_optimizations  :bgn:`PASSED` (device: DT04BNT1, 6.055s <zephyr>)
+         INFO    - 15/25 magpie_f777ni/stm32f777xx arch.arm.swap.common.no_optimizations              :bgn:`PASSED` (device: DT04BNT1, 6.139s <zephyr>)
+         INFO    - 16/25 magpie_f777ni/stm32f777xx arch.arm.irq_zero_latency_levels.secure_fw         :byl:`FILTERED` (runtime filter)
+         INFO    - 17/25 magpie_f777ni/stm32f777xx arch.arm.swap.common                               :bgn:`PASSED` (device: DT04BNT1, 3.169s <zephyr>)
+         INFO    - 18/25 magpie_f777ni/stm32f777xx arch.arm.swap.common.fpu_sharing                   :bgn:`PASSED` (device: DT04BNT1, 3.702s <zephyr>)
+         INFO    - 19/25 magpie_f777ni/stm32f777xx arch.arm.irq_zero_latency_levels                   :bgn:`PASSED` (device: DT04BNT1, 5.751s <zephyr>)
+         INFO    - 20/25 magpie_f777ni/stm32f777xx arch.arm.interrupt.no_optimizations                :bgn:`PASSED` (device: DT04BNT1, 6.289s <zephyr>)
+         INFO    - 21/25 magpie_f777ni/stm32f777xx arch.arm.interrupt.extra_exception_info            :bgn:`PASSED` (device: DT04BNT1, 3.423s <zephyr>)
+         INFO    - 22/25 magpie_f777ni/stm32f777xx arch.arm.interrupt                                 :bgn:`PASSED` (device: DT04BNT1, 3.371s <zephyr>)
+         INFO    - 23/25 magpie_f777ni/stm32f777xx arch.arm64.psci                                    :byl:`FILTERED` (runtime filter)
+         INFO    - 24/25 magpie_f777ni/stm32f777xx arch.arm.custom_interrupt                          :bgn:`PASSED` (device: DT04BNT1, 2.360s <zephyr>)
+         INFO    - 25/25 magpie_f777ni/stm32f777xx arch.arm.interrupt.hardfault_validation            :bgn:`PASSED` (device: DT04BNT1, 2.374s <zephyr>)
 
-         INFO    - 2763 test scenarios (2539 configurations) selected, :byl:`2523` configurations filtered (2517 by static filter, 6 at runtime).
-         INFO    - :bgn:`16 of 16` executed test configurations passed (100.00%), :bbk:`0` built (not run), :brd:`0` failed, :bbk:`0` errored, with no warnings in :bbk:`330.03 seconds`.
-         INFO    - 32 of 32 executed test cases passed (100.00%) on 1 out of total 1133 platforms (0.09%).
+         INFO    - 2867 test scenarios (2655 configurations) selected, :byl:`2636` configurations filtered (:byl:`2630` by static filter, :byl:`6` at runtime).
+         INFO    - :bgn:`19 of 19` executed test configurations passed (100.00%), :bbk:`0` built (not run), :brd:`0` failed, :bbk:`0` errored, with no warnings in :bbk:`451.20 seconds`.
+         INFO    - 35 of 35 executed test cases passed (100.00%) on 1 out of total 1293 platforms (0.08%).
          INFO    - 3 selected test cases not executed: 3 skipped.
-         INFO    - :bgn:`16` test configurations executed on platforms, :bbl:`0` test configurations were only built.
+         INFO    - :bgn:`19` test configurations executed on platforms, :bbl:`0` test configurations were only built.
 
          Hardware distribution summary:
 
          \| Board                     \| ID       \|   Counter \|   Failures \|
          \|---------------------------\|----------\|-----------\|------------\|
-         \| magpie_f777ni/stm32f777xx \| DT04BNT1 \|        16 \|          0 \|
+         \| magpie_f777ni/stm32f777xx \| DT04BNT1 \|        19 \|          0 \|
 
          INFO    - Saving reports...
          INFO    - Writing JSON report .../twister-out/twister.json

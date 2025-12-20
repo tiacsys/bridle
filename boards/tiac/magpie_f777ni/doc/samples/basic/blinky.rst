@@ -22,13 +22,28 @@ Building and Running
 
 Build and flash LED Blinky as follows:
 
-.. zephyr-app-commands::
-   :app: zephyr/samples/basic/blinky
-   :build-dir: led_blinky-magpie_f777ni
-   :board: magpie_f777ni
-   :west-args: -p
-   :goals: flash
-   :host-os: unix
+   .. zephyr-app-commands::
+      :app: zephyr/samples/basic/blinky
+      :build-dir: led_blinky-magpie_f777ni
+      :board: magpie_f777ni
+      :west-args: -p
+      :goals: flash
+      :host-os: unix
+
+Sample Output
+=============
 
 After flashing, the first "User LED" starts to blink.
-LED Blinky does not print to the console.
+You should see the following message on the console:
+
+   .. container:: highlight highlight-console notranslate
+
+      .. parsed-literal::
+
+         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
+         LED state: OFF
+         LED state: ON
+         LED state: OFF
+         LED state: ON
+         LED state: OFF
+         … … …

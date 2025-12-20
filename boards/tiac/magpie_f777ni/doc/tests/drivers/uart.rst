@@ -58,17 +58,17 @@ Building and Running
          INFO    - JOBS: 4
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1/7 magpie_f777ni/stm32f777xx tests/drivers/uart/uart_async_api/drivers.uart.async_api.lpuart.rt_nocache :byl:`FILTERED` (runtime filter)
-         INFO    - 2/7 magpie_f777ni/stm32f777xx tests/drivers/uart/uart_async_api/drivers.uart.async_api.lpuart :byl:`FILTERED` (runtime filter)
-         INFO    - 3/7 magpie_f777ni/stm32f777xx tests/drivers/uart/uart_async_api/drivers.uart.async_api :byl:`FILTERED` (runtime filter)
-         INFO    - 4/7 magpie_f777ni/stm32f777xx tests/subsys/logging/log_backend_uart/logging.backend.uart.multi :bgn:`PASSED` (device: DT04BNT1, 2.399s <zephyr>)
-         INFO    - 5/7 magpie_f777ni/stm32f777xx tests/drivers/uart/uart_async_rx/drivers.uart.async_rx :bgn:`PASSED` (device: DT04BNT1, 12.488s <zephyr>)
-         INFO    - 6/7 magpie_f777ni/stm32f777xx tests/subsys/logging/log_backend_uart/logging.backend.uart.single :bgn:`PASSED` (device: DT04BNT1, 3.174s <zephyr>)
-         INFO    - 7/7 magpie_f777ni/stm32f777xx tests/drivers/console/hello_world/drivers.console.uart :bgn:`PASSED` (device: DT04BNT1, 2.433s <zephyr>)
+         INFO    - 1/7 magpie_f777ni/stm32f777xx drivers.uart.async_api.lpuart.rt_nocache           :byl:`FILTERED` (runtime filter)
+         INFO    - 2/7 magpie_f777ni/stm32f777xx drivers.uart.async_api.lpuart                      :byl:`FILTERED` (runtime filter)
+         INFO    - 3/7 magpie_f777ni/stm32f777xx drivers.uart.async_api                             :byl:`FILTERED` (runtime filter)
+         INFO    - 4/7 magpie_f777ni/stm32f777xx logging.backend.uart.single                        :bgn:`PASSED` (device: DT04BNT1, 2.447s <zephyr>)
+         INFO    - 5/7 magpie_f777ni/stm32f777xx logging.backend.uart.multi                         :bgn:`PASSED` (device: DT04BNT1, 2.462s <zephyr>)
+         INFO    - 6/7 magpie_f777ni/stm32f777xx drivers.uart.async_rx                              :bgn:`PASSED` (device: DT04BNT1, 12.476s <zephyr>)
+         INFO    - 7/7 magpie_f777ni/stm32f777xx drivers.console.uart                               :bgn:`PASSED` (device: DT04BNT1, 2.428s <zephyr>)
 
-         INFO    - 2763 test scenarios (2539 configurations) selected, :byl:`2535` configurations filtered (2532 by static filter, 3 at runtime).
-         INFO    - :bgn:`4 of 4` executed test configurations passed (100.00%), :bbk:`0` built (not run), :brd:`0` failed, :bbk:`0` errored, with no warnings in :bbk:`95.01 seconds`.
-         INFO    - 7 of 7 executed test cases passed (100.00%) on 1 out of total 1133 platforms (0.09%).
+         INFO    - 2867 test scenarios (2655 configurations) selected, :byl:`2651` configurations filtered (:byl:`2648` by static filter, :byl:`3` at runtime).
+         INFO    - :bgn:`4 of 4` executed test configurations passed (100.00%), :bbk:`0` built (not run), :brd:`0` failed, :bbk:`0` errored, with no warnings in :bbk:`117.76 seconds`.
+         INFO    - 7 of 7 executed test cases passed (100.00%) on 1 out of total 1293 platforms (0.08%).
          INFO    - :bgn:`4` test configurations executed on platforms, :bbl:`0` test configurations were only built.
 
          Hardware distribution summary:

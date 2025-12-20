@@ -51,14 +51,15 @@ Building and Running
          INFO    - JOBS: 4
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - 1/4 magpie_f777ni/stm32f777xx tests/drivers/watchdog/wdt_basic_reset_none/drivers.watchdog.reset_none :byl:`FILTERED` (runtime filter)
-         INFO    - 2/4 magpie_f777ni/stm32f777xx tests/drivers/watchdog/wdt_basic_api/drivers.watchdog :byl:`FILTERED` (runtime filter)
-         INFO    - 3/4 magpie_f777ni/stm32f777xx tests/drivers/watchdog/wdt_basic_api/drivers.watchdog.stm32wwdg.timing.adj :bgn:`PASSED` (device: DT04BNT1, 2.559s <zephyr>)
-         INFO    - 4/4 magpie_f777ni/stm32f777xx tests/drivers/watchdog/wdt_basic_api/drivers.watchdog.stm32iwdg.boot.off :bgn:`PASSED` (device: DT04BNT1, 4.443s <zephyr>)
+         INFO    - 1/4 magpie_f777ni/stm32f777xx drivers.watchdog.reset_none                        :byl:`FILTERED` (runtime filter)
+         INFO    - 2/4 magpie_f777ni/stm32f777xx drivers.watchdog                                   :byl:`FILTERED` (runtime filter)
+         INFO    - 3/4 magpie_f777ni/stm32f777xx drivers.watchdog.stm32iwdg.boot.off                :bgn:`PASSED` (device: DT04BNT1, 4.454s <zephyr>)
+         INFO    - 4/4 magpie_f777ni/stm32f777xx drivers.watchdog.stm32wwdg.timing.adj              :bgn:`PASSED` (device: DT04BNT1, 2.612s <zephyr>)
 
-         INFO    - 2763 test scenarios (2539 configurations) selected, :byl:`2537` configurations filtered (2535 by static filter, 2 at runtime).
-         INFO    - :bgn:`2 of 2` executed test configurations passed (100.00%), :bbk:`0` built (not run), :brd:`0` failed, :bbk:`0` errored, with no warnings in :bbk:`54.48 seconds`.
-         INFO    - 2 of 2 executed test cases passed (100.00%) on 1 out of total 1133 platforms (0.09%).
+         INFO    - 2867 test scenarios (2655 configurations) selected, :byl:`2653` configurations filtered (:byl:`2651` by static filter, :byl:`2` at runtime).
+         INFO    - :bgn:`2 of 2` executed test configurations passed (100.00%), :bbk:`0` built (not run), :brd:`0` failed, :bbk:`0` errored, with no warnings in :bbk:`69.62 seconds`.
+         INFO    - 0 of 0 executed test cases passed (0.00%) on 1 out of total 1293 platforms (0.08%).
+         INFO    - 2 selected test cases not executed: 2 skipped.
          INFO    - :bgn:`2` test configurations executed on platforms, :bbl:`0` test configurations were only built.
 
          Hardware distribution summary:
