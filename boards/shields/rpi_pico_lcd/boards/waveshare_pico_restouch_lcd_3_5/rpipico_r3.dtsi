@@ -8,7 +8,7 @@
 #include "sdhc_spi_sdmmc.dtsi"
 #include "xpt2046_320x480.dtsi"
 #include "ili9488_480x320.dtsi"
-#include "ili9488_rgb565.dtsi"
+#include "ili9488_bgr565.dtsi"
 
 #include <zephyr/dt-bindings/gpio/gpio.h>
 #include <zephyr/dt-bindings/mipi_dbi/mipi_dbi.h>

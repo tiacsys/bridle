@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 TiaC Systems
+ * Copyright (c) 2024-2025 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -32,7 +32,7 @@
 		invctr = <0x03>;
 		gamctrp1 = [10 0E 02 03 0E 07 02 07 0A 12 27 37 00 0D 0E 10];
 		gamctrn1 = [10 0E 03 03 0F 06 02 08 0A 13 26 36 00 0D 0E 10];
-		madctl = <0xC0>;	/* portrait */
+		madctl = <0xC8>;	/* portrait */
 		caset = [00 01 00 A0];
 		raset = [00 1A 00 69];
 	};

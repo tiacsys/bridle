@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2023-2025 TiaC Systems
+ * Copyright (c) 2025 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
 #include <zephyr/dt-bindings/display/panel.h>
 
 &lcd_panel {
-	pixel-format = <PANEL_PIXEL_FORMAT_RGB_888>;
+	pixel-format = <PANEL_PIXEL_FORMAT_BGR_565>;
 	display-inversion;
 };
