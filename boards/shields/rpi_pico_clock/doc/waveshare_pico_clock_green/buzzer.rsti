@@ -1,0 +1,103 @@
+The sample is prepared for the on-board :hwftlbl-spk:`PIEZO` connected to
+the PWM channel at :rpi-pico-pio:`GP14` / :rpi-pico-pwm:`PWM14` (PWM7CHA).
+
+The PWM period is 880 ㎐, twice the concert pitch frequency of 440 ㎐.
+
+.. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+
+   .. group-tab:: Raspberry Pi Pico
+
+      .. zephyr-app-commands::
+         :app: bridle/samples/buzzer
+         :build-dir: waveshare_pico_clock_green-buzzer
+         :board: rpi_pico
+         :shield: "waveshare_pico_clock_green"
+         :snippets: "usb-console"
+         :goals: flash
+         :west-args: -p
+         :flash-args: -r uf2
+         :compact:
+
+   .. group-tab:: Raspberry Pi Pico W
+
+      .. zephyr-app-commands::
+         :app: bridle/samples/buzzer
+         :build-dir: waveshare_pico_clock_green-buzzer
+         :board: rpi_pico/rp2040/w
+         :shield: "waveshare_pico_clock_green"
+         :snippets: "usb-console"
+         :goals: flash
+         :west-args: -p
+         :flash-args: -r uf2
+         :compact:
+
+   .. group-tab:: Waveshare RP2040-Plus
+
+      .. rubric:: on standard ``4㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: bridle/samples/buzzer
+         :build-dir: waveshare_pico_clock_green-buzzer
+         :board: waveshare_rp2040_plus
+         :shield: "waveshare_pico_clock_green"
+         :snippets: "usb-console"
+         :goals: flash
+         :west-args: -p
+         :flash-args: -r uf2
+         :compact:
+
+      .. rubric:: on extended ``16㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: bridle/samples/buzzer
+         :build-dir: waveshare_pico_clock_green-buzzer
+         :board: waveshare_rp2040_plus@16mb
+         :shield: "waveshare_pico_clock_green"
+         :snippets: "usb-console"
+         :goals: flash
+         :west-args: -p
+         :flash-args: -r uf2
+         :compact:
+
+   .. zephyr-keep-sorted-stop
+
+.. rubric:: Simple test execution on target
+
+#. play a beep
+#. play a folk song
+#. play a chrismas song
+#. play a funky jingle
+
+.. container:: highlight highlight-console notranslate no-copybutton
+
+   .. parsed-literal::
+
+      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
+      [00:00:00.003,000] <inf> buzzersh: Buzzer shell is ready!
+      :bgn:`uart:~$` **█**
+
+.. container:: highlight highlight-console notranslate
+
+   .. parsed-literal::
+
+      :bgn:`uart:~$` **buzzer beep**
+
+.. container:: highlight highlight-console notranslate
+
+   .. parsed-literal::
+
+      :bgn:`uart:~$` **buzzer play folksong**
+
+.. container:: highlight highlight-console notranslate
+
+   .. parsed-literal::
+
+      :bgn:`uart:~$` **buzzer play xmastime**
+
+.. container:: highlight highlight-console notranslate
+
+   .. parsed-literal::
+
+      :bgn:`uart:~$` **buzzer play funkytown**

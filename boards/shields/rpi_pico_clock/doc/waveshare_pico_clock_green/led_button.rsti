@@ -1,0 +1,127 @@
+.. rubric:: LED Blinky
+
+See also Zephyr sample: :external+zephyr:zephyr:code-sample:`blinky`.
+
+.. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+
+   .. group-tab:: Raspberry Pi Pico
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/basic/blinky
+         :build-dir: waveshare_pico_clock_green-blinky
+         :board: rpi_pico
+         :shield: "waveshare_pico_clock_green"
+         :snippets: "usb-console"
+         :goals: flash
+         :west-args: -p
+         :flash-args: -r uf2
+         :compact:
+
+   .. group-tab:: Raspberry Pi Pico W
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/basic/blinky
+         :build-dir: waveshare_pico_clock_green-blinky
+         :board: rpi_pico/rp2040/w
+         :shield: "waveshare_pico_clock_green"
+         :snippets: "usb-console"
+         :goals: flash
+         :west-args: -p
+         :flash-args: -r uf2
+         :compact:
+
+   .. group-tab:: Waveshare RP2040-Plus
+
+      .. rubric:: on standard ``4㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/basic/blinky
+         :build-dir: waveshare_pico_clock_green-blinky
+         :board: waveshare_rp2040_plus
+         :shield: "waveshare_pico_clock_green"
+         :snippets: "usb-console"
+         :goals: flash
+         :west-args: -p
+         :flash-args: -r uf2
+         :compact:
+
+      .. rubric:: on extended ``16㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/basic/blinky
+         :build-dir: waveshare_pico_clock_green-blinky
+         :board: waveshare_rp2040_plus@16mb
+         :shield: "waveshare_pico_clock_green"
+         :snippets: "usb-console"
+         :goals: flash
+         :west-args: -p
+         :flash-args: -r uf2
+         :compact:
+
+   .. zephyr-keep-sorted-stop
+
+.. rubric:: LED ON/OFF by Button
+
+See also Zephyr sample: :external+zephyr:zephyr:code-sample:`button`.
+
+.. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+
+   .. group-tab:: Raspberry Pi Pico
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/basic/button
+         :build-dir: waveshare_pico_clock_green-button
+         :board: rpi_pico
+         :shield: "waveshare_pico_clock_green"
+         :snippets: "usb-console"
+         :goals: flash
+         :west-args: -p
+         :flash-args: -r uf2
+         :compact:
+
+   .. group-tab:: Raspberry Pi Pico W
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/basic/button
+         :build-dir: waveshare_pico_clock_green-button
+         :board: rpi_pico/rp2040/w
+         :shield: "waveshare_pico_clock_green"
+         :snippets: "usb-console"
+         :goals: flash
+         :west-args: -p
+         :flash-args: -r uf2
+         :compact:
+
+   .. group-tab:: Waveshare RP2040-Plus
+
+      .. rubric:: on standard ``4㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/basic/button
+         :build-dir: waveshare_pico_clock_green-button
+         :board: waveshare_rp2040_plus
+         :shield: "waveshare_pico_clock_green"
+         :snippets: "usb-console"
+         :goals: flash
+         :west-args: -p
+         :flash-args: -r uf2
+         :compact:
+
+      .. rubric:: on extended ``16㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/basic/button
+         :build-dir: waveshare_pico_clock_green-button
+         :board: waveshare_rp2040_plus@16mb
+         :shield: "waveshare_pico_clock_green"
+         :snippets: "usb-console"
+         :goals: flash
+         :west-args: -p
+         :flash-args: -r uf2
+         :compact:
+
+   .. zephyr-keep-sorted-stop

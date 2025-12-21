@@ -1,284 +1,69 @@
-.. rubric:: Simple test execution on target
-
-(text in bold is a command input)
+Set ``-DSHIELD=geeekpi_pico_bb_plus`` and use optional the
+:ref:`snippet-usb-console` when you invoke ``west build``.
+For example:
 
 .. tabs::
 
-   .. group-tab:: Basics
-
-      .. container:: highlight highlight-console notranslate
-
-         .. parsed-literal::
-
-            :bgn:`uart:~$` **hello -h**
-            hello - say hello
-            :bgn:`uart:~$` **hello**
-            Hello from shell.
-
-      .. container:: highlight highlight-console notranslate
-
-         .. parsed-literal::
-
-            :bgn:`uart:~$` **hwinfo devid**
-            Length: 8
-            ID: 0x8c998be1de969148
-
-            :bgn:`uart:~$` **kernel version**
-            Zephyr version |zephyr_version_number_em|
-
-            :bgn:`uart:~$` **bridle version**
-            Bridle version |shortversion_number_em|
-
-            :bgn:`uart:~$` **bridle version long**
-            Bridle version |longversion_number_em|
-
-            :bgn:`uart:~$` **bridle info**
-            Zephyr: |zephyr_release_number_em|
-            Bridle: |release_number_em|
-
-      .. container:: highlight highlight-console notranslate
-
-         .. parsed-literal::
-
-            :bgn:`uart:~$` **device list**
-            devices:
-            - clock-controller\ @\ 40008000 (READY)
-              DT node labels: clocks
-            - reset-controller\ @\ 4000c000 (READY)
-              DT node labels: reset
-            - snippet_cdc_acm_console_uart (READY)
-              DT node labels: snippet_cdc_acm_console_uart
-            - uart\ @\ 40034000 (READY)
-              DT node labels: uart0 pico_serial rpipico_serial
-            - timer\ @\ 40054000 (READY)
-              DT node labels: timer
-            - gpio\ @\ 40014000 (READY)
-              DT node labels: gpio0 rpipico_gpio_keys clock_gpio_keys
-            - adc\ @\ 4004c000 (READY)
-              DT node labels: adc
-            - flash-controller\ @\ 18000000 (READY)
-              DT node labels: ssi
-            - i2c\ @\ 40048000 (READY)
-              DT node labels: i2c1 pico_i2c1 rpipico_i2c1 rpipico_i2c_rtc clock_i2c_rtc
-            - i2c\ @\ 40044000 (READY)
-              DT node labels: i2c0 pico_i2c pico_i2c0 rpipico_i2c rpipico_i2c0
-            - pwm\ @\ 40050000 (READY)
-              DT node labels: pwm rpipico_pwm_buzzers clock_pwm_buzzers
-            - vreg\ @\ 40064000 (READY)
-              DT node labels: vreg
-            - rtc\ @\ 4005c000 (READY)
-              DT node labels: rtc
-            - spi\ @\ 40040000 (READY)
-              DT node labels: spi1 pico_spi1 rpipico_spi1 rpipico_spi_leds clock_spi_leds
-            - spi\ @\ 4003c000 (READY)
-              DT node labels: spi0 pico_spi pico_spi0 rpipico_spi rpipico_spi0
-            - ds3231-mfd\ @\ 68 (READY)
-              DT node labels: ds3231_mfd clock_mfd
-            - sipo-mux-gp\ @\ 0 (READY)
-              DT node labels: sipo_mux_gp clock_sipo_mux
-            - sipo-mux-gpio\ @\ 7 (READY)
-              DT node labels: sipo_mux_gpio_7 clock_gpio_7
-            - sipo-mux-gpio\ @\ 6 (READY)
-              DT node labels: sipo_mux_gpio_6 clock_gpio_6
-            - sipo-mux-gpio\ @\ 5 (READY)
-              DT node labels: sipo_mux_gpio_5 clock_gpio_5
-            - sipo-mux-gpio\ @\ 4 (READY)
-              DT node labels: sipo_mux_gpio_4 clock_gpio_4
-            - sipo-mux-gpio\ @\ 3 (READY)
-              DT node labels: sipo_mux_gpio_3 clock_gpio_3
-            - sipo-mux-gpio\ @\ 2 (READY)
-              DT node labels: sipo_mux_gpio_2 clock_gpio_2
-            - sipo-mux-gpio\ @\ 1 (READY)
-              DT node labels: sipo_mux_gpio_1 clock_gpio_1
-            - sipo-mux-gpio\ @\ 0 (READY)
-              DT node labels: sipo_mux_gpio_0 clock_gpio_0
-            - ds3231-rtc (READY)
-              DT node labels: ds3231_rtc clock_rtc
-            - ds3231-dts (READY)
-              DT node labels: ds3231_dts clock_dts
-            - wpcg-gpio-leds (READY)
-              DT node labels: wpcg_gpio_leds
-
-      .. container:: highlight highlight-console notranslate
-
-         .. parsed-literal::
-
-            :bgn:`uart:~$` **history**
-            [  0] history
-            [  1] device list
-            [  2] bridle info
-            [  3] bridle version long
-            [  4] bridle version
-            [  5] kernel version
-            [  6] hwinfo devid
-            [  7] hello
-            [  8] hello -h
-
-   .. group-tab:: Panel LED
-
-      Operate with the first user LED :hwftlbl-led:`SIG0`
-      on the left side at :rpi-pico-pio:`SIPOMUX-GPIO0:SIG0`:
-
-      .. container:: highlight highlight-console notranslate
-
-         .. parsed-literal::
-
-            :bgn:`uart:~$` **led on wpcg-gpio-leds 0**
-            wpcg-gpio-leds: turning on LED 0
-
-      .. container:: highlight highlight-console notranslate
-
-         .. parsed-literal::
-
-            :bgn:`uart:~$` **led set_brightness wpcg-gpio-leds 0 0**
-            wpcg-gpio-leds: setting LED 0 brightness to 0
-
-      .. container:: highlight highlight-console notranslate
-
-         .. parsed-literal::
-
-            :bgn:`uart:~$` **led set_brightness wpcg-gpio-leds 0 50**
-            wpcg-gpio-leds: setting LED 0 brightness to 50
-
-      .. container:: highlight highlight-console notranslate
-
-         .. parsed-literal::
-
-            :bgn:`uart:~$` **led off wpcg-gpio-leds 0**
-            wpcg-gpio-leds: turning off LED 0
-
-   .. group-tab:: GPIO
-
-      Operate with the first user LED :hwftlbl-led:`SIG0`
-      on the left side at :rpi-pico-pio:`SIPOMUX-GPIO0:SIG0`:
-
-      .. container:: highlight highlight-console notranslate
-
-         .. parsed-literal::
-
-            :bgn:`uart:~$` **gpio get sipo-mux-gpio@0 SIG0**
-            0
-
-            :bgn:`uart:~$` **gpio conf sipo-mux-gpio@0 SIG0 oh0**
-
-            :bgn:`uart:~$` **gpio set sipo-mux-gpio@0 SIG0 1**
-            :bgn:`uart:~$` **gpio set sipo-mux-gpio@0 SIG0 0**
-
-            :bgn:`uart:~$` **gpio blink sipo-mux-gpio@0 SIG0**
-            Hit any key to exit
-
-      Operate with the user input button :hwftlbl-btn:`SET/FUNCTION`
-      at :rpi-pico-pio:`GP2`:
-
-      .. container:: highlight highlight-console notranslate
-
-         .. parsed-literal::
-
-            :bgn:`uart:~$` **gpio get gpio@40014000 SET**
-            0
-
-            :bgn:`uart:~$` **gpio conf gpio@40014000 SET iul**
-            :bgn:`uart:~$` **gpio get gpio@40014000 SET**
-            0
-            :bgn:`uart:~$` **gpio get gpio@40014000 SET**
-            1
-            :bgn:`uart:~$` **gpio get gpio@40014000 SET**
-            0
-
-   .. group-tab:: ADC
-
-      Operate with the on-shield high-resistance LDR :hwftlbl:`Rₗ`
-      on :rpi-pico-adc:`ADC_CH0`:
-
-      .. container:: highlight highlight-console notranslate
-
-         .. parsed-literal::
-
-            :bgn:`uart:~$` **adc adc@4004c000 resolution 12**
-            :bgn:`uart:~$` **adc adc@4004c000 channel id 0**
-
-      .. container:: highlight highlight-console notranslate
-
-         .. parsed-literal::
-
-            :bgn:`uart:~$` **adc adc@4004c000 read 0**
-            read: 51
-
-      .. container:: highlight highlight-console notranslate
-
-         .. parsed-literal::
-
-            :bgn:`uart:~$` **adc adc@4004c000 read 0**
-            read: 883
-
-      .. container:: highlight highlight-console notranslate
-
-         .. parsed-literal::
-
-            :bgn:`uart:~$` **adc adc@4004c000 read 0**
-            read: 3147
-
-   .. group-tab:: I2C
-
-      The |Waveshare Pico Clock Green| has the on-shield RTC connected on I2C1.
-
-      .. container:: highlight highlight-console notranslate
-
-         .. parsed-literal::
-
-            :bgn:`uart:~$` **i2c scan i2c@40048000**
-                 0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
-            00:             -- -- -- -- -- -- -- -- -- -- -- --
-            10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-            20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-            30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-            40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-            50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-            60: -- -- -- -- -- -- -- -- 68 -- -- -- -- -- -- --
-            70: -- -- -- -- -- -- -- --
-            1 devices found on i2c\ @\ 40048000
-
-      The I2C address ``0x68`` is a Maxim / Analog Devices DS3231_ RTC with
-      integraterd Temperature Sensor and they current temperature can read
-      from registers ``0x11`` (MSB) and ``0x12`` (LSB). For example, for
-      26.25℃ the register content must be ``0x1a`` and ``0x40``:
-
-      .. container:: highlight highlight-console notranslate
-
-         .. parsed-literal::
-
-            :bgn:`uart:~$` **i2c read_byte i2c@40048000 68 11**
-            Output: 0x1a
-            :bgn:`uart:~$` **i2c read_byte i2c@40048000 68 12**
-            Output: 0x40
-
-      For example, for 24.75℃ the register content must be ``0x19``
-      and ``0xc0``:
-
-      .. container:: highlight highlight-console notranslate
-
-         .. parsed-literal::
-
-            :bgn:`uart:~$` **i2c read_byte i2c@40048000 68 11**
-            Output: 0x18
-            :bgn:`uart:~$` **i2c read_byte i2c@40048000 68 12**
-            Output: 0xc0
-
-   .. group-tab:: RTC
-
-      .. container:: highlight highlight-console notranslate
-
-         .. parsed-literal::
-
-            :bgn:`uart:~$` **rtc set ds3231-rtc 2013-12-11T10:09:08**
-            :bgn:`uart:~$` **rtc get ds3231-rtc**
-            2013-12-11T10:09:16.000
-
-   .. group-tab:: Temp
-
-      .. container:: highlight highlight-console notranslate
-
-         .. parsed-literal::
-
-            :bgn:`uart:~$` **sensor get ds3231-dts 13**
-            channel type=13(ambient_temp) index=0 shift=7 num_samples=1 value=958127057056ns (24.750000)
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+
+   .. group-tab:: Raspberry Pi Pico
+
+      .. zephyr-app-commands::
+         :app: bridle/samples/helloshell
+         :build-dir: waveshare_pico_clock_green-helloshell
+         :board: rpi_pico
+         :shield: "waveshare_pico_clock_green"
+         :snippets: "usb-console"
+         :goals: flash
+         :west-args: -p
+         :flash-args: -r uf2
+         :host-os: unix
+
+      .. include:: waveshare_pico_clock_green/helloshell_console.rsti
+
+   .. group-tab:: Raspberry Pi Pico W
+
+      .. zephyr-app-commands::
+         :app: bridle/samples/helloshell
+         :build-dir: waveshare_pico_clock_green-helloshell
+         :board: rpi_pico/rp2040/w
+         :shield: "waveshare_pico_clock_green"
+         :snippets: "usb-console wifi-ip"
+         :goals: flash
+         :west-args: -p
+         :flash-args: -r uf2
+         :host-os: unix
+
+      .. include:: waveshare_pico_clock_green/helloshell_console.rsti
+
+   .. group-tab:: Waveshare RP2040-Plus
+
+      .. rubric:: on standard ``4㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: bridle/samples/helloshell
+         :build-dir: waveshare_pico_clock_green-helloshell
+         :board: waveshare_rp2040_plus
+         :shield: "waveshare_pico_clock_green"
+         :snippets: "usb-console"
+         :goals: flash
+         :west-args: -p
+         :flash-args: -r uf2
+         :host-os: unix
+
+      .. rubric:: on extended ``16㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: bridle/samples/helloshell
+         :build-dir: waveshare_pico_clock_green-helloshell
+         :board: waveshare_rp2040_plus@16mb
+         :shield: "waveshare_pico_clock_green"
+         :snippets: "usb-console"
+         :goals: flash
+         :west-args: -p
+         :flash-args: -r uf2
+         :host-os: unix
+
+      .. include:: waveshare_pico_clock_green/helloshell_console.rsti
+
+   .. zephyr-keep-sorted-stop

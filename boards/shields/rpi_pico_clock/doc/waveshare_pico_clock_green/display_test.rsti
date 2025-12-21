@@ -1,0 +1,79 @@
+.. image:: waveshare_pico_clock_green/display.gif
+   :scale: 75%
+   :align: right
+   :alt: Waveshare Pico Clock Green Display Test
+
+The following samples work with the chosen display. That is:
+
+| :hwftlbl-scr:`LED` : :dts:`chosen { zephyr,display = &clock_display; };`
+| :hwftlbl-scr:`SIPOMUX-DISPLAY` : :dts:`clock_display: &sipo_mux_display_8 {};`
+
+.. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+
+   .. group-tab:: Raspberry Pi Pico
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/display
+         :build-dir: waveshare_pico_clock_green-display_test
+         :board: rpi_pico
+         :shield: "waveshare_pico_clock_green"
+         :snippets: "usb-console"
+         :goals: flash
+         :west-args: -p
+         :flash-args: -r uf2
+         :compact:
+
+   .. group-tab:: Raspberry Pi Pico W
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/display
+         :build-dir: waveshare_pico_clock_green-display_test
+         :board: rpi_pico/rp2040/w
+         :shield: "waveshare_pico_clock_green"
+         :snippets: "usb-console"
+         :goals: flash
+         :west-args: -p
+         :flash-args: -r uf2
+         :compact:
+
+   .. group-tab:: Waveshare RP2040-Plus
+
+      .. rubric:: on standard ``4㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/display
+         :build-dir: waveshare_pico_clock_green-display_test
+         :board: waveshare_rp2040_plus
+         :shield: "waveshare_pico_clock_green"
+         :snippets: "usb-console"
+         :goals: flash
+         :west-args: -p
+         :flash-args: -r uf2
+         :compact:
+
+      .. rubric:: on extended ``16㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/display
+         :build-dir: waveshare_pico_clock_green-display_test
+         :board: waveshare_rp2040_plus@16mb
+         :shield: "waveshare_pico_clock_green"
+         :snippets: "usb-console"
+         :goals: flash
+         :west-args: -p
+         :flash-args: -r uf2
+         :compact:
+
+   .. zephyr-keep-sorted-stop
+
+.. rubric:: Simple logging output on target
+
+.. container:: highlight highlight-console notranslate no-copybutton
+
+   .. parsed-literal::
+
+      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
+      [00:00:00.005,000] <inf> sample: Display sample for sipo-mux-display\ @\ 8
+      [00:00:00.007,000] <inf> sample: Display starts

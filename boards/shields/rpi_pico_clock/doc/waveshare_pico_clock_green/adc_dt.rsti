@@ -1,0 +1,120 @@
+Read and print the analog input value from the one on-shield
+high-resistance LDR using the :external+zephyr:ref:`ADC driver API
+<adc_api>`. That are:
+
+| :hwftlbl:`Rₗ` : :dts:`zephyr,user { io-channels = <&adc 0>; };`
+
+.. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+
+   .. group-tab:: Raspberry Pi Pico
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/adc/adc_dt
+         :build-dir: waveshare_pico_clock_green-drivers_adc
+         :board: rpi_pico
+         :shield: "waveshare_pico_clock_green"
+         :snippets: "usb-console"
+         :goals: flash
+         :west-args: -p
+         :flash-args: -r uf2
+         :compact:
+
+   .. group-tab:: Raspberry Pi Pico W
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/adc/adc_dt
+         :build-dir: waveshare_pico_clock_green-drivers_adc
+         :board: rpi_pico/rp2040/w
+         :shield: "waveshare_pico_clock_green"
+         :snippets: "usb-console"
+         :goals: flash
+         :west-args: -p
+         :flash-args: -r uf2
+         :compact:
+
+   .. group-tab:: Waveshare RP2040-Plus
+
+      .. rubric:: on standard ``4㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/adc/adc_dt
+         :build-dir: waveshare_pico_clock_green-drivers_adc
+         :board: waveshare_rp2040_plus
+         :shield: "waveshare_pico_clock_green"
+         :snippets: "usb-console"
+         :goals: flash
+         :west-args: -p
+         :flash-args: -r uf2
+         :compact:
+
+      .. rubric:: on extended ``16㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/adc/adc_dt
+         :build-dir: waveshare_pico_clock_green-drivers_adc
+         :board: waveshare_rp2040_plus@16mb
+         :shield: "waveshare_pico_clock_green"
+         :snippets: "usb-console"
+         :goals: flash
+         :west-args: -p
+         :flash-args: -r uf2
+         :compact:
+
+   .. zephyr-keep-sorted-stop
+
+.. rubric:: Simple test execution on target
+
+.. container:: highlight highlight-console notranslate no-copybutton
+
+   .. parsed-literal::
+
+      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
+      ADC reading[0]:
+      - adc\ @\ 4004c000, channel 0: 907 = 730 mV
+      ADC reading[1]:
+      - adc\ @\ 4004c000, channel 0: 910 = 733 mV
+      ADC reading[2]:
+      - adc\ @\ 4004c000, channel 0: 1233 = 993 mV
+      ADC reading[3]:
+      - adc\ @\ 4004c000, channel 0: 1196 = 963 mV
+      ADC reading[4]:
+      - adc\ @\ 4004c000, channel 0: 569 = 458 mV
+      ADC reading[5]:
+      - adc\ @\ 4004c000, channel 0: 336 = 270 mV
+      ADC reading[6]:
+      - adc\ @\ 4004c000, channel 0: 285 = 229 mV
+      ADC reading[7]:
+      - adc\ @\ 4004c000, channel 0: 181 = 145 mV
+      ADC reading[8]:
+      - adc\ @\ 4004c000, channel 0: 56 = 45 mV
+      ADC reading[9]:
+      - adc\ @\ 4004c000, channel 0: 59 = 47 mV
+      ADC reading[10]:
+      - adc\ @\ 4004c000, channel 0: 56 = 45 mV
+      ADC reading[11]:
+      - adc\ @\ 4004c000, channel 0: 480 = 386 mV
+      ADC reading[12]:
+      - adc\ @\ 4004c000, channel 0: 868 = 699 mV
+      ADC reading[13]:
+      - adc\ @\ 4004c000, channel 0: 1878 = 1513 mV
+      ADC reading[14]:
+      - adc\ @\ 4004c000, channel 0: 3256 = 2623 mV
+      ADC reading[15]:
+      - adc\ @\ 4004c000, channel 0: 3413 = 2749 mV
+      ADC reading[16]:
+      - adc\ @\ 4004c000, channel 0: 3446 = 2776 mV
+      ADC reading[17]:
+      - adc\ @\ 4004c000, channel 0: 3470 = 2795 mV
+      ADC reading[18]:
+      - adc\ @\ 4004c000, channel 0: 3451 = 2780 mV
+      ADC reading[19]:
+      - adc\ @\ 4004c000, channel 0: 1029 = 829 mV
+      ADC reading[20]:
+      - adc\ @\ 4004c000, channel 0: 1004 = 808 mV
+      ADC reading[21]:
+      - adc\ @\ 4004c000, channel 0: 1005 = 809 mV
+      ADC reading[22]:
+      - adc\ @\ 4004c000, channel 0: 1000 = 805 mV
+      … … …

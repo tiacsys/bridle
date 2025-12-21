@@ -1,0 +1,82 @@
+Print the input events related to the five on-shield user input keys
+and two user keys using the :external+zephyr:ref:`Input subsystem API
+<input>`. That are:
+
+| :hwftlbl-btn:`SET/FUNCTION` : :dts:`zephyr,code = <INPUT_KEY_ENTER>;`
+| :hwftlbl-btn:`UP` : :dts:`zephyr,code = <INPUT_KEY_UP>;`
+| :hwftlbl-btn:`DOWN` : :dts:`zephyr,code = <INPUT_KEY_DOWN>;`
+
+.. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+
+   .. group-tab:: Raspberry Pi Pico
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/input/input_dump
+         :build-dir: waveshare_pico_clock_green-input_dump
+         :board: rpi_pico
+         :shield: "waveshare_pico_clock_green"
+         :snippets: "usb-console"
+         :goals: flash
+         :west-args: -p
+         :flash-args: -r uf2
+         :compact:
+
+   .. group-tab:: Raspberry Pi Pico W
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/input/input_dump
+         :build-dir: waveshare_pico_clock_green-input_dump
+         :board: rpi_pico/rp2040/w
+         :shield: "waveshare_pico_clock_green"
+         :snippets: "usb-console"
+         :goals: flash
+         :west-args: -p
+         :flash-args: -r uf2
+         :compact:
+
+   .. group-tab:: Waveshare RP2040-Plus
+
+      .. rubric:: on standard ``4㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/input/input_dump
+         :build-dir: waveshare_pico_clock_green-input_dump
+         :board: waveshare_rp2040_plus
+         :shield: "waveshare_pico_clock_green"
+         :snippets: "usb-console"
+         :goals: flash
+         :west-args: -p
+         :flash-args: -r uf2
+         :compact:
+
+      .. rubric:: on extended ``16㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/input/input_dump
+         :build-dir: waveshare_pico_clock_green-input_dump
+         :board: waveshare_rp2040_plus@16mb
+         :shield: "waveshare_pico_clock_green"
+         :snippets: "usb-console"
+         :goals: flash
+         :west-args: -p
+         :flash-args: -r uf2
+         :compact:
+
+   .. zephyr-keep-sorted-stop
+
+.. rubric:: Simple logging output on target
+
+.. container:: highlight highlight-console notranslate no-copybutton
+
+   .. parsed-literal::
+
+      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
+      Input sample started
+      I: input event: dev=wpcg-gpio-keys   SYN type= 1 code= 28 value=1
+      I: input event: dev=wpcg-gpio-keys   SYN type= 1 code= 28 value=0
+      I: input event: dev=wpcg-gpio-keys   SYN type= 1 code=103 value=1
+      I: input event: dev=wpcg-gpio-keys   SYN type= 1 code=103 value=0
+      I: input event: dev=wpcg-gpio-keys   SYN type= 1 code=108 value=1
+      I: input event: dev=wpcg-gpio-keys   SYN type= 1 code=108 value=0
