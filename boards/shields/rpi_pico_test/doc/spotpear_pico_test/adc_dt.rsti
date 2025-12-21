@@ -1,0 +1,103 @@
+Read and print the analog input value from the one on-shield
+high-resistance potentiometer using the
+:external+zephyr:ref:`ADC driver API <adc_api>`. That are:
+
+| :hwftlbl:`Rₚ` : :dts:`zephyr,user { io-channels = <&adc 0>; };`
+
+.. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+
+   .. group-tab:: Raspberry Pi Pico
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/adc/adc_dt
+         :build-dir: spotpear_pico_test-drivers_adc
+         :board: rpi_pico
+         :shield: "spotpear_pico_test"
+         :snippets: "usb-console"
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
+   .. group-tab:: Raspberry Pi Pico W
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/adc/adc_dt
+         :build-dir: spotpear_pico_test-drivers_adc
+         :board: rpi_pico/rp2040/w
+         :shield: "spotpear_pico_test"
+         :snippets: "usb-console"
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
+   .. group-tab:: Waveshare RP2040-LCD-0.96
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/adc/adc_dt
+         :build-dir: spotpear_pico_test-drivers_adc
+         :board: waveshare_rp2040_lcd_0_96
+         :shield: "spotpear_pico_test"
+         :snippets: "usb-console"
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
+   .. group-tab:: Waveshare RP2040-Plus
+
+      .. rubric:: on standard ``4㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/adc/adc_dt
+         :build-dir: spotpear_pico_test-drivers_adc
+         :board: waveshare_rp2040_plus
+         :shield: "spotpear_pico_test"
+         :snippets: "usb-console"
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
+      .. rubric:: on extended ``16㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/adc/adc_dt
+         :build-dir: spotpear_pico_test-drivers_adc
+         :board: waveshare_rp2040_plus@16mb
+         :shield: "spotpear_pico_test"
+         :snippets: "usb-console"
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
+   .. zephyr-keep-sorted-stop
+
+.. rubric:: Simple test execution on target
+
+.. container:: highlight highlight-console notranslate no-copybutton
+
+   .. parsed-literal::
+
+      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
+      ADC reading[0]:
+      - adc\ @\ 4004c000, channel 0: 25 = 20 mV
+      ADC reading[1]:
+      - adc\ @\ 4004c000, channel 0: 171 = 137 mV
+      ADC reading[2]:
+      - adc\ @\ 4004c000, channel 0: 979 = 788 mV
+      ADC reading[3]:
+      - adc\ @\ 4004c000, channel 0: 1818 = 1464 mV
+      ADC reading[4]:
+      - adc\ @\ 4004c000, channel 0: 2521 = 2031 mV
+      ADC reading[5]:
+      - adc\ @\ 4004c000, channel 0: 3152 = 2539 mV
+      ADC reading[6]:
+      - adc\ @\ 4004c000, channel 0: 4019 = 3237 mV
+      ADC reading[7]:
+      - adc\ @\ 4004c000, channel 0: 4095 = 3299 mV
+      … … …

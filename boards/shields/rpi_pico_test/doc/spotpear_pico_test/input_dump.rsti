@@ -1,0 +1,121 @@
+Print the input events related to the five on-shield test keys using
+the :external+zephyr:ref:`Input subsystem API <input>`. That are:
+
+| :hwftlbl-btn:`K1` : :dts:`zephyr,code = <INPUT_KEY_DOWN>;`
+| :hwftlbl-btn:`K2` : :dts:`zephyr,code = <INPUT_KEY_ENTER>;`
+| :hwftlbl-btn:`K3` : :dts:`zephyr,code = <INPUT_KEY_RIGHT>;`
+| :hwftlbl-btn:`K4` : :dts:`zephyr,code = <INPUT_KEY_LEFT>;`
+| :hwftlbl-btn:`K5` : :dts:`zephyr,code = <INPUT_KEY_UP>;`
+
+.. rubric:: Devicetree compatible
+
+- :dtcompatible:`zephyr,lvgl-keypad-input` with devicetree relation
+  :dts:`lvgl_keypad: lvgl-keypad { input = <&gpio_keys>; };`
+
+  | :hwftlbl-btn:`K1` :
+    :dts:`input-codes = <INPUT_KEY_DOWN>;` :
+    :dts:`lvgl-codes = <LV_KEY_DOWN>;`
+  | :hwftlbl-btn:`K2` :
+    :dts:`input-codes = <INPUT_KEY_ENTER>;` :
+    :dts:`lvgl-codes = <LV_KEY_ENTER>;`
+  | :hwftlbl-btn:`K3` :
+    :dts:`input-codes = <INPUT_KEY_RIGHT>;` :
+    :dts:`lvgl-codes = <LV_KEY_RIGHT>;`
+  | :hwftlbl-btn:`K4` :
+    :dts:`input-codes = <INPUT_KEY_LEFT>;` :
+    :dts:`lvgl-codes = <LV_KEY_LEFT>;`
+  | :hwftlbl-btn:`K5` :
+    :dts:`input-codes = <INPUT_KEY_UP>;` :
+    :dts:`lvgl-codes = <LV_KEY_UP>;`
+
+.. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+
+   .. group-tab:: Raspberry Pi Pico
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/input/input_dump
+         :build-dir: spotpear_pico_test-input_dump
+         :board: rpi_pico
+         :shield: "spotpear_pico_test"
+         :snippets: "usb-console"
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
+   .. group-tab:: Raspberry Pi Pico W
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/input/input_dump
+         :build-dir: spotpear_pico_test-input_dump
+         :board: rpi_pico/rp2040/w
+         :shield: "spotpear_pico_test"
+         :snippets: "usb-console"
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
+   .. group-tab:: Waveshare RP2040-LCD-0.96
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/input/input_dump
+         :build-dir: spotpear_pico_test-input_dump
+         :board: waveshare_rp2040_lcd_0_96
+         :shield: "spotpear_pico_test"
+         :snippets: "usb-console"
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
+   .. group-tab:: Waveshare RP2040-Plus
+
+      .. rubric:: on standard ``4㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/input/input_dump
+         :build-dir: spotpear_pico_test-input_dump
+         :board: waveshare_rp2040_plus
+         :shield: "spotpear_pico_test"
+         :snippets: "usb-console"
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
+      .. rubric:: on extended ``16㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/input/input_dump
+         :build-dir: spotpear_pico_test-input_dump
+         :board: waveshare_rp2040_plus@16mb
+         :shield: "spotpear_pico_test"
+         :snippets: "usb-console"
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
+   .. zephyr-keep-sorted-stop
+
+.. rubric:: Simple logging output on target
+
+.. container:: highlight highlight-console notranslate no-copybutton
+
+   .. parsed-literal::
+
+      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
+      Input sample started
+      I: input event: dev=gpio_keys        SYN type= 1 code=108 value=1
+      I: input event: dev=gpio_keys        SYN type= 1 code=108 value=0
+      I: input event: dev=gpio_keys        SYN type= 1 code= 28 value=1
+      I: input event: dev=gpio_keys        SYN type= 1 code= 28 value=0
+      I: input event: dev=gpio_keys        SYN type= 1 code=106 value=1
+      I: input event: dev=gpio_keys        SYN type= 1 code=106 value=0
+      I: input event: dev=gpio_keys        SYN type= 1 code=105 value=1
+      I: input event: dev=gpio_keys        SYN type= 1 code=105 value=0
+      I: input event: dev=gpio_keys        SYN type= 1 code=103 value=1
+      I: input event: dev=gpio_keys        SYN type= 1 code=103 value=0
