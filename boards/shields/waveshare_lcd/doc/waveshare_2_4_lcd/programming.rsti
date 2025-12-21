@@ -22,12 +22,12 @@
                :app: zephyr/samples/drivers/display
                :build-dir: waveshare_2_4_lcd-display_test
                :board: cytron_maker_nano_rp2040
-               :shield: waveshare_2_4_lcd
-               :goals: flash
-               :west-args: -p -S usb-console
+               :shield: "waveshare_2_4_lcd"
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r uf2
+               :goals: flash
                :host-os: unix
-               :tool: all
 
          .. group-tab:: Grove System
 
@@ -41,12 +41,12 @@
                :app: zephyr/samples/drivers/display
                :build-dir: waveshare_2_4_lcd-display_test
                :board: cytron_maker_pi_rp2040
-               :shield: waveshare_2_4_lcd
-               :goals: flash
-               :west-args: -p -S usb-console
+               :shield: "waveshare_2_4_lcd"
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r uf2
+               :goals: flash
                :host-os: unix
-               :tool: all
 
          .. zephyr-keep-sorted-stop
 
@@ -61,6 +61,16 @@
          * - .. rst-class:: centered
 
                 :brd:`TOP LEFT`, :bgn:`TOP RIGHT`, :bbl:`BOTTOM RIGHT`
+
+      .. rubric:: Simple logging output on target
+
+      .. container:: highlight highlight-console notranslate no-copybutton
+
+         .. parsed-literal::
+
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
+            [00:00:00.136,000] <inf> sample: Display sample for ili9341\ @\ 0
+            [00:00:00.260,000] <inf> sample: Display starts
 
    .. group-tab:: LVGL Basic Sample
 
@@ -84,12 +94,12 @@
                :app: zephyr/samples/subsys/display/lvgl
                :build-dir: waveshare_2_4_lcd-lvgl_basic
                :board: cytron_maker_nano_rp2040
-               :shield: waveshare_2_4_lcd
-               :goals: flash
-               :west-args: -p -S usb-console
+               :shield: "waveshare_2_4_lcd"
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r uf2
+               :goals: flash
                :host-os: unix
-               :tool: all
 
          .. group-tab:: Grove System
 
@@ -103,11 +113,11 @@
                :app: zephyr/samples/subsys/display/lvgl
                :build-dir: waveshare_2_4_lcd-lvgl_basic
                :board: cytron_maker_pi_rp2040
-               :shield: waveshare_2_4_lcd
-               :goals: flash
-               :west-args: -p -S usb-console
+               :shield: "waveshare_2_4_lcd"
+               :snippets: "usb-console"
+               :west-args: -p
                :flash-args: -r uf2
+               :goals: flash
                :host-os: unix
-               :tool: all
 
          .. zephyr-keep-sorted-stop
