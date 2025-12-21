@@ -1,9 +1,9 @@
 /*
- * Copyright (c) 2024 TiaC Systems
+ * Copyright (c) 2024-2025 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
 &ili9341_240x320 {
 	rotation = <0>;			/* portrait */
-	disctrl = [0A A2 27 04];	/* mirrored */
+	disctrl = [08 82 27 04];	/* mirrored */
 };

@@ -6,7 +6,7 @@
 #include "rpipico_r3-connect.dtsi"
 
 #include "ili9341_320x240.dtsi"
-#include "ili9341_rgb565.dtsi"
+#include "ili9341_bgr565.dtsi"
 #include "xpt2046_240x320.dtsi"
 
 #include <zephyr/dt-bindings/gpio/gpio.h>
