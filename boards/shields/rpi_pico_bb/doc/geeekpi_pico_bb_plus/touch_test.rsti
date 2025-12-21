@@ -18,9 +18,10 @@ touchscreen panel. That is:
          :build-dir: geeekpi_pico_bb_plus-touch_test
          :board: rpi_pico
          :shield: "geeekpi_pico_bb_plus"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
    .. group-tab:: Raspberry Pi Pico W
@@ -30,9 +31,10 @@ touchscreen panel. That is:
          :build-dir: geeekpi_pico_bb_plus-touch_test
          :board: rpi_pico/rp2040/w
          :shield: "geeekpi_pico_bb_plus"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
    .. group-tab:: Waveshare RP2040-Plus
@@ -44,9 +46,10 @@ touchscreen panel. That is:
          :build-dir: geeekpi_pico_bb_plus-touch_test
          :board: waveshare_rp2040_plus
          :shield: "geeekpi_pico_bb_plus"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
       .. rubric:: on extended ``16㎆`` revision
@@ -56,9 +59,10 @@ touchscreen panel. That is:
          :build-dir: geeekpi_pico_bb_plus-touch_test
          :board: waveshare_rp2040_plus@16mb
          :shield: "geeekpi_pico_bb_plus"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
    .. zephyr-keep-sorted-stop
@@ -69,11 +73,8 @@ touchscreen panel. That is:
 
    .. parsed-literal::
 
-      \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-      [00:00:00.477,000] :byl:`<wrn> udc_rpi: BUS RESET`
-      [00:00:00.557,000] :byl:`<wrn> udc_rpi: BUS RESET`
-      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
-      [00:00:04.319,000] <inf> sample: Touch sample for touchscreen: gt911\ @\ 5d, dc: st7796s\ @\ 0
-      [00:01:30.649,000] <inf> sample: TOUCH PRESS X, Y: (156, 130)
-      [00:01:30.751,000] <inf> sample: TOUCH PRESS X, Y: (156, 130)
-      [00:01:30.852,000] <inf> sample: TOUCH RELEASE X, Y: (156, 130)
+      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
+      [00:00:00.320,000] <inf> sample: Touch sample for touchscreen: gt911\ @\ 5d, dc: st7796s\ @\ 0
+      [00:00:09.650,000] <inf> sample: TOUCH PRESS X, Y: (156, 130)
+      [00:00:09.752,000] <inf> sample: TOUCH PRESS X, Y: (156, 130)
+      [00:00:09.854,000] <inf> sample: TOUCH RELEASE X, Y: (156, 130)

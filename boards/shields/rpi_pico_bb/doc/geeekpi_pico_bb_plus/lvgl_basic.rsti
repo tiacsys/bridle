@@ -24,9 +24,10 @@ with chosen display and touchscreen panel. That is:
          :build-dir: geeekpi_pico_bb_plus-lvgl_basic
          :board: rpi_pico
          :shield: "geeekpi_pico_bb_plus"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
    .. group-tab:: Raspberry Pi Pico W
@@ -36,9 +37,10 @@ with chosen display and touchscreen panel. That is:
          :build-dir: geeekpi_pico_bb_plus-lvgl_basic
          :board: rpi_pico/rp2040/w
          :shield: "geeekpi_pico_bb_plus"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
    .. group-tab:: Waveshare RP2040-Plus
@@ -50,9 +52,10 @@ with chosen display and touchscreen panel. That is:
          :build-dir: geeekpi_pico_bb_plus-lvgl_basic
          :board: waveshare_rp2040_plus
          :shield: "geeekpi_pico_bb_plus"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
       .. rubric:: on extended ``16㎆`` revision
@@ -62,9 +65,10 @@ with chosen display and touchscreen panel. That is:
          :build-dir: geeekpi_pico_bb_plus-lvgl_basic
          :board: waveshare_rp2040_plus@16mb
          :shield: "geeekpi_pico_bb_plus"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
    .. zephyr-keep-sorted-stop
@@ -75,10 +79,7 @@ with chosen display and touchscreen panel. That is:
 
    .. parsed-literal::
 
-      \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-      [00:00:00.528,000] :byl:`<wrn> udc_rpi: BUS RESET`
-      [00:00:00.616,000] :byl:`<wrn> udc_rpi: BUS RESET`
-      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
+      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
       :bgn:`uart:~$` **█**
 
 .. container:: highlight highlight-console notranslate
@@ -86,12 +87,14 @@ with chosen display and touchscreen panel. That is:
    .. parsed-literal::
 
       :bgn:`uart:~$` **lvgl stats memory**
-      Heap at 0x200017c8 contains 2047 units in 11 buckets
+      Heap at 0x20001ae0 contains 2047 units in 11 buckets
 
         bucket#    min units        total      largest      largest
                    threshold       chunks      (units)      (bytes)
         -----------------------------------------------------------
-              1            2            1            2           12
-              9          512            1          942         7532
+              1            2            1            2           16
+              3            8            1           11           88
+              6           64            1           81          648
+              9          512            1          853         6824
 
-      7544 free bytes, 8244 allocated bytes, overhead = 592 bytes (3.6%)
+      7576 free bytes, 8736 allocated bytes, overhead = 68 bytes (0.4%)

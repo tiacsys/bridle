@@ -52,8 +52,10 @@
              DT node labels: uart0 pico_serial rpipico_serial
            - timer\ @\ 40054000 (READY)
              DT node labels: timer
-           - gpio\ @\ 40014000 (READY)
+           - gpio-port\ @\ 0 (READY)
              DT node labels: gpio0
+           - usbd\ @\ 50110000 (READY)
+             DT node labels: usbd zephyr_udc0
            - adc\ @\ 4004c000 (READY)
              DT node labels: adc pico_adc
            - flash-controller\ @\ 18000000 (READY)
@@ -143,67 +145,67 @@
 
          .. parsed-literal::
 
-           :bgn:`uart:~$` **pwm usec pwm@40050000 3 20000 20000**
+           :bgn:`uart:~$` **pwm usec pwm 3 20000 20000**
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-           :bgn:`uart:~$` **pwm usec pwm@40050000 3 20000 19000**
+           :bgn:`uart:~$` **pwm usec pwm 3 20000 19000**
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-           :bgn:`uart:~$` **pwm usec pwm@40050000 3 20000 18000**
+           :bgn:`uart:~$` **pwm usec pwm 3 20000 18000**
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-           :bgn:`uart:~$` **pwm usec pwm@40050000 3 20000 17000**
+           :bgn:`uart:~$` **pwm usec pwm 3 20000 17000**
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-           :bgn:`uart:~$` **pwm usec pwm@40050000 3 20000 16000**
+           :bgn:`uart:~$` **pwm usec pwm 3 20000 16000**
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-           :bgn:`uart:~$` **pwm usec pwm@40050000 3 20000 15000**
+           :bgn:`uart:~$` **pwm usec pwm 3 20000 15000**
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-           :bgn:`uart:~$` **pwm usec pwm@40050000 3 20000 10000**
+           :bgn:`uart:~$` **pwm usec pwm 3 20000 10000**
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-           :bgn:`uart:~$` **pwm usec pwm@40050000 3 20000 5000**
+           :bgn:`uart:~$` **pwm usec pwm 3 20000 5000**
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-           :bgn:`uart:~$` **pwm usec pwm@40050000 3 20000 2500**
+           :bgn:`uart:~$` **pwm usec pwm 3 20000 2500**
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-           :bgn:`uart:~$` **pwm usec pwm@40050000 3 20000 500**
+           :bgn:`uart:~$` **pwm usec pwm 3 20000 500**
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-           :bgn:`uart:~$` **pwm usec pwm@40050000 3 20000 0**
+           :bgn:`uart:~$` **pwm usec pwm 3 20000 0**
 
       Operate with the :hwftlbl-spk:`PIEZO` buzzer at
       :rpi-pico-pio:`GP22` / :rpi-pico-pwm:`PWM6` (PWM2CHB):
@@ -215,13 +217,13 @@
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **pwm usec pwm@40050000 6 400 200**
+            :bgn:`uart:~$` **pwm usec pwm 6 400 200**
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **pwm usec pwm@40050000 6 100 50**
+            :bgn:`uart:~$` **pwm usec pwm 6 100 50**
 
    .. group-tab:: GPIO
 
@@ -238,14 +240,14 @@
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **gpio get gpio@40014000 3**
+            :bgn:`uart:~$` **gpio get gpio0 3**
             0
 
-            :bgn:`uart:~$` **gpio conf gpio@40014000 3 oh0**
-            :bgn:`uart:~$` **gpio set gpio@40014000 3 1**
-            :bgn:`uart:~$` **gpio set gpio@40014000 3 0**
+            :bgn:`uart:~$` **gpio conf gpio0 3 oh0**
+            :bgn:`uart:~$` **gpio set gpio0 3 1**
+            :bgn:`uart:~$` **gpio set gpio0 3 0**
 
-            :bgn:`uart:~$` **gpio blink gpio@40014000 3**
+            :bgn:`uart:~$` **gpio blink gpio0 3**
             Hit any key to exit
 
       Operate with the user key :hwftlbl-btn:`0` at :rpi-pico-pio:`GP16`:
@@ -254,13 +256,13 @@
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **gpio get gpio@40014000 16**
+            :bgn:`uart:~$` **gpio get gpio0 16**
             1
 
-            :bgn:`uart:~$` **gpio conf gpio@40014000 16 iul**
-            :bgn:`uart:~$` **gpio get gpio@40014000 16**
+            :bgn:`uart:~$` **gpio conf gpio0 16 iul**
+            :bgn:`uart:~$` **gpio get gpio0 16**
             0
-            :bgn:`uart:~$` **gpio get gpio@40014000 16**
+            :bgn:`uart:~$` **gpio get gpio0 16**
             1
-            :bgn:`uart:~$` **gpio get gpio@40014000 16**
+            :bgn:`uart:~$` **gpio get gpio0 16**
             0

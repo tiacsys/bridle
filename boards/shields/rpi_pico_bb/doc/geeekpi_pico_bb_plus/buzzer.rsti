@@ -14,9 +14,10 @@ with given Piezo Buzzer. That is:
          :build-dir: geeekpi_pico_bb_plus-buzzer
          :board: rpi_pico
          :shield: "geeekpi_pico_bb_plus"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
    .. group-tab:: Raspberry Pi Pico W
@@ -26,9 +27,10 @@ with given Piezo Buzzer. That is:
          :build-dir: geeekpi_pico_bb_plus-buzzer
          :board: rpi_pico/rp2040/w
          :shield: "geeekpi_pico_bb_plus"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
    .. group-tab:: Waveshare RP2040-Plus
@@ -40,9 +42,10 @@ with given Piezo Buzzer. That is:
          :build-dir: geeekpi_pico_bb_plus-buzzer
          :board: waveshare_rp2040_plus
          :shield: "geeekpi_pico_bb_plus"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
       .. rubric:: on extended ``16㎆`` revision
@@ -52,9 +55,10 @@ with given Piezo Buzzer. That is:
          :build-dir: geeekpi_pico_bb_plus-buzzer
          :board: waveshare_rp2040_plus@16mb
          :shield: "geeekpi_pico_bb_plus"
-         :goals: flash
-         :west-args: -p -S usb-console
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
+         :goals: flash
          :compact:
 
    .. zephyr-keep-sorted-stop
@@ -62,17 +66,16 @@ with given Piezo Buzzer. That is:
 .. rubric:: Simple test execution on target
 
 #. play a beep
+#. play a folk song
+#. play a chrismas song
 #. play a funky jingle
 
 .. container:: highlight highlight-console notranslate no-copybutton
 
    .. parsed-literal::
 
-      \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-      W: BUS RESET
-      W: BUS RESET
-      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
-      [00:00:04.003,000] <inf> buzzersh: Buzzer shell is ready!
+      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
+      [00:00:00.003,000] <inf> buzzersh: Buzzer shell is ready!
       :bgn:`uart:~$` **█**
 
 .. container:: highlight highlight-console notranslate
@@ -80,6 +83,18 @@ with given Piezo Buzzer. That is:
    .. parsed-literal::
 
       :bgn:`uart:~$` **buzzer beep**
+
+.. container:: highlight highlight-console notranslate
+
+   .. parsed-literal::
+
+      :bgn:`uart:~$` **buzzer play folksong**
+
+.. container:: highlight highlight-console notranslate
+
+   .. parsed-literal::
+
+      :bgn:`uart:~$` **buzzer play xmastime**
 
 .. container:: highlight highlight-console notranslate
 
