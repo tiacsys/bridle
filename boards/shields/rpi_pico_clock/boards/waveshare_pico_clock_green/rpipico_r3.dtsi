@@ -16,6 +16,7 @@ clock_pwm_buzzers: &rpipico_pwm_buzzers {};
 #include <zephyr/dt-bindings/pwm/pwm.h>
 
 &clock_dts {
+	friendly-name = "Pico Color Green TP Sensor (in RTC)";
 	status = "okay";
 };
 
