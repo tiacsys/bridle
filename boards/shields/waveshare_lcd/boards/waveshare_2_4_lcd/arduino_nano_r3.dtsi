@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2023-2024 TiaC Systems
+ * Copyright (c) 2023-2025 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
 #include "ili9341_320x240.dtsi"
-#include "ili9341_rgb565.dtsi"
+#include "ili9341_bgr565.dtsi"
 
 #include <zephyr/dt-bindings/gpio/gpio.h>
 

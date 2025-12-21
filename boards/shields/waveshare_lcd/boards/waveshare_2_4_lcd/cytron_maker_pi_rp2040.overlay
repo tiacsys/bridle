@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2023-2024 TiaC Systems
+ * Copyright (c) 2023-2025 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
 #include "ili9341_320x240.dtsi"
-#include "ili9341_rgb565.dtsi"
+#include "ili9341_bgr565.dtsi"
 
 &board_spi_lcd {
 	cs-gpios = <&grove_gpios 5 GPIO_ACTIVE_LOW>;		/* D5 */

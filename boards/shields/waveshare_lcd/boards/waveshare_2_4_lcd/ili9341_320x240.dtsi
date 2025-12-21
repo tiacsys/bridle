@@ -1,10 +1,9 @@
 /*
- * Copyright (c) 2023-2024 TiaC Systems
+ * Copyright (c) 2023-2025 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
 #include <freq.h>
-#include <zephyr/dt-bindings/display/ili9xxx.h>
 
 &mipi_dbi {
 	ili9341_320x240: ili9341@0 {
@@ -18,7 +17,7 @@
 		height = <240>;
 		rotation = <270>;		/* landscape */
 
-		disctrl = [08 82 27 04];	/* non-mirrored */
+		disctrl = [0A A2 27 04];	/* non-mirrored */
 		ifctl = [01 00 00];
 		ifmode = [40];
 
