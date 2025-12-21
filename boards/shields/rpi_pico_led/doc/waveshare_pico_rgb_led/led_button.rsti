@@ -1,0 +1,96 @@
+.. hint::
+
+   Neither LED Blinky nor LED Fade can be built and executed on
+   |Waveshare Pico RGB LED|, because this shield has only digital
+   RGB LEDs. A simple GPIO or PWM control is not possible!
+
+.. image:: waveshare_pico_rgb_led/ws2812b-16x10.gif
+   :align: right
+   :alt: Waveshare Pico RGB LED WS2812 LED Test Pattern
+
+.. rubric:: WS2812 LED Test Pattern by PIO
+
+See also Zephyr sample: :external+zephyr:zephyr:code-sample:`led-strip`.
+
+.. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+
+   .. group-tab:: Raspberry Pi Pico
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/led/led_strip
+         :build-dir: waveshare_pico_rgb_led-strip_test
+         :board: rpi_pico
+         :shield: "waveshare_pico_rgb_led"
+         :snippets: "usb-console"
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
+   .. group-tab:: Raspberry Pi Pico W
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/led/led_strip
+         :build-dir: waveshare_pico_rgb_led-strip_test
+         :board: rpi_pico/rp2040/w
+         :shield: "waveshare_pico_rgb_led"
+         :snippets: "usb-console"
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
+   .. group-tab:: Waveshare RP2040-LCD-0.96
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/led/led_strip
+         :build-dir: waveshare_pico_rgb_led-strip_test
+         :board: waveshare_rp2040_lcd_0_96
+         :shield: "waveshare_pico_rgb_led"
+         :snippets: "usb-console"
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
+   .. group-tab:: Waveshare RP2040-Plus
+
+      .. rubric:: on standard ``4㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/led/led_strip
+         :build-dir: waveshare_pico_rgb_led-strip_test
+         :board: waveshare_rp2040_plus
+         :shield: "waveshare_pico_rgb_led"
+         :snippets: "usb-console"
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
+      .. rubric:: on extended ``16㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/led/led_strip
+         :build-dir: waveshare_pico_rgb_led-strip_test
+         :board: waveshare_rp2040_plus@16mb
+         :shield: "waveshare_pico_rgb_led"
+         :snippets: "usb-console"
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
+   .. zephyr-keep-sorted-stop
+
+.. rubric:: Simple logging output on target
+
+.. container:: highlight highlight-console notranslate no-copybutton
+
+   .. parsed-literal::
+
+      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
+      [00:00:00.002,000] <inf> main: Found LED strip device rgb-led-strip
+      [00:00:00.002,000] <inf> main: Displaying pattern on strip
