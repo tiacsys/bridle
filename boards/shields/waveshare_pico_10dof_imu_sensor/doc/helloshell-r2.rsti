@@ -52,8 +52,10 @@
               DT node labels: uart0 pico_serial rpipico_serial
             - timer\ @\ 40054000 (READY)
               DT node labels: timer
-            - gpio\ @\ 40014000 (READY)
+            - gpio-port\ @\ 0 (READY)
               DT node labels: gpio0
+            - usbd\ @\ 50110000 (READY)
+              DT node labels: usbd zephyr_udc0
             - adc\ @\ 4004c000 (READY)
               DT node labels: adc
             - flash-controller\ @\ 18000000 (READY)
@@ -94,7 +96,7 @@
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **i2c scan i2c@40048000**
+            :bgn:`uart:~$` **i2c scan i2c1**
                  0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
             00:             -- -- -- -- -- -- -- -- -- -- -- --
             10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
@@ -104,7 +106,7 @@
             50: -- -- -- -- -- -- -- -- -- -- -- -- 5c -- -- --
             60: -- -- -- -- -- -- -- -- 68 -- -- -- -- -- -- --
             70: -- -- -- -- -- -- -- --
-            2 devices found on i2c\ @\ 40048000
+            2 devices found on i2c1
 
       - The I2C address ``0x5c`` is the STM `LPS22HB`_, an
         air pressure and temperature sensor (TP).
@@ -119,7 +121,7 @@
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **i2c read_byte i2c@40048000 5c 0f**
+            :bgn:`uart:~$` **i2c read_byte i2c1 5c 0f**
             Output: 0xb1
 
       The "Who am I" register of the InvenSense MPU-9250 9-DOF sensor can read
@@ -129,7 +131,7 @@
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **i2c read_byte i2c@40048000 68 75**
+            :bgn:`uart:~$` **i2c read_byte i2c1 68 75**
             Output: 0x71
 
    .. group-tab:: Sensors
@@ -139,8 +141,8 @@
          .. parsed-literal::
 
             :bgn:`uart:~$` **sensor info**
-            device name: lps22hb\ @\ 5c, vendor: STMicroelectronics, model: lps22hb-press, friendly name: (null)
-            device name: mpu9250\ @\ 68, vendor: InvenSense Inc., model: mpu9250, friendly name: (null)
+            device name: lps22hb\ @\ 5c, vendor: STMicroelectronics, model: lps22hb-press, friendly name: WSP 10-DOF IMU: absolute barometric air pressure with ambient temperature
+            device name: mpu9250\ @\ 68, vendor: InvenSense Inc., model: mpu9250, friendly name: WSP 10-DOF IMU: accelerometer, gyroscope and magnetometer (9-DOF)
 
       .. rubric:: LPS22HB (TP)
 
