@@ -67,8 +67,8 @@ Build and flash for different boards
 
 .. zephyr-app-commands::
    :app: bridle/samples/ubx_gnss
-   :board: mimxrt1060_evk@B//qspi
    :build-dir: mimxrt1060_evk-ubx_gnss
+   :board: mimxrt1060_evk@B//qspi
    :west-args: -p
    :flash-args: -r pyocd
    :goals: flash
@@ -78,8 +78,8 @@ Build and flash for different boards
 
 .. zephyr-app-commands::
    :app: bridle/samples/ubx_gnss
-   :board: mimxrt1170_evk@B/mimxrt1176/cm7
    :build-dir: mimxrt1170_evkb_cm7-ubx_gnss
+   :board: mimxrt1170_evk@B/mimxrt1176/cm7
    :west-args: -p
    :flash-args: -r pyocd
    :goals: flash
@@ -89,8 +89,8 @@ Build and flash for different boards
 
 .. zephyr-app-commands::
    :app: bridle/samples/ubx_gnss
-   :board: nrf52840dk/nrf52840
    :build-dir: nrf52840dk_nrf52840-ubx_gnss
+   :board: nrf52840dk/nrf52840
    :west-args: -p
    :goals: flash
    :compact:
@@ -99,8 +99,8 @@ Build and flash for different boards
 
 .. zephyr-app-commands::
    :app: bridle/samples/ubx_gnss
-   :board: nrf9160dk/nrf9160
    :build-dir: nrf9160dk_nrf9160-ubx_gnss
+   :board: nrf9160dk/nrf9160
    :west-args: -p
    :goals: flash
    :compact:
@@ -109,8 +109,8 @@ Build and flash for different boards
 
 .. zephyr-app-commands::
    :app: bridle/samples/ubx_gnss
-   :board: nucleo_f413zh
    :build-dir: nucleo_f413zh-ubx_gnss
+   :board: nucleo_f413zh
    :west-args: -p
    :goals: flash
    :compact:
@@ -119,8 +119,8 @@ Build and flash for different boards
 
 .. zephyr-app-commands::
    :app: bridle/samples/ubx_gnss
-   :board: nucleo_f767zi
    :build-dir: nucleo_f767zi-ubx_gnss
+   :board: nucleo_f767zi
    :west-args: -p
    :goals: flash
    :compact:
@@ -129,8 +129,8 @@ Build and flash for different boards
 
 .. zephyr-app-commands::
    :app: bridle/samples/ubx_gnss
-   :board: nucleo_l496zg
    :build-dir: nucleo_l496zg-ubx_gnss
+   :board: nucleo_l496zg
    :west-args: -p
    :goals: flash
    :compact:
@@ -141,10 +141,11 @@ Build and flash for different boards
 
 .. zephyr-app-commands::
    :app: bridle/samples/ubx_gnss
-   :board: mimxrt1010_evk
    :build-dir: mimxrt1010_evk-ubx_gnss
+   :board: mimxrt1010_evk
+   :snippets: "usb-console"
    :gen-args: -DCONFIG_LOG=n
-   :west-args: -p -S usb-console
+   :west-args: -p
    :flash-args: -r pyocd
    :goals: flash
    :compact:
