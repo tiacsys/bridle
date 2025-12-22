@@ -51,16 +51,17 @@ that comes with the :ref:`waveshare_pico_10dof_imu_sensor` shield for the
 |zephyr:board:rpi_pico| board.
 
 The following examples use the shield in revision 2.1. If these should be used
-for revision 1, the variable :code:`SHIELD` must be adapted accordingly.
+for revision 1, the variable :code:`SHIELD` must be adapted accordingly:
 
-.. zephyr-app-commands::
-   :app: bridle/samples/waveshare_pico_10dof_imu_sensor
-   :board: rpi_pico
-   :shield: waveshare_pico_10dof_imu_sensor_r2
-   :build-dir: waveshare_pico_10dof_imu_sensor_r2
-   :west-args: -p -S usb-console
-   :flash-args: -r uf2
-   :goals: flash
+   .. zephyr-app-commands::
+      :app: bridle/samples/waveshare_pico_10dof_imu_sensor
+      :build-dir: waveshare_pico_10dof_imu_sensor_r2
+      :board: rpi_pico
+      :shield: "waveshare_pico_10dof_imu_sensor_r2"
+      :snippets: "usb-console"
+      :west-args: -p
+      :flash-args: -r uf2
+      :goals: flash
 
 Sample Output
 =============
@@ -69,34 +70,31 @@ Sample Output
    :class: highlight-console notranslate
 
    [00:00:00.067,000] <dbg> MPU9250: ak8963_fetch_adj: Adjustment values 1756 1762 1698
-   \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-   [00:00:00.328,000] :byl:`<wrn> udc_rpi: BUS RESET`
-   [00:00:00.408,000] :byl:`<wrn> udc_rpi: BUS RESET`
-   \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
-   [00:00:04.079,000] <inf> wsptdis_sample: MPU9250: Found device "**mpu9250@68**", getting sensor data
-   [00:00:04.079,000] <inf> wsptdis_sample: DOF: Configured for triggered sampling.
-   [00:00:04.079,000] <inf> wsptdis_sample: LPS22HB: Found device "**lps22hb@5c**", getting sensor data
+   \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
+   [00:00:00.079,000] <inf> wsptdis_sample: MPU9250: Found device "**mpu9250@68**", getting sensor data
+   [00:00:00.079,000] <inf> wsptdis_sample: DOF: Configured for triggered sampling.
+   [00:00:00.079,000] <inf> wsptdis_sample: LPS22HB: Found device "**lps22hb@5c**", getting sensor data
 
-   [00:00:04.080,000] <inf> wsptdis_sample: TP: 101.45 AirPr. [hPa]
-   [00:00:04.080,000] <inf> wsptdis_sample: TP: 28.58 Temp. [C]
-   [00:00:04.087,000] <dbg> MPU9250: mpu9250_sample_fetch: magn_st2: 16
-   [00:00:04.087,000] <inf> wsptdis_sample: DOF: 0.174776 0.377086 10.339359 XYZ-Accel. [m/s/s]
-   [00:00:04.087,000] <inf> wsptdis_sample: DOF: -0.029843 0.015588 -0.023581 XYZ-Gyro. [rad/s]
-   [00:00:04.087,000] <inf> wsptdis_sample: DOF: 0.200184 -0.052860 -0.254700 XYZ-Magn. [uG]
-   [00:00:04.087,000] <inf> wsptdis_sample: DOF: 31.82 Temp. [C]
+   [00:00:00.080,000] <inf> wsptdis_sample: TP: 101.45 AirPr. [hPa]
+   [00:00:00.080,000] <inf> wsptdis_sample: TP: 28.58 Temp. [C]
+   [00:00:00.087,000] <dbg> MPU9250: mpu9250_sample_fetch: magn_st2: 16
+   [00:00:00.087,000] <inf> wsptdis_sample: DOF: 0.174776 0.377086 10.339359 XYZ-Accel. [m/s/s]
+   [00:00:00.087,000] <inf> wsptdis_sample: DOF: -0.029843 0.015588 -0.023581 XYZ-Gyro. [rad/s]
+   [00:00:00.087,000] <inf> wsptdis_sample: DOF: 0.200184 -0.052860 -0.254700 XYZ-Magn. [uG]
+   [00:00:00.087,000] <inf> wsptdis_sample: DOF: 31.82 Temp. [C]
 
-   [00:00:06.082,000] <inf> wsptdis_sample: TP: 101.45 AirPr. [hPa]
-   [00:00:06.082,000] <inf> wsptdis_sample: TP: 28.65 Temp. [C]
-   [00:00:06.096,000] <dbg> MPU9250: mpu9250_sample_fetch: magn_st2: 16
-   [00:00:06.096,000] <inf> wsptdis_sample: DOF: 0.178966 0.384867 10.322600 XYZ-Accel. [m/s/s]
-   [00:00:06.096,000] <inf> wsptdis_sample: DOF: -0.030110 0.013056 -0.024248 XYZ-Gyro. [rad/s]
-   [00:00:06.096,000] <inf> wsptdis_sample: DOF: 0.189648 -0.063432 -0.261492 XYZ-Magn. [uG]
-   [00:00:06.096,000] <inf> wsptdis_sample: DOF: 31.93 Temp. [C]
+   [00:00:02.082,000] <inf> wsptdis_sample: TP: 101.45 AirPr. [hPa]
+   [00:00:02.082,000] <inf> wsptdis_sample: TP: 28.65 Temp. [C]
+   [00:00:02.096,000] <dbg> MPU9250: mpu9250_sample_fetch: magn_st2: 16
+   [00:00:02.096,000] <inf> wsptdis_sample: DOF: 0.178966 0.384867 10.322600 XYZ-Accel. [m/s/s]
+   [00:00:02.096,000] <inf> wsptdis_sample: DOF: -0.030110 0.013056 -0.024248 XYZ-Gyro. [rad/s]
+   [00:00:02.096,000] <inf> wsptdis_sample: DOF: 0.189648 -0.063432 -0.261492 XYZ-Magn. [uG]
+   [00:00:02.096,000] <inf> wsptdis_sample: DOF: 31.93 Temp. [C]
 
-   [00:00:08.083,000] <inf> wsptdis_sample: TP: 101.45 AirPr. [hPa]
-   [00:00:08.083,000] <inf> wsptdis_sample: TP: 28.72 Temp. [C]
-   [00:00:08.106,000] <dbg> MPU9250: mpu9250_sample_fetch: magn_st2: 16
-   [00:00:08.106,000] <inf> wsptdis_sample: DOF: 0.168192 0.387262 10.321403 XYZ-Accel. [m/s/s]
-   [00:00:08.106,000] <inf> wsptdis_sample: DOF: -0.030243 0.013189 -0.024381 XYZ-Gyro. [rad/s]
-   [00:00:08.106,000] <inf> wsptdis_sample: DOF: 0.198428 -0.054622 -0.242814 XYZ-Magn. [uG]
-   [00:00:08.106,000] <inf> wsptdis_sample: DOF: 32.04 Temp. [C]
+   [00:00:04.083,000] <inf> wsptdis_sample: TP: 101.45 AirPr. [hPa]
+   [00:00:04.083,000] <inf> wsptdis_sample: TP: 28.72 Temp. [C]
+   [00:00:04.106,000] <dbg> MPU9250: mpu9250_sample_fetch: magn_st2: 16
+   [00:00:04.106,000] <inf> wsptdis_sample: DOF: 0.168192 0.387262 10.321403 XYZ-Accel. [m/s/s]
+   [00:00:04.106,000] <inf> wsptdis_sample: DOF: -0.030243 0.013189 -0.024381 XYZ-Gyro. [rad/s]
+   [00:00:04.106,000] <inf> wsptdis_sample: DOF: 0.198428 -0.054622 -0.242814 XYZ-Magn. [uG]
+   [00:00:04.106,000] <inf> wsptdis_sample: DOF: 32.04 Temp. [C]
