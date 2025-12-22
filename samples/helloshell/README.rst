@@ -60,13 +60,13 @@ Building and Running
 This project outputs 'Hello World! I'm THE SHELL' to the console. It can be
 built and executed as emulation in |zephyr:board:qemu_x86| as follows:
 
-.. zephyr-app-commands::
-   :app: bridle/samples/helloshell
-   :build-dir: helloshell-qemu_x86
-   :board: qemu_x86
-   :west-args: -p
-   :goals: run
-   :host-os: unix
+   .. zephyr-app-commands::
+      :app: bridle/samples/helloshell
+      :build-dir: helloshell-qemu_x86
+      :board: qemu_x86
+      :west-args: -p
+      :goals: run
+      :host-os: unix
 
 .. hint:: Exit QEMU by pressing :kbd:`CTRL+A` :kbd:`x`.
 
@@ -120,8 +120,8 @@ mode:
   .. zephyr-app-commands::
      :app: bridle/samples/helloshell
      :build-dir: helloshell-nucleo_f746zg
-     :gen-args: -DEXTRA_CONF_FILE="prj-tiny.conf"
      :board: nucleo_f746zg
+     :gen-args: -DEXTRA_CONF_FILE="prj-tiny.conf"
      :west-args: -p
      :goals: flash
      :host-os: unix
@@ -132,8 +132,8 @@ mode:
   .. zephyr-app-commands::
      :app: bridle/samples/helloshell
      :build-dir: helloshell-nucleo_f746zg
-     :gen-args: -DEXTRA_CONF_FILE="prj-minimal.conf"
      :board: nucleo_f746zg
+     :gen-args: -DEXTRA_CONF_FILE="prj-minimal.conf"
      :west-args: -p
      :goals: flash
      :host-os: unix
@@ -144,8 +144,8 @@ mode:
   .. zephyr-app-commands::
      :app: bridle/samples/helloshell
      :build-dir: helloshell-nucleo_f746zg
-     :gen-args: -DEXTRA_CONF_FILE="prj-hwstartup.conf"
      :board: nucleo_f746zg
+     :gen-args: -DEXTRA_CONF_FILE="prj-hwstartup.conf"
      :west-args: -p
      :goals: flash
      :host-os: unix
@@ -174,10 +174,10 @@ Sample Output
 
 
       :bgn:`uart:~$` **<Tab>**
-        :bcy:`adc        bridle     clear      dac        device     devmem     eeprom`
-        :bcy:`flash      gpio       hello      help       history    hwinfo     i2c`
-        :bcy:`kernel     led        log        pwm        regulator  rem        resize`
-        :bcy:`retval     rtc        sensor     shell      timer`
+        :bcy:`adc        bridle     clear      dac        date       device     devmem`
+        :bcy:`eeprom     flash      gpio       hello      help       history    hwinfo`
+        :bcy:`i2c        kernel     led        log        pwm        regulator  rem`
+        :bcy:`resize     retval     rtc        sensor     shell      timer`
 
       :bgn:`uart:~$` **help**
       Please press the <Tab> button to see all available commands.
@@ -194,6 +194,7 @@ Sample Output
         bridle     : Bridle commands.
         clear      : Clear screen.
         dac        : DAC shell commands
+        date       : Date commands
         device     : Device commands
         devmem     : Read/write physical memory
                      Usage:
@@ -264,31 +265,26 @@ Sample Output
    .. parsed-literal::
 
       :bgn:`uart:~$` **kernel thread list**
-      Scheduler: 498 since last call
+      Scheduler: 792 since last call
       Threads:
-       0x20010e80
-              options: 0x0, priority: -16 timeout: 0
-              state: pending, entry: 0x800231d
-              stack size 2048, unused 1920, usage 128 / 2048 (6 %)
-
-      \*0x20010ae8 shell_uart
+      \*0x20010990 shell_uart
               options: 0x0, priority: 14 timeout: 0
-              state: queued, entry: 0x8004ba1
-              stack size 2048, unused 960, usage 1088 / 2048 (53 %)
+              state: queued, entry: 0x8005025
+              stack size 2048, unused 1008, usage 1040 / 2048 (50 %)
 
-       0x20011750 sysworkq
-              options: 0x1, priority: -1 timeout: 0
-              state: pending, entry: 0x800ec3d
-              stack size 1024, unused 848, usage 176 / 1024 (17 %)
+       0x20010d10
+              options: 0x0, priority: 0 timeout: 0
+              state: pending, entry: 0x8006d09
+              stack size 1024, unused 832, usage 192 / 1024 (18 %)
 
-       0x200105e8 logging
+       0x20010490 logging
               options: 0x0, priority: 14 timeout: 0
-              state: pending, entry: 0x8002a29
-              stack size 768, unused 584, usage 184 / 768 (23 %)
+              state: pending, entry: 0x8002aed
+              stack size 768, unused 568, usage 200 / 768 (26 %)
 
-       0x200114f0 idle
+       0x20011610 idle
               options: 0x1, priority: 15 timeout: 0
-              state: , entry: 0x801481d
+              state: , entry: 0x8015079
               stack size 320, unused 256, usage 64 / 320 (20 %)
 
 .. container:: highlight highlight-console notranslate
@@ -296,12 +292,11 @@ Sample Output
    .. parsed-literal::
 
       :bgn:`uart:~$` **kernel thread stacks**
-      0x20010e80                                  (real size 2048):   unused 1920     usage  128 / 2048 ( 6 %)
-      0x20010ae8 shell_uart                       (real size 2048):   unused  960     usage 1088 / 2048 (53 %)
-      0x20011750 sysworkq                         (real size 1024):   unused  848     usage  176 / 1024 (17 %)
-      0x200105e8 logging                          (real size  768):   unused  584     usage  184 /  768 (23 %)
-      0x200114f0 idle                             (real size  320):   unused  256     usage   64 /  320 (20 %)
-      0x20015e80 IRQ 00                           (real size 2048):   unused 1816     usage  232 / 2048 (11 %)
+      0x20010990 shell_uart      (real size 2048):   unused 1008     usage 1040 / 2048 (50 %)
+      0x20010d10                 (real size 1024):   unused  832     usage  192 / 1024 (18 %)
+      0x20010490 logging         (real size  768):   unused  568     usage  200 /  768 (26 %)
+      0x20011610 idle            (real size  320):   unused  256     usage   64 /  320 (20 %)
+      0x20015900 IRQ 00          (real size 2048):   unused 1752     usage  296 / 2048 (14 %)
 
 TCP/IP Network over Wi-Fi on the RPi Pico W
 ===========================================
@@ -334,15 +329,12 @@ You should see the following message on the console:
          WLAN CLM         : API: 12.2 Data: 9.10.39 Compiler: 1.29.4 ClmImport: 1.36.3 Creation: 2024-04-16 21:20:55
          WHD VERSION      : 3.3.2.25168 : v3.3.2 : GCC 12.2 : 2024-12-06 06:53:17 +0000
 
-         \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-         [00:00:04.113,000] :byl:`<wrn> udc_rpi: BUS RESET`
-         [00:00:04.192,000] :byl:`<wrn> udc_rpi: BUS RESET`
-         \*\*\* Booting Zephyr OS build v\ |zephyr_version_number_em| \*\*\*
+         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
          Hello World! I'm THE SHELL from rpi_pico
-         [00:00:07.834,000] <inf> net_config: Initializing network
-         [00:00:07.834,000] <inf> net_config: Waiting interface 1 (0x20001940) to be up...
-         [00:00:07.834,000] <inf> net_config: Running dhcpv4 client...
-         [00:00:07.834,000] <inf> net_config: Running dhcpv6 client...
+         [00:00:07.325,000] <inf> net_config: Initializing network
+         [00:00:07.325,000] <inf> net_config: Waiting interface 1 (0x20001bf0) to be up...
+         [00:00:07.325,000] <inf> net_config: Running dhcpv4 client...
+         [00:00:07.326,000] <inf> net_config: Running dhcpv6 client...
 
 Simple test execution on target
 -------------------------------
@@ -371,12 +363,12 @@ Simple test execution on target
             :bgn:`uart:~$` **wifi connect -s <SSID> -k <key_management> -p <passphrase>**
             Connected
             Connection requested
-            [00:04:57.840,000] <inf> net_dhcpv4: Received: 192.168.10.197
-            [00:04:57.841,000] <inf> net_config: IPv4 address: 192.168.10.197
-            [00:04:57.841,000] <inf> net_config: Lease time: 28800 seconds
-            [00:04:57.841,000] <inf> net_config: Subnet: 255.255.255.0
-            [00:04:57.842,000] <inf> net_config: Router: 192.168.10.1
-            [00:04:59.480,000] :brd:`<err> net_dhcpv6: Failed to configure DHCPv6 address`
+            [00:00:24.356,000] <inf> net_dhcpv4: Received: **192.168.10.197**
+            [00:00:24.357,000] <inf> net_config: IPv4 address: **192.168.10.197**
+            [00:00:24.357,000] <inf> net_config: Lease time: 28800 seconds
+            [00:00:24.357,000] <inf> net_config: Subnet: 255.255.255.0
+            [00:00:24.357,000] <inf> net_config: Router: 192.168.10.1
+            [00:00:25.423,000] :brd:`<err> net_dhcpv6: Failed to configure DHCPv6 address`
 
       .. container:: highlight highlight-console notranslate
 
@@ -393,12 +385,12 @@ Simple test execution on target
             Default interface: 1
 
 
-            Interface wlan0 (0x20001940) (WiFi) [1]
+            Interface wlan0 (0x20001bf0) (WiFi) [1]
             ===============================
-            Link addr : 29:F7:28:FC:67:1C
+            Link addr : **29:F7:28:FC:67:1C**
             MTU       : 1500
             Flags     : AUTO_START,IPv4,IPv6
-            Device    : airoc-wifi\ @\ 0 (0x1004d1f0)
+            Device    : **airoc-wifi@0** (0x1004f7dc)
             Status    : oper=UP, admin=UP, carrier=ON
             Ethernet capabilities supported:
                     MAC address filtering
@@ -417,7 +409,7 @@ Simple test execution on target
             IPv6 retransmit timer    : 0
             DHCPv6 state             : disabled
             IPv4 unicast addresses (max 1):
-                    192.168.10.197/255.255.255.0 DHCP preferred
+                    **192.168.10.197**/255.255.255.0 DHCP preferred
             IPv4 multicast addresses (max 2):
                     224.0.0.1
             IPv4 gateway : 192.168.10.1
@@ -449,7 +441,7 @@ Simple test execution on target
 
             :bgn:`uart:~$` **net dns query google.com**
             Query for 'google.com' sent.
-            dns: 142.250.185.142
+            dns: 216.58.206.46
             dns: All results received
 
    .. admonition:: ICMP/Ping check in WAN and LAN
@@ -459,31 +451,25 @@ Simple test execution on target
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **net ping 142.250.185.142**
-            PING 142.250.185.142
-            28 bytes from 142.250.185.142 to 192.168.10.197: icmp_seq=1 ttl=118 time=28 ms
-            28 bytes from 142.250.185.142 to 192.168.10.197: icmp_seq=2 ttl=118 time=27 ms
-            28 bytes from 142.250.185.142 to 192.168.10.197: icmp_seq=3 ttl=118 time=28 ms
+            :bgn:`uart:~$` **net ping -p 0 -c 1 8.8.8.8**
+            PING 8.8.8.8
+            28 bytes from 8.8.8.8 to 192.168.10.197: icmp_seq=1 ttl=118 time=25 ms
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **net ping 192.168.10.1**
+            :bgn:`uart:~$` **net ping -p 0 -c 1 192.168.10.1**
             PING 192.168.10.1
-            28 bytes from 192.168.10.1 to 192.168.10.197: icmp_seq=1 ttl=64 time=15 ms
-            28 bytes from 192.168.10.1 to 192.168.10.197: icmp_seq=2 ttl=64 time=8 ms
-            28 bytes from 192.168.10.1 to 192.168.10.197: icmp_seq=3 ttl=64 time=9 ms
+            28 bytes from 192.168.10.1 to 192.168.10.197: icmp_seq=1 ttl=64 time=9 ms
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **net ping fd9c:33d7:ba99::1**
+            :bgn:`uart:~$` **net ping -p 0 -c 1 fd9c:33d7:ba99::1**
             PING fd9c:33d7:ba99::1
-            8 bytes from fd9c:33d7:ba99::1 to fd9c:33d7:ba99:0:2acd:c1ff:fe02:74f4: icmp_seq=1 ttl=64 time=10 ms
-            8 bytes from fd9c:33d7:ba99::1 to fd9c:33d7:ba99:0:2acd:c1ff:fe02:74f4: icmp_seq=2 ttl=64 time=9 ms
-            8 bytes from fd9c:33d7:ba99::1 to fd9c:33d7:ba99:0:2acd:c1ff:fe02:74f4: icmp_seq=3 ttl=64 time=9 ms
+            8 bytes from fd9c:33d7:ba99::1 to fd9c:33d7:ba99:0:2acd:c1ff:fe02:74f4: icmp_seq=1 ttl=64 time=15 ms
 
    .. admonition:: ARP list, list of connections, and interface statistics
       :class: note dropdown
@@ -520,7 +506,7 @@ Simple test execution on target
 
             :bgn:`uart:~$` **net stats**
 
-            Interface 0x20001940 (WiFi) [1]
+            Interface 0x20001bf0 (WiFi) [1]
             ===============================
             IPv6 recv      34       sent    38      drop    3       forwarded       0
             IPv6 ND recv   21       sent    22      drop    1
@@ -552,7 +538,7 @@ Simple test execution on target
          .. parsed-literal::
 
             :bgn:`uart:~$` **wifi statistics**
-            Statistics for Wi-Fi interface 0x20001940 [1]
+            Statistics for Wi-Fi interface 0x20001bf0 [1]
             Bytes received   : 45148
             Bytes sent       : 6622
             Packets received : 163
