@@ -62,7 +62,8 @@ Building and Running
      :app: bridle/samples/buzzer
      :build-dir: buzzer-cytron_maker_nano_rp2040
      :board: cytron_maker_nano_rp2040
-     :west-args: -p -S usb-console
+     :snippets: "usb-console"
+     :west-args: -p
      :flash-args: -r uf2
      :goals: flash
      :host-os: unix
@@ -73,7 +74,8 @@ Building and Running
      :app: bridle/samples/buzzer
      :build-dir: buzzer-cytron_maker_pi_rp2040
      :board: cytron_maker_pi_rp2040
-     :west-args: -p -S usb-console
+     :snippets: "usb-console"
+     :west-args: -p
      :flash-args: -r uf2
      :goals: flash
      :host-os: unix
@@ -100,16 +102,13 @@ Sample Output
 
    .. parsed-literal::
 
-      \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-      [00:00:00.311,000] :byl:`<wrn> udc_rpi: BUS RESET`
-      [00:00:00.391,000] :byl:`<wrn> udc_rpi: BUS RESET`
       \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* \*\*\*
-      [00:00:04.003,000] <inf> buzzersh: Buzzer shell is ready!
+      [00:00:00.003,000] <inf> buzzersh: Buzzer shell is ready!
 
 
       :bgn:`uart:~$` **<Tab>**
-        :bcy:`bridle   buzzer   clear    device   devmem   gpio     help     history`
-        :bcy:`kernel   log      pwm      rem      resize   retval   shell`
+        :bcy:`bridle   buzzer   clear    date     device   devmem   gpio     help`
+        :bcy:`history  kernel   log      pwm      rem      resize   retval   shell`
 
       :bgn:`uart:~$` **help**
       Please press the <Tab> button to see all available commands.
@@ -125,6 +124,7 @@ Sample Output
         bridle   : Bridle commands.
         buzzer   : Buzzer related commands
         clear    : Clear screen.
+        date     : Date commands
         device   : Device commands
         devmem   : Read/write physical memory
                    Usage:
