@@ -86,7 +86,7 @@ with open(ZEPHYR_BASE / 'VERSION') as f:
     )
 
     if not m:
-        sys.stderr.write('Warning: Could not extract Bridle version.\n')
+        sys.stderr.write('Warning: Could not extract Zephyr version.\n')
         zephyr_version = zephyr_longversion = 'Unknown'
     else:
         major, minor, patch, tweak, extra = m.groups(1)
