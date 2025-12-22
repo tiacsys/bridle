@@ -53,12 +53,12 @@ Building on picoboy
 The |PicoBoy| includes an STK8BA58, but doesn't support the trigger mode. The
 interrupt line is not connected.
 
-.. zephyr-app-commands::
-   :app: bridle/samples/stk8ba58
-   :board: picoboy/rp2040
-   :build-dir: picoboy-stk8ba58
-   :west-args: -p
-   :goals: flash
+   .. zephyr-app-commands::
+      :app: bridle/samples/stk8ba58
+      :build-dir: picoboy-stk8ba58
+      :board: picoboy/rp2040
+      :west-args: -p
+      :goals: flash
 
 .. rubric:: Sample Output
 
@@ -66,17 +66,11 @@ interrupt line is not connected.
    :class: highlight-console notranslate
 
    [00:00:00.002,000] <dbg> STK8BA58: stk8ba58_init: stk8ba58\ @\ 18: **chip id 0x87**
-   [00:00:00.003,000] <dbg> STK8BA58: stk8ba58_init: stk8ba58\ @\ 18: pm: 7, odr: 5
-   [00:00:00.003,000] <dbg> STK8BA58: stk8ba58_set_odr: stk8ba58\ @\ 18: set **odr to 250 Hz**, **bw to 125 Hz**
-   [00:00:00.005,000] <dbg> STK8BA58: stk8ba58_init: stk8ba58\ @\ 18: range is 2
-   [00:00:00.006,000] <dbg> STK8BA58: stk8ba58_set_range: stk8ba58\ @\ 18: set **range to 2g**, **gain to 0.98 mg/LSB**
-
-   \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-   [00:00:00.250,000] :byl:`<wrn> udc_rpi: BUS RESET`
-   [00:00:00.334,000] :byl:`<wrn> udc_rpi: BUS RESET`
-   \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
-
-   [00:00:04.009,000] <dbg> STK8BA58: stk8ba58_set_range: stk8ba58\ @\ 18: set **range to 8g**, gain to **3.91 mg/LSB**
+   [00:00:00.002,000] <dbg> STK8BA58: stk8ba58_init: stk8ba58\ @\ 18: pm: 7, odr: 5
+   [00:00:00.002,000] <dbg> STK8BA58: stk8ba58_set_pm: stk8ba58\ @\ 18: set **pm to low-power**, **sleep 25ms**
+   [00:00:00.002,000] <dbg> STK8BA58: stk8ba58_set_odr: stk8ba58\ @\ 18: set **odr to 250 Hz**, **bw to 125 Hz**
+   [00:00:00.003,000] <dbg> STK8BA58: stk8ba58_init: stk8ba58\ @\ 18: range is 2
+   [00:00:00.003,000] <dbg> STK8BA58: stk8ba58_set_range: stk8ba58\ @\ 18: set ''range to 2g**, **gain to0.98 mg/LSB**
 
    Range at 80 m/s^2
    Polling at 0.5 Hz
@@ -103,12 +97,12 @@ Building on picoboy_color_plus
 
 The |PicoBoy Color Plus| includes an STK8BA58 with connected interrupt line.
 
-.. zephyr-app-commands::
-   :app: bridle/samples/stk8ba58
-   :board: picoboy_color_plus/rp2350a/m33
-   :build-dir: picoboy-stk8ba58
-   :west-args: -p
-   :goals: flash
+   .. zephyr-app-commands::
+      :app: bridle/samples/stk8ba58
+      :build-dir: picoboy-stk8ba58
+      :board: picoboy_color_plus/rp2350a/m33
+      :west-args: -p
+      :goals: flash
 
 .. rubric:: Sample Output
 
@@ -116,17 +110,12 @@ The |PicoBoy Color Plus| includes an STK8BA58 with connected interrupt line.
    :class: highlight-console notranslate
 
    [00:00:00.001,000] <dbg> STK8BA58: stk8ba58_init: stk8ba58\ @\ 18: **chip id 0x87**
-   [00:00:00.001,000] <dbg> STK8BA58: stk8ba58_trigger_init: stk8ba58\ @\ 18: int on **gpio@40028000.22**
+   [00:00:00.001,000] <dbg> STK8BA58: stk8ba58_trigger_init: stk8ba58\ @\ 18: int on **gpio-port@0.22**
    [00:00:00.001,000] <dbg> STK8BA58: stk8ba58_set_pm: stk8ba58\ @\ 18: set **pm to low-power**, **sleep 25ms**
    [00:00:00.001,000] <dbg> STK8BA58: stk8ba58_init: stk8ba58\ @\ 18: pm: 7, odr: 5
    [00:00:00.001,000] <dbg> STK8BA58: stk8ba58_set_odr: stk8ba58\ @\ 18: set **odr to 250 Hz**, **bw to 125 Hz**
    [00:00:00.002,000] <dbg> STK8BA58: stk8ba58_init: stk8ba58\ @\ 18: range is 2
    [00:00:00.002,000] <dbg> STK8BA58: stk8ba58_set_range: stk8ba58\ @\ 18: set **range to 2g**, **gain to 0.98 mg/LSB**
-
-   \*\*\*\*\* delaying boot 4000ms (per build configuration) \*\*\*\*\*
-   [00:00:00.488,000] :byl:`<wrn> udc_rpi: BUS RESET`
-   [00:00:00.584,000] :byl:`<wrn> udc_rpi: BUS RESET`
-   \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* (delayed boot 4000ms) \*\*\*
 
    [00:00:04.004,000] <dbg> STK8BA58: stk8ba58_set_range: stk8ba58\ @\ 18: set **range to 8g**, gain to **3.91 mg/LSB**
    [00:00:04.004,000] <dbg> STK8BA58: stk8ba58_set_odr: stk8ba58\ @\ 18: set **odr to 15.63 Hz**, **bw to 7.81 Hz**
