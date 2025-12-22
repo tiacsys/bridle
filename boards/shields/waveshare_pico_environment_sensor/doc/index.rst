@@ -58,7 +58,7 @@ Components
           :language: DTS
           :encoding: ISO-8859-1
           :dedent: 1
-          :emphasize-lines: 3-4
+          :emphasize-lines: 3,5
           :linenos:
           :start-at: wspes_sens_thp: bme280@76 {
           :end-at: };
@@ -90,7 +90,7 @@ Components
           :language: DTS
           :encoding: ISO-8859-1
           :dedent: 1
-          :emphasize-lines: 3-4
+          :emphasize-lines: 3,5
           :linenos:
           :start-at: wspes_sens_voc: sgp40@59 {
           :end-at: };
@@ -179,7 +179,7 @@ Components
           :language: DTS
           :encoding: ISO-8859-1
           :dedent: 1
-          :emphasize-lines: 3-4
+          :emphasize-lines: 3,5
           :linenos:
           :start-at: wspes_sens_dof: mpu9250@68 {
           :end-at: };
@@ -239,7 +239,7 @@ overlay :file:`app.overlay` (see :external+zephyr:ref:`application`).
           :language: DTS
           :encoding: ISO-8859-1
           :tab-width: 4
-          :emphasize-lines: 3-4,7-9
+          :emphasize-lines: 3-4,7-8
           :linenos:
           :prepend: / {
           :start-at: wspes_sensing: wspes-sensing {
@@ -263,11 +263,11 @@ Set ``-DSHIELD=waveshare_pico_environment_sensor`` when you invoke
          :app: bridle/samples/helloshell
          :build-dir: waveshare_pico_environment_sensor-helloshell
          :board: rpi_pico
-         :shield: waveshare_pico_environment_sensor
-         :goals: flash
-         :west-args: -p -S usb-console
+         :shield: "waveshare_pico_environment_sensor"
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
-         :tool: all
+         :goals: flash
 
       .. include:: helloshell.rsti
 
@@ -277,11 +277,11 @@ Set ``-DSHIELD=waveshare_pico_environment_sensor`` when you invoke
          :app: bridle/samples/helloshell
          :build-dir: waveshare_pico_environment_sensor-helloshell
          :board: rpi_pico/rp2040/w
-         :shield: waveshare_pico_environment_sensor
-         :goals: flash
-         :west-args: -p -S usb-console
+         :shield: "waveshare_pico_environment_sensor"
+         :snippets: "usb-console wifi-ip"
+         :west-args: -p
          :flash-args: -r uf2
-         :tool: all
+         :goals: flash
 
       .. include:: helloshell.rsti
 
@@ -291,11 +291,11 @@ Set ``-DSHIELD=waveshare_pico_environment_sensor`` when you invoke
          :app: bridle/samples/helloshell
          :build-dir: waveshare_pico_environment_sensor-helloshell
          :board: waveshare_rp2040_lcd_0_96
-         :shield: waveshare_pico_environment_sensor
-         :goals: flash
-         :west-args: -p -S usb-console
+         :shield: "waveshare_pico_environment_sensor"
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
-         :tool: all
+         :goals: flash
 
       .. include:: helloshell.rsti
 
@@ -307,11 +307,11 @@ Set ``-DSHIELD=waveshare_pico_environment_sensor`` when you invoke
          :app: bridle/samples/helloshell
          :build-dir: waveshare_pico_environment_sensor-helloshell
          :board: waveshare_rp2040_plus
-         :shield: waveshare_pico_environment_sensor
-         :goals: flash
-         :west-args: -p -S usb-console
+         :shield: "waveshare_pico_environment_sensor"
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
-         :tool: all
+         :goals: flash
 
       .. rubric:: on extended ``16㎆`` revision
 
@@ -319,11 +319,11 @@ Set ``-DSHIELD=waveshare_pico_environment_sensor`` when you invoke
          :app: bridle/samples/helloshell
          :build-dir: waveshare_pico_environment_sensor-helloshell
          :board: waveshare_rp2040_plus@16mb
-         :shield: waveshare_pico_environment_sensor
-         :goals: flash
-         :west-args: -p -S usb-console
+         :shield: "waveshare_pico_environment_sensor"
+         :snippets: "usb-console"
+         :west-args: -p
          :flash-args: -r uf2
-         :tool: all
+         :goals: flash
 
       .. include:: helloshell.rsti
 
@@ -342,10 +342,11 @@ driver for the Bosch BME280 environmental sensor. See also Zephyr sample:
    :app: zephyr/samples/sensor/bme280
    :build-dir: waveshare_pico_environment_sensor-bme280
    :board: rpi_pico
-   :shield: waveshare_pico_environment_sensor
-   :goals: flash
-   :west-args: -p -S usb-console -S samples-sensor-bme280-tweaks
+   :shield: "waveshare_pico_environment_sensor"
+   :snippets: "usb-console samples-sensor-bme280-tweaks"
+   :west-args: -p
    :flash-args: -r uf2
+   :goals: flash
 
 The Default Shield Sample
 =========================
@@ -356,10 +357,54 @@ See also :ref:`waveshare_pico_environment_sensor-sample` in Bridle.
    :app: bridle/samples/waveshare_pico_environment_sensor
    :build-dir: waveshare_pico_environment_sensor
    :board: rpi_pico
-   :shield: waveshare_pico_environment_sensor
-   :goals: flash
-   :west-args: -p -S usb-console
+   :shield: "waveshare_pico_environment_sensor"
+   :snippets: "usb-console"
+   :west-args: -p
    :flash-args: -r uf2
+   :goals: flash
+
+.. rubric:: Startup logging output on target
+
+.. container:: highlight highlight-console notranslate no-copybutton
+
+   .. parsed-literal::
+
+      [00:00:00.003,000] <dbg> BME280: bme280_chip_init: ID OK
+      [00:00:00.009,000] <dbg> BME280: bme280_chip_init: "bme280\ @\ 76" OK
+      [00:00:00.259,000] <dbg> SGP40: sgp40_init: Selftest succeeded!
+      [00:00:00.322,000] <dbg> MPU9250: ak8963_fetch_adj: Adjustment values 1774 1774 1709
+      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
+      [00:00:00.333,000] <inf> wspes_sample: ICM20948: Found device "mpu9250\ @\ 68", getting sensor data
+      [00:00:00.334,000] <inf> wspes_sample: BME280: Found device "bme280\ @\ 76", getting sensor data
+      [00:00:00.334,000] <inf> wspes_sample: SGP40: Found device "sgp40\ @\ 59", getting sensor data
+      [00:00:02.335,000] <dbg> MPU9250: mpu9250_sample_fetch: magn_st2: 16
+      [00:00:02.367,000] <inf> wspes_sample: DOF: -0.020351 0.013766 -9.950303 XYZ-Accel. [m/s/s]
+      [00:00:02.367,000] <inf> wspes_sample: DOF: 0.025047 -0.002531 -0.003863 XYZ-Gyro. [rad/s]
+      [00:00:02.367,000] <inf> wspes_sample: DOF: -0.106440 0.943768 -0.690436 XYZ-Magn. [uG]
+      [00:00:02.367,000] <inf> wspes_sample: DOF: 30.04 Temp. [C]
+      [00:00:02.367,000] <inf> wspes_sample: THP: 99.35 AirPr. [hPa]
+      [00:00:02.367,000] <inf> wspes_sample: THP: 27.59 Temp. [C]
+      [00:00:02.367,000] <inf> wspes_sample: THP: 46.418 RH [%]
+      [00:00:02.367,000] <inf> wspes_sample: VOC: 6 Gas [a.u.]
+      [00:00:04.368,000] <dbg> MPU9250: mpu9250_sample_fetch: magn_st2: 16
+      [00:00:04.400,000] <inf> wspes_sample: DOF: -0.016161 0.011971 -9.961077 XYZ-Accel. [m/s/s]
+      [00:00:04.400,000] <inf> wspes_sample: DOF: 0.025180 -0.002131 -0.005062 XYZ-Gyro. [rad/s]
+      [00:00:04.400,000] <inf> wspes_sample: DOF: -0.108214 0.934898 -0.681891 XYZ-Magn. [uG]
+      [00:00:04.400,000] <inf> wspes_sample: DOF: 30.22 Temp. [C]
+      [00:00:04.400,000] <inf> wspes_sample: THP: 99.35 AirPr. [hPa]
+      [00:00:04.400,000] <inf> wspes_sample: THP: 27.59 Temp. [C]
+      [00:00:04.400,000] <inf> wspes_sample: THP: 46.446 RH [%]
+      [00:00:04.400,000] <inf> wspes_sample: VOC: 27835 Gas [a.u.]
+      [00:00:06.401,000] <dbg> MPU9250: mpu9250_sample_fetch: magn_st2: 16
+      [00:00:06.433,000] <inf> wspes_sample: DOF: -0.023943 0.011971 -9.960478 XYZ-Accel. [m/s/s]
+      [00:00:06.433,000] <inf> wspes_sample: DOF: 0.024647 -0.001598 -0.004796 XYZ-Gyro. [rad/s]
+      [00:00:06.433,000] <inf> wspes_sample: DOF: -0.102892 0.947316 -0.680182 XYZ-Magn. [uG]
+      [00:00:06.433,000] <inf> wspes_sample: DOF: 30.31 Temp. [C]
+      [00:00:06.433,000] <inf> wspes_sample: THP: 99.35 AirPr. [hPa]
+      [00:00:06.433,000] <inf> wspes_sample: THP: 27.59 Temp. [C]
+      [00:00:06.433,000] <inf> wspes_sample: THP: 46.348 RH [%]
+      [00:00:06.433,000] <inf> wspes_sample: VOC: 28379 Gas [a.u.]
+      … … …
 
 References
 **********

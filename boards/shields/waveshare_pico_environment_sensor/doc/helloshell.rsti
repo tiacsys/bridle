@@ -52,8 +52,10 @@
               DT node labels: uart0 pico_serial rpipico_serial
             - timer\ @\ 40054000 (READY)
               DT node labels: timer
-            - gpio\ @\ 40014000 (READY)
+            - gpio-port\ @\ 0 (READY)
               DT node labels: gpio0
+            - usbd\ @\ 50110000 (READY)
+              DT node labels: usbd zephyr_udc0
             - adc\ @\ 4004c000 (READY)
               DT node labels: adc
             - flash-controller\ @\ 18000000 (READY)
@@ -96,7 +98,7 @@
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **i2c scan i2c@40044000**
+            :bgn:`uart:~$` **i2c scan i2c0**
                  0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
             00:             -- -- -- -- -- -- -- -- -- -- -- --
             10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
@@ -106,7 +108,7 @@
             50: -- -- -- 53 -- -- -- -- -- 59 -- -- -- -- -- --
             60: -- -- -- -- -- -- -- -- 68 -- -- -- -- -- -- --
             70: -- -- -- -- -- -- 76 --
-            5 devices found on i2c\ @\ 40044000
+            5 devices found on i2c0
 
       - The I2C address ``0x29`` is the ASM `TSL25911`_, an
         ambient IR and visible light sensor (ALS).
@@ -128,7 +130,7 @@
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **i2c read_byte i2c@40044000 68 75**
+            :bgn:`uart:~$` **i2c read_byte i2c0 68 75**
             Output: 0x71
 
       The Chip-ID of the Bosch BME280 environmental sensor can read from
@@ -138,7 +140,7 @@
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **i2c read_byte i2c@40044000 76 d0**
+            :bgn:`uart:~$` **i2c read_byte i2c0 76 d0**
             Output: 0x60
 
    .. group-tab:: Sensors
@@ -148,9 +150,9 @@
          .. parsed-literal::
 
             :bgn:`uart:~$` **sensor info**
-            device name: bme280\ @\ 76, vendor: Bosch Sensortec GmbH, model: bme280, friendly name: (null)
-            device name: mpu9250\ @\ 68, vendor: InvenSense Inc., model: mpu9250, friendly name: (null)
-            device name: sgp40\ @\ 59, vendor: Sensirion AG, model: sgp40, friendly name: (null)
+            device name: bme280\ @\ 76, vendor: Bosch Sensortec GmbH, model: bme280, friendly name: WSP Environment: temperature, humidity and air pressure
+            device name: mpu9250\ @\ 68, vendor: InvenSense Inc., model: mpu9250, friendly name: WSP Environment: accelerometer, gyroscope and magnetometer (9-DOF)
+            device name: sgp40\ @\ 59, vendor: Sensirion AG, model: sgp40, friendly name: WSP Environment: air quality (VOC)
 
       .. rubric:: BME280 (THP)
 
