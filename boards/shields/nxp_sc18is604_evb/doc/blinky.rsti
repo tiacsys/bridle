@@ -4,8 +4,8 @@ See also Zephyr sample: :zephyr:code-sample:`blinky`.
    :app: zephyr/samples/basic/blinky
    :build-dir: nxp_sc18is604_evb
    :board: nucleo_f746zg
-   :shield: "x_nxp_sc18is604_evb;nxp_sc18is604_evb"
-   :west-args: -p always
+   :shield: "x_nxp_sc18is604_evb nxp_sc18is604_evb"
+   :west-args: -p
    :goals: flash
    :host-os: unix
    :compact:
