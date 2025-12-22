@@ -11,9 +11,8 @@ or ``-DSHIELD=tcs_604_ard`` for ``cmake``. For example:
       :build-dir: tcs_604_ard
       :board: nucleo_f746zg
       :shield: "tcs_604_ard"
-      :west-args: -p always
+      :west-args: -p
       :goals: flash
       :host-os: unix
-      :tool: all
 
 .. include:: helloshell_console.rsti

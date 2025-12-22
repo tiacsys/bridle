@@ -4,9 +4,27 @@ This is based on the Bridle sample :ref:`button-sample` in polling mode.
    :app: bridle/samples/button
    :build-dir: tcs_604_ard
    :board: nucleo_f746zg
-   :shield: "tcs_604_ard;grove_btn_d4;grove_led_d3;grove_sens_bmp280;tcs_604_x_grove_testbed"
+   :shield: "tcs_604_ard grove_btn_d4 grove_led_d3 grove_sens_bmp280 tcs_604_x_grove_testbed"
    :conf: prj-poll.conf
-   :west-args: -p always
+   :west-args: -p
    :goals: flash
    :host-os: unix
    :compact:
+
+.. rubric:: Sample Output
+
+After flashing, the extra connected |LED Shields| by :rpi-pico-pio:`IO3`
+at :hwftlbl-con:`D3` starts to light up in time with the key press on the
+extra connected |Button Shields| by :rpi-pico-pio:`IO4` at :hwftlbl-con:`D4`
+(see wiring above).
+
+You should see the following message on the console:
+
+   .. container:: highlight highlight-console notranslate
+
+      .. parsed-literal::
+
+         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
+         Set up button at sc18is604-0-gpio pin 4
+         Set up LED at sc18is604-0-gpio pin 3
+         Press the button

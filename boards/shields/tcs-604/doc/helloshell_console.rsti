@@ -102,6 +102,8 @@
               DT node labels: sc18is604_0_i2c tcs_604_i2c grove_i2c
             - sc18is604-0-gpio (READY)
               DT node labels: sc18is604_0_gpio
+            - memory\ @\ 40024000 (READY)
+              DT node labels: backup_sram
             - leds (READY)
               DT node labels: leds
             - dietemp (READY)
@@ -136,7 +138,7 @@
          .. parsed-literal::
 
             :bgn:`uart:~$` **gpio get sc18is604-0-gpio 3**
-            0
+            1
 
             :bgn:`uart:~$` **gpio conf sc18is604-0-gpio 3 oh0**
             :bgn:`uart:~$` **gpio set sc18is604-0-gpio 3 1**

@@ -4,8 +4,27 @@ This is based on the Zephyr sample :zephyr:code-sample:`blinky`.
    :app: zephyr/samples/basic/blinky
    :build-dir: tcs_604_ard
    :board: nucleo_f746zg
-   :shield: "tcs_604_ard;grove_btn_d4;grove_led_d3;grove_sens_bmp280;tcs_604_x_grove_testbed"
-   :west-args: -p always
+   :shield: "tcs_604_ard grove_btn_d4 grove_led_d3 grove_sens_bmp280 tcs_604_x_grove_testbed"
+   :west-args: -p
    :goals: flash
    :host-os: unix
    :compact:
+
+.. rubric:: Sample Output
+
+After flashing, the extra connected |LED Shields| by :rpi-pico-pio:`IO3`
+at :hwftlbl-con:`D3` starts to blink (see wiring above).
+
+You should see the following message on the console:
+
+   .. container:: highlight highlight-console notranslate
+
+      .. parsed-literal::
+
+         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
+         LED state: OFF
+         LED state: ON
+         LED state: OFF
+         LED state: ON
+         LED state: OFF
+         … … …
