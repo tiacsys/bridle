@@ -17,6 +17,8 @@ manifest:
   remotes:
     - name: tiacsys
       url-base: https://github.com/tiacsys
+    - name: upstream
+      url-base: https://github.com/zephyrproject-rtos/zephyr
 
   # "group-filter" is a list of groups of projects to enable and disable.
   # The Zephyr manifest provides many optional projects that have to enable.
@@ -38,7 +40,7 @@ manifest:
       # import submodules from Zephyr manifest
       import:
         # In addition to the Zephyr repository itself, TIAC also
-        # imports the contents of Zephyr/west.yml at the above
+        # imports the contents of zephyr/west.yml at the above
         # revision. Only the projects explicitly named in the
         # following allowlist are imported.
         #
