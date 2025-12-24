@@ -88,6 +88,18 @@ boards:
     append:
       EXTRA_CONF_FILE: boards/rpi_pico_w.conf
       EXTRA_DTC_OVERLAY_FILE: boards/rpi_pico_w.overlay
+  rpi_pico2/rp2350a/hazard3:
+    append:
+      EXTRA_CONF_FILE: boards/rpi_pico2.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/rpi_pico2.overlay
+  rpi_pico2/rp2350a/m33:
+    append:
+      EXTRA_CONF_FILE: boards/rpi_pico2.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/rpi_pico2.overlay
+  rpi_pico2/rp2350a/m33/w:
+    append:
+      EXTRA_CONF_FILE: boards/rpi_pico2_w.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/rpi_pico2_w.overlay
   waveshare_rp2040_one/rp2040:
     append:
       EXTRA_CONF_FILE: boards/waveshare_rp2040_one.conf
