@@ -22,7 +22,7 @@ monitoring per default.
           :hwftlbl-uart:`1`
 
        :on-board:
-          :hwftlbl-led:`1 RED`
+          :hwftlbl-led:`1 GRN`
 
        .. rubric:: Default Zephyr Peripheral Mapping
 

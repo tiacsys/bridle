@@ -22,7 +22,7 @@ the original |zephyr:board:rpi_pico|.
        :hwftlbl:`4㎆/16㎆`
        :hwftlbl:`264㎅`
        :hwftlbl-btn:`RST`
-       :hwftlbl-led:`RED`
+       :hwftlbl-led:`GRN`
        :hwftlbl-con:`USB-C`
        :hwftlbl-dbg:`UF2`
        :hwftlbl-dbg:`SWD`
