@@ -502,9 +502,9 @@ The UF2 file should be drag-and-dropped or copied on command line to the
 device, which will then flash the Cytron Maker RP2040 board.
 
 Each `RP2040 SoC`_ ships the `UF2 compatible <UF2 bootloader_>`_ bootloader
-pico-bootrom_, a native support in silicon. The full source for the RP2040
-bootrom at pico-bootrom_ includes versions 1, 2 and 3 of the bootrom, which
-correspond to the B0, B1 and B2 silicon revisions, respectively.
+pico-bootrom-rp2040_, a native support in silicon. The full source for the
+RP2040 bootrom at pico-bootrom-rp2040_ includes versions B0, B1 and B2 of
+the bootrom, which correspond to the same silicon revisions, respectively.
 
 Note that every time you build a program for the RP2040, the Pico SDK selects
 an appropriate second stage bootloader based on what kind of external QSPI
