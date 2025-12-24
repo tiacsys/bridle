@@ -91,6 +91,10 @@ the :ref:`boards-extensions` section in this documentation.
 | RP2040            | |zephyr:board:rpi_pico|            | | ``rpi_pico``                             |
 |                   |                                    | | ``rpi_pico/rp2040/w``                    |
 +-------------------+------------------------------------+--------------------------------------------+
+| RP2350            | |zephyr:board:rpi_pico2|           | | ``rpi_pico2/rp2350a/hazard3``            |
+|                   |                                    | | ``rpi_pico2/rp2350a/m33``                |
+|                   |                                    | | ``rpi_pico2/rp2350a/m33/w``              |
++-------------------+------------------------------------+--------------------------------------------+
 | STM32F303RE       | |zephyr:board:nucleo_f303re|       | ``nucleo_f303re``                          |
 +-------------------+------------------------------------+--------------------------------------------+
 | STM32F401RE       | |zephyr:board:nucleo_f401re|       | ``nucleo_f401re``                          |

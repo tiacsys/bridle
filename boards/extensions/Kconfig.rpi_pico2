@@ -1,0 +1,6 @@
+# Copyright (c) 2025 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+# zephyr-keep-sorted-start
+rsource "rpi_pico2/Kconfig.defconfig"
+# zephyr-keep-sorted-stop

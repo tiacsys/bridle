@@ -1142,6 +1142,39 @@
 .. |rpi_pico_rp2040_w_PStr_CON|	replace:: :ign:`RPi Pico W (CDC ACM)`
 .. |rpi_pico_rp2040_w_BCD_CON|	replace:: |zephyr_version_BCD|
 
+.. |zephyr:board:rpi_pico2| replace::
+   :external+zephyr:zephyr:board:`rpi_pico2`
+
+.. |RPi Pico 2| replace::
+   :external+zephyr:zephyr:board:`RPi Pico 2 <rpi_pico2>`
+
+.. |RPi Pico 2 (CDC ACM)| replace::
+   :external+zephyr:zephyr:board:`RPi Pico 2 (CDC ACM) <rpi_pico2>`
+
+.. |rpi_pico2_rp2350a_URB_VID|	replace:: |rpi_URB_VID|
+.. |rpi_pico2_rp2350a_VID|	replace:: |rpi_VID|
+.. |rpi_pico2_rp2350a_VStr|	replace:: |rpi_VStr|
+
+.. |rpi_pico2_rp2350a_URB_PID_CON| replace:: |rpi_pico_sdk_uart_rp2040_URB_PID|
+.. |rpi_pico2_rp2350a_PID_CON|	replace:: |rpi_pico_sdk_uart_rp2040_PID|
+.. |rpi_pico2_rp2350a_PStr_CON|	replace:: :ign:`RPi Pico 2 (CDC ACM)`
+.. |rpi_pico2_rp2350a_BCD_CON|	replace:: |zephyr_version_BCD|
+
+.. |RPi Pico 2W| replace::
+   :external+zephyr:zephyr:board:`RPi Pico 2W <rpi_pico2>`
+
+.. |RPi Pico 2W (CDC ACM)| replace::
+   :external+zephyr:zephyr:board:`RPi Pico 2W (CDC ACM) <rpi_pico2>`
+
+.. |rpi_pico2_rp2350a_w_URB_VID| replace:: |rpi_URB_VID|
+.. |rpi_pico2_rp2350a_w_VID|	replace:: |rpi_VID|
+.. |rpi_pico2_rp2350a_w_VStr|	replace:: |rpi_VStr|
+
+.. |rpi_pico2_rp2350a_w_URB_PID_CON| replace:: |rpi_pico_sdk_uart_rp2040_URB_PID|
+.. |rpi_pico2_rp2350a_w_PID_CON| replace:: |rpi_pico_sdk_uart_rp2040_PID|
+.. |rpi_pico2_rp2350a_w_PStr_CON| replace:: :ign:`RPi Pico 2W (CDC ACM)`
+.. |rpi_pico2_rp2350a_w_BCD_CON| replace:: |zephyr_version_BCD|
+
 .. |zephyr:board:stm32_min_dev| replace::
    :external+zephyr:zephyr:board:`stm32_min_dev`
 
