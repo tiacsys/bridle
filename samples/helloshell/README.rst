@@ -49,6 +49,7 @@ Requirements
   * |zephyr:board:qemu_riscv64|
   * |zephyr:board:qemu_x86|
   * |zephyr:board:qemu_xtensa|
+  * |zephyr:board:rpi_pico2|
   * |zephyr:board:rpi_pico|
   * |zephyr:board:seeeduino_xiao| or Bridle's |bridle:board:xiao_samd21|
 
@@ -298,14 +299,17 @@ Sample Output
       0x20011610 idle            (real size  320):   unused  256     usage   64 /  320 (20 %)
       0x20015900 IRQ 00          (real size 2048):   unused 1752     usage  296 / 2048 (14 %)
 
-TCP/IP Network over Wi-Fi on the RPi Pico W
-===========================================
+TCP/IP Network over Wi-Fi on the RPi Pico W or 2W
+=================================================
 
-This project provides an extended board-specific configuration for the
-|RPi Pico W| with a pre-activated :external+zephyr:ref:`TCP/IP network stack
-<network_stack_architecture>` via the Wi-Fi chip made by Infineon. It have to
-build at least with the Zephyr upstream :external+zephyr:ref:`snippet-wifi-ip`
+This project provides an extended board-specific configuration
+for the |RPi Pico W| or |RPi Pico 2W| with a pre-activated
+:external+zephyr:ref:`TCP/IP network stack <network_stack_architecture>`
+via the Wi-Fi chip made by Infineon. It have to build at least
+with the Zephyr upstream :external+zephyr:ref:`snippet-wifi-ip`
 and optional with the Bridle :ref:`snippet-usb-console`:
+
+For the |RPi Pico W|:
 
    .. zephyr-app-commands::
       :app: bridle/samples/helloshell
@@ -318,7 +322,20 @@ and optional with the Bridle :ref:`snippet-usb-console`:
       :host-os: unix
       :compact:
 
-You should see the following message on the console:
+For the |RPi Pico 2W|:
+
+   .. zephyr-app-commands::
+      :app: bridle/samples/helloshell
+      :build-dir: helloshell-rpi_pico2_w
+      :board: rpi_pico2/rp2350/m33/w
+      :snippets: "usb-console wifi-ip"
+      :west-args: -p
+      :flash-args: -r uf2
+      :goals: flash
+      :host-os: unix
+      :compact:
+
+You should see the following message on the console (e.g. on |RPi Pico W|):
 
    .. container:: highlight highlight-console notranslate
 
