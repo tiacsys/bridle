@@ -302,52 +302,52 @@ features:
    * - PINCTRL
      - :kconfig:option:`CONFIG_PINCTRL`
      - :dtcompatible:`raspberrypi,pico-pinctrl`
-     - :zephyr:ref:`pinctrl_api`
+     - :external+zephyr:ref:`pinctrl_api`
    * - GPIO
      - :kconfig:option:`CONFIG_GPIO`
      - :dtcompatible:`raspberrypi,pico-gpio`
-     - :zephyr:ref:`gpio_api`
+     - :external+zephyr:ref:`gpio_api`
    * - UART
      - :kconfig:option:`CONFIG_SERIAL`
      - :dtcompatible:`raspberrypi,pico-uart`
-     - :zephyr:ref:`uart_api`
+     - :external+zephyr:ref:`uart_api`
    * - UDC (USB Device Controller)
      - :kconfig:option:`CONFIG_USB_DEVICE_STACK_NEXT`
      - :dtcompatible:`raspberrypi,pico-usbd`
-     - :zephyr:ref:`usb_device_next_api`
+     - :external+zephyr:ref:`usb_device_next_api`
    * - I2C
      - :kconfig:option:`CONFIG_I2C`
      - :dtcompatible:`raspberrypi,pico-i2c`
-     - :zephyr:ref:`i2c_api`
+     - :external+zephyr:ref:`i2c_api`
    * - SPI
      - :kconfig:option:`CONFIG_SPI`
      - :dtcompatible:`raspberrypi,pico-spi`
-     - :zephyr:ref:`spi_api`
+     - :external+zephyr:ref:`spi_api`
    * - PWM
      - :kconfig:option:`CONFIG_PWM`
      - :dtcompatible:`raspberrypi,pico-pwm`
-     - :zephyr:ref:`pwm_api`
+     - :external+zephyr:ref:`pwm_api`
    * - ADC
      - :kconfig:option:`CONFIG_ADC`
      - :dtcompatible:`raspberrypi,pico-adc`
-     - :zephyr:ref:`adc_api`
+     - :external+zephyr:ref:`adc_api`
    * - Temperature (Sensor)
      - :kconfig:option:`CONFIG_SENSOR`
      - :dtcompatible:`raspberrypi,pico-temp`
-     - :zephyr:ref:`sensor`
+     - :external+zephyr:ref:`sensor`
    * - Timer (Counter)
      - :kconfig:option:`CONFIG_COUNTER`
      - :dtcompatible:`raspberrypi,pico-timer`
-     - :zephyr:ref:`counter_api`
+     - :external+zephyr:ref:`counter_api`
    * - Watchdog Timer (WDT)
      - :kconfig:option:`CONFIG_WATCHDOG`
      - :dtcompatible:`raspberrypi,pico-watchdog`
-     - :zephyr:ref:`watchdog_api`
+     - :external+zephyr:ref:`watchdog_api`
    * - Flash
      - :kconfig:option:`CONFIG_FLASH`
-     - :dtcompatible:`raspberrypi,pico-flash-controller` (!)
-     - :zephyr:ref:`flash_api` and
-       :zephyr:ref:`flash_map_api`
+     - :dtcompatible:`raspberrypi,pico-flash-controller`
+     - :external+zephyr:ref:`flash_api` and
+       :external+zephyr:ref:`flash_map_api`
    * - PIO
      - :kconfig:option:`CONFIG_PIO_RPI_PICO`
      - :dtcompatible:`raspberrypi,pico-pio`
@@ -355,11 +355,11 @@ features:
    * - UART (PIO)
      - :kconfig:option:`CONFIG_SERIAL`
      - :dtcompatible:`raspberrypi,pico-uart-pio`
-     - :zephyr:ref:`uart_api`
+     - :external+zephyr:ref:`uart_api`
    * - SPI (PIO)
      - :kconfig:option:`CONFIG_SPI`
      - :dtcompatible:`raspberrypi,pico-spi-pio`
-     - :zephyr:ref:`spi_api`
+     - :external+zephyr:ref:`spi_api`
    * - WS2812 (PIO)
      - :kconfig:option:`CONFIG_LED_STRIP`
      - :dtcompatible:`worldsemi,ws2812-rpi-pico-pio`
@@ -367,34 +367,34 @@ features:
    * - DMA
      - :kconfig:option:`CONFIG_DMA`
      - :dtcompatible:`raspberrypi,pico-dma`
-     - :zephyr:ref:`dma_api`
+     - :external+zephyr:ref:`dma_api`
    * - HWINFO
      - :kconfig:option:`CONFIG_HWINFO`
      - N/A
-     - :zephyr:ref:`hwinfo_api`
+     - :external+zephyr:ref:`hwinfo_api`
    * - VREG
      - :kconfig:option:`CONFIG_REGULATOR`
      - :dtcompatible:`raspberrypi,core-supply-regulator` (!)
-     - :zephyr:ref:`regulator_api`
+     - :external+zephyr:ref:`regulator_api`
    * - RESET
      - :kconfig:option:`CONFIG_RESET`
      - :dtcompatible:`raspberrypi,pico-reset`
-     - :zephyr:ref:`reset_api`
+     - :external+zephyr:ref:`reset_api`
    * - CLOCK
      - :kconfig:option:`CONFIG_CLOCK_CONTROL`
      - | :dtcompatible:`raspberrypi,pico-clock-controller`
        | :dtcompatible:`raspberrypi,pico-clock`
-     - :zephyr:ref:`clock_control_api`
+     - :external+zephyr:ref:`clock_control_api`
    * - NVIC
      - N/A
      - :dtcompatible:`arm,v8m-nvic`
-     - Nested Vector :zephyr:ref:`interrupts_v2` Controller
+     - Nested Vector :external+zephyr:ref:`interrupts_v2` Controller
    * - SYSTICK
      - N/A
      - :dtcompatible:`arm,v8m-systick`
      -
 
-(!) POWMAN with VREG and QMI (Flash) on RP2350 not yet supported by Zephyr.
+(!) POWMAN with VREG on RP2350 not yet supported by Zephyr.
 
     See section **Peripherals RP2350** in upstream issue:
     https://github.com/zephyrproject-rtos/zephyr/issues/53810
