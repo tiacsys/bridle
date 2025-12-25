@@ -32,7 +32,7 @@ with chosen display. That is:
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/display
          :build-dir: waveshare_pico_rgb_led-display_test
-         :board: rpi_pico_w
+         :board: rpi_pico/rp2040/w
          :shield: "waveshare_pico_rgb_led"
          :snippets: "usb-console"
          :west-args: -p
