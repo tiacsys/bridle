@@ -257,6 +257,8 @@ Set ``-DSHIELD=waveshare_pico_environment_sensor`` when you invoke
 
 .. tabs::
 
+   .. zephyr-keep-sorted-start re(^\s{9}\.\. group-tab:: \w)
+
    .. group-tab:: Raspberry Pi Pico
 
       .. zephyr-app-commands::
@@ -265,6 +267,50 @@ Set ``-DSHIELD=waveshare_pico_environment_sensor`` when you invoke
          :board: rpi_pico
          :shield: "waveshare_pico_environment_sensor"
          :snippets: "usb-console"
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+
+      .. include:: helloshell.rsti
+
+   .. group-tab:: Raspberry Pi Pico 2
+
+      .. rubric:: On ARM Cortex-M33
+
+      .. zephyr-app-commands::
+         :app: bridle/samples/helloshell
+         :build-dir: waveshare_pico_environment_sensor-helloshell
+         :board: rpi_pico2/rp2350a/m33
+         :shield: "waveshare_pico_environment_sensor"
+         :snippets: "usb-console"
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+
+      .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+
+      .. zephyr-app-commands::
+         :app: bridle/samples/helloshell
+         :build-dir: waveshare_pico_environment_sensor-helloshell
+         :board: rpi_pico2/rp2350a/hazard3
+         :shield: "waveshare_pico_environment_sensor"
+         :snippets: "usb-console"
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+
+      .. include:: helloshell.rsti
+
+   .. group-tab:: Raspberry Pi Pico 2W
+
+      .. rubric:: On ARM Cortex-M33
+
+      .. zephyr-app-commands::
+         :app: bridle/samples/helloshell
+         :build-dir: waveshare_pico_environment_sensor-helloshell
+         :board: rpi_pico2/rp2350a/m33/w
+         :shield: "waveshare_pico_environment_sensor"
+         :snippets: "usb-console wifi-ip"
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -326,6 +372,8 @@ Set ``-DSHIELD=waveshare_pico_environment_sensor`` when you invoke
          :goals: flash
 
       .. include:: helloshell.rsti
+
+   .. zephyr-keep-sorted-stop
 
 More Samples
 ************
