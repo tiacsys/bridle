@@ -773,9 +773,9 @@ For example:
 
       .. tabs::
 
-         .. group-tab:: Raspberry Pi Pico
+         .. group-tab:: Raspberry Pi Pico (2)
 
-            This is based on the Zephyr board |RPi Pico|.
+            This is based on the Zephyr board |RPi Pico| and |RPi Pico 2|.
 
             * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
 
@@ -845,9 +845,9 @@ For example:
                      :goals: flash
                      :host-os: unix
 
-         .. group-tab:: Raspberry Pi Pico W
+         .. group-tab:: Raspberry Pi Pico (2)W
 
-            This is based on the Zephyr board |RPi Pico W|.
+            This is based on the Zephyr board |RPi Pico W| and |RPi Pico 2W|.
 
             * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
 
