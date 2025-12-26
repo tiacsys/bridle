@@ -770,9 +770,25 @@ not be complete.
 
             .. include:: grove_pwms-xiao_samd21.rsti
 
-   .. group-tab:: Raspberry Pi
+   .. group-tab:: Raspberry Pi (2)
 
       .. tabs::
+
+         .. group-tab:: ``rpi_pico2``
+
+            This is based on the Zephyr board |zephyr:board:rpi_pico2|
+            and its :dtcompatible:`raspberrypi,pico-header-r3`.
+
+            .. note::
+
+               This board basically provides all channels from nearly all PWMs to
+               the outside. However, the SoC's ability to route channels to multiple
+               pads may result in channels being connected in parallel. The second
+               table below shows the possibilities which channels can really
+               be used independently at the associated signals of the
+               |Laced Grove Signal Interface|.
+
+            .. include:: grove_pwms-rpi_pico.rsti
 
          .. group-tab:: ``rpi_pico``
 
@@ -900,6 +916,44 @@ or ``cmake`` in your Zephyr application. For example:
       :build-dir: helloshell-seeed_grove_xiao_v1
       :board: xiao_samd21
       :shield: "seeed_grove_xiao_v1"
+      :goals: flash
+      :west-args: -p
+      :host-os: unix
+
+Grove Basic Kit for Raspberry Pi Pico 2
+---------------------------------------
+
+Set ``-DSHIELD=seeed_grove_rpipico_v1`` when you invoke ``west build``
+or ``cmake`` in your Zephyr application. For example:
+
+#. |RPi Pico 2| on :ref:`grove_rpipico_shield_v1`:
+
+   .. zephyr-app-commands::
+      :app: bridle/samples/helloshell
+      :build-dir: helloshell-seeed_grove_rpipico_v1
+      :board: rpi_pico2/rp2350a/m33
+      :shield: "seeed_grove_rpipico_v1"
+      :goals: flash
+      :west-args: -p
+      :host-os: unix
+
+   .. zephyr-app-commands::
+      :app: bridle/samples/helloshell
+      :build-dir: helloshell-seeed_grove_rpipico_v1
+      :board: rpi_pico2/rp2350a/hazard3
+      :shield: "seeed_grove_rpipico_v1"
+      :goals: flash
+      :west-args: -p
+      :host-os: unix
+
+#. |RPi Pico 2W| on :ref:`grove_rpipico_shield_v1`:
+
+   .. zephyr-app-commands::
+      :app: bridle/samples/helloshell
+      :build-dir: helloshell-seeed_grove_rpipico_v1
+      :board: rpi_pico2/rp2350a/m33/w
+      :shield: "seeed_grove_rpipico_v1"
+      :snippets: "wifi-ip"
       :goals: flash
       :west-args: -p
       :host-os: unix
