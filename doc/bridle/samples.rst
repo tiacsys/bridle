@@ -3,9 +3,10 @@
 Samples
 #######
 
-For very simple samples, see the :zephyr:code-sample-category:`basic` in
-Zephyr. Those samples are a good starting point for understanding how to
-put together your own application.
+For very simple samples, see the
+:external+zephyr:zephyr:code-sample-category:`basic` in Zephyr.
+Those samples are a good starting point for understanding how to put
+together your own application.
 
 In addition, |BRIDLE| provides the following samples that showcase the use
 of a single feature or library:
