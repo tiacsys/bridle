@@ -21,6 +21,53 @@ For example:
 
       .. include:: geeekpi_pico_bb_plus/helloshell_console.rsti
 
+   .. group-tab:: Raspberry Pi Pico 2
+
+      .. rubric:: On ARM Cortex-M33
+
+      .. zephyr-app-commands::
+         :app: bridle/samples/helloshell
+         :build-dir: geeekpi_pico_bb_plus-helloshell
+         :board: rpi_pico2/rp2350a/m33
+         :shield: "geeekpi_pico_bb_plus"
+         :snippets: "usb-console"
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :host-os: unix
+
+      .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+
+      .. zephyr-app-commands::
+         :app: bridle/samples/helloshell
+         :build-dir: geeekpi_pico_bb_plus-helloshell
+         :board: rpi_pico2/rp2350a/hazard3
+         :shield: "geeekpi_pico_bb_plus"
+         :snippets: "usb-console"
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :host-os: unix
+
+      .. include:: geeekpi_pico_bb_plus/helloshell_console.rsti
+
+   .. group-tab:: Raspberry Pi Pico 2W
+
+      .. rubric:: On ARM Cortex-M33
+
+      .. zephyr-app-commands::
+         :app: bridle/samples/helloshell
+         :build-dir: geeekpi_pico_bb_plus-helloshell
+         :board: rpi_pico2/rp2350a/m33/w
+         :shield: "geeekpi_pico_bb_plus"
+         :snippets: "usb-console wifi-ip"
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :host-os: unix
+
+      .. include:: geeekpi_pico_bb_plus/helloshell_console.rsti
+
    .. group-tab:: Raspberry Pi Pico W
 
       .. zephyr-app-commands::
