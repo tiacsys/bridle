@@ -16,6 +16,13 @@ common:
       - "Display sample for (.*)"
 tests:
   #
+  # boards with display
+  #
+  sample.drivers.display:
+    integration_platforms:
+      - waveshare_rp2040_geek
+      - waveshare_rp2040_lcd_0_96
+  #
   # shield: GeeekPi Pico Breadboard Kit (EP-0164)
   #
   sample.drivers.display.geeekpi_pico_bb:
@@ -24,6 +31,9 @@ tests:
     integration_platforms:
       - rpi_pico
       - rpi_pico/rp2040/w
+      - rpi_pico2/rp2350a/hazard3
+      - rpi_pico2/rp2350a/m33
+      - rpi_pico2/rp2350a/m33/w
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
   #
@@ -35,6 +45,9 @@ tests:
     integration_platforms:
       - rpi_pico
       - rpi_pico/rp2040/w
+      - rpi_pico2/rp2350a/hazard3
+      - rpi_pico2/rp2350a/m33
+      - rpi_pico2/rp2350a/m33/w
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
   #
@@ -46,6 +59,9 @@ tests:
     integration_platforms:
       - rpi_pico
       - rpi_pico/rp2040/w
+      - rpi_pico2/rp2350a/hazard3
+      - rpi_pico2/rp2350a/m33
+      - rpi_pico2/rp2350a/m33/w
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
   #
@@ -57,6 +73,9 @@ tests:
     integration_platforms:
       - rpi_pico
       - rpi_pico/rp2040/w
+      - rpi_pico2/rp2350a/hazard3
+      - rpi_pico2/rp2350a/m33
+      - rpi_pico2/rp2350a/m33/w
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
   #
@@ -68,6 +87,9 @@ tests:
     integration_platforms:
       - rpi_pico
       - rpi_pico/rp2040/w
+      - rpi_pico2/rp2350a/hazard3
+      - rpi_pico2/rp2350a/m33
+      - rpi_pico2/rp2350a/m33/w
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
   #
@@ -79,6 +101,9 @@ tests:
     integration_platforms:
       - rpi_pico
       - rpi_pico/rp2040/w
+      - rpi_pico2/rp2350a/hazard3
+      - rpi_pico2/rp2350a/m33
+      - rpi_pico2/rp2350a/m33/w
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
   #
@@ -90,6 +115,9 @@ tests:
     integration_platforms:
       - rpi_pico
       - rpi_pico/rp2040/w
+      - rpi_pico2/rp2350a/hazard3
+      - rpi_pico2/rp2350a/m33
+      - rpi_pico2/rp2350a/m33/w
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
   #
@@ -101,6 +129,9 @@ tests:
     integration_platforms:
       - rpi_pico
       - rpi_pico/rp2040/w
+      - rpi_pico2/rp2350a/hazard3
+      - rpi_pico2/rp2350a/m33
+      - rpi_pico2/rp2350a/m33/w
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
   #
@@ -112,6 +143,9 @@ tests:
     integration_platforms:
       - rpi_pico
       - rpi_pico/rp2040/w
+      - rpi_pico2/rp2350a/hazard3
+      - rpi_pico2/rp2350a/m33
+      - rpi_pico2/rp2350a/m33/w
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
   #
@@ -123,6 +157,9 @@ tests:
     integration_platforms:
       - rpi_pico
       - rpi_pico/rp2040/w
+      - rpi_pico2/rp2350a/hazard3
+      - rpi_pico2/rp2350a/m33
+      - rpi_pico2/rp2350a/m33/w
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
   #
@@ -134,6 +171,9 @@ tests:
     integration_platforms:
       - rpi_pico
       - rpi_pico/rp2040/w
+      - rpi_pico2/rp2350a/hazard3
+      - rpi_pico2/rp2350a/m33
+      - rpi_pico2/rp2350a/m33/w
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
   #
@@ -145,6 +185,9 @@ tests:
     integration_platforms:
       - rpi_pico
       - rpi_pico/rp2040/w
+      - rpi_pico2/rp2350a/hazard3
+      - rpi_pico2/rp2350a/m33
+      - rpi_pico2/rp2350a/m33/w
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
   #
@@ -156,6 +199,9 @@ tests:
     integration_platforms:
       - rpi_pico
       - rpi_pico/rp2040/w
+      - rpi_pico2/rp2350a/hazard3
+      - rpi_pico2/rp2350a/m33
+      - rpi_pico2/rp2350a/m33/w
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
   #

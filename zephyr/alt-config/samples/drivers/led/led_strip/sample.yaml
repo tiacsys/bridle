@@ -19,6 +19,7 @@ tests:
     integration_platforms:
       - cytron_maker_nano_rp2040
       - cytron_maker_pi_rp2040
+      - picoboy_color_plus/rp2350a/m33
       - waveshare_rp2040_eth
       - waveshare_rp2040_matrix
       - waveshare_rp2040_one
@@ -33,6 +34,9 @@ tests:
     integration_platforms:
       - rpi_pico
       - rpi_pico/rp2040/w
+      - rpi_pico2/rp2350a/hazard3
+      - rpi_pico2/rp2350a/m33
+      - rpi_pico2/rp2350a/m33/w
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
   #
@@ -44,6 +48,9 @@ tests:
     integration_platforms:
       - rpi_pico
       - rpi_pico/rp2040/w
+      - rpi_pico2/rp2350a/hazard3
+      - rpi_pico2/rp2350a/m33
+      - rpi_pico2/rp2350a/m33/w
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
