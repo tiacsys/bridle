@@ -14,6 +14,7 @@ Highlights
 * :brd:`NOT YET, tbd.`
 
 * Use the new USB stack, which can now also support high-speed devices.
+* Catch the Raspberry Pi Pico 2 board family as board extension with tests.
 
 .. note:: See the changelog and readme files in the component repositories
    for a detailed description of changes.
@@ -160,6 +161,7 @@ Supported boards
 * PicoBoy Color (PBC) Mini-Handheld
 * PicoBoy Color Plus (PBC+) Mini-Handheld
 * PicoBoy Mini-Handheld
+* Raspberry Pi Pico 2 and Pico 2W
 * Raspberry Pi Pico and Pico W
 * ST Nucleo F2xxxx
 * ST Nucleo F3xxxx / L4xxxx
@@ -282,8 +284,11 @@ Documentation
 
 :brd:`NOT YET, tbd.`
 
-1. tbd.
-2. tbd.
+1. Use references to Zephyr upstream documentation that are explicitly marked
+   as external, e.g. ``:external+zephyr:ref:`` not ``:zephyr:ref:``.
+2. Use references to Zephyr upstream sample documentation that are explicitly
+   marked as external, e.g. ``:external+zephyr:zephyr:code-sample:`` not
+   ``:zephyr:code-sample:``.
 3. All list files for the required tool versions are now located in the
    :file:`doc/` folder and must also be used from there.
 4. Update all output messages in documentation to be in sync with the upcoming
@@ -294,6 +299,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`394` - [HW] Raspberry Pi Pico 2/2W
 * :github:`389` - [BUG] Fix RGB565 / BGR565 interchange issue in Zephyr display
 * :github:`385` - [FER] Migrate SPI DT macros to Zephyr v4.3
 * :github:`368` - [BUG] current nightly QA integration tests failing
