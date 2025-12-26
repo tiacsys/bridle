@@ -29,6 +29,49 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`led-strip`.
          :goals: flash
          :compact:
 
+   .. group-tab:: Raspberry Pi Pico 2
+
+      .. rubric:: On ARM Cortex-M33
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/led/led_strip
+         :build-dir: waveshare_pico_rgb_led-strip_test
+         :board: rpi_pico2/rp2350a/m33
+         :shield: "waveshare_pico_rgb_led"
+         :snippets: "usb-console"
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
+      .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/led/led_strip
+         :build-dir: waveshare_pico_rgb_led-strip_test
+         :board: rpi_pico2/rp2350a/hazard3
+         :shield: "waveshare_pico_rgb_led"
+         :snippets: "usb-console"
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
+   .. group-tab:: Raspberry Pi Pico 2W
+
+      .. rubric:: On ARM Cortex-M33
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/led/led_strip
+         :build-dir: waveshare_pico_rgb_led-strip_test
+         :board: rpi_pico2/rp2350a/m33/w
+         :shield: "waveshare_pico_rgb_led"
+         :snippets: "usb-console"
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
    .. group-tab:: Raspberry Pi Pico W
 
       .. zephyr-app-commands::
