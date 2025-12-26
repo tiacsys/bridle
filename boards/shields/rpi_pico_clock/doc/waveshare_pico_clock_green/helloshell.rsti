@@ -21,6 +21,53 @@ For example:
 
       .. include:: waveshare_pico_clock_green/helloshell_console.rsti
 
+   .. group-tab:: Raspberry Pi Pico 2
+
+      .. rubric:: On ARM Cortex-M33
+
+      .. zephyr-app-commands::
+         :app: bridle/samples/helloshell
+         :build-dir: waveshare_pico_clock_green-helloshell
+         :board: rpi_pico2/rp2350a/m33
+         :shield: "waveshare_pico_clock_green"
+         :snippets: "usb-console"
+         :goals: flash
+         :west-args: -p
+         :flash-args: -r uf2
+         :host-os: unix
+
+      .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+
+      .. zephyr-app-commands::
+         :app: bridle/samples/helloshell
+         :build-dir: waveshare_pico_clock_green-helloshell
+         :board: rpi_pico2/rp2350a/hazard3
+         :shield: "waveshare_pico_clock_green"
+         :snippets: "usb-console"
+         :goals: flash
+         :west-args: -p
+         :flash-args: -r uf2
+         :host-os: unix
+
+      .. include:: waveshare_pico_clock_green/helloshell_console.rsti
+
+   .. group-tab:: Raspberry Pi Pico 2W
+
+      .. rubric:: On ARM Cortex-M33
+
+      .. zephyr-app-commands::
+         :app: bridle/samples/helloshell
+         :build-dir: waveshare_pico_clock_green-helloshell
+         :board: rpi_pico2/rp2350a/m33/w
+         :shield: "waveshare_pico_clock_green"
+         :snippets: "usb-console wifi-ip"
+         :goals: flash
+         :west-args: -p
+         :flash-args: -r uf2
+         :host-os: unix
+
+      .. include:: waveshare_pico_clock_green/helloshell_console.rsti
+
    .. group-tab:: Raspberry Pi Pico W
 
       .. zephyr-app-commands::

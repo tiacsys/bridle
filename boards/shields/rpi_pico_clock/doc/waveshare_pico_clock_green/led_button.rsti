@@ -19,6 +19,49 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`blinky`.
          :flash-args: -r uf2
          :compact:
 
+   .. group-tab:: Raspberry Pi Pico 2
+
+      .. rubric:: On ARM Cortex-M33
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/basic/blinky
+         :build-dir: waveshare_pico_clock_green-blinky
+         :board: rpi_pico2/rp2350a/m33
+         :shield: "waveshare_pico_clock_green"
+         :snippets: "usb-console"
+         :goals: flash
+         :west-args: -p
+         :flash-args: -r uf2
+         :compact:
+
+      .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/basic/blinky
+         :build-dir: waveshare_pico_clock_green-blinky
+         :board: rpi_pico2/rp2350a/hazard3
+         :shield: "waveshare_pico_clock_green"
+         :snippets: "usb-console"
+         :goals: flash
+         :west-args: -p
+         :flash-args: -r uf2
+         :compact:
+
+   .. group-tab:: Raspberry Pi Pico 2W
+
+      .. rubric:: On ARM Cortex-M33
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/basic/blinky
+         :build-dir: waveshare_pico_clock_green-blinky
+         :board: rpi_pico2/rp2350a/m33/w
+         :shield: "waveshare_pico_clock_green"
+         :snippets: "usb-console"
+         :goals: flash
+         :west-args: -p
+         :flash-args: -r uf2
+         :compact:
+
    .. group-tab:: Raspberry Pi Pico W
 
       .. zephyr-app-commands::
@@ -76,6 +119,49 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`button`.
          :app: zephyr/samples/basic/button
          :build-dir: waveshare_pico_clock_green-button
          :board: rpi_pico
+         :shield: "waveshare_pico_clock_green"
+         :snippets: "usb-console"
+         :goals: flash
+         :west-args: -p
+         :flash-args: -r uf2
+         :compact:
+
+   .. group-tab:: Raspberry Pi Pico 2
+
+      .. rubric:: On ARM Cortex-M33
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/basic/button
+         :build-dir: waveshare_pico_clock_green-button
+         :board: rpi_pico2/rp2350a/m33
+         :shield: "waveshare_pico_clock_green"
+         :snippets: "usb-console"
+         :goals: flash
+         :west-args: -p
+         :flash-args: -r uf2
+         :compact:
+
+      .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/basic/button
+         :build-dir: waveshare_pico_clock_green-button
+         :board: rpi_pico2/rp2350a/hazard3
+         :shield: "waveshare_pico_clock_green"
+         :snippets: "usb-console"
+         :goals: flash
+         :west-args: -p
+         :flash-args: -r uf2
+         :compact:
+
+   .. group-tab:: Raspberry Pi Pico 2W
+
+      .. rubric:: On ARM Cortex-M33
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/basic/button
+         :build-dir: waveshare_pico_clock_green-button
+         :board: rpi_pico2/rp2350a/m33/w
          :shield: "waveshare_pico_clock_green"
          :snippets: "usb-console"
          :goals: flash
