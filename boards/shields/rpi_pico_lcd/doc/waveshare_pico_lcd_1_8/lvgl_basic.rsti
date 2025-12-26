@@ -21,6 +21,48 @@ Using the LVGL module on top of the :external+zephyr:ref:`Display driver API
          :goals: flash
          :compact:
 
+   .. group-tab:: Raspberry Pi Pico 2
+
+      .. rubric:: On ARM Cortex-M33
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/display/lvgl
+         :build-dir: waveshare_pico_lcd_1_8-lvgl_basic
+         :board: rpi_pico2/rp2350a/m33
+         :shield: "waveshare_pico_lcd_1_8"
+         :snippets: "usb-console"
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
+      .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/display/lvgl
+         :build-dir: waveshare_pico_lcd_1_8-lvgl_basic
+         :board: rpi_pico2/rp2350a/hazard3
+         :shield: "waveshare_pico_lcd_1_8"
+         :snippets: "usb-console"
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
+   .. group-tab:: Raspberry Pi Pico 2W
+
+      .. rubric:: On ARM Cortex-M33
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/display/lvgl
+         :build-dir: waveshare_pico_lcd_1_8-lvgl_basic
+         :board: rpi_pico2/rp2350a/m33/w
+         :shield: "waveshare_pico_lcd_1_8"
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
    .. group-tab:: Raspberry Pi Pico W
 
       .. zephyr-app-commands::

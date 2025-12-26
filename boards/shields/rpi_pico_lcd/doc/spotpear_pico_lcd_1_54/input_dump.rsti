@@ -31,6 +31,49 @@ the :external+zephyr:ref:`Input subsystem API <input>`. That are:
          :goals: flash
          :compact:
 
+   .. group-tab:: Raspberry Pi Pico 2
+
+      .. rubric:: On ARM Cortex-M33
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/input/input_dump
+         :build-dir: spotpear_pico_lcd_1_54-input_dump
+         :board: rpi_pico2/rp2350a/m33
+         :shield: "spotpear_pico_lcd_1_54"
+         :snippets: "usb-console"
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
+      .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/input/input_dump
+         :build-dir: spotpear_pico_lcd_1_54-input_dump
+         :board: rpi_pico2/rp2350a/hazard3
+         :shield: "spotpear_pico_lcd_1_54"
+         :snippets: "usb-console"
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
+   .. group-tab:: Raspberry Pi Pico 2W
+
+      .. rubric:: On ARM Cortex-M33
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/input/input_dump
+         :build-dir: spotpear_pico_lcd_1_54-input_dump
+         :board: rpi_pico2/rp2350a/m33/w
+         :shield: "spotpear_pico_lcd_1_54"
+         :snippets: "usb-console"
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
    .. group-tab:: Raspberry Pi Pico W
 
       .. zephyr-app-commands::

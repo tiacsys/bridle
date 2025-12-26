@@ -29,6 +29,49 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`fs`.
          :goals: flash
          :compact:
 
+   .. group-tab:: Raspberry Pi Pico 2
+
+      .. rubric:: On ARM Cortex-M33
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/fs/fs_sample
+         :build-dir: waveshare_pico_restouch_lcd_2_8-sdhc_fatfs_test
+         :board: rpi_pico2/rp2350a/m33
+         :shield: "waveshare_pico_restouch_lcd_2_8"
+         :snippets: "usb-console"
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
+      .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/fs/fs_sample
+         :build-dir: waveshare_pico_restouch_lcd_2_8-sdhc_fatfs_test
+         :board: rpi_pico2/rp2350a/hazard3
+         :shield: "waveshare_pico_restouch_lcd_2_8"
+         :snippets: "usb-console"
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
+   .. group-tab:: Raspberry Pi Pico 2W
+
+      .. rubric:: On ARM Cortex-M33
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/fs/fs_sample
+         :build-dir: waveshare_pico_restouch_lcd_2_8-sdhc_fatfs_test
+         :board: rpi_pico2/rp2350a/m33/w
+         :shield: "waveshare_pico_restouch_lcd_2_8"
+         :snippets: "usb-console"
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
    .. group-tab:: Raspberry Pi Pico W
 
       .. zephyr-app-commands::
@@ -171,12 +214,60 @@ to re-format to FAT FS and list will run again to show them, e.g.:
 
 .. tabs::
 
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+
    .. group-tab:: Raspberry Pi Pico
 
       .. zephyr-app-commands::
          :app: zephyr/samples/subsys/fs/fs_sample
          :build-dir: waveshare_pico_restouch_lcd_2_8-sdhc_fatfs_test
          :board: rpi_pico
+         :shield: "waveshare_pico_restouch_lcd_2_8"
+         :snippets: "usb-console"
+         :gen-args: -DCONFIG_FS_FATFS_MOUNT_MKFS=n
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
+   .. group-tab:: Raspberry Pi Pico 2
+
+      .. rubric:: On ARM Cortex-M33
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/fs/fs_sample
+         :build-dir: waveshare_pico_restouch_lcd_2_8-sdhc_fatfs_test
+         :board: rpi_pico2/rp2350a/m33
+         :shield: "waveshare_pico_restouch_lcd_2_8"
+         :snippets: "usb-console"
+         :gen-args: -DCONFIG_FS_FATFS_MOUNT_MKFS=n
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
+      .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/fs/fs_sample
+         :build-dir: waveshare_pico_restouch_lcd_2_8-sdhc_fatfs_test
+         :board: rpi_pico2/rp2350a/hazard3
+         :shield: "waveshare_pico_restouch_lcd_2_8"
+         :snippets: "usb-console"
+         :gen-args: -DCONFIG_FS_FATFS_MOUNT_MKFS=n
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
+   .. group-tab:: Raspberry Pi Pico 2W
+
+      .. rubric:: On ARM Cortex-M33
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/subsys/fs/fs_sample
+         :build-dir: waveshare_pico_restouch_lcd_2_8-sdhc_fatfs_test
+         :board: rpi_pico2/rp2350a/m33/w
          :shield: "waveshare_pico_restouch_lcd_2_8"
          :snippets: "usb-console"
          :gen-args: -DCONFIG_FS_FATFS_MOUNT_MKFS=n
@@ -228,3 +319,5 @@ to re-format to FAT FS and list will run again to show them, e.g.:
          :flash-args: -r uf2
          :goals: flash
          :compact:
+
+   .. zephyr-keep-sorted-stop
