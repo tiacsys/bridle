@@ -326,7 +326,7 @@ Input dump
 ==========
 
 Prints all input events as defined by the shields Devicetree. See also Zephyr
-sample: :zephyr:code-sample:`input-dump`.
+sample: :external+zephyr:zephyr:code-sample:`input-dump`.
 
 .. tabs::
 
@@ -397,7 +397,7 @@ LED color change
 ================
 
 Drives an RGB LED that must defined by the shields Devicetree. See also Zephyr
-sample: :zephyr:code-sample:`rgb-led`.
+sample: :external+zephyr:zephyr:code-sample:`rgb-led`.
 
 .. tabs::
 
@@ -493,7 +493,7 @@ LCD Orientation and Bit Order Test
 
 Draw some basic rectangles onto the display. The rectangle colors and positions
 are chosen so that you can check the orientation of the LCD and correct RGB bit
-order. See also Zephyr sample: :zephyr:code-sample:`display`.
+order. See also Zephyr sample: :external+zephyr:zephyr:code-sample:`display`.
 
 .. tabs::
 
@@ -562,7 +562,7 @@ Draw touch events on LCD
 
 Draw a small plus in the last touched coordinates. In this way, parameters such
 as inverted/swapped axes can be examined. See also Zephyr sample:
-:zephyr:code-sample:`draw_touch_events`.
+:external+zephyr:zephyr:code-sample:`draw_touch_events`.
 
 .. tabs::
 
@@ -658,7 +658,7 @@ LVGL Basic Sample
 
 Displays “Hello World!” in the center of the screen and a counter at the bottom
 which increments every second. See also Zephyr sample:
-:zephyr:code-sample:`lvgl`.
+:external+zephyr:zephyr:code-sample:`lvgl`.
 
 .. tabs::
 
