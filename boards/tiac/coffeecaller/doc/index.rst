@@ -386,8 +386,8 @@ Using UF2
 The UF2 file should be copied on command line or drag-and-dropped via UI file
 manager to this new mass storage device, which will flash the board.
 
-Here is an example for the :zephyr:code-sample:`hello_world` application.
-First, run your favorite terminal program to listen for output.
+Here is an example for the :external+zephyr:zephyr:code-sample:`hello_world`
+application. First, run your favorite terminal program to listen for output.
 Replace :code:`<tty_device>` with the port where the board can be found. For
 example, under Linux, :code:`/dev/ttyACM0`.
 
