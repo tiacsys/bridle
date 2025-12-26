@@ -50,6 +50,9 @@ common:
     - picoboy_color_plus/rp2350a/m33
     - rpi_pico
     - rpi_pico/rp2040/w
+    - rpi_pico2/rp2350a/hazard3
+    - rpi_pico2/rp2350a/m33
+    - rpi_pico2/rp2350a/m33/w
     - seeeduino_cm0
     - seeeduino_lotus
     - seeeduino_xiao
@@ -119,6 +122,9 @@ tests:
     # - mimxrt1060_evk@C/mimxrt1062/qspi
     # - rpi_pico
     # - rpi_pico/rp2040/w
+    # - rpi_pico2/rp2350a/hazard3
+    # - rpi_pico2/rp2350a/m33
+    # - rpi_pico2/rp2350a/m33/w
     #
     # That needs to resolve (why and vs. {'usbd'}) and thus it is not yet active.
     #
@@ -141,6 +147,9 @@ tests:
       - nucleo_f767zi
       - rpi_pico
       - rpi_pico/rp2040/w
+      - rpi_pico2/rp2350a/hazard3
+      - rpi_pico2/rp2350a/m33
+      - rpi_pico2/rp2350a/m33/w
       - seeeduino_xiao
       - xiao_samd21
   #
