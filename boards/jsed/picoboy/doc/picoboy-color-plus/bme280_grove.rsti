@@ -1,6 +1,6 @@
 .. rubric:: BME280 humidity and pressure sensor
 
-See also Zephyr sample: :zephyr:code-sample:`bme280`
+See also Zephyr sample: :external+zephyr:zephyr:code-sample:`bme280`.
 
 .. zephyr-app-commands::
    :app: zephyr/samples/sensor/bme280
