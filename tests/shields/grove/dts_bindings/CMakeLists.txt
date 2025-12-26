@@ -550,6 +550,7 @@ if(DEFINED if_path)
 
   # check board specific add-ons for rpi_pico
   if(CONFIG_BOARD_RPI_PICO OR
+     CONFIG_BOARD_RPI_PICO2 OR
      CONFIG_BOARD_WAVESHARE_RP2040_PICO)
 
     # zephyr-keep-sorted-start re(^\s+\w)
@@ -570,6 +571,7 @@ if(DEFINED if_path)
 
   # check common board specific add-ons
   if(CONFIG_BOARD_RPI_PICO OR
+     CONFIG_BOARD_RPI_PICO2 OR
      CONFIG_BOARD_WAVESHARE_RP2040_PICO)
 
     # zephyr-keep-sorted-start re(^\s+\w)
