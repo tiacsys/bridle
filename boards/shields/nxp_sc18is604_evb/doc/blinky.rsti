@@ -1,4 +1,4 @@
-See also Zephyr sample: :zephyr:code-sample:`blinky`.
+See also Zephyr sample: :external+zephyr:zephyr:code-sample:`blinky`.
 
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/blinky
