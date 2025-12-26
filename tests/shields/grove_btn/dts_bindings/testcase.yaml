@@ -46,6 +46,9 @@ common:
     - mini_usb_rp2350@16mb/rp2350a/m33
     - rpi_pico
     - rpi_pico/rp2040/w
+    - rpi_pico2/rp2350a/hazard3
+    - rpi_pico2/rp2350a/m33
+    - rpi_pico2/rp2350a/m33/w
     - seeeduino_cm0
     - seeeduino_lotus
     - seeeduino_xiao
@@ -893,6 +896,9 @@ tests:
     platform_allow:
       - rpi_pico
       - rpi_pico/rp2040/w
+      - rpi_pico2/rp2350a/hazard3
+      - rpi_pico2/rp2350a/m33
+      - rpi_pico2/rp2350a/m33/w
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
@@ -904,6 +910,9 @@ tests:
     platform_allow:
       - rpi_pico
       - rpi_pico/rp2040/w
+      - rpi_pico2/rp2350a/hazard3
+      - rpi_pico2/rp2350a/m33
+      - rpi_pico2/rp2350a/m33/w
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
@@ -915,6 +924,9 @@ tests:
     platform_allow:
       - rpi_pico
       - rpi_pico/rp2040/w
+      - rpi_pico2/rp2350a/hazard3
+      - rpi_pico2/rp2350a/m33
+      - rpi_pico2/rp2350a/m33/w
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
@@ -926,6 +938,9 @@ tests:
     platform_allow:
       - rpi_pico
       - rpi_pico/rp2040/w
+      - rpi_pico2/rp2350a/hazard3
+      - rpi_pico2/rp2350a/m33
+      - rpi_pico2/rp2350a/m33/w
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
@@ -937,6 +952,9 @@ tests:
     platform_allow:
       - rpi_pico
       - rpi_pico/rp2040/w
+      - rpi_pico2/rp2350a/hazard3
+      - rpi_pico2/rp2350a/m33
+      - rpi_pico2/rp2350a/m33/w
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
@@ -948,6 +966,9 @@ tests:
     platform_allow:
       - rpi_pico
       - rpi_pico/rp2040/w
+      - rpi_pico2/rp2350a/hazard3
+      - rpi_pico2/rp2350a/m33
+      - rpi_pico2/rp2350a/m33/w
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
@@ -959,6 +980,9 @@ tests:
     platform_allow:
       - rpi_pico
       - rpi_pico/rp2040/w
+      - rpi_pico2/rp2350a/hazard3
+      - rpi_pico2/rp2350a/m33
+      - rpi_pico2/rp2350a/m33/w
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
@@ -970,6 +994,9 @@ tests:
     platform_allow:
       - rpi_pico
       - rpi_pico/rp2040/w
+      - rpi_pico2/rp2350a/hazard3
+      - rpi_pico2/rp2350a/m33
+      - rpi_pico2/rp2350a/m33/w
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
@@ -981,6 +1008,9 @@ tests:
     platform_allow:
       - rpi_pico
       - rpi_pico/rp2040/w
+      - rpi_pico2/rp2350a/hazard3
+      - rpi_pico2/rp2350a/m33
+      - rpi_pico2/rp2350a/m33/w
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
@@ -992,6 +1022,9 @@ tests:
     platform_allow:
       - rpi_pico
       - rpi_pico/rp2040/w
+      - rpi_pico2/rp2350a/hazard3
+      - rpi_pico2/rp2350a/m33
+      - rpi_pico2/rp2350a/m33/w
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
@@ -1003,6 +1036,9 @@ tests:
     platform_allow:
       - rpi_pico
       - rpi_pico/rp2040/w
+      - rpi_pico2/rp2350a/hazard3
+      - rpi_pico2/rp2350a/m33
+      - rpi_pico2/rp2350a/m33/w
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
@@ -1014,6 +1050,9 @@ tests:
     platform_allow:
       - rpi_pico
       - rpi_pico/rp2040/w
+      - rpi_pico2/rp2350a/hazard3
+      - rpi_pico2/rp2350a/m33
+      - rpi_pico2/rp2350a/m33/w
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
