@@ -73,6 +73,8 @@
     - .*x_grove_testbed.*
   platforms:
     - nucleo_f746zg/stm32f746xx
+    - rpi_pico2/rp2350a/m33/mcuboot
+    - rpi_pico2/rp2350a/m33/w/mcuboot
     - waveshare_rp2040_one/rp2040
     - waveshare_rp2040_zero/rp2040
     - waveshare_rp2040_matrix/rp2040
@@ -160,6 +162,11 @@
   platforms:
     - rpi_pico/rp2040
     - rpi_pico/rp2040/w
+    - rpi_pico2/rp2350a/hazard3
+    - rpi_pico2/rp2350a/m33
+    - rpi_pico2/rp2350a/m33/mcuboot
+    - rpi_pico2/rp2350a/m33/w
+    - rpi_pico2/rp2350a/m33/w/mcuboot
     - waveshare_rp2040_lcd_0_96/rp2040
     - waveshare_rp2040_plus@4mb/rp2040
     - waveshare_rp2040_plus@16mb/rp2040
@@ -267,6 +274,11 @@
     - mini_usb_rp2350@16mb/rp2350a/m33
     - rpi_pico/rp2040
     - rpi_pico/rp2040/w
+    - rpi_pico2/rp2350a/hazard3
+    - rpi_pico2/rp2350a/m33
+    - rpi_pico2/rp2350a/m33/mcuboot
+    - rpi_pico2/rp2350a/m33/w
+    - rpi_pico2/rp2350a/m33/w/mcuboot
     - seeeduino_xiao/samd21g18a
     - xiao_samd21/samd21g18a
     - waveshare_rp2040_one/rp2040
@@ -309,6 +321,11 @@
     - nucleo_f767zi/stm32f767xx
     - rpi_pico/rp2040
     - rpi_pico/rp2040/w
+    - rpi_pico2/rp2350a/hazard3
+    - rpi_pico2/rp2350a/m33
+    - rpi_pico2/rp2350a/m33/mcuboot
+    - rpi_pico2/rp2350a/m33/w
+    - rpi_pico2/rp2350a/m33/w/mcuboot
     - seeeduino_cm0/samd21g18a
     - seeeduino_lotus/samd21g18a
     - waveshare_rp2040_one/rp2040
@@ -328,6 +345,8 @@
     - grove.rpipico.v1.pwms
     - grove.rpipico.v1.rpipico
   platforms:
+    - rpi_pico2/rp2350a/m33/mcuboot
+    - rpi_pico2/rp2350a/m33/w/mcuboot
     - waveshare_rp2040_one/rp2040
     - waveshare_rp2040_zero/rp2040
     - waveshare_rp2040_matrix/rp2040
@@ -381,6 +400,8 @@
   scenarios:
     - .*grove_btn.*
   platforms:
+    - rpi_pico2/rp2350a/m33/mcuboot
+    - rpi_pico2/rp2350a/m33/w/mcuboot
     - waveshare_rp2040_one/rp2040
     - waveshare_rp2040_zero/rp2040
     - waveshare_rp2040_matrix/rp2040
@@ -402,6 +423,11 @@
     - mini_usb_rp2350@16mb/rp2350a/m33
     - rpi_pico/rp2040
     - rpi_pico/rp2040/w
+    - rpi_pico2/rp2350a/hazard3
+    - rpi_pico2/rp2350a/m33
+    - rpi_pico2/rp2350a/m33/mcuboot
+    - rpi_pico2/rp2350a/m33/w
+    - rpi_pico2/rp2350a/m33/w/mcuboot
     - seeeduino_xiao/samd21g18a
     - xiao_samd21/samd21g18a
     - waveshare_rp2040_one/rp2040
@@ -442,6 +468,11 @@
     - nucleo_f767zi/stm32f767xx
     - rpi_pico/rp2040
     - rpi_pico/rp2040/w
+    - rpi_pico2/rp2350a/hazard3
+    - rpi_pico2/rp2350a/m33
+    - rpi_pico2/rp2350a/m33/mcuboot
+    - rpi_pico2/rp2350a/m33/w
+    - rpi_pico2/rp2350a/m33/w/mcuboot
     - seeeduino_cm0/samd21g18a
     - seeeduino_lotus/samd21g18a
     - waveshare_rp2040_one/rp2040
@@ -523,6 +554,11 @@
     - nucleo_f767zi/stm32f767xx
     - rpi_pico/rp2040
     - rpi_pico/rp2040/w
+    - rpi_pico2/rp2350a/hazard3
+    - rpi_pico2/rp2350a/m33
+    - rpi_pico2/rp2350a/m33/mcuboot
+    - rpi_pico2/rp2350a/m33/w
+    - rpi_pico2/rp2350a/m33/w/mcuboot
     - seeeduino_xiao/samd21g18a
     - xiao_samd21/samd21g18a
     - waveshare_rp2040_one/rp2040
@@ -819,6 +855,8 @@
   scenarios:
     - .*grove_led.*
   platforms:
+    - rpi_pico2/rp2350a/m33/mcuboot
+    - rpi_pico2/rp2350a/m33/w/mcuboot
     - waveshare_rp2040_one/rp2040
     - waveshare_rp2040_zero/rp2040
     - waveshare_rp2040_matrix/rp2040
@@ -840,6 +878,11 @@
     - mini_usb_rp2350@16mb/rp2350a/m33
     - rpi_pico/rp2040
     - rpi_pico/rp2040/w
+    - rpi_pico2/rp2350a/hazard3
+    - rpi_pico2/rp2350a/m33
+    - rpi_pico2/rp2350a/m33/mcuboot
+    - rpi_pico2/rp2350a/m33/w
+    - rpi_pico2/rp2350a/m33/w/mcuboot
     - seeeduino_xiao/samd21g18a
     - xiao_samd21/samd21g18a
     - waveshare_rp2040_one/rp2040
@@ -996,6 +1039,11 @@
     - nucleo_f767zi/stm32f767xx
     - rpi_pico/rp2040
     - rpi_pico/rp2040/w
+    - rpi_pico2/rp2350a/hazard3
+    - rpi_pico2/rp2350a/m33
+    - rpi_pico2/rp2350a/m33/mcuboot
+    - rpi_pico2/rp2350a/m33/w
+    - rpi_pico2/rp2350a/m33/w/mcuboot
     - seeeduino_cm0/samd21g18a
     - seeeduino_lotus/samd21g18a
     - waveshare_rp2040_one/rp2040
@@ -1080,6 +1128,11 @@
     - nucleo_f767zi/stm32f767xx
     - rpi_pico/rp2040
     - rpi_pico/rp2040/w
+    - rpi_pico2/rp2350a/hazard3
+    - rpi_pico2/rp2350a/m33
+    - rpi_pico2/rp2350a/m33/mcuboot
+    - rpi_pico2/rp2350a/m33/w
+    - rpi_pico2/rp2350a/m33/w/mcuboot
     - seeeduino_xiao/samd21g18a
     - xiao_samd21/samd21g18a
     - waveshare_rp2040_one/rp2040
