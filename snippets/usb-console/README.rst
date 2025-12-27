@@ -305,6 +305,17 @@ specified as required.
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
 
+   * - |waveshare_rp2350_can_URB_VID|
+     - |waveshare_rp2350_can_URB_PID_CON|
+     - | :code:`waveshare_rp2350_can/rp2350a/hazard3`
+       | :code:`waveshare_rp2350_can/rp2350a/m33`
+     - |Waveshare (Raspberry Pi)|_
+     - | |RP2350-CAN (CDC ACM)|,
+       | Raspberry Pi Pico SDK CDC UART
+     - `Raspberry Pi USB product ID list`_
+     - | |zephyr:devicetree:chosen:console|
+       | |zephyr:devicetree:chosen:shell-uart|
+
    * - |zephyr_URB_VID|
      - |zephyr_URB_PID_CON|
      -
