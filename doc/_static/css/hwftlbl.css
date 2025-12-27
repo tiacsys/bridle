@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2023-2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 .hwftlbl-vdd {
   color: var(--docset-color-rpi-vdd);
   border-color: var(--docset-color-rpi-vdd);

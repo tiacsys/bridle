@@ -1,4 +1,9 @@
 #
+# Copyright (c) 2021-2025 TiaC Systems
+# Copyright (c) 2021 Li-Pro.Net
+#
+# SPDX-License-Identifier: Apache-2.0
+#
 # Zephyr documentation build configuration file.
 #
 # DERIVE and OVERRIDE AS NEEDED from:
@@ -244,7 +249,7 @@ external_content_keep.clear()  # noqa: F821
 
 linkcheck_ignore = [
     # intersphinx links
-    r'(\.\.(\\|/))+(bridle|kconfig|devicetree)',
+    r'(\.\.(\\|/))+(bridle|kconfig|devicetree|cannectivity)',
     # redirecting and used in release notes
     'https://github.com/zephyrproject-rtos/zephyr',
     # link to access local documentation

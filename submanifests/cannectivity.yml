@@ -1,0 +1,71 @@
+# The west submanifest file for CANnectivity.
+#
+# Copyright (c) 2025 TiaC Systems
+#
+# SPDX-License-Identifier: Apache-2.0
+
+manifest:
+  version: "0.13"
+
+  # If not otherwise specified, the projects below should be obtained
+  # from the tiacsys remote.
+  defaults:
+    remote: tiacsys
+
+  # "remotes" is a list of locations where git repositories are cloned
+  # and fetched from.
+  remotes:
+    - name: tiacsys
+      url-base: https://github.com/tiacsys
+    - name: upstream
+      url-base: https://github.com/CANnectivity
+
+  # "projects" is a list of git repositories which make up the TIAC
+  # source code. Please add items below based on alphabetical order.
+  projects:
+
+    # The original CANnectivity project as application folder. Hold the
+    # revision in sync with the right Zephyr version:
+    #
+    #     CANnectivity    Zephyr RTOS
+    #     ============    ===========
+    #     main            main
+    #     v4.3-branch     v4.3-branch
+    #     v1.3.0          v4.3-branch
+    #     v4.2-branch     v4.2-branch
+    #     v1.2.1          v4.2-branch
+    #     v1.2.0          v4.2-branch
+    #     v4.1-branch     v4.1-branch
+    #     v1.1.0          v4.1-branch
+    #     v4.0-branch     v4.0-branch
+    #     v1.0.2          v4.0-branch
+    #     v1.0.1          v4.0-branch
+    #     v1.0.0          v4.0-branch
+    #
+    - name: cannectivity
+      path: cannectivity
+      remote: tiacsys
+      repo-path: cannectivity
+      revision: tiacsys/v1.3.0
+      clone-depth: 5000
+      # import submodules from CANnectivity manifest
+      import:
+        # In addition to the CANnectivity repository itself, TIAC also
+        # imports the contents of cannectivity/west.yml at the above
+        # revision. Only the projects explicitly named in the
+        # following allowlist are imported.
+        #
+        # Please keep this list sorted alphabetically.
+        # zephyr-keep-sorted-start re(^\s+\- \w)
+        name-allowlist:
+          []
+          # zephyr-keep-sorted-stop
+        #
+        # Zephyr as defined by CANnectivity will be blocked, TIAC has
+        # its own definition in the submanifests/zephyr.yml file.
+        #
+        # Please keep this list sorted alphabetically.
+        # zephyr-keep-sorted-start re(^\s+\- \w)
+        name-blocklist:
+          - zephyr
+          # zephyr-keep-sorted-stop

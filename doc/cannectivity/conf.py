@@ -1,23 +1,28 @@
 #
-# Copyright (c) 2021-2025 TiaC Systems
-# Copyright (c) 2021 Li-Pro.Net
+# Copyright (c) 2025 TiaC Systems
 #
 # SPDX-License-Identifier: Apache-2.0
 #
-# COPIED and CHANGED from:
-# https://github.com/zephyrproject-rtos/zephyr/raw/zephyr-v2.6.0/doc/conf.py
+# CANnectivity documentation build configuration file.
+#
+# DERIVE and OVERRIDE AS NEEDED from:
+# https://github.com/CANnectivity/cannectivity/raw/v1.3.0/doc/conf.py
 #
 # pylint: skip-file
 #
 
+import os
 import re
 import sys
 from pathlib import Path
 
 import sphinx
+from sphinx.cmd.build import get_parser
+from sphinx.config import eval_config_file
 
 # Paths ------------------------------------------------------------------------
 
+args = get_parser().parse_args()
 BRIDLE_BASE = Path(__file__).absolute().parents[2]
 
 # Add the '_extensions' directory to sys.path, to enable finding Bridle's
@@ -26,6 +31,9 @@ sys.path.insert(0, str(BRIDLE_BASE / 'doc' / '_utils'))
 import utils  # noqa: E402
 
 ZEPHYR_BASE = utils.get_projdir('zephyr')
+CANNECTIVITY_BASE = utils.get_projdir('cannectivity')
+CANNECTIVITY_WORKD = utils.get_builddir() / 'cannectivity'
+CANNECTIVITY_BUILD = Path(args.outputdir).resolve()
 
 # Add the '_extensions' directory to sys.path, to enable finding Bridle's
 # Sphinx extensions within.
@@ -35,14 +43,54 @@ sys.path.insert(0, str(BRIDLE_BASE / 'doc' / '_extensions'))
 # Sphinx extensions within.
 sys.path.insert(0, str(ZEPHYR_BASE / 'doc' / '_extensions'))
 
+# Import all CANnectivity configuration, override as needed later
+conf = eval_config_file(str(CANNECTIVITY_BASE / 'doc' / 'conf.py'), tags)  # noqa: F821
+locals().update(conf)
+
+# Export CANNECTIVITY_BASE as environment variable to make autodoc for the
+# pytest-twister-harness happy.
+os.environ['CANNECTIVITY_BASE'] = str(CANNECTIVITY_BASE)
+
+# pylint: disable=undefined-variable
+
 # Project ----------------------------------------------------------------------
 
 # General information about the project.
-project = utils.get_projname('devicetree')
-copyright = '2015-2025 Zephyr Project and TiaC Systems members and individual contributors'
-author = 'The Zephyr Project and TiaC Systems'
+project = utils.get_projname('cannectivity')
 
-# parse version from 'VERSION' file
+# parse CANnectivity version from 'app/VERSION' file
+with open(CANNECTIVITY_BASE / 'app' / 'VERSION') as f:
+    m = re.match(
+        (
+            r'(?:^[ \t]*(?:#.*)?\n)*'
+            r'^VERSION_MAJOR\s*=\s*(\d+)\n'
+            r'(?:^[ \t]*(?:#.*)?\n)*'
+            r'^VERSION_MINOR\s*=\s*(\d+)\n'
+            r'(?:^[ \t]*(?:#.*)?\n)*'
+            r'^PATCHLEVEL\s*=\s*(\d+)\n'
+            r'(?:^[ \t]*(?:#.*)?\n)*'
+            r'^VERSION_TWEAK\s*=\s*(\d+)\n'
+            r'(?:^[ \t]*(?:#.*)?\n)*'
+            r'^EXTRAVERSION\s*=\s*(.*)$'
+        ),
+        f.read(),
+        re.MULTILINE,
+    )
+
+    if not m:
+        sys.stderr.write('Warning: Could not extract CANnectivity version.\n')
+        version = longversion = 'Unknown'
+    else:
+        major, minor, patch, tweak, extra = m.groups(1)
+        release = version = ".".join((major, minor, patch))
+        shortversion = longversion = version
+        if tweak:
+            longversion += "." + tweak
+        if extra:
+            version += "-" + extra
+            release += "-" + extra
+
+# parse Bridle version from 'VERSION' file
 with open(BRIDLE_BASE / 'VERSION') as f:
     m = re.match(
         (
@@ -58,24 +106,25 @@ with open(BRIDLE_BASE / 'VERSION') as f:
 
     if not m:
         sys.stderr.write('Warning: Could not extract Bridle version.\n')
-        version = longversion = 'Unknown'
+        bridle_version = bridle_longversion = 'Unknown'
     else:
         major, minor, patch, tweak, extra = m.groups(1)
-        release = version = ".".join((major, minor, patch))
-        shortversion = longversion = version
+        bridle_release = bridle_version = bridle_longversion = ".".join((major, minor, patch))
         if tweak:
-            longversion += "." + tweak
+            bridle_longversion += "." + tweak
         if extra:
-            version += "-" + extra
-            release += "-" + extra
+            bridle_release += "-" + extra
 
 # Overview ---------------------------------------------------------------------
 
 logcfg = sphinx.util.logging.getLogger(__name__)
-logcfg.info(project + ' ' + release, color='yellow')
+logcfg.info(project + ' ' + release, color='yellow')  # noqa: F821
+logcfg.info(f'From Bridle {bridle_release} ({bridle_longversion})', color='green')
 logcfg.info('Build with tags: ' + ':'.join(map(str, tags)), color='red')  # noqa: F821
 logcfg.info(f'BRIDLE_BASE is: "{BRIDLE_BASE}"', color='green')
-logcfg.info(f'ZEPHYR_BASE is: "{ZEPHYR_BASE}"', color='green')
+logcfg.info(f'CANNECTIVITY_BASE is: "{CANNECTIVITY_BASE}"', color='green')
+logcfg.info(f'CANNECTIVITY_WORKD is: "{CANNECTIVITY_WORKD}"', color='yellow')
+logcfg.info(f'CANNECTIVITY_BUILD is: "{CANNECTIVITY_BUILD}"', color='yellow')  # noqa: F821
 
 # General ----------------------------------------------------------------------
 
@@ -84,28 +133,15 @@ needs_sphinx = '8.2'
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
-# ones.
-extensions = [
-    'sphinx.ext.intersphinx',
-    'sphinx.ext.todo',
-    'sphinx.ext.extlinks',
-    'sphinx.ext.ifconfig',
-    'sphinx_tabs.tabs',
-    'sphinx_copybutton',
-    'notfound.extension',
-    'zephyr.dtcompatible-role',
-    'zephyr.link-roles',
-    'zephyr.kconfig',
-    'zephyr.external_content',
-    'zephyr.domain',
-    'bridle.inventory_builder',
-    'bridle.warnings_filter',
-]
-
-# Only use SVG converter when it is really needed, e.g. LaTeX.
-# pylint: disable=undefined-variable
-if tags.has('svgconvert'):  # noqa: F821
-    extensions.append('sphinxcontrib.rsvgconverter')
+# ones. Extensions that interfere should also removed here.
+extensions.extend(  # noqa: F821
+    [
+        'sphinx.ext.intersphinx',
+        'zephyr.external_content',
+        'bridle.inventory_builder',
+        'bridle.warnings_filter',
+    ]
+)
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
@@ -115,7 +151,7 @@ source_suffix = '.rst'
 # The encoding of source files.
 source_encoding = 'utf-8-sig'
 
-# Sphinx 2.0 changes the default from 'index' to 'contents'
+# The master toctree document.
 master_doc = 'index'
 
 # The language for content autogenerated by Sphinx. Refer to documentation
@@ -136,27 +172,16 @@ todo_include_todos = False
 
 # The theme that the HTML output should use.
 html_theme = 'sphinx_tsn_theme'
-
-# The name for this set of Sphinx documents.  If None, it defaults to
-# "<project> v<release> documentation".
-html_title = project
-
-# The name of an image file (within the static path) to use as favicon of the
-# docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
-# pixels large.
-html_favicon = f'{BRIDLE_BASE}/doc/_static/images/bridle.ico'
+html_theme_path = []
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = [f'{BRIDLE_BASE}/doc/_static']
+html_static_path = [f'{BRIDLE_BASE}/doc/_static', f'{CANNECTIVITY_BASE}/doc/static']
 
 # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
 # using the given strftime format.
 html_last_updated_fmt = '%b %d, %Y'
-
-# If false, no module index is generated.
-html_domain_indices = False
 
 # If false, no index is generated.
 html_use_index = True
@@ -176,9 +201,12 @@ html_show_copyright = True
 # If true, license is shown in the HTML footer. Default is True.
 html_show_license = True
 
+# If given, this must be the name of an image file that is the logo of the
+# docs, or URL that points an image file for the logo.
+html_logo = None
+
 html_theme_options = {
-    'prev_next_buttons_location': None,
-    'docsets': utils.get_docsets('devicetree'),
+    'docsets': utils.get_docsets('cannectivity'),
     'default_docset': utils.get_default_docset(),
 }
 
@@ -190,18 +218,16 @@ zephyr_mapping = utils.get_intersphinx_mapping('zephyr')
 if zephyr_mapping:
     intersphinx_mapping['zephyr'] = zephyr_mapping
 
-bridle_mapping = utils.get_intersphinx_mapping('bridle')
-if bridle_mapping:
-    intersphinx_mapping['bridle'] = bridle_mapping
-
 # Options for zephyr.warnings_filter -------------------------------------------
 
-warnings_filter_config = str(BRIDLE_BASE / 'doc' / 'devicetree' / 'known-warnings.txt')
+warnings_filter_config = str(BRIDLE_BASE / 'doc' / 'cannectivity' / 'known-warnings.txt')
 warnings_filter_silent = True
 
 # -- Options for notfound.extension --------------------------------------------
 
-notfound_urls_prefix = '/doc/{}/devicetree/'.format('latest' if version.endswith('99') else version)
+notfound_urls_prefix = '/doc/{}/cannectivity/'.format(
+    'latest' if version.endswith('99') else version
+)
 
 # Options for zephyr.external_content ------------------------------------------
 
@@ -213,13 +239,29 @@ external_content_directives = (
     'literalinclude',
 )
 external_content_contents = [
-    (BRIDLE_BASE / 'doc' / 'devicetree', '[!_]*'),
+    (CANNECTIVITY_BASE / "doc", "[!_]*"),
+    # not yet: (CANNECTIVITY_BASE, 'tests/**/*.rst'),
 ]
-external_content_keep = [
-    'bindings.rst',
-    'bindings/**/*',
-    'compatibles/**/*',
+
+# Linkcheck options ------------------------------------------------------------
+
+linkcheck_ignore = [
+    # intersphinx links
+    r'(\.\.(\\|/))+(bridle|zephyr|kconfig|devicetree)',
+    # redirecting and used in release notes
+    'https://github.com/CANnectivity/cannectivity',
+    # link to access local documentation
+    'http://localhost:4711/latest/index.html',
+    'http://localhost:8000/latest/index.html',
+    'http://localhost:8080/latest/index.html',
 ]
+
+linkcheck_timeout = 30
+linkcheck_workers = 10
+linkcheck_anchors = True
+linkcheck_anchors_ignore = [r'page=']
+
+# pylint: enable=undefined-variable,used-before-assignment
 
 
 # This function will update the zephyr.warnings_filter setup in case of
@@ -229,7 +271,7 @@ def update_inventory_warnings_filter_config(app):
     if "warnings_filter_config" in app.config:
         # Update the warnings_filter_config value.
         app.config.warnings_filter_config = str(
-            BRIDLE_BASE / 'doc' / 'devicetree' / 'known-warnings-inventory.txt'
+            BRIDLE_BASE / 'doc' / 'cannectivity' / 'known-warnings-inventory.txt'
         )
 
 
@@ -244,4 +286,4 @@ def update_config(app):
 def setup(app):
     app.connect("builder-inited", update_config, 0)
     app.add_css_file('css/common.css')
-    app.add_css_file('css/devicetree.css')
+    app.add_css_file('css/cannectivity.css')
