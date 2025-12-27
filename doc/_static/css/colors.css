@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2021-2024 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 .red {
   color: var(--docset-color-theme-red);
 }
