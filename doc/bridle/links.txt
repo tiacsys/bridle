@@ -16,6 +16,15 @@
 
 
 
+.. ### Link to CANnectivity
+
+.. |CANnectivity Project| replace:: :strong:`CANnectivity`
+.. _`CANnectivity Project`: https://cannectivity.org/
+.. _`CANnectivity Project documentation`: https://cannectivity.org/
+.. _`CANnectivity GitHub organization`: https://github.com/CANnectivity
+
+
+
 .. ### Link to the ubxlib repositories
 
 .. |ubxlib_repo| replace:: https://github.com/u-blox/ubxlib

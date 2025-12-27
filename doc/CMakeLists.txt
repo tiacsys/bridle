@@ -524,6 +524,7 @@ add_dependencies(bridle-html-all
     devicetree-inventory
     kconfig-inventory
     zephyr-inventory
+    cannectivity-inventory
 )
 
 #-------------------------------------------------------------------------------
@@ -576,6 +577,7 @@ add_dependencies(zephyr-html-all
 
 add_dependencies(bridle-html-all
     zephyr-html-all
+    cannectivity-html-all
 )
 
 add_custom_target(build-all ALL)

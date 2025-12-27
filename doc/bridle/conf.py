@@ -344,6 +344,10 @@ devicetree_mapping = utils.get_intersphinx_mapping('devicetree')
 if devicetree_mapping:
     intersphinx_mapping['devicetree'] = devicetree_mapping
 
+cannectivity_mapping = utils.get_intersphinx_mapping('cannectivity')
+if cannectivity_mapping:
+    intersphinx_mapping['cannectivity'] = cannectivity_mapping
+
 # Options for zephyr.doxyrunner plugin -----------------------------------------
 
 doxyrunner_doxygen = os.environ.get('DOXYGEN_EXECUTABLE', 'doxygen')
@@ -472,7 +476,7 @@ linkcheck_ignore = [
     # any valid (local) ip number
     r'.*((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).*',
     # intersphinx links
-    r'(\.\.(\\|/))+(zephyr|kconfig|devicetree)',
+    r'(\.\.(\\|/))+(zephyr|kconfig|devicetree|cannectivity)',
     # redirecting and used in release notes
     'https://github.com/tiacsys/bridle',
     # used in introductional module revision table, but useless

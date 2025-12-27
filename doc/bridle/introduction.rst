@@ -211,3 +211,4 @@ that are included as part of |BRIDLE| |version| release:
    :maxdepth: 2
 
    zephyr
+   cannectivity

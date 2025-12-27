@@ -244,7 +244,7 @@ external_content_keep.clear()  # noqa: F821
 
 linkcheck_ignore = [
     # intersphinx links
-    r'(\.\.(\\|/))+(bridle|kconfig|devicetree)',
+    r'(\.\.(\\|/))+(bridle|kconfig|devicetree|cannectivity)',
     # redirecting and used in release notes
     'https://github.com/zephyrproject-rtos/zephyr',
     # link to access local documentation
