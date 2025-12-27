@@ -1,4 +1,9 @@
 #
+# Copyright (c) 2021-2025 TiaC Systems
+# Copyright (c) 2021 Li-Pro.Net
+#
+# SPDX-License-Identifier: Apache-2.0
+#
 # Kconfig reference build configuration file.
 #
 # COPIED and CHANGED from:

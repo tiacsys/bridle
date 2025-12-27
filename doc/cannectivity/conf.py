@@ -1,4 +1,8 @@
 #
+# Copyright (c) 2025 TiaC Systems
+#
+# SPDX-License-Identifier: Apache-2.0
+#
 # CANnectivity documentation build configuration file.
 #
 # DERIVE and OVERRIDE AS NEEDED from:
