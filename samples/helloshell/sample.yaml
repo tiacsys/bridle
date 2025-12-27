@@ -207,6 +207,8 @@ tests:
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
       - waveshare_rp2040_geek
+      - waveshare_rp2350_can/rp2350a/hazard3
+      - waveshare_rp2350_can/rp2350a/m33
   bridle.sample.helloshell.hwstartup.debug:
     build_only: true
     build_on_all: false
