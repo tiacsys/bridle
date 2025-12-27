@@ -23,6 +23,12 @@
 .. _`CANnectivity Project documentation`: https://cannectivity.org/
 .. _`CANnectivity GitHub organization`: https://github.com/CANnectivity
 
+.. |cannectivity_repo| replace:: https://github.com/CANnectivity/cannectivity
+.. _`cannectivity-core`: https://github.com/CANnectivity/cannectivity
+
+.. |tiac_cannectivity| replace:: https://github.com/tiacsys/cannectivity
+.. _`tiac-cannectivity`: https://github.com/tiacsys/cannectivity
+
 
 
 .. ### Link to the ubxlib repositories

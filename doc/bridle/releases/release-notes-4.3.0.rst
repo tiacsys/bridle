@@ -15,6 +15,7 @@ Highlights
 
 * Use the new USB stack, which can now also support high-speed devices.
 * Catch the Raspberry Pi Pico 2 board family as board extension with tests.
+* Provide CANnectivity support to build USB to CAN adapter firmware.
 
 .. note:: See the changelog and readme files in the component repositories
    for a detailed description of changes.
@@ -35,6 +36,12 @@ For more details, see: :ref:`repos_and_revs`.
      -
      - v4.3-branch
      - v4.3.0
+   * - | `tiac-cannectivity`_
+       | (`cannectivity-core`_)
+     - | *application*
+     - | tiacsys/v1.3.0
+       | (v1.3-branch)
+     - v1.3.0
    * - | `tiac-ubxlib`_
        | (`u-blox-ubxlib`_)
      - | *geographiclib*
@@ -300,6 +307,7 @@ Issue Related Items
 These GitHub issues were addressed since project bootstrapping:
 
 * :github:`394` - [HW] Raspberry Pi Pico 2/2W
+* :github:`393` - [FCR] Support CANnectivity application
 * :github:`389` - [BUG] Fix RGB565 / BGR565 interchange issue in Zephyr display
 * :github:`385` - [FER] Migrate SPI DT macros to Zephyr v4.3
 * :github:`368` - [BUG] current nightly QA integration tests failing
