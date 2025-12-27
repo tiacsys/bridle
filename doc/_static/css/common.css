@@ -5,6 +5,7 @@
   --docset-color-zephyr: #333f67;       /* Zephyr color code */
   --docset-color-kconfig: #e82424;      /* Kconfig color code */
   --docset-color-devicetree: #e5c100;   /* Devicetree color code */
+  --docset-color-cannectivity: #459066; /* CANnectivity color code */
   --docset-color-theme-red: #cd5c5c;    /* IndianRed */
   --docset-color-theme-green: #228b22;  /* ForestGreen */
   --docset-color-theme-blue: #4169e1;   /* RoyalBlue */
@@ -111,6 +112,18 @@ a > span.devicetree {
 
 .devicetree:not(.xref) {
     background-color: var(--docset-color-devicetree);
+}
+
+/* CANnectivity */
+a > span.cannectivity {
+    color: var(--docset-color-cannectivity);
+    background-color: var(--docset-color-theme-gray);
+    text-decoration: underline solid var(--docset-color-cannectivity);
+    font-style: oblique;
+}
+
+.cannectivity:not(.xref) {
+    background-color: var(--docset-color-cannectivity);
 }
 
 /* Doxygen */

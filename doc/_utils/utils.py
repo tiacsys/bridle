@@ -19,6 +19,7 @@ ALL_DOCSETS = {  # first entry is default docset
     "zephyr-api": ("Zephyr Project API", "zephyr/doxygen/html/index", None),
     "kconfig": ("Kconfig Reference", "kconfig/index", None),
     "devicetree": ("Devicetree Bindings", "devicetree/index", None),
+    "cannectivity": ("CANnectivity", "cannectivity/index", "cannectivity"),
 }
 """All supported docsets (name: title, home page, manifest project name)."""
 

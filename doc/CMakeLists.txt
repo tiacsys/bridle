@@ -451,6 +451,13 @@ add_docset(kconfig "")
 add_dependencies(kconfig-html-all zephyr-inventory)
 
 #-------------------------------------------------------------------------------
+# docset: cannectivity
+
+add_docset(cannectivity "")
+
+add_dependencies(cannectivity-html-all zephyr-inventory)
+
+#-------------------------------------------------------------------------------
 # docset: bridle
 
 # zephyr-keep-sorted-start
@@ -582,4 +589,5 @@ add_custom_target(linkcheck)
 add_dependencies(linkcheck
     bridle-linkcheck
     zephyr-linkcheck
+    cannectivity-linkcheck
 )

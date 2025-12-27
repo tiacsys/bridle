@@ -48,6 +48,7 @@
       <tab type="user" url="../../../zephyr/doxygen/html/index.html" title="Zephyr Project API"/>
       <tab type="user" url="../../../kconfig/index.html" title="Kconfig Reference"/>
       <tab type="user" url="../../../devicetree/index.html" title="Devicetree Bindings"/>
+      <tab type="user" url="../../../cannectivity/index.html" title="CANnectivity"/>
     </tab>
   </navindex>
 
