@@ -61,6 +61,8 @@ common:
     - waveshare_rp2040_lcd_0_96
     - waveshare_rp2040_plus
     - waveshare_rp2040_plus@16mb
+    - waveshare_rp2350_can/rp2350a/hazard3
+    - waveshare_rp2350_can/rp2350a/m33
 tests:
   grove.base.v2.x_grove_testbed.gpio.b4l6:
     depends_on: arduino_gpio
@@ -133,6 +135,8 @@ tests:
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
+      - waveshare_rp2350_can/rp2350a/hazard3
+      - waveshare_rp2350_can/rp2350a/m33
   grove.connectors.x_grove_testbed.pwm.b0l15:
     depends_on:
       - grove_gpio
