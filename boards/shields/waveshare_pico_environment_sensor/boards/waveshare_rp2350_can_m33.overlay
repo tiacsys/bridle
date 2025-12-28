@@ -1,0 +1,7 @@
+/*
+ * Copyright (c) 2025 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include "waveshare_rp2350-pinctrl.dtsi"
+#include "rpipico_r3.dtsi"

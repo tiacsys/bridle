@@ -1,0 +1,20 @@
+/*
+ * Copyright (c) 2025 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/pinctrl/rpi-pico-rp2350a-pinctrl.h>
+
+&i2c0_pico_default {
+	/delete-node/ group45_i2c;
+	group2021_i2c {
+		pinmux = <I2C0_SDA_P20>, <I2C0_SCL_P21>;
+		bias-pull-up;
+	};
+};
+
+&i2c1_pico_default {
+	group1415_i2c {
+		bias-pull-up;
+	};
+};
