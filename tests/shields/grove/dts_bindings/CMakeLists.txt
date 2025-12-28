@@ -551,7 +551,8 @@ if(DEFINED if_path)
   # check board specific add-ons for rpi_pico
   if(CONFIG_BOARD_RPI_PICO OR
      CONFIG_BOARD_RPI_PICO2 OR
-     CONFIG_BOARD_WAVESHARE_RP2040_PICO)
+     CONFIG_BOARD_WAVESHARE_RP2040_PICO OR
+     CONFIG_BOARD_WAVESHARE_RP2350_PICO)
 
     # zephyr-keep-sorted-start re(^\s+\w)
     test_if_label_on_path("grove_pwms" "${if_path}")
@@ -572,7 +573,8 @@ if(DEFINED if_path)
   # check common board specific add-ons
   if(CONFIG_BOARD_RPI_PICO OR
      CONFIG_BOARD_RPI_PICO2 OR
-     CONFIG_BOARD_WAVESHARE_RP2040_PICO)
+     CONFIG_BOARD_WAVESHARE_RP2040_PICO OR
+     CONFIG_BOARD_WAVESHARE_RP2350_PICO)
 
     # zephyr-keep-sorted-start re(^\s+\w)
     test_if_label_matching("grove_i2c" "rpipico_i2c")
