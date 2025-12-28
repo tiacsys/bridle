@@ -1,0 +1,150 @@
+# Copyright (c) 2025 TiaC Systems
+# Copyright (c) 2024 Henrik Brix Andersen <henrik@brixandersen.dk>
+# SPDX-License-Identifier: Apache-2.0
+
+sample:
+  description: CANnectivity USB-to-CAN adapter firmware
+  name: cannectivity
+common:
+  tags:
+    - cannectivity
+    - can
+    - usb
+  harness: console
+  harness_config:
+    type: one_line
+    regex:
+      - "CANnectivity firmware initialized with .*"
+tests:
+  app.cannectivity:
+    tags:
+      - bridle
+    depends_on:
+      - can
+      - usb_device
+    integration_platforms:
+      - waveshare_rp2350_can/rp2350a/hazard3
+      - waveshare_rp2350_can/rp2350a/m33
+    platform_allow:
+      - canbardo
+      - candlelight
+      - candlelightfd
+      - candlelightfd/stm32g0b1xx/dual
+      - frdm_k64f
+      - lpcxpresso55s16
+      - mks_canable_v20
+      - nucleo_h723zg
+      - ucan
+      - usb2canfdv1
+      - waveshare_rp2350_can/rp2350a/hazard3
+      - waveshare_rp2350_can/rp2350a/m33
+  app.cannectivity.sof:
+    depends_on:
+      - can
+      - usb_device
+    integration_platforms:
+      - nucleo_h723zg
+    extra_configs:
+      - CONFIG_USB_DEVICE_GS_USB_TIMESTAMP_SOF=y
+  app.cannectivity.release:
+    tags:
+      - bridle
+    depends_on:
+      - can
+      - usb_device
+    extra_args:
+      - FILE_SUFFIX=release
+    integration_platforms:
+      - waveshare_rp2350_can/rp2350a/hazard3
+      - waveshare_rp2350_can/rp2350a/m33
+    platform_allow:
+      - canbardo
+      - candlelight
+      - candlelightfd
+      - candlelightfd/stm32g0b1xx/dual
+      - frdm_k64f
+      - lpcxpresso55s16
+      - mks_canable_v20
+      - nucleo_h723zg
+      - ucan
+      - usb2canfdv1
+      - waveshare_rp2350_can/rp2350a/hazard3
+      - waveshare_rp2350_can/rp2350a/m33
+    build_only: true
+  app.cannectivity.usbd_next:
+    tags:
+      - bridle
+    depends_on:
+      - can
+      - usbd
+    extra_args:
+      - FILE_SUFFIX=usbd_next
+    integration_platforms:
+      - waveshare_rp2350_can/rp2350a/hazard3
+      - waveshare_rp2350_can/rp2350a/m33
+    platform_allow:
+      - candlelightfd
+      - candlelightfd/stm32g0b1xx/dual
+      - frdm_k64f
+      - lpcxpresso55s16
+      - nucleo_h723zg
+      - usb2canfdv1
+      - waveshare_rp2350_can/rp2350a/hazard3
+      - waveshare_rp2350_can/rp2350a/m33
+  app.cannectivity.usbd_next.sof:
+    depends_on:
+      - can
+      - usbd
+    extra_args:
+      - FILE_SUFFIX=usbd_next
+    integration_platforms:
+      - lpcxpresso55s16
+      - nucleo_h723zg
+    extra_configs:
+      - CONFIG_USBD_GS_USB_TIMESTAMP_SOF=y
+  app.cannectivity.usbd_next.release:
+    tags:
+      - bridle
+    depends_on:
+      - can
+      - usbd
+    extra_args:
+      - FILE_SUFFIX=usbd_next_release
+    integration_platforms:
+      - waveshare_rp2350_can/rp2350a/hazard3
+      - waveshare_rp2350_can/rp2350a/m33
+    platform_allow:
+      - candlelight
+      - candlelightfd
+      - candlelightfd/stm32g0b1xx/dual
+      - frdm_k64f
+      - lpcxpresso55s16
+      - mks_canable_v20
+      - nucleo_h723zg
+      - ucan
+      - usb2canfdv1
+      - waveshare_rp2350_can/rp2350a/hazard3
+      - waveshare_rp2350_can/rp2350a/m33
+    build_only: true
+  app.cannectivity.dfu:
+    sysbuild: true
+    depends_on:
+      - can
+      - usb_device
+    platform_allow:
+      - frdm_k64f
+      - lpcxpresso55s16
+      - canbardo
+    extra_args:
+      - SB_CONF_FILE=sysbuild-dfu.conf
+  app.cannectivity.usbd_next.dfu:
+    sysbuild: true
+    depends_on:
+      - can
+      - usbd
+    platform_allow:
+      - frdm_k64f
+      - lpcxpresso55s16
+    extra_args:
+      - FILE_SUFFIX=usbd_next_release
+      - SB_CONF_FILE=sysbuild-dfu.conf
