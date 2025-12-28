@@ -855,6 +855,22 @@ not be complete.
 
             .. include:: grove_pwms-rpi_pico.rsti
 
+         .. group-tab:: ``waveshare_rp2350_can``
+
+            This is based on the Bridle board |RP2350-CAN|
+            and its :dtcompatible:`raspberrypi,pico-header-r3`.
+
+            .. note::
+
+               This board basically provides all channels from nearly all PWMs to
+               the outside. However, the SoC's ability to route channels to multiple
+               pads may result in channels being connected in parallel. The second
+               table below shows the possibilities which channels can really
+               be used independently at the associated signals of the
+               |Laced Grove Signal Interface|.
+
+            .. include:: grove_pwms-rpi_pico.rsti
+
 .. |pwm| replace:: :code:`<&pwm …>`
 .. |CHA| replace:: :s:`CHA`
 .. |CHB| replace:: :s:`CHB`
