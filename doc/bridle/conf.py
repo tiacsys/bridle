@@ -31,6 +31,7 @@ BRIDLE_BUILD = Path(args.outputdir).resolve()
 sys.path.insert(0, str(BRIDLE_BASE / 'doc' / '_utils'))
 import utils  # noqa: E402
 
+CANNECTIVITY_BASE = utils.get_projdir('cannectivity')
 ZEPHYR_BASE = utils.get_projdir('zephyr')
 BRIDLE_WORKD = utils.get_builddir() / 'bridle'
 
@@ -104,12 +105,47 @@ with open(ZEPHYR_BASE / 'VERSION') as f:
             zephyr_version += "-" + extra
             zephyr_release += "-" + extra
 
+# parse CANnectivity version from 'app/VERSION' file
+with open(CANNECTIVITY_BASE / 'app' / 'VERSION') as f:
+    m = re.match(
+        (
+            r'(?:^[ \t]*(?:#.*)?\n)*'
+            r'^VERSION_MAJOR\s*=\s*(\d+)\n'
+            r'(?:^[ \t]*(?:#.*)?\n)*'
+            r'^VERSION_MINOR\s*=\s*(\d+)\n'
+            r'(?:^[ \t]*(?:#.*)?\n)*'
+            r'^PATCHLEVEL\s*=\s*(\d+)\n'
+            r'(?:^[ \t]*(?:#.*)?\n)*'
+            r'^VERSION_TWEAK\s*=\s*(\d+)\n'
+            r'(?:^[ \t]*(?:#.*)?\n)*'
+            r'^EXTRAVERSION\s*=\s*(.*)$'
+        ),
+        f.read(),
+        re.MULTILINE,
+    )
+
+    if not m:
+        sys.stderr.write('Warning: Could not extract CANnectivity version.\n')
+        cannectivity_version = cannectivity_longversion = 'Unknown'
+    else:
+        major, minor, patch, tweak, extra = m.groups(1)
+        cannectivity_release = cannectivity_version = ".".join((major, minor, patch))
+        cannectivity_shortversion = cannectivity_longversion = version
+        cannectivity_urb_bcddevice = f'{int(major):d}.{int(minor):02d}'
+        if tweak:
+            cannectivity_longversion += "." + tweak
+        if extra:
+            cannectivity_version += "-" + extra
+            cannectivity_release += "-" + extra
+
 # Overview ---------------------------------------------------------------------
 
 logcfg = sphinx.util.logging.getLogger(__name__)
 logcfg.info(project + ' ' + version + ' (' + longversion + ')', color='yellow')
 logcfg.info(f'With Zephyr {zephyr_version} ({zephyr_longversion})', color='green')
 logcfg.info(f'With URB bcdDevice "{zephyr_urb_bcddevice}"', color='green')
+logcfg.info(f'With CANnectivity {cannectivity_version} ({cannectivity_longversion})', color='green')
+logcfg.info(f'With URB bcdDevice "{cannectivity_urb_bcddevice}"', color='green')
 logcfg.info('Build with tags: ' + ':'.join(map(str, tags)), color='red')  # noqa: F821
 logcfg.info(f'BRIDLE_BASE is: "{BRIDLE_BASE}"', color='green')
 logcfg.info(f'BRIDLE_WORKD is: "{BRIDLE_WORKD}"', color='yellow')
@@ -248,6 +284,31 @@ rst_epilog = f'''
 .. |zephyr_longversion_number_tt| replace:: ``{zephyr_longversion}``
 .. |zephyr_longversion_number_em| replace:: *{zephyr_longversion}*
 .. |zephyr_version_BCD| replace:: |nbsp| :bbl:`{zephyr_urb_bcddevice}`
+.. |cannectivity_release| replace:: v{cannectivity_release}
+.. |cannectivity_release_tt| replace:: ``v{cannectivity_release}``
+.. |cannectivity_release_em| replace:: *v{cannectivity_release}*
+.. |cannectivity_release_number| replace:: {cannectivity_release}
+.. |cannectivity_release_number_tt| replace:: ``{cannectivity_release}``
+.. |cannectivity_release_number_em| replace:: *{cannectivity_release}*
+.. |cannectivity_version| replace:: v{cannectivity_version}
+.. |cannectivity_version_tt| replace:: ``v{cannectivity_version}``
+.. |cannectivity_version_em| replace:: *v{cannectivity_version}*
+.. |cannectivity_version_number| replace:: {cannectivity_version}
+.. |cannectivity_version_number_tt| replace:: ``{cannectivity_version}``
+.. |cannectivity_version_number_em| replace:: *{cannectivity_version}*
+.. |cannectivity_shortversion| replace:: v{cannectivity_shortversion}
+.. |cannectivity_shortversion_tt| replace:: ``v{cannectivity_shortversion}``
+.. |cannectivity_shortversion_em| replace:: *v{cannectivity_shortversion}*
+.. |cannectivity_shortversion_number| replace:: {cannectivity_shortversion}
+.. |cannectivity_shortversion_number_tt| replace:: ``{cannectivity_shortversion}``
+.. |cannectivity_shortversion_number_em| replace:: *{cannectivity_shortversion}*
+.. |cannectivity_longversion| replace:: v{cannectivity_longversion}
+.. |cannectivity_longversion_tt| replace:: ``v{cannectivity_longversion}``
+.. |cannectivity_longversion_em| replace:: *v{cannectivity_longversion}*
+.. |cannectivity_longversion_number| replace:: {cannectivity_longversion}
+.. |cannectivity_longversion_number_tt| replace:: ``{cannectivity_longversion}``
+.. |cannectivity_longversion_number_em| replace:: *{cannectivity_longversion}*
+.. |cannectivity_version_BCD| replace:: |nbsp| :bbl:`{cannectivity_urb_bcddevice}`
 '''
 
 # Options for HTML output ------------------------------------------------------
