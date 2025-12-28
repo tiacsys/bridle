@@ -27,3 +27,5 @@ tests:
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
+      - waveshare_rp2350_can/rp2350a/hazard3
+      - waveshare_rp2350_can/rp2350a/m33
