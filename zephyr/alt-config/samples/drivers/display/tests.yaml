@@ -16,12 +16,14 @@ common:
       - "Display sample for (.*)"
 tests:
   #
-  # boards with display
+  # boards with display or LED matrix (LED strip)
   #
   sample.drivers.display:
     integration_platforms:
       - waveshare_rp2040_geek
       - waveshare_rp2040_lcd_0_96
+      - waveshare_rp2350_matrix/rp2350a/hazard3
+      - waveshare_rp2350_matrix/rp2350a/m33
   #
   # shield: GeeekPi Pico Breadboard Kit (EP-0164)
   #

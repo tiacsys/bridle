@@ -28,6 +28,8 @@ tests:
       - waveshare_rp2040_one
       - waveshare_rp2040_tiny
       - waveshare_rp2040_zero
+      - waveshare_rp2350_matrix/rp2350a/hazard3
+      - waveshare_rp2350_matrix/rp2350a/m33
   #
   # shield: GeeekPi Pico Breadboard Kit Plus (EP-0172)
   #
