@@ -61,6 +61,8 @@ common:
     - waveshare_rp2040_lcd_0_96
     - waveshare_rp2040_plus
     - waveshare_rp2040_plus@16mb
+    - waveshare_rp2350_can/rp2350a/hazard3
+    - waveshare_rp2350_can/rp2350a/m33
 tests:
   #
   # Grove LED by simple GPIO on Grove Base Shield
@@ -1110,6 +1112,8 @@ tests:
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
+      - waveshare_rp2350_can/rp2350a/hazard3
+      - waveshare_rp2350_can/rp2350a/m33
   grove.rpipico.v1.grove_led.gpio.d17:
     depends_on: pico_gpio
     filter: dt_nodelabel_enabled("grove_d16_header") and
@@ -1124,6 +1128,8 @@ tests:
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
+      - waveshare_rp2350_can/rp2350a/hazard3
+      - waveshare_rp2350_can/rp2350a/m33
   grove.rpipico.v1.grove_led.gpio.d18:
     depends_on: pico_gpio
     filter: dt_nodelabel_enabled("grove_d18_header") and
@@ -1138,6 +1144,8 @@ tests:
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
+      - waveshare_rp2350_can/rp2350a/hazard3
+      - waveshare_rp2350_can/rp2350a/m33
   grove.rpipico.v1.grove_led.gpio.d19:
     depends_on: pico_gpio
     filter: dt_nodelabel_enabled("grove_d18_header") and
@@ -1152,6 +1160,8 @@ tests:
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
+      - waveshare_rp2350_can/rp2350a/hazard3
+      - waveshare_rp2350_can/rp2350a/m33
   grove.rpipico.v1.grove_led.gpio.d20:
     depends_on: pico_gpio
     filter: dt_nodelabel_enabled("grove_d20_header") and
@@ -1166,6 +1176,8 @@ tests:
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
+      - waveshare_rp2350_can/rp2350a/hazard3
+      - waveshare_rp2350_can/rp2350a/m33
   grove.rpipico.v1.grove_led.gpio.d21:
     depends_on: pico_gpio
     filter: dt_nodelabel_enabled("grove_d20_header") and
@@ -1180,6 +1192,8 @@ tests:
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
+      - waveshare_rp2350_can/rp2350a/hazard3
+      - waveshare_rp2350_can/rp2350a/m33
   # grove.rpipico.v1.grove_led.gpio.d22
   # grove.rpipico.v1.grove_led.gpio.d23
   # grove.rpipico.v1.grove_led.gpio.d24
@@ -1308,6 +1322,8 @@ tests:
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
+      - waveshare_rp2350_can/rp2350a/hazard3
+      - waveshare_rp2350_can/rp2350a/m33
   grove.rpipico.v1.grove_led.pwm.d17:
     depends_on: pico_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d17") and
@@ -1323,6 +1339,8 @@ tests:
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
+      - waveshare_rp2350_can/rp2350a/hazard3
+      - waveshare_rp2350_can/rp2350a/m33
   grove.rpipico.v1.grove_led.pwm.d18:
     depends_on: pico_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d18") and
@@ -1338,6 +1356,8 @@ tests:
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
+      - waveshare_rp2350_can/rp2350a/hazard3
+      - waveshare_rp2350_can/rp2350a/m33
   grove.rpipico.v1.grove_led.pwm.d19:
     depends_on: pico_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d19") and
@@ -1353,6 +1373,8 @@ tests:
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
+      - waveshare_rp2350_can/rp2350a/hazard3
+      - waveshare_rp2350_can/rp2350a/m33
   grove.rpipico.v1.grove_led.pwm.d20:
     depends_on: pico_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d20") and
@@ -1368,6 +1390,8 @@ tests:
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
+      - waveshare_rp2350_can/rp2350a/hazard3
+      - waveshare_rp2350_can/rp2350a/m33
   grove.rpipico.v1.grove_led.pwm.d21:
     depends_on: pico_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d21") and
@@ -1383,6 +1407,8 @@ tests:
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
+      - waveshare_rp2350_can/rp2350a/hazard3
+      - waveshare_rp2350_can/rp2350a/m33
   # grove.rpipico.v1.grove_led.pwm.d22
   # grove.rpipico.v1.grove_led.pwm.d23
   # grove.rpipico.v1.grove_led.pwm.d24
