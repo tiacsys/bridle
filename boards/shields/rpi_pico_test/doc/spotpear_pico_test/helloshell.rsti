@@ -128,4 +128,34 @@ For example:
 
       .. include:: spotpear_pico_test/helloshell_console.rsti
 
+   .. group-tab:: Waveshare RP2350-CAN
+
+      .. rubric:: On ARM Cortex-M33
+
+      .. zephyr-app-commands::
+         :app: bridle/samples/helloshell
+         :build-dir: spotpear_pico_test-helloshell
+         :board: waveshare_rp2350_can/rp2350a/m33
+         :shield: "spotpear_pico_test"
+         :snippets: "usb-console"
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :host-os: unix
+
+      .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+
+      .. zephyr-app-commands::
+         :app: bridle/samples/helloshell
+         :build-dir: spotpear_pico_test-helloshell
+         :board: waveshare_rp2350_can/rp2350a/hazard3
+         :shield: "spotpear_pico_test"
+         :snippets: "usb-console"
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :host-os: unix
+
+      .. include:: spotpear_pico_test/helloshell_console.rsti
+
    .. zephyr-keep-sorted-stop

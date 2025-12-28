@@ -118,6 +118,34 @@ high-resistance potentiometer using the
          :goals: flash
          :compact:
 
+   .. group-tab:: Waveshare RP2350-CAN
+
+      .. rubric:: On ARM Cortex-M33
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/adc/adc_dt
+         :build-dir: spotpear_pico_test-drivers_adc
+         :board: waveshare_rp2350_can/rp2350a/m33
+         :shield: "spotpear_pico_test"
+         :snippets: "usb-console"
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
+      .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/adc/adc_dt
+         :build-dir: spotpear_pico_test-drivers_adc
+         :board: waveshare_rp2350_can/rp2350a/hazard3
+         :shield: "spotpear_pico_test"
+         :snippets: "usb-console"
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
    .. zephyr-keep-sorted-stop
 
 .. rubric:: Simple test execution on target
