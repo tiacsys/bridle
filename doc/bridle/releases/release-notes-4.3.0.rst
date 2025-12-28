@@ -16,6 +16,7 @@ Highlights
 * Use the new USB stack, which can now also support high-speed devices.
 * Catch the Raspberry Pi Pico 2 board family as board extension with tests.
 * Provide CANnectivity support to build USB to CAN adapter firmware.
+* Add the Waveshare RP2350-CAN board and use CANnectivity on it.
 
 .. note:: See the changelog and readme files in the component repositories
    for a detailed description of changes.
@@ -181,6 +182,7 @@ Supported boards
 * TiaC Magpie F777NI (former TiaC Magpie STM32F777NIHx)
 * VccGND Studio BluePill boards and derivates
 * Waveshare RP2040 (series of mini and pico sized boards)
+* Waveshare RP2350 (currently only the pico sized CAN version)
 * WeAct Studio BluePill+ boards and derivates
 * XIAO SAMD21 (former Seeed Studio XIAO SAMD21), also known as Seeeduino XIAO
 
@@ -291,14 +293,16 @@ Documentation
 
 :brd:`NOT YET, tbd.`
 
-1. Use references to Zephyr upstream documentation that are explicitly marked
+1. In addition to *Bridle* and *Zephyr*, the **new** HTML documentation for
+   *CANnectivity* is now also available.
+2. Use references to Zephyr upstream documentation that are explicitly marked
    as external, e.g. ``:external+zephyr:ref:`` not ``:zephyr:ref:``.
-2. Use references to Zephyr upstream sample documentation that are explicitly
+3. Use references to Zephyr upstream sample documentation that are explicitly
    marked as external, e.g. ``:external+zephyr:zephyr:code-sample:`` not
    ``:zephyr:code-sample:``.
-3. All list files for the required tool versions are now located in the
+4. All list files for the required tool versions are now located in the
    :file:`doc/` folder and must also be used from there.
-4. Update all output messages in documentation to be in sync with the upcoming
+5. Update all output messages in documentation to be in sync with the upcoming
    Bridle version v4.3.0, based on Zephyr v4.3 (samples and tests).
 
 Issue Related Items
@@ -308,6 +312,7 @@ These GitHub issues were addressed since project bootstrapping:
 
 * :github:`394` - [HW] Raspberry Pi Pico 2/2W
 * :github:`393` - [FCR] Support CANnectivity application
+* :github:`392` - [HW] Waveshare RP2350-CAN
 * :github:`389` - [BUG] Fix RGB565 / BGR565 interchange issue in Zephyr display
 * :github:`385` - [FER] Migrate SPI DT macros to Zephyr v4.3
 * :github:`368` - [BUG] current nightly QA integration tests failing
