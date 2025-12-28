@@ -387,6 +387,34 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
 
             .. include:: helloshell-r2.rsti
 
+         .. group-tab:: Waveshare RP2350-CAN
+
+            .. rubric:: On ARM Cortex-M33
+
+            .. zephyr-app-commands::
+               :app: bridle/samples/helloshell
+               :build-dir: waveshare_pico_10dof_imu_sensor-helloshell
+               :board: waveshare_rp2350_can/rp2350a/m33
+               :shield: "waveshare_pico_10dof_imu_sensor_r2"
+               :snippets: "usb-console"
+               :goals: flash
+               :west-args: -p
+               :flash-args: -r uf2
+
+            .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+
+            .. zephyr-app-commands::
+               :app: bridle/samples/helloshell
+               :build-dir: waveshare_pico_10dof_imu_sensor-helloshell
+               :board: waveshare_rp2350_can/rp2350a/hazard3
+               :shield: "waveshare_pico_10dof_imu_sensor_r2"
+               :snippets: "usb-console"
+               :goals: flash
+               :west-args: -p
+               :flash-args: -r uf2
+
+            .. include:: helloshell-r2.rsti
+
          .. zephyr-keep-sorted-stop
 
       .. rubric:: Startup logging output on target
@@ -511,6 +539,34 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
                :app: bridle/samples/helloshell
                :build-dir: waveshare_pico_10dof_imu_sensor-helloshell
                :board: waveshare_rp2040_plus@16mb
+               :shield: "waveshare_pico_10dof_imu_sensor_r1"
+               :snippets: "usb-console"
+               :goals: flash
+               :west-args: -p
+               :flash-args: -r uf2
+
+            .. include:: helloshell-r1.rsti
+
+         .. group-tab:: Waveshare RP2350-CAN
+
+            .. rubric:: On ARM Cortex-M33
+
+            .. zephyr-app-commands::
+               :app: bridle/samples/helloshell
+               :build-dir: waveshare_pico_10dof_imu_sensor-helloshell
+               :board: waveshare_rp2350_can/rp2350a/m33
+               :shield: "waveshare_pico_10dof_imu_sensor_r1"
+               :snippets: "usb-console"
+               :goals: flash
+               :west-args: -p
+               :flash-args: -r uf2
+
+            .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+
+            .. zephyr-app-commands::
+               :app: bridle/samples/helloshell
+               :build-dir: waveshare_pico_10dof_imu_sensor-helloshell
+               :board: waveshare_rp2350_can/rp2350a/hazard3
                :shield: "waveshare_pico_10dof_imu_sensor_r1"
                :snippets: "usb-console"
                :goals: flash
