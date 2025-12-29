@@ -550,20 +550,6 @@ jobs:
           HARDWARE_MAP: bridle/.github/${{ github.job }}/map-${{ matrix.board }}.yml
         run: |
           #
-          # TODO/FIXME: DISABLE AS LONG AS OUR SELF HOSTED GITHUB RUNNER
-          # SPENDING MORE THEN TWO (2) HOURS FOR ALL TEST SUITES !!!!!!!
-          #
-          # --tag bridle \
-          # --tag hwinfo \
-          # --tag random \
-          # --tag entropy \
-          # --tag watchdog \
-          # --tag counter \
-          # --tag gpio \
-          # --tag spi \
-          # --tag uart \
-          # --tag can
-          #
           # Disabled in the meantime because the execution time is still
           # too high and most of the core tests are already performed by
           # Zephyr in any case:
@@ -582,7 +568,14 @@ jobs:
             --testsuite-root zephyr/tests \
             --tag bridle \
             --tag hwinfo \
-            --tag gpio
+            --tag random \
+            --tag entropy \
+            --tag watchdog \
+            --tag counter \
+            --tag gpio \
+            --tag spi \
+            --tag uart \
+            --tag can
 
       - name: Upload integration test logging
         uses: actions/upload-artifact@v5
