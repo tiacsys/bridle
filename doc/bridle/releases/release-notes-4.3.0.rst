@@ -287,6 +287,9 @@ Build Infrastructure
 * When setting up a workspace, you should no longer use the requirements TXT files
   directly, but instead call the command :command:`west packages pip --install`.
 * Bridle now requires binary blobs that have to fetch with :command:`west blobs`.
+* The GitHub CI workflow strategy has been revised to save build time. Only basic
+  acceptances are now checked in a pull request. Instead, complete integration and
+  regression tests are performed every night.
 
 Documentation
 =============
@@ -318,6 +321,7 @@ These GitHub issues were addressed since project bootstrapping:
 * :github:`368` - [BUG] current nightly QA integration tests failing
 * :github:`364` - [FCR] Upgrade to Zephyr SDK 0.17.4 and CI container 0.28.4
 * :github:`362` - [FER] switch to west controlled package manager dependencies
+* :github:`361` - [BUG] Revert hot and QnD hacks on GH workflow
 * :github:`358` - [BUG] Bridle have to swap to next new USB stack
 * :github:`352` - [BUG] wrong handling of special project configuration in ``button`` sample
 * :github:`351` - [BUG] wrong handling of special project configuration in ``helloshell`` sample
