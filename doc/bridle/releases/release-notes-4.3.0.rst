@@ -323,6 +323,7 @@ These GitHub issues were addressed since project bootstrapping:
 * :github:`362` - [FER] switch to west controlled package manager dependencies
 * :github:`361` - [BUG] Revert hot and QnD hacks on GH workflow
 * :github:`358` - [BUG] Bridle have to swap to next new USB stack
+* :github:`356` - [FCR] Bump to Zephyr v4.3
 * :github:`352` - [BUG] wrong handling of special project configuration in ``button`` sample
 * :github:`351` - [BUG] wrong handling of special project configuration in ``helloshell`` sample
 * :github:`344` - [HW] Mini USB RP2350 by AliExpress (No Name Technology)
