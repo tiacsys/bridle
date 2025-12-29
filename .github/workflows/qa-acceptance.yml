@@ -1,0 +1,195 @@
+# Copyright (c) 2021-2025 TiaC Systems
+# Copyright (c) 2021 Li-Pro.Net
+# SPDX-License-Identifier: Apache-2.0
+
+name: QA Acceptance Test
+
+on:
+  schedule:
+    - cron: "0 2 * * *" # run at 2 AM UTC
+  workflow_dispatch: # And manually on button click
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      # detect changes in code
+      - 'applications/**'
+      - 'arch/**'
+      - 'boards/**'
+      - 'drivers/**'
+      - 'include/**'
+      - 'lib/**'
+      - 'samples/**'
+      - 'soc/**'
+      - 'subsys/**'
+      - 'tests/**'
+      # detect changes in parameter sets
+      - '**_defconfig'
+      - '**.conf'
+      - '**.dts*'
+      - '**.overlay'
+      # detect changes in meta models
+      - 'dts/**'
+      - '**/Kconfig*'
+      - '**.yaml'
+      # detect changes in build system
+      - 'cmake/**'
+      - 'modules/**'
+      - '**/CMakeLists.txt'
+      - 'zephyr/requirements-*'
+      - 'zephyr/requirements.txt'
+      # detect changes in manifest
+      - 'submanifests/*.yml'
+      - 'west.yml'
+      # detect changes in workflow
+      - '.github/workflows/qa-acceptance.yml'
+      - '.github/workflows/qa-integration-apps.yml'
+      - '.github/workflows/qa-integration-hil.yml'
+      - '.github/workflows/qa-integration.yml'
+      # not intended for documentation
+      - '!docs/**'
+      - '!**.rst*'
+
+jobs:
+  qa-shield-integration:
+    name: Run integration tests for shields
+    if: ${{ github.repository_owner == 'tiacsys' }}
+    runs-on: [self-hosted, ci-32g-x8, linux, x64, container, for-zephyr-qa]
+    container:
+      image: ghcr.io/zephyrproject-rtos/ci:v0.28.4
+      options: '--cpus 4 --memory 8g --entrypoint /bin/bash'
+    env:
+      ZEPHYR_SDK_INSTALL_DIR: /opt/toolchains/zephyr-sdk-0.17.4
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - name: Apply container owner mismatch workaround
+        run: |
+          # FIXME: The owner UID of the GITHUB_WORKSPACE directory may not
+          #        match the container user UID because of the way GitHub
+          #        Actions runner is implemented. Remove this workaround when
+          #        GitHub comes up with a fundamental fix for this problem.
+          git config --global --add safe.directory ${GITHUB_WORKSPACE}
+
+      - name: Apply container HTTP/2 framing layer workaround
+        run: |
+          # FIXME: For unknown reasons, the local development host and CI is
+          #        running in temporary "Error in the HTTP2 framing layer".
+          #        Forcing the historical but still supported HTTP/1.1 layer
+          #        seems to be a stable workaround - happened in Oct. 2023.
+          git config --global --add http.version HTTP/1.1
+
+      - name: Update GitHub PATH for west
+        run: |
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+      # It is important that this is run before any caching tasks as cleanups
+      # are run in reverse order (and you do not want to cleanup before the
+      # caching is saved).
+      - name: Clean working directory
+        uses: tiacsys/clean-after-action@v3
+        #
+        # Could also be implemented with the new pre- and post-job hook scripts:
+        #
+        # - https://stackoverflow.com/questions/70483902
+        # - https://devopsjournal.io/blog/2023/06/21/GitHub-container-based-Action-cleanup
+        # - https://docs.github.com/actions/hosting-your-own-runners/running-scripts-before-or-after-a-job
+        #
+        with:
+          keep-git: false
+
+      - name: Checkout the code
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 100
+          show-progress: true
+          path: workspace/bridle
+          ref: ${{ github.ref }}
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+        with:
+          working-directory: workspace
+          enable-cache: true
+
+      - name: Create and enter Python 3.12 virtual environment
+        working-directory: workspace
+        run: |
+          uv venv --python 3.12
+          source .venv/bin/activate
+          echo "$PATH" > $GITHUB_PATH
+
+      - name: Setup Zephyr SDK
+        run: |
+          "${ZEPHYR_SDK_INSTALL_DIR}/setup.sh" -t all -h -c
+
+      - name: Install base dependencies
+        working-directory: workspace
+        run: |
+          which python3 && python3 --version
+          which uv && uv --version
+          uv pip install --upgrade --requirement bridle/zephyr/requirements-base.txt
+          uv pip show --files west
+          which west && west --version
+
+      - name: West init and update
+        working-directory: workspace
+        run: |
+          west init --local bridle
+          west update --fetch-opt=--depth=100 --fetch=always --narrow --stats
+          west zephyr-export
+          west bridle-export
+
+      - name: Install build and test dependencies
+        working-directory: workspace
+        run: |
+          # uv pip install --upgrade --requirement zephyr/scripts/requirements-base.txt
+          # uv pip install --upgrade --requirement zephyr/scripts/requirements-build-test.txt
+          # uv pip install --upgrade --requirement zephyr/scripts/requirements-run-test.txt
+          # uv pip install --upgrade --requirement zephyr/scripts/requirements-extras.txt
+          # uv pip install --upgrade --requirement zephyr/scripts/requirements-compliance.txt
+          # uv pip install --upgrade --requirement bridle/zephyr/requirements-build.txt
+          west packages pip | xargs uv pip install --upgrade
+
+      - name: Build integration tests for shields and snippets
+        working-directory: workspace
+        run: |
+          #
+          # Disabled in the meantime because the execution time is still
+          # too high (up to about 45 min):
+          #
+          # --> Grove Button Shields, ~640% more time (~550 more tests)
+          # --testsuite-root bridle/tests/shields/grove_btn/dts_bindings \
+          #
+          # --> Grove LED Shields, ~880% more time (~890 more tests)
+          # --testsuite-root bridle/tests/shields/grove_led/dts_bindings \
+          #
+          west twister --verbose --jobs 6 \
+            --outdir twister-out --no-clean --inline-logs \
+            --integration --cmake-only \
+            --quarantine-list bridle/tests/quarantine.yaml \
+            --testsuite-root bridle/tests/shields/grove/dts_bindings \
+            --testsuite-root bridle/tests/shields/x_grove_testbed/dts_bindings \
+            --testsuite-root bridle/tests/snippets/usb-console/build_all
+
+      - name: Upload integration test logging
+        uses: actions/upload-artifact@v5
+        with:
+          name: twister-shields.log
+          path: workspace/twister-out/twister.log
+
+      - name: Upload integration test results
+        uses: actions/upload-artifact@v5
+        with:
+          name: twister-shields.xml
+          path: workspace/twister-out/twister.xml
+
+      - name: Convert integration test reports to annotations
+        if: always()
+        uses: mikepenz/action-junit-report@v5
+        with:
+          check_name: twister-report (shields)
+          report_paths: "**/twister-out/twister.xml"
+          require_tests: true
+          fail_on_failure: false

@@ -1,0 +1,152 @@
+# Copyright (c) 2021-2025 TiaC Systems
+# Copyright (c) 2021 Li-Pro.Net
+# SPDX-License-Identifier: Apache-2.0
+
+name: QA Integration Test (HiL)
+
+on:
+  workflow_dispatch: # And manually on button click
+  workflow_run:
+    workflows: ["QA Acceptance Test"]
+    types: [completed]
+    branches: [main]
+
+jobs:
+  qa-tiac_magpie-integration:
+    name: Run integration tests on targets
+    if: ${{ github.repository_owner == 'tiacsys' }}
+    runs-on: [self-hosted, linux, gnuarmemb, zephyr-sdk, tiac_magpie]
+    defaults:
+      run:
+        shell: bash
+
+    strategy:
+      matrix:
+        board: [magpie_f777ni]
+
+    steps:
+      - name: Apply container HTTP/2 framing layer workaround
+        run: |
+          # FIXME: For unknown reasons, the local development host and CI is
+          #        running in temporary "Error in the HTTP2 framing layer".
+          #        Forcing the historical but still supported HTTP/1.1 layer
+          #        seems to be a stable workaround - happened in Oct. 2023.
+          git config --global --add http.version HTTP/1.1
+
+      # It is important that this is run before any caching tasks as cleanups
+      # are run in reverse order (and you do not want to cleanup before the
+      # caching is saved).
+      - name: Clean working directory
+        uses: tiacsys/clean-after-action@v3
+        #
+        # Could also be implemented with the new pre- and post-job hook scripts:
+        #
+        # - https://stackoverflow.com/questions/70483902
+        # - https://devopsjournal.io/blog/2023/06/21/GitHub-container-based-Action-cleanup
+        # - https://docs.github.com/actions/hosting-your-own-runners/running-scripts-before-or-after-a-job
+        #
+        with:
+          keep-git: false
+
+      - name: Checkout the code
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 100
+          show-progress: true
+          path: workspace/bridle
+          ref: ${{ github.ref }}
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+        with:
+          working-directory: workspace
+          enable-cache: true
+
+      - name: Create and enter Python 3.12 virtual environment
+        working-directory: workspace
+        run: |
+          uv venv --python 3.12
+          source .venv/bin/activate
+          echo "$PATH" > $GITHUB_PATH
+
+      - name: Install base dependencies
+        working-directory: workspace
+        run: |
+          which python3 && python3 --version
+          which uv && uv --version
+          uv pip install --upgrade --requirement bridle/zephyr/requirements-base.txt
+          uv pip show --files west
+          which west && west --version
+
+      - name: West init and update
+        working-directory: workspace
+        run: |
+          west init --local bridle
+          west update --fetch-opt=--depth=100 --fetch=always --narrow --stats
+          west zephyr-export
+          west bridle-export
+
+      - name: Install build and test dependencies
+        working-directory: workspace
+        run: |
+          # uv pip install --upgrade --requirement zephyr/scripts/requirements-base.txt
+          # uv pip install --upgrade --requirement zephyr/scripts/requirements-build-test.txt
+          # uv pip install --upgrade --requirement zephyr/scripts/requirements-run-test.txt
+          # uv pip install --upgrade --requirement zephyr/scripts/requirements-extras.txt
+          # uv pip install --upgrade --requirement zephyr/scripts/requirements-compliance.txt
+          # uv pip install --upgrade --requirement bridle/zephyr/requirements-build.txt
+          west packages pip | xargs uv pip install --upgrade
+
+      - name: Execute integration tests on tiac_magpie
+        working-directory: workspace
+        env:
+          HARDWARE_MAP: bridle/.github/${{ github.job }}/map-${{ matrix.board }}.yml
+        run: |
+          #
+          # Disabled in the meantime because the execution time is still
+          # too high and most of the core tests are already performed by
+          # Zephyr in any case:
+          #
+          # --tag arm \
+          # --tag vector_relay \
+          # --tag kernel \
+          #
+          west twister --verbose --jobs 2 \
+            --retry-failed 5 --retry-interval 60 \
+            --outdir twister-out --no-clean --inline-logs \
+            --device-testing --hardware-map ${HARDWARE_MAP} \
+            --extra-args SHIELD="loopback_test_tmph" \
+            --alt-config-root bridle/zephyr/alt-config/tests \
+            --testsuite-root bridle/tests \
+            --testsuite-root zephyr/tests \
+            --tag bridle \
+            --tag hwinfo \
+            --tag random \
+            --tag entropy \
+            --tag watchdog \
+            --tag counter \
+            --tag gpio \
+            --tag spi \
+            --tag uart \
+            --tag can
+
+      - name: Upload integration test logging
+        uses: actions/upload-artifact@v5
+        with:
+          name: twister-targets.log
+          path: workspace/twister-out/twister.log
+
+      - name: Upload integration test results
+        uses: actions/upload-artifact@v5
+        with:
+          name: twister-targets.xml
+          path: workspace/twister-out/twister.xml
+
+      - name: Convert integration test reports to annotations
+        if: always()
+        uses: mikepenz/action-junit-report@v5
+        with:
+          check_name: twister-report (${{ matrix.board }})
+          report_paths: "**/twister-out/twister.xml"
+          require_tests: true
+          fail_on_failure: false
