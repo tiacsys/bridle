@@ -12,22 +12,5 @@
 };
 
 &flash0 {
-	partitions {
-		compatible = "fixed-partitions";
-		#address-cells = <1>;
-		#size-cells = <1>;
-
-		/* Reserved memory for the RP2040 second stage bootloader */
-		second_stage_bootloader: partition@0 {
-			label = "second_stage_bootloader";
-			reg = <0x00000000 0x100>;
-			read-only;
-		};
-
-		/* Rest for code */
-		code_partition: partition@100 {
-			label = "code-partition";
-			read-only;
-		};
-	};
+	status = "okay";
 };

@@ -95,3 +95,11 @@
 - `Grove Analog Layout`_
 - `Grove UART Layout`_
 - `Grove I2C Layout`_
+
+.. rubric:: Flash partitions
+
++----------------+---------+----------------+-------------------+
+| QSPI NOR-Flash | bootrom | code_partition | storage_partition |
++================+=========+================+===================+
+| primary 2㎆    |   256B  |    1㎆ - 256B  |         1㎆       |
++----------------+---------+----------------+-------------------+
