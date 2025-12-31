@@ -13,6 +13,9 @@ Highlights
 
 * :brd:`NOT YET, tbd.`
 
+* Use the default Flash partition layout with code and storage partition
+  on all RP2040 and RP2350 based systems.
+
 .. note:: See the changelog and readme files in the component repositories
    for a detailed description of changes.
 
@@ -246,6 +249,33 @@ The following sections provide detailed lists of changes by component.
 * tbd.
 * tbd.
 * tbd.
+* Using the default Flash partition layout for code and storage partitioning
+  on all Raspberry Pi Pico based systems with following conventions:
+
+  +------------+---------+----------------+-------------------+
+  | QSPI Flash | bootrom | code_partition | storage_partition |
+  +============+=========+================+===================+
+  |     2㎆    |   256B  |    1㎆ - 256B  |         1㎆       |
+  +------------+---------+----------------+-------------------+
+  |     4㎆    |   256B  |    1㎆ - 256B  |         3㎆       |
+  +------------+---------+----------------+-------------------+
+  |     8㎆    |   256B  |    1㎆ - 256B  |         7㎆       |
+  +------------+---------+----------------+-------------------+
+  |    16㎆    |   256B  |    1㎆ - 256B  |        15㎆       |
+  +------------+---------+----------------+-------------------+
+
+* Using the default Flash partition layout for code and storage partitioning
+  on all Raspberry Pi Pico 2 based systems with following conventions:
+
+  +------------+----------------+-------------------+
+  | QSPI Flash | code_partition | storage_partition |
+  +============+================+===================+
+  |     4㎆    |       1㎆      |         3㎆       |
+  +------------+----------------+-------------------+
+  |     8㎆    |       1㎆      |         7㎆       |
+  +------------+----------------+-------------------+
+  |    16㎆    |       1㎆      |        15㎆       |
+  +------------+----------------+-------------------+
 
 * PROJECT UPDATE to `Zephyr Project`_ v4.3.1
 
