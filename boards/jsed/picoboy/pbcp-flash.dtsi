@@ -12,14 +12,5 @@
 };
 
 &flash0 {
-	partitions {
-		compatible = "fixed-partitions";
-		#address-cells = <1>;
-		#size-cells = <1>;
-
-		code_partition: partition@0 {
-			label = "code-partition";
-			read-only;
-		};
-	};
+	status = "okay";
 };
