@@ -6,17 +6,12 @@
 #include <mem.h>
 
 #include "mini_usb_rp2040-flash.dtsi"
+#include <raspberrypi/partitions_2M_default.dtsi>
 
 &flash0 {
-	status = "okay";
 	reg = <0x10000000 DT_SIZE_M(4)>;
 };
 
-/*
- * Usable flash. Starts after the RP2040 second stage bootloader. The
- * partition size is 4MB minus the 0x100 bytes taken by the RP2040
- * second stage bootloader.
- */
-&code_partition {
-	reg = <0x00000100 (DT_SIZE_M(4) - 0x100)>;
+&storage_partition {
+	reg = <0x100000 DT_SIZE_M(3)>;
 };
