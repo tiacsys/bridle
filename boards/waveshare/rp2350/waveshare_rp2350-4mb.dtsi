@@ -6,12 +6,8 @@
 #include <mem.h>
 
 #include "waveshare_rp2350-flash.dtsi"
+#include <raspberrypi/partitions_4M_default.dtsi>
 
 &flash0 {
-	status = "okay";
 	reg = <0x10000000 DT_SIZE_M(4)>;
-};
-
-&code_partition {
-	reg = <0x00000000 DT_SIZE_M(4)>;
 };
