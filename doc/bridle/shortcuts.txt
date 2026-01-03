@@ -270,6 +270,7 @@
 .. |rpi_cytron_edu_pico_rp2040_URB_PID|			replace:: :code:`0x107E`
 .. |rpi_cytron_p_iriv_io_ctrl_URB_PID|			replace:: :code:`0x1093`
 .. |rpi_cytron_motion_2350_pro_URB_PID|			replace:: :code:`0x1096`
+.. |rpi_cytron_sumo_bit_URB_PID|			replace:: :code:`0x109C`
 
 .. |rpi_pimoroni_picade_2040_URB_PID|			replace:: :code:`0x1001`
 .. |rpi_pimoroni_pico_lipo_4mb_URB_PID|			replace:: :code:`0x1002`
