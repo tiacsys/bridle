@@ -1,0 +1,10 @@
+/*
+ * Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+servo: &pwm_servo0 {
+	compatible = "pwm-servo";
+	min-pulse = <PWM_USEC(500)>;
+	max-pulse = <PWM_USEC(2500)>;
+};
