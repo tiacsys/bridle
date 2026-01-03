@@ -1,0 +1,86 @@
+/*
+ * Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <freq.h>
+#include <zephyr/dt-bindings/i2c/i2c.h>
+
+#include "cytron_motion_2350.dtsi"
+
+&uart0 {
+	status = "okay";
+	pinctrl-0 = <&uart0_motion_2350_pro_qwiic>;
+	pinctrl-names = "default";
+	current-speed = <115200>;
+};
+
+&i2c0 {
+	status = "okay";
+	pinctrl-0 = <&i2c0_motion_2350_pro_qwiic>;
+	pinctrl-names = "default";
+	clock-frequency = <I2C_BITRATE_STANDARD>;
+};
+
+&i2c1 {
+	status = "disabled";
+	pinctrl-0 = <&i2c1_motion_2350_pro_qwiic>;
+	pinctrl-names = "default";
+	clock-frequency = <I2C_BITRATE_STANDARD>;
+};
+
+&spi1 {
+	status = "disabled";
+	pinctrl-0 = <&spi1_motion_2350_pro_qwiic>;
+	pinctrl-names = "default";
+	clock-frequency = <DT_FREQ_M(8)>;
+};
+
+&adc {
+	status = "okay";
+	pinctrl-0 = <&adc_motion_2350_pro_qwiic>;
+	pinctrl-names = "default";
+};
+
+&pwm {
+	status = "okay";
+	pinctrl-0 = <&pwm_motion_2350_pro>;
+	pinctrl-names = "default";
+};
+
+&gpio0 {
+	status = "okay";
+	/* namespace and positions without wired bits */
+	gpio-reserved-ranges = <24 2>;
+	gpio-line-names =
+		"SRVM1_PWM0",		/* GP0 */
+		"SRVM2_PWM1",		/* GP1 */
+		"SRVM3_PWM2",		/* GP2 */
+		"SRVM4_PWM3",		/* GP3 */
+		"SRVM5_PWM4",		/* GP4 */
+		"SRVM6_PWM5",		/* GP5 */
+		"SRVM7_PWM6",		/* GP6 */
+		"SRVM8_PWM7",		/* GP7 */
+		"DCM1A_PWM8",		/* GP8 */
+		"DCM1B_PWM9",		/* GP9 */
+		"DCM2A_PWM10",		/* GP10 */
+		"DCM2B_PWM11",		/* GP11 */
+		"DCM3A_PWM12",		/* GP12 */
+		"DCM3B_PWM13",		/* GP13 */
+		"DCM4A_PWM14",		/* GP14 */
+		"DCM4B_PWM15",		/* GP15 */
+		"GBH1Q02_SDA0",		/* GP16 */
+		"GBH2Q01_SCL0",		/* GP17 */
+		"GBH3_ULED0",		/* GP18 */
+		"GBH4",			/* GP19 */
+		"UBTN0",		/* GP20 */
+		"UBTN1",		/* GP21 */
+		"BUZZER_PWM6",		/* GP22 */
+		"RGB_SDO0",		/* GP23 */
+		"",   /* res. USB Host D+, GP24 */
+		"",   /* res. USB Host D-, GP25 */
+		"GBH5Q12_ADC0",		/* GP26 */
+		"GBH6Q11_ADC1",		/* GP27 */
+		"GBH7Q22_TX0",		/* GP28 */
+		"GBH8Q21_RX0";		/* GP29 */
+};

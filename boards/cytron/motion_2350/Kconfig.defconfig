@@ -1,0 +1,86 @@
+# Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+config BOARD_CYTRON_MOTION_2350
+	bool
+	default y if BOARD_CYTRON_MOTION_2350_PRO
+	default n
+
+config CLOCK_CONTROL
+	default y
+	depends on DT_HAS_RASPBERRYPI_PICO_CLOCK_ENABLED && \
+		   DT_HAS_RASPBERRYPI_PICO_CLOCK_CONTROLLER_ENABLED
+
+config REGULATOR
+	default y
+	depends on DT_HAS_RASPBERRYPI_CORE_SUPPLY_REGULATOR_ENABLED
+
+config RESET
+	default y
+	depends on DT_HAS_RASPBERRYPI_PICO_RESET_ENABLED
+
+config WATCHDOG
+	default y
+	depends on DT_HAS_RASPBERRYPI_PICO_WATCHDOG_ENABLED
+
+config WDT_DISABLE_AT_BOOT
+	default y if BOARD_CYTRON_MOTION_2350
+	depends on WATCHDOG && HAS_WDT_DISABLE_AT_BOOT
+
+config COUNTER
+	default y
+	depends on DT_HAS_RASPBERRYPI_PICO_TIMER_ENABLED
+
+config DMA
+	default y
+	depends on DT_HAS_RASPBERRYPI_PICO_DMA_ENABLED
+
+config GPIO
+	default y
+	depends on DT_HAS_RASPBERRYPI_PICO_GPIO_ENABLED
+
+config PWM
+	default y
+	depends on DT_HAS_RASPBERRYPI_PICO_PWM_ENABLED
+
+# Workaround for not being able to have commas in macro arguments
+DT_CHOSEN_Z_CONSOLE := zephyr,console
+DT_COMPAT_Z_CDC_ACM_UART := zephyr,cdc-acm-uart
+DT_COMPAT_RPIPICO_USB := raspberrypi,pico-usbd
+
+# Macros to shorten Kconfig expressions
+DT_CHOSEN_CONSOLE_NODE := $(dt_chosen_path,$(DT_CHOSEN_Z_CONSOLE))
+DT_CHOSEN_CONSOLE_PARENT := $(dt_node_parent,$(DT_CHOSEN_CONSOLE_NODE))
+
+if BOARD_CYTRON_MOTION_2350 && \
+	$(dt_chosen_enabled,$(DT_CHOSEN_Z_CONSOLE)) && \
+	$(dt_compat_on_bus,$(DT_COMPAT_Z_CDC_ACM_UART),usb) && \
+	$(dt_node_has_compat,$(DT_CHOSEN_CONSOLE_PARENT),$(DT_COMPAT_RPIPICO_USB))
+
+config CDC_ACM_SERIAL_SELF_POWERED
+	default n
+	depends on USB_DEVICE_STACK_NEXT && USBD_CDC_ACM_CLASS
+
+config CDC_ACM_SERIAL_MAX_POWER
+	default 250 if BOARD_CYTRON_MOTION_2350_PRO	# 500mA
+	depends on USB_DEVICE_STACK_NEXT && USBD_CDC_ACM_CLASS
+
+# Logger cannot use itself to log
+choice USBD_CDC_ACM_LOG_LEVEL_CHOICE
+	default USBD_CDC_ACM_LOG_LEVEL_OFF
+	depends on LOG && USB_DEVICE_STACK_NEXT && USBD_CDC_ACM_CLASS
+endchoice
+
+# Set USB log level to error only
+choice USBD_LOG_LEVEL_CHOICE
+	default USBD_LOG_LEVEL_ERR
+	depends on LOG && USB_DEVICE_STACK_NEXT && USBD_CDC_ACM_CLASS
+endchoice
+
+# Set UDC driver log level to error only
+choice UDC_DRIVER_LOG_LEVEL_CHOICE
+	default UDC_DRIVER_LOG_LEVEL_ERR
+	depends on LOG && USB_DEVICE_STACK_NEXT && USBD_CDC_ACM_CLASS
+endchoice
+
+endif # zephyr,cdc-acm-uart

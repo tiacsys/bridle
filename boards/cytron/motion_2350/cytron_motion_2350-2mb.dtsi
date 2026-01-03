@@ -1,0 +1,17 @@
+/*
+ * Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <mem.h>
+
+#include "cytron_motion_2350-flash.dtsi"
+#include <raspberrypi/partitions_4M_default.dtsi>
+
+&flash0 {
+	reg = <0x10000000 DT_SIZE_M(2)>;
+};
+
+&storage_partition {
+	reg = <0x100000 DT_SIZE_M(1)>;
+};
