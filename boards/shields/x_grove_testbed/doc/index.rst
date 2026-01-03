@@ -1196,6 +1196,78 @@ For example:
                      :goals: flash
                      :host-os: unix
 
+         .. group-tab:: Cytron MOTION 2350 Pro
+
+            This is based on the Bridle board |MOTION 2350 Pro|.
+
+            * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
+
+            .. image:: img/cytron_motion_2350_pro_bb.svg
+               :alt: Cytron MOTION 2350 Pro Wiring Schematics
+               :align: center
+
+            .. tabs::
+
+               .. group-tab:: LED Blinky
+
+                  This is based on the Zephyr sample
+                  :external+zephyr:zephyr:code-sample:`blinky`.
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/blinky
+                     :build-dir: blinky-cytron_motion_2350_pro-x_grove_testbed
+                     :board: cytron_motion_2350_pro/rp2350a/m33
+                     :shield: \
+                              "grove_btn_d17 grove_led_d27 grove_pwm_led_d27 x_grove_testbed"
+                     :gen-args: \
+                                -DBOARD_FLASH_RUNNER=openocd \
+                                -DCYTRON_RP2350_DEBUG_ADAPTER=cmsis-dap \
+                                -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
+                                -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
+                     :west-args: -p
+                     :goals: flash
+                     :host-os: unix
+
+               .. group-tab:: LED Fade
+
+                  This is based on the Zephyr sample
+                  :external+zephyr:zephyr:code-sample:`fade-led`.
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/fade_led
+                     :build-dir: fade-cytron_motion_2350_pro-x_grove_testbed
+                     :board: cytron_motion_2350_pro/rp2350a/m33
+                     :shield: \
+                              "grove_btn_d17 grove_led_d27 grove_pwm_led_d27 x_grove_testbed"
+                     :gen-args: \
+                                -DBOARD_FLASH_RUNNER=openocd \
+                                -DCYTRON_RP2350_DEBUG_ADAPTER=cmsis-dap \
+                                -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
+                                -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
+                     :west-args: -p
+                     :goals: flash
+                     :host-os: unix
+
+               .. group-tab:: LED Button
+
+                  This is based on the Zephyr sample
+                  :external+zephyr:zephyr:code-sample:`button`.
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/button
+                     :build-dir: button-cytron_motion_2350_pro-x_grove_testbed
+                     :board: cytron_motion_2350_pro/rp2350a/m33
+                     :shield: \
+                              "grove_btn_d17 grove_led_d27 grove_pwm_led_d27 x_grove_testbed"
+                     :gen-args: \
+                                -DBOARD_FLASH_RUNNER=openocd \
+                                -DCYTRON_RP2350_DEBUG_ADAPTER=cmsis-dap \
+                                -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
+                                -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
+                     :west-args: -p
+                     :goals: flash
+                     :host-os: unix
+
 References
 **********
 
