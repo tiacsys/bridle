@@ -33,6 +33,8 @@ common:
     - coffeecaller_nrf52
     - cytron_maker_nano_rp2040
     - cytron_maker_pi_rp2040
+    - cytron_motion_2350_pro/rp2350a/hazard3
+    - cytron_motion_2350_pro/rp2350a/m33
     - magpie_f777ni
     - mimxrt1010_evk
     - mimxrt1060_evk@A/mimxrt1062/qspi
@@ -93,6 +95,8 @@ tests:
     integration_platforms:
       - cytron_maker_nano_rp2040
       - cytron_maker_pi_rp2040
+      - cytron_motion_2350_pro/rp2350a/hazard3
+      - cytron_motion_2350_pro/rp2350a/m33
       - magpie_f777ni
       - seeeduino_cm0
       - seeeduino_lotus
