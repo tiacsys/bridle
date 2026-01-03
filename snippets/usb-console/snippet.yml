@@ -80,6 +80,14 @@ boards:
     append:
       EXTRA_CONF_FILE: boards/cytron_maker_pi_rp2040.conf
       EXTRA_DTC_OVERLAY_FILE: boards/cytron_maker_pi_rp2040.overlay
+  cytron_motion_2350_pro/rp2350a/hazard3:
+    append:
+      EXTRA_CONF_FILE: boards/cytron_motion_2350_pro.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/cytron_motion_2350_pro.overlay
+  cytron_motion_2350_pro/rp2350a/m33:
+    append:
+      EXTRA_CONF_FILE: boards/cytron_motion_2350_pro.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/cytron_motion_2350_pro.overlay
   rpi_pico/rp2040:
     append:
       EXTRA_CONF_FILE: boards/rpi_pico.conf

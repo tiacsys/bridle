@@ -1,0 +1,14 @@
+/*
+ * Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	model = "Cytron MOTION 2350 Pro @ USB-CDC/ACM Concole";
+	compatible = "cytron,motion-rp2040-pro",
+		     "cytron,motion-rp2040-pro-usbcons";
+
+	chosen {
+		zephyr,shell-uart = &snippet_cdc_acm_console_uart;
+	};
+};
