@@ -21,6 +21,6 @@ according to the `Raspberry Pi USB product ID list`_:
 
       .. rubric:: RP2350
 
-      :|rpi_cytron_motion_2350_pro_URB_PID|: MOTION 2350 Pro
+      :|rpi_cytron_motion_2350_pro_URB_PID|: |MOTION 2350 Pro|
 
 |nbsp|

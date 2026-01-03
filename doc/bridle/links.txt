@@ -711,6 +711,17 @@
 .. _`Maker Pi RP2040 Schematic`:
    https://drive.google.com/file/d/1Zp8GYO8x7ThObB1G8RIZx2YdqrXtdUc0/view
 
+.. ### Links to Cytron MOTION 2350 Pro
+
+.. _`MOTION 2350 Pro`:
+   https://www.cytron.io/p-motion-2350-pro
+
+.. _`MOTION 2350 Pro Rev 2.0 Datasheet`:
+   https://docs.google.com/document/d/1qYD0RdZG1tiklflnt8Z7jBy-wUJ3LbNBJ4aT1EgnjqQ/view
+
+.. _`MOTION 2350 Pro Rev 1.0 Datasheet`:
+   https://docs.google.com/document/d/1FRWxh_4sfhkbrBXzSjnNAqDWrdnfAYLvW73Y8hJC8co/view
+
 
 
 .. ### Links to The PicoBoy
@@ -1596,6 +1607,21 @@
 .. _`AP2502 Datasheet`:
    https://www.diodes.com/assets/Datasheets/AP2502.pdf
 
+.. _`NCE4606`:
+   https://www.ncepower.com/cn/procate/177/245.html
+
+.. _`NCE4606 Datasheet`:
+   http://www.ncepower.com/upload/cn/propdf/NCE4606.pdf
+
+.. _`NCE4606A Datasheet`:
+   http://www.ncepower.com/upload/cn/propdf/NCE4606A.pdf
+
+.. _`NCE4606B Datasheet`:
+   http://www.ncepower.com/upload/cn/propdf/NCE4606B.pdf
+
+.. _`NCE4606C Datasheet`:
+   http://www.ncepower.com/upload/cn/propdf/NCE4606C.pdf
+
 .. _`S8050`:
    https://www.lcsc.com/product-detail/Bipolar-Transistors-BJT_Jiangsu-Changjing-Electronics-Technology-Co-Ltd-S8050_C105433.html
 
@@ -1635,6 +1661,12 @@
 
 .. _`AMS1117 Datasheet`:
    http://www.advanced-monolithic.com/pdf/ds1117.pdf
+
+.. _`AZ1117C`:
+   https://www.diodes.com/part/view/AZ1117C
+
+.. _`AZ1117C Datasheet`:
+   https://www.diodes.com/datasheet/download/AZ1117C.pdf
 
 .. _`BL9366`:
    https://www-belling-com-cn.translate.goog/product_info.html?id=274&_x_tr_sl=auto&_x_tr_tl=de&_x_tr_hl=de&_x_tr_pto=wapp

@@ -1,0 +1,160 @@
+External pin mapping on the |MOTION 2350 Pro| is not identical to any other
+standard edge connector, except the 3 Qwiic / STEMMA QT connectors (compatiple
+with the `Grove System`_). Note that analog channel A0 - A3 are connected to
+the outside, but GPIO line 29 can be used on-board as analog channel A3 for
+VIN/6.1 voltage monitoring.
+
+.. list-table::
+   :align: center
+   :width: 100%
+   :widths: 66, 33
+
+   * - .. rubric:: Pin Mapping
+     - .. rubric:: Pinout
+
+   * - :on-edge(Qwiic):
+          :hwftlbl-pio:`2 (6)`
+          :hwftlbl-pwm:`2 (6)`
+          :hwftlbl-adc:`3`
+          :hwftlbl-i2c:`2`
+          :hwftlbl-spi:`1`
+          :hwftlbl-uart:`1`
+
+       :on-board:
+          :hwftlbl-btn:`1 RST`
+          :hwftlbl-btn:`1 BOOT`
+          :hwftlbl-btn:`2 USER`
+          :hwftlbl-led:`16 BLUE`
+          :hwftlbl-led:`2 RGB`
+          :hwftlbl-spk:`1 PIEZO`
+          :hwftlbl-act:`4 DC Motor (H-Bridge)`
+          :hwftlbl-act:`8 Servo Motor (3V3 PWM)`
+
+       .. container:: twocol
+
+          .. container:: leftside
+
+             .. rubric:: Default Zephyr On-Board Mapping (DC Motor 1)
+             .. rst-class:: rst-columns edge-pinout
+
+             - | :rpi-pico-pin:`1` :hwftlbl-act:`DCM1A` : :rpi-pico-pio:`GP8` :rpi-pico-pwm:`PWM8`
+             - | :rpi-pico-pin:`2` :hwftlbl-act:`DCM1B` : :rpi-pico-pio:`GP9` :rpi-pico-pwm:`PWM9`
+
+             .. rubric:: Default Zephyr On-Board Mapping (DC Motor 2)
+             .. rst-class:: rst-columns edge-pinout
+
+             - | :rpi-pico-pin:`1` :hwftlbl-act:`DCM2A` : :rpi-pico-pio:`GP10` :rpi-pico-pwm:`PWM10`
+             - | :rpi-pico-pin:`2` :hwftlbl-act:`DCM2B` : :rpi-pico-pio:`GP11` :rpi-pico-pwm:`PWM11`
+
+             .. rubric:: Default Zephyr On-Board Mapping (DC Motor 3)
+             .. rst-class:: rst-columns edge-pinout
+
+             - | :rpi-pico-pin:`1` :hwftlbl-act:`DCM3A` : :rpi-pico-pio:`GP12` :rpi-pico-pwm:`PWM12`
+             - | :rpi-pico-pin:`2` :hwftlbl-act:`DCM3B` : :rpi-pico-pio:`GP13` :rpi-pico-pwm:`PWM13`
+
+             .. rubric:: Default Zephyr On-Board Mapping (DC Motor 4)
+             .. rst-class:: rst-columns edge-pinout
+
+             - | :rpi-pico-pin:`1` :hwftlbl-act:`DCM4A` : :rpi-pico-pio:`GP14` :rpi-pico-pwm:`PWM14`
+             - | :rpi-pico-pin:`2` :hwftlbl-act:`DCM4B` : :rpi-pico-pio:`GP15` :rpi-pico-pwm:`PWM15`
+
+          .. container:: rightside
+
+             .. rubric:: Default Zephyr On-Board Mapping (Servo Motors)
+             .. rst-class:: rst-columns edge-pinout
+
+             - | :rpi-pico-pin:`1` :hwftlbl-act:`SRVM1` : :rpi-pico-pio:`GP0` :rpi-pico-pwm:`PWM0`
+             - | :rpi-pico-pin:`2` :hwftlbl-act:`SRVM2` : :rpi-pico-pio:`GP1` :rpi-pico-pwm:`PWM1`
+             - | :rpi-pico-pin:`3` :hwftlbl-act:`SRVM3` : :rpi-pico-pio:`GP2` :rpi-pico-pwm:`PWM2`
+                                                        : :hwftlbl-led:`BLUE`
+             - | :rpi-pico-pin:`4` :hwftlbl-act:`SRVM4` : :rpi-pico-pio:`GP3` :rpi-pico-pwm:`PWM3`
+             - | :rpi-pico-pin:`5` :hwftlbl-act:`SRVM5` : :rpi-pico-pio:`GP4` :rpi-pico-pwm:`PWM4`
+             - | :rpi-pico-pin:`6` :hwftlbl-act:`SRVM6` : :rpi-pico-pio:`GP5` :rpi-pico-pwm:`PWM5`
+             - | :rpi-pico-pin:`7` :hwftlbl-act:`SRVM7` : :rpi-pico-pio:`GP6` :rpi-pico-pwm:`PWM6`
+                                                        : :hwftlbl-spk:`PIEZO`
+             - | :rpi-pico-pin:`8` :hwftlbl-act:`SRVM8` : :rpi-pico-pio:`GP7` :rpi-pico-pwm:`PWM7`
+
+       .. container:: twocol
+
+          .. container:: leftside
+
+             .. rubric:: Default Zephyr Peripheral Mapping (Maker Port 0)
+             .. rst-class:: rst-columns edge-pinout
+
+             - | :rpi-pico-pin:`1` :rpi-pico-i2c-dfl:`I2C0_SCL` : :rpi-pico-pio:`GP17` :rpi-pico-pwm:`PWM1`
+             - | :rpi-pico-pin:`2` :rpi-pico-i2c-dfl:`I2C0_SDA` : :rpi-pico-pio:`GP16` :rpi-pico-pwm:`PWM0`
+             - | :rpi-pico-pin:`3` :rpi-pico-vdd:`3V3(OUT)`
+             - | :rpi-pico-pin:`4` :rpi-pico-gnd:`GND`
+
+             .. rubric:: Default Zephyr Peripheral Mapping (Maker Port 1)
+             .. rst-class:: rst-columns edge-pinout
+
+             - | :rpi-pico-pin:`1` :rpi-pico-uart-dfl:`UART0_RX` : :rpi-pico-pio:`GP29` :rpi-pico-pwm:`PWM13`
+             - | :rpi-pico-pin:`2` :rpi-pico-uart-dfl:`UART0_TX` : :rpi-pico-pio:`GP28` :rpi-pico-pwm:`PWM12`
+             - | :rpi-pico-pin:`3` :rpi-pico-vdd:`3V3(OUT)`
+             - | :rpi-pico-pin:`4` :rpi-pico-gnd:`GND`
+
+          .. container:: rightside
+
+             .. rubric:: Default Zephyr Peripheral Mapping (Maker Port 2)
+             .. rst-class:: rst-columns edge-pinout
+
+             - | :rpi-pico-pin:`1` :rpi-pico-adc:`ADC_CH1` : :rpi-pico-pio:`GP27` (PWM11)
+             - | :rpi-pico-pin:`2` :rpi-pico-adc:`ADC_CH0` : :rpi-pico-pio:`GP26` (PWM10)
+             - | :rpi-pico-pin:`3` :rpi-pico-vdd:`3V3(OUT)`
+             - | :rpi-pico-pin:`4` :rpi-pico-gnd:`GND`
+
+             .. rubric:: Default Zephyr Peripheral Mapping (PIO/Tiny USB Host Port)
+             .. rst-class:: rst-columns edge-pinout
+
+             - | :rpi-pico-pin:`2` PIO/PWM : :rpi-pico-sys:`PIO_TUHC_DP` : GP24 (PWM8)
+             - | :rpi-pico-pin:`2` PIO/PWM : :rpi-pico-sys:`PIO_TUHC_DM` : GP25 (PWM9)
+
+       .. container:: twocol
+
+          .. container:: leftside
+
+             .. rubric:: Default Zephyr On-Board Mapping (GPIO Breakouts)
+             .. rst-class:: rst-columns edge-pinout
+
+             - | :rpi-pico-pin:`1` :rpi-pico-i2c-dfl:`I2C0_SDA` : :rpi-pico-pio:`GP16` :rpi-pico-pwm:`PWM0`
+             - | :rpi-pico-pin:`2` :rpi-pico-i2c-dfl:`I2C0_SCL` : :rpi-pico-pio:`GP17` :rpi-pico-pwm:`PWM1`
+             - | :rpi-pico-pin:`3` :hwftlbl-led:`BLUE` : :rpi-pico-pio:`GP18` :rpi-pico-pwm:`PWM2`
+             - | :rpi-pico-pin:`4` PIO/PWM : :rpi-pico-pio:`GP19` :rpi-pico-pwm:`PWM3`
+
+          .. container:: rightside
+
+             .. rubric:: Default Zephyr On-Board Mapping (GPIO Breakouts)
+             .. rst-class:: rst-columns edge-pinout
+
+             - | :rpi-pico-pin:`5` :rpi-pico-adc:`ADC_CH0` : :rpi-pico-pio:`GP26` (PWM10)
+             - | :rpi-pico-pin:`6` :rpi-pico-adc:`ADC_CH1` : :rpi-pico-pio:`GP27` (PWM11)
+             - | :rpi-pico-pin:`7` :rpi-pico-uart-dfl:`UART0_TX` : :rpi-pico-pio:`GP28` :rpi-pico-pwm:`PWM12`
+             - | :rpi-pico-pin:`8` :rpi-pico-uart-dfl:`UART0_RX` : :rpi-pico-pio:`GP29` :rpi-pico-pwm:`PWM13`
+
+       |nbsp|
+
+       .. rubric:: Default Zephyr On-Board Mapping
+
+       |nbsp|
+
+       .. rst-class:: rst-columns edge-pinout
+
+       - | :rpi-pico-pin-nc:`nc` :hwftlbl-btn:`USER` : :rpi-pico-pio:`GP20` (PWM4)
+       - | :rpi-pico-pin-nc:`nc` :hwftlbl-btn:`USER` : :rpi-pico-pio:`GP21` (PWM5)
+       - | :rpi-pico-pin-nc:`nc` :hwftlbl-spk:`PIEZO` : :rpi-pico-pio:`GP22` :rpi-pico-pwm:`PWM6`
+       - | :rpi-pico-pin-nc:`nc` :hwftlbl-led:`RGB` :rpi-pico-spi:`SPI0_TX` : GP23
+       - | :rpi-pico-pin-nc:`nc` :rpi-pico-adc:`ADC_CH3` : GP29 (PWM13)
+         | :rpi-pico-pin-nc:`nc` on-board :rpi-pico-vdd:`VIN/6.1` monitoring
+       - | :rpi-pico-pin-nc:`nc` :rpi-pico-sys:`3V3` : :rpi-pico-adc:`ADC_VREF`
+       - | :rpi-pico-pin-nc:`nc` :rpi-pico-sys:`RST` (RESET)
+
+       .. rubric:: Devicetree compatible
+
+       - :dtcompatible:`seeed,grove-laced-if`
+       - :dtcompatible:`seeed,grove-connector`
+
+     - .. image:: motion-2350-pro/pinouts.jpg
+          :align: center
+          :width: 100%
+          :alt: MOTION 2350 Pro edge pinout

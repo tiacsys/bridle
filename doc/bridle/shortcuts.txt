@@ -444,6 +444,26 @@
 .. |cytron_maker_pi_rp2040_PStr_CON|	replace:: :ign:`Maker Pi RP2040 (CDC ACM)`
 .. |cytron_maker_pi_rp2040_BCD_CON|	replace:: |zephyr_version_BCD|
 
+.. |bridle:board:cytron_motion_2350| replace:: :ref:`cytron_motion_2350`
+.. :bridle:board:`cytron_motion_2350`
+
+.. |MOTION 2350 Pro| replace::
+   :ref:`MOTION 2350 Pro <cytron_motion_2350_pro>`
+.. :bridle:board:`MOTION 2350 Pro <cytron_motion_2350_pro>`
+
+.. |MOTION 2350 Pro (CDC ACM)| replace::
+   :ref:`MOTION 2350 Pro (CDC ACM) <cytron_motion_2350_pro>`
+.. :bridle:board:`MOTION 2350 Pro (CDC ACM) <cytron_motion_2350_pro>`
+
+.. |cytron_motion_2350_pro_URB_VID|	replace:: |rpi_URB_VID|
+.. |cytron_motion_2350_pro_VID|		replace:: |rpi_VID|
+.. |cytron_motion_2350_pro_VStr|	replace:: |rpi_cytron_VStr|
+
+.. |cytron_motion_2350_pro_URB_PID_CON|	replace:: |rpi_pico_sdk_uart_rp2040_URB_PID|
+.. |cytron_motion_2350_pro_PID_CON|	replace:: |rpi_pico_sdk_uart_rp2040_PID|
+.. |cytron_motion_2350_pro_PStr_CON|	replace:: :ign:`MOTION 2350 Pro (CDC ACM)`
+.. |cytron_motion_2350_pro_BCD_CON|	replace:: |zephyr_version_BCD|
+
 .. |bridle:board:arduino_zero| replace:: :ref:`arduino_zero-extensions`
 .. :bridle:board:`arduino_zero`
 
