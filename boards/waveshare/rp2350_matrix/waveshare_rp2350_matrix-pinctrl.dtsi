@@ -1,0 +1,110 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/pinctrl/rpi-pico-rp2350a-pinctrl.h>
+
+#if !defined(RP2_PINCTRL_GPIO_FUNC_UART_ALT)
+#  if defined(RP2_PINCTRL_GPIO_FUNC_UART_AUX)
+#    define RP2_PINCTRL_GPIO_FUNC_UART_ALT RP2_PINCTRL_GPIO_FUNC_UART_AUX
+#  else
+#    define RP2_PINCTRL_GPIO_FUNC_UART_ALT 11
+#  endif
+#endif
+
+&pinctrl {
+	clocks_default: clocks_default {
+		/* no external clocks */
+	};
+
+	uart0_default: uart0_default {
+		group0_uart {
+			pinmux = <UART0_TX_P0>;		/* GP0: UART0_TX */
+		};
+		group1_uart {
+			pinmux = <UART0_RX_P1>;		/* GP1: UART0_RX */
+			input-enable;
+		};
+	};
+
+	uart0_default_hwflow: uart0_default_hwflow {
+		group03_uart {
+			pinmux = <UART0_TX_P0>,		/* GP0: UART0_TX */
+				 <UART0_RTS_P3>;	/* GP3: UART0_RTS */
+		};
+		group12_uart {
+			pinmux = <UART0_RX_P1>,		/* GP1: UART0_RX */
+				 <UART0_CTS_P2>;	/* GP2: UART0_CTS */
+			input-enable;
+		};
+	};
+
+	uart1_default: uart1_default {
+		group10_uart {
+			pinmux = <UART1_TX_P10>;	/* GP10: UART1_TX */
+		};
+		group11_uart {
+			pinmux = <UART1_RX_P11>;	/* GP11: UART1_RX */
+			input-enable;
+		};
+	};
+
+	spi0_default: spi0_default {
+		group171819_spi {
+			pinmux = <SPI0_CSN_P17>,	/* GP17: SPI0_CSN */
+				 <SPI0_SCK_P18>,	/* GP18: SPI0_SCK */
+				 <SPI0_TX_P19>;		/* GP19: SPI0_TX */
+		};
+		group16_spi {
+			pinmux = <SPI0_RX_P16>;		/* GP16: SPI0_RX */
+			input-enable;
+		};
+	};
+
+	i2c0_default: i2c0_default {
+		group1213_i2c {
+			pinmux = <I2C0_SDA_P12>,	/* GP12: I2C0_SDA */
+				 <I2C0_SCL_P13>;	/* GP13: I2C0_SCL */
+			bias-pull-up;
+			input-enable;
+			input-schmitt-enable;
+		};
+	};
+
+	i2c1_default: i2c1_default {
+		group67_i2c {
+			pinmux = <I2C1_SDA_P6>,		/* GP6: I2C1_SDA */
+				 <I2C1_SCL_P7>;		/* GP7: I2C1_SCL */
+			bias-pull-up;
+			input-enable;
+			input-schmitt-enable;
+		};
+	};
+
+	pio0_ws2812_default: pio0_ws2812_default {
+		group25_pio {
+			pinmux = <PIO0_P25>;		/* GP25: PIO0 */
+		};
+	};
+
+	pwm_default: pwm_default {
+		group45222324_pwms {
+			pinmux = <PWM_2A_P20>,		/* GP22: PWM2CHA (4) */
+				 <PWM_2B_P21>,		/* GP23: PWM2CHB (5) */
+				 <PWM_3A_P22>,		/* GP22: PWM3CHA (6) */
+				 <PWM_3B_P23>,		/* GP23: PWM3CHB (7) */
+				 <PWM_4A_P24>;		/* GP24: PWM4CHA (8) */
+		};
+	};
+
+	adc_default: adc_default {
+		group26272829_adc {
+			pinmux = <ADC_CH0_P26>,		/* GP26: ADC_CH0 */
+				 <ADC_CH1_P27>,		/* GP27: ADC_CH1 */
+				 <ADC_CH2_P28>,		/* GP28: ADC_CH2 */
+				 <ADC_CH3_P29>;		/* GP29: ADC_CH3 */
+			input-enable;
+		};
+	};
+};

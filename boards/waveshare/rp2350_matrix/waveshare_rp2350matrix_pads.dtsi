@@ -1,0 +1,23 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/gpio/waveshare-rp2350matrix-pcbpads.h>
+
+/ {
+	rp2350matrix_pcbpads: rp2350matrix-pads {
+		compatible = "waveshare,rp2350matrix-pcbpads";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <WS_RP2350MATRIX_PCBPAD_D0 0 &gpio0 0 0>,	/* GP10/PWM10 / UART-TX */
+			   <WS_RP2350MATRIX_PCBPAD_D1 0 &gpio0 1 0>,	/* GP11/PWM11 / UART-RX */
+			   <WS_RP2350MATRIX_PCBPAD_D2 0 &gpio0 2 0>,	/* GP12/PWM12 */
+			   <WS_RP2350MATRIX_PCBPAD_D3 0 &gpio0 3 0>,	/* GP13/PWM13 */
+			   <WS_RP2350MATRIX_PCBPAD_D4 0 &gpio0 4 0>,	/* GP14/PWM14 */
+			   <WS_RP2350MATRIX_PCBPAD_D5 0 &gpio0 5 0>,	/* GP15/PWM15 */
+			   <WS_RP2350MATRIX_PCBPAD_D6 0 &gpio0 20 0>,	/* GP20/PWM4 */
+			   <WS_RP2350MATRIX_PCBPAD_D7 0 &gpio0 21 0>;	/* GP21/PWM5 */
+	};
+};
