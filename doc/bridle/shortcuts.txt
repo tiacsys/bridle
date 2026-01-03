@@ -319,6 +319,7 @@
 .. |rpi_waveshare_rp2350_one_URB_PID|			replace:: :code:`0x10B5`
 .. |rpi_waveshare_rp2350_geek_URB_PID|			replace:: :code:`0x10B6`
 .. |rpi_waveshare_rp2350_lcd_0_96_URB_PID|		replace:: :code:`0x10B7`
+.. |rpi_waveshare_rp2350_eth_URB_PID|			replace:: :code:`0x10C3`
 
 .. |rpi_reserved_URB_PID|				replace:: :code:`0x1022`
 
