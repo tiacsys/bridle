@@ -432,31 +432,7 @@ alternative to the default Zephyr console on serial port the Bridle
 
    .. zephyr-keep-sorted-stop
 
-To integrate specific USB device functions that do not follow
-a USB standard class, the following alternate identifier numbers
-are available for the various Cytron Maker RP2040 and RP2350 boards
-according to the `Raspberry Pi USB product ID list`_:
-
-.. container:: twocol
-
-   .. container:: leftside
-
-      .. rubric:: RP2040
-
-      :|rpi_cytron_maker_pi_rp2040_URB_PID|: |Maker Nano RP2040|
-      :|rpi_cytron_maker_nano_rp2040_URB_PID|: |Maker Pi RP2040|
-      :|rpi_cytron_maker_uno_rp2040_URB_PID|: Maker UNO RP2040
-      :|rpi_cytron_edu_pico_URB_PID|: EDU PICO
-      :|rpi_cytron_edu_pico_rp2040_URB_PID|: EDU PICO
-      :|rpi_cytron_p_iriv_io_ctrl_URB_PID|: IRIV IO Controller
-
-   .. container:: rightside
-
-      .. rubric:: RP2350
-
-      :|rpi_cytron_motion_2350_pro_URB_PID|: MOTION 2350 Pro
-
-|nbsp|
+.. include:: /includes/rpi_cytron_urb_pid_list.txt
 
 Programmable I/O (PIO)
 **********************

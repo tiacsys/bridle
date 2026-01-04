@@ -1,11 +1,12 @@
 /*
- * Copyright (c) 2023-2025 TiaC Systems
+ * Copyright (c) 2023-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
 / {
 	model = "Raspberry Pi Pico @ USB-CDC/ACM Concole";
-	compatible = "raspberrypi,rpi-pico", "raspberrypi,rpi-pico-usbcons";
+	compatible = "raspberrypi,rpi-pico",
+		     "raspberrypi,rpi-pico-usbcons";
 
 	chosen {
 		zephyr,shell-uart = &snippet_cdc_acm_console_uart;

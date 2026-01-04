@@ -1,11 +1,14 @@
 /*
- * Copyright (c) 2023-2025 TiaC Systems
+ * Copyright (c) 2023-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
 / {
 	model = "Seeeduino Lotus Cortex-M0+ @ USB-CDC/ACM Concole";
-	compatible = "seeed,seeeduino-lotus", "seeed,seeeduino-lotus-usbcons";
+	compatible = "seeed,seeeduino-lotus",
+		     "seeed,seeeduino-lotus-usbcons",
+		     "atmel,samd21g18a",
+		     "atmel,samd21";
 
 	chosen {
 		zephyr,shell-uart = &snippet_cdc_acm_console_uart;
