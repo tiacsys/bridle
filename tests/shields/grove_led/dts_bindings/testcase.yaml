@@ -29,6 +29,8 @@ common:
     - coffeecaller_nrf52
     - cytron_maker_nano_rp2040
     - cytron_maker_pi_rp2040
+    - cytron_motion_2350_pro/rp2350a/hazard3
+    - cytron_motion_2350_pro/rp2350a/m33
     - mimxrt1010_evk
     - mimxrt1060_evk@A/mimxrt1062/qspi
     - mimxrt1060_evk@B/mimxrt1062/qspi
@@ -1622,10 +1624,14 @@ tests:
       - SHIELD=grove_led_d16
       # avoid false positives on boards with PWM enabled by default
       - platform:cytron_maker_pi_rp2040/rp2040:"CONFIG_PWM=n"
+      - platform:cytron_motion_2350_pro/rp2350a/hazard3:"CONFIG_PWM=n"
+      - platform:cytron_motion_2350_pro/rp2350a/m33:"CONFIG_PWM=n"
       - platform:mini_usb_rp2040@chipled/rp2040:"CONFIG_PWM=n"
     platform_allow:
       - coffeecaller_nrf52
       - cytron_maker_pi_rp2040
+      - cytron_motion_2350_pro/rp2350a/hazard3
+      - cytron_motion_2350_pro/rp2350a/m33
       - mini_usb_rp2040
       - mini_usb_rp2040@16mb
       - mini_usb_rp2040@chipled
@@ -1643,10 +1649,14 @@ tests:
       - SHIELD=grove_led_d17
       # avoid false positives on boards with PWM enabled by default
       - platform:cytron_maker_pi_rp2040/rp2040:"CONFIG_PWM=n"
+      - platform:cytron_motion_2350_pro/rp2350a/hazard3:"CONFIG_PWM=n"
+      - platform:cytron_motion_2350_pro/rp2350a/m33:"CONFIG_PWM=n"
       - platform:mini_usb_rp2040@chipled/rp2040:"CONFIG_PWM=n"
     platform_allow:
       - coffeecaller_nrf52
       - cytron_maker_pi_rp2040
+      - cytron_motion_2350_pro/rp2350a/hazard3
+      - cytron_motion_2350_pro/rp2350a/m33
       - mini_usb_rp2040
       - mini_usb_rp2040@16mb
       - mini_usb_rp2040@chipled
@@ -1726,8 +1736,12 @@ tests:
       - SHIELD=grove_led_d26
       # avoid false positives on boards with PWM enabled by default
       - platform:cytron_maker_pi_rp2040/rp2040:"CONFIG_PWM=n"
+      - platform:cytron_motion_2350_pro/rp2350a/hazard3:"CONFIG_PWM=n"
+      - platform:cytron_motion_2350_pro/rp2350a/m33:"CONFIG_PWM=n"
     platform_allow:
       - cytron_maker_pi_rp2040
+      - cytron_motion_2350_pro/rp2350a/hazard3
+      - cytron_motion_2350_pro/rp2350a/m33
   grove.connectors.grove_led.gpio.d27:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d27_header") or
@@ -1737,8 +1751,12 @@ tests:
       - SHIELD=grove_led_d27
       # avoid false positives on boards with PWM enabled by default
       - platform:cytron_maker_pi_rp2040/rp2040:"CONFIG_PWM=n"
+      - platform:cytron_motion_2350_pro/rp2350a/hazard3:"CONFIG_PWM=n"
+      - platform:cytron_motion_2350_pro/rp2350a/m33:"CONFIG_PWM=n"
     platform_allow:
       - cytron_maker_pi_rp2040
+      - cytron_motion_2350_pro/rp2350a/hazard3
+      - cytron_motion_2350_pro/rp2350a/m33
   grove.connectors.grove_led.gpio.d28:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d28_header") or
@@ -1748,8 +1766,12 @@ tests:
       - SHIELD=grove_led_d28
       # avoid false positives on boards with PWM enabled by default
       - platform:cytron_maker_pi_rp2040/rp2040:"CONFIG_PWM=n"
+      - platform:cytron_motion_2350_pro/rp2350a/hazard3:"CONFIG_PWM=n"
+      - platform:cytron_motion_2350_pro/rp2350a/m33:"CONFIG_PWM=n"
     platform_allow:
       - cytron_maker_pi_rp2040
+      - cytron_motion_2350_pro/rp2350a/hazard3
+      - cytron_motion_2350_pro/rp2350a/m33
   grove.connectors.grove_led.gpio.d29:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d29_header") or
@@ -1757,7 +1779,12 @@ tests:
             dt_label_with_parent_compat_enabled("grove_led_d29", "gpio-leds")
     extra_args:
       - SHIELD=grove_led_d29
-    skip: true
+      # avoid false positives on boards with PWM enabled by default
+      - platform:cytron_motion_2350_pro/rp2350a/hazard3:"CONFIG_PWM=n"
+      - platform:cytron_motion_2350_pro/rp2350a/m33:"CONFIG_PWM=n"
+    platform_allow:
+      - cytron_motion_2350_pro/rp2350a/hazard3
+      - cytron_motion_2350_pro/rp2350a/m33
   grove.connectors.grove_led.gpio.d30:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d30_header") or
@@ -1974,6 +2001,8 @@ tests:
     platform_allow:
       - coffeecaller_nrf52
       - cytron_maker_pi_rp2040
+      - cytron_motion_2350_pro/rp2350a/hazard3
+      - cytron_motion_2350_pro/rp2350a/m33
       - mini_usb_rp2040
       - mini_usb_rp2040@16mb
       - mini_usb_rp2040@chipled
@@ -1993,6 +2022,8 @@ tests:
     platform_allow:
       - coffeecaller_nrf52
       - cytron_maker_pi_rp2040
+      - cytron_motion_2350_pro/rp2350a/hazard3
+      - cytron_motion_2350_pro/rp2350a/m33
       - mini_usb_rp2040
       - mini_usb_rp2040@16mb
       - mini_usb_rp2040@chipled
@@ -2089,6 +2120,8 @@ tests:
     extra_args: SHIELD=grove_pwm_led_d26
     platform_allow:
       - cytron_maker_pi_rp2040
+      - cytron_motion_2350_pro/rp2350a/hazard3
+      - cytron_motion_2350_pro/rp2350a/m33
   grove.connectors.grove_led.pwm.d27:
     depends_on:
       - grove_gpio
@@ -2100,6 +2133,8 @@ tests:
     extra_args: SHIELD=grove_pwm_led_d27
     platform_allow:
       - cytron_maker_pi_rp2040
+      - cytron_motion_2350_pro/rp2350a/hazard3
+      - cytron_motion_2350_pro/rp2350a/m33
   grove.connectors.grove_led.pwm.d28:
     depends_on:
       - grove_gpio
@@ -2111,6 +2146,8 @@ tests:
     extra_args: SHIELD=grove_pwm_led_d28
     platform_allow:
       - cytron_maker_pi_rp2040
+      - cytron_motion_2350_pro/rp2350a/hazard3
+      - cytron_motion_2350_pro/rp2350a/m33
   grove.connectors.grove_led.pwm.d29:
     depends_on:
       - grove_gpio
@@ -2120,7 +2157,9 @@ tests:
               dt_nodelabel_enabled("grove_d28_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d29", "pwm-leds")
     extra_args: SHIELD=grove_pwm_led_d29
-    skip: true
+    platform_allow:
+      - cytron_motion_2350_pro/rp2350a/hazard3
+      - cytron_motion_2350_pro/rp2350a/m33
   grove.connectors.grove_led.pwm.d30:
     depends_on:
       - grove_gpio
