@@ -29,6 +29,8 @@ common:
     - coffeecaller_nrf52
     - cytron_maker_nano_rp2040
     - cytron_maker_pi_rp2040
+    - cytron_motion_2350_pro/rp2350a/hazard3
+    - cytron_motion_2350_pro/rp2350a/m33
     - mini_usb_rp2040@4mb/rp2040
     - mini_usb_rp2040@16mb/rp2040
     - mini_usb_rp2040@chipled/rp2040
@@ -163,6 +165,20 @@ tests:
       SHIELD=grove_btn_d3;grove_led_d5;grove_pwm_led_d5;x_grove_testbed
     platform_allow:
       - cytron_maker_pi_rp2040
+  grove.connectors.x_grove_testbed.pwm.b17l27:
+    depends_on:
+      - grove_gpio
+      - grove_pwm
+    filter: dt_nodelabel_enabled("grove_d27_header") and
+            dt_label_with_parent_compat_enabled("grove_pwm_led_d27", "pwm-leds") and
+            dt_label_with_parent_compat_enabled("grove_led_d27", "gpio-leds") and
+            dt_nodelabel_enabled("grove_d17_header") and
+            dt_label_with_parent_compat_enabled("grove_btn_d17", "gpio-keys")
+    extra_args:
+      SHIELD=grove_btn_d17;grove_led_d27;grove_pwm_led_d27;x_grove_testbed
+    platform_allow:
+      - cytron_motion_2350_pro/rp2350a/hazard3
+      - cytron_motion_2350_pro/rp2350a/m33
   grove.connectors.x_grove_testbed.pwm.b7l6:
     depends_on:
       - grove_gpio

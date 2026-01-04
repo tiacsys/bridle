@@ -376,6 +376,49 @@ if(CONFIG_SHIELD_X_GROVE_TESTBED_SINGLE_BOARD)
 
   endif()
 
+  if(CONFIG_BOARD_CYTRON_MOTION_2350_PRO)
+
+    if(NOT CONFIG_SHIELD_GROVE_BTN)
+      message(FATAL_ERROR "Test failed, "
+        "actual CONFIG_SHIELD_GROVE_BTN=${CONFIG_SHIELD_GROVE_BTN}, "
+        "expected CONFIG_SHIELD_GROVE_BTN=y"
+      )
+    else()
+
+      # zephyr-keep-sorted-start re(^\s+\w)
+      test_if(CONFIG_SHIELD_GROVE_BTN "sw0" "grove_btn_d17" "Grove Button D17")
+      # zephyr-keep-sorted-stop
+
+    endif()
+
+    if(NOT CONFIG_SHIELD_GROVE_LED)
+      message(FATAL_ERROR "Test failed, "
+        "actual CONFIG_SHIELD_GROVE_LED=${CONFIG_SHIELD_GROVE_LED}, "
+        "expected CONFIG_SHIELD_GROVE_LED=y"
+      )
+    else()
+
+      # zephyr-keep-sorted-start re(^\s+\w)
+      test_if(CONFIG_SHIELD_GROVE_LED "led0" "grove_led_d27" "Grove LED D27")
+      # zephyr-keep-sorted-stop
+
+    endif()
+
+    if(NOT CONFIG_SHIELD_GROVE_PWM_LED)
+      message(FATAL_ERROR "Test failed, "
+        "actual CONFIG_SHIELD_GROVE_PWM_LED=${CONFIG_SHIELD_GROVE_PWM_LED}, "
+        "expected CONFIG_SHIELD_GROVE_PWM_LED=y"
+      )
+    else()
+
+      # zephyr-keep-sorted-start re(^\s+\w)
+      test_if(CONFIG_SHIELD_GROVE_PWM_LED "pwm-led0" "grove_pwm_led_d27" "Grove LED D27")
+      # zephyr-keep-sorted-stop
+
+    endif()
+
+  endif()
+
   if(CONFIG_BOARD_MINI_USB_RP2040 OR CONFIG_BOARD_MINI_USB_RP2350)
 
     if(NOT CONFIG_SHIELD_GROVE_BTN)
