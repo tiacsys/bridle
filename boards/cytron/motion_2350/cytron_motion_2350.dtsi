@@ -1,0 +1,52 @@
+/*
+ * Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include "cytron_motion_2350-pinctrl.dtsi"
+
+/ {
+	chosen {
+		zephyr,sram = &sram0;
+	};
+
+	aliases {
+		watchdog0 = &wdt0;
+	};
+};
+
+&clocks {
+	pinctrl-0 = <&clocks_default>;
+	pinctrl-names = "default";
+};
+
+&reset {
+	status = "okay";
+};
+
+&wdt0 {
+	status = "okay";
+};
+
+&timer0 {
+	status = "okay";
+};
+
+&timer1 {
+	status = "okay";
+};
+
+&dma {
+	status = "okay";
+};
+
+&die_temp {
+	status = "okay";
+	friendly-name = "RP2350 chip temperature";
+};
+
+gpio0_lo: &gpio0 {};
+
+zephyr_udc0: &usbd {
+	status = "okay";
+};

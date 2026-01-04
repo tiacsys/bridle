@@ -1,0 +1,105 @@
+.. list-table::
+   :align: center
+   :width: 66%
+   :header-rows: 1
+
+   * - .. image:: motion-2350-pro/positions.jpg
+          :align: center
+          :width: 750
+          :alt: MOTION 2350 Pro details
+
+   * - .. container:: twocol
+
+          .. container:: leftside
+
+             1. | :strong:`USB Type-C connector`
+                | Supports USB2.0 hosts and slave devices
+             #. :strong:`RESET button`
+             #. | :strong:`BOOT button`
+                | press it when resetting to enter download mode
+             #. | :strong:`Maker Port 0`
+                | Qwiic / STEMMA QT compatiple connector and pinout
+                  with conversion cable to Grove connector
+                  supports **I2C0** (default), UART0, GPIO/PWM
+                | :strong:`Maker Port 1`
+                | Qwiic / STEMMA QT compatiple connector and pinout
+                  with conversion cable to Grove connector
+                  supports **ADC0 & ADC1** (default), UART1, I2C1, SPI1, GPIO/PWM
+                | :strong:`Maker Port 2`
+                | Qwiic / STEMMA QT compatiple connector and pinout
+                  with conversion cable to Grove connector
+                  supports **UART0** (default), I2C0, SPI1, ADC3 & ADC4, GPIO/PWM
+             #. | :strong:`WS2812B`
+                | RGB LEDs
+             #. :strong:`USER buttons`
+             #. | :strong:`Piezo Buzzer`
+                | 3.6Vo-p (2.5~4.5V) @ 2.730㎑ with 80~87㏈
+
+          .. container:: rightside
+
+             8. | :strong:`LED monochrome`
+                | user LEDs for diagnostic (not power indicator)
+             #. :strong:`RP2350A`
+             #. | :strong:`W25Q16JV`
+                | 2㎆ NOR-Flash
+             #. | :strong:`USB Type-A connector`
+                | Supports USB1.1 host via Programmable I/O (PIO) state machine
+             #. | :strong:`On/Off switch`
+                | (Master) Motor Voltage on/off
+             #. | :strong:`Motor Voltage terminal`
+                | Screw terminal block, for 3.6~6V
+             #. | :strong:`AZ1117CH-3.3` (alternative :strong:`AMS1117-3.3`)
+                | 1A low dropout, high efficiency linear regulators LDO 3.3V
+             #. | :strong:`NCE4606`
+                | 6A @ 1.2~30V complementary N-/P-channel MOSFET arranged as
+                  an H-bridge for brushed DC motor drive with 5A (10A peak)
+                  and able to use 2-6 AA/AAA dry batteries or 2-6 NiMH/NiCd
+                  rechargeable batteries on toy motors
+             #. :strong:`DC motor terminals`
+             #. :strong:`Servo motors terminals`
+             #. :strong:`GPIO breakout terminals`
+             #. | :strong:`DEBUG points`
+                | Serial Wire Debug (SWD)
+
+.. rubric:: Data Sheets
+.. rst-class:: rst-columns
+
+- .. rubric:: `RP2350 SoC`_
+- `RP2350 Datasheet`_
+- `Hardware design with RP2350`_
+- .. rubric:: W25Q16JV_
+- `W25Q16JV Datasheet`_
+- .. rubric:: WS2812B_
+- `WS2812B Datasheet V5`_
+- `WS2812B Datasheet V2`_
+- `WS2812B Datasheet V1`_
+- `Understanding the WS2812`_
+- `WS2812B with RP2040 PIO & DMA`_
+- .. rubric:: `AZ1117CH-3.3 <AZ1117C_>`_/`AMS1117-3.3 <AMS1117_>`_
+- `AZ1117C Datasheet`_
+- `AMS1117 Datasheet`_
+- .. rubric:: NCE4606_
+- `NCE4606 Datasheet`_
+- `NCE4606A Datasheet`_
+- `NCE4606B Datasheet`_
+- `NCE4606C Datasheet`_
+- .. rubric:: `CMT-9504`_/`CMT-7525`_
+- `CMT-9504 Datasheet`_
+- `CMT-7525 Datasheet`_
+- `Piezoelectric Speaker`_
+- `Electromagnetic Acoustic Transducer <EMAT_>`_
+- .. rubric:: `Grove System`_
+- `Grove Digital Layout`_
+- `Grove Analog Layout`_
+- `Grove UART Layout`_
+- `Grove I2C Layout`_
+
+.. rubric:: Flash partitions
+
++----------------+----------------+-------------------+
+| QSPI NOR-Flash | code_partition | storage_partition |
++================+================+===================+
+| primary 2㎆    |       1㎆      |         1㎆       |
++----------------+----------------+-------------------+
+| secondary N/A  |      |--|      |        |--|       |
++----------------+----------------+-------------------+

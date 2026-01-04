@@ -13,6 +13,7 @@ Highlights
 
 * :brd:`NOT YET, tbd.`
 
+* Add the Cytron MOTION 2350 Pro board, ready to use for 8 servo motors.
 * Use the default Flash partition layout with code and storage partition
   on all RP2040 and RP2350 based systems.
 
@@ -155,6 +156,7 @@ Supported boards
 .. zephyr-keep-sorted-start re(^\* \w)
 
 * Arduino/Genuino Zero
+* Cytron MOTION 2350 Pro
 * Cytron Maker Nano RP2040
 * Cytron Maker Pi RP2040
 * Mini USB RP2040
@@ -306,6 +308,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`407` - [HW] Cytron MOTION 2350 Pro
 * :github:`394` - [HW] Raspberry Pi Pico 2/2W
 * :github:`393` - [FCR] Support CANnectivity application
 * :github:`392` - [HW] Waveshare RP2350-CAN

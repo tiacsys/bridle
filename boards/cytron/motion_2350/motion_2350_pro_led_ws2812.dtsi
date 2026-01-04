@@ -1,0 +1,40 @@
+/*
+ * Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <freq.h>
+#include <zephyr/dt-bindings/gpio/gpio.h>
+#include <zephyr/dt-bindings/led/led.h>
+
+/ {
+	aliases {
+		led-strip = &led_strip;
+	};
+};
+
+&spi0 {
+	status = "okay";
+	pinctrl-0 = <&spi0_ws2812_motion_2350_pro>;
+	pinctrl-names = "default";
+
+	clock-frequency = <DT_FREQ_M(1)>;
+
+	led_strip: ws2812@0 {
+		compatible = "worldsemi,ws2812-spi";
+		status = "okay";
+
+		reg = <0>;
+		spi-max-frequency = <DT_FREQ_K(6400)>;	/* Tbit = 156.25 ns */
+
+		/* HI: 0xFC: 11111100: 0.937 us high and 0.313 us low */
+		/* LO: 0xC0: 11000000: 0.313 us high and 0.937 us low */
+		spi-one-frame = <0xfc>;
+		spi-zero-frame = <0xc0>;
+
+		chain-length = <2>;
+		color-mapping = <LED_COLOR_ID_RED
+				 LED_COLOR_ID_GREEN
+				 LED_COLOR_ID_BLUE>;
+	};
+};

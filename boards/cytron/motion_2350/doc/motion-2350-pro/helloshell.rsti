@@ -1,0 +1,495 @@
+.. rubric:: Simple test execution on target
+
+(text in bold is a command input)
+
+.. tabs::
+
+   .. group-tab:: Basics
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **hello -h**
+            hello - say hello
+            :bgn:`uart:~$` **hello**
+            Hello from shell.
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **hwinfo devid**
+            Length: 8
+            ID: 0xbfbd7fbb52dd7e1b
+
+            :bgn:`uart:~$` **kernel version**
+            Zephyr version |zephyr_version_number_em|
+
+            :bgn:`uart:~$` **bridle version**
+            Bridle version |shortversion_number_em|
+
+            :bgn:`uart:~$` **bridle version long**
+            Bridle version |longversion_number_em|
+
+            :bgn:`uart:~$` **bridle info**
+            Zephyr: |zephyr_release_number_em|
+            Bridle: |release_number_em|
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **device list**
+            devices:
+            - clock-controller\ @\ 40010000 (READY)
+              DT node labels: clocks
+            - reset-controller\ @\ 40020000 (READY)
+              DT node labels: reset
+            - snippet_cdc_acm_console_uart (READY)
+              DT node labels: snippet_cdc_acm_console_uart
+            - uart\ @\ 40070000 (READY)
+              DT node labels: uart0 grove_serial
+            - watchdog\ @\ 400d8000 (READY)
+              DT node labels: wdt0
+            - timer\ @\ 400b8000 (READY)
+              DT node labels: timer1
+            - timer\ @\ 400b0000 (READY)
+              DT node labels: timer0
+            - dma\ @\ 50000000 (READY)
+              DT node labels: dma
+            - gpio-port\ @\ 0 (READY)
+              DT node labels: gpio0 gpio0_lo
+            - usbd\ @\ 50110000 (READY)
+              DT node labels: usbd zephyr_udc0
+            - adc\ @\ 400a0000 (READY)
+              DT node labels: adc
+            - flash-controller\ @\ 400d0000 (READY)
+              DT node labels: qmi
+            - i2c\ @\ 40090000 (READY)
+              DT node labels: i2c0 grove_i2c
+            - pwm\ @\ 400a8000 (READY)
+              DT node labels: pwm grove_pwm_d16 grove_pwm_d17 grove_pwm_d26 grove_pwm_d27 grove_pwm_d28 grove_pwm_d29
+            - pwm_leds (READY)
+              DT node labels: pwm_leds
+            - dietemp (READY)
+              DT node labels: die_temp
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **history**
+            [  0] history
+            [  1] device list
+            [  2] bridle info
+            [  3] bridle version long
+            [  4] bridle version
+            [  5] kernel version
+            [  6] hwinfo devid
+            [  7] hello
+            [  8] hello -h
+
+   .. group-tab:: LED
+
+      .. note:: **PWM LED conflicts with GPIO!**
+
+         Operations with the blue user LED in PWM mode will fail when ever
+         the corresponding GPIO line 18 was configured as digital output.
+         This condition is irreversible at runtime within the shell and
+         :strong:`requires a system reset`.
+
+      Operate with the blue user LED :hwftlbl-led:`PWM_LED`
+      at :rpi-pico-pio:`GP18` / :rpi-pico-pwm:`PWM2` (PWM2CHA):
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led on pwm_leds 0**
+            pwm_leds: turning on LED 0
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led set_brightness pwm_leds 0 10**
+            pwm_leds: setting LED 0 brightness to 10
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led set_brightness pwm_leds 0 50**
+            pwm_leds: setting LED 0 brightness to 50
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led set_brightness pwm_leds 0 100**
+            pwm_leds: setting LED 0 brightness to 100
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led off pwm_leds 0**
+            pwm_leds: turning off LED 0
+
+   .. group-tab:: PWM
+
+      .. note:: **PWM conflicts with GPIO!**
+
+         Operations with the blue user LED in PWM mode will fail when ever
+         the corresponding GPIO line 18 was configured as digital output.
+         This condition is irreversible at runtime within the shell and
+         :strong:`requires a system reset`.
+
+      Operate with the blue user LED :hwftlbl-led:`PWM_LED`
+      at :rpi-pico-pio:`GP18` / :rpi-pico-pwm:`PWM2` (PWM2CHA):
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 2 20000 20000**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 2 20000 19000**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 2 20000 18000**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 2 20000 17000**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 2 20000 16000**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 2 20000 15000**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 2 20000 10000**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 2 20000 5000**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 2 20000 2500**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 2 20000 500**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 2 20000 0**
+
+      Operate with the :hwftlbl-spk:`PIEZO` buzzer
+      at :rpi-pico-pio:`GP22` / :rpi-pico-pwm:`PWM6` (PWM3CHA):
+
+         #. concert pitch: 440 ㎐
+         #. Piezo middle frequency: 1,000 ㎑
+         #. Piezo resonance: 2,730 ㎑
+         #. Piezo high frequency: 10,000 ㎑
+         #. higher frequencies: 11 ㎑, 12 ㎑, 13 ㎑, 14 ㎑, 15 ㎑
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 6 2273 1136**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 6 2000 1000**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 6 366 183**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 6 100 50**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 6 90 45**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 6 83 41**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 6 77 39**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 6 71 36**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 6 66 33**
+
+      Operate with the :hwftlbl-act:`SERVO` motor (≈11 ㎳/° duty cycle,
+      50 ㎐ period) at :rpi-pico-pio:`GP0` / :rpi-pico-pwm:`PWM0` (PWM0CHA):
+
+         #. on 0.500 ㎳ ≲ -90°
+         #. on 1.500 ㎳ ≅   0°
+         #. on 2.500 ㎳ ≳ +90°
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 0 20000 500**
+            :bgn:`uart:~$` **pwm usec pwm 0 20000 1500**
+            :bgn:`uart:~$` **pwm usec pwm 0 20000 2500**
+
+   .. group-tab:: GPIO
+
+      Operate with the blue user LED :hwftlbl-led:`LED`
+      at :rpi-pico-pio:`GP18`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **gpio get gpio0 18**
+            0
+
+            :bgn:`uart:~$` **gpio conf gpio0 18 oh0**
+
+            :bgn:`uart:~$` **gpio set gpio0 18 1**
+            :bgn:`uart:~$` **gpio set gpio0 18 0**
+
+            :bgn:`uart:~$` **gpio blink gpio0 18**
+            Hit any key to exit
+
+      Operate with the user button :hwftlbl-btn:`BTN1`
+      at :rpi-pico-pio:`GP20`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **gpio get gpio0 20**
+            0
+
+            :bgn:`uart:~$` **gpio conf gpio0 20 il**
+            :bgn:`uart:~$` **gpio get gpio0 20**
+            0
+            :bgn:`uart:~$` **gpio get gpio0 20**
+            1
+            :bgn:`uart:~$` **gpio get gpio0 20**
+            0
+
+   .. group-tab:: ADC
+
+      Operate with the channels:
+
+      - :rpi-pico-adc:`ADC0`, pulled up to :rpi-pico-vdd:`3V3`
+      - :rpi-pico-adc:`ADC1`, pulled down to :rpi-pico-gnd:`GND`
+      - :rpi-pico-adc:`ADC3`, on-board :rpi-pico-vdd:`VIN/6.1`
+        voltage monitoring (optional, when solder bridge was closed)
+      - on-chip temperature sensor on channel :rpi-pico-adc:`ADC4`
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **adc adc@400a0000 resolution 12**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **adc adc@400a0000 read 0**
+            read: 4095
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **adc adc@400a0000 read 1**
+            read: 4
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **adc adc@400a0000 read 3**
+            read: 2984
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **adc adc@400a0000 read 4**
+            read: 864
+
+   .. group-tab:: Timer
+
+      Operate with the tow on-chip timer units:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **timer oneshot timer0 0 1000000**
+            :bgn:`timer0: Alarm triggered`
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **timer oneshot timer1 0 1000000**
+            :bgn:`timer1: Alarm triggered`
+
+   .. group-tab:: Flash access
+
+      .. rubric:: Erase, Write and Verify
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **flash read qmi e0000 40**
+            000E0000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+            000E0010: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+            000E0020: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+            000E0030: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+
+            :bgn:`uart:~$` **flash test qmi e0000 1000 2**
+            Erase OK.
+            Write OK.
+            Verified OK.
+            Erase OK.
+            Write OK.
+            Verified OK.
+            Erase-Write-Verify test done.
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **flash read qmi e0000 40**
+            000E0000: 00 01 02 03 04 05 06 07  08 09 0a 0b 0c 0d 0e 0f \|........ ........\|
+            000E0010: 10 11 12 13 14 15 16 17  18 19 1a 1b 1c 1d 1e 1f \|........ ........\|
+            000E0020: 20 21 22 23 24 25 26 27  28 29 2a 2b 2c 2d 2e 2f \| !"#$%&' ()*+,-./\|
+            000E0030: 30 31 32 33 34 35 36 37  38 39 3a 3b 3c 3d 3e 3f \|01234567 89:;<=>?\|
+
+            :bgn:`uart:~$` **flash page_info e0000**
+            Page for address 0xe0000:
+            start offset: 0xe0000
+            size: 4096
+            index: 224
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **flash erase qmi e0000 1000**
+            Erase success.
+
+            :bgn:`uart:~$` **flash read qmi e0000 40**
+            000E0000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+            000E0010: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+            000E0020: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+            000E0030: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+
+   .. group-tab:: I2C
+
+      The |MOTION 2350 Pro| has no on-board I2C devices. For this example the
+      |Grove BMP280 Sensor|_ was connected.
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **i2c scan grove_i2c**
+                 0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+            00:             -- -- -- -- -- -- -- -- -- -- -- --
+            10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            70: -- -- -- -- -- -- -- 77
+            1 devices found on grove_i2c
+
+      The I2C address ``0x77`` is a Bosch BMP280 Air Pressure Sensor and their
+      Chip-ID can read from register ``0xd0``. The Chip-ID must be ``0x58``:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **i2c read_byte grove_i2c 77 d0**
+            Output: 0x58
+
+   .. group-tab:: Sensors
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor info**
+            device name: dietemp, vendor: Raspberry Pi Foundation, model: pico-temp, friendly name: RP2350 chip temperature
+
+      .. rubric:: on-chip temperature sensor
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor get dietemp**
+            :bgn:`channel type=12(die_temp) index=0 shift=5 num_samples=1 value=14655375226ns (29.324229)`

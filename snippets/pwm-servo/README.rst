@@ -24,6 +24,7 @@ Supported boards are:
 
 .. zephyr-keep-sorted-start re(^\* .\w)
 
+* Cytron |MOTION 2350 Pro|
 * Cytron |Maker Pi RP2040|
 * |TiaC CoffeeCaller nRF52|
 
@@ -32,6 +33,57 @@ Supported boards are:
 .. tabs::
 
    .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+
+   .. group-tab:: Cytron MOTION 2350 Pro
+
+      .. _snippet-pwm-servo-cytron-motion-2350-pro:
+
+      Connect a servomotor :hwftlbl-act:`MG996R` to the first on-board PWM
+      channel for servomotors, the 8×3 pin header block at position 17. See
+      the board :ref:`positions diagram <cytron_motion_2350_pro_positions>`
+      for details.
+
+      The corresponding PWM pulse widths for a range of :b:`-90°` to
+      :b:`+90°` (180°) are :bbl:`500 ㎲` to :bbl:`2,500 ㎲` with a
+      :bbl:`period of 50 ㎐`. All these servomotor specific parameters
+      are preset by the snippet :ref:`snippet-pwm-servo` that have to
+      use to get access to this dedicated PWM channel together with the
+      original Zephyr :external+zephyr:zephyr:code-sample:`servo-motor`
+      sample. Invoke :program:`west build` and :program:`west flash`
+      with this snipped and optional mixed with others, for example:
+
+         .. rubric:: On ARM Cortex-M33
+
+         .. zephyr-app-commands::
+            :app: zephyr/samples/basic/servo_motor
+            :build-dir: cytron_motion_rp2350
+            :board: cytron_motion_2350_pro/rp2350a/m33
+            :snippets: "usb-console pwm-servo"
+            :west-args: -p always
+            :flash-args: -r uf2
+            :goals: flash
+            :compact:
+
+         .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+
+         .. zephyr-app-commands::
+            :app: zephyr/samples/basic/servo_motor
+            :build-dir: cytron_motion_rp2350
+            :board: cytron_motion_2350_pro/rp2350a/hazard3
+            :snippets: "usb-console pwm-servo"
+            :west-args: -p always
+            :flash-args: -r uf2
+            :goals: flash
+            :compact:
+
+      .. literalinclude:: boards/cytron_motion_2350_pro.overlay
+         :caption: boards/cytron_motion_2350_pro.overlay
+         :language: DTS
+         :encoding: ISO-8859-1
+         :emphasize-lines: 3-4
+         :linenos:
+         :start-at: servo:
+         :end-at: };
 
    .. group-tab:: Cytron Maker Pi RP2040
 

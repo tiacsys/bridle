@@ -1,0 +1,29 @@
+identifier: cytron_motion_2350_pro/rp2350a/m33
+name: Cytron MOTION 2350 Pro (Cortex-M33)
+type: mcu
+arch: arm
+flash: 2048
+ram: 520
+toolchain:
+  - zephyr
+  - gnuarmemb
+supported:
+  - grove_gpio
+  - grove_pwm
+  - grove_i2c
+  - grove_serial
+  - uart
+  - gpio
+  - adc
+  - i2c
+  - spi
+  - hwinfo
+  - watchdog
+  - pwm
+  - flash
+  - dma
+  - counter
+  - clock
+  - usbd
+  - usb_device
+  - usb_cdc

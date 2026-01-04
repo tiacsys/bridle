@@ -183,6 +183,17 @@ specified as required.
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
 
+   * - |cytron_motion_2350_pro_URB_VID|
+     - |cytron_motion_2350_pro_URB_PID_CON|
+     - | :code:`cytron_motion_2350_pro/rp2350a/hazard3`
+       | :code:`cytron_motion_2350_pro/rp2350a/m33`
+     - |Cytron (Raspberry Pi)|_
+     - | |MOTION 2350 Pro (CDC ACM)|,
+       | Raspberry Pi Pico SDK CDC UART
+     - `Raspberry Pi USB product ID list`_
+     - | |zephyr:devicetree:chosen:console|
+       | |zephyr:devicetree:chosen:shell-uart|
+
    * - |rpi_pico_URB_VID|
      - |rpi_pico_URB_PID_CON|
      - :code:`rpi_pico`

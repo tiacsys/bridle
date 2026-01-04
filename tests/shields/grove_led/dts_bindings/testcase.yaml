@@ -29,6 +29,8 @@ common:
     - coffeecaller_nrf52
     - cytron_maker_nano_rp2040
     - cytron_maker_pi_rp2040
+    - cytron_motion_2350_pro/rp2350a/hazard3
+    - cytron_motion_2350_pro/rp2350a/m33
     - mimxrt1010_evk
     - mimxrt1060_evk@A/mimxrt1062/qspi
     - mimxrt1060_evk@B/mimxrt1062/qspi
@@ -1447,20 +1449,31 @@ tests:
     filter: ( dt_nodelabel_enabled("grove_d0_header") or
               dt_nodelabel_enabled("grove_uart_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d0", "gpio-leds")
-    extra_args: SHIELD=grove_led_d0
+    extra_args:
+      - SHIELD=grove_led_d0
+      # avoid false positives on boards with PWM enabled by default
+      - platform:cytron_maker_nano_rp2040/rp2040:"CONFIG_PWM=n"
+      - platform:cytron_maker_pi_rp2040/rp2040:"CONFIG_PWM=n"
   grove.connectors.grove_led.gpio.d1:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d1_header") or
               dt_nodelabel_enabled("grove_d0_header") or
               dt_nodelabel_enabled("grove_uart_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d1", "gpio-leds")
-    extra_args: SHIELD=grove_led_d1
+    extra_args:
+      - SHIELD=grove_led_d1
+      # avoid false positives on boards with PWM enabled by default
+      - platform:cytron_maker_nano_rp2040/rp2040:"CONFIG_PWM=n"
+      - platform:cytron_maker_pi_rp2040/rp2040:"CONFIG_PWM=n"
   grove.connectors.grove_led.gpio.d2:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d2_header") or
               dt_nodelabel_enabled("grove_d1_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d2", "gpio-leds")
-    extra_args: SHIELD=grove_led_d2
+    extra_args:
+      - SHIELD=grove_led_d2
+      # avoid false positives on boards with PWM enabled by default
+      - platform:cytron_maker_pi_rp2040/rp2040:"CONFIG_PWM=n"
     platform_allow:
       - cytron_maker_pi_rp2040
       - seeeduino_lotus
@@ -1469,7 +1482,10 @@ tests:
     filter: ( dt_nodelabel_enabled("grove_d3_header") or
               dt_nodelabel_enabled("grove_d2_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d3", "gpio-leds")
-    extra_args: SHIELD=grove_led_d3
+    extra_args:
+      - SHIELD=grove_led_d3
+      # avoid false positives on boards with PWM enabled by default
+      - platform:cytron_maker_pi_rp2040/rp2040:"CONFIG_PWM=n"
     platform_allow:
       - cytron_maker_pi_rp2040
       - seeeduino_lotus
@@ -1478,7 +1494,10 @@ tests:
     filter: ( dt_nodelabel_enabled("grove_d4_header") or
               dt_nodelabel_enabled("grove_d3_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d4", "gpio-leds")
-    extra_args: SHIELD=grove_led_d4
+    extra_args:
+      - SHIELD=grove_led_d4
+      # avoid false positives on boards with PWM enabled by default
+      - platform:cytron_maker_pi_rp2040/rp2040:"CONFIG_PWM=n"
     platform_allow:
       - cytron_maker_pi_rp2040
       - seeeduino_lotus
@@ -1487,7 +1506,10 @@ tests:
     filter: ( dt_nodelabel_enabled("grove_d5_header") or
               dt_nodelabel_enabled("grove_d4_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d5", "gpio-leds")
-    extra_args: SHIELD=grove_led_d5
+    extra_args:
+      - SHIELD=grove_led_d5
+      # avoid false positives on boards with PWM enabled by default
+      - platform:cytron_maker_pi_rp2040/rp2040:"CONFIG_PWM=n"
     platform_allow:
       - cytron_maker_pi_rp2040
       - seeeduino_lotus
@@ -1496,7 +1518,10 @@ tests:
     filter: ( dt_nodelabel_enabled("grove_d6_header") or
               dt_nodelabel_enabled("grove_d5_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d6", "gpio-leds")
-    extra_args: SHIELD=grove_led_d6
+    extra_args:
+      - SHIELD=grove_led_d6
+      # avoid false positives on boards with PWM enabled by default
+      - platform:cytron_maker_pi_rp2040/rp2040:"CONFIG_PWM=n"
     platform_allow:
       - cytron_maker_pi_rp2040
       - seeeduino_lotus
@@ -1505,7 +1530,10 @@ tests:
     filter: ( dt_nodelabel_enabled("grove_d7_header") or
               dt_nodelabel_enabled("grove_d6_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d7", "gpio-leds")
-    extra_args: SHIELD=grove_led_d7
+    extra_args:
+      - SHIELD=grove_led_d7
+      # avoid false positives on boards with PWM enabled by default
+      - platform:cytron_maker_pi_rp2040/rp2040:"CONFIG_PWM=n"
     platform_allow:
       - cytron_maker_pi_rp2040
       - seeeduino_lotus
@@ -1514,7 +1542,8 @@ tests:
     filter: ( dt_nodelabel_enabled("grove_d8_header") or
               dt_nodelabel_enabled("grove_d7_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d8", "gpio-leds")
-    extra_args: SHIELD=grove_led_d8
+    extra_args:
+      - SHIELD=grove_led_d8
     platform_allow:
       - seeeduino_lotus
   grove.connectors.grove_led.gpio.d9:
@@ -1522,35 +1551,40 @@ tests:
     filter: ( dt_nodelabel_enabled("grove_d9_header") or
               dt_nodelabel_enabled("grove_d8_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d9", "gpio-leds")
-    extra_args: SHIELD=grove_led_d9
+    extra_args:
+      - SHIELD=grove_led_d9
     skip: true
   grove.connectors.grove_led.gpio.d10:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d10_header") or
               dt_nodelabel_enabled("grove_d9_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d10", "gpio-leds")
-    extra_args: SHIELD=grove_led_d10
+    extra_args:
+      - SHIELD=grove_led_d10
     skip: true
   grove.connectors.grove_led.gpio.d11:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d11_header") or
               dt_nodelabel_enabled("grove_d10_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d11", "gpio-leds")
-    extra_args: SHIELD=grove_led_d11
+    extra_args:
+      - SHIELD=grove_led_d11
     skip: true
   grove.connectors.grove_led.gpio.d12:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d12_header") or
               dt_nodelabel_enabled("grove_d11_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d12", "gpio-leds")
-    extra_args: SHIELD=grove_led_d12
+    extra_args:
+      - SHIELD=grove_led_d12
     skip: true
   grove.connectors.grove_led.gpio.d13:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d13_header") or
               dt_nodelabel_enabled("grove_d12_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d13", "gpio-leds")
-    extra_args: SHIELD=grove_led_d13
+    extra_args:
+      - SHIELD=grove_led_d13
     skip: true
   grove.connectors.grove_led.gpio.d14:
     depends_on: grove_gpio
@@ -1558,7 +1592,10 @@ tests:
               dt_nodelabel_enabled("grove_d13_header") or
               dt_nodelabel_enabled("grove_a0_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d14", "gpio-leds")
-    extra_args: SHIELD=grove_led_d14
+    extra_args:
+      - SHIELD=grove_led_d14
+      # avoid false positives on boards with PWM enabled by default
+      - platform:cytron_maker_nano_rp2040/rp2040:"CONFIG_PWM=n"
     platform_allow:
       - cytron_maker_nano_rp2040
       - seeeduino_lotus
@@ -1569,7 +1606,10 @@ tests:
               dt_nodelabel_enabled("grove_a1_header") or
               dt_nodelabel_enabled("grove_a0_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d15", "gpio-leds")
-    extra_args: SHIELD=grove_led_d15
+    extra_args:
+      - SHIELD=grove_led_d15
+      # avoid false positives on boards with PWM enabled by default
+      - platform:cytron_maker_nano_rp2040/rp2040:"CONFIG_PWM=n"
     platform_allow:
       - cytron_maker_nano_rp2040
       - seeeduino_lotus
@@ -1580,10 +1620,18 @@ tests:
               dt_nodelabel_enabled("grove_a2_header") or
               dt_nodelabel_enabled("grove_a1_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d16", "gpio-leds")
-    extra_args: SHIELD=grove_led_d16
+    extra_args:
+      - SHIELD=grove_led_d16
+      # avoid false positives on boards with PWM enabled by default
+      - platform:cytron_maker_pi_rp2040/rp2040:"CONFIG_PWM=n"
+      - platform:cytron_motion_2350_pro/rp2350a/hazard3:"CONFIG_PWM=n"
+      - platform:cytron_motion_2350_pro/rp2350a/m33:"CONFIG_PWM=n"
+      - platform:mini_usb_rp2040@chipled/rp2040:"CONFIG_PWM=n"
     platform_allow:
       - coffeecaller_nrf52
       - cytron_maker_pi_rp2040
+      - cytron_motion_2350_pro/rp2350a/hazard3
+      - cytron_motion_2350_pro/rp2350a/m33
       - mini_usb_rp2040
       - mini_usb_rp2040@16mb
       - mini_usb_rp2040@chipled
@@ -1597,10 +1645,18 @@ tests:
               dt_nodelabel_enabled("grove_a3_header") or
               dt_nodelabel_enabled("grove_a2_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d17", "gpio-leds")
-    extra_args: SHIELD=grove_led_d17
+    extra_args:
+      - SHIELD=grove_led_d17
+      # avoid false positives on boards with PWM enabled by default
+      - platform:cytron_maker_pi_rp2040/rp2040:"CONFIG_PWM=n"
+      - platform:cytron_motion_2350_pro/rp2350a/hazard3:"CONFIG_PWM=n"
+      - platform:cytron_motion_2350_pro/rp2350a/m33:"CONFIG_PWM=n"
+      - platform:mini_usb_rp2040@chipled/rp2040:"CONFIG_PWM=n"
     platform_allow:
       - coffeecaller_nrf52
       - cytron_maker_pi_rp2040
+      - cytron_motion_2350_pro/rp2350a/hazard3
+      - cytron_motion_2350_pro/rp2350a/m33
       - mini_usb_rp2040
       - mini_usb_rp2040@16mb
       - mini_usb_rp2040@chipled
@@ -1613,100 +1669,137 @@ tests:
               dt_nodelabel_enabled("grove_i2c_header") or
               dt_nodelabel_enabled("grove_a4_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d18", "gpio-leds")
-    extra_args: SHIELD=grove_led_d18
+    extra_args:
+      - SHIELD=grove_led_d18
   grove.connectors.grove_led.gpio.d19:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d19_header") or
               dt_nodelabel_enabled("grove_i2c_header") or
               dt_nodelabel_enabled("grove_a5_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d19", "gpio-leds")
-    extra_args: SHIELD=grove_led_d19
+    extra_args:
+      - SHIELD=grove_led_d19
   grove.connectors.grove_led.gpio.d20:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d20_header") or
               dt_nodelabel_enabled("grove_a6_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d20", "gpio-leds")
-    extra_args: SHIELD=grove_led_d20
+    extra_args:
+      - SHIELD=grove_led_d20
     skip: true
   grove.connectors.grove_led.gpio.d21:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d21_header") or
               dt_nodelabel_enabled("grove_d20_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d21", "gpio-leds")
-    extra_args: SHIELD=grove_led_d21
+    extra_args:
+      - SHIELD=grove_led_d21
     skip: true
   grove.connectors.grove_led.gpio.d22:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d22_header") or
               dt_nodelabel_enabled("grove_d21_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d22", "gpio-leds")
-    extra_args: SHIELD=grove_led_d22
+    extra_args:
+      - SHIELD=grove_led_d22
     skip: true
   grove.connectors.grove_led.gpio.d23:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d23_header") or
               dt_nodelabel_enabled("grove_d22_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d23", "gpio-leds")
-    extra_args: SHIELD=grove_led_d23
+    extra_args:
+      - SHIELD=grove_led_d23
     skip: true
   grove.connectors.grove_led.gpio.d24:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d24_header") or
               dt_nodelabel_enabled("grove_d23_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d24", "gpio-leds")
-    extra_args: SHIELD=grove_led_d24
+    extra_args:
+      - SHIELD=grove_led_d24
     skip: true
   grove.connectors.grove_led.gpio.d25:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d25_header") or
               dt_nodelabel_enabled("grove_d24_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d25", "gpio-leds")
-    extra_args: SHIELD=grove_led_d25
+    extra_args:
+      - SHIELD=grove_led_d25
     skip: true
   grove.connectors.grove_led.gpio.d26:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d26_header") or
               dt_nodelabel_enabled("grove_d25_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d26", "gpio-leds")
-    extra_args: SHIELD=grove_led_d26
+    extra_args:
+      - SHIELD=grove_led_d26
+      # avoid false positives on boards with PWM enabled by default
+      - platform:cytron_maker_pi_rp2040/rp2040:"CONFIG_PWM=n"
+      - platform:cytron_motion_2350_pro/rp2350a/hazard3:"CONFIG_PWM=n"
+      - platform:cytron_motion_2350_pro/rp2350a/m33:"CONFIG_PWM=n"
     platform_allow:
       - cytron_maker_pi_rp2040
+      - cytron_motion_2350_pro/rp2350a/hazard3
+      - cytron_motion_2350_pro/rp2350a/m33
   grove.connectors.grove_led.gpio.d27:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d27_header") or
               dt_nodelabel_enabled("grove_d26_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d27", "gpio-leds")
-    extra_args: SHIELD=grove_led_d27
+    extra_args:
+      - SHIELD=grove_led_d27
+      # avoid false positives on boards with PWM enabled by default
+      - platform:cytron_maker_pi_rp2040/rp2040:"CONFIG_PWM=n"
+      - platform:cytron_motion_2350_pro/rp2350a/hazard3:"CONFIG_PWM=n"
+      - platform:cytron_motion_2350_pro/rp2350a/m33:"CONFIG_PWM=n"
     platform_allow:
       - cytron_maker_pi_rp2040
+      - cytron_motion_2350_pro/rp2350a/hazard3
+      - cytron_motion_2350_pro/rp2350a/m33
   grove.connectors.grove_led.gpio.d28:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d28_header") or
               dt_nodelabel_enabled("grove_d27_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d28", "gpio-leds")
-    extra_args: SHIELD=grove_led_d28
+    extra_args:
+      - SHIELD=grove_led_d28
+      # avoid false positives on boards with PWM enabled by default
+      - platform:cytron_maker_pi_rp2040/rp2040:"CONFIG_PWM=n"
+      - platform:cytron_motion_2350_pro/rp2350a/hazard3:"CONFIG_PWM=n"
+      - platform:cytron_motion_2350_pro/rp2350a/m33:"CONFIG_PWM=n"
     platform_allow:
       - cytron_maker_pi_rp2040
+      - cytron_motion_2350_pro/rp2350a/hazard3
+      - cytron_motion_2350_pro/rp2350a/m33
   grove.connectors.grove_led.gpio.d29:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d29_header") or
               dt_nodelabel_enabled("grove_d28_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d29", "gpio-leds")
-    extra_args: SHIELD=grove_led_d29
-    skip: true
+    extra_args:
+      - SHIELD=grove_led_d29
+      # avoid false positives on boards with PWM enabled by default
+      - platform:cytron_motion_2350_pro/rp2350a/hazard3:"CONFIG_PWM=n"
+      - platform:cytron_motion_2350_pro/rp2350a/m33:"CONFIG_PWM=n"
+    platform_allow:
+      - cytron_motion_2350_pro/rp2350a/hazard3
+      - cytron_motion_2350_pro/rp2350a/m33
   grove.connectors.grove_led.gpio.d30:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d30_header") or
               dt_nodelabel_enabled("grove_d29_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d30", "gpio-leds")
-    extra_args: SHIELD=grove_led_d30
+    extra_args:
+      - SHIELD=grove_led_d30
     skip: true
   grove.connectors.grove_led.gpio.d31:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d31_header") or
               dt_nodelabel_enabled("grove_d30_header") ) and
             dt_label_with_parent_compat_enabled("grove_led_d31", "gpio-leds")
-    extra_args: SHIELD=grove_led_d31
+    extra_args:
+      - SHIELD=grove_led_d31
     skip: true
   #
   # Grove LED by dedicated PWM on Grove Connectors
@@ -1908,6 +2001,8 @@ tests:
     platform_allow:
       - coffeecaller_nrf52
       - cytron_maker_pi_rp2040
+      - cytron_motion_2350_pro/rp2350a/hazard3
+      - cytron_motion_2350_pro/rp2350a/m33
       - mini_usb_rp2040
       - mini_usb_rp2040@16mb
       - mini_usb_rp2040@chipled
@@ -1927,6 +2022,8 @@ tests:
     platform_allow:
       - coffeecaller_nrf52
       - cytron_maker_pi_rp2040
+      - cytron_motion_2350_pro/rp2350a/hazard3
+      - cytron_motion_2350_pro/rp2350a/m33
       - mini_usb_rp2040
       - mini_usb_rp2040@16mb
       - mini_usb_rp2040@chipled
@@ -2023,6 +2120,8 @@ tests:
     extra_args: SHIELD=grove_pwm_led_d26
     platform_allow:
       - cytron_maker_pi_rp2040
+      - cytron_motion_2350_pro/rp2350a/hazard3
+      - cytron_motion_2350_pro/rp2350a/m33
   grove.connectors.grove_led.pwm.d27:
     depends_on:
       - grove_gpio
@@ -2034,6 +2133,8 @@ tests:
     extra_args: SHIELD=grove_pwm_led_d27
     platform_allow:
       - cytron_maker_pi_rp2040
+      - cytron_motion_2350_pro/rp2350a/hazard3
+      - cytron_motion_2350_pro/rp2350a/m33
   grove.connectors.grove_led.pwm.d28:
     depends_on:
       - grove_gpio
@@ -2045,6 +2146,8 @@ tests:
     extra_args: SHIELD=grove_pwm_led_d28
     platform_allow:
       - cytron_maker_pi_rp2040
+      - cytron_motion_2350_pro/rp2350a/hazard3
+      - cytron_motion_2350_pro/rp2350a/m33
   grove.connectors.grove_led.pwm.d29:
     depends_on:
       - grove_gpio
@@ -2054,7 +2157,9 @@ tests:
               dt_nodelabel_enabled("grove_d28_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d29", "pwm-leds")
     extra_args: SHIELD=grove_pwm_led_d29
-    skip: true
+    platform_allow:
+      - cytron_motion_2350_pro/rp2350a/hazard3
+      - cytron_motion_2350_pro/rp2350a/m33
   grove.connectors.grove_led.pwm.d30:
     depends_on:
       - grove_gpio

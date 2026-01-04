@@ -1,0 +1,28 @@
+identifier: cytron_motion_2350_pro/rp2350a/hazard3
+name: Cytron MOTION 2350 Pro (Hazard3)
+type: mcu
+arch: riscv
+flash: 2048
+ram: 520
+toolchain:
+  - zephyr
+supported:
+  - grove_gpio
+  - grove_pwm
+  - grove_i2c
+  - grove_serial
+  - uart
+  - gpio
+  - adc
+  - i2c
+  - spi
+  - hwinfo
+  - watchdog
+  - pwm
+  - flash
+  - dma
+  - counter
+  - clock
+  - usbd
+  - usb_device
+  - usb_cdc

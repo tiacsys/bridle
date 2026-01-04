@@ -89,6 +89,7 @@
     - grove.rpipico.v1.x_grove_testbed.pwm.b16l18
     - grove.connectors.x_grove_testbed.gpio.b16l17
     - grove.connectors.x_grove_testbed.pwm.b16l17
+    - grove.connectors.x_grove_testbed.pwm.b17l27
     - grove.connectors.x_grove_testbed.pwm.b0l15
     - grove.connectors.x_grove_testbed.pwm.b3l5
     - grove.connectors.x_grove_testbed.pwm.b7l6
@@ -109,6 +110,7 @@
     - grove.rpipico.v1.x_grove_testbed.pwm.b16l18
     - grove.connectors.x_grove_testbed.gpio.b16l17
     - grove.connectors.x_grove_testbed.pwm.b16l17
+    - grove.connectors.x_grove_testbed.pwm.b17l27
     - grove.connectors.x_grove_testbed.pwm.b0l15
     - grove.connectors.x_grove_testbed.pwm.b3l5
     - grove.connectors.x_grove_testbed.pwm.b7l6
@@ -126,6 +128,7 @@
     - grove.rpipico.v1.x_grove_testbed.pwm.b16l18
     - grove.connectors.x_grove_testbed.gpio.b16l17
     - grove.connectors.x_grove_testbed.pwm.b16l17
+    - grove.connectors.x_grove_testbed.pwm.b17l27
     - grove.connectors.x_grove_testbed.pwm.b0l15
     - grove.connectors.x_grove_testbed.pwm.b3l5
     - grove.connectors.x_grove_testbed.pwm.b7l6
@@ -141,6 +144,7 @@
     - grove.rpipico.v1.x_grove_testbed.pwm.b16l18
     - grove.connectors.x_grove_testbed.gpio.b16l17
     - grove.connectors.x_grove_testbed.pwm.b16l17
+    - grove.connectors.x_grove_testbed.pwm.b17l27
     - grove.connectors.x_grove_testbed.pwm.b0l15
     - grove.connectors.x_grove_testbed.pwm.b3l5
     - grove.connectors.x_grove_testbed.pwm.b7l6
@@ -156,6 +160,7 @@
     - grove.xiao.v1.x_grove_testbed.pwm.b0l1
     - grove.connectors.x_grove_testbed.gpio.b16l17
     - grove.connectors.x_grove_testbed.pwm.b16l17
+    - grove.connectors.x_grove_testbed.pwm.b17l27
     - grove.connectors.x_grove_testbed.pwm.b0l15
     - grove.connectors.x_grove_testbed.pwm.b3l5
     - grove.connectors.x_grove_testbed.pwm.b7l6
@@ -182,6 +187,7 @@
     - grove.rpipico.v1.x_grove_testbed.pwm.b16l18
     - grove.connectors.x_grove_testbed.gpio.b16l17
     - grove.connectors.x_grove_testbed.pwm.b16l17
+    - grove.connectors.x_grove_testbed.pwm.b17l27
     - grove.connectors.x_grove_testbed.pwm.b3l5
     - grove.connectors.x_grove_testbed.pwm.b7l6
   platforms:
@@ -196,10 +202,27 @@
     - grove.rpipico.v1.x_grove_testbed.pwm.b16l18
     - grove.connectors.x_grove_testbed.gpio.b16l17
     - grove.connectors.x_grove_testbed.pwm.b16l17
+    - grove.connectors.x_grove_testbed.pwm.b17l27
     - grove.connectors.x_grove_testbed.pwm.b0l15
     - grove.connectors.x_grove_testbed.pwm.b7l6
   platforms:
     - cytron_maker_pi_rp2040/rp2040
+
+- comment: "shield(grove.connectors.x_grove_testbed.b17l27): invalid board/shield condition."
+  scenarios:
+    - grove.base.v2.x_grove_testbed.gpio.b4l6
+    - grove.base.v2.x_grove_testbed.pwm.b4l6
+    - grove.base.v2.x_grove_testbed.pwm.b7l6
+    - grove.xiao.v1.x_grove_testbed.pwm.b0l1
+    - grove.rpipico.v1.x_grove_testbed.pwm.b16l18
+    - grove.connectors.x_grove_testbed.gpio.b16l17
+    - grove.connectors.x_grove_testbed.pwm.b16l17
+    - grove.connectors.x_grove_testbed.pwm.b0l15
+    - grove.connectors.x_grove_testbed.pwm.b3l5
+    - grove.connectors.x_grove_testbed.pwm.b7l6
+  platforms:
+    - cytron_motion_2350_pro/rp2350a/hazard3
+    - cytron_motion_2350_pro/rp2350a/m33
 
 - comment: "shield(grove.connectors.x_grove_testbed.b7l6): invalid board/shield condition."
   scenarios:
@@ -209,6 +232,7 @@
     - grove.rpipico.v1.x_grove_testbed.pwm.b16l18
     - grove.connectors.x_grove_testbed.gpio.b16l17
     - grove.connectors.x_grove_testbed.pwm.b16l17
+    - grove.connectors.x_grove_testbed.pwm.b17l27
     - grove.connectors.x_grove_testbed.pwm.b0l15
     - grove.connectors.x_grove_testbed.pwm.b3l5
   platforms:
@@ -222,6 +246,7 @@
     - grove.xiao.v1.x_grove_testbed.pwm.b0l1
     - grove.rpipico.v1.x_grove_testbed.pwm.b16l18
     - grove.connectors.x_grove_testbed.gpio.b16l17
+    - grove.connectors.x_grove_testbed.pwm.b17l27
     - grove.connectors.x_grove_testbed.pwm.b0l15
     - grove.connectors.x_grove_testbed.pwm.b3l5
     - grove.connectors.x_grove_testbed.pwm.b7l6
@@ -240,6 +265,7 @@
     - grove.xiao.v1.x_grove_testbed.pwm.b0l1
     - grove.rpipico.v1.x_grove_testbed.pwm.b16l18
     - grove.connectors.x_grove_testbed.pwm.b16l17
+    - grove.connectors.x_grove_testbed.pwm.b17l27
     - grove.connectors.x_grove_testbed.pwm.b0l15
     - grove.connectors.x_grove_testbed.pwm.b3l5
     - grove.connectors.x_grove_testbed.pwm.b7l6
@@ -269,6 +295,8 @@
     - coffeecaller_nrf52/nrf52840
     - cytron_maker_nano_rp2040/rp2040
     - cytron_maker_pi_rp2040/rp2040
+    - cytron_motion_2350_pro/rp2350a/hazard3
+    - cytron_motion_2350_pro/rp2350a/m33
     - mini_usb_rp2040@4mb/rp2040
     - mini_usb_rp2040@16mb/rp2040
     - mini_usb_rp2040@chipled/rp2040
@@ -306,6 +334,8 @@
     - coffeecaller_nrf52/nrf52840
     - cytron_maker_nano_rp2040/rp2040
     - cytron_maker_pi_rp2040/rp2040
+    - cytron_motion_2350_pro/rp2350a/hazard3
+    - cytron_motion_2350_pro/rp2350a/m33
     - mini_usb_rp2040@4mb/rp2040
     - mini_usb_rp2040@16mb/rp2040
     - mini_usb_rp2040@chipled/rp2040
@@ -375,6 +405,8 @@
     - coffeecaller_nrf52/nrf52840
     - cytron_maker_nano_rp2040/rp2040
     - cytron_maker_pi_rp2040/rp2040
+    - cytron_motion_2350_pro/rp2350a/hazard3
+    - cytron_motion_2350_pro/rp2350a/m33
     - mini_usb_rp2040@4mb/rp2040
     - mini_usb_rp2040@16mb/rp2040
     - mini_usb_rp2040@chipled/rp2040
@@ -422,6 +454,8 @@
     - coffeecaller_nrf52/nrf52840
     - cytron_maker_nano_rp2040/rp2040
     - cytron_maker_pi_rp2040/rp2040
+    - cytron_motion_2350_pro/rp2350a/hazard3
+    - cytron_motion_2350_pro/rp2350a/m33
     - mini_usb_rp2040@4mb/rp2040
     - mini_usb_rp2040@16mb/rp2040
     - mini_usb_rp2040@chipled/rp2040
@@ -457,6 +491,8 @@
     - coffeecaller_nrf52/nrf52840
     - cytron_maker_nano_rp2040/rp2040
     - cytron_maker_pi_rp2040/rp2040
+    - cytron_motion_2350_pro/rp2350a/hazard3
+    - cytron_motion_2350_pro/rp2350a/m33
     - mini_usb_rp2040@4mb/rp2040
     - mini_usb_rp2040@16mb/rp2040
     - mini_usb_rp2040@chipled/rp2040
@@ -504,6 +540,8 @@
     - coffeecaller_nrf52/nrf52840
     - cytron_maker_nano_rp2040/rp2040
     - cytron_maker_pi_rp2040/rp2040
+    - cytron_motion_2350_pro/rp2350a/hazard3
+    - cytron_motion_2350_pro/rp2350a/m33
     - mini_usb_rp2040@4mb/rp2040
     - mini_usb_rp2040@16mb/rp2040
     - mini_usb_rp2040@chipled/rp2040
@@ -786,6 +824,64 @@
     - grove.connectors.grove_btn.gpio.d31
     - grove.connectors.grove_btn.gpio.d31.inv
 
+- comment: "shield(grove.connectors.grove_btn): cytron_motion_2350_pro: invalid board condition."
+  platforms:
+    - cytron_motion_2350_pro/rp2350a/hazard3
+    - cytron_motion_2350_pro/rp2350a/m33
+  scenarios:
+    - grove.connectors.grove_btn.gpio.d0
+    - grove.connectors.grove_btn.gpio.d0.inv
+    - grove.connectors.grove_btn.gpio.d1
+    - grove.connectors.grove_btn.gpio.d1.inv
+    - grove.connectors.grove_btn.gpio.d2
+    - grove.connectors.grove_btn.gpio.d2.inv
+    - grove.connectors.grove_btn.gpio.d3
+    - grove.connectors.grove_btn.gpio.d3.inv
+    - grove.connectors.grove_btn.gpio.d4
+    - grove.connectors.grove_btn.gpio.d4.inv
+    - grove.connectors.grove_btn.gpio.d5
+    - grove.connectors.grove_btn.gpio.d5.inv
+    - grove.connectors.grove_btn.gpio.d6
+    - grove.connectors.grove_btn.gpio.d6.inv
+    - grove.connectors.grove_btn.gpio.d7
+    - grove.connectors.grove_btn.gpio.d7.inv
+    - grove.connectors.grove_btn.gpio.d8
+    - grove.connectors.grove_btn.gpio.d8.inv
+    - grove.connectors.grove_btn.gpio.d9
+    - grove.connectors.grove_btn.gpio.d9.inv
+    - grove.connectors.grove_btn.gpio.d10
+    - grove.connectors.grove_btn.gpio.d10.inv
+    - grove.connectors.grove_btn.gpio.d11
+    - grove.connectors.grove_btn.gpio.d11.inv
+    - grove.connectors.grove_btn.gpio.d12
+    - grove.connectors.grove_btn.gpio.d12.inv
+    - grove.connectors.grove_btn.gpio.d13
+    - grove.connectors.grove_btn.gpio.d13.inv
+    - grove.connectors.grove_btn.gpio.d14
+    - grove.connectors.grove_btn.gpio.d14.inv
+    - grove.connectors.grove_btn.gpio.d15
+    - grove.connectors.grove_btn.gpio.d15.inv
+    - grove.connectors.grove_btn.gpio.d18
+    - grove.connectors.grove_btn.gpio.d18.inv
+    - grove.connectors.grove_btn.gpio.d19
+    - grove.connectors.grove_btn.gpio.d19.inv
+    - grove.connectors.grove_btn.gpio.d20
+    - grove.connectors.grove_btn.gpio.d20.inv
+    - grove.connectors.grove_btn.gpio.d21
+    - grove.connectors.grove_btn.gpio.d21.inv
+    - grove.connectors.grove_btn.gpio.d22
+    - grove.connectors.grove_btn.gpio.d22.inv
+    - grove.connectors.grove_btn.gpio.d23
+    - grove.connectors.grove_btn.gpio.d23.inv
+    - grove.connectors.grove_btn.gpio.d24
+    - grove.connectors.grove_btn.gpio.d24.inv
+    - grove.connectors.grove_btn.gpio.d25
+    - grove.connectors.grove_btn.gpio.d25.inv
+    - grove.connectors.grove_btn.gpio.d30
+    - grove.connectors.grove_btn.gpio.d30.inv
+    - grove.connectors.grove_btn.gpio.d31
+    - grove.connectors.grove_btn.gpio.d31.inv
+
 - comment: >
     "shield(grove.connectors.grove_btn): coffeecaller
     & mini_usb_rp2040/_rp2350: invalid board condition."
@@ -883,6 +979,8 @@
     - coffeecaller_nrf52/nrf52840
     - cytron_maker_nano_rp2040/rp2040
     - cytron_maker_pi_rp2040/rp2040
+    - cytron_motion_2350_pro/rp2350a/hazard3
+    - cytron_motion_2350_pro/rp2350a/m33
     - mini_usb_rp2040@4mb/rp2040
     - mini_usb_rp2040@16mb/rp2040
     - mini_usb_rp2040@chipled/rp2040
@@ -1034,6 +1132,8 @@
     - coffeecaller_nrf52/nrf52840
     - cytron_maker_nano_rp2040/rp2040
     - cytron_maker_pi_rp2040/rp2040
+    - cytron_motion_2350_pro/rp2350a/hazard3
+    - cytron_motion_2350_pro/rp2350a/m33
     - mini_usb_rp2040@4mb/rp2040
     - mini_usb_rp2040@16mb/rp2040
     - mini_usb_rp2040@chipled/rp2040
@@ -1090,6 +1190,8 @@
     - coffeecaller_nrf52/nrf52840
     - cytron_maker_nano_rp2040/rp2040
     - cytron_maker_pi_rp2040/rp2040
+    - cytron_motion_2350_pro/rp2350a/hazard3
+    - cytron_motion_2350_pro/rp2350a/m33
     - mini_usb_rp2040@4mb/rp2040
     - mini_usb_rp2040@16mb/rp2040
     - mini_usb_rp2040@chipled/rp2040
@@ -1279,6 +1381,38 @@
     - grove.connectors.grove_led.(gpio|pwm).d24
     - grove.connectors.grove_led.(gpio|pwm).d25
     - grove.connectors.grove_led.(gpio|pwm).d29
+    - grove.connectors.grove_led.(gpio|pwm).d30
+    - grove.connectors.grove_led.(gpio|pwm).d31
+
+- comment: "shield(grove.connectors.grove_led): cytron_motion_2350_pro: invalid board condition."
+  platforms:
+    - cytron_motion_2350_pro/rp2350a/hazard3
+    - cytron_motion_2350_pro/rp2350a/m33
+  scenarios:
+    - grove.connectors.grove_led.(gpio|pwm).d0
+    - grove.connectors.grove_led.(gpio|pwm).d1
+    - grove.connectors.grove_led.(gpio|pwm).d2
+    - grove.connectors.grove_led.(gpio|pwm).d3
+    - grove.connectors.grove_led.(gpio|pwm).d4
+    - grove.connectors.grove_led.(gpio|pwm).d5
+    - grove.connectors.grove_led.(gpio|pwm).d6
+    - grove.connectors.grove_led.(gpio|pwm).d7
+    - grove.connectors.grove_led.(gpio|pwm).d8
+    - grove.connectors.grove_led.(gpio|pwm).d9
+    - grove.connectors.grove_led.(gpio|pwm).d10
+    - grove.connectors.grove_led.(gpio|pwm).d11
+    - grove.connectors.grove_led.(gpio|pwm).d12
+    - grove.connectors.grove_led.(gpio|pwm).d13
+    - grove.connectors.grove_led.(gpio|pwm).d14
+    - grove.connectors.grove_led.(gpio|pwm).d15
+    - grove.connectors.grove_led.(gpio|pwm).d18
+    - grove.connectors.grove_led.(gpio|pwm).d19
+    - grove.connectors.grove_led.(gpio|pwm).d20
+    - grove.connectors.grove_led.(gpio|pwm).d21
+    - grove.connectors.grove_led.(gpio|pwm).d22
+    - grove.connectors.grove_led.(gpio|pwm).d23
+    - grove.connectors.grove_led.(gpio|pwm).d24
+    - grove.connectors.grove_led.(gpio|pwm).d25
     - grove.connectors.grove_led.(gpio|pwm).d30
     - grove.connectors.grove_led.(gpio|pwm).d31
 

@@ -1,0 +1,110 @@
+The `MOTION 2350 Pro`_ is a :bbk:`special sized` RP2350 development board
+:bbl:`designed for robot applications`. This board comes with two dual channel
+DC motor (H-bridge) driver, 8 servo motor (PWM) ports and 3 maker ports
+compatible with Sparkfun's Qwiic and Adafruit's STEMMA QT modules. By using
+the included conversion cables, maker ports are compatible with Seeed Studio's
+`Grove System`_ modules too, ready for robot or motion control projects.
+The DC motor driver on-board is able to control 4 brushed DC motors or
+2 bipolar/unipolar stepper motor rated from 3.6V to 16V, providing up to 5A
+current per channel in Rev. 2.0 (3A in Rev. 1.0). The built-in quick test
+buttons and motor output LEDs allow functional test of the motor drivers in
+a quick and convenient way, without the need of writing any code. Vmotor for
+both DC and servo motors depends on the input voltage supplied to the board.
+It also has lots of LEDs useful for troubleshooting, two WS2812 Neopixel RGB
+LEDs, is able to make quite some noise with the on-board piezo buzzer and comes
+with push buttons ready to detect your touch. There are two ways to supply
+power to the board: via USB (5V) socket or through the VIN (3.6-16V) terminals
+which can also connected to a precharged multi-cell LiPo/Li-Ion battery. Power
+supply from all these power sources can all be controlled with the power on/off
+switch on-board (with MOSFET shock-proof circuit).
+
+.. list-table::
+   :align: center
+   :width: 100%
+   :widths: 66, 33
+
+   * - .. rubric:: Features and Resources
+     - .. rubric:: Printed Circuit Board
+
+   * - :hwftlbl-vdd:`5V/500㎃`
+       :hwftlbl-vdd:`3.3V/300㎃`
+       :hwftlbl-vdd:`3.6-16V/3-5A(Vmotor/Vbat)`
+       :hwftlbl-vdd:`Vmotor/3.3V(OUT)`
+
+       :hwftlbl:`150㎒`
+       :hwftlbl:`4㎆`
+       :hwftlbl:`520㎅`
+       :hwftlbl-con:`USB-C`
+       :hwftlbl-bat:`LiPo/Fe`
+       :hwftlbl-dbg:`UF2`
+       :hwftlbl-dbg:`SWD`
+
+       :hwftlbl-btn:`RST`
+       :hwftlbl-btn:`BOOT`
+       :hwftlbl-btn:`USER`
+       :hwftlbl-led:`BLUE`
+       :hwftlbl-led:`RGB`
+       :hwftlbl-spk:`PIEZO`
+       :hwftlbl-act:`DC Motor`
+       :hwftlbl-act:`Servo Motor`
+
+       :hwftlbl-pio:`16`
+       :hwftlbl-pwm:`8`
+       :hwftlbl-adc:`4`
+       :hwftlbl-i2c:`2`
+       :hwftlbl-spi:`1`
+       :hwftlbl-uart:`1`
+
+       .. rst-class:: rst-columns
+
+       - Dual core Arm Cortex-M33 processor running up to 150㎒
+       - :bbk:`520㎅` on-chip SRAM
+       - :bbk:`2㎆` on-board QSPI flash with XIP capabilities
+       - USB 1.1 controller (host/device)
+       - On-board :bbk:`USB-C micro connector`
+       - On-board :bbl:`3.3V LDO voltage regulator with 800~1000㎃`
+       - On-board :bbk:`RESET` button
+       - On-board :bbl:`BOOT` button
+       - On-board :bbl:`2 USER` button
+       - On-board :bbl:`1 Piezo` buzzer
+       - On-board :bbl:`24 LED`
+       - :bbl:`8 GPIO` pins via :bbk:`3.3V generic pin header`
+       - :bbl:`8 GPIO` pins via :bbk:`5.0V servo pin header`
+       - :bbl:`6 GPIO` pins via :bbk:`3 Grove connectors`
+       - :bbk:`1 UART` peripherals
+       - :bbk:`2 I2C` controllers
+       - :bbk:`1 SPI` controllers
+       - :bbl:`8 PWM` channels
+       - :bbl:`4 ADC` analog inputs
+       - 12 Programmable I/O (PIO) state machines for custom peripherals
+       - 1 Watchdog timer peripheral
+       - 1 Temperature sensor on-chip
+
+       .. rubric:: Design Data
+       .. rst-class:: rst-columns
+
+       - `MOTION 2350 Pro Rev 2.0 Datasheet`_
+       - `MOTION 2350 Pro Rev 1.0 Datasheet`_
+
+       .. rubric:: Revision 2.0
+
+       |nbsp|
+
+       Rev. 2.0 supports overcurrent protection (5A continuous, 10A peak).
+       On the bottom side, Rev. 2.0 has a cleaner look with fewer MOSFET
+       driver chips, and the product name label is moved slightly upward
+       with a clear "REV 2.0" marking.
+
+     - .. tabs::
+
+          .. group-tab:: Rev 2.0
+
+             .. image:: motion-2350-pro/hardware-rev2.jpg
+                :align: center
+                :alt: MOTION 2350 Pro Rev 2.0
+
+          .. group-tab:: Rev 1.0
+
+             .. image:: motion-2350-pro/hardware-rev1.jpg
+                :align: center
+                :alt: MOTION 2350 Pro Rev 1.0

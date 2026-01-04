@@ -605,46 +605,7 @@ Bridle :ref:`snippet-usb-console` can be used to enable
 
    .. zephyr-keep-sorted-stop
 
-To integrate specific USB device functions that do not follow
-a USB standard class, the following alternate identifier numbers
-are available for the various Waveshare RP2040 and RP2350 boards
-according to the `Raspberry Pi USB product ID list`_:
-
-.. container:: twocol
-
-   .. container:: leftside
-
-      .. rubric:: RP2040
-
-      :|rpi_waveshare_rp2040_zero_URB_PID|: |RP2040-Zero|
-      :|rpi_waveshare_rp2040_plus_URB_PID|: |RP2040-Plus|
-      :|rpi_waveshare_rp2040_lcd_0_96_URB_PID|: |RP2040-LCD-0.96|
-      :|rpi_waveshare_rp2040_lcd_1_28_URB_PID|: RP2040-LCD-1.28
-      :|rpi_waveshare_rp2040_one_URB_PID|: |RP2040-One|
-      :|rpi_waveshare_pwr_mgmt_hat_b_one_URB_PID|: Power Management HAT (B)
-      :|rpi_waveshare_rp2040_eth_URB_PID|: |RP2040-ETH|
-      :|rpi_waveshare_rp2040_geek_URB_PID|: |RP2040-Geek|
-      :|rpi_waveshare_rp2040_touch_lcd_1_28_URB_PID|: RP2040-Touch-LCD-1.28
-      :|rpi_waveshare_rp2040_pizero_URB_PID|: RP2040-PiZero
-      :|rpi_waveshare_rp2040_tiny_URB_PID|: |RP2040-Tiny|
-      :|rpi_waveshare_rp2040_matrix_URB_PID|: |RP2040-Matrix|
-      :|rpi_waveshare_rp2040_ble_URB_PID|: RP2040-BLE
-      :|rpi_waveshare_pico_cam_a_URB_PID|: PICO-Cam-A
-
-   .. container:: rightside
-
-      .. rubric:: RP2350
-
-      :|rpi_waveshare_rp2350_zero_URB_PID|: RP2350-Zero
-      :|rpi_waveshare_rp2350_plus_URB_PID|: RP2350-Plus
-      :|rpi_waveshare_rp2350_tiny_URB_PID|: RP2350-Tiny
-      :|rpi_waveshare_rp2350_lcd_1_28_URB_PID|: RP2350-LCD-1.28
-      :|rpi_waveshare_rp2350_touch_lcd_1_28_URB_PID|: RP2350-Touch-LCD-1.28
-      :|rpi_waveshare_rp2350_one_URB_PID|: RP2350-One
-      :|rpi_waveshare_rp2350_geek_URB_PID|: RP2350-Geek
-      :|rpi_waveshare_rp2350_lcd_0_96_URB_PID|: RP2350-LCD-0.96
-
-|nbsp|
+.. include:: /includes/rpi_waveshare_urb_pid_list.txt
 
 Programmable I/O (PIO)
 **********************
