@@ -1,2 +1,13 @@
 / {
+	cannectivity: cannectivity {
+		compatible = "cannectivity";
+
+		soc_channel0 {
+			compatible = "cannectivity-channel";
+
+			can-controller = <&flexcan0>;
+			state-led = <&blue_led>;
+			activity-leds = <&green_led &red_led>;
+		};
+	};
 };
