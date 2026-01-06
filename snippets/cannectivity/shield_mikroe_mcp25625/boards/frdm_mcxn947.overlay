@@ -1,0 +1,11 @@
+/ {
+	cannectivity: cannectivity {
+		compatible = "cannectivity";
+
+		shield_mikroe_mcp25625_channel0 {
+			compatible = "cannectivity-channel";
+
+			can-controller = <&mcp25625_mikroe_mcp25625_click>;
+		};
+	};
+};

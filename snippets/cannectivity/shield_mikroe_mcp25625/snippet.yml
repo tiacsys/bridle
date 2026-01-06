@@ -1,0 +1,7 @@
+name: cannectivity-shield_mikroe_mcp25625
+
+boards:
+  frdm_mcxn947/mcxn947/cpu0:
+    append:
+      EXTRA_CONF_FILE: boards/frdm_mcxn947.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/frdm_mcxn947.overlay
