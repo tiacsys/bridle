@@ -1,2 +1,11 @@
 / {
+	cannectivity: cannectivity {
+		compatible = "cannectivity";
+
+		shield_mikroe_canfd6_channel0 {
+			compatible = "cannectivity-channel";
+
+			can-controller = <&tcan4x5x_mikroe_can_fd_6_click>;
+		};
+	};
 };
