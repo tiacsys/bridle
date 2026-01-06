@@ -6,6 +6,7 @@
 			compatible = "cannectivity-channel";
 
 			can-controller = <&mcp2515_elecfreaks_can_bus_ef02037>;
+			state-led = <&green_led>;
 		};
 	};
 };

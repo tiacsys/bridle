@@ -6,6 +6,7 @@
 			compatible = "cannectivity-channel";
 
 			can-controller = <&mcp2518fd_mikroe_mcp2518fd_click>;
+			state-led = <&green_led>;
 		};
 	};
 };

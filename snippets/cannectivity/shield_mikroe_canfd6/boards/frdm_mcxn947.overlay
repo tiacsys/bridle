@@ -6,6 +6,7 @@
 			compatible = "cannectivity-channel";
 
 			can-controller = <&tcan4x5x_mikroe_can_fd_6_click>;
+			state-led = <&green_led>;
 		};
 	};
 };

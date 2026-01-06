@@ -6,6 +6,7 @@
 			compatible = "cannectivity-channel";
 
 			can-controller = <&mcp2515_mikroe_can_spi_click>;
+			state-led = <&green_led>;
 		};
 	};
 };

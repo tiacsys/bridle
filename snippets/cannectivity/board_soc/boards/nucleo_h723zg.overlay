@@ -6,8 +6,7 @@
 			compatible = "cannectivity-channel";
 
 			can-controller = <&fdcan1>;
-			state-led = <&yellow_led>;
-			activity-leds = <&green_led &red_led>;
+			state-led = <&red_led>;
 		};
 	};
 };
