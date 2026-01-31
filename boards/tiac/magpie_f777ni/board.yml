@@ -1,5 +1,6 @@
 board:
   name: magpie_f777ni
+  full_name: TiaC Magpie F777NI
   vendor: tiac
   socs:
     - name: stm32f777xx

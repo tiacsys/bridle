@@ -1,5 +1,6 @@
 board:
   name: seeeduino_lotus
+  full_name: Seeeduino Lotus Cortex-M0+
   vendor: seeed
   socs:
     - name: samd21g18a

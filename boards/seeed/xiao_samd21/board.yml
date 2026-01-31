@@ -1,5 +1,6 @@
 board:
   name: xiao_samd21
+  full_name: Seeed Studio XIAO SAMD21
   vendor: seeed
   socs:
     - name: samd21g18a
