@@ -1,5 +1,6 @@
 board:
   name: seeeduino_cm0
+  full_name: Seeeduino Cortex-M0+
   vendor: seeed
   socs:
     - name: samd21g18a

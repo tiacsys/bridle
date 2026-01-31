@@ -3,6 +3,7 @@
 
 boards:
   - name: cytron_motion_2350_pro
+    full_name: Cytron MOTION 2350 Pro
     vendor: cytron
     socs:
       - name: rp2350a

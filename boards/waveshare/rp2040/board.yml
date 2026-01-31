@@ -1,29 +1,36 @@
 boards:
   - name: waveshare_rp2040_one
+    full_name: Waveshare RP2040-One
     vendor: waveshare
     socs:
       - name: rp2040
   - name: waveshare_rp2040_zero
+    full_name: Waveshare RP2040-Zero
     vendor: waveshare
     socs:
       - name: rp2040
   - name: waveshare_rp2040_matrix
+    full_name: Waveshare RP2040-Matrix
     vendor: waveshare
     socs:
       - name: rp2040
   - name: waveshare_rp2040_tiny
+    full_name: Waveshare RP2040-Tiny
     vendor: waveshare
     socs:
       - name: rp2040
   - name: waveshare_rp2040_eth
+    full_name: Waveshare RP2040-ETH
     vendor: waveshare
     socs:
       - name: rp2040
   - name: waveshare_rp2040_lcd_0_96
+    full_name: Waveshare RP2040-LCD-0.96
     vendor: waveshare
     socs:
       - name: rp2040
   - name: waveshare_rp2040_plus
+    full_name: Waveshare RP2040-Plus
     vendor: waveshare
     socs:
       - name: rp2040
@@ -34,6 +41,7 @@ boards:
         - name: "4mb"
         - name: "16mb"
   - name: waveshare_rp2040_geek
+    full_name: Waveshare RP2040-Geek
     vendor: waveshare
     socs:
       - name: rp2040
