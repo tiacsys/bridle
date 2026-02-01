@@ -103,6 +103,7 @@
 .. |rpi_jsed_VStr|	replace:: :ign:`JSED (Raspberry Pi)`
 .. |rpi_nologo_VStr|	replace:: :ign:`Nologo (Raspberry Pi)`
 .. |rpi_pimoroni_VStr|	replace:: :ign:`Pimoroni (Raspberry Pi)`
+.. |rpi_seeed_VStr|	replace:: :ign:`Seeed LLC (Raspberry Pi)`
 .. |rpi_waveshare_VStr|	replace:: :ign:`Waveshare (Raspberry Pi)`
 
 .. VID 0x2FE3 : Zephyr Project (NordicSemiconductor)
@@ -990,6 +991,12 @@
 .. |xiao_samd21_PStr_CON|	replace:: :ign:`XIAO SAMD21 (CDC ACM)`
 .. |xiao_samd21_BCD_CON|	replace:: |seeeduino_xiao_BCD_CON|
 
+.. |bridle:board:xiao_rp2040| replace:: :ref:`xiao_rp2040-extensions`
+.. :bridle:board:`xiao_rp2040`
+
+.. |bridle:board:xiao_rp2350| replace:: :ref:`xiao_rp2350-extensions`
+.. :bridle:board:`xiao_rp2350`
+
 .. Zephyr References
 
 .. |zephyr:connectivity:networking:with:host| replace::
@@ -1325,6 +1332,42 @@
 .. |seeeduino_xiao_PID_CON|	replace:: :ign:`802f`
 .. |seeeduino_xiao_PStr_CON|	replace:: :ign:`Seeed XIAO M0 (CDC ACM)`
 .. |seeeduino_xiao_BCD_CON|	replace:: |zephyr_version_BCD|
+
+.. |zephyr:board:xiao_rp2040| replace::
+   :external+zephyr:zephyr:board:`xiao_rp2040`
+
+.. |XIAO RP2040| replace::
+   :external+zephyr:zephyr:board:`XIAO RP2040 <xiao_rp2040>`
+
+.. |XIAO RP2040 (CDC ACM)| replace::
+   :external+zephyr:zephyr:board:`XIAO RP2040 (CDC ACM) <xiao_rp2040>`
+
+.. |xiao_rp2040_URB_VID|	replace:: |rpi_URB_VID|
+.. |xiao_rp2040_VID|		replace:: |rpi_VID|
+.. |xiao_rp2040_VStr|		replace:: |rpi_seeed_VStr|
+
+.. |xiao_rp2040_URB_PID_CON|	replace:: |rpi_pico_sdk_uart_rp2040_URB_PID|
+.. |xiao_rp2040_PID_CON|	replace:: |rpi_pico_sdk_uart_rp2040_PID|
+.. |xiao_rp2040_PStr_CON|	replace:: :ign:`XIAO RP2040 (CDC ACM)`
+.. |xiao_rp2040_BCD_CON|	replace:: |zephyr_version_BCD|
+
+.. |zephyr:board:xiao_rp2350| replace::
+   :external+zephyr:zephyr:board:`xiao_rp2350`
+
+.. |XIAO RP2350| replace::
+   :external+zephyr:zephyr:board:`XIAO RP2350 <xiao_rp2350>`
+
+.. |XIAO RP2350 (CDC ACM)| replace::
+   :external+zephyr:zephyr:board:`XIAO RP2350 (CDC ACM) <xiao_rp2350>`
+
+.. |xiao_rp2350_URB_VID|	replace:: |rpi_URB_VID|
+.. |xiao_rp2350_VID|		replace:: |rpi_VID|
+.. |xiao_rp2350_VStr|		replace:: |rpi_seeed_VStr|
+
+.. |xiao_rp2350_URB_PID_CON|	replace:: |rpi_pico_sdk_uart_rp2040_URB_PID|
+.. |xiao_rp2350_PID_CON|	replace:: |rpi_pico_sdk_uart_rp2040_PID|
+.. |xiao_rp2350_PStr_CON|	replace:: :ign:`XIAO RP2350 (CDC ACM)`
+.. |xiao_rp2350_BCD_CON|	replace:: |zephyr_version_BCD|
 
 .. Devicetree References
 
