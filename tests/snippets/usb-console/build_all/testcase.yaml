@@ -57,6 +57,9 @@ common:
     - seeeduino_lotus
     - seeeduino_xiao
     - xiao_samd21
+    - xiao_rp2040
+    - xiao_rp2350/rp2350a/hazard3
+    - xiao_rp2350/rp2350a/m33
     - vccgnd_bluepill_stm32f103cb
     - vccgnd_bluepill_stm32f103c8
     - vccgnd_bluepill_stm32f072cb
@@ -129,6 +132,9 @@ tests:
     # - rpi_pico2/rp2350a/hazard3
     # - rpi_pico2/rp2350a/m33
     # - rpi_pico2/rp2350a/m33/w
+    # - xiao_rp2040
+    # - xiao_rp2350/rp2350a/hazard3
+    # - xiao_rp2350/rp2350a/m33
     #
     # That needs to resolve (why and vs. {'usbd'}) and thus it is not yet active.
     #
@@ -156,6 +162,9 @@ tests:
       - rpi_pico2/rp2350a/m33/w
       - seeeduino_xiao
       - xiao_samd21
+      - xiao_rp2040
+      - xiao_rp2350/rp2350a/hazard3
+      - xiao_rp2350/rp2350a/m33
   #
   # Well known bords (Bridle) with self contained support.
   #
