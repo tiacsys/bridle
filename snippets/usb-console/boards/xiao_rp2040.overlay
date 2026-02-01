@@ -1,0 +1,14 @@
+/*
+ * Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	model = "Seeed Studio XIAO RP2040 @ USB-CDC/ACM Concole";
+	compatible = "seeed,xiao-rp2040",
+		     "seeed,xiao-rp2040-usbcons";
+
+	chosen {
+		zephyr,shell-uart = &snippet_cdc_acm_console_uart;
+	};
+};

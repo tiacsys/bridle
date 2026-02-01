@@ -327,6 +327,27 @@ specified as required.
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
 
+   * - |xiao_rp2040_URB_VID|
+     - |xiao_rp2040_URB_PID_CON|
+     - :code:`xiao_rp2040`
+     - |Seeed LLC|_
+     - | |XIAO RP2040 (CDC ACM)|,
+       | Raspberry Pi Pico SDK CDC UART
+     - `Raspberry Pi USB product ID list`_
+     - | |zephyr:devicetree:chosen:console|
+       | |zephyr:devicetree:chosen:shell-uart|
+
+   * - |xiao_rp2350_URB_VID|
+     - |xiao_rp2350_URB_PID_CON|
+     - :code:`xiao_rp2350/rp2350a/hazard3`
+       :code:`xiao_rp2350/rp2350a/m33`
+     - |Seeed LLC|_
+     - | |XIAO RP2350 (CDC ACM)|,
+       | Raspberry Pi Pico SDK CDC UART
+     - `Raspberry Pi USB product ID list`_
+     - | |zephyr:devicetree:chosen:console|
+       | |zephyr:devicetree:chosen:shell-uart|
+
    * - |zephyr_URB_VID|
      - |zephyr_URB_PID_CON|
      -
