@@ -1,9 +1,7 @@
 /*
- * Copyright (c) 2024 TiaC Systems
+ * Copyright (c) 2024-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
-
-#include <zephyr/dt-bindings/pinctrl/rpi-pico-rp2040-pinctrl.h>
 
 &i2c0_pico_default {
 	/delete-node/ group45_i2c;

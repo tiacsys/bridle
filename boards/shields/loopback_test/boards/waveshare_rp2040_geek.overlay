@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 TiaC Systems
+ * Copyright (c) 2023-2025 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -53,8 +53,6 @@ rpigeek_pwms: &pwm {
 	pinctrl-names = "default";
 	divider-int-1 = <255>;
 };
-
-#include <zephyr/dt-bindings/pinctrl/rpi-pico-rp2040-pinctrl.h>
 
 &pinctrl {
 	pwm_geek_probe: pwm_geek_probe {
