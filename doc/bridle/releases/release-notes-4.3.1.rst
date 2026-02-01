@@ -182,6 +182,8 @@ Supported boards
 * Waveshare RP2040 (series of mini and pico sized boards)
 * Waveshare RP2350 (currently only the pico sized CAN version)
 * WeAct Studio BluePill+ boards and derivates
+* XIAO RP2040 (Seeed Studio XIAO RP2040)
+* XIAO RP2350 (Seeed Studio XIAO RP2350)
 * XIAO SAMD21 (former Seeed Studio XIAO SAMD21), also known as Seeeduino XIAO
 
 .. zephyr-keep-sorted-stop
