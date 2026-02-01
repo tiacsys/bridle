@@ -289,6 +289,11 @@ Build Infrastructure
 * tbd.
 * tbd.
 * tbd.
+* Reenable old HWMv1 board extensions feature, see :github:`411`.
+* Board metadata property ``full_name`` is now mandatory and required to
+  define. Bridle has miss that in a few boards, what is now fixed.
+* On display level, for the ST7789V driver, the current ``BGR_565`` format
+  string was renamed to the now valid value ``RGB_565X``.
 
 
 Documentation
