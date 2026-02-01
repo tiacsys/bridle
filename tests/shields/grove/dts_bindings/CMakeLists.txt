@@ -1,4 +1,4 @@
-# Copyright (c) 2023-2025 TiaC Systems
+# Copyright (c) 2023-2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 cmake_minimum_required(VERSION 3.20.0)
@@ -513,14 +513,35 @@ if(DEFINED if_path)
   endif()
 
   # check board specific add-ons for xiao
-  if(CONFIG_BOARD_XIAO_SAMD21 OR
+  if(CONFIG_BOARD_XIAO_RP2350 OR
+     CONFIG_BOARD_XIAO_RP2040 OR
+     CONFIG_BOARD_XIAO_SAMD21 OR
      CONFIG_BOARD_SEEEDUINO_XIAO)
 
     # zephyr-keep-sorted-start re(^\s+\w)
     test_if_label_on_path("grove_pwms" "${if_path}")
     # zephyr-keep-sorted-stop
 
-    if(CONFIG_SHIELD_SEEED_GROVE_XIAO_V1)
+    if(CONFIG_SHIELD_SEEED_GROVE_XIAO_V1 AND
+       (CONFIG_BOARD_XIAO_RP2350 OR CONFIG_BOARD_XIAO_RP2040))
+
+      # zephyr-keep-sorted-start re(^\s+\w)
+      test_if_label_matching("grove_pwm_d0" "pwm")
+      test_if_label_matching("grove_pwm_d1" "pwm")
+      test_if_label_matching("grove_pwm_d10" "pwm")
+      test_if_label_matching("grove_pwm_d2" "pwm")
+      test_if_label_matching("grove_pwm_d3" "pwm")
+      test_if_label_matching("grove_pwm_d4" "pwm")
+      test_if_label_matching("grove_pwm_d5" "pwm")
+      test_if_label_matching("grove_pwm_d6" "pwm")
+      test_if_label_matching("grove_pwm_d7" "pwm")
+      test_if_label_matching("grove_pwm_d8" "pwm")
+      test_if_label_matching("grove_pwm_d9" "pwm")
+      # zephyr-keep-sorted-stop
+
+    endif()
+    if(CONFIG_SHIELD_SEEED_GROVE_XIAO_V1 AND
+       CONFIG_BOARD_SEEEDUINO_XIAO)
 
       # zephyr-keep-sorted-start re(^\s+\w)
       test_if_label_matching("grove_pwm_d1" "tcc0")
@@ -537,7 +558,9 @@ if(DEFINED if_path)
   endif()
 
   # check common board specific add-ons
-  if(CONFIG_BOARD_XIAO_SAMD21 OR
+  if(CONFIG_BOARD_XIAO_RP2350 OR
+     CONFIG_BOARD_XIAO_RP2040 OR
+     CONFIG_BOARD_XIAO_SAMD21 OR
      CONFIG_BOARD_SEEEDUINO_XIAO)
 
     # zephyr-keep-sorted-start re(^\s+\w)
