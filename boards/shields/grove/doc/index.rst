@@ -871,6 +871,38 @@ not be complete.
 
             .. include:: grove_pwms-rpi_pico.rsti
 
+         .. group-tab:: ``xiao_rp2040``
+
+            This is based on the Zephyr board |zephyr:board:xiao_rp2040|
+            and its :dtcompatible:`seeed,xiao-gpio`.
+
+            .. note::
+
+               This board basically provides only some channels from a few timers as
+               PWM to the outside. The SoC's ability to route channels to multiple
+               pads may result in channels being connected in parallel. The second
+               table below shows the possibilities which channels can really
+               be used independently at the associated signals of the
+               |Laced Grove Signal Interface|.
+
+            .. include:: grove_pwms-xiao_rp2040.rsti
+
+         .. group-tab:: ``xiao_rp2350``
+
+            This is based on the Zephyr board |zephyr:board:xiao_rp2350|
+            and its :dtcompatible:`seeed,xiao-gpio`.
+
+            .. note::
+
+               This board basically provides only some channels from a few timers as
+               PWM to the outside. The SoC's ability to route channels to multiple
+               pads may result in channels being connected in parallel. The second
+               table below shows the possibilities which channels can really
+               be used independently at the associated signals of the
+               |Laced Grove Signal Interface|.
+
+            .. include:: grove_pwms-xiao_rp2350.rsti
+
 .. |pwm| replace:: :code:`<&pwm …>`
 .. |CHA| replace:: :s:`CHA`
 .. |CHB| replace:: :s:`CHB`
