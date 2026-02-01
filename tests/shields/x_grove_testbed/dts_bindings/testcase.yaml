@@ -53,6 +53,9 @@ common:
     - seeeduino_lotus
     - seeeduino_xiao
     - xiao_samd21
+    - xiao_rp2040
+    - xiao_rp2350/rp2350a/hazard3
+    - xiao_rp2350/rp2350a/m33
     - waveshare_rp2040_one
     - waveshare_rp2040_zero
     - waveshare_rp2040_matrix
@@ -117,6 +120,9 @@ tests:
     platform_allow:
       - seeeduino_xiao
       - xiao_samd21
+      - xiao_rp2040
+      - xiao_rp2350/rp2350a/hazard3
+      - xiao_rp2350/rp2350a/m33
   grove.rpipico.v1.x_grove_testbed.pwm.b16l18:
     depends_on: pico_gpio
     filter: dt_nodelabel_enabled("grove_d18_header") and
