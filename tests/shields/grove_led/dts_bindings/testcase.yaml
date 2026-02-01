@@ -53,6 +53,9 @@ common:
     - seeeduino_lotus
     - seeeduino_xiao
     - xiao_samd21
+    - xiao_rp2040
+    - xiao_rp2350/rp2350a/hazard3
+    - xiao_rp2350/rp2350a/m33
     - waveshare_rp2040_one
     - waveshare_rp2040_zero
     - waveshare_rp2040_matrix
@@ -929,7 +932,6 @@ tests:
             dt_nodelabel_enabled("grove_d0_header") and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d0", "pwm-leds")
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_pwm_led_d0
-    skip: true
   grove.xiao.v1.grove_led.pwm.d1:
     depends_on: xiao_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d1") and
@@ -937,9 +939,6 @@ tests:
               dt_nodelabel_enabled("grove_d0_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d1", "pwm-leds")
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_pwm_led_d1
-    platform_allow:
-      - seeeduino_xiao
-      - xiao_samd21
   grove.xiao.v1.grove_led.pwm.d2:
     depends_on: xiao_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d2") and
@@ -947,9 +946,6 @@ tests:
               dt_nodelabel_enabled("grove_d1_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d2", "pwm-leds")
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_pwm_led_d2
-    platform_allow:
-      - seeeduino_xiao
-      - xiao_samd21
   grove.xiao.v1.grove_led.pwm.d3:
     depends_on: xiao_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d3") and
@@ -957,9 +953,6 @@ tests:
               dt_nodelabel_enabled("grove_d2_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d3", "pwm-leds")
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_pwm_led_d3
-    platform_allow:
-      - seeeduino_xiao
-      - xiao_samd21
   grove.xiao.v1.grove_led.pwm.d4:
     depends_on: xiao_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d4") and
@@ -968,9 +961,6 @@ tests:
             dt_nodelabel_enabled("grove_i2c_header") and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d4", "pwm-leds")
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_pwm_led_d4
-    platform_allow:
-      - seeeduino_xiao
-      - xiao_samd21
   grove.xiao.v1.grove_led.pwm.d5:
     depends_on: xiao_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d5") and
@@ -979,9 +969,6 @@ tests:
             dt_nodelabel_enabled("grove_i2c_header") and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d5", "pwm-leds")
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_pwm_led_d5
-    platform_allow:
-      - seeeduino_xiao
-      - xiao_samd21
   grove.xiao.v1.grove_led.pwm.d6:
     depends_on: xiao_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d6") and
@@ -990,7 +977,6 @@ tests:
             dt_nodelabel_enabled("grove_uart_header") and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d6", "pwm-leds")
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_pwm_led_d6
-    skip: true
   grove.xiao.v1.grove_led.pwm.d7:
     depends_on: xiao_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d7") and
@@ -999,16 +985,12 @@ tests:
             dt_nodelabel_enabled("grove_uart_header") and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d7", "pwm-leds")
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_pwm_led_d7
-    skip: true
   grove.xiao.v1.grove_led.pwm.d8:
     depends_on: xiao_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d8") and
             dt_nodelabel_enabled("grove_d8_header") and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d8", "pwm-leds")
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_pwm_led_d8
-    platform_allow:
-      - seeeduino_xiao
-      - xiao_samd21
   grove.xiao.v1.grove_led.pwm.d9:
     depends_on: xiao_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d9") and
@@ -1016,9 +998,6 @@ tests:
               dt_nodelabel_enabled("grove_d8_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d9", "pwm-leds")
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_pwm_led_d9
-    platform_allow:
-      - seeeduino_xiao
-      - xiao_samd21
   grove.xiao.v1.grove_led.pwm.d10:
     depends_on: xiao_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d10") and
@@ -1026,9 +1005,6 @@ tests:
               dt_nodelabel_enabled("grove_d9_header") ) and
             dt_label_with_parent_compat_enabled("grove_pwm_led_d10", "pwm-leds")
     extra_args: SHIELD=seeed_grove_xiao_v1;grove_pwm_led_d10
-    platform_allow:
-      - seeeduino_xiao
-      - xiao_samd21
   #
   # Grove LED by simple GPIO on Grove Shield for Pi Pico
   #
