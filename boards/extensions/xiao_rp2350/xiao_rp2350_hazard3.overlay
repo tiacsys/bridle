@@ -1,0 +1,14 @@
+/*
+ * Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	model = "Seeed Studio XIAO RP2350 @ UART Concole";
+	compatible = "seeed,xiao-rp2350", "seeed,xiao-rp2350-uartcons";
+
+	chosen {
+		zephyr,console = &uart0;
+		zephyr,shell-uart = &uart0;
+	};
+};
