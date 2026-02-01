@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 TiaC Systems
+ * Copyright (c) 2023-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -251,8 +251,6 @@
 #define GROVE_PWM_D11_PINCTRL				\
 	/delete-node/ &tim14_ch1_hack;			\
 	tim14_ch1_hack: &tim14_ch1_pa7 {};
-
-#include <zephyr/dt-bindings/pinctrl/stm32-pinctrl.h>
 
 &pinctrl {
 	/* +++ hack +++ PH0-OSC_IN as AF0 --> SYS_AF +++ hack +++ */
