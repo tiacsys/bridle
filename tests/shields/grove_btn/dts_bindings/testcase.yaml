@@ -53,6 +53,9 @@ common:
     - seeeduino_lotus
     - seeeduino_xiao
     - xiao_samd21
+    - xiao_rp2040
+    - xiao_rp2350/rp2350a/hazard3
+    - xiao_rp2350/rp2350a/m33
     - waveshare_rp2040_one
     - waveshare_rp2040_zero
     - waveshare_rp2040_matrix
