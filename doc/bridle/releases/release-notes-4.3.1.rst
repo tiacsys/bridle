@@ -287,6 +287,8 @@ Build Infrastructure
 * tbd.
 * tbd.
 * tbd.
+* Board metadata property ``full_name`` will being mandatory and required to
+  define. Bridle has miss that in a few boards, what is now fixed.
 
 
 Documentation
