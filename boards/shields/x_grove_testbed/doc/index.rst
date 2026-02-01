@@ -1268,6 +1268,126 @@ For example:
                      :goals: flash
                      :host-os: unix
 
+         .. group-tab:: XIAO RP2040
+
+            This is based on the Bridle board |bridle:board:xiao_rp2040|.
+
+            * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
+
+            .. image:: img/x_grove_testbed_xiao_rp2040_rp2350.svg
+               :alt: XIAO RP2040 Wiring Schematics
+               :align: center
+
+            .. tabs::
+
+               .. group-tab:: LED Blinky
+
+                  This is based on the Zephyr sample
+                  :external+zephyr:zephyr:code-sample:`blinky`.
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/blinky
+                     :build-dir: blinky-xiao_rp2040-x_grove_testbed
+                     :board: xiao_rp2040
+                     :shield: \
+                              "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
+                     :snippets: "usb-console"
+                     :west-args: -p
+                     :goals: flash
+                     :host-os: unix
+
+               .. group-tab:: LED Fade
+
+                  This is based on the Zephyr sample
+                  :external+zephyr:zephyr:code-sample:`fade-led`.
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/fade_led
+                     :build-dir: fade-xiao_rp2040-x_grove_testbed
+                     :board: xiao_rp2040
+                     :shield: \
+                              "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
+                     :snippets: "usb-console"
+                     :west-args: -p
+                     :goals: flash
+                     :host-os: unix
+
+               .. group-tab:: LED Button
+
+                  This is based on the Zephyr sample
+                  :external+zephyr:zephyr:code-sample:`button`.
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/button
+                     :build-dir: button-xiao_rp2040-x_grove_testbed
+                     :board: xiao_rp2040
+                     :shield: \
+                              "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
+                     :snippets: "usb-console"
+                     :west-args: -p
+                     :goals: flash
+                     :host-os: unix
+
+         .. group-tab:: XIAO RP2350
+
+            This is based on the Bridle board |bridle:board:xiao_rp2350|.
+
+            * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
+
+            .. image:: img/x_grove_testbed_xiao_rp2040_rp2350.svg
+               :alt: XIAO RP2350 Wiring Schematics
+               :align: center
+
+            .. tabs::
+
+               .. group-tab:: LED Blinky
+
+                  This is based on the Zephyr sample
+                  :external+zephyr:zephyr:code-sample:`blinky`.
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/blinky
+                     :build-dir: blinky-xiao_rp2350-x_grove_testbed
+                     :board: xiao_rp2350/rp2350a/m33
+                     :shield: \
+                              "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
+                     :snippets: "usb-console"
+                     :west-args: -p
+                     :goals: flash
+                     :host-os: unix
+
+               .. group-tab:: LED Fade
+
+                  This is based on the Zephyr sample
+                  :external+zephyr:zephyr:code-sample:`fade-led`.
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/fade_led
+                     :build-dir: fade-xiao_rp2350-x_grove_testbed
+                     :board: xiao_rp2350/rp2350a/m33
+                     :shield: \
+                              "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
+                     :snippets: "usb-console"
+                     :west-args: -p
+                     :goals: flash
+                     :host-os: unix
+
+               .. group-tab:: LED Button
+
+                  This is based on the Zephyr sample
+                  :external+zephyr:zephyr:code-sample:`button`.
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/button
+                     :build-dir: button-xiao_rp2350-x_grove_testbed
+                     :board: xiao_rp2350/rp2350a/m33
+                     :shield: \
+                              "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
+                     :snippets: "usb-console"
+                     :west-args: -p
+                     :goals: flash
+                     :host-os: unix
+
 References
 **********
 
