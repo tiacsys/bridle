@@ -6,6 +6,6 @@
 #include <zephyr/dt-bindings/display/panel.h>
 
 &lcd_panel {
-	pixel-format = <PANEL_PIXEL_FORMAT_BGR_565>;
+	pixel-format = <PANEL_PIXEL_FORMAT_RGB_565X>;
 	display-inversion;
 };
