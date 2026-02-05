@@ -1,18 +1,23 @@
 /*
- * Copyright (c) 2021-2025 TiaC Systems
+ * Copyright (c) 2021-2026 TiaC Systems
  * Copyright (c) 2021 Li-Pro.Net
  * SPDX-License-Identifier: Apache-2.0
  */
 
 #include <freq.h>
 
+&tmph_spi1 {
+	/* Force operation in "Soft NSS" mode without CS/NSS pin. */
+	st,soft-nss;
+}; // tmph_spi1
+
 &tmph_spi1_fast {
 	/*
-	 * Reduce fast transfer clock to max. 15 MHz,
+	 * Reduce fast transfer clock to max. 12 MHz,
 	 * because of missing DMA setup.
 	 */
-	spi-max-frequency = <DT_FREQ_M(15)>;
-}; // tmph_spi1
+	spi-max-frequency = <DT_FREQ_M(12)>;
+}; // tmph_spi1_fast
 
 &tmph_spi2 {
 	status = "disabled";	/* conflicts with tmph_i2c2 */
