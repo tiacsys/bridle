@@ -2,11 +2,17 @@
 	cannectivity: cannectivity {
 		compatible = "cannectivity";
 
-		channel1 {
+		/delete-node/ channel0;
+		channel0 {
 			compatible = "cannectivity-channel";
 
 			can-controller = <&mcp2515_elecfreaks_can_bus_ef02037>;
-			state-led = <&green_led>;
+			state-led = <&yellow_led>;
+			activity-leds = <&green_led &red_led>;
 		};
 	};
+};
+
+&fdcan1 {
+	status = "disabled";
 };
