@@ -146,9 +146,9 @@ jobs:
           # uv pip install --upgrade --requirement zephyr/scripts/requirements-actions.txt
           # uv pip install --upgrade --requirement zephyr/doc/requirements.txt
           # uv pip install --upgrade --requirement bridle/zephyr/requirements-doc.txt
-          # uv pip install coverxygen
+          # uv pip install coverxygen==1.8.1
           west packages pip | xargs uv pip install --upgrade
-          uv pip install coverxygen
+          uv pip install coverxygen==1.8.1
 
       - name: Build documentation
         working-directory: workspace
