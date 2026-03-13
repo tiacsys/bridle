@@ -90,7 +90,7 @@ jobs:
         working-directory: workspace
         run: |
           pip3 install --upgrade --requirement bridle/scripts/requirements-doc.txt
-          pip3 install coverxygen
+          pip3 install coverxygen==1.8.1
 
       - name: Build documentation
         working-directory: workspace
