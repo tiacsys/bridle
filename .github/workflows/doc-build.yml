@@ -1,4 +1,4 @@
-# Copyright (c) 2021-2025 TiaC Systems
+# Copyright (c) 2021-2026 TiaC Systems
 # Copyright (c) 2021 Li-Pro.Net
 # SPDX-License-Identifier: Apache-2.0
 
@@ -115,7 +115,7 @@ jobs:
       - name: Create and enter Python 3.12 virtual environment
         working-directory: workspace
         run: |
-          uv venv --python 3.12
+          uv venv --python 3.12 --clear .venv
           source .venv/bin/activate
           echo "$PATH" > $GITHUB_PATH
 
