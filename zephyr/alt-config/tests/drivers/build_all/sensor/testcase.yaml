@@ -112,6 +112,8 @@ tests:
       - CONFIG_STK8BA58_TRIGGER_NONE=y
   drivers.sensor.no_default.build:
     extra_args: EXTRA_CONF_FILE=sensors_no_default.conf
+  drivers.sensor.async_api:
+    extra_args: EXTRA_CONF_FILE=sensors_async_api.conf
   drivers.sensor.build:
     extra_args: EXTRA_CONF_FILE=sensors_die_temp.conf
     extra_configs:
