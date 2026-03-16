@@ -13,7 +13,7 @@ on:
 
 jobs:
   qa-cannectivity-integration:
-    name: Run integration tests for samples
+    name: Run integration tests for cannectivity
     if: ${{ github.repository_owner == 'tiacsys' }}
     runs-on: [self-hosted, ci-32g-x8, linux, x64, container, for-zephyr-qa]
     container:
@@ -50,7 +50,7 @@ jobs:
       # are run in reverse order (and you do not want to cleanup before the
       # caching is saved).
       - name: Clean working directory
-        uses: tiacsys/clean-after-action@v3
+        uses: tiacsys/clean-after-action@v4
         #
         # Could also be implemented with the new pre- and post-job hook scripts:
         #
@@ -70,7 +70,7 @@ jobs:
           ref: ${{ github.ref }}
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v7
+        uses: astral-sh/setup-uv@v8.1.0
         with:
           working-directory: workspace
           enable-cache: true
@@ -131,20 +131,20 @@ jobs:
             --tag bridle
 
       - name: Upload integration test logging
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         with:
           name: twister-samples.log
           path: workspace/twister-out/twister.log
 
       - name: Upload integration test results
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         with:
           name: twister-samples.xml
           path: workspace/twister-out/twister.xml
 
       - name: Convert integration test reports to annotations
         if: always()
-        uses: mikepenz/action-junit-report@v5
+        uses: mikepenz/action-junit-report@v6
         with:
           check_name: twister-report (samples)
           report_paths: "**/twister-out/twister.xml"

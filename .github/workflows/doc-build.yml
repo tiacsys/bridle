@@ -81,7 +81,7 @@ jobs:
       # are run in reverse order (and you do not want to cleanup before the
       # caching is saved).
       - name: Clean working directory
-        uses: tiacsys/clean-after-action@v3
+        uses: tiacsys/clean-after-action@v4
         #
         # Could also be implemented with the new pre- and post-job hook scripts:
         #
@@ -107,7 +107,7 @@ jobs:
           sudo apt-get install -y doxygen mscgen graphviz lcov
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v7
+        uses: astral-sh/setup-uv@v8.1.0
         with:
           working-directory: workspace
           enable-cache: true
@@ -229,25 +229,25 @@ jobs:
           df -hT $(pwd)/doc
 
       - name: Upload API coverage report
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         with:
           name: api-coverage
           path: workspace/build/api-coverage.tar.xz
 
       - name: Upload API documentation
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         with:
           name: api-output
           path: workspace/build/api-output.tar.xz
 
       # - name: Upload HTML documentation
-      #   uses: actions/upload-artifact@v5
+      #   uses: actions/upload-artifact@v7
       #   with:
       #     name: html-output
       #     path: workspace/build/html-output.tar.xz
 
       - name: Upload archived documentation
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         with:
           name: doc
           path: workspace/build/doc
