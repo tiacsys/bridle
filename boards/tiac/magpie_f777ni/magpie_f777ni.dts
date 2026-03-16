@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2024 TiaC Systems
+ * Copyright (c) 2021-2026 TiaC Systems
  * Copyright (c) 2021 Li-Pro.Net
  * SPDX-License-Identifier: Apache-2.0
  */
@@ -28,6 +28,7 @@
 	aliases {
 		led0 = &usr_led_1;
 		led1 = &usr_led_2;
+		watchdog0 = &iwdg;
 	}; // aliases
 
 	leds {

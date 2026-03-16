@@ -775,7 +775,7 @@ The DTS binding following the :dtcompatible:`gpio-leds` specification.
           :language: DTS
           :encoding: ISO-8859-1
           :start-at: led0 =
-          :end-at: led1 =
+          :end-at: watchdog0 =
 
 .. _magpie_f777ni_board_console_with_dts_bindings:
 
