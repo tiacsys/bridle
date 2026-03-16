@@ -190,14 +190,14 @@ jobs:
 
       - name: Upload compliance tests results
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: compliance.xml
           path: workspace/bridle/compliance.xml
 
       - name: Convert compliance test reports to annotations
         if: always()
-        uses: mikepenz/action-junit-report@v5
+        uses: mikepenz/action-junit-report@v6
         with:
           check_name: compliance-report (bridle)
           report_paths: "**/bridle/compliance.xml"

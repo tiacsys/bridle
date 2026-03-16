@@ -229,25 +229,25 @@ jobs:
           df -hT $(pwd)/doc
 
       - name: Upload API coverage report
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         with:
           name: api-coverage
           path: workspace/build/api-coverage.tar.xz
 
       - name: Upload API documentation
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         with:
           name: api-output
           path: workspace/build/api-output.tar.xz
 
       # - name: Upload HTML documentation
-      #   uses: actions/upload-artifact@v5
+      #   uses: actions/upload-artifact@v7
       #   with:
       #     name: html-output
       #     path: workspace/build/html-output.tar.xz
 
       - name: Upload archived documentation
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         with:
           name: doc
           path: workspace/build/doc

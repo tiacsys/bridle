@@ -131,20 +131,20 @@ jobs:
             --tag bridle
 
       - name: Upload integration test logging
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         with:
           name: twister-samples.log
           path: workspace/twister-out/twister.log
 
       - name: Upload integration test results
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         with:
           name: twister-samples.xml
           path: workspace/twister-out/twister.xml
 
       - name: Convert integration test reports to annotations
         if: always()
-        uses: mikepenz/action-junit-report@v5
+        uses: mikepenz/action-junit-report@v6
         with:
           check_name: twister-report (samples)
           report_paths: "**/twister-out/twister.xml"
