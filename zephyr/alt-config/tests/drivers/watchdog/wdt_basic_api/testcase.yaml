@@ -48,6 +48,8 @@ tests:
   drivers.watchdog.stm32wwdg.timing.adj:
     filter: dt_compat_enabled("st,stm32-window-watchdog") or dt_compat_enabled("st,stm32-watchdog")
     extra_args: DTC_OVERLAY_FILE="boards/stm32_wwdg.overlay"
+    extra_configs:
+      - CONFIG_COMPILER_OPT="-DWDT_TEST_MAX_WINDOW=170"
     required_snippets:
       - wdt-timing-adj
     platform_allow:
