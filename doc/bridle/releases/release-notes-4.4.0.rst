@@ -13,6 +13,7 @@ Highlights
 
 * :brd:`NOT YET, tbd.`
 
+* Switching to Zephyr SDK v1, which is now mandatory.
 * Add the Cytron MOTION 2350 Pro board, ready to use for 8 servo motors.
 * Use the default Flash partition layout with code and storage partition
   on all RP2040 and RP2350 based systems.
@@ -296,6 +297,7 @@ Build Infrastructure
   define. Bridle has miss that in a few boards, what is now fixed.
 * On display level, for the ST7789V and ILI9xxx driver, the current
   ``BGR_565`` format string was renamed to the now valid value ``RGB_565X``.
+* Switching to Zephyr SDK v1 (1.0.1), which is now mandatory.
 
 
 Documentation
@@ -315,6 +317,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`424` - [FCR] Upgrade to Zephyr SDK 1.0.1 and CI container 0.29.1
 * :github:`407` - [HW] Cytron MOTION 2350 Pro
 * :github:`394` - [HW] Raspberry Pi Pico 2/2W
 * :github:`393` - [FCR] Support CANnectivity application
