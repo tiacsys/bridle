@@ -321,6 +321,8 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`427` - [BUG] Fix CMake Error in QA Acceptance Sample Tests
+* :github:`426` - [FCR] Bump devcontainer also to CI Docker Image v0.29.1
 * :github:`424` - [FCR] Upgrade to Zephyr SDK 1.0.1 and CI container 0.29.1
 * :github:`407` - [HW] Cytron MOTION 2350 Pro
 * :github:`394` - [HW] Raspberry Pi Pico 2/2W
