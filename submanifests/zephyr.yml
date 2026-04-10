@@ -103,6 +103,7 @@ manifest:
           - psa-arch-tests
           - segger
           - tf-m-tests
+          - tf-psa-crypto
           - tinycrypt
           - trusted-firmware-a
           - trusted-firmware-m

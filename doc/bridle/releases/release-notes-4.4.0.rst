@@ -116,6 +116,7 @@ For more details, see: :ref:`repos_and_revs`.
        .. zephyr-keep-sorted-start re(^\s+\| \*+\w)
 
        | **crypto** : *mbedtls*
+       | **crypto** : *tf-psa-crypto*
        | **crypto** : *tinycrypt*
 
        .. zephyr-keep-sorted-stop
@@ -298,6 +299,9 @@ Build Infrastructure
 * On display level, for the ST7789V and ILI9xxx driver, the current
   ``BGR_565`` format string was renamed to the now valid value ``RGB_565X``.
 * Switching to Zephyr SDK v1 (1.0.1), which is now mandatory.
+* Enable support for the TF-PSA-Crypto repository as Zephyr module in the
+  West manifest. The PSA Cryptography API is required by some boards with
+  WiFi and TLS support, e.g. Raspberry Pi Pico W/2W.
 
 
 Documentation
