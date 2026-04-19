@@ -1,10 +1,14 @@
 # it's west
 # Keep the lowest version identical to the minimum required
 # in zephyr/cmake/modules/west.cmake
-west>=0.14.0,<1.5.0
+west>=0.14.0,<1.6.0
+
+# YAML validation. Is still used by west_commands.
+pykwalify>=1.8
 
 # Since zephyr/scripts/zephyr_module.py as an extension module for West
 # has replaced pykwalify with jsonschema, but West has not (yet) changed
 # its own dependency from pykwalify to jsonschema, the Python package
-# jsonschema must also be installed.
+# jsonschema must also be installed. For details see PR on West upstream:
+# https://github.com/zephyrproject-rtos/west/pull/904
 jsonschema
