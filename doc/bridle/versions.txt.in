@@ -131,7 +131,7 @@
 .. zephyr-keep-sorted-start re(^\.{2} \|.*\| replace:: :strong:`\w)
 
 .. |Sphinx| replace:: :strong:`Sphinx`
-.. |Sphinx_des| replace:: documentation generator based on `reStructuredText (RST) <reStructuredText Primer_>`_ files
+.. |Sphinx_des| replace:: documentation generator based on `reStructuredText (RST)`_ files
 .. |Sphinx_ver| replace:: @SPHINX_VERSION@
 
 .. |sphinx-autobuild| replace:: :strong:`sphinx-autobuild`
@@ -167,7 +167,7 @@
 .. |sphinx-togglebutton_ver| replace:: @SPHINX-TOGGLEBUTTON_VERSION@
 
 .. |sphinx_tsn_theme| replace:: :strong:`sphinx-tsn-theme`
-.. |sphinx_tsn_theme_des| replace:: `Sphinx theme <Sphinx HTML theming_>`_ for TiaC Systems Network (TSN) documentation
+.. |sphinx_tsn_theme_des| replace:: `Sphinx theme`_ for TiaC Systems Network (TSN) documentation
 .. |sphinx_tsn_theme_ver| replace:: @SPHINX-TSN-THEME_VERSION@
 
 .. |sphinxcontrib-mscgen| replace:: :strong:`sphinxcontrib-mscgen`
@@ -203,7 +203,7 @@
 .. |Pygments_ver| replace:: @PYGMENTS_VERSION@
 
 .. |docutils| replace:: :strong:`docutils`
-.. |docutils_des| replace:: modular system for processing `RST <reStructuredText Primer_>`_ documentation, backend of Sphinx_
+.. |docutils_des| replace:: modular system for processing RST_ documentation, backend of Sphinx_
 .. |docutils_ver| replace:: @DOCUTILS_VERSION@
 
 .. |doxmlparser| replace:: :strong:`doxmlparser`
@@ -257,7 +257,7 @@
 .. |Zephyr RTOS meta tool| replace:: :emphasis:`Zephyr RTOS meta tool`
 .. |west_pypa| replace:: :emphasis:`Zephyr RTOS meta tool` :command:`west` (PyPA)
 .. |west| replace:: :strong:`west`
-.. |west_des| replace:: The `Zephyr RTOS Project <Zephyr Project_>`_ meta-tool, a swiss-army knife command line tool
+.. |west_des| replace:: The `Zephyr RTOS Project`_ meta-tool, a swiss-army knife command line tool
 .. |west_ver| replace:: @WEST_VERSION@
 .. |west_min_ver| replace:: @WEST_VERSION_MINIMUM@
 .. |west_recommended_ver_linux| replace:: @WEST_VERSION_LINUX@

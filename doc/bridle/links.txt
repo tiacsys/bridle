@@ -1,5 +1,7 @@
 .. ### Links to Zephyr
 
+.. |Zephyr RTOS Project| replace:: :strong:`Zephyr RTOS Project`
+.. _`Zephyr RTOS Project`: https://zephyrproject.org/
 .. |Zephyr Project| replace:: :strong:`Zephyr Project`
 .. _`Zephyr Project`: https://zephyrproject.org/
 .. _`Zephyr Project documentation`: http://docs.zephyrproject.org/
@@ -408,7 +410,11 @@
 
 .. _`Sphinx Documentation`: https://www.sphinx-doc.org/en/master/contents.html
 .. _`Sphinx HTML theming`: https://www.sphinx-doc.org/en/master/usage/theming.html
+.. _`Sphinx theme`: https://www.sphinx-doc.org/en/master/usage/theming.html
 .. _`reStructuredText Primer`: https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
+.. _`reStructuredText (RST)`: https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
+.. _`reStructuredText`: https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
+.. _`RST`: https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
 .. _`Li-Pro.Net Sphinx Primer`: https://lpn-doc-sphinx-primer.readthedocs.io/en/latest/
 
 .. _`sitemaps.org`: https://sitemaps.org/protocol.html
