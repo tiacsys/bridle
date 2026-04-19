@@ -44,7 +44,7 @@ sys.path.insert(0, str(BRIDLE_BASE / 'doc' / '_extensions'))
 sys.path.insert(0, str(ZEPHYR_BASE / 'doc' / '_extensions'))
 
 # Import all CANnectivity configuration, override as needed later
-conf = eval_config_file(str(CANNECTIVITY_BASE / 'doc' / 'conf.py'), tags)  # noqa: F821
+conf = eval_config_file(Path(CANNECTIVITY_BASE / 'doc' / 'conf.py'), tags)  # noqa: F821
 locals().update(conf)
 
 # Export CANNECTIVITY_BASE as environment variable to make autodoc for the
