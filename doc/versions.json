@@ -42,7 +42,7 @@
   "COMPONENTS_BY_VERSION": {
     "latest": {
       "bridle": "4.3.99",
-      "zephyr": "4.3.99",
+      "zephyr": "4.4.0",
       "cannectivity": "1.4.0-dev"
     },
     "4.3": {
