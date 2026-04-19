@@ -1,4 +1,4 @@
-# Copyright (c) 2021-2025 TiaC Systems
+# Copyright (c) 2021-2026 TiaC Systems
 # Copyright (c) 2021 Nordic Semiconductor ASA
 #
 # SPDX-License-Identifier: Apache-2.0
@@ -13,7 +13,6 @@ import os.path
 
 from docutils import io, statemachine
 from docutils.parsers.rst import directives
-from docutils.utils.error_reporting import ErrorString, SafeString
 from sphinx.util.docutils import SphinxDirective
 
 
@@ -75,12 +74,12 @@ class TsnInclude(SphinxDirective):
         except UnicodeEncodeError:
             raise self.severe(
                 f'Problems with "{self.name}" directive path:\n'
-                f'Cannot encode input file path "{SafeString(path)}" '
+                f'Cannot encode input file path "{str(path)}" '
                 '(wrong locale?).'
             ) from None
         except OSError as error:
             raise self.severe(
-                f'Problems with "{self.name}" directive path:\n{ErrorString(error)}.'
+                f'Problems with "{self.name}" directive path:\n{io.error_string(error)}.'
             ) from error
 
         # Get to-be-included content
@@ -94,7 +93,7 @@ class TsnInclude(SphinxDirective):
                 rawtext = include_file.read()
         except UnicodeError as error:
             raise self.severe(
-                f'Problem with "{self.name}" directive:\n{ErrorString(error)}'
+                f'Problem with "{self.name}" directive:\n{io.error_string(error)}'
             ) from error
         # start-at/start-after and end-at/end-before: no restrictions on
         # newlines in match-text, and no restrictions on matching inside
