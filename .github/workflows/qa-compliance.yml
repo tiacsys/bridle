@@ -64,13 +64,13 @@ jobs:
           west init --local bridle || true
           west update --fetch=always --stats
           west zephyr-export
+          west bridle-export
 
       - name: Install compliance dependencies
         working-directory: workspace
         run: |
-          grep -hE -v "python-magic-bin" zephyr/scripts/requirements-*.txt | \
-          grep -hE "python-magic|lxml|junitparser|gitlint|pylint|pykwalify|yamllint" | \
-          xargs -I {} pip3 install --upgrade '{}'
+          pip3 install --upgrade --requirement zephyr/scripts/requirements-compliance.txt
+          pip3 install --upgrade gitlint pykwalify
 
       - name: Run compliance tests
         id: compliance
