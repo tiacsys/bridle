@@ -88,7 +88,7 @@ jobs:
       # are run in reverse order (and you do not want to cleanup before the
       # caching is saved).
       - name: Clean working directory
-        uses: tiacsys/clean-after-action@v3
+        uses: tiacsys/clean-after-action@v4
         #
         # Could also be implemented with the new pre- and post-job hook scripts:
         #
@@ -108,7 +108,7 @@ jobs:
           ref: ${{ github.ref }}
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v7
+        uses: astral-sh/setup-uv@v8.1.0
         with:
           working-directory: workspace
           enable-cache: true
