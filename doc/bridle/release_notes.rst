@@ -30,6 +30,7 @@ below for information about specific |BRIDLE| releases.
    releases/release-notes-4.2.0
    releases/release-notes-4.1.0
    releases/release-notes-4.0.0
+   releases/release-notes-3.7.2
    releases/release-notes-3.7.1
    releases/release-notes-3.7.0
    releases/release-notes-3.6.1
