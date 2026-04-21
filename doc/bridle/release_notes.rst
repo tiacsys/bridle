@@ -26,6 +26,7 @@ below for information about specific |BRIDLE| releases.
 
    releases/release-notes-4.4.0
    releases/release-notes-4.3.0
+   releases/release-notes-4.2.2
    releases/release-notes-4.2.1
    releases/release-notes-4.2.0
    releases/release-notes-4.1.0
