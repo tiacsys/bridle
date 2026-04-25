@@ -283,7 +283,7 @@ Simple test execution on target
             :bgn:`uart:~$` **timer oneshot rtc 0 1000**
             :bgn:`rtc: Alarm triggered`
 
-   .. admonition:: Simple Flash Access and Test
+   .. admonition:: Simple Flash access and Test
       :class: note dropdown
 
       .. rubric:: Erase, Write and Verify
@@ -292,13 +292,13 @@ Simple test execution on target
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **flash read flash 100000 40**
+            :bgn:`uart:~$` **flash read flash 0x100000 0x40**
             00100000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
             00100010: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
             00100020: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
             00100030: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
 
-            :bgn:`uart:~$` **flash test flash 100000 1000 2**
+            :bgn:`uart:~$` **flash test flash 0x100000 0x1000 2**
             Erase OK.
             Write OK.
             Verified OK.
@@ -311,13 +311,13 @@ Simple test execution on target
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **flash read flash 100000 40**
+            :bgn:`uart:~$` **flash read flash 0x100000 0x40**
             00100000: 00 01 02 03 04 05 06 07  08 09 0a 0b 0c 0d 0e 0f \|........ ........\|
             00100010: 10 11 12 13 14 15 16 17  18 19 1a 1b 1c 1d 1e 1f \|........ ........\|
             00100020: 20 21 22 23 24 25 26 27  28 29 2a 2b 2c 2d 2e 2f \| !"#$%&' ()*+,-./\|
             00100030: 30 31 32 33 34 35 36 37  38 39 3a 3b 3c 3d 3e 3f \|01234567 89:;<=>?\|
 
-            :bgn:`uart:~$` **flash page_info 100000**
+            :bgn:`uart:~$` **flash page_info 0x100000**
             Page for address 0x100000:
             start offset: 0x100000
             size: 262144
@@ -327,10 +327,10 @@ Simple test execution on target
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **flash erase flash 100000 1000**
+            :bgn:`uart:~$` **flash erase flash 0x100000 0x1000**
             Erase success.
 
-            :bgn:`uart:~$` **flash read flash 100000 40**
+            :bgn:`uart:~$` **flash read flash 0x100000 0x40**
             00100000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
             00100010: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
             00100020: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
