@@ -61,9 +61,9 @@ Building and Running
          INFO    - 1/2 magpie_f777ni/stm32f777xx drivers.adc.b_u585i_iot02a_adc4                    :byl:`FILTERED` (runtime filter)
          INFO    - 2/2 magpie_f777ni/stm32f777xx drivers.adc                                        :byl:`FILTERED` (runtime filter)
 
-         INFO    - 2867 test scenarios (2655 configurations) selected, :byl:`2655` configurations filtered (:byl:`2653` by static filter, :byl:`2` at runtime).
-         INFO    - :bgn:`0 of 0` test configurations passed (0.00%), :bbk:`0` built (not run), :brd:`0` failed, :bbk:`0` errored, with no warnings in :bbk:`19.91 seconds`.
-         INFO    - 0 of 0 executed test cases passed (0.00%) on 0 out of total 1293 platforms (0.00%).
+         INFO    - 3090 test scenarios (2888 configurations) selected, :byl:`2888` configurations filtered (:byl:`2886` by static filter, :byl:`2` at runtime).
+         INFO    - :bgn:`0 of 0` test configurations passed (0.00%), :bbk:`0` built (not run), :brd:`0` failed, :bbk:`0` errored, with no warnings in :bbk:`14.16 seconds`.
+         INFO    - 0 of 0 executed test cases passed (0.00%) on 0 out of total 1511 platforms (0.00%).
          INFO    - :bgn:`0` test configurations executed on platforms, :bbl:`0` test configurations were only built.
 
          Hardware distribution summary:

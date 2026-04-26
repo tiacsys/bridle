@@ -46,16 +46,16 @@ are shown on the console like this:
          \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* \*\*\*
          [00:00:00.057,000] <inf> net_dhcpv4_client_sample: Run dhcpv4 client
          [00:00:00.057,000] <inf> net_dhcpv4_client_sample: Start on **ethernet**: index=1
-         [00:00:02.651,000] <inf> phy_mii: PHY (0) Link speed **100 Mb**, **full duplex**
-         [00:00:05.658,000] <inf> net_dhcpv4_client_sample: DHCP Option 42: 192.168.10.1
-         [00:00:05.658,000] :byl:`<wrn> net_dhcpv4: DHCP server provided more DNS servers than can be saved`
-         [00:00:05.668,000] <inf> net_dhcpv4_client_sample: DHCP Option 42: 192.168.10.1
-         [00:00:05.668,000] :byl:`<wrn> net_dhcpv4: DHCP server provided more DNS servers than can be saved`
-         [00:00:05.669,000] <inf> net_dhcpv4: Received: **192.168.10.197**
-         [00:00:05.669,000] <inf> net_dhcpv4_client_sample:    Address[1]: 192.168.10.197
-         [00:00:05.669,000] <inf> net_dhcpv4_client_sample:     Subnet[1]: 255.255.255.0
-         [00:00:05.669,000] <inf> net_dhcpv4_client_sample:     Router[1]: 192.168.10.1
-         [00:00:05.669,000] <inf> net_dhcpv4_client_sample: Lease time[1]: 28800 seconds
+         [00:00:02.453,000] <inf> phy_mii: PHY (0) Link speed **100 Mb**, **full duplex**
+         [00:00:06.460,000] <inf> net_dhcpv4_client_sample: DHCP Option 42: 192.168.10.1
+         [00:00:06.460,000] :byl:`<wrn> net_dhcpv4: DHCP server provided more DNS servers than can be saved`
+         [00:00:06.478,000] <inf> net_dhcpv4_client_sample: DHCP Option 42: 192.168.10.1
+         [00:00:06.478,000] :byl:`<wrn> net_dhcpv4: DHCP server provided more DNS servers than can be saved`
+         [00:00:06.479,000] <inf> net_dhcpv4: Received: **192.168.10.197**
+         [00:00:06.479,000] <inf> net_dhcpv4_client_sample:    Address[1]: 192.168.10.197
+         [00:00:06.479,000] <inf> net_dhcpv4_client_sample:     Subnet[1]: 255.255.255.0
+         [00:00:06.479,000] <inf> net_dhcpv4_client_sample:     Router[1]: 192.168.10.1
+         [00:00:06.479,000] <inf> net_dhcpv4_client_sample: Lease time[1]: 28800 seconds
 
 To verify the Zephyr application client is running and has received
 an IPv4 address by typing on Linux host:
@@ -71,13 +71,13 @@ an IPv4 address by typing on Linux host:
 
             :bgn:`$` **ping -c3 192.168.10.197**
             PING 192.168.10.197 (192.168.10.197) 56(84) bytes of data.
-            64 bytes from 192.168.10.197: icmp_seq=1 ttl=64 time=0.746 ms
-            64 bytes from 192.168.10.197: icmp_seq=2 ttl=64 time=0.420 ms
-            64 bytes from 192.168.10.197: icmp_seq=3 ttl=64 time=0.421 ms
+            64 bytes from 192.168.10.197: icmp_seq=1 ttl=64 time=0.614 ms
+            64 bytes from 192.168.10.197: icmp_seq=2 ttl=64 time=0.418 ms
+            64 bytes from 192.168.10.197: icmp_seq=3 ttl=64 time=0.417 ms
 
             --- 192.168.10.197 ping statistics ---
-            3 packets transmitted, 3 received, 0% packet loss, time 2054ms
-            rtt min/avg/max/mdev = 0.420/0.529/0.746/0.153 ms
+            3 packets transmitted, 3 received, 0% packet loss, time 2033ms
+            rtt min/avg/max/mdev = 0.417/0.483/0.614/0.092 ms
 
 On Zephyr, Shell command line:
 
@@ -94,17 +94,17 @@ On Zephyr, Shell command line:
             Default interface: 1
 
 
-            Interface eth0 (0x20020f08) (Ethernet) [1]
+            Interface eth0 (0x20020ec8) (Ethernet) [1]
             ===================================
             Link addr : **02:80:E1:4F:98:16**
             MTU       : 1500
             Flags     : AUTO_START,IPv4
-            Device    : **ethernet** (0x8020edc)
+            Device    : **ethernet** (0x8021044)
             Status    : oper=UP, admin=UP, carrier=ON
             Ethernet capabilities supported:
                     10 Mbits
                     100 Mbits
-            Ethernet PHY device: **ethernet-phy@0** (0x8020eb8)
+            Ethernet PHY device: **ethernet-phy@0** (0x8021064)
             Ethernet link speed: **100 Mbits full-duplex**
             IPv4 unicast addresses (max 1):
                     **192.168.10.197**/255.255.255.0 DHCP preferred

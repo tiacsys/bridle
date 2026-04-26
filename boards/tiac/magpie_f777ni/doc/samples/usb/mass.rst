@@ -49,13 +49,13 @@ The output to the console will look something like this:
          \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* \*\*\*
          [00:00:00.000,000] <inf> main: No file system selected
          [00:00:00.010,000] <inf> main: The device is put in **USB mass storage mode**
-         [00:00:00.342,000] :byl:`<wrn> udc: Spurious resume event`
-         [00:00:00.441,000] <inf> usbd_msc: Enable
-         [00:00:00.441,000] <inf> usbd_msc: Bulk-Only Mass Storage Reset
-         [00:00:03.587,000] :brd:`<err> usbd_msc: Unknown SCSI opcode 0xc5`
-         [00:00:03.592,000] :brd:`<err> usbd_msc: Unknown SCSI opcode 0xc5`
-         [00:00:03.596,000] :brd:`<err> usbd_msc: Unknown SCSI opcode 0xc5`
-         [00:00:03.601,000] :brd:`<err> usbd_msc: Unknown SCSI opcode 0xc5`
+         [00:00:00.349,000] :byl:`<wrn> udc: Spurious resume event`
+         [00:00:00.449,000] <inf> usbd_msc: Enable
+         [00:00:00.449,000] <inf> usbd_msc: Bulk-Only Mass Storage Reset
+         [00:00:03.568,000] :brd:`<err> usbd_msc: Unknown SCSI opcode 0xc5`
+         [00:00:03.571,000] :brd:`<err> usbd_msc: Unknown SCSI opcode 0xc5`
+         [00:00:03.574,000] :brd:`<err> usbd_msc: Unknown SCSI opcode 0xc5`
+         [00:00:03.577,000] :brd:`<err> usbd_msc: Unknown SCSI opcode 0xc5`
 
 FAT FS Example
 ==============
@@ -116,13 +116,13 @@ The output to the console will look something like this
          /RAM: opendir: 0
          End of files
          [00:00:00.061,000] <inf> main: The device is put in **USB mass storage mode**
-         [00:00:00.404,000] :byl:`<wrn> udc: Spurious resume event`
-         [00:00:00.502,000] <inf> usbd_msc: Enable
-         [00:00:00.502,000] <inf> usbd_msc: Bulk-Only Mass Storage Reset
-         [00:00:03.562,000] :brd:`<err> usbd_msc: Unknown SCSI opcode 0xc5`
-         [00:00:03.566,000] :brd:`<err> usbd_msc: Unknown SCSI opcode 0xc5`
-         [00:00:03.569,000] :brd:`<err> usbd_msc: Unknown SCSI opcode 0xc5`
-         [00:00:03.572,000] :brd:`<err> usbd_msc: Unknown SCSI opcode 0xc5`
+         [00:00:00.390,000] :byl:`<wrn> udc: Spurious resume event`
+         [00:00:00.496,000] <inf> usbd_msc: Enable
+         [00:00:00.496,000] <inf> usbd_msc: Bulk-Only Mass Storage Reset
+         [00:00:03.557,000] :brd:`<err> usbd_msc: Unknown SCSI opcode 0xc5`
+         [00:00:03.560,000] :brd:`<err> usbd_msc: Unknown SCSI opcode 0xc5`
+         [00:00:03.564,000] :brd:`<err> usbd_msc: Unknown SCSI opcode 0xc5`
+         [00:00:03.567,000] :brd:`<err> usbd_msc: Unknown SCSI opcode 0xc5`
 
 On most operating systems the drive will be automatically mounted.
 

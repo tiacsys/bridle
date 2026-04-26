@@ -61,14 +61,14 @@ Building and Running
          INFO    - 1/7 magpie_f777ni/stm32f777xx drivers.uart.async_api.lpuart.rt_nocache           :byl:`FILTERED` (runtime filter)
          INFO    - 2/7 magpie_f777ni/stm32f777xx drivers.uart.async_api.lpuart                      :byl:`FILTERED` (runtime filter)
          INFO    - 3/7 magpie_f777ni/stm32f777xx drivers.uart.async_api                             :byl:`FILTERED` (runtime filter)
-         INFO    - 4/7 magpie_f777ni/stm32f777xx logging.backend.uart.single                        :bgn:`PASSED` (device: DT04BNT1, 2.447s <zephyr>)
-         INFO    - 5/7 magpie_f777ni/stm32f777xx logging.backend.uart.multi                         :bgn:`PASSED` (device: DT04BNT1, 2.462s <zephyr>)
-         INFO    - 6/7 magpie_f777ni/stm32f777xx drivers.uart.async_rx                              :bgn:`PASSED` (device: DT04BNT1, 12.476s <zephyr>)
-         INFO    - 7/7 magpie_f777ni/stm32f777xx drivers.console.uart                               :bgn:`PASSED` (device: DT04BNT1, 2.428s <zephyr>)
+         INFO    - 4/7 magpie_f777ni/stm32f777xx logging.backend.uart.multi                         :bgn:`PASSED` (device: DT04BNT1, 2.594s <zephyr/gnu>)
+         INFO    - 5/7 magpie_f777ni/stm32f777xx logging.backend.uart.single                        :bgn:`PASSED` (device: DT04BNT1, 2.537s <zephyr/gnu>)
+         INFO    - 6/7 magpie_f777ni/stm32f777xx drivers.uart.async_rx                              :bgn:`PASSED` (device: DT04BNT1, 12.617s <zephyr/gnu>)
+         INFO    - 7/7 magpie_f777ni/stm32f777xx drivers.console.uart                               :bgn:`PASSED` (device: DT04BNT1, 2.508s <zephyr/gnu>)
 
-         INFO    - 2867 test scenarios (2655 configurations) selected, :byl:`2651` configurations filtered (:byl:`2648` by static filter, :byl:`3` at runtime).
-         INFO    - :bgn:`4 of 4` executed test configurations passed (100.00%), :bbk:`0` built (not run), :brd:`0` failed, :bbk:`0` errored, with no warnings in :bbk:`117.76 seconds`.
-         INFO    - 7 of 7 executed test cases passed (100.00%) on 1 out of total 1293 platforms (0.08%).
+         INFO    - 3090 test scenarios (2888 configurations) selected, :byl:`2884` configurations filtered (:byl:`2881` by static filter, :byl:`3` at runtime).
+         INFO    - :bgn:`4 of 4` executed test configurations passed (100.00%), :bbk:`0` built (not run), :brd:`0` failed, :bbk:`0` errored, with no warnings in :bbk:`118.35 seconds`.
+         INFO    - 7 of 7 executed test cases passed (100.00%) on 1 out of total 1511 platforms (0.07%).
          INFO    - :bgn:`4` test configurations executed on platforms, :bbl:`0` test configurations were only built.
 
          Hardware distribution summary:

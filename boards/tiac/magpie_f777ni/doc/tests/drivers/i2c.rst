@@ -60,12 +60,12 @@ Building and Running
          INFO    - Added initial list of jobs to queue
          INFO    - 1/3 magpie_f777ni/stm32f777xx drivers.i2c.bme688                                 :byl:`FILTERED` (runtime filter)
          INFO    - 2/3 magpie_f777ni/stm32f777xx drivers.i2c.api                                    :byl:`FILTERED` (runtime filter)
-         INFO    - 3/3 magpie_f777ni/stm32f777xx drivers.i2c.target_api.dual_role                   :brd:`ERROR` Build failure (device <zephyr>)
+         INFO    - 3/3 magpie_f777ni/stm32f777xx drivers.i2c.target_api.dual_role                   :brd:`ERROR` Build failure (device <zephyr/gnu>)
          INFO    - :byl:`.../twister-out/magpie_f777ni_stm32f777xx/tests/drivers/i2c/i2c_target_api/drivers.i2c.target_api.dual_role/build.log`
 
-         INFO    - 2867 test scenarios (2655 configurations) selected, :byl:`2654` configurations filtered (:byl:`2652` by static filter, :byl:`2` at runtime).
-         INFO    - :bgn:`0 of 1` executed test configurations passed (0.00%), :bbk:`0` built (not run), :brd:`0` failed, :bbk:`1` errored, with no warnings in :bbk:`34.61 seconds`.
-         INFO    - 0 of 2 executed test cases passed (0.00%), 2 blocked on 1 out of total 1293 platforms (0.08%).
+         INFO    - 3090 test scenarios (2888 configurations) selected, :byl:`2887` configurations filtered (:byl:`2885` by static filter, :byl:`2` at runtime).
+         INFO    - :bgn:`0 of 1` executed test configurations passed (0.00%), :bbk:`0` built (not run), :brd:`0` failed, :bbk:`1` errored, with no warnings in :bbk:`31.31 seconds`.
+         INFO    - 0 of 2 executed test cases passed (0.00%), 2 blocked on 1 out of total 1511 platforms (0.07%).
          INFO    - :bgn:`0` test configurations executed on platforms, :bbl:`1` test configurations were only built.
 
          Hardware distribution summary:
@@ -103,8 +103,8 @@ Dual role with one I2C controller and one I2C device
    :class: highlight-console notranslate
 
    ... ... ...
-   .../zephyr/drivers/i2c/target/eeprom_target.c:244:12: :brd:`error:` 'i2c_eeprom_target_init' defined but not used
-   .../zephyr/drivers/i2c/target/eeprom_target.c:227:43: :brd:`error:` 'api_funcs' defined but not used
+   .../zephyr/drivers/i2c/target/eeprom_target.c:273:12: :brd:`error:` 'i2c_eeprom_target_init' defined but not used
+   .../zephyr/drivers/i2c/target/eeprom_target.c:256:43: :brd:`error:` 'api_funcs' defined but not used
    ... ... ...
    ... ... ...
    ... ... ...

@@ -45,21 +45,21 @@ are shown on the console like this:
 
          [00:00:00.050,000] <inf> phy_mii: PHY (0) ID 221560
          \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* \*\*\*
-         [00:00:00.060,000] <inf> shell_telnet: Telnet shell backend initialized
-         [00:00:00.060,000] <inf> net_config: Initializing network
-         [00:00:00.060,000] <inf> net_config: Waiting interface 1 (0x20021500) to be up...
-         [00:00:02.652,000] <inf> phy_mii: PHY (0) Link speed **100 Mb**, **full duplex**
-         [00:00:02.658,000] <inf> net_config: Interface 1 (0x20021500) coming up
-         [00:00:02.658,000] <inf> net_config: IPv4 address: 192.0.2.1
-         [00:00:02.658,000] <inf> net_config: Running dhcpv4 client...
-         [00:00:02.659,000] <inf> net_telnet_sample: Starting Telnet sample
-         [00:00:02.759,000] <inf> net_config: IPv6 address: 2001:db8::1
-         [00:00:03.680,000] <inf> net_dhcpv4: Received: **192.168.10.197**
-         [00:00:03.680,000] <inf> net_config: IPv4 address: 192.168.10.197
-         [00:00:03.680,000] <inf> net_config: Lease time: 28800 seconds
-         [00:00:03.680,000] <inf> net_config: Subnet: 255.255.255.0
-         [00:00:03.680,000] <inf> net_config: Router: 192.168.10.1
-         [00:00:03.760,000] <inf> net_config: IPv6 address: 2001:db8::1
+         [00:00:00.058,000] <inf> shell_telnet: Telnet shell backend initialized
+         [00:00:00.058,000] <inf> net_config: Initializing network
+         [00:00:00.058,000] <inf> net_config: Waiting interface 1 (0x200214c8) to be up...
+         [00:00:02.453,000] <inf> phy_mii: PHY (0) Link speed **100 Mb**, **full duplex**
+         [00:00:02.459,000] <inf> net_config: Interface 1 (0x200214c8) coming up
+         [00:00:02.459,000] <inf> net_config: IPv4 address: 192.0.2.1
+         [00:00:02.459,000] <inf> net_config: Running dhcpv4 client...
+         [00:00:02.460,000] <inf> net_telnet_sample: Starting Telnet sample
+         [00:00:02.560,000] <inf> net_config: IPv6 address: 2001:db8::1
+         [00:00:03.560,000] <inf> net_config: IPv6 address: fd9c:33d7:ba99:0:80:e1ff:fee1:9a39
+         [00:00:07.479,000] <inf> net_dhcpv4: Received: **192.168.10.197**
+         [00:00:07.479,000] <inf> net_config: IPv4 address: 192.168.10.197
+         [00:00:07.479,000] <inf> net_config: Lease time: 28800 seconds
+         [00:00:07.479,000] <inf> net_config: Subnet: 255.255.255.0
+         [00:00:07.479,000] <inf> net_config: Router: 192.168.10.1
 
 To verify the Zephyr application clients are running, bind the TELNET server to
 the network interface, and has received an IPv4 address by typing on Linux host:
@@ -75,23 +75,23 @@ the network interface, and has received an IPv4 address by typing on Linux host:
 
             :bgn:`$` **ping -c3 192.168.10.197**
             PING 192.168.10.197 (192.168.10.197) 56(84) bytes of data.
-            64 bytes from 192.168.10.197: icmp_seq=1 ttl=64 time=0.690 ms
-            64 bytes from 192.168.10.197: icmp_seq=2 ttl=64 time=0.477 ms
-            64 bytes from 192.168.10.197: icmp_seq=3 ttl=64 time=0.515 ms
+            64 bytes from 192.168.10.197: icmp_seq=1 ttl=64 time=0.738 ms
+            64 bytes from 192.168.10.197: icmp_seq=2 ttl=64 time=0.391 ms
+            64 bytes from 192.168.10.197: icmp_seq=3 ttl=64 time=0.403 ms
 
             --- 192.168.10.197 ping statistics ---
-            3 packets transmitted, 3 received, 0% packet loss, time 2060ms
-            rtt min/avg/max/mdev = 0.477/0.560/0.690/0.092 ms
+            3 packets transmitted, 3 received, 0% packet loss, time 2043ms
+            rtt min/avg/max/mdev = 0.391/0.510/0.738/0.160 ms
 
             :bgn:`$` **nmap -Pn 192.168.10.197**
             Starting Nmap 7.80 ( https://nmap.org ) at … … …
             Nmap scan report for 192.168.10.197
-            Host is up (0.00087s latency).
+            Host is up (0.00057s latency).
             Not shown: 999 closed ports
             PORT   STATE SERVICE
             23/tcp open  telnet
 
-            Nmap done: 1 IP address (1 host up) scanned in 2.70 seconds
+            Nmap done: 1 IP address (1 host up) scanned in 1.69 seconds
 
 At this point you should be able to connect via ``telnet`` over the network.
 On your Linux host:
@@ -131,8 +131,6 @@ or ``kernel version``.
            DT node labels: rcc
          - reset-controller (READY)
            DT node labels: rctl
-         - interrupt-controller\ @\ 40013c00 (READY)
-           DT node labels: exti
          - gpio\ @\ 40022800 (READY)
            DT node labels: gpiok
          - gpio\ @\ 40022400 (READY)
@@ -155,6 +153,8 @@ or ``kernel version``.
            DT node labels: gpiob
          - gpio\ @\ 40020000 (READY)
            DT node labels: gpioa
+         - interrupt-controller\ @\ 40013c00 (READY)
+           DT node labels: exti
          - rng\ @\ 50060800 (READY)
            DT node labels: rng
          - serial\ @\ 40007800 (READY)
@@ -171,10 +171,10 @@ or ``kernel version``.
            DT node labels: spi4 tmph_spi1 tmph_spi
          - mdio (READY)
            DT node labels: mdio
-         - ethernet-phy\ @\ 0 (READY)
-           DT node labels: eth_phy
          - ethernet (READY)
            DT node labels: mac
+         - ethernet-phy\ @\ 0 (READY)
+           DT node labels: eth_phy
 
    .. admonition:: Simple GPIO Operations
       :class: note dropdown

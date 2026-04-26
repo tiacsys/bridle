@@ -60,13 +60,13 @@ Building and Running
          INFO    - Added initial list of jobs to queue
          INFO    - 1/3 magpie_f777ni/stm32f777xx drivers.pwm                                        :byl:`FILTERED` (runtime filter)
          INFO    - 2/3 magpie_f777ni/stm32f777xx drivers.clock.pwm_clock                            :byl:`FILTERED` (runtime filter)
-         INFO    - 3/3 magpie_f777ni/stm32f777xx drivers.pwm.loopback                               :brd:`FAILED` Testsuite failed (device: DT04BNT1, 3.773s <zephyr>)
+         INFO    - 3/3 magpie_f777ni/stm32f777xx drivers.pwm.loopback                               :brd:`FAILED` Testsuite failed (device: DT04BNT1, 3.824s <zephyr/gnu>)
          INFO    - :byl:`.../twister-out/magpie_f777ni_stm32f777xx/tests/drivers/pwm/pwm_loopback/drivers.pwm.loopback/handler.log`
 
-         INFO    - 2867 test scenarios (2655 configurations) selected, :byl:`2654` configurations filtered (:byl:`2652` by static filter, :byl:`2` at runtime).
-         INFO    - :brd:`0 of 1` executed test configurations passed (0.00%), :bbk:`0` built (not run), :brd:`1` failed, :bbk:`0` errored, with no warnings in :bbk:`65.42 seconds`.
-         INFO    - 0 of 1 executed test cases passed (0.00%), 1 failed on 1 out of total 1293 platforms (0.08%).
-         INFO    - 7 selected test cases not executed: 7 skipped.
+         INFO    - 3090 test scenarios (2888 configurations) selected, :byl:`2887` configurations filtered (:byl:`2885` by static filter, :byl:`2` at runtime).
+         INFO    - :brd:`0 of 1` executed test configurations passed (0.00%), :bbk:`0` built (not run), :brd:`1` failed, :bbk:`0` errored, with no warnings in :bbk:`47.95 seconds`.
+         INFO    - 0 of 1 executed test cases passed (0.00%), 1 failed on 1 out of total 1511 platforms (0.07%).
+         INFO    - 8 selected test cases not executed: 8 skipped.
          INFO    - :bgn:`1` test configurations executed on platforms, :bbl:`0` test configurations were only built.
 
          Hardware distribution summary:
@@ -113,22 +113,21 @@ index must be a 32-Bit timer.
    :bbk:`E: PWM capture only supported on first two channels`
    Pulse capture not supported, trying period capture
    :bbk:`E: PWM capture only supported on first two channels`
-   :brd:`Assertion failed` at WEST_TOPDIR/zephyr/tests/drivers/pwm/pwm_loopback/src/test_pwm_loopback.c:311: :byl:`pwm_loopback_test_capture_busy: (err not equal to 0)`
-   :bbk:`failed to configure pwm input (err -134)`
+   capture not supported
    :bbk:`E: PWM capture only supported on first two channels`
-   :brd:`Assertion failed` at WEST_TOPDIR/zephyr/tests/drivers/pwm/pwm_loopback/src/main.c:36: :byl:`pwm_loopback_after: (err not equal to 0)`
+       :brd:`Assertion failed` at WEST_TOPDIR/zephyr/tests/drivers/pwm/pwm_loopback/src/main.c:36: :byl:`pwm_loopback_after: (err not equal to 0)`
    :bbk:`failed to configure pwm input (err -134)`
    :bbk:`ERROR: cannot fail in test phase 'after()', bailing`
-   :brd:`FAIL` - test_capture_busy in 0.056 seconds
+   :byl:`SKIP` - test_capture_busy in 0.041 seconds
    ===================================================================
-   TESTSUITE pwm_loopback failed.
+   TESTSUITE pwm_loopback succeeded
 
    ------ TESTSUITE SUMMARY START ------
 
-   SUITE FAIL -   0.00% [pwm_loopback]: pass = :bgn:`0`, fail = :brd:`1`, skip = :byl:`7`, total = :bbk:`8` duration = :bbk:`0.056 seconds`
-   - :brd:`FAIL` - [pwm_loopback.test_capture_busy] duration = 0.056 seconds
-   - :brd:`SKIP` - [pwm_loopback.test_capture_timeout] duration = 0.000 seconds
-   - :brd:`SKIP` - [pwm_loopback.test_continuous_capture] duration = 0.000 seconds
+   SUITE FAIL -   0.00% [pwm_loopback]: pass = :bgn:`0`, fail = :brd:`0`, skip = :byl:`8`, total = :bbk:`8` duration = :bbk:`0.041 seconds`
+   - :byl:`SKIP` - [pwm_loopback.test_capture_busy] duration = 0.041 seconds
+   - :byl:`SKIP` - [pwm_loopback.test_capture_timeout] duration = 0.000 seconds
+   - :byl:`SKIP` - [pwm_loopback.test_continuous_capture] duration = 0.000 seconds
    - :byl:`SKIP` - [pwm_loopback.test_period_capture] duration = 0.000 seconds
    - :byl:`SKIP` - [pwm_loopback.test_period_capture_inverted] duration = 0.000 seconds
    - :byl:`SKIP` - [pwm_loopback.test_pulse_and_period_capture] duration = 0.000 seconds

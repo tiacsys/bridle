@@ -43,7 +43,7 @@ prompt. All shell commands are available and would looks like:
          [00:00:00.050,000] <inf> phy_mii: PHY (0) ID 221560
          \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* \*\*\*
          Hello World! I'm THE SHELL from magpie_f777ni
-         [00:00:02.651,000] <inf> phy_mii: PHY (0) Link speed 100 Mb, full duplex
+         [00:00:02.453,000] <inf> phy_mii: PHY (0) Link speed 100 Mb, full duplex
 
 
          :bgn:`uart:~$` **<Tab>**
@@ -147,8 +147,6 @@ Simple test execution on target
               DT node labels: rcc
             - reset-controller (READY)
               DT node labels: rctl
-            - interrupt-controller\ @\ 40013c00 (READY)
-              DT node labels: exti
             - gpio\ @\ 40022800 (READY)
               DT node labels: gpiok
             - gpio\ @\ 40022400 (READY)
@@ -171,6 +169,8 @@ Simple test execution on target
               DT node labels: gpiob
             - gpio\ @\ 40020000 (READY)
               DT node labels: gpioa
+            - interrupt-controller\ @\ 40013c00 (READY)
+              DT node labels: exti
             - rng\ @\ 50060800 (READY)
               DT node labels: rng
             - serial\ @\ 40007800 (READY)
@@ -193,10 +193,10 @@ Simple test execution on target
               DT node labels: spi4 tmph_spi1 tmph_spi
             - mdio (READY)
               DT node labels: mdio
-            - ethernet-phy\ @\ 0 (READY)
-              DT node labels: eth_phy
             - ethernet (READY)
               DT node labels: mac
+            - ethernet-phy\ @\ 0 (READY)
+              DT node labels: eth_phy
             - leds (READY)
 
       .. container:: highlight highlight-console notranslate
@@ -406,17 +406,17 @@ Simple test execution on target
             Default interface: 1
 
 
-            Interface eth0 (0x20021708) (Ethernet) [1]
+            Interface eth0 (0x200216d0) (Ethernet) [1]
             ===================================
             Link addr : **02:80:E1:4F:98:16**
             MTU       : 1500
             Flags     : AUTO_START,IPv4,IPv6
-            Device    : **ethernet** (0x8033bb0)
+            Device    : **ethernet** (0x8033e2c)
             Status    : oper=UP, admin=UP, carrier=ON
             Ethernet capabilities supported:
                     10 Mbits
                     100 Mbits
-            Ethernet PHY device: **ethernet-phy@0** (0x8033b8c)
+            Ethernet PHY device: **ethernet-phy@0** (0x8033e4c)
             Ethernet link speed: **100 Mbits full-duplex**
             IPv6 unicast addresses (max 2):
                     fe80::80:e1ff:fee1:9a39 autoconf preferred infinite
@@ -428,7 +428,7 @@ Simple test execution on target
                     fd9c:33d7:ba99::/64
             IPv6 hop limit           : 64
             IPv6 base reachable time : 30000
-            IPv6 reachable time      : 26253
+            IPv6 reachable time      : 42255
             IPv6 retransmit timer    : 0
             DHCPv6 state             : disabled
             IPv4 unicast addresses (max 1):
@@ -459,7 +459,12 @@ Simple test execution on target
 
             :bgn:`uart:~$` **net dns query google.com**
             Query for 'google.com' sent.
-            dns: 142.250.185.238
+            dns: 192.178.183.138
+            dns: 192.178.183.139
+            dns: 192.178.183.100
+            dns: 192.178.183.101
+            dns: 192.178.183.102
+            dns: 192.178.183.113
             dns: All results received
 
       .. container:: highlight highlight-console notranslate
@@ -474,9 +479,17 @@ Simple test execution on target
 
          .. parsed-literal::
 
+            :bgn:`uart:~$` **net ping -p 0 -c 1 192.178.183.100**
+            PING 192.178.183.100
+            28 bytes from 192.178.183.100 to **192.168.10.197**: icmp_seq=1 ttl=113 time=16 ms
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
             :bgn:`uart:~$` **net ping -p 0 -c 1 8.8.8.8**
             PING 8.8.8.8
-            28 bytes from 8.8.8.8 to 192.168.10.197: icmp_seq=1 ttl=117 time=17 ms
+            28 bytes from 8.8.8.8 to **192.168.10.197**: icmp_seq=1 ttl=117 time=17 ms
 
       .. container:: highlight highlight-console notranslate
 

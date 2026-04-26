@@ -581,18 +581,18 @@ with a single call to Twister.
          INFO    - JOBS: 4
          INFO    - Adding tasks to the queue...
          INFO    - Added initial list of jobs to queue
-         INFO    - Total complete:  :bgn:`187/ 187`  100%  built (not run):    :bbl:`0`, filtered: :byl:`2923`, failed:    :brd:`0`, error:    :bbk:`0`
-         INFO    - 3288 test scenarios (3076 configurations) selected, :byl:`2923` configurations filtered (:byl:`2889` by static filter, :byl:`34` at runtime).
-         INFO    - :bgn:`153 of 153` executed test configurations passed (100.00%), :bbk:`0` built (not run), :brd:`0` failed, :bbk:`0` errored, with no warnings in :bbk:`3346.49 seconds`.
-         INFO    - 1645 of 1645 executed test cases passed (100.00%), on 1 out of total 1293 platforms (0.08%).
-         INFO    - 157 selected test cases not executed: 157 skipped.
-         INFO    - :bgn:`153` test configurations executed on platforms, :bbl:`0` test configurations were only built.
+         INFO    - Total complete:  :bgn:`195/ 195`  100%  built (not run):    :bbl:`0`, filtered: :byl:`3155`, failed:    :brd:`0`, error:    :bbk:`0`
+         INFO    - 3512 test scenarios (3310 configurations) selected, :byl:`3155` configurations filtered (:byl:`3115` by static filter, :byl:`40` at runtime).
+         INFO    - :bgn:`155 of 155` executed test configurations passed (100.00%), :bbk:`0` built (not run), :brd:`0` failed, :bbk:`0` errored, with no warnings in :bbk:`4241.36 seconds`.
+         INFO    - 1713 of 1713 executed test cases passed (100.00%), on 1 out of total 1511 platforms (0.07%).
+         INFO    - 159 selected test cases not executed: 159 skipped.
+         INFO    - :bgn:`155` test configurations executed on platforms, :bbl:`0` test configurations were only built.
 
          Hardware distribution summary:
 
          \| Board                     \| ID       \|   Counter \|   Failures \|
          \|---------------------------\|----------\|-----------\|------------\|
-         \| magpie_f777ni/stm32f777xx \| DT04BNT1 \|       153 \|          0 \|
+         \| magpie_f777ni/stm32f777xx \| DT04BNT1 \|       155 \|          0 \|
 
          INFO    - Saving reports...
          INFO    - Writing JSON report .../twister-out/twister.json
