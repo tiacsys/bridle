@@ -4,6 +4,6 @@
  */
 
 &ili9341_320x240 {
-	rotation = <270>;		/* landscape */
+	rotation = <90>;		/* landscape */
 	disctrl = [08 82 27 04];	/* mirrored */
 };

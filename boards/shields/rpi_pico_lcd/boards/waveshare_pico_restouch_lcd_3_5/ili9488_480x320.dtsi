@@ -14,8 +14,8 @@
 
 		status = "disabled";
 
-		width = <480>;
-		height = <320>;
+		width = <320>;
+		height = <480>;
 		rotation = <270>;	/* landscape */
 
 		disctrl = [08 82 3B];	/* non-mirrored */
