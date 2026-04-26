@@ -247,6 +247,9 @@ Change log
 * tbd.
 * tbd.
 * tbd.
+* Support new resolution setup behaviour for IliTek LCD shields.
+* On display level, for the ST7789V and ILI9xxx driver, the current
+  ``BGR_565`` format string was renamed to the now valid value ``RGB_565X``.
 
 The following sections provide detailed lists of changes by component.
 
@@ -296,8 +299,6 @@ Build Infrastructure
 * Reenable old HWMv1 board extensions feature, see :github:`411`.
 * Board metadata property ``full_name`` is now mandatory and required to
   define. Bridle has miss that in a few boards, what is now fixed.
-* On display level, for the ST7789V and ILI9xxx driver, the current
-  ``BGR_565`` format string was renamed to the now valid value ``RGB_565X``.
 * Switching to Zephyr SDK v1 (1.0.1), which is now mandatory.
 * Enable support for the TF-PSA-Crypto repository as Zephyr module in the
   West manifest. The PSA Cryptography API is required by some boards with
@@ -321,6 +322,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`437` - [BUG] Wrong X/Y resolution with IliTek based LCD
 * :github:`427` - [BUG] Fix CMake Error in QA Acceptance Sample Tests
 * :github:`426` - [FCR] Bump devcontainer also to CI Docker Image v0.29.1
 * :github:`424` - [FCR] Upgrade to Zephyr SDK 1.0.1 and CI container 0.29.1
