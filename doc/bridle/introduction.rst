@@ -79,7 +79,7 @@ to building them.
   See the `CMake documentation`_.
 * Ninja (comparable to make) uses the build files to build the program,
   see the `Ninja documentation`_.
-* The `GCC compiler`_ creates the executables.
+* The `GCC compiler`_ (default) or the `LLVM compiler`_ creates the executables.
 
 .. _git_intro:
 
