@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2021-2025 TiaC Systems
+# Copyright (c) 2021-2026 TiaC Systems
 # Copyright (c) 2021 Li-Pro.Net
 #
 # SPDX-License-Identifier: Apache-2.0
@@ -50,6 +50,8 @@ os.environ['ZEPHYR_BASE'] = str(ZEPHYR_BASE)
 
 # General information about the project.
 project = utils.get_projname('zephyr')
+copyright = '2015-2026 Zephyr Project and TiaC Systems members and individual contributors'
+author = 'The Zephyr Project and TiaC Systems'
 
 # parse Bridle version from 'VERSION' file
 with open(BRIDLE_BASE / 'VERSION') as f:

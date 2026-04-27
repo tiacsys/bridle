@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2021-2025 TiaC Systems
+# Copyright (c) 2021-2026 TiaC Systems
 # Copyright (c) 2021 Li-Pro.Net
 #
 # SPDX-License-Identifier: Apache-2.0
@@ -41,7 +41,7 @@ sys.path.insert(0, str(ZEPHYR_BASE / 'doc' / '_extensions'))
 
 # General information about the project.
 project = utils.get_projname('kconfig')
-copyright = '2015-2025 Zephyr Project and TiaC Systems members and individual contributors'
+copyright = '2015-2026 Zephyr Project and TiaC Systems members and individual contributors'
 author = 'The Zephyr Project and TiaC Systems'
 
 # parse version from 'VERSION' file

@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2025 TiaC Systems
+# Copyright (c) 2025-2026 TiaC Systems
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -57,6 +57,8 @@ os.environ['CANNECTIVITY_BASE'] = str(CANNECTIVITY_BASE)
 
 # General information about the project.
 project = utils.get_projname('cannectivity')
+copyright = '2024-2026 CANnectivity Developers and TiaC Systems members and individual contributors'
+author = 'The CANnectivity Developers and TiaC Systems'
 
 # parse CANnectivity version from 'app/VERSION' file
 with open(CANNECTIVITY_BASE / 'app' / 'VERSION') as f:
