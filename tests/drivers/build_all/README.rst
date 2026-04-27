@@ -9,7 +9,8 @@ of all drivers maintained by Bridle is not a single test suite but rather the
 reuse of Zephyr's :zephyr_file:`tests/drivers/build_all` test strategy with
 significant adaptations to Bridle's needs. The following :command:`west`
 commands can be used to check individual driver sets or really all drivers
-(checks only :bbl:`≈0.15%` of all platforms, :ibl:`≈175 test scenarios`).
+(checks only :bbl:`≈0.13%` of all platforms in about :bbl:`≈0.50h`,
+:ibl:`≈200 test scenarios`).
 
 .. tabs::
 

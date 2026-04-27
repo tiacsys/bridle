@@ -6,7 +6,8 @@ Buildability over all Bridle samples
 The Bridle examples can also be instantiated with the help of the Zephyr
 :external+zephyr:ref:`twister_script` and thus their buildability can be
 checked for their originally intended integration platforms (checks only
-:bbl:`≈7.00%` of all platforms, :ibl:`≈15 test scenarios`).
+:bbl:`≈1.90%` of all platforms in about :bbl:`≈1.58h`,
+:ibl:`≈15 test scenarios`).
 
 .. tabs::
 

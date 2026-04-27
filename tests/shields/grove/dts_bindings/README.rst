@@ -9,8 +9,8 @@ and shields that are supported by :external+zephyr:ref:`Zephyr <boards>`
 and :ref:`Bridle <boards>`.
 
 Depending on the number of compatible boards, this test suite will take several
-hours to complete (:bbl:`≈2.30h` for :ibl:`≈12 test scenarios` on
-:ibl:`≈1300 platforms`):
+hours to complete (:bbl:`≈2.65h` for :ibl:`≈12 test scenarios` on
+:ibl:`≈1500 platforms`) – :brd:`MAY FAIL – NOT EVALUATED`:
 
    .. code-block:: console
 
@@ -23,7 +23,7 @@ hours to complete (:bbl:`≈2.30h` for :ibl:`≈12 test scenarios` on
 
 With the option :code:`--cmake-only` the time for testing can be reduced
 significantly, but then the runtime filter will not act as expected and
-the filtering rules become ineffective:
+the filtering rules become ineffective – :brd:`MAY FAIL – NOT EVALUATED`:
 
    .. code-block:: console
 
@@ -37,7 +37,8 @@ the filtering rules become ineffective:
 
 Even more time can be saved with the option :code:`--integration` by limiting
 the test runs to the boards currently supported by this shield and that will
-be used for maintenance (checks only :bbl:`≈1.86%` of all platforms):
+be used for maintenance (checks only :bbl:`≈1.93%` of all platforms in about
+:bbl:`≈0.15h`):
 
    .. code-block:: console
 

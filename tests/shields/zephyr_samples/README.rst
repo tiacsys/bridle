@@ -6,7 +6,8 @@ Buildability over all Zephyr samples
 The Zephyr examples can also be instantiated with the help of the Zephyr
 :external+zephyr:ref:`twister_script` and thus their buildability can be
 checked for their originally intended integration platforms (checks only
-:bbl:`≈1.25%` of all platforms, :ibl:`≈1100 test scenarios`).
+:bbl:`≈1.46%` of all platforms in about :bbl:`≈0.75h`,
+:ibl:`≈1180 test scenarios`).
 
 .. tabs::
 
