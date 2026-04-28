@@ -45,7 +45,7 @@
     "latest": {
       "bridle": "4.3.99",
       "zephyr": "4.4.0",
-      "cannectivity": "1.4.0-dev"
+      "cannectivity": "1.4.0"
     },
     "4.3": {
       "bridle": "4.3.0",
