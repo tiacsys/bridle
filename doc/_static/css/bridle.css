@@ -210,3 +210,8 @@
 #versions-select option {
  font-weight:normal;
 }
+
+/* tweak toggle in admonitions to avoid auto-hiding on load */
+.rst-content .admonition.toggle {
+  display: block !important;
+}
