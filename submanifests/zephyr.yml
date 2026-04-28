@@ -75,6 +75,7 @@ manifest:
           - hal_nxp
           - hal_openisa
           - hal_quicklogic
+          - hal_realtek
           - hal_renesas
           - hal_rpi_pico
           - hal_sifli
