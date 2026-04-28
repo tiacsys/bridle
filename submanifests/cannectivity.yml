@@ -30,6 +30,8 @@ manifest:
     #     CANnectivity    Zephyr RTOS
     #     ============    ===========
     #     main            main
+    #     v1.4-branch     v4.4-branch
+    #     v1.4.0          v4.4-branch
     #     v1.3-branch     v4.3-branch
     #     v1.3.0          v4.3-branch
     #     v1.2-branch     v4.2-branch
@@ -46,7 +48,7 @@ manifest:
       path: cannectivity
       remote: tiacsys
       repo-path: cannectivity
-      revision: tiacsys/main
+      revision: tiacsys/v1.4.0
       clone-depth: 5000
       # import submodules from CANnectivity manifest
       import:
