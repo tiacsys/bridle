@@ -48,7 +48,7 @@ manifest:
       path: cannectivity
       remote: tiacsys
       repo-path: cannectivity
-      revision: tiacsys/v1.4.0
+      revision: tiacsys/main
       clone-depth: 5000
       # import submodules from CANnectivity manifest
       import:
