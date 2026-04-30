@@ -326,10 +326,12 @@ Issue Related Items
 These GitHub issues were addressed since project bootstrapping:
 
 * :github:`437` - [BUG] Wrong X/Y resolution with IliTek based LCD
+* :github:`429` - [FCR] Bump to CANnectivity v1.4
 * :github:`427` - [BUG] Fix CMake Error in QA Acceptance Sample Tests
 * :github:`426` - [FCR] Bump devcontainer also to CI Docker Image v0.29.1
 * :github:`424` - [FCR] Upgrade to Zephyr SDK 1.0.1 and CI container 0.29.1
 * :github:`407` - [HW] Cytron MOTION 2350 Pro
+* :github:`403` - [FCR] Bump to Zephyr v4.4
 * :github:`394` - [HW] Raspberry Pi Pico 2/2W
 * :github:`393` - [FCR] Support CANnectivity application
 * :github:`392` - [HW] Waveshare RP2350-CAN
