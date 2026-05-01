@@ -4,6 +4,7 @@ doxmlparser~=1.16
 imagesize>=2.0
 pillow~=12.2
 pygments~=2.20
+sphinx-autobuild~=2025.8
 sphinx-copybutton~=0.5
 sphinx-csv-filter~=0.4
 sphinx-filter-tabs~=1.5
