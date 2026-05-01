@@ -13,6 +13,7 @@ sphinx-sitemap~=2.9
 sphinx-tabs~=3.5
 sphinx-togglebutton~=0.4
 sphinx-tsn-theme~=2024.11
+sphinxcontrib-mermaid~=2.0
 sphinxcontrib-mscgen~=0.6
 sphinxcontrib-programoutput~=0.19
 sphinxcontrib-svg2pdfconverter~=2.1

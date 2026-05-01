@@ -603,6 +603,9 @@ Building documentation
    * - |sphinx_tsn_theme|_
      - |sphinx_tsn_theme_ver|
      - |sphinx_tsn_theme_des|
+   * - |sphinxcontrib-mermaid|_
+     - |sphinxcontrib-mermaid_ver|
+     - |sphinxcontrib-mermaid_des|
    * - |sphinxcontrib-mscgen|_
      - |sphinxcontrib-mscgen_ver|
      - |sphinxcontrib-mscgen_des|

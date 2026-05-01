@@ -170,6 +170,10 @@
 .. |sphinx_tsn_theme_des| replace:: `Sphinx theme`_ for TiaC Systems Network (TSN) documentation
 .. |sphinx_tsn_theme_ver| replace:: @SPHINX-TSN-THEME_VERSION@
 
+.. |sphinxcontrib-mermaid| replace:: :strong:`sphinxcontrib-mermaid`
+.. |sphinxcontrib-mermaid_des| replace:: allows embedded :command:`Mermaid.js`\ -formatted graphs (flowcharts, sequence or gantt diagrams and more)
+.. |sphinxcontrib-mermaid_ver| replace:: @SPHINXCONTRIB-MERMAID_VERSION@
+
 .. |sphinxcontrib-mscgen| replace:: :strong:`sphinxcontrib-mscgen`
 .. |sphinxcontrib-mscgen_des| replace:: allows embedded :command:`mscgen`\ -formatted Message Sequence Chart (MSC) graphs
 .. |sphinxcontrib-mscgen_ver| replace:: @SPHINXCONTRIB-MSCGEN_VERSION@
