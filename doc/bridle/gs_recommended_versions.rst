@@ -585,6 +585,9 @@ Building documentation
    * - |sphinx-csv-filter|_
      - |sphinx-csv-filter_ver|
      - |sphinx-csv-filter_des|
+   * - |sphinx-design|_
+     - |sphinx-design_ver|
+     - |sphinx-design_des|
    * - |sphinx-filter-tabs|_
      - |sphinx-filter-tabs_ver|
      - |sphinx-filter-tabs_des|

@@ -146,6 +146,10 @@
 .. |sphinx-csv-filter_des| replace:: adds CSV row filtering options to the :rst:`csv-table` directive
 .. |sphinx-csv-filter_ver| replace:: @SPHINX-CSV-FILTER_VERSION@
 
+.. |sphinx-design| replace:: :strong:`sphinx-design`
+.. |sphinx-design_des| replace:: enables responsive web components
+.. |sphinx-design_ver| replace:: @SPHINX-DESIGN_VERSION@
+
 .. |sphinx-filter-tabs| replace:: :strong:`sphinx-filter-tabs`
 .. |sphinx-filter-tabs_des| replace:: creating accessible, filterable content tabs
 .. |sphinx-filter-tabs_ver| replace:: @SPHINX-FILTER-TABS_VERSION@
