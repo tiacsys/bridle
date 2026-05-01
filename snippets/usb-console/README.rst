@@ -14,12 +14,12 @@ This snippet redirects serial console output to a
 :external+zephyr:ref:`usb_device_cdc_acm` UART. The USB device which
 should be used is configured using :external+zephyr:ref:`devicetree`.
 
-.. tsn-include:: connectivity/usb/device/usb_device.rst
+.. tsn-include:: services/connectivity/usb/device/usb_device.rst
    :docset: zephyr
    :start-after: Below is a description of the different use cases and some pitfalls.
    :end-before: CDC ACM UART node is supposed to be child of a USB device controller node.
 
-.. tsn-include:: connectivity/usb/device/usb_device.rst
+.. tsn-include:: services/connectivity/usb/device/usb_device.rst
    :docset: zephyr
    :start-after: .. _usb_device_vid_pid:
    :end-before: The following Product IDs are currently used:
