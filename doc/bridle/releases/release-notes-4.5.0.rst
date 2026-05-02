@@ -262,6 +262,8 @@ Build Infrastructure
 * tbd.
 * tbd.
 * tbd.
+* Add support for new :command:`cmake` option :code:`NO_EXTERNAL_DEPS`.
+  For details read the :emphasis:`How to build the Bridle documentation`.
 
 Documentation
 =============

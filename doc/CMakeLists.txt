@@ -38,9 +38,27 @@ set(SPHINXOPTS_DEFAULT "-j auto -W --keep-going -T" CACHE INTERNAL "Default Sphi
 set(SPHINXOPTS_EXTRA "" CACHE STRING "Extra Sphinx Options (from CLI/CI)")
 set(DT_TURBO_MODE OFF CACHE BOOL "Enable DT turbo mode")
 set(HW_FEATURES_TURBO_MODE OFF CACHE BOOL "Enable HW features turbo mode")
+set(NO_EXTERNAL_DEPS OFF CACHE BOOL "Enable serving external CSS/JS libraries locally instead of fetching from the Internet on page life-time (online).")
 
 separate_arguments(SPHINXOPTS_DEFAULT)
 separate_arguments(SPHINXOPTS_EXTRA)
+
+set(DOC_TAG "" CACHE STRING "Documentation tag")
+set(DOC_TAGS "${DOC_TAG}")
+if(NO_EXTERNAL_DEPS)
+  message(STATUS "Avoid loading external CSS/JS libraries from third-party websites")
+  list(APPEND DOC_TAGS "no-external-deps")
+endif()
+
+if(HW_FEATURES_TURBO_MODE)
+  message(STATUS "Stub-out the documentation of supported board features")
+  list(APPEND DOC_TAGS "hw_features_turbo")
+endif()
+
+set(SPHINXOPTS_TAGS "")
+foreach(tag ${DOC_TAGS})
+  list(APPEND SPHINXOPTS_TAGS "-t" "${tag}")
+endforeach()
 
 set(DTS_ROOTS "" CACHE STRING "DT bindings root folders")
 list(APPEND DTS_ROOTS ${ZEPHYR_BASE})
@@ -130,6 +148,7 @@ function(add_docset name sphinxopts)
         -c ${DOCSET_SPHINX_DIR}
         -d ${DOCSET_DOCTREE_DIR}
         -w ${DOCSET_BUILD_DIR}/inventory.log
+           ${SPHINXOPTS_TAGS}
            ${SPHINXOPTS_DEFAULT}
            ${SPHINXOPTS_EXTRA}
            ${sphinxopts}
@@ -151,6 +170,7 @@ function(add_docset name sphinxopts)
         -c ${DOCSET_SPHINX_DIR}
         -d ${DOCSET_DOCTREE_DIR}
         -w ${DOCSET_BUILD_DIR}/html.log
+           ${SPHINXOPTS_TAGS}
            ${SPHINXOPTS_DEFAULT}
            ${SPHINXOPTS_EXTRA}
            ${sphinxopts}
@@ -172,6 +192,7 @@ function(add_docset name sphinxopts)
         -c ${DOCSET_SPHINX_DIR}
         -d ${DOCSET_DOCTREE_DIR}
         -w ${DOCSET_BUILD_DIR}/linkcheck.log
+           ${SPHINXOPTS_TAGS}
            ${SPHINXOPTS_DEFAULT}
            ${SPHINXOPTS_EXTRA}
            ${sphinxopts}
@@ -344,12 +365,7 @@ add_custom_target(
   COMMENT "Generating known warnings lists for zephyr"
 )
 
-if(HW_FEATURES_TURBO_MODE)
-  message(STATUS "Stub-out the documentation of supported board features in Zephyr")
-  add_docset(zephyr "-t hw_features_turbo" API)
-else()
-  add_docset(zephyr "" API)
-endif()
+add_docset(zephyr "" API)
 
 add_dependencies(zephyr-inventory zephyr-known-warnings)
 add_dependencies(zephyr-html zephyr-known-warnings)
@@ -510,12 +526,7 @@ add_custom_target(
   COMMENT "Generating versions list for bridle"
 )
 
-if(HW_FEATURES_TURBO_MODE)
-  message(STATUS "Stub-out the documentation of supported board features in Bridle")
-  add_docset(bridle "-t hw_features_turbo" API)
-else()
-  add_docset(bridle "" API)
-endif()
+add_docset(bridle "" API)
 
 add_dependencies(bridle-inventory bridle-versions)
 add_dependencies(bridle-html bridle-versions)

@@ -326,6 +326,17 @@ option when invoking :command:`cmake`:
 
       -DHW_FEATURES_TURBO_MODE=1
 
+As complexity increases, the risk of generated and delivered documentation
+depending more and more on external CSS and JavaScript files also grows. The
+following option aims to deliver documentation that remains stable over the
+long term without reloading such components from external sites. This option
+is primarily used in the CI/CD workflow and can be enabled by setting the
+following option when invoking :command:`cmake`:
+
+   .. code-block:: console
+
+      -DNO_EXTERNAL_DEPS=1
+
 .. _caching_and_cleaning:
 
 Caching and cleaning
