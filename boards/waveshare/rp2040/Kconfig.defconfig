@@ -1,4 +1,4 @@
-# Copyright (c) 2023-2025 TiaC Systems
+# Copyright (c) 2023-2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 config BOARD_WAVESHARE_RP2040_MINI
@@ -73,11 +73,6 @@ config PWM
 config LED_STRIP
 	default y
 	depends on BOARD_WAVESHARE_RP2040_MATRIX && DISPLAY
-
-choice ST7789V_PIXEL_FORMAT
-	default ST7789V_RGB565X if BOARD_WAVESHARE_RP2040_GEEK
-	depends on BOARD_WAVESHARE_RP2040_LCD && DISPLAY
-endchoice
 
 config LV_Z_BITS_PER_PIXEL
 	default 16 if BOARD_WAVESHARE_RP2040_LCD_0_96

@@ -1,10 +1,11 @@
 /*
- * Copyright (c) 2023-2024 TiaC Systems
+ * Copyright (c) 2023-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
 #include <freq.h>
 #include <zephyr/dt-bindings/gpio/gpio.h>
+#include <zephyr/dt-bindings/display/panel.h>
 #include <zephyr/dt-bindings/mipi_dbi/mipi_dbi.h>
 
 / {
@@ -32,6 +33,8 @@
 			reg = <0>;
 			mipi-max-frequency = <DT_FREQ_M(20)>;
 			mipi-mode = "MIPI_DBI_MODE_SPI_4WIRE";
+
+			pixel-format = <PANEL_PIXEL_FORMAT_RGB_565X>;
 
 			width = <240>;		/* landscape */
 			height = <135>;		/* landscape */
