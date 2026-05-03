@@ -1,12 +1,11 @@
 /*
- * Copyright (c) 2024 TiaC Systems
+ * Copyright (c) 2024-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
 #include "rpipico_r3-connect.dtsi"
 
 #include "st7735s_160x80.dtsi"
-#include "st7735s_rgb565.dtsi"
 
 #include <zephyr/dt-bindings/gpio/gpio.h>
 
