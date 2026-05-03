@@ -243,6 +243,10 @@ Change log
 * tbd.
 * tbd.
 * tbd.
+* All :emphasis:`Sitronix ST7789V` based panel controller now providing
+  the pixel format as the new Devicetree property :code:`pixel-format`.
+  The deprecated and obsolete Devicetree property :code:`colmod` and
+  Kconfig choice option :code:`ST7789V_PIXEL_FORMAT` were removed.
 
 The following sections provide detailed lists of changes by component.
 
@@ -281,6 +285,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`447` - [BUG] Build error because of missing Kconfig object ``ST7789V_PIXEL_FORMAT``
 * :github:`437` - [BUG] Wrong X/Y resolution with IliTek based LCD
 * :github:`429` - [FCR] Bump to CANnectivity v1.4
 * :github:`427` - [BUG] Fix CMake Error in QA Acceptance Sample Tests
