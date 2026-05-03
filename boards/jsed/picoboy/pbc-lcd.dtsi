@@ -1,10 +1,11 @@
 /*
- * Copyright (c) 2024-2025 TiaC Systems
+ * Copyright (c) 2024-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
 #include <freq.h>
 #include <zephyr/dt-bindings/gpio/gpio.h>
+#include <zephyr/dt-bindings/display/panel.h>
 
 / {
 	chosen {
@@ -52,7 +53,7 @@
 		//	mdac = <0x40>;		/* portrait, mirrored */
 			mdac = <0xC0>;		/* portrait, overhead */
 		//	mdac = <0x80>;		/* portrait, upsidedown */
-			colmod = <0x05>;	/* 16-bit, RGB565 */
+			pixel-format = <PANEL_PIXEL_FORMAT_RGB_565X>;
 			gamma = <0x01>;
 			lcm = <0x2C>;
 			porch-param = [0C 0C 00 33 33];
