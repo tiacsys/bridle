@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 TiaC Systems
+ * Copyright (c) 2024-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -15,11 +15,20 @@
 
 		status = "disabled";
 
-		width = <480>;		/* landscape */
-		height = <320>;		/* landscape */
-
 		color-invert;
 		rgb-is-inverted;
+
+	/*
+	 *	colmod = <0x05>;	/ * 16-bit, RGB565 * /
+	 *
+	 * This property cannot yet be set via Devicetree. The current
+	 * driver supports only RGB565 or BGR565 and sets the value
+	 * ST7796S_CONTROL_16BIT (0x05) accordingly in the COLMOD
+	 * register (0x3A)!
+	 */
+
+		width = <480>;		/* landscape */
+		height = <320>;		/* landscape */
 
 		vcmpctl = <0x09>;
 		madctl = <0x28>;	/* landscape */
