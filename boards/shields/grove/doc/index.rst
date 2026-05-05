@@ -630,12 +630,13 @@ not be complete.
 
             .. include:: grove_pwms-nucleo_f303re_bbe.rsti
 
-         .. group-tab:: ``nucleo_f401re``
+         .. group-tab:: ``nucleo_f401re//bbe``
 
-            This is based on the Zephyr board |zephyr:board:nucleo_f401re|
-            and its :dtcompatible:`arduino-header-r3`.
+            This is based on the Bridle extended board
+            |bridle:board:nucleo_f401re| and its
+            :dtcompatible:`arduino-header-r3`.
 
-            .. include:: grove_pwms-nucleo_f401re.rsti
+            .. include:: grove_pwms-nucleo_f401re_bbe.rsti
 
          .. group-tab:: ``nucleo_f413zh``
 

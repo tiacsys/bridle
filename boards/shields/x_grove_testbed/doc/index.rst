@@ -182,7 +182,7 @@ For example:
 
          .. group-tab:: ST Nucleo F401RE
 
-            This is based on the Zephyr board |zephyr:board:nucleo_f401re|.
+            This is based on the Bridle extended board |bridle:board:nucleo_f401re|.
 
             * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
 
@@ -200,7 +200,7 @@ For example:
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/blinky
                      :build-dir: blinky-nucleo_f401re-x_grove_testbed
-                     :board: nucleo_f401re
+                     :board: nucleo_f401re/stm32f401xe/bbe
                      :shield: \
                               "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
                      :west-args: -p
@@ -215,7 +215,7 @@ For example:
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/fade_led
                      :build-dir: fade-nucleo_f401re-x_grove_testbed
-                     :board: nucleo_f401re
+                     :board: nucleo_f401re/stm32f401xe/bbe
                      :shield: \
                               "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
                      :west-args: -p
@@ -230,7 +230,7 @@ For example:
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/button
                      :build-dir: button-nucleo_f401re-x_grove_testbed
-                     :board: nucleo_f401re
+                     :board: nucleo_f401re/stm32f401xe/bbe
                      :shield: \
                               "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
                      :west-args: -p

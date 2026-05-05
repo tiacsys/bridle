@@ -37,7 +37,7 @@ common:
     - mimxrt1060_evk@C/mimxrt1062/qspi
     - mimxrt1060_evk@C/mimxrt1062/hyperflash
     - nucleo_f303re/stm32f303xe/bbe
-    - nucleo_f401re
+    - nucleo_f401re/stm32f401xe/bbe
     - nucleo_f413zh
     - nucleo_f746zg
     - nucleo_f767zi
