@@ -36,7 +36,7 @@ common:
     - mimxrt1060_evk@B/mimxrt1062/qspi
     - mimxrt1060_evk@C/mimxrt1062/qspi
     - mimxrt1060_evk@C/mimxrt1062/hyperflash
-    - nucleo_f303re
+    - nucleo_f303re/stm32f303xe/bbe
     - nucleo_f401re
     - nucleo_f413zh
     - nucleo_f746zg
@@ -407,7 +407,7 @@ tests:
       - mimxrt1060_evk@B/mimxrt1062/qspi
       - mimxrt1060_evk@C/mimxrt1062/qspi
       - mimxrt1060_evk@C/mimxrt1062/hyperflash
-      - nucleo_f303re
+      - nucleo_f303re/stm32f303xe/bbe
       - nucleo_f401re
       - seeeduino_cm0
       - seeeduino_lotus
@@ -424,7 +424,7 @@ tests:
       - mimxrt1060_evk@B/mimxrt1062/qspi
       - mimxrt1060_evk@C/mimxrt1062/qspi
       - mimxrt1060_evk@C/mimxrt1062/hyperflash
-      - nucleo_f303re
+      - nucleo_f303re/stm32f303xe/bbe
       - nucleo_f401re
       - seeeduino_cm0
       - seeeduino_lotus
@@ -441,7 +441,7 @@ tests:
       - mimxrt1060_evk@B/mimxrt1062/qspi
       - mimxrt1060_evk@C/mimxrt1062/qspi
       - mimxrt1060_evk@C/mimxrt1062/hyperflash
-      - nucleo_f303re
+      - nucleo_f303re/stm32f303xe/bbe
       - nucleo_f401re
       - nucleo_f413zh
       - nucleo_f767zi
@@ -460,7 +460,7 @@ tests:
       - mimxrt1060_evk@B/mimxrt1062/qspi
       - mimxrt1060_evk@C/mimxrt1062/qspi
       - mimxrt1060_evk@C/mimxrt1062/hyperflash
-      - nucleo_f303re
+      - nucleo_f303re/stm32f303xe/bbe
       - nucleo_f401re
       - nucleo_f413zh
       - nucleo_f767zi
@@ -479,7 +479,7 @@ tests:
       - mimxrt1060_evk@B/mimxrt1062/qspi
       - mimxrt1060_evk@C/mimxrt1062/qspi
       - mimxrt1060_evk@C/mimxrt1062/hyperflash
-      - nucleo_f303re
+      - nucleo_f303re/stm32f303xe/bbe
       - seeeduino_cm0
       - seeeduino_lotus
   grove.base.v1.grove_led.pwm.d4:
@@ -495,7 +495,7 @@ tests:
       - mimxrt1060_evk@B/mimxrt1062/qspi
       - mimxrt1060_evk@C/mimxrt1062/qspi
       - mimxrt1060_evk@C/mimxrt1062/hyperflash
-      - nucleo_f303re
+      - nucleo_f303re/stm32f303xe/bbe
       - seeeduino_cm0
       - seeeduino_lotus
   grove.base.v2.grove_led.pwm.d5:
@@ -511,7 +511,7 @@ tests:
       - mimxrt1060_evk@B/mimxrt1062/qspi
       - mimxrt1060_evk@C/mimxrt1062/qspi
       - mimxrt1060_evk@C/mimxrt1062/hyperflash
-      - nucleo_f303re
+      - nucleo_f303re/stm32f303xe/bbe
       - nucleo_f401re
       - nucleo_f413zh
       - nucleo_f767zi
@@ -530,7 +530,7 @@ tests:
       - mimxrt1060_evk@B/mimxrt1062/qspi
       - mimxrt1060_evk@C/mimxrt1062/qspi
       - mimxrt1060_evk@C/mimxrt1062/hyperflash
-      - nucleo_f303re
+      - nucleo_f303re/stm32f303xe/bbe
       - nucleo_f401re
       - nucleo_f413zh
       - nucleo_f767zi
@@ -545,7 +545,7 @@ tests:
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d6
     platform_allow:
       - arduino_zero
-      - nucleo_f303re
+      - nucleo_f303re/stm32f303xe/bbe
       - nucleo_f401re
       - nucleo_f413zh
       - nucleo_f767zi
@@ -560,7 +560,7 @@ tests:
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d6
     platform_allow:
       - arduino_zero
-      - nucleo_f303re
+      - nucleo_f303re/stm32f303xe/bbe
       - nucleo_f401re
       - nucleo_f413zh
       - nucleo_f767zi
@@ -575,7 +575,7 @@ tests:
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d7
     platform_allow:
       - arduino_zero
-      - nucleo_f303re
+      - nucleo_f303re/stm32f303xe/bbe
       - nucleo_f401re
       - seeeduino_cm0
       - seeeduino_lotus
@@ -588,7 +588,7 @@ tests:
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d7
     platform_allow:
       - arduino_zero
-      - nucleo_f303re
+      - nucleo_f303re/stm32f303xe/bbe
       - nucleo_f401re
       - seeeduino_cm0
       - seeeduino_lotus
@@ -602,7 +602,7 @@ tests:
     platform_allow:
       - arduino_zero
       - mimxrt1010_evk
-      - nucleo_f303re
+      - nucleo_f303re/stm32f303xe/bbe
       - nucleo_f401re
       - seeeduino_cm0
       - seeeduino_lotus
@@ -616,7 +616,7 @@ tests:
     platform_allow:
       - arduino_zero
       - mimxrt1010_evk
-      - nucleo_f303re
+      - nucleo_f303re/stm32f303xe/bbe
       - nucleo_f401re
       - seeeduino_cm0
       - seeeduino_lotus
@@ -629,7 +629,7 @@ tests:
     platform_allow:
       - arduino_zero
       - mimxrt1010_evk
-      - nucleo_f303re
+      - nucleo_f303re/stm32f303xe/bbe
       - nucleo_f401re
       - nucleo_f413zh
       - nucleo_f767zi
@@ -645,7 +645,7 @@ tests:
     platform_allow:
       - arduino_zero
       - mimxrt1010_evk
-      - nucleo_f303re
+      - nucleo_f303re/stm32f303xe/bbe
       - nucleo_f401re
       - nucleo_f413zh
       - nucleo_f767zi
@@ -665,7 +665,7 @@ tests:
       - mimxrt1060_evk@B/mimxrt1062/qspi
       - mimxrt1060_evk@C/mimxrt1062/qspi
       - mimxrt1060_evk@C/mimxrt1062/hyperflash
-      - nucleo_f303re
+      - nucleo_f303re/stm32f303xe/bbe
       - nucleo_f401re
       - nucleo_f413zh
       - nucleo_f767zi
@@ -685,7 +685,7 @@ tests:
       - mimxrt1060_evk@B/mimxrt1062/qspi
       - mimxrt1060_evk@C/mimxrt1062/qspi
       - mimxrt1060_evk@C/mimxrt1062/hyperflash
-      - nucleo_f303re
+      - nucleo_f303re/stm32f303xe/bbe
       - nucleo_f401re
       - nucleo_f413zh
       - nucleo_f767zi
@@ -705,7 +705,7 @@ tests:
       - mimxrt1060_evk@B/mimxrt1062/qspi
       - mimxrt1060_evk@C/mimxrt1062/qspi
       - mimxrt1060_evk@C/mimxrt1062/hyperflash
-      - nucleo_f303re
+      - nucleo_f303re/stm32f303xe/bbe
       - nucleo_f413zh
       - nucleo_f767zi
       - seeeduino_cm0
@@ -724,7 +724,7 @@ tests:
       - mimxrt1060_evk@B/mimxrt1062/qspi
       - mimxrt1060_evk@C/mimxrt1062/qspi
       - mimxrt1060_evk@C/mimxrt1062/hyperflash
-      - nucleo_f303re
+      - nucleo_f303re/stm32f303xe/bbe
       - nucleo_f401re
       - nucleo_f413zh
       - nucleo_f767zi
@@ -802,7 +802,7 @@ tests:
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d18
     platform_allow:
       - arduino_zero
-      - nucleo_f303re
+      - nucleo_f303re/stm32f303xe/bbe
       - nucleo_f401re
       - nucleo_f413zh
       - nucleo_f767zi
@@ -818,7 +818,7 @@ tests:
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d18
     platform_allow:
       - arduino_zero
-      - nucleo_f303re
+      - nucleo_f303re/stm32f303xe/bbe
       - nucleo_f401re
       - nucleo_f413zh
       - nucleo_f767zi
@@ -833,7 +833,7 @@ tests:
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d19
     platform_allow:
       - arduino_zero
-      - nucleo_f303re
+      - nucleo_f303re/stm32f303xe/bbe
       - nucleo_f401re
       - nucleo_f413zh
       - nucleo_f767zi
@@ -848,7 +848,7 @@ tests:
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d19
     platform_allow:
       - arduino_zero
-      - nucleo_f303re
+      - nucleo_f303re/stm32f303xe/bbe
       - nucleo_f401re
       - nucleo_f413zh
       - nucleo_f767zi

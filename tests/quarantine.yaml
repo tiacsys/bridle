@@ -127,7 +127,7 @@
     - grove.connectors.x_grove_testbed.pwm.b3l5
     - grove.connectors.x_grove_testbed.pwm.b7l6
   platforms:
-    - nucleo_f303re/stm32f303xe
+    - nucleo_f303re/stm32f303xe/bbe
     - nucleo_f401re/stm32f401xe
     - nucleo_f413zh/stm32f413xx
     - nucleo_f767zi/stm32f767xx
@@ -366,7 +366,7 @@
     - mimxrt1060_evk@B/mimxrt1062/qspi
     - mimxrt1060_evk@C/mimxrt1062/hyperflash
     - mimxrt1060_evk@C/mimxrt1062/qspi
-    - nucleo_f303re/stm32f303xe
+    - nucleo_f303re/stm32f303xe/bbe
     - nucleo_f401re/stm32f401xe
     - nucleo_f413zh/stm32f413xx
     - nucleo_f746zg/stm32f746xx
@@ -437,7 +437,7 @@
     - mimxrt1060_evk@B/mimxrt1062/qspi
     - mimxrt1060_evk@C/mimxrt1062/hyperflash
     - mimxrt1060_evk@C/mimxrt1062/qspi
-    - nucleo_f303re/stm32f303xe
+    - nucleo_f303re/stm32f303xe/bbe
     - nucleo_f401re/stm32f401xe
     - nucleo_f413zh/stm32f413xx
     - nucleo_f746zg/stm32f746xx
@@ -529,7 +529,7 @@
     - mimxrt1060_evk@B/mimxrt1062/qspi
     - mimxrt1060_evk@C/mimxrt1062/hyperflash
     - mimxrt1060_evk@C/mimxrt1062/qspi
-    - nucleo_f303re/stm32f303xe
+    - nucleo_f303re/stm32f303xe/bbe
     - nucleo_f401re/stm32f401xe
     - nucleo_f413zh/stm32f413xx
     - nucleo_f746zg/stm32f746xx
@@ -578,7 +578,7 @@
     - mimxrt1060_evk@B/mimxrt1062/qspi
     - mimxrt1060_evk@C/mimxrt1062/hyperflash
     - mimxrt1060_evk@C/mimxrt1062/qspi
-    - nucleo_f303re/stm32f303xe
+    - nucleo_f303re/stm32f303xe/bbe
     - nucleo_f401re/stm32f401xe
     - nucleo_f413zh/stm32f413xx
     - nucleo_f746zg/stm32f746xx
@@ -622,7 +622,7 @@
     - mimxrt1060_evk@B/mimxrt1062/qspi
     - mimxrt1060_evk@C/mimxrt1062/hyperflash
     - mimxrt1060_evk@C/mimxrt1062/qspi
-    - nucleo_f303re/stm32f303xe
+    - nucleo_f303re/stm32f303xe/bbe
     - nucleo_f401re/stm32f401xe
     - nucleo_f413zh/stm32f413xx
     - nucleo_f746zg/stm32f746xx
@@ -1095,9 +1095,9 @@
     - grove.base.(v2|v1).grove_led.pwm.d18
     - grove.base.(v2|v1).grove_led.pwm.d19
 
-- comment: "shield(grove.base.grove_led): nucleo_f303re: invalid board condition."
+- comment: "shield(grove.base.grove_led): nucleo_f303re//bbe: invalid board condition."
   platforms:
-    - nucleo_f303re/stm32f303xe
+    - nucleo_f303re/stm32f303xe/bbe
   scenarios:
     - grove.base.(v2|v1).grove_led.pwm.d0
     - grove.base.(v2|v1).grove_led.pwm.d1
@@ -1179,7 +1179,7 @@
     - mimxrt1060_evk@B/mimxrt1062/qspi
     - mimxrt1060_evk@C/mimxrt1062/hyperflash
     - mimxrt1060_evk@C/mimxrt1062/qspi
-    - nucleo_f303re/stm32f303xe
+    - nucleo_f303re/stm32f303xe/bbe
     - nucleo_f401re/stm32f401xe
     - nucleo_f413zh/stm32f413xx
     - nucleo_f746zg/stm32f746xx
@@ -1237,7 +1237,7 @@
     - mimxrt1060_evk@B/mimxrt1062/qspi
     - mimxrt1060_evk@C/mimxrt1062/hyperflash
     - mimxrt1060_evk@C/mimxrt1062/qspi
-    - nucleo_f303re/stm32f303xe
+    - nucleo_f303re/stm32f303xe/bbe
     - nucleo_f401re/stm32f401xe
     - nucleo_f413zh/stm32f413xx
     - nucleo_f746zg/stm32f746xx
@@ -1275,7 +1275,7 @@
     - mimxrt1060_evk@B/mimxrt1062/qspi
     - mimxrt1060_evk@C/mimxrt1062/hyperflash
     - mimxrt1060_evk@C/mimxrt1062/qspi
-    - nucleo_f303re/stm32f303xe
+    - nucleo_f303re/stm32f303xe/bbe
     - nucleo_f401re/stm32f401xe
     - nucleo_f413zh/stm32f413xx
     - nucleo_f746zg/stm32f746xx
