@@ -1,0 +1,26 @@
+# Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+#
+# NOTE: copy and own from original board metadata in
+# "zephyr/boards/st/nucleo_f303re/nucleo_f303re.yaml"
+
+identifier: nucleo_f303re/stm32f303xe/bbe
+name: ST Nucleo F303RE (BBE)
+type: mcu
+arch: arm
+toolchain:
+  - zephyr
+  - gnuarmemb
+ram: 64
+flash: 512
+supported:
+  - arduino_gpio
+  - arduino_i2c
+  - arduino_spi
+  - arduino_serial
+  - gpio
+  - counter
+  - can
+  - i2c
+  - spi
+vendor: st

@@ -1,7 +1,14 @@
 /*
- * Copyright (c) 2023 TiaC Systems
+ * Copyright (c) 2023-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
+
+#include "../../zephyr/boards/st/nucleo_f303re/nucleo_f303re.dts"
+
+/ {
+	model = "STMicroelectronics STM32F303RE-NUCLEO board (BBE)";
+	compatible = "st,stm32f303re-nucleo", "st,stm32f303re-nucleo-bbe";
+};
 
 /*
  * On ST Nucleo F303RE pin D0 (RX) and D1 (TX) should be disconnected from

@@ -1268,6 +1268,9 @@
 .. |zephyr:board:stm32_min_dev| replace::
    :external+zephyr:zephyr:board:`stm32_min_dev`
 
+.. |bridle:board:nucleo_f303re| replace:: :ref:`nucleo_f303re_board-extensions`
+.. :bridle:board:`nucleo_f303re`
+
 .. |zephyr:board:nucleo_f303re| replace::
    :external+zephyr:zephyr:board:`nucleo_f303re`
 
