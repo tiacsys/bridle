@@ -9,6 +9,7 @@ common:
   sysbuild: false
   platform_exclude:
     - nucleo_f303re/stm32f303xe
+    - nucleo_f401re/stm32f401xe
   platform_allow:
     - mimxrt1010_evk
     - mimxrt1060_evk@A/mimxrt1062/qspi
@@ -20,7 +21,7 @@ common:
     - nrf52840dk/nrf52840
     - nrf9160dk/nrf9160
     - nucleo_f303re/stm32f303xe/bbe
-    - nucleo_f401re
+    - nucleo_f401re/stm32f401xe/bbe
     - nucleo_f413zh
     - nucleo_f746zg
     - nucleo_f767zi
@@ -36,7 +37,7 @@ common:
     - nrf52840dk/nrf52840
     - nrf9160dk/nrf9160
     - nucleo_f303re/stm32f303xe/bbe
-    - nucleo_f401re
+    - nucleo_f401re/stm32f401xe/bbe
     - nucleo_f413zh
     - nucleo_f746zg
     - nucleo_f767zi
