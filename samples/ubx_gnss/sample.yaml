@@ -22,7 +22,8 @@ common:
     - nrf9160dk/nrf9160
     - nucleo_f303re/stm32f303xe/bbe
     - nucleo_f401re/stm32f401xe/bbe
-    - nucleo_f413zh
+    - nucleo_f413zh/stm32f413xx
+    - nucleo_f413zh/stm32f413xx/bbe
     - nucleo_f746zg
     - nucleo_f767zi
     - nucleo_l496zg
@@ -38,7 +39,8 @@ common:
     - nrf9160dk/nrf9160
     - nucleo_f303re/stm32f303xe/bbe
     - nucleo_f401re/stm32f401xe/bbe
-    - nucleo_f413zh
+    - nucleo_f413zh/stm32f413xx
+    - nucleo_f413zh/stm32f413xx/bbe
     - nucleo_f746zg
     - nucleo_f767zi
     - nucleo_l496zg

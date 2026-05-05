@@ -64,9 +64,13 @@
 
 | STM32F401RE | | :ref:`nucleo_f401re_board-extensions` | - ``nucleo_f401re/stm32f401xe/bbe`` |
 
-.. nucleo_f413zh
+.. nucleo_f413zh_stm32f413xx
 
-| STM32F413ZH | | :external+zephyr:zephyr:board:`nucleo_f413zh` | - ``nucleo_f413zh`` |
+| STM32F413ZH | | :external+zephyr:zephyr:board:`nucleo_f413zh` | - ``nucleo_f413zh/stm32f413xx`` |
+
+.. nucleo_f413zh_stm32f413xx_bbe
+
+| STM32F413ZH | | :ref:`nucleo_f413zh_board-extensions` | - ``nucleo_f413zh/stm32f413xx/bbe`` |
 
 .. nucleo_f746zg
 

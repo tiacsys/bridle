@@ -32,7 +32,7 @@ Requirements
   * |zephyr:board:native_sim|
   * |zephyr:board:nucleo_f303re| or Bridle's |bridle:board:nucleo_f303re|
   * |zephyr:board:nucleo_f401re| or Bridle's |bridle:board:nucleo_f401re|
-  * |zephyr:board:nucleo_f413zh| (NUCLEO-F413ZH)
+  * |zephyr:board:nucleo_f413zh| or Bridle's |bridle:board:nucleo_f413zh|
   * |zephyr:board:nucleo_f746zg| (NUCLEO-F746ZG)
   * |zephyr:board:nucleo_f767zi| (NUCLEO-F767ZI)
   * |zephyr:board:qemu_arc|
