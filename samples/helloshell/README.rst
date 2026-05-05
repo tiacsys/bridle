@@ -30,7 +30,7 @@ Requirements
   * |zephyr:board:mimxrt1010_evk|
   * |zephyr:board:mimxrt1060_evk|
   * |zephyr:board:native_sim|
-  * |zephyr:board:nucleo_f303re| (NUCLEO-F303RE)
+  * |zephyr:board:nucleo_f303re| or Bridle's |bridle:board:nucleo_f303re|
   * |zephyr:board:nucleo_f401re| (NUCLEO-F401RE)
   * |zephyr:board:nucleo_f413zh| (NUCLEO-F413ZH)
   * |zephyr:board:nucleo_f746zg| (NUCLEO-F746ZG)

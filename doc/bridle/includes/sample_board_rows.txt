@@ -48,9 +48,13 @@
 
 | STM32F103 | | :ref:`weact_bluepillplus` | - ``weact_bluepillplus_stm32f103cb`` |
 
-.. nucleo_f303re
+.. nucleo_f303re_stm32f303xe
 
-| STM32F303RE | | :external+zephyr:zephyr:board:`nucleo_f303re` | - ``nucleo_f303re`` |
+| STM32F303RE | | :external+zephyr:zephyr:board:`nucleo_f303re` | - ``nucleo_f303re/stm32f303xe`` |
+
+.. nucleo_f303re_stm32f303xe_bbe
+
+| STM32F303RE | | :ref:`nucleo_f303re_board-extensions` | - ``nucleo_f303re/stm32f303xe/bbe`` |
 
 .. nucleo_f401re
 
