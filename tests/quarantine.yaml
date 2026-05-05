@@ -130,6 +130,7 @@
     - nucleo_f303re/stm32f303xe/bbe
     - nucleo_f401re/stm32f401xe/bbe
     - nucleo_f413zh/stm32f413xx
+    - nucleo_f413zh/stm32f413xx/bbe
     - nucleo_f767zi/stm32f767xx
 
 - comment: "shield(grove.base.x_grove_testbed.b7l6): invalid board/shield condition."
@@ -369,6 +370,7 @@
     - nucleo_f303re/stm32f303xe/bbe
     - nucleo_f401re/stm32f401xe/bbe
     - nucleo_f413zh/stm32f413xx
+    - nucleo_f413zh/stm32f413xx/bbe
     - nucleo_f746zg/stm32f746xx
     - nucleo_f767zi/stm32f767xx
     - rpi_pico/rp2040
@@ -440,6 +442,7 @@
     - nucleo_f303re/stm32f303xe/bbe
     - nucleo_f401re/stm32f401xe/bbe
     - nucleo_f413zh/stm32f413xx
+    - nucleo_f413zh/stm32f413xx/bbe
     - nucleo_f746zg/stm32f746xx
     - nucleo_f767zi/stm32f767xx
     - seeeduino_cm0/samd21g18a
@@ -532,6 +535,7 @@
     - nucleo_f303re/stm32f303xe/bbe
     - nucleo_f401re/stm32f401xe/bbe
     - nucleo_f413zh/stm32f413xx
+    - nucleo_f413zh/stm32f413xx/bbe
     - nucleo_f746zg/stm32f746xx
     - nucleo_f767zi/stm32f767xx
     - rpi_pico/rp2040
@@ -581,6 +585,7 @@
     - nucleo_f303re/stm32f303xe/bbe
     - nucleo_f401re/stm32f401xe/bbe
     - nucleo_f413zh/stm32f413xx
+    - nucleo_f413zh/stm32f413xx/bbe
     - nucleo_f746zg/stm32f746xx
     - nucleo_f767zi/stm32f767xx
     - seeeduino_cm0/samd21g18a
@@ -625,6 +630,7 @@
     - nucleo_f303re/stm32f303xe/bbe
     - nucleo_f401re/stm32f401xe/bbe
     - nucleo_f413zh/stm32f413xx
+    - nucleo_f413zh/stm32f413xx/bbe
     - nucleo_f746zg/stm32f746xx
     - nucleo_f767zi/stm32f767xx
     - rpi_pico/rp2040
@@ -1122,6 +1128,7 @@
 - comment: "shield(grove.base.grove_led): nucleo_f413zh: invalid board condition."
   platforms:
     - nucleo_f413zh/stm32f413xx
+    - nucleo_f413zh/stm32f413xx/bbe
   scenarios:
     - grove.base.(v2|v1).grove_led.pwm.d0
     - grove.base.(v2|v1).grove_led.pwm.d1
@@ -1182,6 +1189,7 @@
     - nucleo_f303re/stm32f303xe/bbe
     - nucleo_f401re/stm32f401xe/bbe
     - nucleo_f413zh/stm32f413xx
+    - nucleo_f413zh/stm32f413xx/bbe
     - nucleo_f746zg/stm32f746xx
     - nucleo_f767zi/stm32f767xx
     - rpi_pico/rp2040
@@ -1240,6 +1248,7 @@
     - nucleo_f303re/stm32f303xe/bbe
     - nucleo_f401re/stm32f401xe/bbe
     - nucleo_f413zh/stm32f413xx
+    - nucleo_f413zh/stm32f413xx/bbe
     - nucleo_f746zg/stm32f746xx
     - nucleo_f767zi/stm32f767xx
     - seeeduino_cm0/samd21g18a
@@ -1278,6 +1287,7 @@
     - nucleo_f303re/stm32f303xe/bbe
     - nucleo_f401re/stm32f401xe/bbe
     - nucleo_f413zh/stm32f413xx
+    - nucleo_f413zh/stm32f413xx/bbe
     - nucleo_f746zg/stm32f746xx
     - nucleo_f767zi/stm32f767xx
     - rpi_pico/rp2040

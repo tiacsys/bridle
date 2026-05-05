@@ -38,7 +38,8 @@ common:
     - mimxrt1060_evk@C/mimxrt1062/hyperflash
     - nucleo_f303re/stm32f303xe/bbe
     - nucleo_f401re/stm32f401xe/bbe
-    - nucleo_f413zh
+    - nucleo_f413zh/stm32f413xx
+    - nucleo_f413zh/stm32f413xx/bbe
     - nucleo_f746zg
     - nucleo_f767zi
     - mini_usb_rp2040
