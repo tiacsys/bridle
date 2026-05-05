@@ -1286,6 +1286,9 @@
 .. |STM32F401RE-NUCLEO (CDC ACM)| replace::
    :external+zephyr:zephyr:board:`STM32F401RE-NUCLEO (CDC ACM) <nucleo_f401re>`
 
+.. |bridle:board:nucleo_f413zh| replace:: :ref:`nucleo_f413zh_board-extensions`
+.. :bridle:board:`nucleo_f413zh`
+
 .. |zephyr:board:nucleo_f413zh| replace::
    :external+zephyr:zephyr:board:`nucleo_f413zh`
 

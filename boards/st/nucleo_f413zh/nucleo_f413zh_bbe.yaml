@@ -1,0 +1,27 @@
+# Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+#
+# NOTE: copy and own from original board metadata in
+# "zephyr/boards/st/nucleo_f413zh/nucleo_f413zh.yaml"
+
+identifier: nucleo_f413zh/stm32f413xx/bbe
+name: ST Nucleo F413ZH (BBE)
+type: mcu
+arch: arm
+toolchain:
+  - zephyr
+  - gnuarmemb
+ram: 320
+flash: 1536
+supported:
+  - arduino_gpio
+  - arduino_i2c
+  - arduino_spi
+  - arduino_serial
+  - gpio
+  - counter
+  - i2c
+  - spi
+  - usb_device
+  - usbd
+vendor: st

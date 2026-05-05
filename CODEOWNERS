@@ -41,6 +41,7 @@
 /boards/extensions/mimxrt1060_evk/        @rexut
 /boards/st/nucleo_f303re/                 @rexut
 /boards/st/nucleo_f401re/                 @rexut
+/boards/st/nucleo_f413zh/                 @rexut
 /boards/extensions/nucleo_l496zg/         @rexut
 /boards/extensions/rpi_pico/              @rexut
 /boards/jsed/                             @rexut

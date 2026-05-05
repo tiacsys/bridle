@@ -1,0 +1,19 @@
+/*
+ * Copyright (c) 2023-2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include "../../zephyr/boards/st/nucleo_f413zh/nucleo_f413zh.dts"
+
+/ {
+	model = "STMicroelectronics STM32F413ZH-NUCLEO board @ UART Concole (BBE)";
+	compatible = "st,stm32f413zh-nucleo",
+		     "st,stm32f413zh-nucleo-bbe",
+		     "st,stm32f413zh-nucleo-uartcons",
+		     "st,stm32f413zh-nucleo-uartcons-bbe";
+
+	chosen {
+		zephyr,console = &usart3;
+		zephyr,shell-uart = &usart3;
+	};
+};
