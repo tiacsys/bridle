@@ -120,6 +120,16 @@ Build and flash for different boards
    :goals: flash
    :compact:
 
+.. rubric:: ST Nucleo F746ZG
+
+.. zephyr-app-commands::
+   :app: bridle/samples/ubx_gnss
+   :build-dir: nucleo_f746zg-ubx_gnss
+   :board: nucleo_f746zg
+   :west-args: -p
+   :goals: flash
+   :compact:
+
 .. rubric:: ST Nucleo F767ZI
 
 .. zephyr-app-commands::

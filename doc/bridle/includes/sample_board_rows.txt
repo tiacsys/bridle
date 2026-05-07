@@ -72,9 +72,13 @@
 
 | STM32F413ZH | | :ref:`nucleo_f413zh_board-extensions` | - ``nucleo_f413zh/stm32f413xx/bbe`` |
 
-.. nucleo_f746zg
+.. nucleo_f746zg_stm32f746xx
 
-| STM32F746ZG | | :external+zephyr:zephyr:board:`nucleo_f746zg` | - ``nucleo_f746zg`` |
+| STM32F746ZG | | :external+zephyr:zephyr:board:`nucleo_f746zg` | - ``nucleo_f746zg/stm32f746xx`` |
+
+.. nucleo_f746zg_stm32f746xx_bbe
+
+| STM32F746ZG | | :ref:`nucleo_f746zg_board-extensions` | - ``nucleo_f746zg/stm32f746xx/bbe`` |
 
 .. nucleo_f767zi
 
