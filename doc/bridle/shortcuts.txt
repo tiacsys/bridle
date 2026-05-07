@@ -1309,6 +1309,9 @@
 .. |nucleo_f413zh_PStr_MSC|	replace:: :ign:`STM32F413ZH-NUCLEO (MSC)`
 .. |nucleo_f413zh_BCD_MSC|	replace:: |zephyr_version_BCD|
 
+.. |bridle:board:nucleo_f746zg| replace:: :ref:`nucleo_f746zg_board-extensions`
+.. :bridle:board:`nucleo_f746zg`
+
 .. |zephyr:board:nucleo_f746zg| replace::
    :external+zephyr:zephyr:board:`nucleo_f746zg`
 

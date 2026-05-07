@@ -1,0 +1,19 @@
+/*
+ * Copyright (c) 2023-2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include "../../zephyr/boards/st/nucleo_f746zg/nucleo_f746zg.dts"
+
+/ {
+	model = "STMicroelectronics STM32F746ZG-NUCLEO board @ UART Concole (BBE)";
+	compatible = "st,stm32f746zg-nucleo",
+		     "st,stm32f746zg-nucleo-bbe",
+		     "st,stm32f746zg-nucleo-uartcons",
+		     "st,stm32f746zg-nucleo-uartcons-bbe";
+
+	chosen {
+		zephyr,console = &usart3;
+		zephyr,shell-uart = &usart3;
+	};
+};

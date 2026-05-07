@@ -1,0 +1,9 @@
+# Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+config BOARD_NUCLEO_F746ZG_STM32F746XX
+	bool
+
+config BOARD_NUCLEO_F746ZG_STM32F746XX_BBE
+	bool
+	select BOARD_NUCLEO_F746ZG_STM32F746XX
