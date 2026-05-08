@@ -1,0 +1,21 @@
+# Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+#
+# NOTE: copy and own from original default configuration in
+# "zephyr/boards/st/nucleo_l496zg/nucleo_l496zg_defconfig"
+
+# enable uart driver
+CONFIG_SERIAL=y
+
+# enable GPIO
+CONFIG_GPIO=y
+
+# console
+CONFIG_CONSOLE=y
+CONFIG_UART_CONSOLE=y
+
+#enable MPU
+CONFIG_ARM_MPU=y
+
+# Enable HW stack protection
+CONFIG_HW_STACK_PROTECTION=y

@@ -1,0 +1,33 @@
+# Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+#
+# NOTE: copy and own from original board metadata in
+# "zephyr/boards/st/nucleo_l496zg/nucleo_l496zg.yaml"
+
+identifier: nucleo_l496zg/stm32l496xx/bbe
+name: ST Nucleo L496ZG (BBE)
+type: mcu
+arch: arm
+toolchain:
+  - zephyr
+  - gnuarmemb
+ram: 256
+flash: 1024
+supported:
+  - arduino_i2c
+  - arduino_gpio
+  - arduino_spi
+  - arduino_serial
+  - gpio
+  - i2c
+  - spi
+  - pwm
+  - counter
+  - usb_device
+  - usbd
+  - watchdog
+testing:
+  ignore_tags:
+    - net
+    - bluetooth
+vendor: st

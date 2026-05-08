@@ -1355,6 +1355,9 @@
 .. |nucleo_f767zi_PStr_MSC|	replace:: :ign:`STM32F767ZI-NUCLEO (MSC)`
 .. |nucleo_f767zi_BCD_MSC|	replace:: |zephyr_version_BCD|
 
+.. |bridle:board:nucleo_l496zg| replace:: :ref:`nucleo_l496zg_board-extensions`
+.. :bridle:board:`nucleo_l496zg`
+
 .. |zephyr:board:nucleo_l496zg| replace::
    :external+zephyr:zephyr:board:`nucleo_l496zg`
 
