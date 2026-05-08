@@ -65,6 +65,18 @@
 
 ##############################################################################
 #
+# Bridle samples with temporary issues
+#
+
+- comment: "samples(bridle): (yet) completely unsupported platform."
+  scenarios:
+    - bridle.sample.helloshell..*
+  platforms:
+    - rpi_pico/rp2040/w
+    - rpi_pico2/rp2350a/m33/w
+
+##############################################################################
+#
 # Grove wiring for tests
 #
 
