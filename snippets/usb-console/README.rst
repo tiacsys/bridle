@@ -62,6 +62,17 @@ specified as required.
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
 
+   * - |nucleo_f413zh_URB_VID|
+     - |nucleo_f413zh_URB_PID_CON|
+     - | :code:`nucleo_f413zh`
+       | :code:`nucleo_f413zh//bbe`
+     - |STMicroelectronics|_
+     - | |STM32F413ZH-NUCLEO (CDC ACM)|
+       | ↳ |bridle:board:nucleo_f413zh|
+     - `STMicroelectronics USB product ID from their Virtual COM Port`_
+     - | |zephyr:devicetree:chosen:console|
+       | |zephyr:devicetree:chosen:shell-uart|
+
    * - |nucleo_f767zi_URB_VID|
      - |nucleo_f767zi_URB_PID_CON|
      - :code:`nucleo_f767zi`

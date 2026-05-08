@@ -1295,6 +1295,20 @@
 .. |STM32F413ZH-NUCLEO (CDC ACM)| replace::
    :external+zephyr:zephyr:board:`STM32F413ZH-NUCLEO (CDC ACM) <nucleo_f413zh>`
 
+.. |nucleo_f413zh_URB_VID|	replace:: |stm_URB_VID|
+.. |nucleo_f413zh_VID|		replace:: |stm_VID|
+.. |nucleo_f413zh_VStr|		replace:: |stm_VStr|
+
+.. |nucleo_f413zh_URB_PID_CON|	replace:: |stm_URB_PID_VCOM|
+.. |nucleo_f413zh_PID_CON|	replace:: |stm_PID_VCOM|
+.. |nucleo_f413zh_PStr_CON|	replace:: :ign:`STM32F413ZH-NUCLEO (CDC ACM)`
+.. |nucleo_f413zh_BCD_CON|	replace:: |zephyr_version_BCD|
+
+.. |nucleo_f413zh_URB_PID_MSC|	replace:: |stm_URB_PID_MSC|
+.. |nucleo_f413zh_PID_MSC|	replace:: |stm_PID_MSC|
+.. |nucleo_f413zh_PStr_MSC|	replace:: :ign:`STM32F413ZH-NUCLEO (MSC)`
+.. |nucleo_f413zh_BCD_MSC|	replace:: |zephyr_version_BCD|
+
 .. |zephyr:board:nucleo_f746zg| replace::
    :external+zephyr:zephyr:board:`nucleo_f746zg`
 
