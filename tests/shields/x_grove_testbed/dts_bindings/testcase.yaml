@@ -47,7 +47,8 @@ common:
     - nucleo_f413zh/stm32f413xx/bbe
     - nucleo_f746zg/stm32f746xx
     - nucleo_f746zg/stm32f746xx/bbe
-    - nucleo_f767zi
+    - nucleo_f767zi/stm32f767xx
+    - nucleo_f767zi/stm32f767xx/bbe
     - rpi_pico
     - rpi_pico/rp2040/w
     - rpi_pico2/rp2350a/hazard3
@@ -101,7 +102,8 @@ tests:
       - nucleo_f413zh/stm32f413xx/bbe
       - nucleo_f746zg/stm32f746xx
       - nucleo_f746zg/stm32f746xx/bbe
-      - nucleo_f767zi
+      - nucleo_f767zi/stm32f767xx
+      - nucleo_f767zi/stm32f767xx/bbe
   grove.base.v2.x_grove_testbed.pwm.b7l6:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_d6_header") and

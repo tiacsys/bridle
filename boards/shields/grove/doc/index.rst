@@ -657,6 +657,7 @@ not be complete.
          .. group-tab:: ``nucleo_f767zi``
 
             This is based on the Zephyr board |zephyr:board:nucleo_f767zi|
+            or the Bridle extended board |bridle:board:nucleo_f767zi|
             and its :dtcompatible:`arduino-header-r3`.
 
             .. include:: grove_pwms-nucleo_f767zi.rsti

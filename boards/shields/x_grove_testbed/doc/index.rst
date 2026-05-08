@@ -415,7 +415,8 @@ For example:
 
          .. group-tab:: ST Nucleo F767ZI
 
-            This is based on the Zephyr board |zephyr:board:nucleo_f767zi|.
+            This is based on the Zephyr board |zephyr:board:nucleo_f767zi| or
+            the Bridle extended board |bridle:board:nucleo_f767zi|.
 
             * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
 
@@ -440,6 +441,16 @@ For example:
                      :goals: flash
                      :host-os: unix
 
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/blinky
+                     :build-dir: blinky-nucleo_f767zi-x_grove_testbed
+                     :board: nucleo_f767zi/stm32f767xx/bbe
+                     :shield: \
+                              "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :west-args: -p
+                     :goals: flash
+                     :host-os: unix
+
                .. group-tab:: LED Fade
 
                   This is based on the Zephyr sample
@@ -455,6 +466,16 @@ For example:
                      :goals: flash
                      :host-os: unix
 
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/fade_led
+                     :build-dir: fade-nucleo_f767zi-x_grove_testbed
+                     :board: nucleo_f767zi/stm32f767xx/bbe
+                     :shield: \
+                              "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :west-args: -p
+                     :goals: flash
+                     :host-os: unix
+
                .. group-tab:: LED Button
 
                   This is based on the Zephyr sample
@@ -464,6 +485,16 @@ For example:
                      :app: zephyr/samples/basic/button
                      :build-dir: button-nucleo_f767zi-x_grove_testbed
                      :board: nucleo_f767zi
+                     :shield: \
+                              "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :west-args: -p
+                     :goals: flash
+                     :host-os: unix
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/button
+                     :build-dir: button-nucleo_f767zi-x_grove_testbed
+                     :board: nucleo_f767zi/stm32f767xx/bbe
                      :shield: \
                               "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
                      :west-args: -p

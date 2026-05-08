@@ -133,6 +133,7 @@
     - nucleo_f746zg/stm32f746xx
     - nucleo_f746zg/stm32f746xx/bbe
     - nucleo_f767zi/stm32f767xx
+    - nucleo_f767zi/stm32f767xx/bbe
 
 - comment: "shield(grove.base.x_grove_testbed.b7l6): invalid board/shield condition."
   scenarios:
@@ -374,6 +375,7 @@
     - nucleo_f746zg/stm32f746xx
     - nucleo_f746zg/stm32f746xx/bbe
     - nucleo_f767zi/stm32f767xx
+    - nucleo_f767zi/stm32f767xx/bbe
     - rpi_pico/rp2040
     - rpi_pico/rp2040/w
     - rpi_pico2/rp2350a/hazard3
@@ -447,6 +449,7 @@
     - nucleo_f746zg/stm32f746xx
     - nucleo_f746zg/stm32f746xx/bbe
     - nucleo_f767zi/stm32f767xx
+    - nucleo_f767zi/stm32f767xx/bbe
     - seeeduino_cm0/samd21g18a
     - seeeduino_lotus/samd21g18a
     - seeeduino_xiao/samd21g18a
@@ -541,6 +544,7 @@
     - nucleo_f746zg/stm32f746xx
     - nucleo_f746zg/stm32f746xx/bbe
     - nucleo_f767zi/stm32f767xx
+    - nucleo_f767zi/stm32f767xx/bbe
     - rpi_pico/rp2040
     - rpi_pico/rp2040/w
     - rpi_pico2/rp2350a/hazard3
@@ -592,6 +596,7 @@
     - nucleo_f746zg/stm32f746xx
     - nucleo_f746zg/stm32f746xx/bbe
     - nucleo_f767zi/stm32f767xx
+    - nucleo_f767zi/stm32f767xx/bbe
     - seeeduino_cm0/samd21g18a
     - seeeduino_lotus/samd21g18a
     - seeeduino_xiao/samd21g18a
@@ -638,6 +643,7 @@
     - nucleo_f746zg/stm32f746xx
     - nucleo_f746zg/stm32f746xx/bbe
     - nucleo_f767zi/stm32f767xx
+    - nucleo_f767zi/stm32f767xx/bbe
     - rpi_pico/rp2040
     - rpi_pico/rp2040/w
     - rpi_pico2/rp2350a/hazard3
@@ -1165,6 +1171,7 @@
 - comment: "shield(grove.base.grove_led): nucleo_f767zi: invalid board condition."
   platforms:
     - nucleo_f767zi/stm32f767xx
+    - nucleo_f767zi/stm32f767xx/bbe
   scenarios:
     - grove.base.(v2|v1).grove_led.pwm.d0
     - grove.base.(v2|v1).grove_led.pwm.d1
@@ -1208,6 +1215,7 @@
     - nucleo_f746zg/stm32f746xx
     - nucleo_f746zg/stm32f746xx/bbe
     - nucleo_f767zi/stm32f767xx
+    - nucleo_f767zi/stm32f767xx/bbe
     - rpi_pico/rp2040
     - rpi_pico/rp2040/w
     - rpi_pico2/rp2350a/hazard3
@@ -1268,6 +1276,7 @@
     - nucleo_f746zg/stm32f746xx
     - nucleo_f746zg/stm32f746xx/bbe
     - nucleo_f767zi/stm32f767xx
+    - nucleo_f767zi/stm32f767xx/bbe
     - seeeduino_cm0/samd21g18a
     - seeeduino_lotus/samd21g18a
     - seeeduino_xiao/samd21g18a
@@ -1308,6 +1317,7 @@
     - nucleo_f746zg/stm32f746xx
     - nucleo_f746zg/stm32f746xx/bbe
     - nucleo_f767zi/stm32f767xx
+    - nucleo_f767zi/stm32f767xx/bbe
     - rpi_pico/rp2040
     - rpi_pico/rp2040/w
     - rpi_pico2/rp2350a/hazard3

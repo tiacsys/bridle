@@ -50,7 +50,8 @@ common:
     - nucleo_f413zh/stm32f413xx/bbe
     - nucleo_f746zg/stm32f746xx
     - nucleo_f746zg/stm32f746xx/bbe
-    - nucleo_f767zi
+    - nucleo_f767zi/stm32f767xx
+    - nucleo_f767zi/stm32f767xx/bbe
     - picoboy/rp2040
     - picoboy_color/rp2040
     - picoboy_color_plus/rp2350a/m33
@@ -166,7 +167,8 @@ tests:
       - nucleo_f413zh/stm32f413xx/bbe
       - nucleo_f746zg/stm32f746xx
       - nucleo_f746zg/stm32f746xx/bbe
-      - nucleo_f767zi
+      - nucleo_f767zi/stm32f767xx
+      - nucleo_f767zi/stm32f767xx/bbe
       - rpi_pico
       - rpi_pico/rp2040/w
       - rpi_pico2/rp2350a/hazard3

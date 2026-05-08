@@ -86,9 +86,11 @@ specified as required.
 
    * - |nucleo_f767zi_URB_VID|
      - |nucleo_f767zi_URB_PID_CON|
-     - :code:`nucleo_f767zi`
+     - | :code:`nucleo_f767zi`
+       | :code:`nucleo_f767zi//bbe`
      - |STMicroelectronics|_
-     - |STM32F767ZI-NUCLEO (CDC ACM)|
+     - | |STM32F767ZI-NUCLEO (CDC ACM)|
+       | ↳ |bridle:board:nucleo_f767zi|
      - `STMicroelectronics USB product ID from their Virtual COM Port`_
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
