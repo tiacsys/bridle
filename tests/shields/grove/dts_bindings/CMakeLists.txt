@@ -368,6 +368,42 @@ if(DEFINED if_path)
     endif()
   endif()
 
+  # check board specific add-ons for nucleo_f746zg
+  if(CONFIG_BOARD_NUCLEO_F746ZG)
+
+    # zephyr-keep-sorted-start re(^\s+\w)
+    test_if_label_on_path("grove_pwms" "${if_path}")
+    # zephyr-keep-sorted-stop
+
+    if(CONFIG_SHIELD_SEEED_GROVE_BASE_V2 OR
+       CONFIG_SHIELD_SEEED_GROVE_BASE_V1)
+
+      # zephyr-keep-sorted-start re(^\s+\w)
+      test_if_label_matching("grove_pwm_d3" "pwm1")
+      test_if_label_matching("grove_pwm_d5" "pwm1")
+      test_if_label_matching("grove_pwm_d6" "pwm1")
+      test_if_label_matching("grove_pwm_d9" "pwm4")
+      # zephyr-keep-sorted-stop
+
+      if(CONFIG_SHIELD_SEEED_GROVE_BASE_V1)
+
+        # zephyr-keep-sorted-start re(^\s+\w)
+        test_if_label_matching("grove_pwm_d10" "pwm4")
+        test_if_label_matching("grove_pwm_d11" "pwm14")
+        test_if_label_matching("grove_pwm_d12" "pwm13")
+        test_if_label_matching("grove_pwm_d13" "pwm2")
+        # zephyr-keep-sorted-stop
+
+      endif()
+
+      # zephyr-keep-sorted-start re(^\s+\w)
+      test_if_label_matching("grove_pwm_d18" "pwm11")
+      test_if_label_matching("grove_pwm_d19" "pwm10")
+      # zephyr-keep-sorted-stop
+
+    endif()
+  endif()
+
   # check board specific add-ons for nucleo_f767zi
   if(CONFIG_BOARD_NUCLEO_F767ZI)
 

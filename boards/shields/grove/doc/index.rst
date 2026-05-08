@@ -646,6 +646,14 @@ not be complete.
 
             .. include:: grove_pwms-nucleo_f413zh.rsti
 
+         .. group-tab:: ``nucleo_f746zg``
+
+            This is based on the Zephyr board |zephyr:board:nucleo_f746zg|
+            or the Bridle extended board |bridle:board:nucleo_f746zg|
+            and its :dtcompatible:`arduino-header-r3`.
+
+            .. include:: grove_pwms-nucleo_f746zg.rsti
+
          .. group-tab:: ``nucleo_f767zi``
 
             This is based on the Zephyr board |zephyr:board:nucleo_f767zi|

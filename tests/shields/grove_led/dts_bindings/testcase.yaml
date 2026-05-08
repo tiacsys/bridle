@@ -40,7 +40,8 @@ common:
     - nucleo_f401re/stm32f401xe/bbe
     - nucleo_f413zh/stm32f413xx
     - nucleo_f413zh/stm32f413xx/bbe
-    - nucleo_f746zg
+    - nucleo_f746zg/stm32f746xx
+    - nucleo_f746zg/stm32f746xx/bbe
     - nucleo_f767zi
     - mini_usb_rp2040
     - mini_usb_rp2040@16mb
@@ -446,6 +447,8 @@ tests:
       - nucleo_f401re/stm32f401xe/bbe
       - nucleo_f413zh/stm32f413xx
       - nucleo_f413zh/stm32f413xx/bbe
+      - nucleo_f746zg/stm32f746xx
+      - nucleo_f746zg/stm32f746xx/bbe
       - nucleo_f767zi
       - seeeduino_cm0
       - seeeduino_lotus
@@ -466,6 +469,8 @@ tests:
       - nucleo_f401re/stm32f401xe/bbe
       - nucleo_f413zh/stm32f413xx
       - nucleo_f413zh/stm32f413xx/bbe
+      - nucleo_f746zg/stm32f746xx
+      - nucleo_f746zg/stm32f746xx/bbe
       - nucleo_f767zi
       - seeeduino_cm0
       - seeeduino_lotus
@@ -518,6 +523,8 @@ tests:
       - nucleo_f401re/stm32f401xe/bbe
       - nucleo_f413zh/stm32f413xx
       - nucleo_f413zh/stm32f413xx/bbe
+      - nucleo_f746zg/stm32f746xx
+      - nucleo_f746zg/stm32f746xx/bbe
       - nucleo_f767zi
       - seeeduino_cm0
       - seeeduino_lotus
@@ -538,6 +545,8 @@ tests:
       - nucleo_f401re/stm32f401xe/bbe
       - nucleo_f413zh/stm32f413xx
       - nucleo_f413zh/stm32f413xx/bbe
+      - nucleo_f746zg/stm32f746xx
+      - nucleo_f746zg/stm32f746xx/bbe
       - nucleo_f767zi
       - seeeduino_cm0
       - seeeduino_lotus
@@ -554,6 +563,8 @@ tests:
       - nucleo_f401re/stm32f401xe/bbe
       - nucleo_f413zh/stm32f413xx
       - nucleo_f413zh/stm32f413xx/bbe
+      - nucleo_f746zg/stm32f746xx
+      - nucleo_f746zg/stm32f746xx/bbe
       - nucleo_f767zi
       - seeeduino_cm0
       - seeeduino_lotus
@@ -570,6 +581,8 @@ tests:
       - nucleo_f401re/stm32f401xe/bbe
       - nucleo_f413zh/stm32f413xx
       - nucleo_f413zh/stm32f413xx/bbe
+      - nucleo_f746zg/stm32f746xx
+      - nucleo_f746zg/stm32f746xx/bbe
       - nucleo_f767zi
       - seeeduino_cm0
       - seeeduino_lotus
@@ -640,6 +653,8 @@ tests:
       - nucleo_f401re/stm32f401xe/bbe
       - nucleo_f413zh/stm32f413xx
       - nucleo_f413zh/stm32f413xx/bbe
+      - nucleo_f746zg/stm32f746xx
+      - nucleo_f746zg/stm32f746xx/bbe
       - nucleo_f767zi
       - seeeduino_cm0
       - seeeduino_lotus
@@ -657,6 +672,8 @@ tests:
       - nucleo_f401re/stm32f401xe/bbe
       - nucleo_f413zh/stm32f413xx
       - nucleo_f413zh/stm32f413xx/bbe
+      - nucleo_f746zg/stm32f746xx
+      - nucleo_f746zg/stm32f746xx/bbe
       - nucleo_f767zi
       - seeeduino_cm0
       - seeeduino_lotus
@@ -678,6 +695,8 @@ tests:
       - nucleo_f401re/stm32f401xe/bbe
       - nucleo_f413zh/stm32f413xx
       - nucleo_f413zh/stm32f413xx/bbe
+      - nucleo_f746zg/stm32f746xx
+      - nucleo_f746zg/stm32f746xx/bbe
       - nucleo_f767zi
       - seeeduino_cm0
       - seeeduino_lotus
@@ -699,6 +718,8 @@ tests:
       - nucleo_f401re/stm32f401xe/bbe
       - nucleo_f413zh/stm32f413xx
       - nucleo_f413zh/stm32f413xx/bbe
+      - nucleo_f746zg/stm32f746xx
+      - nucleo_f746zg/stm32f746xx/bbe
       - nucleo_f767zi
       - seeeduino_cm0
       - seeeduino_lotus
@@ -719,6 +740,8 @@ tests:
       - nucleo_f303re/stm32f303xe/bbe
       - nucleo_f413zh/stm32f413xx
       - nucleo_f413zh/stm32f413xx/bbe
+      - nucleo_f746zg/stm32f746xx
+      - nucleo_f746zg/stm32f746xx/bbe
       - nucleo_f767zi
       - seeeduino_cm0
       - seeeduino_lotus
@@ -740,6 +763,8 @@ tests:
       - nucleo_f401re/stm32f401xe/bbe
       - nucleo_f413zh/stm32f413xx
       - nucleo_f413zh/stm32f413xx/bbe
+      - nucleo_f746zg/stm32f746xx
+      - nucleo_f746zg/stm32f746xx/bbe
       - nucleo_f767zi
       - seeeduino_cm0
       - seeeduino_lotus
@@ -819,6 +844,8 @@ tests:
       - nucleo_f401re/stm32f401xe/bbe
       - nucleo_f413zh/stm32f413xx
       - nucleo_f413zh/stm32f413xx/bbe
+      - nucleo_f746zg/stm32f746xx
+      - nucleo_f746zg/stm32f746xx/bbe
       - nucleo_f767zi
       - seeeduino_cm0
       - seeeduino_lotus
@@ -836,6 +863,8 @@ tests:
       - nucleo_f401re/stm32f401xe/bbe
       - nucleo_f413zh/stm32f413xx
       - nucleo_f413zh/stm32f413xx/bbe
+      - nucleo_f746zg/stm32f746xx
+      - nucleo_f746zg/stm32f746xx/bbe
       - nucleo_f767zi
       - seeeduino_cm0
       - seeeduino_lotus
@@ -852,6 +881,8 @@ tests:
       - nucleo_f401re/stm32f401xe/bbe
       - nucleo_f413zh/stm32f413xx
       - nucleo_f413zh/stm32f413xx/bbe
+      - nucleo_f746zg/stm32f746xx
+      - nucleo_f746zg/stm32f746xx/bbe
       - nucleo_f767zi
       - seeeduino_cm0
       - seeeduino_lotus
@@ -868,6 +899,8 @@ tests:
       - nucleo_f401re/stm32f401xe/bbe
       - nucleo_f413zh/stm32f413xx
       - nucleo_f413zh/stm32f413xx/bbe
+      - nucleo_f746zg/stm32f746xx
+      - nucleo_f746zg/stm32f746xx/bbe
       - nucleo_f767zi
       - seeeduino_cm0
       - seeeduino_lotus

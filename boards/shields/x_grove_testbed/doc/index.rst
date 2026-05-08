@@ -325,6 +325,94 @@ For example:
                      :goals: flash
                      :host-os: unix
 
+         .. group-tab:: ST Nucleo F746ZG
+
+            This is based on the Zephyr board |zephyr:board:nucleo_f746zg| or
+            the Bridle extended board |bridle:board:nucleo_f746zg|.
+
+            * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
+
+            .. image:: img/x_grove_testbed_stmb1137_bb.svg
+               :alt: ST Nucleo F746ZG Wiring Schematics
+               :align: center
+
+            .. tabs::
+
+               .. group-tab:: LED Blinky
+
+                  This is based on the Zephyr sample
+                  :external+zephyr:zephyr:code-sample:`blinky`.
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/blinky
+                     :build-dir: blinky-nucleo_f746zg-x_grove_testbed
+                     :board: nucleo_f746zg
+                     :shield: \
+                              "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :west-args: -p
+                     :goals: flash
+                     :host-os: unix
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/blinky
+                     :build-dir: blinky-nucleo_f746zg-x_grove_testbed
+                     :board: nucleo_f746zg/stm32f746xx/bbe
+                     :shield: \
+                              "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :west-args: -p
+                     :goals: flash
+                     :host-os: unix
+
+               .. group-tab:: LED Fade
+
+                  This is based on the Zephyr sample
+                  :external+zephyr:zephyr:code-sample:`fade-led`.
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/fade_led
+                     :build-dir: fade-nucleo_f746zg-x_grove_testbed
+                     :board: nucleo_f746zg
+                     :shield: \
+                              "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :west-args: -p
+                     :goals: flash
+                     :host-os: unix
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/fade_led
+                     :build-dir: fade-nucleo_f746zg-x_grove_testbed
+                     :board: nucleo_f746zg/stm32f746xx/bbe
+                     :shield: \
+                              "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :west-args: -p
+                     :goals: flash
+                     :host-os: unix
+
+               .. group-tab:: LED Button
+
+                  This is based on the Zephyr sample
+                  :external+zephyr:zephyr:code-sample:`button`.
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/button
+                     :build-dir: button-nucleo_f746zg-x_grove_testbed
+                     :board: nucleo_f746zg
+                     :shield: \
+                              "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :west-args: -p
+                     :goals: flash
+                     :host-os: unix
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/button
+                     :build-dir: button-nucleo_f746zg-x_grove_testbed
+                     :board: nucleo_f746zg/stm32f746xx/bbe
+                     :shield: \
+                              "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
+                     :west-args: -p
+                     :goals: flash
+                     :host-os: unix
+
          .. group-tab:: ST Nucleo F767ZI
 
             This is based on the Zephyr board |zephyr:board:nucleo_f767zi|.

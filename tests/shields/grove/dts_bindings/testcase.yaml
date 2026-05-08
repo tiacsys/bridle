@@ -35,7 +35,8 @@ common:
     - nucleo_f401re/stm32f401xe/bbe
     - nucleo_f413zh/stm32f413xx
     - nucleo_f413zh/stm32f413xx/bbe
-    - nucleo_f746zg
+    - nucleo_f746zg/stm32f746xx
+    - nucleo_f746zg/stm32f746xx/bbe
     - nucleo_f767zi
     - rpi_pico
     - rpi_pico/rp2040/w

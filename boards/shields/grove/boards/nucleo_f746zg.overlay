@@ -1,0 +1,29 @@
+/*
+ * Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/*
+ * On ST Nucleo F413ZH following pins can be used as PWM outputs:
+ *
+ *   Grove pin   port   timer   channel   Arduino UNO R3 requirements
+ *
+ *         D0    PG9                      RX   / GPIO
+ *         D1    PG14                     TX   / GPIO
+ *         D2    PF15                     INT0 / GPIO
+ *         D3    PE13   TIM1    CH3       INT1 / GPIO with PWM support
+ *         D4    PF14                            GPIO
+ *         D5    PE11   TIM1    CH2              GPIO with PWM support
+ *         D6    PE9    TIM1    CH1              GPIO with PWM support
+ *         D7    PF13                            GPIO
+ *         D8    PF12                            GPIO
+ *         D9    PD15   TIM4    CH4              GPIO with PWM support
+ *         D10   PD14   TIM4    CH3       SS   / GPIO with PWM support
+ * (COMP2) D11   PA7    TIM14   CH1       MOSI / GPIO with PWM support
+ *         D12   PA6    TIM13   CH1       MISO / GPIO
+ *         D13   PA5    TIM2    CH1       SCK  / GPIO
+ *         D18   PB9    TIM11   CH1       SDA  / GPIO
+ *         D19   PB8    TIM10   CH1       SCL  / GPIO
+ */
+
+#include "nucleo_144_mb1137_ard1113.dtsi"
