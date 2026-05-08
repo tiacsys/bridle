@@ -125,6 +125,7 @@ jobs:
           west twister --verbose --jobs 6 \
             --retry-failed 5 --retry-interval 60 \
             --outdir twister-out --no-clean --inline-logs \
+            --quarantine-list bridle/tests/quarantine.yaml \
             --alt-config-root bridle/zephyr/alt-config/samples \
             --integration --no-detailed-test-id \
             --testsuite-root bridle/samples \
