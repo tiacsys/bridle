@@ -1,0 +1,35 @@
+# Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+#
+# NOTE: copy and own from original board metadata in
+# "zephyr/boards/st/nucleo_f767zi/nucleo_f767zi.yaml"
+
+identifier: nucleo_f767zi/stm32f767xx/bbe
+name: ST Nucleo F767ZI (BBE)
+type: mcu
+arch: arm
+toolchain:
+  - zephyr
+  - gnuarmemb
+ram: 384
+flash: 2048
+supported:
+  - adc
+  - arduino_i2c
+  - arduino_gpio
+  - arduino_spi
+  - arduino_serial
+  - uart
+  - gpio
+  - netif:eth
+  - usb_device
+  - i2c
+  - pwm
+  - spi
+  - nvs
+  - watchdog
+  - counter
+  - can
+  - dac
+  - rtc
+vendor: st

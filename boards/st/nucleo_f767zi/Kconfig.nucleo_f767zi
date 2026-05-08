@@ -1,0 +1,9 @@
+# Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+config BOARD_NUCLEO_F767ZI_STM32F767XX
+	bool
+
+config BOARD_NUCLEO_F767ZI_STM32F767XX_BBE
+	bool
+	select BOARD_NUCLEO_F767ZI_STM32F767XX

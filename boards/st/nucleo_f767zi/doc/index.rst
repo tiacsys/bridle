@@ -1,17 +1,24 @@
-.. _nucleo_f767zi-extensions:
+.. _nucleo_f767zi_board-extensions:
 
-ST Nucleo F767ZI
-################
+Nucleo F767ZI (BBE)
+###################
 
 Overview
 ********
 
-This is a set of Bridle's extension to the original Zephyr upstream board
-|zephyr:board:nucleo_f767zi| with some adaptions and improvement on
-Kconfig and Devicetree level.
+This is a set of Bridle's board extensions (BBE) to the original Zephyr
+upstream board |zephyr:board:nucleo_f767zi| with some adaptions and
+improvement on Twister, Kconfig and Devicetree level.
 
 List of extensions
 ******************
+
+.. rubric:: Board YAML
+
+- add the missing features that this board supports and
+  that Twister tests might depends on:
+
+  - :code:`arduino_serial`
 
 .. rubric:: Kconfig
 
@@ -74,11 +81,11 @@ List of extensions
 
      * - .. rubric:: ST Nucleo F767ZI
 
-     * - .. literalinclude:: ../nucleo_f767zi.overlay
-            :caption: nucleo_f767zi.overlay
+     * - .. literalinclude:: ../nucleo_f767zi_bbe.dts
+            :caption: nucleo_f767zi_bbe.dts
             :language: DTS
             :encoding: ISO-8859-1
             :prepend: / {
             :start-at: model
-            :end-at: compatible
+            :end-before: chosen {
             :append: };
