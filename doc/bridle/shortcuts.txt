@@ -1364,6 +1364,20 @@
 .. |STM32L496ZG-NUCLEO (CDC ACM)| replace::
    :external+zephyr:zephyr:board:`STM32L496ZG-NUCLEO (CDC ACM) <nucleo_l496zg>`
 
+.. |nucleo_l496zg_URB_VID|	replace:: |stm_URB_VID|
+.. |nucleo_l496zg_VID|		replace:: |stm_VID|
+.. |nucleo_l496zg_VStr|		replace:: |stm_VStr|
+
+.. |nucleo_l496zg_URB_PID_CON|	replace:: |stm_URB_PID_VCOM|
+.. |nucleo_l496zg_PID_CON|	replace:: |stm_PID_VCOM|
+.. |nucleo_l496zg_PStr_CON|	replace:: :ign:`STM32L496ZG-NUCLEO (CDC ACM)`
+.. |nucleo_l496zg_BCD_CON|	replace:: |zephyr_version_BCD|
+
+.. |nucleo_l496zg_URB_PID_MSC|	replace:: |stm_URB_PID_MSC|
+.. |nucleo_l496zg_PID_MSC|	replace:: |stm_PID_MSC|
+.. |nucleo_l496zg_PStr_MSC|	replace:: :ign:`STM32L496ZG-NUCLEO (MSC)`
+.. |nucleo_l496zg_BCD_MSC|	replace:: |zephyr_version_BCD|
+
 .. |zephyr:board:seeeduino_xiao| replace::
    :external+zephyr:zephyr:board:`seeeduino_xiao`
 

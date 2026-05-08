@@ -95,6 +95,17 @@ specified as required.
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
 
+   * - |nucleo_l496zg_URB_VID|
+     - |nucleo_l496zg_URB_PID_CON|
+     - | :code:`nucleo_l496zg`
+       | :code:`nucleo_l496zg//bbe`
+     - |STMicroelectronics|_
+     - | |STM32L496ZG-NUCLEO (CDC ACM)|
+       | ↳ |bridle:board:nucleo_l496zg|
+     - `STMicroelectronics USB product ID from their Virtual COM Port`_
+     - | |zephyr:devicetree:chosen:console|
+       | |zephyr:devicetree:chosen:shell-uart|
+
    * - |vccgnd_bluepill_URB_VID|
      - |vccgnd_bluepill_URB_PID_CON|
      - | :code:`vccgnd_bluepill_stm32f103cb`

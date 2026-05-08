@@ -32,6 +32,14 @@ boards:
     append:
       EXTRA_CONF_FILE: boards/nucleo_f767zi.conf
       EXTRA_DTC_OVERLAY_FILE: boards/nucleo_f767zi_bbe.overlay
+  nucleo_l496zg/stm32l496xx:
+    append:
+      EXTRA_CONF_FILE: boards/nucleo_l496zg.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/nucleo_l496zg.overlay
+  nucleo_l496zg/stm32l496xx/bbe:
+    append:
+      EXTRA_CONF_FILE: boards/nucleo_l496zg.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/nucleo_l496zg_bbe.overlay
   vccgnd_bluepill_stm32f103cb/stm32f103xb:
     append:
       EXTRA_CONF_FILE: boards/vccgnd_bluepill_stm32f103.conf

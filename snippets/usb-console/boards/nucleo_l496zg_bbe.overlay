@@ -1,0 +1,16 @@
+/*
+ * Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	model = "STMicroelectronics STM32L496ZG-NUCLEO board @ USB-CDC/ACM Concole (BBE)";
+	compatible = "st,stm32l496zg-nucleo",
+		     "st,stm32l496zg-nucleo-bbe",
+		     "st,stm32l496zg-nucleo-usbcons",
+		     "st,stm32l496zg-nucleo-usbcons-bbe";
+
+	chosen {
+		zephyr,shell-uart = &snippet_cdc_acm_console_uart;
+	};
+};
