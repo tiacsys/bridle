@@ -34,7 +34,7 @@ Requirements
   * |zephyr:board:nucleo_f401re| or Bridle's |bridle:board:nucleo_f401re|
   * |zephyr:board:nucleo_f413zh| or Bridle's |bridle:board:nucleo_f413zh|
   * |zephyr:board:nucleo_f746zg| or Bridle's |bridle:board:nucleo_f746zg|
-  * |zephyr:board:nucleo_f767zi| (NUCLEO-F767ZI)
+  * |zephyr:board:nucleo_f767zi| or Bridle's |bridle:board:nucleo_f767zi|
   * |zephyr:board:qemu_arc|
   * ARM Cortex-A9 Emulation (``qemu_cortex_a9``)
   * |zephyr:board:qemu_cortex_a53|

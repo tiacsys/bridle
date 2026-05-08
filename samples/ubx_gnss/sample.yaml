@@ -26,7 +26,8 @@ common:
     - nucleo_f413zh/stm32f413xx/bbe
     - nucleo_f746zg/stm32f746xx
     - nucleo_f746zg/stm32f746xx/bbe
-    - nucleo_f767zi
+    - nucleo_f767zi/stm32f767xx
+    - nucleo_f767zi/stm32f767xx/bbe
     - nucleo_l496zg
   integration_platforms:
     - mimxrt1010_evk
@@ -44,7 +45,8 @@ common:
     - nucleo_f413zh/stm32f413xx/bbe
     - nucleo_f746zg/stm32f746xx
     - nucleo_f746zg/stm32f746xx/bbe
-    - nucleo_f767zi
+    - nucleo_f767zi/stm32f767xx
+    - nucleo_f767zi/stm32f767xx/bbe
     - nucleo_l496zg
 tests:
   bridle.sample.ubx_gnss.release:

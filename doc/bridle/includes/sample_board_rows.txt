@@ -80,9 +80,13 @@
 
 | STM32F746ZG | | :ref:`nucleo_f746zg_board-extensions` | - ``nucleo_f746zg/stm32f746xx/bbe`` |
 
-.. nucleo_f767zi
+.. nucleo_f767zi_stm32f767xx
 
-| STM32F767ZI | | :external+zephyr:zephyr:board:`nucleo_f767zi` | - ``nucleo_f767zi`` |
+| STM32F767ZI | | :external+zephyr:zephyr:board:`nucleo_f767zi` | - ``nucleo_f767zi/stm32f767xx`` |
+
+.. nucleo_f767zi_stm32f767xx_bbe
+
+| STM32F767ZI | | :ref:`nucleo_f767zi_board-extensions` | - ``nucleo_f767zi/stm32f767xx/bbe`` |
 
 .. nucleo_l496zg
 
