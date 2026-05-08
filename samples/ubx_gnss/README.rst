@@ -140,12 +140,12 @@ Build and flash for different boards
    :goals: flash
    :compact:
 
-.. rubric:: ST Nucleo L496ZG
+.. rubric:: ST Nucleo L496ZG (BBE)
 
 .. zephyr-app-commands::
    :app: bridle/samples/ubx_gnss
    :build-dir: nucleo_l496zg-ubx_gnss
-   :board: nucleo_l496zg
+   :board: nucleo_l496zg//bbe
    :west-args: -p
    :goals: flash
    :compact:

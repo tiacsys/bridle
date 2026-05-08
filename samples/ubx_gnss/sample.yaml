@@ -10,6 +10,7 @@ common:
   platform_exclude:
     - nucleo_f303re/stm32f303xe
     - nucleo_f401re/stm32f401xe
+    - nucleo_l496zg/stm32l496xx
   platform_allow:
     - mimxrt1010_evk
     - mimxrt1060_evk@A/mimxrt1062/qspi
@@ -28,7 +29,7 @@ common:
     - nucleo_f746zg/stm32f746xx/bbe
     - nucleo_f767zi/stm32f767xx
     - nucleo_f767zi/stm32f767xx/bbe
-    - nucleo_l496zg
+    - nucleo_l496zg/stm32l496xx/bbe
   integration_platforms:
     - mimxrt1010_evk
     - mimxrt1060_evk@A/mimxrt1062/qspi
@@ -47,7 +48,7 @@ common:
     - nucleo_f746zg/stm32f746xx/bbe
     - nucleo_f767zi/stm32f767xx
     - nucleo_f767zi/stm32f767xx/bbe
-    - nucleo_l496zg
+    - nucleo_l496zg/stm32l496xx/bbe
 tests:
   bridle.sample.ubx_gnss.release:
     build_only: true

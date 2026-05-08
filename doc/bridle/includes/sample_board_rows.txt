@@ -88,9 +88,13 @@
 
 | STM32F767ZI | | :ref:`nucleo_f767zi_board-extensions` | - ``nucleo_f767zi/stm32f767xx/bbe`` |
 
-.. nucleo_l496zg
+.. nucleo_l496zg_stm32l496xx
 
-| STM32L496ZG | | :external+zephyr:zephyr:board:`nucleo_l496zg` | - ``nucleo_l496zg`` |
+| STM32L496ZG | | :external+zephyr:zephyr:board:`nucleo_l496zg` | - ``nucleo_l496zg/stm32l496xx`` |
+
+.. nucleo_l496zg_stm32l496xx_bbe
+
+| STM32L496ZG | | :ref:`nucleo_l496zg_board-extensions` | - ``nucleo_l496zg/stm32l496xx/bbe`` |
 
 .. mimxrt1010_evk
 

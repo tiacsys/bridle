@@ -34,7 +34,8 @@ common:
     - nucleo_f746zg/stm32f746xx/bbe
     - nucleo_f767zi/stm32f767xx
     - nucleo_f767zi/stm32f767xx/bbe
-    - nucleo_l496zg
+    - nucleo_l496zg/stm32l496xx
+    - nucleo_l496zg/stm32l496xx/bbe
     - picoboy/rp2040
     - picoboy_color/rp2040
     - picoboy_color_plus/rp2350a/m33
