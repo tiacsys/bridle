@@ -1,0 +1,14 @@
+/*
+ * Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	model = "STMicroelectronics STM32F746ZG-NUCLEO board @ USB-CDC/ACM Concole";
+	compatible = "st,stm32f746zg-nucleo",
+		     "st,stm32f746zg-nucleo-usbcons";
+
+	chosen {
+		zephyr,shell-uart = &snippet_cdc_acm_console_uart;
+	};
+};

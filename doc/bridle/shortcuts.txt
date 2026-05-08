@@ -1318,6 +1318,20 @@
 .. |STM32F746ZG-NUCLEO (CDC ACM)| replace::
    :external+zephyr:zephyr:board:`STM32F746ZG-NUCLEO (CDC ACM) <nucleo_f746zg>`
 
+.. |nucleo_f746zg_URB_VID|	replace:: |stm_URB_VID|
+.. |nucleo_f746zg_VID|		replace:: |stm_VID|
+.. |nucleo_f746zg_VStr|		replace:: |stm_VStr|
+
+.. |nucleo_f746zg_URB_PID_CON|	replace:: |stm_URB_PID_VCOM|
+.. |nucleo_f746zg_PID_CON|	replace:: |stm_PID_VCOM|
+.. |nucleo_f746zg_PStr_CON|	replace:: :ign:`STM32F746ZG-NUCLEO (CDC ACM)`
+.. |nucleo_f746zg_BCD_CON|	replace:: |zephyr_version_BCD|
+
+.. |nucleo_f746zg_URB_PID_MSC|	replace:: |stm_URB_PID_MSC|
+.. |nucleo_f746zg_PID_MSC|	replace:: |stm_PID_MSC|
+.. |nucleo_f746zg_PStr_MSC|	replace:: :ign:`STM32F746ZG-NUCLEO (MSC)`
+.. |nucleo_f746zg_BCD_MSC|	replace:: |zephyr_version_BCD|
+
 .. |zephyr:board:nucleo_f767zi| replace::
    :external+zephyr:zephyr:board:`nucleo_f767zi`
 

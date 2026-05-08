@@ -73,6 +73,17 @@ specified as required.
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
 
+   * - |nucleo_f746zg_URB_VID|
+     - |nucleo_f746zg_URB_PID_CON|
+     - | :code:`nucleo_f746zg`
+       | :code:`nucleo_f746zg//bbe`
+     - |STMicroelectronics|_
+     - | |STM32F746ZG-NUCLEO (CDC ACM)|
+       | ↳ |bridle:board:nucleo_f746zg|
+     - `STMicroelectronics USB product ID from their Virtual COM Port`_
+     - | |zephyr:devicetree:chosen:console|
+       | |zephyr:devicetree:chosen:shell-uart|
+
    * - |nucleo_f767zi_URB_VID|
      - |nucleo_f767zi_URB_PID_CON|
      - :code:`nucleo_f767zi`
