@@ -120,6 +120,22 @@
 
 | i.MX RT1060 | | :external+zephyr:zephyr:board:`mimxrt1060_evk` | - ``mimxrt1060_evk@C/mimxrt1062/qspi`` |
 
+.. mimxrt1060_evk@A_mimxrt1062_qspi_bbe
+
+| i.MX RT1060 | | :ref:`mimxrt1060_evk_board-extensions` | - ``mimxrt1060_evk@A/mimxrt1062/qspi/bbe`` |
+
+.. mimxrt1060_evk@B_mimxrt1062_qspi_bbe
+
+| i.MX RT1060 | | :ref:`mimxrt1060_evk_board-extensions` | - ``mimxrt1060_evk@B/mimxrt1062/qspi/bbe`` |
+
+.. mimxrt1060_evk@C_mimxrt1062_hyperflash_bbe
+
+| i.MX RT1060 | | :ref:`mimxrt1060_evk_board-extensions` | - ``mimxrt1060_evk@C/mimxrt1062/hyperflash/bbe`` |
+
+.. mimxrt1060_evk@C_mimxrt1062_qspi_bbe
+
+| i.MX RT1060 | | :ref:`mimxrt1060_evk_board-extensions` | - ``mimxrt1060_evk@C/mimxrt1062/qspi/bbe`` |
+
 .. mimxrt1170_evk@A_mimxrt1176_cm4
 
 | i.MX RT1170 (CM4) | | :external+zephyr:zephyr:board:`mimxrt1170_evk` | - ``mimxrt1170_evk@A/mimxrt1176/cm4`` |
