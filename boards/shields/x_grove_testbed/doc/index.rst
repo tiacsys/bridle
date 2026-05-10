@@ -507,7 +507,7 @@ For example:
 
          .. group-tab:: NXP MIMXRT1010-EVK
 
-            This is based on the Zephyr board |zephyr:board:mimxrt1010_evk|.
+            This is based on the Bridle extended board |bridle:board:mimxrt1010_evk|.
 
             * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
 
@@ -536,7 +536,7 @@ For example:
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/blinky
                      :build-dir: blinky-mimxrt1010_evk-x_grove_testbed
-                     :board: mimxrt1010_evk
+                     :board: mimxrt1010_evk/mimxrt1011/bbe
                      :shield: \
                               "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 x_grove_testbed"
                      :west-args: -p
@@ -552,7 +552,7 @@ For example:
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/button
                      :build-dir: button-mimxrt1010_evk-x_grove_testbed
-                     :board: mimxrt1010_evk
+                     :board: mimxrt1010_evk/mimxrt1011/bbe
                      :shield: \
                               "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 x_grove_testbed"
                      :west-args: -p

@@ -575,9 +575,9 @@ GPIO mapping
       This is the **GPIO signal line mapping** from an `Arduino Uno R3`_
       or `Arduino Uno R2`_ header bindet with :dtcompatible:`arduino-header-r3`.
 
-      .. include:: grove_gpios_arduino_header.rsti
-
       .. include:: grove_attention-mimxrt1010_evk.rsti
+
+      .. include:: grove_gpios_arduino_header.rsti
 
    .. group-tab:: Seeeduino XIAO Header
 
@@ -666,10 +666,11 @@ not be complete.
 
       .. tabs::
 
-         .. group-tab:: ``mimxrt1010_evk``
+         .. group-tab:: ``mimxrt1010_evk//bbe``
 
-            This is based on the Zephyr board |zephyr:board:mimxrt1010_evk|
-            and its :dtcompatible:`arduino-header-r3`.
+            This is based on the Bridle extended board
+            |bridle:board:mimxrt1010_evk| and its
+            :dtcompatible:`arduino-header-r3`.
 
             .. note::
 
@@ -679,9 +680,9 @@ not be complete.
                with the hardware user manual and/or schematic if you need to change
                jumper or solder bridge setups for proper usage.
 
-            .. include:: grove_pwms-mimxrt1010_evk.rsti
-
             .. include:: grove_attention-mimxrt1010_evk.rsti
+
+            .. include:: grove_pwms-mimxrt1010_evk_bbe.rsti
 
          .. group-tab:: ``mimxrt1060_evk(b)``
 

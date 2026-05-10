@@ -132,9 +132,11 @@ specified as required.
 
    * - |mimxrt1010_evk_URB_VID|
      - |mimxrt1010_evk_URB_PID_CON|
-     - :code:`mimxrt1010_evk`
+     - | :code:`mimxrt1010_evk`
+       | :code:`mimxrt1010_evk//bbe`
      - |NXP Semiconductors|_
-     - |MIMXRT1010-EVK (CDC ACM)|
+     - | |MIMXRT1010-EVK (CDC ACM)|
+       | ↳ |bridle:board:mimxrt1010_evk|
      - derived VID from part number MIMXRT1011DAE5A
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
