@@ -39,9 +39,13 @@ common:
     - mimxrt1010_evk/mimxrt1011
     - mimxrt1010_evk/mimxrt1011/bbe
     - mimxrt1060_evk@A/mimxrt1062/qspi
+    - mimxrt1060_evk@A/mimxrt1062/qspi/bbe
     - mimxrt1060_evk@B/mimxrt1062/qspi
+    - mimxrt1060_evk@B/mimxrt1062/qspi/bbe
     - mimxrt1060_evk@C/mimxrt1062/qspi
+    - mimxrt1060_evk@C/mimxrt1062/qspi/bbe
     - mimxrt1060_evk@C/mimxrt1062/hyperflash
+    - mimxrt1060_evk@C/mimxrt1062/hyperflash/bbe
     - mini_usb_rp2040
     - mini_usb_rp2040@16mb
     - mini_usb_rp2040@chipled
@@ -164,9 +168,13 @@ tests:
       - mimxrt1010_evk/mimxrt1011
       - mimxrt1010_evk/mimxrt1011/bbe
       - mimxrt1060_evk@A/mimxrt1062/qspi
+      - mimxrt1060_evk@A/mimxrt1062/qspi/bbe
       - mimxrt1060_evk@B/mimxrt1062/qspi
+      - mimxrt1060_evk@B/mimxrt1062/qspi/bbe
       - mimxrt1060_evk@C/mimxrt1062/qspi
+      - mimxrt1060_evk@C/mimxrt1062/qspi/bbe
       - mimxrt1060_evk@C/mimxrt1062/hyperflash
+      - mimxrt1060_evk@C/mimxrt1062/hyperflash/bbe
       - nucleo_f413zh/stm32f413xx
       - nucleo_f413zh/stm32f413xx/bbe
       - nucleo_f746zg/stm32f746xx

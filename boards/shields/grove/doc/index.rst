@@ -687,6 +687,7 @@ not be complete.
          .. group-tab:: ``mimxrt1060_evk(b)``
 
             This is based on the Zephyr board |zephyr:board:mimxrt1060_evk|
+            or the Bridle extended board |bridle:board:mimxrt1060_evk|
             and its :dtcompatible:`arduino-header-r3`.
 
             .. note::
@@ -930,24 +931,43 @@ Set ``-DSHIELD=seeed_grove_base_v2`` or ``-DSHIELD=seeed_grove_base_v1``
 when you invoke ``west build`` or ``cmake`` in your Zephyr application. For
 example:
 
-#. :ref:`grove_base_shield_v2` on |zephyr:board:mimxrt1060_evk|:
+#. :ref:`grove_base_shield_v2` on |zephyr:board:mimxrt1060_evk| or
+   |bridle:board:mimxrt1060_evk|:
 
     .. zephyr-app-commands::
        :app: bridle/samples/helloshell
        :build-dir: helloshell-seeed_grove_base_v2
+       :board: mimxrt1060_evk@B/mimxrt1062/qspi
+       :shield: "seeed_grove_base_v2"
+       :goals: flash
+       :west-args: -p
+       :host-os: unix
+
+    .. zephyr-app-commands::
+       :app: bridle/samples/helloshell
+       :build-dir: helloshell-seeed_grove_base_v2
+       :board: mimxrt1060_evk@B/mimxrt1062/qspi/bbe
+       :shield: "seeed_grove_base_v2"
+       :goals: flash
+       :west-args: -p
+       :host-os: unix
+
+#. :ref:`grove_base_shield_v13` or :ref:`grove_base_shield_v12` on
+   |zephyr:board:mimxrt1060_evk| or |bridle:board:mimxrt1060_evk|:
+
+    .. zephyr-app-commands::
+       :app: bridle/samples/helloshell
+       :build-dir: helloshell-seeed_grove_base_v1
        :board: mimxrt1060_evk@B/mimxrt1062/qspi
        :shield: "seeed_grove_base_v1"
        :goals: flash
        :west-args: -p
        :host-os: unix
 
-#. :ref:`grove_base_shield_v13` or :ref:`grove_base_shield_v12` on
-   |zephyr:board:mimxrt1060_evk|:
-
     .. zephyr-app-commands::
        :app: bridle/samples/helloshell
        :build-dir: helloshell-seeed_grove_base_v1
-       :board: mimxrt1060_evk@B/mimxrt1062/qspi
+       :board: mimxrt1060_evk@B/mimxrt1062/qspi/bbe
        :shield: "seeed_grove_base_v1"
        :goals: flash
        :west-args: -p

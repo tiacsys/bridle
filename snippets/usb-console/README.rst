@@ -143,12 +143,17 @@ specified as required.
 
    * - |mimxrt1060_evk_URB_VID|
      - |mimxrt1060_evk_URB_PID_CON|
-     - | :code:`mimxrt1060_evk@C/mimxrt1062/qspi`
-       | :code:`mimxrt1060_evk@B/mimxrt1062/qspi`
-       | :code:`mimxrt1060_evk@A/mimxrt1062/qspi`
-       | :code:`mimxrt1060_evk/mimxrt1062/hyperflash`
+     - | :code:`mimxrt1060_evk//hyperflash`
+       | :code:`mimxrt1060_evk//hyperflash/bbe`
+       | :code:`mimxrt1060_evk@C//qspi`
+       | :code:`mimxrt1060_evk@C//qspi/bbe`
+       | :code:`mimxrt1060_evk@B//qspi`
+       | :code:`mimxrt1060_evk@B//qspi/bbe`
+       | :code:`mimxrt1060_evk@A//qspi`
+       | :code:`mimxrt1060_evk@A//qspi/bbe`
      - |NXP Semiconductors|_
-     - |MIMXRT1060-EVK (CDC ACM)|
+     - | |MIMXRT1060-EVK (CDC ACM)|
+       | ↳ |bridle:board:mimxrt1060_evk|
      - derived VID from part number MIMXRT1062DVL6A
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|

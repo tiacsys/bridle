@@ -562,7 +562,8 @@ For example:
 
          .. group-tab:: NXP MIMXRT1060-EVK(B)
 
-            This is based on the Zephyr board |zephyr:board:mimxrt1060_evk|.
+            This is based on the Zephyr board |zephyr:board:mimxrt1060_evk| or
+            the Bridle extended board |bridle:board:mimxrt1060_evk|.
 
             * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
 
@@ -599,6 +600,17 @@ For example:
                      :goals: flash
                      :host-os: unix
 
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/blinky
+                     :build-dir: blinky-mimxrt1060_evkb-x_grove_testbed
+                     :board: mimxrt1060_evk@B//qspi/bbe
+                     :shield: \
+                              "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 x_grove_testbed"
+                     :west-args: -p
+                     :flash-args: -r pyocd
+                     :goals: flash
+                     :host-os: unix
+
                .. group-tab:: LED Button
 
                   This is based on the Zephyr sample
@@ -608,6 +620,17 @@ For example:
                      :app: zephyr/samples/basic/button
                      :build-dir: button-mimxrt1060_evkb-x_grove_testbed
                      :board: mimxrt1060_evk@B//qspi
+                     :shield: \
+                              "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 x_grove_testbed"
+                     :west-args: -p
+                     :flash-args: -r pyocd
+                     :goals: flash
+                     :host-os: unix
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/button
+                     :build-dir: button-mimxrt1060_evkb-x_grove_testbed
+                     :board: mimxrt1060_evk@B//qspi/bbe
                      :shield: \
                               "seeed_grove_base_v2 grove_btn_d4 grove_led_d6 x_grove_testbed"
                      :west-args: -p

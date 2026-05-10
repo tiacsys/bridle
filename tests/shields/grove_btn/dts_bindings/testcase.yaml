@@ -33,9 +33,13 @@ common:
     - cytron_motion_2350_pro/rp2350a/m33
     - mimxrt1010_evk/mimxrt1011/bbe
     - mimxrt1060_evk@A/mimxrt1062/qspi
+    - mimxrt1060_evk@A/mimxrt1062/qspi/bbe
     - mimxrt1060_evk@B/mimxrt1062/qspi
+    - mimxrt1060_evk@B/mimxrt1062/qspi/bbe
     - mimxrt1060_evk@C/mimxrt1062/qspi
+    - mimxrt1060_evk@C/mimxrt1062/qspi/bbe
     - mimxrt1060_evk@C/mimxrt1062/hyperflash
+    - mimxrt1060_evk@C/mimxrt1062/hyperflash/bbe
     - nucleo_f303re/stm32f303xe/bbe
     - nucleo_f401re/stm32f401xe/bbe
     - nucleo_f413zh/stm32f413xx

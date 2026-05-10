@@ -107,11 +107,17 @@
   platforms:
     - mimxrt1010_evk/mimxrt1011/bbe
     - mimxrt1060_evk@A/mimxrt1062/hyperflash
+    - mimxrt1060_evk@A/mimxrt1062/hyperflash/bbe
     - mimxrt1060_evk@A/mimxrt1062/qspi
+    - mimxrt1060_evk@A/mimxrt1062/qspi/bbe
     - mimxrt1060_evk@B/mimxrt1062/hyperflash
+    - mimxrt1060_evk@B/mimxrt1062/hyperflash/bbe
     - mimxrt1060_evk@B/mimxrt1062/qspi
+    - mimxrt1060_evk@B/mimxrt1062/qspi/bbe
     - mimxrt1060_evk@C/mimxrt1062/hyperflash
+    - mimxrt1060_evk@C/mimxrt1062/hyperflash/bbe
     - mimxrt1060_evk@C/mimxrt1062/qspi
+    - mimxrt1060_evk@C/mimxrt1062/qspi/bbe
 
 - comment: "shield(grove.base.x_grove_testbed.pwm.b4l6): invalid board/shield condition."
   scenarios:
@@ -363,11 +369,17 @@
     - mini_usb_rp2350@16mb/rp2350a/m33
     - mimxrt1010_evk/mimxrt1011/bbe
     - mimxrt1060_evk@A/mimxrt1062/hyperflash
+    - mimxrt1060_evk@A/mimxrt1062/hyperflash/bbe
     - mimxrt1060_evk@A/mimxrt1062/qspi
+    - mimxrt1060_evk@A/mimxrt1062/qspi/bbe
     - mimxrt1060_evk@B/mimxrt1062/hyperflash
+    - mimxrt1060_evk@B/mimxrt1062/hyperflash/bbe
     - mimxrt1060_evk@B/mimxrt1062/qspi
+    - mimxrt1060_evk@B/mimxrt1062/qspi/bbe
     - mimxrt1060_evk@C/mimxrt1062/hyperflash
+    - mimxrt1060_evk@C/mimxrt1062/hyperflash/bbe
     - mimxrt1060_evk@C/mimxrt1062/qspi
+    - mimxrt1060_evk@C/mimxrt1062/qspi/bbe
     - nucleo_f303re/stm32f303xe/bbe
     - nucleo_f401re/stm32f401xe/bbe
     - nucleo_f413zh/stm32f413xx
@@ -437,11 +449,17 @@
     - mini_usb_rp2350@16mb/rp2350a/m33
     - mimxrt1010_evk/mimxrt1011/bbe
     - mimxrt1060_evk@A/mimxrt1062/hyperflash
+    - mimxrt1060_evk@A/mimxrt1062/hyperflash/bbe
     - mimxrt1060_evk@A/mimxrt1062/qspi
+    - mimxrt1060_evk@A/mimxrt1062/qspi/bbe
     - mimxrt1060_evk@B/mimxrt1062/hyperflash
+    - mimxrt1060_evk@B/mimxrt1062/hyperflash/bbe
     - mimxrt1060_evk@B/mimxrt1062/qspi
+    - mimxrt1060_evk@B/mimxrt1062/qspi/bbe
     - mimxrt1060_evk@C/mimxrt1062/hyperflash
+    - mimxrt1060_evk@C/mimxrt1062/hyperflash/bbe
     - mimxrt1060_evk@C/mimxrt1062/qspi
+    - mimxrt1060_evk@C/mimxrt1062/qspi/bbe
     - nucleo_f303re/stm32f303xe/bbe
     - nucleo_f401re/stm32f401xe/bbe
     - nucleo_f413zh/stm32f413xx
@@ -532,11 +550,17 @@
     - mini_usb_rp2350@16mb/rp2350a/m33
     - mimxrt1010_evk/mimxrt1011/bbe
     - mimxrt1060_evk@A/mimxrt1062/hyperflash
+    - mimxrt1060_evk@A/mimxrt1062/hyperflash/bbe
     - mimxrt1060_evk@A/mimxrt1062/qspi
+    - mimxrt1060_evk@A/mimxrt1062/qspi/bbe
     - mimxrt1060_evk@B/mimxrt1062/hyperflash
+    - mimxrt1060_evk@B/mimxrt1062/hyperflash/bbe
     - mimxrt1060_evk@B/mimxrt1062/qspi
+    - mimxrt1060_evk@B/mimxrt1062/qspi/bbe
     - mimxrt1060_evk@C/mimxrt1062/hyperflash
+    - mimxrt1060_evk@C/mimxrt1062/hyperflash/bbe
     - mimxrt1060_evk@C/mimxrt1062/qspi
+    - mimxrt1060_evk@C/mimxrt1062/qspi/bbe
     - nucleo_f303re/stm32f303xe/bbe
     - nucleo_f401re/stm32f401xe/bbe
     - nucleo_f413zh/stm32f413xx
@@ -584,11 +608,17 @@
     - mini_usb_rp2350@16mb/rp2350a/m33
     - mimxrt1010_evk/mimxrt1011/bbe
     - mimxrt1060_evk@A/mimxrt1062/hyperflash
+    - mimxrt1060_evk@A/mimxrt1062/hyperflash/bbe
     - mimxrt1060_evk@A/mimxrt1062/qspi
+    - mimxrt1060_evk@A/mimxrt1062/qspi/bbe
     - mimxrt1060_evk@B/mimxrt1062/hyperflash
+    - mimxrt1060_evk@B/mimxrt1062/hyperflash/bbe
     - mimxrt1060_evk@B/mimxrt1062/qspi
+    - mimxrt1060_evk@B/mimxrt1062/qspi/bbe
     - mimxrt1060_evk@C/mimxrt1062/hyperflash
+    - mimxrt1060_evk@C/mimxrt1062/hyperflash/bbe
     - mimxrt1060_evk@C/mimxrt1062/qspi
+    - mimxrt1060_evk@C/mimxrt1062/qspi/bbe
     - nucleo_f303re/stm32f303xe/bbe
     - nucleo_f401re/stm32f401xe/bbe
     - nucleo_f413zh/stm32f413xx
@@ -631,11 +661,17 @@
     - arduino_zero/samd21g18a
     - mimxrt1010_evk/mimxrt1011/bbe
     - mimxrt1060_evk@A/mimxrt1062/hyperflash
+    - mimxrt1060_evk@A/mimxrt1062/hyperflash/bbe
     - mimxrt1060_evk@A/mimxrt1062/qspi
+    - mimxrt1060_evk@A/mimxrt1062/qspi/bbe
     - mimxrt1060_evk@B/mimxrt1062/hyperflash
+    - mimxrt1060_evk@B/mimxrt1062/hyperflash/bbe
     - mimxrt1060_evk@B/mimxrt1062/qspi
+    - mimxrt1060_evk@B/mimxrt1062/qspi/bbe
     - mimxrt1060_evk@C/mimxrt1062/hyperflash
+    - mimxrt1060_evk@C/mimxrt1062/hyperflash/bbe
     - mimxrt1060_evk@C/mimxrt1062/qspi
+    - mimxrt1060_evk@C/mimxrt1062/qspi/bbe
     - nucleo_f303re/stm32f303xe/bbe
     - nucleo_f401re/stm32f401xe/bbe
     - nucleo_f413zh/stm32f413xx
@@ -1093,11 +1129,17 @@
 - comment: "shield(grove.base.grove_led): mimxrt1060_evk(b): invalid board condition."
   platforms:
     - mimxrt1060_evk@A/mimxrt1062/hyperflash
+    - mimxrt1060_evk@A/mimxrt1062/hyperflash/bbe
     - mimxrt1060_evk@A/mimxrt1062/qspi
+    - mimxrt1060_evk@A/mimxrt1062/qspi/bbe
     - mimxrt1060_evk@B/mimxrt1062/hyperflash
+    - mimxrt1060_evk@B/mimxrt1062/hyperflash/bbe
     - mimxrt1060_evk@B/mimxrt1062/qspi
+    - mimxrt1060_evk@B/mimxrt1062/qspi/bbe
     - mimxrt1060_evk@C/mimxrt1062/hyperflash
+    - mimxrt1060_evk@C/mimxrt1062/hyperflash/bbe
     - mimxrt1060_evk@C/mimxrt1062/qspi
+    - mimxrt1060_evk@C/mimxrt1062/qspi/bbe
   scenarios:
     - grove.base.(v2|v1).grove_led.pwm.d0
     - grove.base.(v2|v1).grove_led.pwm.d1
@@ -1203,11 +1245,17 @@
     - mini_usb_rp2350@16mb/rp2350a/m33
     - mimxrt1010_evk/mimxrt1011/bbe
     - mimxrt1060_evk@A/mimxrt1062/hyperflash
+    - mimxrt1060_evk@A/mimxrt1062/hyperflash/bbe
     - mimxrt1060_evk@A/mimxrt1062/qspi
+    - mimxrt1060_evk@A/mimxrt1062/qspi/bbe
     - mimxrt1060_evk@B/mimxrt1062/hyperflash
+    - mimxrt1060_evk@B/mimxrt1062/hyperflash/bbe
     - mimxrt1060_evk@B/mimxrt1062/qspi
+    - mimxrt1060_evk@B/mimxrt1062/qspi/bbe
     - mimxrt1060_evk@C/mimxrt1062/hyperflash
+    - mimxrt1060_evk@C/mimxrt1062/hyperflash/bbe
     - mimxrt1060_evk@C/mimxrt1062/qspi
+    - mimxrt1060_evk@C/mimxrt1062/qspi/bbe
     - nucleo_f303re/stm32f303xe/bbe
     - nucleo_f401re/stm32f401xe/bbe
     - nucleo_f413zh/stm32f413xx
@@ -1264,11 +1312,17 @@
     - mini_usb_rp2350@16mb/rp2350a/m33
     - mimxrt1010_evk/mimxrt1011/bbe
     - mimxrt1060_evk@A/mimxrt1062/hyperflash
+    - mimxrt1060_evk@A/mimxrt1062/hyperflash/bbe
     - mimxrt1060_evk@A/mimxrt1062/qspi
+    - mimxrt1060_evk@A/mimxrt1062/qspi/bbe
     - mimxrt1060_evk@B/mimxrt1062/hyperflash
+    - mimxrt1060_evk@B/mimxrt1062/hyperflash/bbe
     - mimxrt1060_evk@B/mimxrt1062/qspi
+    - mimxrt1060_evk@B/mimxrt1062/qspi/bbe
     - mimxrt1060_evk@C/mimxrt1062/hyperflash
+    - mimxrt1060_evk@C/mimxrt1062/hyperflash/bbe
     - mimxrt1060_evk@C/mimxrt1062/qspi
+    - mimxrt1060_evk@C/mimxrt1062/qspi/bbe
     - nucleo_f303re/stm32f303xe/bbe
     - nucleo_f401re/stm32f401xe/bbe
     - nucleo_f413zh/stm32f413xx
@@ -1305,11 +1359,17 @@
     - arduino_zero/samd21g18a
     - mimxrt1010_evk/mimxrt1011/bbe
     - mimxrt1060_evk@A/mimxrt1062/hyperflash
+    - mimxrt1060_evk@A/mimxrt1062/hyperflash/bbe
     - mimxrt1060_evk@A/mimxrt1062/qspi
+    - mimxrt1060_evk@A/mimxrt1062/qspi/bbe
     - mimxrt1060_evk@B/mimxrt1062/hyperflash
+    - mimxrt1060_evk@B/mimxrt1062/hyperflash/bbe
     - mimxrt1060_evk@B/mimxrt1062/qspi
+    - mimxrt1060_evk@B/mimxrt1062/qspi/bbe
     - mimxrt1060_evk@C/mimxrt1062/hyperflash
+    - mimxrt1060_evk@C/mimxrt1062/hyperflash/bbe
     - mimxrt1060_evk@C/mimxrt1062/qspi
+    - mimxrt1060_evk@C/mimxrt1062/qspi/bbe
     - nucleo_f303re/stm32f303xe/bbe
     - nucleo_f401re/stm32f401xe/bbe
     - nucleo_f413zh/stm32f413xx
