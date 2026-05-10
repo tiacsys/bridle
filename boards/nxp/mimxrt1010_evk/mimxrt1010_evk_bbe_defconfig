@@ -1,0 +1,12 @@
+# Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+#
+# NOTE: copy and own from original default configuration in
+# "zephyr/boards/st/mimxrt1010_evk/mimxrt1010_evk_defconfig"
+
+CONFIG_CONSOLE=y
+CONFIG_UART_CONSOLE=y
+CONFIG_SERIAL=y
+CONFIG_GPIO=y
+CONFIG_ARM_MPU=y
+CONFIG_HW_STACK_PROTECTION=y

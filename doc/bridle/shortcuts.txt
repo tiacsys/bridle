@@ -1137,6 +1137,9 @@
 .. |zephyr:board:bluepillplus_ch32v203| replace::
    :external+zephyr:zephyr:board:`bluepillplus_ch32v203`
 
+.. |bridle:board:mimxrt1010_evk| replace:: :ref:`mimxrt1010_evk_board-extensions`
+.. :bridle:board:`mimxrt1010_evk`
+
 .. |zephyr:board:mimxrt1010_evk| replace::
    :external+zephyr:zephyr:board:`mimxrt1010_evk`
 

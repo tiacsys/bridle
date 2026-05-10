@@ -69,7 +69,10 @@ the :ref:`boards-extensions` section in this documentation.
 |                   +------------------------------------+--------------------------------------------+
 |                   | |zephyr:board:seeeduino_xiao|      | ``seeeduino_xiao``                         |
 +-------------------+------------------------------------+--------------------------------------------+
-| i.MX RT1010       | |zephyr:board:mimxrt1010_evk|      | ``mimxrt1010_evk``                         |
+| i.MX RT1010       | |zephyr:board:mimxrt1010_evk|      | | ``mimxrt1010_evk``                       |
+|                   |                                    | | ``mimxrt1010_evk/mimxrt1011``            |
+|                   +------------------------------------+--------------------------------------------+
+|                   | |bridle:board:mimxrt1010_evk|      | | ``mimxrt1010_evk/mimxrt1011/bbe``        |
 +-------------------+------------------------------------+--------------------------------------------+
 | i.MX RT1060       | |zephyr:board:mimxrt1060_evk|      | | ``mimxrt1060_evk/mimxrt1062/hyperflash`` |
 |                   |                                    | | ``mimxrt1060_evk@A/mimxrt1062/qspi``     |

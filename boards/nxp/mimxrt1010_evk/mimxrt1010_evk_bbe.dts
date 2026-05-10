@@ -1,13 +1,17 @@
 /*
- * Copyright (c) 2023-2025 TiaC Systems
+ * Copyright (c) 2023-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
+#include "../../zephyr/boards/nxp/mimxrt1010_evk/mimxrt1010_evk.dts"
 #include "arduino_r3_connector.dtsi"
 
 / {
-	model = "NXP MIMXRT1010-EVK board @ UART Concole";
-	compatible = "nxp,mimxrt1010", "nxp,mimxrt1010-uartcons";
+	model = "NXP MIMXRT1010-EVK board @ UART Concole (BBE)";
+	compatible = "nxp,mimxrt1010",
+		     "nxp,mimxrt1010-bbe",
+		     "nxp,mimxrt1010-uartcons",
+		     "nxp,mimxrt1010-uartcons-bbe";
 
 	chosen {
 		zephyr,console = &lpuart1;
@@ -19,6 +23,7 @@
 		partition = <&storage_partition>;
 		disk-name = "NAND";
 		cache-size = <4096>;
+		status = "disabled";
 	};
 };
 

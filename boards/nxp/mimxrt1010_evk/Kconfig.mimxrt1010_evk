@@ -1,0 +1,9 @@
+# Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+config BOARD_MIMXRT1010_EVK_MIMXRT1011
+	bool
+
+config BOARD_MIMXRT1010_EVK_MIMXRT1011_BBE
+	bool
+	select BOARD_MIMXRT1010_EVK_MIMXRT1011

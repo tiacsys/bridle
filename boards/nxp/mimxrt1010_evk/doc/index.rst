@@ -1,14 +1,14 @@
-.. _mimxrt1010_evk-extensions:
+.. _mimxrt1010_evk_board-extensions:
 
-NXP MIMXRT1010-EVK
-##################
+MIMXRT1010-EVK (BBE)
+####################
 
 Overview
 ********
 
-This is a set of Bridle's extension to the original Zephyr upstream board
-|zephyr:board:mimxrt1010_evk| with some adaptions and improvement on
-Kconfig and Devicetree level.
+This is a set of Bridle's board extensions (BBE) to the original Zephyr
+upstream board |zephyr:board:mimxrt1010_evk| with some adaptions and
+improvement on Kconfig and Devicetree level.
 
 List of extensions
 ******************
@@ -74,17 +74,18 @@ List of extensions
 
      * - .. rubric:: NXP MIMXRT1010-EVK
 
-     * - .. literalinclude:: ../mimxrt1010_evk.overlay
-            :caption: mimxrt1010_evk.overlay
+     * - .. literalinclude:: ../mimxrt1010_evk_bbe.dts
+            :caption: mimxrt1010_evk_bbe.dts
             :language: DTS
             :encoding: ISO-8859-1
             :prepend: / {
             :start-at: model
-            :end-at: compatible
+            :end-before: chosen {
             :append: };
 
-- overwrite the Arduino UNO R3 specific edge connecor binding
-  :dts:`&arduino_header {...};` with additional closed connections:
+- overwrite the Arduino UNO R3 specific edge connector binding
+  :dts:`&arduino_header {...};` with a correction of the GPIO
+  assignment to ``D9`` and also provides closed connections:
 
   .. list-table::
      :align: left
@@ -119,8 +120,8 @@ List of extensions
 
      * - .. rubric:: NXP MIMXRT1010-EVK
 
-     * - .. literalinclude:: ../mimxrt1010_evk.overlay
-            :caption: mimxrt1010_evk.overlay
+     * - .. literalinclude:: ../mimxrt1010_evk_bbe.dts
+            :caption: mimxrt1010_evk_bbe.dts
             :language: DTS
             :encoding: ISO-8859-1
             :emphasize-lines: 2
@@ -138,8 +139,8 @@ List of extensions
 
      * - .. rubric:: NXP MIMXRT1010-EVK
 
-     * - .. literalinclude:: ../mimxrt1010_evk.overlay
-            :caption: mimxrt1010_evk.overlay
+     * - .. literalinclude:: ../mimxrt1010_evk_bbe.dts
+            :caption: mimxrt1010_evk_bbe.dts
             :language: DTS
             :encoding: ISO-8859-1
             :emphasize-lines: 5
