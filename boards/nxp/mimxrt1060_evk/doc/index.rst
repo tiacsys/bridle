@@ -1,14 +1,14 @@
-.. _mimxrt1060_evk-extensions:
+.. _mimxrt1060_evk_board-extensions:
 
-NXP MIMXRT1060-EVK
-##################
+MIMXRT1060-EVK (BBE)
+####################
 
 Overview
 ********
 
-This is a set of Bridle's extension to the original Zephyr upstream board
-|zephyr:board:mimxrt1060_evk| with some adaptions and improvement on
-Kconfig and Devicetree level.
+This is a set of Bridle's board extensions (BBE) to the original Zephyr
+upstream board |zephyr:board:mimxrt1060_evk| with some adaptions and
+improvement on Kconfig and Devicetree level.
 
 List of extensions
 ******************
@@ -80,7 +80,7 @@ List of extensions
             :encoding: ISO-8859-1
             :prepend: / {
             :start-at: model
-            :end-at: compatible
+            :end-before: chosen {
             :append: };
 
 - FlexPWM not routed to the green user LED ``LED1`` on the EVK **B**
@@ -94,8 +94,8 @@ List of extensions
 
      * - .. rubric:: NXP MIMXRT1060-EVKB and MIMXRT1060-EVKC
 
-     * - .. literalinclude:: ../mimxrt1060_evk_mimxrt1062_qspi_B.overlay
-            :caption: mimxrt1060_evk_mimxrt1062_qspi_B.overlay
+     * - .. literalinclude:: ../mimxrt1060_evk_mimxrt1062_qspi_bbe_B.overlay
+            :caption: mimxrt1060_evk_mimxrt1062_qspi_bbe_B.overlay
             :language: DTS
             :encoding: ISO-8859-1
             :emphasize-lines: 3,6
@@ -104,8 +104,8 @@ List of extensions
             :end-at: /delete-node/ pwmleds;
             :append: };
 
-         .. literalinclude:: ../mimxrt1060_evk_mimxrt1062_qspi_C.overlay
-            :caption: mimxrt1060_evk_mimxrt1062_qspi_C.overlay
+         .. literalinclude:: ../mimxrt1060_evk_mimxrt1062_qspi_bbe_C.overlay
+            :caption: mimxrt1060_evk_mimxrt1062_qspi_bbe_C.overlay
             :language: DTS
             :encoding: ISO-8859-1
             :emphasize-lines: 3,6

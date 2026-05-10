@@ -1155,6 +1155,9 @@
 .. |mimxrt1010_evk_PStr_CON|	replace:: :ign:`MIMXRT1010-EVK (CDC ACM)`
 .. |mimxrt1010_evk_BCD_CON|	replace:: |zephyr_version_BCD|
 
+.. |bridle:board:mimxrt1060_evk| replace:: :ref:`mimxrt1060_evk_board-extensions`
+.. :bridle:board:`mimxrt1060_evk`
+
 .. |zephyr:board:mimxrt1060_evk| replace::
    :external+zephyr:zephyr:board:`mimxrt1060_evk`
 

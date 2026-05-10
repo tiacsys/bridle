@@ -1,0 +1,7 @@
+/*
+ * Copyright (c) 2023-2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include "../../zephyr/boards/nxp/mimxrt1060_evk/mimxrt1060_evk_mimxrt1062_hyperflash.dts"
+#include "mimxrt1060_evk.dtsi"

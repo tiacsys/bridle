@@ -1,11 +1,14 @@
 /*
- * Copyright (c) 2023-2025 TiaC Systems
+ * Copyright (c) 2023-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
 / {
-	model = "NXP MIMXRT1060-EVK board @ UART Concole";
-	compatible = "nxp,mimxrt1062", "nxp,mimxrt1062-uartcons";
+	model = "NXP MIMXRT1060-EVK board @ UART Concole (BBE)";
+	compatible = "nxp,mimxrt1062",
+		     "nxp,mimxrt1062-bbe",
+		     "nxp,mimxrt1062-uartcons",
+		     "nxp,mimxrt1062-uartcons-bbe";
 
 	chosen {
 		zephyr,console = &lpuart1;
@@ -17,5 +20,6 @@
 		partition = <&storage_partition>;
 		disk-name = "NAND";
 		cache-size = <4096>;
+		status = "disabled";
 	};
 };

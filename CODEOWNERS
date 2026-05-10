@@ -38,7 +38,7 @@
 /boards/cytron/maker_rp2040/              @rexut
 /boards/extensions/                       @rexut
 /boards/nxp/mimxrt1010_evk/               @rexut
-/boards/extensions/mimxrt1060_evk/        @rexut
+/boards/nxp/mimxrt1060_evk/               @rexut
 /boards/st/nucleo_f303re/                 @rexut
 /boards/st/nucleo_f401re/                 @rexut
 /boards/st/nucleo_f413zh/                 @rexut

@@ -1,0 +1,10 @@
+# Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+board:
+  extend: mimxrt1060_evk
+  variants:
+    - name: bbe
+      qualifier: mimxrt1062/qspi
+    - name: bbe
+      qualifier: mimxrt1062/hyperflash
