@@ -27,7 +27,7 @@ Requirements
   * |bridle:board:seeeduino_lotus|
   * |bridle:board:waveshare_rp2040|
   * |zephyr:board:arduino_zero| or Bridle's |bridle:board:arduino_zero|
-  * |zephyr:board:mimxrt1010_evk|
+  * |zephyr:board:mimxrt1010_evk| or Bridle's |bridle:board:mimxrt1010_evk|
   * |zephyr:board:mimxrt1060_evk|
   * |zephyr:board:native_sim|
   * |zephyr:board:nucleo_f303re| or Bridle's |bridle:board:nucleo_f303re|

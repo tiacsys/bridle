@@ -96,9 +96,13 @@
 
 | STM32L496ZG | | :ref:`nucleo_l496zg_board-extensions` | - ``nucleo_l496zg/stm32l496xx/bbe`` |
 
-.. mimxrt1010_evk
+.. mimxrt1010_evk_mimxrt1011
 
-| i.MX RT1010 | | :external+zephyr:zephyr:board:`mimxrt1010_evk` | - ``mimxrt1010_evk`` |
+| i.MX RT1010 | | :external+zephyr:zephyr:board:`mimxrt1010_evk` | - ``mimxrt1010_evk/mimxrt1011`` |
+
+.. mimxrt1010_evk_mimxrt1011_bbe
+
+| i.MX RT1010 | | :ref:`mimxrt1010_evk_board-extensions` | - ``mimxrt1010_evk/mimxrt1011/bbe`` |
 
 .. mimxrt1060_evk@A_mimxrt1062_qspi
 
