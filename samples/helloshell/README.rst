@@ -29,6 +29,7 @@ Requirements
   * |zephyr:board:arduino_zero| or Bridle's |bridle:board:arduino_zero|
   * |zephyr:board:mimxrt1010_evk| or Bridle's |bridle:board:mimxrt1010_evk|
   * |zephyr:board:mimxrt1060_evk| or Bridle's |bridle:board:mimxrt1060_evk|
+  * |zephyr:board:mimxrt1170_evk| **with** Bridle's |bridle:board:mimxrt1170_evk|
   * |zephyr:board:native_sim|
   * |zephyr:board:nucleo_f303re| or Bridle's |bridle:board:nucleo_f303re|
   * |zephyr:board:nucleo_f401re| or Bridle's |bridle:board:nucleo_f401re|
