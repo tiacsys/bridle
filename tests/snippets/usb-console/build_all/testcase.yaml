@@ -46,6 +46,8 @@ common:
     - mimxrt1060_evk@C/mimxrt1062/qspi/bbe
     - mimxrt1060_evk@C/mimxrt1062/hyperflash
     - mimxrt1060_evk@C/mimxrt1062/hyperflash/bbe
+    - mimxrt1170_evk@A/mimxrt1176/cm7
+    - mimxrt1170_evk@B/mimxrt1176/cm7
     - mini_usb_rp2040
     - mini_usb_rp2040@16mb
     - mini_usb_rp2040@chipled
@@ -175,6 +177,8 @@ tests:
       - mimxrt1060_evk@C/mimxrt1062/qspi/bbe
       - mimxrt1060_evk@C/mimxrt1062/hyperflash
       - mimxrt1060_evk@C/mimxrt1062/hyperflash/bbe
+      - mimxrt1170_evk@A/mimxrt1176/cm7
+      - mimxrt1170_evk@B/mimxrt1176/cm7
       - nucleo_f413zh/stm32f413xx
       - nucleo_f413zh/stm32f413xx/bbe
       - nucleo_f746zg/stm32f746xx

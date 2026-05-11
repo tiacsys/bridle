@@ -88,6 +88,10 @@ boards:
     append:
       EXTRA_CONF_FILE: boards/mimxrt1060_evk.conf
       EXTRA_DTC_OVERLAY_FILE: boards/mimxrt1060_evk_bbe.overlay
+  /mimxrt1170_evk.*/mimxrt1176/cm7/:
+    append:
+      EXTRA_CONF_FILE: boards/mimxrt1170_evk.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/mimxrt1170_evk.overlay
   arduino_zero/samd21g18a:
     append:
       EXTRA_CONF_FILE: boards/arduino_zero.conf

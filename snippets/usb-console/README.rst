@@ -158,6 +158,17 @@ specified as required.
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
 
+   * - |mimxrt1170_evk_URB_VID|
+     - |mimxrt1170_evk_URB_PID_CON|
+     - | :code:`mimxrt1170_evk//cm7`
+       | :code:`mimxrt1170_evk@A//cm7`
+     - |NXP Semiconductors|_
+     - | |MIMXRT1170-EVK (CDC ACM)|
+       | ↳ |bridle:board:mimxrt1170_evk|
+     - derived VID from part number MIMXRT1176DVMAA
+     - | |zephyr:devicetree:chosen:console|
+       | |zephyr:devicetree:chosen:shell-uart|
+
    * - |arduino_zero_URB_VID|
      - |arduino_zero_URB_PID_CON|
      - :code:`arduino_zero`
