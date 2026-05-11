@@ -1,0 +1,15 @@
+/*
+ * Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	model = "NXP MIMXRT1170-EVK board @ UART Concole";
+	compatible = "nxp,mimxrt1176",
+		     "nxp,mimxrt1176-uartcons";
+
+	chosen {
+		zephyr,console = &lpuart1;
+		zephyr,shell-uart = &lpuart1;
+	};
+};

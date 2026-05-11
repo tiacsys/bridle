@@ -1173,11 +1173,14 @@
 .. |mimxrt1060_evk_PStr_CON|	replace:: :ign:`MIMXRT1060-EVK (CDC ACM)`
 .. |mimxrt1060_evk_BCD_CON|	replace:: |zephyr_version_BCD|
 
+.. |bridle:board:mimxrt1170_evk| replace:: :ref:`mimxrt1170_evk_board-extensions`
+.. :bridle:board:`mimxrt1170_evk`
+
 .. |zephyr:board:mimxrt1170_evk| replace::
    :external+zephyr:zephyr:board:`mimxrt1170_evk`
 
-.. |MIMXRT1170-EVK/EVKB (CDC ACM)| replace::
-   :external+zephyr:zephyr:board:`MIMXRT1170-EVK/EVKB (CDC ACM) <mimxrt1170_evk>`
+.. |MIMXRT1170-EVK (CDC ACM)| replace::
+   :external+zephyr:zephyr:board:`MIMXRT1170-EVK (CDC ACM) <mimxrt1170_evk>`
 
 .. |mimxrt1170_evk_URB_VID|	replace:: |nxp_URB_VID|
 .. |mimxrt1170_evk_VID|		replace:: |nxp_VID|
@@ -1185,7 +1188,7 @@
 
 .. |mimxrt1170_evk_URB_PID_CON|	replace:: :code:`0x1176`
 .. |mimxrt1170_evk_PID_CON|	replace:: :ign:`1176`
-.. |mimxrt1170_evk_PStr_CON|	replace:: :ign:`MIMXRT1170-EVK/EVKB (CDC ACM)`
+.. |mimxrt1170_evk_PStr_CON|	replace:: :ign:`MIMXRT1170-EVK (CDC ACM)`
 .. |mimxrt1170_evk_BCD_CON|	replace:: |zephyr_version_BCD|
 
 .. |zephyr:board:nrf52840dk_nrf52811| replace::

@@ -86,10 +86,10 @@ the :ref:`boards-extensions` section in this documentation.
 |                   |                                    | | ``mimxrt1060_evk@B/mimxrt1062/qspi/bbe``     |
 |                   |                                    | | ``mimxrt1060_evk@A/mimxrt1062/qspi/bbe``     |
 +-------------------+------------------------------------+------------------------------------------------+
-| i.MX RT1170 (CM7) | |zephyr:board:mimxrt1170_evk|      | | ``mimxrt1170_evk/mimxrt1176/cm4``            |
-|                   |                                    | | ``mimxrt1170_evk/mimxrt1176/cm7``            |
-|                   |                                    | | ``mimxrt1170_evk@B/mimxrt1176/cm4``          |
-|                   |                                    | | ``mimxrt1170_evk@B/mimxrt1176/cm7``          |
+| i.MX RT1170 (CM7) | | |zephyr:board:mimxrt1170_evk|    | | ``mimxrt1170_evk/mimxrt1176/cm4``            |
+|                   +------------------------------------+ | ``mimxrt1170_evk/mimxrt1176/cm7``            |
+|                   | | |bridle:board:mimxrt1170_evk|    | | ``mimxrt1170_evk@A/mimxrt1176/cm4``          |
+|                   |                                    | | ``mimxrt1170_evk@A/mimxrt1176/cm7``          |
 +-------------------+------------------------------------+------------------------------------------------+
 | nRF52840          | |zephyr:board:nrf52840dk_nrf52840| | ``nrf52840dk/nrf52840``                        |
 |                   +------------------------------------+------------------------------------------------+
