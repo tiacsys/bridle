@@ -1,0 +1,17 @@
+##############################################################################
+###
+### Copyright (c) 2026 TiaC Systems
+### SPDX-License-Identifier: Apache-2.0
+###
+##############################################################################
+
+# hal_bouffalolab
+# hal_espressif
+# hal_infineon
+# hal_nordic
+# hal_nxp
+# hal_realtek
+# hal_renesas
+# hal_sifli
+# hal_silabs
+# hal_stm32

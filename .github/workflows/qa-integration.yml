@@ -116,8 +116,18 @@ jobs:
 
       - name: Fetch binary blobs
         working-directory: workspace
+        env:
+          BLOBS_FETCH_NOT_FAIL: false
+          BLOBS_MODULES_LST_FILE: bridle/.github/${{ github.job }}/blobs-modules.txt
+          BLOBS_MODULES_SED_ARGS: -e '/^\s*$/ d' -e '/^#/ d' -e 's/\s*#.*$//'
         run: |
-          west blobs --auto-accept fetch
+          if [[ -s "${BLOBS_MODULES_LST_FILE}" ]]; then
+            BLOBS_MODULES=$(echo $(eval sed "${BLOBS_MODULES_SED_ARGS}" "${BLOBS_MODULES_LST_FILE}"))
+            if [[ -n "${BLOBS_MODULES}" ]]; then
+              retry_thrice() { (echo "1st: '$@'" ; $@) || (echo "2nd: '$@'" ; $@) || (echo "3rd: '$@'" ; $@) ; }
+              retry_thrice west blobs --auto-accept fetch "${BLOBS_MODULES}" || ${BLOBS_FETCH_NOT_FAIL}
+            fi
+          fi
 
       - name: Build samples
         working-directory: workspace
