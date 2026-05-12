@@ -465,9 +465,6 @@
 .. |cytron_motion_2350_pro_PStr_CON|	replace:: :ign:`MOTION 2350 Pro (CDC ACM)`
 .. |cytron_motion_2350_pro_BCD_CON|	replace:: |zephyr_version_BCD|
 
-.. |bridle:board:arduino_zero| replace:: :ref:`arduino_zero-extensions`
-.. :bridle:board:`arduino_zero`
-
 .. |bridle:board:mini_usb_rp2040| replace:: :ref:`mini_usb_rp2040`
 .. :bridle:board:`mini_usb_rp2040`
 
@@ -1113,6 +1110,9 @@
 
 .. |zephyr:board:qemu_xtensa| replace::
    :external+zephyr:zephyr:board:`qemu_xtensa`
+
+.. |bridle:board:arduino_zero| replace:: :ref:`arduino_zero_board-extensions`
+.. :bridle:board:`arduino_zero`
 
 .. |zephyr:board:arduino_zero| replace::
    :external+zephyr:zephyr:board:`arduino_zero`

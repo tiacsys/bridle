@@ -1,0 +1,9 @@
+# Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+config BOARD_ARDUINO_ZERO_SAMD21G18A
+	bool
+
+config BOARD_ARDUINO_ZERO_SAMD21G18A_BBE
+	bool
+	select BOARD_ARDUINO_ZERO_SAMD21G18A

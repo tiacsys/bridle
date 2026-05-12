@@ -1,0 +1,42 @@
+/*
+ * Copyright (c) 2024-2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/gpio/arduino-header-r3.h>
+
+/ {
+	arduino_header: connector {
+		compatible = "arduino-header-r3";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <ARDUINO_HEADER_R3_A0 0 &porta 2 0>,		/* DAC:VOUT */
+			   <ARDUINO_HEADER_R3_A1 0 &portb 8 0>,		/* ADC:AIN2 */
+			   <ARDUINO_HEADER_R3_A2 0 &portb 9 0>,		/* ADC:AIN3 */
+			   <ARDUINO_HEADER_R3_A3 0 &porta 4 0>,		/* ADC:AIN4 */
+			   <ARDUINO_HEADER_R3_A4 0 &porta 5 0>,		/* ADC:AIN5 */
+			   <ARDUINO_HEADER_R3_A5 0 &portb 2 0>,		/* ADC:AIN10 */
+									/* AREF (ADC/DAC:VRFEA) */
+			   <ARDUINO_HEADER_R3_D0 0 &porta 11 0>,	/* SERCOM0:UART:RX */
+			   <ARDUINO_HEADER_R3_D1 0 &porta 10 0>,	/* SERCOM0:UART:TX */
+			   <ARDUINO_HEADER_R3_D2 0 &porta 14 0>,
+			   <ARDUINO_HEADER_R3_D3 0 &porta 9 0>,
+			   <ARDUINO_HEADER_R3_D4 0 &porta 8 0>,
+			   <ARDUINO_HEADER_R3_D5 0 &porta 15 0>,
+			   <ARDUINO_HEADER_R3_D6 0 &porta 20 0>,
+			   <ARDUINO_HEADER_R3_D7 0 &porta 21 0>,
+			   <ARDUINO_HEADER_R3_D8 0 &porta 6 0>,
+			   <ARDUINO_HEADER_R3_D9 0 &porta 7 0>,
+			   <ARDUINO_HEADER_R3_D10 0 &porta 18 0>,	/* SERCOM1:SPI:SS */
+			   <ARDUINO_HEADER_R3_D11 0 &porta 16 0>,	/* SERCOM1:SPI:COPI */
+			   <ARDUINO_HEADER_R3_D12 0 &porta 19 0>,	/* SERCOM1:SPI:CIPO */
+			   <ARDUINO_HEADER_R3_D13 0 &porta 17 0>,	/* SERCOM1:SPI:SCK */
+			   <ARDUINO_HEADER_R3_D14 0 &porta 22 0>,	/* SERCOM3:I2C:SDA */
+			   <ARDUINO_HEADER_R3_D15 0 &porta 23 0>;	/* SERCOM3:I2C:SCL */
+	};
+};
+
+arduino_i2c: &sercom3 {};
+arduino_spi: &sercom1 {};
+arduino_serial: &sercom0 {};

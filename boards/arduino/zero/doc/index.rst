@@ -1,16 +1,15 @@
-.. _arduino_zero-extensions:
+.. _arduino_zero_board-extensions:
 
-Arduino/Genuino Zero
-####################
+Arduino/Genuino Zero (BBE)
+##########################
 
 .. admonition:: Downstream Extension!
    :class: note
 
-   This board description is a copy from Zephyr with identical name and will
-   be used for further development, improvement and preparation of changes for
-   Zephyr within Bridle. However, the original board description still lives
-   within the Zephyr namespace under the exactly same board name:
-   |zephyr:board:arduino_zero|.
+   This board description is a copy from the Zephyr upstream board
+   |zephyr:board:arduino_zero| and will be used for further development,
+   improvement and preparation of changes for Zephyr within Bridle. However,
+   the original board description still lives within the Zephyr namespace.
 
 Overview
 ********
@@ -22,6 +21,15 @@ additional hardware.
 .. image:: img/arduino_zero.jpg
    :align: center
    :alt: Arduino Zero
+
+List of extensions
+******************
+
+This is a set of Bridle's board extensions (BBE) to the original Zephyr
+upstream board |zephyr:board:arduino_zero| with some adaptions and
+improvement on Twister, Kconfig and Devicetree level. Notes and details
+about these extensions can be found at various points within this
+documentation.
 
 Hardware
 ********
@@ -41,7 +49,7 @@ Hardware
 Supported Features
 ==================
 
-The :code:`arduino_zero` board configuration supports the following
+The :code:`arduino_zero//bbe` board configuration supports the following
 hardware features:
 
 .. list-table:: Hardware Features Supported by Zephyr
@@ -131,29 +139,63 @@ hardware features:
 
 Other hardware features are not currently supported by Zephyr.
 
-The extended default configuration can be found in the Kconfig artifact
-:bridle_file:`boards/extensions/zero/arduino_zero.conf`. It will be add
-automatically to the original board default configuration in
+The extended default configuration can be found in the downstream file
+:bridle_file:`boards/arduino/zero/arduino_zero_bbe_default`.
+It is a extended copy of the original board default configuration in
 :zephyr_file:`boards/arduino/zero/arduino_zero_defconfig`.
 
 Board Configurations
 ====================
 
-The :code:`arduino_zero` board can be configured for the following different
-use cases.
+The :code:`arduino_zero//bbe` board can be configured for the following
+different use cases.
 
 .. zephyr-keep-sorted-start re(^\.\. rubric:: :command:`\w)
 
-.. rubric:: :command:`west build -b arduino_zero -S usb-console`
+.. rubric:: :command:`west build -b arduino_zero//bbe -S usb-console`
 
-Use the native USB device port with CDC-ACM as Zephyr console and for the shell,
-see :ref:`snippet-usb-console`.
+Use the native USB device port with CDC-ACM as Zephyr console and for the
+shell, see :ref:`snippet-usb-console`.
 
-.. rubric:: :command:`west build -b arduino_zero`
+.. rubric:: :command:`west build -b arduino_zero//bbe`
 
 Use the serial port SERCOM5 over EDBG as Zephyr console and for the shell.
 
 .. zephyr-keep-sorted-stop
+
+List of extensions
+------------------
+
+.. rubric:: Board YAML
+
+- add the missing features that this board supports and
+  that Twister tests might depends on:
+
+  - :code:`arduino_gpio`
+  - :code:`arduino_i2c`
+  - :code:`arduino_spi`
+  - :code:`arduino_serial`
+  - :code:`i2c`
+
+.. rubric:: Devicetree
+
+- set default entries for ``model`` and ``compatible`` of the boards:
+
+  .. list-table::
+     :align: left
+     :width: 50%
+     :widths: 100
+
+     * - .. rubric:: Arduino/Genuino Zero
+
+     * - .. literalinclude:: ../arduino_zero_bbe.dts
+            :caption: arduino_zero_bbe.dts
+            :language: DTS
+            :encoding: ISO-8859-1
+            :prepend: / {
+            :start-at: model
+            :end-before: chosen {
+            :append: };
 
 Connections and IOs
 ===================
@@ -161,6 +203,34 @@ Connections and IOs
 The `Arduino store`_ has detailed information about board connections. Download
 the `Arduino Zero Schematic`_ or `Arduino Zero Design Data`_ for more detail.
 There is also an `Arduino Zero Pinout Diagram`_.
+
+.. rubric:: Devicetree
+
+- add the Arduino UNO R3 specific edge connector binding
+  :dts:`&arduino_header {...};` with additional labels:
+
+  .. list-table::
+     :align: left
+     :width: 50%
+     :widths: 100
+
+     * - .. rubric:: Arduino/Genuino Zero
+
+     * - .. literalinclude:: ../arduino_r3_connector.dtsi
+            :caption: arduino_r3_connector.dtsi
+            :language: DTS
+            :encoding: ISO-8859-1
+            :emphasize-lines: 1-2
+            :start-at: arduino_header: connector {
+            :end-at: };
+
+     * - .. literalinclude:: ../arduino_r3_connector.dtsi
+            :caption: arduino_r3_connector.dtsi
+            :language: DTS
+            :encoding: ISO-8859-1
+            :emphasize-lines: 1-3
+            :start-at: arduino_i2c:
+            :end-at: arduino_serial:
 
 System Clock
 ============
@@ -203,11 +273,65 @@ available on the 6 pin ICSP connector at the edge of the board. To the
 D12 (MISO), and D13 (SCK). All signals of both busses are connected in
 parallel to the Atmel EDBG.
 
+.. rubric:: Devicetree
+
+- provide the SPI Port at the Arduino UNO R3 specific edge connector:
+
+  .. list-table::
+     :align: left
+     :width: 50%
+     :widths: 100
+
+     * - .. rubric:: Arduino/Genuino Zero
+
+     * - .. literalinclude:: ../arduino_zero_bbe.dts
+            :caption: arduino_zero_bbe.dts
+            :language: DTS
+            :encoding: ISO-8859-1
+            :emphasize-lines: 1
+            :start-at: &sercom1 {
+            :end-at: };
+
+     * - .. literalinclude:: ../arduino_r3_connector.dtsi
+            :caption: arduino_r3_connector.dtsi
+            :language: DTS
+            :encoding: ISO-8859-1
+            :emphasize-lines: 1
+            :start-at: arduino_spi:
+            :end-at: arduino_spi:
+
 I2C Port
 ========
 
 The SAMD21 MCU has 6 SERCOM based I2Cs. On the Arduino Zero, SERCOM3 is
 signals are connected in parallel to the Atmel EDBG.
+
+.. rubric:: Devicetree
+
+- provide the I2C Port at the Arduino UNO R3 specific edge connector:
+
+  .. list-table::
+     :align: left
+     :width: 50%
+     :widths: 100
+
+     * - .. rubric:: Arduino/Genuino Zero
+
+     * - .. literalinclude:: ../arduino_zero_bbe.dts
+            :caption: arduino_zero_bbe.dts
+            :language: DTS
+            :encoding: ISO-8859-1
+            :emphasize-lines: 1
+            :start-at: &sercom3 {
+            :end-at: };
+
+     * - .. literalinclude:: ../arduino_r3_connector.dtsi
+            :caption: arduino_r3_connector.dtsi
+            :language: DTS
+            :encoding: ISO-8859-1
+            :emphasize-lines: 1
+            :start-at: arduino_i2c:
+            :end-at: arduino_i2c:
 
 Serial Port
 ===========
@@ -243,6 +367,56 @@ As an alternative to the default Zephyr console on serial port the Bridle
          Manufacturer: |arduino_zero_VStr|
          SerialNumber: 9CF503EE1D54A301
 
+.. rubric:: Kconfig
+
+- :bbl:`deactivate` self powered USB explicitly and set the maximum of
+  electrical current consumption to :bbl:`500㎃`:
+
+  - |CONFIG_CDC_ACM_SERIAL_SELF_POWERED|
+  - |CONFIG_CDC_ACM_SERIAL_MAX_POWER|
+
+  .. list-table::
+     :align: left
+     :width: 50%
+     :widths: 100
+
+     * - .. rubric:: Arduino/Genuino Zero
+
+     * - .. literalinclude:: ../Kconfig.defconfig
+            :caption: Kconfig.defconfig
+            :language: Kconfig
+            :encoding: ISO-8859-1
+            :emphasize-lines: 1-2,5-6
+            :start-at: config CDC_ACM_SERIAL_SELF_POWERED
+            :end-before: Logger cannot use itself to log
+
+- :brd:`change` log level only in case of use the native USB device port
+  :dtcompatible:`atmel,sam0-usb` with CDC-ACM UART
+  :dtcompatible:`zephyr,cdc-acm-uart` as Zephyr console:
+
+  - |CONFIG_USBD_CDC_ACM_LOG_LEVEL_CHOICE| :=
+    |CONFIG_USBD_CDC_ACM_LOG_LEVEL_OFF|
+  - |CONFIG_USBD_LOG_LEVEL_CHOICE| :=
+    |CONFIG_USBD_LOG_LEVEL_ERR|
+  - |CONFIG_UDC_DRIVER_LOG_LEVEL_CHOICE| :=
+    |CONFIG_UDC_DRIVER_LOG_LEVEL_ERR|
+
+  .. list-table::
+     :align: left
+     :width: 50%
+     :widths: 100
+
+     * - .. rubric:: Arduino/Genuino Zero
+
+     * - .. literalinclude:: ../Kconfig.defconfig
+            :caption: Kconfig.defconfig
+            :language: Kconfig
+            :encoding: ISO-8859-1
+            :lines: -14,27-
+            :emphasize-lines: 3-4,16-17,22-23,28-29
+            :start-at: Workaround for not being able to have commas in macro arguments
+            :end-at: endif # zephyr,cdc-acm-uart
+
 Programming and Debugging
 *************************
 
@@ -261,6 +435,25 @@ The bootloader can be entered by pressing the RST button twice:
 
 Additionally, if :kconfig:option:`CONFIG_USB_CDC_ACM` is enabled then the
 bootloader will be entered automatically when you run :program:`west flash`.
+
+.. rubric:: Kconfig
+
+- BOSSA bootloader device:
+
+  .. list-table::
+     :align: left
+     :width: 50%
+     :widths: 100
+
+     * - .. rubric:: Arduino/Genuino Zero
+
+     * - .. literalinclude:: ../Kconfig.defconfig
+            :caption: Kconfig.defconfig
+            :language: Kconfig
+            :encoding: ISO-8859-1
+            :emphasize-lines: 1-2
+            :start-at: config BOOTLOADER_BOSSA_DEVICE_NAME
+            :end-at: depends on USB_CDC_ACM
 
 .. tip::
 
@@ -362,7 +555,7 @@ Flashing
 
    .. zephyr-app-commands::
       :app: zephyr/samples/hello_world
-      :board: arduino_zero
+      :board: arduino_zero//bbe
       :build-dir: arduino_zero
       :west-args: -p
       :goals: build
@@ -397,7 +590,7 @@ Flashing
 
       west flash -d build/arduino_zero
 
-   You should see "Hello World! arduino_zero" in your terminal.
+   You should see "Hello World! arduino_zero/samd21g18a/bbe" in your terminal.
 
 Debugging
 =========
@@ -411,7 +604,7 @@ Debugging
 
    .. zephyr-app-commands::
       :app: zephyr/samples/hello_world
-      :board: arduino_zero
+      :board: arduino_zero//bbe
       :build-dir: arduino_zero
       :gen-args: -DBOARD_FLASH_RUNNER=openocd
       :west-args: -p
@@ -428,7 +621,7 @@ LED Blinky
 
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/blinky
-   :board: arduino_zero
+   :board: arduino_zero//bbe
    :build-dir: arduino_zero
    :west-args: -p
    :goals: flash
@@ -439,7 +632,7 @@ LED Fade
 
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/fade_led
-   :board: arduino_zero
+   :board: arduino_zero//bbe
    :build-dir: arduino_zero
    :west-args: -p
    :goals: flash
@@ -450,7 +643,7 @@ Basic Threads
 
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/threads
-   :board: arduino_zero
+   :board: arduino_zero//bbe
    :build-dir: arduino_zero
    :west-args: -p
    :goals: flash
@@ -461,8 +654,8 @@ Hello Shell with USB-CDC/ACM Console
 
 .. zephyr-app-commands::
    :app: bridle/samples/helloshell
+   :board: arduino_zero//bbe
    :build-dir: arduino_zero
-   :board: arduino_zero
    :snippets: "usb-console"
    :west-args: -p
    :goals: flash

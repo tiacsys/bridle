@@ -26,7 +26,6 @@ supported:
   - i2c
   - spi
   - uart
-  - usb
   - usb_device
   - usb_cdc
   - watchdog

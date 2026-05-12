@@ -65,7 +65,10 @@ the :ref:`boards-extensions` section in this documentation.
 +-------------------+------------------------------------+------------------------------------------------+
 | Virtualization    | |zephyr:board:qemu_kvm_arm64|      | ``qemu_kvm_arm64``                             |
 +-------------------+------------------------------------+------------------------------------------------+
-| ATSAMD21G18A      | |zephyr:board:arduino_zero|        | ``arduino_zero``                               |
+| ATSAMD21G18A      | |zephyr:board:arduino_zero|        | | ``arduino_zero``                             |
+|                   |                                    | | ``arduino_zero/samd21g18a``                  |
+|                   +------------------------------------+------------------------------------------------+
+|                   | |bridle:board:arduino_zero|        | | ``arduino_zero/samd21g18a/bbe``              |
 |                   +------------------------------------+------------------------------------------------+
 |                   | |zephyr:board:seeeduino_xiao|      | ``seeeduino_xiao``                             |
 +-------------------+------------------------------------+------------------------------------------------+
@@ -155,13 +158,13 @@ Also see the :ref:`boards` section in this documentation.
 | APM32F103Cx       | |bridle:board:weact_bluepillplus|  | | ``weact_bluepillplus_apm32f103c8``         |
 |                   |                                    | | ``weact_bluepillplus_apm32f103cb``         |
 +-------------------+------------------------------------+----------------------------------------------+
-| ATSAMD21G18A      | |bridle:board:arduino_zero|        | ``arduino_zero``                             |
+| ATSAMD21G18A      | |bridle:board:xiao_samd21|         | ``xiao_samd21``                              |
 |                   +------------------------------------+----------------------------------------------+
-|                   | |bridle:board:xiao_samd21|         | ``xiao_samd21``                              |
+|                   | |bridle:board:seeeduino_cm0|       | | ``seeeduino_cm0``                          |
+|                   |                                    | | ``seeeduino_cm0/samd21g18a``               |
 |                   +------------------------------------+----------------------------------------------+
-|                   | |bridle:board:seeeduino_cm0|       | ``seeeduino_cm0``                            |
-|                   +------------------------------------+----------------------------------------------+
-|                   | |bridle:board:seeeduino_lotus|     | ``seeeduino_lotus``                          |
+|                   | |bridle:board:seeeduino_lotus|     | | ``seeeduino_lotus``                        |
+|                   |                                    | | ``seeeduino_lotus/samd21g18a``             |
 +-------------------+------------------------------------+----------------------------------------------+
 | CH32F103Cx        | |bridle:board:weact_bluepillplus|  | | ``weact_bluepillplus_ch32f103c6``          |
 |                   |                                    | | ``weact_bluepillplus_ch32f103c8``          |

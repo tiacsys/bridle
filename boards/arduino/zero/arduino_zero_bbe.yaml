@@ -1,0 +1,34 @@
+# Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+#
+# NOTE: copy and own from original board metadata in
+# "zephyr/boards/arduino/zero/arduino_zero.yaml"
+
+identifier: arduino_zero/samd21g18a/bbe
+name: Arduino Zero (BBE)
+type: mcu
+arch: arm
+ram: 32
+flash: 256
+toolchain:
+  - zephyr
+  - gnuarmemb
+supported:
+  - arduino_gpio
+  - arduino_i2c
+  - arduino_spi
+  - arduino_serial
+  - adc
+  - counter
+  - dac
+  - dma
+  - gpio
+  - hwinfo
+  - pwm
+  - spi
+  - i2c
+  - uart
+  - usb_device
+  - usb_cdc
+  - watchdog
+vendor: arduino
