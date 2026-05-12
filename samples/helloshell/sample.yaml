@@ -159,7 +159,8 @@ tests:
       - qemu_leon3
       # Qemu issue (-ENOTBLK): - qemu_rx
       - magpie_f777ni
-      - arduino_zero
+      - arduino_zero/samd21g18a
+      - arduino_zero/samd21g18a/bbe
       - coffeecaller_nrf52
       - cytron_maker_nano_rp2040
       - cytron_maker_pi_rp2040
@@ -205,8 +206,8 @@ tests:
       - rpi_pico2/rp2350a/hazard3
       - rpi_pico2/rp2350a/m33
       - rpi_pico2/rp2350a/m33/w
-      - seeeduino_cm0
-      - seeeduino_lotus
+      - seeeduino_cm0/samd21g18a
+      - seeeduino_lotus/samd21g18a
       - seeeduino_xiao
       - xiao_samd21
       - waveshare_rp2040_one

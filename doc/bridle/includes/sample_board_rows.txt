@@ -4,6 +4,22 @@
 
 .. zephyr-keep-sorted-start re(^\| \w)
 
+.. arduino_zero_samd21g18a
+
+| ATSAMD21G18A | | :external+zephyr:zephyr:board:`arduino_zero` | - ``arduino_zero/samd21g18a`` |
+
+.. arduino_zero_samd21g18a_bbe
+
+| ATSAMD21G18A | | :ref:`arduino_zero_board-extensions` | - ``arduino_zero/samd21g18a/bbe`` |
+
+.. seeeduino_cm0_samd21g18a
+
+| ATSAMD21G18A | | :ref:`seeeduino_cm0` | - ``seeeduino_cm0/samd21g18a`` |
+
+.. seeeduino_lotus_samd21g18a
+
+| ATSAMD21G18A | | :ref:`seeeduino_lotus` | - ``seeeduino_lotus/samd21g18a`` |
+
 .. weact_bluepillplus_ch32v203c6
 
 | CH32V203 | | :ref:`weact_bluepillplus` | - ``weact_bluepillplus_ch32v203c6`` |
