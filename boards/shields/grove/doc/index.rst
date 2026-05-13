@@ -704,35 +704,22 @@ not be complete.
 
       .. tabs::
 
-         .. group-tab:: ``arduino_zero``
+         .. group-tab:: ``arduino_zero//bbe``
 
-            This is based on the Bridle board |bridle:board:arduino_zero|
-            and its :dtcompatible:`arduino-header-r3`.
+            This is based on the Bridle extended board
+            |bridle:board:arduino_zero| and its
+            :dtcompatible:`arduino-header-r3`.
 
-            .. note::
+            .. include:: grove_note-arduino_zero.rsti
 
-               This board basically provides all channels from all timers as PWM to
-               the outside. However, the SoC's ability to route channels to multiple
-               pads may result in channels being connected in parallel. The second
-               table below shows the possibilities which channels can really
-               be used independently at the associated signals of the
-               |Laced Grove Signal Interface|.
-
-            .. include:: grove_pwms-arduino_zero.rsti
+            .. include:: grove_pwms-arduino_zero_bbe.rsti
 
          .. group-tab:: ``seeeduino_cm0``
 
             This is based on the Bridle board |bridle:board:seeeduino_cm0|
             and its :dtcompatible:`arduino-header-r3`.
 
-            .. note::
-
-               This board basically provides all channels from all timers as PWM to
-               the outside. However, the SoC's ability to route channels to multiple
-               pads may result in channels being connected in parallel. The second
-               table below shows the possibilities which channels can really
-               be used independently at the associated signals of the
-               |Laced Grove Signal Interface|.
+            .. include:: grove_note-arduino_zero.rsti
 
             .. include:: grove_pwms-seeeduino_cm0.rsti
 
@@ -741,14 +728,7 @@ not be complete.
             This is based on the Bridle board |bridle:board:seeeduino_lotus|
             and its :dtcompatible:`arduino-header-r3`.
 
-            .. note::
-
-               This board basically provides all channels from all timers as PWM to
-               the outside. However, the SoC's ability to route channels to multiple
-               pads may result in channels being connected in parallel. The second
-               table below shows the possibilities which channels can really
-               be used independently at the associated signals of the
-               |Laced Grove Signal Interface|.
+            .. include:: grove_note-arduino_zero.rsti
 
             .. include:: grove_pwms-seeeduino_lotus.rsti
 

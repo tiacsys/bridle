@@ -25,7 +25,7 @@ common:
   #   USE the `tests/quarantine.yaml`file instead.
   #
   integration_platforms:
-    - arduino_zero
+    - arduino_zero/samd21g18a/bbe
     - coffeecaller_nrf52
     - cytron_maker_nano_rp2040
     - cytron_maker_pi_rp2040
@@ -58,8 +58,8 @@ common:
     - rpi_pico2/rp2350a/hazard3
     - rpi_pico2/rp2350a/m33
     - rpi_pico2/rp2350a/m33/w
-    - seeeduino_cm0
-    - seeeduino_lotus
+    - seeeduino_cm0/samd21g18a
+    - seeeduino_lotus/samd21g18a
     - seeeduino_xiao
     - xiao_samd21
     - xiao_rp2040
@@ -122,9 +122,9 @@ tests:
     extra_args:
       SHIELD=seeed_grove_base_v2;grove_btn_d7;grove_led_d6;grove_pwm_led_d6;x_grove_testbed
     platform_allow:
-      - arduino_zero
-      - seeeduino_cm0
-      - seeeduino_lotus
+      - arduino_zero/samd21g18a/bbe
+      - seeeduino_cm0/samd21g18a
+      - seeeduino_lotus/samd21g18a
   grove.xiao.v1.x_grove_testbed.pwm.b0l1:
     depends_on: xiao_gpio
     filter: dt_nodelabel_enabled("grove_d1_header") and
@@ -212,7 +212,7 @@ tests:
     extra_args:
       SHIELD=grove_btn_d7;grove_led_d6;grove_pwm_led_d6;x_grove_testbed
     platform_allow:
-      - seeeduino_lotus
+      - seeeduino_lotus/samd21g18a
   grove.connectors.x_grove_testbed.pwm.b16l17:
     depends_on:
       - grove_gpio

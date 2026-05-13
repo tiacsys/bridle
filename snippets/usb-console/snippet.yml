@@ -96,6 +96,10 @@ boards:
     append:
       EXTRA_CONF_FILE: boards/arduino_zero.conf
       EXTRA_DTC_OVERLAY_FILE: boards/arduino_zero.overlay
+  arduino_zero/samd21g18a/bbe:
+    append:
+      EXTRA_CONF_FILE: boards/arduino_zero.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/arduino_zero_bbe.overlay
   seeeduino_cm0/samd21g18a:
     append:
       EXTRA_CONF_FILE: boards/seeeduino_cm0.conf

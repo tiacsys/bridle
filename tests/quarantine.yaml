@@ -154,7 +154,7 @@
     - grove.connectors.x_grove_testbed.pwm.b3l5
     - grove.connectors.x_grove_testbed.pwm.b7l6
   platforms:
-    - arduino_zero/samd21g18a
+    - arduino_zero/samd21g18a/bbe
     - seeeduino_cm0/samd21g18a
 
 - comment: "shield(grove.xiao.x_grove_testbed.b0l1): invalid board/shield condition."
@@ -356,7 +356,7 @@
     - grove.xiao.v1.pwms
     - grove.xiao.v1.xiao
   platforms:
-    - arduino_zero/samd21g18a
+    - arduino_zero/samd21g18a/bbe
     - coffeecaller_nrf52/nrf52840
     - cytron_maker_nano_rp2040/rp2040
     - cytron_maker_pi_rp2040/rp2040
@@ -436,7 +436,7 @@
     - grove.rpipico.v1.pwms
     - grove.rpipico.v1.rpipico
   platforms:
-    - arduino_zero/samd21g18a
+    - arduino_zero/samd21g18a/bbe
     - coffeecaller_nrf52/nrf52840
     - cytron_maker_nano_rp2040/rp2040
     - cytron_maker_pi_rp2040/rp2040
@@ -537,7 +537,7 @@
   scenarios:
     - grove.xiao.v1.grove_btn.gpio.d.*
   platforms:
-    - arduino_zero/samd21g18a
+    - arduino_zero/samd21g18a/bbe
     - coffeecaller_nrf52/nrf52840
     - cytron_maker_nano_rp2040/rp2040
     - cytron_maker_pi_rp2040/rp2040
@@ -595,7 +595,7 @@
   scenarios:
     - grove.rpipico.v1.grove_btn.gpio.d.*
   platforms:
-    - arduino_zero/samd21g18a
+    - arduino_zero/samd21g18a/bbe
     - coffeecaller_nrf52/nrf52840
     - cytron_maker_nano_rp2040/rp2040
     - cytron_maker_pi_rp2040/rp2040
@@ -658,7 +658,7 @@
   scenarios:
     - grove.connectors.grove_btn.gpio.d.*
   platforms:
-    - arduino_zero/samd21g18a
+    - arduino_zero/samd21g18a/bbe
     - mimxrt1010_evk/mimxrt1011/bbe
     - mimxrt1060_evk@A/mimxrt1062/hyperflash
     - mimxrt1060_evk@A/mimxrt1062/hyperflash/bbe
@@ -1092,9 +1092,9 @@
     - waveshare_rp2350_can/rp2350a/hazard3
     - waveshare_rp2350_can/rp2350a/m33
 
-- comment: "shield(grove.base.grove_led): arduino_zero: invalid board condition."
+- comment: "shield(grove.base.grove_led): (ar|seee)duino: invalid board condition."
   platforms:
-    - arduino_zero/samd21g18a
+    - arduino_zero/samd21g18a/bbe
     - seeeduino_cm0/samd21g18a
     - seeeduino_lotus/samd21g18a
   scenarios:
@@ -1232,7 +1232,7 @@
   scenarios:
     - grove.xiao.v1.grove_led.(gpio|pwm).d.*
   platforms:
-    - arduino_zero/samd21g18a
+    - arduino_zero/samd21g18a/bbe
     - coffeecaller_nrf52/nrf52840
     - cytron_maker_nano_rp2040/rp2040
     - cytron_maker_pi_rp2040/rp2040
@@ -1299,7 +1299,7 @@
   scenarios:
     - grove.rpipico.v1.grove_led.(gpio|pwm).d.*
   platforms:
-    - arduino_zero/samd21g18a
+    - arduino_zero/samd21g18a/bbe
     - coffeecaller_nrf52/nrf52840
     - cytron_maker_nano_rp2040/rp2040
     - cytron_maker_pi_rp2040/rp2040
@@ -1356,7 +1356,7 @@
   scenarios:
     - grove.connectors.grove_led.(gpio|pwm).d.*
   platforms:
-    - arduino_zero/samd21g18a
+    - arduino_zero/samd21g18a/bbe
     - mimxrt1010_evk/mimxrt1011/bbe
     - mimxrt1060_evk@A/mimxrt1062/hyperflash
     - mimxrt1060_evk@A/mimxrt1062/hyperflash/bbe

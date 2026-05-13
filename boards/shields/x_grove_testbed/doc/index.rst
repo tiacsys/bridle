@@ -644,7 +644,7 @@ For example:
 
          .. group-tab:: Arduino Zero
 
-            This is based on the Bridle board |bridle:board:arduino_zero|.
+            This is based on the Bridle extended board |bridle:board:arduino_zero|.
 
             * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
 
@@ -662,7 +662,7 @@ For example:
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/blinky
                      :build-dir: blinky-arduino_zero-x_grove_testbed
-                     :board: arduino_zero
+                     :board: arduino_zero/samd21g18a/bbe
                      :shield: \
                               "seeed_grove_base_v2 grove_btn_d7 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
                      :snippets: "usb-console"
@@ -678,7 +678,7 @@ For example:
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/fade_led
                      :build-dir: fade-arduino_zero-x_grove_testbed
-                     :board: arduino_zero
+                     :board: arduino_zero/samd21g18a/bbe
                      :shield: \
                               "seeed_grove_base_v2 grove_btn_d7 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
                      :snippets: "usb-console"
@@ -694,7 +694,7 @@ For example:
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/button
                      :build-dir: button-arduino_zero-x_grove_testbed
-                     :board: arduino_zero
+                     :board: arduino_zero/samd21g18a/bbe
                      :shield: \
                               "seeed_grove_base_v2 grove_btn_d7 grove_led_d6 grove_pwm_led_d6 x_grove_testbed"
                      :snippets: "usb-console"

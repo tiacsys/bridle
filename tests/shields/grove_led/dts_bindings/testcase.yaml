@@ -25,7 +25,7 @@ common:
   #   USE the `tests/quarantine.yaml`file instead.
   #
   integration_platforms:
-    - arduino_zero
+    - arduino_zero/samd21g18a/bbe
     - coffeecaller_nrf52
     - cytron_maker_nano_rp2040
     - cytron_maker_pi_rp2040
@@ -58,8 +58,8 @@ common:
     - rpi_pico2/rp2350a/hazard3
     - rpi_pico2/rp2350a/m33
     - rpi_pico2/rp2350a/m33/w
-    - seeeduino_cm0
-    - seeeduino_lotus
+    - seeeduino_cm0/samd21g18a
+    - seeeduino_lotus/samd21g18a
     - seeeduino_xiao
     - xiao_samd21
     - xiao_rp2040
@@ -365,9 +365,9 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d0", "pwm-leds")
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d0
     platform_allow:
-      - arduino_zero
-      - seeeduino_cm0
-      - seeeduino_lotus
+      - arduino_zero/samd21g18a/bbe
+      - seeeduino_cm0/samd21g18a
+      - seeeduino_lotus/samd21g18a
   grove.base.v1.grove_led.pwm.d0:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d0") and
@@ -376,9 +376,9 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d0", "pwm-leds")
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d0
     platform_allow:
-      - arduino_zero
-      - seeeduino_cm0
-      - seeeduino_lotus
+      - arduino_zero/samd21g18a/bbe
+      - seeeduino_cm0/samd21g18a
+      - seeeduino_lotus/samd21g18a
   grove.base.v2.grove_led.pwm.d1:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d1") and
@@ -387,9 +387,9 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d1", "pwm-leds")
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d1
     platform_allow:
-      - arduino_zero
-      - seeeduino_cm0
-      - seeeduino_lotus
+      - arduino_zero/samd21g18a/bbe
+      - seeeduino_cm0/samd21g18a
+      - seeeduino_lotus/samd21g18a
   grove.base.v1.grove_led.pwm.d1:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d1") and
@@ -399,9 +399,9 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d1", "pwm-leds")
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d1
     platform_allow:
-      - arduino_zero
-      - seeeduino_cm0
-      - seeeduino_lotus
+      - arduino_zero/samd21g18a/bbe
+      - seeeduino_cm0/samd21g18a
+      - seeeduino_lotus/samd21g18a
   grove.base.v2.grove_led.pwm.d2:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d2") and
@@ -409,7 +409,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d2", "pwm-leds")
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d2
     platform_allow:
-      - arduino_zero
+      - arduino_zero/samd21g18a/bbe
       - mimxrt1060_evk@A/mimxrt1062/qspi
       - mimxrt1060_evk@A/mimxrt1062/qspi/bbe
       - mimxrt1060_evk@B/mimxrt1062/qspi
@@ -420,8 +420,8 @@ tests:
       - mimxrt1060_evk@C/mimxrt1062/hyperflash/bbe
       - nucleo_f303re/stm32f303xe/bbe
       - nucleo_f401re/stm32f401xe/bbe
-      - seeeduino_cm0
-      - seeeduino_lotus
+      - seeeduino_cm0/samd21g18a
+      - seeeduino_lotus/samd21g18a
   grove.base.v1.grove_led.pwm.d2:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d2") and
@@ -430,7 +430,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d2", "pwm-leds")
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d2
     platform_allow:
-      - arduino_zero
+      - arduino_zero/samd21g18a/bbe
       - mimxrt1060_evk@A/mimxrt1062/qspi
       - mimxrt1060_evk@A/mimxrt1062/qspi/bbe
       - mimxrt1060_evk@B/mimxrt1062/qspi
@@ -441,8 +441,8 @@ tests:
       - mimxrt1060_evk@C/mimxrt1062/hyperflash/bbe
       - nucleo_f303re/stm32f303xe/bbe
       - nucleo_f401re/stm32f401xe/bbe
-      - seeeduino_cm0
-      - seeeduino_lotus
+      - seeeduino_cm0/samd21g18a
+      - seeeduino_lotus/samd21g18a
   grove.base.v2.grove_led.pwm.d3:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d3") and
@@ -451,7 +451,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d3", "pwm-leds")
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d3
     platform_allow:
-      - arduino_zero
+      - arduino_zero/samd21g18a/bbe
       - mimxrt1060_evk@A/mimxrt1062/qspi
       - mimxrt1060_evk@A/mimxrt1062/qspi/bbe
       - mimxrt1060_evk@B/mimxrt1062/qspi
@@ -468,8 +468,8 @@ tests:
       - nucleo_f746zg/stm32f746xx/bbe
       - nucleo_f767zi/stm32f767xx
       - nucleo_f767zi/stm32f767xx/bbe
-      - seeeduino_cm0
-      - seeeduino_lotus
+      - seeeduino_cm0/samd21g18a
+      - seeeduino_lotus/samd21g18a
   grove.base.v1.grove_led.pwm.d3:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d3") and
@@ -478,7 +478,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d3", "pwm-leds")
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d3
     platform_allow:
-      - arduino_zero
+      - arduino_zero/samd21g18a/bbe
       - mimxrt1060_evk@A/mimxrt1062/qspi
       - mimxrt1060_evk@A/mimxrt1062/qspi/bbe
       - mimxrt1060_evk@B/mimxrt1062/qspi
@@ -495,8 +495,8 @@ tests:
       - nucleo_f746zg/stm32f746xx/bbe
       - nucleo_f767zi/stm32f767xx
       - nucleo_f767zi/stm32f767xx/bbe
-      - seeeduino_cm0
-      - seeeduino_lotus
+      - seeeduino_cm0/samd21g18a
+      - seeeduino_lotus/samd21g18a
   grove.base.v2.grove_led.pwm.d4:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d4") and
@@ -505,7 +505,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d4", "pwm-leds")
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d4
     platform_allow:
-      - arduino_zero
+      - arduino_zero/samd21g18a/bbe
       - mimxrt1060_evk@A/mimxrt1062/qspi
       - mimxrt1060_evk@A/mimxrt1062/qspi/bbe
       - mimxrt1060_evk@B/mimxrt1062/qspi
@@ -515,8 +515,8 @@ tests:
       - mimxrt1060_evk@C/mimxrt1062/hyperflash
       - mimxrt1060_evk@C/mimxrt1062/hyperflash/bbe
       - nucleo_f303re/stm32f303xe/bbe
-      - seeeduino_cm0
-      - seeeduino_lotus
+      - seeeduino_cm0/samd21g18a
+      - seeeduino_lotus/samd21g18a
   grove.base.v1.grove_led.pwm.d4:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d4") and
@@ -525,7 +525,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d4", "pwm-leds")
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d4
     platform_allow:
-      - arduino_zero
+      - arduino_zero/samd21g18a/bbe
       - mimxrt1060_evk@A/mimxrt1062/qspi
       - mimxrt1060_evk@A/mimxrt1062/qspi/bbe
       - mimxrt1060_evk@B/mimxrt1062/qspi
@@ -535,8 +535,8 @@ tests:
       - mimxrt1060_evk@C/mimxrt1062/hyperflash
       - mimxrt1060_evk@C/mimxrt1062/hyperflash/bbe
       - nucleo_f303re/stm32f303xe/bbe
-      - seeeduino_cm0
-      - seeeduino_lotus
+      - seeeduino_cm0/samd21g18a
+      - seeeduino_lotus/samd21g18a
   grove.base.v2.grove_led.pwm.d5:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d5") and
@@ -545,7 +545,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d5", "pwm-leds")
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d5
     platform_allow:
-      - arduino_zero
+      - arduino_zero/samd21g18a/bbe
       - mimxrt1060_evk@A/mimxrt1062/qspi
       - mimxrt1060_evk@A/mimxrt1062/qspi/bbe
       - mimxrt1060_evk@B/mimxrt1062/qspi
@@ -562,8 +562,8 @@ tests:
       - nucleo_f746zg/stm32f746xx/bbe
       - nucleo_f767zi/stm32f767xx
       - nucleo_f767zi/stm32f767xx/bbe
-      - seeeduino_cm0
-      - seeeduino_lotus
+      - seeeduino_cm0/samd21g18a
+      - seeeduino_lotus/samd21g18a
   grove.base.v1.grove_led.pwm.d5:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d5") and
@@ -572,7 +572,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d5", "pwm-leds")
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d5
     platform_allow:
-      - arduino_zero
+      - arduino_zero/samd21g18a/bbe
       - mimxrt1060_evk@A/mimxrt1062/qspi
       - mimxrt1060_evk@A/mimxrt1062/qspi/bbe
       - mimxrt1060_evk@B/mimxrt1062/qspi
@@ -589,8 +589,8 @@ tests:
       - nucleo_f746zg/stm32f746xx/bbe
       - nucleo_f767zi/stm32f767xx
       - nucleo_f767zi/stm32f767xx/bbe
-      - seeeduino_cm0
-      - seeeduino_lotus
+      - seeeduino_cm0/samd21g18a
+      - seeeduino_lotus/samd21g18a
   grove.base.v2.grove_led.pwm.d6:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d6") and
@@ -599,7 +599,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d6", "pwm-leds")
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d6
     platform_allow:
-      - arduino_zero
+      - arduino_zero/samd21g18a/bbe
       - nucleo_f303re/stm32f303xe/bbe
       - nucleo_f401re/stm32f401xe/bbe
       - nucleo_f413zh/stm32f413xx
@@ -608,8 +608,8 @@ tests:
       - nucleo_f746zg/stm32f746xx/bbe
       - nucleo_f767zi/stm32f767xx
       - nucleo_f767zi/stm32f767xx/bbe
-      - seeeduino_cm0
-      - seeeduino_lotus
+      - seeeduino_cm0/samd21g18a
+      - seeeduino_lotus/samd21g18a
   grove.base.v1.grove_led.pwm.d6:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d6") and
@@ -618,7 +618,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d6", "pwm-leds")
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d6
     platform_allow:
-      - arduino_zero
+      - arduino_zero/samd21g18a/bbe
       - nucleo_f303re/stm32f303xe/bbe
       - nucleo_f401re/stm32f401xe/bbe
       - nucleo_f413zh/stm32f413xx
@@ -627,8 +627,8 @@ tests:
       - nucleo_f746zg/stm32f746xx/bbe
       - nucleo_f767zi/stm32f767xx
       - nucleo_f767zi/stm32f767xx/bbe
-      - seeeduino_cm0
-      - seeeduino_lotus
+      - seeeduino_cm0/samd21g18a
+      - seeeduino_lotus/samd21g18a
   grove.base.v2.grove_led.pwm.d7:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d7") and
@@ -637,11 +637,11 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d7", "pwm-leds")
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d7
     platform_allow:
-      - arduino_zero
+      - arduino_zero/samd21g18a/bbe
       - nucleo_f303re/stm32f303xe/bbe
       - nucleo_f401re/stm32f401xe/bbe
-      - seeeduino_cm0
-      - seeeduino_lotus
+      - seeeduino_cm0/samd21g18a
+      - seeeduino_lotus/samd21g18a
   grove.base.v1.grove_led.pwm.d7:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d7") and
@@ -650,11 +650,11 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d7", "pwm-leds")
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d7
     platform_allow:
-      - arduino_zero
+      - arduino_zero/samd21g18a/bbe
       - nucleo_f303re/stm32f303xe/bbe
       - nucleo_f401re/stm32f401xe/bbe
-      - seeeduino_cm0
-      - seeeduino_lotus
+      - seeeduino_cm0/samd21g18a
+      - seeeduino_lotus/samd21g18a
   grove.base.v2.grove_led.pwm.d8:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d8") and
@@ -663,12 +663,12 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d8", "pwm-leds")
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d8
     platform_allow:
-      - arduino_zero
+      - arduino_zero/samd21g18a/bbe
       - mimxrt1010_evk/mimxrt1011/bbe
       - nucleo_f303re/stm32f303xe/bbe
       - nucleo_f401re/stm32f401xe/bbe
-      - seeeduino_cm0
-      - seeeduino_lotus
+      - seeeduino_cm0/samd21g18a
+      - seeeduino_lotus/samd21g18a
   grove.base.v1.grove_led.pwm.d8:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d8") and
@@ -677,12 +677,12 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d8", "pwm-leds")
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d8
     platform_allow:
-      - arduino_zero
+      - arduino_zero/samd21g18a/bbe
       - mimxrt1010_evk/mimxrt1011/bbe
       - nucleo_f303re/stm32f303xe/bbe
       - nucleo_f401re/stm32f401xe/bbe
-      - seeeduino_cm0
-      - seeeduino_lotus
+      - seeeduino_cm0/samd21g18a
+      - seeeduino_lotus/samd21g18a
   grove.base.v2.grove_led.pwm.d9:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d9") and
@@ -690,7 +690,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d9", "pwm-leds")
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d9
     platform_allow:
-      - arduino_zero
+      - arduino_zero/samd21g18a/bbe
       - mimxrt1010_evk/mimxrt1011/bbe
       - nucleo_f303re/stm32f303xe/bbe
       - nucleo_f401re/stm32f401xe/bbe
@@ -700,8 +700,8 @@ tests:
       - nucleo_f746zg/stm32f746xx/bbe
       - nucleo_f767zi/stm32f767xx
       - nucleo_f767zi/stm32f767xx/bbe
-      - seeeduino_cm0
-      - seeeduino_lotus
+      - seeeduino_cm0/samd21g18a
+      - seeeduino_lotus/samd21g18a
   grove.base.v1.grove_led.pwm.d9:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d9") and
@@ -710,7 +710,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d9", "pwm-leds")
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d9
     platform_allow:
-      - arduino_zero
+      - arduino_zero/samd21g18a/bbe
       - mimxrt1010_evk/mimxrt1011/bbe
       - nucleo_f303re/stm32f303xe/bbe
       - nucleo_f401re/stm32f401xe/bbe
@@ -720,8 +720,8 @@ tests:
       - nucleo_f746zg/stm32f746xx/bbe
       - nucleo_f767zi/stm32f767xx
       - nucleo_f767zi/stm32f767xx/bbe
-      - seeeduino_cm0
-      - seeeduino_lotus
+      - seeeduino_cm0/samd21g18a
+      - seeeduino_lotus/samd21g18a
   # grove.base.v2.grove_led.pwm.d10
   grove.base.v1.grove_led.pwm.d10:
     depends_on: arduino_gpio
@@ -731,7 +731,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d10", "pwm-leds")
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d10
     platform_allow:
-      - arduino_zero
+      - arduino_zero/samd21g18a/bbe
       - mimxrt1060_evk@A/mimxrt1062/qspi
       - mimxrt1060_evk@A/mimxrt1062/qspi/bbe
       - mimxrt1060_evk@B/mimxrt1062/qspi
@@ -748,8 +748,8 @@ tests:
       - nucleo_f746zg/stm32f746xx/bbe
       - nucleo_f767zi/stm32f767xx
       - nucleo_f767zi/stm32f767xx/bbe
-      - seeeduino_cm0
-      - seeeduino_lotus
+      - seeeduino_cm0/samd21g18a
+      - seeeduino_lotus/samd21g18a
   # grove.base.v2.grove_led.pwm.d11
   grove.base.v1.grove_led.pwm.d11:
     depends_on: arduino_gpio
@@ -759,7 +759,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d11", "pwm-leds")
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d11
     platform_allow:
-      - arduino_zero
+      - arduino_zero/samd21g18a/bbe
       - mimxrt1060_evk@A/mimxrt1062/qspi
       - mimxrt1060_evk@A/mimxrt1062/qspi/bbe
       - mimxrt1060_evk@B/mimxrt1062/qspi
@@ -776,8 +776,8 @@ tests:
       - nucleo_f746zg/stm32f746xx/bbe
       - nucleo_f767zi/stm32f767xx
       - nucleo_f767zi/stm32f767xx/bbe
-      - seeeduino_cm0
-      - seeeduino_lotus
+      - seeeduino_cm0/samd21g18a
+      - seeeduino_lotus/samd21g18a
   # grove.base.v2.grove_led.pwm.d12
   grove.base.v1.grove_led.pwm.d12:
     depends_on: arduino_gpio
@@ -787,7 +787,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d12", "pwm-leds")
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d12
     platform_allow:
-      - arduino_zero
+      - arduino_zero/samd21g18a/bbe
       - mimxrt1060_evk@A/mimxrt1062/qspi
       - mimxrt1060_evk@A/mimxrt1062/qspi/bbe
       - mimxrt1060_evk@B/mimxrt1062/qspi
@@ -803,8 +803,8 @@ tests:
       - nucleo_f746zg/stm32f746xx/bbe
       - nucleo_f767zi/stm32f767xx
       - nucleo_f767zi/stm32f767xx/bbe
-      - seeeduino_cm0
-      - seeeduino_lotus
+      - seeeduino_cm0/samd21g18a
+      - seeeduino_lotus/samd21g18a
   # grove.base.v2.grove_led.pwm.d13
   grove.base.v1.grove_led.pwm.d13:
     depends_on: arduino_gpio
@@ -814,7 +814,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d13", "pwm-leds")
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d13
     platform_allow:
-      - arduino_zero
+      - arduino_zero/samd21g18a/bbe
       - mimxrt1060_evk@A/mimxrt1062/qspi
       - mimxrt1060_evk@A/mimxrt1062/qspi/bbe
       - mimxrt1060_evk@B/mimxrt1062/qspi
@@ -831,8 +831,8 @@ tests:
       - nucleo_f746zg/stm32f746xx/bbe
       - nucleo_f767zi/stm32f767xx
       - nucleo_f767zi/stm32f767xx/bbe
-      - seeeduino_cm0
-      - seeeduino_lotus
+      - seeeduino_cm0/samd21g18a
+      - seeeduino_lotus/samd21g18a
   grove.base.v2.grove_led.pwm.d14:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d14") and
@@ -904,7 +904,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d18", "pwm-leds")
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d18
     platform_allow:
-      - arduino_zero
+      - arduino_zero/samd21g18a/bbe
       - nucleo_f303re/stm32f303xe/bbe
       - nucleo_f401re/stm32f401xe/bbe
       - nucleo_f413zh/stm32f413xx
@@ -913,8 +913,8 @@ tests:
       - nucleo_f746zg/stm32f746xx/bbe
       - nucleo_f767zi/stm32f767xx
       - nucleo_f767zi/stm32f767xx/bbe
-      - seeeduino_cm0
-      - seeeduino_lotus
+      - seeeduino_cm0/samd21g18a
+      - seeeduino_lotus/samd21g18a
   grove.base.v1.grove_led.pwm.d18:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d18") and
@@ -924,7 +924,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d18", "pwm-leds")
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d18
     platform_allow:
-      - arduino_zero
+      - arduino_zero/samd21g18a/bbe
       - nucleo_f303re/stm32f303xe/bbe
       - nucleo_f401re/stm32f401xe/bbe
       - nucleo_f413zh/stm32f413xx
@@ -933,8 +933,8 @@ tests:
       - nucleo_f746zg/stm32f746xx/bbe
       - nucleo_f767zi/stm32f767xx
       - nucleo_f767zi/stm32f767xx/bbe
-      - seeeduino_cm0
-      - seeeduino_lotus
+      - seeeduino_cm0/samd21g18a
+      - seeeduino_lotus/samd21g18a
   grove.base.v2.grove_led.pwm.d19:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d19") and
@@ -943,7 +943,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d19", "pwm-leds")
     extra_args: SHIELD=seeed_grove_base_v2;grove_pwm_led_d19
     platform_allow:
-      - arduino_zero
+      - arduino_zero/samd21g18a/bbe
       - nucleo_f303re/stm32f303xe/bbe
       - nucleo_f401re/stm32f401xe/bbe
       - nucleo_f413zh/stm32f413xx
@@ -952,8 +952,8 @@ tests:
       - nucleo_f746zg/stm32f746xx/bbe
       - nucleo_f767zi/stm32f767xx
       - nucleo_f767zi/stm32f767xx/bbe
-      - seeeduino_cm0
-      - seeeduino_lotus
+      - seeeduino_cm0/samd21g18a
+      - seeeduino_lotus/samd21g18a
   grove.base.v1.grove_led.pwm.d19:
     depends_on: arduino_gpio
     filter: dt_nodelabel_enabled("grove_pwm_d19") and
@@ -962,7 +962,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d19", "pwm-leds")
     extra_args: SHIELD=seeed_grove_base_v1;grove_pwm_led_d19
     platform_allow:
-      - arduino_zero
+      - arduino_zero/samd21g18a/bbe
       - nucleo_f303re/stm32f303xe/bbe
       - nucleo_f401re/stm32f401xe/bbe
       - nucleo_f413zh/stm32f413xx
@@ -971,8 +971,8 @@ tests:
       - nucleo_f746zg/stm32f746xx/bbe
       - nucleo_f767zi/stm32f767xx
       - nucleo_f767zi/stm32f767xx/bbe
-      - seeeduino_cm0
-      - seeeduino_lotus
+      - seeeduino_cm0/samd21g18a
+      - seeeduino_lotus/samd21g18a
   #
   # Grove LED by simple GPIO on Grove Shield for Seeeduino XIAO
   #
@@ -1571,7 +1571,7 @@ tests:
       - platform:cytron_maker_pi_rp2040/rp2040:"CONFIG_PWM=n"
     platform_allow:
       - cytron_maker_pi_rp2040
-      - seeeduino_lotus
+      - seeeduino_lotus/samd21g18a
   grove.connectors.grove_led.gpio.d3:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d3_header") or
@@ -1583,7 +1583,7 @@ tests:
       - platform:cytron_maker_pi_rp2040/rp2040:"CONFIG_PWM=n"
     platform_allow:
       - cytron_maker_pi_rp2040
-      - seeeduino_lotus
+      - seeeduino_lotus/samd21g18a
   grove.connectors.grove_led.gpio.d4:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d4_header") or
@@ -1595,7 +1595,7 @@ tests:
       - platform:cytron_maker_pi_rp2040/rp2040:"CONFIG_PWM=n"
     platform_allow:
       - cytron_maker_pi_rp2040
-      - seeeduino_lotus
+      - seeeduino_lotus/samd21g18a
   grove.connectors.grove_led.gpio.d5:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d5_header") or
@@ -1607,7 +1607,7 @@ tests:
       - platform:cytron_maker_pi_rp2040/rp2040:"CONFIG_PWM=n"
     platform_allow:
       - cytron_maker_pi_rp2040
-      - seeeduino_lotus
+      - seeeduino_lotus/samd21g18a
   grove.connectors.grove_led.gpio.d6:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d6_header") or
@@ -1619,7 +1619,7 @@ tests:
       - platform:cytron_maker_pi_rp2040/rp2040:"CONFIG_PWM=n"
     platform_allow:
       - cytron_maker_pi_rp2040
-      - seeeduino_lotus
+      - seeeduino_lotus/samd21g18a
   grove.connectors.grove_led.gpio.d7:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d7_header") or
@@ -1631,7 +1631,7 @@ tests:
       - platform:cytron_maker_pi_rp2040/rp2040:"CONFIG_PWM=n"
     platform_allow:
       - cytron_maker_pi_rp2040
-      - seeeduino_lotus
+      - seeeduino_lotus/samd21g18a
   grove.connectors.grove_led.gpio.d8:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d8_header") or
@@ -1640,7 +1640,7 @@ tests:
     extra_args:
       - SHIELD=grove_led_d8
     platform_allow:
-      - seeeduino_lotus
+      - seeeduino_lotus/samd21g18a
   grove.connectors.grove_led.gpio.d9:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d9_header") or
@@ -1693,7 +1693,7 @@ tests:
       - platform:cytron_maker_nano_rp2040/rp2040:"CONFIG_PWM=n"
     platform_allow:
       - cytron_maker_nano_rp2040
-      - seeeduino_lotus
+      - seeeduino_lotus/samd21g18a
   grove.connectors.grove_led.gpio.d15:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d15_header") or
@@ -1707,7 +1707,7 @@ tests:
       - platform:cytron_maker_nano_rp2040/rp2040:"CONFIG_PWM=n"
     platform_allow:
       - cytron_maker_nano_rp2040
-      - seeeduino_lotus
+      - seeeduino_lotus/samd21g18a
   grove.connectors.grove_led.gpio.d16:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d16_header") or
@@ -1732,7 +1732,7 @@ tests:
       - mini_usb_rp2040@chipled
       - mini_usb_rp2350@4mb/rp2350a/m33
       - mini_usb_rp2350@16mb/rp2350a/m33
-      - seeeduino_lotus
+      - seeeduino_lotus/samd21g18a
   grove.connectors.grove_led.gpio.d17:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d17_header") or
@@ -1757,7 +1757,7 @@ tests:
       - mini_usb_rp2040@chipled
       - mini_usb_rp2350@4mb/rp2350a/m33
       - mini_usb_rp2350@16mb/rp2350a/m33
-      - seeeduino_lotus
+      - seeeduino_lotus/samd21g18a
   grove.connectors.grove_led.gpio.d18:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d18_header") or
@@ -1935,7 +1935,7 @@ tests:
     extra_args: SHIELD=grove_pwm_led_d2
     platform_allow:
       - cytron_maker_pi_rp2040
-      - seeeduino_lotus
+      - seeeduino_lotus/samd21g18a
   grove.connectors.grove_led.pwm.d3:
     depends_on:
       - grove_gpio
@@ -1947,7 +1947,7 @@ tests:
     extra_args: SHIELD=grove_pwm_led_d3
     platform_allow:
       - cytron_maker_pi_rp2040
-      - seeeduino_lotus
+      - seeeduino_lotus/samd21g18a
   grove.connectors.grove_led.pwm.d4:
     depends_on:
       - grove_gpio
@@ -1959,7 +1959,7 @@ tests:
     extra_args: SHIELD=grove_pwm_led_d4
     platform_allow:
       - cytron_maker_pi_rp2040
-      - seeeduino_lotus
+      - seeeduino_lotus/samd21g18a
   grove.connectors.grove_led.pwm.d5:
     depends_on:
       - grove_gpio
@@ -1971,7 +1971,7 @@ tests:
     extra_args: SHIELD=grove_pwm_led_d5
     platform_allow:
       - cytron_maker_pi_rp2040
-      - seeeduino_lotus
+      - seeeduino_lotus/samd21g18a
   grove.connectors.grove_led.pwm.d6:
     depends_on:
       - grove_gpio
@@ -1983,7 +1983,7 @@ tests:
     extra_args: SHIELD=grove_pwm_led_d6
     platform_allow:
       - cytron_maker_pi_rp2040
-      - seeeduino_lotus
+      - seeeduino_lotus/samd21g18a
   grove.connectors.grove_led.pwm.d7:
     depends_on:
       - grove_gpio
@@ -1995,7 +1995,7 @@ tests:
     extra_args: SHIELD=grove_pwm_led_d7
     platform_allow:
       - cytron_maker_pi_rp2040
-      - seeeduino_lotus
+      - seeeduino_lotus/samd21g18a
   grove.connectors.grove_led.pwm.d8:
     depends_on:
       - grove_gpio
@@ -2006,7 +2006,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_pwm_led_d8", "pwm-leds")
     extra_args: SHIELD=grove_pwm_led_d8
     platform_allow:
-      - seeeduino_lotus
+      - seeeduino_lotus/samd21g18a
   grove.connectors.grove_led.pwm.d9:
     depends_on:
       - grove_gpio

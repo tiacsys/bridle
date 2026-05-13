@@ -25,7 +25,7 @@ common:
   #   USE the `tests/quarantine.yaml`file instead.
   #
   integration_platforms:
-    - arduino_zero
+    - arduino_zero/samd21g18a/bbe
     - mimxrt1010_evk/mimxrt1011/bbe
     - mimxrt1060_evk@A/mimxrt1062/qspi
     - mimxrt1060_evk@A/mimxrt1062/qspi/bbe
@@ -48,8 +48,8 @@ common:
     - rpi_pico2/rp2350a/hazard3
     - rpi_pico2/rp2350a/m33
     - rpi_pico2/rp2350a/m33/w
-    - seeeduino_cm0
-    - seeeduino_lotus
+    - seeeduino_cm0/samd21g18a
+    - seeeduino_lotus/samd21g18a
     - seeeduino_xiao
     - xiao_samd21
     - xiao_rp2040

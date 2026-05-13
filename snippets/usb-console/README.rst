@@ -171,9 +171,11 @@ specified as required.
 
    * - |arduino_zero_URB_VID|
      - |arduino_zero_URB_PID_CON|
-     - :code:`arduino_zero`
+     - | :code:`arduino_zero`
+       | :code:`arduino_zero//bbe`
      - |Arduino LLC|_
-     - |Arduino Zero (CDC ACM)|
+     - | |Arduino Zero (CDC ACM)|
+       | ↳ |bridle:board:arduino_zero|
      - `Arduino USB product ID list with SAMD21 CPU`_
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|

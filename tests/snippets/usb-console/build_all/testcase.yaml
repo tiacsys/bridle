@@ -29,7 +29,8 @@ common:
   platform_allow:
     - native_sim
     - native_sim/native/64
-    - arduino_zero
+    - arduino_zero/samd21g18a
+    - arduino_zero/samd21g18a/bbe
     - coffeecaller_nrf52
     - cytron_maker_nano_rp2040
     - cytron_maker_pi_rp2040
@@ -69,8 +70,8 @@ common:
     - rpi_pico2/rp2350a/hazard3
     - rpi_pico2/rp2350a/m33
     - rpi_pico2/rp2350a/m33/w
-    - seeeduino_cm0
-    - seeeduino_lotus
+    - seeeduino_cm0/samd21g18a
+    - seeeduino_lotus/samd21g18a
     - seeeduino_xiao
     - xiao_samd21
     - xiao_rp2040
@@ -115,8 +116,8 @@ tests:
       - cytron_motion_2350_pro/rp2350a/hazard3
       - cytron_motion_2350_pro/rp2350a/m33
       - magpie_f777ni
-      - seeeduino_cm0
-      - seeeduino_lotus
+      - seeeduino_cm0/samd21g18a
+      - seeeduino_lotus/samd21g18a
       - vccgnd_bluepill_stm32f103cb
       - vccgnd_bluepill_stm32f103c8
       - vccgnd_bluepill_stm32f072cb
@@ -166,7 +167,8 @@ tests:
     required_snippets:
       - usb-console
     integration_platforms:
-      - arduino_zero
+      - arduino_zero/samd21g18a
+      - arduino_zero/samd21g18a/bbe
       - mimxrt1010_evk/mimxrt1011
       - mimxrt1010_evk/mimxrt1011/bbe
       - mimxrt1060_evk@A/mimxrt1062/qspi
