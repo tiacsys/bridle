@@ -1,11 +1,11 @@
-# Copyright (c) 2023-2026 TiaC Systems
+# Copyright (c) 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 #
 # NOTE: copy and own from original board metadata in
 # "zephyr/boards/seeed/seeeduino_xiao/seeeduino_xiao.yaml"
 
-identifier: xiao_samd21
-name: XIAO SAMD21 (Seeeduino XIAO)
+identifier: seeeduino_xiao/samd21g18a/bbe
+name: Seeeduino XIAO (BBE)
 type: mcu
 arch: arm
 toolchain:
@@ -30,6 +30,6 @@ supported:
   - xiao_dac
   - xiao_gpio
   - xiao_i2c
-  - xiao_spi
   - xiao_serial
+  - xiao_spi
 vendor: seeed

@@ -1,17 +1,27 @@
-.. _seeeduino_xiao-extensions:
+.. _seeeduino_xiao_board-extensions:
 
-Seeeduino XIAO
-##############
+Seeeduino XIAO (BBE)
+####################
 
 Overview
 ********
 
-This is a set of Bridle's extension to the original Zephyr upstream board
-|zephyr:board:seeeduino_xiao| with some adaptions and improvement on Kconfig
-and Devicetree level.
+This is a set of Bridle's board extensions (BBE) to the original Zephyr
+upstream board |zephyr:board:seeeduino_xiao| with some adaptions and
+improvement on Twister, Kconfig and Devicetree level.
 
 List of extensions
 ******************
+
+.. rubric:: Board YAML
+
+- add the missing features that this board supports and
+  that Twister tests might depends on:
+
+  - :code:`adc`
+  - :code:`pwm`
+  - :code:`usb_cdc`
+  - :code:`xiao_dac`
 
 .. rubric:: Kconfig
 
@@ -74,11 +84,11 @@ List of extensions
 
      * - .. rubric:: Seeeduino XIAO
 
-     * - .. literalinclude:: ../seeeduino_xiao.overlay
-            :caption: seeeduino_xiao.overlay
+     * - .. literalinclude:: ../seeeduino_xiao_bbe.dts
+            :caption: seeeduino_xiao_bbe.dts
             :language: DTS
             :encoding: ISO-8859-1
             :prepend: / {
             :start-at: model
-            :end-at: "atmel,samd21";
+            :end-before: chosen {
             :append: };

@@ -70,7 +70,10 @@ the :ref:`boards-extensions` section in this documentation.
 |                   +------------------------------------+------------------------------------------------+
 |                   | |bridle:board:arduino_zero|        | | ``arduino_zero/samd21g18a/bbe``              |
 |                   +------------------------------------+------------------------------------------------+
-|                   | |zephyr:board:seeeduino_xiao|      | ``seeeduino_xiao``                             |
+|                   | |zephyr:board:seeeduino_xiao|      | | ``seeeduino_xiao``                           |
+|                   |                                    | | ``seeeduino_xiao/samd21g18a``                |
+|                   +------------------------------------+------------------------------------------------+
+|                   | |bridle:board:seeeduino_xiao|      | | ``seeeduino_xiao/samd21g18a/bbe``            |
 +-------------------+------------------------------------+------------------------------------------------+
 | i.MX RT1010       | |zephyr:board:mimxrt1010_evk|      | | ``mimxrt1010_evk``                           |
 |                   |                                    | | ``mimxrt1010_evk/mimxrt1011``                |
@@ -158,7 +161,8 @@ Also see the :ref:`boards` section in this documentation.
 | APM32F103Cx       | |bridle:board:weact_bluepillplus|  | | ``weact_bluepillplus_apm32f103c8``         |
 |                   |                                    | | ``weact_bluepillplus_apm32f103cb``         |
 +-------------------+------------------------------------+----------------------------------------------+
-| ATSAMD21G18A      | |bridle:board:xiao_samd21|         | ``xiao_samd21``                              |
+| ATSAMD21G18A      | |bridle:board:xiao_samd21|         | | ``xiao_samd21``                            |
+|                   |                                    | | ``xiao_samd21/samd21g18a``                 |
 |                   +------------------------------------+----------------------------------------------+
 |                   | |bridle:board:seeeduino_cm0|       | | ``seeeduino_cm0``                          |
 |                   |                                    | | ``seeeduino_cm0/samd21g18a``               |

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 TiaC Systems
+ * Copyright (c) 2023-2026 TiaC Systems
  * Copyright (c) 2020 Google LLC.
  *
  * SPDX-License-Identifier: Apache-2.0
@@ -16,10 +16,10 @@
 
 / {
 	model = "Seeed XIAO SAMD21 (Seeeduino XIAO) @ UART Concole";
-	compatible = "seeed,xiao-samd21-uartcons",
-		     "seeed,xiao-samd21",
-		     "seeed,seeeduino-xiao-uartcons",
+	compatible = "seeed,xiao-samd21",
+		     "seeed,xiao-samd21-uartcons",
 		     "seeed,seeeduino-xiao",
+		     "seeed,seeeduino-xiao-uartcons",
 		     "atmel,samd21g18a",
 		     "atmel,samd21";
 

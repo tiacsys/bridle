@@ -1,6 +1,9 @@
+# Copyright (c) 2023-2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 board:
   name: xiao_samd21
-  full_name: Seeed Studio XIAO SAMD21
+  full_name: XIAO SAMD21
   vendor: seeed
   socs:
     - name: samd21g18a

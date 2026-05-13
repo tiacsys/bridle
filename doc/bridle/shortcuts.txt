@@ -1387,6 +1387,9 @@
 .. |nucleo_l496zg_PStr_MSC|	replace:: :ign:`STM32L496ZG-NUCLEO (MSC)`
 .. |nucleo_l496zg_BCD_MSC|	replace:: |zephyr_version_BCD|
 
+.. |bridle:board:seeeduino_xiao| replace:: :ref:`seeeduino_xiao_board-extensions`
+.. :bridle:board:`seeeduino_xiao`
+
 .. |zephyr:board:seeeduino_xiao| replace::
    :external+zephyr:zephyr:board:`seeeduino_xiao`
 

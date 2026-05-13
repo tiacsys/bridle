@@ -56,6 +56,7 @@
 /boards/seeed/                            @rexut
 /boards/seeed/seeeduino_cm0/              @rexut
 /boards/seeed/seeeduino_lotus/            @rexut
+/boards/seeed/seeeduino_xiao/             @rexut
 /boards/seeed/xiao_samd21/                @rexut
 /boards/shields/                          @rexut
 /boards/shields/can_timing_adj/           @rexut
