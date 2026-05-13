@@ -8,6 +8,10 @@
 
 | ATSAMD21G18A | | :external+zephyr:zephyr:board:`arduino_zero` | - ``arduino_zero/samd21g18a`` |
 
+.. seeeduino_xiao_samd21g18a
+
+| ATSAMD21G18A | | :external+zephyr:zephyr:board:`seeeduino_xiao` | - ``seeeduino_xiao/samd21g18a`` |
+
 .. arduino_zero_samd21g18a_bbe
 
 | ATSAMD21G18A | | :ref:`arduino_zero_board-extensions` | - ``arduino_zero/samd21g18a/bbe`` |
@@ -19,6 +23,14 @@
 .. seeeduino_lotus_samd21g18a
 
 | ATSAMD21G18A | | :ref:`seeeduino_lotus` | - ``seeeduino_lotus/samd21g18a`` |
+
+.. seeeduino_xiao_samd21g18a_bbe
+
+| ATSAMD21G18A | | :ref:`seeeduino_xiao_board-extensions` | - ``seeeduino_xiao/samd21g18a/bbe`` |
+
+.. xiao_samd21_samd21g18a
+
+| ATSAMD21G18A | | :ref:`xiao_samd21` | - ``xiao_samd21/samd21g18a`` |
 
 .. weact_bluepillplus_ch32v203c6
 

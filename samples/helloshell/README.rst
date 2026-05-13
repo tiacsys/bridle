@@ -26,6 +26,7 @@ Requirements
   * |bridle:board:seeeduino_cm0|
   * |bridle:board:seeeduino_lotus|
   * |bridle:board:waveshare_rp2040|
+  * |bridle:board:xiao_samd21|
   * |zephyr:board:arduino_zero| or Bridle's |bridle:board:arduino_zero|
   * |zephyr:board:mimxrt1010_evk| or Bridle's |bridle:board:mimxrt1010_evk|
   * |zephyr:board:mimxrt1060_evk| or Bridle's |bridle:board:mimxrt1060_evk|
@@ -53,7 +54,7 @@ Requirements
   * |zephyr:board:qemu_xtensa|
   * |zephyr:board:rpi_pico2|
   * |zephyr:board:rpi_pico|
-  * |zephyr:board:seeeduino_xiao| or Bridle's |bridle:board:xiao_samd21|
+  * |zephyr:board:seeeduino_xiao| or Bridle's |bridle:board:seeeduino_xiao|
 
 .. zephyr-keep-sorted-stop
 
