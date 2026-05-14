@@ -1,13 +1,10 @@
 /*
- * Copyright (c) 2023-2025 TiaC Systems
+ * Copyright (c) 2023-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#include <freq.h>
-
 #include "rpipico_r3_connector.dtsi"
 #include "rpipico_r3-pinctrl.dtsi"
-#include "rpipico_r3-spi0.dtsi"
 #include "rpipico_r3-spi1.dtsi"
 
 &reset {

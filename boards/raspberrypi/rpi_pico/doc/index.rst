@@ -1,17 +1,29 @@
-.. _rpi_pico-extensions:
+.. _rpi_pico_board-extensions:
 
-Raspberry Pi Pico and Pico W
-############################
+Raspberry Pi Pico (BBE)
+#######################
 
 Overview
 ********
 
-This is a set of Bridle's extension to the original Zephyr upstream board
-|zephyr:board:rpi_pico| with some adaptions and improvement on Kconfig and
-Devicetree level.
+This is a set of Bridle's board extensions (BBE) to the original Zephyr
+upstream board |zephyr:board:rpi_pico| with some adaptions and improvement
+on Twister, Kconfig and Devicetree level.
 
 List of extensions
 ******************
+
+.. rubric:: Board YAML
+
+- add the missing features that this board supports and
+  that Twister tests might depends on:
+
+  - :code:`rpipico_gpio`
+  - :code:`rpipico_i2c`
+  - :code:`rpipico_spi`
+  - :code:`rpipico_serial`
+  - :code:`usb_device`
+  - :code:`usb_cdc`
 
 .. rubric:: Kconfig
 
@@ -74,13 +86,29 @@ List of extensions
 
      * - .. rubric:: Raspberry Pi Pico
 
-     * - .. literalinclude:: ../rpi_pico.overlay
-            :caption: rpi_pico.overlay
+     * - .. literalinclude:: ../rpi_pico_rp2040_bbe.dts
+            :caption: rpi_pico_rp2040_bbe.dts
             :language: DTS
             :encoding: ISO-8859-1
             :prepend: / {
             :start-at: model
-            :end-at: compatible
+            :end-before: chosen {
+            :append: };
+
+  .. list-table::
+     :align: left
+     :width: 50%
+     :widths: 100
+
+     * - .. rubric:: Raspberry Pi Pico - MCUboot
+
+     * - .. literalinclude:: ../rpi_pico_rp2040_mcuboot_bbe.dts
+            :caption: rpi_pico_rp2040_mcuboot_bbe.dts
+            :language: DTS
+            :encoding: ISO-8859-1
+            :prepend: / {
+            :start-at: model
+            :end-before: chosen {
             :append: };
 
   .. list-table::
@@ -90,13 +118,29 @@ List of extensions
 
      * - .. rubric:: Raspberry Pi Pico W
 
-     * - .. literalinclude:: ../rpi_pico_w.overlay
-            :caption: rpi_pico_w.overlay
+     * - .. literalinclude:: ../rpi_pico_rp2040_w_bbe.dts
+            :caption: rpi_pico_rp2040_w_bbe.dts
             :language: DTS
             :encoding: ISO-8859-1
             :prepend: / {
             :start-at: model
-            :end-at: compatible
+            :end-before: chosen {
+            :append: };
+
+  .. list-table::
+     :align: left
+     :width: 50%
+     :widths: 100
+
+     * - .. rubric:: Raspberry Pi Pico W - MCUboot
+
+     * - .. literalinclude:: ../rpi_pico_rp2040_w_mcuboot_bbe.dts
+            :caption: rpi_pico_rp2040_w_mcuboot_bbe.dts
+            :language: DTS
+            :encoding: ISO-8859-1
+            :prepend: / {
+            :start-at: model
+            :end-before: chosen {
             :append: };
 
 - add the Bridle specific edge connecor binding
