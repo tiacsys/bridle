@@ -200,10 +200,12 @@ specified as required.
 
    * - |seeeduino_xiao_URB_VID|
      - |seeeduino_xiao_URB_PID_CON|
-     - :code:`seeeduino_xiao`
+     - | :code:`seeeduino_xiao`
+       | :code:`seeeduino_xiao//bbe`
      - |Seeed LLC|_
      - | |Seeed XIAO M0 (CDC ACM)|,
        | Seeeduino XIAO
+       | ↳ |bridle:board:seeeduino_xiao|
      - `Seeeduino USB product ID list with SAMD21 CPU`_
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|

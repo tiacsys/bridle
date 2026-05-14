@@ -735,16 +735,10 @@ not be complete.
          .. group-tab:: ``seeeduino_xiao``
 
             This is based on the Zephyr board |zephyr:board:seeeduino_xiao|
+            or the Bridle extended board |bridle:board:seeeduino_xiao|
             and its :dtcompatible:`seeed,xiao-gpio`.
 
-            .. note::
-
-               This board basically provides only some channels from a few timers as
-               PWM to the outside. The SoC's ability to route channels to multiple
-               pads may result in channels being connected in parallel. The second
-               table below shows the possibilities which channels can really
-               be used independently at the associated signals of the
-               |Laced Grove Signal Interface|.
+            .. include:: grove_note-seeeduino_xiao.rsti
 
             .. include:: grove_pwms-seeeduino_xiao.rsti
 
@@ -753,14 +747,7 @@ not be complete.
             This is based on the Bridle board |bridle:board:xiao_samd21|
             and its :dtcompatible:`seeed,xiao-gpio`.
 
-            .. note::
-
-               This board basically provides only some channels from a few timers as
-               PWM to the outside. The SoC's ability to route channels to multiple
-               pads may result in channels being connected in parallel. The second
-               table below shows the possibilities which channels can really
-               be used independently at the associated signals of the
-               |Laced Grove Signal Interface|.
+            .. include:: grove_note-seeeduino_xiao.rsti
 
             .. include:: grove_pwms-xiao_samd21.rsti
 
@@ -959,23 +946,31 @@ Grove Base Shield for XIAO
 Set ``-DSHIELD=seeed_grove_xiao_v1`` when you invoke ``west build``
 or ``cmake`` in your Zephyr application. For example:
 
-#. |zephyr:board:seeeduino_xiao| on :ref:`grove_base_shield_xiao_v1`:
+#. :ref:`grove_base_shield_xiao_v1` on |zephyr:board:seeeduino_xiao| or
+   |bridle:board:seeeduino_xiao| or |bridle:board:xiao_samd21|:
 
    .. zephyr-app-commands::
       :app: bridle/samples/helloshell
       :build-dir: helloshell-seeed_grove_xiao_v1
-      :board: seeeduino_xiao
+      :board: seeeduino_xiao/samd21g18a
       :shield: "seeed_grove_xiao_v1"
       :goals: flash
       :west-args: -p
       :host-os: unix
 
-#. |bridle:board:xiao_samd21| on :ref:`grove_base_shield_xiao_v1`:
+   .. zephyr-app-commands::
+      :app: bridle/samples/helloshell
+      :build-dir: helloshell-seeed_grove_xiao_v1
+      :board: seeeduino_xiao/samd21g18a/bbe
+      :shield: "seeed_grove_xiao_v1"
+      :goals: flash
+      :west-args: -p
+      :host-os: unix
 
    .. zephyr-app-commands::
       :app: bridle/samples/helloshell
       :build-dir: helloshell-seeed_grove_xiao_v1
-      :board: xiao_samd21
+      :board: xiao_samd21/samd21g18a
       :shield: "seeed_grove_xiao_v1"
       :goals: flash
       :west-args: -p

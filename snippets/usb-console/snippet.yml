@@ -112,6 +112,10 @@ boards:
     append:
       EXTRA_CONF_FILE: boards/seeeduino_xiao.conf
       EXTRA_DTC_OVERLAY_FILE: boards/seeeduino_xiao.overlay
+  seeeduino_xiao/samd21g18a/bbe:
+    append:
+      EXTRA_CONF_FILE: boards/seeeduino_xiao.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/seeeduino_xiao_bbe.overlay
   xiao_samd21/samd21g18a:
     append:
       EXTRA_CONF_FILE: boards/xiao_samd21.conf

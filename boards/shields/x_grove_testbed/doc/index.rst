@@ -824,7 +824,8 @@ For example:
 
          .. group-tab:: Seeeduino XIAO
 
-            This is based on the Zephyr board |zephyr:board:seeeduino_xiao|.
+            This is based on the Zephyr board |zephyr:board:seeeduino_xiao| or
+            the Bridle extended board |bridle:board:seeeduino_xiao|.
 
             * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
 
@@ -850,6 +851,17 @@ For example:
                      :goals: flash
                      :host-os: unix
 
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/blinky
+                     :build-dir: blinky-seeeduino_xiao-x_grove_testbed
+                     :board: seeeduino_xiao/samd21g18a/bbe
+                     :shield: \
+                              "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
+                     :snippets: "usb-console"
+                     :west-args: -p
+                     :goals: flash
+                     :host-os: unix
+
                .. group-tab:: LED Fade
 
                   This is based on the Zephyr sample
@@ -866,6 +878,17 @@ For example:
                      :goals: flash
                      :host-os: unix
 
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/fade_led
+                     :build-dir: fade-seeeduino_xiao-x_grove_testbed
+                     :board: seeeduino_xiao/samd21g18a/bbe
+                     :shield: \
+                              "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
+                     :snippets: "usb-console"
+                     :west-args: -p
+                     :goals: flash
+                     :host-os: unix
+
                .. group-tab:: LED Button
 
                   This is based on the Zephyr sample
@@ -875,6 +898,17 @@ For example:
                      :app: zephyr/samples/basic/button
                      :build-dir: button-seeeduino_xiao-x_grove_testbed
                      :board: seeeduino_xiao
+                     :shield: \
+                              "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
+                     :snippets: "usb-console"
+                     :west-args: -p
+                     :goals: flash
+                     :host-os: unix
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/button
+                     :build-dir: button-seeeduino_xiao-x_grove_testbed
+                     :board: seeeduino_xiao/samd21g18a/bbe
                      :shield: \
                               "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
                      :snippets: "usb-console"

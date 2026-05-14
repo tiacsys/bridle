@@ -171,6 +171,7 @@
     - grove.connectors.x_grove_testbed.pwm.b7l6
   platforms:
     - seeeduino_xiao/samd21g18a
+    - seeeduino_xiao/samd21g18a/bbe
     - xiao_samd21/samd21g18a
     - xiao_rp2040/rp2040
     - xiao_rp2350/rp2350a/hazard3
@@ -333,6 +334,7 @@
     - rpi_pico2/rp2350a/m33/w
     - rpi_pico2/rp2350a/m33/w/mcuboot
     - seeeduino_xiao/samd21g18a
+    - seeeduino_xiao/samd21g18a/bbe
     - xiao_samd21/samd21g18a
     - xiao_rp2040/rp2040
     - xiao_rp2350/rp2350a/hazard3
@@ -471,6 +473,7 @@
     - seeeduino_cm0/samd21g18a
     - seeeduino_lotus/samd21g18a
     - seeeduino_xiao/samd21g18a
+    - seeeduino_xiao/samd21g18a/bbe
     - xiao_samd21/samd21g18a
     - xiao_rp2040/rp2040
     - xiao_rp2350/rp2350a/hazard3
@@ -516,6 +519,7 @@
     - rpi_pico2/rp2350a/m33/w
     - rpi_pico2/rp2350a/m33/w/mcuboot
     - seeeduino_xiao/samd21g18a
+    - seeeduino_xiao/samd21g18a/bbe
     - xiao_samd21/samd21g18a
     - xiao_rp2040/rp2040
     - xiao_rp2350/rp2350a/hazard3
@@ -630,6 +634,7 @@
     - seeeduino_cm0/samd21g18a
     - seeeduino_lotus/samd21g18a
     - seeeduino_xiao/samd21g18a
+    - seeeduino_xiao/samd21g18a/bbe
     - xiao_samd21/samd21g18a
     - xiao_rp2040/rp2040
     - xiao_rp2350/rp2350a/hazard3
@@ -688,6 +693,7 @@
     - rpi_pico2/rp2350a/m33/w
     - rpi_pico2/rp2350a/m33/w/mcuboot
     - seeeduino_xiao/samd21g18a
+    - seeeduino_xiao/samd21g18a/bbe
     - xiao_samd21/samd21g18a
     - xiao_rp2040/rp2040
     - xiao_rp2350/rp2350a/hazard3
@@ -1077,6 +1083,7 @@
     - rpi_pico2/rp2350a/m33/w
     - rpi_pico2/rp2350a/m33/w/mcuboot
     - seeeduino_xiao/samd21g18a
+    - seeeduino_xiao/samd21g18a/bbe
     - xiao_samd21/samd21g18a
     - xiao_rp2040/rp2040
     - xiao_rp2350/rp2350a/hazard3
@@ -1287,6 +1294,7 @@
 - comment: "shield(grove.base.grove_led): xiao_samd21: invalid board condition."
   platforms:
     - seeeduino_xiao/samd21g18a
+    - seeeduino_xiao/samd21g18a/bbe
     - xiao_samd21/samd21g18a
   scenarios:
     - grove.xiao.v1.grove_led.pwm.d0
@@ -1334,6 +1342,7 @@
     - seeeduino_cm0/samd21g18a
     - seeeduino_lotus/samd21g18a
     - seeeduino_xiao/samd21g18a
+    - seeeduino_xiao/samd21g18a/bbe
     - xiao_samd21/samd21g18a
     - xiao_rp2040/rp2040
     - xiao_rp2350/rp2350a/hazard3
@@ -1386,6 +1395,7 @@
     - rpi_pico2/rp2350a/m33/w
     - rpi_pico2/rp2350a/m33/w/mcuboot
     - seeeduino_xiao/samd21g18a
+    - seeeduino_xiao/samd21g18a/bbe
     - xiao_samd21/samd21g18a
     - xiao_rp2040/rp2040
     - xiao_rp2350/rp2350a/hazard3

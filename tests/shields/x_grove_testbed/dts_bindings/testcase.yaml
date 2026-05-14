@@ -60,8 +60,9 @@ common:
     - rpi_pico2/rp2350a/m33/w
     - seeeduino_cm0/samd21g18a
     - seeeduino_lotus/samd21g18a
-    - seeeduino_xiao
-    - xiao_samd21
+    - seeeduino_xiao/samd21g18a
+    - seeeduino_xiao/samd21g18a/bbe
+    - xiao_samd21/samd21g18a
     - xiao_rp2040
     - xiao_rp2350/rp2350a/hazard3
     - xiao_rp2350/rp2350a/m33
@@ -135,8 +136,9 @@ tests:
     extra_args:
       SHIELD=seeed_grove_xiao_v1;grove_btn_d0;grove_led_d1;grove_pwm_led_d1;x_grove_testbed
     platform_allow:
-      - seeeduino_xiao
-      - xiao_samd21
+      - seeeduino_xiao/samd21g18a
+      - seeeduino_xiao/samd21g18a/bbe
+      - xiao_samd21/samd21g18a
       - xiao_rp2040
       - xiao_rp2350/rp2350a/hazard3
       - xiao_rp2350/rp2350a/m33
