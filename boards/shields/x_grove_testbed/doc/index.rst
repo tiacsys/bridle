@@ -982,7 +982,8 @@ For example:
 
          .. group-tab:: Raspberry Pi Pico (2)
 
-            This is based on the Zephyr board |RPi Pico| and |RPi Pico 2|.
+            This is based on the Bridle extended board |bridle:board:rpi_pico|
+            as |RPi Pico| and |RPi Pico 2|.
 
             * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
 
@@ -1000,7 +1001,7 @@ For example:
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/blinky
                      :build-dir: blinky-rpi_pico-x_grove_testbed
-                     :board: rpi_pico
+                     :board: rpi_pico/rp2040/bbe
                      :shield: \
                               "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
                      :gen-args: \
@@ -1020,7 +1021,7 @@ For example:
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/fade_led
                      :build-dir: fade-rpi_pico-x_grove_testbed
-                     :board: rpi_pico
+                     :board: rpi_pico/rp2040/bbe
                      :shield: \
                               "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
                      :gen-args: \
@@ -1040,7 +1041,7 @@ For example:
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/button
                      :build-dir: button-rpi_pico-x_grove_testbed
-                     :board: rpi_pico
+                     :board: rpi_pico/rp2040/bbe
                      :shield: \
                               "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
                      :gen-args: \
@@ -1054,7 +1055,9 @@ For example:
 
          .. group-tab:: Raspberry Pi Pico (2)W
 
-            This is based on the Zephyr board |RPi Pico W| and |RPi Pico 2W|.
+            This is based on the Bridle extended board |bridle:board:rpi_pico|
+            as |RPi Pico W| and |RPi Pico 2W|.
+
 
             * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
 
@@ -1072,7 +1075,7 @@ For example:
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/blinky
                      :build-dir: blinky-rpi_pico_w-x_grove_testbed
-                     :board: rpi_pico/rp2040/w
+                     :board: rpi_pico/rp2040/w/bbe
                      :shield: \
                               "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
                      :gen-args: \
@@ -1092,7 +1095,7 @@ For example:
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/fade_led
                      :build-dir: fade-rpi_pico_w-x_grove_testbed
-                     :board: rpi_pico/rp2040/w
+                     :board: rpi_pico/rp2040/w/bbe
                      :shield: \
                               "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
                      :gen-args: \
@@ -1112,7 +1115,7 @@ For example:
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/button
                      :build-dir: button-rpi_pico_w-x_grove_testbed
-                     :board: rpi_pico/rp2040/w
+                     :board: rpi_pico/rp2040/w/bbe
                      :shield: \
                               "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
                      :gen-args: \

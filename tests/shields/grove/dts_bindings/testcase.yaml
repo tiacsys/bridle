@@ -43,8 +43,10 @@ common:
     - nucleo_f746zg/stm32f746xx/bbe
     - nucleo_f767zi/stm32f767xx
     - nucleo_f767zi/stm32f767xx/bbe
-    - rpi_pico
-    - rpi_pico/rp2040/w
+    - rpi_pico/rp2040/bbe
+    - rpi_pico/rp2040/mcuboot/bbe
+    - rpi_pico/rp2040/w/bbe
+    - rpi_pico/rp2040/w/mcuboot/bbe
     - rpi_pico2/rp2350a/hazard3
     - rpi_pico2/rp2350a/m33
     - rpi_pico2/rp2350a/m33/w
@@ -182,7 +184,7 @@ tests:
             dt_nodelabel_enabled("grove_spi")
     extra_args: SHIELD=seeed_grove_xiao_v1
   grove.rpipico.v1:
-    depends_on: pico_gpio
+    depends_on: rpipico_gpio
     filter: dt_nodelabel_enabled("grove_laced_if_v1") and
             dt_nodelabel_enabled("grove_d1_header") and
             dt_nodelabel_enabled("grove_d5_header") and
@@ -201,14 +203,14 @@ tests:
             dt_nodelabel_enabled("generic_spi_header")
     extra_args: SHIELD=seeed_grove_rpipico_v1
   grove.rpipico.v1.pwms:
-    depends_on: pico_gpio
+    depends_on: rpipico_gpio
     filter: dt_nodelabel_enabled("grove_laced_if_v1") and
             dt_nodelabel_enabled("grove_pwms")
     extra_args: SHIELD=seeed_grove_rpipico_v1
   grove.rpipico.v1.rpipico:
     # May be skipped if the board has at least one of the RPi Pico standard
     # interfaces UART, I2C or SPI disabled at the time.
-    depends_on: pico_gpio
+    depends_on: rpipico_gpio
     filter: dt_nodelabel_enabled("grove_laced_if_v1") and
             dt_nodelabel_enabled("rpipico_header") and
             dt_nodelabel_enabled("grove_gpios") and

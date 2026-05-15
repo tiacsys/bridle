@@ -191,7 +191,13 @@
     - grove.connectors.x_grove_testbed.pwm.b7l6
   platforms:
     - rpi_pico/rp2040
+    - rpi_pico/rp2040/bbe
+    - rpi_pico/rp2040/mcuboot
+    - rpi_pico/rp2040/mcuboot/bbe
     - rpi_pico/rp2040/w
+    - rpi_pico/rp2040/w/bbe
+    - rpi_pico/rp2040/w/mcuboot
+    - rpi_pico/rp2040/w/mcuboot/bbe
     - rpi_pico2/rp2350a/hazard3
     - rpi_pico2/rp2350a/m33
     - rpi_pico2/rp2350a/m33/mcuboot
@@ -327,7 +333,13 @@
     - mini_usb_rp2350@4mb/rp2350a/m33
     - mini_usb_rp2350@16mb/rp2350a/m33
     - rpi_pico/rp2040
+    - rpi_pico/rp2040/bbe
+    - rpi_pico/rp2040/mcuboot
+    - rpi_pico/rp2040/mcuboot/bbe
     - rpi_pico/rp2040/w
+    - rpi_pico/rp2040/w/bbe
+    - rpi_pico/rp2040/w/mcuboot
+    - rpi_pico/rp2040/w/mcuboot/bbe
     - rpi_pico2/rp2350a/hazard3
     - rpi_pico2/rp2350a/m33
     - rpi_pico2/rp2350a/m33/mcuboot
@@ -391,7 +403,13 @@
     - nucleo_f767zi/stm32f767xx
     - nucleo_f767zi/stm32f767xx/bbe
     - rpi_pico/rp2040
+    - rpi_pico/rp2040/bbe
+    - rpi_pico/rp2040/mcuboot
+    - rpi_pico/rp2040/mcuboot/bbe
     - rpi_pico/rp2040/w
+    - rpi_pico/rp2040/w/bbe
+    - rpi_pico/rp2040/w/mcuboot
+    - rpi_pico/rp2040/w/mcuboot/bbe
     - rpi_pico2/rp2350a/hazard3
     - rpi_pico2/rp2350a/m33
     - rpi_pico2/rp2350a/m33/mcuboot
@@ -512,7 +530,13 @@
     - mini_usb_rp2350@4mb/rp2350a/m33
     - mini_usb_rp2350@16mb/rp2350a/m33
     - rpi_pico/rp2040
+    - rpi_pico/rp2040/bbe
+    - rpi_pico/rp2040/mcuboot
+    - rpi_pico/rp2040/mcuboot/bbe
     - rpi_pico/rp2040/w
+    - rpi_pico/rp2040/w/bbe
+    - rpi_pico/rp2040/w/mcuboot
+    - rpi_pico/rp2040/w/mcuboot/bbe
     - rpi_pico2/rp2350a/hazard3
     - rpi_pico2/rp2350a/m33
     - rpi_pico2/rp2350a/m33/mcuboot
@@ -574,7 +598,13 @@
     - nucleo_f767zi/stm32f767xx
     - nucleo_f767zi/stm32f767xx/bbe
     - rpi_pico/rp2040
+    - rpi_pico/rp2040/bbe
+    - rpi_pico/rp2040/mcuboot
+    - rpi_pico/rp2040/mcuboot/bbe
     - rpi_pico/rp2040/w
+    - rpi_pico/rp2040/w/bbe
+    - rpi_pico/rp2040/w/mcuboot
+    - rpi_pico/rp2040/w/mcuboot/bbe
     - rpi_pico2/rp2350a/hazard3
     - rpi_pico2/rp2350a/m33
     - rpi_pico2/rp2350a/m33/mcuboot
@@ -686,7 +716,13 @@
     - nucleo_f767zi/stm32f767xx
     - nucleo_f767zi/stm32f767xx/bbe
     - rpi_pico/rp2040
+    - rpi_pico/rp2040/bbe
+    - rpi_pico/rp2040/mcuboot
+    - rpi_pico/rp2040/mcuboot/bbe
     - rpi_pico/rp2040/w
+    - rpi_pico/rp2040/w/bbe
+    - rpi_pico/rp2040/w/mcuboot
+    - rpi_pico/rp2040/w/mcuboot/bbe
     - rpi_pico2/rp2350a/hazard3
     - rpi_pico2/rp2350a/m33
     - rpi_pico2/rp2350a/m33/mcuboot
@@ -1076,7 +1112,13 @@
     - mini_usb_rp2350@4mb/rp2350a/m33
     - mini_usb_rp2350@16mb/rp2350a/m33
     - rpi_pico/rp2040
+    - rpi_pico/rp2040/bbe
+    - rpi_pico/rp2040/mcuboot
+    - rpi_pico/rp2040/mcuboot/bbe
     - rpi_pico/rp2040/w
+    - rpi_pico/rp2040/w/bbe
+    - rpi_pico/rp2040/w/mcuboot
+    - rpi_pico/rp2040/w/mcuboot/bbe
     - rpi_pico2/rp2350a/hazard3
     - rpi_pico2/rp2350a/m33
     - rpi_pico2/rp2350a/m33/mcuboot
@@ -1272,7 +1314,13 @@
     - nucleo_f767zi/stm32f767xx
     - nucleo_f767zi/stm32f767xx/bbe
     - rpi_pico/rp2040
+    - rpi_pico/rp2040/bbe
+    - rpi_pico/rp2040/mcuboot
+    - rpi_pico/rp2040/mcuboot/bbe
     - rpi_pico/rp2040/w
+    - rpi_pico/rp2040/w/bbe
+    - rpi_pico/rp2040/w/mcuboot
+    - rpi_pico/rp2040/w/mcuboot/bbe
     - rpi_pico2/rp2350a/hazard3
     - rpi_pico2/rp2350a/m33
     - rpi_pico2/rp2350a/m33/mcuboot
@@ -1388,7 +1436,13 @@
     - nucleo_f767zi/stm32f767xx
     - nucleo_f767zi/stm32f767xx/bbe
     - rpi_pico/rp2040
+    - rpi_pico/rp2040/bbe
+    - rpi_pico/rp2040/mcuboot
+    - rpi_pico/rp2040/mcuboot/bbe
     - rpi_pico/rp2040/w
+    - rpi_pico/rp2040/w/bbe
+    - rpi_pico/rp2040/w/mcuboot
+    - rpi_pico/rp2040/w/mcuboot/bbe
     - rpi_pico2/rp2350a/hazard3
     - rpi_pico2/rp2350a/m33
     - rpi_pico2/rp2350a/m33/mcuboot

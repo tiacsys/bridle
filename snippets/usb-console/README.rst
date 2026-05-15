@@ -253,20 +253,28 @@ specified as required.
 
    * - |rpi_pico_URB_VID|
      - |rpi_pico_URB_PID_CON|
-     - :code:`rpi_pico`
+     - | :code:`rpi_pico`
+       | :code:`rpi_pico//bbe`
+       | :code:`rpi_pico//mcuboot`
+       | :code:`rpi_pico//mcuboot/bbe`
      - |Raspberry Pi|_
      - | |RPi Pico (CDC ACM)|,
        | Raspberry Pi Pico SDK CDC UART
+       | ↳ |bridle:board:rpi_pico|
      - `Raspberry Pi USB product ID list`_
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
 
    * - |rpi_pico_rp2040_w_URB_VID|
      - |rpi_pico_rp2040_w_URB_PID_CON|
-     - :code:`rpi_pico/rp2040/w`
+     - | :code:`rpi_pico//w`
+       | :code:`rpi_pico//w/bbe`
+       | :code:`rpi_pico//w/mcuboot`
+       | :code:`rpi_pico//w/mcuboot/bbe`
      - |Raspberry Pi|_
      - | |RPi Pico W (CDC ACM)|,
        | Raspberry Pi Pico SDK CDC UART
+       | ↳ |bridle:board:rpi_pico|
      - `Raspberry Pi USB product ID list`_
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|

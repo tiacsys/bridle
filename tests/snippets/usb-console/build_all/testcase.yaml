@@ -65,8 +65,14 @@ common:
     - picoboy/rp2040
     - picoboy_color/rp2040
     - picoboy_color_plus/rp2350a/m33
-    - rpi_pico
+    - rpi_pico/rp2040
+    - rpi_pico/rp2040/bbe
+    - rpi_pico/rp2040/mcuboot
+    - rpi_pico/rp2040/mcuboot/bbe
     - rpi_pico/rp2040/w
+    - rpi_pico/rp2040/w/bbe
+    - rpi_pico/rp2040/w/mcuboot
+    - rpi_pico/rp2040/w/mcuboot/bbe
     - rpi_pico2/rp2350a/hazard3
     - rpi_pico2/rp2350a/m33
     - rpi_pico2/rp2350a/m33/w
@@ -147,8 +153,10 @@ tests:
     #
     # - mimxrt1060_evk@B/mimxrt1062/qspi
     # - mimxrt1060_evk@C/mimxrt1062/qspi
-    # - rpi_pico
+    # - rpi_pico/rp2040
+    # - rpi_pico/rp2040/mcuboot
     # - rpi_pico/rp2040/w
+    # - rpi_pico/rp2040/w/mcuboot
     # - rpi_pico2/rp2350a/hazard3
     # - rpi_pico2/rp2350a/m33
     # - rpi_pico2/rp2350a/m33/w
@@ -190,8 +198,14 @@ tests:
       - nucleo_f767zi/stm32f767xx/bbe
       - nucleo_l496zg/stm32l496xx
       - nucleo_l496zg/stm32l496xx/bbe
-      - rpi_pico
+      - rpi_pico/rp2040
+      - rpi_pico/rp2040/bbe
+      - rpi_pico/rp2040/mcuboot
+      - rpi_pico/rp2040/mcuboot/bbe
       - rpi_pico/rp2040/w
+      - rpi_pico/rp2040/w/bbe
+      - rpi_pico/rp2040/w/mcuboot
+      - rpi_pico/rp2040/w/mcuboot/bbe
       - rpi_pico2/rp2350a/hazard3
       - rpi_pico2/rp2350a/m33
       - rpi_pico2/rp2350a/m33/w

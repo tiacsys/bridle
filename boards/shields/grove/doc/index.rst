@@ -771,19 +771,13 @@ not be complete.
 
             .. include:: grove_pwms-rpi_pico.rsti
 
-         .. group-tab:: ``rpi_pico``
+         .. group-tab:: ``rpi_pico//bbe``
 
-            This is based on the Zephyr board |zephyr:board:rpi_pico|
-            and its :dtcompatible:`raspberrypi,pico-header-r3`.
+            This is based on the Bridle extended board
+            |bridle:board:rpi_pico| and its
+            :dtcompatible:`raspberrypi,pico-header-r3`.
 
-            .. note::
-
-               This board basically provides all channels from nearly all PWMs to
-               the outside. However, the SoC's ability to route channels to multiple
-               pads may result in channels being connected in parallel. The second
-               table below shows the possibilities which channels can really
-               be used independently at the associated signals of the
-               |Laced Grove Signal Interface|.
+            .. include:: grove_note-rpi_pico.rsti
 
             .. include:: grove_pwms-rpi_pico.rsti
 
@@ -793,14 +787,7 @@ not be complete.
             and its :dtcompatible:`raspberrypi,pico-header-r3`
             with reduced connections.
 
-            .. note::
-
-               This board basically provides all channels from nearly all PWMs to
-               the outside. However, the SoC's ability to route channels to multiple
-               pads may result in channels being connected in parallel. The second
-               table below shows the possibilities which channels can really
-               be used independently at the associated signals of the
-               |Laced Grove Signal Interface|.
+            .. include:: grove_note-waveshare_rp2040_eth.rsti
 
             .. include:: grove_pwms-waveshare_rp2040_eth.rsti
 
@@ -809,14 +796,7 @@ not be complete.
             This is based on the Bridle board |RP2040-LCD-0.96|
             and its :dtcompatible:`raspberrypi,pico-header-r3`.
 
-            .. note::
-
-               This board basically provides all channels from nearly all PWMs to
-               the outside. However, the SoC's ability to route channels to multiple
-               pads may result in channels being connected in parallel. The second
-               table below shows the possibilities which channels can really
-               be used independently at the associated signals of the
-               |Laced Grove Signal Interface|.
+            .. include:: grove_note-rpi_pico.rsti
 
             .. include:: grove_pwms-rpi_pico.rsti
 
@@ -825,14 +805,7 @@ not be complete.
             This is based on the Bridle board |RP2040-Plus|
             and its :dtcompatible:`raspberrypi,pico-header-r3`.
 
-            .. note::
-
-               This board basically provides all channels from nearly all PWMs to
-               the outside. However, the SoC's ability to route channels to multiple
-               pads may result in channels being connected in parallel. The second
-               table below shows the possibilities which channels can really
-               be used independently at the associated signals of the
-               |Laced Grove Signal Interface|.
+            .. include:: grove_note-rpi_pico.rsti
 
             .. include:: grove_pwms-rpi_pico.rsti
 
@@ -841,14 +814,7 @@ not be complete.
             This is based on the Bridle board |RP2350-CAN|
             and its :dtcompatible:`raspberrypi,pico-header-r3`.
 
-            .. note::
-
-               This board basically provides all channels from nearly all PWMs to
-               the outside. However, the SoC's ability to route channels to multiple
-               pads may result in channels being connected in parallel. The second
-               table below shows the possibilities which channels can really
-               be used independently at the associated signals of the
-               |Laced Grove Signal Interface|.
+            .. include:: grove_note-rpi_pico.rsti
 
             .. include:: grove_pwms-rpi_pico.rsti
 
@@ -1020,23 +986,23 @@ Grove Basic Kit for Raspberry Pi Pico
 Set ``-DSHIELD=seeed_grove_rpipico_v1`` when you invoke ``west build``
 or ``cmake`` in your Zephyr application. For example:
 
-#. |RPi Pico| on :ref:`grove_rpipico_shield_v1`:
+#. :ref:`grove_rpipico_shield_v1` on |bridle:board:rpi_pico| as |RPi Pico|:
 
    .. zephyr-app-commands::
       :app: bridle/samples/helloshell
       :build-dir: helloshell-seeed_grove_rpipico_v1
-      :board: rpi_pico
+      :board: rpi_pico/rp2040/bbe
       :shield: "seeed_grove_rpipico_v1"
       :goals: flash
       :west-args: -p
       :host-os: unix
 
-#. |RPi Pico W| on :ref:`grove_rpipico_shield_v1`:
+#. :ref:`grove_rpipico_shield_v1` on |bridle:board:rpi_pico| as |RPi Pico W|:
 
    .. zephyr-app-commands::
       :app: bridle/samples/helloshell
       :build-dir: helloshell-seeed_grove_rpipico_v1
-      :board: rpi_pico/rp2040/w
+      :board: rpi_pico/rp2040/w/bbe
       :shield: "seeed_grove_rpipico_v1"
       :snippets: "wifi-ip"
       :goals: flash

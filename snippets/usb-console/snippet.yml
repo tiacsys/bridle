@@ -152,10 +152,34 @@ boards:
     append:
       EXTRA_CONF_FILE: boards/rpi_pico.conf
       EXTRA_DTC_OVERLAY_FILE: boards/rpi_pico.overlay
+  rpi_pico/rp2040/mcuboot:
+    append:
+      EXTRA_CONF_FILE: boards/rpi_pico.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/rpi_pico_mcuboot.overlay
   rpi_pico/rp2040/w:
     append:
       EXTRA_CONF_FILE: boards/rpi_pico_w.conf
       EXTRA_DTC_OVERLAY_FILE: boards/rpi_pico_w.overlay
+  rpi_pico/rp2040/w/mcuboot:
+    append:
+      EXTRA_CONF_FILE: boards/rpi_pico_w.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/rpi_pico_w_mcuboot.overlay
+  rpi_pico/rp2040/bbe:
+    append:
+      EXTRA_CONF_FILE: boards/rpi_pico.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/rpi_pico_bbe.overlay
+  rpi_pico/rp2040/mcuboot/bbe:
+    append:
+      EXTRA_CONF_FILE: boards/rpi_pico.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/rpi_pico_mcuboot_bbe.overlay
+  rpi_pico/rp2040/w/bbe:
+    append:
+      EXTRA_CONF_FILE: boards/rpi_pico_w.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/rpi_pico_w_bbe.overlay
+  rpi_pico/rp2040/w/mcuboot/bbe:
+    append:
+      EXTRA_CONF_FILE: boards/rpi_pico_w.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/rpi_pico_w_mcuboot_bbe.overlay
   rpi_pico2/rp2350a/hazard3:
     append:
       EXTRA_CONF_FILE: boards/rpi_pico2.conf

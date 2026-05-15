@@ -53,8 +53,10 @@ common:
     - mini_usb_rp2040@chipled
     - mini_usb_rp2350@4mb/rp2350a/m33
     - mini_usb_rp2350@16mb/rp2350a/m33
-    - rpi_pico
-    - rpi_pico/rp2040/w
+    - rpi_pico/rp2040/bbe
+    - rpi_pico/rp2040/mcuboot/bbe
+    - rpi_pico/rp2040/w/bbe
+    - rpi_pico/rp2040/w/mcuboot/bbe
     - rpi_pico2/rp2350a/hazard3
     - rpi_pico2/rp2350a/m33
     - rpi_pico2/rp2350a/m33/w
@@ -773,120 +775,120 @@ tests:
   # Grove Button by simple GPIO on Grove Shield for Pi Pico
   #
   grove.rpipico.v1.grove_btn.gpio.d0:
-    depends_on: pico_gpio
+    depends_on: rpipico_gpio
     filter: dt_nodelabel_enabled("grove_d1_header") and
             dt_nodelabel_enabled("grove_uart0_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d0", "gpio-keys")
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d0
   grove.rpipico.v1.grove_btn.gpio.d0.inv:
-    depends_on: pico_gpio
+    depends_on: rpipico_gpio
     filter: dt_nodelabel_enabled("grove_d1_header") and
             dt_nodelabel_enabled("grove_uart0_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d0", "gpio-keys")
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d0_inv
   grove.rpipico.v1.grove_btn.gpio.d1:
-    depends_on: pico_gpio
+    depends_on: rpipico_gpio
     filter: dt_nodelabel_enabled("grove_d1_header") and
             dt_nodelabel_enabled("grove_uart0_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d1", "gpio-keys")
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d1
   grove.rpipico.v1.grove_btn.gpio.d1.inv:
-    depends_on: pico_gpio
+    depends_on: rpipico_gpio
     filter: dt_nodelabel_enabled("grove_d1_header") and
             dt_nodelabel_enabled("grove_uart0_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d1", "gpio-keys")
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d1_inv
   grove.rpipico.v1.grove_btn.gpio.d2:
-    depends_on: pico_gpio
+    depends_on: rpipico_gpio
     filter: dt_nodelabel_enabled("generic_spi_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d2", "gpio-keys")
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d2
   grove.rpipico.v1.grove_btn.gpio.d2.inv:
-    depends_on: pico_gpio
+    depends_on: rpipico_gpio
     filter: dt_nodelabel_enabled("generic_spi_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d2", "gpio-keys")
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d2_inv
   grove.rpipico.v1.grove_btn.gpio.d3:
-    depends_on: pico_gpio
+    depends_on: rpipico_gpio
     filter: dt_nodelabel_enabled("generic_spi_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d3", "gpio-keys")
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d3
   grove.rpipico.v1.grove_btn.gpio.d3.inv:
-    depends_on: pico_gpio
+    depends_on: rpipico_gpio
     filter: dt_nodelabel_enabled("generic_spi_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d3", "gpio-keys")
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d3_inv
   grove.rpipico.v1.grove_btn.gpio.d4:
-    depends_on: pico_gpio
+    depends_on: rpipico_gpio
     filter: dt_nodelabel_enabled("grove_d5_header") and
             dt_nodelabel_enabled("grove_uart1_header") and
             dt_nodelabel_enabled("generic_spi_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d4", "gpio-keys")
   grove.rpipico.v1.grove_btn.gpio.d4.inv:
-    depends_on: pico_gpio
+    depends_on: rpipico_gpio
     filter: dt_nodelabel_enabled("grove_d5_header") and
             dt_nodelabel_enabled("grove_uart1_header") and
             dt_nodelabel_enabled("generic_spi_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d4", "gpio-keys")
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d4_inv
   grove.rpipico.v1.grove_btn.gpio.d5:
-    depends_on: pico_gpio
+    depends_on: rpipico_gpio
     filter: dt_nodelabel_enabled("grove_d5_header") and
             dt_nodelabel_enabled("grove_uart1_header") and
             dt_nodelabel_enabled("generic_spi_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d5", "gpio-keys")
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d5
   grove.rpipico.v1.grove_btn.gpio.d5.inv:
-    depends_on: pico_gpio
+    depends_on: rpipico_gpio
     filter: dt_nodelabel_enabled("grove_d5_header") and
             dt_nodelabel_enabled("grove_uart1_header") and
             dt_nodelabel_enabled("generic_spi_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d5", "gpio-keys")
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d5_inv
   grove.rpipico.v1.grove_btn.gpio.d6:
-    depends_on: pico_gpio
+    depends_on: rpipico_gpio
     filter: dt_nodelabel_enabled("grove_d7_header") and
             dt_nodelabel_enabled("grove_i2c1_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d6", "gpio-keys")
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d6
   grove.rpipico.v1.grove_btn.gpio.d6.inv:
-    depends_on: pico_gpio
+    depends_on: rpipico_gpio
     filter: dt_nodelabel_enabled("grove_d7_header") and
             dt_nodelabel_enabled("grove_i2c1_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d6", "gpio-keys")
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d6_inv
   grove.rpipico.v1.grove_btn.gpio.d7:
-    depends_on: pico_gpio
+    depends_on: rpipico_gpio
     filter: dt_nodelabel_enabled("grove_d7_header") and
             dt_nodelabel_enabled("grove_i2c1_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d7", "gpio-keys")
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d7
   grove.rpipico.v1.grove_btn.gpio.d7.inv:
-    depends_on: pico_gpio
+    depends_on: rpipico_gpio
     filter: dt_nodelabel_enabled("grove_d7_header") and
             dt_nodelabel_enabled("grove_i2c1_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d7", "gpio-keys")
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d7_inv
   grove.rpipico.v1.grove_btn.gpio.d8:
-    depends_on: pico_gpio
+    depends_on: rpipico_gpio
     filter: dt_nodelabel_enabled("grove_d9_header") and
             dt_nodelabel_enabled("grove_i2c0_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d8", "gpio-keys")
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d8
   grove.rpipico.v1.grove_btn.gpio.d8.inv:
-    depends_on: pico_gpio
+    depends_on: rpipico_gpio
     filter: dt_nodelabel_enabled("grove_d9_header") and
             dt_nodelabel_enabled("grove_i2c0_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d8", "gpio-keys")
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d8_inv
   grove.rpipico.v1.grove_btn.gpio.d9:
-    depends_on: pico_gpio
+    depends_on: rpipico_gpio
     filter: dt_nodelabel_enabled("grove_d9_header") and
             dt_nodelabel_enabled("grove_i2c0_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d9", "gpio-keys")
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d9
   grove.rpipico.v1.grove_btn.gpio.d9.inv:
-    depends_on: pico_gpio
+    depends_on: rpipico_gpio
     filter: dt_nodelabel_enabled("grove_d9_header") and
             dt_nodelabel_enabled("grove_i2c0_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d9", "gpio-keys")
@@ -904,13 +906,15 @@ tests:
   # grove.rpipico.v1.grove_btn.gpio.d15
   # grove.rpipico.v1.grove_btn.gpio.d15.inv
   grove.rpipico.v1.grove_btn.gpio.d16:
-    depends_on: pico_gpio
+    depends_on: rpipico_gpio
     filter: dt_nodelabel_enabled("grove_d16_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d16", "gpio-keys")
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d16
     platform_allow:
-      - rpi_pico
-      - rpi_pico/rp2040/w
+      - rpi_pico/rp2040/bbe
+      - rpi_pico/rp2040/mcuboot/bbe
+      - rpi_pico/rp2040/w/bbe
+      - rpi_pico/rp2040/w/mcuboot/bbe
       - rpi_pico2/rp2350a/hazard3
       - rpi_pico2/rp2350a/m33
       - rpi_pico2/rp2350a/m33/w
@@ -920,13 +924,15 @@ tests:
       - waveshare_rp2350_can/rp2350a/hazard3
       - waveshare_rp2350_can/rp2350a/m33
   grove.rpipico.v1.grove_btn.gpio.d16.inv:
-    depends_on: pico_gpio
+    depends_on: rpipico_gpio
     filter: dt_nodelabel_enabled("grove_d16_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d16", "gpio-keys")
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d16_inv
     platform_allow:
-      - rpi_pico
-      - rpi_pico/rp2040/w
+      - rpi_pico/rp2040/bbe
+      - rpi_pico/rp2040/mcuboot/bbe
+      - rpi_pico/rp2040/w/bbe
+      - rpi_pico/rp2040/w/mcuboot/bbe
       - rpi_pico2/rp2350a/hazard3
       - rpi_pico2/rp2350a/m33
       - rpi_pico2/rp2350a/m33/w
@@ -936,13 +942,15 @@ tests:
       - waveshare_rp2350_can/rp2350a/hazard3
       - waveshare_rp2350_can/rp2350a/m33
   grove.rpipico.v1.grove_btn.gpio.d17:
-    depends_on: pico_gpio
+    depends_on: rpipico_gpio
     filter: dt_nodelabel_enabled("grove_d16_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d17", "gpio-keys")
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d17
     platform_allow:
-      - rpi_pico
-      - rpi_pico/rp2040/w
+      - rpi_pico/rp2040/bbe
+      - rpi_pico/rp2040/mcuboot/bbe
+      - rpi_pico/rp2040/w/bbe
+      - rpi_pico/rp2040/w/mcuboot/bbe
       - rpi_pico2/rp2350a/hazard3
       - rpi_pico2/rp2350a/m33
       - rpi_pico2/rp2350a/m33/w
@@ -952,13 +960,15 @@ tests:
       - waveshare_rp2350_can/rp2350a/hazard3
       - waveshare_rp2350_can/rp2350a/m33
   grove.rpipico.v1.grove_btn.gpio.d17.inv:
-    depends_on: pico_gpio
+    depends_on: rpipico_gpio
     filter: dt_nodelabel_enabled("grove_d16_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d17", "gpio-keys")
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d17_inv
     platform_allow:
-      - rpi_pico
-      - rpi_pico/rp2040/w
+      - rpi_pico/rp2040/bbe
+      - rpi_pico/rp2040/mcuboot/bbe
+      - rpi_pico/rp2040/w/bbe
+      - rpi_pico/rp2040/w/mcuboot/bbe
       - rpi_pico2/rp2350a/hazard3
       - rpi_pico2/rp2350a/m33
       - rpi_pico2/rp2350a/m33/w
@@ -968,13 +978,15 @@ tests:
       - waveshare_rp2350_can/rp2350a/hazard3
       - waveshare_rp2350_can/rp2350a/m33
   grove.rpipico.v1.grove_btn.gpio.d18:
-    depends_on: pico_gpio
+    depends_on: rpipico_gpio
     filter: dt_nodelabel_enabled("grove_d18_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d18", "gpio-keys")
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d18
     platform_allow:
-      - rpi_pico
-      - rpi_pico/rp2040/w
+      - rpi_pico/rp2040/bbe
+      - rpi_pico/rp2040/mcuboot/bbe
+      - rpi_pico/rp2040/w/bbe
+      - rpi_pico/rp2040/w/mcuboot/bbe
       - rpi_pico2/rp2350a/hazard3
       - rpi_pico2/rp2350a/m33
       - rpi_pico2/rp2350a/m33/w
@@ -984,13 +996,15 @@ tests:
       - waveshare_rp2350_can/rp2350a/hazard3
       - waveshare_rp2350_can/rp2350a/m33
   grove.rpipico.v1.grove_btn.gpio.d18.inv:
-    depends_on: pico_gpio
+    depends_on: rpipico_gpio
     filter: dt_nodelabel_enabled("grove_d18_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d18", "gpio-keys")
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d18_inv
     platform_allow:
-      - rpi_pico
-      - rpi_pico/rp2040/w
+      - rpi_pico/rp2040/bbe
+      - rpi_pico/rp2040/mcuboot/bbe
+      - rpi_pico/rp2040/w/bbe
+      - rpi_pico/rp2040/w/mcuboot/bbe
       - rpi_pico2/rp2350a/hazard3
       - rpi_pico2/rp2350a/m33
       - rpi_pico2/rp2350a/m33/w
@@ -1000,13 +1014,15 @@ tests:
       - waveshare_rp2350_can/rp2350a/hazard3
       - waveshare_rp2350_can/rp2350a/m33
   grove.rpipico.v1.grove_btn.gpio.d19:
-    depends_on: pico_gpio
+    depends_on: rpipico_gpio
     filter: dt_nodelabel_enabled("grove_d18_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d19", "gpio-keys")
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d19
     platform_allow:
-      - rpi_pico
-      - rpi_pico/rp2040/w
+      - rpi_pico/rp2040/bbe
+      - rpi_pico/rp2040/mcuboot/bbe
+      - rpi_pico/rp2040/w/bbe
+      - rpi_pico/rp2040/w/mcuboot/bbe
       - rpi_pico2/rp2350a/hazard3
       - rpi_pico2/rp2350a/m33
       - rpi_pico2/rp2350a/m33/w
@@ -1016,13 +1032,15 @@ tests:
       - waveshare_rp2350_can/rp2350a/hazard3
       - waveshare_rp2350_can/rp2350a/m33
   grove.rpipico.v1.grove_btn.gpio.d19.inv:
-    depends_on: pico_gpio
+    depends_on: rpipico_gpio
     filter: dt_nodelabel_enabled("grove_d18_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d19", "gpio-keys")
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d19_inv
     platform_allow:
-      - rpi_pico
-      - rpi_pico/rp2040/w
+      - rpi_pico/rp2040/bbe
+      - rpi_pico/rp2040/mcuboot/bbe
+      - rpi_pico/rp2040/w/bbe
+      - rpi_pico/rp2040/w/mcuboot/bbe
       - rpi_pico2/rp2350a/hazard3
       - rpi_pico2/rp2350a/m33
       - rpi_pico2/rp2350a/m33/w
@@ -1032,13 +1050,15 @@ tests:
       - waveshare_rp2350_can/rp2350a/hazard3
       - waveshare_rp2350_can/rp2350a/m33
   grove.rpipico.v1.grove_btn.gpio.d20:
-    depends_on: pico_gpio
+    depends_on: rpipico_gpio
     filter: dt_nodelabel_enabled("grove_d20_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d20", "gpio-keys")
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d20
     platform_allow:
-      - rpi_pico
-      - rpi_pico/rp2040/w
+      - rpi_pico/rp2040/bbe
+      - rpi_pico/rp2040/mcuboot/bbe
+      - rpi_pico/rp2040/w/bbe
+      - rpi_pico/rp2040/w/mcuboot/bbe
       - rpi_pico2/rp2350a/hazard3
       - rpi_pico2/rp2350a/m33
       - rpi_pico2/rp2350a/m33/w
@@ -1048,13 +1068,15 @@ tests:
       - waveshare_rp2350_can/rp2350a/hazard3
       - waveshare_rp2350_can/rp2350a/m33
   grove.rpipico.v1.grove_btn.gpio.d20.inv:
-    depends_on: pico_gpio
+    depends_on: rpipico_gpio
     filter: dt_nodelabel_enabled("grove_d20_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d20", "gpio-keys")
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d20_inv
     platform_allow:
-      - rpi_pico
-      - rpi_pico/rp2040/w
+      - rpi_pico/rp2040/bbe
+      - rpi_pico/rp2040/mcuboot/bbe
+      - rpi_pico/rp2040/w/bbe
+      - rpi_pico/rp2040/w/mcuboot/bbe
       - rpi_pico2/rp2350a/hazard3
       - rpi_pico2/rp2350a/m33
       - rpi_pico2/rp2350a/m33/w
@@ -1064,13 +1086,15 @@ tests:
       - waveshare_rp2350_can/rp2350a/hazard3
       - waveshare_rp2350_can/rp2350a/m33
   grove.rpipico.v1.grove_btn.gpio.d21:
-    depends_on: pico_gpio
+    depends_on: rpipico_gpio
     filter: dt_nodelabel_enabled("grove_d20_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d21", "gpio-keys")
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d21
     platform_allow:
-      - rpi_pico
-      - rpi_pico/rp2040/w
+      - rpi_pico/rp2040/bbe
+      - rpi_pico/rp2040/mcuboot/bbe
+      - rpi_pico/rp2040/w/bbe
+      - rpi_pico/rp2040/w/mcuboot/bbe
       - rpi_pico2/rp2350a/hazard3
       - rpi_pico2/rp2350a/m33
       - rpi_pico2/rp2350a/m33/w
@@ -1080,13 +1104,15 @@ tests:
       - waveshare_rp2350_can/rp2350a/hazard3
       - waveshare_rp2350_can/rp2350a/m33
   grove.rpipico.v1.grove_btn.gpio.d21.inv:
-    depends_on: pico_gpio
+    depends_on: rpipico_gpio
     filter: dt_nodelabel_enabled("grove_d20_header") and
             dt_label_with_parent_compat_enabled("grove_btn_d21", "gpio-keys")
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d21_inv
     platform_allow:
-      - rpi_pico
-      - rpi_pico/rp2040/w
+      - rpi_pico/rp2040/bbe
+      - rpi_pico/rp2040/mcuboot/bbe
+      - rpi_pico/rp2040/w/bbe
+      - rpi_pico/rp2040/w/mcuboot/bbe
       - rpi_pico2/rp2350a/hazard3
       - rpi_pico2/rp2350a/m33
       - rpi_pico2/rp2350a/m33/w
@@ -1104,40 +1130,40 @@ tests:
   # grove.rpipico.v1.grove_btn.gpio.d25
   # grove.rpipico.v1.grove_btn.gpio.d25.inv
   grove.rpipico.v1.grove_btn.gpio.d26:
-    depends_on: pico_gpio
+    depends_on: rpipico_gpio
     filter: ( dt_nodelabel_enabled("grove_a0_header") or
               dt_nodelabel_enabled("grove_d26_header") ) and
             dt_label_with_parent_compat_enabled("grove_btn_d26", "gpio-keys")
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d26
   grove.rpipico.v1.grove_btn.gpio.d26.inv:
-    depends_on: pico_gpio
+    depends_on: rpipico_gpio
     filter: ( dt_nodelabel_enabled("grove_a0_header") or
               dt_nodelabel_enabled("grove_d26_header") ) and
             dt_label_with_parent_compat_enabled("grove_btn_d26", "gpio-keys")
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d26_inv
   grove.rpipico.v1.grove_btn.gpio.d27:
-    depends_on: pico_gpio
+    depends_on: rpipico_gpio
     filter: ( dt_nodelabel_enabled("grove_a1_header") or
               dt_nodelabel_enabled("grove_a0_header") or
               dt_nodelabel_enabled("grove_d27_header") ) and
             dt_label_with_parent_compat_enabled("grove_btn_d27", "gpio-keys")
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d27
   grove.rpipico.v1.grove_btn.gpio.d27.inv:
-    depends_on: pico_gpio
+    depends_on: rpipico_gpio
     filter: ( dt_nodelabel_enabled("grove_a1_header") or
               dt_nodelabel_enabled("grove_a0_header") or
               dt_nodelabel_enabled("grove_d27_header") ) and
             dt_label_with_parent_compat_enabled("grove_btn_d27", "gpio-keys")
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d27_inv
   grove.rpipico.v1.grove_btn.gpio.d28:
-    depends_on: pico_gpio
+    depends_on: rpipico_gpio
     filter: ( dt_nodelabel_enabled("grove_a2_header") or
               dt_nodelabel_enabled("grove_a1_header") or
               dt_nodelabel_enabled("grove_d28_header") ) and
             dt_label_with_parent_compat_enabled("grove_btn_d28", "gpio-keys")
     extra_args: SHIELD=seeed_grove_rpipico_v1;grove_btn_d28
   grove.rpipico.v1.grove_btn.gpio.d28.inv:
-    depends_on: pico_gpio
+    depends_on: rpipico_gpio
     filter: ( dt_nodelabel_enabled("grove_a2_header") or
               dt_nodelabel_enabled("grove_a1_header") or
               dt_nodelabel_enabled("grove_d28_header") ) and

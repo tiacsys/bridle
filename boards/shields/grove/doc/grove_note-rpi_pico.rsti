@@ -1,0 +1,8 @@
+.. note::
+
+   This board basically provides all channels from nearly all PWMs to
+   the outside. However, the SoC's ability to route channels to multiple
+   pads may result in channels being connected in parallel. The second
+   table below shows the possibilities which channels can really
+   be used independently at the associated signals of the
+   |Laced Grove Signal Interface|.
