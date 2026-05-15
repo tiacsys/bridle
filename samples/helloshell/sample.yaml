@@ -121,6 +121,7 @@ tests:
     extra_args:
       - CMAKE_BUILD_TYPE=ZDebug
       - platform:rpi_pico/rp2040/w:"SNIPPET=wifi-ip"
+      - platform:rpi_pico/rp2040/w/bbe:"SNIPPET=wifi-ip"
       - platform:rpi_pico2/rp2350a/m33/w:"SNIPPET=wifi-ip"
     integration_platforms:
       - qemu_x86
@@ -201,8 +202,10 @@ tests:
       - picoboy/rp2040
       - picoboy_color/rp2040
       - picoboy_color_plus/rp2350a/m33
-      - rpi_pico
+      - rpi_pico/rp2040
+      - rpi_pico/rp2040/bbe
       - rpi_pico/rp2040/w
+      - rpi_pico/rp2040/w/bbe
       - rpi_pico2/rp2350a/hazard3
       - rpi_pico2/rp2350a/m33
       - rpi_pico2/rp2350a/m33/w
@@ -231,6 +234,7 @@ tests:
       - CMAKE_BUILD_TYPE=ZDebug
       - EXTRA_CONF_FILE="prj-hwstartup.conf"
       - platform:rpi_pico/rp2040/w:"SNIPPET=wifi-ip"
+      - platform:rpi_pico/rp2040/w/bbe:"SNIPPET=wifi-ip"
       - platform:rpi_pico2/rp2350a/m33/w:"SNIPPET=wifi-ip"
       - platform:vccgnd_bluepill_stm32f103cb/stm32f103xb:"CONFIG_STM32_ENABLE_DEBUG_SLEEP_STOP=y"
       - platform:vccgnd_bluepill_stm32f103c8/stm32f103xb:"CONFIG_STM32_ENABLE_DEBUG_SLEEP_STOP=y"
@@ -253,6 +257,7 @@ tests:
       - CMAKE_BUILD_TYPE=ZDebug
       - EXTRA_CONF_FILE="prj-minimal.conf"
       - platform:rpi_pico/rp2040/w:"SNIPPET=wifi-ip"
+      - platform:rpi_pico/rp2040/w/bbe:"SNIPPET=wifi-ip"
       - platform:rpi_pico2/rp2350a/m33/w:"SNIPPET=wifi-ip"
       - platform:vccgnd_bluepill_stm32f072cb/stm32f072xb:"CONFIG_ADC=y"
       - platform:vccgnd_bluepill_stm32f072cb/stm32f072xb:"CONFIG_ADC_SHELL=y"
@@ -277,6 +282,7 @@ tests:
       - CMAKE_BUILD_TYPE=ZDebug
       - EXTRA_CONF_FILE="prj-tiny.conf"
       - platform:rpi_pico/rp2040/w:"SNIPPET=wifi-ip"
+      - platform:rpi_pico/rp2040/w/bbe:"SNIPPET=wifi-ip"
       - platform:rpi_pico2/rp2350a/m33/w:"SNIPPET=wifi-ip"
       - platform:vccgnd_bluepill_stm32f051c8/stm32f051x8:"CONFIG_ADC=y"
       - platform:vccgnd_bluepill_stm32f051c8/stm32f051x8:"CONFIG_ADC_SHELL=y"

@@ -11,15 +11,15 @@ common:
     - lps22hb
     - mpu9250
   depends_on:
-    - pico_i2c
-    - pico_gpio
+    - rpipico_i2c
+    - rpipico_gpio
   sysbuild: false
 tests:
   bridle.sample.waveshare_pico_10dof_imu_sensor_r2:
     extra_args: SHIELD=waveshare_pico_10dof_imu_sensor_r2
     integration_platforms:
-      - rpi_pico
-      - rpi_pico/rp2040/w
+      - rpi_pico/rp2040/bbe
+      - rpi_pico/rp2040/w/bbe
       - rpi_pico2/rp2350a/hazard3
       - rpi_pico2/rp2350a/m33
       - rpi_pico2/rp2350a/m33/w
@@ -31,8 +31,8 @@ tests:
   bridle.sample.waveshare_pico_10dof_imu_sensor_r1:
     extra_args: SHIELD=waveshare_pico_10dof_imu_sensor_r1
     integration_platforms:
-      - rpi_pico
-      - rpi_pico/rp2040/w
+      - rpi_pico/rp2040/bbe
+      - rpi_pico/rp2040/w/bbe
       - rpi_pico2/rp2350a/hazard3
       - rpi_pico2/rp2350a/m33
       - rpi_pico2/rp2350a/m33/w

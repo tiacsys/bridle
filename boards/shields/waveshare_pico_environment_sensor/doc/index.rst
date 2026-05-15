@@ -4,7 +4,7 @@ Waveshare Pico Environment Sensor
 #################################
 
 The `Waveshare Pico Environment Sensor`_ shield is a :bbk:`pico sized` multi
-sensor module designed for the |zephyr:board:rpi_pico| and gives the ability
+sensor module designed for the |bridle:board:rpi_pico| and gives the ability
 to collect environmental data like temperature & humidity, air pressure,
 ambient light intensity, VOC, UV rays, etc. It can also be used to build
 a robot that can detect motion and orientation. It communicates with the
@@ -264,7 +264,7 @@ Set ``-DSHIELD=waveshare_pico_environment_sensor`` when you invoke
       .. zephyr-app-commands::
          :app: bridle/samples/helloshell
          :build-dir: waveshare_pico_environment_sensor-helloshell
-         :board: rpi_pico
+         :board: rpi_pico/rp2040/bbe
          :shield: "waveshare_pico_environment_sensor"
          :snippets: "usb-console"
          :west-args: -p
@@ -322,7 +322,7 @@ Set ``-DSHIELD=waveshare_pico_environment_sensor`` when you invoke
       .. zephyr-app-commands::
          :app: bridle/samples/helloshell
          :build-dir: waveshare_pico_environment_sensor-helloshell
-         :board: rpi_pico/rp2040/w
+         :board: rpi_pico/rp2040/w/bbe
          :shield: "waveshare_pico_environment_sensor"
          :snippets: "usb-console wifi-ip"
          :west-args: -p
@@ -417,7 +417,7 @@ driver for the Bosch BME280 environmental sensor. See also Zephyr sample:
 .. zephyr-app-commands::
    :app: zephyr/samples/sensor/bme280
    :build-dir: waveshare_pico_environment_sensor-bme280
-   :board: rpi_pico
+   :board: rpi_pico/rp2040/bbe
    :shield: "waveshare_pico_environment_sensor"
    :snippets: "usb-console samples-sensor-bme280-tweaks"
    :west-args: -p
@@ -432,7 +432,7 @@ See also :ref:`waveshare_pico_environment_sensor-sample` in Bridle.
 .. zephyr-app-commands::
    :app: bridle/samples/waveshare_pico_environment_sensor
    :build-dir: waveshare_pico_environment_sensor
-   :board: rpi_pico
+   :board: rpi_pico/rp2040/bbe
    :shield: "waveshare_pico_environment_sensor"
    :snippets: "usb-console"
    :west-args: -p

@@ -53,7 +53,7 @@ Requirements
   * |zephyr:board:qemu_x86|
   * |zephyr:board:qemu_xtensa|
   * |zephyr:board:rpi_pico2|
-  * |zephyr:board:rpi_pico|
+  * |zephyr:board:rpi_pico| or Bridle's |bridle:board:rpi_pico|
   * |zephyr:board:seeeduino_xiao| or Bridle's |bridle:board:seeeduino_xiao|
 
 .. zephyr-keep-sorted-stop
@@ -312,12 +312,23 @@ via the Wi-Fi chip made by Infineon. It have to build at least
 with the Zephyr upstream :external+zephyr:ref:`snippet-wifi-ip`
 and optional with the Bridle :ref:`snippet-usb-console`:
 
-For the |RPi Pico W|:
+For the |RPi Pico W|, also with |bridle:board:rpi_pico|:
 
    .. zephyr-app-commands::
       :app: bridle/samples/helloshell
       :build-dir: helloshell-rpi_pico_w
       :board: rpi_pico/rp2040/w
+      :snippets: "usb-console wifi-ip"
+      :west-args: -p
+      :flash-args: -r uf2
+      :goals: flash
+      :host-os: unix
+      :compact:
+
+   .. zephyr-app-commands::
+      :app: bridle/samples/helloshell
+      :build-dir: helloshell-rpi_pico_w
+      :board: rpi_pico/rp2040/w/bbe
       :snippets: "usb-console wifi-ip"
       :west-args: -p
       :flash-args: -r uf2

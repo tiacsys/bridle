@@ -4,7 +4,7 @@ Waveshare Pico 10-DOF IMU Sensor
 #################################
 
 The `Waveshare Pico 10-DOF IMU Sensor`_ shield is a :bbk:`pico sized` multi
-sensor module designed for the |zephyr:board:rpi_pico| and gives the ability
+sensor module designed for the |bridle:board:rpi_pico| and gives the ability
 to collect environmental data like temperature and air pressure. It can also
 be used to build a robot that can detect motion and orientation.
 It communicates with the Raspberry Pi Pico over I2C.
@@ -278,7 +278,7 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
             .. zephyr-app-commands::
                :app: bridle/samples/helloshell
                :build-dir: waveshare_pico_10dof_imu_sensor-helloshell
-               :board: rpi_pico
+               :board: rpi_pico/rp2040/bbe
                :shield: "waveshare_pico_10dof_imu_sensor_r2"
                :snippets: "usb-console"
                :goals: flash
@@ -336,7 +336,7 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
             .. zephyr-app-commands::
                :app: bridle/samples/helloshell
                :build-dir: waveshare_pico_10dof_imu_sensor-helloshell
-               :board: rpi_pico/rp2040/w
+               :board: rpi_pico/rp2040/w/bbe
                :shield: "waveshare_pico_10dof_imu_sensor_r2"
                :snippets: "usb-console wifi-ip"
                :goals: flash
@@ -438,7 +438,7 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
             .. zephyr-app-commands::
                :app: bridle/samples/helloshell
                :build-dir: waveshare_pico_10dof_imu_sensor-helloshell
-               :board: rpi_pico
+               :board: rpi_pico/rp2040/bbe
                :shield: "waveshare_pico_10dof_imu_sensor_r1"
                :snippets: "usb-console"
                :goals: flash
@@ -496,7 +496,7 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
             .. zephyr-app-commands::
                :app: bridle/samples/helloshell
                :build-dir: waveshare_pico_10dof_imu_sensor-helloshell
-               :board: rpi_pico/rp2040/w
+               :board: rpi_pico/rp2040/w/bbe
                :shield: "waveshare_pico_10dof_imu_sensor_r1"
                :snippets: "usb-console wifi-ip"
                :goals: flash
@@ -605,7 +605,7 @@ driver for the STM LPS22HB MEMS pressure sensor. See also Zephyr sample:
       .. zephyr-app-commands::
          :app: zephyr/samples/sensor/lps22hb
          :build-dir: waveshare_pico_10dof_imu_sensor-lps22hb
-         :board: rpi_pico
+         :board: rpi_pico/rp2040/bbe
          :shield: "waveshare_pico_10dof_imu_sensor_r2"
          :snippets: "usb-console"
          :goals: flash
@@ -617,7 +617,7 @@ driver for the STM LPS22HB MEMS pressure sensor. See also Zephyr sample:
       .. zephyr-app-commands::
          :app: zephyr/samples/sensor/lps22hb
          :build-dir: waveshare_pico_10dof_imu_sensor-lps22hb
-         :board: rpi_pico
+         :board: rpi_pico/rp2040/bbe
          :shield: "waveshare_pico_10dof_imu_sensor_r1"
          :snippets: "usb-console"
          :goals: flash
@@ -636,7 +636,7 @@ See also :ref:`waveshare_pico_10dof_imu_sensor-sample` in Bridle.
       .. zephyr-app-commands::
          :app: bridle/samples/waveshare_pico_10dof_imu_sensor
          :build-dir: waveshare_pico_10dof_imu_sensor
-         :board: rpi_pico
+         :board: rpi_pico/rp2040/bbe
          :shield: "waveshare_pico_10dof_imu_sensor_r2"
          :snippets: "usb-console"
          :goals: flash
@@ -675,7 +675,7 @@ See also :ref:`waveshare_pico_10dof_imu_sensor-sample` in Bridle.
       .. zephyr-app-commands::
          :app: bridle/samples/waveshare_pico_10dof_imu_sensor
          :build-dir: waveshare_pico_10dof_imu_sensor
-         :board: rpi_pico
+         :board: rpi_pico/rp2040/bbe
          :shield: "waveshare_pico_10dof_imu_sensor_r1"
          :snippets: "usb-console"
          :goals: flash
