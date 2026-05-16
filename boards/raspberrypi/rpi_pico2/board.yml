@@ -1,0 +1,16 @@
+# Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+board:
+  extend: rpi_pico2
+  variants:
+    - name: bbe
+      qualifier: rp2350a/hazard3
+    - name: bbe
+      qualifier: rp2350a/m33
+    - name: bbe
+      qualifier: rp2350a/m33/mcuboot
+    - name: bbe
+      qualifier: rp2350a/m33/w
+    - name: bbe
+      qualifier: rp2350a/m33/w/mcuboot

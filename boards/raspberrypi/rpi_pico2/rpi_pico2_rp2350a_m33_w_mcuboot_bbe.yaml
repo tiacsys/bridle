@@ -1,0 +1,38 @@
+# Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+#
+# NOTE: copy and own from original board metadata in
+# "zephyr/boards/raspberrypi/rpi_pico2/rpi_pico2_rp2350a_m33_w_mcuboot.yaml"
+
+identifier: rpi_pico2/rp2350a/m33/w/mcuboot/bbe
+name: Raspberry Pi Pico 2 (Cortex-M33) WiFi - MCUboot (BBE)
+type: mcu
+arch: arm
+flash: 4096
+ram: 520
+toolchain:
+  - zephyr
+  - gnuarmemb
+supported:
+  - adc
+  - clock
+  - counter
+  - dma
+  - gpio
+  - hwinfo
+  - i2c
+  - pico_gpio
+  - pico_i2c
+  - pico_serial
+  - pico_spi
+  - pwm
+  - rpipico_gpio
+  - rpipico_i2c
+  - rpipico_serial
+  - rpipico_spi
+  - spi
+  - uart
+  - usb_device
+  - usb_cdc
+  - watchdog
+  - wifi

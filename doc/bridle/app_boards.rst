@@ -119,7 +119,15 @@ the :ref:`boards-extensions` section in this documentation.
 +-------------------+------------------------------------+------------------------------------------------+
 | RP2350            | |zephyr:board:rpi_pico2|           | | ``rpi_pico2/rp2350a/hazard3``                |
 |                   |                                    | | ``rpi_pico2/rp2350a/m33``                    |
+|                   |                                    | | ``rpi_pico2/rp2350a/m33/mcuboot``            |
 |                   |                                    | | ``rpi_pico2/rp2350a/m33/w``                  |
+|                   |                                    | | ``rpi_pico2/rp2350a/m33/w/mcuboot``          |
+|                   +------------------------------------+------------------------------------------------+
+|                   | |bridle:board:rpi_pico2|           | | ``rpi_pico2/rp2350a/hazard3/bbe``            |
+|                   |                                    | | ``rpi_pico2/rp2350a/m33/bbe``                |
+|                   |                                    | | ``rpi_pico2/rp2350a/m33/mcuboot/bbe``        |
+|                   |                                    | | ``rpi_pico2/rp2350a/m33/w/bbe``              |
+|                   |                                    | | ``rpi_pico2/rp2350a/m33/w/mcuboot/bbe``      |
 |                   +------------------------------------+------------------------------------------------+
 |                   | |zephyr:board:xiao_rp2350|         | | ``xiao_rp2350/rp2350a/hazard3``              |
 |                   |                                    | | ``xiao_rp2350/rp2350a/m33``                  |

@@ -52,6 +52,7 @@
 /boards/st/nucleo_l496zg/                 @rexut
 /boards/raspberrypi/                      @rexut
 /boards/raspberrypi/rpi_pico/             @rexut
+/boards/raspberrypi/rpi_pico2/            @rexut
 /boards/jsed/                             @rexut
 /boards/jsed/picoboy/                     @rexut
 /boards/seeed/                            @rexut

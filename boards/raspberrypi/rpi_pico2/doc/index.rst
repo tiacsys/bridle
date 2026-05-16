@@ -1,17 +1,29 @@
-.. _rpi_pico2-extensions:
+.. _rpi_pico2_board-extensions:
 
-Raspberry Pi Pico 2 and Pico 2W
-###############################
+Raspberry Pi Pico 2 (BBE)
+#########################
 
 Overview
 ********
 
-This is a set of Bridle's extension to the original Zephyr upstream board
-|zephyr:board:rpi_pico2| with some adaptions and improvement on Kconfig and
-Devicetree level.
+This is a set of Bridle's board extensions (BBE) to the original Zephyr
+upstream board |zephyr:board:rpi_pico2| with some adaptions and improvement
+on Twister, Kconfig and Devicetree level.
 
 List of extensions
 ******************
+
+.. rubric:: Board YAML
+
+- add the missing features that this board supports and
+  that Twister tests might depends on:
+
+  - :code:`rpipico_gpio`
+  - :code:`rpipico_i2c`
+  - :code:`rpipico_spi`
+  - :code:`rpipico_serial`
+  - :code:`usb_device`
+  - :code:`usb_cdc`
 
 .. rubric:: Kconfig
 
@@ -74,8 +86,8 @@ List of extensions
 
      * - .. rubric:: Raspberry Pi Pico 2
 
-     * - .. literalinclude:: ../rpi_pico2_m33.overlay
-            :caption: rpi_pico2_rp2350a_m33.overlay
+     * - .. literalinclude:: ../rpi_pico2_rp2350a_m33_bbe.dts
+            :caption: rpi_pico2_rp2350a_m33_bbe.dts
             :language: DTS
             :encoding: ISO-8859-1
             :prepend: / {
@@ -83,8 +95,24 @@ List of extensions
             :end-before: chosen {
             :append: };
 
-     * - .. literalinclude:: ../rpi_pico2_hazard3.overlay
-            :caption: rpi_pico2_hazard3.overlay
+     * - .. literalinclude:: ../rpi_pico2_rp2350a_hazard3_bbe.dts
+            :caption: rpi_pico2_rp2350a_hazard3_bbe.dts
+            :language: DTS
+            :encoding: ISO-8859-1
+            :prepend: / {
+            :start-at: model
+            :end-before: chosen {
+            :append: };
+
+  .. list-table::
+     :align: left
+     :width: 50%
+     :widths: 100
+
+     * - .. rubric:: Raspberry Pi Pico 2 - MCUboot
+
+     * - .. literalinclude:: ../rpi_pico2_rp2350a_m33_mcuboot_bbe.dts
+            :caption: rpi_pico2_rp2350a_m33_mcuboot_bbe.dts
             :language: DTS
             :encoding: ISO-8859-1
             :prepend: / {
@@ -99,8 +127,24 @@ List of extensions
 
      * - .. rubric:: Raspberry Pi Pico 2W
 
-     * - .. literalinclude:: ../rpi_pico2_m33_w.overlay
-            :caption: rpi_pico2_rp2350a_m33_w.overlay
+     * - .. literalinclude:: ../rpi_pico2_rp2350a_m33_w_bbe.dts
+            :caption: rpi_pico2_rp2350a_m33_w_bbe.dts
+            :language: DTS
+            :encoding: ISO-8859-1
+            :prepend: / {
+            :start-at: model
+            :end-before: chosen {
+            :append: };
+
+  .. list-table::
+     :align: left
+     :width: 50%
+     :widths: 100
+
+     * - .. rubric:: Raspberry Pi Pico 2W - MCUboot
+
+     * - .. literalinclude:: ../rpi_pico2_rp2350a_m33_w_mcuboot_bbe.dts
+            :caption: rpi_pico2_rp2350a_m33_w_mcuboot_bbe.dts
             :language: DTS
             :encoding: ISO-8859-1
             :prepend: / {
@@ -152,6 +196,42 @@ List of extensions
             :language: DTS
             :encoding: ISO-8859-1
             :start-at: &reset {
+            :end-at: };
+
+- disable the RP2350 SoC I2C1 controller bindet as
+  :dtcompatible:`raspberrypi,pico-spi` and
+  :dtcompatible:`snps,designware-i2c`
+
+  .. list-table::
+     :align: left
+     :width: 50%
+     :widths: 100
+
+     * - .. rubric:: Raspberry Pi Pico 2 and Pico 2W
+
+     * - .. literalinclude:: ../rpipico_r3.dtsi
+            :caption: rpipico_r3.dtsi
+            :language: DTS
+            :encoding: ISO-8859-1
+            :start-at: &i2c1 {
+            :end-at: };
+
+- enable the RP2350 SoC SPI0 reset controller bindet as
+  :dtcompatible:`raspberrypi,pico-spi` and
+  :dtcompatible:`arm,pl022`
+
+  .. list-table::
+     :align: left
+     :width: 50%
+     :widths: 100
+
+     * - .. rubric:: Raspberry Pi Pico 2 and Pico 2W
+
+     * - .. literalinclude:: ../rpipico_r3.dtsi
+            :caption: rpipico_r3.dtsi
+            :language: DTS
+            :encoding: ISO-8859-1
+            :start-at: &spi0 {
             :end-at: };
 
 - prepare the RP2350 SoC SPI1 controller bindet as
