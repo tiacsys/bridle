@@ -123,6 +123,7 @@ tests:
       - platform:rpi_pico/rp2040/w:"SNIPPET=wifi-ip"
       - platform:rpi_pico/rp2040/w/bbe:"SNIPPET=wifi-ip"
       - platform:rpi_pico2/rp2350a/m33/w:"SNIPPET=wifi-ip"
+      - platform:rpi_pico2/rp2350a/m33/w/bbe:"SNIPPET=wifi-ip"
     integration_platforms:
       - qemu_x86
       - qemu_x86/atom/nokpti
@@ -207,8 +208,11 @@ tests:
       - rpi_pico/rp2040/w
       - rpi_pico/rp2040/w/bbe
       - rpi_pico2/rp2350a/hazard3
+      - rpi_pico2/rp2350a/hazard3/bbe
       - rpi_pico2/rp2350a/m33
+      - rpi_pico2/rp2350a/m33/bbe
       - rpi_pico2/rp2350a/m33/w
+      - rpi_pico2/rp2350a/m33/w/bbe
       - seeeduino_cm0/samd21g18a
       - seeeduino_lotus/samd21g18a
       - seeeduino_xiao/samd21g18a
@@ -236,6 +240,7 @@ tests:
       - platform:rpi_pico/rp2040/w:"SNIPPET=wifi-ip"
       - platform:rpi_pico/rp2040/w/bbe:"SNIPPET=wifi-ip"
       - platform:rpi_pico2/rp2350a/m33/w:"SNIPPET=wifi-ip"
+      - platform:rpi_pico2/rp2350a/m33/w/bbe:"SNIPPET=wifi-ip"
       - platform:vccgnd_bluepill_stm32f103cb/stm32f103xb:"CONFIG_STM32_ENABLE_DEBUG_SLEEP_STOP=y"
       - platform:vccgnd_bluepill_stm32f103c8/stm32f103xb:"CONFIG_STM32_ENABLE_DEBUG_SLEEP_STOP=y"
       - platform:weact_bluepillplus_ch32v203c8/ch32v203:"CONFIG_FLASH=n"
@@ -259,6 +264,7 @@ tests:
       - platform:rpi_pico/rp2040/w:"SNIPPET=wifi-ip"
       - platform:rpi_pico/rp2040/w/bbe:"SNIPPET=wifi-ip"
       - platform:rpi_pico2/rp2350a/m33/w:"SNIPPET=wifi-ip"
+      - platform:rpi_pico2/rp2350a/m33/w/bbe:"SNIPPET=wifi-ip"
       - platform:vccgnd_bluepill_stm32f072cb/stm32f072xb:"CONFIG_ADC=y"
       - platform:vccgnd_bluepill_stm32f072cb/stm32f072xb:"CONFIG_ADC_SHELL=y"
       - platform:vccgnd_bluepill_stm32f072cb/stm32f072xb:"CONFIG_I2C=y"
@@ -284,6 +290,7 @@ tests:
       - platform:rpi_pico/rp2040/w:"SNIPPET=wifi-ip"
       - platform:rpi_pico/rp2040/w/bbe:"SNIPPET=wifi-ip"
       - platform:rpi_pico2/rp2350a/m33/w:"SNIPPET=wifi-ip"
+      - platform:rpi_pico2/rp2350a/m33/w/bbe:"SNIPPET=wifi-ip"
       - platform:vccgnd_bluepill_stm32f051c8/stm32f051x8:"CONFIG_ADC=y"
       - platform:vccgnd_bluepill_stm32f051c8/stm32f051x8:"CONFIG_ADC_SHELL=y"
       - platform:vccgnd_bluepill_stm32f051c8/stm32f051x8:"CONFIG_I2C=y"

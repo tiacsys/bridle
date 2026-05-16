@@ -4,10 +4,11 @@ Waveshare Pico 10-DOF IMU Sensor
 #################################
 
 The `Waveshare Pico 10-DOF IMU Sensor`_ shield is a :bbk:`pico sized` multi
-sensor module designed for the |bridle:board:rpi_pico| and gives the ability
-to collect environmental data like temperature and air pressure. It can also
-be used to build a robot that can detect motion and orientation.
-It communicates with the Raspberry Pi Pico over I2C.
+sensor module designed for the |bridle:board:rpi_pico| or
+|bridle:board:rpi_pico2| and gives the ability to collect environmental data
+like temperature and air pressure. It can also be used to build a robot that
+can detect motion and orientation. It communicates with the Raspberry Pi Pico
+over I2C.
 
 Board Overview
 **************
@@ -294,7 +295,7 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
             .. zephyr-app-commands::
                :app: bridle/samples/helloshell
                :build-dir: waveshare_pico_10dof_imu_sensor-helloshell
-               :board: rpi_pico2/rp2350a/m33
+               :board: rpi_pico2/rp2350a/m33/bbe
                :shield: "waveshare_pico_10dof_imu_sensor_r2"
                :snippets: "usb-console"
                :goals: flash
@@ -306,7 +307,7 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
             .. zephyr-app-commands::
                :app: bridle/samples/helloshell
                :build-dir: waveshare_pico_10dof_imu_sensor-helloshell
-               :board: rpi_pico2/rp2350a/hazard3
+               :board: rpi_pico2/rp2350a/hazard3/bbe
                :shield: "waveshare_pico_10dof_imu_sensor_r2"
                :snippets: "usb-console"
                :goals: flash
@@ -322,7 +323,7 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
             .. zephyr-app-commands::
                :app: bridle/samples/helloshell
                :build-dir: waveshare_pico_10dof_imu_sensor-helloshell
-               :board: rpi_pico2/rp2350a/m33/w
+               :board: rpi_pico2/rp2350a/m33/w/bbe
                :shield: "waveshare_pico_10dof_imu_sensor_r2"
                :snippets: "usb-console wifi-ip"
                :goals: flash
@@ -454,7 +455,7 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
             .. zephyr-app-commands::
                :app: bridle/samples/helloshell
                :build-dir: waveshare_pico_10dof_imu_sensor-helloshell
-               :board: rpi_pico2/rp2350a/m33
+               :board: rpi_pico2/rp2350a/m33/bbe
                :shield: "waveshare_pico_10dof_imu_sensor_r1"
                :snippets: "usb-console"
                :goals: flash
@@ -466,7 +467,7 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
             .. zephyr-app-commands::
                :app: bridle/samples/helloshell
                :build-dir: waveshare_pico_10dof_imu_sensor-helloshell
-               :board: rpi_pico2/rp2350a/hazard3
+               :board: rpi_pico2/rp2350a/hazard3/bbe
                :shield: "waveshare_pico_10dof_imu_sensor_r1"
                :snippets: "usb-console"
                :goals: flash
@@ -482,7 +483,7 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
             .. zephyr-app-commands::
                :app: bridle/samples/helloshell
                :build-dir: waveshare_pico_10dof_imu_sensor-helloshell
-               :board: rpi_pico2/rp2350a/m33/w
+               :board: rpi_pico2/rp2350a/m33/w/bbe
                :shield: "waveshare_pico_10dof_imu_sensor_r1"
                :snippets: "usb-console wifi-ip"
                :goals: flash
@@ -602,27 +603,275 @@ driver for the STM LPS22HB MEMS pressure sensor. See also Zephyr sample:
 
    .. group-tab:: Revision 2.1
 
-      .. zephyr-app-commands::
-         :app: zephyr/samples/sensor/lps22hb
-         :build-dir: waveshare_pico_10dof_imu_sensor-lps22hb
-         :board: rpi_pico/rp2040/bbe
-         :shield: "waveshare_pico_10dof_imu_sensor_r2"
-         :snippets: "usb-console"
-         :goals: flash
-         :west-args: -p
-         :flash-args: -r uf2
+      .. tabs::
+
+         .. zephyr-keep-sorted-start re(^\s{9}\.\. group-tab:: \w)
+
+         .. group-tab:: Raspberry Pi Pico
+
+            .. zephyr-app-commands::
+               :app: zephyr/samples/sensor/lps22hb
+               :build-dir: waveshare_pico_10dof_imu_sensor-lps22hb
+               :board: rpi_pico/rp2040/bbe
+               :shield: "waveshare_pico_10dof_imu_sensor_r2"
+               :snippets: "usb-console"
+               :goals: flash
+               :west-args: -p
+               :flash-args: -r uf2
+
+         .. group-tab:: Raspberry Pi Pico 2
+
+            .. rubric:: On ARM Cortex-M33
+
+            .. zephyr-app-commands::
+               :app: zephyr/samples/sensor/lps22hb
+               :build-dir: waveshare_pico_10dof_imu_sensor-lps22hb
+               :board: rpi_pico2/rp2350a/m33/bbe
+               :shield: "waveshare_pico_10dof_imu_sensor_r2"
+               :snippets: "usb-console"
+               :goals: flash
+               :west-args: -p
+               :flash-args: -r uf2
+
+            .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+
+            .. zephyr-app-commands::
+               :app: zephyr/samples/sensor/lps22hb
+               :build-dir: waveshare_pico_10dof_imu_sensor-lps22hb
+               :board: rpi_pico2/rp2350a/hazard3/bbe
+               :shield: "waveshare_pico_10dof_imu_sensor_r2"
+               :snippets: "usb-console"
+               :goals: flash
+               :west-args: -p
+               :flash-args: -r uf2
+
+         .. group-tab:: Raspberry Pi Pico 2W
+
+            .. rubric:: On ARM Cortex-M33
+
+            .. zephyr-app-commands::
+               :app: zephyr/samples/sensor/lps22hb
+               :build-dir: waveshare_pico_10dof_imu_sensor-lps22hb
+               :board: rpi_pico2/rp2350a/m33/w/bbe
+               :shield: "waveshare_pico_10dof_imu_sensor_r2"
+               :snippets: "usb-console"
+               :goals: flash
+               :west-args: -p
+               :flash-args: -r uf2
+
+         .. group-tab:: Raspberry Pi Pico W
+
+            .. zephyr-app-commands::
+               :app: zephyr/samples/sensor/lps22hb
+               :build-dir: waveshare_pico_10dof_imu_sensor-lps22hb
+               :board: rpi_pico/rp2040/w/bbe
+               :shield: "waveshare_pico_10dof_imu_sensor_r2"
+               :snippets: "usb-console"
+               :goals: flash
+               :west-args: -p
+               :flash-args: -r uf2
+
+         .. group-tab:: Waveshare RP2040-LCD-0.96
+
+            .. zephyr-app-commands::
+               :app: zephyr/samples/sensor/lps22hb
+               :build-dir: waveshare_pico_10dof_imu_sensor-lps22hb
+               :board: waveshare_rp2040_lcd_0_96
+               :shield: "waveshare_pico_10dof_imu_sensor_r2"
+               :snippets: "usb-console"
+               :goals: flash
+               :west-args: -p
+               :flash-args: -r uf2
+
+         .. group-tab:: Waveshare RP2040-Plus
+
+            .. rubric:: on standard ``4㎆`` revision
+
+            .. zephyr-app-commands::
+               :app: zephyr/samples/sensor/lps22hb
+               :build-dir: waveshare_pico_10dof_imu_sensor-lps22hb
+               :board: waveshare_rp2040_plus
+               :shield: "waveshare_pico_10dof_imu_sensor_r2"
+               :snippets: "usb-console"
+               :goals: flash
+               :west-args: -p
+               :flash-args: -r uf2
+
+            .. rubric:: on extended ``16㎆`` revision
+
+            .. zephyr-app-commands::
+               :app: zephyr/samples/sensor/lps22hb
+               :build-dir: waveshare_pico_10dof_imu_sensor-lps22hb
+               :board: waveshare_rp2040_plus@16mb
+               :shield: "waveshare_pico_10dof_imu_sensor_r2"
+               :snippets: "usb-console"
+               :goals: flash
+               :west-args: -p
+               :flash-args: -r uf2
+
+         .. group-tab:: Waveshare RP2350-CAN
+
+            .. rubric:: On ARM Cortex-M33
+
+            .. zephyr-app-commands::
+               :app: zephyr/samples/sensor/lps22hb
+               :build-dir: waveshare_pico_10dof_imu_sensor-lps22hb
+               :board: waveshare_rp2350_can/rp2350a/m33
+               :shield: "waveshare_pico_10dof_imu_sensor_r2"
+               :snippets: "usb-console"
+               :goals: flash
+               :west-args: -p
+               :flash-args: -r uf2
+
+            .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+
+            .. zephyr-app-commands::
+               :app: zephyr/samples/sensor/lps22hb
+               :build-dir: waveshare_pico_10dof_imu_sensor-lps22hb
+               :board: waveshare_rp2350_can/rp2350a/hazard3
+               :shield: "waveshare_pico_10dof_imu_sensor_r2"
+               :snippets: "usb-console"
+               :goals: flash
+               :west-args: -p
+               :flash-args: -r uf2
+
+         .. zephyr-keep-sorted-stop
 
    .. group-tab:: Revision 1
 
-      .. zephyr-app-commands::
-         :app: zephyr/samples/sensor/lps22hb
-         :build-dir: waveshare_pico_10dof_imu_sensor-lps22hb
-         :board: rpi_pico/rp2040/bbe
-         :shield: "waveshare_pico_10dof_imu_sensor_r1"
-         :snippets: "usb-console"
-         :goals: flash
-         :west-args: -p
-         :flash-args: -r uf2
+      .. tabs::
+
+         .. zephyr-keep-sorted-start re(^\s{9}\.\. group-tab:: \w)
+
+         .. group-tab:: Raspberry Pi Pico
+
+            .. zephyr-app-commands::
+               :app: zephyr/samples/sensor/lps22hb
+               :build-dir: waveshare_pico_10dof_imu_sensor-lps22hb
+               :board: rpi_pico/rp2040/bbe
+               :shield: "waveshare_pico_10dof_imu_sensor_r1"
+               :snippets: "usb-console"
+               :goals: flash
+               :west-args: -p
+               :flash-args: -r uf2
+
+         .. group-tab:: Raspberry Pi Pico 2
+
+            .. rubric:: On ARM Cortex-M33
+
+            .. zephyr-app-commands::
+               :app: zephyr/samples/sensor/lps22hb
+               :build-dir: waveshare_pico_10dof_imu_sensor-lps22hb
+               :board: rpi_pico2/rp2350a/m33/bbe
+               :shield: "waveshare_pico_10dof_imu_sensor_r1"
+               :snippets: "usb-console"
+               :goals: flash
+               :west-args: -p
+               :flash-args: -r uf2
+
+            .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+
+            .. zephyr-app-commands::
+               :app: zephyr/samples/sensor/lps22hb
+               :build-dir: waveshare_pico_10dof_imu_sensor-lps22hb
+               :board: rpi_pico2/rp2350a/hazard3/bbe
+               :shield: "waveshare_pico_10dof_imu_sensor_r1"
+               :snippets: "usb-console"
+               :goals: flash
+               :west-args: -p
+               :flash-args: -r uf2
+
+         .. group-tab:: Raspberry Pi Pico 2W
+
+            .. rubric:: On ARM Cortex-M33
+
+            .. zephyr-app-commands::
+               :app: zephyr/samples/sensor/lps22hb
+               :build-dir: waveshare_pico_10dof_imu_sensor-lps22hb
+               :board: rpi_pico2/rp2350a/m33/w/bbe
+               :shield: "waveshare_pico_10dof_imu_sensor_r1"
+               :snippets: "usb-console"
+               :goals: flash
+               :west-args: -p
+               :flash-args: -r uf2
+
+         .. group-tab:: Raspberry Pi Pico W
+
+            .. zephyr-app-commands::
+               :app: zephyr/samples/sensor/lps22hb
+               :build-dir: waveshare_pico_10dof_imu_sensor-lps22hb
+               :board: rpi_pico/rp2040/w/bbe
+               :shield: "waveshare_pico_10dof_imu_sensor_r1"
+               :snippets: "usb-console"
+               :goals: flash
+               :west-args: -p
+               :flash-args: -r uf2
+
+         .. group-tab:: Waveshare RP2040-LCD-0.96
+
+            .. zephyr-app-commands::
+               :app: zephyr/samples/sensor/lps22hb
+               :build-dir: waveshare_pico_10dof_imu_sensor-lps22hb
+               :board: waveshare_rp2040_lcd_0_96
+               :shield: "waveshare_pico_10dof_imu_sensor_r1"
+               :snippets: "usb-console"
+               :goals: flash
+               :west-args: -p
+               :flash-args: -r uf2
+
+         .. group-tab:: Waveshare RP2040-Plus
+
+            .. rubric:: on standard ``4㎆`` revision
+
+            .. zephyr-app-commands::
+               :app: zephyr/samples/sensor/lps22hb
+               :build-dir: waveshare_pico_10dof_imu_sensor-lps22hb
+               :board: waveshare_rp2040_plus
+               :shield: "waveshare_pico_10dof_imu_sensor_r1"
+               :snippets: "usb-console"
+               :goals: flash
+               :west-args: -p
+               :flash-args: -r uf2
+
+            .. rubric:: on extended ``16㎆`` revision
+
+            .. zephyr-app-commands::
+               :app: zephyr/samples/sensor/lps22hb
+               :build-dir: waveshare_pico_10dof_imu_sensor-lps22hb
+               :board: waveshare_rp2040_plus@16mb
+               :shield: "waveshare_pico_10dof_imu_sensor_r1"
+               :snippets: "usb-console"
+               :goals: flash
+               :west-args: -p
+               :flash-args: -r uf2
+
+         .. group-tab:: Waveshare RP2350-CAN
+
+            .. rubric:: On ARM Cortex-M33
+
+            .. zephyr-app-commands::
+               :app: zephyr/samples/sensor/lps22hb
+               :build-dir: waveshare_pico_10dof_imu_sensor-lps22hb
+               :board: waveshare_rp2350_can/rp2350a/m33
+               :shield: "waveshare_pico_10dof_imu_sensor_r1"
+               :snippets: "usb-console"
+               :goals: flash
+               :west-args: -p
+               :flash-args: -r uf2
+
+            .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+
+            .. zephyr-app-commands::
+               :app: zephyr/samples/sensor/lps22hb
+               :build-dir: waveshare_pico_10dof_imu_sensor-lps22hb
+               :board: waveshare_rp2350_can/rp2350a/hazard3
+               :shield: "waveshare_pico_10dof_imu_sensor_r1"
+               :snippets: "usb-console"
+               :goals: flash
+               :west-args: -p
+               :flash-args: -r uf2
+
+         .. zephyr-keep-sorted-stop
 
 The Default Shield Sample
 =========================
