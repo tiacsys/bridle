@@ -4,7 +4,7 @@
  */
 
 / {
-	model = "Raspberry Pi Pico 2W @ USB-CDC/ACM Concole";
+	model = "Raspberry Pi Pico 2W (Cortex-M33) @ USB-CDC/ACM Concole";
 	compatible = "raspberrypi,rpi-pico2-w",
 		     "raspberrypi,rpi-pico2-w-usbcons";
 

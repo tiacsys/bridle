@@ -4,9 +4,11 @@
  */
 
 / {
-	model = "Raspberry Pi Pico 2 @ USB-CDC/ACM Concole";
+	model = "Raspberry Pi Pico 2 (Cortex-M33) @ USB-CDC/ACM Concole (BBE)";
 	compatible = "raspberrypi,rpi-pico2",
-		     "raspberrypi,rpi-pico2-usbcons";
+		     "raspberrypi,rpi-pico2-bee",
+		     "raspberrypi,rpi-pico2-usbcons",
+		     "raspberrypi,rpi-pico2-usbcons-bbe";
 
 	chosen {
 		zephyr,shell-uart = &snippet_cdc_acm_console_uart;

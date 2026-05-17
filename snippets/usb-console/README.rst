@@ -281,21 +281,30 @@ specified as required.
 
    * - |rpi_pico2_rp2350a_URB_VID|
      - |rpi_pico2_rp2350a_URB_PID_CON|
-     - | :code:`rpi_pico2/rp2350a/hazard3`
-       | :code:`rpi_pico2/rp2350a/m33`
+     - | :code:`rpi_pico2//hazard3`
+       | :code:`rpi_pico2//hazard3/bbe`
+       | :code:`rpi_pico2//m33`
+       | :code:`rpi_pico2//m33/bbe`
+       | :code:`rpi_pico2//m33/mcuboot`
+       | :code:`rpi_pico2//m33/mcuboot/bbe`
      - |Raspberry Pi|_
      - | |RPi Pico 2 (CDC ACM)|,
        | Raspberry Pi Pico SDK CDC UART
+       | ↳ |bridle:board:rpi_pico2|
      - `Raspberry Pi USB product ID list`_
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
 
    * - |rpi_pico2_rp2350a_w_URB_VID|
      - |rpi_pico2_rp2350a_w_URB_PID_CON|
-     - :code:`rpi_pico2/rp2350a/m33/w`
+     - | :code:`rpi_pico2//m33/w`
+       | :code:`rpi_pico2//m33/w/bbe`
+       | :code:`rpi_pico2//m33/w/mcuboot`
+       | :code:`rpi_pico2//m33/w/mcuboot/bbe`
      - |Raspberry Pi|_
      - | |RPi Pico 2W (CDC ACM)|,
        | Raspberry Pi Pico SDK CDC UART
+       | ↳ |bridle:board:rpi_pico2|
      - `Raspberry Pi USB product ID list`_
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
