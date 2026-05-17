@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 TiaC Systems
+ * Copyright (c) 2023-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -211,5 +211,9 @@
 		led31 = &clock_led_auto_light_1;
 		/delete-property/ pwm-led0;
 		pwm-buzzer0 = &clock_buzzer;
+	};
+
+	zephyr_user: zephyr,user {
+		/delete-property/ io-channels;
 	};
 };

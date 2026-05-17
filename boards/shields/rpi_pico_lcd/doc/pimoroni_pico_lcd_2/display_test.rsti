@@ -13,7 +13,7 @@ with chosen display. That is:
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/display
          :build-dir: pimoroni_pico_lcd_2-display_test
-         :board: rpi_pico
+         :board: rpi_pico/rp2040/bbe
          :shield: "pimoroni_pico_lcd_2"
          :snippets: "usb-console"
          :west-args: -p
@@ -67,7 +67,7 @@ with chosen display. That is:
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/display
          :build-dir: pimoroni_pico_lcd_2-display_test
-         :board: rpi_pico/rp2040/w
+         :board: rpi_pico/rp2040/w/bbe
          :shield: "pimoroni_pico_lcd_2"
          :snippets: "usb-console"
          :west-args: -p

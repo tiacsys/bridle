@@ -11,7 +11,7 @@ For example:
       .. zephyr-app-commands::
          :app: bridle/samples/helloshell
          :build-dir: geeekpi_pico_bb-helloshell
-         :board: rpi_pico
+         :board: rpi_pico/rp2040/bbe
          :shield: "geeekpi_pico_bb"
          :snippets: "usb-console"
          :west-args: -p
@@ -73,7 +73,7 @@ For example:
       .. zephyr-app-commands::
          :app: bridle/samples/helloshell
          :build-dir: geeekpi_pico_bb-helloshell
-         :board: rpi_pico/rp2040/w
+         :board: rpi_pico/rp2040/w/bbe
          :shield: "geeekpi_pico_bb"
          :snippets: "usb-console wifi-ip"
          :west-args: -p

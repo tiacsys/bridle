@@ -15,7 +15,7 @@ the :external+zephyr:ref:`Input subsystem API <input>`. That are:
       .. zephyr-app-commands::
          :app: zephyr/samples/subsys/input/input_dump
          :build-dir: pimoroni_pico_lcd_1_44-input_dump
-         :board: rpi_pico
+         :board: rpi_pico/rp2040/bbe
          :shield: "pimoroni_pico_lcd_1_44"
          :snippets: "usb-console"
          :west-args: -p
@@ -71,7 +71,7 @@ the :external+zephyr:ref:`Input subsystem API <input>`. That are:
       .. zephyr-app-commands::
          :app: zephyr/samples/subsys/input/input_dump
          :build-dir: pimoroni_pico_lcd_1_44-input_dump
-         :board: rpi_pico/rp2040/w
+         :board: rpi_pico/rp2040/w/bbe
          :shield: "pimoroni_pico_lcd_1_44"
          :snippets: "usb-console"
          :west-args: -p

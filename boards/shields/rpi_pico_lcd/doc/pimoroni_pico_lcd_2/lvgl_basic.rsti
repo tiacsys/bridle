@@ -35,7 +35,7 @@ Using the LVGL module on top of the :external+zephyr:ref:`Display driver API
       .. zephyr-app-commands::
          :app: zephyr/samples/subsys/display/lvgl
          :build-dir: pimoroni_pico_lcd_2-lvgl_basic
-         :board: rpi_pico
+         :board: rpi_pico/rp2040/bbe
          :shield: "pimoroni_pico_lcd_2"
          :snippets: "usb-console"
          :west-args: -p
@@ -91,7 +91,7 @@ Using the LVGL module on top of the :external+zephyr:ref:`Display driver API
       .. zephyr-app-commands::
          :app: zephyr/samples/subsys/display/lvgl
          :build-dir: pimoroni_pico_lcd_2-lvgl_basic
-         :board: rpi_pico/rp2040/w
+         :board: rpi_pico/rp2040/w/bbe
          :shield: "pimoroni_pico_lcd_2"
          :snippets: "usb-console"
          :west-args: -p

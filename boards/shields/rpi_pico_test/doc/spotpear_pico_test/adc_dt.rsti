@@ -13,7 +13,7 @@ high-resistance potentiometer using the
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/adc/adc_dt
          :build-dir: spotpear_pico_test-drivers_adc
-         :board: rpi_pico
+         :board: rpi_pico/rp2040/bbe
          :shield: "spotpear_pico_test"
          :snippets: "usb-console"
          :west-args: -p
@@ -69,7 +69,7 @@ high-resistance potentiometer using the
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/adc/adc_dt
          :build-dir: spotpear_pico_test-drivers_adc
-         :board: rpi_pico/rp2040/w
+         :board: rpi_pico/rp2040/w/bbe
          :shield: "spotpear_pico_test"
          :snippets: "usb-console"
          :west-args: -p

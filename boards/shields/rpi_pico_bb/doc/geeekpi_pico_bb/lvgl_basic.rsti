@@ -23,7 +23,7 @@ with chosen display and touchscreen panel. That is:
       .. zephyr-app-commands::
          :app: zephyr/samples/subsys/display/lvgl
          :build-dir: geeekpi_pico_bb-lvgl_basic
-         :board: rpi_pico
+         :board: rpi_pico/rp2040/bbe
          :shield: "geeekpi_pico_bb"
          :snippets: "usb-console del-default-aliases"
          :west-args: -p
@@ -79,7 +79,7 @@ with chosen display and touchscreen panel. That is:
       .. zephyr-app-commands::
          :app: zephyr/samples/subsys/display/lvgl
          :build-dir: geeekpi_pico_bb-lvgl_basic
-         :board: rpi_pico/rp2040/w
+         :board: rpi_pico/rp2040/w/bbe
          :shield: "geeekpi_pico_bb"
          :snippets: "usb-console del-default-aliases"
          :west-args: -p

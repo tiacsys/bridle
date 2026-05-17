@@ -11,7 +11,7 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`blinky`.
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/blinky
          :build-dir: waveshare_pico_clock_green-blinky
-         :board: rpi_pico
+         :board: rpi_pico/rp2040/bbe
          :shield: "waveshare_pico_clock_green"
          :snippets: "usb-console"
          :goals: flash
@@ -67,7 +67,7 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`blinky`.
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/blinky
          :build-dir: waveshare_pico_clock_green-blinky
-         :board: rpi_pico/rp2040/w
+         :board: rpi_pico/rp2040/w/bbe
          :shield: "waveshare_pico_clock_green"
          :snippets: "usb-console"
          :goals: flash
@@ -118,7 +118,7 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`button`.
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/button
          :build-dir: waveshare_pico_clock_green-button
-         :board: rpi_pico
+         :board: rpi_pico/rp2040/bbe
          :shield: "waveshare_pico_clock_green"
          :snippets: "usb-console"
          :goals: flash
@@ -174,7 +174,7 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`button`.
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/button
          :build-dir: waveshare_pico_clock_green-button
-         :board: rpi_pico/rp2040/w
+         :board: rpi_pico/rp2040/w/bbe
          :shield: "waveshare_pico_clock_green"
          :snippets: "usb-console"
          :goals: flash

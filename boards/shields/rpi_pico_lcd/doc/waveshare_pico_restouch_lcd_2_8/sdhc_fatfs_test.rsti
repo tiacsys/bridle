@@ -21,7 +21,7 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`fs`.
       .. zephyr-app-commands::
          :app: zephyr/samples/subsys/fs/fs_sample
          :build-dir: waveshare_pico_restouch_lcd_2_8-sdhc_fatfs_test
-         :board: rpi_pico
+         :board: rpi_pico/rp2040/bbe
          :shield: "waveshare_pico_restouch_lcd_2_8"
          :snippets: "usb-console"
          :west-args: -p
@@ -77,7 +77,7 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`fs`.
       .. zephyr-app-commands::
          :app: zephyr/samples/subsys/fs/fs_sample
          :build-dir: waveshare_pico_restouch_lcd_2_8-sdhc_fatfs_test
-         :board: rpi_pico/rp2040/w
+         :board: rpi_pico/rp2040/w/bbe
          :shield: "waveshare_pico_restouch_lcd_2_8"
          :snippets: "usb-console"
          :west-args: -p
@@ -221,7 +221,7 @@ to re-format to FAT FS and list will run again to show them, e.g.:
       .. zephyr-app-commands::
          :app: zephyr/samples/subsys/fs/fs_sample
          :build-dir: waveshare_pico_restouch_lcd_2_8-sdhc_fatfs_test
-         :board: rpi_pico
+         :board: rpi_pico/rp2040/bbe
          :shield: "waveshare_pico_restouch_lcd_2_8"
          :snippets: "usb-console"
          :gen-args: -DCONFIG_FS_FATFS_MOUNT_MKFS=n
@@ -281,7 +281,7 @@ to re-format to FAT FS and list will run again to show them, e.g.:
       .. zephyr-app-commands::
          :app: zephyr/samples/subsys/fs/fs_sample
          :build-dir: waveshare_pico_restouch_lcd_2_8-sdhc_fatfs_test
-         :board: rpi_pico/rp2040/w
+         :board: rpi_pico/rp2040/w/bbe
          :shield: "waveshare_pico_restouch_lcd_2_8"
          :snippets: "usb-console"
          :gen-args: -DCONFIG_FS_FATFS_MOUNT_MKFS=n

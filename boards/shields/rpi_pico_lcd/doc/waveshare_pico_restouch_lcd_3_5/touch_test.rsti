@@ -16,7 +16,7 @@ touchscreen panel. That is:
       .. zephyr-app-commands::
          :app: zephyr/samples/subsys/input/draw_touch_events
          :build-dir: waveshare_pico_restouch_lcd_3_5-touch_test
-         :board: rpi_pico
+         :board: rpi_pico/rp2040/bbe
          :shield: "waveshare_pico_restouch_lcd_3_5"
          :snippets: "usb-console"
          :west-args: -p
@@ -72,7 +72,7 @@ touchscreen panel. That is:
       .. zephyr-app-commands::
          :app: zephyr/samples/subsys/input/draw_touch_events
          :build-dir: waveshare_pico_restouch_lcd_3_5-touch_test
-         :board: rpi_pico/rp2040/w
+         :board: rpi_pico/rp2040/w/bbe
          :shield: "waveshare_pico_restouch_lcd_3_5"
          :snippets: "usb-console"
          :west-args: -p

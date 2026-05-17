@@ -13,7 +13,7 @@ with given LED strip. That is:
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/led/led_strip
          :build-dir: geeekpi_pico_bb_plus-ledstrip_test
-         :board: rpi_pico
+         :board: rpi_pico/rp2040/bbe
          :shield: "geeekpi_pico_bb_plus"
          :snippets: "usb-console"
          :west-args: -p
@@ -69,7 +69,7 @@ with given LED strip. That is:
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/led/led_strip
          :build-dir: geeekpi_pico_bb_plus-ledstrip_test
-         :board: rpi_pico/rp2040/w
+         :board: rpi_pico/rp2040/w/bbe
          :shield: "geeekpi_pico_bb_plus"
          :snippets: "usb-console"
          :west-args: -p

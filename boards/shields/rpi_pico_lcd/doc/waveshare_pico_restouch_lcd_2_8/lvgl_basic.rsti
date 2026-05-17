@@ -20,7 +20,7 @@ with chosen display and touchscreen panel. That is:
       .. zephyr-app-commands::
          :app: zephyr/samples/subsys/display/lvgl
          :build-dir: waveshare_pico_restouch_lcd_2_8-lvgl_basic
-         :board: rpi_pico
+         :board: rpi_pico/rp2040/bbe
          :shield: "waveshare_pico_restouch_lcd_2_8"
          :snippets: "usb-console"
          :west-args: -p
@@ -76,7 +76,7 @@ with chosen display and touchscreen panel. That is:
       .. zephyr-app-commands::
          :app: zephyr/samples/subsys/display/lvgl
          :build-dir: waveshare_pico_restouch_lcd_2_8-lvgl_basic
-         :board: rpi_pico/rp2040/w
+         :board: rpi_pico/rp2040/w/bbe
          :shield: "waveshare_pico_restouch_lcd_2_8"
          :snippets: "usb-console"
          :west-args: -p

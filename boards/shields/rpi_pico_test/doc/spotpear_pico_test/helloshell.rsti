@@ -11,7 +11,7 @@ For example:
       .. zephyr-app-commands::
          :app: bridle/samples/helloshell
          :build-dir: spotpear_pico_test-helloshell
-         :board: rpi_pico
+         :board: rpi_pico/rp2040/bbe
          :shield: "spotpear_pico_test"
          :snippets: "usb-console"
          :west-args: -p
@@ -73,7 +73,7 @@ For example:
       .. zephyr-app-commands::
          :app: bridle/samples/helloshell
          :build-dir: spotpear_pico_test-helloshell
-         :board: rpi_pico/rp2040/w
+         :board: rpi_pico/rp2040/w/bbe
          :shield: "spotpear_pico_test"
          :snippets: "usb-console wifi-ip"
          :west-args: -p
