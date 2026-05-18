@@ -38,7 +38,7 @@ with chosen display and touchscreen panel. That is:
       .. zephyr-app-commands::
          :app: zephyr/samples/subsys/display/lvgl
          :build-dir: geeekpi_pico_bb-lvgl_basic
-         :board: rpi_pico2/rp2350a/m33
+         :board: rpi_pico2/rp2350a/m33/bbe
          :shield: "geeekpi_pico_bb"
          :snippets: "usb-console del-default-aliases"
          :west-args: -p
@@ -51,7 +51,7 @@ with chosen display and touchscreen panel. That is:
       .. zephyr-app-commands::
          :app: zephyr/samples/subsys/display/lvgl
          :build-dir: geeekpi_pico_bb-lvgl_basic
-         :board: rpi_pico2/rp2350a/hazard3
+         :board: rpi_pico2/rp2350a/hazard3/bbe
          :shield: "geeekpi_pico_bb"
          :snippets: "usb-console del-default-aliases"
          :west-args: -p
@@ -66,7 +66,7 @@ with chosen display and touchscreen panel. That is:
       .. zephyr-app-commands::
          :app: zephyr/samples/subsys/display/lvgl
          :build-dir: geeekpi_pico_bb-lvgl_basic
-         :board: rpi_pico2/rp2350a/m33/w
+         :board: rpi_pico2/rp2350a/m33/w/bbe
          :shield: "geeekpi_pico_bb"
          :snippets: "usb-console del-default-aliases"
          :west-args: -p

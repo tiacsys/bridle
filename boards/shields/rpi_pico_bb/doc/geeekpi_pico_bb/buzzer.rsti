@@ -27,7 +27,7 @@ with given Piezo Buzzer. That is:
       .. zephyr-app-commands::
          :app: bridle/samples/buzzer
          :build-dir: geeekpi_pico_bb-buzzer
-         :board: rpi_pico2/rp2350a/m33
+         :board: rpi_pico2/rp2350a/m33/bbe
          :shield: "geeekpi_pico_bb"
          :snippets: "usb-console"
          :west-args: -p
@@ -40,7 +40,7 @@ with given Piezo Buzzer. That is:
       .. zephyr-app-commands::
          :app: bridle/samples/buzzer
          :build-dir: geeekpi_pico_bb-buzzer
-         :board: rpi_pico2/rp2350a/hazard3
+         :board: rpi_pico2/rp2350a/hazard3/bbe
          :shield: "geeekpi_pico_bb"
          :snippets: "usb-console"
          :west-args: -p
@@ -55,7 +55,7 @@ with given Piezo Buzzer. That is:
       .. zephyr-app-commands::
          :app: bridle/samples/buzzer
          :build-dir: geeekpi_pico_bb-buzzer
-         :board: rpi_pico2/rp2350a/m33/w
+         :board: rpi_pico2/rp2350a/m33/w/bbe
          :shield: "geeekpi_pico_bb"
          :snippets: "usb-console"
          :west-args: -p

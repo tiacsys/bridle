@@ -2,7 +2,7 @@ Using the :external+zephyr:ref:`Display driver API <display_api>`
 with chosen display. That is:
 
 | :hwftlbl-scr:`LCD` : :dts:`chosen { zephyr,display = &lcd_panel; };`
-| :hwftlbl-scr:`ST7789V` : :dts:`lcd_panel: &st7789v_240x135 {};`
+| :hwftlbl-scr:`ST7789V` : :dts:`lcd_panel: &st7789v_320x240 {};`
 
 .. tabs::
 
@@ -28,7 +28,7 @@ with chosen display. That is:
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/display
          :build-dir: pimoroni_pico_lcd_2-display_test
-         :board: rpi_pico2/rp2350a/m33
+         :board: rpi_pico2/rp2350a/m33/bbe
          :shield: "pimoroni_pico_lcd_2"
          :snippets: "usb-console"
          :west-args: -p
@@ -39,7 +39,7 @@ with chosen display. That is:
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/display
          :build-dir: pimoroni_pico_lcd_2-display_test
-         :board: rpi_pico2/rp2350a/hazard3
+         :board: rpi_pico2/rp2350a/hazard3/bbe
          :shield: "pimoroni_pico_lcd_2"
          :snippets: "usb-console"
          :west-args: -p
@@ -54,7 +54,7 @@ with chosen display. That is:
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/display
          :build-dir: pimoroni_pico_lcd_2-display_test
-         :board: rpi_pico2/rp2350a/m33/w
+         :board: rpi_pico2/rp2350a/m33/w/bbe
          :shield: "pimoroni_pico_lcd_2"
          :snippets: "usb-console"
          :west-args: -p

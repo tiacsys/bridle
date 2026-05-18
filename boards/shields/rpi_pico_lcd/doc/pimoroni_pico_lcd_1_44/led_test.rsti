@@ -30,7 +30,7 @@ output color on the on-shield TriColor ChipLED using the
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/rgb_led
          :build-dir: pimoroni_pico_lcd_1_44-led_test
-         :board: rpi_pico2/rp2350a/m33
+         :board: rpi_pico2/rp2350a/m33/bbe
          :shield: "pimoroni_pico_lcd_1_44"
          :snippets: "usb-console"
          :west-args: -p
@@ -43,7 +43,7 @@ output color on the on-shield TriColor ChipLED using the
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/rgb_led
          :build-dir: pimoroni_pico_lcd_1_44-led_test
-         :board: rpi_pico2/rp2350a/hazard3
+         :board: rpi_pico2/rp2350a/hazard3/bbe
          :shield: "pimoroni_pico_lcd_1_44"
          :snippets: "usb-console"
          :west-args: -p
@@ -58,7 +58,7 @@ output color on the on-shield TriColor ChipLED using the
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/rgb_led
          :build-dir: pimoroni_pico_lcd_1_44-led_test
-         :board: rpi_pico2/rp2350a/m33/w
+         :board: rpi_pico2/rp2350a/m33/w/bbe
          :shield: "pimoroni_pico_lcd_1_44"
          :snippets: "usb-console"
          :west-args: -p

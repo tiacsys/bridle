@@ -28,7 +28,7 @@ For example:
       .. zephyr-app-commands::
          :app: bridle/samples/helloshell
          :build-dir: pimoroni_pico_lcd_1_44-helloshell
-         :board: rpi_pico2/rp2350a/m33
+         :board: rpi_pico2/rp2350a/m33/bbe
          :shield: "pimoroni_pico_lcd_1_44"
          :snippets: "usb-console"
          :west-args: -p
@@ -41,7 +41,7 @@ For example:
       .. zephyr-app-commands::
          :app: bridle/samples/helloshell
          :build-dir: pimoroni_pico_lcd_1_44-helloshell
-         :board: rpi_pico2/rp2350a/hazard3
+         :board: rpi_pico2/rp2350a/hazard3/bbe
          :shield: "pimoroni_pico_lcd_1_44"
          :snippets: "usb-console"
          :west-args: -p
@@ -58,7 +58,7 @@ For example:
       .. zephyr-app-commands::
          :app: bridle/samples/helloshell
          :build-dir: pimoroni_pico_lcd_1_44-helloshell
-         :board: rpi_pico2/rp2350a/m33/w
+         :board: rpi_pico2/rp2350a/m33/w/bbe
          :shield: "pimoroni_pico_lcd_1_44"
          :snippets: "usb-console wifi-ip"
          :west-args: -p

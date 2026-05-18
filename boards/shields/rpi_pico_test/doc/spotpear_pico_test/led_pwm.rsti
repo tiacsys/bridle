@@ -69,7 +69,7 @@ That are:
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/led/pwm
          :build-dir: spotpear_pico_test-drivers_led_pwm
-         :board: rpi_pico2/rp2350a/m33
+         :board: rpi_pico2/rp2350a/m33/bbe
          :shield: "spotpear_pico_test"
          :snippets: "usb-console"
          :west-args: -p
@@ -82,7 +82,7 @@ That are:
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/led/pwm
          :build-dir: spotpear_pico_test-drivers_led_pwm
-         :board: rpi_pico2/rp2350a/hazard3
+         :board: rpi_pico2/rp2350a/hazard3/bbe
          :shield: "spotpear_pico_test"
          :snippets: "usb-console"
          :west-args: -p
@@ -97,7 +97,7 @@ That are:
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/led/pwm
          :build-dir: spotpear_pico_test-drivers_led_pwm
-         :board: rpi_pico2/rp2350a/m33/w
+         :board: rpi_pico2/rp2350a/m33/w/bbe
          :shield: "spotpear_pico_test"
          :snippets: "usb-console"
          :west-args: -p

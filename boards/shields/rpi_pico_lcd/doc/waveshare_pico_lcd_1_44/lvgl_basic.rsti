@@ -50,7 +50,7 @@ Using the LVGL module on top of the :external+zephyr:ref:`Display driver API
       .. zephyr-app-commands::
          :app: zephyr/samples/subsys/display/lvgl
          :build-dir: waveshare_pico_lcd_1_44-lvgl_basic
-         :board: rpi_pico2/rp2350a/m33
+         :board: rpi_pico2/rp2350a/m33/bbe
          :shield: "waveshare_pico_lcd_1_44"
          :snippets: "usb-console"
          :west-args: -p
@@ -63,7 +63,7 @@ Using the LVGL module on top of the :external+zephyr:ref:`Display driver API
       .. zephyr-app-commands::
          :app: zephyr/samples/subsys/display/lvgl
          :build-dir: waveshare_pico_lcd_1_44-lvgl_basic
-         :board: rpi_pico2/rp2350a/hazard3
+         :board: rpi_pico2/rp2350a/hazard3/bbe
          :shield: "waveshare_pico_lcd_1_44"
          :snippets: "usb-console"
          :west-args: -p
@@ -78,7 +78,7 @@ Using the LVGL module on top of the :external+zephyr:ref:`Display driver API
       .. zephyr-app-commands::
          :app: zephyr/samples/subsys/display/lvgl
          :build-dir: waveshare_pico_lcd_1_44-lvgl_basic
-         :board: rpi_pico2/rp2350a/m33/w
+         :board: rpi_pico2/rp2350a/m33/w/bbe
          :shield: "waveshare_pico_lcd_1_44"
          :snippets: "usb-console"
          :west-args: -p

@@ -32,7 +32,7 @@ The following samples work with the chosen display. That is:
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/display
          :build-dir: waveshare_pico_clock_green-display_test
-         :board: rpi_pico2/rp2350a/m33
+         :board: rpi_pico2/rp2350a/m33/bbe
          :shield: "waveshare_pico_clock_green"
          :snippets: "usb-console"
          :goals: flash
@@ -45,7 +45,7 @@ The following samples work with the chosen display. That is:
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/display
          :build-dir: waveshare_pico_clock_green-display_test
-         :board: rpi_pico2/rp2350a/hazard3
+         :board: rpi_pico2/rp2350a/hazard3/bbe
          :shield: "waveshare_pico_clock_green"
          :snippets: "usb-console"
          :goals: flash
@@ -60,7 +60,7 @@ The following samples work with the chosen display. That is:
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/display
          :build-dir: waveshare_pico_clock_green-display_test
-         :board: rpi_pico2/rp2350a/m33/w
+         :board: rpi_pico2/rp2350a/m33/w/bbe
          :shield: "waveshare_pico_clock_green"
          :snippets: "usb-console"
          :goals: flash
