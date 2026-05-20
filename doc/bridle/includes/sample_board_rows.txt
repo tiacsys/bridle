@@ -64,6 +64,10 @@
 
 | RP2040 | | :external+zephyr:zephyr:board:`rpi_pico` | - ``rpi_pico/rp2040`` |
 
+.. xiao_rp2040_rp2040
+
+| RP2040 | | :external+zephyr:zephyr:board:`xiao_rp2040` | - ``xiao_rp2040/rp2040`` |
+
 .. cytron_maker_nano_rp2040
 
 | RP2040 | | :ref:`cytron_maker_rp2040` | - ``cytron_maker_nano_rp2040`` |
@@ -95,6 +99,10 @@
 .. picoboy_color_rp2040
 
 | RP2040 | | :ref:`the_picoboy` | - ``picoboy_color/rp2040`` |
+
+.. xiao_rp2040_rp2040_bbe
+
+| RP2040 | | :ref:`xiao_rp2040_board-extensions` | - ``xiao_rp2040/rp2040/bbe`` |
 
 .. rpi_pico2_rp2350a_hazard3
 

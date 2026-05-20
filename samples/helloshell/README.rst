@@ -55,6 +55,7 @@ Requirements
   * |zephyr:board:rpi_pico2| or Bridle's |bridle:board:rpi_pico2|
   * |zephyr:board:rpi_pico| or Bridle's |bridle:board:rpi_pico|
   * |zephyr:board:seeeduino_xiao| or Bridle's |bridle:board:seeeduino_xiao|
+  * |zephyr:board:xiao_rp2040| or Bridle's |bridle:board:xiao_rp2040|
 
 .. zephyr-keep-sorted-stop
 

@@ -218,6 +218,8 @@ tests:
       - seeeduino_xiao/samd21g18a
       - seeeduino_xiao/samd21g18a/bbe
       - xiao_samd21/samd21g18a
+      - xiao_rp2040/rp2040
+      - xiao_rp2040/rp2040/bbe
       - waveshare_rp2040_one
       - waveshare_rp2040_zero
       - waveshare_rp2040_matrix
