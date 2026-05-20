@@ -949,11 +949,6 @@ static int uart_sc16is75x_irq_is_pending(const struct device *dev)
 	return !IS_BIT_SET(iir, SC16IS75X_BIT_IIR_PENDING);
 }
 
-static int uart_sc16is75x_irq_update(const struct device *dev)
-{
-	return 1;
-}
-
 static void uart_sc16is75x_irq_callback_set(const struct device *dev,
 					    uart_irq_callback_user_data_t cb, void *user_data)
 {
@@ -1039,7 +1034,6 @@ static const struct uart_driver_api uart_sc16is75x_api = {
 	.irq_err_enable = uart_sc16is75x_irq_err_enable,
 	.irq_err_disable = uart_sc16is75x_irq_err_disable,
 	.irq_is_pending = uart_sc16is75x_irq_is_pending,
-	.irq_update = uart_sc16is75x_irq_update,
 	.irq_callback_set = uart_sc16is75x_irq_callback_set,
 #endif /* CONFIG_UART_SC16IS75X_INTERRUPT_DRIVEN */
 
