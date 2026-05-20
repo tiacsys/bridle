@@ -988,9 +988,6 @@
 .. |xiao_samd21_PStr_CON|	replace:: :ign:`XIAO SAMD21 (CDC ACM)`
 .. |xiao_samd21_BCD_CON|	replace:: |seeeduino_xiao_BCD_CON|
 
-.. |bridle:board:xiao_rp2040| replace:: :ref:`xiao_rp2040-extensions`
-.. :bridle:board:`xiao_rp2040`
-
 .. |bridle:board:xiao_rp2350| replace:: :ref:`xiao_rp2350-extensions`
 .. :bridle:board:`xiao_rp2350`
 
@@ -1410,6 +1407,9 @@
 .. |seeeduino_xiao_PID_CON|	replace:: :ign:`802f`
 .. |seeeduino_xiao_PStr_CON|	replace:: :ign:`Seeed XIAO M0 (CDC ACM)`
 .. |seeeduino_xiao_BCD_CON|	replace:: |zephyr_version_BCD|
+
+.. |bridle:board:xiao_rp2040| replace:: :ref:`xiao_rp2040_board-extensions`
+.. :bridle:board:`xiao_rp2040`
 
 .. |zephyr:board:xiao_rp2040| replace::
    :external+zephyr:zephyr:board:`xiao_rp2040`

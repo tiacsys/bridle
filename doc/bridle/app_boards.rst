@@ -115,7 +115,10 @@ the :ref:`boards-extensions` section in this documentation.
 |                   |                                    | | ``rpi_pico/rp2040/w/bbe``                    |
 |                   |                                    | | ``rpi_pico/rp2040/w/mcuboot/bbe``            |
 |                   +------------------------------------+------------------------------------------------+
-|                   | |zephyr:board:xiao_rp2040|         | ``xiao_rp2040``                                |
+|                   | |zephyr:board:xiao_rp2040|         | | ``xiao_rp2040``                              |
+|                   |                                    | | ``xiao_rp2040/rp2040``                       |
+|                   +------------------------------------+------------------------------------------------+
+|                   | |bridle:board:xiao_rp2040|         | | ``xiao_rp2040/rp2040/bbe``                   |
 +-------------------+------------------------------------+------------------------------------------------+
 | RP2350            | |zephyr:board:rpi_pico2|           | | ``rpi_pico2/rp2350a/hazard3``                |
 |                   |                                    | | ``rpi_pico2/rp2350a/m33``                    |

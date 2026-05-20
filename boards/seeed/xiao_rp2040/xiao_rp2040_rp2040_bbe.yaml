@@ -1,0 +1,36 @@
+# Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+#
+# NOTE: copy and own from original board metadata in
+# "zephyr/boards/seeed/xiao_rp2040/xiao_rp2040.yaml"
+
+identifier: xiao_rp2040/rp2040/bbe
+name: XIAO RP2040 (BBE)
+type: mcu
+arch: arm
+flash: 2048
+ram: 264
+toolchain:
+  - zephyr
+  - gnuarmemb
+supported:
+  - uart
+  - gpio
+  - adc
+  - i2c
+  - spi
+  - hwinfo
+  - watchdog
+  - pwm
+  - flash
+  - dma
+  - counter
+  - clock
+  - usb_device
+  - usb_cdc
+  - xiao_adc
+  - xiao_gpio
+  - xiao_i2c
+  - xiao_serial
+  - xiao_spi
+vendor: seeed

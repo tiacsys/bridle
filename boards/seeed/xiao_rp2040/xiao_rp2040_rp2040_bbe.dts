@@ -1,0 +1,19 @@
+/*
+ * Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include "../../zephyr/boards/seeed/xiao_rp2040/xiao_rp2040.dts"
+
+/ {
+	model = "Seeed Studio XIAO RP2040 @ UART Concole (BBE)";
+	compatible = "seeed,xiao-rp2040",
+		     "seeed,xiao-rp2040-bbe",
+		     "seeed,xiao-rp2040-uartcons",
+		     "seeed,xiao-rp2040-uartcons-bbe";
+
+	chosen {
+		zephyr,console = &uart0;
+		zephyr,shell-uart = &uart0;
+	};
+};
