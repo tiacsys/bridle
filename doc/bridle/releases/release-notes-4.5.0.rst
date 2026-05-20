@@ -285,6 +285,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`467` - [RFC] Adapt SC16IS75x UART driver to new upstream API
 * :github:`447` - [BUG] Build error because of missing Kconfig object ``ST7789V_PIXEL_FORMAT``
 * :github:`437` - [BUG] Wrong X/Y resolution with IliTek based LCD
 * :github:`429` - [FCR] Bump to CANnectivity v1.4
