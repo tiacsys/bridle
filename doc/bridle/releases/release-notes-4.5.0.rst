@@ -243,6 +243,10 @@ Change log
 * tbd.
 * tbd.
 * tbd.
+* All Bridle owned out-of-tree device drivers are now wrapped by the
+  now mandatory :code:`DEVICE_API` macro. :code:`DEVICE_API_GET` now
+  asserts that the API belongs to the requested upstream driver class,
+  which requires the instance to live in the class's iterable section.
 * All :emphasis:`Sitronix ST7789V` based panel controller now providing
   the pixel format as the new Devicetree property :code:`pixel-format`.
   The deprecated and obsolete Devicetree property :code:`colmod` and
@@ -285,6 +289,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`469` - [BUG] Declaring device driver API instances have to use the ``DEVICE_API`` macro
 * :github:`467` - [RFC] Adapt SC16IS75x UART driver to new upstream API
 * :github:`447` - [BUG] Build error because of missing Kconfig object ``ST7789V_PIXEL_FORMAT``
 * :github:`437` - [BUG] Wrong X/Y resolution with IliTek based LCD
