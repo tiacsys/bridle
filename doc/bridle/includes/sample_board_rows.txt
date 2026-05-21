@@ -124,6 +124,14 @@
 
 | RP2350 | | :external+zephyr:zephyr:board:`rpi_pico2` | - ``rpi_pico/rp2350a/m33`` |
 
+.. xiao_rp2350_rp2350a_hazard3
+
+| RP2350 | | :external+zephyr:zephyr:board:`xiao_rp2350` | - ``xiao_rp2350/rp2350a/hazard3`` |
+
+.. xiao_rp2350_rp2350a_m33
+
+| RP2350 | | :external+zephyr:zephyr:board:`xiao_rp2350` | - ``xiao_rp2350/rp2350a/m33`` |
+
 .. rpi_pico2_rp2350a_hazard3_bbe
 
 | RP2350 | | :ref:`rpi_pico2_board-extensions` | - ``rpi_pico2/rp2350a/hazard3/bbe`` |
@@ -147,6 +155,14 @@
 .. picoboy_color_plus_rp2350a_m33
 
 | RP2350 | | :ref:`the_picoboy` | - ``picoboy_color_plus/rp2350a/m33`` |
+
+.. xiao_rp2350_rp2350a_hazard3_bbe
+
+| RP2350 | | :ref:`xiao_rp2350_board-extensions` | - ``xiao_rp2350/rp2350a/hazard3/bbe`` |
+
+.. xiao_rp2350_rp2350a_m33_bbe
+
+| RP2350 | | :ref:`xiao_rp2350_board-extensions` | - ``xiao_rp2350/rp2350a/m33/bbe`` |
 
 .. weact_bluepillplus_stm32f103c8
 
