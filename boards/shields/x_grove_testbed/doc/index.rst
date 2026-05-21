@@ -982,7 +982,8 @@ For example:
 
          .. group-tab:: Raspberry Pi Pico (2)
 
-            This is based on the Zephyr board |RPi Pico| and |RPi Pico 2|.
+            This is based on the Bridle extended board |bridle:board:rpi_pico|
+            as |RPi Pico| or |bridle:board:rpi_pico2| as |RPi Pico 2|.
 
             * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
 
@@ -1000,7 +1001,7 @@ For example:
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/blinky
                      :build-dir: blinky-rpi_pico-x_grove_testbed
-                     :board: rpi_pico
+                     :board: rpi_pico/rp2040/bbe
                      :shield: \
                               "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
                      :gen-args: \
@@ -1008,6 +1009,26 @@ For example:
                                 -DRPI_PICO_DEBUG_ADAPTER=cmsis-dap \
                                 -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
                                 -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
+                     :west-args: -p
+                     :goals: flash
+                     :host-os: unix
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/blinky
+                     :build-dir: blinky-rpi_pico-x_grove_testbed
+                     :board: rpi_pico2/rp2350a/m33/bbe
+                     :shield: \
+                              "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
+                     :west-args: -p
+                     :goals: flash
+                     :host-os: unix
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/blinky
+                     :build-dir: blinky-rpi_pico-x_grove_testbed
+                     :board: rpi_pico2/rp2350a/hazard3/bbe
+                     :shield: \
+                              "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
                      :west-args: -p
                      :goals: flash
                      :host-os: unix
@@ -1020,7 +1041,7 @@ For example:
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/fade_led
                      :build-dir: fade-rpi_pico-x_grove_testbed
-                     :board: rpi_pico
+                     :board: rpi_pico/rp2040/bbe
                      :shield: \
                               "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
                      :gen-args: \
@@ -1028,6 +1049,26 @@ For example:
                                 -DRPI_PICO_DEBUG_ADAPTER=cmsis-dap \
                                 -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
                                 -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
+                     :west-args: -p
+                     :goals: flash
+                     :host-os: unix
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/fade_led
+                     :build-dir: fade-rpi_pico-x_grove_testbed
+                     :board: rpi_pico2/rp2350a/m33/bbe
+                     :shield: \
+                              "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
+                     :west-args: -p
+                     :goals: flash
+                     :host-os: unix
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/fade_led
+                     :build-dir: fade-rpi_pico-x_grove_testbed
+                     :board: rpi_pico2/rp2350a/hazard3/bbe
+                     :shield: \
+                              "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
                      :west-args: -p
                      :goals: flash
                      :host-os: unix
@@ -1040,7 +1081,7 @@ For example:
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/button
                      :build-dir: button-rpi_pico-x_grove_testbed
-                     :board: rpi_pico
+                     :board: rpi_pico/rp2040/bbe
                      :shield: \
                               "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
                      :gen-args: \
@@ -1052,9 +1093,31 @@ For example:
                      :goals: flash
                      :host-os: unix
 
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/button
+                     :build-dir: button-rpi_pico-x_grove_testbed
+                     :board: rpi_pico2/rp2350a/m33/bbe
+                     :shield: \
+                              "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
+                     :west-args: -p
+                     :goals: flash
+                     :host-os: unix
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/button
+                     :build-dir: button-rpi_pico-x_grove_testbed
+                     :board: rpi_pico2/rp2350a/hazard3/bbe
+                     :shield: \
+                              "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
+                     :west-args: -p
+                     :goals: flash
+                     :host-os: unix
+
          .. group-tab:: Raspberry Pi Pico (2)W
 
-            This is based on the Zephyr board |RPi Pico W| and |RPi Pico 2W|.
+            This is based on the Bridle extended board |bridle:board:rpi_pico|
+            as |RPi Pico W| or |bridle:board:rpi_pico2| as |RPi Pico 2W|.
+
 
             * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
 
@@ -1072,7 +1135,7 @@ For example:
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/blinky
                      :build-dir: blinky-rpi_pico_w-x_grove_testbed
-                     :board: rpi_pico/rp2040/w
+                     :board: rpi_pico/rp2040/w/bbe
                      :shield: \
                               "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
                      :gen-args: \
@@ -1080,6 +1143,16 @@ For example:
                                 -DRPI_PICO_DEBUG_ADAPTER=cmsis-dap \
                                 -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
                                 -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
+                     :west-args: -p
+                     :goals: flash
+                     :host-os: unix
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/blinky
+                     :build-dir: blinky-rpi_pico_w-x_grove_testbed
+                     :board: rpi_pico2/rp2350a/m33/w/bbe
+                     :shield: \
+                              "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
                      :west-args: -p
                      :goals: flash
                      :host-os: unix
@@ -1092,7 +1165,7 @@ For example:
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/fade_led
                      :build-dir: fade-rpi_pico_w-x_grove_testbed
-                     :board: rpi_pico/rp2040/w
+                     :board: rpi_pico/rp2040/w/bbe
                      :shield: \
                               "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
                      :gen-args: \
@@ -1100,6 +1173,16 @@ For example:
                                 -DRPI_PICO_DEBUG_ADAPTER=cmsis-dap \
                                 -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
                                 -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
+                     :west-args: -p
+                     :goals: flash
+                     :host-os: unix
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/fade_led
+                     :build-dir: fade-rpi_pico_w-x_grove_testbed
+                     :board: rpi_pico2/rp2350a/m33/w/bbe
+                     :shield: \
+                              "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
                      :west-args: -p
                      :goals: flash
                      :host-os: unix
@@ -1112,7 +1195,7 @@ For example:
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/button
                      :build-dir: button-rpi_pico_w-x_grove_testbed
-                     :board: rpi_pico/rp2040/w
+                     :board: rpi_pico/rp2040/w/bbe
                      :shield: \
                               "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
                      :gen-args: \
@@ -1120,6 +1203,16 @@ For example:
                                 -DRPI_PICO_DEBUG_ADAPTER=cmsis-dap \
                                 -DOPENOCD=/opt/openocd-rp2040/bin/openocd \
                                 -DOPENOCD_DEFAULT_PATH=/opt/openocd-rp2040/share/openocd/scripts
+                     :west-args: -p
+                     :goals: flash
+                     :host-os: unix
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/button
+                     :build-dir: button-rpi_pico_w-x_grove_testbed
+                     :board: rpi_pico2/rp2350a/m33/w/bbe
+                     :shield: \
+                              "seeed_grove_rpipico_v1 grove_btn_d16 grove_led_d18 grove_pwm_led_d18 x_grove_testbed"
                      :west-args: -p
                      :goals: flash
                      :host-os: unix
@@ -1477,7 +1570,8 @@ For example:
 
          .. group-tab:: XIAO RP2040
 
-            This is based on the Bridle board |bridle:board:xiao_rp2040|.
+            This is based on the Zephyr board |zephyr:board:xiao_rp2040| or
+            the Bridle extended board |bridle:board:xiao_rp2040|.
 
             * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
 
@@ -1495,7 +1589,18 @@ For example:
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/blinky
                      :build-dir: blinky-xiao_rp2040-x_grove_testbed
-                     :board: xiao_rp2040
+                     :board: xiao_rp2040/rp2040
+                     :shield: \
+                              "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
+                     :snippets: "usb-console"
+                     :west-args: -p
+                     :goals: flash
+                     :host-os: unix
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/blinky
+                     :build-dir: blinky-xiao_rp2040-x_grove_testbed
+                     :board: xiao_rp2040/rp2040/bbe
                      :shield: \
                               "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
                      :snippets: "usb-console"
@@ -1511,7 +1616,18 @@ For example:
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/fade_led
                      :build-dir: fade-xiao_rp2040-x_grove_testbed
-                     :board: xiao_rp2040
+                     :board: xiao_rp2040/rp2040
+                     :shield: \
+                              "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
+                     :snippets: "usb-console"
+                     :west-args: -p
+                     :goals: flash
+                     :host-os: unix
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/fade_led
+                     :build-dir: fade-xiao_rp2040-x_grove_testbed
+                     :board: xiao_rp2040/rp2040/bbe
                      :shield: \
                               "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
                      :snippets: "usb-console"
@@ -1527,7 +1643,18 @@ For example:
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/button
                      :build-dir: button-xiao_rp2040-x_grove_testbed
-                     :board: xiao_rp2040
+                     :board: xiao_rp2040/rp2040
+                     :shield: \
+                              "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
+                     :snippets: "usb-console"
+                     :west-args: -p
+                     :goals: flash
+                     :host-os: unix
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/button
+                     :build-dir: button-xiao_rp2040-x_grove_testbed
+                     :board: xiao_rp2040/rp2040/bbe
                      :shield: \
                               "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
                      :snippets: "usb-console"
@@ -1537,7 +1664,8 @@ For example:
 
          .. group-tab:: XIAO RP2350
 
-            This is based on the Bridle board |bridle:board:xiao_rp2350|.
+            This is based on the Zephyr board |zephyr:board:xiao_rp2350| or
+            the Bridle extended board |bridle:board:xiao_rp2350|.
 
             * Diagrams.Net project file: :download:`x_grove_testbed.drawio`
 
@@ -1563,6 +1691,39 @@ For example:
                      :goals: flash
                      :host-os: unix
 
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/blinky
+                     :build-dir: blinky-xiao_rp2350-x_grove_testbed
+                     :board: xiao_rp2350/rp2350a/m33/bbe
+                     :shield: \
+                              "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
+                     :snippets: "usb-console"
+                     :west-args: -p
+                     :goals: flash
+                     :host-os: unix
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/blinky
+                     :build-dir: blinky-xiao_rp2350-x_grove_testbed
+                     :board: xiao_rp2350/rp2350a/hazard3
+                     :shield: \
+                              "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
+                     :snippets: "usb-console"
+                     :west-args: -p
+                     :goals: flash
+                     :host-os: unix
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/blinky
+                     :build-dir: blinky-xiao_rp2350-x_grove_testbed
+                     :board: xiao_rp2350/rp2350a/hazard3/bbe
+                     :shield: \
+                              "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
+                     :snippets: "usb-console"
+                     :west-args: -p
+                     :goals: flash
+                     :host-os: unix
+
                .. group-tab:: LED Fade
 
                   This is based on the Zephyr sample
@@ -1579,6 +1740,39 @@ For example:
                      :goals: flash
                      :host-os: unix
 
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/fade_led
+                     :build-dir: fade-xiao_rp2350-x_grove_testbed
+                     :board: xiao_rp2350/rp2350a/m33/bbe
+                     :shield: \
+                              "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
+                     :snippets: "usb-console"
+                     :west-args: -p
+                     :goals: flash
+                     :host-os: unix
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/fade_led
+                     :build-dir: fade-xiao_rp2350-x_grove_testbed
+                     :board: xiao_rp2350/rp2350a/hazard3
+                     :shield: \
+                              "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
+                     :snippets: "usb-console"
+                     :west-args: -p
+                     :goals: flash
+                     :host-os: unix
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/fade_led
+                     :build-dir: fade-xiao_rp2350-x_grove_testbed
+                     :board: xiao_rp2350/rp2350a/hazard3/bbe
+                     :shield: \
+                              "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
+                     :snippets: "usb-console"
+                     :west-args: -p
+                     :goals: flash
+                     :host-os: unix
+
                .. group-tab:: LED Button
 
                   This is based on the Zephyr sample
@@ -1588,6 +1782,39 @@ For example:
                      :app: zephyr/samples/basic/button
                      :build-dir: button-xiao_rp2350-x_grove_testbed
                      :board: xiao_rp2350/rp2350a/m33
+                     :shield: \
+                              "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
+                     :snippets: "usb-console"
+                     :west-args: -p
+                     :goals: flash
+                     :host-os: unix
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/button
+                     :build-dir: button-xiao_rp2350-x_grove_testbed
+                     :board: xiao_rp2350/rp2350a/m33/bbe
+                     :shield: \
+                              "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
+                     :snippets: "usb-console"
+                     :west-args: -p
+                     :goals: flash
+                     :host-os: unix
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/button
+                     :build-dir: button-xiao_rp2350-x_grove_testbed
+                     :board: xiao_rp2350/rp2350a/hazard3
+                     :shield: \
+                              "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
+                     :snippets: "usb-console"
+                     :west-args: -p
+                     :goals: flash
+                     :host-os: unix
+
+                  .. zephyr-app-commands::
+                     :app: zephyr/samples/basic/button
+                     :build-dir: button-xiao_rp2350-x_grove_testbed
+                     :board: xiao_rp2350/rp2350a/hazard3/bbe
                      :shield: \
                               "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
                      :snippets: "usb-console"

@@ -29,11 +29,11 @@ tests:
     extra_args:
       SHIELD=geeekpi_pico_bb
     integration_platforms:
-      - rpi_pico
-      - rpi_pico/rp2040/w
-      - rpi_pico2/rp2350a/hazard3
-      - rpi_pico2/rp2350a/m33
-      - rpi_pico2/rp2350a/m33/w
+      - rpi_pico/rp2040/bbe
+      - rpi_pico/rp2040/w/bbe
+      - rpi_pico2/rp2350a/hazard3/bbe
+      - rpi_pico2/rp2350a/m33/bbe
+      - rpi_pico2/rp2350a/m33/w/bbe
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
   #
@@ -43,11 +43,11 @@ tests:
     extra_args:
       SHIELD=geeekpi_pico_bb_plus
     integration_platforms:
-      - rpi_pico
-      - rpi_pico/rp2040/w
-      - rpi_pico2/rp2350a/hazard3
-      - rpi_pico2/rp2350a/m33
-      - rpi_pico2/rp2350a/m33/w
+      - rpi_pico/rp2040/bbe
+      - rpi_pico/rp2040/w/bbe
+      - rpi_pico2/rp2350a/hazard3/bbe
+      - rpi_pico2/rp2350a/m33/bbe
+      - rpi_pico2/rp2350a/m33/w/bbe
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
   #
@@ -57,11 +57,11 @@ tests:
     extra_args:
       SHIELD=pimoroni_pico_lcd_1_44
     integration_platforms:
-      - rpi_pico
-      - rpi_pico/rp2040/w
-      - rpi_pico2/rp2350a/hazard3
-      - rpi_pico2/rp2350a/m33
-      - rpi_pico2/rp2350a/m33/w
+      - rpi_pico/rp2040/bbe
+      - rpi_pico/rp2040/w/bbe
+      - rpi_pico2/rp2350a/hazard3/bbe
+      - rpi_pico2/rp2350a/m33/bbe
+      - rpi_pico2/rp2350a/m33/w/bbe
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
   #
@@ -71,11 +71,11 @@ tests:
     extra_args:
       SHIELD=pimoroni_pico_lcd_2
     integration_platforms:
-      - rpi_pico
-      - rpi_pico/rp2040/w
-      - rpi_pico2/rp2350a/hazard3
-      - rpi_pico2/rp2350a/m33
-      - rpi_pico2/rp2350a/m33/w
+      - rpi_pico/rp2040/bbe
+      - rpi_pico/rp2040/w/bbe
+      - rpi_pico2/rp2350a/hazard3/bbe
+      - rpi_pico2/rp2350a/m33/bbe
+      - rpi_pico2/rp2350a/m33/w/bbe
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
   #
@@ -85,11 +85,11 @@ tests:
     extra_args:
       SHIELD=spotpear_pico_lcd_1_54
     integration_platforms:
-      - rpi_pico
-      - rpi_pico/rp2040/w
-      - rpi_pico2/rp2350a/hazard3
-      - rpi_pico2/rp2350a/m33
-      - rpi_pico2/rp2350a/m33/w
+      - rpi_pico/rp2040/bbe
+      - rpi_pico/rp2040/w/bbe
+      - rpi_pico2/rp2350a/hazard3/bbe
+      - rpi_pico2/rp2350a/m33/bbe
+      - rpi_pico2/rp2350a/m33/w/bbe
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
   #
@@ -99,11 +99,11 @@ tests:
     extra_args:
       SHIELD=waveshare_pico_lcd_0_96
     integration_platforms:
-      - rpi_pico
-      - rpi_pico/rp2040/w
-      - rpi_pico2/rp2350a/hazard3
-      - rpi_pico2/rp2350a/m33
-      - rpi_pico2/rp2350a/m33/w
+      - rpi_pico/rp2040/bbe
+      - rpi_pico/rp2040/w/bbe
+      - rpi_pico2/rp2350a/hazard3/bbe
+      - rpi_pico2/rp2350a/m33/bbe
+      - rpi_pico2/rp2350a/m33/w/bbe
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
   #
@@ -113,11 +113,11 @@ tests:
     extra_args:
       SHIELD=waveshare_pico_lcd_1_14
     integration_platforms:
-      - rpi_pico
-      - rpi_pico/rp2040/w
-      - rpi_pico2/rp2350a/hazard3
-      - rpi_pico2/rp2350a/m33
-      - rpi_pico2/rp2350a/m33/w
+      - rpi_pico/rp2040/bbe
+      - rpi_pico/rp2040/w/bbe
+      - rpi_pico2/rp2350a/hazard3/bbe
+      - rpi_pico2/rp2350a/m33/bbe
+      - rpi_pico2/rp2350a/m33/w/bbe
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
   #
@@ -127,11 +127,11 @@ tests:
     extra_args:
       SHIELD=waveshare_pico_lcd_1_3
     integration_platforms:
-      - rpi_pico
-      - rpi_pico/rp2040/w
-      - rpi_pico2/rp2350a/hazard3
-      - rpi_pico2/rp2350a/m33
-      - rpi_pico2/rp2350a/m33/w
+      - rpi_pico/rp2040/bbe
+      - rpi_pico/rp2040/w/bbe
+      - rpi_pico2/rp2350a/hazard3/bbe
+      - rpi_pico2/rp2350a/m33/bbe
+      - rpi_pico2/rp2350a/m33/w/bbe
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
   #
@@ -141,11 +141,11 @@ tests:
     extra_args:
       SHIELD=waveshare_pico_lcd_1_44
     integration_platforms:
-      - rpi_pico
-      - rpi_pico/rp2040/w
-      - rpi_pico2/rp2350a/hazard3
-      - rpi_pico2/rp2350a/m33
-      - rpi_pico2/rp2350a/m33/w
+      - rpi_pico/rp2040/bbe
+      - rpi_pico/rp2040/w/bbe
+      - rpi_pico2/rp2350a/hazard3/bbe
+      - rpi_pico2/rp2350a/m33/bbe
+      - rpi_pico2/rp2350a/m33/w/bbe
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
   #
@@ -155,11 +155,11 @@ tests:
     extra_args:
       SHIELD=waveshare_pico_lcd_1_8
     integration_platforms:
-      - rpi_pico
-      - rpi_pico/rp2040/w
-      - rpi_pico2/rp2350a/hazard3
-      - rpi_pico2/rp2350a/m33
-      - rpi_pico2/rp2350a/m33/w
+      - rpi_pico/rp2040/bbe
+      - rpi_pico/rp2040/w/bbe
+      - rpi_pico2/rp2350a/hazard3/bbe
+      - rpi_pico2/rp2350a/m33/bbe
+      - rpi_pico2/rp2350a/m33/w/bbe
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
   #
@@ -169,11 +169,11 @@ tests:
     extra_args:
       SHIELD=waveshare_pico_lcd_2
     integration_platforms:
-      - rpi_pico
-      - rpi_pico/rp2040/w
-      - rpi_pico2/rp2350a/hazard3
-      - rpi_pico2/rp2350a/m33
-      - rpi_pico2/rp2350a/m33/w
+      - rpi_pico/rp2040/bbe
+      - rpi_pico/rp2040/w/bbe
+      - rpi_pico2/rp2350a/hazard3/bbe
+      - rpi_pico2/rp2350a/m33/bbe
+      - rpi_pico2/rp2350a/m33/w/bbe
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
   #
@@ -183,11 +183,11 @@ tests:
     extra_args:
       SHIELD=waveshare_pico_restouch_lcd_2_8
     integration_platforms:
-      - rpi_pico
-      - rpi_pico/rp2040/w
-      - rpi_pico2/rp2350a/hazard3
-      - rpi_pico2/rp2350a/m33
-      - rpi_pico2/rp2350a/m33/w
+      - rpi_pico/rp2040/bbe
+      - rpi_pico/rp2040/w/bbe
+      - rpi_pico2/rp2350a/hazard3/bbe
+      - rpi_pico2/rp2350a/m33/bbe
+      - rpi_pico2/rp2350a/m33/w/bbe
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
   #
@@ -197,11 +197,11 @@ tests:
     extra_args:
       SHIELD=waveshare_pico_restouch_lcd_3_5
     integration_platforms:
-      - rpi_pico
-      - rpi_pico/rp2040/w
-      - rpi_pico2/rp2350a/hazard3
-      - rpi_pico2/rp2350a/m33
-      - rpi_pico2/rp2350a/m33/w
+      - rpi_pico/rp2040/bbe
+      - rpi_pico/rp2040/w/bbe
+      - rpi_pico2/rp2350a/hazard3/bbe
+      - rpi_pico2/rp2350a/m33/bbe
+      - rpi_pico2/rp2350a/m33/w/bbe
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
   #

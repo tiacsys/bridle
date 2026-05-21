@@ -13,7 +13,7 @@ with chosen display. That is:
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/display
          :build-dir: spotpear_pico_lcd_1_54-display_test
-         :board: rpi_pico
+         :board: rpi_pico/rp2040/bbe
          :shield: "spotpear_pico_lcd_1_54"
          :snippets: "usb-console"
          :west-args: -p
@@ -28,7 +28,7 @@ with chosen display. That is:
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/display
          :build-dir: spotpear_pico_lcd_1_54-display_test
-         :board: rpi_pico2/rp2350a/m33
+         :board: rpi_pico2/rp2350a/m33/bbe
          :shield: "spotpear_pico_lcd_1_54"
          :snippets: "usb-console"
          :west-args: -p
@@ -41,7 +41,7 @@ with chosen display. That is:
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/display
          :build-dir: spotpear_pico_lcd_1_54-display_test
-         :board: rpi_pico2/rp2350a/hazard3
+         :board: rpi_pico2/rp2350a/hazard3/bbe
          :shield: "spotpear_pico_lcd_1_54"
          :snippets: "usb-console"
          :west-args: -p
@@ -56,7 +56,7 @@ with chosen display. That is:
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/display
          :build-dir: spotpear_pico_lcd_1_54-display_test
-         :board: rpi_pico2/rp2350a/m33/w
+         :board: rpi_pico2/rp2350a/m33/w/bbe
          :shield: "spotpear_pico_lcd_1_54"
          :snippets: "usb-console"
          :west-args: -p
@@ -69,7 +69,7 @@ with chosen display. That is:
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/display
          :build-dir: spotpear_pico_lcd_1_54-display_test
-         :board: rpi_pico/rp2040/w
+         :board: rpi_pico/rp2040/w/bbe
          :shield: "spotpear_pico_lcd_1_54"
          :snippets: "usb-console"
          :west-args: -p

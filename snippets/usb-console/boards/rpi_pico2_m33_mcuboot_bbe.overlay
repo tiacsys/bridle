@@ -1,0 +1,16 @@
+/*
+ * Copyright (c) 2025-2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	model = "Raspberry Pi Pico 2 (Cortex-M33) - MCUboot @ USB-CDC/ACM Concole (BBE)";
+	compatible = "raspberrypi,rpi-pico2-mcuboot",
+		     "raspberrypi,rpi-pico2-mcuboot-bbe",
+		     "raspberrypi,rpi-pico2-mcuboot-usbcons",
+		     "raspberrypi,rpi-pico2-mcuboot-usbcons-bbe";
+
+	chosen {
+		zephyr,shell-uart = &snippet_cdc_acm_console_uart;
+	};
+};

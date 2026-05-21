@@ -48,6 +48,26 @@
 
 | Native (64-bit) | | :external+zephyr:zephyr:board:`native_sim` | - ``native_sim/native/64`` |
 
+.. rpi_pico_rp2040_mcuboot
+
+| RP2040 | | :external+zephyr:zephyr:board:`rpi_pico` | - ``rpi_pico/rp2040/mcuboot`` |
+
+.. rpi_pico_rp2040_w_mcuboot
+
+| RP2040 | | :external+zephyr:zephyr:board:`rpi_pico` | - ``rpi_pico/rp2040/w/mcuboot`` |
+
+.. rpi_pico_rp2040_w
+
+| RP2040 | | :external+zephyr:zephyr:board:`rpi_pico` | - ``rpi_pico/rp2040/w`` |
+
+.. rpi_pico_rp2040
+
+| RP2040 | | :external+zephyr:zephyr:board:`rpi_pico` | - ``rpi_pico/rp2040`` |
+
+.. xiao_rp2040_rp2040
+
+| RP2040 | | :external+zephyr:zephyr:board:`xiao_rp2040` | - ``xiao_rp2040/rp2040`` |
+
 .. cytron_maker_nano_rp2040
 
 | RP2040 | | :ref:`cytron_maker_rp2040` | - ``cytron_maker_nano_rp2040`` |
@@ -55,6 +75,22 @@
 .. cytron_maker_pi_rp2040
 
 | RP2040 | | :ref:`cytron_maker_rp2040` | - ``cytron_maker_pi_rp2040`` |
+
+.. rpi_pico_rp2040_bbe
+
+| RP2040 | | :ref:`rpi_pico_board-extensions` | - ``rpi_pico/rp2040/bbe`` |
+
+.. rpi_pico_rp2040_mcuboot_bbe
+
+| RP2040 | | :ref:`rpi_pico_board-extensions` | - ``rpi_pico/rp2040/mcuboot/bbe`` |
+
+.. rpi_pico_rp2040_w_bbe
+
+| RP2040 | | :ref:`rpi_pico_board-extensions` | - ``rpi_pico/rp2040/w/bbe`` |
+
+.. rpi_pico_rp2040_w_mcuboot_bbe
+
+| RP2040 | | :ref:`rpi_pico_board-extensions` | - ``rpi_pico/rp2040/w/mcuboot/bbe`` |
 
 .. picoboy_rp2040
 
@@ -64,9 +100,69 @@
 
 | RP2040 | | :ref:`the_picoboy` | - ``picoboy_color/rp2040`` |
 
+.. xiao_rp2040_rp2040_bbe
+
+| RP2040 | | :ref:`xiao_rp2040_board-extensions` | - ``xiao_rp2040/rp2040/bbe`` |
+
+.. rpi_pico2_rp2350a_hazard3
+
+| RP2350 | | :external+zephyr:zephyr:board:`rpi_pico2` | - ``rpi_pico/rp2350a/hazard3`` |
+
+.. rpi_pico2_rp2350a_m33_mcuboot
+
+| RP2350 | | :external+zephyr:zephyr:board:`rpi_pico2` | - ``rpi_pico/rp2350a/m33/mcuboot`` |
+
+.. rpi_pico2_rp2350a_m33_w_mcuboot
+
+| RP2350 | | :external+zephyr:zephyr:board:`rpi_pico2` | - ``rpi_pico/rp2350a/m33/w/mcuboot`` |
+
+.. rpi_pico2_rp2350a_m33_w
+
+| RP2350 | | :external+zephyr:zephyr:board:`rpi_pico2` | - ``rpi_pico/rp2350a/m33/w`` |
+
+.. rpi_pico2_rp2350a_m33
+
+| RP2350 | | :external+zephyr:zephyr:board:`rpi_pico2` | - ``rpi_pico/rp2350a/m33`` |
+
+.. xiao_rp2350_rp2350a_hazard3
+
+| RP2350 | | :external+zephyr:zephyr:board:`xiao_rp2350` | - ``xiao_rp2350/rp2350a/hazard3`` |
+
+.. xiao_rp2350_rp2350a_m33
+
+| RP2350 | | :external+zephyr:zephyr:board:`xiao_rp2350` | - ``xiao_rp2350/rp2350a/m33`` |
+
+.. rpi_pico2_rp2350a_hazard3_bbe
+
+| RP2350 | | :ref:`rpi_pico2_board-extensions` | - ``rpi_pico2/rp2350a/hazard3/bbe`` |
+
+.. rpi_pico2_rp2350a_m33_bbe
+
+| RP2350 | | :ref:`rpi_pico2_board-extensions` | - ``rpi_pico2/rp2350a/m33/bbe`` |
+
+.. rpi_pico2_rp2350a_m33_mcuboot_bbe
+
+| RP2350 | | :ref:`rpi_pico2_board-extensions` | - ``rpi_pico2/rp2350a/m33/mcuboot/bbe`` |
+
+.. rpi_pico2_rp2350a_m33_w_bbe
+
+| RP2350 | | :ref:`rpi_pico2_board-extensions` | - ``rpi_pico2/rp2350a/m33/w/bbe`` |
+
+.. rpi_pico2_rp2350a_m33_w_mcuboot_bbe
+
+| RP2350 | | :ref:`rpi_pico2_board-extensions` | - ``rpi_pico2/rp2350a/m33/w/mcuboot/bbe`` |
+
 .. picoboy_color_plus_rp2350a_m33
 
 | RP2350 | | :ref:`the_picoboy` | - ``picoboy_color_plus/rp2350a/m33`` |
+
+.. xiao_rp2350_rp2350a_hazard3_bbe
+
+| RP2350 | | :ref:`xiao_rp2350_board-extensions` | - ``xiao_rp2350/rp2350a/hazard3/bbe`` |
+
+.. xiao_rp2350_rp2350a_m33_bbe
+
+| RP2350 | | :ref:`xiao_rp2350_board-extensions` | - ``xiao_rp2350/rp2350a/m33/bbe`` |
 
 .. weact_bluepillplus_stm32f103c8
 

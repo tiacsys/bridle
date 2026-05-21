@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2025 TiaC Systems
+ * Copyright (c) 2023-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -298,4 +298,30 @@ clock_pwm_buzzers: &rpipico_pwm_buzzers {};
 
 &clock_buzzer {							/* GP14 */
 	pwms = <&pwm 14 PWM_HZ(880) PWM_POLARITY_NORMAL>;
+};
+
+&zephyr_user {							/* GP26:ADC0 */
+	io-channels = <&adc 0>;
+};
+
+&adc {
+	status = "okay";
+	pinctrl-0 = <&adc_wpcg_ldr>;
+	pinctrl-names = "default";
+
+	#address-cells = <1>;
+	#size-cells = <0>;
+
+	/delete-node/ channel@0;
+	channel@0 {
+		reg = <0>;
+		zephyr,gain = "ADC_GAIN_1";
+		zephyr,reference = "ADC_REF_INTERNAL";
+		zephyr,acquisition-time = <ADC_ACQ_TIME_DEFAULT>;
+		zephyr,resolution = <12>;
+	};
+
+	/delete-node/ channel@1;
+	/delete-node/ channel@2;
+	/delete-node/ channel@3;
 };

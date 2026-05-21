@@ -1,0 +1,21 @@
+/*
+ * Copyright (c) 2025-2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include "../../zephyr/boards/raspberrypi/rpi_pico2/rpi_pico2_rp2350a_m33_w.dts"
+
+/ {
+	model = "Raspberry Pi Pico 2W (Cortex-M33) @ UART Concole";
+	compatible = "raspberrypi,rpi-pico2-w",
+		     "raspberrypi,rpi-pico2-w-bbe",
+		     "raspberrypi,rpi-pico2-w-uartcons",
+		     "raspberrypi,rpi-pico2-w-uartcons-bbe";
+
+	chosen {
+		zephyr,console = &uart0;
+		zephyr,shell-uart = &uart0;
+	};
+};
+
+#include "rpipico_r3.dtsi"

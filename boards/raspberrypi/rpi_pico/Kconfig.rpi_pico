@@ -1,0 +1,30 @@
+# Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+config BOARD_RPI_PICO_RP2040
+	bool
+
+config BOARD_RPI_PICO_RP2040_BBE
+	bool
+	select BOARD_RPI_PICO_RP2040
+
+config BOARD_RPI_PICO_RP2040_W
+	bool
+
+config BOARD_RPI_PICO_RP2040_W_BBE
+	bool
+	select BOARD_RPI_PICO_RP2040_W
+
+config BOARD_RPI_PICO_RP2040_MCUBOOT
+	bool
+
+config BOARD_RPI_PICO_RP2040_MCUBOOT_BBE
+	bool
+	select BOARD_RPI_PICO_RP2040_MCUBOOT
+
+config BOARD_RPI_PICO_RP2040_W_MCUBOOT
+	bool
+
+config BOARD_RPI_PICO_RP2040_W_MCUBOOT_BBE
+	bool
+	select BOARD_RPI_PICO_RP2040_W_MCUBOOT

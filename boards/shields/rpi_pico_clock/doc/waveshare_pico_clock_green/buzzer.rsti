@@ -12,7 +12,7 @@ The PWM period is 880 ㎐, twice the concert pitch frequency of 440 ㎐.
       .. zephyr-app-commands::
          :app: bridle/samples/buzzer
          :build-dir: waveshare_pico_clock_green-buzzer
-         :board: rpi_pico
+         :board: rpi_pico/rp2040/bbe
          :shield: "waveshare_pico_clock_green"
          :snippets: "usb-console"
          :goals: flash
@@ -27,7 +27,7 @@ The PWM period is 880 ㎐, twice the concert pitch frequency of 440 ㎐.
       .. zephyr-app-commands::
          :app: bridle/samples/buzzer
          :build-dir: waveshare_pico_clock_green-buzzer
-         :board: rpi_pico2/rp2350a/m33
+         :board: rpi_pico2/rp2350a/m33/bbe
          :shield: "waveshare_pico_clock_green"
          :snippets: "usb-console"
          :goals: flash
@@ -40,7 +40,7 @@ The PWM period is 880 ㎐, twice the concert pitch frequency of 440 ㎐.
       .. zephyr-app-commands::
          :app: bridle/samples/buzzer
          :build-dir: waveshare_pico_clock_green-buzzer
-         :board: rpi_pico2/rp2350a/hazard3
+         :board: rpi_pico2/rp2350a/hazard3/bbe
          :shield: "waveshare_pico_clock_green"
          :snippets: "usb-console"
          :goals: flash
@@ -55,7 +55,7 @@ The PWM period is 880 ㎐, twice the concert pitch frequency of 440 ㎐.
       .. zephyr-app-commands::
          :app: bridle/samples/buzzer
          :build-dir: waveshare_pico_clock_green-buzzer
-         :board: rpi_pico2/rp2350a/m33/w
+         :board: rpi_pico2/rp2350a/m33/w/bbe
          :shield: "waveshare_pico_clock_green"
          :snippets: "usb-console"
          :goals: flash
@@ -68,7 +68,7 @@ The PWM period is 880 ㎐, twice the concert pitch frequency of 440 ㎐.
       .. zephyr-app-commands::
          :app: bridle/samples/buzzer
          :build-dir: waveshare_pico_clock_green-buzzer
-         :board: rpi_pico/rp2040/w
+         :board: rpi_pico/rp2040/w/bbe
          :shield: "waveshare_pico_clock_green"
          :snippets: "usb-console"
          :goals: flash

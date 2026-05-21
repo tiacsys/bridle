@@ -988,12 +988,6 @@
 .. |xiao_samd21_PStr_CON|	replace:: :ign:`XIAO SAMD21 (CDC ACM)`
 .. |xiao_samd21_BCD_CON|	replace:: |seeeduino_xiao_BCD_CON|
 
-.. |bridle:board:xiao_rp2040| replace:: :ref:`xiao_rp2040-extensions`
-.. :bridle:board:`xiao_rp2040`
-
-.. |bridle:board:xiao_rp2350| replace:: :ref:`xiao_rp2350-extensions`
-.. :bridle:board:`xiao_rp2350`
-
 .. Zephyr References
 
 .. |zephyr:connectivity:networking:with:host| replace::
@@ -1208,6 +1202,9 @@
    :external+zephyr:ref:`nrf9160dk_nrf9160`
 .. :external+zephyr:zephyr:board:`nrf9160dk`
 
+.. |bridle:board:rpi_pico| replace:: :ref:`rpi_pico_board-extensions`
+.. :bridle:board:`rpi_pico`
+
 .. |zephyr:board:rpi_pico| replace::
    :external+zephyr:zephyr:board:`rpi_pico`
 
@@ -1240,6 +1237,9 @@
 .. |rpi_pico_rp2040_w_PID_CON|	replace:: |rpi_pico_sdk_uart_rp2040_PID|
 .. |rpi_pico_rp2040_w_PStr_CON|	replace:: :ign:`RPi Pico W (CDC ACM)`
 .. |rpi_pico_rp2040_w_BCD_CON|	replace:: |zephyr_version_BCD|
+
+.. |bridle:board:rpi_pico2| replace:: :ref:`rpi_pico2_board-extensions`
+.. :bridle:board:`rpi_pico2`
 
 .. |zephyr:board:rpi_pico2| replace::
    :external+zephyr:zephyr:board:`rpi_pico2`
@@ -1405,6 +1405,9 @@
 .. |seeeduino_xiao_PStr_CON|	replace:: :ign:`Seeed XIAO M0 (CDC ACM)`
 .. |seeeduino_xiao_BCD_CON|	replace:: |zephyr_version_BCD|
 
+.. |bridle:board:xiao_rp2040| replace:: :ref:`xiao_rp2040_board-extensions`
+.. :bridle:board:`xiao_rp2040`
+
 .. |zephyr:board:xiao_rp2040| replace::
    :external+zephyr:zephyr:board:`xiao_rp2040`
 
@@ -1422,6 +1425,9 @@
 .. |xiao_rp2040_PID_CON|	replace:: |rpi_pico_sdk_uart_rp2040_PID|
 .. |xiao_rp2040_PStr_CON|	replace:: :ign:`XIAO RP2040 (CDC ACM)`
 .. |xiao_rp2040_BCD_CON|	replace:: |zephyr_version_BCD|
+
+.. |bridle:board:xiao_rp2350| replace:: :ref:`xiao_rp2350_board-extensions`
+.. :bridle:board:`xiao_rp2350`
 
 .. |zephyr:board:xiao_rp2350| replace::
    :external+zephyr:zephyr:board:`xiao_rp2350`

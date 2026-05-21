@@ -12,18 +12,18 @@ common:
     - sgp40
     - mpu9250  # FIXME: icm20948
   depends_on:
-    - pico_i2c
-    - pico_gpio
+    - rpipico_i2c
+    - rpipico_gpio
   sysbuild: false
 tests:
   bridle.sample.waveshare_pico_environment_sensor:
     extra_args: SHIELD=waveshare_pico_environment_sensor
     integration_platforms:
-      - rpi_pico
-      - rpi_pico/rp2040/w
-      - rpi_pico2/rp2350a/hazard3
-      - rpi_pico2/rp2350a/m33
-      - rpi_pico2/rp2350a/m33/w
+      - rpi_pico/rp2040/bbe
+      - rpi_pico/rp2040/w/bbe
+      - rpi_pico2/rp2350a/hazard3/bbe
+      - rpi_pico2/rp2350a/m33/bbe
+      - rpi_pico2/rp2350a/m33/w/bbe
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb

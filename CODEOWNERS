@@ -38,7 +38,6 @@
 /boards/arduino/zero/                     @rexut
 /boards/cytron/                           @rexut
 /boards/cytron/maker_rp2040/              @rexut
-/boards/extensions/                       @rexut
 /boards/nxp/                              @rexut
 /boards/nxp/mimxrt1010_evk/               @rexut
 /boards/nxp/mimxrt1060_evk/               @rexut
@@ -50,13 +49,17 @@
 /boards/st/nucleo_f746zg/                 @rexut
 /boards/st/nucleo_f767zi/                 @rexut
 /boards/st/nucleo_l496zg/                 @rexut
-/boards/extensions/rpi_pico/              @rexut
+/boards/raspberrypi/                      @rexut
+/boards/raspberrypi/rpi_pico/             @rexut
+/boards/raspberrypi/rpi_pico2/            @rexut
 /boards/jsed/                             @rexut
 /boards/jsed/picoboy/                     @rexut
 /boards/seeed/                            @rexut
 /boards/seeed/seeeduino_cm0/              @rexut
 /boards/seeed/seeeduino_lotus/            @rexut
 /boards/seeed/seeeduino_xiao/             @rexut
+/boards/seeed/xiao_rp2040/                @rexut
+/boards/seeed/xiao_rp2350/                @rexut
 /boards/seeed/xiao_samd21/                @rexut
 /boards/shields/                          @rexut
 /boards/shields/can_timing_adj/           @rexut

@@ -1,0 +1,16 @@
+/*
+ * Copyright (c) 2023-2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	model = "Raspberry Pi Pico - MCUboot @ USB-CDC/ACM Concole (BBE)";
+	compatible = "raspberrypi,rpi-pico-mcuboot",
+		     "raspberrypi,rpi-pico-mcuboot-bbe",
+		     "raspberrypi,rpi-pico-mcuboot-usbcons",
+		     "raspberrypi,rpi-pico-mcuboot-usbcons-bbe";
+
+	chosen {
+		zephyr,shell-uart = &snippet_cdc_acm_console_uart;
+	};
+};

@@ -13,7 +13,7 @@ high-resistance LDR using the :external+zephyr:ref:`ADC driver API
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/adc/adc_dt
          :build-dir: waveshare_pico_clock_green-drivers_adc
-         :board: rpi_pico
+         :board: rpi_pico/rp2040/bbe
          :shield: "waveshare_pico_clock_green"
          :snippets: "usb-console"
          :goals: flash
@@ -28,7 +28,7 @@ high-resistance LDR using the :external+zephyr:ref:`ADC driver API
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/adc/adc_dt
          :build-dir: waveshare_pico_clock_green-drivers_adc
-         :board: rpi_pico2/rp2350a/m33
+         :board: rpi_pico2/rp2350a/m33/bbe
          :shield: "waveshare_pico_clock_green"
          :snippets: "usb-console"
          :goals: flash
@@ -41,7 +41,7 @@ high-resistance LDR using the :external+zephyr:ref:`ADC driver API
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/adc/adc_dt
          :build-dir: waveshare_pico_clock_green-drivers_adc
-         :board: rpi_pico2/rp2350a/hazard3
+         :board: rpi_pico2/rp2350a/hazard3/bbe
          :shield: "waveshare_pico_clock_green"
          :snippets: "usb-console"
          :goals: flash
@@ -56,7 +56,7 @@ high-resistance LDR using the :external+zephyr:ref:`ADC driver API
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/adc/adc_dt
          :build-dir: waveshare_pico_clock_green-drivers_adc
-         :board: rpi_pico2/rp2350a/m33/w
+         :board: rpi_pico2/rp2350a/m33/w/bbe
          :shield: "waveshare_pico_clock_green"
          :snippets: "usb-console"
          :goals: flash
@@ -69,7 +69,7 @@ high-resistance LDR using the :external+zephyr:ref:`ADC driver API
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/adc/adc_dt
          :build-dir: waveshare_pico_clock_green-drivers_adc
-         :board: rpi_pico/rp2040/w
+         :board: rpi_pico/rp2040/w/bbe
          :shield: "waveshare_pico_clock_green"
          :snippets: "usb-console"
          :goals: flash

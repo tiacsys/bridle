@@ -54,12 +54,22 @@ This project outputs sensor data to the console. It requires a BME280, a SGP40
 and a ICM-20948 (MPU-9250) sensor. It should work with any platform featuring
 a I2C peripheral interface. This example is usable with the Devicetree overlay
 that comes with the :ref:`waveshare_pico_environment_sensor` shield for the
-|zephyr:board:rpi_pico| board:
+|bridle:board:rpi_pico| or |bridle:board:rpi_pico2| board:
 
    .. zephyr-app-commands::
       :app: bridle/samples/waveshare_pico_environment_sensor
       :build-dir: waveshare_pico_environment_sensor
-      :board: rpi_pico
+      :board: rpi_pico/rp2040/bbe
+      :shield: "waveshare_pico_environment_sensor"
+      :snippets: "usb-console"
+      :west-args: -p
+      :flash-args: -r uf2
+      :goals: flash
+
+   .. zephyr-app-commands::
+      :app: bridle/samples/waveshare_pico_environment_sensor
+      :build-dir: waveshare_pico_environment_sensor
+      :board: rpi_pico2/rp2350a/m33/bbe
       :shield: "waveshare_pico_environment_sensor"
       :snippets: "usb-console"
       :west-args: -p

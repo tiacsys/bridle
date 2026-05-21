@@ -1,0 +1,39 @@
+# Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+#
+# NOTE: copy and own from original board metadata in
+# "zephyr/boards/raspberrypi/rpi_pico/rpi_pico_rp2040_w.yaml"
+
+identifier: rpi_pico/rp2040/w/bbe
+name: Raspberry Pi Pico W (BBE)
+type: mcu
+arch: arm
+flash: 2048
+ram: 264
+toolchain:
+  - zephyr
+  - gnuarmemb
+supported:
+  - rpipico_gpio
+  - rpipico_i2c
+  - rpipico_spi
+  - rpipico_serial
+  - pico_gpio
+  - pico_i2c
+  - pico_spi
+  - pico_serial
+  - uart
+  - gpio
+  - adc
+  - i2c
+  - spi
+  - hwinfo
+  - watchdog
+  - pwm
+  - flash
+  - dma
+  - pio
+  - counter
+  - clock
+  - usb_device
+  - usb_cdc

@@ -11,7 +11,7 @@ For example:
       .. zephyr-app-commands::
          :app: bridle/samples/helloshell
          :build-dir: waveshare_pico_restouch_lcd_2_8-helloshell
-         :board: rpi_pico
+         :board: rpi_pico/rp2040/bbe
          :shield: "waveshare_pico_restouch_lcd_2_8"
          :snippets: "usb-console"
          :west-args: -p
@@ -28,7 +28,7 @@ For example:
       .. zephyr-app-commands::
          :app: bridle/samples/helloshell
          :build-dir: waveshare_pico_restouch_lcd_2_8-helloshell
-         :board: rpi_pico2/rp2350a/m33
+         :board: rpi_pico2/rp2350a/m33/bbe
          :shield: "waveshare_pico_restouch_lcd_2_8"
          :snippets: "usb-console"
          :west-args: -p
@@ -41,7 +41,7 @@ For example:
       .. zephyr-app-commands::
          :app: bridle/samples/helloshell
          :build-dir: waveshare_pico_restouch_lcd_2_8-helloshell
-         :board: rpi_pico2/rp2350a/hazard3
+         :board: rpi_pico2/rp2350a/hazard3/bbe
          :shield: "waveshare_pico_restouch_lcd_2_8"
          :snippets: "usb-console"
          :west-args: -p
@@ -58,7 +58,7 @@ For example:
       .. zephyr-app-commands::
          :app: bridle/samples/helloshell
          :build-dir: waveshare_pico_restouch_lcd_2_8-helloshell
-         :board: rpi_pico2/rp2350a/m33/w
+         :board: rpi_pico2/rp2350a/m33/w/bbe
          :shield: "waveshare_pico_restouch_lcd_2_8"
          :snippets: "usb-console wifi-ip"
          :west-args: -p
@@ -73,7 +73,7 @@ For example:
       .. zephyr-app-commands::
          :app: bridle/samples/helloshell
          :build-dir: waveshare_pico_restouch_lcd_2_8-helloshell
-         :board: rpi_pico/rp2040/w
+         :board: rpi_pico/rp2040/w/bbe
          :shield: "waveshare_pico_restouch_lcd_2_8"
          :snippets: "usb-console wifi-ip"
          :west-args: -p

@@ -124,14 +124,26 @@ boards:
     append:
       EXTRA_CONF_FILE: boards/xiao_rp2040.conf
       EXTRA_DTC_OVERLAY_FILE: boards/xiao_rp2040.overlay
+  xiao_rp2040/rp2040/bbe:
+    append:
+      EXTRA_CONF_FILE: boards/xiao_rp2040.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/xiao_rp2040_bbe.overlay
   xiao_rp2350/rp2350a/hazard3:
     append:
       EXTRA_CONF_FILE: boards/xiao_rp2350.conf
-      EXTRA_DTC_OVERLAY_FILE: boards/xiao_rp2350.overlay
+      EXTRA_DTC_OVERLAY_FILE: boards/xiao_rp2350_hazard3.overlay
   xiao_rp2350/rp2350a/m33:
     append:
       EXTRA_CONF_FILE: boards/xiao_rp2350.conf
-      EXTRA_DTC_OVERLAY_FILE: boards/xiao_rp2350.overlay
+      EXTRA_DTC_OVERLAY_FILE: boards/xiao_rp2350_m33.overlay
+  xiao_rp2350/rp2350a/hazard3/bbe:
+    append:
+      EXTRA_CONF_FILE: boards/xiao_rp2350.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/xiao_rp2350_hazard3_bbe.overlay
+  xiao_rp2350/rp2350a/m33/bbe:
+    append:
+      EXTRA_CONF_FILE: boards/xiao_rp2350.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/xiao_rp2350_m33_bbe.overlay
   cytron_maker_nano_rp2040/rp2040:
     append:
       EXTRA_CONF_FILE: boards/cytron_maker_nano_rp2040.conf
@@ -152,22 +164,74 @@ boards:
     append:
       EXTRA_CONF_FILE: boards/rpi_pico.conf
       EXTRA_DTC_OVERLAY_FILE: boards/rpi_pico.overlay
+  rpi_pico/rp2040/mcuboot:
+    append:
+      EXTRA_CONF_FILE: boards/rpi_pico.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/rpi_pico_mcuboot.overlay
   rpi_pico/rp2040/w:
     append:
       EXTRA_CONF_FILE: boards/rpi_pico_w.conf
       EXTRA_DTC_OVERLAY_FILE: boards/rpi_pico_w.overlay
+  rpi_pico/rp2040/w/mcuboot:
+    append:
+      EXTRA_CONF_FILE: boards/rpi_pico_w.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/rpi_pico_w_mcuboot.overlay
+  rpi_pico/rp2040/bbe:
+    append:
+      EXTRA_CONF_FILE: boards/rpi_pico.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/rpi_pico_bbe.overlay
+  rpi_pico/rp2040/mcuboot/bbe:
+    append:
+      EXTRA_CONF_FILE: boards/rpi_pico.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/rpi_pico_mcuboot_bbe.overlay
+  rpi_pico/rp2040/w/bbe:
+    append:
+      EXTRA_CONF_FILE: boards/rpi_pico_w.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/rpi_pico_w_bbe.overlay
+  rpi_pico/rp2040/w/mcuboot/bbe:
+    append:
+      EXTRA_CONF_FILE: boards/rpi_pico_w.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/rpi_pico_w_mcuboot_bbe.overlay
   rpi_pico2/rp2350a/hazard3:
     append:
       EXTRA_CONF_FILE: boards/rpi_pico2.conf
-      EXTRA_DTC_OVERLAY_FILE: boards/rpi_pico2.overlay
+      EXTRA_DTC_OVERLAY_FILE: boards/rpi_pico2_hazard3.overlay
   rpi_pico2/rp2350a/m33:
     append:
       EXTRA_CONF_FILE: boards/rpi_pico2.conf
-      EXTRA_DTC_OVERLAY_FILE: boards/rpi_pico2.overlay
+      EXTRA_DTC_OVERLAY_FILE: boards/rpi_pico2_m33.overlay
+  rpi_pico2/rp2350a/m33/mcuboot:
+    append:
+      EXTRA_CONF_FILE: boards/rpi_pico2.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/rpi_pico2_m33_mcuboot.overlay
   rpi_pico2/rp2350a/m33/w:
     append:
       EXTRA_CONF_FILE: boards/rpi_pico2_w.conf
-      EXTRA_DTC_OVERLAY_FILE: boards/rpi_pico2_w.overlay
+      EXTRA_DTC_OVERLAY_FILE: boards/rpi_pico2_m33_w.overlay
+  rpi_pico2/rp2350a/m33/w/mcuboot:
+    append:
+      EXTRA_CONF_FILE: boards/rpi_pico2_w.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/rpi_pico2_m33_w_mcuboot.overlay
+  rpi_pico2/rp2350a/hazard3/bbe:
+    append:
+      EXTRA_CONF_FILE: boards/rpi_pico2.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/rpi_pico2_hazard3_bbe.overlay
+  rpi_pico2/rp2350a/m33/bbe:
+    append:
+      EXTRA_CONF_FILE: boards/rpi_pico2.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/rpi_pico2_m33_bbe.overlay
+  rpi_pico2/rp2350a/m33/mcuboot/bbe:
+    append:
+      EXTRA_CONF_FILE: boards/rpi_pico2.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/rpi_pico2_m33_mcuboot_bbe.overlay
+  rpi_pico2/rp2350a/m33/w/bbe:
+    append:
+      EXTRA_CONF_FILE: boards/rpi_pico2_w.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/rpi_pico2_m33_w_bbe.overlay
+  rpi_pico2/rp2350a/m33/w/mcuboot/bbe:
+    append:
+      EXTRA_CONF_FILE: boards/rpi_pico2_w.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/rpi_pico2_m33_w_mcuboot_bbe.overlay
   waveshare_rp2040_one/rp2040:
     append:
       EXTRA_CONF_FILE: boards/waveshare_rp2040_one.conf

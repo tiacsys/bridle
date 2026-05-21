@@ -48,7 +48,7 @@ This project outputs sensor data to the console. It requires a LPS22HB
 and a MPU-9250 sensor. It should work with any platform featuring
 a I2C peripheral interface. This example is usable with the Devicetree overlay
 that comes with the :ref:`waveshare_pico_10dof_imu_sensor` shield for the
-|zephyr:board:rpi_pico| board.
+|bridle:board:rpi_pico| or |bridle:board:rpi_pico2| board.
 
 The following examples use the shield in revision 2.1. If these should be used
 for revision 1, the variable :code:`SHIELD` must be adapted accordingly:
@@ -56,7 +56,17 @@ for revision 1, the variable :code:`SHIELD` must be adapted accordingly:
    .. zephyr-app-commands::
       :app: bridle/samples/waveshare_pico_10dof_imu_sensor
       :build-dir: waveshare_pico_10dof_imu_sensor_r2
-      :board: rpi_pico
+      :board: rpi_pico/rp2040/bbe
+      :shield: "waveshare_pico_10dof_imu_sensor_r2"
+      :snippets: "usb-console"
+      :west-args: -p
+      :flash-args: -r uf2
+      :goals: flash
+
+   .. zephyr-app-commands::
+      :app: bridle/samples/waveshare_pico_10dof_imu_sensor
+      :build-dir: waveshare_pico_10dof_imu_sensor_r2
+      :board: rpi_pico2/rp2350a/m33/bbe
       :shield: "waveshare_pico_10dof_imu_sensor_r2"
       :snippets: "usb-console"
       :west-args: -p

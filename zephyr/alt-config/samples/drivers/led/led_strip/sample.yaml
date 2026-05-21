@@ -34,11 +34,11 @@ tests:
     extra_args:
       SHIELD=geeekpi_pico_bb_plus
     integration_platforms:
-      - rpi_pico
-      - rpi_pico/rp2040/w
-      - rpi_pico2/rp2350a/hazard3
-      - rpi_pico2/rp2350a/m33
-      - rpi_pico2/rp2350a/m33/w
+      - rpi_pico/rp2040/bbe
+      - rpi_pico/rp2040/w/bbe
+      - rpi_pico2/rp2350a/hazard3/bbe
+      - rpi_pico2/rp2350a/m33/bbe
+      - rpi_pico2/rp2350a/m33/w/bbe
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
   #
@@ -48,11 +48,11 @@ tests:
     extra_args:
       SHIELD=waveshare_pico_rgb_led
     integration_platforms:
-      - rpi_pico
-      - rpi_pico/rp2040/w
-      - rpi_pico2/rp2350a/hazard3
-      - rpi_pico2/rp2350a/m33
-      - rpi_pico2/rp2350a/m33/w
+      - rpi_pico/rp2040/bbe
+      - rpi_pico/rp2040/w/bbe
+      - rpi_pico2/rp2350a/hazard3/bbe
+      - rpi_pico2/rp2350a/m33/bbe
+      - rpi_pico2/rp2350a/m33/w/bbe
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb

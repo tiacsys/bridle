@@ -12,9 +12,17 @@
 		/* GP9: SPI1_CSN not used for LED access */
 		/* GP12: SPI1_RX not used for LED access */
 	};
+
 	pwm_wpcg_buzzer: pwm-wpcg-buzzer-pinctrl {
 		group14-pwm {
 			pinmux = <PWM_7A_P14>;		/* GP14: PWM7A (14) */
+		};
+	};
+
+	adc_wpcg_ldr: adc-wpcg-ldr-pinctrl {
+		group26 {
+			pinmux = <ADC_CH0_P26>;
+			input-enable;
 		};
 	};
 };
