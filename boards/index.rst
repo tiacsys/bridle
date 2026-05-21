@@ -9,6 +9,9 @@ please start with the upstream Zephyr :external+zephyr:ref:`board_porting_guide`
 To add support documentation for a new board, please use the template available
 under :zephyr_file:`doc/templates/board.tmpl`
 
+Boards marked with :strong:`(BBE)` on the end are Bridle's board extensions,
+see :ref:`boards-extensions` below.
+
 .. toctree::
    :maxdepth: 2
    :glob:
@@ -28,11 +31,8 @@ where custom bindings or driver classes can also be created. For more details
 about board extensions read the upstream Zephyr
 :external+zephyr:ref:`board_porting_guide`, section about **Board extensions**.
 
-.. toctree::
-   :maxdepth: 1
-   :glob:
-
-   extensions/**/index
+Bridle's board extensions are marked with :strong:`(BBE)` in the list above
+and append the suffix :code:`/bbe` to the end of their HWMv2 board name.
 
 .. _boards-shields:
 
