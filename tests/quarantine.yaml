@@ -174,7 +174,9 @@
     - xiao_rp2040/rp2040
     - xiao_rp2040/rp2040/bbe
     - xiao_rp2350/rp2350a/hazard3
+    - xiao_rp2350/rp2350a/hazard3/bbe
     - xiao_rp2350/rp2350a/m33
+    - xiao_rp2350/rp2350a/m33/bbe
 
 - comment: "shield(grove.rpipico.x_grove_testbed.b16l18): invalid board/shield condition."
   scenarios:
@@ -360,7 +362,9 @@
     - xiao_rp2040/rp2040
     - xiao_rp2040/rp2040/bbe
     - xiao_rp2350/rp2350a/hazard3
+    - xiao_rp2350/rp2350a/hazard3/bbe
     - xiao_rp2350/rp2350a/m33
+    - xiao_rp2350/rp2350a/m33/bbe
     - waveshare_rp2040_one/rp2040
     - waveshare_rp2040_zero/rp2040
     - waveshare_rp2040_matrix/rp2040
@@ -509,7 +513,9 @@
     - xiao_rp2040/rp2040
     - xiao_rp2040/rp2040/bbe
     - xiao_rp2350/rp2350a/hazard3
+    - xiao_rp2350/rp2350a/hazard3/bbe
     - xiao_rp2350/rp2350a/m33
+    - xiao_rp2350/rp2350a/m33/bbe
 
 ##############################################################################
 #
@@ -565,7 +571,9 @@
     - xiao_rp2040/rp2040
     - xiao_rp2040/rp2040/bbe
     - xiao_rp2350/rp2350a/hazard3
+    - xiao_rp2350/rp2350a/hazard3/bbe
     - xiao_rp2350/rp2350a/m33
+    - xiao_rp2350/rp2350a/m33/bbe
     - waveshare_rp2040_one/rp2040
     - waveshare_rp2040_zero/rp2040
     - waveshare_rp2040_matrix/rp2040
@@ -692,7 +700,9 @@
     - xiao_rp2040/rp2040
     - xiao_rp2040/rp2040/bbe
     - xiao_rp2350/rp2350a/hazard3
+    - xiao_rp2350/rp2350a/hazard3/bbe
     - xiao_rp2350/rp2350a/m33
+    - xiao_rp2350/rp2350a/m33/bbe
 
 - comment: "shield(grove.rpipico.grove_btn): waveshare_rp2040_eth: invalid board condition."
   platforms:
@@ -763,7 +773,9 @@
     - xiao_rp2040/rp2040
     - xiao_rp2040/rp2040/bbe
     - xiao_rp2350/rp2350a/hazard3
+    - xiao_rp2350/rp2350a/hazard3/bbe
     - xiao_rp2350/rp2350a/m33
+    - xiao_rp2350/rp2350a/m33/bbe
     - waveshare_rp2040_one/rp2040
     - waveshare_rp2040_zero/rp2040
     - waveshare_rp2040_matrix/rp2040
@@ -1163,7 +1175,9 @@
     - xiao_rp2040/rp2040
     - xiao_rp2040/rp2040/bbe
     - xiao_rp2350/rp2350a/hazard3
+    - xiao_rp2350/rp2350a/hazard3/bbe
     - xiao_rp2350/rp2350a/m33
+    - xiao_rp2350/rp2350a/m33/bbe
     - waveshare_rp2040_one/rp2040
     - waveshare_rp2040_zero/rp2040
     - waveshare_rp2040_matrix/rp2040
@@ -1434,7 +1448,9 @@
     - xiao_rp2040/rp2040
     - xiao_rp2040/rp2040/bbe
     - xiao_rp2350/rp2350a/hazard3
+    - xiao_rp2350/rp2350a/hazard3/bbe
     - xiao_rp2350/rp2350a/m33
+    - xiao_rp2350/rp2350a/m33/bbe
 
 - comment: "shield(grove.rpipico.grove_led): waveshare_rp2040_eth: invalid board condition."
   platforms:
@@ -1499,7 +1515,9 @@
     - xiao_rp2040/rp2040
     - xiao_rp2040/rp2040/bbe
     - xiao_rp2350/rp2350a/hazard3
+    - xiao_rp2350/rp2350a/hazard3/bbe
     - xiao_rp2350/rp2350a/m33
+    - xiao_rp2350/rp2350a/m33/bbe
     - waveshare_rp2040_one/rp2040
     - waveshare_rp2040_zero/rp2040
     - waveshare_rp2040_matrix/rp2040

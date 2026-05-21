@@ -825,16 +825,10 @@ not be complete.
          .. group-tab:: ``xiao_rp2350``
 
             This is based on the Zephyr board |zephyr:board:xiao_rp2350|
+            or the Bridle extended board |bridle:board:xiao_rp2350|
             and its :dtcompatible:`seeed,xiao-gpio`.
 
-            .. note::
-
-               This board basically provides only some channels from a few timers as
-               PWM to the outside. The SoC's ability to route channels to multiple
-               pads may result in channels being connected in parallel. The second
-               table below shows the possibilities which channels can really
-               be used independently at the associated signals of the
-               |Laced Grove Signal Interface|.
+            .. include:: grove_note-xiao_rp2350.rsti
 
             .. include:: grove_pwms-xiao_rp2350.rsti
 

@@ -4,9 +4,11 @@
  */
 
 / {
-	model = "Seeed Studio XIAO RP2350 @ USB-CDC/ACM Concole";
+	model = "Seeed Studio XIAO RP2350 (Cortex-M33) @ USB-CDC/ACM Concole (BBE)";
 	compatible = "seeed,xiao-rp2350",
-		     "seeed,xiao-rp2350-usbcons";
+		     "seeed,xiao-rp2350-bbe",
+		     "seeed,xiao-rp2350-usbcons",
+		     "seeed,xiao-rp2350-usbcons-bbe";
 
 	chosen {
 		zephyr,shell-uart = &snippet_cdc_acm_console_uart;
