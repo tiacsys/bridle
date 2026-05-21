@@ -172,6 +172,7 @@
     - seeeduino_xiao/samd21g18a/bbe
     - xiao_samd21/samd21g18a
     - xiao_rp2040/rp2040
+    - xiao_rp2040/rp2040/bbe
     - xiao_rp2350/rp2350a/hazard3
     - xiao_rp2350/rp2350a/m33
 
@@ -357,6 +358,7 @@
     - seeeduino_xiao/samd21g18a/bbe
     - xiao_samd21/samd21g18a
     - xiao_rp2040/rp2040
+    - xiao_rp2040/rp2040/bbe
     - xiao_rp2350/rp2350a/hazard3
     - xiao_rp2350/rp2350a/m33
     - waveshare_rp2040_one/rp2040
@@ -505,6 +507,7 @@
     - seeeduino_xiao/samd21g18a/bbe
     - xiao_samd21/samd21g18a
     - xiao_rp2040/rp2040
+    - xiao_rp2040/rp2040/bbe
     - xiao_rp2350/rp2350a/hazard3
     - xiao_rp2350/rp2350a/m33
 
@@ -560,6 +563,7 @@
     - seeeduino_xiao/samd21g18a/bbe
     - xiao_samd21/samd21g18a
     - xiao_rp2040/rp2040
+    - xiao_rp2040/rp2040/bbe
     - xiao_rp2350/rp2350a/hazard3
     - xiao_rp2350/rp2350a/m33
     - waveshare_rp2040_one/rp2040
@@ -686,6 +690,7 @@
     - seeeduino_xiao/samd21g18a/bbe
     - xiao_samd21/samd21g18a
     - xiao_rp2040/rp2040
+    - xiao_rp2040/rp2040/bbe
     - xiao_rp2350/rp2350a/hazard3
     - xiao_rp2350/rp2350a/m33
 
@@ -756,6 +761,7 @@
     - seeeduino_xiao/samd21g18a/bbe
     - xiao_samd21/samd21g18a
     - xiao_rp2040/rp2040
+    - xiao_rp2040/rp2040/bbe
     - xiao_rp2350/rp2350a/hazard3
     - xiao_rp2350/rp2350a/m33
     - waveshare_rp2040_one/rp2040
@@ -1155,6 +1161,7 @@
     - seeeduino_xiao/samd21g18a/bbe
     - xiao_samd21/samd21g18a
     - xiao_rp2040/rp2040
+    - xiao_rp2040/rp2040/bbe
     - xiao_rp2350/rp2350a/hazard3
     - xiao_rp2350/rp2350a/m33
     - waveshare_rp2040_one/rp2040
@@ -1425,6 +1432,7 @@
     - seeeduino_xiao/samd21g18a/bbe
     - xiao_samd21/samd21g18a
     - xiao_rp2040/rp2040
+    - xiao_rp2040/rp2040/bbe
     - xiao_rp2350/rp2350a/hazard3
     - xiao_rp2350/rp2350a/m33
 
@@ -1489,6 +1497,7 @@
     - seeeduino_xiao/samd21g18a/bbe
     - xiao_samd21/samd21g18a
     - xiao_rp2040/rp2040
+    - xiao_rp2040/rp2040/bbe
     - xiao_rp2350/rp2350a/hazard3
     - xiao_rp2350/rp2350a/m33
     - waveshare_rp2040_one/rp2040

@@ -403,10 +403,12 @@ specified as required.
 
    * - |xiao_rp2040_URB_VID|
      - |xiao_rp2040_URB_PID_CON|
-     - :code:`xiao_rp2040`
+     - | :code:`xiao_rp2040`
+       | :code:`xiao_rp2040//bbe`
      - |Seeed LLC|_
      - | |XIAO RP2040 (CDC ACM)|,
        | Raspberry Pi Pico SDK CDC UART
+       | ↳ |bridle:board:xiao_rp2040|
      - `Raspberry Pi USB product ID list`_
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|

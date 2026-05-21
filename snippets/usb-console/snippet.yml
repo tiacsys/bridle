@@ -124,6 +124,10 @@ boards:
     append:
       EXTRA_CONF_FILE: boards/xiao_rp2040.conf
       EXTRA_DTC_OVERLAY_FILE: boards/xiao_rp2040.overlay
+  xiao_rp2040/rp2040/bbe:
+    append:
+      EXTRA_CONF_FILE: boards/xiao_rp2040.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/xiao_rp2040_bbe.overlay
   xiao_rp2350/rp2350a/hazard3:
     append:
       EXTRA_CONF_FILE: boards/xiao_rp2350.conf
