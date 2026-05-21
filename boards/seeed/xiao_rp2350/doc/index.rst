@@ -1,17 +1,26 @@
-.. _xiao_rp2350-extensions:
+.. _xiao_rp2350_board-extensions:
 
-Seeed Studio XIAO RP2350
-########################
+XIAO RP2350 (BBE)
+#################
 
 Overview
 ********
 
-This is a set of Bridle's extension to the original Zephyr upstream board
-|zephyr:board:xiao_rp2350| with some adaptions and improvement on Kconfig
-and Devicetree level.
+This is a set of Bridle's board extensions (BBE) to the original Zephyr
+upstream board |zephyr:board:xiao_rp2350| with some adaptions and
+improvement on Twister, Kconfig and Devicetree level.
 
 List of extensions
 ******************
+
+.. rubric:: Board YAML
+
+- add the missing features that this board supports and
+  that Twister tests might depends on:
+
+  - :code:`usb_device`
+  - :code:`usb_cdc`
+  - :code:`xiao_adc`
 
 .. rubric:: Kconfig
 
@@ -26,7 +35,7 @@ List of extensions
      :width: 50%
      :widths: 100
 
-     * - .. rubric:: Seeed Studio XIAO RP2350
+     * - .. rubric:: XIAO RP2350
 
      * - .. literalinclude:: ../Kconfig.defconfig
             :caption: Kconfig.defconfig
@@ -52,7 +61,7 @@ List of extensions
      :width: 50%
      :widths: 100
 
-     * - .. rubric:: Seeed Studio XIAO RP2350
+     * - .. rubric:: XIAO RP2350
 
      * - .. literalinclude:: ../Kconfig.defconfig
             :caption: Kconfig.defconfig
@@ -72,22 +81,22 @@ List of extensions
      :width: 50%
      :widths: 100
 
-     * - .. rubric:: Seeed Studio XIAO RP2350
+     * - .. rubric:: XIAO RP2350
 
-     * - .. literalinclude:: ../xiao_rp2350_m33.overlay
+     * - .. literalinclude:: ../xiao_rp2350_rp2350a_m33_bbe.dts
             :caption: xiao_rp2350_m33.overlay
             :language: DTS
             :encoding: ISO-8859-1
             :prepend: / {
             :start-at: model
-            :end-at: compatible
+            :end-before: chosen {
             :append: };
 
-     * - .. literalinclude:: ../xiao_rp2350_hazard3.overlay
-            :caption: xiao_rp2350_hazard3.overlay
+     * - .. literalinclude:: ../xiao_rp2350_rp2350a_hazard3_bbe.dts
+            :caption: xiao_rp2350_rp2350a_hazard3_bbe.dts
             :language: DTS
             :encoding: ISO-8859-1
             :prepend: / {
             :start-at: model
-            :end-at: compatible
+            :end-before: chosen {
             :append: };

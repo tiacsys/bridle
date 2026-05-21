@@ -1,0 +1,38 @@
+# Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+#
+# NOTE: copy and own from original board metadata in
+# "zephyr/boards/seeed/xiao_rp2350/xiao_rp2350_rp2350a_m33.yaml"
+
+identifier: xiao_rp2350/rp2350a/m33/bbe
+name: XIAO RP2350 (Cortex-M33) (BBE)
+type: mcu
+arch: arm
+flash: 1024
+ram: 520
+toolchain:
+  - zephyr
+  - gnuarmemb
+supported:
+  - adc
+  - clock
+  - counter
+  - crypto
+  - dma
+  - entropy
+  - flash
+  - gpio
+  - hwinfo
+  - i2c
+  - pwm
+  - spi
+  - uart
+  - usb_device
+  - usb_cdc
+  - watchdog
+  - xiao_adc
+  - xiao_gpio
+  - xiao_i2c
+  - xiao_serial
+  - xiao_spi
+vendor: seeed

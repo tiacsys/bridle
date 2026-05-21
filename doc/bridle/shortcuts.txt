@@ -988,9 +988,6 @@
 .. |xiao_samd21_PStr_CON|	replace:: :ign:`XIAO SAMD21 (CDC ACM)`
 .. |xiao_samd21_BCD_CON|	replace:: |seeeduino_xiao_BCD_CON|
 
-.. |bridle:board:xiao_rp2350| replace:: :ref:`xiao_rp2350-extensions`
-.. :bridle:board:`xiao_rp2350`
-
 .. Zephyr References
 
 .. |zephyr:connectivity:networking:with:host| replace::
@@ -1428,6 +1425,9 @@
 .. |xiao_rp2040_PID_CON|	replace:: |rpi_pico_sdk_uart_rp2040_PID|
 .. |xiao_rp2040_PStr_CON|	replace:: :ign:`XIAO RP2040 (CDC ACM)`
 .. |xiao_rp2040_BCD_CON|	replace:: |zephyr_version_BCD|
+
+.. |bridle:board:xiao_rp2350| replace:: :ref:`xiao_rp2350_board-extensions`
+.. :bridle:board:`xiao_rp2350`
 
 .. |zephyr:board:xiao_rp2350| replace::
    :external+zephyr:zephyr:board:`xiao_rp2350`
