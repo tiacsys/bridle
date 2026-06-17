@@ -5,7 +5,7 @@
 
 /**
  * @file
- * @brief Driver Interface for the I2C controller part of an SC18IM604 bridge
+ * @brief Driver Interface for the I2C controller part of an SC18IS604 bridge
  */
 
 #ifndef ZEPHYR_DRIVERS_I2C_SC18IS604_H_
@@ -26,9 +26,9 @@ extern "C" {
 #include <zephyr/drivers/i2c.h>
 
 /**
- * @brief SC18IM604 I2C controller configuration data
+ * @brief SC18IS604 I2C controller configuration data
  *
- * This structure contains all of the state for a given SC18IM604
+ * This structure contains all of the state for a given SC18IS604
  * I2C controller as well as the binding to related MFD device.
  */
 struct i2c_sc18is604_config {
@@ -39,7 +39,7 @@ struct i2c_sc18is604_config {
 /**
  * @brief SC18IS604 I2C controller data
  *
- * This structure contains data structures used by a SC18IM604 I2C controller.
+ * This structure contains data structures used by a SC18IS604 I2C controller.
  *
  */
 struct i2c_sc18is604_data {

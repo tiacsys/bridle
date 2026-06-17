@@ -5,7 +5,7 @@
 
 /**
  * @file
- * @brief Driver for the GPIO controller part of an SC18IM604 bridge
+ * @brief Driver for the GPIO controller part of an SC18IS604 bridge
  */
 
 #define DT_DRV_COMPAT nxp_sc18is604_gpio
@@ -23,24 +23,24 @@
 LOG_MODULE_REGISTER(gpio_sc18is604, CONFIG_GPIO_LOG_LEVEL);
 
 /**
- * @brief    GPIO controller part of an SC18IM604 bridge
- * @defgroup io_gpio_sc18is604 SC18IM604 GPIO Controller
+ * @brief    GPIO controller part of an SC18IS604 bridge
+ * @defgroup io_gpio_sc18is604 SC18IS604 GPIO Controller
  * @ingroup  io_gpio
  * @since    3.7
  * @version  1.0.0
  *
- * The GPIO controller part based on the MFD interface to the SC18IM604
+ * The GPIO controller part based on the MFD interface to the SC18IS604
  * SPI to I2C and GPIO controller bridge.
  *
  * @{
  */
 
 /**
- * @brief SC18IM604 GPIO controller configuration data
+ * @brief SC18IS604 GPIO controller configuration data
  *
  * @a num_pins must be in the range [1, @ref SC18IS604_IO_NUM_PINS_MAX].
  *
- * This structure contains all of the state for a given SC18IM604 GPIO
+ * This structure contains all of the state for a given SC18IS604 GPIO
  * controller as well as the binding to related MFD device.
  */
 struct gpio_sc18is604_config {
@@ -53,9 +53,9 @@ struct gpio_sc18is604_config {
 };
 
 /**
- * @brief SC18IM604 GPIO controller data
+ * @brief SC18IS604 GPIO controller data
  *
- * This structure contains data structures used by a SC18IM604 GPIO
+ * This structure contains data structures used by a SC18IS604 GPIO
  * controller.
  *
  * Changes to @ref gpio_sc18is604_data and @ref gpio_sc18is604_config are

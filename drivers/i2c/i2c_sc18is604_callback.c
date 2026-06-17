@@ -5,7 +5,7 @@
 
 /**
  * @file
- * @brief Driver Callback for the I2C controller part of an SC18IM604 bridge
+ * @brief Driver Callback for the I2C controller part of an SC18IS604 bridge
  *
  * Asynchronous message transfers are processed by a tracking structure
  * being passed between 3 separate work items: One for initiating transfers,

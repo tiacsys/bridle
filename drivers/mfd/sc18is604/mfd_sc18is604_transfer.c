@@ -5,7 +5,7 @@
 
 /**
  * @file
- * @brief MFD Bus Transfer Driver for an SC18IM604 bridge
+ * @brief MFD Bus Transfer Driver for an SC18IS604 bridge
  */
 
 #include <zephyr/kernel.h>

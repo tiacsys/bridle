@@ -5,7 +5,7 @@
 
 /**
  * @file
- * @brief MFD Driver for an SC18IM604 bridge
+ * @brief MFD Driver for an SC18IS604 bridge
  */
 
 #define DT_DRV_COMPAT nxp_sc18is604

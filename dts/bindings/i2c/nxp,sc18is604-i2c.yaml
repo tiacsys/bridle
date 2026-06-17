@@ -1,7 +1,7 @@
-# Copyright (c) 2024 TiaC Systems
+# Copyright (c) 2024-2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
-description: I2C controller part of an SC18IM604 bridge
+description: I2C controller part of an SC18IS604 bridge
 
 compatible: "nxp,sc18is604-i2c"
 

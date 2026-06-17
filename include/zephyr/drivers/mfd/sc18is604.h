@@ -5,7 +5,7 @@
 
 /**
  * @file
- * @brief MFD Interface for an SC18IM604 bridge
+ * @brief MFD Interface for an SC18IS604 bridge
  */
 
 #ifndef ZEPHYR_INCLUDE_DRIVERS_MFD_SC18IS604_H_
@@ -66,13 +66,13 @@ extern "C" {
 #define SC18IS604_I2C_CLOCK_375KHZ		5
 
 /**
- * @brief    MFD interface for an SC18IM604 bridge
- * @defgroup mfd_interface_sc18is604 SC18IM604 MFD Interface
+ * @brief    MFD interface for an SC18IS604 bridge
+ * @defgroup mfd_interface_sc18is604 SC18IS604 MFD Interface
  * @ingroup  mfd_interfaces
  * @since    3.7
  * @version  1.0.0
  *
- * The MFD interface for an SC18IM604 SPI to I2C and GPIO controller bridge.
+ * The MFD interface for an SC18IS604 SPI to I2C and GPIO controller bridge.
  *
  * @{
  */

@@ -5,7 +5,7 @@
 
 /**
  * @file
- * @brief Driver for the I2C controller part of an SC18IM604 bridge
+ * @brief Driver for the I2C controller part of an SC18IS604 bridge
  */
 
 #ifndef CONFIG_MFD_SC18IS604_ASYNC
@@ -28,13 +28,13 @@
 LOG_MODULE_REGISTER(sc18is604_i2c, CONFIG_I2C_LOG_LEVEL);
 
 /**
- * @brief    I2C controller part of an SC18IM604 bridge
- * @defgroup io_i2c_sc18is604 SC18IM604 I2C Controller
+ * @brief    I2C controller part of an SC18IS604 bridge
+ * @defgroup io_i2c_sc18is604 SC18IS604 I2C Controller
  * @ingroup  io_i2c
  * @since    3.7
  * @version  1.0.0
  *
- * The I2C controller part based on the MFD interface to the SC18IM604
+ * The I2C controller part based on the MFD interface to the SC18IS604
  * SPI to I2C and GPIO controller bridge.
  *
  * @{

@@ -5,7 +5,7 @@
 
 /**
  * @file
- * @brief MFD Driver Interface for an SC18IM604 bridge
+ * @brief MFD Driver Interface for an SC18IS604 bridge
  */
 
 #ifndef ZEPHYR_DRIVERS_MFD_SC18IS604_H_
@@ -41,12 +41,12 @@ BUILD_ASSERT(ARRAY_SIZE(MFD_SC18IS604_VERSION_CHIP) <= SC18IS604_VERSION_STRING_
 	     "Chip name too long");
 
 /**
- * @brief SC18IM604 MFD configuration data
+ * @brief SC18IS604 MFD configuration data
  *
  * @a interrupt must be set to a valid input pin with interrupt capability.
  * @a reset must be set to a valid output pin.
  *
- * This structure contains all of the state for a given SC18IM604 MFD
+ * This structure contains all of the state for a given SC18IS604 MFD
  * controller as well as the binding to related SPI device.
  */
 struct mfd_sc18is604_config {
@@ -59,9 +59,9 @@ struct mfd_sc18is604_config {
 };
 
 /**
- * @brief SC18IM604 MFD data
+ * @brief SC18IS604 MFD data
  *
- * This structure contains data structures used by a SC18IM604 MFD.
+ * This structure contains data structures used by a SC18IS604 MFD.
  *
  * Interrupt propagation is handled by @a k_sem. Changes to
  * @ref mfd_sc18is604_data and @ref mfd_sc18is604_config are

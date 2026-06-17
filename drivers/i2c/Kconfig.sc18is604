@@ -1,15 +1,15 @@
-# Copyright (c) 2024 TiaC Systems
+# Copyright (c) 2024-2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 menuconfig I2C_SC18IS604
-	bool "I2C controller part of an SC18IM604 bridge"
+	bool "I2C controller part of an SC18IS604 bridge"
 	default y
 	depends on DT_HAS_NXP_SC18IS604_I2C_ENABLED
 	depends on MFD_SC18IS604
 	select MFD_SC18IS604_ASYNC
 	select POLL # dependency of MFD_SC18IS604_ASYNC
 	help
-	  Enable driver for I2C controller part of an SC18IM604 bridge.
+	  Enable driver for I2C controller part of an SC18IS604 bridge.
 
 config I2C_SC18IS604_INIT_PRIORITY
 	int "Init priority"
