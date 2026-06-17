@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 TiaC Systems
+ * Copyright (c) 2024-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -463,7 +463,7 @@ static int gpio_sc16is75x_manage_callback(const struct device *dev, struct gpio_
 
 #endif /* CONFIG_GPIO_SC16IS75X_INTERRUPTS */
 
-static const struct gpio_driver_api gpio_sc16is75x_api = {
+static DEVICE_API(gpio, gpio_sc16is75x_api) = {
 	.pin_configure = gpio_sc16is75x_pin_configure,
 	.port_get_raw = gpio_sc16is75x_port_get_raw,
 	.port_set_masked_raw = gpio_sc16is75x_port_set_masked_raw,

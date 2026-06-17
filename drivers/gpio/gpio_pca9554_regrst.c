@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2015 Intel Corporation.
  * Copyright (c) 2020 Norbit ODM AS
- * Copyright (c) 2021-2024 TiaC Systems
+ * Copyright (c) 2021-2026 TiaC Systems
  *
  * Derived work from: zephyr/drivers/gpio_pca95xx.c
  *
@@ -551,7 +551,7 @@ static int gpio_pca9554_regrst_manage_callback(const struct device *dev,
 }
 #endif
 
-static const struct gpio_driver_api gpio_pca9554_regrst_drv_api_funcs = {
+static DEVICE_API(gpio, gpio_pca9554_regrst_drv_api_funcs) = {
 	.pin_configure = gpio_pca9554_regrst_config,
 	.port_get_raw = gpio_pca9554_regrst_port_get_raw,
 	.port_set_masked_raw = gpio_pca9554_regrst_port_set_masked_raw,

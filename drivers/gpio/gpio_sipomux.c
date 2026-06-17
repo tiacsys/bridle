@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 TiaC Systems
+ * Copyright (c) 2023-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -207,7 +207,7 @@ static int gpio_sipomux_port_toggle_bits(const struct device *dev,
 	return gpio_sipomux_port_set_masked_raw(dev, pins, data->value);
 }
 
-static const struct gpio_driver_api gpio_sipomux_api = {
+static DEVICE_API(gpio, gpio_sipomux_api) = {
 	.pin_configure = gpio_sipomux_configure,
 	.port_get_raw = gpio_sipomux_port_get_raw,
 	.port_set_masked_raw = gpio_sipomux_port_set_masked_raw,

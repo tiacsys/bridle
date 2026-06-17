@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 TiaC Systems
+ * Copyright (c) 2024-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -324,7 +324,7 @@ static int gpio_sc18is604_toggle_bits(const struct device *dev, uint32_t pins)
 	return gpio_sc18is604_pin_write_state(dev, pin_state);
 }
 
-static const struct gpio_driver_api gpio_sc18is604_api = {
+static DEVICE_API(gpio, gpio_sc18is604_api) = {
 	.pin_configure = gpio_sc18is604_pin_configure,
 	.port_get_raw = gpio_sc18is604_get_raw,
 	.port_set_masked_raw = gpio_sc18is604_set_masked_raw,
