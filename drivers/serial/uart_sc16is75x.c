@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 TiaC Systems
+ * Copyright (c) 2024-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -1000,7 +1000,7 @@ static int uart_sc16is75x_drv_cmd(const struct device *dev, uint32_t cmd, uint32
 
 #endif /* CONFIG_UART_DRV_CMD */
 
-static const struct uart_driver_api uart_sc16is75x_api = {
+static DEVICE_API(uart, uart_sc16is75x_api) = {
 	.poll_in = uart_sc16is75x_poll_in,
 	.poll_out = uart_sc16is75x_poll_out,
 #ifdef CONFIG_UART_WIDE_DATA
