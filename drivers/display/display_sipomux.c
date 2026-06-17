@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 TiaC Systems
+ * Copyright (c) 2023-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -195,7 +195,7 @@ static int display_sipomux_set_pixel_format(const struct device *dev,
 	return 0;
 }
 
-static const struct display_driver_api display_sipomux_api = {
+static DEVICE_API(display, display_sipomux_api) = {
 	.blanking_on = display_sipomux_blanking_on,
 	.blanking_off = display_sipomux_blanking_off,
 	.write = display_sipomux_write,
