@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 TiaC Systems
+ * Copyright (c) 2024-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -342,7 +342,7 @@ static int i2c_sc18is604_transfer(const struct device *dev, struct i2c_msg *msgs
 	return ret;
 }
 
-static const struct i2c_driver_api i2c_sc18is604_api = {
+static DEVICE_API(i2c, i2c_sc18is604_api) = {
 	.configure = i2c_sc18is604_configure,
 	.get_config = i2c_sc18is604_get_config,
 	.transfer = i2c_sc18is604_transfer,
