@@ -10,42 +10,66 @@
   platforms:
     - bl54l15_dvk/nrf54l10/cpuapp
     - bl54l15_dvk/nrf54l10/cpuapp/ns
+    - bl54l15_dvk/nrf54l10/cpuflpr
     - bl54l15_dvk/nrf54l15/cpuapp
     - bl54l15_dvk/nrf54l15/cpuapp/ns
     - bl54l15_dvk/nrf54l15/cpuflpr
     - bl54l15_dvk/nrf54l15/cpuflpr/xip
+    - holyiot_25008/nrf54l15/cpuapp
+    - kit_pse84_ai/pse846gps2dbzc4a/m33
+    - kit_pse84_ai/pse846gps2dbzc4a/m33/ns
+    - kit_pse84_ai/pse846gps2dbzc4a/m55
+    - kit_pse84_eval/pse846gps2dbzc4a/m33
+    - kit_pse84_eval/pse846gps2dbzc4a/m33/ns
+    - kit_pse84_eval/pse846gps2dbzc4a/m55
+    - mr_canhubk3/s32k344/mcuboot
+    - nucleo_h7s3l8/stm32h7s3xx/ext_flash_app
     - nrf5340_audio_dk/nrf5340/cpuapp/ns
     - nrf5340dk/nrf5340/cpuapp/ns
-    - nrf54h20dk@0.8.0/nrf54h20/cpuapp
     - nrf54h20dk@0.9.0/nrf54h20/cpuapp
-    - nrf54h20dk@0.8.0/nrf54h20/cpurad
     - nrf54h20dk@0.9.0/nrf54h20/cpurad
-    - nrf54h20dk@0.8.0/nrf54h20/cpuppr
     - nrf54h20dk@0.9.0/nrf54h20/cpuppr
-    - nrf54h20dk@0.8.0/nrf54h20/cpuppr/xip
     - nrf54h20dk@0.9.0/nrf54h20/cpuppr/xip
-    - nrf54h20dk@0.8.0/nrf54h20/cpuflpr
     - nrf54h20dk@0.9.0/nrf54h20/cpuflpr
-    - nrf54h20dk@0.8.0/nrf54h20/cpuflpr/xip
     - nrf54h20dk@0.9.0/nrf54h20/cpuflpr/xip
     - nrf54l09pdk/nrf54l09/cpuapp
     - nrf54l15dk/nrf54l05/cpuapp
+    - nrf54l15dk/nrf54l05/cpuflpr
     - nrf54l15dk/nrf54l10/cpuapp
+    - nrf54l15dk/nrf54l10/cpuapp/ns
+    - nrf54l15dk/nrf54l10/cpuflpr
     - nrf54l15dk/nrf54l15/cpuapp
+    - nrf54l15dk/nrf54l15/cpuapp/ns
     - nrf54l15dk/nrf54l15/cpuflpr
     - nrf54l15dk/nrf54l15/cpuflpr/xip
+    - nrf54l15tag/nrf54l15/cpuapp
+    - nrf54l15tag/nrf54l15/cpuapp/ns
+    - nrf54l15tag/nrf54l15/cpuflpr
+    - nrf54l15tag/nrf54l15/cpuflpr/xip
     - nrf54lm20dk/nrf54lm20a/cpuapp
+    - nrf54lm20dk/nrf54lm20a/cpuapp/ns
     - nrf54lm20dk/nrf54lm20a/cpuflpr
-    - nrf54lm20dk/nrf54lm20a/cpuflpr/xip
+    - nrf54lm20dk/nrf54lm20b/cpuapp
+    - nrf54lm20dk/nrf54lm20b/cpuapp/ns
+    - nrf54lm20dk/nrf54lm20b/cpuflpr
+    - nrf7120dk/nrf7120/cpuapp
+    - nrf7120dk/nrf7120/cpuapp/ns
+    - nrf7120dk/nrf7120/cpuflpr
+    - nrf7120dk/nrf7120/cpuflpr/xip
     - nrf9131ek/nrf9131/ns
     - nrf9151dk/nrf9151/ns
     - nrf9160dk@0.7.0/nrf9160/ns
-    - nrf9160dk@0.14.0/nrf9160/ns
+    - nrf9160dk@0.9.0/nrf9160/ns
     - nrf9161dk@0.7.0/nrf9161/ns
     - nrf9161dk@0.14.0/nrf9161/ns
     - nrf9280pdk/nrf9280/cpuapp
-    - nrf9280pdk/nrf9280/cpurad
+    - nrf9280pdk/nrf9280/cpuppr
     - nrf9280pdk/nrf9280/cpuppr/xip
+    - nrf9280pdk/nrf9280/cpurad
+    - nrf93m1dk/nrf54l15/cpuapp
+    - nrf93m1dk/nrf54l15/cpuapp/ns
+    - nrf93m1dk/nrf54l15/cpuflpr
+    - nrf93m1dk/nrf54l15/cpuflpr/xip
     - ophelia4ev/nrf54l15/cpuapp
     - ophelia4ev/nrf54l15/cpuflpr
     - panb611evb/nrf54l15/cpuapp
@@ -53,9 +77,26 @@
     - panb611evb/nrf54l15/cpuflpr
     - panb611evb/nrf54l15/cpuflpr/xip
     - raytac_an54lq_db_15/nrf54l15/cpuapp
+    - raytac_an54lq_db_15/nrf54l15/cpuapp/ns
     - raytac_an54lq_db_15/nrf54l15/cpuflpr
     - raytac_an54lq_db_15/nrf54l15/cpuflpr/xip
+    - raytac_an54lv_db_15/nrf54l15/cpuapp
+    - raytac_an54lv_db_15/nrf54l15/cpuapp/ns
+    - raytac_an54lv_db_15/nrf54l15/cpuflpr
+    - raytac_an54lv_db_15/nrf54l15/cpuflpr/xip
+    - stm32h573i_dk/stm32h573xx/ext_flash_app
+    - stm32h750b_dk/stm32h750xx/ext_flash_app
+    - stm32h7s78_dk/stm32h7s7xx/ext_flash_app
     - thingy53/nrf5340/cpuapp/ns
+    - ubx_evknorab2/nrf54l05/cpuapp
+    - ubx_evknorab2/nrf54l05/cpuflpr
+    - ubx_evknorab2/nrf54l10/cpuapp
+    - ubx_evknorab2/nrf54l10/cpuapp/ns
+    - ubx_evknorab2/nrf54l10/cpuflpr
+    - ubx_evknorab2/nrf54l15/cpuapp
+    - ubx_evknorab2/nrf54l15/cpuapp/ns
+    - ubx_evknorab2/nrf54l15/cpuflpr
+    - ubx_evknorab2/nrf54l15/cpuflpr/xip
     - xiao_nrf54l15/nrf54l15/cpuapp
     - xiao_nrf54l15/nrf54l15/cpuflpr
 
