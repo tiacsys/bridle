@@ -1,0 +1,2 @@
+board:
+  extend: nucleo_n657x0_q
