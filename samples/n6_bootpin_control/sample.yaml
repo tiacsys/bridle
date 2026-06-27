@@ -1,0 +1,14 @@
+sample:
+  name: N6 Boot Selector
+  description: Shell-controlled GPIO used to drive the STM32N6 boot-select pin
+    from a second helper board.
+common:
+  tags:
+    - bridle
+  build_only: true
+  platform_allow:
+    - frdm_rw612
+  integration_platforms:
+    - frdm_rw612
+tests:
+  bridle.sample.n6_boot_selector: {}

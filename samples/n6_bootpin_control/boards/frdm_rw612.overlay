@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) 2026 inovex GmbH
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
+/ {
+	zephyr,user {
+		/*
+		 * Arduino header D2 == hsgpio0 pin 11 on the FRDM-RW612.
+		 * "assert" drives this line high, "deassert" drives it low.
+		 */
+		boot-ctrl-gpios = <&hsgpio0 11 GPIO_ACTIVE_HIGH>;
+	};
+};
+
+/*
+ * hsgpio0 pin 11 is shared with the on-board "User SW2" button. Disable that
+ * gpio-keys node so the pin is used exclusively as the boot-select output.
+ */
+&user_button_0 {
+	status = "disabled";
+};
