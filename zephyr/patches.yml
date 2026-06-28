@@ -1,0 +1,19 @@
+# Copyright (c) 2026 inovex GmbH
+# SPDX-License-Identifier: Apache-2.0
+#
+# Downstream patches applied to Zephyr (and other modules) via "west patch".
+# Apply with:  west patch -sm bridle apply
+
+patches:
+  - path: zephyr/nucleo_n657x0_q-enable-twister.patch
+    sha256sum: 0c8d35daad936d50ab7b9349b8e499f737d2a1cb66d7301dbea1d107a3bd53c4
+    module: zephyr
+    author: Tobias Kaestner
+    email: tobias.kaestner@inovex.de
+    date: 2026-06-28
+    upstreamable: false
+    comments: >
+      Enable the nucleo_n657x0_q/stm32n657xx (non-sb) variant for twister so it
+      can be driven by the downstream stm32n6_boot flash runner. Upstream marks
+      it twister:false because it has no standalone flash path; bridle provides
+      one via the boot-pin helper board. Kept downstream only.

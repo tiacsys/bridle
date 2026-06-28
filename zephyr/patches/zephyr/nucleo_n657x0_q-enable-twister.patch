@@ -1,0 +1,13 @@
+diff --git a/boards/st/nucleo_n657x0_q/twister.yaml b/boards/st/nucleo_n657x0_q/twister.yaml
+index 32baef82032..133751ce0fe 100644
+--- a/boards/st/nucleo_n657x0_q/twister.yaml
++++ b/boards/st/nucleo_n657x0_q/twister.yaml
+@@ -21,7 +21,7 @@ supported:
+ vendor: st
+ variants:
+   nucleo_n657x0_q/stm32n657xx:
+-    twister: false
++    twister: true
+   nucleo_n657x0_q/stm32n657xx/sb:
+     toolchain:
+       - zephyr
