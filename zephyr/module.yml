@@ -21,6 +21,11 @@ build:
     # mark this project as external module
     module_ext_root: .
 
+# register out of tree west flash/debug runners
+runners:
+  # custom STM32N6 runner that toggles the boot pin and power-cycles the board
+  - file: scripts/west_commands/runners/stm32n6_boot.py
+
 # point to out of tree package manager dependencies (west packages)
 package-managers:
   # support Package Installer for Python

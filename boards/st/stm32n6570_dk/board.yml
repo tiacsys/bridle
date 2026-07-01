@@ -1,0 +1,2 @@
+board:
+  extend: stm32n6570_dk
