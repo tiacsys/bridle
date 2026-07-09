@@ -34,6 +34,7 @@ exclude = [
     "./doc/_extensions/bridle/api_overview.py",
     "./doc/_extensions/bridle/__init__.py",
     "./doc/_extensions/bridle/inventory_builder.py",
+    "./doc/_extensions/bridle/licensing.py",
     "./doc/_extensions/bridle/link-roles.py",
     "./doc/_extensions/bridle/manifest_projects_table.py",
     "./doc/_extensions/bridle/options_from_kconfig.py",

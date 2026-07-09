@@ -189,6 +189,7 @@ extensions = [
     'sphinx_copybutton',
     'sphinx_togglebutton',
     'notfound.extension',
+    'bridle.licensing',
     'bridle.api_overview',
     'bridle.link-roles',
     'bridle.inventory_builder',

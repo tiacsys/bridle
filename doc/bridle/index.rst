@@ -92,6 +92,7 @@ system (RTOS), which is built for **connected low power products** and
    boards/index
    snippets/index
    reference/index
+   licensing_requirements
    release_notes
 
 ..   drivers
