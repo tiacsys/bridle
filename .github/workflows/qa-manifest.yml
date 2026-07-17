@@ -1,4 +1,4 @@
-# Copyright (c) 2021-2025 TiaC Systems
+# Copyright (c) 2021-2026 TiaC Systems
 # Copyright (c) 2021 Li-Pro.Net
 # SPDX-License-Identifier: Apache-2.0
 
@@ -21,20 +21,37 @@ jobs:
 
     steps:
       - name: Checkout the code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
           show-progress: true
+          persist-credentials: false
           path: workspace/bridle
           ref: ${{ github.event.pull_request.head.sha }}
 
+      - name: West init and update
+        env:
+          BASE_REF: ${{ github.base_ref }}
+          # for manual checks in logging output with 'ref' from checkout action
+        working-directory: workspace/bridle
+        run: |
+          git config --global user.email "info@tiac-systems.net"
+          git config --global user.name "TiaC Systems Network"
+          pip install --upgrade --requirement zephyr/requirements-base.txt
+          west init --local . || true
+          west update --fetch-opt=--depth=1 --fetch=always --narrow --stats || true
+
       - name: Run manifest check
-        uses: zephyrproject-rtos/action-manifest@v2.0.0
+        uses: zephyrproject-rtos/action-manifest@ce3405bd7039ea968a2821cef3b88150e9415555
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           checkout-path: 'workspace/bridle'
           manifest-path: 'west.yml'
+          use-tree-checkout: 'true'
+          check-impostor-commits: 'true'
           label-prefix: 'manifest-'
           verbosity-level: '1'
           labels: 'manifest'
-          dnm-labels: 'DNM'
+          dnm-labels: 'DNM (manifest)'
+          blobs-added-labels: 'Binary Blobs Added'
+          blobs-modified-labels: 'Binary Blobs Modified'
