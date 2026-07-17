@@ -282,7 +282,7 @@ Build Infrastructure
 * tbd.
 * tbd.
 * tbd.
-* Switch to Zephyr CI container 0.29.2, which is now mandatory to have access
+* Switch to Zephyr CI container 0.29.3, 0.29.2 is now mandatory to have access
   to the Zephyr SDK (1.0.1) LLVM/Clang toolchain.
 * Add support for new :command:`cmake` option :code:`NO_EXTERNAL_DEPS`.
   For details read the :emphasis:`How to build the Bridle documentation`.
