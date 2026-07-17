@@ -243,6 +243,11 @@ Change log
 * tbd.
 * tbd.
 * tbd.
+* Sample ``helloshell`` supports now all Raspberry Pi Pico W and Pico 2W
+  variants, the origin upstream and Bridle's ``bbe``, with the onboard LED
+  via the CYW43 GPIO driver and Wi-Fi/IP network without the dependency
+  on the Zephyr Wi-Fi Network Manager with WPA/supplicant support from the
+  Zephyr module ``hostap``.
 * All Bridle owned out-of-tree device drivers are now wrapped by the
   now mandatory :code:`DEVICE_API` macro. :code:`DEVICE_API_GET` now
   asserts that the API belongs to the requested upstream driver class,
@@ -291,6 +296,7 @@ These GitHub issues were addressed since project bootstrapping:
 
 * :github:`469` - [BUG] Declaring device driver API instances have to use the ``DEVICE_API`` macro
 * :github:`467` - [RFC] Adapt SC16IS75x UART driver to new upstream API
+* :github:`461` - [BUG] Hellohell sample with WiFi enable fails to compile
 * :github:`447` - [BUG] Build error because of missing Kconfig object ``ST7789V_PIXEL_FORMAT``
 * :github:`437` - [BUG] Wrong X/Y resolution with IliTek based LCD
 * :github:`429` - [FCR] Bump to CANnectivity v1.4
