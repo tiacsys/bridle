@@ -161,7 +161,6 @@ needs_sphinx = '8.2'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    #   'table_from_rows',
     'tsn_include',
     'sphinx.ext.intersphinx',
     'sphinx.ext.todo',
@@ -511,7 +510,7 @@ options_from_kconfig_zephyr_dir = ZEPHYR_BASE
 # Options for bridle.table_from_rows -------------------------------------------
 
 table_from_rows_base_dir = BRIDLE_BASE
-table_from_sample_yaml_board_reference = "/includes/sample_board_rows.txt"
+table_from_tests_yaml_board_reference = "/includes/tests_board_rows.txt"
 
 # Options for bridle.manifest_revisions_table ----------------------------------
 

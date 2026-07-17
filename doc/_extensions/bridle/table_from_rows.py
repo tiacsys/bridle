@@ -12,7 +12,7 @@ from docutils import io, statemachine
 from docutils.parsers.rst import directives
 from sphinx.util.docutils import SphinxDirective
 
-__version__ = '0.0.2'
+__version__ = '0.1.0'
 
 
 class TableFromRows(SphinxDirective):
@@ -140,7 +140,7 @@ class TableFromRows(SphinxDirective):
         return []
 
 
-class TableFromSampleYaml(TableFromRows):
+class TableFromTestsYaml(TableFromRows):
     option_spec = {}
     required_arguments = 0
 
@@ -169,10 +169,10 @@ class TableFromSampleYaml(TableFromRows):
         return [board.replace("/", "_") for board in boards]
 
     @staticmethod
-    def _find_shields(shields: dict[str, set[str]], sample_data: dict):
-        """Associate all integration platforms for a sample with any shield used."""
+    def _find_shields(shields: dict[str, set[str]], tests_data: dict):
+        """Associate all integration platforms for tests with any shield used."""
 
-        extra_args_raw = sample_data.get('extra_args')
+        extra_args_raw = tests_data.get('extra_args')
         if not extra_args_raw:
             return
 
@@ -185,19 +185,19 @@ class TableFromSampleYaml(TableFromRows):
         if not shield_args:
             return
 
-        for platform in sample_data['integration_platforms']:
+        for platform in tests_data['integration_platforms']:
             if platform in shields:
                 shields[platform].update(shield_args)
             else:
                 shields[platform] = set(shield_args)
 
-    def _rows_from_sample_yaml(self, path):
-        """Search for a sample.yaml file and return a union of all relevant boards.
+    def _rows_from_tests_yaml(self, path):
+        """Search for a tests.yaml file and return a union of all relevant boards.
 
         Boards are retrieved from the integration_platforms sections in the file.
         If the file is not found and the document folder is named "doc", the
-        parent folder is searched. Should a sample.yaml still not be found, all
-        subfolders are searched and every found sample.yaml is used.
+        parent folder is searched. Should a tests.yaml still not be found, all
+        subfolders are searched and every found tests.yaml is used.
 
         Shields are retrieved from the extra_args sections in the file for every
         argument prefixed with "SHIELD=".
@@ -214,34 +214,34 @@ class TableFromSampleYaml(TableFromRows):
         # Path to the origin of the rst-file outside the build folder
         dir_path = Path(self.config.table_from_rows_base_dir) / rel_path
 
-        sample_yamls = []
-        if (dir_path / 'sample.yaml').exists():
-            sample_yamls.append(dir_path / 'sample.yaml')
+        tests_yamls = []
+        if (dir_path / 'tests.yaml').exists():
+            tests_yamls.append(dir_path / 'tests.yaml')
         elif rel_path.endswith('doc'):
-            parent_path = dir_path.parent / 'sample.yaml'
+            parent_path = dir_path.parent / 'tests.yaml'
             if parent_path.exists():
-                sample_yamls.append(parent_path)
+                tests_yamls.append(parent_path)
         else:
-            sample_yamls += list(dir_path.glob('**/sample.yaml'))
+            tests_yamls += list(dir_path.glob('**/tests.yaml'))
 
-        if not sample_yamls:
+        if not tests_yamls:
             raise self.severe(f'"{path}" not found')
 
         boards = set()
         shields = {}
-        for sample_yaml_path in sample_yamls:
-            with open(sample_yaml_path) as sample_yaml:
-                data = yaml.safe_load(sample_yaml)
+        for tests_yaml_path in tests_yamls:
+            with open(tests_yaml_path) as tests_yaml:
+                data = yaml.safe_load(tests_yaml)
 
             if 'common' in data and 'integration_platforms' in data['common']:
                 boards.update(
-                    TableFromSampleYaml._normalize_boards(data['common']['integration_platforms'])
+                    TableFromTestsYaml._normalize_boards(data['common']['integration_platforms'])
                 )
                 self._find_shields(shields, data['common'])
             for test in data['tests'].values():
                 if 'integration_platforms' in test:
                     boards.update(
-                        TableFromSampleYaml._normalize_boards(test['integration_platforms'])
+                        TableFromTestsYaml._normalize_boards(test['integration_platforms'])
                     )
                     self._find_shields(shields, test)
 
@@ -259,20 +259,20 @@ class TableFromSampleYaml(TableFromRows):
         return boards, shields
 
     def run(self):
-        reference_file = self.config.table_from_sample_yaml_board_reference
+        reference_file = self.config.table_from_tests_yaml_board_reference
         _, path = self.env.relfn2path(reference_file)
 
         source = self.state_machine.input_lines.source(
             self.lineno - self.state_machine.input_offset - 1
         )
         source_dir = os.path.dirname(os.path.abspath(source))
-        sample_yaml_rows, shields = self._rows_from_sample_yaml(source_dir)
+        tests_yaml_rows, shields = self._rows_from_tests_yaml(source_dir)
 
         raw = '\n'.join(
             self._load_header_and_rows(
                 path,
                 'heading',
-                sample_yaml_rows,
+                tests_yaml_rows,
                 transform_rows_func=self._merge_rows,
                 shields=shields,
             )
@@ -284,10 +284,10 @@ class TableFromSampleYaml(TableFromRows):
 
 def setup(app):
     app.add_config_value('table_from_rows_base_dir', None, 'env')
-    app.add_config_value('table_from_sample_yaml_board_reference', None, 'env')
+    app.add_config_value('table_from_tests_yaml_board_reference', None, 'env')
 
     directives.register_directive('table-from-rows', TableFromRows)
-    directives.register_directive('table-from-sample-yaml', TableFromSampleYaml)
+    directives.register_directive('table-from-tests-yaml', TableFromTestsYaml)
 
     return {
         'version': __version__,
