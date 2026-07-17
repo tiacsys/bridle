@@ -56,9 +56,9 @@ Regardless of this, it is still free and open to use a specific board overlay
 to adapt these default settings to other hardware conditions.
 
 The sample supports the following platforms (located
-in :bridle_file:`samples/ubx_gnss/sample.yaml`):
+in :bridle_file:`samples/ubx_gnss/tests.yaml`):
 
-.. table-from-sample-yaml::
+.. table-from-tests-yaml::
 
 Building and Running
 ********************

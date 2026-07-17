@@ -42,9 +42,9 @@ properly defined.
 Additionally, the sample requires the :dts:`led0` devicetree alias.
 
 The sample supports the following platforms (located
-in :bridle_file:`samples/button/sample.yaml`):
+in :bridle_file:`samples/button/tests.yaml`):
 
-.. table-from-sample-yaml::
+.. table-from-tests-yaml::
 
 Configuration options
 =====================
