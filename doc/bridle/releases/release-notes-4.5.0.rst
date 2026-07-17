@@ -275,6 +275,8 @@ Build Infrastructure
 * tbd.
 * tbd.
 * tbd.
+* Switch to Zephyr CI container 0.29.2, which is now mandatory to have access
+  to the Zephyr SDK (1.0.1) LLVM/Clang toolchain.
 * Add support for new :command:`cmake` option :code:`NO_EXTERNAL_DEPS`.
   For details read the :emphasis:`How to build the Bridle documentation`.
 
@@ -294,6 +296,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`471` - [FCR] Support Zephyr SDK LLVM/Clang toolchain with CI container 0.29.2
 * :github:`469` - [BUG] Declaring device driver API instances have to use the ``DEVICE_API`` macro
 * :github:`467` - [RFC] Adapt SC16IS75x UART driver to new upstream API
 * :github:`461` - [BUG] Hellohell sample with WiFi enable fails to compile
