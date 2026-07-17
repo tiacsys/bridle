@@ -310,9 +310,7 @@ TCP/IP Network over Wi-Fi on the RPi Pico W or 2W
 This project provides an extended board-specific configuration
 for the |RPi Pico W| or |RPi Pico 2W| with a pre-activated
 :external+zephyr:ref:`TCP/IP network stack <network_stack_architecture>`
-via the Wi-Fi chip made by Infineon. It have to build at least
-with the Zephyr upstream :external+zephyr:ref:`snippet-wifi-ip`
-and optional with the Bridle :ref:`snippet-usb-console`:
+via the Infineon 2.4GHz Wi-Fi chip.
 
 For the |RPi Pico W|, also with |bridle:board:rpi_pico|:
 
@@ -320,7 +318,7 @@ For the |RPi Pico W|, also with |bridle:board:rpi_pico|:
       :app: bridle/samples/helloshell
       :build-dir: helloshell-rpi_pico_w
       :board: rpi_pico/rp2040/w
-      :snippets: "usb-console wifi-ip"
+      :snippets: usb-console
       :west-args: -p
       :flash-args: -r uf2
       :goals: flash
@@ -331,7 +329,7 @@ For the |RPi Pico W|, also with |bridle:board:rpi_pico|:
       :app: bridle/samples/helloshell
       :build-dir: helloshell-rpi_pico_w
       :board: rpi_pico/rp2040/w/bbe
-      :snippets: "usb-console wifi-ip"
+      :snippets: usb-console
       :west-args: -p
       :flash-args: -r uf2
       :goals: flash
@@ -344,7 +342,7 @@ For the |RPi Pico 2W|, also with |bridle:board:rpi_pico2|:
       :app: bridle/samples/helloshell
       :build-dir: helloshell-rpi_pico2_w
       :board: rpi_pico2/rp2350a/m33/w
-      :snippets: "usb-console wifi-ip"
+      :snippets: usb-console
       :west-args: -p
       :flash-args: -r uf2
       :goals: flash
@@ -355,7 +353,7 @@ For the |RPi Pico 2W|, also with |bridle:board:rpi_pico2|:
       :app: bridle/samples/helloshell
       :build-dir: helloshell-rpi_pico2_w
       :board: rpi_pico2/rp2350a/m33/w/bbe
-      :snippets: "usb-console wifi-ip"
+      :snippets: usb-console
       :west-args: -p
       :flash-args: -r uf2
       :goals: flash
@@ -368,17 +366,18 @@ You should see the following message on the console (e.g. on |RPi Pico W|):
 
       .. parsed-literal::
 
-         WLAN MAC Address : 29:F7:28:FC:67:1C
-         WLAN Firmware    : wl0: Jun  5 2024 06:33:59 version 7.95.88 (cf1d613 CY) FWID 01-7b7cf51a
-         WLAN CLM         : API: 12.2 Data: 9.10.39 Compiler: 1.29.4 ClmImport: 1.36.3 Creation: 2024-04-16 21:20:55
-         WHD VERSION      : 3.3.2.25168 : v3.3.2 : GCC 12.2 : 2024-12-06 06:53:17 +0000
+         [3440] WLAN MAC Address : 29:F7:28:FC:67:1C
+         [3443] WLAN Firmware    : wl0: Jun  5 2024 06:33:59 version 7.95.88 (cf1d613 CY) FWID 01-7b7cf51a
+         [3447] WLAN CLM         : API: 12.2 Data: 9.10.39 Compiler: 1.29.4 ClmImport: 1.36.3 Creation: 2024-04-16 21:20:55
+         [3447] WHD VERSION      : 3.3.3.26653
+         [3447]  : WIFI5-v3.3.3
+         [3447]  : GCC 14.3
+         [3447]  : 2025-04-14 03:18:50 +0000
 
          \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
          Hello World! I'm THE SHELL from rpi_pico
-         [00:00:07.325,000] <inf> net_config: Initializing network
-         [00:00:07.325,000] <inf> net_config: Waiting interface 1 (0x20001bf0) to be up...
-         [00:00:07.325,000] <inf> net_config: Running dhcpv4 client...
-         [00:00:07.326,000] <inf> net_config: Running dhcpv6 client...
+         [00:00:03.473,000] <inf> net_config: Initializing network
+         [00:00:03.473,000] <inf> net_config: Waiting interface 1 (0x200014e8) to be up...
 
 Simple test execution on target
 -------------------------------
@@ -407,19 +406,26 @@ Simple test execution on target
             :bgn:`uart:~$` **wifi connect -s <SSID> -k <key_management> -p <passphrase>**
             Connected
             Connection requested
-            [00:00:24.356,000] <inf> net_dhcpv4: Received: **192.168.10.197**
-            [00:00:24.357,000] <inf> net_config: IPv4 address: **192.168.10.197**
-            [00:00:24.357,000] <inf> net_config: Lease time: 28800 seconds
-            [00:00:24.357,000] <inf> net_config: Subnet: 255.255.255.0
-            [00:00:24.357,000] <inf> net_config: Router: 192.168.10.1
-            [00:00:25.423,000] :brd:`<err> net_dhcpv6: Failed to configure DHCPv6 address`
+            [00:00:13.732,000] <inf> net_config: Interface 1 (0x200014e8) coming up
+            [00:00:13.733,000] <inf> net_config: Running dhcpv4 client...
+            [00:00:13.733,000] <inf> net_config: Running dhcpv6 client...
+            [00:00:13.831,000] <inf> net_dhcpv4: Received: **192.168.10.197**
+            [00:00:13.832,000] <inf> net_config: IPv4 address: **192.168.10.197**
+            [00:00:13.832,000] <inf> net_config: Lease time: 28800 seconds
+            [00:00:13.833,000] <inf> net_config: Subnet: 255.255.255.0
+            [00:00:13.833,000] <inf> net_config: Router: 192.168.10.1
+            [00:00:13.854,000] <inf> net_config: IPv6 address: fe80::2acd:c1ff:fe02:74ea
+            [00:00:14.040,000] <inf> net_config: IPv6 address: fd9c:33d7:ba99:0:2acd:c1ff:fe02:74ea
+            [00:00:21.470,000] <inf> net_dhcpv6: TID mismatch
+            [00:00:21.472,000] <inf> net_dhcpv6: TID mismatch
+            [00:00:21.496,000] :brd:`<err> net_dhcpv6: Failed to configure DHCPv6 address`
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
             :bgn:`uart:~$` **date get**
-            2025-08-31 18:28:26 UTC
+            2026-07-16 20:46:28 UTC
 
       .. container:: highlight highlight-console notranslate
 
@@ -429,12 +435,12 @@ Simple test execution on target
             Default interface: 1
 
 
-            Interface wlan0 (0x20001bf0) (WiFi) [1]
+            Interface wlan0 (0x200014e8) (WiFi) [1]
             ===============================
             Link addr : **29:F7:28:FC:67:1C**
             MTU       : 1500
             Flags     : AUTO_START,IPv4,IPv6
-            Device    : **airoc-wifi@0** (0x1004f7dc)
+            Device    : **airoc-wifi@0** (0x10053148)
             Status    : oper=UP, admin=UP, carrier=ON
             Ethernet capabilities supported:
                     MAC address filtering
@@ -462,7 +468,7 @@ Simple test execution on target
             DHCPv4 server     : 192.168.10.10
             DHCPv4 requested  : 192.168.10.197
             DHCPv4 state      : bound
-            DHCPv4 attempts   : 2
+            DHCPv4 attempts   : 1
             DHCPv4 state      : bound
 
    .. admonition:: DNS server list and name lookup query
@@ -485,7 +491,12 @@ Simple test execution on target
 
             :bgn:`uart:~$` **net dns query google.com**
             Query for 'google.com' sent.
-            dns: 216.58.206.46
+            dns: 142.250.154.138
+            dns: 142.250.154.102
+            dns: 142.250.154.113
+            dns: 142.250.154.101
+            dns: 142.250.154.139
+            dns: 142.250.154.100
             dns: All results received
 
    .. admonition:: ICMP/Ping check in WAN and LAN
@@ -550,7 +561,7 @@ Simple test execution on target
 
             :bgn:`uart:~$` **net stats**
 
-            Interface 0x20001bf0 (WiFi) [1]
+            Interface 0x200014e8 (WiFi) [1]
             ===============================
             IPv6 recv      34       sent    38      drop    3       forwarded       0
             IPv6 ND recv   21       sent    22      drop    1
@@ -582,7 +593,7 @@ Simple test execution on target
          .. parsed-literal::
 
             :bgn:`uart:~$` **wifi statistics**
-            Statistics for Wi-Fi interface 0x20001bf0 [1]
+            Statistics for Wi-Fi interface 0x200014e8 [1]
             Bytes received   : 45148
             Bytes sent       : 6622
             Packets received : 163
@@ -603,24 +614,39 @@ Simple test execution on target
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **wifi scan**
-            Scan requested
-
-            Num | SSID               (len) | Chan (Band)   | RSSI | Security         | BSSID             | MFP
-            1   | PYUR Community     14    | 1    (2.4GHz) | -77  | WPA2 Enterprise  | B5:7F:4F:4E:05:AC | Disable
-            2   | PYUR B6672         10    | 1    (2.4GHz) | -75  | WPA2-PSK         | 0B:A2:AB:0C:C6:A1 | Disable
-            3   | FRITZ!Box 7430 XR  17    | 1    (2.4GHz) | -82  | WPA2-PSK         | A8:34:B0:1E:D9:79 | Disable
-            4   | o2-WLAN65          9     | 2    (2.4GHz) | -82  | WPA2-PSK         | 5A:8B:47:4C:80:9C | Disable
-            5   | Fluchtweg          9     | 6    (2.4GHz) | -50  | WPA2-PSK         | 44:12:1A:18:24:C5 | Disable
-            6   | Hekatoncheiren     14    | 6    (2.4GHz) | -50  | WPA2-PSK         | B2:05:A9:B0:DB:9A | Disable
-            7   | FRITZ!Box 7430 SH  17    | 11   (2.4GHz) | -77  | WPA2-PSK         | 34:3B:8A:C0:B3:37 | Disable
-            8   | Fallschirm         10    | 11   (2.4GHz) | -70  | WPA2-PSK         | F9:15:89:6C:7D:59 | Disable
-            9   | Fallschirm Gast    15    | 11   (2.4GHz) | -71  | WPA2-PSK         | 14:AD:F1:A0:07:F1 | Disable
-            Scan request done
+            :bgn:`uart:~$` **wifi status**
+            Status: successful
+            ==================
+            State: COMPLETED
+            Interface Mode: STATION
+            Link Mode: WIFI 4 (802.11n/HT)
+            SSID: <SSID>
+            BSSID: 13:E1:30:36:C8:2F
+            Band: 2.4GHz
+            Channel: 1
+            Security:  WPA2-PSK
+            MFP: Disable
+            RSSI: -57
+            Beacon Interval: 100
+            DTIM: 2
+            TWT: Not supported
+            Current PHY TX rate (Mbps) : 144.0
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **wifi status**
-            :byl:`Status request failed`
+            :bgn:`uart:~$` **wifi scan**
+            Scan requested
+
+            Num | SSID               (len) | Chan (Band)   | RSSI | Security          | BSSID             | MFP
+            1   | FRITZ!Box 7490 MK  17    | 1    (2.4GHz) | -80  | WPA2-PSK          | F0:B0:14:BA:EE:C7 | Disable
+            2   | WLAN-985778        11    | 6    (2.4GHz) | -80  | WPA2-PSK          | BC:30:D9:47:0A:F8 | Disable
+            3   | PYUR-X852J6        11    | 6    (2.4GHz) | -86  | WPA/WPA2/WPA3 PSK | A0:3C:20:34:0C:F5 | Disable
+            4   | MagentaWLAN-YR3U   16    | 6    (2.4GHz) | -80  | WPA/WPA2/WPA3 PSK | 4C:22:F3:60:E6:CE | Disable
+            5   | Fallschirm Gast    15    | 7    (2.4GHz) | -76  | WPA2-PSK          | 4A:5D:35:6C:F9:CF | Disable
+            6   | Fallschirm         10    | 7    (2.4GHz) | -75  | WPA2-PSK          | 48:5D:35:6C:F9:CF | Disable
+            7   | o2-WLAN65          9     | 10   (2.4GHz) | -93  | WPA2-PSK          | 4C:1B:86:29:D8:B1 | Disable
+            8   | FRITZ!Box 7430 SH  17    | 11   (2.4GHz) | -81  | WPA2-PSK          | F0:B0:14:28:E2:AF | Disable
+            9   | FRITZ!Box 7430 SH  17    | 11   (2.4GHz) | -81  | WPA2-PSK          | F0:B0:14:28:E2:AF | Disable
+            Scan request done
