@@ -1,8 +1,9 @@
 /*
- * Copyright (c) 2023-2025 TiaC Systems
+ * Copyright (c) 2023-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
+#include <zephyr/dt-bindings/input/input-event-codes.h>
 #include <zephyr/dt-bindings/gpio/gpio.h>
 #include <zephyr/dt-bindings/pwm/pwm.h>
 
@@ -18,6 +19,7 @@
 		compatible = "gpio-keys";
 		rpigeek_dbg_btn: rpigeek-dbg-btn {
 			label = "Button on Geek DBG:1";
+			zephyr,code = <INPUT_KEY_0>;
 			gpios = <&rpigeek_dbg_header 0
 				(GPIO_PULL_DOWN | GPIO_ACTIVE_HIGH)>;
 		};

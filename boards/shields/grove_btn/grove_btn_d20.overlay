@@ -1,8 +1,9 @@
 /*
- * Copyright (c) 2023 TiaC Systems
+ * Copyright (c) 2023-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
+#include <zephyr/dt-bindings/input/input-event-codes.h>
 #include <zephyr/dt-bindings/gpio/gpio.h>
 
 / {
@@ -13,6 +14,7 @@
 
 		grove_btn_d20: grove-btn-d20 {
 			label = "Grove Button D20";
+			zephyr,code = <INPUT_KEY_K>;
 			gpios = <&grove_gpios 20 (GPIO_PULL_DOWN | GPIO_ACTIVE_HIGH)>;
 		};
 	};
