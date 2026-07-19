@@ -243,6 +243,10 @@ Change log
 * tbd.
 * tbd.
 * tbd.
+* Board extensions based on the old HWMv1 behavior and the significant
+  Bridle specific backdoor functions have been removed. Instead, Bridle
+  now also makes use of the officially tolerated and required HWMv2
+  behavior for board extensions, the Bridle Board Extensions (BBE).
 * Sample ``helloshell`` supports now all Raspberry Pi Pico W and Pico 2W
   variants, the origin upstream and Bridle's ``bbe``, with the onboard LED
   via the CYW43 GPIO driver and Wi-Fi/IP network without the dependency
@@ -307,6 +311,7 @@ These GitHub issues were addressed since project bootstrapping:
 * :github:`427` - [BUG] Fix CMake Error in QA Acceptance Sample Tests
 * :github:`426` - [FCR] Bump devcontainer also to CI Docker Image v0.29.1
 * :github:`424` - [FCR] Upgrade to Zephyr SDK 1.0.1 and CI container 0.29.1
+* :github:`411` - [FER] Support board extensions exclusively for Bridle
 * :github:`407` - [HW] Cytron MOTION 2350 Pro
 * :github:`403` - [FCR] Bump to Zephyr v4.4
 * :github:`394` - [HW] Raspberry Pi Pico 2/2W
