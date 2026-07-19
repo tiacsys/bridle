@@ -1,5 +1,10 @@
-# Copyright (c) 2023-2024 TiaC Systems
+# Copyright (c) 2023-2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
-include(${ZEPHYR_BASE}/boards/common/bossac.board.cmake)
+message(STATUS "Found BOARD.cmake: ${dir}/board.cmake")
+
 include(${ZEPHYR_BASE}/boards/common/openocd.board.cmake)
+include(${ZEPHYR_BASE}/boards/common/bossac.board.cmake)
+
+# Set flash runner 'bossac' as default
+board_set_flasher(bossac)
