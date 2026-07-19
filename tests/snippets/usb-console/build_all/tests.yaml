@@ -120,7 +120,6 @@ tests:
   snippets.usb-console:
     depends_on:
       - usb_device
-      - usb_cdc
     filter: CONFIG_CDC_ACM_SERIAL_INITIALIZE_AT_BOOT and
             dt_nodelabel_enabled("snippet_cdc_acm_console_uart") and
             dt_chosen_enabled("zephyr,shell-uart") and
@@ -243,7 +242,6 @@ tests:
   boards.usb-console:
     depends_on:
       - usb_device
-      - usb_cdc
     filter: CONFIG_CDC_ACM_SERIAL_INITIALIZE_AT_BOOT and
             dt_chosen_enabled("zephyr,shell-uart") and
             dt_chosen_enabled("zephyr,console")

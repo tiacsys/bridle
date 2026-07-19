@@ -29,6 +29,5 @@ supported:
   - i2c
   - uart
   - usb_device
-  - usb_cdc
   - watchdog
 vendor: arduino

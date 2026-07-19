@@ -26,4 +26,3 @@ supported:
   - clock
   - usbd
   - usb_device
-  - usb_cdc

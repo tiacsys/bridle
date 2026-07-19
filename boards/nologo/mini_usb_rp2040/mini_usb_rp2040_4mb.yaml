@@ -27,5 +27,4 @@ supported:
   - spi
   - uart
   - usb_device
-  - usb_cdc
   - watchdog
