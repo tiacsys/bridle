@@ -26,7 +26,7 @@ supported:
   - dma
   - counter
   - clock
-  - usb_device
+  - usbd
   - xiao_adc
   - xiao_gpio
   - xiao_i2c

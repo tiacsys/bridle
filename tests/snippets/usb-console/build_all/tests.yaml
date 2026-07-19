@@ -27,8 +27,6 @@ common:
   #   USE the `tests/quarantine.yaml`file instead.
   #
   platform_allow:
-    - native_sim
-    - native_sim/native/64
     - arduino_zero/samd21g18a
     - arduino_zero/samd21g18a/bbe
     - coffeecaller_nrf52
@@ -54,6 +52,8 @@ common:
     - mini_usb_rp2040@chipled
     - mini_usb_rp2350/rp2350a/m33
     - mini_usb_rp2350@16mb/rp2350a/m33
+    - native_sim
+    - native_sim/native/64
     - nucleo_f413zh/stm32f413xx
     - nucleo_f413zh/stm32f413xx/bbe
     - nucleo_f746zg/stm32f746xx
@@ -87,13 +87,6 @@ common:
     - seeeduino_lotus/samd21g18a
     - seeeduino_xiao/samd21g18a
     - seeeduino_xiao/samd21g18a/bbe
-    - xiao_samd21/samd21g18a
-    - xiao_rp2040/rp2040
-    - xiao_rp2040/rp2040/bbe
-    - xiao_rp2350/rp2350a/hazard3
-    - xiao_rp2350/rp2350a/hazard3/bbe
-    - xiao_rp2350/rp2350a/m33
-    - xiao_rp2350/rp2350a/m33/bbe
     - vccgnd_bluepill_stm32f103cb
     - vccgnd_bluepill_stm32f103c8
     - vccgnd_bluepill_stm32f072cb
@@ -113,13 +106,20 @@ common:
     # Build issue (undefined node label 'zephyr_udc0') [USB WIP]: - weact_bluepillplus_ch32v203c8
     - weact_bluepillplus_stm32f103cb
     - weact_bluepillplus_stm32f103c8
+    - xiao_rp2040/rp2040
+    - xiao_rp2040/rp2040/bbe
+    - xiao_rp2350/rp2350a/hazard3
+    - xiao_rp2350/rp2350a/hazard3/bbe
+    - xiao_rp2350/rp2350a/m33
+    - xiao_rp2350/rp2350a/m33/bbe
+    - xiao_samd21/samd21g18a
 tests:
   #
   # Well known bords (Bridle) with snippet support.
   #
   snippets.usb-console:
     depends_on:
-      - usb_device
+      - usbd
     filter: CONFIG_CDC_ACM_SERIAL_INITIALIZE_AT_BOOT and
             dt_nodelabel_enabled("snippet_cdc_acm_console_uart") and
             dt_chosen_enabled("zephyr,shell-uart") and
@@ -127,13 +127,33 @@ tests:
     required_snippets:
       - usb-console
     integration_platforms:
+      - arduino_zero/samd21g18a/bbe
       - cytron_maker_nano_rp2040
       - cytron_maker_pi_rp2040
       - cytron_motion_2350_pro/rp2350a/hazard3
       - cytron_motion_2350_pro/rp2350a/m33
       - magpie_f777ni
+      - mimxrt1010_evk/mimxrt1011/bbe
+      - mimxrt1060_evk@A/mimxrt1062/qspi/bbe
+      - mimxrt1060_evk@B/mimxrt1062/qspi/bbe
+      - mimxrt1060_evk@C/mimxrt1062/qspi/bbe
+      - mimxrt1060_evk@C/mimxrt1062/hyperflash/bbe
+      - nucleo_f413zh/stm32f413xx/bbe
+      - nucleo_f746zg/stm32f746xx/bbe
+      - nucleo_f767zi/stm32f767xx/bbe
+      - nucleo_l496zg/stm32l496xx/bbe
+      - rpi_pico/rp2040/bbe
+      - rpi_pico/rp2040/mcuboot/bbe
+      - rpi_pico/rp2040/w/bbe
+      - rpi_pico/rp2040/w/mcuboot/bbe
+      - rpi_pico2/rp2350a/hazard3/bbe
+      - rpi_pico2/rp2350a/m33/bbe
+      - rpi_pico2/rp2350a/m33/mcuboot/bbe
+      - rpi_pico2/rp2350a/m33/w/bbe
+      - rpi_pico2/rp2350a/m33/w/mcuboot/bbe
       - seeeduino_cm0/samd21g18a
       - seeeduino_lotus/samd21g18a
+      - seeeduino_xiao/samd21g18a/bbe
       - vccgnd_bluepill_stm32f103cb
       - vccgnd_bluepill_stm32f103c8
       - vccgnd_bluepill_stm32f072cb
@@ -153,33 +173,48 @@ tests:
       # Build issue (undefined node label 'zephyr_udc0') [USB WIP]: - weact_bluepillplus_ch32v203c8
       - weact_bluepillplus_stm32f103cb
       - weact_bluepillplus_stm32f103c8
+      - xiao_rp2040/rp2040/bbe
+      - xiao_rp2350/rp2350a/hazard3/bbe
+      - xiao_rp2350/rp2350a/m33/bbe
+      - xiao_samd21/samd21g18a
   #
   # Forein bords (Zephyr) with snippet support.
   #
   snippets.usb-console.forein:
-    #
-    # Twister issue (No hardware support for {'usb_device'}) on platforms:
-    #
-    # - mimxrt1060_evk@B/mimxrt1062/qspi
-    # - mimxrt1060_evk@C/mimxrt1062/qspi
-    # - rpi_pico/rp2040
-    # - rpi_pico/rp2040/mcuboot
-    # - rpi_pico/rp2040/w
-    # - rpi_pico/rp2040/w/mcuboot
-    # - rpi_pico2/rp2350a/hazard3
-    # - rpi_pico2/rp2350a/m33
-    # - rpi_pico2/rp2350a/m33/mcuboot
-    # - rpi_pico2/rp2350a/m33/w
-    # - rpi_pico2/rp2350a/m33/w/mcuboot
-    # - xiao_rp2040/rp2040
-    # - xiao_rp2350/rp2350a/hazard3
-    # - xiao_rp2350/rp2350a/m33
-    #
-    # That needs to resolve (why and vs. {'usbd'}) and thus it is not yet active.
-    #
-    # depends_on:
-    #   - usb_device
-    #
+    depends_on:
+      - usbd
+    filter: CONFIG_CDC_ACM_SERIAL_INITIALIZE_AT_BOOT and
+            dt_nodelabel_enabled("snippet_cdc_acm_console_uart") and
+            dt_chosen_enabled("zephyr,shell-uart") and
+            dt_chosen_enabled("zephyr,console")
+    required_snippets:
+      - usb-console
+    integration_platforms:
+      - mimxrt1060_evk@A/mimxrt1062/qspi
+      - mimxrt1060_evk@B/mimxrt1062/qspi
+      - mimxrt1060_evk@C/mimxrt1062/qspi
+      - mimxrt1060_evk@C/mimxrt1062/hyperflash
+      - mimxrt1170_evk@A/mimxrt1176/cm7
+      - mimxrt1170_evk@B/mimxrt1176/cm7
+      - nucleo_f413zh/stm32f413xx
+      - nucleo_f746zg/stm32f746xx
+      - nucleo_l496zg/stm32l496xx
+      - rpi_pico/rp2040
+      - rpi_pico/rp2040/mcuboot
+      - rpi_pico2/rp2350a/hazard3
+      - rpi_pico2/rp2350a/m33
+      - rpi_pico2/rp2350a/m33/mcuboot
+      - xiao_rp2350/rp2350a/hazard3
+      - xiao_rp2350/rp2350a/m33
+  #
+  # Forein bords (Zephyr) with snippet support,
+  # but still use the legacy feature {'usb_device'}.
+  #
+  # That needs to observe if and when changed to {'usbd'}.
+  #
+  snippets.usb-console.forein.feature.wrong:
+    depends_on:
+      - usb_device
     filter: CONFIG_CDC_ACM_SERIAL_INITIALIZE_AT_BOOT and
             dt_nodelabel_enabled("snippet_cdc_acm_console_uart") and
             dt_chosen_enabled("zephyr,shell-uart") and
@@ -188,60 +223,46 @@ tests:
       - usb-console
     integration_platforms:
       - arduino_zero/samd21g18a
-      - arduino_zero/samd21g18a/bbe
       - mimxrt1010_evk/mimxrt1011
-      - mimxrt1010_evk/mimxrt1011/bbe
-      - mimxrt1060_evk@A/mimxrt1062/qspi
-      - mimxrt1060_evk@A/mimxrt1062/qspi/bbe
-      - mimxrt1060_evk@B/mimxrt1062/qspi
-      - mimxrt1060_evk@B/mimxrt1062/qspi/bbe
-      - mimxrt1060_evk@C/mimxrt1062/qspi
-      - mimxrt1060_evk@C/mimxrt1062/qspi/bbe
-      - mimxrt1060_evk@C/mimxrt1062/hyperflash
-      - mimxrt1060_evk@C/mimxrt1062/hyperflash/bbe
-      - mimxrt1170_evk@A/mimxrt1176/cm7
-      - mimxrt1170_evk@B/mimxrt1176/cm7
-      - nucleo_f413zh/stm32f413xx
-      - nucleo_f413zh/stm32f413xx/bbe
-      - nucleo_f746zg/stm32f746xx
-      - nucleo_f746zg/stm32f746xx/bbe
       - nucleo_f767zi/stm32f767xx
-      - nucleo_f767zi/stm32f767xx/bbe
-      - nucleo_l496zg/stm32l496xx
-      - nucleo_l496zg/stm32l496xx/bbe
-      - rpi_pico/rp2040
-      - rpi_pico/rp2040/bbe
-      - rpi_pico/rp2040/mcuboot
-      - rpi_pico/rp2040/mcuboot/bbe
-      - rpi_pico/rp2040/w
-      - rpi_pico/rp2040/w/bbe
-      - rpi_pico/rp2040/w/mcuboot
-      - rpi_pico/rp2040/w/mcuboot/bbe
-      - rpi_pico2/rp2350a/hazard3
-      - rpi_pico2/rp2350a/hazard3/bbe
-      - rpi_pico2/rp2350a/m33
-      - rpi_pico2/rp2350a/m33/bbe
-      - rpi_pico2/rp2350a/m33/mcuboot
-      - rpi_pico2/rp2350a/m33/mcuboot/bbe
-      - rpi_pico2/rp2350a/m33/w
-      - rpi_pico2/rp2350a/m33/w/bbe
-      - rpi_pico2/rp2350a/m33/w/mcuboot
-      - rpi_pico2/rp2350a/m33/w/mcuboot/bbe
       - seeeduino_xiao/samd21g18a
-      - seeeduino_xiao/samd21g18a/bbe
-      - xiao_samd21/samd21g18a
+  #
+  # Forein bords (Zephyr) with snippet support,
+  # but never provides the feature {'usbd'}.
+  #
+  snippets.usb-console.forein.feature.none:
+    #
+    # Twister issue (No hardware support for {'usbd'}) on platforms:
+    #
+    # - rpi_pico/rp2040/w
+    # - rpi_pico/rp2040/w/mcuboot
+    # - rpi_pico2/rp2350a/m33/w
+    # - rpi_pico2/rp2350a/m33/w/mcuboot
+    # - xiao_rp2040/rp2040
+    #
+    # That needs to observe if and when feature {'usbd'} will present.
+    #
+    # depends_on:
+    #   - usbd
+    #
+    filter: CONFIG_CDC_ACM_SERIAL_INITIALIZE_AT_BOOT and
+            dt_nodelabel_enabled("snippet_cdc_acm_console_uart") and
+            dt_chosen_enabled("zephyr,shell-uart") and
+            dt_chosen_enabled("zephyr,console")
+    required_snippets:
+      - usb-console
+    integration_platforms:
+      - rpi_pico/rp2040/w
+      - rpi_pico/rp2040/w/mcuboot
+      - rpi_pico2/rp2350a/m33/w
+      - rpi_pico2/rp2350a/m33/w/mcuboot
       - xiao_rp2040/rp2040
-      - xiao_rp2040/rp2040/bbe
-      - xiao_rp2350/rp2350a/hazard3
-      - xiao_rp2350/rp2350a/hazard3/bbe
-      - xiao_rp2350/rp2350a/m33
-      - xiao_rp2350/rp2350a/m33/bbe
   #
   # Well known bords (Bridle) with self contained support.
   #
   boards.usb-console:
     depends_on:
-      - usb_device
+      - usbd
     filter: CONFIG_CDC_ACM_SERIAL_INITIALIZE_AT_BOOT and
             dt_chosen_enabled("zephyr,shell-uart") and
             dt_chosen_enabled("zephyr,console")
@@ -258,7 +279,7 @@ tests:
   #
   # Forein bords (Zephyr) without or unknown snippet support.
   #
-  boards.usb-console.forein:
+  boards.usb-console.forein.legacy:
     depends_on:
       - usb_device
     filter: dt_nodelabel_enabled("snippet_cdc_acm_console_uart") and

@@ -20,6 +20,5 @@ supported:
   - pwm
   - uart
   - usbd
-  - usb_device
   - watchdog
   - netif:openthread

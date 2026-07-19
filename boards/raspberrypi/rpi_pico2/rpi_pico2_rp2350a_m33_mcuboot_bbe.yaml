@@ -32,5 +32,5 @@ supported:
   - rpipico_spi
   - spi
   - uart
-  - usb_device
+  - usbd
   - watchdog

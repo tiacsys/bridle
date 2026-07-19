@@ -22,6 +22,5 @@ supported:
   - counter
   - i2c
   - spi
-  - usb_device
   - usbd
 vendor: st

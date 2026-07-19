@@ -23,4 +23,4 @@ supported:
   - i2c
   - spi
   - uart
-  - usb_device
+  - usbd

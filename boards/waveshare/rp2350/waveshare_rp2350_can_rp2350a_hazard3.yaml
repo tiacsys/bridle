@@ -29,4 +29,3 @@ supported:
   - counter
   - clock
   - usbd
-  - usb_device

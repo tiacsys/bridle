@@ -25,5 +25,5 @@ supported:
   - pio
   - spi
   - uart
-  - usb_device
+  - usbd
   - watchdog

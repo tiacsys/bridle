@@ -28,6 +28,6 @@ supported:
   - spi
   - i2c
   - uart
-  - usb_device
+  - usbd
   - watchdog
 vendor: arduino

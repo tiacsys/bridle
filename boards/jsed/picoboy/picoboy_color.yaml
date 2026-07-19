@@ -22,4 +22,4 @@ supported:
   - dma
   - counter
   - clock
-  - usb_device
+  - usbd

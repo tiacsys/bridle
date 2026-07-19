@@ -27,7 +27,7 @@ supported:
   - pwm
   - spi
   - uart
-  - usb_device
+  - usbd
   - watchdog
   - xiao_adc
   - xiao_gpio

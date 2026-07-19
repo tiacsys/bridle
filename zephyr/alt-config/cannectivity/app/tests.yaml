@@ -21,7 +21,7 @@ tests:
       - bridle
     depends_on:
       - can
-      - usb_device
+      - usbd
     integration_platforms:
       - waveshare_rp2350_can/rp2350a/hazard3
       - waveshare_rp2350_can/rp2350a/m33
@@ -41,7 +41,7 @@ tests:
   app.cannectivity.sof:
     depends_on:
       - can
-      - usb_device
+      - usbd
     integration_platforms:
       - nucleo_h723zg
     extra_configs:
@@ -51,7 +51,7 @@ tests:
       - bridle
     depends_on:
       - can
-      - usb_device
+      - usbd
     extra_args:
       - FILE_SUFFIX=release
     integration_platforms:
@@ -130,7 +130,7 @@ tests:
     sysbuild: true
     depends_on:
       - can
-      - usb_device
+      - usbd
     platform_allow:
       - frdm_k64f
       - lpcxpresso55s16
