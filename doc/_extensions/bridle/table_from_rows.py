@@ -5,6 +5,7 @@
 
 import os
 import re
+from itertools import chain
 from pathlib import Path
 
 import yaml
@@ -12,7 +13,7 @@ from docutils import io, statemachine
 from docutils.parsers.rst import directives
 from sphinx.util.docutils import SphinxDirective
 
-__version__ = '0.2.0'
+__version__ = '0.2.1'
 
 
 class TableFromRows(SphinxDirective):
@@ -141,6 +142,8 @@ class TableFromRows(SphinxDirective):
 
 
 class TableFromTestsYaml(TableFromRows):
+    _excepted_file_names = ["sample.yaml", "tests.yaml"]
+
     option_spec = {}
     required_arguments = 0
 
@@ -222,15 +225,14 @@ class TableFromTestsYaml(TableFromRows):
         # Path to the origin of the rst-file outside the build folder
         dir_path = Path(self.config.table_from_rows_base_dir) / rel_path
 
-        tests_yamls = []
-        if (dir_path / 'tests.yaml').exists():
-            tests_yamls.append(dir_path / 'tests.yaml')
-        elif rel_path.endswith('doc'):
-            parent_path = dir_path.parent / 'tests.yaml'
-            if parent_path.exists():
-                tests_yamls.append(parent_path)
-        else:
-            tests_yamls += list(dir_path.glob('**/tests.yaml'))
+        tests_yamls = list(
+                chain(*(dir_path.glob(f'**/{name}') for name in self._excepted_file_names))
+            )
+        if rel_path.endswith("doc"):
+            tests_yamls += [
+                    dir_path.parent / name for name in self._excepted_file_names
+                    if (dir_path.parent / name).exists()
+                ]
 
         if not tests_yamls:
             raise self.severe(f'"{path}" not found')
