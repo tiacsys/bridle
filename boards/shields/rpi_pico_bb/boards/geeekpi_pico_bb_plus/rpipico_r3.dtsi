@@ -31,12 +31,6 @@
 	status = "okay";
 };
 
-&lvgl_pointer {
-	//invert-x;
-	invert-y;
-	swap-xy;
-};
-
 &tsc_panel {
 	status = "okay";
 	irq-gpios = <&rpipico_header 11 GPIO_ACTIVE_HIGH>;	/* GP11 */

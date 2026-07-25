@@ -11,6 +11,9 @@
 		reg = <0x5d>;
 
 		status = "disabled";
+
+		swapped-x-y;			/* portrait */
+		inverted-y;
 	};
 };
 

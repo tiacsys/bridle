@@ -40,12 +40,6 @@
 	int-gpios = <&rpipico_header 9 GPIO_ACTIVE_LOW>;	/* GP9 */
 };
 
-&lvgl_pointer {
-	//invert-x;
-	invert-y;
-	//swap-xy;
-};
-
 &rpipico_pwm {
 	status = "okay";
 	divider-frac-1 = <15>;

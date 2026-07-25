@@ -13,6 +13,8 @@
 
 		status = "disabled";
 
+		inverted-y;			/* portrait */
+
 		touchscreen-size-x = <240>;	/* portrait */
 		min-x = <963>;
 		max-x = <3965>;
