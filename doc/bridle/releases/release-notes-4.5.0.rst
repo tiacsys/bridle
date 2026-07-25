@@ -300,6 +300,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`475` - [BUG] Move swap or invert x/y properties to the underlying input touchscreen device
 * :github:`471` - [FCR] Support Zephyr SDK LLVM/Clang toolchain with CI container 0.29.2
 * :github:`469` - [BUG] Declaring device driver API instances have to use the ``DEVICE_API`` macro
 * :github:`467` - [RFC] Adapt SC16IS75x UART driver to new upstream API
