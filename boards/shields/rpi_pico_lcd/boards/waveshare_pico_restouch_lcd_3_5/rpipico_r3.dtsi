@@ -17,12 +17,6 @@
 	status = "okay";
 };
 
-&lvgl_pointer {
-	//invert-x;
-	//invert-y;
-	//swap-xy;
-};
-
 &rpipico_spi_lcd {
 	status = "okay";
 	cs-gpios = <&rpipico_header 9 GPIO_ACTIVE_LOW>,		/* LCD: GP9 */
