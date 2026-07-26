@@ -142,11 +142,11 @@ jobs:
           name: twister-targets.xml
           path: workspace/twister-out/twister.xml
 
-      - name: Convert integration test reports to annotations
-        if: always()
-        uses: mikepenz/action-junit-report@v6
-        with:
-          check_name: twister-report (${{ matrix.board }})
-          report_paths: "**/twister-out/twister.xml"
-          require_tests: true
-          fail_on_failure: false
+#     - name: Convert integration test reports to annotations
+#       if: always()
+#       uses: mikepenz/action-junit-report@v6
+#       with:
+#         check_name: twister-report (${{ matrix.board }})
+#         report_paths: "**/twister-out/twister.xml"
+#         require_tests: true
+#         fail_on_failure: false
