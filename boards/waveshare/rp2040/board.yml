@@ -1,9 +1,4 @@
 boards:
-  - name: waveshare_rp2040_one
-    full_name: Waveshare RP2040-One
-    vendor: waveshare
-    socs:
-      - name: rp2040
   - name: waveshare_rp2040_zero
     full_name: Waveshare RP2040-Zero
     vendor: waveshare
