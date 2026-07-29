@@ -1,0 +1,298 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/dts-v1/;
+
+#include <freq.h>
+#include <mem.h>
+
+#include <raspberrypi/rpi_pico/rp2040.dtsi>
+#include <raspberrypi/partitions_2M_default.dtsi>
+
+#include <zephyr/dt-bindings/clock/rpi_pico_rp2040_clock.h>
+#include <zephyr/dt-bindings/regulator/rpi_pico.h>
+
+#include <zephyr/dt-bindings/gpio/gpio.h>
+#include <zephyr/dt-bindings/i2c/i2c.h>
+#include <zephyr/dt-bindings/pwm/pwm.h>
+
+#include <zephyr/dt-bindings/display/panel.h>
+#include <zephyr/dt-bindings/mipi_dbi/mipi_dbi.h>
+
+#include "raspberrypi_pico_connector.dtsi"
+#include "raspberrypi_pico_r3_connector.dtsi"
+#include "waveshare_rp2040_lcd_0_96-pinctrl.dtsi"
+
+/ {
+	model = "Waveshare RP2040-LCD-0.96 @ UART Concole";
+	compatible = "waveshare,rp2040-lcd-0.96",
+		     "waveshare,rp2040-lcd-0.96-uartcons";
+
+	chosen {
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+		zephyr,flash-controller = &ssi;
+		zephyr,code-partition = &code_partition;
+		zephyr,console = &uart0;
+		zephyr,shell-uart = &uart0;
+		zephyr,display = &lcd_panel;
+	};
+
+	aliases {
+		watchdog0 = &wdt0;
+		led0 = &led0;
+		pwm-led0 = &pwm_led0;
+	};
+
+	zephyr,user {
+		io-channels = <&adc 0>, <&adc 1>, <&adc 2>, <&adc 3>;
+	};
+
+	gpio_leds: gpio-leds {
+		compatible = "gpio-leds";
+
+		led0: led0 {
+			gpios = <&gpio0 25 GPIO_ACTIVE_HIGH>;
+			label = "LCD_BL";
+		};
+	};
+
+	pwm_leds: pwm-leds {
+		compatible = "pwm-leds";
+
+		pwm_led0: pwm-led0 {
+			pwms = <&pwm 9 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+			label = "PWM_LCD_BL";
+		};
+	};
+
+	mipi_dbi_spi1: mipi-dbi-spi1 {
+		compatible = "zephyr,mipi-dbi-spi";
+		#address-cells = <1>;
+		#size-cells = <0>;
+	};
+
+	lcd_backlight_en: lcd-backlight-en {
+		compatible = "regulator-fixed";
+		regulator-name = "lcd_backlight";
+	};
+};
+
+&flash0 {
+	status = "okay";
+	reg = <0x10000000 DT_SIZE_M(2)>;
+	ranges = <0x0 0x10000000 DT_SIZE_M(2)>;
+};
+
+&clocks {
+	status = "okay";
+	pinctrl-0 = <&clocks_default>;
+	pinctrl-names = "default";
+};
+
+&vreg {
+	status = "okay";
+	regulator-always-on;
+	regulator-allowed-modes = <REGULATOR_RPI_PICO_MODE_NORMAL>;
+};
+
+&reset {
+	status = "okay";
+};
+
+&wdt0 {
+	status = "okay";
+};
+
+&rtc {
+	status = "okay";
+	clocks = <&clocks RPI_PICO_CLKID_CLK_RTC>;
+};
+
+&timer {
+	status = "okay";
+};
+
+&dma {
+	status = "okay";
+};
+
+&die_temp {
+	status = "okay";
+	friendly-name = "RP2040 chip temperature";
+};
+
+&uart0 {
+	status = "okay";
+	pinctrl-0 = <&uart0_default>;
+	pinctrl-names = "default";
+	current-speed = <115200>;
+};
+
+zephyr_udc0: &usbd {
+	status = "okay";
+};
+
+&spi0 {
+	status = "okay";
+	pinctrl-0 = <&spi0_pico_default>;
+	pinctrl-names = "default";
+	clock-frequency = <DT_FREQ_M(8)>;
+};
+
+&spi1 {
+	status = "okay";
+	pinctrl-0 = <&spi1_lcd>;
+	pinctrl-names = "default";
+	clock-frequency = <DT_FREQ_M(20)>;
+
+	/* GP9 as CSn to ST7735S LCD panel controller. */
+	cs-gpios = <&gpio0 9 GPIO_ACTIVE_LOW>;
+};
+
+&mipi_dbi_spi1 {
+	status = "okay";
+
+	/* SPI1 as serial bus to ST7735S LCD panel controller. */
+	spi-dev = <&spi1>;
+	write-only;
+
+	/* GP8/12 as DC/RST to ST7735S LCD panel controller. */
+	reset-gpios = <&gpio0 12 GPIO_ACTIVE_LOW>;
+	dc-gpios = <&gpio0 8 GPIO_ACTIVE_HIGH>;
+
+	/* LCD with ST7735S controller. */
+	st7735s_160x80: st7735s@0 {
+		compatible = "sitronix,st7735r";
+		status = "okay";
+
+		reg = <0>;
+		mipi-max-frequency = <DT_FREQ_M(20)>;
+		mipi-mode = "MIPI_DBI_MODE_SPI_4WIRE";
+
+		/* 16-bit, RGB565 */
+		colmod = <0x05>;
+		inversion-on; /* required for RGB */
+
+		/* landscape */
+		width = <160>;
+		height = <80>;
+		x-offset = <1>;
+		y-offset = <26>;
+		madctl = <0x68>;
+	//	madctl = <0xE8>; /* mirrored */
+	//	madctl = <0xA8>; /* overhead */
+	//	madctl = <0x28>; /* upsidedown */
+
+		/* portrait */
+	//	width = <80>;
+	//	height = <160>;
+	//	x-offset = <26>;
+	//	y-offset = <1>;
+	//	madctl = <0x08>;
+	//	madctl = <0x48>; /* mirrored */
+	//	madctl = <0xC8>; /* overhead */
+	//	madctl = <0x88>; /* upsidedown */
+
+		pwctr1 = [62 02 04];
+		pwctr2 = [C0];
+		pwctr3 = [0D 00];
+		pwctr4 = [8D 6A];
+		pwctr5 = [8D EE];
+		vmctr1 = <0x0E>;
+		frmctr1 = [05 3A 3A];
+		frmctr2 = [05 3A 3A];
+		frmctr3 = [05 3A 3A 05 3A 3A];
+		invctr = <0x03>;
+		gamctrp1 = [10 0E 02 03 0E 07 02 07 0A 12 27 37 00 0D 0E 10];
+		gamctrn1 = [10 0E 03 03 0F 06 02 08 0A 13 26 36 00 0D 0E 10];
+		caset = [00 01 00 A0];
+		raset = [00 1A 00 69];
+	};
+};
+
+lcd_panel: &st7735s_160x80 {};
+
+&lcd_backlight_en {
+	status = "okay";
+	regulator-boot-on; /* 3.3V only, on boot default by gpio-hog */
+	regulator-min-microvolt = <3300000>;
+	regulator-max-microvolt = <3300000>;
+
+	/* GP26 as backlight enable to LCD panel. */
+	enable-gpios = <&gpio0 25 GPIO_ACTIVE_HIGH>;
+};
+
+&gpio0 {
+	lcd-backlight-boot-on {
+		gpio-hog;
+		output-high;
+		gpios = <25 GPIO_ACTIVE_HIGH>;
+		line-name = "lcd-backlight-boot-on";
+	};
+};
+
+&i2c0 {
+	status = "okay";
+	pinctrl-0 = <&i2c0_pico_default>;
+	pinctrl-names = "default";
+	clock-frequency = <I2C_BITRATE_STANDARD>;
+};
+
+&i2c1 {
+	status = "disabled";
+	pinctrl-0 = <&i2c1_pico_default>;
+	pinctrl-names = "default";
+	clock-frequency = <I2C_BITRATE_STANDARD>;
+};
+
+&pwm {
+	status = "okay";
+	pinctrl-0 = <&pwm_pico_default>;
+	pinctrl-names = "default";
+	divider-int-4 = <255>;  /* led: PWM4CHB (9) */
+};
+
+&adc {
+	status = "okay";
+	pinctrl-0 = <&adc_default>;
+	pinctrl-names = "default";
+};
+
+&gpio0 {
+	status = "okay";
+	/* namespace and positions without wired bits */
+	gpio-line-names =
+		"TX0",			/* GP0 */
+		"RX0",			/* GP1 */
+		"GP2_PWM2_CTS0",	/* GP2 */
+		"GP3_PWM3_RTS0",	/* GP3 */
+		"SDA0",			/* GP4 */
+		"SCL0",			/* GP5 */
+		"GP6_PWM6",		/* GP6 */
+		"GP7_PWM7",		/* GP7 */
+		"LCD_DC",		/* GP8 */
+		"LCD_CSN1",		/* GP9 */
+		"LCD_SCK1",		/* GP10 */
+		"LCD_SDO1",		/* GP11 */
+		"LCD_RST",		/* GP12 */
+		"GP13_PWM13",		/* GP13 */
+		"GP14_PWM14_SDA1",	/* GP14 */
+		"GP15_PWM15_SCL1",	/* GP15 */
+		"SDI0",			/* GP16 */
+		"CSN0",			/* GP17 */
+		"SCK0",			/* GP18 */
+		"SDO0",			/* GP19 */
+		"GP20_PWM4",		/* GP20 */
+		"GP21_PWM5",		/* GP21 */
+		"GP22_PWM6",		/* GP22 */
+		"PSU_SMPS_PWM7",	/* GP23 */
+		"PSU_VBUS/1.51",	/* GP24 */
+		"LCD_BL_PWM9",		/* GP25 */
+		"ADC0",			/* GP26 */
+		"ADC1",			/* GP27 */
+		"ADC2",			/* GP28 */
+		"PSU_ADC3_VSYS/3";	/* GP29 */
+};
