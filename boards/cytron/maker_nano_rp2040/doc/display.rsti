@@ -1,0 +1,78 @@
+This samples and test applications are only applicable together with the
+|Waveshare 2.4 LCD| shield. This LCD module have to connected by free wiring.
+
+Connect the |Waveshare 2.4 LCD| module by free wiring to the |Arduino Nano|
+header. Following module's pin assignments for *Arduino Nano R3*.
+
+.. list-table::
+   :align: center
+   :width: 50%
+   :widths: 5, 45, 5, 45
+
+   * - .. rubric:: Pin
+     - .. rubric:: |Maker Nano RP2040|
+     - .. rubric:: Pin
+     - .. rubric:: |Waveshare 2.4 LCD|
+
+   * - :rpi-pico-pin:`17`
+     - :rpi-pico-vdd:`3V3(OUT)`
+     - :rpi-pico-pin:`1`
+     - :hwftlbl-vdd:`VCC`
+
+   * - :rpi-pico-pin:`29`
+     - :rpi-pico-gnd:`GND`
+     - :rpi-pico-pin:`2`
+     - :hwftlbl:`GND`
+
+   * - :rpi-pico-pin:`14`
+     - :rpi-pico-spi-dfl:`SPI0_TX` : D11
+     - :rpi-pico-pin:`3`
+     - :hwftlbl-scr:`DIN`
+       :hwftlbl-spi:`COPI`
+
+       ILI9341 Serial Data Input
+
+   * - :rpi-pico-pin:`16`
+     - :rpi-pico-spi-dfl:`SPI0_SCK` : D13
+     - :rpi-pico-pin:`4`
+     - :hwftlbl-scr:`CLK`
+       :hwftlbl-spi:`SCK`
+
+       ILI9341 Serial Clock Input
+
+   * - :rpi-pico-pin:`13`
+     - :rpi-pico-spi-dfl:`SPI0_CSN` : D10
+     - :rpi-pico-pin:`5`
+     - :hwftlbl-scr:`CS`
+       :hwftlbl-spi:`CSN`
+
+       ILI9341 Chip Select Input
+
+   * - :rpi-pico-pin:`10`
+     - :rpi-pico-pio:`GP7` : D7
+     - :rpi-pico-pin:`6`
+     - :hwftlbl-scr:`DC`
+       :hwftlbl-pio:`DC`
+
+       ILI9341 Data/Command
+
+   * - :rpi-pico-pin:`11`
+     - :rpi-pico-pio:`GP8` : D8
+     - :rpi-pico-pin:`7`
+     - :hwftlbl-scr:`RST`
+       :hwftlbl-pio:`RST`
+
+       ILI9341 Reset
+
+   * - :rpi-pico-pin:`12`
+     - :rpi-pico-pio:`GP9` :rpi-pico-pwm:`PWM9` : D9
+     - :rpi-pico-pin:`8`
+     - :hwftlbl-scr:`BL`
+       :hwftlbl-pio:`BL`
+       :hwftlbl-pwm:`BL`
+
+       LCD Backlight
+
+.. include:: lvgl_basic.rsti
+
+.. include:: lvgl_demo.rsti

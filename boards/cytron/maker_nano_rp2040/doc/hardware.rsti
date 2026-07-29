@@ -75,6 +75,6 @@ Main differences compared to the original Arduino Nano:
        - :emphasis:`Maker Nano RP2040 Schematic`, (not yet) available
        - `Maker Nano RP2040 Pinout Diagram`_
 
-     - .. image:: maker-nano-rp2040/hardware.jpg
+     - .. image:: img/hardware.jpg
           :align: center
           :alt: Maker Nano RP2040

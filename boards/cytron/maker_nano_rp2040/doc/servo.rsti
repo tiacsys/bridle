@@ -1,0 +1,8 @@
+.. rubric:: Servomotor Test
+
+See also Zephyr sample: :external+zephyr:zephyr:code-sample:`servo-motor`.
+
+.. hint::
+
+   The |Maker Nano RP2040| can't drive any servo motor without additional
+   equipment. This example is not yet applicable.

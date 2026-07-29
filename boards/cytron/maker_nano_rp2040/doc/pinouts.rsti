@@ -107,11 +107,11 @@ digital signal lines. Also all IO voltage levels are limited to 3.3V only.
 
        .. rubric:: Devicetree compatible
 
-       - :dtcompatible:`arduino-nano-header-r3`
+       - :dtcompatible:`arduino-nano-header`
        - :dtcompatible:`seeed,grove-laced-if`
        - :dtcompatible:`seeed,grove-connector`
 
-     - .. image:: maker-nano-rp2040/pinouts.jpg
+     - .. image:: img/pinouts.jpg
           :align: center
           :width: 100%
           :alt: Maker Nano RP2040 edge pinout
