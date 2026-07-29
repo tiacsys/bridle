@@ -1,4 +1,4 @@
-# Copyright (c) 2023 TiaC Systems
+# SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 description: |
@@ -35,6 +35,10 @@ description: |
           |                         |
           `-GP13-GP12-GP11-GP10-GP9-´
              13   12   11   10   9
+
+    Use WS_RP2040MINI_HEADER_* constants in
+    <zephyr/dt-bindings/gpio/waveshare-rp2040mini-header.h> to refer
+    to specific pins using convenient constant names.
 
 compatible: "waveshare,rp2040mini-header"
 

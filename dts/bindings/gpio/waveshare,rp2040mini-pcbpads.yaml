@@ -1,4 +1,4 @@
-# Copyright (c) 2023 TiaC Systems
+# SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 description: |
@@ -26,6 +26,10 @@ description: |
           ]                 1 GP18  [
           |                 0 GP17  |
           `-------------------------´
+
+    Use WS_RP2040MINI_PCBPAD_* constants in
+    <zephyr/dt-bindings/gpio/waveshare-rp2040mini-pcbpads.h> to refer
+    to specific pins using convenient constant names.
 
 compatible: "waveshare,rp2040mini-pcbpads"
 
