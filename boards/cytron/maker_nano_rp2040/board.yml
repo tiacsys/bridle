@@ -1,0 +1,9 @@
+# SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+board:
+  name: cytron_maker_nano_rp2040
+  full_name: Cytron Maker Nano RP2040
+  vendor: cytron
+  socs:
+    - name: rp2040

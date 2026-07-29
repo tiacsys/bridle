@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 identifier: cytron_maker_nano_rp2040
 name: Cytron Maker Nano RP2040
 type: mcu
@@ -8,24 +11,24 @@ toolchain:
   - zephyr
   - gnuarmemb
 supported:
+  - adc
   - arduino_nano_gpio
   - arduino_nano_i2c
-  - arduino_nano_spi
   - arduino_nano_serial
-  - grove_gpio
-  - grove_pwm
-  - grove_i2c
-  - grove_serial
-  - uart
-  - gpio
-  - adc
-  - i2c
-  - spi
-  - hwinfo
-  - watchdog
-  - pwm
-  - flash
-  - dma
-  - counter
+  - arduino_nano_spi
   - clock
+  - counter
+  - dma
+  - flash
+  - gpio
+  - grove_gpio
+  - grove_i2c
+  - grove_pwm
+  - grove_serial
+  - hwinfo
+  - i2c
+  - pwm
+  - spi
+  - uart
   - usbd
+  - watchdog

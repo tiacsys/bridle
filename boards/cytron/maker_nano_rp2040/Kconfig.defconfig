@@ -1,14 +1,9 @@
-# Copyright (c) 2023-2025 TiaC Systems
+# SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
-
-config BOARD_CYTRON_RP2040
-	bool
-	default y if BOARD_CYTRON_MAKER_PI_RP2040
-	default n
 
 config RP2_FLASH_W25Q080
 	default y
-	depends on BOARD_CYTRON_RP2040
+	depends on BOARD_CYTRON_MAKER_NANO_RP2040
 
 config CLOCK_CONTROL
 	default y
@@ -28,7 +23,7 @@ config WATCHDOG
 	depends on DT_HAS_RASPBERRYPI_PICO_WATCHDOG_ENABLED
 
 config WDT_DISABLE_AT_BOOT
-	default y if BOARD_CYTRON_RP2040
+	default y if BOARD_CYTRON_MAKER_NANO_RP2040
 	depends on WATCHDOG && HAS_WDT_DISABLE_AT_BOOT
 
 config COUNTER
@@ -47,10 +42,6 @@ config PWM
 	default y
 	depends on DT_HAS_RASPBERRYPI_PICO_PWM_ENABLED
 
-config INPUT
-	default y if DT_HAS_ZEPHYR_LVGL_KEYPAD_INPUT_ENABLED
-	depends on DISPLAY && LVGL
-
 # Workaround for not being able to have commas in macro arguments
 DT_CHOSEN_Z_CONSOLE := zephyr,console
 DT_COMPAT_Z_CDC_ACM_UART := zephyr,cdc-acm-uart
@@ -60,7 +51,7 @@ DT_COMPAT_RPIPICO_USB := raspberrypi,pico-usbd
 DT_CHOSEN_CONSOLE_NODE := $(dt_chosen_path,$(DT_CHOSEN_Z_CONSOLE))
 DT_CHOSEN_CONSOLE_PARENT := $(dt_node_parent,$(DT_CHOSEN_CONSOLE_NODE))
 
-if BOARD_CYTRON_RP2040 && \
+if BOARD_CYTRON_MAKER_NANO_RP2040 && \
 	$(dt_chosen_enabled,$(DT_CHOSEN_Z_CONSOLE)) && \
 	$(dt_compat_on_bus,$(DT_COMPAT_Z_CDC_ACM_UART),usb) && \
 	$(dt_node_has_compat,$(DT_CHOSEN_CONSOLE_PARENT),$(DT_COMPAT_RPIPICO_USB))
@@ -70,7 +61,7 @@ config CDC_ACM_SERIAL_SELF_POWERED
 	depends on USB_DEVICE_STACK_NEXT && USBD_CDC_ACM_CLASS
 
 config CDC_ACM_SERIAL_MAX_POWER
-	default 250 if BOARD_CYTRON_MAKER_PI_RP2040	# 500mA
+	default 215 if BOARD_CYTRON_MAKER_NANO_RP2040	# 430mA
 	depends on USB_DEVICE_STACK_NEXT && USBD_CDC_ACM_CLASS
 
 # Logger cannot use itself to log

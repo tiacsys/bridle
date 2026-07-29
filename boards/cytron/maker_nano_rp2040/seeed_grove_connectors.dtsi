@@ -1,16 +1,16 @@
 /*
- * Copyright (c) 2023-2024 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
 #include <bridle/dt-bindings/seeed_grove_pwms_defaults.h>
 
 &pinctrl {
-	pwm_grove: pwm_makernano {};
+	pwm_grove: pwm_default {};
 };
 
-#include "grove_d0_connector.dtsi"
-#include "grove_d15_connector.dtsi"
+#include "seeed_grove_d0_connector.dtsi"
+#include "seeed_grove_d15_connector.dtsi"
 
 grove_uart_header: &grove_d0_header {};
 grove_i2c_header: &grove_d15_header {};
@@ -19,16 +19,18 @@ grove_i2c_header: &grove_d15_header {};
 grove_d1_header: &grove_d0_header {};	/* D0 is on D1 header pin 1 */
 grove_d14_header: &grove_d15_header {};	/* D14 is on D27 header pin 1 */
 
+#include <zephyr/dt-bindings/gpio/grove-laced-if.h>
+
 / {
-	grove_laced_if_nano: grove-laced-if-nano {
+	grove_laced_if: grove-laced-if {
 		compatible = "seeed,grove-laced-if";
 
 		#gpio-cells = <2>;
 		gpio-map-mask = <0xffffffff 0xffffffc0>;
 		gpio-map-pass-thru = <0 0x3f>;
 		gpio-map =
-			<0 0 &grove_d0_header 0 0>,	/* GP1: UART0-RX as GPIO */
-			<1 0 &grove_d0_header 1 0>,	/* GP0: UART0-TX as GPIO */
+			<GROVE_LIF_L0 0 &grove_d0_header 0 0>,	/* GP1: UART0-RX as GPIO */
+			<GROVE_LIF_L1 0 &grove_d0_header 1 0>,	/* GP0: UART0-TX as GPIO */
 			/*  2 - GP2:  not wired */
 			/*  3 - GP3:  not wired */
 			/*  4 - GP4:  not wired */
@@ -41,8 +43,8 @@ grove_d14_header: &grove_d15_header {};	/* D14 is on D27 header pin 1 */
 			/* 11 - GP19: not wired */
 			/* 12 - GP16: not wired */
 			/* 13 - GP18: not wired */
-			<14 0 &grove_d15_header 1 0>,	/* GP26: A0 / I2C1-SDA as GPIO */
-			<15 0 &grove_d15_header 0 0>;	/* GP27: A1 / I2C1-SCL as GPIO */
+			<GROVE_LIF_L14 0 &grove_d15_header 1 0>,/* GP26: A0 / I2C1-SDA as GPIO */
+			<GROVE_LIF_L15 0 &grove_d15_header 0 0>;/* GP27: A1 / I2C1-SCL as GPIO */
 			/* 16 - GP28: A2 as GPIO not wired */
 			/* 17 - GP29: A3 as GPIO not wired */
 			/* 18 - GP12: not wired */
@@ -64,8 +66,8 @@ grove_d14_header: &grove_d15_header {};	/* D14 is on D27 header pin 1 */
 		pwm-map-mask = <0xffffffff 0 0xffffffc0>;
 		pwm-map-pass-thru = <0 0xffffffff 0x3f>;
 		pwm-map =
-			<0 0 0 &pwm 1 0 0>,	/* GP1: PWM0CHB (1) */
-			<1 0 0 &pwm 0 0 0>,	/* GP0: PWM0CHA (0) */
+			<GROVE_LIF_L0 0 0 &pwm 1 0 0>,		/* GP1: PWM0CHB (1) */
+			<GROVE_LIF_L1 0 0 &pwm 0 0 0>,		/* GP0: PWM0CHA (0) */
 			/*  2 - GP2:  PWM1CHA (2)  not wired */
 			/*  3 - GP3:  PWM1CHB (3)  not wired */
 			/*  4 - GP4:  PWM2CHA (4)  not wired */
@@ -78,8 +80,8 @@ grove_d14_header: &grove_d15_header {};	/* D14 is on D27 header pin 1 */
 			/* 11 - GP19: PWM1CHB (3)  not wired */
 			/* 12 - GP16: PWM0CHA (0)  not wired */
 			/* 13 - GP18: PWM1CHA (2)  not wired */
-			<14 0 0 &pwm 10 0 0>,	/* GP26: A0 as PWM5CHA (10) */
-			<15 0 0 &pwm 11 0 0>;	/* GP27: A1 as PWM5CHB (11) */
+			<GROVE_LIF_L14 0 0 &pwm 10 0 0>,	/* GP26: A0 as PWM5CHA (10) */
+			<GROVE_LIF_L15 0 0 &pwm 11 0 0>;	/* GP27: A1 as PWM5CHB (11) */
 			/* 16 - GP28: A2 as PWM6CHA (12) not wired */
 			/* 17 - GP29: A3 as PWM6CHB (13) not wired */
 			/* 18 - GP12: PWM6CHA (12) not wired */
@@ -99,8 +101,12 @@ grove_d14_header: &grove_d15_header {};	/* D14 is on D27 header pin 1 */
 	};
 };
 
-grove_gpios: &grove_laced_if_nano {};
-grove_pwms: &grove_laced_if_nano {};
+zephyr_i2c: &i2c1 {};
+
+grove_i2c: &zephyr_i2c {};
+grove_serial: &uart0 {};
+grove_gpios: &grove_laced_if {};
+grove_pwms: &grove_laced_if {};
 
 grove_pwm_d0: &pwm {};
 grove_pwm_d1: &pwm {};

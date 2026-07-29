@@ -1,0 +1,83 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/pinctrl/rpi-pico-rp2040-pinctrl.h>
+
+&pinctrl {
+	clocks_default: clocks_default {
+		/* no external clocks */
+	};
+
+	uart0_default: uart0_default {
+		group0_uart {
+			pinmux = <UART0_TX_P0>;		/* GP0: UART0_TX */
+		};
+		group1_uart {
+			pinmux = <UART0_RX_P1>;		/* GP1: UART0_RX */
+			input-enable;
+		};
+	};
+
+	spi0_default: spi0_default {
+		group171819_spi {
+			pinmux = <SPI0_CSN_P17>,	/* GP17: SPI0_CSn */
+				 <SPI0_SCK_P18>,	/* GP18: SPI0_SCK */
+				 <SPI0_TX_P19>;		/* GP19: SPI0_TX */
+		};
+		group16_spi {
+			pinmux = <SPI0_RX_P16>;		/* GP16: SPI0_RX */
+			input-enable;
+		};
+	};
+
+	i2c0_default: i2c0_default {
+		group1213_i2c {
+			pinmux = <I2C0_SDA_P12>,	/* GP12: I2C0_SDA */
+				 <I2C0_SCL_P13>;	/* GP13: I2C0_SCL */
+			bias-pull-up;
+			input-enable;
+			input-schmitt-enable;
+		};
+	};
+
+	i2c1_default: i2c1_default {
+		group2627_i2c {
+			pinmux = <I2C1_SDA_P26>,	/* GP26: I2C1_SDA */
+				 <I2C1_SCL_P27>;	/* GP27: I2C1_SCL */
+			bias-pull-up;
+			input-enable;
+			input-schmitt-enable;
+		};
+	};
+
+	spi1_ws2812_default: spi1_ws2812_default {
+		group11_spi {
+			pinmux = <SPI1_TX_P11>;		/* GP11: SPI0_TX */
+		};
+	};
+
+	pio0_ws2812_default: pio0_ws2812_default {
+		group11_pio {
+			pinmux = <PIO0_P11>;		/* GP11: PIO0 */
+		};
+	};
+
+	pwm_default: pwm_default {
+		group9_led {
+			pinmux = <PWM_4B_P9>;		/* GP9: PWM4CHB (9) */
+		};
+		group22_buzzer {
+			pinmux = <PWM_3A_P22>;		/* GP22: PWM3CHA (6) */
+		};
+	};
+
+	adc_default: adc_default {
+		group2829_adc {
+			pinmux = <ADC_CH2_P28>,		/* GP28: ADC_CH2 */
+				 <ADC_CH3_P29>;		/* GP29: ADC_CH3 */
+			input-enable;
+		};
+	};
+};
