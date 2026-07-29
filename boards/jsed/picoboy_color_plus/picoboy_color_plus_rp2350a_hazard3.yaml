@@ -1,0 +1,27 @@
+# SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+identifier: picoboy_color_plus/rp2350a/hazard3
+vendor: jsed
+name: PicoBoy Color Plus (PBC+) Mini-Handheld (Hazard3)
+type: mcu
+arch: riscv
+flash: 1024
+ram: 520
+toolchain:
+  - zephyr
+supported:
+  - clock
+  - counter
+  - dma
+  - flash
+  - gpio
+  - grove_gpios
+  - grove_i2c
+  - grove_pwms
+  - hwinfo
+  - i2c
+  - pwm
+  - spi
+  - usbd
+  - watchdog

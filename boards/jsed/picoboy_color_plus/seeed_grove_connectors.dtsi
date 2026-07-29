@@ -1,12 +1,24 @@
 /*
- * Copyright (c) 2023-2025 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#include "grove_i2c_connector.dtsi"
+#include <bridle/dt-bindings/seeed_grove_pwms_defaults.h>
+
+&pinctrl {
+	pwm_grove: pwm_default {};
+};
+
+#include "seeed_grove_i2c_connector.dtsi"
+
+grove_uart_header: &grove_i2c_header {};	/* UART1-RX/TX is on I2C0-SCL/SDA */
+grove_d20_header: &grove_i2c_header {};		/* D20 is on I2C header pin 2 */
+grove_d21_header: &grove_d20_header {};		/* D21 is on D20 header pin 1 */
+
+#include <zephyr/dt-bindings/gpio/grove-laced-if.h>
 
 / {
-	grove_laced_if_pbcp: grove-laced-if-pbcp {
+	grove_laced_if: grove-laced-if {
 		compatible = "seeed,grove-laced-if";
 
 		#gpio-cells = <2>;
@@ -33,8 +45,8 @@
 			/* 17 - GP17: not wired */
 			/* 18 - GP18: not wired */
 			/* 19 - GP19: not wired */
-			<20 0 &grove_i2c_header 1 0>,	/* GP20: I2C0-SDA as GPIO */
-			<21 0 &grove_i2c_header 0 0>;	/* GP21: I2C0-SCL as GPIO */
+			<GROVE_LIF_L20 0 &grove_i2c_header 1 0>,/* GP20: I2C0-SDA as GPIO */
+			<GROVE_LIF_L21 0 &grove_i2c_header 0 0>;/* GP21: I2C0-SCL as GPIO */
 			/* 22 - GP22: not wired */
 			/* 23 - GP23: not wired */
 			/* 24 - GP24: not wired */
@@ -68,8 +80,8 @@
 			/* 17 - GP17: PWM0CHB (1)  not wired */
 			/* 18 - GP18: PWM1CHA (2)  not wired */
 			/* 19 - GP19: PWM1CHB (3)  not wired */
-			<20 0 0 &pwm 4 0 0>,	/* GP20: PWM2CHA (4) */
-			<21 0 0 &pwm 5 0 0>;	/* GP21: PWM2CHB (5) */
+			<GROVE_LIF_L20 0 0 &pwm 4 0 0>,		/* GP20: PWM2CHA (4) */
+			<GROVE_LIF_L21 0 0 &pwm 5 0 0>;		/* GP21: PWM2CHB (5) */
 			/* 22 - GP22: PWM3CHA (6)  not wired */
 			/* 23 - GP23: PWM3CHB (7)  not wired */
 			/* 24 - GP24: PWM4CHA (8)  not wired */
@@ -81,8 +93,12 @@
 	};
 };
 
-grove_gpios: &grove_laced_if_pbcp {};
-grove_pwms: &grove_laced_if_pbcp {};
+zephyr_i2c: &i2c0 {};
+
+grove_i2c: &zephyr_i2c {};
+grove_serial: &uart1 {};
+grove_gpios: &grove_laced_if {};
+grove_pwms: &grove_laced_if {};
 
 grove_pwm_d20: &pwm {};
 grove_pwm_d21: &pwm {};

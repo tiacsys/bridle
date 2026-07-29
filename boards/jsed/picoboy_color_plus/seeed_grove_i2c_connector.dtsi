@@ -1,9 +1,9 @@
 /*
- * Copyright (c) 2023-2025 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#include <bridle/dt-bindings/seeed_grove_pwms_defaults.h>
+#include <zephyr/dt-bindings/gpio/grove-connector.h>
 
 / {
 	grove_i2c_header: grove-i2c-connector {
@@ -11,21 +11,9 @@
 		#gpio-cells = <2>;
 		gpio-map-mask = <0xffffffff 0xffffffc0>;
 		gpio-map-pass-thru = <0 0x3f>;
-		gpio-map = <0 0 &gpio0 21 0>,	/* GP21/PWM2CHB(5) / I2C0-SCL */
-			   <1 0 &gpio0 20 0>;	/* GP20/PWM2CHA(4) / I2C0-SDA */
+		gpio-map = <GROVE_SCL 0 &gpio0 21 0>,	/* GP21/PWM2CHB(5) / I2C0-SCL */
+			   <GROVE_SDA 0 &gpio0 20 0>;	/* GP20/PWM2CHA(4) / I2C0-SDA */
 	};
-};
-
-grove_i2c: &i2c0 {
-	status = "okay";
-};
-
-&gpio0 {
-	status = "okay";
-};
-
-&pinctrl {
-	pwm_grove: pwm_default {};
 };
 
 #undef GROVE_PWM_D20_SLOW

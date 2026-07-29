@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 boards:
   - name: picoboy
     full_name: The PicoBoy
@@ -9,8 +12,3 @@ boards:
     vendor: jsed
     socs:
       - name: rp2040
-  - name: picoboy_color_plus
-    full_name: The PicoBoy Color Plus
-    vendor: jsed
-    socs:
-      - name: rp2350a

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024-2025 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -30,6 +30,24 @@
 		};
 	};
 
+	spi0_default: spi0_default {
+		group171819 {
+			pinmux = <SPI0_CSN_P17>,	/* not wired */
+				 <SPI0_SCK_P18>,	/* LCD display */
+				 <SPI0_TX_P19>;		/* ST7789V (240x280) */
+		};
+		group16 {
+			pinmux = <SPI0_RX_P16>;		/* not wired */
+			input-enable;
+		};
+	};
+
+	spi1_sk6805_default: spi1_sk6805_default {
+		group11 {				/* NeoPixel RGB-LED */
+			pinmux = <SPI1_TX_P11>;		/* SK6805 DIN */
+		};
+	};
+
 	i2c0_default: i2c0_default {			/* Qwiic/STEMMA-QT */
 		group2021 {				/* as I2C bus */
 			pinmux = <I2C0_SDA_P20>,
@@ -45,24 +63,6 @@
 				 <I2C0_SCL_P17>;
 			input-enable;
 			input-schmitt-enable;
-		};
-	};
-
-	spi0_default: spi0_default {
-		group171819 {
-			pinmux = <SPI0_CSN_P17>,	/* not wired */
-				 <SPI0_SCK_P18>,	/* LCD display */
-				 <SPI0_TX_P19>;		/* ST7789V (240x280) */
-		};
-		group16 {
-			pinmux = <SPI0_RX_P16>;		/* not wired */
-			input-enable;
-		};
-	};
-
-	spi1_default: spi1_default {
-		group11 {				/* NeoPixel RGB-LED */
-			pinmux = <SPI1_TX_P11>;		/* SK6805 DIN */
 		};
 	};
 

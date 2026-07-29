@@ -1,0 +1,28 @@
+# SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+identifier: picoboy_color_plus/rp2350a/m33
+vendor: jsed
+name: PicoBoy Color Plus (PBC+) Mini-Handheld (Cortex-M33)
+type: mcu
+arch: arm
+flash: 1024
+ram: 520
+toolchain:
+  - zephyr
+  - gnuarmemb
+supported:
+  - clock
+  - counter
+  - dma
+  - flash
+  - gpio
+  - grove_gpios
+  - grove_i2c
+  - grove_pwms
+  - hwinfo
+  - i2c
+  - pwm
+  - spi
+  - usbd
+  - watchdog
