@@ -81,6 +81,6 @@ power sources can all be controlled with the power on/off switch on-board.
        - `Maker Pi RP2040 Datasheet`_
        - `Maker Pi RP2040 Schematic`_
 
-     - .. image:: maker-pi-rp2040/hardware.jpg
+     - .. image:: img/hardware.jpg
           :align: center
           :alt: Maker Pi RP2040

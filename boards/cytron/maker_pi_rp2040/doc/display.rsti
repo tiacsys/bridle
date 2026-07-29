@@ -1,0 +1,87 @@
+This samples and test applications are only applicable together with the
+|Waveshare 2.4 LCD| shield. This LCD module have to connected by free wiring.
+
+Connect the |Waveshare 2.4 LCD| module by free wiring to the |Grove connectors|.
+Following module's pin assignments for *Grove System*.
+
+.. list-table::
+   :align: center
+   :width: 50%
+   :widths: 15, 5, 30, 5, 45
+
+   * - .. rubric:: Grove
+     - .. rubric:: Pin
+     - .. rubric:: |Maker Pi RP2040|
+     - .. rubric:: Pin
+     - .. rubric:: |Waveshare 2.4 LCD|
+
+   * - :hwftlbl-con:`2`
+     - :rpi-pico-pin:`3`
+     - :rpi-pico-vdd:`3V3(OUT)`
+     - :rpi-pico-pin:`1`
+     - :hwftlbl-vdd:`VCC`
+
+   * - :hwftlbl-con:`2`
+     - :rpi-pico-pin:`4`
+     - :rpi-pico-gnd:`GND`
+     - :rpi-pico-pin:`2`
+     - :hwftlbl:`GND`
+
+   * - :hwftlbl-con:`2`
+     - :rpi-pico-pin:`1`
+     - :rpi-pico-spi-dfl:`SPI0_TX` : D3
+     - :rpi-pico-pin:`3`
+     - :hwftlbl-scr:`DIN`
+       :hwftlbl-spi:`MOSI`
+
+       ILI9341 Serial Data Input
+
+   * - :hwftlbl-con:`2`
+     - :rpi-pico-pin:`2`
+     - :rpi-pico-spi-dfl:`SPI0_SCK` : D2
+     - :rpi-pico-pin:`4`
+     - :hwftlbl-scr:`CLK`
+       :hwftlbl-spi:`SCK`
+
+       ILI9341 Serial Clock Input
+
+   * - :hwftlbl-con:`3`
+     - :rpi-pico-pin:`1`
+     - :rpi-pico-spi-dfl:`SPI0_CSN` : D5
+     - :rpi-pico-pin:`5`
+     - :hwftlbl-scr:`CS`
+       :hwftlbl-spi:`CSN`
+
+       ILI9341 Chip Select Input
+
+   * - :hwftlbl-con:`5`
+     - :rpi-pico-pin:`2`
+     - :rpi-pico-pio:`GP6` : D6
+     - :rpi-pico-pin:`6`
+     - :hwftlbl-scr:`DC`
+       :hwftlbl-pio:`DC`
+
+       ILI9341 Data/Command
+
+   * - :hwftlbl-con:`7`
+     - :rpi-pico-pin:`1`
+     - :rpi-pico-pio:`GP28` : D28 (ADC2)
+     - :rpi-pico-pin:`7`
+     - :hwftlbl-scr:`RST`
+       :hwftlbl-pio:`RST`
+
+       ILI9341 Reset
+
+   * - :hwftlbl-con:`7`
+     - :rpi-pico-pin:`2`
+     - :rpi-pico-pio:`GP7` :rpi-pico-pwm:`PWM7` : D7
+     - :rpi-pico-pin:`8`
+     - :hwftlbl-scr:`BL`
+       :hwftlbl-pio:`BL`
+       :hwftlbl-pwm:`BL`
+
+       LCD Backlight
+
+.. include:: lvgl_basic.rsti
+
+.. include:: lvgl_demo.rsti

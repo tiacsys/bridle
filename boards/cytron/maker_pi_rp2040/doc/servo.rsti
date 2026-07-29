@@ -1,0 +1,13 @@
+.. rubric:: Servomotor Test
+
+.. image:: img/servo.png
+   :align: right
+   :alt: Maker Pi RP2040 Servomotor Test
+
+The sample is prepared for servomotor :hwftlbl-act:`PWM_SERVO_0` at first
+on-board channel at :rpi-pico-pio:`GP12` / :rpi-pico-pwm:`PWM12` (PWM6CHA).
+
+.. tsn-include:: snippets/pwm-servo/README.rst
+   :docset: bridle
+   :start-after: .. _snippet-pwm-servo-cytron-maker-pi-rp2040:
+   :end-before: .. literalinclude:

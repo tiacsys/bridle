@@ -1,0 +1,44 @@
+Prints all input events as defined by the shields Devicetree. See also Zephyr
+sample: :external+zephyr:zephyr:code-sample:`input-dump`.
+
+Print the input events related to the two on-board user button
+using the :external+zephyr:ref:`Input subsystem API <input>`. That are:
+
+| :hwftlbl-btn:`BTN1` : :dts:`zephyr,code = <INPUT_KEY_0>;`
+| :hwftlbl-btn:`BTN2` : :dts:`zephyr,code = <INPUT_KEY_1>;`
+
+.. rubric:: Devicetree compatible
+
+- :dtcompatible:`zephyr,lvgl-keypad-input` with devicetree relation
+  :dts:`lvgl_keypad: lvgl-keypad { input = <&gpio_keys>; };`
+
+  | :hwftlbl-btn:`BTN1` :
+    :dts:`input-codes = <INPUT_KEY_0>;` :
+    :dts:`lvgl-codes = <LV_KEY_ENTER>;`
+  | :hwftlbl-btn:`BTN2` :
+    :dts:`input-codes = <INPUT_KEY_1>;` :
+    :dts:`lvgl-codes = <LV_KEY_NEXT>;`
+
+.. rubric:: Button Input Dump
+
+.. zephyr-app-commands::
+   :app: zephyr/samples/subsys/input/input_dump
+   :build-dir: cytron_maker_pi_rp2040
+   :board: cytron_maker_pi_rp2040
+   :snippets: "usb-console"
+   :west-args: -p
+   :goals: flash
+   :compact:
+
+.. rubric:: Simple logging output on target
+
+.. container:: highlight highlight-console notranslate no-copybutton
+
+   .. parsed-literal::
+
+      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
+      Input sample started
+      I: input event: dev=gpio_keys        SYN type= 1 code= 11 value=1
+      I: input event: dev=gpio_keys        SYN type= 1 code= 11 value=0
+      I: input event: dev=gpio_keys        SYN type= 1 code=  2 value=1
+      I: input event: dev=gpio_keys        SYN type= 1 code=  2 value=0

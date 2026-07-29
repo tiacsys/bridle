@@ -1,0 +1,45 @@
+.. image:: img/buzzer.jpg
+   :align: right
+   :alt: Maker Pi RP2040 Piezo Buzzer Test
+
+.. rubric:: Piezo Buzzer Test
+
+The sample is prepared for the on-board :hwftlbl-spk:`PWM_BUZZER` connected
+to the PWM channel at :rpi-pico-pio:`GP22` / :rpi-pico-pwm:`PWM6` (PWM3CHA).
+
+The PWM period is 880 ㎐, twice the concert pitch frequency of 440 ㎐.
+
+Invoke :program:`west build` and :program:`west flash`:
+
+.. zephyr-app-commands::
+   :app: bridle/samples/buzzer
+   :build-dir: cytron_maker_pi_rp2040
+   :board: cytron_maker_pi_rp2040
+   :snippets: "usb-console"
+   :west-args: -p
+   :goals: flash
+   :compact:
+
+.. rubric:: Simple test execution on target
+
+#. play a beep
+#. play a folk song
+#. play a chrismas song
+
+.. container:: highlight highlight-console notranslate
+
+   .. parsed-literal::
+
+      :bgn:`uart:~$` **buzzer beep**
+
+.. container:: highlight highlight-console notranslate
+
+   .. parsed-literal::
+
+      :bgn:`uart:~$` **buzzer play folksong**
+
+.. container:: highlight highlight-console notranslate
+
+   .. parsed-literal::
+
+      :bgn:`uart:~$` **buzzer play xmastime**

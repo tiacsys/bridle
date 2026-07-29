@@ -126,7 +126,7 @@ be used on-board as analog channel A3 for VM/2 voltage monitoring per default.
        - :dtcompatible:`seeed,grove-laced-if`
        - :dtcompatible:`seeed,grove-connector`
 
-     - .. image:: maker-pi-rp2040/pinouts.jpg
+     - .. image:: img/pinouts.jpg
           :align: center
           :width: 100%
           :alt: Maker Pi RP2040 edge pinout

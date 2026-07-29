@@ -15,14 +15,14 @@ Supported Boards
 Hardware
 ========
 
-.. include:: maker-pi-rp2040/hardware.rsti
+.. include:: hardware.rsti
 
 Positions
 =========
 
 .. _cytron_maker_pi_rp2040_positions:
 
-.. include:: maker-pi-rp2040/positions.rsti
+.. include:: positions.rsti
 
 Pinouts
 =======
@@ -33,7 +33,7 @@ the board. The configuration of these routes can be modified through
 to see the possible routings for each peripheral. The default assignments
 for the Cytron Maker Pi RP2040 board is defined below.
 
-.. include:: maker-pi-rp2040/pinouts.rsti
+.. include:: pinouts.rsti
 
 Supported Features
 ******************
@@ -150,14 +150,14 @@ configuration can be found in the different Kconfig files:
 
 .. zephyr-keep-sorted-start re(^\* :bridle_file:`\w)
 
-* :bridle_file:`boards/cytron/maker_rp2040/cytron_maker_pi_rp2040_defconfig`
+* :bridle_file:`boards/cytron/maker_pi_rp2040/cytron_maker_pi_rp2040_defconfig`
 
 .. zephyr-keep-sorted-stop
 
 Board Configurations
 ====================
 
-The Cytron Maker Pi RP2040 boards can be configured for the following
+The Cytron Maker Pi RP2040 board can be configured for the following
 different use cases.
 
 .. rubric:: :command:`west build -b cytron_maker_pi_rp2040 -S usb-console`
@@ -208,7 +208,7 @@ In addition to the on-board hader for DC and servo motors, there are also
 
       **This list must not be stable!**
 
-      .. include:: maker-pi-rp2040/grove_gpios.rsti
+      .. include:: grove_gpios.rsti
 
    .. group-tab:: PWM mapping ``grove_pwms``
 
@@ -222,7 +222,7 @@ In addition to the on-board hader for DC and servo motors, there are also
 
       **This list must not be complete or stable!**
 
-      .. include:: maker-pi-rp2040/grove_pwms.rsti
+      .. include:: grove_pwms.rsti
 
 System Clock
 ============
@@ -535,11 +535,11 @@ Basic Samples
 LED Blinky and Fade
 ===================
 
-.. rubric:: WS2812 LED Test Pattern by PIO
-
-.. image:: maker-pi-rp2040/ws2812b.gif
+.. image:: img/ws2812b.gif
    :align: right
    :alt: Maker Pi RP2040 WS2812 LED Test Pattern
+
+.. rubric:: WS2812 LED Test Pattern by PIO
 
 See also Zephyr sample: :external+zephyr:zephyr:code-sample:`led-strip`.
 
@@ -548,7 +548,6 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`led-strip`.
    :build-dir: cytron_maker_pi_rp2040
    :board: cytron_maker_pi_rp2040
    :west-args: -p
-   :flash-args: -r uf2
    :goals: flash
    :compact:
 
@@ -561,7 +560,6 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`blinky`.
    :build-dir: cytron_maker_pi_rp2040
    :board: cytron_maker_pi_rp2040
    :west-args: -p
-   :flash-args: -r uf2
    :goals: flash
    :compact:
 
@@ -574,7 +572,6 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`pwm-blinky`.
    :build-dir: cytron_maker_pi_rp2040
    :board: cytron_maker_pi_rp2040
    :west-args: -p
-   :flash-args: -r uf2
    :goals: flash
    :compact:
 
@@ -587,7 +584,6 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`fade-led`.
    :build-dir: cytron_maker_pi_rp2040
    :board: cytron_maker_pi_rp2040
    :west-args: -p
-   :flash-args: -r uf2
    :goals: flash
    :compact:
 
@@ -600,26 +596,13 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`button`.
    :build-dir: cytron_maker_pi_rp2040
    :board: cytron_maker_pi_rp2040
    :west-args: -p
-   :flash-args: -r uf2
    :goals: flash
    :compact:
 
 Hello Shell with USB-CDC/ACM Console
 ====================================
 
-.. rubric:: Hello Shell
-
-.. zephyr-app-commands::
-   :app: bridle/samples/helloshell
-   :build-dir: cytron_maker_pi_rp2040
-   :board: cytron_maker_pi_rp2040
-   :snippets: "usb-console"
-   :west-args: -p
-   :flash-args: -r uf2
-   :goals: flash
-   :compact:
-
-.. include:: maker-pi-rp2040/helloshell.rsti
+.. include:: helloshell.rsti
 
 More Samples
 ************
@@ -627,284 +610,22 @@ More Samples
 Input dump with USB-CDC/ACM Console
 ===================================
 
-Prints all input events as defined by the shields Devicetree. See also Zephyr
-sample: :external+zephyr:zephyr:code-sample:`input-dump`.
-
-Print the input events related to the two on-board user button
-using the :external+zephyr:ref:`Input subsystem API <input>`. That are:
-
-| :hwftlbl-btn:`BTN1` : :dts:`zephyr,code = <INPUT_KEY_0>;`
-| :hwftlbl-btn:`BTN2` : :dts:`zephyr,code = <INPUT_KEY_1>;`
-
-.. rubric:: Devicetree compatible
-
-- :dtcompatible:`zephyr,lvgl-keypad-input` with devicetree relation
-  :dts:`lvgl_keypad: lvgl-keypad { input = <&gpio_keys>; };`
-
-  | :hwftlbl-btn:`BTN1` :
-    :dts:`input-codes = <INPUT_KEY_0>;` :
-    :dts:`lvgl-codes = <LV_KEY_ENTER>;`
-  | :hwftlbl-btn:`BTN2` :
-    :dts:`input-codes = <INPUT_KEY_1>;` :
-    :dts:`lvgl-codes = <LV_KEY_NEXT>;`
-
-.. rubric:: Button Input Dump
-
-.. zephyr-app-commands::
-   :app: zephyr/samples/subsys/input/input_dump
-   :build-dir: cytron_maker_pi_rp2040
-   :board: cytron_maker_pi_rp2040
-   :snippets: "usb-console"
-   :west-args: -p
-   :flash-args: -r uf2
-   :goals: flash
-   :compact:
-
-.. rubric:: Simple logging output on target
-
-.. container:: highlight highlight-console notranslate no-copybutton
-
-   .. parsed-literal::
-
-      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
-      Input sample started
-      I: input event: dev=gpio_keys        SYN type= 1 code= 11 value=1
-      I: input event: dev=gpio_keys        SYN type= 1 code= 11 value=0
-      I: input event: dev=gpio_keys        SYN type= 1 code=  2 value=1
-      I: input event: dev=gpio_keys        SYN type= 1 code=  2 value=0
+.. include:: input_dump.rsti
 
 Sounds from the speaker with USB-CDC/ACM Console
 ================================================
 
-.. rubric:: Piezo Buzzer Test
-
-.. image:: maker-pi-rp2040/buzzer.jpg
-   :align: right
-   :alt: Maker Pi RP2040 Piezo Buzzer Test
-
-The sample is prepared for the on-board :hwftlbl-spk:`PWM_BUZZER` connected
-to the PWM channel at :rpi-pico-pio:`GP22` / :rpi-pico-pwm:`PWM6` (PWM3CHA).
-
-The PWM period is 880 ㎐, twice the concert pitch frequency of 440 ㎐.
-
-.. literalinclude:: ../maker_buzzer.dtsi
-   :caption: maker_buzzer.dtsi
-   :language: DTS
-   :encoding: ISO-8859-1
-   :emphasize-lines: 3,11,18
-   :linenos:
-   :start-at: / {
-
-Invoke :program:`west build` and :program:`west flash`:
-
-.. zephyr-app-commands::
-   :app: bridle/samples/buzzer
-   :build-dir: cytron_maker_pi_rp2040
-   :board: cytron_maker_pi_rp2040
-   :snippets: "usb-console"
-   :west-args: -p
-   :flash-args: -r uf2
-   :goals: flash
-   :compact:
-
-.. rubric:: Simple test execution on target
-
-#. play a beep
-#. play a folk song
-#. play a chrismas song
-
-.. container:: highlight highlight-console notranslate
-
-   .. parsed-literal::
-
-      :bgn:`uart:~$` **buzzer beep**
-
-.. container:: highlight highlight-console notranslate
-
-   .. parsed-literal::
-
-      :bgn:`uart:~$` **buzzer play folksong**
-
-.. container:: highlight highlight-console notranslate
-
-   .. parsed-literal::
-
-      :bgn:`uart:~$` **buzzer play xmastime**
+.. include:: buzzer.rsti
 
 Drive a motor with USB-CDC/ACM Console
 ======================================
 
-.. rubric:: Servomotor Test
-
-.. image:: img/servo.png
-   :align: right
-   :alt: Maker Pi RP2040 Servomotor Test
-
-The sample is prepared for servomotor :hwftlbl-act:`PWM_SERVO_0` at first
-on-board channel at :rpi-pico-pio:`GP12` / :rpi-pico-pwm:`PWM12` (PWM6CHA).
-
-.. literalinclude:: ../makerpi_servo.dtsi
-   :caption: makerpi_servo.dtsi
-   :language: DTS
-   :encoding: ISO-8859-1
-   :emphasize-lines: 3,14,33
-   :linenos:
-   :start-at: / {
-
-.. tsn-include:: snippets/pwm-servo/README.rst
-   :docset: bridle
-   :start-after: .. _snippet-pwm-servo-cytron-maker-pi-rp2040:
-   :end-before: .. literalinclude:
+.. include:: servo.rsti
 
 Display Test and Demonstration
 ==============================
 
-This samples and test applications are only applicable together with the
-|Waveshare 2.4 LCD| shield. This LCD module have to connected by free wiring.
-
-Connect the |Waveshare 2.4 LCD| module by free wiring to the |Grove connectors|.
-Following module's pin assignments for *Grove System*.
-
-.. list-table::
-   :align: center
-   :width: 50%
-   :widths: 15, 5, 30, 5, 45
-
-   * - .. rubric:: Grove
-     - .. rubric:: Pin
-     - .. rubric:: |Maker Pi RP2040|
-     - .. rubric:: Pin
-     - .. rubric:: |Waveshare 2.4 LCD|
-
-   * - :hwftlbl-con:`2`
-     - :rpi-pico-pin:`3`
-     - :rpi-pico-vdd:`3V3(OUT)`
-     - :rpi-pico-pin:`1`
-     - :hwftlbl-vdd:`VCC`
-
-   * - :hwftlbl-con:`2`
-     - :rpi-pico-pin:`4`
-     - :rpi-pico-gnd:`GND`
-     - :rpi-pico-pin:`2`
-     - :hwftlbl:`GND`
-
-   * - :hwftlbl-con:`2`
-     - :rpi-pico-pin:`1`
-     - :rpi-pico-spi-dfl:`SPI0_TX` : D3
-     - :rpi-pico-pin:`3`
-     - :hwftlbl-scr:`DIN`
-       :hwftlbl-spi:`MOSI`
-
-       ILI9341 Serial Data Input
-
-   * - :hwftlbl-con:`2`
-     - :rpi-pico-pin:`2`
-     - :rpi-pico-spi-dfl:`SPI0_SCK` : D2
-     - :rpi-pico-pin:`4`
-     - :hwftlbl-scr:`CLK`
-       :hwftlbl-spi:`SCK`
-
-       ILI9341 Serial Clock Input
-
-   * - :hwftlbl-con:`3`
-     - :rpi-pico-pin:`1`
-     - :rpi-pico-spi-dfl:`SPI0_CSN` : D5
-     - :rpi-pico-pin:`5`
-     - :hwftlbl-scr:`CS`
-       :hwftlbl-spi:`CSN`
-
-       ILI9341 Chip Select Input
-
-   * - :hwftlbl-con:`5`
-     - :rpi-pico-pin:`2`
-     - :rpi-pico-pio:`GP6` : D6
-     - :rpi-pico-pin:`6`
-     - :hwftlbl-scr:`DC`
-       :hwftlbl-pio:`DC`
-
-       ILI9341 Data/Command
-
-   * - :hwftlbl-con:`7`
-     - :rpi-pico-pin:`1`
-     - :rpi-pico-pio:`GP28` : D28 (ADC2)
-     - :rpi-pico-pin:`7`
-     - :hwftlbl-scr:`RST`
-       :hwftlbl-pio:`RST`
-
-       ILI9341 Reset
-
-   * - :hwftlbl-con:`7`
-     - :rpi-pico-pin:`2`
-     - :rpi-pico-pio:`GP7` :rpi-pico-pwm:`PWM7` : D7
-     - :rpi-pico-pin:`8`
-     - :hwftlbl-scr:`BL`
-       :hwftlbl-pio:`BL`
-       :hwftlbl-pwm:`BL`
-
-       LCD Backlight
-
-.. rubric:: LCD Orientation and Bit Order Test
-
-See also Zephyr sample: :external+zephyr:zephyr:code-sample:`display`.
-
-.. zephyr-app-commands::
-   :app: zephyr/samples/drivers/display
-   :build-dir: cytron_maker_pi_rp2040
-   :board: cytron_maker_pi_rp2040
-   :shield: "waveshare_2_4_lcd"
-   :snippets: "usb-console"
-   :west-args: -p
-   :flash-args: -r uf2
-   :goals: flash
-   :compact:
-
-.. rubric:: LVGL Basic Sample
-
-See also Zephyr sample: :external+zephyr:zephyr:code-sample:`lvgl`.
-
-.. zephyr-app-commands::
-   :app: zephyr/samples/subsys/display/lvgl
-   :build-dir: cytron_maker_pi_rp2040
-   :board: cytron_maker_pi_rp2040
-   :shield: "waveshare_2_4_lcd"
-   :snippets: "usb-console"
-   :west-args: -p
-   :flash-args: -r uf2
-   :goals: flash
-   :compact:
-
-This sample comes with a Shell command line access to the LVGL backend
-on the console, here configured for a USB console:
-
-.. rubric:: Simple test execution on target
-
-.. container:: highlight highlight-console notranslate
-
-   .. parsed-literal::
-
-      :bgn:`uart:~$` **lvgl**
-      lvgl - LVGL shell commands
-      Subcommands:
-        stats   :Show LVGL statistics
-        monkey  :LVGL monkey testing
-
-      :bgn:`uart:~$` **lvgl stats**
-      stats - Show LVGL statistics
-      Subcommands:
-        memory  :Show LVGL memory statistics
-                 Usage: lvgl stats memory [-c]
-                 -c  dump chunk information
-
-      :bgn:`uart:~$` **lvgl stats memory**
-      Heap at 0x20001540 contains 2047 units in 11 buckets
-
-        bucket#    min units        total      largest      largest
-                   threshold       chunks      (units)      (bytes)
-        -----------------------------------------------------------
-              1            2            1            2           16
-             10         1024            1         1081         8648
-
-      8664 free bytes, 7648 allocated bytes, overhead = 68 bytes (0.4%)
+.. include:: display.rsti
 
 References
 **********

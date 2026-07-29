@@ -1,3 +1,14 @@
+.. rubric:: Hello Shell
+
+.. zephyr-app-commands::
+   :app: bridle/samples/helloshell
+   :build-dir: cytron_maker_pi_rp2040
+   :board: cytron_maker_pi_rp2040
+   :snippets: "usb-console"
+   :west-args: -p
+   :goals: flash
+   :compact:
+
 .. rubric:: Simple test execution on target
 
 (text in bold is a command input)
@@ -67,7 +78,7 @@
             - flash-controller\ @\ 18000000 (READY)
               DT node labels: ssi
             - i2c\ @\ 40044000 (READY)
-              DT node labels: i2c0 grove_i2c
+              DT node labels: i2c0 zephyr_i2c grove_i2c
             - pwm\ @\ 40050000 (READY)
               DT node labels: pwm grove_pwm_d0 grove_pwm_d1 grove_pwm_d2 grove_pwm_d3 grove_pwm_d4 grove_pwm_d5 grove_pwm_d6 grove_pwm_d7 grove_pwm_d16 grove_pwm_d17 grove_pwm_d26 grove_pwm_d27 grove_pwm_d28
             - vreg\ @\ 40064000 (READY)
@@ -176,6 +187,20 @@
 
             :bgn:`uart:~$` **led set_brightness pwm_leds 0 100**
             pwm_leds: setting LED 0 brightness to 100
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led off pwm_leds 0**
+            pwm_leds: turning off LED 0
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led blink pwm_leds 0 50 50**
+            pwm_leds: blinking LED 0 with 50 ms on and 50 ms off
 
       .. container:: highlight highlight-console notranslate
 
