@@ -22,7 +22,7 @@ monitoring per default.
           :hwftlbl-uart:`1`
 
        :on-board:
-          :hwftlbl-led:`1 GRN`
+          :hwftlbl-led:`1 GREEN`
 
        .. rubric:: Default Zephyr Peripheral Mapping
 
@@ -85,7 +85,7 @@ monitoring per default.
        - :dtcompatible:`raspberrypi,pico-header`
        - :dtcompatible:`raspberrypi,pico-header-r3`
 
-     - .. image:: rp2040-plus/pinouts.jpg
+     - .. image:: img/pinouts.jpg
           :align: center
           :width: 100%
           :alt: Waveshare RP2040-Plus edge pinout

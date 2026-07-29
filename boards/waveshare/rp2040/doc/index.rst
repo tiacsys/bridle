@@ -43,12 +43,6 @@ Hardware
 
       .. include:: rp2040-one/hardware.rsti
 
-   .. group-tab:: RP2040-Plus
-
-      .. _waveshare_rp2040_plus:
-
-      .. include:: rp2040-plus/hardware.rsti
-
    .. group-tab:: RP2040-Tiny
 
       .. _waveshare_rp2040_tiny:
@@ -85,10 +79,6 @@ Positions
    .. group-tab:: RP2040-One
 
       .. include:: rp2040-one/positions.rsti
-
-   .. group-tab:: RP2040-Plus
-
-      .. include:: rp2040-plus/positions.rsti
 
    .. group-tab:: RP2040-Tiny
 
@@ -129,10 +119,6 @@ in a single tab.
    .. group-tab:: RP2040-One
 
       .. include:: rp2040-one/pinouts.rsti
-
-   .. group-tab:: RP2040-Plus
-
-      .. include:: rp2040-plus/pinouts.rsti
 
    .. group-tab:: RP2040-Tiny
 
@@ -328,30 +314,6 @@ which is mapped as a hardware revision.
       Use the serial port UART0 on edge header as
       Zephyr console and for the shell.
 
-   .. group-tab:: RP2040-Plus
-
-      .. rubric:: :command:`west build -b waveshare_rp2040_plus -S usb-console`
-
-      Use the native USB device port with CDC-ACM as
-      Zephyr console and for the shell.
-
-      .. rubric:: :command:`west build -b waveshare_rp2040_plus`
-
-      Use the serial port UART0 on edge header as
-      Zephyr console and for the shell.
-
-      .. rubric:: :command:`west build -b waveshare_rp2040_plus@16mb -S usb-console`
-
-      Setup QSPI Flash controller to work with 16㎆ and
-      use the native USB device port with CDC-ACM as
-      Zephyr console and for the shell.
-
-      .. rubric:: :command:`west build -b waveshare_rp2040_plus@16mb`
-
-      Setup QSPI Flash controller to work with 16㎆ and
-      use the serial port UART0 on edge header as Zephyr
-      console and for the shell.
-
    .. group-tab:: RP2040-Tiny
 
       .. rubric:: :command:`west build -b waveshare_rp2040_tiny -S usb-console`
@@ -526,18 +488,6 @@ Bridle :ref:`snippet-usb-console` can be used to enable
                USB device strings: Mfr=1, Product=2, SerialNumber=3
                Product: |waveshare_rp2040_one_PStr_CON|
                Manufacturer: |waveshare_rp2040_one_VStr|
-               SerialNumber: B69F8448A6E91514
-
-   .. group-tab:: RP2040-Plus
-
-         .. container:: highlight-console notranslate literal-block
-
-            .. parsed-literal::
-
-               USB device idVendor=\ |waveshare_rp2040_plus_VID|, idProduct=\ |waveshare_rp2040_plus_PID_CON|, bcdDevice=\ |waveshare_rp2040_plus_BCD_CON|
-               USB device strings: Mfr=1, Product=2, SerialNumber=3
-               Product: |waveshare_rp2040_plus_PStr_CON|
-               Manufacturer: |waveshare_rp2040_plus_VStr|
                SerialNumber: B69F8448A6E91514
 
    .. group-tab:: RP2040-Tiny
@@ -965,47 +915,6 @@ LED Blinky and Fade
          |RP2040-One|, because this system has only one digital RGB LED.
          A simple GPIO or PWM control is not possible!
 
-   .. group-tab:: RP2040-Plus
-
-      .. rubric:: Green User LED Blinky by GPIO
-
-      See also Zephyr sample: :external+zephyr:zephyr:code-sample:`blinky`.
-
-      .. zephyr-app-commands::
-         :app: zephyr/samples/basic/blinky
-         :build-dir: waveshare_rp2040
-         :board: waveshare_rp2040_plus
-         :west-args: -p
-         :flash-args: -r uf2
-         :goals: flash
-         :compact:
-
-      .. rubric:: Green User LED Blinky by PWM
-
-      See also Zephyr sample: :external+zephyr:zephyr:code-sample:`pwm-blinky`.
-
-      .. zephyr-app-commands::
-         :app: zephyr/samples/basic/blinky_pwm
-         :build-dir: waveshare_rp2040
-         :board: waveshare_rp2040_plus
-         :west-args: -p
-         :flash-args: -r uf2
-         :goals: flash
-         :compact:
-
-      .. rubric:: Green User LED Fade by PWM
-
-      See also Zephyr sample: :external+zephyr:zephyr:code-sample:`fade-led`.
-
-      .. zephyr-app-commands::
-         :app: zephyr/samples/basic/fade_led
-         :build-dir: waveshare_rp2040
-         :board: waveshare_rp2040_plus
-         :west-args: -p
-         :flash-args: -r uf2
-         :goals: flash
-         :compact:
-
    .. group-tab:: RP2040-Tiny
 
       .. rubric:: WS2812 LED Test Pattern by PIO
@@ -1129,22 +1038,6 @@ Hello Shell with USB-CDC/ACM Console
          :compact:
 
       .. include:: rp2040-one/helloshell.rsti
-
-   .. group-tab:: RP2040-Plus
-
-      .. rubric:: Hello Shell on ``16㎆`` revision
-
-      .. zephyr-app-commands::
-         :app: bridle/samples/helloshell
-         :build-dir: waveshare_rp2040
-         :board: waveshare_rp2040_plus@16mb
-         :snippets: "usb-console"
-         :west-args: -p
-         :flash-args: -r uf2
-         :goals: flash
-         :compact:
-
-      .. include:: rp2040-plus/helloshell.rsti
 
    .. group-tab:: RP2040-Tiny
 

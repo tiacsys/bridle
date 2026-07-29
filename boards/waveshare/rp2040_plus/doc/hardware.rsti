@@ -22,7 +22,7 @@ the original |zephyr:board:rpi_pico|.
        :hwftlbl:`4㎆/16㎆`
        :hwftlbl:`264㎅`
        :hwftlbl-btn:`RST`
-       :hwftlbl-led:`GRN`
+       :hwftlbl-led:`GREEN`
        :hwftlbl-con:`USB-C`
        :hwftlbl-dbg:`UF2`
        :hwftlbl-dbg:`SWD`
@@ -44,15 +44,15 @@ the original |zephyr:board:rpi_pico|.
        - On-board :bbl:`USB-C connector`
        - On-board :bbl:`DC-DC buck-boost converter with 1.8A switch`
        - On-board :bbl:`Lithium battery charger`
-       - On-board :bbl:`RESET` button
-       - On-board :bbk:`BOOT` button
-       - On-board :bbk:`LED`
-       - :bbk:`26 GPIO` pins via :bbk:`edge pinout`
-       - :bbk:`2 UART` peripherals
-       - :bbk:`2 I2C` controllers
-       - :bbk:`2 SPI` controllers
-       - :bbk:`16 PWM` channels
-       - :bbk:`3 ADC` analog inputs
+       - On-board :bbk:`RESET` button
+       - On-board :bbl:`BOOT` button
+       - On-board :bbl:`1 User LED`
+       - :bbl:`26 GPIO` pins via :bbk:`edge pinout`
+       - :bbl:`2 UART` peripherals
+       - :bbl:`2 I2C` controllers
+       - :bbl:`2 SPI` controllers
+       - :bbl:`16 PWM` channels
+       - :bbl:`3 ADC` analog inputs
        - 8 Programmable I/O (PIO) state machines for custom peripherals
        - 1 Watchdog timer peripheral
        - 1 Temperature sensor on-chip
@@ -62,6 +62,6 @@ the original |zephyr:board:rpi_pico|.
 
        - `RP2040-Plus Schematic`_
 
-     - .. image:: rp2040-plus/hardware.jpg
+     - .. image:: img/hardware.jpg
           :align: center
           :alt: Waveshare RP2040-Plus

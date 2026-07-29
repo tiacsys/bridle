@@ -1,0 +1,71 @@
+.. rubric:: Green User LED Blinky by GPIO
+
+See also Zephyr sample: :external+zephyr:zephyr:code-sample:`blinky`.
+
+   .. rubric:: On ``4㎆`` revision (default)
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/basic/blinky
+      :build-dir: waveshare_rp2040
+      :board: waveshare_rp2040_plus@4mb
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+   .. rubric:: On ``16㎆`` revision
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/basic/blinky
+      :build-dir: waveshare_rp2040
+      :board: waveshare_rp2040_plus@16mb
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+.. rubric:: Green User LED Blinky by PWM
+
+See also Zephyr sample: :external+zephyr:zephyr:code-sample:`pwm-blinky`.
+
+   .. rubric:: On ``4㎆`` revision (default)
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/basic/blinky_pwm
+      :build-dir: waveshare_rp2040
+      :board: waveshare_rp2040_plus@4mb
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+   .. rubric:: On ``16㎆`` revision
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/basic/blinky_pwm
+      :build-dir: waveshare_rp2040
+      :board: waveshare_rp2040_plus@16mb
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+.. rubric:: Green User LED Fade by PWM
+
+See also Zephyr sample: :external+zephyr:zephyr:code-sample:`fade-led`.
+
+   .. rubric:: On ``4㎆`` revision (default)
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/basic/fade_led
+      :build-dir: waveshare_rp2040
+      :board: waveshare_rp2040_plus@4mb
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+   .. rubric:: On ``16㎆`` revision
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/basic/fade_led
+      :build-dir: waveshare_rp2040
+      :board: waveshare_rp2040_plus@16mb
+      :west-args: -p
+      :goals: flash
+      :compact:
