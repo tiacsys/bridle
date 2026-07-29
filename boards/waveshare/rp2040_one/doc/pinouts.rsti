@@ -41,8 +41,8 @@ no option to change this from outside the board.
 
        - | :rpi-pico-pin:`1` :rpi-pico-uart-dfl:`UART0_TX` : GP0 (PWM0)
        - | :rpi-pico-pin:`2` :rpi-pico-uart-dfl:`UART0_RX` : GP1 (PWM1)
-       - | :rpi-pico-pin:`3` PIO/PWM : :rpi-pico-pio:`GP2` :rpi-pico-pwm:`PWM2`
-       - | :rpi-pico-pin:`4` PIO/PWM : :rpi-pico-pio:`GP3` :rpi-pico-pwm:`PWM3`
+       - | :rpi-pico-pin:`3` :rpi-pico-uart:`(UART0_CTS)` : :rpi-pico-pio:`GP2` (PWM2)
+       - | :rpi-pico-pin:`4` :rpi-pico-uart:`(UART0_RTS)` : :rpi-pico-pio:`GP3` (PWM3)
        - | :rpi-pico-pin:`5` :rpi-pico-spi-dfl:`SPI0_RX` : GP4 (PWM4)
        - | :rpi-pico-pin:`6` :rpi-pico-spi-dfl:`SPI0_CSN` : GP5 (PWM5)
        - | :rpi-pico-pin:`7` :rpi-pico-spi-dfl:`SPI0_SCK` : GP6 (PWM6)
@@ -79,8 +79,9 @@ no option to change this from outside the board.
 
        - :dtcompatible:`waveshare,rp2040mini-header`
        - :dtcompatible:`waveshare,rp2040mini-pcbpads`
+       - :dtcompatible:`worldsemi,ws2812-rpi_pico-pio`
 
-     - .. image:: rp2040-one/pinouts.jpg
+     - .. image:: img/pinouts.jpg
           :align: center
           :width: 100%
           :alt: Waveshare RP2040-One edge pinout
