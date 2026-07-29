@@ -31,12 +31,6 @@ Hardware
 
       .. include:: rp2040-tiny/hardware.rsti
 
-   .. group-tab:: RP2040-Zero
-
-      .. _waveshare_rp2040_zero:
-
-      .. include:: rp2040-zero/hardware.rsti
-
    .. zephyr-keep-sorted-stop
 
 Positions
@@ -53,10 +47,6 @@ Positions
    .. group-tab:: RP2040-Tiny
 
       .. include:: rp2040-tiny/positions.rsti
-
-   .. group-tab:: RP2040-Zero
-
-      .. include:: rp2040-zero/positions.rsti
 
    .. zephyr-keep-sorted-stop
 
@@ -81,10 +71,6 @@ in a single tab.
    .. group-tab:: RP2040-Tiny
 
       .. include:: rp2040-tiny/pinouts.rsti
-
-   .. group-tab:: RP2040-Zero
-
-      .. include:: rp2040-zero/pinouts.rsti
 
    .. zephyr-keep-sorted-stop
 
@@ -205,7 +191,6 @@ configuration can be found in the different Kconfig files:
 
 * :bridle_file:`boards/waveshare/rp2040/waveshare_rp2040_geek_defconfig`
 * :bridle_file:`boards/waveshare/rp2040/waveshare_rp2040_tiny_defconfig`
-* :bridle_file:`boards/waveshare/rp2040/waveshare_rp2040_zero_defconfig`
 
 .. zephyr-keep-sorted-stop
 
@@ -240,18 +225,6 @@ which is mapped as a hardware revision.
       Zephyr console and for the shell.
 
       .. rubric:: :command:`west build -b waveshare_rp2040_tiny`
-
-      Use the serial port UART0 on edge header as
-      Zephyr console and for the shell.
-
-   .. group-tab:: RP2040-Zero
-
-      .. rubric:: :command:`west build -b waveshare_rp2040_zero -S usb-console`
-
-      Use the native USB device port with CDC-ACM as
-      Zephyr console and for the shell.
-
-      .. rubric:: :command:`west build -b waveshare_rp2040_zero`
 
       Use the serial port UART0 on edge header as
       Zephyr console and for the shell.
@@ -382,18 +355,6 @@ Bridle :ref:`snippet-usb-console` can be used to enable
                USB device strings: Mfr=1, Product=2, SerialNumber=3
                Product: |waveshare_rp2040_tiny_PStr_CON|
                Manufacturer: |waveshare_rp2040_tiny_VStr|
-               SerialNumber: B69F8448A6E91514
-
-   .. group-tab:: RP2040-Zero
-
-         .. container:: highlight-console notranslate literal-block
-
-            .. parsed-literal::
-
-               USB device idVendor=\ |waveshare_rp2040_zero_VID|, idProduct=\ |waveshare_rp2040_zero_PID_CON|, bcdDevice=\ |waveshare_rp2040_zero_BCD_CON|
-               USB device strings: Mfr=1, Product=2, SerialNumber=3
-               Product: |waveshare_rp2040_zero_PStr_CON|
-               Manufacturer: |waveshare_rp2040_zero_VStr|
                SerialNumber: B69F8448A6E91514
 
    .. zephyr-keep-sorted-stop
@@ -731,31 +692,6 @@ LED Blinky and Fade
          |RP2040-Tiny|, because this system has only one digital RGB LED.
          A simple GPIO or PWM control is not possible!
 
-   .. group-tab:: RP2040-Zero
-
-      .. rubric:: WS2812 LED Test Pattern by PIO
-
-      See also Zephyr sample: :external+zephyr:zephyr:code-sample:`led-strip`.
-
-      .. image:: rp2040-zero/ws2812b.gif
-         :align: right
-         :alt: Waveshare RP2040-Zero WS2812 LED Test Pattern
-
-      .. zephyr-app-commands::
-         :app: zephyr/samples/drivers/led/led_strip
-         :build-dir: waveshare_rp2040
-         :board: waveshare_rp2040_zero
-         :west-args: -p
-         :flash-args: -r uf2
-         :goals: flash
-         :compact:
-
-      .. hint::
-
-         Neither LED Blinky nor LED Fade can be built and executed on
-         |RP2040-Zero|, because this system has only one digital RGB LED.
-         A simple GPIO or PWM control is not possible!
-
    .. zephyr-keep-sorted-stop
 
 Hello Shell with USB-CDC/ACM Console
@@ -797,22 +733,6 @@ Hello Shell with USB-CDC/ACM Console
          :compact:
 
       .. include:: rp2040-tiny/helloshell.rsti
-
-   .. group-tab:: RP2040-Zero
-
-      .. rubric:: Hello Shell
-
-      .. zephyr-app-commands::
-         :app: bridle/samples/helloshell
-         :build-dir: waveshare_rp2040
-         :board: waveshare_rp2040_zero
-         :snippets: "usb-console"
-         :west-args: -p
-         :flash-args: -r uf2
-         :goals: flash
-         :compact:
-
-      .. include:: rp2040-zero/helloshell.rsti
 
    .. zephyr-keep-sorted-stop
 
