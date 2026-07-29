@@ -23,9 +23,18 @@ Requirements
 
 * One of the following development boards:
 
+  * |bridle:board:cytron_maker_nano_rp2040|
+  * |bridle:board:cytron_maker_pi_rp2040|
+  * |bridle:board:cytron_motion_2350_pro|
+  * |bridle:board:mini_usb_rp2040|
+  * |bridle:board:mini_usb_rp2350|
+  * |bridle:board:picoboy|
   * |bridle:board:seeeduino_cm0|
   * |bridle:board:seeeduino_lotus|
+  * |bridle:board:vccgnd_bluepill|
   * |bridle:board:waveshare_rp2040|
+  * |bridle:board:waveshare_rp2350|
+  * |bridle:board:weact_bluepillplus|
   * |bridle:board:xiao_samd21|
   * |zephyr:board:arduino_zero| or Bridle's |bridle:board:arduino_zero|
   * |zephyr:board:mimxrt1010_evk| or Bridle's |bridle:board:mimxrt1010_evk|

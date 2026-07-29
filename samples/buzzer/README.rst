@@ -42,14 +42,12 @@ alias :dts:`pwm-buzzer0`. You will need to do something like this:
       };
 
 Note that a commonly used period value is 880 ㎐, twice the concert pitch
-frequency of 440 ㎐. See one of the following development boards:
+frequency of 440 ㎐.
 
-.. zephyr-keep-sorted-start re(^\* \|\w)
+The sample supports the following platforms (located
+in :bridle_file:`samples/buzzer/tests.yaml`):
 
-* |bridle:board:cytron_maker_rp2040|
-* |bridle:board:picoboy|
-
-.. zephyr-keep-sorted-stop
+.. table-from-tests-yaml::
 
 Building and Running
 ********************

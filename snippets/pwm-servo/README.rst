@@ -56,11 +56,10 @@ Supported boards are:
 
          .. zephyr-app-commands::
             :app: zephyr/samples/basic/servo_motor
-            :build-dir: cytron_motion_rp2350
+            :build-dir: cytron_motion_rp2350_pro
             :board: cytron_motion_2350_pro/rp2350a/m33
             :snippets: "usb-console pwm-servo"
             :west-args: -p always
-            :flash-args: -r uf2
             :goals: flash
             :compact:
 
@@ -68,11 +67,10 @@ Supported boards are:
 
          .. zephyr-app-commands::
             :app: zephyr/samples/basic/servo_motor
-            :build-dir: cytron_motion_rp2350
+            :build-dir: cytron_motion_rp2350_pro
             :board: cytron_motion_2350_pro/rp2350a/hazard3
             :snippets: "usb-console pwm-servo"
             :west-args: -p always
-            :flash-args: -r uf2
             :goals: flash
             :compact:
 
@@ -105,11 +103,10 @@ Supported boards are:
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/servo_motor
-         :build-dir: cytron_maker_rp2040
+         :build-dir: cytron_maker_pi_rp2040
          :board: cytron_maker_pi_rp2040
          :snippets: "usb-console pwm-servo"
          :west-args: -p always
-         :flash-args: -r uf2
          :goals: flash
          :compact:
 

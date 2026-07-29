@@ -70,11 +70,11 @@
 
 .. cytron_maker_nano_rp2040
 
-| RP2040 | | :ref:`cytron_maker_rp2040` | - ``cytron_maker_nano_rp2040`` |
+| RP2040 | | :ref:`cytron_maker_nano_rp2040` | - ``cytron_maker_nano_rp2040`` |
 
 .. cytron_maker_pi_rp2040
 
-| RP2040 | | :ref:`cytron_maker_rp2040` | - ``cytron_maker_pi_rp2040`` |
+| RP2040 | | :ref:`cytron_maker_pi_rp2040` | - ``cytron_maker_pi_rp2040`` |
 
 .. rpi_pico_rp2040_bbe
 
@@ -131,6 +131,14 @@
 .. xiao_rp2350_rp2350a_m33
 
 | RP2350 | | :external+zephyr:zephyr:board:`xiao_rp2350` | - ``xiao_rp2350/rp2350a/m33`` |
+
+.. cytron_motion_2350_pro_rp2350a_hazard3
+
+| RP2350 | | :ref:`cytron_motion_2350_pro` | - ``cytron_motion_2350_pro/rp2350a/hazard3`` |
+
+.. cytron_motion_2350_pro_rp2350a_m33
+
+| RP2350 | | :ref:`cytron_motion_2350_pro` | - ``cytron_motion_2350_pro/rp2350a/m33`` |
 
 .. rpi_pico2_rp2350a_hazard3_bbe
 

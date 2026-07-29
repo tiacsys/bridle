@@ -38,11 +38,7 @@
 .*Duplicate explicit target name: "install_dependencies_windows"\.
 
 #
-# TODO: is ".. _cytron_maker_nano_rp2040:"
-#       or ".. _cytron_maker_pi_rp2040:"
-#       or ".. _cytron_maker_pi_rp2040_positions:"
-#
-#       or ".. _geeekpi_pico_bb:"
+# TODO: is ".. _geeekpi_pico_bb:"
 #       or ".. _geeekpi_pico_bb_plus:"
 #
 #       or ".. _waveshare_pico_clock_green:"
@@ -76,10 +72,6 @@
 #
 #       inside ".. group-tab::" realy working?
 #
-# reference target in: bridle/boards/cytron/maker_rp2040/doc/index.rst:21
-# reference target in: bridle/boards/cytron/maker_rp2040/doc/index.rst:27
-# reference target in: bridle/boards/cytron/maker_rp2040/doc/index.rst:42
-#
 # reference target in: bridle/boards/shields/rpi_pico_bb/doc/index.rst:25
 # reference target in: bridle/boards/shields/rpi_pico_bb/doc/index.rst:31
 #
@@ -112,9 +104,6 @@
 # reference target in: bridle/boards/waveshare/rp2040/doc/index.rst:57
 # reference target in: bridle/boards/waveshare/rp2040/doc/index.rst:63
 #
-.*Duplicate explicit target name: "cytron_maker_nano_rp2040"\.
-.*Duplicate explicit target name: "cytron_maker_pi_rp2040"\.
-.*Duplicate explicit target name: "cytron_maker_pi_rp2040_positions"\.
 .*Duplicate explicit target name: "geeekpi_pico_bb"\.
 .*Duplicate explicit target name: "geeekpi_pico_bb_plus"\.
 .*Duplicate explicit target name: "waveshare_pico_clock_green"\.
