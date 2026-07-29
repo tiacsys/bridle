@@ -1,0 +1,35 @@
+# SPDX-FileCopyrightText: Copyright (c) 2025-2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+identifier: waveshare_rp2350_can/rp2350a/m33
+name: Waveshare RP2350-CAN (Cortex-M33)
+type: mcu
+arch: arm
+flash: 1024
+ram: 520
+toolchain:
+  - zephyr
+  - gnuarmemb
+supported:
+  - adc
+  - can
+  - clock
+  - counter
+  - dma
+  - flash
+  - gpio
+  - hwinfo
+  - i2c
+  - pico_gpio
+  - pico_i2c
+  - pico_serial
+  - pico_spi
+  - pwm
+  - rpipico_gpio
+  - rpipico_i2c
+  - rpipico_serial
+  - rpipico_spi
+  - spi
+  - uart
+  - usbd
+  - watchdog

@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2025 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2025-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
 / {
-	pico_header: connector {
+	pico_header: pico-connector {
 		compatible = "raspberrypi,pico-header";
 		#gpio-cells = <2>;
 		gpio-map-mask = <0xffffffff 0xffffffc0>;
@@ -38,6 +38,12 @@
 	};
 };
 
-&gpio0 {
-	status = "okay";
-};
+pico_i2c1: &i2c1 {};
+pico_i2c0: &i2c0 {};
+pico_i2c: &pico_i2c0 {};
+
+pico_serial: &uart0 {};
+
+pico_spi1: &spi1 {};
+pico_spi0: &spi0 {};
+pico_spi: &pico_spi0 {};
