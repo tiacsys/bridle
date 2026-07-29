@@ -24,17 +24,6 @@ boards:
     vendor: waveshare
     socs:
       - name: rp2040
-  - name: waveshare_rp2040_plus
-    full_name: Waveshare RP2040-Plus
-    vendor: waveshare
-    socs:
-      - name: rp2040
-    revision:
-      format: "custom"
-      default: "4mb"
-      revisions:
-        - name: "4mb"
-        - name: "16mb"
   - name: waveshare_rp2040_geek
     full_name: Waveshare RP2040-Geek
     vendor: waveshare

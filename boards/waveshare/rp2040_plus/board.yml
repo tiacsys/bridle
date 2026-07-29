@@ -1,0 +1,15 @@
+# SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+board:
+  name: waveshare_rp2040_plus
+  full_name: Waveshare RP2040-Plus
+  vendor: waveshare
+  socs:
+    - name: rp2040
+  revision:
+    format: "custom"
+    default: "4mb"
+    revisions:
+      - name: "4mb"
+      - name: "16mb"

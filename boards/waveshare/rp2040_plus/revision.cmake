@@ -1,4 +1,4 @@
-# Copyright (c) 2023-2024 TiaC Systems
+# SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 if (BOARD STREQUAL "waveshare_rp2040_plus")
