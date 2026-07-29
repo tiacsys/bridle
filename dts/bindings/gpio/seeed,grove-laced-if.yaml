@@ -1,4 +1,4 @@
-# Copyright (c) 2023 TiaC Systems
+# SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 description: |
@@ -6,6 +6,10 @@ description: |
 
     The Laced Grove Signal Interface provide an linear mapping of individuell
     signals dependent on a concrete Grove Interconnect Shield.
+
+    Use GROVE_LIF_* constants in
+    <zephyr/dt-bindings/gpio/grove-laced-if.h> to refer to specific
+    pins using convenient constant names.
 
 compatible: "seeed,grove-laced-if"
 
