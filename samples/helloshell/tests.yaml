@@ -200,6 +200,7 @@ tests:
       - mini_usb_rp2350@16mb/rp2350a/m33
       - picoboy/rp2040
       - picoboy_color/rp2040
+      - picoboy_color_plus/rp2350a/hazard3
       - picoboy_color_plus/rp2350a/m33
       - rpi_pico/rp2040
       - rpi_pico/rp2040/bbe

@@ -45,6 +45,7 @@ common:
     - nucleo_l496zg/stm32l496xx/bbe
     - picoboy/rp2040
     - picoboy_color/rp2040
+    - picoboy_color_plus/rp2350a/hazard3
     - picoboy_color_plus/rp2350a/m33
     - weact_bluepillplus_ch32v203c6
     - weact_bluepillplus_ch32v203c8

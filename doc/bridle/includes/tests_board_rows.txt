@@ -76,6 +76,14 @@
 
 | RP2040 | | :ref:`cytron_maker_pi_rp2040` | - ``cytron_maker_pi_rp2040`` |
 
+.. picoboy_color_rp2040
+
+| RP2040 | | :ref:`picoboy_color` | - ``picoboy_color/rp2040`` |
+
+.. picoboy_rp2040
+
+| RP2040 | | :ref:`picoboy` | - ``picoboy/rp2040`` |
+
 .. rpi_pico_rp2040_bbe
 
 | RP2040 | | :ref:`rpi_pico_board-extensions` | - ``rpi_pico/rp2040/bbe`` |
@@ -91,14 +99,6 @@
 .. rpi_pico_rp2040_w_mcuboot_bbe
 
 | RP2040 | | :ref:`rpi_pico_board-extensions` | - ``rpi_pico/rp2040/w/mcuboot/bbe`` |
-
-.. picoboy_rp2040
-
-| RP2040 | | :ref:`the_picoboy` | - ``picoboy/rp2040`` |
-
-.. picoboy_color_rp2040
-
-| RP2040 | | :ref:`the_picoboy` | - ``picoboy_color/rp2040`` |
 
 .. xiao_rp2040_rp2040_bbe
 
@@ -140,6 +140,14 @@
 
 | RP2350 | | :ref:`cytron_motion_2350_pro` | - ``cytron_motion_2350_pro/rp2350a/m33`` |
 
+.. picoboy_color_plus_rp2350a_hazard3
+
+| RP2350 | | :ref:`picoboy_color_plus` | - ``picoboy_color_plus/rp2350a/hazard3`` |
+
+.. picoboy_color_plus_rp2350a_m33
+
+| RP2350 | | :ref:`picoboy_color_plus` | - ``picoboy_color_plus/rp2350a/m33`` |
+
 .. rpi_pico2_rp2350a_hazard3_bbe
 
 | RP2350 | | :ref:`rpi_pico2_board-extensions` | - ``rpi_pico2/rp2350a/hazard3/bbe`` |
@@ -159,10 +167,6 @@
 .. rpi_pico2_rp2350a_m33_w_mcuboot_bbe
 
 | RP2350 | | :ref:`rpi_pico2_board-extensions` | - ``rpi_pico2/rp2350a/m33/w/mcuboot/bbe`` |
-
-.. picoboy_color_plus_rp2350a_m33
-
-| RP2350 | | :ref:`the_picoboy` | - ``picoboy_color_plus/rp2350a/m33`` |
 
 .. xiao_rp2350_rp2350a_hazard3_bbe
 

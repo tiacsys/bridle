@@ -36,12 +36,12 @@ Building and Running
 
 The STK8BA58 sensor is unusual and only found on a few boards or shields.
 In Zephyr there is no hardware with this sensor yet. In Bridle only two
-variants of the |bridle:board:picoboy| can be used:
+boards can be used:
 
 .. zephyr-keep-sorted-start re(^\* \|\w)
 
-* |PicoBoy Color Plus| (polling and trigger)
-* |PicoBoy| (only polling, interrupt signal not connected)
+* |bridle:board:picoboy_color_plus| (polling and trigger)
+* |bridle:board:picoboy| (only polling, interrupt signal not connected)
 
 .. zephyr-keep-sorted-stop
 

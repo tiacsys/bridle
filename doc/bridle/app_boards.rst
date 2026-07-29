@@ -217,7 +217,10 @@ Also see the :ref:`boards` section in this documentation.
 |                   |                                         | | ``mini_usb_rp2040@16mb/rp2040``            |
 |                   |                                         | | ``mini_usb_rp2040@chipled/rp2040``         |
 |                   +-----------------------------------------+----------------------------------------------+
-|                   | |bridle:board:picoboy|                  | | ``picoboy/rp2040``                         |
+|                   | |bridle:board:picoboy|                  | | ``picoboy``                                |
+|                   |                                         | | ``picoboy/rp2040``                         |
+|                   +-----------------------------------------+----------------------------------------------+
+|                   | |bridle:board:picoboy_color|            | | ``picoboy_color``                          |
 |                   |                                         | | ``picoboy_color/rp2040``                   |
 |                   +-----------------------------------------+----------------------------------------------+
 |                   | |bridle:board:waveshare_rp2040|         | | ``waveshare_rp2040_one``                   |
@@ -236,7 +239,8 @@ Also see the :ref:`boards` section in this documentation.
 |                   | |bridle:board:mini_usb_rp2350|          | | ``mini_usb_rp2350/rp2350``                 |
 |                   |                                         | | ``mini_usb_rp2350@16mb/rp2350``            |
 |                   +-----------------------------------------+----------------------------------------------+
-|                   | |bridle:board:picoboy|                  | ``picoboy_color_plus/rp2350a/m33``           |
+|                   | |bridle:board:picoboy_color_plus|       | | ``picoboy_color_plus/rp2350a/hazard3``     |
+|                   |                                         | | ``picoboy_color_plus/rp2350a/m33``         |
 |                   +-----------------------------------------+----------------------------------------------+
 |                   | |bridle:board:waveshare_rp2350|         | | ``waveshare_rp2350_can/rp2350a/hazard3``   |
 |                   |                                         | | ``waveshare_rp2350_can/rp2350a/m33``       |

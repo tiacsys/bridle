@@ -18,4 +18,5 @@ tests:
   bridle.sample.stk8ba58:
     integration_platforms:
       - picoboy/rp2040
+      - picoboy_color_plus/rp2350a/hazard3
       - picoboy_color_plus/rp2350a/m33

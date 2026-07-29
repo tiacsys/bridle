@@ -508,7 +508,7 @@
 .. |mini_usb_rp2350_PStr_CON|		replace:: :ign:`Mini USB RP2350 (CDC ACM)`
 .. |mini_usb_rp2350_BCD_CON|		replace:: |zephyr_version_BCD|
 
-.. |bridle:board:picoboy| replace:: :ref:`the_picoboy`
+.. |bridle:board:picoboy| replace:: :ref:`picoboy`
 .. :bridle:board:`picoboy`
 
 .. |PicoBoy| replace::
@@ -528,6 +528,9 @@
 .. |picoboy_PStr_CON|		replace:: :ign:`PicoBoy (CDC ACM)`
 .. |picoboy_BCD_CON|		replace:: |zephyr_version_BCD|
 
+.. |bridle:board:picoboy_color| replace:: :ref:`picoboy_color`
+.. :bridle:board:`picoboy_color`
+
 .. |PicoBoy Color| replace::
    :ref:`PicoBoy Color <picoboy_color>`
 .. :bridle:board:`picoboy_color`
@@ -544,6 +547,9 @@
 .. |picoboy_color_PID_CON|	replace:: |rpi_pico_sdk_uart_rp2040_PID|
 .. |picoboy_color_PStr_CON|	replace:: :ign:`PicoBoy Color (CDC ACM)`
 .. |picoboy_color_BCD_CON|	replace:: |zephyr_version_BCD|
+
+.. |bridle:board:picoboy_color_plus| replace:: :ref:`picoboy_color_plus`
+.. :bridle:board:`picoboy_color_plus`
 
 .. |PicoBoy Color Plus| replace::
    :ref:`PicoBoy Color Plus <picoboy_color_plus>`
