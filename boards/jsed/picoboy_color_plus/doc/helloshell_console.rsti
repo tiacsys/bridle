@@ -36,6 +36,8 @@
             Zephyr: |zephyr_release_number_em|
             Bridle: |release_number_em|
 
+      .. rubric:: On ARM Cortex-M33
+
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
@@ -49,7 +51,7 @@
             - cdc_acm_console_uart (READY)
               DT node labels: cdc_acm_console_uart
             - uart\ @\ 40070000 (READY)
-              DT node labels: uart0 rpipico_serial pico_serial
+              DT node labels: uart0
             - watchdog\ @\ 400d8000 (READY)
               DT node labels: wdt0
             - timer\ @\ 400b8000 (READY)
@@ -59,7 +61,7 @@
             - dma\ @\ 50000000 (READY)
               DT node labels: dma
             - gpio-port\ @\ 0 (READY)
-              DT node labels: gpio0
+              DT node labels: gpio0 gpio0_lo
             - usbd\ @\ 50110000 (READY)
               DT node labels: usbd zephyr_udc0
             - adc\ @\ 400a0000 (READY)
@@ -67,7 +69,54 @@
             - flash-controller\ @\ 400d0000 (READY)
               DT node labels: qmi
             - i2c\ @\ 40090000 (READY)
-              DT node labels: i2c0 grove_i2c rpipico_i2c0 rpipico_i2c pico_i2c0 pico_i2c
+              DT node labels: i2c0 zephyr_i2c stemma_i2c qwiic_i2c grove_i2c
+            - pwm\ @\ 400a8000 (READY)
+              DT node labels: pwm grove_pwm_d20 grove_pwm_d21
+            - lcd_backlight_en (READY)
+              DT node labels: lcd_backlight_en
+            - pwm_leds (READY)
+              DT node labels: pwm_leds
+            - dietemp (READY)
+              DT node labels: die_temp
+            - stk8ba58\ @\ 18 (READY)
+              DT node labels: stk8ba58
+
+      .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **device list**
+            devices:
+            - clock-controller\ @\ 40010000 (READY)
+              DT node labels: clocks
+            - reset-controller\ @\ 40020000 (READY)
+              DT node labels: reset
+            - interrupt-controller (READY)
+              DT node labels: intc
+            - cdc_acm_console_uart (READY)
+              DT node labels: cdc_acm_console_uart
+            - uart\ @\ 40070000 (READY)
+              DT node labels: uart0
+            - watchdog\ @\ 400d8000 (READY)
+              DT node labels: wdt0
+            - timer\ @\ 400b8000 (READY)
+              DT node labels: timer1
+            - timer\ @\ 400b0000 (READY)
+              DT node labels: timer0
+            - dma\ @\ 50000000 (READY)
+              DT node labels: dma
+            - gpio-port\ @\ 0 (READY)
+              DT node labels: gpio0 gpio0_lo
+            - usbd\ @\ 50110000 (READY)
+              DT node labels: usbd zephyr_udc0
+            - adc\ @\ 400a0000 (READY)
+              DT node labels: adc
+            - flash-controller\ @\ 400d0000 (READY)
+              DT node labels: qmi
+            - i2c\ @\ 40090000 (READY)
+              DT node labels: i2c0 zephyr_i2c stemma_i2c qwiic_i2c grove_i2c
             - pwm\ @\ 400a8000 (READY)
               DT node labels: pwm grove_pwm_d20 grove_pwm_d21
             - lcd_backlight_en (READY)
@@ -96,30 +145,52 @@
 
    .. group-tab:: VREG
 
-      .. admonition:: POWMAN with VREG not yet supported
-         :class: warning
+      Operate with the on-chip voltage regulator unit:
 
-         See section **Peripherals RP2350** in upstream issue:
-         https://github.com/zephyrproject-rtos/zephyr/issues/53810
+      .. container:: highlight highlight-console notranslate
 
-      .. Operate with the on-chip voltage regulator unit:
+         .. parsed-literal::
 
-         .. container:: highlight highlight-console notranslate
+            :bgn:`uart:~$` **regulator vlist vreg**
+            0.550000 V
+            0.600000 V
+            0.650000 V
+            0.700000 V
+            0.750000 V
+            0.800000 V
+            0.850000 V
+            0.900000 V
+            0.950000 V
+            1.000000 V
+            1.050000 V
+            1.100000 V
+            1.150000 V
+            1.200000 V
+            1.250000 V
+            1.300000 V
+            1.350000 V
+            1.400000 V
+            1.500000 V
+            1.600000 V
+            1.650000 V
+            1.700000 V
+            1.800000 V
+            1.900000 V
+            2.000000 V
+            2.350000 V
+            2.500000 V
+            2.650000 V
+            2.800000 V
+            3.000000 V
+            3.150000 V
+            3.300000 V
 
-            .. parsed-literal::
+      .. container:: highlight highlight-console notranslate
 
-               :bgn:`uart:~$` **regulator vlist vreg**
-               0.800 V
-               0.850 V
-               0.900 V
-               0.950 V
-               1.000 V
-               1.050 V
-               1.100 V
-               1.150 V
-               1.200 V
-               1.250 V
-               1.300 V
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **regulator vget vreg**
+            1.100000 V
 
       .. Trigger a power-of/on sequence:
 
@@ -133,7 +204,7 @@
 
                :bgn:`uart:~$` **regulator disable vreg**
                \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
-               Hello World! I'm THE SHELL from picoboy
+               Hello World! I'm THE SHELL from picoboy_color_plus
 
          .. container:: highlight highlight-console notranslate
 
@@ -196,6 +267,20 @@
 
             :bgn:`uart:~$` **led set_brightness pwm_leds 0 100**
             pwm_leds: setting LED 0 brightness to 100
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led off pwm_leds 0**
+            pwm_leds: turning off LED 0
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led blink pwm_leds 0 50 50**
+            pwm_leds: blinking LED 0 with 50 ms on and 50 ms off
 
       .. container:: highlight highlight-console notranslate
 
@@ -518,7 +603,7 @@
          .. parsed-literal::
 
             :bgn:`uart:~$` **sensor get dietemp**
-            :bgn:`channel type=12(die_temp) index=0 shift=5 num_samples=1 value=14554473307ns (31.067401)`
+            channel type=12(die_temp) index=0 shift=5 num_samples=1 value=14554473307ns (31.067401)
 
       .. rubric:: on-board 3-axis accelerometer
 
@@ -533,38 +618,38 @@
          .. parsed-literal::
 
             :bgn:`uart:~$` **sensor attr_get stk8ba58@18 accel_xyz full_scale**
-            :bgn:`stk8ba58@18(channel=accel_xyz, attr=full_scale) value=19.613300`
+            stk8ba58\ @\ 18(channel=accel_xyz, attr=full_scale) value=19.613300 value=0.000000 value=0.000000
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
             :bgn:`uart:~$` **sensor attr_get stk8ba58@18 accel_xyz sampling_frequency**
-            :bgn:`stk8ba58@18(channel=accel_xyz, attr=sampling_frequency) value=250.000000`
+            stk8ba58\ @\ 18(channel=accel_xyz, attr=sampling_frequency) value=250.000000 value=0.000000 value=0.000000
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
             :bgn:`uart:~$` **sensor attr_get stk8ba58@18 accel_xyz configuration**
-            :bgn:`stk8ba58@18(channel=accel_xyz, attr=configuration) value=25.000000`
+            stk8ba58\ @\ 18(channel=accel_xyz, attr=configuration) value=25.000000 value=0.000000 value=0.000000
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
             :bgn:`uart:~$` **sensor get stk8ba58@18**
-            :bgn:`channel type=0(accel_x) index=0 shift=4 num_samples=1 value=61368586658ns (-1.345472)`
-            :bgn:`channel type=1(accel_y) index=0 shift=4 num_samples=1 value=61368586658ns (3.651995)`
-            :bgn:`channel type=2(accel_z) index=0 shift=4 num_samples=1 value=61368586658ns (-9.812338)`
-            :bgn:`channel type=3(accel_xyz) index=0 shift=4 num_samples=1 value=61368586658ns, (-1.345472, 3.651995, -9.812338)`
+            channel type=0(accel_x) index=0 shift=4 num_samples=1 value=61368586658ns (-1.345472)
+            channel type=1(accel_y) index=0 shift=4 num_samples=1 value=61368586658ns (3.651995)
+            channel type=2(accel_z) index=0 shift=4 num_samples=1 value=61368586658ns (-9.812338)
+            channel type=3(accel_xyz) index=0 shift=4 num_samples=1 value=61368586658ns, (-1.345472, 3.651995, -9.812338)
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
             :bgn:`uart:~$` **sensor trig stk8ba58@18 on data_ready**
-            :bgn:`Enabled trigger idx=1 data_ready on device stk8ba58@18`
+            Enabled trigger idx=1 data_ready on device stk8ba58\ @\ 18
             [00:03:39.519,000] <inf> sensor_shell: sensor=stk8ba58, chan=accel_x, num_samples=138, data=-1.085779
             [00:03:39.519,000] <inf> sensor_shell: sensor=stk8ba58, chan=accel_y, num_samples=138, data=4.899622
             [00:03:39.519,000] <inf> sensor_shell: sensor=stk8ba58, chan=accel_z, num_samples=138, data=-9.081102
@@ -586,5 +671,5 @@
          .. parsed-literal::
 
             :bgn:`uart:~$` **sensor trig stk8ba58@18 off data_ready**
-            :bgn:`Disabled trigger idx=1 data_ready on device stk8ba58@18`
+            Disabled trigger idx=1 data_ready on device stk8ba58\ @\ 18
             [00:05:48.412,000] :byl:`<wrn> STK8BA58: stk8ba58: no handler`

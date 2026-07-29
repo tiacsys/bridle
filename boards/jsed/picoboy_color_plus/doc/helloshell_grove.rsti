@@ -1,13 +1,28 @@
 .. rubric:: Hello Shell
 
-.. zephyr-app-commands::
-   :app: bridle/samples/helloshell
-   :build-dir: picoboy
-   :board: picoboy_color_plus/rp2350a/m33
-   :shield: "grove_sens_bmp280"
-   :west-args: -p
-   :goals: flash
-   :compact:
+See also Bridle sample: :ref:`helloshell-sample`.
+
+   .. rubric:: On ARM Cortex-M33
+
+   .. zephyr-app-commands::
+      :app: bridle/samples/helloshell
+      :build-dir: picoboy_color_plus
+      :board: picoboy_color_plus/rp2350a/m33
+      :shield: "grove_sens_bmp280"
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+   .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+
+   .. zephyr-app-commands::
+      :app: bridle/samples/helloshell
+      :build-dir: picoboy_color_plus
+      :board: picoboy_color_plus/rp2350a/hazard3
+      :shield: "grove_sens_bmp280"
+      :west-args: -p
+      :goals: flash
+      :compact:
 
 .. rubric:: Simple test execution on target
 
@@ -48,6 +63,6 @@
          .. parsed-literal::
 
             :bgn:`uart:~$` **sensor get bmp280@77**
-            :bgn:`channel type=13(ambient_temp) index=0 shift=16 num_samples=1 value=88094851080ns (24.069976)`
-            :bgn:`channel type=14(press) index=0 shift=23 num_samples=1 value=88094851080ns (100.218750)`
-            :bgn:`channel type=16(humidity) index=0 shift=21 num_samples=1 value=88094851080ns (0.000000)`
+            channel type=13(ambient_temp) index=0 shift=16 num_samples=1 value=88094851080ns (24.069976)
+            channel type=14(press) index=0 shift=23 num_samples=1 value=88094851080ns (100.218750)
+            channel type=16(humidity) index=0 shift=21 num_samples=1 value=88094851080ns (0.000000)

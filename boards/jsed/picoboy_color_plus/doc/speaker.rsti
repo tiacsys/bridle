@@ -1,18 +1,30 @@
-.. rubric:: Speaker Test
-
-.. image:: picoboy-color-plus/speaker.jpg
+.. image:: img/speaker.jpg
    :align: right
    :alt: PicoBoy Color Plus Speaker Test
 
+.. rubric:: Speaker Test
+
 Invoke :program:`west build` and :program:`west flash`:
 
-.. zephyr-app-commands::
-   :app: bridle/samples/buzzer
-   :build-dir: picoboy
-   :board: picoboy_color_plus/rp2350a/m33
-   :west-args: -p
-   :goals: flash
-   :compact:
+   .. rubric:: On ARM Cortex-M33
+
+   .. zephyr-app-commands::
+      :app: bridle/samples/buzzer
+      :build-dir: picoboy_color_plus
+      :board: picoboy_color_plus/rp2350a/m33
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+   .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+
+   .. zephyr-app-commands::
+      :app: bridle/samples/buzzer
+      :build-dir: picoboy_color_plus
+      :board: picoboy_color_plus/rp2350a/hazard3
+      :west-args: -p
+      :goals: flash
+      :compact:
 
 .. rubric:: Simple test execution on target
 

@@ -1,12 +1,24 @@
 Invoke :program:`west build` and :program:`west flash`:
 
-.. zephyr-app-commands::
-   :app: zephyr/samples/sensor/accel_trig
-   :build-dir: picoboy
-   :board: picoboy_color_plus/rp2350a/m33
-   :west-args: -p
-   :goals: flash
-   :compact:
+   .. rubric:: On ARM Cortex-M33
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/sensor/accel_trig
+      :build-dir: picoboy_color_plus
+      :board: picoboy_color_plus/rp2350a/m33
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+   .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/sensor/accel_trig
+      :build-dir: picoboy_color_plus
+      :board: picoboy_color_plus/rp2350a/hazard3
+      :west-args: -p
+      :goals: flash
+      :compact:
 
 .. rubric:: Simple test execution on target
 

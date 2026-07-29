@@ -9,17 +9,29 @@ the :external+zephyr:ref:`Input subsystem API <input>`. That are:
 | :hwftlbl-joy:`RIGHT` : :dts:`zephyr,code = <INPUT_KEY_RIGHT>;`
 | :hwftlbl-joy:`ENTER` : :dts:`zephyr,code = <INPUT_KEY_ENTER>;`
 
-See also Zephyr sample: :external+zephyr:zephyr:code-sample:`input-dump`.
-
 .. rubric:: Joystick Test
 
-.. zephyr-app-commands::
-   :app: zephyr/samples/subsys/input/input_dump
-   :build-dir: picoboy
-   :board: picoboy_color_plus/rp2350a/m33
-   :west-args: -p
-   :goals: flash
-   :compact:
+See also Zephyr sample: :external+zephyr:zephyr:code-sample:`input-dump`.
+
+   .. rubric:: On ARM Cortex-M33
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/subsys/input/input_dump
+      :build-dir: picoboy_color_plus
+      :board: picoboy_color_plus/rp2350a/m33
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+   .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/subsys/input/input_dump
+      :build-dir: picoboy_color_plus
+      :board: picoboy_color_plus/rp2350a/hazard3
+      :west-args: -p
+      :goals: flash
+      :compact:
 
 .. rubric:: Simple logging output on target
 
