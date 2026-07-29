@@ -1,0 +1,221 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/dts-v1/;
+
+#include <freq.h>
+#include <mem.h>
+
+#include <raspberrypi/rpi_pico/rp2040.dtsi>
+#include <raspberrypi/partitions_2M_default.dtsi>
+
+#include <zephyr/dt-bindings/clock/rpi_pico_rp2040_clock.h>
+#include <zephyr/dt-bindings/regulator/rpi_pico.h>
+
+#include <zephyr/dt-bindings/gpio/gpio.h>
+#include <zephyr/dt-bindings/i2c/i2c.h>
+#include <zephyr/dt-bindings/led/led.h>
+
+#include <zephyr/dt-bindings/display/panel.h>
+
+#include "waveshare_rp2040mini_connector.dtsi"
+#include "waveshare_rp2040_matrix-pinctrl.dtsi"
+
+/ {
+	model = "Waveshare RP2040-Matrix @ UART Concole";
+	compatible = "waveshare,rp2040-matrix",
+		     "waveshare,rp2040-matrix-uartcons";
+
+	chosen {
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+		zephyr,flash-controller = &ssi;
+		zephyr,code-partition = &code_partition;
+		zephyr,console = &uart0;
+		zephyr,shell-uart = &uart0;
+		zephyr,display = &led_strip_matrix;
+	};
+
+	aliases {
+		led-strip = &led_strip;
+		watchdog0 = &wdt0;
+	};
+
+	zephyr,user {
+		io-channels = <&adc 0>, <&adc 1>, <&adc 2>, <&adc 3>;
+	};
+
+	led_strip_matrix: led-strip-matrix {
+		compatible = "led-strip-matrix";
+	};
+};
+
+&flash0 {
+	status = "okay";
+	reg = <0x10000000 DT_SIZE_M(2)>;
+	ranges = <0x0 0x10000000 DT_SIZE_M(2)>;
+};
+
+&clocks {
+	status = "okay";
+	pinctrl-0 = <&clocks_default>;
+	pinctrl-names = "default";
+};
+
+&vreg {
+	status = "okay";
+	regulator-always-on;
+	regulator-allowed-modes = <REGULATOR_RPI_PICO_MODE_NORMAL>;
+};
+
+&reset {
+	status = "okay";
+};
+
+&wdt0 {
+	status = "okay";
+};
+
+&rtc {
+	status = "okay";
+	clocks = <&clocks RPI_PICO_CLKID_CLK_RTC>;
+};
+
+&timer {
+	status = "okay";
+};
+
+&dma {
+	status = "okay";
+};
+
+&die_temp {
+	status = "okay";
+	friendly-name = "RP2040 chip temperature";
+};
+
+&uart0 {
+	status = "okay";
+	pinctrl-0 = <&uart0_default>;
+	pinctrl-names = "default";
+	current-speed = <115200>;
+};
+
+zephyr_udc0: &usbd {
+	status = "okay";
+};
+
+&spi0 {
+	status = "okay";
+	pinctrl-0 = <&spi0_mini_default>;
+	pinctrl-names = "default";
+	clock-frequency = <DT_FREQ_M(8)>;
+};
+
+&i2c0 {
+	status = "okay";
+	pinctrl-0 = <&i2c0_mini_default>;
+	pinctrl-names = "default";
+	clock-frequency = <I2C_BITRATE_STANDARD>;
+};
+
+&i2c1 {
+	status = "disabled";
+	pinctrl-0 = <&i2c1_mini_default>;
+	pinctrl-names = "default";
+	clock-frequency = <I2C_BITRATE_STANDARD>;
+};
+
+&pio0 {
+	status = "okay";
+
+	pio-ws2812 {
+		compatible = "worldsemi,ws2812-rpi_pico-pio";
+		status = "okay";
+
+		pinctrl-0 = <&pio0_ws2812_default>;
+		pinctrl-names = "default";
+
+		/* HI: 0x3F0: 1111110000: 0.750 us high and 0.500 us low */
+		/* LO: 0x380: 1110000000: 0.375 us high and 0.875 us low */
+		bit-waveform = <3>, <3>, <4>;
+
+		ws2812_5x5: ws2812-5x5 {
+			status = "okay";
+
+			chain-length = <(5*5)>;	/* 5x5 panel with RGB pixel */
+			color-mapping = <LED_COLOR_ID_GREEN
+					 LED_COLOR_ID_RED
+					 LED_COLOR_ID_BLUE>;
+
+			/* PIO0:OUT @ GP16 and Tbit = 1.25 us / 10 */
+			gpios = <&gpio0 16 GPIO_ACTIVE_HIGH>;
+			frequency = <DT_FREQ_K(800)>;
+			reset-delay = <280>;
+		};
+	};
+};
+
+led_strip: &ws2812_5x5 {};
+
+&led_strip_matrix {
+	/* LED strip with circulative layout */
+	led-strips = <&led_strip>;
+	circulative;
+
+	/* 5x5 panel with RGB pixel and alpha channel */
+	width = <5>;
+	height = <5>;
+	pixel-format = <PANEL_PIXEL_FORMAT_ARGB_8888>;
+};
+
+&pwm {
+	status = "okay";
+	pinctrl-0 = <&pwm_mini_default>;
+	pinctrl-names = "default";
+};
+
+&adc {
+	status = "okay";
+	pinctrl-0 = <&adc_default>;
+	pinctrl-names = "default";
+};
+
+&gpio0 {
+	status = "okay";
+	/* namespace and positions without wired bits */
+	gpio-reserved-ranges = <16 10>;
+	gpio-line-names =
+		"TX0",			/* GP0 */
+		"RX0",			/* GP1 */
+		"GP2_CTS0",		/* GP2 */
+		"GP3_RTS0",		/* GP3 */
+		"SDI0",			/* GP4 */
+		"CSN0",			/* GP5 */
+		"SCK0",			/* GP6 */
+		"SDO0",			/* GP7 */
+		"SDA0",			/* GP8 */
+		"SCL0",			/* GP9 */
+		"GP10_PWM10",		/* GP10 */
+		"GP11_PWM11",		/* GP11 */
+		"GP12_PWM12",		/* GP12 */
+		"GP13_PWM13",		/* GP13 */
+		"GP14_SDA1",		/* GP14 */
+		"GP15_SCL1",		/* GP15 */
+		"",  /* Din of LED stripe, GP16 */
+		"",          /* not wired, GP17 */
+		"",          /* not wired, GP18 */
+		"",          /* not wired, GP19 */
+		"",          /* not wired, GP20 */
+		"",          /* not wired, GP21 */
+		"",          /* not wired, GP22 */
+		"",          /* not wired, GP23 */
+		"",          /* not wired, GP24 */
+		"",          /* not wired, GP25 */
+		"ADC0",			/* GP26 */
+		"ADC1",			/* GP27 */
+		"ADC2",			/* GP28 */
+		"ADC3";			/* GP29 */
+};

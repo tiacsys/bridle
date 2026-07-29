@@ -1,27 +1,9 @@
-# Copyright (c) 2023-2026 TiaC Systems
+# SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
-config BOARD_WAVESHARE_RP2040_MINI
-	bool
-	default y if BOARD_WAVESHARE_RP2040_ONE
-	default y if BOARD_WAVESHARE_RP2040_ZERO
-	default y if BOARD_WAVESHARE_RP2040_TINY
-	default n
-
-config BOARD_WAVESHARE_RP2040_LCD
-	bool
-	default y if BOARD_WAVESHARE_RP2040_GEEK
-	default n
-
-config BOARD_WAVESHARE_RP2040
-	bool
-	default y if BOARD_WAVESHARE_RP2040_MINI
-	default y if BOARD_WAVESHARE_RP2040_GEEK
-	default n
-
 config RP2_FLASH_W25Q080
-	default y
-	depends on BOARD_WAVESHARE_RP2040
+	default y if BOARD_WAVESHARE_RP2040_MATRIX
+	depends on SOC_SERIES_RP2040
 
 config CLOCK_CONTROL
 	default y
@@ -41,7 +23,7 @@ config WATCHDOG
 	depends on DT_HAS_RASPBERRYPI_PICO_WATCHDOG_ENABLED
 
 config WDT_DISABLE_AT_BOOT
-	default y if BOARD_WAVESHARE_RP2040
+	default y if BOARD_WAVESHARE_RP2040_MATRIX
 	depends on WATCHDOG && HAS_WDT_DISABLE_AT_BOOT
 
 config COUNTER
@@ -60,18 +42,9 @@ config PWM
 	default y
 	depends on DT_HAS_RASPBERRYPI_PICO_PWM_ENABLED
 
-config LV_Z_BITS_PER_PIXEL
-	default 16 if BOARD_WAVESHARE_RP2040_GEEK
-	depends on BOARD_WAVESHARE_RP2040_LCD && DISPLAY && LVGL
-
-choice LV_COLOR_DEPTH
-	default LV_COLOR_DEPTH_16 if BOARD_WAVESHARE_RP2040_GEEK
-	depends on BOARD_WAVESHARE_RP2040_LCD && DISPLAY && LVGL
-endchoice
-
-config LV_COLOR_16_SWAP
-	default y if BOARD_WAVESHARE_RP2040_GEEK
-	depends on BOARD_WAVESHARE_RP2040_LCD && DISPLAY && LVGL
+config LED_STRIP
+	default y if BOARD_WAVESHARE_RP2040_MATRIX
+	depends on DISPLAY
 
 # Workaround for not being able to have commas in macro arguments
 DT_CHOSEN_Z_CONSOLE := zephyr,console
@@ -82,7 +55,7 @@ DT_COMPAT_RPIPICO_USB := raspberrypi,pico-usbd
 DT_CHOSEN_CONSOLE_NODE := $(dt_chosen_path,$(DT_CHOSEN_Z_CONSOLE))
 DT_CHOSEN_CONSOLE_PARENT := $(dt_node_parent,$(DT_CHOSEN_CONSOLE_NODE))
 
-if BOARD_WAVESHARE_RP2040 && \
+if BOARD_WAVESHARE_RP2040_MATRIX && \
 	$(dt_chosen_enabled,$(DT_CHOSEN_Z_CONSOLE)) && \
 	$(dt_compat_on_bus,$(DT_COMPAT_Z_CDC_ACM_UART),usb) && \
 	$(dt_node_has_compat,$(DT_CHOSEN_CONSOLE_PARENT),$(DT_COMPAT_RPIPICO_USB))
@@ -92,10 +65,7 @@ config CDC_ACM_SERIAL_SELF_POWERED
 	depends on USB_DEVICE_STACK_NEXT && USBD_CDC_ACM_CLASS
 
 config CDC_ACM_SERIAL_MAX_POWER
-	default 150 if BOARD_WAVESHARE_RP2040_ONE	# 300mA
-	default 240 if BOARD_WAVESHARE_RP2040_ZERO	# 480mA
-	default 150 if BOARD_WAVESHARE_RP2040_TINY	# 300mA
-	default 100 if BOARD_WAVESHARE_RP2040_GEEK	# 200mA
+	default 150 if BOARD_WAVESHARE_RP2040_MATRIX	# 300mA
 	depends on USB_DEVICE_STACK_NEXT && USBD_CDC_ACM_CLASS
 
 # Logger cannot use itself to log
