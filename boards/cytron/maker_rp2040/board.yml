@@ -1,6 +1,0 @@
-boards:
-  - name: cytron_maker_pi_rp2040
-    full_name: Cytron Maker Pi RP2040
-    vendor: cytron
-    socs:
-      - name: rp2040

@@ -1,0 +1,288 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/dts-v1/;
+
+#include <freq.h>
+#include <mem.h>
+
+#include <raspberrypi/rpi_pico/rp2040.dtsi>
+#include <raspberrypi/partitions_2M_default.dtsi>
+
+#include <zephyr/dt-bindings/clock/rpi_pico_rp2040_clock.h>
+#include <zephyr/dt-bindings/regulator/rpi_pico.h>
+
+#include <zephyr/dt-bindings/gpio/gpio.h>
+#include <zephyr/dt-bindings/i2c/i2c.h>
+#include <zephyr/dt-bindings/led/led.h>
+#include <zephyr/dt-bindings/pwm/pwm.h>
+
+#include <zephyr/dt-bindings/input/input-event-codes.h>
+#include <zephyr/dt-bindings/lvgl/lvgl.h>
+
+#include "seeed_grove_connectors.dtsi"
+#include "cytron_maker_pi_rp2040-pinctrl.dtsi"
+
+/ {
+	model = "Cytron Maker Pi RP2040 @ UART Concole";
+	compatible = "cytron,maker-pi-rp2040",
+		     "cytron,maker-pi-rp2040-uartcons";
+
+	chosen {
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+		zephyr,flash-controller = &ssi;
+		zephyr,code-partition = &code_partition;
+		zephyr,console = &uart0;
+		zephyr,shell-uart = &uart0;
+	};
+
+	aliases {
+		watchdog0 = &wdt0;
+		sw0 = &btn0;
+		sw1 = &btn1;
+		led0 = &led0;
+		pwm-led0 = &pwm_led0;
+		pwm-buzzer0 = &pwm_buzzer0;
+		led-strip = &led_strip;
+		pwm-servo0 = &pwm_servo0;
+		pwm-servo1 = &pwm_servo1;
+		pwm-servo2 = &pwm_servo2;
+		pwm-servo3 = &pwm_servo3;
+	};
+
+	zephyr,user {
+		io-channels = <&adc 0>, <&adc 1>, <&adc 2>, <&adc 3>;
+	};
+
+	lvgl_keypad: lvgl-keypad {
+		compatible = "zephyr,lvgl-keypad-input";
+		input = <&gpio_keys>;
+		input-codes = <INPUT_KEY_0 INPUT_KEY_1>;
+		lvgl-codes = <LV_KEY_ENTER LV_KEY_NEXT>;
+	};
+
+	gpio_keys: gpio_keys {
+		compatible = "gpio-keys";
+
+		btn0: btn_0 {
+			gpios = <&gpio0 20 GPIO_ACTIVE_LOW>;
+			zephyr,code = <INPUT_KEY_0>;
+			label = "BTN1";
+		};
+		btn1: btn_1 {
+			gpios = <&gpio0 21 GPIO_ACTIVE_LOW>;
+			zephyr,code = <INPUT_KEY_1>;
+			label = "BTN2";
+		};
+	};
+
+	gpio_leds: gpio_leds {
+		compatible = "gpio-leds";
+
+		led0: led_0 {
+			gpios = <&gpio0 7 GPIO_ACTIVE_HIGH>;
+			label = "LED";
+		};
+	};
+
+	pwm_leds: pwm_leds {
+		compatible = "pwm-leds";
+
+		pwm_led0: pwm_led_0 {
+			pwms = <&pwm 7 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+			label = "PWM_LED";
+		};
+	};
+
+	pwm_buzzers {
+		compatible = "pwm-buzzers";
+
+		pwm_buzzer0: pwm_buzzer0 {
+			pwms = <&pwm 6 PWM_HZ(880) PWM_POLARITY_NORMAL>;
+			label = "PWM_BUZZER";
+		};
+	};
+
+	pwm_servo_motors {
+		compatible = "pwm-servos";
+
+		pwm_servo0: pwm_servo_0 {
+			pwms = <&pwm 12 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+			label = "PWM_SERVO_0";
+		};
+		pwm_servo1: pwm_servo_1 {
+			pwms = <&pwm 13 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+			label = "PWM_SERVO_1";
+		};
+		pwm_servo2: pwm_servo_2 {
+			pwms = <&pwm 14 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+			label = "PWM_SERVO_2";
+		};
+		pwm_servo3: pwm_servo_3 {
+			pwms = <&pwm 15 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+			label = "PWM_SERVO_3";
+		};
+	};
+};
+
+&flash0 {
+	status = "okay";
+	reg = <0x10000000 DT_SIZE_M(2)>;
+	ranges = <0x0 0x10000000 DT_SIZE_M(2)>;
+};
+
+&clocks {
+	status = "okay";
+	pinctrl-0 = <&clocks_default>;
+	pinctrl-names = "default";
+};
+
+&vreg {
+	status = "okay";
+	regulator-always-on;
+	regulator-allowed-modes = <REGULATOR_RPI_PICO_MODE_NORMAL>;
+};
+
+&reset {
+	status = "okay";
+};
+
+&wdt0 {
+	status = "okay";
+};
+
+&rtc {
+	status = "okay";
+	clocks = <&clocks RPI_PICO_CLKID_CLK_RTC>;
+};
+
+&timer {
+	status = "okay";
+};
+
+&dma {
+	status = "okay";
+};
+
+&die_temp {
+	status = "okay";
+	friendly-name = "RP2040 chip temperature";
+};
+
+&uart0 {
+	status = "okay";
+	pinctrl-0 = <&uart0_default>;
+	pinctrl-names = "default";
+	current-speed = <115200>;
+};
+
+zephyr_udc0: &usbd {
+	status = "okay";
+};
+
+&spi0 {
+	status = "okay";
+	pinctrl-0 = <&spi0_default>;
+	pinctrl-names = "default";
+	clock-frequency = <DT_FREQ_M(8)>;
+};
+
+&i2c0 {
+	status = "okay";
+	pinctrl-0 = <&i2c0_default>;
+	pinctrl-names = "default";
+	clock-frequency = <I2C_BITRATE_STANDARD>;
+};
+
+&i2c1 {
+	status = "disabled";
+	pinctrl-0 = <&i2c1_default>;
+	pinctrl-names = "default";
+	clock-frequency = <I2C_BITRATE_STANDARD>;
+};
+
+&pwm {
+	status = "okay";
+	pinctrl-0 = <&pwm_default>;
+	pinctrl-names = "default";
+	divider-int-3 = <255>;	/* buzzer: PWM3CHA (6) */
+	divider-frac-3 = <15>;	/* led:    PWM3CHB (7) */
+	divider-int-6 = <255>;	/* servo:  PWM6CHA/B (12/13) */
+	divider-int-7 = <255>;	/* servo:  PWM7CHA/B (14/15) */
+};
+
+&adc {
+	status = "okay";
+	pinctrl-0 = <&adc_default>;
+	pinctrl-names = "default";
+};
+
+&pio0 {
+	status = "okay";
+
+	pio-ws2812 {
+		compatible = "worldsemi,ws2812-rpi_pico-pio";
+		status = "okay";
+
+		pinctrl-0 = <&pio0_ws2812_default>;
+		pinctrl-names = "default";
+
+		/* HI: 0x3F0: 1111110000: 0.750 us high and 0.500 us low */
+		/* LO: 0x380: 1110000000: 0.375 us high and 0.875 us low */
+		bit-waveform = <3>, <3>, <4>;
+
+		led_strip: ws2812 {
+			status = "okay";
+
+			chain-length = <2>;
+			color-mapping = <LED_COLOR_ID_RED
+					 LED_COLOR_ID_GREEN
+					 LED_COLOR_ID_BLUE>;
+
+			/* PIO0:OUT @ GP18 and Tbit = 1.25 us / 10 */
+			gpios = <&gpio0 18 GPIO_ACTIVE_HIGH>;
+			frequency = <DT_FREQ_K(800)>;
+			reset-delay = <280>;
+		};
+	};
+};
+
+&gpio0 {
+	status = "okay";
+	/* namespace and positions without wired bits */
+	gpio-reserved-ranges = <19 1>, <23 3>;
+	gpio-line-names =
+		"GROVE13_TX0",		/* GP0 */
+		"GROVE14_RX0",		/* GP1 */
+		"GROVE23_SCK0",		/* GP2 */
+		"GROVE24_SDO0",		/* GP3 */
+		"GROVE33_SDI0",		/* GP4 */
+		"GROVE34_CSN0",		/* GP5 */
+		"GROVE53",		/* GP6 */
+		"GROVE73ULED0",		/* GP7 */
+		"DCM1A_PWM8",		/* GP8 */
+		"DCM1B_PWM9",		/* GP9 */
+		"DCM2A_PWM10",		/* GP10 */
+		"DCM2B_PWM11",		/* GP11 */
+		"SRVM1_PWM12",		/* GP12 */
+		"SRVM2_PWM13",		/* GP13 */
+		"SRVM3_PWM14",		/* GP14 */
+		"SRVM4_PWM15",		/* GP15 */
+		"GROVE43_SDA0",		/* GP16 */
+		"GROVE44_SCL0",		/* GP17 */
+		"RGB_PIO0",		/* GP18 */
+		"",	 /* not connected, GP19 */
+		"UBTN0",		/* GP20 */
+		"UBTN1",		/* GP21 */
+		"BUZZER_PWM6",		/* GP22 */
+		"",	 /* not connected, GP23 */
+		"",	 /* not connected, GP24 */
+		"",	 /* not connected, GP25 */
+		"GROVE54_ADC0",		/* GP26 */
+		"GROVE64_ADC1",		/* GP27 */
+		"GROVE74_ADC2",		/* GP28 */
+		"VMOTOR_ADC3";		/* GP29 */
+};

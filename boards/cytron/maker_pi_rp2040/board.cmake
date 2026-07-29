@@ -1,4 +1,4 @@
-# Copyright (c) 2023-2026 TiaC Systems
+# SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 message(STATUS "Found BOARD.cmake: ${dir}/board.cmake")
