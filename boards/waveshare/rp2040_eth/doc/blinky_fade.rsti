@@ -1,0 +1,22 @@
+.. image:: img/ws2812b.gif
+   :align: right
+   :alt: Waveshare RP2040-ETH WS2812 LED Test Pattern
+
+.. rubric:: WS2812 LED Test Pattern by PIO
+
+See also Zephyr sample: :external+zephyr:zephyr:code-sample:`led-strip`.
+
+.. zephyr-app-commands::
+   :app: zephyr/samples/drivers/led/led_strip
+   :build-dir: waveshare_rp2040
+   :board: waveshare_rp2040_eth
+   :gen-args: -DCONFIG_SAMPLE_LED_UPDATE_DELAY=500
+   :west-args: -p
+   :goals: flash
+   :compact:
+
+.. hint::
+
+   Neither LED Blinky nor LED Fade can be built and executed on this
+   board, because this system has only one digital RGB LED.
+   A simple GPIO or PWM control is not possible!

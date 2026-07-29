@@ -100,7 +100,7 @@ embedded but complete TCP/IP stack (incl. UDP, ICMP, IGMP, ARP).
        - :dtcompatible:`raspberrypi,pico-header`
        - :dtcompatible:`raspberrypi,pico-header-r3`
 
-     - .. image:: rp2040-eth/pinouts.jpg
+     - .. image:: img/pinouts.jpg
           :align: center
           :width: 100%
           :alt: Waveshare RP2040-ETH edge pinout
