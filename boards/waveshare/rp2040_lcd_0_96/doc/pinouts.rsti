@@ -94,7 +94,7 @@ with the on-board LCD, but are still available externally in parallel.
        - :dtcompatible:`raspberrypi,pico-header`
        - :dtcompatible:`raspberrypi,pico-header-r3`
 
-     - .. image:: rp2040-lcd-0.96/pinouts.jpg
+     - .. image:: img/pinouts.jpg
           :align: center
           :width: 100%
           :alt: Waveshare RP2040-LCD-0.96 edge pinout

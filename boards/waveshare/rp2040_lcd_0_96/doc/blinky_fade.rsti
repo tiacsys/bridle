@@ -1,0 +1,38 @@
+.. rubric:: LCD Backlight LED Blinky by GPIO
+
+See also Zephyr sample: :external+zephyr:zephyr:code-sample:`blinky`.
+
+.. zephyr-app-commands::
+   :app: zephyr/samples/basic/blinky
+   :build-dir: waveshare_rp2040_lcd_0_96
+   :board: waveshare_rp2040_lcd_0_96/rp2040
+   :gen-args: -DCONFIG_REGULATOR_FIXED=n
+   :west-args: -p
+   :goals: flash
+   :compact:
+
+.. rubric:: LCD Backlight LED Blinky by PWM
+
+See also Zephyr sample: :external+zephyr:zephyr:code-sample:`pwm-blinky`.
+
+.. zephyr-app-commands::
+   :app: zephyr/samples/basic/blinky_pwm
+   :build-dir: waveshare_rp2040_lcd_0_96
+   :board: waveshare_rp2040_lcd_0_96/rp2040
+   :gen-args: -DCONFIG_REGULATOR_FIXED=n
+   :west-args: -p
+   :goals: flash
+   :compact:
+
+.. rubric:: LCD Backlight LED Fade by PWM
+
+See also Zephyr sample: :external+zephyr:zephyr:code-sample:`fade-led`.
+
+.. zephyr-app-commands::
+   :app: zephyr/samples/basic/fade_led
+   :build-dir: waveshare_rp2040_lcd_0_96
+   :board: waveshare_rp2040_lcd_0_96/rp2040
+   :gen-args: -DCONFIG_REGULATOR_FIXED=n
+   :west-args: -p
+   :goals: flash
+   :compact:

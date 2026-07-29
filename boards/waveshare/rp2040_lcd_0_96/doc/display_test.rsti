@@ -1,0 +1,119 @@
+The following samples work with the chosen display. That is:
+
+| :hwftlbl-scr:`LCD` : :dts:`chosen { zephyr,display = &lcd_panel; };`
+| :hwftlbl-scr:`ST7735S` : :dts:`lcd_panel: &st7735s_160x80 {};`
+
+.. rubric:: LCD Orientation and Bit Order Test
+
+Draw some basic rectangles onto the display using the
+:external+zephyr:ref:`Display driver API <display_api>`.
+See also Zephyr sample: :external+zephyr:zephyr:code-sample:`display`.
+
+.. zephyr-app-commands::
+   :app: zephyr/samples/drivers/display
+   :build-dir: waveshare_rp2040_lcd_0_96
+   :board: waveshare_rp2040_lcd_0_96/rp2040
+   :snippets: "usb-console"
+   :west-args: -p
+   :goals: flash
+   :compact:
+
+.. list-table::
+   :align: center
+   :width: 66%
+   :header-rows: 1
+
+   * - .. image:: img/display.*
+          :align: center
+          :alt: Waveshare RP2040-LCD-0.96 Display Sample Animation
+   * - .. rst-class:: centered
+
+          :brd:`TOP LEFT`, :bgn:`TOP RIGHT`, :bbl:`BOTTOM RIGHT`
+
+.. rubric:: LVGL Basic Sample
+
+Displays “Hello World!” in the center of the screen and a counter at the
+bottom which increments every second using the LVGL module on top of the
+:external+zephyr:ref:`Display driver API <display_api>`.
+See also Zephyr sample: :external+zephyr:zephyr:code-sample:`lvgl`.
+
+.. zephyr-app-commands::
+   :app: zephyr/samples/subsys/display/lvgl
+   :build-dir: waveshare_rp2040_lcd_0_96
+   :board: waveshare_rp2040_lcd_0_96/rp2040
+   :snippets: "usb-console"
+   :west-args: -p
+   :goals: flash
+   :compact:
+
+This sample comes with a Shell command line access to the LVGL backend
+on the console, here configured for a USB console:
+
+.. rubric:: Simple test execution on target
+
+.. container:: highlight highlight-console notranslate
+
+   .. parsed-literal::
+
+      :bgn:`uart:~$` **lvgl**
+      lvgl - LVGL shell commands
+      Subcommands:
+        stats   : Show LVGL statistics
+        monkey  : LVGL monkey testing
+
+      :bgn:`uart:~$` **lvgl stats**
+      stats - Show LVGL statistics
+      Subcommands:
+        memory  : Show LVGL memory statistics
+                  Usage: memory [-c]
+                         -c  dump chunk information
+
+      :bgn:`uart:~$` **lvgl stats memory**
+      Heap at 0x20001558 contains 2047 units in 11 buckets
+
+        bucket#    min units        total      largest      largest
+                   threshold       chunks      (units)      (bytes)
+        -----------------------------------------------------------
+              0            1            2            1            8
+              1            2            1            3           24
+              2            4            1            4           32
+             10         1024            1         1145         9160
+
+      9212 free bytes, 6648 allocated bytes, overhead = 520 bytes (3.2%)
+
+   .. parsed-literal::
+
+      :bgn:`uart:~$` **device list**
+      devices:
+      - clock-controller\ @\ 40008000 (READY)
+        DT node labels: clocks
+      - reset-controller\ @\ 4000c000 (READY)
+        DT node labels: reset
+      - snippet_cdc_acm_console_uart (READY)
+        DT node labels: snippet_cdc_acm_console_uart
+      - timer\ @\ 40054000 (READY)
+        DT node labels: timer
+      - uart\ @\ 40034000 (READY)
+        DT node labels: uart0 pico_serial rpipico_serial
+      - watchdog\ @\ 40058000 (READY)
+        DT node labels: wdt0
+      - dma\ @\ 50000000 (READY)
+        DT node labels: dma
+      - gpio-port\ @\ 0 (READY)
+        DT node labels: gpio0
+      - usbd\ @\ 50110000 (READY)
+        DT node labels: usbd zephyr_udc0
+      - pwm\ @\ 40050000 (READY)
+        DT node labels: pwm
+      - vreg\ @\ 40064000 (READY)
+        DT node labels: vreg
+      - spi\ @\ 40040000 (READY)
+        DT node labels: spi1 pico_spi1 rpipico_spi1
+      - spi\ @\ 4003c000 (READY)
+        DT node labels: spi0 pico_spi0 pico_spi rpipico_spi0 rpipico_spi
+      - lcd-backlight-en (READY)
+        DT node labels: lcd_backlight_en
+      - mipi-dbi-spi1 (READY)
+        DT node labels: mipi_dbi_spi1
+      - st7735s\ @\ 0 (READY)
+        DT node labels: st7735s_160x80 lcd_panel
