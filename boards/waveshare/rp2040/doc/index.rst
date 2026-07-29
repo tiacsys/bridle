@@ -25,12 +25,6 @@ Hardware
 
       .. include:: rp2040-geek/hardware.rsti
 
-   .. group-tab:: RP2040-Tiny
-
-      .. _waveshare_rp2040_tiny:
-
-      .. include:: rp2040-tiny/hardware.rsti
-
    .. zephyr-keep-sorted-stop
 
 Positions
@@ -43,10 +37,6 @@ Positions
    .. group-tab:: RP2040-Geek
 
       .. include:: rp2040-geek/positions.rsti
-
-   .. group-tab:: RP2040-Tiny
-
-      .. include:: rp2040-tiny/positions.rsti
 
    .. zephyr-keep-sorted-stop
 
@@ -67,10 +57,6 @@ in a single tab.
    .. group-tab:: RP2040-Geek
 
       .. include:: rp2040-geek/pinouts.rsti
-
-   .. group-tab:: RP2040-Tiny
-
-      .. include:: rp2040-tiny/pinouts.rsti
 
    .. zephyr-keep-sorted-stop
 
@@ -190,7 +176,6 @@ configuration can be found in the different Kconfig files:
 .. zephyr-keep-sorted-start re(^\* :bridle_file:`\w)
 
 * :bridle_file:`boards/waveshare/rp2040/waveshare_rp2040_geek_defconfig`
-* :bridle_file:`boards/waveshare/rp2040/waveshare_rp2040_tiny_defconfig`
 
 .. zephyr-keep-sorted-stop
 
@@ -215,18 +200,6 @@ which is mapped as a hardware revision.
       .. rubric:: :command:`west build -b waveshare_rp2040_geek`
 
       Use the serial port UART1 on edge header as
-      Zephyr console and for the shell.
-
-   .. group-tab:: RP2040-Tiny
-
-      .. rubric:: :command:`west build -b waveshare_rp2040_tiny -S usb-console`
-
-      Use the native USB device port with CDC-ACM as
-      Zephyr console and for the shell.
-
-      .. rubric:: :command:`west build -b waveshare_rp2040_tiny`
-
-      Use the serial port UART0 on edge header as
       Zephyr console and for the shell.
 
    .. zephyr-keep-sorted-stop
@@ -343,18 +316,6 @@ Bridle :ref:`snippet-usb-console` can be used to enable
                USB device strings: Mfr=1, Product=2, SerialNumber=3
                Product: |waveshare_rp2040_geek_PStr_CON|
                Manufacturer: |waveshare_rp2040_geek_VStr|
-               SerialNumber: B69F8448A6E91514
-
-   .. group-tab:: RP2040-Tiny
-
-         .. container:: highlight-console notranslate literal-block
-
-            .. parsed-literal::
-
-               USB device idVendor=\ |waveshare_rp2040_tiny_VID|, idProduct=\ |waveshare_rp2040_tiny_PID_CON|, bcdDevice=\ |waveshare_rp2040_tiny_BCD_CON|
-               USB device strings: Mfr=1, Product=2, SerialNumber=3
-               Product: |waveshare_rp2040_tiny_PStr_CON|
-               Manufacturer: |waveshare_rp2040_tiny_VStr|
                SerialNumber: B69F8448A6E91514
 
    .. zephyr-keep-sorted-stop
@@ -667,31 +628,6 @@ LED Blinky and Fade
          :goals: flash
          :compact:
 
-   .. group-tab:: RP2040-Tiny
-
-      .. rubric:: WS2812 LED Test Pattern by PIO
-
-      See also Zephyr sample: :external+zephyr:zephyr:code-sample:`led-strip`.
-
-      .. image:: rp2040-tiny/ws2812b.gif
-         :align: right
-         :alt: Waveshare RP2040-Tiny WS2812 LED Test Pattern
-
-      .. zephyr-app-commands::
-         :app: zephyr/samples/drivers/led/led_strip
-         :build-dir: waveshare_rp2040
-         :board: waveshare_rp2040_tiny
-         :west-args: -p
-         :flash-args: -r uf2
-         :goals: flash
-         :compact:
-
-      .. hint::
-
-         Neither LED Blinky nor LED Fade can be built and executed on
-         |RP2040-Tiny|, because this system has only one digital RGB LED.
-         A simple GPIO or PWM control is not possible!
-
    .. zephyr-keep-sorted-stop
 
 Hello Shell with USB-CDC/ACM Console
@@ -717,22 +653,6 @@ Hello Shell with USB-CDC/ACM Console
          :compact:
 
       .. include:: rp2040-geek/helloshell.rsti
-
-   .. group-tab:: RP2040-Tiny
-
-      .. rubric:: Hello Shell
-
-      .. zephyr-app-commands::
-         :app: bridle/samples/helloshell
-         :build-dir: waveshare_rp2040
-         :board: waveshare_rp2040_tiny
-         :snippets: "usb-console"
-         :west-args: -p
-         :flash-args: -r uf2
-         :goals: flash
-         :compact:
-
-      .. include:: rp2040-tiny/helloshell.rsti
 
    .. zephyr-keep-sorted-stop
 
