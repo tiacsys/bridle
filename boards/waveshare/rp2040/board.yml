@@ -19,11 +19,6 @@ boards:
     vendor: waveshare
     socs:
       - name: rp2040
-  - name: waveshare_rp2040_eth
-    full_name: Waveshare RP2040-ETH
-    vendor: waveshare
-    socs:
-      - name: rp2040
   - name: waveshare_rp2040_lcd_0_96
     full_name: Waveshare RP2040-LCD-0.96
     vendor: waveshare

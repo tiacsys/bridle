@@ -1,0 +1,217 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/dts-v1/;
+
+#include <freq.h>
+#include <mem.h>
+
+#include <raspberrypi/rpi_pico/rp2040.dtsi>
+#include <raspberrypi/partitions_2M_default.dtsi>
+
+#include <zephyr/dt-bindings/clock/rpi_pico_rp2040_clock.h>
+#include <zephyr/dt-bindings/regulator/rpi_pico.h>
+
+#include <zephyr/dt-bindings/gpio/gpio.h>
+#include <zephyr/dt-bindings/i2c/i2c.h>
+#include <zephyr/dt-bindings/led/led.h>
+
+#include "raspberrypi_pico_connector.dtsi"
+#include "raspberrypi_pico_r3_connector.dtsi"
+#include "waveshare_rp2040_eth-pinctrl.dtsi"
+
+/ {
+	model = "Waveshare RP2040-ETH @ UART Concole";
+	compatible = "waveshare,rp2040-eth",
+		     "waveshare,rp2040-eth-uartcons";
+
+	chosen {
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+		zephyr,flash-controller = &ssi;
+		zephyr,code-partition = &code_partition;
+		zephyr,console = &uart0;
+		zephyr,shell-uart = &uart0;
+	};
+
+	aliases {
+		watchdog0 = &wdt0;
+		led-strip = &led_strip;
+	};
+
+	zephyr,user {
+		io-channels = <&adc 0>, <&adc 1>, <&adc 2>, <&adc 3>;
+	};
+};
+
+&flash0 {
+	status = "okay";
+	reg = <0x10000000 DT_SIZE_M(4)>;
+	ranges = <0x0 0x10000000 DT_SIZE_M(4)>;
+};
+
+&storage_partition {
+	reg = <0x100000 DT_SIZE_M(3)>;
+};
+
+&clocks {
+	status = "okay";
+	pinctrl-0 = <&clocks_default>;
+	pinctrl-names = "default";
+};
+
+&vreg {
+	status = "okay";
+	regulator-always-on;
+	regulator-allowed-modes = <REGULATOR_RPI_PICO_MODE_NORMAL>;
+};
+
+&reset {
+	status = "okay";
+};
+
+&wdt0 {
+	status = "okay";
+};
+
+&rtc {
+	status = "okay";
+	clocks = <&clocks RPI_PICO_CLKID_CLK_RTC>;
+};
+
+&timer {
+	status = "okay";
+};
+
+&dma {
+	status = "okay";
+};
+
+&die_temp {
+	status = "okay";
+	friendly-name = "RP2040 chip temperature";
+};
+
+&uart0 {
+	status = "okay";
+	pinctrl-0 = <&uart0_default>;
+	pinctrl-names = "default";
+	current-speed = <115200>;
+};
+
+zephyr_udc0: &usbd {
+	status = "okay";
+};
+
+&uart1 {
+	status = "okay";
+	pinctrl-0 = <&uart1_default>;
+	pinctrl-names = "default";
+
+	current-speed = <921600>;
+
+	net_l4: ch9120 {
+		compatible = "wch,ch9120";
+		status = "okay";
+
+		reset-gpios = <&gpio0 19 GPIO_ACTIVE_LOW>;
+		config-gpios = <&gpio0 18 GPIO_ACTIVE_LOW>;
+		tcpcs-gpios = <&gpio0 17 GPIO_ACTIVE_LOW>;
+	};
+};
+
+&spi0 {
+	status = "okay";
+	pinctrl-0 = <&spi0_default>;
+	pinctrl-names = "default";
+	clock-frequency = <DT_FREQ_M(8)>;
+};
+
+&i2c0 {
+	status = "okay";
+	pinctrl-0 = <&i2c0_default>;
+	pinctrl-names = "default";
+	clock-frequency = <I2C_BITRATE_STANDARD>;
+};
+
+&i2c1 {
+	status = "disabled";
+	pinctrl-0 = <&i2c1_default>;
+	pinctrl-names = "default";
+	clock-frequency = <I2C_BITRATE_STANDARD>;
+};
+
+&adc {
+	status = "okay";
+	pinctrl-0 = <&adc_default>;
+	pinctrl-names = "default";
+};
+
+&pio0 {
+	status = "okay";
+
+	pio-ws2812 {
+		compatible = "worldsemi,ws2812-rpi_pico-pio";
+		status = "okay";
+
+		pinctrl-0 = <&pio0_ws2812_default>;
+		pinctrl-names = "default";
+
+		/* HI: 0x3F0: 1111110000: 0.750 us high and 0.500 us low */
+		/* LO: 0x380: 1110000000: 0.375 us high and 0.875 us low */
+		bit-waveform = <3>, <3>, <4>;
+
+		led_strip: ws2812 {
+			status = "okay";
+
+			chain-length = <1>;
+			color-mapping = <LED_COLOR_ID_RED
+					 LED_COLOR_ID_GREEN
+					 LED_COLOR_ID_BLUE>;
+
+			/* PIO0:OUT @ GP25 and Tbit = 1.25 us / 10 */
+			gpios = <&gpio0 25 GPIO_ACTIVE_HIGH>;
+			frequency = <DT_FREQ_K(800)>;
+			reset-delay = <280>;
+		};
+	};
+};
+
+&gpio0 {
+	status = "okay";
+	/* namespace and positions without wired bits */
+	gpio-reserved-ranges = <10 7>, <23 3>;
+	gpio-line-names =
+		"TX0",			/* GP0 */
+		"TX1",			/* GP1 */
+		"GP2_PWM2_CTS0_SDA1",	/* GP2 */
+		"GP3_PWM3_RTS0_SCL1",	/* GP3 */
+		"SDI0",			/* GP4 */
+		"CSN0",			/* GP5 */
+		"SCK0",			/* GP6 */
+		"SDO0",			/* GP7 */
+		"SDA0",			/* GP8 */
+		"SCL0",			/* GP9 */
+		"",          /* not wired, GP10 */
+		"",          /* not wired, GP11 */
+		"",          /* not wired, GP12 */
+		"",          /* not wired, GP13 */
+		"",          /* not wired, GP14 */
+		"",          /* not wired, GP15 */
+		"",          /* not wired, GP16 */
+		"ETH_TCPCS",		/* GP17 */
+		"ETH_CFG0",		/* GP18 */
+		"ETH_RSTI",		/* GP19 */
+		"ETH_RX1",		/* GP20 */
+		"ETH_TX1",		/* GP21 */
+		"GP22_PWM6",		/* GP22 */
+		"",          /* not wired, GP23 */
+		"",          /* not wired, GP24 */
+		"",  /* Din of LED stripe, GP25 */
+		"ADC0",			/* GP26 */
+		"ADC1",			/* GP27 */
+		"ADC2",			/* GP28 */
+		"PSU_ADC3_VSYS/3";	/* GP29 */
+};

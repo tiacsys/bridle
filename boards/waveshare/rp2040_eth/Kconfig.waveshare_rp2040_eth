@@ -1,0 +1,9 @@
+# SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+config BOARD_WAVESHARE_RP2040_ETH
+	select SOC_RP2040
+
+config BOARD_WAVESHARE_RP2040_PICO
+	bool
+	depends on BOARD_WAVESHARE_RP2040_ETH
