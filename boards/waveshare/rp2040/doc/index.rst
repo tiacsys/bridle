@@ -25,12 +25,6 @@ Hardware
 
       .. include:: rp2040-geek/hardware.rsti
 
-   .. group-tab:: RP2040-Matrix
-
-      .. _waveshare_rp2040_matrix:
-
-      .. include:: rp2040-matrix/hardware.rsti
-
    .. group-tab:: RP2040-One
 
       .. _waveshare_rp2040_one:
@@ -61,10 +55,6 @@ Positions
    .. group-tab:: RP2040-Geek
 
       .. include:: rp2040-geek/positions.rsti
-
-   .. group-tab:: RP2040-Matrix
-
-      .. include:: rp2040-matrix/positions.rsti
 
    .. group-tab:: RP2040-One
 
@@ -97,10 +87,6 @@ in a single tab.
    .. group-tab:: RP2040-Geek
 
       .. include:: rp2040-geek/pinouts.rsti
-
-   .. group-tab:: RP2040-Matrix
-
-      .. include:: rp2040-matrix/pinouts.rsti
 
    .. group-tab:: RP2040-One
 
@@ -232,7 +218,6 @@ configuration can be found in the different Kconfig files:
 .. zephyr-keep-sorted-start re(^\* :bridle_file:`\w)
 
 * :bridle_file:`boards/waveshare/rp2040/waveshare_rp2040_geek_defconfig`
-* :bridle_file:`boards/waveshare/rp2040/waveshare_rp2040_matrix_defconfig`
 * :bridle_file:`boards/waveshare/rp2040/waveshare_rp2040_one_defconfig`
 * :bridle_file:`boards/waveshare/rp2040/waveshare_rp2040_tiny_defconfig`
 * :bridle_file:`boards/waveshare/rp2040/waveshare_rp2040_zero_defconfig`
@@ -260,18 +245,6 @@ which is mapped as a hardware revision.
       .. rubric:: :command:`west build -b waveshare_rp2040_geek`
 
       Use the serial port UART1 on edge header as
-      Zephyr console and for the shell.
-
-   .. group-tab:: RP2040-Matrix
-
-      .. rubric:: :command:`west build -b waveshare_rp2040_matrix -S usb-console`
-
-      Use the native USB device port with CDC-ACM as
-      Zephyr console and for the shell.
-
-      .. rubric:: :command:`west build -b waveshare_rp2040_matrix`
-
-      Use the serial port UART0 on edge header as
       Zephyr console and for the shell.
 
    .. group-tab:: RP2040-One
@@ -424,18 +397,6 @@ Bridle :ref:`snippet-usb-console` can be used to enable
                USB device strings: Mfr=1, Product=2, SerialNumber=3
                Product: |waveshare_rp2040_geek_PStr_CON|
                Manufacturer: |waveshare_rp2040_geek_VStr|
-               SerialNumber: B69F8448A6E91514
-
-   .. group-tab:: RP2040-Matrix
-
-         .. container:: highlight-console notranslate literal-block
-
-            .. parsed-literal::
-
-               USB device idVendor=\ |waveshare_rp2040_matrix_VID|, idProduct=\ |waveshare_rp2040_matrix_PID_CON|, bcdDevice=\ |waveshare_rp2040_matrix_BCD_CON|
-               USB device strings: Mfr=1, Product=2, SerialNumber=3
-               Product: |waveshare_rp2040_matrix_PStr_CON|
-               Manufacturer: |waveshare_rp2040_matrix_VStr|
                SerialNumber: B69F8448A6E91514
 
    .. group-tab:: RP2040-One
@@ -784,31 +745,6 @@ LED Blinky and Fade
          :goals: flash
          :compact:
 
-   .. group-tab:: RP2040-Matrix
-
-      .. rubric:: WS2812 LED Test Pattern by PIO
-
-      See also Zephyr sample: :external+zephyr:zephyr:code-sample:`led-strip`.
-
-      .. image:: rp2040-matrix/ws2812b-5x5.gif
-         :align: right
-         :alt: Waveshare RP2040-Matrix WS2812 LED Test Pattern
-
-      .. zephyr-app-commands::
-         :app: zephyr/samples/drivers/led/led_strip
-         :build-dir: waveshare_rp2040
-         :board: waveshare_rp2040_matrix
-         :west-args: -p
-         :flash-args: -r uf2
-         :goals: flash
-         :compact:
-
-      .. hint::
-
-         Neither LED Blinky nor LED Fade can be built and executed on
-         |RP2040-Matrix|, because this system has only one digital RGB LED.
-         A simple GPIO or PWM control is not possible!
-
    .. group-tab:: RP2040-One
 
       .. rubric:: WS2812 LED Test Pattern by PIO
@@ -909,22 +845,6 @@ Hello Shell with USB-CDC/ACM Console
          :compact:
 
       .. include:: rp2040-geek/helloshell.rsti
-
-   .. group-tab:: RP2040-Matrix
-
-      .. rubric:: Hello Shell
-
-      .. zephyr-app-commands::
-         :app: bridle/samples/helloshell
-         :build-dir: waveshare_rp2040
-         :board: waveshare_rp2040_matrix
-         :snippets: "usb-console"
-         :west-args: -p
-         :flash-args: -r uf2
-         :goals: flash
-         :compact:
-
-      .. include:: rp2040-matrix/helloshell.rsti
 
    .. group-tab:: RP2040-One
 
@@ -1038,40 +958,6 @@ USB-CDC/ACM console.
          :flash-args: -r uf2
          :goals: flash
          :compact:
-
-   .. group-tab:: RP2040-Matrix
-
-      The following samples work with the chosen display. That is:
-
-      | :hwftlbl-scr:`LED(5×5)` : :dts:`chosen { zephyr,display = &rgb_led_strip_matrix; };`
-      | :hwftlbl-led:`5×5 RGB` : :dts:`&rgb_led_strip_matrix { led-strip = <&led_strip>; };`
-
-      .. rubric:: LCD Orientation and Bit Order Test
-
-      Using the :external+zephyr:ref:`Display driver API <display_api>` with chosen
-      display. See also Zephyr sample: :external+zephyr:zephyr:code-sample:`display`.
-
-      .. zephyr-app-commands::
-         :app: zephyr/samples/drivers/display
-         :build-dir: waveshare_rp2040
-         :board: waveshare_rp2040_matrix
-         :snippets: "usb-console"
-         :west-args: -p
-         :flash-args: -r uf2
-         :goals: flash
-         :compact:
-
-      .. list-table::
-         :align: center
-         :width: 66%
-         :header-rows: 1
-
-         * - .. image:: rp2040-matrix/ws2812b-5x5-display_test.gif
-                :align: center
-                :alt: Waveshare RP2040-Matrix Display Sample Animation
-         * - .. rst-class:: centered
-
-                :brd:`TOP LEFT`, :bgn:`TOP RIGHT`, :bbl:`BOTTOM RIGHT`
 
    .. zephyr-keep-sorted-stop
 

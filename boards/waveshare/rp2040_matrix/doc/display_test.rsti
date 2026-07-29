@@ -1,0 +1,31 @@
+The following samples work with the chosen display. That is:
+
+| :hwftlbl-scr:`LED(5×5)` : :dts:`chosen { zephyr,display = &led_strip_matrix; };`
+| :hwftlbl-led:`RGB(5×5)` : :dts:`&led_strip_matrix { led-strip = <&led_strip>; };`
+
+.. rubric:: LCD Orientation and Bit Order Test
+
+Draw some basic rectangles onto the display using the
+:external+zephyr:ref:`Display driver API <display_api>`.
+See also Zephyr sample: :external+zephyr:zephyr:code-sample:`display`.
+
+.. zephyr-app-commands::
+   :app: zephyr/samples/drivers/display
+   :build-dir: waveshare_rp2040_matrix
+   :board: waveshare_rp2040_matrix/rp2040
+   :snippets: "usb-console"
+   :west-args: -p
+   :goals: flash
+   :compact:
+
+.. list-table::
+   :align: center
+   :width: 66%
+   :header-rows: 1
+
+   * - .. image:: img/ws2812b-5x5-display_test.gif
+          :align: center
+          :alt: Waveshare RP2040-Matrix Display Sample Animation
+   * - .. rst-class:: centered
+
+          :brd:`TOP LEFT`, :bgn:`TOP RIGHT`, :bbl:`BOTTOM RIGHT`
