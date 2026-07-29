@@ -242,7 +242,7 @@ Also see the :ref:`boards` section in this documentation.
 |                   | |bridle:board:picoboy_color_plus|       | | ``picoboy_color_plus/rp2350a/hazard3``     |
 |                   |                                         | | ``picoboy_color_plus/rp2350a/m33``         |
 |                   +-----------------------------------------+----------------------------------------------+
-|                   | |bridle:board:waveshare_rp2350|         | | ``waveshare_rp2350_can/rp2350a/hazard3``   |
+|                   | |bridle:board:waveshare_rp2350_can|     | | ``waveshare_rp2350_can/rp2350a/hazard3``   |
 |                   |                                         | | ``waveshare_rp2350_can/rp2350a/m33``       |
 +-------------------+-----------------------------------------+----------------------------------------------+
 | STM32F030C8       | |bridle:board:vccgnd_bluepill|          | | ``vccgnd_bluepill_stm32f030c8``            |

@@ -762,8 +762,8 @@
 .. |waveshare_rp2040_zero_PStr_CON|	replace:: :ign:`RP2040-Zero (CDC ACM)`
 .. |waveshare_rp2040_zero_BCD_CON|	replace:: |zephyr_version_BCD|
 
-.. |bridle:board:waveshare_rp2350| replace:: :ref:`waveshare_rp2350`
-.. :bridle:board:`waveshare_rp2350`
+.. |bridle:board:waveshare_rp2350_can| replace:: :ref:`waveshare_rp2350_can`
+.. :bridle:board:`waveshare_rp2350_can`
 
 .. |RP2350-CAN| replace::
    :ref:`RP2350-CAN <waveshare_rp2350_can>`

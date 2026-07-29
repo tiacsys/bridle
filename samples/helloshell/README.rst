@@ -35,7 +35,7 @@ Requirements
   * |bridle:board:seeeduino_lotus|
   * |bridle:board:vccgnd_bluepill|
   * |bridle:board:waveshare_rp2040|
-  * |bridle:board:waveshare_rp2350|
+  * |bridle:board:waveshare_rp2350_can|
   * |bridle:board:weact_bluepillplus|
   * |bridle:board:xiao_samd21|
   * |zephyr:board:arduino_zero| or Bridle's |bridle:board:arduino_zero|
