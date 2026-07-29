@@ -1,0 +1,106 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/pinctrl/rpi-pico-rp2040-pinctrl.h>
+
+&pinctrl {
+	clocks_default: clocks_default {
+		/* no external clocks */
+	};
+
+	uart0_default: uart0_default {
+		group0_uart {
+			pinmux = <UART0_TX_P0>;		/* GP0: UART0_TX */
+		};
+		group1_uart {
+			pinmux = <UART0_RX_P1>;		/* GP1: UART0_RX */
+			input-enable;
+		};
+	};
+
+	uart0_default_hwflow: uart0_default_hwflow {
+		group03_uart {
+			pinmux = <UART0_TX_P0>,		/* GP0: UART0_TX */
+				 <UART0_RTS_P3>;	/* GP3: UART0_RTS */
+		};
+		group12_uart {
+			pinmux = <UART0_RX_P1>,		/* GP1: UART0_RX */
+				 <UART0_CTS_P2>;	/* GP2: UART0_CTS */
+			input-enable;
+		};
+	};
+
+	spi0_mini_default: spi0_mini_default {
+		group567_spi {
+			pinmux = <SPI0_CSN_P5>,		/* GP5: SPI0_CSN */
+				 <SPI0_SCK_P6>,		/* GP6: SPI0_SCK */
+				 <SPI0_TX_P7>;		/* GP7: SPI0_TX */
+		};
+		group4_spi {
+			pinmux = <SPI0_RX_P4>;		/* GP4: SPI0_RX */
+			input-enable;
+		};
+	};
+
+	i2c0_mini_default: i2c0_mini_default {
+		group89_i2c {
+			pinmux = <I2C0_SDA_P8>,		/* GP8: I2C0_SDA */
+				 <I2C0_SCL_P9>;		/* GP9: I2C0_SCL */
+			bias-pull-up;
+			input-enable;
+			input-schmitt-enable;
+		};
+	};
+
+	i2c1_mini_default: i2c1_mini_default {
+		group1415_i2c {
+			pinmux = <I2C1_SDA_P14>,	/* GP14: I2C1_SDA */
+				 <I2C1_SCL_P15>;	/* GP15: I2C1_SCL */
+			bias-pull-up;
+			input-enable;
+			input-schmitt-enable;
+		};
+	};
+
+	pio0_ws2812_default: pio0_ws2812_default {
+		group16_pio {
+			pinmux = <PIO0_P16>;		/* GP16: PIO0 */
+		};
+	};
+
+	pwm_mini_default: pwm_mini_default {
+		group10_pwm {
+			pinmux = <PWM_5A_P10>;		/* GP10: PWM5CHA (10) */
+		};
+		group11_pwm {
+			pinmux = <PWM_5B_P11>;		/* GP11: PWM5CHB (11) */
+		};
+		group12_pwm {
+			pinmux = <PWM_6A_P12>;		/* GP12: PWM6CHA (12) */
+		};
+		group13_pwm {
+			pinmux = <PWM_6B_P13>;		/* GP13: PWM6CHB (13) */
+		};
+	};
+
+	adc_default: adc_default {
+		group26_adc {
+			pinmux = <ADC_CH0_P26>;		/* GP26: ADC_CH0 */
+			input-enable;
+		};
+		group27_adc {
+			pinmux = <ADC_CH1_P27>;		/* GP27: ADC_CH1 */
+			input-enable;
+		};
+		group28_adc {
+			pinmux = <ADC_CH2_P28>;		/* GP28: ADC_CH2 */
+			input-enable;
+		};
+		group29_adc {
+			pinmux = <ADC_CH3_P29>;		/* GP29: ADC_CH3 */
+			input-enable;
+		};
+	};
+};
