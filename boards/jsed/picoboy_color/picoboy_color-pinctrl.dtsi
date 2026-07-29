@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024-2025 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -20,15 +20,6 @@
 		};
 	};
 
-	i2c0_default: i2c0_default {			/* solder pads */
-		group2021 {				/* as I2C bus */
-			pinmux = <I2C0_SDA_P20>,
-				 <I2C0_SCL_P21>;
-			input-enable;
-			input-schmitt-enable;
-		};
-	};
-
 	spi0_default: spi0_default {
 		group171819 {
 			pinmux = <SPI0_CSN_P17>,	/* not wired */
@@ -38,6 +29,15 @@
 		group16 {
 			pinmux = <SPI0_RX_P16>;		/* not wired */
 			input-enable;
+		};
+	};
+
+	i2c0_default: i2c0_default {			/* solder pads */
+		group2021 {				/* as I2C bus */
+			pinmux = <I2C0_SDA_P20>,
+				 <I2C0_SCL_P21>;
+			input-enable;
+			input-schmitt-enable;
 		};
 	};
 
