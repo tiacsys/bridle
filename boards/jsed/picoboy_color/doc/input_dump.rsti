@@ -15,7 +15,7 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`input-dump`.
 
 .. zephyr-app-commands::
    :app: zephyr/samples/subsys/input/input_dump
-   :build-dir: picoboy
+   :build-dir: picoboy_color
    :board: picoboy_color/rp2040
    :west-args: -p
    :goals: flash

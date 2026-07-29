@@ -1,14 +1,14 @@
-.. rubric:: Speaker Test
-
-.. image:: picoboy-color/speaker.jpg
+.. image:: img/speaker.jpg
    :align: right
    :alt: PicoBoy Color Speaker Test
+
+.. rubric:: Speaker Test
 
 Invoke :program:`west build` and :program:`west flash`:
 
 .. zephyr-app-commands::
    :app: bridle/samples/buzzer
-   :build-dir: picoboy
+   :build-dir: picoboy_color
    :board: picoboy_color/rp2040
    :west-args: -p
    :goals: flash

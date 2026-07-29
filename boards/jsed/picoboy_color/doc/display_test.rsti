@@ -33,7 +33,7 @@ The following samples work with the chosen display. That is:
 
 .. rubric:: LCD Orientation and Bit Order Test
 
-.. image:: picoboy-color/display.svg
+.. image:: img/display.svg
    :align: right
    :alt: PicoBoy Color Display Test
 
@@ -43,7 +43,7 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`display`.
 
 .. zephyr-app-commands::
    :app: zephyr/samples/drivers/display
-   :build-dir: picoboy
+   :build-dir: picoboy_color
    :board: picoboy_color/rp2040
    :west-args: -p
    :goals: flash
@@ -58,7 +58,7 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`lvgl`.
 
 .. zephyr-app-commands::
    :app: zephyr/samples/subsys/display/lvgl
-   :build-dir: picoboy
+   :build-dir: picoboy_color
    :board: picoboy_color/rp2040
    :west-args: -p
    :goals: flash

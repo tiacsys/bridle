@@ -4,7 +4,7 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`blinky`.
 
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/blinky
-   :build-dir: picoboy
+   :build-dir: picoboy_color
    :board: picoboy_color/rp2040
    :west-args: -p
    :goals: flash
@@ -16,7 +16,7 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`pwm-blinky`.
 
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/blinky_pwm
-   :build-dir: picoboy
+   :build-dir: picoboy_color
    :board: picoboy_color/rp2040
    :west-args: -p
    :goals: flash
@@ -28,7 +28,7 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`fade-led`.
 
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/fade_led
-   :build-dir: picoboy
+   :build-dir: picoboy_color
    :board: picoboy_color/rp2040
    :west-args: -p
    :goals: flash
@@ -40,7 +40,7 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`button`.
 
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/button
-   :build-dir: picoboy
+   :build-dir: picoboy_color
    :board: picoboy_color/rp2040
    :west-args: -p
    :goals: flash

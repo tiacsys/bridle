@@ -69,6 +69,6 @@ RP2040 development board.
        - `PicoBoy Color Details`_ (German)
        - `PicoBoy Color Schematic`_
 
-     - .. image:: picoboy-color/hardware.jpg
+     - .. image:: img/hardware.jpg
           :align: center
           :alt: PicoBoy Color
