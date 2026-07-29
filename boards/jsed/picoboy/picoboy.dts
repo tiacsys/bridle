@@ -1,26 +1,317 @@
 /*
- * Copyright (c) 2023-2025 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
 /dts-v1/;
 
+#include <freq.h>
+#include <mem.h>
+
+#include <raspberrypi/rpi_pico/rp2040.dtsi>
+#include <raspberrypi/partitions_2M_default.dtsi>
+
+#include <zephyr/dt-bindings/clock/rpi_pico_rp2040_clock.h>
+#include <zephyr/dt-bindings/regulator/rpi_pico.h>
+
+#include <zephyr/dt-bindings/gpio/gpio.h>
+#include <zephyr/dt-bindings/i2c/i2c.h>
+#include <zephyr/dt-bindings/pwm/pwm.h>
+
+#include <zephyr/dt-bindings/input/input-event-codes.h>
+#include <zephyr/dt-bindings/lvgl/lvgl.h>
+
+#include <zephyr/dt-bindings/sensor/stk8ba58.h>
+
+#include "picoboy-pinctrl.dtsi"
+
 / {
 	model = "JSED PicoBoy @ USB-CDC/ACM Concole";
-	compatible = "jsed,picoboy", "jsed,picoboy-usbcons";
+	compatible = "jsed,picoboy",
+		     "jsed,picoboy-usbcons";
 
 	chosen {
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+		zephyr,flash-controller = &ssi;
+		zephyr,code-partition = &code_partition;
 		zephyr,console = &cdc_acm_console_uart;
 		zephyr,shell-uart = &cdc_acm_console_uart;
+		zephyr,display = &oled_panel;
+	};
+
+	aliases {
+		watchdog0 = &wdt0;
+		sw0 = &joystick_enter;
+		sw1 = &joystick_up;
+		sw2 = &joystick_right;
+		sw3 = &joystick_down;
+		sw4 = &joystick_left;
+		led0 = &led0;
+		led1 = &led1;
+		led2 = &led2;
+		pwm-led0 = &pwm_led0;
+		pwm-led1 = &pwm_led1;
+		pwm-led2 = &pwm_led2;
+		pwm-buzzer0 = &pwm_speaker0;
+		accel0 = &stk8ba58;
+	};
+
+	lvgl_keypad: lvgl-keypad {
+		compatible = "zephyr,lvgl-keypad-input";
+		input = <&gpio_keys>;
+		input-codes = <INPUT_KEY_LEFT INPUT_KEY_RIGHT
+			       INPUT_KEY_UP INPUT_KEY_DOWN
+			       INPUT_KEY_ENTER>;
+		lvgl-codes = <LV_KEY_LEFT LV_KEY_RIGHT
+			      LV_KEY_UP LV_KEY_DOWN
+			      LV_KEY_ENTER>;
+	};
+
+	gpio_keys: gpio_keys {
+		compatible = "gpio-keys";
+
+		joystick_enter: joystick_enter {
+			gpios = <&gpio0 0 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+			zephyr,code = <INPUT_KEY_ENTER>;
+			label = "Joystick ENTER";
+		};
+		joystick_up: joystick_up {
+			gpios = <&gpio0 1 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+			zephyr,code = <INPUT_KEY_UP>;
+			label = "Joystick UP";
+		};
+		joystick_right: joystick_right {
+			gpios = <&gpio0 2 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+			zephyr,code = <INPUT_KEY_RIGHT>;
+			label = "Joystick RIGHT";
+		};
+		joystick_down: joystick_down {
+			gpios = <&gpio0 3 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+			zephyr,code = <INPUT_KEY_DOWN>;
+			label = "Joystick DOWN";
+		};
+		joystick_left: joystick_left {
+			gpios = <&gpio0 4 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+			zephyr,code = <INPUT_KEY_LEFT>;
+			label = "Joystick LEFT";
+		};
+	};
+
+	gpio_leds: gpio_leds {
+		compatible = "gpio-leds";
+
+		led0: led_red {
+			gpios = <&gpio0 5 GPIO_ACTIVE_HIGH>;
+			label = "LED Red";
+		};
+		led1: led_yellow {
+			gpios = <&gpio0 6 GPIO_ACTIVE_HIGH>;
+			label = "LED Yellow";
+		};
+		led2: led_green {
+			gpios = <&gpio0 7 GPIO_ACTIVE_HIGH>;
+			label = "LED Green";
+		};
+	};
+
+	pwm_leds: pwm_leds {
+		compatible = "pwm-leds";
+
+		pwm_led0: pwm_led_red {
+			pwms = <&pwm 5 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+			label = "PWM_LED Red";
+		};
+		pwm_led1: pwm_led_yellow {
+			pwms = <&pwm 6 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+			label = "PWM_LED Yellow";
+		};
+		pwm_led2: pwm_led_green {
+			pwms = <&pwm 7 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+			label = "PWM_LED Green";
+		};
+	};
+
+	pwm_buzzers {
+		compatible = "pwm-buzzers";
+		status = "okay";
+
+		pwm_speaker0: pwm_speaker0 {
+			pwms = <&pwm 15 PWM_HZ(880) PWM_POLARITY_NORMAL>;
+			label = "PWM_SPEAKER";
+		};
 	};
 };
 
-#include "picoboy.dtsi"
-#include "picoboy-core.dtsi"
+&flash0 {
+	status = "okay";
+	reg = <0x10000000 DT_SIZE_M(2)>;
+	ranges = <0x0 0x10000000 DT_SIZE_M(2)>;
+};
 
-#include "pb-2mb.dtsi"
-#include "pb-joystick.dtsi"
-#include "pb-sensors.dtsi"
-#include "pb-speaker.dtsi"
-#include "pb-leds.dtsi"
-#include "pb-oled.dtsi"
+&clocks {
+	status = "okay";
+	pinctrl-0 = <&clocks_default>;
+	pinctrl-names = "default";
+};
+
+&vreg {
+	status = "okay";
+	regulator-always-on;
+	regulator-allowed-modes = <REGULATOR_RPI_PICO_MODE_NORMAL>;
+};
+
+&reset {
+	status = "okay";
+};
+
+&wdt0 {
+	status = "okay";
+};
+
+&rtc {
+	clocks = <&clocks RPI_PICO_CLKID_CLK_RTC>;
+	status = "okay";
+};
+
+&timer {
+	status = "okay";
+};
+
+&dma {
+	status = "okay";
+};
+
+&die_temp {
+	status = "okay";
+	friendly-name = "RP2040 chip temperature";
+};
+
+zephyr_udc0: &usbd {
+	status = "okay";
+
+	cdc_acm_console_uart: cdc_acm_console_uart {
+		compatible = "zephyr,cdc-acm-uart";
+	};
+};
+
+&uart1 {
+	status = "disabled";
+	pinctrl-0 = <&uart1_default>;
+	pinctrl-names = "default";
+	current-speed = <115200>;
+	data-bits = <8>;
+	parity = "none";
+	stop-bits = "1";
+};
+
+&spi0 {
+	status = "okay";
+	pinctrl-0 = <&spi0_default>;
+	pinctrl-names = "default";
+	clock-frequency = <DT_FREQ_M(20)>;
+
+	/* GP10 as CSn to SH1106 OLED panel controller. */
+	cs-gpios = <&gpio0 10 GPIO_ACTIVE_LOW>;
+
+	/* OLED with SH1106 controller. */
+	sh1106_128x64: sh1106_128x64@0 {
+		compatible = "sinowealth,sh1106";
+		status = "okay";
+
+		reg = <0>;
+		ready-time-ms = <0>;
+		spi-max-frequency = <DT_FREQ_M(20)>;
+
+		reset-gpios = <&gpio0 9 GPIO_ACTIVE_LOW>;
+		data-cmd-gpios = <&gpio0 8 GPIO_ACTIVE_HIGH>;
+
+		width = <128>;
+		height = <64>;
+
+		segment-offset = <2>;
+		page-offset = <0>;
+		display-offset = <0>;
+		multiplex-ratio = <63>;
+		prechargep = <0x22>;
+
+		segment-remap;
+		com-invdir;
+	};
+};
+
+oled_panel: &sh1106_128x64 {};
+
+&i2c0 {
+	status = "okay";
+	pinctrl-0 = <&i2c0_default>;
+	pinctrl-names = "default";
+	clock-frequency = <I2C_BITRATE_STANDARD>;
+
+	/* Accelerometer with STK8BA58 sensor. */
+	stk8ba58: stk8ba58@18 {
+		compatible = "sensortek,stk8ba58";
+		friendly-name = "on-board accelerometer";
+		status = "okay";
+
+		reg = <0x18>;
+
+		power-mode = <STK8BA58_DT_LOW_POWER_25ms>;
+		odr = <STK8BA58_DT_ODR_250Hz>;
+		range = <2>;
+	};
+};
+
+&pwm {
+	status = "okay";
+	pinctrl-0 = <&pwm_default>;
+	pinctrl-names = "default";
+	divider-frac-2 = <15>;
+	divider-int-2 = <255>;	/* led:    PWM2CHB (5) */
+	divider-frac-3 = <15>;	/* led:    PWM3CHA (6) */
+	divider-int-3 = <255>;	/* led:    PWM3CHB (7) */
+	divider-int-7 = <255>;	/* buzzer: PWM7CHB (15) */
+};
+
+&adc {
+	status = "okay";
+	pinctrl-0 = <&adc_default>;
+	pinctrl-names = "default";
+};
+
+&gpio0 {
+	status = "okay";
+	/* namespace and positions without wired bits */
+	gpio-reserved-ranges = <11 4>, <22 8>;
+	gpio-line-names =
+		"JOY_ENTER",		/* GP0 */
+		"JOY_UP",		/* GP1 */
+		"JOY_RIGHT",		/* GP2 */
+		"JOY_DOWN",		/* GP3 */
+		"JOY_LEFT",		/* GP4 */
+		"LED_RED",		/* GP5 */
+		"LED_YELLOW",		/* GP6 */
+		"LED_GREEN",		/* GP7 */
+		"OLED_DC",		/* GP8 */
+		"OLED_RST",		/* GP9 */
+		"OLED_CSN_SW",		/* GP10 */
+		"",			/* GP11 */
+		"",			/* GP12 */
+		"",			/* GP13 */
+		"",			/* GP14 */
+		"SPK_PWM15",		/* GP15 */
+		"OLED_SDI0",		/* GP16 */
+		"OLED_CSN0_HW",		/* GP17 */
+		"OLED_SCK0",		/* GP18 */
+		"OLED_SDO0",		/* GP19 */
+		"SENS_SDA0_TX1",	/* GP20 */
+		"SENS_SCL0_RX1",	/* GP21 */
+		"",			/* GP22 */
+		"",			/* GP23 */
+		"",			/* GP24 */
+		"",			/* GP25 */
+		"",			/* GP26 */
+		"",			/* GP27 */
+		"",			/* GP28 */
+		"";			/* GP29 */
+};
