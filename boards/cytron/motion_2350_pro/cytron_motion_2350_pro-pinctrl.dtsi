@@ -1,9 +1,8 @@
 /*
- * Copyright (c) 2026 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#include <freq.h>
 #include <zephyr/dt-bindings/pinctrl/rpi-pico-rp2350a-pinctrl.h>
 
 &pinctrl {
@@ -11,8 +10,8 @@
 		/* no external clocks */
 	};
 
-	uart0_motion_2350_pro_qwiic: uart0_motion_2350_pro_qwiic {
-		group18_uart {
+	uart0_default: uart0_default {
+		group28_uart {
 			pinmux = <UART0_TX_P28>;	/* GP28: UART0_TX */
 		};
 		group29_uart {
@@ -21,8 +20,8 @@
 		};
 	};
 
-	uart0_motion_2350_pro_qwiic_hwflow: uart0_motion_2350_pro_qwiic_hwflow {
-		group1819_uart {
+	uart0_default_hwflow: uart0_default_hwflow {
+		group2819_uart {
 			pinmux = <UART0_TX_P28>,	/* GP28: UART0_TX */
 				 <UART0_RTS_P19>;	/* GP19: UART0_RTS */
 		};
@@ -33,28 +32,8 @@
 		};
 	};
 
-	i2c0_motion_2350_pro_qwiic: i2c0_motion_2350_pro_qwiic {
-		group1617_i2c {
-			pinmux = <I2C0_SDA_P16>,	/* GP16: I2C0_SDA */
-				 <I2C0_SCL_P17>;	/* GP17: I2C0_SCL */
-			bias-pull-up;
-			input-enable;
-			input-schmitt-enable;
-		};
-	};
-
-	i2c1_motion_2350_pro_qwiic: i2c1_motion_2350_pro_qwiic {
-		group2627_i2c {
-			pinmux = <I2C1_SDA_P26>,	/* GP26: I2C1_SDA */
-				 <I2C1_SCL_P27>;	/* GP27: I2C1_SCL */
-			bias-pull-up;
-			input-enable;
-			input-schmitt-enable;
-		};
-	};
-
-	spi1_motion_2350_pro_qwiic: spi1_motion_2350_pro_qwiic {
-		group292627_spi {
+	spi1_default: spi1_default {
+		group262729_spi {
 			pinmux = <SPI1_CSN_P29>,	/* GP29: SPI1_CSN */
 				 <SPI1_SCK_P26>,	/* GP26: SPI1_SCK */
 				 <SPI1_TX_P27>;		/* GP27: SPI1_TX */
@@ -65,27 +44,39 @@
 		};
 	};
 
-	adc_motion_2350_pro_qwiic: adc_motion_2350_pro_qwiic {
-		group26272829_adc {
-			pinmux = <ADC_CH0_P26>,		/* GP26: ADC_CH0 */
-				 <ADC_CH1_P27>;		/* GP27: ADC_CH1 */
+	i2c0_default: i2c0_default {
+		group1617_i2c {
+			pinmux = <I2C0_SDA_P16>,	/* GP16: I2C0_SDA */
+				 <I2C0_SCL_P17>;	/* GP17: I2C0_SCL */
+			bias-pull-up;
 			input-enable;
+			input-schmitt-enable;
 		};
 	};
 
-	spi0_ws2812_motion_2350_pro: spi0_ws2812_motion_2350_pro {
+	i2c1_default: i2c1_default {
+		group2627_i2c {
+			pinmux = <I2C1_SDA_P26>,	/* GP26: I2C1_SDA */
+				 <I2C1_SCL_P27>;	/* GP27: I2C1_SCL */
+			bias-pull-up;
+			input-enable;
+			input-schmitt-enable;
+		};
+	};
+
+	spi0_ws2812_default: spi0_ws2812_default {
 		group23_spi {
 			pinmux = <SPI0_TX_P23>;		/* GP23: SPI0_TX */
 		};
 	};
 
-	pio0_ws2812_motion_2350_pro: pio0_ws2812_motion_2350_pro {
+	pio0_ws2812_default: pio0_ws2812_default {
 		group23_pio {
 			pinmux = <PIO0_P23>;		/* GP23: PIO0 */
 		};
 	};
 
-	pwm_motion_2350_pro: pwm_motion_2350_pro {
+	pwm_default: pwm_default {
 		group01234567_servo_motors {
 			pinmux = <PWM_0A_P0>,		/* GP0: PWM0CHA (0) */
 				 <PWM_0B_P1>,		/* GP1: PWM0CHB (1) */
@@ -111,6 +102,14 @@
 		};
 		group22_buzzer {
 			pinmux = <PWM_3A_P22>;		/* GP22: PWM3CHA (6) */
+		};
+	};
+
+	adc_default: adc_default {
+		group2627_adc {
+			pinmux = <ADC_CH0_P26>,		/* GP26: ADC_CH0 */
+				 <ADC_CH1_P27>;		/* GP27: ADC_CH1 */
+			input-enable;
 		};
 	};
 };

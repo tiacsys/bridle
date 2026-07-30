@@ -1,17 +1,17 @@
 /*
- * Copyright (c) 2026 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
 #include <bridle/dt-bindings/seeed_grove_pwms_defaults.h>
 
 &pinctrl {
-	pwm_grove: pwm_motion_2350_pro {};
+	pwm_grove: pwm_default {};
 };
 
-#include "grove_d17_connector.dtsi"
-#include "grove_d27_connector.dtsi"
-#include "grove_d29_connector.dtsi"
+#include "seeed_grove_d17_connector.dtsi"
+#include "seeed_grove_d27_connector.dtsi"
+#include "seeed_grove_d29_connector.dtsi"
 
 grove_uart_header: &grove_d29_header {};
 grove_i2c_header: &grove_d17_header {};
@@ -21,8 +21,10 @@ grove_d16_header: &grove_d17_header {};	/* D16 is on D17 header pin 1 */
 grove_d26_header: &grove_d27_header {};	/* D26 is on D27 header pin 1 */
 grove_d28_header: &grove_d29_header {};	/* D28 is on D29 header pin 1 */
 
+#include <zephyr/dt-bindings/gpio/grove-laced-if.h>
+
 / {
-	grove_laced_if_pi: grove-laced-if-pi {
+	grove_laced_if: grove-laced-if {
 		compatible = "seeed,grove-laced-if";
 
 		#gpio-cells = <2>;
@@ -45,8 +47,8 @@ grove_d28_header: &grove_d29_header {};	/* D28 is on D29 header pin 1 */
 			/* 13 - GP13: not wired */
 			/* 14 - GP14: not wired */
 			/* 15 - GP15: not wired */
-			<16 0 &grove_d17_header 1 0>,	/* GP16: I2C0-SDA as GPIO */
-			<17 0 &grove_d17_header 0 0>,	/* GP17: I2C0-SCL as GPIO */
+			<GROVE_LIF_L16 0 &grove_d17_header 1 0>,/* GP16: I2C0-SDA as GPIO */
+			<GROVE_LIF_L17 0 &grove_d17_header 0 0>,/* GP17: I2C0-SCL as GPIO */
 			/* 18 - GP18: not wired */
 			/* 19 - GP19: not wired */
 			/* 20 - GP20: not wired */
@@ -55,10 +57,10 @@ grove_d28_header: &grove_d29_header {};	/* D28 is on D29 header pin 1 */
 			/* 23 - GP23: not wired */
 			/* 24 - GP24: not wired */
 			/* 25 - GP25: not wired */
-			<26 0 &grove_d27_header 1 0>,	/* GP26: A0 / I2C1-SDA as GPIO */
-			<27 0 &grove_d27_header 0 0>,	/* GP27: A1 / I2C1-SCL as GPIO */
-			<28 0 &grove_d29_header 1 0>,	/* GP28: A2 / UART0-TX as GPIO */
-			<29 0 &grove_d29_header 0 0>;	/* GP28: A3 / UART0-TX as GPIO */
+			<GROVE_LIF_L26 0 &grove_d27_header 1 0>,/* GP26: A0 / I2C1-SDA as GPIO */
+			<GROVE_LIF_L27 0 &grove_d27_header 0 0>,/* GP27: A1 / I2C1-SCL as GPIO */
+			<GROVE_LIF_L28 0 &grove_d29_header 1 0>,/* GP28: A2 / UART0-TX as GPIO */
+			<GROVE_LIF_L29 0 &grove_d29_header 0 0>;/* GP28: A3 / UART0-TX as GPIO */
 
 		#pwm-cells = <3>;
 		pwm-map-mask = <0xffffffff 0 0xffffffc0>;
@@ -80,8 +82,8 @@ grove_d28_header: &grove_d29_header {};	/* D28 is on D29 header pin 1 */
 			/* 13 - GP13: PWM6CHB (13) not wired */
 			/* 14 - GP14: PWM7CHA (14) not wired */
 			/* 15 - GP15: PWM7CHB (15) not wired */
-			<16 0 0 &pwm 0 0 0>,	/* GP16: PWM0CHA (0) */
-			<17 0 0 &pwm 1 0 0>,	/* GP17: PWM0CHB (1) */
+			<GROVE_LIF_L16 0 0 &pwm 0 0 0>,	/* GP16: PWM0CHA (0) */
+			<GROVE_LIF_L17 0 0 &pwm 1 0 0>,	/* GP17: PWM0CHB (1) */
 			/* 18 - GP18: PWM1CHA (2)  not wired */
 			/* 19 - GP19: PWM1CHB (3)  not wired */
 			/* 20 - GP20: PWM2CHA (4)  not wired */
@@ -90,15 +92,20 @@ grove_d28_header: &grove_d29_header {};	/* D28 is on D29 header pin 1 */
 			/* 23 - GP23: PWM3CHB (7)  not wired */
 			/* 24 - GP24: PWM4CHA (8)  not wired */
 			/* 25 - GP25: PWM4CHB (9)  not wired */
-			<26 0 0 &pwm 10 0 0>,	/* GP26: A0 as PWM5CHA (10) */
-			<27 0 0 &pwm 11 0 0>,	/* GP27: A1 as PWM5CHB (11) */
-			<28 0 0 &pwm 12 0 0>,	/* GP28: A2 as PWM6CHA (12) */
-			<29 0 0 &pwm 13 0 0>;	/* GP29: A3 as PWM6CHB (13) */
+			<GROVE_LIF_L26 0 0 &pwm 10 0 0>,/* GP26: A0 as PWM5CHA (10) */
+			<GROVE_LIF_L27 0 0 &pwm 11 0 0>,/* GP27: A1 as PWM5CHB (11) */
+			<GROVE_LIF_L28 0 0 &pwm 12 0 0>,/* GP28: A2 as PWM6CHA (12) */
+			<GROVE_LIF_L29 0 0 &pwm 13 0 0>;/* GP29: A3 as PWM6CHB (13) */
 	};
 };
 
-grove_gpios: &grove_laced_if_pi {};
-grove_pwms: &grove_laced_if_pi {};
+zephyr_i2c: &i2c0 {};
+
+grove_i2c: &zephyr_i2c {};
+grove_spi: &spi1 {};
+grove_serial: &uart0 {};
+grove_gpios: &grove_laced_if {};
+grove_pwms: &grove_laced_if {};
 
 grove_pwm_d16: &pwm {};
 grove_pwm_d17: &pwm {};

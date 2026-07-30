@@ -1,0 +1,314 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <freq.h>
+#include <mem.h>
+
+#include <raspberrypi/partitions_0x0_default_2M.dtsi>
+
+#include <zephyr/dt-bindings/clock/rpi_pico_rp2350_clock.h>
+#include <zephyr/dt-bindings/regulator/rpi_pico.h>
+
+#include <zephyr/dt-bindings/gpio/gpio.h>
+#include <zephyr/dt-bindings/i2c/i2c.h>
+#include <zephyr/dt-bindings/led/led.h>
+#include <zephyr/dt-bindings/pwm/pwm.h>
+
+#include <zephyr/dt-bindings/input/input-event-codes.h>
+#include <zephyr/dt-bindings/lvgl/lvgl.h>
+
+#include "seeed_grove_connectors.dtsi"
+#include "cytron_motion_2350_pro-pinctrl.dtsi"
+
+/ {
+	model = "Cytron MOTION 2350 Pro @ UART Concole";
+	compatible = "cytron,motion-2350-pro",
+		     "cytron,motion-2350-pro-uartcons";
+
+	chosen {
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+		zephyr,flash-controller = &qmi;
+		zephyr,code-partition = &code_partition;
+		zephyr,console = &uart0;
+		zephyr,shell-uart = &uart0;
+	};
+
+	aliases {
+		watchdog0 = &wdt0;
+		sw0 = &btn0;
+		sw1 = &btn1;
+		led0 = &led0;
+		pwm-led0 = &pwm_led0;
+		pwm-buzzer0 = &pwm_buzzer0;
+		led-strip = &led_strip;
+		pwm-servo0 = &pwm_servo0;
+		pwm-servo1 = &pwm_servo1;
+		pwm-servo2 = &pwm_servo2;
+		pwm-servo3 = &pwm_servo3;
+		pwm-servo4 = &pwm_servo4;
+		pwm-servo5 = &pwm_servo5;
+		pwm-servo6 = &pwm_servo6;
+		pwm-servo7 = &pwm_servo7;
+	};
+
+	zephyr,user {
+		io-channels = <&adc 0>, <&adc 1>;
+	};
+
+	lvgl_keypad: lvgl-keypad {
+		compatible = "zephyr,lvgl-keypad-input";
+		input = <&gpio_keys>;
+		input-codes = <INPUT_KEY_0 INPUT_KEY_1>;
+		lvgl-codes = <LV_KEY_ENTER LV_KEY_NEXT>;
+	};
+
+	gpio_keys: gpio_keys {
+		compatible = "gpio-keys";
+
+		btn0: btn_0 {
+			gpios = <&gpio0 20 GPIO_ACTIVE_LOW>;
+			zephyr,code = <INPUT_KEY_0>;
+			label = "BTN1";
+		};
+		btn1: btn_1 {
+			gpios = <&gpio0 21 GPIO_ACTIVE_LOW>;
+			zephyr,code = <INPUT_KEY_1>;
+			label = "BTN2";
+		};
+	};
+
+	gpio_leds: gpio_leds {
+		compatible = "gpio-leds";
+
+		led0: led_0 {
+			gpios = <&gpio0 18 GPIO_ACTIVE_HIGH>;
+			label = "LED";
+		};
+	};
+
+	pwm_leds: pwm_leds {
+		compatible = "pwm-leds";
+
+		pwm_led0: pwm_led_0 {
+			pwms = <&pwm 2 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+			label = "PWM_LED";
+		};
+	};
+
+	pwm_buzzers {
+		compatible = "pwm-buzzers";
+
+		pwm_buzzer0: pwm_buzzer0 {
+			pwms = <&pwm 6 PWM_HZ(880) PWM_POLARITY_NORMAL>;
+			label = "PWM_BUZZER";
+		};
+	};
+
+	pwm_servo_motors {
+		compatible = "pwm-servos";
+
+		pwm_servo0: pwm_servo_0 {
+			pwms = <&pwm 0 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+			label = "PWM_SERVO_0";
+		};
+		pwm_servo1: pwm_servo_1 {
+			pwms = <&pwm 1 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+			label = "PWM_SERVO_1";
+		};
+		pwm_servo2: pwm_servo_2 {
+			pwms = <&pwm 2 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+			label = "PWM_SERVO_2";
+		};
+		pwm_servo3: pwm_servo_3 {
+			pwms = <&pwm 3 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+			label = "PWM_SERVO_3";
+		};
+		pwm_servo4: pwm_servo_4 {
+			pwms = <&pwm 4 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+			label = "PWM_SERVO_4";
+		};
+		pwm_servo5: pwm_servo_5 {
+			pwms = <&pwm 5 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+			label = "PWM_SERVO_5";
+		};
+		pwm_servo6: pwm_servo_6 {
+			pwms = <&pwm 6 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+			label = "PWM_SERVO_6";
+		};
+		pwm_servo7: pwm_servo_7 {
+			pwms = <&pwm 7 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+			label = "PWM_SERVO_7";
+		};
+	};
+};
+
+&flash0 {
+	status = "okay";
+	reg = <0x10000000 DT_SIZE_M(2)>;
+	ranges = <0x0 0x10000000 DT_SIZE_M(2)>;
+
+	partitions {
+		storage_partition: partition@100000 {
+			compatible = "zephyr,mapped-partition";
+			label = "storage";
+			reg = <0x100000 DT_SIZE_M(1)>;
+		};
+	};
+};
+
+&code_partition {
+	reg = <0x0 DT_SIZE_M(1)>;
+};
+
+&clocks {
+	status = "okay";
+	pinctrl-0 = <&clocks_default>;
+	pinctrl-names = "default";
+};
+
+&vreg {
+	status = "okay";
+	regulator-always-on;
+	regulator-allowed-modes = <REGULATOR_RPI_PICO_MODE_NORMAL>;
+};
+
+&reset {
+	status = "okay";
+};
+
+&wdt0 {
+	status = "okay";
+};
+
+&timer0 {
+	status = "okay";
+};
+
+&timer1 {
+	status = "okay";
+};
+
+&dma {
+	status = "okay";
+};
+
+&die_temp {
+	status = "okay";
+	friendly-name = "RP2350 chip temperature";
+};
+
+zephyr_udc0: &usbd {
+	status = "okay";
+};
+
+&uart0 {
+	status = "okay";
+	pinctrl-0 = <&uart0_default>;
+	pinctrl-names = "default";
+	current-speed = <115200>;
+};
+
+&spi0 {
+	status = "okay";
+	pinctrl-0 = <&spi0_ws2812_default>;
+	pinctrl-names = "default";
+
+	clock-frequency = <DT_FREQ_M(1)>;
+
+	led_strip: ws2812@0 {
+		compatible = "worldsemi,ws2812-spi";
+		status = "okay";
+
+		reg = <0>;
+		spi-max-frequency = <DT_FREQ_K(6400)>;	/* Tbit = 156.25 ns */
+
+		/* HI: 0xFC: 11111100: 0.937 us high and 0.313 us low */
+		/* LO: 0xC0: 11000000: 0.313 us high and 0.937 us low */
+		spi-one-frame = <0xfc>;
+		spi-zero-frame = <0xc0>;
+
+		chain-length = <2>;
+		color-mapping = <LED_COLOR_ID_RED
+				 LED_COLOR_ID_GREEN
+				 LED_COLOR_ID_BLUE>;
+	};
+};
+
+&spi1 {
+	status = "disabled";
+	pinctrl-0 = <&spi1_default>;
+	pinctrl-names = "default";
+	clock-frequency = <DT_FREQ_M(8)>;
+};
+
+&i2c0 {
+	status = "okay";
+	pinctrl-0 = <&i2c0_default>;
+	pinctrl-names = "default";
+	clock-frequency = <I2C_BITRATE_STANDARD>;
+};
+
+&i2c1 {
+	status = "disabled";
+	pinctrl-0 = <&i2c1_default>;
+	pinctrl-names = "default";
+	clock-frequency = <I2C_BITRATE_STANDARD>;
+};
+
+&pwm {
+	status = "okay";
+	pinctrl-0 = <&pwm_default>;
+	pinctrl-names = "default";
+	divider-int-0 = <255>;	/* servo:  PWM0CHA/B (0/1) */
+	divider-int-1 = <255>;	/* servo:  PWM1CHA/B (2/3) */
+	divider-frac-1 = <15>;	/* led:    PWM1CHB (2) */
+	divider-int-2 = <255>;	/* servo:  PWM2CHA/B (4/5) */
+	divider-int-3 = <255>;	/* servo:  PWM3CHA/B (6/7) */
+				/* buzzer: PWM3CHA (6) */
+};
+
+&adc {
+	status = "okay";
+	pinctrl-0 = <&adc_default>;
+	pinctrl-names = "default";
+};
+
+gpio0_lo: &gpio0 {
+	status = "okay";
+	/* namespace and positions without wired bits */
+	gpio-reserved-ranges = <24 2>;
+	gpio-line-names =
+		"SRVM1_PWM0",		/* GP0 */
+		"SRVM2_PWM1",		/* GP1 */
+		"SRVM3_PWM2",		/* GP2 */
+		"SRVM4_PWM3",		/* GP3 */
+		"SRVM5_PWM4",		/* GP4 */
+		"SRVM6_PWM5",		/* GP5 */
+		"SRVM7_PWM6",		/* GP6 */
+		"SRVM8_PWM7",		/* GP7 */
+		"DCM1A_PWM8",		/* GP8 */
+		"DCM1B_PWM9",		/* GP9 */
+		"DCM2A_PWM10",		/* GP10 */
+		"DCM2B_PWM11",		/* GP11 */
+		"DCM3A_PWM12",		/* GP12 */
+		"DCM3B_PWM13",		/* GP13 */
+		"DCM4A_PWM14",		/* GP14 */
+		"DCM4B_PWM15",		/* GP15 */
+		"GBH1Q02_SDA0",		/* GP16 */
+		"GBH2Q01_SCL0",		/* GP17 */
+		"GBH3_ULED0",		/* GP18 */
+		"GBH4",			/* GP19 */
+		"UBTN0",		/* GP20 */
+		"UBTN1",		/* GP21 */
+		"BUZZER_PWM6",		/* GP22 */
+		"RGB_SDO0",		/* GP23 */
+		"",   /* res. USB Host D+, GP24 */
+		"",   /* res. USB Host D-, GP25 */
+		"GBH5Q12_ADC0",		/* GP26 */
+		"GBH6Q11_ADC1",		/* GP27 */
+		"GBH7Q22_TX0",		/* GP28 */
+		"GBH8Q21_RX0";		/* GP29 */
+};

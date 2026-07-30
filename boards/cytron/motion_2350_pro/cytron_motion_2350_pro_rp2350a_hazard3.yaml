@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 identifier: cytron_motion_2350_pro/rp2350a/hazard3
 name: Cytron MOTION 2350 Pro (Hazard3)
 type: mcu
@@ -7,20 +10,20 @@ ram: 520
 toolchain:
   - zephyr
 supported:
-  - grove_gpio
-  - grove_pwm
-  - grove_i2c
-  - grove_serial
-  - uart
-  - gpio
   - adc
-  - i2c
-  - spi
-  - hwinfo
-  - watchdog
-  - pwm
-  - flash
-  - dma
-  - counter
   - clock
+  - counter
+  - dma
+  - flash
+  - gpio
+  - grove_gpio
+  - grove_i2c
+  - grove_pwm
+  - grove_serial
+  - hwinfo
+  - i2c
+  - pwm
+  - spi
+  - uart
   - usbd
+  - watchdog
