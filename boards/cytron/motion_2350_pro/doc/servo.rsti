@@ -1,0 +1,14 @@
+.. image:: img/servo.png
+   :align: right
+   :alt: MOTION 2350 Pro Servomotor Test
+
+.. rubric:: Servomotor Test
+
+The sample is prepared for servomotor :hwftlbl-act:`PWM_SERVO_0` at
+first on-board channel at :rpi-pico-pio:`GP0` / :rpi-pico-pwm:`PWM0`
+(PWM0CHA).
+
+.. tsn-include:: snippets/pwm-servo/README.rst
+   :docset: bridle
+   :start-after: .. _snippet-pwm-servo-cytron-motion-2350-pro:
+   :end-before: .. literalinclude:

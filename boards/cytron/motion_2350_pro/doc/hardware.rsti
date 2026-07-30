@@ -99,12 +99,12 @@ switch on-board (with MOSFET shock-proof circuit).
 
           .. group-tab:: Rev 2.0
 
-             .. image:: motion-2350-pro/hardware-rev2.jpg
+             .. image:: img/hardware-rev2.jpg
                 :align: center
                 :alt: MOTION 2350 Pro Rev 2.0
 
           .. group-tab:: Rev 1.0
 
-             .. image:: motion-2350-pro/hardware-rev1.jpg
+             .. image:: img/hardware-rev1.jpg
                 :align: center
                 :alt: MOTION 2350 Pro Rev 1.0

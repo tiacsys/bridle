@@ -1,7 +1,7 @@
-.. _cytron_motion_2350:
+.. _cytron_motion_2350_pro:
 
-Cytron MOTION 2350
-##################
+Cytron MOTION 2350 Pro
+######################
 
 The `RP2350 SoC`_ by Raspberry Pi Ltd. is a small sized and low-cost 32-bit
 dual ARM Cortex-M33 and dual 32-bit Hazard3 RISC-V (RV32IMAC+) microcontroller
@@ -15,32 +15,14 @@ Supported Boards
 Hardware
 ========
 
-.. tabs::
-
-   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
-
-   .. group-tab:: MOTION 2350 Pro
-
-      .. _cytron_motion_2350_pro:
-
-      .. include:: motion-2350-pro/hardware.rsti
-
-   .. zephyr-keep-sorted-stop
+.. include:: hardware.rsti
 
 Positions
 =========
 
-.. tabs::
+.. _cytron_motion_2350_pro_positions:
 
-   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
-
-   .. group-tab:: MOTION 2350 Pro
-
-      .. _cytron_motion_2350_pro_positions:
-
-      .. include:: motion-2350-pro/positions.rsti
-
-   .. zephyr-keep-sorted-stop
+.. include:: positions.rsti
 
 Pinouts
 =======
@@ -49,23 +31,14 @@ The peripherals of the `RP2350 SoC`_ can be routed to various pins on
 the board. The configuration of these routes can be modified through
 :external+zephyr:ref:`DTS <devicetree>`. Please refer to the datasheet
 to see the possible routings for each peripheral. The default assignments
-for the Cytron MOTION 2350 Pro boards are defined below separately
-in a single tab.
+for the Cytron MOTION 2350 Pro boards is defined below.
 
-.. tabs::
-
-   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
-
-   .. group-tab:: MOTION 2350 Pro
-
-      .. include:: motion-2350-pro/pinouts.rsti
-
-   .. zephyr-keep-sorted-stop
+.. include:: pinouts.rsti
 
 Supported Features
 ******************
 
-Similar to the |zephyr:board:rpi_pico2| the Cytron MOTION 2350 board
+Similar to the |zephyr:board:rpi_pico2| the Cytron MOTION 2350 Pro board
 configuration supports the following hardware features:
 
 .. list-table:: Hardware Features Supported by Zephyr
@@ -152,7 +125,7 @@ configuration supports the following hardware features:
      - :external+zephyr:ref:`hwinfo_api`
    * - VREG
      - :kconfig:option:`CONFIG_REGULATOR`
-     - :dtcompatible:`raspberrypi,core-supply-regulator` (!)
+     - :dtcompatible:`raspberrypi,core-supply-regulator`
      - :external+zephyr:ref:`regulator_api`
    * - RESET
      - :kconfig:option:`CONFIG_RESET`
@@ -172,43 +145,45 @@ configuration supports the following hardware features:
      - :dtcompatible:`arm,armv8m-systick`
      -
 
-(!) POWMAN with VREG on RP2350 not yet supported by Zephyr.
-
-    See section **Peripherals RP2350** in upstream issue:
-    https://github.com/zephyrproject-rtos/zephyr/issues/53810
-
 Other hardware features are not currently supported by Zephyr. The default
 configuration can be found in the different Kconfig files:
 
 .. zephyr-keep-sorted-start re(^\* :bridle_file:`\w)
 
-* :bridle_file:`boards/cytron/motion_rp2350/cytron_motion_2350_pro_defconfig`
+* :bridle_file:`boards/cytron/motion_rp2350_pro/cytron_motion_2350_pro_rp2350a_hazard3_defconfig`
+* :bridle_file:`boards/cytron/motion_rp2350_pro/cytron_motion_2350_pro_rp2350a_m33_defconfig`
 
 .. zephyr-keep-sorted-stop
 
 Board Configurations
 ====================
 
-The Cytron MOTION 2350 Pro board can be configured for the following different
-use cases.
+The Cytron MOTION 2350 Pro board can be configured for the following
+different use cases.
 
-.. tabs::
+.. rubric:: :command:`west build -b cytron_motion_2350_pro/rp2350a/hazard3 -S usb-console`
 
-   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+Use the native USB device port with CDC-ACM as
+Zephyr console and for the shell.
+Running on Hazard3/RISC-V core.
 
-   .. group-tab:: MOTION 2350 Pro
+.. rubric:: :command:`west build -b cytron_motion_2350_pro/rp2350a/hazard3`
 
-      .. rubric:: :command:`west build -b cytron_motion_2350_pro/rp2350a/m33 -S usb-console`
+Use the serial port UART0 on edge header as
+Zephyr console and for the shell.
+Running on Hazard3/RISC-V core.
 
-      Use the native USB device port with CDC-ACM as
-      Zephyr console and for the shell.
+.. rubric:: :command:`west build -b cytron_motion_2350_pro/rp2350a/m33 -S usb-console`
 
-      .. rubric:: :command:`west build -b cytron_motion_2350_pro/rp2350a/m33`
+Use the native USB device port with CDC-ACM as
+Zephyr console and for the shell.
+Running on Cortex-M33 core.
 
-      Use the serial port UART0 on edge header as
-      Zephyr console and for the shell.
+.. rubric:: :command:`west build -b cytron_motion_2350_pro/rp2350a/m33`
 
-   .. zephyr-keep-sorted-stop
+Use the serial port UART0 on edge header as
+Zephyr console and for the shell.
+Running on Cortex-M33 core.
 
 Connections and IOs
 ===================
@@ -217,7 +192,7 @@ The `Cytron Marktplace`_ has detailed information about board connections.
 Download the different schematics or datasheets as linked above per board
 for more details. The pinout diagrams can also be found there.
 
-.. _cytron_motion_rp2350_grove_if:
+.. _cytron_motion_rp2350_pro_grove_if:
 
 Laced Grove Signal Interface
 ----------------------------
@@ -235,43 +210,35 @@ Following mappings are well known:
 
 .. zephyr-keep-sorted-stop
 
+In addition to the on-board header for DC and servo motors, there are
+also 3 |Grove connectors| (Qwiic/STEMMA QT).
+
 .. tabs::
 
-   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+   .. group-tab:: GPIO mapping ``grove_gpios``
 
-   .. group-tab:: MOTION 2350 Pro
+      This is the **GPIO signal line mapping** from the `RP2350 SOC`_
+      to the set of |Grove connectors| provided as |Laced Grove Signal
+      Interface|.
 
-      In addition to the on-board header for DC and servo motors, there are
-      also 3 |Grove connectors| (Qwiic/STEMMA QT).
+      **This list must not be stable!**
 
-      .. tabs::
+      .. include:: grove_gpios.rsti
 
-         .. group-tab:: GPIO mapping ``grove_gpios``
+   .. group-tab:: PWM mapping ``grove_pwms``
 
-            This is the **GPIO signal line mapping** from the `RP2350 SOC`_
-            to the set of |Grove connectors| provided as |Laced Grove Signal
-            Interface|.
+      The corresponding mapping is always board or SOC specific.
+      In addition to the **PWM signal line mapping**, the valid
+      references to the PWM function units in the SOC or on the
+      board are therefore also defined as **Grove PWM Labels**.
+      The following table reflects the currently supported mapping
+      for :code:`cytron_motion_2350_pro/rp2350a/hazard3`
+      and :code:`cytron_motion_2350_pro/rp2350a/m33`, but this list
+      will be growing up with further development and maintenance.
 
-            **This list must not be stable!**
+      **This list must not be complete or stable!**
 
-            .. include:: motion-2350-pro/grove_gpios.rsti
-
-         .. group-tab:: PWM mapping ``grove_pwms``
-
-            The corresponding mapping is always board or SOC specific.
-            In addition to the **PWM signal line mapping**, the valid
-            references to the PWM function units in the SOC or on the
-            board are therefore also defined as **Grove PWM Labels**.
-            The following table reflects the currently supported mapping
-            for :code:`cytron_motion_2350_pro/rp2350a/hazard3`
-            and :code:`cytron_motion_2350_pro/rp2350a/m33`, but this list
-            will be growing up with further development and maintenance.
-
-            **This list must not be complete or stable!**
-
-            .. include:: motion-2350-pro/grove_pwms.rsti
-
-   .. zephyr-keep-sorted-stop
+      .. include:: grove_pwms.rsti
 
 System Clock
 ============
@@ -286,10 +253,12 @@ GPIO (PWM) Ports
 
 The `RP2350A <RP2350 SoC_>`_ MCU has 1 GPIO cell which covers all I/O pads and
 8 PWM function unit each with 2 channels beside a dedicated Timer unit. On
-the |MOTION 2350 Pro| the channels PWM0 A to PWM3 B are reserved for driving
+|MOTION 2350 Pro| the channels PWM0 A to PWM3 B are reserved for driving
 eight servo motors and also PWM4 A to PWM5 B for the two on-board DC motor
 H-bridge drivers. In parallel the PWM3 channel A will be used for the on-board
-Piezo buzzer. But the PWM operation is not enable by default. Only if
+Piezo buzzer.
+
+But the PWM operation is not enable by default. Only if
 :kconfig:option:`CONFIG_PWM_RPI_PICO` is enabled then the first user LED or
 Piezo buzzer is driven by PWM instead of by GPIO.
 
@@ -299,9 +268,9 @@ ADC/TS Ports
 The `RP2350A <RP2350 SoC_>`_ MCU has 1 ADC with 4 channels and an additional
 fifth channel for the on-chip temperature sensor (TS). The ADC channels 0-3
 are available on the GPIO breakout header and on two of the Qwiic / STEMMA QT
-compatiple connectors on the |MOTION 2350 Pro|. But this is not the default
-pin operation. On |MOTION 2350 Pro| only the ADC channel 0-2 are available,
-ADC channel 3 can be used optional for internal on-board voltage monitoring.
+compatiple connectors on |MOTION 2350 Pro|. But this is not the default pin
+operation. On |MOTION 2350 Pro| only the ADC channel 0-2 are available, ADC
+channel 3 can be used optional for internal on-board voltage monitoring.
 
 The external voltage reference ADC_VREF is directly connected to the 3.3V
 power supply.
@@ -342,23 +311,15 @@ alternative to the default Zephyr console on serial port the Bridle
 :ref:`snippet-usb-console` can be used to enable
 :external+zephyr:ref:`usb_device_cdc_acm` and switch the console to USB:
 
-.. tabs::
+   .. container:: highlight-console notranslate literal-block
 
-   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+      .. parsed-literal::
 
-   .. group-tab:: MOTION 2350 Pro
-
-      .. container:: highlight-console notranslate literal-block
-
-         .. parsed-literal::
-
-            USB device idVendor=\ |cytron_motion_2350_pro_VID|, idProduct=\ |cytron_motion_2350_pro_PID_CON|, bcdDevice=\ |cytron_motion_2350_pro_BCD_CON|
-            USB device strings: Mfr=1, Product=2, SerialNumber=3
-            Product: |cytron_motion_2350_pro_PStr_CON|
-            Manufacturer: |cytron_motion_2350_pro_VStr|
-            SerialNumber: BFBD7FBB52DD7E1B
-
-   .. zephyr-keep-sorted-stop
+         USB device idVendor=\ |cytron_motion_2350_pro_VID|, idProduct=\ |cytron_motion_2350_pro_PID_CON|, bcdDevice=\ |cytron_motion_2350_pro_BCD_CON|
+         USB device strings: Mfr=1, Product=2, SerialNumber=3
+         Product: |cytron_motion_2350_pro_PStr_CON|
+         Manufacturer: |cytron_motion_2350_pro_VStr|
+         SerialNumber: BFBD7FBB52DD7E1B
 
 .. include:: /includes/rpi_cytron_urb_pid_list.txt
 
@@ -386,8 +347,8 @@ Flashing
 Using UF2
 ---------
 
-If you don't have an SWD adapter, you can flash the Cytron MOTION 2350 Pro
-board with a UF2 file. By default, building an app for this board will generate
+If you don't have an SWD adapter, you can flash the |MOTION 2350 Pro| board
+with a UF2 file. By default, building an app for this board will generate
 a :file:`build/zephyr/zephyr.uf2` file. If the board is powered on with the
 :kbd:`BOOTSEL` button pressed, it will appear on the host as a mass
 storage device:
@@ -403,11 +364,14 @@ storage device:
          SerialNumber: 7FBB52DD7E1B
 
 The UF2 file should be drag-and-dropped or copied on command line to the
-device, which will then flash the Cytron MOTION 2350 board.
+device, which will then flash the Cytron MOTION 2350 Pro board.
+
+RP2350 Boot-ROM
+---------------
 
 Each `RP2350 SoC`_ ships the `UF2 compatible <UF2 bootloader_>`_ bootloader
 pico-bootrom-rp2350_, a native support in silicon. The full source for the
-RP2040 bootrom at pico-bootrom-rp2350_ includes versions B0, B1 and B2 of
+RP2040 bootrom at pico-bootrom-rp2350_ includes versions A2, A3 and A4 of
 the bootrom, which correspond to the same silicon revisions, respectively.
 
 Note that every time you build a program for the RP2350, the Pico SDK selects
@@ -419,7 +383,7 @@ in the `RP2350 Datasheet`_, sections with title :emphasis:`"Bootrom"` and
 Using SEGGER JLink
 ------------------
 
-You can flash the Cytron MOTION 2350 Pro board with a SEGGER JLink debug probe
+You can flash the |MOTION 2350 Pro| board with a SEGGER JLink debug probe
 as described in
 :external+zephyr:ref:`Building, Flashing and Debugging <west-flashing>`.
 
@@ -428,7 +392,7 @@ Here is an example of building and flashing the
 
    .. zephyr-app-commands::
       :app: zephyr/samples/basic/blinky
-      :build-dir: cytron_motion_2350
+      :build-dir: cytron_motion_2350_pro
       :board: cytron_motion_2350_pro/rp2350a/m33
       :flash-args: -r jlink
       :west-args: -p
@@ -465,7 +429,7 @@ Here is an example of building and flashing the
 
    .. zephyr-app-commands::
       :app: zephyr/samples/basic/blinky
-      :build-dir: cytron_motion_2350
+      :build-dir: cytron_motion_2350_pro
       :board: cytron_motion_2350_pro/rp2350a/m33
       :gen-args: \
                  -DOPENOCD=/usr/local/bin/openocd \
@@ -530,7 +494,7 @@ Here is an example for debugging the
 
    .. zephyr-app-commands::
       :app: zephyr/samples/basic/blinky
-      :build-dir: cytron_motion_2350
+      :build-dir: cytron_motion_2350_pro
       :board: cytron_motion_2350_pro/rp2350a/m33
       :maybe-skip-config:
       :gen-args: \
@@ -572,381 +536,158 @@ Inside gdb, run:
 
 You can then start debugging the board.
 
-More Samples
-************
+Basic Samples
+*************
 
 LED Blinky and Fade
 ===================
 
-.. tabs::
+.. image:: img/ws2812b.gif
+   :align: right
+   :alt: MOTION 2350 Pro WS2812 LED Test Pattern
 
-   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+.. rubric:: WS2812 LED Test Pattern by PIO
 
-   .. group-tab:: MOTION 2350 Pro
+See also Zephyr sample: :external+zephyr:zephyr:code-sample:`led-strip`.
 
-      .. rubric:: WS2812 LED Test Pattern by PIO
+   .. rubric:: On ARM Cortex-M33
 
-      .. image:: motion-2350-pro/ws2812b.gif
-         :align: right
-         :alt: MOTION 2350 Pro WS2812 LED Test Pattern
+   .. zephyr-app-commands::
+      :app: zephyr/samples/drivers/led/led_strip
+      :build-dir: cytron_motion_2350_pro
+      :board: cytron_motion_2350_pro/rp2350a/m33
+      :west-args: -p
+      :goals: flash
+      :compact:
 
-      See also Zephyr sample: :external+zephyr:zephyr:code-sample:`led-strip`.
+   .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
 
-         .. rubric:: On ARM Cortex-M33
+   .. zephyr-app-commands::
+      :app: zephyr/samples/drivers/led/led_strip
+      :build-dir: cytron_motion_2350_pro
+      :board: cytron_motion_2350_pro/rp2350a/hazard3
+      :west-args: -p
+      :goals: flash
+      :compact:
 
-         .. zephyr-app-commands::
-            :app: zephyr/samples/drivers/led/led_strip
-            :build-dir: cytron_motion_2350
-            :board: cytron_motion_2350_pro/rp2350a/m33
-            :west-args: -p
-            :flash-args: -r uf2
-            :goals: flash
-            :compact:
+.. rubric:: Blue User LED Blinky by GPIO
 
-         .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+See also Zephyr sample: :external+zephyr:zephyr:code-sample:`blinky`.
 
-         .. zephyr-app-commands::
-            :app: zephyr/samples/drivers/led/led_strip
-            :build-dir: cytron_motion_2350
-            :board: cytron_motion_2350_pro/rp2350a/hazard3
-            :west-args: -p
-            :flash-args: -r uf2
-            :goals: flash
-            :compact:
+   .. rubric:: On ARM Cortex-M33
 
-      .. rubric:: Blue User LED Blinky by GPIO
+   .. zephyr-app-commands::
+      :app: zephyr/samples/basic/blinky
+      :build-dir: cytron_motion_2350_pro
+      :board: cytron_motion_2350_pro/rp2350a/m33
+      :west-args: -p
+      :goals: flash
+      :compact:
 
-      See also Zephyr sample: :external+zephyr:zephyr:code-sample:`blinky`.
+   .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
 
-         .. rubric:: On ARM Cortex-M33
+   .. zephyr-app-commands::
+      :app: zephyr/samples/basic/blinky
+      :build-dir: cytron_motion_2350_pro
+      :board: cytron_motion_2350_pro/rp2350a/hazard3
+      :west-args: -p
+      :goals: flash
+      :compact:
 
-         .. zephyr-app-commands::
-            :app: zephyr/samples/basic/blinky
-            :build-dir: cytron_motion_2350
-            :board: cytron_motion_2350_pro/rp2350a/m33
-            :west-args: -p
-            :flash-args: -r uf2
-            :goals: flash
-            :compact:
+.. rubric:: Blue User LED Blinky by PWM
 
-         .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+See also Zephyr sample: :external+zephyr:zephyr:code-sample:`pwm-blinky`.
 
-         .. zephyr-app-commands::
-            :app: zephyr/samples/basic/blinky
-            :build-dir: cytron_motion_2350
-            :board: cytron_motion_2350_pro/rp2350a/hazard3
-            :west-args: -p
-            :flash-args: -r uf2
-            :goals: flash
-            :compact:
+   .. rubric:: On ARM Cortex-M33
 
-      .. rubric:: Blue User LED Blinky by PWM
+   .. zephyr-app-commands::
+      :app: zephyr/samples/basic/blinky_pwm
+      :build-dir: cytron_motion_2350_pro
+      :board: cytron_motion_2350_pro/rp2350a/m33
+      :west-args: -p
+      :goals: flash
+      :compact:
 
-      See also Zephyr sample: :external+zephyr:zephyr:code-sample:`pwm-blinky`.
+   .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
 
-         .. rubric:: On ARM Cortex-M33
+   .. zephyr-app-commands::
+      :app: zephyr/samples/basic/blinky_pwm
+      :build-dir: cytron_motion_2350_pro
+      :board: cytron_motion_2350_pro/rp2350a/hazard3
+      :west-args: -p
+      :goals: flash
+      :compact:
 
-         .. zephyr-app-commands::
-            :app: zephyr/samples/basic/blinky_pwm
-            :build-dir: cytron_motion_2350
-            :board: cytron_motion_2350_pro/rp2350a/m33
-            :west-args: -p
-            :flash-args: -r uf2
-            :goals: flash
-            :compact:
+.. rubric:: Blue User LED Fade by PWM
 
-         .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+See also Zephyr sample: :external+zephyr:zephyr:code-sample:`fade-led`.
 
-         .. zephyr-app-commands::
-            :app: zephyr/samples/basic/blinky_pwm
-            :build-dir: cytron_motion_2350
-            :board: cytron_motion_2350_pro/rp2350a/hazard3
-            :west-args: -p
-            :flash-args: -r uf2
-            :goals: flash
-            :compact:
+   .. rubric:: On ARM Cortex-M33
 
-      .. rubric:: Blue User LED Fade by PWM
+   .. zephyr-app-commands::
+      :app: zephyr/samples/basic/fade_led
+      :build-dir: cytron_motion_2350_pro
+      :board: cytron_motion_2350_pro/rp2350a/m33
+      :west-args: -p
+      :goals: flash
+      :compact:
 
-      See also Zephyr sample: :external+zephyr:zephyr:code-sample:`fade-led`.
+   .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
 
-         .. rubric:: On ARM Cortex-M33
+   .. zephyr-app-commands::
+      :app: zephyr/samples/basic/fade_led
+      :build-dir: cytron_motion_2350_pro
+      :board: cytron_motion_2350_pro/rp2350a/hazard3
+      :west-args: -p
+      :goals: flash
+      :compact:
 
-         .. zephyr-app-commands::
-            :app: zephyr/samples/basic/fade_led
-            :build-dir: cytron_motion_2350
-            :board: cytron_motion_2350_pro/rp2350a/m33
-            :west-args: -p
-            :flash-args: -r uf2
-            :goals: flash
-            :compact:
+.. rubric:: Blue User LED On/Off by GPIO Button
 
-         .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+See also Zephyr sample: :external+zephyr:zephyr:code-sample:`button`.
 
-         .. zephyr-app-commands::
-            :app: zephyr/samples/basic/fade_led
-            :build-dir: cytron_motion_2350
-            :board: cytron_motion_2350_pro/rp2350a/hazard3
-            :west-args: -p
-            :flash-args: -r uf2
-            :goals: flash
-            :compact:
+   .. rubric:: On ARM Cortex-M33
 
-      .. rubric:: Blue User LED On/Off by GPIO Button
+   .. zephyr-app-commands::
+      :app: zephyr/samples/basic/button
+      :build-dir: cytron_motion_2350_pro
+      :board: cytron_motion_2350_pro/rp2350a/m33
+      :west-args: -p
+      :goals: flash
+      :compact:
 
-      See also Zephyr sample: :external+zephyr:zephyr:code-sample:`button`.
+   .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
 
-         .. rubric:: On ARM Cortex-M33
-
-         .. zephyr-app-commands::
-            :app: zephyr/samples/basic/button
-            :build-dir: cytron_motion_2350
-            :board: cytron_motion_2350_pro/rp2350a/m33
-            :west-args: -p
-            :flash-args: -r uf2
-            :goals: flash
-            :compact:
-
-         .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
-
-         .. zephyr-app-commands::
-            :app: zephyr/samples/basic/button
-            :build-dir: cytron_motion_2350
-            :board: cytron_motion_2350_pro/rp2350a/hazard3
-            :west-args: -p
-            :flash-args: -r uf2
-            :goals: flash
-            :compact:
-
-   .. zephyr-keep-sorted-stop
+   .. zephyr-app-commands::
+      :app: zephyr/samples/basic/button
+      :build-dir: cytron_motion_2350_pro
+      :board: cytron_motion_2350_pro/rp2350a/hazard3
+      :west-args: -p
+      :goals: flash
+      :compact:
 
 Hello Shell with USB-CDC/ACM Console
 ====================================
 
-.. tabs::
+.. include:: helloshell.rsti
 
-   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
-
-   .. group-tab:: MOTION 2350 Pro
-
-      .. rubric:: Hello Shell
-
-      See also Bridle sample: :ref:`helloshell-sample`.
-
-         .. rubric:: On ARM Cortex-M33
-
-         .. zephyr-app-commands::
-            :app: bridle/samples/helloshell
-            :build-dir: cytron_motion_2350
-            :board: cytron_motion_2350_pro/rp2350a/m33
-            :snippets: "usb-console"
-            :west-args: -p
-            :flash-args: -r uf2
-            :goals: flash
-            :compact:
-
-         .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
-
-         .. zephyr-app-commands::
-            :app: bridle/samples/helloshell
-            :build-dir: cytron_motion_2350
-            :board: cytron_motion_2350_pro/rp2350a/hazard3
-            :snippets: "usb-console"
-            :west-args: -p
-            :flash-args: -r uf2
-            :goals: flash
-            :compact:
-
-      .. include:: motion-2350-pro/helloshell.rsti
-
-   .. zephyr-keep-sorted-stop
+More Samples
+************
 
 Input dump with USB-CDC/ACM Console
 ===================================
 
-Prints all input events as defined by the shields Devicetree. See also Zephyr
-sample: :external+zephyr:zephyr:code-sample:`input-dump`.
-
-.. tabs::
-
-   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
-
-   .. group-tab:: MOTION 2350 Pro
-
-      Print the input events related to the two on-board user button
-      using the :external+zephyr:ref:`Input subsystem API <input>`. That are:
-
-      | :hwftlbl-btn:`BTN1` : :dts:`zephyr,code = <INPUT_KEY_0>;`
-      | :hwftlbl-btn:`BTN2` : :dts:`zephyr,code = <INPUT_KEY_1>;`
-
-      .. rubric:: Devicetree compatible
-
-      - :dtcompatible:`zephyr,lvgl-keypad-input` with devicetree relation
-        :dts:`lvgl_keypad: lvgl-keypad { input = <&gpio_keys>; };`
-
-        | :hwftlbl-btn:`BTN1` :
-          :dts:`input-codes = <INPUT_KEY_0>;` :
-          :dts:`lvgl-codes = <LV_KEY_ENTER>;`
-        | :hwftlbl-btn:`BTN2` :
-          :dts:`input-codes = <INPUT_KEY_1>;` :
-          :dts:`lvgl-codes = <LV_KEY_NEXT>;`
-
-      .. rubric:: Button Input Dump
-
-      See also Zephyr sample: :external+zephyr:zephyr:code-sample:`input-dump`.
-
-         .. rubric:: On ARM Cortex-M33
-
-         .. zephyr-app-commands::
-            :app: zephyr/samples/subsys/input/input_dump
-            :build-dir: cytron_motion_2350
-            :board: cytron_motion_2350_pro/rp2350a/m33
-            :snippets: "usb-console"
-            :west-args: -p
-            :flash-args: -r uf2
-            :goals: flash
-            :compact:
-
-         .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
-
-         .. zephyr-app-commands::
-            :app: zephyr/samples/subsys/input/input_dump
-            :build-dir: cytron_motion_2350
-            :board: cytron_motion_2350_pro/rp2350a/hazard3
-            :snippets: "usb-console"
-            :west-args: -p
-            :flash-args: -r uf2
-            :goals: flash
-            :compact:
-
-      .. rubric:: Simple logging output on target
-
-      .. container:: highlight highlight-console notranslate no-copybutton
-
-         .. parsed-literal::
-
-            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
-            Input sample started
-            I: input event: dev=gpio_keys        SYN type= 1 code= 11 value=1
-            I: input event: dev=gpio_keys        SYN type= 1 code= 11 value=0
-            I: input event: dev=gpio_keys        SYN type= 1 code=  2 value=1
-            I: input event: dev=gpio_keys        SYN type= 1 code=  2 value=0
-
-   .. zephyr-keep-sorted-stop
+.. include:: input_dump.rsti
 
 Sounds from the speaker with USB-CDC/ACM Console
 ================================================
 
-.. tabs::
-
-   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
-
-   .. group-tab:: MOTION 2350 Pro
-
-      .. rubric:: Piezo Buzzer Test
-
-      .. image:: motion-2350-pro/buzzer.jpg
-         :align: right
-         :alt: MOTION 2350 Pro Piezo Buzzer Test
-
-      The sample is prepared for the on-board :hwftlbl-spk:`PWM_BUZZER` connected
-      to the PWM channel at :rpi-pico-pio:`GP22` / :rpi-pico-pwm:`PWM6` (PWM3CHA).
-
-      The PWM period is 880 ㎐, twice the concert pitch frequency of 440 ㎐.
-
-      .. literalinclude:: ../motion_2350_buzzer.dtsi
-         :caption: motion_2350_buzzer.dtsi
-         :language: DTS
-         :encoding: ISO-8859-1
-         :emphasize-lines: 3,11,18
-         :linenos:
-         :start-at: / {
-
-      Invoke :program:`west build` and :program:`west flash`:
-
-         .. rubric:: On ARM Cortex-M33
-
-         .. zephyr-app-commands::
-            :app: bridle/samples/buzzer
-            :build-dir: cytron_motion_2350
-            :board: cytron_motion_2350_pro/rp2350a/m33
-            :snippets: "usb-console"
-            :west-args: -p
-            :flash-args: -r uf2
-            :goals: flash
-            :compact:
-
-         .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
-
-         .. zephyr-app-commands::
-            :app: bridle/samples/buzzer
-            :build-dir: cytron_motion_2350
-            :board: cytron_motion_2350_pro/rp2350a/hazard3
-            :snippets: "usb-console"
-            :west-args: -p
-            :flash-args: -r uf2
-            :goals: flash
-            :compact:
-
-      .. rubric:: Simple test execution on target
-
-      #. play a beep
-      #. play a folk song
-      #. play a chrismas song
-
-      .. container:: highlight highlight-console notranslate
-
-         .. parsed-literal::
-
-            :bgn:`uart:~$` **buzzer beep**
-
-      .. container:: highlight highlight-console notranslate
-
-         .. parsed-literal::
-
-            :bgn:`uart:~$` **buzzer play folksong**
-
-      .. container:: highlight highlight-console notranslate
-
-         .. parsed-literal::
-
-            :bgn:`uart:~$` **buzzer play xmastime**
-
-   .. zephyr-keep-sorted-stop
+.. include:: buzzer.rsti
 
 Drive a motor with USB-CDC/ACM Console
 ======================================
 
-.. tabs::
-
-   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
-
-   .. group-tab:: MOTION 2350 Pro
-
-      .. rubric:: Servomotor Test
-
-      .. image:: img/servo.png
-         :align: right
-         :alt: MOTION 2350 Pro Servomotor Test
-
-      The sample is prepared for servomotor :hwftlbl-act:`PWM_SERVO_0` at
-      first on-board channel at :rpi-pico-pio:`GP0` / :rpi-pico-pwm:`PWM0`
-      (PWM0CHA).
-
-      .. literalinclude:: ../motion_2350_pro_servo.dtsi
-         :caption: motion_2350_pro_servo.dtsi
-         :language: DTS
-         :encoding: ISO-8859-1
-         :emphasize-lines: 3,18,53
-         :linenos:
-         :start-at: / {
-
-      .. tsn-include:: snippets/pwm-servo/README.rst
-         :docset: bridle
-         :start-after: .. _snippet-pwm-servo-cytron-motion-2350-pro:
-         :end-before: .. literalinclude:
-
-   .. zephyr-keep-sorted-stop
+.. include:: servo.rsti
 
 References
 **********

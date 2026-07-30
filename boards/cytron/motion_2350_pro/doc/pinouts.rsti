@@ -154,7 +154,7 @@ VIN/6.1 voltage monitoring.
        - :dtcompatible:`seeed,grove-laced-if`
        - :dtcompatible:`seeed,grove-connector`
 
-     - .. image:: motion-2350-pro/pinouts.jpg
+     - .. image:: img/pinouts.jpg
           :align: center
           :width: 100%
           :alt: MOTION 2350 Pro edge pinout
