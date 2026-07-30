@@ -1,8 +1,8 @@
-.. rubric:: Speaker Test
-
-.. image:: picoboy/speaker.jpg
+.. image:: img/speaker.jpg
    :align: right
    :alt: PicoBoy Speaker Test
+
+.. rubric:: Speaker Test
 
 Invoke :program:`west build` and :program:`west flash`:
 

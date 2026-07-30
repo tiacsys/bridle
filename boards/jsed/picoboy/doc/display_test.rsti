@@ -26,7 +26,7 @@ The following samples work with the chosen display. That is:
 
 .. rubric:: LCD Orientation and Bit Order Test
 
-.. image:: picoboy/display.gif
+.. image:: img/display.gif
    :align: right
    :alt: PicoBoy Display Test
 

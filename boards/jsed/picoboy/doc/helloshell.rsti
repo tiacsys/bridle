@@ -8,4 +8,4 @@
    :goals: flash
    :compact:
 
-.. include:: picoboy/helloshell_console.rsti
+.. include:: helloshell_console.rsti

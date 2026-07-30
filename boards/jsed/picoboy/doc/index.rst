@@ -1,7 +1,7 @@
-.. _the_picoboy:
+.. _picoboy:
 
-The PicoBoy (Color)
-###################
+PicoBoy
+#######
 
 The **PicoBoy** is a powerful mini handheld measuring just 3×5 ㎝. It is
 suitable for learning programming, developing your own games or simply
@@ -11,84 +11,35 @@ compatible with the |zephyr:board:rpi_pico| programming model and process,
 there are countless other tutorials, examples and libraries on the internet
 to make programming easier.
 
-The **PicoBoy Color (PBC)** is the further development of the popular *PicoBoy*
-handheld, now with a color display for even more gaming fun. Whether you want
-to learn programming, develop your own games or simply play, the *PicoBoy Color*
-offers a wide range of possibilities. Although the original *PicoBoy* remains
-a great starting point for beginners and school classes, the *PicoBoy Color*
-offers an enhanced gaming experience and new possibilities for those who want
-more.
-
 Board Overview
 **************
 
 Hardware
 ========
 
-.. tabs::
-
-   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
-
-   .. group-tab:: PicoBoy
-
-      .. _picoboy:
-
-      .. include:: picoboy/hardware.rsti
-
-   .. group-tab:: PicoBoy Color
-
-      .. _picoboy_color:
-
-      .. include:: picoboy-color/hardware.rsti
-
-   .. zephyr-keep-sorted-stop
+.. include:: hardware.rsti
 
 Positions
 =========
 
-.. tabs::
-
-   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
-
-   .. group-tab:: PicoBoy
-
-      .. include:: picoboy/positions.rsti
-
-   .. group-tab:: PicoBoy Color
-
-      .. include:: picoboy-color/positions.rsti
-
-   .. zephyr-keep-sorted-stop
+.. include:: positions.rsti
 
 Pinouts
 =======
 
-The peripherals of the `RP2040 SoC`_ can be routed to various pins on
-the board. The configuration of these routes can be modified through
-:external+zephyr:ref:`DTS <devicetree>`. Please refer to the datasheet
-to see the possible routings for each peripheral. The default assignments
-for the PicoBoy (Color) on-board wiring is defined below. The PicoBoy Color
-has solder pads with additional signals routed to outside of the board.
+The peripherals of the `RP2040 SoC`_ can be routed to various pins on the board.
+The configuration of these routes can be modified through
+:external+zephyr:ref:`DTS <devicetree>`. Please refer to the datasheet to see
+the possible routings for each peripheral. The default assignments for the
+on-board wiring is defined below.
 
-.. tabs::
-
-   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
-
-   .. group-tab:: PicoBoy
-
-      .. include:: picoboy/pinouts.rsti
-
-   .. group-tab:: PicoBoy Color
-
-      .. include:: picoboy-color/pinouts.rsti
-
-   .. zephyr-keep-sorted-stop
+.. include:: pinouts.rsti
 
 Supported Features
 ******************
 
-Similar to the |zephyr:board:rpi_pico| the PicoBoy (Color) board
-configuration supports the following hardware features:
+Similar to the |zephyr:board:rpi_pico| the board configuration supports the
+following hardware features:
 
 .. list-table:: Hardware Features Supported by Zephyr
    :class: longtable
@@ -205,7 +156,6 @@ configuration can be found in the following Kconfig file:
 
 .. zephyr-keep-sorted-start re(^\* :bridle_file:`\w)
 
-* :bridle_file:`boards/jsed/picoboy/picoboy_color_defconfig`
 * :bridle_file:`boards/jsed/picoboy/picoboy_defconfig`
 
 .. zephyr-keep-sorted-stop
@@ -213,35 +163,19 @@ configuration can be found in the following Kconfig file:
 Board Configurations
 ====================
 
-The PicoBoy boards can be configured only for the following single use cases.
+The board can be configured only for the following single use cases.
 
-.. tabs::
+.. rubric:: :command:`west build -b picoboy/rp2040`
 
-   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
-
-   .. group-tab:: PicoBoy
-
-      .. rubric:: :command:`west build -b picoboy/rp2040`
-
-      Use the native USB device port with CDC-ACM as
-      Zephyr console and for the shell.
-
-   .. group-tab:: PicoBoy Color
-
-      .. rubric:: :command:`west build -b picoboy_color/rp2040`
-
-      Use the native USB device port with CDC-ACM as
-      Zephyr console and for the shell.
-
-   .. zephyr-keep-sorted-stop
+Use the native USB device port with CDC-ACM as
+Zephyr console and for the shell.
 
 Connections and IOs
 ===================
 
-The `PicoBoy <PicoBoy Details_>`_
-and `PicoBoy Color <PicoBoy Color Details_>`_ website has detailed information
-about board connections. Download the different datasheets there or as linked
-above on the positions for more details.
+The `PicoBoy <PicoBoy Details_>`_ website has detailed information about board
+connections. Download the different datasheets there or as linked above on the
+positions for more details.
 
 System Clock
 ============
@@ -253,19 +187,16 @@ GPIO (PWM) Ports
 ================
 
 The `RP2040 <RP2040 SoC_>`_ MCU has 1 GPIO cell which covers all I/O pads and
-8 PWM function unit each with 2 channels beside a dedicated Timer unit.
-On the |PicoBoy|, only 4 PWM channels are available on the three user LEDs and
-the passive magnetic speaker. On the |PicoBoy Color|, only 5 PWM channels are
-available on the LCD backlight, the three user LEDs and the passive magnetic
+8 PWM function unit each with 2 channels beside a dedicated Timer unit. Only
+4 PWM channels are available, for the three user LEDs and the passive magnetic
 speaker.
 
 ADC/TS Ports
 ============
 
-The `RP2040 <RP2040 SoC_>`_ MCU has 1 ADC with
-4 channels and an additional fifth channel for the on-chip temperature sensor
-(TS). The ADC channels 0-3 are not available for any on-board function on the
-|PicoBoy| and |PicoBoy Color| and may be completely unusable.
+The `RP2040 <RP2040 SoC_>`_ MCU has 1 ADC with 4 channels and an additional
+fifth channel for the on-chip temperature sensor (TS). The ADC channels 0-3
+are not available for any on-board function.
 
 The external voltage reference ADC_VREF is directly connected to the 3.3V
 power supply.
@@ -274,47 +205,26 @@ SPI Port
 ========
 
 The `RP2040 <RP2040 SoC_>`_ MCU has 2 SPIs. The serial bus SPI0 is connect to
-the on-board OLED display or LCD over GP19 (MOSI), GP16 (MISO), GP18 (SCK),
-and GP17 (CSn), but only MOSI and SCK is used for write-only communication.
-The display chip-select signal will driven as simple GPIO by GP10 and the
-display itself does not provide any data out signal (MISO). SPI1 is not
-available in any default setup.
+the on-board OLED display over GP19 (MOSI), GP16 (MISO), GP18 (SCK), and
+GP17 (CSn), but only MOSI and SCK is used for write-only communication. The
+display chip-select signal will driven as simple GPIO by GP10 and the display
+itself does not provide any data out signal (MISO).
+
+SPI1 is not available in any default setup.
 
 I2C Port
 ========
 
-The `RP2040 <RP2040 SoC_>`_ MCU has 2 I2Cs. On the |PicoBoy| and |PicoBoy
-Color Plus|, serial bus I2C0 is connect to the on-board acceleration sensor
-over GP20 (I2C0_SDA), GP21 (I2C0_SCL). I2C1 is not available in any default
-setup.
-
-.. image:: picoboy-color/solderpads-i2c.jpg
-   :align: right
-   :alt: PicoBoy Color I2C Port
-
-The |PicoBoy Color| has no on-board acceleration sensor, but the serial bus
-I2C0 is connect to the on-board solder pads. The I2C port cannot be used at
-the same time as the UART port. Both share the required lines on GP20 and GP21.
-
-The I2C port on solder pads is **enabled** by default.
+The `RP2040 <RP2040 SoC_>`_ MCU has 2 I2Cs. The serial bus I2C0 is connect to
+the on-board acceleration sensor over GP20 (I2C0_SDA), GP21 (I2C0_SCL). I2C1 is
+not available in any default setup.
 
 Serial Port
 ===========
 
-The `RP2040 <RP2040 SoC_>`_ MCU has 2 UARTs. On the |PicoBoy|, neither UART0
-nor UART1 are available in any of the default setups. When ever a Zephyr serial
-console will be needed, the USB port have to be used.
-
-.. image:: picoboy-color/solderpads-uart.jpg
-   :align: right
-   :alt: PicoBoy Color UART Port
-
-On the |PicoBoy Color|, the serial port UART1 is connect to the on-board
-solder pads over GP20 (UART1_TX), GP21 (UART1_RX). UART0 is not available
-in any default setup. The UART port cannot be used at the same time as the
-I2C port. Both share the required lines on GP20 and GP21.
-
-The UART port on solder pads is **disabled** by default.
+The `RP2040 <RP2040 SoC_>`_ MCU has 2 UARTs. Neither UART0 nor UART1 are
+available in any of the default setups. When ever a Zephyr serial console
+will be needed, the USB port have to be used.
 
 USB Device Port
 ===============
@@ -323,39 +233,19 @@ The `RP2040 <RP2040 SoC_>`_ MCU has a (native) USB device port that can be used
 to communicate with a host PC. See the
 :external+zephyr:zephyr:code-sample-category:`usb` sample applications for more,
 such as the :external+zephyr:zephyr:code-sample:`usb-cdc-acm` sample which sets
-up a virtual serial port that echos characters back to the host PC. The
-|PicoBoy| and |PicoBoy Color| provide the Zephyr console per default on the USB
-port as :external+zephyr:ref:`usb_device_cdc_acm`:
+up a virtual serial port that echos characters back to the host PC. The board
+provide the Zephyr console per default on the USB port as
+:external+zephyr:ref:`usb_device_cdc_acm`:
 
-.. tabs::
+   .. container:: highlight-console notranslate literal-block
 
-   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+      .. parsed-literal::
 
-   .. group-tab:: PicoBoy
-
-         .. container:: highlight-console notranslate literal-block
-
-            .. parsed-literal::
-
-               USB device idVendor=\ |picoboy_VID|, idProduct=\ |picoboy_PID_CON|, bcdDevice=\ |picoboy_BCD_CON|
-               USB device strings: Mfr=1, Product=2, SerialNumber=3
-               Product: |picoboy_PStr_CON|
-               Manufacturer: |picoboy_VStr|
-               SerialNumber: BD774B2618DAAA7D
-
-   .. group-tab:: PicoBoy Color
-
-         .. container:: highlight-console notranslate literal-block
-
-            .. parsed-literal::
-
-               USB device idVendor=\ |picoboy_color_VID|, idProduct=\ |picoboy_color_PID_CON|, bcdDevice=\ |picoboy_color_BCD_CON|
-               USB device strings: Mfr=1, Product=2, SerialNumber=3
-               Product: |picoboy_color_PStr_CON|
-               Manufacturer: |picoboy_color_VStr|
-               SerialNumber: B69CA314D5626E5B
-
-   .. zephyr-keep-sorted-stop
+         USB device idVendor=\ |picoboy_VID|, idProduct=\ |picoboy_PID_CON|, bcdDevice=\ |picoboy_BCD_CON|
+         USB device strings: Mfr=1, Product=2, SerialNumber=3
+         Product: |picoboy_PStr_CON|
+         Manufacturer: |picoboy_VStr|
+         SerialNumber: BD774B2618DAAA7D
 
 Programmable I/O (PIO)
 **********************
@@ -388,35 +278,15 @@ By default, building an application for the board will generate a
 the :kbd:`BOOTSEL` button pressed, it will appear on the host as a mass
 storage device:
 
-.. tabs::
+   .. container:: highlight-console notranslate literal-block
 
-   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+      .. parsed-literal::
 
-   .. group-tab:: PicoBoy
-
-         .. container:: highlight-console notranslate literal-block
-
-            .. parsed-literal::
-
-               USB device idVendor=\ |rpi_VID|, idProduct=\ |rpi_rp2040_PID|, bcdDevice=\ |rpi_rp2040_BCD|
-               USB device strings: Mfr=1, Product=2, SerialNumber=0
-               Product: |rpi_rp2040_PStr|
-               Manufacturer: |rpi_VStr|
-               SerialNumber: E0C9125B0D9B
-
-   .. group-tab:: PicoBoy Color
-
-         .. container:: highlight-console notranslate literal-block
-
-            .. parsed-literal::
-
-               USB device idVendor=\ |rpi_VID|, idProduct=\ |rpi_rp2040_PID|, bcdDevice=\ |rpi_rp2040_BCD|
-               USB device strings: Mfr=1, Product=2, SerialNumber=0
-               Product: |rpi_rp2040_PStr|
-               Manufacturer: |rpi_VStr|
-               SerialNumber: E0C9125B0D9B
-
-   .. zephyr-keep-sorted-stop
+         USB device idVendor=\ |rpi_VID|, idProduct=\ |rpi_rp2040_PID|, bcdDevice=\ |rpi_rp2040_BCD|
+         USB device strings: Mfr=1, Product=2, SerialNumber=0
+         Product: |rpi_rp2040_PStr|
+         Manufacturer: |rpi_VStr|
+         SerialNumber: E0C9125B0D9B
 
 The UF2 file should be drag-and-dropped or copied on command line to the
 device, which will then flash the board.
@@ -461,36 +331,12 @@ Basic Samples
 LED Blinky and Fade
 ===================
 
-.. tabs::
-
-   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
-
-   .. group-tab:: PicoBoy
-
-      .. include:: picoboy/blinky_fade.rsti
-
-   .. group-tab:: PicoBoy Color
-
-      .. include:: picoboy-color/blinky_fade.rsti
-
-   .. zephyr-keep-sorted-stop
+.. include:: blinky_fade.rsti
 
 Hello Shell on USB-CDC/ACM Console
 ==================================
 
-.. tabs::
-
-   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
-
-   .. group-tab:: PicoBoy
-
-      .. include:: picoboy/helloshell.rsti
-
-   .. group-tab:: PicoBoy Color
-
-      .. include:: picoboy-color/helloshell.rsti
-
-   .. zephyr-keep-sorted-stop
+.. include:: helloshell.rsti
 
 More Samples
 ************
@@ -499,40 +345,15 @@ More Samples
 ================================================
 
 The samples are prepared for the on-board :hwftlbl-cps:`3-DOF` accelerometer
-connected to the I2C0 bus on the |PicoBoy|.
-
-.. literalinclude:: ../pb-sensors.dtsi
-   :caption: pb-sensors.dtsi
-   :language: DTS
-   :encoding: ISO-8859-1
-   :emphasize-lines: 3,11
-   :linenos:
-   :start-at: / {
-   :end-before: &uart1 {
+connected to the I2C0 bus.
 
 Chip-specific
 -------------
 
-Get 3-axis accelerometer data from an STK8BA58 sensor (polling & trigger mode)
+Get 3-axis accelerometer data from an STK8BA58 sensor (polling mode only)
 using the :external+zephyr:ref:`Sensors API <sensor>`. See also Bridle sample
-:ref:`stk8ba58_3_axis_accelerometer-sample`.
-
-.. tabs::
-
-   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
-
-   .. group-tab:: PicoBoy
-
-      See section :ref:`stk8ba58-sample-picoboy` in the Bridle sample documentation.
-
-   .. group-tab:: PicoBoy Color
-
-      .. hint::
-
-         The |PicoBoy Color| doesn't provide a on-board 3-Axis accelerometer.
-         This sample is not applicable.
-
-   .. zephyr-keep-sorted-stop
+:ref:`stk8ba58_3_axis_accelerometer-sample` and also the console output in
+section :ref:`stk8ba58-sample-picoboy` of the Bridle sample documentation.
 
 Polling Mode
 ------------
@@ -541,22 +362,7 @@ Get 3-axis accelerometer data from the on-board sensor (polling mode) using
 the :external+zephyr:ref:`Sensors API <sensor>`. See also Zephyr sample
 :external+zephyr:zephyr:code-sample:`accel_polling`.
 
-.. tabs::
-
-   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
-
-   .. group-tab:: PicoBoy
-
-      .. include:: picoboy/3dof-accel-polling.rsti
-
-   .. group-tab:: PicoBoy Color
-
-      .. hint::
-
-         The |PicoBoy Color| doesn't provide a on-board 3-Axis accelerometer.
-         This sample is not applicable.
-
-   .. zephyr-keep-sorted-stop
+.. include:: 3dof-accel-polling.rsti
 
 Trigger Mode
 ------------
@@ -565,25 +371,10 @@ Get 3-axis accelerometer data from the on-board sensor (trigger mode) using
 the :external+zephyr:ref:`Sensors API <sensor>`. See also Zephyr sample
 :external+zephyr:zephyr:code-sample:`accel_trig`.
 
-.. tabs::
+.. hint::
 
-   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
-
-   .. group-tab:: PicoBoy
-
-      .. hint::
-
-         The |PicoBoy| doesn't provide the interrupt line to the on-board
-         3-Axis accelerometer. This sample is not applicable.
-
-   .. group-tab:: PicoBoy Color
-
-      .. hint::
-
-         The |PicoBoy Color| doesn't provide a on-board 3-Axis accelerometer.
-         This sample is not applicable.
-
-   .. zephyr-keep-sorted-stop
+   There is no interrupt line to the on-board 3-Axis accelerometer.
+   This sample is not applicable.
 
 Sounds from the speaker on USB-CDC/ACM Console
 ==============================================
@@ -593,61 +384,17 @@ to the PWM channel at :rpi-pico-pio:`GP15` / :rpi-pico-pwm:`PWM15` (PWM7CHB).
 
 The PWM period is 880 ㎐, twice the concert pitch frequency of 440 ㎐.
 
-.. literalinclude:: ../pb-speaker.dtsi
-   :caption: pb-speaker.dtsi
-   :language: DTS
-   :encoding: ISO-8859-1
-   :emphasize-lines: 3,11,19
-   :linenos:
-   :start-at: / {
-
-.. tabs::
-
-   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
-
-   .. group-tab:: PicoBoy
-
-      .. include:: picoboy/speaker.rsti
-
-   .. group-tab:: PicoBoy Color
-
-      .. include:: picoboy-color/speaker.rsti
-
-   .. zephyr-keep-sorted-stop
+.. include:: speaker.rsti
 
 Input dump on USB-CDC/ACM Console
 =================================
 
-.. tabs::
-
-   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
-
-   .. group-tab:: PicoBoy
-
-      .. include:: picoboy/input_dump.rsti
-
-   .. group-tab:: PicoBoy Color
-
-      .. include:: picoboy-color/input_dump.rsti
-
-   .. zephyr-keep-sorted-stop
+.. include:: input_dump.rsti
 
 Display Test and Demonstration
 ==============================
 
-.. tabs::
-
-   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
-
-   .. group-tab:: PicoBoy
-
-      .. include:: picoboy/display_test.rsti
-
-   .. group-tab:: PicoBoy Color
-
-      .. include:: picoboy-color/display_test.rsti
-
-   .. zephyr-keep-sorted-stop
+.. include:: display_test.rsti
 
 References
 **********

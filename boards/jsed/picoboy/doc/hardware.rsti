@@ -69,6 +69,6 @@ RP2040 development board.
        - `PicoBoy Details`_ (German)
        - :emphasis:`PicoBoy Schematic`, not (yet) available
 
-     - .. image:: picoboy/hardware.jpg
+     - .. image:: img/hardware.jpg
           :align: center
           :alt: PicoBoy
