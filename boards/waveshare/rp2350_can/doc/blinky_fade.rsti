@@ -1,0 +1,71 @@
+.. rubric:: Green User LED Blinky by GPIO
+
+See also Zephyr sample: :external+zephyr:zephyr:code-sample:`blinky`.
+
+   .. rubric:: On ARM Cortex-M33
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/basic/blinky
+      :build-dir: waveshare_rp2350_can
+      :board: waveshare_rp2350_can/rp2350a/m33
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+   .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/basic/blinky
+      :build-dir: waveshare_rp2350_can
+      :board: waveshare_rp2350_can/rp2350a/hazard3
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+.. rubric:: Green User LED Blinky by PWM
+
+See also Zephyr sample: :external+zephyr:zephyr:code-sample:`pwm-blinky`.
+
+   .. rubric:: On ARM Cortex-M33
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/basic/blinky_pwm
+      :build-dir: waveshare_rp2350_can
+      :board: waveshare_rp2350_can/rp2350a/m33
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+   .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/basic/blinky_pwm
+      :build-dir: waveshare_rp2350_can
+      :board: waveshare_rp2350_can/rp2350a/hazard3
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+.. rubric:: Green User LED Fade by PWM
+
+See also Zephyr sample: :external+zephyr:zephyr:code-sample:`fade-led`.
+
+   .. rubric:: On ARM Cortex-M33
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/basic/fade_led
+      :build-dir: waveshare_rp2350_can
+      :board: waveshare_rp2350_can/rp2350a/m33
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+   .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/basic/fade_led
+      :build-dir: waveshare_rp2350_can
+      :board: waveshare_rp2350_can/rp2350a/hazard3
+      :west-args: -p
+      :goals: flash
+      :compact:

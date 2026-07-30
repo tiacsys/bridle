@@ -1,7 +1,7 @@
-.. _waveshare_rp2350:
+.. _waveshare_rp2350_can:
 
-Waveshare RP2350
-################
+Waveshare RP2350-CAN
+####################
 
 The `RP2350 SoC`_ by Raspberry Pi Ltd. is a small sized and low-cost 32-bit
 dual ARM Cortex-M33 and dual 32-bit Hazard3 RISC-V (RV32IMAC+) microcontroller
@@ -15,30 +15,12 @@ Supported Boards
 Hardware
 ========
 
-.. tabs::
-
-   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
-
-   .. group-tab:: RP2350-CAN
-
-      .. _waveshare_rp2350_can:
-
-      .. include:: rp2350-can/hardware.rsti
-
-   .. zephyr-keep-sorted-stop
+.. include:: hardware.rsti
 
 Positions
 =========
 
-.. tabs::
-
-   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
-
-   .. group-tab:: RP2350-CAN
-
-      .. include:: rp2350-can/positions.rsti
-
-   .. zephyr-keep-sorted-stop
+.. include:: positions.rsti
 
 Pinouts
 =======
@@ -47,24 +29,15 @@ The peripherals of the `RP2350 SoC`_ can be routed to various pins on
 the board. The configuration of these routes can be modified through
 :external+zephyr:ref:`DTS <devicetree>`. Please refer to the datasheet
 to see the possible routings for each peripheral. The default assignments
-for the various Waveshare RP2350 boards are defined below separately
-in a single tab.
+for the board is defined below.
 
-.. tabs::
-
-   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
-
-   .. group-tab:: RP2350-CAN
-
-      .. include:: rp2350-can/pinouts.rsti
-
-   .. zephyr-keep-sorted-stop
+.. include:: pinouts.rsti
 
 Supported Features
 ******************
 
-Similar to the |zephyr:board:rpi_pico2| the Waveshare RP2350 board configuration
-supports the following hardware features:
+Similar to the |zephyr:board:rpi_pico2| the board configuration supports the
+following hardware features:
 
 .. list-table:: Hardware Features Supported by Zephyr
    :class: longtable
@@ -85,7 +58,8 @@ supports the following hardware features:
      - :external+zephyr:ref:`gpio_api`
    * - UART
      - :kconfig:option:`CONFIG_SERIAL`
-     - :dtcompatible:`raspberrypi,pico-uart`
+     - | :dtcompatible:`raspberrypi,pico-uart`
+       | :dtcompatible:`arm,pl011`
      - :external+zephyr:ref:`uart_api`
    * - UDC (USB Device Controller)
      - :kconfig:option:`CONFIG_USB_DEVICE_STACK_NEXT`
@@ -97,7 +71,8 @@ supports the following hardware features:
      - :external+zephyr:ref:`i2c_api`
    * - SPI
      - :kconfig:option:`CONFIG_SPI`
-     - :dtcompatible:`raspberrypi,pico-spi`
+     - | :dtcompatible:`raspberrypi,pico-spi`
+       | :dtcompatible:`arm,pl022`
      - :external+zephyr:ref:`spi_api`
    * - PWM
      - :kconfig:option:`CONFIG_PWM`
@@ -150,7 +125,7 @@ supports the following hardware features:
      - :external+zephyr:ref:`hwinfo_api`
    * - VREG
      - :kconfig:option:`CONFIG_REGULATOR`
-     - :dtcompatible:`raspberrypi,core-supply-regulator` (!)
+     - :dtcompatible:`raspberrypi,core-supply-regulator`
      - :external+zephyr:ref:`regulator_api`
    * - RESET
      - :kconfig:option:`CONFIG_RESET`
@@ -170,40 +145,44 @@ supports the following hardware features:
      - :dtcompatible:`arm,armv8m-systick`
      -
 
-(!) POWMAN with VREG on RP2350 not yet supported by Zephyr.
-
-    See section **Peripherals RP2350** in upstream issue:
-    https://github.com/zephyrproject-rtos/zephyr/issues/53810
-
 Other hardware features are not currently supported by Zephyr. The default
 configuration can be found in the different Kconfig files:
 
 .. zephyr-keep-sorted-start re(^\* :bridle_file:`\w)
 
-* :bridle_file:`boards/waveshare/rp2350/waveshare_rp2350_can_rp2350a_m33_defconfig`
+* :bridle_file:`boards/waveshare/rp2350_can/waveshare_rp2350_can_rp2350a_hazard3_defconfig`
+* :bridle_file:`boards/waveshare/rp2350_can/waveshare_rp2350_can_rp2350a_m33_defconfig`
 
 .. zephyr-keep-sorted-stop
 
 Board Configurations
 ====================
 
-The Waveshare RP2350 boards can be configured for the following different
-use cases.
+The board can be configured for the following different use cases.
 
-.. tabs::
+.. rubric:: :command:`west build -b waveshare_rp2350_can/rp2350a/m33`
 
-   .. group-tab:: RP2350-CAN
+Use the serial port UART0 on edge header as
+Zephyr console and for the shell.
+Running on Cortex-M33 core.
 
-      .. rubric:: :command:`west build -b waveshare_rp2350_can/rp2350a/m33`
+.. rubric:: :command:`west build -b waveshare_rp2350_can/rp2350a/m33 -S usb-console`
 
-      Use the serial port UART0 on edge header as
-      Zephyr console and for the shell.
+Use the native USB device port with CDC-ACM as
+Zephyr console and for the shell.
+Running on Cortex-M33 core.
 
-      .. rubric:: :command:`west build -b waveshare_rp2350_can/rp2350a/m33 -S usb-console`
+.. rubric:: :command:`west build -b waveshare_rp2350_can/rp2350a/hazard3`
 
-      Use the native USB device port with CDC-ACM as
-      Zephyr console and for the shell.
+Use the serial port UART0 on edge header as
+Zephyr console and for the shell.
+Running on Hazard3/RISC-V core. :brd:`EXPERIMENTAL`
 
+.. rubric:: :command:`west build -b waveshare_rp2350_can/rp2350a/hazard3 -S usb-console`
+
+Use the native USB device port with CDC-ACM as
+Zephyr console and for the shell.
+Running on Hazard3/RISC-V core. :brd:`EXPERIMENTAL`
 
 Connections and IOs
 ===================
@@ -224,36 +203,33 @@ GPIO (PWM) Ports
 ================
 
 The `RP2350A <RP2350 SoC_>`_ MCU has 1 GPIO cell which covers all I/O pads and
-8 PWM function unit each with 2 channels beside a dedicated Timer unit. On
-the |RP2350-CAN|, PWM4 channel B is available on the on-board user LED. But
-the PWM operation is not enable by default. Only if
-:kconfig:option:`CONFIG_PWM_RPI_PICO` is enabled then the first user LED is
-driven by PWM4CHB instead of by GPIO. All channels of PWM0 until PWM7 are
-available on the |Raspberry Pi Pico| header.
+8 PWM function unit each with 2 channels beside a dedicated Timer unit. The
+channel PWM4 B is available on the on-board user LED. All channels of PWM0
+until PWM7 are available on the |Raspberry Pi Pico| header.
 
 ADC/TS Ports
 ============
 
 The `RP2350A <RP2350 SoC_>`_ MCU has 1 ADC with 4 channels and an additional
 fifth channel for the on-chip temperature sensor (TS). The ADC channels 0-2
-are available on the |Raspberry Pi Pico| header. On the |RP2350-CAN|, ADC
-channel 3 will be used for internal on-board voltage monitoring.
+are available on the |Raspberry Pi Pico| header. The ADC channel 3 will be
+used for internal on-board voltage monitoring.
 
-The external voltage reference ADC_VREF can be used optional for the ADC
-and is only available on the |Raspberry Pi Pico| header.
+The external voltage reference ADC_VREF is directly connected to the 3.3V
+power supply and is also available on the |Raspberry Pi Pico| header.
 
 SPI Port
 ========
 
-The `RP2350A <RP2350 SoC_>`_ MCU has 2 SPIs. To the edge connectors SPI0 is
-connect to external devices over GP19 (MOSI), GP16 (MISO), GP18 (SCK), and
+The `RP2350A <RP2350 SoC_>`_ MCU has 2 SPIs. To the edge connectors, SPI0 is
+usable for external devices over GP19 (MOSI), GP16 (MISO), GP18 (SCK), and
 GP17 (CSn) on the |Raspberry Pi Pico| header.
 
 I2C Port
 ========
 
-The `RP2350A <RP2350 SoC_>`_ MCU has 2 I2Cs. To the edge connectors I2C0 and
-I2C1 is connect to external devices over GP4 (I2C0_SDA), GP5 (I2C0_SCL),
+The `RP2350A <RP2350 SoC_>`_ MCU has 2 I2Cs. To the edge connectors, I2C0 and
+I2C1 is usable for external devices over GP4 (I2C0_SDA), GP5 (I2C0_SCL),
 GP14 (I2C1_SDA), and GP15 (I2C1_SCL) on the |Raspberry Pi Pico| header.
 
 Serial Port
@@ -270,28 +246,20 @@ The `RP2350A <RP2350 SoC_>`_ MCU has a (native) USB device port that can be used
 to communicate with a host PC. See the
 :external+zephyr:zephyr:code-sample-category:`usb` sample applications for more,
 such as the :external+zephyr:zephyr:code-sample:`usb-cdc-acm` sample which sets
-up a virtual serial port that echos characters back to the host PC.
-As an alternative to the default Zephyr console on serial port the
-Bridle :ref:`snippet-usb-console` can be used to enable
+up a virtual serial port that echos characters back to the host PC. As an
+alternative to the default Zephyr console on serial port the Bridle
+:ref:`snippet-usb-console` can be used to enable
 :external+zephyr:ref:`usb_device_cdc_acm` and switch the console to USB
 
-.. tabs::
+   .. container:: highlight-console notranslate literal-block
 
-   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+      .. parsed-literal::
 
-   .. group-tab:: RP2350-CAN
-
-         .. container:: highlight-console notranslate literal-block
-
-            .. parsed-literal::
-
-               USB device idVendor=\ |waveshare_rp2350_can_VID|, idProduct=\ |waveshare_rp2350_can_PID_CON|, bcdDevice=\ |waveshare_rp2350_can_BCD_CON|
-               USB device strings: Mfr=1, Product=2, SerialNumber=3
-               Product: |waveshare_rp2350_can_PStr_CON|
-               Manufacturer: |waveshare_rp2350_can_VStr|
-               SerialNumber: B46993A480CF94B1
-
-   .. zephyr-keep-sorted-stop
+         USB device idVendor=\ |waveshare_rp2350_can_VID|, idProduct=\ |waveshare_rp2350_can_PID_CON|, bcdDevice=\ |waveshare_rp2350_can_BCD_CON|
+         USB device strings: Mfr=1, Product=2, SerialNumber=3
+         Product: |waveshare_rp2350_can_PStr_CON|
+         Manufacturer: |waveshare_rp2350_can_VStr|
+         SerialNumber: B46993A480CF94B1
 
 .. include:: /includes/rpi_waveshare_urb_pid_list.txt
 
@@ -319,10 +287,10 @@ Flashing
 Using UF2
 ---------
 
-If you don't have an SWD adapter, you can flash the Waveshare RP2350 boards
-with a UF2 file. By default, building an app for this board will generate a
-:file:`build/zephyr/zephyr.uf2` file. If the board is powered on with the
-:kbd:`BOOTSEL` button pressed, it will appear on the host as a mass
+If you don't have an SWD adapter, you can flash the board with a UF2 file.
+By default, building an app for this board will generate a
+:file:`build/zephyr/zephyr.uf2` file. If the board is powered on with
+the :kbd:`BOOTSEL` button pressed, it will appear on the host as a mass
 storage device:
 
    .. container:: highlight-console notranslate literal-block
@@ -336,7 +304,10 @@ storage device:
          SerialNumber: A0231978E046
 
 The UF2 file should be drag-and-dropped or copied on command line to the
-device, which will then flash the Waveshare RP2350 board.
+device, which will then flash the board.
+
+RP2350 Boot-ROM
+---------------
 
 Each `RP2350 SoC`_ ships the `UF2 compatible <UF2 bootloader_>`_ bootloader
 pico-bootrom-rp2350_, a native support in silicon. The full source for the
@@ -352,8 +323,7 @@ in the `RP2350 Datasheet`_, sections with title :emphasis:`"Bootrom"` and
 Using SEGGER JLink
 ------------------
 
-You can flash the Waveshare RP2350 boards with a SEGGER JLink debug probe as
-described in
+You can flash the board with a SEGGER JLink debug probe as described in
 :external+zephyr:ref:`Building, Flashing and Debugging <west-flashing>`.
 
 Here is an example of building and flashing the
@@ -361,7 +331,7 @@ Here is an example of building and flashing the
 
    .. zephyr-app-commands::
       :app: zephyr/samples/basic/blinky
-      :build-dir: waveshare_rp2350
+      :build-dir: waveshare_rp2350_can
       :board: waveshare_rp2350_can/rp2350a/m33
       :flash-args: -r jlink
       :west-args: -p
@@ -384,10 +354,10 @@ and write the line below:
 This example is valid for the case that the user joins to :code:`plugdev`
 groups.
 
-The |RP2350-CAN| has an SWD interface that can be used to program and debug
-the on board RP2350. This interface can be utilized by OpenOCD. To use it
-with the RP2350, OpenOCD version 0.12.0 or later is needed. If you are using
-a Debian based system (including RaspberryPi OS, Ubuntu, and more), using the
+The board has an SWD interface that can be used to program and debug the
+on-board RP2350. This interface can be utilized by OpenOCD. To use it
+with the RP2350, OpenOCD version 0.12.0 or later is needed. If you are using a
+Debian based system (including RaspberryPi OS, Ubuntu, and more), using the
 `pico_setup.sh`_ script is a convenient way to set up the forked version of
 OpenOCD. Depending on the interface used (such as JLink), you might need to
 checkout to a branch that supports this interface, before proceeding. Build
@@ -398,7 +368,7 @@ Here is an example of building and flashing the
 
    .. zephyr-app-commands::
       :app: zephyr/samples/basic/blinky
-      :build-dir: waveshare_rp2350
+      :build-dir: waveshare_rp2350_can
       :board: waveshare_rp2350_can/rp2350a/m33
       :gen-args: \
                  -DOPENOCD=/usr/local/bin/openocd \
@@ -463,7 +433,7 @@ Here is an example for debugging the
 
    .. zephyr-app-commands::
       :app: zephyr/samples/basic/blinky
-      :build-dir: waveshare_rp2350
+      :build-dir: waveshare_rp2350_can
       :board: waveshare_rp2350_can/rp2350a/m33
       :maybe-skip-config:
       :gen-args: \
@@ -505,181 +475,26 @@ Inside gdb, run:
 
 You can then start debugging the board.
 
-More Samples
-************
+Basic Samples
+*************
 
 LED Blinky and Fade
 ===================
 
-.. tabs::
-
-   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
-
-   .. group-tab:: RP2350-CAN
-
-      .. rubric:: Green User LED Blinky by GPIO
-
-      See also Zephyr sample: :external+zephyr:zephyr:code-sample:`blinky`.
-
-         .. rubric:: On ARM Cortex-M33
-
-         .. zephyr-app-commands::
-            :app: zephyr/samples/basic/blinky
-            :build-dir: waveshare_rp2350
-            :board: waveshare_rp2350_can/rp2350a/m33
-            :west-args: -p
-            :flash-args: -r uf2
-            :goals: flash
-            :compact:
-
-         .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
-
-         .. zephyr-app-commands::
-            :app: zephyr/samples/basic/blinky
-            :build-dir: waveshare_rp2350
-            :board: waveshare_rp2350_can/rp2350a/hazard3
-            :west-args: -p
-            :flash-args: -r uf2
-            :goals: flash
-            :compact:
-
-      .. rubric:: Green User LED Blinky by PWM
-
-      See also Zephyr sample: :external+zephyr:zephyr:code-sample:`pwm-blinky`.
-
-         .. rubric:: On ARM Cortex-M33
-
-         .. zephyr-app-commands::
-            :app: zephyr/samples/basic/blinky_pwm
-            :build-dir: waveshare_rp2350
-            :board: waveshare_rp2350_can/rp2350a/m33
-            :west-args: -p
-            :flash-args: -r uf2
-            :goals: flash
-            :compact:
-
-         .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
-
-         .. zephyr-app-commands::
-            :app: zephyr/samples/basic/blinky_pwm
-            :build-dir: waveshare_rp2350
-            :board: waveshare_rp2350_can/rp2350a/hazard3
-            :west-args: -p
-            :flash-args: -r uf2
-            :goals: flash
-            :compact:
-
-      .. rubric:: Green User LED Fade by PWM
-
-      See also Zephyr sample: :external+zephyr:zephyr:code-sample:`fade-led`.
-
-         .. rubric:: On ARM Cortex-M33
-
-         .. zephyr-app-commands::
-            :app: zephyr/samples/basic/fade_led
-            :build-dir: waveshare_rp2350
-            :board: waveshare_rp2350_can/rp2350a/m33
-            :west-args: -p
-            :flash-args: -r uf2
-            :goals: flash
-            :compact:
-
-         .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
-
-         .. zephyr-app-commands::
-            :app: zephyr/samples/basic/fade_led
-            :build-dir: waveshare_rp2350
-            :board: waveshare_rp2350_can/rp2350a/hazard3
-            :west-args: -p
-            :flash-args: -r uf2
-            :goals: flash
-            :compact:
-
-   .. zephyr-keep-sorted-stop
+.. include:: blinky_fade.rsti
 
 Hello Shell with USB-CDC/ACM Console
 ====================================
 
-.. tabs::
+.. include:: helloshell.rsti
 
-   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+More Samples
+************
 
-   .. group-tab:: RP2350-CAN
+CANnectivity USB to CAN application firmware
+============================================
 
-      .. rubric:: Hello Shell
-
-      See also Bridle sample: :ref:`helloshell-sample`.
-
-         .. rubric:: On ARM Cortex-M33
-
-         .. zephyr-app-commands::
-            :app: bridle/samples/helloshell
-            :build-dir: waveshare_rp2350
-            :board: waveshare_rp2350_can/rp2350a/m33
-            :snippets: "usb-console"
-            :west-args: -p
-            :flash-args: -r uf2
-            :goals: flash
-            :compact:
-
-         .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
-
-         .. zephyr-app-commands::
-            :app: bridle/samples/helloshell
-            :build-dir: waveshare_rp2350
-            :board: waveshare_rp2350_can/rp2350a/hazard3
-            :snippets: "usb-console"
-            :west-args: -p
-            :flash-args: -r uf2
-            :goals: flash
-            :compact:
-
-      .. include:: rp2350-can/helloshell.rsti
-
-   .. zephyr-keep-sorted-stop
-
-CANnectivity
-============
-
-.. tabs::
-
-   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
-
-   .. group-tab:: RP2350-CAN
-
-      See also how to :external+cannectivity:doc:`building` the
-      CANnectivity USB to CAN application firmware. The USB
-      :external+zephyr:ref:`Device Firmware Upgrade <dfu>` (DFU)
-      via the `MCUboot`_ bootloader is not and will never be
-      supported. The UF2 bootloader is perfect for firmware updates.
-
-         .. rubric:: On ARM Cortex-M33
-
-         .. zephyr-app-commands::
-            :app: cannectivity/app
-            :build-dir: waveshare_rp2350
-            :board: waveshare_rp2350_can/rp2350a/m33
-            :conf: "prj_usbd_next_release.conf"
-            :west-args: -p
-            :flash-args: -r uf2
-            :goals: flash
-            :compact:
-
-         .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
-
-         .. zephyr-app-commands::
-            :app: cannectivity/app
-            :build-dir: waveshare_rp2350
-            :board: waveshare_rp2350_can/rp2350a/hazard3
-            :conf: "prj_usbd_next_release.conf"
-            :west-args: -p
-            :flash-args: -r uf2
-            :goals: flash
-            :compact:
-
-      .. include:: rp2350-can/cannectivity.rsti
-
-   .. zephyr-keep-sorted-stop
+.. include:: cannectivity.rsti
 
 References
 **********

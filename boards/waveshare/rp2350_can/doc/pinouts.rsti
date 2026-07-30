@@ -95,7 +95,7 @@ in parallel.
        - :dtcompatible:`raspberrypi,pico-header`
        - :dtcompatible:`raspberrypi,pico-header-r3`
 
-     - .. image:: rp2350-can/pinouts.jpg
+     - .. image:: img/pinouts.jpg
           :align: center
           :width: 100%
           :alt: Waveshare RP2350-CAN edge pinout

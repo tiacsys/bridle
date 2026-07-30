@@ -1,4 +1,32 @@
-.. image:: rp2350-can/cannectivity.jpg
+.. rubric:: CANnectivity
+
+See also how to :external+cannectivity:doc:`building` the
+CANnectivity USB to CAN application firmware. The USB
+:external+zephyr:ref:`Device Firmware Upgrade <dfu>` (DFU)
+via the `MCUboot`_ bootloader is not and will never be
+supported. The UF2 bootloader is perfect for firmware updates.
+
+   .. rubric:: On ARM Cortex-M33
+
+   .. zephyr-app-commands::
+      :app: cannectivity/app
+      :build-dir: waveshare_rp2350_can
+      :board: waveshare_rp2350_can/rp2350a/m33
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+   .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+
+   .. zephyr-app-commands::
+      :app: cannectivity/app
+      :build-dir: waveshare_rp2350_can
+      :board: waveshare_rp2350_can/rp2350a/hazard3
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+.. image:: img/cannectivity.jpg
    :align: right
    :alt: Waveshare RP2350-CAN Test CANnectivity
 
@@ -40,7 +68,8 @@ your Linux development host, check the Linux kernel messages and use the
 
    .. group-tab:: SocketCAN interface setup
 
-      Set CAN 2.0 (nominal) *bitrate* of **1Mbps** and
+      Set CAN 2.0 (nominal) *bitrate* of **1Mbps**,
+      increases the datagram transmission queue and
       change *link state* to **up** for both interfaces:
 
       .. container:: highlight highlight-console notranslate
@@ -48,9 +77,11 @@ your Linux development host, check the Linux kernel messages and use the
          .. parsed-literal::
 
             :bgn:`$` **sudo ip link set dev can0 type can bitrate 1000000**
+            :bgn:`$` **sudo ip link set dev can0 txqueuelen 1000**
             :bgn:`$` **sudo ip link set dev can0 up**
 
             :bgn:`$` **sudo ip link set dev can1 type can bitrate 1000000**
+            :bgn:`$` **sudo ip link set dev can1 txqueuelen 1000**
             :bgn:`$` **sudo ip link set dev can1 up**
 
    .. group-tab:: SocketCAN user space

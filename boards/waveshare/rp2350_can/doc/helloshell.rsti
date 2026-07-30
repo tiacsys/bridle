@@ -1,3 +1,29 @@
+.. rubric:: Hello Shell
+
+See also Bridle sample: :ref:`helloshell-sample`.
+
+   .. rubric:: On ARM Cortex-M33
+
+   .. zephyr-app-commands::
+      :app: bridle/samples/helloshell
+      :build-dir: waveshare_rp2350_can
+      :board: waveshare_rp2350_can/rp2350a/m33
+      :snippets: "usb-console"
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+   .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+
+   .. zephyr-app-commands::
+      :app: bridle/samples/helloshell
+      :build-dir: waveshare_rp2350_can
+      :board: waveshare_rp2350_can/rp2350a/hazard3
+      :snippets: "usb-console"
+      :west-args: -p
+      :goals: flash
+      :compact:
+
 .. rubric:: Simple test execution on target
 
 (text in bold is a command input)
@@ -36,6 +62,8 @@
             Zephyr: |zephyr_release_number_em|
             Bridle: |release_number_em|
 
+      .. rubric:: On ARM Cortex-M33
+
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
@@ -48,14 +76,14 @@
               DT node labels: reset
             - snippet_cdc_acm_console_uart (READY)
               DT node labels: snippet_cdc_acm_console_uart
-            - uart\ @\ 40070000 (READY)
-              DT node labels: uart0 rpipico_serial pico_serial
-            - watchdog\ @\ 400d8000 (READY)
-              DT node labels: wdt0
             - timer\ @\ 400b8000 (READY)
               DT node labels: timer1
             - timer\ @\ 400b0000 (READY)
               DT node labels: timer0
+            - uart\ @\ 40070000 (READY)
+              DT node labels: uart0 pico_serial rpipico_serial
+            - watchdog\ @\ 400d8000 (READY)
+              DT node labels: wdt0
             - dma\ @\ 50000000 (READY)
               DT node labels: dma
             - gpio-port\ @\ 0 (READY)
@@ -67,13 +95,66 @@
             - flash-controller\ @\ 400d0000 (READY)
               DT node labels: qmi
             - i2c\ @\ 40090000 (READY)
-              DT node labels: i2c0 rpipico_i2c0 rpipico_i2c pico_i2c0 pico_i2c
+              DT node labels: i2c0 pico_i2c0 pico_i2c rpipico_i2c0 rpipico_i2c
             - pwm\ @\ 400a8000 (READY)
               DT node labels: pwm
+            - vreg\ @\ 40100000 (READY)
+              DT node labels: vreg
             - spi\ @\ 40088000 (READY)
-              DT node labels: spi1 rpipico_spi1 pico_spi1
+              DT node labels: spi1 pico_spi1 rpipico_spi1
             - spi\ @\ 40080000 (READY)
-              DT node labels: spi0 rpipico_spi0 rpipico_spi pico_spi0 pico_spi
+              DT node labels: spi0 pico_spi0 pico_spi rpipico_spi0 rpipico_spi
+            - xl2515\ @\ 0 (READY)
+              DT node labels: xl2515_can0 can0
+            - pwm_leds (READY)
+              DT node labels: pwm_leds
+            - dietemp (READY)
+              DT node labels: die_temp
+
+      .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **device list**
+            devices:
+            - clock-controller\ @\ 40010000 (READY)
+              DT node labels: clocks
+            - reset-controller\ @\ 40020000 (READY)
+              DT node labels: reset
+            - interrupt-controller (READY)
+              DT node labels: intc
+            - snippet_cdc_acm_console_uart (READY)
+              DT node labels: snippet_cdc_acm_console_uart
+            - timer\ @\ 400b8000 (READY)
+              DT node labels: timer1
+            - timer\ @\ 400b0000 (READY)
+              DT node labels: timer0
+            - uart\ @\ 40070000 (READY)
+              DT node labels: uart0 pico_serial rpipico_serial
+            - watchdog\ @\ 400d8000 (READY)
+              DT node labels: wdt0
+            - dma\ @\ 50000000 (READY)
+              DT node labels: dma
+            - gpio-port\ @\ 0 (READY)
+              DT node labels: gpio0 gpio0_lo
+            - usbd\ @\ 50110000 (READY)
+              DT node labels: usbd zephyr_udc0
+            - adc\ @\ 400a0000 (READY)
+              DT node labels: adc
+            - flash-controller\ @\ 400d0000 (READY)
+              DT node labels: qmi
+            - i2c\ @\ 40090000 (READY)
+              DT node labels: i2c0 pico_i2c0 pico_i2c rpipico_i2c0 rpipico_i2c
+            - pwm\ @\ 400a8000 (READY)
+              DT node labels: pwm
+            - vreg\ @\ 40100000 (READY)
+              DT node labels: vreg
+            - spi\ @\ 40088000 (READY)
+              DT node labels: spi1 pico_spi1 rpipico_spi1
+            - spi\ @\ 40080000 (READY)
+              DT node labels: spi0 pico_spi0 pico_spi rpipico_spi0 rpipico_spi
             - xl2515\ @\ 0 (READY)
               DT node labels: xl2515_can0 can0
             - pwm_leds (READY)
@@ -95,6 +176,77 @@
             [  6] hwinfo devid
             [  7] hello
             [  8] hello -h
+
+   .. group-tab:: VREG
+
+      Operate with the on-chip voltage regulator unit:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **regulator vlist vreg**
+            0.550000 V
+            0.600000 V
+            0.650000 V
+            0.700000 V
+            0.750000 V
+            0.800000 V
+            0.850000 V
+            0.900000 V
+            0.950000 V
+            1.000000 V
+            1.050000 V
+            1.100000 V
+            1.150000 V
+            1.200000 V
+            1.250000 V
+            1.300000 V
+            1.350000 V
+            1.400000 V
+            1.500000 V
+            1.600000 V
+            1.650000 V
+            1.700000 V
+            1.800000 V
+            1.900000 V
+            2.000000 V
+            2.350000 V
+            2.500000 V
+            2.650000 V
+            2.800000 V
+            3.000000 V
+            3.150000 V
+            3.300000 V
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **regulator vget vreg**
+            1.100000 V
+
+      .. Trigger a power-of/on sequence:
+
+         .. container:: highlight highlight-console notranslate
+
+            .. parsed-literal::
+
+               :bgn:`uart:~$` **hwinfo reset_cause**
+               reset caused by:
+               - pin
+
+               :bgn:`uart:~$` **regulator disable vreg**
+               \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
+               Hello World! I'm THE SHELL from waveshare_rp2350_can
+
+         .. container:: highlight highlight-console notranslate
+
+            .. parsed-literal::
+
+               :bgn:`uart:~$` **hwinfo reset_cause**
+               reset caused by:
+               - power-on reset
 
    .. group-tab:: LED
 
@@ -134,6 +286,20 @@
 
             :bgn:`uart:~$` **led set_brightness pwm_leds 0 100**
             pwm_leds: setting LED 0 brightness to 100
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led off pwm_leds 0**
+            pwm_leds: turning off LED 0
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led blink pwm_leds 0 50 50**
+            pwm_leds: blinking LED 0 with 50 ms on and 50 ms off
 
       .. container:: highlight highlight-console notranslate
 
@@ -377,7 +543,7 @@
          .. parsed-literal::
 
             :bgn:`uart:~$` **sensor get dietemp**
-            :bgn:`channel type=12(die_temp) index=0 shift=5 num_samples=1 value=40109105735ns (21.189423)`
+            channel type=12(die_temp) index=0 shift=5 num_samples=1 value=40109105735ns (21.189423)
 
    .. group-tab:: CAN
 
