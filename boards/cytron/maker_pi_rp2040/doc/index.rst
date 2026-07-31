@@ -31,15 +31,15 @@ The peripherals of the `RP2040 SoC`_ can be routed to various pins on
 the board. The configuration of these routes can be modified through
 :external+zephyr:ref:`DTS <devicetree>`. Please refer to the datasheet
 to see the possible routings for each peripheral. The default assignments
-for the Cytron Maker Pi RP2040 board is defined below.
+for the board is defined below.
 
 .. include:: pinouts.rsti
 
 Supported Features
 ******************
 
-Similar to the |zephyr:board:rpi_pico| the Cytron Maker Pi RP2040 board
-configuration supports the following hardware features:
+Similar to the |zephyr:board:rpi_pico| the board configuration supports the
+following hardware features:
 
 .. list-table:: Hardware Features Supported by Zephyr
    :class: longtable
@@ -60,7 +60,8 @@ configuration supports the following hardware features:
      - :external+zephyr:ref:`gpio_api`
    * - UART
      - :kconfig:option:`CONFIG_SERIAL`
-     - :dtcompatible:`raspberrypi,pico-uart`
+     - | :dtcompatible:`raspberrypi,pico-uart`
+       | :dtcompatible:`arm,pl011`
      - :external+zephyr:ref:`uart_api`
    * - UDC (USB Device Controller)
      - :kconfig:option:`CONFIG_USB_DEVICE_STACK_NEXT`
@@ -72,7 +73,7 @@ configuration supports the following hardware features:
      - :external+zephyr:ref:`i2c_api`
    * - SPI
      - :kconfig:option:`CONFIG_SPI`
-     - :dtcompatible:`raspberrypi,pico-spi`
+     - | :dtcompatible:`raspberrypi,pico-spi`
      - :external+zephyr:ref:`spi_api`
    * - PWM
      - :kconfig:option:`CONFIG_PWM`
@@ -157,8 +158,7 @@ configuration can be found in the different Kconfig files:
 Board Configurations
 ====================
 
-The Cytron Maker Pi RP2040 board can be configured for the following
-different use cases.
+The board can be configured for the following different use cases.
 
 .. rubric:: :command:`west build -b cytron_maker_pi_rp2040 -S usb-console`
 
@@ -182,9 +182,9 @@ for more details. The pinout diagrams can also be found there.
 Laced Grove Signal Interface
 ----------------------------
 
-The |Maker Pi RP2040| offers the option of connecting hardware modules via
-a variety of |Grove connectors|. These are provided by a specific interface
-for general signal mapping, the |Laced Grove Signal Interface|.
+The board offers the option of connecting hardware modules via a variety of
+|Grove connectors|. These are provided by a specific interface for general
+signal mapping, the |Laced Grove Signal Interface|.
 
 Following mappings are well known:
 
@@ -195,8 +195,8 @@ Following mappings are well known:
 
 .. zephyr-keep-sorted-stop
 
-In addition to the on-board hader for DC and servo motors, there are also
-7 |Grove connectors| (Qwiic/STEMMA QT).
+In addition to the on-board hader for DC and servo motors,
+there are also 7 |Grove connectors| (Qwiic/STEMMA QT).
 
 .. tabs::
 
@@ -236,22 +236,18 @@ GPIO (PWM) Ports
 ================
 
 The `RP2040 <RP2040 SoC_>`_ MCU has 1 GPIO cell which covers all I/O pads and
-8 PWM function unit each with 2 channels beside a dedicated Timer unit. On
-|Maker Pi RP2040| the channels PWM4 A to PWM5 B are reserved for the on-board
-DC motor H-bridge driver and also PWM5 A to PWM7 B for driving servo motors.
-The PWM3 channel A will be used for the on-board Piezo buzzer.
-
-But the PWM operation is not enable by default. Only if
-:kconfig:option:`CONFIG_PWM_RPI_PICO` is enabled then the first user LED or
-Piezo buzzer is driven by PWM instead of by GPIO.
+8 PWM function unit each with 2 channels beside a dedicated Timer unit. The
+channels PWM4 A to PWM5 B are reserved for the on-board DC motor H-bridge
+driver and also PWM5 A to PWM7 B for driving servo motors. The channel PWM3 A
+will be used for the on-board Piezo buzzer.
 
 ADC/TS Ports
 ============
 
 The `RP2040 <RP2040 SoC_>`_ MCU has 1 ADC with 4 channels and an additional
-fifth channel for the on-chip temperature sensor (TS). On |Maker Pi RP2040|
-only the ADC channel 0-2 are available on three of the four Grove compatiple
-connectors, ADC channel 3 will be used for internal on-board voltage monitoring.
+fifth channel for the on-chip temperature sensor (TS). Only the ADC channel
+0-2 are available on three of the four Grove compatiple connectors, ADC
+channel 3 will be used for internal on-board voltage monitoring.
 
 The external voltage reference ADC_VREF is directly connected to the 3.3V
 power supply.
@@ -261,8 +257,7 @@ SPI Port
 
 The `RP2040 <RP2040 SoC_>`_ MCU has 2 SPIs. The serial bus SPI0 is connect to
 external devices over GP3 (MOSI), GP4 (MISO), GP2 (SCK), and GP5 (CSn) by two
-Grove compatiple connectors on the |Maker Pi RP2040|. SPI1 is not available
-in any default setup.
+Grove compatiple connectors. SPI1 is not available in any default setup.
 
 I2C Port
 ========
@@ -270,14 +265,14 @@ I2C Port
 The `RP2040 <RP2040 SoC_>`_ MCU has 2 I2Cs. The serial bus I2C0 and I2C1 are
 connect to external devices over GP16 (I2C0_SDA), GP17 (I2C0_SCL) by default
 or alternatively over GP4 (I2C0_SDA), GP5 (I2C0_SCL), GP2 (I2C1_SDA) and
-GP3 (I2C1_SCL) on the Grove compatiple connectors on the |Maker Pi RP2040|.
+GP3 (I2C1_SCL) on the Grove compatiple connectors.
 
 Serial Port
 ===========
 
 The `RP2040 <RP2040 SoC_>`_ MCU has 2 UARTs. One of the UARTs (UART0) is
 connected to external devices over GP0 (TX) and GP1 (RX) on the Grove
-compatiple connectors on the |Maker Pi RP2040| and is the Zephyr console.
+compatiple connectors and is the Zephyr console.
 
 USB Device Port
 ===============
@@ -327,10 +322,10 @@ Flashing
 Using UF2
 ---------
 
-If you don't have an SWD adapter, you can flash the |Maker Pi RP2040| board
-with a UF2 file. By default, building an app for this board will generate a
-:file:`build/zephyr/zephyr.uf2` file. If the board is powered on with the
-:kbd:`BOOTSEL` button pressed, it will appear on the host as a mass
+If you don't have an SWD adapter, you can flash the board with a UF2 file.
+By default, building an application for this board will generate a
+:file:`build/zephyr/zephyr.uf2` file. If the board is powered on with
+the :kbd:`BOOTSEL` button pressed, it will appear on the host as a mass
 storage device:
 
    .. container:: highlight-console notranslate literal-block
@@ -344,7 +339,7 @@ storage device:
          SerialNumber: E0C9125B0D9B
 
 The UF2 file should be drag-and-dropped or copied on command line to the
-device, which will then flash the |Maker Pi RP2040| board.
+device, which will then flash the board.
 
 RP2040 Boot-ROM
 ---------------
@@ -368,7 +363,8 @@ program binary. On Zephyr the :code:`boot2` versions are part of the
 :|CONFIG_RP2_FLASH_W25Q080|: |boot2_w25q080.S|_
 :|CONFIG_RP2_FLASH_W25X10CL|: |boot2_w25x10cl.S|_
 
-The |Maker Pi RP2040| board set this option to |CONFIG_RP2_FLASH_W25Q080|.
+The board set this option to |CONFIG_RP2_FLASH_W25Q080|.
+
 Further information can be found in the `RP2040 Datasheet`_, sections with
 title :emphasis:`"Bootrom"` and :emphasis:`"Processor Controlled Boot Sequence"`
 or Brian Starkey's Blog article `Pico serial bootloader`_
@@ -376,8 +372,7 @@ or Brian Starkey's Blog article `Pico serial bootloader`_
 Using SEGGER JLink
 ------------------
 
-You can flash the |Maker Pi RP2040| board with a SEGGER JLink debug probe
-as described in
+You can flash the board with a SEGGER JLink debug probe as described in
 :external+zephyr:ref:`Building, Flashing and Debugging <west-flashing>`.
 
 Here is an example of building and flashing the
@@ -408,8 +403,8 @@ and write the line below:
 This example is valid for the case that the user joins to :code:`plugdev`
 groups.
 
-The |Maker Pi RP2040| has an SWD interface that can be used to program and
-debug the on board RP2040. This interface can be utilized by OpenOCD. To use it
+The board has an SWD interface that can be used to program and debug the
+on-board RP2040. This interface can be utilized by OpenOCD. To use it
 with the RP2040, OpenOCD version 0.12.0 or later is needed. If you are using a
 Debian based system (including RaspberryPi OS, Ubuntu, and more), using the
 `pico_setup.sh`_ script is a convenient way to set up the forked version of
@@ -535,69 +530,7 @@ Basic Samples
 LED Blinky and Fade
 ===================
 
-.. image:: img/ws2812b.gif
-   :align: right
-   :alt: Maker Pi RP2040 WS2812 LED Test Pattern
-
-.. rubric:: WS2812 LED Test Pattern by PIO
-
-See also Zephyr sample: :external+zephyr:zephyr:code-sample:`led-strip`.
-
-.. zephyr-app-commands::
-   :app: zephyr/samples/drivers/led/led_strip
-   :build-dir: cytron_maker_pi_rp2040
-   :board: cytron_maker_pi_rp2040
-   :west-args: -p
-   :goals: flash
-   :compact:
-
-.. rubric:: Blue User LED Blinky by GPIO
-
-See also Zephyr sample: :external+zephyr:zephyr:code-sample:`blinky`.
-
-.. zephyr-app-commands::
-   :app: zephyr/samples/basic/blinky
-   :build-dir: cytron_maker_pi_rp2040
-   :board: cytron_maker_pi_rp2040
-   :west-args: -p
-   :goals: flash
-   :compact:
-
-.. rubric:: Blue User LED Blinky by PWM
-
-See also Zephyr sample: :external+zephyr:zephyr:code-sample:`pwm-blinky`.
-
-.. zephyr-app-commands::
-   :app: zephyr/samples/basic/blinky_pwm
-   :build-dir: cytron_maker_pi_rp2040
-   :board: cytron_maker_pi_rp2040
-   :west-args: -p
-   :goals: flash
-   :compact:
-
-.. rubric:: Blue User LED Fade by PWM
-
-See also Zephyr sample: :external+zephyr:zephyr:code-sample:`fade-led`.
-
-.. zephyr-app-commands::
-   :app: zephyr/samples/basic/fade_led
-   :build-dir: cytron_maker_pi_rp2040
-   :board: cytron_maker_pi_rp2040
-   :west-args: -p
-   :goals: flash
-   :compact:
-
-.. rubric:: Blue User LED On/Off by GPIO Button
-
-See also Zephyr sample: :external+zephyr:zephyr:code-sample:`button`.
-
-.. zephyr-app-commands::
-   :app: zephyr/samples/basic/button
-   :build-dir: cytron_maker_pi_rp2040
-   :board: cytron_maker_pi_rp2040
-   :west-args: -p
-   :goals: flash
-   :compact:
+.. include:: blinky_fade.rsti
 
 Hello Shell with USB-CDC/ACM Console
 ====================================

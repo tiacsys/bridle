@@ -1,5 +1,7 @@
 .. rubric:: Hello Shell
 
+See also Bridle sample: :ref:`helloshell-sample`.
+
 .. zephyr-app-commands::
    :app: bridle/samples/helloshell
    :build-dir: cytron_maker_pi_rp2040
@@ -576,4 +578,4 @@
          .. parsed-literal::
 
             :bgn:`uart:~$` **sensor get dietemp**
-            :bgn:`channel type=12(die_temp) index=0 shift=5 num_samples=1 value=56376680956ns (29.324229)`
+            channel type=12(die_temp) index=0 shift=5 num_samples=1 value=56376680956ns (29.324229)
