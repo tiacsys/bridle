@@ -29,15 +29,15 @@ The peripherals of the `RP2040 SoC`_ can be routed to various pins on
 the board. The configuration of these routes can be modified through
 :external+zephyr:ref:`DTS <devicetree>`. Please refer to the datasheet
 to see the possible routings for each peripheral. The default assignments
-for the Cytron Maker Nano RP2040 board is defined below.
+for the board is defined below.
 
 .. include:: pinouts.rsti
 
 Supported Features
 ******************
 
-Similar to the |zephyr:board:rpi_pico| the Cytron Maker Nano RP2040 board
-configuration supports the following hardware features:
+Similar to the |zephyr:board:rpi_pico| the board configuration supports the
+following hardware features:
 
 .. list-table:: Hardware Features Supported by Zephyr
    :class: longtable
@@ -58,7 +58,8 @@ configuration supports the following hardware features:
      - :external+zephyr:ref:`gpio_api`
    * - UART
      - :kconfig:option:`CONFIG_SERIAL`
-     - :dtcompatible:`raspberrypi,pico-uart`
+     - | :dtcompatible:`raspberrypi,pico-uart`
+       | :dtcompatible:`arm,pl011`
      - :external+zephyr:ref:`uart_api`
    * - UDC (USB Device Controller)
      - :kconfig:option:`CONFIG_USB_DEVICE_STACK_NEXT`
@@ -70,7 +71,8 @@ configuration supports the following hardware features:
      - :external+zephyr:ref:`i2c_api`
    * - SPI
      - :kconfig:option:`CONFIG_SPI`
-     - :dtcompatible:`raspberrypi,pico-spi`
+     - | :dtcompatible:`raspberrypi,pico-spi`
+       | :dtcompatible:`arm,pl022`
      - :external+zephyr:ref:`spi_api`
    * - PWM
      - :kconfig:option:`CONFIG_PWM`
@@ -155,8 +157,7 @@ configuration can be found in the different Kconfig files:
 Board Configurations
 ====================
 
-The Cytron Maker Nano RP2040 board can be configured for the following
-different use cases.
+The board can be configured for the following different use cases.
 
 .. rubric:: :command:`west build -b cytron_maker_nano_rp2040 -S usb-console`
 
@@ -180,9 +181,9 @@ for more details. The pinout diagrams can also be found there.
 Laced Grove Signal Interface
 ----------------------------
 
-The |Maker Nano RP2040| offers the option of connecting hardware modules via
-a variety of |Grove connectors|. These are provided by a specific interface
-for general signal mapping, the |Laced Grove Signal Interface|.
+The board offers the option of connecting hardware modules via a variety of
+|Grove connectors|. These are provided by a specific interface for general
+signal mapping, the |Laced Grove Signal Interface|.
 
 Following mappings are well known:
 
@@ -193,8 +194,8 @@ Following mappings are well known:
 
 .. zephyr-keep-sorted-stop
 
-In addition to the |Arduino Nano| header, there are also
-2 |Grove connectors| (Qwiic/STEMMA QT).
+In addition to the |Arduino Nano| header,
+there are also 2 |Grove connectors| (Qwiic/STEMMA QT).
 
 .. tabs::
 
@@ -234,15 +235,10 @@ GPIO (PWM) Ports
 ================
 
 The `RP2040 <RP2040 SoC_>`_ MCU has 1 GPIO cell which covers all I/O pads and
-8 PWM function unit each with 2 channels beside a dedicated Timer unit. On
-the |Maker Nano RP2040|, almost all 16 PWM channels are available on the edge
-connectors, although some channels are occupied by special signals if their
-function is enabled. The PWM3 channel A will be used for the on-board Piezo
-buzzer.
-
-But the PWM operation is not enable by default. Only if
-:kconfig:option:`CONFIG_PWM_RPI_PICO` is enabled then the first user LED or
-Piezo buzzer is driven by PWM instead of by GPIO.
+8 PWM function unit each with 2 channels beside a dedicated Timer unit. Almost
+all 16 PWM channels are available on the edge connectors, although some
+channels are occupied by special signals if their function is enabled. The
+PWM3 channel A will be used for the on-board Piezo buzzer.
 
 ADC/TS Ports
 ============
@@ -250,8 +246,8 @@ ADC/TS Ports
 The `RP2040 <RP2040 SoC_>`_ MCU has 1 ADC with 4 channels and an additional
 fifth channel for the on-chip temperature sensor (TS). The ADC channels 0-3
 are available on the |Arduino Nano| header, channel 0-1 also on one of the
-two Qwiic / STEMMA QT compatiple connectors on |Maker Nano RP2040|, but this
-is not the default pin operation.
+two Qwiic / STEMMA QT compatiple connectors, but this is not the default pin
+operation.
 
 The external voltage reference ADC_VREF is directly connected to the 3.3V
 power supply.
@@ -261,23 +257,21 @@ SPI Port
 
 The `RP2040 <RP2040 SoC_>`_ MCU has 2 SPIs. The serial bus SPI0 is connect to
 external devices over GP19 (MOSI), GP16 (MISO), GP18 (SCK), and GP17 (CSn)
-on the |Arduino Nano| header of thre |Maker Nano RP2040|. SPI1 is not available
-in any default setup.
+on the |Arduino Nano| header. SPI1 is not available in any default setup.
 
 I2C Port
 ========
 
 The `RP2040 <RP2040 SoC_>`_ MCU has 2 I2Cs. The serial bus I2C0 and I2C1 are
 connect to external devices over GP12 (I2C0_SDA), GP13 (I2C0_SCL),
-GP26 (I2C1_SDA), and GP27 (I2C1_SCL) on the |Arduino Nano| header of the
-|Maker Nano RP2040|.
+GP26 (I2C1_SDA), and GP27 (I2C1_SCL) on the |Arduino Nano| header.
 
 Serial Port
 ===========
 
 The `RP2040 <RP2040 SoC_>`_ MCU has 2 UARTs. One of the UARTs (UART0) is
 connected to external devices over GP0 (TX) and GP1 (RX) on the |Arduino Nano|
-header of thre |Maker Nano RP2040| and is the Zephyr console.
+header and is the Zephyr console.
 
 USB Device Port
 ===============
@@ -324,14 +318,13 @@ Programming and Debugging
 Flashing
 ========
 
-The |Maker Nano RP2040| can only be flashed with a UF2 file.
-There is no SWD connector.
+The board can only be flashed with a UF2 file. There is no SWD connector.
 
 Using UF2
 ---------
 
-By default, building an app for the |Maker Nano RP2040| board will generate
-the :file:`build/zephyr/zephyr.uf2` file. If the board is powered on with
+By default, building an application for the board will generate a
+:file:`build/zephyr/zephyr.uf2` file. If the board is powered on with
 the :kbd:`BOOTSEL` button pressed, it will appear on the host as a mass
 storage device:
 
@@ -346,7 +339,7 @@ storage device:
          SerialNumber: E0C9125B0D9B
 
 The UF2 file should be drag-and-dropped or copied on command line to the
-device, which will then flash the |Maker Nano RP2040| board.
+device, which will then flash the board.
 
 RP2040 Boot-ROM
 ---------------
@@ -370,7 +363,8 @@ program binary. On Zephyr the :code:`boot2` versions are part of the
 :|CONFIG_RP2_FLASH_W25Q080|: |boot2_w25q080.S|_
 :|CONFIG_RP2_FLASH_W25X10CL|: |boot2_w25x10cl.S|_
 
-The |Maker Nano RP2040| board set this option to |CONFIG_RP2_FLASH_W25Q080|.
+The board set this option to |CONFIG_RP2_FLASH_W25Q080|.
+
 Further information can be found in the `RP2040 Datasheet`_, sections with
 title :emphasis:`"Bootrom"` and :emphasis:`"Processor Controlled Boot Sequence"`
 or Brian Starkey's Blog article `Pico serial bootloader`_
@@ -378,8 +372,8 @@ or Brian Starkey's Blog article `Pico serial bootloader`_
 Debugging
 =========
 
-The |Maker Nano RP2040| does not provide any SWD connector, thus debugging
-software is not possible.
+The board does not provide any SWD connector, thus debugging software
+is not possible.
 
 Basic Samples
 *************
@@ -387,69 +381,7 @@ Basic Samples
 LED Blinky and Fade
 ===================
 
-.. image:: img/ws2812b.gif
-   :align: right
-   :alt: Maker Nano RP2040 WS2812 LED Test Pattern
-
-.. rubric:: WS2812 LED Test Pattern by PIO
-
-See also Zephyr sample: :external+zephyr:zephyr:code-sample:`led-strip`.
-
-.. zephyr-app-commands::
-   :app: zephyr/samples/drivers/led/led_strip
-   :build-dir: cytron_maker_nano_rp2040
-   :board: cytron_maker_nano_rp2040
-   :west-args: -p
-   :goals: flash
-   :compact:
-
-.. rubric:: Blue User LED Blinky by GPIO
-
-See also Zephyr sample: :external+zephyr:zephyr:code-sample:`blinky`.
-
-.. zephyr-app-commands::
-   :app: zephyr/samples/basic/blinky
-   :build-dir: cytron_maker_nano_rp2040
-   :board: cytron_maker_nano_rp2040
-   :west-args: -p
-   :goals: flash
-   :compact:
-
-.. rubric:: Blue User LED Blinky by PWM
-
-See also Zephyr sample: :external+zephyr:zephyr:code-sample:`pwm-blinky`.
-
-.. zephyr-app-commands::
-   :app: zephyr/samples/basic/blinky_pwm
-   :build-dir: cytron_maker_nano_rp2040
-   :board: cytron_maker_nano_rp2040
-   :west-args: -p
-   :goals: flash
-   :compact:
-
-.. rubric:: Blue User LED Fade by PWM
-
-See also Zephyr sample: :external+zephyr:zephyr:code-sample:`fade-led`.
-
-.. zephyr-app-commands::
-   :app: zephyr/samples/basic/fade_led
-   :build-dir: cytron_maker_nano_rp2040
-   :board: cytron_maker_nano_rp2040
-   :west-args: -p
-   :goals: flash
-   :compact:
-
-.. rubric:: Blue User LED On/Off by GPIO Button
-
-See also Zephyr sample: :external+zephyr:zephyr:code-sample:`button`.
-
-.. zephyr-app-commands::
-   :app: zephyr/samples/basic/button
-   :build-dir: cytron_maker_nano_rp2040
-   :board: cytron_maker_nano_rp2040
-   :west-args: -p
-   :goals: flash
-   :compact:
+.. include:: blinky_fade.rsti
 
 Hello Shell with USB-CDC/ACM Console
 ====================================
