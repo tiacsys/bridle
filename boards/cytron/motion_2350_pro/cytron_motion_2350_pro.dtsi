@@ -19,6 +19,7 @@
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 #include <zephyr/dt-bindings/lvgl/lvgl.h>
 
+#include "stemma_qt_connector.dtsi"
 #include "seeed_grove_connectors.dtsi"
 #include "cytron_motion_2350_pro-pinctrl.dtsi"
 
