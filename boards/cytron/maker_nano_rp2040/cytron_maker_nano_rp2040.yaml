@@ -2,10 +2,11 @@
 # SPDX-License-Identifier: Apache-2.0
 
 identifier: cytron_maker_nano_rp2040
+vendor: cytron
 name: Cytron Maker Nano RP2040
 type: mcu
 arch: arm
-flash: 2048
+flash: 1024
 ram: 264
 toolchain:
   - zephyr
