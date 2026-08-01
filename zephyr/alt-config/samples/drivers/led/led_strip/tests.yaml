@@ -21,6 +21,7 @@ tests:
       - cytron_maker_pi_rp2040
       - cytron_motion_2350_pro/rp2350a/hazard3
       - cytron_motion_2350_pro/rp2350a/m33
+      - picoboy_color_plus/rp2350a/hazard3
       - picoboy_color_plus/rp2350a/m33
       - waveshare_rp2040_eth
       - waveshare_rp2040_matrix
