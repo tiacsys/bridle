@@ -21,6 +21,10 @@ tests:
       - cytron_maker_pi_rp2040
       - cytron_motion_2350_pro/rp2350a/hazard3
       - cytron_motion_2350_pro/rp2350a/m33
+      - mini_usb_rp2040@4mb/rp2040
+      - mini_usb_rp2040@16mb/rp2040
+      - mini_usb_rp2350@4mb/rp2350a/m33
+      - mini_usb_rp2350@16mb/rp2350a/m33
       - picoboy_color_plus/rp2350a/hazard3
       - picoboy_color_plus/rp2350a/m33
       - waveshare_rp2040_eth
