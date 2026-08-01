@@ -2,10 +2,11 @@
 # SPDX-License-Identifier: Apache-2.0
 
 identifier: cytron_motion_2350_pro/rp2350a/m33
+vendor: cytron
 name: Cytron MOTION 2350 Pro (Cortex-M33)
 type: mcu
 arch: arm
-flash: 2048
+flash: 1024
 ram: 520
 toolchain:
   - zephyr
