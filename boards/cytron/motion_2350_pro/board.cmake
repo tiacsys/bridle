@@ -3,8 +3,8 @@
 
 message(STATUS "Found BOARD.cmake: ${dir}/board.cmake")
 
-# This configuration allows selecting what debug adapter debugging
-# waveshare_rp2350 by a command-line argument. It is mainly intended
+# This configuration allows selecting what debug adapter debugging the
+# cytron_motion_2350_pro by a command-line argument. It is mainly intended
 # to support both the 'picoprobe' and 'raspberrypi-swd' adapter described
 # in "Getting started with Raspberry Pi Pico". Any other SWD debug adapter
 # might also be usable with this configuration.
@@ -12,7 +12,7 @@ message(STATUS "Found BOARD.cmake: ${dir}/board.cmake")
 # Set CYTRON_RP2350_DEBUG_ADAPTER to select debug adapter by command-line
 # arguments, e.g.:
 #
-#   west build -b <cytron_motion_rp2350_BOARD_VARIANT> \
+#   west build -b cytron_motion_2350_pro \
 #              -- -DCYTRON_RP2350_DEBUG_ADAPTER=raspberrypi-swd
 #
 # The value is treated as a part of an interface file name contained in the
