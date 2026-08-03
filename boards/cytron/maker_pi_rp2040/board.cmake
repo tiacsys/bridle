@@ -3,8 +3,8 @@
 
 message(STATUS "Found BOARD.cmake: ${dir}/board.cmake")
 
-# This configuration allows selecting what debug adapter debugging
-# waveshare_rp2040 by a command-line argument. It is mainly intended
+# This configuration allows selecting what debug adapter debugging the
+# cytron_maker_pi_rp2040 by a command-line argument. It is mainly intended
 # to support both the 'picoprobe' and 'raspberrypi-swd' adapter described
 # in "Getting started with Raspberry Pi Pico". Any other SWD debug adapter
 # might also be usable with this configuration.
@@ -29,7 +29,9 @@ board_runner_args(openocd --cmd-pre-init "transport select swd")
 board_runner_args(openocd --cmd-pre-init "source [find target/rp2040.cfg]")
 
 # The adapter speed is expected to be set by interface configuration.
-# But if not so, set 2000 to adapter speed.
+# But if not so, set 2000 to adapter speed. The Raspberry Pi's OpenOCD
+# fork doesn't, so match their documentation at:
+# https://www.raspberrypi.com/documentation/microcontrollers/debug-probe.html#debugging-with-swd
 board_runner_args(openocd --cmd-pre-init "set_adapter_speed_if_not_set 2000")
 
 board_runner_args(jlink "--device=RP2040_M0_0")
