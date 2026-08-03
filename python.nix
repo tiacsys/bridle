@@ -17,11 +17,30 @@ let
       # nixpkgs. Adding them to this package set makes sure they can be pulled into the build/dev
       # environment by being referenced in a requirements.txt
 
-      inherit (pkgs) gcovr gitlint ruff;
+      inherit (pkgs) gcovr ruff vermin;
       clang-format = pkgs.clang-tools;
       imgtool = pkgs.mcuboot-imgtool;
+      gitlint-core = pkgs.gitlint;
 
       inherit (python-deps) nrf-regtool sphinx-lint;
+
+      # TODO: Remove this workaround once NixOS/nixpkgs#573479 reaches nixos-unstable.
+      # buildPythonPackage now defaults to __structuredAttrs = true, under which
+      # nixpkgs' sphinxHook only runs the first entry of sphinxBuilders. reuse's
+      # "man" builder is therefore skipped and the build fails with "failed to
+      # produce output path for output 'man'". reuse is needed for `west spdx`.
+      reuse = prev.reuse.overridePythonAttrs (_: {
+        __structuredAttrs = false;
+      });
+
+      # spsdk and spsdk-pyocd depend on each other. nixpkgs breaks the cycle by
+      # not listing spsdk as a dependency of spsdk-pyocd, but the wheel metadata
+      # still declares it, so pythonRuntimeDepsCheck fails with "spsdk not
+      # installed". spsdk itself pulls in spsdk-pyocd, so both still end up in the
+      # environment.
+      spsdk-pyocd = prev.spsdk-pyocd.overridePythonAttrs (old: {
+        pythonRemoveDeps = (old.pythonRemoveDeps or [ ]) ++ [ "spsdk" ];
+      });
     };
   };
 
