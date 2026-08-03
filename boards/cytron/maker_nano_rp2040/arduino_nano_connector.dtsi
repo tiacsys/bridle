@@ -6,7 +6,7 @@
 #include <zephyr/dt-bindings/gpio/arduino-nano-header.h>
 
 / {
-	arduino_nano_header: connector {
+	arduino_nano_header: arduino-nano-connector {
 		compatible = "arduino-nano-header";
 		#gpio-cells = <2>;
 		gpio-map-mask = <0xffffffff 0xffffffc0>;
