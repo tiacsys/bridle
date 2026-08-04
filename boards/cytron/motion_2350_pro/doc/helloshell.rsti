@@ -226,7 +226,7 @@ See also Bridle sample: :ref:`helloshell-sample`.
 
                :bgn:`uart:~$` **regulator disable vreg**
                \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
-               Hello World! I'm THE SHELL from picoboy
+               Hello World! I'm THE SHELL from cytron_motion_2350_pro
 
          .. container:: highlight highlight-console notranslate
 

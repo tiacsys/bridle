@@ -162,17 +162,11 @@ Board Configurations
 
 The board can be configured for the following different use cases.
 
-.. rubric:: :command:`west build -b cytron_motion_2350_pro/rp2350a/hazard3 -S usb-console`
-
-Use the native USB device port with CDC-ACM as
-Zephyr console and for the shell.
-Running on Hazard3/RISC-V core.
-
-.. rubric:: :command:`west build -b cytron_motion_2350_pro/rp2350a/hazard3`
+.. rubric:: :command:`west build -b cytron_motion_2350_pro/rp2350a/m33`
 
 Use the serial port UART0 on edge header as
 Zephyr console and for the shell.
-Running on Hazard3/RISC-V core.
+Running on Cortex-M33 core.
 
 .. rubric:: :command:`west build -b cytron_motion_2350_pro/rp2350a/m33 -S usb-console`
 
@@ -180,11 +174,17 @@ Use the native USB device port with CDC-ACM as
 Zephyr console and for the shell.
 Running on Cortex-M33 core.
 
-.. rubric:: :command:`west build -b cytron_motion_2350_pro/rp2350a/m33`
+.. rubric:: :command:`west build -b cytron_motion_2350_pro/rp2350a/hazard3`
 
 Use the serial port UART0 on edge header as
 Zephyr console and for the shell.
-Running on Cortex-M33 core.
+Running on Hazard3/RISC-V core. :brd:`EXPERIMENTAL`
+
+.. rubric:: :command:`west build -b cytron_motion_2350_pro/rp2350a/hazard3 -S usb-console`
+
+Use the native USB device port with CDC-ACM as
+Zephyr console and for the shell.
+Running on Hazard3/RISC-V core. :brd:`EXPERIMENTAL`
 
 Connections and IOs
 ===================
