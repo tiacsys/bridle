@@ -159,14 +159,14 @@ Board Configurations
 
 The board can be configured for the following different use cases.
 
-.. rubric:: :command:`west build -b cytron_maker_nano_rp2040 -S usb-console`
-
-Use the native USB device port with CDC-ACM as
-Zephyr console and for the shell.
-
 .. rubric:: :command:`west build -b cytron_maker_nano_rp2040`
 
 Use the serial port UART0 on edge header as
+Zephyr console and for the shell.
+
+.. rubric:: :command:`west build -b cytron_maker_nano_rp2040 -S usb-console`
+
+Use the native USB device port with CDC-ACM as
 Zephyr console and for the shell.
 
 Connections and IOs
