@@ -167,7 +167,7 @@ List of extensions
             :language: DTS
             :encoding: ISO-8859-1
             :prepend: / {
-            :start-at: rpipico_header: connector {
+            :start-at: rpipico_header: pico-connector-r3 {
             :end-at: };
             :append: };
 
