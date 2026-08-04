@@ -72,6 +72,8 @@
               DT node labels: i2c0 zephyr_i2c stemma_i2c qwiic_i2c grove_i2c
             - pwm\ @\ 400a8000 (READY)
               DT node labels: pwm grove_pwm_d20 grove_pwm_d21
+            - vreg\ @\ 40100000 (READY)
+              DT node labels: vreg
             - lcd_backlight_en (READY)
               DT node labels: lcd_backlight_en
             - pwm_leds (READY)
@@ -119,6 +121,8 @@
               DT node labels: i2c0 zephyr_i2c stemma_i2c qwiic_i2c grove_i2c
             - pwm\ @\ 400a8000 (READY)
               DT node labels: pwm grove_pwm_d20 grove_pwm_d21
+            - vreg\ @\ 40100000 (READY)
+              DT node labels: vreg
             - lcd_backlight_en (READY)
               DT node labels: lcd_backlight_en
             - pwm_leds (READY)

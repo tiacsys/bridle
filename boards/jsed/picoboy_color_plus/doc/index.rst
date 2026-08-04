@@ -160,17 +160,17 @@ Board Configurations
 
 The board can be configured only for the following different use cases.
 
-.. rubric:: :command:`west build -b picoboy_color_plus/rp2350a/hazard3`
-
-Use the native USB device port with CDC-ACM as
-Zephyr console and for the shell.
-Running on Hazard3/RISC-V core.
-
 .. rubric:: :command:`west build -b picoboy_color_plus/rp2350a/m33`
 
 Use the native USB device port with CDC-ACM as
 Zephyr console and for the shell.
 Running on Cortex-M33 core.
+
+.. rubric:: :command:`west build -b picoboy_color_plus/rp2350a/hazard3`
+
+Use the native USB device port with CDC-ACM as
+Zephyr console and for the shell.
+Running on Hazard3/RISC-V core. :brd:`EXPERIMENTAL`
 
 Connections and IOs
 ===================
