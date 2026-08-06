@@ -1,0 +1,38 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+    GPIO pins exposed on Waveshare RP2350 Matrix headers.
+
+    The RP2350 Matrix layout provides two headers, one each along opposite
+    edges of the board.
+
+    Proceeding clockwise:
+    * A 10-pin header. 10 pins on this header are exposed by this binding.
+    * A 10-pin header.  7 pins on this header are exposed by this binding.
+
+    This binding provides a nexus mapping for 17 pins where parent pins 13
+    through 26 correspond to ADC0 through ADC3, and parent pins 0 through 12
+    correspond as depicted below (view on board top side):
+
+               .---------.
+          .----|         |----.
+        - 5V   |  USB-C  | GP10 0
+        - GND  `---------´ GP11 1
+        - 3V3              GP12 2
+       16 ADC3/GP29        GP13 3
+       15 ADC2/GP28        GP14 4
+       14 ADC1/GP27        GP15 5
+       13 ADC0/GP26        GP16 6
+       12 GP24             GP17 7
+       11 GP23             GP18 8
+       10 GP22             GP19 9
+          `-------------------´
+
+    Use WS_RP2350MATRIX_HEADER_* constants in
+    <zephyr/dt-bindings/gpio/waveshare-rp2350matrix-header.h> to refer
+    to specific pins using convenient constant names.
+
+compatible: "waveshare,rp2350matrix-header"
+
+include: [gpio-nexus.yaml, base.yaml]

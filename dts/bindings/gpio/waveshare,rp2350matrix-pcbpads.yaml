@@ -1,0 +1,37 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+    GPIO pins exposed on Waveshare RP2350 Matrix solder pads.
+
+    The RP2350 Matrix layout provides a line of nine solder pads on the
+    bottom side of the board, opposite the USB-C socket.
+
+    This binding provides a nexus mapping for 8 pads where parent pins 0
+    through 7 correspond as depicted below (view on board bottom side):
+
+               .---------.
+          .----|         |----.
+          ]    |  USB-C  |   5V -
+          ]    `---------´  GND -
+          ]                 3V3 -
+          ]                   [
+          ]                   [
+          ]                   [
+          ]                   [
+          ]                   [
+          ]                   [
+          ] - 0 1 2 3 4 5 6 7 [
+          `-------------------´
+            D G G G G G G G G
+            o P P P P P P P P
+            u 0 1 2 3 4 5 2 2
+            t             0 1
+
+    Use WS_RP2350MATRIX_PCBPAD_* constants in
+    <zephyr/dt-bindings/gpio/waveshare-rp2350matrix-pcbpads.h> to refer
+    to specific pins using convenient constant names.
+
+compatible: "waveshare,rp2350matrix-pcbpads"
+
+include: [gpio-nexus.yaml, base.yaml]
