@@ -1,0 +1,66 @@
+The RP2350-Matrix_ is a :bbl:`special sized` RP2350 development board.
+The on-board USB-C connector makes it compatible to future standards.
+It comes with an on-board 8×8 RGB LED matrix for colorful lighting
+displays or simple images.
+
+.. list-table::
+   :align: center
+   :width: 100%
+   :widths: 66, 33
+
+   * - .. rubric:: Features and Resources
+     - .. rubric:: Printed Circuit Board
+
+   * - :hwftlbl-vdd:`5V/480㎃`
+       :hwftlbl-vdd:`3.3V/800㎃`
+       :hwftlbl-vdd:`3.3V(OUT)`
+
+       :hwftlbl:`150㎒`
+       :hwftlbl:`16㎆`
+       :hwftlbl:`520㎅`
+       :hwftlbl-btn:`RST`
+       :hwftlbl-led:`RGB(8×8)`
+       :hwftlbl-scr:`LED(8×8)`
+       :hwftlbl-cps:`6-DOF`
+       :hwftlbl-con:`USB-C`
+       :hwftlbl-dbg:`UF2`
+
+       :hwftlbl-pio:`11`
+       :hwftlbl-pwm:`5`
+       :hwftlbl-adc:`4`
+       :hwftlbl-i2c:`1`
+       :hwftlbl-spi:`1`
+       :hwftlbl-uart:`2`
+
+       .. rst-class:: rst-columns
+
+       - Dual core Arm Cortex-M33 and dual core Hazard3 (RV32IMAC+) RISC-V
+         processor running up to 150㎒
+       - :bbk:`520㎅` on-chip SRAM
+       - :bbk:`16㎆` on-board QSPI flash with XIP capabilities
+       - USB 1.1 controller (host/device)
+       - On-board :bbl:`USB-C connector`
+       - On-board :bbl:`3.3V LDO regulator with 800㎃`
+       - On-board :bbk:`RESET` button
+       - On-board :bbl:`BOOT` button
+       - On-board :bbl:`8×8 RGB LED matrix` (strip)
+       - On-board :bbl:`6-DOF IMU sensor`
+       - :bbl:`11 GPIO` pins via :bbk:`edge pinout`
+       - :bbl:`2 UART` peripherals via :bbk:`edge pinout`
+       - :bbl:`1 I2C` controllers via :bbk:`edge pinout`
+       - :bbl:`1 SPI` controllers via :bbk:`edge pinout`
+       - :bbl:`5 PWM` channels via :bbk:`edge pinout`
+       - :bbl:`4 ADC` analog inputs via :bbk:`edge pinout`
+       - 12 Programmable I/O (PIO) state machines for custom peripherals
+       - 1 Watchdog timer peripheral
+       - 1 Temperature sensor on-chip
+
+       .. rubric:: Design Data
+       .. rst-class:: rst-columns
+
+       - `RP2350-Matrix Schematic`_
+       - `RP2350-Matrix WS2812 Test`_ in C/Pico-SDK and Python/Thonny IDE
+
+     - .. image:: img/hardware.jpg
+          :align: center
+          :alt: Waveshare RP2350-Matrix

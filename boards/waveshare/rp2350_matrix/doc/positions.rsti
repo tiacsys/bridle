@@ -1,0 +1,69 @@
+.. list-table::
+   :align: center
+   :width: 66%
+   :header-rows: 1
+
+   * - .. image:: img/positions.jpg
+          :align: center
+          :width: 500
+          :alt: Waveshare RP2350-Matrix details
+
+   * - .. container:: twocol
+
+          .. container:: leftside
+
+             1. :strong:`RP2350A`
+             #. | :strong:`On-board flash memory`
+                | 16㎆ NOR-Flash :strong:`P25Q128HA-SUH-IR` (W25Q128JV)
+             #. | :strong:`QMI8658A`
+                | 6D MEMS IMU sensor (3-axis accelerometer, 3-axis gyroscope)
+             #. | :strong:`Dout pin`
+                | for extending RGB matrix
+             #. :strong:`RESET button`
+
+          .. container:: rightside
+
+             6. | :strong:`USB Type-C connector`
+                | Supports USB1.1 hosts and slave devices
+             #. | :strong:`BOOT button`
+                | press it when resetting to enter download mode
+             #. | :strong:`ME6217C33`
+                | 800㎃ low dropout, low noise, ultra-fast LDO
+             #. | :strong:`8×8 WS2812B`
+                | cascaded RGB LED matrix
+
+.. rubric:: Data Sheets
+.. rst-class:: rst-columns
+
+- .. rubric:: `RP2350 SoC`_
+- `RP2350 Datasheet`_
+- `Hardware design with RP2350`_
+- .. rubric:: P25Q128HA_ (W25Q128JV_)
+- `PY25Q128HA Datasheet V2.3 (2025/05)`_
+- `PY25Q128HA Datasheet V2.2 (2025/05)`_
+- `PY25Q128HA Datasheet V2.1 (2024/12)`_
+- `PY25Q128HA Datasheet V2.0 (2024/05)`_
+- `PY25Q128HA Datasheet V1.9 (2024/02)`_
+- `PY25Q128HA Datasheet V1.8 (2023/12)`_
+- `PY25Q128HA Datasheet V1.7 (2023/12)`_
+- `W25Q128JV Datasheet`_
+- .. rubric:: WS2812B_
+- `WS2812B Datasheet V5`_
+- `WS2812B Datasheet V2`_
+- `WS2812B Datasheet V1`_
+- `Understanding the WS2812`_
+- `WS2812B with RP2040 PIO & DMA`_
+- .. rubric:: QMI8658_
+- `QMI8658A Datasheet Rev. D (2025/12)`_
+- .. rubric:: ME6217C33_
+- `ME6217 Datasheet`_
+
+.. rubric:: Flash partitions
+
++----------------+----------------+-------------------+
+| QSPI NOR-Flash | code_partition | storage_partition |
++================+================+===================+
+| primary 16㎆   |       1㎆      |        15㎆       |
++----------------+----------------+-------------------+
+| secondary N/A  |      |--|      |        |--|       |
++----------------+----------------+-------------------+

@@ -1,0 +1,36 @@
+Invoke :program:`west build` and :program:`west flash`:
+
+   .. rubric:: On ARM Cortex-M33
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/sensor/accel_polling
+      :build-dir: waveshare_rp2350_matrix
+      :board: waveshare_rp2350_matrix/rp2350a/m33
+      :snippets: "usb-console"
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+   .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/sensor/accel_polling
+      :build-dir: waveshare_rp2350_matrix
+      :board: waveshare_rp2350_matrix/rp2350a/hazard3
+      :snippets: "usb-console"
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+.. rubric:: Simple test execution on target
+
+.. container:: highlight highlight-console notranslate
+
+   .. parsed-literal::
+
+      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
+           qmi8658a\ @\ 6b [m/s^2]:    (   -2.002151,     0.278924,    -9.388861)
+           qmi8658a\ @\ 6b [m/s^2]:    (   -2.015917,     0.290296,    -9.406818)
+           qmi8658a\ @\ 6b [m/s^2]:    (   -1.985391,     0.244807,    -9.407416)
+           qmi8658a\ @\ 6b [m/s^2]:    (   -0.367509,    -0.977432,    -9.715071)
+           qmi8658a\ @\ 6b [m/s^2]:    (    0.267552,    -0.016160,    -9.526528)

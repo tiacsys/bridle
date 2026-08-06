@@ -966,6 +966,19 @@
    https://www.waveshare.com/wiki/RP2350-CAN#Demo_2
 .. https://files.waveshare.com/wiki/RP2350-CAN/RP2350-CAN-Demo.zip
 
+.. ### Links to Waveshare RP2350-Matrix
+
+.. _`RP2350-Matrix`:
+   https://www.waveshare.com/wiki/RP2350-Matrix
+
+.. _`RP2350-Matrix Schematic`:
+   https://www.waveshare.com/wiki/RP2350-Matrix#Schematic_Diagram
+.. https://files.waveshare.com/wiki/RP2350-Matrix/RP2350-Matrix.pdf
+
+.. _`RP2350-Matrix WS2812 Test`:
+   https://www.waveshare.com/wiki/RP2350-Matrix#Demo_2
+.. https://files.waveshare.com/wiki/RP2350-Matrix/RP2350-Matrix.zip
+
 .. ### Links to the Waveshare 2.4 LCD Module
 
 .. _`Waveshare 2.4 LCD Module`:
@@ -2196,6 +2209,13 @@
 .. https://xonstorage.blob.core.windows.net/pdf/sensortek_stk8ba58lga12pin_apr22_xonlink.pdf
 .. https://picoboy.de/files/STK8BA58.pdf
 
+.. _`QMI8658`:
+   https://www.qstcorp.com/imu_prod/QMI8658
+
+.. _`QMI8658A Datasheet Rev. D (2025/12)`:
+   https://www.qstcorp.com/upload/pdf/202512/13-52-25%20QMI8658A%20Datasheet%20Rev%20D.pdf
+.. https://files.waveshare.com/wiki/common/QMI8658A_Datasheet_Rev_A.pdf
+
 .. _`TSL25911`:
    https://ams.com/en/tsl25911
 
@@ -2504,6 +2524,31 @@
 
 .. _`P25Q32SH Datasheet V1.7 (2023/08)`:
    https://www.puyasemi.com/download_path/数据手册/Flash/P25Q32SH_Datasheet_V1.7.pdf
+
+.. _`P25Q128HA`:
+   https://www.puyasemi.com/en/h_series653/3187.html
+.. https://www.puyasemi.com/h_xilie519/2663.html
+
+.. _`PY25Q128HA Datasheet V2.3 (2025/05)`:
+   https://www.puyasemi.com/download_path/数据手册/Flash/PY25Q128HA_Datasheet_V2.3.pdf
+
+.. _`PY25Q128HA Datasheet V2.2 (2025/05)`:
+   https://www.puyasemi.com/download_path/数据手册/Flash/PY25Q128HA_Datasheet_V2.2.pdf
+
+.. _`PY25Q128HA Datasheet V2.1 (2024/12)`:
+   https://www.puyasemi.com/download_path/数据手册/Flash/PY25Q128HA_Datasheet_V2.1.pdf
+
+.. _`PY25Q128HA Datasheet V2.0 (2024/05)`:
+   https://www.puyasemi.com/download_path/数据手册/Flash/PY25Q128HA_Datasheet_V2.0.pdf
+
+.. _`PY25Q128HA Datasheet V1.9 (2024/02)`:
+   https://www.puyasemi.com/download_path/数据手册/Flash/PY25Q128HA_Datasheet_V1.9.pdf
+
+.. _`PY25Q128HA Datasheet V1.8 (2023/12)`:
+   https://www.puyasemi.com/download_path/数据手册/Flash/PY25Q128HA_Datasheet_V1.8.pdf
+
+.. _`PY25Q128HA Datasheet V1.7 (2023/12)`:
+   https://www.puyasemi.com/download_path/数据手册/Flash/PY25Q128HA_Datasheet_V1.7.pdf
 
 .. _`W25Q16JV`:
    https://www.winbond.com/hq/product/code-storage-flash-memory/serial-nor-flash/index.html?__locale=en&partNo=W25Q16JV

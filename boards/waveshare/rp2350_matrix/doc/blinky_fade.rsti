@@ -1,0 +1,33 @@
+.. image:: img/ws2812b-8x8.gif
+   :align: right
+   :alt: Waveshare RP2350-Matrix WS2812 LED Test Pattern
+
+.. rubric:: WS2812 LED Test Pattern by PIO
+
+See also Zephyr sample: :external+zephyr:zephyr:code-sample:`led-strip`.
+
+   .. rubric:: On ARM Cortex-M33
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/drivers/led/led_strip
+      :build-dir: waveshare_rp2350_matrix
+      :board: waveshare_rp2350_matrix/rp2350a/m33
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+   .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/drivers/led/led_strip
+      :build-dir: waveshare_rp2350_matrix
+      :board: waveshare_rp2350_matrix/rp2350a/hazard3
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+.. hint::
+
+   Neither LED Blinky nor LED Fade can be built and executed on this
+   board, because this system has only a digital RGB LED strip.
+   A simple GPIO or PWM control is not possible!

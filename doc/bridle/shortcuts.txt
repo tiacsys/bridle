@@ -782,6 +782,26 @@
 .. |waveshare_rp2350_can_PStr_CON|	replace:: :ign:`RP2350-CAN (CDC ACM)`
 .. |waveshare_rp2350_can_BCD_CON|	replace:: |zephyr_version_BCD|
 
+.. |bridle:board:waveshare_rp2350_matrix| replace:: :ref:`waveshare_rp2350_matrix`
+.. :bridle:board:`waveshare_rp2350_matrix`
+
+.. |RP2350-Matrix| replace::
+   :ref:`RP2350-Matrix <waveshare_rp2350_matrix>`
+.. :bridle:board:`RP2350-Matrix <waveshare_rp2350_matrix>`
+
+.. |RP2350-Matrix (CDC ACM)| replace::
+   :ref:`RP2350-Matrix (CDC ACM) <waveshare_rp2350_matrix>`
+.. :bridle:board:`RP2350-Matrix (CDC ACM) <waveshare_rp2350_matrix>`
+
+.. |waveshare_rp2350_matrix_URB_VID|	replace:: |rpi_URB_VID|
+.. |waveshare_rp2350_matrix_VID|	replace:: |rpi_VID|
+.. |waveshare_rp2350_matrix_VStr|	replace:: |rpi_waveshare_VStr|
+
+.. |waveshare_rp2350_matrix_URB_PID_CON| replace:: |rpi_pico_sdk_uart_rp2040_URB_PID|
+.. |waveshare_rp2350_matrix_PID_CON|	replace:: |rpi_pico_sdk_uart_rp2040_PID|
+.. |waveshare_rp2350_matrix_PStr_CON|	replace:: :ign:`RP2350-Matrix (CDC ACM)`
+.. |waveshare_rp2350_matrix_BCD_CON|	replace:: |zephyr_version_BCD|
+
 .. |bridle:board:seeeduino_cm0| replace:: :ref:`seeeduino_cm0`
 .. :bridle:board:`seeeduino_cm0`
 
@@ -1490,6 +1510,12 @@
 
 .. |Waveshare RP2040 Mini PCB Pads| replace::
    :external+devicetree:dtcompatible:`Waveshare RP2040 Mini PCB Pads <waveshare,rp2040mini-pcbpads>`
+
+.. |Waveshare RP2350 Matrix| replace::
+   :external+devicetree:dtcompatible:`Waveshare RP2350 Matrix <waveshare,rp2350matrix-header>`
+
+.. |Waveshare RP2350 Matrix PCB Pads| replace::
+   :external+devicetree:dtcompatible:`Waveshare RP2350 Matrix PCB Pads <waveshare,rp2350matrix-pcbpads>`
 
 .. Kconfig References
 

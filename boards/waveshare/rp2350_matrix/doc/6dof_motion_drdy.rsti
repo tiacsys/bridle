@@ -1,0 +1,39 @@
+Invoke :program:`west build` and :program:`west flash`:
+
+   .. rubric:: On ARM Cortex-M33
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/sensor/6dof_motion_drdy
+      :build-dir: waveshare_rp2350_matrix
+      :board: waveshare_rp2350_matrix/rp2350a/m33
+      :snippets: "usb-console"
+      :gen-args: -DCONFIG_QMI8658A_TRIGGER_OWN_THREAD=y
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+   .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/sensor/6dof_motion_drdy
+      :build-dir: waveshare_rp2350_matrix
+      :board: waveshare_rp2350_matrix/rp2350a/hazard3
+      :snippets: "usb-console"
+      :gen-args: -DCONFIG_QMI8658A_TRIGGER_OWN_THREAD=y
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+.. rubric:: Simple test execution on target
+
+.. container:: highlight highlight-console notranslate
+
+   .. parsed-literal::
+
+      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…* \*\*\*
+      Found device "qmi8658a\ @\ 6b", getting sensor data
+      [0:00:01.019]: temp 34.60 Cel   accel -0.569819 -1.183334 -9.630077 m/s/s   gyro  -0.065995 0.080994 -0.055086 rad/s
+      [0:00:01.024]: temp 34.60 Cel   accel -0.593163 -1.254561 -9.466074 m/s/s   gyro  -0.006272 0.075812 -0.065177 rad/s
+      [0:00:01.028]: temp 34.60 Cel   accel -0.627280 -1.226429 -9.332598 m/s/s   gyro  0.019634 0.069540 -0.066540 rad/s
+      [0:00:01.033]: temp 34.60 Cel   accel -0.647032 -1.227626 -9.348758 m/s/s   gyro  0.025634 0.068995 -0.061631 rad/s
+      [0:00:01.037]: temp 34.60 Cel   accel -0.653617 -1.224035 -9.424774 m/s/s   gyro  0.009272 0.070631 -0.056723 rad/s

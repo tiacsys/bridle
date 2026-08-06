@@ -1,0 +1,92 @@
+External pin mapping on the |RP2350-Matrix| is :strong:`not identical` to the
+original |zephyr:board:rpi_pico| board. Almost all pins are rearranged in a
+more compact order. Likewise, the voltage sense and monitoring functions are
+not integrated. Thus all internal RP2350 GPIO lines are available for free use,
+insofar there is sufficient space for them on the outer edge of the board.
+
+Only GPIO line 25 is exclusively routed to the on-board user 8×8 RGB
+LED array. The analog voltage reference is internally hard-wired to the
+digital 3.3V power supply and only decoupled by a simple resistor. There
+is no option to change this from outside the board.
+
+.. list-table::
+   :align: center
+   :width: 100%
+   :widths: 66, 33
+
+   * - .. rubric:: Pin Mapping
+     - .. rubric:: Pinout
+
+   * - :on-edge(1-23):
+          :hwftlbl-pio:`5`
+          :hwftlbl-pwm:`3`
+          :hwftlbl-adc:`4`
+          :hwftlbl-i2c:`1`
+          :hwftlbl-spi:`1`
+          :hwftlbl-uart:`1`
+
+       :on-pads(A-H):
+          :hwftlbl-pio:`6`
+          :hwftlbl-pwm:`2`
+          :hwftlbl-uart:`1`
+
+       :on-board:
+          :hwftlbl-led:`8×8 RGB`
+          :hwftlbl-scr:`LED(8×8)`
+          :hwftlbl-cps:`6-DOF`
+
+       .. rubric:: Default Zephyr Peripheral Mapping
+
+       |nbsp|
+
+       .. rst-class:: rst-columns edge-pinout
+
+       - | :rpi-pico-pin:`A` :rpi-pico-uart:`UART0_TX` : GP0 (PWM0)
+       - | :rpi-pico-pin:`B` :rpi-pico-uart:`UART0_RX` : GP1 (PWM1)
+       - | :rpi-pico-pin:`C` :rpi-pico-uart:`(UART0_CTS)` : :rpi-pico-pio:`GP2` (PWM2)
+       - | :rpi-pico-pin:`D` :rpi-pico-uart:`(UART0_RTS)` : :rpi-pico-pio:`GP3` (PWM3)
+       - | :rpi-pico-pin:`E` :rpi-pico-uart:`(UART0_DSR)` : :rpi-pico-pio:`GP4` (PWM4)
+       - | :rpi-pico-pin:`F` :rpi-pico-uart:`(UART0_DTR)` : :rpi-pico-pio:`GP5` (PWM5)
+       - | :rpi-pico-pin-nc:`nc` :rpi-pico-i2c:`I2C1_SDA` : GP6 (PWM6)
+         | on-board IMU sensor i/f data :rpi-pico-sys:`IMU_SDA`
+       - | :rpi-pico-pin-nc:`nc` :rpi-pico-i2c:`I2C1_SCL` : GP7 (PWM7)
+         | on-board IMU sensor i/f clock :rpi-pico-sys:`IMU_SCL`
+       - | :rpi-pico-pin-nc:`nc` :hwftlbl-cps:`6-DOF` : :rpi-pico-pio:`GP8` (PWM8)
+         | on-board IMU sensor i/f interrupt :rpi-pico-sys:`IMU_INT1`
+       - | :rpi-pico-pin-nc:`nc` :hwftlbl-cps:`6-DOF` : :rpi-pico-pio:`GP9` (PWM9)
+         | on-board IMU sensor i/f interrupt :rpi-pico-sys:`IMU_INT2`
+       - | :rpi-pico-pin:`1` :rpi-pico-uart-dfl:`UART1_TX` : GP10 (PWM10)
+       - | :rpi-pico-pin:`2` :rpi-pico-uart-dfl:`UART1_RX` : GP11 (PWM11)
+       - | :rpi-pico-pin:`3` :rpi-pico-i2c-dfl:`I2C0_SDA` : GP12 (PWM12)
+       - | :rpi-pico-pin:`4` :rpi-pico-i2c-dfl:`I2C0_SCL` : GP13 (PWM13)
+       - | :rpi-pico-pin:`5` PIO/PWM : :rpi-pico-pio:`GP14` (PWM14)
+       - | :rpi-pico-pin:`6` PIO/PWM : :rpi-pico-pio:`GP15` (PWM15)
+       - | :rpi-pico-pin:`7` :rpi-pico-spi-dfl:`SPI0_RX` : GP16 (PWM0)
+       - | :rpi-pico-pin:`8` :rpi-pico-spi-dfl:`SPI0_CSN` : GP17 (PWM1)
+       - | :rpi-pico-pin:`9` :rpi-pico-spi-dfl:`SPI0_SCK` : GP18 (PWM2)
+       - | :rpi-pico-pin:`10` :rpi-pico-spi-dfl:`SPI0_TX` : GP19 (PWM3)
+       - | :rpi-pico-pin:`G` :rpi-pico-uart:`(UART0_DCD)` : :rpi-pico-pio:`GP20` :rpi-pico-pwm:`PWM4`
+       - | :rpi-pico-pin:`H` :rpi-pico-uart:`(UART0_RI)` : :rpi-pico-pio:`GP21` :rpi-pico-pwm:`PWM5`
+       - | :rpi-pico-pin:`11` PIO/PWM : :rpi-pico-pio:`GP22` :rpi-pico-pwm:`PWM6`
+       - | :rpi-pico-pin:`12` PIO/PWM : :rpi-pico-pio:`GP23` :rpi-pico-pwm:`PWM7`
+       - | :rpi-pico-pin:`13` PIO/PWM : :rpi-pico-pio:`GP24` :rpi-pico-pwm:`PWM8`
+       - | :rpi-pico-pin-nc:`nc` :hwftlbl-led:`RGB` : :rpi-pico-pio:`PIO0` : GP25 (PWM9)
+         | :rpi-pico-pin-nc:`nc` on-board user :rpi-pico-sys:`RGB_LED_DI`
+       - | :rpi-pico-pin:`14` :rpi-pico-adc:`ADC_CH0` : GP26 (PWM10)
+       - | :rpi-pico-pin:`15` :rpi-pico-adc:`ADC_CH1` : GP27 (PWM11)
+       - | :rpi-pico-pin:`16` :rpi-pico-adc:`ADC_CH2` : GP28 (PWM12)
+       - | :rpi-pico-pin:`17` :rpi-pico-adc:`ADC_CH3` : GP29 (PWM13)
+       - | :rpi-pico-pin:`18` :rpi-pico-vdd:`3V3(OUT)`
+       - | :rpi-pico-pin:`19` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`20` :rpi-pico-vdd:`VSYS`
+
+       .. rubric:: Devicetree compatible
+
+       - :dtcompatible:`waveshare,rp2350matrix-pcbpads`
+       - :dtcompatible:`waveshare,rp2350matrix-header`
+       - :dtcompatible:`worldsemi,ws2812-rpi_pico-pio`
+
+     - .. image:: img/pinouts.jpg
+          :align: center
+          :width: 100%
+          :alt: Waveshare RP2350-Matrix edge pinout

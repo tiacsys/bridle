@@ -1,0 +1,44 @@
+The following samples work with the chosen display. That is:
+
+| :hwftlbl-scr:`LED(8×8)` : :dts:`chosen { zephyr,display = &rgb_led_strip_matrix; };`
+| :hwftlbl-led:`8×8 RGB` : :dts:`&rgb_led_strip_matrix { led-strip = <&led_strip>; };`
+
+.. rubric:: LCD Orientation and Bit Order Test
+
+Draw some basic rectangles onto the display using the
+:external+zephyr:ref:`Display driver API <display_api>`.
+See also Zephyr sample: :external+zephyr:zephyr:code-sample:`display`.
+
+   .. rubric:: On ARM Cortex-M33
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/drivers/display
+      :build-dir: waveshare_rp2350_matrix
+      :board: waveshare_rp2350_matrix/rp2350a/m33
+      :snippets: "usb-console"
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+   .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/drivers/display
+      :build-dir: waveshare_rp2350_matrix
+      :board: waveshare_rp2350_matrix/rp2350a/hazard3
+      :snippets: "usb-console"
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+.. list-table::
+   :align: center
+   :width: 66%
+   :header-rows: 1
+
+   * - .. image:: img/ws2812b-8x8-display_test.gif
+          :align: center
+          :alt: Waveshare RP2350-Matrix Display Sample Animation
+   * - .. rst-class:: centered
+
+          :brd:`TOP LEFT`, :bgn:`TOP RIGHT`, :bbl:`BOTTOM RIGHT`
