@@ -1,12 +1,6 @@
 # SPDX-FileCopyrightText: Copyright (c) 2021-2026 TiaC Systems
-# Copyright (c) 2021 Li-Pro.Net
+# SPDX-FileCopyrightText: Copyright (c) 2021 Li-Pro.Net
 # SPDX-License-Identifier: Apache-2.0
-
-# Clock Configuration
-CONFIG_CLOCK_CONTROL=y
-
-# RTC Counter
-CONFIG_COUNTER=y
 
 # Enable MPU
 CONFIG_ARM_MPU=y
@@ -20,7 +14,3 @@ CONFIG_SERIAL=y
 # Console
 CONFIG_CONSOLE=y
 CONFIG_UART_CONSOLE=y
-
-# Enable I2C and SPI
-CONFIG_I2C=y
-CONFIG_SPI=y

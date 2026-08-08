@@ -717,17 +717,27 @@ specification.
           :start-at: rtc {
           :end-at: }; // rtc
 
-       :kconfig:option:`CONFIG_CLOCK_CONTROL` and
-       :kconfig:option:`CONFIG_COUNTER` configuration:
+       :kconfig:option:`CONFIG_CLOCK_CONTROL` configuration:
 
-       .. literalinclude:: ../magpie_f777ni_defconfig
-          :caption: magpie_f777ni_defconfig
+       .. literalinclude:: ../Kconfig.defconfig
+          :caption: Kconfig.defconfig
           :language: cfg
           :encoding: ISO-8859-1
-          :emphasize-lines: 2,5
+          :emphasize-lines: 1,2
           :linenos:
-          :start-at: Clock Configuration
-          :end-before: Enable MPU
+          :start-at: config CLOCK_CONTROL
+          :end-at: depends on DT_HAS_ST_STM32F4_RCC_ENABLED
+
+       :kconfig:option:`CONFIG_COUNTER` configuration:
+
+       .. literalinclude:: ../Kconfig.defconfig
+          :caption: Kconfig.defconfig
+          :language: cfg
+          :encoding: ISO-8859-1
+          :emphasize-lines: 1,2
+          :linenos:
+          :start-at: config COUNTER
+          :end-at: depends on DT_HAS_ST_STM32_RTC_ENABLED
 
 .. _magpie_f777ni_board_gpioleds_with_dts_bindings:
 
