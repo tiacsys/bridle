@@ -3,6 +3,7 @@
 
 identifier: waveshare_rp2350_can/rp2350a/hazard3
 name: Waveshare RP2350-CAN (Hazard3)
+vendor: waveshare
 type: mcu
 arch: riscv
 flash: 1024
