@@ -48,10 +48,10 @@
               DT node labels: reset
             - cdc_acm_console_uart (READY)
               DT node labels: cdc_acm_console_uart
-            - watchdog\ @\ 40058000 (READY)
-              DT node labels: wdt0
             - timer\ @\ 40054000 (READY)
               DT node labels: timer
+            - watchdog\ @\ 40058000 (READY)
+              DT node labels: wdt0
             - dma\ @\ 50000000 (READY)
               DT node labels: dma
             - gpio-port\ @\ 0 (READY)
@@ -101,17 +101,24 @@
          .. parsed-literal::
 
             :bgn:`uart:~$` **regulator vlist vreg**
-            0.800 V
-            0.850 V
-            0.900 V
-            0.950 V
-            1.000 V
-            1.050 V
-            1.100 V
-            1.150 V
-            1.200 V
-            1.250 V
-            1.300 V
+            0.800000 V
+            0.850000 V
+            0.900000 V
+            0.950000 V
+            1.000000 V
+            1.050000 V
+            1.100000 V
+            1.150000 V
+            1.200000 V
+            1.250000 V
+            1.300000 V
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **regulator vget vreg**
+            1.100000 V
 
       Trigger a power-of/on sequence:
 
@@ -348,11 +355,11 @@
 
       Operate with the channels:
 
-         - :rpi-pico-adc:`ADC0`, pulled to unknown voltage level
-         - :rpi-pico-adc:`ADC1`, pulled to unknown voltage level
-         - :rpi-pico-adc:`ADC2`, pulled to unknown voltage level
-         - :rpi-pico-adc:`ADC3`, pulled to unknown voltage level
-         - on-chip temperature sensor on channel :rpi-pico-adc:`ADC4`
+         - :rpi-pico-adc:`ADC_CH0`, pulled to unknown voltage level
+         - :rpi-pico-adc:`ADC_CH1`, pulled to unknown voltage level
+         - :rpi-pico-adc:`ADC_CH2`, pulled to unknown voltage level
+         - :rpi-pico-adc:`ADC_CH3`, pulled to unknown voltage level
+         - on-chip temperature sensor on channel :rpi-pico-adc:`ADC_CH4`
 
       .. container:: highlight highlight-console notranslate
 
@@ -488,7 +495,8 @@
 
    .. group-tab:: I2C
 
-      The |PicoBoy| has the on-board acceleration sensor connected on I2C0.
+      The |PicoBoy| has the on-board acceleration sensor
+      connected on :rpi-pico-i2c:`I2C0`.
 
       .. container:: highlight highlight-console notranslate
 
@@ -534,7 +542,7 @@
          .. parsed-literal::
 
             :bgn:`uart:~$` **sensor get dietemp**
-            channel type=12(die_temp) index=0 shift=5 num_samples=1 value=96691043776ns (29.905286)
+            channel type=12(die_temp) index=0 shift=6 num_samples=1 value=96691043776ns (29.905286)
 
       .. rubric:: on-board 3-axis accelerometer
 
