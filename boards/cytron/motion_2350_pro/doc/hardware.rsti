@@ -67,13 +67,14 @@ switch on-board (with MOSFET shock-proof circuit).
        - On-board :bbl:`BOOT` button
        - On-board :bbl:`2 USER` button
        - On-board :bbl:`1 Piezo` buzzer
+       - On-board :bbl:`2 RGB LED` (strip)
        - On-board :bbl:`24 LED`
        - :bbl:`8 GPIO` pins via :bbk:`3.3V generic pin header`
        - :bbl:`8 GPIO` pins via :bbk:`5.0V servo pin header`
        - :bbl:`6 GPIO` pins via :bbk:`3 Grove connectors`
-       - :bbk:`1 UART` peripherals
-       - :bbk:`2 I2C` controllers
-       - :bbk:`1 SPI` controllers
+       - :bbl:`1 UART` peripherals
+       - :bbl:`2 I2C` controllers
+       - :bbl:`1 SPI` controllers
        - :bbl:`8 PWM` channels
        - :bbl:`4 ADC` analog inputs
        - 12 Programmable I/O (PIO) state machines for custom peripherals

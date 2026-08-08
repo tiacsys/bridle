@@ -13,11 +13,11 @@ VIN/6.1 voltage monitoring.
      - .. rubric:: Pinout
 
    * - :on-edge(Qwiic):
-          :hwftlbl-pio:`2 (6)`
-          :hwftlbl-pwm:`2 (6)`
-          :hwftlbl-adc:`3`
-          :hwftlbl-i2c:`2`
-          :hwftlbl-spi:`1`
+          :hwftlbl-pio:`(6)`
+          :hwftlbl-pwm:`(6)`
+          :hwftlbl-adc:`2 (3)`
+          :hwftlbl-i2c:`1 (2)`
+          :hwftlbl-spi:`(1)`
           :hwftlbl-uart:`1`
 
        :on-board:
@@ -143,7 +143,7 @@ VIN/6.1 voltage monitoring.
        - | :rpi-pico-pin-nc:`nc` :hwftlbl-btn:`USER` : :rpi-pico-pio:`GP20` (PWM4)
        - | :rpi-pico-pin-nc:`nc` :hwftlbl-btn:`USER` : :rpi-pico-pio:`GP21` (PWM5)
        - | :rpi-pico-pin-nc:`nc` :hwftlbl-spk:`PIEZO` : :rpi-pico-pio:`GP22` :rpi-pico-pwm:`PWM6`
-       - | :rpi-pico-pin-nc:`nc` :hwftlbl-led:`RGB` :rpi-pico-spi:`SPI0_TX` : GP23
+       - | :rpi-pico-pin-nc:`nc` :hwftlbl-led:`RGB` : :rpi-pico-spi:`SPI0_TX` : GP23
        - | :rpi-pico-pin-nc:`nc` :rpi-pico-adc:`ADC_CH3` : GP29 (PWM13)
          | :rpi-pico-pin-nc:`nc` on-board :rpi-pico-vdd:`VIN/6.1` monitoring
        - | :rpi-pico-pin-nc:`nc` :rpi-pico-sys:`3V3` : :rpi-pico-adc:`ADC_VREF`
