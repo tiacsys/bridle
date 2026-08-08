@@ -309,6 +309,8 @@ lcd_panel: &st7789v_240x280 {};
 	clock-frequency = <I2C_BITRATE_STANDARD>;
 };
 
+zephyr_i2c: &i2c0 {};
+
 &pwm {
 	status = "okay";
 	pinctrl-0 = <&pwm_default>;
