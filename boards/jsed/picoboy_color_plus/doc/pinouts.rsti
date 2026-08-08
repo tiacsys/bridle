@@ -84,19 +84,19 @@
              .. rubric:: Sensor I/O and via Qwiic / STEMMA QT
              .. rst-class:: rst-columns edge-pinout
 
-             - | :rpi-pico-i2c-dfl:`I2C0_SDA` : :rpi-pico-uart:`UART1_TX` : GP20 (PWM4)
+             - | :rpi-pico-i2c-dfl:`I2C0_SDA` : :rpi-pico-uart:`(UART1_TX)` : GP20 (PWM4)
                | on-board maker port i/f data :rpi-pico-sys:`I2C_SDA`
                | on-board acc. sensor i/f data :rpi-pico-sys:`ACCS_SDA`
-             - | :rpi-pico-i2c-dfl:`I2C0_SCL` : :rpi-pico-uart:`UART1_RX` : GP21 (PWM5)
+             - | :rpi-pico-i2c-dfl:`I2C0_SCL` : :rpi-pico-uart:`(UART1_RX)` : GP21 (PWM5)
                | on-board maker port i/f clock :rpi-pico-sys:`I2C_SCL`
                | on-board acc. sensor i/f clock :rpi-pico-sys:`ACCS_SCL`
 
              .. rubric:: Serial I/O via solder pads
              .. rst-class:: rst-columns edge-pinout
 
-             - | :rpi-pico-uart-dfl:`UART0_TX` : :rpi-pico-i2c:`I2C1_SDA` : GP16 (PWM0)
+             - | :rpi-pico-uart-dfl:`UART0_TX` : :rpi-pico-i2c:`(I2C0_SDA)` : GP16 (PWM0)
                | on-board solder pads i/f data :rpi-pico-sys:`UART_TX`
-             - | :rpi-pico-uart-dfl:`UART0_RX` : :rpi-pico-i2c:`I2C1_SCL` : GP17 (PWM1)
+             - | :rpi-pico-uart-dfl:`UART0_RX` : :rpi-pico-i2c:`(I2C0_SCL)` : GP17 (PWM1)
                | on-board solder pads i/f data :rpi-pico-sys:`UART_RX`
 
              .. rubric:: GPIO and ADC
