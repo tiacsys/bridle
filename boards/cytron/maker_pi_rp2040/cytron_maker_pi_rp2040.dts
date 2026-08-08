@@ -238,8 +238,8 @@ zephyr_udc0: &usbd {
 			status = "okay";
 
 			chain-length = <2>;
-			color-mapping = <LED_COLOR_ID_RED
-					 LED_COLOR_ID_GREEN
+			color-mapping = <LED_COLOR_ID_GREEN
+					 LED_COLOR_ID_RED
 					 LED_COLOR_ID_BLUE>;
 
 			/* PIO0:OUT @ GP18 and Tbit = 1.25 us / 10 */
