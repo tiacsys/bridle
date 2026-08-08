@@ -51,13 +51,13 @@ RP2040 development board.
        - On-board :bbl:`3 User LEDs`
        - On-board :bbl:`1.3-inch 128×64 pixels OLED`, monochrome white (serial)
        - On-board :bbl:`1 passive magnetic speaker`
-       - On-board :bbl:`1 acceleration sensor`, 3-axis MEMS (digital)
+       - On-board :bbl:`3-DOF IMU sensor`
        - :bbk:`1 RST signal to OLED controller`
        - :bbk:`1 C/D signal to OLED controller`
        - :bbk:`1 I2C` controller for acceleration sensor
        - :bbk:`1 SPI` controller for OLED
-       - :bbl:`4 PWM` channels for LEDs and speaker
-       - :bbl:`4 ADC` analog inputs
+       - :bbk:`4 PWM` channels for LEDs and speaker
+       - :bbk:`4 ADC` analog inputs
        - 8 Programmable I/O (PIO) state machines for custom peripherals
        - 1 Watchdog timer peripheral
        - 1 Temperature sensor on-chip

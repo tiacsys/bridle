@@ -1,24 +1,24 @@
-# Copyright (c) 2021-2025 TiaC Systems
-# Copyright (c) 2021 Li-Pro.Net
+# SPDX-FileCopyrightText: Copyright (c) 2021-2026 TiaC Systems
+# SPDX-FileCopyrightText: Copyright (c) 2021 Li-Pro.Net
 # SPDX-License-Identifier: Apache-2.0
 
 # TiaC Magpie F777NI board configuration
 
-if BOARD_MAGPIE_F777NI
+config CLOCK_CONTROL
+	default y
+	depends on DT_HAS_ST_STM32F4_RCC_ENABLED
 
-choice RNG_GENERATOR_CHOICE
-	default ENTROPY_DEVICE_RANDOM_GENERATOR
-	depends on ENTROPY_GENERATOR
-endchoice
+config RESET
+	default y
+	depends on DT_HAS_ST_STM32_RCC_RCTL_ENABLED
 
-if NETWORKING
+config COUNTER
+	default y
+	depends on DT_HAS_ST_STM32_RTC_ENABLED
 
 config NET_L2_ETHERNET
-	default y
-
-endif # NETWORKING
-
-endif # BOARD_MAGPIE_F777NI
+	default y if BOARD_MAGPIE_F777NI
+	depends on NETWORKING && DT_HAS_ST_STM32_ETHERNET_ENABLED
 
 # Workaround for not being able to have commas in macro arguments
 DT_CHOSEN_Z_CONSOLE := zephyr,console

@@ -76,14 +76,14 @@ See also Bridle sample: :ref:`helloshell-sample`.
               DT node labels: reset
             - snippet_cdc_acm_console_uart (READY)
               DT node labels: snippet_cdc_acm_console_uart
-            - uart\ @\ 40070000 (READY)
-              DT node labels: uart0 grove_serial
-            - watchdog\ @\ 400d8000 (READY)
-              DT node labels: wdt0
             - timer\ @\ 400b8000 (READY)
               DT node labels: timer1
             - timer\ @\ 400b0000 (READY)
               DT node labels: timer0
+            - uart\ @\ 40070000 (READY)
+              DT node labels: uart0 grove_serial
+            - watchdog\ @\ 400d8000 (READY)
+              DT node labels: wdt0
             - dma\ @\ 50000000 (READY)
               DT node labels: dma
             - gpio-port\ @\ 0 (READY)
@@ -95,13 +95,17 @@ See also Bridle sample: :ref:`helloshell-sample`.
             - flash-controller\ @\ 400d0000 (READY)
               DT node labels: qmi
             - i2c\ @\ 40090000 (READY)
-              DT node labels: i2c0 zephyr_i2c grove_i2c
+              DT node labels: i2c0 zephyr_i2c stemma_i2c qwiic_i2c grove_i2c
             - pwm\ @\ 400a8000 (READY)
               DT node labels: pwm grove_pwm_d16 grove_pwm_d17 grove_pwm_d26 grove_pwm_d27 grove_pwm_d28 grove_pwm_d29
             - vreg\ @\ 40100000 (READY)
               DT node labels: vreg
+            - spi\ @\ 40080000 (READY)
+              DT node labels: spi0
             - pwm_leds (READY)
               DT node labels: pwm_leds
+            - ws2812\ @\ 0 (READY)
+              DT node labels: led_strip
             - dietemp (READY)
               DT node labels: die_temp
 
@@ -121,14 +125,14 @@ See also Bridle sample: :ref:`helloshell-sample`.
               DT node labels: intc
             - snippet_cdc_acm_console_uart (READY)
               DT node labels: snippet_cdc_acm_console_uart
-            - uart\ @\ 40070000 (READY)
-              DT node labels: uart0 grove_serial
-            - watchdog\ @\ 400d8000 (READY)
-              DT node labels: wdt0
             - timer\ @\ 400b8000 (READY)
               DT node labels: timer1
             - timer\ @\ 400b0000 (READY)
               DT node labels: timer0
+            - uart\ @\ 40070000 (READY)
+              DT node labels: uart0 grove_serial
+            - watchdog\ @\ 400d8000 (READY)
+              DT node labels: wdt0
             - dma\ @\ 50000000 (READY)
               DT node labels: dma
             - gpio-port\ @\ 0 (READY)
@@ -140,13 +144,17 @@ See also Bridle sample: :ref:`helloshell-sample`.
             - flash-controller\ @\ 400d0000 (READY)
               DT node labels: qmi
             - i2c\ @\ 40090000 (READY)
-              DT node labels: i2c0 zephyr_i2c grove_i2c
+              DT node labels: i2c0 zephyr_i2c stemma_i2c qwiic_i2c grove_i2c
             - pwm\ @\ 400a8000 (READY)
               DT node labels: pwm grove_pwm_d16 grove_pwm_d17 grove_pwm_d26 grove_pwm_d27 grove_pwm_d28 grove_pwm_d29
             - vreg\ @\ 40100000 (READY)
               DT node labels: vreg
+            - spi\ @\ 40080000 (READY)
+              DT node labels: spi0
             - pwm_leds (READY)
               DT node labels: pwm_leds
+            - ws2812\ @\ 0 (READY)
+              DT node labels: led_strip
             - dietemp (READY)
               DT node labels: die_temp
 
@@ -235,6 +243,82 @@ See also Bridle sample: :ref:`helloshell-sample`.
                :bgn:`uart:~$` **hwinfo reset_cause**
                reset caused by:
                - power-on reset
+
+   .. group-tab:: LED Strip
+
+      Operate with the RGB digital LED strip :hwftlbl-led:`2 RGB`
+      at :rpi-pico-spi:`SPI0_TX`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip get_length led_strip**
+            ws2812@0 has 2 pixel(s)
+
+      Sett all LEDs to :brd:`RED`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 070000 2**
+
+      Sett all LEDs to :byl:`YELLOW`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 070700 2**
+
+      Sett all LEDs to :bgn:`GREEN`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 000700 2**
+
+      Sett all LEDs to :bcy:`CYAN`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 000707 2**
+
+      Sett all LEDs to :bbl:`BLUE`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 000007 2**
+
+      Sett all LEDs to :bma:`MAGENTA`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 070007 2**
+
+      Sett all LEDs to :bwt:`WHITE` (all on):
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 070707 2**
+
+      Sett all LEDs to :bbk:`BLACK` (all off):
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 000000 2**
 
    .. group-tab:: LED
 
@@ -495,17 +579,25 @@ See also Bridle sample: :ref:`helloshell-sample`.
 
       Operate with the channels:
 
-      - :rpi-pico-adc:`ADC0`, pulled up to :rpi-pico-vdd:`3V3`
-      - :rpi-pico-adc:`ADC1`, pulled down to :rpi-pico-gnd:`GND`
-      - :rpi-pico-adc:`ADC3`, on-board :rpi-pico-vdd:`VIN/6.1`
+      - :rpi-pico-adc:`ADC_CH0`, pulled up to :rpi-pico-vdd:`3V3`
+      - :rpi-pico-adc:`ADC_CH1`, pulled down to :rpi-pico-gnd:`GND`
+      - :rpi-pico-adc:`ADC_CH3`, on-board :rpi-pico-vdd:`VIN/6.1`
         voltage monitoring (optional, when solder bridge was closed)
-      - on-chip temperature sensor on channel :rpi-pico-adc:`ADC4`
+      - on-chip temperature sensor on channel :rpi-pico-adc:`ADC_CH4`
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
             :bgn:`uart:~$` **adc adc@400a0000 resolution 12**
+            :bgn:`uart:~$` **adc adc@400a0000 print**
+            adc\ @\ 400a0000:
+            Gain: 1
+            Reference: INTERNAL
+            Acquisition Time: 0
+            Channel ID: 0
+            Differential: 0
+            Resolution: 12
 
       .. container:: highlight highlight-console notranslate
 
@@ -608,13 +700,13 @@ See also Bridle sample: :ref:`helloshell-sample`.
    .. group-tab:: I2C
 
       The |MOTION 2350 Pro| has no on-board I2C devices. For this example the
-      |Grove BMP280 Sensor|_ was connected.
+      |Grove BMP280 Sensor|_ was connected to :rpi-pico-i2c-dfl:`I2C0`.
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **i2c scan grove_i2c**
+            :bgn:`uart:~$` **i2c scan zephyr_i2c**
                  0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
             00:             -- -- -- -- -- -- -- -- -- -- -- --
             10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
@@ -624,7 +716,7 @@ See also Bridle sample: :ref:`helloshell-sample`.
             50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
             60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
             70: -- -- -- -- -- -- -- 77
-            1 devices found on grove_i2c
+            1 devices found on zephyr_i2c
 
       The I2C address ``0x77`` is a Bosch BMP280 Air Pressure Sensor and their
       Chip-ID can read from register ``0xd0``. The Chip-ID must be ``0x58``:
@@ -633,7 +725,7 @@ See also Bridle sample: :ref:`helloshell-sample`.
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **i2c read_byte grove_i2c 77 d0**
+            :bgn:`uart:~$` **i2c read_byte zephyr_i2c 77 d0**
             Output: 0x58
 
    .. group-tab:: Sensors
@@ -652,4 +744,4 @@ See also Bridle sample: :ref:`helloshell-sample`.
          .. parsed-literal::
 
             :bgn:`uart:~$` **sensor get dietemp**
-            channel type=12(die_temp) index=0 shift=5 num_samples=1 value=14655375226ns (29.324229)
+            channel type=12(die_temp) index=0 shift=6 num_samples=1 value=14655375226ns (29.324229)

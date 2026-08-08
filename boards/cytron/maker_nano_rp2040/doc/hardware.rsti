@@ -56,12 +56,13 @@ Main differences compared to the original Arduino Nano:
        - On-board :bbl:`BOOT` button
        - On-board :bbl:`USER` button
        - On-board :bbl:`1 Piezo` buzzer
+       - On-board :bbl:`2 RGB LED` (strip)
        - On-board :bbl:`13 LED`
        - :bbl:`22 GPIO` pins via :bbk:`edge pinout`
        - :bbl:`4 GPIO` pins via :bbk:`2 Qwiic/Grove connectors`
-       - :bbk:`1 UART` peripherals
-       - :bbk:`2 I2C` controllers
-       - :bbk:`1 SPI` controllers
+       - :bbl:`1 UART` peripherals
+       - :bbl:`2 I2C` controllers
+       - :bbl:`1 SPI` controllers
        - :bbl:`16 PWM` channels
        - :bbl:`4 ADC` analog inputs
        - 8 Programmable I/O (PIO) state machines for custom peripherals

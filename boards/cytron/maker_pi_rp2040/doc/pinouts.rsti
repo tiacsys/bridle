@@ -15,7 +15,7 @@ be used on-board as analog channel A3 for VM/2 voltage monitoring per default.
           :hwftlbl-pio:`2 (13)`
           :hwftlbl-pwm:`2 (8)`
           :hwftlbl-adc:`3`
-          :hwftlbl-i2c:`2`
+          :hwftlbl-i2c:`1`
           :hwftlbl-spi:`1`
           :hwftlbl-uart:`1`
 
@@ -108,7 +108,7 @@ be used on-board as analog channel A3 for VM/2 voltage monitoring per default.
        - | :rpi-pico-pin-nc:`nc` :hwftlbl-act:`SRVM2` : :rpi-pico-pio:`GP13` :rpi-pico-pwm:`PWM13`
        - | :rpi-pico-pin-nc:`nc` :hwftlbl-act:`SRVM3` : :rpi-pico-pio:`GP14` :rpi-pico-pwm:`PWM14`
        - | :rpi-pico-pin-nc:`nc` :hwftlbl-act:`SRVM4` : :rpi-pico-pio:`GP15` :rpi-pico-pwm:`PWM15`
-       - | :rpi-pico-pin-nc:`nc` :hwftlbl-led:`RGB` :rpi-pico-pio:`PIO0` : GP18
+       - | :rpi-pico-pin-nc:`nc` :hwftlbl-led:`RGB` : :rpi-pico-pio:`PIO0` : GP18
        - | :rpi-pico-pin-nc:`nc` :rpi-pico-sys:`n.c.` : GP19 (PWM3)
        - | :rpi-pico-pin-nc:`nc` :hwftlbl-btn:`USER` : :rpi-pico-pio:`GP20` (PWM4)
        - | :rpi-pico-pin-nc:`nc` :hwftlbl-btn:`USER` : :rpi-pico-pio:`GP21` (PWM5)

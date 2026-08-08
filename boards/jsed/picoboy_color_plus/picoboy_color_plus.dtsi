@@ -345,8 +345,8 @@ lcd_panel: &st7789v_240x280 {};
 		spi-zero-frame = <0xc0>;
 
 		chain-length = <1>;
-		color-mapping = <LED_COLOR_ID_RED
-				 LED_COLOR_ID_GREEN
+		color-mapping = <LED_COLOR_ID_GREEN
+				 LED_COLOR_ID_RED
 				 LED_COLOR_ID_BLUE>;
 	};
 };

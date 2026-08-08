@@ -1,9 +1,5 @@
-# Copyright (c) 2025 TiaC Systems
+# SPDX-FileCopyrightText: Copyright (c) 2025-2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
-
-config GPIO
-	default y
-	depends on DT_HAS_NORDIC_NRF_GPIO_ENABLED
 
 # TODO: move all DELAY_* objects to Devicetree node
 config DELAY_T1H

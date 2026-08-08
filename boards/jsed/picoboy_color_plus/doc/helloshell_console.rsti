@@ -50,14 +50,14 @@
               DT node labels: reset
             - cdc_acm_console_uart (READY)
               DT node labels: cdc_acm_console_uart
-            - uart\ @\ 40070000 (READY)
-              DT node labels: uart0
-            - watchdog\ @\ 400d8000 (READY)
-              DT node labels: wdt0
             - timer\ @\ 400b8000 (READY)
               DT node labels: timer1
             - timer\ @\ 400b0000 (READY)
               DT node labels: timer0
+            - uart\ @\ 40070000 (READY)
+              DT node labels: uart0
+            - watchdog\ @\ 400d8000 (READY)
+              DT node labels: wdt0
             - dma\ @\ 50000000 (READY)
               DT node labels: dma
             - gpio-port\ @\ 0 (READY)
@@ -74,10 +74,16 @@
               DT node labels: pwm grove_pwm_d20 grove_pwm_d21
             - vreg\ @\ 40100000 (READY)
               DT node labels: vreg
+            - spi\ @\ 40088000 (READY)
+              DT node labels: spi1
+            - spi\ @\ 40080000 (READY)
+              DT node labels: spi0
             - lcd_backlight_en (READY)
               DT node labels: lcd_backlight_en
             - pwm_leds (READY)
               DT node labels: pwm_leds
+            - sk6805\ @\ 0 (READY)
+              DT node labels: led_strip
             - dietemp (READY)
               DT node labels: die_temp
             - stk8ba58\ @\ 18 (READY)
@@ -99,14 +105,14 @@
               DT node labels: intc
             - cdc_acm_console_uart (READY)
               DT node labels: cdc_acm_console_uart
-            - uart\ @\ 40070000 (READY)
-              DT node labels: uart0
-            - watchdog\ @\ 400d8000 (READY)
-              DT node labels: wdt0
             - timer\ @\ 400b8000 (READY)
               DT node labels: timer1
             - timer\ @\ 400b0000 (READY)
               DT node labels: timer0
+            - uart\ @\ 40070000 (READY)
+              DT node labels: uart0
+            - watchdog\ @\ 400d8000 (READY)
+              DT node labels: wdt0
             - dma\ @\ 50000000 (READY)
               DT node labels: dma
             - gpio-port\ @\ 0 (READY)
@@ -123,10 +129,16 @@
               DT node labels: pwm grove_pwm_d20 grove_pwm_d21
             - vreg\ @\ 40100000 (READY)
               DT node labels: vreg
+            - spi\ @\ 40088000 (READY)
+              DT node labels: spi1
+            - spi\ @\ 40080000 (READY)
+              DT node labels: spi0
             - lcd_backlight_en (READY)
               DT node labels: lcd_backlight_en
             - pwm_leds (READY)
               DT node labels: pwm_leds
+            - sk6805\ @\ 0 (READY)
+              DT node labels: led_strip
             - dietemp (READY)
               DT node labels: die_temp
             - stk8ba58\ @\ 18 (READY)
@@ -231,6 +243,82 @@
 
             :bgn:`uart:~$` **regulator is_enabled lcd_backlight_en**
             Regulator is disabled
+
+   .. group-tab:: LED Strip
+
+      Operate with the RGB digital LED strip :hwftlbl-led:`1 RGB`
+      at :rpi-pico-spi:`SPI1_TX`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip get_length led_strip**
+            sk6805@0 has 1 pixel(s)
+
+      Sett all LEDs to :brd:`RED`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 070000 1**
+
+      Sett all LEDs to :byl:`YELLOW`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 070700 1**
+
+      Sett all LEDs to :bgn:`GREEN`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 000700 1**
+
+      Sett all LEDs to :bcy:`CYAN`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 000707 1**
+
+      Sett all LEDs to :bbl:`BLUE`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 000007 1**
+
+      Sett all LEDs to :bma:`MAGENTA`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 070007 1**
+
+      Sett all LEDs to :bwt:`WHITE` (all on):
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 070707 1**
+
+      Sett all LEDs to :bbk:`BLACK` (all off):
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 000000 1**
 
    .. group-tab:: LED
 
@@ -445,8 +533,8 @@
 
       Operate with the channels:
 
-         - on-board voltage monitor on channel :rpi-pico-adc:`ADC3`
-         - on-chip temperature sensor on channel :rpi-pico-adc:`ADC4`
+         - on-board voltage monitor on channel :rpi-pico-adc:`ADC_CH3`
+         - on-chip temperature sensor on channel :rpi-pico-adc:`ADC_CH4`
 
       .. container:: highlight highlight-console notranslate
 
@@ -549,15 +637,15 @@
    .. group-tab:: I2C
 
       The |PicoBoy Color Plus| has the on-board acceleration sensor
-      connected on I2C0. For this example the |Grove BMP280 Sensor|_
-      was also connected to I2C0 via the Qwiic / STEMMA QT connector
-      (Maker Port).
+      connected on :rpi-pico-i2c-dfl:`I2C0`. For this example the
+      |Grove BMP280 Sensor|_ was also connected to :rpi-pico-i2c-dfl:`I2C0`
+      via the Qwiic / STEMMA QT connector (Maker Port).
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **i2c scan i2c0**
+            :bgn:`uart:~$` **i2c scan zephyr_i2c**
                  0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
             00:             -- -- -- -- -- -- -- -- -- -- -- --
             10: -- -- -- -- -- -- -- -- 18 -- -- -- -- -- -- --
@@ -567,7 +655,7 @@
             50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
             60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
             70: -- -- -- -- -- -- -- 77
-            2 devices found on i2c0
+            2 devices found on zephyr_i2c
 
       The I2C address ``0x18`` is a Sensortek STK8BA58_ 3D Acceleration Sensor
       and their Chip-ID can read from register ``0x0``. The Chip-ID must be
@@ -577,7 +665,7 @@
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **i2c read_byte i2c0 18 0**
+            :bgn:`uart:~$` **i2c read_byte zephyr_i2c 18 0**
             Output: 0x87
 
       The I2C address ``0x77`` is a Bosch BMP280_ Air Pressure Sensor and their
@@ -587,7 +675,7 @@
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **i2c read_byte i2c0 77 d0**
+            :bgn:`uart:~$` **i2c read_byte zephyr_i2c 77 d0**
             Output: 0x58
 
    .. group-tab:: Sensors
@@ -607,7 +695,7 @@
          .. parsed-literal::
 
             :bgn:`uart:~$` **sensor get dietemp**
-            channel type=12(die_temp) index=0 shift=5 num_samples=1 value=14554473307ns (31.067401)
+            channel type=12(die_temp) index=0 shift=6 num_samples=1 value=14554473307ns (31.067401)
 
       .. rubric:: on-board 3-axis accelerometer
 

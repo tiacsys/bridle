@@ -3,6 +3,7 @@
 
 identifier: waveshare_rp2350_can/rp2350a/m33
 name: Waveshare RP2350-CAN (Cortex-M33)
+vendor: waveshare
 type: mcu
 arch: arm
 flash: 1024

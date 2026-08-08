@@ -57,7 +57,7 @@
 		};
 	};
 
-	i2c0_alternative: i2c0_alternative {		/* solder pads */
+	i2c0_pcbpads: i2c0_pcbpads {			/* solder pads */
 		group1617 {				/* as I2C bus */
 			pinmux = <I2C0_SDA_P16>,
 				 <I2C0_SCL_P17>;

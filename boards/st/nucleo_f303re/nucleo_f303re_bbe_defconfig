@@ -1,4 +1,4 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 #
 # NOTE: copy and own from original default configuration in
@@ -15,6 +15,3 @@ CONFIG_HW_STACK_PROTECTION=y
 # console
 CONFIG_CONSOLE=y
 CONFIG_UART_CONSOLE=y
-
-# enable GPIO
-CONFIG_GPIO=y

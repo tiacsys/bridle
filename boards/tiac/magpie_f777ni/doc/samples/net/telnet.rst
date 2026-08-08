@@ -28,7 +28,9 @@ Build and flash TELNET Console as follows:
       :app: zephyr/samples/net/telnet
       :build-dir: telnet-magpie_f777ni
       :board: magpie_f777ni
-      :gen-args: -DCONFIG_NET_DHCPV4=y -DCONFIG_NET_LOG=y -DCONFIG_LOG=y -DCONFIG_GPIO_SHELL=y -DCONFIG_I2C_SHELL=y
+      :gen-args: \
+          -DCONFIG_NET_DHCPV4=y -DCONFIG_LOG=y -DCONFIG_NET_LOG=y \
+          -DCONFIG_GPIO=y -DCONFIG_GPIO_SHELL=y -DCONFIG_I2C=y -DCONFIG_I2C_SHELL=y
       :west-args: -p
       :goals: flash
       :host-os: unix

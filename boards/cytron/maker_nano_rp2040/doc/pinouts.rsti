@@ -55,8 +55,8 @@ digital signal lines. Also all IO voltage levels are limited to 3.3V only.
        - | :rpi-pico-pin:`20` :rpi-pico-i2c-dfl:`I2C1_SCL` : GP27 (PWM11)
        - | :rpi-pico-pin:`21` :rpi-pico-adc:`ADC_CH2` : GP28 (PWM12)
        - | :rpi-pico-pin:`22` :rpi-pico-adc:`ADC_CH3` : GP29 (PWM13)
-       - | :rpi-pico-pin:`23` :rpi-pico-i2c-dfl:`I2C0_SDA` : GP12 (PWM12)
-       - | :rpi-pico-pin:`24` :rpi-pico-i2c-dfl:`I2C0_SCL` : GP13 (PWM13)
+       - | :rpi-pico-pin:`23` :rpi-pico-i2c:`I2C0_SDA` : GP12 (PWM12)
+       - | :rpi-pico-pin:`24` :rpi-pico-i2c:`I2C0_SCL` : GP13 (PWM13)
        - | :rpi-pico-pin:`25` PIO/PWM : :rpi-pico-pio:`GP14` :rpi-pico-pwm:`PWM14`
        - | :rpi-pico-pin:`26` PIO/PWM : :rpi-pico-pio:`GP15` :rpi-pico-pwm:`PWM15`
        - | :rpi-pico-pin:`27` :rpi-pico-vdd:`5V(OUT)`
@@ -96,7 +96,7 @@ digital signal lines. Also all IO voltage levels are limited to 3.3V only.
 
        - | :rpi-pico-pin-nc:`nc` :hwftlbl-led:`BLUE` : :rpi-pico-pio:`GP9` :rpi-pico-pwm:`PWM9`
        - | :rpi-pico-pin-nc:`nc` :rpi-pico-sys:`n.c.` : GP10 (PWM10)
-       - | :rpi-pico-pin-nc:`nc` :hwftlbl-led:`RGB` :rpi-pico-spi:`SPI1_TX` : GP11
+       - | :rpi-pico-pin-nc:`nc` :hwftlbl-led:`RGB` : :rpi-pico-spi:`SPI1_TX` : GP11
        - | :rpi-pico-pin-nc:`nc` :hwftlbl-btn:`USER` : :rpi-pico-pio:`GP20` (PWM4)
        - | :rpi-pico-pin-nc:`nc` :rpi-pico-sys:`n.c.` : GP21 (PWM5)
        - | :rpi-pico-pin-nc:`nc` :hwftlbl-spk:`PIEZO` : :rpi-pico-pio:`GP22` :rpi-pico-pwm:`PWM6`
