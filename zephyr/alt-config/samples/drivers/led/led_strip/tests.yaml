@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2024-2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 sample:
   description: Demonstration of the LED strip driver.
   name: LED strip sample

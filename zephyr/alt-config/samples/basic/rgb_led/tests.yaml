@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2024-2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 sample:
   description: Drive an RGB LED using the PWM API.
   name: RGB LED
