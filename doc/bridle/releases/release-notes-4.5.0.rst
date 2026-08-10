@@ -13,6 +13,8 @@ Highlights
 
 * :brd:`NOT YET, tbd.`
 
+* Add the Waveshare RP2350-Matrix board and use Zephyr upstream samples on it.
+
 .. note:: See the changelog and readme files in the component repositories
    for a detailed description of changes.
 
@@ -180,7 +182,8 @@ Supported boards
 * TiaC Magpie F777NI (former TiaC Magpie STM32F777NIHx)
 * VccGND Studio BluePill boards and derivates
 * Waveshare RP2040 (series of mini and pico sized boards)
-* Waveshare RP2350 (currently only the pico sized CAN version)
+* Waveshare RP2350-CAN
+* Waveshare RP2350-Matrix
 * WeAct Studio BluePill+ boards and derivates
 * XIAO RP2040 (Seeed Studio XIAO RP2040)
 * XIAO RP2350 (Seeed Studio XIAO RP2350)
@@ -300,6 +303,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`495` - [HW] Waveshare RP2350-Matrix
 * :github:`475` - [BUG] Move swap or invert x/y properties to the underlying input touchscreen device
 * :github:`471` - [FCR] Support Zephyr SDK LLVM/Clang toolchain with CI container 0.29.2
 * :github:`469` - [BUG] Declaring device driver API instances have to use the ``DEVICE_API`` macro
