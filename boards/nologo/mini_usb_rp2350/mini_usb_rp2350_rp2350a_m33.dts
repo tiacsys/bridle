@@ -132,8 +132,8 @@ zephyr_udc0: &usbd {
 
 		ws2812_single: ws2812-single {
 			chain-length = <1>;
-			color-mapping = <LED_COLOR_ID_RED
-					 LED_COLOR_ID_GREEN
+			color-mapping = <LED_COLOR_ID_GREEN
+					 LED_COLOR_ID_RED
 					 LED_COLOR_ID_BLUE>;
 
 			/* PIO0:OUT @ GP22 and Tbit = 1.25 us / 10 */
