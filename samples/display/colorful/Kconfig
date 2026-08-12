@@ -1,0 +1,57 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+#
+# Based on Zephyr upstream display driver sample:
+# Copyright (c) 2019 Jan Van Winkel <jan.van_winkel@dxplore.eu>
+# Copyright (c) 2025 NXP
+#
+# Private config options for colorful sample
+
+mainmenu "Colorful sample application"
+
+source "Kconfig.zephyr"
+
+# Workaround for not being able to have commas in macro arguments
+UINT8_RANGE := 0, $(UINT8_MAX)
+UINT8_MIN_HEX := $(min_hex, $(UINT8_RANGE))
+UINT8_MAX_HEX := $(max_hex, $(UINT8_RANGE))
+UINT8_6PP_HEX := $(div_hex, $(UINT8_MAX), 16)
+
+config SAMPLE_MAX_INTENSITY
+	hex "Maximum intensity in all color channels"
+	default $(UINT8_6PP_HEX) if LED_STRIP_MATRIX
+	default $(UINT8_MAX_HEX)
+	range $(UINT8_MIN_HEX) $(UINT8_MAX_HEX)
+	help
+	  Some displays, particularly those based on LED technology,
+	  require a reduced brightness range per color channel for
+	  safety reasons. This ensures that LED matrix displays do
+	  not draw excessive electrical current and that the luminous
+	  flux they generate does not pose a risk of physical injury
+	  (e.g., glared by direct eye exposure to LEDs).
+
+config SAMPLE_INIT_INTENSITY
+	hex "Initial intensity in all color channels"
+	default $(UINT8_MIN_HEX) if LED_STRIP_MATRIX
+	range $(UINT8_MIN_HEX) $(UINT8_MIN_HEX) if LED_STRIP_MATRIX
+	default $(UINT8_MAX_HEX)
+	range $(UINT8_MAX_HEX) $(UINT8_MAX_HEX)
+	help
+	  Some displays, particularly those based on LED technology,
+	  do not require initialization with a white background. From
+	  an energy efficiency standpoint and to avoid other well known
+	  disruptive effects, the background of this type of displays
+	  should be initialized as black (i.e., with the LEDs turned off).
+
+config SAMPLE_BUFFER_ADDR_ALIGN
+	int "The display buffer address alignment"
+	default 8 if 64BIT
+	default 8 if DISPLAY_MCUX_ELCDIF
+	default 4
+
+config HEAP_MEM_POOL_ADD_SIZE_SAMPLE
+	int "Sample maximum heap allocated buffer size"
+	default 4096
+	help
+	  Maximum size of the buffer for rendering one line of
+	  1024 pixels, each 4 bytes wide (ARGB-8888).
