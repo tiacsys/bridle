@@ -666,8 +666,8 @@ Hello Shell on the USB Console (CDC/ACM)
 
 .. zephyr-app-commands::
    :app: bridle/samples/helloshell
-   :board: mini_usb_rp2040
    :build-dir: mini_usb_rp2040
+   :board: mini_usb_rp2040
    :west-args: -p
    :goals: flash
    :compact:
@@ -676,8 +676,8 @@ Hello Shell on the USB Console (CDC/ACM)
 
 .. zephyr-app-commands::
    :app: bridle/samples/helloshell
-   :board: mini_usb_rp2040@16mb
    :build-dir: mini_usb_rp2040
+   :board: mini_usb_rp2040@16mb
    :west-args: -p
    :goals: flash
    :compact:
@@ -686,8 +686,8 @@ Hello Shell on the USB Console (CDC/ACM)
 
 .. zephyr-app-commands::
    :app: bridle/samples/helloshell
-   :board: mini_usb_rp2040@chipled
    :build-dir: mini_usb_rp2040
+   :board: mini_usb_rp2040@chipled
    :west-args: -p
    :goals: flash
    :compact:
@@ -1091,8 +1091,9 @@ WS2812 LED Test Pattern by PIO
 
 .. zephyr-app-commands::
    :app: zephyr/samples/drivers/led/led_strip
-   :board: mini_usb_rp2040
    :build-dir: mini_usb_rp2040
+   :board: mini_usb_rp2040
+   :gen-args: -DCONFIG_SAMPLE_LED_UPDATE_DELAY=500
    :west-args: -p
    :goals: flash
    :compact:
@@ -1123,9 +1124,9 @@ Hello Shell with sensor access to Grove BMP280
 
 .. zephyr-app-commands::
    :app: bridle/samples/helloshell
+   :build-dir: mini_usb_rp2040
    :board: mini_usb_rp2040
    :shield: "grove_sens_bmp280"
-   :build-dir: mini_usb_rp2040
    :west-args: -p
    :goals: flash
    :compact:
@@ -1175,9 +1176,9 @@ LED Blinky with Grove LED Button (Qwiic signals as GPIO)
 
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/blinky
+   :build-dir: mini_usb_rp2040
    :board: mini_usb_rp2040
    :shield: "grove_btn_d16_inv grove_led_d17 grove_pwm_led_d17 x_grove_testbed"
-   :build-dir: mini_usb_rp2040
    :west-args: -p
    :goals: flash
    :compact:
@@ -1204,9 +1205,9 @@ LED Fade with Grove LED Button (Qwiic signals as PWM)
 
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/fade_led
+   :build-dir: mini_usb_rp2040
    :board: mini_usb_rp2040
    :shield: "grove_btn_d16_inv grove_led_d17 grove_pwm_led_d17 x_grove_testbed"
-   :build-dir: mini_usb_rp2040
    :west-args: -p
    :goals: flash
    :compact:
@@ -1244,9 +1245,9 @@ LED Switch with Grove LED Button (Qwiic signals as GPIO)
 
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/button
+   :build-dir: mini_usb_rp2040
    :board: mini_usb_rp2040
    :shield: "grove_btn_d16_inv grove_led_d17 grove_pwm_led_d17 x_grove_testbed"
-   :build-dir: mini_usb_rp2040
    :west-args: -p
    :goals: flash
    :compact:
