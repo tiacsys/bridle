@@ -1,2 +1,9 @@
 # Each line should contain the regular expression of a known Sphinx warning
 # that should be filtered out
+
+#
+# TODO: integrate the new requirement catalog from the new Zephyr module
+#       from https://github.com/zephyrproject-rtos/reqmgmt
+#
+# caused in: zephyr/doc/safety/safety_requirements/requirements_catalog.rst:13
+.*toctree contains reference to nonexisting document 'build/requirements/index'.*
