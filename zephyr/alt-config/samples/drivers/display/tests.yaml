@@ -226,7 +226,7 @@ tests:
   #
   # shield: Waveshare Pico RGB LED (matrix as display)
   #
-  sample.drivers.led_strip.waveshare_pico_rgb_led:
+  sample.drivers.display.waveshare_pico_rgb_led:
     extra_args:
       SHIELD=waveshare_pico_rgb_led
     integration_platforms:
