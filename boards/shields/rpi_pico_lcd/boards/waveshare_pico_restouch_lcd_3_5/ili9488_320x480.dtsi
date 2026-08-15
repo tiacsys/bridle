@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -17,8 +17,7 @@
 		width = <320>;
 		height = <480>;
 		rotation = <180>;	/* portrait */
-
-		disctrl = [08 82 3B];	/* non-mirrored */
+		h-mirror;		/* non-mirrored */
 
 		vmctrl = [00 1E 80 40];
 		frmctr1 = [B0 11];
