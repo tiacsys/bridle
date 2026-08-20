@@ -244,10 +244,12 @@ tests:
     extra_args:
       - CMAKE_BUILD_TYPE=ZDebug
       - EXTRA_CONF_FILE="prj-hwstartup.conf"
+      - platform:vccgnd_bluepill_stm32f103cb/stm32f103xb:"CONFIG_EXTRA_EXCEPTION_INFO=y"
       - platform:vccgnd_bluepill_stm32f103cb/stm32f103xb:"CONFIG_STM32_ENABLE_DEBUG_SLEEP_STOP=y"
       - platform:vccgnd_bluepill_stm32f103c8/stm32f103xb:"CONFIG_STM32_ENABLE_DEBUG_SLEEP_STOP=y"
       - platform:weact_bluepillplus_ch32v203c8/ch32v203:"CONFIG_FLASH=n"
       - platform:weact_bluepillplus_ch32v203c8/ch32v203:"CONFIG_FLASH_SHELL=n"
+      - platform:weact_bluepillplus_stm32f103cb/stm32f103xb:"CONFIG_EXTRA_EXCEPTION_INFO=y"
       - platform:weact_bluepillplus_stm32f103cb/stm32f103xb:"CONFIG_STM32_ENABLE_DEBUG_SLEEP_STOP=y"
       - platform:weact_bluepillplus_stm32f103c8/stm32f103xb:"CONFIG_STM32_ENABLE_DEBUG_SLEEP_STOP=y"
     integration_platforms:
