@@ -496,10 +496,10 @@ LED Blinky with USB-CDC/ACM Console
 
                   .. parsed-literal::
 
-                     [174/174] Linking C executable zephyr/zephyr.elf
+                     [187/187] Linking C executable zephyr/zephyr.elf
                      Memory region         Used Size  Region Size  %age Used
-                                FLASH:       45000 B       128 KB     34.33%
-                                  RAM:       14648 B        20 KB     71.52%
+                                FLASH:       44756 B       128 KB     34.15%
+                                  RAM:       14760 B        20 KB     72.07%
                                 SRAM0:          0 GB        20 KB      0.00%
                              IDT_LIST:          0 GB        32 KB      0.00%
 
@@ -522,10 +522,10 @@ LED Blinky with USB-CDC/ACM Console
 
                   .. parsed-literal::
 
-                     [174/174] Linking C executable zephyr/zephyr.elf
+                     [187/187] Linking C executable zephyr/zephyr.elf
                      Memory region         Used Size  Region Size  %age Used
-                                FLASH:       45000 B        64 KB     68.66%
-                                  RAM:       14648 B        20 KB     71.52%
+                                FLASH:       44756 B        64 KB     68.29%
+                                  RAM:       14760 B        20 KB     72.07%
                                 SRAM0:          0 GB        20 KB      0.00%
                              IDT_LIST:          0 GB        32 KB      0.00%
 
@@ -555,10 +555,10 @@ LED Blinky with USB-CDC/ACM Console
 
                   .. parsed-literal::
 
-                     [126/126] Linking C executable zephyr/zephyr.elf
+                     [136/136] Linking C executable zephyr/zephyr.elf
                      Memory region         Used Size  Region Size  %age Used
-                                  ROM:       12960 B        64 KB     19.78%
-                                  RAM:        4224 B        20 KB     20.62%
+                                  ROM:       13952 B        64 KB     21.29%
+                                  RAM:        4288 B        20 KB     20.94%
                              IDT_LIST:          0 GB         4 KB      0.00%
 
          .. group-tab:: |CH32V203C6|
@@ -581,10 +581,10 @@ LED Blinky with USB-CDC/ACM Console
 
                   .. parsed-literal::
 
-                     [126/126] Linking C executable zephyr/zephyr.elf
+                     [136/136] Linking C executable zephyr/zephyr.elf
                      Memory region         Used Size  Region Size  %age Used
-                                  ROM:       12964 B        32 KB     39.56%
-                                  RAM:        4224 B        10 KB     41.25%
+                                  ROM:       13956 B        32 KB     42.59%
+                                  RAM:        4288 B        10 KB     41.88%
                              IDT_LIST:          0 GB         4 KB      0.00%
 
 Hello Shell
@@ -603,7 +603,7 @@ Hello Shell
                :build-dir: weact_bluepillplus
                :board: weact_bluepillplus_stm32f103cb
                :gen-args: \
-                  -DEXTRA_CONF_FILE="prj-hwstartup.conf" -DCONFIG_STM32_ENABLE_DEBUG_SLEEP_STOP=y
+                  -DEXTRA_CONF_FILE="prj-hwstartup.conf" -DCONFIG_EXTRA_EXCEPTION_INFO=y -DCONFIG_STM32_ENABLE_DEBUG_SLEEP_STOP=y
                :west-args: -p
                :flash-args: -r openocd
                :goals: flash
@@ -616,10 +616,10 @@ Hello Shell
 
                   .. parsed-literal::
 
-                     [185/185] Linking C executable zephyr/zephyr.elf
+                     [194/194] Linking C executable zephyr/zephyr.elf
                      Memory region         Used Size  Region Size  %age Used
-                                FLASH:       57264 B       128 KB     43.69%
-                                  RAM:       16840 B        20 KB     82.23%
+                                FLASH:       65552 B       128 KB     50.01%
+                                  RAM:       16352 B        20 KB     79.84%
                                 SRAM0:          0 GB        20 KB      0.00%
                              IDT_LIST:          0 GB        32 KB      0.00%
 
@@ -643,10 +643,10 @@ Hello Shell
 
                   .. parsed-literal::
 
-                     [185/185] Linking C executable zephyr/zephyr.elf
+                     [193/193] Linking C executable zephyr/zephyr.elf
                      Memory region         Used Size  Region Size  %age Used
-                                FLASH:       57264 B        64 KB     87.38%
-                                  RAM:       16840 B        20 KB     82.23%
+                                FLASH:       56752 B        64 KB     86.60%
+                                  RAM:       16352 B        20 KB     79.84%
                                 SRAM0:          0 GB        20 KB      0.00%
                              IDT_LIST:          0 GB        32 KB      0.00%
 
@@ -676,10 +676,10 @@ Hello Shell
 
                   .. parsed-literal::
 
-                     [152/152] Linking C executable zephyr/zephyr.elf
+                     [161/161] Linking C executable zephyr/zephyr.elf
                      Memory region         Used Size  Region Size  %age Used
-                                  ROM:       47528 B        64 KB     72.52%
-                                  RAM:        8064 B        20 KB     39.38%
+                                  ROM:       47824 B        64 KB     72.97%
+                                  RAM:        7600 B        20 KB     37.11%
                              IDT_LIST:          0 GB         4 KB      0.00%
 
          .. group-tab:: |CH32V203C6|
@@ -703,10 +703,10 @@ Hello Shell
 
                   .. parsed-literal::
 
-                     [135/135] Linking C executable zephyr/zephyr.elf
+                     [145/145] Linking C executable zephyr/zephyr.elf
                      Memory region         Used Size  Region Size  %age Used
-                                  ROM:       22596 B        32 KB     68.96%
-                                  RAM:        7136 B        10 KB     69.69%
+                                  ROM:       23576 B        32 KB     71.95%
+                                  RAM:        7200 B        10 KB     70.31%
                              IDT_LIST:          0 GB         4 KB      0.00%
 
 References
