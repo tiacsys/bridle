@@ -241,15 +241,15 @@ alternative to the default Zephyr console on serial port the Bridle
 :ref:`snippet-usb-console` can be used to enable
 :external+zephyr:ref:`usb_device_cdc_acm` and switch the console to USB:
 
-.. container:: highlight-console notranslate literal-block
+   .. container:: highlight-console notranslate literal-block
 
-   .. parsed-literal::
+      .. parsed-literal::
 
-      USB device idVendor=\ |waveshare_rp2040_eth_VID|, idProduct=\ |waveshare_rp2040_eth_PID_CON|, bcdDevice=\ |waveshare_rp2040_eth_BCD_CON|
-      USB device strings: Mfr=1, Product=2, SerialNumber=3
-      Product: |waveshare_rp2040_eth_PStr_CON|
-      Manufacturer: |waveshare_rp2040_eth_VStr|
-      SerialNumber: B69F8448A6E91514
+         USB device idVendor=\ |waveshare_rp2040_eth_VID|, idProduct=\ |waveshare_rp2040_eth_PID_CON|, bcdDevice=\ |waveshare_rp2040_eth_BCD_CON|
+         USB device strings: Mfr=1, Product=2, SerialNumber=3
+         Product: |waveshare_rp2040_eth_PStr_CON|
+         Manufacturer: |waveshare_rp2040_eth_VStr|
+         SerialNumber: B69F8448A6E91514
 
 .. include:: /includes/rpi_waveshare_urb_pid_list.txt
 
