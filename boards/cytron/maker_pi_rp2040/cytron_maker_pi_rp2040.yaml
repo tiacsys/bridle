@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
-identifier: cytron_maker_pi_rp2040
+identifier: cytron_maker_pi_rp2040/rp2040
 vendor: cytron
 name: Cytron Maker Pi RP2040
 type: mcu
