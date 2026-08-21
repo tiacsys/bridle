@@ -1,4 +1,4 @@
-The RP2350-CAN is a :bbl:`pico sized` CAN bus focused development board.
+The RP2350-CAN_ is a :bbl:`pico sized` CAN bus focused development board.
 The on-board USB-C connector makes it compatible to future standards.
 It comes with an on-board SPI/CAN controller, fully supports CAN V2.0B
 specification with communication rate up to 1 Mbps, together with an CAN
