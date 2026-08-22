@@ -158,9 +158,8 @@ configuration can be found in the different Kconfig files:
 Board Configurations
 ====================
 
-The Waveshare RP2040 boards can be configured for the following different
-use cases. The |RP2040-Plus| board offers an assembly option with 16㎆ Flash,
-which is mapped as a hardware revision.
+The board can be configured for the following different use cases. It offers an
+assembly option with 16㎆ Flash, which is mapped as a hardware revision.
 
 .. rubric:: :command:`west build -b waveshare_rp2040_plus`
 
@@ -224,7 +223,7 @@ SPI Port
 ========
 
 The `RP2040 <RP2040 SoC_>`_ MCU has 2 SPIs. To the edge connectors SPI0 is
-connect to external devices over GP19 (MOSI), GP16 (MISO), GP18 (SCK), and
+usable for external devices over GP19 (MOSI), GP16 (MISO), GP18 (SCK), and
 GP17 (CSn) on the |Raspberry Pi Pico| header. SPI1 is disabled but prepared
 for connecting external devices over GP11 (MOSI), GP12 (MISO), GP10 (SCK),
 and GP9 (CSn) on the |Raspberry Pi Pico| header.
@@ -233,7 +232,7 @@ I2C Port
 ========
 
 The `RP2040 <RP2040 SoC_>`_ MCU has 2 I2Cs. The default serial bus I2C0 and
-the alternative I2C1 are available to external devices over GP4 (I2C0_SDA),
+the alternative I2C1 are usable for external devices over GP4 (I2C0_SDA),
 GP5 (I2C0_SCL), GP14 (I2C1_SDA), and GP15 (I2C1_SCL) on the |Raspberry Pi Pico|
 header.
 
@@ -351,8 +350,8 @@ Here is an example of building and flashing the
 
    .. zephyr-app-commands::
       :app: zephyr/samples/basic/blinky
-      :build-dir: waveshare_rp2040
-      :board: waveshare_rp2040_plus
+      :build-dir: waveshare_rp2040_plus
+      :board: waveshare_rp2040_plus/rp2040
       :flash-args: -r jlink
       :west-args: -p
       :goals: flash
@@ -388,8 +387,8 @@ Here is an example of building and flashing the
 
    .. zephyr-app-commands::
       :app: zephyr/samples/basic/blinky
-      :build-dir: waveshare_rp2040
-      :board: waveshare_rp2040_plus
+      :build-dir: waveshare_rp2040_plus
+      :board: waveshare_rp2040_plus/rp2040
       :gen-args: \
                  -DOPENOCD=/usr/local/bin/openocd \
                  -DOPENOCD_DEFAULT_PATH=/usr/local/share/openocd/scripts \
@@ -453,8 +452,8 @@ Here is an example for debugging the
 
    .. zephyr-app-commands::
       :app: zephyr/samples/basic/blinky
-      :build-dir: waveshare_rp2040
-      :board: waveshare_rp2040_plus
+      :build-dir: waveshare_rp2040_plus
+      :board: waveshare_rp2040_plus/rp2040
       :maybe-skip-config:
       :gen-args: \
                  -DOPENOCD=/usr/local/bin/openocd \

@@ -6,8 +6,8 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`blinky`.
 
    .. zephyr-app-commands::
       :app: zephyr/samples/basic/blinky
-      :build-dir: waveshare_rp2040
-      :board: waveshare_rp2040_plus@4mb
+      :build-dir: waveshare_rp2040_plus
+      :board: waveshare_rp2040_plus@4mb/rp2040
       :west-args: -p
       :goals: flash
       :compact:
@@ -16,8 +16,8 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`blinky`.
 
    .. zephyr-app-commands::
       :app: zephyr/samples/basic/blinky
-      :build-dir: waveshare_rp2040
-      :board: waveshare_rp2040_plus@16mb
+      :build-dir: waveshare_rp2040_plus
+      :board: waveshare_rp2040_plus@16mb/rp2040
       :west-args: -p
       :goals: flash
       :compact:
@@ -30,8 +30,8 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`pwm-blinky`.
 
    .. zephyr-app-commands::
       :app: zephyr/samples/basic/blinky_pwm
-      :build-dir: waveshare_rp2040
-      :board: waveshare_rp2040_plus@4mb
+      :build-dir: waveshare_rp2040_plus
+      :board: waveshare_rp2040_plus@4mb/rp2040
       :west-args: -p
       :goals: flash
       :compact:
@@ -40,8 +40,8 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`pwm-blinky`.
 
    .. zephyr-app-commands::
       :app: zephyr/samples/basic/blinky_pwm
-      :build-dir: waveshare_rp2040
-      :board: waveshare_rp2040_plus@16mb
+      :build-dir: waveshare_rp2040_plus
+      :board: waveshare_rp2040_plus@16mb/rp2040
       :west-args: -p
       :goals: flash
       :compact:
@@ -54,8 +54,8 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`fade-led`.
 
    .. zephyr-app-commands::
       :app: zephyr/samples/basic/fade_led
-      :build-dir: waveshare_rp2040
-      :board: waveshare_rp2040_plus@4mb
+      :build-dir: waveshare_rp2040_plus
+      :board: waveshare_rp2040_plus@4mb/rp2040
       :west-args: -p
       :goals: flash
       :compact:
@@ -64,8 +64,8 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`fade-led`.
 
    .. zephyr-app-commands::
       :app: zephyr/samples/basic/fade_led
-      :build-dir: waveshare_rp2040
-      :board: waveshare_rp2040_plus@16mb
+      :build-dir: waveshare_rp2040_plus
+      :board: waveshare_rp2040_plus@16mb/rp2040
       :west-args: -p
       :goals: flash
       :compact:
