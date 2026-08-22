@@ -1,4 +1,4 @@
-# Copyright (c) 2023-2026 TiaC Systems
+# SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 cmake_minimum_required(VERSION 3.20.0)
@@ -610,8 +610,10 @@ if(DEFINED if_path)
   # check board specific add-ons for rpi_pico
   if(CONFIG_BOARD_RPI_PICO OR
      CONFIG_BOARD_RPI_PICO2 OR
-     CONFIG_BOARD_WAVESHARE_RP2040_PICO OR
-     CONFIG_BOARD_WAVESHARE_RP2350_PICO)
+     CONFIG_BOARD_WAVESHARE_RP2040_ETH OR
+     CONFIG_BOARD_WAVESHARE_RP2040_LCD_0_96 OR
+     CONFIG_BOARD_WAVESHARE_RP2040_PLUS OR
+     CONFIG_BOARD_WAVESHARE_RP2350_CAN)
 
     # zephyr-keep-sorted-start re(^\s+\w)
     test_if_label_on_path("grove_pwms" "${if_path}")
@@ -632,8 +634,10 @@ if(DEFINED if_path)
   # check common board specific add-ons
   if(CONFIG_BOARD_RPI_PICO OR
      CONFIG_BOARD_RPI_PICO2 OR
-     CONFIG_BOARD_WAVESHARE_RP2040_PICO OR
-     CONFIG_BOARD_WAVESHARE_RP2350_PICO)
+     CONFIG_BOARD_WAVESHARE_RP2040_ETH OR
+     CONFIG_BOARD_WAVESHARE_RP2040_LCD_0_96 OR
+     CONFIG_BOARD_WAVESHARE_RP2040_PLUS OR
+     CONFIG_BOARD_WAVESHARE_RP2350_CAN)
 
     # zephyr-keep-sorted-start re(^\s+\w)
     test_if_label_matching("grove_i2c" "rpipico_i2c")
