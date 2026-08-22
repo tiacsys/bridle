@@ -22,4 +22,830 @@ See also Bridle sample: :ref:`helloshell-sample`.
       :goals: flash
       :compact:
 
-.. include:: helloshell_console.rsti
+.. rubric:: Simple test execution on target
+
+(text in bold is a command input)
+
+.. tabs::
+
+   .. group-tab:: Basics
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **hello -h**
+            hello - say hello
+            :bgn:`uart:~$` **hello**
+            Hello from shell.
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **hwinfo devid**
+            Length: 8
+            ID: 0xb163a72f0cf0c97a
+
+            :bgn:`uart:~$` **kernel version**
+            Zephyr version |zephyr_version_number_em|
+
+            :bgn:`uart:~$` **bridle version**
+            Bridle version |shortversion_number_em|
+
+            :bgn:`uart:~$` **bridle version long**
+            Bridle version |longversion_number_em|
+
+            :bgn:`uart:~$` **bridle info**
+            Zephyr: |zephyr_release_number_em|
+            Bridle: |release_number_em|
+
+      .. rubric:: On ARM Cortex-M33
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **device list**
+            devices:
+            - clock-controller\ @\ 40010000 (READY)
+              DT node labels: clocks
+            - reset-controller\ @\ 40020000 (READY)
+              DT node labels: reset
+            - cdc_acm_console_uart (READY)
+              DT node labels: cdc_acm_console_uart
+            - timer\ @\ 400b8000 (READY)
+              DT node labels: timer1
+            - timer\ @\ 400b0000 (READY)
+              DT node labels: timer0
+            - uart\ @\ 40070000 (READY)
+              DT node labels: uart0
+            - watchdog\ @\ 400d8000 (READY)
+              DT node labels: wdt0
+            - dma\ @\ 50000000 (READY)
+              DT node labels: dma
+            - gpio-port\ @\ 0 (READY)
+              DT node labels: gpio0 gpio0_lo
+            - usbd\ @\ 50110000 (READY)
+              DT node labels: usbd zephyr_udc0
+            - adc\ @\ 400a0000 (READY)
+              DT node labels: adc
+            - flash-controller\ @\ 400d0000 (READY)
+              DT node labels: qmi
+            - i2c\ @\ 40090000 (READY)
+              DT node labels: i2c0 zephyr_i2c stemma_i2c qwiic_i2c grove_i2c
+            - pwm\ @\ 400a8000 (READY)
+              DT node labels: pwm grove_pwm_d20 grove_pwm_d21
+            - vreg\ @\ 40100000 (READY)
+              DT node labels: vreg
+            - spi\ @\ 40088000 (READY)
+              DT node labels: spi1
+            - spi\ @\ 40080000 (READY)
+              DT node labels: spi0
+            - lcd-backlight-en (READY)
+              DT node labels: lcd_backlight_en
+            - pwm-leds (READY)
+              DT node labels: pwm_leds
+            - sk6805\ @\ 0 (READY)
+              DT node labels: led_strip
+            - dietemp (READY)
+              DT node labels: die_temp
+            - stk8ba58\ @\ 18 (READY)
+              DT node labels: stk8ba58
+
+      .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **device list**
+            devices:
+            - clock-controller\ @\ 40010000 (READY)
+              DT node labels: clocks
+            - reset-controller\ @\ 40020000 (READY)
+              DT node labels: reset
+            - interrupt-controller (READY)
+              DT node labels: intc
+            - cdc_acm_console_uart (READY)
+              DT node labels: cdc_acm_console_uart
+            - timer\ @\ 400b8000 (READY)
+              DT node labels: timer1
+            - timer\ @\ 400b0000 (READY)
+              DT node labels: timer0
+            - uart\ @\ 40070000 (READY)
+              DT node labels: uart0
+            - watchdog\ @\ 400d8000 (READY)
+              DT node labels: wdt0
+            - dma\ @\ 50000000 (READY)
+              DT node labels: dma
+            - gpio-port\ @\ 0 (READY)
+              DT node labels: gpio0 gpio0_lo
+            - usbd\ @\ 50110000 (READY)
+              DT node labels: usbd zephyr_udc0
+            - adc\ @\ 400a0000 (READY)
+              DT node labels: adc
+            - flash-controller\ @\ 400d0000 (READY)
+              DT node labels: qmi
+            - i2c\ @\ 40090000 (READY)
+              DT node labels: i2c0 zephyr_i2c stemma_i2c qwiic_i2c grove_i2c
+            - pwm\ @\ 400a8000 (READY)
+              DT node labels: pwm grove_pwm_d20 grove_pwm_d21
+            - vreg\ @\ 40100000 (READY)
+              DT node labels: vreg
+            - spi\ @\ 40088000 (READY)
+              DT node labels: spi1
+            - spi\ @\ 40080000 (READY)
+              DT node labels: spi0
+            - lcd-backlight-en (READY)
+              DT node labels: lcd_backlight_en
+            - pwm-leds (READY)
+              DT node labels: pwm_leds
+            - sk6805\ @\ 0 (READY)
+              DT node labels: led_strip
+            - dietemp (READY)
+              DT node labels: die_temp
+            - stk8ba58\ @\ 18 (READY)
+              DT node labels: stk8ba58
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **history**
+            [  0] history
+            [  1] device list
+            [  2] bridle info
+            [  3] bridle version long
+            [  4] bridle version
+            [  5] kernel version
+            [  6] hwinfo devid
+            [  7] hello
+            [  8] hello -h
+
+   .. group-tab:: VREG
+
+      Operate with the on-chip voltage regulator unit:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **regulator vlist vreg**
+            0.550000 V
+            0.600000 V
+            0.650000 V
+            0.700000 V
+            0.750000 V
+            0.800000 V
+            0.850000 V
+            0.900000 V
+            0.950000 V
+            1.000000 V
+            1.050000 V
+            1.100000 V
+            1.150000 V
+            1.200000 V
+            1.250000 V
+            1.300000 V
+            1.350000 V
+            1.400000 V
+            1.500000 V
+            1.600000 V
+            1.650000 V
+            1.700000 V
+            1.800000 V
+            1.900000 V
+            2.000000 V
+            2.350000 V
+            2.500000 V
+            2.650000 V
+            2.800000 V
+            3.000000 V
+            3.150000 V
+            3.300000 V
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **regulator vget vreg**
+            1.100000 V
+
+      .. Trigger a power-off/on sequence:
+
+         .. container:: highlight highlight-console notranslate
+
+            .. parsed-literal::
+
+               :bgn:`uart:~$` **hwinfo reset_cause**
+               reset caused by:
+               - pin
+
+               :bgn:`uart:~$` **regulator disable vreg**
+               \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
+               Hello World! I'm THE SHELL from picoboy_color_plus
+
+         .. container:: highlight highlight-console notranslate
+
+            .. parsed-literal::
+
+               :bgn:`uart:~$` **hwinfo reset_cause**
+               reset caused by:
+               - power-on reset
+
+   .. group-tab:: LCD backlight
+
+      Operate with the on-board LCD backlight switch as voltage regulator:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **regulator vlist lcd-backlight-en**
+            3.300000 V
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **regulator vget lcd-backlight-en**
+            3.300000 V
+
+      The off/on sequence:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **regulator disable lcd-backlight-en**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **regulator enable lcd-backlight-en**
+
+   .. group-tab:: LED Strip
+
+      Operate with the RGB digital LED strip :hwftlbl-led:`1 RGB`
+      at :rpi-pico-spi:`SPI1_TX`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip get_length led_strip**
+            sk6805@0 has 1 pixel(s)
+
+      Sett all LEDs to :brd:`RED`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 070000 1**
+
+      Sett all LEDs to :byl:`YELLOW`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 070700 1**
+
+      Sett all LEDs to :bgn:`GREEN`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 000700 1**
+
+      Sett all LEDs to :bcy:`CYAN`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 000707 1**
+
+      Sett all LEDs to :bbl:`BLUE`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 000007 1**
+
+      Sett all LEDs to :bma:`MAGENTA`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 070007 1**
+
+      Sett all LEDs to :bwt:`WHITE` (all on):
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 070707 1**
+
+      Sett all LEDs to :bbk:`BLACK` (all off):
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 000000 1**
+
+   .. group-tab:: LED
+
+      .. note:: **PWM LED conflicts with GPIO!**
+
+         Operations with the red user LED in PWM mode will fail when ever
+         the corresponding GPIO line 14 was configured as digital output.
+         This condition is irreversible at runtime within the shell and
+         :strong:`requires a system reset`.
+
+      Operate with the red user LED :hwftlbl-led:`PWM_LED`
+      at :rpi-pico-pio:`GP14` / :rpi-pico-pwm:`PWM14` (PWM7CHA):
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led on pwm-leds 0**
+            pwm-leds: turning on LED 0
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led set_brightness pwm-leds 0 10**
+            pwm-leds: setting LED 0 brightness to 10
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led set_brightness pwm-leds 0 50**
+            pwm-leds: setting LED 0 brightness to 50
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led set_brightness pwm-leds 0 100**
+            pwm-leds: setting LED 0 brightness to 100
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led off pwm-leds 0**
+            pwm-leds: turning off LED 0
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led blink pwm-leds 0 50 50**
+            pwm-leds: blinking LED 0 with 50 ms on and 50 ms off
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led off pwm-leds 0**
+            pwm-leds: turning off LED 0
+
+   .. group-tab:: PWM
+
+      .. note:: **PWM conflicts with GPIO!**
+
+         Operations with the red user LED in PWM mode will fail when ever
+         the corresponding GPIO line 14 was configured as digital output.
+         This condition is irreversible at runtime within the shell and
+         :strong:`requires a system reset`.
+
+      Operate with the red user LED :hwftlbl-led:`PWM_LED`
+      at :rpi-pico-pio:`GP14` / :rpi-pico-pwm:`PWM14` (PWM7CHA):
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 14 20000 20000**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 14 20000 19000**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 14 20000 18000**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 14 20000 17000**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 14 20000 16000**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 14 20000 15000**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 14 20000 10000**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 14 20000 5000**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 14 20000 2500**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 14 20000 500**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 14 20000 0**
+
+      Operate with the :hwftlbl-spk:`PASSIVE` magnetic speaker
+      at :rpi-pico-pio:`GP15` / :rpi-pico-pwm:`PWM15` (PWM7CHB):
+
+         #. concert pitch: 440 ㎐
+         #. Piezo middle frequency: 1,000 ㎑
+         #. Piezo resonance: 4,000 ㎑
+         #. Piezo high frequency: 10,000 ㎑
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 15 2273 1136**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 15 2000 1000**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 15 250 125**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 15 100 50**
+
+   .. group-tab:: GPIO
+
+      Operate with the red user LED :hwftlbl-led:`LED`
+      at :rpi-pico-pio:`GP14`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **gpio get gpio0 LED_RED**
+            0
+
+            :bgn:`uart:~$` **gpio conf gpio0 LED_RED oh0**
+
+            :bgn:`uart:~$` **gpio set gpio0 LED_RED 1**
+            :bgn:`uart:~$` **gpio set gpio0 LED_RED 0**
+
+            :bgn:`uart:~$` **gpio blink gpio0 LED_RED**
+            Hit any key to exit
+
+      Operate with the user joystick center button :hwftlbl-btn:`ENTER`
+      at :rpi-pico-pio:`GP0`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **gpio get gpio0 JOY_ENTER**
+            0
+
+            :bgn:`uart:~$` **gpio conf gpio0 JOY_ENTER iul**
+            :bgn:`uart:~$` **gpio get gpio0 JOY_ENTER**
+            0
+            :bgn:`uart:~$` **gpio get gpio0 JOY_ENTER**
+            1
+            :bgn:`uart:~$` **gpio get gpio0 JOY_ENTER**
+            0
+
+      Get an overview of aviliable signale names:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **gpio info gpio0**
+             ngpios: 30
+             Reserved pin mask: 0xC38000E0
+
+             Reserved  Pin  Line Name
+                        0    JOY_ENTER
+                        1    JOY_RIGHT
+                        2    JOY_DOWN
+                        3    JOY_LEFT
+                        4    JOY_UP
+                 *      5
+                 *      6
+                 *      7
+                        8    LCD_DC
+                        9    LCD_RST
+                       10    LCD_CSN_SW
+                       11    RGB_SDO1
+                       12    LED_GREEN
+                       13    LED_YELLOW
+                       14    LED_RED
+                       15    SPK_PWM15
+                       16    LCD_SDI0
+                       17    LCD_CSN0_HW
+                       18    LCD_SCK0
+                       19    LCD_SDO0
+                       20    SENS_SDA0_TX1
+                       21    SENS_SCL0_RX1
+                       22    ACCEL_IRQ
+                 *     23
+                 *     24
+                 *     25
+                       26    LCD_BL
+                       27    BTN_BACK
+                       28    BTN_FORWARD
+                       29    VSYS_ADC3
+
+   .. group-tab:: ADC
+
+      Operate with the channels:
+
+         - on-board voltage monitor on channel :rpi-pico-adc:`ADC_CH3`
+         - on-chip temperature sensor on channel :rpi-pico-adc:`ADC_CH4`
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **adc adc@400a0000 resolution 12**
+            :bgn:`uart:~$` **adc adc@400a0000 print**
+            adc\ @\ 400a0000:
+            Gain: 1
+            Reference: INTERNAL
+            Acquisition Time: 0
+            Channel ID: 0
+            Differential: 0
+            Resolution: 12
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **adc adc@400a0000 read 3**
+            read: 1940
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **adc adc@400a0000 read 4**
+            read: 749
+
+   .. group-tab:: Timer
+
+      Operate with the two on-chip timer units:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **timer oneshot timer0 0 1000000**
+            :bgn:`timer0: Alarm triggered`
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **timer oneshot timer1 0 1000000**
+            :bgn:`timer1: Alarm triggered`
+
+   .. group-tab:: Flash access
+
+      .. rubric:: Erase, Write and Verify
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **flash read qmi 0xe0000 0x40**
+            000E0000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+            000E0010: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+            000E0020: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+            000E0030: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+
+            :bgn:`uart:~$` **flash test qmi 0xe0000 0x1000 2**
+            Erase OK.
+            Write OK.
+            Verified OK.
+            Erase OK.
+            Write OK.
+            Verified OK.
+            Erase-Write-Verify test done.
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **flash read qmi 0xe0000 0x40**
+            000E0000: 00 01 02 03 04 05 06 07  08 09 0a 0b 0c 0d 0e 0f \|........ ........\|
+            000E0010: 10 11 12 13 14 15 16 17  18 19 1a 1b 1c 1d 1e 1f \|........ ........\|
+            000E0020: 20 21 22 23 24 25 26 27  28 29 2a 2b 2c 2d 2e 2f \| !"#$%&' ()*+,-./\|
+            000E0030: 30 31 32 33 34 35 36 37  38 39 3a 3b 3c 3d 3e 3f \|01234567 89:;<=>?\|
+
+            :bgn:`uart:~$` **flash page_info 0xe0000**
+            Page for address 0xe0000:
+            start offset: 0xe0000
+            size: 4096
+            index: 224
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **flash erase qmi 0xe0000 0x1000**
+            Erase success.
+
+            :bgn:`uart:~$` **flash read qmi 0xe0000 0x40**
+            000E0000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+            000E0010: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+            000E0020: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+            000E0030: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+
+   .. group-tab:: I2C
+
+      The |PicoBoy Color Plus| has the on-board acceleration sensor
+      connected on :rpi-pico-i2c-dfl:`I2C0`. For this example the
+      |Grove BMP280 Sensor|_ was also connected to :rpi-pico-i2c-dfl:`I2C0`
+      via the Qwiic / STEMMA QT connector (Maker Port).
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **i2c scan zephyr_i2c**
+                 0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+            00:             -- -- -- -- -- -- -- -- -- -- -- --
+            10: -- -- -- -- -- -- -- -- 18 -- -- -- -- -- -- --
+            20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            70: -- -- -- -- -- -- -- 77
+            2 devices found on zephyr_i2c
+
+      The I2C address ``0x18`` is a Sensortek STK8BA58_ 3D Acceleration Sensor
+      and their Chip-ID can read from register ``0x0``. The Chip-ID must be
+      ``0x87``:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **i2c read_byte zephyr_i2c 18 0**
+            Output: 0x87
+
+      The I2C address ``0x77`` is a Bosch BMP280_ Air Pressure Sensor and their
+      Chip-ID can read from register ``0xd0``. The Chip-ID must be ``0x58``:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **i2c read_byte zephyr_i2c 77 d0**
+            Output: 0x58
+
+   .. group-tab:: Sensors
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor info**
+            device name: stk8ba58\ @\ 18, vendor: Sensortek Technology Corporation, model: stk8ba58, friendly name: on-board accelerometer
+            device name: dietemp, vendor: Raspberry Pi Foundation, model: pico-temp, friendly name: RP2350 chip temperature
+
+      .. rubric:: on-chip temperature sensor
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor get dietemp**
+            channel type=12(die_temp) index=0 shift=6 num_samples=1 value=14554473307ns (31.067401)
+
+      .. rubric:: on-board 3-axis accelerometer
+
+      Default attributes for all three axis:
+
+      - **range**, :console:`full_scale`: 2g = 19.613300 |m/s2|
+      - **ODR**, :console:`sampling_frequency`: 250 |Hz|
+      - **sleep**, :console:`configuration`: 25 |ms| (low-power mode)
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor attr_get stk8ba58@18 accel_xyz full_scale**
+            stk8ba58\ @\ 18(channel=accel_xyz, attr=full_scale) value=19.613300 value=0.000000 value=0.000000
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor attr_get stk8ba58@18 accel_xyz sampling_frequency**
+            stk8ba58\ @\ 18(channel=accel_xyz, attr=sampling_frequency) value=250.000000 value=0.000000 value=0.000000
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor attr_get stk8ba58@18 accel_xyz configuration**
+            stk8ba58\ @\ 18(channel=accel_xyz, attr=configuration) value=25.000000 value=0.000000 value=0.000000
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor get stk8ba58@18**
+            channel type=0(accel_x) index=0 shift=4 num_samples=1 value=61368586658ns (-1.345472)
+            channel type=1(accel_y) index=0 shift=4 num_samples=1 value=61368586658ns (3.651995)
+            channel type=2(accel_z) index=0 shift=4 num_samples=1 value=61368586658ns (-9.812338)
+            channel type=3(accel_xyz) index=0 shift=4 num_samples=1 value=61368586658ns, (-1.345472, 3.651995, -9.812338)
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor trig stk8ba58@18 on data_ready**
+            Enabled trigger idx=1 data_ready on device stk8ba58\ @\ 18
+            [00:03:39.519,000] <inf> sensor_shell: sensor=stk8ba58, chan=accel_x, num_samples=138, data=-1.085779
+            [00:03:39.519,000] <inf> sensor_shell: sensor=stk8ba58, chan=accel_y, num_samples=138, data=4.899622
+            [00:03:39.519,000] <inf> sensor_shell: sensor=stk8ba58, chan=accel_z, num_samples=138, data=-9.081102
+            [00:03:44.566,000] <inf> sensor_shell: sensor=stk8ba58, chan=accel_x, num_samples=138, data=-1.096364
+            [00:03:44.566,000] <inf> sensor_shell: sensor=stk8ba58, chan=accel_y, num_samples=138, data=4.910068
+            [00:03:44.566,000] <inf> sensor_shell: sensor=stk8ba58, chan=accel_z, num_samples=138, data=-9.079361
+            [00:03:49.613,000] <inf> sensor_shell: sensor=stk8ba58, chan=accel_x, num_samples=138, data=-1.088982
+            [00:03:49.613,000] <inf> sensor_shell: sensor=stk8ba58, chan=accel_y, num_samples=138, data=4.913968
+            [00:03:49.613,000] <inf> sensor_shell: sensor=stk8ba58, chan=accel_z, num_samples=138, data=-9.078735
+            [00:03:54.661,000] <inf> sensor_shell: sensor=stk8ba58, chan=accel_x, num_samples=138, data=-1.087241
+            [00:03:54.661,000] <inf> sensor_shell: sensor=stk8ba58, chan=accel_y, num_samples=138, data=4.902616
+            [00:03:54.661,000] <inf> sensor_shell: sensor=stk8ba58, chan=accel_z, num_samples=138, data=-9.084933
+            [00:03:59.708,000] <inf> sensor_shell: sensor=stk8ba58, chan=accel_x, num_samples=138, data=-1.090932
+            [00:03:59.708,000] <inf> sensor_shell: sensor=stk8ba58, chan=accel_y, num_samples=138, data=4.900109
+            [00:03:59.709,000] <inf> sensor_shell: sensor=stk8ba58, chan=accel_z, num_samples=138, data=-9.085768
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor trig stk8ba58@18 off data_ready**
+            Disabled trigger idx=1 data_ready on device stk8ba58\ @\ 18
+            [00:05:48.412,000] :byl:`<wrn> STK8BA58: stk8ba58: no handler`

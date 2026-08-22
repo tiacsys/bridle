@@ -19,6 +19,7 @@
 #include <zephyr/dt-bindings/display/panel.h>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 #include <zephyr/dt-bindings/lvgl/lvgl.h>
+#include <zephyr/dt-bindings/mipi_dbi/mipi_dbi.h>
 
 #include <zephyr/dt-bindings/sensor/stk8ba58.h>
 
@@ -83,98 +84,98 @@
 			      LV_KEY_ENTER>;
 	};
 
-	gpio_keys: gpio_keys {
+	gpio_keys: gpio-keys {
 		compatible = "gpio-keys";
 
-		button_back: button_back {
+		button_back: button-back {
 			gpios = <&gpio0 27 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 			zephyr,code = <INPUT_KEY_BACK>;
 			label = "BTN BACK";
 		};
-		button_forward: button_forward {
+		button_forward: button-forward {
 			gpios = <&gpio0 28 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 			zephyr,code = <INPUT_KEY_FORWARD>;
 			label = "BTN FORWARD";
 		};
-		joystick_enter: joystick_enter {
+		joystick_enter: joystick-enter {
 			gpios = <&gpio0 0 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 			zephyr,code = <INPUT_KEY_ENTER>;
 			label = "Joystick ENTER";
 		};
-		joystick_up: joystick_up {
+		joystick_up: joystick-up {
 			gpios = <&gpio0 4 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 			zephyr,code = <INPUT_KEY_UP>;
 			label = "Joystick UP";
 		};
-		joystick_right: joystick_right {
+		joystick_right: joystick-right {
 			gpios = <&gpio0 1 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 			zephyr,code = <INPUT_KEY_RIGHT>;
 			label = "Joystick RIGHT";
 		};
-		joystick_down: joystick_down {
+		joystick_down: joystick-down {
 			gpios = <&gpio0 2 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 			zephyr,code = <INPUT_KEY_DOWN>;
 			label = "Joystick DOWN";
 		};
-		joystick_left: joystick_left {
+		joystick_left: joystick-left {
 			gpios = <&gpio0 3 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 			zephyr,code = <INPUT_KEY_LEFT>;
 			label = "Joystick LEFT";
 		};
 	};
 
-	gpio_leds: gpio_leds {
+	gpio_leds: gpio-leds {
 		compatible = "gpio-leds";
 
-		led0: led_red {
+		led0: led0-red {
 			gpios = <&gpio0 14 GPIO_ACTIVE_HIGH>;
 			label = "LED Red";
 		};
-		led1: led_yellow {
+		led1: led1-yellow {
 			gpios = <&gpio0 13 GPIO_ACTIVE_HIGH>;
 			label = "LED Yellow";
 		};
-		led2: led_green {
+		led2: led2-green {
 			gpios = <&gpio0 12 GPIO_ACTIVE_HIGH>;
 			label = "LED Green";
 		};
 	};
 
-	pwm_leds: pwm_leds {
+	pwm_leds: pwm-leds {
 		compatible = "pwm-leds";
 
-		pwm_led0: pwm_led_red {
+		pwm_led0: pwm-led0-red {
 			pwms = <&pwm 14 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
 			label = "PWM_LED Red";
 		};
-		pwm_led1: pwm_led_yellow {
+		pwm_led1: pwm-led1-yellow {
 			pwms = <&pwm 13 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
 			label = "PWM_LED Yellow";
 		};
-		pwm_led2: pwm_led_green {
+		pwm_led2: pwm-led2-green {
 			pwms = <&pwm 12 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
 			label = "PWM_LED Green";
 		};
 	};
 
-	pwm_buzzers {
+	pwm_buzzers: pwm-buzzers {
 		compatible = "pwm-buzzers";
 
-		pwm_speaker0: pwm_speaker0 {
+		pwm_speaker0: pwm-speaker0 {
 			pwms = <&pwm 15 PWM_HZ(880) PWM_POLARITY_NORMAL>;
 			label = "PWM_SPEAKER";
 		};
 	};
 
-	mipi_dbi_spi0: mipi_dbi_spi0 {
+	mipi_dbi_spi0: mipi-dbi-spi0 {
 		compatible = "zephyr,mipi-dbi-spi";
 		#address-cells = <1>;
 		#size-cells = <0>;
 	};
 
-	lcd_backlight_en: lcd_backlight_en {
+	lcd_backlight_en: lcd-backlight-en {
 		compatible = "regulator-fixed";
-		regulator-name = "lcd_backlight_enable";
+		regulator-name = "lcd_backlight";
 	};
 };
 
@@ -283,7 +284,7 @@ zephyr_udc0: &usbd {
 	dc-gpios = <&gpio0 8 GPIO_ACTIVE_HIGH>;
 
 	/* LCD with ST7789V controller. */
-	st7789v_240x280: st7789v@0 {
+	st7789v_240x280: st7789v-240x280@0 {
 		compatible = "sitronix,st7789v";
 		status = "okay";
 
@@ -321,10 +322,21 @@ lcd_panel: &st7789v_240x280 {};
 
 &lcd_backlight_en {
 	status = "okay";
-	regulator-boot-on;
+	regulator-boot-on; /* 3.3V only, on boot default by gpio-hog */
+	regulator-min-microvolt = <3300000>;
+	regulator-max-microvolt = <3300000>;
 
 	/* GP26 as backlight enable to LCD panel. */
 	enable-gpios = <&gpio0 26 GPIO_ACTIVE_HIGH>;
+};
+
+&gpio0 {
+	lcd-backlight-boot-on {
+		gpio-hog;
+		output-high;
+		gpios = <26 GPIO_ACTIVE_HIGH>;
+		line-name = "lcd-backlight-boot-on";
+	};
 };
 
 &spi1 {

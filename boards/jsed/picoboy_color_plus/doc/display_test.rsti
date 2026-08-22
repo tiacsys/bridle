@@ -107,21 +107,23 @@ on the console, here configured for a USB console:
       stats - Show LVGL statistics
       Subcommands:
         memory  : Show LVGL memory statistics
-                  Usage: lvgl stats memory [-c]
-                  -c  dump chunk information
+                  Usage: memory [-c]
+                         -c  dump chunk information
 
       :bgn:`uart:~$` **lvgl stats memory**
-      Heap at 0x200017e8 contains 2047 units in 11 buckets
+      Heap at 0x20001870 contains 2047 units in 11 buckets
 
         bucket#    min units        total      largest      largest
                    threshold       chunks      (units)      (bytes)
         -----------------------------------------------------------
-              1            2            1            2           16
-              3            8            1           11           88
+              0            1            1            1            8
+              1            2            2            3           24
+              2            4            1            4           32
+              3            8            1            9           72
               6           64            1           81          648
-              9          512            1          921         7368
+              9          512            1          873         6984
 
-      8120 free bytes, 8192 allocated bytes, overhead = 68 bytes (0.4%)
+      7756 free bytes, 8012 allocated bytes, overhead = 612 bytes (3.7%)
 
 .. rubric:: On ARM Cortex-M33
 
@@ -137,14 +139,14 @@ on the console, here configured for a USB console:
         DT node labels: reset
       - cdc_acm_console_uart (READY)
         DT node labels: cdc_acm_console_uart
-      - uart\ @\ 40070000 (READY)
-        DT node labels: uart0
-      - watchdog\ @\ 400d8000 (READY)
-        DT node labels: wdt0
       - timer\ @\ 400b8000 (READY)
         DT node labels: timer1
       - timer\ @\ 400b0000 (READY)
         DT node labels: timer0
+      - uart\ @\ 40070000 (READY)
+        DT node labels: uart0
+      - watchdog\ @\ 400d8000 (READY)
+        DT node labels: wdt0
       - dma\ @\ 50000000 (READY)
         DT node labels: dma
       - gpio-port\ @\ 0 (READY)
@@ -157,13 +159,13 @@ on the console, here configured for a USB console:
         DT node labels: spi1
       - spi\ @\ 40080000 (READY)
         DT node labels: spi0
-      - lcd_backlight_en (READY)
+      - lcd-backlight-en (READY)
         DT node labels: lcd_backlight_en
-      - mipi_dbi_spi0 (READY)
+      - mipi-dbi-spi0 (READY)
         DT node labels: mipi_dbi_spi0
-      - st7789v\ @\ 0 (READY)
+      - st7789v-240x280\ @\ 0 (READY)
         DT node labels: st7789v_240x280 lcd_panel
-      - gpio_keys (READY)
+      - gpio-keys (READY)
         DT node labels: gpio_keys
       - lvgl-buttons (READY)
         DT node labels: lvgl_buttons
@@ -186,14 +188,14 @@ on the console, here configured for a USB console:
         DT node labels: intc
       - cdc_acm_console_uart (READY)
         DT node labels: cdc_acm_console_uart
-      - uart\ @\ 40070000 (READY)
-        DT node labels: uart0
-      - watchdog\ @\ 400d8000 (READY)
-        DT node labels: wdt0
       - timer\ @\ 400b8000 (READY)
         DT node labels: timer1
       - timer\ @\ 400b0000 (READY)
         DT node labels: timer0
+      - uart\ @\ 40070000 (READY)
+        DT node labels: uart0
+      - watchdog\ @\ 400d8000 (READY)
+        DT node labels: wdt0
       - dma\ @\ 50000000 (READY)
         DT node labels: dma
       - gpio-port\ @\ 0 (READY)
@@ -206,13 +208,13 @@ on the console, here configured for a USB console:
         DT node labels: spi1
       - spi\ @\ 40080000 (READY)
         DT node labels: spi0
-      - lcd_backlight_en (READY)
+      - lcd-backlight-en (READY)
         DT node labels: lcd_backlight_en
-      - mipi_dbi_spi0 (READY)
+      - mipi-dbi-spi0 (READY)
         DT node labels: mipi_dbi_spi0
-      - st7789v\ @\ 0 (READY)
+      - st7789v-240x280\ @\ 0 (READY)
         DT node labels: st7789v_240x280 lcd_panel
-      - gpio_keys (READY)
+      - gpio-keys (READY)
         DT node labels: gpio_keys
       - lvgl-buttons (READY)
         DT node labels: lvgl_buttons
