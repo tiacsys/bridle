@@ -42,22 +42,8 @@ config PWM
 	default y
 	depends on DT_HAS_RASPBERRYPI_PICO_PWM_ENABLED
 
-config LV_Z_BITS_PER_PIXEL
-	default 16 if BOARD_PICOBOY_COLOR
-	depends on DISPLAY && LVGL
-
 choice LV_COLOR_DEPTH
 	default LV_COLOR_DEPTH_16 if BOARD_PICOBOY_COLOR
-	depends on DISPLAY && LVGL
-endchoice
-
-config LV_COLOR_16_SWAP
-	default y if BOARD_PICOBOY_COLOR
-	depends on DISPLAY && LVGL
-
-choice LV_FONT_DEFAULT
-	default LV_FONT_DEFAULT_MONTSERRAT_10 if !LV_CONF_MINIMAL
-	default LV_FONT_DEFAULT_UNSCII_8 if LV_CONF_MINIMAL
 	depends on DISPLAY && LVGL
 endchoice
 
@@ -107,3 +93,17 @@ choice UDC_DRIVER_LOG_LEVEL_CHOICE
 endchoice
 
 endif # zephyr,cdc-acm-uart
+
+if BOARD_PICOBOY_COLOR && \
+	$(dt_nodelabel_bool_prop,lcd_backlight_en,regulator-boot-on)
+
+config GPIO_HOGS
+	default n if DT_HAS_PWM_LEDS_ENABLED
+	depends on DT_HAS_RASPBERRYPI_PICO_GPIO_ENABLED
+
+config GPIO_HOGS_INIT_PRIORITY
+	default LED_INIT_PRIORITY if LED
+	default APPLICATION_INIT_PRIORITY
+	depends on GPIO_HOGS
+
+endif # lcd_backlight_en has regulator-boot-on
