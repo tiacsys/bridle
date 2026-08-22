@@ -2,8 +2,8 @@
 # SPDX-License-Identifier: Apache-2.0
 
 config RP2_FLASH_W25Q080
-	default y
-	depends on BOARD_CYTRON_MAKER_NANO_RP2040
+	default y if BOARD_CYTRON_MAKER_NANO_RP2040
+	depends on SOC_SERIES_RP2040
 
 config CLOCK_CONTROL
 	default y
