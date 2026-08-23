@@ -14,7 +14,7 @@ Invoke :program:`west build` and :program:`west flash`:
 .. zephyr-app-commands::
    :app: bridle/samples/buzzer
    :build-dir: cytron_maker_nano_rp2040
-   :board: cytron_maker_nano_rp2040
+   :board: cytron_maker_nano_rp2040/rp2040
    :snippets: "usb-console"
    :west-args: -p
    :goals: flash

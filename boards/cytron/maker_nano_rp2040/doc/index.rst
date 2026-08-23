@@ -401,11 +401,6 @@ Sounds from the speaker with USB-CDC/ACM Console
 
 .. include:: buzzer.rsti
 
-Drive a motor with USB-CDC/ACM Console
-======================================
-
-.. include:: servo.rsti
-
 Display Test and Demonstration
 ==============================
 

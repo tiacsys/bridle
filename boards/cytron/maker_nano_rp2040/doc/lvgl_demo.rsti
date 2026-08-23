@@ -5,7 +5,7 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`lvgl`.
 .. zephyr-app-commands::
    :app: zephyr/samples/subsys/display/lvgl
    :build-dir: cytron_maker_nano_rp2040
-   :board: cytron_maker_nano_rp2040
+   :board: cytron_maker_nano_rp2040/rp2040
    :shield: "waveshare_2_4_lcd"
    :snippets: "usb-console"
    :west-args: -p
@@ -30,17 +30,18 @@ on the console, here configured for a USB console:
       :bgn:`uart:~$` **lvgl stats**
       stats - Show LVGL statistics
       Subcommands:
-        memory  :Show LVGL memory statistics
-                 Usage: lvgl stats memory [-c]
-                 -c  dump chunk information
+        memory  : Show LVGL memory statistics
+                  Usage: memory [-c]
+                         -c  dump chunk information
 
       :bgn:`uart:~$` **lvgl stats memory**
-      Heap at 0x20001540 contains 2047 units in 11 buckets
+      Heap at 0x200015a0 contains 2047 units in 11 buckets
 
         bucket#    min units        total      largest      largest
                    threshold       chunks      (units)      (bytes)
         -----------------------------------------------------------
-              1            2            1            2           16
-             10         1024            1         1081         8648
+              0            1            2            1            8
+              1            2            3            3           24
+             10         1024            1         1046         8368
 
-      8664 free bytes, 7648 allocated bytes, overhead = 68 bytes (0.4%)
+      8416 free bytes, 7396 allocated bytes, overhead = 568 bytes (3.5%)
