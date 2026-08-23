@@ -223,14 +223,16 @@ SPI Port
 
 The `RP2350A <RP2350 SoC_>`_ MCU has 2 SPIs. To the edge connectors, SPI0 is
 usable for external devices over GP19 (MOSI), GP16 (MISO), GP18 (SCK), and
-GP17 (CSn) on the |Raspberry Pi Pico| header.
+GP17 (CSn) on the |Raspberry Pi Pico| header. SPI1 will be used for internal
+on-board CAN controller over GP11 (MOSI), GP12 (MISO), GP10 (SCK), and GP9 (CSn).
 
 I2C Port
 ========
 
-The `RP2350A <RP2350 SoC_>`_ MCU has 2 I2Cs. To the edge connectors, I2C0 and
-I2C1 is usable for external devices over GP4 (I2C0_SDA), GP5 (I2C0_SCL),
-GP14 (I2C1_SDA), and GP15 (I2C1_SCL) on the |Raspberry Pi Pico| header.
+The `RP2350A <RP2350 SoC_>`_ MCU has 2 I2Cs. The default serial bus I2C0 and
+the alternative I2C1 are usable for external devices over GP4 (I2C0_SDA),
+GP5 (I2C0_SCL), GP14 (I2C1_SDA), and GP15 (I2C1_SCL) on the |Raspberry Pi Pico|
+header.
 
 Serial Port
 ===========

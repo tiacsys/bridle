@@ -106,7 +106,7 @@ See also Bridle sample: :ref:`helloshell-sample`.
               DT node labels: spi0 pico_spi0 pico_spi rpipico_spi0 rpipico_spi
             - xl2515\ @\ 0 (READY)
               DT node labels: xl2515_can0 can0
-            - pwm_leds (READY)
+            - pwm-leds (READY)
               DT node labels: pwm_leds
             - dietemp (READY)
               DT node labels: die_temp
@@ -157,7 +157,7 @@ See also Bridle sample: :ref:`helloshell-sample`.
               DT node labels: spi0 pico_spi0 pico_spi rpipico_spi0 rpipico_spi
             - xl2515\ @\ 0 (READY)
               DT node labels: xl2515_can0 can0
-            - pwm_leds (READY)
+            - pwm-leds (READY)
               DT node labels: pwm_leds
             - dietemp (READY)
               DT node labels: die_temp
@@ -226,7 +226,7 @@ See also Bridle sample: :ref:`helloshell-sample`.
             :bgn:`uart:~$` **regulator vget vreg**
             1.100000 V
 
-      .. Trigger a power-of/on sequence:
+      .. Trigger a power-off/on sequence:
 
          .. container:: highlight highlight-console notranslate
 
@@ -257,56 +257,57 @@ See also Bridle sample: :ref:`helloshell-sample`.
          This condition is irreversible at runtime within the shell and
          :strong:`requires a system reset`.
 
-      Operate with the green user LED:
+      Operate with the green user LED :hwftlbl-led:`PWM_LED`
+      at :rpi-pico-pio:`GP25` / :rpi-pico-pwm:`PWM9` (PWM4CHB):
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **led on pwm_leds 0**
-            pwm_leds: turning on LED 0
+            :bgn:`uart:~$` **led on pwm-leds 0**
+            pwm-leds: turning on LED 0
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **led set_brightness pwm_leds 0 10**
-            pwm_leds: setting LED 0 brightness to 10
+            :bgn:`uart:~$` **led set_brightness pwm-leds 0 10**
+            pwm-leds: setting LED 0 brightness to 10
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **led set_brightness pwm_leds 0 50**
-            pwm_leds: setting LED 0 brightness to 50
+            :bgn:`uart:~$` **led set_brightness pwm-leds 0 50**
+            pwm-leds: setting LED 0 brightness to 50
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **led set_brightness pwm_leds 0 100**
-            pwm_leds: setting LED 0 brightness to 100
+            :bgn:`uart:~$` **led set_brightness pwm-leds 0 100**
+            pwm-leds: setting LED 0 brightness to 100
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **led off pwm_leds 0**
-            pwm_leds: turning off LED 0
+            :bgn:`uart:~$` **led off pwm-leds 0**
+            pwm-leds: turning off LED 0
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **led blink pwm_leds 0 50 50**
-            pwm_leds: blinking LED 0 with 50 ms on and 50 ms off
+            :bgn:`uart:~$` **led blink pwm-leds 0 50 50**
+            pwm-leds: blinking LED 0 with 50 ms on and 50 ms off
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **led off pwm_leds 0**
-            pwm_leds: turning off LED 0
+            :bgn:`uart:~$` **led off pwm-leds 0**
+            pwm-leds: turning off LED 0
 
    .. group-tab:: PWM
 
@@ -317,7 +318,8 @@ See also Bridle sample: :ref:`helloshell-sample`.
          This condition is irreversible at runtime within the shell and
          :strong:`requires a system reset`.
 
-      Operate with the green user LED:
+      Operate with the green user LED :hwftlbl-led:`PWM_LED`
+      at :rpi-pico-pio:`GP25` / :rpi-pico-pwm:`PWM9` (PWM4CHB):
 
       .. container:: highlight highlight-console notranslate
 
@@ -387,22 +389,65 @@ See also Bridle sample: :ref:`helloshell-sample`.
 
    .. group-tab:: GPIO
 
-      Operate with the green user LED:
+      Operate with the green user LED :hwftlbl-led:`LED`
+      at :rpi-pico-pio:`GP25`:
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **gpio get gpio0 25**
+            :bgn:`uart:~$` **gpio get gpio0 ULED0_PWM9**
             0
 
-            :bgn:`uart:~$` **gpio conf gpio0 25 oh0**
+            :bgn:`uart:~$` **gpio conf gpio0 ULED0_PWM9 oh0**
 
-            :bgn:`uart:~$` **gpio set gpio0 25 1**
-            :bgn:`uart:~$` **gpio set gpio0 25 0**
+            :bgn:`uart:~$` **gpio set gpio0 ULED0_PWM9 1**
+            :bgn:`uart:~$` **gpio set gpio0 ULED0_PWM9 0**
 
-            :bgn:`uart:~$` **gpio blink gpio0 25**
+            :bgn:`uart:~$` **gpio blink gpio0 ULED0_PWM9**
             Hit any key to exit
+
+      Get an overview of aviliable signale names:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **gpio info gpio0**
+             ngpios: 30
+             Reserved pin mask: 0x00000000
+
+             Reserved  Pin  Line Name
+                        0    TX0
+                        1    RX0
+                        2    GP2_PWM2_CTS0
+                        3    GP3_PWM3_RTS0
+                        4    SDA0
+                        5    SCL0
+                        6    GP6_PWM6
+                        7    GP7_PWM7
+                        8    CAN_IRQ
+                        9    CAN_CSN1
+                       10    CAN_SCK1
+                       11    CAN_SDO1
+                       12    CAN_SDI1
+                       13    GP13_PWM13
+                       14    GP14_PWM14_SDA1
+                       15    GP15_PWM15_SCL1
+                       16    SDI0
+                       17    CSN0
+                       18    SCK0
+                       19    SDO0
+                       20    GP20_PWM4
+                       21    GP21_PWM5
+                       22    GP22_PWM6
+                       23    PSU_SMPS_PWM7
+                       24    PSU_VBUS/1.51
+                       25    ULED0_PWM9
+                       26    ADC0
+                       27    ADC1
+                       28    ADC2
+                       29    PSU_ADC3_VSYS/3
 
    .. group-tab:: ADC
 
@@ -560,12 +605,12 @@ See also Bridle sample: :ref:`helloshell-sample`.
          .. parsed-literal::
 
             :bgn:`uart:~$` **sensor get dietemp**
-            channel type=12(die_temp) index=0 shift=6 num_samples=1 value=40109105735ns (21.189423)
+            channel type=12(die_temp) index=0 shift=5 num_samples=1 value=40109105735ns (21.189423)
 
    .. group-tab:: CAN
 
       Operate with the on-board CAN controller
-      :brd:`against another CAN node` (not in loopback mode):
+      :brd:`against another CAN node` in normal (not loopback) mode:
 
       .. container:: highlight highlight-console notranslate
 
