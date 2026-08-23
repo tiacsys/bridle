@@ -102,7 +102,7 @@ See also Bridle sample: :ref:`helloshell-sample`.
               DT node labels: vreg
             - spi\ @\ 40080000 (READY)
               DT node labels: spi0
-            - pwm_leds (READY)
+            - pwm-leds (READY)
               DT node labels: pwm_leds
             - ws2812\ @\ 0 (READY)
               DT node labels: led_strip
@@ -151,7 +151,7 @@ See also Bridle sample: :ref:`helloshell-sample`.
               DT node labels: vreg
             - spi\ @\ 40080000 (READY)
               DT node labels: spi0
-            - pwm_leds (READY)
+            - pwm-leds (READY)
               DT node labels: pwm_leds
             - ws2812\ @\ 0 (READY)
               DT node labels: led_strip
@@ -222,7 +222,7 @@ See also Bridle sample: :ref:`helloshell-sample`.
             :bgn:`uart:~$` **regulator vget vreg**
             1.100000 V
 
-      .. Trigger a power-of/on sequence:
+      .. Trigger a power-off/on sequence:
 
          .. container:: highlight highlight-console notranslate
 
@@ -336,50 +336,50 @@ See also Bridle sample: :ref:`helloshell-sample`.
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **led on pwm_leds 0**
-            pwm_leds: turning on LED 0
+            :bgn:`uart:~$` **led on pwm-leds 0**
+            pwm-leds: turning on LED 0
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **led set_brightness pwm_leds 0 10**
-            pwm_leds: setting LED 0 brightness to 10
+            :bgn:`uart:~$` **led set_brightness pwm-leds 0 10**
+            pwm-leds: setting LED 0 brightness to 10
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **led set_brightness pwm_leds 0 50**
-            pwm_leds: setting LED 0 brightness to 50
+            :bgn:`uart:~$` **led set_brightness pwm-leds 0 50**
+            pwm-leds: setting LED 0 brightness to 50
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **led set_brightness pwm_leds 0 100**
-            pwm_leds: setting LED 0 brightness to 100
+            :bgn:`uart:~$` **led set_brightness pwm-leds 0 100**
+            pwm-leds: setting LED 0 brightness to 100
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **led off pwm_leds 0**
-            pwm_leds: turning off LED 0
+            :bgn:`uart:~$` **led off pwm-leds 0**
+            pwm-leds: turning off LED 0
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **led blink pwm_leds 0 50 50**
-            pwm_leds: blinking LED 0 with 50 ms on and 50 ms off
+            :bgn:`uart:~$` **led blink pwm-leds 0 50 50**
+            pwm-leds: blinking LED 0 with 50 ms on and 50 ms off
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **led off pwm_leds 0**
-            pwm_leds: turning off LED 0
+            :bgn:`uart:~$` **led off pwm-leds 0**
+            pwm-leds: turning off LED 0
 
    .. group-tab:: PWM
 
@@ -546,15 +546,15 @@ See also Bridle sample: :ref:`helloshell-sample`.
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **gpio get gpio0 18**
+            :bgn:`uart:~$` **gpio get gpio0 GBH3_ULED0**
             0
 
-            :bgn:`uart:~$` **gpio conf gpio0 18 oh0**
+            :bgn:`uart:~$` **gpio conf gpio0 GBH3_ULED0 oh0**
 
-            :bgn:`uart:~$` **gpio set gpio0 18 1**
-            :bgn:`uart:~$` **gpio set gpio0 18 0**
+            :bgn:`uart:~$` **gpio set gpio0 GBH3_ULED0 1**
+            :bgn:`uart:~$` **gpio set gpio0 GBH3_ULED0 0**
 
-            :bgn:`uart:~$` **gpio blink gpio0 18**
+            :bgn:`uart:~$` **gpio blink gpio0 GBH3_ULED0**
             Hit any key to exit
 
       Operate with the user button :hwftlbl-btn:`BTN1`
@@ -564,16 +564,58 @@ See also Bridle sample: :ref:`helloshell-sample`.
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **gpio get gpio0 20**
+            :bgn:`uart:~$` **gpio get gpio0 UBTN0**
             0
 
-            :bgn:`uart:~$` **gpio conf gpio0 20 il**
-            :bgn:`uart:~$` **gpio get gpio0 20**
+            :bgn:`uart:~$` **gpio conf gpio0 UBTN0 il**
+            :bgn:`uart:~$` **gpio get gpio0 UBTN0**
             0
-            :bgn:`uart:~$` **gpio get gpio0 20**
+            :bgn:`uart:~$` **gpio get gpio0 UBTN0**
             1
-            :bgn:`uart:~$` **gpio get gpio0 20**
+            :bgn:`uart:~$` **gpio get gpio0 UBTN0**
             0
+
+      Get an overview of aviliable signale names:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **gpio info gpio0**
+             ngpios: 30
+             Reserved pin mask: 0xC3000000
+
+             Reserved  Pin  Line Name
+                        0    SRVM1_PWM0
+                        1    SRVM2_PWM1
+                        2    SRVM3_PWM2
+                        3    SRVM4_PWM3
+                        4    SRVM5_PWM4
+                        5    SRVM6_PWM5
+                        6    SRVM7_PWM6
+                        7    SRVM8_PWM7
+                        8    DCM1A_PWM8
+                        9    DCM1B_PWM9
+                       10    DCM2A_PWM10
+                       11    DCM2B_PWM11
+                       12    DCM3A_PWM12
+                       13    DCM3B_PWM13
+                       14    DCM4A_PWM14
+                       15    DCM4B_PWM15
+                       16    GBH1Q02_SDA0
+                       17    GBH2Q01_SCL0
+                       18    GBH3_ULED0
+                       19    GBH4
+                       20    UBTN0
+                       21    UBTN1
+                       22    BUZZER_PWM6
+                       23    RGB_SDO0
+                 *     24
+                 *     25
+                       26    GBH5Q12_ADC0
+                       27    GBH6Q11_ADC1
+                       28    GBH7Q22_TX0
+                       29    GBH8Q21_RX0
 
    .. group-tab:: ADC
 
@@ -744,4 +786,4 @@ See also Bridle sample: :ref:`helloshell-sample`.
          .. parsed-literal::
 
             :bgn:`uart:~$` **sensor get dietemp**
-            channel type=12(die_temp) index=0 shift=6 num_samples=1 value=14655375226ns (29.324229)
+            channel type=12(die_temp) index=0 shift=5 num_samples=1 value=14655375226ns (29.324229)

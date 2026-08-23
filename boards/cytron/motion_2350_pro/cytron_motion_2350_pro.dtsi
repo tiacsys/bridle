@@ -66,80 +66,80 @@
 		lvgl-codes = <LV_KEY_ENTER LV_KEY_NEXT>;
 	};
 
-	gpio_keys: gpio_keys {
+	gpio_keys: gpio-keys {
 		compatible = "gpio-keys";
 
-		btn0: btn_0 {
+		btn0: btn0 {
 			gpios = <&gpio0 20 GPIO_ACTIVE_LOW>;
 			zephyr,code = <INPUT_KEY_0>;
 			label = "BTN1";
 		};
-		btn1: btn_1 {
+		btn1: btn1 {
 			gpios = <&gpio0 21 GPIO_ACTIVE_LOW>;
 			zephyr,code = <INPUT_KEY_1>;
 			label = "BTN2";
 		};
 	};
 
-	gpio_leds: gpio_leds {
+	gpio_leds: gpio-leds {
 		compatible = "gpio-leds";
 
-		led0: led_0 {
+		led0: led0 {
 			gpios = <&gpio0 18 GPIO_ACTIVE_HIGH>;
 			label = "LED";
 		};
 	};
 
-	pwm_leds: pwm_leds {
+	pwm_leds: pwm-leds {
 		compatible = "pwm-leds";
 
-		pwm_led0: pwm_led_0 {
+		pwm_led0: pwm-led0 {
 			pwms = <&pwm 2 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
 			label = "PWM_LED";
 		};
 	};
 
-	pwm_buzzers {
+	pwm_buzzers: pwm-buzzers {
 		compatible = "pwm-buzzers";
 
-		pwm_buzzer0: pwm_buzzer0 {
+		pwm_buzzer0: pwm-buzzer0 {
 			pwms = <&pwm 6 PWM_HZ(880) PWM_POLARITY_NORMAL>;
 			label = "PWM_BUZZER";
 		};
 	};
 
-	pwm_servo_motors {
+	pwm_servo_motors: pwm-servo-motors {
 		compatible = "pwm-servos";
 
-		pwm_servo0: pwm_servo_0 {
+		pwm_servo0: pwm-servo0 {
 			pwms = <&pwm 0 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
 			label = "PWM_SERVO_0";
 		};
-		pwm_servo1: pwm_servo_1 {
+		pwm_servo1: pwm-servo1 {
 			pwms = <&pwm 1 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
 			label = "PWM_SERVO_1";
 		};
-		pwm_servo2: pwm_servo_2 {
+		pwm_servo2: pwm-servo2 {
 			pwms = <&pwm 2 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
 			label = "PWM_SERVO_2";
 		};
-		pwm_servo3: pwm_servo_3 {
+		pwm_servo3: pwm-servo3 {
 			pwms = <&pwm 3 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
 			label = "PWM_SERVO_3";
 		};
-		pwm_servo4: pwm_servo_4 {
+		pwm_servo4: pwm-servo4 {
 			pwms = <&pwm 4 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
 			label = "PWM_SERVO_4";
 		};
-		pwm_servo5: pwm_servo_5 {
+		pwm_servo5: pwm-servo5 {
 			pwms = <&pwm 5 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
 			label = "PWM_SERVO_5";
 		};
-		pwm_servo6: pwm_servo_6 {
+		pwm_servo6: pwm-servo6 {
 			pwms = <&pwm 6 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
 			label = "PWM_SERVO_6";
 		};
-		pwm_servo7: pwm_servo_7 {
+		pwm_servo7: pwm-servo7 {
 			pwms = <&pwm 7 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
 			label = "PWM_SERVO_7";
 		};
