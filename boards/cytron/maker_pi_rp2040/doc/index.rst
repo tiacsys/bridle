@@ -381,7 +381,7 @@ Here is an example of building and flashing the
    .. zephyr-app-commands::
       :app: zephyr/samples/basic/blinky
       :build-dir: cytron_maker_pi_rp2040
-      :board: cytron_maker_pi_rp2040
+      :board: cytron_maker_pi_rp2040/rp2040
       :flash-args: -r jlink
       :west-args: -p
       :goals: flash
@@ -418,7 +418,7 @@ Here is an example of building and flashing the
    .. zephyr-app-commands::
       :app: zephyr/samples/basic/blinky
       :build-dir: cytron_maker_pi_rp2040
-      :board: cytron_maker_pi_rp2040
+      :board: cytron_maker_pi_rp2040/rp2040
       :gen-args: \
                  -DOPENOCD=/usr/local/bin/openocd \
                  -DOPENOCD_DEFAULT_PATH=/usr/local/share/openocd/scripts \
@@ -483,7 +483,7 @@ Here is an example for debugging the
    .. zephyr-app-commands::
       :app: zephyr/samples/basic/blinky
       :build-dir: cytron_maker_pi_rp2040
-      :board: cytron_maker_pi_rp2040
+      :board: cytron_maker_pi_rp2040/rp2040
       :maybe-skip-config:
       :gen-args: \
                  -DOPENOCD=/usr/local/bin/openocd \

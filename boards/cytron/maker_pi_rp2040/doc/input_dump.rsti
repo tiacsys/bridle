@@ -24,7 +24,7 @@ using the :external+zephyr:ref:`Input subsystem API <input>`. That are:
 .. zephyr-app-commands::
    :app: zephyr/samples/subsys/input/input_dump
    :build-dir: cytron_maker_pi_rp2040
-   :board: cytron_maker_pi_rp2040
+   :board: cytron_maker_pi_rp2040/rp2040
    :snippets: "usb-console"
    :west-args: -p
    :goals: flash
@@ -38,7 +38,7 @@ using the :external+zephyr:ref:`Input subsystem API <input>`. That are:
 
       \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
       Input sample started
-      I: input event: dev=gpio_keys        SYN type= 1 code= 11 value=1
-      I: input event: dev=gpio_keys        SYN type= 1 code= 11 value=0
-      I: input event: dev=gpio_keys        SYN type= 1 code=  2 value=1
-      I: input event: dev=gpio_keys        SYN type= 1 code=  2 value=0
+      I: input event: dev=gpio-keys        SYN type= 1 code= 11 value=1
+      I: input event: dev=gpio-keys        SYN type= 1 code= 11 value=0
+      I: input event: dev=gpio-keys        SYN type= 1 code=  2 value=1
+      I: input event: dev=gpio-keys        SYN type= 1 code=  2 value=0

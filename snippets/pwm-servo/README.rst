@@ -104,7 +104,7 @@ Supported boards are:
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/servo_motor
          :build-dir: cytron_maker_pi_rp2040
-         :board: cytron_maker_pi_rp2040
+         :board: cytron_maker_pi_rp2040/rp2040
          :snippets: "usb-console pwm-servo"
          :west-args: -p always
          :goals: flash

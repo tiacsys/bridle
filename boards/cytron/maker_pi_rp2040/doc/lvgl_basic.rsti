@@ -5,7 +5,7 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`display`.
 .. zephyr-app-commands::
    :app: zephyr/samples/drivers/display
    :build-dir: cytron_maker_pi_rp2040
-   :board: cytron_maker_pi_rp2040
+   :board: cytron_maker_pi_rp2040/rp2040
    :shield: "waveshare_2_4_lcd"
    :snippets: "usb-console"
    :west-args: -p

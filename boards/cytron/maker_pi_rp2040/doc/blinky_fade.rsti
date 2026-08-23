@@ -5,7 +5,7 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`blinky`.
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/blinky
    :build-dir: cytron_maker_pi_rp2040
-   :board: cytron_maker_pi_rp2040
+   :board: cytron_maker_pi_rp2040/rp2040
    :west-args: -p
    :goals: flash
    :compact:
@@ -17,7 +17,7 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`pwm-blinky`.
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/blinky_pwm
    :build-dir: cytron_maker_pi_rp2040
-   :board: cytron_maker_pi_rp2040
+   :board: cytron_maker_pi_rp2040/rp2040
    :west-args: -p
    :goals: flash
    :compact:
@@ -29,7 +29,7 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`fade-led`.
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/fade_led
    :build-dir: cytron_maker_pi_rp2040
-   :board: cytron_maker_pi_rp2040
+   :board: cytron_maker_pi_rp2040/rp2040
    :west-args: -p
    :goals: flash
    :compact:
@@ -41,7 +41,7 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`button`.
 .. zephyr-app-commands::
    :app: zephyr/samples/basic/button
    :build-dir: cytron_maker_pi_rp2040
-   :board: cytron_maker_pi_rp2040
+   :board: cytron_maker_pi_rp2040/rp2040
    :west-args: -p
    :goals: flash
    :compact:
@@ -57,7 +57,7 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`led-strip`.
 .. zephyr-app-commands::
    :app: zephyr/samples/drivers/led/led_strip
    :build-dir: cytron_maker_pi_rp2040
-   :board: cytron_maker_pi_rp2040
+   :board: cytron_maker_pi_rp2040/rp2040
    :gen-args: -DCONFIG_SAMPLE_LED_UPDATE_DELAY=500
    :west-args: -p
    :goals: flash
