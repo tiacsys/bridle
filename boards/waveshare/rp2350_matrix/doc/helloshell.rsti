@@ -109,8 +109,8 @@ See also Bridle sample: :ref:`helloshell-sample`.
             - vreg\ @\ 40100000 (READY)
               DT node labels: vreg
             - pio-ws2812 (READY)
-            - ws2812 (READY)
-              DT node labels: led_strip_8x8
+            - ws2812-8x8 (READY)
+              DT node labels: led_strip
             - qmi8658a\ @\ 6b (READY)
               DT node labels: qmi8658
             - dietemp (READY)
@@ -163,8 +163,8 @@ See also Bridle sample: :ref:`helloshell-sample`.
             - vreg\ @\ 40100000 (READY)
               DT node labels: vreg
             - pio-ws2812 (READY)
-            - ws2812 (READY)
-              DT node labels: led_strip_8x8
+            - ws2812-8x8 (READY)
+              DT node labels: led_strip
             - qmi8658a\ @\ 6b (READY)
               DT node labels: qmi8658
             - dietemp (READY)
@@ -234,7 +234,7 @@ See also Bridle sample: :ref:`helloshell-sample`.
             :bgn:`uart:~$` **regulator vget vreg**
             1.100000 V
 
-      .. Trigger a power-of/on sequence:
+      .. Trigger a power-off/on sequence:
 
          .. container:: highlight highlight-console notranslate
 
@@ -265,8 +265,8 @@ See also Bridle sample: :ref:`helloshell-sample`.
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **led_strip get_length led_strip_8x8**
-            ws2812 has 64 pixel(s)
+            :bgn:`uart:~$` **led_strip get_length led_strip**
+            ws2812-8x8 has 64 pixel(s)
 
       Sett all LEDs to :brd:`RED`:
 
@@ -274,7 +274,7 @@ See also Bridle sample: :ref:`helloshell-sample`.
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **led_strip fill led_strip_8x8 070000 64**
+            :bgn:`uart:~$` **led_strip fill led_strip 070000 64**
 
       Sett all LEDs to :byl:`YELLOW`:
 
@@ -282,7 +282,7 @@ See also Bridle sample: :ref:`helloshell-sample`.
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **led_strip fill led_strip_8x8 070700 64**
+            :bgn:`uart:~$` **led_strip fill led_strip 070700 64**
 
       Sett all LEDs to :bgn:`GREEN`:
 
@@ -290,7 +290,7 @@ See also Bridle sample: :ref:`helloshell-sample`.
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **led_strip fill led_strip_8x8 000700 64**
+            :bgn:`uart:~$` **led_strip fill led_strip 000700 64**
 
       Sett all LEDs to :bcy:`CYAN`:
 
@@ -298,7 +298,7 @@ See also Bridle sample: :ref:`helloshell-sample`.
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **led_strip fill led_strip_8x8 000707 64**
+            :bgn:`uart:~$` **led_strip fill led_strip 000707 64**
 
       Sett all LEDs to :bbl:`BLUE`:
 
@@ -306,7 +306,7 @@ See also Bridle sample: :ref:`helloshell-sample`.
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **led_strip fill led_strip_8x8 000007 64**
+            :bgn:`uart:~$` **led_strip fill led_strip 000007 64**
 
       Sett all LEDs to :bma:`MAGENTA`:
 
@@ -314,7 +314,7 @@ See also Bridle sample: :ref:`helloshell-sample`.
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **led_strip fill led_strip_8x8 070007 64**
+            :bgn:`uart:~$` **led_strip fill led_strip 070007 64**
 
       Sett all LEDs to :bwt:`WHITE` (all on):
 
@@ -322,7 +322,7 @@ See also Bridle sample: :ref:`helloshell-sample`.
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **led_strip fill led_strip_8x8 070707 64**
+            :bgn:`uart:~$` **led_strip fill led_strip 070707 64**
 
       Sett all LEDs to :bbk:`BLACK` (all off):
 
@@ -330,11 +330,57 @@ See also Bridle sample: :ref:`helloshell-sample`.
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **led_strip fill led_strip_8x8 000000 64**
+            :bgn:`uart:~$` **led_strip fill led_strip 000000 64**
+
+   .. group-tab:: GPIO
+
+      Get an overview of aviliable signale names:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **gpio info gpio0**
+             ngpios: 30
+             Reserved pin mask: 0xC2000000
+
+             Reserved  Pin  Line Name
+                        0    TX0
+                        1    RX0
+                        2    GP2_PWM2_CTS0
+                        3    GP3_PWM3_RTS0
+                        4    GP4_PWM4_DSR0
+                        5    GP5_PWM5_DTR0
+                        6    IMU_SDA1
+                        7    IMU_SCL1
+                        8    IMU_INT1
+                        9    IMU_INT2
+                       10    TX1
+                       11    RX1
+                       12    SDA0
+                       13    SCL0
+                       14    GP14_PWM14
+                       15    GP15_PWM15
+                       16    SDI0
+                       17    CSN0
+                       18    SCK0
+                       19    SDO0
+                       20    GP20_PWM4_DCD0
+                       21    GP21_PWM5_RI0
+                       22    GP22_PWM6
+                       23    GP23_PWM7
+                       24    GP24_PWM8
+                 *     25
+                       26    ADC0
+                       27    ADC1
+                       28    ADC2
+                       29    ADC3
 
    .. group-tab:: ADC
 
-      Operate with the on-chip temperature sensor on :rpi-pico-adc:`ADC_CH4`:
+      Operate with the channels:
+
+         - on-chip temperature sensor on channel :rpi-pico-adc:`ADC_CH4`
 
       .. container:: highlight highlight-console notranslate
 

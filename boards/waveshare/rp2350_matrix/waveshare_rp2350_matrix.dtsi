@@ -33,13 +33,13 @@
 		zephyr,code-partition = &code_partition;
 		zephyr,console = &uart1;
 		zephyr,shell-uart = &uart1;
-		zephyr,display = &rgb_led_strip_matrix;
+		zephyr,display = &led_strip_matrix;
 	};
 
 	aliases {
 		6dof-motion-drdy0 = &qmi8658;
 		accel0 = &qmi8658;
-		led-strip = &led_strip_8x8;
+		led-strip = &led_strip;
 		watchdog0 = &wdt0;
 	};
 
@@ -47,17 +47,8 @@
 		io-channels = <&adc 0>, <&adc 1>, <&adc 2>, <&adc 3>;
 	};
 
-	rgb_led_strip_matrix: rgb_led_strip_matrix {
+	led_strip_matrix: led-strip-matrix {
 		compatible = "led-strip-matrix";
-
-		/* LED strip with circulative layout */
-		led-strips = <&led_strip_8x8>;
-		circulative;
-
-		/* 8x8 panel with RGB pixel and alpha channel */
-		width = <8>;
-		height = <8>;
-		pixel-format = <PANEL_PIXEL_FORMAT_ARGB_8888>;
 	};
 };
 
@@ -187,7 +178,7 @@ zephyr_udc0: &usbd {
 		/* LO: 0x380: 1110000000: 0.375 us high and 0.875 us low */
 		bit-waveform = <3>, <3>, <4>;
 
-		led_strip_8x8: ws2812 {
+		led_strip: ws2812-8x8 {
 			status = "okay";
 
 			chain-length = <(8*8)>; /* 8x8 panel with RGB pixel */
@@ -201,6 +192,17 @@ zephyr_udc0: &usbd {
 			reset-delay = <280>;
 		};
 	};
+};
+
+&led_strip_matrix {
+	/* LED strip with circulative layout */
+	led-strips = <&led_strip>;
+	circulative;
+
+	/* 8x8 panel with RGB pixel and alpha channel */
+	width = <8>;
+	height = <8>;
+	pixel-format = <PANEL_PIXEL_FORMAT_ARGB_8888>;
 };
 
 &pwm {
@@ -221,11 +223,11 @@ gpio0_lo: &gpio0 {
 	gpio-reserved-ranges = <25 1>;
 	gpio-line-names =
 		"TX0",			/* GP0 */
-		"TX1",			/* GP1 */
-		"GP2_CTS0",		/* GP2 */
-		"GP3_RTS0",		/* GP3 */
-		"GP4_DSR0",		/* GP4 */
-		"GP5_DTR0",		/* GP5 */
+		"RX0",			/* GP1 */
+		"GP2_PWM2_CTS0",	/* GP2 */
+		"GP3_PWM3_RTS0",	/* GP3 */
+		"GP4_PWM4_DSR0",	/* GP4 */
+		"GP5_PWM5_DTR0",	/* GP5 */
 		"IMU_SDA1",		/* GP6 */
 		"IMU_SCL1",		/* GP7 */
 		"IMU_INT1",		/* GP8 */
@@ -234,8 +236,8 @@ gpio0_lo: &gpio0 {
 		"RX1",			/* GP11 */
 		"SDA0",			/* GP12 */
 		"SCL0",			/* GP13 */
-		"GP14",			/* GP14 */
-		"GP15",			/* GP15 */
+		"GP14_PWM14",		/* GP14 */
+		"GP15_PWM15",		/* GP15 */
 		"SDI0",			/* GP16 */
 		"CSN0",			/* GP17 */
 		"SCK0",			/* GP18 */
