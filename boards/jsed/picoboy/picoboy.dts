@@ -68,75 +68,75 @@
 			      LV_KEY_ENTER>;
 	};
 
-	gpio_keys: gpio_keys {
+	gpio_keys: gpio-keys {
 		compatible = "gpio-keys";
 
-		joystick_enter: joystick_enter {
+		joystick_enter: joystick-enter {
 			gpios = <&gpio0 0 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 			zephyr,code = <INPUT_KEY_ENTER>;
 			label = "Joystick ENTER";
 		};
-		joystick_up: joystick_up {
+		joystick_up: joystick-up {
 			gpios = <&gpio0 1 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 			zephyr,code = <INPUT_KEY_UP>;
 			label = "Joystick UP";
 		};
-		joystick_right: joystick_right {
+		joystick_right: joystick-right {
 			gpios = <&gpio0 2 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 			zephyr,code = <INPUT_KEY_RIGHT>;
 			label = "Joystick RIGHT";
 		};
-		joystick_down: joystick_down {
+		joystick_down: joystick-down {
 			gpios = <&gpio0 3 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 			zephyr,code = <INPUT_KEY_DOWN>;
 			label = "Joystick DOWN";
 		};
-		joystick_left: joystick_left {
+		joystick_left: joystick-left {
 			gpios = <&gpio0 4 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 			zephyr,code = <INPUT_KEY_LEFT>;
 			label = "Joystick LEFT";
 		};
 	};
 
-	gpio_leds: gpio_leds {
+	gpio_leds: gpio-leds {
 		compatible = "gpio-leds";
 
-		led0: led_red {
+		led0: led-red {
 			gpios = <&gpio0 5 GPIO_ACTIVE_HIGH>;
 			label = "LED Red";
 		};
-		led1: led_yellow {
+		led1: led-yellow {
 			gpios = <&gpio0 6 GPIO_ACTIVE_HIGH>;
 			label = "LED Yellow";
 		};
-		led2: led_green {
+		led2: led-green {
 			gpios = <&gpio0 7 GPIO_ACTIVE_HIGH>;
 			label = "LED Green";
 		};
 	};
 
-	pwm_leds: pwm_leds {
+	pwm_leds: pwm-leds {
 		compatible = "pwm-leds";
 
-		pwm_led0: pwm_led_red {
+		pwm_led0: pwm-led0-red {
 			pwms = <&pwm 5 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
 			label = "PWM_LED Red";
 		};
-		pwm_led1: pwm_led_yellow {
+		pwm_led1: pwm-led1-yellow {
 			pwms = <&pwm 6 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
 			label = "PWM_LED Yellow";
 		};
-		pwm_led2: pwm_led_green {
+		pwm_led2: pwm-led2-green {
 			pwms = <&pwm 7 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
 			label = "PWM_LED Green";
 		};
 	};
 
-	pwm_buzzers {
+	pwm_buzzers: pwm-buzzers {
 		compatible = "pwm-buzzers";
 		status = "okay";
 
-		pwm_speaker0: pwm_speaker0 {
+		pwm_speaker0: pwm-speaker0 {
 			pwms = <&pwm 15 PWM_HZ(880) PWM_POLARITY_NORMAL>;
 			label = "PWM_SPEAKER";
 		};
@@ -215,7 +215,7 @@ zephyr_udc0: &usbd {
 	cs-gpios = <&gpio0 10 GPIO_ACTIVE_LOW>;
 
 	/* OLED with SH1106 controller. */
-	sh1106_128x64: sh1106_128x64@0 {
+	sh1106_128x64: sh1106-128x64@0 {
 		compatible = "sinowealth,sh1106";
 		status = "okay";
 

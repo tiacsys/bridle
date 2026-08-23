@@ -76,20 +76,21 @@ on the console, here configured for a USB console:
       stats - Show LVGL statistics
       Subcommands:
         memory  : Show LVGL memory statistics
-                  Usage: lvgl stats memory [-c]
-                  -c  dump chunk information
+                  Usage: memory [-c]
+                         -c  dump chunk information
 
       :bgn:`uart:~$` **lvgl stats memory**
-      Heap at 0x20001580 contains 2047 units in 11 buckets
+      Heap at 0x20001618 contains 2047 units in 11 buckets
 
         bucket#    min units        total      largest      largest
                    threshold       chunks      (units)      (bytes)
         -----------------------------------------------------------
-              0            1            2            1            8
-              1            2            1            2           16
-             10         1024            1         1351        10808
+              0            1            1            1            8
+              1            2            2            2           16
+              2            4            1            4           32
+             10         1024            1         1326        10608
 
-      10840 free bytes, 5472 allocated bytes, overhead = 68 bytes (0.4%)
+      10660 free bytes, 5372 allocated bytes, overhead = 348 bytes (2.1%)
 
    .. parsed-literal::
 
@@ -101,10 +102,10 @@ on the console, here configured for a USB console:
         DT node labels: reset
       - cdc_acm_console_uart (READY)
         DT node labels: cdc_acm_console_uart
-      - watchdog\ @\ 40058000 (READY)
-        DT node labels: wdt0
       - timer\ @\ 40054000 (READY)
         DT node labels: timer
+      - watchdog\ @\ 40058000 (READY)
+        DT node labels: wdt0
       - dma\ @\ 50000000 (READY)
         DT node labels: dma
       - gpio-port\ @\ 0 (READY)
@@ -117,9 +118,9 @@ on the console, here configured for a USB console:
         DT node labels: vreg
       - spi\ @\ 4003c000 (READY)
         DT node labels: spi0
-      - sh1106_128x64\ @\ 0 (READY)
+      - sh1106-128x64\ @\ 0 (READY)
         DT node labels: sh1106_128x64 oled_panel
-      - gpio_keys (READY)
+      - gpio-keys (READY)
         DT node labels: gpio_keys
       - lvgl-keypad (READY)
         DT node labels: lvgl_keypad

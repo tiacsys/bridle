@@ -47,37 +47,11 @@ config LV_Z_VDB_SIZE
 	depends on DISPLAY && LVGL
 
 config LV_DPI_DEF
-	default 116 if BOARD_PICOBOY
-	depends on DISPLAY && LVGL
-
-config LV_Z_BITS_PER_PIXEL
-	default 1 if BOARD_PICOBOY
+	default 110 if BOARD_PICOBOY
 	depends on DISPLAY && LVGL
 
 choice LV_COLOR_DEPTH
 	default LV_COLOR_DEPTH_1 if BOARD_PICOBOY
-	depends on DISPLAY && LVGL
-endchoice
-
-config LV_FONT_MONTSERRAT_8
-	default y if BOARD_PICOBOY
-	depends on DISPLAY && LVGL
-
-config LV_FONT_MONTSERRAT_10
-	default y if BOARD_PICOBOY
-	depends on DISPLAY && LVGL
-
-config LV_FONT_MONTSERRAT_12
-	default y if BOARD_PICOBOY
-	depends on DISPLAY && LVGL
-
-config LV_FONT_MONTSERRAT_14
-	default y if BOARD_PICOBOY
-	depends on DISPLAY && LVGL
-
-choice LV_FONT_DEFAULT
-	default LV_FONT_DEFAULT_MONTSERRAT_10 if !LV_CONF_MINIMAL
-	default LV_FONT_DEFAULT_UNSCII_8 if LV_CONF_MINIMAL
 	depends on DISPLAY && LVGL
 endchoice
 
