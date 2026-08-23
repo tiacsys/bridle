@@ -4,8 +4,8 @@ See also Bridle sample: :ref:`helloshell-sample`.
 
 .. zephyr-app-commands::
    :app: bridle/samples/helloshell
-   :build-dir: waveshare_rp2040
-   :board: waveshare_rp2040_eth
+   :build-dir: waveshare_rp2040_eth
+   :board: waveshare_rp2040_eth/rp2040
    :snippets: "usb-console"
    :west-args: -p
    :goals: flash
@@ -136,7 +136,7 @@ See also Bridle sample: :ref:`helloshell-sample`.
             :bgn:`uart:~$` **regulator vget vreg**
             1.100000 V
 
-      Trigger a power-of/on sequence:
+      Trigger a power-off/on sequence:
 
       .. container:: highlight highlight-console notranslate
 
@@ -234,10 +234,56 @@ See also Bridle sample: :ref:`helloshell-sample`.
 
             :bgn:`uart:~$` **led_strip fill led_strip 000000 1**
 
+   .. group-tab:: GPIO
+
+      Get an overview of aviliable signale names:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **gpio info gpio0**
+             ngpios: 30
+             Reserved pin mask: 0xC381FC00
+
+             Reserved  Pin  Line Name
+                        0    TX0
+                        1    RX0
+                        2    GP2_PWM2_CTS0_SDA1
+                        3    GP3_PWM3_RTS0_SCL1
+                        4    SDI0
+                        5    CSN0
+                        6    SCK0
+                        7    SDO0
+                        8    SDA0
+                        9    SCL0
+                 *     10
+                 *     11
+                 *     12
+                 *     13
+                 *     14
+                 *     15
+                 *     16
+                       17    ETH_TCPCS
+                       18    ETH_CFG0
+                       19    ETH_RSTI
+                       20    ETH_RX1
+                       21    ETH_TX1
+                       22    GP22_PWM6
+                 *     23
+                 *     24
+                 *     25
+                       26    ADC0
+                       27    ADC1
+                       28    ADC2
+                       29    PSU_ADC3_VSYS/3
+
    .. group-tab:: ADC
 
-      Operate with the on-board voltage monitor on ADC CH3
-      and the on-chip temperature sensor on ADC CH4:
+      Operate with the channels:
+
+         - on-board voltage monitor on channel :rpi-pico-adc:`ADC_CH3`
+         - on-chip temperature sensor on channel :rpi-pico-adc:`ADC_CH4`
 
       .. container:: highlight highlight-console notranslate
 
@@ -397,4 +443,4 @@ See also Bridle sample: :ref:`helloshell-sample`.
          .. parsed-literal::
 
             :bgn:`uart:~$` **sensor get dietemp**
-            channel type=12(die_temp) index=0 shift=6 num_samples=1 value=140591584104ns (27.581056)
+            channel type=12(die_temp) index=0 shift=5 num_samples=1 value=140591584104ns (27.581056)

@@ -8,8 +8,8 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`led-strip`.
 
 .. zephyr-app-commands::
    :app: zephyr/samples/drivers/led/led_strip
-   :build-dir: waveshare_rp2040
-   :board: waveshare_rp2040_eth
+   :build-dir: waveshare_rp2040_eth
+   :board: waveshare_rp2040_eth/rp2040
    :gen-args: -DCONFIG_SAMPLE_LED_UPDATE_DELAY=500
    :west-args: -p
    :goals: flash

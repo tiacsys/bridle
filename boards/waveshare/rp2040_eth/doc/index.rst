@@ -207,19 +207,19 @@ power supply.
 SPI Port
 ========
 
-The `RP2040 <RP2040 SoC_>`_ MCU has 2 SPIs. The serial bus SPI0 is connect to
-external devices over GP7 (MOSI), GP4 (MISO), GP6 (SCK), and GP5 (CSn) on the
-|Raspberry Pi Pico| header. Attention, this differs from the standard layout.
-SPI1 is not available in any default setup.
+The `RP2040 <RP2040 SoC_>`_ MCU has 2 SPIs. To the edge connectors SPI0 is
+usable for external devices over GP7 (MOSI), GP4 (MISO), GP6 (SCK), and
+GP5 (CSn) on the |Raspberry Pi Pico| header. Attention, this differs from
+the standard layout. SPI1 is not available in any default setup.
 
 I2C Port
 ========
 
-The `RP2040 <RP2040 SoC_>`_ MCU has 2 I2Cs. The serial bus I2C0 is connect to
-external devices over GP8 (I2C0_SDA) and GP9 (I2C0_SCL). Attention, this
-differs from the standard layout. I2C1 is not available in any default setup,
-but could be configured to GP2 (I2C1_SDA) and GP3 (I2C1_SCL) on the |Raspberry
-Pi Pico| header (also not in line with the standard layout).
+The `RP2040 <RP2040 SoC_>`_ MCU has 2 I2Cs. The default serial bus I2C0 is
+usable for external devices over GP8 (I2C0_SDA) and GP9 (I2C0_SCL). Attention,
+this differs from the standard layout. I2C1 is not available in any default
+setup, but could be configured to GP2 (I2C1_SDA) and GP3 (I2C1_SCL) on the
+|Raspberry Pi Pico| header (also not in line with the standard layout).
 
 Serial Port
 ===========

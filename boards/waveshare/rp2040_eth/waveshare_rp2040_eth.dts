@@ -185,7 +185,7 @@ zephyr_udc0: &usbd {
 	gpio-reserved-ranges = <10 7>, <23 3>;
 	gpio-line-names =
 		"TX0",			/* GP0 */
-		"TX1",			/* GP1 */
+		"RX0",			/* GP1 */
 		"GP2_PWM2_CTS0_SDA1",	/* GP2 */
 		"GP3_PWM3_RTS0_SCL1",	/* GP3 */
 		"SDI0",			/* GP4 */
