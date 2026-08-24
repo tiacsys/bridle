@@ -105,7 +105,7 @@ See also Bridle sample: :ref:`helloshell-sample`.
             - spi\ @\ 40080000 (READY)
               DT node labels: spi0 pico_spi0 pico_spi rpipico_spi0 rpipico_spi
             - xl2515\ @\ 0 (READY)
-              DT node labels: xl2515_can0 can0
+              DT node labels: xl2515 can0
             - pwm-leds (READY)
               DT node labels: pwm_leds
             - dietemp (READY)
@@ -156,7 +156,7 @@ See also Bridle sample: :ref:`helloshell-sample`.
             - spi\ @\ 40080000 (READY)
               DT node labels: spi0 pico_spi0 pico_spi rpipico_spi0 rpipico_spi
             - xl2515\ @\ 0 (READY)
-              DT node labels: xl2515_can0 can0
+              DT node labels: xl2515 can0
             - pwm-leds (READY)
               DT node labels: pwm_leds
             - dietemp (READY)
@@ -420,20 +420,20 @@ See also Bridle sample: :ref:`helloshell-sample`.
              Reserved  Pin  Line Name
                         0    TX0
                         1    RX0
-                        2    GP2_PWM2_CTS0
-                        3    GP3_PWM3_RTS0
+                        2    GP2_CTS0
+                        3    GP3_RTS0
                         4    SDA0
                         5    SCL0
-                        6    GP6_PWM6
-                        7    GP7_PWM7
+                        6    GP6
+                        7    GP7
                         8    CAN_IRQ
                         9    CAN_CSN1
                        10    CAN_SCK1
                        11    CAN_SDO1
                        12    CAN_SDI1
-                       13    GP13_PWM13
-                       14    GP14_PWM14_SDA1
-                       15    GP15_PWM15_SCL1
+                       13    GP13
+                       14    GP14_SDA1
+                       15    GP15_SCL1
                        16    SDI0
                        17    CSN0
                        18    SCK0
@@ -441,13 +441,13 @@ See also Bridle sample: :ref:`helloshell-sample`.
                        20    GP20_PWM4
                        21    GP21_PWM5
                        22    GP22_PWM6
-                       23    PSU_SMPS_PWM7
+                       23    PSU_SMPS
                        24    PSU_VBUS/1.51
                        25    ULED0_PWM9
                        26    ADC0
                        27    ADC1
                        28    ADC2
-                       29    PSU_ADC3_VSYS/3
+                       29    PSU_ADC3_VSYS/2
 
    .. group-tab:: ADC
 

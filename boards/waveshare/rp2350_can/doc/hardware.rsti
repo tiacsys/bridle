@@ -48,6 +48,7 @@ The castellated module allows soldering direct to carrier boards.
        - On-board :bbl:`BOOT` button
        - On-board :bbl:`1 User LED`
        - On-board :bbl:`CAN V2.0B controller and 1 Mbps transceiver`
+       - :bbk:`1 INT signal from CAN controller`
        - :bbl:`26 GPIO` pins via :bbk:`edge pinout`
        - :bbl:`2 UART` peripherals via :bbk:`edge pinout`
        - :bbl:`2 I2C` controllers via :bbk:`edge pinout`

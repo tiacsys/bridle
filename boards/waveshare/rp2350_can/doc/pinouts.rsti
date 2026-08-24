@@ -19,7 +19,7 @@ in parallel.
 
    * - :on-edge(1-40):
           :hwftlbl-pio:`8`
-          :hwftlbl-pwm:`7`
+          :hwftlbl-pwm:`3`
           :hwftlbl-adc:`3`
           :hwftlbl-i2c:`2`
           :hwftlbl-spi:`2`
@@ -38,13 +38,13 @@ in parallel.
        - | :rpi-pico-pin:`1` :rpi-pico-uart-dfl:`UART0_TX` : GP0 (PWM0)
        - | :rpi-pico-pin:`2` :rpi-pico-uart-dfl:`UART0_RX` : GP1 (PWM1)
        - | :rpi-pico-pin:`3` :rpi-pico-gnd:`GND`
-       - | :rpi-pico-pin:`4` PIO/PWM : :rpi-pico-pio:`GP2` :rpi-pico-pwm:`PWM2`
-       - | :rpi-pico-pin:`5` PIO/PWM : :rpi-pico-pio:`GP3` :rpi-pico-pwm:`PWM3`
+       - | :rpi-pico-pin:`4` :rpi-pico-uart:`(UART0_CTS)` : :rpi-pico-pio:`GP2` (PWM2)
+       - | :rpi-pico-pin:`5` :rpi-pico-uart:`(UART0_RTS)` : :rpi-pico-pio:`GP3` (PWM3)
        - | :rpi-pico-pin:`6` :rpi-pico-i2c-dfl:`I2C0_SDA` : GP4 (PWM4)
        - | :rpi-pico-pin:`7` :rpi-pico-i2c-dfl:`I2C0_SCL` : GP5 (PWM5)
        - | :rpi-pico-pin:`8` :rpi-pico-gnd:`GND`
-       - | :rpi-pico-pin:`9` PIO/PWM : :rpi-pico-pio:`GP6` :rpi-pico-pwm:`PWM6`
-       - | :rpi-pico-pin:`10` PIO/PWM : :rpi-pico-pio:`GP7` :rpi-pico-pwm:`PWM7`
+       - | :rpi-pico-pin:`9` PIO/PWM : :rpi-pico-pio:`GP6` (PWM6)
+       - | :rpi-pico-pin:`10` PIO/PWM : :rpi-pico-pio:`GP7` (PWM7)
        - | :rpi-pico-pin:`11` :rpi-pico-pio:`GPIO8` : GP8 (PWM8)
          | :rpi-pico-pin-nc:`nc` on-board CAN i/f interrupt :rpi-pico-sys:`CAN_INT`
        - | :rpi-pico-pin:`12` :rpi-pico-spi:`SPI1_CSN` : GP9 (PWM9)
@@ -56,7 +56,7 @@ in parallel.
          | :rpi-pico-pin-nc:`nc` on-board CAN i/f data :rpi-pico-sys:`CAN_MOSI`
        - | :rpi-pico-pin:`16` :rpi-pico-spi:`SPI1_RX` : GP12 (PWM12)
          | :rpi-pico-pin-nc:`nc` on-board CAN i/f data :rpi-pico-sys:`CAN_MISO`
-       - | :rpi-pico-pin:`17` PIO/PWM : :rpi-pico-pio:`GP13` :rpi-pico-pwm:`PWM13`
+       - | :rpi-pico-pin:`17` PIO/PWM : :rpi-pico-pio:`GP13` (PWM13)
        - | :rpi-pico-pin:`18` :rpi-pico-gnd:`GND`
        - | :rpi-pico-pin:`19` :rpi-pico-i2c:`I2C1_SDA` : GP14 (PWM14)
        - | :rpi-pico-pin:`20` :rpi-pico-i2c:`I2C1_SCL` : GP15 (PWM15)
