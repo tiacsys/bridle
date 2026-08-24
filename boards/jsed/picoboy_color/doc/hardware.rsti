@@ -50,8 +50,9 @@ RP2040 development board.
        - On-board :bbl:`1 User joystick (5 keys)`
        - On-board :bbl:`2 User button`
        - On-board :bbl:`3 User LEDs`
-       - On-board :bbl:`1.69-inch 240×280 pixels LCD`, 65K colorful IPS (serial)
        - On-board :bbl:`1 passive magnetic speaker`
+       - On-board :bbl:`1.69-inch 240×280 pixels LCD`, 65K colorful IPS (serial)
+       - :bbl:`RGB565`, 16-bit color depth
        - :bbk:`1 RST signal to LCD controller`
        - :bbk:`1 C/D signal to LCD controller`
        - :bbk:`1 SPI` controller for LCD

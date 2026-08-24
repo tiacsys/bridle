@@ -422,7 +422,7 @@ See also Bridle sample: :ref:`helloshell-sample`.
                        12    LED_GREEN
                        13    LED_YELLOW
                        14    LED_RED
-                       15    SPK_PWM15
+                       15    SPEAKER
                        16    LCD_SDI0
                        17    LCD_CSN0_HW
                        18    LCD_SCK0
