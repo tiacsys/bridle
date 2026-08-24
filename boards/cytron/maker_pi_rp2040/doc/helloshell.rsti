@@ -91,7 +91,7 @@ See also Bridle sample: :ref:`helloshell-sample`.
               DT node labels: pwm_leds
             - pio-ws2812 (READY)
             - ws2812 (READY)
-              DT node labels: led_strip
+              DT node labels: ws2812 led_strip
             - dietemp (READY)
               DT node labels: die_temp
 
@@ -499,7 +499,7 @@ See also Bridle sample: :ref:`helloshell-sample`.
 
             :bgn:`uart:~$` **gpio info gpio0**
              ngpios: 30
-             Reserved pin mask: 0xC3880000
+             Reserved pin mask: 0xC38C0000
 
              Reserved  Pin  Line Name
                         0    GROVE13_TX0
@@ -509,7 +509,7 @@ See also Bridle sample: :ref:`helloshell-sample`.
                         4    GROVE33_SDI0
                         5    GROVE34_CSN0
                         6    GROVE53
-                        7    GROVE73ULED0
+                        7    GROVE73_ULED0
                         8    DCM1A_PWM8
                         9    DCM1B_PWM9
                        10    DCM2A_PWM10
@@ -520,11 +520,11 @@ See also Bridle sample: :ref:`helloshell-sample`.
                        15    SRVM4_PWM15
                        16    GROVE43_SDA0
                        17    GROVE44_SCL0
-                       18    RGB_PIO0
+                 *     18
                  *     19
                        20    UBTN0
                        21    UBTN1
-                       22    BUZZER_PWM6
+                       22    BUZZER
                  *     23
                  *     24
                  *     25

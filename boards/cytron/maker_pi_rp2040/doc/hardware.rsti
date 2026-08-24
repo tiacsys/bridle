@@ -47,7 +47,7 @@ power sources can all be controlled with the power on/off switch on-board.
        :hwftlbl-pio:`13`
        :hwftlbl-pwm:`8`
        :hwftlbl-adc:`3`
-       :hwftlbl-i2c:`2`
+       :hwftlbl-i2c:`1`
        :hwftlbl-spi:`1`
        :hwftlbl-uart:`1`
 
@@ -67,11 +67,11 @@ power sources can all be controlled with the power on/off switch on-board.
        - On-board :bbl:`2 RGB LED` (strip)
        - On-board :bbl:`13 LED`
        - :bbl:`13 GPIO` pins via :bbk:`7 Grove connectors`
-       - :bbl:`1 UART` peripherals
-       - :bbl:`2 I2C` controllers
-       - :bbl:`1 SPI` controllers
-       - :bbl:`8 PWM` channels
-       - :bbl:`3 ADC` analog inputs
+       - :bbl:`1 UART` peripheral via :bbk:`1 Grove connector`
+       - :bbl:`1 I2C` controller via :bbk:`1 Grove connector`
+       - :bbl:`1 SPI` controller via :bbk:`2 Grove connectors`
+       - :bbl:`8 PWM` channels via :bbk:`6 Grove connectors`
+       - :bbl:`3 ADC` analog inputs via :bbk:`2 Grove connectors`
        - 8 Programmable I/O (PIO) state machines for custom peripherals
        - 1 Watchdog timer peripheral
        - 1 Temperature sensor on-chip

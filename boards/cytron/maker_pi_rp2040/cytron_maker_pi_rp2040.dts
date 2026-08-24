@@ -204,6 +204,38 @@ zephyr_udc0: &usbd {
 	clock-frequency = <I2C_BITRATE_STANDARD>;
 };
 
+&pio0 {
+	status = "okay";
+
+	pio-ws2812 {
+		compatible = "worldsemi,ws2812-rpi_pico-pio";
+		status = "okay";
+
+		pinctrl-0 = <&pio0_ws2812_default>;
+		pinctrl-names = "default";
+
+		/* HI: 0x3F0: 1111110000: 0.750 us high and 0.500 us low */
+		/* LO: 0x380: 1110000000: 0.375 us high and 0.875 us low */
+		bit-waveform = <3>, <3>, <4>;
+
+		ws2812: ws2812 {
+			status = "okay";
+
+			chain-length = <2>;
+			color-mapping = <LED_COLOR_ID_GREEN
+					 LED_COLOR_ID_RED
+					 LED_COLOR_ID_BLUE>;
+
+			/* PIO0:OUT @ GP18 and Tbit = 1.25 us / 10 */
+			gpios = <&gpio0 18 GPIO_ACTIVE_HIGH>;
+			frequency = <DT_FREQ_K(800)>;
+			reset-delay = <280>;
+		};
+	};
+};
+
+led_strip: &ws2812 {};
+
 &pwm {
 	status = "okay";
 	pinctrl-0 = <&pwm_default>;
@@ -220,40 +252,10 @@ zephyr_udc0: &usbd {
 	pinctrl-names = "default";
 };
 
-&pio0 {
-	status = "okay";
-
-	pio-ws2812 {
-		compatible = "worldsemi,ws2812-rpi_pico-pio";
-		status = "okay";
-
-		pinctrl-0 = <&pio0_ws2812_default>;
-		pinctrl-names = "default";
-
-		/* HI: 0x3F0: 1111110000: 0.750 us high and 0.500 us low */
-		/* LO: 0x380: 1110000000: 0.375 us high and 0.875 us low */
-		bit-waveform = <3>, <3>, <4>;
-
-		led_strip: ws2812 {
-			status = "okay";
-
-			chain-length = <2>;
-			color-mapping = <LED_COLOR_ID_GREEN
-					 LED_COLOR_ID_RED
-					 LED_COLOR_ID_BLUE>;
-
-			/* PIO0:OUT @ GP18 and Tbit = 1.25 us / 10 */
-			gpios = <&gpio0 18 GPIO_ACTIVE_HIGH>;
-			frequency = <DT_FREQ_K(800)>;
-			reset-delay = <280>;
-		};
-	};
-};
-
 &gpio0 {
 	status = "okay";
 	/* namespace and positions without wired bits */
-	gpio-reserved-ranges = <19 1>, <23 3>;
+	gpio-reserved-ranges = <18 2>, <23 3>;
 	gpio-line-names =
 		"GROVE13_TX0",		/* GP0 */
 		"GROVE14_RX0",		/* GP1 */
@@ -262,7 +264,7 @@ zephyr_udc0: &usbd {
 		"GROVE33_SDI0",		/* GP4 */
 		"GROVE34_CSN0",		/* GP5 */
 		"GROVE53",		/* GP6 */
-		"GROVE73ULED0",		/* GP7 */
+		"GROVE73_ULED0",	/* GP7 */
 		"DCM1A_PWM8",		/* GP8 */
 		"DCM1B_PWM9",		/* GP9 */
 		"DCM2A_PWM10",		/* GP10 */
@@ -273,11 +275,11 @@ zephyr_udc0: &usbd {
 		"SRVM4_PWM15",		/* GP15 */
 		"GROVE43_SDA0",		/* GP16 */
 		"GROVE44_SCL0",		/* GP17 */
-		"RGB_PIO0",		/* GP18 */
+		"",  /* Din of LED stripe, GP18 */
 		"",	 /* not connected, GP19 */
 		"UBTN0",		/* GP20 */
 		"UBTN1",		/* GP21 */
-		"BUZZER_PWM6",		/* GP22 */
+		"BUZZER",		/* GP22 */
 		"",	 /* not connected, GP23 */
 		"",	 /* not connected, GP24 */
 		"",	 /* not connected, GP25 */

@@ -120,11 +120,20 @@
 	};
 
 	adc_default: adc_default {
-		group26272829_adc {
-			pinmux = <ADC_CH0_P26>,		/* GP26: ADC_CH0 */
-				 <ADC_CH1_P27>,		/* GP27: ADC_CH1 */
-				 <ADC_CH2_P28>,		/* GP28: ADC_CH2 */
-				 <ADC_CH3_P29>;		/* GP29: ADC_CH3 */
+		group26_adc {
+			pinmux = <ADC_CH0_P26>;		/* GP26: ADC_CH0 */
+			input-enable;
+		};
+		group27_adc {
+			pinmux = <ADC_CH1_P27>;		/* GP27: ADC_CH1 */
+			input-enable;
+		};
+		group28_adc {
+			pinmux = <ADC_CH2_P28>;		/* GP28: ADC_CH2 */
+			input-enable;
+		};
+		group29_adc {
+			pinmux = <ADC_CH3_P29>;		/* GP29: ADC_CH3 */
 			input-enable;
 		};
 	};

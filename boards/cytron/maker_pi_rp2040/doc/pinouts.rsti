@@ -13,7 +13,7 @@ be used on-board as analog channel A3 for VM/2 voltage monitoring per default.
 
    * - :on-edge(Grove):
           :hwftlbl-pio:`2 (13)`
-          :hwftlbl-pwm:`2 (8)`
+          :hwftlbl-pwm:`1 (8)`
           :hwftlbl-adc:`3`
           :hwftlbl-i2c:`1`
           :hwftlbl-spi:`1`
@@ -36,32 +36,32 @@ be used on-board as analog channel A3 for VM/2 voltage monitoring per default.
              .. rubric:: Default Zephyr Peripheral Mapping (Grove 1)
              .. rst-class:: rst-columns edge-pinout
 
-             - | :rpi-pico-pin:`1` :rpi-pico-uart-dfl:`UART0_RX` : :rpi-pico-pio:`GP1` :rpi-pico-pwm:`PWM1`
-             - | :rpi-pico-pin:`2` :rpi-pico-uart-dfl:`UART0_TX` : :rpi-pico-pio:`GP0` :rpi-pico-pwm:`PWM0`
+             - | :rpi-pico-pin:`1` :rpi-pico-uart-dfl:`UART0_RX` : :rpi-pico-pio:`GP1` (PWM1)
+             - | :rpi-pico-pin:`2` :rpi-pico-uart-dfl:`UART0_TX` : :rpi-pico-pio:`GP0` (PWM0)
              - | :rpi-pico-pin:`3` :rpi-pico-vdd:`3V3(OUT)`
              - | :rpi-pico-pin:`4` :rpi-pico-gnd:`GND`
 
              .. rubric:: Default Zephyr Peripheral Mapping (Grove 2)
              .. rst-class:: rst-columns edge-pinout
 
-             - | :rpi-pico-pin:`1` :rpi-pico-spi-dfl:`SPI0_TX` : :rpi-pico-pio:`GP2` :rpi-pico-pwm:`PWM2`
-             - | :rpi-pico-pin:`2` :rpi-pico-spi-dfl:`SPI0_SCK` : :rpi-pico-pio:`GP3` :rpi-pico-pwm:`PWM3`
+             - | :rpi-pico-pin:`1` :rpi-pico-spi-dfl:`SPI0_TX` : :rpi-pico-pio:`GP2` (PWM2)
+             - | :rpi-pico-pin:`2` :rpi-pico-spi-dfl:`SPI0_SCK` : :rpi-pico-pio:`GP3` (PWM3)
              - | :rpi-pico-pin:`3` :rpi-pico-vdd:`3V3(OUT)`
              - | :rpi-pico-pin:`4` :rpi-pico-gnd:`GND`
 
              .. rubric:: Default Zephyr Peripheral Mapping (Grove 3)
              .. rst-class:: rst-columns edge-pinout
 
-             - | :rpi-pico-pin:`1` :rpi-pico-spi-dfl:`SPI0_CSN` : :rpi-pico-pio:`GP4` :rpi-pico-pwm:`PWM4`
-             - | :rpi-pico-pin:`2` :rpi-pico-spi-dfl:`SPI0_RX` : :rpi-pico-pio:`GP5` :rpi-pico-pwm:`PWM5`
+             - | :rpi-pico-pin:`1` :rpi-pico-spi-dfl:`SPI0_CSN` : :rpi-pico-pio:`GP4` (PWM4)
+             - | :rpi-pico-pin:`2` :rpi-pico-spi-dfl:`SPI0_RX` : :rpi-pico-pio:`GP5` (PWM5)
              - | :rpi-pico-pin:`3` :rpi-pico-vdd:`3V3(OUT)`
              - | :rpi-pico-pin:`4` :rpi-pico-gnd:`GND`
 
              .. rubric:: Default Zephyr Peripheral Mapping (Grove 4)
              .. rst-class:: rst-columns edge-pinout
 
-             - | :rpi-pico-pin:`1` :rpi-pico-i2c-dfl:`I2C0_SCL` : :rpi-pico-pio:`GP17` :rpi-pico-pwm:`PWM1`
-             - | :rpi-pico-pin:`2` :rpi-pico-i2c-dfl:`I2C0_SDA` : :rpi-pico-pio:`GP16` :rpi-pico-pwm:`PWM0`
+             - | :rpi-pico-pin:`1` :rpi-pico-i2c-dfl:`I2C0_SCL` : :rpi-pico-pio:`GP17` (PWM1)
+             - | :rpi-pico-pin:`2` :rpi-pico-i2c-dfl:`I2C0_SDA` : :rpi-pico-pio:`GP16` (PWM0)
              - | :rpi-pico-pin:`3` :rpi-pico-vdd:`3V3(OUT)`
              - | :rpi-pico-pin:`4` :rpi-pico-gnd:`GND`
 
@@ -71,7 +71,7 @@ be used on-board as analog channel A3 for VM/2 voltage monitoring per default.
              .. rst-class:: rst-columns edge-pinout
 
              - | :rpi-pico-pin:`1` :rpi-pico-adc:`ADC_CH0` : :rpi-pico-pio:`GP26` (PWM10)
-             - | :rpi-pico-pin:`2` PIO/PWM : :rpi-pico-pio:`GP6` :rpi-pico-pwm:`PWM6`
+             - | :rpi-pico-pin:`2` PIO/PWM : :rpi-pico-pio:`GP6` (PWM6)
              - | :rpi-pico-pin:`3` :rpi-pico-vdd:`3V3(OUT)`
              - | :rpi-pico-pin:`4` :rpi-pico-gnd:`GND`
 
@@ -125,6 +125,7 @@ be used on-board as analog channel A3 for VM/2 voltage monitoring per default.
 
        - :dtcompatible:`seeed,grove-laced-if`
        - :dtcompatible:`seeed,grove-connector`
+       - :dtcompatible:`worldsemi,ws2812-rpi_pico-pio`
 
      - .. image:: img/pinouts.jpg
           :align: center
