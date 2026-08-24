@@ -94,7 +94,7 @@ See also Bridle sample: :ref:`helloshell-sample`.
             - pwm-leds (READY)
               DT node labels: pwm_leds
             - ws2812\ @\ 0 (READY)
-              DT node labels: led_strip
+              DT node labels: ws2812 led_strip
             - dietemp (READY)
               DT node labels: die_temp
 
@@ -450,15 +450,15 @@ See also Bridle sample: :ref:`helloshell-sample`.
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **gpio get gpio0 AH12_ULED0**
+            :bgn:`uart:~$` **gpio get gpio0 AHD9_PWM9_ULED0**
             0
 
-            :bgn:`uart:~$` **gpio conf gpio0 AH12_ULED0 oh0**
+            :bgn:`uart:~$` **gpio conf gpio0 AHD9_PWM9_ULED0 oh0**
 
-            :bgn:`uart:~$` **gpio set gpio0 AH12_ULED0 1**
-            :bgn:`uart:~$` **gpio set gpio0 AH12_ULED0 0**
+            :bgn:`uart:~$` **gpio set gpio0 AHD9_PWM9_ULED0 1**
+            :bgn:`uart:~$` **gpio set gpio0 AHD9_PWM9_ULED0 0**
 
-            :bgn:`uart:~$` **gpio blink gpio0 AH12_ULED0**
+            :bgn:`uart:~$` **gpio blink gpio0 AHD9_PWM9_ULED0**
             Hit any key to exit
 
       Operate with the user button :hwftlbl-btn:`BTN1`
@@ -487,39 +487,39 @@ See also Bridle sample: :ref:`helloshell-sample`.
 
             :bgn:`uart:~$` **gpio info gpio0**
              ngpios: 30
-             Reserved pin mask: 0xC3A00400
+             Reserved pin mask: 0xC3A00C00
 
              Reserved  Pin  Line Name
-                        0    AH1Q02_TX0
-                        1    AH2Q01_RX0
-                        2    AH5
-                        3    AH6
-                        4    AH7
-                        5    AH8
-                        6    AH9
-                        7    AH10
-                        8    AH11
-                        9    AH12_ULED0
+                        0    AHD1Q02_TX0
+                        1    AHD0Q01_RX0
+                        2    AHD2_CTS0
+                        3    AHD3_RTS0
+                        4    AHD4
+                        5    AHD5_PWM5
+                        6    AHD6
+                        7    AHD7_PWM7
+                        8    AHD8_PWM8
+                        9    AHD9_PWM9_ULED0
                  *     10
-                       11    RGB_SDO1
-                       12    AH23_SDA0
-                       13    AH24_SCL0
-                       14    AH25
-                       15    AH26
-                       16    AH15_SDI0
-                       17    AH13_CSN0
-                       18    AH16_SCK0
-                       19    AH14_SDO0
+                 *     11
+                       12    AHD18_SDA0
+                       13    AHD19_SCL0
+                       14    AHA6
+                       15    AHA7
+                       16    AHD12_SDI0
+                       17    AHD10_CSN0
+                       18    AHD13_SCK0
+                       19    AHD11_SDO0
                        20    UBTN0
                  *     21
-                       22    BUZZER_PWM6
+                       22    BUZZER
                  *     23
                  *     24
                  *     25
-                       26    AH19Q12_SDA1
-                       27    AH20Q11_SCL1
-                       28    AH21_ADC2
-                       29    AH22_ADC3
+                       26    AHD14Q12_SDA1
+                       27    AHD15Q11_SCL1
+                       28    AHA2_ADC2
+                       29    AHA3_ADC3
 
    .. group-tab:: ADC
 

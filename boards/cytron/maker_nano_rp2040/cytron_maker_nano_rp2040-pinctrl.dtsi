@@ -20,6 +20,18 @@
 		};
 	};
 
+	uart0_default_hwflow: uart0_default_hwflow {
+		group03_uart {
+			pinmux = <UART0_TX_P0>,		/* GP0: UART0_TX */
+				 <UART0_RTS_P3>;	/* GP3: UART0_RTS */
+		};
+		group12_uart {
+			pinmux = <UART0_RX_P1>,		/* GP1: UART0_RX */
+				 <UART0_CTS_P2>;	/* GP2: UART0_CTS */
+			input-enable;
+		};
+	};
+
 	spi0_default: spi0_default {
 		group171819_spi {
 			pinmux = <SPI0_CSN_P17>,	/* GP17: SPI0_CSn */
@@ -65,6 +77,15 @@
 	};
 
 	pwm_default: pwm_default {
+		group5_pwm {
+			pinmux = <PWM_2B_P5>;		/* GP5: PWM2CHB (5) */
+		};
+		group7_pwm {
+			pinmux = <PWM_3B_P7>;		/* GP7: PWM3CHB (7) */
+		};
+		group8_pwm {
+			pinmux = <PWM_4A_P8>;		/* GP8: PWM4CHA (8) */
+		};
 		group9_led {
 			pinmux = <PWM_4B_P9>;		/* GP9: PWM4CHB (9) */
 		};
@@ -74,9 +95,12 @@
 	};
 
 	adc_default: adc_default {
-		group2829_adc {
-			pinmux = <ADC_CH2_P28>,		/* GP28: ADC_CH2 */
-				 <ADC_CH3_P29>;		/* GP29: ADC_CH3 */
+		group28_adc {
+			pinmux = <ADC_CH2_P28>;		/* GP28: ADC_CH2 */
+			input-enable;
+		};
+		group29_adc {
+			pinmux = <ADC_CH3_P29>;		/* GP29: ADC_CH3 */
 			input-enable;
 		};
 	};

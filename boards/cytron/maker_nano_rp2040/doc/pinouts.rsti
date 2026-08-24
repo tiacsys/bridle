@@ -12,7 +12,7 @@ digital signal lines. Also all IO voltage levels are limited to 3.3V only.
      - .. rubric:: Pinout
 
    * - :on-edge(1-30):
-          :hwftlbl-pio:`10`
+          :hwftlbl-pio:`4`
           :hwftlbl-pwm:`10`
           :hwftlbl-adc:`2`
           :hwftlbl-i2c:`2`
@@ -37,11 +37,11 @@ digital signal lines. Also all IO voltage levels are limited to 3.3V only.
        - | :rpi-pico-pin:`2` :rpi-pico-uart-dfl:`UART0_RX` : GP1 (PWM1)
        - | :rpi-pico-pin:`3` :rpi-pico-sys:`RUN` (RESET)
        - | :rpi-pico-pin:`4` :rpi-pico-gnd:`GND`
-       - | :rpi-pico-pin:`5` PIO/PWM : :rpi-pico-pio:`GP2` :rpi-pico-pwm:`PWM2`
-       - | :rpi-pico-pin:`6` PIO/PWM : :rpi-pico-pio:`GP3` :rpi-pico-pwm:`PWM3`
-       - | :rpi-pico-pin:`7` PIO/PWM : :rpi-pico-pio:`GP4` :rpi-pico-pwm:`PWM4`
+       - | :rpi-pico-pin:`5` :rpi-pico-uart-dfl:`(UART0_CTS)` : :rpi-pico-pio:`GP2` (PWM2)
+       - | :rpi-pico-pin:`6` :rpi-pico-uart-dfl:`(UART0_RTS)` : :rpi-pico-pio:`GP3` (PWM3)
+       - | :rpi-pico-pin:`7` PIO/PWM : :rpi-pico-pio:`GP4` (PWM4)
        - | :rpi-pico-pin:`8` PIO/PWM : :rpi-pico-pio:`GP5` :rpi-pico-pwm:`PWM5`
-       - | :rpi-pico-pin:`9` PIO/PWM : :rpi-pico-pio:`GP6` :rpi-pico-pwm:`PWM6`
+       - | :rpi-pico-pin:`9` PIO/PWM : :rpi-pico-pio:`GP6` (PWM6)
        - | :rpi-pico-pin:`10` PIO/PWM : :rpi-pico-pio:`GP7` :rpi-pico-pwm:`PWM7`
        - | :rpi-pico-pin:`11` PIO/PWM : :rpi-pico-pio:`GP8` :rpi-pico-pwm:`PWM8`
        - | :rpi-pico-pin:`12` PIO/PWM : :rpi-pico-pio:`GP9` :rpi-pico-pwm:`PWM9`
@@ -57,8 +57,8 @@ digital signal lines. Also all IO voltage levels are limited to 3.3V only.
        - | :rpi-pico-pin:`22` :rpi-pico-adc:`ADC_CH3` : GP29 (PWM13)
        - | :rpi-pico-pin:`23` :rpi-pico-i2c:`I2C0_SDA` : GP12 (PWM12)
        - | :rpi-pico-pin:`24` :rpi-pico-i2c:`I2C0_SCL` : GP13 (PWM13)
-       - | :rpi-pico-pin:`25` PIO/PWM : :rpi-pico-pio:`GP14` :rpi-pico-pwm:`PWM14`
-       - | :rpi-pico-pin:`26` PIO/PWM : :rpi-pico-pio:`GP15` :rpi-pico-pwm:`PWM15`
+       - | :rpi-pico-pin:`25` PIO/PWM : :rpi-pico-pio:`GP14` (PWM14)
+       - | :rpi-pico-pin:`26` PIO/PWM : :rpi-pico-pio:`GP15` (PWM15)
        - | :rpi-pico-pin:`27` :rpi-pico-vdd:`5V(OUT)`
        - | :rpi-pico-pin:`28` :rpi-pico-sys:`RUN` (RESET)
        - | :rpi-pico-pin:`29` :rpi-pico-gnd:`GND`
@@ -108,8 +108,10 @@ digital signal lines. Also all IO voltage levels are limited to 3.3V only.
        .. rubric:: Devicetree compatible
 
        - :dtcompatible:`arduino-nano-header`
+       - :dtcompatible:`stemma-qt-connector`
        - :dtcompatible:`seeed,grove-laced-if`
        - :dtcompatible:`seeed,grove-connector`
+       - :dtcompatible:`worldsemi,ws2812-rpi_pico-pio`
 
      - .. image:: img/pinouts.jpg
           :align: center

@@ -58,13 +58,18 @@ Main differences compared to the original Arduino Nano:
        - On-board :bbl:`1 Piezo` buzzer
        - On-board :bbl:`2 RGB LED` (strip)
        - On-board :bbl:`13 LED`
-       - :bbl:`22 GPIO` pins via :bbk:`edge pinout`
-       - :bbl:`4 GPIO` pins via :bbk:`2 Qwiic/Grove connectors`
-       - :bbl:`1 UART` peripherals
-       - :bbl:`2 I2C` controllers
-       - :bbl:`1 SPI` controllers
-       - :bbl:`16 PWM` channels
-       - :bbl:`4 ADC` analog inputs
+       - :bbl:`22 GPIO` pins via :bbk:`edge pinout` and 4 of them
+         via :bbk:`2 Qwiic/Grove connectors`
+       - :bbl:`1 UART` peripherals via :bbk:`edge pinout` and in parallel
+         via :bbk:`1 Qwiic/Grove connector`
+       - :bbl:`1 I2C` controller via :bbk:`edge pinout` and in parallel
+         via :bbk:`1 Qwiic/Grove connector`
+       - :bbl:`1 I2C` controller via :bbk:`edge pinout`
+       - :bbl:`1 SPI` controller via :bbk:`edge pinout`
+       - :bbl:`16 PWM` channels via :bbk:`edge pinout` and 4 of them
+         via :bbk:`2 Qwiic/Grove connectors`
+       - :bbl:`4 ADC` analog inputs via :bbk:`edge pinout` and 2 of them
+         via :bbk:`1 Qwiic/Grove connector`
        - 8 Programmable I/O (PIO) state machines for custom peripherals
        - 1 Watchdog timer peripheral
        - 1 Temperature sensor on-chip
