@@ -389,7 +389,7 @@ See also Bridle sample: :ref:`helloshell-sample`.
                  *     12
                  *     13
                  *     14
-                       15    SPK_PWM15
+                       15    SPEAKER
                        16    OLED_SDI0
                        17    OLED_CSN0_HW
                        18    OLED_SCK0

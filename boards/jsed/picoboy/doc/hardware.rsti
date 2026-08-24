@@ -49,9 +49,9 @@ RP2040 development board.
        - On-board :bbl:`BOOT` button
        - On-board :bbl:`1 User joystick (5 keys)`
        - On-board :bbl:`3 User LEDs`
-       - On-board :bbl:`1.3-inch 128×64 pixels OLED`, monochrome white (serial)
        - On-board :bbl:`1 passive magnetic speaker`
        - On-board :bbl:`3-DOF IMU sensor`
+       - On-board :bbl:`1.3-inch 128×64 pixels OLED`, monochrome white (serial)
        - :bbk:`1 RST signal to OLED controller`
        - :bbk:`1 C/D signal to OLED controller`
        - :bbk:`1 I2C` controller for acceleration sensor

@@ -57,6 +57,10 @@
 		accel0 = &stk8ba58;
 	};
 
+	zephyr,user {
+		io-channels = <&adc 0>, <&adc 1>, <&adc 2>, <&adc 3>;
+	};
+
 	lvgl_keypad: lvgl-keypad {
 		compatible = "zephyr,lvgl-keypad-input";
 		input = <&gpio_keys>;
@@ -299,7 +303,7 @@ oled_panel: &sh1106_128x64 {};
 		"",			/* GP12 */
 		"",			/* GP13 */
 		"",			/* GP14 */
-		"SPK_PWM15",		/* GP15 */
+		"SPEAKER",		/* GP15 */
 		"OLED_SDI0",		/* GP16 */
 		"OLED_CSN0_HW",		/* GP17 */
 		"OLED_SCK0",		/* GP18 */
