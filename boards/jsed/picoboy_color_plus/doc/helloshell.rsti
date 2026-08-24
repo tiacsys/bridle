@@ -107,7 +107,7 @@ See also Bridle sample: :ref:`helloshell-sample`.
             - pwm-leds (READY)
               DT node labels: pwm_leds
             - sk6805\ @\ 0 (READY)
-              DT node labels: led_strip
+              DT node labels: sk6805 led_strip
             - dietemp (READY)
               DT node labels: die_temp
             - stk8ba58\ @\ 18 (READY)
@@ -162,7 +162,7 @@ See also Bridle sample: :ref:`helloshell-sample`.
             - pwm-leds (READY)
               DT node labels: pwm_leds
             - sk6805\ @\ 0 (READY)
-              DT node labels: led_strip
+              DT node labels: sk6805 led_strip
             - dietemp (READY)
               DT node labels: die_temp
             - stk8ba58\ @\ 18 (READY)
@@ -580,7 +580,7 @@ See also Bridle sample: :ref:`helloshell-sample`.
 
             :bgn:`uart:~$` **gpio info gpio0**
              ngpios: 30
-             Reserved pin mask: 0xC38000E0
+             Reserved pin mask: 0xC38008E0
 
              Reserved  Pin  Line Name
                         0    JOY_ENTER
@@ -594,11 +594,11 @@ See also Bridle sample: :ref:`helloshell-sample`.
                         8    LCD_DC
                         9    LCD_RST
                        10    LCD_CSN_SW
-                       11    RGB_SDO1
+                 *     11
                        12    LED_GREEN
                        13    LED_YELLOW
                        14    LED_RED
-                       15    SPK_PWM15
+                       15    SPEAKER
                        16    LCD_SDI0
                        17    LCD_CSN0_HW
                        18    LCD_SCK0

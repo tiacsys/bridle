@@ -109,3 +109,10 @@
              - | :rpi-pico-sys:`n.c.` : GP25 (PWM9)
              - | :rpi-pico-sys:`n.c.` :rpi-pico-adc:`ADC_CH3` : GP29 (PWM13)
                | on-board :rpi-pico-vdd:`VSYS/3` monitoring
+
+       .. rubric:: Devicetree compatible
+
+       - :dtcompatible:`stemma-qt-connector`
+       - :dtcompatible:`seeed,grove-laced-if`
+       - :dtcompatible:`seeed,grove-connector`
+       - :dtcompatible:`worldsemi,ws2812-rpi_pico-pio`

@@ -337,7 +337,7 @@ lcd_panel: &st7789v_240x280 {};
 	pinctrl-0 = <&spi1_sk6805_default>;
 	pinctrl-names = "default";
 
-	led_strip: sk6805@0 {
+	sk6805: sk6805@0 {
 		compatible = "worldsemi,ws2812-spi";
 		status = "okay";
 
@@ -355,6 +355,8 @@ lcd_panel: &st7789v_240x280 {};
 				 LED_COLOR_ID_BLUE>;
 	};
 };
+
+led_strip: &sk6805 {};
 
 &i2c0 {
 	status = "okay";
@@ -398,7 +400,7 @@ lcd_panel: &st7789v_240x280 {};
 gpio0_lo: &gpio0 {
 	status = "okay";
 	/* namespace and positions without wired bits */
-	gpio-reserved-ranges = <5 3>, <23 3>;
+	gpio-reserved-ranges = <5 3>, <11 1>, <23 3>;
 	gpio-line-names =
 		"JOY_ENTER",		/* GP0 */
 		"JOY_RIGHT",		/* GP1 */
@@ -411,11 +413,11 @@ gpio0_lo: &gpio0 {
 		"LCD_DC",		/* GP8 */
 		"LCD_RST",		/* GP9 */
 		"LCD_CSN_SW",		/* GP10 */
-		"RGB_SDO1",		/* GP11 */
+		"",  /* Din of LED stripe, GP11 */
 		"LED_GREEN",		/* GP12 */
 		"LED_YELLOW",		/* GP13 */
 		"LED_RED",		/* GP14 */
-		"SPK_PWM15",		/* GP15 */
+		"SPEAKER",		/* GP15 */
 		"LCD_SDI0",		/* GP16 */
 		"LCD_CSN0_HW",		/* GP17 */
 		"LCD_SCK0",		/* GP18 */

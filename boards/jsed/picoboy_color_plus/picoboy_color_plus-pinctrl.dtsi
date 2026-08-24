@@ -11,45 +11,45 @@
 	};
 
 	uart0_default: uart0_default {			/* solder pads */
-		group16 {				/* as UART i/f */
+		group16_uart {				/* as UART i/f */
 			pinmux = <UART0_TX_P16>;
 		};
-		group17 {
+		group17_uart {
 			pinmux = <UART0_RX_P17>;
 			input-enable;
 		};
 	};
 
 	uart1_default: uart1_default {			/* Qwiic/STEMMA-QT */
-		group20 {				/* as UART i/f */
+		group20_uart {				/* as UART i/f */
 			pinmux = <UART1_TX_P20>;
 		};
-		group21 {
+		group21_uart {
 			pinmux = <UART1_RX_P21>;
 			input-enable;
 		};
 	};
 
 	spi0_default: spi0_default {
-		group171819 {
+		group171819_spi {
 			pinmux = <SPI0_CSN_P17>,	/* not wired */
 				 <SPI0_SCK_P18>,	/* LCD display */
 				 <SPI0_TX_P19>;		/* ST7789V (240x280) */
 		};
-		group16 {
+		group16_spi {
 			pinmux = <SPI0_RX_P16>;		/* not wired */
 			input-enable;
 		};
 	};
 
 	spi1_sk6805_default: spi1_sk6805_default {
-		group11 {				/* NeoPixel RGB-LED */
+		group11_spi {				/* NeoPixel RGB-LED */
 			pinmux = <SPI1_TX_P11>;		/* SK6805 DIN */
 		};
 	};
 
 	i2c0_default: i2c0_default {			/* Qwiic/STEMMA-QT */
-		group2021 {				/* as I2C bus */
+		group2021_i2c {				/* as I2C bus */
 			pinmux = <I2C0_SDA_P20>,
 				 <I2C0_SCL_P21>;
 			input-enable;
@@ -58,7 +58,7 @@
 	};
 
 	i2c0_pcbpads: i2c0_pcbpads {			/* solder pads */
-		group1617 {				/* as I2C bus */
+		group1617_i2c {				/* as I2C bus */
 			pinmux = <I2C0_SDA_P16>,
 				 <I2C0_SCL_P17>;
 			input-enable;
@@ -67,22 +67,22 @@
 	};
 
 	pwm_default: pwm_default {
-		group12 {
+		group12_led_green {
 			pinmux = <PWM_6A_P12>;		/* Green LED */
 		};
-		group13 {
+		group13_led_yellow {
 			pinmux = <PWM_6B_P13>;		/* Yellow LED */
 		};
-		group14 {
+		group14_led_red {
 			pinmux = <PWM_7A_P14>;		/* Red LED */
 		};
-		group15 {
+		group15_speaker {
 			pinmux = <PWM_7B_P15>;		/* Speaker */
 		};
 	};
 
 	adc_default: adc_default {
-		group29 {
+		group29_adc {
 			pinmux = <ADC_CH3_P29>;
 			input-enable;
 		};
