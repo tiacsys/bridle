@@ -87,8 +87,6 @@ See also Bridle sample: :ref:`helloshell-sample`.
               DT node labels: rtc
             - lcd-backlight-en (READY)
               DT node labels: lcd_backlight_en
-            - gpio-leds (READY)
-              DT node labels: gpio_leds
             - dietemp (READY)
               DT node labels: die_temp
 
@@ -167,6 +165,7 @@ See also Bridle sample: :ref:`helloshell-sample`.
 
             :bgn:`uart:~$` **regulator vlist lcd-backlight-en**
             3.300000 V
+            0 uV
 
       .. container:: highlight highlight-console notranslate
 
@@ -181,46 +180,13 @@ See also Bridle sample: :ref:`helloshell-sample`.
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **regulator disable lcd-backlight-en**
+            :bgn:`uart:~$` **regulator vset lcd-backlight-en 0V**
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **regulator enable lcd-backlight-en**
-
-   .. group-tab:: LED
-
-      Operate with the on-board LCD backlight switch
-      :hwftlbl-led:`LCD_BL` at :rpi-pico-pio:`GP25` as LED:
-
-      .. container:: highlight highlight-console notranslate
-
-         .. parsed-literal::
-
-            :bgn:`uart:~$` **led off gpio-leds 0**
-            gpio-leds: turning off LED 0
-
-      .. container:: highlight highlight-console notranslate
-
-         .. parsed-literal::
-
-            :bgn:`uart:~$` **led set_brightness gpio-leds 0 50**
-            gpio-leds: setting LED 0 brightness to 50
-
-      .. container:: highlight highlight-console notranslate
-
-         .. parsed-literal::
-
-            :bgn:`uart:~$` **led set_brightness gpio-leds 0 0**
-            gpio-leds: setting LED 0 brightness to 0
-
-      .. container:: highlight highlight-console notranslate
-
-         .. parsed-literal::
-
-            :bgn:`uart:~$` **led on gpio-leds 0**
-            gpio-leds: turning on LED 0
+            :bgn:`uart:~$` **regulator vset lcd-backlight-en 3300mV**
 
    .. group-tab:: GPIO
 

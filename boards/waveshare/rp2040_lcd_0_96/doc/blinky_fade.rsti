@@ -6,7 +6,7 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`blinky`.
    :app: zephyr/samples/basic/blinky
    :build-dir: waveshare_rp2040_lcd_0_96
    :board: waveshare_rp2040_lcd_0_96/rp2040
-   :gen-args: -DCONFIG_REGULATOR_FIXED=n
+   :gen-args: -DCONFIG_REGULATOR_GPIO=n
    :west-args: -p
    :goals: flash
    :compact:
@@ -19,7 +19,7 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`pwm-blinky`.
    :app: zephyr/samples/basic/blinky_pwm
    :build-dir: waveshare_rp2040_lcd_0_96
    :board: waveshare_rp2040_lcd_0_96/rp2040
-   :gen-args: -DCONFIG_REGULATOR_FIXED=n
+   :gen-args: -DCONFIG_REGULATOR_GPIO=n
    :west-args: -p
    :goals: flash
    :compact:
@@ -32,7 +32,7 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`fade-led`.
    :app: zephyr/samples/basic/fade_led
    :build-dir: waveshare_rp2040_lcd_0_96
    :board: waveshare_rp2040_lcd_0_96/rp2040
-   :gen-args: -DCONFIG_REGULATOR_FIXED=n
+   :gen-args: -DCONFIG_REGULATOR_GPIO=n
    :west-args: -p
    :goals: flash
    :compact:

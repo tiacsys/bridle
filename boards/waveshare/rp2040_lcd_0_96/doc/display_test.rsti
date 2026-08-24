@@ -115,5 +115,5 @@ on the console, here configured for a USB console:
         DT node labels: lcd_backlight_en
       - mipi-dbi-spi1 (READY)
         DT node labels: mipi_dbi_spi1
-      - st7735s\ @\ 0 (READY)
+      - st7735s-160x80\ @\ 0 (READY)
         DT node labels: st7735s_160x80 lcd_panel

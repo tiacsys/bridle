@@ -75,7 +75,7 @@
 	};
 
 	lcd_backlight_en: lcd-backlight-en {
-		compatible = "regulator-fixed";
+		compatible = "regulator-gpio";
 		regulator-name = "lcd_backlight";
 	};
 };
@@ -164,7 +164,7 @@ zephyr_udc0: &usbd {
 	dc-gpios = <&gpio0 8 GPIO_ACTIVE_HIGH>;
 
 	/* LCD with ST7735S controller. */
-	st7735s_160x80: st7735s@0 {
+	st7735s_160x80: st7735s-160x80@0 {
 		compatible = "sitronix,st7735r";
 		status = "okay";
 
@@ -217,21 +217,14 @@ lcd_panel: &st7735s_160x80 {};
 
 &lcd_backlight_en {
 	status = "okay";
-	regulator-boot-on; /* 3.3V only, on boot default by gpio-hog */
-	regulator-min-microvolt = <3300000>;
+	regulator-always-on;
+	regulator-min-microvolt = <0>;
 	regulator-max-microvolt = <3300000>;
+	regulator-init-microvolt = <3300000>;
 
-	/* GP26 as backlight enable to LCD panel. */
-	enable-gpios = <&gpio0 25 GPIO_ACTIVE_HIGH>;
-};
-
-&gpio0 {
-	lcd-backlight-boot-on {
-		gpio-hog;
-		output-high;
-		gpios = <25 GPIO_ACTIVE_HIGH>;
-		line-name = "lcd-backlight-boot-on";
-	};
+	/* GP25 as backlight switch to LCD panel. */
+	gpios = <&gpio0 25 GPIO_ACTIVE_HIGH>;
+	states = <3300000 1>, <0 0>;
 };
 
 &i2c0 {
