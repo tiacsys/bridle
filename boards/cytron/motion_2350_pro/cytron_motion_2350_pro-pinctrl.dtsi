@@ -106,9 +106,12 @@
 	};
 
 	adc_default: adc_default {
-		group2627_adc {
-			pinmux = <ADC_CH0_P26>,		/* GP26: ADC_CH0 */
-				 <ADC_CH1_P27>;		/* GP27: ADC_CH1 */
+		group26_adc {
+			pinmux = <ADC_CH0_P26>;		/* GP26: ADC_CH0 */
+			input-enable;
+		};
+		group27_adc {
+			pinmux = <ADC_CH1_P27>;		/* GP27: ADC_CH1 */
 			input-enable;
 		};
 	};

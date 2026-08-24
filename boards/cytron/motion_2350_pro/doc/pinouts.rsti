@@ -151,8 +151,10 @@ VIN/6.1 voltage monitoring.
 
        .. rubric:: Devicetree compatible
 
+       - :dtcompatible:`stemma-qt-connector`
        - :dtcompatible:`seeed,grove-laced-if`
        - :dtcompatible:`seeed,grove-connector`
+       - :dtcompatible:`worldsemi,ws2812-rpi_pico-pio`
 
      - .. image:: img/pinouts.jpg
           :align: center

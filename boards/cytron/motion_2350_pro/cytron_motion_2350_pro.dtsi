@@ -219,7 +219,7 @@ zephyr_udc0: &usbd {
 
 	clock-frequency = <DT_FREQ_M(1)>;
 
-	led_strip: ws2812@0 {
+	ws2812: ws2812@0 {
 		compatible = "worldsemi,ws2812-spi";
 		status = "okay";
 
@@ -237,6 +237,8 @@ zephyr_udc0: &usbd {
 				 LED_COLOR_ID_BLUE>;
 	};
 };
+
+led_strip: &ws2812 {};
 
 &spi1 {
 	status = "disabled";
@@ -280,7 +282,7 @@ zephyr_udc0: &usbd {
 gpio0_lo: &gpio0 {
 	status = "okay";
 	/* namespace and positions without wired bits */
-	gpio-reserved-ranges = <24 2>;
+	gpio-reserved-ranges = <23 3>;
 	gpio-line-names =
 		"SRVM1_PWM0",		/* GP0 */
 		"SRVM2_PWM1",		/* GP1 */
@@ -304,8 +306,8 @@ gpio0_lo: &gpio0 {
 		"GBH4",			/* GP19 */
 		"UBTN0",		/* GP20 */
 		"UBTN1",		/* GP21 */
-		"BUZZER_PWM6",		/* GP22 */
-		"RGB_SDO0",		/* GP23 */
+		"BUZZER",		/* GP22 */
+		"",  /* Din of LED stripe, GP23 */
 		"",   /* res. USB Host D+, GP24 */
 		"",   /* res. USB Host D-, GP25 */
 		"GBH5Q12_ADC0",		/* GP26 */
