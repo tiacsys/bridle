@@ -340,20 +340,20 @@ See also Bridle sample: :ref:`helloshell-sample`.
              Reserved  Pin  Line Name
                         0    TX0
                         1    RX0
-                        2    GP2_PWM2_CTS0
-                        3    GP3_PWM3_RTS0
+                        2    GP2_CTS0
+                        3    GP3_RTS0
                         4    SDA0
                         5    SCL0
-                        6    GP6_PWM6
-                        7    GP7_PWM7
-                        8    GP8_PWM8
-                        9    GP9_PWM9_CSN1
-                       10    GP10_PWM10_SCK1
-                       11    GP11_PWM11_SDO1
-                       12    GP12_PWM12_SDI1
-                       13    GP13_PWM13
-                       14    GP14_PWM14_SDA1
-                       15    GP15_PWM15_SCL1
+                        6    GP6
+                        7    GP7
+                        8    GP8
+                        9    GP9_CSN1
+                       10    GP10_SCK1
+                       11    GP11_SDO1
+                       12    GP12_SDI1
+                       13    GP13
+                       14    GP14_SDA1
+                       15    GP15_SCL1
                        16    SDI0
                        17    CSN0
                        18    SCK0
@@ -361,7 +361,7 @@ See also Bridle sample: :ref:`helloshell-sample`.
                        20    GP20_PWM4
                        21    GP21_PWM5
                        22    GP22_PWM6
-                       23    PSU_SMPS_PWM7
+                       23    PSU_SMPS
                        24    PSU_VBUS/1.51
                        25    ULED0_PWM9
                        26    ADC0

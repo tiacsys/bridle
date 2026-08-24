@@ -163,20 +163,20 @@ zephyr_udc0: &usbd {
 	gpio-line-names =
 		"TX0",			/* GP0 */
 		"RX0",			/* GP1 */
-		"GP2_PWM2_CTS0",	/* GP2 */
-		"GP3_PWM3_RTS0",	/* GP3 */
+		"GP2_CTS0",		/* GP2 */
+		"GP3_RTS0",		/* GP3 */
 		"SDA0",			/* GP4 */
 		"SCL0",			/* GP5 */
-		"GP6_PWM6",		/* GP6 */
-		"GP7_PWM7",		/* GP7 */
-		"GP8_PWM8",		/* GP8 */
-		"GP9_PWM9_CSN1",	/* GP9 */
-		"GP10_PWM10_SCK1",	/* GP10 */
-		"GP11_PWM11_SDO1",	/* GP11 */
-		"GP12_PWM12_SDI1",	/* GP12 */
-		"GP13_PWM13",		/* GP13 */
-		"GP14_PWM14_SDA1",	/* GP14 */
-		"GP15_PWM15_SCL1",	/* GP15 */
+		"GP6",			/* GP6 */
+		"GP7",			/* GP7 */
+		"GP8",			/* GP8 */
+		"GP9_CSN1",		/* GP9 */
+		"GP10_SCK1",		/* GP10 */
+		"GP11_SDO1",		/* GP11 */
+		"GP12_SDI1",		/* GP12 */
+		"GP13",			/* GP13 */
+		"GP14_SDA1",		/* GP14 */
+		"GP15_SCL1",		/* GP15 */
 		"SDI0",			/* GP16 */
 		"CSN0",			/* GP17 */
 		"SCK0",			/* GP18 */
@@ -184,7 +184,7 @@ zephyr_udc0: &usbd {
 		"GP20_PWM4",		/* GP20 */
 		"GP21_PWM5",		/* GP21 */
 		"GP22_PWM6",		/* GP22 */
-		"PSU_SMPS_PWM7",	/* GP23 */
+		"PSU_SMPS",		/* GP23 */
 		"PSU_VBUS/1.51",	/* GP24 */
 		"ULED0_PWM9",		/* GP25 */
 		"ADC0",			/* GP26 */

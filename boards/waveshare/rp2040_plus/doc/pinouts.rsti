@@ -14,11 +14,11 @@ monitoring per default.
      - .. rubric:: Pinout
 
    * - :on-edge(1-40):
-          :hwftlbl-pio:`13`
-          :hwftlbl-pwm:`13`
+          :hwftlbl-pio:`9`
+          :hwftlbl-pwm:`3`
           :hwftlbl-adc:`3`
           :hwftlbl-i2c:`2`
-          :hwftlbl-spi:`1`
+          :hwftlbl-spi:`2`
           :hwftlbl-uart:`1`
 
        :on-board:
@@ -33,20 +33,20 @@ monitoring per default.
        - | :rpi-pico-pin:`1` :rpi-pico-uart-dfl:`UART0_TX` : GP0 (PWM0)
        - | :rpi-pico-pin:`2` :rpi-pico-uart-dfl:`UART0_RX` : GP1 (PWM1)
        - | :rpi-pico-pin:`3` :rpi-pico-gnd:`GND`
-       - | :rpi-pico-pin:`4` PIO/PWM : :rpi-pico-pio:`GP2` :rpi-pico-pwm:`PWM2`
-       - | :rpi-pico-pin:`5` PIO/PWM : :rpi-pico-pio:`GP3` :rpi-pico-pwm:`PWM3`
+       - | :rpi-pico-pin:`4` :rpi-pico-uart:`(UART0_CTS)` : :rpi-pico-pio:`GP2` (PWM2)
+       - | :rpi-pico-pin:`5` :rpi-pico-uart:`(UART0_RTS)` : :rpi-pico-pio:`GP3` (PWM3)
        - | :rpi-pico-pin:`6` :rpi-pico-i2c-dfl:`I2C0_SDA` : GP4 (PWM4)
        - | :rpi-pico-pin:`7` :rpi-pico-i2c-dfl:`I2C0_SCL` : GP5 (PWM5)
        - | :rpi-pico-pin:`8` :rpi-pico-gnd:`GND`
-       - | :rpi-pico-pin:`9` PIO/PWM : :rpi-pico-pio:`GP6` :rpi-pico-pwm:`PWM6`
-       - | :rpi-pico-pin:`10` PIO/PWM : :rpi-pico-pio:`GP7` :rpi-pico-pwm:`PWM7`
-       - | :rpi-pico-pin:`11` PIO/PWM : :rpi-pico-pio:`GP8` :rpi-pico-pwm:`PWM8`
-       - | :rpi-pico-pin:`12` PIO/PWM : :rpi-pico-pio:`GP9` :rpi-pico-pwm:`PWM9`
+       - | :rpi-pico-pin:`9` PIO/PWM : :rpi-pico-pio:`GP6` (PWM6)
+       - | :rpi-pico-pin:`10` PIO/PWM : :rpi-pico-pio:`GP7` (PWM7)
+       - | :rpi-pico-pin:`11` PIO/PWM : :rpi-pico-pio:`GP8` (PWM8)
+       - | :rpi-pico-pin:`12` :rpi-pico-spi:`SPI1_CSN` : GP9 (PWM9)
        - | :rpi-pico-pin:`13` :rpi-pico-gnd:`GND`
-       - | :rpi-pico-pin:`14` PIO/PWM : :rpi-pico-pio:`GP10` :rpi-pico-pwm:`PWM10`
-       - | :rpi-pico-pin:`15` PIO/PWM : :rpi-pico-pio:`GP11` :rpi-pico-pwm:`PWM11`
-       - | :rpi-pico-pin:`16` PIO/PWM : :rpi-pico-pio:`GP12` :rpi-pico-pwm:`PWM12`
-       - | :rpi-pico-pin:`17` PIO/PWM : :rpi-pico-pio:`GP13` :rpi-pico-pwm:`PWM13`
+       - | :rpi-pico-pin:`14` :rpi-pico-spi:`SPI1_SCK` : GP10 (PWM10)
+       - | :rpi-pico-pin:`15` :rpi-pico-spi:`SPI1_TX` : GP11 (PWM11)
+       - | :rpi-pico-pin:`16` :rpi-pico-spi:`SPI1_RX` : GP12 (PWM12)
+       - | :rpi-pico-pin:`17` PIO/PWM : :rpi-pico-pio:`GP13` (PWM13)
        - | :rpi-pico-pin:`18` :rpi-pico-gnd:`GND`
        - | :rpi-pico-pin:`19` :rpi-pico-i2c:`I2C1_SDA` : GP14 (PWM14)
        - | :rpi-pico-pin:`20` :rpi-pico-i2c:`I2C1_SCL` : GP15 (PWM15)
@@ -64,7 +64,7 @@ monitoring per default.
          | :rpi-pico-pin-nc:`nc` on-board SMPS power save :rpi-pico-sys:`PS`
        - | :rpi-pico-pin-nc:`nc` PIO/PWM : :rpi-pico-pio:`GP24` (PWM8)
          | :rpi-pico-pin-nc:`nc` on-board :rpi-pico-vdd:`VBUS/1.51` sense
-       - | :rpi-pico-pin-nc:`nc` PIO/PWM : :rpi-pico-pio:`GP25` :rpi-pico-pwm:`PWM9`
+       - | :rpi-pico-pin-nc:`nc` :hwftlbl-led:`GREEN` : :rpi-pico-pio:`GP25` :rpi-pico-pwm:`PWM9`
          | :rpi-pico-pin-nc:`nc` on-board user :rpi-pico-sys:`LED`
        - | :rpi-pico-pin:`31` :rpi-pico-adc:`ADC_CH0` : GP26 (PWM10)
        - | :rpi-pico-pin:`32` :rpi-pico-adc:`ADC_CH1` : GP27 (PWM11)
