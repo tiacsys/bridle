@@ -170,7 +170,7 @@
 	};
 
 	lcd_backlight_en: lcd-backlight-en {
-		compatible = "regulator-fixed";
+		compatible = "regulator-gpio";
 		regulator-name = "lcd_backlight";
 	};
 };
@@ -297,21 +297,14 @@ lcd_panel: &st7789v_240x280 {};
 
 &lcd_backlight_en {
 	status = "okay";
-	regulator-boot-on; /* 3.3V only, on boot default by gpio-hog */
-	regulator-min-microvolt = <3300000>;
+	regulator-always-on;
+	regulator-min-microvolt = <0>;
 	regulator-max-microvolt = <3300000>;
+	regulator-init-microvolt = <3300000>;
 
-	/* GP26 as backlight enable to LCD panel. */
-	enable-gpios = <&gpio0 26 GPIO_ACTIVE_HIGH>;
-};
-
-&gpio0 {
-	lcd-backlight-boot-on {
-		gpio-hog;
-		output-high;
-		gpios = <26 GPIO_ACTIVE_HIGH>;
-		line-name = "lcd-backlight-boot-on";
-	};
+	/* GP26 as backlight switch to LCD panel. */
+	gpios = <&gpio0 26 GPIO_ACTIVE_HIGH>;
+	states = <3300000 1>, <0 0>;
 };
 
 &i2c0 {
