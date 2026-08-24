@@ -26,9 +26,9 @@ embedded but complete TCP/IP stack (incl. UDP, ICMP, IGMP, ARP).
 
    * - :on-edge(1-40):
           :hwftlbl-pio:`3`
-          :hwftlbl-pwm:`3`
+          :hwftlbl-pwm:`1`
           :hwftlbl-adc:`3`
-          :hwftlbl-i2c:`1`
+          :hwftlbl-i2c:`1(2)`
           :hwftlbl-spi:`1`
           :hwftlbl-uart:`1`
 
@@ -45,8 +45,10 @@ embedded but complete TCP/IP stack (incl. UDP, ICMP, IGMP, ARP).
        - | :rpi-pico-pin:`1` :rpi-pico-uart-dfl:`UART0_TX` : GP0 (PWM0)
        - | :rpi-pico-pin:`2` :rpi-pico-uart-dfl:`UART0_RX` : GP1 (PWM1)
        - | :rpi-pico-pin:`3` :rpi-pico-gnd:`GND`
-       - | :rpi-pico-pin:`4` PIO/PWM : :rpi-pico-pio:`GP2` :rpi-pico-pwm:`PWM2`
-       - | :rpi-pico-pin:`5` PIO/PWM : :rpi-pico-pio:`GP3` :rpi-pico-pwm:`PWM3`
+       - | :rpi-pico-pin:`4` :rpi-pico-uart:`(UART0_CTS)` : :rpi-pico-pio:`GP2` (PWM2)
+         | :rpi-pico-pin-nc:`nc` :rpi-pico-i2c:`(I2C1_SDA)`
+       - | :rpi-pico-pin:`5` :rpi-pico-uart:`(UART0_RTS)` : :rpi-pico-pio:`GP3` (PWM3)
+         | :rpi-pico-pin-nc:`nc` :rpi-pico-i2c:`(I2C1_SCL)`
        - | :rpi-pico-pin:`6` :rpi-pico-spi-dfl:`SPI0_RX` : GP4 (PWM4)
        - | :rpi-pico-pin:`7` :rpi-pico-spi-dfl:`SPI0_CSN` : GP5 (PWM5)
        - | :rpi-pico-pin:`8` :rpi-pico-gnd:`GND`
@@ -99,6 +101,7 @@ embedded but complete TCP/IP stack (incl. UDP, ICMP, IGMP, ARP).
 
        - :dtcompatible:`raspberrypi,pico-header`
        - :dtcompatible:`raspberrypi,pico-header-r3`
+       - :dtcompatible:`worldsemi,ws2812-rpi_pico-pio`
 
      - .. image:: img/pinouts.jpg
           :align: center

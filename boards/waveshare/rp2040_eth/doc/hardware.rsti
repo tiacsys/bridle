@@ -31,7 +31,7 @@ allows soldering direct to carrier boards.
        :hwftlbl-adc:`3`
        :hwftlbl-i2c:`2`
        :hwftlbl-spi:`1`
-       :hwftlbl-uart:`2`
+       :hwftlbl-uart:`1`
 
        .. rst-class:: rst-columns
 
@@ -44,14 +44,17 @@ allows soldering direct to carrier boards.
        - On-board :bbk:`RESET` button
        - On-board :bbl:`BOOT` button
        - On-board :bbl:`RGB LED`
-       - Integrated :bbl:`TCP/IP protocol stack`
+       - On-board :bbl:`10BASE-T Ethernet controller` via UART with
+         integrated :bbl:`TCP/IP protocol stack`
+       - :bbk:`2 CTL signals from Ethernet controller`
+       - :bbk:`1 RST signal to Ethernet controller`
        - :bbl:`14 GPIO` pins via :bbk:`edge pinout`, compatible
          with some Pico HATs
-       - :bbl:`2 UART` peripherals
-       - :bbl:`2 I2C` controllers
-       - :bbl:`1 SPI` controllers
-       - :bbl:`13 PWM` channels
-       - :bbl:`3 ADC` analog inputs
+       - :bbl:`1 UART` peripheral via :bbk:`edge pinout`
+       - :bbl:`2 I2C` controllers via :bbk:`edge pinout`
+       - :bbl:`1 SPI` controller via :bbk:`edge pinout`
+       - :bbl:`13 PWM` channels via :bbk:`edge pinout`
+       - :bbl:`3 ADC` analog inputs via :bbk:`edge pinout`
        - 8 Programmable I/O (PIO) state machines for custom peripherals
        - 1 Watchdog timer peripheral
        - 1 Temperature sensor on-chip

@@ -107,12 +107,12 @@ zephyr_udc0: &usbd {
 
 &uart1 {
 	status = "okay";
-	pinctrl-0 = <&uart1_default>;
+	pinctrl-0 = <&uart1_enet>;
 	pinctrl-names = "default";
 
 	current-speed = <921600>;
 
-	net_l4: ch9120 {
+	enet: ch9120 {
 		compatible = "wch,ch9120";
 		status = "okay";
 
@@ -124,29 +124,23 @@ zephyr_udc0: &usbd {
 
 &spi0 {
 	status = "okay";
-	pinctrl-0 = <&spi0_default>;
+	pinctrl-0 = <&spi0_pico_default>;
 	pinctrl-names = "default";
 	clock-frequency = <DT_FREQ_M(8)>;
 };
 
 &i2c0 {
 	status = "okay";
-	pinctrl-0 = <&i2c0_default>;
+	pinctrl-0 = <&i2c0_pico_default>;
 	pinctrl-names = "default";
 	clock-frequency = <I2C_BITRATE_STANDARD>;
 };
 
 &i2c1 {
 	status = "disabled";
-	pinctrl-0 = <&i2c1_default>;
+	pinctrl-0 = <&i2c1_pico_default>;
 	pinctrl-names = "default";
 	clock-frequency = <I2C_BITRATE_STANDARD>;
-};
-
-&adc {
-	status = "okay";
-	pinctrl-0 = <&adc_default>;
-	pinctrl-names = "default";
 };
 
 &pio0 {
@@ -163,7 +157,7 @@ zephyr_udc0: &usbd {
 		/* LO: 0x380: 1110000000: 0.375 us high and 0.875 us low */
 		bit-waveform = <3>, <3>, <4>;
 
-		led_strip: ws2812 {
+		ws2812: ws2812 {
 			status = "okay";
 
 			chain-length = <1>;
@@ -179,6 +173,20 @@ zephyr_udc0: &usbd {
 	};
 };
 
+led_strip: &ws2812 {};
+
+&pwm {
+	status = "okay";
+	pinctrl-0 = <&pwm_pico_default>;
+	pinctrl-names = "default";
+};
+
+&adc {
+	status = "okay";
+	pinctrl-0 = <&adc_default>;
+	pinctrl-names = "default";
+};
+
 &gpio0 {
 	status = "okay";
 	/* namespace and positions without wired bits */
@@ -186,8 +194,8 @@ zephyr_udc0: &usbd {
 	gpio-line-names =
 		"TX0",			/* GP0 */
 		"RX0",			/* GP1 */
-		"GP2_PWM2_CTS0_SDA1",	/* GP2 */
-		"GP3_PWM3_RTS0_SCL1",	/* GP3 */
+		"GP2_CTS0_SDA1",	/* GP2 */
+		"GP3_RTS0_SCL1",	/* GP3 */
 		"SDI0",			/* GP4 */
 		"CSN0",			/* GP5 */
 		"SCK0",			/* GP6 */

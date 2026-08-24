@@ -226,8 +226,9 @@ Serial Port
 
 The `RP2040 <RP2040 SoC_>`_ MCU has 2 UARTs. One of the UARTs (UART0) is
 connected to external devices over GP0 (TX) and GP1 (RX) on the |Raspberry
-Pi Pico| header and is the Zephyr console. UART1 will be used internaly
-for communication with the on-board Ethernet controller.
+Pi Pico| header, optional with full featured EIA 232D handshake signals, and
+is the Zephyr console. UART1 will be used internaly for communication with
+the on-board Ethernet controller.
 
 USB Device Port
 ===============

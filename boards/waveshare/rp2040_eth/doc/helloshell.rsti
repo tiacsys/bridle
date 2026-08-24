@@ -89,7 +89,7 @@ See also Bridle sample: :ref:`helloshell-sample`.
               DT node labels: rtc
             - pio-ws2812 (READY)
             - ws2812 (READY)
-              DT node labels: led_strip
+              DT node labels: ws2812 led_strip
             - dietemp (READY)
               DT node labels: die_temp
 
@@ -249,8 +249,8 @@ See also Bridle sample: :ref:`helloshell-sample`.
              Reserved  Pin  Line Name
                         0    TX0
                         1    RX0
-                        2    GP2_PWM2_CTS0_SDA1
-                        3    GP3_PWM3_RTS0_SCL1
+                        2    GP2_CTS0_SDA1
+                        3    GP3_RTS0_SCL1
                         4    SDI0
                         5    CSN0
                         6    SCK0
