@@ -8,7 +8,8 @@ config CLOCK_CONTROL
 
 config REGULATOR
 	default y
-	depends on DT_HAS_RASPBERRYPI_CORE_SUPPLY_REGULATOR_ENABLED
+	depends on DT_HAS_RASPBERRYPI_CORE_SUPPLY_REGULATOR_ENABLED || \
+		   DT_HAS_REGULATOR_GPIO_ENABLED
 
 config RESET
 	default y
@@ -96,17 +97,3 @@ choice UDC_DRIVER_LOG_LEVEL_CHOICE
 endchoice
 
 endif # zephyr,cdc-acm-uart
-
-if BOARD_PICOBOY_COLOR_PLUS && \
-	$(dt_nodelabel_bool_prop,lcd_backlight_en,regulator-boot-on)
-
-config GPIO_HOGS
-	default n if DT_HAS_PWM_LEDS_ENABLED
-	depends on DT_HAS_RASPBERRYPI_PICO_GPIO_ENABLED
-
-config GPIO_HOGS_INIT_PRIORITY
-	default LED_INIT_PRIORITY if LED
-	default APPLICATION_INIT_PRIORITY
-	depends on GPIO_HOGS
-
-endif # lcd_backlight_en has regulator-boot-on

@@ -264,6 +264,7 @@ See also Bridle sample: :ref:`helloshell-sample`.
 
             :bgn:`uart:~$` **regulator vlist lcd-backlight-en**
             3.300000 V
+            0 uV
 
       .. container:: highlight highlight-console notranslate
 
@@ -278,13 +279,13 @@ See also Bridle sample: :ref:`helloshell-sample`.
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **regulator disable lcd-backlight-en**
+            :bgn:`uart:~$` **regulator vset lcd-backlight-en 0V**
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **regulator enable lcd-backlight-en**
+            :bgn:`uart:~$` **regulator vset lcd-backlight-en 3300mV**
 
    .. group-tab:: LED Strip
 
