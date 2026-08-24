@@ -178,7 +178,7 @@ zephyr_udc0: &usbd {
 		/* LO: 0x380: 1110000000: 0.375 us high and 0.875 us low */
 		bit-waveform = <3>, <3>, <4>;
 
-		led_strip: ws2812-8x8 {
+		ws2812_8x8: ws2812-8x8 {
 			status = "okay";
 
 			chain-length = <(8*8)>; /* 8x8 panel with RGB pixel */
@@ -193,6 +193,8 @@ zephyr_udc0: &usbd {
 		};
 	};
 };
+
+led_strip: &ws2812_8x8 {};
 
 &led_strip_matrix {
 	/* LED strip with circulative layout */
@@ -224,10 +226,10 @@ gpio0_lo: &gpio0 {
 	gpio-line-names =
 		"TX0",			/* GP0 */
 		"RX0",			/* GP1 */
-		"GP2_PWM2_CTS0",	/* GP2 */
-		"GP3_PWM3_RTS0",	/* GP3 */
-		"GP4_PWM4_DSR0",	/* GP4 */
-		"GP5_PWM5_DTR0",	/* GP5 */
+		"GP2_CTS0",		/* GP2 */
+		"GP3_RTS0",		/* GP3 */
+		"GP4_DSR0",		/* GP4 */
+		"GP5_DTR0",		/* GP5 */
 		"IMU_SDA1",		/* GP6 */
 		"IMU_SCL1",		/* GP7 */
 		"IMU_INT1",		/* GP8 */
@@ -236,8 +238,8 @@ gpio0_lo: &gpio0 {
 		"RX1",			/* GP11 */
 		"SDA0",			/* GP12 */
 		"SCL0",			/* GP13 */
-		"GP14_PWM14",		/* GP14 */
-		"GP15_PWM15",		/* GP15 */
+		"GP14",			/* GP14 */
+		"GP15",			/* GP15 */
 		"SDI0",			/* GP16 */
 		"CSN0",			/* GP17 */
 		"SCK0",			/* GP18 */

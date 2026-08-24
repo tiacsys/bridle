@@ -31,7 +31,7 @@ is no option to change this from outside the board.
           :hwftlbl-uart:`1`
 
        :on-board:
-          :hwftlbl-led:`8×8 RGB`
+          :hwftlbl-led:`RGB(8×8)`
           :hwftlbl-scr:`LED(8×8)`
           :hwftlbl-cps:`6-DOF`
 

@@ -1,7 +1,7 @@
 The following samples work with the chosen display. That is:
 
-| :hwftlbl-scr:`LED(8×8)` : :dts:`chosen { zephyr,display = &rgb_led_strip_matrix; };`
-| :hwftlbl-led:`8×8 RGB` : :dts:`&rgb_led_strip_matrix { led-strip = <&led_strip>; };`
+| :hwftlbl-scr:`LED(8×8)` : :dts:`chosen { zephyr,display = &led_strip_matrix; };`
+| :hwftlbl-led:`RGB(8×8)` : :dts:`&led_strip_matrix { led-strip = <&led_strip>; };`
 
 .. rubric:: LCD Orientation and Bit Order Test
 

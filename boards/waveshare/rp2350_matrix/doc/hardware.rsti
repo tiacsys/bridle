@@ -43,8 +43,10 @@ displays or simple images.
        - On-board :bbl:`3.3V LDO regulator with 800㎃`
        - On-board :bbk:`RESET` button
        - On-board :bbl:`BOOT` button
-       - On-board :bbl:`8×8 RGB LED matrix` (strip)
        - On-board :bbl:`6-DOF IMU sensor`
+       - On-board :bbl:`8×8 RGB LED matrix` (strip)
+       - :bbl:`RGB888`, 24-bit color depth
+       - :bbk:`2 INT signals from IMU sensor`
        - :bbl:`11 GPIO` pins via :bbk:`edge pinout`
        - :bbl:`2 UART` peripherals via :bbk:`edge pinout`
        - :bbl:`1 I2C` controllers via :bbk:`edge pinout`

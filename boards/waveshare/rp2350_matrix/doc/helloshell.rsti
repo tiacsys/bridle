@@ -110,7 +110,7 @@ See also Bridle sample: :ref:`helloshell-sample`.
               DT node labels: vreg
             - pio-ws2812 (READY)
             - ws2812-8x8 (READY)
-              DT node labels: led_strip
+              DT node labels: ws2812_8x8 led_strip
             - qmi8658a\ @\ 6b (READY)
               DT node labels: qmi8658
             - dietemp (READY)
@@ -164,7 +164,7 @@ See also Bridle sample: :ref:`helloshell-sample`.
               DT node labels: vreg
             - pio-ws2812 (READY)
             - ws2812-8x8 (READY)
-              DT node labels: led_strip
+              DT node labels: ws2812_8x8 led_strip
             - qmi8658a\ @\ 6b (READY)
               DT node labels: qmi8658
             - dietemp (READY)
@@ -347,10 +347,10 @@ See also Bridle sample: :ref:`helloshell-sample`.
              Reserved  Pin  Line Name
                         0    TX0
                         1    RX0
-                        2    GP2_PWM2_CTS0
-                        3    GP3_PWM3_RTS0
-                        4    GP4_PWM4_DSR0
-                        5    GP5_PWM5_DTR0
+                        2    GP2_CTS0
+                        3    GP3_RTS0
+                        4    GP4_DSR0
+                        5    GP5_DTR0
                         6    IMU_SDA1
                         7    IMU_SCL1
                         8    IMU_INT1
@@ -359,8 +359,8 @@ See also Bridle sample: :ref:`helloshell-sample`.
                        11    RX1
                        12    SDA0
                        13    SCL0
-                       14    GP14_PWM14
-                       15    GP15_PWM15
+                       14    GP14
+                       15    GP15
                        16    SDI0
                        17    CSN0
                        18    SCK0

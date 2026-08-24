@@ -223,7 +223,8 @@ SPI Port
 
 The `RP2350A <RP2350 SoC_>`_ MCU has 2 SPIs. To the edge connectors, SPI0 is
 usable for external devices over GP19 (MOSI), GP16 (MISO), GP18 (SCK), and
-GP17 (CSn) on the |Waveshare RP2350 Matrix| header.
+GP17 (CSn) on the |Waveshare RP2350 Matrix| header. SPI1 is not available
+in any default setup.
 
 I2C Port
 ========
