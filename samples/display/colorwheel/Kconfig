@@ -1,0 +1,52 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+menu "RGB matrix color wheel sample settings"
+
+config COLORWHEEL_HUE_STEP
+	int "Hue rotation per frame [degrees]"
+	range 0 360
+	default 1
+	help
+	  How far the color wheel rotates around the centre of the
+	  panel between two consecutive frames. Set to 0 to render a
+	  static wheel.
+
+config COLORWHEEL_FRAME_INTERVAL
+	int "Delay between two frames [milliseconds]"
+	range 1 10000
+	default 20
+	help
+	  Time to sleep between two consecutive frames. Together with
+	  COLORWHEEL_HUE_STEP this defines the angular speed of the wheel.
+	  The default of 40 ms gives 25 frames per second.
+
+config COLORWHEEL_SAT_SCALE
+	int "Radius of full saturation [% of corner distance]"
+	range 1 100
+	default 50
+	help
+	  Radius at which the saturation ramp reaches full saturation,
+	  as a percentage of the distance from the centre to a corner.
+	  Beyond this radius the color stays fully saturated all the
+	  way into the corners.
+
+config COLORWHEEL_MAX_BRIGHTNESS
+	int "Brightness ceiling"
+	range 1 255
+	default 8
+	help
+	  The brightness every pixel is driven at. The radial ramp is
+	  carried by saturation alone, so this option sets the brightness
+	  of the whole panel directly.
+
+module = COLORWHEEL
+module-str = "colorwheel"
+source "subsys/logging/Kconfig.template.log_config"
+
+endmenu
+
+# Sources Kconfig.zephyr in the Zephyr root directory.
+menu "Zephyr Kernel"
+source "Kconfig.zephyr"
+endmenu
