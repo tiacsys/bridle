@@ -1,0 +1,43 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+sample:
+  description: Animated color wheel on an RGB LED matrix
+  name: colorwheel
+common:
+  tags:
+    - bridle
+    - drivers
+    - display
+    - led_strip
+  sysbuild: false
+  build_only: true
+  filter: dt_chosen_enabled("zephyr,display") and
+          dt_compat_enabled("led-strip-matrix")
+tests:
+  bridle.sample.colorwheel:
+    platform_allow:
+      - waveshare_rp2040_matrix
+      - waveshare_rp2350_matrix/rp2350a/hazard3
+      - waveshare_rp2350_matrix/rp2350a/m33
+    integration_platforms:
+      - waveshare_rp2040_matrix
+      - waveshare_rp2350_matrix/rp2350a/hazard3
+      - waveshare_rp2350_matrix/rp2350a/m33
+  bridle.sample.colorwheel.shield:
+    extra_args: SHIELD=waveshare_pico_rgb_led
+    platform_allow:
+      - rpi_pico/rp2040/bbe
+      - rpi_pico/rp2040/w/bbe
+      - rpi_pico2/rp2350a/hazard3/bbe
+      - rpi_pico2/rp2350a/m33/bbe
+      - rpi_pico2/rp2350a/m33/w/bbe
+      - waveshare_rp2040_lcd_0_96
+      - waveshare_rp2040_plus
+      - waveshare_rp2350_can/rp2350a/hazard3
+      - waveshare_rp2350_can/rp2350a/m33
+    integration_platforms:
+      - rpi_pico/rp2040/bbe
+      - rpi_pico2/rp2350a/hazard3/bbe
+      - rpi_pico2/rp2350a/m33/bbe
+      - waveshare_rp2040_plus
