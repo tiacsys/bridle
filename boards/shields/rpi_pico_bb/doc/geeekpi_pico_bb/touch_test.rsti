@@ -116,8 +116,8 @@ with chosen display and touchscreen panel. That is:
 
    .. parsed-literal::
 
-      [00:00:00.134,000] <inf> xpt2046: Init 'xpt2046\ @\ 0' device
+      [00:00:00.134,000] <inf> xpt2046: Init 'xpt2046-240x320\ @\ 0' device
       \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
-      [00:00:00.136,000] <inf> sample: Touch sample for touchscreen: xpt2046\ @\ 0, dc: ili9341\ @\ 0
+      [00:00:00.136,000] <inf> sample: Touch sample for touchscreen: xpt2046-240x320\ @\ 0, dc: ili9341-320x240\ @\ 0
       [00:00:30.379,000] <inf> sample: TOUCH PRESS X, Y: (105, 155)
       [00:00:30.792,000] <inf> sample: TOUCH RELEASE X, Y: (105, 155)

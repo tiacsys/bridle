@@ -48,10 +48,10 @@
              DT node labels: reset
            - snippet_cdc_acm_console_uart (READY)
              DT node labels: snippet_cdc_acm_console_uart
-           - uart\ @\ 40034000 (READY)
-             DT node labels: uart0 pico_serial rpipico_serial
            - timer\ @\ 40054000 (READY)
              DT node labels: timer
+           - uart\ @\ 40034000 (READY)
+             DT node labels: uart0 pico_serial pico_serial0 rpipico_serial
            - gpio-port\ @\ 0 (READY)
              DT node labels: gpio0
            - usbd\ @\ 50110000 (READY)
@@ -66,7 +66,7 @@
              DT node labels: vreg
            - rtc\ @\ 4005c000 (READY)
              DT node labels: rtc
-           - pwm_leds (READY)
+           - pwm-leds (READY)
              DT node labels: pwm_leds
 
       .. container:: highlight highlight-console notranslate
@@ -93,42 +93,57 @@
          This condition is irreversible at runtime within the shell and
          :strong:`requires a system reset`.
 
-      Operate with the user LED :hwftlbl-led:`0` at :rpi-pico-pwm:`PWM2`:
+      Operate with the user LED :hwftlbl-led:`PWM_ULED0`:
+      at :rpi-pico-pwm:`PWM2` (PWM1CHA):
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-           :bgn:`uart:~$` **led on pwm_leds 0**
-           pwm_leds: turning on LED 0
+           :bgn:`uart:~$` **led on pwm-leds 0**
+           pwm-leds: turning on LED 0
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-           :bgn:`uart:~$` **led set_brightness pwm_leds 0 10**
-           pwm_leds: setting LED 0 brightness to 10
+           :bgn:`uart:~$` **led set_brightness pwm-leds 0 10**
+           pwm-leds: setting LED 0 brightness to 10
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-           :bgn:`uart:~$` **led set_brightness pwm_leds 0 50**
-           pwm_leds: setting LED 0 brightness to 50
+           :bgn:`uart:~$` **led set_brightness pwm-leds 0 50**
+           pwm-leds: setting LED 0 brightness to 50
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-           :bgn:`uart:~$` **led set_brightness pwm_leds 0 100**
-           pwm_leds: setting LED 0 brightness to 100
+           :bgn:`uart:~$` **led set_brightness pwm-leds 0 100**
+           pwm-leds: setting LED 0 brightness to 100
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-           :bgn:`uart:~$` **led off pwm_leds 0**
-           pwm_leds: turning off LED 0
+           :bgn:`uart:~$` **led off pwm-leds 0**
+           pwm-leds: turning off LED 0
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led blink pwm-leds 0 50 50**
+            pwm-leds: blinking LED 0 with 50 ms on and 50 ms off
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led off pwm-leds 0**
+            pwm-leds: turning off LED 0
 
    .. group-tab:: PWM
 
@@ -139,7 +154,8 @@
          This condition is irreversible at runtime within the shell and
          :strong:`requires a system reset`.
 
-      Operate with the user LED :hwftlbl-led:`1` at :rpi-pico-pwm:`PWM3`:
+      Operate with the user LED :hwftlbl-led:`PWM_ULED1`
+      at :rpi-pico-pwm:`PWM3` (PWM1CHB):
 
       .. container:: highlight highlight-console notranslate
 
@@ -207,8 +223,8 @@
 
            :bgn:`uart:~$` **pwm usec pwm 3 20000 0**
 
-      Operate with the :hwftlbl-spk:`PIEZO` buzzer at
-      :rpi-pico-pio:`GP22` / :rpi-pico-pwm:`PWM6` (PWM2CHB):
+      Operate with the piezo :hwftlbl-spk:`PWM_BUZZER`
+      at :rpi-pico-pwm:`PWM6` (PWM3CHA):
 
          #. Piezo resonance: 2,500 ㎑
          #. Piezo high frequency: 10,000 ㎑
@@ -234,23 +250,25 @@
          This condition is irreversible at runtime within the shell and
          :strong:`requires a system reset`.
 
-      Operate with the user LED :hwftlbl-led:`1` at :rpi-pico-pio:`GP3`:
+      Operate with the user LED :hwftlbl-led:`ULED2`
+      at :rpi-pico-pio:`GP4`:
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **gpio get gpio0 3**
+            :bgn:`uart:~$` **gpio get gpio0 4**
             0
 
-            :bgn:`uart:~$` **gpio conf gpio0 3 oh0**
-            :bgn:`uart:~$` **gpio set gpio0 3 1**
-            :bgn:`uart:~$` **gpio set gpio0 3 0**
+            :bgn:`uart:~$` **gpio conf gpio0 4 oh0**
+            :bgn:`uart:~$` **gpio set gpio0 4 1**
+            :bgn:`uart:~$` **gpio set gpio0 4 0**
 
-            :bgn:`uart:~$` **gpio blink gpio0 3**
+            :bgn:`uart:~$` **gpio blink gpio0 4**
             Hit any key to exit
 
-      Operate with the user key :hwftlbl-btn:`0` at :rpi-pico-pio:`GP16`:
+      Operate with the user key :hwftlbl-btn:`UBTN0`
+      at :rpi-pico-pio:`GP16`:
 
       .. container:: highlight highlight-console notranslate
 

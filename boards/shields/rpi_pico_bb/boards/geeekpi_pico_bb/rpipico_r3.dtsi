@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2024-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -50,54 +50,54 @@
 	divider-int-3 = <255>;
 };
 
-&pwm_buzzer_0 {							/* GP22:PWM3CHA */
+&pwm_buzzer0 {							/* GP22:PWM3CHA */
 	pwms = <&pwm 6 PWM_HZ(880) PWM_POLARITY_NORMAL>;
 };
 
-&pwm_led_0 {							/* GP2:PWM1A */
+&pwm_led0 {							/* GP2:PWM1A */
 	pwms = <&rpipico_pwm 2 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
 };
 
-&pwm_led_1 {							/* GP3:PWM1B */
+&pwm_led1 {							/* GP3:PWM1B */
 	pwms = <&rpipico_pwm 3 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
 };
 
-&pwm_led_2 {							/* GP4:PWM2A */
+&pwm_led2 {							/* GP4:PWM2A */
 	pwms = <&rpipico_pwm 4 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
 };
 
-&pwm_led_3 {							/* GP5:PWM2B */
+&pwm_led3 {							/* GP5:PWM2B */
 	pwms = <&rpipico_pwm 5 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
 };
 
-&led_0 {							/* GP2 */
+&led0 {							/* GP2 */
 	gpios = <&rpipico_header 2 GPIO_ACTIVE_HIGH>;
 };
 
-&led_1 {							/* GP3 */
+&led1 {							/* GP3 */
 	gpios = <&rpipico_header 3 GPIO_ACTIVE_HIGH>;
 };
 
-&led_2 {							/* GP4 */
+&led2 {							/* GP4 */
 	gpios = <&rpipico_header 4 GPIO_ACTIVE_HIGH>;
 };
 
-&led_3 {							/* GP5 */
+&led3 {							/* GP5 */
 	gpios = <&rpipico_header 5 GPIO_ACTIVE_HIGH>;
 };
 
-&button_0 {							/* GP16 */
+&btn0 {								/* GP16 */
 	gpios = <&rpipico_header 16 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 };
 
-&button_1 {							/* GP17 */
+&btn1 {								/* GP17 */
 	gpios = <&rpipico_header 17 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 };
 
-&button_2 {							/* GP18 */
+&btn2 {								/* GP18 */
 	gpios = <&rpipico_header 18 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 };
 
-&button_3 {							/* GP19 */
+&btn3 {								/* GP19 */
 	gpios = <&rpipico_header 19 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 };
