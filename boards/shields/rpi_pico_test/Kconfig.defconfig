@@ -1,11 +1,6 @@
-# Copyright (c) 2023 TiaC Systems
+# SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
-config SHIELD_RPI_PICO_TEST
-	bool
-	default y if SHIELD_SPOTPEAR_PICO_TEST
-	default n
-
 config INPUT
-	default y if DT_HAS_ZEPHYR_LVGL_KEYPAD_INPUT_ENABLED
-	depends on SHIELD_RPI_PICO_TEST && DISPLAY && LVGL
+	default y if SHIELD_SPOTPEAR_PICO_TEST
+	depends on DISPLAY && LVGL && DT_HAS_ZEPHYR_LVGL_KEYPAD_INPUT_ENABLED
