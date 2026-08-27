@@ -161,7 +161,7 @@ See also Bridle sample: :ref:`helloshell-sample`.
    .. group-tab:: LED Strip
 
       Operate with the RGB digital LED strip :hwftlbl-led:`1 RGB`
-      at :rpi-pico-pio:`PIO0` / :rpi-pico-pio:`GP25`:
+      at :rpi-pico-pio:`PIO0` / :rpi-pico-pio:`GP16`:
 
       .. container:: highlight highlight-console notranslate
 

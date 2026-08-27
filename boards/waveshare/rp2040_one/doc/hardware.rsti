@@ -23,7 +23,7 @@ The castellated module allows soldering direct to carrier boards.
        :hwftlbl-dbg:`UF2`
 
        :hwftlbl-pio:`20+9`
-       :hwftlbl-pwm:`13`
+       :hwftlbl-pwm:`16`
        :hwftlbl-adc:`4`
        :hwftlbl-i2c:`2`
        :hwftlbl-spi:`1`
