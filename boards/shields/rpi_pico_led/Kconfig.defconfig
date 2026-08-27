@@ -1,7 +1,0 @@
-# Copyright (c) 2024 TiaC Systems
-# SPDX-License-Identifier: Apache-2.0
-
-config SHIELD_RPI_PICO_LED
-	bool
-	default y if SHIELD_WAVESHARE_PICO_RGB_LED
-	default n
