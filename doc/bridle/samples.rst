@@ -18,7 +18,7 @@ of a single feature or library:
    :maxdepth: 1
    :glob:
 
-   samples/*/README
+   samples/**/README
 
 For more complex examples, see :ref:`applications`.
 
