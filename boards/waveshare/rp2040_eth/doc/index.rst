@@ -36,8 +36,8 @@ for the board is defined below.
 Supported Features
 ******************
 
-Similar to the |zephyr:board:rpi_pico| the Waveshare RP2040 board configuration
-supports the following hardware features:
+Similar to the |zephyr:board:rpi_pico| the board configuration supports the
+following hardware features:
 
 .. list-table:: Hardware Features Supported by Zephyr
    :class: longtable

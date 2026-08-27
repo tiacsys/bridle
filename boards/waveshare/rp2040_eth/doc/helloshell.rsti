@@ -83,6 +83,8 @@ See also Bridle sample: :ref:`helloshell-sample`.
               DT node labels: ssi
             - i2c\ @\ 40044000 (READY)
               DT node labels: i2c0 pico_i2c0 pico_i2c rpipico_i2c0 rpipico_i2c
+            - pwm\ @\ 40050000 (READY)
+              DT node labels: pwm
             - vreg\ @\ 40064000 (READY)
               DT node labels: vreg
             - rtc\ @\ 4005c000 (READY)
