@@ -29,16 +29,15 @@ The peripherals of the `RP2040 SoC`_ can be routed to various pins on
 the board. The configuration of these routes can be modified through
 :external+zephyr:ref:`DTS <devicetree>`. Please refer to the datasheet
 to see the possible routings for each peripheral. The default assignments
-for the various Waveshare RP2040 boards are defined below separately
-in a single tab.
+for the board is defined below.
 
 .. include:: pinouts.rsti
 
 Supported Features
 ******************
 
-Similar to the |zephyr:board:rpi_pico| the Waveshare RP2040 board configuration
-supports the following hardware features:
+Similar to the |zephyr:board:rpi_pico| the board configuration supports the
+following hardware features:
 
 .. list-table:: Hardware Features Supported by Zephyr
    :class: longtable
