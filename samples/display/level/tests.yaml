@@ -1,0 +1,28 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+sample:
+  description: Digital spirit level on an RGB LED matrix
+  name: level
+common:
+  tags:
+    - bridle
+    - drivers
+    - display
+    - led_strip
+    - sensors
+  sysbuild: false
+  build_only: true
+  depends_on:
+    - i2c
+  filter: dt_chosen_enabled("zephyr,display") and
+          dt_compat_enabled("led-strip-matrix") and
+          dt_alias_exists("accel0")
+tests:
+  bridle.sample.level:
+    platform_allow:
+      - waveshare_rp2350_matrix/rp2350a/hazard3
+      - waveshare_rp2350_matrix/rp2350a/m33
+    integration_platforms:
+      - waveshare_rp2350_matrix/rp2350a/hazard3
+      - waveshare_rp2350_matrix/rp2350a/m33

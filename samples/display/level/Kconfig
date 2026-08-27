@@ -1,0 +1,121 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+menu "RGB matrix level sample settings"
+
+config LEVEL_COLOR_RANGE_TILT
+	int "Tilt angle over which the bubble changes colour [tenths of a degree]"
+	range 1 600
+	default 10
+	help
+	  At this angle and beyond, the bubble is fully the far colour; at
+	  dead level it is fully the near colour; in between it is mixed.
+	  Should be far tighter than LEVEL_FULL_SCALE_TILT.
+
+config LEVEL_LOCK_TILT
+	int "Tilt angle below which the board counts as level [tenths of a degree]"
+	range 0 600
+	default 3
+	help
+	  Below this tilt the bubble latches fully to the near colour.
+	  Keep well inside LEVEL_COLOR_RANGE_TILT. Set to 0 to disable
+	  the latch.
+
+config LEVEL_LOCK_HYSTERESIS
+	int "Extra tilt needed to break the level latch [tenths of a degree]"
+	range 0 600
+	default 2
+	help
+	  The latch engages at LEVEL_LOCK_TILT and releases at
+	  LEVEL_LOCK_TILT plus this, so the two form a band rather than
+	  a single edge that would flicker on noise.
+
+config LEVEL_FULL_SCALE_TILT
+	int "Tilt angle at which the bubble reaches the panel edge [degrees]"
+	range 1 60
+	default 10
+	help
+	  Tilt that moves the bubble from the centre of the panel all the
+	  way to the rim; sets the sensitivity of the instrument.
+
+config LEVEL_FILTER_TIME_CONSTANT
+	int "Low pass filter time constant [milliseconds]"
+	range 0 5000
+	default 100
+	help
+	  Time constant of the first order low pass filter on the
+	  acceleration reading. Set to 0 to disable filtering. Quoted as
+	  a time rather than a per sample weight, so the smoothing is
+	  independent of LEVEL_FRAME_INTERVAL.
+
+config LEVEL_FRAME_INTERVAL
+	int "Delay between two frames [milliseconds]"
+	range 1 10000
+	default 40
+	help
+	  Also the rate at which the inertial sensor is polled.
+
+config LEVEL_SENSOR_LOG_INTERVAL
+	int "Delay between two logged sensor readings [milliseconds]"
+	range 0 60000
+	default 1000
+	help
+	  Throttles the log output only; sampling always runs at
+	  LEVEL_FRAME_INTERVAL. Set to 0 to log every sample.
+
+config LEVEL_TEST_IMAGE_MS
+	int "Show the corner test image at startup [milliseconds]"
+	range 0 10000
+	default 2000
+	help
+	  Lights the four corner pixels in red, green, blue and white to
+	  show where the origin of the display physically sits. Set to 0
+	  to skip the test image.
+
+menu "Sensor to panel axis mapping"
+
+comment "Determine these empirically, see the README"
+
+# How the sensor is mounted relative to the panel is a per board
+# property, so measured boards get their mapping as a default here and
+# every other board falls back to the identity mapping.
+
+config LEVEL_AXIS_SWAP_XY
+	bool "Swap the sensor X and Y axes"
+	default y if BOARD_WAVESHARE_RP2350_MATRIX
+	help
+	  Feed the sensor Y axis into the panel X axis and vice versa.
+	  Applied before the inversions.
+
+config LEVEL_AXIS_INVERT_X
+	bool "Invert the panel X axis"
+	default y if BOARD_WAVESHARE_RP2350_MATRIX
+	help
+	  Negate the horizontal component, after any swap.
+
+config LEVEL_AXIS_INVERT_Y
+	bool "Invert the panel Y axis"
+	help
+	  Negate the vertical component, after any swap.
+
+endmenu
+
+config LEVEL_BRIGHTNESS
+	int "Brightness of the bubble and the test image"
+	range 1 255
+	default 32
+	help
+	  The channel level a fully lit primary colour is drawn at. This
+	  is also the number of brightness steps the sub-pixel
+	  positioning has to work with.
+
+module = LEVEL
+module-str = "level"
+source "subsys/logging/Kconfig.template.log_config"
+
+endmenu
+
+# Sources Kconfig.zephyr in the Zephyr root directory.
+menu "Zephyr Kernel"
+source "Kconfig.zephyr"
+endmenu
