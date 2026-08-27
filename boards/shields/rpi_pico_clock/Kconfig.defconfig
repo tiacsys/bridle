@@ -1,10 +1,5 @@
-# Copyright (c) 2023-2025 TiaC Systems
+# SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
-
-config SHIELD_RPI_PICO_CLOCK
-	bool
-	default y if SHIELD_WAVESHARE_PICO_CLOCK_GREEN
-	default n
 
 config SHIELD_RPI_PICO_CLOCK_HIYOU
 	bool
@@ -20,13 +15,13 @@ config RTC_UPDATE
 	depends on RTC
 
 config SPI
-	default y if DT_HAS_SIPO_MUX_GP_SPI_ENABLED
-	depends on SHIELD_RPI_PICO_CLOCK
+	default y if SHIELD_WAVESHARE_PICO_CLOCK_GREEN
+	depends on DT_HAS_SIPO_MUX_GP_SPI_ENABLED
 
 config GPIO_HOGS
-	default y if DT_HAS_SIPO_MUX_GPIO_ENABLED
-	depends on SHIELD_RPI_PICO_CLOCK_HIYOU && GPIO
+	default y if SHIELD_RPI_PICO_CLOCK_HIYOU
+	depends on GPIO && DT_HAS_SIPO_MUX_GPIO_ENABLED
 
 config GPIO_HOGS_INIT_PRIORITY
-	default 85 if DT_HAS_SIPO_MUX_GPIO_ENABLED
-	depends on SHIELD_RPI_PICO_CLOCK_HIYOU && GPIO_HOGS
+	default 85 if SHIELD_RPI_PICO_CLOCK_HIYOU
+	depends on GPIO_HOGS && DT_HAS_SIPO_MUX_GPIO_ENABLED
