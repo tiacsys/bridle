@@ -14,6 +14,8 @@ For example:
          :board: rpi_pico/rp2040/bbe
          :shield: "geeekpi_pico_bb_plus"
          :snippets: "usb-console"
+         :gen-args: \
+            -DCONFIG_LED_STRIP=y -DCONFIG_LED_STRIP_SHELL=y -DCONFIG_LED_STRIP_SHELL_MAX_PIXELS=1
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -31,6 +33,8 @@ For example:
          :board: rpi_pico2/rp2350a/m33/bbe
          :shield: "geeekpi_pico_bb_plus"
          :snippets: "usb-console"
+         :gen-args: \
+            -DCONFIG_LED_STRIP=y -DCONFIG_LED_STRIP_SHELL=y -DCONFIG_LED_STRIP_SHELL_MAX_PIXELS=1
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -44,6 +48,8 @@ For example:
          :board: rpi_pico2/rp2350a/hazard3/bbe
          :shield: "geeekpi_pico_bb_plus"
          :snippets: "usb-console"
+         :gen-args: \
+            -DCONFIG_LED_STRIP=y -DCONFIG_LED_STRIP_SHELL=y -DCONFIG_LED_STRIP_SHELL_MAX_PIXELS=1
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -61,6 +67,8 @@ For example:
          :board: rpi_pico2/rp2350a/m33/w/bbe
          :shield: "geeekpi_pico_bb_plus"
          :snippets: "usb-console wifi-ip"
+         :gen-args: \
+            -DCONFIG_LED_STRIP=y -DCONFIG_LED_STRIP_SHELL=y -DCONFIG_LED_STRIP_SHELL_MAX_PIXELS=1
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -76,6 +84,8 @@ For example:
          :board: rpi_pico/rp2040/w/bbe
          :shield: "geeekpi_pico_bb_plus"
          :snippets: "usb-console wifi-ip"
+         :gen-args: \
+            -DCONFIG_LED_STRIP=y -DCONFIG_LED_STRIP_SHELL=y -DCONFIG_LED_STRIP_SHELL_MAX_PIXELS=1
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -93,6 +103,8 @@ For example:
          :board: waveshare_rp2040_plus
          :shield: "geeekpi_pico_bb_plus"
          :snippets: "usb-console"
+         :gen-args: \
+            -DCONFIG_LED_STRIP=y -DCONFIG_LED_STRIP_SHELL=y -DCONFIG_LED_STRIP_SHELL_MAX_PIXELS=1
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -106,6 +118,8 @@ For example:
          :board: waveshare_rp2040_plus@16mb
          :shield: "geeekpi_pico_bb_plus"
          :snippets: "usb-console"
+         :gen-args: \
+            -DCONFIG_LED_STRIP=y -DCONFIG_LED_STRIP_SHELL=y -DCONFIG_LED_STRIP_SHELL_MAX_PIXELS=1
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash

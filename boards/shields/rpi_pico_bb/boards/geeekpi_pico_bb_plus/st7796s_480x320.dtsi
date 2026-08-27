@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024-2026 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2024-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -7,7 +7,7 @@
 #include <zephyr/dt-bindings/mipi_dbi/mipi_dbi.h>
 
 &mipi_dbi {
-	st7796s_480x320: st7796s@0 {
+	st7796s_480x320: st7796s-480x320@0 {
 		compatible = "sitronix,st7796s";
 		mipi-max-frequency = <DT_FREQ_M(62)>;
 		mipi-mode = "MIPI_DBI_MODE_SPI_4WIRE";

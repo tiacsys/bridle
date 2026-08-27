@@ -117,7 +117,7 @@ touchscreen panel. That is:
    .. parsed-literal::
 
       \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
-      [00:00:00.320,000] <inf> sample: Touch sample for touchscreen: gt911\ @\ 5d, dc: st7796s\ @\ 0
+      [00:00:00.320,000] <inf> sample: Touch sample for touchscreen: gt911-320x480\ @\ 5d, dc: st7796s-480x320\ @\ 0
       [00:00:09.650,000] <inf> sample: TOUCH PRESS X, Y: (156, 130)
       [00:00:09.752,000] <inf> sample: TOUCH PRESS X, Y: (156, 130)
       [00:00:09.854,000] <inf> sample: TOUCH RELEASE X, Y: (156, 130)

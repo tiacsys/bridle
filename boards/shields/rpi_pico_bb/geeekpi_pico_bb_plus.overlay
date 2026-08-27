@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024-2025 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2024-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -30,10 +30,10 @@
 
 	joystick_axis_x_keys: joystick-axis-x-keys {
 		compatible = "adc-keys";
-		joystick_axis_x_key_0: joystick_axis_x_key_0 {
+		joystick_axis_x_key0: joystick-axis-x-key0 {
 			zephyr,code = <INPUT_KEY_LEFT>;
 		};
-		joystick_axis_x_key_1: joystick_axis_x_key_1 {
+		joystick_axis_x_key1: joystick-axis-x-key1 {
 			zephyr,code = <INPUT_KEY_RIGHT>;
 		};
 	};
@@ -47,10 +47,10 @@
 
 	joystick_axis_y_keys: joystick-axis-y-keys {
 		compatible = "adc-keys";
-		joystick_axis_y_key_0: joystick_axis_y_key_0 {
+		joystick_axis_y_key0: joystick-axis-y-key0 {
 			zephyr,code = <INPUT_KEY_DOWN>;
 		};
-		joystick_axis_y_key_1: joystick_axis_y_key_1 {
+		joystick_axis_y_key1: joystick-axis-y-key1 {
 			zephyr,code = <INPUT_KEY_UP>;
 		};
 	};
@@ -75,15 +75,16 @@
 
 	/delete-node/ keys;
 	/delete-node/ gpio_keys;
-	gpio_keys: gpio_keys {
+	/delete-node/ gpio-keys;
+	gpio_keys: gpio-keys {
 		compatible = "gpio-keys";
 		status = "okay";
 
-		button_0: button_0 {
+		btn0: btn0 {
 			label = "User button 0";
 			zephyr,code = <INPUT_KEY_0>;
 		};
-		button_1: button_1 {
+		btn1: btn1 {
 			label = "User button 1";
 			zephyr,code = <INPUT_KEY_1>;
 		};
@@ -91,51 +92,55 @@
 
 	/delete-node/ leds;
 	/delete-node/ gpio_leds;
-	gpio_leds: gpio_leds {
+	/delete-node/ gpio-leds;
+	gpio_leds: gpio-leds {
 		compatible = "gpio-leds";
 		status = "disabled";
 
-		led_0: led_0 {
-			label = "User LED 0";
+		led0: led0 {
+			label = "ULED0";
 		};
-		led_1: led_1 {
-			label = "User LED 1";
+		led1: led1 {
+			label = "ULED1";
 		};
 	};
 
 	/delete-node/ pwm_leds;
-	pwm_leds: pwm_leds {
+	/delete-node/ pwm-leds;
+	pwm_leds: pwm-leds {
 		compatible = "pwm-leds";
 		status = "okay";
 
-		pwm_led_0: pwm_led_0 {
-			label = "User LED 0 (PWM)";
+		pwm_led0: pwm-led0 {
+			label = "PWM_ULED0";
 		};
-		pwm_led_1: pwm_led_1 {
-			label = "User LED 1 (PWM)";
+		pwm_led1: pwm-led1 {
+			label = "PWM_ULED1";
 		};
 	};
 
-	pwm_buzzers: pwm_buzzers {
+	/delete-node/ buzzers;
+	/delete-node/ pwm_buzzers;
+	pwm_buzzers: pwm-buzzers {
 		compatible = "pwm-buzzers";
 		status = "okay";
 
-		pwm_buzzer_0: pwm_buzzer_0 {
-			label = "User buzzer (PWM)";
+		pwm_buzzer0: pwm-buzzer0 {
+			label = "PWM_BUZZER";
 		};
 	};
 
 	aliases {
 		/delete-property/ sw0;
-		sw0 = &button_0;
-		sw1 = &button_1;
+		sw0 = &btn0;
+		sw1 = &btn1;
 		/delete-property/ led0;
-		led0 = &led_0;
-		led1 = &led_1;
+		led0 = &led0;
+		led1 = &led1;
 		/delete-property/ pwm-led0;
-		pwm-led0 = &pwm_led_0;
-		pwm-led1 = &pwm_led_1;
-		pwm-buzzer0 = &pwm_buzzer_0;
+		pwm-led0 = &pwm_led0;
+		pwm-led1 = &pwm_led1;
+		pwm-buzzer0 = &pwm_buzzer0;
 		led-strip = &led_strip;
 	};
 

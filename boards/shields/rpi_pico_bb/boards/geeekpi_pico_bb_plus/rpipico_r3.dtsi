@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024-2026 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2024-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -58,31 +58,31 @@
 	divider-int-6 = <255>;
 };
 
-&pwm_buzzer_0 {							/* GP13:PWM6CHB */
+&pwm_buzzer0 {							/* GP13:PWM6CHB */
 	pwms = <&pwm 13 PWM_HZ(880) PWM_POLARITY_NORMAL>;
 };
 
-&pwm_led_0 {							/* GP16:PWM0A */
+&pwm_led0 {							/* GP16:PWM0A */
 	pwms = <&rpipico_pwm 0 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
 };
 
-&pwm_led_1 {							/* GP17:PWM0B */
+&pwm_led1 {							/* GP17:PWM0B */
 	pwms = <&rpipico_pwm 1 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
 };
 
-&led_0 {							/* GP16 */
+&led0 {								/* GP16 */
 	gpios = <&rpipico_header 16 GPIO_ACTIVE_HIGH>;
 };
 
-&led_1 {							/* GP17 */
+&led1 {								/* GP17 */
 	gpios = <&rpipico_header 17 GPIO_ACTIVE_HIGH>;
 };
 
-&button_0 {							/* GP14 */
+&btn0 {								/* GP14 */
 	gpios = <&rpipico_header 14 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 };
 
-&button_1 {							/* GP15 */
+&btn1 {								/* GP15 */
 	gpios = <&rpipico_header 15 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 };
 
@@ -91,11 +91,11 @@
 	keyup-threshold-mv = <1850>;
 };
 
-&joystick_axis_x_key_0 {
+&joystick_axis_x_key0 {
 	press-thresholds-mv = <850>;				/* X@LEFT */
 };
 
-&joystick_axis_x_key_1 {
+&joystick_axis_x_key1 {
 	press-thresholds-mv = <2180>;				/* X@RIGHT */
 };
 
@@ -104,11 +104,11 @@
 	keyup-threshold-mv = <1850>;
 };
 
-&joystick_axis_y_key_0 {
+&joystick_axis_y_key0 {
 	press-thresholds-mv = <850>;				/* Y@DOWN */
 };
 
-&joystick_axis_y_key_1 {
+&joystick_axis_y_key1 {
 	press-thresholds-mv = <2180>;				/* Y@UP */
 };
 

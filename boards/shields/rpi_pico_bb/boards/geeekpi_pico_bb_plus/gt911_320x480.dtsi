@@ -1,12 +1,12 @@
 /*
- * Copyright (c) 2024 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2024-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
 #include <freq.h>
 
 &rpipico_i2c_tsc {
-	gt911_320x480: gt911@5d {
+	gt911_320x480: gt911-320x480@5d {
 		compatible = "goodix,gt911";
 		reg = <0x5d>;
 

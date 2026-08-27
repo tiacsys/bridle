@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2024-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -11,10 +11,10 @@
 	/* LO: 0x380: 1110000000: 0.375 us high and 0.875 us low */
 	bit-waveform = <3>, <3>, <4>;
 
-	ws2812_1x1: ws2812-1x1 {
+	ws2812: ws2812 {
 		chain-length = <1>;
-		color-mapping = <LED_COLOR_ID_RED
-				 LED_COLOR_ID_GREEN
+		color-mapping = <LED_COLOR_ID_GREEN
+				 LED_COLOR_ID_RED
 				 LED_COLOR_ID_BLUE>;
 
 		/* PIO0:OUT and Tbit = 1.25 us / 10 */
@@ -23,4 +23,4 @@
 	};
 };
 
-led_strip: &ws2812_1x1 {};
+led_strip: &ws2812 {};
