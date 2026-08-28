@@ -1,5 +1,5 @@
-# Copyright (c) 2021-2026 TiaC Systems
-# Copyright (c) 2021 Li-Pro.Net
+# SPDX-FileCopyrightText: Copyright (c) 2021-2026 TiaC Systems
+# SPDX-FileCopyrightText: Copyright (c) 2021 Li-Pro.Net
 # SPDX-License-Identifier: Apache-2.0
 
 name: QA Manifest Check and Labeler
@@ -42,7 +42,7 @@ jobs:
           west update --fetch-opt=--depth=1 --fetch=always --narrow --stats || true
 
       - name: Run manifest check
-        uses: zephyrproject-rtos/action-manifest@ce3405bd7039ea968a2821cef3b88150e9415555
+        uses: zephyrproject-rtos/action-manifest@854c72013232bc7a3c437de93ba608d91212b010
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           checkout-path: 'workspace/bridle'
