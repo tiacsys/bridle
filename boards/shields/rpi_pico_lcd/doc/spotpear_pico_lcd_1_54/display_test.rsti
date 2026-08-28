@@ -126,5 +126,5 @@ with chosen display. That is:
    .. parsed-literal::
 
       \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
-      [00:00:00.190,000] <inf> sample: Display sample for st7789v\ @\ 0
+      [00:00:00.190,000] <inf> sample: Display sample for st7789v-240x240ls\ @\ 0
       [00:00:00.289,000] <inf> sample: Display starts

@@ -149,14 +149,16 @@ Using the LVGL module on top of the :external+zephyr:ref:`Display driver API
    .. parsed-literal::
 
       :bgn:`uart:~$` **lvgl stats memory**
-      Heap at 0x20001860 contains 2047 units in 11 buckets
+      Heap at 0x200018e0 contains 2047 units in 11 buckets
 
         bucket#    min units        total      largest      largest
                    threshold       chunks      (units)      (bytes)
         -----------------------------------------------------------
-              1            2            1            2           16
+              0            1            1            1            8
+              1            2            2            3           24
+              2            4            1            4           32
               3            8            1           11           88
               6           64            1           81          648
-              9          512            1          921         7368
+              9          512            1          871         6968
 
-      8120 free bytes, 8192 allocated bytes, overhead = 68 bytes (0.4%)
+      7756 free bytes, 8012 allocated bytes, overhead = 612 bytes (3.7%)

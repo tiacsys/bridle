@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2024-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -17,9 +17,9 @@
 	};
 
 	lcd_backlight_en: lcd-backlight-en {
-		compatible = "regulator-fixed";
-		regulator-name = "lcd_backlight_enable";
-		regulator-boot-on;
+		compatible = "regulator-gpio";
+		regulator-name = "lcd_backlight_en";
+		regulator-always-on;
 	};
 
 	lvgl_buttons: lvgl-buttons {
@@ -40,70 +40,73 @@
 			      LV_KEY_ENTER>;
 	};
 
-	gpio_keys: gpio_keys {
+	/delete-node/ gpio_keys;
+	/delete-node/ gpio-keys;
+	gpio_keys: gpio-keys {
 		compatible = "gpio-keys";
-		button_0: button_0 {
+		btn0: btn0 {
 			label = "User button X";
 			zephyr,code = <INPUT_KEY_X>;
 		};
-		button_1: button_1 {
+		btn1: btn1 {
 			label = "User button A";
 			zephyr,code = <INPUT_KEY_A>;
 		};
-		button_2: button_2 {
+		btn2: btn2 {
 			label = "User button Y";
 			zephyr,code = <INPUT_KEY_Y>;
 		};
-		button_3: button_3 {
+		btn3: btn3 {
 			label = "User button B";
 			zephyr,code = <INPUT_KEY_B>;
 		};
-		button_4: button_4 {
+		btn4: btn4 {
 			label = "User button LEFT";
 			zephyr,code = <INPUT_KEY_LEFT>;
 		};
-		button_5: button_5 {
+		btn5: btn5 {
 			label = "User button DOWN";
 			zephyr,code = <INPUT_KEY_DOWN>;
 		};
-		button_6: button_6 {
+		btn6: btn6 {
 			label = "User button UP";
 			zephyr,code = <INPUT_KEY_UP>;
 		};
-		button_7: button_7 {
+		btn7: btn7 {
 			label = "User button RIGHT";
 			zephyr,code = <INPUT_KEY_RIGHT>;
 		};
-		button_8: button_8 {
+		btn8: btn8 {
 			label = "User button SELECT";
 			zephyr,code = <INPUT_KEY_ENTER>;
 		};
-		button_9: button_9 {
+		btn9: btn9 {
 			label = "User button START";
 			zephyr,code = <INPUT_KEY_PLAY>;
 		};
-		button_10: button_10 {
+		btn10: btn10 {
 			label = "User button L";
 			zephyr,code = <INPUT_KEY_L>;
 		};
-		button_11: button_11 {
+		btn11: btn11 {
 			label = "User button R";
 			zephyr,code = <INPUT_KEY_R>;
 		};
 	};
 
 	aliases {
-		sw0 = &button_0;
-		sw1 = &button_1;
-		sw2 = &button_2;
-		sw3 = &button_3;
-		sw4 = &button_4;
-		sw5 = &button_5;
-		sw6 = &button_6;
-		sw7 = &button_7;
-		sw8 = &button_8;
-		sw9 = &button_9;
-		sw10 = &button_10;
-		sw11 = &button_11;
+		/delete-property/ sw0;
+		sw0 = &btn0;
+		sw1 = &btn1;
+		sw2 = &btn2;
+		sw3 = &btn3;
+		sw4 = &btn4;
+		sw5 = &btn5;
+		sw6 = &btn6;
+		sw7 = &btn7;
+		sw8 = &btn8;
+		sw9 = &btn9;
+		sw10 = &btn10;
+		sw11 = &btn11;
 	};
 };
