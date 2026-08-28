@@ -48,10 +48,10 @@
               DT node labels: reset
             - snippet_cdc_acm_console_uart (READY)
               DT node labels: snippet_cdc_acm_console_uart
-            - uart\ @\ 40034000 (READY)
-              DT node labels: uart0 pico_serial rpipico_serial
             - timer\ @\ 40054000 (READY)
               DT node labels: timer
+            - uart\ @\ 40034000 (READY)
+              DT node labels: uart0 pico_serial pico_serial0 rpipico_serial
             - gpio-port\ @\ 0 (READY)
               DT node labels: gpio0
             - usbd\ @\ 50110000 (READY)
@@ -70,8 +70,10 @@
               DT node labels: rtc
             - lcd-backlight-en (READY)
               DT node labels: lcd_backlight_en
-            - gpio_leds (READY)
-              DT node labels: gpio_leds
+            - pwm-rgb-led (READY)
+              DT node labels: pwm_rgb_led
+            - pwm-leds (READY)
+              DT node labels: pwm_leds
             - leds (READY)
 
       .. container:: highlight highlight-console notranslate
@@ -89,22 +91,276 @@
             [  7] hello
             [  8] hello -h
 
-   .. group-tab:: LCD Backlight LED
+   .. group-tab:: LCD backlight
 
-      Operate with the LCD backlight LED :hwftlbl-led:`BL_EN`
-      at :rpi-pico-pio:`GP20`:
-
-      .. container:: highlight highlight-console notranslate
-
-         .. parsed-literal::
-
-            :bgn:`uart:~$` **regulator disable lcd-backlight-en**
+      Operate with the LCD backlight switch as voltage regulator,
+      :rpi-pico-sys:`BL_EN` at :rpi-pico-pio:`GP20`:
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **regulator enable lcd-backlight-en**
+            :bgn:`uart:~$` **regulator vlist lcd-backlight-en**
+            3.300000 V
+            0 uV
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **regulator vget lcd-backlight-en**
+            3.300000 V
+
+      The off/on sequence:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **regulator vset lcd-backlight-en 0V**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **regulator vset lcd-backlight-en 3300mV**
+
+   .. group-tab:: LED Group (RGB)
+
+      .. note:: **PWM LED conflicts with GPIO!**
+
+         Operations with the user LEDs in PWM mode will fail when ever
+         the corresponding GPIO lines were configured as digital output.
+         This condition is irreversible at runtime within the shell and
+         :strong:`requires a system reset`.
+
+      Operate with the RGB LED, grouped from the three single-user LEDs:
+
+      - :hwftlbl-led:`LED_R` at :rpi-pico-pio:`GP6` / :rpi-pico-pwm:`PWM6` (PWM3CHA)
+      - :hwftlbl-led:`LED_G` at :rpi-pico-pio:`GP7` / :rpi-pico-pwm:`PWM7` (PWM3CHB)
+      - :hwftlbl-led:`LED_B` at :rpi-pico-pio:`GP8` / :rpi-pico-pwm:`PWM8` (PWM4CHA)
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led get_info pwm-rgb-led 0**
+            pwm-rgb-led: getting LED 0 information
+            Label      : <NULL>
+            Index      : 0
+            Num colors : 3
+            Colors     : red:green:blue
+
+      Set LED group to :brd:`RED`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led set_color pwm-rgb-led 0 100 0 0**
+            pwm-rgb-led: setting LED 0 color to 100:0:0
+
+      Set LED group to :byl:`YELLOW`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led set_color pwm-rgb-led 0 100 100 0**
+            pwm-rgb-led: setting LED 0 color to 100:100:0
+
+      Set LED group to :bgn:`GREEN`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led set_color pwm-rgb-led 0 0 100 0**
+            pwm-rgb-led: setting LED 0 color to 0:100:0
+
+      Set LED group to :bcy:`CYAN`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led set_color pwm-rgb-led 0 0 100 100**
+            pwm-rgb-led: setting LED 0 color to 0:100:100
+
+      Set LED group to :bbl:`BLUE`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led set_color pwm-rgb-led 0 0 0 100**
+            pwm-rgb-led: setting LED 0 color to 0:0:100
+
+      Set LED group to :bma:`MAGENTA`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led set_color pwm-rgb-led 0 100 0 100**
+            pwm-rgb-led: setting LED 0 color to 100:0:100
+
+      Set LED group to :bwt:`WHITE` (all on):
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led set_color pwm-rgb-led 0 100 100 100**
+            pwm-rgb-led: setting LED 0 color to 100:100:100
+
+      Set LED group to :bbk:`BLACK` (all off):
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led set_color pwm-rgb-led 0 0 0 0**
+            pwm-rgb-led: setting LED 0 color to 0:0:0
+
+   .. group-tab:: LED
+
+      .. note:: **PWM LED conflicts with GPIO!**
+
+         Operations with the user LEDs in PWM mode will fail when ever
+         the corresponding GPIO lines were configured as digital output.
+         This condition is irreversible at runtime within the shell and
+         :strong:`requires a system reset`.
+
+      Operate with the blue user LED :hwftlbl-led:`LED_B`
+      at :rpi-pico-pio:`GP8` / :rpi-pico-pwm:`PWM8` (PWM4CHA):
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led on pwm-leds 2**
+            pwm-leds: turning on LED 2
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led set_brightness pwm-leds 2 10**
+            pwm-leds: setting LED 2 brightness to 10
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led set_brightness pwm-leds 2 50**
+            pwm-leds: setting LED 2 brightness to 50
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led set_brightness pwm-leds 2 100**
+            pwm-leds: setting LED 2 brightness to 100
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led off pwm-leds 2**
+            pwm-leds: turning off LED 2
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led blink pwm-leds 2 50 50**
+            pwm-leds: blinking LED 2 with 50 ms on and 50 ms off
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led off pwm-leds 2**
+            pwm-leds: turning off LED 2
+
+   .. group-tab:: PWM
+
+      .. note:: **PWM conflicts with GPIO!**
+
+         Operations with the user LEDs in PWM mode will fail when ever
+         the corresponding GPIO lines were configured as digital output.
+         This condition is irreversible at runtime within the shell and
+         :strong:`requires a system reset`.
+
+      Operate with the green user LED :hwftlbl-led:`LED_G`
+      at :rpi-pico-pio:`GP7` / :rpi-pico-pwm:`PWM7` (PWM3CHB):
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 7 20000 20000 1**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 7 20000 19000 1**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 7 20000 18000 1**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 7 20000 17000 1**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 7 20000 16000 1**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 7 20000 15000 1**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 7 20000 10000 1**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 7 20000 5000 1**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 7 20000 2500 1**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 7 20000 500 1**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **pwm usec pwm 7 20000 0 1**
 
    .. group-tab:: GPIO
 
@@ -123,23 +379,5 @@
             0
             :bgn:`uart:~$` **gpio get gpio0 14**
             1
-            :bgn:`uart:~$` **gpio get gpio0 3**
+            :bgn:`uart:~$` **gpio get gpio0 14**
             0
-
-   .. group-tab:: LED
-
-      Operate with the test LED :hwftlbl-led:`LED_B` at :rpi-pico-pio:`GP8`:
-
-      .. container:: highlight highlight-console notranslate
-
-         .. parsed-literal::
-
-            :bgn:`uart:~$` **led on gpio_leds 2**
-            gpio_leds: turning on LED 2
-
-      .. container:: highlight highlight-console notranslate
-
-         .. parsed-literal::
-
-            :bgn:`uart:~$` **led off gpio_leds 2**
-            gpio_leds: turning off LED 2

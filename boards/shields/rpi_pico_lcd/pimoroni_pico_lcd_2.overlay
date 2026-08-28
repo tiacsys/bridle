@@ -1,10 +1,11 @@
 /*
- * Copyright (c) 2024 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2024-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 #include <zephyr/dt-bindings/lvgl/lvgl.h>
+#include <zephyr/dt-bindings/led/led.h>
 
 / {
 	chosen {
@@ -17,9 +18,9 @@
 	};
 
 	lcd_backlight_en: lcd-backlight-en {
-		compatible = "regulator-fixed";
-		regulator-name = "lcd_backlight_enable";
-		regulator-boot-on;
+		compatible = "regulator-gpio";
+		regulator-name = "lcd_backlight_en";
+		regulator-always-on;
 	};
 
 	lvgl_buttons: lvgl-buttons {
@@ -38,60 +39,81 @@
 			      LV_KEY_ENTER>;
 	};
 
-	gpio_keys: gpio_keys {
+	/delete-node/ gpio_keys;
+	/delete-node/ gpio-keys;
+	gpio_keys: gpio-keys {
 		compatible = "gpio-keys";
-		button_0: button_0 {
+		btn0: btn0 {
 			label = "User button A";
 			zephyr,code = <INPUT_KEY_A>;
 		};
-		button_1: button_1 {
+		btn1: btn1 {
 			label = "User button B";
 			zephyr,code = <INPUT_KEY_B>;
 		};
-		button_2: button_2 {
+		btn2: btn2 {
 			label = "User button X";
 			zephyr,code = <INPUT_KEY_X>;
 		};
-		button_3: button_3 {
+		btn3: btn3 {
 			label = "User button Y";
 			zephyr,code = <INPUT_KEY_Y>;
 		};
 	};
 
-	gpio_leds: gpio_leds {
+	/delete-node/ gpio_leds;
+	/delete-node/ gpio-leds;
+	gpio_leds: gpio-leds {
 		compatible = "gpio-leds";
-		led_r: led_r {
+		led_r: led-r {
 			label = "User LED R";
 		};
-		led_g: led_g {
+		led_g: led-g {
 			label = "User LED G";
 		};
-		led_b: led_b {
+		led_b: led-b {
 			label = "User LED B";
 		};
+		status = "disabled";
 	};
 
-	pwm_leds: pwm_leds {
+	/delete-node/ pwm_leds;
+	/delete-node/ pwm-leds;
+	pwm_leds: pwm-leds {
 		compatible = "pwm-leds";
-		pwm_led_r: pwm_led_r {
+		pwm_led_r: pwm-led-r {
 			label = "User LED R (PWM)";
 		};
-		pwm_led_g: pwm_led_g {
+		pwm_led_g: pwm-led-g {
 			label = "User LED G (PWM)";
 		};
-		pwm_led_b: pwm_led_b {
+		pwm_led_b: pwm-led-b {
 			label = "User LED B (PWM)";
 		};
 	};
 
+	pwm_rgb_led: pwm-rgb-led {
+		compatible = "leds-group-multicolor";
+		leds = <&pwm_led_r>, <&pwm_led_g>, <&pwm_led_b>;
+		color-mapping = <LED_COLOR_ID_RED>,
+				<LED_COLOR_ID_GREEN>,
+				<LED_COLOR_ID_BLUE>;
+	};
+
 	aliases {
-		sw0 = &button_0;
-		sw1 = &button_1;
-		sw2 = &button_2;
-		sw3 = &button_3;
+		/delete-property/ sw0;
+		sw0 = &btn0;
+		sw1 = &btn1;
+		sw2 = &btn2;
+		sw3 = &btn3;
+		/delete-property/ led0;
 		led0 = &led_r;
 		led1 = &led_g;
 		led2 = &led_b;
+		/delete-property/ pwm-led0;
+		pwm-led0 = &pwm_led_r;
+		pwm-led1 = &pwm_led_g;
+		pwm-led2 = &pwm_led_b;
 		red-pwm-led = &pwm_led_r;
 		green-pwm-led = &pwm_led_g;
 		blue-pwm-led = &pwm_led_b;
