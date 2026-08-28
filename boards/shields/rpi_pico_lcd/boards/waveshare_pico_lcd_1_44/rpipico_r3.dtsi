@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024-2026 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2024-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -29,21 +29,25 @@
 
 &lcd_backlight_en {
 	status = "okay";
-	enable-gpios = <&rpipico_header 13 GPIO_ACTIVE_HIGH>;	/* GP13 */
+	gpios = <&rpipico_header 13 GPIO_ACTIVE_HIGH>;		/* GP13 */
+	states = <3300000 1>, <0 0>;
+	regulator-min-microvolt = <0>;
+	regulator-max-microvolt = <3300000>;
+	regulator-init-microvolt = <3300000>;
 };
 
-&button_0 {							/* GP15 */
+&btn0 {								/* GP15 */
 	gpios = <&rpipico_header 15 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 };
 
-&button_1 {							/* GP17 */
+&btn1 {								/* GP17 */
 	gpios = <&rpipico_header 17 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 };
 
-&button_2 {							/* GP2 */
+&btn2 {								/* GP2 */
 	gpios = <&rpipico_header 2 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 };
 
-&button_3 {							/* GP3 */
+&btn3 {								/* GP3 */
 	gpios = <&rpipico_header 3 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 };
