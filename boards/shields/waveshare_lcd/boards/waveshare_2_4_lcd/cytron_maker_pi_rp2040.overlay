@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2025 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -25,5 +25,9 @@
 
 &lcd_backlight_en {
 	status = "okay";
-	enable-gpios = <&grove_gpios 7 GPIO_ACTIVE_HIGH>;	/* D7 */
+	gpios = <&grove_gpios 7 GPIO_ACTIVE_HIGH>;		/* D7 */
+	states = <3300000 1>, <0 0>;
+	regulator-min-microvolt = <0>;
+	regulator-max-microvolt = <3300000>;
+	regulator-init-microvolt = <3300000>;
 };

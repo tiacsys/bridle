@@ -69,7 +69,7 @@
          .. parsed-literal::
 
             \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
-            [00:00:00.136,000] <inf> sample: Display sample for ili9341\ @\ 0
+            [00:00:00.136,000] <inf> sample: Display sample for ili9341-240x320\ @\ 0
             [00:00:00.260,000] <inf> sample: Display starts
 
    .. group-tab:: LVGL Basic Sample
@@ -96,6 +96,8 @@
                :board: cytron_maker_nano_rp2040
                :shield: "waveshare_2_4_lcd"
                :snippets: "usb-console"
+               :gen-args: \
+                  -DCONFIG_REGULATOR_SHELL=y
                :west-args: -p
                :flash-args: -r uf2
                :goals: flash
@@ -115,9 +117,98 @@
                :board: cytron_maker_pi_rp2040
                :shield: "waveshare_2_4_lcd"
                :snippets: "usb-console"
+               :gen-args: \
+                  -DCONFIG_REGULATOR_SHELL=y
                :west-args: -p
                :flash-args: -r uf2
                :goals: flash
                :host-os: unix
 
          .. zephyr-keep-sorted-stop
+
+      .. rubric:: Simple test execution on target
+
+      (text in bold is a command input)
+
+      .. container:: highlight highlight-console notranslate no-copybutton
+
+         .. parsed-literal::
+
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
+            :bgn:`uart:~$` **█**
+
+      .. rubric:: Basics
+
+      Device listing:
+
+         .. container:: highlight highlight-console notranslate
+
+            .. parsed-literal::
+
+               :bgn:`uart:~$` **device list**
+               devices:
+               … … …
+               - lcd-backlight-en (READY)
+                 DT node labels: lcd_backlight_en
+               - mipi-dbi (READY)
+                 DT node labels: mipi_dbi
+               - ili9341-320x240\ @\ 0 (READY)
+                 DT node labels: ili9341_320x240 lcd_panel
+               - gpio-keys (READY)
+                 DT node labels: gpio_keys
+               - lvgl-keypad (READY)
+                 DT node labels: lvgl_keypad
+
+      .. rubric:: LCD backlight
+
+      Operate with the LCD backlight switch as voltage regulator:
+
+         .. container:: highlight highlight-console notranslate
+
+            .. parsed-literal::
+
+               :bgn:`uart:~$` **regulator vlist lcd-backlight-en**
+               3.300000 V
+               0 uV
+
+         .. container:: highlight highlight-console notranslate
+
+            .. parsed-literal::
+
+               :bgn:`uart:~$` **regulator vget lcd-backlight-en**
+               3.300000 V
+
+         The off/on sequence:
+
+         .. container:: highlight highlight-console notranslate
+
+            .. parsed-literal::
+
+               :bgn:`uart:~$` **regulator vset lcd-backlight-en 0V**
+
+         .. container:: highlight highlight-console notranslate
+
+            .. parsed-literal::
+
+               :bgn:`uart:~$` **regulator vset lcd-backlight-en 3300mV**
+
+      .. rubric:: Application
+
+      LVGL memory status:
+
+         .. container:: highlight highlight-console notranslate
+
+            .. parsed-literal::
+
+               :bgn:`uart:~$` **lvgl stats memory**
+               Heap at 0x200015e0 contains 2047 units in 11 buckets
+
+                 bucket#    min units        total      largest      largest
+                            threshold       chunks      (units)      (bytes)
+                 -----------------------------------------------------------
+                       0            1            2            1            8
+                       1            2            2            3           24
+                       2            4            1            4           32
+                      10         1024            1         1044         8352
+
+               8416 free bytes, 7396 allocated bytes, overhead = 568 bytes (3.5%)
