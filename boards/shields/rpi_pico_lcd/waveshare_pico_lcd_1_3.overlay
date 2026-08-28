@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2024-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -17,9 +17,9 @@
 	};
 
 	lcd_backlight_en: lcd-backlight-en {
-		compatible = "regulator-fixed";
-		regulator-name = "lcd_backlight_enable";
-		regulator-boot-on;
+		compatible = "regulator-gpio";
+		regulator-name = "lcd_backlight_en";
+		regulator-always-on;
 	};
 
 	lvgl_buttons: lvgl-buttons {
@@ -40,51 +40,54 @@
 			      LV_KEY_ENTER>;
 	};
 
-	gpio_keys: gpio_keys {
+	/delete-node/ gpio_keys;
+	/delete-node/ gpio-keys;
+	gpio_keys: gpio-keys {
 		compatible = "gpio-keys";
-		button_0: button_0 {
+		btn0: btn0 {
 			label = "User button A";
 			zephyr,code = <INPUT_KEY_A>;
 		};
-		button_1: button_1 {
+		btn1: btn1 {
 			label = "User button B";
 			zephyr,code = <INPUT_KEY_B>;
 		};
-		button_2: button_2 {
+		btn2: btn2 {
 			label = "User button X";
 			zephyr,code = <INPUT_KEY_X>;
 		};
-		button_3: button_3 {
+		btn3: btn3 {
 			label = "User button Y";
 			zephyr,code = <INPUT_KEY_Y>;
 		};
-		joystick_enter: joystick_enter {
+		joystick_enter: joystick-enter {
 			label = "User joystick ENTER";
 			zephyr,code = <INPUT_KEY_ENTER>;
 		};
-		joystick_right: joystick_right {
+		joystick_right: joystick-right {
 			label = "User joystick RIGHT";
 			zephyr,code = <INPUT_KEY_RIGHT>;
 		};
-		joystick_up: joystick_up {
+		joystick_up: joystick-up {
 			label = "User joystick UP";
 			zephyr,code = <INPUT_KEY_UP>;
 		};
-		joystick_down: joystick_down {
+		joystick_down: joystick-down {
 			label = "User joystick DOWN";
 			zephyr,code = <INPUT_KEY_DOWN>;
 		};
-		joystick_left: joystick_left {
+		joystick_left: joystick-left {
 			label = "User joystick LEFT";
 			zephyr,code = <INPUT_KEY_LEFT>;
 		};
 	};
 
 	aliases {
-		sw0 = &button_0;
-		sw1 = &button_1;
-		sw2 = &button_2;
-		sw3 = &button_3;
+		/delete-property/ sw0;
+		sw0 = &btn0;
+		sw1 = &btn1;
+		sw2 = &btn2;
+		sw3 = &btn3;
 		sw4 = &joystick_enter;
 		sw5 = &joystick_left;
 		sw6 = &joystick_down;
