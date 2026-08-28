@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -17,9 +17,9 @@
 	};
 
 	lcd_backlight_en: lcd-backlight-en {
-		compatible = "regulator-fixed";
-		regulator-name = "lcd_backlight_enable";
-		regulator-boot-on;
+		compatible = "regulator-gpio";
+		regulator-name = "lcd_backlight_en";
+		regulator-always-on;
 	};
 
 	lvgl_buttons: lvgl-buttons {
@@ -40,41 +40,44 @@
 			      LV_KEY_ENTER>;
 	};
 
-	gpio_keys: gpio_keys {
+	/delete-node/ gpio_keys;
+	/delete-node/ gpio-keys;
+	gpio_keys: gpio-keys {
 		compatible = "gpio-keys";
-		button_0: button_0 {
+		btn0: btn0 {
 			label = "User button A";
 			zephyr,code = <INPUT_KEY_A>;
 		};
-		button_1: button_1 {
+		btn1: btn1 {
 			label = "User button B";
 			zephyr,code = <INPUT_KEY_B>;
 		};
-		joystick_enter: joystick_enter {
+		joystick_enter: joystick-enter {
 			label = "User joystick ENTER";
 			zephyr,code = <INPUT_KEY_ENTER>;
 		};
-		joystick_right: joystick_right {
+		joystick_right: joystick-right {
 			label = "User joystick RIGHT";
 			zephyr,code = <INPUT_KEY_RIGHT>;
 		};
-		joystick_up: joystick_up {
+		joystick_up: joystick-up {
 			label = "User joystick UP";
 			zephyr,code = <INPUT_KEY_UP>;
 		};
-		joystick_down: joystick_down {
+		joystick_down: joystick-down {
 			label = "User joystick DOWN";
 			zephyr,code = <INPUT_KEY_DOWN>;
 		};
-		joystick_left: joystick_left {
+		joystick_left: joystick-left {
 			label = "User joystick LEFT";
 			zephyr,code = <INPUT_KEY_LEFT>;
 		};
 	};
 
 	aliases {
-		sw0 = &button_0;
-		sw1 = &button_1;
+		/delete-property/ sw0;
+		sw0 = &btn0;
+		sw1 = &btn1;
 		sw2 = &joystick_enter;
 		sw3 = &joystick_left;
 		sw4 = &joystick_down;
