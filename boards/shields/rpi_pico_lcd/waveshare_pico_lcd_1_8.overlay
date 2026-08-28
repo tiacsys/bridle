@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2024-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -17,8 +17,8 @@
 	};
 
 	lcd_backlight_en: lcd-backlight-en {
-		compatible = "regulator-fixed";
-		regulator-name = "lcd_backlight_enable";
-		regulator-boot-on;
+		compatible = "regulator-gpio";
+		regulator-name = "lcd_backlight_en";
+		regulator-always-on;
 	};
 };
