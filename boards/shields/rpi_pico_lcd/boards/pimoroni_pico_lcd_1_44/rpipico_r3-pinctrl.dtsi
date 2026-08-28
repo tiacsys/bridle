@@ -1,16 +1,16 @@
 /*
- * Copyright (c) 2024-2026 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2024-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
 pwm_lcd_leds: &pwm_pico {
-	group6_led {
+	group6_led_red {
 		pinmux = <PWM_3A_P6>;		/* GP6: PWM3CHA (6) */
 	};
-	group7_led {
+	group7_led_green {
 		pinmux = <PWM_3B_P7>;		/* GP7: PWM3CHB (7) */
 	};
-	group8_led {
+	group8_led_blue {
 		pinmux = <PWM_4A_P8>;		/* GP8: PWM4CHA (8) */
 	};
 };
