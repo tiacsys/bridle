@@ -1,22 +1,25 @@
+#
+# sphinx 9.1.0 depends on docutils<0.23 and >=0.21
+#
 # zephyr-keep-sorted-start
-docutils>=0.22
-doxmlparser~=1.16
+docutils<0.23,>=0.21
+doxmlparser~=1.18
 imagesize>=2.0
-pillow~=12.2
-pygments~=2.20
+pillow~=12.3
+pygments~=2.21
 sphinx-autobuild~=2025.8
 sphinx-copybutton~=0.5
 sphinx-csv-filter~=0.4
 sphinx-design~=0.7
-sphinx-filter-tabs~=1.5
+sphinx-filter-tabs~=1.6
 sphinx-notfound-page~=1.1
 sphinx-sitemap~=2.9
 sphinx-tabs~=3.5
 sphinx-togglebutton~=0.4
 sphinx-tsn-theme~=2024.11
-sphinxcontrib-mermaid~=2.0
+sphinxcontrib-mermaid~=2.1
 sphinxcontrib-mscgen~=0.6
-sphinxcontrib-programoutput~=0.19
+sphinxcontrib-programoutput~=0.20
 sphinxcontrib-svg2pdfconverter~=2.1
 sphinx~=9.1
 sphobjinv~=2.4

@@ -11,4 +11,4 @@ pykwalify>=1.8
 # its own dependency from pykwalify to jsonschema, the Python package
 # jsonschema must also be installed. For details see PR on West upstream:
 # https://github.com/zephyrproject-rtos/west/pull/904
-jsonschema
+jsonschema>=4.26

@@ -2,7 +2,7 @@
 intelhex>=2.3
 
 # used by various build scripts
-pyelftools>=0.32
+pyelftools>=0.33
 
 # used by dts generation to parse binding YAMLs, also used by
 # twister to parse YAMLs, by west, zephyr_module, ...
@@ -14,7 +14,7 @@ pykwalify>=1.8
 # used by ci/check_compliance
 # zephyr-keep-sorted-start
 pylint<5.0,>=3.3
-regex>=2026.4
+regex>=2026.7
 # zephyr-keep-sorted-stop
 
 # maybe used by signing with ECDSA for legacy nRF bootloaders

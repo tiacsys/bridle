@@ -6,8 +6,8 @@ pymcuprog>=3.19
 # zephyr-keep-sorted-stop
 
 # used by west_commands
-pyocd>=0.44
+pyocd>=0.45
 pyserial>=3.5
 
 # used for west-command testing, also used by twister
-pytest>=9.0
+pytest>=9.1
