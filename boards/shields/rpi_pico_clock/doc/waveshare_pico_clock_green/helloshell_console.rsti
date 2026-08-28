@@ -48,10 +48,10 @@
               DT node labels: reset
             - snippet_cdc_acm_console_uart (READY)
               DT node labels: snippet_cdc_acm_console_uart
-            - uart\ @\ 40034000 (READY)
-              DT node labels: uart0 pico_serial rpipico_serial
             - timer\ @\ 40054000 (READY)
               DT node labels: timer
+            - uart\ @\ 40034000 (READY)
+              DT node labels: uart0 pico_serial pico_serial0 rpipico_serial
             - gpio-port\ @\ 0 (READY)
               DT node labels: gpio0 rpipico_gpio_keys clock_gpio_keys
             - usbd\ @\ 50110000 (READY)
@@ -187,6 +187,340 @@
             :bgn:`uart:~$` **gpio get clock_gpio_keys SET**
             0
 
+      Get an overview of aviliable signale names:
+
+      .. tabs::
+
+         .. group-tab:: SoC
+
+            .. container:: highlight highlight-console notranslate
+
+               .. parsed-literal::
+
+                  :bgn:`uart:~$` **gpio info gpio0**
+                   ngpios: 30
+                   Reserved pin mask: 0xFFFD7FFB
+
+                   Reserved  Pin  Line Name
+                       *      0
+                       *      1
+                              2    SET
+                       *      3
+                       *      4
+                       *      5
+                       *      6
+                       *      7
+                       *      8
+                       *      9
+                       *     10
+                       *     11
+                       *     12
+                       *     13
+                       *     14
+                             15    DWN
+                       *     16
+                             17    UP
+                       *     18
+                       *     19
+                       *     20
+                       *     21
+                       *     22
+                       *     23
+                       *     24
+                       *     25
+                       *     26
+                       *     27
+                       *     28
+                       *     29
+
+         .. group-tab:: SIPO/MUX 0
+
+            .. container:: highlight highlight-console notranslate
+
+               .. parsed-literal::
+
+                  :bgn:`uart:~$` **gpio info sipo_mux_gpio_0**
+                   ngpios: 24
+                   Reserved pin mask: 0xFF924900
+
+                   Reserved  Pin  Line Name
+                              0    MOV0
+                              1    MOV1
+                              2    SIG0
+                              3    MON0
+                              4    MON1
+                              5    SIG1
+                              6    TUE0
+                              7    TUE1
+                       *      8
+                              9    WED0
+                             10    WED1
+                       *     11
+                             12    THU0
+                             13    THU1
+                       *     14
+                             15    FRI0
+                             16    FRI1
+                       *     17
+                             18    SAT0
+                             19    SAT1
+                       *     20
+                             21    SUN0
+                             22    SUN1
+                       *     23
+
+         .. group-tab:: SIPO/MUX 1
+
+            .. container:: highlight highlight-console notranslate
+
+               .. parsed-literal::
+
+                  :bgn:`uart:~$` **gpio info sipo_mux_gpio_1**
+                   ngpios: 24
+                   Reserved pin mask: 0x00000000
+
+                   Reserved  Pin  Line Name
+                              0    ALM0
+                              1    ALM1
+                              2    L102
+                              3    L103
+                              4    L104
+                              5    L105
+                              6    L106
+                              7    L107
+                              8    L108
+                              9    L109
+                             10    L110
+                             11    L111
+                             12    L112
+                             13    L113
+                             14    L114
+                             15    L115
+                             16    L116
+                             17    L117
+                             18    L118
+                             19    L119
+                             20    L120
+                             21    L121
+                             22    L122
+                             23    L123
+
+         .. group-tab:: SIPO/MUX 2
+
+            .. container:: highlight highlight-console notranslate
+
+               .. parsed-literal::
+
+                  :bgn:`uart:~$` **gpio info sipo_mux_gpio_2**
+                   ngpios: 24
+                   Reserved pin mask: 0x00000000
+
+                   Reserved  Pin  Line Name
+                              0    CDN0
+                              1    CDN1
+                              2    L202
+                              3    L203
+                              4    L204
+                              5    L205
+                              6    L206
+                              7    L207
+                              8    L208
+                              9    L209
+                             10    L210
+                             11    L211
+                             12    L212
+                             13    L213
+                             14    L214
+                             15    L215
+                             16    L216
+                             17    L217
+                             18    L218
+                             19    L219
+                             20    L220
+                             21    L221
+                             22    L222
+                             23    L223
+
+         .. group-tab:: SIPO/MUX 3
+
+            .. container:: highlight highlight-console notranslate
+
+               .. parsed-literal::
+
+                  :bgn:`uart:~$` **gpio info sipo_mux_gpio_3**
+                   ngpios: 24
+                   Reserved pin mask: 0x00000000
+
+                   Reserved  Pin  Line Name
+                              0    DEGF
+                              1    DEGC
+                              2    L302
+                              3    L303
+                              4    L304
+                              5    L305
+                              6    L306
+                              7    L307
+                              8    L308
+                              9    L309
+                             10    L310
+                             11    L311
+                             12    L312
+                             13    L313
+                             14    L314
+                             15    L315
+                             16    L316
+                             17    L317
+                             18    L318
+                             19    L319
+                             20    L320
+                             21    L321
+                             22    L322
+                             23    L323
+
+         .. group-tab:: SIPO/MUX 4
+
+            .. container:: highlight highlight-console notranslate
+
+               .. parsed-literal::
+
+                  :bgn:`uart:~$` **gpio info sipo_mux_gpio_4**
+                   ngpios: 24
+                   Reserved pin mask: 0x00000000
+
+                   Reserved  Pin  Line Name
+                              0    TMAM
+                              1    TMPM
+                              2    L402
+                              3    L403
+                              4    L404
+                              5    L405
+                              6    L406
+                              7    L407
+                              8    L408
+                              9    L409
+                             10    L410
+                             11    L411
+                             12    L412
+                             13    L413
+                             14    L414
+                             15    L415
+                             16    L416
+                             17    L417
+                             18    L418
+                             19    L419
+                             20    L420
+                             21    L421
+                             22    L422
+                             23    L423
+
+         .. group-tab:: SIPO/MUX 5
+
+            .. container:: highlight highlight-console notranslate
+
+               .. parsed-literal::
+
+                  :bgn:`uart:~$` **gpio info sipo_mux_gpio_5**
+                   ngpios: 24
+                   Reserved pin mask: 0x00000000
+
+                   Reserved  Pin  Line Name
+                              0    CUP0
+                              1    CUP1
+                              2    L502
+                              3    L503
+                              4    L504
+                              5    L505
+                              6    L506
+                              7    L507
+                              8    L508
+                              9    L509
+                             10    L510
+                             11    L511
+                             12    L512
+                             13    L513
+                             14    L514
+                             15    L515
+                             16    L516
+                             17    L517
+                             18    L518
+                             19    L519
+                             20    L520
+                             21    L521
+                             22    L522
+                             23    L523
+
+         .. group-tab:: SIPO/MUX 6
+
+            .. container:: highlight highlight-console notranslate
+
+               .. parsed-literal::
+
+                  :bgn:`uart:~$` **gpio info sipo_mux_gpio_6**
+                   ngpios: 24
+                   Reserved pin mask: 0x00000000
+
+                   Reserved  Pin  Line Name
+                              0    HLY0
+                              1    HLY1
+                              2    L602
+                              3    L603
+                              4    L604
+                              5    L605
+                              6    L606
+                              7    L607
+                              8    L608
+                              9    L609
+                             10    L610
+                             11    L611
+                             12    L612
+                             13    L613
+                             14    L614
+                             15    L615
+                             16    L616
+                             17    L617
+                             18    L618
+                             19    L619
+                             20    L620
+                             21    L621
+                             22    L622
+                             23    L623
+
+         .. group-tab:: SIPO/MUX 7
+
+            .. container:: highlight highlight-console notranslate
+
+               .. parsed-literal::
+
+                  :bgn:`uart:~$` **gpio info sipo_mux_gpio_7**
+                   ngpios: 24
+                   Reserved pin mask: 0x00000000
+
+                   Reserved  Pin  Line Name
+                              0    AUT0
+                              1    AUT1
+                              2    L702
+                              3    L703
+                              4    L704
+                              5    L705
+                              6    L706
+                              7    L707
+                              8    L708
+                              9    L709
+                             10    L710
+                             11    L711
+                             12    L712
+                             13    L713
+                             14    L714
+                             15    L715
+                             16    L716
+                             17    L717
+                             18    L718
+                             19    L719
+                             20    L720
+                             21    L721
+                             22    L722
+                             23    L723
+
    .. group-tab:: ADC
 
       Operate with the on-shield high-resistance LDR :hwftlbl:`Rₗ`
@@ -197,6 +531,14 @@
          .. parsed-literal::
 
             :bgn:`uart:~$` **adc adc@4004c000 resolution 12**
+            :bgn:`uart:~$` **adc adc@4004c000 print**
+            adc\ @\ 4004c000:
+            Gain: 1
+            Reference: INTERNAL
+            Acquisition Time: 0
+            Channel ID: 0
+            Differential: 0
+            Resolution: 12
 
       .. container:: highlight highlight-console notranslate
 

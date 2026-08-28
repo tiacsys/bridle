@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2026 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -37,80 +37,80 @@ clock_pwm_buzzers: &rpipico_pwm_buzzers {};
 	status = "okay";
 };
 
-&clock_led_signal_0 {
+&clock_led_signal0 {
 	gpios = <&clock_gpio_0 2 GPIO_ACTIVE_HIGH>;		/* SIG0 */
 };
-&clock_led_signal_1 {
+&clock_led_signal1 {
 	gpios = <&clock_gpio_0 5 GPIO_ACTIVE_HIGH>;		/* SIG1 */
 };
 
-&clock_led_monday_0 {
+&clock_led_monday0 {
 	gpios = <&clock_gpio_0 3 GPIO_ACTIVE_HIGH>;		/* MON0 */
 };
-&clock_led_monday_1 {
+&clock_led_monday1 {
 	gpios = <&clock_gpio_0 4 GPIO_ACTIVE_HIGH>;		/* MON1 */
 };
 
-&clock_led_tuesday_0 {
+&clock_led_tuesday0 {
 	gpios = <&clock_gpio_0 6 GPIO_ACTIVE_HIGH>;		/* TUE0 */
 };
-&clock_led_tuesday_1 {
+&clock_led_tuesday1 {
 	gpios = <&clock_gpio_0 7 GPIO_ACTIVE_HIGH>;		/* TUE1 */
 };
 
-&clock_led_wednesday_0 {
+&clock_led_wednesday0 {
 	gpios = <&clock_gpio_0 9 GPIO_ACTIVE_HIGH>;		/* WED0 */
 };
-&clock_led_wednesday_1 {
+&clock_led_wednesday1 {
 	gpios = <&clock_gpio_0 10 GPIO_ACTIVE_HIGH>;		/* WED1 */
 };
 
-&clock_led_thursday_0 {
+&clock_led_thursday0 {
 	gpios = <&clock_gpio_0 12 GPIO_ACTIVE_HIGH>;		/* THU0 */
 };
-&clock_led_thursday_1 {
+&clock_led_thursday1 {
 	gpios = <&clock_gpio_0 13 GPIO_ACTIVE_HIGH>;		/* THU1 */
 };
 
-&clock_led_friday_0 {
+&clock_led_friday0 {
 	gpios = <&clock_gpio_0 15 GPIO_ACTIVE_HIGH>;		/* FRI0 */
 };
-&clock_led_friday_1 {
+&clock_led_friday1 {
 	gpios = <&clock_gpio_0 16 GPIO_ACTIVE_HIGH>;		/* FRI1 */
 };
 
-&clock_led_saturday_0 {
+&clock_led_saturday0 {
 	gpios = <&clock_gpio_0 18 GPIO_ACTIVE_HIGH>;		/* SAT0 */
 };
-&clock_led_saturday_1 {
+&clock_led_saturday1 {
 	gpios = <&clock_gpio_0 19 GPIO_ACTIVE_HIGH>;		/* SAT1 */
 };
 
-&clock_led_sunday_0 {
+&clock_led_sunday0 {
 	gpios = <&clock_gpio_0 21 GPIO_ACTIVE_HIGH>;		/* SUN0 */
 };
-&clock_led_sunday_1 {
+&clock_led_sunday1 {
 	gpios = <&clock_gpio_0 22 GPIO_ACTIVE_HIGH>;		/* SUN1 */
 };
 
-&clock_led_move_on_0 {
+&clock_led_move_on0 {
 	gpios = <&clock_gpio_0 0 GPIO_ACTIVE_HIGH>;		/* MOV0 */
 };
-&clock_led_move_on_1 {
+&clock_led_move_on1 {
 	gpios = <&clock_gpio_0 1 GPIO_ACTIVE_HIGH>;		/* MOV1 */
 };
 
-&clock_led_alarm_on_0 {
+&clock_led_alarm_on0 {
 	gpios = <&clock_gpio_1 0 GPIO_ACTIVE_HIGH>;		/* ALM0 */
 };
-&clock_led_alarm_on_1 {
+&clock_led_alarm_on1 {
 	gpios = <&clock_gpio_1 1 GPIO_ACTIVE_HIGH>;		/* ALM1 */
 };
 
-&clock_led_count_down_0 {
+&clock_led_count_down0 {
 	gpios = <&clock_gpio_2 0 GPIO_ACTIVE_HIGH>;		/* CDN0 */
 };
-&clock_led_count_down_1 {
+&clock_led_count_down1 {
 	gpios = <&clock_gpio_2 1 GPIO_ACTIVE_HIGH>;		/* CDN1 */
 };
 
@@ -128,24 +128,24 @@ clock_pwm_buzzers: &rpipico_pwm_buzzers {};
 	gpios = <&clock_gpio_4 1 GPIO_ACTIVE_HIGH>;		/* TMPM */
 };
 
-&clock_led_count_up_0 {
+&clock_led_count_up0 {
 	gpios = <&clock_gpio_5 0 GPIO_ACTIVE_HIGH>;		/* CUP0 */
 };
-&clock_led_count_up_1 {
+&clock_led_count_up1 {
 	gpios = <&clock_gpio_5 1 GPIO_ACTIVE_HIGH>;		/* CUP1 */
 };
 
-&clock_led_hourly_0 {
+&clock_led_hourly0 {
 	gpios = <&clock_gpio_6 0 GPIO_ACTIVE_HIGH>;		/* HLY0 */
 };
-&clock_led_hourly_1 {
+&clock_led_hourly1 {
 	gpios = <&clock_gpio_6 1 GPIO_ACTIVE_HIGH>;		/* HLY1 */
 };
 
-&clock_led_auto_light_0 {
+&clock_led_auto_light0 {
 	gpios = <&clock_gpio_7 0 GPIO_ACTIVE_HIGH>;		/* AUT0 */
 };
-&clock_led_auto_light_1 {
+&clock_led_auto_light1 {
 	gpios = <&clock_gpio_7 1 GPIO_ACTIVE_HIGH>;		/* AUT1 */
 };
 
@@ -279,6 +279,15 @@ clock_pwm_buzzers: &rpipico_pwm_buzzers {};
 
 &clock_gpio_keys {
 	/* namespace and positions for buttons */
+	gpio-reserved-ranges =
+		<0  2>, <3 1>,
+		<4 4>,
+		<8 4>,
+		<12 3>,
+		<16  1>, <18 2>,
+		<20 4>,
+		<24 4>,
+		<28 4>;
 	gpio-line-names =
 		"",	"",	"SET",	"",	/* 00..03 */
 		"",	"",	"",	"",	/* 04..07 */
