@@ -224,7 +224,8 @@ to re-format to FAT FS and list will run again to show them, e.g.:
          :board: rpi_pico/rp2040/bbe
          :shield: "waveshare_pico_restouch_lcd_2_8"
          :snippets: "usb-console"
-         :gen-args: -DCONFIG_FS_FATFS_MOUNT_MKFS=n
+         :gen-args: \
+            -DCONFIG_FS_FATFS_MOUNT_MKFS=n
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -240,7 +241,8 @@ to re-format to FAT FS and list will run again to show them, e.g.:
          :board: rpi_pico2/rp2350a/m33/bbe
          :shield: "waveshare_pico_restouch_lcd_2_8"
          :snippets: "usb-console"
-         :gen-args: -DCONFIG_FS_FATFS_MOUNT_MKFS=n
+         :gen-args: \
+            -DCONFIG_FS_FATFS_MOUNT_MKFS=n
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -254,7 +256,8 @@ to re-format to FAT FS and list will run again to show them, e.g.:
          :board: rpi_pico2/rp2350a/hazard3/bbe
          :shield: "waveshare_pico_restouch_lcd_2_8"
          :snippets: "usb-console"
-         :gen-args: -DCONFIG_FS_FATFS_MOUNT_MKFS=n
+         :gen-args: \
+            -DCONFIG_FS_FATFS_MOUNT_MKFS=n
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -270,7 +273,8 @@ to re-format to FAT FS and list will run again to show them, e.g.:
          :board: rpi_pico2/rp2350a/m33/w/bbe
          :shield: "waveshare_pico_restouch_lcd_2_8"
          :snippets: "usb-console"
-         :gen-args: -DCONFIG_FS_FATFS_MOUNT_MKFS=n
+         :gen-args: \
+            -DCONFIG_FS_FATFS_MOUNT_MKFS=n
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -284,7 +288,8 @@ to re-format to FAT FS and list will run again to show them, e.g.:
          :board: rpi_pico/rp2040/w/bbe
          :shield: "waveshare_pico_restouch_lcd_2_8"
          :snippets: "usb-console"
-         :gen-args: -DCONFIG_FS_FATFS_MOUNT_MKFS=n
+         :gen-args: \
+            -DCONFIG_FS_FATFS_MOUNT_MKFS=n
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -300,7 +305,8 @@ to re-format to FAT FS and list will run again to show them, e.g.:
          :board: waveshare_rp2040_plus
          :shield: "waveshare_pico_restouch_lcd_2_8"
          :snippets: "usb-console"
-         :gen-args: -DCONFIG_FS_FATFS_MOUNT_MKFS=n
+         :gen-args: \
+            -DCONFIG_FS_FATFS_MOUNT_MKFS=n
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -314,7 +320,8 @@ to re-format to FAT FS and list will run again to show them, e.g.:
          :board: waveshare_rp2040_plus@16mb
          :shield: "waveshare_pico_restouch_lcd_2_8"
          :snippets: "usb-console"
-         :gen-args: -DCONFIG_FS_FATFS_MOUNT_MKFS=n
+         :gen-args: \
+            -DCONFIG_FS_FATFS_MOUNT_MKFS=n
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash

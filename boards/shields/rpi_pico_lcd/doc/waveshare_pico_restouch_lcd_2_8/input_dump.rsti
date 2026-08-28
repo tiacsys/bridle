@@ -113,9 +113,10 @@ the :external+zephyr:ref:`Input subsystem API <input>`. That are:
 
    .. parsed-literal::
 
+      I: Init 'xpt2046-240x320@1' device
       \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
       Input sample started
-      I: input event: dev=xpt2046@1            type= 3 code=  0 value=177
-      I: input event: dev=xpt2046@1            type= 3 code=  1 value=291
-      I: input event: dev=xpt2046@1        SYN type= 1 code=330 value=1
-      I: input event: dev=xpt2046@1        SYN type= 1 code=330 value=0
+      I: input event: dev=xpt2046-240x320@1     type= 3 code=  1 value=87
+      I: input event: dev=xpt2046-240x320@1     type= 3 code=  0 value=164
+      I: input event: dev=xpt2046-240x320@1 SYN type= 1 code=330 value=1
+      I: input event: dev=xpt2046-240x320@1 SYN type= 1 code=330 value=0
