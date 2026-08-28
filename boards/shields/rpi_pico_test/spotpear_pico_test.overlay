@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -18,9 +18,9 @@
 			      LV_KEY_ENTER>;
 	};
 
-	/delete-node/ keys;
 	/delete-node/ gpio_keys;
-	gpio_keys: gpio_keys {
+	/delete-node/ gpio-keys;
+	gpio_keys: gpio-keys {
 		compatible = "gpio-keys";
 		status = "okay";
 
@@ -46,9 +46,9 @@
 		};
 	};
 
-	/delete-node/ leds;
 	/delete-node/ gpio_leds;
-	gpio_leds: gpio_leds {
+	/delete-node/ gpio-leds;
+	gpio_leds: gpio-leds {
 		compatible = "gpio-leds";
 		status = "disabled";
 
@@ -115,8 +115,8 @@
 	};
 
 	/delete-node/ pwm_leds;
-	/delete-node/ pwm_leds;
-	pwm_leds: pwm_leds {
+	/delete-node/ pwm-leds;
+	pwm_leds: pwm-leds {
 		compatible = "pwm-leds";
 		status = "okay";
 

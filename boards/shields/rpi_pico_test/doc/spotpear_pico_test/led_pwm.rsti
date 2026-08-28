@@ -57,6 +57,8 @@ That are:
          :board: rpi_pico/rp2040/bbe
          :shield: "spotpear_pico_test"
          :snippets: "usb-console"
+         :gen-args: \
+            -DCONFIG_BLINK_DELAY_SHORT=20 -DCONFIG_BLINK_DELAY_LONG=65
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -72,6 +74,8 @@ That are:
          :board: rpi_pico2/rp2350a/m33/bbe
          :shield: "spotpear_pico_test"
          :snippets: "usb-console"
+         :gen-args: \
+            -DCONFIG_BLINK_DELAY_SHORT=20 -DCONFIG_BLINK_DELAY_LONG=65
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -85,6 +89,8 @@ That are:
          :board: rpi_pico2/rp2350a/hazard3/bbe
          :shield: "spotpear_pico_test"
          :snippets: "usb-console"
+         :gen-args: \
+            -DCONFIG_BLINK_DELAY_SHORT=20 -DCONFIG_BLINK_DELAY_LONG=65
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -100,6 +106,8 @@ That are:
          :board: rpi_pico2/rp2350a/m33/w/bbe
          :shield: "spotpear_pico_test"
          :snippets: "usb-console"
+         :gen-args: \
+            -DCONFIG_BLINK_DELAY_SHORT=20 -DCONFIG_BLINK_DELAY_LONG=65
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -113,6 +121,8 @@ That are:
          :board: rpi_pico/rp2040/w/bbe
          :shield: "spotpear_pico_test"
          :snippets: "usb-console"
+         :gen-args: \
+            -DCONFIG_BLINK_DELAY_SHORT=20 -DCONFIG_BLINK_DELAY_LONG=65
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -126,6 +136,8 @@ That are:
          :board: waveshare_rp2040_lcd_0_96
          :shield: "spotpear_pico_test"
          :snippets: "usb-console"
+         :gen-args: \
+            -DCONFIG_BLINK_DELAY_SHORT=20 -DCONFIG_BLINK_DELAY_LONG=65
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -141,6 +153,8 @@ That are:
          :board: waveshare_rp2040_plus
          :shield: "spotpear_pico_test"
          :snippets: "usb-console"
+         :gen-args: \
+            -DCONFIG_BLINK_DELAY_SHORT=20 -DCONFIG_BLINK_DELAY_LONG=65
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -154,6 +168,8 @@ That are:
          :board: waveshare_rp2040_plus@16mb
          :shield: "spotpear_pico_test"
          :snippets: "usb-console"
+         :gen-args: \
+            -DCONFIG_BLINK_DELAY_SHORT=20 -DCONFIG_BLINK_DELAY_LONG=65
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -169,6 +185,8 @@ That are:
          :board: waveshare_rp2350_can/rp2350a/m33
          :shield: "spotpear_pico_test"
          :snippets: "usb-console"
+         :gen-args: \
+            -DCONFIG_BLINK_DELAY_SHORT=20 -DCONFIG_BLINK_DELAY_LONG=65
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
@@ -182,6 +200,8 @@ That are:
          :board: waveshare_rp2350_can/rp2350a/hazard3
          :shield: "spotpear_pico_test"
          :snippets: "usb-console"
+         :gen-args: \
+            -DCONFIG_BLINK_DELAY_SHORT=20 -DCONFIG_BLINK_DELAY_LONG=65
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash

@@ -108,6 +108,39 @@
 
 &gpio0 {
 	status = "okay";
+	/* namespace and positions without wired bits */
+	gpio-reserved-ranges = <23 3>, <29 1>;
+	gpio-line-names =
+		"L3",		/* GP0 */
+		"L2",		/* GP1 */
+		"L7",		/* GP2 */
+		"L6",		/* GP3 */
+		"L11",		/* GP4 */
+		"L10",		/* GP5 */
+		"L15",		/* GP6 */
+		"L14",		/* GP7 */
+		"L19",		/* GP8 */
+		"L18",		/* GP9 */
+		"L17",		/* GP10 */
+		"L16",		/* GP11 */
+		"K1",		/* GP12 */
+		"K2",		/* GP13 */
+		"K3",		/* GP14 */
+		"L12",		/* GP15 */
+		"K3",		/* GP16 */
+		"K4",		/* GP17 */
+		"L13",		/* GP18 */
+		"L9",		/* GP19 */
+		"L8",		/* GP20 */
+		"L5",		/* GP21 */
+		"L4",		/* GP22 */
+		"",  /* not wired, GP23 */
+		"",  /* not wired, GP24 */
+		"",  /* not wired, GP25 */
+		"A0",		/* GP26 */
+		"L1",		/* GP27 */
+		"L0",		/* GP28 */
+		"";  /* not wired, GP29 */
 };
 
 &pl0 {	/* GP28:PWM6A */

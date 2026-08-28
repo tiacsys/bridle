@@ -64,7 +64,8 @@
               DT node labels: vreg
             - rtc\ @\ 4005c000 (READY)
               DT node labels: rtc
-            - pwm_leds (READY)
+            - leds (READY)
+            - pwm-leds (READY)
               DT node labels: pwm_leds
 
       .. container:: highlight highlight-console notranslate
@@ -91,42 +92,57 @@
          This condition is irreversible at runtime within the shell and
          :strong:`requires a system reset`.
 
-      Operate with the test LED :hwftlbl-led:`L0` at :rpi-pico-pwm:`PWM12`:
+      Operate with the test LED :hwftlbl-led:`L0`
+      at :rpi-pico-pio:`GP28` / :rpi-pico-pwm:`PWM12` (PWM6CHA):
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **led on pwm_leds 0**
-            pwm_leds: turning on LED 0
+            :bgn:`uart:~$` **led on pwm-leds 0**
+            pwm-leds: turning on LED 0
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **led set_brightness pwm_leds 0 10**
-            pwm_leds: setting LED 0 brightness to 10
+            :bgn:`uart:~$` **led set_brightness pwm-leds 0 10**
+            pwm-leds: setting LED 0 brightness to 10
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **led set_brightness pwm_leds 0 50**
-            pwm_leds: setting LED 0 brightness to 50
+            :bgn:`uart:~$` **led set_brightness pwm-leds 0 50**
+            pwm-leds: setting LED 0 brightness to 50
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **led set_brightness pwm_leds 0 100**
-            pwm_leds: setting LED 0 brightness to 100
+            :bgn:`uart:~$` **led set_brightness pwm-leds 0 100**
+            pwm-leds: setting LED 0 brightness to 100
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **led off pwm_leds 0**
-            pwm_leds: turning off LED 0
+            :bgn:`uart:~$` **led off pwm-leds 0**
+            pwm-leds: turning off LED 0
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led blink pwm-leds 0 50 50**
+            pwm-leds: blinking LED 0 with 50 ms on and 50 ms off
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led off pwm-leds 0**
+            pwm-leds: turning off LED 0
 
    .. group-tab:: PWM
 
@@ -137,7 +153,8 @@
          This condition is irreversible at runtime within the shell and
          :strong:`requires a system reset`.
 
-      Operate with the test LED :hwftlbl-led:`L3` at :rpi-pico-pwm:`PWM0`:
+      Operate with the test LED :hwftlbl-led:`L3`
+      at :rpi-pico-pwm:`PWM0`:
 
       .. container:: highlight highlight-console notranslate
 
@@ -207,38 +224,82 @@
 
    .. group-tab:: GPIO
 
-      Operate with the test LED :hwftlbl-led:`L5` at :rpi-pico-pio:`GP21`:
+      Operate with the test LED :hwftlbl-led:`L5`
+      at :rpi-pico-pio:`GP21`:
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **gpio get gpio0 21**
+            :bgn:`uart:~$` **gpio get gpio0 L5**
             0
 
-            :bgn:`uart:~$` **gpio conf gpio0 21 oh0**
-            :bgn:`uart:~$` **gpio set gpio0 21 1**
-            :bgn:`uart:~$` **gpio set gpio0 21 0**
+            :bgn:`uart:~$` **gpio conf gpio0 L5 oh0**
+            :bgn:`uart:~$` **gpio set gpio0 L5 1**
+            :bgn:`uart:~$` **gpio set gpio0 L5 0**
 
-            :bgn:`uart:~$` **gpio blink gpio0 21**
+            :bgn:`uart:~$` **gpio blink gpio0 L5**
             Hit any key to exit
 
-      Operate with the ENTER test key :hwftlbl-btn:`K2` at :rpi-pico-pio:`GP13`:
+      Operate with the ENTER test key :hwftlbl-btn:`K2`
+      at :rpi-pico-pio:`GP13`:
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **gpio get gpio0 13**
+            :bgn:`uart:~$` **gpio get gpio0 K2**
             0
 
-            :bgn:`uart:~$` **gpio conf gpio0 13 iul**
-            :bgn:`uart:~$` **gpio get gpio0 13**
+            :bgn:`uart:~$` **gpio conf gpio0 K2 iul**
+            :bgn:`uart:~$` **gpio get gpio0 K2**
             0
-            :bgn:`uart:~$` **gpio get gpio0 13**
+            :bgn:`uart:~$` **gpio get gpio0 K2**
             1
-            :bgn:`uart:~$` **gpio get gpio0 13**
+            :bgn:`uart:~$` **gpio get gpio0 K2**
             0
+
+      Get an overview of aviliable signale names:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **gpio info gpio0**
+             ngpios: 30
+             Reserved pin mask: 0xE3800000
+
+             Reserved  Pin  Line Name
+                        0    L3
+                        1    L2
+                        2    L7
+                        3    L6
+                        4    L11
+                        5    L10
+                        6    L15
+                        7    L14
+                        8    L19
+                        9    L18
+                       10    L17
+                       11    L16
+                       12    K1
+                       13    K2
+                       14    K3
+                       15    L12
+                       16    K3
+                       17    K4
+                       18    L13
+                       19    L9
+                       20    L8
+                       21    L5
+                       22    L4
+                 *     23
+                 *     24
+                 *     25
+                       26    A0
+                       27    L1
+                       28    L0
+                 *     29
 
    .. group-tab:: ADC
 
@@ -250,6 +311,14 @@
          .. parsed-literal::
 
             :bgn:`uart:~$` **adc adc@4004c000 resolution 12**
+            :bgn:`uart:~$` **adc adc@4004c000 print**
+            adc\ @\ 4004c000:
+            Gain: 1
+            Reference: INTERNAL
+            Acquisition Time: 0
+            Channel ID: 0
+            Differential: 0
+            Resolution: 12
 
       .. container:: highlight highlight-console notranslate
 
