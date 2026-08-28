@@ -6,9 +6,9 @@ Using the :external+zephyr:ref:`Display driver API <display_api>`
 with chosen display. That is:
 
 | :hwftlbl-scr:`LED(16×10)` :
-  :dts:`chosen { zephyr,display = &rgb_led_strip_matrix; };`
+  :dts:`chosen { zephyr,display = &led_strip_matrix; };`
 | :hwftlbl-led:`16×10 RGB` :
-  :dts:`&rgb_led_strip_matrix { led-strip = <&rgb_led_strip>; };`
+  :dts:`&led_strip_matrix { led-strip = <&led_strip>; };`
 
 .. tabs::
 
@@ -161,5 +161,5 @@ with chosen display. That is:
    .. parsed-literal::
 
       \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
-      [00:00:00.002,000] <inf> sample: Display sample for rgb-led-strip-matrix
+      [00:00:00.002,000] <inf> sample: Display sample for led-strip-matrix-16x10
       [00:00:00.065,000] <inf> sample: Display starts

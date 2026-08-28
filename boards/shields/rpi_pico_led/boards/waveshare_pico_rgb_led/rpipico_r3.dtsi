@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2024-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -9,11 +9,11 @@ rgb_led_pio: &rpipico_pio_leds {};
 
 #include <zephyr/dt-bindings/gpio/gpio.h>
 
-&rgb_led_strip_matrix {
+&led_strip_matrix {
 	status = "okay";
 };
 
-&rgb_led_strip {
+&led_strip {
 	gpios = <&gpio0 6 GPIO_ACTIVE_HIGH>;		/* PIO0:OUT @ GP6 */
 	status = "okay";
 };

@@ -10,7 +10,7 @@
           :hwftlbl-pio:`1`
 
        :on-shield:
-          :hwftlbl-led:`16×10 RGB`
+          :hwftlbl-led:`RGB(16×10)`
           :hwftlbl-scr:`LED(16×10)`
 
        .. rubric:: Default Zephyr Peripheral Mapping
