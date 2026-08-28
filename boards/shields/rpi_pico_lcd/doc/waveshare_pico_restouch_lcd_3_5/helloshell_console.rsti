@@ -48,10 +48,10 @@
               DT node labels: reset
             - snippet_cdc_acm_console_uart (READY)
               DT node labels: snippet_cdc_acm_console_uart
-            - uart\ @\ 40034000 (READY)
-              DT node labels: uart0 pico_serial rpipico_serial
             - timer\ @\ 40054000 (READY)
               DT node labels: timer
+            - uart\ @\ 40034000 (READY)
+              DT node labels: uart0 pico_serial rpipico_serial
             - gpio-port\ @\ 0 (READY)
               DT node labels: gpio0
             - usbd\ @\ 50110000 (READY)
@@ -85,19 +85,36 @@
             [  7] hello
             [  8] hello -h
 
-   .. group-tab:: LCD Backlight LED
+   .. group-tab:: LCD backlight
 
-      Operate with the LCD backlight LED :hwftlbl-led:`LCD_BL`
-      at :rpi-pico-pio:`GP13`:
-
-      .. container:: highlight highlight-console notranslate
-
-         .. parsed-literal::
-
-            :bgn:`uart:~$` **regulator disable lcd-backlight-en**
+      Operate with the LCD backlight switch as voltage regulator,
+      :rpi-pico-sys:`LCD_BL` at :rpi-pico-pio:`GP13`:
 
       .. container:: highlight highlight-console notranslate
 
          .. parsed-literal::
 
-            :bgn:`uart:~$` **regulator enable lcd-backlight-en**
+            :bgn:`uart:~$` **regulator vlist lcd-backlight-en**
+            3.300000 V
+            0 uV
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **regulator vget lcd-backlight-en**
+            3.300000 V
+
+      The off/on sequence:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **regulator vset lcd-backlight-en 0V**
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **regulator vset lcd-backlight-en 3300mV**

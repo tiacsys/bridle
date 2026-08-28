@@ -120,7 +120,7 @@ with chosen display and touchscreen panel. That is:
 
    .. parsed-literal::
 
-      [00:00:00.135,000] <inf> xpt2046: Init 'xpt2046\ @\ 1' device
+      [00:00:00.135,000] <inf> xpt2046: Init 'xpt2046-320x480\ @\ 1' device
       \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
       :bgn:`uart:~$` **█**
 
@@ -129,14 +129,12 @@ with chosen display and touchscreen panel. That is:
    .. parsed-literal::
 
       :bgn:`uart:~$` **lvgl stats memory**
-      Heap at 0x20001548 contains 2047 units in 11 buckets
+      Heap at 0x200015c8 contains 2047 units in 11 buckets
 
         bucket#    min units        total      largest      largest
                    threshold       chunks      (units)      (bytes)
         -----------------------------------------------------------
-              1            2            1            2           16
-              3            8            1           11           88
-              6           64            1           81          648
-              9          512            1         1008         8064
+              1            2            3            3           24
+             10         1024            1         1066         8528
 
-      8816 free bytes, 7496 allocated bytes, overhead = 68 bytes (0.4%)
+      8568 free bytes, 7256 allocated bytes, overhead = 556 bytes (3.4%)

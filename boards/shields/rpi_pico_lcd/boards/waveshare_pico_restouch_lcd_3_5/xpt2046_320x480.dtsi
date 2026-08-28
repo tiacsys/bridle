@@ -1,12 +1,12 @@
 /*
- * Copyright (c) 2023 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2023-2025 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
 #include <freq.h>
 
 &rpipico_spi_tsc {
-	xpt2046_320x480: xpt2046@1 {
+	xpt2046_320x480: xpt2046-320x480@1 {
 		compatible = "xptek,xpt2046";
 		spi-max-frequency = <DT_FREQ_M(3)>;
 		reg = <1>;

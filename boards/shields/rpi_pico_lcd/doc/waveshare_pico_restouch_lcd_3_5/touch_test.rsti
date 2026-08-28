@@ -116,7 +116,9 @@ touchscreen panel. That is:
 
    .. parsed-literal::
 
-      [00:00:00.134,000] <inf> xpt2046: Init 'xpt2046\ @\ 1' device
+      [00:00:00.134,000] <inf> xpt2046: Init 'xpt2046-320x480\ @\ 1' device
       \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
-      [00:00:00.136,000] <inf> sample: Touch sample for touchscreen: xpt2046\ @\ 1, dc: ili9488\ @\ 0
-      [00:00:00.136,000] :brd:`<err> sample: Unsupported BPP=0`
+      [00:00:00.137,000] <inf> sample: Touch sample for touchscreen: xpt2046-320x480\ @\ 1, dc: ili9488-480x320\ @\ 0
+      [00:00:12.521,000] <inf> sample: TOUCH PRESS X, Y: (320, 542)
+      [00:00:12.782,000] <inf> sample: TOUCH RELEASE X, Y: (320, 542)
+      [00:00:12.942,000] <inf> sample: TOUCH RELEASE X, Y: (320, 0)

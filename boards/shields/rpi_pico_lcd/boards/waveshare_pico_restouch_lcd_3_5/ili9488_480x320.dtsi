@@ -6,7 +6,7 @@
 #include <freq.h>
 
 &mipi_dbi {
-	ili9488_480x320: ili9488@0 {
+	ili9488_480x320: ili9488-480x320@0 {
 		compatible = "ilitek,ili9488";
 		mipi-max-frequency = <DT_FREQ_M(60)>;
 		mipi-mode = "MIPI_DBI_MODE_SPI_4WIRE";

@@ -126,5 +126,5 @@ with chosen display. That is:
    .. parsed-literal::
 
       \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
-      [00:00:00.136,000] <inf> sample: Display sample for ili9488\ @\ 0
+      [00:00:00.136,000] <inf> sample: Display sample for ili9488-480x320\ @\ 0
       [00:00:00.385,000] <inf> sample: Display starts
