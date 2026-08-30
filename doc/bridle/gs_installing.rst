@@ -672,6 +672,7 @@ change into this new folder and execute:
             source .env/bin/activate
             |pip_bin| install --upgrade pip
             |pip_bin| install --upgrade setuptools
+            |pip_bin| install --upgrade jsonschema
 
    .. group-tab:: macOS
 
@@ -683,6 +684,7 @@ change into this new folder and execute:
             source .env/bin/activate
             |pip_bin| install --upgrade pip
             |pip_bin| install --upgrade setuptools
+            |pip_bin| install --upgrade jsonschema
 
    .. group-tab:: Windows
 
@@ -695,6 +697,7 @@ change into this new folder and execute:
             .env\Scripts\activate
             |pip_bin| install --upgrade pip
             |pip_bin| install --upgrade setuptools
+            |pip_bin| install --upgrade jsonschema
 
 .. _gs_installing_west:
 
