@@ -182,7 +182,9 @@ a way with direct calls to the necessary configuration and build tools.
          :host-os: all
          :compact:
 
-This command will build all documentation sets and can take up to 20 minutes.
+This command will create all documentation sets and may take up to 30 minutes,
+but only if the appropriate :ref:`doc_build_dev_mode` options have been set.
+Otherwise, the process may take up to 2 hours.
 
 Alternatively, if you want to build each documentation set separately,
 complete the following steps. Generate the Ninja build files and build
@@ -194,7 +196,7 @@ the Kconfig Reference and Devicetree Bindings (1st), Zephyr (2nd), and
    .. zephyr-app-commands::
       :app: bridle/doc
       :build-dir: bridle-doc
-      :goals: kconfig devicetree zephyr-doxygen zephyr bridle-doxygen bridle
+      :goals: zephyr-inventory kconfig devicetree zephyr-doxygen zephyr cannectivity bridle-doxygen bridle
       :west-args: --cmake-only
       :generator: ninja
       :tool: west
@@ -205,7 +207,7 @@ the Kconfig Reference and Devicetree Bindings (1st), Zephyr (2nd), and
    .. zephyr-app-commands::
       :app: bridle/doc
       :build-dir: bridle-doc
-      :goals: kconfig devicetree zephyr-doxygen zephyr bridle-doxygen bridle
+      :goals: zephyr-inventory kconfig devicetree zephyr-doxygen zephyr cannectivity bridle-doxygen bridle
       :generator: ninja
       :tool: cmake
       :host-os: all
@@ -228,6 +230,7 @@ documentation of Zephyr and Bride.
             xdg-open build/bridle-doc/html/index.html
             xdg-open build/bridle-doc/doxygen/zephyr/html/index.html
             xdg-open build/bridle-doc/doxygen/bridle/html/index.html
+            xdg-open build/bridle-doc/doxygen/cannectivity/html/index.html
 
    .. group-tab:: macOS
 
@@ -239,6 +242,7 @@ documentation of Zephyr and Bride.
             open build/bridle-doc/html/index.html
             open build/bridle-doc/doxygen/zephyr/html/index.html
             open build/bridle-doc/doxygen/bridle/html/index.html
+            open build/bridle-doc/doxygen/cannectivity/html/index.html
 
    .. group-tab:: Windows
 
@@ -250,6 +254,7 @@ documentation of Zephyr and Bride.
             start build\bridle-doc\html\index.html
             start build\bridle-doc\doxygen\zephyr\html\index.html
             start build\bridle-doc\doxygen\bridle\html\index.html
+            start build\bridle-doc\doxygen\cannectivity\html\index.html
 
 .. tip::
 
@@ -304,6 +309,8 @@ served with `Python HTTP server`_ module:
             .. parsed-literal::
 
                start http\:\/\/:bbl:`localhost`::bgn:`4711`/index.html &
+
+.. _doc_build_dev_mode:
 
 Developer-mode Document Building
 ********************************
