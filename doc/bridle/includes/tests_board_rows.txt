@@ -100,6 +100,14 @@
 
 | RP2040 | | :ref:`rpi_pico_board-extensions` | - ``rpi_pico/rp2040/w/mcuboot/bbe`` |
 
+.. waveshare_rp2040_matrix
+
+| RP2040 | | :ref:`waveshare_rp2040_matrix` | - ``waveshare_rp2040_matrix/rp2040`` |
+
+.. waveshare_rp2040_plus
+
+| RP2040 | | :ref:`waveshare_rp2040_plus` | - ``waveshare_rp2040_plus/rp2040`` |
+
 .. xiao_rp2040_rp2040_bbe
 
 | RP2040 | | :ref:`xiao_rp2040_board-extensions` | - ``xiao_rp2040/rp2040/bbe`` |
@@ -167,6 +175,14 @@
 .. rpi_pico2_rp2350a_m33_w_mcuboot_bbe
 
 | RP2350 | | :ref:`rpi_pico2_board-extensions` | - ``rpi_pico2/rp2350a/m33/w/mcuboot/bbe`` |
+
+.. waveshare_rp2350_matrix_rp2350a_hazard3
+
+| RP2350 | | :ref:`waveshare_rp2350_matrix` | - ``waveshare_rp2350_matrix/rp2350a/hazard3`` |
+
+.. waveshare_rp2350_matrix_rp2350a_m33
+
+| RP2350 | | :ref:`waveshare_rp2350_matrix` | - ``waveshare_rp2350_matrix/rp2350a/m33`` |
 
 .. xiao_rp2350_rp2350a_hazard3_bbe
 
