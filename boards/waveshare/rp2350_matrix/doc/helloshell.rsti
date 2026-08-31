@@ -9,7 +9,6 @@ See also Bridle sample: :ref:`helloshell-sample`.
       :build-dir: waveshare_rp2350_matrix
       :board: waveshare_rp2350_matrix/rp2350a/m33
       :snippets: "usb-console"
-      :gen-args: -DCONFIG_QMI8658A_TRIGGER_OWN_THREAD=y
       :west-args: -p
       :goals: flash
       :compact:
@@ -21,7 +20,6 @@ See also Bridle sample: :ref:`helloshell-sample`.
       :build-dir: waveshare_rp2350_matrix
       :board: waveshare_rp2350_matrix/rp2350a/hazard3
       :snippets: "usb-console"
-      :gen-args: -DCONFIG_QMI8658A_TRIGGER_OWN_THREAD=y
       :west-args: -p
       :goals: flash
       :compact:

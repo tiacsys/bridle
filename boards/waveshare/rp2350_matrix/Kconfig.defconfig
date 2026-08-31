@@ -38,25 +38,12 @@ config PWM
 	default y
 	depends on DT_HAS_RASPBERRYPI_PICO_PWM_ENABLED
 
-
-# Unfortunately, the Kconfig environment of the upstream driver does not
-# match the template specified for sensors for configuring the trigger
-# (see zephyr/drivers/sensor/Kconfig.trigger_template). The Kconfig key
-# name QMI8658A_TRIGGER_MODE is missing for the choice.
-#
-# Therefore, the dependency and default setting cannot be extended here,
-# out-of-tree or out-of-context. Instead, the desired 1-out-of-N parameter
-# must be set explicitly and individually on command line, when the build
-# command will be invoked, e.g.:
-#
-#    west build ... -- -DCONFIG_QMI8658A_TRIGGER_OWN_THREAD=y
-#
-# not yet: choice QMI8658A_TRIGGER_MODE
-# not yet: #	default QMI8658A_TRIGGER_GLOBAL_THREAD if BOARD_WAVESHARE_RP2350_MATRIX
-# not yet: 	default QMI8658A_TRIGGER_OWN_THREAD if BOARD_WAVESHARE_RP2350_MATRIX
-# not yet: 	default QMI8658A_TRIGGER_NONE
-# not yet: 	depends on SENSOR && QMI8658A
-# not yet: endchoice
+choice QMI8658A_TRIGGER_MODE
+#	default QMI8658A_TRIGGER_GLOBAL_THREAD if BOARD_WAVESHARE_RP2350_MATRIX
+	default QMI8658A_TRIGGER_OWN_THREAD if BOARD_WAVESHARE_RP2350_MATRIX
+	default QMI8658A_TRIGGER_NONE
+	depends on SENSOR && QMI8658A
+endchoice
 
 config LED_STRIP
 	default y if BOARD_WAVESHARE_RP2350_MATRIX

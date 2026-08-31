@@ -5,14 +5,6 @@
 
 #include <zephyr/dt-bindings/pinctrl/rpi-pico-rp2350a-pinctrl.h>
 
-#if !defined(RP2_PINCTRL_GPIO_FUNC_UART_ALT)
-#  if defined(RP2_PINCTRL_GPIO_FUNC_UART_AUX)
-#    define RP2_PINCTRL_GPIO_FUNC_UART_ALT RP2_PINCTRL_GPIO_FUNC_UART_AUX
-#  else
-#    define RP2_PINCTRL_GPIO_FUNC_UART_ALT 11
-#  endif
-#endif
-
 &pinctrl {
 	clocks_default: clocks_default {
 		/* no external clocks */
