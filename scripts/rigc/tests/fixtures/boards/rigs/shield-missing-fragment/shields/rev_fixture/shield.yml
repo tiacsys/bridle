@@ -1,0 +1,8 @@
+shield:
+  name: rev_fixture
+  full_name: V1c fixture shield (missing revision-2 fragment)
+  vendor: none
+  template: true
+  revisions:
+    default: "1"
+    list: ["1", "2"]

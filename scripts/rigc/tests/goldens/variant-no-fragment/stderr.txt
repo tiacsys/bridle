@@ -1,0 +1,2 @@
+error[lang-variant]: rig 'variant-no-fragment': variant 'ghost' contributes nothing -- looked for variant-no-fragment_ghost.overlay, variant-no-fragment_ghost_defconfig and variant-no-fragment_ghost.yml, none exist
+    at tests/fixtures/boards/rigs/variant-no-fragment/rig.yml:6 (rig)

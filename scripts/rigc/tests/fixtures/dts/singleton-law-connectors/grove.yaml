@@ -1,0 +1,87 @@
+# Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+  Grove connector, unified socket + plug contract (rigs Convention 1/4
+  typed board socket). Board side: a GPIO nexus, additive alongside
+  bridle's "seeed,grove-connector" binding
+  (boards/seeed/seeeduino_lotus/*_connector.dtsi) that a converted board
+  keeps unmodified: gpio-map child pins use the GROVE_* indices from
+  <dt-bindings/connector/grove.h> — the position-index single source of
+  truth shared by legacy connector, socket node, and shield references alike
+  (rig-dt-syntax.md Layer 3/4), mirroring how mikrobus.yaml was authored in
+  3a (no upstream dt-bindings header for Grove position indices either, so
+  btr-shields authors its own).
+
+  A Grove socket exposes two claimable signal positions (SIG0/SIG1); some are
+  digital-only (gpio-map only), some are also PWM- or ADC-capable — real
+  per-pin dual-function copper (Slice A / ontology Refinement 1: functions
+  live on endpoints, not nets). Which positions are PWM/ADC-capable, and
+  which (controller, channel) each one reaches, is declared with standard
+  `pwm-map` / `io-channel-map` nexus properties (Bridge-A rewrite phase 2a),
+  parallel to `gpio-map` above — real socket nodes on
+  boards/extend/seeed/seeeduino_lotus/grove_sockets.dtsi instantiate them for
+  the PWM/ADC-capable positions, and `scripts/rigc/board/project.py` reads them
+  the standard way, via `edtlib.Node.maps()`. They are declared OPTIONAL here
+  (not via `include: [pwm-nexus.yaml, io-channel-nexus.yaml]`, the upstream
+  gpio-nexus analogues for this role — their maps are `required: true` and
+  dtschema `include:` merge cannot downgrade an included property's
+  `required: true` to `false`) because not every Grove socket carries a
+  PWM/ADC-reachable position (only some SIG positions reach a timer/ADC
+  channel) — unlike gpio-map, which every socket carries. Cell shapes/roles
+  match the upstream bindings exactly (pwm-map: compound, #pwm-cells: int;
+  same for io-channel-*), just optional rather than required.
+
+  Shield side (`plug,*` extension keys — opaque to edtlib's own model,
+  preserved in Binding.raw under the vendor-namespaced top-level key
+  exemption, carried commit 1a657124349): plug,bus-proxies names the proxy
+  nodes a shield may declare (i2c, for I2C Grove modules — first exercised
+  by grove_sens); plug,positions lists the two claimable gpio positions
+  (SIG0/SIG1 — digital/analog Grove modules use them directly). VCC/GND
+  are power, not claimable, and have no position entry.
+
+  socket,i2c is the board-side half of that same I2C proxy (grove_sens):
+  the phandle to the I2C controller this socket reaches. Kept in sync
+  with the production binding's own copy (dts/bindings/connectors/
+  grove.yaml) -- unlike i2c-port.yaml in this same directory, this
+  property is NOT a fixture-only addition.
+
+compatible: "socket,grove"
+
+include: [gpio-nexus.yaml, base.yaml]
+
+properties:
+  "#gpio-cells":
+    type: int
+    required: true
+    const: 2
+
+  socket,i2c:
+    type: phandle
+    description: I2C controller reachable through this socket (absent = not offered)
+
+  pwm-map:
+    type: compound
+  pwm-map-mask:
+    type: array
+  pwm-map-pass-thru:
+    type: array
+  "#pwm-cells":
+    type: int
+  io-channel-map:
+    type: compound
+  io-channel-map-mask:
+    type: array
+  io-channel-map-pass-thru:
+    type: array
+  "#io-channel-cells":
+    type: int
+
+gpio-cells:
+  - pin
+  - flags
+
+plug,bus-proxies: [i2c]
+plug,positions:
+  SIG0: {function: gpio}
+  SIG1: {function: gpio}

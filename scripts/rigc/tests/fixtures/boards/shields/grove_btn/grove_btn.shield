@@ -1,0 +1,44 @@
+/* Shield: Button. ONE shield definition replaces bridle's 64 overlays
+ * (grove_btn_d0..d31 x normal/inverted): the "which digital pin" axis
+ * becomes the socket the rig places it in, and the normal/inverted axis
+ * becomes the per-instance invert: parameter.
+ *
+ * The button drives a gpio-keys input on the Grove signal pin. Default
+ * wiring: pull-down, active-high.
+ *
+ * zephyr,code: drivers/input/input_gpio_keys.c's GPIO_KEYS_CFG_DEF
+ * unconditionally expands DT_PROP(node_id, zephyr_code) for every gpio-keys
+ * child, with no COND_CODE guard, even though dts/bindings/input/
+ * gpio-keys.yaml does not mark the property required. A keycode is an
+ * INSTANCE fact, not a type-level one — two buttons of this same shield
+ * plugged into one rig need DISTINCT keys — so it is declared here via
+ * shield,params with no default authored: every rig instantiating this
+ * shield MUST assign it (rig-variants-revisions.md "PER-INSTANCE
+ * PARAMETERS"). shield,param-includes declares the header its assigned
+ * value resolves against -- this shield's own contract, not an accident
+ * of what happens to be #included above (a macro-only header contributes
+ * no node/property of its own, so it cannot be recovered any other way).
+ */
+
+#include <dt-bindings/connector/grove.h>
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
+/ {
+	shield-templates {
+		grove_btn: grove_btn {
+			gb_plug: plug {
+				compatible = "shield,plug";
+				shield,plugs = "grove";
+			};
+
+			gpio {
+				gb_key: button {
+					shield,collect = "gpio-keys";	/* an entry in the shared gpio-keys collection */
+					shield,params = "zephyr,code";	/* required: no default authored */
+					shield,param-includes = "zephyr/dt-bindings/input/input-event-codes.h";
+					gpios = <&gb_plug GROVE_SIG0 (GPIO_PULL_DOWN | GPIO_ACTIVE_HIGH)>;
+				};
+			};
+		};
+	};
+};

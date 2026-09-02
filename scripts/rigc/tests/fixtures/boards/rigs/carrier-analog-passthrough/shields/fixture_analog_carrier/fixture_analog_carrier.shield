@@ -1,0 +1,66 @@
+/* Fixture carrier (carrier-analog-passthrough-brief.md Sec 6): a
+ * single-plug, pure-copper carrier (no devices of its own, like
+ * arduino_uno_click/the grove carriers) re-exporting TWO sockets of the
+ * fixture parent board's own connector type:
+ *
+ *   ca_out -- the ACCEPT witness. Position 0 (SIG0) passes gpio AND pwm
+ *     through to the parent's own PWM position (0); position 1 (SIG1)
+ *     passes gpio AND adc through to the parent's own ADC position (1)
+ *     -- ONE exposed socket, three maps (gpio-map + pwm-map +
+ *     io-channel-map), proving criterion 5 (mixed socket) alongside the
+ *     PWM and ADC witnesses individually.
+ *
+ *   ca_out_unrouted -- ruling 2's REJECT witness. Its pwm-map claims
+ *     parent position 99, which the parent socket never routes as PWM
+ *     at all (its own pwm-map only ever wires position 0) -- ruling 2:
+ *     an unrouted analog position is an ERROR, never gpio's own silent
+ *     "stays socket-local" drop. Its own declared #pwm-cells (2) still
+ *     MATCHES the parent's, so only ruling 2's check can fire here, not
+ *     the require-and-check mismatch (that has its own dedicated
+ *     carrier below).
+ *
+ * Every pwm-map row's PARENT side carries three cells: the parent is the
+ * plug, whose claim frame is (position, period, flags) -- the generic PWM
+ * count, which is why a plug node declares none of its own
+ * (plug-unification-brief.md Sec 5) and why every real carrier's rows are
+ * shaped this way (seeed_grove_base_v2). The exposed socket's OWN
+ * #pwm-cells (2 here) is a separate axis, and it is the one
+ * compose_socket checks against the resolved parent board socket.
+ *
+ * A THIRD sibling carrier, fixture_analog_carrier_mismatch (its own
+ * file), owns the require-and-check (RULED, Sec 5) reject witness --
+ * kept as a SEPARATE shield because its exposed socket declares a
+ * mismatched #pwm-cells (3), which would otherwise change what THIS
+ * carrier's own accept witness proves.
+ */
+
+/ {
+	shield-templates {
+		fixture_analog_carrier: fixture_analog_carrier {
+			plug: plug {
+				compatible = "shield,plug";
+				shield,plugs = "fixture-analog-nexus";
+			};
+
+			ca_out: ca_out {
+				compatible = "socket,fixture-analog-nexus";
+				socket,stackable;
+				#gpio-cells = <2>;
+				gpio-map = <0 0 &plug 0 0>,
+					   <1 0 &plug 1 0>;
+				#pwm-cells = <2>;
+				pwm-map = <0 0 &plug 0 0 0>;
+				#io-channel-cells = <1>;
+				io-channel-map = <1 &plug 1>;
+			};
+
+			ca_out_unrouted: ca_out_unrouted {
+				compatible = "socket,fixture-analog-nexus";
+				#gpio-cells = <2>;
+				gpio-map = <0 0 &plug 0 0>;
+				#pwm-cells = <2>;
+				pwm-map = <0 0 &plug 99 0 0>;
+			};
+		};
+	};
+};

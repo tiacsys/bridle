@@ -1,0 +1,9 @@
+# Family-wide revision 2 still names 'rf_sensor', which only existed
+# under the DEFAULT variant's shield (restate_fixture) -- under variant
+# hpm, sensor_1's shield is pilot_alt_button, which has no such device.
+# rule 12: the error must name the variant responsible.
+instances:
+  - name: sensor_1
+    params:
+      rf_sensor:
+        vnd,threshold: 30

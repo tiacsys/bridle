@@ -1,0 +1,6 @@
+# Content file (metadata/content split): no sockets: block at all --
+# both of the shield's slots ("a", "b") must resolve by per-slot
+# inference.
+instances:
+  - name: bridge_inst
+    shield: fixture_multiplug_bridge

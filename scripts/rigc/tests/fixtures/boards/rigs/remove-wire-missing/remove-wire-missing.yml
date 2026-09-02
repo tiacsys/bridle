@@ -1,0 +1,16 @@
+# Synthetic fixture: rule 9 -- remove-wires: naming an endpoint pair that
+# does not exist. The real wire is x.dl_sq -> y.dl_led1 (DTS labels --
+# wires: endpoints resolve by label, item 29); variant b's delta tries
+# removing x.dl_sq -> y.dl_led2 instead (dl_led2 is a real label, just
+# the wrong endpoint of the real wire).
+instances:
+  - name: x
+    shield: adafruit_data_logger
+    socket: nucleo_ard
+  - name: y
+    shield: adafruit_data_logger
+    socket: nucleo_ard
+wires:
+  - from: x.dl_sq
+    to: y.dl_led1
+    route: adhoc

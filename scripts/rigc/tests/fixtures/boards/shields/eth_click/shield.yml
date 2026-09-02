@@ -1,0 +1,5 @@
+shield:
+  name: eth_click
+  full_name: MikroE ETH Click (ENC28J60)
+  vendor: mikroe
+  template: true

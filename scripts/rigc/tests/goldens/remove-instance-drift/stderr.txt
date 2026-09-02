@@ -1,0 +1,2 @@
+error[lang-rev]: revision '2': remove-instances: names 'logger', which does not exist (variant 'b' already removed it)
+    at tests/fixtures/boards/rigs/remove-instance-drift/remove-instance-drift_2.yml:4 (remove-instances[0])

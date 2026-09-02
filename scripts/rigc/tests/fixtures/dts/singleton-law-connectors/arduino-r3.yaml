@@ -1,0 +1,85 @@
+# Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+  Arduino Uno (R3) connector, unified socket + plug contract (rigs
+  Convention 1/4 typed board socket). Board side: a GPIO nexus, same shape
+  as the upstream "arduino-header-r3" binding
+  (dts/bindings/gpio/arduino-header-r3.yaml) it sits alongside on a
+  converted board: gpio-map child pins use the same ARDUINO_HEADER_R3_*
+  indices from <zephyr/dt-bindings/gpio/arduino-header-r3.h> — the
+  position-index single source of truth shared by legacy connector, socket
+  node, and shield references alike (rig-dt-syntax.md Layer 3/4).
+
+  Every bus endpoint (socket,i2c / socket,spi / socket,uart) is optional: a
+  board exposes only the subset it actually wires, declared by absence — no
+  socket,uart here, since neither Nucleo USART is routed to the Arduino
+  header on this board. socket,stackable marks the arduino-r3 socket as
+  mating more than one shield (stacking headers); socket,cs-pool gives the
+  expander's chip-select pool its ordered candidate positions (D10, D9, D8).
+
+  Shield side (`plug,*` extension keys — opaque to edtlib's own model,
+  preserved in Binding.raw under the vendor-namespaced top-level key
+  exemption, carried commit 1a657124349): plug,bus-proxies names the proxy
+  nodes (i2c/spi/uart) a shield may declare; plug,positions lists every
+  claimable position (A0-A5 analog, D0-D15 gpio) per the same
+  ARDUINO_HEADER_R3_* indices above — D11-D13 double as SPI lines
+  electrically, conflicts surface via net identity at the board binding,
+  not here.
+
+compatible: "socket,arduino-r3"
+
+include: [gpio-nexus.yaml, base.yaml]
+
+properties:
+  "#gpio-cells":
+    type: int
+    required: true
+    const: 2
+  socket,i2c:
+    type: phandle
+    description: I2C controller reachable through this socket (absent = not offered)
+  socket,spi:
+    type: phandle
+    description: SPI controller reachable through this socket (absent = not offered)
+  socket,uart:
+    type: phandle
+    description: UART controller reachable through this socket (absent = not offered)
+  socket,stackable:
+    type: boolean
+    description: >-
+      present on every arduino-r3 socket (type-level fact) — stacking headers
+      may mate N shields
+  socket,cs-pool:
+    type: array
+    default: [16, 15, 14]
+    description: >-
+      ordered chip-select candidate positions (D10, D9, D8) for expander
+      CS-pool allocation
+
+gpio-cells:
+  - pin
+  - flags
+
+plug,bus-proxies: [i2c, spi, uart]
+plug,positions:
+  A0: {function: analog}
+  A1: {function: analog}
+  A2: {function: analog}
+  A3: {function: analog}
+  A4: {function: gpio}
+  A5: {function: gpio}
+  D0: {function: gpio}
+  D1: {function: gpio}
+  D2: {function: gpio}
+  D3: {function: gpio}
+  D4: {function: gpio}
+  D5: {function: gpio}
+  D6: {function: gpio}
+  D7: {function: gpio}
+  D8: {function: gpio}
+  D9: {function: gpio}
+  D10: {function: gpio}
+  D11: {function: gpio}
+  D12: {function: gpio}
+  D13: {function: gpio}

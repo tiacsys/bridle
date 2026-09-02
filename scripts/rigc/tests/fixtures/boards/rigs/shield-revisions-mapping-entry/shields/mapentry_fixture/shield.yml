@@ -1,0 +1,12 @@
+shield:
+  name: mapentry_fixture
+  full_name: V1c fixture shield (mapping entry in revisions block)
+  vendor: none
+  template: true
+  # A mapping entry in a NON-variant axis's list: -- legal only in a
+  # rig's variants: list, and this is a shield's OWN revisions: axis, so
+  # the defect must be blamed on this shield, not on whichever rig
+  # happens to reference it.
+  revisions:
+    default: "1"
+    list: ["1", {name: "2", board: nucleo_f401re/stm32f401xe/rig}]

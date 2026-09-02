@@ -1,0 +1,7 @@
+error[lang-param]: instance 'sensor_1': this delta supplies params for device 'pab_key' without restating 'zephyr,code', which the effective topology already assigns -- wholesale replace means omitting it silently reverts to the shield default; restate it explicitly or remove it deliberately
+    at tests/fixtures/boards/rigs/revision-crosses-variant/revision-crosses-variant_2.yml:8 (instances[0].params)
+error[lang-param]: instance 'sensor_1': params names no device 'rf_sensor' of shield 'pilot_alt_button' (this instance's shield is 'pilot_alt_button' because of variant 'hpm')
+    devices of 'pilot_alt_button': pab_key
+    at tests/fixtures/boards/rigs/revision-crosses-variant/revision-crosses-variant_2.yml:9 (instances[0].params.rf_sensor)
+error[lang-param]: instance 'sensor_1': device 'pab_key' of shield 'pilot_alt_button' declares 'zephyr,code' as required (shield,params, no default authored) but this instance does not assign it — add params: {pab_key: {zephyr,code: <value>}}
+    at tests/fixtures/boards/rigs/revision-crosses-variant/revision-crosses-variant.yml:10 (instances[0])

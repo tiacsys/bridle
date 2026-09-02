@@ -1,0 +1,7 @@
+# Synthetic fixture: rule 6 -- an instances: delta naming an instance the
+# effective topology does not have. Additions are never implicit
+# (add-instances: is for that), so a non-match is always an error.
+instances:
+  - name: logger
+    shield: adafruit_data_logger
+    socket: nucleo_ard

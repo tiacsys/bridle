@@ -1,0 +1,70 @@
+# Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+  mikroBUS connector, unified socket + plug contract (rigs Convention 1/4
+  typed board socket). Board side: a GPIO nexus, same shape as the
+  upstream "mikro-bus" binding (dts/bindings/gpio/mikro-bus.yaml) it sits
+  alongside on a converted board: gpio-map child pins use the same
+  MIKROBUS_* indices from <dt-bindings/connector/mikrobus.h> — the
+  position-index single source of truth shared by legacy connector, socket
+  node, and shield references alike (rig-dt-syntax.md Layer 3/4). Unlike
+  Arduino R3, there is no upstream dt-bindings header for mikroBUS position
+  indices, so btr-shields authors its own (mirrors the pattern of
+  include/zephyr/dt-bindings/gpio/arduino-header-r3.h).
+
+  Every bus endpoint (socket,i2c / socket,spi / socket,uart) is optional: a
+  board exposes only the subset it actually wires, declared by absence.
+  mikroBUS sockets are NOT stackable (one module per socket — absence of
+  socket,stackable is the type-level fact, R14/R15); socket,cs-pool defaults
+  to the single dedicated CS position (MIKROBUS_CS) every mikroBUS socket
+  wires — there is exactly one CS candidate per socket, unlike a stacking
+  header's ordered pool of several GPIO positions.
+
+  Shield side (`plug,*` extension keys — opaque to edtlib's own model,
+  preserved in Binding.raw under the vendor-namespaced top-level key
+  exemption, carried commit 1a657124349): plug,bus-proxies names the allowed
+  proxy nodes (i2c/spi/uart — children become bus devices, paired proxy
+  name <-> socket,<name> on the mated socket); plug,positions lists every
+  claimable position (AN analog, RST/CS/INT gpio, PWM gpio-and-optional).
+  The shield's plug node is the position reference frame; gpio-spec
+  properties use `<&plug MIKROBUS_* flags>`. SPI CS is allocated from the
+  socket's socket,cs-pool unless pinned by shield,cs-position.
+
+compatible: "socket,mikrobus"
+
+include: [gpio-nexus.yaml, base.yaml]
+
+properties:
+  "#gpio-cells":
+    type: int
+    required: true
+    const: 2
+  socket,i2c:
+    type: phandle
+    description: I2C controller reachable through this socket (absent = not offered)
+  socket,spi:
+    type: phandle
+    description: SPI controller reachable through this socket (absent = not offered)
+  socket,uart:
+    type: phandle
+    description: UART controller reachable through this socket (absent = not offered)
+  socket,cs-pool:
+    type: array
+    default: [2]
+    description: |
+      Ordered CS candidate positions (indices). mikroBUS has exactly one
+      dedicated CS position (MIKROBUS_CS) per socket — the "pool" is a
+      single-element domain, present for symmetry with the CS-pool allocator.
+
+gpio-cells:
+  - pin
+  - flags
+
+plug,bus-proxies: [i2c, spi, uart]
+plug,positions:
+  AN: {function: analog}
+  RST: {function: gpio}
+  CS: {function: gpio}
+  PWM: {function: gpio, optional: true}
+  INT: {function: gpio}

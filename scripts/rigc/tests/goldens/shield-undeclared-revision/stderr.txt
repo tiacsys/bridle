@@ -1,0 +1,2 @@
+error[lang-rev]: shield 'i2c_sensor': revision '99' is not declared -- known revisions: 1, 2
+    at tests/fixtures/boards/rigs/shield-undeclared-revision/shield-undeclared-revision.yml:8 (instances[0].shield)

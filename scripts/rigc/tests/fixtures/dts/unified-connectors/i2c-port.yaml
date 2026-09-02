@@ -1,0 +1,48 @@
+# Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+  I2C-port connector, unified socket + plug contract — a bare I2C consumer
+  (no gpio positions), for a module that just needs a bus (a sensor behind
+  an I2C-mux channel, say). Unlike the other three types, no real board
+  socket node is ever compiled with this compatible: "socket,i2c-port"
+  sockets are shield-synthesized only (an I2C-mux channel or bare I2C port
+  authored inside a `.shield`'s own DT, e.g.
+  boards/shields/i2c_mux/i2c_mux.shield's ch0..ch3) — rigc lowers
+  them to plain `channel@N` mux children (no `compatible` of their own,
+  see scripts/rigc/emitter/overlay.py `_mux_node`) before analysis
+  ever runs, so this binding's own properties are schema decoration no real
+  node ever exercises. It still needs to be compatible-bearing (edtlib's
+  binding scan is content-sniffing — a compatible-less file under
+  dts/bindings/ would be build-dependent to validate) and is otherwise an
+  ordinary binding: not a GPIO nexus (no gpio-map — this type claims no
+  positions), just the socket,* properties every other type's real
+  binding declares, read the same way by scripts/rigc/registry.py.
+
+  socket,stackable is present (an I2C bus hosts many devices — N modules
+  may share the port); socket,cs-pool defaults to empty (an I2C port
+  doesn't allocate chip-selects).
+
+  Shield side (`plug,*` extension keys — opaque to edtlib's own model,
+  preserved in Binding.raw under the vendor-namespaced top-level key
+  exemption): plug,bus-proxies names the one
+  proxy node a shield may declare (i2c); plug,positions is empty — this
+  type claims no gpio positions.
+
+compatible: "socket,i2c-port"
+
+include: [base.yaml]
+
+properties:
+  socket,stackable:
+    type: boolean
+    description: >-
+      present on every i2c-port socket (type-level fact) — an I2C bus may
+      host many devices
+  socket,cs-pool:
+    type: array
+    default: []
+    description: empty — an I2C port doesn't allocate chip-selects
+
+plug,bus-proxies: [i2c]
+plug,positions: {}

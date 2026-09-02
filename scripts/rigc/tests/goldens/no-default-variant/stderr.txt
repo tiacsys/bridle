@@ -1,0 +1,2 @@
+error[lang-variant]: rig 'no-default-variant': no variant selected, and this rig declares no default variant -- choose one of: a, b
+    at tests/fixtures/boards/rigs/no-default-variant/rig.yml:5 (rig)

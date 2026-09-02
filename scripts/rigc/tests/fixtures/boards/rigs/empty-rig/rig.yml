@@ -1,0 +1,8 @@
+# Synthetic fixture for the empty-rig identity law (saferail 11,
+# board-as-coordinate-brief.md Sec 5): a rig declaring NO instances at all,
+# targeting a REAL hwmv2 board target (not a fixture board.dts) so its
+# resolved zephyr.dts can be compared against that same board's plain
+# `west build` — see test_resolved_corpus.py's
+# test_resolved_empty_rig_equals_plain_board.
+rig:
+  name: empty_rig

@@ -1,0 +1,21 @@
+/* Fixture shield (multi-plug-shield feature): two plugs of the SAME
+ * connector type -- the shape that rules out a positional list (design
+ * doc Sec 0.2). No devices at all: this shield exists only to prove
+ * that two of ONE instance's own slots resolving to the SAME physical
+ * socket is a loud, dedicated error (Sec 4) when a rig author names the
+ * same label twice.
+ */
+/ {
+	shield-templates {
+		fixture_multiplug_same_type: fixture_multiplug_same_type {
+			x: x {
+				compatible = "shield,plug";
+				shield,plugs = "fixture-mp-a";
+			};
+			y: y {
+				compatible = "shield,plug";
+				shield,plugs = "fixture-mp-a";
+			};
+		};
+	};
+};

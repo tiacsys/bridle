@@ -1,0 +1,36 @@
+# Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+# Fixture connector-type binding for test_cmake_alone_entry.py's own
+# test_cmake_alone_threads_connector_dir_per_dts_root: this file's own
+# CONTENT is never read by that test (it only asserts on
+# rerun-expand.sh's rendered --connector-dir argv) -- it exists so this
+# directory is a believable dts/bindings/connectors/ root, holding one
+# real (if minimal) unified binding, rather than an empty directory that
+# would exist for no visible reason.
+#
+# Not real, unified-connectors/, or singleton-law-connectors/ content:
+# this type is not meant to be mated by anything, real or fixture, and
+# carries no drift guard of its own.
+description: |
+  Fixture-only connector type, used solely to prove
+  cmake/modules/dts.cmake threads --connector-dir once per DTS_ROOT entry
+  (test_cmake_alone_entry.py's own test
+  test_cmake_alone_threads_connector_dir_per_dts_root passes this
+  directory's parent as an extra -DDTS_ROOT).
+
+compatible: "socket,fixture-extra-root"
+
+include: [base.yaml]
+
+properties:
+  socket,stackable:
+    type: boolean
+    description: present on every fixture-extra-root socket (type-level fact)
+  socket,cs-pool:
+    type: array
+    default: []
+    description: empty -- this fixture type allocates no chip-selects
+
+plug,bus-proxies: []
+plug,positions: {}

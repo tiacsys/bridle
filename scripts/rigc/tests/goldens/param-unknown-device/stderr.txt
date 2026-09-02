@@ -1,0 +1,3 @@
+error[lang-param]: instance 'btn': params names no device 'nonexistent_device' of shield 'grove_btn'
+    devices of 'grove_btn': gb_key
+    at tests/fixtures/boards/rigs/param-unknown-device/param-unknown-device.yml:15 (instances[0].params.nonexistent_device)

@@ -1,0 +1,8 @@
+# One socket-less instance of adafruit_data_logger, instance named after
+# the shield -- promote_shield's own convention (board-coordinate-s3-
+# brief.md Sec 3) -- so the resolved topology matches the promoted side's
+# ONE socket-less instance exactly. Only the RIG's own name differs from
+# the promoted side (deliberately -- see rig.yml).
+instances:
+  - name: adafruit_data_logger
+    shield: adafruit_data_logger

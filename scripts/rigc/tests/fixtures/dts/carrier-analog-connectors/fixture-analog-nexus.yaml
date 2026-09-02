@@ -1,0 +1,66 @@
+# Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+description: |
+  Purpose-built connector type for the carrier PWM/ADC pass-through
+  feature's own fixture tree (carrier-analog-passthrough-brief.md Sec 6)
+  -- not a copy of any dts/bindings/connectors/*.yaml binding, and no
+  real board or shield ever references this compatible.
+
+  Mirrors dts/bindings/connectors/grove.yaml's own property shape at
+  fixture scope: #gpio-cells/gpio-map REQUIRED, #pwm-cells/pwm-map and
+  #io-channel-cells/io-channel-map OPTIONAL. ONE type backs both the
+  fixture board's own real socket (the parent) and a carrier's plug/
+  exposed nodes -- like grove-on-grove, the exposed side needs no type
+  of its own.
+
+  socket,stackable is declared (schema presence alone is what
+  registry.py's own _socket_facts reads, never a per-node value) so a
+  carrier's ONE exposed socket may be mated by more than one consumer
+  shield at once -- this fixture's own rig plugs both a PWM and an ADC
+  consumer onto the SAME exposed socket to prove the mixed-socket
+  witness end to end.
+
+compatible: "socket,fixture-analog-nexus"
+
+properties:
+  socket,stackable:
+    type: boolean
+    description: present on every fixture-analog-nexus socket (type-level fact)
+  "#gpio-cells":
+    type: int
+    required: true
+    const: 2
+  gpio-map:
+    type: compound
+    required: true
+  gpio-map-mask:
+    type: array
+  gpio-map-pass-thru:
+    type: array
+  "#pwm-cells":
+    type: int
+  pwm-map:
+    type: compound
+  pwm-map-mask:
+    type: array
+  pwm-map-pass-thru:
+    type: array
+  "#io-channel-cells":
+    type: int
+  io-channel-map:
+    type: compound
+  io-channel-map-mask:
+    type: array
+  io-channel-map-pass-thru:
+    type: array
+
+gpio-cells:
+  - pin
+  - flags
+
+# plug,* keys (shield side, Conv. 1): opaque to edtlib, read directly by
+# ctypes_registry.py.
+plug,bus-proxies: []
+plug,positions:
+  SIG0: {function: gpio}
+  SIG1: {function: gpio}

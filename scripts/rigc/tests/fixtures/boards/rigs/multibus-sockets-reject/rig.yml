@@ -1,0 +1,9 @@
+# Multi-bus-socket fixture rig (REJECT case): one instance whose device
+# needs a bus name ("spi-unknown-name") the fixture-multibus connector
+# type's own vocabulary allows but no socket of that type ever wires --
+# phys-subset, exact-string, never a fallback. board is INJECTED by the
+# test (matching multibus_board.dts, passed via --board-dts), not
+# declared here (board-coordinate-s6-brief.md Sec 11 retired that
+# grammar).
+rig:
+  name: multibus_sockets_reject

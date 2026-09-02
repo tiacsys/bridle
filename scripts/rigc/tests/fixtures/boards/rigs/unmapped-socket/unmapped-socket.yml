@@ -1,0 +1,4 @@
+instances:
+  - name: probe
+    shield: adafruit_data_logger
+    socket: other

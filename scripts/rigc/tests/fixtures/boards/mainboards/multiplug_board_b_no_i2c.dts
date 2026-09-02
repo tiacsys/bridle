@@ -1,0 +1,43 @@
+/* Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+/dts-v1/;
+
+/* Fixture board for the multi-plug-shield feature: one fixture-mp-a
+ * socket (offers i2c) and one fixture-mp-b socket that offers NO i2c at
+ * all (subset exposure declared by absence) -- the per-slot SUBSET
+ * reject twin of multiplug_board_one_of_each.dts: a shield whose "b"
+ * slot needs i2c gets phys-subset naming that slot/socket, never the
+ * "a" slot's.
+ */
+/ {
+	model = "Multi-Plug Fixture Board (b has no i2c)";
+	compatible = "vnd,multiplug-fixture-board-no-i2c";
+
+	multiplug_i2c_a: i2c_a_ctrl {
+		#address-cells = <1>;
+		#size-cells = <0>;
+	};
+
+	multiplug_gpio: gpio_ctrl {
+		#gpio-cells = <2>;
+	};
+
+	fx_a: connector_fx_a {
+		compatible = "socket,fixture-mp-a";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <0 0 &multiplug_gpio 0 0>;
+		socket,i2c = <&multiplug_i2c_a>;
+	};
+
+	fx_b_bare: connector_fx_b_bare {
+		compatible = "socket,fixture-mp-b";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <0 0 &multiplug_gpio 1 0>;
+		/* no socket,i2c -- subset exposure by absence */
+	};
+};

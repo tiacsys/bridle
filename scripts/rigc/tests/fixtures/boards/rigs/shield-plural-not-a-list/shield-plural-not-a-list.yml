@@ -1,0 +1,4 @@
+# Synthetic fixture: no instances -- the defect this pins is scan-time and
+# unconditional (a shields: block that is a mapping, not a list), so
+# nothing here needs to reference the shield the folder failed to declare.
+instances: []

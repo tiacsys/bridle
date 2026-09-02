@@ -1,0 +1,1 @@
+error[phys-board]: rig 'no-board-declared': no board given -- a rig has no board of its own any more (board: left rig.yml's grammar entirely); pass --board <name>

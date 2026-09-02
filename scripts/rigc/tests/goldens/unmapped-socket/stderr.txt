@@ -1,0 +1,3 @@
+error[phys-socket]: instance 'probe': board 'unmapped_socket_board' has no socket 'other'
+    sockets of unmapped_socket_board: fixture_ard (fixture-nexus)
+    at tests/fixtures/boards/rigs/unmapped-socket/unmapped-socket.yml:2 (instances[0])

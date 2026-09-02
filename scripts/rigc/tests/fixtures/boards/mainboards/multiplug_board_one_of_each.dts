@@ -1,0 +1,46 @@
+/* Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+/dts-v1/;
+
+/* Fixture board for the multi-plug-shield feature: exactly one socket of
+ * EACH fixture connector type, both offering socket,i2c -- per-slot
+ * INFERENCE accepts silently on this board (one candidate per slot), and
+ * the per-slot SUBSET check accepts too (both sockets offer i2c).
+ */
+/ {
+	model = "Multi-Plug Fixture Board (one of each)";
+	compatible = "vnd,multiplug-fixture-board";
+
+	multiplug_i2c_a: i2c_a_ctrl {
+		#address-cells = <1>;
+		#size-cells = <0>;
+	};
+
+	multiplug_i2c_b: i2c_b_ctrl {
+		#address-cells = <1>;
+		#size-cells = <0>;
+	};
+
+	multiplug_gpio: gpio_ctrl {
+		#gpio-cells = <2>;
+	};
+
+	fx_a: connector_fx_a {
+		compatible = "socket,fixture-mp-a";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <0 0 &multiplug_gpio 0 0>;
+		socket,i2c = <&multiplug_i2c_a>;
+	};
+
+	fx_b: connector_fx_b {
+		compatible = "socket,fixture-mp-b";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <0 0 &multiplug_gpio 1 0>;
+		socket,i2c = <&multiplug_i2c_b>;
+	};
+};

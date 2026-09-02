@@ -1,0 +1,7 @@
+# variant b supplies params: for sensor_1 (same shield) but omits
+# restating vnd,threshold -- rule 11: wholesale replace means this would
+# silently revert to the shield's authored default (10).
+instances:
+  - name: sensor_1
+    params:
+      rf_sensor: {}

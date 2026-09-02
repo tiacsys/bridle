@@ -1,0 +1,2 @@
+error[lang-rev]: shield 'rev_fixture': revision '2' contributes nothing -- looked for rev_fixture_2.shield and rev_fixture_2.conf, neither exists
+    at tests/fixtures/boards/rigs/shield-missing-fragment/shield-missing-fragment.yml:9 (instances[0].shield)

@@ -1,0 +1,19 @@
+# Synthetic fixture: hwmv2's revision dot-normalization (design-log
+# 2026-07-26d, extensions.cmake:1772) -- a dotted revision id constructs a
+# fragment filename with dots replaced by underscores
+# (dotted-revision-no-fragment_1_5_0_defconfig), never the literal dots.
+# No such fragment exists here, so rule 10 fires naming the NORMALIZED
+# filename -- proof the normalization happened, not just that rule 10
+# still works. major.minor.patch is the only hwmv2 format that can even
+# express a revision whose fragment is missing this way: a requested
+# "1.5" zero-appends to "1.5.0" (hwmv2's own loose typing,
+# extensions.cmake:1092-1103) BEFORE matching, so it resolves to the
+# declared "1.5.0" exactly -- no nearest-lower involved.
+rig:
+  name: dotted-revision-no-fragment
+  revision:
+    format: major.minor.patch
+    default: "1.0.0"
+    revisions:
+      - name: "1.0.0"
+      - name: "1.5.0"
