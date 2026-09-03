@@ -5,6 +5,8 @@
 build:
   # root cmake script
   cmake: .
+  # additional cmake modules (the rigs feature's boards/dts/shields forks)
+  cmake-modules: cmake/modules
   # root kconfig file
   kconfig: Kconfig.bridle
   settings:
