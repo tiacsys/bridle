@@ -1,0 +1,26 @@
+# lotus_buttons — umbrella-subsystem activation (option A).
+#
+# Assembly: 2x grove_btn (gpio-keys, one inverted) + 1x grove_led
+# (gpio-leds). The rig's shields carry no Kconfig.defconfig of their own
+# (only SHIELD_<NAME> identification symbols) — enabling the subsystems the
+# instantiated shields' DRIVERS actually need is the rig's job, not the
+# shield's or the expander's.
+#
+# Checked against the driver Kconfig (zephyr-rigs):
+#   - "gpio-keys" is claimed by drivers/input/input_gpio_keys.c
+#     (INPUT_GPIO_KEYS, drivers/input/Kconfig.gpio_keys), nested inside
+#     `if INPUT` (subsys/input/Kconfig) — INPUT is a bare `menuconfig`
+#     (default n), so it needs explicit activation; INPUT_GPIO_KEYS itself
+#     defaults to y once INPUT is on and DT_HAS_GPIO_KEYS_ENABLED, and
+#     `select`s GPIO.
+#   - "gpio-leds" is claimed by drivers/led/led_gpio.c (LED_GPIO,
+#     drivers/led/Kconfig.gpio), nested inside `if LED` (drivers/led/Kconfig)
+#     — same shape: LED is a bare `menuconfig` (default n) needing explicit
+#     activation; LED_GPIO defaults to y once LED is on and
+#     DT_HAS_GPIO_LEDS_ENABLED, and `select`s GPIO.
+# CONFIG_GPIO itself is therefore reached transitively (both leaf drivers
+# select it) once its two umbrellas are on; listed explicitly below anyway
+# for clarity, matching the quail_temp_farm_defconfig umbrella style.
+CONFIG_INPUT=y
+CONFIG_LED=y
+CONFIG_GPIO=y
