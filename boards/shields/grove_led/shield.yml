@@ -1,0 +1,9 @@
+shields:
+  - name: grove_led
+    full_name: Grove LED (bridle grove_led port)
+    vendor: seeed
+    template: true
+  - name: grove_pwm_led
+    full_name: Grove PWM LED (bridle grove_pwm_led port)
+    vendor: seeed
+    template: true
