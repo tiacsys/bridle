@@ -87,9 +87,20 @@ jobs:
             exit 1
           fi
 
-          # Rebase onto origin/${BASE_REF}
+          # Rebase onto origin/${BASE_REF}.
+          #
+          # An identity is REQUIRED here: whenever the head branch is behind
+          # its base, this rebase replays commits, and git refuses to write one
+          # without a configured author -- "fatal: empty ident name (for
+          # <runner@...>) not allowed". The runner has no identity of its own,
+          # so it is set here. It never reaches a published commit: the rebase
+          # is local to this checkout and is discarded with the job.
+          git config user.name "github-actions[bot]"
+          git config user.email \
+            "41898282+github-actions[bot]@users.noreply.github.com"
+
           git rebase "origin/${BASE_REF}" || \
-            (echo "::error ::Rebase failed; resolve conflicts then push"; exit 1)
+            (echo "::error ::Rebase onto 'origin/${BASE_REF}' failed -- see the git output above for the reason (conflicts are only one of them)"; exit 1)
 
           # Show some history
           git log --pretty=oneline --decorate --max-count=10
