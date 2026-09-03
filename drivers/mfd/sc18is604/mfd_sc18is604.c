@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024-2025 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2024-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -396,8 +396,8 @@ static int mfd_sc18is604_pm_device_pm_action(const struct device *dev, enum pm_d
 
 /* clang-format off */
 #define MFD_SC18IS604_SPI_OPTS                                                                     \
-	(SPI_OP_MODE_MASTER | SPI_TRANSFER_MSB | SPI_HOLD_ON_CS | SPI_LOCK_ON | SPI_MODE_CPOL |    \
-	 SPI_MODE_CPHA | SPI_WORD_SET(8))
+	(SPI_OP_MODE_CONTROLLER | SPI_TRANSFER_MSB | SPI_HOLD_ON_CS | SPI_LOCK_ON |                \
+	 SPI_MODE_CPOL | SPI_MODE_CPHA | SPI_WORD_SET(8))
 
 #define MFD_SC18IS604_DEFINE(inst)                                                                 \
 	IF_ENABLED(CONFIG_MFD_SC18IS604_ASYNC,                                                     \
