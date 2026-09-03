@@ -1,6 +1,6 @@
 # The west submanifest file for ubxlib.
 #
-# Copyright (c) 2023 TiaC Systems
+# SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
 #
 # SPDX-License-Identifier: Apache-2.0
 
@@ -29,5 +29,5 @@ manifest:
       path: modules/lib/ubxlib
       remote: tiacsys
       repo-path: ubxlib
-      revision: 7496ea2118ad2f4cee076613b697a6914931030b
+      revision: 847e1e8ce4891abe587abd03c0e86564870b5134
       submodules: true
