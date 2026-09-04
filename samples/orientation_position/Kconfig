@@ -1,0 +1,8 @@
+mainmenu "Orientation-Position sample application"
+
+source "Kconfig.zephyr"
+
+config SAMPLE_MAX_BRIGHTNESS
+	int "Maximum display brightness"
+	default 16
+        range 1 255

@@ -1,0 +1,16 @@
+# Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+sample:
+  name: Orientation position sample
+common:
+  tags:
+    - bridle
+    - display
+    - sensors
+tests:
+  bridle.sample.orientation_position:
+    filter: dt_alias_exists("accel0") and
+            dt_chosen_exists("zephyr_display")
+    integration_platforms:
+      - waveshare_rp2350_matrix/rp2350a/m33
