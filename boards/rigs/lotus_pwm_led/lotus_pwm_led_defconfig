@@ -1,0 +1,10 @@
+# lotus_pwm_led — umbrella-subsystem activation (option A).
+#
+# Assembly: 2x grove_pwm_led (PWM, pwm-leds). The rig's shields carry no
+# Kconfig.defconfig of their own (only SHIELD_<NAME> identification
+# symbols) — enabling the subsystems the instantiated shields' DRIVERS
+# actually need is the rig's job, not the shield's or the expander's.
+# LED is the umbrella the pwm-leds driver (drivers/led/led_pwm.c) sits
+# under; PWM is the controller subsystem it drives through.
+CONFIG_PWM=y
+CONFIG_LED=y

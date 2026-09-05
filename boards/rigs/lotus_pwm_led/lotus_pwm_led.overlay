@@ -1,0 +1,28 @@
+/*
+ * R21 pinctrl fragment (the "deep half") for rig `lotus_pwm_led`.
+ *
+ * The expander enables the controller (`&tcc0 { status = "okay"; }`) and names
+ * each pin in the config sheet, but it deliberately does NOT author SoC pinmux
+ * — that is board knowledge. The board's (bridle's real seeeduino_lotus, E3)
+ * `tcc0_pwm_default` pinctrl state ships EMPTY (see
+ * seeeduino_lotus-pinctrl.dtsi), so without this both LEDs' TCC0 outputs are
+ * enabled but never routed to their pads.
+ *
+ * Both fragments are real bridle facts, sourced verbatim from
+ * bridle/boards/seeed/seeeduino_lotus/grove_d2_connector.dtsi
+ * (GROVE_PWM_D2_PINCTRL) and grove_d3_connector.dtsi (GROVE_PWM_D3_PINCTRL):
+ * grove D2 SIG0 -> PA14 / TCC0 WO4, grove D3 SIG0 -> PA9 / TCC0 WO1. The
+ * group numbers are bridle's own and are what keep the two entries distinct
+ * within the one pinctrl state.
+ */
+
+#include <dt-bindings/pinctrl/samd21-da1gXabcd-pinctrl.h>
+
+&tcc0_pwm_default {
+	group4 {
+		pinmux = <PA14F_TCC0_WO4>;
+	};
+	group1 {
+		pinmux = <PA9E_TCC0_WO1>;
+	};
+};
