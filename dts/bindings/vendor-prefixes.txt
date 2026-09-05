@@ -10,6 +10,13 @@
 #
 # <vendor-prefix><TAB><Full name of vendor>
 
+# Some entries below are PSEUDO-vendors, in the same sense as upstream's own
+# `zephyr` and `vnd` entries: they name a compatible NAMESPACE, not a company.
+# `socket` is one. A rig connector is declared board-side as a node whose
+# compatible is `socket,<connector>`; gen_edt merges the vendor-prefixes.txt
+# of every DTS_ROOT, so registering the prefix here is what stops it
+# rejecting those nodes under --edtlib-Werror.
+
 # zephyr-keep-sorted-start
 adafruit	Adafruit Industries, LLC
 cjmcu	Changjiang Intelligent Technology Co., Ltd.
@@ -24,6 +31,7 @@ pimoroni	Pimoroni Ltd.
 raspberrypi	Raspberry Pi Foundation
 seeed	Seeed Technology Co., Ltd
 sensortek	Sensortek Technology Corporation
+socket	Rig connector model — board-side typed socket
 sparkfun	SparkFun Electronics, Inc.
 spotpear	Spotpear Electronics Co., Ltd.
 st	STMicroelectronics N.V.
