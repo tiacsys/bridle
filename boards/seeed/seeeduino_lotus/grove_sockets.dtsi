@@ -1,0 +1,154 @@
+/*
+ * Board-DT fragment: Seeeduino Lotus typed "socket,grove" nodes.
+ *
+ * Included from seeeduino_lotus.dts at the END of that file, after every
+ * label and override it defines: these nine sockets target &tcc0, &tcc1
+ * and &adc, and the board .dts itself overrides all three (status,
+ * compatible, pinctrl) -- the include only works once those overrides
+ * already exist.
+ *
+ * Strictly additive: the board's own legacy arduino_header /
+ * grove_*_connector nexus nodes (grove_d2_connector.dtsi and its seven
+ * siblings, grove_i2c_connector.dtsi, grove_uart_connector.dtsi,
+ * arduino_r3_connector.dtsi) stay untouched. These nine "socket,grove"
+ * nodes are a second, typed description layered alongside them, not a
+ * replacement -- the other eight Grove-capable boards and the five
+ * shield-side Grove providers in this tree are unaffected by this file.
+ *
+ * Pin mapping (which SoC pin each position reaches) is a real bridle
+ * fact, including the daisy-lacing (SIG1 of one connector == SIG0 of the
+ * next) and D2/D4 sharing TCC0 channel 0.
+ *
+ * adc0: is an ADDITIVE second label on the SoC's existing &adc node -- the
+ * sockets below need a stable "adc0" name for their io-channel-map
+ * targets, but the real SAMD21 dtsi (dts/arm/atmel/samd2x.dtsi) labels the
+ * controller "adc" (singular, no instance number -- SAMD21 has exactly
+ * one ADC). `adc0: &adc {};` is the standard Zephyr idiom for attaching an
+ * extra label to an existing node (e.g. `zephyr_udc0: &usb0 { ... };` in
+ * this board's own seeeduino_lotus.dts) -- it does not redefine or move
+ * anything.
+ *
+ * Standard-named `pwm-map` / `io-channel-map` nexuses below (on the
+ * sockets that carry PWM/ADC-capable positions) let a devicetree reader
+ * resolve position -> controller+channel routing natively (same mechanism
+ * as `gpio-map` above): the STANDARD names strip to "pwm" / "io-channel",
+ * which demand "#pwm-cells" / "#io-channel-cells" -- properties &tcc0/
+ * &tcc1 (this board's .dts override) and &adc (dts/arm/atmel/samd2x.dtsi)
+ * already declare for their own consumer-facing PWM/ADC roles. So the
+ * target side needs no invented decoration; only the socket itself must
+ * additionally declare its own "#pwm-cells"/"#io-channel-cells" (the
+ * child/consumer-facing spec), same as gpio-map already requires
+ * "#gpio-cells" here. rigc reads these maps the standard way, via
+ * `edtlib.Node.maps()`, when resolving a rig instance's socket placement.
+ */
+
+#include <dt-bindings/connector/grove.h>
+
+adc0: &adc {};
+
+/ {
+	/* Digital Grove sockets. D2/D4 both reach TCC0 channel 0 (real bridle
+	 * fact, per bridle's GROVE_PWM_D2/D4_PINCTRL in its upstream
+	 * grove_d2/d4_connector.dtsi). #pwm-cells = <2> (channel + period,
+	 * matching &tcc0/&tcc1's own atmel,sam0-tcc-pwm override in the board
+	 * .dts); pwm-map-mask fully matches the position cell and ignores/
+	 * passes through the second child cell (period is a target-side fact,
+	 * not a match key).
+	 */
+	grove_d2: connector_grove_d2 {
+		compatible = "socket,grove";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <GROVE_SIG0 0 &porta 14 0>, <GROVE_SIG1 0 &porta 9 0>;
+
+		#pwm-cells = <2>;
+		pwm-map-mask = <0xffffffff 0x00000000>;
+		pwm-map-pass-thru = <0x00000000 0xffffffff>;
+		pwm-map = <GROVE_SIG0 0 &tcc0 0 0>, <GROVE_SIG1 0 &tcc0 1 0>;
+	};
+	grove_d3: connector_grove_d3 {
+		compatible = "socket,grove";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <GROVE_SIG0 0 &porta 9 0>, <GROVE_SIG1 0 &porta 8 0>;
+
+		#pwm-cells = <2>;
+		pwm-map-mask = <0xffffffff 0x00000000>;
+		pwm-map-pass-thru = <0x00000000 0xffffffff>;
+		pwm-map = <GROVE_SIG0 0 &tcc0 1 0>, <GROVE_SIG1 0 &tcc0 0 0>;
+	};
+	grove_d4: connector_grove_d4 {
+		compatible = "socket,grove";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <GROVE_SIG0 0 &porta 8 0>, <GROVE_SIG1 0 &porta 15 0>;
+
+		/* Real bridle fact -- D2 and D4 share TCC0 ch0. */
+		#pwm-cells = <2>;
+		pwm-map-mask = <0xffffffff 0x00000000>;
+		pwm-map-pass-thru = <0x00000000 0xffffffff>;
+		pwm-map = <GROVE_SIG0 0 &tcc0 0 0>, <GROVE_SIG1 0 &tcc0 1 0>;
+	};
+	grove_d5: connector_grove_d5 {
+		compatible = "socket,grove";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <GROVE_SIG0 0 &porta 15 0>, <GROVE_SIG1 0 &porta 20 0>;
+	};
+	grove_d6: connector_grove_d6 {
+		compatible = "socket,grove";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <GROVE_SIG0 0 &porta 20 0>, <GROVE_SIG1 0 &porta 21 0>;
+	};
+	grove_d7: connector_grove_d7 {
+		compatible = "socket,grove";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <GROVE_SIG0 0 &porta 21 0>, <GROVE_SIG1 0 &porta 6 0>;
+	};
+
+	/* Analog Grove sockets. io-channel-map nexus, position -> (adc0,
+	 * channel). #io-channel-cells = <1> matches &adc's own
+	 * "#io-channel-cells" (one cell: channel only, no flags), so the map
+	 * row's child spec is fully resolved by the matched entry -- no
+	 * pass-thru bits needed (mask fully covers the position cell).
+	 */
+	grove_a0: connector_grove_a0 {
+		compatible = "socket,grove";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <GROVE_SIG0 0 &porta 2 0>, <GROVE_SIG1 0 &portb 8 0>;
+
+		#io-channel-cells = <1>;
+		io-channel-map-mask = <0xffffffff>;
+		io-channel-map-pass-thru = <0x00000000>;
+		io-channel-map = <GROVE_SIG0 &adc0 0>, <GROVE_SIG1 &adc0 1>;
+	};
+	grove_a1: connector_grove_a1 {
+		compatible = "socket,grove";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <GROVE_SIG0 0 &portb 8 0>, <GROVE_SIG1 0 &portb 9 0>;
+
+		#io-channel-cells = <1>;
+		io-channel-map-mask = <0xffffffff>;
+		io-channel-map-pass-thru = <0x00000000>;
+		io-channel-map = <GROVE_SIG0 &adc0 1>, <GROVE_SIG1 &adc0 2>;
+	};
+	grove_a2: connector_grove_a2 {
+		compatible = "socket,grove";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <GROVE_SIG0 0 &portb 9 0>, <GROVE_SIG1 0 &porta 4 0>;
+	};
+};
