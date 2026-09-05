@@ -1,0 +1,53 @@
+# The west submanifest file for Hub75 RPi-Pico/PIO driver for Zephyr.
+#
+# Copyright (c) 2026 TiaC Systems
+#
+# SPDX-License-Identifier: Apache-2.0
+
+manifest:
+  version: "0.13"
+
+  # If not otherwise specified, the projects below should be obtained
+  # from the tiacsys remote.
+  defaults:
+    remote: tiacsys
+
+  # "remotes" is a list of locations where git repositories are cloned
+  # and fetched from.
+  remotes:
+    - name: tiacsys
+      url-base: https://github.com/tiacsys
+    - name: upstream
+      url-base: https://github.com/DxPru
+
+  # "projects" is a list of git repositories which make up the TIAC
+  # source code. Please add items below based on alphabetical order.
+  projects:
+
+    # The original Hub75 RPi-Pico/PIO project as driver module folder.
+    - name: hub75-pio-zephyr
+      path: modules/drv/hub75-pio-zephyr
+      remote: tiacsys
+      repo-path: hub75-pio-zephyr
+      revision: tiacsys/master
+      # import submodules from Hub75 RPi-Pico/PIO manifest
+      import:
+        # In addition to the Hub75 RPi-Pico/PIO repository itself, TIAC
+        # also imports the contents of hub75-pio-zephyr/west.yml at the
+        # above revision. Only the projects explicitly named in the
+        # following allowlist are imported.
+        #
+        # Please keep this list sorted alphabetically.
+        # zephyr-keep-sorted-start re(^\s+\- \w)
+        name-allowlist:
+          []
+          # zephyr-keep-sorted-stop
+        #
+        # Zephyr as defined by Hub75 RPi-Pico/PIO will be blocked, TIAC
+        # has its own definition in the submanifests/zephyr.yml file.
+        #
+        # Please keep this list sorted alphabetically.
+        # zephyr-keep-sorted-start re(^\s+\- \w)
+        name-blocklist:
+          - zephyr
+          # zephyr-keep-sorted-stop
