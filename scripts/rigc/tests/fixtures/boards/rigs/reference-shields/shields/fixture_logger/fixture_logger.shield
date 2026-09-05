@@ -1,0 +1,45 @@
+/* Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Reference shield (rigs test suite): fixed-address I2C device + CS-position
+ * SPI device. A real shield author may copy this file's shape for either
+ * pattern -- see boards/shields/adafruit_data_logger (both patterns, on a
+ * real connector type) and boards/shields/temp_click (the deferred,
+ * strap-selected address counterpart to the fixed one below).
+ */
+
+#include <dt-bindings/connector/fixture-nexus.h>
+
+/ {
+	shield-templates {
+		fixture_logger: fixture_logger {
+			fl_plug: plug {
+				compatible = "shield,plug";
+				shield,plugs = "fixture-nexus";
+
+				/* Fixed-address bus device: the datasheet address is
+				 * hard-wired in copper, so reg is authored directly and the
+				 * unit-address (@50) must equal it -- shields.py's address
+				 * authority rule requires exactly one of reg /
+				 * shield,addr-from on an addressable bus. */
+				i2c {
+					fl_sensor: sensor@50 {
+						compatible = "vnd,fixture-sensor";
+						reg = <0x50>;
+					};
+				};
+
+				/* CS-position device: chip-select is fixed by copper, not
+				 * drawn from the socket's CS pool, so shield,cs-position
+				 * names the exact connector position directly. */
+				spi {
+					fl_flash: flash {
+						compatible = "vnd,fixture-flash";
+						shield,cs-position = <FIXTURE_CS>;
+						spi-max-frequency = <8000000>;
+					};
+				};
+			};
+		};
+	};
+};

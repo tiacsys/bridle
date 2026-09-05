@@ -1,0 +1,5 @@
+rig:
+  name: remove-wire-missing
+  variants:
+    default: a
+    list: [a, b]

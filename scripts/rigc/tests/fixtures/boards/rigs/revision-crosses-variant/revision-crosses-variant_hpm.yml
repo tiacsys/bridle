@@ -1,0 +1,7 @@
+# variant hpm substitutes sensor_1's shield entirely.
+instances:
+  - name: sensor_1
+    shield: pilot_alt_button
+    params:
+      pab_key:
+        zephyr,code: 9

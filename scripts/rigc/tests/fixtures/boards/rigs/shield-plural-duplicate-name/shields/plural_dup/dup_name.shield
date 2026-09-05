@@ -1,0 +1,5 @@
+/* Fixture-only placeholder: never referenced by any instance and never
+ * parsed -- the defect under test (a repeated name in one shields: list)
+ * is reported at scan time, before any reference exists. Never a real
+ * corpus shield.
+ */

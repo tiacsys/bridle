@@ -1,0 +1,3 @@
+error[lang-param]: instance 'btn': device 'gb_key' of shield 'grove_btn' declares no parameter 'gpios' (shield,params)
+    declared parameters of 'gb_key': zephyr,code
+    at tests/fixtures/boards/rigs/param-undeclared/param-undeclared.yml:14 (instances[0].params.gb_key.gpios)

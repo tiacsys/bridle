@@ -1,0 +1,2 @@
+error[lang-variant]: variant 'b': instances: names 'nonexistent', which the effective topology does not have
+    at tests/fixtures/boards/rigs/instances-delta-unknown-instance/instances-delta-unknown-instance_b.yml:4 (instances[0])

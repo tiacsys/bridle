@@ -1,0 +1,14 @@
+# Multi-plug-carrier fixture rig (ACCEPT case, multi-plug-carrier-brief.md
+# Sec 7): a PLURAL carrier (fixture_span_bridge) plugs two independent
+# fixture-mp-spi sockets and re-exports ONE socket,fixture-multibus
+# combining them -- spi-sensors from the left plug, spi-motors from the
+# right. Two EXISTING multibus fixture shields (fixture_spi_sensor /
+# fixture_spi_motor) mate the composed socket exactly as they mate a real
+# board's own multibus_socket in test_multibus_socket.py -- the negative
+# control (both legally at CS index 0, on two independent physical
+# buses) now proves the CARRIER's own pass-through composition keeps the
+# two buses' CS namespaces independent, not just a board socket's.
+# board is INJECTED by the test (multiplug_carrier_fixture_board), not
+# declared here (board-coordinate-s6-brief.md Sec 11).
+rig:
+  name: multiplug_carrier_sockets

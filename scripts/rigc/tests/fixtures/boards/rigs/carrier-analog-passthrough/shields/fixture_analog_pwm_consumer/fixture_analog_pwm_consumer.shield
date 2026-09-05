@@ -1,0 +1,24 @@
+/* Fixture consumer, PWM half (carrier-analog-passthrough-brief.md
+ * Sec 6): mirrors grove_pwm_led's own shape -- #pwm-cells = <3> on the
+ * plug is the generic Zephyr shield-side claim (position, period,
+ * flags), independent of whatever cell count the socket it eventually
+ * mates actually declares (rigc's own translation job, Sec 3).
+ */
+
+/ {
+	shield-templates {
+		fixture_analog_pwm_consumer: fixture_analog_pwm_consumer {
+			plug: plug {
+				compatible = "shield,plug";
+				shield,plugs = "fixture-analog-nexus";
+			};
+
+			pwm {
+				fapc_led: led {
+					compatible = "vnd,pwm-servo";
+					pwms = <&plug 0 20000000 0>;
+				};
+			};
+		};
+	};
+};

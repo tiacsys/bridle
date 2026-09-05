@@ -1,0 +1,4 @@
+/* Fixture-only placeholder: present precisely so the folder LOOKS
+ * complete, proving the rejection comes from the malformed shields:
+ * block rather than from a missing template file. Never parsed.
+ */

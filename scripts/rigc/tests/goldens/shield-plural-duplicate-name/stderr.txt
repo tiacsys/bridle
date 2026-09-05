@@ -1,0 +1,2 @@
+error[lang-schema]: shield.yml: 'dup_name' is declared more than once in this shields: list
+    at tests/fixtures/boards/rigs/shield-plural-duplicate-name/shields/plural_dup/shield.yml:4 (shields[1].name)

@@ -1,0 +1,11 @@
+rig:
+  name: remove-instance-drift
+  revision:
+    format: number
+    default: "1"
+    revisions:
+      - name: "1"
+      - name: "2"
+  variants:
+    default: a
+    list: [a, b]

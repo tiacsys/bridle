@@ -1,0 +1,70 @@
+# Copyright (c) 2023 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+config SHIELD_GROVE_LED
+	def_bool $(shields_list_contains,grove_led_d0) || \
+		 $(shields_list_contains,grove_led_d1) || \
+		 $(shields_list_contains,grove_led_d2) || \
+		 $(shields_list_contains,grove_led_d3) || \
+		 $(shields_list_contains,grove_led_d4) || \
+		 $(shields_list_contains,grove_led_d5) || \
+		 $(shields_list_contains,grove_led_d6) || \
+		 $(shields_list_contains,grove_led_d7) || \
+		 $(shields_list_contains,grove_led_d8) || \
+		 $(shields_list_contains,grove_led_d9) || \
+		 $(shields_list_contains,grove_led_d10) || \
+		 $(shields_list_contains,grove_led_d11) || \
+		 $(shields_list_contains,grove_led_d12) || \
+		 $(shields_list_contains,grove_led_d13) || \
+		 $(shields_list_contains,grove_led_d14) || \
+		 $(shields_list_contains,grove_led_d15) || \
+		 $(shields_list_contains,grove_led_d16) || \
+		 $(shields_list_contains,grove_led_d17) || \
+		 $(shields_list_contains,grove_led_d18) || \
+		 $(shields_list_contains,grove_led_d19) || \
+		 $(shields_list_contains,grove_led_d20) || \
+		 $(shields_list_contains,grove_led_d21) || \
+		 $(shields_list_contains,grove_led_d22) || \
+		 $(shields_list_contains,grove_led_d23) || \
+		 $(shields_list_contains,grove_led_d24) || \
+		 $(shields_list_contains,grove_led_d25) || \
+		 $(shields_list_contains,grove_led_d26) || \
+		 $(shields_list_contains,grove_led_d27) || \
+		 $(shields_list_contains,grove_led_d28) || \
+		 $(shields_list_contains,grove_led_d29) || \
+		 $(shields_list_contains,grove_led_d30) || \
+		 $(shields_list_contains,grove_led_d31)
+
+config SHIELD_GROVE_PWM_LED
+	def_bool $(shields_list_contains,grove_pwm_led_d0) || \
+		 $(shields_list_contains,grove_pwm_led_d1) || \
+		 $(shields_list_contains,grove_pwm_led_d2) || \
+		 $(shields_list_contains,grove_pwm_led_d3) || \
+		 $(shields_list_contains,grove_pwm_led_d4) || \
+		 $(shields_list_contains,grove_pwm_led_d5) || \
+		 $(shields_list_contains,grove_pwm_led_d6) || \
+		 $(shields_list_contains,grove_pwm_led_d7) || \
+		 $(shields_list_contains,grove_pwm_led_d8) || \
+		 $(shields_list_contains,grove_pwm_led_d9) || \
+		 $(shields_list_contains,grove_pwm_led_d10) || \
+		 $(shields_list_contains,grove_pwm_led_d11) || \
+		 $(shields_list_contains,grove_pwm_led_d12) || \
+		 $(shields_list_contains,grove_pwm_led_d13) || \
+		 $(shields_list_contains,grove_pwm_led_d14) || \
+		 $(shields_list_contains,grove_pwm_led_d15) || \
+		 $(shields_list_contains,grove_pwm_led_d16) || \
+		 $(shields_list_contains,grove_pwm_led_d17) || \
+		 $(shields_list_contains,grove_pwm_led_d18) || \
+		 $(shields_list_contains,grove_pwm_led_d19) || \
+		 $(shields_list_contains,grove_pwm_led_d20) || \
+		 $(shields_list_contains,grove_pwm_led_d21) || \
+		 $(shields_list_contains,grove_pwm_led_d22) || \
+		 $(shields_list_contains,grove_pwm_led_d23) || \
+		 $(shields_list_contains,grove_pwm_led_d24) || \
+		 $(shields_list_contains,grove_pwm_led_d25) || \
+		 $(shields_list_contains,grove_pwm_led_d26) || \
+		 $(shields_list_contains,grove_pwm_led_d27) || \
+		 $(shields_list_contains,grove_pwm_led_d28) || \
+		 $(shields_list_contains,grove_pwm_led_d29) || \
+		 $(shields_list_contains,grove_pwm_led_d30) || \
+		 $(shields_list_contains,grove_pwm_led_d31)

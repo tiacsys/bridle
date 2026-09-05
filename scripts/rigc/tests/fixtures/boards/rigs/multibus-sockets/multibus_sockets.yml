@@ -1,0 +1,10 @@
+# Content file (metadata/content split): both instances name the SAME
+# socket explicitly -- the connector type's socket,stackable schema fact
+# is what makes mating it twice legal.
+instances:
+  - name: sensor_inst
+    shield: fixture_spi_sensor
+    socket: multibus_socket
+  - name: motor_inst
+    shield: fixture_spi_motor
+    socket: multibus_socket

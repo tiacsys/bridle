@@ -1,0 +1,2 @@
+error[lang-schema]: shield.yml: 'shields' must be a list of shield entries -- use 'shield' for a single shield
+    at tests/fixtures/boards/rigs/shield-plural-not-a-list/shields/plural_scalar/shield.yml:5 (shields)

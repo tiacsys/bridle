@@ -1,0 +1,2 @@
+error[lang-schema]: shield.yml shields entry: required key 'name' is missing
+    at tests/fixtures/boards/rigs/shield-plural-missing-name/shields/plural_noname/shield.yml:2 (shields[0])

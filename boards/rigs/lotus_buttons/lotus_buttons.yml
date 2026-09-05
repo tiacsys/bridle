@@ -1,0 +1,32 @@
+# Seeeduino Lotus with Grove Button + LED modules.
+#
+# bridle needs, per shield, 64 hand-written overlays (grove_btn_d0..d31 x
+# normal/inverted) + a 64-line Kconfig.shield + a 32-entry Kconfig.defconfig,
+# and the module can only ever be one hardcoded pin. Here it is one shield
+# definition each (grove_btn, grove_led) plus one line per actual module: the
+# "which pin" axis is the socket, the "normal/inverted" axis is invert:.
+#
+# 64 overlays  ->  one shield + N one-line placements.
+
+# grove_btn declares zephyr,code required (a keycode is an instance fact,
+# not a type-level one — rig-variants-revisions.md "PER-INSTANCE
+# PARAMETERS"), so each button below assigns its own via params: --
+# distinct keys, not the same one twice -- resolved against grove_btn's
+# own shield,param-includes (param-vocabulary-brief.md).
+instances:
+  - name: btn_start
+    shield: grove_btn
+    socket: grove_d2               # bridle grove_btn_d2  (SIG0 -> porta14)
+    params:
+      gb_key:
+        zephyr,code: INPUT_KEY_0
+  - name: btn_stop
+    shield: grove_btn
+    socket: grove_d6               # bridle grove_btn_d6
+    invert: true                   # bridle grove_btn_d6_inv (active-low)
+    params:
+      gb_key:
+        zephyr,code: INPUT_KEY_1
+  - name: led_status
+    shield: grove_led
+    socket: grove_a0               # bridle grove_led on the A0 Grove socket

@@ -1,0 +1,2 @@
+error[lang-variant]: rig 'no-such-axis' names a variant ('anything'), but this rig declares no variants: at all
+    at tests/fixtures/boards/rigs/no-such-axis/rig.yml:7 (rig)

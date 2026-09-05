@@ -1,0 +1,32 @@
+# Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+description: |
+  The second half of the multi-plug-shield fixture pair -- see
+  fixture-mp-a.yaml's own docstring. A distinct connector type (never
+  mated by a fixture-mp-a plug) so a two-slot shield naming one of each
+  proves per-slot mating against two genuinely different types.
+
+compatible: "socket,fixture-mp-b"
+
+properties:
+  "#gpio-cells":
+    type: int
+    required: true
+    const: 2
+  gpio-map:
+    type: compound
+    required: true
+  gpio-map-mask:
+    type: array
+  gpio-map-pass-thru:
+    type: array
+  socket,i2c:
+    type: phandle
+    description: I2C controller reachable through this socket (absent = not offered)
+
+gpio-cells:
+  - pin
+  - flags
+
+plug,bus-proxies: [i2c]
+plug,positions: {}

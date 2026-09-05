@@ -1,0 +1,2 @@
+error[lang-variant]: rig 'unknown-variant': variant 'nope' is not declared -- known variants: a, b
+    at tests/fixtures/boards/rigs/unknown-variant/rig.yml:4 (rig)

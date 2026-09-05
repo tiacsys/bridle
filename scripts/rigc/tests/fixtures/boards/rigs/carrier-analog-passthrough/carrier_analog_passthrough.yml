@@ -1,0 +1,9 @@
+instances:
+  - name: carrier
+    shield: fixture_analog_carrier
+  - name: pwm_consumer
+    shield: fixture_analog_pwm_consumer
+    socket: carrier.ca_out
+  - name: adc_consumer
+    shield: fixture_analog_adc_consumer
+    socket: carrier.ca_out

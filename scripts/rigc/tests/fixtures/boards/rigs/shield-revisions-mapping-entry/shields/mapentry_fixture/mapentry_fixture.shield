@@ -1,0 +1,24 @@
+/* Fixture-only shield whose shield.yml declares a revisions: list with a
+ * mapping entry ({name:, board:}) -- legal only in a RIG's variants: axis,
+ * never in a shield's revisions: axis (a shield has no board at all). The
+ * template itself is well-formed; only the metadata is wrong. Never a
+ * real corpus shield.
+ */
+
+/ {
+	shield-templates {
+		mapentry_fixture: mapentry_fixture {
+			me_plug: plug {
+				compatible = "shield,plug";
+				shield,plugs = "i2c-port";
+
+				i2c {
+					me_sensor: sensor@60 {
+						compatible = "vnd,temp0x48";
+						reg = <0x60>;
+					};
+				};
+			};
+		};
+	};
+};

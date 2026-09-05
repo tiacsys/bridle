@@ -1,0 +1,24 @@
+/* Fixture-only shield whose .shield node name does NOT match the folder it
+ * lives in (folder misnamed_fixture, node other_name). The folder name is
+ * what shield discovery and an instance's shield: reference both construct,
+ * so the two must agree; this fixture exercises the diagnostic that says so.
+ * Never a real corpus shield.
+ */
+
+/ {
+	shield-templates {
+		other_name: other_name {
+			mn_plug: plug {
+				compatible = "shield,plug";
+				shield,plugs = "i2c-port";
+
+				i2c {
+					mn_sensor: sensor@60 {
+						compatible = "vnd,temp0x48";
+						reg = <0x60>;
+					};
+				};
+			};
+		};
+	};
+};

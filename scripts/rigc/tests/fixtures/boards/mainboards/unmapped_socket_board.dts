@@ -1,0 +1,34 @@
+/* Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+/dts-v1/;
+
+#include <dt-bindings/connector/fixture-nexus.h>
+
+/* Synthetic fixture board for test_unmapped_socket_golden: the real board
+ * is incidental to what this test proves -- an instance socket name
+ * absent from the rig's own sockets: map falls through unresolved and is
+ * rejected against whatever the board's ACTUAL socket set happens to be,
+ * a property independent of which board that is. So this board carries
+ * fixtures/connectors' purpose-built connector type (compatible
+ * "socket,fixture-nexus") instead of a real one, exactly like
+ * fixtures/boards/fixture_board.dts -- never the real "socket,arduino-r3"
+ * this fixture stood in for before, which would drag in Zephyr's
+ * gpio-nexus.yaml/base.yaml through arduino-r3.yaml's own include:.
+ */
+/ {
+	model = "Unmapped-Socket Fixture Board";
+	compatible = "vnd,unmapped-socket-fixture";
+
+	fixture_ctrl: fixture_ctrl {
+		#gpio-cells = <2>;
+	};
+
+	fixture_ard: connector_fixture_ard {
+		compatible = "socket,fixture-nexus";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <FIXTURE_POS0 0 &fixture_ctrl 0 0>;
+	};
+};

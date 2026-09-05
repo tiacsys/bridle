@@ -1,0 +1,6 @@
+# Multi-plug-carrier fixture rig (REJECT case: the right plug's own
+# resolved socket offers no SPI at all -- subset exposure by absence,
+# slot-qualified since the carrier is plural, multi-plug-carrier-brief.md
+# Sec 4/Sec 7).
+rig:
+  name: multiplug_carrier_sockets_reject

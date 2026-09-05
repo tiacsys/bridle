@@ -1,0 +1,2 @@
+error[lang-param]: instance 'dev_0': device 'pr_dev' of shield 'paramrev' declares 'vnd,threshold' as required (shield,params, no default authored) but this instance does not assign it — add params: {pr_dev: {vnd,threshold: <value>}}
+    at tests/fixtures/boards/rigs/shield-revision-param-invariant/shield-revision-param-invariant.yml:10 (instances[0])

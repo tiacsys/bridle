@@ -1,0 +1,74 @@
+/* Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+/dts-v1/;
+
+#include <dt-bindings/connector/fixture-nexus.h>
+
+/* Reference-set fixture board (rigs test suite): three socket,fixture-nexus
+ * sockets, one per authoring pattern the reference shields below exist to
+ * teach. Entirely fixture-local -- no $ZEPHYR_BASE binding, no real board
+ * .dts, no repo-production devicetree content -- proven by
+ * assert_fixture_local in the consuming test, the same criterion T0's
+ * fixtures/controller-label established.
+ *
+ * A synthetic board like this one proves the connector-type SHAPE is
+ * right -- that a shield authored against plug,positions/plug,bus-proxies
+ * mates, and that its devices resolve to the right positions and buses.
+ * It proves nothing about whether any real board's binding agrees: that is
+ * what the corpus rigs under boards/rigs/ are for, and what keeps this
+ * fixture from ever becoming a substitute for building against a real
+ * board extension.
+ */
+/ {
+	model = "Reference Shield Fixture Board";
+	compatible = "vnd,reference-shield-fixture";
+
+	fixture_gpio_ctrl: gpio_ctrl {
+		#gpio-cells = <2>;
+	};
+
+	fixture_i2c: i2c_ctrl {
+	};
+
+	fixture_spi: spi_ctrl {
+	};
+
+	/* Full-featured socket: I2C + SPI + every claimable GPIO position --
+	 * mated by fixture_logger (fixed-address I2C device, CS-position SPI
+	 * device).
+	 */
+	fixture_socket_a: connector_a {
+		compatible = "socket,fixture-nexus";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <FIXTURE_D0 0 &fixture_gpio_ctrl 0 0>,
+			   <FIXTURE_D1 0 &fixture_gpio_ctrl 1 0>,
+			   <FIXTURE_CS 0 &fixture_gpio_ctrl 2 0>;
+		socket,i2c = <&fixture_i2c>;
+		socket,spi = <&fixture_spi>;
+	};
+
+	/* GPIO-only sockets: mated by two fixture_button instances (GPIO
+	 * collection + a required per-instance parameter), one socket each so
+	 * neither needs the connector type's socket,stackable fact -- see
+	 * boards/extend/st/nucleo_f401re/arduino_r3_socket.dtsi for a REAL
+	 * stackable socket, where several shields mate the same connector.
+	 */
+	fixture_socket_b: connector_b {
+		compatible = "socket,fixture-nexus";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <FIXTURE_D0 0 &fixture_gpio_ctrl 3 0>;
+	};
+
+	fixture_socket_c: connector_c {
+		compatible = "socket,fixture-nexus";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <FIXTURE_D0 0 &fixture_gpio_ctrl 4 0>;
+	};
+};

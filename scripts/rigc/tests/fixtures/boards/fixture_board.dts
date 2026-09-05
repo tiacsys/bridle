@@ -1,0 +1,115 @@
+/*
+ * Purpose-built, cpp-free synthetic board devicetree for rigc's own
+ * board/project.py and board/resolve.py unit tests (rigc-r4-brief.md Sec 6: "Board projection
+ * over a SYNTHETIC, cpp-free board DT ... purpose-built fixture data in
+ * rigc's own tree, NEVER read from the frozen suite's fixtures"). No
+ * #include, no macros -- plain DTS syntax parsed directly by dtlib/edtlib,
+ * so loading it needs no cpp preprocessing step at all.
+ *
+ * fixture_socket is a "socket,fixture-nexus" node (this tree's own
+ * synthetic connector type, dts/bindings/socket-fixture-nexus.yaml)
+ * carrying: a gpio-map (two positions), a pwm-map (one position, whose
+ * target controller carries a SECOND, later-attached label --
+ * legacy_alias, targeted by BOTH a pwm-map and a gpio-map entry -- to
+ * pin the controller-label determinism invariant on both paths:
+ * project._controller_label must always report the DEFINING label,
+ * defining_ctrl, never legacy_alias), an io-channel-map, an i2c bus
+ * phandle, an spi bus phandle, and an authored cs-pool -- the cs-pool
+ * value attaches to the spi bus alone (BusRef.cs_pool), leaving the same
+ * socket's i2c bus with none, which pins that per-bus attachment rather
+ * than a socket-wide value every bus would otherwise share.
+ */
+/dts-v1/;
+
+/ {
+	#address-cells = <1>;
+	#size-cells = <1>;
+
+	gpio_ctrl0: gpio_ctrl@0 {
+		compatible = "fixturetest,gpio-ctrl";
+		reg = <0x0 0x4>;
+		gpio-controller;
+		#gpio-cells = <2>;
+	};
+
+	defining_ctrl: pwm_ctrl@10 {
+		compatible = "fixturetest,pwm-ctrl";
+		reg = <0x10 0x4>;
+		#pwm-cells = <2>;
+		/* Also a gpio controller, so a gpio-map entry can target the
+		 * SAME dual-labelled node the pwm-map does. The label rule is
+		 * implemented separately for the two map kinds, so pinning it
+		 * on pwm alone leaves the gpio path unguarded.
+		 */
+		#gpio-cells = <2>;
+	};
+
+	adc_ctrl0: adc_ctrl@20 {
+		compatible = "fixturetest,adc-ctrl";
+		reg = <0x20 0x4>;
+		#io-channel-cells = <1>;
+	};
+
+	i2c0: i2c_ctrl@30 {
+		compatible = "fixturetest,i2c-ctrl";
+		reg = <0x30 0x4>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+	};
+
+	spi_ctrl0: spi_ctrl@40 {
+		compatible = "fixturetest,spi-ctrl";
+		reg = <0x40 0x4>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+	};
+
+	fixture_socket: connector_fixture {
+		compatible = "socket,fixture-nexus";
+		socket,i2c = <&i2c0>;
+		socket,spi = <&spi_ctrl0>;
+		socket,cs-pool = <2 3>;
+
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffff>;
+		gpio-map-pass-thru = <0 0>;
+		gpio-map = <0 0 &gpio_ctrl0 5 0>,
+			   <1 0 &gpio_ctrl0 6 1>,
+			   <2 0 &defining_ctrl 1 0>;
+
+		#pwm-cells = <2>;
+		pwm-map-mask = <0xffffffff 0x00000000>;
+		pwm-map-pass-thru = <0x00000000 0xffffffff>;
+		pwm-map = <0 0 &defining_ctrl 0 0>;
+
+		#io-channel-cells = <1>;
+		io-channel-map-mask = <0xffffffff>;
+		io-channel-map-pass-thru = <0>;
+		io-channel-map = <2 &adc_ctrl0 1>;
+	};
+
+	/* A second, minimal socket authoring no socket,cs-pool at all (and no
+	 * pwm-map/io-channel-map/socket,i2c) -- the negative fixture proving
+	 * project_edt leaves cs_pool None rather than inventing a value, and
+	 * that buses/pwm_map/adc_map are correctly EMPTY rather than
+	 * placeholder-populated for a socket that authors none of them.
+	 *
+	 * fixture_bare_alias is a SECOND label on this same node (defining
+	 * label first, same shape a board rig-extension's conventional-label
+	 * alias uses) -- the alias-index fixture: board.resolve() must find
+	 * this socket through either label, while board.sockets stays keyed
+	 * by fixture_socket_bare alone (one census entry per physical
+	 * socket).
+	 */
+	fixture_socket_bare: fixture_bare_alias: connector_fixture_bare {
+		compatible = "socket,fixture-nexus";
+
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffff>;
+		gpio-map-pass-thru = <0 0>;
+		gpio-map = <0 0 &gpio_ctrl0 7 0>;
+	};
+};
+
+legacy_alias: &defining_ctrl {
+};

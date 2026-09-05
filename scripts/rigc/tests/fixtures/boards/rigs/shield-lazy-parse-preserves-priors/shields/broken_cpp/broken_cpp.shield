@@ -1,0 +1,20 @@
+/* Fixture-only shield whose template fails to PREPROCESS -- a real cpp
+ * subprocess failure (LoadError, lang-cpp), reached lazily from
+ * resolve() now that an axis-less shield's base template defers its
+ * parse to first reference. This rig's second instance names this
+ * shield, so the raise happens mid-loop inside _build_topology's own
+ * phase-3 instance loop, after the first instance's own (non-fatal)
+ * diagnostic already landed.
+ */
+#include "this-header-does-not-exist-anywhere.dtsi"
+
+/ {
+	shield-templates {
+		broken_cpp: broken_cpp {
+			plug: plug {
+				compatible = "shield,plug";
+				shield,plugs = "i2c-port";
+			};
+		};
+	};
+};

@@ -1,0 +1,27 @@
+/* Fixture shield (multi-plug-shield feature): a MIXED-type plural shield
+ * -- plug "a" plugs fixture-mp-a, plug "b" plugs fixture-mp-b (the
+ * design doc's acq_bridge shape, Sec 0.4 shield A). Plug "b" carries an
+ * i2c device, so per-slot subset exposure can be exercised against it
+ * independently of plug "a" (which carries none).
+ */
+/ {
+	shield-templates {
+		fixture_multiplug_bridge: fixture_multiplug_bridge {
+			a: a {
+				compatible = "shield,plug";
+				shield,plugs = "fixture-mp-a";
+			};
+			b: b {
+				compatible = "shield,plug";
+				shield,plugs = "fixture-mp-b";
+
+				i2c {
+					fmb_sensor_b: sensor_b@10 {
+						compatible = "vnd,fixture-multiplug-sensor";
+						reg = <0x10>;
+					};
+				};
+			};
+		};
+	};
+};

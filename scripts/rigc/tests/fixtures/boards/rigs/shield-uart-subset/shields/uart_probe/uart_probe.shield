@@ -1,0 +1,23 @@
+/* Minimal fixture shield: exists only to declare a uart bus-proxy device,
+ * which no corpus shield does -- it exists to prove the subset-exposure
+ * check (a shield needing socket,uart rejected on a socket that offers
+ * none) still runs once socket,* is read from per-variant rig.yml
+ * metadata rather than a single board's own fixed map.
+ */
+
+/ {
+	shield-templates {
+		uart_probe: uart_probe {
+			up_plug: plug {
+				compatible = "shield,plug";
+				shield,plugs = "arduino-r3";
+
+				uart {
+					up_dev: dev {
+						compatible = "vnd,uart-probe";
+					};
+				};
+			};
+		};
+	};
+};

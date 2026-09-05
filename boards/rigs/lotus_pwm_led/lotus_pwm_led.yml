@@ -1,0 +1,19 @@
+# Two Grove PWM LEDs on the real Seeeduino Lotus, aggregated into ONE
+# pwm-leds collection node (Conv. 9) -- the pwm-shaped counterpart of the
+# gpio-leds collection lotus_buttons/grove_led already exercise. Two
+# entries rather than one is the point: a collection with a single member
+# cannot show that each entry keeps its own resolved period and channel.
+#
+# Sockets are chosen so the two do NOT clash: grove_d2 SIG0 reaches tcc0
+# channel 0 and grove_d3 SIG0 reaches tcc0 channel 1 (board fact, see
+# boards/seeed/seeeduino_lotus/grove_sockets.dtsi). grove_d4 would
+# collide with grove_d2 on channel 0 -- a channel-clash rig is not part
+# of this PR.
+
+instances:
+  - name: led_1
+    shield: grove_pwm_led
+    socket: grove_d2               # SIG0 → PWM tcc0 ch0
+  - name: led_2
+    shield: grove_pwm_led
+    socket: grove_d3               # SIG0 → PWM tcc0 ch1

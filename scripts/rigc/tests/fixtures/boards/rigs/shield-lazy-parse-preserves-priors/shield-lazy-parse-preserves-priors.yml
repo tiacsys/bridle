@@ -1,0 +1,11 @@
+# Synthetic fixture content: first instance names a shield whose own
+# lang-shield-name diagnostic is a RETURNED value (no raise); second
+# names one whose template fails to preprocess (a raised LoadError).
+# Both diagnostics must render (see the test module's own docstring).
+instances:
+  - name: sensor_0
+    shield: misnamed_fixture
+    socket: nucleo_ard
+  - name: broken_0
+    shield: broken_cpp
+    socket: nucleo_ard

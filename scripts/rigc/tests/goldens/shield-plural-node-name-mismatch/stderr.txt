@@ -1,0 +1,3 @@
+error[lang-shield-name]: shield template decl_beta.shield defines no shield node named 'decl_beta' -- a .shield node name must match the name declared for the shield, which here is the name shield.yml itself declares: that name is what shield discovery and an instance's shield: reference both resolve against
+    nodes defined here: wrong_node
+    at tests/fixtures/boards/rigs/shield-plural-node-name-mismatch/shields/plural_bad_node/decl_beta.shield:1

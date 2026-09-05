@@ -1,0 +1,47 @@
+/* Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+/dts-v1/;
+
+/* Fixture board for the multi-bus-socket feature: ONE socket offering
+ * TWO independent, named SPI buses (socket,fixture-multibus, this test
+ * suite's own fixture connector type -- no production connector
+ * touched). Neither bus authors its own cs-pool here: both rely on the
+ * connector type's own binding-default backfill (edtlib), the same
+ * mechanism a real arduino-r3/mikrobus socket's bare "spi" bus relies on
+ * when the board doesn't override socket,cs-pool itself.
+ *
+ * multibus_gpio is the one CS-line controller both named buses' pools
+ * draw from -- deliberately: the sensor pool's candidate position (10)
+ * and the motor pool's (11) map to DIFFERENT pins on it, so the two
+ * buses' CS allocations never collide despite sharing a controller.
+ */
+/ {
+	model = "Multi-Bus Socket Fixture Board";
+	compatible = "vnd,multibus-fixture-board";
+
+	multibus_spi_sensors: spi_sensors_ctrl {
+		#address-cells = <1>;
+		#size-cells = <0>;
+	};
+
+	multibus_spi_motors: spi_motors_ctrl {
+		#address-cells = <1>;
+		#size-cells = <0>;
+	};
+
+	multibus_gpio: gpio_ctrl {
+		#gpio-cells = <2>;
+	};
+
+	multibus_socket: connector_multibus {
+		compatible = "socket,fixture-multibus";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <10 0 &multibus_gpio 0 0>,
+			   <11 0 &multibus_gpio 1 0>;
+		socket,spi-sensors = <&multibus_spi_sensors>;
+		socket,spi-motors = <&multibus_spi_motors>;
+	};
+};
