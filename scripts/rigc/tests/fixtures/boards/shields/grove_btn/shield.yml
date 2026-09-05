@@ -1,0 +1,5 @@
+shield:
+  name: grove_btn
+  full_name: Grove Button (bridle grove_btn port)
+  vendor: seeed
+  template: true

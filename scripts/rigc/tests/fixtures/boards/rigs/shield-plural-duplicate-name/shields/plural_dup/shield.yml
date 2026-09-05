@@ -1,0 +1,5 @@
+shields:
+  - name: dup_name
+    template: true
+  - name: dup_name
+    template: true

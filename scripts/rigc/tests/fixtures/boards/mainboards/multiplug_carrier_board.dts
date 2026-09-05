@@ -1,0 +1,69 @@
+/* Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+/dts-v1/;
+
+/* Fixture board for the multi-plug-carrier feature's combined-SPI
+ * negative control (multi-plug-carrier-brief.md Sec 7): TWO independent
+ * sockets of type socket,fixture-mp-spi, each wired to its OWN SPI
+ * controller and its OWN CS-line GPIO pin -- fixture_span_bridge plugs
+ * both at once and re-exports one socket,fixture-multibus combining
+ * them (spi-sensors from the left plug, spi-motors from the right).
+ *
+ * fx_span_gpio is the one CS-line controller both plugs' pools draw
+ * from -- deliberately: the sensor pool's candidate position (10, the
+ * fixture-multibus type's own binding default) and the motor pool's
+ * (11) map to DIFFERENT pins on it, so the two buses' CS allocations
+ * never collide despite sharing a controller (mirrors
+ * multibus_board.dts's own board-side shape, one level up through a
+ * carrier's pass-through composition instead of one socket's own two
+ * named buses).
+ */
+/ {
+	model = "Multiplug Carrier Fixture Board";
+	compatible = "vnd,multiplug-carrier-fixture-board";
+
+	fx_left_spi: left_spi_ctrl {
+		#address-cells = <1>;
+		#size-cells = <0>;
+	};
+
+	fx_right_spi: right_spi_ctrl {
+		#address-cells = <1>;
+		#size-cells = <0>;
+	};
+
+	fx_span_gpio: span_gpio_ctrl {
+		#gpio-cells = <2>;
+	};
+
+	fx_left: connector_fx_left {
+		compatible = "socket,fixture-mp-spi";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <0 0 &fx_span_gpio 0 0>;
+		socket,spi = <&fx_left_spi>;
+	};
+
+	fx_right: connector_fx_right {
+		compatible = "socket,fixture-mp-spi";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <0 0 &fx_span_gpio 1 0>;
+		socket,spi = <&fx_right_spi>;
+	};
+
+	/* Negative variant for the "parent lacks the KIND" reject fixture
+	 * (Sec 7): a THIRD socket of the same type that simply never wires
+	 * socket,spi at all (subset exposure by absence).
+	 */
+	fx_right_no_spi: connector_fx_right_no_spi {
+		compatible = "socket,fixture-mp-spi";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <0 0 &fx_span_gpio 2 0>;
+	};
+};

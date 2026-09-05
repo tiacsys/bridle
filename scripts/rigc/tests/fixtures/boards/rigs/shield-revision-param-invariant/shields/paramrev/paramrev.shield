@@ -1,0 +1,25 @@
+/* Fixture-only shield: revision 2 (paramrev_2.shield) adds a NEW required
+ * parameter to this device via DT's own overlay-by-label semantics --
+ * proves the per-stage parameter invariant (_check_param_invariant)
+ * re-fires for a shield-REVISION-introduced requirement with no special
+ * case (rig-variants-revisions.md V1c Sec. 4). Never a real corpus
+ * shield.
+ */
+
+/ {
+	shield-templates {
+		paramrev: paramrev {
+			pr_plug: plug {
+				compatible = "shield,plug";
+				shield,plugs = "i2c-port";
+
+				i2c {
+					pr_dev: dev@50 {
+						compatible = "vnd,temp0x48";
+						reg = <0x50>;
+					};
+				};
+			};
+		};
+	};
+};

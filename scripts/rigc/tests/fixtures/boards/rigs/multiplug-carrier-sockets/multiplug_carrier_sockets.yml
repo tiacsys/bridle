@@ -1,0 +1,17 @@
+# Content file (metadata/content split): the carrier plugs both fixture
+# sockets at once; both consumer shields mate its ONE composed exposed
+# socket (fixture-multibus's own socket,stackable schema fact is what
+# makes mating it twice legal, exactly as it does for a real board
+# socket of that type).
+instances:
+  - name: bridge
+    shield: fixture_span_bridge
+    sockets:
+      left: fx_left
+      right: fx_right
+  - name: sensor_inst
+    shield: fixture_spi_sensor
+    socket: bridge.combined
+  - name: motor_inst
+    shield: fixture_spi_motor
+    socket: bridge.combined

@@ -1,0 +1,8 @@
+# 3-cell PWM fixture rig (2-CELL REJECT case, three-cell-pwm-brief.md
+# Sec 5/6, acceptance criterion 3's reject half): the same nonzero PWM
+# flags claim as three-cell-pwm-plain's own shield, mated against the
+# board's 2-cell PWM socket instead -- must still be refused.
+# board is INJECTED by the test (three_cell_pwm_fixture_board), not
+# declared here (board-coordinate-s6-brief.md Sec 11).
+rig:
+  name: three_cell_pwm_2cell_reject

@@ -1,0 +1,67 @@
+# Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+# Dev-tooling configuration for the rig transpiler (mypy / pytest / coverage).
+# rigc is not a python distribution and this declares no [project] table -- it
+# exists only so the three tools have settings.
+#
+# It lives HERE, under scripts/rigc/, rather than at the repository root, for
+# the same reason check.sh sits beside it: the transpiler brings its own dev
+# tooling and should not plant a root pyproject.toml on a repository that has
+# none and expresses its lint settings in .ruff.toml instead. Every tool is
+# pointed at this file explicitly by check.sh (--config-file / -c / --rcfile),
+# so nothing depends on config discovery finding it.
+#
+# Ruff is deliberately absent: the repository's own .ruff.toml governs this
+# tree like any other, which is the point.
+
+[tool.mypy]
+check_untyped_defs = true
+# yaml has no stubs here; the devicetree package (dtlib/edtlib) resolves with
+# real types via MYPYPATH, which check.sh derives from $ZEPHYR_BASE.
+ignore_missing_imports = true
+
+# Zephyr's python-devicetree (via MYPYPATH): consume its type annotations at
+# our call sites, but never report ITS internal errors -- upstream is not ours
+# to gate on.
+[[tool.mypy.overrides]]
+module = ["devicetree.*"]
+ignore_errors = true
+
+# PyYAML ships no inline types; its stubs are a separate types-PyYAML package
+# that this gate does not require anyone to install. mypy >= 1.x reports that
+# as `import-untyped`, which the global ignore_missing_imports above does NOT
+# silence (that one covers imports it cannot resolve at all). Named explicitly
+# so the gate gives the same answer with or without the stub package present.
+[[tool.mypy.overrides]]
+module = ["yaml"]
+ignore_missing_imports = true
+disable_error_code = ["import-untyped"]
+
+# Coverage of rigc's UNIT suite only. check.sh drives `coverage run -m pytest`
+# directly, with no pytest-cov dependency. The unit layer is in-process by
+# construction, so `coverage run` sees every line it exercises; the integration
+# suite drives the CLI as a SUBPROCESS and runs unmeasured, which is why the
+# two are separate pytest invocations and must stay that way. Folding them into
+# one would dilute the figure with subprocess work coverage never measures, not
+# raise it.
+[tool.coverage.run]
+source_pkgs = ["rigc"]
+# junit_html.py sits in this directory because it is check.sh's report
+# renderer, not part of the transpiler; it is never imported by rigc and must
+# not dilute the denominator.
+omit = ["*/rigc/tests/*", "*/rigc/junit_html.py"]
+data_file = ".reports/coverage-rigc"
+
+[tool.coverage.report]
+show_missing = true
+# A floor, not a target. RATCHET it upward -- never down to accommodate new
+# uncovered code.
+fail_under = 88
+
+[tool.pytest.ini_options]
+# Relative to this file's directory, which is the rootdir check.sh gives pytest.
+testpaths = ["tests/integration"]
+markers = [
+    "build: runs west/cmake builds (slow resolved-corpus goldens); deselect with -m 'not build'",
+]

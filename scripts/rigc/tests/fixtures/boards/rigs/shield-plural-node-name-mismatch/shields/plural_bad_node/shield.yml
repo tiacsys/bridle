@@ -1,0 +1,9 @@
+shields:
+  - name: decl_alpha
+    full_name: V1c fixture shield (plural, well-formed sibling)
+    vendor: none
+    template: true
+  - name: decl_beta
+    full_name: "V1c fixture shield (plural, node name disagrees with name:)"
+    vendor: none
+    template: true

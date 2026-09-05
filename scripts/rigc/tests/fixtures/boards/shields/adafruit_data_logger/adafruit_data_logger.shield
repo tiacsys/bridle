@@ -1,0 +1,51 @@
+/* Shield: Adafruit Data Logger (S1).
+ *
+ * RTC: 1-element address domain (PCF8523 hard-wired 0x68) -> authored
+ * reg + unit-address allowed; expander validates the pair.
+ * SD CS fixed by copper -> shield,cs-position pins the pool allocation.
+ */
+
+#include <zephyr/dt-bindings/gpio/arduino-header-r3.h>
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
+/ {
+	shield-templates {
+		data_logger: adafruit_data_logger {
+			dl_plug: plug {
+				compatible = "shield,plug";
+				shield,plugs = "arduino-r3";
+
+				i2c {
+					dl_rtc: rtc@68 {
+						compatible = "nxp,pcf8523";
+						reg = <0x68>;		/* fixed: 1-element domain */
+						alarms-count = <1>;
+						battery-switch-over = "standard";
+						int1-gpios = <&dl_plug ARDUINO_HEADER_R3_D7
+							      (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+					};
+				};
+
+				spi {
+					dl_sd: sdhc {
+						compatible = "zephyr,sdhc-spi-slot";
+						shield,cs-position = <ARDUINO_HEADER_R3_D10>;
+						spi-max-frequency = <24000000>;
+					};
+				};
+			};
+
+			gpio {
+				dl_led1: led-1 { shield,collect = "gpio-leds";
+					gpios = <&dl_plug ARDUINO_HEADER_R3_D3 GPIO_ACTIVE_HIGH>; };
+				dl_led2: led-2 { shield,collect = "gpio-leds";
+					gpios = <&dl_plug ARDUINO_HEADER_R3_D4 GPIO_ACTIVE_HIGH>; };
+			};
+
+			pads {
+				/* RTC square-wave output pad "SQ" — in no connector (S7) */
+				dl_sq: sq { shield,role = "driver"; shield,of = <&dl_rtc>; };
+			};
+		};
+	};
+};

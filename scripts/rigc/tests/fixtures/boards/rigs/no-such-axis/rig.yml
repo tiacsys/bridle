@@ -1,0 +1,7 @@
+# Synthetic fixture: a target naming an axis (--variant) this rig does not
+# declare AT ALL -- distinct wording from rule 2 ("not a declared member"):
+# "this rig declares no variants:" points the author at the right place,
+# given the loader's own permissiveness about unknown rig-level keys
+# (item 1/5 of the V1a dispatch, P's rule-5 precedent).
+rig:
+  name: no-such-axis

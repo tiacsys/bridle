@@ -1,0 +1,11 @@
+# Synthetic fixture: an assigned token that does not resolve against the
+# OWNING SHIELD DEVICE's own declared param-includes (grove_btn's gb_key
+# declares zephyr/dt-bindings/input/input-event-codes.h) — rule 4
+# (lang-dt-include).
+instances:
+  - name: btn
+    shield: grove_btn
+    socket: grove_d2
+    params:
+      gb_key:
+        zephyr,code: NOT_A_REAL_KEYCODE

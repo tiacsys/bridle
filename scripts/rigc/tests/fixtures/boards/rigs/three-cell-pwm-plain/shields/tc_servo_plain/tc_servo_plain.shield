@@ -1,0 +1,30 @@
+/* Fixture consumer, plain direct-mount witness (three-cell-pwm-brief.md
+ * Sec 5/6, acceptance criteria 1+3-accept): mirrors grove_servo's own
+ * shape -- #pwm-cells = <3> on the plug is the generic Zephyr
+ * shield-side claim (position, period, flags), same as every real
+ * corpus PWM consumer (grove_servo, grove_pwm_led). Authors a NONZERO
+ * PWM flags value (1, PWM_POLARITY_INVERTED's own numeric value, as a
+ * literal -- like fixture_analog_pwm_consumer.shield, this fixture tree
+ * claims raw literals rather than including a header) -- criterion 3's
+ * accept half: a 3-cell socket has a real cell for it, so this must
+ * resolve, unlike the identical claim on a 2-cell socket
+ * (three-cell-pwm-2cell-reject).
+ */
+
+/ {
+	shield-templates {
+		tc_servo_plain: tc_servo_plain {
+			tcsp_plug: plug {
+				compatible = "shield,plug";
+				shield,plugs = "three-cell-pwm-nexus";
+			};
+
+			pwm {
+				servo: servo {
+					compatible = "vnd,pwm-servo";
+					pwms = <&tcsp_plug 0 20000000 1>;
+				};
+			};
+		};
+	};
+};

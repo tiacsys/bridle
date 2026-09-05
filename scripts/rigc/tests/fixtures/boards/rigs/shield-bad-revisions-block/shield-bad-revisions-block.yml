@@ -1,0 +1,9 @@
+# Synthetic fixture: a malformed revisions: block in a SHIELD's own
+# shield.yml must be blamed on that shield, by name. The axis-declaration
+# parser is shared with rig.yml (one schema, one parser), so without an
+# owner the message read "rig revisions: ..." for a defect the rig has no
+# part in. Fails inside the loader, so the board string is a placeholder.
+instances:
+  - name: sensor_0
+    shield: badyml_fixture
+    socket: nucleo_ard

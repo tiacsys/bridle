@@ -1,0 +1,9 @@
+# Synthetic fixture: a .shield template whose node name disagrees with its
+# folder name. Shield.name stays the node name, but the RESOLUTION key is
+# the folder basename -- so a mismatch previously resolved to whatever
+# single shield the file defined, leaving folder and node disagreeing about
+# what was built. Fails inside the loader; the board is a placeholder.
+instances:
+  - name: sensor_0
+    shield: misnamed_fixture
+    socket: nucleo_ard

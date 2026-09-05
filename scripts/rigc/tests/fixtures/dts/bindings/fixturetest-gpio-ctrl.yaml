@@ -1,0 +1,21 @@
+# Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+description: Purpose-built fixture GPIO controller binding (rigc's own
+  board/project.py's and board/resolve.py's unit-test data, never a copy of
+  a real controller binding).
+
+compatible: "fixturetest,gpio-ctrl"
+
+properties:
+  reg:
+    type: array
+  gpio-controller:
+    type: boolean
+  "#gpio-cells":
+    type: int
+    required: true
+
+gpio-cells:
+  - pin
+  - flags

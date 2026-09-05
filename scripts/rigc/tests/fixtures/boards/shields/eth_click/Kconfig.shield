@@ -1,0 +1,5 @@
+# Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+config SHIELD_ETH_CLICK
+	def_bool $(shields_list_contains,eth_click)

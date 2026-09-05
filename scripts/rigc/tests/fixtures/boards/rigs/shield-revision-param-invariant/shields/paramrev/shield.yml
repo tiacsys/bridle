@@ -1,0 +1,8 @@
+shield:
+  name: paramrev
+  full_name: V1c fixture shield (revision adds a required parameter)
+  vendor: none
+  template: true
+  revisions:
+    default: "1"
+    list: ["1", "2"]

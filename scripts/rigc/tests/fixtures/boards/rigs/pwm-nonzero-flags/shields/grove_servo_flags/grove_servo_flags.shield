@@ -1,0 +1,29 @@
+/* Synthetic fixture shield: a servo like boards/shields/grove_servo, but
+ * authoring a NONZERO PWM flag (PWM_POLARITY_INVERTED) instead of
+ * PWM_POLARITY_NORMAL. The corpus's real grove_servo always authors
+ * flags=0, so this is the only fixture locking the analyzer's
+ * phys-function rejection of a PWM flags value the expander's flags-less
+ * (position, period) emission has no cell to carry
+ * (analyzer.py:_collect_channel).
+ */
+
+#include <dt-bindings/connector/grove.h>
+#include <zephyr/dt-bindings/pwm/pwm.h>
+
+/ {
+	shield-templates {
+		grove_servo_flags: grove_servo_flags {
+			gsvf_plug: plug {
+				compatible = "shield,plug";
+				shield,plugs = "grove";
+			};
+
+			pwm {
+				servo: servo {
+					compatible = "vnd,pwm-servo";
+					pwms = <&gsvf_plug GROVE_SIG0 20000000 PWM_POLARITY_INVERTED>;
+				};
+			};
+		};
+	};
+};

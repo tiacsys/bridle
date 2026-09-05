@@ -1,0 +1,12 @@
+# Synthetic fixture: proves the per-stage parameter invariant claim
+# (rig-variants-revisions.md V1c step 4) -- a shield REVISION (not a rig
+# delta) introduces a new REQUIRED parameter (paramrev_2.shield adds
+# shield,params with no default to pr_dev), and _check_param_invariant,
+# already re-checked fresh after resolving each instance, must reject an
+# unassigned instance with no special-casing. Fails inside the loader
+# itself, so no board recipe is ever needed -- the board string is a
+# placeholder.
+instances:
+  - name: dev_0
+    shield: paramrev@2
+    socket: nucleo_ard

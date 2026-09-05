@@ -1,0 +1,4 @@
+# revision 2 (family-wide) ALSO tries removing 'logger' -- already gone
+# because variant b removed it first. rule 8: the message must name
+# variant 'b'.
+remove-instances: [logger]

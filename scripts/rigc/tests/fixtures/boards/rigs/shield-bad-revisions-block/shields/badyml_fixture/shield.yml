@@ -1,0 +1,11 @@
+shield:
+  name: badyml_fixture
+  full_name: V1c fixture shield (malformed revisions block)
+  vendor: none
+  template: true
+  # default names a revision that list: does not contain -- a defect of
+  # THIS file, which the diagnostic must therefore blame on this shield
+  # rather than on whichever rig happened to reference it.
+  revisions:
+    default: "3"
+    list: ["1", "2"]

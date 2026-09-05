@@ -1,0 +1,35 @@
+/* Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Reference shield (rigs test suite): a GPIO collection member carrying a
+ * required per-instance parameter. Two instances of this shield in one rig
+ * aggregate into ONE shared collection node while each still needs its OWN
+ * key code -- shield,params declares that requirement with no default
+ * authored, so a rig instantiating this shield MUST assign it (rule 4/5).
+ * See boards/shields/grove_btn for the identical pattern on a real
+ * connector type, where the assigned token is a zephyr,code MACRO resolved
+ * against the shield's own shield,param-includes; this fixture assigns a
+ * plain integer instead, to keep the reference set free of any dependency
+ * outside its own fixture tree.
+ */
+
+#include <dt-bindings/connector/fixture-nexus.h>
+
+/ {
+	shield-templates {
+		fixture_button: fixture_button {
+			fb_plug: plug {
+				compatible = "shield,plug";
+				shield,plugs = "fixture-nexus";
+			};
+
+			gpio {
+				fb_key: button {
+					shield,collect = "vnd,fixture-keys";
+					shield,params = "zephyr,code";
+					gpios = <&fb_plug FIXTURE_D0 0>;
+				};
+			};
+		};
+	};
+};

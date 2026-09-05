@@ -1,0 +1,23 @@
+/* Plurality ACCEPT fixture (shield-plurality-brief.md Sec 4): the second
+ * of two shields declared by the SAME shields: list, in a folder named
+ * neither of them (plural_pair/). Never a real corpus shield.
+ */
+
+#include <dt-bindings/connector/fixture-nexus.h>
+
+/ {
+	shield-templates {
+		fx_beta: fx_beta {
+			fxb_plug: plug {
+				compatible = "shield,plug";
+				shield,plugs = "fixture-nexus";
+			};
+
+			gpio {
+				fxb_led: led {
+					gpios = <&fxb_plug FIXTURE_D0 0>;
+				};
+			};
+		};
+	};
+};

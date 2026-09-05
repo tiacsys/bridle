@@ -1,0 +1,2 @@
+error[lang-rev]: rig 'unknown-revision': revision '99' is not declared -- known revisions: 1, 2
+    at tests/fixtures/boards/rigs/unknown-revision/rig.yml:4 (rig)

@@ -1,0 +1,3 @@
+error[lang-shield-name]: shield template misnamed_fixture.shield defines no shield node named 'misnamed_fixture' -- a .shield node name must match the name declared for the shield, which here is the folder it lives in (it declares no shield.yml): that name is what shield discovery and an instance's shield: reference both resolve against
+    nodes defined here: other_name
+    at tests/fixtures/boards/rigs/shield-node-name-mismatch/shields/misnamed_fixture/misnamed_fixture.shield:1

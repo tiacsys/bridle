@@ -1,0 +1,17 @@
+# Synthetic fixture: a wire whose route: is a mapping that names no via:
+# key — must be rejected by the LOADER with a "lang-schema" diagnostic
+# (loader_yml.py: a route mapping with no via: position is a loader-level
+# authoring error, never a silent None that could leak downstream). No
+# corpus rig uses wires at all, so this fixture is the only thing locking
+# that diagnostic's wording and verdict.
+instances:
+  - name: a
+    shield: adafruit_data_logger
+    socket: nucleo_ard
+  - name: b
+    shield: adafruit_data_logger
+    socket: nucleo_ard
+wires:
+  - from: a.dl_sq
+    to: b.dl_led1
+    route: {}

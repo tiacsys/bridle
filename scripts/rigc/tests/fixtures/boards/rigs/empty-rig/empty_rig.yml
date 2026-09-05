@@ -1,0 +1,4 @@
+# The empty rig: an ACCEPT content document naming zero instances --
+# instances: is required (loader/__init__.py::_build_topology), but a
+# present, empty list is a valid value for it, not a missing key.
+instances: []

@@ -1,0 +1,21 @@
+# Content file (metadata/content split): one of each authoring pattern the
+# reference shields exist to teach. button_a/button_b share ONE shield
+# (fixture_button), each on its own socket, each assigning its own required
+# zephyr,code -- the GPIO collection + per-instance parameter pattern only
+# shows up with two instances in play.
+instances:
+  - name: logger
+    shield: fixture_logger
+    socket: fixture_socket_a
+  - name: button_a
+    shield: fixture_button
+    socket: fixture_socket_b
+    params:
+      fb_key:
+        zephyr,code: 1
+  - name: button_b
+    shield: fixture_button
+    socket: fixture_socket_c
+    params:
+      fb_key:
+        zephyr,code: 2

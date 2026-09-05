@@ -1,0 +1,13 @@
+# Synthetic fixture: a servo shield authoring a nonzero PWM flags value
+# (PWM_POLARITY_INVERTED) on a real PWM-capable Grove socket. Every real
+# corpus shield authors flags=0, so this fixture (+ its own tiny
+# grove_servo_flags shield under fixtures/pwm-nonzero-flags/shields/) is the
+# only thing locking the analyzer's phys-function rejection
+# (analyzer.py:_collect_channel): the expander's PWM emission carries only
+# (position, period), with no cell for flags, so a nonzero flags value must
+# be rejected before emission ever runs, never surfaced as a build-time
+# encoding error.
+instances:
+  - name: servo_1
+    shield: grove_servo_flags
+    socket: grove_d2

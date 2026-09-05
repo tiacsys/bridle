@@ -1,0 +1,26 @@
+/* Fixture shield (multi-bus-socket feature, REJECT case): a device on a
+ * bus name the fixture-multibus connector type's own vocabulary allows
+ * (plug,bus-proxies) but that NO socket of this type actually wires --
+ * exact-string subset exposure (phys-subset), never a fallback to a bus
+ * that merely sounds similar.
+ */
+
+#include <dt-bindings/connector/fixture-multibus.h>
+
+/ {
+	shield-templates {
+		fixture_spi_unknown: fixture_spi_unknown {
+			fsu_plug: plug {
+				compatible = "shield,plug";
+				shield,plugs = "fixture-multibus";
+
+				spi-unknown-name {
+					fsu_dev: dev {
+						compatible = "vnd,fixture-spi-unknown";
+						spi-max-frequency = <1000000>;
+					};
+				};
+			};
+		};
+	};
+};

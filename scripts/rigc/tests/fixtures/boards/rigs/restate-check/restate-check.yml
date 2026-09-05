@@ -1,0 +1,14 @@
+# Synthetic fixture: rule 11 -- the params restate-check. sensor_1 assigns
+# vnd,threshold: 20 (overriding restate_fixture's authored default, 10).
+# variant b does NOT change sensor_1's shield, but DOES supply params: for
+# it, forgetting to restate vnd,threshold -- which would otherwise
+# silently revert to the shield default (10). Uses the fixture-only
+# restate_fixture shield (--shield-dir points at v1b-shields alongside
+# the production library).
+instances:
+  - name: sensor_1
+    shield: restate_fixture
+    socket: nucleo_ard
+    params:
+      rf_sensor:
+        vnd,threshold: 20

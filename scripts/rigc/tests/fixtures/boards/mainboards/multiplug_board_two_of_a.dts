@@ -1,0 +1,63 @@
+/* Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+/dts-v1/;
+
+/* Fixture board for the multi-plug-shield feature: TWO sockets of the
+ * fixture-mp-a type (plus one fixture-mp-b) -- a slot naming fixture-mp-a
+ * with no explicit socket: has two mating candidates, so per-slot
+ * inference refuses rather than tie-breaking (Sec 4's "no bipartite
+ * matching, no tie-break between slots"). Also used to prove one
+ * instance's own two slots resolving to the SAME physical socket is a
+ * loud error when a rig author explicitly names the same label twice.
+ */
+/ {
+	model = "Multi-Plug Fixture Board (two of type A)";
+	compatible = "vnd,multiplug-fixture-board-2a";
+
+	multiplug_i2c_a1: i2c_a1_ctrl {
+		#address-cells = <1>;
+		#size-cells = <0>;
+	};
+
+	multiplug_i2c_a2: i2c_a2_ctrl {
+		#address-cells = <1>;
+		#size-cells = <0>;
+	};
+
+	multiplug_i2c_b: i2c_b_ctrl {
+		#address-cells = <1>;
+		#size-cells = <0>;
+	};
+
+	multiplug_gpio: gpio_ctrl {
+		#gpio-cells = <2>;
+	};
+
+	fx_a1: connector_fx_a1 {
+		compatible = "socket,fixture-mp-a";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <0 0 &multiplug_gpio 0 0>;
+		socket,i2c = <&multiplug_i2c_a1>;
+	};
+
+	fx_a2: connector_fx_a2 {
+		compatible = "socket,fixture-mp-a";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <0 0 &multiplug_gpio 1 0>;
+		socket,i2c = <&multiplug_i2c_a2>;
+	};
+
+	fx_b: connector_fx_b {
+		compatible = "socket,fixture-mp-b";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <0 0 &multiplug_gpio 2 0>;
+		socket,i2c = <&multiplug_i2c_b>;
+	};
+};

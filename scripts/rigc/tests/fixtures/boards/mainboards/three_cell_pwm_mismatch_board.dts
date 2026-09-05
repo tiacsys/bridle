@@ -1,0 +1,34 @@
+/* Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+/dts-v1/;
+
+/*
+ * Fixture board for the 3-cell PWM feature's CHILD/PARENT MISMATCH
+ * witness (three-cell-pwm-brief.md Sec 3a RULED, acceptance criterion
+ * 4): tc_socket_mismatch declares #pwm-cells = <3> (a supported count on
+ * its own) but its pwm-map's target controller declares #pwm-cells =
+ * <2> (also individually supported) -- board/project.py's own checked read
+ * must refuse this disagreement, naming BOTH counts, rather than
+ * silently trusting either side or crashing. Kept on its OWN board,
+ * separate from three_cell_pwm_board.dts's accept sockets: board
+ * projection walks EVERY socket,* node unconditionally
+ * (board/project.py's project_edt), so a bad socket anywhere on a board
+ * fails the WHOLE board's load, even for a rig that never references
+ * it.
+ */
+/ {
+	model = "Three-Cell PWM Mismatch Fixture Board";
+	compatible = "vnd,three-cell-pwm-mismatch-fixture-board";
+
+	tc_pwm2: pwm_ctrl2 {
+		#pwm-cells = <2>;
+	};
+
+	tc_socket_mismatch: connector_tc_socket_mismatch {
+		compatible = "socket,three-cell-pwm-nexus";
+
+		#pwm-cells = <3>;
+		pwm-map = <0 0 0 &tc_pwm2 0 0>;
+	};
+};

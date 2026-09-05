@@ -1,0 +1,8 @@
+# Multi-plug-shield fixture rig (ACCEPT case, per-slot INFERENCE): no
+# sockets: at all -- both of fixture_multiplug_bridge's slots must
+# resolve silently against multiplug_board_one_of_each.dts (exactly one
+# candidate per slot). board is INJECTED by the test (matching this
+# fixture's own board dts, passed via --board-dts), not declared here
+# (board-coordinate-s6-brief.md Sec 11 retired that grammar).
+rig:
+  name: multiplug_sockets

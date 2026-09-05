@@ -1,0 +1,7 @@
+# Synthetic fixture: a bare target (no --variant) against an axis that HAS
+# declared values but no declared default -- rule 3 (lang-variant), naming
+# the axis and listing its values.
+rig:
+  name: no-default-variant
+  variants:
+    list: [a, b]

@@ -1,0 +1,14 @@
+# Synthetic fixture: a shield declaring shield,params with NO
+# shield,param-includes at all -- the direct successor of the retired
+# param-no-vocabulary fixture (param-vocabulary-brief.md Sec 6), now on
+# the shield side: check_param_token's vocabulary is the owning device's
+# own declared_param_includes, so a symbolic (non-literal) token assigned
+# against a device that declares none must still fail loudly, naming the
+# empty vocabulary, rather than silently accepting.
+instances:
+  - name: dev_0
+    shield: novocab_fixture
+    socket: nucleo_ard
+    params:
+      nv_dev:
+        vnd,mode: VND_MODE_FAST

@@ -1,0 +1,17 @@
+# S4 fixture (board-coordinate-s4-brief.md Sec 2.5): the singleton
+# identity law's ONE build-marked cross-check needs a fixture-rig BUILD to
+# compare against a promoted adafruit_data_logger build via dts_equiv.py.
+# No board: declared (matches the promoted side's own shape, Sec 2.1) --
+# -DBOARD injects it, same as the promoted side's own build.
+#
+# Named for what it checks, never for the shield it contains: naming this
+# rig "adafruit_data_logger" would collide with the REAL shield of that
+# name in this module's own default board root (the both-paths namespace
+# rule, S3a/list_rigs.py) once this fixture's board_root is added
+# alongside the module's own via -DBOARD_ROOT. Sec 2.5 rules this
+# unnecessary anyway: "zephyr.dts carries no rig name... so the build
+# side sidesteps Sec 2.1's whole problem and needs no path trick" --
+# unlike test_singleton_identity_law.py's expand-level law, which DOES
+# need same names (RIG_NAME/config-sheet.md's banner are compared there).
+rig:
+  name: singleton_law_check

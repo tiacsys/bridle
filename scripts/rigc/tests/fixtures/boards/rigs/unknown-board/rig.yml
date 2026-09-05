@@ -1,0 +1,10 @@
+# Synthetic fixture: a rig INJECTED (board-coordinate-s6-brief.md Sec 11
+# retired rig.yml's own board: grammar -- the test supplies
+# --board nonexistent_board_xyz) with a board that does not exist, so the
+# expander must reject it with a "phys-board" diagnostic. No corpus rig
+# exercises this path (every corpus rig names a real board). Minimal on
+# purpose: no instances are needed, since the board lookup
+# (load_board) is the very first thing the analyzer needs and fails
+# before anything else is examined.
+rig:
+  name: unknown-board

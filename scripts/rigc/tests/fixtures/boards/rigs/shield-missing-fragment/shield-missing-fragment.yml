@@ -1,0 +1,10 @@
+# Synthetic fixture: the missing non-default shield-revision fragment
+# check (rig-variants-revisions.md V1c step 4, the shield-side analogue of
+# rule 10) -- rev_fixture declares revision "2" but ships neither
+# rev_fixture_2.shield nor rev_fixture_2.conf. Fails inside the loader
+# itself, so no board recipe is ever needed -- the board string is a
+# placeholder.
+instances:
+  - name: sensor_0
+    shield: rev_fixture@2
+    socket: nucleo_ard

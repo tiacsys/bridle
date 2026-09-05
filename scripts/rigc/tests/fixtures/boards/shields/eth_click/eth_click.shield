@@ -1,0 +1,34 @@
+/* Shield: MikroE ETH Click (S6) — ENC28J60, SPI. Plain mikroBUS click; its
+ * CS is pool-allocated from the socket (mikroBUS dedicated CS position). When
+ * it sits on the adapter, the CS resolves through the two-level chain to the
+ * host board's Arduino CS pin (R19/R21).
+ */
+
+#include <dt-bindings/connector/mikrobus.h>
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
+/ {
+	shield-templates {
+		eth_click: eth_click {
+			eth_plug: plug {
+				compatible = "shield,plug";
+				shield,plugs = "mikrobus";
+
+				spi {
+					eth: eth {
+						compatible = "microchip,enc28j60";
+						spi-max-frequency = <20000000>;
+						int-gpios = <&eth_plug MIKROBUS_INT GPIO_ACTIVE_LOW>;
+						/* ENC28J60 has no built-in MAC. The driver reads
+						 * local-mac-address unconditionally (initializer), so a
+						 * placeholder is required; zephyr,random-mac-address then
+						 * makes each instance derive a distinct MAC at runtime, so
+						 * a template stamped N times does not collide on the wire. */
+						local-mac-address = [00 00 00 00 00 00];
+						zephyr,random-mac-address;
+					};
+				};
+			};
+		};
+	};
+};

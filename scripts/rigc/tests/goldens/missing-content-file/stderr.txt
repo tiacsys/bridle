@@ -1,0 +1,2 @@
+error[lang-content]: rig 'missing-content-file': no content file found -- expected tests/fixtures/boards/rigs/missing-content-file/missing-content-file.yml
+    at tests/fixtures/boards/rigs/missing-content-file/rig.yml:7 (rig)

@@ -1,0 +1,55 @@
+/* Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+/dts-v1/;
+
+/*
+ * Fixture board for the carrier-PWM/ADC-passthrough feature's own
+ * end-to-end witness (carrier-analog-passthrough-brief.md Sec 6): ONE
+ * socket,fixture-analog-nexus node carrying a REAL pwm-map (position 0)
+ * and a REAL io-channel-map (position 1) alongside its gpio-map --
+ * exactly the shape arduino-r3's own real board sockets still lack (L4,
+ * explicitly out of scope, brief Sec 7), which is why this witness needs
+ * a fixture board at all rather than nucleo_grove_farm on a real one.
+ *
+ * #pwm-cells = <2> / #io-channel-cells = <1> here are this expander's
+ * ONE supported parent shape (ruling 3) -- position 0 (SIG0) reaches
+ * ca_pwm channel 0, position 1 (SIG1) reaches ca_adc channel 3
+ * (deliberately non-zero, so a test asserting the channel number cannot
+ * pass by coincidence against a stray 0).
+ */
+/ {
+	model = "Carrier Analog Passthrough Fixture Board";
+	compatible = "vnd,carrier-analog-fixture-board";
+
+	ca_gpio: gpio_ctrl {
+		#gpio-cells = <2>;
+	};
+	ca_pwm: pwm_ctrl {
+		#pwm-cells = <2>;
+	};
+	ca_adc: adc_ctrl {
+		#io-channel-cells = <1>;
+	};
+
+	ca_socket: connector_ca_socket {
+		compatible = "socket,fixture-analog-nexus";
+		socket,stackable;
+
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <0 0 &ca_gpio 10 0>,
+			   <1 0 &ca_gpio 11 0>;
+
+		#pwm-cells = <2>;
+		pwm-map-mask = <0xffffffff 0x00000000>;
+		pwm-map-pass-thru = <0x00000000 0xffffffff>;
+		pwm-map = <0 0 &ca_pwm 0 0>;
+
+		#io-channel-cells = <1>;
+		io-channel-map-mask = <0xffffffff>;
+		io-channel-map-pass-thru = <0x00000000>;
+		io-channel-map = <1 &ca_adc 3>;
+	};
+};

@@ -1,0 +1,13 @@
+/* Revision 2 (rig-variants-revisions.md V1c) -- a newer sensor die at the
+ * SAME fixed footprint (0x48): DT's own overlay-by-label semantics merge
+ * this onto the base TU's &sensor node (i2c_sensor.shield cpp-included
+ * first, this file second, into the SAME translation unit), no rig-side
+ * merge vocabulary needed. Revision 1, the declared default, stays the
+ * unmodified base file -- this is the shield-side migration answer to
+ * today's ad-hoc "_v2" folder copying (adafruit_2_8_tft_touch_v2,
+ * x_nucleo_iks01a1/2/3).
+ */
+
+&sensor {
+	compatible = "vnd,temp0x48v2";
+};

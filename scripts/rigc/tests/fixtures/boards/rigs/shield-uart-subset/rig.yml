@@ -1,0 +1,17 @@
+# Synthetic fixture: a shield needing socket,uart, mated through the
+# conventional arduino_r3 alias both real boards' own devicetree already
+# carries (S5's migration) -- nucleo_f401re's Arduino socket deliberately
+# exposes no socket,uart while frdm_k64f's exposes uart3 (both real board
+# sockets), so the SAME content is realizable on frdm and loudly rejected
+# on nucleo. Proves the subset-exposure check runs against the board's
+# own typed socket regardless of which host it is.
+#
+# One variant-less rig, built on two DIFFERENT injected boards
+# (board-coordinate-s6-brief.md Sec 11 collapsed this the same way S6
+# collapsed ard_datalogger): a variants: axis existed here for exactly
+# one reason, carrying a per-variant board + a board-prefixed sockets:
+# map (nucleo_ard/frdm_ard) so content could name the abstract `ard` --
+# with board:/sockets: gone from the grammar and content now naming the
+# conventional label directly, nothing is left for a variant to select.
+rig:
+  name: shield-uart-subset

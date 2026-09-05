@@ -1,0 +1,10 @@
+# Content file: one instance per shield, each on its own socket -- both
+# names resolve out of the SAME folder (plural_pair/), named neither of
+# them, proving discovery is not still keyed by the folder basename.
+instances:
+  - name: alpha
+    shield: fx_alpha
+    socket: fixture_socket_b
+  - name: beta
+    shield: fx_beta
+    socket: fixture_socket_c

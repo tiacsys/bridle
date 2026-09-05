@@ -1,0 +1,10 @@
+# Synthetic fixture: a shields: entry's DECLARED name (decl_beta) does not
+# match its own <name>.shield node name (wrong_node) -- the declared-name
+# half of ruling 2 (shield-plurality-brief.md Sec 2); the folder-name half
+# is shield-node-name-mismatch/, which must keep working unchanged.
+# decl_alpha is the well-formed sibling entry in the SAME shields: list,
+# proving the mismatch is blamed on decl_beta alone.
+instances:
+  - name: sensor_0
+    shield: decl_beta
+    socket: nucleo_ard

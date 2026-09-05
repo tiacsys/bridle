@@ -1,0 +1,2 @@
+# variant b removes 'logger'.
+remove-instances: [logger]

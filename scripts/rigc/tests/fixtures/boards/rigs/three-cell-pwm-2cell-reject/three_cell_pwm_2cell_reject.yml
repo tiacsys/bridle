@@ -1,0 +1,4 @@
+instances:
+  - name: servo_2cell
+    shield: tc_servo_2cell
+    socket: tc_socket2

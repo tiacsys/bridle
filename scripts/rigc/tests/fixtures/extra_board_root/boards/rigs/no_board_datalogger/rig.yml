@@ -1,0 +1,10 @@
+# S1 fixture: no board: declared anywhere -- the real corpus (boards/rigs/)
+# has no such rig (test_corpus_complete enforces one board per registered
+# corpus rig), so this exercises the "never neither unless injected" rule
+# (board-coordinate-s1-brief.md Sec 4) from a SEPARATE board_root instead,
+# passed via -DBOARD_ROOT alongside the module's own default one --
+# test_cmake_alone_entry.py's own new tests are the only consumer.
+# Building this rig REQUIRES -DBOARD; without it there is nothing to fall
+# back to.
+rig:
+  name: no_board_datalogger

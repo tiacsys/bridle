@@ -1,0 +1,42 @@
+# Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+description: |
+  Purpose-built connector type for the multi-plug-carrier feature's own
+  fixture tree -- not a copy of any dts/bindings/connectors/*.yaml
+  binding, and no real board or shield ever references this compatible.
+  A plain socket offering exactly one bare SPI bus, no gpio positions of
+  its own claimable by a device (this fixture's own carrier is pure
+  copper, like arduino_uno_click/can_span_click -- it has no devices of
+  its own, only an exposed socket passing each plug's bus through).
+
+  Both plugs of fixture_span_bridge (the combined-SPI negative-control
+  fixture, multi-plug-carrier-brief.md Sec 7) name this SAME type --
+  mirroring can_span_click's own same-type-both-plugs shape -- so the
+  fixture board wires TWO independent instances of it, each to its OWN
+  spi controller, proving the two exposed buses' CS namespaces stay
+  independent through the pass-through composition.
+
+compatible: "socket,fixture-mp-spi"
+
+properties:
+  "#gpio-cells":
+    type: int
+    required: true
+    const: 2
+  gpio-map:
+    type: compound
+    required: true
+  gpio-map-mask:
+    type: array
+  gpio-map-pass-thru:
+    type: array
+  socket,spi:
+    type: phandle
+    description: SPI controller reachable through this socket (absent = not offered)
+
+gpio-cells:
+  - pin
+  - flags
+
+plug,bus-proxies: [spi]
+plug,positions: {}

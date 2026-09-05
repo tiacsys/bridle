@@ -1,0 +1,75 @@
+# Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+description: |
+  Purpose-built connector type for this test suite's own fixture tree --
+  not a copy of any dts/bindings/connectors/*.yaml binding, and no real
+  board or shield ever references this compatible. Proves the multi-bus-
+  socket mechanism: a socket offering more than one bus of the SAME kind
+  names each with the kind suffixed by a role, still a plain phandle,
+  still optional by absence.
+
+  socket,spi-sensors / socket,spi-motors are two INDEPENDENT SPI buses,
+  each with its own default CS-pool candidate list -- proving CS
+  allocation is scoped per bus (bus.path), never per kind string, so the
+  two buses' pools never collide even when their candidate POSITIONS are
+  identical.
+
+  plug,bus-proxies carries a THIRD name, "spi-unknown-name", that no
+  socket,* property here backs at all -- the connector type's own
+  vocabulary (what a shield template of this type may generically
+  declare) is deliberately wider than what any one socket instance
+  actually wires, exactly as a real type's bus_proxies can list "uart"
+  while a given board's socket never routes it. A shield declaring this
+  third name mates the type fine but fails subset exposure against any
+  socket of this type (phys-subset) -- the reject fixture this proves
+  exact-string matching with, never a name that coincides with something
+  else in the corpus.
+
+compatible: "socket,fixture-multibus"
+
+properties:
+  socket,stackable:
+    type: boolean
+    description: >-
+      present on every fixture-multibus socket (type-level fact) -- both
+      reference shields mate the SAME socket instance
+  "#gpio-cells":
+    type: int
+    required: true
+    const: 2
+  gpio-map:
+    type: compound
+    required: true
+  gpio-map-mask:
+    type: array
+  gpio-map-pass-thru:
+    type: array
+  socket,spi-sensors:
+    type: phandle
+    description: >-
+      SPI controller reachable through this socket, dedicated to sensor
+      peripherals (absent = not offered)
+  socket,spi-motors:
+    type: phandle
+    description: >-
+      SPI controller reachable through this socket, dedicated to motor-control
+      peripherals (absent = not offered)
+  socket,spi-sensors-cs-pool:
+    type: array
+    default: [10]
+    description: >-
+      ordered chip-select candidate positions for the sensor SPI bus's
+      expander CS-pool allocation
+  socket,spi-motors-cs-pool:
+    type: array
+    default: [11]
+    description: >-
+      ordered chip-select candidate positions for the motor SPI bus's
+      expander CS-pool allocation
+
+gpio-cells:
+  - pin
+  - flags
+
+plug,bus-proxies: [spi-sensors, spi-motors, spi-unknown-name]
+plug,positions: {}

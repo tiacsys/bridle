@@ -1,0 +1,9 @@
+# Synthetic fixture: shield.yml declares template: true for a name with no
+# matching <name>.shield beside it -- the discovery rule's own new
+# diagnostic (shield-plurality-brief.md Sec 3): this stops being a silent
+# skip once a folder's authoring intent is known by name, and the message
+# must name the entry and the path it expected.
+instances:
+  - name: sensor_0
+    shield: ghost_template
+    socket: nucleo_ard

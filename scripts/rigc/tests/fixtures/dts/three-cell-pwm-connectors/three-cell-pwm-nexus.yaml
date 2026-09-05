@@ -1,0 +1,42 @@
+# Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+description: |
+  Purpose-built connector type for the 3-cell PWM feature's own fixture
+  tree (three-cell-pwm-brief.md Sec 5/6) -- not a copy of any
+  dts/bindings/connectors/*.yaml binding, and no real board or shield
+  ever references this compatible.
+
+  PWM-only, deliberately: no #gpio-cells/gpio-map at all.
+  carrier-analog-passthrough-brief.md's own _synth_nexus_nodes.visit()
+  already treats an analog-only exposed socket as a first-class case (a
+  socket with pwm/adc rows and no gpio ones must still synthesize a
+  nexus), so this type exercises exactly that shape rather than
+  duplicating gpio machinery this slice doesn't need.
+
+  "#pwm-cells" carries NO const (unlike a real board's own binding, which
+  fixes one shape) -- this ONE type backs every socket in this fixture
+  tree regardless of its own actual declared count (2, 3, a mismatched
+  pair, or an unsupported one), since the count is a per-NODE DT fact,
+  never a per-type one.
+
+compatible: "socket,three-cell-pwm-nexus"
+
+properties:
+  socket,stackable:
+    type: boolean
+    description: present on every stackable socket of this type (type-level fact)
+  "#pwm-cells":
+    type: int
+  pwm-map:
+    type: compound
+  pwm-map-mask:
+    type: array
+  pwm-map-pass-thru:
+    type: array
+
+# plug,* keys (shield side, Conv. 1): opaque to edtlib, read directly by
+# ctypes_registry.py.
+plug,bus-proxies: []
+plug,positions:
+  SIG0: {function: pwm}
+  SIG1: {function: pwm}

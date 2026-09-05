@@ -1,0 +1,7 @@
+# Synthetic fixture: metadata that resolves, with NO content file beside it.
+# The content file is REQUIRED -- a rig with an empty instances: list is a
+# legal (if pointless) rig, while a missing missing-content-file.yml is an
+# authoring mistake, and the two must not be confused. Deliberately has no
+# sibling .yml; the diagnostic names the path that was looked for.
+rig:
+  name: missing-content-file

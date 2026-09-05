@@ -1,0 +1,26 @@
+/* Fixture-only shield whose .shield node name does NOT match the folder
+ * it lives in (folder misnamed_fixture, node other_name). Its own
+ * diagnostic (lang-shield-name) is a RETURNED value from resolve(), never
+ * a raise -- the first instance in this rig's own rig.yml names this
+ * shield so that diagnostic lands in _build_topology's diags list before
+ * the second instance's shield (broken_cpp) raises LoadError, proving the
+ * raise carries this one along rather than dropping it.
+ */
+
+/ {
+	shield-templates {
+		other_name: other_name {
+			mn_plug: plug {
+				compatible = "shield,plug";
+				shield,plugs = "i2c-port";
+
+				i2c {
+					mn_sensor: sensor@60 {
+						compatible = "vnd,temp0x48";
+						reg = <0x60>;
+					};
+				};
+			};
+		};
+	};
+};

@@ -1,0 +1,7 @@
+instances:
+  - name: carrier
+    shield: tc_carrier
+    socket: tc_socket3
+  - name: pwm_consumer
+    shield: tc_pwm_consumer
+    socket: carrier.tc_out

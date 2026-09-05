@@ -1,0 +1,2 @@
+error[lang-variant]: variant 'b': remove-wires: names {from: x.dl_sq, to: y.dl_led2}, which does not exist
+    at tests/fixtures/boards/rigs/remove-wire-missing/remove-wire-missing_b.yml:6 (remove-wires[0])

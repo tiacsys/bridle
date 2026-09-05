@@ -1,0 +1,2 @@
+error[lang-param]: instance 'sensor_1': this delta supplies params for device 'rf_sensor' without restating 'vnd,threshold', which the effective topology already assigns -- wholesale replace means omitting it silently reverts to the shield default; restate it explicitly or remove it deliberately
+    at tests/fixtures/boards/rigs/restate-check/restate-check_b.yml:7 (instances[0].params)

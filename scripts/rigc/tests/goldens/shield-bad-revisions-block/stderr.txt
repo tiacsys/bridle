@@ -1,0 +1,2 @@
+error[lang-schema]: shield 'badyml_fixture' revisions: default '3' is not one of the declared values (1, 2)
+    at tests/fixtures/boards/rigs/shield-bad-revisions-block/shields/badyml_fixture/shield.yml:10 (shield.revisions.default)

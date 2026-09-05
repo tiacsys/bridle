@@ -1,0 +1,198 @@
+/* Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+/dts-v1/;
+
+#include <dt-bindings/connector/arduino-r3.h>
+#include <dt-bindings/connector/mikrobus.h>
+#include <dt-bindings/connector/grove.h>
+
+/*
+ * Singleton-identity-law fixture board (board-coordinate-s4-brief.md, S4):
+ * one socket per REAL connector type an ELIGIBLE (no-required-param)
+ * corpus shield plugs into -- arduino-r3, mikrobus, grove, i2c-port --
+ * so test_singleton_identity_law.py can mate a REAL shield (never a
+ * fixture one) through to full emission without a real Zephyr board
+ * configure. Same idea as test_reference_shields.py's board.dts, applied
+ * to the REAL default connector-type registry (dts/bindings/connectors/)
+ * instead of a purpose-built fixture one -- so a shield's plug: does not
+ * need to change to be exercised here, and the promoted side (which
+ * always resolves against the real registry, never a fixture one) can be
+ * compared against this fixture's own emission on equal footing.
+ *
+ * Every bus/gpio/pwm/adc "controller" below carries no compatible of its
+ * own, mirroring board.dts's own fixture_i2c/fixture_spi/fixture_gpio_ctrl
+ * precedent: a plain phandle target is all a socket,* nexus or
+ * socket,<bus> property needs -- shield DEVICES are parsed via bare
+ * dtlib (loader/library.py's _parse_shield_template), never edtlib, so
+ * nothing here is ever read against a real driver binding. Only the
+ * board's OWN socket nodes need real bindings (edtlib, for Node.maps()
+ * and socket,* schema) -- dts/bindings/connectors/*.yaml, the same
+ * registry ctypes_registry.load_types() defaults to.
+ *
+ * ONE board, reused by every parametrized shield: positions/buses cover
+ * the union of what EVERY eligible shield of a given plug type actually
+ * claims (adafruit_data_logger, adafruit_winc1500, arduino_uno_click,
+ * i2c_mux / eth_click, flash_click, temp_click, temp_hum_click /
+ * grove_led, grove_light, grove_servo / i2c_sensor), not just one. A
+ * SECOND, independent mikroBUS socket (multi-plug-promotion-brief.md
+ * slice 3) exists so can_span_click/mikrobus_span_adapter's two same-
+ * type slots each get a distinct physical socket to resolve to.
+ */
+/ {
+	model = "Singleton Law Fixture Board";
+	compatible = "vnd,singleton-law-fixture";
+
+	nexus_i2c: i2c_ctrl { };
+	nexus_spi: spi_ctrl { };
+	/* A SECOND, independent i2c/spi controller pair -- multi-plug-
+	 * promotion-brief.md Sec 4's own two multi-plug corpus shields
+	 * (can_span_click, mikrobus_span_adapter) each need TWO DISTINCT
+	 * mikroBUS sockets to assign their two same-type slots to (a
+	 * shared defining label is a phys-socket error, slice 1's own
+	 * ruling). A second connector_mikrobus below wires to THESE, not
+	 * to nexus_i2c/nexus_spi, mirroring the real corpus's own
+	 * quail_sock2/quail_sock3 shape (two independent buses) rather
+	 * than the shared-controller variant (quail_sock1/quail_sock2) --
+	 * the more representative case for a fixture that exists to prove
+	 * per-slot CS/bus independence, not re-prove the shared-controller
+	 * contract test_multiplug_shield.py's own build tests already own.
+	 */
+	nexus_i2c2: i2c_ctrl2 { };
+	nexus_spi2: spi_ctrl2 { };
+	nexus_gpio: gpio_ctrl { #gpio-cells = <2>; };
+	nexus_pwm: pwm_ctrl { #pwm-cells = <2>; };
+	nexus_adc: adc_ctrl { #io-channel-cells = <1>; };
+
+	/* Arduino R3: full A0-A5/D0-D15, mirroring boards/extend/st/
+	 * nucleo_f401re/arduino_r3_socket.dtsi's own shape verbatim, just
+	 * pointed at this fixture's own gpio controller instead of real
+	 * SoC pins. socket,cs-pool is left at the type's own schema default
+	 * ([16, 15, 14] = D10, D9, D8), which is what adafruit_winc1500's
+	 * pool-allocated CS and adafruit_data_logger's copper-fixed
+	 * shield,cs-position (D10) both resolve against.
+	 */
+	nexus_arduino_r3: connector_arduino_r3 {
+		compatible = "socket,arduino-r3";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <ARDUINO_HEADER_R3_A0  0 &nexus_gpio 0  0>,
+			   <ARDUINO_HEADER_R3_A1  0 &nexus_gpio 1  0>,
+			   <ARDUINO_HEADER_R3_A2  0 &nexus_gpio 2  0>,
+			   <ARDUINO_HEADER_R3_A3  0 &nexus_gpio 3  0>,
+			   <ARDUINO_HEADER_R3_A4  0 &nexus_gpio 4  0>,
+			   <ARDUINO_HEADER_R3_A5  0 &nexus_gpio 5  0>,
+			   <ARDUINO_HEADER_R3_D0  0 &nexus_gpio 6  0>,
+			   <ARDUINO_HEADER_R3_D1  0 &nexus_gpio 7  0>,
+			   <ARDUINO_HEADER_R3_D2  0 &nexus_gpio 8  0>,
+			   <ARDUINO_HEADER_R3_D3  0 &nexus_gpio 9  0>,
+			   <ARDUINO_HEADER_R3_D4  0 &nexus_gpio 10 0>,
+			   <ARDUINO_HEADER_R3_D5  0 &nexus_gpio 11 0>,
+			   <ARDUINO_HEADER_R3_D6  0 &nexus_gpio 12 0>,
+			   <ARDUINO_HEADER_R3_D7  0 &nexus_gpio 13 0>,
+			   <ARDUINO_HEADER_R3_D8  0 &nexus_gpio 14 0>,
+			   <ARDUINO_HEADER_R3_D9  0 &nexus_gpio 15 0>,
+			   <ARDUINO_HEADER_R3_D10 0 &nexus_gpio 16 0>,
+			   <ARDUINO_HEADER_R3_D11 0 &nexus_gpio 17 0>,
+			   <ARDUINO_HEADER_R3_D12 0 &nexus_gpio 18 0>,
+			   <ARDUINO_HEADER_R3_D13 0 &nexus_gpio 19 0>,
+			   <ARDUINO_HEADER_R3_D14 0 &nexus_gpio 20 0>,
+			   <ARDUINO_HEADER_R3_D15 0 &nexus_gpio 21 0>;
+		socket,i2c = <&nexus_i2c>;
+		socket,spi = <&nexus_spi>;
+		socket,stackable;
+	};
+
+	/* mikroBUS: the 5 positions any eligible mikrobus shield claims
+	 * (AN/RST unused today, included for the same "full socket" reason
+	 * as the arduino-r3 one above). socket,cs-pool stays at the type's
+	 * own default ([2] = MIKROBUS_CS), which eth_click's and
+	 * flash_click's pool-allocated CS (neither authors shield,cs-
+	 * position) resolve against.
+	 */
+	nexus_mikrobus: connector_mikrobus {
+		compatible = "socket,mikrobus";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <MIKROBUS_AN  0 &nexus_gpio 30 0>,
+			   <MIKROBUS_RST 0 &nexus_gpio 31 0>,
+			   <MIKROBUS_CS  0 &nexus_gpio 32 0>,
+			   <MIKROBUS_PWM 0 &nexus_gpio 33 0>,
+			   <MIKROBUS_INT 0 &nexus_gpio 34 0>;
+		socket,i2c = <&nexus_i2c>;
+		socket,spi = <&nexus_spi>;
+	};
+
+	/* A second, physically DISTINCT mikroBUS socket (multi-plug-
+	 * promotion-brief.md Sec 4): same shape as nexus_mikrobus above,
+	 * wired to the second, independent i2c/spi pair declared with it.
+	 * Every existing single-plug mikrobus shield (eth_click,
+	 * flash_click, temp_click, temp_hum_click) keeps resolving to
+	 * nexus_mikrobus alone -- an EXPLICIT socket: assignment now
+	 * (_SOCKET_ASSIGNMENTS, below), not unique-by-type inference,
+	 * since a second mikroBUS candidate would otherwise make that
+	 * inference ambiguous for all four. The resolved physical socket
+	 * is unchanged, so their emitted artifacts do not move.
+	 */
+	nexus_mikrobus2: connector_mikrobus2 {
+		compatible = "socket,mikrobus";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <MIKROBUS_AN  0 &nexus_gpio 50 0>,
+			   <MIKROBUS_RST 0 &nexus_gpio 51 0>,
+			   <MIKROBUS_CS  0 &nexus_gpio 52 0>,
+			   <MIKROBUS_PWM 0 &nexus_gpio 53 0>,
+			   <MIKROBUS_INT 0 &nexus_gpio 54 0>;
+		socket,i2c = <&nexus_i2c2>;
+		socket,spi = <&nexus_spi2>;
+	};
+
+	/* Grove: both signal positions, plus pwm-map/io-channel-map for
+	 * grove_servo/grove_light -- same shape as boards/extend/seeed/
+	 * seeeduino_lotus/grove_sockets.dtsi's dual-function sockets,
+	 * pointed at this fixture's own pwm/adc controllers. socket,i2c is
+	 * added for grove_sens (the first eligible grove shield needing a
+	 * bus, not just gpio positions) -- shared nexus_i2c, same as
+	 * arduino-r3/mikrobus above; a real board's Grove socket carries
+	 * its own dedicated I2C controller (m5stack_nanoc6's i2c0), but
+	 * sharing here is harmless: no eligible mikrobus/arduino shield and
+	 * grove_sens ever mate the SAME socket, so there is no cross-type
+	 * address-scope collision to hide.
+	 */
+	nexus_grove: connector_grove {
+		compatible = "socket,grove";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <GROVE_SIG0 0 &nexus_gpio 40 0>,
+			   <GROVE_SIG1 0 &nexus_gpio 41 0>;
+		socket,i2c = <&nexus_i2c>;
+
+		#pwm-cells = <2>;
+		pwm-map-mask = <0xffffffff 0x00000000>;
+		pwm-map-pass-thru = <0x00000000 0xffffffff>;
+		pwm-map = <GROVE_SIG0 0 &nexus_pwm 0 0>,
+			  <GROVE_SIG1 0 &nexus_pwm 1 0>;
+
+		#io-channel-cells = <1>;
+		io-channel-map-mask = <0xffffffff>;
+		io-channel-map-pass-thru = <0x00000000>;
+		io-channel-map = <GROVE_SIG0 &nexus_adc 0>,
+				 <GROVE_SIG1 &nexus_adc 1>;
+	};
+
+	/* i2c-port: a bare I2C consumer, no gpio positions at all (the
+	 * type's own binding docstring: "no real board socket node is ever
+	 * compiled with this compatible" in PRODUCTION -- a fixture is
+	 * exactly where a hypothetical direct one is legitimate, since
+	 * i2c_sensor is a real corpus shield that must still be exercisable
+	 * standalone, not only behind i2c_mux's synthesized channels).
+	 */
+	nexus_i2c_port: connector_i2c_port {
+		compatible = "socket,i2c-port";
+		socket,i2c = <&nexus_i2c>;
+	};
+};

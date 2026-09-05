@@ -1,0 +1,9 @@
+# 3-cell PWM fixture rig (PLAIN direct-mount ACCEPT case,
+# three-cell-pwm-brief.md Sec 5/6): a single shield mates the board's own
+# 3-cell PWM socket directly (no carrier), authoring a nonzero PWM flags
+# value -- acceptance criteria 1 (a four-word pwms property) and 3's
+# accept half (nonzero flags carried on a 3-cell socket) together.
+# board is INJECTED by the test (three_cell_pwm_fixture_board), not
+# declared here (board-coordinate-s6-brief.md Sec 11).
+rig:
+  name: three_cell_pwm_plain

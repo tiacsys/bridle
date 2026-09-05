@@ -1,0 +1,5 @@
+error[lang-shield-template]: shield.yml declares 'ghost_template' with template: true, but <REPO_ROOT>/scripts/rigc/tests/fixtures/boards/rigs/shield-template-missing-file/shields/no_such_file/ghost_template.shield does not exist -- a rig template needs its own <name>.shield beside shield.yml
+    at tests/fixtures/boards/rigs/shield-template-missing-file/shields/no_such_file/shield.yml:2 (shield)
+error[lang-instance-shield]: instance 'sensor_0': unknown shield 'ghost_template'
+    no shields were found at all -- check the shield library roots (--shield-dir)
+    at tests/fixtures/boards/rigs/shield-template-missing-file/shield-template-missing-file.yml:8 (instances[0].shield)

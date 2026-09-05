@@ -1,0 +1,118 @@
+# Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+  Arduino Uno (R3) connector, unified socket + plug contract (a typed
+  board socket). Board side: a GPIO nexus, same shape as the upstream
+  "arduino-header-r3" binding (dts/bindings/gpio/arduino-header-r3.yaml)
+  it sits alongside on a converted board: gpio-map child pins use the
+  same ARDUINO_HEADER_R3_* indices from
+  <zephyr/dt-bindings/gpio/arduino-header-r3.h> — the position-index
+  single source of truth shared by legacy connector, socket node, and
+  shield references alike.
+
+  Every bus endpoint (socket,i2c / socket,spi / socket,uart) is optional: a
+  board exposes only the subset it actually wires, declared by absence — no
+  socket,uart here, since neither Nucleo USART is routed to the Arduino
+  header on this board. socket,stackable marks the arduino-r3 socket as
+  mating more than one shield (stacking headers); socket,cs-pool gives
+  rigc's chip-select pool its ordered candidate positions (D10, D9, D8).
+
+  io-channel-map / io-channel-map-mask / io-channel-map-pass-thru /
+  #io-channel-cells: the ADC nexus, shaped and declared IDENTICALLY to
+  dts/bindings/connectors/grove.yaml's own copy of these same four
+  properties (that binding's own description explains the OPTIONAL-
+  not-`include:`-required shape and why: not every arduino-r3 socket wires
+  every analog position to a real ADC channel, subset exposure declared by
+  absence exactly like socket,uart above).
+
+  pwm-map / pwm-map-mask / pwm-map-pass-thru / #pwm-cells: the PWM
+  nexus, same shape and same OPTIONAL reasoning as the ADC quartet above
+  and as grove.yaml's own copy of this same trio+cells — not every
+  arduino-r3 digital position reaches a timer channel (several do not, on
+  both real sockets that declare this map today), subset exposure
+  declared by absence.
+
+  Shield side (`plug,*` extension keys — opaque to edtlib's own model,
+  preserved in Binding.raw under the vendor-namespaced top-level key
+  exemption): plug,bus-proxies names the proxy
+  nodes (i2c/spi/uart) a shield may declare; plug,positions lists every
+  claimable position (A0-A5 analog, D0-D15 gpio) per the same
+  ARDUINO_HEADER_R3_* indices above — D11-D13 double as SPI lines
+  electrically, conflicts surface via net identity at the board binding,
+  not here.
+
+compatible: "socket,arduino-r3"
+
+include: [gpio-nexus.yaml, base.yaml]
+
+properties:
+  "#gpio-cells":
+    type: int
+    required: true
+    const: 2
+  socket,i2c:
+    type: phandle
+    description: I2C controller reachable through this socket (absent = not offered)
+  socket,spi:
+    type: phandle
+    description: SPI controller reachable through this socket (absent = not offered)
+  socket,uart:
+    type: phandle
+    description: UART controller reachable through this socket (absent = not offered)
+  socket,stackable:
+    type: boolean
+    description: >-
+      present on every arduino-r3 socket (type-level fact) — stacking headers
+      may mate N shields
+  socket,cs-pool:
+    type: array
+    default: [16, 15, 14]
+    description: >-
+      ordered chip-select candidate positions (D10, D9, D8) for rigc's
+      CS-pool allocation
+
+  io-channel-map:
+    type: compound
+  io-channel-map-mask:
+    type: array
+  io-channel-map-pass-thru:
+    type: array
+  "#io-channel-cells":
+    type: int
+
+  pwm-map:
+    type: compound
+  pwm-map-mask:
+    type: array
+  pwm-map-pass-thru:
+    type: array
+  "#pwm-cells":
+    type: int
+
+gpio-cells:
+  - pin
+  - flags
+
+plug,bus-proxies: [i2c, spi, uart]
+plug,positions:
+  A0: {function: analog}
+  A1: {function: analog}
+  A2: {function: analog}
+  A3: {function: analog}
+  A4: {function: gpio}
+  A5: {function: gpio}
+  D0: {function: gpio}
+  D1: {function: gpio}
+  D2: {function: gpio}
+  D3: {function: gpio}
+  D4: {function: gpio}
+  D5: {function: gpio}
+  D6: {function: gpio}
+  D7: {function: gpio}
+  D8: {function: gpio}
+  D9: {function: gpio}
+  D10: {function: gpio}
+  D11: {function: gpio}
+  D12: {function: gpio}
+  D13: {function: gpio}

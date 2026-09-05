@@ -1,0 +1,23 @@
+/* Fixture-only shield whose shield.yml declares a MALFORMED revisions:
+ * block (default names a value absent from list:). The template itself is
+ * well-formed -- only the metadata is wrong, so the diagnostic under test
+ * is the shape error and nothing else. Never a real corpus shield.
+ */
+
+/ {
+	shield-templates {
+		badyml_fixture: badyml_fixture {
+			by_plug: plug {
+				compatible = "shield,plug";
+				shield,plugs = "i2c-port";
+
+				i2c {
+					by_sensor: sensor@60 {
+						compatible = "vnd,temp0x48";
+						reg = <0x60>;
+					};
+				};
+			};
+		};
+	};
+};

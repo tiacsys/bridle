@@ -1,0 +1,23 @@
+/* Fixture-only shield: shield.yml declares this entry's name as
+ * decl_beta, but the .shield file's own node is named wrong_node --
+ * the declared-name half of ruling 2 (shield-plurality-brief.md Sec 2).
+ * Never a real corpus shield.
+ */
+
+/ {
+	shield-templates {
+		wrong_node: wrong_node {
+			pbb_plug: plug {
+				compatible = "shield,plug";
+				shield,plugs = "i2c-port";
+
+				i2c {
+					pbb_sensor: sensor@61 {
+						compatible = "vnd,temp0x48";
+						reg = <0x61>;
+					};
+				};
+			};
+		};
+	};
+};

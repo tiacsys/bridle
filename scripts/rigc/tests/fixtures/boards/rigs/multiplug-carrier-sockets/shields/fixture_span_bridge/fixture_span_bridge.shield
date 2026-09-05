@@ -1,0 +1,34 @@
+/* Fixture carrier (multi-plug-carrier-brief.md Sec 7): a PLURAL shield,
+ * pure copper (no devices of its own, like arduino_uno_click/
+ * can_span_click), re-exporting ONE combined socket,fixture-multibus --
+ * spi-sensors from the LEFT plug, spi-motors from the RIGHT. Both
+ * exposed CS positions (10/11, fixture-multibus's own binding-default
+ * cs-pool candidates) are pass-through gpio-map rows to each plug's own
+ * position 0 -- fixture-mp-spi declares no claimable plug,positions, so
+ * this is a raw literal exactly like multibus_board.dts's own board-side
+ * gpio-map rows.
+ */
+
+/ {
+	shield-templates {
+		fixture_span_bridge: fixture_span_bridge {
+			left_plug: left {
+				compatible = "shield,plug";
+				shield,plugs = "fixture-mp-spi";
+			};
+			right_plug: right {
+				compatible = "shield,plug";
+				shield,plugs = "fixture-mp-spi";
+			};
+
+			combined: combined {
+				compatible = "socket,fixture-multibus";
+				#gpio-cells = <2>;
+				gpio-map = <10 0 &left_plug  0 0>,
+					   <11 0 &right_plug 0 0>;
+				socket,spi-sensors = <&left_plug>;
+				socket,spi-motors  = <&right_plug>;
+			};
+		};
+	};
+};

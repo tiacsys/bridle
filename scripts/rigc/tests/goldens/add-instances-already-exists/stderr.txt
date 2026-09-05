@@ -1,0 +1,2 @@
+error[lang-variant]: variant 'b': add-instances: names 'logger', which already exists
+    at tests/fixtures/boards/rigs/add-instances-already-exists/add-instances-already-exists_b.yml:3 (add-instances[0])

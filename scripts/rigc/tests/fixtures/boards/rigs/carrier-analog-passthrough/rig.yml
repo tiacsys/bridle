@@ -1,0 +1,10 @@
+# Carrier PWM/ADC pass-through fixture rig (ACCEPT case,
+# carrier-analog-passthrough-brief.md Sec 6): a single-plug fixture
+# carrier re-exports one socket (ca_out) carrying gpio+pwm+adc rows;
+# a PWM consumer and an ADC consumer both mate it, proving criterion 1
+# (both functions resolve through a carrier-exposed socket) and
+# criterion 5 (one synthesized node, all three maps) together.
+# board is INJECTED by the test (carrier_analog_board), not declared
+# here (board-coordinate-s6-brief.md Sec 11).
+rig:
+  name: carrier_analog_passthrough

@@ -1,0 +1,5 @@
+shield:
+  name: flash_click
+  full_name: MikroE Flash Click
+  vendor: mikroe
+  template: true

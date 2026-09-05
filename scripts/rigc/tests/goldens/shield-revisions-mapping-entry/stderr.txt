@@ -1,0 +1,2 @@
+error[lang-schema]: shield 'mapentry_fixture' revisions: a mapping entry (name:) is legal only in a rig's variants: list -- this axis takes bare names
+    at tests/fixtures/boards/rigs/shield-revisions-mapping-entry/shields/mapentry_fixture/shield.yml:12 (shield.revisions.list[1])

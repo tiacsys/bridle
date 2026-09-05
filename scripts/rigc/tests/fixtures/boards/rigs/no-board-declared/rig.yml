@@ -1,0 +1,8 @@
+# Synthetic fixture: no board injected at all (run_expand's own board=
+# left unset -- the one call site in this suite that leaves it that way
+# on purpose). board: is not part of rig.yml's grammar any more
+# (board-coordinate-s6-brief.md Sec 11), so there is nothing left to
+# declare here even in principle -- the rig has no board of its own to
+# fall back to.
+rig:
+  name: no-board-declared

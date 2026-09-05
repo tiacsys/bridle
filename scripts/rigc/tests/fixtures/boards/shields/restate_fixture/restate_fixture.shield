@@ -1,0 +1,26 @@
+/* Fixture-only shield: ONE OPTIONAL per-instance parameter (an authored
+ * default), used to exercise the params restate-check (rule 11) --
+ * omitting a previously-assigned optional parameter under a same-shield
+ * delta must be loud, not a silent revert to this default.
+ */
+#include <dt-bindings/connector/arduino-r3.h>
+
+/ {
+	shield-templates {
+		restate_fixture: restate_fixture {
+			rf_plug: plug {
+				compatible = "shield,plug";
+				shield,plugs = "arduino-r3";
+
+				i2c {
+					rf_sensor: sensor@51 {
+						compatible = "vnd,temp0x48";
+						reg = <0x51>;
+						shield,params = "vnd,threshold";
+						vnd,threshold = <10>;	/* authored default: OPTIONAL */
+					};
+				};
+			};
+		};
+	};
+};

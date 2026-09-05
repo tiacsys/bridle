@@ -1,0 +1,9 @@
+instances:
+  - name: bridge
+    shield: fixture_span_bridge
+    sockets:
+      left: fx_left
+      right: fx_right_no_spi
+  - name: motor_inst
+    shield: fixture_spi_motor
+    socket: bridge.combined

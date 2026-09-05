@@ -1,0 +1,2 @@
+error[lang-param]: instance 'btn': device 'gb_key' of shield 'grove_btn' declares 'zephyr,code' as required (shield,params, no default authored) but this instance does not assign it — add params: {gb_key: {zephyr,code: <value>}}
+    at tests/fixtures/boards/rigs/param-required/param-required.yml:5 (instances[0])

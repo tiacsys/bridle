@@ -1,0 +1,3 @@
+error[lang-param]: instance 'grove_btn': device 'gb_key' of shield 'grove_btn' declares no parameter 'bogus_prop' (shield,params)
+    declared parameters of 'gb_key': zephyr,code
+    at <RIGC_WORKDIR>/grove_btn.yml:6 (instances[0].params.gb_key.bogus_prop)

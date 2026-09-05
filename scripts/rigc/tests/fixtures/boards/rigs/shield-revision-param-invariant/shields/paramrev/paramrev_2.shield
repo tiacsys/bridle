@@ -1,0 +1,10 @@
+/* Revision 2: pr_dev gains a NEW required parameter -- shield,params
+ * names vnd,threshold with no value authored, so its ABSENCE among
+ * pr_dev's own properties means REQUIRED (the per-instance-parameters
+ * convention). DT's own overlay-by-label semantics merge this onto the
+ * base TU's &pr_dev node, no rig-side merge vocabulary needed.
+ */
+
+&pr_dev {
+	shield,params = "vnd,threshold";
+};

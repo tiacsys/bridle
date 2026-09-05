@@ -1,0 +1,48 @@
+/* Shield: Adafruit WINC1500 WiFi (S2). SPI device sharing the Arduino SPI bus
+ * with whatever else is stacked. Two configuration elements model the real
+ * shield's solder jumpers:
+ *   - CS: no shield,cs-position -> allocated from the socket's CS pool. Stacked
+ *     with the data logger (CS copper-fixed at D10), the allocator routes this
+ *     one to the next pool position (D9). This is the R4 win — a naive
+ *     cs-gpios wiring would clobber that silently instead.
+ *   - IRQ: a ROUTING JUMPER (R6), position-side twin of an address strap
+ *     (Conv. 2). Domain {D7, D2}; the rig selects. Left at D7 it collides with
+ *     the data logger's RTC INT (-> phys-net); moved to D2 the rig is
+ *     realizable. Selection is REQUIRED (non-CS positions are never
+ *     auto-allocated).
+ * RST/EN are dedicated GPIOs (D5/D6), no choice.
+ */
+
+#include <dt-bindings/connector/arduino-r3.h>
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
+/ {
+	shield-templates {
+		winc1500: adafruit_winc1500 {
+			w_plug: plug {
+				compatible = "shield,plug";
+				shield,plugs = "arduino-r3";
+
+				spi {
+					w_wifi: wifi {
+						compatible = "atmel,winc1500";
+						/* no shield,cs-position -> CS pool-allocated */
+						spi-max-frequency = <24000000>;
+						irq-gpios = <&w_irq_jmp GPIO_ACTIVE_LOW>;	/* position deferred to the jumper */
+						reset-gpios = <&w_plug ARDUINO_HEADER_R3_D5 GPIO_ACTIVE_LOW>;
+						enable-gpios = <&w_plug ARDUINO_HEADER_R3_D6 GPIO_ACTIVE_HIGH>;
+					};
+				};
+			};
+
+			config {
+				w_irq_jmp: irq-jmp {
+					#gpio-cells = <1>;	/* supplies the position; flags stay on the signal */
+					shield,position-domain = <ARDUINO_HEADER_R3_D7 0>,	/* default */
+								 <ARDUINO_HEADER_R3_D2 1>;	/* alt */
+					shield,sheet-label = "IRQ select (SJ2)";
+				};
+			};
+		};
+	};
+};

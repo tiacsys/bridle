@@ -1,0 +1,5 @@
+rig:
+  name: restate-check
+  variants:
+    default: a
+    list: [a, b]

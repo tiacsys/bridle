@@ -1,0 +1,15 @@
+/* Fixture shield (multi-plug-shield feature): the ORDINARY single-plug
+ * form, byte-identical shape to every pre-plurality shield -- used only
+ * to prove `sockets:` is refused on a single-plug instance (socket: is
+ * the single-plug spelling).
+ */
+/ {
+	shield-templates {
+		fixture_singleplug_a: fixture_singleplug_a {
+			plug: plug {
+				compatible = "shield,plug";
+				shield,plugs = "fixture-mp-a";
+			};
+		};
+	};
+};

@@ -1,0 +1,8 @@
+# Synthetic fixture: rule 8 -- remove-instances: naming an absent
+# instance. variant 'b' removes 'logger'; revision '2' (family-wide, so it
+# applies regardless of variant) tries removing it AGAIN -- the message
+# must NAME the variant that already did it, so drift cannot hide.
+instances:
+  - name: logger
+    shield: adafruit_data_logger
+    socket: nucleo_ard

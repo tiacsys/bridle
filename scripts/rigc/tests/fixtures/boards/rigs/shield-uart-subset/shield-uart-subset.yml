@@ -1,0 +1,4 @@
+instances:
+  - name: probe
+    shield: uart_probe
+    socket: arduino_r3

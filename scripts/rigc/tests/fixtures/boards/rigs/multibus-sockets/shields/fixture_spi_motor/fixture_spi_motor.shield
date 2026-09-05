@@ -1,0 +1,26 @@
+/* Fixture shield (multi-bus-socket feature): a device on the "spi-motors"
+ * named bus, on the SAME socket instance fixture_spi_sensor plugs into.
+ * CS is pool-allocated (no shield,cs-position) -- the multi-bus-socket
+ * accept case draws it from socket,spi-motors-cs-pool's binding default,
+ * independent of the sensor bus's own pool.
+ */
+
+#include <dt-bindings/connector/fixture-multibus.h>
+
+/ {
+	shield-templates {
+		fixture_spi_motor: fixture_spi_motor {
+			fsm_plug: plug {
+				compatible = "shield,plug";
+				shield,plugs = "fixture-multibus";
+
+				spi-motors {
+					fsm_driver: driver {
+						compatible = "vnd,fixture-spi-motor-driver";
+						spi-max-frequency = <1000000>;
+					};
+				};
+			};
+		};
+	};
+};

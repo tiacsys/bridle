@@ -1,0 +1,13 @@
+shield:
+  name: i2c_sensor
+  full_name: Generic Fixed-Address I2C Sensor (0x48)
+  vendor: generic
+  template: true
+  # V1c pilot (rig-variants-revisions.md): revision 2 is a newer sensor die
+  # at the SAME fixed address (i2c_sensor_2.shield). Revision 1, the
+  # declared default, stays exactly the pre-existing i2c_sensor.shield --
+  # every rig naming this shield bare (nucleo_mux_farm, nucleo_mux_clash)
+  # is therefore untouched by this declaration.
+  revisions:
+    default: "1"
+    list: ["1", "2"]

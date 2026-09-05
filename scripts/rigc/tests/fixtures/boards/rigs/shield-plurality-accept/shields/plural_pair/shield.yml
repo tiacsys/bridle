@@ -1,0 +1,9 @@
+shields:
+  - name: fx_alpha
+    full_name: Plurality fixture A
+    vendor: none
+    template: true
+  - name: fx_beta
+    full_name: Plurality fixture B
+    vendor: none
+    template: true

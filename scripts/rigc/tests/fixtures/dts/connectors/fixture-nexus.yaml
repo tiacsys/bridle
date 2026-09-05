@@ -1,0 +1,83 @@
+# Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+description: |
+  Purpose-built connector type for this test suite's own fixture tree --
+  not a copy of any dts/bindings/connectors/*.yaml binding. No real board or
+  shield ever references this compatible; two independent fixture consumers
+  read it for two independent reasons:
+
+    - fixtures/controller-label: board/project.py projects the socket,* node's
+      gpio-map/pwm-map nexus directly, never going through
+      ctypes_registry.py's registry at all.
+    - fixtures/reference-shields: this file's own connector_dirs/header_dirs
+      argument makes it a REGISTRY-VISIBLE type (ctypes_registry.load_types
+      passed this file's directory via --connector-dir), so a synthetic
+      shield can MATE against it exactly as a real shield mates
+      dts/bindings/connectors/arduino-r3.yaml -- this is what a fixture
+      connector type could not do before the registry's roots became
+      configurable.
+
+  Every nexus/bus property below is declared INLINE rather than via
+  include: [gpio-nexus.yaml, base.yaml] (Zephyr's own bindings) -- the
+  technique dts/bindings/connectors/grove.yaml already uses for its
+  pwm-map/io-channel-map (dtschema include: cannot downgrade an included
+  property's required: true), applied here to gpio-map/#gpio-cells too, so
+  this file needs no bindings directory outside the fixture tree at all.
+  Zephyr's base.yaml is not needed either: edtlib always allows a node to
+  carry "compatible" with no binding declaration (its own built-in
+  allow-list, devicetree.edtlib.Node._check_undeclared_props), and this
+  fixture's nodes set nothing else base.yaml would otherwise cover (no reg,
+  no status, no label property).
+
+compatible: "socket,fixture-nexus"
+
+properties:
+  "#gpio-cells":
+    type: int
+    required: true
+    const: 2
+  gpio-map:
+    type: compound
+    required: true
+  gpio-map-mask:
+    type: array
+  gpio-map-pass-thru:
+    type: array
+  "#pwm-cells":
+    type: int
+  pwm-map:
+    type: compound
+  pwm-map-mask:
+    type: array
+  pwm-map-pass-thru:
+    type: array
+  socket,i2c:
+    type: phandle
+    description: I2C controller reachable through this socket (absent = not offered)
+  socket,spi:
+    type: phandle
+    description: SPI controller reachable through this socket (absent = not offered)
+  socket,cs-pool:
+    type: array
+    default: [4]
+    description: >
+      ordered chip-select candidate positions (FIXTURE_CS) for expander
+      CS-pool allocation -- declared for registry completeness; the
+      reference shield set's own CS device pins its position directly
+      (shield,cs-position) rather than drawing from this pool, the same
+      relationship boards/shields/adafruit_data_logger's dl_sd has to
+      dts/bindings/connectors/arduino-r3.yaml's own socket,cs-pool.
+
+gpio-cells:
+  - pin
+  - flags
+
+# plug,* keys (shield side, Conv. 1): opaque to edtlib, read directly by
+# ctypes_registry.py. Registry-complete by construction -- every claimable
+# position below round-trips through fixture-nexus.h's own indices, exactly
+# as a real connector type's does.
+plug,bus-proxies: [i2c, spi]
+plug,positions:
+  D0: {function: gpio}
+  D1: {function: gpio}
+  CS: {function: gpio}

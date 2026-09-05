@@ -1,0 +1,4 @@
+instances:
+  - name: servo_plain
+    shield: tc_servo_plain
+    socket: tc_socket3

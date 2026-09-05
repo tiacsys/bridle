@@ -1,0 +1,30 @@
+/* An Arduino R3 button (gpio-keys), the same shape as grove_btn but on the
+ * arduino-r3 connector -- so a variant delta can substitute it for another
+ * arduino-r3 shield through the SAME socket (rig-variants-revisions.md
+ * V1b pilot: proves a shield-substituting variant delta forces wholesale
+ * params replace, since the base's assignments are keyed to the OLD
+ * shield's devices).
+ */
+
+#include <dt-bindings/connector/arduino-r3.h>
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
+/ {
+	shield-templates {
+		pilot_alt_button: pilot_alt_button {
+			pab_plug: plug {
+				compatible = "shield,plug";
+				shield,plugs = "arduino-r3";
+			};
+
+			gpio {
+				pab_key: button {
+					shield,collect = "gpio-keys";
+					shield,params = "zephyr,code";	/* required: no default authored */
+					shield,param-includes = "zephyr/dt-bindings/input/input-event-codes.h";
+					gpios = <&pab_plug ARDUINO_HEADER_R3_D2 (GPIO_PULL_DOWN | GPIO_ACTIVE_HIGH)>;
+				};
+			};
+		};
+	};
+};

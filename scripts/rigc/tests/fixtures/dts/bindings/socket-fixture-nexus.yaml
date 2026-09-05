@@ -1,0 +1,67 @@
+# Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+  Purpose-built fixture connector-type binding for rigc's own board/
+  project.py and board/resolve.py unit tests (tests/unit/
+  test_board_project.py, tests/unit/test_board_resolve.py) -- never a
+  copy of a real dts/bindings/connectors/*.yaml type (rigc-mission-
+  brief.md Sec 7: hermetic means no Zephyr DATA). Declares exactly the
+  nexus shapes board/project.py's projection reads: gpio-map (required,
+  every socket has one), pwm-map/
+  io-channel-map (optional, only PWM/ADC-capable sockets carry them),
+  socket,i2c/socket,spi (bus proxy phandles), socket,cs-pool (the bare
+  SPI bus's own CS pool default).
+
+compatible: "socket,fixture-nexus"
+
+properties:
+  socket,i2c:
+    type: phandle
+    description: the I2C controller this socket exposes, if any
+
+  socket,spi:
+    type: phandle
+    description: the SPI controller this socket exposes, if any
+
+  socket,cs-pool:
+    type: array
+    description: ordered default CS candidate positions
+
+  "#gpio-cells":
+    type: int
+    required: true
+
+  gpio-map:
+    type: compound
+    required: true
+
+  gpio-map-mask:
+    type: array
+
+  gpio-map-pass-thru:
+    type: array
+
+  "#pwm-cells":
+    type: int
+
+  pwm-map:
+    type: compound
+
+  pwm-map-mask:
+    type: array
+
+  pwm-map-pass-thru:
+    type: array
+
+  "#io-channel-cells":
+    type: int
+
+  io-channel-map:
+    type: compound
+
+  io-channel-map-mask:
+    type: array
+
+  io-channel-map-pass-thru:
+    type: array

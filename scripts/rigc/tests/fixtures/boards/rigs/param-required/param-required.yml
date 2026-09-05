@@ -1,0 +1,7 @@
+# Synthetic fixture: grove_btn's gb_key declares zephyr,code REQUIRED (no
+# default authored) — an instance that assigns no params: at all must be
+# rejected (rule 2, lang-param), not silently left with an inert property.
+instances:
+  - name: btn
+    shield: grove_btn
+    socket: grove_d2

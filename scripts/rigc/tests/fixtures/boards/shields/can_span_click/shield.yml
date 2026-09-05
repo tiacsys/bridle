@@ -1,0 +1,5 @@
+shield:
+  name: can_span_click
+  full_name: MikroE CAN SPI Click x2 (multi-plug corpus example)
+  vendor: mikroe
+  template: true

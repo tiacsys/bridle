@@ -1,0 +1,31 @@
+/* Fixture carrier, require-and-check reject witness (carrier-analog-
+ * passthrough-brief.md Sec 5 RULED, criterion 4b): this carrier's OWN
+ * exposed socket declares #pwm-cells = <3>, and its rows resolve through
+ * a plug whose own parent count is the generic 3 (a plug node declares no
+ * cells, plug-unification-brief.md Sec 5) -- self-consistent
+ * (the row parses fine, 3 child + phandle + 3 parent = 7 words), but
+ * DISAGREEING with the resolved parent socket's own #pwm-cells = <2>
+ * (carrier_analog_board.dts's ca_socket). compose_socket must refuse
+ * this at composition, naming BOTH counts and both sides, rather than
+ * silently trusting the carrier's own claim or crashing on the
+ * mismatch.
+ */
+
+/ {
+	shield-templates {
+		fixture_analog_carrier_mismatch: fixture_analog_carrier_mismatch {
+			plug: plug {
+				compatible = "shield,plug";
+				shield,plugs = "fixture-analog-nexus";
+			};
+
+			ca_out3: ca_out3 {
+				compatible = "socket,fixture-analog-nexus";
+				#gpio-cells = <2>;
+				gpio-map = <0 0 &plug 0 0>;
+				#pwm-cells = <3>;
+				pwm-map = <0 0 0 &plug 0 0 0>;
+			};
+		};
+	};
+};

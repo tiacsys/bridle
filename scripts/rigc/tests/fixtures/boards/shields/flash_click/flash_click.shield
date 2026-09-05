@@ -1,0 +1,27 @@
+/* Shield: hypothetical Flash Click (S5) — SPI NOR, one CS from the socket.
+ * Type named by string (like compatibles); the local plug node is the
+ * position reference frame. reg omitted -> CS slot allocated; expander
+ * authors reg AND unit-address together (address authority rule).
+ */
+
+#include <dt-bindings/connector/mikrobus.h>
+
+/ {
+	shield-templates {
+		flash_click: flash_click {
+			fc_plug: plug {
+				compatible = "shield,plug";
+				shield,plugs = "mikrobus";
+
+				spi {
+					fc_nor: nor {
+						compatible = "jedec,spi-nor";
+						spi-max-frequency = <8000000>;
+						jedec-id = [c8 40 15];
+						size = <0x400000>;
+					};
+				};
+			};
+		};
+	};
+};

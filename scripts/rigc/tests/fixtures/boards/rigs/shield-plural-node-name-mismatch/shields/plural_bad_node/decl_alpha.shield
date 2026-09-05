@@ -1,0 +1,21 @@
+/* Fixture-only shield: well-formed sibling in the same shields: list.
+ * Never a real corpus shield.
+ */
+
+/ {
+	shield-templates {
+		decl_alpha: decl_alpha {
+			pba_plug: plug {
+				compatible = "shield,plug";
+				shield,plugs = "i2c-port";
+
+				i2c {
+					pba_sensor: sensor@60 {
+						compatible = "vnd,temp0x48";
+						reg = <0x60>;
+					};
+				};
+			};
+		};
+	};
+};

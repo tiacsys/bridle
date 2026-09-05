@@ -1,0 +1,53 @@
+/* Shield: MikroE CAN SPI Click x2 -- multi-plug corpus example
+ * (multi-plug-shield-brief.md Sec 2/7). Two mikroBUS plugs of the SAME
+ * connector type, plugging two of quail's four mikroBUS sockets at
+ * once -- positional identity cannot tell them apart, only the
+ * shield's own plug names can (design doc Sec 0.2).
+ *
+ * can0 sits on the LEFT plug's SPI bus, but its INT line is copper on
+ * the RIGHT plug -- a cross-plug reference (ruling 2): the phandle
+ * names the OTHER plug, zero new syntax. log_flash sits entirely on
+ * the RIGHT plug. Two independent SPI scopes (one per plug's own bus)
+ * give both devices their own CS-pool namespace for free.
+ */
+
+#include <dt-bindings/connector/mikrobus.h>
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
+/ {
+	shield-templates {
+		can_span_click: can_span_click {
+			left_plug: left {
+				compatible = "shield,plug";
+				shield,plugs = "mikrobus";
+
+				/* Bus groups NEST under their plug (structural, no
+				 * new property) -- this is what dissolves the
+				 * sibling-name collision two same-kind buses would
+				 * otherwise have, and since plug-unification-brief.md
+				 * it is the rule at ANY plug count, one included. */
+				spi {
+					can0: can0 {
+						compatible = "microchip,mcp2515";
+						spi-max-frequency = <10000000>;
+						osc-freq = <8000000>;
+						/* CROSS-PLUG REF: INT is copper on the RIGHT socket */
+						int-gpios = <&right_plug MIKROBUS_INT GPIO_ACTIVE_LOW>;
+					};
+				};
+			};
+			right_plug: right {
+				compatible = "shield,plug";
+				shield,plugs = "mikrobus";
+
+				spi {
+					log_flash: log_flash {
+						compatible = "jedec,spi-nor";
+						spi-max-frequency = <20000000>;
+						size = <0x800000>;
+					};
+				};
+			};
+		};
+	};
+};
