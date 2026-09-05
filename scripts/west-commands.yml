@@ -8,3 +8,8 @@ west-commands:
       - name: bridle-export
         class: BridleExport
         help: export Bridle installation as a CMake config package
+  - file: scripts/west_commands/rigs.py
+    commands:
+      - name: rigs
+        class: Rigs
+        help: display list of available rigs
