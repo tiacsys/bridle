@@ -1,0 +1,25 @@
+/* Shield: LED. ONE shield definition replaces bridle's 64 overlays. MCU
+ * drives the LED on the Grove signal pin; default active-high. Placement =
+ * socket; polarity = per-instance invert:.
+ */
+
+#include <dt-bindings/connector/grove.h>
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
+/ {
+	shield-templates {
+		grove_led: grove_led {
+			gl_plug: plug {
+				compatible = "shield,plug";
+				shield,plugs = "grove";
+			};
+
+			gpio {
+				gl_led: led {
+					shield,collect = "gpio-leds";	/* an entry in the shared gpio-leds collection */
+					gpios = <&gl_plug GROVE_SIG0 GPIO_ACTIVE_HIGH>;
+				};
+			};
+		};
+	};
+};
