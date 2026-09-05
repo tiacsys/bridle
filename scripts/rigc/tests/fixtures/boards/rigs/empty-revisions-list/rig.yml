@@ -1,0 +1,11 @@
+# Synthetic fixture: revision: declared with an explicitly EMPTY
+# revisions: list -- axes.parse_revision_decl's own "'revisions' must be
+# a non-empty list" guard (lang-schema). The code path was already
+# unit-tested; what was missing is a reject-corpus fixture pinning the
+# WORDING it renders. format: is required regardless of list length, so
+# a valid one is given here to isolate this fixture's own point.
+rig:
+  name: empty-revisions-list
+  revision:
+    format: number
+    revisions: []

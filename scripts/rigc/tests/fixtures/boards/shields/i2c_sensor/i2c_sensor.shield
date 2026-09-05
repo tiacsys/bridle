@@ -1,0 +1,22 @@
+/* I2C sensor module (S8) — fixed address 0x48, no address-select (the S3
+ * offender). Plugs a bare i2c-port; four of these are unrealizable on one bus
+ * but fine behind a mux, one per channel scope.
+ */
+
+/ {
+	shield-templates {
+		i2c_sensor: i2c_sensor {
+			is_plug: plug {
+				compatible = "shield,plug";
+				shield,plugs = "i2c-port";
+
+				i2c {
+					sensor: sensor@48 {
+						compatible = "vnd,temp0x48";
+						reg = <0x48>;		/* fixed: 1-element domain */
+					};
+				};
+			};
+		};
+	};
+};

@@ -1,0 +1,58 @@
+/* Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+/dts-v1/;
+
+/*
+ * Fixture board for the 3-cell PWM feature's own accept witness
+ * (three-cell-pwm-brief.md Sec 5/6): TWO real PWM-capable sockets side
+ * by side --
+ *
+ *   tc_socket3 -- a 3-cell parent (position, period, flags), the COMMON
+ *     upstream shape (st,stm32-pwm/nxp,ftm-pwm) that motivates this
+ *     whole slice. Position 0 reaches tc_pwm3 channel 0.
+ *
+ *   tc_socket2 -- a 2-cell parent (position, period), lotus's own
+ *     atmel,sam0-tcc-pwm shape -- kept on the SAME board so acceptance
+ *     criterion 3's pair (nonzero flags carried on the 3-cell socket,
+ *     refused on the 2-cell one) is provable HERMETICALLY, without a
+ *     real Zephyr build (lotus/bridle).
+ *
+ * Both sockets are individually self-consistent (child cell count ==
+ * parent cell count), so board projection succeeds for this whole
+ * board -- the mismatch and unsupported-count witnesses each need their
+ * OWN, separate board (three_cell_pwm_mismatch_board.dts /
+ * three_cell_pwm_unsupported_board.dts), since board/project.py's
+ * project_edt walks every socket,* node unconditionally: a single bad
+ * socket anywhere would fail this board's load for every rig, not just
+ * the one that would exercise it.
+ */
+/ {
+	model = "Three-Cell PWM Fixture Board";
+	compatible = "vnd,three-cell-pwm-fixture-board";
+
+	tc_pwm3: pwm_ctrl3 {
+		#pwm-cells = <3>;
+	};
+	tc_pwm2: pwm_ctrl2 {
+		#pwm-cells = <2>;
+	};
+
+	tc_socket3: connector_tc_socket3 {
+		compatible = "socket,three-cell-pwm-nexus";
+
+		#pwm-cells = <3>;
+		pwm-map-mask = <0xffffffff 0x00000000 0x00000000>;
+		pwm-map-pass-thru = <0x00000000 0xffffffff 0xffffffff>;
+		pwm-map = <0 0 0 &tc_pwm3 0 0 0>;
+	};
+
+	tc_socket2: connector_tc_socket2 {
+		compatible = "socket,three-cell-pwm-nexus";
+
+		#pwm-cells = <2>;
+		pwm-map-mask = <0xffffffff 0x00000000>;
+		pwm-map-pass-thru = <0x00000000 0xffffffff>;
+		pwm-map = <0 0 &tc_pwm2 0 0>;
+	};
+};

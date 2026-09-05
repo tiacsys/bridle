@@ -1,0 +1,4 @@
+shields:
+  - template: true
+  - name: has_name
+    template: true

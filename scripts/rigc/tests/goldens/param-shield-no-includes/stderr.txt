@@ -1,0 +1,2 @@
+error[lang-dt-include]: instance 'dev_0': device 'nv_dev' property 'vnd,mode' assigns 'VND_MODE_FAST', which does not resolve against the param-includes shield 'novocab_fixture' declares for this device (none) — add the header that defines it to shield,param-includes on 'nv_dev'
+    at tests/fixtures/boards/rigs/param-shield-no-includes/param-shield-no-includes.yml:14 (instances[0].params.nv_dev.vnd,mode)

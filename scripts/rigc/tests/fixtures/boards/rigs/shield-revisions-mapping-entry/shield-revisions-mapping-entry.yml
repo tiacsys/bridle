@@ -1,0 +1,10 @@
+# Synthetic fixture: a mapping entry in a SHIELD's own shield.yml
+# revisions: list is blamed on that shield, by name -- the axis parser
+# is shared with rig.yml (one schema, one parser), so without an owner
+# the message would read "rig revisions: ...", blaming the rig for a
+# shield's own malformed declaration. Fails inside the loader (shield
+# library scan), so the instance below never actually needs to resolve.
+instances:
+  - name: sensor_0
+    shield: mapentry_fixture
+    socket: nucleo_ard

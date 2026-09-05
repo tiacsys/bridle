@@ -1,0 +1,8 @@
+# Multi-bus-socket fixture rig (ACCEPT case): two shields, each on a
+# DIFFERENT named SPI bus of the SAME fixture board socket instance --
+# fixture_spi_sensor on "spi-sensors", fixture_spi_motor on "spi-motors".
+# board is INJECTED by the test (multibus_fixture_board, matching this
+# fixture's own multibus_board.dts, passed via --board-dts), not declared
+# here (board-coordinate-s6-brief.md Sec 11 retired that grammar).
+rig:
+  name: multibus_sockets

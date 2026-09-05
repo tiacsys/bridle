@@ -1,0 +1,16 @@
+# Synthetic fixture: a declared variant name equal to a declared revision
+# id -- the constructed fragment filenames (<rigname>_<id>...) would
+# collide between the two axes -- rule 4 (lang-variant, Q6). Checked
+# unconditionally once both axes are declared, independent of what a
+# target actually selects, so a bare invocation already triggers it.
+rig:
+  name: variant-revision-collision
+  revision:
+    format: number
+    default: "1"
+    revisions:
+      - name: "1"
+      - name: "2"
+  variants:
+    default: 2
+    list: [2, 3]

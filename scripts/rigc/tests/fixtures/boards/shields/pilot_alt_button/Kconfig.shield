@@ -1,0 +1,5 @@
+# Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+config SHIELD_PILOT_ALT_BUTTON
+	def_bool $(shields_list_contains,pilot_alt_button)

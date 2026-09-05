@@ -1,0 +1,5 @@
+# add-instances: names 'logger', which already exists -- rule 7.
+add-instances:
+  - name: logger
+    shield: adafruit_data_logger
+    socket: nucleo_ard

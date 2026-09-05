@@ -1,0 +1,2 @@
+error[lang-variant]: rig 'variant-revision-collision': variant '2' and revision '2' all construct the same fragment stem 'variant-revision-collision_2' -- the constructed filenames would be ambiguous about which selection a fragment belongs to
+    at tests/fixtures/boards/rigs/variant-revision-collision/rig.yml:7 (rig)

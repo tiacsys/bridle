@@ -1,0 +1,6 @@
+# One dash short: these keys belong to a LIST entry, so as written the
+# folder declares no shield at all. Dropping that silently is what this
+# fixture exists to forbid.
+shields:
+  name: never_declared
+  template: true

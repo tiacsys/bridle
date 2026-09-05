@@ -1,0 +1,9 @@
+# 3-cell PWM fixture rig (CHILD/PARENT MISMATCH case,
+# three-cell-pwm-brief.md Sec 3a RULED, acceptance criterion 4): the
+# board itself (three_cell_pwm_mismatch_board.dts) carries the bad
+# socket -- board/project.py's project_edt walks every socket,* node
+# unconditionally, so this rig needs no instances at all to exercise the
+# refusal (board-as-coordinate-brief.md Sec 5's empty-rig precedent).
+# board is INJECTED by the test, not declared here.
+rig:
+  name: three_cell_pwm_mismatch

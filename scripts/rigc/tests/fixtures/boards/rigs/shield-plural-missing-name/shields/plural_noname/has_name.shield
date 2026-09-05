@@ -1,0 +1,5 @@
+/* Fixture-only placeholder: never referenced by any instance and never
+ * parsed -- the defect under test (a shields: entry missing name:) is
+ * reported at scan time, before any reference exists. Never a real
+ * corpus shield.
+ */

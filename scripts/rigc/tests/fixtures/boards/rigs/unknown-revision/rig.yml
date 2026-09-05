@@ -1,0 +1,11 @@
+# Synthetic fixture: a --revision naming a value not in the declared
+# revisions: list -- rule 1. exact: true (else hwmv2 nearest-lower wins).
+rig:
+  name: unknown-revision
+  revision:
+    format: number
+    default: "1"
+    exact: true
+    revisions:
+      - name: "1"
+      - name: "2"

@@ -1,0 +1,35 @@
+# Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+description: |
+  Purpose-built connector type for the multi-plug-shield feature's own
+  fixture tree -- not a copy of any dts/bindings/connectors/*.yaml
+  binding, and no real board or shield ever references this compatible.
+  Paired with fixture-mp-b.yaml: two DISTINCT connector types a plural
+  shield's two plugs can each name, so per-slot mating/inference/subset
+  can be proven independently of the real mikroBUS-on-mikroBUS corpus
+  case (can_span_click).
+
+compatible: "socket,fixture-mp-a"
+
+properties:
+  "#gpio-cells":
+    type: int
+    required: true
+    const: 2
+  gpio-map:
+    type: compound
+    required: true
+  gpio-map-mask:
+    type: array
+  gpio-map-pass-thru:
+    type: array
+  socket,i2c:
+    type: phandle
+    description: I2C controller reachable through this socket (absent = not offered)
+
+gpio-cells:
+  - pin
+  - flags
+
+plug,bus-proxies: [i2c]
+plug,positions: {}

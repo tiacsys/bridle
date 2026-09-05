@@ -1,0 +1,2 @@
+error[lang-rev]: rig 'dotted-revision-no-fragment': revision '1.5.0' contributes nothing -- looked for dotted-revision-no-fragment_1_5_0_defconfig and dotted-revision-no-fragment_1_5_0.yml, neither exists
+    at tests/fixtures/boards/rigs/dotted-revision-no-fragment/rig.yml:13 (rig)

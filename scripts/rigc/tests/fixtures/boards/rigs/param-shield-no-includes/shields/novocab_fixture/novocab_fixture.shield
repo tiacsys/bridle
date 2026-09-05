@@ -1,0 +1,28 @@
+/* Fixture-only shield: shield,params with NO shield,param-includes at
+ * all -- the direct successor of the retired param-no-vocabulary
+ * fixture, moved to the shield side (param-vocabulary-brief.md Sec 6).
+ * check_param_token's vocabulary is the owning device's own
+ * declared_param_includes; this device declares none, so a symbolic
+ * token assigned to vnd,mode must fail to resolve against an empty
+ * list rather than silently succeed. Never a real corpus shield.
+ */
+#include <dt-bindings/connector/arduino-r3.h>
+
+/ {
+	shield-templates {
+		novocab_fixture: novocab_fixture {
+			nv_plug: plug {
+				compatible = "shield,plug";
+				shield,plugs = "arduino-r3";
+
+				i2c {
+					nv_dev: dev@52 {
+						compatible = "vnd,temp0x48";
+						reg = <0x52>;
+						shield,params = "vnd,mode";
+					};
+				};
+			};
+		};
+	};
+};

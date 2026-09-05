@@ -1,0 +1,5 @@
+rig:
+  name: add-instances-already-exists
+  variants:
+    default: a
+    list: [a, b]

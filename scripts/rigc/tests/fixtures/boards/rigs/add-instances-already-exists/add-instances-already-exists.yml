@@ -1,0 +1,6 @@
+# Synthetic fixture: rule 7 -- add-instances: naming an instance that
+# already exists.
+instances:
+  - name: logger
+    shield: adafruit_data_logger
+    socket: nucleo_ard

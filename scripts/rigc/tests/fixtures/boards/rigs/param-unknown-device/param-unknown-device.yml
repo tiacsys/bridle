@@ -1,0 +1,15 @@
+# Synthetic fixture: a params: entry naming a device label that does not
+# exist on the shield at all — rule 3 (lang-param). gb_key's own required
+# parameter is correctly assigned so this fixture locks exactly one
+# violation, not two.
+dt-includes:  # retired but KEPT: removing it shifts the golden's yml:15 anchor
+  - zephyr/dt-bindings/input/input-event-codes.h
+instances:
+  - name: btn
+    shield: grove_btn
+    socket: grove_d2
+    params:
+      gb_key:
+        zephyr,code: INPUT_KEY_0
+      nonexistent_device:
+        zephyr,code: INPUT_KEY_1

@@ -1,0 +1,4 @@
+instances:
+  - name: unknown_inst
+    shield: fixture_spi_unknown
+    socket: multibus_socket

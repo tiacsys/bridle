@@ -1,0 +1,2 @@
+error[lang-schema]: rig revision: 'revisions' must be a non-empty list
+    at tests/fixtures/boards/rigs/empty-revisions-list/rig.yml:10 (rig.revision)

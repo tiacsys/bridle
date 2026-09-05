@@ -1,0 +1,2 @@
+error[lang-schema]: wire: route is a mapping but names no 'via' key
+    at tests/fixtures/boards/rigs/route-no-via/route-no-via.yml:17 (wires[0].route)

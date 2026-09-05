@@ -1,0 +1,22 @@
+/* Fixture consumer, ADC half (carrier-analog-passthrough-brief.md
+ * Sec 6): mirrors grove_light's own shape -- io-channels targets the
+ * plug in the adc function (#io-channel-cells = 1: position only).
+ */
+
+/ {
+	shield-templates {
+		fixture_analog_adc_consumer: fixture_analog_adc_consumer {
+			plug: plug {
+				compatible = "shield,plug";
+				shield,plugs = "fixture-analog-nexus";
+			};
+
+			adc {
+				faac_sensor: sensor {
+					compatible = "vnd,light-sensor";
+					io-channels = <&plug 1>;
+				};
+			};
+		};
+	};
+};

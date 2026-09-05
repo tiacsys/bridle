@@ -1,0 +1,32 @@
+/* Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+/dts-v1/;
+
+/*
+ * Fixture board for the 3-cell PWM feature's UNSUPPORTED-COUNT witness
+ * (three-cell-pwm-brief.md Sec 3a, acceptance criterion 5): tc_socket4
+ * and its parent controller BOTH declare #pwm-cells = <4> --
+ * self-consistent with each other, but 4 is outside the supported set
+ * {2, 3} -- board/project.py's own checked read must still refuse this with
+ * the OLD-style "not supported yet" phys-board wording ("An unsupported
+ * count keeps today's LoadError/phys-board shape and wording ... only
+ * the accepted set widens"). Distinct from the mismatch board: here
+ * both sides AGREE with each other, they just agree on a count rigc
+ * does not support.
+ */
+/ {
+	model = "Three-Cell PWM Unsupported-Count Fixture Board";
+	compatible = "vnd,three-cell-pwm-unsupported-fixture-board";
+
+	tc_pwm4: pwm_ctrl4 {
+		#pwm-cells = <4>;
+	};
+
+	tc_socket4: connector_tc_socket4 {
+		compatible = "socket,three-cell-pwm-nexus";
+
+		#pwm-cells = <4>;
+		pwm-map = <0 0 0 0 &tc_pwm4 0 0 0 0>;
+	};
+};

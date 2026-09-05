@@ -1,0 +1,71 @@
+/* Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+/dts-v1/;
+
+/* Synthetic fixture board for test_emitted_rejects.py, typed against the
+ * VENDORED unified connector-type bindings (tests/fixtures/dts/
+ * unified-connectors/, tests/fixtures/include/dt-bindings/connector/) --
+ * real socket,arduino-r3 / socket,grove compatibles, not a synthetic
+ * connector type, since this module's own fixture rig content already
+ * spells its two mated sockets as "nucleo_ard" and "grove_d2" and this
+ * slice's own mandate is to change ONLY the board/shield ROOTS these
+ * rejects resolve against, never the fixture rig.yml content itself.
+ *
+ * Every test in this module rejects at the LOADER stage (a lang-*
+ * diagnostic, or the one phys-board "no board given" check in cli.py) --
+ * none of them ever reaches board/resolve.py's real board-DT read
+ * (board/project.py, pass 1), which only runs once the loader has
+ * already ACCEPTED a rig. So this file's own content is, today, never
+ * actually parsed by any test that uses it; it is built to be genuinely
+ * schema-valid regardless (typed against the real connector bindings, not
+ * a shortcut), so a future test that legitimately needs board reading
+ * against these same two sockets has a real fixture ready rather than an
+ * inert placeholder.
+ *
+ * "nucleo_ard" (arduino-r3) and "grove_d2" (grove) read oddly on a board
+ * that is neither a Nucleo nor a Seeeduino Lotus: they are NOT this
+ * file's own choice. They are the exact socket labels this module's
+ * fixture rigs already declare in their `socket:` references (rig.yml
+ * content this slice does not touch -- see the module's own docstring),
+ * carried over unrenamed so the golden diff this slice produces reads as
+ * only the board-and-shield-root change it actually is, nothing else.
+ * "grove_d2" additionally happens to collide, in spelling only, with the
+ * REAL label boards/extend/seeed/seeeduino_lotus/grove_sockets.dtsi
+ * declares for an entirely unrelated real board -- coincidental, not a
+ * reference to it.
+ *
+ * fixture_gpio is a bare synthetic GPIO controller, present only so each
+ * socket's required gpio-map has somewhere structurally valid to point;
+ * it drives nothing and is never read by anything real.
+ */
+
+#include <dt-bindings/connector/arduino-r3.h>
+#include <dt-bindings/connector/grove.h>
+
+/ {
+	model = "Emitted-Rejects Fixture Board";
+	compatible = "vnd,emitted-rejects-fixture";
+
+	fixture_gpio: fixture_gpio {
+		#gpio-cells = <2>;
+	};
+
+	nucleo_ard: connector_nucleo_ard {
+		compatible = "socket,arduino-r3";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <ARDUINO_HEADER_R3_D0 0 &fixture_gpio 0 0>,
+			   <ARDUINO_HEADER_R3_D1 0 &fixture_gpio 1 0>;
+	};
+
+	grove_d2: connector_grove_d2 {
+		compatible = "socket,grove";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <GROVE_SIG0 0 &fixture_gpio 2 0>,
+			   <GROVE_SIG1 0 &fixture_gpio 3 0>;
+	};
+};
