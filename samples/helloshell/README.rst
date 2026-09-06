@@ -34,8 +34,16 @@ Requirements
   * |bridle:board:seeeduino_cm0|
   * |bridle:board:seeeduino_lotus|
   * |bridle:board:vccgnd_bluepill|
-  * |bridle:board:waveshare_rp2040|
+  * |bridle:board:waveshare_rp2040_eth|
+  * |bridle:board:waveshare_rp2040_geek|
+  * |bridle:board:waveshare_rp2040_lcd_0_96|
+  * |bridle:board:waveshare_rp2040_matrix|
+  * |bridle:board:waveshare_rp2040_one|
+  * |bridle:board:waveshare_rp2040_plus|
+  * |bridle:board:waveshare_rp2040_tiny|
+  * |bridle:board:waveshare_rp2040_zero|
   * |bridle:board:waveshare_rp2350_can|
+  * |bridle:board:waveshare_rp2350_matrix|
   * |bridle:board:weact_bluepillplus|
   * |bridle:board:xiao_samd21|
   * |zephyr:board:arduino_zero| or Bridle's |bridle:board:arduino_zero|

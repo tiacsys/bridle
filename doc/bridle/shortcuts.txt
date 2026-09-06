@@ -623,8 +623,8 @@
 .. |vccgnd_bluepill_STM32F0_PStr_MSC|	replace:: :ign:`BluePill STM32F072 (MSC)`
 .. |vccgnd_bluepill_STM32F0_BCD_MSC|	replace:: |vccgnd_bluepill_BCD_MSC|
 
-.. |bridle:board:waveshare_rp2040| replace:: :ref:`waveshare_rp2040`
-.. :bridle:board:`waveshare_rp2040`
+.. |bridle:board:waveshare_rp2040_eth| replace:: :ref:`waveshare_rp2040_eth`
+.. :bridle:board:`waveshare_rp2040_eth`
 
 .. |RP2040-ETH| replace::
    :ref:`RP2040-ETH <waveshare_rp2040_eth>`
@@ -643,6 +643,9 @@
 .. |waveshare_rp2040_eth_PStr_CON|	replace:: :ign:`RP2040-ETH (CDC ACM)`
 .. |waveshare_rp2040_eth_BCD_CON|	replace:: |zephyr_version_BCD|
 
+.. |bridle:board:waveshare_rp2040_geek| replace:: :ref:`waveshare_rp2040_geek`
+.. :bridle:board:`waveshare_rp2040_geek`
+
 .. |RP2040-Geek| replace::
    :ref:`RP2040-Geek <waveshare_rp2040_geek>`
 .. :bridle:board:`RP2040-Geek <waveshare_rp2040_geek>`
@@ -659,6 +662,9 @@
 .. |waveshare_rp2040_geek_PID_CON|	replace:: |rpi_pico_sdk_uart_rp2040_PID|
 .. |waveshare_rp2040_geek_PStr_CON|	replace:: :ign:`RP2040-Geek (CDC ACM)`
 .. |waveshare_rp2040_geek_BCD_CON|	replace:: |zephyr_version_BCD|
+
+.. |bridle:board:waveshare_rp2040_lcd_0_96| replace:: :ref:`waveshare_rp2040_lcd_0_96`
+.. :bridle:board:`waveshare_rp2040_lcd_0_96`
 
 .. |RP2040-LCD-0.96| replace::
    :ref:`RP2040-LCD-0.96 <waveshare_rp2040_lcd_0_96>`
@@ -677,6 +683,9 @@
 .. |waveshare_rp2040_lcd_0_96_PStr_CON|	replace:: :ign:`RP2040-LCD-0.96 (CDC ACM)`
 .. |waveshare_rp2040_lcd_0_96_BCD_CON|	replace:: |zephyr_version_BCD|
 
+.. |bridle:board:waveshare_rp2040_matrix| replace:: :ref:`waveshare_rp2040_matrix`
+.. :bridle:board:`waveshare_rp2040_matrix`
+
 .. |RP2040-Matrix| replace::
    :ref:`RP2040-Matrix <waveshare_rp2040_matrix>`
 .. :bridle:board:`RP2040-Matrix <waveshare_rp2040_matrix>`
@@ -693,6 +702,9 @@
 .. |waveshare_rp2040_matrix_PID_CON|	replace:: |rpi_pico_sdk_uart_rp2040_PID|
 .. |waveshare_rp2040_matrix_PStr_CON|	replace:: :ign:`RP2040-Matrix (CDC ACM)`
 .. |waveshare_rp2040_matrix_BCD_CON|	replace:: |zephyr_version_BCD|
+
+.. |bridle:board:waveshare_rp2040_one| replace:: :ref:`waveshare_rp2040_one`
+.. :bridle:board:`waveshare_rp2040_one`
 
 .. |RP2040-One| replace::
    :ref:`RP2040-One <waveshare_rp2040_one>`
@@ -711,6 +723,9 @@
 .. |waveshare_rp2040_one_PStr_CON|	replace:: :ign:`RP2040-One (CDC ACM)`
 .. |waveshare_rp2040_one_BCD_CON|	replace:: |zephyr_version_BCD|
 
+.. |bridle:board:waveshare_rp2040_plus| replace:: :ref:`waveshare_rp2040_plus`
+.. :bridle:board:`waveshare_rp2040_plus`
+
 .. |RP2040-Plus| replace::
    :ref:`RP2040-Plus <waveshare_rp2040_plus>`
 .. :bridle:board:`RP2040-Plus <waveshare_rp2040_plus>`
@@ -728,6 +743,9 @@
 .. |waveshare_rp2040_plus_PStr_CON|	replace:: :ign:`RP2040-Plus (CDC ACM)`
 .. |waveshare_rp2040_plus_BCD_CON|	replace:: |zephyr_version_BCD|
 
+.. |bridle:board:waveshare_rp2040_tiny| replace:: :ref:`waveshare_rp2040_tiny`
+.. :bridle:board:`waveshare_rp2040_tiny`
+
 .. |RP2040-Tiny| replace::
    :ref:`RP2040-Tiny <waveshare_rp2040_tiny>`
 .. :bridle:board:`RP2040-Tiny <waveshare_rp2040_tiny>`
@@ -744,6 +762,9 @@
 .. |waveshare_rp2040_tiny_PID_CON|	replace:: |rpi_pico_sdk_uart_rp2040_PID|
 .. |waveshare_rp2040_tiny_PStr_CON|	replace:: :ign:`RP2040-Tiny (CDC ACM)`
 .. |waveshare_rp2040_tiny_BCD_CON|	replace:: |zephyr_version_BCD|
+
+.. |bridle:board:waveshare_rp2040_zero| replace:: :ref:`waveshare_rp2040_zero`
+.. :bridle:board:`waveshare_rp2040_zero`
 
 .. |RP2040-Zero| replace::
    :ref:`RP2040-Zero <waveshare_rp2040_zero>`
