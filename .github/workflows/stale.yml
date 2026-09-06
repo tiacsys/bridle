@@ -4,8 +4,9 @@
 name: Mark Stale Issues and Pull Requests
 
 on:
-  schedule:
-    - cron: '16 0 * * *'
+  schedule: # run at 00:15 CET/CEST (UTC+1/+2)
+    - cron: '15 0 * * *'
+      timezone: 'Europe/Berlin'
 
 jobs:
   stale:

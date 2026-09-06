@@ -5,8 +5,9 @@
 name: QA Acceptance Test
 
 on:
-  schedule:
-    - cron: "0 2 * * *" # run at 2 AM UTC
+  schedule: # run at 02:00 CET/CEST (UTC+1/+2)
+    - cron: "0 2 * * *"
+      timezone: 'Europe/Berlin'
   workflow_dispatch: # And manually on button click
   pull_request:
     types: [opened, synchronize, reopened]
