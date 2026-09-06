@@ -1,0 +1,31 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	stemma_connector: stemma-qt-connector {
+		compatible = "stemma-qt-connector";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <0 0 &gpio0 29 0>,	/* GP29/PWM13 / A3 / I2C0-SCL */
+			   <1 0 &gpio0 28 0>;	/* GP28/PWM12 / A2 / I2C0-SDA */
+	};
+};
+
+zephyr_i2c: &i2c0 {};
+
+stemma_i2c: &zephyr_i2c {};
+
+qwiic_connector: &stemma_connector {};
+qwiic_i2c: &stemma_i2c {};
+
+grove_i2c0: &qwiic_i2c {};
+grove_i2c: &grove_i2c0 {};
+
+pico_i2c0: &qwiic_i2c {};
+pico_i2c: &pico_i2c0 {};
+
+rpipico_i2c0: &pico_i2c0 {};
+rpipico_i2c: &rpipico_i2c0 {};

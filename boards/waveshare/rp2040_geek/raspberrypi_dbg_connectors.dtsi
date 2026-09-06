@@ -1,0 +1,90 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/*
+ * Raspberry Pi 3-pin Debug Connector Specification
+ * ================================================
+ *
+ * Specification: https://rptl.io/debug-spec
+ * Schematic: https://pip.raspberrypi.com/documents/RP-008194-DS
+ *
+ * Raspberry Pi is standardising on using a small, keyed, 3-pin connector which
+ * can be used for either UART or 2-wire serial debug interfaces.
+ *
+ * The oldest and most universal 'debug' port is a simple 16550-style UART. A
+ * UART requires 2 unidirectional pins, one to transmit data from the target to
+ * the host (TX) and one for the other direction (RX).
+ *
+ * The 3-pin serial debug connector interface is designed to work with a single
+ * unidirectional clock pin and a bidirectional data I/O pin. This arrangement
+ * can support ARM's Serial Wire Debug (SWD) or things like cJTAG, for example.
+ *
+ * The words target and host are used to describe the debug target (e.g., a
+ * Raspberry Pi Pico 2) and debug host (the debug dongle, e.g., RP2040-Geek
+ * running debugprobe) respectively. When talking about UART TX and RX, we are
+ * talking about these pins from the target perspective. E.g., if the target is
+ * a RP2350 SoC, then RX means the signal driving into the SoC and TX driving
+ * out from the SoC.
+ *
+ * Pinout
+ * ------
+ *
+ * Each of the interfaces needs 2 pins and a ground, so a keyed 3-pin connector
+ * can be used for both:
+ *
+ *     +-----+-----------------------------------+---------------------------+
+ *     | Pin | Serial Debug Signal - RP2040-Geek | UART Signal - RP2040-Geek |
+ *     +=====+===================================+===========================+
+ *     |  1  | SC (serial clock)  <-- PIO (GP2)  | RX         <-- TX (GP4)   |
+ *     +-----+-----------------------------------+---------------------------+
+ *     |  2  | GND                               | GND                       |
+ *     +-----+-----------------------------------+---------------------------+
+ *     |  3  | SD (serial data)   <-> PIO (GP3)  | TX         --> RX (GP5)   |
+ *     +-----+-----------------------------------+---------------------------+
+ *
+ *      ,--------------.   ____     ,-.       ,-.     ____   ,--------------.
+ *      | Debug  SC/RX o--|____|----|-o-- 1 --o-|----|____|--o TX/SC  Debug |
+ *      | Target       |   ____ GND-|-o-- 2 --o-|-GND ____   |         Host |
+ *      | IC     SD/TX o--|____|----|-o-- 3 --o-|----|____|--o RX/SD     IC |
+ *      `--------------´            `-´       `-´            `--------------´
+ */
+
+/ {
+	/* Corresponds to D-port on Raspberry Pi Debug Probe. */
+	rpidbg_swd_header: connector-dbg {
+		compatible = "generic-pin-header";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <0 0 &gpio0 2 0>,	/* GP2/PWM2 / I2C1-SDA */
+			   /* power ground */	/* GND */
+			   <2 0 &gpio0 3 0>;	/* GP3/PWM3 / I2C1-SCL */
+	};
+
+	/* Corresponds to U-port on Raspberry Pi Debug Probe. */
+	rpidbg_uart_header: connector-uart {
+		compatible = "generic-pin-header";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <0 0 &gpio0 4 0>,	/* GP4/PWM4 / UART1-TX */
+			   /* power ground */	/* GND */
+			   <2 0 &gpio0 5 0>;	/* GP5/PWM5 / UART1-RX */
+	};
+};
+
+rpidbg_i2c: &i2c1 {};
+rpidbg_serial: &uart1 {};
+rpidbg_dport: &rpidbg_swd_header {};
+rpidbg_uport: &rpidbg_uart_header {};
+
+grove_i2c1: &rpidbg_i2c {};
+grove_serial: &rpidbg_serial {};
+
+pico_i2c1: &rpidbg_i2c {};
+pico_serial: &rpidbg_serial {};
+
+rpipico_i2c1: &pico_i2c1 {};
+rpipico_serial: &pico_serial {};
