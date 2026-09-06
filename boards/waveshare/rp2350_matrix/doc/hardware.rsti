@@ -37,7 +37,7 @@ displays or simple images.
        - Dual core Arm Cortex-M33 and dual core Hazard3 (RV32IMAC+) RISC-V
          processor running up to 150㎒
        - :bbk:`520㎅` on-chip SRAM
-       - :bbk:`16㎆` on-board QSPI flash with XIP capabilities
+       - :brd:`16㎆` on-board QSPI flash with XIP capabilities
        - USB 1.1 controller (host/device)
        - On-board :bbl:`USB-C connector`
        - On-board :bbl:`3.3V LDO regulator with 800㎃`
