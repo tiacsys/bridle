@@ -40,7 +40,7 @@ The castellated module allows soldering direct to carrier boards.
        - Dual core Arm Cortex-M33 and dual core Hazard3 (RV32IMAC+) RISC-V
          processor running up to 150㎒
        - :bbk:`520㎅` on-chip SRAM
-       - :bbk:`4㎆` on-board QSPI flash with XIP capabilities
+       - :bbl:`4㎆` on-board QSPI flash with XIP capabilities
        - USB 1.1 controller (host/device)
        - On-board :bbl:`USB-C connector`
        - On-board :bbl:`DC-DC buck-boost converter with 2.0A switch`
