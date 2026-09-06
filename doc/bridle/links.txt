@@ -952,6 +952,15 @@
 .. _`RP2040-Geek Schematic`:
    https://www.waveshare.com/wiki/RP2040-GEEK#Document
 .. https://files.waveshare.com/wiki/RP2040-GEEK/RP2040-GEEK-Schematic.pdf
+.. https://files.waveshare.com/wiki/RP2350-GEEK/RP2350-GEEK.pdf
+
+.. _`RP2040-Geek Demo`:
+   https://www.waveshare.com/wiki/RP2350-GEEK#Demo_2
+.. https://files.waveshare.com/wiki/RP2350-GEEK/RP2350-GEEK-CODE.zip
+
+.. _`Debugprobe firmware`:
+   https://docs.waveshare.com/Raspberry-Pi-Pico-C-Tutorials#9-debugging-a-cc-project
+.. https://files.waveshare.com/wiki/common/Debugprobe_pico.zip
 
 .. ### Links to Waveshare RP2350-CAN
 
