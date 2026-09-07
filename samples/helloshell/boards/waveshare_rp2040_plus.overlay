@@ -1,0 +1,7 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include "ena_pwm_leds.dtsi"
+#include "dis_gpio_leds.dtsi"
