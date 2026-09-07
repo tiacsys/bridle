@@ -18,6 +18,10 @@ config DELAY_T0L
 	default 64 if BOARD_COFFEECALLER_NRF52
 	depends on LED_STRIP && DT_HAS_WORLDSEMI_WS2812_GPIO_ENABLED
 
+config GPIO
+	default y
+	depends on DT_HAS_NORDIC_NRF_GPIO_ENABLED
+
 # Workaround for not being able to have commas in macro arguments
 DT_CHOSEN_Z_CONSOLE := zephyr,console
 DT_COMPAT_Z_CDC_ACM_UART := zephyr,cdc-acm-uart

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2025-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -147,6 +147,11 @@
 
 &reg1 {
 	regulator-initial-mode = <NRF5X_REG_MODE_LDO>;
+};
+
+&lfclk {
+	k32src = "rc";
+	k32src-accuracy-ppm = <500>;
 };
 
 &adc {
