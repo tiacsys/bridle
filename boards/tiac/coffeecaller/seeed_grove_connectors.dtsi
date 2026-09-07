@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2025-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -9,15 +9,17 @@
 	pwm_grove: pwm-default-node-not-yet-referenced-to-grove-node-still-empty {};
 };
 
-#include "grove_d17_header.dtsi"
+#include "seeed_grove_d17_header.dtsi"
 
 grove_i2c_header: &grove_d17_header {};
 
 /* tweaked labels: Pin 0 isn't the primary data line! */
 grove_d16_header: &grove_d17_header {}; /* D16 is on D17 header pin 1 */
 
+#include <zephyr/dt-bindings/gpio/grove-laced-if.h>
+
 / {
-	grove_laced_if_coffeecaller: grove-laced-if-coffeecaller {
+	grove_laced_if: grove-laced-if {
 		compatible = "seeed,grove-laced-if";
 
 		#gpio-cells = <2>;
@@ -40,8 +42,8 @@ grove_d16_header: &grove_d17_header {}; /* D16 is on D17 header pin 1 */
 			/* 13 - not wired */
 			/* 14 - not wired */
 			/* 15 - not wired */
-			<16 0 &grove_d17_header 1 0>,	/* P0.20: I2C0-SDA as GPIO */
-			<17 0 &grove_d17_header 0 0>;	/* P0.24: I2C0-SCL as GPIO */
+			<GROVE_LIF_L16 0 &grove_d17_header 1 0>, /* P0.20: I2C0-SDA as GPIO */
+			<GROVE_LIF_L17 0 &grove_d17_header 0 0>; /* P0.24: I2C0-SCL as GPIO */
 			/* 18 - not wired */
 			/* 19 - not wired */
 			/* 20 - not wired */
@@ -96,10 +98,11 @@ grove_d16_header: &grove_d17_header {}; /* D16 is on D17 header pin 1 */
 	};
 };
 
-grove_gpios: &grove_laced_if_coffeecaller {};
-grove_pwms: &grove_laced_if_coffeecaller {};
+zephyr_i2c: &i2c0 {};
+
+grove_i2c: &zephyr_i2c {};
+grove_gpios: &grove_laced_if {};
+grove_pwms: &grove_laced_if {};
 
 /* not yet: grove_pwm_d16: &pwm {}; */
 /* not yet: grove_pwm_d17: &pwm {}; */
-
-grove_i2c: &i2c0 {};

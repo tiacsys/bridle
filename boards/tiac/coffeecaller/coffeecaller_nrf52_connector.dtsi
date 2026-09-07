@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2025-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -26,12 +26,4 @@
 			   <14 0 &gpio0 17 0>;	/* P0.17 */
 			   /* 15 - GND: not usable */
 	};
-};
-
-&gpio0 {
-	status = "okay";
-};
-
-&gpio1 {
-	status = "okay";
 };

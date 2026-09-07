@@ -15,12 +15,14 @@
 
 #include "nrf52840-pinctrl.dtsi"
 
-#include "coffeecaller_nrf52_grove_connector.dtsi"
+#include "stemma_qt_connector.dtsi"
+#include "seeed_grove_connectors.dtsi"
 #include "coffeecaller_nrf52_connector.dtsi"
 
 / {
 	model = "TiaC CoffeeCaller nRF52 @ USB-CDC/ACM Concole";
-	compatible = "tiac,coffeecaller-nrf52", "tiac,coffeecaller-nrf52-usbcons";
+	compatible = "tiac,coffeecaller-nrf52",
+		     "tiac,coffeecaller-nrf52-usbcons";
 
 	chosen {
 		zephyr,console = &cdc_acm_uart0;
@@ -33,86 +35,86 @@
 	};
 
 	aliases {
-		mcuboot-button0 = &button0;
-		sw0 = &button0;
-		sw1 = &button1;
-		sw2 = &button2;
-		sw3 = &button3;
-		sw4 = &button4;
+		mcuboot-button0 = &sw0;
+		sw0 = &sw0;
+		sw1 = &sw1;
+		sw2 = &sw2;
+		sw3 = &sw3;
+		sw4 = &sw4;
 		led0 = &ld1;
 		led1 = &ld2;
 		led2 = &ld3;
 		led3 = &ld4;
 		led-strip = &led_strip;
-		pwm-buzzer0 = &pwm_buzzer0;
-		pwm-servo0 = &pwm_servo0;
-		pwm-servo1 = &pwm_servo1;
-		pwm-servo2 = &pwm_servo2;
-		pwm-servo3 = &pwm_servo3;
+		pwm-buzzer0 = &pwm_buzzer;
+		pwm-servo0 = &pwm_servo1;
+		pwm-servo1 = &pwm_servo2;
+		pwm-servo2 = &pwm_servo3;
+		pwm-servo3 = &pwm_servo4;
 		watchdog0 = &wdt0;
 	};
 
-	pwm_buzzers {
+	pwm_buzzers: pwm-buzzers {
 		compatible = "pwm-buzzers";
 		status = "okay";
 
-		pwm_buzzer0: pwm_buzzer0 {
+		pwm_buzzer: pwm-buzzer {
 			pwms = <&pwm0 0 PWM_HZ(880) PWM_POLARITY_NORMAL>;
 			label = "PWM Buzzer";
 		};
 	};
 
-	pwm_servo_motors {
+	pwm_servos: pwm-servos {
 		compatible = "pwm-servos";
 
-		pwm_servo0: pwm_servo_0 {
-			pwms = <&pwm1 0 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
-			label = "PWM Servo Motor 0";
-		};
-		pwm_servo1: pwm_servo_1 {
-			pwms = <&pwm1 1 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+		pwm_servo1: pwm-servo1 {
+			pwms = <&pwm1 3 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
 			label = "PWM Servo Motor 1";
 		};
-		pwm_servo2: pwm_servo_2 {
+		pwm_servo2: pwm-servo2 {
 			pwms = <&pwm1 2 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
 			label = "PWM Servo Motor 2";
 		};
-		pwm_servo3: pwm_servo_3 {
-			pwms = <&pwm1 3 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+		pwm_servo3: pwm-servo3 {
+			pwms = <&pwm1 1 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
 			label = "PWM Servo Motor 3";
+		};
+		pwm_servo4: pwm-servo4 {
+			pwms = <&pwm1 0 PWM_MSEC(20) PWM_POLARITY_NORMAL>;
+			label = "PWM Servo Motor 4";
 		};
 	};
 
-	buttons {
+	gpio_keys: gpio-keys {
 		compatible = "gpio-keys";
-		button0: button_0 {
+		sw0: sw0 {
 			gpios = <&gpio0 4 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
-			label = "Push button switch 0";
+			label = "Push button SW0";
 			zephyr,code = <INPUT_KEY_0>;
 		};
-		button1: button_1 {
+		sw1: sw1 {
 			gpios = <&gpio0 31 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
-			label = "Push button switch 1";
+			label = "Push button SW1";
 			zephyr,code = <INPUT_KEY_1>;
 		};
-		button2: button_2 {
+		sw2: sw2 {
 			gpios = <&gpio0 29 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
-			label = "Push button switch 2";
+			label = "Push button SW2";
 			zephyr,code = <INPUT_KEY_2>;
 		};
-		button3: button_3 {
+		sw3: sw3 {
 			gpios = <&gpio0 2 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
-			label = "Push button switch 3";
+			label = "Push button SW3";
 			zephyr,code = <INPUT_KEY_3>;
 		};
-		button4: button_4 {
+		sw4: sw4 {
 			gpios = <&gpio1 15 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
-			label = "Push button switch 4";
+			label = "Push button SW4";
 			zephyr,code = <INPUT_KEY_4>;
 		};
 	};
 
-	leds {
+	gpio_leds: gpio-leds {
 		compatible = "gpio-leds";
 		ld1: ld1 {
 			gpios = <&gpio1 6 GPIO_ACTIVE_LOW>;
@@ -174,10 +176,69 @@
 
 &gpio0 {
 	status = "okay";
+	/* namespace and positions without wired bits */
+	gpio-reserved-ranges = <3 1>, <5 1>, <7 1>,
+			       <11 1>, <14 1>, <16 1>,
+			       <18 2>, <21 1>, <23 1>,
+			       <25 4>, <30 1>;
+	gpio-line-names =
+		"SV2_PWM1:2",		/* P0.00 */
+		"SV1_PWM1:3",		/* P0.01 */
+		"SW3",			/* P0.02 */
+		"",			/* P0.03 */
+		"SW0",			/* P0.04 */
+		"",			/* P0.05 */
+		"TX0_X1:1",		/* P0.06 */
+		"",			/* P0.07 */
+		"RX0_X1:3",		/* P0.08 */
+		"NFC1",			/* P0.09 */
+		"NFC2",			/* P0.10 */
+		"",			/* P0.11 */
+		"X1:7",			/* P0.12 */
+		"X1:9",			/* P0.13 */
+		"",			/* P0.14 */
+		"X1:11",		/* P0.15 */
+		"",			/* P0.16 */
+		"X1:15",		/* P0.17 */
+		"",			/* P0.18 */
+		"",			/* P0.19 */
+		"SDA0_X1:8",		/* P0.20 */
+		"",			/* P0.21 */
+		"X1:13",		/* P0.22 */
+		"",			/* P0.23 */
+		"SCL0_X1:10",		/* P0.24 */
+		"",			/* P0.25 */
+		"",  /* Din of LED stripe, P0.26 */
+		"",			/* P0.27 */
+		"",			/* P0.28 */
+		"SW2",			/* P0.29 */
+		"",			/* P0.30 */
+		"SW1";			/* P0.31 */
 };
 
 &gpio1 {
 	status = "okay";
+	status = "okay";
+	/* namespace and positions without wired bits */
+	gpio-reserved-ranges = <1 1>, <3 1>, <5 1>,
+			       <8 1>, <12 1>, <14 1>;
+	gpio-line-names =
+		"X1:6",			/* P1.00 */
+		"",			/* P1.01 */
+		"LD3",			/* P1.02 */
+		"",			/* P1.03 */
+		"LD4",			/* P1.04 */
+		"",			/* P1.05 */
+		"LD1",			/* P1.06 */
+		"LD2",			/* P1.07 */
+		"",			/* P1.08 */
+		"X1:5",			/* P1.09 */
+		"BUZ_PWM0:0",		/* P1.10 */
+		"SV4_PWM1:0",		/* P1.11 */
+		"",			/* P1.12 */
+		"SV3_PWM1:1",		/* P1.13 */
+		"",			/* P1.14 */
+		"SW4";			/* P1.15 */
 };
 
 &pwm0 {

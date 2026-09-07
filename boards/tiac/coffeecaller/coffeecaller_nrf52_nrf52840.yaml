@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2025-2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 identifier: coffeecaller_nrf52/nrf52840
 name: TiaC CoffeeCaller nRF52
 vendor: tiac
@@ -17,8 +20,8 @@ supported:
   - grove_i2c
   - hwinfo
   - i2c
+  - netif:openthread
   - pwm
   - uart
   - usbd
   - watchdog
-  - netif:openthread
