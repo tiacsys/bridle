@@ -9,8 +9,8 @@ and predestined for versatile board designs. The Cytron MOTION 2350 board
 series based on this microcontroller offers a wide range build an advanced
 robot, minimize efforts on electronics, and focus on mechanics.
 
-Supported Boards
-****************
+Board Overview
+**************
 
 Hardware
 ========

@@ -9,8 +9,8 @@ designs. The Cytron Maker RP2040 board series based on this microcontroller
 offers a wide range with different scaling factors, in size, features and
 interfaces for communication, input and output.
 
-Supported Boards
-****************
+Board Overview
+**************
 
 Hardware
 ========
