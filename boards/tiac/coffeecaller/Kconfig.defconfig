@@ -1,23 +1,6 @@
 # SPDX-FileCopyrightText: Copyright (c) 2025-2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
-# TODO: move all DELAY_* objects to Devicetree node
-config DELAY_T1H
-	default 64 if BOARD_COFFEECALLER_NRF52
-	depends on LED_STRIP && DT_HAS_WORLDSEMI_WS2812_GPIO_ENABLED
-
-config DELAY_T1L
-	default 64 if BOARD_COFFEECALLER_NRF52
-	depends on LED_STRIP && DT_HAS_WORLDSEMI_WS2812_GPIO_ENABLED
-
-config DELAY_T0H
-	default 16 if BOARD_COFFEECALLER_NRF52
-	depends on LED_STRIP && DT_HAS_WORLDSEMI_WS2812_GPIO_ENABLED
-
-config DELAY_T0L
-	default 64 if BOARD_COFFEECALLER_NRF52
-	depends on LED_STRIP && DT_HAS_WORLDSEMI_WS2812_GPIO_ENABLED
-
 config GPIO
 	default y
 	depends on DT_HAS_NORDIC_NRF_GPIO_ENABLED

@@ -29,6 +29,7 @@
 		zephyr,bt-mon-uart = &cdc_acm_uart0;
 		zephyr,bt-c2h-uart = &cdc_acm_uart0;
 		zephyr,ieee802154 = &ieee802154;
+		zephyr,led-strip = &led_strip;
 	};
 
 	aliases {
@@ -135,9 +136,13 @@
 		compatible = "worldsemi,ws2812-gpio";
 		chain-length = <4>;
 		color-mapping = <LED_COLOR_ID_GREEN
-				LED_COLOR_ID_RED
-				LED_COLOR_ID_BLUE>;
+				 LED_COLOR_ID_RED
+				 LED_COLOR_ID_BLUE>;
 		gpios = <&gpio0 26 0>;
+		delay-t1h = <64>;
+		delay-t1l = <64>;
+		delay-t0h = <16>;
+		delay-t0l = <64>;
 	};
 };
 
