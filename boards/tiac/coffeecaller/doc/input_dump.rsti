@@ -1,0 +1,28 @@
+See also Zephyr sample: :external+zephyr:zephyr:code-sample:`input-dump`.
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/subsys/input/input_dump
+      :build-dir: coffeecaller_nrf52
+      :board: coffeecaller_nrf52/nrf52840
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+You should see the following message on the console:
+
+   .. container:: highlight highlight-console notranslate
+
+      .. parsed-literal::
+
+         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
+         Input sample started
+         I: input event: dev=gpio-keys        SYN type= 1 code= 11 value=1
+         I: input event: dev=gpio-keys        SYN type= 1 code= 11 value=0
+         I: input event: dev=gpio-keys        SYN type= 1 code=  5 value=1
+         I: input event: dev=gpio-keys        SYN type= 1 code=  5 value=0
+         I: input event: dev=gpio-keys        SYN type= 1 code=  4 value=1
+         I: input event: dev=gpio-keys        SYN type= 1 code=  4 value=0
+         I: input event: dev=gpio-keys        SYN type= 1 code=  3 value=1
+         I: input event: dev=gpio-keys        SYN type= 1 code=  3 value=0
+         I: input event: dev=gpio-keys        SYN type= 1 code=  2 value=1
+         I: input event: dev=gpio-keys        SYN type= 1 code=  2 value=0

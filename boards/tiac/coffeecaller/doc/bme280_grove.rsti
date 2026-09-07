@@ -1,0 +1,38 @@
+See also |Sensor Shields| in Bridle and Zephyr sample:
+:external+zephyr:zephyr:code-sample:`bme280`.
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/sensor/bme280
+      :build-dir: coffeecaller_nrf52
+      :board: coffeecaller_nrf52/nrf52840
+      :shield: "grove_sens_bmp280"
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+You should see the following message on the console:
+
+   .. container:: highlight highlight-console notranslate
+
+      .. parsed-literal::
+
+         [00:00:00.000,305] <dbg> temp_nrf5: temp_nrf5_sample_fetch: sample: 112
+         [00:00:00.000,305] <dbg> temp_nrf5: temp_nrf5_channel_get: Temperature:28,0
+         [00:00:00.002,838] <dbg> BME280: bme280_chip_init: ID OK (BMP280)
+         [00:00:00.012,084] <dbg> BME280: bme280_chip_init: "bmp280\ @\ 77" OK
+         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
+         Found device "**bmp280@77**", getting sensor data
+         temp: 27.319976; press: 99.58593; humidity: 0.7812
+         [00:00:04.032,348] <dbg> temp_nrf5: temp_nrf5_sample_fetch: sample: 112
+         [00:00:04.032,348] <dbg> temp_nrf5: temp_nrf5_channel_get: Temperature:28,0
+         temp: 27.319976; press: 99.58593; humidity: 0.7812
+         temp: 27.319976; press: 99.58593; humidity: 0.7812
+         temp: 27.319976; press: 99.58593; humidity: 0.7812
+         [00:00:08.032,531] <dbg> temp_nrf5: temp_nrf5_sample_fetch: sample: 109
+         [00:00:08.032,531] <dbg> temp_nrf5: temp_nrf5_channel_get: Temperature:27,250000
+         temp: 27.319976; press: 99.58593; humidity: 0.7812
+         temp: 27.319976; press: 99.58593; humidity: 0.7812
+         temp: 27.319976; press: 99.58593; humidity: 0.7812
+         temp: 27.319976; press: 99.58593; humidity: 0.7812
+         temp: 27.319976; press: 99.58593; humidity: 0.7812
+         … … …

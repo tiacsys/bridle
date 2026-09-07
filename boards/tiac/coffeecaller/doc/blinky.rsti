@@ -1,0 +1,22 @@
+See also Zephyr sample: :external+zephyr:zephyr:code-sample:`blinky`.
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/basic/blinky
+      :build-dir: coffeecaller_nrf52
+      :board: coffeecaller_nrf52/nrf52840
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+You should see the following message on the console:
+
+   .. container:: highlight highlight-console notranslate
+
+      .. parsed-literal::
+
+         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
+         LED state: OFF
+         LED state: ON
+         LED state: OFF
+         LED state: ON
+         LED … … …

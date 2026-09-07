@@ -1,0 +1,74 @@
+The board is **powered by 5V via the USB-C connector** and has a **3.3V/200㎃
+LDO** as needed by the chip and other peripherals on the board. It features
+**5 user buttons**, **4 GPIO LEDs**, **WS2812 RGB Strip with 4 LEDs**,
+**4 servo PIN headers**, **SHT40 temperature and humidity sensor**, **qwIIC
+Connector** and a **PWM buzzer**. Schematics and KiCad design files can be
+found in the `TiaC CoffeeCaller nRF52 website`_.
+
+.. list-table::
+   :align: center
+   :width: 100%
+   :widths: 66, 33
+
+   * - .. rubric:: Features and Resources
+     - .. rubric:: Printed Circuit Board
+
+   * - :hwftlbl-vdd:`5V/150㎃`
+       :hwftlbl-vdd:`3.3V/200㎃`
+
+       :hwftlbl:`64㎒`
+       :hwftlbl:`1㎆`
+       :hwftlbl:`256㎅`
+       :hwftlbl-con:`USB-C`
+       :hwftlbl-dbg:`UF2`
+       :hwftlbl-dbg:`SWD`
+
+       :hwftlbl-btn:`RST`
+       :hwftlbl-btn:`BOOT`
+       :hwftlbl-btn:`USER`
+       :hwftlbl-led:`WHITE`
+       :hwftlbl-led:`RGB`
+       :hwftlbl-spk:`PASSIVE`
+       :hwftlbl-act:`Servo Motor`
+
+       :hwftlbl-mtr:`TH` :
+       :hwftlbl-tmp:`T`
+       :hwftlbl-hty:`H`
+
+       :hwftlbl-pio:`17`
+       :hwftlbl-pwm:`5`
+       :hwftlbl-i2c:`2`
+       :hwftlbl-uart:`1`
+
+       .. rst-class:: rst-columns
+
+       - Single core Arm Cortex-M4 processor running up to 64㎒
+       - :bbk:`256㎅` on-chip SRAM
+       - :bbk:`1㎆` on-chip flash with XIP capabilities
+       - USB 1.1 controller (device)
+       - On-board :bbk:`USB-C micro connector`
+       - On-board :bbl:`3.3V LDO regulator with 200㎃`
+       - On-board :bbk:`RESET` button
+       - On-board :bbl:`BOOT` button
+       - On-board :bbl:`4 User button`
+       - On-board :bbl:`4 User LEDs`
+       - On-board :bbl:`4 User RGB LED`
+       - On-board :bbl:`1 User PWM Buzzer`
+       - On-board :bbl:`4 User PWM Servo Motor` connectors
+       - :bbl:`8 GPIO` pins via :bbk:`Free pin header`
+       - :bbk:`1 UART` peripherals
+       - :bbk:`1 I2C` controllers
+       - :bbl:`5 PWM` channels
+       - :bbl:`TH`: temperature and humidity (`SHT40 <SHT4x_>`_)
+       - 1 Watchdog timer peripheral
+
+       .. rubric:: Design Data
+       .. rst-class:: rst-columns
+
+       - `TiaC CoffeeCaller nRF52 website`_
+       - `TiaC CoffeeCaller nRF52 Schematic (v1.0.1)`_
+       - `TiaC CoffeeCaller nRF52 UF2 bootloader`_
+
+     - .. image:: img/coffeecaller.jpg
+          :alt: TiaC CoffeeCaller nRF52
+          :align: center

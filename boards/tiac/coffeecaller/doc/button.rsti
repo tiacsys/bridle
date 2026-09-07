@@ -1,0 +1,27 @@
+See also Zephyr sample: :external+zephyr:zephyr:code-sample:`button`.
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/basic/button
+      :build-dir: coffeecaller_nrf52
+      :board: coffeecaller_nrf52/nrf52840
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+You should see the following message on the console:
+
+   .. container:: highlight highlight-console notranslate
+
+      .. parsed-literal::
+
+         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
+         Press the button
+         Button 5 pressed at 146319
+         Button 5 released at 157303
+         Button 4 pressed at 200402
+         Button 4 released at 210963
+         Button 3 pressed at 242262
+         Button 3 released at 250714
+         Button 2 pressed at 296248
+         Button 2 released at 305933
+         Button … … …

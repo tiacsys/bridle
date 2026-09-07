@@ -1,0 +1,24 @@
+.. image:: img/ws2812b.gif
+   :align: right
+   :alt: TiaC CoffeeCaller nRF52 WS2812 LED Test Pattern
+
+See also Zephyr sample: :external+zephyr:zephyr:code-sample:`led-strip`.
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/drivers/led/led_strip
+      :build-dir: coffeecaller_nrf52
+      :board: coffeecaller_nrf52/nrf52840
+      :gen-args: -DCONFIG_SAMPLE_LED_UPDATE_DELAY=500
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+You should see the following message on the console:
+
+   .. container:: highlight highlight-console notranslate
+
+      .. parsed-literal::
+
+         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
+         [00:00:04.013,671] <inf> main: Found LED strip device ws2812
+         [00:00:04.013,671] <inf> main: Displaying pattern on strip

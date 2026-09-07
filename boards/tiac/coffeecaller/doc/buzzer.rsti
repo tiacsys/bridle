@@ -1,0 +1,43 @@
+This Bridle sample is applicable for the on-board passive magnetic buzzer
+connected to the PWM0 channel 0.
+
+   .. zephyr-app-commands::
+      :app: bridle/samples/buzzer
+      :build-dir: coffeecaller_nrf52
+      :board: coffeecaller_nrf52/nrf52840
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+You should see the following message on the console:
+
+   .. container:: highlight highlight-console notranslate
+
+      .. parsed-literal::
+
+         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
+         :bgn:`uart:~$` **█**
+
+.. rubric:: Simple test execution on target
+
+#. play a beep
+#. play a folk song
+#. play a chrismas song
+
+   .. container:: highlight highlight-console notranslate
+
+      .. parsed-literal::
+
+         :bgn:`uart:~$` **buzzer beep**
+
+   .. container:: highlight highlight-console notranslate
+
+      .. parsed-literal::
+
+         :bgn:`uart:~$` **buzzer play folksong**
+
+   .. container:: highlight highlight-console notranslate
+
+      .. parsed-literal::
+
+         :bgn:`uart:~$` **buzzer play xmastime**

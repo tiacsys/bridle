@@ -1,0 +1,52 @@
+.. rubric:: Hello Shell
+
+See also Bridle sample: :ref:`helloshell-sample`.
+
+.. zephyr-app-commands::
+   :app: bridle/samples/helloshell
+   :build-dir: coffeecaller_nrf52
+   :board: coffeecaller_nrf52/nrf52840
+   :shield: "grove_sens_bmp280"
+   :west-args: -p
+   :goals: flash
+   :compact:
+
+.. rubric:: Simple test execution on target
+
+(text in bold is a command input)
+
+   .. admonition:: Devices
+      :class: note dropdown
+
+      .. rubric:: Only an excerpt from the full list:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **device list**
+            devices:
+              … … …
+            - bmp280\ @\ 77 (READY)
+              … … …
+
+   .. admonition:: Sensor access from Zephyr Shell
+      :class: note dropdown toggle-shown
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor info**
+            device name: bmp280\ @\ 77, vendor: Bosch Sensortec GmbH, model: bme280, friendly name: Grove TP Sensor V1.0 (BME280)
+            device name: sht4x\ @\ 46, vendor: Sensirion AG, model: sht4x, friendly name: on-board temperature and humidity
+            device name: temp\ @\ 4000c000, vendor: Nordic Semiconductor, model: nrf-temp, friendly name: nRF52 chip temperature
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor get bmp280@77**
+            channel type=13(ambient_temp) index=0 shift=16 num_samples=1 value=83516265870ns (27.299987)
+            channel type=14(press) index=0 shift=23 num_samples=1 value=83516265870ns (99.054687)
+            channel type=16(humidity) index=0 shift=21 num_samples=1 value=83516265870ns (0.000000)

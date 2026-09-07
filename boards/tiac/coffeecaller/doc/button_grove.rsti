@@ -1,0 +1,29 @@
+See also |Button Shields| in Bridle and Zephyr sample:
+:zephyr:code-sample:`button`.
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/basic/button
+      :build-dir: coffeecaller_nrf52
+      :board: coffeecaller_nrf52/nrf52840
+      :shield: "grove_btn_d16_inv grove_led_d17 x_grove_testbed"
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+You should see the following message on the console:
+
+   .. container:: highlight highlight-console notranslate
+
+      .. parsed-literal::
+
+         \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
+         Press the button
+         Button 34 pressed at 98894
+         Button 34 released at 106373
+         Button 34 pressed at 114583
+         Button 34 released at 119888
+         Button 34 pressed at 126341
+         Button 34 released at 131842
+         Button 34 pressed at 138404
+         Button 34 released at 143044
+         Button … … …
