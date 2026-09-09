@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2025-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -56,13 +56,64 @@
 		};
 	};
 
-	adc_default: adc-default {
-		group26272829 {
-			pinmux = <ADC_CH0_P26>, <ADC_CH1_P27>,
-				 <ADC_CH2_P28>, <ADC_CH3_P29>;
-			input-enable;
+	pwm_default: pwm-default {
+		group8_pwm {
+			pinmux = <PWM_4A_P8>;		/* GP8: PWM4CHA (8) */
+		};
+		group9_pwm {
+			pinmux = <PWM_4B_P9>;		/* GP9: PWM4CHB (9) */
+		};
+		group10_pwm {
+			pinmux = <PWM_5A_P10>;		/* GP10: PWM5CHA (10) */
+		};
+		group11_pwm {
+			pinmux = <PWM_5B_P11>;		/* GP11: PWM5CHB (11) */
+		};
+		group12_pwm {
+			pinmux = <PWM_6A_P12>;		/* GP12: PWM6CHA (12) */
+		};
+		group13_pwm {
+			pinmux = <PWM_6B_P13>;		/* GP13: PWM6CHB (13) */
+		};
+		group18_pwm {
+			pinmux = <PWM_1A_P18>;		/* GP18: PWM1CHA (2) */
+		};
+		group19_pwm {
+			pinmux = <PWM_1B_P19>;		/* GP19: PWM1CHB (3) */
+		};
+		group20_pwm {
+			pinmux = <PWM_2A_P20>;		/* GP20: PWM2CHA (4) */
+		};
+		group21_pwm {
+			pinmux = <PWM_2B_P21>;		/* GP21: PWM2CHB (5) */
+		};
+		group23_pwm {
+			pinmux = <PWM_3B_P23>;		/* GP23: PWM3CHB (7) */
+		};
+		group24_pwm {
+			pinmux = <PWM_4A_P24>;		/* GP24: PWM4CHA (8) */
+		};
+		group25_pwm {
+			pinmux = <PWM_4B_P25>;		/* GP25: PWM4CHB (9) */
 		};
 	};
 
-	pwm_default: pwm-default {};
+	adc_default: adc-default {
+		group26_adc {
+			pinmux = <ADC_CH0_P26>;		/* GP26: ADC_CH0 */
+			input-enable;
+		};
+		group27_adc {
+			pinmux = <ADC_CH1_P27>;		/* GP27: ADC_CH1 */
+			input-enable;
+		};
+		group28_adc {
+			pinmux = <ADC_CH2_P28>;		/* GP28: ADC_CH2 */
+			input-enable;
+		};
+		group29_adc {
+			pinmux = <ADC_CH3_P29>;		/* GP29: ADC_CH3 */
+			input-enable;
+		};
+	};
 };

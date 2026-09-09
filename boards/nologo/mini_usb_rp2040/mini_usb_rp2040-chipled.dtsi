@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2025-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -7,9 +7,15 @@
 #include <zephyr/dt-bindings/pwm/pwm.h>
 
 / {
+	aliases {
+		gpio-chipled = &gpio_chipled;
+		pwm-chipled = &pwm_chipled;
+	};
+
 	gpio_chipleds: gpio-chipleds {
 		compatible = "gpio-leds";
 		status = "disabled";
+
 		gpio_chipled: gpio-chipled {
 			gpios = <&gpio0 22 GPIO_ACTIVE_LOW>;
 			label = "CHIPLED";
@@ -19,6 +25,7 @@
 	pwm_chipleds: pwm-chipleds {
 		compatible = "pwm-leds";
 		status = "okay";
+
 		pwm_chipled: pwm-chipled {
 			pwms = <&pwm 6 PWM_MSEC(20) PWM_POLARITY_INVERTED>;
 			label = "PWM_CHIPLED";
@@ -27,13 +34,13 @@
 };
 
 &pwm_default {
-	group22 {
-		pinmux = <PWM_3A_P22>;
+	group22_pwm {
+		pinmux = <PWM_3A_P22>;	/* GP22: PWM3CHA (6) */
 	};
 };
 
 &pwm {
 	status = "okay";
-	divider-int-3 = <255>;
+	divider-int-3 = <255>;	/* led: PWM3CHA (6) */
 	divider-frac-3 = <15>;
 };

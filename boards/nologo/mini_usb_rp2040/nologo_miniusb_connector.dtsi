@@ -1,0 +1,34 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2025-2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/gpio/nologo-miniusb-header.h>
+
+/ {
+	miniusb_header: connector {
+		compatible = "nologo,miniusb-header";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <NNT_MINIUSB_HEADER_D0 0 &gpio0 0 0>,	/* UART0 / GP0 */
+			   <NNT_MINIUSB_HEADER_D1 0 &gpio0 1 0>,	/* UART0 / GP1 */
+			   <NNT_MINIUSB_HEADER_D2 0 &gpio0 2 0>,	/* GP2 (UART0) */
+			   <NNT_MINIUSB_HEADER_D3 0 &gpio0 3 0>,	/* GP3 (UART0) */
+			   <NNT_MINIUSB_HEADER_D4 0 &gpio0 4 0>,	/* SPI0 / GP4 */
+			   <NNT_MINIUSB_HEADER_D5 0 &gpio0 5 0>,	/* SPI0 / GP5 */
+			   <NNT_MINIUSB_HEADER_D6 0 &gpio0 6 0>,	/* SPI0 / GP6 */
+			   <NNT_MINIUSB_HEADER_D7 0 &gpio0 7 0>,	/* SPI0 / GP7 */
+			   <NNT_MINIUSB_HEADER_D8 0 &gpio0 8 0>,	/* GP8 */
+			   <NNT_MINIUSB_HEADER_D9 0 &gpio0 14 0>,	/* I2C1 / GP14 */
+			   <NNT_MINIUSB_HEADER_D10 0 &gpio0 15 0>,	/* I2C1 / GP15 */
+			   <NNT_MINIUSB_HEADER_A0 0 &gpio0 26 0>,	/* ADC0 / GP26 */
+			   <NNT_MINIUSB_HEADER_A1 0 &gpio0 27 0>,	/* ADC1 / GP27 */
+			   <NNT_MINIUSB_HEADER_A2 0 &gpio0 28 0>,	/* ADC2 / GP28 */
+			   <NNT_MINIUSB_HEADER_A3 0 &gpio0 29 0>;	/* ADC3 / GP28 */
+	};
+};
+
+&gpio0 {
+	status = "okay";
+};

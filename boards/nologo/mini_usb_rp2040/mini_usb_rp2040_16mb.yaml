@@ -1,11 +1,12 @@
-# Copyright (c) 2025 TiaC Systems
+# SPDX-FileCopyrightText: Copyright (c) 2025-2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
-identifier: mini_usb_rp2040@16mb
+identifier: mini_usb_rp2040@16mb/rp2040
 name: Mini USB RP2040 (16MB)
+vendor: nologo
 type: mcu
 arch: arm
-flash: 16384
+flash: 1024
 ram: 264
 toolchain:
   - zephyr
