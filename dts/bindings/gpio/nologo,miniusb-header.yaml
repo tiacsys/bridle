@@ -1,4 +1,4 @@
-# Copyright (c) 2025 TiaC Systems
+# SPDX-FileCopyrightText: Copyright (c) 2025-2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 description: |
@@ -16,25 +16,29 @@ description: |
     through 14 correspond to ADC0 through ADC3, and parent pins 0 through 14
     correspond as depicted below:
 
-             .---------.
-             |         |
-             |  USB-A  |
-             |         |
-             |         |
-             |         |
-          .--´         `--.
-          |               |
-        0 GP0            5V -
-        1 GP1           GND -
-        2 GP2           3V3 -
-        3 GP3     ADC3/GP29 14
-        4 GP4     ADC2/GP28 13
-        5 GP5     ADC1/GP27 12
-        6 GP6     ADC0/GP26 11
-        7 GP7          GP15 10
-        8 GP8          GP14 9
-          |               |
-          `---------------´
+                  .---------.
+                  |         |
+                  |  USB-A  |
+                  |         |
+                  |         |
+                  |         |
+               .--´         `--.
+               |               |
+        D0   0 GP0            5V -
+        D1   1 GP1           GND -
+        D2   2 GP2           3V3 -
+        D3   3 GP3     ADC3/GP29 14  A3
+        D4   4 GP4     ADC2/GP28 13  A2
+        D5   5 GP5     ADC1/GP27 12  A1
+        D6   6 GP6     ADC0/GP26 11  A0
+        D7   7 GP7          GP15 10  D10
+        D8   8 GP8          GP14 9   D9
+               |               |
+               `---------------´
+
+    Use NNT_MINIUSB_HEADER_* constants in
+    <zephyr/dt-bindings/gpio/nologo-miniusb-header.h> to refer
+    to specific pins using convenient constant names.
 
 compatible: "nologo,miniusb-header"
 
