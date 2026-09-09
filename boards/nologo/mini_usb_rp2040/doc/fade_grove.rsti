@@ -1,0 +1,39 @@
+See also |LED Shields| in Bridle and Zephyr sample:
+:zephyr:code-sample:`pwm-blinky`.
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/basic/fade_led
+      :build-dir: mini_usb_rp2040
+      :board: mini_usb_rp2040/rp2040
+      :shield: "grove_btn_d16_inv grove_led_d17 grove_pwm_led_d17 x_grove_testbed"
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+You should see the following message on the console:
+
+   .. admonition:: Console Output
+      :class: note dropdown toggle-shown
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
+            PWM-based LED fade. Found 1 LEDs
+            Using pulse width 0%
+            Using pulse width 2%
+            Using pulse width 4%
+            … … …
+            Using pulse width 94%
+            Using pulse width 96%
+            Using pulse width 98%
+            Using pulse width 96%
+            Using pulse width 94%
+            … … …
+            Using pulse width 4%
+            Using pulse width 2%
+            Using pulse width 0%
+            Using pulse width 2%
+            Using pulse width 4%
+            Using pulse width … … …

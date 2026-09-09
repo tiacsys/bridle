@@ -1,0 +1,74 @@
+.. list-table::
+   :align: center
+   :width: 66%
+   :header-rows: 1
+
+   * - .. image:: img/positions.jpg
+          :align: center
+          :width: 500
+          :alt: NoLogo Mini USB RP2040 details
+
+   * - .. container:: twocol
+
+          .. container:: leftside
+
+             1. :strong:`PCB USB-A port`
+             #. | :strong:`ME6231C33`
+                | 500㎃ low dropout, low noise LDO
+             #. | :strong:`On-board flash memory`
+                | 4㎆ NOR-Flash :strong:`W25Q32JV`
+                | 16㎆ NOR-Flash :strong:`W25Q128JV`
+             #. :strong:`RP2040`
+             #. | :strong:`WS2812B`
+                | RGB LED
+
+          .. container:: rightside
+
+             6. | :strong:`BOOT button`
+                | press it when resetting to enter download mode
+             #. :strong:`RESET button`
+             #. | :strong:`Maker Port`
+                | Qwiic / STEMMA QT compatible connector and pinout
+                  with conversion cable to Grove connector
+                  supports **I2C0** (default), UART0, GPIO/PWM
+             #. | :strong:`RP2040 pins`
+                | 13 solder points, including 13 GPIO pins
+
+.. rubric:: Data Sheets
+.. rst-class:: rst-columns
+
+- .. rubric:: `RP2040 SoC`_
+- `RP2040 Datasheet`_
+- `Hardware design with RP2040`_
+- .. rubric:: W25Q32JV_
+- `W25Q32JV Datasheet`_
+- .. rubric:: W25Q128JV_
+- `W25Q128JV Datasheet`_
+- .. rubric:: WS2812B_
+- `WS2812B Datasheet V5`_
+- `WS2812B Datasheet V2`_
+- `WS2812B Datasheet V1`_
+- `Understanding the WS2812`_
+- `WS2812B with RP2040 PIO & DMA`_
+- .. rubric:: ME6231C33_
+- `ME6231 Datasheet`_
+- .. rubric:: `Grove System`_
+- `Grove Digital Layout`_
+- `Grove UART Layout`_
+- `Grove I2C Layout`_
+
+.. rubric:: Flash partitions on ``4㎆`` revision
+
++----------------+---------+----------------+-------------------+
+| QSPI NOR-Flash | bootrom | code_partition | storage_partition |
++================+=========+================+===================+
+| primary 4㎆    |   256B  |    1㎆ - 256B  |         3㎆       |
++----------------+---------+----------------+-------------------+
+
+.. rubric:: Flash partitions on ``16㎆`` revision
+
++----------------+---------+----------------+-------------------+
+| QSPI NOR-Flash | bootrom | code_partition | storage_partition |
++================+=========+================+===================+
+| primary 16㎆   |   256B  |    1㎆ - 256B  |        15㎆       |
++----------------+---------+----------------+-------------------+

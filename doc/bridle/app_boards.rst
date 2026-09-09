@@ -213,7 +213,8 @@ Also see the :ref:`boards` section in this documentation.
 |                   | |bridle:board:cytron_maker_pi_rp2040|    | | ``cytron_maker_pi_rp2040``                    |
 |                   |                                          | | ``cytron_maker_pi_rp2040/rp2040``             |
 |                   +------------------------------------------+-------------------------------------------------+
-|                   | |bridle:board:mini_usb_rp2040|           | | ``mini_usb_rp2040/rp2040``                    |
+|                   | |bridle:board:mini_usb_rp2040|           | | ``mini_usb_rp2040``                           |
+|                   |                                          | | ``mini_usb_rp2040/rp2040``                    |
 |                   |                                          | | ``mini_usb_rp2040@16mb/rp2040``               |
 |                   |                                          | | ``mini_usb_rp2040@chipled/rp2040``            |
 |                   +------------------------------------------+-------------------------------------------------+

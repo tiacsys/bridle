@@ -1,0 +1,35 @@
+See also |Sensor Shields| in Bridle and Zephyr sample:
+:external+zephyr:zephyr:code-sample:`bme280`.
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/sensor/bme280
+      :build-dir: mini_usb_rp2040
+      :board: mini_usb_rp2040/rp2040
+      :shield: "grove_sens_bmp280"
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+You should see the following message on the console:
+
+   .. admonition:: Console Output
+      :class: note dropdown toggle-shown
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            [00:00:00.004,000] <dbg> BME280.bme280_chip_init: ID OK (BMP280)
+            [00:00:00.010,000] <dbg> BME280.bme280_chip_init: "bmp280\ @\ 77" OK
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
+            Found device "**bmp280@77**", getting sensor data
+            temp: 25.89996; press: 98.949218; humidity: 0.7812
+            temp: 25.89996; press: 98.949218; humidity: 0.7812
+            temp: 25.99975; press: 98.953125; humidity: 0.7812
+            temp: 25.99975; press: 98.953125; humidity: 0.7812
+            temp: 25.99975; press: 98.953125; humidity: 0.7812
+            temp: 25.99975; press: 98.953125; humidity: 0.7812
+            temp: 25.99975; press: 98.953125; humidity: 0.7812
+            temp: 25.99975; press: 98.953125; humidity: 0.7812
+            temp: 25.99975; press: 98.953125; humidity: 0.7812
+            … … …
