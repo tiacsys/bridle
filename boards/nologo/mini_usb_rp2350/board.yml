@@ -1,15 +1,15 @@
-# Copyright (c) 2025 TiaC Systems
+# SPDX-FileCopyrightText: Copyright (c) 2025-2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
-boards:
-  - name: mini_usb_rp2350
-    full_name: Mini USB RP2350
-    vendor: nologo
-    socs:
-      - name: rp2350a
-    revision:
-      format: "custom"
-      default: "4mb"
-      revisions:
-        - name: "4mb"
-        - name: "16mb"
+board:
+  name: mini_usb_rp2350
+  full_name: Mini USB RP2350
+  vendor: nologo
+  socs:
+    - name: rp2350a
+  revision:
+    format: "custom"
+    default: "4mb"
+    revisions:
+      - name: "4mb"
+      - name: "16mb"

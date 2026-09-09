@@ -1,0 +1,32 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2025-2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/gpio/nologo-miniusb-pcbpads.h>
+
+/ {
+	miniusb_pcbpads: solder-pads {
+		compatible = "nologo,miniusb-pcbpads";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <NNT_MINIUSB_PCBPAD_D0 0 &gpio0 9 0>,	/* GP9 */
+			   <NNT_MINIUSB_PCBPAD_D1 0 &gpio0 10 0>,	/* GP10 */
+			   <NNT_MINIUSB_PCBPAD_D2 0 &gpio0 11 0>,	/* GP11 */
+			   <NNT_MINIUSB_PCBPAD_D3 0 &gpio0 12 0>,	/* GP12 */
+			   <NNT_MINIUSB_PCBPAD_D4 0 &gpio0 13 0>,	/* GP13 */
+			   <NNT_MINIUSB_PCBPAD_D5 0 &gpio0 18 0>,	/* GP18 */
+			   <NNT_MINIUSB_PCBPAD_D6 0 &gpio0 19 0>,	/* GP19 */
+			   <NNT_MINIUSB_PCBPAD_D7 0 &gpio0 20 0>,	/* GP20 */
+			   <NNT_MINIUSB_PCBPAD_D8 0 &gpio0 21 0>,	/* GP21 */
+			   <NNT_MINIUSB_PCBPAD_D9 0 &gpio0 22 0>,	/* GP22 */
+			   <NNT_MINIUSB_PCBPAD_D10 0 &gpio0 23 0>,	/* GP23 */
+			   <NNT_MINIUSB_PCBPAD_D11 0 &gpio0 24 0>,	/* GP24 */
+			   <NNT_MINIUSB_PCBPAD_D12 0 &gpio0 25 0>;	/* GP25 */
+	};
+};
+
+&gpio0 {
+	status = "okay";
+};

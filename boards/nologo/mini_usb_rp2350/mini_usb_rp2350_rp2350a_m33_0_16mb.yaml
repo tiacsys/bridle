@@ -5,7 +5,7 @@ identifier: mini_usb_rp2350@16mb/rp2350a/m33_0
 name: Mini USB RP2350 (16MB)
 type: mcu
 arch: arm
-flash: 16384
+flash: 1024
 ram: 520
 toolchain:
   - zephyr
