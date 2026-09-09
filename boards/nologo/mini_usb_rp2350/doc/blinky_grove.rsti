@@ -1,0 +1,40 @@
+See also |LED Shields| in Bridle and Zephyr sample:
+:zephyr:code-sample:`blinky`.
+
+   .. rubric:: On Hazard3 RISC-V (RV32IMAC+) with board revision ``@4mb`` (default)
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/basic/blinky
+      :build-dir: mini_usb_rp2350
+      :board: mini_usb_rp2350/rp2350a/hazard3_0
+      :shield: "grove_btn_d16_inv grove_led_d17 grove_pwm_led_d17 x_grove_testbed"
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+   .. rubric:: On ARM Cortex-M33 with board revision ``@4mb`` (default)
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/basic/blinky
+      :build-dir: mini_usb_rp2350
+      :board: mini_usb_rp2350/rp2350a/m33_0
+      :shield: "grove_btn_d16_inv grove_led_d17 grove_pwm_led_d17 x_grove_testbed"
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+You should see the following message on the console:
+
+   .. admonition:: Console Output
+      :class: note dropdown toggle-shown
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
+            LED state: OFF
+            LED state: ON
+            LED state: OFF
+            LED state: ON
+            LED … … …

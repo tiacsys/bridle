@@ -1,0 +1,71 @@
+The `Mini USB RP2350`_ is a :bbl:`mini sized` RP2350A development board.
+The on-board PCB USB-A connector makes it plug-and-play instantly.
+The castellated module allows soldering direct to carrier boards.
+
+.. list-table::
+   :align: center
+   :width: 100%
+   :widths: 66, 33
+
+   * - .. rubric:: Features and Resources
+     - .. rubric:: Printed Circuit Board
+
+   * - :hwftlbl-vdd:`5V/300㎃`
+       :hwftlbl-vdd:`3.3V/500㎃`
+       :hwftlbl-vdd:`3.3V(OUT)`
+
+       :hwftlbl:`150㎒`
+       :hwftlbl:`4㎆/16㎆`
+       :hwftlbl:`520㎅`
+       :hwftlbl-btn:`RST`
+       :hwftlbl-led:`RGB`
+       :hwftlbl-con:`USB-A`
+       :hwftlbl-dbg:`UF2`
+
+       :hwftlbl-pio:`15+13+2`
+       :hwftlbl-pwm:`16`
+       :hwftlbl-adc:`4`
+       :hwftlbl-i2c:`2`
+       :hwftlbl-spi:`1`
+       :hwftlbl-uart:`1`
+
+       .. rst-class:: rst-columns
+
+       - Dual core Arm Cortex-M33 and dual core Hazard3 (RV32IMAC+) RISC-V
+         processor running up to 150㎒
+       - :bbk:`520㎅` on-chip SRAM
+       - :bbl:`4㎆` on-board QSPI flash with XIP capabilities
+         – optional :brd:`16㎆`
+       - USB 1.1 controller (host/device)
+       - On-board :bbl:`PCB USB-A connector`
+       - On-board :bbl:`3.3V LDO regulator with 500㎃`
+       - On-board :bbk:`RESET` button
+       - On-board :bbl:`BOOT` button
+       - On-board :bbl:`RGB LED` (NeoPixel)
+       - :bbl:`15 GPIO` pins via :bbk:`edge pinout`
+       - :bbl:`12 GPIO` pins via :bbl:`solder points`
+       - :bbl:`1 UART` peripherals via :bbk:`edge pinout`
+       - :bbl:`1 SPI` controllers via :bbk:`edge pinout`
+       - :bbl:`1 I2C` controllers via :bbk:`edge pinout`
+       - :bbl:`1 I2C` controllers via :bbk:`Qwiic / STEMMA QT`
+       - :bbl:`1 PWM` channels via :bbk:`edge pinout`
+       - :bbl:`11 PWM` channels via :bbk:`solder points`
+       - :bbl:`2 PWM` pins via :bbk:`Qwiic / STEMMA QT`
+       - :bbl:`4 ADC` analog inputs via :bbk:`edge pinout`
+       - 12 Programmable I/O (PIO) state machines for custom peripherals
+       - 1 Watchdog timer peripheral
+       - 1 Temperature sensor on-chip
+
+       .. rubric:: Design Data
+       .. rst-class:: rst-columns
+
+       - `Mini USB RP2350 Schematic`_
+       - `Mini USB RP2350 Schematic (PNG file)`_
+       - `Mini USB RP2350 STEP 3D-Model`_
+       - `Mini USB RP2350 STEP 3D-Model (STEP file)`_
+       - `Mini USB RP2350 WS2812 Test`_
+       - `Mini USB RP2350 WS2812 Test (UF2 file)`_
+
+     - .. image:: img/mini_usb_rp2350.jpg
+          :align: center
+          :alt: NoLogo Mini USB RP2350

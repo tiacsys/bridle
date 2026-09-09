@@ -1,0 +1,573 @@
+.. rubric:: Hello Shell
+
+See also Bridle sample: :ref:`helloshell-sample`.
+
+   .. rubric:: On Hazard3 RISC-V (RV32IMAC+) with board revision ``@4mb`` (default)
+
+   .. zephyr-app-commands::
+      :app: bridle/samples/helloshell
+      :build-dir: mini_usb_rp2350
+      :board: mini_usb_rp2350/rp2350a/hazard3_0
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+   .. rubric:: On Hazard3 RISC-V (RV32IMAC+) with board revision ``@16mb``
+
+   .. zephyr-app-commands::
+      :app: bridle/samples/helloshell
+      :build-dir: mini_usb_rp2350
+      :board: mini_usb_rp2350@16mb/rp2350a/hazard3_0
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+   .. rubric:: On ARM Cortex-M33 with board revision ``@4mb`` (default)
+
+   .. zephyr-app-commands::
+      :app: bridle/samples/helloshell
+      :build-dir: mini_usb_rp2350
+      :board: mini_usb_rp2350/rp2350a/m33_0
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+   .. rubric:: On ARM Cortex-M33 with board revision ``@16mb``
+
+   .. zephyr-app-commands::
+      :app: bridle/samples/helloshell
+      :build-dir: mini_usb_rp2350
+      :board: mini_usb_rp2350@16mb/rp2350a/m33_0
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+.. rubric:: Simple test execution on target
+
+(text in bold is a command input)
+
+   .. admonition:: Basics (Bridle)
+      :class: note dropdown
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **hello -h**
+            hello - say hello
+            :bgn:`uart:~$` **hello**
+            Hello from shell.
+
+   .. admonition:: System
+      :class: note dropdown
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **hwinfo devid**
+            Length: 8
+            ID: 0xbd774b2618daaa7d
+
+            :bgn:`uart:~$` **kernel version**
+            Zephyr version |zephyr_version_number_em|
+
+            :bgn:`uart:~$` **bridle version**
+            Bridle version |shortversion_number_em|
+
+            :bgn:`uart:~$` **bridle version long**
+            Bridle version |longversion_number_em|
+
+            :bgn:`uart:~$` **bridle info**
+            Zephyr: |zephyr_release_number_em|
+            Bridle: |release_number_em|
+
+   .. admonition:: Devices
+      :class: note dropdown toggle-shown
+
+      .. rubric:: On Hazard3 RISC-V (RV32IMAC+) with board revision ``@4mb`` or ``@16mb``:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **device list**
+            devices:
+            - clock-controller\ @\ 40010000 (READY)
+              DT node labels: clocks
+            - reset-controller\ @\ 40020000 (READY)
+              DT node labels: reset
+            - interrupt-controller (READY)
+              DT node labels: intc
+            - cdc-acm-console-uart (READY)
+              DT node labels: cdc_acm_console_uart
+            - timer\ @\ 400b8000 (READY)
+              DT node labels: timer1
+            - timer\ @\ 400b0000 (READY)
+              DT node labels: timer0
+            - uart\ @\ 40070000 (READY)
+              DT node labels: uart0
+            - watchdog\ @\ 400d8000 (READY)
+              DT node labels: wdt0
+            - pio\ @\ 50200000 (READY)
+              DT node labels: ((pio_hw_t \*)0x50200000u)
+            - dma\ @\ 50000000 (READY)
+              DT node labels: dma
+            - gpio-port\ @\ 0 (READY)
+              DT node labels: gpio0 gpio0_lo
+            - usbd\ @\ 50110000 (READY)
+              DT node labels: usbd zephyr_udc0
+            - adc\ @\ 400a0000 (READY)
+              DT node labels: adc
+            - flash-controller\ @\ 400d0000 (READY)
+              DT node labels: qmi
+            - i2c\ @\ 40090000 (READY)
+              DT node labels: i2c0 zephyr_i2c stemma_i2c qwiic_i2c grove_i2c
+            - vreg\ @\ 40100000 (READY)
+              DT node labels: vreg
+            - pio-ws2812 (READY)
+            - ws2812 (READY)
+              DT node labels: ws2812
+            - dietemp (READY)
+              DT node labels: die_temp
+
+      .. rubric:: On ARM Cortex-M33 with board revision ``@4mb`` or ``@16mb``:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **device list**
+            devices:
+            - clock-controller\ @\ 40010000 (READY)
+              DT node labels: clocks
+            - reset-controller\ @\ 40020000 (READY)
+              DT node labels: reset
+            - cdc-acm-console-uart (READY)
+              DT node labels: cdc_acm_console_uart
+            - timer\ @\ 400b8000 (READY)
+              DT node labels: timer1
+            - timer\ @\ 400b0000 (READY)
+              DT node labels: timer0
+            - uart\ @\ 40070000 (READY)
+              DT node labels: uart0
+            - watchdog\ @\ 400d8000 (READY)
+              DT node labels: wdt0
+            - pio\ @\ 50200000 (READY)
+              DT node labels: ((pio_hw_t \*)0x50200000u)
+            - dma\ @\ 50000000 (READY)
+              DT node labels: dma
+            - gpio-port\ @\ 0 (READY)
+              DT node labels: gpio0 gpio0_lo
+            - usbd\ @\ 50110000 (READY)
+              DT node labels: usbd zephyr_udc0
+            - adc\ @\ 400a0000 (READY)
+              DT node labels: adc
+            - flash-controller\ @\ 400d0000 (READY)
+              DT node labels: qmi
+            - i2c\ @\ 40090000 (READY)
+              DT node labels: i2c0 zephyr_i2c stemma_i2c qwiic_i2c grove_i2c
+            - vreg\ @\ 40100000 (READY)
+              DT node labels: vreg
+            - pio-ws2812 (READY)
+            - ws2812 (READY)
+              DT node labels: ws2812
+            - dietemp (READY)
+              DT node labels: die_temp
+
+   .. admonition:: Operate with the Voltage Regulator
+      :class: note dropdown
+
+      .. rubric:: Operate with the on-chip voltage regulator unit:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **regulator vlist vreg**
+            0.550000 V
+            0.600000 V
+            0.650000 V
+            0.700000 V
+            0.750000 V
+            0.800000 V
+            0.850000 V
+            0.900000 V
+            0.950000 V
+            1.000000 V
+            1.050000 V
+            1.100000 V
+            1.150000 V
+            1.200000 V
+            1.250000 V
+            1.300000 V
+            1.350000 V
+            1.400000 V
+            1.500000 V
+            1.600000 V
+            1.650000 V
+            1.700000 V
+            1.800000 V
+            1.900000 V
+            2.000000 V
+            2.350000 V
+            2.500000 V
+            2.650000 V
+            2.800000 V
+            3.000000 V
+            3.150000 V
+            3.300000 V
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **regulator vget vreg**
+            1.100000 V
+
+      .. .. rubric:: Trigger a power-off/on sequence on ARM Cortex-M33 ``@4mb`` revision:
+
+      .. .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **hwinfo reset_cause**
+            reset caused by:
+            - pin
+
+            :bgn:`uart:~$` **regulator disable vreg**
+            [00:00:00.001,000] <inf> board_control: mini_usb_rp2350\ @\ 4mb/rp2350a/m33_0
+            [00:00:00.001,000] <inf> board_control: QSPI-Flash: **4MB**
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
+            Hello World! I'm THE SHELL from mini_usb_rp2350
+
+      .. .. rubric:: Trigger a power-off/on sequence on ARM Cortex-M33 ``@16mb`` revision:
+
+      .. .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **hwinfo reset_cause**
+            reset caused by:
+            - pin
+
+            :bgn:`uart:~$` **regulator disable vreg**
+            [00:00:00.001,000] <inf> board_control: mini_usb_rp2350\ @\ 16mb/rp2350a/m33_0
+            [00:00:00.001,000] <inf> board_control: QSPI-Flash: **16MB**
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
+            Hello World! I'm THE SHELL from mini_usb_rp2350
+
+      .. .. rubric:: Trigger a power-off/on sequence on Hazard3 RISC-V (RV32IMAC+) ``@4mb`` revision:
+
+      .. .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **hwinfo reset_cause**
+            reset caused by:
+            - pin
+
+            :bgn:`uart:~$` **regulator disable vreg**
+            [00:00:00.001,000] <inf> board_control: mini_usb_rp2350\ @\ 4mb/rp2350a/hazard3_0
+            [00:00:00.001,000] <inf> board_control: QSPI-Flash: **4MB**
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
+            Hello World! I'm THE SHELL from mini_usb_rp2350
+
+      .. .. rubric:: Trigger a power-off/on sequence on Hazard3 RISC-V (RV32IMAC+) ``@16mb`` revision:
+
+      .. .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **hwinfo reset_cause**
+            reset caused by:
+            - pin
+
+            :bgn:`uart:~$` **regulator disable vreg**
+            [00:00:00.001,000] <inf> board_control: mini_usb_rp2350\ @\ 16mb/rp2350a/hazard3_0
+            [00:00:00.001,000] <inf> board_control: QSPI-Flash: **16MB**
+            \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
+            Hello World! I'm THE SHELL from mini_usb_rp2350
+
+      .. .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **hwinfo reset_cause**
+            reset caused by:
+            - power-on reset
+
+   .. admonition:: Operate with the RGB digital LED strip
+      :class: note dropdown
+
+      Operate with the RGB digital LED strip :hwftlbl-led:`1 RGB`
+      at :rpi-pico-pio:`PIO0` / :rpi-pico-pio:`GP22`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip get_length led_strip**
+            ws2812 has 1 pixel(s)
+
+      Sett all LEDs to :brd:`RED`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 070000 1**
+
+      Sett all LEDs to :byl:`YELLOW`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 070700 1**
+
+      Sett all LEDs to :bgn:`GREEN`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 000700 1**
+
+      Sett all LEDs to :bcy:`CYAN`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 000707 1**
+
+      Sett all LEDs to :bbl:`BLUE`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 000007 1**
+
+      Sett all LEDs to :bma:`MAGENTA`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 070007 1**
+
+      Sett all LEDs to :bwt:`WHITE` (all on):
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 070707 1**
+
+      Sett all LEDs to :bbk:`BLACK` (all off):
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 000000 1**
+
+   .. admonition:: Information about the on-chip GPIO
+      :class: note dropdown
+
+      Get an overview of aviliable signale names:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **gpio info gpio0**
+             ngpios: 30
+             Reserved pin mask: 0xC0400000
+
+             Reserved  Pin  Line Name
+                        0    TX0
+                        1    RX0
+                        2    GP2_CTS0
+                        3    GP3_RTS0
+                        4    SDI0
+                        5    CSN0
+                        6    SCK0
+                        7    SDO0
+                        8    GP8_PWM8
+                        9    GP9_PWM9
+                       10    GP10_PWM10
+                       11    GP11_PWM11
+                       12    GP12_PWM12
+                       13    GP13_PWM13
+                       14    GP14_SDA1
+                       15    GP15_SCL1
+                       16    SDA0
+                       17    SCL0
+                       18    GP18_PWM2
+                       19    GP19_PWM3
+                       20    GP20_PWM4
+                       21    GP21_PWM5
+                 *     22
+                       23    GP23_PWM7
+                       24    GP24_PWM8
+                       25    GP25_PWM9
+                       26    ADC0
+                       27    ADC1
+                       28    ADC2
+                       29    ADC3
+
+   .. admonition:: Operate with the on-chip ADC
+      :class: note dropdown
+
+      Operate with the channels:
+
+         - on-chip temperature sensor on channel :rpi-pico-adc:`ADC_CH4`
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **adc adc@400a0000 resolution 12**
+            :bgn:`uart:~$` **adc adc@400a0000 print**
+            adc\ @\ 400a0000:
+            Gain: 1
+            Reference: INTERNAL
+            Acquisition Time: 0
+            Channel ID: 0
+            Differential: 0
+            Resolution: 12
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **adc adc@400a0000 read 4**
+            read: 865
+
+   .. admonition:: Operate with the tow on-chip Timer
+      :class: note dropdown
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **timer oneshot timer0 0 1000000**
+            :bgn:`timer: Alarm triggered`
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **timer oneshot timer1 0 1000000**
+            :bgn:`timer: Alarm triggered`
+
+   .. admonition:: Operate with the on-chip Flash Controller
+      :class: note dropdown
+
+      .. rubric:: Erase, Write and Verify
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **flash read qmi 0xe0000 0x40**
+            000E0000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+            000E0010: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+            000E0020: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+            000E0030: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+
+            :bgn:`uart:~$` **flash test qmi 0xe0000 0x1000 2**
+            Erase OK.
+            Write OK.
+            Verified OK.
+            Erase OK.
+            Write OK.
+            Verified OK.
+            Erase-Write-Verify test done.
+
+      .. rubric:: Details
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **flash read qmi 0xe0000 0x40**
+            000E0000: 00 01 02 03 04 05 06 07  08 09 0a 0b 0c 0d 0e 0f \|........ ........\|
+            000E0010: 10 11 12 13 14 15 16 17  18 19 1a 1b 1c 1d 1e 1f \|........ ........\|
+            000E0020: 20 21 22 23 24 25 26 27  28 29 2a 2b 2c 2d 2e 2f \| !"#$%&' ()*+,-./\|
+            000E0030: 30 31 32 33 34 35 36 37  38 39 3a 3b 3c 3d 3e 3f \|01234567 89:;<=>?\|
+
+            :bgn:`uart:~$` **flash page_info 0xe0000**
+            Page for address 0xe0000:
+            start offset: 0xe0000
+            size: 4096
+            index: 224
+
+      .. rubric:: Revert
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **flash erase qmi 0xe0000 0x1000**
+            Erase success.
+
+            :bgn:`uart:~$` **flash read qmi 0xe0000 0x40**
+            000E0000: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+            000E0010: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+            000E0020: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+            000E0030: ff ff ff ff ff ff ff ff  ff ff ff ff ff ff ff ff \|........ ........\|
+
+   .. admonition:: Operate with the on-chip I2C on Qwiic with BMP280
+      :class: note dropdown
+
+      The |Mini USB RP2350| has no on-board I2C devices. For this example an
+      |Grove BMP280 Sensor|_ was plugged into the Qwiic connector.
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **i2c scan zephyr_i2c**
+                 0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+            00:             -- -- -- -- -- -- -- -- -- -- -- --
+            10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            70: -- -- -- -- -- -- -- 77
+            1 devices found on zephyr_i2c
+
+      The I2C address ``0x77`` is a Bosch BMP280 Air Pressure Sensor and their
+      Chip-ID can read from register ``0xd0``. The Chip-ID must be ``0x58``:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **i2c read_byte zephyr_i2c 77 d0**
+            Output: 0x58
+
+   .. admonition:: Operate with the on-chip Die Temperature Sensor
+      :class: note dropdown
+
+      .. rubric:: Operate with the on-chip temperature sensor on ADC channel 4:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor info**
+            device name: dietemp, vendor: Raspberry Pi Foundation, model: pico-temp, friendly name: RP2350 chip temperature
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **sensor get dietemp**
+            channel type=12(die_temp) index=0 shift=5 num_samples=1 value=122018715213ns (28.162114)
