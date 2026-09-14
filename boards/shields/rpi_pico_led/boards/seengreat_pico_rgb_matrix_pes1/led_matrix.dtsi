@@ -1,0 +1,54 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <freq.h>
+#include <zephyr/dt-bindings/led/led.h>
+#include <zephyr/dt-bindings/display/panel.h>
+
+&rgb_led_pio {
+	rgb_led_pio_ws2812: rgb-led-pio-ws2812 {
+		compatible = "worldsemi,ws2812-rpi_pico-pio";
+		status = "disabled";
+
+		/* HI: 0x3F0: 1111110000: 0.750 us high and 0.500 us low */
+		/* LO: 0x380: 1110000000: 0.375 us high and 0.875 us low */
+		bit-waveform = <3>, <3>, <4>;
+
+		ws2812_20x10: ws2812-20x10 {
+			status = "disabled";
+
+			chain-length = <(20*10)>; /* 20x10 panel with RGB pixel */
+			color-mapping = <LED_COLOR_ID_GREEN
+					 LED_COLOR_ID_RED
+					 LED_COLOR_ID_BLUE>;
+
+			/* Tbit = 1.25 us / 10 */
+			frequency = <DT_FREQ_K(800)>;
+			reset-delay = <280>;
+		};
+	};
+};
+
+led_strip: &ws2812_20x10 {};
+
+/ {
+	led_strip_matrix_20x10: led-strip-matrix-20x10 {
+		compatible = "led-strip-matrix";
+
+		status = "disabled";
+
+		/* LED strip with circulative layout */
+		led-strips = <&led_strip>;
+		start-from-right;
+		circulative;
+
+		/* 20x10 panel with RGB pixel and alpha channel */
+		width = <20>;
+		height = <10>;
+		pixel-format = <PANEL_PIXEL_FORMAT_ARGB_8888>;
+	};
+};
+
+led_strip_matrix: &led_strip_matrix_20x10 {};
