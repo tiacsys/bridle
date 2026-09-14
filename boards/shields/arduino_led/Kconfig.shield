@@ -1,0 +1,5 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+config SHIELD_ADAFRUIT_NEOPIXEL_8X5_RGB_MATRIX_ARDUINO
+	def_bool $(shields_list_contains,adafruit_neopixel_8x5_rgb_matrix_arduino)
