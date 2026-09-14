@@ -1,0 +1,24 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+&rmt {
+	pinctrl-0 = <&rmt_ws2812_leds_default>;
+	pinctrl-names = "default";
+
+	status = "okay";
+};
+
+/ {
+	ws2812: ws2812 {
+		compatible = "worldsemi,ws2812-pulse-io";
+
+		status = "disabled";
+
+		pulse-ios = <&rmt 0>;
+		reset-delay = <300>;
+	};
+};
+
+xiao_esp32_leds: &ws2812 {};

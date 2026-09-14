@@ -1,0 +1,5 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+config SHIELD_XIAO_6X10_RGB_MATRIX
+	def_bool $(shields_list_contains,xiao_6x10_rgb_matrix)

@@ -1,0 +1,44 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <freq.h>
+
+/*
+ * Due to limited on-chip resources, the standard XIAO serial interface
+ * on pins D6 (TX:PC06) and D7 (RX:PC07) requires reconfiguration to an
+ * SPI interface on pins D0 (TX:PC00), D1 (RX:PC01), and D2 (SCK:PC02).
+ * Even though only the line connected to D0 is required for the LED strip,
+ * the Pinctrl for this chip must be fully specified. Otherwise, the on-chip
+ * functional unit will block.
+ */
+
+&xiao_serial {
+	/delete-property/ current-speed;
+	compatible = "silabs,eusart-spi";
+	pinctrl-0 = <&spi1_ws2812_leds_default>;
+	pinctrl-names = "default";
+
+	status = "okay";
+
+	#address-cells = <1>;
+	#size-cells = <0>;
+	clock-frequency = <DT_FREQ_M(8)>;
+
+	ws2812: ws2812@0 {
+		compatible = "worldsemi,ws2812-spi";
+
+		status = "disabled";
+
+		reg = <0>;
+		spi-max-frequency = <DT_FREQ_M(8)>; /* Tbit = 125.00 ns */
+
+		/* HI: 0xF8: 11111000: 0.625 us high and 0.375 us low */
+		/* LO: 0xE0: 11100000: 0.375 us high and 0.625 us low */
+		spi-one-frame = <0xf8>;
+		spi-zero-frame = <0xe0>;
+	};
+};
+
+xiao_xg24_leds: &ws2812 {};

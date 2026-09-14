@@ -1,0 +1,23 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/pinctrl/silabs/xg24-pinctrl.h>
+
+&pinctrl {
+	spi1_ws2812_leds_default: spi1_ws2812_leds_default {
+		group0 {
+			pins = <EUSART1_TX_PC0>,	/* EUSART1(SPI):COPI @ XIAO_D0(PC00) */
+			       <EUSART1_SCLK_PC2>;	/* EUSART1(SPI):SCLK @ XIAO_D2(PC02) */
+			drive-push-pull;
+			output-high;
+		};
+
+		group1 {
+			pins = <EUSART1_RX_PC1>;	/* EUSART1(SPI):CIPO @ XIAO_D1(PC01) */
+			input-enable;
+			silabs,input-filter;
+		};
+	};
+};
