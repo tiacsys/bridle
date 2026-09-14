@@ -1,9 +1,15 @@
 /*
- * Copyright (c) 2024-2026 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2024-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
 &pinctrl {
+	pio0_ws2812_leds_sgprm_pes1: pio0_ws2812_leds_sgprm_pes1 {
+		group22_pio {
+			pinmux = <PIO0_P22>;		/* GP22: PIO0 */
+		};
+	};
+
 	pio0_ws2812_leds_wsprl: pio0_ws2812_leds_wsprl {
 		group6_pio {
 			pinmux = <PIO0_P6>;		/* GP6: PIO0 */
