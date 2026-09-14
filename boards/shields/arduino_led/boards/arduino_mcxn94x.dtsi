@@ -1,0 +1,36 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <freq.h>
+
+&arduino_serial {
+	status = "okay";
+
+	/* WS2812 baudrate is 800kHz * 3 = 2.4MHz. */
+	current-speed = <2400000>;	/* Tbit = 3.75 us / 9 */
+
+	/* Frame constraint: (1 start + 7 data + 1 stop) = 9 bits total. */
+	data-bits = <7>;
+
+	/* WS2812 requires tx-invert to create an idle-low signal. */
+	tx-invert;
+
+	ws2812: ws2812 {
+		compatible = "worldsemi,ws2812-uart";
+
+		status = "disabled";
+
+		/* Timing based on 1.5MHz baudrate (667ns per bit):
+		 * T1H for '1' bit (2 high bits) = 2 * 416.67 ns = 833.33 ns.
+		 * T0H for '0' bit (1 high bit) = 1 * 416.67 ns = 416.67 ns.
+		 */
+		one-symbol = <6>;   /* 0b110 */
+		zero-symbol = <4>;  /* 0b100 */
+		bits-per-symbol = <3>;
+		reset-delay = <50>;
+	};
+};
+
+arduino_mcxn94x_leds: &ws2812 {};
