@@ -1,0 +1,52 @@
+.. list-table::
+   :align: center
+   :width: 100%
+   :widths: 66, 33
+
+   * - .. rubric:: Pin Mapping
+     - .. rubric:: Pinout
+
+   * - :on-edge(1-15):
+          :hwftlbl-pio:`1`
+
+       :on-shield:
+          :hwftlbl-led:`RGB(6×10)`
+          :hwftlbl-scr:`LED(6×10)`
+
+       :wiring:
+
+          .. image:: wiring_rpipico.jpg
+             :align: left
+             :alt: Seeed Studio XIAO MATRIX for XIAO RP2040 or RP2350 wiring
+
+       .. rubric:: Default Zephyr Peripheral Mapping
+
+       |nbsp|
+
+       .. rst-class:: rst-columns edge-pinout
+
+       - | :rpi-pico-pin:`1` :rpi-pico-pio:`PIO0` (ADC_CH0) : GP26 (PWM10)
+         | :rpi-pico-pin-nc:`nc` def. on-shield user :rpi-pico-sys:`RGB_LED_DI`
+       - | :rpi-pico-pin:`2` ADC_CH1 : GP27 (PWM11)
+       - | :rpi-pico-pin:`3` ADC_CH2 : GP28 (PWM12)
+       - | :rpi-pico-pin:`4` ADC_CH3 : GP29 (PWM13)
+       - | :rpi-pico-pin:`5` I2C0_SDA : GP6 (PWM6)
+       - | :rpi-pico-pin:`6` I2C0_SCL : GP7 (PWM7)
+       - | :rpi-pico-pin:`7` UART0_TX : GP0 (PWM0)
+       - | :rpi-pico-pin:`8` UART0_RX : GP1 (PWM1)
+       - | :rpi-pico-pin:`9` SPI0_SCK : GP2 (PWM2)
+       - | :rpi-pico-pin:`10` SPI0_RX : GP4 (PWM4)
+       - | :rpi-pico-pin:`11` SPI0_TX : GP3 (PWM3)
+       - | :rpi-pico-pin:`12` :rpi-pico-vdd:`VSYS`
+       - | :rpi-pico-pin:`13` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`14` :rpi-pico-sys:`VBUS`
+
+       .. rubric:: Devicetree compatible
+
+       - :dtcompatible:`seeed,xiao-gpio`
+       - :dtcompatible:`worldsemi,ws2812-rpi_pico-pio`
+
+     - .. image:: pinouts_rpipico.jpg
+          :align: center
+          :width: 100%
+          :alt: Seeed Studio XIAO MATRIX for XIAO RP2040 or RP2350 edge pinout

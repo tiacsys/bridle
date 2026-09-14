@@ -1,0 +1,184 @@
+.. image:: ws2812b-6x10-display_test.gif
+   :align: right
+   :alt: Seeed Studio XIAO (6x10 RGB) MATRIX Display Test Pattern
+
+Using the :external+zephyr:ref:`Display driver API <display_api>`
+with chosen display. That is:
+
+| :hwftlbl-scr:`LED(6×10)` :
+  :dts:`chosen { zephyr,display = &led_strip_matrix; };`
+| :hwftlbl-led:`6×10 RGB` :
+  :dts:`&led_strip_matrix { led-strip = <&led_strip>; };`
+
+.. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+
+   .. group-tab:: BLE (Sense)
+
+      .. rubric:: On XIAO BLE
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/display
+         :build-dir: seeed_xiao_6x10_rgb_matrix-display_test
+         :board: xiao_ble/nrf52840
+         :shield: "seeed_xiao_6x10_rgb_matrix"
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
+      .. rubric:: On XIAO BLE Sense
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/display
+         :build-dir: seeed_xiao_6x10_rgb_matrix-display_test
+         :board: xiao_ble/nrf52840/sense
+         :shield: "seeed_xiao_6x10_rgb_matrix"
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
+   .. group-tab:: ESP32C3
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/display
+         :build-dir: seeed_xiao_6x10_rgb_matrix-display_test
+         :board: xiao_esp32c3/esp32c3
+         :shield: "seeed_xiao_6x10_rgb_matrix"
+         :west-args: -p
+         :flash-args: -r esp32
+         :goals: flash
+         :compact:
+
+   .. group-tab:: ESP32S3 (Sense)
+
+      .. rubric:: On XIAO ESP32S3
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/display
+         :build-dir: seeed_xiao_6x10_rgb_matrix-display_test
+         :board: xiao_esp32s3/esp32s3/procpu
+         :shield: "seeed_xiao_6x10_rgb_matrix"
+         :west-args: -p
+         :flash-args: -r esp32
+         :goals: flash
+         :compact:
+
+      .. rubric:: On XIAO ESP32S3 Sense
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/display
+         :build-dir: seeed_xiao_6x10_rgb_matrix-display_test
+         :board: xiao_esp32s3/esp32s3/procpu/sense
+         :shield: "seeed_xiao_6x10_rgb_matrix"
+         :west-args: -p
+         :flash-args: -r esp32
+         :goals: flash
+         :compact:
+
+   .. group-tab:: MG24
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/display
+         :build-dir: seeed_xiao_6x10_rgb_matrix-display_test
+         :board: xiao_mg24/efr32mg24b220f1536im48
+         :shield: "seeed_xiao_6x10_rgb_matrix"
+         :west-args: -p
+         :flash-args: -r pyocd
+         :goals: flash
+         :compact:
+
+   .. group-tab:: RA4M1
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/display
+         :build-dir: seeed_xiao_6x10_rgb_matrix-display_test
+         :board: xiao_ra4m1/r7fa4m1ab3cne
+         :shield: "seeed_xiao_6x10_rgb_matrix"
+         :snippets: "usb-console"
+         :gen-args: -DCONFIG_LOG=n
+         :west-args: -p
+         :flash-args: -r rfp --erase --verify
+         :goals: flash
+         :compact:
+
+   .. group-tab:: RP2040
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/display
+         :build-dir: seeed_xiao_6x10_rgb_matrix-display_test
+         :board: xiao_rp2040/rp2040
+         :shield: "seeed_xiao_6x10_rgb_matrix"
+         :snippets: "usb-console"
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
+   .. group-tab:: RP2350
+
+      .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/display
+         :build-dir: seeed_xiao_6x10_rgb_matrix-display_test
+         :board: xiao_rp2350/rp2350a/hazard3_0
+         :shield: "seeed_xiao_6x10_rgb_matrix"
+         :snippets: "usb-console"
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
+      .. rubric:: On ARM Cortex-M33
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/display
+         :build-dir: seeed_xiao_6x10_rgb_matrix-display_test
+         :board: xiao_rp2350/rp2350a/m33_0
+         :shield: "seeed_xiao_6x10_rgb_matrix"
+         :snippets: "usb-console"
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :compact:
+
+   .. group-tab:: SAMD21 (Seeeduino XIAO)
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/display
+         :build-dir: seeed_xiao_6x10_rgb_matrix-display_test
+         :board: seeeduino_xiao/samd21g18a
+         :shield: "seeed_xiao_6x10_rgb_matrix"
+         :snippets: "usb-console"
+         :gen-args: -DCONFIG_LOG=n
+         :west-args: -p
+         :flash-args: -r bossac --erase
+         :goals: flash
+         :compact:
+
+   .. group-tab:: STM32C5
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/display
+         :build-dir: seeed_xiao_6x10_rgb_matrix-display_test
+         :board: xiao_stm32c5/stm32c5a3xx
+         :shield: "seeed_xiao_6x10_rgb_matrix"
+         :west-args: -p
+         :flash-args: -r stm32cubeprogrammer
+         :goals: flash
+         :compact:
+
+   .. zephyr-keep-sorted-stop
+
+.. rubric:: Simple logging output on target
+
+.. container:: highlight highlight-console notranslate no-copybutton
+
+   .. parsed-literal::
+
+      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
+      [00:00:00.002,000] <inf> sample: Display sample for led-strip-matrix-6x10
+      [00:00:00.065,000] <inf> sample: Display starts

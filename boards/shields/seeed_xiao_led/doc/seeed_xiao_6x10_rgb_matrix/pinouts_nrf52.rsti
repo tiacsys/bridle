@@ -1,0 +1,52 @@
+.. list-table::
+   :align: center
+   :width: 100%
+   :widths: 66, 33
+
+   * - .. rubric:: Pin Mapping
+     - .. rubric:: Pinout
+
+   * - :on-edge(1-15):
+          :hwftlbl-pio:`1`
+
+       :on-shield:
+          :hwftlbl-led:`RGB(6×10)`
+          :hwftlbl-scr:`LED(6×10)`
+
+       :wiring:
+
+          .. image:: wiring_nrf52.jpg
+             :align: left
+             :alt: Seeed Studio XIAO MATRIX for XIAO BLE (Sense) wiring
+
+       .. rubric:: Default Zephyr Peripheral Mapping
+
+       |nbsp|
+
+       .. rst-class:: rst-columns edge-pinout
+
+       - | :rpi-pico-pin:`1` :rpi-pico-spi:`SPI3_COPI` (AIN0) : P0.02
+         | :rpi-pico-pin-nc:`nc` def. on-shield user :rpi-pico-sys:`RGB_LED_DI`
+       - | :rpi-pico-pin:`2` AIN1 : P0.03
+       - | :rpi-pico-pin:`3` AIN4 : P0.28
+       - | :rpi-pico-pin:`4` AIN5 : P0.29
+       - | :rpi-pico-pin:`5` I2C1_SDA : P0.04
+       - | :rpi-pico-pin:`6` I2C1_SCL : P0.05
+       - | :rpi-pico-pin:`7` UART0_TX : P1.11
+       - | :rpi-pico-pin:`8` UART0_RX : P1.12
+       - | :rpi-pico-pin:`9` SPI2_SCK : P1.13
+       - | :rpi-pico-pin:`10` SPI2_CIPO : P1.14
+       - | :rpi-pico-pin:`11` SPI2_COPI : P1.15
+       - | :rpi-pico-pin:`12` :rpi-pico-vdd:`VSYS`
+       - | :rpi-pico-pin:`13` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`14` :rpi-pico-sys:`VBUS`
+
+       .. rubric:: Devicetree compatible
+
+       - :dtcompatible:`seeed,xiao-gpio`
+       - :dtcompatible:`worldsemi,ws2812-spi`
+
+     - .. image:: pinouts_nrf52.jpg
+          :align: center
+          :width: 100%
+          :alt: Seeed Studio XIAO MATRIX for XIAO BLE (Sense) edge pinout

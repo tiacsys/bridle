@@ -1434,6 +1434,14 @@
 .. _`PiMoroni Pico Display Pack 2.0 (PIM580) Schematic`:
    https://cdn.shopify.com/s/files/1/0174/1800/files/pico_display_2_schematic.pdf
 
+.. #### Links to the Seeed Studio XIAO MATRIX
+
+.. _`Seeed Studio XIAO MATRIX`:
+   https://wiki.seeedstudio.com/rgb_matrix_for_xiao
+
+.. _`Seeed Studio XIAO MATRIX Schematic`:
+   https://wiki.seeedstudio.com/rgb_matrix_for_xiao#resources
+
 .. #### Links to the SeenGreat Pico RGB LED
 
 .. _`SeenGreat Pico RGB Matrix Panel Expansion S1`:

@@ -1,0 +1,52 @@
+.. list-table::
+   :align: center
+   :width: 100%
+   :widths: 66, 33
+
+   * - .. rubric:: Pin Mapping
+     - .. rubric:: Pinout
+
+   * - :on-edge(1-15):
+          :hwftlbl-pio:`1`
+
+       :on-shield:
+          :hwftlbl-led:`RGB(6×10)`
+          :hwftlbl-scr:`LED(6×10)`
+
+       :wiring:
+
+          .. image:: wiring_esp32c3.jpg
+             :align: left
+             :alt: Seeed Studio XIAO MATRIX for XIAO ESP32C3 wiring
+
+       .. rubric:: Default Zephyr Peripheral Mapping
+
+       |nbsp|
+
+       .. rst-class:: rst-columns edge-pinout
+
+       - | :rpi-pico-pin:`1` :rpi-pico-pio:`RMT_OUT0` (ADC1:2) : GPIO2
+         | :rpi-pico-pin-nc:`nc` def. on-shield user :rpi-pico-sys:`RGB_LED_DI`
+       - | :rpi-pico-pin:`2` ADC1:3 : GPIO3
+       - | :rpi-pico-pin:`3` ADC1:4 : GPIO4
+       - | :rpi-pico-pin:`4` ADC2:0 : GPIO5
+       - | :rpi-pico-pin:`5` I2C0_SDA : GPIO6
+       - | :rpi-pico-pin:`6` I2C0_SCL : GPIO7
+       - | :rpi-pico-pin:`7` UART0_TX : GPIO21
+       - | :rpi-pico-pin:`8` UART0_RX : GPIO20
+       - | :rpi-pico-pin:`9` SPI2_SCK : GPIO8
+       - | :rpi-pico-pin:`10` SPI2_CIPO : GPIO9
+       - | :rpi-pico-pin:`11` SPI2_COPI : GPIO10
+       - | :rpi-pico-pin:`12` :rpi-pico-vdd:`VSYS`
+       - | :rpi-pico-pin:`13` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`14` :rpi-pico-sys:`VBUS`
+
+       .. rubric:: Devicetree compatible
+
+       - :dtcompatible:`seeed,xiao-gpio`
+       - :dtcompatible:`worldsemi,ws2812-pulse-io`
+
+     - .. image:: pinouts_esp32c3.jpg
+          :align: center
+          :width: 100%
+          :alt: Seeed Studio XIAO MATRIX for XIAO ESP32C3 edge pinout

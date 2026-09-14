@@ -1,0 +1,41 @@
+.. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+
+   .. group-tab:: BLE (Sense)
+
+      .. include:: pinouts_nrf52.rsti
+
+   .. group-tab:: ESP32C3
+
+      .. include:: pinouts_esp32c3.rsti
+
+   .. group-tab:: ESP32S3 (Sense)
+
+      .. include:: pinouts_esp32s3.rsti
+
+   .. group-tab:: MG24
+
+      .. include:: pinouts_mg24.rsti
+
+   .. group-tab:: RA4M1
+
+      .. include:: pinouts_ra4m1.rsti
+
+   .. group-tab:: RP2040
+
+      .. include:: pinouts_rpipico.rsti
+
+   .. group-tab:: RP2350
+
+      .. include:: pinouts_rpipico.rsti
+
+   .. group-tab:: SAMD21 (Seeeduino XIAO)
+
+      .. include:: pinouts_samd21.rsti
+
+   .. group-tab:: STM32C5
+
+      .. include:: pinouts_stm32c5.rsti
+
+   .. zephyr-keep-sorted-stop

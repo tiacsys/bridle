@@ -40,6 +40,26 @@
 
 | CH32V203 | | :ref:`weact_bluepillplus` | - ``weact_bluepillplus_ch32v203c8`` |
 
+.. xiao_mg24_efr32mg24b220f1536im48
+
+| EFR32MG24 | | :external+zephyr:zephyr:board:`xiao_mg24` | - ``xiao_mg24/efr32mg24b220f1536im48`` |
+
+.. xiao_esp32c3_esp32c3
+
+| ESP32-C3 | | :external+zephyr:zephyr:board:`xiao_esp32c3` | - ``xiao_esp32c3/esp32c3`` |
+
+.. xiao_esp32s3_esp32s3_appcpu
+
+| ESP32-S3 | | :external+zephyr:zephyr:board:`xiao_esp32s3` | - ``xiao_esp32s3/esp32s3/appcpu`` |
+
+.. xiao_esp32s3_esp32s3_procpu_sense
+
+| ESP32-S3 | | :external+zephyr:zephyr:board:`xiao_esp32s3` | - ``xiao_esp32s3/esp32s3/procpu/sense`` |
+
+.. xiao_esp32s3_esp32s3_procpu
+
+| ESP32-S3 | | :external+zephyr:zephyr:board:`xiao_esp32s3` | - ``xiao_esp32s3/esp32s3/procpu`` |
+
 .. native_sim
 
 | Native (32-bit) | | :external+zephyr:zephyr:board:`native_sim` | - ``native_sim`` |
@@ -47,6 +67,10 @@
 .. native_sim_native_64
 
 | Native (64-bit) | | :external+zephyr:zephyr:board:`native_sim` | - ``native_sim/native/64`` |
+
+.. xiao_ra4m1_r7fa4m1ab3cne
+
+| RA4M1 | | :external+zephyr:zephyr:board:`xiao_ra4m1` | - ``xiao_ra4m1/r7fa4m1ab3cne`` |
 
 .. rpi_pico_rp2040_mcuboot
 
@@ -319,6 +343,14 @@
 .. nrf52840dk_nrf52840
 
 | nRF52840 | | :external+zephyr:zephyr:board:`nrf52840dk` | - ``nrf52840dk/nrf52840`` |
+
+.. xiao_ble_nrf52840_sense
+
+| nRF52840 | | :external+zephyr:zephyr:board:`xiao_ble` | - ``xiao_ble/nrf52840/sense`` |
+
+.. xiao_ble_nrf52840
+
+| nRF52840 | | :external+zephyr:zephyr:board:`xiao_ble` | - ``xiao_ble/nrf52840`` |
 
 .. coffeecaller_nrf52
 

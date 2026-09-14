@@ -1,0 +1,194 @@
+.. rubric:: Simple test execution on target
+
+(text in bold is a command input)
+
+.. tabs::
+
+   .. group-tab:: Basics
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **hello -h**
+            hello - say hello
+            :bgn:`uart:~$` **hello**
+            Hello from shell.
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **hwinfo devid**
+            Length: 12
+            ID: 0x4747424f404560141f371f28
+
+            :bgn:`uart:~$` **kernel version**
+            Zephyr version |zephyr_version_number_em|
+
+            :bgn:`uart:~$` **bridle version**
+            Bridle version |shortversion_number_em|
+
+            :bgn:`uart:~$` **bridle version long**
+            Bridle version |longversion_number_em|
+
+            :bgn:`uart:~$` **bridle info**
+            Zephyr: |zephyr_release_number_em|
+            Bridle: |release_number_em|
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **device list**
+            devices:
+            - rcc\ @\ 44020c00 (READY)
+              DT node labels: rcc
+            - clk48 (READY)
+              DT node labels: clk48
+            - reset-controller (READY)
+              DT node labels: rctl
+            - gpio\ @\ 42021c00 (READY)
+              DT node labels: gpioh
+            - gpio\ @\ 42021800 (READY)
+              DT node labels: gpiog
+            - gpio\ @\ 42021400 (READY)
+              DT node labels: gpiof
+            - gpio\ @\ 42021000 (READY)
+              DT node labels: gpioe
+            - gpio\ @\ 42020c00 (READY)
+              DT node labels: gpiod
+            - gpio\ @\ 42020800 (READY)
+              DT node labels: gpioc
+            - gpio\ @\ 42020400 (READY)
+              DT node labels: gpiob
+            - gpio\ @\ 42020000 (READY)
+              DT node labels: gpioa
+            - interrupt-controller\ @\ 44022000 (READY)
+              DT node labels: exti
+            - dma\ @\ 40020000 (READY)
+              DT node labels: lpdma1
+            - board_cdc_acm_uart (READY)
+              DT node labels: board_cdc_acm_uart
+            - flash-controller\ @\ 40022000 (READY)
+              DT node labels: flash
+            - serial\ @\ 40004c00 (READY)
+              DT node labels: uart4
+            - serial\ @\ 40013800 (READY)
+              DT node labels: usart1 xiao_serial
+            - can-phy0 (READY)
+              DT node labels: can_phy0
+            - usb\ @\ 40016000 (READY)
+              DT node labels: usb zephyr_udc0
+            - adc\ @\ 42028000 (READY)
+              DT node labels: adc1
+            - adc\ @\ 42028000 (READY)
+              DT node labels: adc12_common
+            - i2c\ @\ 40005800 (READY)
+              DT node labels: i2c2
+            - i2c\ @\ 40005400 (READY)
+              DT node labels: i2c1 xiao_i2c
+            - pwm (READY)
+              DT node labels: pwm1
+            - can\ @\ 4000a800 (READY)
+              DT node labels: fdcan2 xiao_can
+            - battery-adc-ctrl (READY)
+              DT node labels: battery_adc_ctrl
+            - leds (READY)
+              DT node labels: leds
+            - pwmleds (READY)
+            - ws2812 (READY)
+              DT node labels: ws2812 xiao_stm32c5_leds rgb_led_chain ws2812_6x10 led_strip
+            - lsm6ds3tr-c\ @\ 6a (READY)
+              DT node labels: lsm6ds3tr_c
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **history**
+            [  0] history
+            [  1] device list
+            [  2] bridle info
+            [  3] bridle version long
+            [  4] bridle version
+            [  5] kernel version
+            [  6] hwinfo devid
+            [  7] hello
+            [  8] hello -h
+
+   .. group-tab:: LED Strip
+
+      Operate with the RGB digital LED strip :hwftlbl-led:`60 RGB`
+      at :rpi-pico-uart:`UART4_TX`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip get_length led_strip**
+            ws2812 has 60 pixel(s)
+
+      Sett all LEDs to :brd:`RED`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 070000 60**
+
+      Sett all LEDs to :byl:`YELLOW`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 070700 60**
+
+      Sett all LEDs to :bgn:`GREEN`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 000700 60**
+
+      Sett all LEDs to :bcy:`CYAN`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 000707 60**
+
+      Sett all LEDs to :bbl:`BLUE`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 000007 60**
+
+      Sett all LEDs to :bma:`MAGENTA`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 070007 60**
+
+      Sett all LEDs to :bwt:`WHITE` (all on):
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 070707 60**
+
+      Sett all LEDs to :bbk:`BLACK` (all off):
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 000000 60**

@@ -881,6 +881,9 @@
 .. |seeeduino_lotus_PStr_CON|	replace:: :ign:`Seeeduino Lotus Cortex-M0+ (CDC ACM)`
 .. |seeeduino_lotus_BCD_CON|	replace:: |zephyr_version_BCD|
 
+.. |Seeed Studio XIAO (6x10 RGB) MATRIX| replace::
+   :ref:`Seeed Studio XIAO (6x10 RGB) MATRIX <seengreat_pico_rgb_matrix_pes1>`
+
 .. |SeenGreat Pico RGB Matrix Panel Expansion S1| replace::
    :ref:`SeenGreat Pico RGB Matrix Panel Expansion S1 <seengreat_pico_rgb_matrix_pes1>`
 
@@ -1477,6 +1480,36 @@
 .. |seeeduino_xiao_PID_CON|	replace:: :ign:`802f`
 .. |seeeduino_xiao_PStr_CON|	replace:: :ign:`Seeed XIAO M0 (CDC ACM)`
 .. |seeeduino_xiao_BCD_CON|	replace:: |zephyr_version_BCD|
+
+.. |zephyr:board:xiao_ble| replace::
+   :external+zephyr:zephyr:board:`xiao_ble`
+
+.. |zephyr:board:xiao_esp32c3| replace::
+   :external+zephyr:zephyr:board:`xiao_esp32c3`
+
+.. |zephyr:board:xiao_esp32c5| replace::
+   :external+zephyr:zephyr:board:`xiao_esp32c5`
+
+.. |zephyr:board:xiao_esp32c6| replace::
+   :external+zephyr:zephyr:board:`xiao_esp32c6`
+
+.. |zephyr:board:xiao_esp32s3| replace::
+   :external+zephyr:zephyr:board:`xiao_esp32s3`
+
+.. |zephyr:board:xiao_nrf54l15| replace::
+   :external+zephyr:zephyr:board:`xiao_nrf54l15`
+
+.. |zephyr:board:xiao_nrf54lm20a| replace::
+   :external+zephyr:zephyr:board:`xiao_nrf54lm20a`
+
+.. |zephyr:board:xiao_nrf54lm20b| replace::
+   :external+zephyr:zephyr:board:`xiao_nrf54lm20b`
+
+.. |zephyr:board:xiao_mg24| replace::
+   :external+zephyr:zephyr:board:`xiao_mg24`
+
+.. |zephyr:board:xiao_ra4m1| replace::
+   :external+zephyr:zephyr:board:`xiao_ra4m1`
 
 .. |bridle:board:xiao_rp2040| replace:: :ref:`xiao_rp2040_board-extensions`
 .. :bridle:board:`xiao_rp2040`

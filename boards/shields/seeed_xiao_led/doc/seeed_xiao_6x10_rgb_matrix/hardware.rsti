@@ -1,0 +1,32 @@
+.. list-table::
+   :align: center
+   :width: 100%
+   :widths: 66, 33
+
+   * - .. rubric:: Features and Resources
+     - .. rubric:: Printed Circuit Board
+
+   * - :hwftlbl-vdd:`5V/500㎃` :brd:`up to 1.2A`
+
+       :hwftlbl-led:`RGB(6×10)`
+       :hwftlbl-scr:`LED(6×10)`
+
+       :hwftlbl-pio:`1`
+
+       .. rst-class:: rst-columns
+
+       - On-shield :bbl:`6×10 RGB LED matrix`
+       - :bbl:`1 GPIO` pin via :bbk:`edge pinout`
+       - :bbl:`RGB888`, 24-bit color depth
+       - :bbl:`800㎅/ₛ` data rate
+       - Adjustable brightness with 256 level
+       - 6 × 10 pixels
+
+       .. rubric:: Design Data
+       .. rst-class:: rst-columns
+
+       - `Seeed Studio XIAO MATRIX Schematic`_
+
+     - .. image:: hardware.jpg
+          :align: center
+          :alt: Seeed Studio XIAO MATRIX

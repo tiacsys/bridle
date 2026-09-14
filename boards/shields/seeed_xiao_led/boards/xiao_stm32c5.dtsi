@@ -1,0 +1,56 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <freq.h>
+
+/* For safety reasons, disconnect ADC channel from PA0 */
+&adc1 {
+	pinctrl-0 = <&adc1_in1_pa1 &adc1_in2_pa2 &adc1_in3_pa3>;
+	/delete-node/ channel@0;
+};
+
+#include <zephyr/dt-bindings/dma/stm32_dma.h>
+
+/* Ensure the associated DMA controller node is explicitly enabled */
+&lpdma1 {
+	status = "okay";
+};
+
+&uart4 {
+	pinctrl-0 = <&uart4_tx_pa0>;
+	pinctrl-names = "default";
+
+	status = "okay";
+
+	/* Enable DMA channels */
+	dmas = <&lpdma1 0 19 (STM32_DMA_PERIPH_TX | STM32_DMA_PRIORITY_MEDIUM)>;
+	dma-names = "tx";
+
+	/* WS2812 baudrate is 800kHz * 3 = 2.4MHz. */
+	current-speed = <DT_FREQ_K(2400)>;	/* Tbit = 3.75 us / 9 */
+
+	/* Frame constraint: (1 start + 7 data + 1 stop) = 9 bits total. */
+	data-bits = <7>;
+
+	/* WS2812 requires tx-invert to create an idle-low signal. */
+	tx-invert;
+
+	ws2812: ws2812 {
+		compatible = "worldsemi,ws2812-uart";
+
+		status = "disabled";
+
+		/* Timing based on 1.5MHz baudrate (667ns per bit):
+		 * T1H for '1' bit (2 high bits) = 2 * 416.67 ns = 833.33 ns.
+		 * T0H for '0' bit (1 high bit) = 1 * 416.67 ns = 416.67 ns.
+		 */
+		one-symbol = <6>;	/* 0b110 */
+		zero-symbol = <4>;	/* 0b100 */
+		bits-per-symbol = <3>;
+		reset-delay = <50>;
+	};
+};
+
+xiao_stm32c5_leds: &ws2812 {};

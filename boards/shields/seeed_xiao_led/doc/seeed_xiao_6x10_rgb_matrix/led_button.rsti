@@ -1,0 +1,5 @@
+.. hint::
+
+   Neither LED Blinky nor LED Fade can be built and executed on
+   |Seeed Studio XIAO (6x10 RGB) MATRIX|, because this shield has only digital
+   RGB LEDs. A simple GPIO or PWM control is not possible!

@@ -1,0 +1,52 @@
+.. list-table::
+   :align: center
+   :width: 100%
+   :widths: 66, 33
+
+   * - .. rubric:: Pin Mapping
+     - .. rubric:: Pinout
+
+   * - :on-edge(1-15):
+          :hwftlbl-pio:`1`
+
+       :on-shield:
+          :hwftlbl-led:`RGB(6×10)`
+          :hwftlbl-scr:`LED(6×10)`
+
+       :wiring:
+
+          .. image:: wiring_mg24.jpg
+             :align: left
+             :alt: Seeed Studio XIAO MATRIX for XIAO MG24 wiring
+
+       .. rubric:: Default Zephyr Peripheral Mapping
+
+       |nbsp|
+
+       .. rst-class:: rst-columns edge-pinout
+
+       - | :rpi-pico-pin:`1` :rpi-pico-spi:`SPI1_COPI` (IADC0:0) : PC0
+         | :rpi-pico-pin-nc:`nc` def. on-shield user :rpi-pico-sys:`RGB_LED_DI`
+       - | :rpi-pico-pin:`2` :rpi-pico-spi:`SPI1_CIPO` (IADC0:1) : PC1
+       - | :rpi-pico-pin:`3` :rpi-pico-spi:`SPI1_SCK` (IADC0:2) : PC2
+       - | :rpi-pico-pin:`4` IADC0:3 : PC3
+       - | :rpi-pico-pin:`5` I2C0_SDA : PC4
+       - | :rpi-pico-pin:`6` I2C0_SCL : PC5
+       - | :rpi-pico-pin:`7` UART1_TX : PC6
+       - | :rpi-pico-pin:`8` UART1_RX : PC7
+       - | :rpi-pico-pin:`9` SPI0_SCK : PA3
+       - | :rpi-pico-pin:`10` SPI0_CIPO : PA4
+       - | :rpi-pico-pin:`11` SPI0_COPI : PA5
+       - | :rpi-pico-pin:`12` :rpi-pico-vdd:`VSYS`
+       - | :rpi-pico-pin:`13` :rpi-pico-gnd:`GND`
+       - | :rpi-pico-pin:`14` :rpi-pico-sys:`VBUS`
+
+       .. rubric:: Devicetree compatible
+
+       - :dtcompatible:`seeed,xiao-gpio`
+       - :dtcompatible:`worldsemi,ws2812-spi`
+
+     - .. image:: pinouts_mg24.jpg
+          :align: center
+          :width: 100%
+          :alt: Seeed Studio XIAO MATRIX for XIAO MG24 edge pinout

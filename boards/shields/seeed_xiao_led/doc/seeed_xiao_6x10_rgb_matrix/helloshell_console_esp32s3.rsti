@@ -1,0 +1,238 @@
+.. rubric:: Open the ESP-IDF Device Monitor
+
+(text in bold is a command input)
+
+.. container:: highlight highlight-console notranslate
+
+   .. parsed-literal::
+
+      :bgn:`user@host:~$` **(cd build/seeed_xiao_6x10_rgb_matrix-helloshell && west espressif monitor)**
+      Connecting....
+      Detecting chip type... ESP32-S3
+      Auto-selected /dev/ttyACM0 for esp32s3
+      Hard resetting via RTS pin...
+      :yl:`--- idf_monitor on /dev/ttyACM0 115200 ---`
+      :yl:`--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---`
+      ESP-ROM:esp32s3-20210327
+      Build:Mar 27 2021
+      rst:0x15 (USB_UART_CHIP_RESET),boot:0x8 (SPI_FAST_FLASH_BOOT)
+      Saved PC:0x403775a6
+      SPIWP:0xee
+      mode:DIO, clock div:1
+      load:0x3fc92770,len:0x2d3c
+      load:0x40374000,len:0xe75c
+      load:0x50000000,len:0x24
+      SHA-256 comparison failed:
+      Calculated: 118c310298f9129d1a24a17097b6cfbfbb77b5cfac5c64f2ed70406b8e2a6aff
+      Expected: 0000000000eb0000000000000000000000000000000000000000000000000000
+      Attempting to boot anyway...
+      entry 0x4037b464
+      I (soc_init): ESP Simple boot
+      I (soc_init): compile time Oct 29 2026 11:45:33
+      W (soc_init): Unicore bootloader
+      I (soc_init): chip revision: v0.2
+      I (flash_init): Boot SPI Speed : 80MHz
+      I (flash_init): SPI Mode       : DIO
+      I (flash_init): SPI Flash Size : 8MB
+      I (boot): DRAM	: lma=00000020h vma=3fc92770h size=02d3ch ( 11580)
+      I (boot): IRAM	: lma=00002d64h vma=40374000h size=0e75ch ( 59228)
+      I (boot): RTC_DATA	: lma=000114c8h vma=50000000h size=00024h (    36)
+      I (boot): IROM	: lma=00020000h vma=42000000h size=14c30h ( 85040)
+      I (boot): DROM	: lma=00040000h vma=3c020000h size=08434h ( 33844)
+      I (boot): libc heap size 295 kB.
+      I (cache): Instruction cache: size 16KB, 8Ways, cache line size 32Byte
+      I (spi_flash): detected chip: gd
+      I (spi_flash): flash io: dio
+
+      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
+      Hello World! I'm THE SHELL from xiao_esp32s3
+      :bgn:`uart:~$` **█**
+
+.. rubric:: Simple test execution on target
+
+(text in bold is a command input)
+
+.. tabs::
+
+   .. group-tab:: Basics
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **hello -h**
+            hello - say hello
+            :bgn:`uart:~$` **hello**
+            Hello from shell.
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **hwinfo devid**
+            Length: 6
+            ID: 0x835ccc90c8fb
+
+            :bgn:`uart:~$` **kernel version**
+            Zephyr version |zephyr_version_number_em|
+
+            :bgn:`uart:~$` **bridle version**
+            Bridle version |shortversion_number_em|
+
+            :bgn:`uart:~$` **bridle version long**
+            Bridle version |longversion_number_em|
+
+            :bgn:`uart:~$` **bridle info**
+            Zephyr: |zephyr_release_number_em|
+            Bridle: |release_number_em|
+
+      .. rubric:: On XIAO ESP32S3
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **device list**
+            devices:
+            - clock (READY)
+              DT node labels: clock
+            - gpio\ @\ 60004800 (READY)
+              DT node labels: gpio1
+            - gpio\ @\ 60004000 (READY)
+              DT node labels: gpio0
+            - uart\ @\ 60038000 (READY)
+              DT node labels: usb_serial
+            - uart\ @\ 60000000 (READY)
+              DT node labels: uart0 xiao_serial
+            - flash-controller\ @\ 60002000 (READY)
+              DT node labels: flash
+            - i2c\ @\ 60013000 (READY)
+              DT node labels: i2c0 xiao_i2c
+            - rmt\ @\ 60016000 (READY)
+              DT node labels: rmt
+            - leds (READY)
+            - ws2812 (READY)
+              DT node labels: ws2812 xiao_esp32_leds rgb_led_chain ws2812_6x10 led_strip
+
+      .. rubric:: On XIAO ESP32S3 Sense
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **device list**
+            devices:
+            - clock (READY)
+              DT node labels: clock
+            - dma\ @\ 6003f000 (READY)
+              DT node labels: dma
+            - gpio\ @\ 60004800 (READY)
+              DT node labels: gpio1
+            - gpio\ @\ 60004000 (READY)
+              DT node labels: gpio0
+            - uart\ @\ 60038000 (READY)
+              DT node labels: usb_serial
+            - uart\ @\ 60000000 (READY)
+              DT node labels: uart0 xiao_serial
+            - flash-controller\ @\ 60002000 (READY)
+              DT node labels: flash
+            - i2c\ @\ 60027000 (READY)
+              DT node labels: i2c1
+            - i2c\ @\ 60013000 (READY)
+              DT node labels: i2c0 xiao_i2c
+            - rmt\ @\ 60016000 (READY)
+              DT node labels: rmt
+            - leds (READY)
+            - ws2812 (READY)
+              DT node labels: ws2812 xiao_esp32_leds rgb_led_chain ws2812_6x10 led_strip
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **history**
+            [  0] history
+            [  1] device list
+            [  2] bridle info
+            [  3] bridle version long
+            [  4] bridle version
+            [  5] kernel version
+            [  6] hwinfo devid
+            [  7] hello
+            [  8] hello -h
+
+   .. group-tab:: LED Strip
+
+      Operate with the RGB digital LED strip :hwftlbl-led:`60 RGB`
+      at :rpi-pico-pio:`RMT_OUT0` / :rpi-pico-pio:`GPIO1`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip get_length led_strip**
+            ws2812 has 60 pixel(s)
+
+      Sett all LEDs to :brd:`RED`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 070000 60**
+
+      Sett all LEDs to :byl:`YELLOW`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 070700 60**
+
+      Sett all LEDs to :bgn:`GREEN`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 000700 60**
+
+      Sett all LEDs to :bcy:`CYAN`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 000707 60**
+
+      Sett all LEDs to :bbl:`BLUE`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 000007 60**
+
+      Sett all LEDs to :bma:`MAGENTA`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 070007 60**
+
+      Sett all LEDs to :bwt:`WHITE` (all on):
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 070707 60**
+
+      Sett all LEDs to :bbk:`BLACK` (all off):
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 000000 60**
