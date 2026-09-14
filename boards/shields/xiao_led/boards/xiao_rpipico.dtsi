@@ -1,0 +1,6 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+xiao_rpipico_leds: &ws2812 {};
