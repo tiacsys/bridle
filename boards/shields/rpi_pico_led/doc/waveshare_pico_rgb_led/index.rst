@@ -37,6 +37,14 @@ LED Blinky and Button
 More Samples
 ************
 
+LED strip test pattern
+======================
+
+Drives an RGB LED strip that must defined by the shields Devicetree.
+See also Zephyr sample: :external+zephyr:zephyr:code-sample:`led-strip`.
+
+.. include:: ledstrip_test.rsti
+
 LED Display Orientation and Bit Order Test
 ==========================================
 

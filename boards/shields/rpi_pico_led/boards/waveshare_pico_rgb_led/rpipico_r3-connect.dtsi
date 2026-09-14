@@ -1,0 +1,18 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2024-2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include "rpipico_r3-pinctrl.dtsi"
+
+&pico_pio0 {
+	pico_pio0_ws2812: pico-pio0-ws2812 {
+		compatible = "worldsemi,ws2812-rpi_pico-pio";
+		status = "disabled";
+		pinctrl-0 = <&pio0_ws2812_leds>;
+		pinctrl-names = "default";
+	};
+};
+
+rpipico_pio: &pico_pio0 {};
+pio_led_strip: &pico_pio0_ws2812 {};

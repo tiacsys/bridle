@@ -2,6 +2,14 @@
 # SPDX-License-Identifier: Apache-2.0
 
 shields:
+  - name: seengreat_pico_rgb_matrix_pes1
+    full_name: SeenGreat Pico RGB Matrix Panel Expansion S1
+    vendor: seengreat
+    supported_features:
+      - audio
+      - display
+      - led
+
   - name: waveshare_pico_rgb_led
     full_name: Waveshare Pico RGB LED
     vendor: waveshare

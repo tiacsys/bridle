@@ -3,8 +3,8 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-&pio0 {
-	status = "okay";
-};
+/* link to adc node from board for RP2040 SoC */
+pico_adc: &adc {};
 
-rpipico_pio_leds: &pio0 {};
+/* link to pio0 node from board for RP2040 SoC */
+pico_pio0: &pio0 {};

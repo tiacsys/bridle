@@ -1,0 +1,47 @@
+.. list-table::
+   :align: center
+   :width: 100%
+   :widths: 66, 33
+
+   * - .. rubric:: Features and Resources
+     - .. rubric:: Printed Circuit Board
+
+   * - :hwftlbl-vdd:`5V/500㎃` :brd:`up to 3.5A`
+
+       :hwftlbl-led:`RGB(20×10)`
+       :hwftlbl-scr:`LED(20×10)`
+
+       :hwftlbl-btn:`RUN/RESET`
+
+       :hwftlbl-pio:`1`
+       :hwftlbl-adc:`2`
+       :hwftlbl-i2c:`1`
+
+       .. rst-class:: rst-columns
+
+       - On-shield :bbl:`20×10 RGB LED matrix`
+       - :bbl:`4 GPIO` pin via :bbk:`edge pinout`
+       - :bbl:`2 AIN` pin via :bbk:`edge pinout`
+
+       - :bbl:`RGB888`, 24-bit color depth
+       - :bbl:`800㎅/ₛ` data rate
+       - Adjustable brightness with 256 level
+       - 20 × 10 pixels
+       - :bbk:`1 RTC with additional SRAM`
+       - :bbk:`1 LDR light sensor`
+       - :bbk:`1 MIC analog audio sampling`
+       - :bbk:`1 RESET key`
+
+       - :bbk:`1 RST signal for RTC`
+       - :bbl:`1 I2C` controller for RTC
+       - :bbl:`1 ADC` analog input for LDR light sensor
+       - :bbl:`1 ADC` analog input for microphone audio sampling
+
+       .. rubric:: Design Data
+       .. rst-class:: rst-columns
+
+       - `SeenGreat Pico RGB Matrix Panel Expansion S1 Schematic`_
+
+     - .. image:: hardware.jpg
+          :align: center
+          :alt: SeenGreat Pico RGB Matrix Panel Expansion S1

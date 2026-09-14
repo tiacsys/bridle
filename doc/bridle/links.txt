@@ -1381,6 +1381,14 @@
 .. _`PiMoroni Pico Display Pack 2.0 (PIM580) Schematic`:
    https://cdn.shopify.com/s/files/1/0174/1800/files/pico_display_2_schematic.pdf
 
+.. #### Links to the SeenGreat Pico RGB LED
+
+.. _`SeenGreat Pico RGB Matrix Panel Expansion S1`:
+   https://seengreat.com/wiki/131/pico-rgb-matrix-expansion-s1
+
+.. _`SeenGreat Pico RGB Matrix Panel Expansion S1 Schematic`:
+   https://seengreat.com/upload/file/2024/131/Pico%20RGB%20Matrix%20Expansion%20S1%20Schematic.pdf
+
 .. #### Links to the Spotpear Pico ALL GPIO TEST
 
 .. _`Spotpear Pico ALL GPIO TEST`:
@@ -1521,20 +1529,41 @@
 
 .. #### Links to Connectors, Headers, Switches or Bottons
 
+.. _`JST 2.0㎜ (PH) Connector`:
+   https://www.jst.com/products/crimp-style-connectors-wire-to-board-type/ph-connector
+
+.. _`(B/S)2B-PH-K-S`:
+   https://www.jst.com/wp-content/uploads/2025/06/ePH.pdf
+
+.. _`(B/S)B-PH-SM2-TB`:
+   https://www.jst.com/wp-content/uploads/2025/06/ePH.pdf
+
+.. _`PHR-2`:
+   https://www.jst.com/wp-content/uploads/2025/06/ePH.pdf
+
+.. _`(B/S)4B-PH-K-S`:
+   https://www.jst.com/wp-content/uploads/2025/06/ePH.pdf
+
+.. _`(B/S)B-PH-SM4-TB`:
+   https://www.jst.com/wp-content/uploads/2025/06/ePH.pdf
+
+.. _`PHR-4`:
+   https://www.jst.com/wp-content/uploads/2025/06/ePH.pdf
+
 .. _`JST 1.0㎜ (SH) Connector`:
    https://www.jst.com/products/crimp-style-connectors-wire-to-board-type/sh-connector
 
 .. _`(B/S)M03B-SRSS-TB`:
-   https://www.jst.com/wp-content/uploads/2021/01/eSH-new.pdf
+   https://www.jst.com/wp-content/uploads/2025/06/eSH.pdf
 
 .. _`SHR-03V-S(-B)`:
-   https://www.jst.com/wp-content/uploads/2021/01/eSH-new.pdf
+   https://www.jst.com/wp-content/uploads/2025/06/eSH.pdf
 
 .. _`(B/S)M04B-SRSS-TB`:
-   https://www.jst.com/wp-content/uploads/2021/01/eSH-new.pdf
+   https://www.jst.com/wp-content/uploads/2025/06/eSH.pdf
 
 .. _`SHR-04V-S(-B)`:
-   https://www.jst.com/wp-content/uploads/2021/01/eSH-new.pdf
+   https://www.jst.com/wp-content/uploads/2025/06/eSH.pdf
 
 .. _`0.5K-AX-nPWB`:
    http://www.szhdgc.com/a/FPCxilie/0.50mm/2022/0813/203.html
@@ -1542,7 +1571,7 @@
 .. _`0.5K-AX-nPWB Engineering Drawing`:
    http://www.szhdgc.com/uploads/soft/230215/0.5K-AX-nPWB
 
-.. #### Links to Buzzer, Speaker or similar for Acoustic Coupling
+.. #### Links to Buzzer, Speaker, Microphone or similar for Acoustic Coupling
 
 .. _`CMT-9504`:
    https://www.cuidevices.com/product/audio/buzzers/audio-transducers/cmt-9504-87-smt-tr
@@ -1577,6 +1606,13 @@
 .. _`KLJ-4020 Datasheet`:
    https://xonstorage.blob.core.windows.net/pdf/keliking_klj4020_xonjuly20_12_link.pdf
 .. https://datasheet.lcsc.com/lcsc/2005191833_KELIKING-KLJ-4020_C556936.pdf
+
+.. _`MSM321A3729H9BP`:
+   https://en.memsensing.com/product/176.html
+.. https://www.memsensing.com/product/176.html
+
+.. _`MSM321A3729H9BP Datasheet`:
+   https://seengreat.com/upload/file/2024/131/C966932_MSM321A3729H9BP.PDF
 
 .. _`TMB12A05`:
    https://www.jshnbuzzer.com/Product/5VDC-85dB-Mini-Pin-Buzzer.html
@@ -1913,6 +1949,14 @@
 .. _`XC6219 Datasheet`:
    https://product.torexsemi.com/system/files/series/xc6219.pdf
 
+.. #### Links to Amps, Op-Amps and Power-Amps or similar for Audio or Signal amplification
+
+.. _`MCP6022`:
+   https://www.microchip.com/en-us/product/mcp6022
+
+.. _`MCP6022 Datasheet`:
+   https://ww1.microchip.com/downloads/aemDocuments/documents/MSLD/ProductDocuments/DataSheets/MCP6021-Data-Sheet-DS20001685.pdf
+
 .. #### Links to Standard Logic Gates or similar to drive digital logic
 
 .. _`74HC(T)04`:
@@ -2008,6 +2052,12 @@
 .. https://cdck-file-uploads-europe1.s3.dualstack.eu-west-1.amazonaws.com/arduino/original/4X/b/3/b/b3bc4d09220c9a729f4e723224cde4177450f53b.pdf
 
 .. #### Links to Real-Time-Clocks or similar to count time and date
+
+.. _`DS1302`:
+   https://www.analog.com/en/products/ds1302.html
+
+.. _`DS1302 Datasheet`:
+   https://www.analog.com/media/en/technical-documentation/data-sheets/DS1302.pdf
 
 .. _`DS3231`:
    https://www.analog.com/en/products/ds3231.html

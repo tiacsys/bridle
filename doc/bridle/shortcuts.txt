@@ -873,6 +873,9 @@
 .. |seeeduino_lotus_PStr_CON|	replace:: :ign:`Seeeduino Lotus Cortex-M0+ (CDC ACM)`
 .. |seeeduino_lotus_BCD_CON|	replace:: |zephyr_version_BCD|
 
+.. |SeenGreat Pico RGB Matrix Panel Expansion S1| replace::
+   :ref:`SeenGreat Pico RGB Matrix Panel Expansion S1 <seengreat_pico_rgb_matrix_pes1>`
+
 .. |Spotpear Pico ALL GPIO TEST| replace::
    :ref:`Spotpear Pico ALL GPIO TEST <spotpear_pico_test>`
 

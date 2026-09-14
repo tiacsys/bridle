@@ -1,0 +1,19 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <freq.h>
+
+&rpipico_spi_rtc {
+	spi_rtc_ds1302: spi-rtc-ds1302@0 {
+		compatible = "maxim,ds1302";
+		status = "disabled";
+		reg = <0>;
+
+		/* max speed is 2MHz at 5V, or 500kHz at 2.2V */
+		spi-max-frequency = <DT_FREQ_K(500)>;
+	};
+};
+
+rtc_extern: &spi_rtc_ds1302 {};

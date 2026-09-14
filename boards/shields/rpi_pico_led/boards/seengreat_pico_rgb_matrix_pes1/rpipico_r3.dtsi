@@ -1,0 +1,74 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include "rpipico_r3-connect.dtsi"
+
+#include "led_matrix.dtsi"
+#include "rtc_extern.dtsi"
+
+#include <zephyr/dt-bindings/adc/adc.h>
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
+#include <zephyr/dt-bindings/gpio/raspberrypi-pico-header-r3.h>
+
+&led_strip_matrix {
+	status = "okay";
+};
+
+&led_strip {
+	status = "okay";
+	gpios = <&rpipico_header RPIPICO_HEADER_R3_D22 GPIO_ACTIVE_HIGH>; /* PIO0:OUT @ GP22 */
+};
+
+&pio_led_strip {
+	status = "okay";
+};
+
+&rpipico_pio_led {
+	status = "okay";
+};
+
+&rtc_extern {
+	status = "okay";
+};
+
+&rpipico_spi_rtc {
+	status = "okay";
+	cs-gpios = <&rpipico_header RPIPICO_HEADER_R3_D6 GPIO_ACTIVE_HIGH>;  /* CE @ GP6:GPIO */
+	sdo-gpios = <&rpipico_header RPIPICO_HEADER_R3_D7 GPIO_ACTIVE_HIGH>; /* I/O @ GP7:GPIO */
+	clk-gpios = <&rpipico_header RPIPICO_HEADER_R3_D8 GPIO_ACTIVE_HIGH>; /* SCLK @ GP8:GPIO */
+
+};
+
+&zephyr_user {
+	io-channels = <&rpipico_adc 0>, /* LDR @ GP26:ADC0 */
+		      <&rpipico_adc 2>; /* MIC @ GP28:ADC2 */
+};
+
+&rpipico_adc {
+	status = "okay";
+
+	/delete-node/ channel@0;
+	channel@0 {
+		reg = <0>; /* LDR */
+		zephyr,gain = "ADC_GAIN_1";
+		zephyr,reference = "ADC_REF_INTERNAL";
+		zephyr,acquisition-time = <ADC_ACQ_TIME_DEFAULT>;
+		zephyr,resolution = <12>;
+	};
+
+	/delete-node/ channel@1;
+
+	/delete-node/ channel@2;
+	channel@2 {
+		reg = <2>; /* MIC */
+		zephyr,gain = "ADC_GAIN_1";
+		zephyr,reference = "ADC_REF_INTERNAL";
+		zephyr,acquisition-time = <ADC_ACQ_TIME_DEFAULT>;
+		zephyr,resolution = <12>;
+	};
+
+	/delete-node/ channel@3;
+};

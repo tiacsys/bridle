@@ -1,0 +1,77 @@
+.. list-table::
+   :align: center
+   :width: 66%
+   :header-rows: 1
+
+   * - .. image:: positions.jpg
+          :align: center
+          :width: 500
+          :alt: SeenGreat Pico RGB Matrix Panel Expansion S1 details
+
+   * - .. container:: twocol
+
+          .. container:: leftside
+
+             .. admonition:: There is no separate power supply on shield!
+                :class: danger
+
+                The current of this product is close to 3.5A when RGB
+                is fully lit. It is recommended to use a power supply
+                of 5V/3A, or more. Since the USB output current of the
+                computer is low, software should set the brightness data
+                at RGB555, even if the full light is only about 300㎃.
+
+                Also do not set the current too low, if your brightness
+                data is less than 4 bits, part of the light will not be
+                bright.
+
+             1. | :strong:`CR1220`
+                | 3.0V @ 40㎃h coin battery holder, backup power supply for RTC
+             #. | :strong:`Raspberry Pi Pico (2) female header`
+             #. | :strong:`LDR (CdS) connector`
+                | Cadmium Sulfide (CdS) photoresistor (LDR) with:
+                | about 2~20㏀ on light and ≫1㏁ on darkness
+
+          .. container:: rightside
+
+             4. | :strong:`DS1302`
+                | Real-Time-Clock (RTC), trickle charge capable, with:
+                | crystal oscillator (TCXO) and crystal, battery input for backup
+                | clock and SRAM data on power lost, 31 × 8 bit SRAM, 1× time and
+                | date keeping with leap year compensation, valid up to 2100
+             #. | :strong:`RUN/RESET button`
+                | momentary push buttons
+             #. | :strong:`MSM321A3729H9BP`(over :strong:`MCP6022-I/SN`)
+                | Analog silicon MEMS microphone on Op-Amp, with:
+                | -32㏈ sensitivity and 100~10000㎐ frequency response
+             #. | :strong:`100㏀ potentiometer`
+                | Analog microphone amplification adjustment
+             #. | :strong:`External RGB LED matrix connector`
+                | JST 2.0㎜ (PH) connector
+             #. | :strong:`20×10 WS2812B`
+                | cascaded RGB LED matrix
+
+.. rubric:: Data Sheets
+.. rst-class:: rst-columns
+
+- .. rubric:: WS2812B_
+- `WS2812B Datasheet V5`_
+- `WS2812B Datasheet V2`_
+- `WS2812B Datasheet V1`_
+- `Understanding the WS2812`_
+- `WS2812B with RP2040 PIO & DMA`_
+- .. rubric:: DS1302_
+- `DS1302 Datasheet`_
+- .. rubric:: MCP6022_
+- `MCP6022 Datasheet`_
+- .. rubric:: MSM321A3729H9BP_
+- `MSM321A3729H9BP Datasheet`_
+- .. rubric:: `GL55/GL56 (φ5)`_
+- `GL55/GL56 (φ5) Datasheet`_
+- `GL55/GL56 (φ5) Datasheet (CN)`_
+- `Senba Optoelectronic – LDR Sensors`_
+- .. rubric:: `JST 2.0㎜ (PH) Connector`_
+- `(B/S)B-PH-SM2-TB`_
+- `PHR-2`_
+- `(B/S)B-PH-SM4-TB`_
+- `PHR-4`_

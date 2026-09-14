@@ -4,9 +4,9 @@
  */
 
 &pinctrl {
-	pio0_ws2812_leds_wsprl: pio0_ws2812_leds_wsprl {
+	pio0_ws2812_leds: pio0_ws2812_leds {
 		group6_pio {
-			pinmux = <PIO0_P6>;		/* GP6: PIO0 */
+			pinmux = <PIO0_P6>; /* GP6: PIO0 */
 		};
 	};
 };

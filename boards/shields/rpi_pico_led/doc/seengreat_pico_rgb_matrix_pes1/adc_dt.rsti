@@ -1,0 +1,188 @@
+Read and print the analog input value from the one on-shield
+high-resistance LDR and amplified analog MEMS microphone using
+the :external+zephyr:ref:`ADC driver API <adc_api>`. That are:
+
+| :hwftlbl:`Rₗ` and :hwftlbl:`Vₘ` :
+  :dts:`zephyr,user { io-channels = <&rpipico_adc 0>,
+                                    <&rpipico_adc 2>; };`
+
+.. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+
+   .. group-tab:: Raspberry Pi Pico
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/adc/adc_dt
+         :build-dir: seengreat_pico_rgb_matrix_pes1-drivers_adc
+         :board: rpi_pico/rp2040/bbe
+         :shield: "seengreat_pico_rgb_matrix_pes1"
+         :snippets: "usb-console"
+         :goals: flash
+         :west-args: -p
+         :flash-args: -r uf2
+         :compact:
+
+   .. group-tab:: Raspberry Pi Pico 2
+
+      .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/adc/adc_dt
+         :build-dir: seengreat_pico_rgb_matrix_pes1-drivers_adc
+         :board: rpi_pico2/rp2350a/hazard3_0/bbe
+         :shield: "seengreat_pico_rgb_matrix_pes1"
+         :snippets: "usb-console"
+         :goals: flash
+         :west-args: -p
+         :flash-args: -r uf2
+         :compact:
+
+      .. rubric:: On ARM Cortex-M33
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/adc/adc_dt
+         :build-dir: seengreat_pico_rgb_matrix_pes1-drivers_adc
+         :board: rpi_pico2/rp2350a/m33_0/bbe
+         :shield: "seengreat_pico_rgb_matrix_pes1"
+         :snippets: "usb-console"
+         :goals: flash
+         :west-args: -p
+         :flash-args: -r uf2
+         :compact:
+
+   .. group-tab:: Raspberry Pi Pico 2W
+
+      .. rubric:: On ARM Cortex-M33
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/adc/adc_dt
+         :build-dir: seengreat_pico_rgb_matrix_pes1-drivers_adc
+         :board: rpi_pico2/rp2350a/m33_0/w/bbe
+         :shield: "seengreat_pico_rgb_matrix_pes1"
+         :snippets: "usb-console"
+         :goals: flash
+         :west-args: -p
+         :flash-args: -r uf2
+         :compact:
+
+   .. group-tab:: Raspberry Pi Pico W
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/adc/adc_dt
+         :build-dir: seengreat_pico_rgb_matrix_pes1-drivers_adc
+         :board: rpi_pico/rp2040/w/bbe
+         :shield: "seengreat_pico_rgb_matrix_pes1"
+         :snippets: "usb-console"
+         :goals: flash
+         :west-args: -p
+         :flash-args: -r uf2
+         :compact:
+
+   .. group-tab:: Waveshare RP2040-Plus
+
+      .. rubric:: on standard ``4㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/adc/adc_dt
+         :build-dir: seengreat_pico_rgb_matrix_pes1-drivers_adc
+         :board: waveshare_rp2040_plus
+         :shield: "seengreat_pico_rgb_matrix_pes1"
+         :snippets: "usb-console"
+         :goals: flash
+         :west-args: -p
+         :flash-args: -r uf2
+         :compact:
+
+      .. rubric:: on extended ``16㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/adc/adc_dt
+         :build-dir: seengreat_pico_rgb_matrix_pes1-drivers_adc
+         :board: waveshare_rp2040_plus@16mb
+         :shield: "seengreat_pico_rgb_matrix_pes1"
+         :snippets: "usb-console"
+         :goals: flash
+         :west-args: -p
+         :flash-args: -r uf2
+         :compact:
+
+   .. zephyr-keep-sorted-stop
+
+.. rubric:: Simple test execution on target
+
+.. container:: highlight highlight-console notranslate no-copybutton
+
+   .. parsed-literal::
+
+      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
+      ADC reading[0]:
+      - adc@4004c000, channel 0: 1116 = 899 mV
+      - adc@4004c000, channel 2: 1961 = 1579 mV
+      ADC reading[1]:
+      - adc@4004c000, channel 0: 1123 = 904 mV
+      - adc@4004c000, channel 2: 1970 = 1587 mV
+      ADC reading[2]:
+      - adc@4004c000, channel 0: 1126 = 907 mV
+      - adc@4004c000, channel 2: 1972 = 1588 mV
+      ADC reading[3]:
+      - adc@4004c000, channel 0: 1121 = 903 mV
+      - adc@4004c000, channel 2: 1973 = 1589 mV
+      ADC reading[4]:
+      - adc@4004c000, channel 0: 1835 = 1478 mV
+      - adc@4004c000, channel 2: 1966 = 1583 mV
+      ADC reading[5]:
+      - adc@4004c000, channel 0: 2252 = 1814 mV
+      - adc@4004c000, channel 2: 1966 = 1583 mV
+      ADC reading[6]:
+      - adc@4004c000, channel 0: 2217 = 1786 mV
+      - adc@4004c000, channel 2: 1964 = 1582 mV
+      ADC reading[7]:
+      - adc@4004c000, channel 0: 1118 = 900 mV
+      - adc@4004c000, channel 2: 1955 = 1575 mV
+      ADC reading[8]:
+      - adc@4004c000, channel 0: 1121 = 903 mV
+      - adc@4004c000, channel 2: 1969 = 1586 mV
+      ADC reading[9]:
+      - adc@4004c000, channel 0: 1122 = 903 mV
+      - adc@4004c000, channel 2: 1966 = 1583 mV
+      ADC reading[10]:
+      - adc@4004c000, channel 0: 1118 = 900 mV
+      - adc@4004c000, channel 2: 1965 = 1583 mV
+      ADC reading[11]:
+      - adc@4004c000, channel 0: 1121 = 903 mV
+      - adc@4004c000, channel 2: 1960 = 1579 mV
+      ADC reading[12]:
+      - adc@4004c000, channel 0: 1118 = 900 mV
+      - adc@4004c000, channel 2: 1968 = 1585 mV
+      ADC reading[13]:
+      - adc@4004c000, channel 0: 1121 = 903 mV
+      - adc@4004c000, channel 2: 3822 = 3079 mV
+      ADC reading[14]:
+      - adc@4004c000, channel 0: 1120 = 902 mV
+      - adc@4004c000, channel 2: 1516 = 1221 mV
+      ADC reading[15]:
+      - adc@4004c000, channel 0: 1123 = 904 mV
+      - adc@4004c000, channel 2: 1967 = 1584 mV
+      ADC reading[16]:
+      - adc@4004c000, channel 0: 1128 = 908 mV
+      - adc@4004c000, channel 2: 1967 = 1584 mV
+      ADC reading[17]:
+      - adc@4004c000, channel 0: 1117 = 899 mV
+      - adc@4004c000, channel 2: 1969 = 1586 mV
+      ADC reading[18]:
+      - adc@4004c000, channel 0: 1131 = 911 mV
+      - adc@4004c000, channel 2: 1957 = 1576 mV
+      ADC reading[19]:
+      - adc@4004c000, channel 0: 1118 = 900 mV
+      - adc@4004c000, channel 2: 3646 = 2937 mV
+      ADC reading[20]:
+      - adc@4004c000, channel 0: 1132 = 912 mV
+      - adc@4004c000, channel 2: 1958 = 1577 mV
+      ADC reading[21]:
+      - adc@4004c000, channel 0: 1124 = 905 mV
+      - adc@4004c000, channel 2: 1981 = 1596 mV
+      ADC reading[22]:
+      - adc@4004c000, channel 0: 1124 = 905 mV
+      - adc@4004c000, channel 2: 1969 = 1586 mV
+      … … …

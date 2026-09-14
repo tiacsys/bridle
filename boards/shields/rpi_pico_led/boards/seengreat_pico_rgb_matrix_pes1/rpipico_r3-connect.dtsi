@@ -1,0 +1,44 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include "rpipico_r3-pinctrl.dtsi"
+
+&pico_pio0 {
+	pico_pio0_ws2812: pico-pio0-ws2812 {
+		compatible = "worldsemi,ws2812-rpi_pico-pio";
+		status = "disabled";
+		pinctrl-0 = <&pio0_ws2812_leds>;
+		pinctrl-names = "default";
+	};
+};
+
+rpipico_pio_led: &pico_pio0 {};
+pio_led_strip: &pico_pio0_ws2812 {};
+
+/* disable default I2C1 bus to avoid conflicts with bit-bang I2C access to the RTC */
+&pico_i2c1 {
+	status = "disabled";
+};
+
+/ {
+	pico_spi_rtc: pico-spi-rtc {
+		compatible = "zephyr,spi-bitbang";
+		status = "disabled";
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+	};
+};
+
+rpipico_spi_rtc: &pico_spi_rtc {};
+
+&pico_adc {
+	pinctrl-0 = <&adc_ldr_mic>;
+	pinctrl-names = "default";
+	#address-cells = <1>;
+	#size-cells = <0>;
+};
+
+rpipico_adc: &pico_adc {};

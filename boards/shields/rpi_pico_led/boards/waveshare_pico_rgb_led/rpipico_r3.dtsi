@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-rgb_led_pio: &rpipico_pio_leds {};
+#include "rpipico_r3-connect.dtsi"
 
 #include "led_matrix.dtsi"
 
@@ -16,12 +16,14 @@ rgb_led_pio: &rpipico_pio_leds {};
 };
 
 &led_strip {
+	status = "okay";
 	gpios = <&rpipico_header RPIPICO_HEADER_R3_D6 GPIO_ACTIVE_HIGH>; /* PIO0:OUT @ GP6 */
+};
+
+&pio_led_strip {
 	status = "okay";
 };
 
-&rgb_led_pio_ws2812 {
+&rpipico_pio {
 	status = "okay";
-	pinctrl-0 = <&pio0_ws2812_leds_wsprl>;
-	pinctrl-names = "default";
 };
