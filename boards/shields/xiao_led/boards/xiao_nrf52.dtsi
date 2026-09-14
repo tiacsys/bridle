@@ -1,0 +1,32 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <freq.h>
+
+&spi3 {
+	pinctrl-0 = <&spi3_ws2812_leds_default>;
+	pinctrl-1 = <&spi3_ws2812_leds_sleep>;
+	pinctrl-names = "default", "sleep";
+
+	status = "okay";
+
+	clock-frequency = <DT_FREQ_M(8)>;
+
+	ws2812: ws2812@0 {
+		compatible = "worldsemi,ws2812-spi";
+
+		status = "disabled";
+
+		reg = <0>;
+		spi-max-frequency = <DT_FREQ_M(8)>;  /* Tbit = 125.00 ns */
+
+		/* HI: 0xFC: 11111000: 0.625 us high and 0.375 us low */
+		/* LO: 0xC0: 11100000: 0.375 us high and 0.625 us low */
+		spi-one-frame = <0xf8>;
+		spi-zero-frame = <0xe0>;
+	};
+};
+
+xiao_nrf52_leds: &ws2812 {};

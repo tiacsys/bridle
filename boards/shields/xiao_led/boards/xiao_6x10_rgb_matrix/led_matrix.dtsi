@@ -1,0 +1,38 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <freq.h>
+#include <zephyr/dt-bindings/led/led.h>
+#include <zephyr/dt-bindings/display/panel.h>
+
+ws2812_6x10: &rgb_led_chain {
+	status = "disabled";
+
+	chain-length = <(6*10)>; /* 6x10 panel with RGB pixel */
+	color-mapping = <LED_COLOR_ID_GREEN
+			 LED_COLOR_ID_RED
+			 LED_COLOR_ID_BLUE>;
+};
+
+led_strip: &ws2812_6x10 {};
+
+/ {
+	led_strip_matrix_6x10: led-strip-matrix-6x10 {
+		compatible = "led-strip-matrix";
+
+		status = "disabled";
+
+		/* LED strip with circulative layout */
+		led-strips = <&led_strip>;
+		circulative;
+
+		/* 6x10 panel with RGB pixel and alpha channel */
+		width = <6>;
+		height = <10>;
+		pixel-format = <PANEL_PIXEL_FORMAT_ARGB_8888>;
+	};
+};
+
+led_strip_matrix: &led_strip_matrix_6x10 {};
