@@ -1,0 +1,49 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <freq.h>
+
+/*
+ * Due to limited on-chip resources, the standard XIAO SPI interface must
+ * be used; there is no way to route any SPI function unit with their COPI
+ * pin out to the XIAO D0 pin. But that also means that this shield can only
+ * be used with an additional hardware hack, an extra hard-wired copper bridge
+ * between the XIAO D10 and D0 pins. This connection must be set up manually!
+ *
+ * The only known conflict that can arise from this occurs when the on-chip
+ * DAC functional unit is used simultaneously with this copper bridge and this
+ * shield. In that exact scenario, two outputs would work against each other.
+ * This poses a high risk of damaging one or even both of the MCU outputs!
+ */
+
+&dac_global {
+	status = "disabled";
+};
+
+&dac0 {
+	status = "disabled";
+};
+
+&xiao_spi {
+	status = "okay";
+
+	clock-frequency = <DT_FREQ_M(8)>;
+
+	ws2812: ws2812@0 {
+		compatible = "worldsemi,ws2812-spi";
+
+		status = "disabled";
+
+		reg = <0>;
+		spi-max-frequency = <DT_FREQ_M(8)>; /* Tbit = 125.00 ns */
+
+		/* HI: 0xF8: 11111000: 0.625 us high and 0.375 us low */
+		/* LO: 0xE0: 11100000: 0.375 us high and 0.625 us low */
+		spi-one-frame = <0xf8>;
+		spi-zero-frame = <0xe0>;
+	};
+};
+
+xiao_ra4_leds: &ws2812 {};

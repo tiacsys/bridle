@@ -1,0 +1,10 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+&ws2812_pio0_default {
+	ws2812 {
+		pinmux = <PIO0_P26>;		/* GP26: PIO0 */
+	};
+};

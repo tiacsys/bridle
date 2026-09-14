@@ -1,0 +1,14 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/pinctrl/esp32s3-pinctrl.h>
+
+&pinctrl {
+	rmt_ws2812_leds_default: rmt_ws2812_leds_default {
+		group1 {
+			pinmux = <RMT_OUT0_GPIO1>;	/* RMT:OUT0 @ XIAO_D0(P0.01) */
+		};
+	};
+};

@@ -1,0 +1,16 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+rgb_led_chain: &xiao_xg24_leds {};
+
+#include "led_matrix.dtsi"
+
+&led_strip_matrix {
+	status = "okay";
+};
+
+&led_strip {
+	status = "okay";
+};

@@ -1,0 +1,19 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+rgb_led_chain: &xiao_rpipico_leds {};
+
+#include "led_matrix.dtsi"
+
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
+&led_strip_matrix {
+	status = "okay";
+};
+
+&led_strip {
+	gpios = <&xiao_d 0 GPIO_ACTIVE_HIGH>;	/* PIO0:OUT @ XIAO_D0(GP26) */
+	status = "okay";
+};
