@@ -1,0 +1,10 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+shield:
+  name: adafruit_neopixel_8x5_rgb_matrix_arduino
+  full_name: NeoPixel 8x5 RGB LED Pixel Matrix for Arduino
+  vendor: adafruit
+  supported_features:
+    - led_strip
+    - display
