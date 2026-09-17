@@ -1,0 +1,40 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2026 Navimatix GmbH
+ * SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <freq.h>
+#include <zephyr/dt-bindings/led/led.h>
+#include <zephyr/dt-bindings/display/panel.h>
+
+ws2812_4x4: &rgb_led_chain {
+	status = "disabled";
+
+	chain-length = <(4*4)>; /* 4x4 panel with RGB pixel */
+	color-mapping = <LED_COLOR_ID_GREEN
+			 LED_COLOR_ID_RED
+			 LED_COLOR_ID_BLUE>;
+};
+
+led_strip: &ws2812_4x4 {};
+
+/ {
+	led_strip_matrix_4x4: led-strip-matrix-4x4 {
+		compatible = "led-strip-matrix";
+
+		status = "disabled";
+
+		/* LED strip with circulative layout */
+		led-strips = <&led_strip>;
+		start-from-right;
+		circulative;
+
+		/* 4x4 panel with RGB pixel and alpha channel */
+		width = <4>;
+		height = <4>;
+		pixel-format = <PANEL_PIXEL_FORMAT_ARGB_8888>;
+	};
+};
+
+led_strip_matrix: &led_strip_matrix_4x4 {};
