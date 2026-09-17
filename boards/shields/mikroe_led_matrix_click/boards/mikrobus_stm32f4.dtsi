@@ -1,0 +1,58 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2026 Navimatix GmbH
+ * SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <freq.h>
+
+&plli2s {
+	/*
+	 * Note: because the PLLI2S is dependent on the main PLL, the latter
+	 *       should not be changed without checking impact on PLLI2S.
+	 *
+	 *       - PLL and PLLI2S clock input should be the same!
+	 *       - PLL M and PLLI2S M should have the same value!
+	 */
+	status = "okay";	/* 48MHz on PLLI2S */
+	clocks = <&clk_hse>;
+	div-m = <8>;
+	mul-n = <72>;
+	div-r = <3>;
+};
+
+&pll {
+	status = "okay";	/* 168MHz on PLL, 48MHz on USB/SDMMC */
+	clocks = <&clk_hse>;
+	div-m = <8>;
+	mul-n = <168>;
+	div-p = <2>;
+	div-q = <7>;
+};
+
+&rcc {
+	clock-frequency = <DT_FREQ_M(168)>;
+	clocks = <&pll>;	/* 168MHz on SYSCLK from PLL */
+	ahb-prescaler = <1>;	/* 168MHz on AHB (HCLK) */
+	apb1-prescaler = <4>;	/* 42MHz on APB1, 84MHz on APB1 Timer */
+	apb2-prescaler = <2>;	/* 84MHz on APB2, 168MHz on APB2 Timer */
+};
+
+&dma1 {
+	status = "okay";
+};
+
+&i2s3 {
+	pinctrl-0 = <&i2s3_sd_pb5>;	/* I2S3:SD @ MikroBus:RST(PB5) */
+	pinctrl-names = "default";
+
+	status = "okay";
+
+	ws2812: ws2812@0 {
+		compatible = "worldsemi,ws2812-i2s";
+		status = "disabled";
+		reg = <0>;
+	};
+};
+
+mikrobus_stm32f4_leds: &ws2812 {};
