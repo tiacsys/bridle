@@ -1,0 +1,25 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2026 Navimatix GmbH
+ * SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+rgb_led_chain: &mikrobus_rpipico_leds {};
+
+#include "led_matrix.dtsi"
+
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
+&gpio0 {
+	status = "okay";
+};
+
+&led_strip_matrix {
+	status = "okay";
+};
+
+&led_strip {
+	gpios = <&mikrobus_header 1 GPIO_ACTIVE_HIGH>;	/* PIO0:OUT @ MikroBus:RST(GP13) */
+	/* gpios = <&mikrobus_header 2 GPIO_ACTIVE_HIGH>;  PIO0:OUT @ MikroBus:CS(GP5) */
+	status = "okay";
+};
