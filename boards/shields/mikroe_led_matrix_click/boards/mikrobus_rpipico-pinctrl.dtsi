@@ -1,0 +1,14 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2026 Navimatix GmbH
+ * SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+&pinctrl {
+	pio0_ws2812_default: pio0_ws2812_default {
+		group1 {
+			pinmux = <PIO0_P13>;	/* IN1: mikroBus 1: RST (&gpio0 13) */
+			/* pinmux = <PIO0_P5>;	   IN2: mikroBus 2: CS  (&gpio0 5) */
+		};
+	};
+};
