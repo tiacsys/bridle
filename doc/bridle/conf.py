@@ -39,6 +39,10 @@ BRIDLE_WORKD = utils.get_builddir() / 'bridle'
 # Sphinx extensions within.
 sys.path.insert(0, str(BRIDLE_BASE / 'doc' / '_extensions'))
 
+# Add the 'scripts' directory to sys.path, to enable autodoc to import
+# 'rigc' for the rigs4zephyr API reference pages.
+sys.path.insert(0, str(BRIDLE_BASE / 'scripts'))
+
 # Add the 'extensions' directory to sys.path, to enable finding Zephyr's
 # Sphinx extensions within.
 sys.path.insert(0, str(ZEPHYR_BASE / 'doc' / '_extensions'))
@@ -165,7 +169,7 @@ extensions = [
     'sphinx.ext.intersphinx',
     'sphinx.ext.todo',
     'sphinx.ext.extlinks',
-    #   'sphinx.ext.autodoc',
+    'sphinx.ext.autodoc',
     'sphinx.ext.graphviz',
     'sphinx.ext.ifconfig',
     'sphinxcontrib.mscgen',

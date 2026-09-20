@@ -87,6 +87,7 @@ system (RTOS), which is built for **connected low power products** and
    documentation
    getting_started
    user_guides
+   rigs4zephyr
    examples
    boards/index
    snippets/index
