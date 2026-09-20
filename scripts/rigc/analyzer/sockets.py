@@ -109,7 +109,19 @@ def _compose_buses(
             elif len(candidates) == 1:
                 parent_bus = parent.buses[candidates[0]]
                 buses[kind] = BusRef(
-                    label=parent_bus.label, path=parent_bus.path, cs_pool=exposed.cs_pool.get(kind)
+                    label=parent_bus.label,
+                    path=parent_bus.path,
+                    cs_pool=exposed.cs_pool.get(kind),
+                    # existing_cs_gpios/existing_child_regs are facts of
+                    # the PHYSICAL controller (parent_bus.path), not of
+                    # the exposing carrier -- a pass-through composition
+                    # must carry them over unchanged, the same as
+                    # label/path themselves, so analyzer/cs.py sees the
+                    # board's own wiring identically whether a device
+                    # reaches this controller directly or through a
+                    # carrier's re-exported socket.
+                    existing_cs_gpios=parent_bus.existing_cs_gpios,
+                    existing_child_regs=parent_bus.existing_child_regs,
                 )
             else:
                 diags.append(

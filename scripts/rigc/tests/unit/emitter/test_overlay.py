@@ -250,6 +250,90 @@ def test_instance_params_replace_an_existing_prop_and_add_a_new_one() -> None:
     assert "debounce-interval-ms = <30>;" in text  # ADDED (no prior default)
 
 
+# ---------------------------------------------------------------- SPI scopes: cs-gpios
+
+
+def _spi_dev(**kwargs: object) -> Device:
+    """A bus (SPI) device -- `_bus_devices`'s own filter needs `bus` set
+    and `plug` resolvable (the default "plug", matching `_socket`'s own
+    single-slot shield below)."""
+    defaults: dict = dict(
+        name="d",
+        label="d",
+        compatible="vendor,spi-dev",
+        bus="spi",
+        group=None,
+        reg=None,
+        addr_from=None,
+        cs_position=None,
+    )
+    defaults.update(kwargs)
+    return Device(**defaults)
+
+
+def test_spi_scope_renders_no_existing_entries_when_the_board_authored_none() -> None:
+    """The common case, pinned first as the negative control the
+    preservation test below is contrasted against: `s.cs_gpios_existing`
+    absent for this bus path renders cs-gpios as ONLY the rig's own
+    entries -- no leading comma, no empty prefix."""
+    dev = _spi_dev()
+    shield = Shield(name="sh", label="sh", plugs={"plug": "t"}, devices=[dev])
+    inst = Instance(name="i1", shield=shield, sockets={"plug": "sock"})
+    rig = Rig(name="r", instances=[inst])
+    socket = BoardSocket(
+        label="sock",
+        path="/s",
+        type_name="t",
+        gpio_map={},
+        buses={"spi": BusRef(label="spi0", path="/spi0")},
+    )
+    s = Solved(
+        sockets={"i1": {"plug": socket}},
+        cs={("i1", "d"): (0, 3)},
+        cs_gpios={"/spi0": [(socket, 3)]},
+        bus_label={"/spi0": "spi0"},
+    )
+
+    text = render_overlay(rig, s, {"t": _ctype()})
+
+    assert "cs-gpios = <&sock 3 1 /* ACTIVE_LOW */>;" in text
+    assert "d@0" in text
+
+
+def test_spi_scope_preserves_the_boards_own_cs_gpios_entries_first_verbatim() -> None:
+    """The offset-and-preserve contract THIS emitter change exists for:
+    `s.cs_gpios_existing`'s own entries render FIRST, verbatim (straight
+    from the tuple's own controller-label/pin/flags, no ACTIVE_LOW
+    comment -- unlike a rig-placed entry, this one is never reconstructed
+    from the board's own DTS source text), ahead of the rig's own
+    (already offset) placement -- proving the array is APPENDED to, never
+    replaced, the bug analyzer/cs.py's own offset exists to prevent."""
+    dev = _spi_dev()
+    shield = Shield(name="sh", label="sh", plugs={"plug": "t"}, devices=[dev])
+    inst = Instance(name="i1", shield=shield, sockets={"plug": "sock"})
+    rig = Rig(name="r", instances=[inst])
+    socket = BoardSocket(
+        label="sock",
+        path="/s",
+        type_name="t",
+        gpio_map={},
+        buses={"spi": BusRef(label="spi0", path="/spi0")},
+    )
+    s = Solved(
+        sockets={"i1": {"plug": socket}},
+        cs={("i1", "d"): (1, 3)},  # offset past the ONE existing entry below
+        cs_gpios={"/spi0": [(socket, 3)]},
+        cs_gpios_existing={"/spi0": [("gpiod", 11, 1)]},
+        bus_label={"/spi0": "spi0"},
+    )
+
+    text = render_overlay(rig, s, {"t": _ctype()})
+
+    assert "cs-gpios = <&gpiod 11 1>, <&sock 3 1 /* ACTIVE_LOW */>;" in text
+    assert "d@1" in text
+    assert "reg = <1>;" in text
+
+
 def test_sdhc_spi_slot_device_gets_a_sdmmc_child_node() -> None:
     dev = _plain_dev(name="sd", label="sd", compatible="zephyr,sdhc-spi-slot")
     shield = Shield(name="sh", label="sh", plugs={"plug": "t"}, devices=[dev])

@@ -70,7 +70,11 @@ class Solved:
     )  # (inst, dev) -> (index, position)
     cs_gpios: dict[str, list[tuple[BoardSocket, int]]] = field(
         default_factory=dict
-    )  # bus path -> [(socket, pos)]
+    )  # bus path -> [(socket, pos)] -- RIG-placed entries whose pin has no
+    # existing board entry to reuse, appended past any board-authored ones
+    cs_gpios_existing: dict[str, list[tuple[str, int, int]]] = field(
+        default_factory=dict
+    )  # bus path -> [(ctrl label, pin, flags)] -- the board's OWN array, verbatim, emitted first
     bus_label: dict[str, str] = field(default_factory=dict)  # bus path -> label
     nets: Nets = field(default_factory=dict)  # net key -> [NetClaim]
     positions: dict[tuple[str, str, str], int] = field(
@@ -138,6 +142,7 @@ def analyze(
         straps=addr_result.straps,
         cs=cs_result.cs,
         cs_gpios=cs_result.cs_gpios,
+        cs_gpios_existing=cs_result.cs_gpios_existing,
         bus_label={**addr_result.bus_label, **cs_result.bus_label},
         nets=all_nets,
         positions=gpio_result.positions,

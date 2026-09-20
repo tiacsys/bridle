@@ -35,7 +35,7 @@ from dataclasses import dataclass, field
 
 from ..buskind import is_bus_kind
 from ..diag import Diagnostic, error
-from ..model import BoardSocket, ConnectorType, Device, Instance, Rig
+from ..model import BoardSocket, BusRef, ConnectorType, Device, Instance, Rig
 from .gpio import NetClaim, NetKey, Nets, soc_net
 from .ordering import allocation_key
 from .socketmap import Sockets, for_bus_device
@@ -139,7 +139,7 @@ def _cs_members_for_scope(
 
 
 def _fold_cs_placements(
-    bus_path: str,
+    bus: BusRef,
     placements: list[CsPlacement],
     exhausted: list[str],
     by_identity: dict[str, tuple[Instance, Device, BoardSocket]],
@@ -151,7 +151,29 @@ def _fold_cs_placements(
     own folding step, lifted out): an exhausted member becomes a phys-cs
     diagnostic; a placement becomes a NEW net claim (`seen` grows so a
     LATER scope in this same call sees it) plus this scope's cs/cs_gpios
-    entries, in placement order."""
+    entries, in placement order.
+
+    `reg`/array-index numbering for a RIG-placed device is REUSE-then-
+    APPEND, not offset-then-append: when the placement's own resolved
+    SoC pin (its net key, same identity `soc_net`/`check_nets` compare
+    two claims by) already names one of the board's own
+    `bus.existing_cs_gpios` entries, the device's `reg` becomes THAT
+    entry's own index and nothing new is appended -- the board's array
+    already carries this physical pin, so appending a second entry for
+    it would name the same pin twice (the emitter would otherwise render
+    a two-entry array where one physical line answers to two indices).
+    Only a placement whose pin is genuinely absent from the board's own
+    array gets a fresh index, numbered after the board's own array length
+    (same as before this reuse step existed). The board's own array
+    entries are still emitted first, verbatim, by the emitter
+    (result.cs_gpios_existing) regardless of which of its indices a rig
+    device ends up reusing.
+
+    Reuse cannot see a genuinely sparse board arrangement (a child `reg`
+    beyond the array's own length, or -- new with reuse -- a child `reg`
+    that shares an IN-array index with the very entry being reused): the
+    collision check below, layered on top of reuse rather than replacing
+    it, is what catches both shapes."""
     diags: list[Diagnostic] = []
     for identity in exhausted:
         inst, dev, socket = by_identity[identity]
@@ -198,11 +220,67 @@ def _fold_cs_placements(
         )
         result.nets.setdefault(key, []).append(claim)
         seen.add(key)
-        placed.append((inst, dev, socket, placement.position))
+        placed.append((inst, dev, socket, placement.position, key))
 
+    # Reuse-not-append: a board's own existing_cs_gpios entry names an
+    # SoC pin (controller label + pin) exactly the way a net KEY does
+    # (soc_net's own "soc" shape) -- so the board's array, read as
+    # NetKeys, is directly comparable to a rig placement's own key
+    # without re-deriving anything. `setdefault` keeps the FIRST index
+    # a duplicate physical pin appears at in the board's own array (an
+    # oddity of the board's own authoring, not this pass's to referee).
+    existing_index_by_key: dict[NetKey, int] = {}
+    for i, (label, pin, _flags) in enumerate(bus.existing_cs_gpios):
+        existing_index_by_key.setdefault(("soc", label, pin), i)
+
+    # A board entry gets reused AT MOST ONCE: a second placement whose
+    # key matches an already-reused entry is two rig devices wanting the
+    # SAME physical pin, which is not a reuse question at all -- it is
+    # an exclusive-net conflict (both already hold a "dedicated" claim on
+    # this same key, added above), and check_nets (analyzer/__init__.py's
+    # composer, after this pass returns) is what refuses it. This pass
+    # does not special-case it: falling through to a fresh appended index
+    # here would just duplicate the pin in the emitted array, which is
+    # moot once check_nets has already refused the rig.
+    reused_keys: set[NetKey] = set()
+    next_new_index = len(bus.existing_cs_gpios)
     entries: list[tuple[BoardSocket, int]] = []
-    for index, (inst, dev, socket, pos) in enumerate(placed):
+    for inst, dev, socket, pos, key in placed:
+        reuse_index = existing_index_by_key.get(key)
+        reusing = reuse_index is not None and key not in reused_keys
+        if reusing:
+            assert reuse_index is not None  # narrowed by `reusing`
+            index = reuse_index
+            reused_keys.add(key)
+        else:
+            index = next_new_index
+            next_new_index += 1
         result.cs[(inst.name, dev.name)] = (index, pos)
+        if index in bus.existing_child_regs:
+            # A sparse/unusual board arrangement the offset alone cannot
+            # see: `bus.existing_child_regs` is independent of
+            # `bus.existing_cs_gpios`'s own length (a board may legally
+            # declare a child whose reg indexes PAST its own cs-gpios
+            # array -- board/project.py's own _project_existing_spi
+            # docstring), so a board authoring one lands this rig-placed
+            # device on the SAME reg an existing child already holds --
+            # whether that reg came from the append-past-the-array offset
+            # or (a board child sharing an in-array reg with its own
+            # cs-gpios entry, e.g. mikroe_quail's flash1 at reg <2>) from
+            # a reused index. Refused rather than silently sharing one DT
+            # unit-address between two device nodes (accepted silently by
+            # dtc/gen_defines -- see THE BUG's own "second face").
+            diags.append(
+                error(
+                    "phys-cs",
+                    f"controller '{bus.label}' already has a child node at reg <{index}> "
+                    f"of its own board wiring, but '{inst.name}/{dev.name}' would be "
+                    f"allocated the SAME reg <{index}> -- two device nodes would share "
+                    "one DT unit-address",
+                    tuple(x for x in (dev.src, inst.src) if x),
+                )
+            )
+            continue
         if socket.gpio_map.get(pos) is None:  # must resolve to a real SoC pin
             ctype = types[socket.type_name]
             diags.append(
@@ -215,8 +293,10 @@ def _fold_cs_placements(
                 )
             )
             continue
-        entries.append((socket, pos))  # emitted through the nexus
-    result.cs_gpios[bus_path] = entries
+        if not reusing:
+            entries.append((socket, pos))  # emitted through the nexus, AFTER the existing array
+    result.cs_gpios[bus.path] = entries
+    result.cs_gpios_existing[bus.path] = list(bus.existing_cs_gpios)
     return diags
 
 
@@ -227,7 +307,12 @@ class CsAllocation:
     )  # (inst, dev) -> (index, position)
     cs_gpios: dict[str, list[tuple[BoardSocket, int]]] = field(
         default_factory=dict
-    )  # bus path -> [(socket, pos)]
+    )  # bus path -> [(socket, pos)] -- RIG-placed entries that REUSED no
+    # existing board entry (a genuinely new pin), appended after
+    # existing, in placement order
+    cs_gpios_existing: dict[str, list[tuple[str, int, int]]] = field(
+        default_factory=dict
+    )  # bus path -> [(ctrl label, pin, flags)] -- the board's OWN array, verbatim
     bus_label: dict[str, str] = field(default_factory=dict)  # bus path -> label
     nets: Nets = field(default_factory=dict)  # NEW claims only
 
@@ -241,6 +326,7 @@ def allocate_cs(
     diags: list[Diagnostic] = []
     result = CsAllocation()
     scopes: dict[str, list[tuple[Instance, Device, BoardSocket]]] = {}
+    bus_refs: dict[str, BusRef] = {}
     for inst in rig.instances:
         for dev in inst.shield.devices:
             if not is_bus_kind(dev.bus, "spi"):
@@ -250,6 +336,7 @@ def allocate_cs(
                 continue
             bus = socket.buses[dev.bus]
             result.bus_label[bus.path] = bus.label
+            bus_refs[bus.path] = bus
             scopes.setdefault(bus.path, []).append((inst, dev, socket))
 
     # A running view of CLAIMED NET KEYS (a position claimed while
@@ -261,14 +348,21 @@ def allocate_cs(
     seen: set[NetKey] = set(nets_before)
 
     for bus_path, raw_members in sorted(scopes.items()):
+        bus = bus_refs[bus_path]
+        # A board-authored cs-gpios array/children no longer refuses
+        # outright (that was this check's first, blunt version): a
+        # rig-placed device whose own resolved pin already names one of
+        # the board's own entries REUSES that entry's index; only a
+        # genuinely new pin is numbered past whatever the board already
+        # carries (_fold_cs_placements below). The board's own array
+        # entries are preserved verbatim rather than replaced
+        # (result.cs_gpios_existing, emitter/overlay.py's _spi_scopes).
         members = sorted(raw_members, key=lambda m: allocation_key(m[0], m[1], m[2]))
         cs_members, by_identity = _cs_members_for_scope(members, types)
 
         occupied = frozenset(seen)
         placements, exhausted = allocate_cs_positions(cs_members, occupied)
 
-        diags += _fold_cs_placements(
-            bus_path, placements, exhausted, by_identity, types, seen, result
-        )
+        diags += _fold_cs_placements(bus, placements, exhausted, by_identity, types, seen, result)
 
     return result, diags

@@ -87,7 +87,22 @@ def _spi_scopes(rig: Rig, s: Solved, types: dict[str, ConnectorType]) -> list[st
     chip-selects, its cs-gpios array and each child device's reg written
     together. rig/s/types are read-only; returns fresh lines the caller
     owns, one bus scope's lines appended after another in `s.cs_gpios`
-    order."""
+    order.
+
+    A DT property assignment in an overlay REPLACES the whole array, so
+    the emitted cs-gpios must carry the board's own pre-authored entries
+    (`s.cs_gpios_existing`) verbatim and FIRST, re-rendered from what
+    edtlib already resolved for each one (controller label, pin, flags --
+    never reconstructed from the board's own source text), followed by
+    the rig's own placements (`entries`, already REUSE-then-APPENDed by
+    analyzer/cs.py's `allocate_cs`: a rig-placed device whose own pin
+    already names one of the board's own entries takes that entry's
+    index instead of appearing here at all -- `entries` holds only the
+    placements that needed a genuinely new one, so a physical pin the
+    board already wired is never named twice in the final array). A
+    controller the board never wired has an empty `cs_gpios_existing`
+    entry (or none at all), so this is a no-op prefix for the common
+    case."""
     out: list[str] = []
     # SPI scopes -- cs-gpios array and child reg written together
     for bus_path, entries in sorted(s.cs_gpios.items()):
@@ -95,8 +110,12 @@ def _spi_scopes(rig: Rig, s: Solved, types: dict[str, ConnectorType]) -> list[st
         if not devs:
             continue
         out.append(f"&{s.bus_label[bus_path]} {{")
-        cs = ", ".join(f"<&{_nexus(sock)} {pos} 1 /* ACTIVE_LOW */>" for sock, pos in entries)
-        out.append(f"\tcs-gpios = {cs};")
+        existing_cs = [
+            f"<&{label} {pin} {flags}>"
+            for label, pin, flags in s.cs_gpios_existing.get(bus_path, [])
+        ]
+        new_cs = [f"<&{_nexus(sock)} {pos} 1 /* ACTIVE_LOW */>" for sock, pos in entries]
+        out.append(f"\tcs-gpios = {', '.join(existing_cs + new_cs)};")
         for inst, dev, _socket in sorted(devs, key=lambda m: s.cs[(m[0].name, m[1].name)][0]):
             index, _pos = s.cs[(inst.name, dev.name)]
             out += _device_node(s, types, inst, dev, unit=str(index), reg=f"<{index}>")
