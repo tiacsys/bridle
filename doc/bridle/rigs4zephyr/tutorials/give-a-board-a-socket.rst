@@ -9,6 +9,14 @@ Giving a board a socket
    - No hardware needed to follow along; two Grove connectors soldered to
      the Arduino header if you want to run the result.
 
+.. note::
+
+   This tutorial's board and rig names come from btr-shields, the
+   harness repository the rig model comes from, not from bridle's own
+   corpus — see :doc:`build-a-rig-that-exists`'s own note. Read it for
+   the mechanism; bridle's own boards and shields are ``seeeduino_lotus``
+   and ``grove_btn``/``grove_led``, as used there.
+
 Rae has a NUCLEO-F411RE and two Grove connectors wired to its Arduino
 header — a completely ordinary prototype. Zephyr knows the board; it does
 not know about those two connectors. This tutorial tells it.

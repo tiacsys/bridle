@@ -8,6 +8,14 @@ Making the rig permanent
    - :doc:`build-a-rig-on-the-fly` is worth reading first for context, but
      is not required: this tutorial writes by hand what that one generates.
 
+.. note::
+
+   This tutorial's board and rig names come from btr-shields, the
+   harness repository the rig model comes from, not from bridle's own
+   corpus — see :doc:`build-a-rig-that-exists`'s own note. Read it for
+   the mechanism; bridle's own boards and shields are ``seeeduino_lotus``
+   and ``grove_btn``/``grove_led``, as used there.
+
 The shortcut got the LED blinking. It cannot do anything else: it places
 exactly one module, in the one obvious socket, with no settings. The moment
 Rae wants a second module — or a name they can put in CI, or a review

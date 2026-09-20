@@ -6,6 +6,14 @@ Writing a shield template
    - :doc:`give-a-board-a-socket` — this tutorial plugs into the socket
      that one declared.
 
+.. note::
+
+   This tutorial's board and rig names come from btr-shields, the
+   harness repository the rig model comes from, not from bridle's own
+   corpus — see :doc:`build-a-rig-that-exists`'s own note. Read it for
+   the mechanism; bridle's own boards and shields are ``seeeduino_lotus``
+   and ``grove_btn``/``grove_led``, as used there.
+
 Rae has a Grove LED module: a single LED on the connector's first signal
 pin. In Zephyr today that is an overlay naming a board pin, and a second
 copy on a second connector needs a second overlay. Bridle ships sixty-four

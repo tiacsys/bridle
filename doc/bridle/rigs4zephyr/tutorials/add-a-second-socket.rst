@@ -5,6 +5,14 @@ Adding a second socket
 
    - :doc:`make-the-rig-permanent` — the rig this grows.
 
+.. note::
+
+   This tutorial's board and rig names come from btr-shields, the
+   harness repository the rig model comes from, not from bridle's own
+   corpus — see :doc:`build-a-rig-that-exists`'s own note. Read it for
+   the mechanism; bridle's own boards and shields are ``seeeduino_lotus``
+   and ``grove_btn``/``grove_led``, as used there.
+
 Rae solders the second Grove connector to the D4/D5 pins and wants a second
 LED on it.
 
