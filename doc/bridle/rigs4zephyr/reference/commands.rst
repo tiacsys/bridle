@@ -54,8 +54,8 @@ invocation would already use — nothing about ``-DRIG`` changes it.
    $ west rigs --explain TARGET
 
 With no arguments, lists the name of every rig discovered under the board
-roots of every Zephyr module that declares one — ``btr-shields`` does, so
-its own rigs are found with no path given.
+roots of every Zephyr module that declares one — ``bridle`` does, so its
+own rigs are found with no path given.
 
 ``-f, --format FORMAT``
    A Python format string, one line per rig. Keys: ``{name}`` (the rig's
