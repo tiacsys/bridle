@@ -1,7 +1,7 @@
 The expander's architecture
 ==============================
 
-:doc:`/reference/api/index` says *what* each stage of the :term:`expander`
+:doc:`/rigs4zephyr/reference/api/index` says *what* each stage of the :term:`expander`
 does and lets each module's own docstring say *how*. This page is the
 missing third layer: *why* the pipeline is cut into five stages at those
 particular boundaries, and why a handful of disciplines — diagnostics as
@@ -20,13 +20,13 @@ that needs a bus the socket it is plugged into never exposes. Neither
 category of mistake can be caught by the same kind of check, and neither
 needs to see the other's evidence: a dangling reference is a fact about
 text, and a mating impossibility is a fact about copper. The
-:doc:`/reference/api/loader` and :doc:`/reference/api/analyzer` stages
+:doc:`/rigs4zephyr/reference/api/loader` and :doc:`/rigs4zephyr/reference/api/analyzer` stages
 exist because rejecting a rig on paper and rejecting it on physical
 grounds are different jobs — one reads YAML and a shield library, the
 other reads solved addresses, positions, and nets — and giving them one
 name would hide which of the two the eventual diagnostic is about.
 
-Between them sits the :doc:`/reference/api/board` stage, split off for a
+Between them sits the :doc:`/rigs4zephyr/reference/api/board` stage, split off for a
 reason that has nothing to do with that files-versus-hardware line: it is
 the only stage that needs a build recipe. Reading a rig's own files is
 just parsing YAML; reading what a board actually offers means running the
@@ -38,7 +38,7 @@ into the loader (which never needs a board to assemble a topology) or the
 analyzer (which never touches a filesystem at all — it only ever sees the
 ``Board`` value the board reader already built).
 
-The :doc:`/reference/api/cli` stage is the odd one out on purpose: it is
+The :doc:`/rigs4zephyr/reference/api/cli` stage is the odd one out on purpose: it is
 the only place in the pipeline that decides *what happens next* rather
 than computing a value. Every other stage is a function from inputs to
 ``(result, diagnostics)``; the CLI is the one place that calls them in
@@ -48,7 +48,7 @@ that sequencing in one place — rather than letting, say, the loader decide
 whether to go on to the board reader — is what lets every other stage stay
 a pure value function with no opinion about the run as a whole.
 
-:doc:`/reference/api/model` is not a sixth stage; it is the vocabulary the
+:doc:`/rigs4zephyr/reference/api/model` is not a sixth stage; it is the vocabulary the
 other five share. Every stage reads and returns the same handful of
 dataclasses — ``Rig``, ``Board``, the analyzer's ``Solved`` — instead of
 inventing its own shape for "a rig" or "a board" and translating at every
@@ -93,7 +93,7 @@ CI scripts alike read that text.
 Why the emitter cannot fail
 -------------------------------
 
-By the time the :doc:`/reference/api/emitter` stage runs, every decision
+By the time the :doc:`/rigs4zephyr/reference/api/emitter` stage runs, every decision
 about whether the rig is physically buildable has already been made — by
 the analyzer, against the board the CLI resolved earlier. The analyzer's
 output, ``Solved``, is a frozen value precisely so that guarantee holds:
@@ -140,7 +140,7 @@ One model, one seam per rule
 
 A handful of small accessor modules exist for a reason that is easy to
 mistake for over-engineering until the alternative is spelled out: the
-socket-resolution accessors inside the :doc:`/reference/api/analyzer`
+socket-resolution accessors inside the :doc:`/rigs4zephyr/reference/api/analyzer`
 stage and the bus-kind matcher shared by the loader, the board reader and
 the analyzer each give one rule — "which socket does this reference
 resolve to," "does this bus name mean spi" — exactly one implementation
