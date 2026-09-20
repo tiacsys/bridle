@@ -59,3 +59,16 @@ The package root
 ------------------
 
 .. automodule:: rigc
+
+Other modules
+---------------
+
+Not part of the five-stage pipeline above, but real modules under
+``scripts/rigc/`` in this repository, documented here for the same
+reason as everything else on this page — see :doc:`junit_html` for why
+this one is bridle-specific.
+
+.. toctree::
+   :maxdepth: 1
+
+   junit_html
