@@ -149,19 +149,28 @@ Check that it took
 --------------------
 
 There is no module to plug in yet, so there is no rig to build. What you
-*can* confirm is that the board now advertises a socket. Ask which boards
-satisfy a Grove rig that already exists:
+*can in principle* confirm is that the board now advertises a socket, by
+asking which boards satisfy a Grove rig that already exists:
 
 .. code-block:: console
 
    $ west rigs --boards-for lotus_buttons
-   seeeduino_lotus/samd21g18a/rig
 
-Your board is not listed — correctly. ``lotus_buttons`` names sockets
-``grove_d2``, ``grove_d6`` and ``grove_a0`` explicitly, and yours has only
-the first. That answer is a real check, not a formality: it means the
-census can see your board and evaluated it. Add the other two sockets and
-the same command starts listing you.
+In a corpus where boards declare their sockets through a ``board.yml``
+``extend:``/``variants`` board rig-extension, that command lists every
+board whose declared sockets satisfy ``lotus_buttons`` — ``grove_d2``,
+``grove_d6`` and ``grove_a0`` — and excludes one like yours-so-far,
+carrying only the first, until you add the other two.
+
+.. note::
+
+   None of bridle's own real boards, ``seeeduino_lotus`` included, carry
+   that ``board.yml`` declaration today — it is unrelated to the
+   ``socket,*`` devicetree nodes this tutorial has you add, and bridle's
+   own boards use ``extend:``/``variants`` only for its own ``bbe``
+   variants. So in *this* workspace the command above prints nothing for
+   any target, not a verdict on this board's sockets specifically — a
+   gap in bridle's own board corpus, not in ``--boards-for`` itself.
 
 .. note::
 
