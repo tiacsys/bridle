@@ -55,6 +55,16 @@
 		reg = <0x30 0x4>;
 		#address-cells = <1>;
 		#size-cells = <0>;
+
+		/* A real i2c child (ordinary, unrelated to the SPI-only
+		 * existing_child_regs reader below) -- proves that reader
+		 * never fires for an i2c bus, even though this node also has
+		 * a child with a `reg` an SPI-shaped reader would otherwise
+		 * happily pick up.
+		 */
+		i2c_dev@10 {
+			reg = <0x10>;
+		};
 	};
 
 	spi_ctrl0: spi_ctrl@40 {
@@ -62,6 +72,20 @@
 		reg = <0x40 0x4>;
 		#address-cells = <1>;
 		#size-cells = <0>;
+		/* board/project.py's own board-authored-SPI-wiring reader
+		 * (board/cs.py's phys-cs "already carries" check): a
+		 * pre-authored cs-gpios array plus one pre-existing child
+		 * device node, the mikroe_quail.dts/nucleo_f401re.dts shape
+		 * (spi3's flash1, spi1's own bare cs-gpios) reproduced
+		 * synthetically. No `compatible` on the child -- a node with
+		 * none needs no binding, and `reg` parses generically either
+		 * way.
+		 */
+		cs-gpios = <&gpio_ctrl0 9 1>, <&gpio_ctrl0 10 0>;
+
+		spi_dev@0 {
+			reg = <0>;
+		};
 	};
 
 	fixture_socket: connector_fixture {

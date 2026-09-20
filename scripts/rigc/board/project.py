@@ -35,6 +35,7 @@ if TYPE_CHECKING:
 
 from ..buskind import BUS_PROP_RE as _BUS_PROP_RE
 from ..buskind import CS_POOL_PROP_RE as _CS_POOL_PROP_RE
+from ..buskind import is_bus_kind
 from ..diag import LoadError, SourceRef, error
 from ..model import Board, BoardSocket, BusRef
 
@@ -161,8 +162,18 @@ def _project_socket(node: edtlib.Node, compat: str) -> BoardSocket:
         if not bus_node.labels:
             raise ValueError(f"bus controller {bus_node.path} has no label")
         qualified = prop_name[len("socket,") :]
+        existing_cs_gpios: tuple[tuple[str, int, int], ...] = ()
+        existing_child_regs: frozenset[int] = frozenset()
+        if is_bus_kind(qualified, "spi"):
+            # cs-gpios/child-reg semantics only ever apply to SPI --
+            # never read for an i2c/uart controller node.
+            existing_cs_gpios, existing_child_regs = _project_existing_spi(bus_node)
         buses[qualified] = BusRef(
-            label=bus_node.labels[0], path=bus_node.path, cs_pool=cs_pools.get(qualified)
+            label=bus_node.labels[0],
+            path=bus_node.path,
+            cs_pool=cs_pools.get(qualified),
+            existing_cs_gpios=existing_cs_gpios,
+            existing_child_regs=existing_child_regs,
         )
 
     pwm_map, pwm_cells = _project_channel_map(node, label, "pwm", "pwm")
@@ -180,6 +191,55 @@ def _project_socket(node: edtlib.Node, compat: str) -> BoardSocket:
         adc_cells=adc_cells,
         src=SourceRef(node.filename, node.lineno, label),
     )
+
+
+def _project_existing_spi(
+    bus_node: edtlib.Node,
+) -> tuple[tuple[tuple[str, int, int], ...], frozenset[int]]:
+    """The board's OWN pre-authored SPI wiring on `bus_node` (an SPI
+    controller node a socket names via `socket,spi`/`socket,spi-<role>`),
+    read straight off edtlib's already-resolved graph rather than
+    reconstructed from raw DTS source: `cs-gpios`'s own entries, in array
+    order, as (gpio controller label, pin, flags); and the `reg` values
+    already held by `bus_node`'s existing child device nodes (a board
+    fragment authoring device nodes directly under its own SPI
+    controller, the mikroe_quail.dts `flash1` shape). Both empty when the
+    board authored neither. `bus_node` is read-only; returns a fresh
+    (tuple, frozenset) pair the caller owns.
+
+    A gpio phandle-array's own per-entry `pin`/`flags` cell NAMES come
+    from the referenced gpio controller's own `gpio-cells` binding key --
+    "pin"/"flags" for every real gpio controller in this tree (the
+    universal `<pin> <flags>` shape dts/bindings/gpio/gpio-controller.yaml
+    and every vendor gpio binding declare); a controller declaring some
+    other specifier-cell layout is not a shape this reader recognizes and
+    raises rather than silently misreading a cell as a pin/flag it is
+    not."""
+    existing_cs_gpios: list[tuple[str, int, int]] = []
+    cs_prop = bus_node.props.get("cs-gpios")
+    if cs_prop is not None:
+        assert isinstance(cs_prop.val, list)
+        for entry in cast("list[edtlib.ControllerAndData]", cs_prop.val):
+            ctrl = entry.controller
+            if not ctrl.labels:
+                raise ValueError(f"cs-gpios controller {ctrl.path} has no label")
+            if "pin" not in entry.data or "flags" not in entry.data:
+                raise ValueError(
+                    f"{bus_node.path}: cs-gpios entry through controller "
+                    f"'{ctrl.labels[0]}' has specifier cells {sorted(entry.data)}, "
+                    "not the expected pin/flags pair"
+                )
+            pin = cast(int, entry.data["pin"])
+            flags = cast(int, entry.data["flags"])
+            existing_cs_gpios.append((ctrl.labels[0], pin, flags))
+    child_regs: set[int] = set()
+    for child in bus_node.children.values():
+        if not child.regs:
+            continue
+        addr = child.regs[0].addr
+        if addr is not None:
+            child_regs.add(addr)
+    return tuple(existing_cs_gpios), frozenset(child_regs)
 
 
 #: pwm/adc's shared checked-read table: the SET of parent (controller)

@@ -181,6 +181,37 @@ def test_a_bus_without_its_own_cs_pool_stays_none() -> None:
     assert _socket().buses["i2c"].cs_pool is None
 
 
+def test_existing_cs_gpios_projects_controller_label_pin_flags_in_array_order() -> None:
+    """The board's OWN pre-authored `cs-gpios` array on the SPI
+    controller (spi_ctrl0's fixture data, the mikroe_quail.dts/
+    nucleo_f401re.dts shape) projects onto BusRef.existing_cs_gpios as
+    (gpio controller label, pin, flags) tuples, in the array's own
+    order -- read straight off edtlib's already-resolved
+    ControllerAndData, never reconstructed from source text."""
+    bus = _socket().buses["spi"]
+    assert bus.existing_cs_gpios == (("gpio_ctrl0", 9, 1), ("gpio_ctrl0", 10, 0))
+
+
+def test_existing_child_regs_projects_the_bus_nodes_own_children() -> None:
+    """A device node authored directly under the board's own SPI
+    controller (spi_ctrl0's `spi_dev@0`) contributes its `reg` to
+    BusRef.existing_child_regs -- independent of existing_cs_gpios's own
+    length, since the two are read off two different DT facts (the
+    cs-gpios property vs. the controller's own children)."""
+    bus = _socket().buses["spi"]
+    assert bus.existing_child_regs == frozenset({0})
+
+
+def test_i2c_bus_never_carries_existing_spi_wiring() -> None:
+    """existing_cs_gpios/existing_child_regs are SPI-only facts -- the
+    same socket's i2c bus (a real bus, with its own real children were
+    any authored) projects neither, even though project.py reads every
+    socket,* bus through the same loop."""
+    bus = _socket().buses["i2c"]
+    assert bus.existing_cs_gpios == ()
+    assert bus.existing_child_regs == frozenset()
+
+
 def test_bare_socket_has_no_bus_pwm_or_adc_entries() -> None:
     """Subset exposure and multi-function maps alike are declared by
     ABSENCE: a socket authoring none of socket,i2c/pwm-map/io-channel-map

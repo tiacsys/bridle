@@ -330,6 +330,21 @@ class BusRef:
     # default is the caller's fallback, analyzer/cs.py's effective_cs_pool).
     # Never read for an i2c/uart bus.
     cs_pool: list[int] | None = None
+    # The board's OWN pre-authored `cs-gpios` array on this controller,
+    # read straight off edtlib's already-resolved graph (never
+    # reconstructed from raw DTS source): one (gpio controller label,
+    # pin, flags) tuple per array entry, in array-index order. Empty
+    # when the board authored no such property. SPI-only -- never
+    # populated for an i2c/uart bus, board/project.py's own read gates
+    # on is_bus_kind(qualified, "spi").
+    existing_cs_gpios: tuple[tuple[str, int, int], ...] = ()
+    # `reg` values already held by this controller's OWN pre-existing
+    # child device nodes -- independent of existing_cs_gpios's length,
+    # since a board may legally declare a child whose reg indexes past
+    # its cs-gpios array (e.g. a no-CS/software-controlled device).
+    # Empty when the board authored no children on this bus. SPI-only,
+    # same gate as existing_cs_gpios.
+    existing_child_regs: frozenset[int] = field(default_factory=frozenset)
 
 
 @dataclass

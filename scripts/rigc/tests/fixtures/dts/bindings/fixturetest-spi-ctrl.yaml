@@ -1,0 +1,23 @@
+# Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+description: Purpose-built fixture SPI controller binding (rigc's own
+  board/project.py unit-test data, never a copy of a real controller
+  binding). Declares cs-gpios as a real SPI controller binding would
+  (zephyr's own dts/bindings/spi/spi-controller.yaml), so the fixture
+  board can carry a board-authored cs-gpios array/child reg the same
+  way mikroe_quail.dts/nucleo_f401re.dts do.
+
+compatible: "fixturetest,spi-ctrl"
+
+bus: spi
+
+properties:
+  reg:
+    type: array
+  "#address-cells":
+    type: int
+  "#size-cells":
+    type: int
+  cs-gpios:
+    type: phandle-array
