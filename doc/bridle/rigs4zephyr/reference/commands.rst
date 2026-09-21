@@ -95,7 +95,7 @@ own rigs are found with no path given.
 
       This worked example comes from btr-shields, the harness repository
       the rig model comes from — see the note on
-      :doc:`../tutorials/build-a-rig-that-exists`. It will not reproduce
+      :ref:`rigs4zephyr_tutorials_build-a-rig-that-exists`. It will not reproduce
       in bridle's own corpus: bridle already carries an unrelated,
       non-rig ``adafruit_data_logger`` shield (real hardware, no
       ``template: true``), and none of bridle's own boards declare their
@@ -103,7 +103,7 @@ own rigs are found with no path given.
       rig-extension — the shape this census reads — so ``--boards-for``
       currently answers empty for any target here. Bridle's own two rigs
       (``lotus_buttons``, ``lotus_pwm_led``) are demonstrated end to end
-      in :doc:`../tutorials/build-a-rig-that-exists` instead.
+      in :ref:`rigs4zephyr_tutorials_build-a-rig-that-exists` instead.
 
    **This is not a promise that the rig builds on a listed board.** GPIO
    position routing, chip-select allocation, address domains and net
@@ -152,7 +152,7 @@ A ``TARGET`` — the value of ``--rig``, ``-DRIG``, ``--boards-for`` and
 **promoted shield**: a shield name (optionally a ``;``-separated list of
 them), each with its own optional revision and ``:``-separated
 assignments (``socket=``, ``socket.<slot>=``, ``config.<label>=``,
-``<device>.<prop>=``). See :doc:`promotion` for what a promotion target
+``<device>.<prop>=``). See :ref:`rigs4zephyr_reference_promotion` for what a promotion target
 means, its full grammar, what it desugars to, and which forms are
 refused.
 

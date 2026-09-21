@@ -5,13 +5,13 @@ Building a rig on the fly
 
 .. admonition:: Prerequisites
 
-   - :doc:`write-a-shield-template` — the module this places.
-   - :doc:`give-a-board-a-socket` — the board it lands on.
+   - :ref:`rigs4zephyr_tutorials_write-a-shield-template` — the module this places.
+   - :ref:`rigs4zephyr_tutorials_give-a-board-a-socket` — the board it lands on.
 
 .. note::
 
    Rewritten against bridle's own ``seeeduino_lotus`` board and
-   ``grove_led`` shield — see :doc:`build-a-rig-that-exists`'s own note
+   ``grove_led`` shield — see :ref:`rigs4zephyr_tutorials_build-a-rig-that-exists`'s own note
    for why, and how this diverges from the rest of the series.
 
 Rae wants to see the LED blink. Not to design a bench rig, not to commit
@@ -56,7 +56,7 @@ The socket has to be picked — here, explicitly
 You never said which Grove socket. On a board with exactly one socket of
 the module's connector type, that is enough: the shortcut infers it, the
 same way ``build-a-rig-that-exists`` describes for
-:doc:`../reference/commands`'s ``--boards-for``. ``seeeduino_lotus`` is
+:ref:`rigs4zephyr_reference_commands`'s ``--boards-for``. ``seeeduino_lotus`` is
 not that board — it carries nine Grove sockets — so the plain command
 above fails at configure, and the failure is worth reading once:
 
@@ -77,7 +77,7 @@ above fails at configure, and the failure is worth reading once:
 is an error naming the connector type the board is missing. Two or more is
 also an error, listing them, and asking you to pick — never a guess,
 however reasonable a tie-break might look. This is that second case, live.
-:doc:`add-a-second-socket` puts a second connector of one type on a board
+:ref:`rigs4zephyr_tutorials_add-a-second-socket` puts a second connector of one type on a board
 that starts with exactly one, and shows this same error appear where a
 plain command used to resolve cleanly.
 
@@ -128,6 +128,6 @@ can also write down — which is what the next tutorial does with it.
 Next
 ------
 
-:doc:`make-the-rig-permanent` takes that output and turns it into a rig
+:ref:`rigs4zephyr_tutorials_make-the-rig-permanent` takes that output and turns it into a rig
 that lives in the repository, then grows it into something the shortcut
 could not express.

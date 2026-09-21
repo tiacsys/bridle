@@ -15,7 +15,7 @@ Format
   not ``docs/``.
 - Builds must pass ``sphinx-build -W`` with **zero warnings** — a broken
   cross-reference or an unresolved ``:term:`` fails the build, not just a
-  review comment. See :doc:`../howto/build-the-docs`.
+  review comment. See :ref:`rigs4zephyr_howto_build-the-docs`.
 - **Every page is reachable from a toctree.** No orphan pages, no dangling
   references.
 
@@ -76,7 +76,7 @@ Vocabulary
 ------------
 
 - The glossary owns nuanced terminology. Define a term once, in
-  :doc:`../reference/glossary`, and use ``:term:`` at its first occurrence
+  :ref:`rigs4zephyr_reference_glossary`, and use ``:term:`` at its first occurrence
   on every other page.
 - Write for Zephyr developers: the reader knows devicetree, ``west`` and
   shields, and does not know anything about rigs. Reach for the shield

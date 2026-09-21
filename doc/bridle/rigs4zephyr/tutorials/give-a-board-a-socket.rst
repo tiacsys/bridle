@@ -5,7 +5,7 @@ Giving a board a socket
 
 .. admonition:: Prerequisites
 
-   - :doc:`build-a-rig-that-exists`, so the vocabulary is familiar.
+   - :ref:`rigs4zephyr_tutorials_build-a-rig-that-exists`, so the vocabulary is familiar.
    - A west workspace with ``btr-shields``, able to build for
      ``nucleo_f411re``.
    - No hardware needed to follow along; two Grove connectors soldered to
@@ -15,7 +15,7 @@ Giving a board a socket
 
    This tutorial's board and rig names come from btr-shields, the
    harness repository the rig model comes from, not from bridle's own
-   corpus — see :doc:`build-a-rig-that-exists`'s own note. Read it for
+   corpus — see :ref:`rigs4zephyr_tutorials_build-a-rig-that-exists`'s own note. Read it for
    the mechanism; bridle's own boards and shields are ``seeeduino_lotus``
    and ``grove_btn``/``grove_led``, as used there.
 
@@ -191,6 +191,6 @@ nothing about applications, and nothing that any particular rig depends on.
 Next
 ------
 
-:doc:`write-a-shield-template` builds the other half: a module that says
+:ref:`rigs4zephyr_tutorials_write-a-shield-template` builds the other half: a module that says
 what it needs in positions, so it can land on this socket or any other
 Grove socket anywhere.

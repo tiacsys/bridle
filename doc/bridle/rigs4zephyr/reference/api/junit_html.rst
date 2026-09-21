@@ -10,7 +10,7 @@ this documentation set was ported from, this module lives at
 ``scripts/junit_html.py`` — a sibling of ``rigc/``, not a member of the
 package. In bridle it landed inside ``scripts/rigc/`` itself, so it is a
 real ``rigc`` submodule here and is documented for that reason, not
-because it belongs to :doc:`the expander pipeline <index>`.
+because it belongs to :ref:`the expander pipeline <rigs4zephyr_reference_api_index>`.
 
 ``rigc.junit_html``
 ----------------------

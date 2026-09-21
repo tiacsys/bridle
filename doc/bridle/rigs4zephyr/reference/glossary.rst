@@ -10,12 +10,12 @@ Glossary
       The set of modules plugged into a board's sockets, described as
       data. A rig is two files in ``boards/rigs/<name>/``: the
       :term:`rig metadata file` and the :term:`rig content file` (see
-      :doc:`rig-file` for what each one declares). Neither names a board
+      :ref:`rigs4zephyr_reference_rig-file` for what each one declares). Neither names a board
       — a rig is a topology, and the board is the other half of the
       :term:`invocation coordinate`. It is built with
       ``west build -b <board> <app> -- -DRIG=<name>``. A single shield,
       or a small list of them, can also become a rig with neither file
-      ever written — see :doc:`promotion`.
+      ever written — see :ref:`rigs4zephyr_reference_promotion`.
 
    connector type
       The contract a family of sockets shares — which :term:`position`\ s
@@ -54,7 +54,7 @@ Glossary
       sockets, with different per-instance settings. A shield whose own
       ``shield.yml`` declares ``template: true`` can also be built
       directly as a rig of one instance, with no rig files of its own —
-      see :doc:`promotion`.
+      see :ref:`rigs4zephyr_reference_promotion`.
 
    instance
       One placement of a :term:`shield template` in a rig: a name, the
@@ -69,17 +69,17 @@ Glossary
       one instance", desugared on the fly wherever a rig target is
       accepted. Only a shield whose own ``shield.yml`` declares
       ``template: true`` qualifies. Full grammar and refusals:
-      :doc:`promotion`.
+      :ref:`rigs4zephyr_reference_promotion`.
 
    rig metadata file
       ``boards/rigs/<name>/rig.yml`` — the rig's identity and its axes
       (name, optional variants and revisions). Carries no hardware
-      description at all, and no board. Full grammar: :doc:`rig-file`.
+      description at all, and no board. Full grammar: :ref:`rigs4zephyr_reference_rig-file`.
 
    rig content file
       ``boards/rigs/<name>/<name>.yml`` — the assembly itself:
       :term:`instance`\ s, wires, and any headers the rig's parameters need.
-      Named after the rig, and required. Full grammar: :doc:`rig-file`.
+      Named after the rig, and required. Full grammar: :ref:`rigs4zephyr_reference_rig-file`.
 
    board extension
       A directory under ``boards/extend/`` that adds a ``rig`` variant to an

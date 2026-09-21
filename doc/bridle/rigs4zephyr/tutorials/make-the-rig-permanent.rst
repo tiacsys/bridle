@@ -5,16 +5,16 @@ Making the rig permanent
 
 .. admonition:: Prerequisites
 
-   - :doc:`write-a-shield-template` — the module.
-   - :doc:`give-a-board-a-socket` — the board.
-   - :doc:`build-a-rig-on-the-fly` is worth reading first for context, but
+   - :ref:`rigs4zephyr_tutorials_write-a-shield-template` — the module.
+   - :ref:`rigs4zephyr_tutorials_give-a-board-a-socket` — the board.
+   - :ref:`rigs4zephyr_tutorials_build-a-rig-on-the-fly` is worth reading first for context, but
      is not required: this tutorial writes by hand what that one generates.
 
 .. note::
 
    This tutorial's board and rig names come from btr-shields, the
    harness repository the rig model comes from, not from bridle's own
-   corpus — see :doc:`build-a-rig-that-exists`'s own note. Read it for
+   corpus — see :ref:`rigs4zephyr_tutorials_build-a-rig-that-exists`'s own note. Read it for
    the mechanism; bridle's own boards and shields are ``seeeduino_lotus``
    and ``grove_btn``/``grove_led``, as used there.
 
@@ -56,7 +56,7 @@ Build it by name:
 
 .. note::
 
-   If you followed :doc:`build-a-rig-on-the-fly`, you can generate exactly
+   If you followed :ref:`rigs4zephyr_tutorials_build-a-rig-on-the-fly`, you can generate exactly
    this pair instead of typing it, and then edit it:
 
    .. code-block:: console
@@ -140,13 +140,13 @@ Read the sheet again
    | status | acme_grove_led | grove_d2 |
 
 One row now. It is the same document that told Rae which Arduino pin the
-data logger's chip-select landed on in :doc:`build-a-rig-that-exists`, and
+data logger's chip-select landed on in :ref:`rigs4zephyr_tutorials_build-a-rig-that-exists`, and
 it grows a row per module — which is exactly what you want in your hand
 when you are the one plugging the connectors in.
 
 Next
 ------
 
-:doc:`add-a-second-socket` puts a second Grove connector on the board and a
+:ref:`rigs4zephyr_tutorials_add-a-second-socket` puts a second Grove connector on the board and a
 second module in the rig — and makes the socket inference you relied on
 earlier start refusing to guess.

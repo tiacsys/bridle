@@ -12,7 +12,7 @@ desugars to, and which forms are refused and why. The authority is
 ``scripts/list_rigs.py`` (the namespace rule cmake's own ``-DRIG=``
 resolution runs before promotion is ever reached).
 
-:doc:`commands` keeps the command-line surface — which flags accept a
+:ref:`rigs4zephyr_reference_commands` keeps the command-line surface — which flags accept a
 promotion target, and how they spell it. This page is what that target
 *means*.
 
@@ -68,7 +68,7 @@ rig's own qualifier axes when ``<name>`` is a rig. ``/<variant>`` is
 promoted shield has no variant axis to select from -- '@rev' is the only
 axis it promotes with, and it selects the SHIELD's own revision, never a
 rig variant"*. ``@<revision>`` on a promoted shield selects that
-shield's own revision axis (:doc:`shield-template`) — it desugars to
+shield's own revision axis (:ref:`rigs4zephyr_reference_shield-template`) — it desugars to
 ``shield: <name>@<revision>`` on the one synthesized instance, and is
 never checked against the shield's declared revisions here; that stays
 the loader's own job once the synthesized document is actually loaded.
@@ -106,7 +106,7 @@ dot only).
    Which position or address a :term:`routing jumper` or strap is set
    to, named by the config element's own devicetree label — the exact
    analogue of a rig content file's own ``config:`` block (see
-   :doc:`rig-file`). Not checked against the shield's real config
+   :ref:`rigs4zephyr_reference_rig-file`). Not checked against the shield's real config
    elements here; a label naming none is refused once the synthesized
    document loads.
 
@@ -114,7 +114,7 @@ dot only).
    A shield parameter, named by the device's own devicetree label — the
    analogue of ``params:``. Likewise not validated here; an undeclared
    device or property, or a token that fails to resolve, is refused
-   once the synthesized document loads (see :doc:`rig-file`).
+   once the synthesized document loads (see :ref:`rigs4zephyr_reference_rig-file`).
 
 Every assignment key may be given **at most once** per target element —
 a duplicate ``socket.<slot>=``, ``config.<label>=`` or
@@ -130,7 +130,7 @@ What a promoted shield becomes
 A single-element promotion desugars to exactly the text an author would
 have to check in to mean the same thing — ``west rigs --explain
 <target>`` prints it verbatim, and is the copy-paste source for turning
-one into a real rig (:doc:`../tutorials/make-the-rig-permanent`):
+one into a real rig (:ref:`rigs4zephyr_tutorials_make-the-rig-permanent`):
 
 .. code-block:: yaml
 
@@ -162,7 +162,7 @@ the same as it would be across an authored rig's own instances.
 Neither the single nor the list form checks a promoted assignment
 against the shield's real slots, config elements or parameters *here* —
 what actually loads the synthesized documents is the identical loader
-path an authored rig goes through (:doc:`rig-file`), so a promoted
+path an authored rig goes through (:ref:`rigs4zephyr_reference_rig-file`), so a promoted
 shield fails for the same reasons, with the same diagnostics, that an
 authored rig with equivalent content would. In particular, promoting a
 shield whose devices declare a required parameter with no default
@@ -175,7 +175,7 @@ Refusals specific to promotion
 ----------------------------------
 
 Beyond the assignment-grammar refusals above, and beyond whatever the
-synthesized document itself fails to load as (:doc:`rig-file`'s own
+synthesized document itself fails to load as (:ref:`rigs4zephyr_reference_rig-file`'s own
 refusals), promotion adds these, checked in this order:
 
 .. list-table::
@@ -209,10 +209,10 @@ refusals), promotion adds these, checked in this order:
 
 .. seealso::
 
-   :doc:`rig-file`
+   :ref:`rigs4zephyr_reference_rig-file`
       What the synthesized documents mean, and what refuses them once
       they load.
 
-   :doc:`commands`
+   :ref:`rigs4zephyr_reference_commands`
       ``--rig``/``-DRIG=``/``--boards-for``/``--explain`` — the surfaces
       that accept a promotion target.

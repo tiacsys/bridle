@@ -78,7 +78,7 @@ each button assigns its own rather than sharing one.
 
 The split is deliberate. ``rig.yml`` is the :term:`rig metadata file`: the
 rig's identity, and nothing about hardware. ``lotus_buttons.yml`` is the
-:term:`rig content file`: the assembly. :doc:`make-the-rig-permanent`
+:term:`rig content file`: the assembly. :ref:`rigs4zephyr_tutorials_make-the-rig-permanent`
 returns to why those are two files and not one.
 
 Build it
@@ -142,7 +142,7 @@ otherwise have written by hand, now derived. ``rigc-generated`` is the
 :term:`expander`'s own scratch directory, kept rather than cleaned up: it
 holds the devicetree fragments it fed its parsers, which is where to look
 when a build fails for a reason the diagnostic alone does not settle
-(:doc:`../reference/commands` describes it). Both can wait; the more
+(:ref:`rigs4zephyr_reference_commands` describes it). Both can wait; the more
 interesting one for a human is ``config-sheet.md``:
 
 .. code-block:: text
@@ -182,5 +182,5 @@ keycode.
 Next
 ------
 
-:doc:`give-a-board-a-socket` starts building your own, from the board end:
+:ref:`rigs4zephyr_tutorials_give-a-board-a-socket` starts building your own, from the board end:
 a socket, on a board that does not have one yet.

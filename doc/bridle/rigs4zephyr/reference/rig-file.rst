@@ -11,10 +11,10 @@ that layer onto the content file. The authority is the loader itself —
 ``params.py`` — and every key below is read (or deliberately never read)
 exactly as that code does today.
 
-This page is reference, not narrative — :doc:`../tutorials/build-a-rig-that-exists`
-and :doc:`../tutorials/make-the-rig-permanent` teach the concept; this page
+This page is reference, not narrative — :ref:`rigs4zephyr_tutorials_build-a-rig-that-exists`
+and :ref:`rigs4zephyr_tutorials_make-the-rig-permanent` teach the concept; this page
 looks up the facts. A shield can also become a rig of one instance without
-either file existing at all — see :doc:`promotion`.
+either file existing at all — see :ref:`rigs4zephyr_reference_promotion`.
 
 .. contents::
    :local:
@@ -74,7 +74,7 @@ only ``rig.yml`` nests its keys under a top-level ``rig:`` mapping.
    The rig's own revision axis, in **upstream's hwmv2 shape**
    (``board.yml``'s own block, copied key for key) — the singular key
    ``revision:``, not the plural ``revisions:`` a shield's own axis uses
-   (see :doc:`shield-template`). ``format:`` is required whenever this
+   (see :ref:`rigs4zephyr_reference_shield-template`). ``format:`` is required whenever this
    block is present, one of ``letter`` (a single uppercase letter),
    ``number`` (digits only), ``major.minor.patch`` (three dot-separated
    non-negative integers) or ``custom`` — declaring ``custom`` is legal
@@ -122,10 +122,10 @@ What ``rig.yml`` never declares
 **No ``board:`` key exists anywhere in this grammar — not at the top
 level, not per variant.** A rig describes a topology; the
 :term:`invocation coordinate` (``-b``/``-DBOARD=``, see
-:doc:`commands`) is the *only* source of the board, for every rig, with
+:ref:`rigs4zephyr_reference_commands`) is the *only* source of the board, for every rig, with
 no exception — including a rig built against more than one real board
 (the same content file resolves on either, provided both boards expose
-the sockets it names; see :doc:`../tutorials/make-the-rig-permanent`
+the sockets it names; see :ref:`rigs4zephyr_tutorials_make-the-rig-permanent`
 and the ``arduino_r3`` alias convention it describes). A rig build with
 no board given is a configure-time error, not a fallback.
 
@@ -166,7 +166,7 @@ a per-variant board or socket table.
    ``name:`` / ``shield:``
       Both required. ``shield:`` is the template's own name, optionally
       qualified with ``@<revision>`` (the *shield's* revision axis — see
-      :doc:`shield-template` — never the rig's own).
+      :ref:`rigs4zephyr_reference_shield-template` — never the rig's own).
 
    ``socket:`` / ``sockets:``
       Mutually exclusive, and each legal only for the matching shield
@@ -308,9 +308,9 @@ default means, so it needs no fragment of its own.
 
 .. seealso::
 
-   :doc:`promotion`
+   :ref:`rigs4zephyr_reference_promotion`
       A single shield, or a small ``;``-separated list of them, built as
       a rig with neither of these two files ever written to disk.
 
-   :doc:`commands`
+   :ref:`rigs4zephyr_reference_commands`
       How a board and a rig combine into one build.

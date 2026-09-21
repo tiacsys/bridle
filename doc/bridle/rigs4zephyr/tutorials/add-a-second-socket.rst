@@ -5,13 +5,13 @@ Adding a second socket
 
 .. admonition:: Prerequisites
 
-   - :doc:`make-the-rig-permanent` — the rig this grows.
+   - :ref:`rigs4zephyr_tutorials_make-the-rig-permanent` — the rig this grows.
 
 .. note::
 
    This tutorial's board and rig names come from btr-shields, the
    harness repository the rig model comes from, not from bridle's own
-   corpus — see :doc:`build-a-rig-that-exists`'s own note. Read it for
+   corpus — see :ref:`rigs4zephyr_tutorials_build-a-rig-that-exists`'s own note. Read it for
    the mechanism; bridle's own boards and shields are ``seeeduino_lotus``
    and ``grove_btn``/``grove_led``, as used there.
 
@@ -110,7 +110,7 @@ Inference stops guessing
 --------------------------
 
 There is a consequence for the shortcut from
-:doc:`build-a-rig-on-the-fly`. It worked because the board had exactly one
+:ref:`rigs4zephyr_tutorials_build-a-rig-on-the-fly`. It worked because the board had exactly one
 Grove socket. It does not any more:
 
 .. code-block:: console

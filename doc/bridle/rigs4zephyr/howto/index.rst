@@ -4,7 +4,7 @@ How-to guides
 =============
 
 Task recipes for someone who already knows their way around. If you are
-new to rigs, start with the :doc:`../tutorials/index` instead.
+new to rigs, start with the :ref:`rigs4zephyr_tutorials_index` instead.
 
 .. toctree::
    :maxdepth: 1

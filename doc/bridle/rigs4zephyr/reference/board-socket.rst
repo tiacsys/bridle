@@ -15,7 +15,7 @@ page) from a real board devicetree fragment or connector binding in this
 tree.
 
 A shield's exposed socket (a carrier's re-export, documented on
-:doc:`shield-template`) is authored inside a ``.shield`` file but carries
+:ref:`rigs4zephyr_reference_shield-template`) is authored inside a ``.shield`` file but carries
 the **identical** ``socket,*`` vocabulary described here — everything
 below applies to both a real board socket and a carrier's exposed one,
 except where noted.
@@ -124,7 +124,7 @@ Example — ``boards/extend/mikroe/quail/mikrobus_sockets.dtsi``:
 
 Example — ``boards/shields/i2c_mux/i2c_mux.shield`` (four channels of one
 TCA9548A mux, each a ``socket,i2c-port`` new scope — see
-:doc:`shield-template`'s ``shield,channel`` entry for the full snippet):
+:ref:`rigs4zephyr_reference_shield-template`'s ``shield,channel`` entry for the full snippet):
 
 .. code-block:: devicetree
 
@@ -309,7 +309,7 @@ Chip-select pool
    authors an explicit override today — every real one relies on the
    connector type's own default, shown below.
 :Refuses: ``phys-cs`` (the pool is exhausted — see
-   :doc:`shield-template`'s ``shield,cs-position`` entry).
+   :ref:`rigs4zephyr_reference_shield-template`'s ``shield,cs-position`` entry).
 
 Example — connector-type default, ``dts/bindings/connectors/arduino-r3.yaml``:
 

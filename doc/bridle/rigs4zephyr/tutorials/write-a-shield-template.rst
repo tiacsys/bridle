@@ -5,14 +5,14 @@ Writing a shield template
 
 .. admonition:: Prerequisites
 
-   - :doc:`give-a-board-a-socket` — this tutorial plugs into the socket
+   - :ref:`rigs4zephyr_tutorials_give-a-board-a-socket` — this tutorial plugs into the socket
      that one declared.
 
 .. note::
 
    This tutorial's board and rig names come from btr-shields, the
    harness repository the rig model comes from, not from bridle's own
-   corpus — see :doc:`build-a-rig-that-exists`'s own note. Read it for
+   corpus — see :ref:`rigs4zephyr_tutorials_build-a-rig-that-exists`'s own note. Read it for
    the mechanism; bridle's own boards and shields are ``seeeduino_lotus``
    and ``grove_btn``/``grove_led``, as used there.
 
@@ -128,5 +128,5 @@ ways of writing it: the fastest possible way, and the durable way.
 Next
 ------
 
-:doc:`build-a-rig-on-the-fly` builds this module on that socket without
+:ref:`rigs4zephyr_tutorials_build-a-rig-on-the-fly` builds this module on that socket without
 writing a rig at all.

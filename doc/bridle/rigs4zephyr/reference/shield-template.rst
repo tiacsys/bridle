@@ -9,9 +9,9 @@ misused. The authority is the loader itself,
 ``scripts/rigc/loader/shields.py``; every example below is copied verbatim (only
 re-indented for this page) from a real ``.shield`` file in this tree.
 
-This page is reference, not narrative — :doc:`../tutorials/write-a-shield-template`
+This page is reference, not narrative — :ref:`rigs4zephyr_tutorials_write-a-shield-template`
 teaches the concept; this page looks up the facts. See
-:doc:`board-socket` for the ``socket,*`` vocabulary a shield's bus proxies
+:ref:`rigs4zephyr_reference_board-socket` for the ``socket,*`` vocabulary a shield's bus proxies
 and exposed sockets resolve against.
 
 .. note::
@@ -138,8 +138,8 @@ A device is any node under a bus-proxy group (``i2c``/``spi``/``uart``,
 named after the connector type's ``plug,bus-proxies``) or a plain,
 plug-agnostic group (``gpio``, or any other non-reserved group name). Its
 own gpio/pwm/adc references are documented in
-:doc:`../tutorials/write-a-shield-template` and
-:doc:`../tutorials/add-a-second-socket`; the properties below are this
+:ref:`rigs4zephyr_tutorials_write-a-shield-template` and
+:ref:`rigs4zephyr_tutorials_add-a-second-socket`; the properties below are this
 project's own address, chip-select and parameter vocabulary.
 
 ``reg`` / ``shield,addr-from`` (address authority)
@@ -290,11 +290,11 @@ Example — ``boards/shields/grove_btn/grove_btn.shield``:
    pass-through exposed socket. Presence marks this exposed socket as one
    channel of a multiplexer or similar interposer device on this shield —
    paired with a ``socket,<bus> = <&device>`` reference naming that
-   device rather than a plug (see :doc:`board-socket`'s ``socket,<bus>``
+   device rather than a plug (see :ref:`rigs4zephyr_reference_board-socket`'s ``socket,<bus>``
    entry for the pass-through-versus-new-scope distinction).
 :Refuses: nothing directly — a malformed or missing pairing with the bus
    proxy surfaces as ``lang-exposed`` instead (documented on
-   :doc:`board-socket`).
+   :ref:`rigs4zephyr_reference_board-socket`).
 
 Example — ``boards/shields/i2c_mux/i2c_mux.shield`` (four channels of one
 TCA9548A mux, each its own scope):
@@ -448,7 +448,7 @@ sockets — an I2C multiplexer, a click-adapter — is a :term:`carrier`. Its
 exposed sockets are ordinary nodes with a ``compatible = "socket,<type>"``,
 authored *inside* the ``.shield`` file: they carry the identical
 vocabulary a real board socket does (``gpio-map``, ``socket,<bus>``,
-``socket,cs-pool``, ...), documented in full on :doc:`board-socket`, plus
+``socket,cs-pool``, ...), documented in full on :ref:`rigs4zephyr_reference_board-socket`, plus
 this shield-only ``shield,channel`` above. A carrier with several plugs may
 compose one exposed socket's rows from *any* of them, exactly as a
 device's own cross-plug references do.
