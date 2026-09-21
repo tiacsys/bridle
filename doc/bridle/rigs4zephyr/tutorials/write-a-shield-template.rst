@@ -1,3 +1,5 @@
+.. _rigs4zephyr_tutorials_write-a-shield-template:
+
 Writing a shield template
 ===========================
 

@@ -1,3 +1,5 @@
+.. _rigs4zephyr_tutorials_build-a-rig-on-the-fly:
+
 Building a rig on the fly
 ===========================
 

@@ -1,3 +1,5 @@
+.. _rigs4zephyr_reference_api_emitter:
+
 Emitter
 =========
 

@@ -1,3 +1,5 @@
+.. _rigs4zephyr_howto_index:
+
 How-to guides
 =============
 

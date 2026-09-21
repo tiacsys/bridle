@@ -1,3 +1,5 @@
+.. _rigs4zephyr_tutorials_give-a-board-a-socket:
+
 Giving a board a socket
 =========================
 

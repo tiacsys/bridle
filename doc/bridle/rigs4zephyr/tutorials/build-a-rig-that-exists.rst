@@ -1,3 +1,5 @@
+.. _rigs4zephyr_tutorials_build-a-rig-that-exists:
+
 Building a rig that already exists
 ====================================
 

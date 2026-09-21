@@ -1,3 +1,5 @@
+.. _rigs4zephyr_tutorials_add-a-second-socket:
+
 Adding a second socket
 ========================
 

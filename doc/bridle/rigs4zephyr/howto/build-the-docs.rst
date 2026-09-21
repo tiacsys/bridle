@@ -1,3 +1,5 @@
+.. _rigs4zephyr_howto_build-the-docs:
+
 Building the documentation
 ============================
 

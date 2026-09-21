@@ -1,3 +1,5 @@
+.. _rigs4zephyr_tutorials_make-the-rig-permanent:
+
 Making the rig permanent
 ==========================
 

@@ -1,3 +1,5 @@
+.. _rigs4zephyr_reference_rig-file:
+
 Rig files
 ==========
 

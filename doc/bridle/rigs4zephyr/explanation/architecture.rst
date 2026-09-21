@@ -1,3 +1,5 @@
+.. _rigs4zephyr_explanation_architecture:
+
 The expander's architecture
 ==============================
 

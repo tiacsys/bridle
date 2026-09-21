@@ -1,3 +1,5 @@
+.. _rigs4zephyr_explanation_index:
+
 Explanation
 ===========
 
