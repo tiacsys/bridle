@@ -176,13 +176,13 @@
 
 | RP2350 | | :ref:`rpi_pico2_board-extensions` | - ``rpi_pico2/rp2350a/m33_0/w/mcuboot/bbe`` |
 
-.. waveshare_rp2350_matrix_rp2350a_hazard3
+.. waveshare_rp2350_matrix_rp2350a_hazard3_0
 
-| RP2350 | | :ref:`waveshare_rp2350_matrix` | - ``waveshare_rp2350_matrix/rp2350a/hazard3`` |
+| RP2350 | | :ref:`waveshare_rp2350_matrix` | - ``waveshare_rp2350_matrix/rp2350a/hazard3_0`` |
 
-.. waveshare_rp2350_matrix_rp2350a_m33
+.. waveshare_rp2350_matrix_rp2350a_m33_0
 
-| RP2350 | | :ref:`waveshare_rp2350_matrix` | - ``waveshare_rp2350_matrix/rp2350a/m33`` |
+| RP2350 | | :ref:`waveshare_rp2350_matrix` | - ``waveshare_rp2350_matrix/rp2350a/m33_0`` |
 
 .. xiao_rp2350_rp2350a_hazard3_0_bbe
 

@@ -83,8 +83,8 @@ common:
     - waveshare_rp2040_plus@16mb
     - waveshare_rp2350_can/rp2350a/hazard3_0
     - waveshare_rp2350_can/rp2350a/m33_0
-    - waveshare_rp2350_matrix/rp2350a/hazard3
-    - waveshare_rp2350_matrix/rp2350a/m33
+    - waveshare_rp2350_matrix/rp2350a/hazard3_0
+    - waveshare_rp2350_matrix/rp2350a/m33_0
 tests:
   #
   # Grove Button by simple GPIO on Grove Base Shield

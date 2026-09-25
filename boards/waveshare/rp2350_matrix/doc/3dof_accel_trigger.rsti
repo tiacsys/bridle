@@ -1,22 +1,22 @@
 Invoke :program:`west build` and :program:`west flash`:
 
-   .. rubric:: On ARM Cortex-M33
-
-   .. zephyr-app-commands::
-      :app: zephyr/samples/sensor/accel_trig
-      :build-dir: waveshare_rp2350_matrix
-      :board: waveshare_rp2350_matrix/rp2350a/m33
-      :snippets: "usb-console"
-      :west-args: -p
-      :goals: flash
-      :compact:
-
    .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
 
    .. zephyr-app-commands::
       :app: zephyr/samples/sensor/accel_trig
       :build-dir: waveshare_rp2350_matrix
-      :board: waveshare_rp2350_matrix/rp2350a/hazard3
+      :board: waveshare_rp2350_matrix/rp2350a/hazard3_0
+      :snippets: "usb-console"
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+   .. rubric:: On ARM Cortex-M33
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/sensor/accel_trig
+      :build-dir: waveshare_rp2350_matrix
+      :board: waveshare_rp2350_matrix/rp2350a/m33_0
       :snippets: "usb-console"
       :west-args: -p
       :goals: flash

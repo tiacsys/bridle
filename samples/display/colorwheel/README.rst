@@ -89,7 +89,7 @@ Building and Running
   .. zephyr-app-commands::
      :app: bridle/samples/display/colorwheel
      :build-dir: colorwheel-waveshare_rp2350_matrix
-     :board: waveshare_rp2350_matrix/rp2350a/m33
+     :board: waveshare_rp2350_matrix/rp2350a/m33_0
      :snippets: "usb-console"
      :west-args: -p
      :flash-args: -r uf2
@@ -101,7 +101,7 @@ Building and Running
   .. zephyr-app-commands::
      :app: bridle/samples/display/colorwheel
      :build-dir: colorwheel-waveshare_rp2350_matrix
-     :board: waveshare_rp2350_matrix/rp2350a/hazard3
+     :board: waveshare_rp2350_matrix/rp2350a/hazard3_0
      :snippets: "usb-console"
      :west-args: -p
      :flash-args: -r uf2

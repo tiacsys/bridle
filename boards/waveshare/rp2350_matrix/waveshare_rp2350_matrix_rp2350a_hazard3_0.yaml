@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
-identifier: waveshare_rp2350_matrix/rp2350a/hazard3
+identifier: waveshare_rp2350_matrix/rp2350a/hazard3_0
 name: Waveshare RP2350-Matrix (Hazard3)
 vendor: waveshare
 type: mcu

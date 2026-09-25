@@ -114,8 +114,8 @@
     - waveshare_rp2040_matrix/rp2040
     - waveshare_rp2040_tiny/rp2040
     - waveshare_rp2040_eth/rp2040
-    - waveshare_rp2350_matrix/rp2350a/hazard3
-    - waveshare_rp2350_matrix/rp2350a/m33
+    - waveshare_rp2350_matrix/rp2350a/hazard3_0
+    - waveshare_rp2350_matrix/rp2350a/m33_0
 
 - comment: "shield(grove.base.x_grove_testbed.gpio.b4l6): invalid board/shield condition."
   scenarios:
@@ -402,8 +402,8 @@
     - waveshare_rp2040_plus@16mb/rp2040
     - waveshare_rp2350_can/rp2350a/hazard3_0
     - waveshare_rp2350_can/rp2350a/m33_0
-    - waveshare_rp2350_matrix/rp2350a/hazard3
-    - waveshare_rp2350_matrix/rp2350a/m33
+    - waveshare_rp2350_matrix/rp2350a/hazard3_0
+    - waveshare_rp2350_matrix/rp2350a/m33_0
 
 # Grove Base Shield for XIAO
 
@@ -475,8 +475,8 @@
     - waveshare_rp2040_plus@16mb/rp2040
     - waveshare_rp2350_can/rp2350a/hazard3_0
     - waveshare_rp2350_can/rp2350a/m33_0
-    - waveshare_rp2350_matrix/rp2350a/hazard3
-    - waveshare_rp2350_matrix/rp2350a/m33
+    - waveshare_rp2350_matrix/rp2350a/hazard3_0
+    - waveshare_rp2350_matrix/rp2350a/m33_0
 
 # Grove Basic Kit for Raspberry Pi Pico
 
@@ -490,8 +490,8 @@
     - waveshare_rp2040_zero/rp2040
     - waveshare_rp2040_matrix/rp2040
     - waveshare_rp2040_tiny/rp2040
-    - waveshare_rp2350_matrix/rp2350a/hazard3
-    - waveshare_rp2350_matrix/rp2350a/m33
+    - waveshare_rp2350_matrix/rp2350a/hazard3_0
+    - waveshare_rp2350_matrix/rp2350a/m33_0
 
 - comment: "shield(grove.rpipico): invalid board condition."
   scenarios:
@@ -563,8 +563,8 @@
     - waveshare_rp2040_zero/rp2040
     - waveshare_rp2040_matrix/rp2040
     - waveshare_rp2040_tiny/rp2040
-    - waveshare_rp2350_matrix/rp2350a/hazard3
-    - waveshare_rp2350_matrix/rp2350a/m33
+    - waveshare_rp2350_matrix/rp2350a/hazard3_0
+    - waveshare_rp2350_matrix/rp2350a/m33_0
 
 # Grove Base Shield
 
@@ -619,8 +619,8 @@
     - waveshare_rp2040_plus@16mb/rp2040
     - waveshare_rp2350_can/rp2350a/hazard3_0
     - waveshare_rp2350_can/rp2350a/m33_0
-    - waveshare_rp2350_matrix/rp2350a/hazard3
-    - waveshare_rp2350_matrix/rp2350a/m33
+    - waveshare_rp2350_matrix/rp2350a/hazard3_0
+    - waveshare_rp2350_matrix/rp2350a/m33_0
 
 # Grove Base Shield for XIAO
 
@@ -690,8 +690,8 @@
     - waveshare_rp2040_plus@16mb/rp2040
     - waveshare_rp2350_can/rp2350a/hazard3_0
     - waveshare_rp2350_can/rp2350a/m33_0
-    - waveshare_rp2350_matrix/rp2350a/hazard3
-    - waveshare_rp2350_matrix/rp2350a/m33
+    - waveshare_rp2350_matrix/rp2350a/hazard3_0
+    - waveshare_rp2350_matrix/rp2350a/m33_0
 
 # Grove Basic Kit for Raspberry Pi Pico
 
@@ -825,8 +825,8 @@
     - waveshare_rp2040_plus@16mb/rp2040
     - waveshare_rp2350_can/rp2350a/hazard3_0
     - waveshare_rp2350_can/rp2350a/m33_0
-    - waveshare_rp2350_matrix/rp2350a/hazard3
-    - waveshare_rp2350_matrix/rp2350a/m33
+    - waveshare_rp2350_matrix/rp2350a/hazard3_0
+    - waveshare_rp2350_matrix/rp2350a/m33_0
 
 - comment: "shield(grove.connectors.grove_btn): seeeduino_cm0: invalid board condition."
   platforms:
@@ -1175,8 +1175,8 @@
     - waveshare_rp2040_zero/rp2040
     - waveshare_rp2040_matrix/rp2040
     - waveshare_rp2040_tiny/rp2040
-    - waveshare_rp2350_matrix/rp2350a/hazard3
-    - waveshare_rp2350_matrix/rp2350a/m33
+    - waveshare_rp2350_matrix/rp2350a/hazard3_0
+    - waveshare_rp2350_matrix/rp2350a/m33_0
 
 # Grove Base Shield
 
@@ -1231,8 +1231,8 @@
     - waveshare_rp2040_plus@16mb/rp2040
     - waveshare_rp2350_can/rp2350a/hazard3_0
     - waveshare_rp2350_can/rp2350a/m33_0
-    - waveshare_rp2350_matrix/rp2350a/hazard3
-    - waveshare_rp2350_matrix/rp2350a/m33
+    - waveshare_rp2350_matrix/rp2350a/hazard3_0
+    - waveshare_rp2350_matrix/rp2350a/m33_0
 
 - comment: "shield(grove.base.grove_led): (ar|seee)duino: invalid board condition."
   platforms:
@@ -1436,8 +1436,8 @@
     - waveshare_rp2040_plus@16mb/rp2040
     - waveshare_rp2350_can/rp2350a/hazard3_0
     - waveshare_rp2350_can/rp2350a/m33_0
-    - waveshare_rp2350_matrix/rp2350a/hazard3
-    - waveshare_rp2350_matrix/rp2350a/m33
+    - waveshare_rp2350_matrix/rp2350a/hazard3_0
+    - waveshare_rp2350_matrix/rp2350a/m33_0
 
 - comment: "shield(grove.base.grove_led): xiao_samd21: invalid board condition."
   platforms:
@@ -1575,8 +1575,8 @@
     - waveshare_rp2040_plus@16mb/rp2040
     - waveshare_rp2350_can/rp2350a/hazard3_0
     - waveshare_rp2350_can/rp2350a/m33_0
-    - waveshare_rp2350_matrix/rp2350a/hazard3
-    - waveshare_rp2350_matrix/rp2350a/m33
+    - waveshare_rp2350_matrix/rp2350a/hazard3_0
+    - waveshare_rp2350_matrix/rp2350a/m33_0
 
 - comment: "shield(grove.connectors.grove_led): seeeduino_cm0: invalid board condition."
   platforms:
