@@ -81,8 +81,8 @@ common:
     - waveshare_rp2040_lcd_0_96
     - waveshare_rp2040_plus
     - waveshare_rp2040_plus@16mb
-    - waveshare_rp2350_can/rp2350a/hazard3
-    - waveshare_rp2350_can/rp2350a/m33
+    - waveshare_rp2350_can/rp2350a/hazard3_0
+    - waveshare_rp2350_can/rp2350a/m33_0
     - waveshare_rp2350_matrix/rp2350a/hazard3
     - waveshare_rp2350_matrix/rp2350a/m33
 tests:
@@ -930,8 +930,8 @@ tests:
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
-      - waveshare_rp2350_can/rp2350a/hazard3
-      - waveshare_rp2350_can/rp2350a/m33
+      - waveshare_rp2350_can/rp2350a/hazard3_0
+      - waveshare_rp2350_can/rp2350a/m33_0
   grove.rpipico.v1.grove_btn.gpio.d16.inv:
     depends_on: rpipico_gpio
     filter: dt_nodelabel_enabled("grove_d16_header") and
@@ -950,8 +950,8 @@ tests:
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
-      - waveshare_rp2350_can/rp2350a/hazard3
-      - waveshare_rp2350_can/rp2350a/m33
+      - waveshare_rp2350_can/rp2350a/hazard3_0
+      - waveshare_rp2350_can/rp2350a/m33_0
   grove.rpipico.v1.grove_btn.gpio.d17:
     depends_on: rpipico_gpio
     filter: dt_nodelabel_enabled("grove_d16_header") and
@@ -970,8 +970,8 @@ tests:
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
-      - waveshare_rp2350_can/rp2350a/hazard3
-      - waveshare_rp2350_can/rp2350a/m33
+      - waveshare_rp2350_can/rp2350a/hazard3_0
+      - waveshare_rp2350_can/rp2350a/m33_0
   grove.rpipico.v1.grove_btn.gpio.d17.inv:
     depends_on: rpipico_gpio
     filter: dt_nodelabel_enabled("grove_d16_header") and
@@ -990,8 +990,8 @@ tests:
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
-      - waveshare_rp2350_can/rp2350a/hazard3
-      - waveshare_rp2350_can/rp2350a/m33
+      - waveshare_rp2350_can/rp2350a/hazard3_0
+      - waveshare_rp2350_can/rp2350a/m33_0
   grove.rpipico.v1.grove_btn.gpio.d18:
     depends_on: rpipico_gpio
     filter: dt_nodelabel_enabled("grove_d18_header") and
@@ -1010,8 +1010,8 @@ tests:
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
-      - waveshare_rp2350_can/rp2350a/hazard3
-      - waveshare_rp2350_can/rp2350a/m33
+      - waveshare_rp2350_can/rp2350a/hazard3_0
+      - waveshare_rp2350_can/rp2350a/m33_0
   grove.rpipico.v1.grove_btn.gpio.d18.inv:
     depends_on: rpipico_gpio
     filter: dt_nodelabel_enabled("grove_d18_header") and
@@ -1030,8 +1030,8 @@ tests:
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
-      - waveshare_rp2350_can/rp2350a/hazard3
-      - waveshare_rp2350_can/rp2350a/m33
+      - waveshare_rp2350_can/rp2350a/hazard3_0
+      - waveshare_rp2350_can/rp2350a/m33_0
   grove.rpipico.v1.grove_btn.gpio.d19:
     depends_on: rpipico_gpio
     filter: dt_nodelabel_enabled("grove_d18_header") and
@@ -1050,8 +1050,8 @@ tests:
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
-      - waveshare_rp2350_can/rp2350a/hazard3
-      - waveshare_rp2350_can/rp2350a/m33
+      - waveshare_rp2350_can/rp2350a/hazard3_0
+      - waveshare_rp2350_can/rp2350a/m33_0
   grove.rpipico.v1.grove_btn.gpio.d19.inv:
     depends_on: rpipico_gpio
     filter: dt_nodelabel_enabled("grove_d18_header") and
@@ -1070,8 +1070,8 @@ tests:
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
-      - waveshare_rp2350_can/rp2350a/hazard3
-      - waveshare_rp2350_can/rp2350a/m33
+      - waveshare_rp2350_can/rp2350a/hazard3_0
+      - waveshare_rp2350_can/rp2350a/m33_0
   grove.rpipico.v1.grove_btn.gpio.d20:
     depends_on: rpipico_gpio
     filter: dt_nodelabel_enabled("grove_d20_header") and
@@ -1090,8 +1090,8 @@ tests:
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
-      - waveshare_rp2350_can/rp2350a/hazard3
-      - waveshare_rp2350_can/rp2350a/m33
+      - waveshare_rp2350_can/rp2350a/hazard3_0
+      - waveshare_rp2350_can/rp2350a/m33_0
   grove.rpipico.v1.grove_btn.gpio.d20.inv:
     depends_on: rpipico_gpio
     filter: dt_nodelabel_enabled("grove_d20_header") and
@@ -1110,8 +1110,8 @@ tests:
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
-      - waveshare_rp2350_can/rp2350a/hazard3
-      - waveshare_rp2350_can/rp2350a/m33
+      - waveshare_rp2350_can/rp2350a/hazard3_0
+      - waveshare_rp2350_can/rp2350a/m33_0
   grove.rpipico.v1.grove_btn.gpio.d21:
     depends_on: rpipico_gpio
     filter: dt_nodelabel_enabled("grove_d20_header") and
@@ -1130,8 +1130,8 @@ tests:
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
-      - waveshare_rp2350_can/rp2350a/hazard3
-      - waveshare_rp2350_can/rp2350a/m33
+      - waveshare_rp2350_can/rp2350a/hazard3_0
+      - waveshare_rp2350_can/rp2350a/m33_0
   grove.rpipico.v1.grove_btn.gpio.d21.inv:
     depends_on: rpipico_gpio
     filter: dt_nodelabel_enabled("grove_d20_header") and
@@ -1150,8 +1150,8 @@ tests:
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
-      - waveshare_rp2350_can/rp2350a/hazard3
-      - waveshare_rp2350_can/rp2350a/m33
+      - waveshare_rp2350_can/rp2350a/hazard3_0
+      - waveshare_rp2350_can/rp2350a/m33_0
   # grove.rpipico.v1.grove_btn.gpio.d22
   # grove.rpipico.v1.grove_btn.gpio.d22.inv
   # grove.rpipico.v1.grove_btn.gpio.d23

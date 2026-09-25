@@ -2,23 +2,23 @@
 
 See also Bridle sample: :ref:`helloshell-sample`.
 
-   .. rubric:: On ARM Cortex-M33
-
-   .. zephyr-app-commands::
-      :app: bridle/samples/helloshell
-      :build-dir: waveshare_rp2350_can
-      :board: waveshare_rp2350_can/rp2350a/m33
-      :snippets: "usb-console"
-      :west-args: -p
-      :goals: flash
-      :compact:
-
    .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
 
    .. zephyr-app-commands::
       :app: bridle/samples/helloshell
       :build-dir: waveshare_rp2350_can
-      :board: waveshare_rp2350_can/rp2350a/hazard3
+      :board: waveshare_rp2350_can/rp2350a/hazard3_0
+      :snippets: "usb-console"
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+   .. rubric:: On ARM Cortex-M33
+
+   .. zephyr-app-commands::
+      :app: bridle/samples/helloshell
+      :build-dir: waveshare_rp2350_can
+      :board: waveshare_rp2350_can/rp2350a/m33_0
       :snippets: "usb-console"
       :west-args: -p
       :goals: flash
@@ -62,7 +62,7 @@ See also Bridle sample: :ref:`helloshell-sample`.
             Zephyr: |zephyr_release_number_em|
             Bridle: |release_number_em|
 
-      .. rubric:: On ARM Cortex-M33
+      .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
 
       .. container:: highlight highlight-console notranslate
 
@@ -74,6 +74,8 @@ See also Bridle sample: :ref:`helloshell-sample`.
               DT node labels: clocks
             - reset-controller\ @\ 40020000 (READY)
               DT node labels: reset
+            - interrupt-controller (READY)
+              DT node labels: intc
             - snippet_cdc_acm_console_uart (READY)
               DT node labels: snippet_cdc_acm_console_uart
             - timer\ @\ 400b8000 (READY)
@@ -111,7 +113,7 @@ See also Bridle sample: :ref:`helloshell-sample`.
             - dietemp (READY)
               DT node labels: die_temp
 
-      .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+      .. rubric:: On ARM Cortex-M33
 
       .. container:: highlight highlight-console notranslate
 
@@ -123,8 +125,6 @@ See also Bridle sample: :ref:`helloshell-sample`.
               DT node labels: clocks
             - reset-controller\ @\ 40020000 (READY)
               DT node labels: reset
-            - interrupt-controller (READY)
-              DT node labels: intc
             - snippet_cdc_acm_console_uart (READY)
               DT node labels: snippet_cdc_acm_console_uart
             - timer\ @\ 400b8000 (READY)

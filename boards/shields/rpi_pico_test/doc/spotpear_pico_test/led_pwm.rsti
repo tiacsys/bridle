@@ -177,12 +177,12 @@ That are:
 
    .. group-tab:: Waveshare RP2350-CAN
 
-      .. rubric:: On ARM Cortex-M33
+      .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
 
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/led/pwm
          :build-dir: spotpear_pico_test-drivers_led_pwm
-         :board: waveshare_rp2350_can/rp2350a/m33
+         :board: waveshare_rp2350_can/rp2350a/hazard3_0
          :shield: "spotpear_pico_test"
          :snippets: "usb-console"
          :gen-args: \
@@ -192,12 +192,12 @@ That are:
          :goals: flash
          :compact:
 
-      .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+      .. rubric:: On ARM Cortex-M33
 
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/led/pwm
          :build-dir: spotpear_pico_test-drivers_led_pwm
-         :board: waveshare_rp2350_can/rp2350a/hazard3
+         :board: waveshare_rp2350_can/rp2350a/m33_0
          :shield: "spotpear_pico_test"
          :snippets: "usb-console"
          :gen-args: \

@@ -375,24 +375,24 @@ Set ``-DSHIELD=waveshare_pico_environment_sensor`` when you invoke
 
    .. group-tab:: Waveshare RP2350-CAN
 
-      .. rubric:: On ARM Cortex-M33
+      .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
 
       .. zephyr-app-commands::
          :app: bridle/samples/helloshell
          :build-dir: waveshare_pico_environment_sensor-helloshell
-         :board: waveshare_rp2350_can/rp2350a/m33
+         :board: waveshare_rp2350_can/rp2350a/hazard3_0
          :shield: "waveshare_pico_environment_sensor"
          :snippets: "usb-console"
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
 
-      .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+      .. rubric:: On ARM Cortex-M33
 
       .. zephyr-app-commands::
          :app: bridle/samples/helloshell
          :build-dir: waveshare_pico_environment_sensor-helloshell
-         :board: waveshare_rp2350_can/rp2350a/hazard3
+         :board: waveshare_rp2350_can/rp2350a/m33_0
          :shield: "waveshare_pico_environment_sensor"
          :snippets: "usb-console"
          :west-args: -p

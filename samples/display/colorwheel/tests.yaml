@@ -34,8 +34,8 @@ tests:
       - rpi_pico2/rp2350a/m33_0/w/bbe
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_plus
-      - waveshare_rp2350_can/rp2350a/hazard3
-      - waveshare_rp2350_can/rp2350a/m33
+      - waveshare_rp2350_can/rp2350a/hazard3_0
+      - waveshare_rp2350_can/rp2350a/m33_0
     integration_platforms:
       - rpi_pico/rp2040/bbe
       - rpi_pico2/rp2350a/hazard3_0/bbe

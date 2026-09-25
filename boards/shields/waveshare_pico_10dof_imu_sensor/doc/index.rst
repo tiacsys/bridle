@@ -390,24 +390,24 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
 
          .. group-tab:: Waveshare RP2350-CAN
 
-            .. rubric:: On ARM Cortex-M33
+            .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
 
             .. zephyr-app-commands::
                :app: bridle/samples/helloshell
                :build-dir: waveshare_pico_10dof_imu_sensor-helloshell
-               :board: waveshare_rp2350_can/rp2350a/m33
+               :board: waveshare_rp2350_can/rp2350a/hazard3_0
                :shield: "waveshare_pico_10dof_imu_sensor_r2"
                :snippets: "usb-console"
                :goals: flash
                :west-args: -p
                :flash-args: -r uf2
 
-            .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+            .. rubric:: On ARM Cortex-M33
 
             .. zephyr-app-commands::
                :app: bridle/samples/helloshell
                :build-dir: waveshare_pico_10dof_imu_sensor-helloshell
-               :board: waveshare_rp2350_can/rp2350a/hazard3
+               :board: waveshare_rp2350_can/rp2350a/m33_0
                :shield: "waveshare_pico_10dof_imu_sensor_r2"
                :snippets: "usb-console"
                :goals: flash
@@ -550,24 +550,24 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
 
          .. group-tab:: Waveshare RP2350-CAN
 
-            .. rubric:: On ARM Cortex-M33
+            .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
 
             .. zephyr-app-commands::
                :app: bridle/samples/helloshell
                :build-dir: waveshare_pico_10dof_imu_sensor-helloshell
-               :board: waveshare_rp2350_can/rp2350a/m33
+               :board: waveshare_rp2350_can/rp2350a/hazard3_0
                :shield: "waveshare_pico_10dof_imu_sensor_r1"
                :snippets: "usb-console"
                :goals: flash
                :west-args: -p
                :flash-args: -r uf2
 
-            .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+            .. rubric:: On ARM Cortex-M33
 
             .. zephyr-app-commands::
                :app: bridle/samples/helloshell
                :build-dir: waveshare_pico_10dof_imu_sensor-helloshell
-               :board: waveshare_rp2350_can/rp2350a/hazard3
+               :board: waveshare_rp2350_can/rp2350a/m33_0
                :shield: "waveshare_pico_10dof_imu_sensor_r1"
                :snippets: "usb-console"
                :goals: flash
@@ -711,24 +711,24 @@ driver for the STM LPS22HB MEMS pressure sensor. See also Zephyr sample:
 
          .. group-tab:: Waveshare RP2350-CAN
 
-            .. rubric:: On ARM Cortex-M33
+            .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
 
             .. zephyr-app-commands::
                :app: zephyr/samples/sensor/lps22hb
                :build-dir: waveshare_pico_10dof_imu_sensor-lps22hb
-               :board: waveshare_rp2350_can/rp2350a/m33
+               :board: waveshare_rp2350_can/rp2350a/hazard3_0
                :shield: "waveshare_pico_10dof_imu_sensor_r2"
                :snippets: "usb-console"
                :goals: flash
                :west-args: -p
                :flash-args: -r uf2
 
-            .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+            .. rubric:: On ARM Cortex-M33
 
             .. zephyr-app-commands::
                :app: zephyr/samples/sensor/lps22hb
                :build-dir: waveshare_pico_10dof_imu_sensor-lps22hb
-               :board: waveshare_rp2350_can/rp2350a/hazard3
+               :board: waveshare_rp2350_can/rp2350a/m33_0
                :shield: "waveshare_pico_10dof_imu_sensor_r2"
                :snippets: "usb-console"
                :goals: flash
@@ -847,24 +847,24 @@ driver for the STM LPS22HB MEMS pressure sensor. See also Zephyr sample:
 
          .. group-tab:: Waveshare RP2350-CAN
 
-            .. rubric:: On ARM Cortex-M33
+            .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
 
             .. zephyr-app-commands::
                :app: zephyr/samples/sensor/lps22hb
                :build-dir: waveshare_pico_10dof_imu_sensor-lps22hb
-               :board: waveshare_rp2350_can/rp2350a/m33
+               :board: waveshare_rp2350_can/rp2350a/hazard3_0
                :shield: "waveshare_pico_10dof_imu_sensor_r1"
                :snippets: "usb-console"
                :goals: flash
                :west-args: -p
                :flash-args: -r uf2
 
-            .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+            .. rubric:: On ARM Cortex-M33
 
             .. zephyr-app-commands::
                :app: zephyr/samples/sensor/lps22hb
                :build-dir: waveshare_pico_10dof_imu_sensor-lps22hb
-               :board: waveshare_rp2350_can/rp2350a/hazard3
+               :board: waveshare_rp2350_can/rp2350a/m33_0
                :shield: "waveshare_pico_10dof_imu_sensor_r1"
                :snippets: "usb-console"
                :goals: flash

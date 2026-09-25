@@ -101,8 +101,8 @@ common:
     - waveshare_rp2040_plus
     - waveshare_rp2040_plus@16mb
     - waveshare_rp2040_geek
-    - waveshare_rp2350_can/rp2350a/hazard3
-    - waveshare_rp2350_can/rp2350a/m33
+    - waveshare_rp2350_can/rp2350a/hazard3_0
+    - waveshare_rp2350_can/rp2350a/m33_0
     - waveshare_rp2350_matrix/rp2350a/hazard3
     - waveshare_rp2350_matrix/rp2350a/m33
     # Build issue (undefined node label 'zephyr_udc0') [USB WIP]: - weact_bluepillplus_ch32v203c6
@@ -170,8 +170,8 @@ tests:
       - waveshare_rp2040_plus
       - waveshare_rp2040_plus@16mb
       - waveshare_rp2040_geek
-      - waveshare_rp2350_can/rp2350a/hazard3
-      - waveshare_rp2350_can/rp2350a/m33
+      - waveshare_rp2350_can/rp2350a/hazard3_0
+      - waveshare_rp2350_can/rp2350a/m33_0
       - waveshare_rp2350_matrix/rp2350a/hazard3
       - waveshare_rp2350_matrix/rp2350a/m33
       # Build issue (undefined node label 'zephyr_udc0') [USB WIP]: - weact_bluepillplus_ch32v203c6

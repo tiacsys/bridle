@@ -6,22 +6,22 @@ CANnectivity USB to CAN application firmware. The USB
 via the `MCUboot`_ bootloader is not and will never be
 supported. The UF2 bootloader is perfect for firmware updates.
 
-   .. rubric:: On ARM Cortex-M33
-
-   .. zephyr-app-commands::
-      :app: cannectivity/app
-      :build-dir: waveshare_rp2350_can
-      :board: waveshare_rp2350_can/rp2350a/m33
-      :west-args: -p
-      :goals: flash
-      :compact:
-
    .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
 
    .. zephyr-app-commands::
       :app: cannectivity/app
       :build-dir: waveshare_rp2350_can
-      :board: waveshare_rp2350_can/rp2350a/hazard3
+      :board: waveshare_rp2350_can/rp2350a/hazard3_0
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+   .. rubric:: On ARM Cortex-M33
+
+   .. zephyr-app-commands::
+      :app: cannectivity/app
+      :build-dir: waveshare_rp2350_can
+      :board: waveshare_rp2350_can/rp2350a/m33_0
       :west-args: -p
       :goals: flash
       :compact:

@@ -150,8 +150,8 @@ configuration can be found in the different Kconfig files:
 
 .. zephyr-keep-sorted-start re(^\* :bridle_file:`\w)
 
-* :bridle_file:`boards/waveshare/rp2350_can/waveshare_rp2350_can_rp2350a_hazard3_defconfig`
-* :bridle_file:`boards/waveshare/rp2350_can/waveshare_rp2350_can_rp2350a_m33_defconfig`
+* :bridle_file:`boards/waveshare/rp2350_can/waveshare_rp2350_can_rp2350a_hazard3_0_defconfig`
+* :bridle_file:`boards/waveshare/rp2350_can/waveshare_rp2350_can_rp2350a_m33_0_defconfig`
 
 .. zephyr-keep-sorted-stop
 
@@ -160,29 +160,29 @@ Board Configurations
 
 The board can be configured for the following different use cases.
 
-.. rubric:: :command:`west build -b waveshare_rp2350_can/rp2350a/m33`
-
-Use the serial port UART0 on edge header as
-Zephyr console and for the shell.
-Running on Cortex-M33 core.
-
-.. rubric:: :command:`west build -b waveshare_rp2350_can/rp2350a/m33 -S usb-console`
-
-Use the native USB device port with CDC-ACM as
-Zephyr console and for the shell.
-Running on Cortex-M33 core.
-
-.. rubric:: :command:`west build -b waveshare_rp2350_can/rp2350a/hazard3`
+.. rubric:: :command:`west build -b waveshare_rp2350_can/rp2350a/hazard3_0`
 
 Use the serial port UART0 on edge header as
 Zephyr console and for the shell.
 Running on Hazard3/RISC-V core. :brd:`EXPERIMENTAL`
 
-.. rubric:: :command:`west build -b waveshare_rp2350_can/rp2350a/hazard3 -S usb-console`
+.. rubric:: :command:`west build -b waveshare_rp2350_can/rp2350a/hazard3_0 -S usb-console`
 
 Use the native USB device port with CDC-ACM as
 Zephyr console and for the shell.
 Running on Hazard3/RISC-V core. :brd:`EXPERIMENTAL`
+
+.. rubric:: :command:`west build -b waveshare_rp2350_can/rp2350a/m33_0`
+
+Use the serial port UART0 on edge header as
+Zephyr console and for the shell.
+Running on Cortex-M33 core.
+
+.. rubric:: :command:`west build -b waveshare_rp2350_can/rp2350a/m33_0 -S usb-console`
+
+Use the native USB device port with CDC-ACM as
+Zephyr console and for the shell.
+Running on Cortex-M33 core.
 
 Connections and IOs
 ===================
@@ -335,7 +335,7 @@ Here is an example of building and flashing the
    .. zephyr-app-commands::
       :app: zephyr/samples/basic/blinky
       :build-dir: waveshare_rp2350_can
-      :board: waveshare_rp2350_can/rp2350a/m33
+      :board: waveshare_rp2350_can/rp2350a/m33_0
       :flash-args: -r jlink
       :west-args: -p
       :goals: flash
@@ -372,7 +372,7 @@ Here is an example of building and flashing the
    .. zephyr-app-commands::
       :app: zephyr/samples/basic/blinky
       :build-dir: waveshare_rp2350_can
-      :board: waveshare_rp2350_can/rp2350a/m33
+      :board: waveshare_rp2350_can/rp2350a/m33_0
       :gen-args: \
                  -DOPENOCD=/usr/local/bin/openocd \
                  -DOPENOCD_DEFAULT_PATH=/usr/local/share/openocd/scripts \
@@ -437,7 +437,7 @@ Here is an example for debugging the
    .. zephyr-app-commands::
       :app: zephyr/samples/basic/blinky
       :build-dir: waveshare_rp2350_can
-      :board: waveshare_rp2350_can/rp2350a/m33
+      :board: waveshare_rp2350_can/rp2350a/m33_0
       :maybe-skip-config:
       :gen-args: \
                  -DOPENOCD=/usr/local/bin/openocd \

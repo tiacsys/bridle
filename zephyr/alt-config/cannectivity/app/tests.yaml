@@ -41,8 +41,8 @@ tests:
       - can
       - usbd
     integration_platforms:
-      - waveshare_rp2350_can/rp2350a/hazard3
-      - waveshare_rp2350_can/rp2350a/m33
+      - waveshare_rp2350_can/rp2350a/hazard3_0
+      - waveshare_rp2350_can/rp2350a/m33_0
     platform_allow:
       - canbardo
       - candlelight
@@ -56,8 +56,8 @@ tests:
       - ucan
       - usb2canfdv1
       - usb2canfdv2
-      - waveshare_rp2350_can/rp2350a/hazard3
-      - waveshare_rp2350_can/rp2350a/m33
+      - waveshare_rp2350_can/rp2350a/hazard3_0
+      - waveshare_rp2350_can/rp2350a/m33_0
     build_only: true
   app.cannectivity.sof:
     depends_on:
