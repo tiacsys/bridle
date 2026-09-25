@@ -25,8 +25,8 @@ tests:
     integration_platforms:
       - picoboy
       - picoboy_color
-      - picoboy_color_plus/rp2350a/hazard3
-      - picoboy_color_plus/rp2350a/m33
+      - picoboy_color_plus/rp2350a/hazard3_0
+      - picoboy_color_plus/rp2350a/m33_0
       - waveshare_rp2040_geek
       - waveshare_rp2040_lcd_0_96
       - waveshare_rp2040_matrix

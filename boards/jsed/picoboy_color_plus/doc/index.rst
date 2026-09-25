@@ -150,8 +150,8 @@ configuration can be found in the following Kconfig file:
 
 .. zephyr-keep-sorted-start re(^\* :bridle_file:`\w)
 
-* :bridle_file:`boards/jsed/picoboy_color_plus/picoboy_color_plus_rp2350a_hazard3_defconfig`
-* :bridle_file:`boards/jsed/picoboy_color_plus/picoboy_color_plus_rp2350a_m33_defconfig`
+* :bridle_file:`boards/jsed/picoboy_color_plus/picoboy_color_plus_rp2350a_hazard3_0_defconfig`
+* :bridle_file:`boards/jsed/picoboy_color_plus/picoboy_color_plus_rp2350a_m33_0_defconfig`
 
 .. zephyr-keep-sorted-stop
 
@@ -160,17 +160,17 @@ Board Configurations
 
 The board can be configured only for the following different use cases.
 
-.. rubric:: :command:`west build -b picoboy_color_plus/rp2350a/m33`
-
-Use the native USB device port with CDC-ACM as
-Zephyr console and for the shell.
-Running on Cortex-M33 core.
-
-.. rubric:: :command:`west build -b picoboy_color_plus/rp2350a/hazard3`
+.. rubric:: :command:`west build -b picoboy_color_plus/rp2350a/hazard3_0`
 
 Use the native USB device port with CDC-ACM as
 Zephyr console and for the shell.
 Running on Hazard3/RISC-V core. :brd:`EXPERIMENTAL`
+
+.. rubric:: :command:`west build -b picoboy_color_plus/rp2350a/m33_0`
+
+Use the native USB device port with CDC-ACM as
+Zephyr console and for the shell.
+Running on Cortex-M33 core.
 
 Connections and IOs
 ===================

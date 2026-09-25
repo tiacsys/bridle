@@ -255,8 +255,8 @@ Also see the :ref:`boards` section in this documentation.
 |                   | |bridle:board:mini_usb_rp2350|           | | ``mini_usb_rp2350/rp2350a/m33``              |
 |                   |                                          | | ``mini_usb_rp2350@16mb/rp2350a/m33``         |
 |                   +------------------------------------------+------------------------------------------------+
-|                   | |bridle:board:picoboy_color_plus|        | | ``picoboy_color_plus/rp2350a/hazard3``       |
-|                   |                                          | | ``picoboy_color_plus/rp2350a/m33``           |
+|                   | |bridle:board:picoboy_color_plus|        | | ``picoboy_color_plus/rp2350a/hazard3_0``     |
+|                   |                                          | | ``picoboy_color_plus/rp2350a/m33_0``         |
 |                   +------------------------------------------+------------------------------------------------+
 |                   | |bridle:board:waveshare_rp2350_can|      | | ``waveshare_rp2350_can/rp2350a/hazard3``     |
 |                   |                                          | | ``waveshare_rp2350_can/rp2350a/m33``         |

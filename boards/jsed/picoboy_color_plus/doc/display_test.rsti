@@ -41,22 +41,22 @@ Draw some basic rectangles onto the display using the
 :external+zephyr:ref:`Display driver API <display_api>`.
 See also Zephyr sample: :external+zephyr:zephyr:code-sample:`display`.
 
-   .. rubric:: On ARM Cortex-M33
-
-   .. zephyr-app-commands::
-      :app: zephyr/samples/drivers/display
-      :build-dir: picoboy_color_plus
-      :board: picoboy_color_plus/rp2350a/m33
-      :west-args: -p
-      :goals: flash
-      :compact:
-
    .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
 
    .. zephyr-app-commands::
       :app: zephyr/samples/drivers/display
       :build-dir: picoboy_color_plus
-      :board: picoboy_color_plus/rp2350a/hazard3
+      :board: picoboy_color_plus/rp2350a/hazard3_0
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+   .. rubric:: On ARM Cortex-M33
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/drivers/display
+      :build-dir: picoboy_color_plus
+      :board: picoboy_color_plus/rp2350a/m33_0
       :west-args: -p
       :goals: flash
       :compact:
@@ -68,22 +68,22 @@ bottom which increments every second using the LVGL module on top of the
 :external+zephyr:ref:`Display driver API <display_api>`.
 See also Zephyr sample: :external+zephyr:zephyr:code-sample:`lvgl`.
 
-   .. rubric:: On ARM Cortex-M33
-
-   .. zephyr-app-commands::
-      :app: zephyr/samples/subsys/display/lvgl
-      :build-dir: picoboy_color_plus
-      :board: picoboy_color_plus/rp2350a/m33
-      :west-args: -p
-      :goals: flash
-      :compact:
-
    .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
 
    .. zephyr-app-commands::
       :app: zephyr/samples/subsys/display/lvgl
       :build-dir: picoboy_color_plus
-      :board: picoboy_color_plus/rp2350a/hazard3
+      :board: picoboy_color_plus/rp2350a/hazard3_0
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+   .. rubric:: On ARM Cortex-M33
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/subsys/display/lvgl
+      :build-dir: picoboy_color_plus
+      :board: picoboy_color_plus/rp2350a/m33_0
       :west-args: -p
       :goals: flash
       :compact:

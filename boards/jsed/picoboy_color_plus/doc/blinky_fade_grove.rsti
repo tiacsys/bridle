@@ -3,23 +3,23 @@
 See also |LED Shields| in Bridle and Zephyr sample:
 :zephyr:code-sample:`blinky`.
 
-   .. rubric:: On ARM Cortex-M33
-
-   .. zephyr-app-commands::
-      :app: zephyr/samples/basic/blinky
-      :build-dir: picoboy_color_plus
-      :board: picoboy_color_plus/rp2350a/m33
-      :shield: "grove_btn_d20_inv grove_led_d21 grove_pwm_led_d21 x_grove_testbed"
-      :west-args: -p
-      :goals: flash
-      :compact:
-
    .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
 
    .. zephyr-app-commands::
       :app: zephyr/samples/basic/blinky
       :build-dir: picoboy_color_plus
-      :board: picoboy_color_plus/rp2350a/hazard3
+      :board: picoboy_color_plus/rp2350a/hazard3_0
+      :shield: "grove_btn_d20_inv grove_led_d21 grove_pwm_led_d21 x_grove_testbed"
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+   .. rubric:: On ARM Cortex-M33
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/basic/blinky
+      :build-dir: picoboy_color_plus
+      :board: picoboy_color_plus/rp2350a/m33_0
       :shield: "grove_btn_d20_inv grove_led_d21 grove_pwm_led_d21 x_grove_testbed"
       :west-args: -p
       :goals: flash
@@ -30,23 +30,23 @@ See also |LED Shields| in Bridle and Zephyr sample:
 See also |LED Shields| in Bridle and Zephyr sample:
 :zephyr:code-sample:`pwm-blinky`.
 
-   .. rubric:: On ARM Cortex-M33
-
-   .. zephyr-app-commands::
-      :app: zephyr/samples/basic/blinky_pwm
-      :build-dir: picoboy_color_plus
-      :board: picoboy_color_plus/rp2350a/m33
-      :shield: "grove_btn_d20_inv grove_led_d21 grove_pwm_led_d21 x_grove_testbed"
-      :west-args: -p
-      :goals: flash
-      :compact:
-
    .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
 
    .. zephyr-app-commands::
       :app: zephyr/samples/basic/blinky_pwm
       :build-dir: picoboy_color_plus
-      :board: picoboy_color_plus/rp2350a/hazard3
+      :board: picoboy_color_plus/rp2350a/hazard3_0
+      :shield: "grove_btn_d20_inv grove_led_d21 grove_pwm_led_d21 x_grove_testbed"
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+   .. rubric:: On ARM Cortex-M33
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/basic/blinky_pwm
+      :build-dir: picoboy_color_plus
+      :board: picoboy_color_plus/rp2350a/m33_0
       :shield: "grove_btn_d20_inv grove_led_d21 grove_pwm_led_d21 x_grove_testbed"
       :west-args: -p
       :goals: flash
@@ -57,23 +57,23 @@ See also |LED Shields| in Bridle and Zephyr sample:
 See also |LED Shields| in Bridle and Zephyr sample:
 :zephyr:code-sample:`fade-led`.
 
-   .. rubric:: On ARM Cortex-M33
-
-   .. zephyr-app-commands::
-      :app: zephyr/samples/basic/fade_led
-      :build-dir: picoboy_color_plus
-      :board: picoboy_color_plus/rp2350a/m33
-      :shield: "grove_btn_d20_inv grove_led_d21 grove_pwm_led_d21 x_grove_testbed"
-      :west-args: -p
-      :goals: flash
-      :compact:
-
    .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
 
    .. zephyr-app-commands::
       :app: zephyr/samples/basic/fade_led
       :build-dir: picoboy_color_plus
-      :board: picoboy_color_plus/rp2350a/hazard3
+      :board: picoboy_color_plus/rp2350a/hazard3_0
+      :shield: "grove_btn_d20_inv grove_led_d21 grove_pwm_led_d21 x_grove_testbed"
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+   .. rubric:: On ARM Cortex-M33
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/basic/fade_led
+      :build-dir: picoboy_color_plus
+      :board: picoboy_color_plus/rp2350a/m33_0
       :shield: "grove_btn_d20_inv grove_led_d21 grove_pwm_led_d21 x_grove_testbed"
       :west-args: -p
       :goals: flash
@@ -84,23 +84,23 @@ See also |LED Shields| in Bridle and Zephyr sample:
 See also |LED Shields| and |Button Shields| in Bridle and Zephyr sample:
 :zephyr:code-sample:`button`.
 
-   .. rubric:: On ARM Cortex-M33
-
-   .. zephyr-app-commands::
-      :app: zephyr/samples/basic/button
-      :build-dir: picoboy_color_plus
-      :board: picoboy_color_plus/rp2350a/m33
-      :shield: "grove_btn_d20_inv grove_led_d21 grove_pwm_led_d21 x_grove_testbed"
-      :west-args: -p
-      :goals: flash
-      :compact:
-
    .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
 
    .. zephyr-app-commands::
       :app: zephyr/samples/basic/button
       :build-dir: picoboy_color_plus
-      :board: picoboy_color_plus/rp2350a/hazard3
+      :board: picoboy_color_plus/rp2350a/hazard3_0
+      :shield: "grove_btn_d20_inv grove_led_d21 grove_pwm_led_d21 x_grove_testbed"
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+   .. rubric:: On ARM Cortex-M33
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/basic/button
+      :build-dir: picoboy_color_plus
+      :board: picoboy_color_plus/rp2350a/m33_0
       :shield: "grove_btn_d20_inv grove_led_d21 grove_pwm_led_d21 x_grove_testbed"
       :west-args: -p
       :goals: flash

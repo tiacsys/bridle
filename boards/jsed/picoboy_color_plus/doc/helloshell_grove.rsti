@@ -2,23 +2,23 @@
 
 See also Bridle sample: :ref:`helloshell-sample`.
 
-   .. rubric:: On ARM Cortex-M33
-
-   .. zephyr-app-commands::
-      :app: bridle/samples/helloshell
-      :build-dir: picoboy_color_plus
-      :board: picoboy_color_plus/rp2350a/m33
-      :shield: "grove_sens_bmp280"
-      :west-args: -p
-      :goals: flash
-      :compact:
-
    .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
 
    .. zephyr-app-commands::
       :app: bridle/samples/helloshell
       :build-dir: picoboy_color_plus
-      :board: picoboy_color_plus/rp2350a/hazard3
+      :board: picoboy_color_plus/rp2350a/hazard3_0
+      :shield: "grove_sens_bmp280"
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+   .. rubric:: On ARM Cortex-M33
+
+   .. zephyr-app-commands::
+      :app: bridle/samples/helloshell
+      :build-dir: picoboy_color_plus
+      :board: picoboy_color_plus/rp2350a/m33_0
       :shield: "grove_sens_bmp280"
       :west-args: -p
       :goals: flash

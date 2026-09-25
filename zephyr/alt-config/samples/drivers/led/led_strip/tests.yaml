@@ -28,8 +28,8 @@ tests:
       - mini_usb_rp2040@16mb/rp2040
       - mini_usb_rp2350@4mb/rp2350a/m33
       - mini_usb_rp2350@16mb/rp2350a/m33
-      - picoboy_color_plus/rp2350a/hazard3
-      - picoboy_color_plus/rp2350a/m33
+      - picoboy_color_plus/rp2350a/hazard3_0
+      - picoboy_color_plus/rp2350a/m33_0
       - waveshare_rp2040_eth
       - waveshare_rp2040_matrix
       - waveshare_rp2040_one

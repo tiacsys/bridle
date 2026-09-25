@@ -97,10 +97,21 @@ Building on picoboy_color_plus
 
 The |PicoBoy Color Plus| includes an STK8BA58 with connected interrupt line.
 
+   .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+
    .. zephyr-app-commands::
       :app: bridle/samples/stk8ba58
       :build-dir: picoboy-stk8ba58
-      :board: picoboy_color_plus/rp2350a/m33
+      :board: picoboy_color_plus/rp2350a/hazard3_0
+      :west-args: -p
+      :goals: flash
+
+   .. rubric:: On ARM Cortex-M33
+
+   .. zephyr-app-commands::
+      :app: bridle/samples/stk8ba58
+      :build-dir: picoboy-stk8ba58
+      :board: picoboy_color_plus/rp2350a/m33_0
       :west-args: -p
       :goals: flash
 

@@ -64,8 +64,8 @@ common:
     - nucleo_l496zg/stm32l496xx/bbe
     - picoboy/rp2040
     - picoboy_color/rp2040
-    - picoboy_color_plus/rp2350a/hazard3
-    - picoboy_color_plus/rp2350a/m33
+    - picoboy_color_plus/rp2350a/hazard3_0
+    - picoboy_color_plus/rp2350a/m33_0
     - rpi_pico/rp2040
     - rpi_pico/rp2040/bbe
     - rpi_pico/rp2040/mcuboot
@@ -280,8 +280,8 @@ tests:
       - mini_usb_rp2350@16mb/rp2350a/m33
       - picoboy/rp2040
       - picoboy_color/rp2040
-      - picoboy_color_plus/rp2350a/hazard3
-      - picoboy_color_plus/rp2350a/m33
+      - picoboy_color_plus/rp2350a/hazard3_0
+      - picoboy_color_plus/rp2350a/m33_0
   #
   # Forein bords (Zephyr) without or unknown snippet support.
   #

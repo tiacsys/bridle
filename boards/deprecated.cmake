@@ -14,6 +14,12 @@ set(cytron_motion_2350_pro/rp2350a/hazard3_DEPRECATED
 set(cytron_motion_2350_pro/rp2350a/m33_DEPRECATED
     cytron_motion_2350_pro/rp2350a/m33_0
 )
+set(picoboy_color_plus/rp2350a/hazard3_DEPRECATED
+    picoboy_color_plus/rp2350a/hazard3_0
+)
+set(picoboy_color_plus/rp2350a/m33_DEPRECATED
+    picoboy_color_plus/rp2350a/m33_0
+)
 set(seeed_xiao_samd21_DEPRECATED
     xiao_samd21
 )
