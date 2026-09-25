@@ -4,10 +4,10 @@ boards:
   cytron_maker_pi_rp2040/rp2040:
     append:
       EXTRA_DTC_OVERLAY_FILE: boards/cytron_maker_pi_rp2040.overlay
-  cytron_motion_2350_pro/rp2350a/hazard3:
+  cytron_motion_2350_pro/rp2350a/hazard3_0:
     append:
       EXTRA_DTC_OVERLAY_FILE: boards/cytron_motion_2350_pro.overlay
-  cytron_motion_2350_pro/rp2350a/m33:
+  cytron_motion_2350_pro/rp2350a/m33_0:
     append:
       EXTRA_DTC_OVERLAY_FILE: boards/cytron_motion_2350_pro.overlay
   coffeecaller_nrf52/nrf52840:

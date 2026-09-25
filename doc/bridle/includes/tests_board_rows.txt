@@ -140,13 +140,13 @@
 
 | RP2350 | | :external+zephyr:zephyr:board:`xiao_rp2350` | - ``xiao_rp2350/rp2350a/m33`` |
 
-.. cytron_motion_2350_pro_rp2350a_hazard3
+.. cytron_motion_2350_pro_rp2350a_hazard3_0
 
-| RP2350 | | :ref:`cytron_motion_2350_pro` | - ``cytron_motion_2350_pro/rp2350a/hazard3`` |
+| RP2350 | | :ref:`cytron_motion_2350_pro` | - ``cytron_motion_2350_pro/rp2350a/hazard3_0`` |
 
-.. cytron_motion_2350_pro_rp2350a_m33
+.. cytron_motion_2350_pro_rp2350a_m33_0
 
-| RP2350 | | :ref:`cytron_motion_2350_pro` | - ``cytron_motion_2350_pro/rp2350a/m33`` |
+| RP2350 | | :ref:`cytron_motion_2350_pro` | - ``cytron_motion_2350_pro/rp2350a/m33_0`` |
 
 .. picoboy_color_plus_rp2350a_hazard3
 

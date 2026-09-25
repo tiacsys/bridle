@@ -10,8 +10,8 @@ common:
   platform_allow:
     - cytron_maker_nano_rp2040
     - cytron_maker_pi_rp2040
-    - cytron_motion_2350_pro/rp2350a/hazard3
-    - cytron_motion_2350_pro/rp2350a/m33
+    - cytron_motion_2350_pro/rp2350a/hazard3_0
+    - cytron_motion_2350_pro/rp2350a/m33_0
     - picoboy/rp2040
     - picoboy_color/rp2040
     - picoboy_color_plus/rp2350a/hazard3
@@ -19,8 +19,8 @@ common:
   integration_platforms:
     - cytron_maker_nano_rp2040
     - cytron_maker_pi_rp2040
-    - cytron_motion_2350_pro/rp2350a/hazard3
-    - cytron_motion_2350_pro/rp2350a/m33
+    - cytron_motion_2350_pro/rp2350a/hazard3_0
+    - cytron_motion_2350_pro/rp2350a/m33_0
     - picoboy/rp2040
     - picoboy_color/rp2040
     - picoboy_color_plus/rp2350a/hazard3

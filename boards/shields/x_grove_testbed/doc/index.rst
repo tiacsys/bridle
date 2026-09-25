@@ -1516,7 +1516,7 @@ For example:
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/blinky
                      :build-dir: blinky-cytron_motion_2350_pro-x_grove_testbed
-                     :board: cytron_motion_2350_pro/rp2350a/m33
+                     :board: cytron_motion_2350_pro/rp2350a/m33_0
                      :shield: \
                               "grove_btn_d17 grove_led_d27 grove_pwm_led_d27 x_grove_testbed"
                      :gen-args: \
@@ -1536,7 +1536,7 @@ For example:
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/fade_led
                      :build-dir: fade-cytron_motion_2350_pro-x_grove_testbed
-                     :board: cytron_motion_2350_pro/rp2350a/m33
+                     :board: cytron_motion_2350_pro/rp2350a/m33_0
                      :shield: \
                               "grove_btn_d17 grove_led_d27 grove_pwm_led_d27 x_grove_testbed"
                      :gen-args: \
@@ -1556,7 +1556,7 @@ For example:
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/button
                      :build-dir: button-cytron_motion_2350_pro-x_grove_testbed
-                     :board: cytron_motion_2350_pro/rp2350a/m33
+                     :board: cytron_motion_2350_pro/rp2350a/m33_0
                      :shield: \
                               "grove_btn_d17 grove_led_d27 grove_pwm_led_d27 x_grove_testbed"
                      :gen-args: \

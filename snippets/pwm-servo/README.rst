@@ -52,23 +52,23 @@ Supported boards are:
       sample. Invoke :program:`west build` and :program:`west flash`
       with this snipped and optional mixed with others, for example:
 
-         .. rubric:: On ARM Cortex-M33
-
-         .. zephyr-app-commands::
-            :app: zephyr/samples/basic/servo_motor
-            :build-dir: cytron_motion_rp2350_pro
-            :board: cytron_motion_2350_pro/rp2350a/m33
-            :snippets: "usb-console pwm-servo"
-            :west-args: -p always
-            :goals: flash
-            :compact:
-
          .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
 
          .. zephyr-app-commands::
             :app: zephyr/samples/basic/servo_motor
             :build-dir: cytron_motion_rp2350_pro
-            :board: cytron_motion_2350_pro/rp2350a/hazard3
+            :board: cytron_motion_2350_pro/rp2350a/hazard3_0
+            :snippets: "usb-console pwm-servo"
+            :west-args: -p always
+            :goals: flash
+            :compact:
+
+         .. rubric:: On ARM Cortex-M33
+
+         .. zephyr-app-commands::
+            :app: zephyr/samples/basic/servo_motor
+            :build-dir: cytron_motion_rp2350_pro
+            :board: cytron_motion_2350_pro/rp2350a/m33_0
             :snippets: "usb-console pwm-servo"
             :west-args: -p always
             :goals: flash

@@ -29,8 +29,8 @@ common:
     - coffeecaller_nrf52
     - cytron_maker_nano_rp2040
     - cytron_maker_pi_rp2040
-    - cytron_motion_2350_pro/rp2350a/hazard3
-    - cytron_motion_2350_pro/rp2350a/m33
+    - cytron_motion_2350_pro/rp2350a/hazard3_0
+    - cytron_motion_2350_pro/rp2350a/m33_0
     - mimxrt1010_evk/mimxrt1011/bbe
     - mimxrt1060_evk@A/mimxrt1062/qspi
     - mimxrt1060_evk@A/mimxrt1062/qspi/bbe
@@ -1476,8 +1476,8 @@ tests:
     platform_allow:
       - coffeecaller_nrf52
       - cytron_maker_pi_rp2040
-      - cytron_motion_2350_pro/rp2350a/hazard3
-      - cytron_motion_2350_pro/rp2350a/m33
+      - cytron_motion_2350_pro/rp2350a/hazard3_0
+      - cytron_motion_2350_pro/rp2350a/m33_0
       - mini_usb_rp2040
       - mini_usb_rp2040@16mb
       - mini_usb_rp2040@chipled
@@ -1495,8 +1495,8 @@ tests:
     platform_allow:
       - coffeecaller_nrf52
       - cytron_maker_pi_rp2040
-      - cytron_motion_2350_pro/rp2350a/hazard3
-      - cytron_motion_2350_pro/rp2350a/m33
+      - cytron_motion_2350_pro/rp2350a/hazard3_0
+      - cytron_motion_2350_pro/rp2350a/m33_0
       - mini_usb_rp2040
       - mini_usb_rp2040@16mb
       - mini_usb_rp2040@chipled
@@ -1514,8 +1514,8 @@ tests:
     platform_allow:
       - coffeecaller_nrf52
       - cytron_maker_pi_rp2040
-      - cytron_motion_2350_pro/rp2350a/hazard3
-      - cytron_motion_2350_pro/rp2350a/m33
+      - cytron_motion_2350_pro/rp2350a/hazard3_0
+      - cytron_motion_2350_pro/rp2350a/m33_0
       - mini_usb_rp2040
       - mini_usb_rp2040@16mb
       - mini_usb_rp2040@chipled
@@ -1533,8 +1533,8 @@ tests:
     platform_allow:
       - coffeecaller_nrf52
       - cytron_maker_pi_rp2040
-      - cytron_motion_2350_pro/rp2350a/hazard3
-      - cytron_motion_2350_pro/rp2350a/m33
+      - cytron_motion_2350_pro/rp2350a/hazard3_0
+      - cytron_motion_2350_pro/rp2350a/m33_0
       - mini_usb_rp2040
       - mini_usb_rp2040@16mb
       - mini_usb_rp2040@chipled
@@ -1661,8 +1661,8 @@ tests:
     extra_args: SHIELD=grove_btn_d26
     platform_allow:
       - cytron_maker_pi_rp2040
-      - cytron_motion_2350_pro/rp2350a/hazard3
-      - cytron_motion_2350_pro/rp2350a/m33
+      - cytron_motion_2350_pro/rp2350a/hazard3_0
+      - cytron_motion_2350_pro/rp2350a/m33_0
   grove.connectors.grove_btn.gpio.d26.inv:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d26_header") or
@@ -1671,8 +1671,8 @@ tests:
     extra_args: SHIELD=grove_btn_d26_inv
     platform_allow:
       - cytron_maker_pi_rp2040
-      - cytron_motion_2350_pro/rp2350a/hazard3
-      - cytron_motion_2350_pro/rp2350a/m33
+      - cytron_motion_2350_pro/rp2350a/hazard3_0
+      - cytron_motion_2350_pro/rp2350a/m33_0
   grove.connectors.grove_btn.gpio.d27:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d27_header") or
@@ -1681,8 +1681,8 @@ tests:
     extra_args: SHIELD=grove_btn_d27
     platform_allow:
       - cytron_maker_pi_rp2040
-      - cytron_motion_2350_pro/rp2350a/hazard3
-      - cytron_motion_2350_pro/rp2350a/m33
+      - cytron_motion_2350_pro/rp2350a/hazard3_0
+      - cytron_motion_2350_pro/rp2350a/m33_0
   grove.connectors.grove_btn.gpio.d27.inv:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d27_header") or
@@ -1691,8 +1691,8 @@ tests:
     extra_args: SHIELD=grove_btn_d27_inv
     platform_allow:
       - cytron_maker_pi_rp2040
-      - cytron_motion_2350_pro/rp2350a/hazard3
-      - cytron_motion_2350_pro/rp2350a/m33
+      - cytron_motion_2350_pro/rp2350a/hazard3_0
+      - cytron_motion_2350_pro/rp2350a/m33_0
   grove.connectors.grove_btn.gpio.d28:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d28_header") or
@@ -1701,8 +1701,8 @@ tests:
     extra_args: SHIELD=grove_btn_d28
     platform_allow:
       - cytron_maker_pi_rp2040
-      - cytron_motion_2350_pro/rp2350a/hazard3
-      - cytron_motion_2350_pro/rp2350a/m33
+      - cytron_motion_2350_pro/rp2350a/hazard3_0
+      - cytron_motion_2350_pro/rp2350a/m33_0
   grove.connectors.grove_btn.gpio.d28.inv:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d28_header") or
@@ -1711,8 +1711,8 @@ tests:
     extra_args: SHIELD=grove_btn_d28_inv
     platform_allow:
       - cytron_maker_pi_rp2040
-      - cytron_motion_2350_pro/rp2350a/hazard3
-      - cytron_motion_2350_pro/rp2350a/m33
+      - cytron_motion_2350_pro/rp2350a/hazard3_0
+      - cytron_motion_2350_pro/rp2350a/m33_0
   grove.connectors.grove_btn.gpio.d29:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d29_header") or
@@ -1720,8 +1720,8 @@ tests:
             dt_label_with_parent_compat_enabled("grove_btn_d29", "gpio-keys")
     extra_args: SHIELD=grove_btn_d29
     platform_allow:
-      - cytron_motion_2350_pro/rp2350a/hazard3
-      - cytron_motion_2350_pro/rp2350a/m33
+      - cytron_motion_2350_pro/rp2350a/hazard3_0
+      - cytron_motion_2350_pro/rp2350a/m33_0
   grove.connectors.grove_btn.gpio.d29.inv:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d29_header") or
@@ -1729,8 +1729,8 @@ tests:
             dt_label_with_parent_compat_enabled("grove_btn_d29", "gpio-keys")
     extra_args: SHIELD=grove_btn_d29_inv
     platform_allow:
-      - cytron_motion_2350_pro/rp2350a/hazard3
-      - cytron_motion_2350_pro/rp2350a/m33
+      - cytron_motion_2350_pro/rp2350a/hazard3_0
+      - cytron_motion_2350_pro/rp2350a/m33_0
   grove.connectors.grove_btn.gpio.d30:
     depends_on: grove_gpio
     filter: ( dt_nodelabel_enabled("grove_d30_header") or

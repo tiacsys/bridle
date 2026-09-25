@@ -152,8 +152,8 @@ configuration can be found in the different Kconfig files:
 
 .. zephyr-keep-sorted-start re(^\* :bridle_file:`\w)
 
-* :bridle_file:`boards/cytron/motion_rp2350_pro/cytron_motion_2350_pro_rp2350a_hazard3_defconfig`
-* :bridle_file:`boards/cytron/motion_rp2350_pro/cytron_motion_2350_pro_rp2350a_m33_defconfig`
+* :bridle_file:`boards/cytron/motion_rp2350_pro/cytron_motion_2350_pro_rp2350a_hazard3_0_defconfig`
+* :bridle_file:`boards/cytron/motion_rp2350_pro/cytron_motion_2350_pro_rp2350a_m33_0_defconfig`
 
 .. zephyr-keep-sorted-stop
 
@@ -162,29 +162,29 @@ Board Configurations
 
 The board can be configured for the following different use cases.
 
-.. rubric:: :command:`west build -b cytron_motion_2350_pro/rp2350a/m33`
-
-Use the serial port UART0 on edge header as
-Zephyr console and for the shell.
-Running on Cortex-M33 core.
-
-.. rubric:: :command:`west build -b cytron_motion_2350_pro/rp2350a/m33 -S usb-console`
-
-Use the native USB device port with CDC-ACM as
-Zephyr console and for the shell.
-Running on Cortex-M33 core.
-
-.. rubric:: :command:`west build -b cytron_motion_2350_pro/rp2350a/hazard3`
+.. rubric:: :command:`west build -b cytron_motion_2350_pro/rp2350a/hazard3_0`
 
 Use the serial port UART0 on edge header as
 Zephyr console and for the shell.
 Running on Hazard3/RISC-V core. :brd:`EXPERIMENTAL`
 
-.. rubric:: :command:`west build -b cytron_motion_2350_pro/rp2350a/hazard3 -S usb-console`
+.. rubric:: :command:`west build -b cytron_motion_2350_pro/rp2350a/hazard3_0 -S usb-console`
 
 Use the native USB device port with CDC-ACM as
 Zephyr console and for the shell.
 Running on Hazard3/RISC-V core. :brd:`EXPERIMENTAL`
+
+.. rubric:: :command:`west build -b cytron_motion_2350_pro/rp2350a/m33_0`
+
+Use the serial port UART0 on edge header as
+Zephyr console and for the shell.
+Running on Cortex-M33 core.
+
+.. rubric:: :command:`west build -b cytron_motion_2350_pro/rp2350a/m33_0 -S usb-console`
+
+Use the native USB device port with CDC-ACM as
+Zephyr console and for the shell.
+Running on Cortex-M33 core.
 
 Connections and IOs
 ===================
@@ -233,8 +233,8 @@ there are also 3 |Grove connectors| (Qwiic/STEMMA QT).
       references to the PWM function units in the SOC or on the
       board are therefore also defined as **Grove PWM Labels**.
       The following table reflects the currently supported mapping
-      for :code:`cytron_motion_2350_pro/rp2350a/hazard3`
-      and :code:`cytron_motion_2350_pro/rp2350a/m33`, but this list
+      for :code:`cytron_motion_2350_pro/rp2350a/hazard3_0`
+      and :code:`cytron_motion_2350_pro/rp2350a/m33_0`, but this list
       will be growing up with further development and maintenance.
 
       **This list must not be complete or stable!**
@@ -388,7 +388,7 @@ Here is an example of building and flashing the
    .. zephyr-app-commands::
       :app: zephyr/samples/basic/blinky
       :build-dir: cytron_motion_2350_pro
-      :board: cytron_motion_2350_pro/rp2350a/m33
+      :board: cytron_motion_2350_pro/rp2350a/m33_0
       :flash-args: -r jlink
       :west-args: -p
       :goals: flash
@@ -425,7 +425,7 @@ Here is an example of building and flashing the
    .. zephyr-app-commands::
       :app: zephyr/samples/basic/blinky
       :build-dir: cytron_motion_2350_pro
-      :board: cytron_motion_2350_pro/rp2350a/m33
+      :board: cytron_motion_2350_pro/rp2350a/m33_0
       :gen-args: \
                  -DOPENOCD=/usr/local/bin/openocd \
                  -DOPENOCD_DEFAULT_PATH=/usr/local/share/openocd/scripts \
@@ -490,7 +490,7 @@ Here is an example for debugging the
    .. zephyr-app-commands::
       :app: zephyr/samples/basic/blinky
       :build-dir: cytron_motion_2350_pro
-      :board: cytron_motion_2350_pro/rp2350a/m33
+      :board: cytron_motion_2350_pro/rp2350a/m33_0
       :maybe-skip-config:
       :gen-args: \
                  -DOPENOCD=/usr/local/bin/openocd \

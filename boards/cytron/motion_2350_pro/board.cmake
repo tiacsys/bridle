@@ -12,7 +12,7 @@ message(STATUS "Found BOARD.cmake: ${dir}/board.cmake")
 # Set CYTRON_RP2350_DEBUG_ADAPTER to select debug adapter by command-line
 # arguments, e.g.:
 #
-#   west build -b cytron_motion_2350_pro \
+#   west build -b cytron_motion_2350_pro/rp2350a/m33_0 \
 #              -- -DCYTRON_RP2350_DEBUG_ADAPTER=raspberrypi-swd
 #
 # The value is treated as a part of an interface file name contained in the

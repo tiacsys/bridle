@@ -1,15 +1,16 @@
 # SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
-identifier: cytron_motion_2350_pro/rp2350a/hazard3
+identifier: cytron_motion_2350_pro/rp2350a/m33_0
 vendor: cytron
-name: Cytron MOTION 2350 Pro (Hazard3)
+name: Cytron MOTION 2350 Pro (Cortex-M33)
 type: mcu
-arch: riscv
+arch: arm
 flash: 1024
 ram: 520
 toolchain:
   - zephyr
+  - gnuarmemb
 supported:
   - adc
   - clock

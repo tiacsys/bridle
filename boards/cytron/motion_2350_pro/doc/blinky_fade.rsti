@@ -2,22 +2,22 @@
 
 See also Zephyr sample: :external+zephyr:zephyr:code-sample:`blinky`.
 
-   .. rubric:: On ARM Cortex-M33
-
-   .. zephyr-app-commands::
-      :app: zephyr/samples/basic/blinky
-      :build-dir: cytron_motion_2350_pro
-      :board: cytron_motion_2350_pro/rp2350a/m33
-      :west-args: -p
-      :goals: flash
-      :compact:
-
    .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
 
    .. zephyr-app-commands::
       :app: zephyr/samples/basic/blinky
       :build-dir: cytron_motion_2350_pro
-      :board: cytron_motion_2350_pro/rp2350a/hazard3
+      :board: cytron_motion_2350_pro/rp2350a/hazard3_0
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+   .. rubric:: On ARM Cortex-M33
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/basic/blinky
+      :build-dir: cytron_motion_2350_pro
+      :board: cytron_motion_2350_pro/rp2350a/m33_0
       :west-args: -p
       :goals: flash
       :compact:
@@ -26,22 +26,22 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`blinky`.
 
 See also Zephyr sample: :external+zephyr:zephyr:code-sample:`pwm-blinky`.
 
-   .. rubric:: On ARM Cortex-M33
-
-   .. zephyr-app-commands::
-      :app: zephyr/samples/basic/blinky_pwm
-      :build-dir: cytron_motion_2350_pro
-      :board: cytron_motion_2350_pro/rp2350a/m33
-      :west-args: -p
-      :goals: flash
-      :compact:
-
    .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
 
    .. zephyr-app-commands::
       :app: zephyr/samples/basic/blinky_pwm
       :build-dir: cytron_motion_2350_pro
-      :board: cytron_motion_2350_pro/rp2350a/hazard3
+      :board: cytron_motion_2350_pro/rp2350a/hazard3_0
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+   .. rubric:: On ARM Cortex-M33
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/basic/blinky_pwm
+      :build-dir: cytron_motion_2350_pro
+      :board: cytron_motion_2350_pro/rp2350a/m33_0
       :west-args: -p
       :goals: flash
       :compact:
@@ -50,22 +50,22 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`pwm-blinky`.
 
 See also Zephyr sample: :external+zephyr:zephyr:code-sample:`fade-led`.
 
-   .. rubric:: On ARM Cortex-M33
-
-   .. zephyr-app-commands::
-      :app: zephyr/samples/basic/fade_led
-      :build-dir: cytron_motion_2350_pro
-      :board: cytron_motion_2350_pro/rp2350a/m33
-      :west-args: -p
-      :goals: flash
-      :compact:
-
    .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
 
    .. zephyr-app-commands::
       :app: zephyr/samples/basic/fade_led
       :build-dir: cytron_motion_2350_pro
-      :board: cytron_motion_2350_pro/rp2350a/hazard3
+      :board: cytron_motion_2350_pro/rp2350a/hazard3_0
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+   .. rubric:: On ARM Cortex-M33
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/basic/fade_led
+      :build-dir: cytron_motion_2350_pro
+      :board: cytron_motion_2350_pro/rp2350a/m33_0
       :west-args: -p
       :goals: flash
       :compact:
@@ -74,22 +74,22 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`fade-led`.
 
 See also Zephyr sample: :external+zephyr:zephyr:code-sample:`button`.
 
-   .. rubric:: On ARM Cortex-M33
-
-   .. zephyr-app-commands::
-      :app: zephyr/samples/basic/button
-      :build-dir: cytron_motion_2350_pro
-      :board: cytron_motion_2350_pro/rp2350a/m33
-      :west-args: -p
-      :goals: flash
-      :compact:
-
    .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
 
    .. zephyr-app-commands::
       :app: zephyr/samples/basic/button
       :build-dir: cytron_motion_2350_pro
-      :board: cytron_motion_2350_pro/rp2350a/hazard3
+      :board: cytron_motion_2350_pro/rp2350a/hazard3_0
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+   .. rubric:: On ARM Cortex-M33
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/basic/button
+      :build-dir: cytron_motion_2350_pro
+      :board: cytron_motion_2350_pro/rp2350a/m33_0
       :west-args: -p
       :goals: flash
       :compact:
@@ -102,23 +102,23 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`button`.
 
 See also Zephyr sample: :external+zephyr:zephyr:code-sample:`led-strip`.
 
-   .. rubric:: On ARM Cortex-M33
-
-   .. zephyr-app-commands::
-      :app: zephyr/samples/drivers/led/led_strip
-      :build-dir: cytron_motion_2350_pro
-      :board: cytron_motion_2350_pro/rp2350a/m33
-      :gen-args: -DCONFIG_SAMPLE_LED_UPDATE_DELAY=500
-      :west-args: -p
-      :goals: flash
-      :compact:
-
    .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
 
    .. zephyr-app-commands::
       :app: zephyr/samples/drivers/led/led_strip
       :build-dir: cytron_motion_2350_pro
-      :board: cytron_motion_2350_pro/rp2350a/hazard3
+      :board: cytron_motion_2350_pro/rp2350a/hazard3_0
+      :gen-args: -DCONFIG_SAMPLE_LED_UPDATE_DELAY=500
+      :west-args: -p
+      :goals: flash
+      :compact:
+
+   .. rubric:: On ARM Cortex-M33
+
+   .. zephyr-app-commands::
+      :app: zephyr/samples/drivers/led/led_strip
+      :build-dir: cytron_motion_2350_pro
+      :board: cytron_motion_2350_pro/rp2350a/m33_0
       :gen-args: -DCONFIG_SAMPLE_LED_UPDATE_DELAY=500
       :west-args: -p
       :goals: flash

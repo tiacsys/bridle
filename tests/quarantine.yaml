@@ -285,8 +285,8 @@
     - grove.connectors.x_grove_testbed.pwm.b3l5
     - grove.connectors.x_grove_testbed.pwm.b7l6
   platforms:
-    - cytron_motion_2350_pro/rp2350a/hazard3
-    - cytron_motion_2350_pro/rp2350a/m33
+    - cytron_motion_2350_pro/rp2350a/hazard3_0
+    - cytron_motion_2350_pro/rp2350a/m33_0
 
 - comment: "shield(grove.connectors.x_grove_testbed.b7l6): invalid board/shield condition."
   scenarios:
@@ -358,8 +358,8 @@
     - coffeecaller_nrf52/nrf52840
     - cytron_maker_nano_rp2040/rp2040
     - cytron_maker_pi_rp2040/rp2040
-    - cytron_motion_2350_pro/rp2350a/hazard3
-    - cytron_motion_2350_pro/rp2350a/m33
+    - cytron_motion_2350_pro/rp2350a/hazard3_0
+    - cytron_motion_2350_pro/rp2350a/m33_0
     - mini_usb_rp2040@4mb/rp2040
     - mini_usb_rp2040@16mb/rp2040
     - mini_usb_rp2040@chipled/rp2040
@@ -417,8 +417,8 @@
     - coffeecaller_nrf52/nrf52840
     - cytron_maker_nano_rp2040/rp2040
     - cytron_maker_pi_rp2040/rp2040
-    - cytron_motion_2350_pro/rp2350a/hazard3
-    - cytron_motion_2350_pro/rp2350a/m33
+    - cytron_motion_2350_pro/rp2350a/hazard3_0
+    - cytron_motion_2350_pro/rp2350a/m33_0
     - mini_usb_rp2040@4mb/rp2040
     - mini_usb_rp2040@16mb/rp2040
     - mini_usb_rp2040@chipled/rp2040
@@ -510,8 +510,8 @@
     - coffeecaller_nrf52/nrf52840
     - cytron_maker_nano_rp2040/rp2040
     - cytron_maker_pi_rp2040/rp2040
-    - cytron_motion_2350_pro/rp2350a/hazard3
-    - cytron_motion_2350_pro/rp2350a/m33
+    - cytron_motion_2350_pro/rp2350a/hazard3_0
+    - cytron_motion_2350_pro/rp2350a/m33_0
     - mini_usb_rp2040@4mb/rp2040
     - mini_usb_rp2040@16mb/rp2040
     - mini_usb_rp2040@chipled/rp2040
@@ -575,8 +575,8 @@
     - coffeecaller_nrf52/nrf52840
     - cytron_maker_nano_rp2040/rp2040
     - cytron_maker_pi_rp2040/rp2040
-    - cytron_motion_2350_pro/rp2350a/hazard3
-    - cytron_motion_2350_pro/rp2350a/m33
+    - cytron_motion_2350_pro/rp2350a/hazard3_0
+    - cytron_motion_2350_pro/rp2350a/m33_0
     - mini_usb_rp2040@4mb/rp2040
     - mini_usb_rp2040@16mb/rp2040
     - mini_usb_rp2040@chipled/rp2040
@@ -632,8 +632,8 @@
     - coffeecaller_nrf52/nrf52840
     - cytron_maker_nano_rp2040/rp2040
     - cytron_maker_pi_rp2040/rp2040
-    - cytron_motion_2350_pro/rp2350a/hazard3
-    - cytron_motion_2350_pro/rp2350a/m33
+    - cytron_motion_2350_pro/rp2350a/hazard3_0
+    - cytron_motion_2350_pro/rp2350a/m33_0
     - mini_usb_rp2040@4mb/rp2040
     - mini_usb_rp2040@16mb/rp2040
     - mini_usb_rp2040@chipled/rp2040
@@ -703,8 +703,8 @@
     - coffeecaller_nrf52/nrf52840
     - cytron_maker_nano_rp2040/rp2040
     - cytron_maker_pi_rp2040/rp2040
-    - cytron_motion_2350_pro/rp2350a/hazard3
-    - cytron_motion_2350_pro/rp2350a/m33
+    - cytron_motion_2350_pro/rp2350a/hazard3_0
+    - cytron_motion_2350_pro/rp2350a/m33_0
     - mini_usb_rp2040@4mb/rp2040
     - mini_usb_rp2040@16mb/rp2040
     - mini_usb_rp2040@chipled/rp2040
@@ -1034,8 +1034,8 @@
 
 - comment: "shield(grove.connectors.grove_btn): cytron_motion_2350_pro: invalid board condition."
   platforms:
-    - cytron_motion_2350_pro/rp2350a/hazard3
-    - cytron_motion_2350_pro/rp2350a/m33
+    - cytron_motion_2350_pro/rp2350a/hazard3_0
+    - cytron_motion_2350_pro/rp2350a/m33_0
   scenarios:
     - grove.connectors.grove_btn.gpio.d0
     - grove.connectors.grove_btn.gpio.d0.inv
@@ -1187,8 +1187,8 @@
     - coffeecaller_nrf52/nrf52840
     - cytron_maker_nano_rp2040/rp2040
     - cytron_maker_pi_rp2040/rp2040
-    - cytron_motion_2350_pro/rp2350a/hazard3
-    - cytron_motion_2350_pro/rp2350a/m33
+    - cytron_motion_2350_pro/rp2350a/hazard3_0
+    - cytron_motion_2350_pro/rp2350a/m33_0
     - mini_usb_rp2040@4mb/rp2040
     - mini_usb_rp2040@16mb/rp2040
     - mini_usb_rp2040@chipled/rp2040
@@ -1378,8 +1378,8 @@
     - coffeecaller_nrf52/nrf52840
     - cytron_maker_nano_rp2040/rp2040
     - cytron_maker_pi_rp2040/rp2040
-    - cytron_motion_2350_pro/rp2350a/hazard3
-    - cytron_motion_2350_pro/rp2350a/m33
+    - cytron_motion_2350_pro/rp2350a/hazard3_0
+    - cytron_motion_2350_pro/rp2350a/m33_0
     - mini_usb_rp2040@4mb/rp2040
     - mini_usb_rp2040@16mb/rp2040
     - mini_usb_rp2040@chipled/rp2040
@@ -1459,8 +1459,8 @@
     - coffeecaller_nrf52/nrf52840
     - cytron_maker_nano_rp2040/rp2040
     - cytron_maker_pi_rp2040/rp2040
-    - cytron_motion_2350_pro/rp2350a/hazard3
-    - cytron_motion_2350_pro/rp2350a/m33
+    - cytron_motion_2350_pro/rp2350a/hazard3_0
+    - cytron_motion_2350_pro/rp2350a/m33_0
     - mini_usb_rp2040@4mb/rp2040
     - mini_usb_rp2040@16mb/rp2040
     - mini_usb_rp2040@chipled/rp2040
@@ -1700,8 +1700,8 @@
 
 - comment: "shield(grove.connectors.grove_led): cytron_motion_2350_pro: invalid board condition."
   platforms:
-    - cytron_motion_2350_pro/rp2350a/hazard3
-    - cytron_motion_2350_pro/rp2350a/m33
+    - cytron_motion_2350_pro/rp2350a/hazard3_0
+    - cytron_motion_2350_pro/rp2350a/m33_0
   scenarios:
     - grove.connectors.grove_led.(gpio|pwm).d0
     - grove.connectors.grove_led.(gpio|pwm).d1

@@ -242,8 +242,8 @@ specified as required.
 
    * - |cytron_motion_2350_pro_URB_VID|
      - |cytron_motion_2350_pro_URB_PID_CON|
-     - | :code:`cytron_motion_2350_pro/rp2350a/hazard3`
-       | :code:`cytron_motion_2350_pro/rp2350a/m33`
+     - | :code:`cytron_motion_2350_pro/rp2350a/hazard3_0`
+       | :code:`cytron_motion_2350_pro/rp2350a/m33_0`
      - |Cytron (Raspberry Pi)|_
      - | |MOTION 2350 Pro (CDC ACM)|,
        | Raspberry Pi Pico SDK CDC UART
