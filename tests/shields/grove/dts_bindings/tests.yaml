@@ -59,10 +59,10 @@ common:
     - xiao_samd21/samd21g18a
     - xiao_rp2040/rp2040
     - xiao_rp2040/rp2040/bbe
-    - xiao_rp2350/rp2350a/hazard3
-    - xiao_rp2350/rp2350a/hazard3/bbe
-    - xiao_rp2350/rp2350a/m33
-    - xiao_rp2350/rp2350a/m33/bbe
+    - xiao_rp2350/rp2350a/hazard3_0
+    - xiao_rp2350/rp2350a/hazard3_0/bbe
+    - xiao_rp2350/rp2350a/m33_0
+    - xiao_rp2350/rp2350a/m33_0/bbe
     - waveshare_rp2040_one
     - waveshare_rp2040_zero
     - waveshare_rp2040_matrix

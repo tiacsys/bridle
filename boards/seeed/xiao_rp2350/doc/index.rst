@@ -83,8 +83,8 @@ List of extensions
 
      * - .. rubric:: XIAO RP2350
 
-     * - .. literalinclude:: ../xiao_rp2350_rp2350a_m33_bbe.dts
-            :caption: xiao_rp2350_m33.overlay
+     * - .. literalinclude:: ../xiao_rp2350_rp2350a_hazard3_0_bbe.dts
+            :caption: xiao_rp2350_rp2350a_hazard3_0_bbe.dts
             :language: DTS
             :encoding: ISO-8859-1
             :prepend: / {
@@ -92,8 +92,8 @@ List of extensions
             :end-before: chosen {
             :append: };
 
-     * - .. literalinclude:: ../xiao_rp2350_rp2350a_hazard3_bbe.dts
-            :caption: xiao_rp2350_rp2350a_hazard3_bbe.dts
+     * - .. literalinclude:: ../xiao_rp2350_rp2350a_m33_0_bbe.dts
+            :caption: xiao_rp2350_rp2350a_m33_0_bbe.overlay
             :language: DTS
             :encoding: ISO-8859-1
             :prepend: / {

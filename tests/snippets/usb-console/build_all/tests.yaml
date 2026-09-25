@@ -111,10 +111,10 @@ common:
     - weact_bluepillplus_stm32f103c8
     - xiao_rp2040/rp2040
     - xiao_rp2040/rp2040/bbe
-    - xiao_rp2350/rp2350a/hazard3
-    - xiao_rp2350/rp2350a/hazard3/bbe
-    - xiao_rp2350/rp2350a/m33
-    - xiao_rp2350/rp2350a/m33/bbe
+    - xiao_rp2350/rp2350a/hazard3_0
+    - xiao_rp2350/rp2350a/hazard3_0/bbe
+    - xiao_rp2350/rp2350a/m33_0
+    - xiao_rp2350/rp2350a/m33_0/bbe
     - xiao_samd21/samd21g18a
 tests:
   #
@@ -179,8 +179,8 @@ tests:
       - weact_bluepillplus_stm32f103cb
       - weact_bluepillplus_stm32f103c8
       - xiao_rp2040/rp2040/bbe
-      - xiao_rp2350/rp2350a/hazard3/bbe
-      - xiao_rp2350/rp2350a/m33/bbe
+      - xiao_rp2350/rp2350a/hazard3_0/bbe
+      - xiao_rp2350/rp2350a/m33_0/bbe
       - xiao_samd21/samd21g18a
   #
   # Forein bords (Zephyr) with snippet support.
@@ -209,8 +209,8 @@ tests:
       - rpi_pico2/rp2350a/hazard3_0
       - rpi_pico2/rp2350a/m33_0
       - rpi_pico2/rp2350a/m33_0/mcuboot
-      - xiao_rp2350/rp2350a/hazard3
-      - xiao_rp2350/rp2350a/m33
+      - xiao_rp2350/rp2350a/hazard3_0
+      - xiao_rp2350/rp2350a/m33_0
   #
   # Forein bords (Zephyr) with snippet support,
   # but still use the legacy feature {'usb_device'}.

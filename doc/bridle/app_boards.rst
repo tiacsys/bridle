@@ -132,11 +132,11 @@ the :ref:`boards-extensions` section in this documentation.
 |                   |                                    | | ``rpi_pico2/rp2350a/m33_0/w/bbe``            |
 |                   |                                    | | ``rpi_pico2/rp2350a/m33_0/w/mcuboot/bbe``    |
 |                   +------------------------------------+------------------------------------------------+
-|                   | |zephyr:board:xiao_rp2350|         | | ``xiao_rp2350/rp2350a/hazard3``              |
-|                   |                                    | | ``xiao_rp2350/rp2350a/m33``                  |
+|                   | |zephyr:board:xiao_rp2350|         | | ``xiao_rp2350/rp2350a/hazard3_0``            |
+|                   |                                    | | ``xiao_rp2350/rp2350a/m33_0``                |
 |                   +------------------------------------+------------------------------------------------+
-|                   | |bridle:board:xiao_rp2350|         | | ``xiao_rp2350/rp2350a/hazard3/bbe``          |
-|                   |                                    | | ``xiao_rp2350/rp2350a/m33/bbe``              |
+|                   | |bridle:board:xiao_rp2350|         | | ``xiao_rp2350/rp2350a/hazard3_0/bbe``        |
+|                   |                                    | | ``xiao_rp2350/rp2350a/m33_0/bbe``            |
 +-------------------+------------------------------------+------------------------------------------------+
 | STM32F303RE       | |zephyr:board:nucleo_f303re|       | | ``nucleo_f303re``                            |
 |                   |                                    | | ``nucleo_f303re/stm32f303xe``                |

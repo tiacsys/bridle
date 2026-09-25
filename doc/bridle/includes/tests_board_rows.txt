@@ -132,13 +132,13 @@
 
 | RP2350 | | :external+zephyr:zephyr:board:`rpi_pico2` | - ``rpi_pico2/rp2350a/m33_0`` |
 
-.. xiao_rp2350_rp2350a_hazard3
+.. xiao_rp2350_rp2350a_hazard3_0
 
-| RP2350 | | :external+zephyr:zephyr:board:`xiao_rp2350` | - ``xiao_rp2350/rp2350a/hazard3`` |
+| RP2350 | | :external+zephyr:zephyr:board:`xiao_rp2350` | - ``xiao_rp2350/rp2350a/hazard3_0`` |
 
-.. xiao_rp2350_rp2350a_m33
+.. xiao_rp2350_rp2350a_m33_0
 
-| RP2350 | | :external+zephyr:zephyr:board:`xiao_rp2350` | - ``xiao_rp2350/rp2350a/m33`` |
+| RP2350 | | :external+zephyr:zephyr:board:`xiao_rp2350` | - ``xiao_rp2350/rp2350a/m33_0`` |
 
 .. cytron_motion_2350_pro_rp2350a_hazard3_0
 
@@ -184,13 +184,13 @@
 
 | RP2350 | | :ref:`waveshare_rp2350_matrix` | - ``waveshare_rp2350_matrix/rp2350a/m33`` |
 
-.. xiao_rp2350_rp2350a_hazard3_bbe
+.. xiao_rp2350_rp2350a_hazard3_0_bbe
 
-| RP2350 | | :ref:`xiao_rp2350_board-extensions` | - ``xiao_rp2350/rp2350a/hazard3/bbe`` |
+| RP2350 | | :ref:`xiao_rp2350_board-extensions` | - ``xiao_rp2350/rp2350a/hazard3_0/bbe`` |
 
-.. xiao_rp2350_rp2350a_m33_bbe
+.. xiao_rp2350_rp2350a_m33_0_bbe
 
-| RP2350 | | :ref:`xiao_rp2350_board-extensions` | - ``xiao_rp2350/rp2350a/m33/bbe`` |
+| RP2350 | | :ref:`xiao_rp2350_board-extensions` | - ``xiao_rp2350/rp2350a/m33_0/bbe`` |
 
 .. weact_bluepillplus_stm32f103c8
 

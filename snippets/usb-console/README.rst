@@ -426,10 +426,10 @@ specified as required.
 
    * - |xiao_rp2350_URB_VID|
      - |xiao_rp2350_URB_PID_CON|
-     - :code:`xiao_rp2350//hazard3`
-       :code:`xiao_rp2350//hazard3/bbe`
-       :code:`xiao_rp2350//m33`
-       :code:`xiao_rp2350//m33/bbe`
+     - :code:`xiao_rp2350//hazard3_0`
+       :code:`xiao_rp2350//hazard3_0/bbe`
+       :code:`xiao_rp2350//m33_0`
+       :code:`xiao_rp2350//m33_0/bbe`
      - |Seeed LLC|_
      - | |XIAO RP2350 (CDC ACM)|,
        | Raspberry Pi Pico SDK CDC UART

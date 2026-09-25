@@ -50,3 +50,9 @@ set(tiac_coffeecaller/nrf52840_DEPRECATED
 set(tiac_magpie_DEPRECATED
     magpie_f777ni
 )
+set(xiao_rp2350/rp2350a/hazard3/bbe_DEPRECATED
+    xiao_rp2350/rp2350a/hazard3_0/bbe
+)
+set(xiao_rp2350/rp2350a/m33/bbe_DEPRECATED
+    xiao_rp2350/rp2350a/m33_0/bbe
+)

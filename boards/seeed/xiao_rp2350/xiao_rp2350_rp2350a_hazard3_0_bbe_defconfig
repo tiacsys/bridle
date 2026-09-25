@@ -1,8 +1,8 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 #
 # NOTE: copy and own from original default configuration in
-# "zephyr/boards/seeed/xiao_rp2350/xiao_rp2350_rp2350a_m33_defconfig"
+# "zephyr/boards/seeed/xiao_rp2350/xiao_rp2350_rp2350a_hazard3_0_defconfig"
 
 CONFIG_SERIAL=y
 CONFIG_CONSOLE=y

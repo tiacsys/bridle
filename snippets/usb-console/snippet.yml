@@ -131,19 +131,19 @@ boards:
     append:
       EXTRA_CONF_FILE: boards/xiao_rp2040.conf
       EXTRA_DTC_OVERLAY_FILE: boards/xiao_rp2040_bbe.overlay
-  xiao_rp2350/rp2350a/hazard3:
+  xiao_rp2350/rp2350a/hazard3_0:
     append:
       EXTRA_CONF_FILE: boards/xiao_rp2350.conf
       EXTRA_DTC_OVERLAY_FILE: boards/xiao_rp2350_hazard3.overlay
-  xiao_rp2350/rp2350a/m33:
+  xiao_rp2350/rp2350a/m33_0:
     append:
       EXTRA_CONF_FILE: boards/xiao_rp2350.conf
       EXTRA_DTC_OVERLAY_FILE: boards/xiao_rp2350_m33.overlay
-  xiao_rp2350/rp2350a/hazard3/bbe:
+  xiao_rp2350/rp2350a/hazard3_0/bbe:
     append:
       EXTRA_CONF_FILE: boards/xiao_rp2350.conf
       EXTRA_DTC_OVERLAY_FILE: boards/xiao_rp2350_hazard3_bbe.overlay
-  xiao_rp2350/rp2350a/m33/bbe:
+  xiao_rp2350/rp2350a/m33_0/bbe:
     append:
       EXTRA_CONF_FILE: boards/xiao_rp2350.conf
       EXTRA_DTC_OVERLAY_FILE: boards/xiao_rp2350_m33_bbe.overlay

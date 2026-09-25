@@ -1683,7 +1683,7 @@ For example:
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/blinky
                      :build-dir: blinky-xiao_rp2350-x_grove_testbed
-                     :board: xiao_rp2350/rp2350a/m33
+                     :board: xiao_rp2350/rp2350a/hazard3_0
                      :shield: \
                               "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
                      :snippets: "usb-console"
@@ -1694,7 +1694,7 @@ For example:
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/blinky
                      :build-dir: blinky-xiao_rp2350-x_grove_testbed
-                     :board: xiao_rp2350/rp2350a/m33/bbe
+                     :board: xiao_rp2350/rp2350a/hazard3_0/bbe
                      :shield: \
                               "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
                      :snippets: "usb-console"
@@ -1705,7 +1705,7 @@ For example:
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/blinky
                      :build-dir: blinky-xiao_rp2350-x_grove_testbed
-                     :board: xiao_rp2350/rp2350a/hazard3
+                     :board: xiao_rp2350/rp2350a/m33_0
                      :shield: \
                               "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
                      :snippets: "usb-console"
@@ -1716,7 +1716,7 @@ For example:
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/blinky
                      :build-dir: blinky-xiao_rp2350-x_grove_testbed
-                     :board: xiao_rp2350/rp2350a/hazard3/bbe
+                     :board: xiao_rp2350/rp2350a/m33_0/bbe
                      :shield: \
                               "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
                      :snippets: "usb-console"
@@ -1732,7 +1732,7 @@ For example:
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/fade_led
                      :build-dir: fade-xiao_rp2350-x_grove_testbed
-                     :board: xiao_rp2350/rp2350a/m33
+                     :board: xiao_rp2350/rp2350a/hazard3_0
                      :shield: \
                               "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
                      :snippets: "usb-console"
@@ -1743,7 +1743,7 @@ For example:
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/fade_led
                      :build-dir: fade-xiao_rp2350-x_grove_testbed
-                     :board: xiao_rp2350/rp2350a/m33/bbe
+                     :board: xiao_rp2350/rp2350a/hazard3_0/bbe
                      :shield: \
                               "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
                      :snippets: "usb-console"
@@ -1754,7 +1754,7 @@ For example:
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/fade_led
                      :build-dir: fade-xiao_rp2350-x_grove_testbed
-                     :board: xiao_rp2350/rp2350a/hazard3
+                     :board: xiao_rp2350/rp2350a/m33_0
                      :shield: \
                               "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
                      :snippets: "usb-console"
@@ -1765,7 +1765,7 @@ For example:
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/fade_led
                      :build-dir: fade-xiao_rp2350-x_grove_testbed
-                     :board: xiao_rp2350/rp2350a/hazard3/bbe
+                     :board: xiao_rp2350/rp2350a/m33_0/bbe
                      :shield: \
                               "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
                      :snippets: "usb-console"
@@ -1781,7 +1781,7 @@ For example:
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/button
                      :build-dir: button-xiao_rp2350-x_grove_testbed
-                     :board: xiao_rp2350/rp2350a/m33
+                     :board: xiao_rp2350/rp2350a/hazard3_0
                      :shield: \
                               "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
                      :snippets: "usb-console"
@@ -1792,7 +1792,7 @@ For example:
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/button
                      :build-dir: button-xiao_rp2350-x_grove_testbed
-                     :board: xiao_rp2350/rp2350a/m33/bbe
+                     :board: xiao_rp2350/rp2350a/hazard3_0/bbe
                      :shield: \
                               "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
                      :snippets: "usb-console"
@@ -1803,7 +1803,7 @@ For example:
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/button
                      :build-dir: button-xiao_rp2350-x_grove_testbed
-                     :board: xiao_rp2350/rp2350a/hazard3
+                     :board: xiao_rp2350/rp2350a/m33_0
                      :shield: \
                               "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
                      :snippets: "usb-console"
@@ -1814,7 +1814,7 @@ For example:
                   .. zephyr-app-commands::
                      :app: zephyr/samples/basic/button
                      :build-dir: button-xiao_rp2350-x_grove_testbed
-                     :board: xiao_rp2350/rp2350a/hazard3/bbe
+                     :board: xiao_rp2350/rp2350a/m33_0/bbe
                      :shield: \
                               "seeed_grove_xiao_v1 grove_btn_d0 grove_led_d1 grove_pwm_led_d1 x_grove_testbed"
                      :snippets: "usb-console"

@@ -1,6 +1,6 @@
 # Seeed Studio XIAO RP2350 board extended configuration
 
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 # Workaround for not being able to have commas in macro arguments

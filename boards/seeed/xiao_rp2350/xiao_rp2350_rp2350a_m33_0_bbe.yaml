@@ -1,17 +1,18 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 #
 # NOTE: copy and own from original board metadata in
-# "zephyr/boards/seeed/xiao_rp2350/xiao_rp2350_rp2350a_hazard3.yaml"
+# "zephyr/boards/seeed/xiao_rp2350/xiao_rp2350_rp2350a_m33_0.yaml"
 
-identifier: xiao_rp2350/rp2350a/hazard3/bbe
-name: XIAO RP2350 (Hazard3) (BBE)
+identifier: xiao_rp2350/rp2350a/m33_0/bbe
+name: XIAO RP2350 (Cortex-M33) (BBE)
 type: mcu
-arch: riscv
+arch: arm
 flash: 1024
 ram: 520
 toolchain:
   - zephyr
+  - gnuarmemb
 supported:
   - adc
   - clock
