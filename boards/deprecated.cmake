@@ -23,6 +23,21 @@ set(picoboy_color_plus/rp2350a/hazard3_DEPRECATED
 set(picoboy_color_plus/rp2350a/m33_DEPRECATED
     picoboy_color_plus/rp2350a/m33_0
 )
+set(rpi_pico2/rp2350a/hazard3/bbe_DEPRECATED
+    rpi_pico2/rp2350a/hazard3_0/bbe
+)
+set(rpi_pico2/rp2350a/m33/bbe_DEPRECATED
+    rpi_pico2/rp2350a/m33_0/bbe
+)
+set(rpi_pico2/rp2350a/m33/mcuboot/bbe_DEPRECATED
+    rpi_pico2/rp2350a/m33_0/mcuboot/bbe
+)
+set(rpi_pico2/rp2350a/m33/w/bbe_DEPRECATED
+    rpi_pico2/rp2350a/m33_0/w/bbe
+)
+set(rpi_pico2/rp2350a/m33/w/mcuboot/bbe_DEPRECATED
+    rpi_pico2/rp2350a/m33_0/w/mcuboot/bbe
+)
 set(seeed_xiao_samd21_DEPRECATED
     xiao_samd21
 )

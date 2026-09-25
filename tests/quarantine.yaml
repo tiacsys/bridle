@@ -226,16 +226,16 @@
     - rpi_pico/rp2040/w/bbe
     - rpi_pico/rp2040/w/mcuboot
     - rpi_pico/rp2040/w/mcuboot/bbe
-    - rpi_pico2/rp2350a/hazard3
-    - rpi_pico2/rp2350a/hazard3/bbe
-    - rpi_pico2/rp2350a/m33
-    - rpi_pico2/rp2350a/m33/bbe
-    - rpi_pico2/rp2350a/m33/mcuboot
-    - rpi_pico2/rp2350a/m33/mcuboot/bbe
-    - rpi_pico2/rp2350a/m33/w
-    - rpi_pico2/rp2350a/m33/w/bbe
-    - rpi_pico2/rp2350a/m33/w/mcuboot
-    - rpi_pico2/rp2350a/m33/w/mcuboot/bbe
+    - rpi_pico2/rp2350a/hazard3_0
+    - rpi_pico2/rp2350a/hazard3_0/bbe
+    - rpi_pico2/rp2350a/m33_0
+    - rpi_pico2/rp2350a/m33_0/bbe
+    - rpi_pico2/rp2350a/m33_0/mcuboot
+    - rpi_pico2/rp2350a/m33_0/mcuboot/bbe
+    - rpi_pico2/rp2350a/m33_0/w
+    - rpi_pico2/rp2350a/m33_0/w/bbe
+    - rpi_pico2/rp2350a/m33_0/w/mcuboot
+    - rpi_pico2/rp2350a/m33_0/w/mcuboot/bbe
     - waveshare_rp2040_lcd_0_96/rp2040
     - waveshare_rp2040_plus@4mb/rp2040
     - waveshare_rp2040_plus@16mb/rp2040
@@ -373,16 +373,16 @@
     - rpi_pico/rp2040/w/bbe
     - rpi_pico/rp2040/w/mcuboot
     - rpi_pico/rp2040/w/mcuboot/bbe
-    - rpi_pico2/rp2350a/hazard3
-    - rpi_pico2/rp2350a/hazard3/bbe
-    - rpi_pico2/rp2350a/m33
-    - rpi_pico2/rp2350a/m33/bbe
-    - rpi_pico2/rp2350a/m33/mcuboot
-    - rpi_pico2/rp2350a/m33/mcuboot/bbe
-    - rpi_pico2/rp2350a/m33/w
-    - rpi_pico2/rp2350a/m33/w/bbe
-    - rpi_pico2/rp2350a/m33/w/mcuboot
-    - rpi_pico2/rp2350a/m33/w/mcuboot/bbe
+    - rpi_pico2/rp2350a/hazard3_0
+    - rpi_pico2/rp2350a/hazard3_0/bbe
+    - rpi_pico2/rp2350a/m33_0
+    - rpi_pico2/rp2350a/m33_0/bbe
+    - rpi_pico2/rp2350a/m33_0/mcuboot
+    - rpi_pico2/rp2350a/m33_0/mcuboot/bbe
+    - rpi_pico2/rp2350a/m33_0/w
+    - rpi_pico2/rp2350a/m33_0/w/bbe
+    - rpi_pico2/rp2350a/m33_0/w/mcuboot
+    - rpi_pico2/rp2350a/m33_0/w/mcuboot/bbe
     - seeeduino_xiao/samd21g18a
     - seeeduino_xiao/samd21g18a/bbe
     - xiao_samd21/samd21g18a
@@ -453,16 +453,16 @@
     - rpi_pico/rp2040/w/bbe
     - rpi_pico/rp2040/w/mcuboot
     - rpi_pico/rp2040/w/mcuboot/bbe
-    - rpi_pico2/rp2350a/hazard3
-    - rpi_pico2/rp2350a/hazard3/bbe
-    - rpi_pico2/rp2350a/m33
-    - rpi_pico2/rp2350a/m33/bbe
-    - rpi_pico2/rp2350a/m33/mcuboot
-    - rpi_pico2/rp2350a/m33/mcuboot/bbe
-    - rpi_pico2/rp2350a/m33/w
-    - rpi_pico2/rp2350a/m33/w/bbe
-    - rpi_pico2/rp2350a/m33/w/mcuboot
-    - rpi_pico2/rp2350a/m33/w/mcuboot/bbe
+    - rpi_pico2/rp2350a/hazard3_0
+    - rpi_pico2/rp2350a/hazard3_0/bbe
+    - rpi_pico2/rp2350a/m33_0
+    - rpi_pico2/rp2350a/m33_0/bbe
+    - rpi_pico2/rp2350a/m33_0/mcuboot
+    - rpi_pico2/rp2350a/m33_0/mcuboot/bbe
+    - rpi_pico2/rp2350a/m33_0/w
+    - rpi_pico2/rp2350a/m33_0/w/bbe
+    - rpi_pico2/rp2350a/m33_0/w/mcuboot
+    - rpi_pico2/rp2350a/m33_0/w/mcuboot/bbe
     - seeeduino_cm0/samd21g18a
     - seeeduino_lotus/samd21g18a
     - waveshare_rp2040_one/rp2040
@@ -590,16 +590,16 @@
     - rpi_pico/rp2040/w/bbe
     - rpi_pico/rp2040/w/mcuboot
     - rpi_pico/rp2040/w/mcuboot/bbe
-    - rpi_pico2/rp2350a/hazard3
-    - rpi_pico2/rp2350a/hazard3/bbe
-    - rpi_pico2/rp2350a/m33
-    - rpi_pico2/rp2350a/m33/bbe
-    - rpi_pico2/rp2350a/m33/mcuboot
-    - rpi_pico2/rp2350a/m33/mcuboot/bbe
-    - rpi_pico2/rp2350a/m33/w
-    - rpi_pico2/rp2350a/m33/w/bbe
-    - rpi_pico2/rp2350a/m33/w/mcuboot
-    - rpi_pico2/rp2350a/m33/w/mcuboot/bbe
+    - rpi_pico2/rp2350a/hazard3_0
+    - rpi_pico2/rp2350a/hazard3_0/bbe
+    - rpi_pico2/rp2350a/m33_0
+    - rpi_pico2/rp2350a/m33_0/bbe
+    - rpi_pico2/rp2350a/m33_0/mcuboot
+    - rpi_pico2/rp2350a/m33_0/mcuboot/bbe
+    - rpi_pico2/rp2350a/m33_0/w
+    - rpi_pico2/rp2350a/m33_0/w/bbe
+    - rpi_pico2/rp2350a/m33_0/w/mcuboot
+    - rpi_pico2/rp2350a/m33_0/w/mcuboot/bbe
     - seeeduino_xiao/samd21g18a
     - seeeduino_xiao/samd21g18a/bbe
     - xiao_samd21/samd21g18a
@@ -668,16 +668,16 @@
     - rpi_pico/rp2040/w/bbe
     - rpi_pico/rp2040/w/mcuboot
     - rpi_pico/rp2040/w/mcuboot/bbe
-    - rpi_pico2/rp2350a/hazard3
-    - rpi_pico2/rp2350a/hazard3/bbe
-    - rpi_pico2/rp2350a/m33
-    - rpi_pico2/rp2350a/m33/bbe
-    - rpi_pico2/rp2350a/m33/mcuboot
-    - rpi_pico2/rp2350a/m33/mcuboot/bbe
-    - rpi_pico2/rp2350a/m33/w
-    - rpi_pico2/rp2350a/m33/w/bbe
-    - rpi_pico2/rp2350a/m33/w/mcuboot
-    - rpi_pico2/rp2350a/m33/w/mcuboot/bbe
+    - rpi_pico2/rp2350a/hazard3_0
+    - rpi_pico2/rp2350a/hazard3_0/bbe
+    - rpi_pico2/rp2350a/m33_0
+    - rpi_pico2/rp2350a/m33_0/bbe
+    - rpi_pico2/rp2350a/m33_0/mcuboot
+    - rpi_pico2/rp2350a/m33_0/mcuboot/bbe
+    - rpi_pico2/rp2350a/m33_0/w
+    - rpi_pico2/rp2350a/m33_0/w/bbe
+    - rpi_pico2/rp2350a/m33_0/w/mcuboot
+    - rpi_pico2/rp2350a/m33_0/w/mcuboot/bbe
     - seeeduino_cm0/samd21g18a
     - seeeduino_lotus/samd21g18a
     - waveshare_rp2040_one/rp2040
@@ -796,16 +796,16 @@
     - rpi_pico/rp2040/w/bbe
     - rpi_pico/rp2040/w/mcuboot
     - rpi_pico/rp2040/w/mcuboot/bbe
-    - rpi_pico2/rp2350a/hazard3
-    - rpi_pico2/rp2350a/hazard3/bbe
-    - rpi_pico2/rp2350a/m33
-    - rpi_pico2/rp2350a/m33/bbe
-    - rpi_pico2/rp2350a/m33/mcuboot
-    - rpi_pico2/rp2350a/m33/mcuboot/bbe
-    - rpi_pico2/rp2350a/m33/w
-    - rpi_pico2/rp2350a/m33/w/bbe
-    - rpi_pico2/rp2350a/m33/w/mcuboot
-    - rpi_pico2/rp2350a/m33/w/mcuboot/bbe
+    - rpi_pico2/rp2350a/hazard3_0
+    - rpi_pico2/rp2350a/hazard3_0/bbe
+    - rpi_pico2/rp2350a/m33_0
+    - rpi_pico2/rp2350a/m33_0/bbe
+    - rpi_pico2/rp2350a/m33_0/mcuboot
+    - rpi_pico2/rp2350a/m33_0/mcuboot/bbe
+    - rpi_pico2/rp2350a/m33_0/w
+    - rpi_pico2/rp2350a/m33_0/w/bbe
+    - rpi_pico2/rp2350a/m33_0/w/mcuboot
+    - rpi_pico2/rp2350a/m33_0/w/mcuboot/bbe
     - seeeduino_xiao/samd21g18a
     - seeeduino_xiao/samd21g18a/bbe
     - xiao_samd21/samd21g18a
@@ -1202,16 +1202,16 @@
     - rpi_pico/rp2040/w/bbe
     - rpi_pico/rp2040/w/mcuboot
     - rpi_pico/rp2040/w/mcuboot/bbe
-    - rpi_pico2/rp2350a/hazard3
-    - rpi_pico2/rp2350a/hazard3/bbe
-    - rpi_pico2/rp2350a/m33
-    - rpi_pico2/rp2350a/m33/bbe
-    - rpi_pico2/rp2350a/m33/mcuboot
-    - rpi_pico2/rp2350a/m33/mcuboot/bbe
-    - rpi_pico2/rp2350a/m33/w
-    - rpi_pico2/rp2350a/m33/w/bbe
-    - rpi_pico2/rp2350a/m33/w/mcuboot
-    - rpi_pico2/rp2350a/m33/w/mcuboot/bbe
+    - rpi_pico2/rp2350a/hazard3_0
+    - rpi_pico2/rp2350a/hazard3_0/bbe
+    - rpi_pico2/rp2350a/m33_0
+    - rpi_pico2/rp2350a/m33_0/bbe
+    - rpi_pico2/rp2350a/m33_0/mcuboot
+    - rpi_pico2/rp2350a/m33_0/mcuboot/bbe
+    - rpi_pico2/rp2350a/m33_0/w
+    - rpi_pico2/rp2350a/m33_0/w/bbe
+    - rpi_pico2/rp2350a/m33_0/w/mcuboot
+    - rpi_pico2/rp2350a/m33_0/w/mcuboot/bbe
     - seeeduino_xiao/samd21g18a
     - seeeduino_xiao/samd21g18a/bbe
     - xiao_samd21/samd21g18a
@@ -1414,16 +1414,16 @@
     - rpi_pico/rp2040/w/bbe
     - rpi_pico/rp2040/w/mcuboot
     - rpi_pico/rp2040/w/mcuboot/bbe
-    - rpi_pico2/rp2350a/hazard3
-    - rpi_pico2/rp2350a/hazard3/bbe
-    - rpi_pico2/rp2350a/m33
-    - rpi_pico2/rp2350a/m33/bbe
-    - rpi_pico2/rp2350a/m33/mcuboot
-    - rpi_pico2/rp2350a/m33/mcuboot/bbe
-    - rpi_pico2/rp2350a/m33/w
-    - rpi_pico2/rp2350a/m33/w/bbe
-    - rpi_pico2/rp2350a/m33/w/mcuboot
-    - rpi_pico2/rp2350a/m33/w/mcuboot/bbe
+    - rpi_pico2/rp2350a/hazard3_0
+    - rpi_pico2/rp2350a/hazard3_0/bbe
+    - rpi_pico2/rp2350a/m33_0
+    - rpi_pico2/rp2350a/m33_0/bbe
+    - rpi_pico2/rp2350a/m33_0/mcuboot
+    - rpi_pico2/rp2350a/m33_0/mcuboot/bbe
+    - rpi_pico2/rp2350a/m33_0/w
+    - rpi_pico2/rp2350a/m33_0/w/bbe
+    - rpi_pico2/rp2350a/m33_0/w/mcuboot
+    - rpi_pico2/rp2350a/m33_0/w/mcuboot/bbe
     - seeeduino_cm0/samd21g18a
     - seeeduino_lotus/samd21g18a
     - waveshare_rp2040_one/rp2040
@@ -1546,16 +1546,16 @@
     - rpi_pico/rp2040/w/bbe
     - rpi_pico/rp2040/w/mcuboot
     - rpi_pico/rp2040/w/mcuboot/bbe
-    - rpi_pico2/rp2350a/hazard3
-    - rpi_pico2/rp2350a/hazard3/bbe
-    - rpi_pico2/rp2350a/m33
-    - rpi_pico2/rp2350a/m33/bbe
-    - rpi_pico2/rp2350a/m33/mcuboot
-    - rpi_pico2/rp2350a/m33/mcuboot/bbe
-    - rpi_pico2/rp2350a/m33/w
-    - rpi_pico2/rp2350a/m33/w/bbe
-    - rpi_pico2/rp2350a/m33/w/mcuboot
-    - rpi_pico2/rp2350a/m33/w/mcuboot/bbe
+    - rpi_pico2/rp2350a/hazard3_0
+    - rpi_pico2/rp2350a/hazard3_0/bbe
+    - rpi_pico2/rp2350a/m33_0
+    - rpi_pico2/rp2350a/m33_0/bbe
+    - rpi_pico2/rp2350a/m33_0/mcuboot
+    - rpi_pico2/rp2350a/m33_0/mcuboot/bbe
+    - rpi_pico2/rp2350a/m33_0/w
+    - rpi_pico2/rp2350a/m33_0/w/bbe
+    - rpi_pico2/rp2350a/m33_0/w/mcuboot
+    - rpi_pico2/rp2350a/m33_0/w/mcuboot/bbe
     - seeeduino_xiao/samd21g18a
     - seeeduino_xiao/samd21g18a/bbe
     - xiao_samd21/samd21g18a

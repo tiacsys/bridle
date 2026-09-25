@@ -120,17 +120,17 @@ the :ref:`boards-extensions` section in this documentation.
 |                   +------------------------------------+------------------------------------------------+
 |                   | |bridle:board:xiao_rp2040|         | | ``xiao_rp2040/rp2040/bbe``                   |
 +-------------------+------------------------------------+------------------------------------------------+
-| RP2350            | |zephyr:board:rpi_pico2|           | | ``rpi_pico2/rp2350a/hazard3``                |
-|                   |                                    | | ``rpi_pico2/rp2350a/m33``                    |
-|                   |                                    | | ``rpi_pico2/rp2350a/m33/mcuboot``            |
-|                   |                                    | | ``rpi_pico2/rp2350a/m33/w``                  |
-|                   |                                    | | ``rpi_pico2/rp2350a/m33/w/mcuboot``          |
+| RP2350            | |zephyr:board:rpi_pico2|           | | ``rpi_pico2/rp2350a/hazard3_0``              |
+|                   |                                    | | ``rpi_pico2/rp2350a/m33_0``                  |
+|                   |                                    | | ``rpi_pico2/rp2350a/m33_0/mcuboot``          |
+|                   |                                    | | ``rpi_pico2/rp2350a/m33_0/w``                |
+|                   |                                    | | ``rpi_pico2/rp2350a/m33_0/w/mcuboot``        |
 |                   +------------------------------------+------------------------------------------------+
-|                   | |bridle:board:rpi_pico2|           | | ``rpi_pico2/rp2350a/hazard3/bbe``            |
-|                   |                                    | | ``rpi_pico2/rp2350a/m33/bbe``                |
-|                   |                                    | | ``rpi_pico2/rp2350a/m33/mcuboot/bbe``        |
-|                   |                                    | | ``rpi_pico2/rp2350a/m33/w/bbe``              |
-|                   |                                    | | ``rpi_pico2/rp2350a/m33/w/mcuboot/bbe``      |
+|                   | |bridle:board:rpi_pico2|           | | ``rpi_pico2/rp2350a/hazard3_0/bbe``          |
+|                   |                                    | | ``rpi_pico2/rp2350a/m33_0/bbe``              |
+|                   |                                    | | ``rpi_pico2/rp2350a/m33_0/mcuboot/bbe``      |
+|                   |                                    | | ``rpi_pico2/rp2350a/m33_0/w/bbe``            |
+|                   |                                    | | ``rpi_pico2/rp2350a/m33_0/w/mcuboot/bbe``    |
 |                   +------------------------------------+------------------------------------------------+
 |                   | |zephyr:board:xiao_rp2350|         | | ``xiao_rp2350/rp2350a/hazard3``              |
 |                   |                                    | | ``xiao_rp2350/rp2350a/m33``                  |

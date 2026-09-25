@@ -290,24 +290,24 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
 
          .. group-tab:: Raspberry Pi Pico 2
 
-            .. rubric:: On ARM Cortex-M33
+            .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
 
             .. zephyr-app-commands::
                :app: bridle/samples/helloshell
                :build-dir: waveshare_pico_10dof_imu_sensor-helloshell
-               :board: rpi_pico2/rp2350a/m33/bbe
+               :board: rpi_pico2/rp2350a/hazard3_0/bbe
                :shield: "waveshare_pico_10dof_imu_sensor_r2"
                :snippets: "usb-console"
                :goals: flash
                :west-args: -p
                :flash-args: -r uf2
 
-            .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+            .. rubric:: On ARM Cortex-M33
 
             .. zephyr-app-commands::
                :app: bridle/samples/helloshell
                :build-dir: waveshare_pico_10dof_imu_sensor-helloshell
-               :board: rpi_pico2/rp2350a/hazard3/bbe
+               :board: rpi_pico2/rp2350a/m33_0/bbe
                :shield: "waveshare_pico_10dof_imu_sensor_r2"
                :snippets: "usb-console"
                :goals: flash
@@ -323,7 +323,7 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
             .. zephyr-app-commands::
                :app: bridle/samples/helloshell
                :build-dir: waveshare_pico_10dof_imu_sensor-helloshell
-               :board: rpi_pico2/rp2350a/m33/w/bbe
+               :board: rpi_pico2/rp2350a/m33_0/w/bbe
                :shield: "waveshare_pico_10dof_imu_sensor_r2"
                :snippets: "usb-console wifi-ip"
                :goals: flash
@@ -450,24 +450,24 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
 
          .. group-tab:: Raspberry Pi Pico 2
 
-            .. rubric:: On ARM Cortex-M33
+            .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
 
             .. zephyr-app-commands::
                :app: bridle/samples/helloshell
                :build-dir: waveshare_pico_10dof_imu_sensor-helloshell
-               :board: rpi_pico2/rp2350a/m33/bbe
+               :board: rpi_pico2/rp2350a/hazard3_0/bbe
                :shield: "waveshare_pico_10dof_imu_sensor_r1"
                :snippets: "usb-console"
                :goals: flash
                :west-args: -p
                :flash-args: -r uf2
 
-            .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+            .. rubric:: On ARM Cortex-M33
 
             .. zephyr-app-commands::
                :app: bridle/samples/helloshell
                :build-dir: waveshare_pico_10dof_imu_sensor-helloshell
-               :board: rpi_pico2/rp2350a/hazard3/bbe
+               :board: rpi_pico2/rp2350a/m33_0/bbe
                :shield: "waveshare_pico_10dof_imu_sensor_r1"
                :snippets: "usb-console"
                :goals: flash
@@ -483,7 +483,7 @@ for revision 1, the variable ``SHIELD`` must be adapted accordingly.
             .. zephyr-app-commands::
                :app: bridle/samples/helloshell
                :build-dir: waveshare_pico_10dof_imu_sensor-helloshell
-               :board: rpi_pico2/rp2350a/m33/w/bbe
+               :board: rpi_pico2/rp2350a/m33_0/w/bbe
                :shield: "waveshare_pico_10dof_imu_sensor_r1"
                :snippets: "usb-console wifi-ip"
                :goals: flash
@@ -621,24 +621,24 @@ driver for the STM LPS22HB MEMS pressure sensor. See also Zephyr sample:
 
          .. group-tab:: Raspberry Pi Pico 2
 
-            .. rubric:: On ARM Cortex-M33
+            .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
 
             .. zephyr-app-commands::
                :app: zephyr/samples/sensor/lps22hb
                :build-dir: waveshare_pico_10dof_imu_sensor-lps22hb
-               :board: rpi_pico2/rp2350a/m33/bbe
+               :board: rpi_pico2/rp2350a/hazard3_0/bbe
                :shield: "waveshare_pico_10dof_imu_sensor_r2"
                :snippets: "usb-console"
                :goals: flash
                :west-args: -p
                :flash-args: -r uf2
 
-            .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+            .. rubric:: On ARM Cortex-M33
 
             .. zephyr-app-commands::
                :app: zephyr/samples/sensor/lps22hb
                :build-dir: waveshare_pico_10dof_imu_sensor-lps22hb
-               :board: rpi_pico2/rp2350a/hazard3/bbe
+               :board: rpi_pico2/rp2350a/m33_0/bbe
                :shield: "waveshare_pico_10dof_imu_sensor_r2"
                :snippets: "usb-console"
                :goals: flash
@@ -652,7 +652,7 @@ driver for the STM LPS22HB MEMS pressure sensor. See also Zephyr sample:
             .. zephyr-app-commands::
                :app: zephyr/samples/sensor/lps22hb
                :build-dir: waveshare_pico_10dof_imu_sensor-lps22hb
-               :board: rpi_pico2/rp2350a/m33/w/bbe
+               :board: rpi_pico2/rp2350a/m33_0/w/bbe
                :shield: "waveshare_pico_10dof_imu_sensor_r2"
                :snippets: "usb-console"
                :goals: flash
@@ -757,24 +757,24 @@ driver for the STM LPS22HB MEMS pressure sensor. See also Zephyr sample:
 
          .. group-tab:: Raspberry Pi Pico 2
 
-            .. rubric:: On ARM Cortex-M33
+            .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
 
             .. zephyr-app-commands::
                :app: zephyr/samples/sensor/lps22hb
                :build-dir: waveshare_pico_10dof_imu_sensor-lps22hb
-               :board: rpi_pico2/rp2350a/m33/bbe
+               :board: rpi_pico2/rp2350a/hazard3_0/bbe
                :shield: "waveshare_pico_10dof_imu_sensor_r1"
                :snippets: "usb-console"
                :goals: flash
                :west-args: -p
                :flash-args: -r uf2
 
-            .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+            .. rubric:: On ARM Cortex-M33
 
             .. zephyr-app-commands::
                :app: zephyr/samples/sensor/lps22hb
                :build-dir: waveshare_pico_10dof_imu_sensor-lps22hb
-               :board: rpi_pico2/rp2350a/hazard3/bbe
+               :board: rpi_pico2/rp2350a/m33_0/bbe
                :shield: "waveshare_pico_10dof_imu_sensor_r1"
                :snippets: "usb-console"
                :goals: flash
@@ -788,7 +788,7 @@ driver for the STM LPS22HB MEMS pressure sensor. See also Zephyr sample:
             .. zephyr-app-commands::
                :app: zephyr/samples/sensor/lps22hb
                :build-dir: waveshare_pico_10dof_imu_sensor-lps22hb
-               :board: rpi_pico2/rp2350a/m33/w/bbe
+               :board: rpi_pico2/rp2350a/m33_0/w/bbe
                :shield: "waveshare_pico_10dof_imu_sensor_r1"
                :snippets: "usb-console"
                :goals: flash

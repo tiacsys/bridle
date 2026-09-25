@@ -74,16 +74,16 @@ common:
     - rpi_pico/rp2040/w/bbe
     - rpi_pico/rp2040/w/mcuboot
     - rpi_pico/rp2040/w/mcuboot/bbe
-    - rpi_pico2/rp2350a/hazard3
-    - rpi_pico2/rp2350a/hazard3/bbe
-    - rpi_pico2/rp2350a/m33
-    - rpi_pico2/rp2350a/m33/bbe
-    - rpi_pico2/rp2350a/m33/mcuboot
-    - rpi_pico2/rp2350a/m33/mcuboot/bbe
-    - rpi_pico2/rp2350a/m33/w
-    - rpi_pico2/rp2350a/m33/w/bbe
-    - rpi_pico2/rp2350a/m33/w/mcuboot
-    - rpi_pico2/rp2350a/m33/w/mcuboot/bbe
+    - rpi_pico2/rp2350a/hazard3_0
+    - rpi_pico2/rp2350a/hazard3_0/bbe
+    - rpi_pico2/rp2350a/m33_0
+    - rpi_pico2/rp2350a/m33_0/bbe
+    - rpi_pico2/rp2350a/m33_0/mcuboot
+    - rpi_pico2/rp2350a/m33_0/mcuboot/bbe
+    - rpi_pico2/rp2350a/m33_0/w
+    - rpi_pico2/rp2350a/m33_0/w/bbe
+    - rpi_pico2/rp2350a/m33_0/w/mcuboot
+    - rpi_pico2/rp2350a/m33_0/w/mcuboot/bbe
     - seeeduino_cm0/samd21g18a
     - seeeduino_lotus/samd21g18a
     - seeeduino_xiao/samd21g18a
@@ -149,11 +149,11 @@ tests:
       - rpi_pico/rp2040/mcuboot/bbe
       - rpi_pico/rp2040/w/bbe
       - rpi_pico/rp2040/w/mcuboot/bbe
-      - rpi_pico2/rp2350a/hazard3/bbe
-      - rpi_pico2/rp2350a/m33/bbe
-      - rpi_pico2/rp2350a/m33/mcuboot/bbe
-      - rpi_pico2/rp2350a/m33/w/bbe
-      - rpi_pico2/rp2350a/m33/w/mcuboot/bbe
+      - rpi_pico2/rp2350a/hazard3_0/bbe
+      - rpi_pico2/rp2350a/m33_0/bbe
+      - rpi_pico2/rp2350a/m33_0/mcuboot/bbe
+      - rpi_pico2/rp2350a/m33_0/w/bbe
+      - rpi_pico2/rp2350a/m33_0/w/mcuboot/bbe
       - seeeduino_cm0/samd21g18a
       - seeeduino_lotus/samd21g18a
       - seeeduino_xiao/samd21g18a/bbe
@@ -206,9 +206,9 @@ tests:
       - nucleo_l496zg/stm32l496xx
       - rpi_pico/rp2040
       - rpi_pico/rp2040/mcuboot
-      - rpi_pico2/rp2350a/hazard3
-      - rpi_pico2/rp2350a/m33
-      - rpi_pico2/rp2350a/m33/mcuboot
+      - rpi_pico2/rp2350a/hazard3_0
+      - rpi_pico2/rp2350a/m33_0
+      - rpi_pico2/rp2350a/m33_0/mcuboot
       - xiao_rp2350/rp2350a/hazard3
       - xiao_rp2350/rp2350a/m33
   #
@@ -241,8 +241,8 @@ tests:
     #
     # - rpi_pico/rp2040/w
     # - rpi_pico/rp2040/w/mcuboot
-    # - rpi_pico2/rp2350a/m33/w
-    # - rpi_pico2/rp2350a/m33/w/mcuboot
+    # - rpi_pico2/rp2350a/m33_0/w
+    # - rpi_pico2/rp2350a/m33_0/w/mcuboot
     # - xiao_rp2040/rp2040
     #
     # That needs to observe if and when feature {'usbd'} will present.
@@ -259,8 +259,8 @@ tests:
     integration_platforms:
       - rpi_pico/rp2040/w
       - rpi_pico/rp2040/w/mcuboot
-      - rpi_pico2/rp2350a/m33/w
-      - rpi_pico2/rp2350a/m33/w/mcuboot
+      - rpi_pico2/rp2350a/m33_0/w
+      - rpi_pico2/rp2350a/m33_0/w/mcuboot
       - xiao_rp2040/rp2040
   #
   # Well known bords (Bridle) with self contained support.

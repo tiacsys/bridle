@@ -63,10 +63,24 @@ for revision 1, the variable :code:`SHIELD` must be adapted accordingly:
       :flash-args: -r uf2
       :goals: flash
 
+   .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+
    .. zephyr-app-commands::
       :app: bridle/samples/waveshare_pico_10dof_imu_sensor
       :build-dir: waveshare_pico_10dof_imu_sensor_r2
-      :board: rpi_pico2/rp2350a/m33/bbe
+      :board: rpi_pico2/rp2350a/hazard3_0/bbe
+      :shield: "waveshare_pico_10dof_imu_sensor_r2"
+      :snippets: "usb-console"
+      :west-args: -p
+      :flash-args: -r uf2
+      :goals: flash
+
+   .. rubric:: On ARM Cortex-M33
+
+   .. zephyr-app-commands::
+      :app: bridle/samples/waveshare_pico_10dof_imu_sensor
+      :build-dir: waveshare_pico_10dof_imu_sensor_r2
+      :board: rpi_pico2/rp2350a/m33_0/bbe
       :shield: "waveshare_pico_10dof_imu_sensor_r2"
       :snippets: "usb-console"
       :west-args: -p

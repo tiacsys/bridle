@@ -66,10 +66,24 @@ that comes with the :ref:`waveshare_pico_environment_sensor` shield for the
       :flash-args: -r uf2
       :goals: flash
 
+   .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+
    .. zephyr-app-commands::
       :app: bridle/samples/waveshare_pico_environment_sensor
       :build-dir: waveshare_pico_environment_sensor
-      :board: rpi_pico2/rp2350a/m33/bbe
+      :board: rpi_pico2/rp2350a/hazard3_0/bbe
+      :shield: "waveshare_pico_environment_sensor"
+      :snippets: "usb-console"
+      :west-args: -p
+      :flash-args: -r uf2
+      :goals: flash
+
+   .. rubric:: On ARM Cortex-M33
+
+   .. zephyr-app-commands::
+      :app: bridle/samples/waveshare_pico_environment_sensor
+      :build-dir: waveshare_pico_environment_sensor
+      :board: rpi_pico2/rp2350a/m33_0/bbe
       :shield: "waveshare_pico_environment_sensor"
       :snippets: "usb-console"
       :west-args: -p

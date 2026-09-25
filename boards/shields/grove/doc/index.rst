@@ -935,7 +935,7 @@ or ``cmake`` in your Zephyr application. For example:
    .. zephyr-app-commands::
       :app: bridle/samples/helloshell
       :build-dir: helloshell-seeed_grove_rpipico_v1
-      :board: rpi_pico2/rp2350a/m33/bbe
+      :board: rpi_pico2/rp2350a/hazard3_0/bbe
       :shield: "seeed_grove_rpipico_v1"
       :goals: flash
       :west-args: -p
@@ -944,7 +944,7 @@ or ``cmake`` in your Zephyr application. For example:
    .. zephyr-app-commands::
       :app: bridle/samples/helloshell
       :build-dir: helloshell-seeed_grove_rpipico_v1
-      :board: rpi_pico2/rp2350a/hazard3/bbe
+      :board: rpi_pico2/rp2350a/m33_0/bbe
       :shield: "seeed_grove_rpipico_v1"
       :goals: flash
       :west-args: -p
@@ -955,7 +955,7 @@ or ``cmake`` in your Zephyr application. For example:
    .. zephyr-app-commands::
       :app: bridle/samples/helloshell
       :build-dir: helloshell-seeed_grove_rpipico_v1
-      :board: rpi_pico2/rp2350a/m33/w/bbe
+      :board: rpi_pico2/rp2350a/m33_0/w/bbe
       :shield: "seeed_grove_rpipico_v1"
       :snippets: "wifi-ip"
       :goals: flash

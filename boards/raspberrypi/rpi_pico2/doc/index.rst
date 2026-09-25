@@ -86,8 +86,8 @@ List of extensions
 
      * - .. rubric:: Raspberry Pi Pico 2
 
-     * - .. literalinclude:: ../rpi_pico2_rp2350a_m33_bbe.dts
-            :caption: rpi_pico2_rp2350a_m33_bbe.dts
+     * - .. literalinclude:: ../rpi_pico2_rp2350a_hazard3_0_bbe.dts
+            :caption: rpi_pico2_rp2350a_hazard3_0_bbe.dts
             :language: DTS
             :encoding: ISO-8859-1
             :prepend: / {
@@ -95,8 +95,8 @@ List of extensions
             :end-before: chosen {
             :append: };
 
-     * - .. literalinclude:: ../rpi_pico2_rp2350a_hazard3_bbe.dts
-            :caption: rpi_pico2_rp2350a_hazard3_bbe.dts
+     * - .. literalinclude:: ../rpi_pico2_rp2350a_m33_0_bbe.dts
+            :caption: rpi_pico2_rp2350a_m33_0_bbe.dts
             :language: DTS
             :encoding: ISO-8859-1
             :prepend: / {
@@ -111,8 +111,8 @@ List of extensions
 
      * - .. rubric:: Raspberry Pi Pico 2 - MCUboot
 
-     * - .. literalinclude:: ../rpi_pico2_rp2350a_m33_mcuboot_bbe.dts
-            :caption: rpi_pico2_rp2350a_m33_mcuboot_bbe.dts
+     * - .. literalinclude:: ../rpi_pico2_rp2350a_m33_0_mcuboot_bbe.dts
+            :caption: rpi_pico2_rp2350a_m33_0_mcuboot_bbe.dts
             :language: DTS
             :encoding: ISO-8859-1
             :prepend: / {
@@ -127,8 +127,8 @@ List of extensions
 
      * - .. rubric:: Raspberry Pi Pico 2W
 
-     * - .. literalinclude:: ../rpi_pico2_rp2350a_m33_w_bbe.dts
-            :caption: rpi_pico2_rp2350a_m33_w_bbe.dts
+     * - .. literalinclude:: ../rpi_pico2_rp2350a_m33_0_w_bbe.dts
+            :caption: rpi_pico2_rp2350a_m33_0_w_bbe.dts
             :language: DTS
             :encoding: ISO-8859-1
             :prepend: / {
@@ -143,8 +143,8 @@ List of extensions
 
      * - .. rubric:: Raspberry Pi Pico 2W - MCUboot
 
-     * - .. literalinclude:: ../rpi_pico2_rp2350a_m33_w_mcuboot_bbe.dts
-            :caption: rpi_pico2_rp2350a_m33_w_mcuboot_bbe.dts
+     * - .. literalinclude:: ../rpi_pico2_rp2350a_m33_0_w_mcuboot_bbe.dts
+            :caption: rpi_pico2_rp2350a_m33_0_w_mcuboot_bbe.dts
             :language: DTS
             :encoding: ISO-8859-1
             :prepend: / {

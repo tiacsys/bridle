@@ -27,12 +27,12 @@ The following samples work with the chosen display. That is:
 
    .. group-tab:: Raspberry Pi Pico 2
 
-      .. rubric:: On ARM Cortex-M33
+      .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
 
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/display
          :build-dir: waveshare_pico_clock_green-display_test
-         :board: rpi_pico2/rp2350a/m33/bbe
+         :board: rpi_pico2/rp2350a/hazard3_0/bbe
          :shield: "waveshare_pico_clock_green"
          :snippets: "usb-console"
          :goals: flash
@@ -40,12 +40,12 @@ The following samples work with the chosen display. That is:
          :flash-args: -r uf2
          :compact:
 
-      .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+      .. rubric:: On ARM Cortex-M33
 
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/display
          :build-dir: waveshare_pico_clock_green-display_test
-         :board: rpi_pico2/rp2350a/hazard3/bbe
+         :board: rpi_pico2/rp2350a/m33_0/bbe
          :shield: "waveshare_pico_clock_green"
          :snippets: "usb-console"
          :goals: flash
@@ -60,7 +60,7 @@ The following samples work with the chosen display. That is:
       .. zephyr-app-commands::
          :app: zephyr/samples/drivers/display
          :build-dir: waveshare_pico_clock_green-display_test
-         :board: rpi_pico2/rp2350a/m33/w/bbe
+         :board: rpi_pico2/rp2350a/m33_0/w/bbe
          :shield: "waveshare_pico_clock_green"
          :snippets: "usb-console"
          :goals: flash

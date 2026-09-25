@@ -281,12 +281,12 @@ specified as required.
 
    * - |rpi_pico2_rp2350a_URB_VID|
      - |rpi_pico2_rp2350a_URB_PID_CON|
-     - | :code:`rpi_pico2//hazard3`
-       | :code:`rpi_pico2//hazard3/bbe`
-       | :code:`rpi_pico2//m33`
-       | :code:`rpi_pico2//m33/bbe`
-       | :code:`rpi_pico2//m33/mcuboot`
-       | :code:`rpi_pico2//m33/mcuboot/bbe`
+     - | :code:`rpi_pico2//hazard3_0`
+       | :code:`rpi_pico2//hazard3_0/bbe`
+       | :code:`rpi_pico2//m33_0`
+       | :code:`rpi_pico2//m33_0/bbe`
+       | :code:`rpi_pico2//m33_0/mcuboot`
+       | :code:`rpi_pico2//m33_0/mcuboot/bbe`
      - |Raspberry Pi|_
      - | |RPi Pico 2 (CDC ACM)|,
        | Raspberry Pi Pico SDK CDC UART
@@ -297,10 +297,10 @@ specified as required.
 
    * - |rpi_pico2_rp2350a_w_URB_VID|
      - |rpi_pico2_rp2350a_w_URB_PID_CON|
-     - | :code:`rpi_pico2//m33/w`
-       | :code:`rpi_pico2//m33/w/bbe`
-       | :code:`rpi_pico2//m33/w/mcuboot`
-       | :code:`rpi_pico2//m33/w/mcuboot/bbe`
+     - | :code:`rpi_pico2//m33_0/w`
+       | :code:`rpi_pico2//m33_0/w/bbe`
+       | :code:`rpi_pico2//m33_0/w/mcuboot`
+       | :code:`rpi_pico2//m33_0/w/mcuboot/bbe`
      - |Raspberry Pi|_
      - | |RPi Pico 2W (CDC ACM)|,
        | Raspberry Pi Pico SDK CDC UART

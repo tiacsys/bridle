@@ -275,24 +275,24 @@ Set ``-DSHIELD=waveshare_pico_environment_sensor`` when you invoke
 
    .. group-tab:: Raspberry Pi Pico 2
 
-      .. rubric:: On ARM Cortex-M33
+      .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
 
       .. zephyr-app-commands::
          :app: bridle/samples/helloshell
          :build-dir: waveshare_pico_environment_sensor-helloshell
-         :board: rpi_pico2/rp2350a/m33/bbe
+         :board: rpi_pico2/rp2350a/hazard3_0/bbe
          :shield: "waveshare_pico_environment_sensor"
          :snippets: "usb-console"
          :west-args: -p
          :flash-args: -r uf2
          :goals: flash
 
-      .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+      .. rubric:: On ARM Cortex-M33
 
       .. zephyr-app-commands::
          :app: bridle/samples/helloshell
          :build-dir: waveshare_pico_environment_sensor-helloshell
-         :board: rpi_pico2/rp2350a/hazard3/bbe
+         :board: rpi_pico2/rp2350a/m33_0/bbe
          :shield: "waveshare_pico_environment_sensor"
          :snippets: "usb-console"
          :west-args: -p
@@ -308,7 +308,7 @@ Set ``-DSHIELD=waveshare_pico_environment_sensor`` when you invoke
       .. zephyr-app-commands::
          :app: bridle/samples/helloshell
          :build-dir: waveshare_pico_environment_sensor-helloshell
-         :board: rpi_pico2/rp2350a/m33/w/bbe
+         :board: rpi_pico2/rp2350a/m33_0/w/bbe
          :shield: "waveshare_pico_environment_sensor"
          :snippets: "usb-console wifi-ip"
          :west-args: -p
@@ -426,12 +426,24 @@ driver for the Bosch BME280 environmental sensor. See also Zephyr sample:
    :flash-args: -r uf2
    :goals: flash
 
-.. rubric:: Raspberry Pi Pico 2
+.. rubric:: Raspberry Pi Pico 2 on Hazard3 RISC-V (RV32IMAC+)
 
 .. zephyr-app-commands::
    :app: zephyr/samples/sensor/bme280
    :build-dir: waveshare_pico_environment_sensor-bme280
-   :board: rpi_pico2/rp2350a/m33/bbe
+   :board: rpi_pico2/rp2350a/hazard3_0/bbe
+   :shield: "waveshare_pico_environment_sensor"
+   :snippets: "usb-console samples-sensor-bme280-tweaks"
+   :west-args: -p
+   :flash-args: -r uf2
+   :goals: flash
+
+.. rubric:: Raspberry Pi Pico 2 on ARM Cortex-M33
+
+.. zephyr-app-commands::
+   :app: zephyr/samples/sensor/bme280
+   :build-dir: waveshare_pico_environment_sensor-bme280
+   :board: rpi_pico2/rp2350a/m33_0/bbe
    :shield: "waveshare_pico_environment_sensor"
    :snippets: "usb-console samples-sensor-bme280-tweaks"
    :west-args: -p

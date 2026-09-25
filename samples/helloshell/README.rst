@@ -360,7 +360,7 @@ For the |RPi Pico 2W|, also with |bridle:board:rpi_pico2|:
    .. zephyr-app-commands::
       :app: bridle/samples/helloshell
       :build-dir: helloshell-rpi_pico2_w
-      :board: rpi_pico2/rp2350a/m33/w
+      :board: rpi_pico2/rp2350a/m33_0/w
       :snippets: usb-console
       :west-args: -p
       :flash-args: -r uf2
@@ -371,7 +371,7 @@ For the |RPi Pico 2W|, also with |bridle:board:rpi_pico2|:
    .. zephyr-app-commands::
       :app: bridle/samples/helloshell
       :build-dir: helloshell-rpi_pico2_w
-      :board: rpi_pico2/rp2350a/m33/w/bbe
+      :board: rpi_pico2/rp2350a/m33_0/w/bbe
       :snippets: usb-console
       :west-args: -p
       :flash-args: -r uf2

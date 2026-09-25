@@ -25,12 +25,12 @@ output color on the on-shield TriColor ChipLED using the
 
    .. group-tab:: Raspberry Pi Pico 2
 
-      .. rubric:: On ARM Cortex-M33
+      .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/rgb_led
          :build-dir: pimoroni_pico_lcd_1_44-led_test
-         :board: rpi_pico2/rp2350a/m33/bbe
+         :board: rpi_pico2/rp2350a/hazard3_0/bbe
          :shield: "pimoroni_pico_lcd_1_44"
          :snippets: "usb-console"
          :west-args: -p
@@ -38,12 +38,12 @@ output color on the on-shield TriColor ChipLED using the
          :goals: flash
          :compact:
 
-      .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+      .. rubric:: On ARM Cortex-M33
 
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/rgb_led
          :build-dir: pimoroni_pico_lcd_1_44-led_test
-         :board: rpi_pico2/rp2350a/hazard3/bbe
+         :board: rpi_pico2/rp2350a/m33_0/bbe
          :shield: "pimoroni_pico_lcd_1_44"
          :snippets: "usb-console"
          :west-args: -p
@@ -58,7 +58,7 @@ output color on the on-shield TriColor ChipLED using the
       .. zephyr-app-commands::
          :app: zephyr/samples/basic/rgb_led
          :build-dir: pimoroni_pico_lcd_1_44-led_test
-         :board: rpi_pico2/rp2350a/m33/w/bbe
+         :board: rpi_pico2/rp2350a/m33_0/w/bbe
          :shield: "pimoroni_pico_lcd_1_44"
          :snippets: "usb-console"
          :west-args: -p

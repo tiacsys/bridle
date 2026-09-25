@@ -41,12 +41,12 @@ the two user keys, and the two analog joystick achsises using the
 
    .. group-tab:: Raspberry Pi Pico 2
 
-      .. rubric:: On ARM Cortex-M33
+      .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
 
       .. zephyr-app-commands::
          :app: zephyr/samples/subsys/input/input_dump
          :build-dir: geeekpi_pico_bb-input_dump
-         :board: rpi_pico2/rp2350a/m33/bbe
+         :board: rpi_pico2/rp2350a/hazard3_0/bbe
          :shield: "geeekpi_pico_bb"
          :snippets: "usb-console"
          :west-args: -p
@@ -54,12 +54,12 @@ the two user keys, and the two analog joystick achsises using the
          :goals: flash
          :compact:
 
-      .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+      .. rubric:: On ARM Cortex-M33
 
       .. zephyr-app-commands::
          :app: zephyr/samples/subsys/input/input_dump
          :build-dir: geeekpi_pico_bb-input_dump
-         :board: rpi_pico2/rp2350a/hazard3/bbe
+         :board: rpi_pico2/rp2350a/m33_0/bbe
          :shield: "geeekpi_pico_bb"
          :snippets: "usb-console"
          :west-args: -p
@@ -74,7 +74,7 @@ the two user keys, and the two analog joystick achsises using the
       .. zephyr-app-commands::
          :app: zephyr/samples/subsys/input/input_dump
          :build-dir: geeekpi_pico_bb-input_dump
-         :board: rpi_pico2/rp2350a/m33/w/bbe
+         :board: rpi_pico2/rp2350a/m33_0/w/bbe
          :shield: "geeekpi_pico_bb"
          :snippets: "usb-console"
          :west-args: -p

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2021-2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 sample:
   description: Hello World sample, the simplest Zephyr, but with a shell
     application
@@ -206,12 +209,12 @@ tests:
       - rpi_pico/rp2040/bbe
       - rpi_pico/rp2040/w
       - rpi_pico/rp2040/w/bbe
-      - rpi_pico2/rp2350a/hazard3
-      - rpi_pico2/rp2350a/hazard3/bbe
-      - rpi_pico2/rp2350a/m33
-      - rpi_pico2/rp2350a/m33/bbe
-      - rpi_pico2/rp2350a/m33/w
-      - rpi_pico2/rp2350a/m33/w/bbe
+      - rpi_pico2/rp2350a/hazard3_0
+      - rpi_pico2/rp2350a/hazard3_0/bbe
+      - rpi_pico2/rp2350a/m33_0
+      - rpi_pico2/rp2350a/m33_0/bbe
+      - rpi_pico2/rp2350a/m33_0/w
+      - rpi_pico2/rp2350a/m33_0/w/bbe
       - seeeduino_cm0/samd21g18a
       - seeeduino_lotus/samd21g18a
       - seeeduino_xiao/samd21g18a

@@ -112,25 +112,25 @@
 
 | RP2040 | | :ref:`xiao_rp2040_board-extensions` | - ``xiao_rp2040/rp2040/bbe`` |
 
-.. rpi_pico2_rp2350a_hazard3
+.. rpi_pico2_rp2350a_hazard3_0
 
-| RP2350 | | :external+zephyr:zephyr:board:`rpi_pico2` | - ``rpi_pico/rp2350a/hazard3`` |
+| RP2350 | | :external+zephyr:zephyr:board:`rpi_pico2` | - ``rpi_pico2/rp2350a/hazard3_0`` |
 
-.. rpi_pico2_rp2350a_m33_mcuboot
+.. rpi_pico2_rp2350a_m33_0_mcuboot
 
-| RP2350 | | :external+zephyr:zephyr:board:`rpi_pico2` | - ``rpi_pico/rp2350a/m33/mcuboot`` |
+| RP2350 | | :external+zephyr:zephyr:board:`rpi_pico2` | - ``rpi_pico2/rp2350a/m33_0/mcuboot`` |
 
-.. rpi_pico2_rp2350a_m33_w_mcuboot
+.. rpi_pico2_rp2350a_m33_0_w_mcuboot
 
-| RP2350 | | :external+zephyr:zephyr:board:`rpi_pico2` | - ``rpi_pico/rp2350a/m33/w/mcuboot`` |
+| RP2350 | | :external+zephyr:zephyr:board:`rpi_pico2` | - ``rpi_pico2/rp2350a/m33_0/w/mcuboot`` |
 
-.. rpi_pico2_rp2350a_m33_w
+.. rpi_pico2_rp2350a_m33_0_w
 
-| RP2350 | | :external+zephyr:zephyr:board:`rpi_pico2` | - ``rpi_pico/rp2350a/m33/w`` |
+| RP2350 | | :external+zephyr:zephyr:board:`rpi_pico2` | - ``rpi_pico2/rp2350a/m33_0/w`` |
 
-.. rpi_pico2_rp2350a_m33
+.. rpi_pico2_rp2350a_m33_0
 
-| RP2350 | | :external+zephyr:zephyr:board:`rpi_pico2` | - ``rpi_pico/rp2350a/m33`` |
+| RP2350 | | :external+zephyr:zephyr:board:`rpi_pico2` | - ``rpi_pico2/rp2350a/m33_0`` |
 
 .. xiao_rp2350_rp2350a_hazard3
 
@@ -156,25 +156,25 @@
 
 | RP2350 | | :ref:`picoboy_color_plus` | - ``picoboy_color_plus/rp2350a/m33_0`` |
 
-.. rpi_pico2_rp2350a_hazard3_bbe
+.. rpi_pico2_rp2350a_hazard3_0_bbe
 
-| RP2350 | | :ref:`rpi_pico2_board-extensions` | - ``rpi_pico2/rp2350a/hazard3/bbe`` |
+| RP2350 | | :ref:`rpi_pico2_board-extensions` | - ``rpi_pico2/rp2350a/hazard3_0/bbe`` |
 
-.. rpi_pico2_rp2350a_m33_bbe
+.. rpi_pico2_rp2350a_m33_0_bbe
 
-| RP2350 | | :ref:`rpi_pico2_board-extensions` | - ``rpi_pico2/rp2350a/m33/bbe`` |
+| RP2350 | | :ref:`rpi_pico2_board-extensions` | - ``rpi_pico2/rp2350a/m33_0/bbe`` |
 
-.. rpi_pico2_rp2350a_m33_mcuboot_bbe
+.. rpi_pico2_rp2350a_m33_0_mcuboot_bbe
 
-| RP2350 | | :ref:`rpi_pico2_board-extensions` | - ``rpi_pico2/rp2350a/m33/mcuboot/bbe`` |
+| RP2350 | | :ref:`rpi_pico2_board-extensions` | - ``rpi_pico2/rp2350a/m33_0/mcuboot/bbe`` |
 
-.. rpi_pico2_rp2350a_m33_w_bbe
+.. rpi_pico2_rp2350a_m33_0_w_bbe
 
-| RP2350 | | :ref:`rpi_pico2_board-extensions` | - ``rpi_pico2/rp2350a/m33/w/bbe`` |
+| RP2350 | | :ref:`rpi_pico2_board-extensions` | - ``rpi_pico2/rp2350a/m33_0/w/bbe`` |
 
-.. rpi_pico2_rp2350a_m33_w_mcuboot_bbe
+.. rpi_pico2_rp2350a_m33_0_w_mcuboot_bbe
 
-| RP2350 | | :ref:`rpi_pico2_board-extensions` | - ``rpi_pico2/rp2350a/m33/w/mcuboot/bbe`` |
+| RP2350 | | :ref:`rpi_pico2_board-extensions` | - ``rpi_pico2/rp2350a/m33_0/w/mcuboot/bbe`` |
 
 .. waveshare_rp2350_matrix_rp2350a_hazard3
 

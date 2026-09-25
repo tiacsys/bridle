@@ -1,6 +1,6 @@
 # RaspberryPi Pico 2 and Pico 2W board extended configuration
 
-# Copyright (c) 2025 TiaC Systems
+# SPDX-FileCopyrightText: Copyright (c) 2025-2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 # Workaround for not being able to have commas in macro arguments

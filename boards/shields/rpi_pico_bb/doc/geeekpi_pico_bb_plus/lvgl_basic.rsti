@@ -32,12 +32,12 @@ with chosen display and touchscreen panel. That is:
 
    .. group-tab:: Raspberry Pi Pico 2
 
-      .. rubric:: On ARM Cortex-M33
+      .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
 
       .. zephyr-app-commands::
          :app: zephyr/samples/subsys/display/lvgl
          :build-dir: geeekpi_pico_bb_plus-lvgl_basic
-         :board: rpi_pico2/rp2350a/m33/bbe
+         :board: rpi_pico2/rp2350a/hazard3_0/bbe
          :shield: "geeekpi_pico_bb_plus"
          :snippets: "usb-console"
          :west-args: -p
@@ -45,12 +45,12 @@ with chosen display and touchscreen panel. That is:
          :goals: flash
          :compact:
 
-      .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+      .. rubric:: On ARM Cortex-M33
 
       .. zephyr-app-commands::
          :app: zephyr/samples/subsys/display/lvgl
          :build-dir: geeekpi_pico_bb_plus-lvgl_basic
-         :board: rpi_pico2/rp2350a/hazard3/bbe
+         :board: rpi_pico2/rp2350a/m33_0/bbe
          :shield: "geeekpi_pico_bb_plus"
          :snippets: "usb-console"
          :west-args: -p
@@ -65,7 +65,7 @@ with chosen display and touchscreen panel. That is:
       .. zephyr-app-commands::
          :app: zephyr/samples/subsys/display/lvgl
          :build-dir: geeekpi_pico_bb_plus-lvgl_basic
-         :board: rpi_pico2/rp2350a/m33/w/bbe
+         :board: rpi_pico2/rp2350a/m33_0/w/bbe
          :shield: "geeekpi_pico_bb_plus"
          :snippets: "usb-console"
          :west-args: -p
