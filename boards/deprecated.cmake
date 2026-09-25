@@ -14,6 +14,9 @@ set(cytron_motion_2350_pro/rp2350a/hazard3_DEPRECATED
 set(cytron_motion_2350_pro/rp2350a/m33_DEPRECATED
     cytron_motion_2350_pro/rp2350a/m33_0
 )
+set(mini_usb_rp2350/rp2350a/m33_DEPRECATED
+    mini_usb_rp2350/rp2350a/m33_0
+)
 set(picoboy_color_plus/rp2350a/hazard3_DEPRECATED
     picoboy_color_plus/rp2350a/hazard3_0
 )

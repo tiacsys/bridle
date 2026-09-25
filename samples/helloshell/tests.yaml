@@ -196,8 +196,8 @@ tests:
       - mini_usb_rp2040
       - mini_usb_rp2040@16mb
       - mini_usb_rp2040@chipled
-      - mini_usb_rp2350/rp2350a/m33
-      - mini_usb_rp2350@16mb/rp2350a/m33
+      - mini_usb_rp2350/rp2350a/m33_0
+      - mini_usb_rp2350@16mb/rp2350a/m33_0
       - picoboy/rp2040
       - picoboy_color/rp2040
       - picoboy_color_plus/rp2350a/hazard3_0

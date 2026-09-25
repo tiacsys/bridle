@@ -252,8 +252,8 @@ Also see the :ref:`boards` section in this documentation.
 | RP2350            | |bridle:board:cytron_motion_2350_pro|    | | ``cytron_motion_2350_pro/rp2350a/hazard3_0`` |
 |                   |                                          | | ``cytron_motion_2350_pro/rp2350a/m33_0``     |
 |                   +------------------------------------------+------------------------------------------------+
-|                   | |bridle:board:mini_usb_rp2350|           | | ``mini_usb_rp2350/rp2350a/m33``              |
-|                   |                                          | | ``mini_usb_rp2350@16mb/rp2350a/m33``         |
+|                   | |bridle:board:mini_usb_rp2350|           | | ``mini_usb_rp2350/rp2350a/m33_0``            |
+|                   |                                          | | ``mini_usb_rp2350@16mb/rp2350a/m33_0``       |
 |                   +------------------------------------------+------------------------------------------------+
 |                   | |bridle:board:picoboy_color_plus|        | | ``picoboy_color_plus/rp2350a/hazard3_0``     |
 |                   |                                          | | ``picoboy_color_plus/rp2350a/m33_0``         |
