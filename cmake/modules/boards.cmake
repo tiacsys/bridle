@@ -221,7 +221,14 @@ if(_rig_boards_dir_count GREATER 1)
       foreach(_rig_boards_dir ${BOARD_DIRECTORIES})
         file(REAL_PATH "${_rig_boards_dir}" _rig_boards_dir_real)
         if(NOT _rig_boards_dir_real STREQUAL _rig_boards_dts_dir_real)
-          list(APPEND DTS_EXTRA_CPPFLAGS "-isystem" "${_rig_boards_dir}")
+          # One list element per flag ("-isystem<dir>", joined), never the
+          # "-isystem;<dir>" pair: configuration_files.cmake reads this
+          # variable back through zephyr_get(... MERGE ...), which drops
+          # duplicate list ELEMENTS -- with two or more extra dirs (a board
+          # extended by more than one module) every "-isystem" after the
+          # first would vanish and a bare directory would reach cpp as a
+          # second input file.
+          list(APPEND DTS_EXTRA_CPPFLAGS "-isystem${_rig_boards_dir}")
         endif()
       endforeach()
     endif()
