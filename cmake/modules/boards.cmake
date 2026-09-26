@@ -41,13 +41,18 @@ include(extensions)
 # invocation is the only source of BOARD.
 if(DEFINED RIG)
   list(TRANSFORM BOARD_ROOT PREPEND "--board-root=" OUTPUT_VARIABLE _rig_broot_args)
+  # Every module's dts_root (zephyr_module.cmake has already appended them
+  # to DTS_ROOT): a promotion target's shield is resolved against the
+  # connector types and headers under these, the roots dts.cmake later
+  # threads to rigc as --connector-dir/--include-dir.
+  list(TRANSFORM DTS_ROOT PREPEND "--dts-root=" OUTPUT_VARIABLE _rig_droot_args)
   # "--rig=${RIG}" MUST be quoted: a list promotion target legitimately
   # contains a `;`, and an UNQUOTED expansion here would list-split it into
   # several execute_process COMMAND arguments, handing list_rigs.py only
   # the first element.
   execute_process(
     COMMAND ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_LIST_DIR}/../../scripts/list_rigs.py
-      ${_rig_broot_args} "--rig=${RIG}"
+      ${_rig_broot_args} ${_rig_droot_args} "--rig=${RIG}"
       --cmakeformat={NAME}\;{DIR}\;{BOARD}\;{REVISION}\;{VARIANT}\;{PROMOTED}
     OUTPUT_VARIABLE _rig_resolve_out
     ERROR_VARIABLE _rig_resolve_err

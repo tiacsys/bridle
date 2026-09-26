@@ -1,0 +1,3 @@
+instances:
+  - name: ems
+    shield: extra_module_shield

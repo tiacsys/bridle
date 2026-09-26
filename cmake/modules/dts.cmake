@@ -281,6 +281,10 @@ else()
     "list_rigs.py --rig=.")
 
   list(TRANSFORM BOARD_ROOT PREPEND "--board-root=" OUTPUT_VARIABLE _rig_board_root_args)
+  # Same --dts-root list as boards.cmake's own Step 1 call, for the same
+  # reason: promotion resolves a shield against every module's connector
+  # types and headers.
+  list(TRANSFORM DTS_ROOT PREPEND "--dts-root=" OUTPUT_VARIABLE _rig_dts_root_args)
 
   # "--rig=${RIG}" MUST be quoted: a list promotion target legitimately
   # contains a `;`, and an UNQUOTED expansion here would list-split it
@@ -289,7 +293,7 @@ else()
   # call guards against.
   execute_process(
     COMMAND ${PYTHON_EXECUTABLE} ${_RIG_MODULE_ROOT}/scripts/list_rigs.py
-      ${_rig_board_root_args} "--rig=${RIG}"
+      ${_rig_board_root_args} ${_rig_dts_root_args} "--rig=${RIG}"
       --cmakeformat={NAME}\;{DIR}\;{BOARD}\;{REVISION}\;{VARIANT}\;{PROMOTED}
     OUTPUT_VARIABLE _rig_fallback_out
     ERROR_VARIABLE _rig_fallback_err

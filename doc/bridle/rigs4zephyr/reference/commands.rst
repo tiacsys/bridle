@@ -59,6 +59,26 @@ With no arguments, lists the name of every rig discovered under the board
 roots of every Zephyr module that declares one — ``bridle`` does, so its
 own rigs are found with no path given.
 
+"Every Zephyr module" means the same set a build sees: the west manifest's
+projects, plus any module named by the ``EXTRA_ZEPHYR_MODULES`` environment
+variable — a ``;``-separated list of module directories, the form
+:file:`zephyr_module.cmake` accepts. A module that is not a west project
+therefore joins ``west rigs`` the way it joins a build:
+
+.. code-block:: console
+
+   $ export EXTRA_ZEPHYR_MODULES=/path/to/my-rigs-module
+   $ west rigs
+   $ west build -b <board> <app> -- -DRIG=<rig>
+
+``west rigs`` has no CMake cache, so ``-DEXTRA_ZEPHYR_MODULES=...`` on a
+build command line does not reach it; set the environment variable instead.
+Each module contributes its ``board_root`` (rigs, shields, the boards
+``--boards-for`` censuses) and its ``dts_root``: the connector types under
+:file:`dts/bindings/connectors` and their index headers under
+:file:`include`, which ``--boards-for`` and ``--explain`` need to load a
+shield that plugs a connector type the module defines.
+
 ``-f, --format FORMAT``
    A Python format string, one line per rig. Keys: ``{name}`` (the rig's
    identity), ``{dir}`` (the directory holding its two files),
@@ -76,6 +96,12 @@ own rigs are found with no path given.
 ``--board-root DIR``
    Add a board root to the scan. Repeatable. Rarely needed: module-declared
    roots are scanned already.
+
+``--dts-root DIR``
+   Add a devicetree root whose :file:`dts/bindings/connectors` and
+   :file:`include` supply connector types and their headers. Repeatable.
+   Rarely needed, for the same reason: every module's ``dts_root`` is used
+   already.
 
 ``--boards-for TARGET``
    Instead of listing, print every board whose typed sockets satisfy

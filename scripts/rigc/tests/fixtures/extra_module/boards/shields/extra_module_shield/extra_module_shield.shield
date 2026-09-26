@@ -1,0 +1,17 @@
+/* A shield plugging the extra_module fixture's own connector type, and
+ * including that type's header -- both resolvable only from the fixture
+ * module's own dts_root.
+ */
+
+#include <dt-bindings/connector/fixture-extra-module.h>
+
+/ {
+	shield-templates {
+		extra_module_shield: extra_module_shield {
+			ems_plug: plug {
+				compatible = "shield,plug";
+				shield,plugs = "fixture-extra-module";
+			};
+		};
+	};
+};

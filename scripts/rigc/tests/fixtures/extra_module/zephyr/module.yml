@@ -1,0 +1,12 @@
+# Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+#
+# Fixture: a Zephyr module that is NOT a west project, joined only through
+# EXTRA_ZEPHYR_MODULES -- test_west_rigs_extra_modules.py's subject. Its
+# rig, shield and connector type exist nowhere else, so `west rigs` can
+# only see them by honoring that variable.
+name: rigc-fixture-extra-module
+build:
+  settings:
+    board_root: .
+    dts_root: .

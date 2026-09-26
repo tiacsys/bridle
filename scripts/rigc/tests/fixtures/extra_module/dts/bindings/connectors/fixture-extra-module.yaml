@@ -1,0 +1,14 @@
+# Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+description: |
+  Fixture-only connector type, declared by the extra_module fixture module
+  alone (test_west_rigs_extra_modules.py): a shield plugging it loads only
+  when `west rigs` threads that module's dts_root as a connector root.
+  Nothing mates it -- no board carries this socket.
+
+compatible: "socket,fixture-extra-module"
+
+include: [base.yaml]
+
+plug,bus-proxies: []
+plug,positions: {}

@@ -9,7 +9,18 @@
 # Root discovery follows shields.py: every Zephyr module that declares a
 # build.settings.board_root is scanned (including this module's own), so
 # rigs are found wherever a module puts boards/rigs — no path needed for
-# the common case.
+# the common case. "Every Zephyr module" is the west manifest's projects
+# plus whatever EXTRA_ZEPHYR_MODULES names in the environment -- the same
+# `;`-separated list a build reads (zephyr_module.parse_modules applies it),
+# so a module joined to a build that way is visible here too.
+#
+# The connector types and their position-index headers are discovered the
+# same way a build discovers them (cmake/modules/dts.cmake): every module's
+# build.settings.dts_root (plus any --dts-root) contributes
+# <root>/dts/bindings/connectors and <root>/include. Without that,
+# --boards-for/--explain would see only the types beside rigc's own source,
+# and a shield plugging another module's connector type could not be loaded
+# at all.
 
 import argparse
 import os
@@ -68,6 +79,7 @@ class Rigs(WestCommand):
             description='Display list of available rigs',
             accepts_unknown_args=False,
         )
+        self._types_cache = None
 
     def do_add_parser(self, parser_adder):
         default_fmt = '{name}'
@@ -183,13 +195,23 @@ class Rigs(WestCommand):
             name_re = None
 
         modules_board_roots = [ZEPHYR_BASE]
+        modules_dts_roots = []
 
+        # extra_modules is left to parse_modules' own default, which reads
+        # EXTRA_ZEPHYR_MODULES (and ZEPHYR_EXTRA_MODULES) from the
+        # environment exactly as a build's zephyr_module.cmake passes it on.
         for module in zephyr_module.parse_modules(ZEPHYR_BASE, self.manifest):
-            board_root = module.meta.get('build', {}).get('settings', {}).get('board_root')
+            settings = module.meta.get('build', {}).get('settings', {})
+            board_root = settings.get('board_root')
             if board_root is not None:
                 modules_board_roots.append(Path(module.project) / board_root)
+            dts_root = settings.get('dts_root')
+            if dts_root is not None:
+                modules_dts_roots.append(Path(module.project) / dts_root)
 
         args.board_roots += modules_board_roots
+        # ZEPHYR_BASE last, as in a build's DTS_ROOT.
+        args.dts_roots += modules_dts_roots + [Path(ZEPHYR_BASE)]
 
         if args.boards_for is not None:
             self._boards_for(args)
@@ -220,6 +242,50 @@ class Rigs(WestCommand):
                     else '',
                 )
             )
+
+    def _include_dirs(self, args):
+        """`<root>/include` for every dts root do_run resolved: where each
+        connector type's `dt-bindings/connector/<type>.h` and a shield
+        template's own `#include`s resolve (list_rigs.include_dirs, the
+        cpp -I rule a build gives rigc)."""
+        return list_rigs.include_dirs(args.dts_roots)
+
+    def _types(self, args):
+        """The connector-type registry over every dts root's
+        `dts/bindings/connectors` (list_rigs.connector_dirs, the rule
+        cmake/modules/dts.cmake threads as --connector-dir), so the
+        registry this command builds is the one a build of the same
+        workspace would build. Built once per invocation."""
+        from rigc.registry import load_types
+
+        if self._types_cache is None:
+            self._types_cache, _deps = load_types(
+                connector_dirs=list_rigs.connector_dirs(args.dts_roots),
+                header_dirs=self._include_dirs(args),
+            )
+        return self._types_cache
+
+    def _discover_shields(self, args):
+        """`promote.discover_shields` over _shield_dirs, with this
+        workspace's connector types and headers rather than rigc's
+        module-relative defaults."""
+        from rigc import promote
+
+        return promote.discover_shields(
+            self._shield_dirs(args), types=self._types(args), include_dirs=self._include_dirs(args)
+        )
+
+    def _resolve_for_promotion(self, args, name):
+        """`promote.resolve_for_promotion` with the same roots as
+        _discover_shields."""
+        from rigc import promote
+
+        return promote.resolve_for_promotion(
+            name,
+            self._shield_dirs(args),
+            types=self._types(args),
+            include_dirs=self._include_dirs(args),
+        )
 
     def _shield_dirs(self, args):
         """The shield namespace at the SAME breadth as the rig namespace:
@@ -261,7 +327,7 @@ class Rigs(WestCommand):
 
         name, revision, variant, opt_text = list_rigs.parse_rig_target(target)
         rig = next((r for r in list_rigs.find_rigs(args) if r.name == name), None)
-        shields = promote.discover_shields(self._shield_dirs(args))
+        shields = self._discover_shields(args)
 
         if rig is not None and name in shields:
             sys.exit('ERROR: ' + promote.both_paths_error(name, rig.dir, shields[name].dir))
@@ -274,7 +340,7 @@ class Rigs(WestCommand):
             # need their own small parse. Shared by both --boards-for and
             # --explain, since both go through this one method: one
             # namespace rule, not two independently-worded ones.
-            resolved = promote.resolve_for_promotion(name, self._shield_dirs(args))
+            resolved = self._resolve_for_promotion(args, name)
             err = promote.check_promotable(name, shields[name], variant)
             if err is not None:
                 sys.exit(f'ERROR: {err}')
@@ -308,7 +374,7 @@ class Rigs(WestCommand):
         from rigc import promote
 
         rigs_by_name = {r.name: r for r in list_rigs.find_rigs(args)}
-        shields = promote.discover_shields(self._shield_dirs(args))
+        shields = self._discover_shields(args)
 
         elements = []
         for element in target.split(';'):
@@ -320,7 +386,7 @@ class Rigs(WestCommand):
                 sys.exit('ERROR: ' + promote.list_element_is_a_rig_error(name, target, rig.dir))
             if name not in shields:
                 sys.exit('ERROR: ' + promote.list_element_not_a_shield_error(name, target))
-            resolved = promote.resolve_for_promotion(name, self._shield_dirs(args))
+            resolved = self._resolve_for_promotion(args, name)
             err = promote.check_promotable(name, shields[name], variant)
             if err is not None:
                 sys.exit(f'ERROR: {err}')
@@ -340,10 +406,10 @@ class Rigs(WestCommand):
     def _boards_for(self, args):
         """`--boards-for`'s implementation: resolve TARGET against
         BOTH namespaces (_resolve_both_namespaces, the same namespace rule
-        --explain applies), load it standalone (no --include-dir: rigc.
-        loader.load runs this way unassisted, and the connector-type
-        registry finds its own bindings by default), then run board_
-        census.boards_for against every censused board rig-extension.
+        --explain applies), load it standalone against the connector types
+        and headers of every module's dts root (_types/_include_dirs, the
+        roots a build threads), then run board_census.boards_for against
+        every censused board rig-extension.
         Prints one conforming target per line, sorted; nothing at all,
         exit 0, when none conform -- an empty answer is a fact, not an
         error. A rig that fails to LOAD renders its own diagnostics to
@@ -384,7 +450,6 @@ class Rigs(WestCommand):
         # (module top, above) for that import -- nothing further to add.
         from rigc import board, loader, promote
         from rigc.diag import has_errors, render
-        from rigc.registry import load_types
 
         # A list target (a `;`-separated string) never reaches
         # `_resolve_both_namespaces` at all: `list_rigs.parse_rig_target`
@@ -411,7 +476,7 @@ class Rigs(WestCommand):
                 revision = None
         variant = None
 
-        types, _types_deps = load_types()
+        types = self._types(args)
         workdir = tempfile.mkdtemp(prefix='rigs-boards-for-')
         try:
             if promoted is not None:
@@ -436,6 +501,7 @@ class Rigs(WestCommand):
                 shield_dirs=self._shield_dirs(args),
                 revision=revision,
                 variant=variant,
+                include_dirs=self._include_dirs(args),
             )
         finally:
             # D10's rule: this command never leaves a workdir behind,

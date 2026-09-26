@@ -1,0 +1,4 @@
+# Fixture: the rig `west rigs` lists only when EXTRA_ZEPHYR_MODULES names
+# the extra_module fixture module (test_west_rigs_extra_modules.py).
+rig:
+  name: extra_module_rig

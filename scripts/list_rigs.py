@@ -423,6 +423,39 @@ def _cmake_list_escape(value: str) -> str:
     return escaped
 
 
+def connector_dirs(dts_roots):
+    """`<root>/dts/bindings/connectors` for every dts root that has one --
+    the same per-DTS_ROOT rule cmake/modules/dts.cmake applies when it
+    threads `--connector-dir` to rigc, so a promotion target resolves
+    against the connector types a build of the same workspace sees."""
+    dirs = (Path(root) / 'dts' / 'bindings' / 'connectors' for root in dts_roots)
+    return [str(d) for d in dirs if d.is_dir()]
+
+
+def include_dirs(dts_roots):
+    """`<root>/include` for every dts root that has one: where a connector
+    type's `dt-bindings/connector/<type>.h`, and a shield template's own
+    `#include`s, resolve."""
+    dirs = (Path(root) / 'include' for root in dts_roots)
+    return [str(d) for d in dirs if d.is_dir()]
+
+
+def _promotion_inputs(args):
+    """The (types, include_dirs) pair a shield scan and a promotion
+    resolution need, built from `args.dts_roots` (`--dts-root`). With no
+    dts root given, both are None: rigc's own module-relative defaults
+    apply, exactly as before `--dts-root` existed. Those defaults see only
+    the connector types beside rigc's own source, which is why the cmake
+    forks and `west rigs` always pass every module's dts root."""
+    if not args.dts_roots:
+        return None, None
+    from rigc.registry import load_types
+
+    headers = include_dirs(args.dts_roots)
+    types, _deps = load_types(connector_dirs=connector_dirs(args.dts_roots), header_dirs=headers)
+    return types, headers
+
+
 def resolve_target(target, args):
     """The actual `-DRIG=<target>` entry point for cmake/modules/boards.cmake's
     and cmake/modules/dts.cmake's forks,
@@ -479,7 +512,8 @@ def resolve_target(target, args):
     rigs = find_rigs(args)
     rig = next((r for r in rigs if r.name == name), None)
     shield_dirs = [str(Path(root) / 'boards' / 'shields') for root in args.board_roots]
-    shields = promote.discover_shields(shield_dirs)
+    types, headers = _promotion_inputs(args)
+    shields = promote.discover_shields(shield_dirs, types=types, include_dirs=headers)
 
     if rig is not None and name in shields:
         sys.exit(f'ERROR: {promote.both_paths_error(name, rig.dir, shields[name].dir)}')
@@ -490,7 +524,9 @@ def resolve_target(target, args):
         # discover_shields' scan is deliberately lazy and never opens
         # the template itself, so the shield's real slot names need
         # their own small parse.
-        resolved = promote.resolve_for_promotion(name, shield_dirs)
+        resolved = promote.resolve_for_promotion(
+            name, shield_dirs, types=types, include_dirs=headers
+        )
         err = promote.check_promotable(name, shields[name], variant)
         if err is not None:
             sys.exit(f'ERROR: {err}')
@@ -528,7 +564,8 @@ def _resolve_list_target(target, args):
 
     rigs_by_name = {r.name: r for r in find_rigs(args)}
     shield_dirs = [str(Path(root) / 'boards' / 'shields') for root in args.board_roots]
-    shields = promote.discover_shields(shield_dirs)
+    types, headers = _promotion_inputs(args)
+    shields = promote.discover_shields(shield_dirs, types=types, include_dirs=headers)
 
     names = []
     for element in target.split(';'):
@@ -540,7 +577,9 @@ def _resolve_list_target(target, args):
             sys.exit(f'ERROR: {promote.list_element_is_a_rig_error(name, target, rig.dir)}')
         if name not in shields:
             sys.exit(f'ERROR: {promote.list_element_not_a_shield_error(name, target)}')
-        resolved = promote.resolve_for_promotion(name, shield_dirs)
+        resolved = promote.resolve_for_promotion(
+            name, shield_dirs, types=types, include_dirs=headers
+        )
         err = promote.check_promotable(name, shields[name], variant)
         if err is not None:
             sys.exit(f'ERROR: {err}')
@@ -571,6 +610,16 @@ def add_args(parser):
         type=Path,
         action='append',
         help='add a board root, may be given more than once',
+    )
+    parser.add_argument(
+        "--dts-root",
+        dest='dts_roots',
+        default=[],
+        type=Path,
+        action='append',
+        help='add a devicetree root whose dts/bindings/connectors and '
+        'include/ supply the connector types a promotion target is '
+        'resolved against, may be given more than once',
     )
     parser.add_argument(
         "--rig",

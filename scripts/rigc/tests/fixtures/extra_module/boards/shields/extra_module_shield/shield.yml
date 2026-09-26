@@ -1,0 +1,5 @@
+shield:
+  name: extra_module_shield
+  full_name: Extra-module fixture shield
+  vendor: none
+  template: true
