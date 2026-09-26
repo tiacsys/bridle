@@ -1,6 +1,6 @@
-# Synthetic fixture: rule 9 -- remove-wires: naming an endpoint pair that
+# Synthetic fixture: remove-wires: naming an endpoint pair that
 # does not exist. The real wire is x.dl_sq -> y.dl_led1 (DTS labels --
-# wires: endpoints resolve by label, item 29); variant b's delta tries
+# wires: endpoints resolve by label); variant b's delta tries
 # removing x.dl_sq -> y.dl_led2 instead (dl_led2 is a real label, just
 # the wrong endpoint of the real wire).
 instances:

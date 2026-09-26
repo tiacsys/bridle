@@ -1,4 +1,4 @@
-/* Shield: hypothetical Flash Click (S5) — SPI NOR, one CS from the socket.
+/* Shield: hypothetical Flash Click — SPI NOR, one CS from the socket.
  * Type named by string (like compatibles); the local plug node is the
  * position reference frame. reg omitted -> CS slot allocated; expander
  * authors reg AND unit-address together (address authority rule).

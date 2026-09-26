@@ -364,7 +364,7 @@ class PromotedListTarget:
     duplicate_elements`). `resolve_target`'s third possible return
     value, alongside `Rig` and `PromotedTarget`.
 
-    `name` is the desugared rig's own identity (Sec 2's ruling): every
+    `name` is the desugared rig's own identity: every
     element's shield name joined with `+`, the identical string
     `rigc.promote.promote_shield_list` writes into the synthesized
     rig.yml's own `name:` field.

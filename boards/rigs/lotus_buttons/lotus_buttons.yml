@@ -9,10 +9,10 @@
 # 64 overlays  ->  one shield + N one-line placements.
 
 # grove_btn declares zephyr,code required (a keycode is an instance fact,
-# not a type-level one — rig-variants-revisions.md "PER-INSTANCE
-# PARAMETERS"), so each button below assigns its own via params: --
-# distinct keys, not the same one twice -- resolved against grove_btn's
-# own shield,param-includes (param-vocabulary-brief.md).
+# not a type-level one: a shield,params property with no default authored
+# MUST be assigned per instance), so each button below assigns its own via
+# params: -- distinct keys, not the same one twice -- resolved against
+# grove_btn's own shield,param-includes header.
 instances:
   - name: btn_start
     shield: grove_btn

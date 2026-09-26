@@ -6,7 +6,7 @@
 # docstring says plainly: "no real board socket node is ever compiled
 # with this compatible... this binding's own properties are schema
 # decoration no real node ever exercises." i2c_sensor's SINGLETON form
-# (S4) is exactly the first thing that DOES need a real, edtlib-parsed
+# (a promoted one) is exactly the first thing that DOES need a real, edtlib-parsed
 # board-level "socket,i2c-port" node (unique-by-type inference only ever
 # considers board.sockets, never a carrier's own exported socket --
 # analyzer/sockets.py's infer_socket), and edtlib's strict undeclared-

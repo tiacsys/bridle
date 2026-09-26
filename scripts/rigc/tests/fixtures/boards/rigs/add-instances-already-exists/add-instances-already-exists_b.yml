@@ -1,4 +1,4 @@
-# add-instances: names 'logger', which already exists -- rule 7.
+# add-instances: names 'logger', which already exists -- an error.
 add-instances:
   - name: logger
     shield: adafruit_data_logger

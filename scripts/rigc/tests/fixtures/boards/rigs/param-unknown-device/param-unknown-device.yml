@@ -1,5 +1,5 @@
 # Synthetic fixture: a params: entry naming a device label that does not
-# exist on the shield at all — rule 3 (lang-param). gb_key's own required
+# exist on the shield at all — lang-param. gb_key's own required
 # parameter is correctly assigned so this fixture locks exactly one
 # violation, not two.
 dt-includes:  # retired but KEPT: removing it shifts the golden's yml:15 anchor

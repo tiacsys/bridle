@@ -1,4 +1,4 @@
-/* Shield: MikroE ETH Click (S6) — ENC28J60, SPI. Plain mikroBUS click; its
+/* Shield: MikroE ETH Click — ENC28J60, SPI. Plain mikroBUS click; its
  * CS is pool-allocated from the socket (mikroBUS dedicated CS position). When
  * it sits on the adapter, the CS resolves through the two-level chain to the
  * host board's Arduino CS pin (R19/R21).

@@ -5,8 +5,8 @@
 
 /*
  * Fixture board for the 3-cell PWM feature's CHILD/PARENT MISMATCH
- * witness (three-cell-pwm-brief.md Sec 3a RULED, acceptance criterion
- * 4): tc_socket_mismatch declares #pwm-cells = <3> (a supported count on
+ * witness (a socket's own cell count must equal its pwm-map target
+ * controller's): tc_socket_mismatch declares #pwm-cells = <3> (a supported count on
  * its own) but its pwm-map's target controller declares #pwm-cells =
  * <2> (also individually supported) -- board/project.py's own checked read
  * must refuse this disagreement, naming BOTH counts, rather than

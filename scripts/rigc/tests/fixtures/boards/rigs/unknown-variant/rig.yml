@@ -1,5 +1,5 @@
 # Synthetic fixture: a --variant naming a value not in the declared
-# variants: list -- rule 2 (lang-variant).
+# variants: list -- lang-variant.
 rig:
   name: unknown-variant
   variants:

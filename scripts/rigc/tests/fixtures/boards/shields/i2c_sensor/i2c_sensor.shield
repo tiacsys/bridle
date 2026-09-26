@@ -1,5 +1,5 @@
-/* I2C sensor module (S8) — fixed address 0x48, no address-select (the S3
- * offender). Plugs a bare i2c-port; four of these are unrealizable on one bus
+/* I2C sensor module — fixed address 0x48, no address-select (the classic
+ * address-clash offender). Plugs a bare i2c-port; four of these are unrealizable on one bus
  * but fine behind a mux, one per channel scope.
  */
 

@@ -1,5 +1,5 @@
 # Carrier PWM/ADC pass-through fixture rig (REJECT case,
-# carrier-analog-passthrough-brief.md ruling 2 + Sec 5 RULED
+# unrouted analog position + carrier/parent cell-count
 # require-and-check): TWO independent reject scenarios in one rig
 # (neither instance pair interacts with the other), so a single run
 # proves both sentences at once.

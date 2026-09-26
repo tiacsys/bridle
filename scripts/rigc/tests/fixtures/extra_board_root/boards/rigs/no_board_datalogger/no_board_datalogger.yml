@@ -1,5 +1,5 @@
-# The shared arduino_r3 alias (Ruling 1, board-as-invocation-coordinate-
-# brief.md Sec 2 -- already landed on both real boards' own devicetree)
+# The shared arduino_r3 alias (a conventional socket label both real
+# boards' own devicetree carries, see reference/board-socket.rst)
 # rather than a board-prefixed socket label, so this resolves regardless
 # of which real board -DBOARD names -- see rig.yml.
 instances:

@@ -1,4 +1,4 @@
-/* Plurality ACCEPT fixture (shield-plurality-brief.md Sec 4): one of two
+/* Plurality ACCEPT fixture (test_shield_plurality.py): one of two
  * shields declared by the SAME shields: list, in a folder named neither
  * of them (plural_pair/). Never a real corpus shield.
  */

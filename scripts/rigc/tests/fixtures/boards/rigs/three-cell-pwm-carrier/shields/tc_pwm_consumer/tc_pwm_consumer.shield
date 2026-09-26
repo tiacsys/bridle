@@ -1,9 +1,9 @@
-/* Fixture consumer, THROUGH-CARRIER witness (three-cell-pwm-brief.md
- * Sec 5/6, acceptance criteria 2+3-accept-through-carrier): identical
+/* Fixture consumer, THROUGH-CARRIER witness (test_three_cell_pwm.py:
+ * 3-cell nexus and nonzero flags through a carrier): identical
  * shape to tc_servo_plain (three-cell-pwm-plain's own shield), mated
  * against the carrier's exposed socket instead of the board socket
  * directly -- proving the synthesized nexus (_channel_nexus_block,
- * already generalized per Sec 2) carries a nonzero flags cell exactly
+ * cell-count-general for every function) carries a nonzero flags cell exactly
  * like a real board socket does.
  */
 

@@ -1,13 +1,13 @@
-/* Fixture carrier (three-cell-pwm-brief.md Sec 5/6, acceptance
- * criterion 2): a single-plug, pure-copper carrier re-exporting ONE
+/* Fixture carrier (test_three_cell_pwm.py, the synthesized 3-cell
+ * nexus): a single-plug, pure-copper carrier re-exporting ONE
  * socket (tc_out) that passes PWM through to the parent's own 3-cell
- * PWM position (0). Declares #pwm-cells = <3> on both its plug and its
- * exposed socket -- matching the resolved parent's own count
- * (tc_socket3, three_cell_pwm_board.dts), which the RULED
- * require-and-check (analyzer/sockets.py's compose_socket,
- * carrier-analog-passthrough-brief.md Sec 5) already checks -- this
- * fixture proves that check is ALREADY 3-cell-general (it does not
- * change for this slice), while board/project.py's own widened read is what
+ * PWM position (0). Declares #pwm-cells = <3> on its exposed socket (the
+ * plug declares none; its generic count is 3) -- matching the resolved
+ * parent's own count (tc_socket3, three_cell_pwm_board.dts), which the
+ * carrier/parent cell-count require-and-check (analyzer/sockets.py's
+ * compose_socket) verifies -- this fixture proves that check is
+ * 3-cell-general (it needs no special case for 3 cells), while
+ * board/project.py's own widened read is what
  * lets tc_socket3 resolve as this carrier's parent at all.
  */
 

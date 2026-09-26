@@ -1,6 +1,6 @@
 shield:
   name: badyml_fixture
-  full_name: V1c fixture shield (malformed revisions block)
+  full_name: Revision fixture shield (malformed revisions block)
   vendor: none
   template: true
   # default names a revision that list: does not contain -- a defect of

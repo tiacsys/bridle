@@ -2,7 +2,7 @@
  * parameter to this device via DT's own overlay-by-label semantics --
  * proves the per-stage parameter invariant (_check_param_invariant)
  * re-fires for a shield-REVISION-introduced requirement with no special
- * case (rig-variants-revisions.md V1c Sec. 4). Never a real corpus
+ * case. Never a real corpus
  * shield.
  */
 

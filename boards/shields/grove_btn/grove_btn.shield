@@ -13,9 +13,9 @@
  * INSTANCE fact, not a type-level one — two buttons of this same shield
  * plugged into one rig need DISTINCT keys — so it is declared here via
  * shield,params with no default authored: every rig instantiating this
- * shield MUST assign it (rig-variants-revisions.md "PER-INSTANCE
- * PARAMETERS"). shield,param-includes declares the header its assigned
- * value resolves against -- this shield's own contract, not an accident
+ * shield MUST assign it (shield,params in doc/bridle/rigs4zephyr/
+ * reference/shield-template.rst). shield,param-includes names the header
+ * its value resolves against -- this shield's own contract, not an accident
  * of what happens to be #included above (a macro-only header contributes
  * no node/property of its own, so it cannot be recovered any other way).
  */

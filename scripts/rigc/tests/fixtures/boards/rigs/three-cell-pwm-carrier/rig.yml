@@ -1,10 +1,10 @@
 # 3-cell PWM fixture rig (THROUGH-CARRIER ACCEPT case,
-# three-cell-pwm-brief.md Sec 5/6): a pure-copper carrier re-exports the
+# test_three_cell_pwm.py): a pure-copper carrier re-exports the
 # board's 3-cell PWM socket; a consumer mates the carrier's exposed
 # socket, authoring the identical nonzero PWM flags value the plain rig
-# does. Proves acceptance criterion 2 (the synthesized nexus resolves at
-# #pwm-cells = <3>) and criterion 3's carrier half together.
+# does. Proves the synthesized nexus resolves at #pwm-cells = <3> and
+# that nonzero flags are carried through a carrier, together.
 # board is INJECTED by the test (three_cell_pwm_fixture_board), not
-# declared here (board-coordinate-s6-brief.md Sec 11).
+# declared here (rig.yml has no board: key; see reference/rig-file.rst).
 rig:
   name: three_cell_pwm_carrier

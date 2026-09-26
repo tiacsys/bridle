@@ -8,7 +8,7 @@
 #include <dt-bindings/connector/grove.h>
 
 /*
- * Singleton-identity-law fixture board (board-coordinate-s4-brief.md, S4):
+ * Singleton-identity-law fixture board (promoted shield == 1-instance rig):
  * one socket per REAL connector type an ELIGIBLE (no-required-param)
  * corpus shield plugs into -- arduino-r3, mikrobus, grove, i2c-port --
  * so test_singleton_identity_law.py can mate a REAL shield (never a
@@ -35,8 +35,8 @@
  * claims (adafruit_data_logger, adafruit_winc1500, arduino_uno_click,
  * i2c_mux / eth_click, flash_click, temp_click, temp_hum_click /
  * grove_led, grove_light, grove_servo / i2c_sensor), not just one. A
- * SECOND, independent mikroBUS socket (multi-plug-promotion-brief.md
- * slice 3) exists so can_span_click/mikrobus_span_adapter's two same-
+ * SECOND, independent mikroBUS socket (for the plural, multi-plug
+ * shields) exists so can_span_click/mikrobus_span_adapter's two same-
  * type slots each get a distinct physical socket to resolve to.
  */
 / {
@@ -45,12 +45,12 @@
 
 	nexus_i2c: i2c_ctrl { };
 	nexus_spi: spi_ctrl { };
-	/* A SECOND, independent i2c/spi controller pair -- multi-plug-
-	 * promotion-brief.md Sec 4's own two multi-plug corpus shields
+	/* A SECOND, independent i2c/spi controller pair -- the two
+	 * multi-plug corpus shields
 	 * (can_span_click, mikrobus_span_adapter) each need TWO DISTINCT
-	 * mikroBUS sockets to assign their two same-type slots to (a
-	 * shared defining label is a phys-socket error, slice 1's own
-	 * ruling). A second connector_mikrobus below wires to THESE, not
+	 * mikroBUS sockets to assign their two same-type slots to (two
+	 * slots resolving to one physical socket is a phys-socket
+	 * error). A second connector_mikrobus below wires to THESE, not
 	 * to nexus_i2c/nexus_spi, mirroring the real corpus's own
 	 * quail_sock2/quail_sock3 shape (two independent buses) rather
 	 * than the shared-controller variant (quail_sock1/quail_sock2) --
@@ -125,8 +125,8 @@
 		socket,spi = <&nexus_spi>;
 	};
 
-	/* A second, physically DISTINCT mikroBUS socket (multi-plug-
-	 * promotion-brief.md Sec 4): same shape as nexus_mikrobus above,
+	/* A second, physically DISTINCT mikroBUS socket (for the
+	 * multi-plug shields): same shape as nexus_mikrobus above,
 	 * wired to the second, independent i2c/spi pair declared with it.
 	 * Every existing single-plug mikrobus shield (eth_click,
 	 * flash_click, temp_click, temp_hum_click) keeps resolving to

@@ -4,13 +4,13 @@
  * output on the Grove signal pin; bridle's own period is PWM_MSEC(20).
  *
  * The shield-side claim is (position, period, flags), 3 cells, the generic
- * count -- so the plug node declares none (plug-unification-brief.md Sec 5).
+ * count -- so the plug node declares none (a plug may not declare cells).
  * The SOCKET's own #pwm-cells is a board fact and differs (2 on every real
  * socket this shield mates -- position, period, no flags): that asymmetry is
  * the existing design (see grove_servo.shield), not a mistake to fix here.
  *
  * shield,collect = "pwm-leds" joins the shared pwm-leds collection node
- * (Conv. 9), the pwm-shaped sibling of grove_led's own gpio-leds entry --
+ * node, the pwm-shaped sibling of grove_led's own gpio-leds entry --
  * one collection node per compatible, aggregating every instance's entry.
  *
  * invert: does not apply here -- it flips a gpio ACTIVE_LOW/HIGH flag bit,
@@ -19,14 +19,14 @@
  * instance of this shield setting invert: true is accepted but has no
  * effect on the emitted pwms line.
  *
- * Twister suite (L4-PWM, item 36): tests/rigs/nucleo_grove_farm/, via the
- * persisted boards/rigs/nucleo_grove_farm rig's own pwm_a instance, on a
- * carrier-exposed Grove socket over a REAL arduino-r3 pwm-map (nucleo_f401re
- * and frdm_k64f both now declare one, boards/extend/{st/nucleo_f401re,
- * nxp/frdm_k64f}/arduino_r3_socket.dtsi) -- this shield's own PWM_POLARITY_NORMAL
- * (an unconditionally-zero flags cell) is exactly why grove_pwm_led_inv.shield
- * (this same folder) exists alongside it, to carry a NONZERO flags value the
- * same rig also exercises (l4-pwm-brief.md Sec 6 acceptance criterion 5).
+ * Exercised by boards/rigs/lotus_pwm_led/: two instances on the Seeeduino
+ * Lotus's own Grove sockets (grove_d2 and grove_d3), each resolving through
+ * the board's real pwm-map (boards/seeed/seeeduino_lotus/grove_sockets.dtsi)
+ * to its own tcc0 channel, aggregated into the one shared pwm-leds node.
+ * This shield's PWM_POLARITY_NORMAL is an unconditionally-zero flags cell:
+ * every instance emits flags 0, and nothing in the rig can change that --
+ * a polarity other than normal needs a shield that authors a different
+ * flags value, not a parameter on this one.
  */
 
 #include <dt-bindings/connector/grove.h>

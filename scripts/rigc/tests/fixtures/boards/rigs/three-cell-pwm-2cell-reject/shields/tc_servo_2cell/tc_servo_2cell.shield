@@ -1,5 +1,5 @@
-/* Fixture consumer, 2-CELL REJECT witness (three-cell-pwm-brief.md
- * Sec 5/6, acceptance criterion 3's reject half): identical shape and
+/* Fixture consumer, 2-CELL REJECT witness (test_three_cell_pwm.py,
+ * the reject half of the nonzero-flags pair): identical shape and
  * identical nonzero flags claim to tc_servo_plain (three-cell-pwm-plain
  * rig), mated against the board's 2-CELL PWM socket instead -- there is
  * genuinely no cell for flags there (lotus's own atmel,sam0-tcc-pwm

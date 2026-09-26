@@ -4,7 +4,7 @@
 # implementation nobody runs is documentation, and documentation drifts.
 # board is INJECTED by the test (reference_board, matching this fixture's
 # own board.dts, passed via --board-dts) -- not a real hwmv2 target, and
-# not declared here (board-coordinate-s6-brief.md Sec 11 retired that
-# grammar).
+# not declared here (rig.yml has no board: key; see
+# reference/rig-file.rst).
 rig:
   name: reference_shields

@@ -4,7 +4,7 @@
 /dts-v1/;
 
 /* Fixture board for the multi-plug-carrier feature's combined-SPI
- * negative control (multi-plug-carrier-brief.md Sec 7): TWO independent
+ * negative control (a build test in the btr-shields harness): TWO independent
  * sockets of type socket,fixture-mp-spi, each wired to its OWN SPI
  * controller and its OWN CS-line GPIO pin -- fixture_span_bridge plugs
  * both at once and re-exports one socket,fixture-multibus combining
@@ -56,7 +56,7 @@
 	};
 
 	/* Negative variant for the "parent lacks the KIND" reject fixture
-	 * (Sec 7): a THIRD socket of the same type that simply never wires
+	 * (multi-plug carrier): a THIRD socket of the same type that simply never wires
 	 * socket,spi at all (subset exposure by absence).
 	 */
 	fx_right_no_spi: connector_fx_right_no_spi {

@@ -1,6 +1,6 @@
 shield:
   name: mapentry_fixture
-  full_name: V1c fixture shield (mapping entry in revisions block)
+  full_name: Revision fixture shield (mapping entry in revisions block)
   vendor: none
   template: true
   # A mapping entry in a NON-variant axis's list: -- legal only in a

@@ -262,7 +262,7 @@ endif()
 # boards.cmake fork's stash is absent — e.g. a standalone SUB_COMPONENTS
 # configure that reaches dts without ever loading boards. Same resolver,
 # same --cmakeformat keys as boards.cmake's Step 1: this file must never
-# re-derive rig->folder/axis resolution by hand (design rule 1).
+# re-derive rig->folder/axis resolution by hand (one resolver, not two).
 #
 # _RIG_RESOLVED_NAME (never _RIG_RESOLVED_DIR) is the "did the stash
 # actually run" sentinel: DIR is now legitimately EMPTY for a promoted
@@ -1009,7 +1009,7 @@ if(_rig_combined_conf_file AND EXISTS "${_rig_combined_conf_file}")
   message(STATUS "Rig: applying combined defconfig ${_rig_combined_conf_file}")
 endif()
 
-# Dependency-tracking (item 4/7): every APPLIED fragment must retrigger
+# Dependency-tracking: every APPLIED fragment must retrigger
 # configure on edit, same as the base pair already registered in step 4 --
 # these are cmake-known (constructed + EXISTS-checked above, never opened
 # by the loader), so they are added directly rather than round-tripped

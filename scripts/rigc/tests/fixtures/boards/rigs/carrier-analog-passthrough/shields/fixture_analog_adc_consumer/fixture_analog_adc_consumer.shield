@@ -1,5 +1,5 @@
-/* Fixture consumer, ADC half (carrier-analog-passthrough-brief.md
- * Sec 6): mirrors grove_light's own shape -- io-channels targets the
+/* Fixture consumer, ADC half (test_carrier_analog_passthrough.py):
+ * mirrors grove_light's own shape -- io-channels targets the
  * plug in the adc function (#io-channel-cells = 1: position only).
  */
 

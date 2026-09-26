@@ -1,7 +1,7 @@
 /* An Arduino R3 button (gpio-keys), the same shape as grove_btn but on the
  * arduino-r3 connector -- so a variant delta can substitute it for another
- * arduino-r3 shield through the SAME socket (rig-variants-revisions.md
- * V1b pilot: proves a shield-substituting variant delta forces wholesale
+ * arduino-r3 shield through the SAME socket (a variant-delta fixture:
+ * proves a shield-substituting variant delta forces wholesale
  * params replace, since the base's assignments are keyed to the OLD
  * shield's devices).
  */

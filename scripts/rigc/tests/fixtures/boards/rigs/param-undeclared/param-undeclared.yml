@@ -1,5 +1,5 @@
 # Synthetic fixture: a params: entry naming a property the device did NOT
-# declare via shield,params — a typo must be loud (rule 1, lang-param).
+# declare via shield,params — a typo must be loud (lang-param).
 # gb_key's OWN declared parameter (zephyr,code) is correctly assigned here
 # too, so this fixture locks exactly one violation, not two.
 dt-includes:  # retired but KEPT: removing it shifts the golden's yml:14 anchor

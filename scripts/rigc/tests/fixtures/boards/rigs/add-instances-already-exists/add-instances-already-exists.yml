@@ -1,4 +1,4 @@
-# Synthetic fixture: rule 7 -- add-instances: naming an instance that
+# Synthetic fixture: add-instances: naming an instance that
 # already exists.
 instances:
   - name: logger

@@ -1,5 +1,5 @@
-# Multi-plug-carrier fixture rig (ACCEPT case, multi-plug-carrier-brief.md
-# Sec 7): a PLURAL carrier (fixture_span_bridge) plugs two independent
+# Multi-plug-carrier fixture rig (ACCEPT case, built by the btr-shields
+# harness): a PLURAL carrier (fixture_span_bridge) plugs two independent
 # fixture-mp-spi sockets and re-exports ONE socket,fixture-multibus
 # combining them -- spi-sensors from the left plug, spi-motors from the
 # right. Two EXISTING multibus fixture shields (fixture_spi_sensor /
@@ -9,6 +9,6 @@
 # buses) now proves the CARRIER's own pass-through composition keeps the
 # two buses' CS namespaces independent, not just a board socket's.
 # board is INJECTED by the test (multiplug_carrier_fixture_board), not
-# declared here (board-coordinate-s6-brief.md Sec 11).
+# declared here (rig.yml has no board: key; see reference/rig-file.rst).
 rig:
   name: multiplug_carrier_sockets

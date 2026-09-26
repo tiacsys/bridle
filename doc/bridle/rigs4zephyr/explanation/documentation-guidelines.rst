@@ -33,9 +33,9 @@ quadrants, decided *before* writing, not after:
   something is built the way it is.
 
 The design record — briefs, rulings, design log — is **not** documentation
-and does not live here. It stays under ``claude/``. A page in ``doc/``
-states what the tool does today; it never narrates how the team arrived at
-it, who decided what, or which alternative was rejected.
+and is kept outside this repository, in the btr-shields harness repository's
+working notes. A page in ``doc/`` states what the tool does today, never how
+the team arrived at it, who decided what, or which alternative was rejected.
 
 Tutorials
 -----------

@@ -5,7 +5,7 @@
  * required per-instance parameter. Two instances of this shield in one rig
  * aggregate into ONE shared collection node while each still needs its OWN
  * key code -- shield,params declares that requirement with no default
- * authored, so a rig instantiating this shield MUST assign it (rule 4/5).
+ * authored, so a rig instantiating this shield MUST assign it (lang-param).
  * See boards/shields/grove_btn for the identical pattern on a real
  * connector type, where the assigned token is a zephyr,code MACRO resolved
  * against the shield's own shield,param-includes; this fixture assigns a

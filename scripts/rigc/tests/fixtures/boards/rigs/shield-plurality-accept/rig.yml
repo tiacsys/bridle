@@ -1,4 +1,4 @@
-# Reference-set style fixture (shield-plurality-brief.md Sec 4, ACCEPT
+# Reference-set style fixture (test_shield_plurality.py, ACCEPT
 # case): a folder declaring TWO shields via shields:, named neither of
 # them, both mated against reference_board.dts's own two GPIO-only
 # sockets. board is INJECTED by the test (reference_board, matching

@@ -1,6 +1,6 @@
 # Synthetic fixture: a shield declaring shield,params with NO
-# shield,param-includes at all -- the direct successor of the retired
-# param-no-vocabulary fixture (param-vocabulary-brief.md Sec 6), now on
+# shield,param-includes at all -- the vocabulary a params: token
+# resolves against is declared by the shield, never by the rig, so on
 # the shield side: check_param_token's vocabulary is the owning device's
 # own declared_param_includes, so a symbolic (non-literal) token assigned
 # against a device that declares none must still fail loudly, naming the

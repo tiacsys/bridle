@@ -1,8 +1,8 @@
-/* Fixture carrier, require-and-check reject witness (carrier-analog-
- * passthrough-brief.md Sec 5 RULED, criterion 4b): this carrier's OWN
+/* Fixture carrier, require-and-check reject witness (the carrier's
+ * declared cell count must match the resolved parent's): its OWN
  * exposed socket declares #pwm-cells = <3>, and its rows resolve through
  * a plug whose own parent count is the generic 3 (a plug node declares no
- * cells, plug-unification-brief.md Sec 5) -- self-consistent
+ * cells of its own; the generic default applies) -- self-consistent
  * (the row parses fine, 3 child + phandle + 3 parent = 7 words), but
  * DISAGREEING with the resolved parent socket's own #pwm-cells = <2>
  * (carrier_analog_board.dts's ca_socket). compose_socket must refuse

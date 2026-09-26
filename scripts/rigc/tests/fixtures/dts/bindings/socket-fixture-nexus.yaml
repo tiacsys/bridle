@@ -3,10 +3,10 @@
 
 description: |
   Purpose-built fixture connector-type binding for rigc's own board/
-  project.py and board/resolve.py unit tests (tests/unit/
-  test_board_project.py, tests/unit/test_board_resolve.py) -- never a
-  copy of a real dts/bindings/connectors/*.yaml type (rigc-mission-
-  brief.md Sec 7: hermetic means no Zephyr DATA). Declares exactly the
+  project.py and board/resolve.py unit tests (tests/unit/board/
+  test_board_project.py, tests/unit/board/test_board_resolve.py) -- never
+  a copy of a real dts/bindings/connectors/*.yaml type (hermetic means
+  no Zephyr DATA either). Declares exactly the
   nexus shapes board/project.py's projection reads: gpio-map (required,
   every socket has one), pwm-map/
   io-channel-map (optional, only PWM/ADC-capable sockets carry them),

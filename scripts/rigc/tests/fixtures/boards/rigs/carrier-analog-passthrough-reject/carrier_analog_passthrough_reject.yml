@@ -1,5 +1,5 @@
 instances:
-  # Ruling 2: the carrier's own pwm-map claims a parent position
+  # Unrouted: the carrier's own pwm-map claims a parent position
   # (99) the parent socket never routes as PWM at all.
   - name: carrier
     shield: fixture_analog_carrier
@@ -7,7 +7,7 @@ instances:
     shield: fixture_analog_pwm_consumer
     socket: carrier.ca_out_unrouted
 
-  # Require-and-check (RULED): the carrier's own declared #pwm-cells (3)
+  # Require-and-check: the carrier's own declared #pwm-cells (3)
   # disagrees with the resolved parent socket's own (2).
   - name: carrier2
     shield: fixture_analog_carrier_mismatch

@@ -1,4 +1,4 @@
-/* Shield: Adafruit Data Logger (S1).
+/* Shield: Adafruit Data Logger.
  *
  * RTC: 1-element address domain (PCF8523 hard-wired 0x68) -> authored
  * reg + unit-address allowed; expander validates the pair.
@@ -43,7 +43,7 @@
 			};
 
 			pads {
-				/* RTC square-wave output pad "SQ" — in no connector (S7) */
+				/* RTC square-wave output pad "SQ" — in no connector */
 				dl_sq: sq { shield,role = "driver"; shield,of = <&dl_rtc>; };
 			};
 		};

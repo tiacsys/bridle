@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 description: |
   Purpose-built connector type for the carrier PWM/ADC pass-through
-  feature's own fixture tree (carrier-analog-passthrough-brief.md Sec 6)
+  feature's own fixture tree (test_carrier_analog_passthrough.py)
   -- not a copy of any dts/bindings/connectors/*.yaml binding, and no
   real board or shield ever references this compatible.
 
@@ -58,7 +58,7 @@ gpio-cells:
   - pin
   - flags
 
-# plug,* keys (shield side, Conv. 1): opaque to edtlib, read directly by
+# plug,* keys (shield side of the type): opaque to edtlib, read directly by
 # ctypes_registry.py.
 plug,bus-proxies: []
 plug,positions:

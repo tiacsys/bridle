@@ -41,7 +41,7 @@ from ..model import Board, BoardSocket, BusRef
 
 #: socket,<kind> or socket,<kind>-<role> -- a connector type names an
 #: additional bus of a kind by suffixing the kind with a role (multi-bus-
-#: socket schema, Sec 2); the QUALIFIED name (kind, or kind-role) is the
+#: socket schema); the QUALIFIED name (kind, or kind-role) is the
 #: key BoardSocket.buses/ConnectorType.cs_pool use throughout. loader/shields.py
 #: and registry.py read the identical two patterns off their own inputs
 #: -- see buskind.py for the regexes themselves and why they live there.

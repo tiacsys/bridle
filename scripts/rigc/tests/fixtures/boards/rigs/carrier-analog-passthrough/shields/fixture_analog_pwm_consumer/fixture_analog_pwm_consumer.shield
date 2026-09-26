@@ -1,8 +1,8 @@
-/* Fixture consumer, PWM half (carrier-analog-passthrough-brief.md
- * Sec 6): mirrors grove_pwm_led's own shape -- #pwm-cells = <3> on the
- * plug is the generic Zephyr shield-side claim (position, period,
+/* Fixture consumer, PWM half (test_carrier_analog_passthrough.py):
+ * mirrors grove_pwm_led's own shape -- the plug's implicit 3-cell PWM
+ * claim is the generic Zephyr shield-side frame (position, period,
  * flags), independent of whatever cell count the socket it eventually
- * mates actually declares (rigc's own translation job, Sec 3).
+ * mates declares (rigc renders the ref at the mated socket's count).
  */
 
 / {

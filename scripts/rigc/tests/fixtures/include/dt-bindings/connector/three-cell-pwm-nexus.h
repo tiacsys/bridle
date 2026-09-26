@@ -2,7 +2,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 /* Position indices for the 3-cell PWM feature's own synthetic connector
- * type (socket,three-cell-pwm-nexus, three-cell-pwm-brief.md Sec 5/6).
+ * type (socket,three-cell-pwm-nexus, see test_three_cell_pwm.py).
  * Not a copy of any real connector header under
  * include/dt-bindings/connector -- no real board or shield ever
  * references these names. Every fixture in this tree claims raw literal

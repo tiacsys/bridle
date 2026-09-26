@@ -1,4 +1,4 @@
-/* Fixture carrier (multi-plug-carrier-brief.md Sec 7): a PLURAL shield,
+/* Fixture carrier (multi-plug carrier, combined SPI): a PLURAL shield,
  * pure copper (no devices of its own, like arduino_uno_click/
  * can_span_click), re-exporting ONE combined socket,fixture-multibus --
  * spi-sensors from the LEFT plug, spi-motors from the RIGHT. Both

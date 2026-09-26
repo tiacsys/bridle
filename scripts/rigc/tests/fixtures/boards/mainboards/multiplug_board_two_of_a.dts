@@ -6,8 +6,8 @@
 /* Fixture board for the multi-plug-shield feature: TWO sockets of the
  * fixture-mp-a type (plus one fixture-mp-b) -- a slot naming fixture-mp-a
  * with no explicit socket: has two mating candidates, so per-slot
- * inference refuses rather than tie-breaking (Sec 4's "no bipartite
- * matching, no tie-break between slots"). Also used to prove one
+ * inference refuses rather than tie-breaking (no bipartite
+ * matching, no tie-break between slots). Also used to prove one
  * instance's own two slots resolving to the SAME physical socket is a
  * loud error when a rig author explicitly names the same label twice.
  */

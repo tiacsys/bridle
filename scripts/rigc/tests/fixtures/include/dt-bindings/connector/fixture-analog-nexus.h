@@ -3,7 +3,7 @@
  */
 /* Position indices for the carrier PWM/ADC pass-through feature's own
  * synthetic connector type (socket,fixture-analog-nexus,
- * carrier-analog-passthrough-brief.md Sec 6). Not a copy of any real
+ * test_carrier_analog_passthrough.py). Not a copy of any real
  * connector header under include/dt-bindings/connector -- no real board
  * or shield ever references these names. Every fixture in this tree
  * claims raw literal indices directly (0/1) rather than these macros, so

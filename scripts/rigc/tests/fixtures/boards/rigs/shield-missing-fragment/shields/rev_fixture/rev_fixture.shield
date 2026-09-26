@@ -1,7 +1,7 @@
-/* Fixture-only shield: declares a revisions: axis (rig-variants-
- * revisions.md V1c) but ships NO rev_fixture_2.shield/.conf fragment --
+/* Fixture-only shield: declares a revisions: axis (in its
+ * shield.yml) but ships NO rev_fixture_2.shield/.conf fragment --
  * exercises the missing-non-default-fragment diagnostic (the shield-side
- * analogue of rule 10). Never a real corpus shield.
+ * analogue of the rig's missing-fragment check). Never a real corpus shield.
  */
 
 / {

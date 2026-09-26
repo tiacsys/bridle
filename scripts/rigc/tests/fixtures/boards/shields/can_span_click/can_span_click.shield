@@ -1,11 +1,11 @@
 /* Shield: MikroE CAN SPI Click x2 -- multi-plug corpus example
- * (multi-plug-shield-brief.md Sec 2/7). Two mikroBUS plugs of the SAME
+ * (a plural shield). Two mikroBUS plugs of the SAME
  * connector type, plugging two of quail's four mikroBUS sockets at
  * once -- positional identity cannot tell them apart, only the
- * shield's own plug names can (design doc Sec 0.2).
+ * shield's own plug names can.
  *
  * can0 sits on the LEFT plug's SPI bus, but its INT line is copper on
- * the RIGHT plug -- a cross-plug reference (ruling 2): the phandle
+ * the RIGHT plug -- a cross-plug reference: the phandle
  * names the OTHER plug, zero new syntax. log_flash sits entirely on
  * the RIGHT plug. Two independent SPI scopes (one per plug's own bus)
  * give both devices their own CS-pool namespace for free.
@@ -24,8 +24,8 @@
 				/* Bus groups NEST under their plug (structural, no
 				 * new property) -- this is what dissolves the
 				 * sibling-name collision two same-kind buses would
-				 * otherwise have, and since plug-unification-brief.md
-				 * it is the rule at ANY plug count, one included. */
+				 * otherwise have, and it is the rule at ANY plug
+				 * count, one included. */
 				spi {
 					can0: can0 {
 						compatible = "microchip,mcp2515";

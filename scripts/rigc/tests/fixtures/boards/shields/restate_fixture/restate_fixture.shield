@@ -1,5 +1,5 @@
 /* Fixture-only shield: ONE OPTIONAL per-instance parameter (an authored
- * default), used to exercise the params restate-check (rule 11) --
+ * default), used to exercise the params restate-check --
  * omitting a previously-assigned optional parameter under a same-shield
  * delta must be loud, not a silent revert to this default.
  */

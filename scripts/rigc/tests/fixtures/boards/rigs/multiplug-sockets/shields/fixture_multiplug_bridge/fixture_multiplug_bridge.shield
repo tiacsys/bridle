@@ -1,6 +1,6 @@
 /* Fixture shield (multi-plug-shield feature): a MIXED-type plural shield
  * -- plug "a" plugs fixture-mp-a, plug "b" plugs fixture-mp-b (the
- * design doc's acq_bridge shape, Sec 0.4 shield A). Plug "b" carries an
+ * canonical acq_bridge mixed-plug shape). Plug "b" carries an
  * i2c device, so per-slot subset exposure can be exercised against it
  * independently of plug "a" (which carries none).
  */

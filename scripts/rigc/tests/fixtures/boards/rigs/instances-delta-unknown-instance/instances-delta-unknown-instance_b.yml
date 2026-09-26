@@ -1,5 +1,5 @@
 # instances: names 'nonexistent', which the effective topology (just
-# 'logger') does not have -- rule 6.
+# 'logger') does not have -- an error.
 instances:
   - name: nonexistent
     socket: nucleo_ard

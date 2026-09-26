@@ -106,7 +106,7 @@ def test_reject_unrouted_pwm_position_is_a_loud_phys_subset(tmp_path: Path) -> N
     out_dir = tmp_path / "out"
     result = _run(_REJECT_RIG, out_dir)
 
-    assert result.returncode != 0, "expected reject (ruling 2 + require-and-check)"
+    assert result.returncode != 0, "expected reject (unrouted position + require-and-check)"
     assert "[phys-subset]" in result.stderr
     assert "carrier '" in result.stderr
     assert "PWM" in result.stderr

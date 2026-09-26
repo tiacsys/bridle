@@ -502,7 +502,7 @@ def load_shield_library(
     and every file the scan actually READ (every shield.yml under
     `shield_dirs`, template or not, plus the connector-type registry) --
     a discovered `.shield` template is not itself a dependency until
-    something references it (Sec 2.3). The caller owns all three."""
+    something references it. The caller owns all three."""
     diags: list[Diagnostic] = []
     deps: Deps = frozenset()
     if types is None:

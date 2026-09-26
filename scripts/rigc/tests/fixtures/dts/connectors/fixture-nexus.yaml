@@ -72,7 +72,7 @@ gpio-cells:
   - pin
   - flags
 
-# plug,* keys (shield side, Conv. 1): opaque to edtlib, read directly by
+# plug,* keys (shield side of the type): opaque to edtlib, read directly by
 # ctypes_registry.py. Registry-complete by construction -- every claimable
 # position below round-trips through fixture-nexus.h's own indices, exactly
 # as a real connector type's does.

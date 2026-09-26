@@ -1,5 +1,5 @@
 # Synthetic fixture: a declared variant whose constructed fragment files
-# (neither .overlay nor _defconfig) exist at all -- rule 10, naming the
+# (neither .overlay nor _defconfig) exist at all -- an error, naming the
 # files that were looked for. "ghost" is the declared default, so a bare
 # invocation already selects it and triggers the check.
 rig:

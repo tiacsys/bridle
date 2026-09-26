@@ -1,4 +1,4 @@
-# Synthetic fixture: rule 11 -- the params restate-check. sensor_1 assigns
+# Synthetic fixture: the params restate-check. sensor_1 assigns
 # vnd,threshold: 20 (overriding restate_fixture's authored default, 10).
 # variant b does NOT change sensor_1's shield, but DOES supply params: for
 # it, forgetting to restate vnd,threshold -- which would otherwise

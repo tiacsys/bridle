@@ -1,6 +1,6 @@
 /* Fixture-only shield: shield,params with NO shield,param-includes at
- * all -- the direct successor of the retired param-no-vocabulary
- * fixture, moved to the shield side (param-vocabulary-brief.md Sec 6).
+ * all -- the token vocabulary is a shield-side declaration, so an
+ * empty one belongs on the shield, not on the rig.
  * check_param_token's vocabulary is the owning device's own
  * declared_param_includes; this device declares none, so a symbolic
  * token assigned to vnd,mode must fail to resolve against an empty

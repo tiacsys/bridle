@@ -10,7 +10,7 @@ description: |
   its own, only an exposed socket passing each plug's bus through).
 
   Both plugs of fixture_span_bridge (the combined-SPI negative-control
-  fixture, multi-plug-carrier-brief.md Sec 7) name this SAME type --
+  fixture, built by the btr-shields harness) name this SAME type --
   mirroring can_span_click's own same-type-both-plugs shape -- so the
   fixture board wires TWO independent instances of it, each to its OWN
   spi controller, proving the two exposed buses' CS namespaces stay

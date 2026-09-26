@@ -1,12 +1,12 @@
-/* Shield: Adafruit WINC1500 WiFi (S2). SPI device sharing the Arduino SPI bus
+/* Shield: Adafruit WINC1500 WiFi. SPI device sharing the Arduino SPI bus
  * with whatever else is stacked. Two configuration elements model the real
  * shield's solder jumpers:
  *   - CS: no shield,cs-position -> allocated from the socket's CS pool. Stacked
  *     with the data logger (CS copper-fixed at D10), the allocator routes this
- *     one to the next pool position (D9). This is the R4 win — a naive
+ *     one to the next pool position (D9). This is the allocator's win — a naive
  *     cs-gpios wiring would clobber that silently instead.
- *   - IRQ: a ROUTING JUMPER (R6), position-side twin of an address strap
- *     (Conv. 2). Domain {D7, D2}; the rig selects. Left at D7 it collides with
+ *   - IRQ: a ROUTING JUMPER, position-side twin of an address strap
+ *     (a configuration element). Domain {D7, D2}; the rig selects. Left at D7 it collides with
  *     the data logger's RTC INT (-> phys-net); moved to D2 the rig is
  *     realizable. Selection is REQUIRED (non-CS positions are never
  *     auto-allocated).
