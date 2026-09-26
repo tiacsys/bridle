@@ -3,7 +3,7 @@
 Diagnostic codes
 ==================
 
-Every diagnostic the :term:`expander` can print, by code. **Forty-four**
+Every diagnostic :term:`rigc` can print, by code. **Forty-four**
 today — thirty ``lang-*`` and fourteen ``phys-*`` — derived straight from
 ``scripts/rigc/``'s own construction sites (every ``error(...)``/
 ``warning(...)`` call in production source, never the golden test

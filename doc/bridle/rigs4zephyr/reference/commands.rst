@@ -4,7 +4,7 @@ Commands
 ==========
 
 Two things exist for a person: building a rig, and ``west rigs``, which
-answers questions about rigs without building. The :term:`expander` itself
+answers questions about rigs without building. :term:`rigc` itself
 (``rigc``) is run *by* ``cmake`` during configure, never directly by a
 person — its argument list is documented here anyway, because a failing
 configure prints it and ``build/rig/rerun-expand.sh`` re-runs it.
@@ -173,7 +173,7 @@ a build — it lists no board at all for a bare ``eth_click``, and
 ``rigc expand``
 -----------------
 
-The :term:`expander`'s own command line. ``cmake`` builds this invocation
+:term:`rigc`'s own command line. ``cmake`` builds this invocation
 during configure and runs it; a person runs it to reproduce a failure,
 most easily through the ``rerun-expand.sh`` the build writes next to the
 artifacts:
@@ -263,7 +263,7 @@ Exit codes
      - Usage error — a malformed command line, refused by the argument
        parser before any work.
    * - ``3``
-     - Not implemented: a real input the expander does not handle yet,
+     - Not implemented: a real input rigc does not handle yet,
        reported as one line rather than a traceback.
 
 
@@ -297,7 +297,7 @@ Into ``--out-dir`` (``build/rig`` for a cmake-driven build):
 And one directory:
 
 ``rigc-generated``
-   The expander's own work directory, and **it is kept** — on a rejected
+   rigc's own work directory, and **it is kept** — on a rejected
    run and an accepted one alike. It holds what the run actually fed its
    parsers: each shield's devicetree fragment, the preprocessed form of
    each, the preprocessed board devicetree, and, for a promoted shield,

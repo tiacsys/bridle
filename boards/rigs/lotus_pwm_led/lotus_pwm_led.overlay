@@ -1,7 +1,7 @@
 /*
  * R21 pinctrl fragment (the "deep half") for rig `lotus_pwm_led`.
  *
- * The expander enables the controller (`&tcc0 { status = "okay"; }`) and names
+ * rigc enables the controller (`&tcc0 { status = "okay"; }`) and names
  * each pin in the config sheet, but it deliberately does NOT author SoC pinmux
  * — that is board knowledge. The board's (bridle's real seeeduino_lotus, E3)
  * `tcc0_pwm_default` pinctrl state ships EMPTY (see

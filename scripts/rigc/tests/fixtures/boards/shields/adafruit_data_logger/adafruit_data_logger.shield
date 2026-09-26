@@ -1,7 +1,7 @@
 /* Shield: Adafruit Data Logger.
  *
  * RTC: 1-element address domain (PCF8523 hard-wired 0x68) -> authored
- * reg + unit-address allowed; expander validates the pair.
+ * reg + unit-address allowed; rigc validates the pair.
  * SD CS fixed by copper -> shield,cs-position pins the pool allocation.
  */
 

@@ -16,7 +16,7 @@ description: |
   socket,uart here, since neither Nucleo USART is routed to the Arduino
   header on this board. socket,stackable marks the arduino-r3 socket as
   mating more than one shield (stacking headers); socket,cs-pool gives the
-  expander's chip-select pool its ordered candidate positions (D10, D9, D8).
+  rigc's chip-select pool its ordered candidate positions (D10, D9, D8).
 
   Shield side (`plug,*` extension keys — opaque to edtlib's own model,
   preserved in Binding.raw under the vendor-namespaced top-level key
@@ -54,7 +54,7 @@ properties:
     type: array
     default: [16, 15, 14]
     description: >-
-      ordered chip-select candidate positions (D10, D9, D8) for expander
+      ordered chip-select candidate positions (D10, D9, D8) for rigc's
       CS-pool allocation
 
 gpio-cells:

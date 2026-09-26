@@ -21,7 +21,7 @@ Rigs replace that with three separated facts:
 - a :term:`shield template` says what a module needs, in *positions*
   rather than pins.
 
-A rig then just says *what is plugged where*, and the :term:`expander`
+A rig then just says *what is plugged where*, and :term:`rigc`
 computes the overlay. One shield definition plus one line per placement
 replaces the 64 overlays — and an assembly that cannot physically work is
 rejected at configure time, with a diagnostic that names the pin.

@@ -179,7 +179,7 @@ carrying only the first, until you add the other two.
    ``--boards-for`` answers whether a board's *sockets* satisfy a rig. It
    is not a promise the rig builds there — pin routing, chip-select
    allocation and address conflicts are decided per build, by the
-   :term:`expander`.
+   :term:`rigc`.
 
 What you have
 ---------------

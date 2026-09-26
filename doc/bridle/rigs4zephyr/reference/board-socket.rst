@@ -318,7 +318,7 @@ Example — connector-type default, ``dts/bindings/connectors/arduino-r3.yaml``:
    socket,cs-pool:
      type: array
      default: [16, 15, 14]
-     description: ordered chip-select candidate positions (D10, D9, D8) for expander CS-pool allocation
+     description: ordered chip-select candidate positions (D10, D9, D8) for rigc's CS-pool allocation
 
 Example — role-qualified (**test-fixture only**; no production board
 authors a named multi-bus CS pool yet),

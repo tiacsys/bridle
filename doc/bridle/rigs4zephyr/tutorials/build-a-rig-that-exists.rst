@@ -139,7 +139,7 @@ The expansion wrote a directory into the build tree:
 
 ``rig-gen.overlay`` is the devicetree overlay — the file you would
 otherwise have written by hand, now derived. ``rigc-generated`` is the
-:term:`expander`'s own scratch directory, kept rather than cleaned up: it
+:term:`rigc`'s own scratch directory, kept rather than cleaned up: it
 holds the devicetree fragments it fed its parsers, which is where to look
 when a build fails for a reason the diagnostic alone does not settle
 (:ref:`rigs4zephyr_reference_commands` describes it). Both can wait; the more
@@ -171,7 +171,7 @@ build output for the compiler — it is **assembly instructions for the
 person holding the hardware**. The two tables are the tell: nobody wrote
 "``grove_d2``, ``porta14``" or "``INPUT_KEY_0`` is ``11``" anywhere by
 hand in the rig — the shield declared its keycode parameter and the board
-declared its socket wiring; the expander put those together and resolved
+declared its socket wiring; rigc put those together and resolved
 the enum value while it was at it.
 
 That is the whole idea in one file of generated Markdown. The board knows

@@ -81,9 +81,9 @@ Vocabulary
 - Write for Zephyr developers: the reader knows devicetree, ``west`` and
   shields, and does not know anything about rigs. Reach for the shield
   they already understand as the point of comparison.
-- Prefer the reader's word over the implementation's. The tool calls the
-  expander ``rigc``; a tutorial says "the expander" and lets the glossary
-  carry the name.
+- Prefer the reader's word over the implementation's. The tool is called
+  ``rigc`` everywhere, the name the reader types and sees in build output;
+  "expand" survives only as the verb (``rigc expand``).
 
 Diagrams
 ----------

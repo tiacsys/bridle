@@ -1,6 +1,6 @@
 # Synthetic fixture: a rig INJECTED with a board whose devicetree EXISTS
 # (socketless_board.dts alongside this file, passed to the CLI via
-# --board-dts) but declares no socket,* node — the expander must reject it
+# --board-dts) but declares no socket,* node — rigc must reject it
 # with the DISTINCT "exists, but is not rig-enabled" phys-board diagnostic
 # (board/resolve.py; a board opts in with a typed socket node). Sibling
 # of the unknown-board fixture, which covers the other half (the board name

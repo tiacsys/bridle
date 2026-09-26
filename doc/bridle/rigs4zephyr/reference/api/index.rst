@@ -1,9 +1,9 @@
 .. _rigs4zephyr_reference_api_index:
 
-Expander API
+rigc API
 ==============
 
-The :term:`expander`'s own Python API, generated from the source. This is
+:term:`rigc`'s own Python API, generated from the source. This is
 the **internal** interface of ``scripts/rigc/`` — the surface one module
 offers another, not a public library. Nothing here is a stability
 promise: the only supported entry points are the commands in

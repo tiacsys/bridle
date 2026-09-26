@@ -59,13 +59,13 @@ properties:
     default: [10]
     description: >-
       ordered chip-select candidate positions for the sensor SPI bus's
-      expander CS-pool allocation
+      rigc's CS-pool allocation
   socket,spi-motors-cs-pool:
     type: array
     default: [11]
     description: >-
       ordered chip-select candidate positions for the motor SPI bus's
-      expander CS-pool allocation
+      rigc's CS-pool allocation
 
 gpio-cells:
   - pin

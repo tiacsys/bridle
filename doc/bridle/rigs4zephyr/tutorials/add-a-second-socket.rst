@@ -83,7 +83,7 @@ overlay has nowhere else to put them. Here the pin axis is ``socket:``,
 one word per placement.
 
 Both instances resolve through the **same** template. ``acme_grove_led``
-was not copied, edited, or parameterised — the expander instantiated it
+was not copied, edited, or parameterised — rigc instantiated it
 twice and resolved ``GROVE_SIG0`` through each socket's own ``gpio-map``,
 so ``status`` lands on ``gpioa 10`` and ``fault`` on ``gpiob 5``.
 
@@ -135,8 +135,8 @@ message that names the candidates, rather than guessed at.
 
 .. note::
 
-   The error above is what a rejected rig looks like in general. The
-   expander runs before devicetree processing, so an assembly that cannot
+   The error above is what a rejected rig looks like in general. ``rigc``
+   runs before devicetree processing, so an assembly that cannot
    physically work fails the configure with a diagnostic that names the
    instance, the shield and the reason — never a link error, and never a
    device that silently is not there.

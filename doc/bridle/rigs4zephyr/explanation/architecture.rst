@@ -1,9 +1,9 @@
 .. _rigs4zephyr_explanation_architecture:
 
-The expander's architecture
-==============================
+Architecture of rigc
+====================
 
-:ref:`rigs4zephyr_reference_api_index` says *what* each stage of the :term:`expander`
+:ref:`rigs4zephyr_reference_api_index` says *what* each stage of :term:`rigc`
 does and lets each module's own docstring say *how*. This page is the
 missing third layer: *why* the pipeline is cut into five stages at those
 particular boundaries, and why a handful of disciplines — diagnostics as
@@ -63,7 +63,7 @@ and its plugged-in modules make together.
 Why diagnostics are values
 -----------------------------
 
-Nothing in the expander threads a mutable "report problems here" object
+Nothing in rigc threads a mutable "report problems here" object
 through a call chain, and no pass raises to signal an ordinary finding.
 A function that finds something wrong about the rig returns a
 ``Diagnostic`` — or a list of them — alongside its actual result;
@@ -87,7 +87,7 @@ the rig's diagnostics.
 Third, and most concretely: because diagnostics are ordinary data, one
 function renders all of them into text, and that one function's output is
 a frozen, testable contract — the exact stderr bytes a rig produces on
-rejection are part of the expander's golden-test corpus, the same way its
+rejection are part of rigc's golden-test corpus, the same way its
 accepted artifacts are. A change that reorders findings or reformats an
 anchor path is a test failure, not a matter of taste, because authors and
 CI scripts alike read that text.

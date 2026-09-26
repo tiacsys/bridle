@@ -87,8 +87,8 @@ Glossary
       ``extend:``, and its devicetree pulls the base board in and layers
       typed :term:`socket` nodes on top. The base board is never modified.
 
-   expander
-      ``rigc``, the tool that reads a rig, checks that the assembly is
+   rigc
+      The tool that reads a rig, checks that the assembly is
       physically possible, and emits the devicetree overlay and the build
       glue. It runs during ``cmake`` configure, before devicetree is
       processed, so a rejected rig fails the configure rather than the
@@ -108,7 +108,7 @@ Glossary
       socket as ``<carrier instance>.<socket>``.
 
    config sheet
-      ``config-sheet.md``, one of the files the :term:`expander` emits: the
+      ``config-sheet.md``, one of the files :term:`rigc` emits: the
       human-facing wiring instructions for the rig — which module goes in
       which socket, which jumper to set, which chip-select each device
       ended up on.

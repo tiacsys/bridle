@@ -92,7 +92,7 @@ Three things in that ``.shield`` file carry the whole idea:
 
 That last line is why one file replaces sixty-four. The template never
 names a pin, so it never has to be copied to reach a different one. When
-the rig says which socket, the :term:`expander` resolves the position
+the rig says which socket, :term:`rigc` resolves the position
 through that socket's ``gpio-map`` and writes the real ``&gpioa 10`` into
 the generated overlay. Same module, any socket, one file.
 

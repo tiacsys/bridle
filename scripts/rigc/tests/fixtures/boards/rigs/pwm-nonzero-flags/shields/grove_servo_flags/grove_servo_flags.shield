@@ -2,7 +2,7 @@
  * authoring a NONZERO PWM flag (PWM_POLARITY_INVERTED) instead of
  * PWM_POLARITY_NORMAL. The corpus's real grove_servo always authors
  * flags=0, so this is the only fixture locking the analyzer's
- * phys-function rejection of a PWM flags value the expander's flags-less
+ * phys-function rejection of a PWM flags value rigc's flags-less
  * (position, period) emission has no cell to carry
  * (analyzer.py:_collect_channel).
  */

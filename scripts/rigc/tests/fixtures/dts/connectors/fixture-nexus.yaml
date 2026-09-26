@@ -61,7 +61,7 @@ properties:
     type: array
     default: [4]
     description: >
-      ordered chip-select candidate positions (FIXTURE_CS) for expander
+      ordered chip-select candidate positions (FIXTURE_CS) for rigc's
       CS-pool allocation -- declared for registry completeness; the
       reference shield set's own CS device pins its position directly
       (shield,cs-position) rather than drawing from this pool, the same
