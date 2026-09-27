@@ -306,7 +306,7 @@ clock_pwm_buzzers: &rpipico_pwm_buzzers {};
 };
 
 &clock_buzzer {							/* GP14 */
-	pwms = <&pwm 14 PWM_HZ(880) PWM_POLARITY_NORMAL>;
+	pwms = <&pwm 14 PWM_HZ(2700) PWM_POLARITY_NORMAL>;
 };
 
 &zephyr_user {							/* GP26:ADC0 */

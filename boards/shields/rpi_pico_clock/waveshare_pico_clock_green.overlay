@@ -166,16 +166,21 @@
 	/delete-node/ pwm_leds;
 	/delete-node/ pwm-leds;
 
-	/delete-node/ buzzers;
-	/delete-node/ pwm_buzzers;
-	/delete-node/ pwm-buzzers;
-	wpcg_pwm_buzzers: wpcg-pwm-buzzers {
-		compatible = "pwm-buzzers";
-		status = "okay";
-
-		clock_buzzer: clock-buzzer {
-			label = "BUZZER";
-		};
+	/delete-node/ buzzer;
+	/delete-node/ pwm_buzzer;
+	/delete-node/ pwm-buzzer;
+	/delete-node/ buzzer0;
+	/delete-node/ pwm_buzzer0;
+	/delete-node/ pwm-buzzer0;
+	/delete-node/ speaker;
+	/delete-node/ pwm_speaker;
+	/delete-node/ pwm-speaker;
+	/delete-node/ speaker0;
+	/delete-node/ pwm_speaker0;
+	/delete-node/ pwm-speaker0;
+	clock_buzzer: clock-buzzer {
+		compatible = "pwm-buzzer";
+		label = "BUZZER";
 	};
 
 	aliases {
@@ -217,7 +222,8 @@
 		led30 = &clock_led_auto_light0;
 		led31 = &clock_led_auto_light1;
 		/delete-property/ pwm-led0;
-		pwm-buzzer0 = &clock_buzzer;
+		/delete-property/ buzzer0;
+		buzzer0 = &clock_buzzer;
 	};
 
 	zephyr_user: zephyr,user {
