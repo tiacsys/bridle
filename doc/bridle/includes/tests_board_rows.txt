@@ -108,6 +108,10 @@
 
 | RP2040 | | :ref:`waveshare_rp2040_plus` | - ``waveshare_rp2040_plus/rp2040`` |
 
+.. waveshare_rp2040_plus@16mb
+
+| RP2040 | | :ref:`waveshare_rp2040_plus` | - ``waveshare_rp2040_plus@16mb/rp2040`` |
+
 .. xiao_rp2040_rp2040_bbe
 
 | RP2040 | | :ref:`xiao_rp2040_board-extensions` | - ``xiao_rp2040/rp2040/bbe`` |

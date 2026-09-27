@@ -14,7 +14,7 @@
 LOG_MODULE_REGISTER(buzzersh, CONFIG_BUZZER_SHELL_LOG_LEVEL);
 
 /* Setup for a buzzer  */
-#define PWM_BUZZER_NODE DT_ALIAS(pwm_buzzer0)
+#define PWM_BUZZER_NODE DT_ALIAS(buzzer0)
 #if !DT_NODE_HAS_STATUS(PWM_BUZZER_NODE, okay)
 #error "Unsupported board: pwm-buzzer0 devicetree alias is not defined"
 #endif

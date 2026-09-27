@@ -20,24 +20,20 @@ Requirements
 
 The sample requires a buzzer or speaker whose signal pin is connected to a pin
 driven by PWM. The buzzer or speaker must be defined in Devicetree using the
-:dts:`pwm-buzzers` compatible (part of Bridle) and setting its node to the
-alias :dts:`pwm-buzzer0`. You will need to do something like this:
+:dts:`pwm-buzzer` compatible (part of Zephyr upstream) and setting its node to
+the alias :dts:`buzzer0`. You will need to do something like this:
 
    .. code-block:: devicetree
 
       / {
           aliases {
-              pwm-buzzer0 = &pwm_buzzer0;
+              buzzer0 = &pwm_buzzer0;
           };
 
-          pwm_buzzers {
-              compatible = "pwm-buzzers";
-              status = "okay";
-
-              pwm_buzzer0: pwm_buzzer0 {
-                  pwms = <&pwm0 1 PWM_HZ(880) PWM_POLARITY_NORMAL>;
-                  label = "PWM_BUZZER";
-              };
+          pwm_buzzer0: pwm_buzzer0 {
+              compatible = "pwm-buzzer";
+              pwms = <&pwm0 1 PWM_HZ(2700) PWM_POLARITY_NORMAL>;
+              label = "PWM_BUZZER";
           };
       };
 

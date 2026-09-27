@@ -7,26 +7,105 @@ common:
     - drivers
     - pwm
   sysbuild: false
-  platform_allow:
-    - cytron_maker_nano_rp2040
-    - cytron_maker_pi_rp2040
-    - cytron_motion_2350_pro/rp2350a/hazard3_0
-    - cytron_motion_2350_pro/rp2350a/m33_0
-    - picoboy/rp2040
-    - picoboy_color/rp2040
-    - picoboy_color_plus/rp2350a/hazard3_0
-    - picoboy_color_plus/rp2350a/m33_0
-  integration_platforms:
-    - cytron_maker_nano_rp2040
-    - cytron_maker_pi_rp2040
-    - cytron_motion_2350_pro/rp2350a/hazard3_0
-    - cytron_motion_2350_pro/rp2350a/m33_0
-    - picoboy/rp2040
-    - picoboy_color/rp2040
-    - picoboy_color_plus/rp2350a/hazard3_0
-    - picoboy_color_plus/rp2350a/m33_0
 tests:
-  bridle.sample.buzzer:
+  bridle.sample.buzzer.boards:
     depends_on: pwm
     harness: buzzer
-    filter: dt_enabled_alias_with_parent_compat("pwm-buzzer0", "pwm-buzzers")
+    filter: dt_alias_exists("buzzer0") and
+            (dt_compat_enabled("gpio-buzzer") or
+             dt_compat_enabled("pwm-buzzer"))
+    platform_allow:
+      - coffeecaller_nrf52
+      - cytron_maker_nano_rp2040
+      - cytron_maker_pi_rp2040
+      - cytron_motion_2350_pro/rp2350a/hazard3_0
+      - cytron_motion_2350_pro/rp2350a/m33_0
+      - picoboy/rp2040
+      - picoboy_color/rp2040
+      - picoboy_color_plus/rp2350a/hazard3_0
+      - picoboy_color_plus/rp2350a/m33_0
+    integration_platforms:
+      - coffeecaller_nrf52
+      - cytron_maker_nano_rp2040
+      - cytron_maker_pi_rp2040
+      - cytron_motion_2350_pro/rp2350a/hazard3_0
+      - cytron_motion_2350_pro/rp2350a/m33_0
+      - picoboy/rp2040
+      - picoboy_color/rp2040
+      - picoboy_color_plus/rp2350a/hazard3_0
+      - picoboy_color_plus/rp2350a/m33_0
+
+  bridle.sample.buzzer.geeekpi_pico_bb:
+    depends_on: pwm
+    harness: buzzer
+    filter: dt_alias_exists("buzzer0") and
+            (dt_compat_enabled("gpio-buzzer") or
+             dt_compat_enabled("pwm-buzzer"))
+    extra_args:
+      - SHIELD=geeekpi_pico_bb
+    platform_allow:
+      - rpi_pico/rp2040/bbe
+      - rpi_pico/rp2040/w/bbe
+      - rpi_pico2/rp2350a/hazard3_0/bbe
+      - rpi_pico2/rp2350a/m33_0/bbe
+      - rpi_pico2/rp2350a/m33_0/w/bbe
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb
+    integration_platforms:
+      - rpi_pico/rp2040/bbe
+      - rpi_pico/rp2040/w/bbe
+      - rpi_pico2/rp2350a/hazard3_0/bbe
+      - rpi_pico2/rp2350a/m33_0/bbe
+      - rpi_pico2/rp2350a/m33_0/w/bbe
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb
+
+  bridle.sample.buzzer.geeekpi_pico_bb_plus:
+    depends_on: pwm
+    harness: buzzer
+    filter: dt_alias_exists("buzzer0") and
+            (dt_compat_enabled("gpio-buzzer") or
+             dt_compat_enabled("pwm-buzzer"))
+    extra_args:
+      - SHIELD=geeekpi_pico_bb_plus
+    platform_allow:
+      - rpi_pico/rp2040/bbe
+      - rpi_pico/rp2040/w/bbe
+      - rpi_pico2/rp2350a/hazard3_0/bbe
+      - rpi_pico2/rp2350a/m33_0/bbe
+      - rpi_pico2/rp2350a/m33_0/w/bbe
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb
+    integration_platforms:
+      - rpi_pico/rp2040/bbe
+      - rpi_pico/rp2040/w/bbe
+      - rpi_pico2/rp2350a/hazard3_0/bbe
+      - rpi_pico2/rp2350a/m33_0/bbe
+      - rpi_pico2/rp2350a/m33_0/w/bbe
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb
+
+  bridle.sample.buzzer.waveshare_pico_clock_green:
+    depends_on: pwm
+    harness: buzzer
+    filter: dt_alias_exists("buzzer0") and
+            (dt_compat_enabled("gpio-buzzer") or
+             dt_compat_enabled("pwm-buzzer"))
+    extra_args:
+      - SHIELD=waveshare_pico_clock_green
+    platform_allow:
+      - rpi_pico/rp2040/bbe
+      - rpi_pico/rp2040/w/bbe
+      - rpi_pico2/rp2350a/hazard3_0/bbe
+      - rpi_pico2/rp2350a/m33_0/bbe
+      - rpi_pico2/rp2350a/m33_0/w/bbe
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb
+    integration_platforms:
+      - rpi_pico/rp2040/bbe
+      - rpi_pico/rp2040/w/bbe
+      - rpi_pico2/rp2350a/hazard3_0/bbe
+      - rpi_pico2/rp2350a/m33_0/bbe
+      - rpi_pico2/rp2350a/m33_0/w/bbe
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb
