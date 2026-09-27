@@ -53,7 +53,7 @@
 		pwm-led0 = &pwm_led0;
 		pwm-led1 = &pwm_led1;
 		pwm-led2 = &pwm_led2;
-		pwm-buzzer0 = &pwm_speaker0;
+		buzzer0 = &pwm_speaker0;
 		accel0 = &stk8ba58;
 	};
 
@@ -136,14 +136,10 @@
 		};
 	};
 
-	pwm_buzzers: pwm-buzzers {
-		compatible = "pwm-buzzers";
-		status = "okay";
-
-		pwm_speaker0: pwm-speaker0 {
-			pwms = <&pwm 15 PWM_HZ(880) PWM_POLARITY_NORMAL>;
-			label = "PWM_SPEAKER";
-		};
+	pwm_speaker0: pwm-speaker0 {
+		compatible = "pwm-buzzer";
+		pwms = <&pwm 15 PWM_HZ(2700) PWM_POLARITY_NORMAL>;
+		label = "PWM_SPEAKER";
 	};
 };
 
