@@ -1269,6 +1269,14 @@ Alternate functions on the TiaC Magpie pin header ``TMPH2``:
           :caption: magpie_f777ni.dts
           :language: DTS
           :encoding: ISO-8859-1
+          :linenos:
+          :start-at: adc123_common {
+          :end-at: }; // adc123_common
+
+       .. literalinclude:: ../magpie_f777ni.dts
+          :caption: magpie_f777ni.dts
+          :language: DTS
+          :encoding: ISO-8859-1
           :emphasize-lines: 5-6
           :linenos:
           :start-at: adc3 {
@@ -1428,6 +1436,14 @@ Alternate functions on the TiaC Magpie pin header ``TMPH4``:
           :end-at: tmph_adc:
 
      - .. literalinclude:: ../magpie_f777ni.dts
+          :caption: magpie_f777ni.dts
+          :language: DTS
+          :encoding: ISO-8859-1
+          :linenos:
+          :start-at: adc123_common {
+          :end-at: }; // adc123_common
+
+       .. literalinclude:: ../magpie_f777ni.dts
           :caption: magpie_f777ni.dts
           :language: DTS
           :encoding: ISO-8859-1
