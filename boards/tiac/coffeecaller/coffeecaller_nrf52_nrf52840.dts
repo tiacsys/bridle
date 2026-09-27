@@ -46,7 +46,7 @@
 		led2 = &ld3;
 		led3 = &ld4;
 		led-strip = &led_strip;
-		pwm-buzzer0 = &pwm_buzzer;
+		buzzer0 = &pwm_buzzer;
 		pwm-servo0 = &pwm_servo1;
 		pwm-servo1 = &pwm_servo2;
 		pwm-servo2 = &pwm_servo3;
@@ -54,14 +54,10 @@
 		watchdog0 = &wdt0;
 	};
 
-	pwm_buzzers: pwm-buzzers {
-		compatible = "pwm-buzzers";
-		status = "okay";
-
-		pwm_buzzer: pwm-buzzer {
-			pwms = <&pwm0 0 PWM_HZ(880) PWM_POLARITY_NORMAL>;
-			label = "PWM Buzzer";
-		};
+	pwm_buzzer: pwm-buzzer {
+		compatible = "pwm-buzzer";
+		pwms = <&pwm0 0 PWM_HZ(2700) PWM_POLARITY_NORMAL>;
+		label = "PWM Buzzer";
 	};
 
 	pwm_servos: pwm-servos {
