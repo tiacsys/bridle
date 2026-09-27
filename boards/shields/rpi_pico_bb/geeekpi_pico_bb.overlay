@@ -117,16 +117,21 @@
 		};
 	};
 
-	/delete-node/ buzzers;
-	/delete-node/ pwm_buzzers;
-	/delete-node/ pwm-buzzers;
-	pwm_buzzers: pwm-buzzers {
-		compatible = "pwm-buzzers";
-		status = "okay";
-
-		pwm_buzzer0: pwm-buzzer0 {
-			label = "PWM_BUZZER";
-		};
+	/delete-node/ buzzer;
+	/delete-node/ pwm_buzzer;
+	/delete-node/ pwm-buzzer;
+	/delete-node/ buzzer0;
+	/delete-node/ pwm_buzzer0;
+	/delete-node/ pwm-buzzer0;
+	/delete-node/ speaker;
+	/delete-node/ pwm_speaker;
+	/delete-node/ pwm-speaker;
+	/delete-node/ speaker0;
+	/delete-node/ pwm_speaker0;
+	/delete-node/ pwm-speaker0;
+	pwm_buzzer0: pwm-buzzer0 {
+		compatible = "pwm-buzzer";
+		label = "PWM_BUZZER";
 	};
 
 	aliases {
@@ -145,6 +150,7 @@
 		pwm-led1 = &pwm_led1;
 		pwm-led2 = &pwm_led2;
 		pwm-led3 = &pwm_led3;
-		pwm-buzzer0 = &pwm_buzzer0;
+		/delete-property/ buzzer0;
+		buzzer0 = &pwm_buzzer0;
 	};
 };

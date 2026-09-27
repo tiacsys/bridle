@@ -131,7 +131,7 @@
        - :dtcompatible:`zephyr,lvgl-pointer-input`
        - :dtcompatible:`zephyr,lvgl-keypad-input`
        - :dtcompatible:`raspberrypi,pico-header-r3`
-       - :dtcompatible:`pwm-buzzers`
+       - :dtcompatible:`pwm-buzzer`
        - :dtcompatible:`gpio-keys`
        - :dtcompatible:`gpio-leds`
        - :dtcompatible:`pwm-leds`

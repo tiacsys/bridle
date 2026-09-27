@@ -51,7 +51,7 @@
 };
 
 &pwm_buzzer0 {							/* GP22:PWM3CHA */
-	pwms = <&pwm 6 PWM_HZ(880) PWM_POLARITY_NORMAL>;
+	pwms = <&pwm 6 PWM_HZ(2700) PWM_POLARITY_NORMAL>;
 };
 
 &pwm_led0 {							/* GP2:PWM1A */
