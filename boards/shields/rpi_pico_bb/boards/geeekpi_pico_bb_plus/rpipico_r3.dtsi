@@ -59,7 +59,7 @@
 };
 
 &pwm_buzzer0 {							/* GP13:PWM6CHB */
-	pwms = <&pwm 13 PWM_HZ(880) PWM_POLARITY_NORMAL>;
+	pwms = <&pwm 13 PWM_HZ(2700) PWM_POLARITY_NORMAL>;
 };
 
 &pwm_led0 {							/* GP16:PWM0A */
