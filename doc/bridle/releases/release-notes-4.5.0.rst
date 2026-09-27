@@ -13,7 +13,17 @@ Highlights
 
 * :brd:`NOT YET, tbd.`
 
-* Add the Waveshare RP2350-Matrix board and use Zephyr upstream samples on it.
+* First (beta) implementation to support true composability for boards and
+  shields with the new :program:`west rigs` extension, incl. documentation.
+* Adds the Waveshare RP2350-Matrix board and use Zephyr upstream samples on it.
+* Adds an alternative sample for using multiple display drivers with different
+  pixel formats and color modells. It renders an colorful RGB gradient on
+  standard LCD, OLED or LED (strip) matrix displays and grayscale gradient
+  on monochrome displays or EPD (ePaper): ``colorful``.
+* Adds two samples demonstrating use of the display API for driving small
+  LED matrices using application-side frame buffers, including one which
+  incorporates accelerometer sensor data and primitive anti-aliasing for
+  perceived sub-pixel display accuracy: ``colorwheel`` and (spirit) ``level``.
 
 .. note:: See the changelog and readme files in the component repositories
    for a detailed description of changes.
@@ -246,6 +256,10 @@ Change log
 * tbd.
 * tbd.
 * tbd.
+* New :program:`west rigs` extension to support true composability for
+  boards and shields; start of the beta phase for tooling development.
+* New Bridle owned samples working with the Display and Sensor API:
+  ``colorful``, ``colorwheel``, and (spirit) ``level``.
 * Board extensions based on the old HWMv1 behavior and the significant
   Bridle specific backdoor functions have been removed. Instead, Bridle
   now also makes use of the officially tolerated and required HWMv2
@@ -303,7 +317,13 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`528` - [BUG] Qualifiers ``rp2350a/m33/mcuboot`` not found when extending board ``rpi_pico2``
+* :github:`527` - [BUG] Board DTS on some STM32 have wrong properties for ADC nodes
+* :github:`524` - [PR] samples: display: add colorful RGB gradient sample
+* :github:`523` - [PR] samples: Add Two Display Matrix Samples
+* :github:`510` - [FER] True composability for boards and shields **(BETA)**
 * :github:`495` - [HW] Waveshare RP2350-Matrix
+* :github:`494` - [BUG] Can't build applications for the CoffeCaller without warnings or link errors
 * :github:`475` - [BUG] Move swap or invert x/y properties to the underlying input touchscreen device
 * :github:`471` - [FCR] Support Zephyr SDK LLVM/Clang toolchain with CI container 0.29.2
 * :github:`469` - [BUG] Declaring device driver API instances have to use the ``DEVICE_API`` macro
