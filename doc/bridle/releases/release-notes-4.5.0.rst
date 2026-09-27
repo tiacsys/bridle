@@ -24,6 +24,7 @@ Highlights
   LED matrices using application-side frame buffers, including one which
   incorporates accelerometer sensor data and primitive anti-aliasing for
   perceived sub-pixel display accuracy: ``colorwheel`` and (spirit) ``level``.
+* Convert *DTS binding* from **pwm-buzzers** to new upstream **pwm-buzzer**.
 
 .. note:: See the changelog and readme files in the component repositories
    for a detailed description of changes.
@@ -277,6 +278,9 @@ Change log
   the pixel format as the new Devicetree property :code:`pixel-format`.
   The deprecated and obsolete Devicetree property :code:`colmod` and
   Kconfig choice option :code:`ST7789V_PIXEL_FORMAT` were removed.
+* Convert the now removed DT binding ``pwm-buzzers`` to the new ``pwm-buzzer``
+  from Zephyr upstream. Also standardize alias ``pwm-buzzer0`` to the new
+  common used ``buzzer0`` alias.
 
 The following sections provide detailed lists of changes by component.
 
@@ -317,6 +321,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`530` - [FER] Using the new Buzzer API in Bridle, porting all related samples **(DTS)**
 * :github:`528` - [BUG] Qualifiers ``rp2350a/m33/mcuboot`` not found when extending board ``rpi_pico2``
 * :github:`527` - [BUG] Board DTS on some STM32 have wrong properties for ADC nodes
 * :github:`524` - [PR] samples: display: add colorful RGB gradient sample
