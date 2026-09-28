@@ -14,9 +14,12 @@ common:
   harness: console
   harness_config:
     fixture: fixture_display
-    type: one_line
+    type: multi_line
+    ordered: true
     regex:
       - "Display sample for (.*)"
+      - "Display starts"
+      - "Display sample test mode done (.*)"
 tests:
   #
   # boards with display or LED matrix (LED strip)
