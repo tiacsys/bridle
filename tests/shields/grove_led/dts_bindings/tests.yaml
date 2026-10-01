@@ -297,7 +297,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_led_d16", "gpio-leds")
     extra_args: SHIELD=seeed_grove_base_v2;grove_led_d16
     platform_exclude:
-      - stm32mp157c_dk2
+      - stm32mp157x_dk2/stm32mp157cxx
   grove.base.v1.grove_led.gpio.d16:
     depends_on: arduino_gpio
     filter: ( dt_nodelabel_enabled("grove_a2_header") or
@@ -305,7 +305,7 @@ tests:
             dt_label_with_parent_compat_enabled("grove_led_d16", "gpio-leds")
     extra_args: SHIELD=seeed_grove_base_v1;grove_led_d16
     platform_exclude:
-      - stm32mp157c_dk2
+      - stm32mp157x_dk2/stm32mp157cxx
   grove.base.v2.grove_led.gpio.d17:
     depends_on: arduino_gpio
     filter: ( dt_nodelabel_enabled("grove_a3_header") or
@@ -314,7 +314,7 @@ tests:
     extra_args: SHIELD=seeed_grove_base_v2;grove_led_d17
     platform_exclude:
       - lpcxpresso55s16
-      - stm32mp157c_dk2
+      - stm32mp157x_dk2/stm32mp157cxx
   grove.base.v1.grove_led.gpio.d17:
     depends_on: arduino_gpio
     filter: ( dt_nodelabel_enabled("grove_a3_header") or
@@ -323,7 +323,7 @@ tests:
     extra_args: SHIELD=seeed_grove_base_v1;grove_led_d17
     platform_exclude:
       - lpcxpresso55s16
-      - stm32mp157c_dk2
+      - stm32mp157x_dk2/stm32mp157cxx
   grove.base.v2.grove_led.gpio.d18:
     depends_on: arduino_gpio
     filter: ( dt_nodelabel_enabled("grove_a4_header") or
