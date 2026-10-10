@@ -129,12 +129,12 @@ with chosen display and touchscreen panel. That is:
    .. parsed-literal::
 
       :bgn:`uart:~$` **lvgl stats memory**
-      Heap at 0x200015c0 contains 2047 units in 11 buckets
+      Heap at 0x20001568 contains 2047 units in 11 buckets
 
         bucket#    min units        total      largest      largest
                    threshold       chunks      (units)      (bytes)
         -----------------------------------------------------------
               1            2            3            3           24
-             10         1024            1         1066         8528
+             10         1024            1         1054         8432
 
-      8568 free bytes, 7256 allocated bytes, overhead = 556 bytes (3.4%)
+      8472 free bytes, 7356 allocated bytes, overhead = 552 bytes (3.4%)

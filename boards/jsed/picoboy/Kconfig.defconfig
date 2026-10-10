@@ -46,12 +46,12 @@ config LV_Z_VDB_SIZE
 	default 64 if BOARD_PICOBOY
 	depends on DISPLAY && LVGL
 
-config LV_DPI_DEF
+config LV_Z_DPI_DEF
 	default 110 if BOARD_PICOBOY
 	depends on DISPLAY && LVGL
 
-choice LV_COLOR_DEPTH
-	default LV_COLOR_DEPTH_1 if BOARD_PICOBOY
+choice LV_Z_COLOR_FORMAT
+	default LV_Z_COLOR_FORMAT_I1 if BOARD_PICOBOY
 	depends on DISPLAY && LVGL
 endchoice
 
