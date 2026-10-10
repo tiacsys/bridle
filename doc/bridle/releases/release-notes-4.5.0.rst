@@ -321,6 +321,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`534` - [BUG] Board and shields have wrong Kconfig symbols since LVGL was update to 9.6.0
 * :github:`530` - [FER] Using the new Buzzer API in Bridle, porting all related samples **(DTS)**
 * :github:`528` - [BUG] Qualifiers ``rp2350a/m33/mcuboot`` not found when extending board ``rpi_pico2``
 * :github:`527` - [BUG] Board DTS on some STM32 have wrong properties for ADC nodes
