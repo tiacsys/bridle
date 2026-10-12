@@ -51,7 +51,9 @@ common:
     - mini_usb_rp2040
     - mini_usb_rp2040@16mb
     - mini_usb_rp2040@chipled
+    - mini_usb_rp2350@4mb/rp2350a/hazard3_0
     - mini_usb_rp2350@4mb/rp2350a/m33_0
+    - mini_usb_rp2350@16mb/rp2350a/hazard3_0
     - mini_usb_rp2350@16mb/rp2350a/m33_0
     - rpi_pico/rp2040/bbe
     - rpi_pico/rp2040/mcuboot/bbe
@@ -1481,7 +1483,9 @@ tests:
       - mini_usb_rp2040
       - mini_usb_rp2040@16mb
       - mini_usb_rp2040@chipled
+      - mini_usb_rp2350@4mb/rp2350a/hazard3_0
       - mini_usb_rp2350@4mb/rp2350a/m33_0
+      - mini_usb_rp2350@16mb/rp2350a/hazard3_0
       - mini_usb_rp2350@16mb/rp2350a/m33_0
       - seeeduino_lotus/samd21g18a
   grove.connectors.grove_btn.gpio.d16.inv:
@@ -1500,7 +1504,9 @@ tests:
       - mini_usb_rp2040
       - mini_usb_rp2040@16mb
       - mini_usb_rp2040@chipled
+      - mini_usb_rp2350@4mb/rp2350a/hazard3_0
       - mini_usb_rp2350@4mb/rp2350a/m33_0
+      - mini_usb_rp2350@16mb/rp2350a/hazard3_0
       - mini_usb_rp2350@16mb/rp2350a/m33_0
       - seeeduino_lotus/samd21g18a
   grove.connectors.grove_btn.gpio.d17:
@@ -1519,7 +1525,9 @@ tests:
       - mini_usb_rp2040
       - mini_usb_rp2040@16mb
       - mini_usb_rp2040@chipled
+      - mini_usb_rp2350@4mb/rp2350a/hazard3_0
       - mini_usb_rp2350@4mb/rp2350a/m33_0
+      - mini_usb_rp2350@16mb/rp2350a/hazard3_0
       - mini_usb_rp2350@16mb/rp2350a/m33_0
       - seeeduino_lotus/samd21g18a
   grove.connectors.grove_btn.gpio.d17.inv:
@@ -1538,7 +1546,9 @@ tests:
       - mini_usb_rp2040
       - mini_usb_rp2040@16mb
       - mini_usb_rp2040@chipled
+      - mini_usb_rp2350@4mb/rp2350a/hazard3_0
       - mini_usb_rp2350@4mb/rp2350a/m33_0
+      - mini_usb_rp2350@16mb/rp2350a/hazard3_0
       - mini_usb_rp2350@16mb/rp2350a/m33_0
       - seeeduino_lotus/samd21g18a
   grove.connectors.grove_btn.gpio.d18:

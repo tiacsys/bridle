@@ -34,7 +34,9 @@ common:
     - mini_usb_rp2040@4mb/rp2040
     - mini_usb_rp2040@16mb/rp2040
     - mini_usb_rp2040@chipled/rp2040
+    - mini_usb_rp2350@4mb/rp2350a/hazard3_0
     - mini_usb_rp2350@4mb/rp2350a/m33_0
+    - mini_usb_rp2350@16mb/rp2350a/hazard3_0
     - mini_usb_rp2350@16mb/rp2350a/m33_0
     - mimxrt1010_evk/mimxrt1011/bbe
     - mimxrt1060_evk@A/mimxrt1062/qspi
@@ -245,7 +247,9 @@ tests:
       - mini_usb_rp2040@4mb/rp2040
       - mini_usb_rp2040@16mb/rp2040
       - mini_usb_rp2040@chipled/rp2040
+      - mini_usb_rp2350@4mb/rp2350a/hazard3_0
       - mini_usb_rp2350@4mb/rp2350a/m33_0
+      - mini_usb_rp2350@16mb/rp2350a/hazard3_0
       - mini_usb_rp2350@16mb/rp2350a/m33_0
   grove.connectors.x_grove_testbed.gpio.b16l17:
     depends_on:
