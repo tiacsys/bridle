@@ -17,9 +17,9 @@ supported:
   - dma
   - flash
   - gpio
-  - grove_gpios
+  - grove_gpio
   - grove_i2c
-  - grove_pwms
+  - grove_pwm
   - hwinfo
   - i2c
   - pwm
