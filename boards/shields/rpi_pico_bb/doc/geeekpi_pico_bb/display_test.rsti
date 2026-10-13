@@ -112,7 +112,7 @@ with chosen display. That is:
    :width: 66%
    :header-rows: 1
 
-   * - .. image:: geeekpi_pico_bb/display.*
+   * - .. image:: display.*
           :align: center
           :alt: GeeekPi Pico Breadboard Kit Display Sample Animation
    * - .. rst-class:: centered

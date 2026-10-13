@@ -80,7 +80,7 @@
        - | :rpi-pico-pin:`39` :rpi-pico-vdd:`VSYS`
        - | :rpi-pico-pin:`40` :rpi-pico-sys:`VBUS`
 
-     - .. image:: geeekpi_pico_bb/pinouts.jpg
+     - .. image:: pinouts.jpg
           :align: center
           :width: 100%
           :alt: GeeekPi Pico Breadboard Kit edge pinout
@@ -136,7 +136,7 @@
        - :dtcompatible:`gpio-leds`
        - :dtcompatible:`pwm-leds`
 
-     - .. image:: geeekpi_pico_bb/pinouts-ubl.jpg
+     - .. image:: pinouts-ubl.jpg
           :align: center
           :width: 100%
           :alt: GeeekPi Pico Breadboard Kit edge pinout with User Buttons and LEDs
