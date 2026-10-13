@@ -14,6 +14,7 @@ see :ref:`boards-extensions` below.
 
 .. toctree::
    :maxdepth: 2
+   :titlesonly:
    :glob:
 
    */index
@@ -40,7 +41,8 @@ Supported Shields
 #################
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
+   :titlesonly:
    :glob:
 
-   shields/**/index
+   shields/**/doc/index
