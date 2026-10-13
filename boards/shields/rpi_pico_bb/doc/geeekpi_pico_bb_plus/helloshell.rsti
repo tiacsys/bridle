@@ -21,7 +21,7 @@ For example:
          :goals: flash
          :host-os: unix
 
-      .. include:: geeekpi_pico_bb_plus/helloshell_console.rsti
+      .. include:: helloshell_console.rsti
 
    .. group-tab:: Raspberry Pi Pico 2
 
@@ -55,7 +55,7 @@ For example:
          :goals: flash
          :host-os: unix
 
-      .. include:: geeekpi_pico_bb_plus/helloshell_console.rsti
+      .. include:: helloshell_console.rsti
 
    .. group-tab:: Raspberry Pi Pico 2W
 
@@ -74,7 +74,7 @@ For example:
          :goals: flash
          :host-os: unix
 
-      .. include:: geeekpi_pico_bb_plus/helloshell_console.rsti
+      .. include:: helloshell_console.rsti
 
    .. group-tab:: Raspberry Pi Pico W
 
@@ -91,7 +91,7 @@ For example:
          :goals: flash
          :host-os: unix
 
-      .. include:: geeekpi_pico_bb_plus/helloshell_console.rsti
+      .. include:: helloshell_console.rsti
 
    .. group-tab:: Waveshare RP2040-Plus
 
@@ -125,6 +125,6 @@ For example:
          :goals: flash
          :host-os: unix
 
-      .. include:: geeekpi_pico_bb_plus/helloshell_console.rsti
+      .. include:: helloshell_console.rsti
 
    .. zephyr-keep-sorted-stop

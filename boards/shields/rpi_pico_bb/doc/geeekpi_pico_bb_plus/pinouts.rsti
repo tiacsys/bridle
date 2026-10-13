@@ -99,7 +99,7 @@
        - :dtcompatible:`gpio-leds`
        - :dtcompatible:`pwm-leds`
 
-     - .. image:: geeekpi_pico_bb_plus/pinouts.jpg
+     - .. image:: pinouts.jpg
           :align: center
           :width: 100%
           :alt: GeeekPi Pico Breadboard Kit Plus edge pinout
