@@ -1,0 +1,14 @@
+# SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+shields:
+  - name: waveshare_pico_clock_green
+    full_name: Waveshare Pico Clock Green
+    vendor: waveshare
+    supported_features:
+      - buzzer
+      - display
+      - led
+      - input
+      - rtc
+      - sensor
