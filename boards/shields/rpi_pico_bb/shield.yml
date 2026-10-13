@@ -1,0 +1,19 @@
+# SPDX-FileCopyrightText: Copyright (c) 2024-2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+shields:
+  - name: geeekpi_pico_bb
+    full_name: GeeekPi Pico Breadboard Kit
+    vendor: geeekpi
+    supported_features:
+      - buzzer
+      - display
+      - input
+
+  - name: geeekpi_pico_bb_plus
+    full_name: GeeekPi Pico Breadboard Kit Plus
+    vendor: geeekpi
+    supported_features:
+      - buzzer
+      - display
+      - input
