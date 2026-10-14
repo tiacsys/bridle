@@ -4,7 +4,7 @@
    |Waveshare Pico RGB LED|, because this shield has only digital
    RGB LEDs. A simple GPIO or PWM control is not possible!
 
-.. image:: waveshare_pico_rgb_led/ws2812b-16x10.gif
+.. image:: ws2812b-16x10.gif
    :align: right
    :alt: Waveshare Pico RGB LED WS2812 LED Test Pattern
 
