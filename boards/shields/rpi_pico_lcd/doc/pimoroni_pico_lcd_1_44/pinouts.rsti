@@ -85,7 +85,7 @@
        - :dtcompatible:`gpio-leds`
        - :dtcompatible:`pwm-leds`
 
-     - .. image:: pimoroni_pico_lcd_1_44/pinouts.jpg
+     - .. image:: pinouts.jpg
           :align: center
           :width: 100%
           :alt: PiMoroni Pico LCD 1.44 edge pinout

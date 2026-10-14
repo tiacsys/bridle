@@ -10,6 +10,13 @@ Pi Pico. Additional momentary push buttons or joysticks are wired up over simple
 GPIO lines. Some shield provide also a TF/SD-card slot, wired over a second
 dedicated SPI bus.
 
+.. toctree::
+   :caption: Supported Shields
+   :maxdepth: 1
+   :glob:
+
+   **/index
+
 Supported Shields
 *****************
 
@@ -23,12 +30,6 @@ Hardware
    .. group-tab:: PiMoroni (Pico …)
 
       .. tabs::
-
-         .. group-tab:: LCD 1.44
-
-            .. _pimoroni_pico_lcd_1_44:
-
-            .. include:: pimoroni_pico_lcd_1_44/hardware.rsti
 
          .. group-tab:: LCD 2
 
@@ -111,10 +112,6 @@ Positions
 
       .. tabs::
 
-         .. group-tab:: LCD 1.44
-
-            .. include:: pimoroni_pico_lcd_1_44/positions.rsti
-
          .. group-tab:: LCD 2
 
             .. include:: pimoroni_pico_lcd_2/positions.rsti
@@ -175,10 +172,6 @@ Pinouts
    .. group-tab:: PiMoroni (Pico …)
 
       .. tabs::
-
-         .. group-tab:: LCD 1.44
-
-            .. include:: pimoroni_pico_lcd_1_44/pinouts.rsti
 
          .. group-tab:: LCD 2
 
@@ -265,10 +258,6 @@ Programming
 
       .. tabs::
 
-         .. group-tab:: LCD 1.44
-
-            .. include:: pimoroni_pico_lcd_1_44/helloshell.rsti
-
          .. group-tab:: LCD 2
 
             .. include:: pimoroni_pico_lcd_2/helloshell.rsti
@@ -336,10 +325,6 @@ sample: :external+zephyr:zephyr:code-sample:`input-dump`.
 
       .. tabs::
 
-         .. group-tab:: LCD 1.44
-
-            .. include:: pimoroni_pico_lcd_1_44/input_dump.rsti
-
          .. group-tab:: LCD 2
 
             .. include:: pimoroni_pico_lcd_2/input_dump.rsti
@@ -406,10 +391,6 @@ sample: :external+zephyr:zephyr:code-sample:`rgb-led`.
    .. group-tab:: PiMoroni (Pico …)
 
       .. tabs::
-
-         .. group-tab:: LCD 1.44
-
-            .. include:: pimoroni_pico_lcd_1_44/led_test.rsti
 
          .. group-tab:: LCD 2
 
@@ -503,10 +484,6 @@ order. See also Zephyr sample: :external+zephyr:zephyr:code-sample:`display`.
 
       .. tabs::
 
-         .. group-tab:: LCD 1.44
-
-            .. include:: pimoroni_pico_lcd_1_44/display_test.rsti
-
          .. group-tab:: LCD 2
 
             .. include:: pimoroni_pico_lcd_2/display_test.rsti
@@ -571,13 +548,6 @@ as inverted/swapped axes can be examined. See also Zephyr sample:
    .. group-tab:: PiMoroni (Pico …)
 
       .. tabs::
-
-         .. group-tab:: LCD 1.44
-
-            .. hint::
-
-               The |PiMoroni Pico LCD 1.44| doesn't provide a touchscreen panel.
-               This sample is not applicable.
 
          .. group-tab:: LCD 2
 
@@ -668,10 +638,6 @@ which increments every second. See also Zephyr sample:
 
       .. tabs::
 
-         .. group-tab:: LCD 1.44
-
-            .. include:: pimoroni_pico_lcd_1_44/lvgl_basic.rsti
-
          .. group-tab:: LCD 2
 
             .. include:: pimoroni_pico_lcd_2/lvgl_basic.rsti
@@ -735,13 +701,6 @@ be built with activated USB-CDC/ACM console.
    .. group-tab:: PiMoroni (Pico …)
 
       .. tabs::
-
-         .. group-tab:: LCD 1.44
-
-            .. hint::
-
-               The |PiMoroni Pico LCD 1.44| doesn't provide a TF/microSD card
-               slot. This samples are not applicable.
 
          .. group-tab:: LCD 2
 

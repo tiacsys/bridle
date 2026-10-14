@@ -1,13 +1,3 @@
-The `PiMoroni Pico Display Pack (PIM543)`_ shield comes with the built-in
-controller `ST7789 <ST7789V_>`_ inside the LCD, which is an LCD controller
-with 240 × RGB × 320 pixels, while the pixels of this **1.44-inch** LCD itself
-is 135 (H) RGB × 240 (V). There are two types of horizontal and vertical screens,
-so the internal RAM of the LCD is not fully used. The LCD supports 12-bit,
-16-bit, and 18-bit input color formats per pixel, namely RGB444, RGB565,
-and RGB666 three color formats. This integration **uses the RGB565** color
-format, which is also a commonly used RGB format. The LCD uses a four-wire
-SPI communication interface.
-
 .. list-table::
    :align: center
    :width: 100%
@@ -46,6 +36,6 @@ SPI communication interface.
 
        - `PiMoroni Pico Display Pack (PIM543) Schematic`_
 
-     - .. image:: pimoroni_pico_lcd_1_44/hardware.jpg
+     - .. image:: hardware.jpg
           :align: center
           :alt: PiMoroni Pico LCD 1.44
