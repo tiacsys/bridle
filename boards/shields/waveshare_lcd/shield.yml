@@ -1,0 +1,9 @@
+# SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+shields:
+  - name: waveshare_2_4_lcd
+    full_name: Waveshare 2.4 LCD
+    vendor: waveshare
+    supported_features:
+      - display
