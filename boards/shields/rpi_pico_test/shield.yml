@@ -1,0 +1,13 @@
+# SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+shields:
+  - name: spotpear_pico_test
+    full_name: Spotpear Pico ALL GPIO TEST
+    vendor: spotpear
+    supported_features:
+      - adc
+      - gpio
+      - input
+      - led
+      - pwm
