@@ -88,7 +88,7 @@
        - :dtcompatible:`gpio-leds`
        - :dtcompatible:`pwm-leds`
 
-     - .. image:: pimoroni_pico_lcd_2/pinouts.jpg
+     - .. image:: pinouts.jpg
           :align: center
           :width: 100%
           :alt: PiMoroni Pico LCD 2 edge pinout

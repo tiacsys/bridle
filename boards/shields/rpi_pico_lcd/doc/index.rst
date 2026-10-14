@@ -27,16 +27,6 @@ Hardware
 
    .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
-   .. group-tab:: PiMoroni (Pico …)
-
-      .. tabs::
-
-         .. group-tab:: LCD 2
-
-            .. _pimoroni_pico_lcd_2:
-
-            .. include:: pimoroni_pico_lcd_2/hardware.rsti
-
    .. group-tab:: Spotpear (Pico …)
 
       .. tabs::
@@ -108,14 +98,6 @@ Positions
 
    .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
-   .. group-tab:: PiMoroni (Pico …)
-
-      .. tabs::
-
-         .. group-tab:: LCD 2
-
-            .. include:: pimoroni_pico_lcd_2/positions.rsti
-
    .. group-tab:: Spotpear (Pico …)
 
       .. tabs::
@@ -168,14 +150,6 @@ Pinouts
 .. tabs::
 
    .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
-
-   .. group-tab:: PiMoroni (Pico …)
-
-      .. tabs::
-
-         .. group-tab:: LCD 2
-
-            .. include:: pimoroni_pico_lcd_2/pinouts.rsti
 
    .. group-tab:: Spotpear (Pico …)
 
@@ -254,14 +228,6 @@ Programming
 
    .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
-   .. group-tab:: PiMoroni (Pico …)
-
-      .. tabs::
-
-         .. group-tab:: LCD 2
-
-            .. include:: pimoroni_pico_lcd_2/helloshell.rsti
-
    .. group-tab:: Spotpear (Pico …)
 
       .. tabs::
@@ -321,14 +287,6 @@ sample: :external+zephyr:zephyr:code-sample:`input-dump`.
 
    .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
-   .. group-tab:: PiMoroni (Pico …)
-
-      .. tabs::
-
-         .. group-tab:: LCD 2
-
-            .. include:: pimoroni_pico_lcd_2/input_dump.rsti
-
    .. group-tab:: Spotpear (Pico …)
 
       .. tabs::
@@ -387,14 +345,6 @@ sample: :external+zephyr:zephyr:code-sample:`rgb-led`.
 .. tabs::
 
    .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
-
-   .. group-tab:: PiMoroni (Pico …)
-
-      .. tabs::
-
-         .. group-tab:: LCD 2
-
-            .. include:: pimoroni_pico_lcd_2/led_test.rsti
 
    .. group-tab:: Spotpear (Pico …)
 
@@ -480,14 +430,6 @@ order. See also Zephyr sample: :external+zephyr:zephyr:code-sample:`display`.
 
    .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
-   .. group-tab:: PiMoroni (Pico …)
-
-      .. tabs::
-
-         .. group-tab:: LCD 2
-
-            .. include:: pimoroni_pico_lcd_2/display_test.rsti
-
    .. group-tab:: Spotpear (Pico …)
 
       .. tabs::
@@ -544,17 +486,6 @@ as inverted/swapped axes can be examined. See also Zephyr sample:
 .. tabs::
 
    .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
-
-   .. group-tab:: PiMoroni (Pico …)
-
-      .. tabs::
-
-         .. group-tab:: LCD 2
-
-            .. hint::
-
-               The |PiMoroni Pico LCD 2| doesn't provide a touchscreen panel.
-               This sample is not applicable.
 
    .. group-tab:: Spotpear (Pico …)
 
@@ -634,14 +565,6 @@ which increments every second. See also Zephyr sample:
 
    .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
-   .. group-tab:: PiMoroni (Pico …)
-
-      .. tabs::
-
-         .. group-tab:: LCD 2
-
-            .. include:: pimoroni_pico_lcd_2/lvgl_basic.rsti
-
    .. group-tab:: Spotpear (Pico …)
 
       .. tabs::
@@ -697,17 +620,6 @@ be built with activated USB-CDC/ACM console.
 .. tabs::
 
    .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
-
-   .. group-tab:: PiMoroni (Pico …)
-
-      .. tabs::
-
-         .. group-tab:: LCD 2
-
-            .. hint::
-
-               The |PiMoroni Pico LCD 2| doesn't provide a TF/microSD card
-               slot. This samples are not applicable.
 
    .. group-tab:: Spotpear (Pico …)
 
