@@ -1,0 +1,69 @@
+Using the :external+zephyr:ref:`Display driver API <display_api>`
+with chosen display. That is:
+
+| :hwftlbl-scr:`LCD` : :dts:`chosen { zephyr,display = &lcd_panel; };`
+| :hwftlbl-scr:`ILI9341` : :dts:`lcd_panel: &ili9341_240x320 {};`
+
+.. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{9}\.\. group-tab:: \w)
+
+   .. group-tab:: Arduino Nano R3
+
+      If the shield is connected to a board which has Arduino Nano
+      connector, set :console:`-DSHIELD=waveshare_2_4_lcd` when you
+      invoke :program:`west build`. For example:
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/display
+         :build-dir: waveshare_2_4_lcd-display_test
+         :board: cytron_maker_nano_rp2040
+         :shield: "waveshare_2_4_lcd"
+         :snippets: "usb-console"
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :host-os: unix
+
+   .. group-tab:: Grove System
+
+      If the shield is connected to a board which has
+      `Grove System`_ compatiple connectors, set
+      :console:`-DSHIELD=waveshare_2_4_lcd` when you invoke
+      :program:`west build` and use one of supported boards with
+      special Devicetree setup for free wiring. For example:
+
+      .. zephyr-app-commands::
+         :app: zephyr/samples/drivers/display
+         :build-dir: waveshare_2_4_lcd-display_test
+         :board: cytron_maker_pi_rp2040
+         :shield: "waveshare_2_4_lcd"
+         :snippets: "usb-console"
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :host-os: unix
+
+   .. zephyr-keep-sorted-stop
+
+.. list-table::
+   :align: center
+   :width: 66%
+   :header-rows: 1
+
+   * - .. image:: display.*
+          :align: center
+          :alt: Waveshare 2.4 LCD Display Sample Animation
+   * - .. rst-class:: centered
+
+          :brd:`TOP LEFT`, :bgn:`TOP RIGHT`, :bbl:`BOTTOM RIGHT`
+
+.. rubric:: Simple logging output on target
+
+.. container:: highlight highlight-console notranslate no-copybutton
+
+   .. parsed-literal::
+
+      \*\*\* Booting Zephyr OS build |zephyr_version_em|\ *…*\*\*\*
+      [00:00:00.136,000] <inf> sample: Display sample for ili9341-240x320\ @\ 0
+      [00:00:00.260,000] <inf> sample: Display starts
