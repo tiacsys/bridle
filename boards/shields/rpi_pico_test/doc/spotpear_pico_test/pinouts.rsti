@@ -79,7 +79,7 @@
          :dts:`ledN = &...` entries for all LEDs over GPIO, and
          :dts:`pwm-ledN = &...` entries for all keys over PWM
 
-     - .. image:: spotpear_pico_test/pinouts.jpg
+     - .. image:: pinouts.jpg
           :align: center
           :width: 100%
           :alt: Spotpear Pico ALL GPIO TEST edge pinout
