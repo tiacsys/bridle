@@ -1,0 +1,10 @@
+# SPDX-FileCopyrightText: Copyright (c) 2024-2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+shields:
+  - name: waveshare_pico_rgb_led
+    full_name: Waveshare Pico RGB LED
+    vendor: waveshare
+    supported_features:
+      - display
+      - led
