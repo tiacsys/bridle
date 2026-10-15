@@ -83,7 +83,7 @@
        - :dtcompatible:`zephyr,mipi-dbi-spi`
        - :dtcompatible:`raspberrypi,pico-header-r3`
 
-     - .. image:: waveshare_pico_lcd_1_8/pinouts.jpg
+     - .. image:: pinouts.jpg
           :align: center
           :width: 100%
           :alt: Waveshare Pico LCD 1.8 edge pinout

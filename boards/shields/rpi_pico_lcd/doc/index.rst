@@ -31,12 +31,6 @@ Hardware
 
       .. tabs::
 
-         .. group-tab:: LCD 1.8
-
-            .. _waveshare_pico_lcd_1_8:
-
-            .. include:: waveshare_pico_lcd_1_8/hardware.rsti
-
          .. group-tab:: LCD 2
 
             .. _waveshare_pico_lcd_2:
@@ -68,10 +62,6 @@ Positions
 
       .. tabs::
 
-         .. group-tab:: LCD 1.8
-
-            .. include:: waveshare_pico_lcd_1_8/positions.rsti
-
          .. group-tab:: LCD 2
 
             .. include:: waveshare_pico_lcd_2/positions.rsti
@@ -96,10 +86,6 @@ Pinouts
    .. group-tab:: Waveshare (Pico …)
 
       .. tabs::
-
-         .. group-tab:: LCD 1.8
-
-            .. include:: waveshare_pico_lcd_1_8/pinouts.rsti
 
          .. group-tab:: LCD 2
 
@@ -150,10 +136,6 @@ Programming
 
       .. tabs::
 
-         .. group-tab:: LCD 1.8
-
-            .. include:: waveshare_pico_lcd_1_8/helloshell.rsti
-
          .. group-tab:: LCD 2
 
             .. include:: waveshare_pico_lcd_2/helloshell.rsti
@@ -185,13 +167,6 @@ sample: :external+zephyr:zephyr:code-sample:`input-dump`.
 
       .. tabs::
 
-         .. group-tab:: LCD 1.8
-
-            .. hint::
-
-               The |Waveshare Pico LCD 1.8| doesn't provide any input
-               components. This sample is not applicable.
-
          .. group-tab:: LCD 2
 
             .. include:: waveshare_pico_lcd_2/input_dump.rsti
@@ -219,13 +194,6 @@ sample: :external+zephyr:zephyr:code-sample:`rgb-led`.
    .. group-tab:: Waveshare (Pico …)
 
       .. tabs::
-
-         .. group-tab:: LCD 1.8
-
-            .. hint::
-
-               The |Waveshare Pico LCD 1.8| doesn't provide a RGB LED.
-               This samples are not applicable.
 
          .. group-tab:: LCD 2
 
@@ -265,10 +233,6 @@ order. See also Zephyr sample: :external+zephyr:zephyr:code-sample:`display`.
 
       .. tabs::
 
-         .. group-tab:: LCD 1.8
-
-            .. include:: waveshare_pico_lcd_1_8/display_test.rsti
-
          .. group-tab:: LCD 2
 
             .. include:: waveshare_pico_lcd_2/display_test.rsti
@@ -297,13 +261,6 @@ as inverted/swapped axes can be examined. See also Zephyr sample:
    .. group-tab:: Waveshare (Pico …)
 
       .. tabs::
-
-         .. group-tab:: LCD 1.8
-
-            .. hint::
-
-               The |Waveshare Pico LCD 1.8| doesn't provide a touchscreen panel.
-               This sample is not applicable.
 
          .. group-tab:: LCD 2
 
@@ -337,10 +294,6 @@ which increments every second. See also Zephyr sample:
 
       .. tabs::
 
-         .. group-tab:: LCD 1.8
-
-            .. include:: waveshare_pico_lcd_1_8/lvgl_basic.rsti
-
          .. group-tab:: LCD 2
 
             .. include:: waveshare_pico_lcd_2/lvgl_basic.rsti
@@ -368,13 +321,6 @@ be built with activated USB-CDC/ACM console.
    .. group-tab:: Waveshare (Pico …)
 
       .. tabs::
-
-         .. group-tab:: LCD 1.8
-
-            .. hint::
-
-               The |Waveshare Pico LCD 1.8| doesn't provide a TF/microSD card
-               slot. This samples are not applicable.
 
          .. group-tab:: LCD 2
 
