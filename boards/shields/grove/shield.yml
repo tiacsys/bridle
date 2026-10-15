@@ -1,0 +1,19 @@
+# SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+shields:
+  - name: seeed_grove_base_v2
+    full_name: Grove Base Shield V2
+    vendor: seeed
+
+  - name: seeed_grove_base_v1
+    full_name: Grove Base Shield V1
+    vendor: seeed
+
+  - name: seeed_grove_xiao_v1
+    full_name: Grove Base Shield for XIAO V1
+    vendor: seeed
+
+  - name: seeed_grove_rpipico_v1
+    full_name: Grove Shield for Pi Pico V1
+    vendor: seeed
