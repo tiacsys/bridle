@@ -115,7 +115,7 @@ See also Zephyr sample: :external+zephyr:zephyr:code-sample:`fs`.
 
    .. zephyr-keep-sorted-stop
 
-.. image:: waveshare_pico_restouch_lcd_3_5/BEACH.bmp
+.. image:: BEACH.bmp
    :align: right
    :height: 240
    :alt: Waveshare Pico ResTouch LCD 3.5 Demo Bitmap Image
@@ -129,8 +129,7 @@ on the console, e.g.:
    * :bbl:`(optional)` 1st Primary Partition:
      :strong:`W95 FAT32 (LBA)` :emphasis:`(ID: 0x0C)`
    * FAT File System: :strong:`FAT (32-bit version)`
-   * Content: :download:`waveshare_pico_restouch_lcd_3_5/BEACH.bmp`
-     and :download:`waveshare_pico_restouch_lcd_3_5/CAT.bmp`
+   * Content: :download:`BEACH.bmp` and :download:`CAT.bmp`
 
 .. rubric:: Simple logging output on target
 

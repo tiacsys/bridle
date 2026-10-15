@@ -112,7 +112,7 @@ with chosen display. That is:
    :width: 66%
    :header-rows: 1
 
-   * - .. image:: waveshare_pico_restouch_lcd_3_5/display.*
+   * - .. image:: display.*
           :align: center
           :alt: Waveshare Pico ResTouch LCD 3.5 Display Sample Animation
    * - .. rst-class:: centered

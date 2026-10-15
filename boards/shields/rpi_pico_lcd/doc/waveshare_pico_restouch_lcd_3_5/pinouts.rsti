@@ -99,7 +99,7 @@
        - :dtcompatible:`zephyr,lvgl-pointer-input`
        - :dtcompatible:`raspberrypi,pico-header-r3`
 
-     - .. image:: waveshare_pico_restouch_lcd_3_5/pinouts.jpg
+     - .. image:: pinouts.jpg
           :align: center
           :width: 100%
           :alt: Waveshare Pico ResTouch LCD 3.5 edge pinout
