@@ -112,7 +112,7 @@ with chosen display. That is:
    :width: 66%
    :header-rows: 1
 
-   * - .. image:: waveshare_pico_lcd_1_14/display.*
+   * - .. image:: display.*
           :align: center
           :alt: Waveshare Pico LCD 1.14 Display Sample Animation
    * - .. rst-class:: centered
