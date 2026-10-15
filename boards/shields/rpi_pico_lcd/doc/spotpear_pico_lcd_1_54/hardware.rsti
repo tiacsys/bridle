@@ -1,17 +1,3 @@
-The `Spotpear Pico LCD 1.54`_ shield comes with the built-in controller
-`ST7789 <ST7789V_>`_ inside the LCD, which is an LCD controller with
-240 × RGB × 320 pixels, while the pixels of this **1.54-inch** LCD itself is
-240 (H) RGB × 240 (V). There are two types of horizontal and vertical screens,
-so the internal RAM of the LCD is not fully used. The LCD supports 12-bit,
-16-bit, and 18-bit input color formats per pixel, namely RGB444, RGB565,
-and RGB666 three color formats. This integration **uses the RGB565** color
-format, which is also a commonly used RGB format. The LCD uses a four-wire
-SPI communication interface.
-
-.. attention::
-
-   **Only** the new **Blue 1.54inch LCD** labeled with **Rev 2.0 is supported!**
-
 .. list-table::
    :align: center
    :width: 100%
@@ -53,6 +39,6 @@ SPI communication interface.
        - `Spotpear Blue-1.54inch LCD C Code`_
        - `Spotpear Blue-1.54inch LCD Python Code`_
 
-     - .. image:: spotpear_pico_lcd_1_54/hardware.jpg
+     - .. image:: hardware.jpg
           :align: center
           :alt: Spotpear Pico LCD 1.54

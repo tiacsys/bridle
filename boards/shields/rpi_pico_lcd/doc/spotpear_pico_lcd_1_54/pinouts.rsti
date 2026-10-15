@@ -82,7 +82,7 @@
        - :dtcompatible:`raspberrypi,pico-header-r3`
        - :dtcompatible:`gpio-keys`
 
-     - .. image:: spotpear_pico_lcd_1_54/pinouts.jpg
+     - .. image:: pinouts.jpg
           :align: center
           :width: 100%
           :alt: Spotpear Pico LCD 1.54 edge pinout

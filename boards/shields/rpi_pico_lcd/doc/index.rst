@@ -27,16 +27,6 @@ Hardware
 
    .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
-   .. group-tab:: Spotpear (Pico …)
-
-      .. tabs::
-
-         .. group-tab:: LCD 1.54
-
-            .. _spotpear_pico_lcd_1_54:
-
-            .. include:: spotpear_pico_lcd_1_54/hardware.rsti
-
    .. group-tab:: Waveshare (Pico …)
 
       .. tabs::
@@ -98,14 +88,6 @@ Positions
 
    .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
-   .. group-tab:: Spotpear (Pico …)
-
-      .. tabs::
-
-         .. group-tab:: LCD 1.54
-
-            .. include:: spotpear_pico_lcd_1_54/positions.rsti
-
    .. group-tab:: Waveshare (Pico …)
 
       .. tabs::
@@ -150,14 +132,6 @@ Pinouts
 .. tabs::
 
    .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
-
-   .. group-tab:: Spotpear (Pico …)
-
-      .. tabs::
-
-         .. group-tab:: LCD 1.54
-
-            .. include:: spotpear_pico_lcd_1_54/pinouts.rsti
 
    .. group-tab:: Waveshare (Pico …)
 
@@ -228,14 +202,6 @@ Programming
 
    .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
-   .. group-tab:: Spotpear (Pico …)
-
-      .. tabs::
-
-         .. group-tab:: LCD 1.54
-
-            .. include:: spotpear_pico_lcd_1_54/helloshell.rsti
-
    .. group-tab:: Waveshare (Pico …)
 
       .. tabs::
@@ -287,14 +253,6 @@ sample: :external+zephyr:zephyr:code-sample:`input-dump`.
 
    .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
-   .. group-tab:: Spotpear (Pico …)
-
-      .. tabs::
-
-         .. group-tab:: LCD 1.54
-
-            .. include:: spotpear_pico_lcd_1_54/input_dump.rsti
-
    .. group-tab:: Waveshare (Pico …)
 
       .. tabs::
@@ -345,17 +303,6 @@ sample: :external+zephyr:zephyr:code-sample:`rgb-led`.
 .. tabs::
 
    .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
-
-   .. group-tab:: Spotpear (Pico …)
-
-      .. tabs::
-
-         .. group-tab:: LCD 1.54
-
-            .. hint::
-
-               The |Spotpear Pico LCD 1.54| doesn't provide a RGB LED.
-               This samples are not applicable.
 
    .. group-tab:: Waveshare (Pico …)
 
@@ -430,14 +377,6 @@ order. See also Zephyr sample: :external+zephyr:zephyr:code-sample:`display`.
 
    .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
-   .. group-tab:: Spotpear (Pico …)
-
-      .. tabs::
-
-         .. group-tab:: LCD 1.54
-
-            .. include:: spotpear_pico_lcd_1_54/display_test.rsti
-
    .. group-tab:: Waveshare (Pico …)
 
       .. tabs::
@@ -486,17 +425,6 @@ as inverted/swapped axes can be examined. See also Zephyr sample:
 .. tabs::
 
    .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
-
-   .. group-tab:: Spotpear (Pico …)
-
-      .. tabs::
-
-         .. group-tab:: LCD 1.54
-
-            .. hint::
-
-               The |Spotpear Pico LCD 1.54| doesn't provide a touchscreen panel.
-               This sample is not applicable.
 
    .. group-tab:: Waveshare (Pico …)
 
@@ -565,14 +493,6 @@ which increments every second. See also Zephyr sample:
 
    .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
 
-   .. group-tab:: Spotpear (Pico …)
-
-      .. tabs::
-
-         .. group-tab:: LCD 1.54
-
-            .. include:: spotpear_pico_lcd_1_54/lvgl_basic.rsti
-
    .. group-tab:: Waveshare (Pico …)
 
       .. tabs::
@@ -620,17 +540,6 @@ be built with activated USB-CDC/ACM console.
 .. tabs::
 
    .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
-
-   .. group-tab:: Spotpear (Pico …)
-
-      .. tabs::
-
-         .. group-tab:: LCD 1.54
-
-            .. hint::
-
-               The |Spotpear Pico LCD 1.54| doesn't provide a TF/microSD card
-               slot. This samples are not applicable.
 
    .. group-tab:: Waveshare (Pico …)
 

@@ -112,7 +112,7 @@ with chosen display. That is:
    :width: 66%
    :header-rows: 1
 
-   * - .. image:: spotpear_pico_lcd_1_54/display.*
+   * - .. image:: display.*
           :align: center
           :alt: Spotpear Pico LCD 1.54 Display Sample Animation
    * - .. rst-class:: centered
