@@ -31,12 +31,6 @@ Hardware
 
       .. tabs::
 
-         .. group-tab:: LCD 2
-
-            .. _waveshare_pico_lcd_2:
-
-            .. include:: waveshare_pico_lcd_2/hardware.rsti
-
          .. group-tab:: ResTouch LCD 2.8
 
             .. _waveshare_pico_restouch_lcd_2_8:
@@ -62,10 +56,6 @@ Positions
 
       .. tabs::
 
-         .. group-tab:: LCD 2
-
-            .. include:: waveshare_pico_lcd_2/positions.rsti
-
          .. group-tab:: ResTouch LCD 2.8
 
             .. include:: waveshare_pico_restouch_lcd_2_8/positions.rsti
@@ -86,10 +76,6 @@ Pinouts
    .. group-tab:: Waveshare (Pico …)
 
       .. tabs::
-
-         .. group-tab:: LCD 2
-
-            .. include:: waveshare_pico_lcd_2/pinouts.rsti
 
          .. group-tab:: ResTouch LCD 2.8
 
@@ -136,10 +122,6 @@ Programming
 
       .. tabs::
 
-         .. group-tab:: LCD 2
-
-            .. include:: waveshare_pico_lcd_2/helloshell.rsti
-
          .. group-tab:: ResTouch LCD 2.8
 
             .. include:: waveshare_pico_restouch_lcd_2_8/helloshell.rsti
@@ -167,10 +149,6 @@ sample: :external+zephyr:zephyr:code-sample:`input-dump`.
 
       .. tabs::
 
-         .. group-tab:: LCD 2
-
-            .. include:: waveshare_pico_lcd_2/input_dump.rsti
-
          .. group-tab:: ResTouch LCD 2.8
 
             .. include:: waveshare_pico_restouch_lcd_2_8/input_dump.rsti
@@ -194,13 +172,6 @@ sample: :external+zephyr:zephyr:code-sample:`rgb-led`.
    .. group-tab:: Waveshare (Pico …)
 
       .. tabs::
-
-         .. group-tab:: LCD 2
-
-            .. hint::
-
-               The |Waveshare Pico LCD 2| doesn't provide a RGB LED.
-               This samples are not applicable.
 
          .. group-tab:: ResTouch LCD 2.8
 
@@ -233,10 +204,6 @@ order. See also Zephyr sample: :external+zephyr:zephyr:code-sample:`display`.
 
       .. tabs::
 
-         .. group-tab:: LCD 2
-
-            .. include:: waveshare_pico_lcd_2/display_test.rsti
-
          .. group-tab:: ResTouch LCD 2.8
 
             .. include:: waveshare_pico_restouch_lcd_2_8/display_test.rsti
@@ -261,13 +228,6 @@ as inverted/swapped axes can be examined. See also Zephyr sample:
    .. group-tab:: Waveshare (Pico …)
 
       .. tabs::
-
-         .. group-tab:: LCD 2
-
-            .. hint::
-
-               The |Waveshare Pico LCD 2| doesn't provide a touchscreen panel.
-               This sample is not applicable.
 
          .. group-tab:: ResTouch LCD 2.8
 
@@ -294,10 +254,6 @@ which increments every second. See also Zephyr sample:
 
       .. tabs::
 
-         .. group-tab:: LCD 2
-
-            .. include:: waveshare_pico_lcd_2/lvgl_basic.rsti
-
          .. group-tab:: ResTouch LCD 2.8
 
             .. include:: waveshare_pico_restouch_lcd_2_8/lvgl_basic.rsti
@@ -321,13 +277,6 @@ be built with activated USB-CDC/ACM console.
    .. group-tab:: Waveshare (Pico …)
 
       .. tabs::
-
-         .. group-tab:: LCD 2
-
-            .. hint::
-
-               The |Waveshare Pico LCD 2| doesn't provide a TF/microSD card
-               slot. This samples are not applicable.
 
          .. group-tab:: ResTouch LCD 2.8
 
