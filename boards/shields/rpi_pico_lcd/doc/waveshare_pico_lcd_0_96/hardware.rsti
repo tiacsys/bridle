@@ -1,13 +1,3 @@
-The `Waveshare Pico LCD 0.96`_ shield comes with the built-in controller
-ST7735S_ inside the LCD, which is an LCD controller with 162 × RGB × 132
-pixels, while the pixels of this **0.96-inch** LCD itself is 80 (H) RGB ×
-160 (V). There are two types of horizontal and vertical screens, so the
-internal RAM of the LCD is not fully used. The LCD supports 12-bit, 16-bit,
-and 18-bit input color formats per pixel, namely RGB444, RGB565, and RGB666
-three color formats. This integration **uses the RGB565** color format,
-which is also a commonly used RGB format. The LCD uses a four-wire SPI
-communication interface.
-
 .. list-table::
    :align: center
    :width: 100%
@@ -43,6 +33,6 @@ communication interface.
 
        - `Waveshare Pico LCD 0.96 Schematic`_
 
-     - .. image:: waveshare_pico_lcd_0_96/hardware.jpg
+     - .. image:: hardware.jpg
           :align: center
           :alt: Waveshare Pico LCD 0.96
