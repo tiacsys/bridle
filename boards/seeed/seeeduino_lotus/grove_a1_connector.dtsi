@@ -1,7 +1,9 @@
 /*
- * Copyright (c) 2023-2024 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
+
+#include <zephyr/dt-bindings/gpio/grove-connector.h>
 
 / {
 	grove_a1_header: grove-a1-connector {
@@ -9,7 +11,7 @@
 		#gpio-cells = <2>;
 		gpio-map-mask = <0xffffffff 0xffffffc0>;
 		gpio-map-pass-thru = <0 0x3f>;
-		gpio-map = <0 0 &portb 8 0>,	/* A1 */
-			   <1 0 &portb 9 0>;	/* A2 */
+		gpio-map = <GROVE_A0 0 &portb 8 0>, /* A1 */
+			   <GROVE_A1 0 &portb 9 0>; /* A2 */
 	};
 };

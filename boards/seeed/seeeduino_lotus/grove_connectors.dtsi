@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -19,6 +19,9 @@
 #include "grove_d6_connector.dtsi"
 #include "grove_d7_connector.dtsi"
 
+#include <zephyr/dt-bindings/gpio/grove-connector.h>
+#include <zephyr/dt-bindings/gpio/grove-laced-if.h>
+
 / {
 	grove_laced_if_lotus: grove-laced-if-lotus {
 		compatible = "seeed,grove-laced-if";
@@ -27,26 +30,26 @@
 		gpio-map-mask = <0xffffffff 0xffffffc0>;
 		gpio-map-pass-thru = <0 0x3f>;
 		gpio-map =
-			<0 0 &grove_uart_header 0 0>,	/* D0: UART-RX as GPIO */
-			<1 0 &grove_uart_header 1 0>,	/* D1: UART-TX as GPIO */
-			<2 0 &grove_d2_header 0 0>,	/* D2: GPIO */
-			<3 0 &grove_d3_header 0 0>,	/* D3: GPIO */
-			<4 0 &grove_d4_header 0 0>,	/* D4: GPIO */
-			<5 0 &grove_d5_header 0 0>,	/* D5: GPIO */
-			<6 0 &grove_d6_header 0 0>,	/* D6: GPIO */
-			<7 0 &grove_d7_header 0 0>,	/* D7: GPIO */
-			<8 0 &grove_d7_header 1 0>,	/* D8: GPIO */
+			<GROVE_LIF_L0 0 &grove_uart_header GROVE_D0 0>, /* D0: UART-RX as GPIO */
+			<GROVE_LIF_L1 0 &grove_uart_header GROVE_D1 0>, /* D1: UART-TX as GPIO */
+			<GROVE_LIF_L2 0 &grove_d2_header GROVE_D0 0>,   /* D2: GPIO */
+			<GROVE_LIF_L3 0 &grove_d3_header GROVE_D0 0>,   /* D3: GPIO */
+			<GROVE_LIF_L4 0 &grove_d4_header GROVE_D0 0>,   /* D4: GPIO */
+			<GROVE_LIF_L5 0 &grove_d5_header GROVE_D0 0>,   /* D5: GPIO */
+			<GROVE_LIF_L6 0 &grove_d6_header GROVE_D0 0>,   /* D6: GPIO */
+			<GROVE_LIF_L7 0 &grove_d7_header GROVE_D0 0>,   /* D7: GPIO */
+			<GROVE_LIF_L8 0 &grove_d7_header GROVE_D1 0>,   /* D8: GPIO */
 			/*  9 - D9:  not wired */
 			/* 10 - D10: not wired */
 			/* 11 - D11: not wired */
 			/* 12 - D12: not wired */
 			/* 13 - D13: not wired */
-			<14 0 &grove_a0_header 0 0>,	/* D14: A0 as GPIO */
-			<15 0 &grove_a1_header 0 0>,	/* D15: A1 as GPIO */
-			<16 0 &grove_a2_header 0 0>,	/* D16: A2 as GPIO */
-			<17 0 &grove_a2_header 1 0>,	/* D17: A3 as GPIO */
-			<18 0 &grove_i2c_header 1 0>,	/* D18: I2C-SDA as GPIO */
-			<19 0 &grove_i2c_header 0 0>;	/* D19: I2C-SCL as GPIO */
+			<GROVE_LIF_L14 0 &grove_a0_header GROVE_D0 0>,  /* D14: A0 as GPIO */
+			<GROVE_LIF_L15 0 &grove_a1_header GROVE_D0 0>,  /* D15: A1 as GPIO */
+			<GROVE_LIF_L16 0 &grove_a2_header GROVE_D0 0>,  /* D16: A2 as GPIO */
+			<GROVE_LIF_L17 0 &grove_a2_header GROVE_D1 0>,  /* D17: A3 as GPIO */
+			<GROVE_LIF_L18 0 &grove_i2c_header GROVE_D1 0>, /* D18: I2C-SDA as GPIO */
+			<GROVE_LIF_L19 0 &grove_i2c_header GROVE_D0 0>; /* D19: I2C-SCL as GPIO */
 
 		#pwm-cells = <2>;
 		pwm-map-mask = <0xffffffff 0>;
@@ -54,13 +57,13 @@
 		pwm-map =
 			/*  0 - D0: not possible */
 			/*  1 - D1: not possible */
-			<2 0 &tcc0 0 0>,	/* D2: TCC0CH0 (WO4) & D4/D18 */
-			<3 0 &tcc0 1 0>,	/* D3: TCC0CH1 (WO1) & D5/D19 */
-			<4 0 &tcc0 0 0>,	/* D4: TCC0CH0 (WO0) & D2/D18 */
-			<5 0 &tcc0 1 0>,	/* D5: TCC0CH1 (WO5) & D3/D19 */
-			<6 0 &tcc0 2 0>,	/* D6: TCC0CH2 (WO6) */
-			<7 0 &tcc0 3 0>,	/* D7: TCC0CH3 (WO7) */
-			<8 0 &tcc1 0 0>,	/* D8: TCC1CH0 (WO0) */
+			<GROVE_LIF_L2 0 &tcc0 0 0>,  /* D2: TCC0CH0 (WO4) & D4/D18 */
+			<GROVE_LIF_L3 0 &tcc0 1 0>,  /* D3: TCC0CH1 (WO1) & D5/D19 */
+			<GROVE_LIF_L4 0 &tcc0 0 0>,  /* D4: TCC0CH0 (WO0) & D2/D18 */
+			<GROVE_LIF_L5 0 &tcc0 1 0>,  /* D5: TCC0CH1 (WO5) & D3/D19 */
+			<GROVE_LIF_L6 0 &tcc0 2 0>,  /* D6: TCC0CH2 (WO6) */
+			<GROVE_LIF_L7 0 &tcc0 3 0>,  /* D7: TCC0CH3 (WO7) */
+			<GROVE_LIF_L8 0 &tcc1 0 0>,  /* D8: TCC1CH0 (WO0) */
 			/*  9 - D9:  not wired */
 			/* 10 - D10: not wired */
 			/* 11 - D11: not wired */
@@ -70,8 +73,8 @@
 			/* 15 - D15: not possible */
 			/* 16 - D16: not possible */
 			/* 17 - D17: not possible */
-			<18 0 &tcc0 0 0>,	/* D18: TCC0CH0 (WO4) & D2/D4 */
-			<19 0 &tcc0 1 0>;	/* D19: TCC0CH1 (WO5) & D3/D5 */
+			<GROVE_LIF_L18 0 &tcc0 0 0>, /* D18: TCC0CH0 (WO4) & D2/D4 */
+			<GROVE_LIF_L19 0 &tcc0 1 0>; /* D19: TCC0CH1 (WO5) & D3/D5 */
 	};
 };
 
