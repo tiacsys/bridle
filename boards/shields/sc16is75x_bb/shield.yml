@@ -1,0 +1,59 @@
+# SPDX-FileCopyrightText: Copyright (c) 2024-2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+shields:
+  - name: cjmcu_750_i2c
+    full_name: CJMCU-750 / WCMCU-750 (I2C)
+    vendor: nologo
+    supported_features:
+      - gpio
+      - uart
+
+  - name: cjmcu_750_i2c_noirq
+    full_name: CJMCU-750 / WCMCU-750 (I2C w/o IRQ)
+    vendor: nologo
+    supported_features:
+      - gpio
+      - uart
+
+  - name: cjmcu_750_spi
+    full_name: CJMCU-750 / WCMCU-750 (SPI)
+    vendor: nologo
+    supported_features:
+      - gpio
+      - uart
+
+  - name: cjmcu_750_spi_noirq
+    full_name: CJMCU-750 / WCMCU-750 (SPI w/o IRQ)
+    vendor: nologo
+    supported_features:
+      - gpio
+      - uart
+
+  - name: cjmcu_752_i2c
+    full_name: CJMCU-752 / WCMCU-752 (I2C)
+    vendor: nologo
+    supported_features:
+      - gpio
+      - uart
+
+  - name: cjmcu_752_i2c_noirq
+    full_name: CJMCU-752 / WCMCU-752 (I2C w/o IRQ)
+    vendor: nologo
+    supported_features:
+      - gpio
+      - uart
+
+  - name: cjmcu_752_spi
+    full_name: CJMCU-752 / WCMCU-752 (SPI)
+    vendor: nologo
+    supported_features:
+      - gpio
+      - uart
+
+  - name: cjmcu_752_spi_noirq
+    full_name: CJMCU-752 / WCMCU-752 (SPI w/o IRQ)
+    vendor: nologo
+    supported_features:
+      - gpio
+      - uart
