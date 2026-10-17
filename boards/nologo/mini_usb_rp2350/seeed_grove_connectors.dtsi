@@ -16,6 +16,7 @@ grove_i2c_header: &grove_d17_header {};
 /* tweaked labels: Pin 0 isn't the primary data line! */
 grove_d16_header: &grove_d17_header {}; /* D16 is on D17 header pin 1 */
 
+#include <zephyr/dt-bindings/gpio/grove-connector.h>
 #include <zephyr/dt-bindings/gpio/grove-laced-if.h>
 
 / {
@@ -42,8 +43,8 @@ grove_d16_header: &grove_d17_header {}; /* D16 is on D17 header pin 1 */
 			/* 13 - GP13: not wired */
 			/* 14 - GP14: not wired */
 			/* 15 - GP15: not wired */
-			<GROVE_LIF_L16 0 &grove_d17_header 1 0>, /* GP16: I2C0-SDA as GPIO */
-			<GROVE_LIF_L17 0 &grove_d17_header 0 0>; /* GP17: I2C0-SCL as GPIO */
+			<GROVE_LIF_L16 0 &grove_d17_header GROVE_D1 0>, /* I2C0-SDA as GPIO */
+			<GROVE_LIF_L17 0 &grove_d17_header GROVE_D0 0>; /* I2C0-SCL as GPIO */
 			/* 18 - GP18: not wired */
 			/* 19 - GP19: not wired */
 			/* 20 - GP20: not wired */
@@ -77,8 +78,8 @@ grove_d16_header: &grove_d17_header {}; /* D16 is on D17 header pin 1 */
 			/* 13 - GP13: PWM6CHB (13) not wired */
 			/* 14 - GP14: PWM7CHA (14) not wired */
 			/* 15 - GP15: PWM7CHB (15) not wired */
-			<GROVE_LIF_L16 0 0 &pwm 0 0 0>,	/* GP16: PWM0CHA (0) */
-			<GROVE_LIF_L17 0 0 &pwm 1 0 0>;	/* GP17: PWM0CHB (1) */
+			<GROVE_LIF_L16 0 0 &pwm 0 0 0>,		/* GP16: PWM0CHA (0) */
+			<GROVE_LIF_L17 0 0 &pwm 1 0 0>;		/* GP17: PWM0CHB (1) */
 			/* 18 - GP18: PWM1CHA (2)  not wired */
 			/* 19 - GP19: PWM1CHB (3)  not wired */
 			/* 20 - GP20: PWM2CHA (4)  not wired */
