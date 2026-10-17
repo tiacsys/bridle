@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -7,6 +7,9 @@
 
 #include "grove_i2c_connector.dtsi"
 #include "grove_uart_connector.dtsi"
+
+#include <zephyr/dt-bindings/gpio/grove-connector.h>
+#include <zephyr/dt-bindings/gpio/grove-laced-if.h>
 
 / {
 	grove_laced_if_cm0: grove-laced-if-cm0 {
@@ -16,8 +19,8 @@
 		gpio-map-mask = <0xffffffff 0xffffffc0>;
 		gpio-map-pass-thru = <0 0x3f>;
 		gpio-map =
-			<0 0 &grove_uart_header 0 0>,	/* D0: UART-RX as GPIO */
-			<1 0 &grove_uart_header 1 0>,	/* D1: UART-TX as GPIO */
+			<GROVE_LIF_L0 0 &grove_uart_header GROVE_D0 0>, /* D0: UART-RX as GPIO */
+			<GROVE_LIF_L1 0 &grove_uart_header GROVE_D1 0>, /* D1: UART-TX as GPIO */
 			/*  2 - D2:  not wired */
 			/*  3 - D3:  not wired */
 			/*  4 - D4:  not wired */
@@ -34,8 +37,8 @@
 			/* 15 - D15: A1 as GPIO not wired */
 			/* 16 - D16: A2 as GPIO not wired */
 			/* 17 - D17: A3 as GPIO not wired */
-			<18 0 &grove_i2c_header 1 0>,	/* D18: I2C-SDA as GPIO */
-			<19 0 &grove_i2c_header 0 0>;	/* D19: I2C-SCL as GPIO */
+			<GROVE_LIF_L18 0 &grove_i2c_header GROVE_D1 0>, /* D18: I2C-SDA as GPIO */
+			<GROVE_LIF_L19 0 &grove_i2c_header GROVE_D0 0>; /* D19: I2C-SCL as GPIO */
 
 		#pwm-cells = <2>;
 		pwm-map-mask = <0xffffffff 0>;
@@ -59,8 +62,8 @@
 			/* 15 - D15: not wired */
 			/* 16 - D16: not wired */
 			/* 17 - D17: not wired */
-			<18 0 &tcc0 0 0>,		/* D18: TCC0CH0 (WO4) */
-			<19 0 &tcc0 1 0>;		/* D19: TCC0CH1 (WO5) */
+			<GROVE_LIF_L18 0 &tcc0 0 0>, /* D18: TCC0CH0 (WO4) */
+			<GROVE_LIF_L19 0 &tcc0 1 0>; /* D19: TCC0CH1 (WO5) */
 	};
 };
 
