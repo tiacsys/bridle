@@ -85,7 +85,7 @@ internally to connect the on-board LCD and TF card slots.
 
        .. rubric:: Devicetree compatible
 
-       - :dtcompatible:`stemma-qt-connector`
+       - :dtcompatible:`adafruit,stemma-qt-connector`
        - :dtcompatible:`generic-pin-header`
 
      - .. image:: img/pinouts.jpg
