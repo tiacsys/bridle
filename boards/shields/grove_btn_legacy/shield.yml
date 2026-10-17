@@ -6,382 +6,446 @@ shields:
     full_name: Grove Button D0
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d0_inv
     full_name: Grove Button D0 (inverted)
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d1
     full_name: Grove Button D1
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d1_inv
     full_name: Grove Button D1 (inverted)
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d2
     full_name: Grove Button D2
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d2_inv
     full_name: Grove Button D2 (inverted)
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d3
     full_name: Grove Button D3
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d3_inv
     full_name: Grove Button D3 (inverted)
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d4
     full_name: Grove Button D4
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d4_inv
     full_name: Grove Button D4 (inverted)
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d5
     full_name: Grove Button D5
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d5_inv
     full_name: Grove Button D5 (inverted)
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d6
     full_name: Grove Button D6
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d6_inv
     full_name: Grove Button D6 (inverted)
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d7
     full_name: Grove Button D7
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d7_inv
     full_name: Grove Button D7 (inverted)
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d8
     full_name: Grove Button D8
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d8_inv
     full_name: Grove Button D8 (inverted)
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d9
     full_name: Grove Button D9
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d9_inv
     full_name: Grove Button D9 (inverted)
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d10
     full_name: Grove Button D10
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d10_inv
     full_name: Grove Button D10 (inverted)
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d11
     full_name: Grove Button D11
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d11_inv
     full_name: Grove Button D11 (inverted)
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d12
     full_name: Grove Button D12
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d12_inv
     full_name: Grove Button D12 (inverted)
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d13
     full_name: Grove Button D13
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d13_inv
     full_name: Grove Button D13 (inverted)
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d14
     full_name: Grove Button D14
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d14_inv
     full_name: Grove Button D14 (inverted)
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d15
     full_name: Grove Button D15
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d15_inv
     full_name: Grove Button D15 (inverted)
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d16
     full_name: Grove Button D16
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d16_inv
     full_name: Grove Button D16 (inverted)
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d17
     full_name: Grove Button D17
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d17_inv
     full_name: Grove Button D17 (inverted)
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d18
     full_name: Grove Button D18
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d18_inv
     full_name: Grove Button D18 (inverted)
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d19
     full_name: Grove Button D19
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d19_inv
     full_name: Grove Button D19 (inverted)
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d20
     full_name: Grove Button D20
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d20_inv
     full_name: Grove Button D20 (inverted)
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d21
     full_name: Grove Button D21
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d21_inv
     full_name: Grove Button D21 (inverted)
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d22
     full_name: Grove Button D22
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d22_inv
     full_name: Grove Button D22 (inverted)
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d23
     full_name: Grove Button D23
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d23_inv
     full_name: Grove Button D23 (inverted)
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d24
     full_name: Grove Button D24
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d24_inv
     full_name: Grove Button D24 (inverted)
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d25
     full_name: Grove Button D25
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d25_inv
     full_name: Grove Button D25 (inverted)
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d26
     full_name: Grove Button D26
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d26_inv
     full_name: Grove Button D26 (inverted)
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d27
     full_name: Grove Button D27
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d27_inv
     full_name: Grove Button D27 (inverted)
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d28
     full_name: Grove Button D28
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d28_inv
     full_name: Grove Button D28 (inverted)
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d29
     full_name: Grove Button D29
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d29_inv
     full_name: Grove Button D29 (inverted)
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d30
     full_name: Grove Button D30
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d30_inv
     full_name: Grove Button D30 (inverted)
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d31
     full_name: Grove Button D31
     vendor: seeed
     supported_features:
+      - gpio
       - input
 
   - name: grove_btn_d31_inv
     full_name: Grove Button D31 (inverted)
     vendor: seeed
     supported_features:
+      - gpio
       - input
