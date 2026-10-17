@@ -1,4 +1,4 @@
-# Copyright (c) 2023 TiaC Systems
+# SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 description: |
@@ -19,6 +19,14 @@ description: |
            (red) - VCC  (3V3 or 5V0)
          (black) - GND
 
-compatible: "adafruit,stemmaqt-connector"
+    STEMMA, Grove, Qwiic, and Gravity connectors are similar to this,
+    but the connector form and VCC voltage are different. Please see
+    https://learn.adafruit.com/introducing-adafruit-stemma-qt/stemma-qt-comparison
+
+    Use STEMMA_QT_* constants in
+    <zephyr/dt-bindings/gpio/stemma-qt-connector.h> to refer to specific
+    pins using convenient constant names.
+
+compatible: "adafruit,stemma-qt-connector"
 
 include: [gpio-nexus.yaml, base.yaml]
