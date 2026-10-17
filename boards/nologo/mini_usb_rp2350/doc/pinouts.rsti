@@ -84,6 +84,7 @@ this from outside the board.
 
        - :dtcompatible:`nologo,miniusb-header`
        - :dtcompatible:`nologo,miniusb-pcbpads`
+       - :dtcompatible:`adafruit,stemma-qt-connector`
        - :dtcompatible:`worldsemi,ws2812-rpi_pico-pio`
 
      - .. image:: img/pinouts.jpg
