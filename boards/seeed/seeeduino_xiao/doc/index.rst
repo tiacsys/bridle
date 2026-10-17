@@ -20,7 +20,7 @@ List of extensions
 
   - :code:`adc`
   - :code:`pwm`
-  - :code:`usb_cdc`
+  - :code:`usbd`
   - :code:`xiao_dac`
 
 .. rubric:: Kconfig

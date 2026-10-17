@@ -18,8 +18,7 @@ List of extensions
 - add the missing features that this board supports and
   that Twister tests might depends on:
 
-  - :code:`usb_device`
-  - :code:`usb_cdc`
+  - :code:`usbd`
   - :code:`xiao_adc`
 
 .. rubric:: Kconfig

@@ -22,8 +22,7 @@ List of extensions
   - :code:`rpipico_i2c`
   - :code:`rpipico_spi`
   - :code:`rpipico_serial`
-  - :code:`usb_device`
-  - :code:`usb_cdc`
+  - :code:`usbd`
 
 .. rubric:: Kconfig
 
