@@ -1,9 +1,5 @@
-# Copyright (c) 2024 TiaC Systems
+# SPDX-FileCopyrightText: Copyright (c) 2024-2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 config SHIELD_WAVESHARE_PICO_ENVIRONMENT_SENSOR
 	def_bool $(shields_list_contains,waveshare_pico_environment_sensor)
-
-config MPU9250_MAGN_EN
-	default y if DT_HAS_INVENSENSE_MPU9250_ENABLED
-	depends on SHIELD_WAVESHARE_PICO_ENVIRONMENT_SENSOR && SENSOR
