@@ -1,0 +1,13 @@
+# SPDX-FileCopyrightText: Copyright (c) 2024-2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+shield:
+  name: x_nxp_sc18is604_evb
+  full_name: NXP SC18IS604-EVB Interconnection Shield
+  vendor: tiac
+  supported_features:
+    - gpio
+    - eeprom
+    - i2c
+    - led
+    - pwm
