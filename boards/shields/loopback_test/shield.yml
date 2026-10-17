@@ -1,0 +1,25 @@
+# SPDX-FileCopyrightText: Copyright (c) 2021-2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+shields:
+  - name: loopback_test
+    full_name: Loopback wiring for tests
+    vendor: tiac
+    supported_features:
+      - adc
+      - gpio
+      - i2c
+      - pwm
+      - spi
+      - uart
+
+  - name: loopback_test_tmph
+    full_name: Loopback wiring for tests (TiaC MAGPIE Pin Header)
+    vendor: tiac
+    supported_features:
+      - adc
+      - gpio
+      - i2c
+      - pwm
+      - spi
+      - uart

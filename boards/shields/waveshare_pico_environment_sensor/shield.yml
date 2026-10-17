@@ -1,0 +1,9 @@
+# SPDX-FileCopyrightText: Copyright (c) 2024-2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+shield:
+  name: waveshare_pico_environment_sensor
+  full_name: Waveshare Pico Environment Sensor
+  vendor: waveshare
+  supported_features:
+    - sensor

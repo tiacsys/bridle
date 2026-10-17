@@ -15,6 +15,7 @@ grove_uart_header: &grove_i2c_header {};	/* UART1-RX/TX is on I2C0-SCL/SDA */
 grove_d20_header: &grove_i2c_header {};		/* D20 is on I2C header pin 2 */
 grove_d21_header: &grove_d20_header {};		/* D21 is on D20 header pin 1 */
 
+#include <zephyr/dt-bindings/gpio/grove-connector.h>
 #include <zephyr/dt-bindings/gpio/grove-laced-if.h>
 
 / {
@@ -45,8 +46,8 @@ grove_d21_header: &grove_d20_header {};		/* D21 is on D20 header pin 1 */
 			/* 17 - GP17: not wired */
 			/* 18 - GP18: not wired */
 			/* 19 - GP19: not wired */
-			<GROVE_LIF_L20 0 &grove_i2c_header 1 0>,/* GP20: I2C0-SDA as GPIO */
-			<GROVE_LIF_L21 0 &grove_i2c_header 0 0>;/* GP21: I2C0-SCL as GPIO */
+			<GROVE_LIF_L20 0 &grove_i2c_header GROVE_D1 0>, /* I2C0-SDA as GPIO */
+			<GROVE_LIF_L21 0 &grove_i2c_header GROVE_D0 0>; /* I2C0-SCL as GPIO */
 			/* 22 - GP22: not wired */
 			/* 23 - GP23: not wired */
 			/* 24 - GP24: not wired */

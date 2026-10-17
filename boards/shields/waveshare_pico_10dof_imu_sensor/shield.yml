@@ -1,0 +1,15 @@
+# SPDX-FileCopyrightText: Copyright (c) 2024-2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+shields:
+  - name: waveshare_pico_10dof_imu_sensor_r2
+    full_name: Waveshare Pico 10-DOF IMU Sensor (Rev 2.1)
+    vendor: waveshare
+    supported_features:
+      - sensor
+
+  - name: waveshare_pico_10dof_imu_sensor_r1
+    full_name: Waveshare Pico 10-DOF IMU Sensor (Rev 1)
+    vendor: waveshare
+    supported_features:
+      - sensor

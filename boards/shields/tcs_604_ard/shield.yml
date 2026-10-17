@@ -1,0 +1,10 @@
+# SPDX-FileCopyrightText: Copyright (c) 2024-2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+shield:
+  name: tcs_604_ard
+  full_name: TiaC SC18IS604 Arduino
+  vendor: tiac
+  supported_features:
+    - gpio
+    - i2c
