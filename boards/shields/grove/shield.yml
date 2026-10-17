@@ -5,15 +5,41 @@ shields:
   - name: seeed_grove_base_v2
     full_name: Grove Base Shield V2
     vendor: seeed
+    supported_features:
+      - adc
+      - gpio
+      - i2c
+      - pwm
+      - uart
 
   - name: seeed_grove_base_v1
     full_name: Grove Base Shield V1
     vendor: seeed
+    supported_features:
+      - adc
+      - gpio
+      - i2c
+      - pwm
+      - spi
+      - uart
 
   - name: seeed_grove_xiao_v1
     full_name: Grove Base Shield for XIAO V1
     vendor: seeed
+    supported_features:
+      - adc
+      - gpio
+      - i2c
+      - pwm
+      - uart
 
   - name: seeed_grove_rpipico_v1
     full_name: Grove Shield for Pi Pico V1
     vendor: seeed
+    supported_features:
+      - adc
+      - gpio
+      - i2c
+      - pwm
+      - spi
+      - uart
