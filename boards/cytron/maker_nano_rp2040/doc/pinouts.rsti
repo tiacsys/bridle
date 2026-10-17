@@ -108,9 +108,9 @@ digital signal lines. Also all IO voltage levels are limited to 3.3V only.
        .. rubric:: Devicetree compatible
 
        - :dtcompatible:`arduino-nano-header`
-       - :dtcompatible:`stemma-qt-connector`
        - :dtcompatible:`seeed,grove-laced-if`
        - :dtcompatible:`seeed,grove-connector`
+       - :dtcompatible:`adafruit,stemma-qt-connector`
        - :dtcompatible:`worldsemi,ws2812-rpi_pico-pio`
 
      - .. image:: img/pinouts.jpg
