@@ -1,7 +1,10 @@
 /*
- * Copyright (c) 2023 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
+
+#include <zephyr/dt-bindings/gpio/grove-connector.h>
+#include <zephyr/dt-bindings/gpio/arduino-header-r3.h>
 
 / {
 	grove_a3_header: grove-a3-connector {
@@ -9,7 +12,7 @@
 		#gpio-cells = <2>;
 		gpio-map-mask = <0xffffffff 0xffffffc0>;
 		gpio-map-pass-thru = <0 0x3f>;
-		gpio-map = <0 0 &arduino_header 3 0>,	/* A3 */
-			   <1 0 &arduino_header 4 0>;	/* A4 */
+		gpio-map = <GROVE_A0 0 &arduino_header ARDUINO_HEADER_R3_A3 0>, /* A3 */
+			   <GROVE_A1 0 &arduino_header ARDUINO_HEADER_R3_A4 0>; /* A4 */
 	};
 };

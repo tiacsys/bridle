@@ -1,29 +1,29 @@
 /*
- * Copyright (c) 2026 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
+#include <zephyr/dt-bindings/gpio/grove-laced-if.h>
 
 / {
 	grove_laced_if_v1: grove-laced-if-v1 {
-
 		compatible = "seeed,grove-laced-if";
 
 		#pwm-cells = <3>;
 		pwm-map-mask = <0xffffffff 0 0xffffffc0>;
 		pwm-map-pass-thru = <0 0xffffffff 0x3f>;
 		pwm-map =
-			<0 0 0 &pwm 10 0 0>,	/* D0: PWM5CHA (10), pin header */
-			<1 0 0 &pwm 11 0 0>,	/* D1: PWM5CHB (11), pin header */
-			<2 0 0 &pwm 12 0 0>,	/* D2: PWM6CHA (12), pin header */
-			<3 0 0 &pwm 13 0 0>,	/* D3: PWM6CHB (13), pin header */
-			<4 0 0 &pwm 6 0 0>,	/* D4: PWM3CHA (6), pin header */
-			<5 0 0 &pwm 7 0 0>,	/* D5: PWM3CHB (7), pin header */
-			<6 0 0 &pwm 0 0 0>,	/* D6: PWM0CHA (0), pin header */
-			<7 0 0 &pwm 1 0 0>,	/* D7: PWM0CHB (1), pin header */
-			<8 0 0 &pwm 2 0 0>,	/* D8: PWM1CHA (2), pin header */
-			<9 0 0 &pwm 4 0 0>,	/* D9: PWM2CHA (4), pin header */
-			<10 0 0 &pwm 3 0 0>;	/* D10: PWM1CHB (3), pin header */
+			<GROVE_LIF_L0 0 0 &pwm 10 0 0>,	/* D0: PWM5CHA (10), pin header */
+			<GROVE_LIF_L1 0 0 &pwm 11 0 0>,	/* D1: PWM5CHB (11), pin header */
+			<GROVE_LIF_L2 0 0 &pwm 12 0 0>,	/* D2: PWM6CHA (12), pin header */
+			<GROVE_LIF_L3 0 0 &pwm 13 0 0>,	/* D3: PWM6CHB (13), pin header */
+			<GROVE_LIF_L4 0 0 &pwm 6 0 0>,	/* D4: PWM3CHA (6), pin header */
+			<GROVE_LIF_L5 0 0 &pwm 7 0 0>,	/* D5: PWM3CHB (7), pin header */
+			<GROVE_LIF_L6 0 0 &pwm 0 0 0>,	/* D6: PWM0CHA (0), pin header */
+			<GROVE_LIF_L7 0 0 &pwm 1 0 0>,	/* D7: PWM0CHB (1), pin header */
+			<GROVE_LIF_L8 0 0 &pwm 2 0 0>,	/* D8: PWM1CHA (2), pin header */
+			<GROVE_LIF_L9 0 0 &pwm 4 0 0>,	/* D9: PWM2CHA (4), pin header */
+			<GROVE_LIF_L10 0 0 &pwm 3 0 0>;	/* D10: PWM1CHB (3), pin header */
 	};
 };
 

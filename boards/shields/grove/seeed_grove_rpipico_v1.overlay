@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2023 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
 #include <bridle/dt-bindings/seeed_grove_pwms_defaults.h>
 
-#include "seeed_grove_rpipico/grove_spi_connector.dtsi"
+#include "seeed_grove_rpipico/generic_spi_connector.dtsi"
 
 #include "seeed_grove_rpipico/grove_a0_connector.dtsi"
 #include "seeed_grove_rpipico/grove_a1_connector.dtsi"
@@ -19,44 +19,46 @@
 #include "seeed_grove_rpipico/grove_d18_connector.dtsi"
 #include "seeed_grove_rpipico/grove_d20_connector.dtsi"
 
+#include <zephyr/dt-bindings/gpio/grove-connector.h>
+#include <zephyr/dt-bindings/gpio/grove-laced-if.h>
+
 / {
 	grove_laced_if_v1: grove-laced-if-v1 {
-
 		compatible = "seeed,grove-laced-if";
 
 		#gpio-cells = <2>;
 		gpio-map-mask = <0xffffffff 0xffffffc0>;
 		gpio-map-pass-thru = <0 0x3f>;
 		gpio-map =
-			<0 0 &grove_uart0_header 1 0>,	/* D0: UART0-TX as GPIO */
-			<1 0 &grove_uart0_header 0 0>,	/* D1: UART0-RX as GPIO */
-			<2 0 &generic_spi_header 3 0>,	/* D2: SPI0-CLK as GPIO */
-			<3 0 &generic_spi_header 2 0>,	/* D3: SPI0-MOSI as GPIO */
-			<4 0 &grove_uart1_header 1 0>,	/* D4: UART1-TX / SPI0-MISO as GPIO */
-			<5 0 &grove_uart1_header 0 0>,	/* D5: UART1-RX / SPI0-CS as GPIO */
-			<6 0 &grove_i2c1_header 1 0>,	/* D6: I2C1-SDA as GPIO */
-			<7 0 &grove_i2c1_header 0 0>,	/* D7: I2C1-SCL as GPIO */
-			<8 0 &grove_i2c0_header 1 0>,	/* D8: I2C0-SDA as GPIO */
-			<9 0 &grove_i2c0_header 0 0>,	/* D9: I2C0-SCL as GPIO */
+			<GROVE_LIF_L0 0 &grove_uart0_header GROVE_D1 0>, /* D0: UART0-TX as GPIO */
+			<GROVE_LIF_L1 0 &grove_uart0_header GROVE_D0 0>, /* D1: UART0-RX as GPIO */
+			<GROVE_LIF_L2 0 &generic_spi_header 3 0>,        /* D2: SPI0-CLK as GPIO */
+			<GROVE_LIF_L3 0 &generic_spi_header 2 0>,        /* D3: SPI0-MOSI as GPIO */
+			<GROVE_LIF_L4 0 &generic_spi_header 1 0>,        /* D4: SPI0-MISO as GPIO */
+			<GROVE_LIF_L5 0 &generic_spi_header 0 0>,        /* D5: SPI0-CS as GPIO */
+			<GROVE_LIF_L6 0 &grove_i2c1_header GROVE_D1 0>,  /* D6: I2C1-SDA as GPIO */
+			<GROVE_LIF_L7 0 &grove_i2c1_header GROVE_D0 0>,  /* D7: I2C1-SCL as GPIO */
+			<GROVE_LIF_L8 0 &grove_i2c0_header GROVE_D1 0>,  /* D8: I2C0-SDA as GPIO */
+			<GROVE_LIF_L9 0 &grove_i2c0_header GROVE_D0 0>,  /* D9: I2C0-SCL as GPIO */
 			/* 10 - D10: not wired */
 			/* 11 - D11: not wired */
 			/* 12 - D12: not wired */
 			/* 13 - D13: not wired */
 			/* 14 - D14: not wired */
 			/* 15 - D15: not wired */
-			<16 0 &grove_d16_header 0 0>,	/* D16: GP16 as GPIO */
-			<17 0 &grove_d16_header 1 0>,	/* D17: GP17 as GPIO */
-			<18 0 &grove_d18_header 0 0>,	/* D18: GP18 as GPIO */
-			<19 0 &grove_d18_header 1 0>,	/* D19: GP19 as GPIO */
-			<20 0 &grove_d20_header 0 0>,	/* D20: GP20 as GPIO */
-			<21 0 &grove_d20_header 1 0>,	/* D21: GP21 as GPIO */
+			<GROVE_LIF_L16 0 &grove_d16_header GROVE_D0 0>,  /* D16: GPIO */
+			<GROVE_LIF_L17 0 &grove_d16_header GROVE_D1 0>,  /* D17: GPIO */
+			<GROVE_LIF_L18 0 &grove_d18_header GROVE_D0 0>,  /* D18: GPIO */
+			<GROVE_LIF_L19 0 &grove_d18_header GROVE_D1 0>,  /* D19: GPIO */
+			<GROVE_LIF_L20 0 &grove_d20_header GROVE_D0 0>,  /* D20: GPIO */
+			<GROVE_LIF_L21 0 &grove_d20_header GROVE_D1 0>,  /* D21: GPIO */
 			/* 22 - D22: not wired */
 			/* 23 - D23: not wired */
 			/* 24 - D24: not wired */
 			/* 25 - D25: not wired */
-			<26 0 &grove_a0_header 0 0>,	/* D26: ADC0 as GPIO */
-			<27 0 &grove_a1_header 0 0>,	/* D27: ADC1 as GPIO */
-			<28 0 &grove_a2_header 0 0>;	/* D28: ADC2 as GPIO */
+			<GROVE_LIF_L26 0 &grove_a0_header GROVE_D0 0>,   /* D26: ADC0 as GPIO */
+			<GROVE_LIF_L27 0 &grove_a1_header GROVE_D0 0>,   /* D27: ADC1 as GPIO */
+			<GROVE_LIF_L28 0 &grove_a2_header GROVE_D0 0>;   /* D28: ADC2 as GPIO */
 
 		#pwm-cells = <3>;
 		pwm-map-mask = <0xffffffff 0 0>;

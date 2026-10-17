@@ -1,11 +1,12 @@
 /*
- * Copyright (c) 2023 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
+#include <zephyr/dt-bindings/gpio/grove-laced-if.h>
+
 / {
 	grove_laced_if_v2: grove-laced-if-v2 {
-
 		compatible = "seeed,grove-laced-if";
 
 		#pwm-cells = <3>;
@@ -20,8 +21,8 @@
 			/*  5 - D5: not possible */
 			/*  6 - D6: not possible */
 			/*  7 - D7: not possible */
-			<8 0 0 &flexpwm1_pwm0 0 0 0>,	/* D8: PWM1A0 */
-			<9 0 0 &flexpwm1_pwm1 1 0 0>;	/* D9: PWM1B1 */
+			<GROVE_LIF_L8 0 0 &flexpwm1_pwm0 0 0 0>, /* D8: PWM1A0 */
+			<GROVE_LIF_L9 0 0 &flexpwm1_pwm1 1 0 0>; /* D9: PWM1B1 */
 			/* 10 - D10: not wired */
 			/* 11 - D11: not wired */
 			/* 12 - D12: not wired */

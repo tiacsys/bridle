@@ -1,13 +1,13 @@
 /*
- * Copyright (c) 2023-2026 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
+#include <zephyr/dt-bindings/gpio/grove-laced-if.h>
 #include <zephyr/dt-bindings/pwm/stm32_pwm.h>
 
 / {
 	grove_laced_if_v1: grove-laced-if-v1 {
-
 		compatible = "seeed,grove-laced-if";
 
 		#pwm-cells = <3>;
@@ -16,25 +16,25 @@
 		pwm-map =
 			/*  0 - D0: not possible */
 			/*  1 - D1: not possible */
-			<2 0 0 &pwm1 3 0 0>,		/* D2: PWM1CH3 */
-			<3 0 0 &pwm2 2 0 0>,		/* D3: PWM2CH2 */
+			<GROVE_LIF_L2 0 0 &pwm1 3 0 0>,   /* D2: PWM1CH3 */
+			<GROVE_LIF_L3 0 0 &pwm2 2 0 0>,   /* D3: PWM2CH2 */
 			/*  4 - D4: not possible */
-			<5 0 0 &pwm3 1 0 0>,		/* D5: PWM3CH1 */
-			<6 0 0 &pwm2 3 0 0>,		/* D6: PWM2CH3 */
-			<7 0 0 &pwm1 1 0 0>,		/* D7: PWM1CH1 */
-			<8 0 0 &pwm1 2 0 0>,		/* D8: PWM1CH2 */
-			<9 0 0 &pwm3 2 0 0>,		/* D9: PWM3CH2 */
-			<10 0 0 &pwm4 1 0 0>,		/* D10: PWM4CH1 */
-			<11 0 0 &pwm1 1 0
-			 STM32_PWM_COMPLEMENTARY>,	/* D11: PWM1CH1N */
+			<GROVE_LIF_L5 0 0 &pwm3 1 0 0>,   /* D5: PWM3CH1 */
+			<GROVE_LIF_L6 0 0 &pwm2 3 0 0>,   /* D6: PWM2CH3 */
+			<GROVE_LIF_L7 0 0 &pwm1 1 0 0>,   /* D7: PWM1CH1 */
+			<GROVE_LIF_L8 0 0 &pwm1 2 0 0>,   /* D8: PWM1CH2 */
+			<GROVE_LIF_L9 0 0 &pwm3 2 0 0>,   /* D9: PWM3CH2 */
+			<GROVE_LIF_L10 0 0 &pwm4 1 0 0>,  /* D10: PWM4CH1 */
+			<GROVE_LIF_L11 0 0 &pwm1 1 0
+			 STM32_PWM_COMPLEMENTARY>,        /* D11: PWM1CH1N */
 			/* 12 - D12: not possible */
-			<13 0 0 &pwm2 1 0 0>,		/* D13: PWM2CH1 */
+			<GROVE_LIF_L13 0 0 &pwm2 1 0 0>,  /* D13: PWM2CH1 */
 			/* 14 - D14: not possible */
 			/* 15 - D15: not possible */
 			/* 16 - D16: not possible */
 			/* 17 - D17: not possible */
-			<18 0 0 &pwm11 1 0 0>,		/* D18: I2C-SDA as PWM11CH1 */
-			<19 0 0 &pwm10 1 0 0>;		/* D19: I2C-SCL as PWM10CH1 */
+			<GROVE_LIF_L18 0 0 &pwm11 1 0 0>, /* D18: I2C-SDA as PWM11CH1 */
+			<GROVE_LIF_L19 0 0 &pwm10 1 0 0>; /* D19: I2C-SCL as PWM10CH1 */
 	};
 };
 

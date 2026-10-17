@@ -1,43 +1,47 @@
 /*
- * Copyright (c) 2023 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
+#include <zephyr/dt-bindings/gpio/grove-laced-if.h>
+
 / {
 	grove_laced_if_v1: grove-laced-if-v1 {
-
 		compatible = "seeed,grove-laced-if";
 
 		#pwm-cells = <3>;
 		pwm-map-mask = <0xffffffff 0 0xffffffc0>;
 		pwm-map-pass-thru = <0 0xffffffff 0x3f>;
 		pwm-map =
-			/*  0 - GP0: not possible */
-			/*  1 - GP1: not possible */
-			/*  2 - GP2: not possible */
-			/*  3 - GP3: not possible */
-			/*  4 - GP4: not possible */
-			/*  5 - GP5: not possible */
-			/*  6 - GP6: not possible */
-			/*  7 - GP7: not possible */
-			/*  8 - GP8: not possible */
-			/*  9 - GP9: not possible */
-			<10 0 0 &pwm 10 0 0>,	/* GP10: PWM5CHA (10), pin header */
-			<11 0 0 &pwm 11 0 0>,	/* GP11: PWM5CHB (11), pin header */
-			<12 0 0 &pwm 12 0 0>,	/* GP12: PWM6CHA (12), pin header */
-			<13 0 0 &pwm 13 0 0>,	/* GP13: PWM6CHB (13), pin header */
-			<14 0 0 &pwm 14 0 0>,	/* GP14: PWM7CHA (14), pin header */
-			<15 0 0 &pwm 15 0 0>,	/* GP15: PWM7CHB (15), pin header */
-			<16 0 0 &pwm 0 0 0>,	/* GP16: PWM0CHA (0) */
-			<17 0 0 &pwm 1 0 0>,	/* GP17: PWM0CHB (1) */
-			<18 0 0 &pwm 2 0 0>,	/* GP18: PWM1CHA (2) */
-			<19 0 0 &pwm 3 0 0>,	/* GP19: PWM1CHB (3) */
-			<20 0 0 &pwm 4 0 0>,	/* GP20: PWM2CHA (4) */
-			<21 0 0 &pwm 5 0 0>,	/* GP21: PWM2CHB (5) */
-			<22 0 0 &pwm 6 0 0>,	/* GP22: PWM3CHA (6), pin header */
-			/* 23 - GP23: not possible */
-			/* 24 - GP24: not possible */
-			<25 0 0 &pwm 9 0 0>;	/* GP25: PWM4CHB (9), on-board LED */
+			/*  0 - D0: not possible */
+			/*  1 - D1: not possible */
+			/*  2 - D2: not possible */
+			/*  3 - D3: not possible */
+			/*  4 - D4: not possible */
+			/*  5 - D5: not possible */
+			/*  6 - D6: not possible */
+			/*  7 - D7: not possible */
+			/*  8 - D8: not possible */
+			/*  9 - D9: not possible */
+			<GROVE_LIF_L10 0 0 &pwm 10 0 0>, /* D10: PWM5CHA (10), pin header */
+			<GROVE_LIF_L11 0 0 &pwm 11 0 0>, /* D11: PWM5CHB (11), pin header */
+			<GROVE_LIF_L12 0 0 &pwm 12 0 0>, /* D12: PWM6CHA (12), pin header */
+			<GROVE_LIF_L13 0 0 &pwm 13 0 0>, /* D13: PWM6CHB (13), pin header */
+			<GROVE_LIF_L14 0 0 &pwm 14 0 0>, /* D14: PWM7CHA (14), pin header */
+			<GROVE_LIF_L15 0 0 &pwm 15 0 0>, /* D15: PWM7CHB (15), pin header */
+			<GROVE_LIF_L16 0 0 &pwm 0 0 0>,  /* D16: PWM0CHA (0) */
+			<GROVE_LIF_L17 0 0 &pwm 1 0 0>,  /* D17: PWM0CHB (1) */
+			<GROVE_LIF_L18 0 0 &pwm 2 0 0>,  /* D18: PWM1CHA (2) */
+			<GROVE_LIF_L19 0 0 &pwm 3 0 0>,  /* D19: PWM1CHB (3) */
+			<GROVE_LIF_L20 0 0 &pwm 4 0 0>,  /* D20: PWM2CHA (4) */
+			<GROVE_LIF_L21 0 0 &pwm 5 0 0>,  /* D21: PWM2CHB (5) */
+			<GROVE_LIF_L22 0 0 &pwm 6 0 0>,  /* D22: PWM3CHA (6), pin header */
+			/* 23 - D23: not possible */
+			/* 24 - D24: not possible */
+			<GROVE_LIF_L25 0 0 &pwm 9 0 0>;  /* D25: PWM4CHB (9), on-board LED */
+			/* 26 - D26: not possible */
+			/* 27 - D27: not possible */
+			/* 28 - D28: not possible */
 	};
 };
 

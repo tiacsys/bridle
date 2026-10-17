@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2024-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -13,26 +13,28 @@
 #include "seeed_grove_xiao/grove_d8_connector.dtsi"
 #include "seeed_grove_xiao/grove_d9_connector.dtsi"
 
+#include <zephyr/dt-bindings/gpio/grove-connector.h>
+#include <zephyr/dt-bindings/gpio/grove-laced-if.h>
+
 / {
 	grove_laced_if_v1: grove-laced-if-v1 {
-
 		compatible = "seeed,grove-laced-if";
 
 		#gpio-cells = <2>;
 		gpio-map-mask = <0xffffffff 0xffffffc0>;
 		gpio-map-pass-thru = <0 0x3f>;
 		gpio-map =
-			<0 0 &grove_d0_header 0 0>,	/* D0: A0 as GPIO */
-			<1 0 &grove_d1_header 0 0>,	/* D1: A1 as GPIO */
-			<2 0 &grove_d2_header 0 0>,	/* D2: A2 / SPI-CS as GPIO */
-			<3 0 &grove_d2_header 1 0>,	/* D3: A3 as GPIO */
-			<4 0 &grove_i2c_header 1 0>,	/* D4: A4 / I2C-SDA as GPIO */
-			<5 0 &grove_i2c_header 0 0>,	/* D5: A5 / I2C-SCL as GPIO */
-			<6 0 &grove_uart_header 1 0>,	/* D6: A6 / UART-TX as GPIO */
-			<7 0 &grove_uart_header 0 0>,	/* D7: A7 / UART-RX as GPIO */
-			<8 0 &grove_d8_header 0 0>,	/* D8: A8 / SPI-CLK as GPIO */
-			<9 0 &grove_d9_header 0 0>,	/* D9: A9 / SPI-MISO as GPIO */
-			<10 0 &grove_d9_header 1 0>;	/* D10: A10 / SPI-MOSI as GPIO */
+			<GROVE_LIF_L0 0 &grove_d0_header GROVE_D0 0>,   /* D0: A0 as GPIO */
+			<GROVE_LIF_L1 0 &grove_d1_header GROVE_D0 0>,   /* D1: A1 as GPIO */
+			<GROVE_LIF_L2 0 &grove_d2_header GROVE_D0 0>,   /* D2: A2 as GPIO */
+			<GROVE_LIF_L3 0 &grove_d2_header GROVE_D1 0>,   /* D3: A3 as GPIO */
+			<GROVE_LIF_L4 0 &grove_i2c_header GROVE_D1 0>,  /* D4: I2C-SDA as GPIO */
+			<GROVE_LIF_L5 0 &grove_i2c_header GROVE_D0 0>,  /* D5: I2C-SCL as GPIO */
+			<GROVE_LIF_L6 0 &grove_uart_header GROVE_D1 0>, /* D6: UART-TX as GPIO */
+			<GROVE_LIF_L7 0 &grove_uart_header GROVE_D0 0>, /* D7: UART-RX as GPIO */
+			<GROVE_LIF_L8 0 &grove_d8_header GROVE_D0 0>,   /* D8: SPI-CLK as GPIO */
+			<GROVE_LIF_L9 0 &grove_d9_header GROVE_D0 0>,   /* D9: SPI-MISO as GPIO */
+			<GROVE_LIF_L10 0 &grove_d9_header GROVE_D1 0>;  /* D10: SPI-MOSI as GPIO */
 
 		#pwm-cells = <3>;
 		pwm-map-mask = <0xffffffff 0 0>;

@@ -1,0 +1,29 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/gpio/raspberrypi-pico-header-r3.h>
+
+/ {
+	generic_spi_header: generic-spi-connector {
+		/*
+		 * SPI0 on 2x3 pin generic header
+		 *
+		 *         .---.
+		 * GND - --|o o|-- 3 SCK
+		 * 3V3 - --|o o|-- 2 MOSI
+		 *  CS 0 --|o o|-- 1 MISO
+		 *         `---´
+		 */
+		compatible = "generic-pin-header";
+
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map = <0 0 &rpipico_header RPIPICO_HEADER_R3_D5 0>, /* SPI0-CS (UART1-RX) */
+			   <1 0 &rpipico_header RPIPICO_HEADER_R3_D4 0>, /* SPI0-MISO (UART1-TX) */
+			   <2 0 &rpipico_header RPIPICO_HEADER_R3_D3 0>, /* SPI0-MOSI */
+			   <3 0 &rpipico_header RPIPICO_HEADER_R3_D2 0>; /* SPI0-CLK */
+	};
+};

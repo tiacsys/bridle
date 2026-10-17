@@ -1,7 +1,10 @@
 /*
- * Copyright (c) 2023 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
+
+#include <zephyr/dt-bindings/gpio/grove-connector.h>
+#include <zephyr/dt-bindings/gpio/raspberrypi-pico-header-r3.h>
 
 / {
 	grove_a2_header: grove-a2-connector {
@@ -9,7 +12,7 @@
 		#gpio-cells = <2>;
 		gpio-map-mask = <0xffffffff 0xffffffc0>;
 		gpio-map-pass-thru = <0 0x3f>;
-		gpio-map = <0 0 &rpipico_header 25 0>,	/* ADC2 / GP28 */
-			   <1 0 &rpipico_header 26 0>;	/* ADC1 / GP27 */
+		gpio-map = <GROVE_A0 0 &rpipico_header RPIPICO_HEADER_R3_A2 0>, /* ADC2 */
+			   <GROVE_A1 0 &rpipico_header RPIPICO_HEADER_R3_A1 0>; /* ADC1 */
 	};
 };
