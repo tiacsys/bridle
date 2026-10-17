@@ -6,6 +6,7 @@ shields:
     full_name: Grove LED D0 (digital)
     vendor: seeed
     supported_features:
+      - gpio
       - led
 
   - name: grove_pwm_led_d0
@@ -13,11 +14,13 @@ shields:
     vendor: seeed
     supported_features:
       - led
+      - pwm
 
   - name: grove_led_d1
     full_name: Grove LED D1 (digital)
     vendor: seeed
     supported_features:
+      - gpio
       - led
 
   - name: grove_pwm_led_d1
@@ -25,11 +28,13 @@ shields:
     vendor: seeed
     supported_features:
       - led
+      - pwm
 
   - name: grove_led_d2
     full_name: Grove LED D2 (digital)
     vendor: seeed
     supported_features:
+      - gpio
       - led
 
   - name: grove_pwm_led_d2
@@ -37,11 +42,13 @@ shields:
     vendor: seeed
     supported_features:
       - led
+      - pwm
 
   - name: grove_led_d3
     full_name: Grove LED D3 (digital)
     vendor: seeed
     supported_features:
+      - gpio
       - led
 
   - name: grove_pwm_led_d3
@@ -49,11 +56,13 @@ shields:
     vendor: seeed
     supported_features:
       - led
+      - pwm
 
   - name: grove_led_d4
     full_name: Grove LED D4 (digital)
     vendor: seeed
     supported_features:
+      - gpio
       - led
 
   - name: grove_pwm_led_d4
@@ -61,11 +70,13 @@ shields:
     vendor: seeed
     supported_features:
       - led
+      - pwm
 
   - name: grove_led_d5
     full_name: Grove LED D5 (digital)
     vendor: seeed
     supported_features:
+      - gpio
       - led
 
   - name: grove_pwm_led_d5
@@ -73,11 +84,13 @@ shields:
     vendor: seeed
     supported_features:
       - led
+      - pwm
 
   - name: grove_led_d6
     full_name: Grove LED D6 (digital)
     vendor: seeed
     supported_features:
+      - gpio
       - led
 
   - name: grove_pwm_led_d6
@@ -85,11 +98,13 @@ shields:
     vendor: seeed
     supported_features:
       - led
+      - pwm
 
   - name: grove_led_d7
     full_name: Grove LED D7 (digital)
     vendor: seeed
     supported_features:
+      - gpio
       - led
 
   - name: grove_pwm_led_d7
@@ -97,11 +112,13 @@ shields:
     vendor: seeed
     supported_features:
       - led
+      - pwm
 
   - name: grove_led_d8
     full_name: Grove LED D8 (digital)
     vendor: seeed
     supported_features:
+      - gpio
       - led
 
   - name: grove_pwm_led_d8
@@ -109,11 +126,13 @@ shields:
     vendor: seeed
     supported_features:
       - led
+      - pwm
 
   - name: grove_led_d9
     full_name: Grove LED D9 (digital)
     vendor: seeed
     supported_features:
+      - gpio
       - led
 
   - name: grove_pwm_led_d9
@@ -121,11 +140,13 @@ shields:
     vendor: seeed
     supported_features:
       - led
+      - pwm
 
   - name: grove_led_d10
     full_name: Grove LED D10 (digital)
     vendor: seeed
     supported_features:
+      - gpio
       - led
 
   - name: grove_pwm_led_d10
@@ -133,11 +154,13 @@ shields:
     vendor: seeed
     supported_features:
       - led
+      - pwm
 
   - name: grove_led_d11
     full_name: Grove LED D11 (digital)
     vendor: seeed
     supported_features:
+      - gpio
       - led
 
   - name: grove_pwm_led_d11
@@ -145,11 +168,13 @@ shields:
     vendor: seeed
     supported_features:
       - led
+      - pwm
 
   - name: grove_led_d12
     full_name: Grove LED D12 (digital)
     vendor: seeed
     supported_features:
+      - gpio
       - led
 
   - name: grove_pwm_led_d12
@@ -157,11 +182,13 @@ shields:
     vendor: seeed
     supported_features:
       - led
+      - pwm
 
   - name: grove_led_d13
     full_name: Grove LED D13 (digital)
     vendor: seeed
     supported_features:
+      - gpio
       - led
 
   - name: grove_pwm_led_d13
@@ -169,11 +196,13 @@ shields:
     vendor: seeed
     supported_features:
       - led
+      - pwm
 
   - name: grove_led_d14
     full_name: Grove LED D14 (digital)
     vendor: seeed
     supported_features:
+      - gpio
       - led
 
   - name: grove_pwm_led_d14
@@ -181,11 +210,13 @@ shields:
     vendor: seeed
     supported_features:
       - led
+      - pwm
 
   - name: grove_led_d15
     full_name: Grove LED D15 (digital)
     vendor: seeed
     supported_features:
+      - gpio
       - led
 
   - name: grove_pwm_led_d15
@@ -193,11 +224,13 @@ shields:
     vendor: seeed
     supported_features:
       - led
+      - pwm
 
   - name: grove_led_d16
     full_name: Grove LED D16 (digital)
     vendor: seeed
     supported_features:
+      - gpio
       - led
 
   - name: grove_pwm_led_d16
@@ -205,11 +238,13 @@ shields:
     vendor: seeed
     supported_features:
       - led
+      - pwm
 
   - name: grove_led_d17
     full_name: Grove LED D17 (digital)
     vendor: seeed
     supported_features:
+      - gpio
       - led
 
   - name: grove_pwm_led_d17
@@ -217,11 +252,13 @@ shields:
     vendor: seeed
     supported_features:
       - led
+      - pwm
 
   - name: grove_led_d18
     full_name: Grove LED D18 (digital)
     vendor: seeed
     supported_features:
+      - gpio
       - led
 
   - name: grove_pwm_led_d18
@@ -229,11 +266,13 @@ shields:
     vendor: seeed
     supported_features:
       - led
+      - pwm
 
   - name: grove_led_d19
     full_name: Grove LED D19 (digital)
     vendor: seeed
     supported_features:
+      - gpio
       - led
 
   - name: grove_pwm_led_d19
@@ -241,11 +280,13 @@ shields:
     vendor: seeed
     supported_features:
       - led
+      - pwm
 
   - name: grove_led_d20
     full_name: Grove LED D20 (digital)
     vendor: seeed
     supported_features:
+      - gpio
       - led
 
   - name: grove_pwm_led_d20
@@ -253,11 +294,13 @@ shields:
     vendor: seeed
     supported_features:
       - led
+      - pwm
 
   - name: grove_led_d21
     full_name: Grove LED D21 (digital)
     vendor: seeed
     supported_features:
+      - gpio
       - led
 
   - name: grove_pwm_led_d21
@@ -265,11 +308,13 @@ shields:
     vendor: seeed
     supported_features:
       - led
+      - pwm
 
   - name: grove_led_d22
     full_name: Grove LED D22 (digital)
     vendor: seeed
     supported_features:
+      - gpio
       - led
 
   - name: grove_pwm_led_d22
@@ -277,11 +322,13 @@ shields:
     vendor: seeed
     supported_features:
       - led
+      - pwm
 
   - name: grove_led_d23
     full_name: Grove LED D23 (digital)
     vendor: seeed
     supported_features:
+      - gpio
       - led
 
   - name: grove_pwm_led_d23
@@ -289,11 +336,13 @@ shields:
     vendor: seeed
     supported_features:
       - led
+      - pwm
 
   - name: grove_led_d24
     full_name: Grove LED D24 (digital)
     vendor: seeed
     supported_features:
+      - gpio
       - led
 
   - name: grove_pwm_led_d24
@@ -301,11 +350,13 @@ shields:
     vendor: seeed
     supported_features:
       - led
+      - pwm
 
   - name: grove_led_d25
     full_name: Grove LED D25 (digital)
     vendor: seeed
     supported_features:
+      - gpio
       - led
 
   - name: grove_pwm_led_d25
@@ -313,11 +364,13 @@ shields:
     vendor: seeed
     supported_features:
       - led
+      - pwm
 
   - name: grove_led_d26
     full_name: Grove LED D26 (digital)
     vendor: seeed
     supported_features:
+      - gpio
       - led
 
   - name: grove_pwm_led_d26
@@ -325,11 +378,13 @@ shields:
     vendor: seeed
     supported_features:
       - led
+      - pwm
 
   - name: grove_led_d27
     full_name: Grove LED D27 (digital)
     vendor: seeed
     supported_features:
+      - gpio
       - led
 
   - name: grove_pwm_led_d27
@@ -337,11 +392,13 @@ shields:
     vendor: seeed
     supported_features:
       - led
+      - pwm
 
   - name: grove_led_d28
     full_name: Grove LED D28 (digital)
     vendor: seeed
     supported_features:
+      - gpio
       - led
 
   - name: grove_pwm_led_d28
@@ -349,11 +406,13 @@ shields:
     vendor: seeed
     supported_features:
       - led
+      - pwm
 
   - name: grove_led_d29
     full_name: Grove LED D29 (digital)
     vendor: seeed
     supported_features:
+      - gpio
       - led
 
   - name: grove_pwm_led_d29
@@ -361,11 +420,13 @@ shields:
     vendor: seeed
     supported_features:
       - led
+      - pwm
 
   - name: grove_led_d30
     full_name: Grove LED D30 (digital)
     vendor: seeed
     supported_features:
+      - gpio
       - led
 
   - name: grove_pwm_led_d30
@@ -373,11 +434,13 @@ shields:
     vendor: seeed
     supported_features:
       - led
+      - pwm
 
   - name: grove_led_d31
     full_name: Grove LED D31 (digital)
     vendor: seeed
     supported_features:
+      - gpio
       - led
 
   - name: grove_pwm_led_d31
@@ -385,3 +448,4 @@ shields:
     vendor: seeed
     supported_features:
       - led
+      - pwm
