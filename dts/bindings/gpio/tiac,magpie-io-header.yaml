@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 description: |
-    GPIO pins exposed on TiaC MAGPIE headers.
+    GPIO pins exposed on TiaC MAGPIE I/O headers.
 
     The TiaC Magpie layout provides five headers, each two rows with
     seven pins per row.
@@ -25,6 +25,6 @@ description: |
     description above as it's according to the standard's specification.
     Not every TiaC board provides all five headers.
 
-compatible: "tiac-magpie-pin-header"
+compatible: "tiac,magpie-io-header"
 
 include: [gpio-nexus.yaml, base.yaml]

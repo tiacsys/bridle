@@ -1074,7 +1074,7 @@ Pin Header with DTS Bindings
 
 The TiaC Magpie compatible pin header expands functionality of the TiaC
 development platform, with a wide choice of specialized TiaC shields.
-The DTS binding following the :dtcompatible:`tiac-magpie-pin-header`
+The DTS binding following the :dtcompatible:`tiac,magpie-io-header`
 specification.
 
 TiaC Magpie Pin Header 1

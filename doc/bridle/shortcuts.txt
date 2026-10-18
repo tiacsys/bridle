@@ -1524,7 +1524,7 @@
    :external+devicetree:dtcompatible:`Seeed XIAO <seeed,xiao-gpio>`
 
 .. |TiaC MAGPIE Pin Header| replace::
-   :external+devicetree:dtcompatible:`TiaC MAGPIE Pin Header <tiac-magpie-pin-header>`
+   :external+devicetree:dtcompatible:`TiaC MAGPIE Pin Header <tiac,magpie-io-header>`
 
 .. |Waveshare RP2040 Mini| replace::
    :external+devicetree:dtcompatible:`Waveshare RP2040 Mini <waveshare,rp2040mini-header>`

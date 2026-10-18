@@ -6,7 +6,7 @@
 
 / {
 	tmph1: tmph1-connector {
-		compatible = "tiac-magpie-pin-header";
+		compatible = "tiac,magpie-io-header";
 		#gpio-cells = <2>;
 		gpio-map-mask = <0xffffffff 0xffffffc0>;
 		gpio-map-pass-thru = <0 0x3f>;
@@ -27,7 +27,7 @@
 	}; // tmph1
 
 	tmph2: tmph2-connector {
-		compatible = "tiac-magpie-pin-header";
+		compatible = "tiac,magpie-io-header";
 		#gpio-cells = <2>;
 		gpio-map-mask = <0xffffffff 0xffffffc0>;
 		gpio-map-pass-thru = <0 0x3f>;
@@ -48,7 +48,7 @@
 	}; // tmph2
 
 	tmph3: tmph3-connector {
-		compatible = "tiac-magpie-pin-header";
+		compatible = "tiac,magpie-io-header";
 		#gpio-cells = <2>;
 		gpio-map-mask = <0xffffffff 0xffffffc0>;
 		gpio-map-pass-thru = <0 0x3f>;
@@ -69,7 +69,7 @@
 	}; // tmph3
 
 	tmph4: tmph4-connector {
-		compatible = "tiac-magpie-pin-header";
+		compatible = "tiac,magpie-io-header";
 		#gpio-cells = <2>;
 		gpio-map-mask = <0xffffffff 0xffffffc0>;
 		gpio-map-pass-thru = <0 0x3f>;
@@ -90,7 +90,7 @@
 	}; // tmph4
 
 	tmph5: tmph5-connector {
-		compatible = "tiac-magpie-pin-header";
+		compatible = "tiac,magpie-io-header";
 		#gpio-cells = <2>;
 		gpio-map-mask = <0xffffffff 0xffffffc0>;
 		gpio-map-pass-thru = <0 0x3f>;
