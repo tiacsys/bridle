@@ -1,12 +1,17 @@
+# SPDX-FileCopyrightText: Copyright (c) 2021-2026 TiaC Systems
+# SPDX-FileCopyrightText: Copyright (c) 2021 Li-Pro.Net
+# SPDX-License-Identifier: Apache-2.0
+
 identifier: magpie_f777ni
 name: TiaC Magpie F777NI
+vendor: tiac
 type: mcu
 arch: arm
+ram: 512
+flash: 2048
 toolchain:
   - zephyr
   - gnuarmemb
-ram: 512
-flash: 2048
 supported:
   - tmph_gpio
   - tmph_i2c

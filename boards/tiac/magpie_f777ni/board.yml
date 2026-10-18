@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: Copyright (c) 2021-2026 TiaC Systems
+# SPDX-FileCopyrightText: Copyright (c) 2021 Li-Pro.Net
+# SPDX-License-Identifier: Apache-2.0
+
 board:
   name: magpie_f777ni
   full_name: TiaC Magpie F777NI
