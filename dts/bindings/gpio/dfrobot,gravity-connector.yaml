@@ -1,4 +1,4 @@
-# Copyright (c) 2023-2024 TiaC Systems
+# SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 description: |
@@ -26,6 +26,14 @@ description: |
          (green) 0 A/D
            (red) - VCC  (3V3 or 5V0)
          (black) - GND
+
+    STEMMA, STEMMA QT, Grove, and Qwiic connectors are similar to this,
+    but the connector form and VCC voltage are different. Please see
+    https://learn.adafruit.com/introducing-adafruit-stemma-qt/stemma-qt-comparison
+
+    Use GRAVITY_* constants in
+    <zephyr/dt-bindings/gpio/gravity-connector.h> to refer to specific
+    pins using convenient constant names.
 
 compatible: "dfrobot,gravity-connector"
 
