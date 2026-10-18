@@ -1,4 +1,4 @@
-# Copyright (c) 2023 TiaC Systems
+# SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 description: |
@@ -91,6 +91,10 @@ description: |
                                             IO8 7  3 BCLK
                                             GND -  - GND
                                             VCC -  - VCC
+
+    Use PMOD_* constants in
+    <zephyr/dt-bindings/gpio/digilent-pmod-header.h> to refer to specific
+    pins using convenient constant names.
 
 compatible: "digilent,pmod-header"
 
