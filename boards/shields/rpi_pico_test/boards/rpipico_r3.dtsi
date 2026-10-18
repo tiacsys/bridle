@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -14,3 +14,9 @@
 &rpipico_spi {
 	status = "disabled";
 };
+
+/* link to pwm node from board for RP2040 SoC */
+pico_pwm: &pwm {};
+
+/* link to adc node from board for RP2040 SoC */
+pico_adc: &adc {};

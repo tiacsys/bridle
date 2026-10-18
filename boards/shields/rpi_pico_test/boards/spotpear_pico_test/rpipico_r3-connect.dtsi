@@ -1,0 +1,20 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include "rpipico_r3-pinctrl.dtsi"
+
+&pico_pwm {
+	pinctrl-0 = <&pwm_test>;
+	pinctrl-names = "default";
+};
+
+rpipico_pwm: &pico_pwm {};
+
+&pico_adc {
+	pinctrl-0 = <&adc_test>;
+	pinctrl-names = "default";
+};
+
+rpipico_adc: &pico_adc {};

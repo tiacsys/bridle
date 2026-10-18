@@ -55,11 +55,11 @@
             - usbd\ @\ 50110000 (READY)
               DT node labels: usbd zephyr_udc0
             - adc\ @\ 4004c000 (READY)
-              DT node labels: adc
+              DT node labels: adc pico_adc rpipico_adc
             - flash-controller\ @\ 18000000 (READY)
               DT node labels: ssi
             - pwm\ @\ 40050000 (READY)
-              DT node labels: pwm
+              DT node labels: pwm pico_pwm rpipico_pwm
             - vreg\ @\ 40064000 (READY)
               DT node labels: vreg
             - rtc\ @\ 4005c000 (READY)
