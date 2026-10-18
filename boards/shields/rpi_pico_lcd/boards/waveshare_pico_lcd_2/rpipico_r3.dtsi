@@ -9,15 +9,17 @@
 
 #include <zephyr/dt-bindings/gpio/gpio.h>
 
+#include <zephyr/dt-bindings/gpio/raspberrypi-pico-header-r3.h>
+
 &rpipico_spi_lcd {
 	status = "okay";
-	cs-gpios = <&rpipico_header 9 GPIO_ACTIVE_LOW>;		/* GP9 */
+	cs-gpios = <&rpipico_header RPIPICO_HEADER_R3_D9 GPIO_ACTIVE_LOW>;	/* GP9 */
 };
 
 &mipi_dbi {
 	status = "okay";
-	reset-gpios = <&rpipico_header 12 GPIO_ACTIVE_LOW>;	/* GP12 */
-	dc-gpios = <&rpipico_header 8 GPIO_ACTIVE_HIGH>;	/* GP8 */
+	reset-gpios = <&rpipico_header RPIPICO_HEADER_R3_D12 GPIO_ACTIVE_LOW>;	/* GP12 */
+	dc-gpios = <&rpipico_header RPIPICO_HEADER_R3_D8 GPIO_ACTIVE_HIGH>;	/* GP8 */
 	spi-dev = <&rpipico_spi_lcd>;
 	#address-cells = <1>;
 	#size-cells = <0>;
@@ -29,25 +31,25 @@
 
 &lcd_backlight_en {
 	status = "okay";
-	gpios = <&rpipico_header 13 GPIO_ACTIVE_HIGH>;		/* GP13 */
+	gpios = <&rpipico_header RPIPICO_HEADER_R3_D13 GPIO_ACTIVE_HIGH>;	/* GP13 */
 	states = <3300000 1>, <0 0>;
 	regulator-min-microvolt = <0>;
 	regulator-max-microvolt = <3300000>;
 	regulator-init-microvolt = <3300000>;
 };
 
-&btn0 {								/* GP15 */
-	gpios = <&rpipico_header 15 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+&btn0 {										/* GP15 */
+	gpios = <&rpipico_header RPIPICO_HEADER_R3_D15 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 };
 
-&btn1 {								/* GP17 */
-	gpios = <&rpipico_header 17 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+&btn1 {										/* GP17 */
+	gpios = <&rpipico_header RPIPICO_HEADER_R3_D17 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 };
 
-&btn2 {								/* GP2 */
-	gpios = <&rpipico_header 2 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+&btn2 {										/* GP2 */
+	gpios = <&rpipico_header RPIPICO_HEADER_R3_D2 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 };
 
-&btn3 {								/* GP3 */
-	gpios = <&rpipico_header 3 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+&btn3 {										/* GP3 */
+	gpios = <&rpipico_header RPIPICO_HEADER_R3_D3 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 };

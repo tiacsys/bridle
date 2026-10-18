@@ -11,26 +11,28 @@
 
 #include <zephyr/dt-bindings/gpio/gpio.h>
 
+#include <zephyr/dt-bindings/gpio/raspberrypi-pico-header-r3.h>
+
 &sdhc_spi {
 	status = "okay";
 };
 
 &rpipico_spi_lcd {
 	status = "okay";
-	cs-gpios = <&rpipico_header 9 GPIO_ACTIVE_LOW>,		/* LCD: GP9 */
-		   <&rpipico_header 16 GPIO_ACTIVE_LOW>,	/* TSC: GP16 */
-		   <&rpipico_header 22 GPIO_ACTIVE_LOW>;	/* SDC: GP22 */
+	cs-gpios = <&rpipico_header RPIPICO_HEADER_R3_D9 GPIO_ACTIVE_LOW>,	/* LCD: GP9 */
+		   <&rpipico_header RPIPICO_HEADER_R3_D16 GPIO_ACTIVE_LOW>,	/* TSC: GP16 */
+		   <&rpipico_header RPIPICO_HEADER_R3_D22 GPIO_ACTIVE_LOW>;	/* SDC: GP22 */
 };
 
 &tsc_panel {
 	status = "okay";
-	int-gpios = <&rpipico_header 17 GPIO_ACTIVE_LOW>;	/* GP17 */
+	int-gpios = <&rpipico_header RPIPICO_HEADER_R3_D17 GPIO_ACTIVE_LOW>;	/* GP17 */
 };
 
 &mipi_dbi {
 	status = "okay";
-	reset-gpios = <&rpipico_header 15 GPIO_ACTIVE_LOW>;	/* GP15 */
-	dc-gpios = <&rpipico_header 8 GPIO_ACTIVE_HIGH>;	/* GP8 */
+	reset-gpios = <&rpipico_header RPIPICO_HEADER_R3_D15 GPIO_ACTIVE_LOW>;	/* GP15 */
+	dc-gpios = <&rpipico_header RPIPICO_HEADER_R3_D8 GPIO_ACTIVE_HIGH>;	/* GP8 */
 	spi-dev = <&rpipico_spi_lcd>;
 	#address-cells = <1>;
 	#size-cells = <0>;
@@ -42,7 +44,7 @@
 
 &lcd_backlight_en {
 	status = "okay";
-	gpios = <&rpipico_header 13 GPIO_ACTIVE_HIGH>;		/* GP13 */
+	gpios = <&rpipico_header RPIPICO_HEADER_R3_D13 GPIO_ACTIVE_HIGH>;	/* GP13 */
 	states = <3300000 1>, <0 0>;
 	regulator-min-microvolt = <0>;
 	regulator-max-microvolt = <3300000>;

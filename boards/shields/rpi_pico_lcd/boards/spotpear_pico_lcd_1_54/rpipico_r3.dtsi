@@ -9,15 +9,17 @@
 
 #include <zephyr/dt-bindings/gpio/gpio.h>
 
+#include <zephyr/dt-bindings/gpio/raspberrypi-pico-header-r3.h>
+
 &rpipico_spi_lcd {
 	status = "okay";
-	cs-gpios = <&rpipico_header 9 GPIO_ACTIVE_LOW>;		/* GP9 */
+	cs-gpios = <&rpipico_header RPIPICO_HEADER_R3_D9 GPIO_ACTIVE_LOW>;	/* GP9 */
 };
 
 &mipi_dbi {
 	status = "okay";
-	reset-gpios = <&rpipico_header 12 GPIO_ACTIVE_LOW>;	/* GP12 */
-	dc-gpios = <&rpipico_header 8 GPIO_ACTIVE_HIGH>;	/* GP8 */
+	reset-gpios = <&rpipico_header RPIPICO_HEADER_R3_D12 GPIO_ACTIVE_LOW>;	/* GP12 */
+	dc-gpios = <&rpipico_header RPIPICO_HEADER_R3_D8 GPIO_ACTIVE_HIGH>;	/* GP8 */
 	spi-dev = <&rpipico_spi_lcd>;
 	#address-cells = <1>;
 	#size-cells = <0>;
@@ -29,57 +31,57 @@
 
 &lcd_backlight_en {
 	status = "okay";
-	gpios = <&rpipico_header 7 GPIO_ACTIVE_HIGH>;		/* GP7 */
+	gpios = <&rpipico_header RPIPICO_HEADER_R3_D7 GPIO_ACTIVE_HIGH>;	/* GP7 */
 	states = <3300000 1>, <0 0>;
 	regulator-min-microvolt = <0>;
 	regulator-max-microvolt = <3300000>;
 	regulator-init-microvolt = <3300000>;
 };
 
-&btn0 {								/* GP2 */
-	gpios = <&rpipico_header 2 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+&btn0 {										/* GP2 */
+	gpios = <&rpipico_header RPIPICO_HEADER_R3_D2 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 };
 
-&btn1 {								/* GP3 */
-	gpios = <&rpipico_header 3 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+&btn1 {										/* GP3 */
+	gpios = <&rpipico_header RPIPICO_HEADER_R3_D3 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 };
 
-&btn2 {								/* GP4 */
-	gpios = <&rpipico_header 4 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+&btn2 {										/* GP4 */
+	gpios = <&rpipico_header RPIPICO_HEADER_R3_D4 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 };
 
-&btn3 {								/* GP6 */
-	gpios = <&rpipico_header 6 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+&btn3 {										/* GP6 */
+	gpios = <&rpipico_header RPIPICO_HEADER_R3_D6 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 };
 
-&btn4 {								/* GP13 */
-	gpios = <&rpipico_header 13 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+&btn4 {										/* GP13 */
+	gpios = <&rpipico_header RPIPICO_HEADER_R3_D13 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 };
 
-&btn5 {								/* GP14 */
-	gpios = <&rpipico_header 14 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+&btn5 {										/* GP14 */
+	gpios = <&rpipico_header RPIPICO_HEADER_R3_D14 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 };
 
-&btn6 {								/* GP16 */
-	gpios = <&rpipico_header 16 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+&btn6 {										/* GP16 */
+	gpios = <&rpipico_header RPIPICO_HEADER_R3_D16 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 };
 
-&btn7 {								/* GP17 */
-	gpios = <&rpipico_header 17 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+&btn7 {										/* GP17 */
+	gpios = <&rpipico_header RPIPICO_HEADER_R3_D17 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 };
 
-&btn8 {								/* GP26 */
-	gpios = <&rpipico_header 23 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+&btn8 {										/* GP26 */
+	gpios = <&rpipico_header RPIPICO_HEADER_R3_A0 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 };
 
-&btn9 {								/* GP27 */
-	gpios = <&rpipico_header 24 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+&btn9 {										/* GP27 */
+	gpios = <&rpipico_header RPIPICO_HEADER_R3_A1 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 };
 
-&btn10 {							/* GP18 */
-	gpios = <&rpipico_header 18 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+&btn10 {									/* GP18 */
+	gpios = <&rpipico_header RPIPICO_HEADER_R3_D18 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 };
 
-&btn11 {							/* GP1 */
-	gpios = <&rpipico_header 1 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+&btn11 {									/* GP1 */
+	gpios = <&rpipico_header RPIPICO_HEADER_R3_D1 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 };
