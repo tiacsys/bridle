@@ -15,13 +15,15 @@ clock_pwm_buzzers: &rpipico_pwm_buzzers {};
 #include <zephyr/dt-bindings/gpio/gpio.h>
 #include <zephyr/dt-bindings/pwm/pwm.h>
 
+#include <zephyr/dt-bindings/gpio/raspberrypi-pico-header-r3.h>
+
 &clock_dts {
 	friendly-name = "Pico Color Green TP Sensor (in RTC)";
 	status = "okay";
 };
 
-&clock_rtc {							/* GP3 */
-	isw-gpios = <&rpipico_header 3 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+&clock_rtc {									/* GP3 */
+	isw-gpios = <&rpipico_header RPIPICO_HEADER_R3_D3 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 	status = "okay";
 };
 
@@ -38,115 +40,115 @@ clock_pwm_buzzers: &rpipico_pwm_buzzers {};
 };
 
 &clock_led_signal0 {
-	gpios = <&clock_gpio_0 2 GPIO_ACTIVE_HIGH>;		/* SIG0 */
+	gpios = <&clock_gpio_0 2 GPIO_ACTIVE_HIGH>;				/* SIG0 */
 };
 &clock_led_signal1 {
-	gpios = <&clock_gpio_0 5 GPIO_ACTIVE_HIGH>;		/* SIG1 */
+	gpios = <&clock_gpio_0 5 GPIO_ACTIVE_HIGH>;				/* SIG1 */
 };
 
 &clock_led_monday0 {
-	gpios = <&clock_gpio_0 3 GPIO_ACTIVE_HIGH>;		/* MON0 */
+	gpios = <&clock_gpio_0 3 GPIO_ACTIVE_HIGH>;				/* MON0 */
 };
 &clock_led_monday1 {
-	gpios = <&clock_gpio_0 4 GPIO_ACTIVE_HIGH>;		/* MON1 */
+	gpios = <&clock_gpio_0 4 GPIO_ACTIVE_HIGH>;				/* MON1 */
 };
 
 &clock_led_tuesday0 {
-	gpios = <&clock_gpio_0 6 GPIO_ACTIVE_HIGH>;		/* TUE0 */
+	gpios = <&clock_gpio_0 6 GPIO_ACTIVE_HIGH>;				/* TUE0 */
 };
 &clock_led_tuesday1 {
-	gpios = <&clock_gpio_0 7 GPIO_ACTIVE_HIGH>;		/* TUE1 */
+	gpios = <&clock_gpio_0 7 GPIO_ACTIVE_HIGH>;				/* TUE1 */
 };
 
 &clock_led_wednesday0 {
-	gpios = <&clock_gpio_0 9 GPIO_ACTIVE_HIGH>;		/* WED0 */
+	gpios = <&clock_gpio_0 9 GPIO_ACTIVE_HIGH>;				/* WED0 */
 };
 &clock_led_wednesday1 {
-	gpios = <&clock_gpio_0 10 GPIO_ACTIVE_HIGH>;		/* WED1 */
+	gpios = <&clock_gpio_0 10 GPIO_ACTIVE_HIGH>;				/* WED1 */
 };
 
 &clock_led_thursday0 {
-	gpios = <&clock_gpio_0 12 GPIO_ACTIVE_HIGH>;		/* THU0 */
+	gpios = <&clock_gpio_0 12 GPIO_ACTIVE_HIGH>;				/* THU0 */
 };
 &clock_led_thursday1 {
-	gpios = <&clock_gpio_0 13 GPIO_ACTIVE_HIGH>;		/* THU1 */
+	gpios = <&clock_gpio_0 13 GPIO_ACTIVE_HIGH>;				/* THU1 */
 };
 
 &clock_led_friday0 {
-	gpios = <&clock_gpio_0 15 GPIO_ACTIVE_HIGH>;		/* FRI0 */
+	gpios = <&clock_gpio_0 15 GPIO_ACTIVE_HIGH>;				/* FRI0 */
 };
 &clock_led_friday1 {
-	gpios = <&clock_gpio_0 16 GPIO_ACTIVE_HIGH>;		/* FRI1 */
+	gpios = <&clock_gpio_0 16 GPIO_ACTIVE_HIGH>;				/* FRI1 */
 };
 
 &clock_led_saturday0 {
-	gpios = <&clock_gpio_0 18 GPIO_ACTIVE_HIGH>;		/* SAT0 */
+	gpios = <&clock_gpio_0 18 GPIO_ACTIVE_HIGH>;				/* SAT0 */
 };
 &clock_led_saturday1 {
-	gpios = <&clock_gpio_0 19 GPIO_ACTIVE_HIGH>;		/* SAT1 */
+	gpios = <&clock_gpio_0 19 GPIO_ACTIVE_HIGH>;				/* SAT1 */
 };
 
 &clock_led_sunday0 {
-	gpios = <&clock_gpio_0 21 GPIO_ACTIVE_HIGH>;		/* SUN0 */
+	gpios = <&clock_gpio_0 21 GPIO_ACTIVE_HIGH>;				/* SUN0 */
 };
 &clock_led_sunday1 {
-	gpios = <&clock_gpio_0 22 GPIO_ACTIVE_HIGH>;		/* SUN1 */
+	gpios = <&clock_gpio_0 22 GPIO_ACTIVE_HIGH>;				/* SUN1 */
 };
 
 &clock_led_move_on0 {
-	gpios = <&clock_gpio_0 0 GPIO_ACTIVE_HIGH>;		/* MOV0 */
+	gpios = <&clock_gpio_0 0 GPIO_ACTIVE_HIGH>;				/* MOV0 */
 };
 &clock_led_move_on1 {
-	gpios = <&clock_gpio_0 1 GPIO_ACTIVE_HIGH>;		/* MOV1 */
+	gpios = <&clock_gpio_0 1 GPIO_ACTIVE_HIGH>;				/* MOV1 */
 };
 
 &clock_led_alarm_on0 {
-	gpios = <&clock_gpio_1 0 GPIO_ACTIVE_HIGH>;		/* ALM0 */
+	gpios = <&clock_gpio_1 0 GPIO_ACTIVE_HIGH>;				/* ALM0 */
 };
 &clock_led_alarm_on1 {
-	gpios = <&clock_gpio_1 1 GPIO_ACTIVE_HIGH>;		/* ALM1 */
+	gpios = <&clock_gpio_1 1 GPIO_ACTIVE_HIGH>;				/* ALM1 */
 };
 
 &clock_led_count_down0 {
-	gpios = <&clock_gpio_2 0 GPIO_ACTIVE_HIGH>;		/* CDN0 */
+	gpios = <&clock_gpio_2 0 GPIO_ACTIVE_HIGH>;				/* CDN0 */
 };
 &clock_led_count_down1 {
-	gpios = <&clock_gpio_2 1 GPIO_ACTIVE_HIGH>;		/* CDN1 */
+	gpios = <&clock_gpio_2 1 GPIO_ACTIVE_HIGH>;				/* CDN1 */
 };
 
 &clock_led_degrees_fahrenheit {
-	gpios = <&clock_gpio_3 0 GPIO_ACTIVE_HIGH>;		/* DEGF */
+	gpios = <&clock_gpio_3 0 GPIO_ACTIVE_HIGH>;				/* DEGF */
 };
 &clock_led_degrees_celsius {
-	gpios = <&clock_gpio_3 1 GPIO_ACTIVE_HIGH>;		/* DEGC */
+	gpios = <&clock_gpio_3 1 GPIO_ACTIVE_HIGH>;				/* DEGC */
 };
 
 &clock_led_time_am {
-	gpios = <&clock_gpio_4 0 GPIO_ACTIVE_HIGH>;		/* TMAM */
+	gpios = <&clock_gpio_4 0 GPIO_ACTIVE_HIGH>;				/* TMAM */
 };
 &clock_led_time_pm {
-	gpios = <&clock_gpio_4 1 GPIO_ACTIVE_HIGH>;		/* TMPM */
+	gpios = <&clock_gpio_4 1 GPIO_ACTIVE_HIGH>;				/* TMPM */
 };
 
 &clock_led_count_up0 {
-	gpios = <&clock_gpio_5 0 GPIO_ACTIVE_HIGH>;		/* CUP0 */
+	gpios = <&clock_gpio_5 0 GPIO_ACTIVE_HIGH>;				/* CUP0 */
 };
 &clock_led_count_up1 {
-	gpios = <&clock_gpio_5 1 GPIO_ACTIVE_HIGH>;		/* CUP1 */
+	gpios = <&clock_gpio_5 1 GPIO_ACTIVE_HIGH>;				/* CUP1 */
 };
 
 &clock_led_hourly0 {
-	gpios = <&clock_gpio_6 0 GPIO_ACTIVE_HIGH>;		/* HLY0 */
+	gpios = <&clock_gpio_6 0 GPIO_ACTIVE_HIGH>;				/* HLY0 */
 };
 &clock_led_hourly1 {
-	gpios = <&clock_gpio_6 1 GPIO_ACTIVE_HIGH>;		/* HLY1 */
+	gpios = <&clock_gpio_6 1 GPIO_ACTIVE_HIGH>;				/* HLY1 */
 };
 
 &clock_led_auto_light0 {
-	gpios = <&clock_gpio_7 0 GPIO_ACTIVE_HIGH>;		/* AUT0 */
+	gpios = <&clock_gpio_7 0 GPIO_ACTIVE_HIGH>;				/* AUT0 */
 };
 &clock_led_auto_light1 {
-	gpios = <&clock_gpio_7 1 GPIO_ACTIVE_HIGH>;		/* AUT1 */
+	gpios = <&clock_gpio_7 1 GPIO_ACTIVE_HIGH>;				/* AUT1 */
 };
 
 &clock_gpio_0 {
@@ -252,29 +254,29 @@ clock_pwm_buzzers: &rpipico_pwm_buzzers {};
 };
 
 &clock_sipo_mux {
-	oe-gpios = <&rpipico_header 13 GPIO_ACTIVE_LOW>;	/* OE:GP13 */
-	addr-gpios = <&rpipico_header 16 GPIO_ACTIVE_HIGH>,	/* A0:GP16 */
-		     <&rpipico_header 18 GPIO_ACTIVE_HIGH>,	/* A1:GP18 */
-		     <&rpipico_header 22 GPIO_ACTIVE_HIGH>;	/* A2:GP22 */
+	oe-gpios = <&rpipico_header RPIPICO_HEADER_R3_D13 GPIO_ACTIVE_LOW>;	/* OE:GP13 */
+	addr-gpios = <&rpipico_header RPIPICO_HEADER_R3_D16 GPIO_ACTIVE_HIGH>,	/* A0:GP16 */
+		     <&rpipico_header RPIPICO_HEADER_R3_D18 GPIO_ACTIVE_HIGH>,	/* A1:GP18 */
+		     <&rpipico_header RPIPICO_HEADER_R3_D22 GPIO_ACTIVE_HIGH>;	/* A2:GP22 */
 	status = "okay";
 };
 
 &clock_spi_leds {
 	pinctrl-0 = <&spi1_wpcg_leds>;
 	pinctrl-names = "default";
-	cs-gpios = <&rpipico_header 12 GPIO_ACTIVE_LOW>;	/* LE:GP12 */
+	cs-gpios = <&rpipico_header RPIPICO_HEADER_R3_D12 GPIO_ACTIVE_LOW>;	/* LE:GP12 */
 };
 
-&clock_btn_set_function {					/* GP2 */
-	gpios = <&rpipico_header 2 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+&clock_btn_set_function {							/* GP2 */
+	gpios = <&rpipico_header RPIPICO_HEADER_R3_D2 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 };
 
-&clock_btn_up {							/* GP17 */
-	gpios = <&rpipico_header 17 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+&clock_btn_up {									/* GP17 */
+	gpios = <&rpipico_header RPIPICO_HEADER_R3_D17 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 };
 
-&clock_btn_down {						/* GP15 */
-	gpios = <&rpipico_header 15 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+&clock_btn_down {								/* GP15 */
+	gpios = <&rpipico_header RPIPICO_HEADER_R3_D15 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 };
 
 &clock_gpio_keys {
@@ -305,11 +307,11 @@ clock_pwm_buzzers: &rpipico_pwm_buzzers {};
 	divider-int-7 = <255>;
 };
 
-&clock_buzzer {							/* GP14 */
+&clock_buzzer {									/* GP14 */
 	pwms = <&pwm 14 PWM_HZ(2700) PWM_POLARITY_NORMAL>;
 };
 
-&zephyr_user {							/* GP26:ADC0 */
+&zephyr_user {									/* GP26:ADC0 */
 	io-channels = <&adc 0>;
 };
 
