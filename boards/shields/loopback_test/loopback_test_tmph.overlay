@@ -1,23 +1,25 @@
 /*
- * Copyright (c) 2021-2025 TiaC Systems
- * Copyright (c) 2021 Li-Pro.Net
+ * SPDX-FileCopyrightText: Copyright (c) 2021-2026 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2021 Li-Pro.Net
  * SPDX-License-Identifier: Apache-2.0
  */
 
 #include <freq.h>
 
+#include <zephyr/dt-bindings/gpio/tiac-magpie-io-header.h>
+
 / {
 	gpio_basic_api_0 {
 		compatible = "test-gpio-basic-api";
-		out-gpios = <&tmph2 9 0>;	/* TMPH2:10 */
-		in-gpios = <&tmph2 11 0>;	/* TMPH2:12 */
+		out-gpios = <&tmph2 TCS_MAGPIE_IO_HEADER_P9 0>; /* TMPH2:10 */
+		in-gpios = <&tmph2 TCS_MAGPIE_IO_HEADER_P11 0>; /* TMPH2:12 */
 	}; // gpio_basic_api_0
 
 	pwm_loopback_0 {
 		compatible = "test-pwm-loopback";
 		/* channel 1 pwm out to channel 4 capture in */
-		pwms = <&tmph_pwms 1 0 0>,	/* TMPH4:5 */
-		       <&tmph_pwms 4 0 0>;	/* TMPH1:3 */
+		pwms = <&tmph_pwms 1 0 0>, /* TMPH4:5 */
+		       <&tmph_pwms 4 0 0>; /* TMPH1:3 */
 	}; // pwm_loopback_0
 };
 
