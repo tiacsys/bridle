@@ -1,4 +1,4 @@
-# Copyright (c) 2023 TiaC Systems
+# SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 description: |
@@ -19,6 +19,14 @@ description: |
           (blue) 1 SDA
            (red) - 3V3
          (black) - GND
+
+    STEMMA, STEMMA QT, Grove, and Gravity connectors are similar to this,
+    but the connector form and VCC voltage are different. Please see
+    https://learn.adafruit.com/introducing-adafruit-stemma-qt/stemma-qt-comparison
+
+    Use QWIIC_* constants in
+    <zephyr/dt-bindings/gpio/qwiic-connector.h> to refer to specific
+    pins using convenient constant names.
 
 compatible: "sparkfun,qwiic-connector"
 
