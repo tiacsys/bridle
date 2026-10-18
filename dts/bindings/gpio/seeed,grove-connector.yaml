@@ -22,6 +22,10 @@ description: |
            (red) - VCC     VCC      VCC    VCC  (3V3 or 5V0)  2 (MOSI)
          (black) - GND     GND      GND    GND                3 (SS)
 
+    STEMMA, STEMMA QT, Qwiic, and Gravity connectors are similar to this,
+    but the connector form and VCC voltage are different. Please see
+    https://learn.adafruit.com/introducing-adafruit-stemma-qt/stemma-qt-comparison
+
     Use GROVE_* constants in
     <zephyr/dt-bindings/gpio/grove-connector.h> to refer to specific
     pins using convenient constant names.
