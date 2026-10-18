@@ -1,4 +1,4 @@
-# Copyright (c) 2024 TiaC Systems
+# SPDX-FileCopyrightText: Copyright (c) 2024-2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 description: |
@@ -17,6 +17,10 @@ description: |
         - |o| GND
           `-´
           X1 (GPIO)
+
+    Use TCS_604_GPIO_HEADER_* constants in
+    <zephyr/dt-bindings/gpio/tiac-604-gpio-header.h> to refer to specific
+    pins using convenient constant names.
 
 compatible: "tiac,604-gpio-header"
 
