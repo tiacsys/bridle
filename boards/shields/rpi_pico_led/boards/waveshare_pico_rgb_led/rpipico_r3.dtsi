@@ -9,12 +9,14 @@ rgb_led_pio: &rpipico_pio_leds {};
 
 #include <zephyr/dt-bindings/gpio/gpio.h>
 
+#include <zephyr/dt-bindings/gpio/raspberrypi-pico-header-r3.h>
+
 &led_strip_matrix {
 	status = "okay";
 };
 
 &led_strip {
-	gpios = <&gpio0 6 GPIO_ACTIVE_HIGH>;		/* PIO0:OUT @ GP6 */
+	gpios = <&rpipico_header RPIPICO_HEADER_R3_D6 GPIO_ACTIVE_HIGH>; /* PIO0:OUT @ GP6 */
 	status = "okay";
 };
 
