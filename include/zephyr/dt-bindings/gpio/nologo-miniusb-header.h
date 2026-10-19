@@ -6,14 +6,14 @@
 /**
  * @file
  * @brief No Name Technology Mini USB header pin constants
- * @ingroup waveshare-rp2040mini-header
+ * @ingroup nologo-miniusb-header
  */
 
 #ifndef ZEPHYR_INCLUDE_DT_BINDINGS_GPIO_NOLOGO_MINIUSB_HEADER_H_
 #define ZEPHYR_INCLUDE_DT_BINDINGS_GPIO_NOLOGO_MINIUSB_HEADER_H_
 
 /**
- * @defgroup waveshare-rp2040mini-header No Name Technology Mini USB header
+ * @defgroup nologo-miniusb-header No Name Technology Mini USB header
  * @brief Constants for pins exposed on No Name Technology Mini USB header
  * @ingroup devicetree-gpio-pin-headers
  * @{
@@ -33,7 +33,7 @@
 #define NNT_MINIUSB_HEADER_A0  11 /**< Analog pin 0 (ADC0/GP26) */
 #define NNT_MINIUSB_HEADER_A1  12 /**< Analog pin 1 (ADC1/GP27) */
 #define NNT_MINIUSB_HEADER_A2  13 /**< Analog pin 2 (ADC2/GP28) */
-#define NNT_MINIUSB_HEADER_A3  14 /**< Analog pin 3 (ADC2/GP29) */
+#define NNT_MINIUSB_HEADER_A3  14 /**< Analog pin 3 (ADC3/GP29) */
 
 /** @} */
 
