@@ -1,4 +1,4 @@
-# Copyright (c) 2025 TiaC Systems
+# SPDX-FileCopyrightText: Copyright (c) 2025-2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 description: |
@@ -16,7 +16,7 @@ description: |
     through 29 correspond to ADC0 through ADC9, and parent pins 0 through 16
     and other pins above correspond as depicted below:
 
-                  .---------.                       on  BluePill  BluePill+
+                  .---------.                      on:  BluePill  BluePill+
           .-------|         |-------.           ======  ========  =========
         0 B12 NSS |   USB   |     (!) -         (!) ->  GND       5V
         1 B13 SCK `---------´     GND -
@@ -25,7 +25,7 @@ description: |
         4 A8  (MCO)    (RX#/SDA#) B11 31
         5 A9  UART TX  (TX#/SCL#) B10 30
         6 A10 UART RX        ADC9  B1 29
-        7 A11 (USB DN)       ADC8  B0 28
+        7 A11 (USB DM)       ADC8  B0 28
         8 A12 (USB DP)       ADC7  A7 27
         9 A15 (JTDI)         ADC6  A6 26
        10 B3  (JTDO)         ADC5  A5 25
@@ -43,6 +43,10 @@ description: |
 
              3V3 ---´     `--- GND
     (JTMS) SWDIO -----´ `----- SWCLK (JTCK)
+
+    Use NNT_BLUEPILL_HEADER_* constants in
+    <zephyr/dt-bindings/gpio/nologo-bluepill-header.h> to refer
+    to specific pins using convenient constant names.
 
 compatible: "nologo,bluepill-header"
 
