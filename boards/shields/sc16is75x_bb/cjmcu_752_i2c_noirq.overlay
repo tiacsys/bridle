@@ -1,10 +1,12 @@
 /*
- * Copyright (c) 2024 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2024-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
 #include <zephyr/dt-bindings/i2c/i2c.h>
 #include <zephyr/dt-bindings/gpio/gpio.h>
+
+#include <zephyr/dt-bindings/gpio/cjmcu-75x-hif-header.h>
 
 &cjmcu_i2c {
 	status = "okay";
@@ -14,7 +16,8 @@
 	cjmcu_75x: sc16is752@48 {
 		reg = <0x48>;
 
-		reset-gpios = <&cjmcu_hif_i2c 7 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+		reset-gpios = <&cjmcu_hif_i2c CJMCU_75X_HIF_HEADER_RESET
+					(GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 
 		cjmcu_75x_gpio: sc16is752-48-gpio {};
 		cjmcu_75x_uart0: sc16is752-48-uart@0 {};

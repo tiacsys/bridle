@@ -1,7 +1,9 @@
 /*
- * Copyright (c) 2024 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2024-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
+
+#include <zephyr/dt-bindings/gpio/cjmcu-75x-gpio-header.h>
 
 / {
 	cjmcu_gpio: cjmcu-75x-gpio-pins {
@@ -9,14 +11,14 @@
 		#gpio-cells = <2>;
 		gpio-map-mask = <0xffffffff 0xffffffc0>;
 		gpio-map-pass-thru = <0 0x3f>;
-		gpio-map = <0 0 &cjmcu_75x_gpio 0 0>,
-			   <1 0 &cjmcu_75x_gpio 1 0>,
-			   <2 0 &cjmcu_75x_gpio 2 0>,
-			   <3 0 &cjmcu_75x_gpio 3 0>,
-			   <4 0 &cjmcu_75x_gpio 4 0>,
-			   <5 0 &cjmcu_75x_gpio 5 0>,
-			   <6 0 &cjmcu_75x_gpio 6 0>,
-			   <7 0 &cjmcu_75x_gpio 7 0>;
+		gpio-map = <CJMCU_75X_GPIO_HEADER_D0 0 &cjmcu_75x_gpio 0 0>,
+			   <CJMCU_75X_GPIO_HEADER_D1 0 &cjmcu_75x_gpio 1 0>,
+			   <CJMCU_75X_GPIO_HEADER_D2 0 &cjmcu_75x_gpio 2 0>,
+			   <CJMCU_75X_GPIO_HEADER_D3 0 &cjmcu_75x_gpio 3 0>,
+			   <CJMCU_75X_GPIO_HEADER_D4 0 &cjmcu_75x_gpio 4 0>,
+			   <CJMCU_75X_GPIO_HEADER_D5 0 &cjmcu_75x_gpio 5 0>,
+			   <CJMCU_75X_GPIO_HEADER_D6 0 &cjmcu_75x_gpio 6 0>,
+			   <CJMCU_75X_GPIO_HEADER_D7 0 &cjmcu_75x_gpio 7 0>;
 	};
 };
 
