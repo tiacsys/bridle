@@ -1,9 +1,12 @@
 /*
- * Copyright (c) 2024 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2024-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
 nxp_sc18is604_evb_spi: &arduino_spi {};
+
+#include <zephyr/dt-bindings/gpio/arduino-header-r3.h>
+#include <zephyr/dt-bindings/gpio/nxp-sc18is604-evb-hif-header.h>
 
 / {
 	nxp_sc18is604_evb_hif: nxp-sc18is604-evb-hif-pins {
@@ -11,11 +14,17 @@ nxp_sc18is604_evb_spi: &arduino_spi {};
 		#gpio-cells = <2>;
 		gpio-map-mask = <0xffffffff 0xffffffc0>;
 		gpio-map-pass-thru = <0 0x3f>;
-		gpio-map = <0 0 &arduino_header 14 0>,	/* RESET_B @ D8 */
-			   <1 0 &arduino_header 15 0>,	/* INT_B @ D9 */
-			   <2 0 &arduino_header 19 0>,	/* SCLK @ D13 (SCK) */
-			   <3 0 &arduino_header 17 0>,	/* MOSI @ D11 (COPI) */
-			   <4 0 &arduino_header 18 0>,	/* MISO @ D12 (CIPO) */
-			   <5 0 &arduino_header 16 0>;	/* CS_B @ D10 (SS) */
+		gpio-map = <NXP_SC18IS604_EVB_HIF_HEADER_RESET 0
+			    &arduino_header ARDUINO_HEADER_R3_D8 0>,
+			   <NXP_SC18IS604_EVB_HIF_HEADER_INT 0
+			    &arduino_header ARDUINO_HEADER_R3_D9 0>,
+			   <NXP_SC18IS604_EVB_HIF_HEADER_SCLK 0
+			    &arduino_header ARDUINO_HEADER_R3_D13 0>,
+			   <NXP_SC18IS604_EVB_HIF_HEADER_MOSI 0
+			    &arduino_header ARDUINO_HEADER_R3_D11 0>,
+			   <NXP_SC18IS604_EVB_HIF_HEADER_MISO 0
+			    &arduino_header ARDUINO_HEADER_R3_D12 0>,
+			   <NXP_SC18IS604_EVB_HIF_HEADER_CS 0
+			    &arduino_header ARDUINO_HEADER_R3_D10 0>;
 	};
 };
