@@ -1,7 +1,9 @@
 /*
- * Copyright (c) 2024 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2024-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
+
+#include <zephyr/dt-bindings/gpio/nxp-sc18is604-evb-gpio-header.h>
 
 / {
 	nxp_sc18is604_evb_gpio: nxp-sc18is604-evb-gpio-pins {
@@ -11,11 +13,11 @@
 		#gpio-cells = <2>;
 		gpio-map-mask = <0xffffffff 0xffffffc0>;
 		gpio-map-pass-thru = <0 0x3f>;
-		gpio-map = <0 0 &sc18is604_0_gpio 0 0>,	/* IO0 */
-			   <1 0 &sc18is604_0_gpio 1 0>,	/* IO1 */
-			   <2 0 &sc18is604_0_gpio 2 0>,	/* IO2 */
-			   <3 0 &sc18is604_0_gpio 3 0>,	/* IO3 */
-			   <4 0 &sc18is604_0_gpio 4 0>;	/* IO4 (input only) */
+		gpio-map = <NXP_SC18IS604_EVB_GPIO_HEADER_D0 0 &sc18is604_0_gpio 0 0>,
+			   <NXP_SC18IS604_EVB_GPIO_HEADER_D1 0 &sc18is604_0_gpio 1 0>,
+			   <NXP_SC18IS604_EVB_GPIO_HEADER_D2 0 &sc18is604_0_gpio 2 0>,
+			   <NXP_SC18IS604_EVB_GPIO_HEADER_D3 0 &sc18is604_0_gpio 3 0>,
+			   <NXP_SC18IS604_EVB_GPIO_HEADER_D4 0 &sc18is604_0_gpio 4 0>; /* in-only */
 	};
 };
 

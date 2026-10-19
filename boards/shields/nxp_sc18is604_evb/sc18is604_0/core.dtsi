@@ -1,10 +1,12 @@
 /*
- * Copyright (c) 2024 TiaC Systems
+ * SPDX-FileCopyrightText: Copyright (c) 2024-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
 
 #include <freq.h>
 #include <zephyr/dt-bindings/gpio/gpio.h>
+
+#include <zephyr/dt-bindings/gpio/nxp-sc18is604-evb-hif-header.h>
 
 &sc18is604_0 {
 	compatible = "nxp,sc18is604";
@@ -12,6 +14,6 @@
 
 	spi-max-frequency = <DT_FREQ_K(1200)>;
 
-	reset-gpios = <&nxp_sc18is604_evb_hif 0 GPIO_ACTIVE_LOW>;
-	interrupt-gpios = <&nxp_sc18is604_evb_hif 1 GPIO_ACTIVE_LOW>;
+	reset-gpios = <&nxp_sc18is604_evb_hif NXP_SC18IS604_EVB_HIF_HEADER_RESET GPIO_ACTIVE_LOW>;
+	interrupt-gpios = <&nxp_sc18is604_evb_hif NXP_SC18IS604_EVB_HIF_HEADER_INT GPIO_ACTIVE_LOW>;
 };
