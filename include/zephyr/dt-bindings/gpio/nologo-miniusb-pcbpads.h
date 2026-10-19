@@ -6,14 +6,14 @@
 /**
  * @file
  * @brief No Name Technology Mini USB solder pads pin constants
- * @ingroup waveshare-rp2040mini-pcbpads
+ * @ingroup nologo-miniusb-pcbpads
  */
 
 #ifndef ZEPHYR_INCLUDE_DT_BINDINGS_GPIO_NOLOGO_MINIUSB_PCBPADS_H_
 #define ZEPHYR_INCLUDE_DT_BINDINGS_GPIO_NOLOGO_MINIUSB_PCBPADS_H_
 
 /**
- * @defgroup waveshare-rp2040mini-pcbpads No Name Technology Mini USB solder pads
+ * @defgroup nologo-miniusb-pcbpads No Name Technology Mini USB solder pads
  * @brief Constants for pins exposed on No Name Technology Mini USB solder pads
  * @ingroup devicetree-gpio-pin-headers
  * @{
