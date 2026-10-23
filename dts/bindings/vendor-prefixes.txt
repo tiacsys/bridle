@@ -30,6 +30,7 @@ nxp	NXP Semiconductors N.V.
 pimoroni	Pimoroni Ltd.
 raspberrypi	Raspberry Pi Foundation
 seeed	Seeed Technology Co., Ltd
+seengreat	SeenGreat, Guangxi Guilin Shengui Technology Co., Ltd
 sensortek	Sensortek Technology Corporation
 socket	Rig connector model — board-side typed socket
 sparkfun	SparkFun Electronics, Inc.
