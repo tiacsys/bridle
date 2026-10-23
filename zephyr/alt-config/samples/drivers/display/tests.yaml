@@ -227,6 +227,20 @@ tests:
       - cytron_maker_nano_rp2040
       - cytron_maker_pi_rp2040
   #
+  # shield: SeenGreat Pico RGB Matrix Panel Expansion S1
+  #
+  sample.drivers.display.seengreat_pico_rgb_matrix_pes1:
+    extra_args:
+      SHIELD=seengreat_pico_rgb_matrix_pes1
+    integration_platforms:
+      - rpi_pico/rp2040/bbe
+      - rpi_pico/rp2040/w/bbe
+      - rpi_pico2/rp2350a/hazard3_0/bbe
+      - rpi_pico2/rp2350a/m33_0/bbe
+      - rpi_pico2/rp2350a/m33_0/w/bbe
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb
+  #
   # shield: Waveshare Pico RGB LED (matrix as display)
   #
   sample.drivers.display.waveshare_pico_rgb_led:
