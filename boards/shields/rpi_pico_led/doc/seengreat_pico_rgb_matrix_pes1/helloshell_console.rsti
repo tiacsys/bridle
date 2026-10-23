@@ -1,0 +1,252 @@
+.. rubric:: Simple test execution on target
+
+(text in bold is a command input)
+
+.. tabs::
+
+   .. group-tab:: Basics
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **hello -h**
+            hello - say hello
+            :bgn:`uart:~$` **hello**
+            Hello from shell.
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **hwinfo devid**
+            Length: 8
+            ID: 0x8c998be1de969148
+
+            :bgn:`uart:~$` **kernel version**
+            Zephyr version |zephyr_version_number_em|
+
+            :bgn:`uart:~$` **bridle version**
+            Bridle version |shortversion_number_em|
+
+            :bgn:`uart:~$` **bridle version long**
+            Bridle version |longversion_number_em|
+
+            :bgn:`uart:~$` **bridle info**
+            Zephyr: |zephyr_release_number_em|
+            Bridle: |release_number_em|
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **device list**
+            devices:
+            - clock-controller\ @\ 40008000 (READY)
+              DT node labels: clocks
+            - reset-controller\ @\ 4000c000 (READY)
+              DT node labels: reset
+            - snippet_cdc_acm_console_uart (READY)
+              DT node labels: snippet_cdc_acm_console_uart
+            - timer\ @\ 40054000 (READY)
+              DT node labels: timer
+            - uart\ @\ 40034000 (READY)
+              DT node labels: uart0 pico_serial pico_serial0 rpipico_serial
+            - pio\ @\ 50200000 (READY)
+              DT node labels: ((pio_hw_t \*)0x50200000u) pico_pio0 rpipico_pio_led
+            - gpio-port\ @\ 0 (READY)
+              DT node labels: gpio0
+            - usbd\ @\ 50110000 (READY)
+              DT node labels: usbd zephyr_udc0
+            - adc\ @\ 4004c000 (READY)
+              DT node labels: adc pico_adc rpipico_adc
+            - flash-controller\ @\ 18000000 (READY)
+              DT node labels: ssi
+            - i2c\ @\ 40044000 (READY)
+              DT node labels: i2c0 pico_i2c pico_i2c0 rpipico_i2c rpipico_i2c0
+            - vreg\ @\ 40064000 (READY)
+              DT node labels: vreg
+            - spi-rtc-ds1302\ @\ 0 :brd:`(DISABLED)`
+              DT node labels: spi_rtc_ds1302 rtc_extern
+            - rtc\ @\ 4005c000 (READY)
+              DT node labels: rtc
+            - pico-spi-rtc (READY)
+              DT node labels: pico_spi_rtc rpipico_spi_rtc
+            - spi\ @\ 4003c000 (READY)
+              DT node labels: spi0 pico_spi pico_spi0 rpipico_spi rpipico_spi0
+            - leds (READY)
+            - pico-pio0-ws2812 (READY)
+              DT node labels: pico_pio0_ws2812 pio_led_strip
+            - ws2812-20x10 (READY)
+              DT node labels: ws2812_20x10 led_strip
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **history**
+            [  0] history
+            [  1] device list
+            [  2] bridle info
+            [  3] bridle version long
+            [  4] bridle version
+            [  5] kernel version
+            [  6] hwinfo devid
+            [  7] hello
+            [  8] hello -h
+
+   .. group-tab:: LED Strip
+
+      Operate with the RGB digital LED strip :hwftlbl-led:`200 RGB`
+      at :rpi-pico-pio:`PIO0` / :rpi-pico-pio:`GP22`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip get_length led_strip**
+            ws2812-20x10 has 200 pixel(s)
+
+      Sett all LEDs to :brd:`RED`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 070000 200**
+
+      Sett all LEDs to :byl:`YELLOW`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 070700 200**
+
+      Sett all LEDs to :bgn:`GREEN`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 000700 200**
+
+      Sett all LEDs to :bcy:`CYAN`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 000707 200**
+
+      Sett all LEDs to :bbl:`BLUE`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 000007 200**
+
+      Sett all LEDs to :bma:`MAGENTA`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 070007 200**
+
+      Sett all LEDs to :bwt:`WHITE` (all on):
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 070707 200**
+
+      Sett all LEDs to :bbk:`BLACK` (all off):
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **led_strip fill led_strip 000000 200**
+
+   .. group-tab:: ADC
+
+      Operate with the on-shield high-resistance LDR :hwftlbl:`Rₗ`
+      on :rpi-pico-adc:`ADC_CH0`:
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **adc adc@4004c000 resolution 12**
+            :bgn:`uart:~$` **adc adc@4004c000 print**
+            adc\ @\ 4004c000:
+            Gain: 1
+            Reference: INTERNAL
+            Acquisition Time: 0
+            Channel ID: 0
+            Differential: 0
+            Resolution: 12
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **adc adc@4004c000 read 0**
+            read: 51
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **adc adc@4004c000 read 0**
+            read: 883
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **adc adc@4004c000 read 0**
+            read: 3147
+
+   .. group-tab:: RTC
+
+      .. admonition:: Defective SPI bitbang driver in Zephyr
+         :class: danger
+
+         Access to the RTC module in half-duplex operation mode is not (yet)
+         possible. The bitbang SPI controller driver does not (yet) support
+         bulk transfers, which is the simultaneous writing and reading within
+         a single SPI transfer context, in half-duplex mode with a given dual
+         Tx/Rx buffer. The RTC driver requires this functionality. This can be
+         identified by the following error message at boot time:
+
+         .. container:: highlight highlight-console notranslate no-copybutton
+
+            .. parsed-literal::
+
+               [00:00:00.001,000] :rd:`<err> spi_bitbang: Both RX and TX specified in half duplex mode`
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **rtc get rtc_extern**
+            :brd:`device rtc_extern not ready`
+
+      .. container:: highlight highlight-console notranslate
+
+         .. parsed-literal::
+
+            :bgn:`uart:~$` **rtc set rtc_extern 2013-12-11T10:09:08**
+            :brd:`device rtc_extern not ready`
+            :bgn:`uart:~$` **rtc get rtc_extern**
+            :brd:`device rtc_extern not ready`
+
+         .. .. parsed-literal::
+
+            :bgn:`uart:~$` **rtc set rtc_extern 2013-12-11T10:09:08**
+            :bgn:`uart:~$` **rtc get rtc_extern**
+            2013-12-11T10:09:16.000

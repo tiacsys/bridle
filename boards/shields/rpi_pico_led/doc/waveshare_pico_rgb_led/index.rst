@@ -34,6 +34,11 @@ LED Blinky and Button
 
 .. include:: led_button.rsti
 
+Hello Shell on the USB Console (CDC/ACM)
+========================================
+
+.. include:: helloshell.rsti
+
 More Samples
 ************
 

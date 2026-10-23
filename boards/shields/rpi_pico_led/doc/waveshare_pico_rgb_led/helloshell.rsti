@@ -1,0 +1,130 @@
+Set ``-DSHIELD=waveshare_pico_rgb_led`` and use optional the
+:ref:`snippet-usb-console` when you invoke ``west build``.
+For example:
+
+.. tabs::
+
+   .. zephyr-keep-sorted-start re(^\s{3}\.\. group-tab:: \w)
+
+   .. group-tab:: Raspberry Pi Pico
+
+      .. zephyr-app-commands::
+         :app: bridle/samples/helloshell
+         :build-dir: waveshare_pico_rgb_led-helloshell
+         :board: rpi_pico/rp2040/bbe
+         :shield: "waveshare_pico_rgb_led"
+         :snippets: "usb-console"
+         :gen-args: \
+            -DCONFIG_LED_STRIP=y -DCONFIG_LED_STRIP_SHELL=y -DCONFIG_LED_STRIP_SHELL_MAX_PIXELS=160
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :host-os: unix
+
+      .. include:: helloshell_console.rsti
+
+   .. group-tab:: Raspberry Pi Pico 2
+
+      .. rubric:: On Hazard3 RISC-V (RV32IMAC+)
+
+      .. zephyr-app-commands::
+         :app: bridle/samples/helloshell
+         :build-dir: waveshare_pico_rgb_led-helloshell
+         :board: rpi_pico2/rp2350a/hazard3_0/bbe
+         :shield: "waveshare_pico_rgb_led"
+         :snippets: "usb-console"
+         :gen-args: \
+            -DCONFIG_LED_STRIP=y -DCONFIG_LED_STRIP_SHELL=y -DCONFIG_LED_STRIP_SHELL_MAX_PIXELS=160
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :host-os: unix
+
+      .. rubric:: On ARM Cortex-M33
+
+      .. zephyr-app-commands::
+         :app: bridle/samples/helloshell
+         :build-dir: waveshare_pico_rgb_led-helloshell
+         :board: rpi_pico2/rp2350a/m33_0/bbe
+         :shield: "waveshare_pico_rgb_led"
+         :snippets: "usb-console"
+         :gen-args: \
+            -DCONFIG_LED_STRIP=y -DCONFIG_LED_STRIP_SHELL=y -DCONFIG_LED_STRIP_SHELL_MAX_PIXELS=160
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :host-os: unix
+
+      .. include:: helloshell_console.rsti
+
+   .. group-tab:: Raspberry Pi Pico 2W
+
+      .. rubric:: On ARM Cortex-M33
+
+      .. zephyr-app-commands::
+         :app: bridle/samples/helloshell
+         :build-dir: waveshare_pico_rgb_led-helloshell
+         :board: rpi_pico2/rp2350a/m33_0/w/bbe
+         :shield: "waveshare_pico_rgb_led"
+         :snippets: "usb-console wifi-ip"
+         :gen-args: \
+            -DCONFIG_LED_STRIP=y -DCONFIG_LED_STRIP_SHELL=y -DCONFIG_LED_STRIP_SHELL_MAX_PIXELS=160
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :host-os: unix
+
+      .. include:: helloshell_console.rsti
+
+   .. group-tab:: Raspberry Pi Pico W
+
+      .. zephyr-app-commands::
+         :app: bridle/samples/helloshell
+         :build-dir: waveshare_pico_rgb_led-helloshell
+         :board: rpi_pico/rp2040/w/bbe
+         :shield: "waveshare_pico_rgb_led"
+         :snippets: "usb-console wifi-ip"
+         :gen-args: \
+            -DCONFIG_LED_STRIP=y -DCONFIG_LED_STRIP_SHELL=y -DCONFIG_LED_STRIP_SHELL_MAX_PIXELS=160
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :host-os: unix
+
+      .. include:: helloshell_console.rsti
+
+   .. group-tab:: Waveshare RP2040-Plus
+
+      .. rubric:: on standard ``4㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: bridle/samples/helloshell
+         :build-dir: waveshare_pico_rgb_led-helloshell
+         :board: waveshare_rp2040_plus
+         :shield: "waveshare_pico_rgb_led"
+         :snippets: "usb-console"
+         :gen-args: \
+            -DCONFIG_LED_STRIP=y -DCONFIG_LED_STRIP_SHELL=y -DCONFIG_LED_STRIP_SHELL_MAX_PIXELS=160
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :host-os: unix
+
+      .. rubric:: on extended ``16㎆`` revision
+
+      .. zephyr-app-commands::
+         :app: bridle/samples/helloshell
+         :build-dir: waveshare_pico_rgb_led-helloshell
+         :board: waveshare_rp2040_plus@16mb
+         :shield: "waveshare_pico_rgb_led"
+         :snippets: "usb-console"
+         :gen-args: \
+            -DCONFIG_LED_STRIP=y -DCONFIG_LED_STRIP_SHELL=y -DCONFIG_LED_STRIP_SHELL_MAX_PIXELS=160
+         :west-args: -p
+         :flash-args: -r uf2
+         :goals: flash
+         :host-os: unix
+
+      .. include:: helloshell_console.rsti
+
+   .. zephyr-keep-sorted-stop
