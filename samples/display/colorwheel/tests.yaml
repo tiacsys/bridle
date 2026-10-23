@@ -24,7 +24,21 @@ tests:
       - waveshare_rp2040_matrix
       - waveshare_rp2350_matrix/rp2350a/hazard3_0
       - waveshare_rp2350_matrix/rp2350a/m33_0
-  bridle.sample.colorwheel.shield:
+  bridle.sample.colorwheel.seengreat_pico_rgb_matrix_pes1:
+    extra_args: SHIELD=seengreat_pico_rgb_matrix_pes1
+    platform_allow:
+      - rpi_pico/rp2040/bbe
+      - rpi_pico/rp2040/w/bbe
+      - rpi_pico2/rp2350a/hazard3_0/bbe
+      - rpi_pico2/rp2350a/m33_0/bbe
+      - rpi_pico2/rp2350a/m33_0/w/bbe
+      - waveshare_rp2040_plus
+    integration_platforms:
+      - rpi_pico/rp2040/bbe
+      - rpi_pico2/rp2350a/hazard3_0/bbe
+      - rpi_pico2/rp2350a/m33_0/bbe
+      - waveshare_rp2040_plus
+  bridle.sample.colorwheel.waveshare_pico_rgb_led:
     extra_args: SHIELD=waveshare_pico_rgb_led
     platform_allow:
       - rpi_pico/rp2040/bbe
