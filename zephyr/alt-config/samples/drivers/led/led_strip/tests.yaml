@@ -20,6 +20,7 @@ tests:
   #
   sample.drivers.led_strip:
     integration_platforms:
+      - coffeecaller_nrf52
       - cytron_maker_nano_rp2040
       - cytron_maker_pi_rp2040
       - cytron_motion_2350_pro/rp2350a/hazard3_0
