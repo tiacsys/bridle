@@ -178,6 +178,9 @@
 
 .. _`MCUboot`: https://www.trustedfirmware.org/projects/mcuboot
 
+.. _`MicroPython`: https://micropython.org/
+.. _`MicroPython for Seeed board`: https://github.com/Seeed-Studio/micropython-seeed-boards
+
 .. _`MscGen`: https://www.mcternan.me.uk/mscgen
 .. _`MscGen (Ubuntu DPKG)`: https://packages.ubuntu.com/noble/mscgen
 .. _`mscgen_linux`: https://packages.ubuntu.com/noble/mscgen
@@ -349,6 +352,11 @@
 .. _`STM32CubeProgrammer`: https://www.st.com/en/development-tools/stm32cubeprog.html
 .. _`STM32MCUDevZone`: https://www.st.com/content/st_com/en/stm32-mcu-developer-zone.html
 .. _`STM32MPUDevZone`: https://www.st.com/content/st_com/en/stm32-mpu-developer-zone.html
+.. _`ST-LINK/V2`: https://www.st.com/en/development-tools/st-link-v2.html
+.. _`ST-LINK-V3MINIE`: https://www.st.com/en/development-tools/stlink-v3minie.html
+.. _`ST-LINK-V3MODS`: https://www.st.com/en/development-tools/stlink-v3mods.html
+.. _`ST-LINK-V3SET`: https://www.st.com/en/development-tools/stlink-v3set.html
+.. _`ST-LINK-V3PWR`: https://www.st.com/en/development-tools/stlink-v3pwr.html
 
 .. _`CAN Bit Time Calculation Sheet`:
    http://www.bittiming.can-wiki.info/?ctype=bxCAN&calc=1&CLK=54&SamplePoint=88.9&SJW=1
@@ -663,13 +671,50 @@
     https://wiki.seeedstudio.com/Seeeduino-XIAO#hardware-overview
 
 .. _`XIAO SAMD21 Schematic`:
-    https://wiki.seeedstudio.com/Seeeduino-XIAO#resourses
+    https://wiki.seeedstudio.com/Seeeduino-XIAO#resources
 
 .. _`XIAO SAMD21 Design Data for Eagle`:
    https://files.seeedstudio.com/wiki/Seeeduino-XIAO/res/Seeeduino-XIAO-v1.0.zip
 
 .. _`XIAO SAMD21 Design Data for KiCAD`:
    https://files.seeedstudio.com/wiki/Seeeduino-XIAO/res/Seeeduino-XIAO-KICAD.zip
+
+.. #### Links to XIAO STM32C5
+
+.. _`XIAO STM32C5 wiki`:
+    https://wiki.seeedstudio.com/xiao_stm32c5_getting_started
+
+.. _`XIAO STM32C5 Pinouts`:
+    https://wiki.seeedstudio.com/xiao_stm32c5_getting_started#hardware-overview
+
+.. _`XIAO STM32C5 Schematic`:
+    https://wiki.seeedstudio.com/xiao_stm32c5_getting_started#resources
+
+.. _`XIAO STM32C5 Design Data for KiCAD`:
+   https://files.seeedstudio.com/wiki/XIAO_STM32C5/res/XIAO_STM32C5_v1.0_SCH&PCB.zip
+
+.. _`XIAO STM32C5 MicroPython`:
+   https://github.com/Seeed-Studio/micropython-seeed-boards/blob/master/README.md#xiao-stm32c5-micropython
+
+.. _`XIAO STM32C5 MicroPython Release Notes`:
+   https://github.com/Seeed-Studio/micropython-seeed-boards/blob/master/release/xiao_stm32c5/RELEASE_NOTES.md
+
+.. #### Links to Expansion Board Base for XIAO
+
+.. _`Expansion Base for XIAO`:
+   https://wiki.seeedstudio.com/Seeeduino-XIAO-Expansion-Board
+
+.. _`Expansion Base for XIAO Pinouts`:
+   https://wiki.seeedstudio.com/Seeeduino-XIAO-Expansion-Board#pinout-diagram
+
+.. _`Expansion Base for XIAO Schematic`:
+   https://wiki.seeedstudio.com/Seeeduino-XIAO-Expansion-Board#resources
+
+.. _`Expansion Base for XIAO Schematic Design for Eagle`:
+   https://files.seeedstudio.com/wiki/Seeeduino-XIAO-Expansion-Board/document/Seeeduino%20XIAO%20Expansion%20board_v1.0_200824.sch
+
+.. _`Expansion Base for XIAO PCB/Board Design for Eagle`:
+   https://files.seeedstudio.com/wiki/Seeeduino-XIAO-Expansion-Board/document/Seeeduino%20XIAO%20Expansion%20board_v1.0_200824.brd
 
 
 
@@ -805,6 +850,14 @@
 .. |WeAct Studio on AliExpress| replace::
    :strong:`WeAct Studio` (:emphasis:`WeiXing Store`) :strong:`on AliExpress`
 .. _`WeAct Studio on AliExpress`: https://weactstudio.aliexpress.com/store/910567080
+
+.. |WeActStudio MiniDebugger/STLink| replace::
+   :emphasis:`WeAct Studio` :strong:`MiniDebugger` with :bbl:`STLink` firmware
+.. _`WeActStudio MiniDebugger/STLink`: https://github.com/WeActStudio/WeActStudio.MiniDebugger
+
+.. |WeActStudio MiniDebugger/DAPLink| replace::
+   :emphasis:`WeAct Studio` :strong:`MiniDebugger` with :bbl:`DAPLink` firmware
+.. _`WeActStudio MiniDebugger/DAPLink`: https://github.com/WeActStudio/WeActStudio.MiniDebugger
 
 .. |BluePill-Plus| replace:: :emphasis:`WeAct Studio` :strong:`BluePill-Plus`
 .. _BluePill-Plus: https://github.com/WeActStudio/BluePill-Plus

@@ -1,0 +1,34 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+#
+# NOTE: copy and own from original board metadata in
+# "zephyr/boards/seeed/xiao_stm32c5/xiao_stm32c5.yaml"
+
+identifier: xiao_stm32c5/stm32c5a3xx/bbe
+name: XIAO STM32C5 (BBE)
+type: mcu
+arch: arm
+flash: 256
+ram: 488
+toolchain:
+  - zephyr
+  - gnuarmemb
+supported:
+  - adc
+  - can
+  - flash
+  - gpio
+  - hwinfo
+  - i2c
+  - pwm
+  - spi
+  - uart
+  - usbd
+  - watchdog
+  - xiao_adc
+  - xiao_can
+  - xiao_gpio
+  - xiao_i2c
+  - xiao_serial
+  - xiao_spi
+vendor: seeed

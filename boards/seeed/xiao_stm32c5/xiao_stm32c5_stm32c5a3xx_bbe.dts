@@ -1,0 +1,44 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include "../../zephyr/boards/seeed/xiao_stm32c5/xiao_stm32c5.dts"
+
+/ {
+	model = "Seeed Studio XIAO STM32C5 @ UART Concole (BBE)";
+	compatible = "seeed,xiao-stm32c5",
+		     "seeed,xiao-stm32c5-bbe",
+		     "seeed,xiao-stm32c5-uartcons",
+		     "seeed,xiao-stm32c5-uartcons-bbe";
+
+	chosen {
+		zephyr,console = &usart1;
+		zephyr,shell-uart = &usart1;
+		/delete-property/ zephyr,uart-mcumgr;
+		/delete-property/ zephyr,bt-mon-uart;
+		/delete-property/ zephyr,bt-c2h-uart;
+	};
+};
+
+/* Revert USB CDC-ACM console via common fragment in upstream board. */
+&zephyr_udc0 {
+	status = "disabled";
+	/delete-node/ board_cdc_acm_uart;
+};
+
+/* Fix missing pinctrl and clock setup for USB device (PR #123503). */
+&zephyr_udc0 {
+	pinctrl-0 = <&usb_dm_pa11 &usb_dp_pa12>;
+	pinctrl-names = "default";
+};
+
+&clk48 {
+	clocks = <&rcc STM32_SRC_HSE CK48_SEL(3)>;
+	status = "okay";
+};
+
+/* Fix user button polarity on the BOOT0 pad (PR #123468). */
+&boot_button {
+	gpios = <&gpioh 2 GPIO_ACTIVE_HIGH>;
+};

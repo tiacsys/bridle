@@ -1,0 +1,8 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
+board:
+  extend: xiao_stm32c5
+  variants:
+    - name: bbe
+      qualifier: stm32c5a3xx
