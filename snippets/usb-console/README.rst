@@ -265,6 +265,21 @@ specified as required.
        | |zephyr:devicetree:chosen:bt-mon-uart|
        | |zephyr:devicetree:chosen:bt-c2h-uart|
 
+   * - |xiao_stm32c5_URB_VID|
+     - |xiao_stm32c5_URB_PID_CON|
+     - | :code:`xiao_stm32c5`
+       | :code:`xiao_stm32c5//bbe`
+     - |Seeed Studio|_
+     - | |XIAO STM32C5 (CDC ACM)|,
+       | Seeeduino XIAO
+       | ↳ |bridle:board:xiao_stm32c5|
+     - derived VID from part number STM32C5A3CG
+     - | |zephyr:devicetree:chosen:console|
+       | |zephyr:devicetree:chosen:shell-uart|
+       | |zephyr:devicetree:chosen:uart-mcumgr|
+       | |zephyr:devicetree:chosen:bt-mon-uart|
+       | |zephyr:devicetree:chosen:bt-c2h-uart|
+
    * - |cytron_maker_nano_rp2040_URB_VID|
      - |cytron_maker_nano_rp2040_URB_PID_CON|
      - :code:`cytron_maker_nano_rp2040`

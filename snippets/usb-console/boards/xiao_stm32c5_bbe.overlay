@@ -1,0 +1,16 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	model = "Seeed Studio XIAO STM32C5 @ USB-CDC/ACM Concole (BBE)";
+	compatible = "seeed,xiao-stm32c5",
+		     "seeed,xiao-stm32c5-bbe",
+		     "seeed,xiao-stm32c5-usbcons",
+		     "seeed,xiao-stm32c5-usbcons-bbe";
+
+	chosen {
+		zephyr,shell-uart = &snippet_cdc_acm_console_uart;
+	};
+};

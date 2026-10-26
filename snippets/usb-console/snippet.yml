@@ -123,6 +123,14 @@ boards:
     append:
       EXTRA_CONF_FILE: boards/xiao_samd21.conf
       EXTRA_DTC_OVERLAY_FILE: boards/xiao_samd21.overlay
+  xiao_stm32c5/stm32c5a3xx:
+    append:
+      EXTRA_CONF_FILE: boards/xiao_stm32c5.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/xiao_stm32c5.overlay
+  xiao_stm32c5/stm32c5a3xx/bbe:
+    append:
+      EXTRA_CONF_FILE: boards/xiao_stm32c5.conf
+      EXTRA_DTC_OVERLAY_FILE: boards/xiao_stm32c5_bbe.overlay
   xiao_rp2040/rp2040:
     append:
       EXTRA_CONF_FILE: boards/xiao_rp2040.conf
