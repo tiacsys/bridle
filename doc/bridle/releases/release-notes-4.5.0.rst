@@ -199,6 +199,7 @@ Supported boards
 * XIAO RP2040 (Seeed Studio XIAO RP2040)
 * XIAO RP2350 (Seeed Studio XIAO RP2350)
 * XIAO SAMD21 (former Seeed Studio XIAO SAMD21), also known as Seeeduino XIAO
+* XIAO STM32C5 (Seeed Studio XIAO STM32C5)
 
 .. zephyr-keep-sorted-stop
 
@@ -265,6 +266,13 @@ Change log
   Bridle specific backdoor functions have been removed. Instead, Bridle
   now also makes use of the officially tolerated and required HWMv2
   behavior for board extensions, the Bridle Board Extensions (BBE).
+* Align the Bridle ``usb-console`` snippet with the common fragments from
+  Zephyr upstream. That mades Bridle more compatible to upstream boards
+  that uses that common fragments but Bridle tries to revert the default
+  USB CDC-ACM UART by a Bridle Board Extension. Also the corresponding
+  test specification has now more test cases related to chosen properties
+  and intended logging levels for all three layer, the USB Device Driver,
+  the USB Device Stack, and the USB CDC ACM Class.
 * Sample ``helloshell`` supports now all Raspberry Pi Pico W and Pico 2W
   variants, the origin upstream and Bridle's ``bbe``, with the onboard LED
   via the CYW43 GPIO driver and Wi-Fi/IP network without the dependency
