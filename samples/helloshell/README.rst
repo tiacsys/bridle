@@ -76,6 +76,7 @@ Requirements
   * |zephyr:board:seeeduino_xiao| or Bridle's |bridle:board:seeeduino_xiao|
   * |zephyr:board:xiao_rp2040| or Bridle's |bridle:board:xiao_rp2040|
   * |zephyr:board:xiao_rp2350| or Bridle's |bridle:board:xiao_rp2350|
+  * |zephyr:board:xiao_stm32c5| or Bridle's |bridle:board:xiao_stm32c5|
 
 .. zephyr-keep-sorted-stop
 

@@ -228,6 +228,8 @@ tests:
       - xiao_rp2350/rp2350a/hazard3_0/bbe
       - xiao_rp2350/rp2350a/m33_0
       - xiao_rp2350/rp2350a/m33_0/bbe
+      - xiao_stm32c5/stm32c5a3xx
+      - xiao_stm32c5/stm32c5a3xx/bbe
       - waveshare_rp2040_one
       - waveshare_rp2040_zero
       - waveshare_rp2040_matrix

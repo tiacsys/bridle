@@ -196,6 +196,14 @@
 
 | RP2350 | | :ref:`xiao_rp2350_board-extensions` | - ``xiao_rp2350/rp2350a/m33_0/bbe`` |
 
+.. xiao_stm32c5_stm32c5a3xx
+
+| STM32C5A3CG | | :external+zephyr:zephyr:board:`xiao_stm32c5` | - ``xiao_stm32c5/stm32c5a3xx`` |
+
+.. xiao_stm32c5_stm32c5a3xx_bbe
+
+| STM32C5A3CG | | :ref:`xiao_stm32c5_board-extensions` | - ``xiao_stm32c5/stm32c5a3xx/bbe`` |
+
 .. weact_bluepillplus_stm32f103c8
 
 | STM32F103 | | :ref:`weact_bluepillplus` | - ``weact_bluepillplus_stm32f103c8`` |
