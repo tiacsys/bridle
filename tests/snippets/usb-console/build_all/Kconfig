@@ -1,4 +1,4 @@
-# Copyright (c) 2025 TiaC Systems
+# SPDX-FileCopyrightText: Copyright (c) 2025-2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 mainmenu "Buildability over all Bridle USB Console Boards and Snippets (usb-console)"
@@ -11,6 +11,30 @@ config TEST_NAME
 config TEST_CHOSEN_ZEPHYR_SHELL_UART
 	bool "Test `/chosen` property `zephyr,shell-uart`"
 	default n
+
+config TEST_CHOSEN_ZEPHYR_UART_MCUMGR
+	bool "Test `/chosen` property `zephyr,uart-mcumgr`"
+	default n
+
+config TEST_CHOSEN_ZEPHYR_BT_MON_UART
+	bool "Test `/chosen` property `zephyr,bt-mon-uart`"
+	default n
+
+config TEST_CHOSEN_ZEPHYR_BT_C2H_UART
+	bool "Test `/chosen` property `zephyr,bt-c2h-uart`"
+	default n
+
+menuconfig TEST_EXPECTED_UDC_DRIVER
+	bool "Expected USB Device Driver Support"
+	default n
+	help
+	  Expect, USB device driver is enabled.
+
+if TEST_EXPECTED_UDC_DRIVER
+
+module = TEST_EXPECTED_UDC_DRIVER
+module-str = expected udc driver
+source "subsys/logging/Kconfig.template.log_config"
 
 menuconfig TEST_EXPECTED_USB_DEVICE_STACK_NEXT
 	bool "Expected USB Device Support"
@@ -90,6 +114,8 @@ endif # TEST_EXPECTED_CDC_ACM_SERIAL_INITIALIZE_AT_BOOT
 endif # TEST_EXPECTED_USBD_CDC_ACM_CLASS
 
 endif # TEST_EXPECTED_USB_DEVICE_STACK_NEXT
+
+endif # TEST_EXPECTED_UDC_DRIVER
 
 # Sources Kconfig.zephyr in the Zephyr root directory.
 comment "Zephyr configuration:"

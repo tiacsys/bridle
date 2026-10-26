@@ -1085,6 +1085,15 @@
 .. |zephyr:devicetree:chosen:shell-uart| replace::
    :external+zephyr:ref:`zephyr,shell-uart <devicetree-zephyr-chosen-nodes>`
 
+.. |zephyr:devicetree:chosen:uart-mcumgr| replace::
+   :external+zephyr:ref:`zephyr,uart-mcumgr <devicetree-zephyr-chosen-nodes>`
+
+.. |zephyr:devicetree:chosen:bt-mon-uart| replace::
+   :external+zephyr:ref:`zephyr,bt-mon-uart <devicetree-zephyr-chosen-nodes>`
+
+.. |zephyr:devicetree:chosen:bt-c2h-uart| replace::
+   :external+zephyr:ref:`zephyr,bt-c2h-uart <devicetree-zephyr-chosen-nodes>`
+
 .. |zephyr:boards| replace::
    :external+zephyr:ref:`boards`
 

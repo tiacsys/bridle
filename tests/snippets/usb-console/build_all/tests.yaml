@@ -231,6 +231,8 @@ tests:
     integration_platforms:
       - arduino_zero/samd21g18a
       - mimxrt1010_evk/mimxrt1011
+      - native_sim
+      - native_sim/native/64
       - nucleo_f767zi/stm32f767xx
       - seeeduino_xiao/samd21g18a
   #
@@ -286,21 +288,3 @@ tests:
       - picoboy_color/rp2040
       - picoboy_color_plus/rp2350a/hazard3_0
       - picoboy_color_plus/rp2350a/m33_0
-  #
-  # Forein bords (Zephyr) without or unknown snippet support.
-  #
-  boards.usb-console.forein.legacy:
-    depends_on:
-      - usb_device
-    filter: dt_nodelabel_enabled("snippet_cdc_acm_console_uart") and
-            dt_chosen_enabled("zephyr,shell-uart") and
-            dt_chosen_enabled("zephyr,console")
-    required_snippets:
-      - usb-console
-    extra_args:
-      - CONFIG_USBD_LOG_LEVEL_ERR=y
-      - CONFIG_USBD_CDC_ACM_LOG_LEVEL_OFF=y
-      - CONFIG_CDC_ACM_SERIAL_INITIALIZE_AT_BOOT=y
-    integration_platforms:
-      - native_sim
-      - native_sim/native/64

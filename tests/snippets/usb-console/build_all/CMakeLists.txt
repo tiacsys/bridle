@@ -1,4 +1,4 @@
-# Copyright (c) 2025 TiaC Systems
+# SPDX-FileCopyrightText: Copyright (c) 2025-2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 cmake_minimum_required(VERSION 3.20.0)
@@ -83,16 +83,52 @@ message(STATUS "")
 message(STATUS "${CONFIG_TEST_NAME}")
 
 message(STATUS "")
+message(STATUS "*** USB Device Driver")
+test_if_exact("UDC_DRIVER" "USB Device Driver Support")
+test_if_exact("UDC_DRIVER_LOG_LEVEL_OFF"
+  "    Log Level for USB Device Driver is OFF")
+test_if_exact("UDC_DRIVER_LOG_LEVEL_ERR"
+  "    Log Level for USB Device Driver is ERROR")
+test_if_exact("UDC_DRIVER_LOG_LEVEL_WRN"
+  "    Log Level for USB Device Driver is WARNING")
+test_if_exact("UDC_DRIVER_LOG_LEVEL_INF"
+  "    Log Level for USB Device Driver is INFO")
+test_if_exact("UDC_DRIVER_LOG_LEVEL_DBG"
+  "    Log Level for USB Device Driver is DEBUG")
+test_if_exact("UDC_DRIVER_LOG_LEVEL_DEFAULT"
+  "    Log Level for USB Device Driver is DEFAULT")
+
+message(STATUS "")
 message(STATUS "*** USB Device Stack")
-test_if_exact("USB_DEVICE_STACK_NEXT" "USB Device Support")
+test_if_exact("USB_DEVICE_STACK_NEXT" "USB Device Stack Support")
+test_if_exact("USBD_LOG_LEVEL_OFF"
+  "    Log Level for USB Device Stack is OFF")
 test_if_exact("USBD_LOG_LEVEL_ERR"
-  "    Log Level for USB Device Support is ERROR")
+  "    Log Level for USB Device Stack is ERROR")
+test_if_exact("USBD_LOG_LEVEL_WRN"
+  "    Log Level for USB Device Stack is WARNING")
+test_if_exact("USBD_LOG_LEVEL_INF"
+  "    Log Level for USB Device Stack is INFO")
+test_if_exact("USBD_LOG_LEVEL_DBG"
+  "    Log Level for USB Device Stack is DEBUG")
+test_if_exact("USBD_LOG_LEVEL_DEFAULT"
+  "    Log Level for USB Device Stack is DEFAULT")
 
 message(STATUS "")
 message(STATUS "*** USB CDC ACM Class")
 test_if_exact("USBD_CDC_ACM_CLASS" "USB CDC ACM Class Support")
 test_if_exact("USBD_CDC_ACM_LOG_LEVEL_OFF"
   "    Log Level for USB CDC ACM Class is OFF")
+test_if_exact("USBD_CDC_ACM_LOG_LEVEL_ERROR"
+  "    Log Level for USB CDC ACM Class is ERROR")
+test_if_exact("USBD_CDC_ACM_LOG_LEVEL_WRN"
+  "    Log Level for USB CDC ACM Class is WARNING")
+test_if_exact("USBD_CDC_ACM_LOG_LEVEL_INF"
+  "    Log Level for USB CDC ACM Class is INFO")
+test_if_exact("USBD_CDC_ACM_LOG_LEVEL_DBG"
+  "    Log Level for USB CDC ACM Class is DEBUG")
+test_if_exact("USBD_CDC_ACM_LOG_LEVEL_DEFAULT"
+  "    Log Level for USB CDC ACM Class is DEFAULT")
 test_if_exact("CDC_ACM_SERIAL_INITIALIZE_AT_BOOT"
   "    Initialize USB Device Support at boot")
 test_if_exact("CDC_ACM_SERIAL_VID"
@@ -114,6 +150,12 @@ test_if_chosen_comp_ifdef(CONFIG_TEST_EXPECTED_USBD_CDC_ACM_CLASS
   "zephyr,console" "zephyr,cdc-acm-uart" "Zephyr Console")
 test_if_chosen_comp_ifdef(CONFIG_TEST_CHOSEN_ZEPHYR_SHELL_UART
   "zephyr,shell-uart" "zephyr,cdc-acm-uart" "Zephyr Shell UART")
+test_if_chosen_comp_ifdef(CONFIG_TEST_CHOSEN_ZEPHYR_UART_MCUMGR
+  "zephyr,uart-mcumgr" "zephyr,cdc-acm-uart" "Zephyr UART Device Manager")
+test_if_chosen_comp_ifdef(CONFIG_TEST_CHOSEN_ZEPHYR_BT_MON_UART
+  "zephyr,bt-mon-uart" "zephyr,cdc-acm-uart" "Zephyr BT Monitor UART")
+test_if_chosen_comp_ifdef(CONFIG_TEST_CHOSEN_ZEPHYR_BT_C2H_UART
+  "zephyr,bt-c2h-uart" "zephyr,cdc-acm-uart" "Zephyr BT HCI UART")
 
 message(STATUS "")
 

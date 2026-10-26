@@ -41,7 +41,7 @@ specified as required.
 .. list-table:: USB manufacturer and product identification
    :class: longtable
    :align: center
-   :widths: 3, 3, 12, 15, 23, 34, 10
+   :widths: 3, 3, 14, 18, 24, 24, 14
    :header-rows: 1
    :stub-columns: 2
 
@@ -61,6 +61,9 @@ specified as required.
      - `STMicroelectronics USB product ID from their Virtual COM Port`_
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
+       | |zephyr:devicetree:chosen:uart-mcumgr|
+       | |zephyr:devicetree:chosen:bt-mon-uart|
+       | |zephyr:devicetree:chosen:bt-c2h-uart|
 
    * - |nucleo_f413zh_URB_VID|
      - |nucleo_f413zh_URB_PID_CON|
@@ -72,6 +75,9 @@ specified as required.
      - `STMicroelectronics USB product ID from their Virtual COM Port`_
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
+       | |zephyr:devicetree:chosen:uart-mcumgr|
+       | |zephyr:devicetree:chosen:bt-mon-uart|
+       | |zephyr:devicetree:chosen:bt-c2h-uart|
 
    * - |nucleo_f746zg_URB_VID|
      - |nucleo_f746zg_URB_PID_CON|
@@ -83,6 +89,9 @@ specified as required.
      - `STMicroelectronics USB product ID from their Virtual COM Port`_
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
+       | |zephyr:devicetree:chosen:uart-mcumgr|
+       | |zephyr:devicetree:chosen:bt-mon-uart|
+       | |zephyr:devicetree:chosen:bt-c2h-uart|
 
    * - |nucleo_f767zi_URB_VID|
      - |nucleo_f767zi_URB_PID_CON|
@@ -94,6 +103,9 @@ specified as required.
      - `STMicroelectronics USB product ID from their Virtual COM Port`_
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
+       | |zephyr:devicetree:chosen:uart-mcumgr|
+       | |zephyr:devicetree:chosen:bt-mon-uart|
+       | |zephyr:devicetree:chosen:bt-c2h-uart|
 
    * - |nucleo_l496zg_URB_VID|
      - |nucleo_l496zg_URB_PID_CON|
@@ -105,6 +117,9 @@ specified as required.
      - `STMicroelectronics USB product ID from their Virtual COM Port`_
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
+       | |zephyr:devicetree:chosen:uart-mcumgr|
+       | |zephyr:devicetree:chosen:bt-mon-uart|
+       | |zephyr:devicetree:chosen:bt-c2h-uart|
 
    * - |vccgnd_bluepill_URB_VID|
      - |vccgnd_bluepill_URB_PID_CON|
@@ -117,6 +132,9 @@ specified as required.
      - `STMicroelectronics USB product ID from their Virtual COM Port`_
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
+       | |zephyr:devicetree:chosen:uart-mcumgr|
+       | |zephyr:devicetree:chosen:bt-mon-uart|
+       | |zephyr:devicetree:chosen:bt-c2h-uart|
 
    * - |weact_bluepillplus_URB_VID|
      - |weact_bluepillplus_URB_PID_CON|
@@ -129,6 +147,9 @@ specified as required.
      - `STMicroelectronics USB product ID from their Virtual COM Port`_
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
+       | |zephyr:devicetree:chosen:uart-mcumgr|
+       | |zephyr:devicetree:chosen:bt-mon-uart|
+       | |zephyr:devicetree:chosen:bt-c2h-uart|
 
    * - |mimxrt1010_evk_URB_VID|
      - |mimxrt1010_evk_URB_PID_CON|
@@ -140,6 +161,9 @@ specified as required.
      - derived VID from part number MIMXRT1011DAE5A
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
+       | |zephyr:devicetree:chosen:uart-mcumgr|
+       | |zephyr:devicetree:chosen:bt-mon-uart|
+       | |zephyr:devicetree:chosen:bt-c2h-uart|
 
    * - |mimxrt1060_evk_URB_VID|
      - |mimxrt1060_evk_URB_PID_CON|
@@ -157,6 +181,9 @@ specified as required.
      - derived VID from part number MIMXRT1062DVL6A
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
+       | |zephyr:devicetree:chosen:uart-mcumgr|
+       | |zephyr:devicetree:chosen:bt-mon-uart|
+       | |zephyr:devicetree:chosen:bt-c2h-uart|
 
    * - |mimxrt1170_evk_URB_VID|
      - |mimxrt1170_evk_URB_PID_CON|
@@ -168,6 +195,9 @@ specified as required.
      - derived VID from part number MIMXRT1176DVMAA
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
+       | |zephyr:devicetree:chosen:uart-mcumgr|
+       | |zephyr:devicetree:chosen:bt-mon-uart|
+       | |zephyr:devicetree:chosen:bt-c2h-uart|
 
    * - |arduino_zero_URB_VID|
      - |arduino_zero_URB_PID_CON|
@@ -179,6 +209,9 @@ specified as required.
      - `Arduino USB product ID list with SAMD21 CPU`_
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
+       | |zephyr:devicetree:chosen:uart-mcumgr|
+       | |zephyr:devicetree:chosen:bt-mon-uart|
+       | |zephyr:devicetree:chosen:bt-c2h-uart|
 
    * - |seeeduino_lotus_URB_VID|
      - |seeeduino_lotus_URB_PID_CON|
@@ -188,6 +221,9 @@ specified as required.
      - `Seeeduino USB product ID list with SAMD21 CPU`_
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
+       | |zephyr:devicetree:chosen:uart-mcumgr|
+       | |zephyr:devicetree:chosen:bt-mon-uart|
+       | |zephyr:devicetree:chosen:bt-c2h-uart|
 
    * - |seeeduino_cm0_URB_VID|
      - |seeeduino_cm0_URB_PID_CON|
@@ -197,6 +233,9 @@ specified as required.
      - `Seeeduino USB product ID list with SAMD21 CPU`_
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
+       | |zephyr:devicetree:chosen:uart-mcumgr|
+       | |zephyr:devicetree:chosen:bt-mon-uart|
+       | |zephyr:devicetree:chosen:bt-c2h-uart|
 
    * - |seeeduino_xiao_URB_VID|
      - |seeeduino_xiao_URB_PID_CON|
@@ -209,6 +248,9 @@ specified as required.
      - `Seeeduino USB product ID list with SAMD21 CPU`_
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
+       | |zephyr:devicetree:chosen:uart-mcumgr|
+       | |zephyr:devicetree:chosen:bt-mon-uart|
+       | |zephyr:devicetree:chosen:bt-c2h-uart|
 
    * - |xiao_samd21_URB_VID|
      - |xiao_samd21_URB_PID_CON|
@@ -219,6 +261,9 @@ specified as required.
      - `Seeeduino USB product ID list with SAMD21 CPU`_
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
+       | |zephyr:devicetree:chosen:uart-mcumgr|
+       | |zephyr:devicetree:chosen:bt-mon-uart|
+       | |zephyr:devicetree:chosen:bt-c2h-uart|
 
    * - |cytron_maker_nano_rp2040_URB_VID|
      - |cytron_maker_nano_rp2040_URB_PID_CON|
@@ -229,6 +274,9 @@ specified as required.
      - `Raspberry Pi USB product ID list`_
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
+       | |zephyr:devicetree:chosen:uart-mcumgr|
+       | |zephyr:devicetree:chosen:bt-mon-uart|
+       | |zephyr:devicetree:chosen:bt-c2h-uart|
 
    * - |cytron_maker_pi_rp2040_URB_VID|
      - |cytron_maker_pi_rp2040_URB_PID_CON|
@@ -239,6 +287,9 @@ specified as required.
      - `Raspberry Pi USB product ID list`_
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
+       | |zephyr:devicetree:chosen:uart-mcumgr|
+       | |zephyr:devicetree:chosen:bt-mon-uart|
+       | |zephyr:devicetree:chosen:bt-c2h-uart|
 
    * - |cytron_motion_2350_pro_URB_VID|
      - |cytron_motion_2350_pro_URB_PID_CON|
@@ -250,6 +301,9 @@ specified as required.
      - `Raspberry Pi USB product ID list`_
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
+       | |zephyr:devicetree:chosen:uart-mcumgr|
+       | |zephyr:devicetree:chosen:bt-mon-uart|
+       | |zephyr:devicetree:chosen:bt-c2h-uart|
 
    * - |rpi_pico_URB_VID|
      - |rpi_pico_URB_PID_CON|
@@ -264,6 +318,9 @@ specified as required.
      - `Raspberry Pi USB product ID list`_
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
+       | |zephyr:devicetree:chosen:uart-mcumgr|
+       | |zephyr:devicetree:chosen:bt-mon-uart|
+       | |zephyr:devicetree:chosen:bt-c2h-uart|
 
    * - |rpi_pico_rp2040_w_URB_VID|
      - |rpi_pico_rp2040_w_URB_PID_CON|
@@ -278,6 +335,9 @@ specified as required.
      - `Raspberry Pi USB product ID list`_
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
+       | |zephyr:devicetree:chosen:uart-mcumgr|
+       | |zephyr:devicetree:chosen:bt-mon-uart|
+       | |zephyr:devicetree:chosen:bt-c2h-uart|
 
    * - |rpi_pico2_rp2350a_URB_VID|
      - |rpi_pico2_rp2350a_URB_PID_CON|
@@ -294,6 +354,9 @@ specified as required.
      - `Raspberry Pi USB product ID list`_
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
+       | |zephyr:devicetree:chosen:uart-mcumgr|
+       | |zephyr:devicetree:chosen:bt-mon-uart|
+       | |zephyr:devicetree:chosen:bt-c2h-uart|
 
    * - |rpi_pico2_rp2350a_w_URB_VID|
      - |rpi_pico2_rp2350a_w_URB_PID_CON|
@@ -308,6 +371,9 @@ specified as required.
      - `Raspberry Pi USB product ID list`_
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
+       | |zephyr:devicetree:chosen:uart-mcumgr|
+       | |zephyr:devicetree:chosen:bt-mon-uart|
+       | |zephyr:devicetree:chosen:bt-c2h-uart|
 
    * - |waveshare_rp2040_one_URB_VID|
      - |waveshare_rp2040_one_URB_PID_CON|
@@ -318,6 +384,9 @@ specified as required.
      - `Raspberry Pi USB product ID list`_
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
+       | |zephyr:devicetree:chosen:uart-mcumgr|
+       | |zephyr:devicetree:chosen:bt-mon-uart|
+       | |zephyr:devicetree:chosen:bt-c2h-uart|
 
    * - |waveshare_rp2040_zero_URB_VID|
      - |waveshare_rp2040_zero_URB_PID_CON|
@@ -328,6 +397,9 @@ specified as required.
      - `Raspberry Pi USB product ID list`_
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
+       | |zephyr:devicetree:chosen:uart-mcumgr|
+       | |zephyr:devicetree:chosen:bt-mon-uart|
+       | |zephyr:devicetree:chosen:bt-c2h-uart|
 
    * - |waveshare_rp2040_matrix_URB_VID|
      - |waveshare_rp2040_matrix_URB_PID_CON|
@@ -338,6 +410,9 @@ specified as required.
      - `Raspberry Pi USB product ID list`_
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
+       | |zephyr:devicetree:chosen:uart-mcumgr|
+       | |zephyr:devicetree:chosen:bt-mon-uart|
+       | |zephyr:devicetree:chosen:bt-c2h-uart|
 
    * - |waveshare_rp2040_tiny_URB_VID|
      - |waveshare_rp2040_tiny_URB_PID_CON|
@@ -348,6 +423,9 @@ specified as required.
      - `Raspberry Pi USB product ID list`_
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
+       | |zephyr:devicetree:chosen:uart-mcumgr|
+       | |zephyr:devicetree:chosen:bt-mon-uart|
+       | |zephyr:devicetree:chosen:bt-c2h-uart|
 
    * - |waveshare_rp2040_eth_URB_VID|
      - |waveshare_rp2040_eth_URB_PID_CON|
@@ -358,6 +436,9 @@ specified as required.
      - `Raspberry Pi USB product ID list`_
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
+       | |zephyr:devicetree:chosen:uart-mcumgr|
+       | |zephyr:devicetree:chosen:bt-mon-uart|
+       | |zephyr:devicetree:chosen:bt-c2h-uart|
 
    * - |waveshare_rp2040_lcd_0_96_URB_VID|
      - |waveshare_rp2040_lcd_0_96_URB_PID_CON|
@@ -368,6 +449,9 @@ specified as required.
      - `Raspberry Pi USB product ID list`_
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
+       | |zephyr:devicetree:chosen:uart-mcumgr|
+       | |zephyr:devicetree:chosen:bt-mon-uart|
+       | |zephyr:devicetree:chosen:bt-c2h-uart|
 
    * - |waveshare_rp2040_plus_URB_VID|
      - |waveshare_rp2040_plus_URB_PID_CON|
@@ -379,6 +463,9 @@ specified as required.
      - `Raspberry Pi USB product ID list`_
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
+       | |zephyr:devicetree:chosen:uart-mcumgr|
+       | |zephyr:devicetree:chosen:bt-mon-uart|
+       | |zephyr:devicetree:chosen:bt-c2h-uart|
 
    * - |waveshare_rp2040_geek_URB_VID|
      - |waveshare_rp2040_geek_URB_PID_CON|
@@ -389,6 +476,9 @@ specified as required.
      - `Raspberry Pi USB product ID list`_
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
+       | |zephyr:devicetree:chosen:uart-mcumgr|
+       | |zephyr:devicetree:chosen:bt-mon-uart|
+       | |zephyr:devicetree:chosen:bt-c2h-uart|
 
    * - |waveshare_rp2350_can_URB_VID|
      - |waveshare_rp2350_can_URB_PID_CON|
@@ -400,6 +490,9 @@ specified as required.
      - `Raspberry Pi USB product ID list`_
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
+       | |zephyr:devicetree:chosen:uart-mcumgr|
+       | |zephyr:devicetree:chosen:bt-mon-uart|
+       | |zephyr:devicetree:chosen:bt-c2h-uart|
 
    * - |waveshare_rp2350_matrix_URB_VID|
      - |waveshare_rp2350_matrix_URB_PID_CON|
@@ -411,6 +504,9 @@ specified as required.
      - `Raspberry Pi USB product ID list`_
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
+       | |zephyr:devicetree:chosen:uart-mcumgr|
+       | |zephyr:devicetree:chosen:bt-mon-uart|
+       | |zephyr:devicetree:chosen:bt-c2h-uart|
 
    * - |xiao_rp2040_URB_VID|
      - |xiao_rp2040_URB_PID_CON|
@@ -423,6 +519,9 @@ specified as required.
      - `Raspberry Pi USB product ID list`_
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
+       | |zephyr:devicetree:chosen:uart-mcumgr|
+       | |zephyr:devicetree:chosen:bt-mon-uart|
+       | |zephyr:devicetree:chosen:bt-c2h-uart|
 
    * - |xiao_rp2350_URB_VID|
      - |xiao_rp2350_URB_PID_CON|
@@ -437,6 +536,9 @@ specified as required.
      - `Raspberry Pi USB product ID list`_
      - | |zephyr:devicetree:chosen:console|
        | |zephyr:devicetree:chosen:shell-uart|
+       | |zephyr:devicetree:chosen:uart-mcumgr|
+       | |zephyr:devicetree:chosen:bt-mon-uart|
+       | |zephyr:devicetree:chosen:bt-c2h-uart|
 
    * - |zephyr_URB_VID|
      - |zephyr_URB_PID_CON|
@@ -445,6 +547,10 @@ specified as required.
      - :external+zephyr:zephyr:code-sample:`usb-cdc-acm-console`
      - Zephyr :external+zephyr:ref:`usb_device_vid_pid`
      - | |zephyr:devicetree:chosen:console|
+       | |zephyr:devicetree:chosen:shell-uart|
+       | |zephyr:devicetree:chosen:uart-mcumgr|
+       | |zephyr:devicetree:chosen:bt-mon-uart|
+       | |zephyr:devicetree:chosen:bt-c2h-uart|
 
 How to add support of a new board
 *********************************
