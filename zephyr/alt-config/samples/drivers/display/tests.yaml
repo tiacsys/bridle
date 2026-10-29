@@ -227,6 +227,31 @@ tests:
       - cytron_maker_nano_rp2040
       - cytron_maker_pi_rp2040
   #
+  # shield: Seeed Studio XIAO (6x10 RGB) MATRIX
+  #
+  sample.drivers.display.seeed_xiao_6x10_rgb_matrix:
+    extra_args:
+      SHIELD=seeed_xiao_6x10_rgb_matrix
+    integration_platforms:
+      - seeeduino_xiao/samd21g18a
+      - seeeduino_xiao/samd21g18a/bbe
+      - xiao_ble/nrf52840
+      - xiao_ble/nrf52840/sense
+      - xiao_esp32c3/esp32c3
+      - xiao_esp32s3/esp32s3/procpu
+      - xiao_esp32s3/esp32s3/procpu/sense
+      - xiao_mg24/efr32mg24b220f1536im48
+      - xiao_ra4m1/r7fa4m1ab3cne
+      - xiao_rp2040/rp2040
+      - xiao_rp2040/rp2040/bbe
+      - xiao_rp2350/rp2350a/hazard3_0
+      - xiao_rp2350/rp2350a/hazard3_0/bbe
+      - xiao_rp2350/rp2350a/m33_0
+      - xiao_rp2350/rp2350a/m33_0/bbe
+      - xiao_samd21/samd21g18a
+      - xiao_stm32c5/stm32c5a3xx
+      - xiao_stm32c5/stm32c5a3xx/bbe
+  #
   # shield: SeenGreat Pico RGB Matrix Panel Expansion S1
   #
   sample.drivers.display.seengreat_pico_rgb_matrix_pes1:
