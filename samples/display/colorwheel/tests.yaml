@@ -24,6 +24,44 @@ tests:
       - waveshare_rp2040_matrix
       - waveshare_rp2350_matrix/rp2350a/hazard3_0
       - waveshare_rp2350_matrix/rp2350a/m33_0
+  bridle.sample.colorwheel.seeed_xiao_6x10_rgb_matrix:
+    extra_args: SHIELD=seeed_xiao_6x10_rgb_matrix
+    platform_allow:
+      - seeeduino_xiao/samd21g18a
+      - seeeduino_xiao/samd21g18a/bbe
+      - xiao_ble/nrf52840
+      - xiao_ble/nrf52840/sense
+      - xiao_esp32c3/esp32c3
+      - xiao_esp32s3/esp32s3/procpu
+      - xiao_esp32s3/esp32s3/procpu/sense
+      - xiao_mg24/efr32mg24b220f1536im48
+      - xiao_ra4m1/r7fa4m1ab3cne
+      - xiao_rp2040/rp2040
+      - xiao_rp2040/rp2040/bbe
+      - xiao_rp2350/rp2350a/hazard3_0
+      - xiao_rp2350/rp2350a/hazard3_0/bbe
+      - xiao_rp2350/rp2350a/m33_0
+      - xiao_rp2350/rp2350a/m33_0/bbe
+      - xiao_samd21/samd21g18a
+      - xiao_stm32c5/stm32c5a3xx
+      - xiao_stm32c5/stm32c5a3xx/bbe
+    integration_platforms:
+      - seeeduino_xiao/samd21g18a
+      - seeeduino_xiao/samd21g18a/bbe
+      - xiao_ble/nrf52840
+      - xiao_esp32c3/esp32c3
+      - xiao_esp32s3/esp32s3/procpu
+      - xiao_mg24/efr32mg24b220f1536im48
+      - xiao_ra4m1/r7fa4m1ab3cne
+      - xiao_rp2040/rp2040
+      - xiao_rp2040/rp2040/bbe
+      - xiao_rp2350/rp2350a/hazard3_0
+      - xiao_rp2350/rp2350a/hazard3_0/bbe
+      - xiao_rp2350/rp2350a/m33_0
+      - xiao_rp2350/rp2350a/m33_0/bbe
+      - xiao_samd21/samd21g18a
+      - xiao_stm32c5/stm32c5a3xx
+      - xiao_stm32c5/stm32c5a3xx/bbe
   bridle.sample.colorwheel.seengreat_pico_rgb_matrix_pes1:
     extra_args: SHIELD=seengreat_pico_rgb_matrix_pes1
     platform_allow:
