@@ -50,6 +50,28 @@ checked for their originally intended integration platforms (checks only
                 --integration \
                 --testsuite-root bridle/samples/buzzer
 
+      .. rubric:: Check :ref:`colorful-sample` sample:
+
+      .. code-block:: console
+
+         $ west twister \
+                --jobs 4 \
+                --verbose \
+                --inline-logs \
+                --integration \
+                --testsuite-root bridle/samples/display/colorful
+
+      .. rubric:: Check :ref:`colorwheel-sample` sample:
+
+      .. code-block:: console
+
+         $ west twister \
+                --jobs 4 \
+                --verbose \
+                --inline-logs \
+                --integration \
+                --testsuite-root bridle/samples/display/colorwheel
+
    .. group-tab:: DEF
 
    .. group-tab:: GHI
@@ -66,6 +88,17 @@ checked for their originally intended integration platforms (checks only
                 --testsuite-root bridle/samples/helloshell
 
    .. group-tab:: JKL
+
+      .. rubric:: Check (Spirit) :ref:`level-sample` sample:
+
+      .. code-block:: console
+
+         $ west twister \
+                --jobs 4 \
+                --verbose \
+                --inline-logs \
+                --integration \
+                --testsuite-root bridle/samples/display/level
 
    .. group-tab:: MNO
 
