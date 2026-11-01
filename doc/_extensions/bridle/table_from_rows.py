@@ -13,7 +13,7 @@ from docutils import io, statemachine
 from docutils.parsers.rst import directives
 from sphinx.util.docutils import SphinxDirective
 
-__version__ = '0.2.1'
+__version__ = '0.3.0'
 
 
 class TableFromRows(SphinxDirective):
@@ -105,10 +105,16 @@ class TableFromRows(SphinxDirective):
         if shields:
             header_lines[0] += ' Shields |'
             for i, target in enumerate(rows_sections):
-                target = target.replace("_", "/")
                 if target in shields:
-                    rows[i][0] += f'``{"`` ``".join(shields[target])}``'
-                rows[i][0] += ' |'
+                    row_cells = len(self._column_sizes(rows[i][0]))
+                    for _j, shield in enumerate(sorted(shields[target])):
+                        rows[i].append(f'{'|' + ' |' * row_cells} ``{shield}``')
+
+                        # append empty line for virtual line breaks in merged cells
+                        rows[i].append(f'{'|' + ' |' * row_cells}')
+
+                # append required cell closing delimiter on end of each sectional row
+                rows[i] = list(map(lambda c: c + ' |', rows[i]))
 
         if transform_rows_func:
             transform_rows_func(rows)
@@ -163,6 +169,9 @@ class TableFromTestsYaml(TableFromRows):
                 to_delete.append(row)
             else:
                 seen[common_info] = row
+
+            # append empty line for virtual line breaks in merged cells
+            seen[common_info].append('|' + ' |' * len(columns[:]))
 
         for row in to_delete:
             rows.remove(row)
