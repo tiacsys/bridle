@@ -129,7 +129,7 @@ class TableFromRows(SphinxDirective):
             header = header.strip()
         else:
             raise self.severe(
-                f'Problem with "header" option of "{self.name}" ' 'directive:\nEmpty content.'
+                f'Problem with "header" option of "{self.name}" directive:\nEmpty content.'
             )
         rows = self.options.get('rows', None)
         if rows is not None:
@@ -182,8 +182,7 @@ class TableFromTestsYaml(TableFromRows):
 
     @staticmethod
     def _find_shields(shields: dict[str, set[str]], tests_data: dict):
-        """Associate all allowed platforms for a test with any shield used.
-        """
+        """Associate all allowed platforms for a test with any shield used."""
 
         extra_args_raw = tests_data.get('extra_args')
         if not extra_args_raw:
@@ -235,13 +234,14 @@ class TableFromTestsYaml(TableFromRows):
         dir_path = Path(self.config.table_from_rows_base_dir) / rel_path
 
         tests_yamls = list(
-                chain(*(dir_path.glob(f'**/{name}') for name in self._excepted_file_names))
-            )
+            chain(*(dir_path.glob(f'**/{name}') for name in self._excepted_file_names))
+        )
         if rel_path.endswith("doc"):
             tests_yamls += [
-                    dir_path.parent / name for name in self._excepted_file_names
-                    if (dir_path.parent / name).exists()
-                ]
+                dir_path.parent / name
+                for name in self._excepted_file_names
+                if (dir_path.parent / name).exists()
+            ]
 
         if not tests_yamls:
             raise self.severe(f'"{path}" not found')
@@ -258,11 +258,7 @@ class TableFromTestsYaml(TableFromRows):
                     # there maybe single platform, stored as string
                     # not a list of str, transform
                     platform_name_list = [platform_name_list]
-                boards.update(
-                    TableFromTestsYaml._normalize_boards(
-                        platform_name_list
-                    )
-                )
+                boards.update(TableFromTestsYaml._normalize_boards(platform_name_list))
                 self._find_shields(shields, data['common'])
             for test in data['tests'].values():
                 if 'platform_allow' in test:
@@ -271,11 +267,7 @@ class TableFromTestsYaml(TableFromRows):
                         # there maybe single platform, stored as string
                         # not a list of str, transform
                         platform_name_list = [platform_name_list]
-                    boards.update(
-                        TableFromTestsYaml._normalize_boards(
-                            platform_name_list
-                        )
-                    )
+                    boards.update(TableFromTestsYaml._normalize_boards(platform_name_list))
                     self._find_shields(shields, test)
 
         boards = list(
