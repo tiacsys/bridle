@@ -16,6 +16,10 @@ common:
   sysbuild: false
 tests:
   bridle.sample.stk8ba58:
+    platform_allow:
+      - picoboy/rp2040
+      - picoboy_color_plus/rp2350a/hazard3_0
+      - picoboy_color_plus/rp2350a/m33_0
     integration_platforms:
       - picoboy/rp2040
       - picoboy_color_plus/rp2350a/hazard3_0

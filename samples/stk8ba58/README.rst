@@ -17,6 +17,11 @@ Requirements
 This sample uses the STK8BA58, Sensortek MEMS system-in-package featuring
 a 3-axis accelerometer sensor with digital output.
 
+The sample supports the following platforms (located
+in :bridle_file:`samples/stk8ba58/tests.yaml`):
+
+.. table-from-tests-yaml::
+
 References
 **********
 
