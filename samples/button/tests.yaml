@@ -9,6 +9,48 @@ common:
   build_only: true
   min_ram: 8
   min_flash: 16
+  platform_allow:
+    - coffeecaller_nrf52
+    - cytron_maker_nano_rp2040
+    - cytron_maker_pi_rp2040
+    - cytron_motion_2350_pro/rp2350a/hazard3_0
+    - cytron_motion_2350_pro/rp2350a/m33_0
+    - mimxrt1010_evk/mimxrt1011
+    - mimxrt1010_evk/mimxrt1011/bbe
+    - mimxrt1060_evk@A/mimxrt1062/qspi
+    - mimxrt1060_evk@A/mimxrt1062/qspi/bbe
+    - mimxrt1060_evk@B/mimxrt1062/qspi
+    - mimxrt1060_evk@B/mimxrt1062/qspi/bbe
+    - mimxrt1060_evk@C/mimxrt1062/qspi
+    - mimxrt1060_evk@C/mimxrt1062/qspi/bbe
+    - mimxrt1060_evk@C/mimxrt1062/hyperflash
+    - mimxrt1060_evk@C/mimxrt1062/hyperflash/bbe
+    - mimxrt1170_evk@A/mimxrt1176/cm4
+    - mimxrt1170_evk@A/mimxrt1176/cm7
+    - mimxrt1170_evk@B/mimxrt1176/cm4
+    - mimxrt1170_evk@B/mimxrt1176/cm7
+    - nrf52840dk/nrf52840
+    - nrf9160dk/nrf9160
+    - nucleo_f303re/stm32f303xe
+    - nucleo_f303re/stm32f303xe/bbe
+    - nucleo_f401re/stm32f401xe
+    - nucleo_f401re/stm32f401xe/bbe
+    - nucleo_f413zh/stm32f413xx
+    - nucleo_f413zh/stm32f413xx/bbe
+    - nucleo_f746zg/stm32f746xx
+    - nucleo_f746zg/stm32f746xx/bbe
+    - nucleo_f767zi/stm32f767xx
+    - nucleo_f767zi/stm32f767xx/bbe
+    - nucleo_l496zg/stm32l496xx
+    - nucleo_l496zg/stm32l496xx/bbe
+    - picoboy/rp2040
+    - picoboy_color/rp2040
+    - picoboy_color_plus/rp2350a/hazard3_0
+    - picoboy_color_plus/rp2350a/m33_0
+    - weact_bluepillplus_ch32v203c6
+    - weact_bluepillplus_ch32v203c8
+    - weact_bluepillplus_stm32f103c8
+    - weact_bluepillplus_stm32f103cb
   integration_platforms:
     - coffeecaller_nrf52
     - cytron_maker_nano_rp2040
