@@ -16,6 +16,14 @@ velocity and the terrestrial magnetism in all XYZ spatial coordinates from
 the DOF device. The result is written to the console along with the time
 since startup.
 
+Requirements
+************
+
+The sample supports the following platforms (located
+in :bridle_file:`samples/waveshare_pico_10dof_imu_sensor/tests.yaml`):
+
+.. table-from-tests-yaml::
+
 References
 **********
 
