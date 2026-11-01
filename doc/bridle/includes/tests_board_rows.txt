@@ -1,363 +1,873 @@
 .. heading
 
-| Hardware platforms | Order number | Board name | Board target |
+| Hardware platforms | Order number | Board name | :ref:`Board target <app_boards>` |
 
 .. zephyr-keep-sorted-start re(^\| \w)
 
 .. arduino_zero_samd21g18a
 
-| ATSAMD21G18A | | :external+zephyr:zephyr:board:`arduino_zero` | - ``arduino_zero/samd21g18a`` |
+| ATSAMD21G18A | | :external+zephyr:zephyr:board:`arduino_zero` | ``arduino_zero``            |
+|              | |                                              |                             |
+|              | |                                              | ``arduino_zero/samd21g18a`` |
+
+.. arduino_zero
+
+| ATSAMD21G18A | | :external+zephyr:zephyr:board:`arduino_zero` | ``arduino_zero``            |
+|              | |                                              |                             |
+|              | |                                              | ``arduino_zero/samd21g18a`` |
 
 .. seeeduino_xiao_samd21g18a
 
-| ATSAMD21G18A | | :external+zephyr:zephyr:board:`seeeduino_xiao` | - ``seeeduino_xiao/samd21g18a`` |
+| ATSAMD21G18A | | :external+zephyr:zephyr:board:`seeeduino_xiao` | ``seeeduino_xiao``            |
+|              | |                                                |                               |
+|              | |                                                | ``seeeduino_xiao/samd21g18a`` |
+
+.. seeeduino_xiao
+
+| ATSAMD21G18A | | :external+zephyr:zephyr:board:`seeeduino_xiao` | ``seeeduino_xiao``            |
+|              | |                                                |                               |
+|              | |                                                | ``seeeduino_xiao/samd21g18a`` |
 
 .. arduino_zero_samd21g18a_bbe
 
-| ATSAMD21G18A | | :ref:`arduino_zero_board-extensions` | - ``arduino_zero/samd21g18a/bbe`` |
+| ATSAMD21G18A | | :ref:`arduino_zero_board-extensions` | ``arduino_zero/samd21g18a/bbe`` |
 
 .. seeeduino_cm0_samd21g18a
 
-| ATSAMD21G18A | | :ref:`seeeduino_cm0` | - ``seeeduino_cm0/samd21g18a`` |
+| ATSAMD21G18A | | :ref:`seeeduino_cm0` | ``seeeduino_cm0``            |
+|              | |                      |                              |
+|              | |                      | ``seeeduino_cm0/samd21g18a`` |
+
+.. seeeduino_cm0
+
+| ATSAMD21G18A | | :ref:`seeeduino_cm0` | ``seeeduino_cm0``            |
+|              | |                      |                              |
+|              | |                      | ``seeeduino_cm0/samd21g18a`` |
 
 .. seeeduino_lotus_samd21g18a
 
-| ATSAMD21G18A | | :ref:`seeeduino_lotus` | - ``seeeduino_lotus/samd21g18a`` |
+| ATSAMD21G18A | | :ref:`seeeduino_lotus` | ``seeeduino_lotus``            |
+|              | |                        |                                |
+|              | |                        | ``seeeduino_lotus/samd21g18a`` |
+
+.. seeeduino_lotus
+
+| ATSAMD21G18A | | :ref:`seeeduino_lotus` | ``seeeduino_lotus``            |
+|              | |                        |                                |
+|              | |                        | ``seeeduino_lotus/samd21g18a`` |
 
 .. seeeduino_xiao_samd21g18a_bbe
 
-| ATSAMD21G18A | | :ref:`seeeduino_xiao_board-extensions` | - ``seeeduino_xiao/samd21g18a/bbe`` |
+| ATSAMD21G18A | | :ref:`seeeduino_xiao_board-extensions` | ``seeeduino_xiao/samd21g18a/bbe`` |
 
 .. xiao_samd21_samd21g18a
 
-| ATSAMD21G18A | | :ref:`xiao_samd21` | - ``xiao_samd21/samd21g18a`` |
+| ATSAMD21G18A | | :ref:`xiao_samd21` | ``xiao_samd21``            |
+|              | |                    |                            |
+|              | |                    | ``xiao_samd21/samd21g18a`` |
+
+.. xiao_samd21
+
+| ATSAMD21G18A | | :ref:`xiao_samd21` | ``xiao_samd21``            |
+|              | |                    |                            |
+|              | |                    | ``xiao_samd21/samd21g18a`` |
+
+.. weact_bluepillplus_ch32v203c6_ch32v203
+
+| CH32V203 | | :ref:`weact_bluepillplus` | ``weact_bluepillplus_ch32v203c6``          |
+|          | |                           |                                            |
+|          | |                           | ``weact_bluepillplus_ch32v203c6/ch32v203`` |
 
 .. weact_bluepillplus_ch32v203c6
 
-| CH32V203 | | :ref:`weact_bluepillplus` | - ``weact_bluepillplus_ch32v203c6`` |
+| CH32V203 | | :ref:`weact_bluepillplus` | ``weact_bluepillplus_ch32v203c6``          |
+|          | |                           |                                            |
+|          | |                           | ``weact_bluepillplus_ch32v203c6/ch32v203`` |
+
+.. weact_bluepillplus_ch32v203c8_ch32v203
+
+| CH32V203 | | :ref:`weact_bluepillplus` | ``weact_bluepillplus_ch32v203c8``          |
+|          | |                           |                                            |
+|          | |                           | ``weact_bluepillplus_ch32v203c8/ch32v203`` |
 
 .. weact_bluepillplus_ch32v203c8
 
-| CH32V203 | | :ref:`weact_bluepillplus` | - ``weact_bluepillplus_ch32v203c8`` |
+| CH32V203 | | :ref:`weact_bluepillplus` | ``weact_bluepillplus_ch32v203c8``          |
+|          | |                           |                                            |
+|          | |                           | ``weact_bluepillplus_ch32v203c8/ch32v203`` |
 
 .. xiao_mg24_efr32mg24b220f1536im48
 
-| EFR32MG24 | | :external+zephyr:zephyr:board:`xiao_mg24` | - ``xiao_mg24/efr32mg24b220f1536im48`` |
+| EFR32MG24 | | :external+zephyr:zephyr:board:`xiao_mg24` | ``xiao_mg24``                        |
+|           | |                                           |                                      |
+|           | |                                           | ``xiao_mg24/efr32mg24b220f1536im48`` |
+
+.. xiao_mg24
+
+| EFR32MG24 | | :external+zephyr:zephyr:board:`xiao_mg24` | ``xiao_mg24``                        |
+|           | |                                           |                                      |
+|           | |                                           | ``xiao_mg24/efr32mg24b220f1536im48`` |
 
 .. xiao_esp32c3_esp32c3
 
-| ESP32-C3 | | :external+zephyr:zephyr:board:`xiao_esp32c3` | - ``xiao_esp32c3/esp32c3`` |
+| ESP32-C3 | | :external+zephyr:zephyr:board:`xiao_esp32c3` | ``xiao_esp32c3``         |
+|          | |                                              |                          |
+|          | |                                              | ``xiao_esp32c3/esp32c3`` |
+
+.. xiao_esp32c3
+
+| ESP32-C3 | | :external+zephyr:zephyr:board:`xiao_esp32c3` | ``xiao_esp32c3``         |
+|          | |                                              |                          |
+|          | |                                              | ``xiao_esp32c3/esp32c3`` |
 
 .. xiao_esp32s3_esp32s3_appcpu
 
-| ESP32-S3 | | :external+zephyr:zephyr:board:`xiao_esp32s3` | - ``xiao_esp32s3/esp32s3/appcpu`` |
+| ESP32-S3 | | :external+zephyr:zephyr:board:`xiao_esp32s3` | ``xiao_esp32s3/esp32s3/appcpu`` |
 
 .. xiao_esp32s3_esp32s3_procpu_sense
 
-| ESP32-S3 | | :external+zephyr:zephyr:board:`xiao_esp32s3` | - ``xiao_esp32s3/esp32s3/procpu/sense`` |
+| ESP32-S3 | | :external+zephyr:zephyr:board:`xiao_esp32s3` | ``xiao_esp32s3/esp32s3/procpu/sense`` |
 
 .. xiao_esp32s3_esp32s3_procpu
 
-| ESP32-S3 | | :external+zephyr:zephyr:board:`xiao_esp32s3` | - ``xiao_esp32s3/esp32s3/procpu`` |
+| ESP32-S3 | | :external+zephyr:zephyr:board:`xiao_esp32s3` | ``xiao_esp32s3/esp32s3/procpu`` |
+
+.. native_sim_native
+
+| Native (32-bit) | | :external+zephyr:zephyr:board:`native_sim` | ``native_sim``        |
+|                 | |                                            |                       |
+|                 | |                                            | ``native_sim/native`` |
 
 .. native_sim
 
-| Native (32-bit) | | :external+zephyr:zephyr:board:`native_sim` | - ``native_sim`` |
+| Native (32-bit) | | :external+zephyr:zephyr:board:`native_sim` | ``native_sim``        |
+|                 | |                                            |                       |
+|                 | |                                            | ``native_sim/native`` |
 
 .. native_sim_native_64
 
-| Native (64-bit) | | :external+zephyr:zephyr:board:`native_sim` | - ``native_sim/native/64`` |
+| Native (64-bit) | | :external+zephyr:zephyr:board:`native_sim` | ``native_sim/native/64`` |
 
 .. xiao_ra4m1_r7fa4m1ab3cne
 
-| RA4M1 | | :external+zephyr:zephyr:board:`xiao_ra4m1` | - ``xiao_ra4m1/r7fa4m1ab3cne`` |
+| RA4M1 | | :external+zephyr:zephyr:board:`xiao_ra4m1` | ``xiao_ra4m1``               |
+|       | |                                            |                              |
+|       | |                                            | ``xiao_ra4m1/r7fa4m1ab3cne`` |
+
+.. xiao_ra4m1
+
+| RA4M1 | | :external+zephyr:zephyr:board:`xiao_ra4m1` | ``xiao_ra4m1``               |
+|       | |                                            |                              |
+|       | |                                            | ``xiao_ra4m1/r7fa4m1ab3cne`` |
 
 .. rpi_pico_rp2040_mcuboot
 
-| RP2040 | | :external+zephyr:zephyr:board:`rpi_pico` | - ``rpi_pico/rp2040/mcuboot`` |
+| RP2040 | | :external+zephyr:zephyr:board:`rpi_pico` | ``rpi_pico/rp2040/mcuboot`` |
 
 .. rpi_pico_rp2040_w_mcuboot
 
-| RP2040 | | :external+zephyr:zephyr:board:`rpi_pico` | - ``rpi_pico/rp2040/w/mcuboot`` |
+| RP2040 | | :external+zephyr:zephyr:board:`rpi_pico` | ``rpi_pico/rp2040/w/mcuboot`` |
 
 .. rpi_pico_rp2040_w
 
-| RP2040 | | :external+zephyr:zephyr:board:`rpi_pico` | - ``rpi_pico/rp2040/w`` |
+| RP2040 | | :external+zephyr:zephyr:board:`rpi_pico` | ``rpi_pico/rp2040/w`` |
 
 .. rpi_pico_rp2040
 
-| RP2040 | | :external+zephyr:zephyr:board:`rpi_pico` | - ``rpi_pico/rp2040`` |
+| RP2040 | | :external+zephyr:zephyr:board:`rpi_pico` | ``rpi_pico``        |
+|        | |                                          |                     |
+|        | |                                          | ``rpi_pico/rp2040`` |
+
+.. rpi_pico
+
+| RP2040 | | :external+zephyr:zephyr:board:`rpi_pico` | ``rpi_pico``        |
+|        | |                                          |                     |
+|        | |                                          | ``rpi_pico/rp2040`` |
 
 .. xiao_rp2040_rp2040
 
-| RP2040 | | :external+zephyr:zephyr:board:`xiao_rp2040` | - ``xiao_rp2040/rp2040`` |
+| RP2040 | | :external+zephyr:zephyr:board:`xiao_rp2040` | ``xiao_rp2040``        |
+|        | |                                             |                        |
+|        | |                                             | ``xiao_rp2040/rp2040`` |
+
+.. xiao_rp2040
+
+| RP2040 | | :external+zephyr:zephyr:board:`xiao_rp2040` | ``xiao_rp2040``        |
+|        | |                                             |                        |
+|        | |                                             | ``xiao_rp2040/rp2040`` |
 
 .. cytron_maker_nano_rp2040
 
-| RP2040 | | :ref:`cytron_maker_nano_rp2040` | - ``cytron_maker_nano_rp2040`` |
+| RP2040 | | :ref:`cytron_maker_nano_rp2040` | ``cytron_maker_nano_rp2040``        |
+|        | |                                 |                                     |
+|        | |                                 | ``cytron_maker_nano_rp2040/rp2040`` |
+
+.. cytron_maker_nano_rp2040_rp2040
+
+| RP2040 | | :ref:`cytron_maker_nano_rp2040` | ``cytron_maker_nano_rp2040``        |
+|        | |                                 |                                     |
+|        | |                                 | ``cytron_maker_nano_rp2040/rp2040`` |
+
+.. cytron_maker_pi_rp2040_rp2040
+
+| RP2040 | | :ref:`cytron_maker_pi_rp2040` | ``cytron_maker_pi_rp2040``        |
+|        | |                               |                                   |
+|        | |                               | ``cytron_maker_pi_rp2040/rp2040`` |
 
 .. cytron_maker_pi_rp2040
 
-| RP2040 | | :ref:`cytron_maker_pi_rp2040` | - ``cytron_maker_pi_rp2040`` |
+| RP2040 | | :ref:`cytron_maker_pi_rp2040` | ``cytron_maker_pi_rp2040``        |
+|        | |                               |                                   |
+|        | |                               | ``cytron_maker_pi_rp2040/rp2040`` |
+
+.. mini_usb_rp2040@16mb_rp2040
+
+| RP2040 | | :ref:`mini_usb_rp2040` | ``mini_usb_rp2040@16mb``        |
+|        | |                        |                                 |
+|        | |                        | ``mini_usb_rp2040@16mb/rp2040`` |
+
+.. mini_usb_rp2040@16mb
+
+| RP2040 | | :ref:`mini_usb_rp2040` | ``mini_usb_rp2040@16mb``        |
+|        | |                        |                                 |
+|        | |                        | ``mini_usb_rp2040@16mb/rp2040`` |
+
+.. mini_usb_rp2040@4mb_rp2040
+
+| RP2040 | | :ref:`mini_usb_rp2040` | ``mini_usb_rp2040@4mb``        |
+|        | |                        |                                |
+|        | |                        | ``mini_usb_rp2040@4mb/rp2040`` |
+
+.. mini_usb_rp2040@4mb
+
+| RP2040 | | :ref:`mini_usb_rp2040` | ``mini_usb_rp2040@4mb``        |
+|        | |                        |                                |
+|        | |                        | ``mini_usb_rp2040@4mb/rp2040`` |
+
+.. mini_usb_rp2040@chipled_rp2040
+
+| RP2040 | | :ref:`mini_usb_rp2040` | ``mini_usb_rp2040@chipled``        |
+|        | |                        |                                    |
+|        | |                        | ``mini_usb_rp2040@chipled/rp2040`` |
+
+.. mini_usb_rp2040@chipled
+
+| RP2040 | | :ref:`mini_usb_rp2040` | ``mini_usb_rp2040@chipled``        |
+|        | |                        |                                    |
+|        | |                        | ``mini_usb_rp2040@chipled/rp2040`` |
+
+.. mini_usb_rp2040_rp2040
+
+| RP2040 | | :ref:`mini_usb_rp2040` | ``mini_usb_rp2040``        |
+|        | |                        |                            |
+|        | |                        | ``mini_usb_rp2040/rp2040`` |
+
+.. mini_usb_rp2040
+
+| RP2040 | | :ref:`mini_usb_rp2040` | ``mini_usb_rp2040``        |
+|        | |                        |                            |
+|        | |                        | ``mini_usb_rp2040/rp2040`` |
 
 .. picoboy_color_rp2040
 
-| RP2040 | | :ref:`picoboy_color` | - ``picoboy_color/rp2040`` |
+| RP2040 | | :ref:`picoboy_color` | ``picoboy_color``        |
+|        | |                      |                          |
+|        | |                      | ``picoboy_color/rp2040`` |
+
+.. picoboy_color
+
+| RP2040 | | :ref:`picoboy_color` | ``picoboy_color``        |
+|        | |                      |                          |
+|        | |                      | ``picoboy_color/rp2040`` |
 
 .. picoboy_rp2040
 
-| RP2040 | | :ref:`picoboy` | - ``picoboy/rp2040`` |
+| RP2040 | | :ref:`picoboy` | ``picoboy``        |
+|        | |                |                    |
+|        | |                | ``picoboy/rp2040`` |
+
+.. picoboy
+
+| RP2040 | | :ref:`picoboy` | ``picoboy``        |
+|        | |                |                    |
+|        | |                | ``picoboy/rp2040`` |
 
 .. rpi_pico_rp2040_bbe
 
-| RP2040 | | :ref:`rpi_pico_board-extensions` | - ``rpi_pico/rp2040/bbe`` |
+| RP2040 | | :ref:`rpi_pico_board-extensions` | ``rpi_pico/rp2040/bbe`` |
 
 .. rpi_pico_rp2040_mcuboot_bbe
 
-| RP2040 | | :ref:`rpi_pico_board-extensions` | - ``rpi_pico/rp2040/mcuboot/bbe`` |
+| RP2040 | | :ref:`rpi_pico_board-extensions` | ``rpi_pico/rp2040/mcuboot/bbe`` |
 
 .. rpi_pico_rp2040_w_bbe
 
-| RP2040 | | :ref:`rpi_pico_board-extensions` | - ``rpi_pico/rp2040/w/bbe`` |
+| RP2040 | | :ref:`rpi_pico_board-extensions` | ``rpi_pico/rp2040/w/bbe`` |
 
 .. rpi_pico_rp2040_w_mcuboot_bbe
 
-| RP2040 | | :ref:`rpi_pico_board-extensions` | - ``rpi_pico/rp2040/w/mcuboot/bbe`` |
+| RP2040 | | :ref:`rpi_pico_board-extensions` | ``rpi_pico/rp2040/w/mcuboot/bbe`` |
+
+.. waveshare_rp2040_eth_rp2040
+
+| RP2040 | | :ref:`waveshare_rp2040_eth` | ``waveshare_rp2040_eth``        |
+|        | |                             |                                 |
+|        | |                             | ``waveshare_rp2040_eth/rp2040`` |
+
+.. waveshare_rp2040_eth
+
+| RP2040 | | :ref:`waveshare_rp2040_eth` | ``waveshare_rp2040_eth``        |
+|        | |                             |                                 |
+|        | |                             | ``waveshare_rp2040_eth/rp2040`` |
+
+.. waveshare_rp2040_geek_rp2040
+
+| RP2040 | | :ref:`waveshare_rp2040_geek` | ``waveshare_rp2040_geek``        |
+|        | |                              |                                  |
+|        | |                              | ``waveshare_rp2040_geek/rp2040`` |
+
+.. waveshare_rp2040_geek
+
+| RP2040 | | :ref:`waveshare_rp2040_geek` | ``waveshare_rp2040_geek``        |
+|        | |                              |                                  |
+|        | |                              | ``waveshare_rp2040_geek/rp2040`` |
+
+.. waveshare_rp2040_lcd_0_96_rp2040
+
+| RP2040 | | :ref:`waveshare_rp2040_lcd_0_96` | ``waveshare_rp2040_lcd_0_96``        |
+|        | |                                  |                                      |
+|        | |                                  | ``waveshare_rp2040_lcd_0_96/rp2040`` |
+
+.. waveshare_rp2040_lcd_0_96
+
+| RP2040 | | :ref:`waveshare_rp2040_lcd_0_96` | ``waveshare_rp2040_lcd_0_96``        |
+|        | |                                  |                                      |
+|        | |                                  | ``waveshare_rp2040_lcd_0_96/rp2040`` |
+
+.. waveshare_rp2040_matrix_rp2040
+
+| RP2040 | | :ref:`waveshare_rp2040_matrix` | ``waveshare_rp2040_matrix``        |
+|        | |                                |                                    |
+|        | |                                | ``waveshare_rp2040_matrix/rp2040`` |
 
 .. waveshare_rp2040_matrix
 
-| RP2040 | | :ref:`waveshare_rp2040_matrix` | - ``waveshare_rp2040_matrix/rp2040`` |
+| RP2040 | | :ref:`waveshare_rp2040_matrix` | ``waveshare_rp2040_matrix``        |
+|        | |                                |                                    |
+|        | |                                | ``waveshare_rp2040_matrix/rp2040`` |
 
-.. waveshare_rp2040_plus
+.. waveshare_rp2040_one_rp2040
 
-| RP2040 | | :ref:`waveshare_rp2040_plus` | - ``waveshare_rp2040_plus/rp2040`` |
+| RP2040 | | :ref:`waveshare_rp2040_one` | ``waveshare_rp2040_one``        |
+|        | |                             |                                 |
+|        | |                             | ``waveshare_rp2040_one/rp2040`` |
+
+.. waveshare_rp2040_one
+
+| RP2040 | | :ref:`waveshare_rp2040_one` | ``waveshare_rp2040_one``        |
+|        | |                             |                                 |
+|        | |                             | ``waveshare_rp2040_one/rp2040`` |
 
 .. waveshare_rp2040_plus@16mb
 
-| RP2040 | | :ref:`waveshare_rp2040_plus` | - ``waveshare_rp2040_plus@16mb/rp2040`` |
+| RP2040 | | :ref:`waveshare_rp2040_plus` | ``waveshare_rp2040_plus@16mb``        |
+|        | |                              |                                       |
+|        | |                              | ``waveshare_rp2040_plus@16mb/rp2040`` |
+
+.. waveshare_rp2040_plus@4mb
+
+| RP2040 | | :ref:`waveshare_rp2040_plus` | ``waveshare_rp2040_plus@4mb``        |
+|        | |                              |                                      |
+|        | |                              | ``waveshare_rp2040_plus@4mb/rp2040`` |
+
+.. waveshare_rp2040_plus_rp2040
+
+| RP2040 | | :ref:`waveshare_rp2040_plus` | ``waveshare_rp2040_plus``        |
+|        | |                              |                                  |
+|        | |                              | ``waveshare_rp2040_plus/rp2040`` |
+
+.. waveshare_rp2040_plus
+
+| RP2040 | | :ref:`waveshare_rp2040_plus` | ``waveshare_rp2040_plus``        |
+|        | |                              |                                  |
+|        | |                              | ``waveshare_rp2040_plus/rp2040`` |
+
+.. waveshare_rp2040_tiny_rp2040
+
+| RP2040 | | :ref:`waveshare_rp2040_tiny` | ``waveshare_rp2040_tiny``        |
+|        | |                              |                                  |
+|        | |                              | ``waveshare_rp2040_tiny/rp2040`` |
+
+.. waveshare_rp2040_tiny
+
+| RP2040 | | :ref:`waveshare_rp2040_tiny` | ``waveshare_rp2040_tiny``        |
+|        | |                              |                                  |
+|        | |                              | ``waveshare_rp2040_tiny/rp2040`` |
+
+.. waveshare_rp2040_zero_rp2040
+
+| RP2040 | | :ref:`waveshare_rp2040_zero` | ``waveshare_rp2040_zero``        |
+|        | |                              |                                  |
+|        | |                              | ``waveshare_rp2040_zero/rp2040`` |
+
+.. waveshare_rp2040_zero
+
+| RP2040 | | :ref:`waveshare_rp2040_zero` | ``waveshare_rp2040_zero``        |
+|        | |                              |                                  |
+|        | |                              | ``waveshare_rp2040_zero/rp2040`` |
 
 .. xiao_rp2040_rp2040_bbe
 
-| RP2040 | | :ref:`xiao_rp2040_board-extensions` | - ``xiao_rp2040/rp2040/bbe`` |
+| RP2040 | | :ref:`xiao_rp2040_board-extensions` | ``xiao_rp2040/rp2040/bbe`` |
 
 .. rpi_pico2_rp2350a_hazard3_0
 
-| RP2350 | | :external+zephyr:zephyr:board:`rpi_pico2` | - ``rpi_pico2/rp2350a/hazard3_0`` |
+| RP2350 | | :external+zephyr:zephyr:board:`rpi_pico2` | ``rpi_pico2/rp2350a/hazard3_0`` |
 
 .. rpi_pico2_rp2350a_m33_0_mcuboot
 
-| RP2350 | | :external+zephyr:zephyr:board:`rpi_pico2` | - ``rpi_pico2/rp2350a/m33_0/mcuboot`` |
+| RP2350 | | :external+zephyr:zephyr:board:`rpi_pico2` | ``rpi_pico2/rp2350a/m33_0/mcuboot`` |
 
 .. rpi_pico2_rp2350a_m33_0_w_mcuboot
 
-| RP2350 | | :external+zephyr:zephyr:board:`rpi_pico2` | - ``rpi_pico2/rp2350a/m33_0/w/mcuboot`` |
+| RP2350 | | :external+zephyr:zephyr:board:`rpi_pico2` | ``rpi_pico2/rp2350a/m33_0/w/mcuboot`` |
 
 .. rpi_pico2_rp2350a_m33_0_w
 
-| RP2350 | | :external+zephyr:zephyr:board:`rpi_pico2` | - ``rpi_pico2/rp2350a/m33_0/w`` |
+| RP2350 | | :external+zephyr:zephyr:board:`rpi_pico2` | ``rpi_pico2/rp2350a/m33_0/w`` |
 
 .. rpi_pico2_rp2350a_m33_0
 
-| RP2350 | | :external+zephyr:zephyr:board:`rpi_pico2` | - ``rpi_pico2/rp2350a/m33_0`` |
+| RP2350 | | :external+zephyr:zephyr:board:`rpi_pico2` | ``rpi_pico2/rp2350a/m33_0`` |
 
 .. xiao_rp2350_rp2350a_hazard3_0
 
-| RP2350 | | :external+zephyr:zephyr:board:`xiao_rp2350` | - ``xiao_rp2350/rp2350a/hazard3_0`` |
+| RP2350 | | :external+zephyr:zephyr:board:`xiao_rp2350` | ``xiao_rp2350/rp2350a/hazard3_0`` |
 
 .. xiao_rp2350_rp2350a_m33_0
 
-| RP2350 | | :external+zephyr:zephyr:board:`xiao_rp2350` | - ``xiao_rp2350/rp2350a/m33_0`` |
+| RP2350 | | :external+zephyr:zephyr:board:`xiao_rp2350` | ``xiao_rp2350/rp2350a/m33_0`` |
 
 .. cytron_motion_2350_pro_rp2350a_hazard3_0
 
-| RP2350 | | :ref:`cytron_motion_2350_pro` | - ``cytron_motion_2350_pro/rp2350a/hazard3_0`` |
+| RP2350 | | :ref:`cytron_motion_2350_pro` | ``cytron_motion_2350_pro/rp2350a/hazard3_0`` |
 
 .. cytron_motion_2350_pro_rp2350a_m33_0
 
-| RP2350 | | :ref:`cytron_motion_2350_pro` | - ``cytron_motion_2350_pro/rp2350a/m33_0`` |
+| RP2350 | | :ref:`cytron_motion_2350_pro` | ``cytron_motion_2350_pro/rp2350a/m33_0`` |
+
+.. mini_usb_rp2350_rp2350a_hazard3_0
+
+| RP2350 | | :ref:`mini_usb_rp2350` | ``mini_usb_rp2350/rp2350a/hazard3_0`` |
+
+.. mini_usb_rp2350_rp2350a_m33_0
+
+| RP2350 | | :ref:`mini_usb_rp2350` | ``mini_usb_rp2350/rp2350a/m33_0`` |
+
+.. mini_usb_rp2350@16mb_rp2350a_hazard3_0
+
+| RP2350 | | :ref:`mini_usb_rp2350` | ``mini_usb_rp2350@16mb/rp2350a/hazard3_0`` |
+
+.. mini_usb_rp2350@16mb_rp2350a_m33_0
+
+| RP2350 | | :ref:`mini_usb_rp2350` | ``mini_usb_rp2350@16mb/rp2350a/m33_0`` |
+
+.. mini_usb_rp2350@4mb_rp2350a_hazard3_0
+
+| RP2350 | | :ref:`mini_usb_rp2350` | ``mini_usb_rp2350@4mb/rp2350a/hazard3_0`` |
+
+.. mini_usb_rp2350@4mb_rp2350a_m33_0
+
+| RP2350 | | :ref:`mini_usb_rp2350` | ``mini_usb_rp2350@4mb/rp2350a/m33_0`` |
 
 .. picoboy_color_plus_rp2350a_hazard3_0
 
-| RP2350 | | :ref:`picoboy_color_plus` | - ``picoboy_color_plus/rp2350a/hazard3_0`` |
+| RP2350 | | :ref:`picoboy_color_plus` | ``picoboy_color_plus/rp2350a/hazard3_0`` |
 
 .. picoboy_color_plus_rp2350a_m33_0
 
-| RP2350 | | :ref:`picoboy_color_plus` | - ``picoboy_color_plus/rp2350a/m33_0`` |
+| RP2350 | | :ref:`picoboy_color_plus` | ``picoboy_color_plus/rp2350a/m33_0`` |
 
 .. rpi_pico2_rp2350a_hazard3_0_bbe
 
-| RP2350 | | :ref:`rpi_pico2_board-extensions` | - ``rpi_pico2/rp2350a/hazard3_0/bbe`` |
+| RP2350 | | :ref:`rpi_pico2_board-extensions` | ``rpi_pico2/rp2350a/hazard3_0/bbe`` |
 
 .. rpi_pico2_rp2350a_m33_0_bbe
 
-| RP2350 | | :ref:`rpi_pico2_board-extensions` | - ``rpi_pico2/rp2350a/m33_0/bbe`` |
+| RP2350 | | :ref:`rpi_pico2_board-extensions` | ``rpi_pico2/rp2350a/m33_0/bbe`` |
 
 .. rpi_pico2_rp2350a_m33_0_mcuboot_bbe
 
-| RP2350 | | :ref:`rpi_pico2_board-extensions` | - ``rpi_pico2/rp2350a/m33_0/mcuboot/bbe`` |
+| RP2350 | | :ref:`rpi_pico2_board-extensions` | ``rpi_pico2/rp2350a/m33_0/mcuboot/bbe`` |
 
 .. rpi_pico2_rp2350a_m33_0_w_bbe
 
-| RP2350 | | :ref:`rpi_pico2_board-extensions` | - ``rpi_pico2/rp2350a/m33_0/w/bbe`` |
+| RP2350 | | :ref:`rpi_pico2_board-extensions` | ``rpi_pico2/rp2350a/m33_0/w/bbe`` |
 
 .. rpi_pico2_rp2350a_m33_0_w_mcuboot_bbe
 
-| RP2350 | | :ref:`rpi_pico2_board-extensions` | - ``rpi_pico2/rp2350a/m33_0/w/mcuboot/bbe`` |
+| RP2350 | | :ref:`rpi_pico2_board-extensions` | ``rpi_pico2/rp2350a/m33_0/w/mcuboot/bbe`` |
+
+.. waveshare_rp2350_can_rp2350a_hazard3_0
+
+| RP2350 | | :ref:`waveshare_rp2350_can` | ``waveshare_rp2350_can/rp2350a/hazard3_0`` |
+
+.. waveshare_rp2350_can_rp2350a_m33_0
+
+| RP2350 | | :ref:`waveshare_rp2350_can` | ``waveshare_rp2350_can/rp2350a/m33_0`` |
 
 .. waveshare_rp2350_matrix_rp2350a_hazard3_0
 
-| RP2350 | | :ref:`waveshare_rp2350_matrix` | - ``waveshare_rp2350_matrix/rp2350a/hazard3_0`` |
+| RP2350 | | :ref:`waveshare_rp2350_matrix` | ``waveshare_rp2350_matrix/rp2350a/hazard3_0`` |
 
 .. waveshare_rp2350_matrix_rp2350a_m33_0
 
-| RP2350 | | :ref:`waveshare_rp2350_matrix` | - ``waveshare_rp2350_matrix/rp2350a/m33_0`` |
+| RP2350 | | :ref:`waveshare_rp2350_matrix` | ``waveshare_rp2350_matrix/rp2350a/m33_0`` |
 
 .. xiao_rp2350_rp2350a_hazard3_0_bbe
 
-| RP2350 | | :ref:`xiao_rp2350_board-extensions` | - ``xiao_rp2350/rp2350a/hazard3_0/bbe`` |
+| RP2350 | | :ref:`xiao_rp2350_board-extensions` | ``xiao_rp2350/rp2350a/hazard3_0/bbe`` |
 
 .. xiao_rp2350_rp2350a_m33_0_bbe
 
-| RP2350 | | :ref:`xiao_rp2350_board-extensions` | - ``xiao_rp2350/rp2350a/m33_0/bbe`` |
+| RP2350 | | :ref:`xiao_rp2350_board-extensions` | ``xiao_rp2350/rp2350a/m33_0/bbe`` |
 
 .. xiao_stm32c5_stm32c5a3xx
 
-| STM32C5A3CG | | :external+zephyr:zephyr:board:`xiao_stm32c5` | - ``xiao_stm32c5/stm32c5a3xx`` |
+| STM32C5A3CG | | :external+zephyr:zephyr:board:`xiao_stm32c5` | ``xiao_stm32c5``             |
+|             | |                                              |                              |
+|             | |                                              | ``xiao_stm32c5/stm32c5a3xx`` |
 
 .. xiao_stm32c5_stm32c5a3xx_bbe
 
-| STM32C5A3CG | | :ref:`xiao_stm32c5_board-extensions` | - ``xiao_stm32c5/stm32c5a3xx/bbe`` |
+| STM32C5A3CG | | :ref:`xiao_stm32c5_board-extensions` | ``xiao_stm32c5/stm32c5a3xx/bbe`` |
+
+.. vccgnd_bluepill_stm32f030c8_stm32f072xb
+
+| STM32F030 | | :ref:`vccgnd_bluepill` | ``vccgnd_bluepill_stm32f030c8``             |
+|           | |                        |                                             |
+|           | |                        | ``vccgnd_bluepill_stm32f030c8/stm32f030x8`` |
+
+.. vccgnd_bluepill_stm32f030c8
+
+| STM32F030 | | :ref:`vccgnd_bluepill` | ``vccgnd_bluepill_stm32f030c8``             |
+|           | |                        |                                             |
+|           | |                        | ``vccgnd_bluepill_stm32f030c8/stm32f030x8`` |
+
+.. vccgnd_bluepill_stm32f051c8_stm32f072xb
+
+| STM32F051 | | :ref:`vccgnd_bluepill` | ``vccgnd_bluepill_stm32f051c8``             |
+|           | |                        |                                             |
+|           | |                        | ``vccgnd_bluepill_stm32f051c8/stm32f051x8`` |
+
+.. vccgnd_bluepill_stm32f051c8
+
+| STM32F051 | | :ref:`vccgnd_bluepill` | ``vccgnd_bluepill_stm32f051c8``             |
+|           | |                        |                                             |
+|           | |                        | ``vccgnd_bluepill_stm32f051c8/stm32f051x8`` |
+
+.. vccgnd_bluepill_stm32f072c8_stm32f072xb
+
+| STM32F072 | | :ref:`vccgnd_bluepill` | ``vccgnd_bluepill_stm32f072c8``             |
+|           | |                        |                                             |
+|           | |                        | ``vccgnd_bluepill_stm32f072c8/stm32f072xb`` |
+
+.. vccgnd_bluepill_stm32f072c8
+
+| STM32F072 | | :ref:`vccgnd_bluepill` | ``vccgnd_bluepill_stm32f072c8``             |
+|           | |                        |                                             |
+|           | |                        | ``vccgnd_bluepill_stm32f072c8/stm32f072xb`` |
+
+.. vccgnd_bluepill_stm32f072cb_stm32f072xb
+
+| STM32F072 | | :ref:`vccgnd_bluepill` | ``vccgnd_bluepill_stm32f072cb``             |
+|           | |                        |                                             |
+|           | |                        | ``vccgnd_bluepill_stm32f072cb/stm32f072xb`` |
+
+.. vccgnd_bluepill_stm32f072cb
+
+| STM32F072 | | :ref:`vccgnd_bluepill` | ``vccgnd_bluepill_stm32f072cb``             |
+|           | |                        |                                             |
+|           | |                        | ``vccgnd_bluepill_stm32f072cb/stm32f072xb`` |
+
+.. vccgnd_bluepill_stm32f103c8_stm32f103xb
+
+| STM32F103 | | :ref:`vccgnd_bluepill` | ``vccgnd_bluepill_stm32f103c8``             |
+|           | |                        |                                             |
+|           | |                        | ``vccgnd_bluepill_stm32f103c8/stm32f103xb`` |
+
+.. vccgnd_bluepill_stm32f103c8
+
+| STM32F103 | | :ref:`vccgnd_bluepill` | ``vccgnd_bluepill_stm32f103c8``             |
+|           | |                        |                                             |
+|           | |                        | ``vccgnd_bluepill_stm32f103c8/stm32f103xb`` |
+
+.. vccgnd_bluepill_stm32f103cb_stm32f103xb
+
+| STM32F103 | | :ref:`vccgnd_bluepill` | ``vccgnd_bluepill_stm32f103cb``             |
+|           | |                        |                                             |
+|           | |                        | ``vccgnd_bluepill_stm32f103cb/stm32f103xb`` |
+
+.. vccgnd_bluepill_stm32f103cb
+
+| STM32F103 | | :ref:`vccgnd_bluepill` | ``vccgnd_bluepill_stm32f103cb``             |
+|           | |                        |                                             |
+|           | |                        | ``vccgnd_bluepill_stm32f103cb/stm32f103xb`` |
+
+.. weact_bluepillplus_stm32f103c8_stm32f103xb
+
+| STM32F103 | | :ref:`weact_bluepillplus` | ``weact_bluepillplus_stm32f103c8``             |
+|           | |                           |                                                |
+|           | |                           | ``weact_bluepillplus_stm32f103c8/stm32f103xb`` |
 
 .. weact_bluepillplus_stm32f103c8
 
-| STM32F103 | | :ref:`weact_bluepillplus` | - ``weact_bluepillplus_stm32f103c8`` |
+| STM32F103 | | :ref:`weact_bluepillplus` | ``weact_bluepillplus_stm32f103c8``             |
+|           | |                           |                                                |
+|           | |                           | ``weact_bluepillplus_stm32f103c8/stm32f103xb`` |
+
+.. weact_bluepillplus_stm32f103cb_stm32f103xb
+
+| STM32F103 | | :ref:`weact_bluepillplus` | ``weact_bluepillplus_stm32f103cb``             |
+|           | |                           |                                                |
+|           | |                           | ``weact_bluepillplus_stm32f103cb/stm32f103xb`` |
 
 .. weact_bluepillplus_stm32f103cb
 
-| STM32F103 | | :ref:`weact_bluepillplus` | - ``weact_bluepillplus_stm32f103cb`` |
+| STM32F103 | | :ref:`weact_bluepillplus` | ``weact_bluepillplus_stm32f103cb``             |
+|           | |                           |                                                |
+|           | |                           | ``weact_bluepillplus_stm32f103cb/stm32f103xb`` |
 
 .. nucleo_f303re_stm32f303xe
 
-| STM32F303RE | | :external+zephyr:zephyr:board:`nucleo_f303re` | - ``nucleo_f303re/stm32f303xe`` |
+| STM32F303RE | | :external+zephyr:zephyr:board:`nucleo_f303re` | ``nucleo_f303re``             |
+|             | |                                               |                               |
+|             | |                                               | ``nucleo_f303re/stm32f303xe`` |
+
+.. nucleo_f303re
+
+| STM32F303RE | | :external+zephyr:zephyr:board:`nucleo_f303re` | ``nucleo_f303re``             |
+|             | |                                               |                               |
+|             | |                                               | ``nucleo_f303re/stm32f303xe`` |
 
 .. nucleo_f303re_stm32f303xe_bbe
 
-| STM32F303RE | | :ref:`nucleo_f303re_board-extensions` | - ``nucleo_f303re/stm32f303xe/bbe`` |
+| STM32F303RE | | :ref:`nucleo_f303re_board-extensions` | ``nucleo_f303re/stm32f303xe/bbe`` |
 
 .. nucleo_f401re_stm32f401xe
 
-| STM32F401RE | | :external+zephyr:zephyr:board:`nucleo_f401re` | - ``nucleo_f401re/stm32f401xe`` |
+| STM32F401RE | | :external+zephyr:zephyr:board:`nucleo_f401re` | ``nucleo_f401re``             |
+|             | |                                               |                               |
+|             | |                                               | ``nucleo_f401re/stm32f401xe`` |
+
+.. nucleo_f401re
+
+| STM32F401RE | | :external+zephyr:zephyr:board:`nucleo_f401re` | ``nucleo_f401re``             |
+|             | |                                               |                               |
+|             | |                                               | ``nucleo_f401re/stm32f401xe`` |
 
 .. nucleo_f401re_stm32f401xe_bbe
 
-| STM32F401RE | | :ref:`nucleo_f401re_board-extensions` | - ``nucleo_f401re/stm32f401xe/bbe`` |
+| STM32F401RE | | :ref:`nucleo_f401re_board-extensions` | ``nucleo_f401re/stm32f401xe/bbe`` |
 
 .. nucleo_f413zh_stm32f413xx
 
-| STM32F413ZH | | :external+zephyr:zephyr:board:`nucleo_f413zh` | - ``nucleo_f413zh/stm32f413xx`` |
+| STM32F413ZH | | :external+zephyr:zephyr:board:`nucleo_f413zh` | ``nucleo_f413zh``             |
+|             | |                                               |                               |
+|             | |                                               | ``nucleo_f413zh/stm32f413xx`` |
+
+.. nucleo_f413zh
+
+| STM32F413ZH | | :external+zephyr:zephyr:board:`nucleo_f413zh` | ``nucleo_f413zh``             |
+|             | |                                               |                               |
+|             | |                                               | ``nucleo_f413zh/stm32f413xx`` |
 
 .. nucleo_f413zh_stm32f413xx_bbe
 
-| STM32F413ZH | | :ref:`nucleo_f413zh_board-extensions` | - ``nucleo_f413zh/stm32f413xx/bbe`` |
+| STM32F413ZH | | :ref:`nucleo_f413zh_board-extensions` | ``nucleo_f413zh/stm32f413xx/bbe`` |
 
 .. nucleo_f746zg_stm32f746xx
 
-| STM32F746ZG | | :external+zephyr:zephyr:board:`nucleo_f746zg` | - ``nucleo_f746zg/stm32f746xx`` |
+| STM32F746ZG | | :external+zephyr:zephyr:board:`nucleo_f746zg` | ``nucleo_f746zg``             |
+|             | |                                               |                               |
+|             | |                                               | ``nucleo_f746zg/stm32f746xx`` |
+
+.. nucleo_f746zg
+
+| STM32F746ZG | | :external+zephyr:zephyr:board:`nucleo_f746zg` | ``nucleo_f746zg``             |
+|             | |                                               |                               |
+|             | |                                               | ``nucleo_f746zg/stm32f746xx`` |
 
 .. nucleo_f746zg_stm32f746xx_bbe
 
-| STM32F746ZG | | :ref:`nucleo_f746zg_board-extensions` | - ``nucleo_f746zg/stm32f746xx/bbe`` |
+| STM32F746ZG | | :ref:`nucleo_f746zg_board-extensions` | ``nucleo_f746zg/stm32f746xx/bbe`` |
 
 .. nucleo_f767zi_stm32f767xx
 
-| STM32F767ZI | | :external+zephyr:zephyr:board:`nucleo_f767zi` | - ``nucleo_f767zi/stm32f767xx`` |
+| STM32F767ZI | | :external+zephyr:zephyr:board:`nucleo_f767zi` | ``nucleo_f767zi``             |
+|             | |                                               |                               |
+|             | |                                               | ``nucleo_f767zi/stm32f767xx`` |
+
+.. nucleo_f767zi
+
+| STM32F767ZI | | :external+zephyr:zephyr:board:`nucleo_f767zi` | ``nucleo_f767zi``             |
+|             | |                                               |                               |
+|             | |                                               | ``nucleo_f767zi/stm32f767xx`` |
 
 .. nucleo_f767zi_stm32f767xx_bbe
 
-| STM32F767ZI | | :ref:`nucleo_f767zi_board-extensions` | - ``nucleo_f767zi/stm32f767xx/bbe`` |
+| STM32F767ZI | | :ref:`nucleo_f767zi_board-extensions` | ``nucleo_f767zi/stm32f767xx/bbe`` |
+
+.. magpie_f777ni_stm32f777xx
+
+| STM32F777NI | | :ref:`magpie_f777ni_board` | ``magpie_f777ni``             |
+|             | |                            |                               |
+|             | |                            | ``magpie_f777ni/stm32f777xx`` |
+
+.. magpie_f777ni
+
+| STM32F777NI | | :ref:`magpie_f777ni_board` | ``magpie_f777ni``             |
+|             | |                            |                               |
+|             | |                            | ``magpie_f777ni/stm32f777xx`` |
 
 .. nucleo_l496zg_stm32l496xx
 
-| STM32L496ZG | | :external+zephyr:zephyr:board:`nucleo_l496zg` | - ``nucleo_l496zg/stm32l496xx`` |
+| STM32L496ZG | | :external+zephyr:zephyr:board:`nucleo_l496zg` | ``nucleo_l496zg``             |
+|             | |                                               |                               |
+|             | |                                               | ``nucleo_l496zg/stm32l496xx`` |
+
+.. nucleo_l496zg
+
+| STM32L496ZG | | :external+zephyr:zephyr:board:`nucleo_l496zg` | ``nucleo_l496zg``             |
+|             | |                                               |                               |
+|             | |                                               | ``nucleo_l496zg/stm32l496xx`` |
 
 .. nucleo_l496zg_stm32l496xx_bbe
 
-| STM32L496ZG | | :ref:`nucleo_l496zg_board-extensions` | - ``nucleo_l496zg/stm32l496xx/bbe`` |
+| STM32L496ZG | | :ref:`nucleo_l496zg_board-extensions` | ``nucleo_l496zg/stm32l496xx/bbe`` |
 
 .. mimxrt1010_evk_mimxrt1011
 
-| i.MX RT1010 | | :external+zephyr:zephyr:board:`mimxrt1010_evk` | - ``mimxrt1010_evk/mimxrt1011`` |
+| i.MX RT1010 | | :external+zephyr:zephyr:board:`mimxrt1010_evk` | ``mimxrt1010_evk``            |
+|             | |                                                |                               |
+|             | |                                                | ``mimxrt1010_evk/mimxrt1011`` |
+
+.. mimxrt1010_evk
+
+| i.MX RT1010 | | :external+zephyr:zephyr:board:`mimxrt1010_evk` | ``mimxrt1010_evk``            |
+|             | |                                                |                               |
+|             | |                                                | ``mimxrt1010_evk/mimxrt1011`` |
 
 .. mimxrt1010_evk_mimxrt1011_bbe
 
-| i.MX RT1010 | | :ref:`mimxrt1010_evk_board-extensions` | - ``mimxrt1010_evk/mimxrt1011/bbe`` |
+| i.MX RT1010 | | :ref:`mimxrt1010_evk_board-extensions` | ``mimxrt1010_evk/mimxrt1011/bbe`` |
 
 .. mimxrt1060_evk@A_mimxrt1062_qspi
 
-| i.MX RT1060 | | :external+zephyr:zephyr:board:`mimxrt1060_evk` | - ``mimxrt1060_evk@A/mimxrt1062/qspi`` |
+| i.MX RT1060 | | :external+zephyr:zephyr:board:`mimxrt1060_evk` | ``mimxrt1060_evk@A/mimxrt1062/qspi`` |
 
 .. mimxrt1060_evk@B_mimxrt1062_qspi
 
-| i.MX RT1060 | | :external+zephyr:zephyr:board:`mimxrt1060_evk` | - ``mimxrt1060_evk@B/mimxrt1062/qspi`` |
+| i.MX RT1060 | | :external+zephyr:zephyr:board:`mimxrt1060_evk` | ``mimxrt1060_evk@B/mimxrt1062/qspi`` |
 
 .. mimxrt1060_evk@C_mimxrt1062_hyperflash
 
-| i.MX RT1060 | | :external+zephyr:zephyr:board:`mimxrt1060_evk` | - ``mimxrt1060_evk@C/mimxrt1062/hyperflash`` |
+| i.MX RT1060 | | :external+zephyr:zephyr:board:`mimxrt1060_evk` | ``mimxrt1060_evk@C/mimxrt1062/hyperflash`` |
 
 .. mimxrt1060_evk@C_mimxrt1062_qspi
 
-| i.MX RT1060 | | :external+zephyr:zephyr:board:`mimxrt1060_evk` | - ``mimxrt1060_evk@C/mimxrt1062/qspi`` |
+| i.MX RT1060 | | :external+zephyr:zephyr:board:`mimxrt1060_evk` | ``mimxrt1060_evk@C/mimxrt1062/qspi`` |
 
 .. mimxrt1060_evk@A_mimxrt1062_qspi_bbe
 
-| i.MX RT1060 | | :ref:`mimxrt1060_evk_board-extensions` | - ``mimxrt1060_evk@A/mimxrt1062/qspi/bbe`` |
+| i.MX RT1060 | | :ref:`mimxrt1060_evk_board-extensions` | ``mimxrt1060_evk@A/mimxrt1062/qspi/bbe`` |
 
 .. mimxrt1060_evk@B_mimxrt1062_qspi_bbe
 
-| i.MX RT1060 | | :ref:`mimxrt1060_evk_board-extensions` | - ``mimxrt1060_evk@B/mimxrt1062/qspi/bbe`` |
+| i.MX RT1060 | | :ref:`mimxrt1060_evk_board-extensions` | ``mimxrt1060_evk@B/mimxrt1062/qspi/bbe`` |
 
 .. mimxrt1060_evk@C_mimxrt1062_hyperflash_bbe
 
-| i.MX RT1060 | | :ref:`mimxrt1060_evk_board-extensions` | - ``mimxrt1060_evk@C/mimxrt1062/hyperflash/bbe`` |
+| i.MX RT1060 | | :ref:`mimxrt1060_evk_board-extensions` | ``mimxrt1060_evk@C/mimxrt1062/hyperflash/bbe`` |
 
 .. mimxrt1060_evk@C_mimxrt1062_qspi_bbe
 
-| i.MX RT1060 | | :ref:`mimxrt1060_evk_board-extensions` | - ``mimxrt1060_evk@C/mimxrt1062/qspi/bbe`` |
+| i.MX RT1060 | | :ref:`mimxrt1060_evk_board-extensions` | ``mimxrt1060_evk@C/mimxrt1062/qspi/bbe`` |
 
 .. mimxrt1170_evk@A_mimxrt1176_cm4
 
-| i.MX RT1170 (CM4) | | :external+zephyr:zephyr:board:`mimxrt1170_evk` | - ``mimxrt1170_evk@A/mimxrt1176/cm4`` |
+| i.MX RT1170 (CM4) | | :external+zephyr:zephyr:board:`mimxrt1170_evk` | ``mimxrt1170_evk@A/mimxrt1176/cm4`` |
+|                   | |                                                |                                     |
+|                   | | **with** Bridle's                              |                                     |
+|                   | | :ref:`mimxrt1170_evk_board-extensions`         |                                     |
 
 .. mimxrt1170_evk@B_mimxrt1176_cm4
 
-| i.MX RT1170 (CM4) | | :external+zephyr:zephyr:board:`mimxrt1170_evk` | - ``mimxrt1170_evk@B/mimxrt1176/cm4`` |
+| i.MX RT1170 (CM4) | | :external+zephyr:zephyr:board:`mimxrt1170_evk` | ``mimxrt1170_evk@B/mimxrt1176/cm4`` |
+|                   | |                                                |                                     |
+|                   | | **with** Bridle's                              |                                     |
+|                   | | :ref:`mimxrt1170_evk_board-extensions`         |                                     |
 
 .. mimxrt1170_evk@A_mimxrt1176_cm7
 
-| i.MX RT1170 (CM7) | | :external+zephyr:zephyr:board:`mimxrt1170_evk` | - ``mimxrt1170_evk@A/mimxrt1176/cm7`` |
+| i.MX RT1170 (CM7) | | :external+zephyr:zephyr:board:`mimxrt1170_evk` | ``mimxrt1170_evk@A/mimxrt1176/cm7`` |
+|                   | |                                                |                                     |
+|                   | | **with** Bridle's                              |                                     |
+|                   | | :ref:`mimxrt1170_evk_board-extensions`         |                                     |
 
 .. mimxrt1170_evk@B_mimxrt1176_cm7
 
-| i.MX RT1170 (CM7) | | :external+zephyr:zephyr:board:`mimxrt1170_evk` | - ``mimxrt1170_evk@B/mimxrt1176/cm7`` |
+| i.MX RT1170 (CM7) | | :external+zephyr:zephyr:board:`mimxrt1170_evk` | ``mimxrt1170_evk@B/mimxrt1176/cm7`` |
+|                   | |                                                |                                     |
+|                   | | **with** Bridle's                              |                                     |
+|                   | | :ref:`mimxrt1170_evk_board-extensions`         |                                     |
+
+.. nrf52840dk_nrf52811
+
+| nRF52811 | | :external+zephyr:zephyr:board:`nrf52840dk` | ``nrf52840dk/nrf52811`` |
 
 .. nrf52840dk_nrf52840
 
-| nRF52840 | | :external+zephyr:zephyr:board:`nrf52840dk` | - ``nrf52840dk/nrf52840`` |
+| nRF52840 | | :external+zephyr:zephyr:board:`nrf52840dk` | ``nrf52840dk/nrf52840`` |
+
+.. nrf9160dk_nrf52840
+
+| nRF52840 | | :external+zephyr:zephyr:board:`nrf9160dk` | ``nrf9160dk/nrf52840`` |
 
 .. xiao_ble_nrf52840_sense
 
-| nRF52840 | | :external+zephyr:zephyr:board:`xiao_ble` | - ``xiao_ble/nrf52840/sense`` |
+| nRF52840 | | :external+zephyr:zephyr:board:`xiao_ble` | ``xiao_ble/nrf52840/sense`` |
 
 .. xiao_ble_nrf52840
 
-| nRF52840 | | :external+zephyr:zephyr:board:`xiao_ble` | - ``xiao_ble/nrf52840`` |
+| nRF52840 | | :external+zephyr:zephyr:board:`xiao_ble` | ``xiao_ble``          |
+|          | |                                          |                       |
+|          | |                                          | ``xiao_ble/nrf52840`` |
+
+.. xiao_ble
+
+| nRF52840 | | :external+zephyr:zephyr:board:`xiao_ble` | ``xiao_ble``          |
+|          | |                                          |                       |
+|          | |                                          | ``xiao_ble/nrf52840`` |
+
+.. coffeecaller_nrf52_nrf52840
+
+| nRF52840 | | :ref:`coffeecaller_nrf52_board` | ``coffeecaller_nrf52``          |
+|          | |                                 |                                 |
+|          | |                                 | ``coffeecaller_nrf52/nrf52840`` |
 
 .. coffeecaller_nrf52
 
-| nRF52840 | | :ref:`coffeecaller_nrf52_board` | - ``coffeecaller_nrf52`` |
+| nRF52840 | | :ref:`coffeecaller_nrf52_board` | ``coffeecaller_nrf52``          |
+|          | |                                 |                                 |
+|          | |                                 | ``coffeecaller_nrf52/nrf52840`` |
+
+.. nrf9160dk_nrf9160_ns
+
+| nRF9160 | | :external+zephyr:zephyr:board:`nrf9160dk` | ``nrf9160dk/nrf9160/ns`` |
 
 .. nrf9160dk_nrf9160
 
-| nRF9160 | | :external+zephyr:ref:`nrf9160dk_nrf9160` | - ``nrf9160dk/nrf9160`` |
+| nRF9160 | | :external+zephyr:zephyr:board:`nrf9160dk` | ``nrf9160dk/nrf9160`` |
 
 .. zephyr-keep-sorted-stop
