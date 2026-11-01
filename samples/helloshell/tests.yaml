@@ -17,9 +17,6 @@ common:
     - qemu_x86_tiny
     - qemu_riscv32_xip
     - qemu_rx
-  integration_platforms:
-    - native_sim
-    - native_sim/native/64
 tests:
   bridle.sample.helloshell.commands:
     min_ram: 16
@@ -123,7 +120,131 @@ tests:
     min_flash: 128
     extra_args:
       - CMAKE_BUILD_TYPE=ZDebug
+    platform_allow:
+      - native_sim
+      - native_sim/native/64
+      - qemu_x86
+      - qemu_x86/atom/nokpti
+      - qemu_x86/atom/nommu
+      - qemu_x86/atom/nopae
+      - qemu_x86/atom/virt
+      - qemu_x86/atom/xip
+      # Qemu issue (-ENOTBLK): - qemu_x86_lakemont
+      # Qemu issue (-ENOTBLK): - qemu_x86_tiny
+      - qemu_x86_64
+      - qemu_x86_64/atom/nokpti
+      # Qemu issue (-ENOTBLK): - qemu_cortex_r5
+      - qemu_cortex_m0
+      - qemu_cortex_m3
+      - qemu_cortex_a9
+      - qemu_cortex_a53
+      - qemu_cortex_a53/qemu_cortex_a53/smp
+      - qemu_cortex_a53/qemu_cortex_a53/xip
+      - qemu_kvm_arm64
+      - qemu_arc/qemu_arc_em
+      - qemu_arc/qemu_arc_hs
+      - qemu_arc/qemu_arc_hs/xip
+      - qemu_arc/qemu_arc_hs5x
+      - qemu_arc/qemu_arc_hs6x
+      - qemu_malta
+      - qemu_malta/qemu_malta/be
+      - qemu_riscv32e
+      - qemu_riscv32
+      - qemu_riscv32/qemu_virt_riscv32/smp
+      # Qemu issue (-ENOTBLK): - qemu_riscv32_xip
+      - qemu_riscv64
+      - qemu_riscv64/qemu_virt_riscv64/smp
+      - qemu_xtensa/dc233c
+      - qemu_xtensa/dc233c/mmu
+      - qemu_leon3
+      # Qemu issue (-ENOTBLK): - qemu_rx
+      - magpie_f777ni
+      - arduino_zero/samd21g18a
+      - arduino_zero/samd21g18a/bbe
+      - coffeecaller_nrf52
+      - cytron_maker_nano_rp2040
+      - cytron_maker_pi_rp2040
+      - cytron_motion_2350_pro/rp2350a/hazard3_0
+      - cytron_motion_2350_pro/rp2350a/m33_0
+      - mimxrt1010_evk/mimxrt1011
+      - mimxrt1010_evk/mimxrt1011/bbe
+      - mimxrt1060_evk@A/mimxrt1062/qspi
+      - mimxrt1060_evk@A/mimxrt1062/qspi/bbe
+      - mimxrt1060_evk@B/mimxrt1062/qspi
+      - mimxrt1060_evk@B/mimxrt1062/qspi/bbe
+      - mimxrt1060_evk@C/mimxrt1062/qspi
+      - mimxrt1060_evk@C/mimxrt1062/qspi/bbe
+      - mimxrt1060_evk@C/mimxrt1062/hyperflash
+      - mimxrt1060_evk@C/mimxrt1062/hyperflash/bbe
+      - mimxrt1170_evk@A/mimxrt1176/cm4
+      - mimxrt1170_evk@A/mimxrt1176/cm7
+      - mimxrt1170_evk@B/mimxrt1176/cm4
+      - mimxrt1170_evk@B/mimxrt1176/cm7
+      - nrf52840dk/nrf52840
+      - nrf9160dk/nrf52840
+      - nrf9160dk/nrf9160
+      - nucleo_f303re/stm32f303xe
+      - nucleo_f303re/stm32f303xe/bbe
+      - nucleo_f401re/stm32f401xe
+      - nucleo_f401re/stm32f401xe/bbe
+      - nucleo_f413zh/stm32f413xx
+      - nucleo_f413zh/stm32f413xx/bbe
+      - nucleo_f746zg/stm32f746xx
+      - nucleo_f746zg/stm32f746xx/bbe
+      - nucleo_f767zi/stm32f767xx
+      - nucleo_f767zi/stm32f767xx/bbe
+      - nucleo_l496zg/stm32l496xx
+      - nucleo_l496zg/stm32l496xx/bbe
+      - mini_usb_rp2040
+      - mini_usb_rp2040@16mb
+      - mini_usb_rp2040@chipled
+      - mini_usb_rp2350/rp2350a/hazard3_0
+      - mini_usb_rp2350/rp2350a/m33_0
+      - mini_usb_rp2350@16mb/rp2350a/hazard3_0
+      - mini_usb_rp2350@16mb/rp2350a/m33_0
+      - picoboy/rp2040
+      - picoboy_color/rp2040
+      - picoboy_color_plus/rp2350a/hazard3_0
+      - picoboy_color_plus/rp2350a/m33_0
+      - rpi_pico/rp2040
+      - rpi_pico/rp2040/bbe
+      - rpi_pico/rp2040/w
+      - rpi_pico/rp2040/w/bbe
+      - rpi_pico2/rp2350a/hazard3_0
+      - rpi_pico2/rp2350a/hazard3_0/bbe
+      - rpi_pico2/rp2350a/m33_0
+      - rpi_pico2/rp2350a/m33_0/bbe
+      - rpi_pico2/rp2350a/m33_0/w
+      - rpi_pico2/rp2350a/m33_0/w/bbe
+      - seeeduino_cm0/samd21g18a
+      - seeeduino_lotus/samd21g18a
+      - seeeduino_xiao/samd21g18a
+      - seeeduino_xiao/samd21g18a/bbe
+      - xiao_samd21/samd21g18a
+      - xiao_rp2040/rp2040
+      - xiao_rp2040/rp2040/bbe
+      - xiao_rp2350/rp2350a/hazard3_0
+      - xiao_rp2350/rp2350a/hazard3_0/bbe
+      - xiao_rp2350/rp2350a/m33_0
+      - xiao_rp2350/rp2350a/m33_0/bbe
+      - xiao_stm32c5/stm32c5a3xx
+      - xiao_stm32c5/stm32c5a3xx/bbe
+      - waveshare_rp2040_one
+      - waveshare_rp2040_zero
+      - waveshare_rp2040_matrix
+      - waveshare_rp2040_tiny
+      - waveshare_rp2040_eth
+      - waveshare_rp2040_lcd_0_96
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb
+      - waveshare_rp2040_geek
+      - waveshare_rp2350_can/rp2350a/hazard3_0
+      - waveshare_rp2350_can/rp2350a/m33_0
+      - waveshare_rp2350_matrix/rp2350a/hazard3_0
+      - waveshare_rp2350_matrix/rp2350a/m33_0
     integration_platforms:
+      - native_sim
+      - native_sim/native/64
       - qemu_x86
       - qemu_x86/atom/nokpti
       - qemu_x86/atom/nommu
@@ -259,6 +380,14 @@ tests:
       - platform:weact_bluepillplus_stm32f103cb/stm32f103xb:"CONFIG_EXTRA_EXCEPTION_INFO=y"
       - platform:weact_bluepillplus_stm32f103cb/stm32f103xb:"CONFIG_STM32_ENABLE_DEBUG_SLEEP_STOP=y"
       - platform:weact_bluepillplus_stm32f103c8/stm32f103xb:"CONFIG_STM32_ENABLE_DEBUG_SLEEP_STOP=y"
+    platform_allow:
+      - native_sim
+      - native_sim/native/64
+      - vccgnd_bluepill_stm32f103cb
+      - vccgnd_bluepill_stm32f103c8
+      - weact_bluepillplus_ch32v203c8
+      - weact_bluepillplus_stm32f103cb
+      - weact_bluepillplus_stm32f103c8
     integration_platforms:
       - vccgnd_bluepill_stm32f103cb
       - vccgnd_bluepill_stm32f103c8
@@ -283,6 +412,12 @@ tests:
       - platform:vccgnd_bluepill_stm32f072c8/stm32f072xb:"CONFIG_I2C=y"
       - platform:vccgnd_bluepill_stm32f072c8/stm32f072xb:"CONFIG_I2C_SHELL=y"
       - platform:vccgnd_bluepill_stm32f072c8/stm32f072xb:"CONFIG_STM32_ENABLE_DEBUG_SLEEP_STOP=y"
+    platform_allow:
+      - native_sim
+      - native_sim/native/64
+      - vccgnd_bluepill_stm32f072cb
+      - vccgnd_bluepill_stm32f072c8
+      - weact_bluepillplus_ch32v203c6
     integration_platforms:
       - vccgnd_bluepill_stm32f072cb
       - vccgnd_bluepill_stm32f072c8
@@ -305,6 +440,11 @@ tests:
       - platform:vccgnd_bluepill_stm32f030c8/stm32f030x8:"CONFIG_I2C=y"
       - platform:vccgnd_bluepill_stm32f030c8/stm32f030x8:"CONFIG_I2C_SHELL=y"
       - platform:vccgnd_bluepill_stm32f030c8/stm32f030x8:"CONFIG_STM32_ENABLE_DEBUG_SLEEP_STOP=y"
+    platform_allow:
+      - native_sim
+      - native_sim/native/64
+      - vccgnd_bluepill_stm32f051c8
+      - vccgnd_bluepill_stm32f030c8
     integration_platforms:
       - vccgnd_bluepill_stm32f051c8
       - vccgnd_bluepill_stm32f030c8

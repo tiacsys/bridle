@@ -19,64 +19,31 @@ built into modes:
 Requirements
 ************
 
+The sample supports the following platforms (located
+in :bridle_file:`samples/helloshell/tests.yaml`):
+
+.. table-from-tests-yaml::
+
+For simulated or emulated testing and development purposes one of the
+following runtime environments (boards) are also possible to use:
+
 .. zephyr-keep-sorted-start re(^\s+\* \|\w)
 
-* One of the following development boards:
-
-  * |bridle:board:cytron_maker_nano_rp2040|
-  * |bridle:board:cytron_maker_pi_rp2040|
-  * |bridle:board:cytron_motion_2350_pro|
-  * |bridle:board:mini_usb_rp2040|
-  * |bridle:board:mini_usb_rp2350|
-  * |bridle:board:picoboy_color_plus|
-  * |bridle:board:picoboy_color|
-  * |bridle:board:picoboy|
-  * |bridle:board:seeeduino_cm0|
-  * |bridle:board:seeeduino_lotus|
-  * |bridle:board:vccgnd_bluepill|
-  * |bridle:board:waveshare_rp2040_eth|
-  * |bridle:board:waveshare_rp2040_geek|
-  * |bridle:board:waveshare_rp2040_lcd_0_96|
-  * |bridle:board:waveshare_rp2040_matrix|
-  * |bridle:board:waveshare_rp2040_one|
-  * |bridle:board:waveshare_rp2040_plus|
-  * |bridle:board:waveshare_rp2040_tiny|
-  * |bridle:board:waveshare_rp2040_zero|
-  * |bridle:board:waveshare_rp2350_can|
-  * |bridle:board:waveshare_rp2350_matrix|
-  * |bridle:board:weact_bluepillplus|
-  * |bridle:board:xiao_samd21|
-  * |zephyr:board:arduino_zero| or Bridle's |bridle:board:arduino_zero|
-  * |zephyr:board:mimxrt1010_evk| or Bridle's |bridle:board:mimxrt1010_evk|
-  * |zephyr:board:mimxrt1060_evk| or Bridle's |bridle:board:mimxrt1060_evk|
-  * |zephyr:board:mimxrt1170_evk| **with** Bridle's |bridle:board:mimxrt1170_evk|
-  * |zephyr:board:native_sim|
-  * |zephyr:board:nucleo_f303re| or Bridle's |bridle:board:nucleo_f303re|
-  * |zephyr:board:nucleo_f401re| or Bridle's |bridle:board:nucleo_f401re|
-  * |zephyr:board:nucleo_f413zh| or Bridle's |bridle:board:nucleo_f413zh|
-  * |zephyr:board:nucleo_f746zg| or Bridle's |bridle:board:nucleo_f746zg|
-  * |zephyr:board:nucleo_f767zi| or Bridle's |bridle:board:nucleo_f767zi|
-  * |zephyr:board:nucleo_l496zg| or Bridle's |bridle:board:nucleo_l496zg|
-  * |zephyr:board:qemu_arc|
-  * ARM Cortex-A9 Emulation (``qemu_cortex_a9``)
-  * |zephyr:board:qemu_cortex_a53|
-  * |zephyr:board:qemu_cortex_m0|
-  * |zephyr:board:qemu_cortex_m3|
-  * |zephyr:board:qemu_cortex_r5|
-  * |zephyr:board:qemu_kvm_arm64|
-  * |zephyr:board:qemu_leon3|
-  * |zephyr:board:qemu_malta|
-  * |zephyr:board:qemu_riscv32e|
-  * |zephyr:board:qemu_riscv32|
-  * |zephyr:board:qemu_riscv64|
-  * |zephyr:board:qemu_x86|
-  * |zephyr:board:qemu_xtensa|
-  * |zephyr:board:rpi_pico2| or Bridle's |bridle:board:rpi_pico2|
-  * |zephyr:board:rpi_pico| or Bridle's |bridle:board:rpi_pico|
-  * |zephyr:board:seeeduino_xiao| or Bridle's |bridle:board:seeeduino_xiao|
-  * |zephyr:board:xiao_rp2040| or Bridle's |bridle:board:xiao_rp2040|
-  * |zephyr:board:xiao_rp2350| or Bridle's |bridle:board:xiao_rp2350|
-  * |zephyr:board:xiao_stm32c5| or Bridle's |bridle:board:xiao_stm32c5|
+* |zephyr:board:native_sim|
+* |zephyr:board:qemu_arc|
+* ARM Cortex-A9 Emulation (``qemu_cortex_a9``)
+* |zephyr:board:qemu_cortex_a53|
+* |zephyr:board:qemu_cortex_m0|
+* |zephyr:board:qemu_cortex_m3|
+* |zephyr:board:qemu_cortex_r5|
+* |zephyr:board:qemu_kvm_arm64|
+* |zephyr:board:qemu_leon3|
+* |zephyr:board:qemu_malta|
+* |zephyr:board:qemu_riscv32e|
+* |zephyr:board:qemu_riscv32|
+* |zephyr:board:qemu_riscv64|
+* |zephyr:board:qemu_x86|
+* |zephyr:board:qemu_xtensa|
 
 .. zephyr-keep-sorted-stop
 
