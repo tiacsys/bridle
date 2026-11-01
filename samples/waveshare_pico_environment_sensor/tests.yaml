@@ -18,6 +18,17 @@ common:
 tests:
   bridle.sample.waveshare_pico_environment_sensor:
     extra_args: SHIELD=waveshare_pico_environment_sensor
+    platform_allow:
+      - rpi_pico/rp2040/bbe
+      - rpi_pico/rp2040/w/bbe
+      - rpi_pico2/rp2350a/hazard3_0/bbe
+      - rpi_pico2/rp2350a/m33_0/bbe
+      - rpi_pico2/rp2350a/m33_0/w/bbe
+      - waveshare_rp2040_lcd_0_96
+      - waveshare_rp2040_plus
+      - waveshare_rp2040_plus@16mb
+      - waveshare_rp2350_can/rp2350a/hazard3_0
+      - waveshare_rp2350_can/rp2350a/m33_0
     integration_platforms:
       - rpi_pico/rp2040/bbe
       - rpi_pico/rp2040/w/bbe

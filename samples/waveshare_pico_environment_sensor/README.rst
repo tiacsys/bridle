@@ -21,6 +21,14 @@ You can choose to use the on-chip T/RH compensation of the SGP40 by feeding the
 values measured by the BME280 into it. This is enabled in the Application by
 default, you can turn it off by setting :code:`APP_USE_COMPENSATION=n`.
 
+Requirements
+************
+
+The sample supports the following platforms (located
+in :bridle_file:`samples/waveshare_pico_environment_sensor/tests.yaml`):
+
+.. table-from-tests-yaml::
+
 References
 **********
 
