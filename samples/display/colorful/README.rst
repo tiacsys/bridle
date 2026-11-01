@@ -192,6 +192,17 @@ representation of an RGB color gradient; the colors simply cycle through.
       For such displays, the color of the entire screen will change at a much slower rate than
       on a typical LCD, to align with the typical refresh rate of e-ink technologies.
 
+Requirements
+************
+
+This sample supports any kind of display configured as default Zephyr display
+node in Devicetree by the :dts:`chosen { zephyr,display = ...; };` entry.
+
+The sample supports the following default platforms, but is not limited to them
+(located in :bridle_file:`samples/colorful/tests.yaml`):
+
+.. table-from-tests-yaml::
+
 Building and Running
 ********************
 
