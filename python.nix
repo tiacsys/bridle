@@ -9,39 +9,46 @@
 
 let
 
+  # Some packages zephyr likes to install using pypi are only provided as applications (or
+  # non-Python tools) in nixpkgs. python.buildEnv drops anything that isn't a Python module, so
+  # these are mapped into the package set to satisfy the requirements.txt lookup, and added
+  # alongside the Python environment below to actually end up on PATH.
+  cliTools = {
+    inherit (pkgs) sphinx-lint vermin;
+    clang-format = pkgs.clang-tools;
+    gitlint-core = pkgs.gitlint;
+    inherit (python-deps) nrf-regtool;
+  };
+
   # Create a python whose `withPackages` knows about some extra stuff we need
   python = pkgs.python3.override {
     self = python;
-    packageOverrides = final: prev: {
-      # Some packages zephyr likes to install using pypi are provided as toplevel packages in
-      # nixpkgs. Adding them to this package set makes sure they can be pulled into the build/dev
-      # environment by being referenced in a requirements.txt
+    packageOverrides =
+      final: prev:
+      cliTools
+      // {
+        # gcovr is a toplevel package in nixpkgs, but built as a Python module, so it can go
+        # into the Python environment directly.
+        inherit (pkgs) gcovr;
 
-      inherit (pkgs) gcovr ruff sphinx-lint vermin;
-      clang-format = pkgs.clang-tools;
-      imgtool = pkgs.mcuboot-imgtool;
-      gitlint-core = pkgs.gitlint;
+        # TODO: Remove this workaround once NixOS/nixpkgs#573479 reaches nixos-unstable.
+        # buildPythonPackage now defaults to __structuredAttrs = true, under which
+        # nixpkgs' sphinxHook only runs the first entry of sphinxBuilders. reuse's
+        # "man" builder is therefore skipped and the build fails with "failed to
+        # produce output path for output 'man'". reuse is needed for `west spdx`.
+        reuse = prev.reuse.overridePythonAttrs (_: {
+          __structuredAttrs = false;
+        });
 
-      inherit (python-deps) nrf-regtool;
-
-      # TODO: Remove this workaround once NixOS/nixpkgs#573479 reaches nixos-unstable.
-      # buildPythonPackage now defaults to __structuredAttrs = true, under which
-      # nixpkgs' sphinxHook only runs the first entry of sphinxBuilders. reuse's
-      # "man" builder is therefore skipped and the build fails with "failed to
-      # produce output path for output 'man'". reuse is needed for `west spdx`.
-      reuse = prev.reuse.overridePythonAttrs (_: {
-        __structuredAttrs = false;
-      });
-
-      # spsdk and spsdk-pyocd depend on each other. nixpkgs breaks the cycle by
-      # not listing spsdk as a dependency of spsdk-pyocd, but the wheel metadata
-      # still declares it, so pythonRuntimeDepsCheck fails with "spsdk not
-      # installed". spsdk itself pulls in spsdk-pyocd, so both still end up in the
-      # environment.
-      spsdk-pyocd = prev.spsdk-pyocd.overridePythonAttrs (old: {
-        pythonRemoveDeps = (old.pythonRemoveDeps or [ ]) ++ [ "spsdk" ];
-      });
-    };
+        # spsdk and spsdk-pyocd depend on each other. nixpkgs breaks the cycle by
+        # not listing spsdk as a dependency of spsdk-pyocd, but the wheel metadata
+        # still declares it, so pythonRuntimeDepsCheck fails with "spsdk not
+        # installed". spsdk itself pulls in spsdk-pyocd, so both still end up in the
+        # environment.
+        spsdk-pyocd = prev.spsdk-pyocd.overridePythonAttrs (old: {
+          pythonRemoveDeps = (old.pythonRemoveDeps or [ ]) ++ [ "spsdk" ];
+        });
+      };
   };
 
   # Parse requirements.txt files into pyproject-nix projects
@@ -59,25 +66,30 @@ let
     zephyr-project.validators.validateVersionConstraints { inherit python; }
     // bridle-project.validators.validateVersionConstraints { inherit python; };
 
+  pythonEnv = python.buildEnv.override {
+    extraLibs =
+      (bridle-project.renderers.withPackages {
+        inherit python;
+        # Nest one project's withPackages within the other to get a combined package
+        # set. If we want more than two, we should name these lambdas to reduce
+        # indentation.
+        extraPackages = (
+          zephyr-project.renderers.withPackages {
+            inherit python;
+            extraPackages = ps: [ ps.west ];
+          }
+        );
+      })
+        python.pkgs;
+    ignoreCollisions = true;
+  };
+
 in
 lib.warnIf (invalidConstraints != { })
   "pythonEnv: Found invalid Python constraints for: ${builtins.toJSON (lib.attrNames invalidConstraints)}"
   (
-    python.buildEnv.override {
-      extraLibs =
-        (bridle-project.renderers.withPackages {
-          inherit python;
-          # Nest one project's withPackages within the other to get a combined package
-          # set. If we want more than two, we should name these lambdas to reduce
-          # indentation.
-          extraPackages = (
-            zephyr-project.renderers.withPackages {
-              inherit python;
-              extraPackages = ps: [ ps.west ];
-            }
-          );
-        })
-          python.pkgs;
-      ignoreCollisions = true;
+    pkgs.buildEnv {
+      name = "bridle-python-env";
+      paths = [ pythonEnv ] ++ lib.attrValues cliTools;
     }
   )
