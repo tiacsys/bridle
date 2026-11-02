@@ -17,12 +17,12 @@ let
       # nixpkgs. Adding them to this package set makes sure they can be pulled into the build/dev
       # environment by being referenced in a requirements.txt
 
-      inherit (pkgs) gcovr ruff vermin;
+      inherit (pkgs) gcovr ruff sphinx-lint vermin;
       clang-format = pkgs.clang-tools;
       imgtool = pkgs.mcuboot-imgtool;
       gitlint-core = pkgs.gitlint;
 
-      inherit (python-deps) nrf-regtool sphinx-lint;
+      inherit (python-deps) nrf-regtool;
 
       # TODO: Remove this workaround once NixOS/nixpkgs#573479 reaches nixos-unstable.
       # buildPythonPackage now defaults to __structuredAttrs = true, under which
