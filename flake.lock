@@ -134,11 +134,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1793368007,
-        "narHash": "sha256-3sbE9wuW64jD6ik1V9k69BQ6k2IEn8cS1jD/m14az9g=",
+        "lastModified": 1793614489,
+        "narHash": "sha256-O+8THbJL2SUqejTfYIJSt8jULhL9VgrtIEUz0xPFGs8=",
         "owner": "Irockasingranite",
         "repo": "bridle-python-deps",
-        "rev": "ec66b3e162e8b098c8c1ccbcf159e8074d85417f",
+        "rev": "13d1da4e518b3264e2d9b5ae5f99419d9d79a8b1",
         "type": "github"
       },
       "original": {
