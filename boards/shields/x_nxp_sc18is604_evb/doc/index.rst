@@ -95,9 +95,9 @@ valid interface |arduino_to_nxp_sc18is604_evb_if|:
 Sample Prototype
 ----------------
 
-.. image:: img/TCS-640-ard-wiring.jpg
+.. image:: img/TCS-604-ARD-wiring.jpg
    :align: center
-   :alt: TCS-640-ard Wiring Diagram
+   :alt: TCS-604-ARD Wiring Diagram
 
 Mikro BUS headers
 =================
