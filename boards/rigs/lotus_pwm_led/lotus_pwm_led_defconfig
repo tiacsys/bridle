@@ -1,5 +1,8 @@
 # lotus_pwm_led — umbrella-subsystem activation (option A).
 #
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+#
 # Assembly: 2x grove_pwm_led (PWM, pwm-leds). The rig's shields carry no
 # Kconfig.defconfig of their own (only SHIELD_<NAME> identification
 # symbols) — enabling the subsystems the instantiated shields' DRIVERS

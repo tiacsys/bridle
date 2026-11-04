@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """Multi-bus sockets: a socket may offer more than one bus of the same
 kind (multi-bus-socket schema). Proved with a NEW fixture connector type
 only (socket,fixture-multibus, tests/fixtures/dts/multibus-connectors/)

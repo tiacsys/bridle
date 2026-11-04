@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2023-2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 identifier: seeeduino_lotus
 name: Seeeduino Lotus Cortex-M0+
 type: mcu

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 shield:
   name: i2c_sensor
   full_name: Generic Fixed-Address I2C Sensor (0x48)

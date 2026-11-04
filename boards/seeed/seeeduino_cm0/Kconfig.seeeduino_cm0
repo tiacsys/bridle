@@ -1,6 +1,6 @@
 # Seeeduino Cortex-M0+ board configuration
 
-# Copyright (c) 2023-2024 TiaC Systems
+# SPDX-FileCopyrightText: 2023-2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 config BOARD_SEEEDUINO_CM0

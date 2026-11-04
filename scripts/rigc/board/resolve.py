@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """Board DT reader -- analyzer-side input: the analyzer reads the board
 DT to find socket nodes by compatible. Delegates entirely to
 project/edt_build's edtlib.EDT reader over the board's own devicetree.

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # Multi-plug-carrier fixture rig (ACCEPT case, multi-plug-carrier-brief.md
 # Sec 7): a PLURAL carrier (fixture_span_bridge) plugs two independent
 # fixture-mp-spi sockets and re-exports ONE socket,fixture-multibus

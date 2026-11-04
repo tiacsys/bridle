@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2021-2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # used by board "Arduino/Genuino Zero" for
 # Microchip's own Python MCU programmer
 # zephyr-keep-sorted-start

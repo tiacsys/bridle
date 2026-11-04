@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # Synthetic fixture: hwmv2's revision dot-normalization (design-log
 # 2026-07-26d, extensions.cmake:1772) -- a dotted revision id constructs a
 # fragment filename with dots replaced by underscores

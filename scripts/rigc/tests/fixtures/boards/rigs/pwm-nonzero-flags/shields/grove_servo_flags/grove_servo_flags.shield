@@ -1,4 +1,8 @@
-/* Synthetic fixture shield: a servo like boards/shields/grove_servo, but
+/*
+ * SPDX-FileCopyrightText: 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Synthetic fixture shield: a servo like boards/shields/grove_servo, but
  * authoring a NONZERO PWM flag (PWM_POLARITY_INVERTED) instead of
  * PWM_POLARITY_NORMAL. The corpus's real grove_servo always authors
  * flags=0, so this is the only fixture locking the analyzer's

@@ -1,4 +1,8 @@
 #!/bin/bash
+#
+# SPDX-FileCopyrightText: 2021-2026 TiaC Systems
+# SPDX-License-Identifier: BSD-3-Clause
+#
 
 P="../STM32F777NIHx.pdf"
 I="STM32F777NIHx_clocktree.jpg"

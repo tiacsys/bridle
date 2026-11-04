@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """Unit: loader.binding -- the SocketBinding seam and the invocation's
 board -> rig.board.
 

@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """Connector-type registry. A type IS two artifacts: the unified
 socket+plug binding (board side, edtlib's job in the real build; shield
 side, consumed HERE by the loader) and the index header (position single

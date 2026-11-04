@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: BSD-3-Clause
+
 """Unit tests for edt_build.py, the generic devicetree/edtlib reader layer:
 it knows nothing about rigs, sockets, or any other product concept -- only
 devicetree/edtlib mechanics plus one piece of Zephyr CMake convention (a

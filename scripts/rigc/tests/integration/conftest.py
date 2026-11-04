@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """pytest wants a conftest.py in this directory; the actual plumbing lives
 in harness.py (generic, importable from tests/integration_stay/ too) and,
 for the corpus-tethered half, in tests/integration_stay/corpus.py. No test

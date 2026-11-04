@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2021-2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 #
 # sphinx 9.1.0 depends on docutils<0.23 and >=0.21
 #

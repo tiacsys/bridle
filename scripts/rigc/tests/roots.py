@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """The vendored data roots a unit test hands to the library entry points.
 
 Three of rigc's roots have a module-relative fallback that only resolves

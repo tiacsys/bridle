@@ -1,4 +1,8 @@
-/* Fixture-only shield: shield,params with NO shield,param-includes at
+/*
+ * SPDX-FileCopyrightText: 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Fixture-only shield: shield,params with NO shield,param-includes at
  * all -- the direct successor of the retired param-no-vocabulary
  * fixture, moved to the shield side (param-vocabulary-brief.md Sec 6).
  * check_param_token's vocabulary is the owning device's own

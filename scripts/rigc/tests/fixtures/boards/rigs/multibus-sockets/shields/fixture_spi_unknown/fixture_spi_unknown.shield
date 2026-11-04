@@ -1,4 +1,8 @@
-/* Fixture shield (multi-bus-socket feature, REJECT case): a device on a
+/*
+ * SPDX-FileCopyrightText: 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Fixture shield (multi-bus-socket feature, REJECT case): a device on a
  * bus name the fixture-multibus connector type's own vocabulary allows
  * (plug,bus-proxies) but that NO socket of this type actually wires --
  * exact-string subset exposure (phys-subset), never a fallback to a bus

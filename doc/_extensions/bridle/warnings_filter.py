@@ -2,7 +2,8 @@
 Warnings filter extension
 #########################
 
-Copyright (c) 2021 Nordic Semiconductor ASA
+SPDX-FileCopyrightText: 2024-2026 TiaC Systems
+SPDX-FileCopyrightText: 2021 Nordic Semiconductor ASA
 SPDX-License-Identifier: Apache-2.0
 
 Introduction

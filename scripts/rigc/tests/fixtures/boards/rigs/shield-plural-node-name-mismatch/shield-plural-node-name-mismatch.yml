@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # Synthetic fixture: a shields: entry's DECLARED name (decl_beta) does not
 # match its own <name>.shield node name (wrong_node) -- the declared-name
 # half of ruling 2 (shield-plurality-brief.md Sec 2); the folder-name half

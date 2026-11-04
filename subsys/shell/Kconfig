@@ -1,9 +1,9 @@
 # Shell configuration options
 
-# Copyright (c) 2021-2025 TiaC Systems
-# Copyright (c) 2014-2015 Wind River Systems, Inc.
-# Copyright (c) 2016 Intel Corporation
-# Copyright (c) 2018 Nordic Semiconductor ASA
+# SPDX-FileCopyrightText: 2021-2026 TiaC Systems
+# SPDX-FileCopyrightText: 2018 Nordic Semiconductor ASA
+# SPDX-FileCopyrightText: 2016 Intel Corporation
+# SPDX-FileCopyrightText: 2014-2015 Wind River Systems, Inc.
 # SPDX-License-Identifier: Apache-2.0
 
 if SHELL

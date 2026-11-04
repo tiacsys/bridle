@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """Unit: loader.params -- the per-instance-parameter invariant as a VALUE
 function: "(declared params, authored defaults,
 assignments) -> findings", restate as "(previously-assigned set, delta-

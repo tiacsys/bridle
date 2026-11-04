@@ -1,4 +1,5 @@
-/* Copyright (c) 2026 TiaC Systems
+/*
+ * SPDX-FileCopyrightText: 2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  *
  * Reference shield (rigs test suite): a GPIO collection member carrying a

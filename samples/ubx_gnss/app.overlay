@@ -1,6 +1,6 @@
 /*
- * Copyright (c) 2023 Sarah Renkhoff
- * Copyright (c) 2024 TiaC Systems
+ * SPDX-FileCopyrightText: 2024-2026 TiaC Systems
+ * SPDX-FileCopyrightText: 2023 Sarah Renkhoff
  * SPDX-License-Identifier: Apache-2.0
  */
 

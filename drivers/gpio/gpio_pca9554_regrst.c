@@ -1,7 +1,7 @@
 /*
- * Copyright (c) 2015 Intel Corporation.
- * Copyright (c) 2020 Norbit ODM AS
- * Copyright (c) 2021-2026 TiaC Systems
+ * SPDX-FileCopyrightText: 2021-2026 TiaC Systems
+ * SPDX-FileCopyrightText: 2020 Norbit ODM AS
+ * SPDX-FileCopyrightText: 2015 Intel Corporation.
  *
  * Derived work from: zephyr/drivers/gpio_pca95xx.c
  *

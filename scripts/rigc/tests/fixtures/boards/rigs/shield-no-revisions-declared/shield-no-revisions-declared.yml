@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # Synthetic fixture: @rev against a shield declaring no revisions: at all
 # (the shield-side analogue of rule 3's "declares no such axis" wording,
 # rig-variants-revisions.md V1c). flash_click is a production shield with

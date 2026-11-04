@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # Synthetic fixture: a servo shield authoring a nonzero PWM flags value
 # (PWM_POLARITY_INVERTED) on a real PWM-capable Grove socket. Every real
 # corpus shield authors flags=0, so this fixture (+ its own tiny

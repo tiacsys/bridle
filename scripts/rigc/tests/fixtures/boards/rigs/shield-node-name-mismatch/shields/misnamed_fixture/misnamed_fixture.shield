@@ -1,4 +1,8 @@
-/* Fixture-only shield whose .shield node name does NOT match the folder it
+/*
+ * SPDX-FileCopyrightText: 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Fixture-only shield whose .shield node name does NOT match the folder it
  * lives in (folder misnamed_fixture, node other_name). The folder name is
  * what shield discovery and an instance's shield: reference both construct,
  * so the two must agree; this fixture exercises the diagnostic that says so.

@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """The board reader: the board's own devicetree, read for real.
 
   resolve.py    -- board NAME -> .dts path (explicit --board-dts, or

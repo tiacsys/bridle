@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # Synthetic fixture: rule 6 -- an instances: delta naming an instance the
 # effective topology does not have. Additions are never implicit
 # (add-instances: is for that), so a non-match is always an error.

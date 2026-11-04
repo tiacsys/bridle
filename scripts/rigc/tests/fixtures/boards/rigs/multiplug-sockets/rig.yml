@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # Multi-plug-shield fixture rig (ACCEPT case, per-slot INFERENCE): no
 # sockets: at all -- both of fixture_multiplug_bridge's slots must
 # resolve silently against multiplug_board_one_of_each.dts (exactly one

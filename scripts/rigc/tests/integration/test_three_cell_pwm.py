@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """3-cell PWM controllers, end to end. HERMETIC and non-build, mirroring
 test_carrier_analog_passthrough.py's own shape: purpose-built fixture
 boards (three_cell_pwm_board.dts and two deliberately-bad siblings)

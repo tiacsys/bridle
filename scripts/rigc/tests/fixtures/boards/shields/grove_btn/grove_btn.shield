@@ -1,4 +1,8 @@
-/* Shield: Button. ONE shield definition replaces bridle's 64 overlays
+/*
+ * SPDX-FileCopyrightText: 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Shield: Button. ONE shield definition replaces bridle's 64 overlays
  * (grove_btn_d0..d31 x normal/inverted): the "which digital pin" axis
  * becomes the socket the rig places it in, and the normal/inverted axis
  * becomes the per-instance invert: parameter.

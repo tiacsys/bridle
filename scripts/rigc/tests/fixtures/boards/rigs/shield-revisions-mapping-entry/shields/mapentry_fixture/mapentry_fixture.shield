@@ -1,4 +1,8 @@
-/* Fixture-only shield whose shield.yml declares a revisions: list with a
+/*
+ * SPDX-FileCopyrightText: 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Fixture-only shield whose shield.yml declares a revisions: list with a
  * mapping entry ({name:, board:}) -- legal only in a RIG's variants: axis,
  * never in a shield's revisions: axis (a shield has no board at all). The
  * template itself is well-formed; only the metadata is wrong. Never a

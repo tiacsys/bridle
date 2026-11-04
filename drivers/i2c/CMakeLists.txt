@@ -1,4 +1,4 @@
-# Copyright (c) 2024-2025 TiaC Systems
+# SPDX-FileCopyrightText: 2024-2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 # Add to the existing i2c library from Zephyr instead of defining our own.

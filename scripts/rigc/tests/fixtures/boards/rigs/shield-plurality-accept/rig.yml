@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # Reference-set style fixture (shield-plurality-brief.md Sec 4, ACCEPT
 # case): a folder declaring TWO shields via shields:, named neither of
 # them, both mated against reference_board.dts's own two GPIO-only

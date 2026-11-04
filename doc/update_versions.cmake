@@ -1,5 +1,5 @@
-# Copyright (c) 2021-2025 TiaC Systems
-# Copyright (c) 2021 Nordic Semiconductor ASA
+# SPDX-FileCopyrightText: 2021-2026 TiaC Systems
+# SPDX-FileCopyrightText: 2021 Nordic Semiconductor ASA
 # SPDX-License-Identifier: LicenseRef-Nordic-5-Clause
 
 foreach(file ${TOOLS_VERSION_FILES})

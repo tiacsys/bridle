@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # Synthetic fixture: shield.yml declares template: true for a name with no
 # matching <name>.shield beside it -- the discovery rule's own new
 # diagnostic (shield-plurality-brief.md Sec 3): this stops being a silent

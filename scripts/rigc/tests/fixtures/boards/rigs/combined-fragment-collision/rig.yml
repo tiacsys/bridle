@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # Synthetic fixture: rule 4 WIDENED for combined fragments (design-log
 # 2026-07-26d). variant_a_2's own single-axis stem
 # (combined-fragment-collision_variant_a_2) is IDENTICAL to the combined

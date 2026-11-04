@@ -24,9 +24,9 @@ Options
 
 - ``manifest_projects_table_manifest``: Path to the manifest file.
 
-Copyright (c) 2025 TiaC Systems
-Copyright (c) 2023 Intel Corp
-Copyright (c) 2022 Nordic Semiconductor ASA
+SPDX-FileCopyrightText: 2025-2026 TiaC Systems
+SPDX-FileCopyrightText: 2023 Intel Corp
+SPDX-FileCopyrightText: 2022 Nordic Semiconductor ASA
 SPDX-License-Identifier: Apache-2.0
 """
 

@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """Unit: deps -- dependency data is a returned, threaded value: never a
 mutable accumulator passed in and written to. `touch`/`union` are the
 two primitives every recording point (registry.py, loader/library.py)

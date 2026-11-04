@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """The `allocate_addresses` PASS wrapper (as distinct from the acid-test
 algorithm in test_addresses.py): grouping a scope's members into
 fixed/pinned/free, building each member's AddressMember, and translating

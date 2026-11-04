@@ -1,6 +1,6 @@
 # ST STM32F777XI MCU configuration options
 
-# Copyright (c) 2024 TiaC Systems
+# SPDX-FileCopyrightText: 2024-2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 if SOC_STM32F777XX

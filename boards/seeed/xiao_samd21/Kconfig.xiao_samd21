@@ -1,8 +1,8 @@
 # XIAO SAMD21 (Seeeduino XIAO) board configuration
 
-# Copyright (c) 2023-2024 TiaC Systems
-# Copyright (c) 2024 Gerson Fernando Budke <nandojve@gmail.com>
-# Copyright (c) 2020 Google LLC.
+# SPDX-FileCopyrightText: 2023-2026 TiaC Systems
+# SPDX-FileCopyrightText: 2024 Gerson Fernando Budke <nandojve@gmail.com>
+# SPDX-FileCopyrightText: 2020 Google LLC.
 # SPDX-License-Identifier: Apache-2.0
 
 config BOARD_XIAO_SAMD21

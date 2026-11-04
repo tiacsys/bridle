@@ -1,4 +1,8 @@
-/* Fixture-only shield whose .shield node name does NOT match the folder
+/*
+ * SPDX-FileCopyrightText: 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Fixture-only shield whose .shield node name does NOT match the folder
  * it lives in (folder misnamed_fixture, node other_name). Its own
  * diagnostic (lang-shield-name) is a RETURNED value from resolve(), never
  * a raise -- the first instance in this rig's own rig.yml names this

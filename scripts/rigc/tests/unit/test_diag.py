@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """Unit: diag — the diagnostics core.
 
 Two contracts, both diag.py's own: rendering into the frozen stderr

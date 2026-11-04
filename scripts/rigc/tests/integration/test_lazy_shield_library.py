@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """Integration verification for the lazy shield-library parse: a LAZILY-
 resolved axis-less base template that fails to preprocess raises
 LoadError out of `ShieldLibrary.resolve()`, reached mid-loop inside

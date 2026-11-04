@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # Synthetic fixture: a declared variant whose constructed fragment files
 # (neither .overlay nor _defconfig) exist at all -- rule 10, naming the
 # files that were looked for. "ghost" is the declared default, so a bare

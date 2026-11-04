@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # 3-cell PWM fixture rig (THROUGH-CARRIER ACCEPT case,
 # three-cell-pwm-brief.md Sec 5/6): a pure-copper carrier re-exports the
 # board's 3-cell PWM socket; a consumer mates the carrier's exposed

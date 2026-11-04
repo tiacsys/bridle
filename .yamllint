@@ -1,3 +1,5 @@
+# SPDX-FileCopyrightText: 2023-2026 TiaC Systems
+# SPDX-FileCopyrightText: 2022 The Zephyr Project Contributors
 # SPDX-License-Identifier: Apache-2.0
 
 extends: default

@@ -1,4 +1,8 @@
-/* Fixture-only placeholder: present precisely so the folder LOOKS
+/*
+ * SPDX-FileCopyrightText: 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Fixture-only placeholder: present precisely so the folder LOOKS
  * complete, proving the rejection comes from the malformed shields:
  * block rather than from a missing template file. Never parsed.
  */

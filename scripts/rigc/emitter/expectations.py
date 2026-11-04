@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """expectations.yml: a runtime-harness stub naming what must be observed
 on real hardware. Emitted for every accepted rig, but gated by no golden
 (test_emitted_corpus.py's own docstring: "expectations.yml is

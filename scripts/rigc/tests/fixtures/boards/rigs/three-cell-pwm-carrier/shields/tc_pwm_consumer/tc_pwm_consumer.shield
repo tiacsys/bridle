@@ -1,4 +1,8 @@
-/* Fixture consumer, THROUGH-CARRIER witness (three-cell-pwm-brief.md
+/*
+ * SPDX-FileCopyrightText: 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Fixture consumer, THROUGH-CARRIER witness (three-cell-pwm-brief.md
  * Sec 5/6, acceptance criteria 2+3-accept-through-carrier): identical
  * shape to tc_servo_plain (three-cell-pwm-plain's own shield), mated
  * against the carrier's exposed socket instead of the board socket

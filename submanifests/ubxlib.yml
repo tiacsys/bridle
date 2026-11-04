@@ -1,7 +1,6 @@
 # The west submanifest file for ubxlib.
 #
-# SPDX-FileCopyrightText: Copyright (c) 2023-2026 TiaC Systems
-#
+# SPDX-FileCopyrightText: 2023-2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 manifest:

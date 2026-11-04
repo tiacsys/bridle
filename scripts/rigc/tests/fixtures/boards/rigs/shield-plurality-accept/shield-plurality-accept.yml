@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # Content file: one instance per shield, each on its own socket -- both
 # names resolve out of the SAME folder (plural_pair/), named neither of
 # them, proving discovery is not still keyed by the folder basename.

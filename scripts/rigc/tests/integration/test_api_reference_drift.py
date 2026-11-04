@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """Corpus-level property: the API reference pages
 (doc/bridle/rigs4zephyr/reference/api/*.rst) and the set of modules that
 actually exist under scripts/rigc/ agree, in BOTH directions.

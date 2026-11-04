@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 instances:
   # Ruling 2: the carrier's own pwm-map claims a parent position
   # (99) the parent socket never routes as PWM at all.

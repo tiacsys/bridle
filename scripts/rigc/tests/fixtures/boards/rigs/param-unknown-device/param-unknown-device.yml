@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # Synthetic fixture: a params: entry naming a device label that does not
 # exist on the shield at all — rule 3 (lang-param). gb_key's own required
 # parameter is correctly assigned so this fixture locks exactly one

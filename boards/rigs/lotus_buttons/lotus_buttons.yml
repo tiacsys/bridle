@@ -1,5 +1,8 @@
 # Seeeduino Lotus with Grove Button + LED modules.
 #
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+#
 # bridle needs, per shield, 64 hand-written overlays (grove_btn_d0..d31 x
 # normal/inverted) + a 64-line Kconfig.shield + a 32-entry Kconfig.defconfig,
 # and the module can only ever be one hardcoded pin. Here it is one shield

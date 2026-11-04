@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """Board resolution's own value-shaped decision points: board.load_board's
 early-exit shapes (a --board-dts naming no real file; no usable recipe)
 need no real devicetree or edtlib call at all to reach, so they are

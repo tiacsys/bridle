@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2023-2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 board:
   name: seeeduino_cm0
   full_name: Seeeduino Cortex-M0+

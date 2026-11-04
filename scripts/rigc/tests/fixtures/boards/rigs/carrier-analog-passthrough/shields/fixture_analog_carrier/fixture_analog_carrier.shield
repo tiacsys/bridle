@@ -1,4 +1,8 @@
-/* Fixture carrier (carrier-analog-passthrough-brief.md Sec 6): a
+/*
+ * SPDX-FileCopyrightText: 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Fixture carrier (carrier-analog-passthrough-brief.md Sec 6): a
  * single-plug, pure-copper carrier (no devices of its own, like
  * arduino_uno_click/the grove carriers) re-exporting TWO sockets of the
  * fixture parent board's own connector type:

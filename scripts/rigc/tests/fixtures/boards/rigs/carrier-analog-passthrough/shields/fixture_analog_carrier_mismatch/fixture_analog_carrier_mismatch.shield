@@ -1,4 +1,8 @@
-/* Fixture carrier, require-and-check reject witness (carrier-analog-
+/*
+ * SPDX-FileCopyrightText: 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Fixture carrier, require-and-check reject witness (carrier-analog-
  * passthrough-brief.md Sec 5 RULED, criterion 4b): this carrier's OWN
  * exposed socket declares #pwm-cells = <3>, and its rows resolve through
  * a plug whose own parent count is the generic 3 (a plug node declares no

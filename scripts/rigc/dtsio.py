@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """DTS plumbing for the SHIELD-template side, and for shield-declared
 per-instance-parameter token vocabularies (shield,param-includes:). This
 module never touches the board DT (that is an analyzer-slice concern);

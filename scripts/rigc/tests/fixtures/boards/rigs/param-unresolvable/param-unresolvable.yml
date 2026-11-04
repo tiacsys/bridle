@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # Synthetic fixture: an assigned token that does not resolve against the
 # OWNING SHIELD DEVICE's own declared param-includes (grove_btn's gb_key
 # declares zephyr/dt-bindings/input/input-event-codes.h) — rule 4

@@ -1,4 +1,5 @@
-# Copyright (c) 2023 Intel Corporation
+# SPDX-FileCopyrightText: 2024-2026 TiaC Systems
+# SPDX-FileCopyrightText: 2023 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
 import os

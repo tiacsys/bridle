@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # Synthetic fixture content: first instance names a shield whose own
 # lang-shield-name diagnostic is a RETURNED value (no raise); second
 # names one whose template fails to preprocess (a raised LoadError).

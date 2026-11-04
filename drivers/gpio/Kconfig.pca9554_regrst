@@ -1,6 +1,6 @@
 # PCA9554 GPIO configuration options
 
-# Copyright (c) 2021-2024 TiaC Systems
+# SPDX-FileCopyrightText: 2021-2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 menuconfig GPIO_PCA9554_REGRST

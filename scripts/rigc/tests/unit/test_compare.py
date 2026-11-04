@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """Unit: compare -- the structural comparators that replace byte
 comparison with an assertion over each artifact's actual contract:
 context.cmake as a key -> value mapping (RIG_DEPENDS a SET, RIG_SHIELDS

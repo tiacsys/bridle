@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # Synthetic fixture: no instances -- the defect this pins is scan-time and
 # unconditional (shield-plurality-brief.md Sec 4's test list), so nothing
 # here needs to reference either shield at all.

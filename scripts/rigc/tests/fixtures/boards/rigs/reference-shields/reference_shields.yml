@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # Content file (metadata/content split): one of each authoring pattern the
 # reference shields exist to teach. button_a/button_b share ONE shield
 # (fixture_button), each on its own socket, each assigning its own required

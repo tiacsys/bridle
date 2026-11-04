@@ -1,6 +1,8 @@
-/* Copyright (c) 2026 TiaC Systems
+/*
+ * SPDX-FileCopyrightText: 2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  */
+
 /dts-v1/;
 
 /* Fixture board for the multi-plug-shield feature: one fixture-mp-a

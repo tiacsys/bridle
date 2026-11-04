@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # 3-cell PWM fixture rig (PLAIN direct-mount ACCEPT case,
 # three-cell-pwm-brief.md Sec 5/6): a single shield mates the board's own
 # 3-cell PWM socket directly (no carrier), authoring a nonzero PWM flags

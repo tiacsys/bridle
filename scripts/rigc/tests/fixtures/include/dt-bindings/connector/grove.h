@@ -1,4 +1,5 @@
-/* Copyright (c) 2026 TiaC Systems
+/*
+ * SPDX-FileCopyrightText: 2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  *
  * Grove position indices — THE single source of truth shared by: board

@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """The provenance banner every emitted artifact carries.
 
 Its own module for one structural reason: overlay.py, sheet.py and

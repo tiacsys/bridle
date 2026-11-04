@@ -1,4 +1,4 @@
-# Copyright (c) 2023 TiaC Systems
+# SPDX-FileCopyrightText: 2023-2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 # The purpose of this file is to provide search mechanism for locating

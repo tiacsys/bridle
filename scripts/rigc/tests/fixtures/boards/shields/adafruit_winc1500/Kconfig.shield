@@ -1,4 +1,4 @@
-# Copyright (c) 2020 Kim Bøndergaard <kim.bondergaard@prevas.dk>, Prevas A/S
+# SPDX-FileCopyrightText: 2020 Kim Bøndergaard <kim.bondergaard@prevas.dk>, Prevas A/S
 # SPDX-License-Identifier: Apache-2.0
 
 config SHIELD_ADAFRUIT_WINC1500

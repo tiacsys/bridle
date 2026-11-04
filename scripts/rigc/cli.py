@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """rigc CLI -- the front door.
 
 `expand <rig_yml>` takes --shield-dir* --board --board-dts --build-info

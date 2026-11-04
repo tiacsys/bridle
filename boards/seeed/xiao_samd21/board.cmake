@@ -1,5 +1,5 @@
-# Copyright (c) 2020 Google LLC.
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2020 Google LLC.
 # SPDX-License-Identifier: Apache-2.0
 
 message(STATUS "Found BOARD.cmake: ${dir}/board.cmake")

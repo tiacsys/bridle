@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 description: |
   The second half of the multi-plug-shield fixture pair -- see
   fixture-mp-a.yaml's own docstring. A distinct connector type (never

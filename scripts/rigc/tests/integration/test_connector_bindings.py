@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """The unified connector-type files (dts/bindings/connectors/<type>.yaml)
 are REAL edtlib bindings — socket schema plus the plug contract as plug,*
 vendor-namespaced extension keys (opaque to edtlib, preserved in

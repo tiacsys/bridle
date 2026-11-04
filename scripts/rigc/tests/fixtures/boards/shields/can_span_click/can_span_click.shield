@@ -1,4 +1,8 @@
-/* Shield: MikroE CAN SPI Click x2 -- multi-plug corpus example
+/*
+ * SPDX-FileCopyrightText: 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Shield: MikroE CAN SPI Click x2 -- multi-plug corpus example
  * (multi-plug-shield-brief.md Sec 2/7). Two mikroBUS plugs of the SAME
  * connector type, plugging two of quail's four mikroBUS sockets at
  * once -- positional identity cannot tell them apart, only the

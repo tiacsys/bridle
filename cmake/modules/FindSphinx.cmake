@@ -1,4 +1,4 @@
-# Copyright (c) 2022 TiaC Systems
+# SPDX-FileCopyrightText: 2022-2026 TiaC Systems
 # SPDX-License-Identifier: BSD-3-Clause
 
 # Distributed under the OSI-approved BSD 3-Clause License.  See accompanying

@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """rig-gen.overlay and rig-gen-includes.dtsi's payload: the device-tree
 projection of a Solved rig -- nexus synthesis, I2C scopes + mux nesting,
 SPI/cs-gpios, collections, plain groups, controllers, the device-node

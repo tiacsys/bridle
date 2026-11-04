@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # Synthetic fixture: a rig INJECTED with a board whose devicetree EXISTS
 # (socketless_board.dts alongside this file, passed to the CLI via
 # --board-dts) but declares no socket,* node — the expander must reject it

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # One socket-less instance of adafruit_data_logger, instance named after
 # the shield -- promote_shield's own convention (board-coordinate-s3-
 # brief.md Sec 3) -- so the resolved topology matches the promoted side's

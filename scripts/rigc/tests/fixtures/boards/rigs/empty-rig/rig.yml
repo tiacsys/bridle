@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # Synthetic fixture for the empty-rig identity law (saferail 11,
 # board-as-coordinate-brief.md Sec 5): a rig declaring NO instances at all,
 # targeting a REAL hwmv2 board target (not a fixture board.dts) so its

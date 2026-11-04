@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # Synthetic fixture: a shield declaring shield,params with NO
 # shield,param-includes at all -- the direct successor of the retired
 # param-no-vocabulary fixture (param-vocabulary-brief.md Sec 6), now on

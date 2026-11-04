@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """The emitter: a Solved rig plus its Rig/ConnectorType inputs projected
 into concrete artifacts, split by visibility:
 

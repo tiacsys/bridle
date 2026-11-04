@@ -1,6 +1,6 @@
 /*
- * Copyright (c) 2021-2023 TiaC Systems
- * Copyright (c) 2018 Intel Corporation
+ * SPDX-FileCopyrightText: 2021-2026 TiaC Systems
+ * SPDX-FileCopyrightText: 2018 Intel Corporation
  *
  * SPDX-License-Identifier: Apache-2.0
  */

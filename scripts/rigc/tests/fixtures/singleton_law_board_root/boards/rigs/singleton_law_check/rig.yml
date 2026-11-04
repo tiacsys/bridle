@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # S4 fixture (board-coordinate-s4-brief.md Sec 2.5): the singleton
 # identity law's ONE build-marked cross-check needs a fixture-rig BUILD to
 # compare against a promoted adafruit_data_logger build via dts_equiv.py.

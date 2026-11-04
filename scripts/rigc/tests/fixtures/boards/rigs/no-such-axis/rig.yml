@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # Synthetic fixture: a target naming an axis (--variant) this rig does not
 # declare AT ALL -- distinct wording from rule 2 ("not a declared member"):
 # "this rig declares no variants:" points the author at the right place,

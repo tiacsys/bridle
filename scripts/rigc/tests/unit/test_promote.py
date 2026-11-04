@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """Unit: promote -- the `--rig <shield>` desugaring, the namespace rule
 that decides when a bare name resolves as a shield at all, and the
 census tying discovery's own marker-file authority to shield.yml's

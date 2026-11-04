@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # Synthetic fixture: a shield needing socket,uart, mated through the
 # conventional arduino_r3 alias both real boards' own devicetree already
 # carries (S5's migration) -- nucleo_f401re's Arduino socket deliberately

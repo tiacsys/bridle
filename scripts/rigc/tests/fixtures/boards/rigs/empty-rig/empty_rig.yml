@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # The empty rig: an ACCEPT content document naming zero instances --
 # instances: is required (loader/__init__.py::_build_topology), but a
 # present, empty list is a valid value for it, not a missing key.

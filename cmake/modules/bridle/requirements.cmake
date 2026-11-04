@@ -1,4 +1,4 @@
-# Copyright (c) 2022-2025 TiaC Systems
+# SPDX-FileCopyrightText: 2022-2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 include_guard(GLOBAL)

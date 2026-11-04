@@ -1,4 +1,8 @@
-/* Shield: Adafruit WINC1500 WiFi (S2). SPI device sharing the Arduino SPI bus
+/*
+ * SPDX-FileCopyrightText: 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Shield: Adafruit WINC1500 WiFi (S2). SPI device sharing the Arduino SPI bus
  * with whatever else is stacked. Two configuration elements model the real
  * shield's solder jumpers:
  *   - CS: no shield,cs-position -> allocated from the socket's CS pool. Stacked

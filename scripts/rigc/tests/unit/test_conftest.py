@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """Unit: the tests' own conftest — the hermeticity enforcement.
 
 assert_fixture_local is the structural proof a hermetic test leans on;

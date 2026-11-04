@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # Synthetic fixture: a malformed revisions: block in a SHIELD's own
 # shield.yml must be blamed on that shield, by name. The axis-declaration
 # parser is shared with rig.yml (one schema, one parser), so without an

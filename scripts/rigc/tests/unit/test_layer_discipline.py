@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """Meta: the test-tree conventions, enforced structurally.
 
 The one test module whose subject is not a production unit but the tests

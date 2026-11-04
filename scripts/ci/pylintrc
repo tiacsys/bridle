@@ -1,4 +1,5 @@
-# Copyright (c) 2019, Nordic Semiconductor ASA
+# SPDX-FileCopyrightText: 2021-2026 The Zephyr Project Contributors
+# SPDX-FileCopyrightText: 2019, Nordic Semiconductor ASA
 # SPDX-License-Identifier: Apache-2.0
 
 # pylint configuration for the PyLint check in check_compliance.py.

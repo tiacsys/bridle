@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """Unit: emitter/sheet -- config-sheet.md. The
 one contract this module exists to pin: the Wires section reads
 `solved.wires`, never `rig.wires` -- they differ (the loader's raw

@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """Unit: registry -- the connector-type registry, assembled from a
 synthetic unified binding + a synthetic dt-bindings/connector/<type>.h
 index header (fixtures are purpose-built, never a copy of a real

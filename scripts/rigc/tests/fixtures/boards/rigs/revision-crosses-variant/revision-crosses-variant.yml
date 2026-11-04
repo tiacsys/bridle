@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # Synthetic fixture: rule 12 -- a family-wide revision whose params names
 # a device the POST-VARIANT topology does not have. variant 'hpm'
 # substitutes sensor_1's shield (restate_fixture -> pilot_alt_button,

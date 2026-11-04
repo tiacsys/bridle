@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2024-2026 TiaC Systems
+# SPDX-FileCopyrightText: 2024 Sarah Renkhoff
+# SPDX-License-Identifier: Apache-2.0
+
 function _bridleUnpackPhase {
     runHook preUnpack
     cp -r @bridle@ bridle

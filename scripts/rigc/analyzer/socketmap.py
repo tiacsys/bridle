@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """The ONE seam every pass and emitter module resolves "the socket a
 reference/device targets" through: a resolution is keyed per SLOT
 rather than per instance, so `SocketResolution.sockets`/`Solved.sockets`

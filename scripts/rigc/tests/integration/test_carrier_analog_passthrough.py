@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """PWM and ADC through a carrier, end to end. HERMETIC and
 non-build, mirroring test_multiplug_carrier.py's own combined-SPI
 fixture: a purpose-built fixture board (carrier_analog_board.dts)

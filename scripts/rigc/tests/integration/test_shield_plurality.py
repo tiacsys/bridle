@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """Shield plurality: the ACCEPT proof for a
 folder declaring N shields via `shields:`, named neither of them --
 run through the CLI front door exactly like test_reference_shields.py's

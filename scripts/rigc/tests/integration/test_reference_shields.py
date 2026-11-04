@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """The reference shield set (rigs test suite): fixtures/boards/shields/reference
 demonstrates the four main shield-authoring patterns as ACCEPTED material —
 the opposite of every other fixture in this suite, which is named for the

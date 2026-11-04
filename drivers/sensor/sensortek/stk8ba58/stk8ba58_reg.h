@@ -1,7 +1,7 @@
 /*
  * Sensortek Technology STK8BA58 3-axis accelerometer driver
  *
- * Copyright (c) 2025 TiaC Systems
+ * SPDX-FileCopyrightText: 2025-2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
  *
  */

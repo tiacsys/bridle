@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """Qualifier axes: declaration parsing, selection resolution, the
 constructed-fragment-stem collision check, and revision normalization,
 matching hwmv2's own revision semantics (the format/exact/nearest-lower

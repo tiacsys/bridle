@@ -1,4 +1,8 @@
-/* Fixture-only shield whose template fails to PREPROCESS -- a real cpp
+/*
+ * SPDX-FileCopyrightText: 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Fixture-only shield whose template fails to PREPROCESS -- a real cpp
  * subprocess failure (LoadError, lang-cpp), reached lazily from
  * resolve() now that an axis-less shield's base template defers its
  * parse to first reference. This rig's second instance names this

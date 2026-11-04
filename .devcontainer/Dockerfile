@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2023-2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 ARG ZEPHYR_TAG=latest
 FROM zephyrprojectrtos/ci:${ZEPHYR_TAG}
 

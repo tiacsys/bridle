@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2024-2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 name: tstdrv-bldall-sensor-adj
 append:
   EXTRA_CONF_FILE: tstdrv-bldall-sensor-adj.conf

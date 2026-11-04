@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # 3-cell PWM fixture rig (2-CELL REJECT case, three-cell-pwm-brief.md
 # Sec 5/6, acceptance criterion 3's reject half): the same nonzero PWM
 # flags claim as three-cell-pwm-plain's own shield, mated against the

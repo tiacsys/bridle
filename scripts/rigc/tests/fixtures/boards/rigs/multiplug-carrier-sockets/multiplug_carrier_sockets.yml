@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # Content file (metadata/content split): the carrier plugs both fixture
 # sockets at once; both consumer shields mate its ONE composed exposed
 # socket (fixture-multibus's own socket,stackable schema fact is what

@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """Unit: dtsio -- the pure, cpp-free half of the DTS plumbing.
 
 `run_cpp`/`parse_dts`/`parse_tu`/`check_include`/`resolve_token` invoke a

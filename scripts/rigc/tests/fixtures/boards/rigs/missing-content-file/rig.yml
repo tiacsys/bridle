@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # Synthetic fixture: metadata that resolves, with NO content file beside it.
 # The content file is REQUIRED -- a rig with an empty instances: list is a
 # legal (if pointless) rig, while a missing missing-content-file.yml is an

@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 config BOARD_XIAO_STM32C5_STM32C5A3XX

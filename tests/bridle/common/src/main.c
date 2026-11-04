@@ -1,10 +1,8 @@
 /*
- * Copyright (c) 2021-2023 TiaC Systems
- * Copyright (c) 2016 Intel Corporation
- *
+ * SPDX-FileCopyrightText: 2021-2026 TiaC Systems
+ * SPDX-FileCopyrightText: 2016 Intel Corporation
  * SPDX-License-Identifier: Apache-2.0
  */
-
 
 #include <zephyr/ztest.h>
 #include <bridle/core_version.h>
@@ -36,7 +34,6 @@ ZTEST(common, test_version)
 		     "minor version mismatch");
 	zassert_true(SYS_BRIDLE_VER_PATCHLEVEL(version) == BRIDLE_PATCHLEVEL,
 		     "patchlevel version match");
-
 }
 
 ZTEST_SUITE(common, NULL, NULL, NULL, NULL, NULL);

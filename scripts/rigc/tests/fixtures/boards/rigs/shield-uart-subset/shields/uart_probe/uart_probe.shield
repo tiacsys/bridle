@@ -1,4 +1,8 @@
-/* Minimal fixture shield: exists only to declare a uart bus-proxy device,
+/*
+ * SPDX-FileCopyrightText: 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Minimal fixture shield: exists only to declare a uart bus-proxy device,
  * which no corpus shield does -- it exists to prove the subset-exposure
  * check (a shield needing socket,uart rejected on a socket that offers
  * none) still runs once socket,* is read from per-variant rig.yml

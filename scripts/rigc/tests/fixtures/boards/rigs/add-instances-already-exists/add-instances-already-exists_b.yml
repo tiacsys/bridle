@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # add-instances: names 'logger', which already exists -- rule 7.
 add-instances:
   - name: logger

@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """Net identity and GPIO/PWM/ADC claim collection.
 `role_of` and `soc_net` are two value-shaped contracts: both are pure
 functions of a property name / (socket, position) pair, asserted here

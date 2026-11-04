@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # Synthetic fixture: proves the per-stage parameter invariant claim
 # (rig-variants-revisions.md V1c step 4) -- a shield REVISION (not a rig
 # delta) introduces a new REQUIRED parameter (paramrev_2.shield adds

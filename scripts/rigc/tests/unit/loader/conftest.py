@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """Shared synthetic fixtures for the shields unit-test split
 (test_shields_plugs / _devices / _exposed / _elements).
 

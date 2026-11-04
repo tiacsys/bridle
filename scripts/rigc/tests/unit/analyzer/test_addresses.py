@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """Where and how the final I2C address is calculated: `allocate_scope_addresses`
 is THE algorithm, extracted from `_allocate_scope` as a value-shaped contract
 -- given one scope's members in their fixed allocation order (some

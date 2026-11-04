@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """Unit: loader.delta -- base topology parsing and the delta engine.
 
 The stable contracts: delta operations over a synthetic effective

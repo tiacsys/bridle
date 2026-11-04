@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # S1 fixture: no board: declared anywhere -- the real corpus (boards/rigs/)
 # has no such rig (test_corpus_complete enforces one board per registered
 # corpus rig), so this exercises the "never neither unless injected" rule

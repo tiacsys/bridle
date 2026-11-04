@@ -1,4 +1,7 @@
 /*
+ * SPDX-FileCopyrightText: 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ *
  * Board-DT fragment: Seeeduino Lotus typed "socket,grove" nodes.
  *
  * Included from seeeduino_lotus.dts at the END of that file, after every

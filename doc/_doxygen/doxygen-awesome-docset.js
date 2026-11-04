@@ -1,6 +1,6 @@
 /*
- * Copyright (c) 2022 TiaC Systems
- * Copyright (c) 2021 Nordic Semiconductor ASA
+ * SPDX-FileCopyrightText: 2022-2026 TiaC Systems
+ * SPDX-FileCopyrightText: 2021 Nordic Semiconductor ASA
  * SPDX-License-Identifier: Apache-2.0
  */
 

@@ -2,7 +2,7 @@
 Bridle's Sphinx Plugin Collection
 #################################
 
-Copyright (c) 2021 TiaC Systems
-Copyright (c) 2021 Nordic Semiconductor ASA
+SPDX-FileCopyrightText: 2021-2026 TiaC Systems
+SPDX-FileCopyrightText: 2021 Nordic Semiconductor ASA
 SPDX-License-Identifier: Apache-2.0
 """

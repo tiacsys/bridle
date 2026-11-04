@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # variant hpm substitutes sensor_1's shield entirely.
 instances:
   - name: sensor_1

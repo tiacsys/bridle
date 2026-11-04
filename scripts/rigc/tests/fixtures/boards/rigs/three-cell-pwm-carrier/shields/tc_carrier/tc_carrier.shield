@@ -1,4 +1,8 @@
-/* Fixture carrier (three-cell-pwm-brief.md Sec 5/6, acceptance
+/*
+ * SPDX-FileCopyrightText: 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Fixture carrier (three-cell-pwm-brief.md Sec 5/6, acceptance
  * criterion 2): a single-plug, pure-copper carrier re-exporting ONE
  * socket (tc_out) that passes PWM through to the parent's own 3-cell
  * PWM position (0). Declares #pwm-cells = <3> on both its plug and its

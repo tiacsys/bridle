@@ -1,6 +1,6 @@
 # Seeedunio Lotus Cortex-M0+ board configuration
 
-# Copyright (c) 2023-2025 TiaC Systems
+# SPDX-FileCopyrightText: 2023-2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 # Workaround for not being able to have commas in macro arguments

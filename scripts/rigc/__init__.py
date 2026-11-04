@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """rigc -- the rig compiler: reads a rig's metadata and shield library,
 reads the board's real devicetree, decides whether the assembly is
 physically possible, and emits the devicetree overlay plus build glue.

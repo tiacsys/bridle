@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """A rig's abstract `socket:` references resolve through ONE
 `SocketBinding` value, applied at exactly one seam (instance
 construction, loader/delta.py) -- the delta engine itself never

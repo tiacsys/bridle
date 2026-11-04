@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """Mating and socket resolution, with carrier/mux composition.
 `mating_ok`/`subset_gaps` are the plug-vs-socket
 and needed-vs-offered decisions as pure value functions over plain

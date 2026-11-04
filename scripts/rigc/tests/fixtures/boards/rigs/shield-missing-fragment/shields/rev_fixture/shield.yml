@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 shield:
   name: rev_fixture
   full_name: V1c fixture shield (missing revision-2 fragment)

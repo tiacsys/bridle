@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # One dash short: these keys belong to a LIST entry, so as written the
 # folder declares no shield at all. Dropping that silently is what this
 # fixture exists to forbid.

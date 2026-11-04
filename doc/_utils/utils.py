@@ -1,4 +1,6 @@
-# Copyright (c) 2021 Nordic Semiconductor ASA
+# SPDX-FileCopyrightText: 2021-2026 TiaC Systems
+# SPDX-FileCopyrightText: 2021 Nordic Semiconductor ASA
+# SPDX-License-Identifier: LicenseRef-Nordic-5-Clause
 
 from os import PathLike
 from pathlib import Path

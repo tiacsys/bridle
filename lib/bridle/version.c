@@ -1,6 +1,6 @@
 /*
- * Copyright (c) 2021 TiaC Systems
- * Copyright (c) 1997-2010, 2012-2014 Wind River Systems, Inc.
+ * SPDX-FileCopyrightText: 2021-2026 TiaC Systems
+ * SPDX-FileCopyrightText: 1997-2010, 2012-2014 Wind River Systems, Inc.
  * SPDX-License-Identifier: Apache-2.0
  */
 

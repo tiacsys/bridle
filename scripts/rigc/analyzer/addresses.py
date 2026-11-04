@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """Address allocation. Per I2C-bus SCOPE (a mux channel is its own NEW
 scope), a fixed (copper `reg`) member wins outright, a pinned
 (`config:` strap) member resolves through the strap's own domain, and

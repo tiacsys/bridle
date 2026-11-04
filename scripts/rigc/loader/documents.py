@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """The document model: mark-aware YAML parsing shared by rig.yml (the
 METADATA document) and every content/delta document -- the base
 <rigname>.yml and every <rigname>_<variant|rev>.yml fragment all use

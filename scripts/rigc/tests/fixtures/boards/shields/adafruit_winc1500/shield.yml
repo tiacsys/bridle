@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 shield:
   name: adafruit_winc1500
   full_name: Adafruit WINC1500 WiFi Shield

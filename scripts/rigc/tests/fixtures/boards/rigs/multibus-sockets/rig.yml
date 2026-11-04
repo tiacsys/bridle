@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # Multi-bus-socket fixture rig (ACCEPT case): two shields, each on a
 # DIFFERENT named SPI bus of the SAME fixture board socket instance --
 # fixture_spi_sensor on "spi-sensors", fixture_spi_motor on "spi-motors".

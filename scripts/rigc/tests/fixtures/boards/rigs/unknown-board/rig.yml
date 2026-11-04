@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # Synthetic fixture: a rig INJECTED (board-coordinate-s6-brief.md Sec 11
 # retired rig.yml's own board: grammar -- the test supplies
 # --board nonexistent_board_xyz) with a board that does not exist, so the

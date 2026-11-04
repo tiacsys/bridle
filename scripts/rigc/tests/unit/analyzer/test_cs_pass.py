@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """The `allocate_cs` PASS wrapper (as distinct from the acid-test
 algorithm in test_cs.py): wiring a scope's members' copper-fixed/pool
 sources through to `allocate_cs_positions`, and folding placements into

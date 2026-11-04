@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """Mating and socket resolution, with carrier/mux composition,
 value-shaped throughout: `resolve_sockets` returns the instance->slot->
 BoardSocket map plus every mux-channel scope entry composition creates,

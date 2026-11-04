@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: BSD-3-Clause
+
 """Standalone edtlib.EDT construction over a single real devicetree file.
 
 This is a generic reader layer, under a BSD-3-Clause license (see SPDX

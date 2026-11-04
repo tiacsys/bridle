@@ -1,6 +1,7 @@
-# SPDX-License-Identifier: Apache-2.0
-#
 # Downstream FORK POINT for Zephyr's dts build module.
+#
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
 #
 # This directory sits on CMAKE_MODULE_PATH ahead of Zephyr's own module
 # directory, so zephyr_default.cmake's include(dts) resolves to THIS file,

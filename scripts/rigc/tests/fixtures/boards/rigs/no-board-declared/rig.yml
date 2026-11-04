@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # Synthetic fixture: no board injected at all (run_expand's own board=
 # left unset -- the one call site in this suite that leaves it that way
 # on purpose). board: is not part of rig.yml's grammar any more

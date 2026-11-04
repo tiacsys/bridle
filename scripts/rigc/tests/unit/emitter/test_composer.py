@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """Unit: emitter (the package's own `__init__.py`) -- `emit()`'s artifact
 SET as a function of input, and the ONE writer. This module's subject is
 the ASSEMBLY, not any one artifact's content (those are covered where

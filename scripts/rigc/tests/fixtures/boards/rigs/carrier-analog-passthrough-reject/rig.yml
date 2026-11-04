@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # Carrier PWM/ADC pass-through fixture rig (REJECT case,
 # carrier-analog-passthrough-brief.md ruling 2 + Sec 5 RULED
 # require-and-check): TWO independent reject scenarios in one rig

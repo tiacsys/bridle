@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # The shared arduino_r3 alias (Ruling 1, board-as-invocation-coordinate-
 # brief.md Sec 2 -- already landed on both real boards' own devicetree)
 # rather than a board-prefixed socket label, so this resolves regardless

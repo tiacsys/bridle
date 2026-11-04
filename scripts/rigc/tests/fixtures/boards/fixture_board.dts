@@ -1,10 +1,14 @@
 /*
+ * SPDX-FileCopyrightText: 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ *
  * Purpose-built, cpp-free synthetic board devicetree for rigc's own
- * board/project.py and board/resolve.py unit tests (rigc-r4-brief.md Sec 6: "Board projection
- * over a SYNTHETIC, cpp-free board DT ... purpose-built fixture data in
- * rigc's own tree, NEVER read from the frozen suite's fixtures"). No
- * #include, no macros -- plain DTS syntax parsed directly by dtlib/edtlib,
- * so loading it needs no cpp preprocessing step at all.
+ * board/project.py and board/resolve.py unit tests (rigc-r4-brief.md
+ * Sec 6: "Board projection over a SYNTHETIC, cpp-free board DT ...
+ * purpose-built fixture data in rigc's own tree, NEVER read from the
+ * frozen suite's fixtures"). No #include, no macros -- plain DTS syntax
+ * parsed directly by dtlib/edtlib, so loading it needs no cpp preprocessing
+ * step at all.
  *
  * fixture_socket is a "socket,fixture-nexus" node (this tree's own
  * synthetic connector type, dts/bindings/socket-fixture-nexus.yaml)

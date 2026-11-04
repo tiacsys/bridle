@@ -1,7 +1,8 @@
-/* Copyright (c) 2026 TiaC Systems
+/*
+ * SPDX-FileCopyrightText: 2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
- */
-/* mikroBUS position indices — THE single source of truth shared by:
+ *
+ * mikroBUS position indices — THE single source of truth shared by:
  * board socket gpio-map child pins, shield plug references, binding docs.
  */
 #ifndef DT_BINDINGS_CONNECTOR_MIKROBUS_H_

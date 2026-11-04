@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """Generic harness plumbing for the rigc integration tests --
 path discovery (self-locating -- no workspace-name literals), the
 rigc subprocess runner, normalization, and the freeze/assert

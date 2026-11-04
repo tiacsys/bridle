@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # Synthetic fixture: a .shield template whose node name disagrees with its
 # folder name. Shield.name stays the node name, but the RESOLUTION key is
 # the folder basename -- so a mismatch previously resolved to whatever

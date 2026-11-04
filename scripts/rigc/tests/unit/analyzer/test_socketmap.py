@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """Unit: analyzer.socketmap -- the one accessor family every downstream
 pass and emitter module reaches a per-slot socket through. Each function
 is a pure lookup over hand-built values; no Rig/Board/dtlib needed."""

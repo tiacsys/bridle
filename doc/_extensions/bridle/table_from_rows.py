@@ -1,5 +1,5 @@
-# SPDX-FileCopyrightText: Copyright (c) 2026 TiaC Systems
-# SPDX-FileCopyrightText: Copyright (c) 2020-2026 Nordic Semiconductor ASA
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2020-2026 Nordic Semiconductor ASA
 #
 # SPDX-License-Identifier: Apache-2.0
 

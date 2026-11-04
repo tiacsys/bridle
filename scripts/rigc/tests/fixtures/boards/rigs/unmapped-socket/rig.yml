@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # Synthetic fixture: an instance naming a socket the board simply does
 # not have -- it passes through SocketBinding's own lookup-else-identity
 # (an empty binding today: board-coordinate-s6-brief.md Sec 11 retired

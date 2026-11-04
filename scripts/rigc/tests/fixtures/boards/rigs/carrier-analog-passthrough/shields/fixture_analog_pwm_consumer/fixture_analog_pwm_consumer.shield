@@ -1,4 +1,8 @@
-/* Fixture consumer, PWM half (carrier-analog-passthrough-brief.md
+/*
+ * SPDX-FileCopyrightText: 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Fixture consumer, PWM half (carrier-analog-passthrough-brief.md
  * Sec 6): mirrors grove_pwm_led's own shape -- #pwm-cells = <3> on the
  * plug is the generic Zephyr shield-side claim (position, period,
  * flags), independent of whatever cell count the socket it eventually

@@ -1,6 +1,6 @@
-# Copyright (c) 2021-2025 TiaC Systems
-# Copyright (c) 2019-2021 Li-Pro.Net
-# Copyright (c) 2019-2021 Nordic Semiconductor ASA
+# SPDX-FileCopyrightText: 2021-2026 TiaC Systems
+# SPDX-FileCopyrightText: 2019-2021 Li-Pro.Net
+# SPDX-FileCopyrightText: 2019-2021 Nordic Semiconductor ASA
 # SPDX-License-Identifier: LicenseRef-Nordic-5-Clause
 
 # Builds combined documentation for all documentation sets: Bridle, Zephyr, etc.

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2021-2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # it's west
 # Keep the lowest version identical to the minimum required
 # in zephyr/cmake/modules/west.cmake

@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """Where and how the final cs-gpios property is calculated:
 `allocate_cs_positions` is THE algorithm, extracted from `_allocate_cs(rig,
 solved, types, diags)` as a value-shaped contract -- given an ORDERED pool,

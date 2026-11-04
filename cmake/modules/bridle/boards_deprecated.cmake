@@ -1,4 +1,4 @@
-# Copyright (c) 2024 TiaC Systems
+# SPDX-FileCopyrightText: 2024-2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 # If board name is deprecated, then board will be adjusted to new board name and

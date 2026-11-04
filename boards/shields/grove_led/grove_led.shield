@@ -1,4 +1,8 @@
-/* Shield: LED. ONE shield definition replaces bridle's 64 overlays. MCU
+/*
+ * SPDX-FileCopyrightText: 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Shield: LED. ONE shield definition replaces bridle's 64 overlays. MCU
  * drives the LED on the Grove signal pin; default active-high. Placement =
  * socket; polarity = per-instance invert:.
  */

@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """Wires and emission feasibility of routes. No frozen golden covers
 this family (phys-wire) -- every diagnostic here is checked by hand
 differential rather than a golden byte comparison.

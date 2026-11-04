@@ -1,2 +1,5 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 rig:
   name: shield-node-name-mismatch

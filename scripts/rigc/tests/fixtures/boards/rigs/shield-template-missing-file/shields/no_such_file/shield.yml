@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 shield:
   name: ghost_template
   full_name: "V1c fixture shield (template: true, no matching .shield)"

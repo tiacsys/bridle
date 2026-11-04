@@ -1,5 +1,5 @@
-# SPDX-FileCopyrightText: Copyright (c) 2025-2026 TiaC Systems
-# SPDX-FileCopyrightText: Copyright (c) 2024 Basalte bv
+# SPDX-FileCopyrightText: 2025-2026 TiaC Systems
+# SPDX-FileCopyrightText: 2024 Basalte bv
 # SPDX-License-Identifier: Apache-2.0
 
 extend = ".ruff-excludes.toml"

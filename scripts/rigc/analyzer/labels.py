@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """Emission feasibility of generated labels. Strong contract: the
 emitter never fails, so the deterministic label scheme
 `<instance>_<shield label>` must be collision-free HERE. Runs over every

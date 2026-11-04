@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2017-2024 The Zephyr Project Contributors
 # SPDX-License-Identifier: Apache-2.0
 
 """

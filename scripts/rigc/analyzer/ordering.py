@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """Allocation ordering. Every allocator (addresses, CS) sorts its scope
 members through this ONE function before assigning anything, so a rig
 author reordering `instances:` never changes what gets allocated where

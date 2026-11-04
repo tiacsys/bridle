@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # Multi-bus-socket fixture rig (REJECT case): one instance whose device
 # needs a bus name ("spi-unknown-name") the fixture-multibus connector
 # type's own vocabulary allows but no socket of that type ever wires --

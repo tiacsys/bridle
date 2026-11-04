@@ -1,4 +1,8 @@
-/* Revision 2: pr_dev gains a NEW required parameter -- shield,params
+/*
+ * SPDX-FileCopyrightText: 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Revision 2: pr_dev gains a NEW required parameter -- shield,params
  * names vnd,threshold with no value authored, so its ABSENCE among
  * pr_dev's own properties means REQUIRED (the per-instance-parameters
  * convention). DT's own overlay-by-label semantics merge this onto the

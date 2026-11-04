@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # Synthetic fixture: rule 13 -- shield: <name>@<rev> naming a revision
 # shield.yml does not declare. i2c_sensor declares revisions "1"/"2" only
 # (production shield, rig-variants-revisions.md V1c pilot); "99" is not

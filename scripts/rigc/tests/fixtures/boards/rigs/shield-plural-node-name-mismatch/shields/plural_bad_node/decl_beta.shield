@@ -1,4 +1,8 @@
-/* Fixture-only shield: shield.yml declares this entry's name as
+/*
+ * SPDX-FileCopyrightText: 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Fixture-only shield: shield.yml declares this entry's name as
  * decl_beta, but the .shield file's own node is named wrong_node --
  * the declared-name half of ruling 2 (shield-plurality-brief.md Sec 2).
  * Never a real corpus shield.

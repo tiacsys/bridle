@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # Synthetic fixture: a wire whose route: is a mapping that names no via:
 # key — must be rejected by the LOADER with a "lang-schema" diagnostic
 # (loader_yml.py: a route mapping with no via: position is a loader-level

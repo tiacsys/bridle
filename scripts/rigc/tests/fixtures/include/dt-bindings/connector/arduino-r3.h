@@ -1,7 +1,8 @@
-/* Copyright (c) 2026 TiaC Systems
+/*
+ * SPDX-FileCopyrightText: 2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
- */
-/* Arduino Uno (R3) position indices, as consumed by shield `.shield`
+ *
+ * Arduino Uno (R3) position indices, as consumed by shield `.shield`
  * templates (`#include <dt-bindings/connector/arduino-r3.h>`) and by
  * `rigc.registry` (the same header, single source of truth for
  * both consumers).

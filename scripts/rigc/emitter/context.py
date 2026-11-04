@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """context.cmake -- the build-glue handoff, not a rig artifact: a cmake
 fragment the rig build module (dts.cmake) include()s to learn what the
 rig instantiated. Kept out of `emit()` so rig artifacts and build glue

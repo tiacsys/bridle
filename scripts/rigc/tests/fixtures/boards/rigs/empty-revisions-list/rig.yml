@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # Synthetic fixture: revision: declared with an explicitly EMPTY
 # revisions: list -- axes.parse_revision_decl's own "'revisions' must be
 # a non-empty list" guard (lang-schema). The code path was already

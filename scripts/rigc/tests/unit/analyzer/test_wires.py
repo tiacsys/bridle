@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """Wires and route resolution. No frozen golden covers this family
 (phys-wire) -- diagnostic wording here is not frozen, so these tests
 assert structure (code, which endpoint, resolved route) rather than exact

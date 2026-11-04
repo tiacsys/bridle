@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """Emission feasibility of generated labels: the deterministic
 `<instance>_<shield label>` scheme must be collision-free -- checked over
 minimal constructed Rig/Instance/Device values."""

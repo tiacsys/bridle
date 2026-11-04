@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """Unit: loader.library -- the shield library's VALUE-shaped contracts:
 `_pick_shield`'s declared-name-vs-node-name
 decision (a pure function over already-parsed Shield values), `resolve()`'s

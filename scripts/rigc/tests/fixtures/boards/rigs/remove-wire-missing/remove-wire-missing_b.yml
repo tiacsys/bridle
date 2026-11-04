@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # remove-wires: names x.dl_sq -> y.dl_led2, which does not exist (the
 # real wire is x.dl_sq -> y.dl_led1 -- dl_led2 is a real label, just the
 # wrong endpoint; find_wire matches the raw pair literally, never through

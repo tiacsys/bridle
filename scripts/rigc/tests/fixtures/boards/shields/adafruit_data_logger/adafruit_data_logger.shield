@@ -1,4 +1,8 @@
-/* Shield: Adafruit Data Logger (S1).
+/*
+ * SPDX-FileCopyrightText: 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Shield: Adafruit Data Logger (S1).
  *
  * RTC: 1-element address domain (PCF8523 hard-wired 0x68) -> authored
  * reg + unit-address allowed; expander validates the pair.

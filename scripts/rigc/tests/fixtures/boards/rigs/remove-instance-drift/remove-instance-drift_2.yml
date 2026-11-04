@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # revision 2 (family-wide) ALSO tries removing 'logger' -- already gone
 # because variant b removed it first. rule 8: the message must name
 # variant 'b'.

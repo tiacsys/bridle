@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
-# Copyright (c) 2018,2020 Intel Corporation
-# Copyright (c) 2022 Nordic Semiconductor ASA
-# Copyright (c) 2023-2024 TiaC Systems
+# SPDX-FileCopyrightText: 2023-2024 TiaC Systems
+# SPDX-FileCopyrightText: 2022 Nordic Semiconductor ASA
+# SPDX-FileCopyrightText: 2018,2020 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
 import argparse

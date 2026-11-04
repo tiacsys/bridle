@@ -1,5 +1,5 @@
-# Copyright (c) 2021-2023 TiaC Systems
-# Copyright (c) 2019-2021 Li-Pro.Net
+# SPDX-FileCopyrightText: 2021-2026 TiaC Systems
+# SPDX-FileCopyrightText: 2019-2021 Li-Pro.Net
 # SPDX-License-Identifier: Apache-2.0
 
 cmake_minimum_required(VERSION 3.20.0)

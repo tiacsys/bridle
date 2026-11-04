@@ -1,7 +1,8 @@
-/* Copyright (c) 2026 TiaC Systems
+/*
+ * SPDX-FileCopyrightText: 2026 TiaC Systems
  * SPDX-License-Identifier: Apache-2.0
- */
-/* Position indices for the carrier PWM/ADC pass-through feature's own
+ *
+ * Position indices for the carrier PWM/ADC pass-through feature's own
  * synthetic connector type (socket,fixture-analog-nexus,
  * carrier-analog-passthrough-brief.md Sec 6). Not a copy of any real
  * connector header under include/dt-bindings/connector -- no real board

@@ -1,4 +1,8 @@
-/* Fixture-only shield whose shield.yml declares a MALFORMED revisions:
+/*
+ * SPDX-FileCopyrightText: 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Fixture-only shield whose shield.yml declares a MALFORMED revisions:
  * block (default names a value absent from list:). The template itself is
  * well-formed -- only the metadata is wrong, so the diagnostic under test
  * is the shape error and nothing else. Never a real corpus shield.

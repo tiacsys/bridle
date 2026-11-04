@@ -1,4 +1,8 @@
-/* Fixture consumer, 2-CELL REJECT witness (three-cell-pwm-brief.md
+/*
+ * SPDX-FileCopyrightText: 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ *Fixture consumer, 2-CELL REJECT witness (three-cell-pwm-brief.md
  * Sec 5/6, acceptance criterion 3's reject half): identical shape and
  * identical nonzero flags claim to tc_servo_plain (three-cell-pwm-plain
  * rig), mated against the board's 2-CELL PWM socket instead -- there is

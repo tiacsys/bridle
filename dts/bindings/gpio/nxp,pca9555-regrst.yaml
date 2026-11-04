@@ -1,4 +1,4 @@
-# Copyright (c) 2021-2024 TiaC Systems
+# SPDX-FileCopyrightText: 2021-2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 description: PCA9555 specific I2C-based GPIO expander (w/regrst)

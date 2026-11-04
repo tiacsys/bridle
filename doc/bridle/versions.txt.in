@@ -1,3 +1,6 @@
+.. SPDX-FileCopyrightText: 2021-2026 TiaC Systems
+.. SPDX-License-Identifier: CC-BY-4.0
+
 .. zephyr-keep-sorted-start re(^\.{2} \|[a-z]*\| replace:: :strong:`\w)
 
 .. |Ccache| replace:: :emphasis:`Ccache`

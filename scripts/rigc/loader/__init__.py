@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """The loader proper: rig.yml metadata (qualifier axes), the shield
 library, the required content file, fragment discovery, and the delta
 engine with params/config fully wired -- assembled here from the

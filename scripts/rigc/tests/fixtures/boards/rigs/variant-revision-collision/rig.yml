@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # Synthetic fixture: a declared variant name equal to a declared revision
 # id -- the constructed fragment filenames (<rigname>_<id>...) would
 # collide between the two axes -- rule 4 (lang-variant, Q6). Checked

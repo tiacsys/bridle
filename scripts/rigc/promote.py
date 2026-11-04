@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """The `--rig <shield>` desugaring and the namespace rule that decides
 when a bare name resolves as a shield at all -- everything
 `west rigs --explain` (west_commands/rigs.py) needs, factored so the

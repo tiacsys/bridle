@@ -1,4 +1,8 @@
-/* Fixture shield (multi-bus-socket feature): a device on the "spi-sensors"
+/*
+ * SPDX-FileCopyrightText: 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Fixture shield (multi-bus-socket feature): a device on the "spi-sensors"
  * named bus. CS is pool-allocated (no shield,cs-position) -- the
  * multi-bus-socket accept case draws it from socket,spi-sensors-cs-pool's
  * binding default.

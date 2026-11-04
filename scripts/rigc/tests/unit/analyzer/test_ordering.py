@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """Allocation ordering: `allocation_key` is a named, stable sort key --
 allocation order is socket, then instance, then device, never rig-file
 declaration order. It needs only a plain Instance/Device pair plus the

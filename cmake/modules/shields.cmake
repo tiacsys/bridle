@@ -1,6 +1,7 @@
-# SPDX-License-Identifier: Apache-2.0
-#
 # Downstream FORK POINT for Zephyr's shields build module.
+#
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
 #
 # This directory sits on CMAKE_MODULE_PATH ahead of Zephyr's own module
 # directory, so zephyr_default.cmake's include(shields) resolves to THIS

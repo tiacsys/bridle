@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # Reference-set fixture rig (rigs test suite): mates fixture_logger once and
 # fixture_button twice against reference_board.dts's three sockets, exercised
 # END TO END through load -> analyze -> emit as an ACCEPT case -- a reference

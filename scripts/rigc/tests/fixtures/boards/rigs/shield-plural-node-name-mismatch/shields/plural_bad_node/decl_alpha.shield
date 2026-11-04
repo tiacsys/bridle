@@ -1,4 +1,8 @@
-/* Fixture-only shield: well-formed sibling in the same shields: list.
+/*
+ * SPDX-FileCopyrightText: 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Fixture-only shield: well-formed sibling in the same shields: list.
  * Never a real corpus shield.
  */
 

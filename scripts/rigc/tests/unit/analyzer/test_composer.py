@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """The composer: `analyze()` assembles every pass's piece into one Solved
 value, in a fixed pass order -- sockets -> gpio nets -> addresses -> CS ->
 wires -> net conflicts -> labels. This module's OWN subject is the

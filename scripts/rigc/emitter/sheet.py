@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """config-sheet.md -- the physical configuration sheet: the ONE place a
 symbol's resolved value is shown to a human; emission itself never
 resolves anything (overlay.py emits params verbatim), so without this

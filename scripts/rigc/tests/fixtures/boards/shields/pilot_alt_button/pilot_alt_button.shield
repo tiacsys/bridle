@@ -1,4 +1,8 @@
-/* An Arduino R3 button (gpio-keys), the same shape as grove_btn but on the
+/*
+ * SPDX-FileCopyrightText: 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * An Arduino R3 button (gpio-keys), the same shape as grove_btn but on the
  * arduino-r3 connector -- so a variant delta can substitute it for another
  * arduino-r3 shield through the SAME socket (rig-variants-revisions.md
  * V1b pilot: proves a shield-substituting variant delta forces wholesale

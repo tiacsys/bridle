@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # Synthetic fixture: rule 11 -- the params restate-check. sensor_1 assigns
 # vnd,threshold: 20 (overriding restate_fixture's authored default, 10).
 # variant b does NOT change sensor_1's shield, but DOES supply params: for

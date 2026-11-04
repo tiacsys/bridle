@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # Carrier PWM/ADC pass-through fixture rig (ACCEPT case,
 # carrier-analog-passthrough-brief.md Sec 6): a single-plug fixture
 # carrier re-exports one socket (ca_out) carrying gpio+pwm+adc rows;

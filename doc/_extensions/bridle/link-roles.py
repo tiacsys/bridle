@@ -1,8 +1,7 @@
-# Copyright (c) 2021-2022 TiaC Systems
-# Copyright (c) 2021 Nordic Semiconductor ASA
-# Copyright (c) 2021 Li-Pro.Net
-# Copyright (c) 2019 Intel Corporation
-#
+# SPDX-FileCopyrightText: 2021-2026 TiaC Systems
+# SPDX-FileCopyrightText: 2021 Li-Pro.Net
+# SPDX-FileCopyrightText: 2021 Nordic Semiconductor ASA
+# SPDX-FileCopyrightText: 2019 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
 # based on http://protips.readthedocs.io/link-roles.html

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 shield:
   name: pilot_alt_button
   full_name: Pilot alt button (rig-variants-revisions.md V1b pilot fixture)

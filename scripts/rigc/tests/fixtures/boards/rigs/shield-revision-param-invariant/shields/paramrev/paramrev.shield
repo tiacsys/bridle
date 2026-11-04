@@ -1,4 +1,8 @@
-/* Fixture-only shield: revision 2 (paramrev_2.shield) adds a NEW required
+/*
+ * SPDX-FileCopyrightText: 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Fixture-only shield: revision 2 (paramrev_2.shield) adds a NEW required
  * parameter to this device via DT's own overlay-by-label semantics --
  * proves the per-stage parameter invariant (_check_param_invariant)
  * re-fires for a shield-REVISION-introduced requirement with no special

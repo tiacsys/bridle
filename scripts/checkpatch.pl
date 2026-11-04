@@ -1,5 +1,7 @@
 #!/usr/bin/env perl
-# SPDX-License-Identifier: GPL-2.0
+# SPDX-License-Identifier: GPL-2.0-only OR GPL-2.0-or-later
+# SPDX-FileCopyrightText: 2025-2026 TiaC Systems
+# SPDX-FileCopyrightText: 2015-2025 The Zephyr Project Contributors
 #
 # (c) 2001, Dave Jones. (the file handling bit)
 # (c) 2005, Joel Schopp <jschopp@austin.ibm.com> (the ugly bit)

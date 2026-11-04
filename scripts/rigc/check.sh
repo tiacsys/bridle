@@ -1,5 +1,6 @@
 #!/bin/sh
-# Copyright (c) 2026 TiaC Systems
+#
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 #
 # The rig transpiler's own gate: mypy clean + pytest green + a coverage floor.
@@ -19,6 +20,7 @@
 #                  test against a rig defined HERE may yet be written.
 #   PYTHON=<path>  interpreter to use (default python3). Point it at the
 #                  workspace venv so mypy and pytest are the pinned ones.
+
 set -e
 cd "$(dirname "$0")"
 

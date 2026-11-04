@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-License-Identifier: Apache-2.0
+
 # Content file (metadata/content split): both instances name the SAME
 # socket explicitly -- the connector type's socket,stackable schema fact
 # is what makes mating it twice legal.

@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-# Copyright (c) 2026 TiaC Systems
+#
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
-
+#
 # Mirrors zephyr/scripts/list_shields.py, adapted to the rig folder model:
 # a rig is a folder `boards/rigs/<dir>/rig.yml`. Following the same convention
 # as boards (board.yml) and shields (shield.yml), the rig's IDENTITY is the

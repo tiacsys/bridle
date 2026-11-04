@@ -1,4 +1,8 @@
-/* Shield: PWM LED, the other half of bridle's grove_led/ folder (32
+/*
+ * SPDX-FileCopyrightText: 2026 TiaC Systems
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Shield: PWM LED, the other half of bridle's grove_led/ folder (32
  * grove_pwm_led_dN pwm-leds overlays, alongside the 32 gpio-leds overlays
  * grove_led.shield already ports). MCU drives the LED as a dimmable PWM
  * output on the Grove signal pin; bridle's own period is PWM_MSEC(20).

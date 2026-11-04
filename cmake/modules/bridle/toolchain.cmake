@@ -1,4 +1,4 @@
-# Copyright (c) 2022-2024 TiaC Systems
+# SPDX-FileCopyrightText: 2022-2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 # The purpose of this file is to verify that required variables have been

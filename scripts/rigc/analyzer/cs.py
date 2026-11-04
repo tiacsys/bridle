@@ -1,5 +1,6 @@
-# Copyright (c) 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
+
 """CS pool allocation: where and how the final cs-gpios property is
 calculated, split into a value-shaped contract:
 
