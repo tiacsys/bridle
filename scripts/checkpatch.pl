@@ -3179,6 +3179,7 @@ sub process {
 				}
 
 # check SPDX comment style for .[chsS] files
+				# REUSE-IgnoreStart
 				if ($realfile =~ /\.[chsS]$/ &&
 				    $rawline =~ /SPDX-License-Identifier:/ &&
 				    $rawline !~ m@^\+\s*\Q$comment\E\s*@) {
@@ -3208,6 +3209,7 @@ sub process {
 						}
 					}
 				}
+				# REUSE-IgnoreEnd
 			}
 		}
 
@@ -3215,12 +3217,14 @@ sub process {
 		next if ($realfile !~ /\.(h|c|s|S|sh|dtsi|dts|overlay)$/);
 
 # check for using SPDX-License-Identifier on the wrong line number
+		# REUSE-IgnoreStart
 		if ($realline != $checklicenseline &&
 		    $rawline =~ /\bSPDX-License-Identifier:/ &&
 		    substr($line, @-, @+ - @-) eq "$;" x (@+ - @-)) {
 			WARN("SPDX_LICENSE_TAG",
 			     "Misplaced SPDX-License-Identifier tag - use line $checklicenseline instead\n" . $herecurr);
 		}
+		# REUSE-IgnoreEnd
 
 # line length limit (with some exclusions)
 #

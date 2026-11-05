@@ -1,0 +1,453 @@
+# SPDX-FileCopyrightText: 2026 TiaC Systems
+# SPDX-FileCopyrightText: 2026 The Zephyr Project Contributors
+# SPDX-License-Identifier: Apache-2.0
+
+version = 1
+
+# Declare default license and copyright text for files that typically do not or cannot include them.
+[[annotations]]
+path = [
+    # zephyr-keep-sorted-start
+    "**/*.cfg",
+    "**/*.cmake",
+    "**/*.conf",
+    "**/*.ecl",
+    "**/*.hex",
+    "**/*.jflash",
+    "**/*.json",
+    "**/*.lock",
+    "**/*.nix",
+    "**/*.yaml",
+    "**/*.yml",
+    "**/*_defconfig",
+    "**/CMakeLists.txt",
+    "**/Kconfig*",
+    "VERSION",
+    "scripts/rigc/tests/**/exit_code",
+    "scripts/rigc/tests/**/stderr.txt",
+    "zephyr/requirements*.in",
+    "zephyr/requirements*.txt",
+    # zephyr-keep-sorted-stop
+]
+SPDX-License-Identifier = "Apache-2.0"
+SPDX-FileCopyrightText = "TiaC Systems"
+
+[[annotations]]
+path = [
+    # zephyr-keep-sorted-start
+    "**/*.drawio",
+    "**/*.fzpz",
+    "**/*.fzz",
+    "**/*.log",
+    "**/*.rst",
+    "**/*.rsti",
+    "**/*.svg",
+    "README.md",
+    "boards/**/doc/**/display*.gif",
+    "boards/**/doc/**/sk6805ec14*.gif",
+    "boards/**/doc/**/ws2812b*.gif",
+    "boards/**/doc/img/*.png",
+    "boards/**/doc/img/TCS-604-ARD*.jpg",
+    "doc/**/*.txt",
+    "doc/_cacerts/*",
+    "doc/_docroot/*",
+    "doc/_doxygen/*.dox",
+    "doc/_doxygen/*.html",
+    "doc/_doxygen/*.md",
+    "doc/_doxygen/*.xml",
+    "doc/_static/*.xml",
+    "doc/bridle/images/*.gif",
+    "scripts/rigc/**/*.md",
+    "submanifests/**/*.txt",
+    # zephyr-keep-sorted-stop
+]
+SPDX-License-Identifier = "CC-BY-4.0"
+SPDX-FileCopyrightText = "TiaC Systems"
+
+# -----------------------------------------------------------------------------
+# Licensing exceptions
+# -----------------------------------------------------------------------------
+#
+# Bridle as a whole is Apache-2.0 licensed, but it imports or reuses a few
+# components that use other licenses. Each such component is described below as
+# a single REUSE annotation and is rendered on the licensing documentation page
+# (see doc/LICENSING.rst) by the "bridle.licensing" Sphinx extension.
+#
+# The license metadata is standard REUSE/SPDX and the standard SPDX-FileComment
+# holds the free-text rationale ("Impact"). SPDX has no non-deprecated file-level
+# field for an upstream URL (the ArtifactOf* file tags were deprecated in favour
+# of relationships, which REUSE.toml cannot express, and Package* fields are not
+# valid on files), so three Bridle-specific keys are used (the `reuse` tool
+# ignores keys it does not know about):
+#
+#   Bridle-Description       Short human description of the component, used as
+#                            its title on the page. Its presence promotes a
+#                            plain REUSE annotation to a documented exception.
+#   Bridle-Origin            URL of the upstream project the files come from.
+#   Bridle-Kconfig-Condition Kconfig option(s) gating whether the files end up in
+#                            a build, rendered as :kconfig:option: references.
+
+[[annotations]]
+path = [
+    # zephyr-keep-sorted-start
+    ".github/ISSUE_TEMPLATE/*.md",
+    # zephyr-keep-sorted-stop
+]
+SPDX-License-Identifier = "Apache-2.0"
+SPDX-FileCopyrightText = "TiaC Systems"
+SPDX-FileComment = "Used in Issue Tracker on GitHub and never linked into the firmware."
+Bridle-Description = "Issue Tracker Templates"
+Bridle-Origin = "https://docs.github.com/"
+
+[[annotations]]
+path = [
+    # zephyr-keep-sorted-start
+    "scripts/checkpatch.pl",
+    "scripts/checkpatch/typedefsfile",
+    "scripts/spelling.txt",
+    # zephyr-keep-sorted-stop
+]
+SPDX-License-Identifier = "GPL-2.0-only OR GPL-2.0-or-later"
+SPDX-FileCopyrightText = "The Zephyr Project Contributors"
+SPDX-FileComment = "Used in Continuous Integration (CI) and never linked into the firmware."
+Bridle-Description = "Continuous Integration Scripts"
+Bridle-Origin = "https://www.kernel.org/"
+
+[[annotations]]
+path = [
+    # zephyr-keep-sorted-start
+    "doc/_doxygen/doxygen-awesome-darkmode-toggle.js",
+    "doc/_doxygen/doxygen-awesome-sidebar-only-darkmode-toggle.css",
+    "doc/_doxygen/doxygen-awesome-sidebar-only.css",
+    "doc/_doxygen/doxygen-awesome.css",
+    # zephyr-keep-sorted-stop
+]
+SPDX-License-Identifier = "MIT"
+SPDX-FileComment = "Style the Doxygen API documentation and are never linked into a firmware."
+Bridle-Description = "Doxygen Awesome CSS Theme Files"
+Bridle-Origin = "https://github.com/jothepro/doxygen-awesome-css"
+
+[[annotations]]
+path = [
+    # zephyr-keep-sorted-start
+    "doc/bridle/images/counterfeited_stm32.webp",
+    # zephyr-keep-sorted-stop
+]
+SPDX-License-Identifier = "CC-BY-NC-4.0"
+SPDX-FileCopyrightText = "Richard Kaußler"
+Bridle-Description = "Richi´s Lab Documentation Artifacts"
+Bridle-Origin = "https://www.richis-lab.de/"
+
+[[annotations]]
+path = [
+    # zephyr-keep-sorted-start
+    "boards/arduino/**/*.jpg",
+    # not yet existing: "boards/shields/**/arduino_*/*.jpg",
+    # not yet existing: "boards/shields/arduino_*/**/*.jpg",
+    # zephyr-keep-sorted-stop
+]
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+SPDX-FileCopyrightText = "Arduino S.r.l."
+Bridle-Description = "Arduino Documentation Artifacts"
+Bridle-Origin = "https://docs.arduino.cc/"
+
+[[annotations]]
+path = [
+    # zephyr-keep-sorted-start
+    "boards/shields/**/doc/img/CJMCU-*.jpg",
+    "boards/shields/**/doc/img/WCMCU-*.jpg",
+    # zephyr-keep-sorted-stop
+]
+SPDX-License-Identifier = "CC-BY-NC-ND-4.0 AND LicenseRef-Public-Material-Remark"
+SPDX-FileCopyrightText = "Changjiang Intelligent Technology Co., Ltd."
+Bridle-Description = "CJMCU Documentation Artifacts"
+Bridle-Origin = "https://web.archive.org/web/20150925195021/http://www.cjmcu.com/"
+
+[[annotations]]
+path = [
+    # zephyr-keep-sorted-start
+    "boards/cytron/**/*.jpg",
+    # not yet existing: "boards/shields/**/cytron_*/*.jpg",
+    # not yet existing: "boards/shields/cytron_*/**/*.jpg",
+    # zephyr-keep-sorted-stop
+]
+SPDX-License-Identifier = "CC-BY-NC-ND-4.0 AND LicenseRef-Public-Material-Remark"
+SPDX-FileCopyrightText = "Cytron Technologies"
+Bridle-Description = "Cytron Documentation Artifacts"
+Bridle-Origin = "https://cytron.io/"
+
+[[annotations]]
+path = [
+    # not yet existing: "boards/geeekpi/**/*.jpg",
+    # zephyr-keep-sorted-start
+    "boards/shields/**/geeekpi_*/*.jpg",
+    # zephyr-keep-sorted-stop
+    # not yet existing: "boards/shields/geeekpi_*/**/*.jpg",
+]
+SPDX-License-Identifier = "CC-BY-NC-SA-3.0"
+SPDX-FileCopyrightText = "52Pi (GeeekPi) Information Technology., Ltd."
+Bridle-Description = "52Pi (GeeekPi) Documentation Artifacts"
+Bridle-Origin = "https://wiki.52pi.com/"
+
+[[annotations]]
+path = [
+    # zephyr-keep-sorted-start
+    "boards/jsed/**/*.jpg",
+    # zephyr-keep-sorted-stop
+    # not yet existing: "boards/shields/**/jsed_*/*.jpg",
+    # not yet existing: "boards/shields/jsed_*/**/*.jpg",
+]
+SPDX-License-Identifier = "CC-BY-NC-ND-4.0 AND LicenseRef-Public-Material-Remark"
+SPDX-FileCopyrightText = "Jan Schulz Elektronik & Didaktik"
+Bridle-Description = "PicoBoy Documentation Artifacts"
+Bridle-Origin = "https://picoboy.de/"
+
+[[annotations]]
+path = [
+    # zephyr-keep-sorted-start
+    "boards/nologo/**/*.jpg",
+    # zephyr-keep-sorted-stop
+    # not yet existing: "boards/shields/**/nologo_*/*.jpg",
+    # not yet existing: "boards/shields/nologo_*/**/*.jpg",
+]
+SPDX-License-Identifier = "CC-BY-NC-ND-4.0 AND LicenseRef-Public-Material-Remark"
+SPDX-FileCopyrightText = "Shenzhen Yunzao Technology Network Co., Ltd."
+Bridle-Description = "NologoTech (No Name Technology) Documentation Artifacts"
+Bridle-Origin = "https://www.nologo.tech/"
+
+[[annotations]]
+path = [
+    # zephyr-keep-sorted-start
+    "boards/shields/**/doc/img/SC16IS750-*.jpg",
+    "boards/shields/**/doc/img/SC16IS752-*.jpg",
+    "boards/shields/**/doc/img/SC18IS604-*.jpg",
+    # zephyr-keep-sorted-stop
+]
+SPDX-License-Identifier = "CC-BY-NC-ND-4.0 AND LicenseRef-Public-Material-Remark"
+SPDX-FileCopyrightText = "NXP Semiconductors N.V."
+Bridle-Description = "NXP Documentation Artifacts"
+Bridle-Origin = "https://www.nxp.com/"
+
+[[annotations]]
+path = [
+    # not yet existing: "boards/pimoroni/**/*.jpg",
+    # zephyr-keep-sorted-start
+    "boards/shields/**/pimoroni_*/*.jpg",
+    # zephyr-keep-sorted-stop
+    # not yet existing: "boards/shields/pimoroni_*/**/*.jpg",
+]
+SPDX-License-Identifier = "CC-BY-NC-ND-4.0 AND LicenseRef-Public-Material-Remark"
+SPDX-FileCopyrightText = "Pimoroni Ltd."
+Bridle-Description = "Pimoroni Documentation Artifacts"
+Bridle-Origin = "http://pimoroni.com/"
+
+[[annotations]]
+path = [
+    # zephyr-keep-sorted-start
+    "boards/shields/**/doc/img/GT-SC16IS750.jpg",
+    # zephyr-keep-sorted-stop
+]
+SPDX-License-Identifier = "CC-BY-NC-ND-4.0 AND LicenseRef-Public-Material-Remark"
+SPDX-FileCopyrightText = "Qianbaihe Trading (Wuhan) Co., Ltd."
+Bridle-Description = "Q-Baihe (Lilly Electronics) Documentation Artifacts"
+Bridle-Origin = "https://www.lilly-electronics.com/products/sc16is750-i2c-spi-to-uart-ic-breakout-board"
+
+[[annotations]]
+path = [
+    # zephyr-keep-sorted-start
+    "boards/seeed/**/*.jpg",
+    "boards/seeed/**/*.webp",
+    "boards/shields/**/seeed_*/*.jpg",
+    "boards/shields/seeed_*/**/*.jpg",
+    "doc/bridle/images/seeed_grove.png",
+    # zephyr-keep-sorted-stop
+]
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+SPDX-FileCopyrightText = "Seeed Technology Co., Ltd."
+Bridle-Description = "Seeed Studio Documentation Artifacts"
+Bridle-Origin = "https://wiki.seeedstudio.com/"
+
+[[annotations]]
+path = [
+    # not yet existing: "boards/seengreat/**/*.jpg",
+    # zephyr-keep-sorted-start
+    "boards/shields/**/seengreat_*/*.jpg",
+    # zephyr-keep-sorted-stop
+    # not yet existing: "boards/shields/seengreat_*/**/*.jpg",
+]
+SPDX-License-Identifier = "CC-BY-NC-ND-4.0 AND LicenseRef-Public-Material-Remark"
+SPDX-FileCopyrightText = "SeenGreat, Guangxi Guilin Shengui Technology Co., Ltd."
+Bridle-Description = "SeenGreat Documentation Artifacts"
+Bridle-Origin = "https://www.seengreat.com/wiki/"
+
+[[annotations]]
+path = [
+    # zephyr-keep-sorted-start
+    "boards/shields/**/doc/img/BOB-*.jpg",
+    # zephyr-keep-sorted-stop
+]
+SPDX-License-Identifier = "CC-BY-SA-3.0"
+SPDX-FileCopyrightText = "SparkFun Electronics, Inc."
+Bridle-Description = "SparkFun Documentation Artifacts"
+Bridle-Origin = "https://www.sparkfun.com/"
+
+[[annotations]]
+path = [
+    # zephyr-keep-sorted-start
+    "boards/shields/**/spotpear_*/*.jpg",
+    # zephyr-keep-sorted-stop
+    # not yet existing: "boards/shields/spotpear_*/**/*.jpg",
+    # not yet existing: "boards/spotpear/**/*.jpg",
+]
+SPDX-License-Identifier = "CC-BY-NC-ND-4.0 AND LicenseRef-Public-Material-Remark"
+SPDX-FileCopyrightText = "Spotpear Electronics Co., Ltd."
+Bridle-Description = "Spotpear Documentation Artifacts"
+Bridle-Origin = "https://spotpear.com/wiki-category/Raspberry%20Pi-Hat-Pico-RP2040.html"
+
+[[annotations]]
+path = [
+    # not yet existing: "boards/shields/**/vccgnd_*/*.jpg",
+    # not yet existing: "boards/shields/vccgnd_*/**/*.jpg",
+    # zephyr-keep-sorted-start
+    "boards/vccgnd/**/*.jpg",
+    # zephyr-keep-sorted-stop
+]
+SPDX-License-Identifier = "CC-BY-NC-ND-4.0 AND LicenseRef-Public-Material-Remark"
+SPDX-FileCopyrightText = "VccGND Studio (Source Instrument and Equipment)"
+Bridle-Description = "VCC-GND Studio (源地工作室) Documentation Artifacts"
+Bridle-Origin = "https://web.archive.org/web/20230602181511/http://vcc-gnd.com/rtd/html/STM32/quickref.html"
+
+[[annotations]]
+path = [
+    # zephyr-keep-sorted-start
+    "boards/shields/**/waveshare_*/*.bmp",
+    "boards/shields/**/waveshare_*/*.jpg",
+    "boards/shields/waveshare_*/**/*.jpg",
+    "boards/waveshare/**/*.bmp",
+    "boards/waveshare/**/*.jpg",
+    # zephyr-keep-sorted-stop
+]
+SPDX-License-Identifier = "CC-BY-NC-ND-4.0 AND LicenseRef-Public-Material-Remark"
+SPDX-FileCopyrightText = "Waveshare Electronics Co., Ltd."
+Bridle-Description = "Waveshare Documentation Artifacts"
+Bridle-Origin = "https://www.waveshare.com/wiki/"
+
+[[annotations]]
+path = [
+    # not yet existing: "boards/shields/**/weact_*/*.jpg",
+    # not yet existing: "boards/shields/weact_*/**/*.jpg",
+    # zephyr-keep-sorted-start
+    "boards/weact/**/*.jpg",
+    # zephyr-keep-sorted-stop
+]
+SPDX-License-Identifier = "MIT OR GPL-3.0-or-later"
+SPDX-FileCopyrightText = "WeAct Studio (WeiXing Electronic Store)"
+Bridle-Description = "WeAct Studio Documentation Artifacts"
+Bridle-Origin = "https://github.com/WeActStudio"
+
+[[annotations]]
+path = [
+    # zephyr-keep-sorted-start
+    "doc/_static/css/bold.css",
+    "doc/_static/css/bridle.css",
+    "doc/_static/css/cannectivity.css",
+    "doc/_static/css/colors.css",
+    "doc/_static/css/common.css",
+    "doc/_static/css/devicetree.css",
+    "doc/_static/css/hwftlbl.css",
+    "doc/_static/css/italic.css",
+    "doc/_static/css/kconfig.css",
+    "doc/_static/css/rpipico.css",
+    "doc/_static/css/strikethrough.css",
+    "doc/_static/css/twocol.css",
+    "doc/_static/css/underline.css",
+    "doc/_static/css/zephyr.css",
+    "doc/_static/images/bridle-lg.png",
+    "doc/_static/images/bridle-sm.png",
+    "doc/_static/images/bridle.ico",
+    "doc/_static/images/bridle.png",
+    "doc/_static/images/tiac-lg.png",
+    "doc/_static/images/tiac-sm.png",
+    "doc/_static/images/tiac.ico",
+    "doc/_static/images/tiac.png",
+    # zephyr-keep-sorted-stop
+]
+SPDX-License-Identifier = "CC-BY-4.0"
+SPDX-FileCopyrightText = "TiaC Systems"
+SPDX-FileComment = "Customize the Sphinx theme used to render the documentation and are never linked into a firmware."
+Bridle-Description = "TiaC Systems Network (TSN) Documentation Theme Files"
+Bridle-Origin = "https://github.com/tiacsys/sphinx-tsn-theme"
+
+[[annotations]]
+path = [
+    # zephyr-keep-sorted-start
+    "boards/tiac/coffeecaller/doc/img/coffeecaller.jpg",
+    # zephyr-keep-sorted-stop
+    # not yet existing: "boards/tiac/coffeecaller/doc/img/hardware.jpg",
+    # not yet existing: "boards/tiac/coffeecaller/doc/img/pinouts.jpg",
+    # not yet existing: "boards/tiac/coffeecaller/doc/img/positions.jpg",
+]
+SPDX-License-Identifier = "CC-BY-4.0"
+SPDX-FileCopyrightText = "TiaC Systems"
+SPDX-FileComment = "Used by developers when they are updating the coffeecaller_nrf52 board documentation. Never linked into the firmware."
+Bridle-Description = "TiaC CoffeeCaller nRF52 Board Documentation Artifacts"
+
+[[annotations]]
+path = [
+    # zephyr-keep-sorted-start
+    "boards/tiac/magpie_f777ni/doc/samples/net/dumb_http_server_mt.png",
+    "boards/tiac/magpie_f777ni/doc/samples/net/dumb_http_server_mt_ab.csv",
+    "boards/tiac/magpie_f777ni/doc/samples/net/dumb_http_server_mt_ab.p",
+    "boards/tiac/magpie_f777ni/doc/samples/net/dumb_http_server_mt_ab.png",
+    # zephyr-keep-sorted-stop
+]
+SPDX-License-Identifier = "CC-BY-4.0"
+SPDX-FileCopyrightText = "TiaC Systems"
+SPDX-FileComment = "Used by developers when they are updating the magpie_f777ni board documentation. Never linked into the firmware."
+Bridle-Description = "TiaC Magpie F777NI Board Documentation Artifacts"
+
+[[annotations]]
+path = [
+    # zephyr-keep-sorted-start
+    "boards/tiac/magpie_f777ni/doc/STM32F777NIHx.ioc",
+    "boards/tiac/magpie_f777ni/doc/STM32F777NIHx.pcs",
+    "boards/tiac/magpie_f777ni/doc/STM32F777NIHx.pdf",
+    "boards/tiac/magpie_f777ni/doc/STM32F777NIHx.txt",
+    "boards/tiac/magpie_f777ni/doc/STM32F777NIHx_no_alt.csv",
+    "boards/tiac/magpie_f777ni/doc/STM32F777NIHx_with_alt.csv",
+    "boards/tiac/magpie_f777ni/doc/img/STM32F777NIHx_clocktree.jpg",
+    "boards/tiac/magpie_f777ni/doc/img/STM32F777NIHx_package.jpg",
+    # zephyr-keep-sorted-stop
+]
+SPDX-License-Identifier = "BSD-3-Clause"
+SPDX-FileCopyrightText = "TiaC Systems"
+SPDX-FileComment = "Used by STM32CubeMX when configure the magpie_f777ni board setup. Never linked into the firmware."
+Bridle-Description = "TiaC Magpie F777NI Board STM32CubeMX Configuration"
+
+[[annotations]]
+path = [
+    # zephyr-keep-sorted-start
+    "boards/vccgnd/bluepill/doc/**/*.ioc",
+    "boards/vccgnd/bluepill/doc/**/*.pcs",
+    "boards/vccgnd/bluepill/doc/**/*.pdf",
+    "boards/vccgnd/bluepill/doc/**/*.txt",
+    # zephyr-keep-sorted-stop
+]
+SPDX-License-Identifier = "BSD-3-Clause"
+SPDX-FileCopyrightText = "TiaC Systems"
+SPDX-FileComment = "Used by STM32CubeMX when configure the vccgnd_bluepill_stm32fxxxxx board setup. Never linked into the firmware."
+Bridle-Description = "VccGND BluePill STM32Fx Board STM32CubeMX Configuration"
+
+[[annotations]]
+path = [
+    # zephyr-keep-sorted-start
+    "boards/weact/bluepillplus/doc/**/*.ioc",
+    "boards/weact/bluepillplus/doc/**/*.pcs",
+    "boards/weact/bluepillplus/doc/**/*.pdf",
+    "boards/weact/bluepillplus/doc/**/*.txt",
+    # zephyr-keep-sorted-stop
+]
+SPDX-License-Identifier = "BSD-3-Clause"
+SPDX-FileCopyrightText = "TiaC Systems"
+SPDX-FileComment = "Used by STM32CubeMX when configure the weact_bluepillplus_stm32f1xxxx board setup. Never linked into the firmware."
+Bridle-Description = "WeAct BluePill+ STM32F1 Board STM32CubeMX Configuration"

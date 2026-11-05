@@ -1299,6 +1299,7 @@ class Nits(ComplianceTest):
         # 'Kconfig - yada yada' has a copy-pasted redundant filename at the
         # top. This probably means all of the header was copy-pasted.
         if re.match(r"\s*#\s*(K|k)config[\w.-]*\s*-", contents):
+            # REUSE-IgnoreStart
             self.failure(f"""
 Please use this format for the header in '{fname}' (see
 https://docs.zephyrproject.org/latest/build/kconfig/tips.html#header-comments-and-other-nits):
@@ -1314,6 +1315,7 @@ Skip the "Kconfig - " part of the first line, since it's clear that the comment
 is about Kconfig from context. The "# Kconfig - " is what triggers this
 failure.
 """)
+            # REUSE-IgnoreEnd
 
     def check_redundant_zephyr_source(self, fname):
         # Checks for 'source "$(ZEPHYR_BASE)/Kconfig[.zephyr]"', which can be
@@ -1822,7 +1824,7 @@ class Ruff(ComplianceTest):
 
             try:
                 subprocess.run(
-                    f"ruff check --force-exclude --output-format=json {file}",
+                    f"ruff check --quiet --force-exclude --output-format=json {file}",
                     check=True,
                     stdout=subprocess.PIPE,
                     stderr=subprocess.DEVNULL,
@@ -1845,7 +1847,7 @@ class Ruff(ComplianceTest):
                     )
             try:
                 subprocess.run(
-                    f"ruff format --force-exclude --diff {file}",
+                    f"ruff format --quiet --force-exclude --diff {file}",
                     check=True,
                     shell=True,
                     cwd=GIT_TOP,
