@@ -48,6 +48,9 @@
       let
         pkgs = import nixpkgs {
           inherit system;
+          # The Python environment pulls in python-ecdsa (e.g. for image signing), which
+          # nixpkgs marks as insecure (CVE-2024-23342). Permit just that package.
+          config.allowInsecurePredicate = pkg: nixpkgs.lib.getName pkg == "ecdsa";
           overlays = [
             inputs.python-deps.overlays.default
           ];
@@ -94,6 +97,13 @@
           app-path = "samples/helloshell";
           board = "native_sim";
           target = "x86_64-zephyr-elf";
+        };
+
+        # Waveshare RP2350-Matrix (8x8 RGB LED matrix), ARM Cortex-M33 core
+        packages.colorwheel-waveshare_rp2350_matrix = callPackage ./build.nix {
+          app-path = "samples/display/colorwheel";
+          board = "waveshare_rp2350_matrix/rp2350a/m33_0";
+          target = "arm-zephyr-eabi";
         };
       }
     ));

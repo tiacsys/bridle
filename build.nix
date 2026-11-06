@@ -15,9 +15,11 @@
 }:
 
 stdenv.mkDerivation {
-  name = "helloshell";
+  name = builtins.baseNameOf app-path;
 
-  meta.mainProgram = if (lib.strings.hasInfix board "native_sim") then "zephyr.exe" else null;
+  meta = lib.optionalAttrs (lib.strings.hasInfix "native_sim" board) {
+    mainProgram = "zephyr.exe";
+  };
 
   nativeBuildInputs = [
     (zephyr-nix.sdk.override {
@@ -53,5 +55,6 @@ stdenv.mkDerivation {
     [ -f build/zephyr/zephyr.elf ] && cp build/zephyr/zephyr.elf $out/bin || true
     [ -f build/zephyr/zephyr.bin ] && cp build/zephyr/zephyr.bin $out/bin || true
     [ -f build/zephyr/zephyr.hex ] && cp build/zephyr/zephyr.hex $out/bin || true
+    [ -f build/zephyr/zephyr.uf2 ] && cp build/zephyr/zephyr.uf2 $out/bin || true
   '';
 }
