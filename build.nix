@@ -12,6 +12,7 @@
   app-path,
   board,
   target,
+  shields ? [ ],
 }:
 
 stdenv.mkDerivation {
@@ -47,7 +48,11 @@ stdenv.mkDerivation {
     app-path
     "-b"
     board
-  ];
+  ]
+  ++ lib.concatMap (shield: [
+    "--shield"
+    shield
+  ]) shields;
 
   installPhase = ''
     mkdir -p $out/bin
