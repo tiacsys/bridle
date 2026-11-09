@@ -15,7 +15,7 @@
 #
 # The *-content targets copy/create .rst files that later get built by Sphinx.
 
-cmake_minimum_required(VERSION 3.20.0)
+cmake_minimum_required(VERSION 3.28.0)
 project(bridle-doc LANGUAGES NONE)
 
 #-------------------------------------------------------------------------------

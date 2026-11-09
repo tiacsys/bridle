@@ -381,6 +381,7 @@
 
 .. ### Source: ubuntu.com
 
+.. _`Ubuntu 26.04 LTS`: https://releases.ubuntu.com/26.04
 .. _`Ubuntu 24.04 LTS`: https://releases.ubuntu.com/24.04
 .. _`Ubuntu 22.04 LTS`: https://releases.ubuntu.com/22.04
 .. _`Ubuntu 20.04 LTS`: https://releases.ubuntu.com/20.04

@@ -14,7 +14,7 @@ include_guard(GLOBAL)
 # Unfortunately CMake requires the toplevel `CMakeLists.txt` file to define the
 # required version, not even invoking it from a CMake module is sufficient. It
 # is however permitted to have multiple invocations of cmake_minimum_required.
-cmake_minimum_required(VERSION 3.20.0)
+cmake_minimum_required(VERSION 3.28.0)
 
 # Load Bridle defaults
 list(APPEND zephyr_cmake_modules bridle/requirements)

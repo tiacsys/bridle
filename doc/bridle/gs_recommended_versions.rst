@@ -35,6 +35,14 @@ the |BRIDLE| development environment:
            - PPC64LE
            - RISV64
            - S390X
+         * - `Ubuntu 26.04 LTS`_
+           - :rd:`Not applicable`
+           - :bbl:`Tier 2`
+           - Not supported
+           - :byl:`Tier 3`
+           - Not supported
+           - Not supported
+           - Not supported
          * - `Ubuntu 24.04 LTS`_
            - :rd:`Not applicable`
            - :bgn:`Tier 1`

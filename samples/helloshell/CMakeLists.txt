@@ -2,7 +2,7 @@
 # SPDX-FileCopyrightText: 2019-2021 Li-Pro.Net
 # SPDX-License-Identifier: Apache-2.0
 
-cmake_minimum_required(VERSION 3.20.0)
+cmake_minimum_required(VERSION 3.28.0)
 
 # Standard Bridle application boilerplate, includes Zephyr.
 find_package(Bridle REQUIRED HINTS $ENV{BRIDLE_BASE})
