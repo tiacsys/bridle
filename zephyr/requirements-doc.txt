@@ -8,7 +8,7 @@
 docutils<0.23,>=0.21
 doxmlparser~=1.18
 imagesize>=2.0
-pillow~=12.3
+pillow~=13.0
 pygments~=2.21
 sphinx-autobuild~=2025.8
 sphinx-copybutton~=0.5
