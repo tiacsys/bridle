@@ -38,6 +38,9 @@ stdenv.mkDerivation {
   buildPhase = ''
     cd /build
     chmod +w -R ./*
+    # Zephyr's doc build runs some of its scripts (e.g. `twister --help`), whose
+    # `#!/usr/bin/env` shebangs don't resolve inside the build sandbox.
+    patchShebangs zephyr/scripts
     west build --cmake-only -b none -d build bridle/doc
     west build -t zephyr-doxygen -b none -d build
     west build -t bridle-doxygen -b none -d build

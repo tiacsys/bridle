@@ -48,6 +48,9 @@
       let
         pkgs = import nixpkgs {
           inherit system;
+          # The Python environment pulls in python-ecdsa (e.g. for image signing), which
+          # nixpkgs marks as insecure (CVE-2024-23342). Permit just that package.
+          config.allowInsecurePredicate = pkg: nixpkgs.lib.getName pkg == "ecdsa";
           overlays = [
             inputs.python-deps.overlays.default
           ];
@@ -73,7 +76,18 @@
       {
         formatter = pkgs.nixfmt-rfc-style;
 
-        packages.west2nix = inputs.west2nix.packages.${system}.default;
+        # Upstream west2nix passes makeWrapperArgs as a single string
+        # ("--prefix PATH : ..."), which current nixpkgs no longer splits on
+        # whitespace, so makeWrapper rejects it and the build fails. Pass the
+        # arguments as separate list elements until this is fixed upstream.
+        packages.west2nix = inputs.west2nix.packages.${system}.default.overridePythonAttrs (_: {
+          makeWrapperArgs = [
+            "--prefix"
+            "PATH"
+            ":"
+            "${pkgs.nix-prefetch-git}/bin"
+          ];
+        });
 
         devShells.default = callPackage ./shell.nix { };
 
