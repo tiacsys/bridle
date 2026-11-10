@@ -98,6 +98,21 @@
           board = "native_sim";
           target = "x86_64-zephyr-elf";
         };
+
+        # Waveshare RP2350-Matrix (8x8 RGB LED matrix), ARM Cortex-M33 core
+        packages.colorwheel-waveshare_rp2350_matrix = callPackage ./build.nix {
+          app-path = "samples/display/colorwheel";
+          board = "waveshare_rp2350_matrix/rp2350a/m33_0";
+          target = "arm-zephyr-eabi";
+        };
+
+        # Raspberry Pi Pico (RP2040) with the Waveshare Pico RGB LED shield (16x10 RGB LED matrix)
+        packages.colorwheel-rpi_pico-waveshare_pico_rgb_led = callPackage ./build.nix {
+          app-path = "samples/display/colorwheel";
+          board = "rpi_pico/rp2040/bbe";
+          shields = [ "waveshare_pico_rgb_led" ];
+          target = "arm-zephyr-eabi";
+        };
       }
     ));
 }
