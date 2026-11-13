@@ -77,6 +77,7 @@ For more details, see: :ref:`repos_and_revs`.
        .. zephyr-keep-sorted-start re(^\s+\| \*+\w)
 
        | **hal** : *cmsis*
+       | **hal** : *cmsis_6*
        | **hal** : *hal_adi*
        | **hal** : *hal_altera*
        | **hal** : *hal_ambiq*
