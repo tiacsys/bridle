@@ -15,6 +15,7 @@ Highlights
 
 * First (beta) implementation to support true composability for boards and
   shields with the new :program:`west rigs` extension, incl. documentation.
+* Separating combined board and shield directories.
 * Adds the Waveshare RP2350-Matrix board and use Zephyr upstream samples on it.
 * Adds an alternative sample for using multiple display drivers with different
   pixel formats and color modells. It renders an colorful RGB gradient on
@@ -221,6 +222,7 @@ Supported shields
 * Raspberry Pi Pico TEST Shields
 * SC16IS75x Breakout Boards
 * Seeed Studio Grove Interconnect Shields
+* Seeed Studio XIAO Family LED Shields
 * TiaC SC18IS604 Arduino
 * Waveshare LCD Modules
 * Waveshare Pico 10-DOF IMU Sensor
@@ -251,6 +253,18 @@ Supported snippets
 
 .. zephyr-keep-sorted-stop
 
+Supported rigs
+**************
+
+:brd:`NOT YET, tbd.`
+
+.. zephyr-keep-sorted-start re(^\* \w)
+
+* Seeeduino Lotus with Grove Button + LED modules.
+* Seeeduino Lotus with Grove LED modules in PWM mode.
+
+.. zephyr-keep-sorted-stop
+
 Change log
 **********
 
@@ -258,7 +272,9 @@ Change log
 
 * tbd.
 * tbd.
-* tbd.
+* Separating combined board and shield directories. Strictly converts **all**
+  old and now completely obsolete  *HWMv1* board extensions to the new *HWMv2*
+  board extension with the Bridle specific board qualifier ``bbe``.
 * New :program:`west rigs` extension to support true composability for
   boards and shields; start of the beta phase for tooling development.
 * New Bridle owned samples working with the Display and Sensor API:
@@ -290,6 +306,9 @@ Change log
 * Convert the now removed DT binding ``pwm-buzzers`` to the new ``pwm-buzzer``
   from Zephyr upstream. Also standardize alias ``pwm-buzzer0`` to the new
   common used ``buzzer0`` alias.
+* Deprecate master/slave terminology. The SPI API has been migrated to the
+  inclusive terminology. The former names like "master" or "slave" are
+  deprecated and will be removed in Zephyr v5.0.
 
 The following sections provide detailed lists of changes by component.
 
@@ -306,13 +325,15 @@ Build Infrastructure
 
 :brd:`NOT YET, tbd.`
 
-* tbd.
-* tbd.
-* tbd.
-* Switch to Zephyr CI container 0.29.3, 0.29.2 is now mandatory to have access
-  to the Zephyr SDK (1.0.1) LLVM/Clang toolchain.
+* Special freeze of reuse package as required by Zephyr and Bridle extensions.
+* Extend the basic setup of the Python virtual environment with installing
+  the ``jsonschema`` package as required by Zephyr extensions for west but not
+  captured by west as package itself.
 * Add support for new :command:`cmake` option :code:`NO_EXTERNAL_DEPS`.
   For details read the :emphasis:`How to build the Bridle documentation`.
+* Switch to Zephyr CI container 0.29.4, 0.29.2 is now mandatory to have access
+  to the Zephyr SDK (1.0.1) LLVM/Clang toolchain.
+* Update GitHub actions versions.
 
 Documentation
 =============
@@ -320,8 +341,10 @@ Documentation
 :brd:`NOT YET, tbd.`
 
 1. tbd.
-2. tbd.
-3. tbd.
+2. How to build the documentation: The Zephyr inventory is required for each
+   single documentation set. The CANnectivity is also provided and required
+   to build the Bridle documentation set.
+3. Provides a new project licensing page, auto-generated from REUSE metadata.
 4. Update all output messages in documentation to be in sync with the upcoming
    Bridle version v4.5.0, based on Zephyr v4.5 (samples and tests).
 
@@ -340,12 +363,15 @@ These GitHub issues were addressed since project bootstrapping:
 * :github:`495` - [HW] Waveshare RP2350-Matrix
 * :github:`494` - [BUG] Can't build applications for the CoffeCaller without warnings or link errors
 * :github:`475` - [BUG] Move swap or invert x/y properties to the underlying input touchscreen device
+* :github:`474` - [FER] Separating combined board and shield directories
 * :github:`471` - [FCR] Support Zephyr SDK LLVM/Clang toolchain with CI container 0.29.2
 * :github:`469` - [BUG] Declaring device driver API instances have to use the ``DEVICE_API`` macro
 * :github:`467` - [RFC] Adapt SC16IS75x UART driver to new upstream API
 * :github:`462` - [BUG] Zephyr upstream Button samples requires zephyr,code property in DTS
 * :github:`461` - [BUG] Hellohell sample with WiFi enable fails to compile
 * :github:`447` - [BUG] Build error because of missing Kconfig object ``ST7789V_PIXEL_FORMAT``
+* :github:`444` - [FCR] Bump to CANnectivity v1.5
+* :github:`443` - [FCR] Bump to Zephyr v4.5
 * :github:`437` - [BUG] Wrong X/Y resolution with IliTek based LCD
 * :github:`429` - [FCR] Bump to CANnectivity v1.4
 * :github:`427` - [BUG] Fix CMake Error in QA Acceptance Sample Tests
