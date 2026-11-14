@@ -1,7 +1,7 @@
 .. _bridle_release_notes_423:
 
-|BRIDLE| 4.2.3 Release Notes (Working draft)
-############################################
+|BRIDLE| 4.2.3 Release Notes
+############################
 
 This project demonstrate the integration of |TIAC| support in open
 source projects, like the Zephyr RTOS, with libraries and source code
@@ -11,7 +11,7 @@ product development.
 Highlights
 **********
 
-* :brd:`NOT YET, tbd.`
+* Backporting minor adaptions to the build infrastructure; no changed code.
 
 .. note:: See the changelog and readme files in the component repositories
    for a detailed description of changes.
@@ -101,8 +101,6 @@ For more details, see: :ref:`repos_and_revs`.
 Supported boards
 ****************
 
-:brd:`NOT YET, tbd.`
-
 * Arduino/Genuino Zero
 * PicoBoy Mini-Handheld
 * PicoBoy Color (PBC) Mini-Handheld
@@ -134,8 +132,6 @@ Supported boards
 Supported shields
 *****************
 
-:brd:`NOT YET, tbd.`
-
 * Seeed Studio Grove Interconnect Shields
 * Grove Button Shields
 * Grove LED Shields
@@ -154,8 +150,6 @@ Supported shields
 Supported snippets
 ******************
 
-:brd:`NOT YET, tbd.`
-
 * USB Console Snippet (usb-console)
 * PWM Servomotor Preset Snippet (pwm-servo)
 * Delete Default Devicetree Aliases Snippet (del-default-aliases)
@@ -173,42 +167,17 @@ Supported snippets
 Change log
 **********
 
-:brd:`NOT YET, tbd.`
-
-* tbd.
-* tbd.
-* tbd.
-
-The following sections provide detailed lists of changes by component.
-
-:brd:`NOT YET, tbd.`
-
-* tbd.
-* tbd.
-* tbd.
-
-* PROJECT UPDATE to `Zephyr Project`_ v4.2.3
+There were no significant changes since Bridle v4.2.2.
 
 Build Infrastructure
 ====================
 
-:brd:`NOT YET, tbd.`
-
-* tbd.
-* tbd.
-* tbd.
-
+There were no significant changes since Bridle v4.2.2.
 
 Documentation
 =============
 
-:brd:`NOT YET, tbd.`
-
-1. tbd.
-2. tbd.
-3. tbd.
-4. Update all output messages in documentation to be in sync with the upcoming
-   Bridle version v4.2.3, based on Zephyr v4.2 (samples and tests).
+There were no significant changes since Bridle v4.2.2.
 
 Issue Related Items
 *******************
