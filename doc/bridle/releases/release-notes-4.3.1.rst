@@ -1,7 +1,7 @@
 .. _bridle_release_notes_431:
 
-|BRIDLE| 4.3.1 Release Notes (Working draft)
-############################################
+|BRIDLE| 4.3.1 Release Notes
+############################
 
 This project demonstrate the integration of |TIAC| support in open
 source projects, like the Zephyr RTOS, with libraries and source code
@@ -10,8 +10,6 @@ product development.
 
 Highlights
 **********
-
-* :brd:`NOT YET, tbd.`
 
 * Use the default Flash partition layout with code and storage partition
   on all RP2040 and RP2350 based systems.
@@ -38,7 +36,7 @@ For more details, see: :ref:`repos_and_revs`.
    * - | `tiac-cannectivity`_
        | (`cannectivity-core`_)
      - | *application*
-     - | tiacsys/v1.3.0
+     - | tiacsys/v1.3-branch
        | (v1.3-branch)
      - v1.3.0
    * - | `tiac-ubxlib`_
@@ -153,8 +151,6 @@ For more details, see: :ref:`repos_and_revs`.
 Supported boards
 ****************
 
-:brd:`NOT YET, tbd.`
-
 .. zephyr-keep-sorted-start re(^\* \w)
 
 * Arduino/Genuino Zero
@@ -194,8 +190,6 @@ Supported boards
 Supported shields
 *****************
 
-:brd:`NOT YET, tbd.`
-
 .. zephyr-keep-sorted-start re(^\* \w)
 
 * Grove Button Shields
@@ -218,8 +212,6 @@ Supported shields
 Supported snippets
 ******************
 
-:brd:`NOT YET, tbd.`
-
 .. zephyr-keep-sorted-start re(^\* \w)
 
 * BME280 Sensor Sample Tweaks (samples-sensor-bme280-tweaks)
@@ -241,19 +233,6 @@ Supported snippets
 Change log
 **********
 
-:brd:`NOT YET, tbd.`
-
-* tbd.
-* tbd.
-* tbd.
-
-The following sections provide detailed lists of changes by component.
-
-:brd:`NOT YET, tbd.`
-
-* tbd.
-* tbd.
-* tbd.
 * Using the default Flash partition layout for code and storage partitioning
   on all Raspberry Pi Pico based systems with following conventions:
 
@@ -282,31 +261,21 @@ The following sections provide detailed lists of changes by component.
   |    16㎆    |       1㎆      |        15㎆       |
   +------------+----------------+-------------------+
 
+The following sections provide detailed lists of changes by component.
+
 * PROJECT UPDATE to `Zephyr Project`_ v4.3.1
+* PROJECT UPDATE to `CANnectivity Project`_ v1.3-branch
 
 Build Infrastructure
 ====================
 
-:brd:`NOT YET, tbd.`
-
-* tbd.
-* tbd.
-* tbd.
 * Board metadata property ``full_name`` will being mandatory and required to
   define. Bridle has miss that in a few boards, what is now fixed.
-
 
 Documentation
 =============
 
-:brd:`NOT YET, tbd.`
-
-1. tbd.
-2. tbd.
-3. tbd.
-4. Update all output messages in documentation to be in sync with the upcoming
-   Bridle version v4.3.1, based on Zephyr v4.3 (samples and tests).
-
+There were no significant changes since Bridle v4.3.0.
 
 Issue Related Items
 *******************
