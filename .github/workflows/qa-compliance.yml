@@ -1,4 +1,4 @@
-# Copyright (c) 2021-2025 TiaC Systems
+# Copyright (c) 2021-2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 name: QA Compliance Check
@@ -27,14 +27,14 @@ jobs:
           echo "$HOME/.local/bin" >> $GITHUB_PATH
 
       - name: Checkout the code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           path: workspace/bridle
           ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 0
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v6
+        uses: astral-sh/setup-uv@v10.3.3
         with:
           enable-cache: true
 
@@ -119,13 +119,13 @@ jobs:
             -c origin/${BASE_REF}..
 
       - name: Upload compliance tests results
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: compliance.xml
           path: workspace/bridle/compliance.xml
 
       - name: Convert compliance test reports to annotations
-        uses: mikepenz/action-junit-report@v5
+        uses: mikepenz/action-junit-report@v6
         with:
           check_name: compliance-report (bridle)
           report_paths: "**/bridle/compliance.xml"

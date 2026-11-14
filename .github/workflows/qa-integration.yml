@@ -1,4 +1,4 @@
-# Copyright (c) 2021-2025 TiaC Systems
+# Copyright (c) 2021-2026 TiaC Systems
 # Copyright (c) 2021 Li-Pro.Net
 # SPDX-License-Identifier: Apache-2.0
 
@@ -72,7 +72,7 @@ jobs:
       # are run in reverse order (and you do not want to cleanup before the
       # caching is saved).
       - name: Clean working directory
-        uses: tiacsys/clean-after-action@v3
+        uses: tiacsys/clean-after-action@v4
         #
         # Could also be implemented with the new pre- and post-job hook scripts:
         #
@@ -84,7 +84,7 @@ jobs:
           keep-git: false
 
       - name: Checkout the code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 100
           show-progress: true
@@ -92,7 +92,7 @@ jobs:
           ref: ${{ github.ref }}
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v6
+        uses: astral-sh/setup-uv@v10.3.3
         with:
           enable-cache: true
 
@@ -151,19 +151,19 @@ jobs:
             --tag zephyr
 
       - name: Upload integration test logging
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: twister-samples.log
           path: workspace/twister-out/twister.log
 
       - name: Upload integration test results
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: twister-samples.xml
           path: workspace/twister-out/twister.xml
 
       - name: Convert integration test reports to annotations
-        uses: mikepenz/action-junit-report@v5
+        uses: mikepenz/action-junit-report@v6
         with:
           check_name: twister-report (samples)
           report_paths: "**/twister-out/twister.xml"
@@ -206,7 +206,7 @@ jobs:
       # are run in reverse order (and you do not want to cleanup before the
       # caching is saved).
       - name: Clean working directory
-        uses: tiacsys/clean-after-action@v3
+        uses: tiacsys/clean-after-action@v4
         #
         # Could also be implemented with the new pre- and post-job hook scripts:
         #
@@ -218,7 +218,7 @@ jobs:
           keep-git: false
 
       - name: Checkout the code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 100
           show-progress: true
@@ -226,7 +226,7 @@ jobs:
           ref: ${{ github.ref }}
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v6
+        uses: astral-sh/setup-uv@v10.3.3
         with:
           enable-cache: true
 
@@ -281,19 +281,19 @@ jobs:
             --tag zephyr
 
       - name: Upload integration test logging
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: twister-tests.log
           path: workspace/twister-out/twister.log
 
       - name: Upload integration test results
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: twister-tests.xml
           path: workspace/twister-out/twister.xml
 
       - name: Convert integration test reports to annotations
-        uses: mikepenz/action-junit-report@v5
+        uses: mikepenz/action-junit-report@v6
         with:
           check_name: twister-report (tests)
           report_paths: "**/twister-out/twister.xml"
@@ -336,7 +336,7 @@ jobs:
       # are run in reverse order (and you do not want to cleanup before the
       # caching is saved).
       - name: Clean working directory
-        uses: tiacsys/clean-after-action@v3
+        uses: tiacsys/clean-after-action@v4
         #
         # Could also be implemented with the new pre- and post-job hook scripts:
         #
@@ -348,7 +348,7 @@ jobs:
           keep-git: false
 
       - name: Checkout the code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 100
           show-progress: true
@@ -356,7 +356,7 @@ jobs:
           ref: ${{ github.ref }}
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v6
+        uses: astral-sh/setup-uv@v10.3.3
         with:
           enable-cache: true
 
@@ -418,19 +418,19 @@ jobs:
             --testsuite-root bridle/tests/snippets/usb-console/build_all
 
       - name: Upload integration test logging
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: twister-shields.log
           path: workspace/twister-out/twister.log
 
       - name: Upload integration test results
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: twister-shields.xml
           path: workspace/twister-out/twister.xml
 
       - name: Convert integration test reports to annotations
-        uses: mikepenz/action-junit-report@v5
+        uses: mikepenz/action-junit-report@v6
         with:
           check_name: twister-report (shields)
           report_paths: "**/twister-out/twister.xml"
@@ -460,7 +460,7 @@ jobs:
       # are run in reverse order (and you do not want to cleanup before the
       # caching is saved).
       - name: Clean working directory
-        uses: tiacsys/clean-after-action@v3
+        uses: tiacsys/clean-after-action@v4
         #
         # Could also be implemented with the new pre- and post-job hook scripts:
         #
@@ -472,7 +472,7 @@ jobs:
           keep-git: false
 
       - name: Checkout the code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           fetch-depth: 100
           show-progress: true
@@ -480,7 +480,7 @@ jobs:
           ref: ${{ github.ref }}
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v6
+        uses: astral-sh/setup-uv@v10.3.3
         with:
           enable-cache: true
 
@@ -553,19 +553,19 @@ jobs:
             --tag can
 
       - name: Upload integration test logging
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: twister-targets.log
           path: workspace/twister-out/twister.log
 
       - name: Upload integration test results
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: twister-targets.xml
           path: workspace/twister-out/twister.xml
 
       - name: Convert integration test reports to annotations
-        uses: mikepenz/action-junit-report@v5
+        uses: mikepenz/action-junit-report@v6
         with:
           check_name: twister-report (${{ matrix.board }})
           report_paths: "**/twister-out/twister.xml"

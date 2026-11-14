@@ -1,4 +1,4 @@
-# Copyright (c) 2021-2025 TiaC Systems
+# Copyright (c) 2021-2026 TiaC Systems
 # Copyright (c) 2021 Li-Pro.Net
 # SPDX-License-Identifier: Apache-2.0
 
@@ -41,7 +41,7 @@ jobs:
           fi
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: doc
           path: doc

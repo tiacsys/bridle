@@ -1,4 +1,4 @@
-# Copyright (c) 2021-2025 TiaC Systems
+# Copyright (c) 2021-2026 TiaC Systems
 # SPDX-License-Identifier: Apache-2.0
 
 name: QA License Check
@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Checkout the code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
 
       - name: Scan the code
         uses: zephyrproject-rtos/action_scancode@v4
@@ -24,7 +24,7 @@ jobs:
           directory-to-scan: 'scan/'
 
       - name: Upload results
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: scancode
           path: ./artifacts
