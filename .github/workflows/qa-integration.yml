@@ -440,7 +440,7 @@ jobs:
 
   qa-target-integration:
     name: Run integration tests on targets
-    if: github.repository_owner == 'tiacsys'
+    if: github.repository_owner == 'tiacsys__NO_LONGER_SUPPORTED__'
     runs-on: [self-hosted, linux, gnuarmemb, zephyr-sdk, tiac_magpie]
 
     strategy:
@@ -564,11 +564,11 @@ jobs:
           name: twister-targets.xml
           path: workspace/twister-out/twister.xml
 
-  #   - name: Convert integration test reports to annotations
-  #     uses: mikepenz/action-junit-report@v6
-  #     with:
-  #       check_name: twister-report (${{ matrix.board }})
-  #       report_paths: "**/twister-out/twister.xml"
-  #       require_tests: true
-  #       fail_on_failure: false
-  #     if: always()
+#     - name: Convert integration test reports to annotations
+#       uses: mikepenz/action-junit-report@v6
+#       with:
+#         check_name: twister-report (${{ matrix.board }})
+#         report_paths: "**/twister-out/twister.xml"
+#         require_tests: true
+#         fail_on_failure: false
+#       if: always()

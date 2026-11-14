@@ -91,11 +91,11 @@ jobs:
           path: workspace/twister-out/twister_report.xml
         continue-on-error: true
 
-  #   - name: Convert integration test reports to annotations
-  #     uses: mikepenz/action-junit-report@v6
-  #     with:
-  #       check_name: twister-report (${{ matrix.board }})
-  #       report_paths: "**/twister-out/twister_report.xml"
-  #       require_tests: true
-  #       fail_on_failure: false
-  #     if: always()
+#     - name: Convert integration test reports to annotations
+#       uses: mikepenz/action-junit-report@v6
+#       with:
+#         check_name: twister-report (${{ matrix.board }})
+#         report_paths: "**/twister-out/twister_report.xml"
+#         require_tests: true
+#         fail_on_failure: false
+#       if: always()
