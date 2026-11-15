@@ -1,7 +1,7 @@
 .. _bridle_release_notes_441:
 
-|BRIDLE| 4.4.1 Release Notes (Working draft)
-############################################
+|BRIDLE| 4.4.1 Release Notes
+############################
 
 This project demonstrate the integration of |TIAC| support in open
 source projects, like the Zephyr RTOS, with libraries and source code
@@ -11,7 +11,8 @@ product development.
 Highlights
 **********
 
-* :brd:`NOT YET, tbd.`
+* Backporting display orientation logic after reworking the ``ili9xxx`` driver
+  and backporting in Zephyr upstream
 
 .. note:: See the changelog and readme files in the component repositories
    for a detailed description of changes.
@@ -35,7 +36,7 @@ For more details, see: :ref:`repos_and_revs`.
    * - | `tiac-cannectivity`_
        | (`cannectivity-core`_)
      - | *application*
-     - | tiacsys/v1.4.0
+     - | tiacsys/v1.4-branch
        | (v1.4-branch)
      - v1.4.0
    * - | `tiac-ubxlib`_
@@ -152,8 +153,6 @@ For more details, see: :ref:`repos_and_revs`.
 Supported boards
 ****************
 
-:brd:`NOT YET, tbd.`
-
 .. zephyr-keep-sorted-start re(^\* \w)
 
 * Arduino/Genuino Zero
@@ -194,8 +193,6 @@ Supported boards
 Supported shields
 *****************
 
-:brd:`NOT YET, tbd.`
-
 .. zephyr-keep-sorted-start re(^\* \w)
 
 * Grove Button Shields
@@ -218,8 +215,6 @@ Supported shields
 Supported snippets
 ******************
 
-:brd:`NOT YET, tbd.`
-
 .. zephyr-keep-sorted-start re(^\* \w)
 
 * BME280 Sensor Sample Tweaks (samples-sensor-bme280-tweaks)
@@ -241,11 +236,6 @@ Supported snippets
 Change log
 **********
 
-:brd:`NOT YET, tbd.`
-
-* tbd.
-* tbd.
-* tbd.
 * Backporting PR :github:`499`. After reworking the ``ili9xxx`` driver's screen
   orientation logic, all this panels apparently requires horizontal mirroring,
   as evidenced by community tests in Zephyr upstream pull request 106862 for
@@ -253,33 +243,18 @@ Change log
 
 The following sections provide detailed lists of changes by component.
 
-:brd:`NOT YET, tbd.`
-
-* tbd.
-* tbd.
-* tbd.
-
 * PROJECT UPDATE to `Zephyr Project`_ v4.4.1
+* PROJECT UPDATE to `CANnectivity Project`_ v1.4-branch
 
 Build Infrastructure
 ====================
 
-:brd:`NOT YET, tbd.`
-
-* tbd.
-* tbd.
-* tbd.
+There were no significant changes since Bridle v4.4.0.
 
 Documentation
 =============
 
-:brd:`NOT YET, tbd.`
-
-1. tbd.
-2. tbd.
-3. tbd.
-4. Update all output messages in documentation to be in sync with the upcoming
-   Bridle version v4.4.1, based on Zephyr v4.4 (samples and tests).
+There were no significant changes since Bridle v4.4.0.
 
 Issue Related Items
 *******************
