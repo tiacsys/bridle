@@ -243,6 +243,10 @@ Change log
 * tbd.
 * tbd.
 * tbd.
+* Backporting PR :github:`499`. After reworking the ``ili9xxx`` driver's screen
+  orientation logic, all this panels apparently requires horizontal mirroring,
+  as evidenced by community tests in Zephyr upstream pull request 106862 for
+  various other panels.
 
 The following sections provide detailed lists of changes by component.
 
@@ -279,6 +283,7 @@ Issue Related Items
 
 These GitHub issues were addressed since project bootstrapping:
 
+* :github:`500` - backporting boards, schields: display: ili9xxx: fix orientation logic
 * :github:`437` - [BUG] Wrong X/Y resolution with IliTek based LCD
 * :github:`429` - [FCR] Bump to CANnectivity v1.4
 * :github:`427` - [BUG] Fix CMake Error in QA Acceptance Sample Tests
