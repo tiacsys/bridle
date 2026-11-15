@@ -62,7 +62,7 @@ jobs:
           keep-git: false
 
       - name: Checkout the code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 100
           show-progress: true
@@ -70,7 +70,7 @@ jobs:
           ref: ${{ github.ref }}
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v8.1.0
+        uses: astral-sh/setup-uv@v10.3.3
         with:
           working-directory: workspace
           enable-cache: true
@@ -203,7 +203,7 @@ jobs:
           keep-git: false
 
       - name: Checkout the code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 100
           show-progress: true
@@ -211,7 +211,7 @@ jobs:
           ref: ${{ github.ref }}
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v8.1.0
+        uses: astral-sh/setup-uv@v10.3.3
         with:
           working-directory: workspace
           enable-cache: true
