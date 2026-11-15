@@ -1,7 +1,7 @@
 .. _bridle_release_notes_432:
 
-|BRIDLE| 4.3.2 Release Notes (Working draft)
-############################################
+|BRIDLE| 4.3.2 Release Notes
+############################
 
 This project demonstrate the integration of |TIAC| support in open
 source projects, like the Zephyr RTOS, with libraries and source code
@@ -11,10 +11,7 @@ product development.
 Highlights
 **********
 
-* :brd:`NOT YET, tbd.`
-
-* Use the default Flash partition layout with code and storage partition
-  on all RP2040 and RP2350 based systems.
+There were no significant changes since Bridle v4.3.1.
 
 .. note:: See the changelog and readme files in the component repositories
    for a detailed description of changes.
@@ -153,8 +150,6 @@ For more details, see: :ref:`repos_and_revs`.
 Supported boards
 ****************
 
-:brd:`NOT YET, tbd.`
-
 .. zephyr-keep-sorted-start re(^\* \w)
 
 * Arduino/Genuino Zero
@@ -194,8 +189,6 @@ Supported boards
 Supported shields
 *****************
 
-:brd:`NOT YET, tbd.`
-
 .. zephyr-keep-sorted-start re(^\* \w)
 
 * Grove Button Shields
@@ -218,8 +211,6 @@ Supported shields
 Supported snippets
 ******************
 
-:brd:`NOT YET, tbd.`
-
 .. zephyr-keep-sorted-start re(^\* \w)
 
 * BME280 Sensor Sample Tweaks (samples-sensor-bme280-tweaks)
@@ -241,46 +232,17 @@ Supported snippets
 Change log
 **********
 
-:brd:`NOT YET, tbd.`
-
-* tbd.
-* tbd.
-* tbd.
-
-The following sections provide detailed lists of changes by component.
-
-:brd:`NOT YET, tbd.`
-
-* tbd.
-* tbd.
-* tbd.
-
-* PROJECT UPDATE to `Zephyr Project`_ v4.3.2
-* PROJECT UPDATE to `CANnectivity Project`_ v1.3-branch
+There were no significant changes since Bridle v4.3.1.
 
 Build Infrastructure
 ====================
 
-:brd:`NOT YET, tbd.`
-
-* tbd.
-* tbd.
-* tbd.
-* Board metadata property ``full_name`` will being mandatory and required to
-  define. Bridle has miss that in a few boards, what is now fixed.
-
+There were no significant changes since Bridle v4.3.1.
 
 Documentation
 =============
 
-:brd:`NOT YET, tbd.`
-
-1. tbd.
-2. tbd.
-3. tbd.
-4. Update all output messages in documentation to be in sync with the upcoming
-   Bridle version v4.3.2, based on Zephyr v4.3 (samples and tests).
-
+There were no significant changes since Bridle v4.3.1.
 
 Issue Related Items
 *******************
