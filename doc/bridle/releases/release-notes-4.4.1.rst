@@ -38,7 +38,7 @@ For more details, see: :ref:`repos_and_revs`.
      - | *application*
      - | tiacsys/v1.4-branch
        | (v1.4-branch)
-     - v1.4.1
+     - v1.4.0
    * - | `tiac-ubxlib`_
        | (`u-blox-ubxlib`_)
      - | *geographiclib*
