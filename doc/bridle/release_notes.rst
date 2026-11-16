@@ -25,6 +25,7 @@ below for information about specific |BRIDLE| releases.
    :maxdepth: 1
 
    releases/release-notes-4.5.0
+   releases/release-notes-4.4.2
    releases/release-notes-4.4.1
    releases/release-notes-4.4.0
    releases/release-notes-4.3.2
