@@ -83,6 +83,7 @@ For more details, see: :ref:`repos_and_revs`.
        | **hal** : *hal_altera*
        | **hal** : *hal_ambiq*
        | **hal** : *hal_atmel*
+       | **hal** : *hal_bouffalolab*
        | **hal** : *hal_espressif*
        | **hal** : *hal_ethos_u*
        | **hal** : *hal_gigadevice*
@@ -104,6 +105,7 @@ For more details, see: :ref:`repos_and_revs`.
        | **hal** : *hal_tdk*
        | **hal** : *hal_telink*
        | **hal** : *hal_ti*
+       | **hal** : *hal_wch*
        | **hal** : *hal_wurthelektronik*
        | **hal** : *hal_xtensa*
        | **hal** : *libmetal*
