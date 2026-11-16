@@ -2,6 +2,7 @@
   "VERSIONS": [
     "latest",
     "4.4",
+    "4.4.2",
     "4.4.1",
     "4.4.0",
     "4.3",
@@ -46,13 +47,18 @@
   ],
   "COMPONENTS_BY_VERSION": {
     "latest": {
-      "bridle": "4.4.1",
-      "zephyr": "4.4.1",
+      "bridle": "4.4.2",
+      "zephyr": "4.4.2",
       "cannectivity": "1.4.0"
     },
     "4.4": {
-      "bridle": "4.4.1",
-      "zephyr": "4.4.1",
+      "bridle": "4.4.2",
+      "zephyr": "4.4.2",
+      "cannectivity": "1.4.0"
+    },
+    "4.4.2": {
+      "bridle": "4.4.2",
+      "zephyr": "4.4.2",
       "cannectivity": "1.4.0"
     },
     "4.4.1": {
