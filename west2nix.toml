@@ -1,18 +1,14 @@
-# SPDX-FileCopyrightText: 2025-2026 TiaC Systems
-# SPDX-FileCopyrightText: 2024-2025 Sarah Renkhoff
-# SPDX-License-Identifier: Apache-2.0
-
 [manifest]
 group-filter = ["-babblesim", "-testing"]
 
 [[manifest.projects]]
 name = "cannectivity"
 url = "https://github.com/tiacsys/cannectivity"
-revision = "dcea3d685628349b8fd944575b34e11a1139ce28"
+revision = "24aae4dfd66bbe84ad196da4393cecb7c3850810"
 clone-depth = 5000
 
 [manifest.projects.nix]
-hash = "sha256-F2JZDh6am0WJKX3spA09ySr+oTcX+bMiQQCoJcdcx4E="
+hash = "sha256-eZpuyp/MgxTHK1LbwsxXvUTCArNItUpgZDtkdTZcZ+c="
 
 [[manifest.projects]]
 name = "ubxlib"
