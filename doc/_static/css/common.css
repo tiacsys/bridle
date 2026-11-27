@@ -186,3 +186,9 @@ ul.edge-pinout > li {
   display: inline-flex;
   color: var(--admonition-note-title-color);
 }
+
+/* tweak mermaid auto-rendered figures */
+.rst-content .mermaid-container {
+  display: inline-flex;
+  width: 50%;
+};

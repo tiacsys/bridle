@@ -340,6 +340,12 @@ doc/**/*_warnings.txt
 # Make sure to include everything in lib/
 !lib
 
+# Assets that can be download on demand by build workflows
+# zephyr-keep-sorted-start
+doc/_static/js/d3/
+doc/_static/js/mermaid/
+# zephyr-keep-sorted-stop
+
 # List of compliance generated files
 # zephyr-keep-sorted-start
 BinaryFiles.txt

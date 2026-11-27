@@ -344,6 +344,21 @@ following option when invoking :command:`cmake`:
 
       -DNO_EXTERNAL_DEPS=1
 
+If this option should be enabled, the build environment for the documentation
+needs to be expanded locally with the missing assets using the following
+commands:
+
+   .. code-block:: console
+
+      pip3 install --upgrade nodeenv
+      nodeenv --python-virtualenv --prebuilt --node lts --with-npm
+
+      npm install --prefix zephyr/doc --ignore-scripts
+      for pkg in mermaid d3; do
+        mkdir -pv bridle/doc/_static/js/${pkg}
+        cp -av zephyr/doc/node_modules/${pkg}/dist/. bridle/doc/_static/js/${pkg}/
+      done
+
 .. _caching_and_cleaning:
 
 Caching and cleaning

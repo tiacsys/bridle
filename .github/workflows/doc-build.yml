@@ -150,14 +150,26 @@ jobs:
           west packages pip | xargs uv pip install --upgrade
           uv pip install coverxygen==1.8.1
 
+      - name: Install and vendor copies of JS libs within within docs sources
+        working-directory: workspace
+        run: |
+          pip3 install --upgrade nodeenv
+          nodeenv --python-virtualenv --prebuilt --node lts --with-npm
+
+          npm install --prefix zephyr/doc --ignore-scripts
+          for pkg in mermaid d3; do
+            mkdir -pv bridle/doc/_static/js/${pkg}
+            cp -av zephyr/doc/node_modules/${pkg}/dist/. bridle/doc/_static/js/${pkg}/
+          done
+
       - name: Build documentation
         working-directory: workspace
         run: |
           if [[ "${{ github.event_name }}" == "pull_request" ]]; then
             cmake -DDT_TURBO_MODE=1 -DHW_FEATURES_TURBO_MODE=1 \
-                  -B build -GNinja bridle/doc
+                  -DNO_EXTERNAL_DEPS=1 -B build -GNinja bridle/doc
           else
-            cmake -B build -GNinja bridle/doc
+            cmake -DNO_EXTERNAL_DEPS=1 -B build -GNinja bridle/doc
           fi
           ninja -C build build-all
 
