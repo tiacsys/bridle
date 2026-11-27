@@ -104,6 +104,7 @@ manifest:
           - segger
           - tf-m-tests
           - tf-psa-crypto
+          - tf-psa-crypto-drivers
           - tinycrypt
           - trusted-firmware-a
           - trusted-firmware-m
